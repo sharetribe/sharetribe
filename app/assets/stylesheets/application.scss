@@ -2860,6 +2860,25 @@ a.lightbox-x {
     
   }
   
+  .price-field {
+    max-width: lines(5);
+  }
+  
+  .currency-selector {
+    margin-left: lines(0.25);
+    display: inline;
+    @include big-type;
+  }
+  
+  .quantity-field {
+    max-width: lines(7);
+  }
+  
+  .quantity-description {
+    margin: 0 lines(0.25);
+    display: inline;
+  }
+  
 }
 
 /*

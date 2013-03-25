@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130323143126) do
+ActiveRecord::Schema.define(:version => 20130325181741) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(:version => 20130323143126) do
     t.string   "stylesheet_url"
     t.string   "service_logo_style",                        :default => "full-logo"
     t.boolean  "payments_in_use",                           :default => false
+    t.text     "available_currencies"
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
@@ -141,8 +142,10 @@ ActiveRecord::Schema.define(:version => 20130323143126) do
     t.integer  "community_id"
     t.integer  "category_id"
     t.integer  "share_type_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+    t.boolean  "price",                      :default => false
+    t.string   "price_quantity_placeholder"
   end
 
   add_index "community_categories", ["community_id", "category_id"], :name => "community_categories"
@@ -329,6 +332,9 @@ ActiveRecord::Schema.define(:version => 20130323143126) do
     t.integer  "category_id"
     t.integer  "share_type_id"
     t.integer  "organization_id"
+    t.integer  "price_cents"
+    t.string   "price_currency"
+    t.string   "quantity"
   end
 
   add_index "listings", ["category_old"], :name => "index_listings_on_category"

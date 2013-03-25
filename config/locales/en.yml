@@ -969,6 +969,12 @@ en:
         select_file: "Select file"
       location:
         location: Location
+      price:
+        price: Price
+        per: per
+        mass: "piece, kg, l, ..."
+        time: "hour, day, week, ..."
+        long_time: "week, month, ..."
       origin:
         location: Location
         origin: Origin

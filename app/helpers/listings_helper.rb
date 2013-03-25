@@ -109,5 +109,13 @@ module ListingsHelper
       }
     }
   end
-
+  
+  def major_currencies(hash)
+    hash.inject([]) do |array, (id, attributes)|
+      array ||= []
+      array << [attributes[:iso_code]]
+      array.sort
+    end.compact.flatten
+  end
+  
 end

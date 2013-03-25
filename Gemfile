@@ -60,6 +60,7 @@ gem 'xpath'
 gem 'dynamic_form'
 gem "rspec-rails"
 gem "truncate_html"
+gem 'money-rails'
 
 group :test do
   gem 'capybara'

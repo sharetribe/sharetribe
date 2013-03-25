@@ -36,7 +36,7 @@ class Listing < ActiveRecord::Base
   belongs_to :category  
   belongs_to :share_type
 
-  
+  monetize :price_cents
   
   attr_accessor :current_community_id
   

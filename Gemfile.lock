@@ -156,6 +156,12 @@ GEM
       treetop (~> 1.4.8)
     memcache-client (1.8.5)
     mime-types (1.21)
+    money (5.1.1)
+      i18n (~> 0.6.0)
+    money-rails (0.8.0)
+      activesupport (>= 3.0)
+      money (~> 5.1.0)
+      railties (>= 3.0)
     multi_json (1.5.1)
     multi_xml (0.5.1)
     multipart-post (1.1.5)
@@ -344,6 +350,7 @@ DEPENDENCIES
   json
   launchy
   memcache-client (>= 1.8.5)
+  money-rails
   mysql2
   newrelic_rpm
   omniauth-facebook

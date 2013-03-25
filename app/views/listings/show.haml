@@ -37,10 +37,7 @@
         = @listing.description
 
     .listing-icons
-      -# This will be used when listings can have a price
-      -#.listing-icon
-      -#  %i.ss-pricetag.icon-with-text 
-      -#  .text-with-icon 22€ / hour
+      = render :partial => "displayed_price", :locals => { :listing => @listing }
       .icon-with-text-container
         %i.ss-calendar.icon-part 
         .text-part

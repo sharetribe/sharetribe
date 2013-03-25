@@ -461,7 +461,9 @@ class Community < ActiveRecord::Base
     unique_categorizations(:share_type)
   end
   
-  
+  def community_category(category, share_type)
+    CommunityCategory.where("category_id = ? AND share_type_id = ? AND (community_id IS NULL OR community_id = ?)", category.id.to_s, share_type.id.to_s, id.to_s).order("category_id DESC").first
+  end
 
 
   private

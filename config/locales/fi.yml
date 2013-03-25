@@ -965,6 +965,12 @@ fi:
       origin:
         location: Sijainti
         origin: Lähtöpaikka
+      price:
+        price: Hinta
+        per: per
+        mass: "kpl, kg, l, ..."
+        time: "tunti, päivä, ..."
+        long_time: "vko, kk, ..."
       send_button:
         save_offer: "Tallenna tarjous"
         save_request: "Tallenna pyyntö"

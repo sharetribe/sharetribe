@@ -95,6 +95,24 @@ module CategoriesHelper
       
     end
     
+    # Add custom price quantity placeholders
+    sell = ShareType.find_by_name("sell")
+    rent_out = ShareType.find_by_name("rent_out")
+    item = Category.find_by_name("item")
+    housing = Category.find_by_name("housing")
+    
+    sell_item = CommunityCategory.where("category_id = ? AND share_type_id = ? AND community_id IS NULL", item.id.to_s, sell.id.to_s).first
+    sell_item.update_attribute(:price, true)
+    
+    rent_out_item = CommunityCategory.where("category_id = ? AND share_type_id = ? AND community_id IS NULL", item.id.to_s, rent_out.id.to_s).first
+    rent_out_item.update_attributes(:price => true, :price_quantity_placeholder => "time")
+    
+    sell_housing = CommunityCategory.where("category_id = ? AND share_type_id = ? AND community_id IS NULL", housing.id.to_s, sell.id.to_s).first
+    sell_housing.update_attribute(:price, true)
+    
+    rent_out_housing = CommunityCategory.where("category_id = ? AND share_type_id = ? AND community_id IS NULL", housing.id.to_s, rent_out.id.to_s).first
+    rent_out_housing.update_attributes(:price => true, :price_quantity_placeholder => "long_time")
+    
   end
   
   def self.remove_all_categories_from_db
