@@ -288,6 +288,13 @@ module ApplicationHelper
         :elative => "Pakilan torilta",
         :partitive => "Pakilan toria"
         }
+      when "Materiaalipankki" then {
+         :illative => "Materiaalipankkiin",
+         :genetive => "Materiaalipankin",
+         :inessive => "Materiaalipankissa",
+         :elative => "Materiaalipankista",
+         :partitive => "Materiaalipankkia"
+         }  
       else nil
     end
   end
