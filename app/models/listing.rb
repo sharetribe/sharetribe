@@ -557,4 +557,14 @@ class Listing < ActiveRecord::Base
     !listing_images.empty?
   end
   
+  # Does listing belong to a certain organization in this community?
+  def has_organization_in?(community)
+    community.requires_organization_membership? && organization
+  end
+  
+  # Return organization if listing has it, otherwise return author
+  def organization_our_author?(community)
+    has_organization_in?(community) ? organization : author
+  end
+  
 end

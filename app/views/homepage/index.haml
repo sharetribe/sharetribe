@@ -31,8 +31,8 @@
         = render :partial => "filter_categories"
       %input{type: "hidden", name: "map", id: "hidden-map-toggle", value: params[:map]}
       
-      .app-store-badge
-        = link_to image_tag(@app_store_badge_filename), "https://itunes.apple.com/us/app/sharetribe/id545640772?mt=8", :title => t(".available_on_the_app_store")
+      -#.app-store-badge
+        =# link_to image_tag(@app_store_badge_filename), "https://itunes.apple.com/us/app/sharetribe/id545640772?mt=8", :title => t(".available_on_the_app_store")
 
 .feed-map-link
   - if params[:map] == "true"

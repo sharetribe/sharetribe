@@ -1,10 +1,9 @@
 .bubble-item
   .bubble-author-avatar
-    = small_avatar_thumb(listing.author)
-  
+    = small_avatar_thumb(listing.organization_our_author?(@current_community))
   .bubble-header
     .author
-      = link_to listing.author.given_name_or_username, listing.author
+      = author_link(listing)
       %time{datetime: "#{listing.created_at}"}= time_ago(listing.created_at)
     %h2
       = link_to listing.title, listing, :class => "listing-title"

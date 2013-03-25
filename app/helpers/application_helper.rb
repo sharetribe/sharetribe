@@ -80,14 +80,19 @@ module ApplicationHelper
   def small_avatar_thumb(person_or_organization)
     return "" if person_or_organization.nil?
     if person_or_organization.class == Organization
-      link_to((image_tag person_or_organization.logo.url(:thumb)), person_or_organization)
+      image_tag person_or_organization.logo.url(:thumb)
     else
       link_to((image_tag person_or_organization.image.url(:thumb)), person_or_organization)
     end
   end
   
-  def medium_avatar_thumb(person)
-    link_to((image_tag person.image.url(:small)), person)
+  def medium_avatar_thumb(person_or_organization)
+    return "" if person_or_organization.nil?
+    if person_or_organization.class == Organization
+      image_tag person_or_organization.logo.url(:small)
+    else
+      link_to((image_tag person_or_organization.image.url(:small)), person_or_organization)
+    end
   end
   
   def large_avatar_thumb(person)
@@ -533,6 +538,11 @@ module ApplicationHelper
     else
       "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"
     end
+  end
+  
+  # Return either a link to the listing author or the name of the organization
+  def author_link(listing)
+    listing.has_organization_in?(@current_community) ? listing.organization.name : link_to(listing.author.name, listing.author)
   end
   
 end
