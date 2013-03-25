@@ -527,7 +527,8 @@ class Listing < ActiveRecord::Base
     hash = {
       :listing_type => self.listing_type,
       :category => self.category.name,
-      :id => self.id
+      :id => self.id,
+      :icon => self.icon_string
     }
     if self.origin_loc
       hash.merge!({:latitude => self.origin_loc.latitude,
@@ -565,6 +566,10 @@ class Listing < ActiveRecord::Base
   # Return organization if listing has it, otherwise return author
   def organization_our_author?(community)
     has_organization_in?(community) ? organization : author
+  end
+  
+  def icon_string
+    category.icon_string
   end
   
 end

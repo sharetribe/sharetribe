@@ -85,10 +85,6 @@ module ListingsHelper
     return nil if listing_type_string.nil?
     return t("listings.show.#{listing_type_string}", :default => listing_type_string.capitalize)
   end
-
-  def get_icon_class(icon_type)
-    Listing::LISTING_ICONS[icon_type] || Listing::LISTING_ICONS["other"]
-  end
   
   def listing_form_menu_title(attribute)
     # - if 

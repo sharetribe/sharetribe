@@ -876,17 +876,20 @@ Cluster.prototype.addMarker = function(marker, markerIndex) {
   if (len < this.minClusterSize_ && marker.getMap() != this.map_) {
     // Min cluster size not reached so show the marker.
     marker.setMap(this.map_);
+    marker.get("label").setMap(this.map_);
   }
 
   if (len == this.minClusterSize_) {
     // Hide the markers that were showing.
     for (var i = 0; i < len; i++) {
+      this.markers_[i].get("label").setMap(null);
       this.markers_[i].setMap(null);
     }
   }
 
   if (len >= this.minClusterSize_) {
     marker.setMap(null);
+    marker.get("label").setMap(null);
   }
 
   this.updateIcon();

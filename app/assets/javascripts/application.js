@@ -16,4 +16,5 @@
 //= require sharetribe_common
 //= require kassi
 //= require googlemaps
+//= require map_label
 //= require_self 

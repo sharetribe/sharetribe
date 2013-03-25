@@ -533,13 +533,35 @@ function addListingMarkers() {
 		    var entry = data_arr[i];
 		    markerContents[i] = entry["id"];
 		    if (entry["latitude"]) {
+		      
 		      var location;
 		      location = new google.maps.LatLng(entry["latitude"], entry["longitude"]);
+		      
+		      // Marker background image based on listing_type
+		      var icon_path, icon_color;
+		      if (entry["listing_type"] === "request") {
+            icon_path = '/assets/map_icons/map_icon_dark_empty.png';
+            icon_color = "d7d7d7";
+          } else {
+            icon_path = '/assets/map_icons/map_icon_light_empty.png';
+            icon_color = "6a6a6a";
+          }
           var marker = new google.maps.Marker({
             position: location,
             title: entry["title"],
-            icon: '/assets/map_icons/'+entry["category"]+'_'+entry["listing_type"]+'.png'
+            icon: icon_path        
           });
+          
+          // Marker icon based on category
+          var label = new Label({
+                         map: map
+                    });
+                    label.set('zIndex', 1234);
+                    label.bindTo('position', marker, 'position');
+                    label.set('text', "<i class='icon " + entry["icon"] + "'></i>");
+                    label.set('color', icon_color);
+                    //label.bindTo('text', marker, 'position');
+          marker.set("label", label);
           markers.push(marker);
           markersArr.push(marker);
           var ind = i;
@@ -615,6 +637,7 @@ function SetFiltersForMap(type, category, sharetypes, search) {
   if (category)   { listing_category = [category];     } else { listing_category = ["all"];}
   if (sharetypes) { listing_sharetypes = [sharetypes]; } else { listing_sharetypes = ["all"];}
   if (search)     { listing_search = search            } else { listing_search = "";}
+  initialize_labels();
 }
 
 
@@ -626,3 +649,4 @@ function filtersUpdated(category, sharetypes, tags) {
     clearMarkers();
     addListingMarkers();
 }
+

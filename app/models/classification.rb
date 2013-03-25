@@ -15,7 +15,6 @@ module Classification
     else
       name
     end
-    
   end
   
   # returns the classification object which is highest in the hierarchy starting from self.
@@ -25,6 +24,10 @@ module Classification
     else
       self
     end
+  end
+  
+  def icon_string
+    Listing::LISTING_ICONS[name] || Listing::LISTING_ICONS["other"]
   end
   
   #returns a flattened array of all child objects, including self
