@@ -4,7 +4,7 @@ Feature: User accepts a transaction
   I want to be able to accept the conversation
 
   @javascript
-  Scenario: User accepts an offer and closes the listing
+  Scenario: User accepts an offer with message and closes the listing
     Given there are following users:
       | person | 
       | kassi_testperson1 |
@@ -19,13 +19,16 @@ Feature: User accepts a transaction
     And I fill in "conversation_message_attributes_content" with "Ok, sounds good!"
     And I press "Send message"
     Then I should see "Offer accepted"
+    And I should see "Ok, sounds good!"
     And I should see "Mark completed" within ".conversation-status"
-    And the system processes jobs
-    And "kassi_testperson2@example.com" should receive an email
-    And "kassi_testperson1@example.com" should have 0 emails
     When I follow "Massage"
     Then I should see "Request is closed"
     Then I should not see "Close request"
+    When the system processes jobs
+    Then "kassi_testperson1@example.com" should have 0 emails
+    And "kassi_testperson2@example.com" should receive an email
+    When I open the email
+    Then I should see "has accepted your offer" in the email body
     When "8" days have passed
     And the system processes jobs
     Then "kassi_testperson1@example.com" should receive an email
@@ -34,7 +37,7 @@ Feature: User accepts a transaction
     And return to current time
   
   @javascript
-  Scenario: User accepts a request and doesn't close the listing
+  Scenario: User accepts a request without message and doesn't close the listing
     Given there are following users:
       | person | 
       | kassi_testperson1 |
@@ -46,12 +49,10 @@ Feature: User accepts a transaction
     And I should see "1" within ".inbox-toggle"
     And I should see "Service request: Massage" within ".unread"
     When I follow "Accept request"
-    And I fill in "conversation_message_attributes_content" with "Ok, sounds good!"
     And I choose "Update the listing later"
     And I press "Send message"
     Then I should see "Request accepted" 
     And I should see "to mark the request as completed" within ".conversation-status"
-    And the system processes jobs
     When I follow "Massage"
     Then I should not see "Offer is closed"
     And I should see "Close offer"

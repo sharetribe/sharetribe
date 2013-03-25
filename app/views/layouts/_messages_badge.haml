@@ -1,2 +1,2 @@
 .messages-badge
-  = render :partial => "layouts/badge", :locals => { :count => @current_user.conversations_requiring_action.count }
+  = render :partial => "layouts/badge", :locals => { :count => Conversation.unread_count(@current_user.id.to_s) }

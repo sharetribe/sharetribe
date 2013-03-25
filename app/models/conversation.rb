@@ -12,6 +12,14 @@ class Conversation < ActiveRecord::Base
   validates_length_of :title, :in => 1..120, :allow_nil => false
   validates_inclusion_of :status, :in => VALID_STATUSES
   
+  def self.unread_count(person_id)
+    Conversation.scoped.
+    joins(:participations).
+    joins(:listing).
+    where("(participations.is_read = '0' OR (conversations.status = 'pending' AND listings.author_id = '#{person_id}')) AND participations.person_id = '#{person_id}'").
+    count
+  end
+  
   # Creates a new message to the conversation
   def message_attributes=(attributes)
     messages.build(attributes)

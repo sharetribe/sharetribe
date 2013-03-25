@@ -1,13 +1,14 @@
+- conversation_url = person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @conversation.id.to_s}))
 - accept_url = accept_person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @conversation.id.to_s}))
 - reject_url = reject_person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @conversation.id.to_s}))
 
 %tr
   %td{:align => "left"} 
     %font{body_font}
-      = t("emails.accept_reminder.you_have_not_yet_accepted_or_rejected_#{@conversation.discussion_type}", :date => time_ago(@conversation.created_at.to_date), :title => @conversation.title)
+      = t("emails.accept_reminder.you_have_not_yet_accepted_or_rejected_#{@conversation.discussion_type}", :date => time_ago(@conversation.created_at.to_date), :title => link_to(@conversation.title, conversation_url, :style => body_link_style)).html_safe
 
 %tr
-  %td{:align => "left", :style => "padding-top: 25px; padding-bottom: 35px;"}
+  %td{:align => "left", :style => "padding-top: 25px; padding-bottom: 25px;"}
     %table
       %tbody
         %tr
@@ -16,6 +17,10 @@
           %td{:style => "padding-left: 10px;"}
             = render :partial => "red_action_button", :locals => { :text => t("conversations.status_link.reject_#{@conversation.discussion_type}"), :url => reject_url}
 
+%tr
+  %td{:align => "left", :style => "padding-bottom: 25px;"} 
+    %font{body_font}
+      = link_to t("emails.accept_reminder.show_thread"), conversation_url, :style => body_link_style
 
 
 

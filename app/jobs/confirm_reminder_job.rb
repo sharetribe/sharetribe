@@ -19,7 +19,7 @@ class ConfirmReminderJob < Struct.new(:conversation_id, :community_id)
           PersonMailer.confirm_reminder(conversation, community).deliver
         end
       end
-      Delayed::Job.enqueue(AcceptReminderJob.new(conversation.id, last_message_id, community), :priority => 0, :run_at => 1.weeks.from_now)
+      Delayed::Job.enqueue(ConfirmReminderJob.new(conversation.id, last_message_id, community), :priority => 0, :run_at => 1.weeks.from_now)
     end
   end
   

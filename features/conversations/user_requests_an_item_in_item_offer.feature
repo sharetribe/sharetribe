@@ -21,7 +21,7 @@ Feature: User requests an item in item offer
     And I should see "Lending"
     When I follow "inbox-link"
     Then I should see "I want to borrow this item"
-    And I should see "Awaiting confirmation from listing author"
+    And I should see "to accept the request"
     When I click ".user-menu-toggle"
     When I follow "Logout"
     And I log in as "kassi_testperson1"
@@ -29,11 +29,19 @@ Feature: User requests an item in item offer
     Then I should see "Accept"
     When I follow "Item request: Hammer"
     Then I should see "Accept"
+    When the system processes jobs
+    Then "kassi_testperson1@example.com" should have 1 email
+    When "4" days have passed
+    And the system processes jobs
+    Then "kassi_testperson1@example.com" should have 2 emails
+    When I open the email with subject "Remember to accept or reject a request"
+    Then I should see "You have not yet accepted or rejected the request" in the email body
     When "8" days have passed
     And the system processes jobs
-    Then "kassi_testperson1@example.com" should receive an email
-    When I open the email
-    Then I should see "Remember to accept" in the email body
+    Then "kassi_testperson1@example.com" should have 3 emails
+    When "100" days have passed
+    And the system processes jobs
+    Then "kassi_testperson1@example.com" should have 3 emails
     And return to current time
   
   @javascript
@@ -63,7 +71,7 @@ Feature: User requests an item in item offer
     Then I should see "You must log in to Sharetribe to send a message to another user." within ".flash-notifications"
     And I should see "Log in to Sharetribe" within "h2"
     When I log in as "kassi_testperson2"
-    Then I should see "Item request: Hammer"
+    Then I should see "Request Hammer from"
   
   @javascript  
   Scenario: Trying to request an item without logging in and then logging in as the item owner

@@ -81,11 +81,22 @@ class PersonMailer < ActionMailer::Base
   
   # Remind users of conversations that have not been accepted or rejected
   def confirm_reminder(conversation, community)
+    puts "Should receive"
     @email_type = "email_about_confirm_reminders"
     set_up_urls(conversation.requester, community, @email_type)
     @conversation = conversation
     mail(:to => @recipient.email,
          :subject => t("emails.confirm_reminder.remember_to_confirm_request"))
+  end
+  
+  # Remind users to give feedback
+  def testimonial_reminder(participation, community)
+    @email_type = "email_about_testimonial_reminders"
+    set_up_urls(participation.person, community, @email_type)
+    @participation = participation
+    @other_party = @participation.conversation.other_party(@participation.person)
+    mail(:to => @recipient.email,
+         :subject => t("emails.testimonial_reminder.remember_to_give_feedback_to", :name => @other_party.name))
   end
   
   
@@ -116,14 +127,7 @@ class PersonMailer < ActionMailer::Base
          :subject => t("emails.new_update_to_listing.listing_you_follow_has_been_updated"))
   end
   
-  def testimonial_reminder(participation, host=nil)
-    @recipient = set_up_recipient(participation.person, host)
-    @url = host ? "http://#{host}#{new_person_message_feedback_path(:person_id => @recipient.id, :message_id => participation.conversation.id, :locale => @recipient.locale)}" : "test_url"
-    @participation = participation
-    @other_party = @participation.conversation.other_party(@participation.person)
-    mail(:to => @recipient.email,
-         :subject => t("emails.testimonial_reminder.remember_to_give_feedback_to", :name => @other_party.name))
-  end
+  
   
   # Used to send notification to Sharetribe admins when somebody
   # gives feedback on Sharetribe

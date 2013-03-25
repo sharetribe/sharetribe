@@ -406,11 +406,14 @@ en:
       remember_to_accept_request: "Remember to accept or reject a request"
       you_can_accept_or_reject_offer_at: "You can accept or reject the offer at"
       you_can_accept_or_reject_request_at: "You can accept or reject the request at"
-      you_have_not_yet_accepted_or_rejected_offer: "You have not yet accepted or rejected the offer '%{title}' you received %{date}."
-      you_have_not_yet_accepted_or_rejected_request: "You have not yet accepted or rejected the request '%{title}' you received %{date}."
+      you_have_not_yet_accepted_or_rejected_offer: "You have not yet accepted or rejected the offer %{title} you received %{date}."
+      you_have_not_yet_accepted_or_rejected_request: "You have not yet accepted or rejected the request %{title} you received %{date}."
+      show_thread: "Show conversation"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "You have not yet confirmed or canceled the request '%{title}' you received %{date} from %{other_party_full_name}. Remember to either mark it completed or not happened. After that you can give feedback to %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "You have not yet confirmed or canceled the request %{request_link} you received %{date} from %{other_party_full_name}. If the request has been completed, you should confirm that. After that you can give feedback to %{other_party_given_name}."
       remember_to_confirm_request: "Remember to confirm or cancel a request"
+      if_will_not_happen_you_should_cancel: "If you think this request will not be completed for one reason or another, you can %{cancel_it_link}."
+      cancel_it_link_text: "cancel it"
     badge_migration_notification:
       badge_description1: "You can earn several different badges in %{service_name} as a recognition of your actions in the service. You earn badges from actions like adding new offers and requests, commenting on others' content, from all types of resource exchange that takes place (selling and borrowing items, helping others, organizing car pooling and so on) and just generally being an active user of the service. Note that you only get badges from those exchanges where you have received positive feedback."
       badge_description2: "A person with lots of badges is most likely active, reliable and liked by other users. So be active in %{service_name}: buy, sell, lend and borrow items, help others out, share rides and watch your badge arsenal grow!"
