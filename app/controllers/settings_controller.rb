@@ -57,13 +57,13 @@ class SettingsController < ApplicationController
         @person_to_unsubscribe.save!
       else
         @unsubscribe_successful = false
-        render :unsubscribe, :layout => "application", :status => :bad_request and return
+        render :unsubscribe, :status => :bad_request and return
       end
       @unsubscribe_successful = true
-      render :unsubscribe, :layout => "application"
+      render :unsubscribe
     else
       @unsubscribe_successful = false
-      render :unsubscribe, :layout => "application", :status => :unauthorized
+      render :unsubscribe, :status => :unauthorized
     end
   end
   
