@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130323143126) do
+ActiveRecord::Schema.define(:version => 20130325143038) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20130323143126) do
     t.string   "name"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "description"
   end
 
   add_index "category_translations", ["category_id"], :name => "index_category_translations_on_category_id"
@@ -515,6 +516,7 @@ ActiveRecord::Schema.define(:version => 20130323143126) do
     t.string   "name"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "description"
   end
 
   add_index "share_type_translations", ["share_type_id"], :name => "index_share_type_translations_on_share_type_id"

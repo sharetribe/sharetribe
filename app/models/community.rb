@@ -437,6 +437,16 @@ class Community < ActiveRecord::Base
     return values
   end
   
+  # same as available_categorization_values but returns the models instead of just values
+  def available_categorizations
+    values = {}
+    values["listing_type"] = listing_types
+    values["category"] = main_categories
+    values["subcategory"] = subcategories
+    values["share_type"] = share_types.reject { |st| listing_types.include?(st) }
+    return values
+  end
+  
 
   # returns all categories
   def categories
