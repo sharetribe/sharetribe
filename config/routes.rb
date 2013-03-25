@@ -180,6 +180,7 @@ Kassi::Application.routes.draw do
     end
     resources :news_items
     resources :statistics
+    resources :organizations
   end
   
   # Some non-RESTful mappings

@@ -10,6 +10,8 @@ task :deploy_production_migrations => ['deploy:set_production_app', 'deploy:push
 task :deploy_staging_without_migrations => ['deploy:set_staging_app', 'i18n:write_error_pages', 'deploy:update_webfonts_folder', 'deploy:push', 'deploy:generate_custom_css']
 task :deploy_production_without_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:generate_custom_css']
 
+task :deploy_custom_migrations => ['deploy:set_staging_app', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css']
+task :deploy_custom_quick => ['deploy:set_staging_app', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push']
 
 namespace :deploy do
   PRODUCTION_APP = 'sharetribe-production'
@@ -36,6 +38,17 @@ namespace :deploy do
     puts `cp -R app/assets/webfonts/* ../tmp-sharetribe-webfonts/`
     puts `git rebase develop`
     puts `git checkout develop`
+    puts `mkdir app/assets/webfonts `
+    puts `cp -R ../tmp-sharetribe-webfonts/* app/assets/webfonts/`
+  end
+  
+  task :prepare_custom_branch_for_deploy do
+    puts 'Copying webfonts folder ...'
+    puts `rm app/assets/webfonts/* `
+    puts `git checkout closed_source`
+    puts `cp -R app/assets/webfonts/* ../tmp-sharetribe-webfonts/`
+    puts `git rebase custom`
+    puts `git checkout custom`
     puts `mkdir app/assets/webfonts `
     puts `cp -R ../tmp-sharetribe-webfonts/* app/assets/webfonts/`
   end

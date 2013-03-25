@@ -86,4 +86,14 @@ module PeopleHelper
     t("communities.signup_form.existing_community_with_this_email", :community_category => t("communities.signup_form.for_#{existing_community.category}"), :link => self.class.helpers.link_to(t("communities.signup_form.here"), existing_community.full_url)).html_safe 
   end
   
+  def trustcard_class(person)
+    if ! logged_in?
+      "trustcard-upper"
+    elsif person.location
+      "trustcard-lower"
+    else
+      ""
+    end
+  end
+  
 end

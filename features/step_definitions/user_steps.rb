@@ -51,7 +51,7 @@ Given /^there are following users:$/ do |person_table|
     cookie =nil
     @hash_person.update_attributes({:preferences => { "email_about_new_comments_to_own_listing" => "true", "email_about_new_messages" => "true" }}, cookie)
     #unless CommunityMembership.find_by_person_id_and_community_id(@hash_person.id, Community.first.id)
-      CommunityMembership.create(:community_id => Community.first.id, :person_id => @hash_person.id, :consent => Community.first.consent)
+      CommunityMembership.create(:community_id => Community.first.id, :person_id => @hash_person.id, :consent => Community.first.consent, :status => "accepted")
     #end
     attributes_to_update = hash.except('person','person_id', 'locale')
     @hash_person.update_attributes(attributes_to_update, cookie) unless attributes_to_update.empty?

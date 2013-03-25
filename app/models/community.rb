@@ -4,7 +4,7 @@ class Community < ActiveRecord::Base
   require 'sass/plugin'
 
   has_many :community_memberships, :dependent => :destroy 
-  has_many :members, :through => :community_memberships, :source => :person, :foreign_key => :member_id
+  has_many :members, :through => :community_memberships, :conditions => ['status = ?', 'accepted'], :source => :person
   has_many :invitations, :dependent => :destroy
   has_many :news_items, :dependent => :destroy
   has_many :polls, :dependent => :destroy
@@ -333,8 +333,21 @@ class Community < ActiveRecord::Base
     end
   end
   
+  # approves a pending membership if one is found
+  # if email is given, only approves if email is allowed
+  def approve_pending_membership(person, email_address=nil)
+    membership = community_memberships.where(:person_id => person.id, :status => "pending_email_confirmation").first
+    if membership && email_address.nil? || email_allowed?(email_address) 
+      membership.update_attribute(:status, "accepted")
+    end
+  end
+  
   def full_name
     settings["service_name"] ? settings["service_name"] : "Sharetribe #{name}"
+  end
+  
+  def requires_organization_membership?
+    settings["require_organization_membership"] == true    
   end
   
   # categories_tree

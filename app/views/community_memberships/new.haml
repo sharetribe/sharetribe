@@ -4,7 +4,8 @@
 .centered-section
   %h2
     = t('.join_community', :community => @current_community.name)
-  - unless session[:fb_join]
+    
+  - unless session[:fb_join] || (@current_community.requires_organization_membership? && @current_user.organizations.count < 1)
     %p
       = t('.you_are_not_a_member_of_this_community', :community => @current_community.name)
   %p
@@ -19,13 +20,18 @@
       - if session[:fb_join]
         = t('.welcome_fb_user', :name => @current_user.given_name_or_username)
         = t('.fb_join_accept_terms')
-      - else
+      - elsif ! (@current_community.requires_organization_membership? && @current_user.organizations.count < 1)
         = t('.you_can_join')
-  - unless @current_user.communities.size < 1
+        
+
+  - unless @current_user.communities.size < 1 || @current_community.requires_organization_membership?
     %p
       = t(".if_want_to_view_content")
       = link_to(t(".log_out"), logout_path) + "."
+      
+      
   = form_for @community_membership, :url => { :controller => "community_memberships", :action => "create" } do |form|
+  
     - if @current_community.join_with_invite_only?
       - if session[:invitation_code]
         = hidden_field_tag "invitation_code", session[:invitation_code]
@@ -33,9 +39,26 @@
         = label_tag :invitation_code, t('people.new.invitation_code'), :class => "inline"
         = link_to t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link", :class => "label-info"
         = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20", :value => (params[:code] || "")
+        
+    - if @current_community.requires_organization_membership? 
+      - if @current_user.organizations.count != 1
+        %p
+          =t(".to_join_you_need_organization_membership")
+        - if Organization.count > 0
+          %select{name: "organization_id"}
+            %option{value: 0}= t(".please_select_your_organization")
+            - Organization.all.each do |org|
+              %option{value: org.id}= org.name
+        %p
+          = link_to t(".create_new_organization"), new_organization_path
+      - else
+        = hidden_field_tag :organization_id, @current_user.organizations.first.id
+        
+            
     - if @current_community.allowed_emails? && ! @current_user.has_valid_email_for_community?(@current_community)
       = form.label :email, t('people.new.email'), :class => "before_description"
       = form.text_field :email, :class => :text_field, :maxlenght => "255"
+     
     .outer-checkbox-container
       .checkbox-container
         %input{:type => "checkbox", :id => "community_membership_consent", :name => "community_membership[consent]"}

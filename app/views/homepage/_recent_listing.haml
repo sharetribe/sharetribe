@@ -1,9 +1,11 @@
+-# If listing is made by organization, show that as main author here
+- author = @current_community.requires_organization_membership? ? listing.organization : listing.author
 .feed-item.feed-request
   .feed-author-avatar
-    = small_avatar_thumb(listing.author)
+    = small_avatar_thumb(author)
   .feed-content{:class => (listing.has_image? ? "content-with-image" : "")}
     .author
-      = link_to listing.author.name, listing.author
+      = link_to author.name, author
       %time{datetime: "#{listing.created_at}"}= time_ago(listing.created_at)
     %h2
       = link_to listing.title, listing, :class => "listing-title"

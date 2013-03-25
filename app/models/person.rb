@@ -56,7 +56,9 @@ class Person < ActiveRecord::Base
   has_many :notifications, :foreign_key => "receiver_id", :order => "id DESC", :dependent => :destroy
   has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id", :dependent => :destroy
   has_many :community_memberships, :dependent => :destroy 
-  has_many :communities, :through => :community_memberships
+  has_many :communities, :through => :community_memberships, :conditions => ['status = ?', 'accepted']
+  has_many :organization_memberships, :dependent => :destroy
+  has_many :organizations, :through => :organization_memberships
   has_many :invitations, :foreign_key => "inviter_id", :dependent => :destroy
   has_many :poll_answers, :class_name => "PollAnswer", :foreign_key => "answerer_id", :dependent => :destroy
   has_many :answered_polls, :through => :poll_answers, :source => :poll
@@ -333,8 +335,13 @@ class Person < ActiveRecord::Base
   end
   
   def create_listing(params)
+    # Check that this person is member of the (optional) organization
+    if params[:organization_id]
+      org = Organization.find(params[:organization_id])
+      raise "tried to create a listing with organization that the user is not member of" unless org.has_member?(self)
+    end
+    
     params = Listing.find_category_and_share_type_based_on_string_params(params)
-
     listings.create params #.except([:category, :share_type])
   end
   
@@ -448,6 +455,22 @@ class Person < ActiveRecord::Base
     return true # if address found and email sent
   end
   
+  # Changes old_email (whether it's a main or additional email)
+  # And sets that email unconfirmed
+  # NOTE: The confirmation email needs to be sent separately
+  def change_email(old_address, new_address)
+    if old_address == email
+      update_attribute(:email, new_address)
+      update_attribute(:confirmed_at => nil)
+    elsif e = emails.where(:address => old_address).first
+      e.update_attribute(:address, new_address)
+      e.update_attribute(:confirmed_at, nil)
+    else
+      raise "Tried to change email which this user doesn't have."
+    end
+    
+  end
+  
   def self.find_for_facebook_oauth(facebook_data, logged_in_user=nil)
     data = facebook_data.extra.raw_info
     
@@ -506,6 +529,16 @@ class Person < ActiveRecord::Base
   def new_email_auth_token(valid_for = 36.hours)
     t = AuthToken.create(:person => self, :expires_at => valid_for.from_now)
     return t.token
+  end
+  
+  # This is a helper to get nicely formatted array of this person's organizations
+  # for dropdown selection menus
+  def organizations_array
+    arr = []
+    organizations.each do |org|
+      arr << [org.name, org.id]
+    end
+    return arr
   end
   
   # Merge this person with the data from the person given as parameter
@@ -641,6 +674,33 @@ class Person < ActiveRecord::Base
     end
     return conversations
   end
+  
+  def pending_email_confirmation_to_join?(community)
+    membership = community_memberships.where(:community_id => community.id).first
+    if membership
+      return (membership.status == "pending_email_confirmation")
+    else
+      return false
+    end
+  end
+  
+  # Returns and email that is pending confirmation
+  # If community is given as parameter, in case of many pending 
+  # emails the one required by the community is returned
+  def pending_email(community=nil)
+    pending_emails = []  
+    pending_emails << email if confirmed_at.blank? 
+    Email.where(:person_id => id, :confirmed_at => nil).all.each { |e| pending_emails << e.address }
+    
+    if community && community.allowed_emails
+      pending_emails.each do |e|
+        return e if community.email_allowed?(e)
+      end
+    else
+      return pending_emails.first
+    end  
+  end
+  
   
   private
   

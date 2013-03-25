@@ -171,6 +171,15 @@ function initialize_login_form(password_forgotten) {
   $('#login_form input.text_field:first').focus();
 }
 
+function initialize_new_organization_form() {
+	$(':radio[name=merchant_registration]').change(function() { 
+		$('#merchant_details').slideToggle('fast');
+	});
+
+}
+
+
+
 function select_listing_form_menu_link(link, locale, attribute_hash, listing_form_menu_titles, ordered_attributes, selected_attributes) {
   if (link.hasClass('option')) {
     selected_attributes[link.parent().attr('name')] = link.attr('name');

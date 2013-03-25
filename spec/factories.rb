@@ -10,6 +10,11 @@ FactoryGirl.define do
   sequence :domain do |n|
     "sharetribe_testcommunity_#{n}" 
   end
+  
+  sequence :organization_name do |n|
+    "test_organization#{n}" 
+  end
+  
 
   factory :person, aliases: [:author, :receiver] do
     id "dMF4WsJ7Kr3BN6ab9B7ckF"
@@ -105,6 +110,7 @@ FactoryGirl.define do
     association :person
     admin false
     consent "test_consent0.1"
+    status "accepted"
   end
 
   factory :contact_request do
@@ -137,6 +143,12 @@ FactoryGirl.define do
     google_address "Helsinki, Finland"
   end
   
+  factory :additional_email, class: Email do
+    person
+    address "test_person@example.com"
+    confirmed_at Time.now
+  end
+  
   factory :category do
     name "item"
     icon "item"
@@ -145,5 +157,9 @@ FactoryGirl.define do
   factory :share_type do
     name "sell"
     icon "sell"
+  end
+  
+  factory :organization do
+    name :organization_name
   end
 end

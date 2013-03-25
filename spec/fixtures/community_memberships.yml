@@ -4,6 +4,7 @@ test_community_membership:
   admin: 1
   consent: "test_consent0.1"
   last_page_load_date: <%= DateTime.now %>
+  status: "accepted"
   
 test_community_membership2:
   person_id: df0LOkLS4r3yF-aby-BSxS
@@ -11,10 +12,12 @@ test_community_membership2:
   admin: 0
   consent: "test_consent0.1"
   last_page_load_date: <%= DateTime.now %>
-  
+  status: "accepted"
+    
 test_community_membership3:
   person_id: df0LOkLS4r3yF-aby-BSxS
   community_id: 2
   admin: 0
   consent: "KASSI_FI1.0"
   last_page_load_date: <%= DateTime.now %>
+  status: "accepted"

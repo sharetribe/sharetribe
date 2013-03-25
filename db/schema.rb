@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130317162509) do
+ActiveRecord::Schema.define(:version => 20130323143126) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -152,8 +152,10 @@ ActiveRecord::Schema.define(:version => 20130317162509) do
     t.string   "locale"
     t.string   "slogan"
     t.string   "description"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.text     "blank_slate"
+    t.text     "welcome_email_content"
   end
 
   create_table "community_memberships", :force => true do |t|
@@ -165,6 +167,7 @@ ActiveRecord::Schema.define(:version => 20130317162509) do
     t.string   "consent"
     t.integer  "invitation_id"
     t.datetime "last_page_load_date"
+    t.string   "status",              :default => "accepted", :null => false
   end
 
   add_index "community_memberships", ["person_id", "community_id"], :name => "memberships"
@@ -325,6 +328,7 @@ ActiveRecord::Schema.define(:version => 20130317162509) do
     t.string   "subcategory_old"
     t.integer  "category_id"
     t.integer  "share_type_id"
+    t.integer  "organization_id"
   end
 
   add_index "listings", ["category_old"], :name => "index_listings_on_category"
@@ -384,6 +388,28 @@ ActiveRecord::Schema.define(:version => 20130317162509) do
   end
 
   add_index "notifications", ["receiver_id"], :name => "index_notifications_on_receiver_id"
+
+  create_table "organization_memberships", :force => true do |t|
+    t.string   "person_id"
+    t.integer  "organization_id"
+    t.boolean  "admin",           :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
+  create_table "organizations", :force => true do |t|
+    t.string   "name"
+    t.string   "company_id"
+    t.string   "merchant_id"
+    t.string   "merchant_key"
+    t.string   "allowed_emails"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+  end
 
   create_table "participations", :force => true do |t|
     t.string   "person_id"

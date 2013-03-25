@@ -77,9 +77,13 @@ module ApplicationHelper
     haml_concat add_links_and_br_tags_for_email(capture_haml(&block)).html_safe
   end
   
-  def small_avatar_thumb(person)
-    return "" if person.nil?
-    link_to((image_tag person.image.url(:thumb)), person)
+  def small_avatar_thumb(person_or_organization)
+    return "" if person_or_organization.nil?
+    if person_or_organization.class == Organization
+      link_to((image_tag person_or_organization.logo.url(:thumb)), person_or_organization)
+    else
+      link_to((image_tag person_or_organization.image.url(:thumb)), person_or_organization)
+    end
   end
   
   def medium_avatar_thumb(person)
@@ -87,7 +91,7 @@ module ApplicationHelper
   end
   
   def large_avatar_thumb(person)
-    image_tag person.image.url(:medium), :alt => person.name(session[:cookie])
+    image_tag person.image.url(:medium), :alt => person.name
   end
 
   def pageless(total_pages, target_id, url=nil, loader_message='Loading more results')
@@ -284,6 +288,13 @@ module ApplicationHelper
         :elative => "Pakilan torilta",
         :partitive => "Pakilan toria"
         }
+      when "Materiaalipankki" then {
+         :illative => "Materiaalipankkiin",
+         :genetive => "Materiaalipankin",
+         :inessive => "Materiaalipankissa",
+         :elative => "Materiaalipankista",
+         :partitive => "Materiaalipankkia"
+         }  
       else nil
     end
   end
@@ -482,8 +493,8 @@ module ApplicationHelper
   end
   
   def community_slogan
-    if @community_customization
-      @community_customization.slogan
+    if @community_customization  && !@community_customization.slogan.blank?
+      @community_customization.slogan 
     else
       if @current_community.slogan && !@current_community.slogan.blank?
         @current_community.slogan
@@ -494,7 +505,7 @@ module ApplicationHelper
   end
   
   def community_description(truncate=true)
-    if @community_customization
+    if @community_customization && !@community_customization.description.blank?
       @community_customization.description
     else
       if @current_community.description && !@current_community.description.blank?
@@ -508,6 +519,20 @@ module ApplicationHelper
   
   def email_link_style
     "color:#d96e21; text-decoration: none;"
+  end
+
+  def community_blank_slate
+    @community_customization && !@community_customization.blank_slate.blank? ? @community_customization.blank_slate : t(".no_listings_notification")
+  end
+  
+  def fb_image
+    if @listing && action_name.eql?("show") && !@listing.listing_images.empty?
+      @listing.listing_images.first.image.url(:medium)
+    elsif @current_community.logo?
+      @current_community.logo.url(:header) 
+    else
+      "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"
+    end
   end
   
 end

@@ -103,7 +103,7 @@ describe PersonMailer do
   it "should send email to community admins of new feedback if that setting is on" do
     @feedback = FactoryGirl.create(:feedback)
     @community = FactoryGirl.create(:community, :feedback_to_admin => 1)
-    m = CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id)
+    m = CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id, :status => "accepted")
     m.update_attribute(:admin, true)
     email = PersonMailer.new_feedback(@feedback, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
@@ -119,12 +119,47 @@ describe PersonMailer do
   
   it "should send email to community admins of new member if wanted" do
     @community = FactoryGirl.create(:community, :email_admins_about_new_members => 1)
-    m = CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id)
+    m = CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id, :status => "accepted")
     m.update_attribute(:admin, true)
     email = PersonMailer.new_member_notification(@test_person2, @community.domain, @test_person2.email).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [@test_person.email], email.to
     assert_equal "New member in #{@community.name} Sharetribe", email.subject
+  end
+  
+  describe "#welcome_email" do
+    
+    before(:each) do
+      @c1 = FactoryGirl.create(:community)
+      @p1 = FactoryGirl.create(:person, :email => "update_tester@example.com")
+      @p1.communities << @c1
+    end
+    
+    it "should welcome a regular member" do
+      @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
+      @email.should deliver_to("update_tester@example.com")
+      @email.should have_subject("Welcome to #{@c1.full_name} - here are some tips to get you started")
+      @email.should have_body_text "Add something you could offer to others"
+      @email.should_not have_body_text "You have now admin rights in this community."
+    end
+    
+    it "should contain custom content if that is defined for the community" do
+      @c1.community_customizations.create(:locale => "en", :welcome_email_content => "Custom email")
+      @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
+      @email.should have_body_text "Custom email"
+      @email.should_not have_body_text "Add something you could offer to others."
+      @email.should_not have_body_text "You have now admin rights in this community."
+    end
+    
+    it "should contain admin info if the receipient is an administrator" do
+      @p1.update_attribute(:is_admin, true)
+      @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
+      @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
+      @email.should deliver_to("update_tester@example.com")
+      @email.should have_subject("You just created #{@c1.full_name} - here are some tips to get you started")
+      @email.should have_body_text "You have now admin rights in this community."
+    end
+  
   end
   
   describe "#community_updates" do

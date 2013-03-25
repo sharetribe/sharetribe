@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
 
   before_filter :show_maintenance_page
 
-  before_filter :domain_redirect, :force_ssl, :check_auth_token, :fetch_logged_in_user, :dashboard_only, :single_community_only, :fetch_community, :fetch_community_membership,  :cannot_access_without_joining, :set_locale, :generate_event_id, :set_default_url_for_mailer
+  before_filter :domain_redirect, :force_ssl, :check_auth_token, :fetch_logged_in_user, :dashboard_only, :single_community_only, :fetch_community, :fetch_community_membership, :set_locale, :generate_event_id, :set_default_url_for_mailer
+  before_filter :cannot_access_without_joining, :except => [ :confirmation_pending]
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
 
 
@@ -126,7 +127,7 @@ class ApplicationController < ActionController::Base
   def fetch_community_membership
     if @current_user
       if @current_user.communities.include?(@current_community)
-        @current_community_membership = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
+        @current_community_membership = CommunityMembership.find_by_person_id_and_community_id_and_status(@current_user.id, @current_community.id, "accepted")
         unless @current_community_membership.last_page_load_date && @current_community_membership.last_page_load_date.to_date.eql?(Date.today)
           Delayed::Job.enqueue(PageLoadedJob.new(@current_community_membership.id, request.host))
         end
@@ -136,15 +137,16 @@ class ApplicationController < ActionController::Base
   
   # Before filter to direct a logged-in non-member to join tribe form
   def cannot_access_without_joining
-    if @current_user
-      redirect_to new_tribe_membership_path unless on_dashboard? || @current_community_membership || @current_user.is_admin?
+    if @current_user && ! (on_dashboard? || @current_community_membership || @current_user.is_admin?)
+      flash.keep
+      redirect_to new_tribe_membership_path 
     end
   end
 
   def check_email_confirmation
     # If confirmation is required, but not done, redirect to confirmation pending announcement page
     # (but allow confirmation to come through)
-    if @current_community && @current_community.email_confirmation && @current_user && @current_user.confirmed_at.blank?
+    if @current_community && @current_community.email_confirmation && @current_user && (@current_user.confirmed_at.blank? || @current_user.pending_email_confirmation_to_join?(@current_community))
       flash[:warning] = t("layouts.notifications.you_need_to_confirm_your_account_first")
       redirect_to :controller => "sessions", :action => "confirmation_pending" unless params[:controller] == 'devise/confirmations'
     end
@@ -243,8 +245,8 @@ class ApplicationController < ActionController::Base
       redirect_to "#{request.protocol}www.sharetribe.com/fr" and return if request.host =~ /^(www\.)?sharetribe\.fr/
       redirect_to "#{request.protocol}www.sharetribe.com/fi" and return if request.host =~ /^(www\.)?sharetribe\.fi/
       
-      # Redirect to right community (changing to .com)
-      redirect_to "#{request.protocol}#{request.subdomain}.sharetribe.com#{request.fullpath}" and return if request.host =~ /^.+\.?sharetribe\.(cl|gr|fr|fi|us|de)/ || request.host =~ /^.+\.?sharetri\.be/  || request.host =~ /^.+\.?kassi\.eu/
+      # Redirect to right community (changing to .com) (but let api.sharetribe.fi) through for testing purposes
+      redirect_to "#{request.protocol}#{request.subdomain}.sharetribe.com#{request.fullpath}" and return if (request.host =~ /^.+\.?sharetribe\.(cl|gr|fr|fi|us|de)/ || request.host =~ /^.+\.?sharetri\.be/  || request.host =~ /^.+\.?kassi\.eu/) && ! request.host =~ /^api\.sharetribe\.fi/
       
       redirect_to "#{request.protocol}samraksh.sharetribe.com#{request.fullpath}" and return if request.host =~ /^(www\.)?samraksh\.org/
     end 

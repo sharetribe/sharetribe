@@ -9,12 +9,17 @@ class CommunityMembershipsController < ApplicationController
   skip_filter :cannot_access_without_joining
   
   def new
-    if @current_user.communities.include?(@current_community)
+    existing_membership = @current_user.community_memberships.where(:community_id => @current_community.id).first
+    if existing_membership && existing_membership.status == "accepted"
       flash[:notice] = t("layouts.notifications.you_are_already_member")
-      redirect_to root 
+      redirect_to root and return
+    elsif existing_membership && existing_membership.status == "pending_email_confirmation"
+      redirect_to confirmation_pending_path and return
     end
+    
     @community_membership = CommunityMembership.new
   end
+  
   
   def create
     @community_membership = CommunityMembership.new(params[:community_membership])
@@ -48,15 +53,26 @@ class CommunityMembershipsController < ApplicationController
           e = Email.create(:person => @current_user, :address => params[:community_membership][:email])
         end
         
-        # Send confirmation
+        # Send confirmation and make membership pending
         @current_user.send_email_confirmation_to(params[:community_membership][:email], request.host_with_port)
+        @community_membership.status = "pending_email_confirmation"
         
         flash[:notice] = "#{t("layouts.notifications.you_need_to_confirm_your_account_first")} #{t("sessions.confirmation_pending.check_your_email")}."
-        render :action => :new and return
+        
       end
       
     end
     
+    if @current_community.requires_organization_membership?
+      org = Organization.find_by_id(params[:organization_id])
+      if org.nil?
+        flash[:error] = t("community_memberships.new.you_need_to_choose_an_organization")
+        render :action => :new and return
+      else
+        @current_user.organizations << org unless org.has_member?(@current_user)
+      end
+      
+    end
     
     @community_membership.invitation = invitation if invitation.present?
 
