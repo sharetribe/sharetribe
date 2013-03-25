@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20130325181741) do
     t.string   "name"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "description"
   end
 
   add_index "category_translations", ["category_id"], :name => "index_category_translations_on_category_id"
@@ -521,6 +522,7 @@ ActiveRecord::Schema.define(:version => 20130325181741) do
     t.string   "name"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "description"
   end
 
   add_index "share_type_translations", ["share_type_id"], :name => "index_share_type_translations_on_share_type_id"

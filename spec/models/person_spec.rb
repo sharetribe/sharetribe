@@ -168,7 +168,7 @@ describe Person do
       
       it "should return main email if that's pending" do
          @p.update_attribute(:confirmed_at, nil)
-         @p.pending_email.should =~ /kassi_tester\d@example.com/
+         @p.pending_email.should =~ /kassi_tester\d+@example.com/
       end
       
       it "should return additional, if that's pending" do

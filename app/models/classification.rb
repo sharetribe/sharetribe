@@ -3,9 +3,17 @@ module Classification
   
   def display_name
     if I18n.locale && translation(I18n.locale)
-      translation(I18n.locale)
+      translation(I18n.locale).name
     else
-      return name
+      name
+    end
+  end
+  
+  def description
+    if I18n.locale && translation(I18n.locale)
+      translation(I18n.locale).description || display_name
+    else
+      name
     end
     
   end
@@ -45,11 +53,6 @@ module Classification
   end
   
   def translation(locale)
-    translation = translations.where(:locale => locale)
-     if translation.empty?
-       name
-     else
-       translation.first.name
-     end
+    translations.where(:locale => locale).first
   end
 end
