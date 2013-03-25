@@ -50,7 +50,7 @@ module CategoriesHelper
       if category.class == String
         Category.create([{:name => category, :icon => category}]) unless Category.find_by_name(category)
       elsif category.class == Hash
-        parent = Category.find_by_name(category.keys.first) || Category.create(:name => category.keys.first) 
+        parent = Category.find_by_name(category.keys.first) || Category.create(:name => category.keys.first, :icon => category.keys.first) 
         category.values.first.each do |subcategory|
           c = Category.find_by_name(subcategory) || Category.create({:name => subcategory, :icon => subcategory, :parent_id => parent.id}) 
           # As subcategories won't get their own link to share_types (as they inherit that from parent category)
