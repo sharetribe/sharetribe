@@ -972,7 +972,7 @@ en:
       price:
         price: Price
         per: per
-        mass: "piece, kg, l, ..."
+        mass: "piece, kg, l, m2, ..."
         time: "hour, day, week, ..."
         long_time: "week, month, ..."
       origin:
@@ -1064,6 +1064,12 @@ en:
     link_labels:
       offer_this: "Offer"
       request_this: "Request"
+      lend_this: "Lend"
+      borrow_this: "Borrow"
+      buy_this: Buy
+      rent_out_this: "Rent out"
+      rent_this: "Rent"
+      sell_this: "Sell"  
       link_label_for_favor_offer: "Request this service"
       link_label_for_favor_request: "Offer this service"
       link_label_for_housing_offer_sell: "Buy this space"

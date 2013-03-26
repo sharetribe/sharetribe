@@ -19,4 +19,4 @@
         .text-part= t("listings.edit_links.close_#{@listing.listing_type}")
   - else
     - listing_type_string = "#{@listing.category.name}_#{@listing.listing_type}#{(@listing.share_type.present? && @listing.share_type.parent) ? '_' + @listing.share_type.name : ''}"
-    = link_to t("listings.link_labels.link_label_for_#{listing_type_string}", :default => t("listings.link_labels.#{Listing.opposite_type(@listing.listing_type)}_this")), reply_to_listing_path(:id => @listing.id.to_s), :class => "button"
+    = link_to t("listings.link_labels.link_label_for_#{listing_type_string}", :default => t("listings.link_labels.#{Listing.opposite_share_type(@listing.share_type)}_this", :default => t("listings.link_labels.#{Listing.opposite_type(@listing.listing_type)}_this"))), reply_to_listing_path(:id => @listing.id.to_s), :class => "button"

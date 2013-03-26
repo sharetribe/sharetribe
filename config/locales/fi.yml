@@ -968,7 +968,7 @@ fi:
       price:
         price: Hinta
         per: per
-        mass: "kpl, kg, l, ..."
+        mass: "kpl, kg, l, m2, ..."
         time: "tunti, päivä, ..."
         long_time: "vko, kk, ..."
       send_button:
@@ -1057,6 +1057,12 @@ fi:
     link_labels:
       offer_this: "Tarjoa"
       request_this: "Pyydä"
+      lend_this: "Tarjoa lainaksi"
+      borrow_this: "Pyydä lainaksi"
+      buy_this: Osta
+      rent_out_this: "Tarjoa vuokralle"
+      rent_this: "Vuokraa"
+      sell_this: "Myy"
       link_label_for_favor_offer: "Pyydä palvelusta"
       link_label_for_favor_request: "Tarjoa apuasi"
       link_label_for_housing_offer_sell: Osta

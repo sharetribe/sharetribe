@@ -378,6 +378,25 @@ class Listing < ActiveRecord::Base
     type.eql?("offer") ? "request" : "offer"
   end
   
+  def self.opposite_share_type(type)
+    case type.name
+    when "borrow"
+      return "lend"
+    when "lend"
+      return "borrow"
+    when "buy"
+      return "sell"
+    when "sell"
+      return "buy"
+    when "rent_out"
+      return "rent"
+    when "rent"
+      return "rent_out"
+    else
+      return "" 
+    end
+  end
+  
   # Returns true if the given person is offerer and false if requester
   def offerer?(person)
     (listing_type.eql?("offer") && author.eql?(person)) || (listing_type.eql?("request") && !author.eql?(person))
