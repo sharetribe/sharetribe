@@ -36,7 +36,7 @@ class Listing < ActiveRecord::Base
   belongs_to :category  
   belongs_to :share_type
 
-  monetize :price_cents
+  monetize :price_cents, :allow_nil => true
   
   attr_accessor :current_community_id
   
@@ -81,7 +81,17 @@ class Listing < ActiveRecord::Base
     "rent_out" => "ss-pricetag",
     "job" => "ss-briefcase",
     "announcement" => "ss-newspaper",
-    "news" => "ss-newspaper"
+    "news" => "ss-newspaper",
+    "wood_based_materials" => "ss-tree",
+    "plastic_and_rubber" => "ss-disc",
+    "metal" => "ss-handbag",
+    "concrete_and_brick" => "ss-form",
+    "glass_and_porcelain" => "ss-fragile",
+    "textile_and_leather" => "ss-hanger",
+    "soil_materials" => "ss-cloud",
+    "liquid_materials" => "ss-droplet",
+    "manufacturing_error_materials" => "ss-wrench",
+    "misc_material" => "ss-box"
   }
   
   before_validation :set_rideshare_title, :set_valid_until_time
