@@ -1,7 +1,7 @@
 module ConversationsHelper
   
   def get_message_title(listing)
-    t("conversations.new.#{listing.category.name}_#{listing.listing_type}_message_title", :title => listing.title, :default => t("conversations.new.#{Listing.opposite_type(listing.listing_type)}_message_title", :title => listing.title))
+    listing.title
   end
   
   def transaction_proposal_form_title(listing)
