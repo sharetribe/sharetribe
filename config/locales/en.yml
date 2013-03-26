@@ -353,10 +353,6 @@ en:
       if_want_to_view_content: "If you want to view the content in this community without joining it you need to"
       log_out: "log out"
       join_community_button: "Join community"
-      to_join_you_need_organization_membership: "This community requires every member to represent an organization. If your organization is in the list below, choose it there. Otherwise you can register a new organization."
-      please_select_your_organization: "Please select your organization or create new"
-      you_need_to_choose_an_organization: "You need to choose an organization."
-      create_new_organization: "Create new organization"
   dashboard:
     api:
       coming_soon: "Coming soon!"
@@ -1248,15 +1244,6 @@ en:
     member_id_is_your_username: "You must give your Omakotiliitto member id (jäsennumero) in order to join %{service_name}. Your member id is also your username that you will need when logging in to %{service_name}. If you are not a member of Omakotiliitto yet, you can"
     member_id_or_email: "Member id or email"
     join_here: "join here."
-  organizations:
-    new:
-      create_new_organization: "Create new organization"
-      instructions: "You can (fill here good instructions)"
-      organization_created: "Organization created"
-    form:
-      new_organization_button_text: "Create"
-      edit_organization_button_text: "Save changes"
-
   people:
     index:
       loading_more_members: "Loading more members"
