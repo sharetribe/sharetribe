@@ -98,6 +98,21 @@ fi:
       favor: palvelukset
       rideshare: kimppakyydit
       housing: tilat
+      tools: työkalut
+      sports: urheilu
+      music: musiikki
+      books: "kirjat & lehdet"
+      games: "pelit & lelut"
+      furniture: huonekalut
+      outdoors: "ulkoilu ja retkeily"
+      food: "ruoka ja ruuanlaitto"
+      electronics: elektroniikka
+      pets: "eläimet ja lemmikit"
+      film: "elokuvat ja tv-sarjat"
+      clothes: "vaatteet ja asusteet"
+      garden: puutarha
+      travel: matkailu
+      other: muut
     username: Käyttäjätunnus
     username_or_email: "Käyttäjätunnus tai sähköposti"
     what_is_this: "Mitä tämä tarkoittaa?"
@@ -1120,7 +1135,8 @@ fi:
       selected_rent: Vuokrataan
       selected_rent_out: "Annetaan vuokralle"
       selected_sell: Myydään
-      selected_trade: Vaihdetaan
+      selected_offer_to_swap: Vaihdetaan
+      selected_request_to_swap: Vaihdetaan
       selected_share_for_free: "Annetaan käyttöön ilmaiseksi"
       selected_accept_for_free: "Otetaan vastaan ilmaiseksi"
       how_do_you_want_to_share_it: "Millä tavalla haluat jakaa sen?"
@@ -1137,7 +1153,8 @@ fi:
       rent: "Haluan vuokrata sen"
       rent_out: "Annan sen vuokralle maksua vastaan"
       sell: "Myyn sen"
-      trade: "Haluan vaihtaa sen johonkin muuhun"
+      offer_to_swap: "Haluan vaihtaa sen johonkin muuhun"
+      request_to_swap: "Haluan vaihtaa sen johonkin muuhun"
       share_for_free: "Tarjoan sen käyttöön ilmaiseksi"
       accept_for_free: "Toivoisin saavani sen käyttöön ilmaiseksi"
       what_kind_of_item: "Millaisesta tavarasta on kyse?"
