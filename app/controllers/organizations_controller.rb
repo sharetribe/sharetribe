@@ -26,7 +26,7 @@ class OrganizationsController < ApplicationController
       redirect_to @organization
     else
       flash[:error] = @organization.errors.full_messages
-      render action: "new" 
+      redirect_to action: "new" 
     end
   end
   

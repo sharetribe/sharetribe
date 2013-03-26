@@ -5,7 +5,7 @@
   %h2
     = t('.join_community', :community => @current_community.name)
     
-  - unless session[:fb_join] || (@current_community.requires_organization_membership? && @current_user.organizations.count < 1)
+  - unless session[:fb_join] || (@current_community.requires_organization_membership?)
     %p
       = t('.you_are_not_a_member_of_this_community', :community => @current_community.name)
   %p
@@ -20,7 +20,7 @@
       - if session[:fb_join]
         = t('.welcome_fb_user', :name => @current_user.given_name_or_username)
         = t('.fb_join_accept_terms')
-      - elsif ! (@current_community.requires_organization_membership? && @current_user.organizations.count < 1)
+      - elsif ! (@current_community.requires_organization_membership?)
         = t('.you_can_join')
         
 
@@ -41,18 +41,16 @@
         = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20", :value => (params[:code] || "")
         
     - if @current_community.requires_organization_membership? 
-      - if @current_user.organizations.count != 1
-        %p
-          =t(".to_join_you_need_organization_membership")
-        - if Organization.count > 0
-          %select{name: "organization_id"}
-            %option{value: 0}= t(".please_select_your_organization")
-            - Organization.all.each do |org|
-              %option{value: org.id}= org.name
-        %p
-          = link_to t(".create_new_organization"), new_organization_path
-      - else
-        = hidden_field_tag :organization_id, @current_user.organizations.first.id
+      %p
+        =t(".to_join_you_need_organization_membership")
+      - if Organization.count > 0
+        %select{name: "organization_id"}
+          %option{value: 0}= t(".please_select_your_organization")
+          - Organization.all.each do |org|
+            %option{value: org.id}= org.name
+      %p
+        = link_to t(".create_new_organization"), new_organization_path
+
         
             
     - if @current_community.allowed_emails? && ! @current_user.has_valid_email_for_community?(@current_community)

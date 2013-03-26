@@ -2,5 +2,5 @@
   %h2
     = t(".create_new_organization")
   %p
-    = t(".instructions")
+    = t(".instructions").html_safe
   = render :partial => "form", :locals => { :function => :new }

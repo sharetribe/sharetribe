@@ -1,6 +1,32 @@
 fi:
+  community_memberships:
+    new:
+      to_join_you_need_organization_membership: "Jokaisen tähän yhteisöön liittyvän tulee edustaa jotain yritystä tai organisaatiota. Jos löydät omasi alla olevasta listasta, valitse se. Muussa tapauksessa voit lisätä oman organisaatiosi."
+      please_select_your_organization: "Valitse oma organisaatiosi tai luo uusi"
+      you_need_to_choose_an_organization: "Sinun täytyy valita organisaatiosi."
+      create_new_organization: "Lisää uusi yritys tai organisaatio järjestelmään"
+  organizations:
+    new:
+      create_new_organization: "Luo uusi organisaatio"
+      instructions: "Tallenna yrityksen tai yhteisön tiedot järjestelmään. Tässä yhteisössä luomasi ilmoitukset (esim. tavaran myymisestä) näkyvät ensisijaisesti luodun organisaation ilmoituksina. Jos kaipaat apua, <a href='/fi/user_feedbacks/new'>ota yhteyttä</a>."
+      organization_created: "Organisaatio luotu"
+    form:
+      new_organization_button_text: "Luo"
+      edit_organization_button_text: "Tallenna muutokset"
+      name: "Organisaation nimi"
+      allowed_emails: "Sallitut sähköpostipäätteet"
+      allowed_emails_instructions: "Voit määrittää millainen sähköpostiosoite käyttäjällä on oltava, jotta hän voisi liittyä tähän organisaatioon."
+      allowed_emails_example: "@esimerkkiyritys.fi, @esimerkkiyritys.com"
+      logo: "Logo"
+      merhcant_registration: "Organisaation rekisteröityminen myyjäksi"
+      merhcant_registration_instructions: "Jos haluat myydä tavaraa palvelussa ja mahdollistaa ostajille helpon verkkomaksamisen, rekisteröi organisaatiosi myyjäksi."
+      merhcant_registration_done: "Tämä organisaatio on rekisteröity myyjäksi."      
+      skip_merchant_registration: "ohita myyjäksi rekisteröityminen tässä vaiheessa"
+      register_as_merchant: "rekisteröi tämä organisaatio myyjäksi"
+      company_id: "Y-tunnus"
   listings:
     show:
       listing_added_by: "Ilmoituksen lisäsi"
       seller: "Myyjä"
       buyer: "Ostaja"
+    
