@@ -27,7 +27,7 @@ module Classification
   end
   
   def icon_string
-    Listing::LISTING_ICONS[name] || Listing::LISTING_ICONS["other"]
+    Listing::LISTING_ICONS[name] || (parent ? parent.icon_string : Listing::LISTING_ICONS["other"])
   end
   
   #returns a flattened array of all child objects, including self
