@@ -115,7 +115,7 @@ class Conversation < ActiveRecord::Base
   # If payment through Sharetribe is required to
   # complete the transaction, return true
   def requires_payment?(community)
-    community.payments_in_use?
+    community.payments_in_use? && listing && listing.price && status.eql?("accepted")
   end
 
 end

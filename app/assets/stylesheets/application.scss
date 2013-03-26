@@ -2860,25 +2860,25 @@ a.lightbox-x {
     
   }
   
-  .price-field {
-    max-width: lines(5);
-  }
-  
-  .currency-selector {
-    margin-left: lines(0.25);
-    display: inline;
-    @include big-type;
-  }
-  
-  .quantity-field {
-    max-width: lines(7);
-  }
-  
-  .quantity-description {
-    margin: 0 lines(0.25);
-    display: inline;
-  }
-  
+}
+
+.price-field {
+  max-width: lines(5);
+}
+
+.currency-selector {
+  margin-left: lines(0.25);
+  display: inline;
+  @include big-type;
+}
+
+.quantity-field {
+  max-width: lines(7);
+}
+
+.quantity-description {
+  margin: 0 lines(0.25);
+  display: inline;
 }
 
 /*
@@ -2949,6 +2949,10 @@ a.lightbox-x {
 
 .conversation-status-container {
   padding-bottom: lines(0.5);
+}
+
+.listed-conversation-status-padding {
+  padding-top: lines(0.25);
 }
 
 .conversation-status {
@@ -3441,3 +3445,32 @@ a.lightbox-x {
     padding: em(2) 0 em(6) lines(1.5);
   }
 }
+
+/*
+  ----------------------------------
+  Payments
+  ----------------------------------
+*/
+
+.payment-form {
+  
+  small {
+    margin-top: lines(0.5);
+  }
+  
+  .payment-form-label {
+    font-weight: bold;
+    display: inline-block;
+    width: lines(6);
+  }
+
+  .payment-form-field {
+    display: inline-block;
+  }
+  
+  .send-button {
+    padding-top: lines(0.25);
+  }
+  
+}
+

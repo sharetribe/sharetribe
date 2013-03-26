@@ -233,6 +233,7 @@ fi:
       offer_rejected: "Tarjous hylätty"
       offer_canceled: "Tarjous peruutettu"
       offer_confirmed: "Tarjous toteutunut"
+      pay: "Suorita maksu"
       request_accepted: "Pyyntö hyväksytty"
       request_rejected: "Pyyntö hylätty"
       request_confirmed: "Pyyntö toteutunut"
@@ -241,6 +242,7 @@ fi:
       waiting_for_listing_author_to_accept_offer: "Odottaa että %{listing_author_name} hyväksyy tarjouksen"
       waiting_for_listing_author_to_accept_request: "Odottaa että %{listing_author_name} hyväksyy pyynnön"
       waiting_confirmation_from_requester: "Odottaa että %{requester_name} merkitsee pyynnön toteutetuksi"
+      waiting_payment_from_requester: "Odottaa että %{requester_name} suorittaa maksun"
     status_link:
       accept_offer: "Hyväksy tarjous"
       accept_request: "Hyväksy pyyntö"
@@ -1226,6 +1228,13 @@ fi:
     member_id_is_your_username: "Sinun on annettava voimassaoleva Omakotiliiton jäsennumerosi, jotta voit liittyä tähän yhteisöön. Jäsennumero toimii myös käyttäjätunnuksenasi, kun kirjaudut %{service_name_illative}. Jos et ole vielä Omakotiliiton jäsen,"
     member_id_or_email: "Jäsennumero tai sähköposti"
     join_here: "liity tästä."
+  payments:
+    new:
+      new_payment: "Uusi maksu"
+      continue: "Jatka"
+      payment_receiver: "Maksun saaja:"
+      sum: "Summa:"
+      commission_will_be_added: "Hintaan lisätään palvelumaksu 10%."
   people:
     index:
       loading_more_members: "Ladataan lisää jäseniä"

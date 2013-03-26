@@ -235,6 +235,7 @@ en:
       offer_rejected: "Offer rejected"
       offer_canceled: "Offer canceled"
       offer_confirmed: "Offer completed"
+      pay: "Pay"
       request_accepted: "Request accepted"
       request_rejected: "Request rejected"
       request_confirmed: "Request completed"
@@ -243,6 +244,7 @@ en:
       waiting_for_listing_author_to_accept_offer: "Waiting for %{listing_author_name} to accept the offer"
       waiting_for_listing_author_to_accept_request: "Waiting for %{listing_author_name} to accept the request"
       waiting_confirmation_from_requester: "Waiting for %{requester_name} to mark the request as completed"
+      waiting_payment_from_requester: "Waiting for %{requester_name} to pay"
     status_link:
       accept_offer: "Accept offer"
       accept_request: "Accept request"
@@ -1256,7 +1258,13 @@ en:
     form:
       new_organization_button_text: "Create"
       edit_organization_button_text: "Save changes"
-
+  payments:
+    new:
+      new_payment: "New payment"
+      continue: "Continue"
+      payment_receiver: "Payment receiver:"
+      sum: "Payment sum:"
+      commission_will_be_added: "A service fee of 10% will be added."
   people:
     index:
       loading_more_members: "Loading more members"

@@ -14,9 +14,12 @@
         - if conversation.listing.offerer?(@current_user)
           .icon-with-text-container
             .ss-clock.icon-part
-            .text-part= t(".waiting_payment_from_requester")
+            .text-part= t(".waiting_payment_from_requester", :requester_name => conversation.requester.given_name_or_username)
         - else
-          = link_to "Pay", "#"
+          .status-links
+            %a{:href => new_person_message_payment_path(:person_id => @current_user.id, :message_id => conversation.id), :class => "status-link"}
+              .icon-with-text.ss-coins
+              .text-with-icon= t(".pay")
       - else
         - if conversation.listing.offerer?(@current_user)
           .icon-with-text-container

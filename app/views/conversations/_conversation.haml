@@ -23,6 +23,6 @@
             = link_to("\"#{truncate(last_message.content, :length => 100, :omission => "...")}\"", single_conversation_path(:conversation_type => action_name, :id => conversation.id))
       - unless conversation.status.eql?("free")
         %small
-          %div{:id => "conversation_#{conversation.id.to_s}_status"}
+          .listed-conversation-status-padding{:id => "conversation_#{conversation.id.to_s}_status"}
             = render :partial => "status", :locals => { :conversation => conversation }
       
