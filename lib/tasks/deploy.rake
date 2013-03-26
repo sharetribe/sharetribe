@@ -72,11 +72,6 @@ namespace :deploy do
     puts  `heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}`
   end
   
-  task :generate_custom_css => :environment do
-    puts 'Generating custom CSS for tribes who use it ...'
-    puts  `heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}`
-  end
-  
   task :tag do
     release_name = "#{APP}_release-#{Time.now.utc.strftime("%Y%m%d%H%M%S")}"
     puts "Tagging release as '#{release_name}'"
