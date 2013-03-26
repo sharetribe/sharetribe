@@ -1,52 +1,55 @@
 module CategoriesHelper
   
+  DEFAULT_CATEGORIES = [
+    {
+    "item" => [
+      "tools",
+      "sports",
+      "music",
+      "books",
+      "games",
+      "furniture",
+      "outdoors",
+      "food",
+      "electronics",
+      "pets",
+      "film",
+      "clothes",
+      "garden",
+      "travel",
+      "other"
+      ]
+    },
+    "favor",
+    "rideshare",
+    "housing" 
+  ]
+
+  DEFAULT_SHARE_TYPES = {
+    "offer" => {:categories => ["item", "favor", "rideshare", "housing"]},
+      "sell" => {:parent => "offer", :categories => ["item", "housing"]},
+      "rent_out" => {:parent => "offer", :categories => ["item", "housing"]},
+      "lend" => {:parent => "offer", :categories => ["item"]}, 
+      "offer_to_swap" => {:parent => "offer", :categories => ["item"]}, 
+      "give_away" => {:parent => "offer", :categories => ["item"]},
+      "share_for_free" => {:parent => "offer", :categories => ["housing"]},
+
+    "request" => {:categories => ["item", "favor", "rideshare", "housing"]}, 
+      "buy" => {:parent => "request", :categories => ["item", "housing"]},
+      "rent" => {:parent => "request", :categories => ["item", "housing"]},
+      "borrow" => {:parent => "request", :categories => ["item"]},
+      "request_to_swap" => {:parent => "request", :categories => ["item"]}, 
+      "receive" => {:parent => "request", :categories => ["item"]}, 
+      "accept_for_free" => {:parent => "request", :categories => ["housing"]}
+  }
+  
+  
   def self.load_default_categories_to_db
     
-    default_categories = [
-      {
-      "item" => [
-        "tools",
-        "sports",
-        "music",
-        "books",
-        "games",
-        "furniture",
-        "outdoors",
-        "food",
-        "electronics",
-        "pets",
-        "film",
-        "clothes",
-        "garden",
-        "travel",
-        "other"
-        ]
-      },
-      "favor",
-      "rideshare",
-      "housing" 
-    ]
-
-    default_share_types = {
-      "offer" => {:categories => ["item", "favor", "rideshare", "housing"]},
-        "sell" => {:parent => "offer", :categories => ["item", "housing"]},
-        "rent_out" => {:parent => "offer", :categories => ["item", "housing"]},
-        "lend" => {:parent => "offer", :categories => ["item"]}, 
-        "offer_to_swap" => {:parent => "offer", :categories => ["item"]}, 
-        "give_away" => {:parent => "offer", :categories => ["item"]},
-        "share_for_free" => {:parent => "offer", :categories => ["housing"]},
-
-      "request" => {:categories => ["item", "favor", "rideshare", "housing"]}, 
-        "buy" => {:parent => "request", :categories => ["item", "housing"]},
-        "rent" => {:parent => "request", :categories => ["item", "housing"]},
-        "borrow" => {:parent => "request", :categories => ["item"]},
-        "request_to_swap" => {:parent => "request", :categories => ["item"]}, 
-        "receive" => {:parent => "request", :categories => ["item"]}, 
-        "accept_for_free" => {:parent => "request", :categories => ["housing"]}
-    }
+    
 
 
-    default_categories.each do |category| 
+    DEFAULT_CATEGORIES.each do |category| 
       if category.class == String
         Category.create([{:name => category, :icon => category}]) unless Category.find_by_name(category)
       elsif category.class == Hash
@@ -63,7 +66,7 @@ module CategoriesHelper
       end
     end
 
-    default_share_types.each do |share_type, details|
+    DEFAULT_SHARE_TYPES.each do |share_type, details|
       parent = ShareType.find_by_name(details[:parent]) if details[:parent]
       s =  ShareType.find_by_name(share_type) || ShareType.create(:name => share_type, :icon => share_type, :parent => parent)
       details[:categories].each do |category_name|
@@ -95,7 +98,15 @@ module CategoriesHelper
       
     end
     
-    # Add custom price quantity placeholders
+    update_translations_for_category_descriptions
+    add_custom_price_quantity_placeholders
+  end
+
+  def update_translations_for_category_descriptions
+    
+  end
+  
+  def self.add_custom_price_quantity_placeholders
     sell = ShareType.find_by_name("sell")
     rent_out = ShareType.find_by_name("rent_out")
     item = Category.find_by_name("item")
