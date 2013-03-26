@@ -5,7 +5,7 @@
   - if params[:message_type]
     %h2= t(".send_message_to_user", :person => @target_person.given_name_or_username)
   - else
-    %h2= t(".#{transaction_proposal_form_title(@listing)}", :listing => link_to(@listing.title, @listing), :person => link_to(@target_person.given_name_or_username, @target_person), :default => t(".#{Listing.opposite_type(@listing.listing_type)}_message_form_title", :listing => link_to(@listing.title, @listing), :person => link_to(@target_person.given_name_or_username, @target_person)).html_safe).html_safe   
+    %h2= t(".#{transaction_proposal_form_title(@listing)}", :listing => link_to(@listing.title, @listing), :person => author_link(@listing), :default => t(".#{Listing.opposite_type(@listing.listing_type)}_message_form_title", :listing => link_to(@listing.title, @listing), :person => author_link(@listing)).html_safe).html_safe   
   %p
     = t(".this_message_is_private", :person => @target_person.given_name_or_username)
     - if params[:message_type]
