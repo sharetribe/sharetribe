@@ -4,13 +4,13 @@
 #task :deploy_staging => ['deploy:set_staging_app', 'deploy:push', 'deploy:restart', 'deploy:tag']
 #task :deploy_production => ['deploy:set_production_app', 'deploy:push', 'deploy:restart', 'deploy:tag']
 
-task :deploy_staging_migrations => ['deploy:set_staging_app', 'i18n:write_error_pages', 'deploy:update_webfonts_folder', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css' ]
-task :deploy_production_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css']
+task :deploy_staging_migrations => ['deploy:set_staging_app', 'i18n:write_error_pages', 'deploy:update_webfonts_folder', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css', 'update_translations_stored_in_db' ]
+task :deploy_production_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css', 'update_translations_stored_in_db']
 
-task :deploy_staging_without_migrations => ['deploy:set_staging_app', 'i18n:write_error_pages', 'deploy:update_webfonts_folder', 'deploy:push', 'deploy:generate_custom_css']
-task :deploy_production_without_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:generate_custom_css']
+task :deploy_staging_without_migrations => ['deploy:set_staging_app', 'i18n:write_error_pages', 'deploy:update_webfonts_folder', 'deploy:push', 'deploy:generate_custom_css', 'update_translations_stored_in_db']
+task :deploy_production_without_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:generate_custom_css', 'update_translations_stored_in_db']
 
-task :deploy_custom_migrations => ['deploy:set_staging_app', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css']
+task :deploy_custom_migrations => ['deploy:set_staging_app', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css', 'update_translations_stored_in_db']
 task :deploy_custom_quick => ['deploy:set_staging_app', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push']
 
 namespace :deploy do
@@ -70,6 +70,11 @@ namespace :deploy do
   task :generate_custom_css => :environment do
     puts 'Generating custom CSS for tribes who use it ...'
     puts  `heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}`
+  end
+  
+  task :update_translations_stored_in_db do
+    puts 'Updating the translations, which stored in the DB'
+    puts  `heroku run rake sharetribe:update_categorization_translations --app #{APP}`
   end
   
   task :tag do

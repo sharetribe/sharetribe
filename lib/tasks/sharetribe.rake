@@ -200,4 +200,9 @@ namespace :sharetribe do
   task :generate_customization_stylesheets => :environment do
     Community.generate_customization_stylesheets
   end
+  
+  desc "Updates the Category and ShareType translations in DB based on the normal translation files"
+  task :update_categorization_translations do
+    CategoriesHelper.update_translations
+  end
 end
