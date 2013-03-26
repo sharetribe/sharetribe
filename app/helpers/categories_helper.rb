@@ -46,9 +46,6 @@ module CategoriesHelper
   
   def self.load_default_categories_to_db
     
-    
-
-
     DEFAULT_CATEGORIES.each do |category| 
       if category.class == String
         Category.create([{:name => category, :icon => category}]) unless Category.find_by_name(category)
@@ -75,35 +72,60 @@ module CategoriesHelper
       end
     end
     
+    
+    
+    update_translations
+    add_custom_price_quantity_placeholders
+  end
+
+  def self.update_translations
     # Store translations for all that can be found from translation files
     Kassi::Application.config.AVAILABLE_LOCALES.each do |loc|
       locale = loc[1]
       Category.find_each do |category|
         begin 
-          translated_string = I18n.t!(category.name, :locale => locale, :scope => ["common", "categories"], :raise => true)
-          CategoryTranslation.create(:category => category, :locale => locale, :name => translated_string) unless CategoryTranslation.find_by_category_id_and_locale(category.id, locale)
+          translated_name = I18n.t!(category.name, :locale => locale, :scope => ["common", "categories"], :raise => true)
+          
+          begin 
+            translated_description = I18n.t!(category.name, :locale => locale, :scope => ["listings", "new"], :raise => true)
+          rescue
+            translated_description = nil #if description is nil, still continue to translate the name
+          end  
+          
+          existing_translation = CategoryTranslation.find_by_category_id_and_locale(category.id, locale)
+          if existing_translation
+            existing_translation.update_attribute(:name, translated_name)
+            existing_translation.update_attribute(:description, translated_description)
+          else
+            CategoryTranslation.create(:category => category, :locale => locale, :name => translated_name, :description => translated_description) 
+          end
         rescue I18n::MissingTranslationData
-          # just skip storing translation for this one
+          # no need to store anything if no translation found
         end
       end
       
       ShareType.find_each do |share_type|
         begin
-          translated_string = I18n.t!(share_type.name, :locale => locale, :scope => ["common", "share_types"], :raise => true)
-          ShareTypeTranslation.create(:share_type => share_type, :locale => locale, :name => translated_string) unless ShareTypeTranslation.find_by_share_type_id_and_locale(share_type.id, locale)
+          translated_name = I18n.t!(share_type.name, :locale => locale, :scope => ["common", "share_types"], :raise => true)
+          
+          begin 
+            translated_description = I18n.t!(share_type.name, :locale => locale, :scope => ["listings", "new"], :raise => true)
+          rescue
+            translated_description = nil #if description is nil, still continue to translate the name
+          end
+          existing_translation = ShareTypeTranslation.find_by_share_type_id_and_locale(share_type.id, locale)
+          if existing_translation
+            existing_translation.update_attribute(:name, translated_name)
+            existing_translation.update_attribute(:description, translated_description)
+          else
+            ShareTypeTranslation.create(:share_type => share_type, :locale => locale, :name => translated_name, :description => translated_description) 
+          end
         rescue I18n::MissingTranslationData
-          # just skip storing translation for this one
+          # no need to store anything if no translation found
         end
       end
       
     end
-    
-    update_translations_for_category_descriptions
-    add_custom_price_quantity_placeholders
-  end
-
-  def update_translations_for_category_descriptions
-    
   end
   
   def self.add_custom_price_quantity_placeholders

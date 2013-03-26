@@ -27,6 +27,6 @@
           - values.each do |value|
             %a.select.option{:href => "#", :name => value.name}
               .link-icon{:class => value.icon_string}
-              .link-text= t(".#{value.description}")
+              .link-text= value.description.capitalize
 
   .form-fields
