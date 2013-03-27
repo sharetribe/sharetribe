@@ -12,7 +12,7 @@ Given /^the terms of community "([^"]*)" are changed to "([^"]*)"$/ do |communit
   Community.find_by_domain(community).update_attribute(:consent, terms)
 end
 
-Then /^Most recently created user should be member of "([^"]*)" community with its latest consent accepted(?: with invitation code "([^"]*)")?$/ do |community_domain, invitation_code|
+Then /^Most recently created user should be member of "([^"]*)" community with(?: status "(.*?)" and)? its latest consent accepted(?: with invitation code "([^"]*)")?$/ do |community_domain, status, invitation_code|
     # Person.last seemed to return unreliable results for some reason
     # (kassi_testperson1 instead of the actual newest person, so changed
     # to look for the latest CommunityMembership)
@@ -20,7 +20,7 @@ Then /^Most recently created user should be member of "([^"]*)" community with i
     community = Community.find_by_domain(community_domain)
     CommunityMembership.last.community.should == community
     CommunityMembership.last.consent.should == community.consent
-    CommunityMembership.last.status.should == "accepted"
+    CommunityMembership.last.status.should == status || "accepted"
     CommunityMembership.last.invitation.code.should == invitation_code if invitation_code.present?
 end
 

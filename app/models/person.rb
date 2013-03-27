@@ -434,7 +434,7 @@ class Person < ActiveRecord::Base
     allowed = false
     
     #check primary email
-    allowed = true if community.email_allowed?(self.email)
+    allowed = true if community.email_allowed?(self.email) && confirmed_at.present?
     
     #check additional confirmed emails
     self.emails.select{|e| e.confirmed_at.present?}.each do |e|
@@ -460,11 +460,9 @@ class Person < ActiveRecord::Base
   # NOTE: The confirmation email needs to be sent separately
   def change_email(old_address, new_address)
     if old_address == email
-      update_attribute(:email, new_address)
-      update_attribute(:confirmed_at => nil)
+      update_attributes(:email => new_address, :confirmed_at => nil, :confirmation_token => Devise.friendly_token)
     elsif e = emails.where(:address => old_address).first
-      e.update_attribute(:address, new_address)
-      e.update_attribute(:confirmed_at, nil)
+      e.update_attributes(:address => new_address, :confirmed_at => nil, :confirmation_token => Devise.friendly_token)
     else
       raise "Tried to change email which this user doesn't have."
     end

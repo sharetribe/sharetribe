@@ -15,19 +15,19 @@ Feature: User joins an organization
     And I fill in "Family name" with "Namez"
     And I fill in "person_password1" with "test"
     And I fill in "Confirm password" with "test"
-    And I fill in "Email address" with random email
+    And I fill in "Email address" with "new.corporate.guy@example.com"
     And I check "person_terms"
     And I press "Create account"
-    Then I should see "You Need Organization Membership"
+    Then I should see "This community requires every member to represent an organization"
     
-    When I choose "Corporation Example"
-    Then I should see "You need email @example.com"
-    When I fill in "email address" with "richard@example.com"
-    And I press "Join Community"
+    When I select "Corporation Example" from "organization_id" 
+    #Then I should see "You need email @example.com"
+    #When I fill in "email address" with "richard@example.com"
+    And I press "Join community"
     Then I should see "Confirm your email"
     
-    #When wait for 1 seconds
-    Then I should receive 1 email
+    When wait for 1 seconds
+    Then "new.corporate.guy@example.com" should receive 1 email
     When I open the email
     And I click the first link in the email
     Then I should have 2 emails
@@ -54,6 +54,7 @@ Feature: User joins an organization
     And I press "Create"
     
     Then I should see "Join community"
+    When I select "My super corporation" from "organization_id" 
     When I check "community_membership_consent"
     And I press "Join community"
     

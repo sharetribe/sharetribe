@@ -7,22 +7,27 @@ class CommunityMembershipsController < ApplicationController
   skip_filter :dashboard_only
   skip_filter :single_community_only, :only => :create
   skip_filter :cannot_access_without_joining
+  skip_filter :check_email_confirmation, :only => [:new, :create]
   
   def new
     existing_membership = @current_user.community_memberships.where(:community_id => @current_community.id).first
-    if existing_membership && existing_membership.status == "accepted"
+    
+    if existing_membership && existing_membership.accepted?
       flash[:notice] = t("layouts.notifications.you_are_already_member")
       redirect_to root and return
-    elsif existing_membership && existing_membership.status == "pending_email_confirmation"
+    elsif existing_membership && existing_membership.pending_email_confirmation?
       redirect_to confirmation_pending_path and return
     end
     
+    @skip_terms_checkbox = true if existing_membership && existing_membership.current_terms_accepted?
     @community_membership = CommunityMembership.new
   end
   
   
   def create
-    @community_membership = CommunityMembership.new(params[:community_membership])
+    # if there already exists one, modify that (normally it's "pending_organization_membership")
+    existing = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
+    @community_membership = existing || CommunityMembership.new(params[:community_membership])
         
     if @current_community.join_with_invite_only? || params[:invitation_code]
       unless Invitation.code_usable?(params[:invitation_code], @current_community)
@@ -70,8 +75,15 @@ class CommunityMembershipsController < ApplicationController
         render :action => :new and return
       else
         @current_user.organizations << org unless org.has_member?(@current_user)
+        if @community_membership.pending_organization_membership?
+          if @current_user.has_valid_email_for_community?(@current_community)
+            @community_membership.status = "accepted" 
+          else
+            @current_user.send_email_confirmation_to(params[:community_membership][:email] || @current_user.pending_email(@current_community), request.host_with_port)
+            @community_membership.status = "pending_email_confirmation"
+          end 
+        end
       end
-      
     end
     
     @community_membership.invitation = invitation if invitation.present?

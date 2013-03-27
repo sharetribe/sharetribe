@@ -333,11 +333,11 @@ class Community < ActiveRecord::Base
     end
   end
   
-  # approves a pending membership if one is found
+  # approves a membership pending email if one is found
   # if email is given, only approves if email is allowed
   def approve_pending_membership(person, email_address=nil)
     membership = community_memberships.where(:person_id => person.id, :status => "pending_email_confirmation").first
-    if membership && email_address.nil? || email_allowed?(email_address) 
+    if membership && (email_address.nil? || email_allowed?(email_address)) 
       membership.update_attribute(:status, "accepted")
     end
   end
