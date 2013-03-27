@@ -81,7 +81,6 @@ class PersonMailer < ActionMailer::Base
   
   # Remind users of conversations that have not been accepted or rejected
   def confirm_reminder(conversation, community)
-    puts "Should receive"
     @email_type = "email_about_confirm_reminders"
     set_up_urls(conversation.requester, community, @email_type)
     @conversation = conversation

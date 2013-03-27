@@ -545,4 +545,20 @@ module ApplicationHelper
     listing.has_organization_in?(@current_community) ? listing.organization.name : link_to(listing.author.name, listing.author)
   end
   
+  # Determine when next reminder for a transaction-related activity should be sent
+  def self.prepare_transaction_reminder(conversation, intervals, actions)
+    intervals.each_with_index do |interval, index|
+      if actions[:number_of_reminders_sent] == index
+        if conversation.messages.last.created_at < interval.days.ago
+          actions[:run_at] = intervals[index + 1].days.from_now unless interval == intervals.last
+          actions[:send_reminder] = true
+        else
+          actions[:run_at] = interval.days.from_now - (Time.now - conversation.messages.last.created_at)
+        end
+      end
+    end
+    actions[:number_of_reminders_sent] += 1 if actions[:send_reminder]
+    return actions
+  end
+  
 end

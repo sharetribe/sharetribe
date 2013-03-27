@@ -27,7 +27,7 @@ Feature: User requests an item in item offer
     And I log in as "kassi_testperson1"
     And I follow "inbox-link"
     Then I should see "Accept"
-    When I follow "Item request: Hammer"
+    When I follow "conversation_title_link"
     Then I should see "Accept"
     When the system processes jobs
     Then "kassi_testperson1@example.com" should have 1 email
@@ -36,6 +36,8 @@ Feature: User requests an item in item offer
     Then "kassi_testperson1@example.com" should have 2 emails
     When I open the email with subject "Remember to accept or reject a request"
     Then I should see "You have not yet accepted or rejected the request" in the email body
+    When "4" days have passed
+    Then "kassi_testperson1@example.com" should have 2 emails
     When "8" days have passed
     And the system processes jobs
     Then "kassi_testperson1@example.com" should have 3 emails

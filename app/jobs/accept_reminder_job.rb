@@ -16,36 +16,21 @@ class AcceptReminderJob < Struct.new(:conversation_id, :community_id, :number_of
   def perform
     conversation = Conversation.find(conversation_id)
     community = Community.find(community_id)
-    send_reminder = false
-    nors = number_of_reminders_sent
+    
     if conversation.status.eql?("pending")
-      if nors < 1
-        if conversation.messages.last.created_at < 3.days.ago
-          run_at = 7.days.from_now
-          send_reminder = true
-          nors += 1
-        else
-          run_at = 3.days.from_now - (Time.now - conversation.messages.last.created_at)
-        end
-      else
-        if conversation.messages.last.created_at < 7.days.ago
-          send_reminder = true
-          nors += 1
-        else
-          run_at = 7.days.from_now - (Time.now - conversation.messages.last.created_at)
-        end
-      end
-      
-      if send_reminder
+      actions = ApplicationHelper.prepare_transaction_reminder conversation, [3,7], {:number_of_reminders_sent => number_of_reminders_sent }
+    
+      if actions[:send_reminder]
         recipient = conversation.other_party(conversation.messages.last.sender)
         if recipient.should_receive?("email_about_accept_reminders")
           PersonMailer.accept_reminder(conversation, recipient, community).deliver
         end
       end
-      
-      if run_at
-        Delayed::Job.enqueue(AcceptReminderJob.new(conversation.id, community.id, nors), :priority => 0, :run_at => run_at)
+
+      if actions[:run_at]
+        Delayed::Job.enqueue(AcceptReminderJob.new(conversation.id, community.id, actions[:number_of_reminders_sent]), :priority => 0, :run_at => actions[:run_at])
       end
+      
     end  
       
   end

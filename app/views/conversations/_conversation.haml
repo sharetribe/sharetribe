@@ -8,7 +8,7 @@
       .author
         = render :partial => "conversation_with", :locals => { :conversation => conversation, :other_party => other_party }
         = t("conversations.show.last_message_at", :time => time_ago(conversation.last_message_at))
-      %h2= link_to conversation.title, single_conversation_path(:conversation_type => action_name, :id => conversation.id)
+      %h2= link_to conversation.title, single_conversation_path(:conversation_type => action_name, :id => conversation.id), :id => "conversation_title_link"
       %small.feed-excerpt
         - if last_message.sender.eql?(@current_user)
           .ss-reply.conversation-icon

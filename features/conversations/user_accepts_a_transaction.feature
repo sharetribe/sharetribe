@@ -10,11 +10,11 @@ Feature: User accepts a transaction
       | kassi_testperson1 |
       | kassi_testperson2 |
     And there is favor request with title "Massage" from "kassi_testperson1"
-    And there is a message "I offer this" from "kassi_testperson2" about that listing
+    And there is a message "Massage offer" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
     And I should see "1" within ".inbox-toggle"
-    And I follow "Service offer: Massage"
+    And I follow "conversation_title_link"
     And I follow "Accept offer"
     And I fill in "conversation_message_attributes_content" with "Ok, sounds good!"
     And I press "Send message"
@@ -34,6 +34,9 @@ Feature: User accepts a transaction
     Then "kassi_testperson1@example.com" should receive an email
     When I open the email
     Then I should see "You have not yet confirmed" in the email body
+    When "16" days have passed
+    And the system processes jobs
+    Then "kassi_testperson1@example.com" should have 2 emails
     And return to current time
   
   @javascript
