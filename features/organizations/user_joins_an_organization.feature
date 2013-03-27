@@ -32,7 +32,8 @@ Feature: User joins an organization
     And I click the first link in the email
     Then I should have 2 emails
     And I should see "Your account was successfully confirmed"
-    # Check org membership
+    And I should see "Post a new listing"
+    And Most recently created user should be member of "test" community with status "accepted" and its latest consent accepted
   
   @javascript
   Scenario: user logs in and joins an organization that she creates
