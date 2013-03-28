@@ -16,11 +16,12 @@ Then /^Most recently created user should be member of "([^"]*)" community with(?
     # Person.last seemed to return unreliable results for some reason
     # (kassi_testperson1 instead of the actual newest person, so changed
     # to look for the latest CommunityMembership)
+    status ||= "accepted"
     
     community = Community.find_by_domain(community_domain)
     CommunityMembership.last.community.should == community
     CommunityMembership.last.consent.should == community.consent
-    CommunityMembership.last.status.should == status || "accepted"
+    CommunityMembership.last.status.should == status
     CommunityMembership.last.invitation.code.should == invitation_code if invitation_code.present?
 end
 

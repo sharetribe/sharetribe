@@ -3,6 +3,7 @@ Feature: User creates a new account
   As a person who does not have an account in Sharetribe
   I want to create a new account in Sharetribe
   
+  @javascript
   Scenario: Creating a new account successfully
     Given I am not logged in
     And I am on the signup page
@@ -53,6 +54,7 @@ Feature: User creates a new account
     And I press "Create account"
     Then I should see "Username is invalid." 
   
+  @javascript
   Scenario: Trying to create account with unavailable email
     Given I am not logged in
     And I am on the signup page
@@ -92,6 +94,7 @@ Feature: User creates a new account
     Then I should have 2 emails
     And I should see "Your account was successfully confirmed"
   
+  @javascript
   Scenario: Creating a new account without allowing to show real name
     Given I am not logged in
     And I can choose whether I want to show my username to others in community "test"
