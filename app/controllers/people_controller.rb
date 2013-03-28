@@ -48,6 +48,13 @@ class PeopleController < Devise::RegistrationsController
     @current_community ? domain = @current_community.full_url : domain = "#{request.protocol}#{request.host_with_port}"
     error_redirect_path = domain + sign_up_path
     
+    # special handling for communities that require organization membership
+    if @current_community && @current_community.requires_organization_membership?
+      @org_membership_required = true
+    else
+      @org_membership_required = false
+    end
+    
     if params[:person][:email_confirmation].present? # Honey pot for spammerbots
       flash[:error] = t("layouts.notifications.registration_considered_spam")
       ApplicationHelper.send_error_notification("Registration Honey Pot is hit.", "Honey pot")
@@ -111,14 +118,28 @@ class PeopleController < Devise::RegistrationsController
     # This part is copied from Devise's regstration_controller#create
     build_resource
     @person = resource
+    
+    
+    # don't send the confirmation email yet as he will need to join an organization too
+    @person.skip_confirmation! if @org_membership_required
+    
+    
     if @person.save!
       sign_in(resource_name, resource)
+    end
+    
+    # If confirmation email was skipped, devise marks the person as confirmed, which isn't actually true, so fix it
+    # We set confirmation_sent_at, because otherwise devise acts strangely
+    if @org_membership_required
+      @person.update_attributes(:confirmation_sent_at => Time.now, :confirmed_at => nil) 
     end
   
     @person.set_default_preferences
     # Make person a member of the current community
     if @current_community
-      membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent, :status => "accepted")
+      membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent)
+      membership.status = "pending_email_confirmation" if @current_community.email_confirmation?
+      membership.status = "pending_organization_membership" if @org_membership_required
       membership.invitation = invitation if invitation.present?
       membership.save!
       session[:invitation_code] = nil
@@ -136,6 +157,8 @@ class PeopleController < Devise::RegistrationsController
       session[:unconfirmed_email] = params[:person][:email]
       session[:allowed_email] = "@#{params[:person][:email].split('@')[1]}" if community_email_restricted?
       redirect_to domain + new_tribe_path
+    elsif @org_membership_required
+      redirect_to :controller => "community_memberships", :action => "new"
     elsif @current_community.email_confirmation
       flash[:notice] = t("layouts.notifications.account_creation_succesful_you_still_need_to_confirm_your_email")
       redirect_to :controller => "sessions", :action => "confirmation_pending"

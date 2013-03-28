@@ -1485,7 +1485,7 @@ fi:
       change_your_password: "Vaihda salasanasi"
     confirmation_pending:
       welcome_to_kassi: "Tervetuloa %{service_name_illative}!"
-      check_your_email: "Tarkista sähköpostisi"
+      check_your_email: "Tarkista sähköpostilaatikkosi (tarvittaessa myös roskapostikansio)"
       account_conrimation_instructions: "Saat pian varmistussähköpostin, jossa olevaa linkkiä klikkaamalla pääset sisään tähän %{service_name}-yhteisöön.</p><p>Tämän tarkistus tekee jakamisympäristöstä turvallisemman, sillä voit luottaa siihen, että tässä %{service_name}-yhteisössä (<b>%{community_name}</b>) on vain tänne kuuluvia jäseniä.</p><p>Jos %{service_name_genetive} käytössä tulee ongelmia, lähetä palautetta ylälaidan valikon kautta. Myös kehitysideat ovat hyvin tervetulleita!"
       account_confirmation_instructions_any_email: "Saat pian varmistussähköpostin, jossa olevaa linkkiä klikkaamalla pääset sisään tähän %{service_name}-yhteisöön.</p><p>Tarkistuksen tarkoituksena on tehdä yhteisöstä mahdollisimman luotettava ympäristö.</p><p>Jos %{service_name_genetive} käytössä tulee ongelmia, lähetä palautetta ylälaidan valikon kautta. Myös kehitysideat ovat hyvin tervetulleita!"
       get_started: "Alkuun pääseminen"

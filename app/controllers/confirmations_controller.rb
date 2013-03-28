@@ -74,6 +74,7 @@ class ConfirmationsController < Devise::ConfirmationsController
       if on_dashboard?
         redirect_to new_tribe_path
       else
+        @current_community.approve_pending_membership(@current_user, @current_user.email)
         PersonMailer.welcome_email(@current_user, @current_community).deliver
         respond_with_navigational(resource){ redirect_to after_confirmation_path_for(resource_name, resource) }
       end

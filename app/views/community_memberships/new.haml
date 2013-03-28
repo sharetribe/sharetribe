@@ -56,12 +56,13 @@
     - if @current_community.allowed_emails? && ! @current_user.has_valid_email_for_community?(@current_community)
       = form.label :email, t('people.new.email'), :class => "before_description"
       = form.text_field :email, :class => :text_field, :maxlenght => "255"
-     
-    .outer-checkbox-container
-      .checkbox-container
-        %input{:type => "checkbox", :id => "community_membership_consent", :name => "community_membership[consent]"}
-        = form.label :consent, t('people.new.i_accept_the'), :class => "checkbox"
-        = link_to t("people.new.terms"), "#", :tabindex => "-1", :id => "terms_link", :class => "form"
+    
+    - unless @skip_terms_checkbox 
+      .outer-checkbox-container
+        .checkbox-container
+          %input{:type => "checkbox", :id => "community_membership_consent", :name => "community_membership[consent]"}
+          = form.label :consent, t('people.new.i_accept_the'), :class => "checkbox"
+          = link_to t("people.new.terms"), "#", :tabindex => "-1", :id => "terms_link", :class => "form"
     = form.hidden_field :community_id, :value => @current_community.id
     = form.hidden_field :person_id, :value => @current_user.id
     = form.hidden_field :consent, :value => @current_community.consent

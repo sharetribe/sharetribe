@@ -2,6 +2,7 @@ class OrganizationsController < ApplicationController
 
   skip_filter :dashboard_only
   skip_filter :cannot_access_without_joining, :only => [:new, :create]
+  skip_filter :check_email_confirmation, :only => [:new, :create]
   
   before_filter :ensure_organization_admin, :except => [:new, :create]
   before_filter do |controller|
