@@ -127,6 +127,7 @@ fi:
       close_listing: "Sulje ilmoitus %{listing_title_link}"
       update_later: "Päivitä ilmoitus ajan tasalle myöhemmin"
       optional_message: "Vapaaehtoinen viesti"
+      price_to_pay: "Maksettava kokonaishinta"
     confirm:
       confirm_description: "Jos olet saanut pyytämäsi asian, voit merkitä pyynnön toteutuneeksi. Tämän jälkeen voit antaa toiselle osapuolelle palautetta."
       cancel_description: "Jos et saanut pyytämäsi asiaa, voit merkitä pyynnön peruuntuneeksi. Voit silti antaa toiselle osapuolelle palautetta ja kertoa miksi pyyntö ei tällä kertaa toteutunut."
@@ -860,6 +861,7 @@ fi:
       only_kassi_administrators_can_access_this_area: "Vain %{service_name_genetive} ylläpitäjillä on pääsy tähän sisältöön"
       only_listing_author_can_close_a_listing: "Vain ilmoituksen laatija voi sulkea ilmoituksen."
       only_listing_author_can_edit_a_listing: "Vain ilmoituksen laatija voi muokata ilmoitusta."
+      payment_successful: "Maksu suoritettu"
       password_recovery_sent: "Ohjeet salasanan vaihtamiseen on lähetetty sähköpostiisi."
       person_activated: "Käyttäjä aktivoitu"
       person_deactivated: "Käyttäjä muutettu epäaktiiviseksi"

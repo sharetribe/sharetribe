@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130326160252) do
+ActiveRecord::Schema.define(:version => 20130328155825) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -147,6 +147,7 @@ ActiveRecord::Schema.define(:version => 20130326160252) do
     t.datetime "updated_at",                                    :null => false
     t.boolean  "price",                      :default => false
     t.string   "price_quantity_placeholder"
+    t.boolean  "payment",                    :default => false
   end
 
   add_index "community_categories", ["community_id", "category_id"], :name => "community_categories"
@@ -431,6 +432,18 @@ ActiveRecord::Schema.define(:version => 20130326160252) do
 
   add_index "participations", ["conversation_id"], :name => "index_participations_on_conversation_id"
   add_index "participations", ["person_id"], :name => "index_participations_on_person_id"
+
+  create_table "payments", :force => true do |t|
+    t.string   "payer_id"
+    t.string   "recipient_id"
+    t.string   "organization_id"
+    t.integer  "conversation_id"
+    t.integer  "sum_cents"
+    t.string   "sum_currency"
+    t.string   "status"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "people", :id => false, :force => true do |t|
     t.string   "id",                                 :limit => 22,                   :null => false

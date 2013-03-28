@@ -129,6 +129,7 @@ en:
       close_listing: "Close the listing %{listing_title_link}"
       update_later: "Update the listing later"
       optional_message: "Optional message"
+      price_to_pay: "Total price to be paid"
     confirm:
       confirm_description: "If your request has been fulfilled you should confirm it as done. Then you can give feedback to the other party."
       cancel_description: "If your request was not fulfilled, you can mark it as 'not happened'. You can still give feedback to the other party and describe what happened."
@@ -850,6 +851,7 @@ en:
       only_kassi_administrators_can_access_this_area: "Only %{service_name} administrators can access this area"
       only_listing_author_can_close_a_listing: "Only listing author can close a listing"
       only_listing_author_can_edit_a_listing: "Only listing author can edit a listing"
+      payment_successful: "Payment successful"
       password_recovery_sent: "Instructions to change your password were sent to your email."
       person_activated: "User activated"
       person_deactivated: "User deactivated"

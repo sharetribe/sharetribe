@@ -5,14 +5,22 @@
       .payment-form-label
         = t(".payment_receiver")
       .payment-form-field
-        = link_to @conversation.other_party(@current_user).name, @conversation.other_party(@current_user)
-  = form_tag({ :action => :choose_method, :controller => :payments}, :method => "get", :id => "payment_form") do
+        = @payment.recipient_organization.name
+        
+        = "(#{link_to @conversation.other_party(@current_user).name, @conversation.other_party(@current_user)})".html_safe
+        
     .payment-form-field-container
       .payment-form-label
-        = label_tag "sum", t(".sum"), :class => "inline"
+        = t(".sum")
       .payment-form-field
-        = text_field_tag "sum", "", :value => money_without_cents(@conversation.listing.price), :class => "price-field"
-        = @conversation.listing.price.symbol
+        = money_without_cents(@payment.sum)
+        = @conversation.listing.price_symbol
+  = form_tag("https://payment.checkout.fi/", :method => "post", :id => "payment_form") do
+    .payment-form-field-container
+    
+      -# Include payment data as hidden fields. The MAC takes care people can't modify values before POST
+      - @payment_data.each do |key, value|
+        = hidden_field_tag key, value
     %small
       = t(".commission_will_be_added")
     .send-button

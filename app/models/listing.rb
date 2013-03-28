@@ -602,4 +602,9 @@ class Listing < ActiveRecord::Base
     category.icon_string
   end
   
+  # The price symbol based on this listing's price or community default, if no price set
+  def price_symbol
+    price ? price.symbol : MoneyRails.default_currency.symbol
+  end
+  
 end

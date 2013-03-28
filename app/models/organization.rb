@@ -34,4 +34,12 @@ class Organization < ActiveRecord::Base
   def has_member?(person)
     members.include?(person)
   end
+  
+  def merchant_id
+    "375917"
+  end
+  
+  def merchant_security_key
+    "SAIPPUAKAUPPIAS"
+  end
 end

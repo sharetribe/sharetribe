@@ -79,7 +79,13 @@ Kassi::Application.routes.draw do
               put :skip
             end  
           end
-          resources :payments
+          resources :payments do
+            member do
+              get :done
+            end
+            
+          end
+          
         end
         resource :settings do
           member do
