@@ -22,7 +22,7 @@ Then /^the status of the conversation should be "([^"]*)"$/ do |status|
   @conversation.status.should == status 
 end
 
-Given /^the (offer|request) is (accepted|rejected)$/ do |listing_type, status|
+Given /^the (offer|request) is (accepted|rejected|confirmed|canceled)$/ do |listing_type, status|
   @conversation.update_attribute(:status, status)
 end
 

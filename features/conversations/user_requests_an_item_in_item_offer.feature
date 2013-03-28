@@ -27,7 +27,7 @@ Feature: User requests an item in item offer
     And I log in as "kassi_testperson1"
     And I follow "inbox-link"
     Then I should see "Accept"
-    When I follow "conversation_title_link"
+    When I follow "conversation_title_link_1"
     Then I should see "Accept"
     When the system processes jobs
     Then "kassi_testperson1@example.com" should have 1 email

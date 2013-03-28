@@ -1,1 +1,24 @@
-Odota hetki...Kuvatiedosto on vääräntyyppinen. Sallitut tiedostomuodot: JPG, PNG ja GIF.Anna oikeantyyppinen luottokortin numero.Anna päivämäärä oikessa muodossa.Anna päivämäärä oikeassa muodossa (ISO).Tähän kenttään voit syöttää ainoastaan kirjaimia.Anna toimiva sähköpostiosoite.Antamasi arvot eivät täsmää.Arvo voi olla enintään {0}.Voit syöttää tähän kenttään maksimissaan {0} merkkiä.Arvon täytyy olla vähintään {0}.Syötä tähän kenttään vähintään {0} merkkiä.Annetun arvon pitää olla numero.Kentän arvon tulee olla välillä {0} ja {1}.Merkkimäärän tulee olla välillä {0} ja {1}.Kentän arvo on virheellinen.Tämä on pakollinen kenttä.Anna oikeanlainen URL-osoite.
+{
+	  "please_wait": "Odota hetki...",
+	  "validation_messages": {
+	    "accept": "Kuvatiedosto on vääräntyyppinen. Sallitut tiedostomuodot: JPG, PNG ja GIF.",
+	    "creditcard": "Anna oikeantyyppinen luottokortin numero.",
+      "date": "Anna päivämäärä oikessa muodossa.",
+	    "dateISO": "Anna päivämäärä oikeassa muodossa (ISO).",
+	    "digits": "Tähän kenttään voit syöttää ainoastaan kirjaimia.",
+	    "email": "Anna toimiva sähköpostiosoite.",
+	    "equalTo": "Antamasi arvot eivät täsmää.",
+	    "max": "Arvo voi olla enintään {0}.",
+	    "maxlength": "Voit syöttää tähän kenttään maksimissaan {0} merkkiä.",
+	    "min": "Arvon täytyy olla vähintään {0}.",
+	    "minlength": "Syötä tähän kenttään vähintään {0} merkkiä.",
+	    "number": "Annetun arvon pitää olla numero.",
+      "range": "Kentän arvon tulee olla välillä {0} ja {1}.",
+	    "rangelength": "Merkkimäärän tulee olla välillä {0} ja {1}.",
+	    "remote": "Kentän arvo on virheellinen.",
+	    "required": "Tämä on pakollinen kenttä.",
+	    "url": "Anna oikeanlainen URL-osoite."
+	  }
+}
+
+	

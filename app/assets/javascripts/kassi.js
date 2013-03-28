@@ -32,9 +32,7 @@ function add_validator_methods() {
         var emails = value.split(',');
         var re = new RegExp(/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,6})+)$/i);
         for (var i = 0; i < emails.length; i++) {
-          console.log(emails[i]);
           if (!re.test($.trim(emails[i]))) {
-            console.log(emails[i] + "was not ok?");
             return false; 
           } 
         }
@@ -101,6 +99,14 @@ function add_validator_methods() {
   			}
   			return true; 
   	 	}
+  	);
+  
+  $.validator.
+  	addMethod( "positive_integer", 
+  		function(value, element, param) {
+  			var n = ~~Number(value);
+        return String(n) === value && n >= 0;
+  		}
   	);
 
 }
@@ -304,7 +310,7 @@ function initialize_new_listing_form_selectors(locale, attribute_hash, listing_f
 }
 
 // Initialize the actual form fields
-function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_rideshare, is_offer, listing_id, address_validator) {
+function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_rideshare, is_offer, listing_id, address_validator_message, price_required, price_message) {
   $('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true, zIndex: 1000000}); });
 	$('input.title_text_field:first').focus();
 	
@@ -326,11 +332,21 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
 		rs = false;
 	}
 	
+	// Is price required?
+	var pr = null;
+	if (price_required == "true") {
+		pr = true;
+	} else {
+		pr = false;
+	}
+	
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
 			if (element.attr("name") == "listing[listing_images_attributes][0][image]")	{
 				error.appendTo(element.parent());
 			} else if (element.attr("name") == "listing[valid_until(1i)]") {
+				error.appendTo(element.parent());
+			} else if (element.attr("name") == "listing[price]") {
 				error.appendTo(element.parent());
 			} else {
 				error.insertAfter(element);
@@ -341,12 +357,14 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
 			"listing[title]": {required: true},
 			"listing[origin]": {required: rs, address_validator: true},
 			"listing[destination]": {required: rs, address_validator: true},
+			"listing[price]": {required: pr, positive_integer: true},
 			"listing[listing_images_attributes][0][image]": { accept: "(jpe?g|gif|png)" },
 			"listing[valid_until(1i)]": { min_date: is_rideshare, max_date: is_rideshare }
 		},
 		messages: {
 			"listing[valid_until(1i)]": { min_date: date_message, max_date: date_message },
-			"listing[origin]": { address_validator: "Ei osoitetta" }
+			"listing[origin]": { address_validator: "address_validator_message" },
+			"listing[price]": { positive_integer: price_message },
 		},
 		// Run validations only when submitting the form.
 		onkeyup: false,

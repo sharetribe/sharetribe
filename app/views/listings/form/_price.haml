@@ -1,16 +1,17 @@
 - cc = @current_community.community_category(@listing.category.top_level_parent, @listing.share_type)
-- if cc.price?
-  = form.label :price, t(".price")
-  = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0"
-  .currency-selector
-    - if @current_community.available_currencies
-      - currencies = @current_community.available_currencies.split(",")
-      - if currencies.size > 1
-        = form.select :price_currency, currencies, { :selected => (@listing.price_currency || currencies.first) }
+.price-container
+  - if cc.price?
+    = form.label :price, t(".price")
+    = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0"
+    .currency-selector
+      - if @current_community.available_currencies
+        - currencies = @current_community.available_currencies.split(",")
+        - if currencies.size > 1
+          = form.select :price_currency, currencies, { :selected => (@listing.price_currency || currencies.first) }
+        - else
+          = Money.new(1, currencies[0]).symbol
       - else
-        = Money.new(1, currencies[0]).symbol
-    - else
-      = form.select :price_currency, major_currencies(Money::Currency.table), { :selected => (@listing.price_currency || "EUR") }
-  - if cc.price_quantity_placeholder?
-    .quantity-description= t(".per")
-    = form.text_field :quantity, :class => "quantity-field", :placeholder => t(".#{cc.price_quantity_placeholder}")
+        = form.select :price_currency, major_currencies(Money::Currency.table), { :selected => (@listing.price_currency || "EUR") }
+    - if cc.price_quantity_placeholder?
+      .quantity-description= t(".per")
+      = form.text_field :quantity, :class => "quantity-field", :placeholder => t(".#{cc.price_quantity_placeholder}")

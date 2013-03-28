@@ -14,7 +14,7 @@ Feature: User accepts a transaction
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
     And I should see "1" within ".inbox-toggle"
-    And I follow "conversation_title_link"
+    And I follow "conversation_title_link_1"
     And I follow "Accept offer"
     And I fill in "conversation_message_attributes_content" with "Ok, sounds good!"
     And I press "Send message"

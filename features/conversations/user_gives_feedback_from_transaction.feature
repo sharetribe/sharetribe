@@ -11,7 +11,7 @@ Feature: User gives feedback from transaction
       | kassi_testperson2 |
     And there is favor request with title "Massage" from "kassi_testperson1"
     And there is a message "I offer this" from "kassi_testperson2" about that listing
-    And the offer is accepted
+    And the offer is confirmed
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
     And I follow "Give feedback"

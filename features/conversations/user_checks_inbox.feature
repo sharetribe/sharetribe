@@ -13,7 +13,7 @@ Feature: User checks inbox
     And there is a message "Test message" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
-    Then I should see "Service offer: Massage" within ".inbox-feed"
+    Then I should see "Massage" within ".inbox-feed"
     And I should see "Messages" within ".selected"
     And I should see "Notifications" within ".left-navi"
     And I should not see "Notifications" within ".selected"
@@ -29,8 +29,8 @@ Feature: User checks inbox
     And there is a message "Test message" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
-    And I follow "Service offer: Massage"
-    Then I should see "Service offer: Massage" within "h2"
+    And I follow "conversation_title_link_1"
+    Then I should see "Test message" within "h2"
 
   @javascript
   Scenario: Viewing received messages when there are multiple messages from different senders
@@ -53,12 +53,12 @@ Feature: User checks inbox
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
     Then I should see "Reply to massage"
-    And I should see "Service offer: Massage"
-    And I should not see "Another test"
+    And I should see "Massage"
+    And I should see "Another test"
     And I should see "great"
     And I should not see "Test1"
     And I should see "Test2"
-    And I should see "Rideshare request: Helsinki - Turku" 
+    And I should see "Helsinki - Turku" 
     And I should see "Fine"
     And I should see "3" within ".inbox-toggle"
     And I follow "Fine"
@@ -87,12 +87,12 @@ Feature: User checks inbox
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
     Then I should see "Ok"
-    And I should see "Service offer: Massage"
-    And I should not see "Another test"
+    And I should see "Massage"
+    And I should see "Another test"
     And I should not see "Test1"
     And I should see "Test2"
-    And I should see "Item request: Hammer"
-    And I should see "Rideshare request: Helsinki - Turku"
+    And I should see "Hammer"
+    And I should see "Helsinki - Turku"
     And I should see "Fine"
   
   @javascript
