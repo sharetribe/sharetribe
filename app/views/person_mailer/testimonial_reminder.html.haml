@@ -1,10 +1,10 @@
-- conversation_url = person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @participation.conversation.id.to_s}))
-- give_url = new_person_message_feedback_url(@url_params.merge({:person_id => @recipient.id, :message_id => @participation.conversation.id}))
+- conversation_url = person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @conversation.id.to_s}))
+- give_url = new_person_message_feedback_url(@url_params.merge({:person_id => @recipient.id, :message_id => @conversation.id}))
 
 %tr
   %td{:align => "left"} 
     %font{body_font}
-      = t("emails.testimonial_reminder.you_have_not_given_feedback_yet", :name => @other_party.name, :event => link_to(@participation.conversation.title, conversation_url, :style => body_link_style), :given_name => @other_party.given_name_or_username).html_safe
+      = t("emails.testimonial_reminder.you_have_not_given_feedback_yet", :name => @other_party.name, :event => link_to(@conversation.title, conversation_url, :style => body_link_style), :given_name => @other_party.given_name_or_username).html_safe
 
 %tr
   %td{:align => "left", :style => "padding-top: 15px"} 

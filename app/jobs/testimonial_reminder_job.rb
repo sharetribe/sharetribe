@@ -1,4 +1,4 @@
-class TestimonialReminderJob < Struct.new(:conversation_id, :host) 
+class TestimonialReminderJob < Struct.new(:conversation_id, :recipient_id, :community_id, :number_of_reminders_sent) 
   
   include DelayedAirbrakeNotification
   
@@ -13,12 +13,12 @@ class TestimonialReminderJob < Struct.new(:conversation_id, :host)
   def perform
     conversation = Conversation.find(conversation_id)
     community = Community.find(community_id)
-    if conversation.status.eql?("accepted") && !conversation.has_feedback_from_all_participants?
-      conversation.participants.each do |participant|
-        participation = Participation.find_by_person_id_and_conversation_id(participant.id, conversation.id)
-        participation.send_testimonial_reminder(host)
+    if conversation.status.eql?("confirmed") && !conversation.has_feedback_from_all_participants?
+      participation = Participation.find_by_person_id_and_conversation_id(recipient_id, conversation_id)
+      if participation.feedback_can_be_given?
+        participation.update_attribute(:is_read, false)
+        ApplicationHelper.transaction_reminder conversation, [3,7], number_of_reminders_sent, "testimonial", participation.person, community
       end
-      Delayed::Job.enqueue(TestimonialReminderJob.new(conversation.id, community), :priority => 0, :run_at => 1.month.from_now)
     end
   end
   

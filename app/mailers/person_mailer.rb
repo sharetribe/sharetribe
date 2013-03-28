@@ -73,14 +73,14 @@ class PersonMailer < ActionMailer::Base
   # Remind users of conversations that have not been accepted or rejected
   def accept_reminder(conversation, recipient, community)
     @email_type = "email_about_accept_reminders"
-    set_up_urls(recipient, community, @email_type)
+    set_up_urls(conversation.listing.author, community, @email_type)
     @conversation = conversation
     mail(:to => @recipient.email,
          :subject => t("emails.accept_reminder.remember_to_accept_#{@conversation.discussion_type}"))
   end
   
   # Remind users of conversations that have not been accepted or rejected
-  def confirm_reminder(conversation, community)
+  def confirm_reminder(conversation, recipient, community)
     @email_type = "email_about_confirm_reminders"
     set_up_urls(conversation.requester, community, @email_type)
     @conversation = conversation
@@ -89,11 +89,11 @@ class PersonMailer < ActionMailer::Base
   end
   
   # Remind users to give feedback
-  def testimonial_reminder(participation, community)
+  def testimonial_reminder(conversation, recipient, community)
     @email_type = "email_about_testimonial_reminders"
-    set_up_urls(participation.person, community, @email_type)
-    @participation = participation
-    @other_party = @participation.conversation.other_party(@participation.person)
+    set_up_urls(recipient, community, @email_type)
+    @conversation = conversation
+    @other_party = @conversation.other_party(@recipient)
     mail(:to => @recipient.email,
          :subject => t("emails.testimonial_reminder.remember_to_give_feedback_to", :name => @other_party.name))
   end

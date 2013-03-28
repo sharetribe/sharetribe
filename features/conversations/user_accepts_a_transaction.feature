@@ -37,6 +37,9 @@ Feature: User accepts a transaction
     When "16" days have passed
     And the system processes jobs
     Then "kassi_testperson1@example.com" should have 2 emails
+    When "100" days have passed
+    And the system processes jobs
+    Then "kassi_testperson1@example.com" should have 2 emails
     And return to current time
   
   @javascript
@@ -49,8 +52,7 @@ Feature: User accepts a transaction
     And there is a message "I request this" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
-    And I should see "1" within ".inbox-toggle"
-    And I should see "Service request: Massage" within ".unread"
+    Then I should see "1" within ".inbox-toggle"
     When I follow "Accept request"
     And I choose "Update the listing later"
     And I press "Send message"

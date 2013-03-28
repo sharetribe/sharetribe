@@ -435,9 +435,9 @@ fi:
       you_have_received_badges: "Olet saanut ansiomerkkejä!"
       you_have_received_badges_in_kassi: "Olet ansainnut uusia ansiomerkkejä. Voit nähdä saamasi merkit kirjautumalla %{service_name_illative} ja menemällä osoitteeseen"
     transaction_confirmed:
-      request_marked_as_completed: "Pyyntö merkitty toteutuneeksi - muistathan antaa palautetta"
+      request_marked_as_confirmed: "Pyyntö merkitty toteutuneeksi - muistathan antaa palautetta"
       request_marked_as_canceled: "Pyyntö peruttu"
-      has_marked_request_as_completed: "%{other_party_full_name} on merkinnyt pyynnön '%{request}' toteutuneeksi. Voit nyt antaa hänelle palautetta."
+      has_marked_request_as_confirmed: "%{other_party_full_name} on merkinnyt pyynnön '%{request}' toteutuneeksi. Voit nyt antaa hänelle palautetta."
       has_marked_request_as_canceled: "%{other_party_full_name} on ilmoittanut, että pyyntö '%{request}' ei toteutunut. Voit silti antaa hänelle palautetta."
       giving_feedback_is_good_idea: "Palautteen antaminen kannattaa aina. Jos kaikki meni hyvin, voit palautteen avulla kertoa muille jäsenille, että %{other_party_given_name} on luotettava. Jos vastaan tuli ongelmia, niistä kannattaa myös mainita."
       give_feedback_to: "Anna palautetta käyttäjälle %{other_party_given_name}"

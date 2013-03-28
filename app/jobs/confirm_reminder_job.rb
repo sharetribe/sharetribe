@@ -1,4 +1,4 @@
-class ConfirmReminderJob < Struct.new(:conversation_id, :community_id, :number_of_reminders_sent)
+class ConfirmReminderJob < Struct.new(:conversation_id, :recipient_id, :community_id, :number_of_reminders_sent)
   
   include DelayedAirbrakeNotification
   
@@ -13,21 +13,8 @@ class ConfirmReminderJob < Struct.new(:conversation_id, :community_id, :number_o
   def perform
     conversation = Conversation.find(conversation_id)
     community = Community.find(community_id)
-    
     if conversation.status.eql?("accepted")
-      actions = ApplicationHelper.prepare_transaction_reminder conversation, [7,14], {:number_of_reminders_sent => number_of_reminders_sent }
-    
-      if actions[:send_reminder]
-        recipient = conversation.other_party(conversation.messages.last.sender)
-        if recipient.should_receive?("email_about_confirm_reminders")
-          PersonMailer.confirm_reminder(conversation, community).deliver
-        end
-      end
-
-      if actions[:run_at]
-        Delayed::Job.enqueue(ConfirmReminderJob.new(conversation.id, community.id, actions[:number_of_reminders_sent]), :priority => 0, :run_at => actions[:run_at])
-      end
-      
+      ApplicationHelper.transaction_reminder conversation, [7,14], number_of_reminders_sent, "confirm", conversation.requester, community
     end
   end
   
