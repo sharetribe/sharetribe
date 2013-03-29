@@ -133,18 +133,32 @@ module CategoriesHelper
     rent_out = ShareType.find_by_name("rent_out")
     item = Category.find_by_name("item")
     housing = Category.find_by_name("housing")
+    buy =ShareType.find_by_name("buy")
+    rent = ShareType.find_by_name("rent")
     
     sell_item = CommunityCategory.where("category_id = ? AND share_type_id = ? AND community_id IS NULL", item.id.to_s, sell.id.to_s).first
-    sell_item.update_attribute(:price, true)
+    sell_item.update_attributes(:price => true, :payment => true)
     
     rent_out_item = CommunityCategory.where("category_id = ? AND share_type_id = ? AND community_id IS NULL", item.id.to_s, rent_out.id.to_s).first
-    rent_out_item.update_attributes(:price => true, :price_quantity_placeholder => "time")
+    rent_out_item.update_attributes(:price => true, :price_quantity_placeholder => "time", :payment => true)
+    
+    buy_item = CommunityCategory.where("category_id = ? AND share_type_id = ? AND community_id IS NULL", item.id.to_s, buy.id.to_s).first
+    buy_item.update_attributes(:payment => true)
+    
+    rent_item = CommunityCategory.where("category_id = ? AND share_type_id = ? AND community_id IS NULL", item.id.to_s, rent.id.to_s).first
+    rent_item.update_attributes(:payment => true)
     
     sell_housing = CommunityCategory.where("category_id = ? AND share_type_id = ? AND community_id IS NULL", housing.id.to_s, sell.id.to_s).first
-    sell_housing.update_attribute(:price, true)
+    sell_housing.update_attributes(:price => true, :payment => true)
     
     rent_out_housing = CommunityCategory.where("category_id = ? AND share_type_id = ? AND community_id IS NULL", housing.id.to_s, rent_out.id.to_s).first
-    rent_out_housing.update_attributes(:price => true, :price_quantity_placeholder => "long_time")
+    rent_out_housing.update_attributes(:price => true, :price_quantity_placeholder => "long_time", :payment => true)
+    
+    buy_housing = CommunityCategory.where("category_id = ? AND share_type_id = ? AND community_id IS NULL", housing.id.to_s, buy.id.to_s).first
+    buy_housing.update_attributes(:payment => true)
+    
+    rent_housing = CommunityCategory.where("category_id = ? AND share_type_id = ? AND community_id IS NULL", housing.id.to_s, rent.id.to_s).first
+    rent_housing.update_attributes(:payment => true)
     
   end
   

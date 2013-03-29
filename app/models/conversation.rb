@@ -6,8 +6,10 @@ class Conversation < ActiveRecord::Base
   
   has_many :participations, :dependent => :destroy
   has_many :participants, :through => :participations, :source => :person
+
+  has_one :payment
   
-  VALID_STATUSES = ["pending", "accepted", "rejected", "free", "confirmed", "canceled"]
+  VALID_STATUSES = ["pending", "accepted", "rejected", "payed", "free", "confirmed", "canceled"]
   
   validates_length_of :title, :in => 1..120, :allow_nil => false
   validates_inclusion_of :status, :in => VALID_STATUSES
@@ -23,6 +25,23 @@ class Conversation < ActiveRecord::Base
   # Creates a new message to the conversation
   def message_attributes=(attributes)
     messages.build(attributes)
+  end
+  
+  def payment_attributes=(attributes)
+    payment ||= Payment.new
+    payment.sum = attributes[:sum]
+    payment.sum_currency = "EUR"
+    payment.conversation = self
+    payment.status = "pending"
+    payment.payer = requester
+    payment.recipient = offerer
+    if listing.author == requester
+      raise "trying to create payment when multiple options for recipient_organization" if offerer.organizations.count > 1
+      payment.recipient_organization = offerer.organizations.first
+    else
+      payment.recipient_organization = listing.organization
+    end
+    payment.save!
   end
   
   # Sets the participants of the conversation
@@ -99,6 +118,11 @@ class Conversation < ActiveRecord::Base
     Delayed::Job.enqueue(TransactionConfirmedJob.new(id, current_user.id, current_community.id))
   end
   
+  def pay
+    # Should update and notify etc. stuff here
+    update_attribute(:status, "payed")
+  end
+  
   def has_feedback_from_all_participants?
     participations.each { |p| return false if p.feedback_can_be_given? }
     return true
@@ -115,7 +139,12 @@ class Conversation < ActiveRecord::Base
   # If payment through Sharetribe is required to
   # complete the transaction, return true
   def requires_payment?(community)
-    community.payments_in_use? && listing && listing.price && status.eql?("accepted")
+    listing && community.payment_possible_for?(listing) && status.eql?("accepted")
+  end
+  
+  # returns true if the next required action is the payment
+  def waiting_payment?
+    requires_payment? && status == "accepted"
   end
 
 end

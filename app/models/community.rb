@@ -475,6 +475,12 @@ class Community < ActiveRecord::Base
     CommunityCategory.where("category_id = ? AND share_type_id = ? AND (community_id IS NULL OR community_id = ?)", category.id.to_s, share_type.id.to_s, id.to_s).order("category_id DESC").first
   end
 
+  # is it possible to pay for this listing via the payment system
+  def payment_possible_for?(listing)
+    cc = community_category(listing.category, listing.share_type)
+    payments_in_use && (cc.price || cc.payment)
+  end
+
 
   private
   

@@ -12,11 +12,31 @@ class OrganizationsController < ApplicationController
   
   def new
     @organization = Organization.new
+    @organization.email = @current_user.email
+    @organization.phone_number = @current_user.phone_number
+    @organization.address = @current_user.street_address
   end
   
   def create
     @organization = Organization.new(params[:organization])
-    if params[:merchant_registration] == "register_as_merchant"
+    if @organization.merchant_registration == "true" && @organization.valid?
+      # Check if any params missing
+      if (@organization.email.blank? ||
+          @organization.phone_number.blank? || 
+          @organization.address.blank? || 
+          @organization.website.blank?)
+        flash[:error] = t("organizations.form.fill_in_all_details")
+        render action: "new" and return
+      end
+      # save details to the user too, if he doesn't have those filled yet
+      @current_user.phone_number ||= params[:phone_number]
+      unless @current_user.location
+        l = Location.new(:address => params[:address])
+        l.search_and_fill_latlng
+        l.save
+        @current_user.location = l
+      end
+      
       @organization.register_a_merchant_account
     end
 
@@ -24,10 +44,10 @@ class OrganizationsController < ApplicationController
       membership = OrganizationMembership.create!(:person_id => @current_user.id, :organization_id => @organization.id)
       membership.update_attribute(:admin, true)
       flash[:notice] = t("organizations.new.organization_created")
-      redirect_to @organization
+      redirect_to @organization and return
     else
       flash[:error] = @organization.errors.full_messages
-      redirect_to action: "new" 
+      render action: "new" and return
     end
   end
   

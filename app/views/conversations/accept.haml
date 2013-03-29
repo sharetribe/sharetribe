@@ -12,8 +12,15 @@
         %a.conversation-action.hidden{:id => "#{action}", :name => "#{action}-link", :class => (@action.eql?(action) ? action : "")}
           .link-icon{:class => icon_for("#{action}ed")}
           .link-text{:id => "#{action}-action-link"}= t(".#{action}_#{@conversation.discussion_type}")
-
+    
+    - if @current_community.payment_possible_for?(@conversation.listing)
+      = fields_for "conversation[payment_attributes]", Payment.new do |payment_form|
+        = payment_form.label :sum, t(".price_to_pay"), :class => "input"
+        = payment_form.text_field :sum, :value => money_without_cents(@conversation.listing.price), :class => "price-field"
+        = @conversation.listing.price_symbol 
+      
     = fields_for "conversation[message_attributes]", Message.new do |message_form|
+      = message_form.label :content, t("conversations.new.message"), :class => "input"
       = message_form.text_area :content, :class => "text_area", :placeholder => t(".optional_message")
       = message_form.hidden_field :sender_id, :value => @current_user.id
       = message_form.hidden_field :action, :value => @action

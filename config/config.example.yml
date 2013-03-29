@@ -171,6 +171,14 @@ default: &default_settings
   # you can show the maintenance page on every pageload by turning on the following
   show_maintenance_page: false
   
+  # If an integration to a merchant registration API is needed, fill the details here
+  # The mode needs to be "production" for real accounts and "test" for test accounts
+  # Other values result the API call being omitted and stub response used
+  # If you don't know what this means, just leave empty
+  merchant_api_user_id: 
+  merchant_api_password:
+  merchant_registration_mode:
+  
   # Below it is possible to specify different settings for different
   # environments. If you are not developing or testing Sharetribe, you 
   # don't need to change those
@@ -244,4 +252,7 @@ test:
     
   # easier to run tests without SSL
   always_use_ssl: false
+
+  # never create merchant accounts in tests
+  merchant_registration_mode: stub
 
