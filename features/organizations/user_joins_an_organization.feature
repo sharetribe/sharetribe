@@ -50,7 +50,9 @@ Feature: User joins an organization
     
     When I follow "Create new organization"
     Then I should see "Create new organization"
-    
+
+    When I press "Create"
+    Then I should see "This field is required"
     When I fill in "Name" with "My super corporation"
     And I press "Create"
     
@@ -61,5 +63,30 @@ Feature: User joins an organization
     
     Then I should see "Post a new listing"
   
-  
+  @javascript
+  Scenario: user logs in and creates organization with seller registration
+    Given community "test2" requires organization membership
+    When I move to community "test2"
+    And I am logged in as "kassi_testperson"
+    
+    When I follow "Create new organization"
+    Then I should see "Create new organization"
+    
+    When I fill in "Name" with "Seller corp"
+    And I choose "register_as_merchant"
+    And I press "Create"
+    Then I should see "You need to fill in all the details"
+    When I fill in "organization_company_id" with "1234567-8"
+    When I fill in "organization_phone_number" with "555-55555555"
+    When I fill in "organization_address" with "fancy road 13, 12345, Antarctica"
+    When I fill in "organization_website" with "http://www.example.com"
+    And I press "Create"
+        
+    Then I should see "Join community"
+    When I select "Seller corp" from "organization_id" 
+    When I check "community_membership_consent"
+    And I press "Join community"
+    
+    Then I should see "Post a new listing"
+    And Most recently created organization should have all seller attributes filled
   

@@ -46,7 +46,7 @@
       - if Organization.count > 0
         %select{name: "organization_id"}
           %option{value: 0}= t(".please_select_your_organization")
-          - Organization.all.each do |org|
+          - Organization.all.sort_by(&:name).each do |org|
             %option{value: org.id}= org.name
       %p
         = link_to t(".create_new_organization"), new_organization_path

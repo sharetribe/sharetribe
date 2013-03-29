@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_new_organization_form()
+  initialize_new_organization_form(#{@organization.merchant_registration.eql?("true")})
   
 = form_for @organization do |form|
   = form.label :name, t(".name"), :class => "input"
@@ -11,21 +11,36 @@
   = form.label :logo, t(".logo"), :class => "input"
   = form.file_field(:logo, :class => "file_field")
   
-  - if @organization.merchant_id
-    = t(".merhcant_registration_done")
+  
+  = form.label :merhcant_registration, t(".merhcant_registration")
+  %p= t(".merhcant_registration_instructions")
+  - if @organization.merchant_id.present?
+    %p
+      %b= t(".merhcant_registration_done")
   - else
-    = form.label :merhcant_registration, t(".merhcant_registration")
-    %p= t(".merhcant_registration_instructions")
+
     .merchant-registration-radio-buttons
       .checkbox-container
-        = radio_button_tag "merchant_registration", "skip_merchant_registration", true, :id => "skip_merchant_registration"
-        = label_tag "skip_merchant_registration", t(".skip_merchant_registration"), :class => "radio"
+        = form.radio_button :merchant_registration, "false", :checked => !@organization.merchant_registration.eql?("true"), :id => :skip_merchant_registration
+        = form.label :skip_merchant_registration, t(".skip_merchant_registration"), :class => "radio"
       .checkbox-container
-        = radio_button_tag "merchant_registration", "register_as_merchant", false, :id => "register_as_merchant"
-        = label_tag "register_as_merchant", t(".register_as_merchant"), :class => "radio"
+        = form.radio_button :merchant_registration, "true", :checked => @organization.merchant_registration.eql?("true"), :id => :register_as_merchant
+        = form.label :register_as_merchant, t(".register_as_merchant"), :class => "radio"
     
     #merchant_details
+      %p= t(".merhcant_registration_detailed_instructions")
       = form.label :company_id, t(".company_id"), :class => "input"
-      = form.text_field :company_id, :class => :text_field, :maxlenght => "10" 
+      = form.text_field :company_id, :class => :text_field, :maxlenght => "9"
+      = form.label :email, t(".email"), :class => "input"
+      = form.text_field :email, :class => :text_field
+      = form.label :phone_number, t(".phone_number"), :class => "input"
+      = form.text_field :phone_number, :class => :text_field, :maxlenght => "25"
+      = form.label :address, t(".organization_address"), :class => "input"
+      = form.text_field :address, :class => :text_field
+      = form.label :website, t(".organization_website"), :class => "input"
+      = form.text_field :website, :class => :text_field
+      
+            
+       
 
   = form.button t(".#{function}_organization_button_text"), :class => "send_button"
