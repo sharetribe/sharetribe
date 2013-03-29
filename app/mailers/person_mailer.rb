@@ -98,29 +98,23 @@ class PersonMailer < ActionMailer::Base
          :subject => t("emails.testimonial_reminder.remember_to_give_feedback_to", :name => @other_party.name))
   end
   
-  
-  
-  # Old format
-  
-  def new_comment_to_own_listing_notification(comment, host=nil)
-    @recipient = set_up_recipient(comment.listing.author, host)
-    @url = host ? "http://#{host}#{listing_path(:id => comment.listing.id.to_s, :locale => @recipient.locale)}##{comment.id.to_s}" : "test_url"
+  def new_comment_to_own_listing_notification(comment, community)
+    @email_type = "email_about_new_comments_to_own_listing"
+    set_up_urls(comment.listing.author, community, @email_type)
     @comment = comment
     mail(:to => @recipient.email,
-         :subject => t("emails.new_comment.you_have_a_new_comment", :author => comment.author.name))
+         :subject => t("emails.new_comment.you_have_a_new_comment", :author => @comment.author.name))
   end
   
-  def new_comment_to_followed_listing_notification(comment, recipient, host=nil)
-    @recipient = set_up_recipient(recipient, host)
-    @url = host ? "http://#{host}/#{listing_path(:id => comment.listing.id.to_s, :locale => @recipient.locale)}##{comment.id.to_s}" : "test_url"
+  def new_comment_to_followed_listing_notification(comment, recipient, community)
+    set_up_urls(recipient, community)
     @comment = comment
     mail(:to => @recipient.email,
-         :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => comment.author.name))
+         :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => @comment.author.name))
   end
   
-  def new_update_to_followed_listing_notification(listing, recipient, host=nil)
-    @recipient = set_up_recipient(recipient, host)
-    @url = host ? "http://#{host}#{listing_path(:id => listing.id.to_s, :locale => @recipient.locale)}" : "test_url"
+  def new_update_to_followed_listing_notification(listing, recipient, community)
+    set_up_urls(recipient, community)
     @listing = listing
     mail(:to => @recipient.email,
          :subject => t("emails.new_update_to_listing.listing_you_follow_has_been_updated"))

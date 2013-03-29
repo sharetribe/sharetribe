@@ -478,7 +478,7 @@ en:
     new_comment:
       has_commented_your_offer_in_kassi: "%{author} has commented on your offer %{listing}."
       has_commented_your_request_in_kassi: "%{author} has commented on your request %{listing}."
-      you_can_reply_to_comment_in: "You can view all the comments and reply to them at"
+      view_comment: "View comment"
       you_have_a_new_comment: "%{author} has commented on your listing in %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} has commented on a listing you follow in %{service_name}"
       has_commented_offer_you_follow_in_kassi: "%{author} has commented on the request '%{listing}' you are following in %{service_name}"
@@ -496,7 +496,7 @@ en:
       listing_you_follow_has_been_updated: "Listing you follow has been updated"
       has_updated_offer_you_follow_in_kassi: "%{author} has updated the request '%{listing}' you are following in %{service_name}"
       has_updated_request_you_follow_in_kassi: "%{author} has updated the offer '%{listing}' you are following in %{service_name}"
-      you_can_view_the_changes_in: "You can view the changes in"
+      view_changes: "View changes"
     community_updates:
       added_offer: "%{name_link} added an offer:"
       added_request: "%{name_link} added a request:"

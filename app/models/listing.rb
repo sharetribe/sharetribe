@@ -570,15 +570,15 @@ class Listing < ActiveRecord::Base
   # Send notifications to the users following this listing
   # when the listing is updated (update=true) or a
   # new comment to the listing is created.
-  def notify_followers(host, current_user, update)
+  def notify_followers(community, current_user, update)
     followers.each do |follower|
       unless follower.id == current_user.id
         if update
           Notification.create(:notifiable_id => self.id, :notifiable_type => "Listing", :receiver_id => follower.id, :description => "updated")
-          PersonMailer.new_update_to_followed_listing_notification(self, follower, host).deliver
+          PersonMailer.new_update_to_followed_listing_notification(self, follower, community).deliver
         else
           Notification.create(:notifiable_id => comments.last.id, :notifiable_type => "Comment", :receiver_id => follower.id, :description => "to_followed_listing")
-          PersonMailer.new_comment_to_followed_listing_notification(comments.last, follower, host).deliver
+          PersonMailer.new_comment_to_followed_listing_notification(comments.last, follower, community).deliver
         end
       end
     end

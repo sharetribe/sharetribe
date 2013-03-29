@@ -45,33 +45,6 @@ describe Listing do
     @listing.should_not be_valid
   end 
   
-  # THIS IS DISABLED AS NOW THIS TYPE OF VALIDITY DEPENDS ON THE COMMUNITY, AND THE LISTING COULD 
-  # BE VISIBLE IN COMMUNTIES THAT HAVE DIFFERENT RULES FOR MATCHING CATEGORIES AND SHARE TYPES
-  # it "is valid if category is one of the listed valid categories" do
-  #   Listing::VALID_CATEGORIES.reject { |c| c.eql?("rideshare") }.each do |category|
-  #     @listing.category = find_or_create_category(category) 
-  #     valid_with_share_types
-  #   end  
-  # end
-
-
-  # THIS IS DISABLED AS NOW THIS TYPE OF VALIDITY DEPENDS ON THE COMMUNITY, AND THE LISTING COULD 
-  # BE VISIBLE IN COMMUNTIES THAT HAVE DIFFERENT RULES FOR MATCHING CATEGORIES AND SHARE TYPES
-  # it "is only valid if the share type corresponds with the category" do
-  #   @listing.share_type = nil
-  #   @listing.should_not be_valid
-  #   Listing::VALID_CATEGORIES.each { |c| listing_is_valid_with_correct_share_type("offer", c) }
-  #   Listing::VALID_CATEGORIES.each { |c| listing_is_valid_with_correct_share_type("request", c) }
-  #   [
-  #     ["request", "item", "test"],
-  #     ["request", "favor", "borrow"],
-  #     ["request", "rideshare", "sell"],
-  #     ["request", "housing", "test"],
-  #     ["offer", "item", "test"],
-  #     ["offer", "housing", "test"]
-  #   ].each { |array| listing_is_not_valid_with_incorrect_share_type(array[0], array[1], array[2]) }
-  # end
-  
   it "should not be valid when valid until date is before current date" do
     @listing.valid_until = DateTime.now - 1.day - 1.minute
     @listing.should_not be_valid
@@ -163,7 +136,6 @@ describe Listing do
         other_listing.destination = "Simonkatu 4"
         @listing.destination = "helsinki"
         @listing.origin_and_destination_close_enough?(other_listing).should be_true
-        
       end
       
       it "should return true, when comparing listings with origin and destination exact same string, but not found on map." do
@@ -173,22 +145,8 @@ describe Listing do
         other_listing.destination = "Taikki"
         @listing.origin = "Otski"
         @listing.destination = "Taikki"
-        @listing.origin_and_destination_close_enough?(other_listing).should be_true
-        
+        @listing.origin_and_destination_close_enough?(other_listing).should be_true       
       end
-
-
-      # This is commented away now as it the feature is currently not used and it caused trouble in Travis CI
-      # it "should return true, when comparing listings with origin exactly same and destination close enough." do
-      #   other_listing = FactoryGirl.build(:listing)
-      #   other_listing.category = "rideshare"
-      #   other_listing.origin = "Skatta"
-      #   other_listing.destination = "simonkatu 4"
-      #   @listing.origin = "Skatta"
-      #   @listing.destination = "Helsinki"
-      #   @listing.origin_and_destination_close_enough?(other_listing).should be_true
-      #   
-      # end
       
       it "should return false when comparing places too far away (either destination or origin)" do
         sleep 1 # without this there might be too many requests going to gmaps API and it will respond "over quota limit".
@@ -199,16 +157,6 @@ describe Listing do
         @listing.destination = "Espoon keskus"
         @listing.origin_and_destination_close_enough?(other_listing).should be_false
       end
-
-      # Commented out as the feature is currently not in use and this didn't pass consistently
-      # it "returns true even with long distances if differences are small enough" do
-      #   other_listing = FactoryGirl.build(:listing)
-      #   other_listing.category = "rideshare"
-      #   other_listing.origin = "Lahti"
-      #   other_listing.destination = "Oulu"
-      #   @listing.destination = "Rovaniemi"
-      #   @listing.origin_and_destination_close_enough?(other_listing).should be_true
-      # end
       
       it "should handle location nicknames in Helsinki if journey planner in use" do
         other_listing = FactoryGirl.build(:listing)
@@ -282,31 +230,5 @@ describe Listing do
       end
     end
   end
-  
-  private
-  
-  # THIS IS DISABLED AS NOW THIS TYPE OF VALIDITY DEPENDS ON THE COMMUNITY, AND THE LISTING COULD 
-  # BE VISIBLE IN COMMUNTIES THAT HAVE DIFFERENT RULES FOR MATCHING CATEGORIES AND SHARE TYPES  
-  # def valid_with_share_types
-  #   if Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category.name]
-  #     Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category.name].each do |st|
-  #       @listing.share_type = find_or_create_share_type(st)
-  #       @listing.should be_valid
-  #     end
-  #   end  
-  # end
-  # 
-  # def listing_is_valid_with_correct_share_type(listing_type, category)
-  #   @listing.share_type = find_or_create_share_type(listing_type)
-  #   @listing.category = find_or_create_category(category)
-  #   valid_with_share_types
-  # end
-  # 
-  # def listing_is_not_valid_with_incorrect_share_type(listing_type, category, share_type)
-  #   @listing.share_type = find_or_create_share_type(listing_type)
-  #   @listing.category = find_or_create_category(category)
-  #   @listing.share_type = find_or_create_share_type(share_type)
-  #   @listing.should_not be_valid
-  # end
   
 end 

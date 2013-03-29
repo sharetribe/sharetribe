@@ -4,7 +4,6 @@ Feature: User edits his own listing
   I want to be able to edit the listing
 
   @javascript
-  @fix_for_new_design
   Scenario: User edits an item request
     Given there are following users:
       | person | 
@@ -42,22 +41,21 @@ Feature: User edits his own listing
     And I click ".user-menu-toggle"
     When I follow "Logout"
     And I log in as "kassi_testperson2"
-    #Then I should see "1" within "#logged_in_notifications_icon"
+    Then I should see "1" within "#notifications_link"
     #When I follow "notifications_link"
     #Then I should see "has updated a request you follow"
     #When I follow "a request you follow"
-    #And I follow "Stop following this listing"
-    # When I click ".user-menu-toggle"
-    # And I follow "Logout"
-    # And I log in as "kassi_testperson1"
-    # And I follow "Sledgehammer"
-    # And I follow "Edit request"
-    # And I press "Save request"
-    # And the system processes jobs
-    # And I click ".user-menu-toggle"
-    # And I follow "Logout"
-    # And I log in as "kassi_testperson2"
-    # Then I should not see "1" within "#logged_in_notifications_icon"
+    And I follow "Stop following this listing"
+    And I log out
+    And I log in as "kassi_testperson1"
+    And I follow "Sledgehammer"
+    And I follow "Edit request"
+    And I press "Save request"
+    And the system processes jobs
+    And I click ".user-menu-toggle"
+    And I follow "Logout"
+    And I log in as "kassi_testperson2"
+    # Then I should not see "1" within "#notifications_link"
   
   @javascript
   Scenario: Trying to update an item request with invalid information

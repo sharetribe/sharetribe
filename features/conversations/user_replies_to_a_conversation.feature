@@ -13,7 +13,7 @@ Feature: User replies to a conversation
     And there is a message "Test message" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
-    And I follow "Test message"
+    And I follow "conversation_title_link_1"
     And I fill in "Write a reply:" with "This is a reply"
     And I press "Send reply"
     Then I should see "This is a reply"
@@ -28,8 +28,7 @@ Feature: User replies to a conversation
     And there is a message "Test message" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
-    And I follow "Test message"
+    And I follow "conversation_title_link_1"
     And I press "Send reply"
     Then I should see "This field is required"
-    And I should not see "Test message"
   

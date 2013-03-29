@@ -67,7 +67,7 @@ When /^I get the badge "(.+)"$/ do |badge|
     And I should see badge "#{badge + '_medium'}"
     When I follow "notifications_link"
     Then I should see "You have earned the badge #{I18n.translate('people.profile_badge.' + badge)}!"
-    And I should not see "1" within "#logged_in_notifications_icon"
+    And I should not see "1" within "#notifications_link"
     And I go to the badges page of "kassi_testperson1"
   }
 end

@@ -486,7 +486,7 @@ fi:
     new_comment:
       has_commented_your_offer_in_kassi: "%{author} on kommentoinut tarjoustasi %{listing}"
       has_commented_your_request_in_kassi: "%{author} on kommentoinut pyyntöäsi %{listing}"
-      you_can_reply_to_comment_in: "Voit nähdä ilmoituksesi kommentit ja jättää uuden kommentin osoitteessa"
+      view_comment: "Näytä kommentti"
       you_have_a_new_comment: "%{author} on kommentoinut ilmoitustasi %{service_name_inessive}"
       listing_you_follow_has_a_new_comment: "%{author} on kommentoinut seuraamaasi ilmoitusta %{service_name_inessive}"
       has_commented_offer_you_follow_in_kassi: "%{author} on kommentoinut seuraamaasi pyyntöä %{listing}"
@@ -504,7 +504,7 @@ fi:
       listing_you_follow_has_been_updated: "Seuraamasi ilmoitus on päivittynyt"
       has_updated_offer_you_follow_in_kassi: "%{author} on päivittänyt seuraamasi pyynnön %{listing}"
       has_updated_request_you_follow_in_kassi: "%{author} on päivittänyt seuraamasi tarjouksen %{listing}"
-      you_can_view_the_changes_in: "Voit nähdä muutokset osoitteessa"
+      you_can_view_the_changes_in: "Näytä muutokset"
     community_updates:
       added_offer: "%{name_link} lisäsi tarjouksen:"
       added_request: "%{name_link} lisäsi pyynnön:"

@@ -11,10 +11,10 @@ Feature: User skips feedback
       | kassi_testperson2 |
     And there is favor request with title "Massage" from "kassi_testperson1"
     And there is a message "I offer this" from "kassi_testperson2" about that listing
-    And the offer is accepted
+    And the offer is confirmed
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
-    And I follow "Service offer: Massage"
+    And I follow "conversation_title_link_1"
     And I follow "Skip feedback"
     And I should see "Feedback skipped" within ".conversation-status"
     
@@ -26,7 +26,7 @@ Feature: User skips feedback
       | kassi_testperson2 |
     And there is favor request with title "Massage" from "kassi_testperson1"
     And there is a message "I offer this" from "kassi_testperson2" about that listing
-    And the offer is accepted
+    And the offer is confirmed
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
     And I follow "Skip feedback"

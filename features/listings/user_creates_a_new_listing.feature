@@ -225,4 +225,22 @@ Feature: User creates a new listing
     When I follow "Lost"
     Then I should see "Listing title*"
     And add default categories back
-    
+  
+  @javascript
+  Scenario: User creates a new listing with price
+    Given I am logged in
+    And I am on the home page
+    When I follow "Post a new listing!"
+    And I follow "I have something to offer to others"
+    And I follow "An item"
+    And I follow "Tools" within "#option-groups"
+    And I follow "I'm selling it"
+    And I fill in "listing_title" with "Sledgehammer"
+    And I press "Save offer"
+    Then I should see "This field is required."
+    When I fill in "listing_price" with "dsfsdf"
+    And I press "Save offer"
+    Then I should see "Price must be a whole number."
+    When I fill in "listing_price" with "20"
+    And I press "Save offer"
+    Then I should see "Sledgehammer" within ".item-description"

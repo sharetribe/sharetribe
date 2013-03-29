@@ -35,7 +35,6 @@ Feature: User views homepage
     And I should not see "offer item"
   
   @javascript
-  @fix_for_new_design
   Scenario: User browses homepage with requests with visibility settings
      Given there are following users:
        | person | 
@@ -50,7 +49,7 @@ Feature: User views homepage
      And I should not see "car spare parts"
      And I should see "massage"
      And I should not see "place to live"
-     And I should see "There are 3 open listings in this community. 2 of them are visible only to the members of the community. If you want to see those listings, you need to log in."
+     And I should see "There are 3 open listings in this community. 2 of them are visible only to the members of the community. If you want to see also the listings that are visible only to the members, you need to log in."
      When I log in as "kassi_testperson1"
      Then I should see "car spare parts"
      And I should see "massage"
@@ -81,27 +80,20 @@ Feature: User views homepage
     And I should see "saw"
   
   @javascript
-  @fix_for_new_design
   Scenario: User browses homepage when there is no content
     Given there are following users:
        | person | 
        | kassi_testperson1 |
     When I am on the homepage
-    #Then I should see "No item, service or rideshare requests visible to non-logged-in users."
     When I log in as "kassi_testperson2"
-    #Then I should see "No open item, service or rideshare requests."
-    #And I should see "No open item, service or rideshare offers."
     When there is item request with title "car spare parts" from "kassi_testperson1" and with share type "buy"
     And I am on the homepage
-    #Then I should not see "No open item, service or rideshare requests."
-    #And I should see "No open item, service or rideshare offers."
     When there is item offer with title "car spare parts" from "kassi_testperson1" and with share type "sell"
     And I am on the homepage
     Then I should not see "No open item, service or rideshare requests."
     And I should not see "No open item, service or rideshare offers."
   
   @javascript
-  @fix_for_new_design
   Scenario: User browses homepage when there are only private listings. He should see blank slates
      Given there are following users:
        | person | 
@@ -113,15 +105,14 @@ Feature: User views homepage
      And I am on the home page page
      And I should not see "car spare parts"
      And I should not see "place to live"
-     And I should see "There are 2 open listings in this community. 2 of them are visible only to the members of the community. If you want to see those listings, you need to log in."
+     And I should see "There are 2 open listings in this community. 2 of them are visible only to the members of the community. If you want to see also the listings that are visible only to the members, you need to log in."
      When there is item request with title "bike parts" from "kassi_testperson2" and with share type "buy"
      And privacy of that listing is "private"
      And I am on the homepage
      Then I should not see "bike parts"
-     And I should see "There are 3 open listings in this community. 3 of them are visible only to the members of the community. If you want to see those listings, you need to log in."
+     And I should see "There are 3 open listings in this community. 3 of them are visible only to the members of the community. If you want to see also the listings that are visible only to the members, you need to log in."
   
   @javascript
-  @fix_for_new_design
   Scenario: User views event feed
     Given there are following users:
       | person | 

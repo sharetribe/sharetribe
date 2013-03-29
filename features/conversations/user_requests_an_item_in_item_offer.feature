@@ -73,7 +73,7 @@ Feature: User requests an item in item offer
     Then I should see "You must log in to Sharetribe to send a message to another user." within ".flash-notifications"
     And I should see "Log in to Sharetribe" within "h2"
     When I log in as "kassi_testperson2"
-    Then I should see "Request Hammer from"
+    Then I should see "This message is private"
   
   @javascript  
   Scenario: Trying to request an item without logging in and then logging in as the item owner
