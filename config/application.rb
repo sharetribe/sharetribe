@@ -134,6 +134,7 @@ module Kassi
     
     config.to_prepare do
       Devise::Mailer.layout "email" # email.haml or email.erb
+      Devise::Mailer.helper :email_template
     end
 
   end
