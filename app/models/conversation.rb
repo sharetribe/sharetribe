@@ -143,8 +143,8 @@ class Conversation < ActiveRecord::Base
   end
   
   # returns true if the next required action is the payment
-  def waiting_payment?
-    requires_payment? && status == "accepted"
+  def waiting_payment?(community)
+    requires_payment?(community) && status == "accepted"
   end
 
 end

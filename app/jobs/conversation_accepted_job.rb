@@ -18,7 +18,7 @@ class ConversationAcceptedJob < Struct.new(:conversation_id, :current_user_id, :
       PersonMailer.conversation_status_changed(conversation, community).deliver
     end
     if conversation.status.eql?("accepted")
-      if conversation.waiting_payment?
+      if conversation.waiting_payment?(community)
         # set payment reminders here
       else
         Delayed::Job.enqueue(ConfirmReminderJob.new(conversation.id, conversation.requester.id, community_id, 0), :priority => 0, :run_at => 1.week.from_now)

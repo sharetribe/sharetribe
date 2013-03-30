@@ -477,7 +477,7 @@ class Community < ActiveRecord::Base
 
   # is it possible to pay for this listing via the payment system
   def payment_possible_for?(listing)
-    cc = community_category(listing.category, listing.share_type)
+    cc = community_category(listing.category.top_level_parent, listing.share_type)
     payments_in_use && (cc.price || cc.payment)
   end
 

@@ -482,18 +482,6 @@ class PersonMailer < ActionMailer::Base
     end
   end
   
-  def set_up_recipient(recipient, host=nil, ref="email")
-    @url_params = {}
-    @url_params[:host] = (@current_community ? "#{@current_community.full_domain}" : host)
-    @url_params[:auth] = recipient.new_email_auth_token
-    @url_params[:locale] = recipient.locale
-    @url_params[:ref] = ref
-        
-    @settings_url = @url_params[:host] ? notifications_person_settings_url(@url_params.merge(:person_id => recipient.id, :locale => recipient.locale)) : "test_url"
-    set_locale recipient.locale
-    recipient
-  end
-  
   # selects a set of listings to include in the community updates email
   def select_listings_to_show(requests, offers, recipient)
     selected = []
