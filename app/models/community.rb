@@ -4,7 +4,7 @@ class Community < ActiveRecord::Base
   require 'sass/plugin'
 
   has_many :community_memberships, :dependent => :destroy 
-  has_many :members, :through => :community_memberships, :conditions => ['status = ?', 'accepted'], :source => :person
+  has_many :members, :through => :community_memberships, :conditions => ['community_memberships.status = ?', 'accepted'], :source => :person
   has_many :invitations, :dependent => :destroy
   has_many :news_items, :dependent => :destroy
   has_many :polls, :dependent => :destroy

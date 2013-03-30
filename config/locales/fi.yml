@@ -446,7 +446,8 @@ fi:
     confirmation_instructions:
       confirmation_instructions_signature: "Terveisin,<br/>%{service_name}-tiimi"
       welcome_to_kassi: "Tervetuloa %{service_name_illative}!"
-      need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla alla olevaa linkkiä:"
+      need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla alla olevaa linkkiä"
+      or_paste_link: "Vaihtoehtoisesti voit kopioida seuraavan selaimesi osoitepalkkiin:"
       confirmation_link_text: "Varmista tunnukseni"
       turning_on_confirmations_in_this_community: "Otamme käyttöön sähköpostivarmistukset tässä %{service_name}-yhteisössä."
     common:

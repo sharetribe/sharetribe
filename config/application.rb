@@ -131,6 +131,10 @@ module Kassi
       config.logger = Logger.new(STDOUT)
       config.logger.level = Logger.const_get(ENV['LOG_LEVEL'] ? ENV['LOG_LEVEL'].upcase : 'INFO')
     end
+    
+    config.to_prepare do
+      Devise::Mailer.layout "email" # email.haml or email.erb
+    end
 
   end
 end

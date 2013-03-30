@@ -15,10 +15,15 @@
 
 %p
   = t("emails.confirmation_instructions.need_to_confirm")
-%p
-  = link_to link, link
 
-%p
-  = t("emails.common.thanks")
-  %br/
-  = t("emails.common.kassi_team")
+= render :partial => "person_mailer/action_button", :locals => { :text => t("emails.confirmation_instructions.confirmation_link_text"), :url => link }
+
+%tr
+  %td{:align => "left", :style => "padding-bottom: 15px;"} 
+    %font{body_font}
+      = t("emails.confirmation_instructions.or_paste_link")
+
+%tr
+  %td{:align => "left", :style => "padding-bottom: 25px;"} 
+    %font{body_font}
+      = link

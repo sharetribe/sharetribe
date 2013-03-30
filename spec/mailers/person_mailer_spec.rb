@@ -13,6 +13,7 @@ describe PersonMailer do
     @test_person2.locale = "en"
     @test_person2.save
     @cookie = (@session.present? ? @session.cookie : nil)
+    @community = FactoryGirl.create(:community)
   end   
 
   it "should send email about a new message" do
@@ -21,7 +22,7 @@ describe PersonMailer do
     @message = FactoryGirl.create(:message)
     @message.conversation = @conversation
     @message.save
-    email = PersonMailer.new_message_notification(@message).deliver
+    email = PersonMailer.new_message_notification(@message, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [@test_person2.email], email.to 
     assert_equal "You have a new message in Sharetribe", email.subject
@@ -31,7 +32,7 @@ describe PersonMailer do
     @comment = FactoryGirl.create(:comment)
     @comment.author.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @cookie)
     recipient = @comment.listing.author
-    email = PersonMailer.new_comment_to_own_listing_notification(@comment).deliver
+    email = PersonMailer.new_comment_to_own_listing_notification(@comment, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [recipient.email], email.to unless recipient.email.nil? 
     assert_equal "Teppo Testaaja has commented on your listing in Sharetribe", email.subject
@@ -43,13 +44,13 @@ describe PersonMailer do
     @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @cookie)
     
     @conversation.update_attribute(:status, "accepted")
-    email = PersonMailer.conversation_status_changed(@conversation).deliver
+    email = PersonMailer.conversation_status_changed(@conversation, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [@test_person2.email], email.to
     assert_equal "Your request was accepted", email.subject
     
     @conversation.update_attribute(:status, "rejected")
-    email = PersonMailer.conversation_status_changed(@conversation).deliver
+    email = PersonMailer.conversation_status_changed(@conversation, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [@test_person2.email], email.to
     assert_equal "Your request was rejected", email.subject
@@ -57,7 +58,7 @@ describe PersonMailer do
   
   it "should send email about a new badge" do
     @badge = FactoryGirl.create(:badge)
-    email = PersonMailer.new_badge(@badge).deliver
+    email = PersonMailer.new_badge(@badge, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [@badge.person.email], email.to unless @badge.person.email.nil? 
     assert_equal "You have achieved a badge 'Rookie' in Sharetribe!", email.subject
@@ -71,7 +72,7 @@ describe PersonMailer do
     @conversation.update_attribute(:status, "accepted")
     @participation = Participation.find_by_person_id_and_conversation_id(@test_person.id, @conversation.id)
     @testimonial = Testimonial.new(:grade => 0.75, :text => "Yeah", :author => @test_person, :receiver => @test_person2, :participation_id => @participation.id)
-    email = PersonMailer.new_testimonial(@testimonial).deliver
+    email = PersonMailer.new_testimonial(@testimonial, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [@test_person2.email], email.to
     assert_equal "Teppo Testaaja has given you feedback in Sharetribe", email.subject
@@ -86,7 +87,7 @@ describe PersonMailer do
     @conversation.participants << @test_person2 
     @conversation.update_attribute(:status, "accepted")
     @participation = Participation.find_by_person_id_and_conversation_id(@test_person2.id, @conversation.id)
-    email = PersonMailer.testimonial_reminder(@participation).deliver
+    email = PersonMailer.testimonial_reminder(@conversation, @test_person2, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [@test_person2.email], email.to 
     assert_equal "Reminder: remember to give feedback to Teppo Testaaja", email.subject
@@ -108,13 +109,6 @@ describe PersonMailer do
     email = PersonMailer.new_feedback(@feedback, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [APP_CONFIG.feedback_mailer_recipients, @test_person.email], email.to
-  end
-  
-  it "should send email to admins of new contact request" do
-    @contact_request = FactoryGirl.create(:contact_request)
-    email = PersonMailer.contact_request_notification(@contact_request).deliver
-    assert !ActionMailer::Base.deliveries.empty?
-    assert_equal APP_CONFIG.feedback_mailer_recipients.split(", "), email.to
   end
   
   it "should send email to community admins of new member if wanted" do
