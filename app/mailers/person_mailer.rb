@@ -336,7 +336,9 @@ class PersonMailer < ActionMailer::Base
     # disable escaping since this is currently always coming from trusted source.
     @mail_content = @mail_content.html_safe
     
-    mail(:to => @recipient.email, :subject => @subject)
+    mail(:to => @recipient.email, :subject => @subject) do |format|
+      format.text { render :layout => false }
+    end
   end
   
   def self.deliver_old_style_community_updates

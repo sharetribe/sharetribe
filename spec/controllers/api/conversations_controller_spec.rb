@@ -73,7 +73,7 @@ describe Api::ConversationsController do
       #puts response.body
       #puts resp.to_yaml
       #check that title is done automatically
-      resp["title"].should == "Item request: Sledgehammer"
+      resp["title"].should == "Sledgehammer"
       resp["messages"].count.should == 1
       resp["messages"][0]["content"].should == "This will be the first message of the conversation"
       resp["messages"][0]["sender_id"].should == @p1.id

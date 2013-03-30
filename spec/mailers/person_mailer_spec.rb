@@ -299,7 +299,7 @@ describe PersonMailer do
       message = <<-MESSAGE
         New stuff in the service.
         
-        Got check it out at http://example.com!
+        Go check it out at http://example.com!
       MESSAGE
       
       people = [@test_person, @test_person2]
