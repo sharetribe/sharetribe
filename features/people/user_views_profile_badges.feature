@@ -12,8 +12,7 @@ Feature: User views profile badges
     When I click ".user-menu-toggle"
     When I follow "Profile"
     Then I should not see "Badges"
-  
-  @fix_for_new_design
+
   @javascript
   Scenario: User has rookie badge
     Given there are following users:
@@ -23,6 +22,7 @@ Feature: User views profile badges
     When I follow "Post a new listing!"
     And I follow "need something"
     And I follow "An item"
+    And I follow "Tools"
     And I follow "borrow it"
     And I fill in "listing_title" with "Hammer"
     And I press "Save request"
@@ -46,7 +46,7 @@ Feature: User views profile badges
        | kassi_testperson2 |
     And there is item request with title "hammer" from "kassi_testperson1" and with share type "borrow"
     And there is a message "I offer this" from "kassi_testperson2" about that listing
-    And the offer is accepted
+    And the offer is confirmed
     And I am logged in as "kassi_testperson2"
     When I follow "inbox-link"
     And I follow "Give feedback"

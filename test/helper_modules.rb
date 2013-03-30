@@ -3,19 +3,24 @@
 module TestHelpers
   
   def create_listing(category, share_type)
-    listing_params = {:category => find_or_create_category(category), :share_type => find_or_create_share_type(share_type)}
+    listing_params = {}
+    
     if category
-      if category.name == "rideshare"
+      listing_params.merge!({:category => find_or_create_category(category)})
+      if category.eql? "rideshare"
         listing_params.merge!({:origin => "test", :destination => "test2"})
       end
     else
       listing_params[:category] = find_or_create_category("item")
     end
     
+    if share_type
+      listing_params.merge!({:share_type => find_or_create_share_type(share_type)})
+    end
+    
     # set author manually as factory doesn't default to kassi_testperson1
     test_person, session = get_test_person_and_session
     listing_params.merge!({:author => test_person})
-    
     
     listing = FactoryGirl.create(:listing, listing_params)
   end

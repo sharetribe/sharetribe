@@ -30,31 +30,29 @@ Feature: User edits his own listing
     And the system processes jobs
     Then I should see "Sledgehammer" within ".item-description"
     And I should see "Buying"
-    And I should see "Request updated successfully" within ".flash-notifications"
     And I should see the image I just uploaded
     When I follow "Edit request"
     Then I should see the image I just uploaded
     And I follow "Remove image"
-    And wait for 2 seconds
+    And wait for 5 seconds
     And I press "Save request"
     Then I should not see the image I just uploaded
-    And I click ".user-menu-toggle"
-    When I follow "Logout"
-    And I log in as "kassi_testperson2"
-    Then I should see "1" within "#notifications_link"
+    # TODO Add this back after listings can be followed and unfollowed again
+    #And I log out
+    #And I log in as "kassi_testperson2"
+    #Then I should see "1" within "#notifications_link"
     #When I follow "notifications_link"
     #Then I should see "has updated a request you follow"
     #When I follow "a request you follow"
-    And I follow "Stop following this listing"
-    And I log out
-    And I log in as "kassi_testperson1"
-    And I follow "Sledgehammer"
-    And I follow "Edit request"
-    And I press "Save request"
-    And the system processes jobs
-    And I click ".user-menu-toggle"
-    And I follow "Logout"
-    And I log in as "kassi_testperson2"
+    #And I follow "Stop following this listing"
+    #And I log out
+    #And I log in as "kassi_testperson1"
+    # And I follow "Sledgehammer"
+    # And I follow "Edit request"
+    # And I press "Save request"
+    # And the system processes jobs
+    # And I log out
+    # And I log in as "kassi_testperson2"
     # Then I should not see "1" within "#notifications_link"
   
   @javascript
@@ -83,7 +81,7 @@ Feature: User edits his own listing
     And there is item request with title "Hammer" from "kassi_testperson1" and with share type "buy"
     And I am logged in as "kassi_testperson2"
     When I go to the edit listing page
-    Then I should see "Only listing author can edit a listing" within ".flash-notifications"
+    Then I should see "Only listing author can edit a listing"
 
   @javascript
   Scenario: Trying to update somebody else's listing as an admin
@@ -100,7 +98,7 @@ Feature: User edits his own listing
     And I press "Save request"
     Then I should see "Sledgehammer" within ".item-description"
     And I should see "Buying"
-    And I should see "Request updated successfully" within ".flash-notifications"
+    And I should see "Request updated successfully"
     
   @javascript
   Scenario: Trying to update somebody else's listing as an admin of the current community
@@ -117,4 +115,4 @@ Feature: User edits his own listing
     And I press "Save request"
     Then I should see "Sledgehammer" within ".item-description"
     And I should see "Buying"
-    And I should see "Request updated successfully" within ".flash-notifications"
+    And I should see "Request updated successfully"

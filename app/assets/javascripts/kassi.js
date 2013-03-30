@@ -384,7 +384,7 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
 		},
 		messages: {
 			"listing[valid_until(1i)]": { min_date: date_message, max_date: date_message },
-			"listing[origin]": { address_validator: "address_validator_message" },
+			"listing[origin]": { address_validator: address_validator_message },
 			"listing[price]": { positive_integer: price_message },
 		},
 		// Run validations only when submitting the form.

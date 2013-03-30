@@ -20,7 +20,6 @@ Feature: User creates a new listing
     And I press "Save request"
     Then I should see "Sledgehammer" within ".item-description"
     And I should see "Buying"
-    And I should see "Request created successfully" within ".flash-notifications"
     And I should see the image I just uploaded
   
   @javascript
@@ -39,7 +38,6 @@ Feature: User creates a new listing
     And I press "Save offer"
     Then I should see "My offer" within ".item-description"
     And I should see "Lending"
-    And I should see "Offer created successfully" within ".flash-notifications"
     And I should see the image I just uploaded
   
   @javascript
@@ -55,7 +53,6 @@ Feature: User creates a new listing
     And I press "Save request"
     Then I should see "Massage" within ".item-description"
     And I should see "Service request"
-    And I should see "Request created successfully" within ".flash-notifications"
     And I should see the image I just uploaded
   
   @javascript  
@@ -71,14 +68,12 @@ Feature: User creates a new listing
     And I press "Save request"
     Then I should see "Otaniemi - Turku" within ".item-description"
     And I should see "Rideshare request"
-    And I should see "Request created successfully" within ".flash-notifications" 
   
   @javascript  
   Scenario: Trying to create a new request without being logged in
     Given I am not logged in
     And I am on the home page
     When I follow "Post a new listing!"
-    Then I should see "You must log in to Sharetribe to create a new listing" within ".flash-notifications"
     And I should see "Log in to Sharetribe" within "h2"
 
   @javascript
@@ -170,12 +165,12 @@ Feature: User creates a new listing
     And I follow "I'm selling it"
     And I should see "Space you offer*"
     And I fill in "listing_title" with "My offer"
+    And I fill in "listing_price" with "20"
     And I fill in "listing_description" with "My description"
     And I attach a valid image file to "listing_listing_images_attributes_0_image"
     And I press "Save offer"
     Then I should see "My offer" within ".item-description"
     And I should see "Selling"
-    And I should see "Offer created successfully" within ".flash-notifications"
     And I should see the image I just uploaded
   
   @javascript
@@ -236,9 +231,7 @@ Feature: User creates a new listing
     And I follow "Tools" within "#option-groups"
     And I follow "I'm selling it"
     And I fill in "listing_title" with "Sledgehammer"
-    And I press "Save offer"
-    Then I should see "This field is required."
-    When I fill in "listing_price" with "dsfsdf"
+    And I fill in "listing_price" with "dsfsdf"
     And I press "Save offer"
     Then I should see "Price must be a whole number."
     When I fill in "listing_price" with "20"

@@ -1,37 +1,24 @@
-= t("emails.invitation_to_kassi.hi")
+- url = sign_up_url(@url_params.merge({:locale => @invitation.inviter.locale, :code => @invitation.code}))
 
-%br/
-%br/
+%tr
+  %td{:align => "left", :style => "padding-top: 20px;"} 
+    %font{body_font}
+      = t("emails.invitation_to_kassi.hi")
 
-= t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name, :community => @invitation.community.full_name_with_separator(@invitation.inviter.locale))
-
-%br/
-%br/
-
-= t("emails.invitation_to_kassi.info_about_kassi")
+%tr
+  %td{:align => "left", :style => "padding-top: 15px;"} 
+    %font{body_font}
+      = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name, :community => @invitation.community.full_name_with_separator(@invitation.inviter.locale))
+      - if @invitation.message && !@invitation.message.blank?
+        = t("emails.invitation_to_kassi.here_is_a_message_from", :inviter => @invitation.inviter.given_name_or_username)
 
 - if @invitation.message && !@invitation.message.blank?
+  = render :partial => "quote", :locals => { :quote => @invitation.message }          
 
-  %br/
-  %br/
-  
-  = t("emails.invitation_to_kassi.here_is_a_message_from", :inviter => @invitation.inviter.given_name_or_username)
+= render :partial => "action_button", :locals => { :text => t("emails.invitation_to_kassi.join_now"), :url => url}
 
-  %div{:style => "margin: 15px 0; padding: 10px; background-color: #d1c9b4;"}
-    - text_with_line_breaks do
-      = @invitation.message
-
-- if @invitation.community.join_with_invite_only?
-  = t("emails.invitation_to_kassi.you_can_join_kassi_using_invitation_code", :code => @invitation.code)
-  %br/
-  %br/
-
-= t("emails.invitation_to_kassi.join_kassi_in")
-= link_to(@url, @url)
-
-%br/
-%br/
-
-= t("emails.common.thanks")
-%br/
-= t("emails.common.kassi_team")
+%tr
+  %td{:align => "left", :style => "padding-bottom: 15px;"} 
+    %font{body_font}
+      %b
+        = t("emails.invitation_to_kassi.invitation_code", :code => @invitation.code)

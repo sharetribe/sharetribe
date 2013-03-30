@@ -1,25 +1,29 @@
-%p
-  Hei #{@recipient.given_name_or_username},
+%tr
+  %td{:align => "left", :style => "padding-top: 15px; padding-bottom: 20px;"} 
+    %font{body_font}
 
-%p
-  Saat tämän sähköpostin, koska olet perustanut Sharetribe-yhteisön #{link_to(@community.name, @community.full_url + '?auth=' + @url_params[:auth] + '&ref=' + @url_params[:ref])}. Sharetribe on kokenut viime aikoina merkittäviä muutoksia, jotka saattavat kiinnostaa sinua.
+      %p
+        Hei #{@recipient.given_name_or_username},
 
-%p
-  Aiemmin käytössä ollut viidenkymmenen ilmaisen jäsenen raja on nyt poistettu. Sharetribe-yhteisösi kaikkine nykytoiminnallisuuksineen on ja tulee olemaan myös jatkossa ilmainen rajattomalle määrälle jäseniä. Nyt on siis erittäin hyvä aika kutsua perustamaasi yhteisöön lisää jäseniä! Voit tehdä sen helposti käyttämällä uusittua #{link_to('kutsulomakettamme', new_invitation_url(@url_params))}.
+      %p
+        Saat tämän sähköpostin, koska olet perustanut Sharetribe-yhteisön #{link_to(@community.name, @community.full_url + '?auth=' + @url_params[:auth] + '&ref=' + @url_params[:ref])}. Sharetribe on kokenut viime aikoina merkittäviä muutoksia, jotka saattavat kiinnostaa sinua.
 
-%p
-  Sharetribessa on myös viimein kunnollinen #{link_to('ylläpitäjän näkymä', edit_details_admin_community_url(@url_params.merge(:id => @community.id)))}. Sen kautta voit muun muassa muokata yhteisön ulkoasua sekä lähettää jäsenille sähköpostia. #{link_to('Jäsensivulta', people_url(@url_params))} näet helposti, keitä yhteisössä on tällä hetkellä jäseninä.
+      %p
+        Aiemmin käytössä ollut viidenkymmenen ilmaisen jäsenen raja on nyt poistettu. Sharetribe-yhteisösi kaikkine nykytoiminnallisuuksineen on ja tulee olemaan myös jatkossa ilmainen rajattomalle määrälle jäseniä. Nyt on siis erittäin hyvä aika kutsua perustamaasi yhteisöön lisää jäseniä! Voit tehdä sen helposti käyttämällä uusittua #{link_to('kutsulomakettamme', new_invitation_url(@url_params))}.
 
-%p
-  Sharetribe toimii nyt erinomaisesti myös kaikilla yleisimmillä mobiililaitteilla. Jos menet mobiiliselaimellasi yhteisösi osoitteeseen, sivu skaalautuu automaattisesti näyttökoon mukaan. Jos sinulla on iPhone, voit #{link_to("ladata Sharetriben applikaation", 'https://itunes.apple.com/us/app/sharetribe/id545640772?mt=8')} App Storesta vielä paremman mobiilikäyttökokemuksen saavuttamiseksi.
+      %p
+        Sharetribessa on myös viimein kunnollinen #{link_to('ylläpitäjän näkymä', edit_details_admin_community_url(@url_params.merge(:id => @community.id)))}. Sen kautta voit muun muassa muokata yhteisön ulkoasua sekä lähettää jäsenille sähköpostia. #{link_to('Jäsensivulta', people_url(@url_params))} näet helposti, keitä yhteisössä on tällä hetkellä jäseninä.
 
-%p
-  Tutustu uuteen Sharetribeen osoitteessa #{link_to(@community.full_url, @community.full_url + '&ref=' + @url_params[:ref])} ja kerro meille mitä pidät siitä. Otamme mieluusti vastaan kaikkea mahdollista palautetta, kommentteja ja kehitysehdotuksia. Voit antaa niitä esimerkiksi vastaamalla tähän sähköpostiviestiin.
+      %p
+        Sharetribe toimii nyt erinomaisesti myös kaikilla yleisimmillä mobiililaitteilla. Jos menet mobiiliselaimellasi yhteisösi osoitteeseen, sivu skaalautuu automaattisesti näyttökoon mukaan. Jos sinulla on iPhone, voit #{link_to("ladata Sharetriben applikaation", 'https://itunes.apple.com/us/app/sharetribe/id545640772?mt=8')} App Storesta vielä paremman mobiilikäyttökokemuksen saavuttamiseksi.
 
-%p
-  Terveisin,
-  %br/
-  Sharetriben tiimi
+      %p
+        Tutustu uuteen Sharetribeen osoitteessa #{link_to(@community.full_url, @community.full_url + '&ref=' + @url_params[:ref])} ja kerro meille mitä pidät siitä. Otamme mieluusti vastaan kaikkea mahdollista palautetta, kommentteja ja kehitysehdotuksia. Voit antaa niitä esimerkiksi vastaamalla tähän sähköpostiviestiin.
 
-%p
-  P.S. Jos et halua enää saada tällaisia sähköposteja, voit ilmoittaa siitäkin vastaamalla tähän viestiin.
+      %p
+        Terveisin,
+        %br/
+        Sharetriben tiimi
+
+      %p
+        P.S. Jos et halua enää saada tällaisia sähköposteja, voit ilmoittaa siitäkin vastaamalla tähän viestiin.

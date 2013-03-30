@@ -4,7 +4,6 @@ Feature: User comments a listing
   I want to be able to comment the listing
 
   @javascript
-  @fix_for_new_design
   Scenario: Adding a new comment successfully
     Given there are following users:
       | person | 

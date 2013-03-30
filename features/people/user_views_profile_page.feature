@@ -5,7 +5,6 @@ Feature: User views profile page
 
   # FIXME: when closing listing can be viewed on user profile, uncomment rest of the test
   @javascript
-  @fix_for_new_design
   Scenario: User views his own profile page
     Given there are following users:
       | person | 
@@ -27,17 +26,13 @@ Feature: User views profile page
     And I should see "Helsinki - Turku"
     And I should not see "Housing"
     And I should see "massage"
-    And I should see "bike"
+    And I should not see "bike"
     And I should not see "sewing"
     #And I follow "Show also closed"
     # And I should see "bike"
-    # And I should see "Offers (3)" within ".inbox_tab_unselected"
-    # And I should see "Requests (2)" within ".inbox_tab_selected"
     # And I follow "Offers (3)"
     # And I should see "sewing"
     # And I follow "Show only open"
-    # And I should see "Offers (2)" within ".inbox_tab_selected"
-    # And I should see "Requests (1)" within ".inbox_tab_unselected"
     # And I should not see "sewing"
   
   @javascript

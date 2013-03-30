@@ -12,7 +12,7 @@ class InvitationCreatedJob < Struct.new(:invitation_id, :host)
   
   def perform
     invitation = Invitation.find(invitation_id)
-    PersonMailer.invitation_to_kassi(invitation, host).deliver
+    PersonMailer.invitation_to_kassi(invitation).deliver
   end
   
 end

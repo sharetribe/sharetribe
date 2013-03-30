@@ -4,7 +4,7 @@ Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |mes
                                       :status => "pending", 
                                       :conversation_participants => { @listing.author.id => "false", @people[sender].id => "true"},
                                       :message_attributes => { :content => message, :sender_id => @people[sender].id }
-                                      )                                   
+                                      ) 
 end
 
 Given /^there is a reply "([^"]*)" to that message by "([^"]*)"$/ do |content, sender|

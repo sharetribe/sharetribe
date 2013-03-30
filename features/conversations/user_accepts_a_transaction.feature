@@ -26,6 +26,7 @@ Feature: User accepts a transaction
     Then I should not see "Close request"
     When the system processes jobs
     Then "kassi_testperson1@example.com" should have 0 emails
+    And save and open all html emails
     And "kassi_testperson2@example.com" should receive an email
     When I open the email
     Then I should see "has accepted your offer" in the email body

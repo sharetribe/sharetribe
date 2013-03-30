@@ -9,7 +9,7 @@
                 %td{:align => "left", :style => "padding-top: 20px; padding-bottom: 5px; border-bottom:1px dotted grey;"}
                   %font{:size => 5, :color => "grey", :face => "font-family:Helvetica Neue, Arial, Helvetica, Arial, sans-serif;", :style => "font-size:20px;line-height:28px;"}
                     = @community.full_name
-            - if @recipient
+            - if @recipient && ! @no_recipient_name
               %tr
                 %td{:align => "left", :style => "padding-top: 20px; padding-bottom: 10px;"}
                   %font{body_font}

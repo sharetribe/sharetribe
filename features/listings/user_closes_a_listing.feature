@@ -4,7 +4,6 @@ Feature: User closes a listing
   I want to be able to close the listing
   
   @javascript
-  @fix_for_new_design
   Scenario: User closes and opens listing successfully
     Given there are following users:
       | person | 

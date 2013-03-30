@@ -436,6 +436,7 @@ fi:
       you_have_received_badges: "Olet saanut ansiomerkkejä!"
       you_have_received_badges_in_kassi: "Olet ansainnut uusia ansiomerkkejä. Voit nähdä saamasi merkit kirjautumalla %{service_name_illative} ja menemällä osoitteeseen"
     transaction_confirmed:
+      here_is_a_message_from: "Tässä viesti käyttäjältä %{other_party_given_name}:"
       request_marked_as_confirmed: "Pyyntö merkitty toteutuneeksi - muistathan antaa palautetta"
       request_marked_as_canceled: "Pyyntö peruttu"
       has_marked_request_as_confirmed: "%{other_party_full_name} on merkinnyt pyynnön '%{request}' toteutuneeksi. Voit nyt antaa hänelle palautetta."
@@ -476,11 +477,10 @@ fi:
       pay_now: "Maksa nyt"
     invitation_to_kassi:
       hi: Hei!
-      you_have_been_invited_to_kassi: "%{inviter} on kutsunut sinut käyttämään %{community}-verkkopalvelua."
-      info_about_kassi: "%{service_name} on palvelu, jossa yhteisön jäsenet voivat muun muassa lainata, vaihtaa ja myydä tavaroita, järjestää kimppakyytejä sekä auttaa toisiaan eri tavoin."
-      here_is_a_message_from: "%{inviter} lähetti sinulle tämän saateviestin:"
-      you_can_join_kassi_using_invitation_code: "Tässä henkilökohtainen kutsukoodisi palveluun: %{code}"
-      join_kassi_in: "Voit liittyä palveluun osoitteessa"
+      you_have_been_invited_to_kassi: "%{inviter} on kutsunut sinut %{community} -yhteisöön."
+      here_is_a_message_from: "%{inviter} lähetti sinulle seuraavan saateviestin:"
+      join_now: "Liity yhteisöön"
+      invitation_code: "Kutsukoodi: %{code}"
     new_badge:
       you_can_view_all_your_badges_in: "Näytä ansaitut ansiomerkit"
       you_have_achieved_a_badge: "Olet ansainnut ansiomerkin '%{badge_name}'!"

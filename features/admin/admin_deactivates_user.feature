@@ -1,7 +1,6 @@
 Feature: Admin deactivates user
   
   @javascript
-  @fix_for_new_design
   Scenario: Admin deactivates and reactivates a user
     Given USER DEACTIVATION IS NOT YET IN USE SO THIS TEST IS UNDEFINED NOW
     Given there are following users:
@@ -25,7 +24,6 @@ Feature: Admin deactivates user
     And I should see "User activated"
 
   @javascript
-  @fix_for_new_design
   Scenario: User reactivates himself by logging in
     Given USER DEACTIVATION IS NOT YET IN USE SO THIS TEST IS UNDEFINED NOW
     Given there are following users:

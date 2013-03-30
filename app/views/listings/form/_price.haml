@@ -2,7 +2,7 @@
 .price-container
   - if cc.price?
     = form.label :price, t(".price")
-    = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0"
+    = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (money_without_cents @listing.price || 0)
     .currency-selector
       - if @current_community.available_currencies
         - currencies = @current_community.available_currencies.split(",")

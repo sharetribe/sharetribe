@@ -19,7 +19,7 @@ Feature: User views a single listing
     And I should not see "Feedback:"
     And I should not see "Contact by phone"
     When I am logged in as "kassi_testperson1"
-    And I have "2" testimonials with grade "0.5"
+    And I have "2" testimonials with grade "1"
     And I am on the home page
     And I follow "Massage"
     Then I should see "0000-123456"

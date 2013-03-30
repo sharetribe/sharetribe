@@ -18,6 +18,15 @@ module EmailTemplateHelper
     }
   end
   
+  def big_quotation_mark_font
+    {
+      :size => "20", 
+      :color => "grey", 
+      :face => "Arial, Helvetica, sans-serif", 
+      :style => "font-size:40px;line-height:10px;font-weight: bold;"
+    }
+  end
+  
   def body_link_style
     "color:#d96e21; text-decoration: none;" 
   end

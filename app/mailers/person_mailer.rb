@@ -120,12 +120,41 @@ class PersonMailer < ActionMailer::Base
          :subject => t("emails.new_update_to_listing.listing_you_follow_has_been_updated"))
   end
   
+  def invitation_to_kassi(invitation)
+    @invitation = invitation
+    set_up_urls(nil, @invitation.community)
+    @url_params[:locale] = @invitation.inviter.locale
+    subject = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name, :community => @invitation.community.full_name_with_separator(@invitation.inviter.locale))
+    mail(:to => @invitation.email, :subject => subject, :reply_to => @invitation.inviter.email)
+  end
   
+  # A message from the community admin to a single community member
+  def community_member_email(sender, recipient, email_subject, email_content, community)
+    @email_type = "email_from_admins"
+    set_up_urls(recipient, community, @email_type)
+    @email_content = email_content
+    @no_recipient_name = true
+    mail(:to => @recipient.email, :subject => email_subject, :reply_to => "\"#{sender.name}\"<#{sender.email}>")
+  end
+  
+  # A custom message to a community starter
+  def community_starter_email(person, community)
+    @email_type = "email_from_admins"
+    set_up_urls(person, community, @email_type)
+    @community = community
+    @no_recipient_name = true
+    # This check needs to be here because this method is currently
+    # usually called directly from console.
+    if @recipient.should_receive?("email_from_admins")
+      mail(:to => @recipient.email, :subject => t("emails.community_starter_email.subject")) do |format|
+        format.html { render "community_starter_email_#{@recipient.locale}" }
+      end
+    end
+  end
   
   # Used to send notification to Sharetribe admins when somebody
   # gives feedback on Sharetribe
   def new_feedback(feedback, current_community)
-    @no_settings = true
     @feedback = feedback
     @feedback.email ||= feedback.author.try(:email)
     @current_community = current_community
@@ -134,22 +163,11 @@ class PersonMailer < ActionMailer::Base
     mail(:to => mail_to, :subject => subject, :reply_to => @feedback.email)
   end
   
-  def badge_migration_notification(recipient)
-    @recipient = recipient
-    set_locale @recipient.locale
-    @no_settings = true
-    @url = "http://aalto.sharetribe.com#{person_badges_path(:person_id => @recipient.id, :locale => @recipient.locale)}"
-    mail(:to => recipient.email, :subject => t("emails.badge_migration_notification.you_have_received_badges"))
-  end
   
-  # Used to send notification to Sharetribe admins when somebody
-  # wants to contact them through the form in the dashboard
-  def contact_request_notification(email)
-    @no_settings = true
-    @email = email
-    subject = "New contact request"
-    mail(:to => APP_CONFIG.feedback_mailer_recipients, :subject => subject)
-  end
+  #Old
+  
+  
+  
   
   def new_member_notification(person, community, email)
     @community = Community.find_by_domain(community)
@@ -258,15 +276,6 @@ class PersonMailer < ActionMailer::Base
     mail(:to => @recipient.email, :subject => t("emails.newsletter.occasional_newsletter_title")) do |format|
       format.html { render :layout => "newsletter" }
     end
-  end
-  
-  def invitation_to_kassi(invitation, host=nil)
-    @no_settings = true
-    @invitation = invitation
-    set_locale @invitation.inviter.locale
-    @url = host ? "#{@invitation.community.full_url}#{sign_up_path(:locale => @invitation.inviter.locale, :code => @invitation.code )}" : "test_url"
-    subject = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name, :community => @invitation.community.name)
-    mail(:to => @invitation.email, :subject => subject, :reply_to => @invitation.inviter.email)
   end
   
   # This is used by console script that creates a list of user accounts and sends an email to all
@@ -446,16 +455,6 @@ class PersonMailer < ActionMailer::Base
     end
   end
   
-  # A message from the community admin to a single community member
-  def community_member_email(sender, recipient, email_subject, email_content, community)
-    @recipient = set_up_recipient(recipient, community.full_domain)
-    @email_content = email_content
-    @email_type = "email_from_admins"
-    mail(:to => @recipient.email, :subject => email_subject, :reply_to => "\"#{sender.name}\"<#{sender.email}>") do |format|
-      format.html { render :layout => false }
-    end
-  end
-  
   # A custom message to all the community starters
   def self.community_starter_emails
     CommunityMembership.where(:admin => true).each do |community_membership|
@@ -468,26 +467,19 @@ class PersonMailer < ActionMailer::Base
     end
   end
   
-  # A custom message to a community starter
-  def community_starter_email(person, community)
-    @recipient = set_up_recipient(person, community.full_domain)
-    @community = community
-    mail(:to => @recipient.email, :subject => t("emails.community_starter_email.subject")) do |format|
-      format.html { render "community_starter_email_#{@recipient.locale}", :layout => false }
-    end
-  end
-  
   private
   
   def set_up_urls(recipient, community, ref="email")
-    @recipient = recipient
     @community = community
     @url_params = {}
     @url_params[:host] = community.full_domain
-    @url_params[:auth] = @recipient.new_email_auth_token
-    @url_params[:locale] = @recipient.locale
     @url_params[:ref] = ref
-    set_locale @recipient.locale
+    if recipient
+      @recipient = recipient
+      @url_params[:auth] = @recipient.new_email_auth_token
+      @url_params[:locale] = @recipient.locale
+      set_locale @recipient.locale
+    end
   end
   
   def set_up_recipient(recipient, host=nil, ref="email")

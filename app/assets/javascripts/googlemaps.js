@@ -187,7 +187,7 @@ function manually_validate(formhint) {
       _element += "listing_destination";
     }
   }
-  $(form_id).validate().element(_element);
+  //$(form_id).validate().element(_element);
 }
 
 function nil_locations(_prefix) {

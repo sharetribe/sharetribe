@@ -428,6 +428,7 @@ en:
       you_have_received_badges: "You have received badges in %{service_name}!"
       you_have_received_badges_in_kassi: "You have earned new badges in %{service_name}. You can view your badges by logging in to %{service_name} and going to"
     transaction_confirmed:
+      here_is_a_message_from: "Here's a message from %{other_party_given_name}:"
       request_marked_as_confirmed: "Request completed - remember to give feedback"
       request_marked_as_canceled: "Request canceled"
       has_marked_request_as_confirmed: "%{other_party_full_name} has marked the request about '%{request}' completed. You can now give feedback to %{other_party_given_name}."
@@ -468,11 +469,10 @@ en:
       pay_now: "Pay now"
     invitation_to_kassi:
       hi: Hi!
-      you_have_been_invited_to_kassi: "%{inviter} has invited you to use the %{community} web service."
-      info_about_kassi: "%{service_name} is a service where the members of the community can, for example, lend, swap and sell goods, share rides and help each other out in several ways."
+      you_have_been_invited_to_kassi: "%{inviter} has invited you to the %{community} community."
       here_is_a_message_from: "Here is a personal message from %{inviter}:"
-      you_can_join_kassi_using_invitation_code: "Here is an invitation code you need to join the service: %{code}"
-      join_kassi_in: "You can join %{service_name} at"
+      join_now: "Join now"
+      invitation_code: "Invitation code: %{code}"
     new_badge:
       you_can_view_all_your_badges_in: "View all your badges"
       you_have_achieved_a_badge: "You have achieved a badge '%{badge_name}' in %{service_name}!"
@@ -706,7 +706,7 @@ en:
       send_invitation: "Send invitation"
       add_as_many_emails_as_you_want: "Add the email addresses of the people you are inviting to the field below. If you add multiple email addresses, separate them with comma."
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
-      invitation_message_field_placeholder: "I joined this amazing service. You should join me!"
+      invitation_message_field_placeholder: "I joined this amazing community. You should too!"
       errors_in_emails: "Check that there are valid emails, separated by comma."
     news_item:
       show_less: "Show less"

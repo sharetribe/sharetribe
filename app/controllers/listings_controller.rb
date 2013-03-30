@@ -148,7 +148,7 @@ class ListingsController < ApplicationController
     if @listing.update_fields(params[:listing])
       @listing.location.update_attributes(params[:location]) if @listing.location
       flash[:notice] = t("layouts.notifications.#{@listing.listing_type}_updated_successfully")
-      Delayed::Job.enqueue(ListingUpdatedJob.new(@listing.id, request.host))
+      Delayed::Job.enqueue(ListingUpdatedJob.new(@listing.id, @current_community.id))
       redirect_to @listing
     else
       render :action => :edit

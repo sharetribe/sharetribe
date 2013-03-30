@@ -34,16 +34,6 @@ Feature: Facebook connect
     And user "markus_sharer_123" should have "email" with value "markus@example.com"
     And user "markus_sharer_123" should have "facebook_id" with value "597013691"
     And user "markus_sharer_123" should not have "image_file_size" with value "nil"
-    
-    # These were the old lines when there was a step to log in with existing account
-    # Then I should see "Connect your Facebook account"
-    # When I fill in "person_login" with "facebooker"
-    # And I fill in "person_password" with "testi"
-    # And I press "Log in" 
-    # Then I should see "Welcome to Sharetribe"
-    # And I should see "Marcos"
-    # And user "facebooker" should have "facebook_id" with value "597013691"
-    # And user "facebooker" should not have "image_file_size" with value "nil"
   
   Scenario: Facebook connect first time, without existing account in Sharetribe
     Given I am on the home page
@@ -59,20 +49,6 @@ Feature: Facebook connect
     And user "markus_sharer_123" should have "email" with value "markus@example.com"
     And user "markus_sharer_123" should have "facebook_id" with value "597013691"
     And user "markus_sharer_123" should not have "image_file_size" with value "nil"
-    
-    # Then I should see "Connect your Facebook account"
-    # And I should see "Markus Sugarberg"
-    # When I follow "click here"
-    # Then I should see "Join community 'Test'"
-    # When I check "community_membership_consent"
-    # And I press "Join community"
-    # Then I should see "successfully joined this community"
-    # And I should see "Markus"
-    # And user "markus_sharer_123" should have "given_name" with value "Markus"
-    # And user "markus_sharer_123" should have "family_name" with value "Sugarberg"
-    # And user "markus_sharer_123" should have "email" with value "markus@example.com"
-    # And user "markus_sharer_123" should have "facebook_id" with value "597013691"
-    # And user "markus_sharer_123" should not have "image_file_size" with value "nil"
   
   Scenario: Facebook connect to log in when the accounts are already linked
     Given there are following users:
@@ -83,21 +59,6 @@ Feature: Facebook connect
     And I follow "Log in with your Facebook account"
     Then I should see "Successfully authorized from Facebook account"
     And I should see "Marko"
-
-# Not possible anymore to cancel  
-  # @fix_for_new_design
-  # Scenario: User connects to FB but cancels the linking
-  #   Given I am on the home page
-  #   When I click ".login-menu-toggle"
-  #   And I follow "Log in with your Facebook account"
-  #   Then I should see "Connect your Facebook account"
-  #   And I should see "Markus Sugarberg"
-  #   When I follow "cancel"
-  #   Then I should not see "Markus"
-  #   When I follow "Log in"
-  #   Then I should not see "Connect your Facebook account"
-  #   And I should not see "Sugarberg"
-  #   And I should see "Log in to Sharetribe"
   
   Scenario: User gets invitation to an invitation-only community and creates an account with FB
     Given there are following users:
@@ -113,7 +74,6 @@ Feature: Facebook connect
     And I press "Join community"
     Then I should see "successfully joined this community"
     And I should see "Markus"
-
 
   Scenario: The facebook login doesn't succeed
     Given I am on the home page

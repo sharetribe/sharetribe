@@ -156,7 +156,6 @@ Feature: User browses listings
     
   @pending
   @javascript
-  @fix_for_new_design
   Scenario: User browses offers page with tags
     Given TAGS ARE NOW NOT SELECTABLE AS FILTERS SO THIS TEST IS UNDEFINDED
     Given there are following users:
