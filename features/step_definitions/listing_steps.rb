@@ -1,4 +1,4 @@
-Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: from "([^"]*)")?(?: and with share type "([^"]*)")?(?: and with tags "([^"]*)")?$/ do |category, type, title, author, share_type, tags|
+Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: from "([^"]*)")?(?: and with share type "([^"]*)")?(?: and with price "([^"]*)")?$/ do |category, type, title, author, share_type, price|
   share_type ||= type
   @listing = FactoryGirl.create(:listing, 
                                :category => find_or_create_category(category),
@@ -8,7 +8,9 @@ Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: fr
                                :communities => [Community.find_by_domain("test")],
                                :privacy => "public"
                                )
-  @listing.update_attribute(:tag_list, tags.split(", ")) if tags
+  if price
+    @listing.update_attribute(:price, price) 
+  end
   
 end
 

@@ -37,6 +37,10 @@ Given /^community "([^"]*)" requires users to have an email address of type "(.*
   Community.find_by_domain(community).update_attribute(:allowed_emails, email)
 end
 
+Given /^community "([^"]*)" has payments in use$/ do |community|
+  Community.find_by_domain(community).update_attribute(:payments_in_use, true)
+end
+
 Given /^users can invite new users to join community "([^"]*)"$/ do |community|
   Community.find_by_domain(community).update_attribute(:users_can_invite_new_users, true)
 end

@@ -160,6 +160,9 @@ FactoryGirl.define do
   end
   
   factory :organization do
-    name :organization_name
+    name { generate(:organization_name) }
+    company_id "1234567-8"
+    merchant_id "375917"
+    merchant_key "SAIPPUAKAUPPIAS"
   end
 end

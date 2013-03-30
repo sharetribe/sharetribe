@@ -156,18 +156,18 @@ Feature: User browses listings
     
   @pending
   @javascript
-  Scenario: User browses offers page with tags
+  Scenario: User browses offers page
     Given TAGS ARE NOW NOT SELECTABLE AS FILTERS SO THIS TEST IS UNDEFINDED
     Given there are following users:
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is item offer with title "car spare parts" from "kassi_testperson2" and with share type "sell" and with tags "car"
-    And there is item offer with title "other car spare parts" from "kassi_testperson2" and with share type "sell" and with tags "car"
-    And there is favor offer with title "massage" from "kassi_testperson1" and with tags "service"
+    And there is item offer with title "car spare parts" from "kassi_testperson2" and with share type "sell"
+    And there is item offer with title "other car spare parts" from "kassi_testperson2" and with share type "sell"
+    And there is favor offer with title "massage" from "kassi_testperson1"
     And there is rideshare offer from "Helsinki" to "Turku" by "kassi_testperson1"
     And there is housing offer with title "Apartment" from "kassi_testperson2" and with share type "sell"
-    And there is item offer with title "axe" from "kassi_testperson2" and with share type "lend" and with tags "tool"
+    And there is item offer with title "axe" from "kassi_testperson2" and with share type "lend"
     And that listing is closed
     And I am on the home page
     And I select "Offers" from "share_type"
