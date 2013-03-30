@@ -22,8 +22,3 @@
   = render :partial => "quote", :locals => { :quote => @conversation.last_message.content }
 
 = render :partial => "action_button", :locals => { :text => action_text, :url => action_url}
-
-%tr
-  %td{:align => "left", :style => "padding-bottom: 25px;"} 
-    %font{body_font}
-      = link_to t("emails.accept_reminder.show_thread"), conversation_url, :style => body_link_style
