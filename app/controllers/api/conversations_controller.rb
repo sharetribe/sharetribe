@@ -62,12 +62,19 @@ class Api::ConversationsController < Api::ApiController
   end
   
   def update
-    if Conversation::VALID_STATUSES.include? params["status"]
-      @conversation.change_status(params["status"], @current_user, @current_community, @current_community.full_domain)
+    status = params["status"]
+    if Conversation::VALID_STATUSES.include?(status) && @conversation.update_attributes(:status => status)
+      if status == "accepted" || status == "rejected"
+        @conversation.accept_or_reject(@current_user, @current_community, false)
+      elsif status == "confirmed" || status == "canceled"
+        @conversation.confirm_or_cancel(current_user, current_community, false)
+      else
+        raise "API conversation#update called with status that is not yet supported"
+      end
       respond_with @conversation
     else
       response.status = 400
-      render :json => ["The conversation status (#{params["status"]}) is not valid."] and return
+      render :json => ["The conversation status (#{status}) is not valid."] and return
     end
   end
   

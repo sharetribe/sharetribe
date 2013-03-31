@@ -36,7 +36,7 @@ describe Notification do
     @notification.should be_valid
     @notification2 = FactoryGirl.build(:notification, :receiver => @test_person)
     @notification2.should_not be_valid
-    @notification.update_attribute(:created_at, 1.days.ago)
+    @notification.update_attribute(:created_at, 25.hours.ago)
     @notification2.should be_valid
   end
   
