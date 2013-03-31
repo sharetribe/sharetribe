@@ -14,10 +14,8 @@ class Location < ActiveRecord::Base
 
     if address != nil && address != ""
       url = URI.escape(geocoder+address)
-      puts url
       resp = RestClient.get(url)
       result = JSON.parse(resp.body)
-      puts result.inspect
       
       if result["status"] == "OK"
         self.latitude = result["results"][0]["geometry"]["location"]["lat"]

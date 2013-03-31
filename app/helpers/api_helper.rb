@@ -13,7 +13,11 @@ module ApiHelper
   def api_version
     default_version = '2'
     pattern = /application\/vnd\.sharetribe.*version=([\w]+)/
-    request.env['HTTP_ACCEPT'][pattern, 1] || default_version
+    if request.env['HTTP_ACCEPT']
+      return request.env['HTTP_ACCEPT'][pattern, 1] || default_version
+    else
+      return default_version
+    end
   end
   
   # just a small helper to check if the version "alpha" or "1" is in use

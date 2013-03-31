@@ -115,7 +115,7 @@ describe Api::ConversationsController do
   describe "new_message" do
     it "adds a message to the conversation" do
       request.env['Sharetribe-API-Token'] = @p1.authentication_token
-      puts "This test might fail about 'Devise::Mailer' if run with spork."
+      #puts "This test might fail about 'Devise::Mailer' if run with spork."
       post :new_message, :id => @con1.id, 
                          :person_id => @p1.id,
                          :community_id => @c1.id,
