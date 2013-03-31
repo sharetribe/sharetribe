@@ -56,12 +56,27 @@ class Api::ListingsController < Api::ApiController
       end
     end
     
-    # fix old style visibility setting "everybody" to new format
-    if params["visibility"] == "everybody"
-      params["visibility"] = "all_communities"
-      params["privacy"] ||= "public"
-    end
+    if api_version_alpha?
+      # fix old style visibility setting "everybody" to new format
+      if params["visibility"] == "everybody"
+        params["visibility"] = "all_communities"
+        params["privacy"] ||= "public"
+      end
     
+      # fix old style share_type
+      if params["share_type"] == "trade"
+        if params["listing_type"] == "offer"
+          params["share_type"] = "offer_to_swap"
+        else
+          params["share_type"] = "request_to_swap"
+        end
+      end
+      
+      if params["share_type"].nil?
+        params["share_type"] = params["listing_type"]
+      end
+      
+    end
     category = Category.find_by_name(params["category"])
 
     unless category && @current_community.categories.include?(category)

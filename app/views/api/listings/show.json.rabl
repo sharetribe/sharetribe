@@ -1,6 +1,6 @@
 object @listing
 attributes :id, :title, :description, :status,
-           :times_viewed, :visibility, :privacy,
+           :times_viewed, :privacy,
            :created_at, :updated_at, :valid_until
            
 node do |listing|
@@ -16,16 +16,40 @@ node do |listing|
     end
   end
   
+  node :visibility do |listing|
+    if api_version_alpha? && listing.visibility == "all_communities"
+      "everybody"
+    else
+      listing.visibility
+    end
+  end
+  
   node :listing_type do |listing|
     listing.listing_type
   end
   
   node :share_type do |listing|
-    listing.share_type.name
+    if api_version_alpha? 
+      if listing.share_type.name.match(/swap$/)
+        # Change to old string
+        "trade"
+      elsif ! listing.share_type.name.match(/^give_away$|^lend$|^rent_out$|^sell$|^share_for_free$|^trade$|^borrow$|^buy$|^rent$|^trade$|^take_for_free$/)
+        # If not one of those that the iOS app can translate
+        nil
+      else
+        listing.share_type.name
+      end
+    else
+      listing.share_type.name
+    end
   end
   
   node :category do |listing|
-    listing.category.name
+    if api_version_alpha?
+      listing.category.top_level_parent.name
+    else
+      listing.category.name
+    end
   end
 end
 

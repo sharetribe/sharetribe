@@ -106,6 +106,7 @@ class Listing < ActiveRecord::Base
   # validates_inclusion_of :listing_type, :in => VALID_TYPES
   # validates_inclusion_of :category, :in => VALID_CATEGORIES
   # validate :given_share_type_is_one_of_valid_share_types
+  validates_inclusion_of :visibility, :in => VALID_VISIBILITIES
   validates_presence_of :category
   validates_presence_of :share_type
   validates_inclusion_of :valid_until, :allow_nil => :true, :in => DateTime.now..DateTime.now + 1.year 

@@ -25,6 +25,7 @@ class Api::ApiController < ApplicationController
   # end
   
   def ensure_api_enabled
+    #puts "CALL TO API, WITH VERSION SPECIFIED TO #{api_version}"
     unless APP_CONFIG.api_enabled
       render :status => :forbidden, :json => ["API is not enabled on this server"]
     end
@@ -36,12 +37,6 @@ class Api::ApiController < ApplicationController
     end
   end  
   
-
-  def api_version
-    default_version = '1'
-    pattern = /application\/vnd\.sharetribe.*version=([\d]+)/
-    request.env['HTTP_ACCEPT'][pattern, 1] || default_version
-  end
   
 
   def get_api_key

@@ -9,4 +9,15 @@ module ApiHelper
       return "#{@url_root}#{initial_url}"
     end
   end
+  
+  def api_version
+    default_version = '2'
+    pattern = /application\/vnd\.sharetribe.*version=([\w]+)/
+    request.env['HTTP_ACCEPT'][pattern, 1] || default_version
+  end
+  
+  # just a small helper to check if the version "alpha" or "1" is in use
+  def api_version_alpha?
+    api_version == "1" || api_version == "alpha"
+  end
 end
