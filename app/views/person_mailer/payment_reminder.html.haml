@@ -1,0 +1,21 @@
+- conversation_url = person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @conversation.id.to_s}))
+- pay_url = new_person_message_payment_url(@url_params.merge({:person_id => @recipient.id, :message_id => @conversation.id}))
+- cancel_url = cancel_person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @conversation.id.to_s}))
+
+%tr
+  %td{:align => "left"} 
+    %font{body_font}
+      = t("emails.payment_reminder.you_have_not_yet_paid", :listing_title => @conversation.listing.title, :other_party_name => @conversation.other_party(@recipient).name)
+
+%tr
+  %td{:align => "left", :style => "padding-top: 25px; padding-bottom: 25px;"}
+    = render :partial => "green_action_button", :locals => { :text => t("emails.conversation_status_changed.pay_now"), :url => pay_url}
+
+%tr
+  %td{:align => "left", :style => "padding-bottom: 25px;"} 
+    %font{body_font}
+      = t("emails.payment_reminder.if_will_not_happen_you_should_cancel", :cancel_it_link => link_to(t("emails.payment_reminder.cancel_it_link_text"), cancel_url, :style => body_link_style)).html_safe
+
+
+
+

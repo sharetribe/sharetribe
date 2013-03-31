@@ -21,7 +21,7 @@ Feature: User pays after accepted transaction
     And I follow "Accept request"
     And I fill in "conversation_message_attributes_content" with "Ok, then pay!"
     And I press "Send message"
-    Then I should see "Request accepted"
+    Then I should see "Accepted"
     When I am logged in as "kassi_testperson1"
     And I follow "inbox-link"
     Then I should see "1" within ".inbox-toggle"

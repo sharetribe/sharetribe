@@ -20,10 +20,6 @@ class PersonMailer < ActionMailer::Base
 
   add_template_helper(EmailTemplateHelper)
 
-
-
-  # New format
-
   def conversation_status_changed(conversation, community)
     @email_type =  (conversation.status == "accepted" ? "email_when_conversation_accepted" : "email_when_conversation_rejected")
     set_up_urls(conversation.other_party(conversation.listing.author), community, @email_type)
@@ -45,10 +41,18 @@ class PersonMailer < ActionMailer::Base
     mail(sending_params)
   end
   
-  def transaction_confirmed(confirmer, conversation, community)
+  def new_payment(payment, community)
+    @email_type =  "email_about_new_payments"
+    @payment = payment
+    set_up_urls(@payment.conversation.other_party(@payment.payer), community, @email_type)
+    mail(:to => @recipient.email,
+         :subject => t("emails.new_payment.new_payment"))
+  end
+  
+  def transaction_confirmed(conversation, community)
     @email_type =  "email_about_completed_transactions"
     @conversation = conversation
-    set_up_urls(@conversation.other_party(confirmer), community, @email_type)
+    set_up_urls(@conversation.offerer, community, @email_type)
     mail(:to => @recipient.email,
          :subject => t("emails.transaction_confirmed.request_marked_as_#{@conversation.status}"))
   end
@@ -77,6 +81,15 @@ class PersonMailer < ActionMailer::Base
     @conversation = conversation
     mail(:to => @recipient.email,
          :subject => t("emails.accept_reminder.remember_to_accept_#{@conversation.discussion_type}"))
+  end
+  
+  # Remind users to pay
+  def payment_reminder(conversation, recipient, community)
+    @email_type = "email_about_payment_reminders"
+    set_up_urls(conversation.payment.payer, community, @email_type)
+    @conversation = conversation
+    mail(:to => @recipient.email,
+         :subject => t("emails.payment_reminder.remember_to_pay", :listing_title => @conversation.listing.title))
   end
   
   # Remind users of conversations that have not been accepted or rejected
@@ -164,10 +177,9 @@ class PersonMailer < ActionMailer::Base
   end
   
   
-  #Old
   
   
-  
+  # Old layout
   
   def new_member_notification(person, community, email)
     @community = Community.find_by_domain(community)

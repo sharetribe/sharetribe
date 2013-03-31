@@ -22,6 +22,8 @@ module ConversationsHelper
       "ss-delete"
     when "canceled"  
       "ss-delete"
+    when "paid"
+      "ss-check"
     end
   end
   

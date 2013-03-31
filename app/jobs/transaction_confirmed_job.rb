@@ -1,4 +1,4 @@
-class TransactionConfirmedJob < Struct.new(:conversation_id, :current_user_id, :community_id) 
+class TransactionConfirmedJob < Struct.new(:conversation_id, :community_id) 
   
   include DelayedAirbrakeNotification
   
@@ -11,18 +11,22 @@ class TransactionConfirmedJob < Struct.new(:conversation_id, :current_user_id, :
   end
   
   def perform
-    conversation = Conversation.find(conversation_id)
-    current_user = Person.find(current_user_id)
-    community = Community.find(community_id)
-    PersonMailer.transaction_confirmed(current_user, conversation, community).deliver
-    if conversation.status.eql?("confirmed")
-      if conversation.listing.share_type.name.eql?(["give_away"]) && Time.now.month == 12
-        conversation.offerer.give_badge("santa", host)
+    begin
+      conversation = Conversation.find(conversation_id)
+      community = Community.find(community_id)
+      PersonMailer.transaction_confirmed(conversation, community).deliver
+      if conversation.status.eql?("confirmed")
+        if conversation.listing.share_type.name.eql?(["give_away"]) && Time.now.month == 12
+          conversation.offerer.give_badge("santa", host)
+        end
+        conversation.participations.each do |participation|
+          Delayed::Job.enqueue(TestimonialReminderJob.new(conversation.id, participation.person.id, community.id, 0), :priority => 0, :run_at => 3.days.from_now)
+        end
+        EventFeedEvent.create(:person1_id => conversation.offerer.id, :person2_id => conversation.requester.id, :eventable_id => conversation.id, :eventable_type => "Conversation", :community_id => community_id, :category => "accept", :members_only => !conversation.listing.privacy.eql?("public"))
       end
-      conversation.participations.each do |participation|
-        Delayed::Job.enqueue(TestimonialReminderJob.new(conversation.id, participation.person.id, community.id, 0), :priority => 0, :run_at => 3.days.from_now)
-      end
-      EventFeedEvent.create(:person1_id => conversation.offerer.id, :person2_id => conversation.requester.id, :eventable_id => conversation.id, :eventable_type => "Conversation", :community_id => community_id, :category => "accept", :members_only => !conversation.listing.privacy.eql?("public"))
+    rescue Exception => ex
+      puts ex.message
+      puts ex.backtrace.join("\n")
     end
   end
   

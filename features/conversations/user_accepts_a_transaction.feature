@@ -56,7 +56,7 @@ Feature: User accepts a transaction
     When I follow "Accept request"
     And I choose "Update the listing later"
     And I press "Send message"
-    Then I should see "Request accepted" 
+    Then I should see "Accepted" 
     And I should see "to mark the request as completed" within ".conversation-status"
     When I follow "Massage"
     Then I should not see "Offer is closed"

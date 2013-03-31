@@ -40,7 +40,7 @@ Feature: User rejects a transaction
     And I choose "Update the listing later"
     And I fill in "conversation_message_attributes_content" with "Sorry, not this time."
     And I press "Send message"
-    And I should see "Request rejected" within ".conversation-status"
+    And I should see "Rejected" within ".conversation-status"
     And I should see "Sorry, not this time."
     When I follow "Massage"
     Then I should not see "Offer is closed"

@@ -133,6 +133,8 @@ en:
     confirm:
       confirm_description: "If your request has been fulfilled you should confirm it as done. Then you can give feedback to the other party."
       cancel_description: "If your request was not fulfilled, you can mark it as 'not happened'. You can still give feedback to the other party and describe what happened."
+      cancel_payed_description: "If your request was accepted but you're having second thoughts, you can still cancel the request before the payment."
+      canceling_payed_transaction: "Cancel transaction"
       confirm: "Mark completed"
       cancel: "Did not happen"
       continue: "Continue"
@@ -234,18 +236,20 @@ en:
       conversation_with_user: "With %{person}"
       last_message_at: "(latest message %{time})"
     status:
+      cancel_payed_transaction: "Cancel" 
       feedback_given: "Feedback given"
       feedback_skipped: "Feedback skipped"
       give_feedback: "Give feedback"
-      offer_accepted: "Offer accepted"
-      offer_rejected: "Offer rejected"
-      offer_canceled: "Offer canceled"
-      offer_confirmed: "Offer completed"
+      offer_accepted: "Accepted"
+      offer_rejected: "Rejected"
+      offer_canceled: "Canceled"
+      offer_confirmed: "Completed"
       pay: "Pay"
-      request_accepted: "Request accepted"
-      request_rejected: "Request rejected"
-      request_confirmed: "Request completed"
-      request_canceled: "Request canceled"
+      paid: "Payment successful"
+      request_accepted: "Accepted"
+      request_rejected: "Rejected"
+      request_confirmed: "Completed"
+      request_canceled: "Canceled"
       skip_feedback: "Skip feedback"
       waiting_for_listing_author_to_accept_offer: "Waiting for %{listing_author_name} to accept the offer"
       waiting_for_listing_author_to_accept_request: "Waiting for %{listing_author_name} to accept the request"
@@ -422,11 +426,11 @@ en:
       remember_to_confirm_request: "Remember to confirm or cancel a request"
       if_will_not_happen_you_should_cancel: "If you think this request will not be completed for one reason or another, you can %{cancel_it_link}."
       cancel_it_link_text: "cancel it"
-    badge_migration_notification:
-      badge_description1: "You can earn several different badges in %{service_name} as a recognition of your actions in the service. You earn badges from actions like adding new offers and requests, commenting on others' content, from all types of resource exchange that takes place (selling and borrowing items, helping others, organizing car pooling and so on) and just generally being an active user of the service. Note that you only get badges from those exchanges where you have received positive feedback."
-      badge_description2: "A person with lots of badges is most likely active, reliable and liked by other users. So be active in %{service_name}: buy, sell, lend and borrow items, help others out, share rides and watch your badge arsenal grow!"
-      you_have_received_badges: "You have received badges in %{service_name}!"
-      you_have_received_badges_in_kassi: "You have earned new badges in %{service_name}. You can view your badges by logging in to %{service_name} and going to"
+    payment_reminder:
+      remember_to_pay: "Remember to pay for %{listing_title}"
+      you_have_not_yet_paid: "You have not yet paid for %{listing_title} that %{other_party_name} has accepted to offer you."
+      if_will_not_happen_you_should_cancel: "If you think this request will not be completed for one reason or another, you can also still %{cancel_it_link}."
+      cancel_it_link_text: "cancel it"
     transaction_confirmed:
       here_is_a_message_from: "Here's a message from %{other_party_given_name}:"
       request_marked_as_confirmed: "Request completed - remember to give feedback"
@@ -453,7 +457,7 @@ en:
       message_not_displaying_correctly: "Is this email not displaying correctly?"
       view_it_in_your_browser: "View it in your browser"
       or: or
-      unsubscribe_from_these_emails: "unsubscribe from this type of emails"
+      unsubscribe_from_these_emails: "unsubscribe from these emails"
     community_starter_email:
       subject: "See the new Sharetribe - membership limit removed, look & feel can be modified, and more"
     conversation_status_changed:
@@ -490,6 +494,9 @@ en:
       view_message: "View message"
       has_sent_you_a_message_in_kassi: "%{sender} has sent you a message in %{service_name}."
       you_have_a_new_message: "You have a new message in %{service_name}"
+    new_payment:
+      new_payment: "You have received a new payment"
+      you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. You can now deliver %{listing_title} to %{payer_given_name}."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} has given you feedback in %{service_name}"
       you_can_give_feedback_to: "You haven't yet given feedback to %{name}."
@@ -1535,8 +1542,10 @@ en:
       email_when_conversation_accepted: "...somebody accepts my offer or request"
       email_when_conversation_rejected: "...somebody rejects my offer or request"
       email_about_completed_transactions: "...someone marks my offer or request as completed"
+      email_about_new_payments: "...I receive a new payment"
+      email_about_payment_reminders: "...I have forgotten to pay"
       unsubscribe_succesful: "Unsubscribe succesful"
-      unsubscribe_info_text: "You will no longer receive this type of email. Check your %{settings_link} to choose what kind of emails you want to receive from %{service_name}, or return to %{homepage_link}."
+      unsubscribe_info_text: "You will no longer receive these emails. Check your %{settings_link} to choose what kind of emails you want to receive from %{service_name}, or return to the %{homepage_link}."
       settings_link: settings
       homepage_link: "home page"
       unsubscribe_unsuccesful: "Error in unsubscribing"

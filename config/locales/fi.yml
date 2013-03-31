@@ -131,6 +131,8 @@ fi:
     confirm:
       confirm_description: "Jos olet saanut pyytämäsi asian, voit merkitä pyynnön toteutuneeksi. Tämän jälkeen voit antaa toiselle osapuolelle palautetta."
       cancel_description: "Jos et saanut pyytämäsi asiaa, voit merkitä pyynnön peruuntuneeksi. Voit silti antaa toiselle osapuolelle palautetta ja kertoa miksi pyyntö ei tällä kertaa toteutunut."
+      cancel_payed_description: "Jos pyyntösi on jo hyväksytty mutta tulit toisiin ajatuksiin, voit vielä perua pyynnön ennen maksua."
+      canceling_payed_transaction: "Pyynnön peruuttaminen"
       confirm: "Merkitse toteutuneeksi"
       cancel: "Ei toteutunut"
       continue: "Jatka"
@@ -242,6 +244,7 @@ fi:
       conversation_with_user: "Keskustelu käyttäjän %{person} kanssa"
       last_message_at: "(uusin viesti %{time})"
     status:
+      cancel_payed_transaction: "Peruuta"
       feedback_given: "Palaute annettu"
       feedback_skipped: "Palaute ohitettu"
       give_feedback: "Anna palautetta"
@@ -250,6 +253,7 @@ fi:
       offer_canceled: "Tarjous peruutettu"
       offer_confirmed: "Tarjous toteutunut"
       pay: "Suorita maksu"
+      paid: "Maksu suoritettu"
       request_accepted: "Pyyntö hyväksytty"
       request_rejected: "Pyyntö hylätty"
       request_confirmed: "Pyyntö toteutunut"
@@ -430,11 +434,11 @@ fi:
       remember_to_confirm_request: "Muista merkitä pyyntö toteutuneeksi tai toteutumattomaksi"
       if_will_not_happen_you_should_cancel: "Jos pyyntö syystä tai toisesta jää toteutumatta, voit %{cancel_it_link}."
       cancel_it_link_text: "peruuttaa sen"
-    badge_migration_notification:
-      badge_description1: "Voit ansaita %{service_name_inessive} erilaisia merkkejä tunnustuksena aktiivisesta toiminnastasi palvelussa. Merkkejä myönnetään esimerkiksi ahkerasta pyyntöjen ja tarjousten jättämisestä, toisten ilmoitusten kommentoinnista, kaikesta mahdollisesta resurssinvaihdosta (tavaroiden lainaamisesta ja myymisestä, palvelusten tekemisestä, kimppakyytien järjestämisestä ja niin edelleen) sekä ylipäänsä aktiivisesta palvelun käytöstä. Huomattakoon, että merkkeihin oikeuttavat ainoastaan sellaiset vaihdot, joista saatu palaute on ollut positiivista."
-      badge_description2: "Paljon merkkejä kerännyt käyttäjä on todennäköisesti aktiivinen ja myös muiden käyttäjien arvostama. Lainaa siis paljon tavaroita, tee palveluksia, kulje kimppakyydeillä ja kerää koko ansiomerkkisarja!"
-      you_have_received_badges: "Olet saanut ansiomerkkejä!"
-      you_have_received_badges_in_kassi: "Olet ansainnut uusia ansiomerkkejä. Voit nähdä saamasi merkit kirjautumalla %{service_name_illative} ja menemällä osoitteeseen"
+    payment_reminder:
+      remember_to_pay: "Maksumuistutus: %{listing_title}"
+      you_have_not_yet_paid: "Et ole vielä suorittanut maksua liittyen ilmoitukseen %{listing_title}. Muista maksaa sovittu summa käyttäjälle %{other_party_name}."
+      if_will_not_happen_you_should_cancel: "Voit myös halutessasi vielä %{cancel_it_link}."
+      cancel_it_link_text: "peruuttaa tapahtuman"
     transaction_confirmed:
       here_is_a_message_from: "Tässä viesti käyttäjältä %{other_party_given_name}:"
       request_marked_as_confirmed: "Pyyntö merkitty toteutuneeksi - muistathan antaa palautetta"
@@ -498,6 +502,9 @@ fi:
       view_message: "Näytä viesti"
       has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin %{service_name_inessive}."
       you_have_a_new_message: "Sinulle on uusi viesti %{service_name_inessive}"
+    new_payment:
+      new_payment: "Olet saanut uuden maksusuorituksen"
+      you_have_received_new_payment: "%{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Nyt on sinun vuorosi toimittaa %{listing_title} käyttäjälle %{payer_given_name}."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta %{service_name_inessive}"
       you_can_give_feedback_to: "Voit antaa palautetta käyttäjälle %{name} osoitteessa"
@@ -1534,6 +1541,8 @@ fi:
       email_when_conversation_accepted: "...joku hyväksyy pyyntöni tai tarjoukseni"
       email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
       email_about_completed_transactions: "...joku merkitsee pyyntöni tai tarjoukseni toteutetuksi"
+      email_about_new_payments: "...saan tililleni uuden maksun"
+      email_about_payment_reminders: "...olen unohtanut maksaa maksun"
       unsubscribe_succesful: "Tämä sähköpostitiedote on kytketty pois"
       unsubscribe_info_text: "Et jatkossa enää saa tämäntyyppistä sähköpostia. Tarkista %{settings_link}, niin voit valita mistä asioista haluat sähköpostiviestin tai palaa %{homepage_link}."
       settings_link: asetuksesi

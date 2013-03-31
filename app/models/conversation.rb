@@ -9,7 +9,7 @@ class Conversation < ActiveRecord::Base
 
   has_one :payment
   
-  VALID_STATUSES = ["pending", "accepted", "rejected", "payed", "free", "confirmed", "canceled"]
+  VALID_STATUSES = ["pending", "accepted", "rejected", "paid", "free", "confirmed", "canceled"]
   
   validates_length_of :title, :in => 1..120, :allow_nil => false
   validates_inclusion_of :status, :in => VALID_STATUSES
@@ -115,12 +115,12 @@ class Conversation < ActiveRecord::Base
     participation = participations.find_by_person_id(current_user.id)
     participation.update_attribute(:is_read, true) if offerer.eql?(current_user)
     participation.update_attribute(:feedback_skipped, true) unless feedback_given && feedback_given.eql?("true")
-    Delayed::Job.enqueue(TransactionConfirmedJob.new(id, current_user.id, current_community.id))
+    Delayed::Job.enqueue(TransactionConfirmedJob.new(id, current_community.id))
   end
   
   def pay
     # Should update and notify etc. stuff here
-    update_attribute(:status, "payed")
+    update_attribute(:status, "paid")
   end
   
   def has_feedback_from_all_participants?
@@ -137,14 +137,25 @@ class Conversation < ActiveRecord::Base
   end
   
   # If payment through Sharetribe is required to
-  # complete the transaction, return true
+  # complete the transaction, return true, whether the payment
+  # has been conducted yet or not.
   def requires_payment?(community)
-    listing && community.payment_possible_for?(listing) && status.eql?("accepted")
+    listing && community.payment_possible_for?(listing)
   end
   
-  # returns true if the next required action is the payment
+  # Return true if the next required action is the payment
   def waiting_payment?(community)
-    requires_payment?(community) && status == "accepted"
+    requires_payment?(community) && status.eql?("accepted")
+  end
+  
+  # Return true if the transaction is in a state that it can be confirmed
+  def can_be_confirmed?(community)
+    (!requires_payment?(community) && status.eql?("accepted")) || (requires_payment?(community) && status.eql?("paid"))
+  end
+  
+  # Return true if the transaction is in a state that it can be canceled
+  def can_be_canceled?
+    status.eql?("accepted") || status.eql?("paid")
   end
 
 end

@@ -38,6 +38,7 @@ class PaymentsController < ApplicationController
     @payment = Payment.find(params[:id])
     @payment.update_attribute(:status, "paid")
     @payment.conversation.pay
+    Delayed::Job.enqueue(PaymentCreatedJob.new(@payment.id, community.id, 0), :priority => 0, :run_at => 3.days.from_now)
     flash[:notice] = t("layouts.notifications.payment_successful")
     redirect_to person_message_path(:id => params[:message_id])
   end
