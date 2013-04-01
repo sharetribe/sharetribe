@@ -44,6 +44,8 @@ describe PersonMailer do
     @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @cookie)
     
     @conversation.update_attribute(:status, "accepted")
+    message = FactoryGirl.create(:message)
+    @conversation.messages << message
     email = PersonMailer.conversation_status_changed(@conversation, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [@test_person2.email], email.to

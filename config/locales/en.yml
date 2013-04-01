@@ -165,6 +165,7 @@ en:
       confirmed_offer: "marked the offer as completed"
       canceled_request: "canceled the request"
       canceled_offer: "canceled the offer"
+      paid: "paid %{sum}"
     new:
       offer_message_form_title: "Offer %{listing} to %{person}"
       request_message_form_title: "Request %{listing} from %{person}"

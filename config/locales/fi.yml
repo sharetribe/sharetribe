@@ -163,6 +163,7 @@ fi:
       confirmed_offer: "merkitsi tarjouksen toteutuneeksi"
       canceled_request: "peruutti pyynnön"
       canceled_offer: "peruutti tarjouksen"
+      paid: "maksoi %{sum}"
     new:
       offer_message_form_title: "Tarjoa %{listing} käyttäjälle %{person}"
       offer_message_title: "Tarjous: %{title}"

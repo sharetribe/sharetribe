@@ -456,9 +456,16 @@ function style_action_selectors() {
           function() {
             var action = $(this).attr('id')
             $(this).siblings().removeClass('accept').removeClass('reject').removeClass('confirm').removeClass('cancel');
+            
+            // Show or hide description text
             $(".confirm-description").addClass('hidden');
             $(".cancel-description").addClass('hidden');
             $("." + action + "-description").removeClass('hidden');
+            
+            // Show or hide price field
+            $(".conversation-price").addClass('hidden');
+            $("." + action +  "-price").removeClass('hidden');
+            
             $(this).addClass(action);
             $(".conversation-action").find('input:radio[id=' + $(this).attr('name') + ']').attr('checked', true);
             $("#conversation_message_attributes_action").val(action);

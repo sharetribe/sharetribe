@@ -14,10 +14,11 @@
           .link-text{:id => "#{action}-action-link"}= t(".#{action}_#{@conversation.discussion_type}")
     
     - if @current_community.payment_possible_for?(@conversation.listing)
-      = fields_for "conversation[payment_attributes]", Payment.new do |payment_form|
-        = payment_form.label :sum, t(".price_to_pay"), :class => "input"
-        = payment_form.text_field :sum, :value => money_without_cents(@conversation.listing.price), :class => "price-field"
-        = @conversation.listing.price_symbol 
+      .conversation-price.accept-price{:class => (@action.eql?("accept") ? "" : "hidden")}
+        = fields_for "conversation[payment_attributes]", Payment.new do |payment_form|
+          = payment_form.label :sum, t(".price_to_pay"), :class => "input"
+          = payment_form.text_field :sum, :value => money_without_cents(@conversation.listing.price), :class => "price-field"
+          = @conversation.listing.price_symbol
       
     = fields_for "conversation[message_attributes]", Message.new do |message_form|
       = message_form.label :content, t("conversations.new.message"), :class => "input"

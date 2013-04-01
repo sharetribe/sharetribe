@@ -4,7 +4,10 @@
   %h3
     = link_to message.sender.name, message.sender
   - if message.action
-    %b= t(".#{message.action}ed_#{message.conversation.discussion_type}")
+    - if message.action.eql?("pay")
+      %b= t(".paid", :sum => humanized_money_with_symbol(message.conversation.payment.sum))
+    - else
+      %b= t(".#{message.action}ed_#{message.conversation.discussion_type}")
   %small= time_ago(message.created_at)
   .message-content
     - text_with_line_breaks do  

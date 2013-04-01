@@ -17,7 +17,6 @@ Feature: User creates a new rideshare
     And I press "Save request"
     Then I should see "Tampere - Turku" within ".item-description"
     And I should see "Rideshare request"
-    And I should see "Request created successfully" within ".flash-notifications"
 
   @javascript
   Scenario: Creating a new rideshare item request with wrong address in destination
@@ -61,8 +60,7 @@ Feature: User creates a new rideshare
     And wait for 2 seconds
     And I press "Save offer"
     Then I should see "Tampere - Turku" within ".item-description"
-    And I should see "Rideshare offer" 
-    And I should see "Offer created successfully" within ".flash-notifications"
+    And I should see "Rideshare offer"
 
   @javascript
   Scenario: Creating a new rideshare item offer with wrong address in destination
