@@ -33,9 +33,19 @@ Feature: User pays after accepted transaction
     When I click "#continue_payment"
     Then I should see "Checkout"
     Then I should see "Testi Oy (123456-7)"
-    When I follow "Peruuta maksaminen"
-    And I follow "Siirry tästä takaisin kauppiaan sivustolle."
-    Then I should see "New payment"
-    And I should see "12 €"
+    When I click Osuuspankki logo
+    And I fill in "id" with "123456"
+    And I fill in "pw" with "7890"
+    And I press "Jatka"
+    And I press "Jatka"
+    And I press "Hyväksy"
+    And wait for 5 seconds
+    Then I should see "Payment successful"
+    When I log out
+    And the system processes jobs
+    And save and open all html emails
+    Then "kassi_testperson2@example.com" should receive an email
+    When I open the email
+    Then I should see "View conversation" in the email body 
 
   

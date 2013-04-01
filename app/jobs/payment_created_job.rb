@@ -11,12 +11,17 @@ class PaymentCreatedJob < Struct.new(:payment_id, :community_id)
   end
   
   def perform
-    payment = Payment.find(payment_id)
-    community = Community.find(community_id)
-    if payment.recipient.should_receive?("email_about_new_payments")
-      PersonMailer.new_payment(payment, community).deliver
+    begin
+      payment = Payment.find(payment_id)
+      community = Community.find(community_id)
+      if payment.recipient.should_receive?("email_about_new_payments")
+        PersonMailer.new_payment(payment, community).deliver
+      end
+      Delayed::Job.enqueue(ConfirmReminderJob.new(payment.conversation.id, payment.recipient.id, community_id, 0), :priority => 0, :run_at => 1.week.from_now)
+    rescue Exception => ex
+      puts ex.message
+      puts ex.backtrace.join("\n")
     end
-    Delayed::Job.enqueue(ConfirmReminderJob.new(payment.conversation.id, conversation.requester.id, community_id, 0), :priority => 0, :run_at => 1.week.from_now)
   end
   
 end

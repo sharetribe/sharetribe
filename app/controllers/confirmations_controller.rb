@@ -65,7 +65,12 @@ class ConfirmationsController < Devise::ConfirmationsController
   end
   
   # GET /resource/confirmation?confirmation_token=abcdef
-  def show    
+  def show
+    if params[:confirmation_token]
+      #sometimes tests catch extra ' char with link, so remove it if there
+      params[:confirmation_token] = params[:confirmation_token].chomp("'") 
+    end
+    
     self.resource = resource_class.confirm_by_token(params[:confirmation_token])
 
     if resource.errors.empty?

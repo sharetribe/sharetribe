@@ -98,7 +98,3 @@ end
 Then /^add default categories back$/ do
   reset_categories_to_default
 end
-
-Given /^that listing requires a payment of "([^"]*)"$/ do |payment|
-  @listing.update_attributes(:price_cents => payment.to_i*100, :price_currency => "EUR")
-end

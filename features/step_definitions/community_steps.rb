@@ -79,5 +79,3 @@ end
 Then /^community "(.*?)" should not require invite to join$/ do |community|
    Community.find_by_domain(community).join_with_invite_only.should_not be_true
 end
-
-

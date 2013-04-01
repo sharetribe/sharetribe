@@ -26,5 +26,8 @@ Then /^Most recently created organization should have all seller attributes fill
   o.company_id.should_not be_blank
   o.merchant_id.should_not be_blank
   o.merchant_key.should_not be_blank
-  
+end
+
+When /^I click Osuuspankki logo$/ do
+  page.find('input[src="https://payment.checkout.fi/static/img/osuuspankki.png"]').click
 end

@@ -44,7 +44,7 @@ class PersonMailer < ActionMailer::Base
   def new_payment(payment, community)
     @email_type =  "email_about_new_payments"
     @payment = payment
-    set_up_urls(@payment.conversation.other_party(@payment.payer), community, @email_type)
+    set_up_urls(@payment.recipient, community, @email_type)
     mail(:to => @recipient.email,
          :subject => t("emails.new_payment.new_payment"))
   end
