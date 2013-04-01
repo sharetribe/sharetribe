@@ -75,7 +75,7 @@ module CategoriesHelper
     
     
     update_translations(params)
-    add_custom_price_quantity_placeholders
+    add_custom_price_quantity_placeholders unless params[:without_price_updates]
   end
 
   def self.update_translations(params={})
