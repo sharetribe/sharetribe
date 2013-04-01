@@ -44,7 +44,7 @@ module CategoriesHelper
   }
   
   
-  def self.load_default_categories_to_db
+  def self.load_default_categories_to_db(params={})
     
     DEFAULT_CATEGORIES.each do |category| 
       if category.class == String
@@ -74,11 +74,11 @@ module CategoriesHelper
     
     
     
-    update_translations
+    update_translations(params)
     add_custom_price_quantity_placeholders
   end
 
-  def self.update_translations
+  def self.update_translations(params={})
     # Store translations for all that can be found from translation files
     Kassi::Application.config.AVAILABLE_LOCALES.each do |loc|
       locale = loc[1]
@@ -95,9 +95,13 @@ module CategoriesHelper
           existing_translation = CategoryTranslation.find_by_category_id_and_locale(category.id, locale)
           if existing_translation
             existing_translation.update_attribute(:name, translated_name)
-            existing_translation.update_attribute(:description, translated_description)
+            existing_translation.update_attribute(:description, translated_description) unless params[:without_description_translations]
           else
-            CategoryTranslation.create(:category => category, :locale => locale, :name => translated_name, :description => translated_description) 
+            unless params[:without_description_translations]
+              CategoryTranslation.create(:category => category, :locale => locale, :name => translated_name, :description => translated_description) 
+            else
+              CategoryTranslation.create(:category => category, :locale => locale, :name => translated_name) 
+            end
           end
         rescue I18n::MissingTranslationData
           # no need to store anything if no translation found
@@ -116,9 +120,13 @@ module CategoriesHelper
           existing_translation = ShareTypeTranslation.find_by_share_type_id_and_locale(share_type.id, locale)
           if existing_translation
             existing_translation.update_attribute(:name, translated_name)
-            existing_translation.update_attribute(:description, translated_description)
+            existing_translation.update_attribute(:description, translated_description) unless params[:without_description_translations]
           else
-            ShareTypeTranslation.create(:share_type => share_type, :locale => locale, :name => translated_name, :description => translated_description) 
+            unless params[:without_description_translations]
+              ShareTypeTranslation.create(:share_type => share_type, :locale => locale, :name => translated_name, :description => translated_description) 
+            else
+              ShareTypeTranslation.create(:share_type => share_type, :locale => locale, :name => translated_name) 
+            end
           end
         rescue I18n::MissingTranslationData
           # no need to store anything if no translation found
