@@ -19,7 +19,7 @@ class AssignOldListingsToSubcategories < ActiveRecord::Migration
     other = Category.find_by_name("other")
     
     Listing.find_each do |listing|
-      if listing.category.name == "item"
+      if listing.category.name == "item" && listing.open && (listing.valid_until.nil? || listing.valid_until > Time.now)
       
         subcategory = other
         keywords.each do |arr|
