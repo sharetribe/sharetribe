@@ -80,6 +80,8 @@ nl:
     password: Wachtwoord
     service_name: ~
     share_types:
+      request: ~
+      offer: ~
       borrow: Lenen
       buy: Kopen
       give_away: geven
@@ -89,6 +91,8 @@ nl:
       rent_out: uitlenen
       sell: verkopen
       trade: ruilen
+      offer_to_swap: ~
+      request_to_swap: ~
       share_for_free: ~
       accept_for_free: ~
     categories:
@@ -96,10 +100,46 @@ nl:
       favor: ~
       rideshare: ~
       housing: ~
+      tools: ~
+      sports: ~
+      music: ~
+      books: ~
+      games: ~
+      furniture: ~
+      outdoors: ~
+      food: ~
+      electronics: ~
+      pets: ~
+      film: ~
+      clothes: ~
+      garden: ~
+      travel: ~
+      other: ~
     username: Gebruikersnaam
     username_or_email: ~
     what_is_this: "Wat is dit?"
   conversations:
+    accept:
+      respond_to_offer: ~
+      respond_to_request: ~
+      accept_offer: ~
+      accept_request: ~
+      reject_offer: ~
+      reject_request: ~
+      close_listing: ~
+      update_later: ~
+      optional_message: ~
+      price_to_pay: ~
+    confirm:
+      confirm_description: ~
+      cancel_description: ~
+      cancel_payed_description: ~
+      canceling_payed_transaction: ~
+      confirm: ~
+      cancel: ~
+      continue: ~
+      give_feedback_to: ~
+      do_not_give_feedback: ~
     index:
       messages_from_all_tribes: ~
       loading_more_messages: "Laad meer berichten"
@@ -107,15 +147,32 @@ nl:
       messages_partitive: berichten
       no_received_messages: "Geen ontvangen berichten"
       no_sent_messages: "Geen verzonden berichten"
+    conversation:
+      accepted_request: ~
+      accepted_offer: ~
+      rejected_request: ~
+      rejected_offer: ~
+      confirmed_request: ~
+      confirmed_offer: ~
+      canceled_request: ~
+      canceled_offer: ~
+    message:
+      accepted_request: ~
+      accepted_offer: ~
+      rejected_request: ~
+      rejected_offer: ~
+      confirmed_request: ~
+      confirmed_offer: ~
+      canceled_request: ~
+      canceled_offer: ~
+      paid: ~
     new:
+      offer_message_form_title: ~
+      request_message_form_title: ~
       favor_offer_message_form_title: "Vraag om een gunst van"
-      favor_offer_message_title: "Gunst verzoek: %{title}"
       favor_request_message_form_title: "Bied een gunst aan"
-      favor_request_message_title: "Gunst aanbod: %{title}"
       housing_offer_message_form_title: "Beantwoord aan"
-      housing_offer_message_title: "Beantwoord jou lijst %{title}"
       housing_request_message_form_title: "Beantwoord aan"
-      housing_request_message_title: "Beantwoord jou lijst %{title}"
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
@@ -132,14 +189,10 @@ nl:
       housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
-      item_offer_message_title: "Item verzoek: %{title}"
       item_request_message_form_title: "Bied een item aan"
-      item_request_message_title: "Item aanbod: %{title}"
       message: Bericht
       rideshare_offer_message_form_title: "Vraag om een rit van"
-      rideshare_offer_message_title: "Rit verzoek: %{title}"
       rideshare_request_message_form_title: "Bied een rit aan"
-      rideshare_request_message_title: "Rit aanbod: %{title}"
       send_offer_message: "Verstuur het verzoek"
       send_request_message: "Verstuur het aanbod"
       send_message: ~
@@ -184,20 +237,32 @@ nl:
       conversation_with_user: ~
       last_message_at: ~
     status:
+      cancel_payed_transaction: ~
       feedback_given: "Feedback gegeven"
       feedback_skipped: "Feedback overgeslagen"
       give_feedback: "Geef feedback"
       offer_accepted: "Aanbod geaccepteerd"
       offer_rejected: "Aanbod geweigerd"
+      offer_canceled: ~
+      offer_confirmed: ~
+      pay: ~
+      paid: ~
       request_accepted: "Verzoek geaccepteerd"
       request_rejected: "Verzoek geweigerd"
+      request_confirmed: ~
+      request_canceled: ~
       skip_feedback: "Sla feedback over"
-      waiting_confirmation_from_listing_author: "Wacht bevestiging van auteur"
+      waiting_for_listing_author_to_accept_offer: ~
+      waiting_for_listing_author_to_accept_request: ~
+      waiting_confirmation_from_requester: ~
+      waiting_payment_from_requester: ~
     status_link:
       accept_offer: "Accepteer aanbod"
       accept_request: "Accepteer verzoek"
       reject_offer: "Sla aanbod af"
       reject_request: "Sla verzoek af"
+      confirm: ~
+      cancel: ~
   communities:
     map_bubble:
       view_tribe: ~
@@ -350,25 +415,37 @@ nl:
       city_example_link: ~
   emails:
     accept_reminder:
-      offer_accusative: ~
-      remember_to_accept_listing: ~
       remember_to_accept_offer: ~
       remember_to_accept_request: ~
-      request_accusative: ~
       you_can_accept_or_reject_offer_at: ~
       you_can_accept_or_reject_request_at: ~
       you_have_not_yet_accepted_or_rejected_offer: ~
       you_have_not_yet_accepted_or_rejected_request: ~
-    badge_migration_notification:
-      badge_description1: "Je kan verschillende badges verdienen in Kassi, als een erkenning voor je acties in de service. Je kan badges verdienen door acties, als het toevoegen van nieuwe aanbiedingen en verzoeken, commentaar geven op de inhoud van anderen, voor alle type uitwissel handelingen die plaats vinden (verkopen en items lenen, gunsten doen, het organiseren van carpooling enzovoort) en voor het zijn van een actieve gebruiker. Merk op dat je alleen badges krijgt voor de uitwisselingen waar je een positieve feedback ontvangt."
-      badge_description2: "Een persoon met veel badges is waarschijnlijk actief, betrouwbaar en aardig gevonden door andere gebruikers. Dus wees actief in Kassi: Koop, verkoop, leen en leen spullen uit, doe anderen een gunst, deel ritten en zie je badge arsenaal groeien!"
-      you_have_received_badges: "Je hebt een nieuwe badge ontvangen!"
-      you_have_received_badges_in_kassi: "Je hebt een nieuwe badge verdiend in Kassi. Je kan je badges zien als je gaat naar"
+      show_thread: ~
+    confirm_reminder:
+      you_have_not_yet_confirmed_or_canceled_request: ~
+      remember_to_confirm_request: ~
+      if_will_not_happen_you_should_cancel: ~
+      cancel_it_link_text: ~
+    payment_reminder:
+      remember_to_pay: ~
+      you_have_not_yet_paid: ~
+      if_will_not_happen_you_should_cancel: ~
+      cancel_it_link_text: ~
+    transaction_confirmed:
+      here_is_a_message_from: ~
+      request_marked_as_confirmed: ~
+      request_marked_as_canceled: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      giving_feedback_is_good_idea: ~
+      give_feedback_to: ~
     confirmation_instructions:
       confirmation_instructions_signature: ~
       welcome_to_kassi: ~
       need_to_confirm: ~
       confirmation_link_text: ~
+      or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
       check_your_settings: "Controleer uw instellingen"
@@ -382,50 +459,54 @@ nl:
       view_it_in_your_browser: ~
       or: ~
       unsubscribe_from_these_emails: ~
+    community_starter_email:
+      subject: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} heeft uw aanbod geaccepteerd, betreffende het verzoek %{listing}"
       has_accepted_your_request: "%{accepter} heeft uw verzoek geaccepteerd, betreffende het aanbod %{listing}"
       has_rejected_your_offer: "%{accepter} heeft uw aanbod geweigerd, betreffende het verzoek %{listing}"
       has_rejected_your_request: "%{accepter} heeft uw verzoek geweigerd, betreffende het aanbod %{listing}"
-      you_can_view_the_offer_in: "Je kan je aanbod en de gerelateerde conversatie zien in"
-      you_can_view_the_request_in: "Je kan je verzoek en de gerelateerde conversatie zien in"
+      view_thread: ~
       your_offer_was_accepted: "Je aanbod is geaccepteerd"
       your_offer_was_rejected: "Je aanbod is verworpen"
       your_request_was_accepted: "Je verzoek is geaccepteerd"
       your_request_was_rejected: "Je verzoek is verworpen"
+      you_can_now_pay_to: ~
+      pay_now: ~
     invitation_to_kassi:
       hi: ~
       you_have_been_invited_to_kassi: ~
-      info_about_kassi: ~
       here_is_a_message_from: ~
-      you_can_join_kassi_using_invitation_code: ~
-      join_kassi_in: ~
+      join_now: ~
+      invitation_code: ~
     new_badge:
       you_can_view_all_your_badges_in: "Je kan al je badges zien in"
       you_have_achieved_a_badge: "Je hebt een badge '%{badge_name}' verdiend in Kassi!"
     new_comment:
       has_commented_your_offer_in_kassi: "%{author} heeft een reactie gegeven op uw aanbodr %{listing}"
       has_commented_your_request_in_kassi: "%{author} heeft een reactie gegeven op u verzoek %{listing}"
-      you_can_reply_to_comment_in: "Voit nähdä ilmoituksesi kommentit ja jättää uuden kommentin osoitteessa"
+      view_comment: ~
       you_have_a_new_comment: "%{author} heeft een reactie gegeven over u lijst in Kassi"
       listing_you_follow_has_a_new_comment: ~
       has_commented_offer_you_follow_in_kassi: ~
       has_commented_request_you_follow_in_kassi: ~
     new_message:
       conversation_title: ~
-      do_not_reply_to_this_email: "Note: beantwoord deze mail niet direct. Gebruik de antwoord link hierboven."
+      view_message: ~
       has_sent_you_a_message_in_kassi: "%{sender} heeft u een bericht gestuurd in Kassi:"
-      you_can_reply_to_message_in: "Je kan het bericht beantwoorden in"
       you_have_a_new_message: "Je hebt een nieuw bericht in Kassi"
+    new_payment:
+      new_payment: ~
+      you_have_received_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} heeft je feedback gegeven in Kassi"
       you_can_give_feedback_to: "Je kan feedback geven aan %{name} in"
-      you_can_view_all_your_feedback_in: "Je kan alle feedback zien, die je hebt gehad op"
+      view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
       has_updated_offer_you_follow_in_kassi: ~
       has_updated_request_you_follow_in_kassi: ~
-      you_can_view_the_changes_in: ~
+      view_changes: ~
     community_updates:
       added_offer: ~
       added_request: ~
@@ -501,6 +582,7 @@ nl:
       departure_time: "Vertrek tijd moet tussen nu en één jaar vanaf nu zijn."
       share_type: "Je moet op zijn minst één van de blokken hierboven aanklikken."
       valid_until: "Deze datum moet tussen nu en één jaar vanaf nu zijn."
+      price: ~
     testimonials:
       you_must_explain_not_neutral_feedback: "Als je niet neutrale feedback wilt geven, moet je uitleggen waarom."
       you_must_select_a_grade: "Vergeet niet om de gebruiker een cijfer te geven door op één van de bovenstaande iconen te klikken (Je kan de uitleg van de iconen zien als je met je muis erover heen beweegt)"
@@ -565,10 +647,6 @@ nl:
     contact_us: ~
     profile: ~
   homepage:
-    filter_share_types:
-      listing_types:
-        request: ~
-        offer: ~
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Daarnaast is er <b>één ander aanbod</b>,"
       additionally_one_private_request_exists: "Daarnaast is er <b>één ander verzoek</b>,"
@@ -736,6 +814,7 @@ nl:
       settings: ~
       sign_up: ~
     notifications:
+      something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
@@ -771,13 +850,17 @@ nl:
       news_item_updated: ~
       news_item_deleted: ~
       offer_accepted: "Aanbod geaccepteerd"
+      offer_confirmed: ~
       offer_closed: "Aanbod gesloten"
+      listing_created_successfully: ~
       offer_created_successfully: "Aanbod succesvol aangemaakt."
       offer_rejected: "Aanbod afgewezen"
+      offer_canceled: ~
       offer_updated_successfully: "Aanbod succesvol bijgewerkt"
       only_kassi_administrators_can_access_this_area: "Alleen Kassi administrators hebben toegang tot deze sectie"
       only_listing_author_can_close_a_listing: "Alleen een geregistreerde auteur kan een lijst sluiten"
       only_listing_author_can_edit_a_listing: "Alleen een geregistreerde auteur kan een lijst wijzigen"
+      payment_successful: ~
       password_recovery_sent: "Intructies om je wachtwoord te veranderen zijn naar je email gestuurd."
       person_activated: ~
       person_deactivated: ~
@@ -794,9 +877,11 @@ nl:
       reply_cannot_be_empty: "Je kan geen leeg bericht sturen"
       reply_sent: "Reactie succesvol verstuurd"
       request_accepted: "Verzoek geaccepteerd"
+      request_confirmed: ~
       request_closed: "Verzoek gesloten"
       request_created_successfully: "Verzoek succesvol aangemaakt."
       request_rejected: "Verzoek afgewezen"
+      request_canceled: ~
       request_updated_successfully: "Verzoek succesvol bijgewerkt"
       message_sent: ~
       this_content_is_not_available_in_this_community: ~
@@ -898,6 +983,12 @@ nl:
         select_file: "Selecteer bestand"
       location:
         location: ~
+      price:
+        price: ~
+        per: ~
+        mass: ~
+        time: ~
+        long_time: ~
       origin:
         location: ~
         origin: Begin
@@ -929,6 +1020,7 @@ nl:
         housing_you_request: "Huisvesting vraag"
         item_you_offer: "Jou item aanbod"
         item_you_request: "Jou item vraag"
+        listing_title: ~
       valid_until:
         valid_until: "Verval datum"
       valid_until_radio_buttons:
@@ -984,6 +1076,14 @@ nl:
       accept_for_frees: ~
       trades: Ruilen
     link_labels:
+      offer_this: ~
+      request_this: ~
+      lend_this: ~
+      borrow_this: ~
+      buy_this: ~
+      rent_out_this: ~
+      rent_this: ~
+      sell_this: ~
       link_label_for_favor_offer: "Vraag een gunst"
       link_label_for_favor_request: "Bied je hulp aan"
       link_label_for_housing_offer_sell: ~
@@ -1039,7 +1139,8 @@ nl:
       selected_rent: ~
       selected_rent_out: ~
       selected_sell: ~
-      selected_trade: ~
+      selected_offer_to_swap: ~
+      selected_request_to_swap: ~
       selected_share_for_free: ~
       selected_accept_for_free: ~
       how_do_you_want_to_share_it: ~
@@ -1056,14 +1157,15 @@ nl:
       rent: ~
       rent_out: ~
       sell: ~
-      trade: ~
+      offer_to_swap: ~
+      request_to_swap: ~
       share_for_free: ~
       accept_for_free: ~
-      item_with_article: ~
-      favor_with_article: ~
-      rideshare_with_article: ~
-      housing_with_article: ~
-      what_kind_of_category: ~
+      what_kind_of_item: ~
+      what_kind_of_favor: ~
+      what_kind_of_rideshare: ~
+      what_kind_of_housing: ~
+      which_subcategory: ~
       tools: ~
       sports: ~
       music: ~
@@ -1147,6 +1249,13 @@ nl:
     member_id_is_your_username: ~
     member_id_or_email: ~
     join_here: ~
+  payments:
+    new:
+      new_payment: ~
+      continue: ~
+      payment_receiver: ~
+      sum: ~
+      commission_will_be_added: ~
   people:
     index:
       loading_more_members: ~
@@ -1410,6 +1519,7 @@ nl:
       newsletters: ~
       community_updates: ~
       email_about_accept_reminders: ~
+      email_about_confirm_reminders: ~
       email_about_new_badges: "...ik heb een nieuwe badge bereikt"
       email_about_new_comments_to_own_listing: "...iemand heeft gereageerd op mijn aanbod of verzoek"
       email_about_new_messages: "...iemand stuurt me een bericht"
@@ -1421,6 +1531,9 @@ nl:
       email_newsletters: ~
       email_when_conversation_accepted: "...iemand accepteert mijn aanbod of verzoek"
       email_when_conversation_rejected: "...iemand weigert mijn aanbod of verzoek"
+      email_about_completed_transactions: ~
+      email_about_new_payments: ~
+      email_about_payment_reminders: ~
       unsubscribe_succesful: ~
       unsubscribe_info_text: ~
       settings_link: ~
@@ -1494,6 +1607,7 @@ nl:
     testimonial:
       from_user: van
       to_user: naar
+      about_listing: ~
   time:
     formats:
       short: "%e %b %Y at %H:%M"

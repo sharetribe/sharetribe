@@ -12,7 +12,7 @@ en:
         invite_people: "Invite people to this community"
       edit_look_and_feel:
         edit_community_look_and_feel: "Edit community \"%{community_name}\" look and feel"
-        community_logo: "Logo"
+        community_logo: Logo
         community_cover_photo: "Cover photo"
         community_custom_color1: "Main color"
         logo_instructions_text: "Logo file will be cut in square and resized to 192x192 pixel if needed."
@@ -96,25 +96,25 @@ en:
       share_for_free: "sharing for free"
       accept_for_free: "wanting to use for free"
     categories:
-      item: "items"
-      favor: "services"
-      rideshare: "rideshare"
-      housing: "spaces"
-      tools: "tools"
-      sports: "sports"
-      music: "music"
+      item: items
+      favor: services
+      rideshare: rideshare
+      housing: spaces
+      tools: tools
+      sports: sports
+      music: music
       books: "books & magazines"
       games: "games & toys"
-      furniture: "furniture"
+      furniture: furniture
       outdoors: "camping & outdoors"
       food: "food & kitchen"
-      electronics: "electronics"
+      electronics: electronics
       pets: "pets & animals"
       film: "film & movies"
       clothes: "clothes & accessories"
-      garden: "garden"
-      travel: "travel"
-      other: "other"
+      garden: garden
+      travel: travel
+      other: other
     username: Username
     username_or_email: "Email or username"
     what_is_this: "What's this?"
@@ -137,7 +137,7 @@ en:
       canceling_payed_transaction: "Cancel transaction"
       confirm: "Mark completed"
       cancel: "Did not happen"
-      continue: "Continue"
+      continue: Continue
       give_feedback_to: "Give feedback to %{person_link}"
       do_not_give_feedback: "Skip feedback"
     index:
@@ -237,20 +237,20 @@ en:
       conversation_with_user: "With %{person}"
       last_message_at: "(latest message %{time})"
     status:
-      cancel_payed_transaction: "Cancel" 
+      cancel_payed_transaction: Cancel
       feedback_given: "Feedback given"
       feedback_skipped: "Feedback skipped"
       give_feedback: "Give feedback"
-      offer_accepted: "Accepted"
-      offer_rejected: "Rejected"
-      offer_canceled: "Canceled"
-      offer_confirmed: "Completed"
-      pay: "Pay"
+      offer_accepted: Accepted
+      offer_rejected: Rejected
+      offer_canceled: Canceled
+      offer_confirmed: Completed
+      pay: Pay
       paid: "Payment successful"
-      request_accepted: "Accepted"
-      request_rejected: "Rejected"
-      request_confirmed: "Completed"
-      request_canceled: "Canceled"
+      request_accepted: Accepted
+      request_rejected: Rejected
+      request_confirmed: Completed
+      request_canceled: Canceled
       skip_feedback: "Skip feedback"
       waiting_for_listing_author_to_accept_offer: "Waiting for %{listing_author_name} to accept the offer"
       waiting_for_listing_author_to_accept_request: "Waiting for %{listing_author_name} to accept the request"
@@ -645,7 +645,7 @@ en:
     search_kassi: "Search %{service_name}"
     create_new_marketplace: "Create a new marketplace"
     contact_us: "Contact us"
-    profile: "Profile"
+    profile: Profile
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Additionally  there is <b>one other offer</b>,"
@@ -681,14 +681,14 @@ en:
     event_feed:
       latest_events: "What's going on"
     index:
-      no_listings_notification: "There are currently less than 10 open listings in this tribe. Could you lend your power drill, tennis racket or fondue pot? Do you like to sew, assemble furniture or fiddle with computers? Is there some things in your closet you want to get rid off? Or perhaps you would like to share a ride? Or borrow some tools? Or need someone to walk your dog? Add information about these to %{service_name}!"  
+      no_listings_notification: "There are currently less than 10 open listings in this tribe. Could you lend your power drill, tennis racket or fondue pot? Do you like to sew, assemble furniture or fiddle with computers? Is there some things in your closet you want to get rid off? Or perhaps you would like to share a ride? Or borrow some tools? Or need someone to walk your dog? Add information about these to %{service_name}!"
       available_on_the_app_store: "Available on the app store"
       private_listing_notification: "There are %{listing_count} in this community. %{private_listing_count} of them %{be_verb} visible only to the members of the community. If you want to see also the listings that are visible only to the members, you need to %{log_in_link}."
       open_listing: "open listing"
       open_listings: "open listings"
       private_listing_notification_log_in: "log in"
-      is: "is"
-      are: "are"
+      is: is
+      are: are
       what_do_you_need: "What do you need?"
       post_new_listing: "Post a new listing!"
       are_offering: offer
@@ -738,15 +738,15 @@ en:
       comments: comments
     filters:
       show: "Filter:"
-      search: "Search"
+      search: Search
       map: "Show map"
       list: "Show list"
       all_listing_types: "All listing types"
       all_categories: "All categories"
   layouts:
     no_tribe:
-      inbox: "Inbox"
-      settings: "Settings"
+      inbox: Inbox
+      settings: Settings
       feedback: "Contact us"
     admin:
       admin: "%{service_name} admin panel"
@@ -787,7 +787,7 @@ en:
       how_to_use: "How to use"
       info_about_kassi: "Information about %{service_name}"
       news: News
-      register_details: "Privacy"
+      register_details: Privacy
       terms: "Terms of use"
     logged_in:
       admin: Admin
@@ -900,7 +900,6 @@ en:
       you_are_now_member: "You have successfully joined this community. Welcome!"
       you_are_already_member: "You are already a member of this %{service_name} community. Welcome back!"
       you_must_log_in_to_create_new_listing: "You must log in to %{service_name} to create a new listing. If you don't have an account you can %{sign_up_link}."
-      create_one_here: "create one here"
       additional_email_confirmed_dashboard: "Your email is now confirmed."
       you_must_log_in_to_give_feedback: "You must log in to give feedback"
       you_must_log_in_to_invite_new_users: "You must log in to invite new users to %{service_name}"
@@ -1077,14 +1076,14 @@ en:
       accept_for_frees: "Accepting for free"
       trades: Swapping
     link_labels:
-      offer_this: "Offer"
-      request_this: "Request"
-      lend_this: "Lend"
-      borrow_this: "Borrow"
+      offer_this: Offer
+      request_this: Request
+      lend_this: Lend
+      borrow_this: Borrow
       buy_this: Buy
       rent_out_this: "Rent out"
-      rent_this: "Rent"
-      sell_this: "Sell"  
+      rent_this: Rent
+      sell_this: Sell
       link_label_for_favor_offer: "Request this service"
       link_label_for_favor_request: "Offer this service"
       link_label_for_housing_offer_sell: "Buy this space"
@@ -1119,7 +1118,7 @@ en:
       request_something: "Request something!"
       search_returned_no_results: "Your search did not return any results."
     new:
-      listing: "listing"
+      listing: listing
       offer: "I have something to offer to others"
       request: "I need something"
       selected_offer: Offer
@@ -1128,16 +1127,16 @@ en:
       selected_category: "Category: %{category}"
       selected_subcategory: "Subcategory: %{subcategory}"
       selected_share_type: "Share type: %{share_type}"
-      selected_item: "Item"
-      selected_favor: "Service"
-      selected_rideshare: "Rideshare"
-      selected_housing: "Space"
+      selected_item: Item
+      selected_favor: Service
+      selected_rideshare: Rideshare
+      selected_housing: Space
       selected_borrow: Borrowing
       selected_buy: Buying
       selected_give_away: "Giving away"
       selected_lend: Lending
       selected_receive: "Take for free"
-      selected_rent: "Renting"
+      selected_rent: Renting
       selected_rent_out: "Renting out"
       selected_sell: Selling
       selected_offer_to_swap: Swapping
@@ -1167,21 +1166,21 @@ en:
       what_kind_of_rideshare: "What kind of ride are we talking about?"
       what_kind_of_housing: "What kind of a space are we talking about?"
       which_subcategory: "Which one of these describes it best?"
-      tools: "Tools"
-      sports: "Sports"
-      music: "Music"
+      tools: Tools
+      sports: Sports
+      music: Music
       books: "Books & magazines"
       games: "Games & toys"
-      furniture: "Furniture"
+      furniture: Furniture
       outdoors: "Camping & Outdoors"
       food: "Food & kitchen"
-      electronics: "Electronics"
+      electronics: Electronics
       pets: "Pets & animals"
       film: "Film & movies"
       clothes: "Clothes & accessories"
-      garden: "Garden"
-      travel: "Travel"
-      other: "Other"
+      garden: Garden
+      travel: Travel
+      other: Other
       what_do_you_want_to_do: "What do you want to do?"
       what_can_you_offer: "What can you offer to others?"
       what_do_you_need: "What do you need?"
@@ -1253,7 +1252,7 @@ en:
   payments:
     new:
       new_payment: "New payment"
-      continue: "Continue"
+      continue: Continue
       payment_receiver: "Payment receiver:"
       sum: "Payment sum:"
       commission_will_be_added: "A service fee of 10% will be added."
@@ -1404,12 +1403,12 @@ en:
       and_gave_following_feedback: "and gave the following feedback"
       less_than_expected: "Worse than expected"
       offered_favor: "offered help in"
-      offered_housing: "offered"
-      offered_item: "offered"
+      offered_housing: offered
+      offered_item: offered
       offered_rideshare: "offered a ride"
       requested_favor: "got help in"
       requested_housing: "got a space"
-      requested_item: "got"
+      requested_item: got
       requested_rideshare: "got a ride"
       slightly_better_than_expected: "Slightly better than expected"
       slightly_less_than_expected: "Slightly worse than expected"
@@ -1545,7 +1544,7 @@ en:
       unsuccessful_unsubscribe_info_text: "The reason might that the unsubscribe link you clicked was old or otherwise broken. Contact us via feedback button on the left and we can unsubscribe you, or log in to change your email settings."
     profile:
       about_you: "About you"
-      city: "City"
+      city: City
       family_name: "Family name"
       given_name: "Given name"
       location_description: "You can give either your exact location or, for example, only your zip code. Please add at least your zip code. You can also select a location from the map below."
@@ -1553,7 +1552,7 @@ en:
       postal_code: "Postal code"
       profile_page: "in your profile page"
       profilemap: Mapview
-      street_address: "Location"
+      street_address: Location
       these_fields_are_shown_in_your: "This information is visible to all %{service_name} users"
       visible_to_everybody: "visible to everybody"
       visible_to_registered_users: "(visible to users that have logged in)"
@@ -1604,8 +1603,8 @@ en:
       slightly_less_than_expected: "Slightly worse than expected"
       textual_feedback: "How did things go?"
       this_will_be_shown_in_profile: "The feedback you give will be visible to other users in the profile page of %{person}. It helps other members of this tribe to evaluate whether %{person} is a trustworthy person."
-      positive: "Positive"
-      negative: "Negative"
+      positive: Positive
+      negative: Negative
       default_textual_feedback: "Everything went smoothly, thanks a lot!"
     testimonial:
       from_user: from

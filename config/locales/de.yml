@@ -80,6 +80,8 @@ de:
     password: Passwort
     service_name: ~
     share_types:
+      request: ~
+      offer: ~
       borrow: ausleihen
       buy: kaufen
       give_away: abgeben
@@ -89,6 +91,8 @@ de:
       rent_out: vermieten
       sell: verkaufen
       trade: tauschen
+      offer_to_swap: ~
+      request_to_swap: ~
       share_for_free: "Kostenlose gemeinsame Nutzung"
       accept_for_free: ~
     categories:
@@ -96,10 +100,46 @@ de:
       favor: ~
       rideshare: ~
       housing: ~
+      tools: ~
+      sports: ~
+      music: ~
+      books: ~
+      games: ~
+      furniture: ~
+      outdoors: ~
+      food: ~
+      electronics: ~
+      pets: ~
+      film: ~
+      clothes: ~
+      garden: ~
+      travel: ~
+      other: ~
     username: Benutzername
     username_or_email: "Benutzername oder Email"
     what_is_this: "Was ist das?"
   conversations:
+    accept:
+      respond_to_offer: ~
+      respond_to_request: ~
+      accept_offer: ~
+      accept_request: ~
+      reject_offer: ~
+      reject_request: ~
+      close_listing: ~
+      update_later: ~
+      optional_message: ~
+      price_to_pay: ~
+    confirm:
+      confirm_description: ~
+      cancel_description: ~
+      cancel_payed_description: ~
+      canceling_payed_transaction: ~
+      confirm: ~
+      cancel: ~
+      continue: ~
+      give_feedback_to: ~
+      do_not_give_feedback: ~
     index:
       messages_from_all_tribes: ~
       loading_more_messages: "weitere Nachrichten laden"
@@ -107,15 +147,32 @@ de:
       messages_partitive: Nachrichten
       no_received_messages: "Keine empfangenen Nachrichten"
       no_sent_messages: "Keine gesendeten Nachrichten"
+    conversation:
+      accepted_request: ~
+      accepted_offer: ~
+      rejected_request: ~
+      rejected_offer: ~
+      confirmed_request: ~
+      confirmed_offer: ~
+      canceled_request: ~
+      canceled_offer: ~
+    message:
+      accepted_request: ~
+      accepted_offer: ~
+      rejected_request: ~
+      rejected_offer: ~
+      confirmed_request: ~
+      confirmed_offer: ~
+      canceled_request: ~
+      canceled_offer: ~
+      paid: ~
     new:
+      offer_message_form_title: ~
+      request_message_form_title: ~
       favor_offer_message_form_title: "Fragen Sie nach Hilfe"
-      favor_offer_message_title: "Service Anfrage: %{title}"
       favor_request_message_form_title: "Bieten Sie Hilfe an"
-      favor_request_message_title: "Service Angebot: %{title}"
       housing_offer_message_form_title: "Bieten Sie eine Unterkunft an"
-      housing_offer_message_title: "Unterkunfts-Anfrage: %{title}"
       housing_request_message_form_title: "Unterkunft anfragen von"
-      housing_request_message_title: "Unterkunft verfügbar: %{title}"
       item_offer_lend_message_form_title: "%{listing} an %{person} ausleihen"
       item_offer_sell_message_form_title: "Kaufen Sie %{listing} von %{person}"
       item_offer_give_away_message_form_title: "%{listing} annehmen von %{person}"
@@ -132,14 +189,10 @@ de:
       housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: "%{listing} an %{person} verkaufen"
       housing_request_rent_message_form_title: "%{listing} an %{person} vermieten"
-      item_offer_message_title: "Gegenstands-Anfrage: %{title}"
       item_request_message_form_title: "Bieten Sie einen Gegenstand an"
-      item_request_message_title: "Gegenstands-Angebot: %{title}"
       message: Nachricht
       rideshare_offer_message_form_title: "Nach einer Mitfahrgelegenheit fragen"
-      rideshare_offer_message_title: "Fahrgemeinschafts-Anfrage: %{title}"
       rideshare_request_message_form_title: "Eine MItfahrgelegenheit anbieten an"
-      rideshare_request_message_title: "Fahrgemeinschafts-Angebot: %{title}"
       send_offer_message: "Angebot senden"
       send_request_message: "Anfrage senden"
       send_message: "Nachricht senden"
@@ -184,20 +237,32 @@ de:
       conversation_with_user: "Gespräch mit  %{person}"
       last_message_at: ~
     status:
+      cancel_payed_transaction: ~
       feedback_given: "gegebenes Feedback"
       feedback_skipped: "übersprungene Feedbacks"
       give_feedback: "Feedback geben"
       offer_accepted: "Angebot angenommen"
       offer_rejected: "Angebot abgelehnt"
+      offer_canceled: ~
+      offer_confirmed: ~
+      pay: ~
+      paid: ~
       request_accepted: "Anfrage akzeptiert"
       request_rejected: "Anfrage abgelehnt"
+      request_confirmed: ~
+      request_canceled: ~
       skip_feedback: "Feedback überspringen"
-      waiting_confirmation_from_listing_author: "Es wird auf die Bestätigung des Autors gewartet"
+      waiting_for_listing_author_to_accept_offer: ~
+      waiting_for_listing_author_to_accept_request: ~
+      waiting_confirmation_from_requester: ~
+      waiting_payment_from_requester: ~
     status_link:
       accept_offer: "Angebot annehmen"
       accept_request: "Anfrage annehmen"
       reject_offer: "Angebot ablehnen"
       reject_request: "Anfrage ablehnen"
+      confirm: ~
+      cancel: ~
   communities:
     map_bubble:
       view_tribe: "Stamm anzeigen"
@@ -350,25 +415,37 @@ de:
       city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe von Kallio, Helsinki</a>"
   emails:
     accept_reminder:
-      offer_accusative: anbieten
-      remember_to_accept_listing: "Denken Sie daran %{listing_type} anzunehmen, selbst wenn das eigentliche Ereignis bereits stattgefunden hat. Akzeptieren ermöglicht es den Parteien gegenseitig Feedback zu vergeben. Gutes Feedback dass Sie erhalten haben wird anderen %{service_name} Benutzern in Ihrem Profil angezeigt. Dies macht Sie in den Augen anderer %{service_name} Benutzer vetrauenswürdiger und versichert dass auch in der Zukunft alles reibungslos ablaufen wird. Gutes Feedback hilft Ihnen auch dabei Abzeichen zu erhalten."
       remember_to_accept_offer: "Vergessen Sie nicht ein Angebot anzunehmen oder abzulehnen"
       remember_to_accept_request: "Vergessen Sie nicht eine Anfrage anzunehmen oder abzulehnen"
-      request_accusative: Anfrage
       you_can_accept_or_reject_offer_at: "Sie können Angebote annehmen oder ablehnen bei"
       you_can_accept_or_reject_request_at: "Sie können Anfragen annehmen oder ablehnen bei"
       you_have_not_yet_accepted_or_rejected_offer: "Sie haben das Angebot '%{title}' dass Sie am %{date} erhalten haben noch nicht akzeptiert oder abgelehnt."
       you_have_not_yet_accepted_or_rejected_request: "Sie haben die Anfrage '%{title}' die Sie am %{date} erhalten haben noch nicht akzeptiert oder abgelehnt."
-    badge_migration_notification:
-      badge_description1: "Sie können viele verschiedene Abzeichen in %{service_name} als Anerkennung Ihrer Dienste erhalten. Sie erhalten Anzeichen indem Sie neue Angebote oder Anfragen hinzufügen, Inhalte aus allen stattfindenen Arten des Ressourcen-Austauschs (das verkaufen und leihen von Gegenständen, anderen helfen, Fahrgemeinschaften organisieren usw.) kommentieren und allgemein wenn Sie ein aktiver Nutzer dieses Services sind. Beachten Sie dass Sie nur Abzeichen für positiv erhaltene Feedbacks bekommen."
-      badge_description2: "Eine Person mit vielen Abzeichen ist höchstwahrscheinlich aktiv, zuverlässig und wird von anderen Benutzern gemocht. Seien Sie desshalb aktiv in%{service_name}: kaufen, verkaufen, leihen und verleihen Sie Gegenstände, helfen Sie Anderen, bieten Sie Mitfahrgelegenheiten und schauen Sie wie sich Ihre Abzeichen-Sammlung vergrößert."
-      you_have_received_badges: "Sie haben Abzeichen in %{service_name} erhalten!"
-      you_have_received_badges_in_kassi: "Sie haben neue Abzeichen in %{service_name} erhalten. Sie können Ihre Abzeichen sehen indem Sie sich in %{service_name} anmelden und"
+      show_thread: ~
+    confirm_reminder:
+      you_have_not_yet_confirmed_or_canceled_request: ~
+      remember_to_confirm_request: ~
+      if_will_not_happen_you_should_cancel: ~
+      cancel_it_link_text: ~
+    payment_reminder:
+      remember_to_pay: ~
+      you_have_not_yet_paid: ~
+      if_will_not_happen_you_should_cancel: ~
+      cancel_it_link_text: ~
+    transaction_confirmed:
+      here_is_a_message_from: ~
+      request_marked_as_confirmed: ~
+      request_marked_as_canceled: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      giving_feedback_is_good_idea: ~
+      give_feedback_to: ~
     confirmation_instructions:
       confirmation_instructions_signature: "Liebe Grüße, <br/> das %{service_name} Team"
       welcome_to_kassi: "Willkommen bei %{service_name},"
       need_to_confirm: "Sie müssen Ihre Email Adresse bestätigen, indem Sie auf den folgenden Link klicken:"
       confirmation_link_text: "Mein Konto bestätigen"
+      or_paste_link: ~
       turning_on_confirmations_in_this_community: "Wir beginnen mit der Verwendung von Email Bestätigungen in dieser %{service_name} Community."
     common:
       check_your_settings: "Überprüfen Sie Ihre Einstellungen"
@@ -382,50 +459,54 @@ de:
       view_it_in_your_browser: ~
       or: ~
       unsubscribe_from_these_emails: ~
+    community_starter_email:
+      subject: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} hat Ihr Angebot unter Berücksichtigung Ihrer Anfrage akzeptiert %{listing}"
       has_accepted_your_request: "%{accepter} hat Ihre Anfrage unter Berücksichtigung Ihres Angebots akzeptiert %{listing}"
       has_rejected_your_offer: "%{accepter} hat Ihr Angebot unter Berücksichtigung Ihrer Anfrage abgelehnt %{listing}"
       has_rejected_your_request: "%{accepter} hat Ihre Anfrage unter Berücksichtigung Ihres Angebots abgelehnt %{listing}"
-      you_can_view_the_offer_in: "Sie können Ihr Angebot und die damit verbundene Unterhaltung bei            einsehen"
-      you_can_view_the_request_in: "Sie können Ihre Anfrage und die damit verbundene Unterhaltung bei           einsehen"
+      view_thread: ~
       your_offer_was_accepted: "Ihr Angebot wurde akzeptiert"
       your_offer_was_rejected: "Ihr Angebot wurde abgelehnt"
       your_request_was_accepted: "Ihre Anfrage wurde akzeptiert"
       your_request_was_rejected: "Ihre Anfrage wurde abgelehnt"
+      you_can_now_pay_to: ~
+      pay_now: ~
     invitation_to_kassi:
       hi: Hallo!
       you_have_been_invited_to_kassi: "%{inviter} hat Sie dazu eingeladen den %{service_name} Webdienst der %{community} Community zu benutzen."
-      info_about_kassi: "%{service_name} ist ein Dienst wo Mitglieder einer Community, zum Beispiel Waren verleihen, umtauschen oder verkaufen können, Mitfahrgelegenheiten anbieten können und anderen Mitmenschen in verschiedenen Dingen helfen können."
       here_is_a_message_from: "Hier ist eine persönliche Nachricht von  %{inviter} :"
-      you_can_join_kassi_using_invitation_code: "Hier ist ein Einladungs-Code, den Sie benötigen um den Dienst beitreten zu können: %{code}"
-      join_kassi_in: "Sie können %{service_name} beitreten bei"
+      join_now: ~
+      invitation_code: ~
     new_badge:
       you_can_view_all_your_badges_in: "Sie können alle Ihre Abzeichen in                                einsehen"
       you_have_achieved_a_badge: "Sie haben das Abzeichen '%{badge_name}' in %{service_name} erhalten!"
     new_comment:
       has_commented_your_offer_in_kassi: "%{author} hat Ihr Angebot %{listing} kommentiert"
       has_commented_your_request_in_kassi: "%{author} hat Ihre Anfrage %{listing} kommentiert"
-      you_can_reply_to_comment_in: "Sie können alle Kommentare bei                                   einsehen und beantworten"
+      view_comment: ~
       you_have_a_new_comment: "%{author} hat Ihren Eintrag in %{service_name} kommentiert"
       listing_you_follow_has_a_new_comment: "%{author} hat auf Ihren Eintrag geantwortet den Sie in %{service_name} verfolgen"
       has_commented_offer_you_follow_in_kassi: "%{author} hat auf die Anfrage '%{listing}' geantwortet die Sie in %{service_name} verfolgen"
       has_commented_request_you_follow_in_kassi: "%{author} hat auf das Angebot '%{listing}' geantwortet dass Sie in %{service_name} verfolgen"
     new_message:
       conversation_title: "Nachrichtentitel: %{title}"
-      do_not_reply_to_this_email: "Hinweis: Bitte nicht direkt auf diese Email antworten. Verwenden Sie stattdessen den Antwort-Link oben."
+      view_message: ~
       has_sent_you_a_message_in_kassi: "%{sender} hat Ihnen eine Nachricht in %{service_name} gesendet:"
-      you_can_reply_to_message_in: "Sie können auf diese Nachricht hier                            antworten"
       you_have_a_new_message: "Sie haben eine neue Nachricht in %{service_name}"
+    new_payment:
+      new_payment: ~
+      you_have_received_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} hat Ihnen Feedback in %{service_name} hinterlassen"
       you_can_give_feedback_to: "Sie können Feedback für %{name} hier                           hinterlassen"
-      you_can_view_all_your_feedback_in: "Sie können alle Ihre Feedbacks die Sie erhalten haben hier                        einsehen"
+      view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Eintrag den Sie verfolgen wurde aktualisiert"
       has_updated_offer_you_follow_in_kassi: "%{author} hat die Anfrage '%{listing}' aktualisiert die Sie in %{service_name} verfolgen"
       has_updated_request_you_follow_in_kassi: "%{author} hat auf das Angebot '%{listing}' aktualisiert dass Sie in %{service_name} verfolgen"
-      you_can_view_the_changes_in: "Sie können die Änderungen in       anschauen"
+      view_changes: ~
     community_updates:
       added_offer: ~
       added_request: ~
@@ -501,6 +582,7 @@ de:
       departure_time: "Die Abfahrzeit muss zwischen der aktuellen Zeit und einem Jahr liegen."
       share_type: "Sie müssen eine auswählen."
       valid_until: "Das Datum muss sich zwischen der aktuellen Zeit und einem Jahr befinden."
+      price: ~
     testimonials:
       you_must_explain_not_neutral_feedback: "Falls Sie ein nicht-neutrales Feedback vergeben wollen, müssen Sie erklären warum."
       you_must_select_a_grade: "Denken Sie daran den Benutzer mit Klick auf den Icons oben zu benoten (Sie können die Erklärung der Icons einsehen indem Sie mit der Maus drübergehen)"
@@ -565,10 +647,6 @@ de:
     contact_us: ~
     profile: ~
   homepage:
-    filter_share_types:
-      listing_types:
-        request: ~
-        offer: ~
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Zusätzlich gibt es ein <b>anderes Angebot</b>,"
       additionally_one_private_request_exists: "Zusätzlich gibt es eine <b>andere Anfrage</b>,"
@@ -736,6 +814,7 @@ de:
       settings: Einstellungen
       sign_up: Registrieren
     notifications:
+      something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: "Konto erfolgreich erstellt. Als nächstes müssen Sie Ihre Email-Adresse bestätigen."
@@ -771,13 +850,17 @@ de:
       news_item_updated: "Artikel aktualisiert"
       news_item_deleted: "Artikel entfernt"
       offer_accepted: "Angebot angenommen"
+      offer_confirmed: ~
       offer_closed: "Angebot geschlossen"
+      listing_created_successfully: ~
       offer_created_successfully: "Angebot wurde erfolgreich erstellt."
       offer_rejected: "Angebot abgelehnt"
+      offer_canceled: ~
       offer_updated_successfully: "Angebot erfolgreich aktualisiert"
       only_kassi_administrators_can_access_this_area: "Nur  %{service_name} Administratoren können diesen Bereich aufrufen"
       only_listing_author_can_close_a_listing: "Nur Autoren eines Eintrags können den Eintrag schließen"
       only_listing_author_can_edit_a_listing: "Nur Autoren eines Eintrags können den Eintrag bearbeiten"
+      payment_successful: ~
       password_recovery_sent: "Anweisungen zum Ändern Ihres Passworts wurden an Ihre Email gesendet."
       person_activated: "Benutzer aktiviert"
       person_deactivated: "Benutzer deaktiviert"
@@ -794,9 +877,11 @@ de:
       reply_cannot_be_empty: "Sie können keine leere Nachricht senden."
       reply_sent: "Antwort erfolgreich gesendet"
       request_accepted: "Anfrage akzeptiert"
+      request_confirmed: ~
       request_closed: "Anfrage geschlossen"
       request_created_successfully: "Anfrage wurde erfolgreich erstellt."
       request_rejected: "Anfrage abgelehnt"
+      request_canceled: ~
       request_updated_successfully: "Anfrage erfolgreich aktualisiert"
       message_sent: "Nachricht gesendet"
       this_content_is_not_available_in_this_community: "Dieser Inhalt ist in dieser Community nicht verfügbar."
@@ -898,6 +983,12 @@ de:
         select_file: "Datei wählen"
       location:
         location: Standort
+      price:
+        price: ~
+        per: ~
+        mass: ~
+        time: ~
+        long_time: ~
       origin:
         location: Standort
         origin: Herkunft
@@ -929,6 +1020,7 @@ de:
         housing_you_request: "Unterkunft die Sie brauchen"
         item_you_offer: "Gegenstand den Sie anbieten"
         item_you_request: "Gegenstand den Sie brauchen"
+        listing_title: ~
       valid_until:
         valid_until: Ablaufdatum
       valid_until_radio_buttons:
@@ -984,6 +1076,14 @@ de:
       accept_for_frees: ~
       trades: Umtauschen
     link_labels:
+      offer_this: ~
+      request_this: ~
+      lend_this: ~
+      borrow_this: ~
+      buy_this: ~
+      rent_out_this: ~
+      rent_this: ~
+      sell_this: ~
       link_label_for_favor_offer: "Diese Dienstleistung (Service) anfordern"
       link_label_for_favor_request: "Diese Dienstleistung (Service) anbieten"
       link_label_for_housing_offer_sell: "Diese Unterkunft kaufen"
@@ -1039,7 +1139,8 @@ de:
       selected_rent: ~
       selected_rent_out: ~
       selected_sell: ~
-      selected_trade: ~
+      selected_offer_to_swap: ~
+      selected_request_to_swap: ~
       selected_share_for_free: ~
       selected_accept_for_free: ~
       how_do_you_want_to_share_it: ~
@@ -1056,14 +1157,15 @@ de:
       rent: ~
       rent_out: ~
       sell: ~
-      trade: ~
+      offer_to_swap: ~
+      request_to_swap: ~
       share_for_free: ~
       accept_for_free: ~
-      item_with_article: ~
-      favor_with_article: ~
-      rideshare_with_article: ~
-      housing_with_article: ~
-      what_kind_of_category: ~
+      what_kind_of_item: ~
+      what_kind_of_favor: ~
+      what_kind_of_rideshare: ~
+      what_kind_of_housing: ~
+      which_subcategory: ~
       tools: ~
       sports: ~
       music: ~
@@ -1147,6 +1249,13 @@ de:
     member_id_is_your_username: "Sie müssen Ihren Omakotiliitto Mitglieds Id (jäsennumero) eingeben um %{service_name} beitreten zu können. Ihre Mitglieds Id ist ebenfalls Ihr Benutzername den Sie brauchen um sich bei %{service_name} anmelden zu können. Fall Sie noch kein Mitglied von Omakotiliitto sind, so können Sie"
     member_id_or_email: "Mitglieds-Id oder Email"
     join_here: "hier beitreten."
+  payments:
+    new:
+      new_payment: ~
+      continue: ~
+      payment_receiver: ~
+      sum: ~
+      commission_will_be_added: ~
   people:
     index:
       loading_more_members: ~
@@ -1415,6 +1524,7 @@ de:
       newsletters: Newsletter
       community_updates: ~
       email_about_accept_reminders: "...Ich habe vergessen, eine Veranstaltung zu akzeptieren"
+      email_about_confirm_reminders: ~
       email_about_new_badges: "...Ich habe ein neues Abzeichen erhalten"
       email_about_new_comments_to_own_listing: "...jemand kommentiert mein Angebot oder Anfrage"
       email_about_new_messages: "...jemand sendet mir eine Nachricht"
@@ -1426,6 +1536,9 @@ de:
       email_newsletters: ~
       email_when_conversation_accepted: "...jemand akzeptiert mein Angebot oder meine Anfrage"
       email_when_conversation_rejected: "...jemand lehnt mein Angebot oder meine Anfrage ab"
+      email_about_completed_transactions: ~
+      email_about_new_payments: ~
+      email_about_payment_reminders: ~
       unsubscribe_succesful: ~
       unsubscribe_info_text: ~
       settings_link: ~
@@ -1499,6 +1612,7 @@ de:
     testimonial:
       from_user: von
       to_user: bis
+      about_listing: ~
   time:
     formats:
       short: "%e %b %Y at %H:%M"

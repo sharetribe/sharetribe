@@ -80,6 +80,8 @@ sv:
     password: ~
     service_name: ~
     share_types:
+      request: ~
+      offer: ~
       borrow: lånar
       buy: köper
       give_away: "ger bort"
@@ -89,6 +91,8 @@ sv:
       rent_out: "hyr ut"
       sell: säljer
       trade: "byter mot"
+      offer_to_swap: ~
+      request_to_swap: ~
       share_for_free: ~
       accept_for_free: ~
     categories:
@@ -96,10 +100,46 @@ sv:
       favor: ~
       rideshare: ~
       housing: ~
+      tools: ~
+      sports: ~
+      music: ~
+      books: ~
+      games: ~
+      furniture: ~
+      outdoors: ~
+      food: ~
+      electronics: ~
+      pets: ~
+      film: ~
+      clothes: ~
+      garden: ~
+      travel: ~
+      other: ~
     username: ~
     username_or_email: ~
     what_is_this: "Vad är detta?"
   conversations:
+    accept:
+      respond_to_offer: ~
+      respond_to_request: ~
+      accept_offer: ~
+      accept_request: ~
+      reject_offer: ~
+      reject_request: ~
+      close_listing: ~
+      update_later: ~
+      optional_message: ~
+      price_to_pay: ~
+    confirm:
+      confirm_description: ~
+      cancel_description: ~
+      cancel_payed_description: ~
+      canceling_payed_transaction: ~
+      confirm: ~
+      cancel: ~
+      continue: ~
+      give_feedback_to: ~
+      do_not_give_feedback: ~
     index:
       messages_from_all_tribes: ~
       loading_more_messages: "Laddar fler meddelanden"
@@ -107,15 +147,32 @@ sv:
       messages_partitive: meddelanden
       no_received_messages: "Inga mottagna meddelanden"
       no_sent_messages: "Inga skickade meddelanden"
+    conversation:
+      accepted_request: ~
+      accepted_offer: ~
+      rejected_request: ~
+      rejected_offer: ~
+      confirmed_request: ~
+      confirmed_offer: ~
+      canceled_request: ~
+      canceled_offer: ~
+    message:
+      accepted_request: ~
+      accepted_offer: ~
+      rejected_request: ~
+      rejected_offer: ~
+      confirmed_request: ~
+      confirmed_offer: ~
+      canceled_request: ~
+      canceled_offer: ~
+      paid: ~
     new:
+      offer_message_form_title: ~
+      request_message_form_title: ~
       favor_offer_message_form_title: "Be %{person} om hjälp"
-      favor_offer_message_title: "Tjänst som önskas: %{title}"
       favor_request_message_form_title: "Erbjud hjälp till %{person}"
-      favor_request_message_title: "Tjänst som erbjuds: %{title}"
       housing_offer_message_form_title: "Erbjud ledig lokal eller rum till %{person}"
-      housing_offer_message_title: "Lokal eller rum sökes %{title}"
       housing_request_message_form_title: "Fråga %{person} om ledigt rum eller lokal "
-      housing_request_message_title: "Rum eller lokal finnes"
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
@@ -132,14 +189,10 @@ sv:
       housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
-      item_offer_message_title: "Prylar sökes"
       item_request_message_form_title: "Prylar skänkes till %{person}"
-      item_request_message_title: "Prylar finnes"
       message: Meddelanden
       rideshare_offer_message_form_title: "Fråga %{person} om skjuts"
-      rideshare_offer_message_title: "Samåkning önskas: %{title}"
       rideshare_request_message_form_title: "Samåkning erbjuds till %{person}"
-      rideshare_request_message_title: "Samåkning till: %{title} erbjuds"
       send_offer_message: ~
       send_request_message: ~
       send_message: ~
@@ -184,20 +237,32 @@ sv:
       conversation_with_user: ~
       last_message_at: ~
     status:
+      cancel_payed_transaction: ~
       feedback_given: "Feedback skickat"
       feedback_skipped: "Ingen feedback"
       give_feedback: "Ge feedback"
       offer_accepted: "Antagit erbjudande"
       offer_rejected: "Avslagit erbjudande"
+      offer_canceled: ~
+      offer_confirmed: ~
+      pay: ~
+      paid: ~
       request_accepted: "Förfrågan antagen"
       request_rejected: "Förfrågan avslagen"
+      request_confirmed: ~
+      request_canceled: ~
       skip_feedback: "Hoppa över feedback"
-      waiting_confirmation_from_listing_author: "Väntar på bekräftelse"
+      waiting_for_listing_author_to_accept_offer: ~
+      waiting_for_listing_author_to_accept_request: ~
+      waiting_confirmation_from_requester: ~
+      waiting_payment_from_requester: ~
     status_link:
       accept_offer: "Anta erbjudande"
       accept_request: "Anta förfrågan"
       reject_offer: "Avslå erbjudande"
       reject_request: "Avslå förfrågan"
+      confirm: ~
+      cancel: ~
   communities:
     map_bubble:
       view_tribe: ~
@@ -350,25 +415,37 @@ sv:
       city_example_link: ~
   emails:
     accept_reminder:
-      offer_accusative: erbjud
-      remember_to_accept_listing: "Kom ihåg att anta %{listing_type}, även om det aktuella evenemanget redan har ägt rum. Att anta gör det möjligt för olika parter att ge feedback till varandra. Den positiva feedback som du har fått visas för andra %{service_name} i din profil. Det ger dig mer trovärdighet i andras ögon %{service_name} och försäkran om smidiga utbyten även i framtiden. Positiv feedback ger dig också fler märken."
       remember_to_accept_offer: "Kom ihåg att anta eller avslå ett erbjudande"
       remember_to_accept_request: "Kom ihåg att anta eller avslå en förfrågan"
-      request_accusative: fråga
       you_can_accept_or_reject_offer_at: "Du kan anta eller avslå erbjudanden på"
       you_can_accept_or_reject_request_at: "Du kan anta eller avslå förfrågan på"
       you_have_not_yet_accepted_or_rejected_offer: "Du har inte antagit eller avslagit erbjudandet om '%{title}' som du tog emot den %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Du har inte antagit eller avslagit förfrågan om '%{title}' som du tog emot den %{date}."
-    badge_migration_notification:
-      badge_description1: "Du kan få många olika märken för %{service_name} som ett erkännande av dina aktiviteter inom denna tjänstekategori. Du får märken om du är aktiv genom att till exempel lägga till nya erbjudanden och förfrågningar, kommenterar andras innehåll, från alla former av utbyte ( sälja och låna prylar, hjälpa andra, organisera samåkning osv). Observera ayy du endast får märken för de utbyten där du har fått positiv feedback."
-      badge_description2: "En person med många märken är troligen väldigt aktiv, pålitlig och omtyckt av andra. Så var aktiv i %{service_name}: köp, sälj, låna ut och låna prylar, hjälp andra och ordna samåkning så kommer din samling av märken att växa!"
-      you_have_received_badges: "Du har fått märken i %{service_name}!"
-      you_have_received_badges_in_kassi: "Du har fått nya märken i %{service_name}. Du kan se dina märken genom att logga in på %{service_name} och gå till"
+      show_thread: ~
+    confirm_reminder:
+      you_have_not_yet_confirmed_or_canceled_request: ~
+      remember_to_confirm_request: ~
+      if_will_not_happen_you_should_cancel: ~
+      cancel_it_link_text: ~
+    payment_reminder:
+      remember_to_pay: ~
+      you_have_not_yet_paid: ~
+      if_will_not_happen_you_should_cancel: ~
+      cancel_it_link_text: ~
+    transaction_confirmed:
+      here_is_a_message_from: ~
+      request_marked_as_confirmed: ~
+      request_marked_as_canceled: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      giving_feedback_is_good_idea: ~
+      give_feedback_to: ~
     confirmation_instructions:
       confirmation_instructions_signature: ~
       welcome_to_kassi: ~
       need_to_confirm: ~
       confirmation_link_text: ~
+      or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
       check_your_settings: "Kontrollera dina inställningar"
@@ -382,50 +459,54 @@ sv:
       view_it_in_your_browser: ~
       or: ~
       unsubscribe_from_these_emails: ~
+    community_starter_email:
+      subject: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} har antagit ditt erbjudande angående %{listing}"
       has_accepted_your_request: "%{accepter} har antagit din förfrågan om erbjudande av %{listing}"
       has_rejected_your_offer: "%{accepter} har avslagit ditt erbjudande angående %{listing}"
       has_rejected_your_request: "%{accepter} har avslagit din förfrågan om erbjudande av %{listing}"
-      you_can_view_the_offer_in: "Du kan se ditt erbjudande och relaterad konversation på"
-      you_can_view_the_request_in: "Du kan se din förfrågan och relaterad konversation på"
+      view_thread: ~
       your_offer_was_accepted: "Ditt erbjudande är antaget"
       your_offer_was_rejected: "Ditt erbjudande avslogs"
       your_request_was_accepted: "Din förfrågan avslogs"
-      your_request_was_rejected: ~
+      your_request_was_rejected: "Din förfrågan avslogs"
+      you_can_now_pay_to: ~
+      pay_now: ~
     invitation_to_kassi:
       hi: ~
       you_have_been_invited_to_kassi: ~
-      info_about_kassi: ~
       here_is_a_message_from: ~
-      you_can_join_kassi_using_invitation_code: ~
-      join_kassi_in: ~
+      join_now: ~
+      invitation_code: ~
     new_badge:
       you_can_view_all_your_badges_in: "Du kan se alla dina märken i "
-      you_have_achieved_a_badge: ~
+      you_have_achieved_a_badge: "Du har mottagit ett märke %{badge_name} i %{service_name}"
     new_comment:
       has_commented_your_offer_in_kassi: ~
-      has_commented_your_request_in_kassi: ~
-      you_can_reply_to_comment_in: ~
-      you_have_a_new_comment: ~
+      has_commented_your_request_in_kassi: "%{author} har kommenterat din förfrågan %{listing}"
+      view_comment: ~
+      you_have_a_new_comment: "%{author} har kommenterar ditt inlägg i %{service_name}"
       listing_you_follow_has_a_new_comment: ~
       has_commented_offer_you_follow_in_kassi: ~
       has_commented_request_you_follow_in_kassi: ~
     new_message:
       conversation_title: ~
-      do_not_reply_to_this_email: ~
+      view_message: ~
       has_sent_you_a_message_in_kassi: ~
-      you_can_reply_to_message_in: ~
-      you_have_a_new_message: ~
+      you_have_a_new_message: "Du har ett nytt meddelande i %{service_name}"
+    new_payment:
+      new_payment: ~
+      you_have_received_new_payment: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: ~
-      you_can_give_feedback_to: ~
-      you_can_view_all_your_feedback_in: ~
+      has_given_you_feedback_in_kassi: "%{name} har givit dig feedback på %{service_name}"
+      you_can_give_feedback_to: "Du kan ge feedback till %{name} i"
+      view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
       has_updated_offer_you_follow_in_kassi: ~
       has_updated_request_you_follow_in_kassi: ~
-      you_can_view_the_changes_in: ~
+      view_changes: ~
     community_updates:
       added_offer: ~
       added_request: ~
@@ -501,6 +582,7 @@ sv:
       departure_time: ~
       share_type: ~
       valid_until: ~
+      price: ~
     testimonials:
       you_must_explain_not_neutral_feedback: ~
       you_must_select_a_grade: ~
@@ -565,10 +647,6 @@ sv:
     contact_us: ~
     profile: ~
   homepage:
-    filter_share_types:
-      listing_types:
-        request: ~
-        offer: ~
     additional_private_listings_slate:
       additionally_one_private_offer_exists: ~
       additionally_one_private_request_exists: ~
@@ -596,8 +674,8 @@ sv:
       no_requests_visible_unless_logged_in: ~
       one_private_offer_exists: ~
       one_private_request_exists: ~
-      ride_offer: ~
-      ride_request: ~
+      ride_offer: "Följa barn till fritidsaktiviteter"
+      ride_request: "Skjuts till arbetet"
       some_private_offers_exist: ~
       some_private_requests_exist: ~
     event_feed:
@@ -616,13 +694,13 @@ sv:
       are_offering: ~
       add_news_item: ~
       inform_others_about_events: ~
-      lend_rent_help_carpool: ~
-      loading_more_content: ~
-      more_events: ~
-      news: ~
+      lend_rent_help_carpool: "Sälj, låna, hjälp, erbjud skjuts"
+      loading_more_content: "Laddar innehåll"
+      more_events: "Fler händelser ..."
+      news: Nyheter
       no_news: ~
       more_news: ~
-      or: ~
+      or: och
       or_see_what_the_others: ~
       recent_events: ~
       requesting: ~
@@ -736,6 +814,7 @@ sv:
       settings: ~
       sign_up: ~
     notifications:
+      something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
@@ -771,13 +850,17 @@ sv:
       news_item_updated: ~
       news_item_deleted: ~
       offer_accepted: ~
+      offer_confirmed: ~
       offer_closed: ~
+      listing_created_successfully: ~
       offer_created_successfully: ~
       offer_rejected: ~
+      offer_canceled: ~
       offer_updated_successfully: ~
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: ~
       only_listing_author_can_edit_a_listing: ~
+      payment_successful: ~
       password_recovery_sent: ~
       person_activated: ~
       person_deactivated: ~
@@ -794,9 +877,11 @@ sv:
       reply_cannot_be_empty: ~
       reply_sent: ~
       request_accepted: ~
+      request_confirmed: ~
       request_closed: ~
       request_created_successfully: ~
       request_rejected: ~
+      request_canceled: ~
       request_updated_successfully: ~
       message_sent: ~
       this_content_is_not_available_in_this_community: ~
@@ -898,6 +983,12 @@ sv:
         select_file: ~
       location:
         location: ~
+      price:
+        price: ~
+        per: ~
+        mass: ~
+        time: ~
+        long_time: ~
       origin:
         location: ~
         origin: ~
@@ -929,6 +1020,7 @@ sv:
         housing_you_request: ~
         item_you_offer: ~
         item_you_request: ~
+        listing_title: ~
       valid_until:
         valid_until: ~
       valid_until_radio_buttons:
@@ -984,6 +1076,14 @@ sv:
       accept_for_frees: ~
       trades: ~
     link_labels:
+      offer_this: ~
+      request_this: ~
+      lend_this: ~
+      borrow_this: ~
+      buy_this: ~
+      rent_out_this: ~
+      rent_this: ~
+      sell_this: ~
       link_label_for_favor_offer: ~
       link_label_for_favor_request: ~
       link_label_for_housing_offer_sell: ~
@@ -1039,7 +1139,8 @@ sv:
       selected_rent: ~
       selected_rent_out: ~
       selected_sell: ~
-      selected_trade: ~
+      selected_offer_to_swap: ~
+      selected_request_to_swap: ~
       selected_share_for_free: ~
       selected_accept_for_free: ~
       how_do_you_want_to_share_it: ~
@@ -1056,14 +1157,15 @@ sv:
       rent: ~
       rent_out: ~
       sell: ~
-      trade: ~
+      offer_to_swap: ~
+      request_to_swap: ~
       share_for_free: ~
       accept_for_free: ~
-      item_with_article: ~
-      favor_with_article: ~
-      rideshare_with_article: ~
-      housing_with_article: ~
-      what_kind_of_category: ~
+      what_kind_of_item: ~
+      what_kind_of_favor: ~
+      what_kind_of_rideshare: ~
+      what_kind_of_housing: ~
+      which_subcategory: ~
       tools: ~
       sports: ~
       music: ~
@@ -1147,6 +1249,13 @@ sv:
     member_id_is_your_username: ~
     member_id_or_email: ~
     join_here: ~
+  payments:
+    new:
+      new_payment: ~
+      continue: ~
+      payment_receiver: ~
+      sum: ~
+      commission_will_be_added: ~
   people:
     index:
       loading_more_members: ~
@@ -1409,6 +1518,7 @@ sv:
       newsletters: ~
       community_updates: ~
       email_about_accept_reminders: ~
+      email_about_confirm_reminders: ~
       email_about_new_badges: ~
       email_about_new_comments_to_own_listing: ~
       email_about_new_messages: ~
@@ -1420,6 +1530,9 @@ sv:
       email_newsletters: ~
       email_when_conversation_accepted: ~
       email_when_conversation_rejected: ~
+      email_about_completed_transactions: ~
+      email_about_new_payments: ~
+      email_about_payment_reminders: ~
       unsubscribe_succesful: ~
       unsubscribe_info_text: ~
       settings_link: ~
@@ -1493,6 +1606,7 @@ sv:
     testimonial:
       from_user: ~
       to_user: ~
+      about_listing: ~
   time:
     formats:
       short: ~
