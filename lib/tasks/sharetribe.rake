@@ -202,7 +202,7 @@ namespace :sharetribe do
   end
   
   desc "Updates the Category and ShareType translations in DB based on the normal translation files"
-  task :update_categorization_translations do
+  task :update_categorization_translations => :environment do
     CategoriesHelper.update_translations
   end
 end
