@@ -76,6 +76,7 @@ class ConfirmationsController < Devise::ConfirmationsController
     if resource.errors.empty?
       set_flash_message(:notice, :confirmed) if is_navigational_format?
       sign_in(resource_name, resource)
+      @current_user = current_person
       if on_dashboard?
         redirect_to new_tribe_path
       else

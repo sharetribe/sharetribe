@@ -1250,14 +1250,6 @@ en:
     member_id_is_your_username: "You must give your Omakotiliitto member id (jäsennumero) in order to join %{service_name}. Your member id is also your username that you will need when logging in to %{service_name}. If you are not a member of Omakotiliitto yet, you can"
     member_id_or_email: "Member id or email"
     join_here: "join here."
-  organizations:
-    new:
-      create_new_organization: "Create new organization"
-      instructions: "You can (fill here good instructions)"
-      organization_created: "Organization created"
-    form:
-      new_organization_button_text: "Create"
-      edit_organization_button_text: "Save changes"
   payments:
     new:
       new_payment: "New payment"
