@@ -244,8 +244,8 @@ class PersonMailer < ActionMailer::Base
     @url_params[:auth] = @auth_token
     @url_params.freeze # to avoid accidental modifications later
     
-    @requests = @community.listings.currently_open.requests.visible_to(@recipient, @community).limit(10)
-    @offers = @community.listings.currently_open.offers.visible_to(@recipient, @community).limit(10)
+    @requests = @community.listings.currently_open.requests.order("created_at DESC").visible_to(@recipient, @community).limit(10)
+    @offers = @community.listings.currently_open.offers.order("created_at DESC").visible_to(@recipient, @community).limit(10)
     
     @listings = select_listings_to_show(@requests, @offers, @recipient)
   
@@ -354,7 +354,7 @@ class PersonMailer < ActionMailer::Base
   end
   
   def self.deliver_old_style_community_updates
-    Community.all.each do |community|
+    Community.find_each do |community|
       if community.created_at < 1.week.ago && community.listings.size > 5 && community.automatic_newsletters
         community.members.each do |member|
           if member.should_receive?("community_updates")
@@ -373,7 +373,7 @@ class PersonMailer < ActionMailer::Base
   # This task is expected to be run with daily or hourly scheduling
   # It looks through all users and send email to those who want it now 
   def deliver_community_updates
-    Person.all.each do |person|
+    Person.find_each do |person|
       if person.should_recieve_community_updates_now?
         person.communities.each do |community|
           if community.has_new_listings_since?(person.community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago)
@@ -398,7 +398,7 @@ class PersonMailer < ActionMailer::Base
       return
     end
     
-    Person.all.each do |person|
+    Person.find_each do |person|
       if person.should_receive?("email_newsletters")
         begin
           if File.exists?("public/newsletters/#{newsletter_filename}.#{person.locale}.html")
