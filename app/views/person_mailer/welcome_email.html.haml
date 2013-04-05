@@ -42,9 +42,7 @@
                         - else
                           - customization = @current_community.community_customizations.find_by_locale(@url_params[:locale])
                           - if customization && !customization.welcome_email_content.blank?
-                            %br/
-                            - text_with_line_breaks_for_email do
-                              = customization.welcome_email_content
+                            = customization.welcome_email_content.html_safe
                           - else
                             %p
                               = t("emails.welcome_email.welcome_some_tips", :community_link => link_to(@current_community.full_name, root_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
