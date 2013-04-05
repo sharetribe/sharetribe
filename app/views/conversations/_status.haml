@@ -54,7 +54,7 @@
       - if ["confirmed", "canceled"].include? conversation.status
         - if conversation.has_feedback_from?(@current_user)
           .icon-with-text-container
-            .ss-like.icon-part
+            .ss-star.icon-part
             .text-part= t(".feedback_given")
         - elsif conversation.feedback_skipped_by?(@current_user)
           .icon-with-text-container
@@ -62,10 +62,10 @@
             .text-part= t(".feedback_skipped")
         - else
           .status-links
-            %a{:href => new_person_message_feedback_path(:person_id => @current_user.id, :message_id => conversation.id.to_s), :class => "status-link accept"}
-              .ss-like.icon-with-text
+            %a{:href => new_person_message_feedback_path(:person_id => @current_user.id, :message_id => conversation.id.to_s), :class => "status-link"}
+              .ss-star.icon-with-text
               .text-with-icon= t(".give_feedback")
-            %a{:href => skip_person_message_feedbacks_path(:person_id => @current_user.id, :message_id => conversation.id.to_s), :class => "status-link reject", :data => { :method => "put", :remote => "true"}}
+            %a{:href => skip_person_message_feedbacks_path(:person_id => @current_user.id, :message_id => conversation.id.to_s), :class => "status-link", :data => { :method => "put", :remote => "true"}}
               .ss-skipforward.icon-with-text
               .text-with-icon= t(".skip_feedback")
             

@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_update_notification_settings_form('#{I18n.locale}','#{@person.id.to_s}');
+  initialize_update_notification_settings_form("#{I18n.locale}","#{@person.id.to_s}");
 
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user) }
 

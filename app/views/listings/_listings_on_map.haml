@@ -8,7 +8,7 @@
 
 - content_for :extra_javascript do
   :javascript
-    $(document).ready(function() { initialize_listing_map('#{params[:listing_type]}','#{community_location_lat}','#{community_location_lon}'); });
+    $(document).ready(function() { initialize_listing_map("#{params[:listing_type]}","#{community_location_lat}","#{community_location_lon}"); });
 
 #map-canvas{:style => "width: 700px; height: 500px"}
 
