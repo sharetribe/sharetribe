@@ -50,6 +50,8 @@ module CategoriesHelper
     update_default_rent_out_quantiy_placeholder # Just a small change to default categorization
   end
   
+  # Usage:
+  # CategoriesHelper.load_categories_and_share_types_to_db(:community => c, :categories => categories, :share_types => share_types, :translations => custom_translations)
   
   
   def self.load_categories_and_share_types_to_db(params={})

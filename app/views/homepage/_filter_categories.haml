@@ -4,4 +4,5 @@
     %option{value: "#{category.name}", selected: params[:category] == category.name}= "#{category.display_name.mb_chars.capitalize.to_s}"
     - if category.children
       - category.children.each do |sub_category|
-        %option{value: "#{sub_category.name}", selected: params[:category] == sub_category.name}= "- #{sub_category.display_name.mb_chars.capitalize.to_s}"
+        - if @current_community.categories.include?(sub_category)
+          %option{value: "#{sub_category.name}", selected: params[:category] == sub_category.name}= "- #{sub_category.display_name.mb_chars.capitalize.to_s}"

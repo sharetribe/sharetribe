@@ -94,7 +94,11 @@ class Listing < ActiveRecord::Base
     "misc_material" => "ss-box",
     "clothing" => "ss-hanger",
     "accessories" => "ss-handbag",
-    "designers" => "ss-star"
+    "designers" => "ss-star",
+    "mealsharing" => "ss-sidedish",
+    "activities" => "ss-usergroup",
+    "accommodation" => "ss-lodging",
+    
   }
   
   before_validation :set_rideshare_title, :set_valid_until_time
