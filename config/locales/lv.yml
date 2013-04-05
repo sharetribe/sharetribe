@@ -80,6 +80,8 @@ lv:
     password: ~
     service_name: ~
     share_types:
+      request: ~
+      offer: ~
       borrow: aizņemas
       buy: pērk
       give_away: atdod
@@ -89,6 +91,8 @@ lv:
       rent_out: "meklē īrniekus"
       sell: pārdod
       trade: mainās
+      offer_to_swap: ~
+      request_to_swap: ~
       share_for_free: ~
       accept_for_free: ~
     categories:
@@ -96,10 +100,46 @@ lv:
       favor: ~
       rideshare: ~
       housing: ~
+      tools: ~
+      sports: ~
+      music: ~
+      books: ~
+      games: ~
+      furniture: ~
+      outdoors: ~
+      food: ~
+      electronics: ~
+      pets: ~
+      film: ~
+      clothes: ~
+      garden: ~
+      travel: ~
+      other: ~
     username: ~
     username_or_email: ~
     what_is_this: "Kas tas ir?"
   conversations:
+    accept:
+      respond_to_offer: ~
+      respond_to_request: ~
+      accept_offer: ~
+      accept_request: ~
+      reject_offer: ~
+      reject_request: ~
+      close_listing: ~
+      update_later: ~
+      optional_message: ~
+      price_to_pay: ~
+    confirm:
+      confirm_description: ~
+      cancel_description: ~
+      cancel_payed_description: ~
+      canceling_payed_transaction: ~
+      confirm: ~
+      cancel: ~
+      continue: ~
+      give_feedback_to: ~
+      do_not_give_feedback: ~
     index:
       messages_from_all_tribes: ~
       loading_more_messages: "Ielādē vēl ziņojumus"
@@ -107,15 +147,32 @@ lv:
       messages_partitive: ziņojumi
       no_received_messages: "Nav saņemtu ziņojumu"
       no_sent_messages: "Nav nosūtītu ziņu"
+    conversation:
+      accepted_request: ~
+      accepted_offer: ~
+      rejected_request: ~
+      rejected_offer: ~
+      confirmed_request: ~
+      confirmed_offer: ~
+      canceled_request: ~
+      canceled_offer: ~
+    message:
+      accepted_request: ~
+      accepted_offer: ~
+      rejected_request: ~
+      rejected_offer: ~
+      confirmed_request: ~
+      confirmed_offer: ~
+      canceled_request: ~
+      canceled_offer: ~
+      paid: ~
     new:
+      offer_message_form_title: ~
+      request_message_form_title: ~
       favor_offer_message_form_title: "Lūgt palīdzību"
-      favor_offer_message_title: ~
       favor_request_message_form_title: "Piedāvāt palīdzību"
-      favor_request_message_title: ~
       housing_offer_message_form_title: "Piedāvāt vietu"
-      housing_offer_message_title: ~
       housing_request_message_form_title: ~
-      housing_request_message_title: ~
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
@@ -132,14 +189,10 @@ lv:
       housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
-      item_offer_message_title: ~
       item_request_message_form_title: ~
-      item_request_message_title: ~
       message: ~
       rideshare_offer_message_form_title: ~
-      rideshare_offer_message_title: ~
       rideshare_request_message_form_title: ~
-      rideshare_request_message_title: ~
       send_offer_message: ~
       send_request_message: ~
       send_message: ~
@@ -184,20 +237,32 @@ lv:
       conversation_with_user: ~
       last_message_at: ~
     status:
+      cancel_payed_transaction: ~
       feedback_given: ~
       feedback_skipped: ~
       give_feedback: ~
       offer_accepted: ~
       offer_rejected: ~
+      offer_canceled: ~
+      offer_confirmed: ~
+      pay: ~
+      paid: ~
       request_accepted: ~
       request_rejected: ~
+      request_confirmed: ~
+      request_canceled: ~
       skip_feedback: ~
-      waiting_confirmation_from_listing_author: ~
+      waiting_for_listing_author_to_accept_offer: ~
+      waiting_for_listing_author_to_accept_request: ~
+      waiting_confirmation_from_requester: ~
+      waiting_payment_from_requester: ~
     status_link:
       accept_offer: ~
       accept_request: ~
       reject_offer: ~
       reject_request: ~
+      confirm: ~
+      cancel: ~
   communities:
     map_bubble:
       view_tribe: ~
@@ -350,25 +415,37 @@ lv:
       city_example_link: ~
   emails:
     accept_reminder:
-      offer_accusative: ~
-      remember_to_accept_listing: ~
       remember_to_accept_offer: ~
       remember_to_accept_request: ~
-      request_accusative: ~
       you_can_accept_or_reject_offer_at: ~
       you_can_accept_or_reject_request_at: ~
       you_have_not_yet_accepted_or_rejected_offer: ~
       you_have_not_yet_accepted_or_rejected_request: ~
-    badge_migration_notification:
-      badge_description1: ~
-      badge_description2: ~
-      you_have_received_badges: ~
-      you_have_received_badges_in_kassi: ~
+      show_thread: ~
+    confirm_reminder:
+      you_have_not_yet_confirmed_or_canceled_request: ~
+      remember_to_confirm_request: ~
+      if_will_not_happen_you_should_cancel: ~
+      cancel_it_link_text: ~
+    payment_reminder:
+      remember_to_pay: ~
+      you_have_not_yet_paid: ~
+      if_will_not_happen_you_should_cancel: ~
+      cancel_it_link_text: ~
+    transaction_confirmed:
+      here_is_a_message_from: ~
+      request_marked_as_confirmed: ~
+      request_marked_as_canceled: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      giving_feedback_is_good_idea: ~
+      give_feedback_to: ~
     confirmation_instructions:
       confirmation_instructions_signature: ~
       welcome_to_kassi: ~
       need_to_confirm: ~
       confirmation_link_text: ~
+      or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
       check_your_settings: ~
@@ -382,50 +459,54 @@ lv:
       view_it_in_your_browser: ~
       or: ~
       unsubscribe_from_these_emails: ~
+    community_starter_email:
+      subject: ~
     conversation_status_changed:
       has_accepted_your_offer: ~
       has_accepted_your_request: ~
       has_rejected_your_offer: ~
       has_rejected_your_request: ~
-      you_can_view_the_offer_in: ~
-      you_can_view_the_request_in: ~
+      view_thread: ~
       your_offer_was_accepted: ~
       your_offer_was_rejected: ~
       your_request_was_accepted: ~
       your_request_was_rejected: ~
+      you_can_now_pay_to: ~
+      pay_now: ~
     invitation_to_kassi:
       hi: ~
       you_have_been_invited_to_kassi: ~
-      info_about_kassi: ~
       here_is_a_message_from: ~
-      you_can_join_kassi_using_invitation_code: ~
-      join_kassi_in: ~
+      join_now: ~
+      invitation_code: ~
     new_badge:
       you_can_view_all_your_badges_in: ~
       you_have_achieved_a_badge: ~
     new_comment:
       has_commented_your_offer_in_kassi: ~
       has_commented_your_request_in_kassi: ~
-      you_can_reply_to_comment_in: ~
+      view_comment: ~
       you_have_a_new_comment: ~
       listing_you_follow_has_a_new_comment: ~
       has_commented_offer_you_follow_in_kassi: ~
       has_commented_request_you_follow_in_kassi: ~
     new_message:
       conversation_title: ~
-      do_not_reply_to_this_email: ~
+      view_message: ~
       has_sent_you_a_message_in_kassi: ~
-      you_can_reply_to_message_in: ~
       you_have_a_new_message: ~
+    new_payment:
+      new_payment: ~
+      you_have_received_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: ~
       you_can_give_feedback_to: ~
-      you_can_view_all_your_feedback_in: ~
+      view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
       has_updated_offer_you_follow_in_kassi: ~
       has_updated_request_you_follow_in_kassi: ~
-      you_can_view_the_changes_in: ~
+      view_changes: ~
     community_updates:
       added_offer: ~
       added_request: ~
@@ -501,6 +582,7 @@ lv:
       departure_time: ~
       share_type: ~
       valid_until: ~
+      price: ~
     testimonials:
       you_must_explain_not_neutral_feedback: ~
       you_must_select_a_grade: ~
@@ -565,10 +647,6 @@ lv:
     contact_us: ~
     profile: ~
   homepage:
-    filter_share_types:
-      listing_types:
-        request: ~
-        offer: ~
     additional_private_listings_slate:
       additionally_one_private_offer_exists: ~
       additionally_one_private_request_exists: ~
@@ -736,6 +814,7 @@ lv:
       settings: ~
       sign_up: ~
     notifications:
+      something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
@@ -771,13 +850,17 @@ lv:
       news_item_updated: ~
       news_item_deleted: ~
       offer_accepted: ~
+      offer_confirmed: ~
       offer_closed: ~
+      listing_created_successfully: ~
       offer_created_successfully: ~
       offer_rejected: ~
+      offer_canceled: ~
       offer_updated_successfully: ~
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: ~
       only_listing_author_can_edit_a_listing: ~
+      payment_successful: ~
       password_recovery_sent: ~
       person_activated: ~
       person_deactivated: ~
@@ -794,9 +877,11 @@ lv:
       reply_cannot_be_empty: ~
       reply_sent: ~
       request_accepted: ~
+      request_confirmed: ~
       request_closed: ~
       request_created_successfully: ~
       request_rejected: ~
+      request_canceled: ~
       request_updated_successfully: ~
       message_sent: ~
       this_content_is_not_available_in_this_community: ~
@@ -898,6 +983,12 @@ lv:
         select_file: ~
       location:
         location: ~
+      price:
+        price: ~
+        per: ~
+        mass: ~
+        time: ~
+        long_time: ~
       origin:
         location: ~
         origin: ~
@@ -929,6 +1020,7 @@ lv:
         housing_you_request: ~
         item_you_offer: ~
         item_you_request: ~
+        listing_title: ~
       valid_until:
         valid_until: ~
       valid_until_radio_buttons:
@@ -984,6 +1076,14 @@ lv:
       accept_for_frees: ~
       trades: ~
     link_labels:
+      offer_this: ~
+      request_this: ~
+      lend_this: ~
+      borrow_this: ~
+      buy_this: ~
+      rent_out_this: ~
+      rent_this: ~
+      sell_this: ~
       link_label_for_favor_offer: ~
       link_label_for_favor_request: ~
       link_label_for_housing_offer_sell: ~
@@ -1039,7 +1139,8 @@ lv:
       selected_rent: ~
       selected_rent_out: ~
       selected_sell: ~
-      selected_trade: ~
+      selected_offer_to_swap: ~
+      selected_request_to_swap: ~
       selected_share_for_free: ~
       selected_accept_for_free: ~
       how_do_you_want_to_share_it: ~
@@ -1056,14 +1157,15 @@ lv:
       rent: ~
       rent_out: ~
       sell: ~
-      trade: ~
+      offer_to_swap: ~
+      request_to_swap: ~
       share_for_free: ~
       accept_for_free: ~
-      item_with_article: ~
-      favor_with_article: ~
-      rideshare_with_article: ~
-      housing_with_article: ~
-      what_kind_of_category: ~
+      what_kind_of_item: ~
+      what_kind_of_favor: ~
+      what_kind_of_rideshare: ~
+      what_kind_of_housing: ~
+      which_subcategory: ~
       tools: ~
       sports: ~
       music: ~
@@ -1147,6 +1249,13 @@ lv:
     member_id_is_your_username: ~
     member_id_or_email: ~
     join_here: ~
+  payments:
+    new:
+      new_payment: ~
+      continue: ~
+      payment_receiver: ~
+      sum: ~
+      commission_will_be_added: ~
   people:
     index:
       loading_more_members: ~
@@ -1409,6 +1518,7 @@ lv:
       newsletters: ~
       community_updates: ~
       email_about_accept_reminders: ~
+      email_about_confirm_reminders: ~
       email_about_new_badges: ~
       email_about_new_comments_to_own_listing: ~
       email_about_new_messages: ~
@@ -1420,6 +1530,9 @@ lv:
       email_newsletters: ~
       email_when_conversation_accepted: ~
       email_when_conversation_rejected: ~
+      email_about_completed_transactions: ~
+      email_about_new_payments: ~
+      email_about_payment_reminders: ~
       unsubscribe_succesful: ~
       unsubscribe_info_text: ~
       settings_link: ~
@@ -1493,6 +1606,7 @@ lv:
     testimonial:
       from_user: ~
       to_user: ~
+      about_listing: ~
   time:
     formats:
       short: ~

@@ -90,7 +90,8 @@ fi:
       rent: "halutaan vuokrata"
       rent_out: "annetaan vuokralle"
       sell: myydään
-      trade: vaihdetaan
+      offer_to_swap: vaihdetaan
+      request_to_swap: vaihdetaan
       share_for_free: "tarjotaan käyttöön ilmaiseksi"
       accept_for_free: "halutaan käyttöön ilmaiseksi"
     categories:
@@ -135,7 +136,7 @@ fi:
       canceling_payed_transaction: "Pyynnön peruuttaminen"
       confirm: "Merkitse toteutuneeksi"
       cancel: "Ei toteutunut"
-      continue: "Jatka"
+      continue: Jatka
       give_feedback_to: "Anna palautetta käyttäjälle %{person_link}"
       do_not_give_feedback: "Ohita palaute"
     index:
@@ -166,17 +167,11 @@ fi:
       paid: "maksoi %{sum}"
     new:
       offer_message_form_title: "Tarjoa %{listing} käyttäjälle %{person}"
-      offer_message_title: "Tarjous: %{title}"
       request_message_form_title: "Pyydä %{listing} käyttäjältä %{person}"
-      request_message_title: "Pyyntö: %{title}"
       favor_offer_message_form_title: "Pyydä palvelusta käyttäjältä"
-      favor_offer_message_title: "Palveluspyyntö: %{title}"
       favor_request_message_form_title: "Tarjoa palvelus käyttäjälle"
-      favor_request_message_title: "Palvelustarjous: %{title}"
       housing_offer_message_form_title: "Vastaa käyttäjälle"
-      housing_offer_message_title: "Pyyntö: %{title}"
       housing_request_message_form_title: "Vastaa käyttäjälle"
-      housing_request_message_title: "Tila tarjolla: %{title}"
       item_offer_lend_message_form_title: "Lainaa %{listing} käyttäjältä %{person}"
       item_offer_sell_message_form_title: "Osta %{listing} käyttäjältä %{person}"
       item_offer_give_away_message_form_title: "Pyydä %{listing} käyttäjältä %{person}"
@@ -193,14 +188,10 @@ fi:
       housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: "Myy %{listing} käyttäjälle %{person}"
       housing_request_rent_message_form_title: "Anna vuokralle %{listing} käyttäjälle %{person}"
-      item_offer_message_title: "Tavarapyyntö: %{title}"
       item_request_message_form_title: "Tarjoa tavara käyttäjälle"
-      item_request_message_title: "Tavaratarjous: %{title}"
       message: Viesti
       rideshare_offer_message_form_title: "Pyydä kyytiä käyttäjältä"
-      rideshare_offer_message_title: "Kyytipyyntö: %{title}"
       rideshare_request_message_form_title: "Tarjoa kyyti käyttäjälle"
-      rideshare_request_message_title: "Kyytitarjous: %{title}"
       send_offer_message: "Lähetä tarjous"
       send_request_message: "Lähetä pyyntö"
       send_message: "Lähetä viesti"
@@ -245,7 +236,7 @@ fi:
       conversation_with_user: "Keskustelu käyttäjän %{person} kanssa"
       last_message_at: "(uusin viesti %{time})"
     status:
-      cancel_payed_transaction: "Peruuta"
+      cancel_payed_transaction: Peruuta
       feedback_given: "Palaute annettu"
       feedback_skipped: "Palaute ohitettu"
       give_feedback: "Anna palautetta"
@@ -452,8 +443,8 @@ fi:
       confirmation_instructions_signature: "Terveisin,<br/>%{service_name}-tiimi"
       welcome_to_kassi: "Tervetuloa %{service_name_illative}!"
       need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla alla olevaa linkkiä"
-      or_paste_link: "Vaihtoehtoisesti voit kopioida seuraavan selaimesi osoitepalkkiin:"
       confirmation_link_text: "Varmista tunnukseni"
+      or_paste_link: "Vaihtoehtoisesti voit kopioida seuraavan selaimesi osoitepalkkiin:"
       turning_on_confirmations_in_this_community: "Otamme käyttöön sähköpostivarmistukset tässä %{service_name}-yhteisössä."
     common:
       check_your_settings: "Tarkista asetuksesi"
@@ -509,12 +500,12 @@ fi:
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta %{service_name_inessive}"
       you_can_give_feedback_to: "Voit antaa palautetta käyttäjälle %{name} osoitteessa"
-      you_can_view_all_your_feedback_in: "Voit nähdä kaikki saamasi palautteet osoitteessa"
+      view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Seuraamasi ilmoitus on päivittynyt"
       has_updated_offer_you_follow_in_kassi: "%{author} on päivittänyt seuraamasi pyynnön %{listing}"
       has_updated_request_you_follow_in_kassi: "%{author} on päivittänyt seuraamasi tarjouksen %{listing}"
-      you_can_view_the_changes_in: "Näytä muutokset"
+      view_changes: ~
     community_updates:
       added_offer: "%{name_link} lisäsi tarjouksen:"
       added_request: "%{name_link} lisäsi pyynnön:"
@@ -859,13 +850,11 @@ fi:
       news_item_deleted: "Uutinen poistettu"
       offer_accepted: "Tarjous hyväksytty"
       offer_confirmed: "Tarjous merkitty toteutuneeksi"
-      request_confirmed: "Pyyntö merkitty toteutuneeksi"
       offer_closed: "Tarjous suljettu"
       listing_created_successfully: "Ilmoitus tallennettu."
       offer_created_successfully: "Tarjous tallennettu."
       offer_rejected: "Tarjous hylätty"
       offer_canceled: "Tarjous peruttu"
-      request_canceled: "Pyyntö peruttu"
       offer_updated_successfully: "Tarjous päivitetty onnistuneesti"
       only_kassi_administrators_can_access_this_area: "Vain %{service_name_genetive} ylläpitäjillä on pääsy tähän sisältöön"
       only_listing_author_can_close_a_listing: "Vain ilmoituksen laatija voi sulkea ilmoituksen."
@@ -887,9 +876,11 @@ fi:
       reply_cannot_be_empty: "Et voi lähettää tyhjää viestiä"
       reply_sent: "Vastaus lähetetty"
       request_accepted: "Pyyntö hyväksytty"
+      request_confirmed: "Pyyntö merkitty toteutuneeksi"
       request_closed: "Pyyntö suljettu"
       request_created_successfully: "Pyyntö tallennettu."
       request_rejected: "Pyyntö hylätty"
+      request_canceled: "Pyyntö peruttu"
       request_updated_successfully: "Pyyntö päivitetty onnistuneesti"
       message_sent: "Viesti lähetetty"
       this_content_is_not_available_in_this_community: "Pyytämääsi sivua ei löydy tästä %{service_name}-yhteisöstä."
@@ -991,15 +982,15 @@ fi:
         select_file: "Valitse tiedosto"
       location:
         location: Sijainti
-      origin:
-        location: Sijainti
-        origin: Lähtöpaikka
       price:
         price: Hinta
         per: per
         mass: "kpl, kg, l, m2, ..."
         time: "tunti, päivä, ..."
         long_time: "vko, kk, ..."
+      origin:
+        location: Sijainti
+        origin: Lähtöpaikka
       send_button:
         save_offer: "Tallenna tarjous"
         save_request: "Tallenna pyyntö"
@@ -1022,13 +1013,13 @@ fi:
         comma_separate: "(erota pilkulla)"
         tags: Avainsanat
       title:
-        listing_title: "Ilmoituksen otsikko"
         favor_you_offer: "Palvelus jonka tarjoat"
         favor_you_request: "Palvelus jonka tarvitset"
         housing_you_offer: "Tila jonka tarjoat"
         housing_you_request: "Tila jonka tarvitset"
         item_you_offer: "Tavara jonka tarjoat"
         item_you_request: "Tavara jonka tarvitset"
+        listing_title: "Ilmoituksen otsikko"
       valid_until:
         valid_until: Voimassa
       valid_until_radio_buttons:
@@ -1084,14 +1075,14 @@ fi:
       accept_for_frees: ~
       trades: Vaihdetaan
     link_labels:
-      offer_this: "Tarjoa"
-      request_this: "Pyydä"
+      offer_this: Tarjoa
+      request_this: Pyydä
       lend_this: "Tarjoa lainaksi"
       borrow_this: "Pyydä lainaksi"
       buy_this: Osta
       rent_out_this: "Tarjoa vuokralle"
-      rent_this: "Vuokraa"
-      sell_this: "Myy"
+      rent_this: Vuokraa
+      sell_this: Myy
       link_label_for_favor_offer: "Pyydä palvelusta"
       link_label_for_favor_request: "Tarjoa apuasi"
       link_label_for_housing_offer_sell: Osta
@@ -1260,7 +1251,7 @@ fi:
   payments:
     new:
       new_payment: "Uusi maksu"
-      continue: "Jatka"
+      continue: Jatka
       payment_receiver: "Maksun saaja:"
       sum: "Summa:"
       commission_will_be_added: "Hintaan lisätään palvelumaksu 10%."

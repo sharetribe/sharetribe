@@ -80,6 +80,8 @@ es-ES:
     password: Contraseña
     service_name: ~
     share_types:
+      request: ~
+      offer: ~
       borrow: préstamos
       buy: comprar
       give_away: donando
@@ -89,6 +91,8 @@ es-ES:
       rent_out: Arrienda
       sell: Vender
       trade: Intercambiar
+      offer_to_swap: ~
+      request_to_swap: ~
       share_for_free: ~
       accept_for_free: ~
     categories:
@@ -96,10 +100,46 @@ es-ES:
       favor: ~
       rideshare: ~
       housing: ~
+      tools: ~
+      sports: ~
+      music: ~
+      books: ~
+      games: ~
+      furniture: ~
+      outdoors: ~
+      food: ~
+      electronics: ~
+      pets: ~
+      film: ~
+      clothes: ~
+      garden: ~
+      travel: ~
+      other: ~
     username: "Nombre de usuario"
     username_or_email: ~
     what_is_this: "Qué es esto?"
   conversations:
+    accept:
+      respond_to_offer: ~
+      respond_to_request: ~
+      accept_offer: ~
+      accept_request: ~
+      reject_offer: ~
+      reject_request: ~
+      close_listing: ~
+      update_later: ~
+      optional_message: ~
+      price_to_pay: ~
+    confirm:
+      confirm_description: ~
+      cancel_description: ~
+      cancel_payed_description: ~
+      canceling_payed_transaction: ~
+      confirm: ~
+      cancel: ~
+      continue: ~
+      give_feedback_to: ~
+      do_not_give_feedback: ~
     index:
       messages_from_all_tribes: ~
       loading_more_messages: "Cargando más mensajes"
@@ -107,15 +147,32 @@ es-ES:
       messages_partitive: Mensajes
       no_received_messages: "No hay mensajes recibidos"
       no_sent_messages: "No hay mensajes enviados"
+    conversation:
+      accepted_request: ~
+      accepted_offer: ~
+      rejected_request: ~
+      rejected_offer: ~
+      confirmed_request: ~
+      confirmed_offer: ~
+      canceled_request: ~
+      canceled_offer: ~
+    message:
+      accepted_request: ~
+      accepted_offer: ~
+      rejected_request: ~
+      rejected_offer: ~
+      confirmed_request: ~
+      confirmed_offer: ~
+      canceled_request: ~
+      canceled_offer: ~
+      paid: ~
     new:
+      offer_message_form_title: ~
+      request_message_form_title: ~
       favor_offer_message_form_title: "Pide ayuda de"
-      favor_offer_message_title: "Servicio solicitado: %{title}"
       favor_request_message_form_title: "Ofrécele ayuda a"
-      favor_request_message_title: "Oferta de servicio: %{title}"
       housing_offer_message_form_title: "Responder a"
-      housing_offer_message_title: "Responde a tu lista %{title}"
       housing_request_message_form_title: "Responder a"
-      housing_request_message_title: "Responde a tu lista %{title}"
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
@@ -132,14 +189,10 @@ es-ES:
       housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
-      item_offer_message_title: "Artículo solicitado: %{title}"
       item_request_message_form_title: "Ofrécele un artículo a"
-      item_request_message_title: "Artículo ofrecido: %{title}"
       message: Mensaje
       rideshare_offer_message_form_title: "Solicitale un traslado a"
-      rideshare_offer_message_title: "Solicitud de traslado compartido: %{title}"
       rideshare_request_message_form_title: "Ofrécele un traslado a"
-      rideshare_request_message_title: "Oferta de traslado compartido: %{title}"
       send_offer_message: "Enviar la oferta"
       send_request_message: "Enviar la solicitud"
       send_message: ~
@@ -184,20 +237,32 @@ es-ES:
       conversation_with_user: ~
       last_message_at: ~
     status:
+      cancel_payed_transaction: ~
       feedback_given: "Sugerencia dada"
       feedback_skipped: "Sugerencia omitida"
       give_feedback: "Haz una sugerencia"
       offer_accepted: "Oferta aceptada"
       offer_rejected: "Oferta rechazada"
+      offer_canceled: ~
+      offer_confirmed: ~
+      pay: ~
+      paid: ~
       request_accepted: "Solicitud aceptada"
       request_rejected: "Solicitud rechazada"
+      request_confirmed: ~
+      request_canceled: ~
       skip_feedback: "Omitir sugerencia"
-      waiting_confirmation_from_listing_author: "Esperando la confirmación del autor de la lista"
+      waiting_for_listing_author_to_accept_offer: ~
+      waiting_for_listing_author_to_accept_request: ~
+      waiting_confirmation_from_requester: ~
+      waiting_payment_from_requester: ~
     status_link:
       accept_offer: "Aceptar oferta"
       accept_request: "Aceptar solicitud"
       reject_offer: "Rechazar oferta"
       reject_request: "Rechazar solicitud"
+      confirm: ~
+      cancel: ~
   communities:
     map_bubble:
       view_tribe: ~
@@ -350,25 +415,37 @@ es-ES:
       city_example_link: ~
   emails:
     accept_reminder:
-      offer_accusative: Oferta
-      remember_to_accept_listing: "Recuerda aceptar %{listing_type}, incluso si el evento ya ha tenido lugar. Aceptando permites a las otras partes hacer sugerencias. Las sugerencias positivas que recibas aparecerán visibles a los demás a través de tu perfil. Esto te permitirá ser más confiable a los ojos de los usuarios de Kassi, y asegurará que todo continúe fluidamente en el futuro. Las sugerencias positivas también te ayudarán a obtener medallas."
       remember_to_accept_offer: "Recuerda aceptar o rechazar una oferta"
       remember_to_accept_request: "Recuerda aceptar o rechazar una solicitud"
-      request_accusative: Solicitud
       you_can_accept_or_reject_offer_at: "Puedes aceptar o rechazar la oferta de"
       you_can_accept_or_reject_request_at: "Puedes aceptar o rechazar la solicitud de"
       you_have_not_yet_accepted_or_rejected_offer: "Aún no has aceptado o rechazado la oferta '%{title}' que recibiste el %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Aún no has aceptado o rechazado la solicitud '%{title}' que recibiste el %{date}."
-    badge_migration_notification:
-      badge_description1: "Puedes ganar diferentes medallas en Kassi como un reconocimiento a tus acciones en el servicio. Puedes ganar medallas por acciones como agregar nuevas ofertas y solicitudes, comentar en los contenidos de otros usuarios, o por diferentes tipos de intercambio que realices (vender y prestar artículos, ayudar a los demás, organizar traslados en auto, y así), o simplemente por ser un usuario activo del servicio. Nota que sólo recibirás medallas de aquellos intercambios en los cuales hayas recibido un comentario o sugerencia positivo."
-      badge_description2: "Una persona que posee bastantes medallas es un usuario activo y recomendado por los otros usuarios. Entonces sea un usuario activo en Kassi: compre, venda, regale y preste artículos, ayuda a los demás, comparta sus traslados y verá como sus medallas se empezarán a ir acumulando!"
-      you_have_received_badges: "Has recibido medallas en Kassi!"
-      you_have_received_badges_in_kassi: "Has obtenido nuevas medallas en Kassi. Pueder ver tus medallas registrandote en Kassi"
+      show_thread: ~
+    confirm_reminder:
+      you_have_not_yet_confirmed_or_canceled_request: ~
+      remember_to_confirm_request: ~
+      if_will_not_happen_you_should_cancel: ~
+      cancel_it_link_text: ~
+    payment_reminder:
+      remember_to_pay: ~
+      you_have_not_yet_paid: ~
+      if_will_not_happen_you_should_cancel: ~
+      cancel_it_link_text: ~
+    transaction_confirmed:
+      here_is_a_message_from: ~
+      request_marked_as_confirmed: ~
+      request_marked_as_canceled: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      giving_feedback_is_good_idea: ~
+      give_feedback_to: ~
     confirmation_instructions:
       confirmation_instructions_signature: "Saludos cordiales,<br/>El Equipo de Kassi"
       welcome_to_kassi: "Bienvenido a Kassi!"
       need_to_confirm: "Antes de empezar a utilizar Kassi, deberá confirmar su dirección de correo electrónico con el siguiente link:"
       confirmation_link_text: "Confirmar mi cuenta"
+      or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
       check_your_settings: "Revisa tu configuración"
@@ -382,50 +459,54 @@ es-ES:
       view_it_in_your_browser: ~
       or: ~
       unsubscribe_from_these_emails: ~
+    community_starter_email:
+      subject: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha aceptado tu oferta considerando la solicitud %{listing}"
       has_accepted_your_request: "%{accepter} ha aceptado tu solicitud considerando la oferta %{listing}"
       has_rejected_your_offer: "%{accepter} ha rechazado tu oferta considerando la solicitud %{listing}"
       has_rejected_your_request: "%{accepter} ha rechazado tu solicitud considerando la oferta %{listing}"
-      you_can_view_the_offer_in: "Puedes ver tu oferta y las conversaciones relacionadas aquí"
-      you_can_view_the_request_in: "Puedes ver tu solicitud y las conversaciones relacionadas en"
+      view_thread: ~
       your_offer_was_accepted: "¡Felicitaciones! Tu oferta ha sido aceptada"
       your_offer_was_rejected: "¡Oh! Tu oferta fue rechazada. ¡Gracias de todos modos!"
       your_request_was_accepted: "Tu solicitud fue aceptada"
       your_request_was_rejected: "Tu solicitud fue rechazada"
+      you_can_now_pay_to: ~
+      pay_now: ~
     invitation_to_kassi:
       hi: Hola!
       you_have_been_invited_to_kassi: "%{inviter} te ha invitado a utilizar el servicio web de Kassi de la comunidad de %{community}"
-      info_about_kassi: ~
       here_is_a_message_from: "Tienes un mensaje personal de %{inviter}:"
-      you_can_join_kassi_using_invitation_code: "Este es el código de invitación que necesitas para unirte a la comunidad: %{code}"
-      join_kassi_in: "Puede unirse a Kassi en"
+      join_now: ~
+      invitation_code: ~
     new_badge:
       you_can_view_all_your_badges_in: "Pueder ver todas tus medallas en"
       you_have_achieved_a_badge: "Has recibido una medalla '%{badge_name}' en Kassi!"
     new_comment:
       has_commented_your_offer_in_kassi: "%{author} ha comentado tu oferta %{listing}"
       has_commented_your_request_in_kassi: "%{author} ha comentado tu solicitud %{listing}"
-      you_can_reply_to_comment_in: "Puedes ver todos los comentarios y responderlos en"
+      view_comment: ~
       you_have_a_new_comment: "%{author} ha comentado tu lista en Kassi"
       listing_you_follow_has_a_new_comment: ~
       has_commented_offer_you_follow_in_kassi: ~
       has_commented_request_you_follow_in_kassi: ~
     new_message:
       conversation_title: ~
-      do_not_reply_to_this_email: "Nota: no responda directamente este correo. Utilice el link de respuesta que aparece más arriba."
+      view_message: ~
       has_sent_you_a_message_in_kassi: "%{sender} te ha enviado un mensaje en Kassi:"
-      you_can_reply_to_message_in: "Puedes responder el mensaje en"
       you_have_a_new_message: "Tienes un nuevo mensaje en Kassi"
+    new_payment:
+      new_payment: ~
+      you_have_received_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} te ha dado una sugerencia en Kassi"
       you_can_give_feedback_to: "Puedes darle una sugerencia a %{name} en"
-      you_can_view_all_your_feedback_in: "Puedes revisar todas las sugerencias que has recibido en"
+      view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "La lista que sigues ha sido actualizada"
       has_updated_offer_you_follow_in_kassi: ~
       has_updated_request_you_follow_in_kassi: ~
-      you_can_view_the_changes_in: "Puede ver los cambios en"
+      view_changes: ~
     community_updates:
       added_offer: ~
       added_request: ~
@@ -503,6 +584,7 @@ es-ES:
       departure_time: "La hora de salida debe entontrarse entre la fecha actual y un año a partir de ahora."
       share_type: "Deber chequear al menos uno de los recuadros anteriores."
       valid_until: "Esta fecha debe encontrarse entre la fecha actual y un año desde ahora."
+      price: ~
     testimonials:
       you_must_explain_not_neutral_feedback: "Si deseas dar una sugerencia no neutral, debes explicar por qué."
       you_must_select_a_grade: "Recuerda evaluar a los usuarios clickeando en uno de los iconos de más arriba (pueder ver las explicaciones de cada icono deslizando el mouse sobre ellos)"
@@ -567,10 +649,6 @@ es-ES:
     contact_us: ~
     profile: ~
   homepage:
-    filter_share_types:
-      listing_types:
-        request: ~
-        offer: ~
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Adicionalmente existe <b>y esta otra oferta</b>,"
       additionally_one_private_request_exists: "Adicionalmente  existe <b>y esta otra solicitiud</b>,"
@@ -738,6 +816,7 @@ es-ES:
       settings: Opciones
       sign_up: Registrarse
     notifications:
+      something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: "Cuenta creada correctamente. A continuación deberás confirmar tu dirección de correo electrónico."
@@ -773,13 +852,17 @@ es-ES:
       news_item_updated: ~
       news_item_deleted: ~
       offer_accepted: "Oferta aceptada"
+      offer_confirmed: ~
       offer_closed: "Oferta cerrada"
+      listing_created_successfully: ~
       offer_created_successfully: "Oferta creada satisfactoriamente"
       offer_rejected: "Oferta rechazada"
+      offer_canceled: ~
       offer_updated_successfully: "Oferta actualizada correctamente"
       only_kassi_administrators_can_access_this_area: "Solo los administradores de Kassi pueden acceder a esta área"
       only_listing_author_can_close_a_listing: "Solo el creador de una lista puede cerrarla"
       only_listing_author_can_edit_a_listing: "Solo el creador de una lista puede editarla"
+      payment_successful: ~
       password_recovery_sent: "Las instrucciones para modificar su contraseña han sido enviadas a su correo electrónico."
       person_activated: "Usuario activado"
       person_deactivated: "Usuario desactivado"
@@ -796,9 +879,11 @@ es-ES:
       reply_cannot_be_empty: "No puedes enviar un mensaje vacío"
       reply_sent: "Respuesta enviada satisfactoriamente"
       request_accepted: "Solicitud aceptada"
+      request_confirmed: ~
       request_closed: "Solicitud cerrada"
       request_created_successfully: "Solicitud creada satisfactoriamente"
       request_rejected: "Solicitud rechazada"
+      request_canceled: ~
       request_updated_successfully: "Solicitud actualizada satisfactoriamente"
       message_sent: ~
       this_content_is_not_available_in_this_community: "Este contenido no está disponible en esta comunidad."
@@ -900,6 +985,12 @@ es-ES:
         select_file: "Eligir Archivo"
       location:
         location: Lugar
+      price:
+        price: ~
+        per: ~
+        mass: ~
+        time: ~
+        long_time: ~
       origin:
         location: Lugar
         origin: Origen
@@ -931,6 +1022,7 @@ es-ES:
         housing_you_request: "Hospedaje que necesitas"
         item_you_offer: "Artículo que ofreces"
         item_you_request: "Artículo que necesitas"
+        listing_title: ~
       valid_until:
         valid_until: "Fecha de caducidad"
       valid_until_radio_buttons:
@@ -986,6 +1078,14 @@ es-ES:
       accept_for_frees: ~
       trades: Comercio
     link_labels:
+      offer_this: ~
+      request_this: ~
+      lend_this: ~
+      borrow_this: ~
+      buy_this: ~
+      rent_out_this: ~
+      rent_this: ~
+      sell_this: ~
       link_label_for_favor_offer: Contacto
       link_label_for_favor_request: Contacto
       link_label_for_housing_offer_sell: ~
@@ -1041,7 +1141,8 @@ es-ES:
       selected_rent: ~
       selected_rent_out: ~
       selected_sell: ~
-      selected_trade: ~
+      selected_offer_to_swap: ~
+      selected_request_to_swap: ~
       selected_share_for_free: ~
       selected_accept_for_free: ~
       how_do_you_want_to_share_it: ~
@@ -1058,14 +1159,15 @@ es-ES:
       rent: ~
       rent_out: ~
       sell: ~
-      trade: ~
+      offer_to_swap: ~
+      request_to_swap: ~
       share_for_free: ~
       accept_for_free: ~
-      item_with_article: ~
-      favor_with_article: ~
-      rideshare_with_article: ~
-      housing_with_article: ~
-      what_kind_of_category: ~
+      what_kind_of_item: ~
+      what_kind_of_favor: ~
+      what_kind_of_rideshare: ~
+      what_kind_of_housing: ~
+      which_subcategory: ~
       tools: ~
       sports: ~
       music: ~
@@ -1149,6 +1251,13 @@ es-ES:
     member_id_is_your_username: ~
     member_id_or_email: ~
     join_here: ~
+  payments:
+    new:
+      new_payment: ~
+      continue: ~
+      payment_receiver: ~
+      sum: ~
+      commission_will_be_added: ~
   people:
     index:
       loading_more_members: ~
@@ -1412,6 +1521,7 @@ es-ES:
       newsletters: Boletines
       community_updates: ~
       email_about_accept_reminders: "...He olvidado aceptar un evento"
+      email_about_confirm_reminders: ~
       email_about_new_badges: "...He obtenido una nueva medalla"
       email_about_new_comments_to_own_listing: ".. .alguien comenta mi oferta o solicitud"
       email_about_new_messages: ".. .alguien me envía un mensaje"
@@ -1423,6 +1533,9 @@ es-ES:
       email_newsletters: ~
       email_when_conversation_accepted: ".. .alguien acepta mi oferta o solicitud"
       email_when_conversation_rejected: ".. .alguien rechaza mi oferta o solicitud"
+      email_about_completed_transactions: ~
+      email_about_new_payments: ~
+      email_about_payment_reminders: ~
       unsubscribe_succesful: ~
       unsubscribe_info_text: ~
       settings_link: ~
@@ -1496,6 +1609,7 @@ es-ES:
     testimonial:
       from_user: Desde
       to_user: a
+      about_listing: ~
   time:
     formats:
       short: ~

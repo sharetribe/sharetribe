@@ -9,7 +9,9 @@ class NewsItemsController < ApplicationController
   skip_filter :dashboard_only
   
   def index
-    redirect_to about_infos_path and return unless @current_community.news_enabled
+    redirect_to about_infos_path and return
+    # Comment out the line below as none of the communities currently has news enabled. So always redirect.
+    # redirect_to about_infos_path and return unless @current_community.news_enabled
     if params[:news_form] && !logged_in?
       session[:return_to] = request.fullpath
       flash[:warning] = t("layouts.notifications.you_must_log_in_to_add_news_item")

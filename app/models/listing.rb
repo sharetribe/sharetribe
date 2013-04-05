@@ -91,7 +91,10 @@ class Listing < ActiveRecord::Base
     "soil_materials" => "ss-cloud",
     "liquid_materials" => "ss-droplet",
     "manufacturing_error_materials" => "ss-wrench",
-    "misc_material" => "ss-box"
+    "misc_material" => "ss-box",
+    "clothing" => "ss-hanger",
+    "accessories" => "ss-handbag",
+    "designers" => "ss-star"
   }
   
   before_validation :set_rideshare_title, :set_valid_until_time

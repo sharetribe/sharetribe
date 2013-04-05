@@ -8,3 +8,4 @@ wip: --drb --tags @wip:3 --wip features
 rerun: --drb <%= rerun_opts %> --format rerun --out rerun.txt --strict --tags ~@wip
 travis: -rfeatures --tags ~@javascript --tags ~@badge --tags ~@pending --tags ~@fix_for_new_design --format progress features
 temp: -rfeatures --drb --strict --tags ~@wip --tags ~@badge --tags ~@pending --tags ~@fix_for_new_design --format progress features
+parallel: -rfeatures --tags ~@wip --format progress features
