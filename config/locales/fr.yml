@@ -90,7 +90,6 @@ fr:
       rent: "location "
       rent_out: "location "
       sell: "vente "
-      trade: "échange "
       offer_to_swap: échange
       request_to_swap: échange
       share_for_free: "partage gratuit "
@@ -135,8 +134,8 @@ fr:
       cancel_description: "Si votre demande n'a pas été satisfaite, vous pouvez la marquer comme \"non réalisée\". Vous pourrez toujours donner un avis sur l'autre personne et décrire ce qu'il s'est passé."
       cancel_payed_description: "Si votre demande a été acceptée mais que vous changez d'avis, vous pouvez toujours l'annuler avant le paiement."
       canceling_payed_transaction: "Annuler la transaction"
-      confirm: ~
-      cancel: ~
+      confirm: Réalisée
+      cancel: "Non réalisée"
       continue: Continuer
       give_feedback_to: "Donner un avis sur %{person_link}"
       do_not_give_feedback: "Ne pas donner d'avis"
@@ -243,14 +242,14 @@ fr:
       give_feedback: "Donner un avis"
       offer_accepted: Acceptée
       offer_rejected: Rejetée
-      offer_canceled: Annulé
-      offer_confirmed: Terminé
+      offer_canceled: Annulée
+      offer_confirmed: Terminée
       pay: Payer
       paid: "Paiement réussi"
       request_accepted: Acceptée
       request_rejected: Rejetée
-      request_confirmed: Terminé
-      request_canceled: Annulé
+      request_confirmed: Terminée
+      request_canceled: Annulée
       skip_feedback: "Ne pas donner d'avis"
       waiting_for_listing_author_to_accept_offer: "En attente d'acceptation de l'offre par %{listing_author_name}"
       waiting_for_listing_author_to_accept_request: "En attente d'acceptation de la demande par %{listing_author_name}"
@@ -261,8 +260,8 @@ fr:
       accept_request: "Accepter demande"
       reject_offer: "Pas cette fois"
       reject_request: "Pas cette fois"
-      confirm: ~
-      cancel: ~
+      confirm: Réalisée
+      cancel: "Non réalisée"
   communities:
     map_bubble:
       view_tribe: "Voir la tribu"
