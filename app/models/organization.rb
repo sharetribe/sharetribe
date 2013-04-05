@@ -56,7 +56,7 @@ class Organization < ActiveRecord::Base
       response = RestClient::Request.execute(:method => :post, :url => url, :user => user, :password => password, :payload => api_params)
     else
       # Stub response to avoid unnecessary accounts being created (unless config is set to make real accounts)
-      puts "WOULD CALL MERCHANT API WITH: #{api_params.inspect}"
+      #puts "WOULD CALL MERCHANT API WITH: #{api_params.inspect}"
       response = "<merchant><id>123456</id><secret>exampledddfGisidnowtAthpowdUshyerbEuvRagNuishUcAnLihanshEmtyeifjitmowlIfyegyewfIvApdec=</secret><banner>http://rpcapi.checkout.fi/banners/5a1e9f504277f6cf17a7026de4375e97.png</banner></merchant>"
     end
 
