@@ -129,7 +129,7 @@ var hideNotice = function() {
 }
 
 function initialize_user_feedback_form() {
-  form_id = "#new_feedback"
+  form_id = "#new_feedback";
   $(form_id).validate({
     rules: {
       "feedback[email]": {required: false, email: true},
@@ -139,7 +139,7 @@ function initialize_user_feedback_form() {
 }
 
 function initialize_email_members_form() {
-  form_id = "#new_member_email"
+  form_id = "#new_member_email";
   auto_resize_text_areas("email_members_text_area");
   $(form_id).validate({
     rules: {
@@ -229,9 +229,9 @@ function select_listing_form_menu_link(link, locale, attribute_hash, listing_for
 // the listing form in this community.
 function menu_applicable(attribute, selected_attributes, attribute_hash) {
   if (attribute == "listing_type") {
-    var values = attribute_hash
+    var values = attribute_hash;
   } else if (attribute == "category") {
-    var values = attribute_hash[selected_attributes["listing_type"]]
+    var values = attribute_hash[selected_attributes["listing_type"]];
   } else if (attribute == "subcategory" || attribute == "share_type") {
     if ((attribute_hash[selected_attributes["listing_type"]] == undefined) || (attribute_hash[selected_attributes["listing_type"]][selected_attributes["category"]] == undefined)) {
       values == undefined;
@@ -246,7 +246,7 @@ function menu_applicable(attribute, selected_attributes, attribute_hash) {
     if ($.isArray(values) == true) {
       value_array = values; 
     } else {
-      value_array = Object.keys(values);
+      value_array = get_keys(values);
     }
     if (value_array.length < 1) {
       return false;
@@ -257,6 +257,14 @@ function menu_applicable(attribute, selected_attributes, attribute_hash) {
       return true;
     }
   }
+}
+
+function get_keys(values) {
+   var keys = [];
+   for(var key in values){
+      keys.push(key);
+   }
+   return keys;
 }
 
 function update_listing_form_view(locale, attribute_hash, listing_form_menu_titles, ordered_attributes, selected_attributes) {
@@ -270,7 +278,7 @@ function update_listing_form_view(locale, attribute_hash, listing_form_menu_titl
     }
   }); 
   
-  var title = ""
+  var title = "";
   
   if ((selected_attributes["listing_type"] != null) || !menu_applicable("listing_type", selected_attributes, attribute_hash))  {
     if ((selected_attributes["category"] != null) || !menu_applicable("category", selected_attributes, attribute_hash)) {
@@ -287,7 +295,7 @@ function update_listing_form_view(locale, attribute_hash, listing_form_menu_titl
               $(this).removeClass('hidden');
             }
           });
-          title = listing_form_menu_titles["share_type"][selected_attributes["listing_type"]]
+          title = listing_form_menu_titles["share_type"][selected_attributes["listing_type"]];
         }
       } else {
         $('.option-group[name=subcategory]').children().each(function() {
@@ -295,7 +303,7 @@ function update_listing_form_view(locale, attribute_hash, listing_form_menu_titl
             $(this).removeClass('hidden');
           }
         });
-        title = listing_form_menu_titles["subcategory"][selected_attributes["category"]]
+        title = listing_form_menu_titles["subcategory"][selected_attributes["category"]];
       }
     } else {
       $('.option-group[name=category]').children().each(function() {
@@ -303,10 +311,10 @@ function update_listing_form_view(locale, attribute_hash, listing_form_menu_titl
           $(this).removeClass('hidden');
         }
       });
-      title = listing_form_menu_titles["category"][selected_attributes["listing_type"]]
+      title = listing_form_menu_titles["category"][selected_attributes["listing_type"]];
     }
   } else {
-    title = listing_form_menu_titles["listing_type"]
+    title = listing_form_menu_titles["listing_type"];
     $('.option-group[name=listing_type]').children().each(function() {
       $(this).removeClass('hidden');
     });
@@ -317,10 +325,10 @@ function update_listing_form_view(locale, attribute_hash, listing_form_menu_titl
 
 // Initialize the listing type & category selection part of the form
 function initialize_new_listing_form_selectors(locale, attribute_hash, listing_form_menu_titles) {
-  var ordered_attributes = ["listing_type", "category", "subcategory", "share_type"]
+  var ordered_attributes = ["listing_type", "category", "subcategory", "share_type"];
   var selected_attributes = {"listing_type": null, "category": null, "subcategory": null, "share_type": null};
   
-  update_listing_form_view(locale, attribute_hash, listing_form_menu_titles, ordered_attributes, selected_attributes)
+  update_listing_form_view(locale, attribute_hash, listing_form_menu_titles, ordered_attributes, selected_attributes);
   
   $('.new-listing-form').find('a.select').click(
     function() {
@@ -454,7 +462,7 @@ function style_action_selectors() {
         $(this).removeClass('hidden');
         $(this).click(
           function() {
-            var action = $(this).attr('id')
+            var action = $(this).attr('id');
             $(this).siblings().removeClass('accept').removeClass('reject').removeClass('confirm').removeClass('cancel');
             
             // Show or hide description text
