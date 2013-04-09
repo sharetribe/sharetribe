@@ -1,1 +1,22 @@
-Veuillez patienter...L'image doit être dans un fomat GIF, JPG ou PNG.Veuillez saisir un numéro de carte bleue valide.Veuillez entrer une date valide.Veuillez saisir une date valide (ISO).Veuillez saisir uniquement les chiffres.Veuillez saisir une adresse email valide.Veuillez saisir la même valeur à nouveau.Veuillez saisir une valeur inférieure ou égale à {0}.Veuillez ne pas saisir plus de {0} caractères.Veuillez saisir une valeur supérieure ou égale à {0}.Veuillez saisir au moins {0} caractères.Veuillez saisir un chiffre valide.Veuillez saisir une valeur entre {0} et {1}.Veuillez saisir une valeur longue de {0} à {1} caractères.Veuillez corriger ce champ.Ce champ est obligatoire.Veuillez saisir une URL valide.
+{
+  "please_wait": "Veuillez patienter...",
+  "validation_messages": {
+    "accept": "Veuillez saisir une valeur avec une prolongation valide.",
+    "creditcard": "Veuillez saisir un numéro de carte bleue valide.",
+    "date": "Veuillez entrer une date valide.",
+    "dateISO": "Veuillez saisir une date valide (ISO).",
+    "digits": "Veuillez saisir uniquement les chiffres.",
+    "email": "Veuillez saisir une adresse email valide.",
+    "equalTo": "Veuillez saisir la même valeur à nouveau.",
+    "max": "Veuillez saisir une valeur inférieure ou égale à {0}.",
+    "maxlength": "Veuillez ne pas saisir plus de {0} caractères.",
+    "min": "Veuillez saisir une valeur supérieure ou égale à {0}.",
+    "minlength": "Veuillez saisir au moins {0} caractères.",
+    "number": "Veuillez saisir un chiffre valide.",
+    "range": "Veuillez saisir une valeur entre {0} et {1}.",
+    "rangelength": "Veuillez saisir une valeur longue de {0} à {1} caractères.",
+    "remote": "Veuillez corriger ce champ.",
+    "required": "Ce champ est obligatoire.",
+    "url": "Veuillez saisir une URL valide."
+  }
+}
