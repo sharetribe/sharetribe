@@ -1,1 +1,22 @@
-Un momento...El archivo de imagen debe estar en formato GIF, JPG o PNG.Por favor, introduce un número de tarjeta de crédito válido.Por favor ingresa una fecha válida.Por favor ingresa una fecha válida.Por favor ingresa sólo dígitos.Por favor introduce una dirección de correo electrónico válida.Por favor introduce el mismo valor nuevamente.Por favor introduce un valor inferior o igual a  {0} .Por favor introduce no más de  {0} caracteres.Por favor introduce un valor mayor o igual a  {0} .Por favor introduce al menos  {0} carácteres.Introduce un número válido.Por favor ingresa un valor entre  {0} y  {1} .Por favor introduce un valor entre {0} y {1} caracteres de longitud.Por favor arregla este campo.Este campo es obligatorioPor favor ingresa una URL válida.
+{
+  "please_wait": "Un momento...",
+  "validation_messages": {
+    "accept": "El archivo de imagen debe estar en formato GIF, JPG o PNG.",
+    "creditcard": "Por favor, introduce un número de tarjeta de crédito válido.",
+    "date": "Por favor ingresa una fecha válida.",
+    "dateISO": "Por favor ingresa una fecha válida.",
+    "digits": "Por favor ingresa sólo dígitos.",
+    "email": "Por favor introduce una dirección de correo electrónico válida.",
+    "equalTo": "Por favor introduce el mismo valor nuevamente.",
+    "max": "Por favor introduce un valor inferior o igual a  {0} .",
+    "maxlength": "Por favor introduce no más de  {0} caracteres.",
+    "min": "Por favor introduce un valor mayor o igual a  {0} .",
+    "minlength": "Por favor introduce al menos  {0} carácteres.",
+    "number": "Introduce un número válido.",
+    "range": "Por favor ingresa un valor entre  {0} y  {1} .",
+    "rangelength": "Por favor introduce un valor entre {0} y {1} caracteres de longitud.",
+    "remote": "Por favor arregla este campo.",
+    "required": "Este campo es obligatorio",
+    "url": "Por favor ingresa una URL válida."
+  }
+}
