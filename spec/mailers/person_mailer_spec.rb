@@ -1,5 +1,9 @@
 require 'spec_helper'
 
+def find_email_body_for(addr)
+  ActionMailer::Base.deliveries.select{ |e| e.to.first == addr}.first
+end
+
 describe PersonMailer do
   fixtures :people, :communities, :community_memberships
   
@@ -266,9 +270,9 @@ describe PersonMailer do
     
     it "should send only to people who want it now" do
       PersonMailer.deliver_community_updates
-      ActionMailer::Base.deliveries[0].to.include?(@p2.email).should be_true
-      ActionMailer::Base.deliveries[1].to.include?(@p2.email).should be_true
-      ActionMailer::Base.deliveries[2].to.include?(@p4.email).should be_true
+      (ActionMailer::Base.deliveries[0].to.include?(@p2.email) || ActionMailer::Base.deliveries[0].to.include?(@p4.email)).should be_true
+      (ActionMailer::Base.deliveries[1].to.include?(@p2.email) || ActionMailer::Base.deliveries[1].to.include?(@p4.email)).should be_true
+      (ActionMailer::Base.deliveries[2].to.include?(@p2.email) || ActionMailer::Base.deliveries[2].to.include?(@p4.email)).should be_true
       ActionMailer::Base.deliveries.size.should == 3           
     end
     
@@ -276,10 +280,12 @@ describe PersonMailer do
       @p1.update_attribute(:community_updates_last_sent_at, 1.day.ago)
       PersonMailer.deliver_community_updates
       ActionMailer::Base.deliveries.size.should == 4
-      ActionMailer::Base.deliveries[0].body.include?("during the past 1 day").should be_true
-      ActionMailer::Base.deliveries[1].body.include?("during the past 14 days").should be_true
-      ActionMailer::Base.deliveries[2].body.include?("during the past 14 days").should be_true
-      ActionMailer::Base.deliveries[3].body.include?("during the past 9 days").should be_true
+      email = find_email_body_for(@p1.email)
+      email.body.include?("during the past 1 day").should be_true
+      email = find_email_body_for(@p2.email)
+      email.body.include?("during the past 14 day").should be_true
+      email = find_email_body_for(@p4.email)
+      email.body.include?("during the past 9 day").should be_true
     end
     
     it "should send with default 7 days to those with nil as last time sent" do
@@ -288,8 +294,10 @@ describe PersonMailer do
       @p5.update_attribute(:community_updates_last_sent_at, nil)     
       PersonMailer.deliver_community_updates
       ActionMailer::Base.deliveries.size.should == 4
-      ActionMailer::Base.deliveries[3].to.include?(@p5.email).should be_true
-      ActionMailer::Base.deliveries[3].body.include?("during the past 7 days").should be_true
+      email = find_email_body_for(@p5.email)
+      email.should_not be_nil
+      #ActionMailer::Base.deliveries[3].to.include?(@p5.email).should be_true
+      email.body.include?("during the past 7 days").should be_true
     end
     
   end
@@ -394,4 +402,5 @@ describe PersonMailer do
     end
     
   end
+  
 end
