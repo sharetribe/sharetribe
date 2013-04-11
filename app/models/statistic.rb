@@ -33,12 +33,12 @@ class Statistic < ActiveRecord::Base
       messages = []
       conversations.each {|c| messages << c.messages}
       messages.flatten!
-      transactions = conversations.select{|c| c.status == "accepted"}
+      transactions = conversations.select{|c| c.status == "confirmed"}
     else
       conversations = Conversation.all
       listings = Listing.all
       messages = Message.all
-      transactions = Conversation.where(:status => "accepted")
+      transactions = Conversation.where(:status => "confirmed")
     end
     
     self.conversations_count = conversations.count
@@ -89,7 +89,7 @@ class Statistic < ActiveRecord::Base
     one_to_two_month_old_users.each do |u|
       creation_date = u.created_at
       u = u.person if u.class == CommunityMembership # Set u to point to the actual user if it now points to the membership object
-      if  u.present? && u.class == Person && u.conversations.where(:status => "accepted", :created_at => (creation_date..(creation_date + 1.month))).present?
+      if  u.present? && u.class == Person && u.conversations.where(:status => "confirmed", :created_at => (creation_date..(creation_date + 1.month))).present?
         activated += 1
       end      
     end
@@ -125,9 +125,9 @@ class Statistic < ActiveRecord::Base
     self.dau_g2 = ((@dau_g2*1.0/users_count)).round(4)
     
     # G3 means users who participated in a transaction
-    mau_g3_ids = Conversation.find_by_sql("select distinct person_id from conversations INNER JOIN `participations` ON `conversations`.`id`=`participations`.`conversation_id` where `conversations`.`status` = 'accepted' AND `conversations`.`updated_at` > '#{1.month.ago.to_formatted_s(:db)}'")
-    wau_g3_ids = Conversation.find_by_sql("select distinct person_id from conversations INNER JOIN `participations` ON `conversations`.`id`=`participations`.`conversation_id` where `conversations`.`status` = 'accepted' AND `conversations`.`updated_at` > '#{7.days.ago.to_formatted_s(:db)}'")
-    dau_g3_ids = Conversation.find_by_sql("select distinct person_id from conversations INNER JOIN `participations` ON `conversations`.`id`=`participations`.`conversation_id` where `conversations`.`status` = 'accepted' AND `conversations`.`updated_at` > '#{24.hours.ago.to_formatted_s(:db)}'")
+    mau_g3_ids = Conversation.find_by_sql("select distinct person_id from conversations INNER JOIN `participations` ON `conversations`.`id`=`participations`.`conversation_id` where `conversations`.`status` = 'confirmed' AND `conversations`.`updated_at` > '#{1.month.ago.to_formatted_s(:db)}'")
+    wau_g3_ids = Conversation.find_by_sql("select distinct person_id from conversations INNER JOIN `participations` ON `conversations`.`id`=`participations`.`conversation_id` where `conversations`.`status` = 'confirmed' AND `conversations`.`updated_at` > '#{7.days.ago.to_formatted_s(:db)}'")
+    dau_g3_ids = Conversation.find_by_sql("select distinct person_id from conversations INNER JOIN `participations` ON `conversations`.`id`=`participations`.`conversation_id` where `conversations`.`status` = 'confirmed' AND `conversations`.`updated_at` > '#{24.hours.ago.to_formatted_s(:db)}'")
     
     if community #select only people that are members of the community
       mau_g3_ids = mau_g3_ids.select{|i| CommunityMembership.find_by_person_id_and_community_id_and_status(i.person_id, community.id, "accepted")}
@@ -201,12 +201,12 @@ class Statistic < ActiveRecord::Base
       l = community.listings.where("created_at > '#{time_frame.to_formatted_s(:db)}'")
       c = community.members.collect(&:authored_comments).flatten.select{|c| c.created_at > time_frame}
       m = community.members.collect(&:messages).flatten.select{|m| m.created_at > time_frame}
-      t = community.members.collect(&:conversations).flatten.select{|t| t.status == "accepted" && t.updated_at > time_frame}
+      t = community.members.collect(&:conversations).flatten.select{|t| t.status == "confirmed" && t.updated_at > time_frame}
     else
       c = Comment.where("created_at > '#{time_frame.to_formatted_s(:db)}'")
       l = Listing.where("created_at > '#{time_frame.to_formatted_s(:db)}'")
       m = Message.where("created_at > '#{time_frame.to_formatted_s(:db)}'")
-      t = Conversation.where("updated_at > '#{time_frame.to_formatted_s(:db)}' AND status = 'accepted'")
+      t = Conversation.where("updated_at > '#{time_frame.to_formatted_s(:db)}' AND status = 'confirmed'")
     end
     
     return [c.collect(&:author_id), l.collect(&:author_id), m.collect(&:sender_id), t.collect(&:participants).flatten.collect(&:id)].flatten.uniq.count
