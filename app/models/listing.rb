@@ -314,7 +314,7 @@ class Listing < ActiveRecord::Base
     # Two ways of finding, with or without sphinx
     if params[:search].present?
       with = {}
-      if params[:status] == "open"
+      if params[:status] == "open" || params[:status].nil?
         with[:open] = true 
       elsif params[:status] == "closed"
         with[:open] = false
