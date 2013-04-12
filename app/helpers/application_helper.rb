@@ -201,8 +201,8 @@ module ApplicationHelper
   end
   
   def service_name(form=nil)
-    if @current_community && @current_community.settings && @current_community.settings["service_name"].present?
-      service_name = @current_community.settings["service_name"]
+    if @current_community
+      service_name = @current_community.service_name
     else
       service_name = APP_CONFIG.global_service_name || "Sharetribe"
     end

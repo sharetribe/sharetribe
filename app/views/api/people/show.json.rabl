@@ -3,7 +3,7 @@ attributes :id, :username, :given_name, :family_name, :locale, :description
 
 node :communities do |person|
   person.communities.map do |community|
-    partial 'api/communities/show', :object => community, :root => false
+    partial 'api/communities/small_info', :object => community, :root => false
   end
 end
 

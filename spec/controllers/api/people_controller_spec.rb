@@ -75,6 +75,16 @@ describe Api::PeopleController do
       resp["location"].should be_nil
     end
     
+    it "should include communities that the user has, but only small info of them" do
+      get :show, :id => @p1.id, :format => :json
+      response.status.should == 200
+      resp = JSON.parse(response.body)
+      #puts resp.to_yaml
+      resp["id"].should == @p1.id
+      resp["communities"].should_not be_nil
+      resp["communities"][0]["name"].should match @p1.communities.first.name
+      resp["communities"][0]["custom_color1"].should be_nil
+    end
     
   end
 

@@ -201,6 +201,16 @@ class Community < ActiveRecord::Base
     return dom
     
   end
+  
+  # returns the community specific service name if such is in use
+  # otherwise returns the global default
+  def service_name
+    if settings && settings["service_name"].present?
+      settings["service_name"]
+    else
+      APP_CONFIG.global_service_name || "Sharetribe"
+    end
+  end
 
   def has_new_listings_since?(time)
     return listings.where("created_at > ?", time).present?
