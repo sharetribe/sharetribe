@@ -25,7 +25,8 @@ Kassi::Application.routes.draw do
         resources :feedbacks, :controller => :testimonials
         resources :badges
       end
-
+      
+      match 'api_version' => "api#version_check"
       match '/' => 'dashboard#api'    
     end
     

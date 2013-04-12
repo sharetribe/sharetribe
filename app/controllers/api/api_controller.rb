@@ -18,6 +18,22 @@ class Api::ApiController < ApplicationController
     
   layout false
   
+  # used to check if the client software is using a supported API version
+  def version_check
+    returned_info = {}
+    if api_version.to_s == "2"
+      returned_info["your_version"] = "latest"
+    elsif api_version.to_s == "1" || api_version.to_s == "alpha"
+      returned_info["your_version"] = "deprecated"
+    else
+      returned_info["your_version"] = "not_supported"
+    end
+    returned_info["message"] = nil
+    
+    puts returned_info.to_json
+    respond_with returned_info.to_json
+  end
+  
   protected
   
   # def rabl(object, template_name = "#{controller_name}/#{action_name}", options = {})
