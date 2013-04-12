@@ -4,15 +4,16 @@ describe Api::CommunitiesController do
   render_views
     
   describe "#show" do
+    
     it "returns the full JSON of a community" do
       c = FactoryGirl.create(:community)
-      l = FactoryGirl.create(:location, :community => c)
+      l = FactoryGirl.create(:location, :community => c, :address => "antarctica")
       
       get :show, :id => c.id, :format => :json
       response.status.should == 200
       resp = JSON.parse(response.body)
       
-      puts resp
+      #puts response.body
       
       resp["id"].should == c.id
       resp["name"].should == c.name
@@ -23,6 +24,7 @@ describe Api::CommunitiesController do
       resp["custom_color2"].should == c.custom_color2
       resp["service_name"].should == "Sharetribe"
       resp["location"].should_not be_nil
+      resp["location"]["address"].should == "antarctica"
       
     end
     
@@ -32,6 +34,16 @@ describe Api::CommunitiesController do
       response.status.should == 200
       resp = JSON.parse(response.body)
       resp["service_name"].should == "White Label Co"
+    end
+    
+    it "returns the categorization used in that community" do
+      c = FactoryGirl.create(:community)
+      get :show, :id => c.id, :format => :json
+      response.status.should == 200
+      resp = JSON.parse(response.body)
+      
+      resp["categories_tree"].should_not be_nil
+      
     end
   end
 

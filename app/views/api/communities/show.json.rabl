@@ -24,3 +24,7 @@ end
 child :location => :location do
   extends "api/locations/show"
 end
+
+node :categories_tree do |community|
+  community.categories_tree
+end
