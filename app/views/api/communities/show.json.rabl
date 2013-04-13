@@ -1,6 +1,6 @@
 object @community
 
-attributes :id, :name, :slogan, :description, :custom_color1, :custom_color2, :payments_in_use, :available_currencies, :join_with_invite_only, :members_count
+attributes :id, :name, :slogan, :description, :custom_color1, :custom_color2, :payments_in_use, :available_currencies, :join_with_invite_only, :members_count, :service_logo_style
 
 
 node do |community|

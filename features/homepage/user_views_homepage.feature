@@ -112,6 +112,7 @@ Feature: User views homepage
      Then I should not see "bike parts"
      And I should see "There are 3 open listings in this community. 3 of them are visible only to the members of the community. If you want to see also the listings that are visible only to the members, you need to log in."
   
+  @wip
   @javascript
   Scenario: User views event feed
     Given there are following users:

@@ -12,6 +12,20 @@ describe Api::PeopleController do
       resp["people"][0]["given_name"].should == "Danny"
       resp["people"][0]["id"].should == @p1.id
     end
+    
+    it "returns the members list of a community" do
+      @p1 = FactoryGirl.create(:person, :given_name => "Danny", :family_name => "van Testburg", :phone_number => "123456789", :email => "danny@example.com")
+      @p2 = FactoryGirl.create(:person, :given_name => "Dina", :family_name => "van Testburg", :phone_number => "555-123456789")
+      c = FactoryGirl.create(:community)
+      c.members << [@p1, @p2]
+      
+      get :index, :community_id => c.id, :format => :json
+      resp = JSON.parse(response.body)
+      response.status.should == 200
+      resp["people"].count.should == 2
+      resp["people"][0]["given_name"].should == "Danny"
+      resp["people"][1]["given_name"].should == "Dina"
+    end
   end
     
     

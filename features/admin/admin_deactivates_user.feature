@@ -1,5 +1,6 @@
 Feature: Admin deactivates user
   
+  @wip
   @javascript
   Scenario: Admin deactivates and reactivates a user
     Given USER DEACTIVATION IS NOT YET IN USE SO THIS TEST IS UNDEFINED NOW
@@ -22,7 +23,8 @@ Feature: Admin deactivates user
     When I follow "Activate"
     Then I should not see "This user is no longer active in Sharetribe"
     And I should see "User activated"
-
+    
+  @wip
   @javascript
   Scenario: User reactivates himself by logging in
     Given USER DEACTIVATION IS NOT YET IN USE SO THIS TEST IS UNDEFINED NOW

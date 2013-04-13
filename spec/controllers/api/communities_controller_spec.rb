@@ -25,6 +25,7 @@ describe Api::CommunitiesController do
       resp["service_name"].should == "Sharetribe"
       resp["location"].should_not be_nil
       resp["location"]["address"].should == "antarctica"
+      resp["service_logo_style"].should == "full-logo"
       
     end
     
