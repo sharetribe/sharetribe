@@ -13,7 +13,11 @@ Kassi::Application.routes.draw do
       resources :listings do
         resources :comments
       end
-      resources :communities
+      resources :communities do
+        member do
+          get :classifications
+        end
+      end
       resources :people do
         resources :conversations do
           member do
