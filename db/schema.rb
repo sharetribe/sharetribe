@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130405114540) do
+ActiveRecord::Schema.define(:version => 20130418173835) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -335,7 +335,7 @@ ActiveRecord::Schema.define(:version => 20130405114540) do
     t.integer  "share_type_id"
     t.integer  "organization_id"
     t.integer  "price_cents"
-    t.string   "price_currency"
+    t.string   "currency"
     t.string   "quantity"
   end
 
@@ -439,7 +439,7 @@ ActiveRecord::Schema.define(:version => 20130405114540) do
     t.string   "organization_id"
     t.integer  "conversation_id"
     t.integer  "sum_cents"
-    t.string   "sum_currency"
+    t.string   "currency"
     t.string   "status"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false

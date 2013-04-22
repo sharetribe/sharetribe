@@ -2,6 +2,6 @@
   .icon-with-text-container
     %i.ss-tag.icon-part  
     .text-part
-      = money_without_cents_and_with_symbol listing.price
+      = money_without_cents_and_with_symbol(listing.price).upcase
       - unless listing.quantity.blank?
         = "/ #{listing.quantity}"

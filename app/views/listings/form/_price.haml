@@ -7,11 +7,11 @@
       - if @current_community.available_currencies
         - currencies = @current_community.available_currencies.split(",")
         - if currencies.size > 1
-          = form.select :price_currency, currencies, { :selected => (@listing.price_currency || currencies.first) }
+          = form.select :currency, currencies, { :selected => (@listing.currency || currencies.first) }
         - else
           = Money.new(1, currencies[0]).symbol
       - else
-        = form.select :price_currency, major_currencies(Money::Currency.table), { :selected => (@listing.price_currency || "EUR") }
+        = form.select :currency, major_currencies(Money::Currency.table), { :selected => (@listing.currency || "EUR") }
     - if cc.price_quantity_placeholder?
       .quantity-description= t(".per")
       = form.text_field :quantity, :class => "quantity-field", :placeholder => t(".#{cc.price_quantity_placeholder}")
