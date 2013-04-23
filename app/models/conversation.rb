@@ -30,7 +30,7 @@ class Conversation < ActiveRecord::Base
   def payment_attributes=(attributes)
     payment ||= Payment.new
     payment.sum = attributes[:sum]
-    payment.sum_currency = "EUR"
+    payment.currency = "EUR"
     payment.conversation = self
     payment.status = "pending"
     payment.payer = requester

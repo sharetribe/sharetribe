@@ -742,6 +742,11 @@ en:
       list: "Show list"
       all_listing_types: "All listing types"
       all_categories: "All categories"
+  infos:
+    about:
+      default_about_text_title: "What is Sharetribe?"
+      default_about_text: "This website was created using the Sharetribe platform. With Sharetribe, anyone can create their own community marketplace. Would you like to create a site like this for your community? It's free and only takes a minute. %{click_here_link} to learn more!"
+      click_here_link_text: "Click here" 
   layouts:
     no_tribe:
       inbox: Inbox
@@ -782,8 +787,8 @@ en:
     dashboard:
       title: "%{service_name} - share goods, services and rides in your local community!"
     infos:
-      about: "What is it"
-      how_to_use: "How to use"
+      about: "About"
+      how_to_use: "Help"
       info_about_kassi: "Information about %{service_name}"
       news: News
       register_details: Privacy

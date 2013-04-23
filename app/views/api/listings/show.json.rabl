@@ -1,7 +1,7 @@
 object @listing
 attributes :id, :title, :description, :status,
            :times_viewed, :privacy,
-           :price_cents, :price_currency, :quantity,
+           :price_cents, :currency, :quantity,
            :created_at, :updated_at, :valid_until
            
 node do |listing|

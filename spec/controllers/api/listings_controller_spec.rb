@@ -151,14 +151,14 @@ describe Api::ListingsController do
     end
     
     it "returns pricing parameters if those exist" do
-      l = FactoryGirl.create(:listing, :share_type => find_or_create_share_type("sell"), :title => "empty cola bottles", :description => "Cool oldglass bottles", :privacy => "public", :price_cents => 2900, :price_currency => "EUR", :quantity => "sixpack")
+      l = FactoryGirl.create(:listing, :share_type => find_or_create_share_type("sell"), :title => "empty cola bottles", :description => "Cool oldglass bottles", :privacy => "public", :price_cents => 2900, :currency => "EUR", :quantity => "sixpack")
       l.communities = [@c1]
       
        get :show, :id => l.id, :format => :json
        response.status.should == 200
        resp = JSON.parse(response.body)
        resp["price_cents"].should == 2900
-       resp["price_currency"].should == "EUR"
+       resp["currency"].should == "EUR"
        resp["quantity"].should == "sixpack"
     end
     
@@ -254,7 +254,7 @@ describe Api::ListingsController do
                     :category => "furniture",
                     :share_type => "sell",
                     :price_cents => 1800,
-                    :price_currency => "EUR",
+                    :currency => "EUR",
                     :quantity => "per piece",
                     :visibility => "all_communities",
                     :community_id => @c1.id,
@@ -266,7 +266,7 @@ describe Api::ListingsController do
       resp["title"].should == "nice chair for sale"
       resp["category"].should == "furniture"
       resp["price_cents"].should == 1800
-      resp["price_currency"].should == "EUR"
+      resp["currency"].should == "EUR"
       resp["quantity"].should == "per piece"
     end
     
