@@ -42,8 +42,24 @@ describe Api::CommunitiesController do
       get :show, :id => c.id, :format => :json
       response.status.should == 200
       resp = JSON.parse(response.body)
-      
+
       resp["categories_tree"].should_not be_nil
+      
+    end
+  end
+  
+  describe "#classifications" do
+    it "returns the translations and price info" do
+      c = FactoryGirl.create(:community)
+      get :classifications, :id => c.id, :format => :json
+      resp = JSON.parse(response.body)
+      resp["buy"]["price"].should be_nil
+      resp["buy"]["payment"].should_not be_nil
+      resp["sell"]["price"].should_not be_nil
+      resp["rent_out"]["price_quantity_placeholder"].should == "time"
+      resp["housing"]["translated_name"].should == "spaces"
+      resp["housing"]["description"].should == "A space - an apartment, an office or a garden"
+      
       
     end
   end

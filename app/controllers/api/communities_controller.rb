@@ -7,8 +7,33 @@ class Api::CommunitiesController < Api::ApiController
   end
   
   def classifications    
-    @classifications = @community.categories.concat(@community.share_types)
-    respond_with @classifications
+    @classifications = {}
+    
+    @community.community_categories.each do |cc|
+      if cc.share_type
+        unless @classifications[cc.share_type.name]
+          @classifications[cc.share_type.name] = 
+              {:translated_name => cc.share_type.display_name, 
+                :description => cc.share_type.description,
+                :price => cc.price,
+                :price_quantity_placeholder => cc.price_quantity_placeholder,
+                :payment => cc.payment
+              }
+        end
+      end
+      if cc.category
+        unless @classifications[cc.category.name]
+          @classifications[cc.category.name] = 
+              {:translated_name => cc.category.display_name, 
+                :description => cc.category.description,
+                :price => cc.price,
+                :price_quantity_placeholder => cc.price_quantity_placeholder,
+                :payment => cc.payment}
+        end
+      end
+    end
+     
+    respond_with @classifications.to_json
   end
   
   

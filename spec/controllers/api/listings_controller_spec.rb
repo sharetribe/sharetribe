@@ -157,7 +157,6 @@ describe Api::ListingsController do
        get :show, :id => l.id, :format => :json
        response.status.should == 200
        resp = JSON.parse(response.body)
-       puts response.body
        resp["price_cents"].should == 2900
        resp["price_currency"].should == "EUR"
        resp["quantity"].should == "sixpack"

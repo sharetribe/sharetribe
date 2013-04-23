@@ -492,16 +492,6 @@ class Community < ActiveRecord::Base
   end
 
 
-  private
-  
-  # Returns an array of unique categories or share_types used in this community.
-  def unique_categorizations(categorization_type)
-    unless [:category, :share_type].include?(categorization_type)
-      throw "unique_categorizations called with wrong type. Only :category and :share_type allowed" 
-    end
-    return community_categories.collect(&categorization_type).compact.uniq
-  end
-
   def community_categories
     custom = CommunityCategory.find_all_by_community_id(id, :include => [:category, :share_type])
     if custom.present?
@@ -512,6 +502,17 @@ class Community < ActiveRecord::Base
       return CommunityCategory.find_all_by_community_id(nil, :include => [:category, :share_type])
     end
   end
+
+  private
+  
+  # Returns an array of unique categories or share_types used in this community.
+  def unique_categorizations(categorization_type)
+    unless [:category, :share_type].include?(categorization_type)
+      throw "unique_categorizations called with wrong type. Only :category and :share_type allowed" 
+    end
+    return community_categories.collect(&categorization_type).compact.uniq
+  end
+
   
   # This method deletes the specific community_category entries (but not the default ones)
   def delete_specific_community_categories
