@@ -248,6 +248,29 @@ describe Api::ListingsController do
       resp["visibility"].should == "all_communities"
     end
     
+    it "supports posting a price" do
+      request.env['Sharetribe-API-Token'] = @p1.authentication_token
+      post :create, :title => "nice chair for sale", 
+                    :description => "not much sitted", 
+                    :category => "furniture",
+                    :share_type => "sell",
+                    :price_cents => 1800,
+                    :price_currency => "EUR",
+                    :quantity => "per piece",
+                    :visibility => "all_communities",
+                    :community_id => @c1.id,
+                    :format => :json
+      
+      #puts response.body.inspect              
+      response.status.should == 201
+      resp = JSON.parse(response.body)
+      resp["title"].should == "nice chair for sale"
+      resp["category"].should == "furniture"
+      resp["price_cents"].should == 1800
+      resp["price_currency"].should == "EUR"
+      resp["quantity"].should == "per piece"
+    end
+    
     describe "locations" do
       
    
