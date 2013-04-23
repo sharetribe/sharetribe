@@ -254,7 +254,7 @@ describe Api::ListingsController do
                     :category => "furniture",
                     :share_type => "sell",
                     :price_cents => 1800,
-                    :price_currency => "EUR",
+                    :currency => "EUR",
                     :quantity => "per piece",
                     :visibility => "all_communities",
                     :community_id => @c1.id,
@@ -266,7 +266,7 @@ describe Api::ListingsController do
       resp["title"].should == "nice chair for sale"
       resp["category"].should == "furniture"
       resp["price_cents"].should == 1800
-      resp["price_currency"].should == "EUR"
+      resp["currency"].should == "EUR"
       resp["quantity"].should == "per piece"
     end
     
