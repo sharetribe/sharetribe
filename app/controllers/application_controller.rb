@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
     new_path.slice!(0,1) if new_path =~ /^\//
     @return_to = new_path
     
-    if @current_community && 
+    if @current_community
       @community_customization = @current_community.community_customizations.find_by_locale(I18n.locale)
     end
   end

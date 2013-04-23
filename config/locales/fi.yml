@@ -742,6 +742,11 @@ fi:
       list: "Näytä lista"
       all_listing_types: "Kaikki ilmoitustyypit"
       all_categories: "Kaikki ilmoituskategoriat"
+  infos:
+    about:
+      default_about_text_title: "Mikä on Sharetribe?"
+      default_about_text: "Tämä sivusto on luotu Sharetribe-alustalla. Sharetriben avulla kuka tahansa voi perustaa oman verkkotorin. Haluaisitko perustaa tällaisen sivuston omalle yhteisöllesi? Se on ilmaista ja onnistuu minuutissa. %{click_here_link}"
+      click_here_link_text: "Lue lisää!"
   layouts:
     no_tribe:
       inbox: Postilaatikko
@@ -782,8 +787,8 @@ fi:
     dashboard:
       title: "%{service_name} - jaa tavaroita, palveluksia ja kyytejä paikallisyhteisössäsi!"
     infos:
-      about: "Mikä %{service_name}?"
-      how_to_use: "Miten se toimii?"
+      about: "Tietoa palvelusta"
+      how_to_use: "Miten palvelu toimii"
       info_about_kassi: "Tietoa %{service_name_elative}"
       news: Uutiset
       register_details: Rekisteriseloste

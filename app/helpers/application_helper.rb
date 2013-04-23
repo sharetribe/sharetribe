@@ -354,32 +354,34 @@ module ApplicationHelper
   
   # About view left hand navigation content
   def about_links
-    [
+    links = [
       { 
         :text => t('layouts.infos.about'),
         :icon_class => "ss-info", 
         :path => about_infos_path,
         :name => "about"
-      },
-      { 
+      }
+    ]
+    if @community_customization && !@community_customization.how_to_use.blank?
+      links << { 
         :text => t('layouts.infos.how_to_use'),
         :icon_class => "ss-signpost", 
         :path => how_to_use_infos_path,
         :name => "how_to_use"
-      },
-      { 
-        :text => t('layouts.infos.terms'),
-        :icon_class => "ss-textfile", 
-        :path => terms_infos_path,
-        :name => "terms"
-      },
-      { 
-        :text => t('layouts.infos.register_details'),
-        :icon_class => "ss-lockfile", 
-        :path => privacy_infos_path,
-        :name => "privacy"
-      },
-    ]
+      }
+    end
+    links << { 
+      :text => t('layouts.infos.register_details'),
+      :icon_class => "ss-lockfile", 
+      :path => privacy_infos_path,
+      :name => "privacy"
+    }
+    links << { 
+      :text => t('layouts.infos.terms'),
+      :icon_class => "ss-textfile", 
+      :path => terms_infos_path,
+      :name => "terms"
+    }
   end
   
   # Admin view left hand navigation content
@@ -511,12 +513,12 @@ module ApplicationHelper
   
   def community_description(truncate=true)
     if @community_customization && !@community_customization.description.blank?
-      @community_customization.description
+      truncate ? truncate(@community_customization.description, :length => 140, :omission => "...").html_safe : @community_customization.description.html_safe
     else
       if @current_community.description && !@current_community.description.blank?
-        truncate ? truncate(@current_community.description, :length => 145, :omission => "...") : @current_community.description
+        truncate ? truncate(@current_community.description, :length => 140, :omission => "...") : @current_community.description
       else
-        truncate ? truncate(t("common.default_community_description"), :length => 130, :omission => "...") : t("common.default_community_description")
+        truncate ? truncate(t("common.default_community_description"), :length => 125, :omission => "...") : t("common.default_community_description")
       end
     end
   end

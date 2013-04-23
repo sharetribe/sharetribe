@@ -2,6 +2,11 @@
 
 .left-navi-section.about-section
   %h2= community_slogan
-  %p= community_description(false)
-  #sharetribe
-    = render :file => community_file("about", true)
+  = community_description(false)
+  %p
+    %br/
+    ***
+  %small
+    %h3= t(".default_about_text_title")
+    %p
+      = t(".default_about_text", :click_here_link => link_to(t(".click_here_link_text"), dashboard_link(:locale => I18n.locale, :ref => "about_page"))).html_safe

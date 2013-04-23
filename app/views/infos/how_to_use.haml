@@ -1,4 +1,5 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => about_links }
 
 .left-navi-section.about-section
-  = render :file => community_file("how_to_use", true)
+  - if @community_customization && !@community_customization.how_to_use.blank?
+    = @community_customization.how_to_use.html_safe

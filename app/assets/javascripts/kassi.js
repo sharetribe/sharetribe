@@ -826,27 +826,6 @@ function initialize_private_community_homepage(username_or_email_default_text, p
 	$('#person_login').watermark(username_or_email_default_text, {className: 'default_text'});
 	$('#person_password').watermark(password_default_text, {className: 'default_text'});
 	$('.wrapper').addClass('js_enabled');
-}	
-	
-function initialize_admin_news_item(news_item_id) {
-  $('#news_item_' + news_item_id + '_content_link').click(function() { 
-		$('#news_item_' + news_item_id + '_content').slideToggle('fast'); 
-	});
-}
-
-function initialize_admin_new_news_item_form() {
-  auto_resize_text_areas("new_news_item_text_area");
-  $('#new_news_item input.text_field:first').focus();
-  $('#new_news_item').validate({
-		rules: {
-		  "news_item[title]": {required: true, minlength: 1, maxlenght: 200},
-		  "news_item[content]": {required: true, minlength: 1, maxlenght: 10000}
-		}
-	});
-}
-
-function initialize_admin_new_poll_form() {
-  
 }
 
 function initialize_admin_edit_tribe_form(locale, community_id) {
@@ -858,7 +837,7 @@ function initialize_admin_edit_tribe_form(locale, community_id) {
  		rules: {
  			"community[name]": {required: true, minlength: 2, maxlength: 50},
  			"community[slogan]": {required: true, minlength: 2, maxlength: 100},
- 			"community[description]": {required: true, minlength: 2, maxlength: 500}
+ 			"community[description]": {required: true, minlength: 2}
  		},
  		submitHandler: function(form) {
  		  disable_and_submit(form_id, form, "false", locale);

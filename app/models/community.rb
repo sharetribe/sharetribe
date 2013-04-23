@@ -29,7 +29,6 @@ class Community < ActiveRecord::Base
   validates_format_of :domain, :with => /^[A-Z0-9_\-\.]*$/i
   validates_uniqueness_of :domain
   validates_length_of :slogan, :in => 2..100, :allow_nil => true
-  validates_length_of :description, :in => 2..500, :allow_nil => true
   validates_inclusion_of :category, :in => VALID_CATEGORIES
   validates_format_of :custom_color1, :with => /^[A-F0-9_-]{6}$/i, :allow_nil => true
   validates_format_of :custom_color2, :with => /^[A-F0-9_-]{6}$/i, :allow_nil => true 
