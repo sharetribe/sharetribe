@@ -104,6 +104,9 @@ class Api::ListingsController < Api::ApiController
                                         "destination",
                                         "origin_loc_attributes",
                                         "valid_until",
+                                        "price_cents",
+                                        "price_currency",
+                                        "quantity",
                                         "destination_loc_attributes"
                                         ).merge({"author_id" => current_person.id,
                                                  "category" => category,
