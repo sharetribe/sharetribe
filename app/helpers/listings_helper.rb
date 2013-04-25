@@ -53,7 +53,7 @@ module ListingsHelper
         localized_share_type_label(listing.share_type).mb_chars.capitalize.to_s
       end
     else
-      t("listings.show.#{listing.category.name}_#{listing.listing_type}", :default => "#{listing.category.display_name.capitalize } #{listing.listing_type.downcase}")
+      t("listings.show.#{listing.category.name}_#{listing.listing_type}", :default => listing.share_type.display_name)
     end
   end
   
@@ -96,7 +96,8 @@ module ListingsHelper
       "listing_type" => t(".what_do_you_want_to_do"),
       "category" => {
         "offer" => t(".what_can_you_offer"),
-        "request" => t(".what_do_you_need")
+        "request" => t(".what_do_you_need"),
+        "default" => t(".select_category")
       },
       "subcategory" => Hash[community_attribute_values["category"].collect { |category| [category, t(".what_kind_of_#{category}", :default => t(".which_subcategory"))]}],
       "share_type" => {

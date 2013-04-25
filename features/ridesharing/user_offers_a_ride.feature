@@ -14,7 +14,7 @@ Feature: User creates a new rideshare
     And I select "January" from "listing_valid_until_2i"
     And I select "2014" from "listing_valid_until_1i"
     And wait for 2 seconds
-    And I press "Save request"
+    And I press "Save listing"
     Then I should see "Tampere - Turku" within ".item-description"
     And I should see "Rideshare request"
 
@@ -28,7 +28,7 @@ Feature: User creates a new rideshare
     And wait for 1 seconds
     And I fill in "listing_origin" with "This place should not exist"
     And I fill in "listing_destination" with "Tampere"
-    And I press "Save request"
+    And I press "Save listing"
     Then I should see "The location was not found." 
 
   @javascript
@@ -41,7 +41,7 @@ Feature: User creates a new rideshare
     And wait for 1 seconds
     And I fill in "listing_origin" with "Tampere"
     And I fill in "listing_destination" with "This place should not exist"
-    And I press "Save request"
+    And I press "Save listing"
     Then I should see "The location was not found."
 
   @javascript
@@ -58,7 +58,7 @@ Feature: User creates a new rideshare
     And I select "January" from "listing_valid_until_2i"
     And I select "2014" from "listing_valid_until_1i"
     And wait for 2 seconds
-    And I press "Save offer"
+    And I press "Save listing"
     Then I should see "Tampere - Turku" within ".item-description"
     And I should see "Rideshare offer"
 
@@ -72,7 +72,7 @@ Feature: User creates a new rideshare
     And wait for 1 seconds
     And I fill in "listing_origin" with "This place should not exist"
     And I fill in "listing_destination" with "Tampere"
-    And I press "Save offer"
+    And I press "Save listing"
     Then I should see "The location was not found."
 
   @javascript
@@ -85,6 +85,6 @@ Feature: User creates a new rideshare
     And wait for 1 seconds
     And I fill in "listing_origin" with "Tampere"
     And I fill in "listing_destination" with "This place should not exist"
-    And I press "Save offer"
+    And I press "Save listing"
     Then I should see "The location was not found."
 

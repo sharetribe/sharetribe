@@ -192,8 +192,6 @@ fi:
       message: Viesti
       rideshare_offer_message_form_title: "Pyydä kyytiä käyttäjältä"
       rideshare_request_message_form_title: "Tarjoa kyyti käyttäjälle"
-      send_offer_message: "Lähetä tarjous"
-      send_request_message: "Lähetä pyyntö"
       send_message: "Lähetä viesti"
       this_message_is_private: "Tämä viesti on yksityinen sinun ja käyttäjän %{person} välillä. %{person} saa tiedon lähettämästäsi viestistä sähköpostilla."
       you_will_get_notified_of_acceptance: "Saat sähköpostiisi tiedon, kun %{person} hyväksyy tai hylkää ehdotuksesi."
@@ -224,12 +222,9 @@ fi:
         has_given_you_feedback_on_event: "on antanut sinulle palautetta tapahtumasta"
         see_all_the_feedback_you_have_received: "katso kaikki saamasi palautteet"
     show:
-      in_response_to_offer: "liittyen tarjoukseen"
-      in_response_to_request: "vastauksena pyyntöön"
-      offer_sent_by: "Tarjouksen lähetti"
-      offer_sent_to: "Tarjous lähetetty käyttäjälle"
-      request_sent_by: "Pyynnön lähetti"
-      request_sent_to: "Pyyntö lähetetty käyttäjälle"
+      in_response_to_listing: "liittyen ilmoitukseen"
+      message_sent_by: "Viestin lähetti"
+      message_sent_to: "Viesti lähetetty käyttäjälle"
       send_reply: "Lähetä viesti"
       write_a_reply: "Kirjoita vastaus:"
       conversation_about_listing: "Keskustelu käyttäjän %{person} kanssa liittyen ilmoitukseen %{listing}"
@@ -444,7 +439,7 @@ fi:
       welcome_to_kassi: "Tervetuloa %{service_name_illative}!"
       need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla alla olevaa linkkiä"
       confirmation_link_text: "Varmista tunnukseni"
-      or_paste_link: "Vaihtoehtoisesti voit kopioida seuraavan selaimesi osoitepalkkiin:"
+      or_paste_link: "Vaihtoehtoisesti voit kopioida seuraavan link selaimesi osoitepalkkiin:"
       turning_on_confirmations_in_this_community: "Otamme käyttöön sähköpostivarmistukset tässä %{service_name}-yhteisössä."
     common:
       check_your_settings: "Tarkista asetuksesi"
@@ -944,15 +939,11 @@ fi:
       you_must: "Sinun täytyy"
       subscribe_to_comments: "Ilmoita minulle uusista kommenteista ja päivityksistä"
     edit:
-      edit_offer: "Muokkaa tarjousta"
-      edit_request: "Muokkaa pyyntöä"
+      edit_listing: "Muokkaa ilmoitusta"
     edit_links:
-      close_offer: "Sulje tarjous"
-      close_request: "Sulje pyyntö"
-      edit_offer: "Muokkaa tarjousta"
-      edit_request: "Muokkaa pyyntöä"
-      reopen_offer: "Avaa tarjous uudelleen"
-      reopen_request: "Avaa pyyntö uudelleen"
+      close_listing: "Sulje ilmoitus"
+      edit_listing: "Muokkaa ilmoitusta"
+      reopen_listing: "Avaa ilmoitus uudelleen"
     follow_links:
       follow: "Seuraa ilmoitusta"
       unfollow: "Lopeta ilmoituksen seuraaminen"
@@ -997,8 +988,7 @@ fi:
         location: Sijainti
         origin: Lähtöpaikka
       send_button:
-        save_offer: "Tallenna tarjous"
-        save_request: "Tallenna pyyntö"
+        save_listing: "Tallenna ilmoitus"
       share_type:
         select: Valitse
         borrow: "Halutaan lainata"
@@ -1110,9 +1100,6 @@ fi:
       link_label_for_rideshare_request: "Tarjoa kyytiä"
     listed_listing:
       edit: Muokkaa
-    listed_listing_closed_status:
-      offer_is_closed: "Tarjous on suljettu"
-      request_is_closed: "Pyyntö on suljettu"
     listed_listings:
       loading_more_offers: "Ladataan lisää tarjouksia"
       loading_more_requests: "Ladataan lisää pyyntöjä"
@@ -1169,7 +1156,7 @@ fi:
       what_kind_of_favor: "Millaisesta palveluksesta on kyse?"
       what_kind_of_rideshare: "Millaisesta kyydistä on kyse?"
       what_kind_of_housing: "Millaisesta tilasta on kyse?"
-      which_subcategory: "Tarkempi kuvaus?"
+      which_subcategory: "Tarkempi kuvaus"
       tools: Työkalut
       sports: Urheilu
       music: Musiikki
@@ -1188,6 +1175,7 @@ fi:
       what_do_you_want_to_do: "Mitä haluat tehdä?"
       what_can_you_offer: "Mitä haluat tarjota muille?"
       what_do_you_need: "Mitä tarvitset?"
+      select_category: "Valitse ilmoituskategoria"
     please_comment: Kommentoi
     reply_link:
       offer_closed: "Tarjous on suljettu"
@@ -1204,13 +1192,12 @@ fi:
       no_description: "Ei kuvausta"
       offer: Tarjous
       offer_author: Tarjoaja
-      offer_created: Luotu
+      listing_created: Luotu
       open_until: "Avoinna %{date} asti"
       feedback: "Palaute:"
       qr_code: "QR koodi"
       request: Pyyntö
       request_author: Pyytäjä
-      request_created: Luotu
       rideshare_offer: Kyytitarjous
       rideshare_request: Kyytitarve
       send_private_message: "Lähetä yksityisviesti"
@@ -1306,8 +1293,6 @@ fi:
       family_name: Sukunimi
       given_name: Etunimi
       i_accept_the: Hyväksyn
-      if_you_already_have_account_you_can: "Jos sinulla on jo käyttäjätunnus jossain %{service_name}-yhteisössä, voit %{join_link}."
-      join_with_your_existing_account: "liittyä tähän yhteisöön olemassaolevalla tunnuksellasi"
       invalid_invitation_code: "Kutsukoodi ei kelpaa."
       invitation_code: "Kutsukoodi:"
       not_required: ", ei pakollinen"

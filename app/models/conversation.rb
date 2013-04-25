@@ -73,7 +73,7 @@ class Conversation < ActiveRecord::Base
   
   # If listing is an offer, return request, otherwise return offer
   def discussion_type
-    listing.listing_type.eql?("request") ? "offer" : "request"
+    listing.share_type.is_request? ? "offer" : "request"
   end
   
   def can_be_cancelled?

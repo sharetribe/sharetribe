@@ -16,7 +16,7 @@ Feature: Transaction process between two users
     When I follow "Hammer"
     And I follow "Buy this item"
     And I fill in "Message" with "I want to buy this item"
-    And I press "Send the request"
+    And I press "Send message"
     And the system processes jobs
     And "kassi_testperson1@example.com" should receive an email
     When I follow "inbox-link"
@@ -104,7 +104,7 @@ Feature: Transaction process between two users
     When I follow "Hammer"
     And I follow "Offer to lend this item"
     And I fill in "Message" with "I can lend this item"
-    And I press "Send the offer"
+    And I press "Send message"
     And the system processes jobs
     And "kassi_testperson1@example.com" should receive an email
     When I follow "inbox-link"

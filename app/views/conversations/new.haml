@@ -4,8 +4,12 @@
 #new_message_form.centered-section
   - if params[:message_type]
     %h2= t(".send_message_to_user", :person => @target_person.given_name_or_username)
+  - elsif @listing.share_type.transaction_button_text
+    %h2
+      = @listing.share_type.transaction_button_text
+      = link_to(@listing.title, @listing)
   - else
-    %h2= t(".#{transaction_proposal_form_title(@listing)}", :listing => link_to(@listing.title, @listing), :person => author_link(@listing), :default => t(".#{Listing.opposite_type(@listing.listing_type)}_message_form_title", :listing => link_to(@listing.title, @listing), :person => author_link(@listing)).html_safe).html_safe   
+    %h2= t(".#{transaction_proposal_form_title(@listing)}", :listing => link_to(@listing.title, @listing), :person => author_link(@listing), :default => t(".#{Listing.opposite_type(@listing.transaction_type)}_message_form_title", :listing => link_to(@listing.title, @listing), :person => author_link(@listing)).html_safe).html_safe   
   %p
     = t(".this_message_is_private", :person => @target_person.given_name_or_username)
     - if params[:message_type]
@@ -34,10 +38,7 @@
       = hidden_field_tag "comment_message", params[:comment_message]
       = hidden_field_tag :listing_id, @listing.id
       = hidden_field_tag "target_person_id", @target_person.id
-    - if params[:message_type]
-      = form.button t(".send_message"), :class => "send_button"
-    - else
-      = form.button t(".send_#{@listing.discussion_type}_message"), :class => "send_button"
+    = form.button t(".send_message"), :class => "send_button"
 
   
 

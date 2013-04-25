@@ -311,7 +311,11 @@ function update_listing_form_view(locale, attribute_hash, listing_form_menu_titl
           $(this).removeClass('hidden');
         }
       });
-      title = listing_form_menu_titles["category"][selected_attributes["listing_type"]];
+      if (listing_form_menu_titles["category"][selected_attributes["listing_type"]] == undefined) {
+        title = listing_form_menu_titles["category"]["default"];
+      } else {
+        title = listing_form_menu_titles["category"][selected_attributes["listing_type"]];
+      }
     }
   } else {
     title = listing_form_menu_titles["listing_type"];

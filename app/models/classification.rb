@@ -17,6 +17,10 @@ module Classification
     end
   end
   
+  def transaction_button_text
+    translation(I18n.locale).transaction_button_text if translation(I18n.locale)
+  end
+  
   # returns the classification object which is highest in the hierarchy starting from self.
   def top_level_parent
     if parent

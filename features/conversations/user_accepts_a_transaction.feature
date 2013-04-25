@@ -26,8 +26,8 @@ Feature: User accepts a transaction
     And I should see "Ok, sounds good!"
     And I should see "Pay" within ".conversation-status"
     When I follow "math book"
-    Then I should see "Request is closed"
-    Then I should not see "Close request"
+    Then I should see "Listing is closed"
+    Then I should not see "Close listing"
     When the system processes jobs
     Then "kassi_testperson1@example.com" should have 0 emails
     And "kassi_testperson2@example.com" should receive an email
@@ -63,8 +63,8 @@ Feature: User accepts a transaction
     Then I should see "Accepted" 
     And I should see "to mark the request as completed" within ".conversation-status"
     When I follow "Massage"
-    Then I should not see "Offer is closed"
-    And I should see "Close offer"
+    Then I should not see "Listing is closed"
+    And I should see "Close listing"
     And the system processes jobs
     When "8" days have passed
     And the system processes jobs

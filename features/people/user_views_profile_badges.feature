@@ -25,7 +25,7 @@ Feature: User views profile badges
     And I follow "Tools"
     And I follow "borrow it"
     And I fill in "listing_title" with "Hammer"
-    And I press "Save request"
+    And I press "Save listing"
     And the system processes jobs
     When I click ".user-menu-toggle"
     And I follow "Profile"

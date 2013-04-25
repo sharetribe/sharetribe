@@ -98,7 +98,9 @@ class Listing < ActiveRecord::Base
     "mealsharing" => "ss-sidedish",
     "activities" => "ss-usergroup",
     "accommodation" => "ss-lodging",
-    
+    "search_material" => "ss-search",
+    "sell_material" => "ss-moneybag",
+    "give_away_material" => "ss-gift"
   }
   
   before_validation :set_rideshare_title, :set_valid_until_time
@@ -264,7 +266,7 @@ class Listing < ActiveRecord::Base
   end
   
   def valid_until_is_not_nil
-    if !rideshare? && listing_type.eql?("request") && !valid_until
+    if !rideshare? && share_type.is_request? && !valid_until
       errors.add(:valid_until, "cannot be empty")
     end  
   end
@@ -388,7 +390,8 @@ class Listing < ActiveRecord::Base
   end
   
   def self.opposite_share_type(type)
-    case type.name
+    st = type.class.eql?(String) ? type : type.name
+    case st
     when "borrow"
       return "lend"
     when "lend"
@@ -408,12 +411,12 @@ class Listing < ActiveRecord::Base
   
   # Returns true if the given person is offerer and false if requester
   def offerer?(person)
-    (listing_type.eql?("offer") && author.eql?(person)) || (listing_type.eql?("request") && !author.eql?(person))
+    (share_type.is_offer? && author.eql?(person)) || (share_type.is_request? && !author.eql?(person))
   end
   
   # Returns true if the given person is requester and false if offerer
   def requester?(person)
-    (listing_type.eql?("request") && author.eql?(person)) || (listing_type.eql?("offer") && !author.eql?(person))
+    (share_type.is_request? && author.eql?(person)) || (share_type.is_offer? && !author.eql?(person))
   end
   
   def selling_or_renting?
@@ -433,7 +436,7 @@ class Listing < ActiveRecord::Base
   # If listing is an offer, a discussion about the listing
   # should be request, and vice versa
   def discussion_type
-    listing_type.eql?("request") ? "offer" : "request"
+    share_type.is_request? ? "offer" : "request"
   end
   
   # Called after create
@@ -613,6 +616,10 @@ class Listing < ActiveRecord::Base
   # The price symbol based on this listing's price or community default, if no price set
   def price_symbol
     price ? price.symbol : MoneyRails.default_currency.symbol
+  end
+  
+  def transaction_type
+    share_type.top_level_parent.transaction_type
   end
   
 end

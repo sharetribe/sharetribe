@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424180017) do
+ActiveRecord::Schema.define(:version => 20130425140120) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -535,9 +535,10 @@ ActiveRecord::Schema.define(:version => 20130424180017) do
     t.integer  "share_type_id"
     t.string   "locale"
     t.string   "name"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.string   "description"
+    t.string   "transaction_button_text"
   end
 
   add_index "share_type_translations", ["share_type_id"], :name => "index_share_type_translations_on_share_type_id"
@@ -546,8 +547,9 @@ ActiveRecord::Schema.define(:version => 20130424180017) do
     t.string   "name"
     t.integer  "parent_id"
     t.string   "icon"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "transaction_type"
   end
 
   add_index "share_types", ["name"], :name => "index_share_types_on_name"

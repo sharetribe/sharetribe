@@ -44,7 +44,7 @@ module PeopleHelper
   end
   
   def profile_testimonial_other_person_role(person, listing)
-    if (person.eql?(listing.author) && listing.listing_type.eql?("request")) || (!person.eql?(listing.author) && listing.listing_type.eql?("offer"))
+    if (person.eql?(listing.author) && listing.share_type.is_request?) || (!person.eql?(listing.author) && listing.share_type.is_offer?)
       "offer"
     else
       "request"

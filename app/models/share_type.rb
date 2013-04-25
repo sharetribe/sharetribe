@@ -16,4 +16,12 @@ class ShareType < ActiveRecord::Base
   validates_presence_of :name
   validate :name_is_not_taken_by_categories_or_share_types
   
+  def is_offer?
+    top_level_parent.transaction_type.eql?("offer")
+  end
+  
+  def is_request?
+    top_level_parent.transaction_type.eql?("request")
+  end
+  
 end

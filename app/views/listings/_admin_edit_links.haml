@@ -2,11 +2,11 @@
   - if @listing.closed?
     %a.icon-with-text-container{href: edit_listing_path(@listing)}
       .ss-unlock.icon-part
-      .text-part= t("listings.edit_links.reopen_#{@listing.listing_type}")
+      .text-part= t("listings.edit_links.reopen_listing")
   - else 
     %a.icon-with-text-container{href: edit_listing_path(@listing)}
       .ss-draw.icon-part
-      .text-part= t("listings.edit_links.edit_#{@listing.listing_type}")
+      .text-part= t("listings.edit_links.edit_listing")
     %a.icon-with-text-container{href: close_person_listing_path(@current_user, @listing), data: { method: "put", remote: "true"}}
       .ss-lock.icon-part
-      .text-part= t("listings.edit_links.close_#{@listing.listing_type}")
+      .text-part= t("listings.edit_links.close_listing")

@@ -192,8 +192,6 @@ en:
       message: Message
       rideshare_offer_message_form_title: "Ask for a ride from %{person}"
       rideshare_request_message_form_title: "Offer a ride to %{person}"
-      send_offer_message: "Send the offer"
-      send_request_message: "Send the request"
       send_message: "Send message"
       this_message_is_private: "This message is private between you and %{person}. %{person} will be notified of this message by email."
       you_will_get_notified_of_acceptance: "You will get an email notification when %{person} accepts or rejects your proposal."
@@ -224,12 +222,9 @@ en:
         has_given_you_feedback_on_event: "has given you feedback on event"
         see_all_the_feedback_you_have_received: "see all the feedback you have received"
     show:
-      in_response_to_offer: "about offer"
-      in_response_to_request: "about request"
-      offer_sent_by: "Offer sent by"
-      offer_sent_to: "Offer sent to"
-      request_sent_by: "Request sent by"
-      request_sent_to: "Request sent to"
+      in_response_to_listing: "about listing"
+      message_sent_by: "Message sent by"
+      message_sent_to: "Message sent to"
       send_reply: "Send reply"
       write_a_reply: "Write a reply:"
       conversation_about_listing: "With %{person} about %{listing}"
@@ -829,8 +824,7 @@ en:
       comment_sent: "Comment sent"
       confirmation_link_is_wrong_or_used: "The confirmation link is already used or otherwise broken. Try logging in, or send feedback if the problem persists."
       additional_email_confirmed: "The email you entered is now confirmed."
-      create_new_offer: "Offer something else"
-      create_new_request: "Request something else"
+      create_new_listing: "Create another listing"
       create_one_here: "create one here"
       email_confirmation_sent_to_new_address: "Email confirmation is now sent to the new address."
       email_not_found: "The email you gave was not found from %{service_name} database."
@@ -856,11 +850,10 @@ en:
       offer_accepted: "Offer accepted"
       offer_confirmed: "Offer confirmed"
       offer_closed: "Offer closed"
-      listing_created_successfully: "Listing created successfully."
-      offer_created_successfully: "Offer created successfully. %{new_listing_link}."
+      listing_created_successfully: "Listing created successfully. %{new_listing_link}."
       offer_rejected: "Offer rejected"
       offer_canceled: "Offer canceled"
-      offer_updated_successfully: "Offer updated successfully"
+      listing_updated_successfully: "Listing updated successfully"
       only_kassi_administrators_can_access_this_area: "Only %{service_name} administrators can access this area"
       only_listing_author_can_close_a_listing: "Only listing author can close a listing"
       only_listing_author_can_edit_a_listing: "Only listing author can edit a listing"
@@ -883,10 +876,8 @@ en:
       request_accepted: "Request accepted"
       request_confirmed: "Request completed"
       request_closed: "Request closed"
-      request_created_successfully: "Request created successfully. %{new_listing_link}."
       request_rejected: "Request rejected"
       request_canceled: "Request canceled"
-      request_updated_successfully: "Request updated successfully"
       message_sent: "Message sent"
       this_content_is_not_available_in_this_community: "This content is not available in this community."
       unknown_error: "Unknown error. Please use the Contact us link to send details about what happened."
@@ -939,20 +930,15 @@ en:
       send_comment: "Send comment"
       to_send_a_comment: "to send a new comment."
       write_comment: "Write a new comment:"
-      you_cannot_send_a_new_comment_because_offer_is_closed: "You cannot send new comments because this offer is closed."
-      you_cannot_send_a_new_comment_because_request_is_closed: "You cannot send new comments because this request is closed."
+      you_cannot_send_a_new_comment_because_listing_is_closed: "You cannot send new comments because this listing is closed."
       you_must: "You must"
       subscribe_to_comments: "Notify me of new comments and updates"
     edit:
-      edit_offer: "Edit offer"
-      edit_request: "Edit request"
+      edit_listing: "Edit listing"
     edit_links:
-      close_offer: "Close offer"
-      close_request: "Close request"
-      edit_offer: "Edit offer"
-      edit_request: "Edit request"
-      reopen_offer: "Reopen offer"
-      reopen_request: "Reopen request"
+      close_listing: "Close listing"
+      edit_listing: "Edit listing"
+      reopen_listing: "Reopen listing"
     follow_links:
       follow: "Follow this listing"
       unfollow: "Stop following this listing"
@@ -997,8 +983,7 @@ en:
         location: Location
         origin: Origin
       send_button:
-        save_offer: "Save offer"
-        save_request: "Save request"
+        save_listing: "Save listing"
       share_type:
         select: Select
         borrow: Borrowing
@@ -1110,9 +1095,6 @@ en:
       link_label_for_rideshare_request: "Offer ride"
     listed_listing:
       edit: Edit
-    listed_listing_closed_status:
-      offer_is_closed: "Offer is closed"
-      request_is_closed: "Request is closed"
     listed_listings:
       loading_more_offers: "Loading more offers"
       loading_more_requests: "Loading more requests"
@@ -1188,10 +1170,10 @@ en:
       what_do_you_want_to_do: "What do you want to do?"
       what_can_you_offer: "What can you offer to others?"
       what_do_you_need: "What do you need?"
+      select_category: "Select category"
     please_comment: Comment
     reply_link:
-      offer_closed: "Offer is closed"
-      request_closed: "Request is closed"
+      listing_closed: "Listing is closed"
     show:
       add_your_phone_number: "Add your phone number"
       add_profile_picture: "Add profile picture"
@@ -1203,14 +1185,11 @@ en:
       item_request_trade: "Swap request"
       no_description: "No description"
       offer: Offer
-      offer_author: "Offered by"
-      offer_created: Created
+      listing_created: Created
       open_until: "Open until %{date}"
       feedback: "Feedback:"
       qr_code: "QR code"
       request: Request
-      request_author: "Requested by"
-      request_created: Created
       rideshare_offer: "Rideshare offer"
       rideshare_request: "Rideshare request"
       send_private_message: "Send private message"
@@ -1306,8 +1285,6 @@ en:
       family_name: "Family name"
       given_name: "Given name"
       i_accept_the: "I accept the"
-      if_you_already_have_account_you_can: "If you already have an account in another %{service_name} community you can also %{join_link}."
-      join_with_your_existing_account: "join this community with your existing account"
       invalid_invitation_code: "The invitation code is not valid."
       invitation_code: "Invitation code"
       not_required: ", not required"

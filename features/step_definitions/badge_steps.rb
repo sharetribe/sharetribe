@@ -134,7 +134,7 @@ Then /^I create a new (item|favor|rideshare) (offer|request) listing(?: with sha
   end
 
   steps %Q{
-    And I press "Save #{listing_type}"
+    And I press "Save listing"
     And the system processes jobs
     And I go to the badges page of "kassi_testperson1"
   }

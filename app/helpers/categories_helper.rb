@@ -47,7 +47,7 @@ module CategoriesHelper
     load_categories_and_share_types_to_db(:community_id => nil, :categories => DEFAULT_CATEGORIES, :share_types => DEFAULT_SHARE_TYPES)
 
     add_custom_price_quantity_placeholders unless params[:without_price_updates]
-    update_default_rent_out_quantiy_placeholder # Just a small change to default categorization
+    update_default_rent_out_quantity_placeholder # Just a small change to default categorization
   end
   
   # Usage:
@@ -84,6 +84,7 @@ module CategoriesHelper
         c = Category.find_by_name(category_name)
         CommunityCategory.create(:category => c, :share_type => s, :community_id => community_id, :price => details[:price], :payment => details[:payment], :price_quantity_placeholder => details[:price_quantity_placeholder]) if c && ! CommunityCategory.find_by_category_id_and_share_type_id_and_community_id(c.id, s.id, community_id)
       end
+      s.update_attribute(:transaction_type, s.name) if ["offer","request"].include? s.name
     end
     
     update_translations(:translations => translations) unless params[:skip_translations]
@@ -185,7 +186,7 @@ module CategoriesHelper
     
   end
   
-  def self.update_default_rent_out_quantiy_placeholder
+  def self.update_default_rent_out_quantity_placeholder
     # This custom line sets the default housing rent_out offer to 
     # have price_quantity_placeholder "long_time" instead of the normal time :)
     CommunityCategory.find_by_category_id_and_share_type_id_and_community_id(Category.find_by_name("housing").id, ShareType.find_by_name("rent_out").id, nil).update_attribute(:price_quantity_placeholder, "long_time")

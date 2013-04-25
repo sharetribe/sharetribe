@@ -41,7 +41,7 @@
       .icon-with-text-container
         %i.ss-calendar.icon-part 
         .text-part
-          = t(".#{@listing.listing_type}_created") + " " + time_ago(@listing.created_at)
+          = t(".listing_created") + " " + time_ago(@listing.created_at)
       .icon-with-text-container
         %i.ss-view.icon-part
         .text-part
@@ -67,10 +67,6 @@
           = medium_avatar_thumb(@listing.organization_our_author?(@current_community))    
         .listing-author-description
           %h3
-            - if ["buy", "sell"].include?(@listing.share_type.name)
-              = t(".#{@listing.share_type.name}er") + ":"
-            - else
-              = t(".#{@listing.listing_type}_author") + ":"
             = @listing.organization.name
           .listing-organization-representative
             %br/
@@ -109,7 +105,6 @@
           = medium_avatar_thumb(@listing.author)    
         .listing-author-description
           %h3
-            = t(".#{@listing.listing_type}_author")
             = link_to @listing.author.name, @listing.author, :id => "listing_author_link"
           - if @listing.author.received_testimonials.size > 0
             %br/

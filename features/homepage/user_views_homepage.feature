@@ -153,7 +153,7 @@ Feature: User views homepage
     When I follow "Lending: hammer"
     And I follow "Borrow this item"
     And I fill in "Message:" with "I want to borrow this item"
-    And I press "Send the request"
+    And I press "Send message"
     When I click ".user-menu-toggle"
     And I follow "Logout"
     And I log in as "kassi_testperson2"

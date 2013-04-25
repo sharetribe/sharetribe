@@ -15,7 +15,6 @@ Feature: User views a single listing
     When I follow "Massage"
     Then I should see "Massage"
     And I should see "Service request"
-    And I should see "Requested by"
     And I should not see "Feedback:"
     And I should not see "Contact by phone"
     When I am logged in as "kassi_testperson1"

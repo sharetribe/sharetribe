@@ -15,7 +15,7 @@ Feature: User requests an item in item offer
     When I follow "Hammer"
     And I follow "Borrow this item"
     And I fill in "Message" with "I want to borrow this item"
-    And I press "Send the request"
+    And I press "Send message"
     Then I should see "Message sent" within ".flash-notifications"
     And I should see "Hammer" within ".item-description"
     And I should see "Lending"
@@ -57,7 +57,7 @@ Feature: User requests an item in item offer
     And I am on the homepage
     When I follow "Hammer"
     And I follow "Borrow this item"
-    And I press "Send the request"
+    And I press "Send message"
     Then I should see "This field is required."
   
   @javascript  

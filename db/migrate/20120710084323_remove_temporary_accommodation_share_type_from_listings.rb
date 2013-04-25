@@ -2,7 +2,7 @@ class RemoveTemporaryAccommodationShareTypeFromListings < ActiveRecord::Migratio
   def self.up
     Listing.all.each do |listing|
       if listing.share_type.eql?("temporary_accommodation")
-        if listing.listing_type.eql?("request")
+        if listing.share_type.is_request?
           listing.update_attribute(:share_type, "rent") 
         else
           listing.update_attribute(:share_type, "rent_out")
