@@ -192,8 +192,6 @@ ca:
       message: Missatge
       rideshare_offer_message_form_title: "Sol·licitar un trasllat a"
       rideshare_request_message_form_title: "Oferir un trasllat a"
-      send_offer_message: "Envia l'oferta"
-      send_request_message: "Envia la sol·licitud"
       send_message: ~
       this_message_is_private: "Aquest missatge és privat entre tu i %{person}."
       you_will_get_notified_of_acceptance: ~
@@ -224,12 +222,9 @@ ca:
         has_given_you_feedback_on_event: "Heu rebut un suggeriment de l'esdeveniment"
         see_all_the_feedback_you_have_received: "Revisa totes les suggerències rebudes"
     show:
-      in_response_to_offer: "Quant a l'oferta"
-      in_response_to_request: "En resposta a la sol·licitud"
-      offer_sent_by: "Sol·licitud enviada per"
-      offer_sent_to: "Oferta enviada a"
-      request_sent_by: "Sol·licitud enviada per"
-      request_sent_to: "Sol·licitud enviada a"
+      in_response_to_listing: ~
+      message_sent_by: ~
+      message_sent_to: ~
       send_reply: "Envia resposta"
       write_a_reply: "Escriu una resposta:"
       conversation_about_listing: ~
@@ -744,6 +739,11 @@ ca:
       list: ~
       all_listing_types: ~
       all_categories: ~
+  infos:
+    about:
+      default_about_text_title: ~
+      default_about_text: ~
+      click_here_link_text: ~
   layouts:
     no_tribe:
       inbox: ~
@@ -826,8 +826,7 @@ ca:
       comment_sent: "Comentari enviat"
       confirmation_link_is_wrong_or_used: "L'enllaç de confirmació ja s'ha utilitzat o s'ha trencat. Intenta iniciar sessió o contacta amb nosaltres si el problema continua."
       additional_email_confirmed: ~
-      create_new_offer: "Ofereixi alguna cosa més"
-      create_new_request: "Demano alguna cosa més"
+      create_new_listing: ~
       create_one_here: "Crear-ne un aquí"
       email_confirmation_sent_to_new_address: ~
       email_not_found: "No s'ha trobat el correu electrònic dins de la base de dades de Kassi"
@@ -854,10 +853,9 @@ ca:
       offer_confirmed: ~
       offer_closed: "Oferta finalitzada"
       listing_created_successfully: ~
-      offer_created_successfully: "Oferta creada correctament"
       offer_rejected: "Oferta rebutjada"
       offer_canceled: ~
-      offer_updated_successfully: "Oferta actualitzada correctament"
+      listing_updated_successfully: ~
       only_kassi_administrators_can_access_this_area: "Només els administradors poden accedir aquí"
       only_listing_author_can_close_a_listing: "Només el creador d'una llista pot tancar-la"
       only_listing_author_can_edit_a_listing: "Només el creador d'una llista pot editar"
@@ -880,10 +878,8 @@ ca:
       request_accepted: "Sol·licitud acceptada"
       request_confirmed: ~
       request_closed: "Sol·licitud finalitzada"
-      request_created_successfully: "Sol·licitud creada correctament"
       request_rejected: "Sol·licitud rebutjada"
       request_canceled: ~
-      request_updated_successfully: "Sol·licitud actualitzada correctament"
       message_sent: ~
       this_content_is_not_available_in_this_community: "Aquest contingut no està disponible en aquesta comunitat."
       unknown_error: "Error desconegut. Si us plau utilitza l'enllaç de suggeriments per donar-nos detalls del que ha succeït."
@@ -936,20 +932,15 @@ ca:
       send_comment: "Envia el comentari"
       to_send_a_comment: "Envia un nou comentari"
       write_comment: "Escriu un comentari nou"
-      you_cannot_send_a_new_comment_because_offer_is_closed: "No pots enviar un comentari nou perquè aquesta oferta ha finalitzat."
-      you_cannot_send_a_new_comment_because_request_is_closed: "No pots enviar un comentari nou perquè aquesta sol·licitud ha finalitzat."
+      you_cannot_send_a_new_comment_because_listing_is_closed: ~
       you_must: "Hauries de"
       subscribe_to_comments: "Avisa'm dels nous comentaris i actualitzacions"
     edit:
-      edit_offer: "Editar oferta"
-      edit_request: "Editar sol·licitud"
+      edit_listing: ~
     edit_links:
-      close_offer: "Tanca l'oferta"
-      close_request: "Tanca la sol·licitud"
-      edit_offer: "Editar oferta"
-      edit_request: "Editar sol·licitud"
-      reopen_offer: "Reobre l'oferta"
-      reopen_request: "Reobre la sol·licitud"
+      close_listing: ~
+      edit_listing: ~
+      reopen_listing: ~
     follow_links:
       follow: "Segueix aquest anunci"
       unfollow: "Deixa de segur aquest anunci"
@@ -994,8 +985,7 @@ ca:
         location: Lloc
         origin: Origen
       send_button:
-        save_offer: "Desa l'oferta"
-        save_request: "Desa la sol·licitud"
+        save_listing: ~
       share_type:
         select: ~
         borrow: Prestar
@@ -1107,9 +1097,6 @@ ca:
       link_label_for_rideshare_request: Contactar
     listed_listing:
       edit: Editar
-    listed_listing_closed_status:
-      offer_is_closed: "Oferta tancada"
-      request_is_closed: "Sol·licitud tancada"
     listed_listings:
       loading_more_offers: "Carregant més ofertes"
       loading_more_requests: "Carregant més sol·licituds"
@@ -1185,10 +1172,10 @@ ca:
       what_do_you_want_to_do: ~
       what_can_you_offer: ~
       what_do_you_need: ~
+      select_category: ~
     please_comment: Comentari
     reply_link:
-      offer_closed: "Oferta tancada"
-      request_closed: "Sol·licitud tancada"
+      listing_closed: ~
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
@@ -1200,14 +1187,11 @@ ca:
       item_request_trade: ~
       no_description: "Sense descripció"
       offer: Oferta
-      offer_author: "Oferit per"
-      offer_created: "Oferta creada"
+      listing_created: ~
       open_until: ~
       feedback: ~
       qr_code: "Codi QR"
       request: Sol·licitud
-      request_author: "Sol·licitud realitzada per"
-      request_created: "Sol·licitud creada"
       rideshare_offer: "Oferta de trajecte compartit"
       rideshare_request: "Sol·licitud de trajecte compartit"
       send_private_message: ~
@@ -1300,8 +1284,6 @@ ca:
       family_name: "Cognoms:"
       given_name: "Nom:"
       i_accept_the: "Accepto la"
-      if_you_already_have_account_you_can: ~
-      join_with_your_existing_account: ~
       invalid_invitation_code: "El codi d'invitació no és vàlid"
       invitation_code: "Codi d'invitació:"
       not_required: ", no és necessari"

@@ -9,7 +9,7 @@ fr:
         community_slogan: "Slogan de la tribu"
         community_description: "Description de la tribu"
         update_information: "Mettre les informations à jour"
-        invite_people: "en invitant des gens dans cette tribu"
+        invite_people: "Invitez des gens dans cette tribu"
       edit_look_and_feel:
         edit_community_look_and_feel: "Modifier la présentation et l'aspect de la tribu \"%{community_name}\""
         community_logo: Logo
@@ -53,7 +53,7 @@ fr:
         create_poll: "Créer un sondage"
         no_polls: "Pas de sondage"
       edit_poll_links:
-        close_poll: Fermer
+        close_poll: Clore
         open_poll: Ouvrir
         edit_poll: Editer
         delete_poll: Supprimer
@@ -192,8 +192,6 @@ fr:
       message: Message
       rideshare_offer_message_form_title: "Demander un covoiturage à %{person}"
       rideshare_request_message_form_title: "Proposer un covoiturage à %{person}"
-      send_offer_message: "Envoyer l'offre"
-      send_request_message: "Envoyer la demande"
       send_message: "Envoyer le message"
       this_message_is_private: "Ce message entre %{person} et vous est privé."
       you_will_get_notified_of_acceptance: "Vous recevrez une notification par e-mail lorsque %{person} acceptera ou refusera votre proposition."
@@ -224,12 +222,9 @@ fr:
         has_given_you_feedback_on_event: "vous a donné un avis pour l'événement"
         see_all_the_feedback_you_have_received: "voir tous les avis reçus"
     show:
-      in_response_to_offer: "concernant l'offre"
-      in_response_to_request: "à propos de la demande"
-      offer_sent_by: "Offre envoyée par"
-      offer_sent_to: "Offre envoyée à"
-      request_sent_by: "Offre envoyée par"
-      request_sent_to: "Demande envoyée à"
+      in_response_to_listing: "à propos de l'annonce"
+      message_sent_by: "Message envoyé par"
+      message_sent_to: "Message envoyé à"
       send_reply: "Envoyer une réponse"
       write_a_reply: "Écrire une réponse :"
       conversation_about_listing: "Discussion avec %{person} à propos de %{listing}"
@@ -545,7 +540,7 @@ fr:
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Les avis sont publics et visibles à tous les autres utilisateurs. En fonction des avis reçus, les autres utilisateurs peuvent décider de faire ou pas confiance à %{name} et d'engager des transactions avec cette personne. Il est donc important de toujours donner un avis à la fin de chaque transaction et de rappeler aux autres participants de vous en donner un. C'est également grâce aux avis positifs que vous obtiendrez la plupart des badges."
       remember_to_give_feedback_to: "Rappel : n'oubliez pas de donner un avis sur %{name}"
-      you_have_not_given_feedback_yet: "Vous n'avez pas encore donné d'avis à %{name} pour la transaction '%{event}'. N'oubliez pas de donner un avis sur la façon dont %{given_name} a agi lors de la transaction."
+      you_have_not_given_feedback_yet: "Vous n'avez pas encore donné d'avis sur %{name} suite à l'annonce '%{event}'. N'oubliez pas de donner un avis sur la façon dont %{given_name} a agi lors de la transaction."
     welcome_email:
       welcome_email_footer_text: "Quels types d'emails souhaitez vous recevoir de la part de %{service_name} ? %{settings_link}"
       settings_link_text: "Vérifiez vos paramètres"
@@ -558,7 +553,7 @@ fr:
       add_something_you_could_offer: "<strong>Proposez quelque chose aux autres membres de %{service_name}.</strong> Pouvez-vous prêter votre perceuse, votre raquette de tennis ou votre appareil à raclette ? Savez-vous coudre, monter des meubles ou réparer des ordinateurs ? Y a t-il des objets dans vos placards dont vous aimeriez vous séparer ? %{add_offer_link}"
       add_offer_link_text: "Proposez les sur %{service_name} !"
       is_there_something_you_need: "<strong>Avez-vous besoin de quelque chose ?</strong> Peut-être aimeriez vous partager un trajet ? Ou emprunter des outils ? Ou bien avez besoin de quelqu'un qui pourrait promener votre chien ? La première chose à faire est de regarder sur %{service_name} : peut-être que quelqu'un propose déjà ce dont vous avez besoin. Si vous ne trouvez pas d'offre adaptée, vous pouvez %{add_request_link}."
-      add_request_link_text: "créer une nouvelle demande"
+      add_request_link_text: "créez une nouvelle demande"
       invite_your_friends_invite_only: "<strong>Passez le mot.</strong> Plus il y a de personnes sur %{service_name}, plus cela sera utile à tous. Cette tribu %{service_name} est \"sur invitation uniquement\", les gens doivent donc avoir une invitation d'un autre membre pour la rejoindre. Connaissez-vous des personnes qui pourraient être intéressées ? Donnez leur accès à %{service_name} %{invite_link}. Si vous voulez voir qui est déjà membre, %{member_list_link}."
       invite_your_friends: "<strong>Passez le mot.</strong> Plus il y a d'utilisateurs sur %{service_name}, plus la tribu sera utile à tous. Connaissez-vous des gens qui pourraient vous rejoindre ? Parlez leur de %{service_name} %{invite_link} ou en leur envoyant ce lien : %{url}. Si vous voulez voir qui est déjà présent, %{member_list_link}."
       invite_link_text: "en utilisant le formulaire d'invitation"
@@ -568,8 +563,8 @@ fr:
       mobile_web_link_text: "regardez notre site mobile adapté"
       go_explore: "<strong>Explorez !</strong> Regardez ce que les autres offrent et demandent déjà sur %{service_name}. Peut-être trouverez vous quelque chose dont vous avez besoin. Peut-être pourrez vous aider quelqu'un d'autre. Profitez en !"
       love_team: "Love,<br /><i>L'équipe %{service_name}</i>"
-      congrats_for_creating_community: "Vous avez créé %{community} - voici quelques astuces pour bien démarrer"
-      you_have_just_created_community: "Vous avez créé %{community_link} ! Voici quelques astuces pour bien démarrer avec cette nouvelle tribu."
+      congrats_for_creating_community: "Vous avez créé la tribu %{community} - voici quelques astuces pour bien démarrer"
+      you_have_just_created_community: "Vous avez créé la tribu %{community_link} ! Voici quelques astuces pour bien démarrer avec cette nouvelle tribu."
       you_now_have_admin_rights: "<b>Vous avez désormais les droits d'administration de cette tribu.</b> Cela signifie que vous pouvez, par exemple, éditer les informations et l'aspect de la tribu. C'est d'ailleurs sûrement la première chose que vous souhaitez faire. %{edit_community_details_link}. Si vous souhaitez donner les droits d'administration à quelqu'un d'autre, contactez nous en répondant à cet email."
       edit_community_details_link_text: "Modifiez les paramètres de la tribu en cliquant ici"
       add_content: "<strong>Ajoutez du contenu.</strong> Le meilleur moyen de lancer la machine est d'ajouter des annonces vous même. Ainsi, quand de nouvelles personnes arriveront, elle verront tout de suite que quelque chose se passe. Pouvez-vous prêter votre perceuse, votre raquette de tennis ou votre appareil à raclette ? Savez-vous coudre, monter des meubles ou réparer des ordinateurs ? Y a t-il des objets dans vos placards dont vous aimeriez vous séparer ? %{add_offer_link} Si vous avez besoin de quelque chose, %{add_request_link}."
@@ -742,6 +737,11 @@ fr:
       list: "Voir la liste"
       all_listing_types: "Tous les types d'annonces"
       all_categories: "Toutes les catégories"
+  infos:
+    about:
+      default_about_text_title: "Qu'est ce que Sharetribe ?"
+      default_about_text: "Ce site a été créé grâce à la plate-forme Sharetribe. Avec Sharetribe, chacun peut créer sa propre place de marché pour sa tribu. Aimeriez-vous créer un site comme celui-ci pour votre communauté ? C'est gratuit et cela ne prend que quelques minutes. %{click_here_link} pour en savoir plus !"
+      click_here_link_text: "Cliquez ici"
   layouts:
     no_tribe:
       inbox: "Boîte de réception"
@@ -782,8 +782,8 @@ fr:
     dashboard:
       title: "%{service_name} - Partagez des objets, des services et des transports avec votre tribu locale !"
     infos:
-      about: "Qu'est-ce que c'est ?"
-      how_to_use: "Comment ça marche ?"
+      about: "A propos"
+      how_to_use: Aide
       info_about_kassi: "Informations à propos de %{service_name}"
       news: Actualités
       register_details: "Vie privée"
@@ -824,8 +824,7 @@ fr:
       comment_sent: "Commentaire envoyé"
       confirmation_link_is_wrong_or_used: "Le lien de confirmation est déjà utilisé ou se trouve en panne. Essayez de vous connecter ou contactez-nous si le problème persiste."
       additional_email_confirmed: "Votre adresse email est désormais confirmée."
-      create_new_offer: "Offrir autre chose"
-      create_new_request: "Demander autre chose"
+      create_new_listing: "Créer une autre annonce"
       create_one_here: "en créer un ici"
       email_confirmation_sent_to_new_address: "Un email de confirmation est envoyé à la nouvelle adresse."
       email_not_found: "L'email que vous avez fourni est introuvable dans la base de données de %{service_name}."
@@ -833,7 +832,7 @@ fr:
       feedback_considered_spam: "Le commentaire n'a pas pu être enregistré en raison de sa mise en forme. Essayez à nouveau ou utilisez le forum de discussion."
       feedback_not_saved: "Le commentaire n'a pas pu être envoyé."
       feedback_saved: "Merci pour votre commentaire ! Si vous avez laissé votre email, nous vous répondrons dès que possible."
-      feedback_sent_to: "Avis envoyé à"
+      feedback_sent_to: "Avis envoyé à %{target_person}."
       feedback_skipped: "Pas d'avis donné"
       invitation_cannot_be_sent: "L' (les) invitation(s) n'a (n'ont) pas pu être envoyée(s)"
       invitation_sent: "L' (les) invitation(s) a (ont) été envoyée(s)"
@@ -851,13 +850,12 @@ fr:
       offer_accepted: "Offre acceptée"
       offer_confirmed: "Offre confirmée"
       offer_closed: "Offre fermée"
-      listing_created_successfully: "Annonce créée avec succès"
-      offer_created_successfully: "Offre créée avec succès. %{new_listing_link}."
+      listing_created_successfully: "Annonce créée avec succès. %{new_listing_link}."
       offer_rejected: "Offre rejetée"
       offer_canceled: "Offre annulée"
-      offer_updated_successfully: "Offre mise à jour avec succès"
+      listing_updated_successfully: "Annonce mise à jour avec succés"
       only_kassi_administrators_can_access_this_area: "Seuls les administrateurs de %{service_name} peuvent accéder à ces pages"
-      only_listing_author_can_close_a_listing: "Seul l'auteur de l'annonce peur la fermer"
+      only_listing_author_can_close_a_listing: "Seul l'auteur de l'annonce peut la clore"
       only_listing_author_can_edit_a_listing: "Seul l'annonce de liste peut la modifier"
       payment_successful: "Paiement réussi"
       password_recovery_sent: "Les instructions pour réinitialiser votre mot de passe ont été envoyées à votre adresse email."
@@ -878,10 +876,8 @@ fr:
       request_accepted: "Demande acceptée"
       request_confirmed: "Demande réalisée"
       request_closed: "Demande fermée"
-      request_created_successfully: "Demande créée avec succès. %{new_listing_link}."
       request_rejected: "Demande rejetée"
       request_canceled: "Demande annulée"
-      request_updated_successfully: "Demande mise à jour avec succès"
       message_sent: "Message envoyé"
       this_content_is_not_available_in_this_community: "Ce contenu n'est pas accessible dans cette tribu."
       unknown_error: "Erreur inconnue. S'il vous plait, contactez-nous pour nous envoyer plus de détails sur ce qu'il s'est passé."
@@ -934,20 +930,15 @@ fr:
       send_comment: "Envoyer un commentaire"
       to_send_a_comment: "pour envoyer un nouveau commentaire."
       write_comment: "Ecrire un nouveau commentaire :"
-      you_cannot_send_a_new_comment_because_offer_is_closed: "Vous ne pouvez pas envoyer de nouveau commentaire car cette offre est fermée."
-      you_cannot_send_a_new_comment_because_request_is_closed: "Vous ne pouvez pas envoyer de nouveau commentaire car cette demande est fermée."
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Vous ne pouvez pas déposer de nouveau commentaire car cette annonce est close."
       you_must: "Vous devez"
       subscribe_to_comments: "Me prévenir des nouveaux commentaires et mises à jour"
     edit:
-      edit_offer: "Modifier l'offre"
-      edit_request: "Modifier la demande"
+      edit_listing: "Editer l'annonce"
     edit_links:
-      close_offer: "Fermer l'offre"
-      close_request: "Clore la demande"
-      edit_offer: "Modifier offre"
-      edit_request: "Modifier la demande"
-      reopen_offer: "Réouvrir offre"
-      reopen_request: "Réouvrir demande"
+      close_listing: "Clore l'annonce"
+      edit_listing: "Editer l'annonce"
+      reopen_listing: "Ré-ouvrir l'annonce"
     follow_links:
       follow: "Suivre cette annonce"
       unfollow: "Arrêter de suivre cette annonce"
@@ -992,8 +983,7 @@ fr:
         location: Lieu
         origin: "Lieu de départ"
       send_button:
-        save_offer: "Sauvegarder l'offre"
-        save_request: "Sauvegarder la demande"
+        save_listing: "Sauvegarder l'annonce"
       share_type:
         select: Selectionner
         borrow: Emprunt
@@ -1105,9 +1095,6 @@ fr:
       link_label_for_rideshare_request: "Proposer ce transport"
     listed_listing:
       edit: Modifier
-    listed_listing_closed_status:
-      offer_is_closed: "Offre fermée"
-      request_is_closed: "Demande fermée"
     listed_listings:
       loading_more_offers: "Chargement de plus d'offres"
       loading_more_requests: "Chargement de plus de demandes"
@@ -1183,10 +1170,10 @@ fr:
       what_do_you_want_to_do: "Que voulez-vous faire ?"
       what_can_you_offer: "Que pouvez-vous proposer aux autres ?"
       what_do_you_need: "De quoi avez-vous besoin ?"
+      select_category: "Choisir une catégorie"
     please_comment: "Faire un commentaire"
     reply_link:
-      offer_closed: "Offre fermée"
-      request_closed: "Demande fermée"
+      listing_closed: "L'annonce est close"
     show:
       add_your_phone_number: "Ajouter votre numéro de téléphone"
       add_profile_picture: "Ajoutez une photo de profil"
@@ -1198,14 +1185,11 @@ fr:
       item_request_trade: "Demande d'échange "
       no_description: "Pas de description"
       offer: "Offre "
-      offer_author: "Proposé par"
-      offer_created: "Offre créée"
+      listing_created: Créée
       open_until: "Valide jusqu'au %{date}"
       feedback: "Remarque :"
       qr_code: "QR code"
       request: Demande
-      request_author: "Demandé par"
-      request_created: "Demande créée"
       rideshare_offer: "Offre de covoiturage"
       rideshare_request: "Demande de covoiturage "
       send_private_message: "Envoyer un message"
@@ -1301,8 +1285,6 @@ fr:
       family_name: "Nom de famille"
       given_name: Prénom
       i_accept_the: "J'accepte les"
-      if_you_already_have_account_you_can: "Si vous avez déjà un compte dans une autre tribu %{service_name}, vous pouvez %{join_link}"
-      join_with_your_existing_account: "rejoindre cette tribu avec votre compte"
       invalid_invitation_code: "Le code d'invitation n'est pas valide."
       invitation_code: "Code d'invitation"
       not_required: ", pas demandé"
@@ -1368,7 +1350,7 @@ fr:
       lender_silver: "Prêteur (argent)"
       lender_silver_description: "Dans vos placards se trouvent de nombreux objets que vous pourriez partager avec les autres : 10 articles à prêter !"
       listing_freak_bronze: "Amateur d'annonces (bronze)"
-      listing_freak_bronze_description: "Vous avez cinq offres/demandes ouvertes sur %{service_name}. Génial ! Y aurait-il encore quelque chose dans votre placard dont vous pourriez faire profiter les autres ?"
+      listing_freak_bronze_description: "Vous avez cinq offres ou demandes ouvertes sur %{service_name}. Génial ! Y aurait-il encore quelque chose dans votre placard dont vous pourriez faire profiter les autres ?"
       listing_freak_gold: "Amateur d'annonces (or)"
       listing_freak_gold_description: "40 offres et/ou demandes ouvertes, c'est formidable ! Vous faites partie des contributeurs les plus actifs sur %{service_name}."
       listing_freak_silver: "Amateur d'annonces (argent)"
@@ -1597,14 +1579,14 @@ fr:
       give_feedback_to: "Donner un avis sur %{person}"
       grade: "Quel est votre sentiment général ?"
       less_than_expected: "Ne correspondait pas à mes attentes"
-      send_feedback: "Envoyer avis"
+      send_feedback: "Envoyer l'avis"
       slightly_better_than_expected: "Dépassait partiellement mes attentes"
       slightly_less_than_expected: "Ne correspondait pas tout à fait à mes attentes"
       textual_feedback: "Comment les choses se sont elles déroulées ?"
       this_will_be_shown_in_profile: "L'avis que vous donnez sera visible par les autres utilisateurs dans le profil de %{person}. Cela permet aux membres de la tribu de savoir si %{person} est une personne de confiance."
       positive: Positif
       negative: Négatif
-      default_textual_feedback: "Tout a bien fonctionné, merci !"
+      default_textual_feedback: "Tout s'est bien passé, merci !"
     testimonial:
       from_user: par
       to_user: à
@@ -1627,5 +1609,5 @@ fr:
     year_ago: "il y a %{count} an"
     years_ago: "il y a %{count} ans"
     days_since:
-      one: "%{count} jour"
+      one: hier
       other: "%{count} jours"

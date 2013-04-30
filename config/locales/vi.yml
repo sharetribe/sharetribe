@@ -192,8 +192,6 @@ vi:
       message: "Tin nhắn"
       rideshare_offer_message_form_title: "Yêu cầu quá giang từ"
       rideshare_request_message_form_title: "Hỗ trợ cuốc xe đến"
-      send_offer_message: "Gửi hỗ trợ"
-      send_request_message: "Gửi yêu cầu"
       send_message: "Gửi thông điệp"
       this_message_is_private: "Thông điệp này riêng tư giữa bạn và %{person} . %{person} sẽ được thông báo bằng tin nhắn qua email."
       you_will_get_notified_of_acceptance: "Bạn sẽ nhận được thông báo qua email khi %{person} chấp nhận hoặc từ chối đề xuất của bạn."
@@ -224,12 +222,9 @@ vi:
         has_given_you_feedback_on_event: "cho bạn thông tin phản hồi về sự kiện"
         see_all_the_feedback_you_have_received: "xem tất cả phản hồi bạn đã nhận được"
     show:
-      in_response_to_offer: "về hỗ trợ"
-      in_response_to_request: "đáp ứng yêu cầu"
-      offer_sent_by: "Yêu cầu gửi bởi"
-      offer_sent_to: "Hỗ trợ đã gửi tới"
-      request_sent_by: "Yêu cầu được gửi bởi"
-      request_sent_to: "Yêu cầu đã gửi tới"
+      in_response_to_listing: ~
+      message_sent_by: ~
+      message_sent_to: ~
       send_reply: "Gửi trả lời"
       write_a_reply: "Viết phản hồi:"
       conversation_about_listing: "Cuộc trò chuyện với %{person} về %{listing}."
@@ -742,6 +737,11 @@ vi:
       list: ~
       all_listing_types: ~
       all_categories: ~
+  infos:
+    about:
+      default_about_text_title: ~
+      default_about_text: ~
+      click_here_link_text: ~
   layouts:
     no_tribe:
       inbox: ~
@@ -824,8 +824,7 @@ vi:
       comment_sent: "Bình luận đã gửi"
       confirmation_link_is_wrong_or_used: "Liên kết xác nhận vừa được sử dụng hoặc bị hỏng. Thử đăng nhập lại, hoặc gửi thông tin phản hồi nếu lỗi vẫn tồn tại."
       additional_email_confirmed: "Thư điện tử bạn đã nhập bây giờ được xác nhận. Bây giờ, bạn có thể tham gia cộng đồng bằng cách nhập lại nó."
-      create_new_offer: "Hỗ trợ thứ gì khác"
-      create_new_request: "Yêu cầu thứ gì khác"
+      create_new_listing: ~
       create_one_here: "tạo một ở đây"
       email_confirmation_sent_to_new_address: "Bây giờ, email xác nhận được gửi đến địa chỉ mới."
       email_not_found: "Email bạn cho không tim thấy từ cớ sở dữ liệu %{service_name}."
@@ -852,10 +851,9 @@ vi:
       offer_confirmed: ~
       offer_closed: "Hỗ trợ đã đóng"
       listing_created_successfully: ~
-      offer_created_successfully: "Đã tạo thành công hỗ trợ."
       offer_rejected: "Hỗ trợ bị từ chối."
       offer_canceled: ~
-      offer_updated_successfully: "Đã cập nhật thành công hỗ trợ"
+      listing_updated_successfully: ~
       only_kassi_administrators_can_access_this_area: "Chỉ những người quản trị viên %{service_name} có thể truy cập khu vực này"
       only_listing_author_can_close_a_listing: "Chỉ tác giả của danh sách mới có thể đóng danh sách"
       only_listing_author_can_edit_a_listing: "Chỉ tác giả của danh sách mới có thể chỉnh sửa danh sách"
@@ -878,10 +876,8 @@ vi:
       request_accepted: "Yêu cầu đã được chấp nhận"
       request_confirmed: ~
       request_closed: "Yêu cầu đã đóng"
-      request_created_successfully: "Đã tạo thành công yêu cầu"
       request_rejected: "Yêu cầu đã bị từ chối"
       request_canceled: ~
-      request_updated_successfully: "Đã cập nhật thành công yêu cầu"
       message_sent: "Đã gửi tin nhắn"
       this_content_is_not_available_in_this_community: "Nội dung này là không có sẵn trong cộng đồng này."
       unknown_error: "Lỗi không xác định. Xin vui lòng sử dụng liên kết phản hồi để gửi chi tiết những gì đã xảy ra."
@@ -934,20 +930,15 @@ vi:
       send_comment: "Gửi bình luận"
       to_send_a_comment: "để gửi bình luận mới."
       write_comment: "Viết bình luận mới:"
-      you_cannot_send_a_new_comment_because_offer_is_closed: "Bạn không thể gửi bình luận mới vì giao dịch này bị đóng."
-      you_cannot_send_a_new_comment_because_request_is_closed: "Bạn không thể gửi bình luận mới vì yêu cầu này bị đóng."
+      you_cannot_send_a_new_comment_because_listing_is_closed: ~
       you_must: "Bạn phải"
       subscribe_to_comments: "Thông báo cho tôi những ý kiến mới và những cập nhật"
     edit:
-      edit_offer: "Chỉnh sửa giao dịch"
-      edit_request: "Chỉnh sử yêu cầu"
+      edit_listing: ~
     edit_links:
-      close_offer: "Đóng giao dịch"
-      close_request: "Đóng yêu cầu"
-      edit_offer: "Chỉnh sửa giao dịch"
-      edit_request: "Chỉnh sửa yêu cầu"
-      reopen_offer: "Mở lại giao dịch"
-      reopen_request: "Mở lại yêu cầu"
+      close_listing: ~
+      edit_listing: ~
+      reopen_listing: ~
     follow_links:
       follow: "Thực hiện theo các danh sách này"
       unfollow: "Ngừng theo danh sách này"
@@ -992,8 +983,7 @@ vi:
         location: "Vị trí"
         origin: Gốc
       send_button:
-        save_offer: "Lưu giao dịch"
-        save_request: "Lưu yêu cầu"
+        save_listing: ~
       share_type:
         select: Chọn
         borrow: Mượn
@@ -1105,9 +1095,6 @@ vi:
       link_label_for_rideshare_request: "Hỗ trợ cuốc xe"
     listed_listing:
       edit: "Chỉnh sửa"
-    listed_listing_closed_status:
-      offer_is_closed: "Giao dịch bị đóng"
-      request_is_closed: "Yêu cầu bị đóng"
     listed_listings:
       loading_more_offers: "Tải thêm giao dịch"
       loading_more_requests: "Tải thêm yêu cầu"
@@ -1183,10 +1170,10 @@ vi:
       what_do_you_want_to_do: ~
       what_can_you_offer: ~
       what_do_you_need: ~
+      select_category: ~
     please_comment: "Bình luận"
     reply_link:
-      offer_closed: "Giao dịch bị đóng"
-      request_closed: "Yêu cầu bị đóng"
+      listing_closed: ~
     show:
       add_your_phone_number: "Thêm số điện thoại của bạn"
       add_profile_picture: "Thêm ảnh tiểu sử"
@@ -1198,14 +1185,11 @@ vi:
       item_request_trade: "Trao đổi yêu cầu"
       no_description: "Không mô tả"
       offer: "Hỗ trợ"
-      offer_author: "Hỗ trợ bởi"
-      offer_created: "Đã tạo"
+      listing_created: ~
       open_until: ~
       feedback: "Thông tin phản hồi:"
       qr_code: "Mã QR"
       request: "Yêu cầu"
-      request_author: "Yêu cầu bởi"
-      request_created: "Đã tạo"
       rideshare_offer: "Hỗ trợ cuốc xe chia sẻ"
       rideshare_request: "Yêu cầu cuốc xe chia sẻ"
       send_private_message: "Gửi tin nhắn riêng tư"
@@ -1299,8 +1283,6 @@ vi:
       family_name: "Họ:"
       given_name: "Tên:"
       i_accept_the: "Tôi chấp nhận"
-      if_you_already_have_account_you_can: "Nếu bạn đã có một tài khoản tại một cộng đồng %{service_name} khác, bạn có thể"
-      join_with_your_existing_account: "tham gia cộng đồng này với tài khoản đã có"
       invalid_invitation_code: "Mã lời mời không hợp lệ:"
       invitation_code: "Mã lời mời:"
       not_required: ", không bắt buộc"

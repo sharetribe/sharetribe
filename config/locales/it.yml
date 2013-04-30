@@ -192,8 +192,6 @@ it:
       message: Messaggio
       rideshare_offer_message_form_title: ~
       rideshare_request_message_form_title: ~
-      send_offer_message: ~
-      send_request_message: ~
       send_message: ~
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
@@ -224,12 +222,9 @@ it:
         has_given_you_feedback_on_event: ~
         see_all_the_feedback_you_have_received: "Mostra tutti i feedback che hai ricevuto"
     show:
-      in_response_to_offer: ~
-      in_response_to_request: ~
-      offer_sent_by: ~
-      offer_sent_to: ~
-      request_sent_by: ~
-      request_sent_to: ~
+      in_response_to_listing: ~
+      message_sent_by: ~
+      message_sent_to: ~
       send_reply: "Invia risposta"
       write_a_reply: "Scrivi una risposta:"
       conversation_about_listing: ~
@@ -742,6 +737,11 @@ it:
       list: "Mostra elenco"
       all_listing_types: ~
       all_categories: "Tutte le categorie"
+  infos:
+    about:
+      default_about_text_title: ~
+      default_about_text: ~
+      click_here_link_text: ~
   layouts:
     no_tribe:
       inbox: ~
@@ -824,8 +824,7 @@ it:
       comment_sent: "Commento inviato"
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
-      create_new_offer: ~
-      create_new_request: ~
+      create_new_listing: ~
       create_one_here: ~
       email_confirmation_sent_to_new_address: ~
       email_not_found: ~
@@ -852,10 +851,9 @@ it:
       offer_confirmed: ~
       offer_closed: "Offerta chiusa"
       listing_created_successfully: ~
-      offer_created_successfully: "Offerta creata con successo. %{new_listing_link}."
       offer_rejected: "Offerta rifiutata"
       offer_canceled: ~
-      offer_updated_successfully: "Offerta aggiornata con successo"
+      listing_updated_successfully: ~
       only_kassi_administrators_can_access_this_area: "Solo gli amministratori di %{service_name} possono accedere a questa area"
       only_listing_author_can_close_a_listing: ~
       only_listing_author_can_edit_a_listing: ~
@@ -878,10 +876,8 @@ it:
       request_accepted: "Richiesta accettata"
       request_confirmed: ~
       request_closed: "Richiesta chiusa"
-      request_created_successfully: "Richiesta creata con successo. %{new_listing_link}"
       request_rejected: "Richiesta respinta"
       request_canceled: ~
-      request_updated_successfully: "Richiesta aggiornata con successo"
       message_sent: "Messaggio inviato"
       this_content_is_not_available_in_this_community: ~
       unknown_error: ~
@@ -934,20 +930,15 @@ it:
       send_comment: ~
       to_send_a_comment: ~
       write_comment: "Scrivi un nuovo commento:"
-      you_cannot_send_a_new_comment_because_offer_is_closed: ~
-      you_cannot_send_a_new_comment_because_request_is_closed: ~
+      you_cannot_send_a_new_comment_because_listing_is_closed: ~
       you_must: Devi
       subscribe_to_comments: ~
     edit:
-      edit_offer: "Modifica offerta"
-      edit_request: "Modifica richiesta"
+      edit_listing: ~
     edit_links:
-      close_offer: "Chiudi offerta"
-      close_request: "Chiudi richiesta"
-      edit_offer: "Modifica offerta"
-      edit_request: "Modifica richiesta"
-      reopen_offer: "Riapri offerta"
-      reopen_request: "Riapri richiesta"
+      close_listing: ~
+      edit_listing: ~
+      reopen_listing: ~
     follow_links:
       follow: ~
       unfollow: ~
@@ -992,8 +983,7 @@ it:
         location: ~
         origin: ~
       send_button:
-        save_offer: "Salva offerta"
-        save_request: "Salva richiesta"
+        save_listing: ~
       share_type:
         select: ~
         borrow: ~
@@ -1105,9 +1095,6 @@ it:
       link_label_for_rideshare_request: ~
     listed_listing:
       edit: ~
-    listed_listing_closed_status:
-      offer_is_closed: ~
-      request_is_closed: "La richiesta è chiusa"
     listed_listings:
       loading_more_offers: ~
       loading_more_requests: ~
@@ -1183,10 +1170,10 @@ it:
       what_do_you_want_to_do: "Cosa vuoi fare?"
       what_can_you_offer: ~
       what_do_you_need: "Di cosa hai bisogno?"
+      select_category: ~
     please_comment: ~
     reply_link:
-      offer_closed: ~
-      request_closed: ~
+      listing_closed: ~
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
@@ -1198,14 +1185,11 @@ it:
       item_request_trade: ~
       no_description: "Nessuna descrizione"
       offer: ~
-      offer_author: ~
-      offer_created: ~
+      listing_created: ~
       open_until: ~
       feedback: ~
       qr_code: "codice QR"
       request: ~
-      request_author: ~
-      request_created: ~
       rideshare_offer: ~
       rideshare_request: ~
       send_private_message: "Invia messaggio privato"
@@ -1298,8 +1282,6 @@ it:
       family_name: Cognome
       given_name: Nome
       i_accept_the: ~
-      if_you_already_have_account_you_can: ~
-      join_with_your_existing_account: ~
       invalid_invitation_code: "Questo codice di invito non è valido."
       invitation_code: "Codice di invito"
       not_required: ", non richiesto"

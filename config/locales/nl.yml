@@ -192,8 +192,6 @@ nl:
       message: Bericht
       rideshare_offer_message_form_title: "Vraag om een rit van"
       rideshare_request_message_form_title: "Bied een rit aan"
-      send_offer_message: "Verstuur het verzoek"
-      send_request_message: "Verstuur het aanbod"
       send_message: ~
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
@@ -224,12 +222,9 @@ nl:
         has_given_you_feedback_on_event: ~
         see_all_the_feedback_you_have_received: ~
     show:
-      in_response_to_offer: "over aanbod"
-      in_response_to_request: "als reactie op verzoek"
-      offer_sent_by: "Verzoek verstuurd door"
-      offer_sent_to: "Offer sent to"
-      request_sent_by: "Aanbod verstuurd door"
-      request_sent_to: "Verzoek gestuurd naar"
+      in_response_to_listing: ~
+      message_sent_by: ~
+      message_sent_to: ~
       send_reply: "Stuur antwoord"
       write_a_reply: "Schrijf een antwoord:"
       conversation_about_listing: ~
@@ -742,6 +737,11 @@ nl:
       list: ~
       all_listing_types: ~
       all_categories: ~
+  infos:
+    about:
+      default_about_text_title: ~
+      default_about_text: ~
+      click_here_link_text: ~
   layouts:
     no_tribe:
       inbox: ~
@@ -824,8 +824,7 @@ nl:
       comment_sent: "Reactie verstuurd"
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
-      create_new_offer: "Biedt iets anders aan"
-      create_new_request: "Verzoek iets anders"
+      create_new_listing: ~
       create_one_here: "hier één maken"
       email_confirmation_sent_to_new_address: ~
       email_not_found: "De email die je gaf, was niet gevonden in de Kassi database."
@@ -852,10 +851,9 @@ nl:
       offer_confirmed: ~
       offer_closed: "Aanbod gesloten"
       listing_created_successfully: ~
-      offer_created_successfully: "Aanbod succesvol aangemaakt."
       offer_rejected: "Aanbod afgewezen"
       offer_canceled: ~
-      offer_updated_successfully: "Aanbod succesvol bijgewerkt"
+      listing_updated_successfully: ~
       only_kassi_administrators_can_access_this_area: "Alleen Kassi administrators hebben toegang tot deze sectie"
       only_listing_author_can_close_a_listing: "Alleen een geregistreerde auteur kan een lijst sluiten"
       only_listing_author_can_edit_a_listing: "Alleen een geregistreerde auteur kan een lijst wijzigen"
@@ -878,10 +876,8 @@ nl:
       request_accepted: "Verzoek geaccepteerd"
       request_confirmed: ~
       request_closed: "Verzoek gesloten"
-      request_created_successfully: "Verzoek succesvol aangemaakt."
       request_rejected: "Verzoek afgewezen"
       request_canceled: ~
-      request_updated_successfully: "Verzoek succesvol bijgewerkt"
       message_sent: ~
       this_content_is_not_available_in_this_community: ~
       unknown_error: "Onbekende error. Gebruik alstublieft de feedback link om error details te verzenden."
@@ -934,20 +930,15 @@ nl:
       send_comment: "Verzend commentaar"
       to_send_a_comment: "om een nieuw commentaar te verzenden."
       write_comment: "Schrijf een nieuw commentaar:"
-      you_cannot_send_a_new_comment_because_offer_is_closed: "Je kan geen nieuw commentaar verzenden, omdat dit aanbod gesloten is."
-      you_cannot_send_a_new_comment_because_request_is_closed: "Je kan geen nieuw commentaar verzenden, omdat dit verzoek gesloten is."
+      you_cannot_send_a_new_comment_because_listing_is_closed: ~
       you_must: "Je moet"
       subscribe_to_comments: ~
     edit:
-      edit_offer: "Bewerk aanbod"
-      edit_request: "Bewerk verzoek"
+      edit_listing: ~
     edit_links:
-      close_offer: "Sluit aanbod"
-      close_request: "Sluit verzoek"
-      edit_offer: "Bewerk aanbod"
-      edit_request: "Bewerk verzoek"
-      reopen_offer: "Heropen aanbod"
-      reopen_request: "Heropen verzoek"
+      close_listing: ~
+      edit_listing: ~
+      reopen_listing: ~
     follow_links:
       follow: ~
       unfollow: ~
@@ -992,8 +983,7 @@ nl:
         location: ~
         origin: Begin
       send_button:
-        save_offer: "Sla aanbod op"
-        save_request: "Sla verzoek op"
+        save_listing: ~
       share_type:
         select: ~
         borrow: Leen
@@ -1105,9 +1095,6 @@ nl:
       link_label_for_rideshare_request: "Bied een rit aan"
     listed_listing:
       edit: Bewerken
-    listed_listing_closed_status:
-      offer_is_closed: "Aanbod is gesloten"
-      request_is_closed: "Verzoek is gesloten"
     listed_listings:
       loading_more_offers: "Laad meer aanbod"
       loading_more_requests: "Laad meer verzoeken"
@@ -1183,10 +1170,10 @@ nl:
       what_do_you_want_to_do: ~
       what_can_you_offer: ~
       what_do_you_need: ~
+      select_category: ~
     please_comment: Commentaar
     reply_link:
-      offer_closed: "Aanbod is gesloten"
-      request_closed: "Verzoek is gesloten"
+      listing_closed: ~
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
@@ -1198,14 +1185,11 @@ nl:
       item_request_trade: ~
       no_description: "Geen beschrijving"
       offer: Aanbod
-      offer_author: "Aangeboden door"
-      offer_created: "Aanbod aangemaakt"
+      listing_created: ~
       open_until: ~
       feedback: ~
       qr_code: ~
       request: Verzoek
-      request_author: "Aangevraagd door"
-      request_created: "Verzoek aangemaakt"
       rideshare_offer: Ritaanbod
       rideshare_request: "Rit gezocht"
       send_private_message: ~
@@ -1299,8 +1283,6 @@ nl:
       family_name: "Familie naam:"
       given_name: "Naam:"
       i_accept_the: "Ik accepteer de"
-      if_you_already_have_account_you_can: ~
-      join_with_your_existing_account: ~
       invalid_invitation_code: ~
       invitation_code: ~
       not_required: ~

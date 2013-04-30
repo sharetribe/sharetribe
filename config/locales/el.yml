@@ -192,8 +192,6 @@ el:
       message: Μήνυμα
       rideshare_offer_message_form_title: "Κάνε οτοστόπ στον/στην"
       rideshare_request_message_form_title: "Ταξίδεψε μαζί με τον/την"
-      send_offer_message: "Στείλε την προσφορά"
-      send_request_message: "Στείλε το αίτημα"
       send_message: Αποστολή
       this_message_is_private: "Αυτό το μήνυμα είναι προσωπικό, μεταξύ εσένα και του/της %{person}."
       you_will_get_notified_of_acceptance: "Θα λάβετε μια ειδοποίηση μέσω email όταν ο/η %{person} δεχτεί ή απορρίψει την πρότασή σας."
@@ -224,12 +222,9 @@ el:
         has_given_you_feedback_on_event: "σχολίασε για σένα σχετικά με το"
         see_all_the_feedback_you_have_received: "Δες όλα τα σχόλια που έχουν αφήσει άλλοι για σένα"
     show:
-      in_response_to_offer: "σχετικά με την προσφορά"
-      in_response_to_request: "σε απάντηση του αιτήματος"
-      offer_sent_by: "Ζητήθηκε από τον/την"
-      offer_sent_to: "Προσφέρθηκε στον/στην"
-      request_sent_by: "Ζητήθηκε από τον/την"
-      request_sent_to: "Ζητήθηκε από τον/την"
+      in_response_to_listing: ~
+      message_sent_by: ~
+      message_sent_to: ~
       send_reply: Αποστολή
       write_a_reply: "Απάντησε:"
       conversation_about_listing: "Συνομιλία με τον/την %{person} σχετικά με την καταχώρηση \"%{listing}\"."
@@ -742,6 +737,11 @@ el:
       list: Λίστα
       all_listing_types: "Όλοι οι τύποι καταχωρήσεων"
       all_categories: "Όλες οι κατηγορίες"
+  infos:
+    about:
+      default_about_text_title: ~
+      default_about_text: ~
+      click_here_link_text: ~
   layouts:
     no_tribe:
       inbox: Εισερχόμενα
@@ -824,8 +824,7 @@ el:
       comment_sent: "Το σχόλιο εστάλη"
       confirmation_link_is_wrong_or_used: "Ο σύνδεσμος επιβεβαίωσης έχει χρησιμοποιηθεί ήδη ή δεν λειτουργεί για κάποιο άλλο λόγο. Προσπάθησε να συνδεθείς ή επικοινώνησε μαζί μας αν το πρόβλημα παραμένει."
       additional_email_confirmed: "Η διεύθυνση ηλεκτρονικού ταχυδρομείου σου επιβεβαιώθηκε. Τώρα μπορείς να την χρησιμοποιήσεις για να γραφτείς στην κοινότητα."
-      create_new_offer: "Πρόσφερε κάτι άλλο"
-      create_new_request: "Ζήτα κάτι άλλο"
+      create_new_listing: ~
       create_one_here: "δημιουργήσεις ένα εδώ"
       email_confirmation_sent_to_new_address: "Η επιβεβαίωση στέλνεται τώρα στη νέα διεύθυνση."
       email_not_found: "Το email που έδωσες δεν βρέθηκε στη βάση δεδομένων του %{service_name}."
@@ -852,10 +851,9 @@ el:
       offer_confirmed: ~
       offer_closed: "Η προσφορά έκλεισε"
       listing_created_successfully: ~
-      offer_created_successfully: "Η προσφορά δημιουργήθηκε. %{new_listing_link}."
       offer_rejected: "Η προσφορά απορρίφθηκε"
       offer_canceled: ~
-      offer_updated_successfully: "Η προσφορά ενημερώθηκε"
+      listing_updated_successfully: ~
       only_kassi_administrators_can_access_this_area: "Μόνο οι διαχειριστές του %{service_name} έχουν πρόσβαση σε αυτό το σημείο"
       only_listing_author_can_close_a_listing: "Μόνο ο δημιουργός μιας καταχώρησης μπορεί να την κλείσει."
       only_listing_author_can_edit_a_listing: "Μόνο ο δημιουργός μιας καταχώρησης μπορεί να την επεξεργαστεί."
@@ -878,10 +876,8 @@ el:
       request_accepted: "Το αίτημα έγινε δεκτό"
       request_confirmed: ~
       request_closed: "Το αίτημα έκλεισε"
-      request_created_successfully: "Το αίτημα καταχωρήθηκε. %{new_listing_link}."
       request_rejected: "Το αίτημα απορρίφθηκε"
       request_canceled: ~
-      request_updated_successfully: "Το αίτημα ενημερώθηκε"
       message_sent: "Το μήνυμα εστάλη"
       this_content_is_not_available_in_this_community: "Αυτό το περιεχόμενο δεν είναι διαθέσιμο σε αυτή την κοινότητα."
       unknown_error: "Άγνωστο σφάλμα. Παρακαλούμε επικοινωνήστε μαζί μας και πείτε μας τι συνέβη."
@@ -934,20 +930,15 @@ el:
       send_comment: Αποστολή
       to_send_a_comment: "για να σχολιάσεις."
       write_comment: "Σχολίασε:"
-      you_cannot_send_a_new_comment_because_offer_is_closed: "Δεν μπορείτε να σχολιάσετε πια γιατί αυτή η προσφορά έχει κλείσει."
-      you_cannot_send_a_new_comment_because_request_is_closed: "Δεν μπορείτε να σχολιάσετε πια γιατί αυτό το αίτημα έχει κλείσει."
+      you_cannot_send_a_new_comment_because_listing_is_closed: ~
       you_must: "Πρέπει να"
       subscribe_to_comments: "Ειδοποίησέ με αν υπάρξουν νέα σχόλια ή αλλάγες"
     edit:
-      edit_offer: Επεξεργασία
-      edit_request: Επεξεργασία
+      edit_listing: ~
     edit_links:
-      close_offer: "Κλείσε την προσφορά"
-      close_request: "Κλείσε το αίτημα"
-      edit_offer: Επεξεργασία
-      edit_request: Επεξεργασία
-      reopen_offer: "Ενεργοποίησε ξανά την προσφορά"
-      reopen_request: "Ενεργοποίησε ξανά το αίτημα"
+      close_listing: ~
+      edit_listing: ~
+      reopen_listing: ~
     follow_links:
       follow: "Παρακολούθηση αυτής της καταχώρησης"
       unfollow: "Παύση παρακολούθησης αυτής της καταχώρησης"
@@ -992,8 +983,7 @@ el:
         location: Τοποθεσία
         origin: Αφετηρία
       send_button:
-        save_offer: Αποθήκευση
-        save_request: Αποθήκευση
+        save_listing: ~
       share_type:
         select: Επιλογή
         borrow: Δανεισμός
@@ -1105,9 +1095,6 @@ el:
       link_label_for_rideshare_request: "Πρόσφερε το όχημά σου"
     listed_listing:
       edit: Επεξεργασία
-    listed_listing_closed_status:
-      offer_is_closed: "Η προσφορά έκλεισε"
-      request_is_closed: "Το αίτημα έκλεισε"
     listed_listings:
       loading_more_offers: "Εμφάνιση περισσότερων προσφορών"
       loading_more_requests: "Εμφάνιση περισσότερων αιτημάτων"
@@ -1183,10 +1170,10 @@ el:
       what_do_you_want_to_do: "Τι θα θέλατε να καταχωρήσετε;"
       what_can_you_offer: "Τι μπορείτε να προσφέρετε;"
       what_do_you_need: "Τι χρειάζεστε;"
+      select_category: ~
     please_comment: Σχολίασε
     reply_link:
-      offer_closed: "Η προσφορά είναι κλειστή"
-      request_closed: "Το αίτημα είναι κλειστό"
+      listing_closed: ~
     show:
       add_your_phone_number: "Πρόσθεσε το τηλέφωνό σου"
       add_profile_picture: "Πρόσθεσε μια φωτογραφία σου"
@@ -1198,14 +1185,11 @@ el:
       item_request_trade: Ανταλλαγή
       no_description: "Χωρίς περιγραφή"
       offer: Προσφορά
-      offer_author: "Προσφέρεται από τον/την"
-      offer_created: Δημιουργήθηκε
+      listing_created: ~
       open_until: "Ενεργό μέχρι %{date}"
       feedback: "Κριτική:"
       qr_code: "Κωδικός QR"
       request: Αίτημα
-      request_author: "Ζητήθηκε από τον/την"
-      request_created: Δημιουργήθηκε
       rideshare_offer: Οτοστόπ
       rideshare_request: Οτοστόπ
       send_private_message: "Αποστολή μηνύματος"
@@ -1301,8 +1285,6 @@ el:
       family_name: Επώνυμο
       given_name: Όνομα
       i_accept_the: "Αποδέχομαι τους"
-      if_you_already_have_account_you_can: "Αν έχετε ήδη λογαριασμό σε μια άλλη κοινότητα %{service_name} μπορείτε να"
-      join_with_your_existing_account: "συνδεθείτε και εδώ με το λογαριασμό σας"
       invalid_invitation_code: "Ο κωδικός της πρόσκλησης δεν είναι έγκυρος."
       invitation_code: "Κωδικός πρόσκλησης"
       not_required: ", δεν απαιτείται"

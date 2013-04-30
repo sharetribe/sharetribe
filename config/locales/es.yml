@@ -192,8 +192,6 @@ es:
       message: Mensaje
       rideshare_offer_message_form_title: "Solicítale un traslado a"
       rideshare_request_message_form_title: "Ofrécele un traslado a"
-      send_offer_message: "Enviar la oferta"
-      send_request_message: "Enviar la solicitud"
       send_message: "Enviar mensaje"
       this_message_is_private: "Este mensaje es privado entre tú y %{person}."
       you_will_get_notified_of_acceptance: "Recibirás una notificación por email cuando %{person} acepte o rechace tu propuesta."
@@ -224,12 +222,9 @@ es:
         has_given_you_feedback_on_event: "Has recibido una sugerencia del evento"
         see_all_the_feedback_you_have_received: "Revisa todas las sugerencias que has recibido"
     show:
-      in_response_to_offer: "Acerca de la oferta"
-      in_response_to_request: "En respuesta a la solicitud"
-      offer_sent_by: "Solicitud enviada por"
-      offer_sent_to: "Oferta enviada a"
-      request_sent_by: "Solicitud enviada por"
-      request_sent_to: "Solicitud enviada a"
+      in_response_to_listing: ~
+      message_sent_by: ~
+      message_sent_to: ~
       send_reply: "Enviar respuesta"
       write_a_reply: "Escribe una respuesta:"
       conversation_about_listing: "Conversación con %{person} sobre %{listing}."
@@ -747,6 +742,11 @@ es:
       list: "Mostrar lista"
       all_listing_types: "Todos los tipos de listado"
       all_categories: "Todas las categorías"
+  infos:
+    about:
+      default_about_text_title: ~
+      default_about_text: ~
+      click_here_link_text: ~
   layouts:
     no_tribe:
       inbox: "Buzón de entrada"
@@ -829,8 +829,7 @@ es:
       comment_sent: "Comentario enviado"
       confirmation_link_is_wrong_or_used: "El link de confirmación ya ha sido usado o se ha roto en el enlace. Intenta iniciar sesión o escríbenos si el problema persiste."
       additional_email_confirmed: "El e-mail que ingresaste está confirmado. Puedes entrar a la comunidad ingresando nuevamente."
-      create_new_offer: "Ofrece algo más"
-      create_new_request: "Solicita algo adicional"
+      create_new_listing: ~
       create_one_here: "Crea uno aquí"
       email_confirmation_sent_to_new_address: "El e-mail de confirmación ya fue enviado a la nueva dirección."
       email_not_found: "No se encontró la dirección de correo en la base de datos de %{service_name}."
@@ -857,10 +856,9 @@ es:
       offer_confirmed: ~
       offer_closed: "Oferta cerrada"
       listing_created_successfully: ~
-      offer_created_successfully: "Oferta creada satisfactoriamente"
       offer_rejected: "Oferta rechazada"
       offer_canceled: ~
-      offer_updated_successfully: "Oferta actualizada correctamente"
+      listing_updated_successfully: ~
       only_kassi_administrators_can_access_this_area: "Sólo los administradores de %{service_name} pueden acceder a esta área"
       only_listing_author_can_close_a_listing: "Sólo el creador de una lista puede cerrarla"
       only_listing_author_can_edit_a_listing: "Sólo el creador de una lista puede editarla"
@@ -883,10 +881,8 @@ es:
       request_accepted: "Solicitud aceptada"
       request_confirmed: ~
       request_closed: "Solicitud cerrada"
-      request_created_successfully: "Solicitud creada satisfactoriamente"
       request_rejected: "Solicitud rechazada"
       request_canceled: ~
-      request_updated_successfully: "Solicitud actualizada satisfactoriamente"
       message_sent: "Mensaje enviado"
       this_content_is_not_available_in_this_community: "Este contenido no está disponible en esta comunidad."
       unknown_error: "Error desconocido. Por favor utiliza el link de sugerencias para darnos detalles de lo sucedido."
@@ -939,20 +935,15 @@ es:
       send_comment: "Enviar comentario"
       to_send_a_comment: "Enviar un nuevo comentario"
       write_comment: "Escribir un nuevo comentario:"
-      you_cannot_send_a_new_comment_because_offer_is_closed: "No puedes enviar un nuevo comentario porque esta oferta se encuentra cerrada."
-      you_cannot_send_a_new_comment_because_request_is_closed: "No puedes enviar un nuevo comentario porque esta solicitud se encuentra cerrada."
+      you_cannot_send_a_new_comment_because_listing_is_closed: ~
       you_must: "Tú deberías"
       subscribe_to_comments: "Notifícame los nuevos comentarios y actualizaciones"
     edit:
-      edit_offer: "Editar oferta"
-      edit_request: "Editar solicitud"
+      edit_listing: ~
     edit_links:
-      close_offer: "Cerrar oferta"
-      close_request: "Cerrar solicitud"
-      edit_offer: "Editar oferta"
-      edit_request: "Editar solicitud"
-      reopen_offer: "Reabrir la oferta"
-      reopen_request: "Reabrir la solicitud"
+      close_listing: ~
+      edit_listing: ~
+      reopen_listing: ~
     follow_links:
       follow: "Seguir este anuncio"
       unfollow: "Dejar de seguir este anuncio"
@@ -997,8 +988,7 @@ es:
         location: Lugar
         origin: Origen
       send_button:
-        save_offer: "Guardar oferta"
-        save_request: "Guardar solicitud"
+        save_listing: ~
       share_type:
         select: Seleccionar
         borrow: Prestar
@@ -1110,9 +1100,6 @@ es:
       link_label_for_rideshare_request: Contacto
     listed_listing:
       edit: Editar
-    listed_listing_closed_status:
-      offer_is_closed: "Oferta cerrada"
-      request_is_closed: "Solicitud cerrada"
     listed_listings:
       loading_more_offers: "Cargando más ofertas"
       loading_more_requests: "Cargando más solicitudes"
@@ -1188,10 +1175,10 @@ es:
       what_do_you_want_to_do: "¿Qué quieres hacer?"
       what_can_you_offer: "¿Qué puedes ofrecerles a los demás?"
       what_do_you_need: "¿Qué necesitas?"
+      select_category: ~
     please_comment: Comentario
     reply_link:
-      offer_closed: "Oferta cerrada"
-      request_closed: "Solicitud cerrada"
+      listing_closed: ~
     show:
       add_your_phone_number: "Añade tu número de teléfono"
       add_profile_picture: "Añada una imagen de perfil"
@@ -1203,14 +1190,11 @@ es:
       item_request_trade: "Solicitud de trueque"
       no_description: "Sin descripción"
       offer: Oferta
-      offer_author: "Ofertado por"
-      offer_created: "Oferta creada"
+      listing_created: ~
       open_until: "Abierto hasta %{date}"
       feedback: "Comentarios:"
       qr_code: "Código QR"
       request: Solicitud
-      request_author: "Solicitud realizada por"
-      request_created: "Solicitud creada"
       rideshare_offer: "Oferta de traslado compartido"
       rideshare_request: "Solicitud de traslado compartido"
       send_private_message: "Enviar mensaje privado"
@@ -1306,8 +1290,6 @@ es:
       family_name: "Apellido:"
       given_name: "Nombre:"
       i_accept_the: "Acepto los"
-      if_you_already_have_account_you_can: "Si ya tienes una cuenta en otra %{service_name} comunidad puedes"
-      join_with_your_existing_account: "únete a esta comunidad con tu cuenta existente"
       invalid_invitation_code: "El código de invitación no es válido."
       invitation_code: "Código de invitación:"
       not_required: ", no es necesario"

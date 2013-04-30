@@ -192,8 +192,6 @@ sv:
       message: Meddelanden
       rideshare_offer_message_form_title: "Fråga %{person} om skjuts"
       rideshare_request_message_form_title: "Samåkning erbjuds till %{person}"
-      send_offer_message: ~
-      send_request_message: ~
       send_message: ~
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
@@ -224,12 +222,9 @@ sv:
         has_given_you_feedback_on_event: "har givit dig feedback på evenemang"
         see_all_the_feedback_you_have_received: "se all feedback du har fått"
     show:
-      in_response_to_offer: "om erbjudande"
-      in_response_to_request: "som svar på förfrågan"
-      offer_sent_by: "Erbjudande skickad av"
-      offer_sent_to: "Erbjudande skickad till"
-      request_sent_by: "Förfrågan skickad av"
-      request_sent_to: "Förfrågan skickad till"
+      in_response_to_listing: ~
+      message_sent_by: ~
+      message_sent_to: ~
       send_reply: "Skicka svar"
       write_a_reply: "Skriv ett svar"
       conversation_about_listing: ~
@@ -742,6 +737,11 @@ sv:
       list: ~
       all_listing_types: ~
       all_categories: ~
+  infos:
+    about:
+      default_about_text_title: ~
+      default_about_text: ~
+      click_here_link_text: ~
   layouts:
     no_tribe:
       inbox: ~
@@ -824,8 +824,7 @@ sv:
       comment_sent: ~
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
-      create_new_offer: ~
-      create_new_request: ~
+      create_new_listing: ~
       create_one_here: ~
       email_confirmation_sent_to_new_address: ~
       email_not_found: ~
@@ -852,10 +851,9 @@ sv:
       offer_confirmed: ~
       offer_closed: ~
       listing_created_successfully: ~
-      offer_created_successfully: ~
       offer_rejected: ~
       offer_canceled: ~
-      offer_updated_successfully: ~
+      listing_updated_successfully: ~
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: ~
       only_listing_author_can_edit_a_listing: ~
@@ -878,10 +876,8 @@ sv:
       request_accepted: ~
       request_confirmed: ~
       request_closed: ~
-      request_created_successfully: ~
       request_rejected: ~
       request_canceled: ~
-      request_updated_successfully: ~
       message_sent: ~
       this_content_is_not_available_in_this_community: ~
       unknown_error: ~
@@ -934,20 +930,15 @@ sv:
       send_comment: ~
       to_send_a_comment: ~
       write_comment: ~
-      you_cannot_send_a_new_comment_because_offer_is_closed: ~
-      you_cannot_send_a_new_comment_because_request_is_closed: ~
+      you_cannot_send_a_new_comment_because_listing_is_closed: ~
       you_must: ~
       subscribe_to_comments: ~
     edit:
-      edit_offer: ~
-      edit_request: ~
+      edit_listing: ~
     edit_links:
-      close_offer: ~
-      close_request: ~
-      edit_offer: ~
-      edit_request: ~
-      reopen_offer: ~
-      reopen_request: ~
+      close_listing: ~
+      edit_listing: ~
+      reopen_listing: ~
     follow_links:
       follow: ~
       unfollow: ~
@@ -992,8 +983,7 @@ sv:
         location: ~
         origin: ~
       send_button:
-        save_offer: ~
-        save_request: ~
+        save_listing: ~
       share_type:
         select: ~
         borrow: ~
@@ -1105,9 +1095,6 @@ sv:
       link_label_for_rideshare_request: ~
     listed_listing:
       edit: ~
-    listed_listing_closed_status:
-      offer_is_closed: ~
-      request_is_closed: ~
     listed_listings:
       loading_more_offers: ~
       loading_more_requests: ~
@@ -1183,10 +1170,10 @@ sv:
       what_do_you_want_to_do: ~
       what_can_you_offer: ~
       what_do_you_need: ~
+      select_category: ~
     please_comment: ~
     reply_link:
-      offer_closed: ~
-      request_closed: ~
+      listing_closed: ~
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
@@ -1198,14 +1185,11 @@ sv:
       item_request_trade: ~
       no_description: ~
       offer: ~
-      offer_author: ~
-      offer_created: ~
+      listing_created: ~
       open_until: ~
       feedback: ~
       qr_code: ~
       request: ~
-      request_author: ~
-      request_created: ~
       rideshare_offer: ~
       rideshare_request: ~
       send_private_message: ~
@@ -1298,8 +1282,6 @@ sv:
       family_name: ~
       given_name: ~
       i_accept_the: ~
-      if_you_already_have_account_you_can: ~
-      join_with_your_existing_account: ~
       invalid_invitation_code: ~
       invitation_code: ~
       not_required: ~

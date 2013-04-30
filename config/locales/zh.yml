@@ -192,8 +192,6 @@ zh:
       message: 消息
       rideshare_offer_message_form_title: 想要搭顺风车
       rideshare_request_message_form_title: 提供顺风车
-      send_offer_message: ~
-      send_request_message: 发送请求
       send_message: 发送信息
       this_message_is_private: "此消息为您和%{person}之间的悄悄话"
       you_will_get_notified_of_acceptance: ~
@@ -224,12 +222,9 @@ zh:
         has_given_you_feedback_on_event: 基于事件...的评价
         see_all_the_feedback_you_have_received: 查看您获得的所有评价
     show:
-      in_response_to_offer: 关于提议
-      in_response_to_request: 响应请求
-      offer_sent_by: 发送请求的人为
-      offer_sent_to: 提议发送给
-      request_sent_by: 提议发送自
-      request_sent_to: 请求发送至...
+      in_response_to_listing: ~
+      message_sent_by: ~
+      message_sent_to: ~
       send_reply: 发送回复
       write_a_reply: 回复：
       conversation_about_listing: ~
@@ -742,6 +737,11 @@ zh:
       list: ~
       all_listing_types: ~
       all_categories: ~
+  infos:
+    about:
+      default_about_text_title: ~
+      default_about_text: ~
+      click_here_link_text: ~
   layouts:
     no_tribe:
       inbox: ~
@@ -824,8 +824,7 @@ zh:
       comment_sent: 评论已发送
       confirmation_link_is_wrong_or_used: 确认链接以被使用或失效。请尝试登录，如果问题依然存在请发送反馈。
       additional_email_confirmed: 你输入的邮箱已经确认。你可以再输入一次加入社区
-      create_new_offer: 出售其他物品
-      create_new_request: 请求其他物品
+      create_new_listing: ~
       create_one_here: 在此创建
       email_confirmation_sent_to_new_address: 电子邮件确认信已经送往你的新地址。
       email_not_found: 无法在Kassi中找到您所提供的邮箱地址
@@ -852,10 +851,9 @@ zh:
       offer_confirmed: ~
       offer_closed: 已关闭的提议
       listing_created_successfully: ~
-      offer_created_successfully: 提议成功！
       offer_rejected: 已拒绝的提议
       offer_canceled: ~
-      offer_updated_successfully: 提议更新成功
+      listing_updated_successfully: ~
       only_kassi_administrators_can_access_this_area: 只有Kassi管理员有权限进入此区域
       only_listing_author_can_close_a_listing: 仅作者可以关闭列表
       only_listing_author_can_edit_a_listing: 仅作者可以编辑列表
@@ -878,10 +876,8 @@ zh:
       request_accepted: 您的请求已被接受
       request_confirmed: ~
       request_closed: 请求已关闭
-      request_created_successfully: 已成功创建请求
       request_rejected: 已拒绝的请求
       request_canceled: ~
-      request_updated_successfully: 更新请求成功
       message_sent: 信息已发出
       this_content_is_not_available_in_this_community: 此内容在此社区中不可用
       unknown_error: 发生未知错误。请使用反馈链接向我们提供细节。
@@ -934,20 +930,15 @@ zh:
       send_comment: 发送评论
       to_send_a_comment: 以发送新的评论
       write_comment: 发表新的评论：
-      you_cannot_send_a_new_comment_because_offer_is_closed: 这个提议已经关闭，您不能发表评论。
-      you_cannot_send_a_new_comment_because_request_is_closed: 这个请求已经关闭，您不能发表评论。
+      you_cannot_send_a_new_comment_because_listing_is_closed: ~
       you_must: 您必须
       subscribe_to_comments: 若有新评论或更新，通知我
     edit:
-      edit_offer: 编辑提议
-      edit_request: 编辑请求
+      edit_listing: ~
     edit_links:
-      close_offer: 关闭提议
-      close_request: 关闭请求
-      edit_offer: 编辑提议
-      edit_request: 编辑请求
-      reopen_offer: 重新激活提议
-      reopen_request: 重新打开请求
+      close_listing: ~
+      edit_listing: ~
+      reopen_listing: ~
     follow_links:
       follow: 关注此列表
       unfollow: 不再关注此列表
@@ -992,8 +983,7 @@ zh:
         location: 地点
         origin: 来源
       send_button:
-        save_offer: 保存提议
-        save_request: 保存请求
+        save_listing: ~
       share_type:
         select: 选择
         borrow: 借入
@@ -1105,9 +1095,6 @@ zh:
       link_label_for_rideshare_request: 提供顺风车
     listed_listing:
       edit: 编辑
-    listed_listing_closed_status:
-      offer_is_closed: 提议已关闭
-      request_is_closed: 请求已关闭
     listed_listings:
       loading_more_offers: 正在加载更多提议
       loading_more_requests: 正在加载更多请求
@@ -1183,10 +1170,10 @@ zh:
       what_do_you_want_to_do: ~
       what_can_you_offer: ~
       what_do_you_need: ~
+      select_category: ~
     please_comment: 评论
     reply_link:
-      offer_closed: 提议已关闭
-      request_closed: 请求已关闭
+      listing_closed: ~
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
@@ -1198,14 +1185,11 @@ zh:
       item_request_trade: ~
       no_description: 无描述
       offer: 提议
-      offer_author: 提议来自
-      offer_created: 提议成功！
+      listing_created: ~
       open_until: ~
       feedback: 反馈
       qr_code: ~
       request: 请求
-      request_author: 请求来自
-      request_created: 已成功创建请求
       rideshare_offer: 提供顺风车
       rideshare_request: 需要顺风车
       send_private_message: 发送个人短信
@@ -1298,8 +1282,6 @@ zh:
       family_name: 姓：
       given_name: 名：
       i_accept_the: 我接受
-      if_you_already_have_account_you_can: ~
-      join_with_your_existing_account: 用你现有的账号加入社区
       invalid_invitation_code: 邀请码无效。
       invitation_code: 邀请码：
       not_required: ，不要求
