@@ -17,8 +17,13 @@ describe Api::ConversationsController do
       @p2.communities << @c1
       @p1.ensure_authentication_token!
               
-      @con1 = FactoryGirl.create(:conversation, :participants => [@p1, @p2])
-      FactoryGirl.create(:message, :conversation => @con1, :sender => @p1, :content => "Let's talk")
+      
+      @con2 = FactoryGirl.create(:conversation, :participants => [@p1, @p2], :last_message_at => 2.day.ago, :title  => "second thoughts")
+      FactoryGirl.create(:message, :conversation => @con2, :sender => @p1, :content => "This is another conversation", :created_at => 3.days.ago)
+      FactoryGirl.create(:message, :conversation => @con2, :sender => @p2, :content => "Yep, so it seems.", :created_at => 2.days.ago)
+      
+      @con1 = FactoryGirl.create(:conversation, :participants => [@p1, @p2], :last_message_at => 1.day.ago)
+      FactoryGirl.create(:message, :conversation => @con1, :sender => @p1, :content => "Let's talk", :created_at => 1.day.ago)
       FactoryGirl.create(:message, :conversation => @con1, :sender => @p2, :content => "Ok! You start.")
 
     end
@@ -33,8 +38,11 @@ describe Api::ConversationsController do
       resp = JSON.parse(response.body)
       #puts response.body
       #puts resp.to_yaml
-      resp["conversations"].count.should == 1
+      resp["conversations"].count.should == 2
       resp["conversations"][0]["last_message"].should_not be_nil
+      resp["conversations"][1]["last_message"].should_not be_nil
+      resp["conversations"][1]["title"].should == "second thoughts"
+      
       resp["page"].should == 1
       resp["per_page"].should == 50
     end

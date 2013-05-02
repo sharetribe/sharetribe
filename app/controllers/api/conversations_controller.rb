@@ -10,7 +10,7 @@ class Api::ConversationsController < Api::ApiController
   before_filter :ensure_listing_author_is_not_current_user, :only => :create
   
   def index
-    @conversations = current_person.conversations.paginate(:per_page => @per_page, :page => @page)
+    @conversations = current_person.conversations.order("last_message_at DESC").paginate(:per_page => @per_page, :page => @page)
   end
   
   def show

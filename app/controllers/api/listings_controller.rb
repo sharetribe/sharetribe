@@ -70,13 +70,14 @@ class Api::ListingsController < Api::ApiController
         else
           params["share_type"] = "request_to_swap"
         end
-      end
-      
-      if params["share_type"].nil?
-        params["share_type"] = params["listing_type"]
-      end
-      
+      end  
     end
+    
+    # This is moved out from the "api_version_alpha?" as new iPhone client still sent listing_type
+    if params["share_type"].nil?
+      params["share_type"] = params["listing_type"]
+    end
+    
     category = Category.find_by_name(params["category"])
 
     unless category && @current_community.categories.include?(category)
