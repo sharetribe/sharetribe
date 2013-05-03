@@ -1,5 +1,30 @@
 module ApplicationHelper
   
+  ICONS = {
+    "ss-pika" => {
+      "map" => "ss-maplocation",
+      "new_listing" => "ss-addfile",
+      
+    },
+    "font-awesome" => {
+      "map" => "icon-map-marker",
+      "new_listing" => "icon-plus-sign-alt",
+    }    
+  }
+  
+  def icon_tag(icon_name, additional_classes=[])
+    classes_string = [icon_class(icon_name)].concat(additional_classes).join(" ")
+    return "<i class=\"#{classes_string}\"></i>".html_safe
+  end
+  
+  def icon_class(icon_name)
+    icon_pack = APP_CONFIG.icon_pack || "font-awesome"
+    icon = ICONS[icon_pack][icon_name]
+    icon = "icon-circle-blank" if icon.nil?
+    
+    return icon
+  end
+  
   # Removes whitespaces from HAML expressions
   # if you add two elements on two lines; the white space creates a space between the elements (in some browsers)
   def one_line_for_html_safe_content(&block)

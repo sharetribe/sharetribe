@@ -4,7 +4,7 @@
 .feed-navigation
   .feed-actions.actions-menu
     %a.request-link{href: new_listing_path + "?ref=homepage"} 
-      %i.ss-addfile.icon-with-text
+      = icon_tag("new_listing", ["icon-with-text"])
       .text-with-icon#post_new_listing= t(".post_new_listing")
     %a.offset-link.toggle{href: '#', id: "filters-toggle", data: {toggle: '.feed-filters'}}
       %i.ss-search
@@ -41,7 +41,8 @@
       .text-with-icon.hidden-text= t("homepage.filters.list")
   - else
     %a.map-link.map-button{href: (root + '?map=true'), title: t("homepage.filters.map")}
-      %i.ss-maplocation.icon-with-text
+      -# %i.ss-maplocation.icon-with-text
+      = icon_tag("map", ["icon-with-text"])
       .text-with-icon.hidden-text= t("homepage.filters.map")      
 
 .homepage-feed.feed

@@ -1,3 +1,4 @@
+<% environment.context_class.instance_eval { include ScssHelper } %>
 @import 'customizations';  // color presets and cover image
 
 @import 'compass';         // The Compass framework
@@ -9,8 +10,8 @@
 @import 'reset';           // jonikorpi's custom CSS reset
 @import 'type';            // typography presets and tools
 @import 'media-queries';   // media query presets
-@import 'ss-social';       // ss-social icon set
-@import 'ss-pika';         // ss-pika icon set  
+@import 'font-awesome.min';// Font-Awesome icon set
+<%=additional_font_pack_imports%>
 
 
 /*
