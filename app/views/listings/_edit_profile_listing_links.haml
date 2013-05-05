@@ -1,0 +1,15 @@
+%div{:id => "edit-profile-listing-links-#{listing.id.to_s}"}
+  - if listing.closed?
+    .feed-listing-icon
+      %a{href: edit_listing_path(listing)}
+        .ss-lock.icon-with-text
+        .text-with-icon= t("listings.edit_links.reopen_listing")
+  - else
+    .feed-listing-icon
+      %a{href: edit_listing_path(listing)}
+        .ss-draw.icon-with-text
+        .text-with-icon= t("listings.edit_links.edit_listing")
+    .feed-listing-icon
+      %a{href: close_person_listing_path(@current_user, listing), data: { method: "put", remote: "true"}}
+        .ss-lock.icon-with-text
+        .text-with-icon= t("listings.edit_links.close_listing")

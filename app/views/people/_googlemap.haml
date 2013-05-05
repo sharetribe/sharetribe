@@ -1,5 +1,5 @@
 .googlemap
-  .jsmap{:id => "map_canvas", :style => "width: 250px; height: 200px"}
+  .jsmap{:id => "map_canvas"}
   :javascript 
     $(document).ready(function() { 
       googlemapMarkerInit('map_canvas',"location", undefined, undefined, #{tribe_latitude}, #{tribe_longitude});

@@ -1,25 +1,23 @@
 - content_for :javascript do
-  initialize_give_feedback_form('#{I18n.locale}','#{t('error_messages.testimonials.you_must_select_a_grade')}','#{t('error_messages.testimonials.you_must_explain_not_neutral_feedback')}');
+  initialize_give_feedback_form("#{I18n.locale}","#{t('error_messages.testimonials.you_must_select_a_grade')}","#{t('error_messages.testimonials.you_must_explain_not_neutral_feedback')}");
 
-.grid_10.prefix_7.suffix_7
-  #new_testimonial_form
-    %h2= t(".give_feedback_to", :person => @conversation.other_party(@current_user).given_name_or_username)
-    %p= t(".this_will_be_shown_in_profile", :person => @conversation.other_party(@current_user).given_name_or_username)
-    = form_for @testimonial, :url => person_message_feedbacks_path(:person_id => @current_user.id, :message_id => @conversation.id) do |form|
-      = form.error_messages
-      .message_form_field_container
-        = form.label :text, t('.textual_feedback') + ":", :class => "normal" 
-        = form.text_area :text, :class => "text_area"
-      .message_form_field_container
-        = form.label :grade, t(".grade") + ":", :class => "normal"
-        %br/
-        .feedback_grade_images
-          - Testimonial::GRADES.each do |grade| 
-            %label{:for => "grade-#{grade[1][:form_value]}", :class => "radio"}
-              = radio_button_tag "testimonial[grade]", grade[1][:db_value], grade[1][:default], :id => "grade-#{grade[1][:form_value]}" 
-              = t(".#{grade[0]}")
-      .message_form_field_container
-        = form.hidden_field :author_id, :value => @current_user.id
-        = form.hidden_field :receiver_id, :value => @conversation.other_party(@current_user).id
-        = form.hidden_field :participation_id, :value => @participation.id
-        = form.submit t(".send_feedback"), :class => "send_button", :id => "send_testimonial_button"
+
+.centered-section.testimonial-form
+  %h2= t(".give_feedback_to", :person => @conversation.other_party(@current_user).name)
+  %p= t(".this_will_be_shown_in_profile", :person => @conversation.other_party(@current_user).given_name_or_username)
+  = form_for @testimonial, :url => person_message_feedbacks_path(:person_id => @current_user.id, :message_id => @conversation.id) do |form|
+    = form.error_messages
+    = form.label :text, t('.textual_feedback')
+    = form.text_area :text, :placeholder => t(".default_textual_feedback")
+    = form.label :grade, t(".grade")
+    .feedback-grade
+      - Testimonial::GRADES.each do |grade| 
+        %label{:for => "grade-#{grade[1][:form_value]}", :class => "radio hidden"}
+          = radio_button_tag "testimonial[grade]", grade[1][:db_value], grade[1][:default], :id => "grade-#{grade[1][:form_value]}"
+        %a.grade.hidden{:id => grade[0], :name => "grade-#{grade[1][:form_value]}"}
+          .link-icon{:class => grade[1][:icon] }
+          .link-text{:id => "#{grade[0]}-grade-link"}= t(".#{grade[0]}")
+    = form.hidden_field :author_id, :value => @current_user.id
+    = form.hidden_field :receiver_id, :value => @conversation.other_party(@current_user).id
+    = form.hidden_field :participation_id, :value => @participation.id
+    = form.button t(".send_feedback"), :class => "send_button", :id => "send_testimonial_button"

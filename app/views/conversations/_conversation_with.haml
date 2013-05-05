@@ -1,0 +1,14 @@
+- if conversation.listing
+  - if conversation.status.eql?("free")
+    = t("conversations.show.conversation_about_listing", :person => link_to(other_party.name, other_party), :listing => link_to(conversation.listing.title, conversation.listing)).html_safe
+  - else
+    - if current_user?(conversation.messages.first.sender)
+      = t("conversations.show.message_sent_to")
+      = link_to other_party.name, other_party
+    - else
+      = t("conversations.show.message_sent_by")
+      = link_to(other_party.name, other_party)
+    = t("conversations.show.in_response_to_listing")
+    = link_to(conversation.listing.title, conversation.listing)
+- else
+  = t("conversations.show.conversation_with_user", :person => link_to(other_party.name, other_party)).html_safe

@@ -4,9 +4,11 @@ class Api::PeopleController < Api::ApiController
     if params["email"]
       @people = Person.find_by_email(params["email"])
       @total_pages = 1
+    elsif @current_community
+      @people = @current_community.members.paginate(:per_page => @per_page, :page => @page)
     else
       response.status = 400
-      render :json => ["People search currently only works with email parameter"] and return
+      render :json => ["People search currently only works with email or community_id parameter"] and return
     end
     
     #@total_pages = @listings.total_pages

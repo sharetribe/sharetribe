@@ -26,7 +26,7 @@ accounts.each do |acc|
   p.save!
   
   # join the community
-  membership = CommunityMembership.new(:person => p, :community_id => community_id, :consent => "automatically_reated_account")
+  membership = CommunityMembership.new(:person => p, :community_id => community_id, :consent => "automatically_reated_account", :status => "accepted")
   membership.save!
   
   # email the user

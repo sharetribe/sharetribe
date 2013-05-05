@@ -1,18 +1,43 @@
 module ConversationsHelper
   
   def get_message_title(listing)
-    t("conversations.new.#{listing.category}_#{listing.listing_type}_message_title", :title => listing.title)
-  end
-  
-  # Class is selected if conversation type is currently selected
-  def get_inbox_tab_class(tab_name)
-    current_tab_name = params[:conversation_type] || action_name || "received"
-    current_tab_name = "received" if current_tab_name.eql?("show")
-    "inbox_tab_#{current_tab_name.eql?(tab_name) ? 'selected' : 'unselected'}"
+    listing.title
   end
   
   def transaction_proposal_form_title(listing)
-    "#{listing.category}_#{listing.listing_type}#{listing.share_type? ? '_' + @listing.share_type : ''}_message_form_title"
+    if ["item", "favor", "housing", "rideshare"].include?(listing.category.top_level_parent.name)
+      "#{listing.category.top_level_parent.name}_#{listing.listing_type}#{listing.share_type.present? ? '_' + listing.share_type.name : ''}_message_form_title"
+    else
+      "item_#{listing.listing_type}_#{listing.share_type.name}_message_form_title"
+    end
+  end
+  
+  def icon_for(status)
+    case status
+    when "accepted"
+      "ss-check"
+    when "confirmed"
+      "ss-check"
+    when "rejected"
+      "ss-delete"
+    when "canceled"  
+      "ss-delete"
+    when "paid"
+      "ss-check"
+    end
+  end
+  
+  def path_for_status_link(status, conversation, current_user)
+    case status
+    when "accept"
+      accept_person_message_path(:person_id => current_user.id, :id => conversation.id.to_s)
+    when "confirm"
+      confirm_person_message_path(:person_id => current_user.id, :id => conversation.id.to_s)
+    when "reject"
+      reject_person_message_path(:person_id => @current_user.id, :id => conversation.id.to_s)
+    when "cancel"  
+      cancel_person_message_path(:person_id => current_user.id, :id => conversation.id.to_s)
+    end 
   end
   
 end

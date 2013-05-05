@@ -1,12 +1,36 @@
 ca:
   admin:
-    badges:
-      index:
-        add_new_badge: "Afegir una nova medalla"
-        existing_badges: "Medalles existents"
-        image: "Imatge de la medalla"
-        name: "Nom de la medalla"
-        save_badge: "Desar medalla"
+    communities:
+      edit_details:
+        community_details: ~
+        community_look_and_feel: ~
+        edit_community: ~
+        community_name: ~
+        community_slogan: ~
+        community_description: ~
+        update_information: ~
+        invite_people: ~
+      edit_look_and_feel:
+        edit_community_look_and_feel: ~
+        community_logo: ~
+        community_cover_photo: ~
+        community_custom_color1: ~
+        logo_instructions_text: ~
+        cover_photo_instructions_text: ~
+        custom_color1_instructions_text: ~
+        invalid_color_code: ~
+    emails:
+      new:
+        send_email_to_members: ~
+        send_email_to_members_title: ~
+        email_subject: ~
+        email_content: ~
+        email_content_placeholder: ~
+        email_language: ~
+        any_language: ~
+        send_email: ~
+        message_will_be_sent_only_to_people_with_this_language: ~
+        email_sent: ~
     news_items:
       index:
         news_items: "Articles més recents"
@@ -54,7 +78,10 @@ ca:
     fields_that_are_mandatory: "Els camps marcats amb (*) són obligatoris"
     or: o
     password: Contrasenya
+    service_name: ~
     share_types:
+      request: ~
+      offer: ~
       borrow: prèstecs
       buy: comprar
       give_away: donant
@@ -63,27 +90,88 @@ ca:
       rent: Lloguer
       rent_out: lloga
       sell: Vendre
-      trade: Intercanviar
+      offer_to_swap: ~
+      request_to_swap: ~
       share_for_free: ~
+      accept_for_free: ~
+    categories:
+      item: ~
+      favor: ~
+      rideshare: ~
+      housing: ~
+      tools: ~
+      sports: ~
+      music: ~
+      books: ~
+      games: ~
+      furniture: ~
+      outdoors: ~
+      food: ~
+      electronics: ~
+      pets: ~
+      film: ~
+      clothes: ~
+      garden: ~
+      travel: ~
+      other: ~
     username: Usuari
     username_or_email: ~
     what_is_this: "Què és això?"
   conversations:
+    accept:
+      respond_to_offer: ~
+      respond_to_request: ~
+      accept_offer: ~
+      accept_request: ~
+      reject_offer: ~
+      reject_request: ~
+      close_listing: ~
+      update_later: ~
+      optional_message: ~
+      price_to_pay: ~
+    confirm:
+      confirm_description: ~
+      cancel_description: ~
+      cancel_payed_description: ~
+      canceling_payed_transaction: ~
+      confirm: ~
+      cancel: ~
+      continue: ~
+      give_feedback_to: ~
+      do_not_give_feedback: ~
     index:
+      messages_from_all_tribes: ~
       loading_more_messages: "Carregant més missatges"
       message_partitive: Missatge
       messages_partitive: Missatges
       no_received_messages: "No hi ha missatges rebuts"
       no_sent_messages: "No hi ha missatges enviats"
+    conversation:
+      accepted_request: ~
+      accepted_offer: ~
+      rejected_request: ~
+      rejected_offer: ~
+      confirmed_request: ~
+      confirmed_offer: ~
+      canceled_request: ~
+      canceled_offer: ~
+    message:
+      accepted_request: ~
+      accepted_offer: ~
+      rejected_request: ~
+      rejected_offer: ~
+      confirmed_request: ~
+      confirmed_offer: ~
+      canceled_request: ~
+      canceled_offer: ~
+      paid: ~
     new:
+      offer_message_form_title: ~
+      request_message_form_title: ~
       favor_offer_message_form_title: "Demana ajuda de"
-      favor_offer_message_title: "Servei sol·licitat: %{title}"
       favor_request_message_form_title: "Oferir ajuda a"
-      favor_request_message_title: "Oferta de servei: %{title}"
       housing_offer_message_form_title: "Respondre a"
-      housing_offer_message_title: "Respon a la llista %{title}"
       housing_request_message_form_title: "Respondre a"
-      housing_request_message_title: "Respon a la llista %{title}"
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
@@ -97,18 +185,13 @@ ca:
       housing_offer_sell_message_form_title: ~
       housing_offer_rent_out_message_form_title: ~
       housing_offer_share_for_free_message_form_title: ~
+      housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
-      item_offer_message_title: "Article sol·licitat: %{title}"
       item_request_message_form_title: "Oferir un article a"
-      item_request_message_title: "Article ofert: %{title}"
       message: Missatge
       rideshare_offer_message_form_title: "Sol·licitar un trasllat a"
-      rideshare_offer_message_title: "Sol·licitud de trasllat compartit: %{title}"
       rideshare_request_message_form_title: "Oferir un trasllat a"
-      rideshare_request_message_title: "Oferta de trasllat compartit: %{title}"
-      send_offer_message: "Envia l'oferta"
-      send_request_message: "Envia la sol·licitud"
       send_message: ~
       this_message_is_private: "Aquest missatge és privat entre tu i %{person}."
       you_will_get_notified_of_acceptance: ~
@@ -133,36 +216,47 @@ ca:
         your_request: "La seva sol·licitud"
       loading_more_notifications: "Carregant més notificacions"
       no_notifications: "Cap notificació."
+      notifications_from_all_tribes: ~
       testimonialnotification:
         give_feedback_to: "Dona un suggeriment a %{name}"
         has_given_you_feedback_on_event: "Heu rebut un suggeriment de l'esdeveniment"
         see_all_the_feedback_you_have_received: "Revisa totes les suggerències rebudes"
     show:
-      in_response_to_offer: "Quant a l'oferta"
-      in_response_to_request: "En resposta a la sol·licitud"
-      offer_sent_by: "Sol·licitud enviada per"
-      offer_sent_to: "Oferta enviada a"
-      request_sent_by: "Sol·licitud enviada per"
-      request_sent_to: "Sol·licitud enviada a"
+      in_response_to_listing: ~
+      message_sent_by: ~
+      message_sent_to: ~
       send_reply: "Envia resposta"
       write_a_reply: "Escriu una resposta:"
       conversation_about_listing: ~
       conversation_with_user: ~
+      last_message_at: ~
     status:
+      cancel_payed_transaction: ~
       feedback_given: "Suggerència enviada"
       feedback_skipped: "Suggerència omesa"
       give_feedback: "Fes una suggerència"
       offer_accepted: "Oferta acceptada"
       offer_rejected: "Oferta rebutjada"
+      offer_canceled: ~
+      offer_confirmed: ~
+      pay: ~
+      paid: ~
       request_accepted: "Sol·licitud acceptada"
       request_rejected: "Sol·licitud rebutjada"
+      request_confirmed: ~
+      request_canceled: ~
       skip_feedback: "Omet la suggeència"
-      waiting_confirmation_from_listing_author: "S'està esperant la confirmació de l'autor de la llista"
+      waiting_for_listing_author_to_accept_offer: ~
+      waiting_for_listing_author_to_accept_request: ~
+      waiting_confirmation_from_requester: ~
+      waiting_payment_from_requester: ~
     status_link:
       accept_offer: "Acceptar l'oferta"
       accept_request: "Acceptar sol·licitud"
       reject_offer: "Rebutjar oferta"
       reject_request: "Rebutjar la sol·licitud"
+      confirm: ~
+      cancel: ~
   communities:
     map_bubble:
       view_tribe: ~
@@ -255,6 +349,8 @@ ca:
       for_other: ~
   community_memberships:
     new:
+      welcome_fb_user: ~
+      fb_join_accept_terms: ~
       join_community: ~
       you_are_not_a_member_of_this_community: ~
       you_can_join: ~
@@ -268,6 +364,7 @@ ca:
     api:
       coming_soon: ~
     index:
+      watch_the_video: ~
       get_started: ~
       browse_communities_around_you: ~
       slogan: "Un mercat en línia per a la seva comunitat."
@@ -312,25 +409,37 @@ ca:
       city_example_link: ~
   emails:
     accept_reminder:
-      offer_accusative: Oferta
-      remember_to_accept_listing: "Recorda acceptar %{listing_type}, fins i tot si l'esdeveniment és passat. Acceptant permets a altres fer suggeriments. Les propostes positives que rebis apareixeran visibles per a la resta a través del teu perfil. Això et permetrà ser més fiable a ulls dels usuaris. Les suggerències positives també t'ajudaran a guanyar medalles."
       remember_to_accept_offer: "Recorda acceptar o rebutjar una oferta"
       remember_to_accept_request: "Recorda acceptar o rebutjar una sol·licitud"
-      request_accusative: Sol·licitud
       you_can_accept_or_reject_offer_at: "Pots acceptar o rebutjar l'oferta de"
       you_can_accept_or_reject_request_at: "Pots acceptar o rebutjar la sol·licitud de"
       you_have_not_yet_accepted_or_rejected_offer: "Encara no has acceptat o rebutjat l'oferta %{title} que vas rebre el %{date} ."
       you_have_not_yet_accepted_or_rejected_request: "Encara no has acceptat o rebutjat la sol·licitud %{title} que vas rebre al %{date} ."
-    badge_migration_notification:
-      badge_description1: "Pots guanyar diverses medalles dins de Kassi com un reconeixement als teus mèrits en el servei. Pots guanyar-les per accions com afegir noves ofertes i sol·licituds, comentar els continguts d'altres usuaris o per diferents tipus d'intercanvis que realitzis (venent i prestant articles, ajudant a d'altres, organitzant viatges amb cotxe) o, simplement, sent un usuari actiu del servei. Tan sol rebràs medalles d'aquells intercanvis en els quals hagis rebut un comentari o suggerència positiva."
-      badge_description2: "Una persona que posseeix moltes medalles és un usuari actiu i recomanat pels usuaris. Sigues un usuari actiu: compra, ven, regala i presta articles, ajuda als demés, comparteix viatges i veuràs s'acumulen les medalles!"
-      you_have_received_badges: "Has rebut medalles!"
-      you_have_received_badges_in_kassi: "Has rebut noves medalles! Pots veure-les iniciant sessió"
+      show_thread: ~
+    confirm_reminder:
+      you_have_not_yet_confirmed_or_canceled_request: ~
+      remember_to_confirm_request: ~
+      if_will_not_happen_you_should_cancel: ~
+      cancel_it_link_text: ~
+    payment_reminder:
+      remember_to_pay: ~
+      you_have_not_yet_paid: ~
+      if_will_not_happen_you_should_cancel: ~
+      cancel_it_link_text: ~
+    transaction_confirmed:
+      here_is_a_message_from: ~
+      request_marked_as_confirmed: ~
+      request_marked_as_canceled: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      giving_feedback_is_good_idea: ~
+      give_feedback_to: ~
     confirmation_instructions:
       confirmation_instructions_signature: "Salutacions cordials,<br/>L'equip de Kassi"
       welcome_to_kassi: "Benvingut a Kassi!"
       need_to_confirm: "Abans d'utilitzar Kassi has de confirmar el teu correu electrònic al següent enllaç:"
       confirmation_link_text: "Confirmar el meu compte"
+      or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
       check_your_settings: "Revisa la teva configuració"
@@ -342,50 +451,56 @@ ca:
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
       view_it_in_your_browser: ~
+      or: ~
+      unsubscribe_from_these_emails: ~
+    community_starter_email:
+      subject: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha acceptat la teva oferta considerant la sol·licitud %{listing}"
       has_accepted_your_request: "%{accepter} ha acceptat la teva sol·licitud considerant l'oferta %{listing}"
       has_rejected_your_offer: "%{accepter} ha rebutjat la teva oferta considerant la sol·licitud %{listing}"
       has_rejected_your_request: "%{accepter} ha rebutjat la vostra sol·licitud considerant l'oferta %{listing}"
-      you_can_view_the_offer_in: "Pot veure la vostra oferta i les conversacions relacionades aquí"
-      you_can_view_the_request_in: "Pot veure la vostra sol·licitud i les conversacions relacionades aquí"
+      view_thread: ~
       your_offer_was_accepted: "Felicitats! L'oferta ha estat acceptada"
       your_offer_was_rejected: "L'oferta ha estat rebutjada. Gràcies de totes formes!"
       your_request_was_accepted: "La teva sol·licitud ha estat acceptada"
       your_request_was_rejected: "La teva sol·licitud ha estat rebutjada"
+      you_can_now_pay_to: ~
+      pay_now: ~
     invitation_to_kassi:
       hi: Hola!
       you_have_been_invited_to_kassi: "%{inviter} t'ha convidat a utilitzar el servei web Kassi de la comunitat %{community}"
-      info_about_kassi: "Kassi és un servei en el qual els membres d'una comunitat poden, per exemple, prestar-se, intercanviar i vendre productes, compartir viatges i ajudar-se mútuament de moltes formes diferents"
       here_is_a_message_from: "Tens un missatge personal de %{inviter}:"
-      you_can_join_kassi_using_invitation_code: "Aquest és el codi d'invitació que necessites per a unir-te a la comunitat: %{code}"
-      join_kassi_in: "Pots unir-te a Kassi a"
+      join_now: ~
+      invitation_code: ~
     new_badge:
       you_can_view_all_your_badges_in: "Pots veure les teves medalles a"
       you_have_achieved_a_badge: "Has rebut una medalla '%{badge_name}' dins de Kassi!"
     new_comment:
       has_commented_your_offer_in_kassi: "%{author} ha comentat la vostra oferta %{listing}"
       has_commented_your_request_in_kassi: "%{author} ha comentat la vostra sol·licitud %{listing}"
-      you_can_reply_to_comment_in: "Pots veure tots els comentaris i respondre'ls a"
+      view_comment: ~
       you_have_a_new_comment: "%{author} ha comentat la teva llista de Kassi"
       listing_you_follow_has_a_new_comment: "%{author} ha comentat un anunci que segueixes a Kassi"
       has_commented_offer_you_follow_in_kassi: "%{author} ha comentat la sol·licitud '%{listing}' que estàs seguint a Kassi"
       has_commented_request_you_follow_in_kassi: "%{author} ha comentat l'ferta'%{listing}' que estàs seguint a Kassi"
     new_message:
       conversation_title: "Títol de missatge: %{title}"
-      do_not_reply_to_this_email: "Nota: no responguis directament aquest correu. Utilitza l'enllaç de resposta que apareix a sobre."
+      view_message: ~
       has_sent_you_a_message_in_kassi: "%{sender} t'ha enviat un missatge a Kassi:"
-      you_can_reply_to_message_in: "Pots respondre el missatge a"
       you_have_a_new_message: "Tens un nou missatge a Kassi"
+    new_payment:
+      new_payment: ~
+      you_have_received_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} t'ha fet un suggeriment a Kassi"
       you_can_give_feedback_to: "Pots donar-li un suggeriment a %{name} en"
-      you_can_view_all_your_feedback_in: "Pots revisar tots els suggeriments que has rebut a"
+      view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "La llista que segueixes ha estat actualitzada"
       has_updated_offer_you_follow_in_kassi: "%{author} ha actualitzat la sol·licitud '%{listing}' que estàs siguint a Kassi"
       has_updated_request_you_follow_in_kassi: "%{author} ha actualizat l'oferta '%{listing}' que estàs seguint a Kassi"
-      you_can_view_the_changes_in: "Pots veure els canvis a"
+      view_changes: ~
     community_updates:
       added_offer: ~
       added_request: ~
@@ -428,11 +543,42 @@ ca:
       you_have_not_given_feedback_yet: |-
           Encara no has enviat un suggeriment a %{name} sobre l'esdeveniment '%{event}'.
           Recorda fer un suggeriment de com %{given_name} va actuar a l'esdeveniment.
+    welcome_email:
+      welcome_email_footer_text: ~
+      settings_link_text: ~
+      subject: ~
+      welcome_some_tips: ~
+      p_s_did_you_know: ~
+      click_here_link_text: ~
+      update_your_profile: ~
+      update_your_profile_link_text: ~
+      add_something_you_could_offer: ~
+      add_offer_link_text: ~
+      is_there_something_you_need: ~
+      add_request_link_text: ~
+      invite_your_friends_invite_only: ~
+      invite_your_friends: ~
+      invite_link_text: ~
+      member_list_link_text: ~
+      get_mobile_app: ~
+      app_store_link_text: ~
+      mobile_web_link_text: ~
+      go_explore: ~
+      love_team: ~
+      congrats_for_creating_community: ~
+      you_have_just_created_community: ~
+      you_now_have_admin_rights: ~
+      edit_community_details_link_text: ~
+      add_content: ~
+      spread_the_word: ~
+      spread_the_word_invite_only: ~
+      have_fun: ~
   error_messages:
     listings:
       departure_time: "L'hora de sortida ha desituar-se entre la data actual i un any a contar des d'avui."
       share_type: "Has de seleccionar almenys una de les caselles anteriors."
       valid_until: "La data ha de situar-se entre la data actual i un any a contar des d'avui."
+      price: ~
     testimonials:
       you_must_explain_not_neutral_feedback: "Si desitges fer un suggeriment no neutral has de raonar-lo"
       you_must_select_a_grade: "Recorda avaluar als usuaris clicant en una de les icones de sobre (pot veure les explicacions de cada icona passant el ratolí per sobre d'elles)"
@@ -484,13 +630,18 @@ ca:
       offer_partitive: ~
       request_partitive: ~
   header:
-    about: "Sobre Kassi"
+    about: Sobre
     community: Comunitat
     home: Inici
+    members: ~
+    new_listing: ~
     mobile_version: "Versió mòbil"
     offers: Ofertes
     requests: Sol·licituds
     search_kassi: Cerca
+    create_new_marketplace: ~
+    contact_us: ~
+    profile: ~
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "A més existeix <b>i aquesta altra oferta </b>,"
@@ -526,6 +677,16 @@ ca:
     event_feed:
       latest_events: ~
     index:
+      no_listings_notification: ~
+      available_on_the_app_store: ~
+      private_listing_notification: ~
+      open_listing: ~
+      open_listings: ~
+      private_listing_notification_log_in: ~
+      is: ~
+      are: ~
+      what_do_you_need: ~
+      post_new_listing: ~
       are_offering: ofereixen
       add_news_item: "Afegeix un article"
       inform_others_about_events: "Últims esdeveniments i notícies de la comunitat"
@@ -535,24 +696,23 @@ ca:
       news: Notícies
       no_news: "No hi ha cap notícia"
       more_news: "Més notícies"
-      offer_something: Ofereix!
-      offer_something_description: "Fes una llista de les coses i favors que pots oferir"
       or: i
       or_see_what_the_others: "...o mira el que la resta"
       recent_events: "Esdeveniments recents"
-      recent_offers: "El que la gent ofereix"
-      recent_requests: "El que la gent necessita"
-      request_something: Demana!
-      request_something_description: "Digues què és allò que necessites. Un objecte? Ajuda? Compartir viatge?"
       requesting: necessiten
       teaser_text: "Kassi és un servei per a la comunitat de %{community}. Pots prestar, llogar, regalar i vendre coses, fer i demanar favors o compartir viatges amb cotxe. Pots prestar alguna cosa a algú o ajudar-lo?"
       tell_it_here: "Diga-ho aquí!"
       welcome_to_new_kassi: "Benvingut al nou Kassi!"
     invitation_form:
       invite_your_friends: "Convida als teus amics a Kassi!"
+      invite_your_neighbors: ~
       email: "Adreça de correu electrònic del teu amic:"
       message: "Missatge personal:"
       send_invitation: "Enviar invitació"
+      add_as_many_emails_as_you_want: ~
+      invitation_emails_field_placeholder: ~
+      invitation_message_field_placeholder: ~
+      errors_in_emails: ~
     news_item:
       show_less: "Menys de"
       show_more: "Més de"
@@ -572,23 +732,34 @@ ca:
       please_offer: Oferta
       comment: ~
       comments: ~
-    sign_in:
-      recent_offers: "Què estan oferint els membres en aquest moment"
-      recent_requests: "Què necessiten els usuaris en aquest moment"
-      plus: "... .plus"
-      other_offer: "altra oferta"
-      other_offers: "altres ofertes"
-      other_request: "una altra sol·licitud"
-      other_requests: "altres sol·licituds"
+    filters:
+      show: ~
+      search: ~
+      map: ~
+      list: ~
+      all_listing_types: ~
+      all_categories: ~
+  infos:
+    about:
+      default_about_text_title: ~
+      default_about_text: ~
+      click_here_link_text: ~
   layouts:
+    no_tribe:
+      inbox: ~
+      settings: ~
+      feedback: ~
     admin:
       admin: "Panell d'administració de Kassi"
       back_to_kassi: "Tornar a Kassi"
+      tribe_info: ~
       news_items: "Nous articles"
       polls: Enquestes
     application:
-      default_feedback: "Suggereix una nova aplicació, informa d'un error, fes-nos arribar la teva opinió sobre el servei o simplement deixa'ns una nota dient-nos hola!"
+      join_this_community: ~
+      read_more: ~
       feedback: "Suggeriment a l'equip de Kassi"
+      default_feedback: "Suggereix una nova aplicació, informa d'un error, fes-nos arribar la teva opinió sobre el servei o simplement deixa'ns una nota dient-nos hola!"
       feedback_forum: "Fòrum de suggeriments"
       feedback_handle: Suggeriment
       give_feedback: "Fes un suggeriment"
@@ -598,7 +769,13 @@ ca:
       send_feedback_to_admin: "Enviar suggeriment"
       to_see_what_others_have_suggested: "per veure els suggeriments d'altres usuaris."
       your_email_address: "Correu electrònic (no obligatori)"
-      formerly_known_as_kassi: ~
+      connect: ~
+      invite_your_friends: ~
+      invite_your_neighbors: ~
+      invite_your_friends_description: ~
+      invite_your_friends_invite_only_description: ~
+      join_without_facebook: ~
+      join_without_facebook_link: ~
     conversations:
       messages: Missatges
       notifications: Notificacions
@@ -638,6 +815,9 @@ ca:
       settings: Opcions
       sign_up: Registre
     notifications:
+      something_went_wrong: ~
+      community_updated: ~
+      community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: "Compte creat correctament. A continuació hauràs de confirmar la teva adreça de correu electrònic."
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       avatar_upload_failed: "No s'ha pogut carregar l'avatar. Recordi que la foto ha de ser un arxiu .png, .jpg o .gif."
@@ -646,8 +826,7 @@ ca:
       comment_sent: "Comentari enviat"
       confirmation_link_is_wrong_or_used: "L'enllaç de confirmació ja s'ha utilitzat o s'ha trencat. Intenta iniciar sessió o contacta amb nosaltres si el problema continua."
       additional_email_confirmed: ~
-      create_new_offer: "Ofereixi alguna cosa més"
-      create_new_request: "Demano alguna cosa més"
+      create_new_listing: ~
       create_one_here: "Crear-ne un aquí"
       email_confirmation_sent_to_new_address: ~
       email_not_found: "No s'ha trobat el correu electrònic dins de la base de dades de Kassi"
@@ -662,6 +841,7 @@ ca:
       inviting_new_users_is_not_allowed_in_this_community: "Convidar a nous usuaris no està permès en aquesta comunitat"
       login_again: "Siusplau, torna a iniciar sessió"
       login_failed: "Error. Siusplau comprova que les dades són correctes."
+      account_creation_successful: ~
       login_successful: "Benvingut a Kassi, "
       logout_successful: "Benvingut de nou!"
       news_item_created: "Article creat"
@@ -670,13 +850,16 @@ ca:
       news_item_updated: "Article actualitzat"
       news_item_deleted: "Article suprimit"
       offer_accepted: "Oferta acceptada"
+      offer_confirmed: ~
       offer_closed: "Oferta finalitzada"
-      offer_created_successfully: "Oferta creada correctament"
+      listing_created_successfully: ~
       offer_rejected: "Oferta rebutjada"
-      offer_updated_successfully: "Oferta actualitzada correctament"
+      offer_canceled: ~
+      listing_updated_successfully: ~
       only_kassi_administrators_can_access_this_area: "Només els administradors poden accedir aquí"
       only_listing_author_can_close_a_listing: "Només el creador d'una llista pot tancar-la"
       only_listing_author_can_edit_a_listing: "Només el creador d'una llista pot editar"
+      payment_successful: ~
       password_recovery_sent: "Les instruccions per canviar la contrasenya s'han enviat a la teva adreça de correu electrònic."
       person_activated: "Usuari activat"
       person_deactivated: "Usuari desactivat"
@@ -693,10 +876,10 @@ ca:
       reply_cannot_be_empty: "No pots enviar un missatge buit"
       reply_sent: "Resposta enviada amb èxit"
       request_accepted: "Sol·licitud acceptada"
+      request_confirmed: ~
       request_closed: "Sol·licitud finalitzada"
-      request_created_successfully: "Sol·licitud creada correctament"
       request_rejected: "Sol·licitud rebutjada"
-      request_updated_successfully: "Sol·licitud actualitzada correctament"
+      request_canceled: ~
       message_sent: ~
       this_content_is_not_available_in_this_community: "Aquest contingut no està disponible en aquesta comunitat."
       unknown_error: "Error desconegut. Si us plau utilitza l'enllaç de suggeriments per donar-nos detalls del que ha succeït."
@@ -713,9 +896,8 @@ ca:
       you_have_already_given_feedback_about_this_event: "Ja has enviat un suggeriment sobre aquest esdeveniment"
       you_are_now_member: ~
       you_are_already_member: ~
-      you_must_log_in_to_create_new_offer: "Inicia sessió per a crear una nova oferta. Si no tens compte pots"
+      you_must_log_in_to_create_new_listing: ~
       additional_email_confirmed_dashboard: ~
-      you_must_log_in_to_create_new_request: "Inicia sessió per a crear una nova sol·licitud. Si no tens compte pots"
       you_must_log_in_to_give_feedback: "Iniciar sessió per a fer una suggerència"
       you_must_log_in_to_invite_new_users: "Cal que inicis sessió per convida a nous usuaris"
       you_must_log_in_to_send_a_comment: "Iniciar sessió per a comentar"
@@ -745,24 +927,20 @@ ca:
       wrote: ~
       send_private_message: ~
     comment_form:
+      ask_a_question: ~
       log_in: Registre
       send_comment: "Envia el comentari"
       to_send_a_comment: "Envia un nou comentari"
       write_comment: "Escriu un comentari nou"
-      you_cannot_send_a_new_comment_because_offer_is_closed: "No pots enviar un comentari nou perquè aquesta oferta ha finalitzat."
-      you_cannot_send_a_new_comment_because_request_is_closed: "No pots enviar un comentari nou perquè aquesta sol·licitud ha finalitzat."
+      you_cannot_send_a_new_comment_because_listing_is_closed: ~
       you_must: "Hauries de"
       subscribe_to_comments: "Avisa'm dels nous comentaris i actualitzacions"
     edit:
-      edit_offer: "Editar oferta"
-      edit_request: "Editar sol·licitud"
+      edit_listing: ~
     edit_links:
-      close_offer: "Tanca l'oferta"
-      close_request: "Tanca la sol·licitud"
-      edit_offer: "Editar oferta"
-      edit_request: "Editar sol·licitud"
-      reopen_offer: "Reobre l'oferta"
-      reopen_request: "Reobre la sol·licitud"
+      close_listing: ~
+      edit_listing: ~
+      reopen_listing: ~
     follow_links:
       follow: "Segueix aquest anunci"
       unfollow: "Deixa de segur aquest anunci"
@@ -797,12 +975,17 @@ ca:
         select_file: "Trieu el fitxer"
       location:
         location: Lloc
+      price:
+        price: ~
+        per: ~
+        mass: ~
+        time: ~
+        long_time: ~
       origin:
         location: Lloc
         origin: Origen
       send_button:
-        save_offer: "Desa l'oferta"
-        save_request: "Desa la sol·licitud"
+        save_listing: ~
       share_type:
         select: ~
         borrow: Prestar
@@ -816,6 +999,7 @@ ca:
         request_type: "Tipus de sol·licitud"
         sell: Venta
         share_for_free: ~
+        accept_for_free: ~
         trade: Intercanvi
       tag_list:
         comma_separate: "(separades per comes)"
@@ -827,15 +1011,19 @@ ca:
         housing_you_request: "Allotjament que necessites"
         item_you_offer: "Article que ofereixes"
         item_you_request: "Article que necessites"
+        listing_title: ~
       valid_until:
         valid_until: "Data de caducitat"
       valid_until_radio_buttons:
         for_the_time_being: "De moment"
       visibility:
-        communities: "Les meves comunitats Kassi"
-        everybody: Pública
+        all_communities: ~
         this_community: "Tan sols membres de %{community}"
         visibility: Visibilitat
+      privacy:
+        privacy: ~
+        private: ~
+        public: ~
     help_texts:
       help_share_type_title: "Tipus d'oferta o sol·licitud"
       help_tags_title: Etiquetes
@@ -876,13 +1064,23 @@ ca:
       rideshares: "Compartir cotxe"
       sells: Venta
       share_for_frees: ~
+      accept_for_frees: ~
       trades: Intercanvis
     link_labels:
+      offer_this: ~
+      request_this: ~
+      lend_this: ~
+      borrow_this: ~
+      buy_this: ~
+      rent_out_this: ~
+      rent_this: ~
+      sell_this: ~
       link_label_for_favor_offer: Contactar
       link_label_for_favor_request: Contactar
       link_label_for_housing_offer_sell: ~
       link_label_for_housing_offer_rent_out: ~
       link_label_for_housing_offer_share_for_free: ~
+      link_label_for_housing_request_accept_for_free: ~
       link_label_for_housing_request_buy: ~
       link_label_for_housing_request_rent: ~
       link_label_for_item_offer_lend: ~
@@ -897,21 +1095,8 @@ ca:
       link_label_for_item_request_trade: ~
       link_label_for_rideshare_offer: Contactar
       link_label_for_rideshare_request: Contactar
-      message_link_label_for_offer: ~
-      message_link_label_for_request: ~
-      message_link_label_for_item_offer_lend: ~
-      message_link_label_for_item_offer_rent_out: ~
-      message_link_label_for_item_offer_sell: ~
-      message_link_label_for_item_offer_give_away: ~
-      message_link_label_for_item_offer_trade: ~
-      message_link_label_for_housing_offer_sell: ~
-      message_link_label_for_housing_offer_rent_out: ~
-      message_link_label_for_housing_offer_share_for_free: ~
     listed_listing:
       edit: Editar
-    listed_listing_closed_status:
-      offer_is_closed: "Oferta tancada"
-      request_is_closed: "Sol·licitud tancada"
     listed_listings:
       loading_more_offers: "Carregant més ofertes"
       loading_more_requests: "Carregant més sol·licituds"
@@ -920,10 +1105,77 @@ ca:
       offer_something: "Ofereix alguna cosa!"
       request_something: "Demana alguna cosa!"
       search_returned_no_results: "La cerca no ha generat cap resultat"
+    new:
+      listing: ~
+      offer: ~
+      request: ~
+      selected_offer: ~
+      selected_request: ~
+      selected_listing_type: ~
+      selected_category: ~
+      selected_subcategory: ~
+      selected_share_type: ~
+      selected_item: ~
+      selected_favor: ~
+      selected_rideshare: ~
+      selected_housing: ~
+      selected_borrow: ~
+      selected_buy: ~
+      selected_give_away: ~
+      selected_lend: ~
+      selected_receive: ~
+      selected_rent: ~
+      selected_rent_out: ~
+      selected_sell: ~
+      selected_offer_to_swap: ~
+      selected_request_to_swap: ~
+      selected_share_for_free: ~
+      selected_accept_for_free: ~
+      how_do_you_want_to_share_it: ~
+      how_do_you_want_to_get_it: ~
+      item: ~
+      favor: ~
+      rideshare: ~
+      housing: ~
+      borrow: ~
+      buy: ~
+      give_away: ~
+      lend: ~
+      receive: ~
+      rent: ~
+      rent_out: ~
+      sell: ~
+      offer_to_swap: ~
+      request_to_swap: ~
+      share_for_free: ~
+      accept_for_free: ~
+      what_kind_of_item: ~
+      what_kind_of_favor: ~
+      what_kind_of_rideshare: ~
+      what_kind_of_housing: ~
+      which_subcategory: ~
+      tools: ~
+      sports: ~
+      music: ~
+      books: ~
+      games: ~
+      furniture: ~
+      outdoors: ~
+      food: ~
+      electronics: ~
+      pets: ~
+      film: ~
+      clothes: ~
+      garden: ~
+      travel: ~
+      other: ~
+      what_do_you_want_to_do: ~
+      what_can_you_offer: ~
+      what_do_you_need: ~
+      select_category: ~
     please_comment: Comentari
     reply_link:
-      offer_closed: "Oferta tancada"
-      request_closed: "Sol·licitud tancada"
+      listing_closed: ~
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
@@ -935,13 +1187,11 @@ ca:
       item_request_trade: ~
       no_description: "Sense descripció"
       offer: Oferta
-      offer_author: "Oferit per"
-      offer_created: "Oferta creada"
+      listing_created: ~
+      open_until: ~
       feedback: ~
       qr_code: "Codi QR"
       request: Sol·licitud
-      request_author: "Sol·licitud realitzada per"
-      request_created: "Sol·licitud creada"
       rideshare_offer: "Oferta de trajecte compartit"
       rideshare_request: "Sol·licitud de trajecte compartit"
       send_private_message: ~
@@ -984,7 +1234,24 @@ ca:
     member_id_is_your_username: "Tens que donar la teva identificació de membre de Omakotiliitto (jäsennumero) per a iniciar sessió. La teva identificació de membre és també el teu nom d'usuari que necessitaràs quan inicis sessió. Si encara no ets membre d'Omakotiliitto, pots"
     member_id_or_email: ~
     join_here: "Inicia sessió aquí."
+  payments:
+    new:
+      new_payment: ~
+      continue: ~
+      payment_receiver: ~
+      sum: ~
+      commission_will_be_added: ~
   people:
+    index:
+      loading_more_members: ~
+      meet_the_people: ~
+      you_are_the_only_member: ~
+      here_are_the_members: ~
+      wanna_see_more_folks: ~
+      invite_people_you_know: ~
+      there_are_x_members: ~
+      to_see_the_list_log_in: ~
+      log_in_link: ~
     badge_description:
       badge_achieved_at: "Has aconseguit una medalla "
       you_do_not_yet_have_this_badge: "Encara no has guanyat la medalla"
@@ -1017,8 +1284,6 @@ ca:
       family_name: "Cognoms:"
       given_name: "Nom:"
       i_accept_the: "Accepto la"
-      if_you_already_have_account_you_can: ~
-      join_with_your_existing_account: ~
       invalid_invitation_code: "El codi d'invitació no és vàlid"
       invitation_code: "Codi d'invitació:"
       not_required: ", no és necessari"
@@ -1030,6 +1295,8 @@ ca:
       username_is_invalid: "El nom d'usuari no és vàlid. Els caràcters permesos són lletres, números i guió baix."
       visible_only_to_you: "visible només per a tu i l'administrador de la comunitat"
       visible_to_everybody: "Visible per a tothom"
+      create_account_with_facebook: ~
+      or_create_new_account_without_facebook: ~
     not_member:
       explanation_text: "Actualment pertanys a la comunitat %{community}. Has intentat veure el perfil d'un usuari que pertany a una altra comunitat. De moment Kassi no permet que puguis ingressar en diverses comunitats simultàniament. Estem treballant en una opció que permeti accedir a més d'una comunitat al mateix temps. Aviat estarà disponible!"
       read_more_about_kassi_communities: "Llegir més sobre les comunitats Kassi"
@@ -1140,10 +1407,8 @@ ca:
       add_phone_number: "Afegir número de telèfon"
       address: "Ubicació:"
       as_expected: L'esperat
-      badges: Medalles
       edit_profile_info: "Edita la informació"
       exceeded_expectations: "Expectatives superades"
-      received_feedback: ~
       positive: ~
       hide_description: "Mostrar menys"
       joined_this_community: "...es va unir a la comunitat %{time_ago}"
@@ -1158,6 +1423,17 @@ ca:
       slightly_better_than_expected: "Ha superat les expectatives"
       slightly_less_than_expected: "Pitjor de l'esperat"
       what_are_these: "Què són aquests?"
+      review: ~
+      reviews: ~
+      badge: ~
+      badges: Medalles
+      open_listing: ~
+      open_listings: ~
+      no_open_listings: ~
+      no_reviews: ~
+      no_badges: ~
+      show_all_open_listings: ~
+      show_all_reviews: ~
       trustcloud: ~
   search:
     show:
@@ -1184,6 +1460,7 @@ ca:
       facebook_cancel_link_text: ~
       log_in_with_your_facebook_account: ~
       or_sign_up_with_your_username: ~
+      we_will_not_post_without_asking_you: ~
     password_forgotten:
       email: "Correu electrònic"
       password_recovery_instructions: "Escriu el teu correu electrònic per enviar-te el nom d'usuari i les instruccions per a realitzar el canvi de contrasenya."
@@ -1203,12 +1480,14 @@ ca:
       account_confirmation_instructions: ~
       account_confirmation_instructions_dashboard: ~
   settings:
+    settings_affect_all_tribes: ~
     account:
       change: Canviar
       confirm_new_password: "Confirmar nova contrasenya"
       delete_account: ~
       email: "Correu electrònic:"
       instructions_to_delete_account: ~
+      contact_admin: ~
       new_email: "Nou correu electrònic:"
       new_password: "Nova contrasenya"
       save: Desa
@@ -1217,10 +1496,12 @@ ca:
       add_avatar_submit: "Desa la imatge"
       update_profile_picture: "Actualitza la imatge de perfil"
     notifications:
+      email_from_admins: ~
       i_want_to_get_email_notification_when: "Desitjo rebre una notificació de correu electrònic quan..."
       newsletters: Butlletins
       community_updates: ~
       email_about_accept_reminders: "...he oblidat acceptar un esdeveniment"
+      email_about_confirm_reminders: ~
       email_about_new_badges: "...he obtingut una nova medalla"
       email_about_new_comments_to_own_listing: "...algú ha comentat la meva oferta o sol·licitud"
       email_about_new_messages: "...algú m'envia un missatge"
@@ -1232,6 +1513,9 @@ ca:
       email_newsletters: ~
       email_when_conversation_accepted: "...algú ha acceptat la meva oferta o sol·licitud"
       email_when_conversation_rejected: "...algú ha rebutjat la meva oferta o sol·licitud"
+      email_about_completed_transactions: ~
+      email_about_new_payments: ~
+      email_about_payment_reminders: ~
       unsubscribe_succesful: ~
       unsubscribe_info_text: ~
       settings_link: ~
@@ -1299,9 +1583,13 @@ ca:
       slightly_less_than_expected: "Una mica pitjor de l'esperat"
       textual_feedback: Suggeriment
       this_will_be_shown_in_profile: ~
+      positive: ~
+      negative: ~
+      default_textual_feedback: ~
     testimonial:
       from_user: "Des de"
       to_user: a
+      about_listing: ~
   time:
     formats:
       short: "%e %b %Y al %H:%M"

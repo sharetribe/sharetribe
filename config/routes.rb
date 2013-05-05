@@ -1,94 +1,44 @@
-require 'routes/subdomain'
+require 'routes/community_domain'
 require 'routes/api_request'
 
 Kassi::Application.routes.draw do
 
-  
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get :short
-  #       post :toggle
-  #     end
-  #
-  #     collection do
-  #       get :sold
-  #     end
-  #   end
-
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get :recent, :on => :collection
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => "welcome#index"
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))
-  
-  scope :module => "api", :constraints => ApiRequest do
-    resources :tokens, :only => :create
-    resources :listings do
-      resources :comments
-    end
-    resources :people do
-      resources :conversations do
-        member do
-          post :messages, :controller => :conversations, :action => "new_message"
-        end
-      end
-      resources :devices
-      resources :listings
-      resources :feedbacks, :controller => :testimonials
-      resources :badges
-    end
-
-    match '/' => 'dashboard#api'    
-  end
-  
   # Adds locale to every url right after the root path
   scope "(/:locale)" do
-
+    scope :module => "api", :constraints => ApiRequest do
+      resources :tokens, :only => :create
+      resources :listings do
+        resources :comments
+      end
+      resources :communities do
+        member do
+          get :classifications
+        end
+      end
+      resources :people do
+        resources :conversations do
+          member do
+            post :messages, :controller => :conversations, :action => "new_message"
+          end
+        end
+        resources :devices
+        resources :listings
+        resources :feedbacks, :controller => :testimonials
+        resources :badges
+      end
+      
+      match 'api_version' => "api#version_check"
+      match '/' => 'dashboard#api'    
+    end
+    
     devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people", :omniauth_callbacks => "sessions"}, :path_names => { :sign_in => 'login'} 
     devise_scope :person do  
       # these matches need to be before the general resources to have more priority
       get "/people/confirmation" => "confirmations#show", :as => :confirmation
+      put "/people/confirmation" => "confirmations#create"
       match "/people/password/edit" => "devise/passwords#edit"
       post "/people/password" => "devise/passwords#create"
       put "/people/password" => "devise/passwords#update"
@@ -100,11 +50,10 @@ Kassi::Application.routes.draw do
           get :check_email_availability
           get :check_email_availability_for_new_tribe
           get :check_email_availability_and_validity
-          get :check_email_validity
           get :check_invitation_code
           get :not_member
           get :cancel
-          post :create_facebook_based
+          get :create_facebook_based
         end
         member do 
           put :update_avatar
@@ -123,9 +72,12 @@ Kassi::Application.routes.draw do
             get :notifications
           end
           member do
-            put :accept
-            put :reject
-            put :cancel
+            get :accept
+            get :reject
+            get :confirm
+            get :cancel
+            put :acceptance
+            put :confirmation
           end
           resources :messages
           resources :feedbacks, :controller => :testimonials do
@@ -133,6 +85,13 @@ Kassi::Application.routes.draw do
               put :skip
             end  
           end
+          resources :payments do
+            member do
+              get :done
+            end
+            
+          end
+          
         end
         resource :settings do
           member do
@@ -143,7 +102,7 @@ Kassi::Application.routes.draw do
             get :unsubscribe
           end
         end
-        resources :invitations
+        resources :invitations # This could be removed, but now saved for a while to keep links in old emails working
         resources :badges
         resources :testimonials
         resources :poll_answers
@@ -156,8 +115,14 @@ Kassi::Application.routes.draw do
     end  
 
     namespace :admin do
-      resources :feedbacks
       resources :news_items
+      resources :communities do
+        member do
+          get :edit_details
+          get :edit_look_and_feel
+        end
+        resources :emails
+      end
       resources :polls do
         collection do
           get :add_option
@@ -169,6 +134,8 @@ Kassi::Application.routes.draw do
         end
       end
     end
+    resources :invitations
+    resources :user_feedbacks, :controller => :feedbacks
     resources :homepage do
       collection do
         get :sign_in
@@ -194,6 +161,7 @@ Kassi::Application.routes.draw do
         get :more_listings
         get :browse
         get :random
+        get :locations_json
       end
       resources :images, :controller => :listing_images
       resources :comments
@@ -204,7 +172,7 @@ Kassi::Application.routes.draw do
         get :about
         get :how_to_use
         get :terms
-        get :register_details
+        get :privacy
         get :news
       end  
     end
@@ -225,6 +193,7 @@ Kassi::Application.routes.draw do
     end
     resources :news_items
     resources :statistics
+    resources :organizations
   end
   
   # Some non-RESTful mappings
@@ -238,12 +207,8 @@ Kassi::Application.routes.draw do
   match '/:locale/admin' => 'admin/news_items#index', :as => :admin
   match '/badges/:style/:id.:format' => "badges#image"
   match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
-  match "/:locale/load" => "listings#load", :as => :load
-  match "/:locale/loadmap" => "listings#loadmap", :as => :loadmap
   match "/:locale/offers" => "listings#offers", :as => :offers
   match "/:locale/requests" => "listings#requests", :as => :requests
-  match "/:locale/offers/tag/:tag" => "listings#offers", :as => :offers_with_tag
-  match "/:locale/requests/tag/:tag" => "listings#requests", :as => :requests_with_tag
   match "/:locale/people/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
   #match "/:locale/people/:person_id/messages" => "conversations#received", :as => :reply_to_listing
   match "/:locale/listings/:id/reply" => "conversations#new", :as => :reply_to_listing
@@ -256,17 +221,16 @@ Kassi::Application.routes.draw do
   match "/:locale/signup/check_captcha" => "people#check_captcha", :as => :check_captcha
   match "/:locale/confirmation_pending" => "sessions#confirmation_pending", :as => :confirmation_pending
   match "/:locale/login" => "sessions#new", :as => :login
-  match "/change_locale" => "i18n#change_locale"
+  match "/change_locale" => "i18n#change_locale", :as => :change_locale
   match '/:locale/tag_cloud' => "tag_cloud#index", :as => :tag_cloud
   match "/:locale/offers/map/" => "listings#offers_on_map", :as => :offers_on_map
   match "/:locale/requests/map/" => "listings#requests_on_map", :as => :requests_on_map
-  match "/api/query" => "listings#serve_listing_data", :as => :listings_data
   match "/:locale/listing_bubble/:id" => "listings#listing_bubble", :as => :listing_bubble
   match "/:locale/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
   match '/:locale/:page_type' => 'dashboard#campaign'
   
   # Inside this constraits are the routes that are used when request has subdomain other than www
-  constraints(Subdomain) do
+  constraints(CommunityDomain) do
     match '/:locale/' => 'homepage#index'
     match '/' => 'homepage#index'
   end  

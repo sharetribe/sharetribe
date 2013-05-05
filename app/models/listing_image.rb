@@ -1,25 +1,15 @@
 class ListingImage < ActiveRecord::Base
-
+  
   belongs_to :listing
   
-  paperclip_options = {
-        :styles => { :medium => "300x640>", :thumb => "85x85#", :original => "640x640>", :email => "150x100#" },
-        :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
-        :url => "/system/:attachment/:id/:style/:filename"
-        }
-  if APP_CONFIG.s3_bucket_name && APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key
-    paperclip_options.merge!({
-      :path => "images/:class/:attachment/:id/:style/:filename",
-      :url => "/system/:class/:attachment/:id/:style/:filename",
-      :storage => :s3,
-      :s3_protocol => 'https',
-      :s3_credentials => {
-            :bucket            => APP_CONFIG.s3_bucket_name, 
-            :access_key_id     => APP_CONFIG.aws_access_key_id, 
-            :secret_access_key => APP_CONFIG.aws_secret_access_key 
-      }
-    })
-  end
+  paperclip_options = PaperclipHelper.paperclip_default_options.merge!({:styles => { 
+        :medium => "360x270#", 
+        :thumb => "120x120#", 
+        :original => "1600x1600>",
+        :big => "800x800>",
+        :email => "150x100#"
+  }})
+
   
   has_attached_file :image, paperclip_options
   validates_attachment_presence :image

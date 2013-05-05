@@ -1,22 +1,24 @@
+.feed-item.feed-request
+  .feed-author-avatar
+    = small_avatar_thumb(listing.organization_our_author?(@current_community))
+  .feed-content{:class => (listing.has_image? ? "content-with-image" : "")}
+    .author
+      = author_link(listing)
+      %time{datetime: "#{listing.created_at}"}= time_ago(listing.created_at)
+    %h2
+      = link_to listing.title, listing, :class => "listing-title"
+      = render :partial => "listings/share_type_link", :locals => { :listing => listing }
+    - unless listing.description.blank?
+      %small.feed-excerpt
+        = link_to ("\"#{truncate_html(listing.description, :length => 120, :omission => '...')}\""), listing
+    %small.feed-listing-icons
+      = render :partial => "listings/displayed_price", :locals => { :listing => listing }
+      - if listing.comments.size > 0
+        .icon-with-text-container
+          %a{href: listing_path(listing) + "#comments"}
+            %i.ss-chat.icon-part
+            .text-part= listing.comments.size
+  - if listing.has_image?
+    .feed-image
+      = link_to image_tag(listing.listing_images.first.image.url(:medium), :alt => listed_listing_title(listing)), listing
 
-.recent_listing
-  .listing_image
-    - unless listing.listing_images.empty?
-      = link_to (image_tag listing.listing_images.first.image.url(:thumb), :class => "listing_main_image", :alt => listing.title), listing_path(listing), :title => listed_listing_title(listing)
-    - else
-      %div{:class => "listing_image_#{listing.category}"}
-        %a{:href => listing_path(listing), :title => listed_listing_title(listing)}
-          %span{:class => "not_visible"}
-            a
-  .recent_listing_text
-    - listing_title = listed_listing_title(listing)
-    %h5= link_to listing_title, listing
-    %p.description_tall
-      = (listing.description.blank? ? t("listings.show.no_description") : truncate(listing.description, :length => 120, :omission => "..."))
-    .float_left
-      = link_to listing.author.given_name_or_username, listing.author
-      - if @current_community.show_date_in_listings_list
-        = time_ago(listing.created_at)
-    - if listing.comments.size > 0
-      .float_right
-        = link_to pluralize(listing.comments.size, t(".comment"), t(".comments")), (listing_path(listing) + "#comment_form")

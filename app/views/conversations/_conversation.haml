@@ -1,0 +1,28 @@
+- other_party = conversation.other_party(@current_user)
+- unless other_party.nil?
+  - last_message = conversation.last_message
+  .feed-item.inbox-feed-item{:class => (conversation.read_by?(@current_user) ? "" : "unread"), :id => "conversation_#{conversation.id.to_s}"}
+    .feed-author-avatar
+      = small_avatar_thumb other_party
+    .feed-content
+      .author
+        = render :partial => "conversation_with", :locals => { :conversation => conversation, :other_party => other_party }
+        = t("conversations.show.last_message_at", :time => time_ago(conversation.last_message_at))
+      %h2= link_to conversation.title, single_conversation_path(:conversation_type => action_name, :id => conversation.id), :id => "conversation_title_link_#{conversation.id.to_s}"
+      %small.feed-excerpt
+        - if last_message.sender.eql?(@current_user)
+          .ss-reply.conversation-icon
+          - if last_message.content.blank?
+            .conversation-text= t(".#{last_message.action}ed_#{last_message.conversation.discussion_type}").capitalize
+          - else
+            .conversation-text= link_to("\"#{truncate(last_message.content, :length => 100, :omission => "...")}\"", single_conversation_path(:conversation_type => action_name, :id => conversation.id))
+        - else
+          - if last_message.content.blank?
+            = t(".#{last_message.action}ed_#{last_message.conversation.discussion_type}").capitalize
+          - else
+            = link_to("\"#{truncate(last_message.content, :length => 100, :omission => "...")}\"", single_conversation_path(:conversation_type => action_name, :id => conversation.id))
+      - unless conversation.status.eql?("free")
+        %small
+          .listed-conversation-status-padding{:id => "conversation_#{conversation.id.to_s}_status"}
+            = render :partial => "status", :locals => { :conversation => conversation }
+      

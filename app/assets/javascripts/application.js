@@ -5,16 +5,16 @@
 // the compiled file.
 //
 //= require jquery
+//= require jquery-ui-1.9.2.custom
 //= require jquery_ujs
-//= require jquery.uniform.min
 //= require jquery.form
-//= require jquery.lightbox_me
-//= require jquery.validate.min
+//= require jquery.validate
 //= require jquery.pageless
 //= require jquery.autosize-min
-//= require jquery.watermark.min
-//= require jquery.tabSlideOut.v1.3
+//= require jquery.lightbox_me
+//= require infobubble
 //= require sharetribe_common
 //= require kassi
 //= require googlemaps
+//= require map_label
 //= require_self 

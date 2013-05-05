@@ -34,10 +34,9 @@ namespace :sharetribe do
                  :description =>  row[7],
                  :location =>     row[9].blank?  ? nil : random_location_around(row[9], "person"),
                  :confirmed_at=>  Time.now,
-                 :communities =>  [@community],
-                 :image => (image_path && File.exists?(image_path) ? File.new(image_path) : nil)
-                 
+                 :communities =>  [@community]                 
           )
+          p.update_attribute(:image, File.new(image_path)) if image_path && File.exists?(image_path)
           people_array << p
         end
       end
@@ -51,14 +50,17 @@ namespace :sharetribe do
           if image_path && File.exists?(image_path)
             image = ListingImage.new(:image => File.new(image_path))
           end
+          
+          category = Category.find_by_name(row[5].split(" ")[0].downcase)
+          share_type = ShareType.find_by_name(row[6].blank? ? row[4].downcase : row[6].downcase)
           l = Listing.create!(
                  :author =>       people_array[row[1]],
                  :title =>        row[2],
                  :description =>  row[3],
-                 :listing_type => row[4].downcase,
-                 :category =>     row[5].split(" ")[0].downcase,
-                 :share_type =>   row[6].blank? ? nil : row[6].downcase,
+                 :category =>     category,
+                 :share_type =>   share_type,
                  :visibility =>   row[7].downcase,
+                 :privacy =>      "public",
                  :location =>     row[9].blank?  ? nil : random_location_around(row[9], "origin_loc"),
                  :destination_loc => row[10].blank? ? nil : random_location_around(row[10], "destination_loc"),
                  :origin =>       row[11].blank? ? nil : row[11],
@@ -123,11 +125,11 @@ namespace :sharetribe do
       testimonials_sheet = spreadsheet.worksheet "Testimonials"
       testimonials_sheet.each 1 do |row|
            if row[2].present?
-              Testimonial.create(
+              Testimonial.create!(
                         :author =>  people_array[row[1]],
                         :receiver => people_array[row[2]],  
                         :text   =>  row[3],
-                        :grade   =>  row[4]/5.0,
+                        :grade   =>  row[4],
                         :participation => participations_array[row[5]]
 
               )
@@ -179,10 +181,28 @@ namespace :sharetribe do
     end
   end
   
+  
+  namespace :community_updates do
+    desc "Sends the community updates email to everyone who should receive it now"
+    task :deliver => :environment do |t, args|
+      PersonMailer.deliver_community_updates
+    end
+  end
+  
   def random_location_around(coordinate_string, location_type)    
     lat = coordinate_string.split(",")[0].to_f + rand*2*MAX_LOC_DIFF - MAX_LOC_DIFF
     lon =  coordinate_string.split(",")[1].to_f + rand*2*MAX_LOC_DIFF - MAX_LOC_DIFF
         
     Location.new(:latitude =>  lat, :longitude =>  lon, :location_type  => location_type, :address => "#{lat},#{lon}", :google_address => "#{lat},#{lon}")
+  end
+  
+  desc "Generates customized CSS stylesheets for all communities that have customizations"
+  task :generate_customization_stylesheets => :environment do
+    Community.generate_customization_stylesheets
+  end
+  
+  desc "Updates the Category and ShareType translations in DB based on the normal translation files"
+  task :update_categorization_translations => :environment do
+    CategoriesHelper.update_translations
   end
 end

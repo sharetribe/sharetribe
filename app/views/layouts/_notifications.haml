@@ -1,25 +1,7 @@
-:javascript
-  $(document).ready(function() { $('#close_notification_link').click(function() { $('#notifications').slideUp('fast'); }); });
-
-- container_class = (@current_community.private? && !logged_in?) ? "container_12" : "container_24"
-#notifications{:class => container_class}
-  - [:notice, :warning, :error, :info_message].each do |announcement|
-    - if flash[announcement]  
-      %div{:class => announcement.to_s}
-        .notification_text
-          - if flash[announcement].is_a?(Array)
-            - if flash[announcement][3]
-              = t(".#{flash[announcement][0]}", flash[announcement][3][0] => flash[announcement][3][1].capitalize)
-            - else
-              = t(".#{flash[announcement][0]}")
-            - link_text = flash[announcement][1].class.to_s.eql?("String") ? flash[announcement][1] : t(".#{flash[announcement][1]}")
-            = link_to(link_text, flash[announcement][2]) 
-          - else
-            - if flash[announcement].is_a?(String) && flash[announcement].strip.include?(" ")
-              / if the string looks like it's already translated (contains spaces) do not translate again
-              = flash[announcement]
-            -else
-              = t(".#{flash[announcement]}")
-        .close_notification_link  
-          = link_to "X", "#", :id => "close_notification_link"
-     
+- { :notice => "ss-check", :warning => "ss-info", :error => "ss-alert" }.each do |announcement, icon_class|
+  - if flash[announcement]
+    .flash-notifications{:class => "#{['listings', 'people'].include?(controller_name) && action_name.eql?('show') ? 'narrow-notification' : ''}"}
+      .flash-notification{:class => "flash-#{announcement.to_s}"}
+        .flash-icon{:class => icon_class}
+        .flash-text
+          = flash[announcement]

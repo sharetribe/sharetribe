@@ -1,12 +1,36 @@
 fr:
   admin:
-    badges:
-      index:
-        add_new_badge: "Ajouter un nouveau badge"
-        existing_badges: "Badges existants"
-        image: "Image du badge"
-        name: "Nom du badge"
-        save_badge: "Enregistrer le badge"
+    communities:
+      edit_details:
+        community_details: "Détails de la tribu"
+        community_look_and_feel: "Présentation et aspect de la tribu"
+        edit_community: "Modifier les détails de la tribu \"%{community_name}\""
+        community_name: "Nom de la tribu"
+        community_slogan: "Slogan de la tribu"
+        community_description: "Description de la tribu"
+        update_information: "Mettre les informations à jour"
+        invite_people: "Invitez des gens dans cette tribu"
+      edit_look_and_feel:
+        edit_community_look_and_feel: "Modifier la présentation et l'aspect de la tribu \"%{community_name}\""
+        community_logo: Logo
+        community_cover_photo: "Photo de couverture"
+        community_custom_color1: "Couleur principale"
+        logo_instructions_text: "Le logo sera redimensionné en carré de 192x192 pixels si nécessaire."
+        cover_photo_instructions_text: "La photo de couverture sera redimensionnée en 1600x195 pixels et les images trop grandes seront coupées."
+        custom_color1_instructions_text: "Vous pouvez changer la couleur principale de l'interface de cette tribu en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> peut vous aider à choisir cette valeur que pourrez alors copier."
+        invalid_color_code: "Le code de la couleur doit être une suite de 6 chiffres ou lettres (de A à F), par exemple D96E21"
+    emails:
+      new:
+        send_email_to_members: "Envoyer un email aux membres"
+        send_email_to_members_title: "Envoyez un email à tous les membres de cette tribu"
+        email_subject: "Objet de l'email"
+        email_content: "Contenu de l'email"
+        email_content_placeholder: "Que souhaitez vous dire aux autres membres ?"
+        email_language: "Langue des destinataires de l'email"
+        any_language: "Toutes les langues"
+        send_email: "Envoyez l'email"
+        message_will_be_sent_only_to_people_with_this_language: "Note : cette email ne sera envoyé qu'aux membres qui utilisent %{service_name} dans la langue que vous avez sélectionnée."
+        email_sent: "Email envoyé."
     news_items:
       index:
         news_items: "Articles les plus récents"
@@ -29,14 +53,14 @@ fr:
         create_poll: "Créer un sondage"
         no_polls: "Pas de sondage"
       edit_poll_links:
-        close_poll: Fermer
+        close_poll: Clore
         open_poll: Ouvrir
         edit_poll: Editer
         delete_poll: Supprimer
       new:
         add_option: "Ajouter un choix"
-        new_poll: "Créer un sondate"
-        edit_poll: "Editer le sondate"
+        new_poll: "Créer un sondage"
+        edit_poll: "Editer le sondage"
         title: "Titre :"
         save_poll: "Sauvegarder le sondage"
       new_option:
@@ -46,73 +70,132 @@ fr:
         open: Ouvrir
         closed: Fermé
       show:
-        edit_poll: "Editer l'article"
+        edit_poll: "Editer le sondage"
   common:
     default_community_slogan: "Prêter, aider, partager"
-    default_community_description: "%{service_name} est service sur lequel les membres des tribus auxquelles vous appartenez peuvent partager des objets, des services, des trajets et des lieux. Sans tarder, dites aux autres ce que vous proposez et recevez de l'aide quand vous en avez besoin."
+    default_community_description: "%{service_name} est service sur lequel les membres des tribus auxquelles vous appartenez peuvent partager des objets, des services, des covoiturages et des lieux. Sans tarder, dites aux autres ce que vous proposez et recevez de l'aide quand vous en avez besoin."
     cancel: Annuler
     fields_that_are_mandatory: "Les champs marqués d'un astérisque (*) sont obligatoires."
     or: ou
     password: "Mot de passe "
+    service_name: "%{service_name}"
     share_types:
-      borrow: "à emprunter "
-      buy: "à acheter "
-      give_away: "à donner "
-      lend: "à prêter "
-      receive: "accepter gratuitement "
-      rent: "cherche à louer "
-      rent_out: "à louer "
-      sell: "à vendre "
-      trade: "à échanger "
-      share_for_free: "à partager "
+      request: demande
+      offer: offre
+      borrow: "emprunt "
+      buy: "achat "
+      give_away: "don "
+      lend: "prêt "
+      receive: "récupération gratuite "
+      rent: "location "
+      rent_out: "location "
+      sell: "vente "
+      offer_to_swap: échange
+      request_to_swap: échange
+      share_for_free: "partage gratuit "
+      accept_for_free: "usage gratuit "
+    categories:
+      item: objets
+      favor: services
+      rideshare: covoiturage
+      housing: lieux
+      tools: outils
+      sports: sport
+      music: musique
+      books: "livres & magazines"
+      games: "jeux & jouets"
+      furniture: mobilier
+      outdoors: "plein air & extérieur"
+      food: "alimentation & cuisine"
+      electronics: "matériel électronique"
+      pets: animaux
+      film: "films & vidéos"
+      clothes: "vêtements & accessoires"
+      garden: jardin
+      travel: voyage
+      other: autre
     username: "Nom d'utilisateur "
     username_or_email: "Nom d'utilisateur ou e-mail"
     what_is_this: "Qu'est-ce que c'est ?"
   conversations:
+    accept:
+      respond_to_offer: "Répondre à une offre"
+      respond_to_request: "Répondre à une demande"
+      accept_offer: "Accepter l'offre"
+      accept_request: "Accepter la demande"
+      reject_offer: "Pas cette fois"
+      reject_request: "Pas cette fois"
+      close_listing: "Clore l'annonce %{listing_title_link}"
+      update_later: "Mettre à jour l'annonce plus tard"
+      optional_message: "Message complémentaire"
+      price_to_pay: "Montant total à payer"
+    confirm:
+      confirm_description: "Si votre demande a été satisfaite, vous pouvez la marquer comme réalisée. Vous pourrez alors donner un avis sur l'autre personne."
+      cancel_description: "Si votre demande n'a pas été satisfaite, vous pouvez la marquer comme \"non réalisée\". Vous pourrez toujours donner un avis sur l'autre personne et décrire ce qu'il s'est passé."
+      cancel_payed_description: "Si votre demande a été acceptée mais que vous changez d'avis, vous pouvez toujours l'annuler avant le paiement."
+      canceling_payed_transaction: "Annuler la transaction"
+      confirm: Réalisée
+      cancel: "Non réalisée"
+      continue: Continuer
+      give_feedback_to: "Donner un avis sur %{person_link}"
+      do_not_give_feedback: "Ne pas donner d'avis"
     index:
+      messages_from_all_tribes: "Voici les messages que vous avez échangés avec d'autres personnes dans toutes les tribus %{service_name} auxquelles vous appartenez."
       loading_more_messages: "Chargement de la suite des messages"
       message_partitive: message
       messages_partitive: messages
       no_received_messages: "Pas de messages reçus"
       no_sent_messages: "Pas de messages envoyés"
+    conversation:
+      accepted_request: "Demande acceptée."
+      accepted_offer: "Offre acceptée."
+      rejected_request: "Demande refusée."
+      rejected_offer: "Offre refusée."
+      confirmed_request: "Demande réalisée."
+      confirmed_offer: "Offre réalisée."
+      canceled_request: "Demande annulée."
+      canceled_offer: "Offre annulée."
+    message:
+      accepted_request: "a accepté la demande"
+      accepted_offer: "a accepté l'offre"
+      rejected_request: "a refusé la demande"
+      rejected_offer: "a refusé l'offre"
+      confirmed_request: "a marqué la demande comme réalisée"
+      confirmed_offer: "a marqué l'offre comme réalisée"
+      canceled_request: "a annulé la demande"
+      canceled_offer: "a annulé l'offre"
+      paid: "a payé %{sum}"
     new:
-      favor_offer_message_form_title: "Demander un service à"
-      favor_offer_message_title: "Demande de service : %{title}"
-      favor_request_message_form_title: "Proposer un service à"
-      favor_request_message_title: "Offre de service : %{title}"
-      housing_offer_message_form_title: "Répondre à"
-      housing_offer_message_title: "Répondre à votre annonce %{title}"
-      housing_request_message_form_title: "Répondre à"
-      housing_request_message_title: "Répondre à votre annonce %{title}"
-      item_offer_lend_message_form_title: "Emprunter %{listing} de %{person}"
-      item_offer_sell_message_form_title: "Acheter %{listing} de %{person}"
+      offer_message_form_title: "Proposer %{listing} à %{person}"
+      request_message_form_title: "Demander %{listing} à %{person}"
+      favor_offer_message_form_title: "Demander un service à %{person}"
+      favor_request_message_form_title: "Proposer un service à %{person}"
+      housing_offer_message_form_title: "Proposer un lieu à %{person}"
+      housing_request_message_form_title: "Demande de lieu de %{person}"
+      item_offer_lend_message_form_title: "Emprunter %{listing} à %{person}"
+      item_offer_sell_message_form_title: "Acheter %{listing} à %{person}"
       item_offer_give_away_message_form_title: "Obtenir %{listing} de %{person}"
       item_offer_trade_message_form_title: "Échanger %{listing} avec %{person}"
-      item_offer_rent_out_message_form_title: "Louer %{listing} de %{person}"
+      item_offer_rent_out_message_form_title: "Louer %{listing} à %{person}"
       item_request_borrow_message_form_title: "Prêter %{listing} à %{person}"
       item_request_buy_message_form_title: "Vendre %{listing} à %{person}"
-      item_request_take_for_free_message_form_title: "Donner  %{listing} à %{person}"
+      item_request_take_for_free_message_form_title: "Donner %{listing} à %{person}"
       item_request_trade_message_form_title: "Échanger %{listing} avec %{person}"
       item_request_rent_message_form_title: "Louer %{listing} à %{person}"
-      housing_offer_sell_message_form_title: "Acheter %{listing} de %{person}"
-      housing_offer_rent_out_message_form_title: "Louer %{listing} de %{person}"
+      housing_offer_sell_message_form_title: "Acheter %{listing} à %{person}"
+      housing_offer_rent_out_message_form_title: "Louer %{listing} à %{person}"
       housing_offer_share_for_free_message_form_title: "Demander %{listing} à %{person}"
+      housing_offer_accept_for_free_message_form_title: "Offre %{listing} à %{person}"
       housing_request_buy_message_form_title: "Vendre %{listing} à %{person}"
       housing_request_rent_message_form_title: "Louer %{listing} à %{person}"
-      item_offer_message_title: "Demande d'objet : %{title}"
-      item_request_message_form_title: "Offrir un objet à"
-      item_request_message_title: "Offre d'article : %{title}"
+      item_request_message_form_title: "Proposer un objet à %{person}"
       message: Message
-      rideshare_offer_message_form_title: "Demander un transport à"
-      rideshare_offer_message_title: "Demande de covoiturage : %{title}"
-      rideshare_request_message_form_title: "Proposer un transport à"
-      rideshare_request_message_title: "Offre de covoiturage : %{title}"
-      send_offer_message: "Envoyer l'offre"
-      send_request_message: "Envoyer la demande"
-      send_message: "Envoyer un message"
+      rideshare_offer_message_form_title: "Demander un covoiturage à %{person}"
+      rideshare_request_message_form_title: "Proposer un covoiturage à %{person}"
+      send_message: "Envoyer le message"
       this_message_is_private: "Ce message entre %{person} et vous est privé."
       you_will_get_notified_of_acceptance: "Vous recevrez une notification par e-mail lorsque %{person} acceptera ou refusera votre proposition."
-      you_will_get_notified: "Vous recevrez une notification par e-mail lorsque  %{person} vous répondra."
+      you_will_get_notified: "Vous recevrez une notification par e-mail lorsque %{person} vous répondra."
       title: Titre
       send_message_to_user: "Envoyer un message à %{person}"
     notifications:
@@ -133,36 +216,47 @@ fr:
         your_request: "votre demande"
       loading_more_notifications: "Chargement de plus de notifications"
       no_notifications: "Pas de notifications."
+      notifications_from_all_tribes: "Voici les notifications relatives à toutes les tribus auxquelles vous appartenez."
       testimonialnotification:
-        give_feedback_to: "Donner un avis pour %{name}"
+        give_feedback_to: "Donner un avis sur %{name}"
         has_given_you_feedback_on_event: "vous a donné un avis pour l'événement"
         see_all_the_feedback_you_have_received: "voir tous les avis reçus"
     show:
-      in_response_to_offer: "concernant l'offre"
-      in_response_to_request: "en réponse à la demande"
-      offer_sent_by: "Demande envoyée par"
-      offer_sent_to: "Offre envoyée à"
-      request_sent_by: "Offre envoyée par"
-      request_sent_to: "Demande envoyée à"
+      in_response_to_listing: "à propos de l'annonce"
+      message_sent_by: "Message envoyé par"
+      message_sent_to: "Message envoyé à"
       send_reply: "Envoyer une réponse"
-      write_a_reply: "Ecrire une réponse :"
+      write_a_reply: "Écrire une réponse :"
       conversation_about_listing: "Discussion avec %{person} à propos de %{listing}"
-      conversation_with_user: "Discussion avec %{person}."
+      conversation_with_user: "Discussion avec %{person}"
+      last_message_at: "(dernier message %{time})"
     status:
+      cancel_payed_transaction: Annuler
       feedback_given: "Avis donné"
-      feedback_skipped: "Pas d'avis"
+      feedback_skipped: "Pas d'avis donné"
       give_feedback: "Donner un avis"
-      offer_accepted: "Offre acceptée"
-      offer_rejected: "Offre rejetée"
-      request_accepted: "Demande acceptée"
-      request_rejected: "Demande rejetée"
-      skip_feedback: "Pas d'avis"
-      waiting_confirmation_from_listing_author: "En attente de la confirmation de l'auteur de l'annonce"
+      offer_accepted: Acceptée
+      offer_rejected: Rejetée
+      offer_canceled: Annulée
+      offer_confirmed: Terminée
+      pay: Payer
+      paid: "Paiement réussi"
+      request_accepted: Acceptée
+      request_rejected: Rejetée
+      request_confirmed: Terminée
+      request_canceled: Annulée
+      skip_feedback: "Ne pas donner d'avis"
+      waiting_for_listing_author_to_accept_offer: "En attente d'acceptation de l'offre par %{listing_author_name}"
+      waiting_for_listing_author_to_accept_request: "En attente d'acceptation de la demande par %{listing_author_name}"
+      waiting_confirmation_from_requester: "En attente de la confirmation par %{requester_name} de la réalisation"
+      waiting_payment_from_requester: "En attente du paiement par %{requester_name}"
     status_link:
-      accept_offer: "Accepter offre"
+      accept_offer: "Accepter l'offre"
       accept_request: "Accepter demande"
-      reject_offer: "Rejeter offre"
-      reject_request: "Rejeter demande"
+      reject_offer: "Pas cette fois"
+      reject_request: "Pas cette fois"
+      confirm: Réalisée
+      cancel: "Non réalisée"
   communities:
     map_bubble:
       view_tribe: "Voir la tribu"
@@ -181,12 +275,12 @@ fr:
       we_will_contact_you_about_invoicing: "Nous allons vous contacter rapidement par email à propos de nos tarifs."
     index:
       find_your_local_tribe: "Trouvez une tribu proche de vous"
-      or_start_your_own: "... ou %{start_your_own_tribe_link}"
+      or_start_your_own: "...ou %{start_your_own_tribe_link}"
       start_your_own_tribe_link: "créez la votre !"
     select_pricing_plan:
       select_your_plan: "Choisissez votre offre"
       pick_one_of_the_options_below: "Sélectionnez une des options ci-dessous."
-      create_for_free: "Créer votre tribu"
+      create_for_free: "Créer gratuitement"
       contact_us: "Nous contacter"
       free_plan: "Offre gratuite"
       max_members: "Jusqu'à %{number} membres"
@@ -197,7 +291,7 @@ fr:
       unlimited_members: "Nombre illimité de membres"
       intranet_integration: "Intégration à votre intranet"
       no_charge: "Entièrement gratuit"
-      euros_per_month_premium: "150 euros par mois"
+      euros_per_month_premium: "%{price} euros par mois"
       custom_domain: "Nom de domaine personnalisé"
       you_can_change_and_cancel: "Vous pouvez annuler ou changer d'offre à tout moment."
       we_help_you_get_started: "Nous aidons à la promotion"
@@ -224,9 +318,9 @@ fr:
       domain_invalid: "Le domaine ne peut contenir que des lettres, des nombres, des tirets bas (\"_\") et des tirets hauts (\"-\")."
       domain_taken: "Cette tribu existe déjà. Vous devez choisir un autre nom."
       address: "Emplacement de votre tribu"
-      select_main_language_of_your_tribe: "Choisissez la langue de votre tribu"
+      select_main_language_of_your_tribe: "Choisissez la langue principale de votre tribu"
       language: Langue
-      restrict_tribe_to_invited_people: "Les utilisateurs ont besoin d'une invitation pour rejoindre cette tribu."
+      restrict_tribe_to_invited_people: "Les utilisateurs ont besoin d'une invitation pour rejoindre cette tribu"
     signup_form:
       create_an_account: "Créer votre compte personnel"
       to_create_a_tribe_you_must_first_create_sharetribe_account: "Vous pouvez créer un nouveau compte sur Sharetribe ci-dessous ou bien"
@@ -242,7 +336,7 @@ fr:
       confirm_your_password: "Confirmez votre mot de passe"
       email_in_use_message: "Un compte avec cette adresse email existe déjà pour %{service_name}. Si vous avez déjà un compte, vous pouvez vous connecter en cliquant ci-dessous."
       invalid_email_ending_message: "Cela ressemble à une adresse email personnelle. Vous devez vous inscrire avec votre email %{community_category}."
-      log_in_here: "Se connecter"
+      log_in_here: "se connecter"
       existing_community_with_this_email: "Il existe déjà une tribu pour %{community_category}. Vous pouvez rejoindre la tribu : %{link}."
       here: ici
       for_company: entreprise
@@ -255,25 +349,28 @@ fr:
       for_other: autre
   community_memberships:
     new:
-      join_community: "Rejoindre la communauté '%{community}'"
-      you_are_not_a_member_of_this_community: "Vous avez un compte sur %{service_name}, mais vous n'êtes pas encore membre de la communauté %{service_name} '%{community}'."
-      you_can_join: "Vous pouvez rejoindre cette communauté en acceptant les conditions d'utilisation et en cliquant sur 'Rejoindre la communauté' ci-dessous."
-      you_can_join_email_confirmation: "Pour rejoindre cette communauté, vous devez avoir une adresse email valide qui se termine par %{email_ending}. Complétez votre adresse email, acceptez les conditions d'utilisation de cette communauté puis cliquez sur 'Rejoignez la communauté' ci-dessous."
-      you_can_join_email_confirmation_multiple_addresses: "Pour rejoindre cette communauté, vous devez avoir une adresse email valide qui se termine par %{email_endings}. Complétez votre adresse email, acceptez les conditions d'utilisation de cette communauté puis cliquez sur 'Rejoignez la communauté' ci-dessous."
-      you_can_join_with_invite_only: "Vous devez être invité par un autre membre pour rejoindre cette communauté. Si vous avez ce code, entrez le ci-dessous, acceptez les conditions d'utilisation de cette communauté puis cliquez sur 'Rejoignez la communauté' ci-dessous."
-      if_want_to_view_content: "Pour voir le contenu de cette communauté sans la rejoindre, vous devez"
+      welcome_fb_user: "Bienvenue sur %{service_name}, %{name} !"
+      fb_join_accept_terms: "Il ne reste plus qu'une étape avant de rejoindre cette tribu : vous devez accepter les conditions d'utilisation."
+      join_community: "Rejoindre la tribu '%{community}'"
+      you_are_not_a_member_of_this_community: "Vous avez un compte sur %{service_name}, mais vous n'êtes pas encore membre de la tribu %{service_name} '%{community}'."
+      you_can_join: "Vous pouvez rejoindre cette tribu en acceptant les conditions d'utilisation et en cliquant sur 'Rejoindre la tribu' ci-dessous."
+      you_can_join_email_confirmation: "Pour rejoindre cette tribu, vous devez avoir une adresse email valide qui se termine par %{email_ending}. Complétez votre adresse email, acceptez les conditions d'utilisation de cette tribu puis cliquez sur 'Rejoignez la tribu' ci-dessous."
+      you_can_join_email_confirmation_multiple_addresses: "Pour rejoindre cette tribu, vous devez avoir une adresse email valide qui se termine par %{email_endings}. Complétez votre adresse email, acceptez les conditions d'utilisation de cette tribu puis cliquez sur 'Rejoignez la tribu' ci-dessous."
+      you_can_join_with_invite_only: "Vous devez être invité par un autre membre pour rejoindre cette tribu. Si vous avez un code d'invitation, entrez le ci-dessous, acceptez les conditions d'utilisation de cette tribu puis cliquez sur 'Rejoignez la tribu' ci-dessous."
+      if_want_to_view_content: "Pour voir le contenu de cette tribu sans la rejoindre, vous devez"
       log_out: "vous déconnecter"
-      join_community_button: "Rejoindre la communauté"
+      join_community_button: "Rejoindre la tribu"
   dashboard:
     api:
       coming_soon: "Bientôt ..."
     index:
+      watch_the_video: "Regardez la vidéo"
       get_started: "LANCEZ VOUS !"
       browse_communities_around_you: "rejoignez une tribu près de vous"
       slogan: "Partagez autour de vous."
       create_your_own: "Créez votre"
-      sharing_website: "SITE DE PARTAGE"
-      main_description: "Mettez facilement en place un service où les membres de votre tribu pourront partager des objets, des services, des trajets dans un esprit de confiance."
+      sharing_website: "site de partage"
+      main_description: "Mettez facilement en place un service où les membres de votre tribu pourront partager des objets, des services, des covoiturages dans un esprit de confiance. C'est gratuit et rapide à créer !"
       kassi_for_your_company: "...POUR VOTRE ENTREPRISE"
       kassi_for_your_company_description: "Envie de rendre votre entreprise plus sociale et connectée ? Envie d'aider les employés à mieux se connaître les uns les autres ? Envie de réduire votre empreinte écologique et devenir une entreprise plus verte ? %{service_name} est la solution."
       kassi_for_your_city: "...POUR VOTRE QUARTIER"
@@ -283,10 +380,10 @@ fr:
       want_kassi_for_your_community: "Envie d'avoir %{service_name} pour votre communauté ?"
       email_default_text: "Votre adresse email"
       send: "Envoyer !"
-      or_drop_us_a_line: "... ou laissez nous un message :"
-      thanks_for_contacting_us: "Merci de nous avoir contacté ! Nous allons vous envoyer des informations sur la création de votre communauté %{service_name} très bientôt."
+      or_drop_us_a_line: "...ou laissez nous un message : "
+      thanks_for_contacting_us: "Merci de nous avoir contacté ! Nous allons vous envoyer des informations sur la création de votre tribu %{service_name} très bientôt."
       resources: RESSOURCES
-      connect: "RETROUVEZ NOUS"
+      connect: "RESTONS CONNECTÉS"
       about: "A PROPOS DE SHARETRIBE"
       developers: "POUR LES DÉVELOPPEURS"
       api: API
@@ -294,44 +391,56 @@ fr:
       code: "Code source"
       issue_tracker: "Gestionnaire de tickets"
       product_of: "%{service_name} est un produit de"
-      language: "Langue :"
+      language: "Langue : "
       new: "NOUVEAU !"
       new_text: "%{service_name} est désormais accessible pour <a href=\"http://www.kassi.eu/en/wdc\">les voisinages d'Helsinki et Lahti</a> et pour <a href=\"http://www.kassi.eu/en/okl\">les membres de SuomenOmakotiliitto</a> !"
       want_to_know_more: "Envie d'en savoir plus ? %{read_our_faq_link} ou %{contact_us_link}"
       read_our_faq: "Lisez notre FAQ"
       contact_us: "contactez nous"
       why_you_really_should_have_a_tribe: "Pourquoi vous devriez vraiment avoir une tribu"
-      an_example: "Un exemple :"
+      an_example: "Un exemple : "
       home: Accueil
       faq: FAQ
       browse_tribes: "Parcourir les tribus"
       pricing: Tarifs
       contact: Contact
       university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Tribu de l'université d'Aalto</a>"
-      company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/en\">Tribu High Tech Center de Keilaniemi en Finlande</a>"
+      company_example_link: "<a href=\"https://if.sharetribe.com/en\">Sharetribe de IF</a>"
       city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Tribu de Kallio à Helsinki, Finlande</a>"
   emails:
     accept_reminder:
-      offer_accusative: offre
-      remember_to_accept_listing: "N'oubliez pas d'accepter %{listing_type}, même si l'événement a déjà eu lieu. Le fait de l'accepter donne aux participants la possibilité de s'évaluer entre eux. Les avis positifs que vous recevez seront visibles dans votre profil aux autres utilisateurs de %{service_name}. Cela vous donnera plus de crédibilité aux yeux des autres utilisateurs et les assurera également du bon déroulement des transactions à venir. Les bons avis vous aideront aussi à obtenir des badges."
       remember_to_accept_offer: "N'oubliez pas d'accepter ou de rejeter une offre"
       remember_to_accept_request: "N'oubliez pas d'accepter ou de rejeter une demande"
-      request_accusative: demande
       you_can_accept_or_reject_offer_at: "Vous pouvez accepter ou rejeter l'offre à"
       you_can_accept_or_reject_request_at: "Vous pouvez accepter ou rejeter la demande à"
-      you_have_not_yet_accepted_or_rejected_offer: "Vous n'avez pas encore accepté ou rejeté l'offre '%{title}' reçue le %{date}."
-      you_have_not_yet_accepted_or_rejected_request: "Vous n'avez pas encore accepté ou rejeté la demande '%{title}' reçue le %{date}."
-    badge_migration_notification:
-      badge_description1: "Sur %{service_name}, vous pouvez gagner plusieurs badges différents en récompense de vos activités dans le service. Vous gagnez des badges pour avoir ajouté des offres ou des demandes, pour avoir fait des commentaires sur le contenu des autres ainsi que pour tout type d'échange de ressources (vendre ou emprunter des articles, rendre service, organiser un covoiturage, etc...) et pour le fait d'utiliser le service d'une façon active. Notez que vous obtenez des badges uniquement pour les échanges pour lesquels vous avez reçu un avis positif."
-      badge_description2: "Un utilisateur ayant obtenu beaucoup de badges est susceptible d'être actif, fiable et apprécié des autres utilisateurs. Prêtez et empruntez un grand nombre d'objets, rendez service, faites du covoiturage et collectionnez toute la série des badges %{service_name} !"
-      you_have_received_badges: "Vous avez obtenu des badges sur %{service_name} !"
-      you_have_received_badges_in_kassi: "Vous avez gagné des badges sur %{service_name}. Pour voir les badges obtenus, connectez-vous sur %{service_name} et allez sur"
+      you_have_not_yet_accepted_or_rejected_offer: "Vous n'avez pas encore accepté ou refusé l'offre %{title} reçue %{date}."
+      you_have_not_yet_accepted_or_rejected_request: "Vous n'avez pas encore accepté ou refusé la demande %{title} reçue %{date}."
+      show_thread: "Voir la conversation"
+    confirm_reminder:
+      you_have_not_yet_confirmed_or_canceled_request: "Vous n'avez pas encore confirmé ou annulé la demande %{request_link} que vous avez reçu %{date} de %{other_party_full_name}. Si la demande a été satisfaite, vous devriez la marquer comme réalisée. Vous pourrez ensuite donner un avis sur %{other_party_given_name}."
+      remember_to_confirm_request: "Rappel de confirmation ou d'annulation d'une demande"
+      if_will_not_happen_you_should_cancel: "Si vous pensez que cette demande ne sera pas réalisée pour une raison ou une autre, vous pouvez %{cancel_it_link}."
+      cancel_it_link_text: l'annuler
+    payment_reminder:
+      remember_to_pay: "Rappel de paiement pour %{listing_title}"
+      you_have_not_yet_paid: "Vous n'avez pas encore payé pour %{listing_title} que %{other_party_name} a accepté de vous proposer."
+      if_will_not_happen_you_should_cancel: "Si vous pensez que cette demande ne sera pas réalisée pour une raison ou une autre, vous pouvez %{cancel_it_link}."
+      cancel_it_link_text: l'annuler
+    transaction_confirmed:
+      here_is_a_message_from: "Voici un message de %{other_party_given_name} : "
+      request_marked_as_confirmed: "Demande réalisée - n'oubliez pas de déposer un avis"
+      request_marked_as_canceled: "Demande annulée"
+      has_marked_request_as_confirmed: "%{other_party_full_name} a marqué la demande à propos de '%{request}' comme réalisée. Vous pouvez désormais donner un avis sur %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} a annulé la demande à propos de '%{request}'. Vous pouvez malgré tout donner un avis sur %{other_party_given_name}."
+      giving_feedback_is_good_idea: "Donner un avis est toujours une bonne idée. Si tout s'est bien passé, vous devriez signaler aux autres que %{other_party_given_name} est quelqu'un de confiance. S'il y a eu un problème, c'est aussi une bonne chose de le mentionner."
+      give_feedback_to: "Donner un avis sur %{other_party_given_name}"
     confirmation_instructions:
-      confirmation_instructions_signature: "Meilleures salutations, <br/> L'équipe de %{service_name}"
+      confirmation_instructions_signature: "Cordialement, <br/> L'équipe de %{service_name}"
       welcome_to_kassi: "Bienvenue sur %{service_name} !"
-      need_to_confirm: "Avant de commencer à utiliser %{service_name}, vous devez confirmer votre adresse email avec le lien suivant :"
+      need_to_confirm: "Vous devez confirmer votre adresse email."
       confirmation_link_text: "confirmer mon inscription"
-      turning_on_confirmations_in_this_community: "Nous commençons à utiliser les email de confirmations dans cette communauté de %{service_name}."
+      or_paste_link: "Vous pouvez également copier le lien suivant dans la barre d'adresse de votre navigateur : "
+      turning_on_confirmations_in_this_community: "Nous commençons à utiliser les email de confirmation dans cette tribu %{service_name}."
     common:
       check_your_settings: "Vérifiez vos paramètres"
       hey: "Bonjour %{name},"
@@ -342,57 +451,63 @@ fr:
       edit_your_email_settings_here: "Gérer vos paramètres d'email ici"
       message_not_displaying_correctly: "Cet email ne s'affiche pas correctement ?"
       view_it_in_your_browser: "Voir dans votre navigateur."
+      or: ou
+      unsubscribe_from_these_emails: "désabonnez-vous de ces d'emails"
+    community_starter_email:
+      subject: "Découvrez le nouveau Sharetribe - fin de la limite en nombre de membres, présentation et aspect des tribus modifiables et bien d'autres choses"
     conversation_status_changed:
-      has_accepted_your_offer: "%{accepter} a accepté votre offre concernant la demande %{listing}"
-      has_accepted_your_request: "%{accepter} a accepté votre demande concernant l'offre %{listing}"
-      has_rejected_your_offer: "%{accepter} a rejeté votre offre concernant la demande %{listing}"
-      has_rejected_your_request: "%{accepter} a rejeté votre demande concernant l'offre %{listing}"
-      you_can_view_the_offer_in: "Pour visionner votre offre et les commentaires liés, aller à"
-      you_can_view_the_request_in: "Pour visionner votre demande et les commentaires liés, aller à"
+      has_accepted_your_offer: "%{accepter} a accepté votre offre %{listing}"
+      has_accepted_your_request: "%{accepter} a accepté votre demande %{listing}"
+      has_rejected_your_offer: "%{accepter} a refusé votre offre %{listing}."
+      has_rejected_your_request: "%{accepter} a refusé votre demande %{listing}."
+      view_thread: "Voir la conversation"
       your_offer_was_accepted: "Votre offre a été accepté"
       your_offer_was_rejected: "Votre offre a été rejetée"
       your_request_was_accepted: "Votre demande a été acceptée"
       your_request_was_rejected: "Votre demande a été rejetée"
+      you_can_now_pay_to: "Vous pouvez maintenant payer le montant demandé à %{payment_receiver}."
+      pay_now: "Payer maintenant"
     invitation_to_kassi:
       hi: "Bonjour !"
-      you_have_been_invited_to_kassi: "%{inviter} vous a invité à utiliser le service %{service_name} de la communauté %{community}."
-      info_about_kassi: "%{service_name} est un service où les membres de communautés peuvent, par exemple, prêter, échanger et vendre des objets, faire du covoiturage et s'aider les uns les autres de plusieurs façons."
+      you_have_been_invited_to_kassi: "%{inviter} vous a invité à rejoindre la tribu %{community}."
       here_is_a_message_from: "Voici un message personnel de %{inviter} :"
-      you_can_join_kassi_using_invitation_code: "Voici le code d'invitation dont vous avez besoin pour rejoindre le service : %{code}"
-      join_kassi_in: "Vous pouvez rejoindre %{service_name} via"
+      join_now: Rejoindre
+      invitation_code: "Code d'invitation : %{code}"
     new_badge:
-      you_can_view_all_your_badges_in: "Vous pouvez visionner tous vos badges à"
+      you_can_view_all_your_badges_in: "Voir tous vos badges"
       you_have_achieved_a_badge: "Vous avez gagné un badge '%{badge_name}' sur %{service_name} !"
     new_comment:
-      has_commented_your_offer_in_kassi: "%{author} a fait un commentaire sur votre offre %{listing}"
-      has_commented_your_request_in_kassi: "%{author} a fait un commentaire sur votre demande %{listing}"
-      you_can_reply_to_comment_in: "Vous pouvez voir tous les commentaires et y répondre à"
-      you_have_a_new_comment: "%{author} a fait un commentaire sur votre annonce sur %{service_name}"
-      listing_you_follow_has_a_new_comment: "%{author} a commenté un listing que vous suivez dans %{service_name}"
+      has_commented_your_offer_in_kassi: "%{author} a déposé un commentaire sur votre offre %{listing}."
+      has_commented_your_request_in_kassi: "%{author} a déposé un commentaire sur votre demande %{listing}."
+      view_comment: "Voir le commentaire"
+      you_have_a_new_comment: "%{author} a déposé un commentaire sur votre annonce sur %{service_name}"
+      listing_you_follow_has_a_new_comment: "%{author} a commenté une annonce que vous suivez dans %{service_name}"
       has_commented_offer_you_follow_in_kassi: "%{author} a commenté la demande '%{listing}' que vous suivez dans %{service_name}"
-      has_commented_request_you_follow_in_kassi: "%{author} a commenté l'offre '%{listing}' que vous suivez dans %{service_name}"
+      has_commented_request_you_follow_in_kassi: "%{author} a commenté l'offre '%{listing}' que vous suivez sur %{service_name}."
     new_message:
       conversation_title: "Titre du fil de messages : %{title}"
-      do_not_reply_to_this_email: "Merci de ne pas répondre à cet email. Pour répondre, veuillez utiliser le lien dessus."
-      has_sent_you_a_message_in_kassi: "%{sender} vous a envoyé un message sur %{service_name} :"
-      you_can_reply_to_message_in: "Pour répondre au message, aller à"
+      view_message: "Voir le message"
+      has_sent_you_a_message_in_kassi: "%{sender} vous a envoyé un message sur %{service_name}."
       you_have_a_new_message: "Vous avez un nouveau message sur %{service_name}"
+    new_payment:
+      new_payment: "Vous avez reçu un nouveau paiement"
+      you_have_received_new_payment: "Vous avez été payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> par %{payer_full_name}. Vous pouvez désormais donner ou réaliser %{listing_title} à %{payer_given_name}."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} vous a donné un avis sur %{service_name}"
-      you_can_give_feedback_to: "Pour donner un avis pour %{name}, aller à"
-      you_can_view_all_your_feedback_in: "Vous pouvez voir tous vos avis reçus à"
+      you_can_give_feedback_to: "Vous n'avez pas encore donné un avis sur %{name}."
+      view_feedback: "Voir l'avis"
     new_update_to_listing:
-      listing_you_follow_has_been_updated: "Bla bla bla test"
+      listing_you_follow_has_been_updated: "Une annonce que vous suivez a été mise à jour"
       has_updated_offer_you_follow_in_kassi: "%{author} a mis à jour la demande '%{listing}' que vous suivez dans %{service_name}"
       has_updated_request_you_follow_in_kassi: "%{author} a mis à jour l'offre '%{listing}' que vous suivez dans %{service_name}"
-      you_can_view_the_changes_in: "Vous pouvez voir les changements de"
+      view_changes: "Voir les modifications"
     community_updates:
-      added_offer: "a ajouté une offre : "
-      added_request: "a ajouté une demande : "
+      added_offer: "%{name_link} a ajouté une offre : "
+      added_request: "%{name_link} a ajouté une demande : "
       update_mail_title: "Actualités de la tribu %{title_link}"
-      title_link_text: "%{community_name} %{service_name}"
+      title_link_text: "%{community_name}"
       intro_paragraph: "Voici une partie de ce qu'il s'est passé dans la tribu %{community_link} depuis %{time_since_last_update}."
-      intro_paragraph_link_text: "%{community_name} %{service_name}"
+      intro_paragraph_link_text: "%{community_name}"
       could_you_share_something: "Avez-vous quelque chose à partager ?"
       do_you_need_help_with_anything: "Avez-vous besoin d'un service ?"
       post_a_new_listing: "Déposez une annonce !"
@@ -424,13 +539,44 @@ fr:
       reset_password_instructions: "<p>Vous avez déclaré avoir oublié votre nom d'utilisateur et/ou votre mot de passe pour %{service_name}.</p><p>Votre nom d'utilisateur est : %{username}</p><p>Si vous souhaitez réinitialiser votre mot de passe, cliquez ici : %{password_reset_link}</p><br/><p>Si vous n'avez fait aucune demande, ignorez simplement cet email. Votre mot de passe ne sera pas modifié tant que vous ne cliquez pas sur le lien ci-dessus et en créez un nouveau.</p>"
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Les avis sont publics et visibles à tous les autres utilisateurs. En fonction des avis reçus, les autres utilisateurs peuvent décider de faire ou pas confiance à %{name} et d'engager des transactions avec cette personne. Il est donc important de toujours donner un avis à la fin de chaque transaction et de rappeler aux autres participants de vous en donner un. C'est également grâce aux avis positifs que vous obtiendrez la plupart des badges."
-      remember_to_give_feedback_to: "Rappel : n'oubliez pas de donner un avis pour %{name}"
-      you_have_not_given_feedback_yet: "Vous n'avez pas encore donné d'avis à %{name} pour la transaction '%{event}'. N'oubliez pas de donner un avis sur la façon dont %{given_name} a agi lors de la transaction."
+      remember_to_give_feedback_to: "Rappel : n'oubliez pas de donner un avis sur %{name}"
+      you_have_not_given_feedback_yet: "Vous n'avez pas encore donné d'avis sur %{name} suite à l'annonce '%{event}'. N'oubliez pas de donner un avis sur la façon dont %{given_name} a agi lors de la transaction."
+    welcome_email:
+      welcome_email_footer_text: "Quels types d'emails souhaitez vous recevoir de la part de %{service_name} ? %{settings_link}"
+      settings_link_text: "Vérifiez vos paramètres"
+      subject: "Bienvenue dans la tribu %{community} - voici quelques astuces pour bien commencer"
+      welcome_some_tips: "Bienvenue dans la tribu %{community_link} ! Voici quelques astuces pour bien commencer."
+      p_s_did_you_know: "PS : saviez-vous que vous pouvez créer une place de marché comme celle ci pour toutes les communautés auxquelles vous appartenez, gratuitement ? %{click_here_link} pour en savoir plus !"
+      click_here_link_text: "Cliquez ici"
+      update_your_profile: "<strong>Mettez à jour votre profil.</strong> Ajouter votre vrai nom, mettre votre photo et dire quelques mots à propos de vous permettra de vous faire plus confiance. Ajouter vos informations de contact vous rendra la vie plus facile car vous n'aurez plus à le faire manuellement à chaque fois que vous déposez une annonce. %{update_profile_link}."
+      update_your_profile_link_text: "Mettez à jour votre profil en cliquant ici"
+      add_something_you_could_offer: "<strong>Proposez quelque chose aux autres membres de %{service_name}.</strong> Pouvez-vous prêter votre perceuse, votre raquette de tennis ou votre appareil à raclette ? Savez-vous coudre, monter des meubles ou réparer des ordinateurs ? Y a t-il des objets dans vos placards dont vous aimeriez vous séparer ? %{add_offer_link}"
+      add_offer_link_text: "Proposez les sur %{service_name} !"
+      is_there_something_you_need: "<strong>Avez-vous besoin de quelque chose ?</strong> Peut-être aimeriez vous partager un trajet ? Ou emprunter des outils ? Ou bien avez besoin de quelqu'un qui pourrait promener votre chien ? La première chose à faire est de regarder sur %{service_name} : peut-être que quelqu'un propose déjà ce dont vous avez besoin. Si vous ne trouvez pas d'offre adaptée, vous pouvez %{add_request_link}."
+      add_request_link_text: "créez une nouvelle demande"
+      invite_your_friends_invite_only: "<strong>Passez le mot.</strong> Plus il y a de personnes sur %{service_name}, plus cela sera utile à tous. Cette tribu %{service_name} est \"sur invitation uniquement\", les gens doivent donc avoir une invitation d'un autre membre pour la rejoindre. Connaissez-vous des personnes qui pourraient être intéressées ? Donnez leur accès à %{service_name} %{invite_link}. Si vous voulez voir qui est déjà membre, %{member_list_link}."
+      invite_your_friends: "<strong>Passez le mot.</strong> Plus il y a d'utilisateurs sur %{service_name}, plus la tribu sera utile à tous. Connaissez-vous des gens qui pourraient vous rejoindre ? Parlez leur de %{service_name} %{invite_link} ou en leur envoyant ce lien : %{url}. Si vous voulez voir qui est déjà présent, %{member_list_link}."
+      invite_link_text: "en utilisant le formulaire d'invitation"
+      member_list_link_text: "regardez la liste des membres"
+      get_mobile_app: "<strong>Téléchargez notre application mobile.</strong> Saviez-vous que vous pouvez utiliser %{service_name} sur votre smartphone ? C'est encore plus simple d'ajouter des annonce en prenant des photos de ce que vous possédez et de voir ce que les autres proposent autour de vous. Si vous avez un iPhone, vous pouvez %{app_store_link}. Si vous utilisez Android ou Windows Phone, %{mobile_web_link}."
+      app_store_link_text: "télécharger l'app depuis l'App Store"
+      mobile_web_link_text: "regardez notre site mobile adapté"
+      go_explore: "<strong>Explorez !</strong> Regardez ce que les autres offrent et demandent déjà sur %{service_name}. Peut-être trouverez vous quelque chose dont vous avez besoin. Peut-être pourrez vous aider quelqu'un d'autre. Profitez en !"
+      love_team: "Love,<br /><i>L'équipe %{service_name}</i>"
+      congrats_for_creating_community: "Vous avez créé la tribu %{community} - voici quelques astuces pour bien démarrer"
+      you_have_just_created_community: "Vous avez créé la tribu %{community_link} ! Voici quelques astuces pour bien démarrer avec cette nouvelle tribu."
+      you_now_have_admin_rights: "<b>Vous avez désormais les droits d'administration de cette tribu.</b> Cela signifie que vous pouvez, par exemple, éditer les informations et l'aspect de la tribu. C'est d'ailleurs sûrement la première chose que vous souhaitez faire. %{edit_community_details_link}. Si vous souhaitez donner les droits d'administration à quelqu'un d'autre, contactez nous en répondant à cet email."
+      edit_community_details_link_text: "Modifiez les paramètres de la tribu en cliquant ici"
+      add_content: "<strong>Ajoutez du contenu.</strong> Le meilleur moyen de lancer la machine est d'ajouter des annonces vous même. Ainsi, quand de nouvelles personnes arriveront, elle verront tout de suite que quelque chose se passe. Pouvez-vous prêter votre perceuse, votre raquette de tennis ou votre appareil à raclette ? Savez-vous coudre, monter des meubles ou réparer des ordinateurs ? Y a t-il des objets dans vos placards dont vous aimeriez vous séparer ? %{add_offer_link} Si vous avez besoin de quelque chose, %{add_request_link}."
+      spread_the_word: "<strong>Passez le mot.</strong> Pour avoir de nouveaux membres dans la tribu, vous devez en parler aux gens que vous connaissez. Voici quelques idées : 1) Parlez de %{service_name} sur une mailing list. 2) Partagez le lien suivant via Facebook, Twitter ou d'autres réseaux sociaux : %{url}. 3) Envoyez des emails d'invitation %{invite_link}. 4) Parlez en autour de vous quand vous rencontrez des gens, faites marcher le bouche à oreille."
+      spread_the_word_invite_only: "<strong>Passez le mot.</strong> Vous avez décidé de rendre cette tribu \"sur invitation uniquement\". Les gens doivent donc avoir une invitation d'un autre membre pour la rejoindre. Ainsi, pour avoir de nouveaux membres dans la tribu, vous devez les inviter. Vous pouvez le faire %{invite_link}."
+      have_fun: "Amusez vous et profitez de %{service_name}. Puisse votre tribu vivre et prospérer pour longtemps !"
   error_messages:
     listings:
       departure_time: "L'heure de départ doit être comprise entre l'heure actuelle et dans un an."
       share_type: "Vous devez cocher au moins une des cases ci-dessus."
       valid_until: "Cette date doit être comprise entre aujourd'hui et dans un an."
+      price: "Le prix doit être un nombre entier positif."
     testimonials:
       you_must_explain_not_neutral_feedback: "Si vous souhaitez donner un avis non-neutre, veuillez expliquer pourquoi."
       you_must_select_a_grade: "Pensez à évaluer l'utilisateur en cliquant sur l'une des icônes ci-dessus (pour voir les explications des icônes, déplacer la souris sur elles)"
@@ -449,10 +595,10 @@ fr:
     error_description: "Description d'erreur"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript est désactivé dans votre navigateur"
-      kassi_does_not_currently_work_without_javascript: "Pour le moment, %{service_name} ne fonctionne pas sans JavaScript. Essayez d'activer javascript à partir des préférences de votre navigateur puis rechargez cette page. Si vous souhaitez utiliser %{service_name} sans javascript, veuillez nous envoyer vos commentaires en utilisant le formulaire ci-dessous."
+      kassi_does_not_currently_work_without_javascript: "%{service_name} ne fonctionne pas correctement sans JavaScript. Essayez d'activer javascript à partir des préférences de votre navigateur puis rechargez cette page."
       kassi_does_not_currently_work_without_javascript_dashboard: "Malheureusement, %{service_name} ne fonctionne pas sans Javascript. Activez Javascript dans les réglages de votre navigateur et rechargez la page. Si vous souhaitez utiliser %{service_name} sans Javascript, %{contact_us}."
       contact_us: "nous contacter"
-      send_feedback: "Envoyer commentaires"
+      send_feedback: "Envoyer votre commentaire"
       your_feedback_to_admins: "Vos commentaires aux administrateurs"
     send: Envoyer
     your_email_address: "Votre adresse email"
@@ -472,7 +618,7 @@ fr:
       has_accepted_rent_out_housing: "%{offerer_name} a accepté de louer %{listing_title} à %{requester_name} il y a %{time_ago}."
       has_accepted_rent_housing: "%{offerer_name} a accepté de louer %{listing_title} à %{requester_name} il y a %{time_ago}."
       has_accepted_favor: "%{offerer_name} a accepté d'offrir %{listing_title} à %{requester_name} il y a %{time_ago}."
-      has_accepted_rideshare: "%{offerer_name} a accepté de partager un trajet %{listing_title} avec %{requester_name} il y a %{time_ago}."
+      has_accepted_rideshare: "%{offerer_name} a accepté de partager un covoiturage %{listing_title} avec %{requester_name} il y a %{time_ago}."
     join:
       joined_kassi: "%{name} a rejoint %{community_name} %{service_name} il y a %{time_ago}."
     login:
@@ -483,12 +629,17 @@ fr:
       request_partitive: demande
   header:
     about: "A propos"
-    community: Communauté
+    community: Tribu
     home: Accueil
+    members: Tribu
+    new_listing: "Nouvelle annonce"
     mobile_version: "Version mobile"
     offers: Offres
     requests: Demandes
     search_kassi: "Chercher sur %{service_name}"
+    create_new_marketplace: "Créer une nouvelle tribu"
+    contact_us: "Nous contacter"
+    profile: Profil
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Il y a aussi <b>une autre offre</b>,"
@@ -500,7 +651,7 @@ fr:
       but_that_is_visible_only_to_registered_members: "mais elle est visible uniquement aux membres enregistrés."
       but_those_are_visible_only_to_registered_members: "mais elles sont visibles uniquement aux membres enregistrés."
       create_new_account_for_yourself: "Créez un nouveau compte"
-      examples_of_what_you_could_offer_to_others: "Que pourriez-vous offrir aux autres"
+      examples_of_what_you_could_offer_to_others: "Que pourriez-vous proposer aux autres"
       examples_of_what_you_could_request_to_others: "Que pourriez-vous demander aux autres"
       favor_offer_list: "maintenance informatique, réparation de vêtements et de vélos, pâtisserie"
       favor_request_list: "baby-sitting, cours de piano, promener les chiens, tondre la pelouse"
@@ -524,6 +675,16 @@ fr:
     event_feed:
       latest_events: "Que se passe t-il"
     index:
+      no_listings_notification: "Il y a moins de 10 annonces en ligne dans cette tribu. Pouvez-vous prêter votre perceuse, votre raquette de tennis ou votre appareil à raclette ? Savez-vous coudre, monter des meubles ou réparer des ordinateurs ? Y a t-il des objets dans vos placards dont vous aimeriez vous séparer ? Ou bien aimeriez-vous faire un covoiturage ? Ou emprunter des outils ? Ou trouver quelqu'un qui pourrait promener votre chien ? Ajoutez des annonces sur %{service_name} !"
+      available_on_the_app_store: "Disponible sur l'app store"
+      private_listing_notification: "Il y a %{listing_count} annonces disponibles dans cette tribu. %{private_listing_count} d'entre elles ne %{be_verb} visible(s) qu'aux membres de la tribu. Si vous voulez les voir visibles uniquement par les membres, vous devez vous %{log_in_link}."
+      open_listing: "annonce en ligne"
+      open_listings: "annonces en lignes"
+      private_listing_notification_log_in: connecter
+      is: est
+      are: sont
+      what_do_you_need: "De quoi avez-vous besoin ?"
+      post_new_listing: "Déposer une annonce"
       are_offering: offrent
       add_news_item: "Ajouter un article"
       inform_others_about_events: "Dernières actualités et évènements dans la tribu."
@@ -533,24 +694,23 @@ fr:
       news: Actualités
       no_news: "Pas d'actualités"
       more_news: "Plus d'actualités"
-      offer_something: "Listez vos objets et vos compétences !"
-      offer_something_description: "Ajoutez des objets, compétences, etc que vous pouvez proposer"
-      or: ou
+      or: et
       or_see_what_the_others: "...ou regardez ce que les autres"
       recent_events: "Evénements les plus récents"
-      recent_offers: "Ce que proposent les autres"
-      recent_requests: "Ce dont les autres ont besoin"
-      request_something: "Demandez ce dont vous avez besoin !"
-      request_something_description: "Dites aux autres si vous avez besoin d'un objet, de covoiturage ou d'aide"
       requesting: demandent
-      teaser_text: "%{service_name} est un service pour la communauté %{community}. Ici vous pouvez prêter, louer, donner et vendre des objets, donner et recevoir de l'aide ou organiser des covoiturages. Y a-t-il quelque chose que vous pourriez prêter aux autres ou avec quoi vous pourriez les aider ?"
+      teaser_text: "%{service_name} est un service pour la tribu %{community}. Ici vous pouvez prêter, louer, donner et vendre des objets, donner et recevoir de l'aide ou organiser des covoiturages. Y a-t-il quelque chose que vous pourriez prêter aux autres ou avec quoi vous pourriez les aider ?"
       tell_it_here: "Dites-le ici !"
       welcome_to_new_kassi: "Bienvenue sur la nouvelle version de %{service_name} !"
     invitation_form:
-      invite_your_friends: "Invitez vos amis sur %{service_name}"
-      email: "L'adresse email de votre ami :"
-      message: "Message personnel :"
-      send_invitation: "Envoyer l'invitation"
+      invite_your_friends: "Inviter vos amis sur %{service_name}"
+      invite_your_neighbors: "Invitez vos voisins sur %{service_name} !"
+      email: "Adresse(s) email"
+      message: "Votre message"
+      send_invitation: "Envoyer l' (les) invitation(s)"
+      add_as_many_emails_as_you_want: "Ajoutez la ou les adresse(s) des gens que vous souhaitez inviter, ci-dessous. Si vous ajoutez plusieurs adresses, séparez les par une virgule."
+      invitation_emails_field_placeholder: "ami1@exemple.fr, ami2@exemple.fr, ..."
+      invitation_message_field_placeholder: "J'ai rejoint cette super tribu. Tu devrais aussi !"
+      errors_in_emails: "Validez que les emails sont valides et séparés par une virgule."
     news_item:
       show_less: Réduire
       show_more: Développer
@@ -567,36 +727,53 @@ fr:
       you_have_not_added_your_info: "Vous n'avez pas ajouté d'informations de contact. N'hésitez pas à le faire afin que les autres membres puissent vous joindre facilement. Vous pouvez également ajouter une photo de vous : il sera ainsi plus simple de vous faire confiance."
       add_your_info_link: "Ajoutez vos informations maintenant"
     recent_listing:
-      please_offer: Offrir
+      please_offer: Offre
       comment: commentaire
       comments: commentaires
-    sign_in:
-      recent_offers: "Ce que les membres offrent actuellement"
-      recent_requests: "Ce dont les membres ont besoin actuellement"
-      plus: "... plus"
-      other_offer: "autre offre"
-      other_offers: "autres offers"
-      other_request: "autre demande"
-      other_requests: "autres demandes"
+    filters:
+      show: "Filtrer : "
+      search: Chercher
+      map: "Voir sur la carte"
+      list: "Voir la liste"
+      all_listing_types: "Tous les types d'annonces"
+      all_categories: "Toutes les catégories"
+  infos:
+    about:
+      default_about_text_title: "Qu'est ce que Sharetribe ?"
+      default_about_text: "Ce site a été créé grâce à la plate-forme Sharetribe. Avec Sharetribe, chacun peut créer sa propre place de marché pour sa tribu. Aimeriez-vous créer un site comme celui-ci pour votre communauté ? C'est gratuit et cela ne prend que quelques minutes. %{click_here_link} pour en savoir plus !"
+      click_here_link_text: "Cliquez ici"
   layouts:
+    no_tribe:
+      inbox: "Boîte de réception"
+      settings: Paramètres
+      feedback: "Nous contacter"
     admin:
       admin: "Panneau administrateur %{service_name}"
       back_to_kassi: "Retour à la page d'accueil de %{service_name}"
-      news_items: "Nouveaux articles"
+      tribe_info: "Informations de base de la tribu"
+      news_items: Actualités
       polls: Sondages
     application:
-      default_feedback: "Proposer une nouvelle fonctionnalité, signaler un bug, donnez votre opinion sur le service ou laissez-nous juste un mot pour dire bonjour !"
+      join_this_community: "Rejoindre la tribu"
+      read_more: "Lire la suite"
       feedback: "Vos commentaires pour l'équipe de %{service_name}"
+      default_feedback: "Vous avez rencontré un problème sur %{service_name} ? Vous souhaitez proposer une nouvelle fonctionnalité ? Vous avez remarqué une annonce suspecte ? Ou vous voulez juste discuter avec nous ? Dites le nous !"
       feedback_forum: "forum de discussion"
       feedback_handle: Commentaires
-      give_feedback: "Faites vos commentaires sur %{service_name}"
-      keywords: "%{service_name}, service, article, objet, transport, covoiturage, logement, hébergement, aide, aide, offre, demande, location, affaires, échange, achat, vente, acheter, vendre, don, donner, Kassi, écologique, communauté, communauté en ligne"
+      give_feedback: "Nous contacter"
+      keywords: "%{service_name}, service, article, objet, transport, covoiturage, logement, hébergement, aide, aide, offre, demande, location, affaires, échange, achat, vente, acheter, vendre, don, donner, Kassi, écologique, communauté, communauté en , tribu"
       meta_description: "%{service_name} est un service qui aide les membres d'associations et d'autres communautés à se rendre service, à se vendre et prêter des objets, à organiser des covoiturages et à s'entraider de plusieurs autres façons."
-      or_check_our: "...ou consultez notre"
-      send_feedback_to_admin: "Envoyer commentaires"
-      to_see_what_others_have_suggested: "pour voir ce que les autres ont suggéré."
-      your_email_address: "Votre adresse email (non-obligatoire)"
-      formerly_known_as_kassi: "anciennement Kassi"
+      or_check_our: "... ou consultez notre"
+      send_feedback_to_admin: "Envoyer votre commentaire"
+      to_see_what_others_have_suggested: "pour voir ce que les autres ont suggéré et votez pour vos fonctionnalités préférées."
+      your_email_address: "Votre adresse email (non obligatoire)"
+      connect: S'inscrire
+      invite_your_friends: "Invitez des amis !"
+      invite_your_neighbors: "Invitez vos voisins !"
+      invite_your_friends_description: "Plus il y a de gens sur %{service_name}, plus cela est utile et efficace."
+      invite_your_friends_invite_only_description: "Les utilisateurs ne peuvent rejoindre cette tribu sans y avoir été invité."
+      join_without_facebook: "...ou bien %{join_without_facebook_link}"
+      join_without_facebook_link: "inscrivez-vous sans Facebook"
     conversations:
       messages: Messages
       notifications: Notifications
@@ -605,11 +782,11 @@ fr:
     dashboard:
       title: "%{service_name} - Partagez des objets, des services et des transports avec votre tribu locale !"
     infos:
-      about: "Qu'est-ce que c'est ?"
-      how_to_use: "Comment ça marche ?"
-      info_about_kassi: "Informations sur %{service_name}"
+      about: "A propos"
+      how_to_use: Aide
+      info_about_kassi: "Informations à propos de %{service_name}"
       news: Actualités
-      register_details: "Détails de registre"
+      register_details: "Vie privée"
       terms: "Conditions d'utilisation"
     logged_in:
       admin: Admin
@@ -636,45 +813,51 @@ fr:
       settings: Paramètres
       sign_up: S'inscrire
     notifications:
+      something_went_wrong: "Quelque chose s'est mal passé."
+      community_updated: "La mise à jour des informations de la tribu a réussi."
+      community_update_failed: "La mise à jour des informations de la tribu a échoué."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Compte créé avec succès. Vous devez à présent confirmer votre adresse email."
-      community_joined_succesfully_you_still_need_to_confirm_your_email: "Vous êtes désormais membre de cette communauté. Il vous reste à confirmer votre adresse email."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Vous êtes désormais membre de cette tribu. Il vous reste à confirmer votre adresse email."
       avatar_upload_failed: "Le chargement de l'image de profil a échoué. Les formats d'image acceptés sont : .png, .jpg ou .gif."
-      avatar_upload_successful: "Téléchargement d'image du profil réussi."
+      avatar_upload_successful: "Envoi de l'image du profil réussi"
       comment_cannot_be_empty: "Commentaire ne peut pas être vide"
       comment_sent: "Commentaire envoyé"
       confirmation_link_is_wrong_or_used: "Le lien de confirmation est déjà utilisé ou se trouve en panne. Essayez de vous connecter ou contactez-nous si le problème persiste."
-      additional_email_confirmed: "L'adresse email que vous avez entré est confirmé. Vous pouvez désormais rejoindre la communauté."
-      create_new_offer: "Offrir autre chose"
-      create_new_request: "Demander autre chose"
+      additional_email_confirmed: "Votre adresse email est désormais confirmée."
+      create_new_listing: "Créer une autre annonce"
       create_one_here: "en créer un ici"
       email_confirmation_sent_to_new_address: "Un email de confirmation est envoyé à la nouvelle adresse."
-      email_not_found: "L'email que vous avez donné est introuvable dans la base de données de %{service_name}."
+      email_not_found: "L'email que vous avez fourni est introuvable dans la base de données de %{service_name}."
       error_with_session: "Erreur avec la session."
-      feedback_considered_spam: "Commentaire n'a pas pu être enregistré en raison de sa mise en forme. Essayez à nouveau ou utiliser le forum de discussion."
-      feedback_not_saved: "Commentaire n'a pas pu être envoyé."
-      feedback_saved: "Merci pour vos commentaires !"
-      feedback_sent_to: "Avis envoyé à"
-      feedback_skipped: "Pas d'avis"
-      invitation_cannot_be_sent: "L'invitation n'a pas pu être envoyée"
-      invitation_sent: "L'invitation a été envoyée"
-      inviting_new_users_is_not_allowed_in_this_community: "Inviter de nouveaux utilisateurs n'est pas autorisé dans la communauté %{service_name}"
+      feedback_considered_spam: "Le commentaire n'a pas pu être enregistré en raison de sa mise en forme. Essayez à nouveau ou utilisez le forum de discussion."
+      feedback_not_saved: "Le commentaire n'a pas pu être envoyé."
+      feedback_saved: "Merci pour votre commentaire ! Si vous avez laissé votre email, nous vous répondrons dès que possible."
+      feedback_sent_to: "Avis envoyé à %{target_person}."
+      feedback_skipped: "Pas d'avis donné"
+      invitation_cannot_be_sent: "L' (les) invitation(s) n'a (n'ont) pas pu être envoyée(s)"
+      invitation_sent: "L' (les) invitation(s) a (ont) été envoyée(s)"
+      inviting_new_users_is_not_allowed_in_this_community: "Inviter de nouveaux utilisateurs n'est pas autorisé dans la tribu %{service_name}"
       login_again: "Merci de vous reconnecter."
-      login_failed: "Échec de la connexion. Veuillez saisir les identifiants corrects."
-      login_successful: "Bienvenue sur %{service_name}, "
-      logout_successful: "Vous avez été déconnecté de %{service_name}. Bienvenue à nouveau !"
+      login_failed: "La connexion a échoué. Veuillez saisir vos identifiants."
+      account_creation_successful: "Bienvenue sur %{service_name}, %{person_name} !"
+      login_successful: "Bienvenue, %{person_name} !"
+      logout_successful: "Vous avez été déconnecté de %{service_name}. Bienvenue de nouveau !"
       news_item_created: "Article créé"
       news_item_creation_failed: "Erreur lors de la création de l'article"
       news_item_update_failed: "Erreur lors de la mise à jour de l'article"
       news_item_updated: "Article mis à jour"
       news_item_deleted: "Article supprimé"
       offer_accepted: "Offre acceptée"
+      offer_confirmed: "Offre confirmée"
       offer_closed: "Offre fermée"
-      offer_created_successfully: "Offre créée avec succès."
+      listing_created_successfully: "Annonce créée avec succès. %{new_listing_link}."
       offer_rejected: "Offre rejetée"
-      offer_updated_successfully: "Offre mise à jour avec succès"
-      only_kassi_administrators_can_access_this_area: "Seuls les administrateurs de %{service_name} peuvent accéder à ce domaine"
-      only_listing_author_can_close_a_listing: "Seul l'auteur de l'annonce peur la fermer"
+      offer_canceled: "Offre annulée"
+      listing_updated_successfully: "Annonce mise à jour avec succés"
+      only_kassi_administrators_can_access_this_area: "Seuls les administrateurs de %{service_name} peuvent accéder à ces pages"
+      only_listing_author_can_close_a_listing: "Seul l'auteur de l'annonce peut la clore"
       only_listing_author_can_edit_a_listing: "Seul l'annonce de liste peut la modifier"
+      payment_successful: "Paiement réussi"
       password_recovery_sent: "Les instructions pour réinitialiser votre mot de passe ont été envoyées à votre adresse email."
       person_activated: "Utilisateur activé"
       person_deactivated: "Utilisateur désactivé"
@@ -687,19 +870,19 @@ fr:
       poll_updated: "Sondage mis à jour"
       poll_deleted: "Sondage supprimé"
       read_more: "Lire la suite !"
-      registration_considered_spam: "L'inscription n'a pas fonctionné. Envoyez nous un feedback (via le menu à gauche) en ajoutant le message \"email2 error\"."
+      registration_considered_spam: "L'inscription n'a pas fonctionné. Envoyez nous un feedback (en nous contactant via le menu en haut) en précisant le message \"email2 error\"."
       reply_cannot_be_empty: "Vous ne pouvez pas envoyer un message vide"
       reply_sent: "Réponse envoyée avec succès"
       request_accepted: "Demande acceptée"
+      request_confirmed: "Demande réalisée"
       request_closed: "Demande fermée"
-      request_created_successfully: "Demande créée avec succès."
       request_rejected: "Demande rejetée"
-      request_updated_successfully: "Demande mise à jour avec succès"
+      request_canceled: "Demande annulée"
       message_sent: "Message envoyé"
-      this_content_is_not_available_in_this_community: "Ce contenu n'est pas accessible à cette communauté."
-      unknown_error: "Erreur inconnue. Veuillez utiliser le lien vers commentaires pour nous envoyer plus de détails sur ce qui s'est passé."
+      this_content_is_not_available_in_this_community: "Ce contenu n'est pas accessible dans cette tribu."
+      unknown_error: "Erreur inconnue. S'il vous plait, contactez-nous pour nous envoyer plus de détails sur ce qu'il s'est passé."
       update_error: "Une erreur s'est produite lors de la réactualisation de vos informations, veuillez réessayer ultérieurement"
-      welcome_message: "Bienvenue sur %{service_name} ! %{service_name} est un service qui aide les membres de la communauté %{community} à se rendre service, à se vendre et prêter des objets, à organiser des covoiturages et à s'entraider de beaucoup d'autres façons."
+      welcome_message: "Bienvenue sur %{service_name} ! %{service_name} est un service qui aide les membres de la tribu %{community} à se rendre service, à se vendre et prêter des objets, à organiser des covoiturages et à s'entraider de beaucoup d'autres façons."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Vous n'êtes pas autorisé à donner un avis sur cet événement"
       you_are_not_authorized_to_do_this: "Vous n'êtes pas autorisé à faire ceci"
       you_are_not_authorized_to_view_this_content: "Vous n'êtes pas autorisé à voir ce contenu"
@@ -709,11 +892,10 @@ fr:
       you_cannot_send_message_to_yourself: "Vous ne pouvez pas vous envoyer un message à vous-même"
       you_followed_listing: "Vous suivez désormais cette annonce"
       you_have_already_given_feedback_about_this_event: "Vous avez déjà donné un avis sur cet événement"
-      you_are_now_member: "Vous avez rejoint cette communauté"
-      you_are_already_member: "Vous êtes déjà membre de la communauté %{service_name}. Bon retour !"
-      you_must_log_in_to_create_new_offer: "Vous devez être connecté à %{service_name} pour créer une nouvelle offre. Si vous n'avez pas de compte, vous pouvez"
+      you_are_now_member: "Vous avez rejoint cette tribu. Bienvenue !"
+      you_are_already_member: "Vous êtes déjà membre de la tribu %{service_name}. Bon retour !"
+      you_must_log_in_to_create_new_listing: "Vous devez vous connecter à %{service_name} pour créer une nouvelle annonce. Si vous n'avez pas encore de compte vous pouvez %{sign_up_link}."
       additional_email_confirmed_dashboard: "Votre adresse email est confirmée."
-      you_must_log_in_to_create_new_request: "Vous devez être connecté à %{service_name} pour créer une nouvelle demande. Si vous n'avez pas de compte, vous pouvez"
       you_must_log_in_to_give_feedback: "Vous devez vous connecter pour donner un avis"
       you_must_log_in_to_invite_new_users: "Vous devez vous connecter pour pouvoir inviter de nouveaux utilisateurs sur %{service_name}"
       you_must_log_in_to_send_a_comment: "Vous devez vous connecter pour envoyer un nouveau commentaire"
@@ -723,18 +905,18 @@ fr:
       you_must_log_in_to_view_your_inbox: "Vous devez vous connecter à %{service_name} pour consulter votre boîte de réception."
       you_must_log_in_to_view_your_settings: "Vous devez vous connecter à %{service_name} pour afficher vos paramètres."
       you_must_log_in_to_add_news_item: "Vous devez vous connecter à %{service_name} pour ajouter un nouvel article."
-      you_need_to_confirm_your_account_first: "Vous devez d'abord confirmer votre inscription."
+      you_need_to_confirm_your_account_first: "Vous devez d'abord confirmer votre inscription et email."
       you_unfollowed_listing: "Vous ne suivez plus cette annonce"
-      joining_community_failed: "Rejoindre cette communauté a échoué."
+      joining_community_failed: "Rejoindre cette tribu a échoué."
     profile_extras_header:
-      back_to_profile_of_person: "Retour au profil d'utilisateur"
+      back_to_profile_of_person: "Retour au profil"
       badges: Badges
       testimonials: "Avis reçus"
     settings:
       account: Compte
       avatar: "Image du profil"
       notifications: Notifications
-      profile: "Info profil"
+      profile: "Info du profil"
       settings: Paramètres
   listings:
     bubble_listing_not_visible:
@@ -743,24 +925,20 @@ fr:
       wrote: "a écrit"
       send_private_message: "Envoyer un message à %{person}"
     comment_form:
+      ask_a_question: "Ajoutez un commentaire ou posez une question pour demander des détails. Tous les autres utilisateurs pourront voir votre commentaire."
       log_in: "vous connecter"
       send_comment: "Envoyer un commentaire"
       to_send_a_comment: "pour envoyer un nouveau commentaire."
       write_comment: "Ecrire un nouveau commentaire :"
-      you_cannot_send_a_new_comment_because_offer_is_closed: "Vous ne pouvez pas envoyer de nouveau commentaire car cette offre est fermée."
-      you_cannot_send_a_new_comment_because_request_is_closed: "Vous ne pouvez pas envoyer de nouveau commentaire car cette demande est fermée."
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Vous ne pouvez pas déposer de nouveau commentaire car cette annonce est close."
       you_must: "Vous devez"
       subscribe_to_comments: "Me prévenir des nouveaux commentaires et mises à jour"
     edit:
-      edit_offer: "Modifier l'offre"
-      edit_request: "Modifier la demande"
+      edit_listing: "Editer l'annonce"
     edit_links:
-      close_offer: "Fermer l'offre"
-      close_request: "Fermer la demande"
-      edit_offer: "Modifier offre"
-      edit_request: "Modifier demande"
-      reopen_offer: "Réouvrir offre"
-      reopen_request: "Réouvrir demande"
+      close_listing: "Clore l'annonce"
+      edit_listing: "Editer l'annonce"
+      reopen_listing: "Ré-ouvrir l'annonce"
     follow_links:
       follow: "Suivre cette annonce"
       unfollow: "Arrêter de suivre cette annonce"
@@ -770,19 +948,19 @@ fr:
         at: A
         departure_time: "Heure de départ"
       departure_time_radio_buttons:
-        repeated: "Répété (préciser les dates dans 'description détaillée')"
+        repeated: "Récurrent (préciser les dates dans 'description détaillée')"
       description:
         detailed_description: "Description détaillée"
       destination:
         destination: "Lieu d'arrivée"
       form_content:
-        favor: Service
-        housing: Logement
-        item: Objet
+        favor: service
+        housing: lieu
+        item: objet
         offer_something: "Proposer quelque chose"
         request_something: "Demander quelque chose"
-        rideshare: Covoiturage
-        i_want_to_offer: "Je veux proposer..."
+        rideshare: covoiturage
+        i_want_to_offer: "Je souhaite proposer..."
         i_want_to_request: "J'ai besoin de..."
       googlemap:
         googlemap_copy: "Extrémités depuis plan"
@@ -795,57 +973,67 @@ fr:
         select_file: "Choisir une image"
       location:
         location: Localisation
+      price:
+        price: Prix
+        per: par
+        mass: "unité, kg, l, m²..."
+        time: "heure, jour, semaine..."
+        long_time: "semaine, mois..."
       origin:
         location: Lieu
         origin: "Lieu de départ"
       send_button:
-        save_offer: "Enregistrer offre"
-        save_request: "Enregistrer demande"
+        save_listing: "Sauvegarder l'annonce"
       share_type:
         select: Selectionner
-        borrow: Emprunter
-        buy: Acheter
-        give_away: Donner
-        lend: Prêter
+        borrow: Emprunt
+        buy: Achat
+        give_away: Don
+        lend: Prêt
         offer_type: "Type d'offre"
-        receive: "Accepter gratuitement"
-        rent: Louer
-        rent_out: Louer
+        receive: "Usage gratuit"
+        rent: Location
+        rent_out: Location
         request_type: "Type de demande"
-        sell: Vendre
-        share_for_free: "A partager"
-        trade: Echanger
+        sell: Vente
+        share_for_free: "Partage gratuit"
+        accept_for_free: "Usage gratuit"
+        trade: Échange
       tag_list:
         comma_separate: "(séparés par une virgule)"
         tags: Tags
       title:
         favor_you_offer: "Service que vous proposez"
         favor_you_request: "Service dont vous avez besoin"
-        housing_you_offer: "Logement que vous proposez"
-        housing_you_request: "Logement dont vous avez besoin"
+        housing_you_offer: "Lieu que vous proposez"
+        housing_you_request: "Lieu dont vous avez besoin"
         item_you_offer: "Objet que vous proposez"
         item_you_request: "Objet dont vous avez besoin"
+        listing_title: "Titre de l'annonce"
       valid_until:
         valid_until: "Date d'expiration"
       valid_until_radio_buttons:
         for_the_time_being: "Pas de date d'expiration"
       visibility:
-        communities: "Toutes mes communautés %{service_name}"
-        everybody: "Tous les utilisateurs d'internet"
-        this_community: "Seuls les membres de %{community}"
+        all_communities: "Toutes mes tribus %{service_name}"
+        this_community: "Seuls les membres de cette tribu"
         visibility: Visibilité
+      privacy:
+        privacy: Visibilité
+        private: "Privée (visible uniquement aux utilisateurs connectés)"
+        public: "Publique (visible même aux utilisateurs non connectés)"
     help_texts:
       help_share_type_title: "Type d'offre ou de demande"
       help_tags_title: Tags
       help_valid_until_title: "Date d'expiration"
     index:
       all_categories: "Toutes les catégories"
-      all_offer_types: "Tout type d'offre"
-      all_request_types: "Tout type de demande"
+      all_offer_types: "Tout type d'offres"
+      all_request_types: "Tout type de demandes"
       category: Catégorie
       did_not_found_what_you_were_looking_for: "Vous n'avez pas trouvé ce que vous cherchiez ?"
       favors: Services
-      housing: Logement
+      housing: Lieux
       items: Objets
       list_view: "Vue en liste"
       listings: Listes
@@ -861,28 +1049,38 @@ fr:
       you_have_something_others_do_not: "Vous avez quelque chose à offrir ?"
       feed_title: "%{listing_type} de %{community_name} %{service_name} %{optional_category}"
     left_panel_link:
-      borrows: "A emprunter"
-      buys: "A acheter"
+      borrows: Emprunt
+      buys: Achat
       favors: Services
-      give_aways: "A donner"
-      housings: Logement
+      give_aways: Don
+      housings: Lieux
       items: Objets
-      lends: "A prêter"
+      lends: Prêt
       receives: "A accepter gratuitement"
-      rent_outs: "A louer"
-      rents: "Cherche à louer"
+      rent_outs: Location
+      rents: Location
       rideshares: Covoiturage
-      sells: "A vendre"
-      share_for_frees: "A partager"
-      trades: "A échanger"
+      sells: Vente
+      share_for_frees: "Partage gratuit"
+      accept_for_frees: "Usage gratuit"
+      trades: Échange
     link_labels:
+      offer_this: Proposer
+      request_this: Demander
+      lend_this: Prêter
+      borrow_this: Emprunter
+      buy_this: Acheter
+      rent_out_this: Louer
+      rent_this: Louer
+      sell_this: Vendre
       link_label_for_favor_offer: "Demander ce service"
-      link_label_for_favor_request: "Proposer votre aide"
-      link_label_for_housing_offer_sell: "Acheter ce logement"
-      link_label_for_housing_offer_rent_out: "Louer ce logement"
-      link_label_for_housing_offer_share_for_free: "Demander ce logement"
-      link_label_for_housing_request_buy: "Proposer de vendre ce logement"
-      link_label_for_housing_request_rent: "Proposer de louer ce logement"
+      link_label_for_favor_request: "Proposer ce service"
+      link_label_for_housing_offer_sell: "Acheter ce lieu"
+      link_label_for_housing_offer_rent_out: "Louer ce lieu"
+      link_label_for_housing_offer_share_for_free: "Demander ce lieu"
+      link_label_for_housing_request_accept_for_free: "Proposer ce lieu"
+      link_label_for_housing_request_buy: "Proposer de vendre ce lieu"
+      link_label_for_housing_request_rent: "Proposer de louer ce lieu"
       link_label_for_item_offer_lend: "Emprunter cet objet"
       link_label_for_item_offer_rent_out: "Louer cet objet"
       link_label_for_item_offer_sell: "Acheter cet objet"
@@ -893,23 +1091,10 @@ fr:
       link_label_for_item_request_buy: "Proposer de vendre cet objet"
       link_label_for_item_request_receive: "Donner cet objet au demandeur"
       link_label_for_item_request_trade: "Proposer d'échanger cet objet"
-      link_label_for_rideshare_offer: "Demander un transport"
-      link_label_for_rideshare_request: "Proposer un transport"
-      message_link_label_for_offer: "Envoyer un message à l'annonceur"
-      message_link_label_for_request: "Envoyer un message au demandeur"
-      message_link_label_for_item_offer_lend: "Envoyer un message au prêteur"
-      message_link_label_for_item_offer_rent_out: "Envoyer un message au loueur"
-      message_link_label_for_item_offer_sell: "Envoyé un message privé au vendeur"
-      message_link_label_for_item_offer_give_away: "Envoyer un message au donneur"
-      message_link_label_for_item_offer_trade: "Envoyer un message au donneur"
-      message_link_label_for_housing_offer_sell: "Envoyer un message au vendeur"
-      message_link_label_for_housing_offer_rent_out: "Envoyer une message privé au loueur"
-      message_link_label_for_housing_offer_share_for_free: "Envoyer une message privé au donneur"
+      link_label_for_rideshare_offer: "Demander ce transport"
+      link_label_for_rideshare_request: "Proposer ce transport"
     listed_listing:
       edit: Modifier
-    listed_listing_closed_status:
-      offer_is_closed: "Offre fermée"
-      request_is_closed: "Demande fermée"
     listed_listings:
       loading_more_offers: "Chargement de plus d'offres"
       loading_more_requests: "Chargement de plus de demandes"
@@ -918,30 +1103,95 @@ fr:
       offer_something: "Proposez quelque chose !"
       request_something: "Demandez quelque chose !"
       search_returned_no_results: "Pas de résultats à votre recherche."
+    new:
+      listing: annonce
+      offer: "J'ai quelque chose à proposer"
+      request: "J'ai besoin de quelque chose"
+      selected_offer: Offre
+      selected_request: Demande
+      selected_listing_type: "Type d'annonce : %{listing_type}"
+      selected_category: "Catégorie : %{category}"
+      selected_subcategory: "Sous-catégorie : %{subcategory}"
+      selected_share_type: "Type de partage : %{share_type}"
+      selected_item: Objet
+      selected_favor: Service
+      selected_rideshare: Covoiturage
+      selected_housing: Lieu
+      selected_borrow: Emprunt
+      selected_buy: Achat
+      selected_give_away: Don
+      selected_lend: Prêt
+      selected_receive: "Récupération gratuite"
+      selected_rent: Location
+      selected_rent_out: Location
+      selected_sell: Vente
+      selected_offer_to_swap: Échange
+      selected_request_to_swap: Échange
+      selected_share_for_free: "Partage gratuit"
+      selected_accept_for_free: "Usage gratuit"
+      how_do_you_want_to_share_it: "Comment voulez-vous le partager ?"
+      how_do_you_want_to_get_it: "Comment souhaitez-vous l'obtenir ?"
+      item: "Un objet - quelque chose de concret"
+      favor: "Un service - une compétence ou de l'aide"
+      rideshare: "Un covoiturage - en voiture ou avec un autre moyen"
+      housing: "Un lieu - un appartement, un bureau ou un jardin"
+      borrow: "Je souhaite l'emprunter"
+      buy: "Je souhaite l'acheter"
+      give_away: "Je le donne gratuitement"
+      lend: "Je le prête gratuitement"
+      receive: "Je souhaite l'obtenir gratuitement"
+      rent: "Je souhaite le louer"
+      rent_out: "Je le loue contre un montant"
+      sell: "Je le vends"
+      offer_to_swap: "Je l'échange contre autre chose"
+      request_to_swap: "Je souhaite l'échanger contre autre chose"
+      share_for_free: "Je le partage gratuitement"
+      accept_for_free: "Je souhaite l'obtenir gratuitement"
+      what_kind_of_item: "De quel type d'objet s'agit-il ?"
+      what_kind_of_favor: "De quel type de service s'agit-il ?"
+      what_kind_of_rideshare: "De quel type de covoiturage s'agit-il ?"
+      what_kind_of_housing: "De quel type de lieu s'agit-il ?"
+      which_subcategory: "Lequel de ces choix correspond le mieux ?"
+      tools: Outils
+      sports: Sports
+      music: Musique
+      books: "Livres & magazines"
+      games: "Jeux & jouets"
+      furniture: Mobilier
+      outdoors: "Plein air & extérieur"
+      food: "Nourriture & cuisine"
+      electronics: "Matériel électronique"
+      pets: Animaux
+      film: "Films & vidéos"
+      clothes: "Vêtements & accessoires"
+      garden: Jardin
+      travel: Voyage
+      other: Autre
+      what_do_you_want_to_do: "Que voulez-vous faire ?"
+      what_can_you_offer: "Que pouvez-vous proposer aux autres ?"
+      what_do_you_need: "De quoi avez-vous besoin ?"
+      select_category: "Choisir une catégorie"
     please_comment: "Faire un commentaire"
     reply_link:
-      offer_closed: "Offre fermée"
-      request_closed: "Demande fermée"
+      listing_closed: "L'annonce est close"
     show:
       add_your_phone_number: "Ajouter votre numéro de téléphone"
-      add_profile_picture: "Ajouter une photo de profil"
+      add_profile_picture: "Ajoutez une photo de profil"
       comments: Commentaires
-      contact_by_phone: "Contacter par téléphone :"
+      contact_by_phone: "Contacter par téléphone : "
       favor_offer: "Offre de service "
       favor_request: "Demande de service "
       item_offer_trade: "Offre d'échange "
       item_request_trade: "Demande d'échange "
       no_description: "Pas de description"
       offer: "Offre "
-      offer_author: "Offert par"
-      offer_created: "Offre créée"
+      listing_created: Créée
+      open_until: "Valide jusqu'au %{date}"
       feedback: "Remarque :"
       qr_code: "QR code"
       request: Demande
-      request_author: "Demandé par"
-      request_created: "Demande créée"
-      rideshare_offer: "Offre de covoiturage "
-      rideshare_request: "Demande de transport "
+      rideshare_offer: "Offre de covoiturage"
+      rideshare_request: "Demande de covoiturage "
       send_private_message: "Envoyer un message"
       share_types: "Types de partage"
       share_types_offer: "Type d'offre"
@@ -958,7 +1208,7 @@ fr:
       category: Catégorie
       did_not_found_what_you_were_looking_for: "Vous n'avez pas trouvé ce que vous cherchiez ?"
       favors: Services
-      housing: Logement
+      housing: Lieux
       items: Objets
       list_view: "Vue en liste"
       map_view: Plan
@@ -974,15 +1224,32 @@ fr:
     please_comment: Commentaire
   news_items:
     index:
-      news_from_community: "Dernières actualités de la communauté %{community}"
+      news_from_community: "Dernières actualités de la tribu %{community}"
     news_item:
       delete_news_item: "Supprimer l'article"
   okl:
     member_id: "Member id"
     member_id_is_your_username: "Vous devez fournir votre Omakotiliitto member id (jäsennumero) pour rejoindre %{service_name}. Votre member id est également votre nom d'utilisateur, dont vous aurez besoin pour vous connecter à %{service_name}. Si vous n'êtes pas encore membre de Omakotiliitto, vous pouvez"
     member_id_or_email: "Identifiant ou e-mail"
-    join_here: "rejoindre ici"
+    join_here: rejoindre.
+  payments:
+    new:
+      new_payment: "Nouveau paiement"
+      continue: Continuer
+      payment_receiver: "Destinataire du paiement : "
+      sum: "Montant total : "
+      commission_will_be_added: "Des frais de service de 10% seront ajoutés."
   people:
+    index:
+      loading_more_members: "Chargement des autres membres"
+      meet_the_people: "Découvrez les membres"
+      you_are_the_only_member: "Vous êtes le seul membre de la tribu %{community_name}."
+      here_are_the_members: "Voici les %{count} membres de la tribu %{community_name}."
+      wanna_see_more_folks: "Vous voulez voir plus de monde ici ?"
+      invite_people_you_know: "Invitez des gens que vous connaissez !"
+      there_are_x_members: "Il y a %{count} membres dans la tribu %{community_name}."
+      to_see_the_list_log_in: "Pour voir la liste complète des membres, vous devez %{log_in_link}."
+      log_in_link: "vous connecter"
     badge_description:
       badge_achieved_at: "Badge obtenu "
       you_do_not_yet_have_this_badge: "Le badge n'a pas encore été obtenu."
@@ -1006,42 +1273,42 @@ fr:
       address_validator: "Emplacement inconnu."
       captcha_incorrect: "Vérification reCAPTCHA échouée. Veuillez saisir les mots de l'image dans la case dessous."
       captcha_was_wrong: "Texte Captcha incorrecte."
-      create_new_account: "Créer un compte utilisateur"
-      email: "Adresse email :"
+      create_new_account: "Créer un compte"
+      email: "Adresse email"
       email_is_in_use: "L'adresse email que vous avez saisi est déjà utilisée."
-      email_is_in_use_or_not_allowed: "Cette adresse email n'est pas acceptée pour cette communauté ou est déjà utilisée. Veuillez utiliser une adresse associée à cette communauté (voir instructions plus haut). Si vous n'arrivez toujours pas à vous connecter, envoyez-nous vos commentaires en utilisant le lien à gauche."
-      email_not_allowed: "Cette adresse email n'est pas autorisée au sein de cette communauté. Merci d'utiliser une adresse qui lui est associée. Si, malgré tout, vous n'arrivez à la rejoindre, envoyez nous un feedback en cliquant sur le lien à gauche."
+      email_is_in_use_or_not_allowed: "Cette adresse email n'est pas acceptée pour cette tribu ou est déjà utilisée. Veuillez utiliser une adresse associée à cette tribu (voir instructions plus haut). Si vous n'arrivez toujours pas à vous connecter, envoyez-nous vos commentaires en utilisant le lien à gauche."
+      email_not_allowed: "Cette adresse email n'est pas autorisée au sein de cette tribu. Merci d'utiliser une adresse qui lui est associée. Si, malgré tout, vous n'arrivez à la rejoindre, envoyez nous un message en cliquant sur le lien à gauche."
       email_restriction_instructions:
-        one: "Cette communauté est réservé à %{community_name}. Pour la rejoindre, vous devez avoir une adresse e-mail du type %{allowed_emails}."
-        other: "Cette communauté est réservé à %{community_name}. Pour la rejoindre, vous devez avoir une adresse e-mail se terminant par %{allowed_emails}."
+        one: "Cette tribu est réservée à %{community_name}. Pour la rejoindre, vous devez avoir une adresse e-mail du type %{allowed_emails}."
+        other: "Cette tribu est réservée à %{community_name}. Pour la rejoindre, vous devez avoir une adresse e-mail se terminant par %{allowed_emails}."
       enter_captcha: "Je suis un être humain :"
-      family_name: "Nom de famille :"
-      given_name: "Prénom :"
+      family_name: "Nom de famille"
+      given_name: Prénom
       i_accept_the: "J'accepte les"
-      if_you_already_have_account_you_can: "Si vous avez déjà un compte dans une autre communauté %{service_name}, vous pouvez"
-      join_with_your_existing_account: "rejoignez cette communauté avec votre compte"
       invalid_invitation_code: "Le code d'invitation n'est pas valide."
-      invitation_code: "Code d'invitation :"
+      invitation_code: "Code d'invitation"
       not_required: ", pas demandé"
-      password_again: "Confirmer le mot de passe :"
-      show_my_name_to_others: "Montrer mon vrai nom aux autres utilisateurs de %{service_name}"
+      password_again: "Confirmer le mot de passe"
+      show_my_name_to_others: "Montrer mon nom complet aux autres utilisateurs de %{service_name}"
       sign_up: "Créer un nouveau compte sur %{service_name}"
       terms: "conditions d'utilisation"
       username_is_in_use: "Ce nom d'utilisateur est déjà utilisé."
       username_is_invalid: "Nom d'utilisateur incorrect. Les caractères autorisés sont les lettres, les chiffres et le tiret bas ('_')."
-      visible_only_to_you: "visible uniquement à vous et à l'administrateur de la communauté"
+      visible_only_to_you: "visible uniquement à vous et à l'administrateur de la tribu"
       visible_to_everybody: "visible à tout le monde"
+      create_account_with_facebook: "Créez un compte avec Facebook"
+      or_create_new_account_without_facebook: "... ou créez un compte sans utiliser Facebook, ci-dessous."
     not_member:
-      explanation_text: "Vous faites actuellement partie de la communauté %{community}. Vous avez essayé de visionner le profil d'un utilisateur appartenant à une autre communauté. Pour le moment, %{service_name} ne permet pas de faire partie de plusieurs communautés, vous ne pouvez donc pas accéder à ce profil via la communauté %{community}. Nous travaillons sur l'option d'appartenir à plusieurs communautés à la fois. Cette fonctionnalité sera ajoutée au service ultérieurement."
-      read_more_about_kassi_communities: "En savoir plus sur les communautés %{service_name}"
-      this_user_does_not_belong_to_this_community: "Cet utilisateur ne fait pas partie de la communauté %{community}"
+      explanation_text: "Vous faites actuellement parti de la tribu %{community}. Vous avez essayé de voir le profil d'un utilisateur appartenant à une autre tribu. Vous ne pouvez pas accéder à ce profil via la tribu %{community}."
+      read_more_about_kassi_communities: "En savoir plus sur les tribus %{service_name}"
+      this_user_does_not_belong_to_this_community: "Cet utilisateur ne fait pas partie de la tribu %{community}"
     profile_badge:
       active_member_bronze: "Membre actif (bronze)"
       active_member_bronze_description: "Vous venez de participer à une transaction pour la troisième fois sur %{service_name} ! Excellent démarrage, continuez !"
       active_member_gold: "Membre actif (or)"
-      active_member_gold_description: "Super ! Vous venez d'effectuer votre 25ème transaction sur %{service_name}. Vous êtes désormais un VIP sur %{service_name}. C'est grâce à des gens comme vous que les choses évoluent. Merci beaucoup !"
+      active_member_gold_description: "Super ! Vous venez d'effectuer votre 25ème partage sur %{service_name}. Vous êtes désormais un VIP sur %{service_name}. C'est grâce à des gens comme vous que les choses évoluent. Merci beaucoup !"
       active_member_silver: "Membre actif (argent)"
-      active_member_silver_description: "Félicitations pour votre 10ème transaction sur %{service_name} ! Il se passe beaucoup de choses dans ce service grâce à vous. Génial !"
+      active_member_silver_description: "Félicitations pour votre 10ème partage sur %{service_name} ! Il se passe beaucoup de choses dans ce service grâce à vous. Génial !"
       chauffer_bronze: "Conducteur (bronze)"
       chauffer_bronze_description: "Vous avez proposé deux transports à d'autres utilisateurs, bravo !"
       chauffer_gold: "Conducteur (or)"
@@ -1051,7 +1318,7 @@ fr:
       commentator_bronze: "Commentateur (bronze)"
       commentator_bronze_description: "Vous aimez bien discuter avec les autres utilisateurs. Vous avez fait trois commentaires sur %{service_name}."
       commentator_gold: "Commentateur (or)"
-      commentator_gold_description: "30 commentaires ! La communauté %{service_name}, c'est un peu votre deuxième chez vous. Vous prenez du plaisir à communiquer."
+      commentator_gold_description: "30 commentaires ! La tribu %{service_name}, c'est un peu votre deuxième chez vous. Vous prenez du plaisir à communiquer."
       commentator_silver: "Commentateur (argent)"
       commentator_silver_description: "10 commentaires ! Vous participez activement aux discussions avec d'autres utilisateurs de %{service_name}"
       enthusiast_bronze: "Enthousiaste (bronze)"
@@ -1075,7 +1342,7 @@ fr:
       helper_silver: "Aidant (argent)"
       helper_silver_description: "Vous aimez passer du temps à aider les autres : 6 services rendus !"
       jack_of_all_trades: "Homme à tout faire"
-      jack_of_all_trades_description: "Vos talents sont vraiment multiples ! Vous avez participé à des échanges de ressources dans 5 rôles différents. Continuez donc et cumulez les huit : donneur d'article, aidant, conducteur de covoiturage, logeur, demandeur d'article, demandeur de service, demandeur de covoiturage et demandeur de logement."
+      jack_of_all_trades_description: "Vos talents sont vraiment multiples ! Vous avez participé à des échanges de ressources dans 5 rôles différents. Continuez donc et cumulez les huit : donneur d'article, aidant, conducteur de covoiturage, logeur, demandeur d'article, demandeur de service, demandeur de covoiturage et demandeur de lieu."
       lender_bronze: "Prêteur (bronze)"
       lender_bronze_description: "Vous avez listé trois articles que vous souhaitez prêter, génial !"
       lender_gold: "Prêteur (or)"
@@ -1083,7 +1350,7 @@ fr:
       lender_silver: "Prêteur (argent)"
       lender_silver_description: "Dans vos placards se trouvent de nombreux objets que vous pourriez partager avec les autres : 10 articles à prêter !"
       listing_freak_bronze: "Amateur d'annonces (bronze)"
-      listing_freak_bronze_description: "Vous avez cinq offres/demandes ouvertes sur %{service_name}. Génial ! Y aurait-il encore quelque chose dans votre placard dont vous pourriez faire profiter les autres ?"
+      listing_freak_bronze_description: "Vous avez cinq offres ou demandes ouvertes sur %{service_name}. Génial ! Y aurait-il encore quelque chose dans votre placard dont vous pourriez faire profiter les autres ?"
       listing_freak_gold: "Amateur d'annonces (or)"
       listing_freak_gold_description: "40 offres et/ou demandes ouvertes, c'est formidable ! Vous faites partie des contributeurs les plus actifs sur %{service_name}."
       listing_freak_silver: "Amateur d'annonces (argent)"
@@ -1117,12 +1384,12 @@ fr:
       and_gave_following_feedback: "et a donné l'avis suivant"
       less_than_expected: "Ne correspondait pas à mes attentes"
       offered_favor: "a rendu service"
-      offered_housing: "a proposé un logement"
-      offered_item: "a proposé un objet"
+      offered_housing: "a proposé"
+      offered_item: "a proposé"
       offered_rideshare: "a proposé un transport"
       requested_favor: "a reçu un service"
-      requested_housing: "a demandé un logement"
-      requested_item: "a reçu un objet"
+      requested_housing: "a demandé un lieu"
+      requested_item: "a reçu"
       requested_rideshare: "a demandé un transport"
       slightly_better_than_expected: "Mieux qu'attendu"
       slightly_less_than_expected: "Moins bien qu'attendu"
@@ -1135,23 +1402,21 @@ fr:
       show_only_open: "Voir uniquement les offres et demandes en cours"
     show:
       contact: "Contacter %{person}"
-      about_me: "Qui suis-je :"
+      about_me: "A propos de moi : "
       add_description: "Parlez un peu de vous"
-      add_location: "Ajouter un emplacement"
-      add_phone_number: "Ajouter un numéro de téléphone"
-      address: "Adresse :"
+      add_location: "Ajoutez une adresse"
+      add_phone_number: "Ajoutez un numéro de téléphone"
+      address: "Adresse : "
       as_expected: "Correspondait à mes attentes"
-      badges: Badges
-      edit_profile_info: "Modifier profil"
+      edit_profile_info: "Modifier votre profil"
       exceeded_expectations: "Dépassait mes attentes"
-      received_feedback: "Avis reçus :"
       positive: positif
       hide_description: Réduire
-      joined_this_community: "...a rejoint la communauté %{time_ago}"
-      was_last_seen: "...était connecté pour la dernière fois %{time_ago}"
-      was_invited_by: "... a été invité par %{inviter_name}"
+      joined_this_community: "a rejoint la tribu %{time_ago}"
+      was_last_seen: "était connecté pour la dernière fois %{time_ago}"
+      was_invited_by: "a été invité par %{inviter_name}"
       less_than_expected: "Ne correspondait pas à mes attentes"
-      phone_number: "Numéro de téléphone :"
+      phone_number: "Numéro de téléphone : "
       show_all_badges: "Montrer tous les badges %{service_name}"
       show_all_feedback: "Montrer tous les avis"
       show_all_testimonials: "Montrer tous les commentaires"
@@ -1159,7 +1424,18 @@ fr:
       slightly_better_than_expected: "Dépassait mes attentes"
       slightly_less_than_expected: "Ne correspondait pas à mes attentes"
       what_are_these: "Qu'est-ce que c'est ?"
-      trustcloud: TrustCloud
+      review: "avis reçu"
+      reviews: "avis reçus"
+      badge: badge
+      badges: badges
+      open_listing: "annonce en ligne"
+      open_listings: "annonces en ligne"
+      no_open_listings: "Aucune annonce en ligne"
+      no_reviews: "Aucun avis"
+      no_badges: "Pas de badges"
+      show_all_open_listings: "Voir toutes les annonces en ligne"
+      show_all_reviews: "Vois tous les avis"
+      trustcloud: TrustCard
   search:
     show:
       all_results: "Tous les résultats"
@@ -1173,7 +1449,7 @@ fr:
   sessions:
     new:
       create_new_account: "Créer un nouveau compte"
-      i_forgot_my_password: "J’ai oublié mon mot de passe"
+      i_forgot_my_password: "Identifiant ou mon mot de passe oublié"
       login: "Se connecter"
       login_to_kassi: "Se connecter à %{service_name}"
       connect_your_facebook_to_kassi: "Lier votre compte Facebook à %{service_name}"
@@ -1183,8 +1459,9 @@ fr:
       account_creation_link_text: "cliquez ici"
       cancle_facebook_connect: "Si vous ne voulez pas lier ce compte, vous pouvez %{cancel_link}."
       facebook_cancel_link_text: annuler
-      log_in_with_your_facebook_account: "Connectez-vous avec votre compte Facebook :"
+      log_in_with_your_facebook_account: "Se connecter avec Facebook"
       or_sign_up_with_your_username: "...ou avec votre nom d'utilisateur et votre mot de passe : "
+      we_will_not_post_without_asking_you: "Nous ne publierons jamais sur Facebook sans vous poser la question avant."
     password_forgotten:
       email: Email
       password_recovery_instructions: "Entrez votre adresse email afin de recevoir les instructions pour changer votre mot de passe."
@@ -1193,23 +1470,25 @@ fr:
     confirmation_pending:
       welcome_to_kassi: "Bienvenue sur %{service_name} !"
       check_your_email: "Voir vos messages"
-      account_conrimation_instructions: "Vous recevrez bientôt un email de %{service_name} avec un lien sur lequel vous devrez cliquer pour accéder à la communauté %{service_name}.</p><p> Cette vérification par email est effectuée pour s'assurer que tous les membres appartiennent effectivement à la communauté (<b>%{community_name}</b>). L'environnement est ainsi plus sûr pour le partage. </p><p>Si vous rencontrez un problème quelconque en utilisant %{service_name}, cliquez sur <a href=\"#\" id=\"give_feedback_link\">commentaires</a> à gauche de l'écran et faites-nous le savoir. Veuillez aussi partager vos idées sur ce comment améliorer le service !"
+      account_conrimation_instructions: "Vous recevrez bientôt un email de %{service_name} avec un lien sur lequel vous devrez cliquer pour accéder à la tribu %{service_name}.</p><p> Cette vérification par email est effectuée pour s'assurer que tous les membres appartiennent effectivement à la tribu (<b>%{community_name}</b>). L'environnement est ainsi plus sûr pour le partage. </p><p>Si vous rencontrez un problème quelconque en utilisant %{service_name}, cliquez sur <a href=\"#\" id=\"give_feedback_link\">commentaires</a> à gauche de l'écran et faites-nous le savoir. Veuillez aussi partager vos idées sur ce comment améliorer le service !"
       account_confirmation_instructions_any_email: "Vous allez bientôt recevoir un email de %{service_name} contenant un lien sur lequel vous devez cliquer pour accéder à la communauté %{service_name}.</p><p>Cet email est important pour s'assurer d'un environnement de confiance pour mieux partager.</p><p>Si vous rencontrez le moindre problème avec %{service_name}, cliquez sur le bouton <a href=\"#\" id=\"give_feedback_link\">feedback</a> sur la gauche et dites nous en plus. N'hésitez pas à nous faire part de vos idées d'amélioration !"
-      get_started: "Commencer avec %{service_name}"
+      get_started: "Début avec %{service_name}"
       getting_started_instructions: "Lorsque vous avez confirmé votre inscription, il est conseillé d'ajouter une photo à votre <a href=\"%{profile_url}\">profil</a> et de remplir d'autres informations. Vous pouvez également poursuivre directement vers une transaction en ajoutant une <a href=\"/en/listings/new/offer\">offre</a> concernant quelque chose que vous pourriez prêter, louer ou vendre, ou un service que vous pourriez proposer. Sinon, si vous avez besoin d'un certain objet ou d'aide avec quelque chose, vous pouvez envoyer une  <a href=\"/en/listings/new/request\">demande</a>."
       resend_confirmation_instructions: "Renvoyer les instructions de confirmation"
-      your_current_email_is: "Votre email est : <strong>%{email}</strong>"
-      change_email: "Changer ?"
+      your_current_email_is: "Votre email est : %{email}."
+      change_email: Modifier
       confirm_your_email: "Confirmer votre adresse email"
-      account_confirmation_instructions: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer l'adresse email que vous nous avez fournie. Dès que vous aurez configuré votre adresse email, vous pourrez commencer à utiliser %{service_name}."
+      account_confirmation_instructions: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer votre adresse. Dès que vous l'aurez confirmée, vous pourrez rejoindre cette tribu."
       account_confirmation_instructions_dashboard: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer l'adresse email que vous nous avez fournie."
   settings:
+    settings_affect_all_tribes: "Ces paramètres auront effet sur toutes les tribus auxquelles vous appartenez."
     account:
       change: Changer
       confirm_new_password: "Confirmez votre nouveau mot de passe"
       delete_account: "Supprimer le compte"
-      email: "Adresse email :"
-      instructions_to_delete_account: "Si vous voulez supprimer votre compte, contactez nous en utilisant le bouton \"Feedback\" sur la gauche."
+      email: "Adresse email : "
+      instructions_to_delete_account: "Si vous voulez supprimer votre compte, %{contact_admin_link}."
+      contact_admin: "merci de contacter les administrateurs"
       new_email: "Nouvelle adresse email"
       new_password: "Votre nouveau mot de passe"
       save: Sauvegarder
@@ -1218,12 +1497,14 @@ fr:
       add_avatar_submit: "Sauvegarder l'image"
       update_profile_picture: "Mettre à jour l'image du profil"
     notifications:
+      email_from_admins: "J'accepte de recevoir des informations occasionnelles des administrateurs de cette tribu"
       i_want_to_get_email_notification_when: "Je souhaite recevoir un email de notification lorsque..."
       newsletters: "Bulletins d'information"
       community_updates: "Mises à jour de la tribu"
-      email_about_accept_reminders: "...j'ai oublié d'accepter un événement"
+      email_about_accept_reminders: "...j'ai oublié d'accepter une offre ou une demande"
+      email_about_confirm_reminders: "...j'ai oublié de confirmer une demande comme réalisée"
       email_about_new_badges: "...j'obtiens un nouveau badge"
-      email_about_new_comments_to_own_listing: "...quelqu'un fait un commentaire sur une de mes offres ou de mes demandes"
+      email_about_new_comments_to_own_listing: "...quelqu'un dépose un commentaire sur une de mes offres ou de mes demandes"
       email_about_new_messages: "...quelqu'un m'envoie un message"
       email_about_new_received_testimonials: "...quelqu'un me donne un avis"
       email_about_testimonial_reminders: "...j'ai oublié de donner mon avis sur un événement"
@@ -1233,6 +1514,9 @@ fr:
       email_newsletters: "Envoyez-moi la newsletter de %{service_name} (occasionnel)"
       email_when_conversation_accepted: "...quelqu'un accepte une de mes offres ou de mes demandes"
       email_when_conversation_rejected: "...quelqu'un rejette une de mes offres ou de mes demandes"
+      email_about_completed_transactions: "...quelqu'un marque mon offre ou ma demande comme réalisée"
+      email_about_new_payments: "...je reçois un nouveau paiement"
+      email_about_payment_reminders: "...j'ai oublié de payer"
       unsubscribe_succesful: "Désinscription réussie"
       unsubscribe_info_text: "Vous ne recevrez plus ces emails. Gérez vos %{settings_link} pour choisir quels emails vous voulez recevoir ou non, ou retourner sur la %{homepage_link}."
       settings_link: paramètres
@@ -1240,33 +1524,33 @@ fr:
       unsubscribe_unsuccesful: "Erreur lors de la désinscription"
       unsuccessful_unsubscribe_info_text: "Cela est peut être du au fait que le lien de désinscription que vous avez cliqué est ancien ou cassé. Contactez nous grâce au bouton \"feedback\" et nous vous désabonnerons, ou bien connectez vous pour gérer vos réglages d'emails."
     profile:
-      about_you: "Qui suis-je :"
-      city: "Ville :"
-      family_name: "Nom :"
-      given_name: "Prénom :"
+      about_you: "A propos de vous"
+      city: Ville
+      family_name: Nom
+      given_name: Prénom
       location_description: "Entrez votre position exacte ou, au moins, votre code postal. Vous pouvez également choisir un emplacement depuis la carte."
-      phone_number: "Numéro de téléphone :"
-      postal_code: "Code postal :"
+      phone_number: "Numéro de téléphone"
+      postal_code: "Code postal"
       profile_page: "sur votre page de profil"
       profilemap: Plan
-      street_address: "Adresse :"
+      street_address: Adresse
       these_fields_are_shown_in_your: "Cette information sera visible par tous les utilisateurs de %{service_name}"
       visible_to_everybody: "visible à tout le monde"
-      visible_to_registered_users: "visible par les utilisateurs connectés"
+      visible_to_registered_users: "(visible par les utilisateurs connectés)"
     save_information: "Sauvegarder les informations"
   sms:
     or_check_the_offer_in_kassi: "ou voir l'offre %{listing_url}"
     parsing_error: "Impossible de comprendre le contenu du message. Veuillez relire les instructions et réessayer."
     pay: payer|paiement
     payment_delivered: "Un paiement de %{amount} euros a été transmis à %{receiver}. Un montant de  %{amount_plus_commission} euros sera ajouté à votre facture téléphonique."
-    potential_ride_share_offer: "%{author_name} offre un transport sur %{service_name} de %{origin} à %{destination} %{start_time}."
+    potential_ride_share_offer: "%{author_name} propose un transport sur %{service_name} de %{origin} à %{destination} %{start_time}."
     request: ^demande$|^r$
     rideshare: transport|covoiturage
     you_can_call_him_at: "Vous pouvez téléphoner au conducteur au %{phone_number}"
     you_can_pay_gas_money_to_driver: "Pour participer aux frais d'essence, répondre 'kassi payer %{driver} Xe' où X est le montant. Le montant + une commission de 5% seront ajoutés à votre facture téléphonique."
     category_not_supported: "Cette catégorie n'est pas encore supportée par les sms."
     check_the_offer_in_kassi: "Voir l'offre sur %{service_name} : %{listing_url}"
-    listing_created: "Merci pour votre message, une annonce vient d'être ajouté sur %{service_name}."
+    listing_created: "Merci pour votre message, une annonce vient d'être ajoutée sur %{service_name}."
     offer: ^offre$|^o$
   tag_cloud:
     tag_used:
@@ -1282,7 +1566,7 @@ fr:
       terms_have_changed: "Les conditions d'utilisation ont changé"
       you_can_view_the_new_terms: "Vous pouvez voir les nouvelles conditions"
       you_need_to_accept: "Bienvenue sur %{service_name} ! Cela semble être la première fois que vous utilisez ce service. Avant de commencer, vous devez accepter les"
-      you_need_to_accept_new_terms: "Les conditions d'utilisation de %{service_name} ont changé. Vous devez accepter les nouvelles conditions afin de continuer à utiliser %{service_name}. L'objectif des nouvelles conditions est de rendre possible l'entretien du service une fois le projet de recherche terminé."
+      you_need_to_accept_new_terms: "Les conditions d'utilisation de %{service_name} ont changé. Vous devez accepter les nouvelles conditions afin de continuer à utiliser %{service_name}. L'objectif des nouvelles conditions est de rendre possible l'existence du service une fois le projet de recherche terminé."
   testimonials:
     index:
       all_testimonials: "Tous les commentaires"
@@ -1292,34 +1576,38 @@ fr:
     new:
       as_expected: "Correspondait à mes attentes"
       exceeded_expectations: "Dépassait complètement mes attentes"
-      give_feedback_to: "Donner un avis pour %{person}"
-      grade: "Estimation des activités d'un utilisateur"
+      give_feedback_to: "Donner un avis sur %{person}"
+      grade: "Quel est votre sentiment général ?"
       less_than_expected: "Ne correspondait pas à mes attentes"
-      send_feedback: "Envoyer avis"
+      send_feedback: "Envoyer l'avis"
       slightly_better_than_expected: "Dépassait partiellement mes attentes"
       slightly_less_than_expected: "Ne correspondait pas tout à fait à mes attentes"
-      textual_feedback: "Description textuelle"
+      textual_feedback: "Comment les choses se sont elles déroulées ?"
       this_will_be_shown_in_profile: "L'avis que vous donnez sera visible par les autres utilisateurs dans le profil de %{person}. Cela permet aux membres de la tribu de savoir si %{person} est une personne de confiance."
+      positive: Positif
+      negative: Négatif
+      default_textual_feedback: "Tout s'est bien passé, merci !"
     testimonial:
       from_user: par
       to_user: à
+      about_listing: "à propos de l'annonce"
   time:
     formats:
       short: "%e. %b %Y heure %H:%M"
       shorter: "%e. %b h %H:%M"
       sms: "%e.%m. h %H:%M"
   timestamps:
-    day_ago: "il y a un jour"
+    day_ago: "il y a %{count} jour"
     days_ago: "il y a %{count} jours"
-    hour_ago: "il y a une heure"
+    hour_ago: "il y a %{count} heure"
     hours_ago: "il y a %{count} heures"
-    minute_ago: "il y a une minute"
+    minute_ago: "il y a %{count} minute"
     minutes_ago: "il y a %{count} minutes"
-    month_ago: "il y a un mois"
+    month_ago: "il y a %{count} mois"
     months_ago: "il y a %{count} mois"
     seconds_ago: "il y a %{count} secondes"
-    year_ago: "il y a un an"
-    years_ago: "il y a %{count} années"
+    year_ago: "il y a %{count} an"
+    years_ago: "il y a %{count} ans"
     days_since:
-      one: "%{count} jour"
+      one: hier
       other: "%{count} jours"

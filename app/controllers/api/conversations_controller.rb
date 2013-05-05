@@ -10,7 +10,7 @@ class Api::ConversationsController < Api::ApiController
   before_filter :ensure_listing_author_is_not_current_user, :only => :create
   
   def index
-    @conversations = current_person.conversations.paginate(:per_page => @per_page, :page => @page)
+    @conversations = current_person.conversations.order("last_message_at DESC").paginate(:per_page => @per_page, :page => @page)
   end
   
   def show
@@ -52,7 +52,7 @@ class Api::ConversationsController < Api::ApiController
     
     if @conversation.save
       response.status = 201
-      Delayed::Job.enqueue(MessageSentJob.new(@conversation.id, @conversation.messages.last.id, @current_community.full_domain))
+      Delayed::Job.enqueue(MessageSentJob.new(@conversation.messages.last.id, @current_community.id))
       respond_with @conversation
     else
       response.status = 400
@@ -62,12 +62,19 @@ class Api::ConversationsController < Api::ApiController
   end
   
   def update
-    if Conversation::VALID_STATUSES.include? params["status"]
-      @conversation.change_status(params["status"], @current_user, @current_community, @current_community.full_domain)
+    status = params["status"]
+    if Conversation::VALID_STATUSES.include?(status) && @conversation.update_attributes(:status => status)
+      if status == "accepted" || status == "rejected"
+        @conversation.accept_or_reject(@current_user, @current_community, false)
+      elsif status == "confirmed" || status == "canceled"
+        @conversation.confirm_or_cancel(current_user, current_community, false)
+      else
+        raise "API conversation#update called with status that is not yet supported"
+      end
       respond_with @conversation
     else
       response.status = 400
-      render :json => ["The conversation status (#{params["status"]}) is not valid."] and return
+      render :json => ["The conversation status (#{status}) is not valid."] and return
     end
   end
   
@@ -76,7 +83,7 @@ class Api::ConversationsController < Api::ApiController
     
     if @message.save 
       response.status = 201
-      @message.conversation.send_email_to_participants(@current_community.full_domain)
+      @message.conversation.send_email_to_participants(@current_community)
       respond_with @conversation
     else
        response.status = 400

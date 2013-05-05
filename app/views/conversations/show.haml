@@ -1,42 +1,28 @@
 - content_for :javascript do
   initialize_reply_form('#{I18n.locale}');
 
-.grid_24
-  .grid_14.alpha
-    #conversation_title_bar
-      %h2= @conversation.title
-      - if @conversation.listing
-        - if @conversation.status.eql?("free")
-          = t(".conversation_about_listing", :person => link_to(@other_party.name, @other_party), :listing => link_to(@conversation.listing.title, @conversation.listing)).html_safe
-        - else
-          -if current_user?(@conversation.messages.first.sender)
-            = t(".#{@conversation.discussion_type}_sent_to")
-            = link_to @other_party.name, @other_party
-          - else
-            = t(".#{@conversation.listing.listing_type}_sent_by")
-            = link_to(@other_party.name, @other_party)
-          = t(".in_response_to_#{@conversation.listing.listing_type}")
-          = link_to(@conversation.listing.title, @conversation.listing) + "."
-      - else
-        = t(".conversation_with_user", :person => link_to(@other_party.name, @other_party)).html_safe
-  .grid_10.omega
-    #conversation_status
-      %div{:id => "conversation_#{@conversation.id.to_s}_status"}
-        = render :partial => "status", :locals => { :conversation => @conversation }
-  
-.grid_24
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => inbox_links_for(@current_user) }
+
+.left-navi-section.conversation
+  %h2= @conversation.title
+  .avatar-container
+    .avatar
+      = small_avatar_thumb @other_party
+    .avatar-text
+      = render :partial => "conversation_with", :locals => { :conversation => @conversation, :other_party => @other_party }  
+
   #messages
     = render :partial => "message", :collection => @conversation.messages
   
-  #conversation_notice
-    
+  - if @conversation.listing && !@conversation.status.eql?("free")
+    .conversation-status-lower
+      .conversation-status-container{:id => "conversation_#{@conversation.id.to_s}_status"}
+        = render :partial => "status", :locals => { :conversation => @conversation }
+  
   #reply_form
     = form_for Message.new, :url => person_message_messages_path(:person_id => @current_user.id, :message_id => @conversation.id.to_s) do |f|
-      .message_form_field_container
-        = f.label :content, t(".write_a_reply")
-      .message_form_field_container  
-        = f.text_area :content, :class => "reply_form_text_area"
-      .message_form_field_container
-        = f.hidden_field :conversation_id, :value => @conversation.id.to_s
-        = f.hidden_field :sender_id, :value => @current_user.id
-        = f.submit t(".send_reply"), :class => "send_button"
+      = f.label :content, t(".write_a_reply")
+      = f.text_area :content, :class => "reply_form_text_area"
+      = f.hidden_field :conversation_id, :value => @conversation.id.to_s
+      = f.hidden_field :sender_id, :value => @current_user.id
+      = f.button t(".send_reply")

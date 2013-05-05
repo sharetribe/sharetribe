@@ -1,37 +1,41 @@
 class HomepageController < ApplicationController
 
   before_filter :save_current_path, :except => :sign_in
-  
-  layout :choose_layout
 
   skip_filter :dashboard_only
-  skip_filter :not_public_in_private_community, :only => :sign_in
 
   def index
-    if @current_user && @current_user.member_of?(@current_community)
-      @event_feed_events = @current_community.event_feed_events.limit(5).order("id DESC")
-    else
-      @event_feed_events = @current_community.event_feed_events.non_members_only.limit(5).order("id DESC")
-    end
-    listings_per_page = 15
+    @selected_tribe_navi_tab = "home"
+    listings_per_page = 16
     
     # If requesting a specific page on non-ajax request, we'll ignore that
     # and show the normal front page starting from newest listing
     params[:page] = 1 unless request.xhr? 
     
-    @requests = Listing.requests.visible_to(@current_user, @current_community).currently_open.paginate(:per_page => listings_per_page, :page => params[:page])
-    @offers = Listing.offers.visible_to(@current_user, @current_community).currently_open.paginate(:per_page => listings_per_page, :page => params[:page])
-        
-    # TODO This below should only be done if the count is actually shown, otherwise unnecessary.
-    #If browsing Sharetribe unlogged, count also the number of private listings available 
+    @filter_params = params.slice("category", "share_type")
+    
+    # If no Share Type specified, use listing_type if that is specified.
+    # both are chosen in one dropdown
+    @filter_params["share_type"] ||= @filter_params["listing_type"]
+    @filter_params.delete("listing_type")
+    
+    @listing_count = @current_community.listings.currently_open.count
     unless @current_user
-      @private_listings = {}
-      @private_listings["request"] = Listing.requests.currently_open.private_to_community(@current_community).count
-      @private_listings["offer"] = Listing.offers.currently_open.private_to_community(@current_community).count
+      @private_listing_count = Listing.currently_open.private_to_community(@current_community).count
+    end
+    
+    @filter_params[:search] = params[:q] if params[:q]
+    @filter_params[:include] = [:listing_images, :author]
+      
+    @listings = Listing.find_with(@filter_params, @current_user, @current_community, listings_per_page, params[:page])
+
+    @app_store_badge_filename = "/assets/Available_on_the_App_Store_Badge_en_135x40.svg"    
+    if File.exists?("app/assets/images/Available_on_the_App_Store_Badge_#{I18n.locale}_135x40.svg")
+       @app_store_badge_filename = "/assets/Available_on_the_App_Store_Badge_#{I18n.locale}_135x40.svg"
     end
     
     if request.xhr? # checks if AJAX request
-      render :partial => "additional_listings", :locals => {:type => :request, :requests => @requests, :offers => @offers}   
+      render :partial => "recent_listing", :collection => @listings, :as => :listing   
     else
       if @current_community.news_enabled?
         @news_items = @current_community.news_items.order("created_at DESC").limit(2)
@@ -39,25 +43,4 @@ class HomepageController < ApplicationController
       end  
     end
   end
-  
-  # This is going to get removed in the v3.0 design when there's no more separate sign_in page for private communities.
-  def sign_in
-    redirect_to root_path unless @current_community.private?
-    @requests = @current_community.listings.requests.currently_open.limit(5)
-    @total_request_count = @current_community.listings.requests.currently_open.count
-    @offers = @current_community.listings.offers.currently_open.limit(5)
-    @total_offer_count = @current_community.listings.offers.currently_open.count
-    @container_class = "container_12"
-  end
-  
-  private
-  
-  def choose_layout
-    if 'sign_in'.eql? action_name
-      'private'
-    else
-      'application'
-    end
-  end
-
 end

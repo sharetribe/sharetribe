@@ -8,8 +8,7 @@ config/session_secret
 config/gmaps_api_key.yml
 config/translation.yml
 log/
-tmp/**/*
-tmp/autotest-flag
+tmp/
 doc/api
 doc/app
 public/images/listing_images
@@ -29,3 +28,7 @@ public/system/people
 /.gitignore
 cg.sh
 public/assets/
+app/assets/webfonts/
+app/assets/stylesheets/customizations-*
+app/assets/stylesheets/custom-style-*
+

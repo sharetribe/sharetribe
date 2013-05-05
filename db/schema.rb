@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218125831) do
+ActiveRecord::Schema.define(:version => 20130425140120) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(:version => 20121218125831) do
     t.datetime "updated_at"
   end
 
+  add_index "badges", ["person_id"], :name => "index_badges_on_person_id"
+
   create_table "cached_ressi_events", :force => true do |t|
     t.string   "user_id"
     t.string   "application_id"
@@ -47,6 +49,27 @@ ActiveRecord::Schema.define(:version => 20121218125831) do
     t.integer  "test_group_number"
     t.integer  "community_id"
   end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "parent_id"
+    t.string   "icon"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "categories", ["name"], :name => "index_categories_on_name"
+
+  create_table "category_translations", :force => true do |t|
+    t.integer  "category_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "description"
+  end
+
+  add_index "category_translations", ["category_id"], :name => "index_category_translations_on_category_id"
 
   create_table "comments", :force => true do |t|
     t.string   "author_id"
@@ -91,7 +114,24 @@ ActiveRecord::Schema.define(:version => 20121218125831) do
     t.string   "plan"
     t.integer  "user_limit"
     t.float    "monthly_price_in_euros"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string   "cover_photo_file_name"
+    t.string   "cover_photo_content_type"
+    t.integer  "cover_photo_file_size"
+    t.datetime "cover_photo_updated_at"
+    t.string   "custom_color1"
+    t.string   "custom_color2"
+    t.string   "stylesheet_url"
+    t.string   "service_logo_style",                        :default => "full-logo"
+    t.boolean  "payments_in_use",                           :default => false
+    t.text     "available_currencies"
+    t.boolean  "facebook_connect_enabled",                  :default => true
   end
+
+  add_index "communities", ["domain"], :name => "index_communities_on_domain"
 
   create_table "communities_listings", :id => false, :force => true do |t|
     t.integer "community_id"
@@ -99,6 +139,31 @@ ActiveRecord::Schema.define(:version => 20121218125831) do
   end
 
   add_index "communities_listings", ["listing_id", "community_id"], :name => "communities_listings"
+
+  create_table "community_categories", :force => true do |t|
+    t.integer  "community_id"
+    t.integer  "category_id"
+    t.integer  "share_type_id"
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+    t.boolean  "price",                      :default => false
+    t.string   "price_quantity_placeholder"
+    t.boolean  "payment",                    :default => false
+  end
+
+  add_index "community_categories", ["community_id", "category_id"], :name => "community_categories"
+
+  create_table "community_customizations", :force => true do |t|
+    t.integer  "community_id"
+    t.string   "locale"
+    t.string   "slogan"
+    t.text     "description"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.text     "blank_slate"
+    t.text     "welcome_email_content"
+    t.text     "how_to_use"
+  end
 
   create_table "community_memberships", :force => true do |t|
     t.string   "person_id"
@@ -109,7 +174,10 @@ ActiveRecord::Schema.define(:version => 20121218125831) do
     t.string   "consent"
     t.integer  "invitation_id"
     t.datetime "last_page_load_date"
+    t.string   "status",              :default => "accepted", :null => false
   end
+
+  add_index "community_memberships", ["person_id", "community_id"], :name => "memberships"
 
   create_table "contact_requests", :force => true do |t|
     t.string   "email"
@@ -122,7 +190,8 @@ ActiveRecord::Schema.define(:version => 20121218125831) do
     t.integer  "listing_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status",     :default => "pending"
+    t.string   "status",          :default => "pending"
+    t.datetime "last_message_at"
   end
 
   create_table "delayed_jobs", :force => true do |t|
@@ -229,6 +298,8 @@ ActiveRecord::Schema.define(:version => 20121218125831) do
     t.integer "listing_id"
   end
 
+  add_index "listing_followers", ["listing_id"], :name => "index_listing_followers_on_listing_id"
+
   create_table "listing_images", :force => true do |t|
     t.integer  "listing_id"
     t.datetime "created_at"
@@ -243,27 +314,37 @@ ActiveRecord::Schema.define(:version => 20121218125831) do
 
   create_table "listings", :force => true do |t|
     t.string   "author_id"
-    t.string   "category"
+    t.string   "category_old"
     t.string   "title"
-    t.integer  "times_viewed",  :default => 0
+    t.integer  "times_viewed",     :default => 0
     t.string   "language"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "last_modified"
-    t.string   "visibility",    :default => "everybody"
-    t.string   "listing_type"
+    t.string   "visibility",       :default => "this_community"
+    t.string   "listing_type_old"
     t.text     "description"
     t.string   "origin"
     t.string   "destination"
     t.datetime "valid_until"
-    t.boolean  "delta",         :default => true,        :null => false
-    t.boolean  "open",          :default => true
-    t.string   "share_type"
-    t.string   "privacy",       :default => "private"
+    t.boolean  "delta",            :default => true,             :null => false
+    t.boolean  "open",             :default => true
+    t.string   "share_type_old"
+    t.string   "privacy",          :default => "private"
+    t.integer  "comments_count",   :default => 0
+    t.string   "subcategory_old"
+    t.integer  "category_id"
+    t.integer  "share_type_id"
+    t.integer  "organization_id"
+    t.integer  "price_cents"
+    t.string   "currency"
+    t.string   "quantity"
   end
 
-  add_index "listings", ["listing_type"], :name => "index_listings_on_listing_type"
+  add_index "listings", ["category_old"], :name => "index_listings_on_category"
+  add_index "listings", ["listing_type_old"], :name => "index_listings_on_listing_type"
   add_index "listings", ["open"], :name => "index_listings_on_open"
+  add_index "listings", ["share_type_old"], :name => "index_listings_on_share_type"
   add_index "listings", ["visibility"], :name => "index_listings_on_visibility"
 
   create_table "locations", :force => true do |t|
@@ -279,13 +360,20 @@ ActiveRecord::Schema.define(:version => 20121218125831) do
     t.integer  "community_id"
   end
 
+  add_index "locations", ["community_id"], :name => "index_locations_on_community_id"
+  add_index "locations", ["listing_id"], :name => "index_locations_on_listing_id"
+  add_index "locations", ["person_id"], :name => "index_locations_on_person_id"
+
   create_table "messages", :force => true do |t|
     t.string   "sender_id"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "conversation_id"
+    t.string   "action"
   end
+
+  add_index "messages", ["conversation_id"], :name => "index_messages_on_conversation_id"
 
   create_table "news_items", :force => true do |t|
     t.string   "title"
@@ -309,6 +397,30 @@ ActiveRecord::Schema.define(:version => 20121218125831) do
     t.string   "description"
   end
 
+  add_index "notifications", ["receiver_id"], :name => "index_notifications_on_receiver_id"
+
+  create_table "organization_memberships", :force => true do |t|
+    t.string   "person_id"
+    t.integer  "organization_id"
+    t.boolean  "admin",           :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
+  create_table "organizations", :force => true do |t|
+    t.string   "name"
+    t.string   "company_id"
+    t.string   "merchant_id"
+    t.string   "merchant_key"
+    t.string   "allowed_emails"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+  end
+
   create_table "participations", :force => true do |t|
     t.string   "person_id"
     t.integer  "conversation_id"
@@ -318,6 +430,21 @@ ActiveRecord::Schema.define(:version => 20121218125831) do
     t.datetime "last_sent_at"
     t.datetime "last_received_at"
     t.boolean  "feedback_skipped", :default => false
+  end
+
+  add_index "participations", ["conversation_id"], :name => "index_participations_on_conversation_id"
+  add_index "participations", ["person_id"], :name => "index_participations_on_person_id"
+
+  create_table "payments", :force => true do |t|
+    t.string   "payer_id"
+    t.string   "recipient_id"
+    t.string   "organization_id"
+    t.integer  "conversation_id"
+    t.integer  "sum_cents"
+    t.string   "currency"
+    t.string   "status"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "people", :id => false, :force => true do |t|
@@ -404,12 +531,28 @@ ActiveRecord::Schema.define(:version => 20121218125831) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
-  create_table "share_types", :force => true do |t|
-    t.integer "listing_id"
-    t.string  "name"
+  create_table "share_type_translations", :force => true do |t|
+    t.integer  "share_type_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+    t.string   "description"
+    t.string   "transaction_button_text"
   end
 
-  add_index "share_types", ["listing_id"], :name => "index_share_types_on_listing_id"
+  add_index "share_type_translations", ["share_type_id"], :name => "index_share_type_translations_on_share_type_id"
+
+  create_table "share_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "parent_id"
+    t.string   "icon"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "transaction_type"
+  end
+
+  add_index "share_types", ["name"], :name => "index_share_types_on_name"
 
   create_table "statistics", :force => true do |t|
     t.integer  "community_id"
@@ -451,6 +594,8 @@ ActiveRecord::Schema.define(:version => 20121218125831) do
     t.float    "wau_weekly_growth"
   end
 
+  add_index "statistics", ["community_id"], :name => "index_statistics_on_community_id"
+
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -477,5 +622,7 @@ ActiveRecord::Schema.define(:version => 20121218125831) do
     t.datetime "updated_at"
     t.string   "receiver_id"
   end
+
+  add_index "testimonials", ["receiver_id"], :name => "index_testimonials_on_receiver_id"
 
 end

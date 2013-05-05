@@ -14,7 +14,6 @@ class BrowsingTest < ActionController::PerformanceTest
   def create_listings(n=40)
     40.times do |n|
       FactoryGirl(:listing, :author => @author, 
-      :listing_type => ( n%2 == 0 ? "request" : "offer" ),
       :share_types => [FactoryGirl(:share_type, :name => ( n%2 == 0 ? "buy" : "sell" ))],
       :communities => [@community])
     end

@@ -7,9 +7,9 @@ end
 
 Given /^I log in(?: as "([^"]*)")?$/ do |person|
   visit login_path(:locale => :en)
-  fill_in("person[login]", :with => (person ? person : "kassi_testperson1"))
-  fill_in("person[password]", :with => "testi")
-  click_button("Log in")
+  fill_in("main_person_login", :with => (person ? person : "kassi_testperson1"))
+  fill_in("main_person_password", :with => "testi")
+  click_button(:main_log_in_button)
 end
 
 Given /^I log in to this private community(?: as "([^"]*)")?$/ do |person|
@@ -36,6 +36,10 @@ Given /^my phone number in my profile is "([^"]*)"$/ do |phone_number|
   @test_person.set_phone_number(phone_number, @session.cookie)
 end
 
+Given /^user "(.*?)" has additional email "(.*?)"$/ do |username, email|
+  Email.create(:person => Person.find_by_username(username), :address => email, :confirmed_at => Time.now)
+end
+
 Given /^there will be and error in my Facebook login$/ do 
   OmniAuth.config.mock_auth[:facebook] = :access_denied
 end
@@ -47,16 +51,22 @@ Given /^there are following users:$/ do |person_table|
     cookie =nil
     @hash_person.update_attributes({:preferences => { "email_about_new_comments_to_own_listing" => "true", "email_about_new_messages" => "true" }}, cookie)
     #unless CommunityMembership.find_by_person_id_and_community_id(@hash_person.id, Community.first.id)
-      CommunityMembership.create(:community_id => Community.first.id, :person_id => @hash_person.id, :consent => Community.first.consent)
+      CommunityMembership.create(:community_id => Community.first.id, :person_id => @hash_person.id, :consent => Community.first.consent, :status => "accepted")
     #end
     attributes_to_update = hash.except('person','person_id', 'locale')
     @hash_person.update_attributes(attributes_to_update, cookie) unless attributes_to_update.empty?
+    @hash_person.set_default_preferences
     if hash['locale'] 
       @hash_person.locale = hash['locale']
       @hash_person.save
     end
     @people[hash['person']] = @hash_person
   end
+end
+
+When /^I log out$/ do
+  find(".user-menu-toggle").click
+  click_link "Logout"
 end
 
 # Filling in with random strings
@@ -69,6 +79,7 @@ When /^(?:|I )fill in "([^"]*)" with random (username|email)(?: within "([^"]*)"
   when "email"
     value = "#{generate_random_username}@example.com"
     @values["email"] = value
+    Thread.current[:latest_used_random_email] = value
   end
   with_scope(selector) do
     fill_in(field, :with => value)
@@ -112,7 +123,7 @@ end
 Then /^I should see my username$/ do
   username = Person.order("updated_at").last.username
   if @values && @values["username"]
-    puts "it seems there username of last created person is stored, so use that"
+    # puts "it seems there username of last created person is stored, so use that"
     username = @values["username"]
   end
   if page.respond_to? :should
@@ -136,5 +147,31 @@ Then /^user "([^"]*)" (should|should not) have "([^"]*)" with value "([^"]*)"$/ 
   verb = verb.gsub(" ", "_")
   value = nil if value == "nil"
   user.send(attribute).send(verb) == value
-  
 end
+
+Then /^user "(.*?)" should have additional (confirmed|unconfirmed) email "(.*?)"$/ do |username, conf, email|
+  p = Person.find_by_username(username)
+  e = Email.find_by_person_id_and_address(p.id, email)
+  if conf == "unconfirmed"
+    e.confirmed_at.should be_nil
+  else
+    e.confirmed_at.should_not be_nil
+  end
+end
+
+Then /^I should be logged in$/ do
+  if page.respond_to? :should
+    page.should have_no_css(".login-menu-toggle")
+  else
+    assert page.has_no_css?(".login-menu-toggle")
+  end
+end
+
+Then /^I should not be logged in$/ do
+  if page.respond_to? :should
+    page.should have_css(".login-menu-toggle")
+  else
+    assert page.has_css?(".login-menu-toggle")
+  end
+end
+

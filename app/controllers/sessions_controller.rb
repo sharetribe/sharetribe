@@ -1,20 +1,19 @@
 require 'rest_client'
 
 class SessionsController < ApplicationController
-  include UrlHelper
   
   skip_filter :check_email_confirmation
   skip_filter :dashboard_only
   skip_filter :single_community_only, :only => [ :create, :request_new_password ]
   skip_filter :cannot_access_without_joining, :only => [ :destroy, :confirmation_pending ]
-  skip_filter :not_public_in_private_community, :only => [ :create, :request_new_password ]
   
   # For security purposes, Devise just authenticates an user
   # from the params hash if we explicitly allow it to. That's
   # why we need to call the before filter below.
   before_filter :allow_params_authentication!, :only => :create
- 
+   
   def new
+    @selected_tribe_navi_tab = "members"
     @facebook_merge = session["devise.facebook_data"].present?
     if @facebook_merge
       @facebook_email = session["devise.facebook_data"]["email"]
@@ -25,7 +24,7 @@ class SessionsController < ApplicationController
   def create
  
     if current_community = Community.find_by_domain(params[:community])
-      domain = "#{request.protocol}#{with_subdomain(current_community.domain)}"
+      domain = current_community.full_url
     else
       domain = "#{request.protocol}#{request.host_with_port}"
     end
@@ -37,17 +36,13 @@ class SessionsController < ApplicationController
     
     # In case of failure, set the message already here and 
     # clear it afterwards, if authentication worked.
-    flash[:error] = :login_failed
+    flash.now[:error] = t("layouts.notifications.login_failed")
     
     # Since the authentication happens in the rack layer,
     # we need to tell Devise to call the action "sessions#new"
     # in case something goes bad.
     if current_community
-      if current_community.private?
-        person = authenticate_person!(:recall => "homepage#sign_in")
-      else
-        person = authenticate_person!(:recall => "sessions#new")
-      end
+      person = authenticate_person!(:recall => "sessions#new")
     else
       person = authenticate_person!(:recall => "dashboard#login")
     end
@@ -94,7 +89,7 @@ class SessionsController < ApplicationController
     if not @current_community
       redirect_to domain + new_tribe_path
     elsif @current_user.communities.include?(@current_community) || @current_user.is_admin?
-      flash[:notice] = [:login_successful, (@current_user.given_name_or_username + "!").to_s, person_path(@current_user)]
+      flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(@current_user.given_name_or_username, person_path(@current_user))).html_safe
       EventFeedEvent.create(:person1_id => @current_user.id, :community_id => current_community.id, :category => "login") unless (@current_user.is_admin? && !@current_user.communities.include?(@current_community))
       if session[:return_to]
         redirect_to domain + session[:return_to]
@@ -114,29 +109,26 @@ class SessionsController < ApplicationController
     sign_out
     session[:cookie] = nil
     session[:person_id] = nil
-    flash[:notice] = :logout_successful
+    flash[:notice] = t("layouts.notifications.logout_successful")
     redirect_to root
   end
   
   def index
-    # this is not in use in Sharetribe, but bots seem to try the url so implementing this to avoid errors
-    render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
+    redirect_to login_path
   end
   
   def request_new_password
     if Person.find_by_email(params[:email])
       #Call devise based method
       resource = Person.send_reset_password_instructions(params)
-      flash[:notice] = :password_recovery_sent
+      flash[:notice] = t("layouts.notifications.password_recovery_sent")
     else
-      flash[:error] = :email_not_found
+      flash[:error] = t("layouts.notifications.email_not_found")
     end
 
     
     if on_dashboard?
       redirect_to dashboard_login_path
-    elsif @current_community && @current_community.private?
-      redirect_to :controller => :homepage, :action => :sign_in
     else
       redirect_to login_path
     end
@@ -159,7 +151,7 @@ class SessionsController < ApplicationController
                        "id"  => data.id}
 
       session["devise.facebook_data"] = facebook_data
-      redirect_to :action => :new
+      redirect_to :action => :create_facebook_based, :controller => :people
     end
   end
   

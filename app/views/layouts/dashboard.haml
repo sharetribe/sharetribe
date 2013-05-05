@@ -8,7 +8,7 @@
 
     %meta{ :property => "og:type", :content =>"website"}
     %meta{ :property => "og:url", :content =>"#{request.protocol}#{request.host}"} 
-    %meta{ :property => "og:image", :content => "http://#{request.host}/assets/sharetribe_icon.png"}
+    %meta{ :property => "og:image", :content => "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"}
     %meta{ :property => "og:site_name", :content =>"#{service_name}"}
     %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
     %meta{ :property => "og:description", :content => t("layouts.application.meta_description")}
@@ -36,7 +36,14 @@
 
           var _gaq = _gaq || [];
           = "_gaq.push(['_setAccount', '#{APP_CONFIG.google_analytics_key}']);"
-          = "_gaq.push(['_setDomainName', '#{APP_CONFIG.google_analytics_domain}']);"
+          = "_gaq.push(['_setDomainName', '.#{request.domain}']);"
+          _gaq.push(['_addIgnoredOrganic', 'sharetribe']);
+          _gaq.push(['_addIgnoredOrganic', 'sharetribe.com']);
+          _gaq.push(['_addIgnoredOrganic', 'www.sharetribe.com']); 
+          _gaq.push(['_addIgnoredOrganic', 'kassi']); 
+          _gaq.push(['_addIgnoredOrganic', 'share tribe']); 
+          _gaq.push(['_addIgnoredOrganic', 'kassi.eu']);
+          _gaq.push(['_setAllowLinker', true]);
           _gaq.push(['_trackPageview']);
           _gaq.push(['_trackPageLoadTime']);
 

@@ -8,4 +8,4 @@
 - @requests.each do |request|
   = request.title
   
-= t("emails.newsletter.text_version_text", :url => "http://#{@community.domain}.sharetribe.com")
+= t("emails.newsletter.text_version_text", :url => @community.full_url)

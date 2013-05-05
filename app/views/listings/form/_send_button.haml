@@ -1,4 +1,4 @@
-.new_listing_form_field_container
-  = form.hidden_field(:listing_type, :value => @listing.listing_type)
-  = form.hidden_field(:category, :value => @listing.category)
-  = form.submit t(".save_#{@listing.listing_type}"), :class => "send_button"
+= form.hidden_field(:category, :value => @listing.category.name)
+= form.hidden_field(:share_type, :value => @listing.share_type.name)
+= form.button t(".save_listing"), :class => "send_button"
+  

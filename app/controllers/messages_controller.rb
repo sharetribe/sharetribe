@@ -3,15 +3,14 @@ class MessagesController < ApplicationController
   skip_filter :dashboard_only
   
   before_filter do |controller|
-    controller.ensure_logged_in "you_must_log_in_to_send_a_message"
-    controller.ensure_authorized "you_are_not_authorized_to_do_this"
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_send_a_message")
+    controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_do_this")
   end
   
   def create
     @message = Message.new(params[:message])
     if @message.save 
-      flash.now[:message_notice] = "reply_sent"
-      @message.conversation.send_email_to_participants(request.host)
+      @message.conversation.send_email_to_participants(@current_community)
     else
       flash[:error] = "reply_cannot_be_empty"
     end  

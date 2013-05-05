@@ -14,7 +14,7 @@
       .language= t(".language")
       = form_tag(new_tribe_path, :method => "get", :remote => true) do
         .div{:style => "font-size: 20px"}
-          = select_tag "community_locale", options_for_select(Kassi::Application.config.AVAILABLE_DASHBOARD_LOCALES, session[:community_locale]), :include_blank => t(".select_main_language_of_your_tribe"), :onchange => 'this.form.submit()', :class => 'community_language_select'
+          = select_tag "community_locale", options_for_select(Kassi::Application.config.AVAILABLE_DASHBOARD_LOCALES, session[:community_locale]), :prompt=> t(".select_main_language_of_your_tribe"), :onchange => 'this.form.submit()', :class => 'community_language_select'
     - if session[:community_locale]
       = form_for @community, :url => tribes_path + "?ref=tribe_created" do |form|
         .form_field_container_taller
@@ -44,9 +44,9 @@
         .form_field_container
           .signup_checkbox_container
             .signup_checkbox_input_container
-              %input{:type => "checkbox", :id => "community_join_with_invite_only", :style => "opacity: 0;", :name => "community[join_with_invite_only]"}
+              %input{:type => "checkbox", :id => "community_join_with_invite_only", :name => "community[join_with_invite_only]"}
             .signup_checkbox_label_container
-              = form.label :terms, t('.restrict_tribe_to_invited_people'), :class => "checkbox"
+              = form.label :join_with_invite_only, t('.restrict_tribe_to_invited_people'), :class => "checkbox"
               = link_to t("common.what_is_this"), "#", :id => "invite_only_help_text_link", :class => "green_part_link_smaller smaller"
         - if session[:consent] && session[:consent].eql?(APP_CONFIG.consent)
           = form.hidden_field :terms, :value => "true"
@@ -54,7 +54,7 @@
           .form_field_container
             .signup_checkbox_container
               .signup_checkbox_input_container
-                %input{:type => "checkbox", :id => "community_terms", :style => "opacity: 0;", :name => "community[terms]"}
+                %input{:type => "checkbox", :id => "community_terms", :name => "community[terms]"}
               .signup_checkbox_label_container
                 = form.label :terms, t('people.new.i_accept_the'), :class => "checkbox"
                 = link_to t("people.new.terms"), "#", :tabindex => "-1", :id => "terms_link", :class => "green_part_link"
@@ -76,5 +76,5 @@
           = form.submit t(".create_your_tribe"), :class => "form_button", :id => "create_community_button"
 
 - if session[:community_locale]
-  = render :partial => "people/help_texts", :collection => ["terms"], :as => :field
-= render :partial => "people/help_texts", :collection => ["invite_only_help_text"], :as => :field
+  = render :partial => "people/help_texts_old", :collection => ["terms"], :as => :field
+= render :partial => "people/help_texts_old", :collection => ["invite_only_help_text"], :as => :field

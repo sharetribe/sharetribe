@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_admin_new_news_item_form();
+  initialize_admin_new_news_item_form("#{I18n.locale}");
 
 #new_news_item_form
   %h2= t(".#{controller.action_name}_news_item")

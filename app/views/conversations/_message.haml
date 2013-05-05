@@ -1,22 +1,14 @@
-.message
-  - if current_user?(message.sender)
-    .message_content_spacer
-      &nbsp;
-  - else
-    .person_image_message
-      = small_avatar_thumb(message.sender)
-    .message_arrow_left
-      &nbsp;
-  .message_main
-    .message_sender
-      = link_to message.sender.name, message.sender
-      %span
-        = time_ago(message.created_at) + ":"
-    .message_content_div
-      - text_with_line_breaks do  
-        = message.content
-  - if current_user?(message.sender)
-    .message_arrow_right
-      &nbsp;
-    .person_image_message
-      = small_avatar_thumb(message.sender)  
+.message{:id => "message#{message.id.to_s}"}
+  .avatar
+    = small_avatar_thumb(message.sender)
+  %h3
+    = link_to message.sender.name, message.sender
+  - if message.action
+    - if message.action.eql?("pay")
+      %b= t(".paid", :sum => humanized_money_with_symbol(message.conversation.payment.sum))
+    - else
+      %b= t(".#{message.action}ed_#{message.conversation.discussion_type}")
+  %small= time_ago(message.created_at)
+  .message-content
+    - text_with_line_breaks do  
+      = message.content

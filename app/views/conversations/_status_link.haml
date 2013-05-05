@@ -1,3 +1,7 @@
-.conversation_status_link{:class => status}
-  - path = status.eql?("accept") ? accept_person_message_path(:person_id => @current_user.id, :id => conversation.id.to_s) : reject_person_message_path(:person_id => @current_user.id, :id => conversation.id.to_s)
-  = link_to(image_tag("icons/#{status}_icon.png") + t(".#{status}_#{conversation.discussion_type}"), path, :remote => true, :method => :put) 
+%a{:href => path_for_status_link(status, conversation, @current_user), :class => "status-link #{status}"}
+  .icon-with-text{:class => icon_for("#{status}ed")}
+  .text-with-icon
+    - if ["accept", "reject"].include?(status)
+      = t(".#{status}_#{conversation.discussion_type}")
+    - else
+      = t(".#{status}")

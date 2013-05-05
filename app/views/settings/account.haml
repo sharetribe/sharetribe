@@ -1,47 +1,50 @@
 - content_for :javascript do
-  initialize_update_account_info_form("#{I18n.locale}","#{t(".change")}","#{t("common.cancel")}","#{t(".new_email")}","#{t(".new_password")}","#{t(".confirm_new_password")}","#{t("people.new.email_is_in_use")}");
+  initialize_update_account_info_form("#{I18n.locale}","#{t(".change")}","#{t("common.cancel")}","#{t("people.new.email_is_in_use")}");
 
-#person_settings_form
-  #settings_form_description
-    = t(".these_fields_are_shown_only_to_you")
-  .settings_account_row 
-    .settings_account_row_title
-      = username_label + ":"
-    .settings_account_row_content
-      .settings_form_padding
-        = @person.username
-    .settings_account_row_link
-      &nbsp;
-  .settings_account_row    
-    .settings_account_row_title
-      = t(".email")
-    .settings_account_row_content
-      #account_email_content
-        .settings_form_padding
-          = @person.email(session[:cookie])
-      #account_email_form
-        = form_for @person, :html => {:id => 'email_form'} do |form|
-          = form.text_field :email, :class => "text_field_account", :maxlenght => "255"
-          = form.submit t(".save"), :class => "send_button_account", :id => "email_submit"     
-    .settings_account_row_link
-      = link_to t(".change"), "#", :id => "account_email_link"
-  .settings_account_bottom_row    
-    .settings_account_row_title
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user) }
+
+#person_settings_form.left-navi-section.settings-section.account-settings
+  = render :partial => "layouts/global_view_notification", :locals => { :text => t("settings.settings_affect_all_tribes") }
+  -# Username
+  .account-settings-row
+    .ss-key.account-settings-icon
+    .account-settings-text
+      %b
+        = username_label + ":"
+      = @person.username
+  
+  -# Email
+  .account-settings-row
+    .ss-mail.account-settings-icon
+    .account-settings-text#account_email_content
+      %b
+        = t(".email")
+      = @person.email(session[:cookie])
+      = link_to t(".change"), "#", :id => "account_email_link", :class => "change-link"
+    #account_email_form.email-form
+      = form_for @person, :html => {:id => 'email_form'} do |form|
+        = form.text_field :email, :class => "text_field_account", :maxlenght => "255", :placeholder => t(".new_email")
+        = form.button t(".save"), :class => "send_button_account", :id => "email_submit"
+  
+  -# Password
+  .account-settings-row
+    .ss-lock.account-settings-icon
+    .account-settings-text#account_password_content
       = t("common.password") + ":"
-    .settings_account_row_content
-      #account_password_content
-        .settings_form_padding_password
-          = "********"
-      #account_password_form
-        = form_for @person, :html => {:id => 'password_form'} do |form|
-          = form.password_field :password, :class => :text_field_account, :maxlength => "255"
-          = form.password_field :password2, :class => :text_field_account, :maxlength => "255"
-          = form.submit t(".save"), :class => "send_button_account", :id => "password_submit"    
-    .settings_account_row_link
-      = link_to t(".change"), "#", :id => "account_password_link"
-  %br
-  %br
-  %h6
-    = t(".delete_account")
-  = t(".instructions_to_delete_account")
+      = "********"
+      = link_to t(".change"), "#", :id => "account_password_link", :class => "change-link"
+    #account_password_form.password-form
+      = form_for @person, :html => {:id => 'password_form'} do |form|
+        = form.password_field :password, :class => :text_field_account, :maxlength => "255", :placeholder => t(".new_password")
+        = form.password_field :password2, :class => :text_field_account, :maxlength => "255", :placeholder => t(".confirm_new_password")
+        = form.button t(".save"), :class => "send_button_account", :id => "password_submit"
+  
+  -# Account removal
+  .account-settings-row
+    .ss-deleteuser.account-settings-icon
+    .account-settings-text
+      %b
+        = t(".delete_account")
+    %p
+      = t(".instructions_to_delete_account", :contact_admin_link => link_to(t(".contact_admin"), new_user_feedback_path)).html_safe
     

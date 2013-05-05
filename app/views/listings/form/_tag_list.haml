@@ -1,8 +1,0 @@
-.new_listing_form_field_container
-  %label{:for => "tag_list", :class => "input"}
-    = t('.tags')
-    %span{:class => "smaller"}
-      = t('.comma_separate') + ":"
-    %span{:class => "smaller"}  
-      = link_to t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_tags_link"
-  = form.text_field(:tag_list, :class => "text_field", :maxlength => "500")

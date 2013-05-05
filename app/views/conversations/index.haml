@@ -1,9 +1,12 @@
-- if @conversations && !@conversations.empty?
-  #conversations
-    = render :partial => "conversations/#{action_name}_conversation", :collection => @conversations, :as => :conversation, :spacer_template => "inbox_spacer"
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => inbox_links_for(@current_user) }
+
+#conversations.inbox-feed.left-navi-section
+  = render :partial => "layouts/global_view_notification", :locals => { :text => t(".messages_from_all_tribes") }
+  - if @conversations && !@conversations.empty?
+    = render :partial => @conversations
     = will_paginate(@conversations)
-    = pageless(@conversations.total_pages, '#conversations', "#{action_name}", t('.loading_more_messages')) 
-- else
-  #no_conversations
-    = t(".no_#{action_name}_messages")
+    = pageless(@conversations.total_pages, '#conversations', "#{action_name}", t('.loading_more_messages'))    
+  - else
+    #no_conversations
+      = t(".no_#{action_name}_messages")
   

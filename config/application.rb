@@ -19,6 +19,8 @@ end
 
 module Kassi
   class Application < Rails::Application
+    # Load all rack middleware files
+    config.autoload_paths += %W(#{config.root}/lib/rack_middleware)
     
     # Enable the asset pipeline  
     config.assets.enabled = true  
@@ -33,11 +35,17 @@ module Kassi
     # Heroku requires this to be false.
     config.assets.initialize_on_precompile = false
     
+    # Add webfonts folder which can contain icons used like fonts
+    config.assets.paths << Rails.root.join("app", "assets", "webfonts")
+    
     # Define here additional Assset Pipeline Manifests to include to precompilation
-    config.assets.precompile += ['dashboard.js', 'dashboard.css', 'login_screen.js', 'login_screen.css', 'uniform.kassi.css', 'markerclusterer.js']
+    config.assets.precompile += ['dashboard.js', 'dashboard.css', 'markerclusterer.js', 'communities/custom-style-*', 'ss-pika.js', 'ss-social.js','old_ie.css', 'html5shiv-printshiv.js']
     
     # Read the config from the config.yml 
-    APP_CONFIG = load_app_config    
+    APP_CONFIG = load_app_config
+
+    # enable custom domain cookies rack middleware
+    config.middleware.use "CustomDomainCookie", APP_CONFIG.domain
         
     # This is the list of all possible locales. Part of the translations may be unfinished.
     config.AVAILABLE_LOCALES = [
@@ -46,8 +54,8 @@ module Kassi
           ["Pусский", "ru"], 
           ["Nederlands", "nl"], 
           ["Ελληνικά", "el"], 
-          ["kiswahili", "sw"], 
-          ["română", "ro"], 
+          ["Kiswahili", "sw"], 
+          ["Română", "ro"], 
           ["Français", "fr"], 
           ["中文", "zh"], 
           ["Español", "es"], 
@@ -55,7 +63,8 @@ module Kassi
           ["Catalan", "ca"],
           ["Tiếng Việt", "vi"],
           ["Deutsch", "de"],
-          ["Svenska", "sv"]
+          ["Svenska", "sv"],
+          ["Italiano", "it"]
     ]
 
     # This is the list o locales avaible for the dashboard and newly created tribes in UI
@@ -121,6 +130,11 @@ module Kassi
     if Rails.env.production? || Rails.env.staging? 
       config.logger = Logger.new(STDOUT)
       config.logger.level = Logger.const_get(ENV['LOG_LEVEL'] ? ENV['LOG_LEVEL'].upcase : 'INFO')
+    end
+    
+    config.to_prepare do
+      Devise::Mailer.layout "email" # email.haml or email.erb
+      Devise::Mailer.helper :email_template
     end
 
   end

@@ -1,17 +1,11 @@
-/* Display notice */
-$("#notification_container").html("<%= escape_javascript(render(:partial => 'layouts/notifications')) %>");
-
-/* Update status link */
+/* Update single listing page links */
 $("#listing_message_links").html("<%= escape_javascript(render(:partial => 'listings/message_links')) %>");
 
-/* Update edit links */
-$("#edit_links").html("<%= escape_javascript(render(:partial => 'listings/edit_links')) %>");
+/* Update single listing page links */
+$("#admin_edit_links").html("<%= escape_javascript(render(:partial => 'listings/admin_edit_links')) %>");
 
-/* Update comment form */
-$("#comment_form").html("<%= escape_javascript(render(:partial => 'listings/comment_form')) %>");
+/* Update profile listing page links */
+$("#edit-profile-listing-links-" + <%= @listing.id.to_s %>).html("<%= escape_javascript(render(:partial => 'listings/edit_profile_listing_links', :locals => { :listing => @listing })) %>");
 
-/* Update listed listing closed status */
-$("#listed_listing_closed_status_container_<%= @listing.id.to_s %>").html("<%= escape_javascript(render(:partial => 'listings/listed_listing_closed_status', :locals => { :listing => @listing })) %>");
-
-/* Update listed listing closed status */
-$("#listed_listing_edit_links_<%= @listing.id.to_s %>").html("<%= escape_javascript(render(:partial => 'listings/listed_listing_edit_links', :locals => { :listing => @listing })) %>");
+/* Close comment form */
+$("#comment-form").html("<%= escape_javascript(render(:partial => 'listings/comment_form')) %>");

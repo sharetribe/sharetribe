@@ -36,7 +36,7 @@
       .form_field_container
         .signup_checkbox_container
           .signup_checkbox_input_container
-            %input{:type => "checkbox", :id => "person_terms", :style => "opacity: 0;", :name => "person[terms]"}
+            %input{:type => "checkbox", :id => "person_terms", :name => "person[terms]"}
           .signup_checkbox_label_container
             = form.label :terms, t('people.new.i_accept_the'), :class => "checkbox"
             = link_to t("people.new.terms"), "#", :tabindex => "-1", :id => "terms_link", :class => "green_part_link"
@@ -44,4 +44,4 @@
         = form.hidden_field :community_category, :value => session[:community_category]
         = submit_tag(t('people.new.create_new_account'), :class => "send_button")
         
-= render :partial => "people/help_texts", :collection => ["terms"], :as => :field 
+= render :partial => "people/help_texts_old", :collection => ["terms"], :as => :field 

@@ -8,8 +8,9 @@ Feature: User changes notification settings
       | person | 
       | kassi_testperson1 |
     And I am logged in as "kassi_testperson1"
+    When I click ".user-menu-toggle"
     When I follow "Settings"
-    And I follow "notification_settings_link"
+    And I follow "notifications_left_navi_link"
     And the "...somebody comments my offer or request" checkbox should be checked
     And the "...somebody sends me a message" checkbox should be checked
     And the "Send me an update email daily if there are new listings" checkbox should be checked    

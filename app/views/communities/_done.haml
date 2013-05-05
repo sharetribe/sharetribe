@@ -6,4 +6,4 @@
 .clear
 .grid_6.prefix_3.suffix.3.alpha.omega
   .show_tribe_link
-    = link_to t(".go_to_your_tribe"), "http://#{with_subdomain(@community.domain)}", :id => "go_to_created_community_button"
+    = link_to t(".go_to_your_tribe"), @community.full_url, :id => "go_to_created_community_button"

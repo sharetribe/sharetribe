@@ -7,55 +7,29 @@ Feature: User views info about sharetribe
   Scenario: User views about page
     Given I am on the home page
     When I follow "About"
-    Then I should see "Information about Sharetribe" within "h1"
-    And I should see "What is it" within ".inbox_tab_selected"
-    And I should see "How to use" within ".inbox_tab_unselected"
+    Then I should see "This website was created using the Sharetribe platform." within ".about-section"
+    And I should see "About" within ".left-navi"
+    And I should see "About" within ".selected.left-navi-link"
     And I should see "Terms of use"
-    And I should see "Register details"
-    And I should see "Who's behind Sharetribe?"
+    And I should see "Privacy"
   
   @javascript
   Scenario: User views terms page
     Given I am on the home page
     When I follow "About"
-    And I follow "Terms"
-    And I should see "What is it" within ".inbox_tab_unselected"
-    And I should see "How to use"
-    And I should see "Terms of use"
-    And I should see "Register details" 
+    And I follow "Terms of use" within ".left-navi"
+    And I should see "About" within ".left-navi"
+    And I should not see "About" within ".selected.left-navi-link"
+    And I should see "Terms of use" within ".left-navi"
+    And I should see "Privacy" within ".left-navi"
     And I should see "Rights of Content"
-  
-  @javascript
-  Scenario: User views how to use page without logging in
-    Given I am on the home page
-    When I follow "About"
-    And I follow "How to use"
-    And I should see "What is it" within ".inbox_tab_unselected"
-    And I should see "How to use" within ".inbox_tab_selected"
-    And I should see "Terms of use" 
-    And I should see "Register details"
-    And I should see "Offer items and favors to others"
-    And I should not see "messages view" within "a"
-  
-  @javascript
-  Scenario: User views how to use page when logged in
-    Given I am logged in
-    When I follow "About"
-    And I follow "How to use"
-    And I should see "What is it" within ".inbox_tab_unselected"
-    And I should see "How to use" within ".inbox_tab_selected"
-    And I should see "Terms of use" 
-    And I should see "Register details" 
-    And I should see "Offer items and favors to others" 
-    And I should see "messages view"
   
   @javascript
   Scenario: User views register details page
     Given I am on the home page
     When I follow "About"
-    And I follow "Register details"
-    And I should see "What is it" 
-    And I should see "How to use" 
-    And I should see "Terms of use" 
-    And I should see "Register details" within ".inbox_tab_selected"
+    And I follow "Privacy" within ".left-navi"
+    And I should see "About" within ".left-navi"
+    And I should see "Terms of use" within ".left-navi"
+    And I should see "Privacy" within ".selected.left-navi-link"
     And I should see "Name of the register"

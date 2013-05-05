@@ -12,44 +12,18 @@ Feature: User joins invite only community
     And I am not logged in
     And I am on the signup page
     And there is an invitation for community "test" with code "GH1JX8"
-    When I fill in "Invitation code:" with "GH1JX8"
-    And I fill in "Username:" with random username
-    And I fill in "Given name:" with "Testmanno"
-    And I fill in "Family name:" with "Namez"
-    And I fill in "Password:" with "test"
-    And I fill in "Confirm password:" with "test"
-    And I fill in "Email address:" with random email
+    When I fill in "Invitation code" with "GH1JX8"
+    And I fill in "person[username]" with random username
+    And I fill in "Given name" with "Testmanno"
+    And I fill in "Family name" with "Namez"
+    And I fill in "person_password1" with "test"
+    And I fill in "Confirm password" with "test"
+    And I fill in "Email address" with random email
     And I check "person_terms"
     And I press "Create account"
     Then I should not see "The invitation code is not valid."
     And I should not see "This field is required."
-    And Most recently created user should be member of "test" community with its latest consent accepted with invitation code "GH1JX8"
-    And Invitation with code "GH1JX8" should have 0 usages_left
-
-  @javascript
-  Scenario: User joins a private community with invitation
-    Given there are following users:
-      | person | 
-      | kassi_testperson1 |
-    And community "test" requires invite to join
-    And community "test" is private
-    And I am not logged in
-    And there is an invitation for community "test" with code "GH1JX8"
-    And I am on the home page
-    When I follow "Create a new account"
-    And I fill in "Invitation code:" with "GH1JX8"
-    And I fill in "Username:" with random username
-    And I fill in "Given name:" with "Testmanno"
-    And I fill in "Family name:" with "Namez"
-    And I fill in "Password:" with "test"
-    And I fill in "Confirm password:" with "test"
-    And I fill in "Email address:" with random email
-    And I check "person_terms"
-    And I press "Create account"
-    Then I should see "Welcome to Sharetribe, Testmanno!" within "#notifications"
-    And I should not see "The invitation code is not valid."
-    And I should not see "This field is required."
-    And Most recently created user should be member of "test" community with its latest consent accepted with invitation code "GH1JX8"
+    And Most recently created user should be member of "test" community with status "pending_email_confirmation" and its latest consent accepted with invitation code "GH1JX8"
     And Invitation with code "GH1JX8" should have 0 usages_left
 
   @javascript
@@ -60,12 +34,12 @@ Feature: User joins invite only community
     And community "test" requires invite to join
     And I am not logged in
     And I am on the signup page
-    And I fill in "Username:" with random username
-    And I fill in "Given name:" with "Testmanno"
-    And I fill in "Family name:" with "Namez"
-    And I fill in "Password:" with "test"
-    And I fill in "Confirm password:" with "test"
-    And I fill in "Email address:" with random email
+    And I fill in "person[username]" with random username
+    And I fill in "Given name" with "Testmanno"
+    And I fill in "Family name" with "Namez"
+    And I fill in "person_password1" with "test"
+    And I fill in "Confirm password" with "test"
+    And I fill in "Email address" with random email
     And I check "person_terms"
     And I press "Create account"
     Then I should see "This field is required."
@@ -79,13 +53,13 @@ Feature: User joins invite only community
     And I am not logged in
     And I am on the signup page
     And there is an invitation for community "test" with code "GH1JX8" with 0 usages left
-    When I fill in "Invitation code:" with "gh1jx8"
-    And I fill in "Username:" with random username
-    And I fill in "Given name:" with "Testmanno"
-    And I fill in "Family name:" with "Namez"
-    And I fill in "Password:" with "test"
-    And I fill in "Confirm password:" with "test"
-    And I fill in "Email address:" with random email
+    When I fill in "Invitation code" with "gh1jx8"
+    And I fill in "person[username]" with random username
+    And I fill in "Given name" with "Testmanno"
+    And I fill in "Family name" with "Namez"
+    And I fill in "person_password1" with "test"
+    And I fill in "Confirm password" with "test"
+    And I fill in "Email address" with random email
     And I check "person_terms"
     And I press "Create account"
     Then I should see "The invitation code is not valid."
@@ -108,17 +82,23 @@ Feature: User joins invite only community
     And there is an invitation for community "test" with code "GH1JX8" with 1 usages left
     And I go to the registration page with invitation code "GH1JX8"
     Then I should not see "Invitation code"
-    When I fill in "Username:" with random username
-    And I fill in "Given name:" with "Testmanno2"
-    And I fill in "Family name:" with "Namez"
-    And I fill in "Password:" with "test"
-    And I fill in "Confirm password:" with "test"
-    And I fill in "Email address:" with random email
+    When I fill in "person[username]" with random username
+    And I fill in "Given name" with "Testmanno2"
+    And I fill in "Family name" with "Namez"
+    And I fill in "person_password1" with "test"
+    And I fill in "Confirm password" with "test"
+    And I fill in "Email address" with random email
     And I check "person_terms"
     And I press "Create account"
     Then I should not see "The invitation code is not valid."
     And I should not see "This field is required."
+    And I should receive 1 email
+    When I open the email
+    And I follow "confirmation" in the email
+    Then I should have 2 emails
+    And I should see "successfully confirmed"
     And Most recently created user should be member of "test" community with its latest consent accepted with invitation code "GH1JX8"
     And Invitation with code "GH1JX8" should have 0 usages_left
-    When I follow "Testmanno2"
-    Then I should see "...was invited by"
+    When I click ".user-menu-toggle"
+    When I follow "Profile"
+    Then I should see "Invited by"

@@ -1,0 +1,35 @@
+.testimonial{:class => "light_#{testimonial.displayed_grade > 2 ? 'green' : 'red' }", :id => "testimonial#{testimonial.id.to_s}"}
+  - listing = testimonial.participation.conversation.listing
+  .avatar
+    = small_avatar_thumb(testimonial.author)
+    
+  .testimonial-title
+    %h3
+      = link_to testimonial.author.given_name_or_username, testimonial.author
+    %small
+      - if testimonial.participation.conversation.status.eql?("canceled")
+        = t("testimonials.testimonial..about_listing")
+        - if listing.visibility.eql?("disabled")
+          &ldquo;#{listing.title}&rdquo;
+        - else
+          = link_to listing.title, listing
+        = time_ago(testimonial.created_at) + "."
+      - else
+        = t("people.profile_feedback.#{profile_testimonial_other_person_role(@person, listing)}ed_#{listing.category.name}")
+        - if listing.visibility.eql?("disabled")
+          &ldquo;#{listing.title}&rdquo;
+        - else
+          = link_to listing.title, listing
+        = t("testimonials.testimonial.#{profile_testimonial_other_person_role(@person, listing).eql?('request') ? 'from' : 'to'}_user")
+        = @person.given_name_or_username
+        = time_ago(testimonial.created_at) + "."
+  .testimonial-description
+    .testimonial-icon
+      - if testimonial.grade > 0.25
+        .ss-like
+      - else
+        .ss-dislike
+    .testimonial-text
+      - if testimonial.text && !testimonial.text.blank?
+        - text_with_line_breaks do
+          &ldquo;#{testimonial.text}&rdquo;

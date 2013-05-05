@@ -1,119 +1,63 @@
 class ListingsController < ApplicationController
+  include PeopleHelper
   
   # Skip auth token check as current jQuery doesn't provide it automatically
   skip_before_filter :verify_authenticity_token, :only => [:close, :update, :follow, :unfollow]
 
   before_filter :only => [ :edit, :update, :close, :follow, :unfollow ] do |controller|
-    controller.ensure_logged_in "you_must_log_in_to_view_this_content"
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_content")
   end
 
   before_filter :only => [ :new, :create ] do |controller|
-    controller.ensure_logged_in(["you_must_log_in_to_create_new_#{params[:type]}", "create_one_here".to_sym, sign_up_path])
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_create_new_listing", :sign_up_link => view_context.link_to(t("layouts.notifications.create_one_here"), sign_up_path)).html_safe
   end
-
+  
+  before_filter :person_belongs_to_current_community, :only => [:index]
   before_filter :save_current_path, :only => :show
   before_filter :ensure_authorized_to_view, :only => [ :show, :follow, :unfollow ]
   
   before_filter :only => [ :close ] do |controller|
-    controller.ensure_current_user_is_listing_author "only_listing_author_can_close_a_listing"
+    controller.ensure_current_user_is_listing_author t("layouts.notifications.only_listing_author_can_close_a_listing")
   end
   
   before_filter :only => [ :edit, :update ] do |controller|
-    controller.ensure_current_user_is_listing_author "only_listing_author_can_edit_a_listing"
+    controller.ensure_current_user_is_listing_author t("layouts.notifications.only_listing_author_can_edit_a_listing")
   end
   
   skip_filter :dashboard_only
   
   def index
-    if params[:format] == "atom"
+    if params[:format] == "atom" # API request for feed
       redirect_to :controller => "Api::ListingsController", :action => :index
+      return
+    end
+    @selected_tribe_navi_tab = "home"
+    if request.xhr? && params[:person_id] # AJAX request to load on person's listings for profile view
+      # Returns the listings for one person formatted for profile page view
+      per_page = params[:per_page] || 200 # the point is to show all here by default
+      page = params[:page] || 1
+      @listings = persons_listings(@person, per_page, page)
+      render :partial => "listings/profile_listing", :collection => @listings, :as => :listing
       return
     end
     redirect_to root
   end
   
   def requests
-    params[:listing_type] = "request"
-    @to_render = {:action => :index}
-    @listing_style = "listing"
-    load
+    redirect_to root
   end
   
   def offers
-    params[:listing_type] = "offer"
-    @to_render = {:action => :index}
-    @listing_style = "listing"
-    load
-  end
-
-  # detect the browser and return the approriate layout
-  def detect_browser
-    if APP_CONFIG.force_mobile_ui
-        return true
-    end
-    
-    mobile_browsers = ["android", "ipod", "opera mini", "blackberry", 
-"palm","hiptop","avantgo","plucker", "xiino","blazer","elaine", "windows ce; ppc;", 
-"windows ce; smartphone;","windows ce; iemobile", 
-"up.browser","up.link","mmp","symbian","smartphone", 
-"midp","wap","vodafone","o2","pocket","kindle", "mobile","pda","psp","treo"]
-    if request.headers["HTTP_USER_AGENT"]
-	    agent = request.headers["HTTP_USER_AGENT"].downcase
-	    mobile_browsers.each do |m|
-		    return true if agent.match(m)
-	    end    
-    end
-    return false
-  end
-    
-
-  # Used to load listings to be shown
-  # How the results are rendered depends on 
-  # the type of request and if @to_render is set
-  def load
-    @title = params[:listing_type]
-    @tag = params[:tag]
-    @to_render ||= {:partial => "listings/listed_listings"}
-    @listings = Listing.currently_open.order("created_at DESC").find_with(params, @current_user, @current_community).paginate(:per_page => 15, :page => params[:page])
-    @request_path = request.fullpath
-    if request.xhr? && params[:page] && params[:page].to_i > 1
-      render :partial => "listings/additional_listings"
-    else
-      render @to_render
-    end
-  end 
-  
-  def loadmap
-    @title = params[:listing_type]
-    @listings = Listing.currently_open.order("created_at DESC").find_with(params, @current_user)
-    @listing_style = "map"
-    @to_render ||= {:partial => "listings/listings_on_map"}
-    @request_path = request.fullpath
-    render  @to_render
-  end
-
-  # The following two are simple dummy implementations duplicating the
-  # functionality of normal listing methods.
-  def requests_on_map
-    params[:listing_type] = "request"
-    @to_render = {:action => :index}
-    @listings = Listing.currently_open.order("created_at DESC").find_with(params, @current_user, @current_community)
-    @listing_style = "map"
-    load
-  end
-
-  def offers_on_map
-    params[:listing_type] = "offer"
-    @to_render = {:action => :index}
-    @listing_style = "map"
-    load
+    redirect_to root
   end
   
-  
-  # A (stub) method for serving Listing data (with locations) as JSON through AJAX-requests.
-  def serve_listing_data
-    @listings = Listing.currently_open.joins(:origin_loc).group("listings.id").
-                order("listings.created_at DESC").find_with(params, @current_user, @current_community).select("listings.id, listing_type, category, latitude, longitude")
+  # method for serving Listing data (with locations) as JSON through AJAX-requests.
+  def locations_json
+    params[:include] = :origin_loc
+    params.delete("controller")
+    params.delete("action")
+    # Limit the amount of listings to get to 500 newest to avoid slowing down the map too much.
+    @listings = Listing.find_with(params, @current_user, @current_community, 500)
     render :json => { :data => @listings }
   end
   
@@ -121,7 +65,7 @@ class ListingsController < ApplicationController
     if params[:id]
       @listing = Listing.find(params[:id])
       if @listing.visible_to?(@current_user, @current_community)
-        render :partial => "homepage/recent_listing", :locals => { :listing => @listing }
+        render :partial => "homepage/listing_bubble", :locals => { :listing => @listing }
       else
         render :partial => "bubble_listing_not_visible"
       end
@@ -130,26 +74,27 @@ class ListingsController < ApplicationController
   
   # Used to show multiple listings in one bubble
   def listing_bubble_multiple
-    @listings = Listing.visible_to(@current_user, @current_community, params[:ids])
+    @listings = Listing.visible_to(@current_user, @current_community, params[:ids]).order("id DESC")
     if @listings.size > 0
-      render :partial => "homepage/recent_listing", :collection => @listings, :as => :listing, :spacer_template => "homepage/request_spacer"
+      render :partial => "homepage/listing_bubble", :collection => @listings, :as => :listing, :spacer_template => "homepage/map_bubble_spacer"
     else
       render :partial => "bubble_listing_not_visible"
     end
   end
 
   def show
+    @selected_tribe_navi_tab = "home"
     unless current_user?(@listing.author)
       @listing.increment!(:times_viewed)
     end
   end
   
   def new
+    @selected_tribe_navi_tab = "new_listing"
     @listing = Listing.new
-    @listing.listing_type = params[:type]
-    @listing.category = params[:category]
-    #@latitude = 13
-    if @listing.category == "rideshare"
+    @listing.category = Category.find_by_name(params[:subcategory].blank? ? params[:category] : params[:subcategory])
+    @listing.share_type = ShareType.find_by_name(params[:share_type].blank? ? params[:listing_type] : params[:share_type])
+    if @listing.category && @listing.category.name == "rideshare"
 	    @listing.build_origin_loc(:location_type => "origin_loc")
 	    @listing.build_destination_loc(:location_type => "destination_loc")
     else
@@ -162,9 +107,10 @@ class ListingsController < ApplicationController
       end
     end
     1.times { @listing.listing_images.build }
-    respond_to do |format|
-      format.html
-      format.js {render :layout => false}
+    if request.xhr?
+      render :partial => "listings/form/form_content" 
+    else
+      render
     end
   end
   
@@ -177,14 +123,15 @@ class ListingsController < ApplicationController
       1.times { @listing.listing_images.build } if @listing.listing_images.empty?
       render :action => :new
     else
-      path = new_request_category_path(:type => @listing.listing_type, :category => @listing.category)
-      flash[:notice] = ["#{@listing.listing_type}_created_successfully", "create_new_#{@listing.listing_type}".to_sym, path]
-      Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, request.host))
+      path = new_request_category_path(:type => @listing.listing_type, :category => @listing.category.name)
+      flash[:notice] = t("layouts.notifications.listing_created_successfully", :new_listing_link => view_context.link_to(t("layouts.notifications.create_new_listing"), path)).html_safe
+      Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, @current_community))
       redirect_to @listing
     end
   end
   
   def edit
+    @selected_tribe_navi_tab = "home"
 	  if !@listing.origin_loc
 	      @listing.build_origin_loc(:location_type => "origin_loc")
 	  end
@@ -200,8 +147,8 @@ class ListingsController < ApplicationController
     end
     if @listing.update_fields(params[:listing])
       @listing.location.update_attributes(params[:location]) if @listing.location
-      flash[:notice] = "#{@listing.listing_type}_updated_successfully"
-      Delayed::Job.enqueue(ListingUpdatedJob.new(@listing.id, request.host))
+      flash[:notice] = t("layouts.notifications.listing_updated_successfully")
+      Delayed::Job.enqueue(ListingUpdatedJob.new(@listing.id, @current_community.id))
       redirect_to @listing
     else
       render :action => :edit
@@ -210,14 +157,11 @@ class ListingsController < ApplicationController
   
   def close
     @listing.update_attribute(:open, false)
-    notice = "#{@listing.listing_type}_closed"
     respond_to do |format|
-      format.html { 
-        flash[:notice] = notice
+      format.html {
         redirect_to @listing 
       }
       format.js {
-        flash.now[:notice] = notice
         render :layout => false 
       }
     end
@@ -256,18 +200,18 @@ class ListingsController < ApplicationController
   # Ensure that only users with appropriate visibility settings can view the listing
   def ensure_authorized_to_view
     @listing = Listing.find(params[:id])
-    unless @listing.visible_to?(@current_user, @current_community)
-      if @listing.visibility.eql?("everybody")
+    unless @listing.visible_to?(@current_user, @current_community) || (@current_user && @current_user.has_admin_rights_in?(@current_community))
+      if @listing.public?
         # This situation occurs when the user tries to access a listing
         # via a different community url.
-        flash[:error] = "this_content_is_not_available_in_this_community"
+        flash[:error] = t("layouts.notifications.this_content_is_not_available_in_this_community")
         redirect_to root and return
       elsif @current_user
-        flash[:error] = "you_are_not_authorized_to_view_this_content"
+        flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
         redirect_to root and return
       else
         session[:return_to] = request.fullpath
-        flash[:warning] = "you_must_log_in_to_view_this_content"
+        flash[:warning] = t("layouts.notifications.you_must_log_in_to_view_this_content")
         redirect_to login_path and return
       end
     end
@@ -275,14 +219,12 @@ class ListingsController < ApplicationController
   
   def change_follow_status(status)
     status.eql?("follow") ? @current_user.follow(@listing) : @current_user.unfollow(@listing)
-    notice = "you_#{status}ed_listing"
+    flash[:notice] = t("layouts.notifications.you_#{status}ed_listing")
     respond_to do |format|
-      format.html { 
-        flash[:notice] = notice
+      format.html {
         redirect_to @listing 
       }
       format.js {
-        flash.now[:notice] = notice
         render :follow, :layout => false 
       }
     end

@@ -1,2 +1,1 @@
-= render :partial => "inbox_spacer" unless @conversations.empty?
-= render :partial => "#{action_name}_conversation", :collection => @conversations, :as => :conversation, :spacer_template => "inbox_spacer"
+= render :partial => "conversation", :collection => @conversations, :as => :conversation

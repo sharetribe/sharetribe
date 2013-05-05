@@ -1,0 +1,4 @@
+-# This partial is attached to views that are "global", thus that
+-# contain information from all person's tribes
+- if @current_user.communities.size > 1
+  = render :partial => "layouts/permanent_notification", :locals => { :text => text }

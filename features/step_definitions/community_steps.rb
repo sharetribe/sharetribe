@@ -12,14 +12,16 @@ Given /^the terms of community "([^"]*)" are changed to "([^"]*)"$/ do |communit
   Community.find_by_domain(community).update_attribute(:consent, terms)
 end
 
-Then /^Most recently created user should be member of "([^"]*)" community with its latest consent accepted(?: with invitation code "([^"]*)")?$/ do |community_domain, invitation_code|
+Then /^Most recently created user should be member of "([^"]*)" community with(?: status "(.*?)" and)? its latest consent accepted(?: with invitation code "([^"]*)")?$/ do |community_domain, status, invitation_code|
     # Person.last seemed to return unreliable results for some reason
     # (kassi_testperson1 instead of the actual newest person, so changed
     # to look for the latest CommunityMembership)
+    status ||= "accepted"
     
     community = Community.find_by_domain(community_domain)
     CommunityMembership.last.community.should == community
     CommunityMembership.last.consent.should == community.consent
+    CommunityMembership.last.status.should == status
     CommunityMembership.last.invitation.code.should == invitation_code if invitation_code.present?
 end
 
@@ -29,6 +31,14 @@ end
 
 Given /^community "([^"]*)" requires invite to join$/ do |community|
   Community.find_by_domain(community).update_attribute(:join_with_invite_only, true)
+end
+
+Given /^community "([^"]*)" requires users to have an email address of type "(.*?)"$/ do |community, email|
+  Community.find_by_domain(community).update_attribute(:allowed_emails, email)
+end
+
+Given /^community "([^"]*)" has payments in use$/ do |community|
+  Community.find_by_domain(community).update_attribute(:payments_in_use, true)
 end
 
 Given /^users can invite new users to join community "([^"]*)"$/ do |community|
@@ -45,13 +55,13 @@ Then /^Invitation with code "([^"]*)" should have (\d+) usages_left$/ do |code, 
   Invitation.find_by_code(code).usages_left.should == usages.to_i
 end
 
-Given /^community "([^"]*)" is private$/ do |community|
-  community = Community.find_by_domain(community).update_attribute(:private, true)
-end
-
 When /^I move to community "([^"]*)"$/ do |community|
   Capybara.default_host = "#{community}.lvh.me"
   Capybara.app_host = "http://#{community}.lvh.me:9887"
+end
+
+When /^I arrive to sign up page with the link in the invitation email with code "(.*?)"$/ do |code|
+  visit "/en/signup?code=#{code}"
 end
 
 Given /^there is an existing community with "([^"]*)" in allowed emails and with slogan "([^"]*)"$/ do |email_ending, slogan|

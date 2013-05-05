@@ -13,13 +13,13 @@ Feature: User joins another community
     And I am on the home page
     And I log in as "kassi_testperson3"
     Then I should see "Join community"
-    And I should not see "What others need"
+    And I should not see "Post a new listing"
     When I press "Join community"
     Then I should see "This field is required"
     When I check "community_membership_consent"
     And I press "Join community"
     Then I should see "You have successfully joined this community"
-    And I should see "What others need"
+    And I should see "Post a new listing"
   
   @javascript
   Scenario: User joins another community that is invitation-only
@@ -33,37 +33,110 @@ Feature: User joins another community
     And I am on the home page
     And I am logged in as "kassi_testperson3"
     Then Invitation with code "GH1JX8" should have 1 usages_left
-    And I should see "Invitation code:"
+    And I should see "Invitation code"
     When I check "community_membership_consent"
-    And I fill in "Invitation code:" with "random"
+    And I fill in "Invitation code" with "random"
     And I press "Join community"
     Then I should see "The invitation code is not valid."
-    When I fill in "Invitation code:" with "GH1JX8"
+    When I fill in "Invitation code" with "GH1JX8"
     And I press "Join community"
     Then I should see "You have successfully joined this community"
-    And I should see "What others need"
+    And I should see "Post a new listing"
     And Invitation with code "GH1JX8" should have 0 usages_left
   
   @javascript
   Scenario: User joins another community that accepts only certain email addresses
     Given there are following users:
-      | person | 
-      | kassi_testperson3 |
-    When I am logged in as "kassi_testperson3"
-    And I move to community "test2"
-    And this community requires users to have an email address of type "@gmail.com"
+      | person | email |
+      | kassi_testperson3 | k3@lvh.me |
+    And I am logged in as "kassi_testperson3"
+    And community "test2" requires users to have an email address of type "@example.com"
+    When I move to community "test2"
+    And I am on the home page
     Then I should see "Join community"
-    And I should not see "What others need"
-    And I should see "Email address:"
+    And I should not see "Post a new listing"
+    And I should see "Email address"
     When I check "community_membership_consent"
     And I press "Join community"
     Then I should see "This field is required."
-    When I fill in "Email address:" with "random@email.com"
+    
+    # Try address that is already occupied by other user
+    When I fill in "Email address" with "kassi_testperson1@example.com"
+    And I check "community_membership_consent"
     And I press "Join community"
     Then I should see "This email is not allowed for this community or it is already in use."
-    When I fill in "Email address:" with "random@gmail.com"
+    
+    #try address that doesn't match the requirement
+    When I fill in "Email address" with "random@gmail.com"
+    And I check "community_membership_consent"
     And I press "Join community"
-    Then I should see "Please confirm your email address"
-    When I confirm the email "random@gmail.com"
+    Then I should see "This email is not allowed for this community or it is already in use."
+    And "random@gmail.com" should have no emails
+    And "random@example.com" should have no emails
+    
+    # Try good address
+    When I fill in "Email address" with "random@example.com"
+    And I check "community_membership_consent"
+    And I press "Join community"
+    Then I should not see "This email is not allowed for this community or it is already in use."
+    
+    And wait for 1 second
+    Then I should see "Confirm your email"
+    And "random@example.com" should receive an email
+    And user "kassi_testperson3" should have additional unconfirmed email "random@example.com"
+    
+    # Try resending
+    When I press "Resend confirmation instructions"
+    Then I should see "Check your inbox"
+    And "random@example.com" should have 2 emails
+    And I should see "Your email is random@example.com. Change"
+    
+    # Try changing the email
+    When I follow "Change"
+    Then I should see "New email address"
+    And the "person_email" field should contain "random@example.com"
+    When I fill in "person_email" with "other.email@wrong.com"
+    And I press "Change"
+    Then I should see "This email is not allowed for this community or it is already in use."
+    When I fill in "person_email" with "other.email@example.com"
+    And I press "Change"
+    Then I should see "Check your inbox"
+    And wait for 1 second
+    And "other.email@example.com" should receive an email
+    
+    # confirm
+    When I open the email
+    And I follow "confirmation" in the email
+    Then I should see "The email you entered is now confirmed"
+    And user "kassi_testperson3" should have additional confirmed email "other.email@example.com"
+    And I should not see "Email address"
+    Then I should see "Post a new listing"
+    When I follow "Community"
+    Then I should see "Meet the people"
+  
+  @javascript
+  Scenario: User joins another community when having both visible and non-visible listings
+    Given there are following users:
+      | person | 
+      | kassi_testperson3 |
+    And there is favor request with title "Massage" from "kassi_testperson3"
+    And privacy of that listing is "private"
+    And there is favor request with title "Sewing" from "kassi_testperson3"
+    And visibility of that listing is "all_communities"
+    And I log in as "kassi_testperson3"
+    And I am on the home page
+    And I should see "Massage"
+    And I should see "Sewing"
+    And I move to community "test2"
+    And I am on the home page
+    Then I should see "Join community"
+    And I should not see "Post a new listing"
+    When I press "Join community"
+    Then I should see "This field is required"
+    When I check "community_membership_consent"
     And I press "Join community"
     Then I should see "You have successfully joined this community"
+    When the system processes jobs
+    And I am on the home page
+    And I should see "Sewing"
+    And I should not see "Massage"

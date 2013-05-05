@@ -643,12 +643,18 @@ span.domain {
   font-size: 22px;
 }
 
+.new_person {
+  button { 
+    @include form_button;
+  }
+}
 #login_form, #signup_form {
   @include form;
   text-align: left;
   .send_button { 
     @include form_button;
   }
+  
   h2 {
     color: white;
     margin: 0 0 15px 0;
@@ -723,7 +729,6 @@ div.show_tribe_link {
 }
 
 .signup_checkbox_label_container {
-	margin-top: 4px;
 	float: left;
 }
 
@@ -894,5 +899,21 @@ div.wrapper {
     color: $orange;
     font-size: 12px;
     &:hover { color: $light_orange;}
+  }
+}
+
+#home_more_info {
+  h4 {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .video_link {
+    font-family: $serif_font;
+    text-align: center;
+    width: 100%;
+    a {
+      font-size: 30px;
+    } 
   }
 }

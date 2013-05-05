@@ -102,8 +102,6 @@ default: &default_settings
   # and enter it below
   use_google_analytics: false
   google_analytics_key: "enter_your_key_here"
-  # If you use analytics, the tracked domain must be entered here. See Google anaylitys documentation if you need more info.
-  google_analytics_domain: ".yourdomain.here"
   
   # KISS metrics can be used to track many events on the site
   use_kissmetrics: false
@@ -112,6 +110,12 @@ default: &default_settings
   # Funneld can be used to track social media activity on the site. 
   use_funneld: false
   funneld_key: "enter_your_key_here"
+
+  # Typekit fonts
+  # If you want to use fonts from a typekit package, put your personal url here.
+  # Normally you can leave this empty and generic default fonts will be used.
+  # Format example: "//use.typekit.net/your_code_here.js"
+  typekit_url:
 
   # CAS is a centralized authentication system, it is completely optional
   # If not needed leave to false
@@ -159,6 +163,13 @@ default: &default_settings
   # This can also be set community specific in community.settings["service_name"]
   global_service_name: Sharetribe
   
+  # Icon set
+  # By default Sharetribe uses the Font Awesome Icon Pack 
+  # http://fortawesome.github.io/Font-Awesome/
+  # If you want to use another icon set than "font-awesome", you can specify it here
+  # Currently only othe option is "ss-pika" (a proprietary icon set)
+  icon_pack: "font-awesome"
+  
   # The default consent (terms of use) all the communities will use.
   # It's just a string that tells the version of the consent.
   consent: "SHARETRIBE1.0"
@@ -166,6 +177,14 @@ default: &default_settings
   # If you need to turn off the service for a while (so that people can't modify data)
   # you can show the maintenance page on every pageload by turning on the following
   show_maintenance_page: false
+  
+  # If an integration to a merchant registration API is needed, fill the details here
+  # The mode needs to be "production" for real accounts and "test" for test accounts
+  # Other values result the API call being omitted and stub response used
+  # If you don't know what this means, just leave empty
+  merchant_api_user_id: 
+  merchant_api_password:
+  merchant_registration_mode:
   
   # Below it is possible to specify different settings for different
   # environments. If you are not developing or testing Sharetribe, you 
@@ -204,9 +223,9 @@ test:
   # The tests currently work only with ASI encryptor
   use_asi_encryptor: true
   
-  # The domain should be set to lvh.me (which redirects to localhost)
+  # The domain should be set to lvh.me:9887 (which redirects to localhost)
   # to be able to run the tests with subdomains.
-  domain: lvh.me
+  domain: lvh.me:9887
   # NOTE: If you are running tests without internet connection, you might need to modify your hosts file.
   # And add lines: (where there is one tab separating the ip and the domain)
   #127.0.0.1       lvh.me
@@ -240,4 +259,7 @@ test:
     
   # easier to run tests without SSL
   always_use_ssl: false
+
+  # never create merchant accounts in tests
+  merchant_registration_mode: stub
 

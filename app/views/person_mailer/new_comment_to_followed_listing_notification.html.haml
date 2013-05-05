@@ -1,13 +1,9 @@
-= t("emails.new_comment.has_commented_#{@comment.listing.listing_type}_you_follow_in_kassi", :author => @comment.author.name, :listing => @comment.listing.title)
+- url = listing_url(@url_params.merge({:id => @comment.listing.id})) + "#comment#{@comment.id.to_s}"
 
-%div{:style => "margin: 15px 0; padding: 10px; background-color: #d1c9b4;"}
-  - text_with_line_breaks do
-    = @comment.content
+%tr
+  %td{:align => "left"} 
+    %font{body_font}
+      = t("emails.new_comment.has_commented_#{@comment.listing.listing_type}_you_follow_in_kassi", :author => @comment.author.name, :listing => @comment.listing.title)
 
-= t("emails.new_comment.you_can_reply_to_comment_in")
-= link_to(@url, @url + "?ref=email")
+= render :partial => "action_button", :locals => { :text => t("emails.new_comment.view_comment"), :url => url}
 
-%br/
-%br/
-
-= t("emails.new_message.do_not_reply_to_this_email")

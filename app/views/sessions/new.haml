@@ -1,5 +1,51 @@
 - content_for :javascript do
-  initialize_login_form();
+  initialize_login_form(#{params[:password_forgotten]});
 
-.grid_10.prefix_7.suffix_7
-  = render :partial => "new"
+.login-form.centered-section
+  - if @facebook_merge
+    %h2
+      = t('.connect_your_facebook_to_kassi')
+    .facebook-account-info
+      %i.ss-icon.ss-social.ss-facebook.fb-icon.link-icon
+      .link-text
+        = t(".facebook_account", :name => @facebook_name, :email => @facebook_email )
+        = "#{@facebook_name} (#{@facebook_email})"
+    %p
+      = t('.log_in_to_link_account')
+    %p
+      = t('.you_can_also_create_new_account', :accont_creation_link => link_to(t(".account_creation_link_text"), create_facebook_based_people_path, :method => :post)).html_safe
+    %p
+      = t(".cancle_facebook_connect", :cancel_link => link_to(t(".facebook_cancel_link_text"), cancel_person_registration_path)).html_safe
+    %p
+      = t(".we_will_not_post_without_asking_you")
+    %br/
+  %h2
+    = t('.login_to_kassi')
+  - if facebook_connect_in_use?
+    = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".log_in_with_your_facebook_account") }
+    %p= t(".or_sign_up_with_your_username")  
+      
+
+  
+  
+  = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do
+    %label{:for => "login"}
+      = username_or_email_label + ":"
+    = text_field_tag "person[login]", nil, :value => session[:form_login], :class => :text_field, :id => :main_person_login 
+    %label{:for => "password"}
+      = t('common.password') + ":"
+    = password_field_tag "person[password]", nil, :class => :text_field, :id => :main_person_password 
+    - if @current_community
+      = hidden_field_tag :community, @current_community.domain
+    = button_tag(t('.login'), :class => "send_button", :id => :main_log_in_button)
+    .links
+      - unless @facebook_merge
+        = link_to t('.create_new_account'), (@current_community ? sign_up_path : new_tribe_path), :class => "green_part_link"
+        %br/
+      - if @current_community # TODO: remove this temporary disabling of pwd forgotten, when recovery works in Dashboard too
+        = link_to t('.i_forgot_my_password'), "#", :id => "password_forgotten_link", :class => "green_part_link"
+  
+#password_forgotten
+  = render :partial => "sessions/password_forgotten"
+
+

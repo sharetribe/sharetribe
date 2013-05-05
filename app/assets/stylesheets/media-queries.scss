@@ -1,0 +1,43 @@
+/*
+  --------------------------
+  Media query mixin
+  --------------------------
+  Usage:
+  
+  @include media(tablet) {
+    .foo {color: red;}
+  }
+  
+  or
+  
+  .foo {
+    @include media(tablet) {
+      color: red;
+    }
+  }
+  --------------------------
+*/
+
+@mixin media($point) {
+  @if $point == tiny-mobile {
+    @media (max-width: em(318)) { @content; }
+  }
+  @if $point == mobile {
+    @media (min-width: em(320)) { @content; }
+  }
+  @if $point == large-mobile {
+    @media (min-width: em(480)) { @content; }
+  }
+  @if $point == small-tablet {
+    @media (min-width: em(600)) { @content; }
+  }
+  @if $point == tablet {
+    @media (min-width: em(768)) { @content; }
+  }
+  @if $point == small-desktop {
+    @media (min-width: em(860)) { @content; }
+  }
+  @if $point == desktop {
+    @media (min-width: em(1008)) { @content; }
+  }
+}

@@ -1,3 +1,0 @@
-.new_listing_form_field_container
-  = form.label :share_type, t(".#{@listing.listing_type}_type") + "*:", :class => "input"
-  = select("listing", "share_type", share_type_array, {:include_blank => (action_name.eql?("edit") ? nil : (t(".select") + ":")), :selected => @listing.share_type}, { :class => "visibility_select" })

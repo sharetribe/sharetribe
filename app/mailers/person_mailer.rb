@@ -14,92 +14,160 @@ class PersonMailer < ActionMailer::Base
   
   DEFAULT_TIME_FOR_COMMUNITY_UPDATES = 7.days
   
-  default :from => APP_CONFIG.sharetribe_mail_from_address, :reply_to => APP_CONFIG.sharetribe_reply_to_address
+  default :from => APP_CONFIG.sharetribe_mail_from_address
   
   layout 'email'
 
-  def new_message_notification(message, host=nil)
-    @recipient = set_up_recipient(message.conversation.other_party(message.sender), host)
-    @url = host ? "http://#{host}/#{@recipient.locale}#{person_message_path(:person_id => @recipient.id, :id => message.conversation.id.to_s)}" : "test_url"
-    @message = message
-    alert_if_erroneus_host(host, @url)
-    mail(:to => @recipient.email,
-         :subject => t("emails.new_message.you_have_a_new_message"),
-         :reply_to => APP_CONFIG.sharetribe_mail_from_address) 
-         # reply_to no-reply address so that people notice immediately that it didn't work
-         # and hopefully read the actual message and answer with the link 
-  end
-  
-  def new_comment_to_own_listing_notification(comment, host=nil)
-    @recipient = set_up_recipient(comment.listing.author, host)
-    @url = host ? "http://#{host}/#{@recipient.locale}#{listing_path(:id => comment.listing.id.to_s)}##{comment.id.to_s}" : "test_url"
-    @comment = comment
-    alert_if_erroneus_host(host, @url)
-    mail(:to => @recipient.email,
-         :subject => t("emails.new_comment.you_have_a_new_comment", :author => comment.author.name))
-  end
-  
-  def new_comment_to_followed_listing_notification(comment, recipient, host=nil)
-    @recipient = set_up_recipient(recipient, host)
-    @url = host ? "http://#{host}/#{@recipient.locale}#{listing_path(:id => comment.listing.id.to_s)}##{comment.id.to_s}" : "test_url"
-    @comment = comment
-    alert_if_erroneus_host(host, @url)
-    mail(:to => @recipient.email,
-         :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => comment.author.name))
-  end
-  
-  def new_update_to_followed_listing_notification(listing, recipient, host=nil)
-    @recipient = set_up_recipient(recipient, host)
-    @url = host ? "http://#{host}/#{@recipient.locale}#{listing_path(:id => listing.id.to_s)}" : "test_url"
-    @listing = listing
-    alert_if_erroneus_host(host, @url)
-    mail(:to => @recipient.email,
-         :subject => t("emails.new_update_to_listing.listing_you_follow_has_been_updated"))
-  end
-  
-  def conversation_status_changed(conversation, host=nil)
-    @recipient = set_up_recipient(conversation.other_party(conversation.listing.author), host)
-    @url = host ? "http://#{host}/#{@recipient.locale}#{person_message_path(:person_id => @recipient.id, :id => conversation.id.to_s)}" : "test_url"
+  add_template_helper(EmailTemplateHelper)
+
+  def conversation_status_changed(conversation, community)
+    @email_type =  (conversation.status == "accepted" ? "email_when_conversation_accepted" : "email_when_conversation_rejected")
+    set_up_urls(conversation.other_party(conversation.listing.author), community, @email_type)
     @conversation = conversation
-    alert_if_erroneus_host(host, @url)
     mail(:to => @recipient.email,
          :subject => t("emails.conversation_status_changed.your_#{Listing.opposite_type(conversation.listing.listing_type)}_was_#{conversation.status}"))
   end
   
-  def new_badge(badge, host=nil)
-    @recipient = set_up_recipient(badge.person, host)
-    @url = host ? "http://#{host}/#{@recipient.locale}#{person_badges_path(:person_id => @recipient.id)}" : "test_url"
-    @badge = badge
-    @badge_name = t("people.profile_badge.#{@badge.name}")
-    alert_if_erroneus_host(host, @url)
-    mail(:to => @recipient.email,
-         :subject => t("emails.new_badge.you_have_achieved_a_badge", :badge_name => @badge_name))
+  def new_message_notification(message, community)
+    @email_type =  "email_about_new_messages"
+    set_up_urls(message.conversation.other_party(message.sender), community, @email_type)
+    @message = message
+    sending_params = {:to => @recipient.email,
+         :subject => t("emails.new_message.you_have_a_new_message"),
+         :reply_to => APP_CONFIG.sharetribe_mail_from_address}
+    # reply_to no-reply address so that people notice immediately that it didn't work
+    # and hopefully read the actual message and answer with the link
+    sending_params.merge!(:from => @current_community.settings["custom_email_from_address"]) if @current_community && @current_community.settings["custom_email_from_address"]
+    mail(sending_params)
   end
   
-  def new_testimonial(testimonial, host=nil)
-    @recipient = set_up_recipient(testimonial.receiver, host)
-    @url = host ? "http://#{host}/#{@recipient.locale}#{person_testimonials_path(:person_id => @recipient.id)}" : "test_url"
-    @give_feedback_url = host ? "http://#{host}/#{@recipient.locale}#{new_person_message_feedback_path(:person_id => @recipient.id, :message_id => testimonial.participation.conversation.id)}" : "test_url"
+  def new_payment(payment, community)
+    @email_type =  "email_about_new_payments"
+    @payment = payment
+    set_up_urls(@payment.recipient, community, @email_type)
+    mail(:to => @recipient.email,
+         :subject => t("emails.new_payment.new_payment"))
+  end
+  
+  def transaction_confirmed(conversation, community)
+    @email_type =  "email_about_completed_transactions"
+    @conversation = conversation
+    set_up_urls(@conversation.offerer, community, @email_type)
+    mail(:to => @recipient.email,
+         :subject => t("emails.transaction_confirmed.request_marked_as_#{@conversation.status}"))
+  end
+  
+  def new_testimonial(testimonial, community)
+    @email_type =  "email_about_new_received_testimonials"
+    set_up_urls(testimonial.receiver, community, @email_type)
     @testimonial = testimonial
-    alert_if_erroneus_host(host, @url)
     mail(:to => @recipient.email,
          :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => @testimonial.author.name))
   end
   
-  def testimonial_reminder(participation, host=nil)
-    @recipient = set_up_recipient(participation.person, host)
-    @url = host ? "http://#{host}/#{@recipient.locale}#{new_person_message_feedback_path(:person_id => @recipient.id, :message_id => participation.conversation.id)}" : "test_url"
-    @participation = participation
-    @other_party = @participation.conversation.other_party(@participation.person)
-    alert_if_erroneus_host(host, @url)
+  def new_badge(badge, community)
+    @email_type = "email_about_new_badges"
+    set_up_urls(badge.person, community, @email_type)
+    @badge = badge
+    @badge_name = t("people.profile_badge.#{@badge.name}")
+    mail(:to => @recipient.email,
+         :subject => t("emails.new_badge.you_have_achieved_a_badge", :badge_name => @badge_name))
+  end
+  
+  # Remind users of conversations that have not been accepted or rejected
+  def accept_reminder(conversation, recipient, community)
+    @email_type = "email_about_accept_reminders"
+    set_up_urls(conversation.listing.author, community, @email_type)
+    @conversation = conversation
+    mail(:to => @recipient.email,
+         :subject => t("emails.accept_reminder.remember_to_accept_#{@conversation.discussion_type}"))
+  end
+  
+  # Remind users to pay
+  def payment_reminder(conversation, recipient, community)
+    @email_type = "email_about_payment_reminders"
+    set_up_urls(conversation.payment.payer, community, @email_type)
+    @conversation = conversation
+    mail(:to => @recipient.email,
+         :subject => t("emails.payment_reminder.remember_to_pay", :listing_title => @conversation.listing.title))
+  end
+  
+  # Remind users of conversations that have not been accepted or rejected
+  def confirm_reminder(conversation, recipient, community)
+    @email_type = "email_about_confirm_reminders"
+    set_up_urls(conversation.requester, community, @email_type)
+    @conversation = conversation
+    mail(:to => @recipient.email,
+         :subject => t("emails.confirm_reminder.remember_to_confirm_request"))
+  end
+  
+  # Remind users to give feedback
+  def testimonial_reminder(conversation, recipient, community)
+    @email_type = "email_about_testimonial_reminders"
+    set_up_urls(recipient, community, @email_type)
+    @conversation = conversation
+    @other_party = @conversation.other_party(@recipient)
     mail(:to => @recipient.email,
          :subject => t("emails.testimonial_reminder.remember_to_give_feedback_to", :name => @other_party.name))
+  end
+  
+  def new_comment_to_own_listing_notification(comment, community)
+    @email_type = "email_about_new_comments_to_own_listing"
+    set_up_urls(comment.listing.author, community, @email_type)
+    @comment = comment
+    mail(:to => @recipient.email,
+         :subject => t("emails.new_comment.you_have_a_new_comment", :author => @comment.author.name))
+  end
+  
+  def new_comment_to_followed_listing_notification(comment, recipient, community)
+    set_up_urls(recipient, community)
+    @comment = comment
+    mail(:to => @recipient.email,
+         :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => @comment.author.name))
+  end
+  
+  def new_update_to_followed_listing_notification(listing, recipient, community)
+    set_up_urls(recipient, community)
+    @listing = listing
+    mail(:to => @recipient.email,
+         :subject => t("emails.new_update_to_listing.listing_you_follow_has_been_updated"))
+  end
+  
+  def invitation_to_kassi(invitation)
+    @invitation = invitation
+    set_up_urls(nil, @invitation.community)
+    @url_params[:locale] = @invitation.inviter.locale
+    subject = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name, :community => @invitation.community.full_name_with_separator(@invitation.inviter.locale))
+    mail(:to => @invitation.email, :subject => subject, :reply_to => @invitation.inviter.email)
+  end
+  
+  # A message from the community admin to a single community member
+  def community_member_email(sender, recipient, email_subject, email_content, community)
+    @email_type = "email_from_admins"
+    set_up_urls(recipient, community, @email_type)
+    @email_content = email_content
+    @no_recipient_name = true
+    mail(:to => @recipient.email, :subject => email_subject, :reply_to => "\"#{sender.name}\"<#{sender.email}>")
+  end
+  
+  # A custom message to a community starter
+  def community_starter_email(person, community)
+    @email_type = "email_from_admins"
+    set_up_urls(person, community, @email_type)
+    @community = community
+    @no_recipient_name = true
+    # This check needs to be here because this method is currently
+    # usually called directly from console.
+    if @recipient.should_receive?("email_from_admins")
+      mail(:to => @recipient.email, :subject => t("emails.community_starter_email.subject")) do |format|
+        format.html { render "community_starter_email_#{@recipient.locale}" }
+      end
+    end
   end
   
   # Used to send notification to Sharetribe admins when somebody
   # gives feedback on Sharetribe
   def new_feedback(feedback, current_community)
-    @no_settings = true
     @feedback = feedback
     @feedback.email ||= feedback.author.try(:email)
     @current_community = current_community
@@ -108,22 +176,10 @@ class PersonMailer < ActionMailer::Base
     mail(:to => mail_to, :subject => subject, :reply_to => @feedback.email)
   end
   
-  def badge_migration_notification(recipient)
-    @recipient = recipient
-    set_locale @recipient.locale
-    @no_settings = true
-    @url = "http://aalto.sharetribe.com/#{@recipient.locale}#{person_badges_path(:person_id => @recipient.id)}"
-    mail(:to => recipient.email, :subject => t("emails.badge_migration_notification.you_have_received_badges"))
-  end
   
-  # Used to send notification to Sharetribe admins when somebody
-  # wants to contact them through the form in the dashboard
-  def contact_request_notification(email)
-    @no_settings = true
-    @email = email
-    subject = "New contact request"
-    mail(:to => APP_CONFIG.feedback_mailer_recipients, :subject => subject)
-  end
+  
+  
+  # Old layout
   
   def new_member_notification(person, community, email)
     @community = Community.find_by_domain(community)
@@ -133,16 +189,6 @@ class PersonMailer < ActionMailer::Base
     mail(:to => @community.admin_emails, :subject => "New member in #{@community.name} Sharetribe")
   end
   
-  # Remind users of conversations that have not been accepted or rejected
-  def accept_reminder(conversation, recipient, host=nil)
-    @recipient = set_up_recipient(recipient, host)
-    @conversation = conversation
-    @url = host ? "http://#{host}/#{@recipient.locale}#{person_message_path(:person_id => @recipient.id, :id => @conversation.id.to_s)}" : "test_url"
-    alert_if_erroneus_host(host, @url)
-    mail(:to => @recipient.email,
-         :subject => t("emails.accept_reminder.remember_to_accept_#{@conversation.discussion_type}"))
-  end
-  
   # The initial email confirmation is sent by Devise, but if people enter additional emails, confirm them with this method
   # using the same template
   def additional_email_confirmation(email, host)
@@ -150,6 +196,7 @@ class PersonMailer < ActionMailer::Base
     @resource = email.person
     @confirmation_token = email.confirmation_token
     @host = host
+    email.update_attribute(:confirmation_sent_at, Time.now)
     mail(:to => email.address, :subject => t("devise.mailer.confirmation_instructions.subject"), :template_path => 'devise/mailer', :template_name => 'confirmation_instructions')
   end
   
@@ -157,8 +204,8 @@ class PersonMailer < ActionMailer::Base
     @community = community
     @recipient = recipient
     set_locale @recipient.locale
-    @url_base = "http://#{@community.full_domain}/#{recipient.locale}"
-    @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id)}"
+    @url_base = "#{@community.full_url}"
+    @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id, :locale => @recipient.locale)}"
     @requests = @community.listings.currently_open.requests.visible_to(@recipient, @community).limit(5)
     @offers = @community.listings.currently_open.offers.visible_to(@recipient, @community).limit(5)
 
@@ -185,16 +232,20 @@ class PersonMailer < ActionMailer::Base
     end
     
     set_locale @recipient.locale
-    default_url_options[:host] = "#{@community.full_domain}/#{@recipient.locale}"
+
     @time_since_last_update = t("timestamps.days_since", 
         :count => time_difference_in_days(@recipient.community_updates_last_sent_at || 
         DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago))
     @auth_token = @recipient.new_email_auth_token
+    @url_params = {}
+    @url_params[:host] = "#{@community.full_domain}"
+    @url_params[:locale] = @recipient.locale
+    @url_params[:ref] = "weeklymail"
+    @url_params[:auth] = @auth_token
+    @url_params.freeze # to avoid accidental modifications later
     
-    @url_base = "http://#{@community.full_domain}/#{recipient.locale}"
-    @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id)}"
-    @requests = @community.listings.currently_open.requests.visible_to(@recipient, @community).limit(10)
-    @offers = @community.listings.currently_open.offers.visible_to(@recipient, @community).limit(10)
+    @requests = @community.listings.currently_open.requests.order("created_at DESC").visible_to(@recipient, @community).limit(10)
+    @offers = @community.listings.currently_open.offers.order("created_at DESC").visible_to(@recipient, @community).limit(10)
     
     @listings = select_listings_to_show(@requests, @offers, @recipient)
   
@@ -204,7 +255,7 @@ class PersonMailer < ActionMailer::Base
     end
     
     @title_link_text = t("emails.community_updates.title_link_text", 
-          :community_name => @community.name_with_separator(@recipient.locale))
+          :community_name => @community.full_name)
     subject = t("emails.community_updates.update_mail_title", :title_link => @title_link_text)
     
     if APP_CONFIG.mail_delivery_method == "postmark"
@@ -213,9 +264,6 @@ class PersonMailer < ActionMailer::Base
     else
       delivery_method = APP_CONFIG.mail_delivery_method.to_sym unless Rails.env.test?
     end
-    
-    @recipient.update_attribute(:community_updates_last_sent_at, Time.now)
-    
     
     mail(:to => @recipient.email,
          :subject => subject,
@@ -234,22 +282,12 @@ class PersonMailer < ActionMailer::Base
     
     @community = recipient.communities.first # We pick random community to point the settings link to
     
-    @url_base = "http://#{@community.full_domain}/#{recipient.locale}"
-    @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id)}"
+    @url_base = "#{@community.full_url}"
+    @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id, :locale => @recipient.locale)}"
     
     mail(:to => @recipient.email, :subject => t("emails.newsletter.occasional_newsletter_title")) do |format|
       format.html { render :layout => "newsletter" }
     end
-  end
-  
-  def invitation_to_kassi(invitation, host=nil)
-    @no_settings = true
-    @invitation = invitation
-    set_locale @invitation.inviter.locale
-    @url = host ? "http://#{host}/#{@invitation.inviter.locale}/signup?code=#{@invitation.code}" : "test_url"
-    @url += "&private_community=true" if @invitation.community.private?
-    subject = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name, :community => @invitation.community.name)
-    mail(:to => @invitation.email, :subject => subject, :reply_to => @invitation.inviter.email)
   end
   
   # This is used by console script that creates a list of user accounts and sends an email to all
@@ -310,11 +348,13 @@ class PersonMailer < ActionMailer::Base
     # disable escaping since this is currently always coming from trusted source.
     @mail_content = @mail_content.html_safe
     
-    mail(:to => @recipient.email, :subject => @subject)
+    mail(:to => @recipient.email, :subject => @subject) do |format|
+      format.text { render :layout => false }
+    end
   end
   
   def self.deliver_old_style_community_updates
-    Community.all.each do |community|
+    Community.find_each do |community|
       if community.created_at < 1.week.ago && community.listings.size > 5 && community.automatic_newsletters
         community.members.each do |member|
           if member.should_receive?("community_updates")
@@ -333,7 +373,7 @@ class PersonMailer < ActionMailer::Base
   # This task is expected to be run with daily or hourly scheduling
   # It looks through all users and send email to those who want it now 
   def deliver_community_updates
-    Person.all.each do |person|
+    Person.find_each do |person|
       if person.should_recieve_community_updates_now?
         person.communities.each do |community|
           if community.has_new_listings_since?(person.community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago)
@@ -346,6 +386,8 @@ class PersonMailer < ActionMailer::Base
             end
           end
         end
+        # After sending updates for all communities that had something new, update the time of last sent updates to Time.now.
+        person.update_attribute(:community_updates_last_sent_at, Time.now)
       end
     end
   end
@@ -356,7 +398,7 @@ class PersonMailer < ActionMailer::Base
       return
     end
     
-    Person.all.each do |person|
+    Person.find_each do |person|
       if person.should_receive?("email_newsletters")
         begin
           if File.exists?("public/newsletters/#{newsletter_filename}.#{person.locale}.html")
@@ -392,17 +434,65 @@ class PersonMailer < ActionMailer::Base
     
   end
   
-  private
-  
-  def set_up_recipient(recipient, host=nil)
-    @settings_url = host ? "http://#{host}/#{recipient.locale}#{notifications_person_settings_path(:person_id => recipient.id)}" : "test_url"
-    set_locale recipient.locale
-    recipient
+  def welcome_email(person, community)
+    @recipient = person
+    set_locale @recipient.locale
+    @current_community = community
+    @url_params = {}
+    @url_params[:host] = "#{@current_community.full_domain}"
+    @url_params[:auth] = @recipient.new_email_auth_token
+    @url_params[:locale] = @recipient.locale
+    @url_params[:ref] = "welcome_email"
+    @url_params.freeze # to avoid accidental modifications later
+        
+    if @recipient.has_admin_rights_in?(@current_community)
+      subject = t("emails.welcome_email.congrats_for_creating_community", :community => @current_community.full_name)
+    else
+      subject = t("emails.welcome_email.subject", :community => @current_community.full_name, :person => person.given_name_or_username)
+    end
+    mail(:to => @recipient.email, :subject => subject) do |format|
+      format.html { render :layout => false }
+    end
   end
   
-  def alert_if_erroneus_host(host, sent_link="not_available")
-    if host =~ /login/
-      ApplicationHelper.send_error_notification("Sending mail with LOGIN host: #{host}, which should not happen!", "Mailer domain error", params.merge({:sent_link => sent_link}))
+  # A message from the community admin to all the community members
+  def self.community_member_emails(sender, community, email_subject, email_content, email_locale)
+    community.members.each do |recipient|
+      if recipient.should_receive?("email_from_admins") && (email_locale.eql?("any") || recipient.locale.eql?(email_locale))
+        begin
+          community_member_email(sender, recipient, email_subject, email_content, community).deliver
+        rescue Exception => e
+          # Catch the exception and continue sending the emails
+          ApplicationHelper.send_error_notification("Error sending email to all the members of community #{community.full_name}: #{e.message}", e.class)
+        end
+      end
+    end
+  end
+  
+  # A custom message to all the community starters
+  def self.community_starter_emails
+    CommunityMembership.where(:admin => true).each do |community_membership|
+      begin
+        community_starter_email(community_membership.person, community_membership.community).deliver
+      rescue Exception => e
+        # Catch the exception and continue sending the emails
+        ApplicationHelper.send_error_notification("Error sending email to all community starters: #{e.message}", e.class)
+      end
+    end
+  end
+  
+  private
+  
+  def set_up_urls(recipient, community, ref="email")
+    @community = community
+    @url_params = {}
+    @url_params[:host] = community.full_domain
+    @url_params[:ref] = ref
+    if recipient
+      @recipient = recipient
+      @url_params[:auth] = @recipient.new_email_auth_token
+      @url_params[:locale] = @recipient.locale
+      set_locale @recipient.locale
     end
   end
   
@@ -424,7 +514,7 @@ class PersonMailer < ActionMailer::Base
       break if selected.count > 9
     end
         
-    return selected
+    return selected.sort_by{|e| e.created_at}
   end
 
 end

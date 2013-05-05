@@ -1,24 +1,20 @@
 class PeopleController < Devise::RegistrationsController
   
-  include UrlHelper, PeopleHelper
-  
-  layout :choose_layout
-  
+  include PeopleHelper
   
   skip_before_filter :verify_authenticity_token, :only => [:creates]
   
   before_filter :only => [ :update, :update_avatar ] do |controller|
-    controller.ensure_authorized "you_are_not_authorized_to_view_this_content"
+    controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
   end
   
-  before_filter :person_belongs_to_current_community, :only => :show
+  before_filter :person_belongs_to_current_community, :only => [:show]
   before_filter :ensure_is_admin, :only => [ :activate, :deactivate ]
   
   skip_filter :check_email_confirmation, :only => [ :update]
   skip_filter :dashboard_only
   skip_filter :single_community_only, :only => [ :create, :update, :check_username_availability, :check_email_availability, :check_email_availability_and_validity, :check_email_availability_for_new_tribe]
-  skip_filter :not_public_in_private_community, :only => [ :new, :create, :check_username_availability, :check_email_availability_and_validity, :check_email_availability, :check_email_availability_for_new_tribe, :check_invitation_code]
-  skip_filter :cannot_access_without_joining, :only => [ :check_email_validity, :check_invitation_code ]
+  skip_filter :cannot_access_without_joining, :only => [ :check_email_availability_and_validity, :check_invitation_code ]
   
   # Skip auth token check as current jQuery doesn't provide it automatically
   skip_before_filter :verify_authenticity_token, :only => [:activate, :deactivate]
@@ -27,31 +23,40 @@ class PeopleController < Devise::RegistrationsController
   helper_method :show_closed?
   
   def index
-    # this is not yet in use in this version of Sharetribe, but old URLs point here so implement this to avoid errors
-   render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
+    @selected_tribe_navi_tab = "members"
+    params[:page] = 1 unless request.xhr?
+    @people = @current_community.members.order("created_at DESC").paginate(:per_page => 15, :page => params[:page])
+    request.xhr? ? (render :partial => "additional_members") : (render :action => :index)
   end
   
   def show
-    @community_membership = CommunityMembership.find_by_person_id_and_community_id(@person.id, @current_community.id)
-    @listings = params[:type] && params[:type].eql?("requests") ? @person.requests : @person.offers
-    @listings = show_closed? ? @listings : @listings.currently_open 
-    @listings = @listings.visible_to(@current_user, @current_community).order("open DESC, id DESC").paginate(:per_page => 15, :page => params[:page])
-    render :partial => "listings/additional_listings" if request.xhr?
+    @selected_tribe_navi_tab = "members"
+    @community_membership = CommunityMembership.find_by_person_id_and_community_id_and_status(@person.id, @current_community.id, "accepted")
+    @listings = persons_listings(@person)
   end
 
   def new
+    @selected_tribe_navi_tab = "members"
     redirect_to root if logged_in?
+    session[:invitation_code] = params[:code] if params[:code]
     @person = Person.new
     @container_class = params[:private_community] ? "container_12" : "container_24"
     @grid_class = params[:private_community] ? "grid_6 prefix_3 suffix_3" : "grid_10 prefix_7 suffix_7"
   end
 
   def create
-    @current_community ? domain = "http://#{with_subdomain(params[:community])}" : domain = "#{request.protocol}#{request.host_with_port}"
+    @current_community ? domain = @current_community.full_url : domain = "#{request.protocol}#{request.host_with_port}"
     error_redirect_path = domain + sign_up_path
     
+    # special handling for communities that require organization membership
+    if @current_community && @current_community.requires_organization_membership?
+      @org_membership_required = true
+    else
+      @org_membership_required = false
+    end
+    
     if params[:person][:email_confirmation].present? # Honey pot for spammerbots
-      flash[:error] = :registration_considered_spam
+      flash[:error] = t("layouts.notifications.registration_considered_spam")
       ApplicationHelper.send_error_notification("Registration Honey Pot is hit.", "Honey pot")
       redirect_to error_redirect_path and return
     end
@@ -61,10 +66,11 @@ class PeopleController < Devise::RegistrationsController
       unless Invitation.code_usable?(params[:invitation_code], @current_community)
         # abort user creation if invitation is not usable. 
         # (This actually should not happen since the code is checked with javascript)
+        session[:invitation_code] = nil # reset code from session if there was issues so that's not used again
         ApplicationHelper.send_error_notification("Invitation code check did not prevent submiting form, but was detected in the controller", "Invitation code error")
         
         # TODO: if this ever happens, should change the message to something else than "unknown error"
-        flash[:error] = :unknown_error
+        flash[:error] = t("layouts.notifications.unknown_error")
         redirect_to error_redirect_path and return
       else
         invitation = Invitation.find_by_code(params[:invitation_code].upcase)
@@ -90,7 +96,7 @@ class PeopleController < Devise::RegistrationsController
       # Anyway if Captha responses with error, show message to user
       # Also notify admins that this kind of error happened.
       # TODO: if this ever happens, should change the message to something else than "unknown error"
-      flash[:error] = :unknown_error
+      flash[:error] = t("layouts.notifications.unknown_error")
       ApplicationHelper.send_error_notification("New user Sign up failed because Captha check failed, when it shouldn't.", "Captcha error")
       redirect_to error_redirect_path and return
     end
@@ -104,52 +110,60 @@ class PeopleController < Devise::RegistrationsController
     
     params[:person][:show_real_name_to_other_users] = false unless (params[:person][:show_real_name_to_other_users] || ! @current_community || !@current_community.select_whether_name_is_shown_to_everybody)
     
-    # Try to create a new person in ASI.
-    begin
-
-      params["person"].delete(:terms) #remove terms part which confuses Devise
-      
-      # This part is copied from Devise's regstration_controller#create
-      build_resource
-      @person = resource
-      if @person.save
-        sign_in(resource_name, resource)
-      end
     
-      @person.set_default_preferences
-      # Make person a member of the current community
-      if @current_community
-        membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent)
-        membership.invitation = invitation if invitation.present?
-        membership.save!
-      end
-    rescue RestClient::RequestFailed => e
-      logger.info "Person create failed because of #{JSON.parse(e.response.body)["messages"]}"
-      # This should not actually ever happen if all the checks work at Sharetribe's end.
-      # Anyway if ASI responses with error, show message to user
-      # Now it's unknown error, since picking the message from ASI and putting it visible without translation didn't work for some reason.
-      # Also notify admins that this kind of error happened.
-      flash[:error] = :unknown_error
-      ApplicationHelper.send_error_notification("New user Sign up failed because ASI returned: #{JSON.parse(e.response.body)["messages"]}", "Signup error")
-      redirect_to error_redirect_path and return
+
+    params["person"].delete(:terms) #remove terms part which confuses Devise
+    
+
+    # This part is copied from Devise's regstration_controller#create
+    build_resource
+    @person = resource
+    
+    
+    # don't send the confirmation email yet as he will need to join an organization too
+    @person.skip_confirmation! if @org_membership_required
+    
+    
+    if @person.save!
+      sign_in(resource_name, resource)
     end
+    
+    # If confirmation email was skipped, devise marks the person as confirmed, which isn't actually true, so fix it
+    # We set confirmation_sent_at, because otherwise devise acts strangely
+    if @org_membership_required
+      @person.update_attributes(:confirmation_sent_at => Time.now, :confirmed_at => nil) 
+    end
+  
+    @person.set_default_preferences
+    # Make person a member of the current community
+    if @current_community
+      membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent)
+      membership.status = "pending_email_confirmation" if @current_community.email_confirmation?
+      membership.status = "pending_organization_membership" if @org_membership_required
+      membership.invitation = invitation if invitation.present?
+      membership.save!
+      session[:invitation_code] = nil
+    end
+  
     session[:person_id] = @person.id
     
     # If invite was used, reduce usages left
     invitation.use_once! if invitation.present?
     
-    Delayed::Job.enqueue(CommunityJoinedJob.new(@person.id, @current_community.id, request.host)) if @current_community
+    Delayed::Job.enqueue(CommunityJoinedJob.new(@person.id, @current_community.id)) if @current_community
     
     if !@current_community
       session[:consent] = APP_CONFIG.consent
       session[:unconfirmed_email] = params[:person][:email]
       session[:allowed_email] = "@#{params[:person][:email].split('@')[1]}" if community_email_restricted?
       redirect_to domain + new_tribe_path
+    elsif @org_membership_required
+      redirect_to :controller => "community_memberships", :action => "new"
     elsif @current_community.email_confirmation
-      flash[:notice] = "account_creation_succesful_you_still_need_to_confirm_your_email"
+      flash[:notice] = t("layouts.notifications.account_creation_succesful_you_still_need_to_confirm_your_email")
       redirect_to :controller => "sessions", :action => "confirmation_pending"
     else
-      flash[:notice] = [:login_successful, (@person.given_name_or_username + "!").to_s, person_path(@person)]
+      flash[:notice] = t("layouts.notifications.account_creation_successful", :person_name => view_context.link_to((@person.given_name_or_username).to_s, person_path(@person))).html_safe
       redirect_to(session[:return_to].present? ? domain + session[:return_to]: domain + root_path)
     end
   end
@@ -176,21 +190,27 @@ class PeopleController < Devise::RegistrationsController
 
     session[:person_id] = @person.id    
     sign_in(resource_name, @person)
-    flash[:notice] = [:login_successful, (@person.given_name_or_username + "!").to_s, person_path(@person)]
+    flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(@person.given_name_or_username, person_path(@person))).html_safe
     
-    # We don't create the community membership yet, because we can use the already existing checks for invitations and email types.
+    # We can create a membership for the user if there are no restrictions
+    # - not an Invite only community
+    # - has same terms of use
+    # - if there's email limitation the user has suitable email in FB
+    # But as this is bit complicated, for now   
+    # we don't create the community membership yet, because we can use the already existing checks for invitations and email types.
+    session[:fb_join] = "true"
     redirect_to :controller => :community_memberships, :action => :new
   end
   
   def update
-    
-	  if params[:person] && params[:person][:location] && (params[:person][:location][:address].empty?) || (params[:person][:street_address].blank? || params[:person][:street_address].empty?)
+
+	  if params[:person] && params[:person][:location] && (params[:person][:location][:address].empty? || params[:person][:street_address].blank?)
       params[:person].delete("location")
       if @person.location
         @person.location.delete
       end
 	  end
-	  
+	  	  
 	  #Check that people don't exploit changing email to be confirmed to join an email restricted community
 	  if params["request_new_email_confirmation"] && @current_community && ! @current_community.email_allowed?(params[:person][:email])
 	    flash[:error] = t("people.new.email_not_allowed")
@@ -203,25 +223,25 @@ class PeopleController < Devise::RegistrationsController
     if params[:person][:email] && @person.confirmed_at
       Email.create(:person => @person, :address => @person.email, :confirmed_at => @person.confirmed_at) unless Email.find_by_address(@person.email)
     end
-	  
+
     begin
       if @person.update_attributes(params[:person], session[:cookie])
         if params[:person][:password]
           #if password changed Devise needs a new sign in.
           sign_in @person, :bypass => true
         end
-        flash[:notice] = :person_updated_successfully
+        flash[:notice] = t("layouts.notifications.person_updated_successfully")
         
         # Send new confirmation email, if was changing for that 
         if params["request_new_email_confirmation"]
             @person.send_confirmation_instructions
-            flash[:notice] = :email_confirmation_sent_to_new_address
+            flash[:notice] = t("layouts.notifications.email_confirmation_sent_to_new_address")
         end
       else
-        flash[:error] = @person.errors.first
+        flash[:error] = t("layouts.notifications.#{@person.errors.first}")
       end
     rescue RestClient::RequestFailed => e
-      flash[:error] = "update_error"
+      flash[:error] = t("layouts.notifications.update_error")
     end
     
     redirect_to :back
@@ -230,9 +250,9 @@ class PeopleController < Devise::RegistrationsController
   
   def update_avatar
     if params[:person] && params[:person][:image] && @person.update_attributes(params[:person])
-      flash[:notice] = :avatar_upload_successful
+      flash[:notice] = t("layouts.notifications.avatar_upload_successful")
     else 
-      flash[:error] = :avatar_upload_failed
+      flash[:error] = t("layouts.notifications.avatar_upload_failed")
     end
     redirect_to avatar_person_settings_path(:person_id => @current_user.id.to_s)  
   end
@@ -249,12 +269,14 @@ class PeopleController < Devise::RegistrationsController
     # If asked from dashboard, only check availability
     return check_email_availability if @current_community.nil?
     
-    
+    # this can be asked from community_membership page or new user page 
+    email = params[:person] && params[:person][:email] ? params[:person][:email] : params[:community_membership][:email]
+        
     available = true
     
     #first check if the community allows this email
     if @current_community.allowed_emails.present?
-      available = @current_community.email_allowed?(params[:person][:email])
+      available = @current_community.email_allowed?(email)
     end
     
     if available
@@ -269,7 +291,7 @@ class PeopleController < Devise::RegistrationsController
   
   # this checks only that email is not already in use
   def check_email_availability
-    email = params[:person] ? params[:person][:email] : params[:email]
+    email = params[:person] ? params[:person][:email] : params[:email] || params[:community_membership][:email]
     available = email_available_for_user?(@current_user, email)
     
     respond_to do |format|
@@ -293,17 +315,6 @@ class PeopleController < Devise::RegistrationsController
     
     respond_to do |format|
       format.json { render :json => available.to_json }
-    end
-  end
-  
-  #This checks only that email is valid
-  def check_email_validity
-    valid = true
-    if @current_community.allowed_emails.present?
-      valid = @current_community.email_allowed?(params[:community_membership][:email])
-    end
-    respond_to do |format|
-      format.json { render :json => valid }
     end
   end
   
@@ -340,14 +351,6 @@ class PeopleController < Devise::RegistrationsController
 
   private
   
-  def choose_layout
-    if @current_community && @current_community.private && action_name.eql?("new")
-      'private'
-    else
-      'application'
-    end
-  end
-  
   def verify_recaptcha_unless_already_accepted(options={})
     # Check if this captcha is already accepted, because ReCAPTCHA API will return false for further queries
     if session[:last_accepted_captha] == "#{params["recaptcha_challenge_field"]}#{params["recaptcha_response_field"]}"
@@ -366,14 +369,12 @@ class PeopleController < Devise::RegistrationsController
     #@person.update_attribute(:active, 0)
     @person.update_attribute(:active, (status.eql?("activated") ? true : false))
     @person.listings.update_all(:open => false) if status.eql?("deactivated") 
-    notice = "person_#{status}"
+    flash[:notice] = t("layouts.notifications.person_#{status}")
     respond_to do |format|
-      format.html { 
-        flash[:notice] = notice
+      format.html {
         redirect_to @person
       }
       format.js {
-        flash.now[:notice] = notice
         render :layout => false 
       }
     end

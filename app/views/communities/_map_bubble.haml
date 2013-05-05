@@ -1,6 +1,6 @@
 .map_bubble_header
   %h3.map_bubble= @community.name
   .map_bubble_link
-    = link_to t("communities.map_bubble.view_tribe"), "http://#{with_subdomain(@community.domain)}"
+    = link_to t("communities.map_bubble.view_tribe"), @community.full_url
 %p.map_bubble= @community.slogan
   

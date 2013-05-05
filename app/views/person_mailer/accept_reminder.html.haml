@@ -1,13 +1,28 @@
-= t("emails.accept_reminder.you_have_not_yet_accepted_or_rejected_#{@conversation.discussion_type}", :date => l(@conversation.created_at.to_date), :title => @conversation.title)
+- conversation_url = person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @conversation.id.to_s}))
+- accept_url = accept_person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @conversation.id.to_s}))
+- reject_url = reject_person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @conversation.id.to_s}))
 
-%br/
-%br/
+%tr
+  %td{:align => "left"} 
+    %font{body_font}
+      = t("emails.accept_reminder.you_have_not_yet_accepted_or_rejected_#{@conversation.discussion_type}", :date => time_ago(@conversation.created_at.to_date), :title => link_to(@conversation.title, conversation_url, :style => body_link_style)).html_safe
 
-- listing_type_accusative = t("emails.common.#{@conversation.discussion_type}_accusative")
-= t("emails.accept_reminder.remember_to_accept_listing", :listing_type => listing_type_accusative)
+%tr
+  %td{:align => "left", :style => "padding-top: 25px; padding-bottom: 25px;"}
+    %table
+      %tbody
+        %tr
+          %td{:align => "left"}
+            = render :partial => "green_action_button", :locals => { :text => t("conversations.status_link.accept_#{@conversation.discussion_type}"), :url => accept_url}
+          %td{:style => "padding-left: 10px;"}
+            = render :partial => "red_action_button", :locals => { :text => t("conversations.status_link.reject_#{@conversation.discussion_type}"), :url => reject_url}
 
-%br/
-%br/
+%tr
+  %td{:align => "left", :style => "padding-bottom: 25px;"} 
+    %font{body_font}
+      = link_to t("emails.accept_reminder.show_thread"), conversation_url, :style => body_link_style
 
-= t("emails.accept_reminder.you_can_accept_or_reject_#{@conversation.discussion_type}_at")
-= link_to(@url, @url + "?ref=email")
+
+
+
+

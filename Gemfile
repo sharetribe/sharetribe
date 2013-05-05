@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby '1.9.3'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.12'
 
 # Deploy with Capistrano
 gem 'capistrano' # could be removed as not currently used
@@ -15,7 +15,8 @@ gem 'capistrano' # could be removed as not currently used
 group :assets do  
   gem 'sass-rails', "  ~> 3.2.5"
   gem 'coffee-rails', "~> 3.2.2"
-  gem 'uglifier'  
+  gem 'uglifier'
+  gem 'compass-rails'
 end  
   
 gem 'jquery-rails'
@@ -38,7 +39,7 @@ gem "will_paginate"
 gem 'whenever' # could be removed as not currently used
 gem 'newrelic_rpm'
 gem 'memcache-client', ">= 1.8.5"
-gem 'thinking-sphinx', :require => 'thinking_sphinx'
+gem 'thinking-sphinx', "~>2.0.14", :require => 'thinking_sphinx'
 gem 'flying-sphinx'
 gem 'recaptcha'
 gem "airbrake"
@@ -59,11 +60,10 @@ gem 'xpath'
 gem 'dynamic_form'
 gem "rspec-rails"
 gem "truncate_html"
+gem 'money-rails'
 
 group :test do
-
-  gem 'capybara', "1.1.3" # because version 2 causes too many unambiguous matches with current test suite
-  # TODO: upgrade with changes from: http://techblog.fundinggates.com/blog/2012/08/capybara-2-0-upgrade-guide/
+  gem 'capybara'
   gem 'cucumber-rails', :require => false
   gem 'cucumber' 
   gem 'selenium-webdriver'
@@ -72,5 +72,9 @@ group :test do
   gem 'factory_girl_rails'
   gem "pickle"
   gem 'email_spec'
+  gem 'action_mailer_cache_delivery'
+  gem "parallel_tests", :group => :development
+  gem 'spork-rails'
+  gem 'timecop'
 end
 

@@ -8,7 +8,7 @@ class Api::CommentsController < Api::ApiController
 
     if @comment.save
       response.status = :created
-      Delayed::Job.enqueue(CommentCreatedJob.new(@comment.id, @current_community.id, @current_community.full_domain ))
+      Delayed::Job.enqueue(CommentCreatedJob.new(@comment.id, @current_community.id))
       respond_with @comment
     else
       response.status = 400

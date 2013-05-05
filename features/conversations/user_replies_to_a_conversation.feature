@@ -12,12 +12,11 @@ Feature: User replies to a conversation
     And there is favor request with title "Massage" from "kassi_testperson1"
     And there is a message "Test message" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
-    When I follow "Messages"
-    And I follow "Test message"
+    When I follow "inbox-link"
+    And I follow "conversation_title_link_1"
     And I fill in "Write a reply:" with "This is a reply"
     And I press "Send reply"
     Then I should see "This is a reply"
-    And I should see "Reply sent successfully" within "#conversation_notice"
 
   @javascript
   Scenario: Trying to reply without content
@@ -28,8 +27,8 @@ Feature: User replies to a conversation
     And there is favor request with title "Massage" from "kassi_testperson1"
     And there is a message "Test message" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
-    When I follow "Messages"
-    And I follow "Test message"
+    When I follow "inbox-link"
+    And I follow "conversation_title_link_1"
     And I press "Send reply"
     Then I should see "This field is required"
   

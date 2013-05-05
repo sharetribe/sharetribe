@@ -3,14 +3,8 @@ require 'base64'
 
 module PeopleHelper
   
-  # Class is selected if listing type is currently selected
-  def get_profile_tab_class(tab_name)
-    current_tab_name = params[:type] || "offers"
-    "inbox_tab_#{current_tab_name.eql?(tab_name) ? 'selected' : 'unselected'}"
-  end
-  
-  def grade_profile_image_class(feedback_positive_percentage)
-    "profile_feedback_average_image_#{grade_number_profile(feedback_positive_percentage).to_s}"
+  def persons_listings(person, per_page=3, page=1)
+    person.listings.currently_open.visible_to(@current_user, @current_community).order("created_at DESC").paginate(:per_page => per_page, :page => page)
   end
   
   def grade_image_class(grade)
@@ -50,7 +44,7 @@ module PeopleHelper
   end
   
   def profile_testimonial_other_person_role(person, listing)
-    if (person.eql?(listing.author) && listing.listing_type.eql?("request")) || (!person.eql?(listing.author) && listing.listing_type.eql?("offer"))
+    if (person.eql?(listing.author) && listing.share_type.is_request?) || (!person.eql?(listing.author) && listing.share_type.is_offer?)
       "offer"
     else
       "request"
@@ -89,7 +83,17 @@ module PeopleHelper
   # but there's already a community with the
   # email provided.
   def restricted_tribe_already_exists_error_message(existing_community)
-    t("communities.signup_form.existing_community_with_this_email", :community_category => t("communities.signup_form.for_#{existing_community.category}"), :link => self.class.helpers.link_to(t("communities.signup_form.here"), get_url_for(existing_community))).html_safe 
+    t("communities.signup_form.existing_community_with_this_email", :community_category => t("communities.signup_form.for_#{existing_community.category}"), :link => self.class.helpers.link_to(t("communities.signup_form.here"), existing_community.full_url)).html_safe 
+  end
+  
+  def trustcard_class(person)
+    if ! logged_in?
+      "trustcard-upper"
+    elsif person.location
+      "trustcard-lower"
+    else
+      ""
+    end
   end
   
 end

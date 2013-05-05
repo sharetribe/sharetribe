@@ -19,10 +19,10 @@ describe Api::BadgesController do
       resp["badges"].count.should == 2
       resp["badges"][0]["name"].should == "rookie"
       resp["badges"][0]["description"].should == "You have added an offer or a request in Sharetribe for the first time. Here we go!"
-      resp["badges"][0]["picture_url"].should match /\/assets\/badges\/rookie_large\.png$/ 
+      resp["badges"][0]["picture_url"].should match /\/assets\/images\/badges\/rookie_large\.png$/ 
       resp["badges"][1]["name"].should == "volunteer_bronze"
       resp["badges"][1]["description"].should == "You like to put your skills in use by helping others. You have three open service offers in Sharetribe."
-      resp["badges"][1]["picture_url"].should match /\/assets\/badges\/volunteer_bronze_large\.png$/
+      resp["badges"][1]["picture_url"].should match /\/assets\/images\/badges\/volunteer_bronze_large\.png$/
     end
   end
 

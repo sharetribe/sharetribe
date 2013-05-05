@@ -1,37 +1,43 @@
 class SettingsController < ApplicationController
   
-  layout "settings"
-  
   before_filter :except => :unsubscribe do |controller|
-    controller.ensure_logged_in "you_must_log_in_to_view_your_settings"
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_settings")
   end
   
   before_filter do |controller|
-    controller.ensure_authorized "you_are_not_authorized_to_view_this_content"
+    controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
   end
   
   skip_filter :dashboard_only
   
   def show
+    @no_tribe_title = "settings"
+    @selected_left_navi_link = "profile"
     add_location_to_person
     render :action => :profile
   end
   
   def profile
+    @no_tribe_title = "settings"
+    @selected_left_navi_link = "profile"
     # This is needed if person doesn't yet have a location
     # Build a new one based on old street address or then empty one.
     add_location_to_person
   end
   
   def avatar
-    
+    @no_tribe_title = "settings"
+    @selected_left_navi_link = "avatar"
   end
   
   def account
-    
+    @no_tribe_title = "settings"
+    @selected_left_navi_link = "account"
   end
 
   def notifications
+    @no_tribe_title = "settings"
+    @selected_left_navi_link = "notifications"
   end
   
   def unsubscribe
@@ -42,16 +48,22 @@ class SettingsController < ApplicationController
       @person_to_unsubscribe = AuthToken.find_by_token(session[:expired_auth_token]).person
     end
     
-    if @person_to_unsubscribe && @person_to_unsubscribe.id == params[:person_id]
+    if @person_to_unsubscribe && @person_to_unsubscribe.id == params[:person_id] && params[:email_type].present?
       if params[:email_type] == "community_updates"
         @person_to_unsubscribe.min_days_between_community_updates = 100000
         @person_to_unsubscribe.save!
-        @unsubscribe_successful = true
-        render :unsubscribe, :layout => "application"
+      elsif [Person::EMAIL_NOTIFICATION_TYPES, Person::EMAIL_NEWSLETTER_TYPES].flatten.include?(params[:email_type])
+        @person_to_unsubscribe.preferences[params[:email_type]] = false
+        @person_to_unsubscribe.save!
+      else
+        @unsubscribe_successful = false
+        render :unsubscribe, :status => :bad_request and return
       end
+      @unsubscribe_successful = true
+      render :unsubscribe
     else
       @unsubscribe_successful = false
-      render :unsubscribe, :layout => "application", :status => :unauthorized
+      render :unsubscribe, :status => :unauthorized
     end
   end
   

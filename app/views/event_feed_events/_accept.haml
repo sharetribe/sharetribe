@@ -5,7 +5,7 @@
     :time_ago => time_ago(event_feed_event.created_at)}
 
 - if listing.share_type
-  = t(".has_accepted_#{listing.share_type}_#{listing.category}", links).html_safe
+  = t(".has_accepted_#{listing.share_type.name}_#{listing.category.name}", links).html_safe
 - else
-  = t(".has_accepted_#{listing.category}", links).html_safe
+  = t(".has_accepted_#{listing.category.name}", links).html_safe
 

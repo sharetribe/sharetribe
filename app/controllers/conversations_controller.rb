@@ -1,25 +1,25 @@
 class ConversationsController < ApplicationController
-
-  layout "conversations"
   
   before_filter :only => [ :new, :create ] do |controller|
-    controller.ensure_logged_in "you_must_log_in_to_send_a_message"
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_send_a_message")
   end
   
   before_filter :except => [ :new, :create ] do |controller|
-    controller.ensure_logged_in "you_must_log_in_to_view_your_inbox"
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_inbox")
   end
   
   before_filter :only => [ :index, :received, :sent, :notifications ] do |controller|
-    controller.ensure_authorized "you_are_not_authorized_to_view_this_content"
+    controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
   end
   
-  before_filter :ensure_authorized_to_view_message, :only => [ :show, :accept, :reject ]
+  before_filter :ensure_authorized_to_view_message, :only => [ :show, :accept, :reject, :confirm, :cancel, :acceptance, :confirmation ]
   before_filter :save_current_inbox_path, :only => [ :received, :sent, :show ]
   before_filter :check_conversation_type, :only => [ :new, :create ]
   before_filter :ensure_listing_is_open, :only => [ :new, :create ]
   before_filter :ensure_listing_author_is_not_current_user, :only => [ :new, :create ]
   before_filter :ensure_authorized_to_reply, :only => [ :new, :create ]
+  before_filter :ensure_authorized_to_accept, :only => [ :accept, :reject, :acceptance ]
+  before_filter :ensure_authorized_to_cancel, :only => [ :confirm, :cancel, :canfirmation ]
   
   skip_filter :dashboard_only
   
@@ -27,22 +27,22 @@ class ConversationsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:accept, :reject]
   
   def index
+    @no_tribe_title = "inbox"
+    @selected_left_navi_link = "messages"
     redirect_to received_person_messages_path(:person_id => @current_user.id)
   end
   
   def received
+    @no_tribe_title = "inbox"
+    @selected_left_navi_link = "messages"
     params[:page] = 1 unless request.xhr?
-    @conversations = @current_user.messages_that_are("received").paginate(:per_page => 15, :page => params[:page])
-    request.xhr? ? (render :partial => "additional_messages") : (render :action => :index)
-  end
-  
-  def sent
-    params[:page] = 1 unless request.xhr?
-    @conversations = @current_user.messages_that_are("sent").paginate(:per_page => 15, :page => params[:page])
+    @conversations = @current_user.conversations.order("last_message_at DESC").paginate(:per_page => 15, :page => params[:page])
     request.xhr? ? (render :partial => "additional_messages") : (render :action => :index)
   end
   
   def notifications
+    @no_tribe_title = "inbox"
+    @selected_left_navi_link = "notifications"
     @notifications = @current_user.notifications.paginate(:per_page => 20, :page => params[:page])
     @unread_notifications = @current_user.notifications.unread.all
     @current_user.mark_all_notifications_as_read
@@ -50,6 +50,8 @@ class ConversationsController < ApplicationController
   end
   
   def show
+    @no_tribe_title = "inbox"
+    @selected_left_navi_link = "messages"
     @current_user.read(@conversation) unless @conversation.read_by?(@current_user)
     @other_party = @conversation.other_party(@current_user)
   end
@@ -65,8 +67,8 @@ class ConversationsController < ApplicationController
   def create
     @conversation = Conversation.new(params[:conversation])
     if @conversation.save
-      flash[:notice] = "message_sent"
-      Delayed::Job.enqueue(MessageSentJob.new(@conversation.id, @conversation.messages.last.id, request.host))
+      flash[:notice] = t("layouts.notifications.message_sent")
+      Delayed::Job.enqueue(MessageSentJob.new(@conversation.messages.last.id, @current_community.id))
       if params[:profile_message]
         redirect_to @target_person
       else
@@ -78,11 +80,50 @@ class ConversationsController < ApplicationController
   end
   
   def accept
-    change_status("accepted")
+    @action = "accept"
   end
   
   def reject
-    change_status("rejected")
+    @action = "reject"
+    render :accept
+  end
+  
+  # Handles accept and reject forms
+  def acceptance
+    if @conversation.update_attributes(params[:conversation])
+      @conversation.accept_or_reject(@current_user, @current_community, params[:close_listing])
+      flash[:notice] = t("layouts.notifications.#{@conversation.discussion_type}_#{@conversation.status}")
+      redirect_to person_message_path(:person_id => @current_user.id, :id => @conversation.id)
+    else
+      flash.now[:error] = t("layouts.notifications.something_went_wrong")
+      render :edit
+    end  
+  end
+  
+  def confirm
+    @action = "confirm"
+  end
+  
+  def cancel
+    @action = "cancel"
+    render :confirm
+  end
+  
+  # Handles confirm and cancel forms
+  def confirmation
+    redirect_to person_message_path(:person_id => @current_user.id, :message_id => @conversation.id) and return unless @conversation.can_be_confirmed?(@current_community) && current_user?(@conversation.requester)
+    if @conversation.update_attributes(params[:conversation])
+      @conversation.confirm_or_cancel(@current_user, @current_community, params[:give_feedback])
+      flash[:notice] = t("layouts.notifications.#{@conversation.listing.listing_type}_#{@conversation.status}")
+      if params[:give_feedback] && params[:give_feedback].eql?("true")
+        redirect_to new_person_message_feedback_path(:person_id => @current_user.id, :message_id => @conversation.id)
+      else
+        redirect_to person_message_path(:person_id => @current_user.id, :id => @conversation.id)
+      end
+    else
+      flash.now[:error] = t("layouts.notifications.something_went_wrong")
+      render :edit
+    end
   end
   
   private
@@ -93,19 +134,10 @@ class ConversationsController < ApplicationController
     session[:return_to_inbox_content] = request.fullpath
   end
   
-  def change_status(status)
-    @conversation.change_status(status, @current_user, @current_community, request.host)
-    flash.now[:notice] = "#{@conversation.discussion_type}_#{status}"
-    respond_to do |format|
-      format.html { render :action => :show }
-      format.js { render :layout => false }
-    end
-  end
-  
   def ensure_authorized_to_view_message
     @conversation = Conversation.find(params[:id])
     unless @conversation.participants.include?(@current_user)
-      flash[:error] = "you_are_not_authorized_to_view_this_content"
+      flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
       redirect_to root and return
     end
   end
@@ -129,7 +161,7 @@ class ConversationsController < ApplicationController
     unless @target_person
       @listing = params[:conversation] ? Listing.find(params[:conversation][:listing_id]) : Listing.find(params[:id])
       if @listing.closed?
-        flash[:error] = "you_cannot_reply_to_a_closed_#{@listing.listing_type}"
+        flash[:error] = t("layouts.notifications.you_cannot_reply_to_a_closed_#{@listing.listing_type}")
         redirect_to (session[:return_to_content] || root)
       end
     end
@@ -137,7 +169,7 @@ class ConversationsController < ApplicationController
   
   def ensure_listing_author_is_not_current_user
     if (@target_person && current_user?(@target_person)) || (!params[:comment_message] && @listing && current_user?(@listing.author))
-      flash[:error] = "you_cannot_send_message_to_yourself"
+      flash[:error] = t("layouts.notifications.you_cannot_send_message_to_yourself")
       redirect_to (session[:return_to_content] || root)
     end
   end
@@ -145,9 +177,17 @@ class ConversationsController < ApplicationController
   # Ensure that only users with appropriate visibility settings can reply to the listing
   def ensure_authorized_to_reply
     if @listing && !@listing.visible_to?(@current_user, @current_community)
-      flash[:error] = "you_are_not_authorized_to_view_this_content"
+      flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
       redirect_to root and return
     end  
+  end
+  
+  def ensure_authorized_to_accept
+    redirect_to person_message_path(:person_id => @current_user.id, :message_id => @conversation.id) and return unless @conversation.status.eql?("pending") && current_user?(@conversation.listing.author)
+  end
+  
+  def ensure_authorized_to_cancel
+    redirect_to person_message_path(:person_id => @current_user.id, :message_id => @conversation.id) and return unless @conversation.can_be_canceled? && current_user?(@conversation.requester)
   end
 
 end

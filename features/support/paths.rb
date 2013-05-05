@@ -19,29 +19,33 @@ module NavigationHelpers
     when /the requests page/
       '/en/requests'
     when /the offers page/
-      '/en/offers' 
+      '/en/offers'
+    when /the login page/
+      login_path(:locale => "en")
     when /the edit listing page/
-      edit_listing_path(:id => @listing.id) 
+      edit_listing_path(:id => @listing.id, :locale => "en") 
     when /^the give feedback path of "(.*)"$/i
-      new_person_message_feedback_path(:person_id => @people[$1].id, :message_id => @conversation.id.to_s)
+      new_person_message_feedback_path(:person_id => @people[$1].id, :message_id => @conversation.id.to_s, :locale => "en")
     when /^the conversation path of "(.*)"$/i
-      person_message_path(:person_id => @people[$1].id, :id => @conversation.id.to_s)
+      person_message_path(:person_id => @people[$1].id, :id => @conversation.id.to_s, :locale => "en")
     when /^the profile page of "(.*)"$/i
-      person_path(:id => @people[$1].id)
+      person_path(:id => @people[$1].id, :locale => "en")
     when /^the badges page of "(.*)"$/i
-      person_badges_path(:person_id => @people[$1].id)
+      person_badges_path(:person_id => @people[$1].id, :locale => "en")
     when /^the testimonials page of "(.*)"$/i
-      person_testimonials_path(:person_id => @people[$1].id)
+      person_testimonials_path(:person_id => @people[$1].id, :locale => "en")
     when /the listing page/
-      listing_path(:id => @listing.id)
+      listing_path(:id => @listing.id, :locale => "en")
     when /^the registration page with invitation code "(.*)"$/i
       "/en/signup?code=#{$1}"
     when /the infos page/
-      about_infos_path
+      about_infos_path(:locale => "en")
     when /the news page/
-      news_items_path
+      news_items_path(:locale => "en")
     when /new tribe in English/
-      new_tribe_path(:community_locale => "en")
+      new_tribe_path(:community_locale => "en", :locale => "en")
+    when /invitations page$/i
+      new_invitation_path(:locale => "en")
     # the following are examples using path_to_pickle
 
     when /^#{capture_model}(?:'s)? page$/                           # eg. the forum's page

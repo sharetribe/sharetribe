@@ -1,1 +1,6 @@
-= render :partial => "people/help_texts/terms"
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => about_links }
+
+.left-navi-section.about-section
+  %h3
+    = render :file => community_file("terms_title", false)
+  = render :partial => "people/help_texts/terms"

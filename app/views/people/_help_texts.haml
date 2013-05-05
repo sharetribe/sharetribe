@@ -1,14 +1,14 @@
-%div{:id => field, :class => help_text_class(field)}
-  - if field.eql?("terms")
-    .hidden_title_wide
-      - if @current_community
-        = render :file => community_file("terms_title", false)
+.lightbox{:id => field}
+  .lightbox-content
+    %h2 
+      - if field.eql?("terms")
+        - if @current_community
+          = render :file => community_file("terms_title", false)
+        - else
+          = t("people.help_texts.terms_title")
       - else
-        = t("people.help_texts.terms_title")
-  - else
-    .hidden_title
-      = t(".#{field}_title")
-  .close_link
-    = link_to "X", "#", :id => "close_x", :class => "close form"
-  .hidden_content
+        .hidden_title
+          = t(".#{field}_title")
+    %a{:href => "#", :class => "close lightbox-x", :id => "close_x"}
+      .ss-delete
     = render :partial => "people/help_texts/#{field}"

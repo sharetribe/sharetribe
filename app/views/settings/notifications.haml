@@ -1,21 +1,23 @@
 - content_for :javascript do
-  initialize_update_notification_settings_form('#{I18n.locale}','#{@person.id.to_s}');
+  initialize_update_notification_settings_form("#{I18n.locale}","#{@person.id.to_s}");
 
-= form_for @person do |form|
-  #person_settings_form
-    .settings_form_notifications_description
-      %h2= t(".community_updates")
-    .settings_notification_checkboxes
-      = render :partial => "community_updates_radiobutton", :collection => [["email_daily_community_updates", 1], ["email_weekly_community_updates", 7], ["do_not_email_community_updates", 100000]], :as => :options
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user) }
 
-    .settings_form_notifications_description
-      %h2= t(".newsletters")
-    #newsletter_checkbox_container.settings_notification_checkboxes
-      = render :partial => "notification_checkbox", :collection => ["email_newsletters"], :as => :notification_type
-    .settings_form_notifications_description
-      %h2= t(".i_want_to_get_email_notification_when")
-    .settings_notification_checkboxes
-      = render :partial => "notification_checkbox", :collection => Person::EMAIL_NOTIFICATION_TYPES, :as => :notification_type
-      = form.hidden_field "preferences[temp]", :value => "temp"
-      = form.submit t("settings.save_information"), :class => "send_button_notifications"
+#person_settings_form.left-navi-section.settings-section.notification-settings
+  = render :partial => "layouts/global_view_notification", :locals => { :text => t("settings.settings_affect_all_tribes") }
+  = form_for @person do |form|
+  
+    %h2= t(".community_updates")
+    = render :partial => "community_updates_radiobutton", :collection => [["email_daily_community_updates", 1], ["email_weekly_community_updates", 7], ["do_not_email_community_updates", 100000]], :as => :options
+    
+    %h2.lower= t(".newsletters")
+    = render :partial => "notification_checkbox", :collection => Person::EMAIL_NEWSLETTER_TYPES, :as => :notification_type
+    
+    %h2.lower= t(".i_want_to_get_email_notification_when")
+    = render :partial => "notification_checkbox", :collection => Person::EMAIL_NOTIFICATION_TYPES, :as => :notification_type
+    
+    = form.hidden_field "preferences[temp]", :value => "temp"
+    
+    = form.button t("settings.save_information"), :class => "send_button_notifications"
+
       

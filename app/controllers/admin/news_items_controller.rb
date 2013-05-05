@@ -7,12 +7,14 @@ class Admin::NewsItemsController < ApplicationController
   skip_filter :dashboard_only
   
   def index
+    @selected_tribe_navi_tab = "admin"
     params[:page] = 1 unless request.xhr?
     @news_items = @current_community.news_items.order("created_at DESC").paginate(:per_page => 15, :page => params[:page])
     request.xhr? ? (render :partial => "additional_news_items") : render
   end
   
   def new
+    @selected_tribe_navi_tab = "admin"
     @news_item = NewsItem.new
     @path = admin_news_items_path
   end
@@ -20,15 +22,16 @@ class Admin::NewsItemsController < ApplicationController
   def create
     @news_item = NewsItem.new(params[:news_item])
     if @news_item.save
-      flash[:notice] = "news_item_created"
+      flash[:notice] = t("layouts.notifications.news_item_created")
       redirect_to admin_news_items_path(:type => "news")
     else
-      flash[:error] = "news_item_creation_failed"
+      flash[:error] = t("layouts.notifications.news_item_creation_failed")
       render :action => :new
     end
   end
   
   def edit
+    @selected_tribe_navi_tab = "admin"
     @news_item = NewsItem.find(params[:id])
     @path = admin_news_item_path(:id => @news_item.id.to_s)
     render :action => :new
@@ -37,10 +40,10 @@ class Admin::NewsItemsController < ApplicationController
   def update
     @news_item = NewsItem.find(params[:id])
     if @news_item.update_attributes(params[:news_item])
-      flash[:notice] = "news_item_updated"
+      flash[:notice] = t("layouts.notifications.news_item_updated")
       redirect_to admin_news_items_path(:type => "news")    
     else
-      flash[:error] = "news_item_update_failed"
+      flash[:error] = t("layouts.notifications.news_item_update_failed")
       @path = admin_news_item_path(:id => @news_item.id.to_s)
       render :action => :new
     end
@@ -48,7 +51,7 @@ class Admin::NewsItemsController < ApplicationController
   
   def destroy
     NewsItem.find(params[:id]).destroy
-    flash[:notice] = "news_item_deleted"
+    flash[:notice] = t("layouts.notifications.news_item_deleted")
     redirect_to admin_news_items_path(:type => "news")
   end
   

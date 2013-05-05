@@ -4,16 +4,12 @@ describe Person do
   
  
    before(:all) do
-      #reload_person_set_ASI_usage_to(false)
     
       #These will be created only once for the whole example group
       @test_person, @session = get_test_person_and_session
     
     end
   
-    after(:all) do
-      #reload_person_set_ASI_usage_to(true)
-    end
 
     it "should be valid" do
       @test_person.class.should == Person
@@ -67,7 +63,7 @@ describe Person do
 
     describe "#create_listing" do
       it "creates a new listing with the submitted attributes" do
-        listing = @test_person.create_listing :title => "Test"
+        listing = @test_person.create_listing :title => "Test", :share_type => "sell"
         listing.title.should == "Test"
         @test_person.listings.last.should == listing
       end
@@ -156,6 +152,38 @@ describe Person do
         # check that related stuff was removed too
         Conversation.find_by_id(conv_id).should be_nil
         Testimonial.find_by_id(tes_id).should be_nil
+        
+      end
+    end
+    
+    describe "#pending_email" do
+      
+      before (:all) do
+        @p = FactoryGirl.create(:person)
+      end
+      
+      it "should return nil if none pending" do
+        @p.pending_email.should be_nil
+      end
+      
+      it "should return main email if that's pending" do
+         @p.update_attribute(:confirmed_at, nil)
+         @p.pending_email.should =~ /kassi_tester\d+@example.com/
+      end
+      
+      it "should return additional, if that's pending" do
+        @p.update_attribute(:confirmed_at, Time.now)
+        e = FactoryGirl.create(:additional_email, :address => "jack@aalto.fi", :confirmed_at => nil, :person => @p)
+        @p.pending_email.should == "jack@aalto.fi"
+      end
+      
+      it "should pick the right email to return" do
+        c = FactoryGirl.create(:community, :allowed_emails => "@example.com, @ex.ample, @something.else")
+        e = FactoryGirl.create(:additional_email, :address => "jack@aalto.fi", :confirmed_at => nil, :person => @p)
+        e2 = FactoryGirl.create(:additional_email, :address => "jack@example.com", :confirmed_at => nil, :person => @p)
+        
+        @p.pending_email(c).should == "jack@example.com"
+        
         
       end
     end

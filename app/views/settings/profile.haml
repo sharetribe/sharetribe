@@ -1,56 +1,57 @@
 - content_for :javascript do
-  initialize_update_profile_info_form('#{I18n.locale}','#{@person.id.to_s}', '#{t('address_validator')}', #{@current_community.real_name_required?});
+  initialize_update_profile_info_form("#{I18n.locale}","#{@person.id.to_s}", "#{t('address_validator')}", #{@current_community.real_name_required?});
 
 - content_for :extra_javascript do
   = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
 
-#person_settings_form
-  #settings_form_description
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user) }
+
+#person_settings_form.left-navi-section.settings-section
+  = render :partial => "layouts/global_view_notification", :locals => { :text => t("settings.settings_affect_all_tribes") }
+  %p
     = t(".these_fields_are_shown_in_your")
     = link_to(t(".profile_page"), @person) + "."
 
   = form_for @person do |form|
-    .form_field_container
-      = form.label :given_name, t(".given_name"), :class => "input"
-      = form.text_field :given_name, :class => "text_field", :maxlength => "30"
-    .form_field_container
-      = form.label :family_name, t(".family_name"), :class => "input"
-      = form.text_field :family_name, :class => "text_field", :maxlength => "30"
+    = form.label :given_name, t(".given_name")
+    = form.text_field :given_name, :class => "text_field", :maxlength => "30"
+    = form.label :family_name, t(".family_name")
+    = form.text_field :family_name, :class => "text_field", :maxlength => "30"
     - if @current_community.select_whether_name_is_shown_to_everybody
-      .form_field_container
-        .profile_settings_checkbox_container
-          .profile_settings_checkbox_input_container
-            %input{:type => "checkbox", :id => "person_show_real_name_to_other_users", :style => "opacity: 0;", :name => "person[show_real_name_to_other_users]", :checked => @person.show_real_name_to_other_users}
-            = form.hidden_field :show_real_name_setting_affected, :value => true
-          .profile_settings_checkbox_label_container
-            = form.label :show_real_name_to_other_users, t('people.new.show_my_name_to_others'), :class => "checkbox"
-    .form_field_container
-      = form.label :street_address, t(".street_address"), :class => "input"
-      = form.text_field :street_address, :class => "text_field", :onkeyup => "timed_input(this)"
-      %span.profile_settings_visibility_info
+      .checkbox-container
+        %input{:type => "checkbox", :id => "person_show_real_name_to_other_users", :name => "person[show_real_name_to_other_users]", :checked => @person.show_real_name_to_other_users, :value => "1"}
+        = form.hidden_field :show_real_name_setting_affected, :value => true
+        = form.label :show_real_name_to_other_users, t('people.new.show_my_name_to_others'), :class => "checkbox"
+    
+    -# Location
+    .inline-label-container
+      = form.label :street_address, t(".street_address"), :class => "inline"
+      %small
         = t('.visible_to_registered_users')
-    .form_field_container
-      #profile_location_field_settings_description
-        = t(".location_description")
-      #settings_map_canvas.map
-        :javascript
-          source = document.getElementById("person_street_address");
-          $(document).ready(function(){
-            googlemapMarkerInit("settings_map_canvas","person_location","person_street_address", true, #{tribe_latitude}, #{tribe_longitude});
-            });
-    .form_field_container  
-      = form.label :phone_number, t(".phone_number"), :class => "input"
-      = form.text_field :phone_number, :class => "text_field", :maxlength => "25"
-      %span.profile_settings_visibility_info
+    = form.text_field :street_address, :class => "text_field", :onkeyup => "timed_input(this)"
+    %small
+      = t(".location_description")
+    #settings_map_canvas.map
+      :javascript
+        source = document.getElementById("person_street_address");
+        $(document).ready(function(){
+          googlemapMarkerInit("settings_map_canvas","person_location","person_street_address", true, #{tribe_latitude}, #{tribe_longitude});
+          });
+    
+    -# Phone number
+    .inline-label-container
+      = form.label :phone_number, t(".phone_number"), :class => "inline"
+      %small
         = t('.visible_to_registered_users')
-    .form_field_container  
-      = form.label :description, t(".about_you"), :class => "input"
-      = form.text_area :description, :class => "update_profile_description_text_area"
-    .form_field_container
-      = form.fields_for :location do |loc|
-        = loc.hidden_field :address, :value => @person.location.address
-        = loc.hidden_field :google_address, :value => @person.location.google_address
-        = loc.hidden_field :latitude, :value => @person.location.latitude
-        = loc.hidden_field :longitude, :value => @person.location.longitude
-        = loc.hidden_field :location_type, :value => "person"
-      = form.submit t("settings.save_information"), :class => "send_button"
+    = form.text_field :phone_number, :class => "text_field", :maxlength => "25"
+    
+    -# About text
+    = form.label :description, t(".about_you"), :class => "input"
+    = form.text_area :description, :class => "update_profile_description_text_area"
+    = form.fields_for :location do |loc|
+      = loc.hidden_field :address, :value => @person.location.address
+      = loc.hidden_field :google_address, :value => @person.location.google_address
+      = loc.hidden_field :latitude, :value => @person.location.latitude
+      = loc.hidden_field :longitude, :value => @person.location.longitude
+      = loc.hidden_field :location_type, :value => "person"
+    = form.button t("settings.save_information"), :class => "send_button"

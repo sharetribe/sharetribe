@@ -17,6 +17,7 @@ var listing_type;
 var listing_category = ["all"];
 var listing_sharetypes = ["all"];
 var listing_tags = [];
+var listing_search;
 var flagMarker;
 var markers = [];
 var markerContents = [];
@@ -186,7 +187,7 @@ function manually_validate(formhint) {
       _element += "listing_destination";
     }
   }
-  $(form_id).validate().element(_element);
+  //$(form_id).validate().element(_element);
 }
 
 function nil_locations(_prefix) {
@@ -462,9 +463,22 @@ function addCommunityMarkers() {
 	});
 }
 
-function initialize_listing_map(type, community_location_lat, community_location_lon) {
-  listing_type = type;
-  infowindow = new google.maps.InfoWindow();
+function initialize_listing_map(community_location_lat, community_location_lon) {
+  // infowindow = new google.maps.InfoWindow();
+  infowindow = new InfoBubble({
+    shadowStyle: 0,
+    borderRadius: 5,
+    borderWidth: 1,
+    arrowPosition: 30,
+    arrowStyle: 0
+  });
+  if ($(window).width() >= 768) {
+    infowindow.setMinHeight(235);
+    infowindow.setMinWidth(425);
+  } else {
+    infowindow.setMinHeight(150);
+    infowindow.setMinWidth(225);
+  } 
   directionsService = new google.maps.DirectionsService();
   directionsDisplay = new google.maps.DirectionsRenderer();
   directionsDisplay.setOptions( { suppressMarkers: true } );
@@ -510,8 +524,8 @@ function addListingMarkers() {
   markers = [];
   
   var starttime = new Date().getTime();
-  var request_path = '/api/query'
-	$.get(request_path, { listing_type: listing_type, 'category[]': listing_category, 'share_type[]': listing_sharetypes, 'tag[]': listing_tags }, function(data) {	
+  var request_path = '/listings/locations_json'
+	$.get(request_path, { listing_type: listing_type, 'category[]': listing_category, 'share_type[]': listing_sharetypes, search: listing_search}, function(data) {	
 
 	  var data_arr = data.data;
 		for (i in data_arr) {
@@ -519,13 +533,35 @@ function addListingMarkers() {
 		    var entry = data_arr[i];
 		    markerContents[i] = entry["id"];
 		    if (entry["latitude"]) {
+		      
 		      var location;
 		      location = new google.maps.LatLng(entry["latitude"], entry["longitude"]);
+		      
+		      // Marker background image based on listing_type
+		      var icon_path, icon_color;
+		      if (entry["listing_type"] === "request") {
+            icon_path = '/assets/map_icons/map_icon_dark_empty.png';
+            icon_color = "d7d7d7";
+          } else {
+            icon_path = '/assets/map_icons/map_icon_light_empty.png';
+            icon_color = "6a6a6a";
+          }
           var marker = new google.maps.Marker({
             position: location,
             title: entry["title"],
-            icon: '/assets/map_icons/'+entry["category"]+'_'+entry["listing_type"]+'.png'
+            icon: icon_path        
           });
+          
+          // Marker icon based on category
+          var label = new Label({
+                         map: map
+                    });
+                    label.set('zIndex', 1234);
+                    label.bindTo('position', marker, 'position');
+                    label.set('text', "<i class='icon " + entry["icon"] + "'></i>");
+                    label.set('color', icon_color);
+                    //label.bindTo('text', marker, 'position');
+          marker.set("label", label);
           markers.push(marker);
           markersArr.push(marker);
           var ind = i;
@@ -596,6 +632,14 @@ function clearMarkers() {
     }
 }
 
+function SetFiltersForMap(type, category, sharetypes, search) {
+  if (type)       { listing_type = type;               } else { listing_type = "all";}
+  if (category)   { listing_category = [category];     } else { listing_category = ["all"];}
+  if (sharetypes) { listing_sharetypes = [sharetypes]; } else { listing_sharetypes = ["all"];}
+  if (search)     { listing_search = search            } else { listing_search = "";}
+  initialize_labels();
+}
+
 
 // Simple callback for passing filter changes to the mapview
 function filtersUpdated(category, sharetypes, tags) {
@@ -605,3 +649,4 @@ function filtersUpdated(category, sharetypes, tags) {
     clearMarkers();
     addListingMarkers();
 }
+

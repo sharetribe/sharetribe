@@ -15,7 +15,7 @@
     .clear
     .grid_7.alpha
       #home_main_screenshot
-        = image_tag("dashboard/sharetribe_homepage_screenshot.png", :alt => "This is what a Sharetribe community looks like")
+        = image_tag("dashboard/sharetribe_homepage_screenshot2.png", :alt => "This is what a Sharetribe community looks like")
     .grid_5.omega
       .get_started
         = link_to t(".get_started"), new_tribe_path, :class => "get_started"
@@ -31,4 +31,14 @@
 - if APP_CONFIG.use_kissmetrics
   <script type="text/javascript">
   _kmq.push(['record', 'viewed Dashboard']);
+  </script>
+  
+  -# Also add Crazy Egg script in use
+  -# It doesn't have an own config param yet, but dashboard with KM is probably anyway
+  -# used mainly by the Sharetribe core team now. And separate param can be added when needed
+  <script type="text/javascript">
+  setTimeout(function(){var a=document.createElement("script");
+  var b=document.getElementsByTagName("script")[0];
+  a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0016/3803.js?"+Math.floor(new Date().getTime()/3600000);
+  a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
   </script>

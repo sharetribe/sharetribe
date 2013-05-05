@@ -1,12 +1,36 @@
 fi:
   admin:
-    badges:
-      index:
-        add_new_badge: "Lisää uusi ansiomerkki"
-        existing_badges: "Tallennetut ansiomerkit"
-        image: "Merkin kuva"
-        name: "Merkin nimi"
-        save_badge: "Tallenna ansiomerkki"
+    communities:
+      edit_details:
+        community_details: "Yhteisön tiedot"
+        community_look_and_feel: "Yhteisön ulkoasu"
+        edit_community: "Muokkaa yhteisön \"%{community_name}\" tietoja"
+        community_name: "Yhteisön nimi:"
+        community_slogan: "Yhteisön slogan:"
+        community_description: "Yhteisön kuvaus:"
+        update_information: "Päivitä tiedot"
+        invite_people: "Kutsu ihmisiä yhteisöön"
+      edit_look_and_feel:
+        edit_community_look_and_feel: "Muokkaa yhteisön \"%{community_name}\" ulkoasua"
+        community_logo: Logo
+        community_cover_photo: Kansikuva
+        community_custom_color1: Pääväri
+        logo_instructions_text: "Logotiedosto leikataan neliöksi ja muutetaan tarvittaessa kokoon 192x192 pikseliä."
+        cover_photo_instructions_text: "Kansikuva muutetaan 1600x195 pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
+        custom_color1_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset värin hex-koodin. Sen selville saamisessa auttaa esimerkiksi <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
+        invalid_color_code: "Värikoodin tulisi sisältää 6 merkkiä, ja vain numeroita tai kirjaimia A-F, esimerkiksi: D96E21"
+    emails:
+      new:
+        send_email_to_members: "Lähetä sähköpostia jäsenille"
+        send_email_to_members_title: "Lähetä sähköpostiviesti kaikille tämän yhteisön jäsenille"
+        email_subject: "Viestin otsikko"
+        email_content: "Viestin sisältö"
+        email_content_placeholder: "Mitä haluat kertoa jäsenille?"
+        email_language: "Viestin saajan kieli"
+        any_language: "Kaikki kielet"
+        send_email: "Lähetä viesti"
+        message_will_be_sent_only_to_people_with_this_language: "Tämä viesti lähetetään vain niille jäsenille, jotka käyttävät %{service_name_partitive} valitsemallasi kielellä."
+        email_sent: "Viesti lähetetty."
     news_items:
       index:
         news_items: "Uusimmat uutiset"
@@ -48,13 +72,16 @@ fi:
       show:
         edit_poll: "Muokkaa kyselyä"
   common:
-    default_community_slogan: "Lainaa, auta, jaa"
-    default_community_description: "%{service_name}ssa yhteisön jäsenet voivat jakaa tavaroita, palveluita ja kyytejä. Voit kertoa muille mitä voisit tarjota heille ja pyytää apua kun tarvitset sitä."
+    default_community_slogan: "Lainaa, myy, auta, jaa"
+    default_community_description: "%{service_name} on verkkotori, jossa yhteisön jäsenet voivat jakaa tavaroita, palveluita, kyytejä ja tiloja."
     cancel: Peruuta
     fields_that_are_mandatory: "Tähdellä (*) merkityt tiedot ovat pakollisia."
     or: tai
     password: Salasana
+    service_name: "%{service_name}"
     share_types:
+      request: pyyntö
+      offer: tarjous
       borrow: "halutaan lainata"
       buy: ostetaan
       give_away: annetaan
@@ -63,27 +90,88 @@ fi:
       rent: "halutaan vuokrata"
       rent_out: "annetaan vuokralle"
       sell: myydään
-      trade: vaihdetaan
+      offer_to_swap: vaihdetaan
+      request_to_swap: vaihdetaan
       share_for_free: "tarjotaan käyttöön ilmaiseksi"
+      accept_for_free: "halutaan käyttöön ilmaiseksi"
+    categories:
+      item: tavarat
+      favor: palvelukset
+      rideshare: kimppakyydit
+      housing: tilat
+      tools: työkalut
+      sports: urheilu
+      music: musiikki
+      books: "kirjat & lehdet"
+      games: "pelit & lelut"
+      furniture: huonekalut
+      outdoors: "ulkoilu ja retkeily"
+      food: "ruoka ja ruuanlaitto"
+      electronics: elektroniikka
+      pets: "eläimet ja lemmikit"
+      film: "elokuvat ja tv-sarjat"
+      clothes: "vaatteet ja asusteet"
+      garden: puutarha
+      travel: matkailu
+      other: muut
     username: Käyttäjätunnus
     username_or_email: "Käyttäjätunnus tai sähköposti"
     what_is_this: "Mitä tämä tarkoittaa?"
   conversations:
+    accept:
+      respond_to_offer: "Vastaa tarjoukseen"
+      respond_to_request: "Vastaa pyyntöön"
+      accept_offer: "Hyväksy tarjous"
+      accept_request: "Hyväksy pyyntö"
+      reject_offer: "Ei tällä kertaa"
+      reject_request: "Ei tällä kertaa"
+      close_listing: "Sulje ilmoitus %{listing_title_link}"
+      update_later: "Päivitä ilmoitus ajan tasalle myöhemmin"
+      optional_message: "Vapaaehtoinen viesti"
+      price_to_pay: "Maksettava kokonaishinta"
+    confirm:
+      confirm_description: "Jos olet saanut pyytämäsi asian, voit merkitä pyynnön toteutuneeksi. Tämän jälkeen voit antaa toiselle osapuolelle palautetta."
+      cancel_description: "Jos et saanut pyytämäsi asiaa, voit merkitä pyynnön peruuntuneeksi. Voit silti antaa toiselle osapuolelle palautetta ja kertoa miksi pyyntö ei tällä kertaa toteutunut."
+      cancel_payed_description: "Jos pyyntösi on jo hyväksytty mutta tulit toisiin ajatuksiin, voit vielä perua pyynnön ennen maksua."
+      canceling_payed_transaction: "Pyynnön peruuttaminen"
+      confirm: "Merkitse toteutuneeksi"
+      cancel: "Ei toteutunut"
+      continue: Jatka
+      give_feedback_to: "Anna palautetta käyttäjälle %{person_link}"
+      do_not_give_feedback: "Ohita palaute"
     index:
+      messages_from_all_tribes: "Täällä näet kaikki muiden käyttäjien kanssa vaihtamasi viestit kaikissa %{service_name}-yhteisöissä joihin kuulut."
       loading_more_messages: "Ladataan lisää viestejä"
       message_partitive: viesti
       messages_partitive: viestiä
       no_received_messages: "Ei vastaanotettuja viestejä"
       no_sent_messages: "Ei lähetettyjä viestejä"
+    conversation:
+      accepted_request: "Pyyntö hyväksytty."
+      accepted_offer: "Tarjous hyväksytty."
+      rejected_request: "Pyyntö hylätty."
+      rejected_offer: "Tarjous hylätty."
+      confirmed_request: "Pyyntö toteutettu."
+      confirmed_offer: "Tarjous toteutettu."
+      canceled_request: "Pyyntö peruutettu."
+      canceled_offer: "Tarjous peruutettu."
+    message:
+      accepted_request: "hyväksyi pyynnön"
+      accepted_offer: "hyväksyi tarjouksen"
+      rejected_request: "hylkäsi pyynnön"
+      rejected_offer: "hylkäsi tarjouksen"
+      confirmed_request: "merkitsi pyynnön toteutuneeksi"
+      confirmed_offer: "merkitsi tarjouksen toteutuneeksi"
+      canceled_request: "peruutti pyynnön"
+      canceled_offer: "peruutti tarjouksen"
+      paid: "maksoi %{sum}"
     new:
+      offer_message_form_title: "Tarjoa %{listing} käyttäjälle %{person}"
+      request_message_form_title: "Pyydä %{listing} käyttäjältä %{person}"
       favor_offer_message_form_title: "Pyydä palvelusta käyttäjältä"
-      favor_offer_message_title: "Palveluspyyntö: %{title}"
       favor_request_message_form_title: "Tarjoa palvelus käyttäjälle"
-      favor_request_message_title: "Palvelustarjous: %{title}"
       housing_offer_message_form_title: "Vastaa käyttäjälle"
-      housing_offer_message_title: "Pyyntö: %{title}"
       housing_request_message_form_title: "Vastaa käyttäjälle"
-      housing_request_message_title: "Tila tarjolla: %{title}"
       item_offer_lend_message_form_title: "Lainaa %{listing} käyttäjältä %{person}"
       item_offer_sell_message_form_title: "Osta %{listing} käyttäjältä %{person}"
       item_offer_give_away_message_form_title: "Pyydä %{listing} käyttäjältä %{person}"
@@ -97,18 +185,13 @@ fi:
       housing_offer_sell_message_form_title: "Osta %{listing} käyttäjältä %{person}"
       housing_offer_rent_out_message_form_title: "Vuokraa %{listing} käyttäjältä %{person}"
       housing_offer_share_for_free_message_form_title: "Pyydä käyttöoikeutta tilaan %{listing} käyttäjältä %{person}"
+      housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: "Myy %{listing} käyttäjälle %{person}"
       housing_request_rent_message_form_title: "Anna vuokralle %{listing} käyttäjälle %{person}"
-      item_offer_message_title: "Tavarapyyntö: %{title}"
       item_request_message_form_title: "Tarjoa tavara käyttäjälle"
-      item_request_message_title: "Tavaratarjous: %{title}"
       message: Viesti
       rideshare_offer_message_form_title: "Pyydä kyytiä käyttäjältä"
-      rideshare_offer_message_title: "Kyytipyyntö: %{title}"
       rideshare_request_message_form_title: "Tarjoa kyyti käyttäjälle"
-      rideshare_request_message_title: "Kyytitarjous: %{title}"
-      send_offer_message: "Lähetä tarjous"
-      send_request_message: "Lähetä pyyntö"
       send_message: "Lähetä viesti"
       this_message_is_private: "Tämä viesti on yksityinen sinun ja käyttäjän %{person} välillä. %{person} saa tiedon lähettämästäsi viestistä sähköpostilla."
       you_will_get_notified_of_acceptance: "Saat sähköpostiisi tiedon, kun %{person} hyväksyy tai hylkää ehdotuksesi."
@@ -117,8 +200,8 @@ fi:
       send_message_to_user: "Lähetä viesti käyttäjälle %{person}"
     notifications:
       badgenotification:
-        see_all_your_badges: "Katso kaikki %{service_name}-merkkisi"
-        you_have_earned_badge: "Olet ansainnut %{service_name}-merkin"
+        see_all_your_badges: "Katso kaikki ansiomerkkisi"
+        you_have_earned_badge: "Olet ansainnut ansiomerkin"
       comment_to_followed_listing_notification:
         has_commented: "%{author} kommentoi"
         offer_you_follow: "seuraamaasi tarjousta"
@@ -133,36 +216,47 @@ fi:
         your_request: pyyntöäsi
       loading_more_notifications: "Ladataan lisää tiedotteita"
       no_notifications: "Ei tiedotteita."
+      notifications_from_all_tribes: "Tässä näkymässä näytetään tiedotteet kaikista Sharetribe-yhteisöistä joihin kuulut."
       testimonialnotification:
         give_feedback_to: "Anna palautetta käyttäjälle %{name}"
         has_given_you_feedback_on_event: "on antanut sinulle palautetta tapahtumasta"
         see_all_the_feedback_you_have_received: "katso kaikki saamasi palautteet"
     show:
-      in_response_to_offer: "liittyen tarjoukseen"
-      in_response_to_request: "vastauksena pyyntöön"
-      offer_sent_by: "Pyynnön lähetti"
-      offer_sent_to: "Pyyntö lähetetty käyttäjälle"
-      request_sent_by: "Tarjouksen lähetti"
-      request_sent_to: "Tarjous lähetetty käyttäjälle"
+      in_response_to_listing: "liittyen ilmoitukseen"
+      message_sent_by: "Viestin lähetti"
+      message_sent_to: "Viesti lähetetty käyttäjälle"
       send_reply: "Lähetä viesti"
       write_a_reply: "Kirjoita vastaus:"
-      conversation_about_listing: "Keskustelu käyttäjän %{person} kanssa liittyen ilmoitukseen %{listing}."
-      conversation_with_user: "Keskustelu käyttäjän %{person} kanssa."
+      conversation_about_listing: "Keskustelu käyttäjän %{person} kanssa liittyen ilmoitukseen %{listing}"
+      conversation_with_user: "Keskustelu käyttäjän %{person} kanssa"
+      last_message_at: "(uusin viesti %{time})"
     status:
+      cancel_payed_transaction: Peruuta
       feedback_given: "Palaute annettu"
       feedback_skipped: "Palaute ohitettu"
       give_feedback: "Anna palautetta"
       offer_accepted: "Tarjous hyväksytty"
       offer_rejected: "Tarjous hylätty"
+      offer_canceled: "Tarjous peruutettu"
+      offer_confirmed: "Tarjous toteutunut"
+      pay: "Suorita maksu"
+      paid: "Maksu suoritettu"
       request_accepted: "Pyyntö hyväksytty"
       request_rejected: "Pyyntö hylätty"
+      request_confirmed: "Pyyntö toteutunut"
+      request_canceled: "Pyyntö peruutettu"
       skip_feedback: "Ohita palaute"
-      waiting_confirmation_from_listing_author: "Odottaa ilmoituksen lähettäjän hyväksyntää"
+      waiting_for_listing_author_to_accept_offer: "Odottaa että %{listing_author_name} hyväksyy tarjouksen"
+      waiting_for_listing_author_to_accept_request: "Odottaa että %{listing_author_name} hyväksyy pyynnön"
+      waiting_confirmation_from_requester: "Odottaa että %{requester_name} merkitsee pyynnön toteutetuksi"
+      waiting_payment_from_requester: "Odottaa että %{requester_name} suorittaa maksun"
     status_link:
       accept_offer: "Hyväksy tarjous"
       accept_request: "Hyväksy pyyntö"
       reject_offer: "Hylkää tarjous"
-      reject_request: "Hylkää pyyntö"
+      reject_request: "Ei tällä kertaa"
+      confirm: "Merkitse toteutuneeksi"
+      cancel: "Ei toteutunut"
   communities:
     map_bubble:
       view_tribe: "Näytä yhteisö"
@@ -255,12 +349,14 @@ fi:
       for_other: taholle
   community_memberships:
     new:
+      welcome_fb_user: "Tervetuloa %{service_name_illative}, %{name}!"
+      fb_join_accept_terms: "Liittyäksesi tähän yhteisöön sinun tulee vielä hyväksyä sen käyttöehdot."
       join_community: "Liittyminen yhteisöön '%{community}'"
       you_are_not_a_member_of_this_community: "Sinulla on käyttäjätunnus %{service_name_inessive}, mutta et vielä ole %{service_name}-yhteisön '%{community}' jäsen."
       you_can_join: "Voit liittyä yhteisöön hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
       you_can_join_email_confirmation: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla voimassaoleva sähköpostiosoite, jonka pääte on %{email_ending}. Voit liittyä yhteisöön täyttämällä alla olevaan kenttään sähköpostiosoitteesi, hyväksymällä yhteisön käyttöehdot, klikkaamalla alareunasta 'Liity yhteisöön' -nappia ja klikkaamalla saapuvassa sähköpostissa olevaa vahvistuslinkkiä."
       you_can_join_email_confirmation_multiple_addresses: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla voimassaoleva sähköpostiosoite, jonka pääte on jokin seuraavista: %{email_endings}. Voit liittyä yhteisöön täyttämällä alla olevaan kenttään sähköpostiosoitteesi, hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
-      you_can_join_with_invite_only: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla kutsu joltakin toiselta yhteisön jäseneltä. Jos sinulla on kutsukoodi, voit liittyä tähän yhteisöön kirjoittamalla koodin allaolevaan kenttään, hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
+      you_can_join_with_invite_only: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla kutsu joltakin toiselta yhteisön jäseneltä. Jos sinulla on kutsukoodi, voit liittyä tähän yhteisöön kirjoittamalla koodin alla olevaan kenttään, hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
       if_want_to_view_content: "Jos haluat nähdä mitä yhteisössä tapahtuu liittymättä siihen sinun täytyy"
       log_out: "kirjautua ulos"
       join_community_button: "Liity yhteisöön"
@@ -268,6 +364,7 @@ fi:
     api:
       coming_soon: "Tulossa pian!"
     index:
+      watch_the_video: "Katso video (englanninkielinen)"
       get_started: "ALOITA TÄSTÄ!"
       browse_communities_around_you: "liity lähellä olevaan yhteisöön"
       slogan: "Yhteisösi markkinapaikka verkossa."
@@ -308,29 +405,41 @@ fi:
       pricing: Hinnat
       contact: "Ota yhteyttä"
       university_example_link: "<a href=\"http://aalto.sharetribe.com/fi\">Aalto-yliopiston Sharetribe </a>"
-      company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/fi\">HTC Keilaniemen Sharetribe </a>"
+      company_example_link: "<a href=\"https://if.sharetribe.com/fi\">IF-vakuutusyhtiön Sharetribe </a>"
       city_example_link: "<a href=\"http://kallio.sharetribe.com/fi\">Kallion Sharetribe (Helsinki)</a>"
   emails:
     accept_reminder:
-      offer_accusative: tarjouksen
-      remember_to_accept_listing: "Muistathan merkitä %{listing_type} hyväksytyksi, vaikka siinä mainittu asia olisikin jo hoidettu. Hyväksyminen mahdollistaa palautteen antamisen tapahtumasta. Saamasi hyvä palaute näkyy muille %{service_name_genetive} käyttäjille profiilissasi. Se lisää luotettavuuttasi muiden silmissä ja varmistaa näin, että tapahtumat sujuvat myös jatkossa. Myös %{service_name}-merkkien saaminen edellyttää hyvän palautteen saamista."
       remember_to_accept_offer: "Muista hyväksyä tai hylätä saamasi tarjous"
       remember_to_accept_request: "Muista hyväksyä tai hylätä saamasi pyyntö"
-      request_accusative: pyynnön
       you_can_accept_or_reject_offer_at: "Voit hyväksyä tai hylätä tarjouksen osoitteessa"
       you_can_accept_or_reject_request_at: "Voit hyväksyä tai hylätä pyynnön osoitteessa"
-      you_have_not_yet_accepted_or_rejected_offer: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi tarjousta '%{title}'."
-      you_have_not_yet_accepted_or_rejected_request: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi pyyntöä '%{title}'."
-    badge_migration_notification:
-      badge_description1: "Voit ansaita %{service_name_inessive} erilaisia merkkejä tunnustuksena aktiivisesta toiminnastasi palvelussa. Merkkejä myönnetään esimerkiksi ahkerasta pyyntöjen ja tarjousten jättämisestä, toisten ilmoitusten kommentoinnista, kaikesta mahdollisesta resurssinvaihdosta (tavaroiden lainaamisesta ja myymisestä, palvelusten tekemisestä, kimppakyytien järjestämisestä ja niin edelleen) sekä ylipäänsä aktiivisesta palvelun käytöstä. Huomattakoon, että merkkeihin oikeuttavat ainoastaan sellaiset vaihdot, joista saatu palaute on ollut positiivista."
-      badge_description2: "Paljon merkkejä kerännyt käyttäjä on todennäköisesti aktiivinen ja myös muiden käyttäjien arvostama. Lainaa siis paljon tavaroita, tee palveluksia, kulje kimppakyydeillä ja kerää koko %{service_name}-merkkisarja!"
-      you_have_received_badges: "Olet saanut %{service_name}-merkkejä!"
-      you_have_received_badges_in_kassi: "Olet ansainnut uusia %{service_name}-merkkejä. Voit nähdä saamasi merkit kirjautumalla %{service_name_illative} ja menemällä osoitteeseen"
+      you_have_not_yet_accepted_or_rejected_offer: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi tarjousta %{title}."
+      you_have_not_yet_accepted_or_rejected_request: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi pyyntöä %{title}."
+      show_thread: "Näytä viestiketju"
+    confirm_reminder:
+      you_have_not_yet_confirmed_or_canceled_request: "Et ole vielä merkinnyt käyttäjältä %{other_party_full_name} %{date} saamaasi pyyntöä '%{request_link}' toteutuneeksi tai toteutumattomaksi. Jos pyyntö on toteutettu, sinun kannattaa ilmoittaa siitä, jotta voit antaa palautetta tapahtuneesta käyttäjälle %{other_party_given_name}."
+      remember_to_confirm_request: "Muista merkitä pyyntö toteutuneeksi tai toteutumattomaksi"
+      if_will_not_happen_you_should_cancel: "Jos pyyntö syystä tai toisesta jää toteutumatta, voit %{cancel_it_link}."
+      cancel_it_link_text: "peruuttaa sen"
+    payment_reminder:
+      remember_to_pay: "Maksumuistutus: %{listing_title}"
+      you_have_not_yet_paid: "Et ole vielä suorittanut maksua liittyen ilmoitukseen %{listing_title}. Muista maksaa sovittu summa käyttäjälle %{other_party_name}."
+      if_will_not_happen_you_should_cancel: "Voit myös halutessasi vielä %{cancel_it_link}."
+      cancel_it_link_text: "peruuttaa tapahtuman"
+    transaction_confirmed:
+      here_is_a_message_from: "Tässä viesti käyttäjältä %{other_party_given_name}:"
+      request_marked_as_confirmed: "Pyyntö merkitty toteutuneeksi - muistathan antaa palautetta"
+      request_marked_as_canceled: "Pyyntö peruttu"
+      has_marked_request_as_confirmed: "%{other_party_full_name} on merkinnyt pyynnön '%{request}' toteutuneeksi. Voit nyt antaa hänelle palautetta."
+      has_marked_request_as_canceled: "%{other_party_full_name} on ilmoittanut, että pyyntö '%{request}' ei toteutunut. Voit silti antaa hänelle palautetta."
+      giving_feedback_is_good_idea: "Palautteen antaminen kannattaa aina. Jos kaikki meni hyvin, voit palautteen avulla kertoa muille jäsenille, että %{other_party_given_name} on luotettava. Jos vastaan tuli ongelmia, niistä kannattaa myös mainita."
+      give_feedback_to: "Anna palautetta käyttäjälle %{other_party_given_name}"
     confirmation_instructions:
       confirmation_instructions_signature: "Terveisin,<br/>%{service_name}-tiimi"
       welcome_to_kassi: "Tervetuloa %{service_name_illative}!"
-      need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla linkkiä:"
+      need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla alla olevaa linkkiä"
       confirmation_link_text: "Varmista tunnukseni"
+      or_paste_link: "Vaihtoehtoisesti voit kopioida seuraavan link selaimesi osoitepalkkiin:"
       turning_on_confirmations_in_this_community: "Otamme käyttöön sähköpostivarmistukset tässä %{service_name}-yhteisössä."
     common:
       check_your_settings: "Tarkista asetuksesi"
@@ -342,57 +451,63 @@ fi:
       edit_your_email_settings_here: "Muokkaa sähköpostiasetuksiasi tästä"
       message_not_displaying_correctly: "Eikö tämä viesti näy oikein sähköpostissa?"
       view_it_in_your_browser: "Katso verkkoselaimellasi"
+      or: tai
+      unsubscribe_from_these_emails: "lopeta tällaisten viestien vastaanotto kokonaan"
+    community_starter_email:
+      subject: "Sharetriben uusi ilme - käyttäjämääräraja poistettu, yhteisön ilmeen muokkaus ja paljon muuta"
     conversation_status_changed:
-      has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi pyyntöön %{listing}"
-      has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi tarjouksesta %{listing}"
-      has_rejected_your_offer: "%{accepter} on hylännyt tarjouksesi pyyntöön %{listing}"
-      has_rejected_your_request: "%{accepter} on hylännyt pyyntösi tarjouksesta %{listing}"
-      you_can_view_the_offer_in: "Voit nähdä tarjouksesi ja siihen liittyvän keskustelun osoitteessa"
-      you_can_view_the_request_in: "Voit nähdä pyyntösi ja siihen liittyvän keskustelun osoitteessa"
+      has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi '%{listing}'."
+      has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi '%{listing}'."
+      has_rejected_your_offer: "%{accepter} on hylännyt tarjouksesi '%{listing}'."
+      has_rejected_your_request: "%{accepter} on hylännyt pyyntösi '%{listing}'."
+      view_thread: "Näytä keskustelu"
       your_offer_was_accepted: "Tarjouksesi hyväksyttiin"
       your_offer_was_rejected: "Tarjouksesi hylättiin"
       your_request_was_accepted: "Pyyntösi hyväksyttiin"
       your_request_was_rejected: "Pyyntösi hylättiin"
+      you_can_now_pay_to: "Voit nyt maksaa käyttäjä %{payment_receiver} pyytämän maksun."
+      pay_now: "Maksa nyt"
     invitation_to_kassi:
       hi: Hei!
-      you_have_been_invited_to_kassi: "%{inviter} on kutsunut sinut käyttämään yhteisön %{community} %{service_name}-verkkopalvelua."
-      info_about_kassi: "%{service_name} on palvelu, jossa yhteisön jäsenet voivat muun muassa lainata, vaihtaa ja myydä tavaroita, järjestää kimppakyytejä sekä auttaa toisiaan eri tavoin."
-      here_is_a_message_from: "%{inviter} lähetti sinulle tämän saateviestin:"
-      you_can_join_kassi_using_invitation_code: "Tässä henkilökohtainen kutsukoodisi palveluun: %{code}"
-      join_kassi_in: "Voit liittyä palveluun osoitteessa"
+      you_have_been_invited_to_kassi: "%{inviter} on kutsunut sinut %{community} -yhteisöön."
+      here_is_a_message_from: "%{inviter} lähetti sinulle seuraavan saateviestin:"
+      join_now: "Liity yhteisöön"
+      invitation_code: "Kutsukoodi: %{code}"
     new_badge:
-      you_can_view_all_your_badges_in: "Voit nähdä kaikki %{service_name}-merkkisi osoitteessa"
-      you_have_achieved_a_badge: "Olet ansainnut %{service_name}-merkin '%{badge_name}'!"
+      you_can_view_all_your_badges_in: "Näytä ansaitut ansiomerkit"
+      you_have_achieved_a_badge: "Olet ansainnut ansiomerkin '%{badge_name}'!"
     new_comment:
       has_commented_your_offer_in_kassi: "%{author} on kommentoinut tarjoustasi %{listing}"
       has_commented_your_request_in_kassi: "%{author} on kommentoinut pyyntöäsi %{listing}"
-      you_can_reply_to_comment_in: "Voit nähdä ilmoituksesi kommentit ja jättää uuden kommentin osoitteessa"
+      view_comment: "Näytä kommentti"
       you_have_a_new_comment: "%{author} on kommentoinut ilmoitustasi %{service_name_inessive}"
       listing_you_follow_has_a_new_comment: "%{author} on kommentoinut seuraamaasi ilmoitusta %{service_name_inessive}"
       has_commented_offer_you_follow_in_kassi: "%{author} on kommentoinut seuraamaasi pyyntöä %{listing}"
       has_commented_request_you_follow_in_kassi: "%{author} on kommentoinut seuraamaasi tarjousta %{listing}"
     new_message:
       conversation_title: "Viestiketjun otsikko: %{title}"
-      do_not_reply_to_this_email: "Huom! Älä vastaa tähän sähköpostiviestiin, vaan käytä edellä mainittua vastauslinkkiä."
-      has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin %{service_name_inessive}:"
-      you_can_reply_to_message_in: "Voit vastata viestiin osoitteessa"
+      view_message: "Näytä viesti"
+      has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin %{service_name_inessive}."
       you_have_a_new_message: "Sinulle on uusi viesti %{service_name_inessive}"
+    new_payment:
+      new_payment: "Olet saanut uuden maksusuorituksen"
+      you_have_received_new_payment: "%{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Nyt on sinun vuorosi toimittaa %{listing_title} käyttäjälle %{payer_given_name}."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta %{service_name_inessive}"
       you_can_give_feedback_to: "Voit antaa palautetta käyttäjälle %{name} osoitteessa"
-      you_can_view_all_your_feedback_in: "Voit nähdä kaikki saamasi palautteet osoitteessa"
+      view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Seuraamasi ilmoitus on päivittynyt"
       has_updated_offer_you_follow_in_kassi: "%{author} on päivittänyt seuraamasi pyynnön %{listing}"
       has_updated_request_you_follow_in_kassi: "%{author} on päivittänyt seuraamasi tarjouksen %{listing}"
-      you_can_view_the_changes_in: "Voit nähdä muutokset osoitteessa"
+      view_changes: ~
     community_updates:
-      added_offer: "lisäsi tarjouksen:"
-      added_request: "lisäsi pyynnön:"
-      update_mail_title: "%{title_link} uusimmat kuulumiset"
-      title_link_text: "%{community_name}-%{service_name_genetive}"
-      intro_paragraph: "Tässä poimintoja siitä, mitä %{community_link} on tapahtunut viimeisen %{time_since_last_update} aikana."
-      intro_paragraph_link_text: "%{community_name}-%{service_name_inessive}"
+      added_offer: "%{name_link} lisäsi tarjouksen:"
+      added_request: "%{name_link} lisäsi pyynnön:"
+      update_mail_title: "%{title_link} - uusimmat kuulumiset"
+      title_link_text: "%{community_name}"
+      intro_paragraph: "Tässä poimintoja siitä, mitä yhteisössä %{community_link} on tapahtunut viimeisen %{time_since_last_update} aikana."
+      intro_paragraph_link_text: "%{community_name}"
       could_you_share_something: "Voisitko tarjota jotain?"
       do_you_need_help_with_anything: "Tarvitsetko apua tai tavaraa?"
       post_a_new_listing: "Lisää uusi ilmoitus!"
@@ -423,17 +538,48 @@ fi:
       change_my_password: "Vaihda salasanani"
       reset_password_instructions: "<p>Olet ilmeisesti unohtanut käyttäjätunnuksesi tai salasanasi %{service_name}-palveluun. Tämä viesti auttaa sinua kirjautumaan jälleen sisään.</p><p>Käyttäjätunuksesi on: %{username}</p><p>Jos et muista salasanaasi, voit uusia sen klikkaamalla linkkiä: %{password_reset_link}</p><br/><p>Jos et itse pyytänyt tätä viestiä %{service_name}-palvelussa, sinun ei tarvitse reagoida tähän mitenkään. Salasanasi ei vaihdu, ellet itse vaihda sitä ylläolevan linkin kautta.</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Palaute on julkista ja näkyy kaikille muille käyttäjille. Sen perusteella muut käyttäjät voivat arvioida, onko %{name} luotettava henkilö, ja kannattaako hänen kanssaan olla tekemisissä. Kannattaa siis aina muistaa antaa palautetta tapahtumista, ja muistuttaa myös toista osapuolta antamaan palautetta sinulle, jotta molempien pyynnöt ja tarjoukset sujuvat varmemmin myös jatkossa. Myös useimpien %{service_name}-merkkien saamiseen vaaditaan hyväksytyn tapahtuman lisäksi positiivista palautetta toiselta osapuolelta."
+      feedback_is_public_and_is_shown: "Palaute on julkista ja näkyy kaikille muille käyttäjille. Sen perusteella muut käyttäjät voivat arvioida, onko %{name} luotettava henkilö, ja kannattaako hänen kanssaan olla tekemisissä. Kannattaa siis aina muistaa antaa palautetta tapahtumista, ja muistuttaa myös toista osapuolta antamaan palautetta sinulle, jotta molempien pyynnöt ja tarjoukset sujuvat varmemmin myös jatkossa. Myös useimpien ansiomerkkien saamiseen vaaditaan hyväksytyn tapahtuman lisäksi positiivista palautetta toiselta osapuolelta."
       remember_to_give_feedback_to: "Muistutus: muistathan antaa palautetta käyttäjälle %{name}"
-      you_have_not_given_feedback_yet: "Et ole vielä antanut palautetta käyttäjälle %{name} liittyen tapahtumaan '%{event}'. Muistathan antaa palautetta siitä, miten %{given_name} toimi kyseisessä tapahtumassa."
+      you_have_not_given_feedback_yet: "Et ole vielä antanut palautetta käyttäjälle %{name} liittyen tapahtumaan '%{event}'"
+    welcome_email:
+      welcome_email_footer_text: "Millaisia sähköpostiviestejä haluat saada %{service_name_elative}? %{settings_link}"
+      settings_link_text: "Tarkista sähköpostiasetuksesi"
+      subject: "Tervetuloa yhteisöön %{community} - tässä muutama vinkki alkuun pääsemiseksi"
+      welcome_some_tips: "Tervetuloa yhteisöön %{community_link}! Tässä muutama vinkki, joilla pääset alkuun."
+      p_s_did_you_know: "P.S. Tiesitkö, että voit perustaa tällaisen verkkotorin ilmaiseksi mille tahansa paikalliselle yhteisölle johon kuulut? %{click_here_link} jos haluat tietää lisää!"
+      click_here_link_text: "Klikkaa tästä"
+      update_your_profile: "<strong>Päivitä käyttäjäprofiilisi.</strong> Jos lisäät oikean nimesi ja kuvasi ja kerrot jotain itsestäsi, vaikutat luotettavammalta muiden käyttäjien silmissä. Jos lisäät profiiliisi myös yhteystietosi, sinun ei tarvitse lisätä niitä erikseen jokaiseen ilmoitukseen. %{update_profile_link}."
+      update_your_profile_link_text: "Päivitä käyttäjäprofiilisi tästä"
+      add_something_you_could_offer: "<strong>Voisitko tarjota mulle jotain?</strong> Voisitko lainata sähköporaasi, tennismailaasi tai fonduepataasi? Pidätkö ompelusta, huonekalujen kokoamisesta tai tietokonehommista? Onko nurkissasi turhia tavaroita, joista haluaisit eroon? %{add_offer_link}"
+      add_offer_link_text: "Lisää kaikista näistä ilmoitus %{service_name_illative}!"
+      is_there_something_you_need: "<strong>Tarvitsetko jotain? </strong> Ehkä haluaisit jakaa kimppakyydin? Tai jonkin työkalun lainaan? Tai jonkun kävelyttämään koiraasi? Kokeile ensin hakea %{service_name_elative}: ehkä joku tarjoaa jo juuri sitä mitä tarvitset. Jos et löydä mitä etsit, voit %{add_request_link}."
+      add_request_link_text: "lisätä uuden pyynnön"
+      invite_your_friends_invite_only: "<strong>Levitä sanaa. </strong> Mitä enemmän ihmisiä %{service_name_inessive} on, sitä paremmin palvelu toimii kaikkien kannalta. Tähän yhteisöön voi liittyä ainoastaan saamalla kutsun toiselta jäseneltä. Tiedätkö jonkun, joka voisi olla kiinnostunut %{service_name_elative}? Tarjoa heille pääsy palveluun %{invite_link}. Jos haluat nähdä, keitä palvelussa on jäsenenä tällä hetkellä, %{member_list_link}."
+      invite_your_friends: "<strong>Levitä sanaa. </strong> Mitä enemmän ihmisiä %{service_name_inessive} on, sitä paremmin palvelu toimii kaikkien kannalta. Tiedätkö jonkun, joka voisi olla kiinnostunut %{service_name_elative}? Kerro siitä heille %{invite_link} tai lähettämällä heille tämän linkin: %{url}. Jos haluat nähdä, keitä palvelussa on jäsenenä tällä hetkellä, %{member_list_link}."
+      invite_link_text: "käyttämällä helppoa kutsulomakettamme"
+      member_list_link_text: "voit selailla jäsenlistaa"
+      get_mobile_app: "<strong>Lataa mobiilisovelluksemme. </strong> Tiesitkö, että voit käyttää %{service_name_partitive} myös mobiilisti? Ilmoitusten lisääminen hoituu parilla klikkauksella kännykkäkameran avulla, ja näet aina, mitä ympärilläsi tapahtuu. Jos sinulla on iPhone, voit %{app_store_link}. Jos sinulla on Android- tai Windows Phone -puhelin, %{mobile_web_link}."
+      app_store_link_text: "ladata sovelluksen App Storesta"
+      mobile_web_link_text: "kokeile HTML5-sovellustamme"
+      go_explore: "<strong>Selaile ja tutustu! </strong> Katso mitä muut tarjoavat tai pyytävät tällä hetkellä %{service_name_inessive}. Ehkä löydät jotain mitä tarvitset. Ehkä voit tarjota apua jollekulle toiselle. Pidä hauskaa!"
+      love_team: "Rakkaudella,<br /><i>%{service_name}-tiimi</i>"
+      congrats_for_creating_community: "Perustit juuri yhteisön %{community} - tässä muutama vinkki alkuun pääsemiseksi"
+      you_have_just_created_community: "Olet juuri perustanut yhteisön %{community_link}! Tässä muutama vinkki, joiden avulla pääset alkuun yhteisösi kanssa."
+      you_now_have_admin_rights: "<b>Olet nyt tämän yhteisön ylläpitäjä. </b> Se tarkoittaa, että pystyt esimerkiksi muokkaamaan yhteisön tietoja ja ulkoasua. Voikin olla hyvä idea tehdä se heti ensimmäiseksi. Pääset muokkaamaan tietoja %{edit_community_details_link}. Jos haluaisit siirtää ylläpitäjän oikeudet jollekulle muulle, voit ilmoittaa siitä esimerkiksi vastaamalla tähän sähköpostiin."
+      edit_community_details_link_text: "klikkaamalla tästä"
+      add_content: "<strong>Lisää sisältöä. </strong> Paras tapa saada asiat liikkeelle on lisätä ensin itse palveluun jotain sisältöä. Näin muut yhteisöön saapuvat näkevät heti, että siellä tapahtuu jotain. Voisitko lainata sähköporaasi, tennismailaasi tai fonduepataasi? Pidätkö ompelusta, huonekalujen kokoamisesta tai tietokonehommista? Onko nurkissasi turhia tavaroita, joista haluaisit eroon? %{add_offer_link} Jos tarvitset jotain, voit %{add_request_link}."
+      spread_the_word: "<strong>Levitä sanaa. </strong> Jotta saisit yhteisöön vipinää, sinun kannattaa kutsua sinne tuntemiasi ihmisiä. Muutamia ideoita: 1) Lähetä tietoa palvelusta sähköpostilistoille. 2) Jaa tämä linkki Facebookissa, Twitterissä tai muussa sosiaalisen median palvelussa: %{url}. 3) Lähetä kutsuja sähköpostitse %{invite_link}. 4) Kerro palvelusta ihmisille kasvokkain tavatassesi heitä."
+      spread_the_word_invite_only: "<strong>Levitä sanaa. </strong> Olet valinnut yhteisön asetukset siten, että siihen voi liittyä ainoastaan, jos saa kutsun toiselta jäseneltä. Saadaksesi yhteisöön lisää jäseniä sinun pitää siis lähettää kutsuja tuntemillesi ihmisille. Voit lähettää kutsuja %{invite_link}."
+      have_fun: "Pidä hauskaa %{service_name_genetive} parissa. Toivottavasti yhteisösi alkaa kukoistaa!"
   error_messages:
     listings:
       departure_time: "Lähtöaika ei voi olla aikaisempi kuin nykyhetki eikä yli vuoden päässä nykyhetkestä."
       share_type: "Valitse yksi vaihtoehdoista."
       valid_until: "Viimeinen voimassaolopäivä ei voi olla aikaisempi kuin nykyhetki eikä yli vuoden päässä nykyhetkestä."
+      price: "Hinnan on oltava positiivinen kokonaisluku."
     testimonials:
       you_must_explain_not_neutral_feedback: "Jos haluat antaa jonkin muun arvosanan kuin odotusten mukaan, sinun pitää perustella arvosanasi."
-      you_must_select_a_grade: "Muistathan antaa arvion käyttäjän toiminnasta klikkaamalla yhtä yllä olevista ikoneista (ikonien selitykset näet pitämällä hiirtä hetken niiden yläpuolella)"
+      you_must_select_a_grade: "Muistathan kertoa, oliko kokemuksesi positiivinen vai negatiivinen."
   error_pages:
     back_to_kassi_front_page: "Takaisin %{service_name_genetive} etusivulle"
     error_404:
@@ -449,8 +595,8 @@ fi:
     error_description: "Virheen kuvaus"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript ei ole päällä selaimessasi"
-      kassi_does_not_currently_work_without_javascript: "%{service_name} ei valitettavasti tällä hetkellä toimi ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja kokeile ladata tämä sivu uudestaan. Jos ehdottomasti haluaisit käyttää %{service_name_partitive} ilman javascriptiä, voit lähettää meille palautetta alla olevalla lomakkeella."
-      kassi_does_not_currently_work_without_javascript_dashboard: "%{service_name} ei valitettavasti tällä hetkellä toimi ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja kokeile ladata tämä sivu uudestaan. Jos ehdottomasti haluaisit käyttää %{service_name_partitive} ilman javascriptiä, %{contact_us}."
+      kassi_does_not_currently_work_without_javascript: "%{service_name} ei toimi oikein ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja kokeile ladata tämä sivu uudestaan."
+      kassi_does_not_currently_work_without_javascript_dashboard: "%{service_name} ei valitettavasti tällä hetkellä toimi ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja ladata tämä sivu uudestaan. Jos ehdottomasti haluaisit käyttää %{service_name_partitive} ilman javascriptiä, %{contact_us}."
       contact_us: "ota yhteyttä"
       send_feedback: "Lähetä palaute"
       your_feedback_to_admins: "Palautteesi ylläpidolle"
@@ -482,13 +628,18 @@ fi:
       offer_partitive: tarjousta
       request_partitive: pyyntöä
   header:
-    about: "Tietoa palvelusta"
+    about: Tietoa
     community: Yhteisö
     home: Etusivu
+    members: Yhteisö
+    new_listing: "Uusi ilmoitus"
     mobile_version: Mobiiliversio
     offers: Tarjotaan
     requests: Tarvitaan
     search_kassi: "Hae %{service_name_elative}"
+    create_new_marketplace: "Luo uusi verkkotori"
+    contact_us: "Ota yhteyttä"
+    profile: "Oma profiili"
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Lisäksi palvelussa on <b>yksi muu tarjous</b>,"
@@ -524,6 +675,16 @@ fi:
     event_feed:
       latest_events: "Mitä %{service_name_inessive} tapahtuu"
     index:
+      no_listings_notification: "Tässä yhteisössä on alle 10 ilmoitusta. Voisitko lainata sähköporaasi, tennismailaasi tai fonduepataasi? Pidätkö ompelusta, huonekalujen kokoamisesta tai tietokonehommista? Onko nurkissasi turhia tavaroita, joista haluaisit eroon? Tai ehkä haluaisit jakaa kimppakyydin? Tai jonkin työkalun lainaan? Tai jonkun kävelyttämään koiraasi? Lisää tieto näistä kaikista %{service_name_illative}!"
+      available_on_the_app_store: "Saatavilla App Storesta"
+      private_listing_notification: "Tässä yhteisössä on yhteensä %{listing_count}. Näistä %{private_listing_count} näkyy ainoastaan yhteisön jäsenille. Jos haluat nähdä myös vain yhteisön jäsenille näkyvät ilmoitukset, sinun pitää %{log_in_link}."
+      open_listing: "avoin ilmoitus"
+      open_listings: "avointa ilmoitusta"
+      private_listing_notification_log_in: "kirjautua sisään"
+      is: "on"
+      are: ovat
+      what_do_you_need: "Mitä tarvitset?"
+      post_new_listing: "Lisää uusi ilmoitus!"
       are_offering: tarjoavat
       add_news_item: "Lisää uutinen"
       inform_others_about_events: "Yhteisön uusimmat uutiset ja tapahtumat."
@@ -533,24 +694,23 @@ fi:
       news: Uutiset
       no_news: "Ei uutisia"
       more_news: "Lisää uutisia"
-      offer_something: "+ Listaa taitosi ja tavarasi!"
-      offer_something_description: "Tarjoa muille apua, tavaroita tai kyytejä"
       or: ja
       or_see_what_the_others: "...tai katso mitä muut"
       recent_events: "Uusimmat tapahtumat"
-      recent_offers: "Mitä muut tarjoavat"
-      recent_requests: "Mitä muut tarvitsevat"
-      request_something: "+ Kerro mitä tarvitset!"
-      request_something_description: "Kerro muille, kun tarvitset apua, tavaran tai kyydin"
       requesting: tarvitsevat
       teaser_text: "%{service_name} on %{community}-yhteisön oma palvelu, jossa voit lainata, vuokrata, antaa ja myydä tavaroita, auttaa ja pyytää apua tai järjestää kimppakyytejä. Voisitko lainata muille tavaroita tai auttaa heitä?"
       tell_it_here: "Kerro se täällä!"
       welcome_to_new_kassi: "%{service_name} on uudistunut!"
     invitation_form:
       invite_your_friends: "Kutsu kaverisi %{service_name_illative}!"
-      email: "Kaverisi sähköpostiosoite:"
-      message: "Viesti kaverillesi:"
+      invite_your_neighbors: "Kutsu naapurisi %{service_name_illative}!"
+      email: "Kutsuttavan sähköpostiosoite"
+      message: "Viesti kutsuttavalle"
       send_invitation: "Lähetä kutsu"
+      add_as_many_emails_as_you_want: "Lisää kutsuttavien sähköpostiosoitteet alla olevaan kenttään. Jos lisäät enemmän kuin yhden osoitteen, erota osoitteet pilkulla."
+      invitation_emails_field_placeholder: "kaveri1@esimerkki.fi, kaveri2@esimerkki.fi, ..."
+      invitation_message_field_placeholder: "Tämä palvelu on mahtava, kannattaa ehdottomasti liittyä!"
+      errors_in_emails: ~
     news_item:
       show_less: "Näytä vähemmän"
       show_more: "Näytä lisää"
@@ -570,23 +730,34 @@ fi:
       please_offer: Tarjoa
       comment: kommentti
       comments: kommenttia
-    sign_in:
-      recent_offers: "Mitä yhteisön jäsenet tarjoavat juuri nyt"
-      recent_requests: "Mitä yhteisön jäsenet tarvitsevat juuri nyt"
-      plus: Lisäksi
-      other_offer: "muu tarjous"
-      other_offers: "muuta tarjousta"
-      other_request: "muu pyyntö"
-      other_requests: "muuta pyyntöä"
+    filters:
+      show: "Näytä:"
+      search: Hae
+      map: "Näytä kartta"
+      list: "Näytä lista"
+      all_listing_types: "Kaikki ilmoitustyypit"
+      all_categories: "Kaikki ilmoituskategoriat"
+  infos:
+    about:
+      default_about_text_title: "Mikä on Sharetribe?"
+      default_about_text: "Tämä sivusto on luotu Sharetribe-alustalla. Sharetriben avulla kuka tahansa voi perustaa oman verkkotorin. Haluaisitko perustaa tällaisen sivuston omalle yhteisöllesi? Se on ilmaista ja onnistuu minuutissa. %{click_here_link}"
+      click_here_link_text: "Lue lisää!"
   layouts:
+    no_tribe:
+      inbox: Postilaatikko
+      settings: Asetukset
+      feedback: "Ota yhteyttä"
     admin:
       admin: "%{service_name_genetive} ylläpitonäkymä"
       back_to_kassi: "Takaisin %{service_name_illative}"
+      tribe_info: "Yhteisön perustiedot"
       news_items: Uutiset
       polls: Kyselyt
     application:
-      default_feedback: "Tee kehitysehdotus, ilmoita virheestä, kerro mielipiteesi palvelusta tai ota yhteyttä muuten vain!"
+      join_this_community: "Liity yhteisöön"
+      read_more: "Lue lisää"
       feedback: "Palaute ylläpidolle"
+      default_feedback: "Tee kehitysehdotus, ilmoita virheestä, kerro mielipiteesi palvelusta tai ota yhteyttä muuten vain!"
       feedback_forum: "palautefoorumiltamme,"
       feedback_handle: Palaute
       give_feedback: "Anna palautetta %{service_name_elative}"
@@ -596,7 +767,13 @@ fi:
       send_feedback_to_admin: "Lähetä palaute ylläpidolle"
       to_see_what_others_have_suggested: "mitä muut ovat sanoneet."
       your_email_address: "Sähköpostiosoitteesi (vapaaehtoinen)"
-      formerly_known_as_kassi: "aiemmin nimellä Kassi"
+      connect: Liity
+      invite_your_friends: "Kutsu kaverisi!"
+      invite_your_neighbors: "Kutsu naapurisi!"
+      invite_your_friends_description: "Mitä enemmän ihmisiä on mukana, sitä hyödyllisempi %{service_name} on."
+      invite_your_friends_invite_only_description: "Tähän yhteisöön voi liittyä vain jos saa kutsun toiselta jäseneltä."
+      join_without_facebook: "...tai vaihtoehtoisesti %{join_without_facebook_link}"
+      join_without_facebook_link: "liity käyttämättä Facebook-tunnuksia"
     conversations:
       messages: Viestit
       notifications: Tiedotteet
@@ -605,8 +782,8 @@ fi:
     dashboard:
       title: "%{service_name} - jaa tavaroita, palveluksia ja kyytejä paikallisyhteisössäsi!"
     infos:
-      about: "Mikä %{service_name}?"
-      how_to_use: "Miten se toimii?"
+      about: "Tietoa palvelusta"
+      how_to_use: "Miten palvelu toimii"
       info_about_kassi: "Tietoa %{service_name_elative}"
       news: Uutiset
       register_details: Rekisteriseloste
@@ -616,7 +793,7 @@ fi:
       go_to_your_profile_page: Profiili
       hi: Hei
       login: "Kirjaudu sisään"
-      logout: Ulos
+      logout: "Kirjaudu ulos"
       notifications: Tiedotteet
       requests: Kutsut
       settings: Asetukset
@@ -636,6 +813,9 @@ fi:
       settings: Asetukset
       sign_up: "Luo uusi tunnus"
     notifications:
+      something_went_wrong: "Jotain meni vikaan"
+      community_updated: "Yhteisön tiedot päivitetty."
+      community_update_failed: "Yhteisön tietojen päivittäminen epäonnistui."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Käyttäjätunnus luotu. Seuraavaksi sinun pitää vielä varmistaa sähköpostiosoitteesi."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Yhteisöön liittyminen onnistui. Seuraavaksi sinun pitää vielä varmistaa sähköpostiosoitteesi."
       avatar_upload_failed: "Profiilikuvan päivitys epäonnistui. Muistathan, että kuvan pitää olla joko .png, .jpg tai .gif -tiedosto."
@@ -643,7 +823,7 @@ fi:
       comment_cannot_be_empty: "Et voi lähettää tyhjää kommenttia"
       comment_sent: "Kommentti lähetetty"
       confirmation_link_is_wrong_or_used: "Vahvistuslinkki on jo käytetty tai siinä on jokin vika. Yritä kirjautua sisään tai lähetä palautetta jos ongelma ei ratkea."
-      additional_email_confirmed: "Antamasi email osoite on nyt vahvistettu. Voit liittyä tähän yhteisöön syöttämällä vahvistetun osoitteen uudestaan."
+      additional_email_confirmed: "Antamasi email osoite on nyt vahvistettu."
       create_new_offer: "Tarjoa jotain muuta"
       create_new_request: "Pyydä jotain muuta"
       create_one_here: "luoda uuden"
@@ -652,15 +832,16 @@ fi:
       error_with_session: "Virhe istunnon käsittelyssä."
       feedback_considered_spam: "Jokin palautteen sisällössä esti tallentamisen. Yritä uudelleen tai käydä palautefoorumia."
       feedback_not_saved: "Palautteen lähettäminen epäonnistui."
-      feedback_saved: "Kiitos palautteestasi!"
-      feedback_sent_to: "Palaute lähetetty käyttäjälle"
+      feedback_saved: "Kiitos palautteestasi! Otamme sinuun yhteyttä mahdollisimman pian."
+      feedback_sent_to: "Palaute lähetetty käyttäjälle %{target_person}."
       feedback_skipped: "Palaute ohitettu"
       invitation_cannot_be_sent: "Kutsua ei voitu lähettää"
       invitation_sent: "Kutsu lähetetty"
       inviting_new_users_is_not_allowed_in_this_community: "Uusien käyttäjien kutsuminen ei ole sallittua tässä %{service_name}-yhteisössä"
       login_again: "Kirjaudu uudestaan."
       login_failed: "Kirjautuminen epäonnistui. Syötithän tunnuksen ja salasanan oikein."
-      login_successful: "Tervetuloa %{service_name_illative}, "
+      account_creation_successful: "Tervetuloa %{service_name_illative}, %{person_name}!"
+      login_successful: "Tervetuloa, %{person_name}!"
       logout_successful: "Olet kirjautunut ulos %{service_name_elative}. Tervetuloa uudestaan!"
       news_item_created: "Uutinen luotu"
       news_item_creation_failed: "Uutisen luominen epäonnistui"
@@ -668,13 +849,17 @@ fi:
       news_item_updated: "Uutinen tallennettu"
       news_item_deleted: "Uutinen poistettu"
       offer_accepted: "Tarjous hyväksytty"
+      offer_confirmed: "Tarjous merkitty toteutuneeksi"
       offer_closed: "Tarjous suljettu"
+      listing_created_successfully: "Ilmoitus tallennettu."
       offer_created_successfully: "Tarjous tallennettu."
       offer_rejected: "Tarjous hylätty"
+      offer_canceled: "Tarjous peruttu"
       offer_updated_successfully: "Tarjous päivitetty onnistuneesti"
       only_kassi_administrators_can_access_this_area: "Vain %{service_name_genetive} ylläpitäjillä on pääsy tähän sisältöön"
       only_listing_author_can_close_a_listing: "Vain ilmoituksen laatija voi sulkea ilmoituksen."
       only_listing_author_can_edit_a_listing: "Vain ilmoituksen laatija voi muokata ilmoitusta."
+      payment_successful: "Maksu suoritettu"
       password_recovery_sent: "Ohjeet salasanan vaihtamiseen on lähetetty sähköpostiisi."
       person_activated: "Käyttäjä aktivoitu"
       person_deactivated: "Käyttäjä muutettu epäaktiiviseksi"
@@ -687,13 +872,15 @@ fi:
       poll_updated: "Kysely päivitetty"
       poll_deleted: "Kysely poistettu"
       read_more: "Lue lisää!"
-      registration_considered_spam: "Rekisteröityminen ei onnistunut. Ota yhteys ylläpitoon vasemman laidan palautenapilla ja mainitse \"email2 virhe\"."
+      registration_considered_spam: "Rekisteröityminen ei onnistunut. Ota yhteys ylläpitoon ylälaidan palautenapilla ja mainitse \"email2 virhe\"."
       reply_cannot_be_empty: "Et voi lähettää tyhjää viestiä"
       reply_sent: "Vastaus lähetetty"
       request_accepted: "Pyyntö hyväksytty"
+      request_confirmed: "Pyyntö merkitty toteutuneeksi"
       request_closed: "Pyyntö suljettu"
       request_created_successfully: "Pyyntö tallennettu."
       request_rejected: "Pyyntö hylätty"
+      request_canceled: "Pyyntö peruttu"
       request_updated_successfully: "Pyyntö päivitetty onnistuneesti"
       message_sent: "Viesti lähetetty"
       this_content_is_not_available_in_this_community: "Pyytämääsi sivua ei löydy tästä %{service_name}-yhteisöstä."
@@ -709,11 +896,10 @@ fi:
       you_cannot_send_message_to_yourself: "Et voi lähettää viestiä itsellesi"
       you_followed_listing: "Aloit seurata ilmoitusta"
       you_have_already_given_feedback_about_this_event: "Olet jo antanut palautetta tästä tapahtumasta"
-      you_are_now_member: "Yhteisöön liittyminen onnistui."
+      you_are_now_member: "Yhteisöön liittyminen onnistui. Tervetuloa!"
       you_are_already_member: "Olet liittynyt tähän %{service_name}-yhteisöön jo aiemmin. Tervetuloa takaisin!"
-      you_must_log_in_to_create_new_offer: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit luoda uuden tarjouksen. Jos sinulla ei ole vielä tunnusta, voit "
+      you_must_log_in_to_create_new_listing: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit luoda uuden tarjouksen. Jos sinulla ei ole vielä tunnusta, voit %{sign_up_link}."
       additional_email_confirmed_dashboard: "Sähköpostiosoitteesi on nyt vahvistettu."
-      you_must_log_in_to_create_new_request: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit luoda uuden pyynnön. Jos sinulla ei ole vielä tunnusta, voit "
       you_must_log_in_to_give_feedback: "Sinun on kirjauduttava sisään jotta voisit antaa palautetta"
       you_must_log_in_to_invite_new_users: "Sinun on kirjauduttava sisään jotta voisit kutsua uusia käyttäjiä"
       you_must_log_in_to_send_a_comment: "Sinun pitää kirjautua sisään jotta voisit kirjoittaa uuden kommentin"
@@ -728,13 +914,13 @@ fi:
       joining_community_failed: "Yhteisöön liittyminen epäonnistui"
     profile_extras_header:
       back_to_profile_of_person: "Takaisin käyttäjän profiiliin"
-      badges: "%{service_name}-merkit"
+      badges: Ansiomerkit
       testimonials: "Saatu palaute"
     settings:
       account: "Tilin tiedot"
       avatar: Profiilikuva
       notifications: Tiedotteet
-      profile: Profiilitiedot
+      profile: "Profiilin tiedot"
       settings: Asetukset
   listings:
     bubble_listing_not_visible:
@@ -743,6 +929,7 @@ fi:
       wrote: kirjoitti
       send_private_message: "Lähetä yksityisviesti käyttäjälle %{person}"
     comment_form:
+      ask_a_question: "Kommentoi ilmoitusta tai kysy lisätietoja. Kommenttisi näkyy muille käyttäjille."
       log_in: "kirjautua sisään"
       send_comment: "Lähetä kommentti"
       to_send_a_comment: "jotta voisit kommentoida ilmoitusta."
@@ -752,15 +939,11 @@ fi:
       you_must: "Sinun täytyy"
       subscribe_to_comments: "Ilmoita minulle uusista kommenteista ja päivityksistä"
     edit:
-      edit_offer: "Muokkaa tarjousta"
-      edit_request: "Muokkaa pyyntöä"
+      edit_listing: "Muokkaa ilmoitusta"
     edit_links:
-      close_offer: "Sulje tarjous"
-      close_request: "Sulje pyyntö"
-      edit_offer: "Muokkaa tarjousta"
-      edit_request: "Muokkaa pyyntöä"
-      reopen_offer: "Avaa tarjous uudelleen"
-      reopen_request: "Avaa pyyntö uudelleen"
+      close_listing: "Sulje ilmoitus"
+      edit_listing: "Muokkaa ilmoitusta"
+      reopen_listing: "Avaa ilmoitus uudelleen"
     follow_links:
       follow: "Seuraa ilmoitusta"
       unfollow: "Lopeta ilmoituksen seuraaminen"
@@ -795,12 +978,17 @@ fi:
         select_file: "Valitse tiedosto"
       location:
         location: Sijainti
+      price:
+        price: Hinta
+        per: per
+        mass: "kpl, kg, l, m2, ..."
+        time: "tunti, päivä, ..."
+        long_time: "vko, kk, ..."
       origin:
         location: Sijainti
         origin: Lähtöpaikka
       send_button:
-        save_offer: "Tallenna tarjous"
-        save_request: "Tallenna pyyntö"
+        save_listing: "Tallenna ilmoitus"
       share_type:
         select: Valitse
         borrow: "Halutaan lainata"
@@ -814,6 +1002,7 @@ fi:
         request_type: Pyyntötapa
         sell: Myydään
         share_for_free: "Tarjotaan käyttöön ilmaiseksi"
+        accept_for_free: "Otetaan vastaan ilmaiseksi"
         trade: Vaihdetaan
       tag_list:
         comma_separate: "(erota pilkulla)"
@@ -825,15 +1014,19 @@ fi:
         housing_you_request: "Tila jonka tarvitset"
         item_you_offer: "Tavara jonka tarjoat"
         item_you_request: "Tavara jonka tarvitset"
+        listing_title: "Ilmoituksen otsikko"
       valid_until:
         valid_until: Voimassa
       valid_until_radio_buttons:
         for_the_time_being: Toistaiseksi
       visibility:
-        communities: "Omille %{service_name}-yhteisöilleni"
-        everybody: "Kaikille internetin käyttäjille"
+        all_communities: "Kaikille %{service_name}-yhteisöilleni"
         this_community: "Vain tämän yhteisön jäsenille"
         visibility: Näkyvyys
+      privacy:
+        privacy: Yksityisyys
+        private: "Yksityinen (näkyy vain kirjautuneille)"
+        public: "Julkinen (näkyy myös kirjautumattomille)"
     help_texts:
       help_share_type_title: "Tarjous- tai pyyntötapa"
       help_tags_title: Avaisanat
@@ -874,13 +1067,23 @@ fi:
       rideshares: Kimppakyydit
       sells: Myydään
       share_for_frees: "Tarjotaan käyttöön ilmaiseksi"
+      accept_for_frees: ~
       trades: Vaihdetaan
     link_labels:
+      offer_this: Tarjoa
+      request_this: Pyydä
+      lend_this: "Tarjoa lainaksi"
+      borrow_this: "Pyydä lainaksi"
+      buy_this: Osta
+      rent_out_this: "Tarjoa vuokralle"
+      rent_this: Vuokraa
+      sell_this: Myy
       link_label_for_favor_offer: "Pyydä palvelusta"
       link_label_for_favor_request: "Tarjoa apuasi"
       link_label_for_housing_offer_sell: Osta
       link_label_for_housing_offer_rent_out: Vuokraa
       link_label_for_housing_offer_share_for_free: "Pyydä käyttöoikeutta"
+      link_label_for_housing_request_accept_for_free: "Tarjoa tätä tilaa"
       link_label_for_housing_request_buy: "Myy pyydetty tila"
       link_label_for_housing_request_rent: "Tarjoa vuokralle pyydetty tila"
       link_label_for_item_offer_lend: "Pyydä tämä tavara lainaan"
@@ -895,21 +1098,8 @@ fi:
       link_label_for_item_request_trade: "Tarjoudu vaihtamaan tämä tavara"
       link_label_for_rideshare_offer: "Pyydä kyytiä"
       link_label_for_rideshare_request: "Tarjoa kyytiä"
-      message_link_label_for_offer: "Lähetä yksityisviesti tarjoajalle"
-      message_link_label_for_request: "Lähetä yksityisviesti pyytäjälle"
-      message_link_label_for_item_offer_lend: "Lähetä yksityisviesti lainaajalle"
-      message_link_label_for_item_offer_rent_out: "Lähetä yksityisviesti vuokraajalle"
-      message_link_label_for_item_offer_sell: "Lähetä yksityisviesti myyjälle"
-      message_link_label_for_item_offer_give_away: "Lähetä yksityisviesti tarjoajalle"
-      message_link_label_for_item_offer_trade: "Lähetä yksityisviesti tarjoajalle"
-      message_link_label_for_housing_offer_sell: "Lähetä yksityisviesti myyjälle"
-      message_link_label_for_housing_offer_rent_out: "Lähetä yksityisviesti vuokraajalle"
-      message_link_label_for_housing_offer_share_for_free: "Lähetä yksityisviesti tarjoajalle"
     listed_listing:
       edit: Muokkaa
-    listed_listing_closed_status:
-      offer_is_closed: "Tarjous on suljettu"
-      request_is_closed: "Pyyntö on suljettu"
     listed_listings:
       loading_more_offers: "Ladataan lisää tarjouksia"
       loading_more_requests: "Ladataan lisää pyyntöjä"
@@ -918,13 +1108,81 @@ fi:
       offer_something: "Aseta jotain tarjolle!"
       request_something: "Pyydä jotakin!"
       search_returned_no_results: "Antamallasi hakusanalla ei löytynyt tuloksia."
+    new:
+      listing: ilmoitus
+      offer: "Haluan tarjota muille jotain"
+      request: "Tarvitsen jotain"
+      selected_offer: Tarjous
+      selected_request: Pyyntö
+      selected_listing_type: "Ilmoitustyyppi: %{listing_type}"
+      selected_category: "Kategoria: %{category}"
+      selected_subcategory: "Alakategoria: %{subcategory}"
+      selected_share_type: "Jakamistapa: %{share_type}"
+      selected_item: Tavara
+      selected_favor: Palvelus
+      selected_rideshare: Kimppakyyti
+      selected_housing: Tila
+      selected_borrow: Lainataan
+      selected_buy: Ostetaan
+      selected_give_away: "Annetaan ilmaiseksi"
+      selected_lend: "Annetaan lainaksi"
+      selected_receive: "Otetaan vastaan ilmaiseksi"
+      selected_rent: Vuokrataan
+      selected_rent_out: "Annetaan vuokralle"
+      selected_sell: Myydään
+      selected_offer_to_swap: Vaihdetaan
+      selected_request_to_swap: Vaihdetaan
+      selected_share_for_free: "Annetaan käyttöön ilmaiseksi"
+      selected_accept_for_free: "Otetaan vastaan ilmaiseksi"
+      how_do_you_want_to_share_it: "Millä tavalla haluat jakaa sen?"
+      how_do_you_want_to_get_it: "Millä tavalla haluat saada sen?"
+      item: "Tavara - jotain käsinkosketeltavaa"
+      favor: "Palvelus - osaamista tai aikaa"
+      rideshare: "Kimppakyyti - autolla tai muulla kulkuvälineellä"
+      housing: "Tila - asunto, toimistotila tai puutarha"
+      borrow: "Haluan lainata sen"
+      buy: "Haluan ostaa sen"
+      give_away: "Annan sen pois ilmaiseksi"
+      lend: "Voin lainata sen ilmaiseksi"
+      receive: "Toivoisin saavani sen ilmaiseksi"
+      rent: "Haluan vuokrata sen"
+      rent_out: "Annan sen vuokralle maksua vastaan"
+      sell: "Myyn sen"
+      offer_to_swap: "Haluan vaihtaa sen johonkin muuhun"
+      request_to_swap: "Haluan vaihtaa sen johonkin muuhun"
+      share_for_free: "Tarjoan sen käyttöön ilmaiseksi"
+      accept_for_free: "Toivoisin saavani sen käyttöön ilmaiseksi"
+      what_kind_of_item: "Millaisesta tavarasta on kyse?"
+      what_kind_of_favor: "Millaisesta palveluksesta on kyse?"
+      what_kind_of_rideshare: "Millaisesta kyydistä on kyse?"
+      what_kind_of_housing: "Millaisesta tilasta on kyse?"
+      which_subcategory: "Tarkempi kuvaus"
+      tools: Työkalut
+      sports: Urheilu
+      music: Musiikki
+      books: "Kirjat & lehdet"
+      games: "Pelit & lelut"
+      furniture: Huonekalut
+      outdoors: "Ulkoilu ja retkeily"
+      food: "Ruoka ja ruuanlaitto"
+      electronics: Elektroniikka
+      pets: "Eläimet ja lemmikit"
+      film: "Elokuvat ja tv-sarjat"
+      clothes: "Vaatteet ja asusteet"
+      garden: Puutarha
+      travel: Matkailu
+      other: Muut
+      what_do_you_want_to_do: "Mitä haluat tehdä?"
+      what_can_you_offer: "Mitä haluat tarjota muille?"
+      what_do_you_need: "Mitä tarvitset?"
+      select_category: "Valitse ilmoituskategoria"
     please_comment: Kommentoi
     reply_link:
       offer_closed: "Tarjous on suljettu"
       request_closed: "Pyyntö on suljettu"
     show:
       add_your_phone_number: "Lisää puhelinnumerosi"
-      add_profile_picture: "Lisää profiili- kuva"
+      add_profile_picture: "Lisää profiilikuva"
       comments: "Julkinen keskustelu"
       contact_by_phone: "Puhelinnumero:"
       favor_offer: Palvelustarjous
@@ -934,12 +1192,12 @@ fi:
       no_description: "Ei kuvausta"
       offer: Tarjous
       offer_author: Tarjoaja
-      offer_created: "Tarjous lisätty"
+      listing_created: Luotu
+      open_until: "Avoinna %{date} asti"
       feedback: "Palaute:"
       qr_code: "QR koodi"
       request: Pyyntö
       request_author: Pyytäjä
-      request_created: "Pyyntö lisätty"
       rideshare_offer: Kyytitarjous
       rideshare_request: Kyytitarve
       send_private_message: "Lähetä yksityisviesti"
@@ -982,15 +1240,32 @@ fi:
     member_id_is_your_username: "Sinun on annettava voimassaoleva Omakotiliiton jäsennumerosi, jotta voit liittyä tähän yhteisöön. Jäsennumero toimii myös käyttäjätunnuksenasi, kun kirjaudut %{service_name_illative}. Jos et ole vielä Omakotiliiton jäsen,"
     member_id_or_email: "Jäsennumero tai sähköposti"
     join_here: "liity tästä."
+  payments:
+    new:
+      new_payment: "Uusi maksu"
+      continue: Jatka
+      payment_receiver: "Maksun saaja:"
+      sum: "Summa:"
+      commission_will_be_added: "Hintaan lisätään palvelumaksu 10%."
   people:
+    index:
+      loading_more_members: "Ladataan lisää jäseniä"
+      meet_the_people: Ihmiset
+      you_are_the_only_member: "Olet tämän yhteisön ainoa jäsen."
+      here_are_the_members: "Tässä ovat yhteisön %{community_name} %{count} jäsentä."
+      wanna_see_more_folks: "Haluaisitko, että täällä olisi enemmän väkeä?"
+      invite_people_you_know: "Kutsu tuntemasi ihmiset mukaan!"
+      there_are_x_members: "Tässä yhteisössä on %{count} jäsentä."
+      to_see_the_list_log_in: "Nähdäksesi listan kaikista jäsenistä sinun pitää %{log_in_link}."
+      log_in_link: "kirjautua sisään"
     badge_description:
-      badge_achieved_at: "%{service_name}-merkki ansaittu"
-      you_do_not_yet_have_this_badge: "%{service_name}-merkkiä ei ole vielä ansaittu."
+      badge_achieved_at: "Ansiomerkki ansaittu"
+      you_do_not_yet_have_this_badge: "Ansiomerkkiä ei ole vielä ansaittu."
     edit_links:
       activate: Aktivoi
       deactivate: "Muuta epäaktiiviseksi"
     help_texts:
-      badges_description_title: "%{service_name}-merkit"
+      badges_description_title: Ansiomerkit
       feedback_description_title: Palaute
       help_captcha_title: "Olethan ihminen"
       help_invitation_code_title: "Tarvitset kutsun liittyäksesi"
@@ -1007,23 +1282,21 @@ fi:
       captcha_incorrect: "reCAPTCHA varmistus epäonnistui. Kirjoita kuvassa näkyvät sanat alla olevaan kenttään."
       captcha_was_wrong: "Kirjoittamasi teksti ei vastannut kuvan sanoja."
       create_new_account: "Luo tunnus"
-      email: "Sähköpostiosoite:"
+      email: Sähköpostiosoite
       email_is_in_use: "Antamasi sähköpostiosoite on jo käytössä."
-      email_is_in_use_or_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön (tai se on jo käytössä). Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön (kts. ylälaidan ohjeteksti). Jos et silti pääse sisään, lähetä palautetta vasemman laidan linkistä."
-      email_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön. Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön. Jos et silti pääse sisään, lähetä palautetta vasemman laidan linkistä."
+      email_is_in_use_or_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön (tai se on jo käytössä). Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön (kts. ylälaidan ohjeteksti). Jos et silti pääse sisään, lähetä palautetta ylälaidan valikon kautta."
+      email_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön. Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön. Jos et silti pääse sisään, lähetä palautetta ylälaidan valikon kautta."
       email_restriction_instructions:
         one: "Tämä on %{community_name}-yhteisölle rajattu %{service_name}. Liittyäksesi tarvitset '%{allowed_emails}'-sähköpostiosoitteen."
         other: "Tämä on %{community_name}-yhteisölle rajattu %{service_name}. Liittyäksesi tarvitset sähköpostiosoitteen, jonka pääte on jokin seuraavista: %{allowed_emails}"
-      enter_captcha: "Olen ihminen:"
-      family_name: "Sukunimi:"
-      given_name: "Etunimi:"
+      enter_captcha: "Olen ihminen"
+      family_name: Sukunimi
+      given_name: Etunimi
       i_accept_the: Hyväksyn
-      if_you_already_have_account_you_can: "Jos sinulla on jo käyttäjätunnus jossain %{service_name}-yhteisössä voit"
-      join_with_your_existing_account: "liittyä tähän yhteisöön olemassaolevalla tunnuksellasi"
       invalid_invitation_code: "Kutsukoodi ei kelpaa."
       invitation_code: "Kutsukoodi:"
       not_required: ", ei pakollinen"
-      password_again: "Salasana uudelleen:"
+      password_again: "Salasana uudelleen"
       show_my_name_to_others: "Näytä oikea nimeni muille käyttäjille"
       sign_up: "Luo uusi tunnus %{service_name_illative}"
       terms: käyttöehdot
@@ -1031,6 +1304,8 @@ fi:
       username_is_invalid: "Käyttäjätunnus ei kelpaa. Sallitut merkit ovat kirjaimet a-z, numerot ja alaviiva."
       visible_only_to_you: "näkyy vain sinulle ja ylläpidolle"
       visible_to_everybody: "näkyy kaikille"
+      create_account_with_facebook: "Luo uusi tunnus Facebookin avulla"
+      or_create_new_account_without_facebook: "...tai luo tunnus ilman Facebookia täyttämällä alla olevat kentät."
     not_member:
       explanation_text: "Olet tällä hetkellä yhteisössä %{community}. Yritit mennä sellaisen %{service_name_genetive} käyttäjän profiiliin, joka on jonkin toisen yhteisön jäsen. %{service_name} ei vielä toistaiseksi tue käyttäjien kuulumista kerrallaan useampaan kuin yhteen yhteisöön, joten et voi nähdä tämän käyttäjän profiilia %{service_name}-yhteisön %{community} kautta. Mahdollisuus kuulua useampaan kuin yhteen yhteisöön lisätään palveluun myöhemmin."
       read_more_about_kassi_communities: "Lue lisää %{service_name_genetive} yhteisöistä"
@@ -1134,32 +1409,41 @@ fi:
       show_also_closed: "Näytä myös suljetut"
       show_only_open: "Näytä vain avoimet"
     show:
-      contact: "Lähetä viesti käyttäjälle %{person}"
+      contact: "Lähetä yksityisviesti"
       about_me: "Tietoa minusta:"
       add_description: "Kerro jotain itsestäsi"
       add_location: "Lisää sijainti"
       add_phone_number: "Lisää puhelinnumero"
       address: "Osoite:"
       as_expected: "Vastasi odotuksia"
-      badges: "%{service_name}-merkit"
       edit_profile_info: "Muokkaa tietojasi"
       exceeded_expectations: "Ylitti odotukset"
-      received_feedback: "Saatu palaute:"
       positive: positiivista
       hide_description: "Vähemmän tekstiä"
-      joined_this_community: "...liittyi tähän yhteisöön %{time_ago}"
-      was_last_seen: "...oli viimeksi aktiivinen %{time_ago}"
-      was_invited_by: "...liittyi yhteisöön käyttäjän %{inviter_name} kutsumana"
+      joined_this_community: "Liittyi tähän yhteisöön %{time_ago}"
+      was_last_seen: "Viimeksi aktiivinen %{time_ago}"
+      was_invited_by: "Liittyi yhteisöön käyttäjän %{inviter_name} kutsumana"
       less_than_expected: "Ei vastannut odotuksia"
       phone_number: "Puhelinnumero:"
-      show_all_badges: "Näytä kaikki %{service_name}-merkit"
+      show_all_badges: "Näytä kaikki ansiomerkit"
       show_all_feedback: "Näytä kaikki palautteet"
       show_all_testimonials: "Näytä kaikki palautteet"
       show_full_description: "Näytä koko teksti"
       slightly_better_than_expected: "Ylitti odotukset"
       slightly_less_than_expected: "Ei vastannut odotuksia"
       what_are_these: "Mitä nämä ovat?"
-      trustcloud: TrustCloud
+      review: "saatu palaute"
+      reviews: "saatua palautetta"
+      badge: ansiomerkki
+      badges: ansiomerkkiä
+      open_listing: "avoin ilmoitus"
+      open_listings: "avointa ilmoitusta"
+      no_open_listings: "Ei avoimia ilmoituksia"
+      no_reviews: "Ei palautteita"
+      no_badges: "Ei ansiomerkkejä"
+      show_all_open_listings: "Näytä kaikki avoimet ilmoitukset"
+      show_all_reviews: "Näytä kaikki palautteet"
+      trustcloud: TrustCard
   search:
     show:
       all_results: Kaikista
@@ -1176,15 +1460,16 @@ fi:
       i_forgot_my_password: "Käyttäjätunnus tai salasana unohtunut"
       login: "Kirjaudu sisään"
       login_to_kassi: "Kirjaudu sisään %{service_name_illative}"
-      connect_your_facebook_to_kassi: "Yhdistä Facebook tili %{service_name_illative}"
+      connect_your_facebook_to_kassi: "Yhdistä Facebook-tilisi %{service_name_illative}"
       facebook_account: "Facebook-tilisi:"
-      log_in_to_link_account: "Jos sinulla on jo tunnus %{service_name_inessive}, kirjaudu sisään yhdistääksesi tunnuksesi Facebook tiliin."
-      you_can_also_create_new_account: "Jos sinulla ei ennestään ole tunnusta %{service_name_inessive}, %{accont_creation_link} luodaksesi tunnuksen Facebook-tiedoillasi."
+      log_in_to_link_account: "Jos sinulla on jo tunnus %{service_name_inessive}, kirjaudu sisään alla olevan lomakkeen avulla yhdistääksesi tunnuksesi Facebook-tiliin."
+      you_can_also_create_new_account: "Jos sinulla ei ennestään ole tunnusta %{service_name_inessive}, %{accont_creation_link} luodaksesi uuden tunnuksen Facebook-tiedoillasi."
       account_creation_link_text: "klikkaa tästä"
-      cancle_facebook_connect: "Jos et halua yhdistää tätä tunnusta, %{cancel_link}."
-      facebook_cancel_link_text: "voit perua yhdistämisen"
-      log_in_with_your_facebook_account: "Kirjaudu Facebook-tunnuksellasi:"
+      cancle_facebook_connect: "Jos et halua yhdistää tätä tunnusta, voit %{cancel_link}."
+      facebook_cancel_link_text: "perua yhdistämisen"
+      log_in_with_your_facebook_account: "Kirjaudu Facebook-tililläsi"
       or_sign_up_with_your_username: "...tai sitten käyttäjätunnuksellasi ja salasanallasi:"
+      we_will_not_post_without_asking_you: "Emme koskaan postaa puolestasi Facebookiin kysymättä ensin sinulta."
     password_forgotten:
       email: Sähköposti
       password_recovery_instructions: "Anna sähköpostiosoitteesi, niin sinulle lähetetään käyttäjätunnuksesi ja ohjeet salasanan vaihtamiseen."
@@ -1192,24 +1477,26 @@ fi:
       change_your_password: "Vaihda salasanasi"
     confirmation_pending:
       welcome_to_kassi: "Tervetuloa %{service_name_illative}!"
-      check_your_email: "Tarkista sähköpostisi"
-      account_conrimation_instructions: "Saat pian varmistussähköpostin, jossa olevaa linkkiä klikkaamalla pääset sisään tähän %{service_name}-yhteisöön.</p><p>Tämän tarkistus tekee jakamisympäristöstä turvallisemman, sillä voit luottaa siihen, että tässä %{service_name}-yhteisössä (<b>%{community_name}</b>) on vain tänne kuuluvia jäseniä.</p><p>Jos %{service_name_genetive} käytössä tulee ongelmia, lähetä <a href=\"#\" id=\"give_feedback_link\">palautetta</a> vasemmalta. Myös kehitysideat ovat hyvin tervetulleita!"
-      account_confirmation_instructions_any_email: "Saat pian varmistussähköpostin, jossa olevaa linkkiä klikkaamalla pääset sisään tähän %{service_name}-yhteisöön.</p><p>Tarkistuksen tarkoituksena on tehdä yhteisöstä mahdollisimman luotettava ympäristö.</p><p>Jos %{service_name_genetive} käytössä tulee ongelmia, lähetä <a href=\"#\" id=\"give_feedback_link\">palautetta</a> vasemmalta. Myös kehitysideat ovat hyvin tervetulleita!"
+      check_your_email: "Tarkista sähköpostilaatikkosi (tarvittaessa myös roskapostikansio)"
+      account_conrimation_instructions: "Saat pian varmistussähköpostin, jossa olevaa linkkiä klikkaamalla pääset sisään tähän %{service_name}-yhteisöön.</p><p>Tämän tarkistus tekee jakamisympäristöstä turvallisemman, sillä voit luottaa siihen, että tässä %{service_name}-yhteisössä (<b>%{community_name}</b>) on vain tänne kuuluvia jäseniä.</p><p>Jos %{service_name_genetive} käytössä tulee ongelmia, lähetä palautetta ylälaidan valikon kautta. Myös kehitysideat ovat hyvin tervetulleita!"
+      account_confirmation_instructions_any_email: "Saat pian varmistussähköpostin, jossa olevaa linkkiä klikkaamalla pääset sisään tähän %{service_name}-yhteisöön.</p><p>Tarkistuksen tarkoituksena on tehdä yhteisöstä mahdollisimman luotettava ympäristö.</p><p>Jos %{service_name_genetive} käytössä tulee ongelmia, lähetä palautetta ylälaidan valikon kautta. Myös kehitysideat ovat hyvin tervetulleita!"
       get_started: "Alkuun pääseminen"
       getting_started_instructions: "Kun olet varmistanut tunnuksesi, on hyvä lisätä kuva ja haluamasi tiedot <a href=\"%{profile_url}\">profiiliisi</a>, tai voit myös jatkaa suoraan lisäämällä %{service_name_illative} <a href=\"/fi/listings/new/offer\">tarjouksen</a> jostain, mitä voisit mahdollisesti lainata, vuokrata, myydä tai tehdä yhteisön jäsenille. Tai jos tarvitset jotain tiettyä tavaraa tai apua, jätä siitä <a href=\"/fi/listings/new/request\">pyyntö</a>."
       resend_confirmation_instructions: "Lähetä uusi varmistusähköposti"
       your_current_email_is: "Nykyinen osoitteesi: <strong>%{email}</strong>"
       change_email: Vaihda?
       confirm_your_email: "Ole hyvä ja vahvista sähköpostiosoitteesi"
-      account_confirmation_instructions: "Saat pian sähköpostin, jossa on linkki, jota sinun on klikattava varmistaaksesi sähköpostiosoitteesi. Varmistuksen jälkeen voit aloittaa %{service_name_genetive} käytön."
+      account_confirmation_instructions: "Saat pian sähköpostin, jossa on linkki, jota sinun on klikattava varmistaaksesi sähköpostiosoitteesi. Varmistuksen jälkeen voit liittyä tähän yhteisöön."
       account_confirmation_instructions_dashboard: "Saat pian sähköpostin, jossa linkki, jolla voit vahvistaa syöttämäsi sähköpostiosoitteen."
   settings:
+    settings_affect_all_tribes: "Nämä asetukset vaikuttavat kaikkiin Sharetribe-yhteisöihin joihin kuulut."
     account:
       change: Vaihda
       confirm_new_password: "Uusi salasana uudestaan"
       delete_account: "Käyttäjätilin poisto"
       email: "Sähköpostiosoite:"
-      instructions_to_delete_account: "Jos haluat kokonaan poistaa käyttäjätilisi palvelusta, ota ylläpitoon yhteyttä vasemman laidan palautelinkin kautta."
+      instructions_to_delete_account: "Jos haluat poistaa käyttäjätilisi, %{contact_admin_link}."
+      contact_admin: "otathan yhteyttä ylläpitoon"
       new_email: "Uusi sähköpostiosoite"
       new_password: "Uusi salasana"
       save: Tallenna
@@ -1218,11 +1505,13 @@ fi:
       add_avatar_submit: "Tallenna kuva"
       update_profile_picture: "Profiilikuvan päivitys"
     notifications:
+      email_from_admins: "Tämän yhteisön ylläpitäjä voi lähettää minulle sähköpostia"
       i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."
       newsletters: Uutiskirjeet
       community_updates: Tapahtumapäivitykset
-      email_about_accept_reminders: "...olen unohtanut hyväksyä tapahtuman"
-      email_about_new_badges: "...olen ansainnut uuden %{service_name}-merkin"
+      email_about_accept_reminders: "...olen unohtanut hyväksyä pyynnön tai tarjouksen"
+      email_about_confirm_reminders: "...olen unohtanut merkitä pyynnön toteutuneeksi"
+      email_about_new_badges: "...olen ansainnut uuden ansiomerkin"
       email_about_new_comments_to_own_listing: "...joku kommentoi pyyntöäni tai tarjoustani"
       email_about_new_messages: "...joku lähettää minulle viestin"
       email_about_new_received_testimonials: "...joku antaa minulle palautetta"
@@ -1233,26 +1522,29 @@ fi:
       email_newsletters: "Lähetä minulle silloin tällöin ilmestyvä %{service_name}-uutiskirje"
       email_when_conversation_accepted: "...joku hyväksyy pyyntöni tai tarjoukseni"
       email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
+      email_about_completed_transactions: "...joku merkitsee pyyntöni tai tarjoukseni toteutetuksi"
+      email_about_new_payments: "...saan tililleni uuden maksun"
+      email_about_payment_reminders: "...olen unohtanut maksaa maksun"
       unsubscribe_succesful: "Tämä sähköpostitiedote on kytketty pois"
       unsubscribe_info_text: "Et jatkossa enää saa tämäntyyppistä sähköpostia. Tarkista %{settings_link}, niin voit valita mistä asioista haluat sähköpostiviestin tai palaa %{homepage_link}."
       settings_link: asetuksesi
       homepage_link: etusivulle
       unsubscribe_unsuccesful: "Sähköpostin poiskytkentä epäonnistui"
-      unsuccessful_unsubscribe_info_text: "Linkki, jota klikkasit saattaa olla vanhentunut, tai kyse voi olla ohjelmistovirheestä. Laita palautetta vasemmalta, niin voimme poistaa sinut postilistalta, tai kirjaudu sisään, niin voit itse vaihtaa sähköpostiasetuksesi."
+      unsuccessful_unsubscribe_info_text: "Linkki, jota klikkasit saattaa olla vanhentunut, tai kyse voi olla ohjelmistovirheestä. Laita palautetta ylälaidan valikosta, niin voimme poistaa sinut postilistalta, tai kirjaudu sisään, niin voit itse vaihtaa sähköpostiasetuksesi."
     profile:
-      about_you: "Tietoa sinusta:"
-      city: "Kaupunki:"
-      family_name: "Sukunimi:"
-      given_name: "Etunimi:"
-      location_description: "Sijainti voi olla joko tarkka katuosoite tai vain postinumero. Täytäthän ainakin postinumerosi. Voit myös valita sijainnin kartalta."
-      phone_number: "Puhelinnumero:"
-      postal_code: "Postinumero:"
+      about_you: "Tietoa sinusta"
+      city: Kaupunki
+      family_name: Sukunimi
+      given_name: Etunimi
+      location_description: "Sijainti voi olla joko tarkka katuosoite tai vaikkapa vain postinumero. Täytäthän ainakin postinumerosi. Voit myös valita sijainnin alla olevalta kartalta."
+      phone_number: Puhelinnumero
+      postal_code: Postinumero
       profile_page: profiilisivullasi
       profilemap: Karttanäkymä
-      street_address: "Sijainti:"
+      street_address: Sijainti
       these_fields_are_shown_in_your: "Nämä tiedot näytetään kaikille %{service_name_genetive} käyttäjille"
       visible_to_everybody: "näytetään kaikille"
-      visible_to_registered_users: "näytetään kirjautuneille käyttäjille"
+      visible_to_registered_users: "(näytetään kirjautuneille käyttäjille)"
     save_information: "Tallenna tiedot"
   sms:
     or_check_the_offer_in_kassi: " tai katsoa tarjouksen: %{listing_url}"
@@ -1275,7 +1567,7 @@ fi:
   terms:
     show:
       accept_terms: "%{service_name_genetive} käyttöehtojen hyväksyminen"
-      here: täällä
+      here: "klikkaamalla tästä"
       i_accept_new_terms: "Hyväksyn uudet käyttöehdot"
       i_accept_terms: "Hyväksyn käyttöehdot"
       terms: "%{service_name_genetive} käyttöehdot"
@@ -1293,16 +1585,20 @@ fi:
       as_expected: "Vastasi odotuksia"
       exceeded_expectations: "Ylitti täysin odotukset"
       give_feedback_to: "Anna palautetta käyttäjälle %{person}"
-      grade: "Yleisarvosana kokemuksesta"
+      grade: "Millainen kokemus oli?"
       less_than_expected: "Ei vastannut lainkaan odotuksia"
       send_feedback: "Lähetä palaute"
       slightly_better_than_expected: "Ylitti osin odotukset"
       slightly_less_than_expected: "Ei täysin vastannut odotuksia"
-      textual_feedback: "Miten tapahtuma sujui"
+      textual_feedback: "Miten tapahtuma sujui?"
       this_will_be_shown_in_profile: "Antamasi palaute näkyy muille yhteisön jäsenille käyttäjän %{person} profiilisivulla. Palautteen avulla muut jäsenet voivat arvoida käyttäjän %{person} luotettavuutta."
+      positive: Positiivinen
+      negative: Negatiivinen
+      default_textual_feedback: "Kaikki meni hienosti, paljon kiitoksia!"
     testimonial:
       from_user: käyttäjältä
       to_user: käyttäjälle
+      about_listing: "liittyen ilmoitukseen"
   time:
     formats:
       short: "%e. %b %Y kello %H:%M"

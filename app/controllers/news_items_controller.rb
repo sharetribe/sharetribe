@@ -3,16 +3,18 @@ class NewsItemsController < ApplicationController
   layout "layouts/infos"
   
   before_filter :only => [ :create, :destroy ] do |controller|
-    controller.ensure_logged_in "you_must_log_in_to_add_news_item"
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_add_news_item")
   end
   
   skip_filter :dashboard_only
   
   def index
-    redirect_to about_infos_path and return unless @current_community.news_enabled
+    redirect_to about_infos_path and return
+    # Comment out the line below as none of the communities currently has news enabled. So always redirect.
+    # redirect_to about_infos_path and return unless @current_community.news_enabled
     if params[:news_form] && !logged_in?
       session[:return_to] = request.fullpath
-      flash[:warning] = "you_must_log_in_to_add_news_item"
+      flash[:warning] = t("layouts.notifications.you_must_log_in_to_add_news_item")
       redirect_to login_path and return
     end
     params[:page] = 1 unless request.xhr?
@@ -28,10 +30,10 @@ class NewsItemsController < ApplicationController
     redirect_to root and return unless @current_community.all_users_can_add_news?
     @news_item = NewsItem.new(params[:news_item])
     if @news_item.save
-      flash[:notice] = "news_item_created"
+      flash[:notice] = t("layouts.notifications.news_item_created")
       redirect_to news_items_path
     else
-      flash[:error] = "news_item_creation_failed"
+      flash[:error] = t("layouts.notifications.news_item_creation_failed")
       redirect_to news_items_path(:news_form => true)
     end
   end
@@ -40,7 +42,7 @@ class NewsItemsController < ApplicationController
     news_item = NewsItem.find(params[:id])
     redirect_to news_items_path and return unless current_user?(news_item.author) || @current_user.has_admin_rights_in?(@current_community)
     news_item.destroy
-    flash[:notice] = "news_item_deleted"
+    flash[:notice] = t("layouts.notifications.news_item_deleted")
     redirect_to news_items_path
   end
   

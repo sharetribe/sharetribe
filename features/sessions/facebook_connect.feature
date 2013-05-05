@@ -10,34 +10,36 @@ Feature: Facebook connect
       | facebooker | Mircos     | markus@example.com |
     Then user "facebooker" should have "image_file_size" with value "nil"
     Given I am on the home page
-    When I follow "facebook_connect"
+    When I click ".login-menu-toggle"
+    And I follow "Log in with your Facebook account"
     Then I should see "Successfully authorized from Facebook account"
     And I should see "Mircos"
     And user "facebooker" should not have "image_file_size" with value "nil"
-    
+  
   Scenario: Facebook connect with different email in Sharetribe DB
     Given there are following users:
       | person | given_name |
       | facebooker | Marcos |
     Then user "facebooker" should have "image_file_size" with value "nil"
     Given I am on the home page
-    When I follow "facebook_connect"
-    Then I should see "Connect your Facebook account"
-    When I fill in "person_login" with "facebooker"
-    And I fill in "person_password" with "testi"
-    And I press "Log in" 
-    Then I should see "Welcome to Sharetribe"
-    And I should see "Marcos"
-    And user "facebooker" should have "facebook_id" with value "597013691"
-    And user "facebooker" should not have "image_file_size" with value "nil"
+    When I click ".login-menu-toggle" 
+    And I follow "Log in with your Facebook account"
+    Then I should see "Welcome to Sharetribe, Markus! There's one more step to join this community"
+    When I check "community_membership_consent"
+    And I press "Join community"
+    Then I should see "successfully joined this community"
+    And I should see "Markus"
+    And user "markus_sharer_123" should have "given_name" with value "Markus"
+    And user "markus_sharer_123" should have "family_name" with value "Sugarberg"
+    And user "markus_sharer_123" should have "email" with value "markus@example.com"
+    And user "markus_sharer_123" should have "facebook_id" with value "597013691"
+    And user "markus_sharer_123" should not have "image_file_size" with value "nil"
   
   Scenario: Facebook connect first time, without existing account in Sharetribe
     Given I am on the home page
-    When I follow "facebook_connect"
-    Then I should see "Connect your Facebook account"
-    And I should see "Markus Sugarberg"
-    When I follow "click here"
-    Then I should see "Join community 'Test'"
+    When I click ".login-menu-toggle"
+    And I follow "Log in with your Facebook account"
+    Then I should see "Welcome to Sharetribe, Markus! There's one more step to join this community"
     When I check "community_membership_consent"
     And I press "Join community"
     Then I should see "successfully joined this community"
@@ -53,27 +55,35 @@ Feature: Facebook connect
       | person | facebook_id | given_name |
       | marko | 597013691 | Marko |
     Given I am on the home page
-    When I follow "facebook_connect"
+    When I click ".login-menu-toggle"
+    And I follow "Log in with your Facebook account"
     Then I should see "Successfully authorized from Facebook account"
     And I should see "Marko"
-   
-  Scenario: User connects to FB but cancels the linking
-    Given I am on the home page
-    When I follow "facebook_connect"
-    Then I should see "Connect your Facebook account"
-    And I should see "Markus Sugarberg"
-    When I follow "cancel"
-    Then I should not see "Markus"
-    When I follow "Log in"
-    Then I should not see "Connect your Facebook account"
-    And I should not see "Sugarberg"
-    And I should see "Log in to Sharetribe"
-    
+  
+  Scenario: User gets invitation to an invitation-only community and creates an account with FB
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+    And community "test" requires invite to join
+    And I am not logged in
+    And there is an invitation for community "test" with code "GH1JX8"
+    When I arrive to sign up page with the link in the invitation email with code "GH1JX8"
+    And I follow "Create an account with Facebook"
+    Then I should see "Welcome to Sharetribe, Markus! There's one more step to join this community"
+    When I check "community_membership_consent"
+    And I press "Join community"
+    Then I should see "successfully joined this community"
+    And I should see "Markus"
+
   Scenario: The facebook login doesn't succeed
     Given I am on the home page
     And there will be and error in my Facebook login
-    When I follow "facebook_connect"
-    Then I should see "Could not authorize you from Facebook"
+    When I click ".login-menu-toggle"
+    And I follow "Log in with your Facebook account"
+    Then I should see "Could not authorize you from Facebook"  
+  
+  
+  
   
   
 

@@ -23,7 +23,8 @@ Kassi::Application.configure do
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
-  config.action_mailer.delivery_method = :test
+  config.action_mailer.delivery_method = :cache
+  config.action_mailer.cache_settings = { :location => "#{Rails.root}/tmp/cache/action_mailer_cache_delivery#{ENV['TEST_ENV_NUMBER']}.cache" }
 
   # Use SQL instead of Active Record's schema dumper when creating the test database.
   # This is necessary if your schema can't be completely dumped by the schema dumper,
@@ -33,7 +34,7 @@ Kassi::Application.configure do
   config.active_support.deprecation = :stderr  
   
   # As instructed by Devise, to make local mails work
-  config.action_mailer.default_url_options = { :host => 'test.lvh.me:3000' }
+  config.action_mailer.default_url_options = { :host => 'test.lvh.me:9887' }
   
   # Use chrome for testing javascript
   if ENV["USE_CHROME"]
@@ -42,7 +43,7 @@ Kassi::Application.configure do
   end
   
   Capybara.default_wait_time = 10
-  #Capybara.ignore_hidden_elements = true
+  Capybara.ignore_hidden_elements = true
   
   ENV['RAILS_ASSET_ID'] = ""
   

@@ -41,16 +41,6 @@ class Person < ActiveRecord::Base
   attr_protected :is_admin
 
   has_many :listings, :dependent => :destroy, :foreign_key => "author_id"
-  has_many :offers, 
-           :foreign_key => "author_id", 
-           :class_name => "Listing", 
-           :conditions => { :listing_type => "offer" },
-           :order => "id DESC"
-  has_many :requests, 
-           :foreign_key => "author_id", 
-           :class_name => "Listing", 
-           :conditions => { :listing_type => "request" },
-           :order => "id DESC"
   has_many :emails, :dependent => :destroy
   
   has_one :location, :conditions => ['location_type = ?', 'person'], :dependent => :destroy
@@ -66,7 +56,9 @@ class Person < ActiveRecord::Base
   has_many :notifications, :foreign_key => "receiver_id", :order => "id DESC", :dependent => :destroy
   has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id", :dependent => :destroy
   has_many :community_memberships, :dependent => :destroy 
-  has_many :communities, :through => :community_memberships
+  has_many :communities, :through => :community_memberships, :conditions => ['status = ?', 'accepted']
+  has_many :organization_memberships, :dependent => :destroy
+  has_many :organizations, :through => :organization_memberships
   has_many :invitations, :foreign_key => "inviter_id", :dependent => :destroy
   has_many :poll_answers, :class_name => "PollAnswer", :foreign_key => "answerer_id", :dependent => :destroy
   has_many :answered_polls, :through => :poll_answers, :source => :poll
@@ -88,12 +80,20 @@ class Person < ActiveRecord::Base
     "email_about_new_badges",
     "email_about_new_received_testimonials",
     "email_about_accept_reminders",
-    "email_about_testimonial_reminders"
+    "email_about_confirm_reminders",
+    "email_about_testimonial_reminders",
+    "email_about_completed_transactions",
+    "email_about_new_payments",
+    "email_about_payment_reminders"
     
     # These should not yet be shown in UI, although they might be stored in DB
     # "email_when_new_friend_request",
     # "email_when_new_feedback_on_transaction",
     # "email_when_new_listing_from_friend"
+  ]
+  EMAIL_NEWSLETTER_TYPES = [
+    "email_newsletters",
+    "email_from_admins"
   ] 
   
   PERSONAL_EMAIL_ENDINGS = ["gmail.com", "hotmail.com", "yahoo.com"]
@@ -121,24 +121,12 @@ class Person < ActiveRecord::Base
 
   validate :community_email_type_is_correct
 
-  paperclip_options = {
-        :styles => { :medium => "200x350>", :thumb => "50x50#", :original => "600x800>" },
-        :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
-        :url => "/system/:attachment/:id/:style/:filename"
-        }
-  if APP_CONFIG.s3_bucket_name && APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key
-    paperclip_options.merge!({
-      :path => "images/:class/:attachment/:id/:style/:filename",
-      :url => "/system/:class/:attachment/:id/:style/:filename",
-      :storage => :s3,
-      :s3_protocol => 'https',
-      :s3_credentials => {
-            :bucket            => APP_CONFIG.s3_bucket_name, 
-            :access_key_id     => APP_CONFIG.aws_access_key_id, 
-            :secret_access_key => APP_CONFIG.aws_secret_access_key 
-      }
-    })
-  end
+  paperclip_options = PaperclipHelper.paperclip_default_options.merge!({:styles => { 
+                      :medium => "288x288#",
+                      :small => "108x108#",
+                      :thumb => "48x48#",
+                      :original => "600x800>"
+  }})
   
   has_attached_file :image, paperclip_options
         
@@ -157,7 +145,15 @@ class Person < ActiveRecord::Base
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
-      where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+
+      matched = where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+      
+      if matched.nil? # If not found search still by additional email
+        e = Email.find_by_address(login.downcase)
+        matched = e.person if e
+      end
+      
+      return matched
     else
       where(conditions).first
     end
@@ -189,7 +185,7 @@ class Person < ActiveRecord::Base
    end
 
   def name_or_username(cookie=nil)
-    if given_name.present? || family_name.present?
+    if (given_name.present? || family_name.present?) && show_real_name_to_other_users
       return "#{given_name} #{family_name}"
     else
       return username
@@ -236,11 +232,12 @@ class Person < ActiveRecord::Base
     else  
 
       #Handle location information
-      if self.location 
-        #delete location always (it would be better to check for changes)
-        self.location.delete
-      end
       if params[:location]
+        if self.location && self.location.address != params[:street_address]
+          #delete location and create a new one
+          self.location.delete
+        end
+        
         # Set the address part of the location to be similar to what the user wrote.
         # the google_address field will store the longer string for the exact position.
         params[:location][:address] = params[:street_address] if params[:street_address]
@@ -267,11 +264,13 @@ class Person < ActiveRecord::Base
       self.picture_from_url "http://graph.facebook.com/#{self.facebook_id}/picture?type=large"
     end
   end
-
   
-  # Returns conversations for the "received" and "sent" actions
-  def messages_that_are(action)
-    conversations.joins(:participations).where("participations.last_#{action}_at IS NOT NULL").order("participations.last_#{action}_at DESC").uniq
+  def offers
+    listings.offers
+  end
+  
+  def requests
+    listings.requests
   end
   
   def feedback_average
@@ -295,7 +294,7 @@ class Person < ActiveRecord::Base
   def set_default_preferences
     self.preferences = {}
     EMAIL_NOTIFICATION_TYPES.each { |t| self.preferences[t] = true }
-    self.preferences["email_newsletters"] = true
+    EMAIL_NEWSLETTER_TYPES.each { |t| self.preferences[t] = true }
     save
   end
   
@@ -338,19 +337,26 @@ class Person < ActiveRecord::Base
   end
   
   def create_listing(params)
-    listings.create params
+    # Check that this person is member of the (optional) organization
+    if params[:organization_id]
+      org = Organization.find(params[:organization_id])
+      raise "tried to create a listing with organization that the user is not member of" unless org.has_member?(self)
+    end
+    
+    params = Listing.find_category_and_share_type_based_on_string_params(params)
+    listings.create params #.except([:category, :share_type])
   end
   
   def read(conversation)
     conversation.participations.where(["person_id LIKE ?", self.id]).first.update_attribute(:is_read, true)
   end
    
-  def give_badge(badge_name, host)
+  def give_badge(badge_name, community)
     unless has_badge?(badge_name)
       badge = Badge.create(:person_id => id, :name => badge_name)
       Notification.create(:notifiable_id => badge.id, :notifiable_type => "Badge", :receiver_id => id)
       if should_receive?("email_about_new_badges")
-        PersonMailer.new_badge(badge, host).deliver
+        PersonMailer.new_badge(badge, community).deliver
       end
     end
   end
@@ -430,7 +436,7 @@ class Person < ActiveRecord::Base
     allowed = false
     
     #check primary email
-    allowed = true if community.email_allowed?(self.email)
+    allowed = true if community.email_allowed?(self.email) && confirmed_at.present?
     
     #check additional confirmed emails
     self.emails.select{|e| e.confirmed_at.present?}.each do |e|
@@ -438,6 +444,31 @@ class Person < ActiveRecord::Base
     end
     
     return allowed
+  end
+  
+  def send_email_confirmation_to(address, host)
+    if email == address # check primary email
+      self.send_confirmation_instructions
+    elsif e = Email.find_by_person_id_and_address(id, address) #unconfirmed additional email
+      PersonMailer.additional_email_confirmation(e, host).deliver
+    else
+      return false
+    end
+    return true # if address found and email sent
+  end
+  
+  # Changes old_email (whether it's a main or additional email)
+  # And sets that email unconfirmed
+  # NOTE: The confirmation email needs to be sent separately
+  def change_email(old_address, new_address)
+    if old_address == email
+      update_attributes(:email => new_address, :confirmed_at => nil, :confirmation_token => Devise.friendly_token)
+    elsif e = emails.where(:address => old_address).first
+      e.update_attributes(:address => new_address, :confirmed_at => nil, :confirmation_token => Devise.friendly_token)
+    else
+      raise "Tried to change email which this user doesn't have."
+    end
+    
   end
   
   def self.find_for_facebook_oauth(facebook_data, logged_in_user=nil)
@@ -476,6 +507,9 @@ class Person < ActiveRecord::Base
   # returns the same if its available, otherwise "same1", "same2" etc.
   # Changes most special characters to _ to match with current validations
   def self.available_username_based_on(initial_name)
+    if initial_name.blank?
+      initial_name = "fb_username_missing"
+    end
     current_name = initial_name.gsub(/[^A-Z0-9_]/i,"_")
     current_name = current_name[0..19] #truncate to 20 chars or less
     i = 1
@@ -495,6 +529,16 @@ class Person < ActiveRecord::Base
   def new_email_auth_token(valid_for = 36.hours)
     t = AuthToken.create(:person => self, :expires_at => valid_for.from_now)
     return t.token
+  end
+  
+  # This is a helper to get nicely formatted array of this person's organizations
+  # for dropdown selection menus
+  def organizations_array
+    arr = []
+    organizations.each do |org|
+      arr << [org.name, org.id]
+    end
+    return arr
   end
   
   # Merge this person with the data from the person given as parameter
@@ -598,6 +642,65 @@ class Person < ActiveRecord::Base
     return true if community_updates_last_sent_at.nil?
     return community_updates_last_sent_at + min_days_between_community_updates.days - 45.minutes < Time.now
   end
+
+  def add_listings_visible_to_all_to(community)
+    listings.each do |listing|
+      if listing.visibility == "all_communities" && !listing.communities.include?(community)
+        listing.communities << community
+      end
+    end
+    
+  end
+  
+  # Return true if this user should use a payment
+  # system in this transaction
+  def should_pay?(conversation, community)
+    conversation.requires_payment?(community) && conversation.status.eql?("accepted") && id.eql?(conversation.requester.id)
+  end
+  
+  # Returns conversations that are either marked unread or
+  # that require some action. 
+  #
+  # TODO This method is not currently in use due to slowness,
+  # using conversation#unread_count instead to display this.
+  # That method is not capturing all the necessary variables,
+  # so should move to using this method after performance improved.
+  def conversations_requiring_action
+    conversations = []
+    participations.each do |p|
+      if !p.is_read || (p.conversation.listing && p.conversation.listing.author.id.eql?(id) && p.conversation.status.eql?("pending")) || (p.conversation.requester && p.conversation.requester.id.eql?(id) && p.conversation.status.eql?("accepted"))
+        conversations << p.conversation
+      end
+    end
+    return conversations
+  end
+  
+  def pending_email_confirmation_to_join?(community)
+    membership = community_memberships.where(:community_id => community.id).first
+    if membership
+      return (membership.status == "pending_email_confirmation")
+    else
+      return false
+    end
+  end
+  
+  # Returns and email that is pending confirmation
+  # If community is given as parameter, in case of many pending 
+  # emails the one required by the community is returned
+  def pending_email(community=nil)
+    pending_emails = []  
+    pending_emails << email if confirmed_at.blank? 
+    Email.where(:person_id => id, :confirmed_at => nil).all.each { |e| pending_emails << e.address }
+    
+    if community && community.allowed_emails
+      pending_emails.each do |e|
+        return e if community.email_allowed?(e)
+      end
+    else
+      return pending_emails.first
+    end  
+  end
+  
   
   private
   

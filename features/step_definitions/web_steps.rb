@@ -42,7 +42,7 @@ When /^(?:|I )fill in "([^"]*)" with "([^"]*)"(?: within "([^"]*)")?$/ do |field
   end
 end
 
-When /^wait for (\d+) seconds$/ do |arg1|
+When /^(?:|I )wait for (\d+) seconds?$/ do |arg1|
   sleep Integer(arg1)
 end
 

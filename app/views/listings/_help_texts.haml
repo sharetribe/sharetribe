@@ -1,7 +1,8 @@
-.hidden_description_terms{:id => "#{field}"}
-  .hidden_title
-    = t(".#{field}_title")
-  .close_link
-    = link_to "X", "#", :id => "close_x", :class => "close"
-  .hidden_content
-    = render :partial => "listings/help_texts/#{field}"
+.lightbox{:id => field}
+  .lightbox-content
+    %h2= t(".#{field}_title")
+    %a{:href => "#", :class => "close lightbox-x", :id => "close_x"}
+      .ss-delete
+    - text_with_line_breaks do
+      = render :partial => "listings/help_texts/#{field}"
+    

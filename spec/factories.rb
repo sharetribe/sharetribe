@@ -10,6 +10,11 @@ FactoryGirl.define do
   sequence :domain do |n|
     "sharetribe_testcommunity_#{n}" 
   end
+  
+  sequence :organization_name do |n|
+    "test_organization#{n}" 
+  end
+  
 
   factory :person, aliases: [:author, :receiver] do
     id "dMF4WsJ7Kr3BN6ab9B7ckF"
@@ -25,21 +30,17 @@ FactoryGirl.define do
     email
   end  
 
-  factory :share_type do
-    name "borrow"
-  end  
-
   factory :listing do
     title "Sledgehammer"
     description("test")
     author
-    listing_type "request"
-    category "item"
-    share_type "buy"
+    category {find_or_create_category("item")}
+    share_type {find_or_create_share_type("sell")}
     tag_list("tools, hammers")
     valid_until 3.months.from_now
     times_viewed 0
-    visibility "everybody"
+    visibility "this_community"
+    privacy "private"
     communities { [ FactoryGirl.create(:community) ] }
   end
 
@@ -109,6 +110,7 @@ FactoryGirl.define do
     association :person
     admin false
     consent "test_consent0.1"
+    status "accepted"
   end
 
   factory :contact_request do
@@ -139,5 +141,28 @@ FactoryGirl.define do
     longitude 25.7475
     address "helsinki"
     google_address "Helsinki, Finland"
+  end
+  
+  factory :additional_email, class: Email do
+    person
+    address "test_person@example.com"
+    confirmed_at Time.now
+  end
+  
+  factory :category do
+    name "item"
+    icon "item"
+  end
+  
+  factory :share_type do
+    name "sell"
+    icon "sell"
+  end
+  
+  factory :organization do
+    name { generate(:organization_name) }
+    company_id "1234567-8"
+    merchant_id "375917"
+    merchant_key "SAIPPUAKAUPPIAS"
   end
 end

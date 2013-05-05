@@ -4,12 +4,14 @@
 #task :deploy_staging => ['deploy:set_staging_app', 'deploy:push', 'deploy:restart', 'deploy:tag']
 #task :deploy_production => ['deploy:set_production_app', 'deploy:push', 'deploy:restart', 'deploy:tag']
 
-task :deploy_staging_migrations => ['deploy:set_staging_app', 'deploy:push', 'deploy:migrate', 'deploy:restart' ]
-task :deploy_production_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:migrate', 'deploy:restart']
+task :deploy_staging_migrations => ['deploy:set_staging_app', 'i18n:write_error_pages', 'deploy:update_webfonts_folder', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db' ]
+task :deploy_production_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
 
-task :deploy_staging_without_migrations => ['deploy:set_staging_app', 'deploy:push']
-task :deploy_production_without_migrations => ['deploy:set_production_app', 'deploy:push']
+task :deploy_staging_without_migrations => ['deploy:set_staging_app', 'i18n:write_error_pages', 'deploy:update_webfonts_folder', 'deploy:push', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
+task :deploy_production_without_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
 
+task :deploy_custom_migrations => ['deploy:set_staging_app', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
+task :deploy_custom_quick => ['deploy:set_staging_app', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push']
 
 namespace :deploy do
   PRODUCTION_APP = 'sharetribe-production'
@@ -29,18 +31,50 @@ namespace :deploy do
   	APP = PRODUCTION_APP
   end
 
+  task :update_webfonts_folder do
+    puts 'Copying webfonts folder ...'
+    puts `rm app/assets/webfonts/* `
+    puts `git checkout closed_source`
+    puts `cp -R app/assets/webfonts/* ../tmp-sharetribe-webfonts/`
+    puts `git rebase develop`
+    puts `git checkout develop`
+    puts `mkdir app/assets/webfonts `
+    puts `cp -R ../tmp-sharetribe-webfonts/* app/assets/webfonts/`
+  end
+  
+  task :prepare_custom_branch_for_deploy do
+    puts 'Copying webfonts folder ...'
+    puts `rm app/assets/webfonts/* `
+    puts `git checkout closed_source`
+    puts `cp -R app/assets/webfonts/* ../tmp-sharetribe-webfonts/`
+    puts `git rebase custom`
+    puts `git checkout custom`
+    puts `mkdir app/assets/webfonts `
+    puts `cp -R ../tmp-sharetribe-webfonts/* app/assets/webfonts/`
+  end
+  
   task :push do
     puts 'Deploying site to Heroku ...'
     if APP == PRODUCTION_APP
-      puts `git push production master:master`
+      puts `git push production closed_source:master --force`
     else
-      puts `git push staging develop:master`
+      puts `git push staging closed_source:master --force`
     end
   end
   
   task :restart do
     puts 'Restarting app servers ...'
     puts `heroku restart --app #{APP}`
+  end
+  
+  task :generate_custom_css => :environment do
+    puts 'Generating custom CSS for tribes who use it ...'
+    puts  `heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}`
+  end
+  
+  task :update_translations_stored_in_db do
+    puts 'Updating the translations, which stored in the DB'
+    puts  `heroku run rake sharetribe:update_categorization_translations --app #{APP}`
   end
   
   task :tag do

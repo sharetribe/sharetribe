@@ -3,8 +3,8 @@ rvm:
   - 1.9.3
 
 env:
-  - SUITE=spec
-  #- SUITE=cucumber
+  - SUITE="rake spec"
+  - SUITE="cucumber -ptravis"
 
 notifications:
   recipients:
@@ -23,5 +23,5 @@ before_script:
   - sh -e /etc/init.d/xvfb start
 
 script:
-  - bundle exec rake $SUITE
+  - bundle exec $SUITE
 

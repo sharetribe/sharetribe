@@ -29,7 +29,7 @@ describe SmsController do
         
         listing = assigns["listing"]
         listing.author_id.should == people(:one).id
-        listing.category.should == "rideshare"
+        listing.category.name.should == "rideshare"
         listing.listing_type.should == "offer"
         listing.title.should == "tkk - taik"
         listing.description.should == "places for 3 people"

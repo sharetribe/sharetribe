@@ -18,6 +18,22 @@ class Api::ApiController < ApplicationController
     
   layout false
   
+  # used to check if the client software is using a supported API version
+  def version_check
+    returned_info = {}
+    if api_version.to_s == "2"
+      returned_info["your_version"] = "latest"
+    elsif api_version.to_s == "1" || api_version.to_s == "alpha"
+      returned_info["your_version"] = "deprecated"
+    else
+      returned_info["your_version"] = "not_supported"
+    end
+    returned_info["message"] = nil
+    
+    puts returned_info.to_json
+    respond_with returned_info.to_json
+  end
+  
   protected
   
   # def rabl(object, template_name = "#{controller_name}/#{action_name}", options = {})
@@ -25,6 +41,7 @@ class Api::ApiController < ApplicationController
   # end
   
   def ensure_api_enabled
+    #puts "CALL TO API, WITH VERSION SPECIFIED TO #{api_version}"
     unless APP_CONFIG.api_enabled
       render :status => :forbidden, :json => ["API is not enabled on this server"]
     end
@@ -36,12 +53,6 @@ class Api::ApiController < ApplicationController
     end
   end  
   
-
-  def api_version
-    default_version = '1'
-    pattern = /application\/vnd\.sharetribe.*version=([\d]+)/
-    request.env['HTTP_ACCEPT'][pattern, 1] || default_version
-  end
   
 
   def get_api_key
@@ -65,7 +76,7 @@ class Api::ApiController < ApplicationController
     end
     
     unless @listing.visible_to?(@current_user, @current_community)
-      if @listing.visibility.eql?("everybody")
+      if @listing.public?
         # This situation occurs when the user tries to access a listing
         # with a different community_id .
         response.status = 400
@@ -102,7 +113,7 @@ class Api::ApiController < ApplicationController
         render :json => ["No community found with given id"] and return
       else
         # Set also @root__url that can be used in building links that point to the right community instead of api subdomain
-        @url_root = "#{request.protocol}#{@current_community.full_domain}"
+        @url_root = @current_community.full_url
       end
     end
   end

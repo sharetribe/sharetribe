@@ -1,0 +1,22 @@
+- content_for :javascript do
+  initialize_admin_edit_tribe_form("#{I18n.locale}","#{@community.id}");
+  
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@community) }
+
+.left-navi-section
+  %h2= t(".edit_community", :community_name => @community.name)
+  = form_for @community, :url => admin_community_path(@community), :method => :put do |form|
+    = form.label :name, t(".community_name"), :class => "input"
+    = form.text_field :name, :maxlength => "50", :class => "text_field"
+    = form.label :slogan, t(".community_slogan"), :class => "input"
+    = form.text_field :slogan, :maxlength => "100", :value => (@community.slogan || t("common.default_community_slogan", :locale => (session[:community_locale] || "en"))), :class => "text_field"
+    = form.label :description, t(".community_description"), :class => "input"
+    = form.text_area :description, :value => (@community.description || t("common.default_community_description", :full_service_name => @current_community.full_name, :locale => (session[:community_locale] || "en"))), :class => "new_tribe_text_area"
+    .checkbox-container
+      %input{:type => "checkbox", :id => "community_join_with_invite_only", :name => "community[join_with_invite_only]", :checked => @community.join_with_invite_only? }
+      = form.label :terms, t('communities.new_tribe_form.restrict_tribe_to_invited_people'), :class => "checkbox"
+      %small
+        = link_to t("common.what_is_this"), "#", :id => "invite_only_help_text_link"
+    = form.button t(".update_information"), :id => "edit_community_button"
+
+= render :partial => "people/help_texts", :collection => ["invite_only_help_text"], :as => :field

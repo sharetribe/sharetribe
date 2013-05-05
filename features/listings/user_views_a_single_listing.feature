@@ -13,21 +13,22 @@ Feature: User views a single listing
     And there is favor request with title "Massage" from "kassi_testperson1"
     And I am on the home page
     When I follow "Massage"
-    Then I should see "Service request: Massage"
-    And I should see "Requested by"
+    Then I should see "Massage"
+    And I should see "Service request"
     And I should not see "Feedback:"
     And I should not see "Contact by phone"
     When I am logged in as "kassi_testperson1"
-    And I have "2" testimonials with grade "0.5"
+    And I have "2" testimonials with grade "1"
     And I am on the home page
     And I follow "Massage"
-    Then I should see "Contact by phone"
+    Then I should see "0000-123456"
     And I should see "Feedback:"
     And I should see "100%"
     And I should see "(2/2)"
-    And I should see "Add profile picture"
+    #And I should see "Add profile picture"
+    When I click ".user-menu-toggle"
     When I follow "Settings"
-    And I follow "Profile picture"
+    And I follow "Profile picture" within ".left-navi"
     And I attach a valid image file to "avatar_file"
     And I press "Save picture"
     And I go to the home page
@@ -38,7 +39,7 @@ Feature: User views a single listing
   Scenario: User tries to view a listing restricted viewable to community members without logging in
     Given I am not logged in
     And there is favor request with title "Massage" from "kassi_testperson1"
-    And visibility of that listing is "this_community"
+    And privacy of that listing is "private"
     And I am on the home page
     When I go to the listing page
     Then I should see "You must log in to view this content"
@@ -56,7 +57,7 @@ Feature: User views a single listing
   Scenario: User belongs to multiple communities, adds listing in one and sees it in another
     Given I am not logged in
     And there is favor request with title "Massage" from "kassi_testperson1"
-    And visibility of that listing is "this_community"
+    And privacy of that listing is "private"
     And I am on the home page
     When I go to the listing page
     Then I should see "You must log in to view this content"

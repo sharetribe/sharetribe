@@ -505,6 +505,12 @@ class UUID
         end
       end
     end
+    
+    # Fix to avoid returning nil (which would crash the ID creation later)
+    # The MAC is missing mostly in virtual devices (e.g. at Travis CI)
+    # So use here a random static MAC to keep the script happy.
+    # the risk of this causing crashing UUIDs is pretty low.
+    @@mac_address = "f8:3a:4b:66:d4:f2" if @@mac_address.nil?
     return @@mac_address
   end
   

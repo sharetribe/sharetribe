@@ -1,0 +1,3478 @@
+<% environment.context_class.instance_eval { include ScssHelper } %>
+@import 'customizations';  // color presets and cover image
+
+@import 'compass';         // The Compass framework
+
+@import "compass/css3/images"; 
+@import "compass/utilities/general/hacks";
+
+
+@import 'reset';           // jonikorpi's custom CSS reset
+@import 'type';            // typography presets and tools
+@import 'media-queries';   // media query presets
+@import 'font-awesome.min';// Font-Awesome icon set
+<%=additional_font_pack_imports%>
+
+
+/*
+  --------------------------
+  Typography and link styles
+  --------------------------
+*/
+
+body {
+  @include ff-tisa;
+  @include normal-type;
+  
+  @include media(tiny-mobile) {
+    // Zooms out on tiny screens
+    font-size: em(13);
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $link;
+  &:hover { color: darken($link, 15%); }
+  &:active { color: darken($link, 25%); }
+}
+
+small {
+  @include small-type;
+  display: block;
+}
+
+h1, h3 {
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @include lft-etica;
+  color: $emphasis;
+  
+}
+
+.page-content {
+  padding-bottom: lines(3);
+  
+  h1 {
+    margin: lines(0) 0 lines(0.5);
+    font-weight: 700;
+    
+    @include media(small-tablet) {
+      @include large-type;
+      margin-top: lines(0.25, 26);
+      margin-bottom: lines(0.5, 26);
+    }
+  }
+  
+  h2 {
+    margin: lines(0) 0 lines(0.5);
+    @include normal-type;
+    font-weight: 500;
+    
+    @include media(small-tablet) {
+      @include big-type;
+      font-weight: 500;
+      text-transform: none;
+    }
+  }
+  
+  p {
+    margin-bottom: lines(0.5);
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+  }
+  
+  br {
+    height: lines(0.5);
+  }
+  
+  @include media(tablet) {
+    padding-top: lines(0.5);
+  }
+  
+}
+
+/*
+  ---------------------
+  Often used components
+  ---------------------
+*/
+
+body {
+  background: $background;
+  color: $body;
+  height: auto; // fixes some height issues in the map view
+  //border: solid darken($highlight, 9%);
+  //border-width: 0 0 lines(1);
+}
+
+ul {
+  padding-left: lines(1);
+}
+
+.wrapper {
+  background: $background;
+  position: relative;
+  margin: 0 auto;
+  max-width: lines(42);
+}
+
+.section {
+  padding: lines(0.5);
+  @include clearfix;
+  @include media(tablet) {
+    padding: lines(0) lines(0.5);
+  }
+  @include media(desktop) {
+    padding: lines(0) lines(0);
+  }
+}
+
+@mixin facebook-connect-button {
+  @include box-sizing(border-box);
+  position: relative;
+  cursor: pointer;
+  color: white;
+  display: block;
+  //border: em(2) solid #25567c;
+  text-align: left;
+  @include single-text-shadow;
+  @include filter-gradient(#5a87ac, #265376);
+  background: #25567c;
+  @include background-image(linear-gradient(#5a87ac, #265376));
+  &:hover {
+    @include filter-gradient(#6f99bc, #37668a);
+    background: #6f99bc;
+    @include background-image(linear-gradient(#6f99bc, #37668a)); 
+  }
+  @include border-radius(em(5));
+
+  .fb-icon {
+    position: absolute;
+    @include big-type;
+    top: em(10);
+    left: em(7);
+  }
+
+  .fb-text {
+    padding: em(0) em(10) em(7) em(30);
+  }
+  
+  @include media(tablet) {
+    .fb-icon {
+      @include large-type;
+      top: em(6);
+      left: em(5);
+    }
+    .fb-text {
+      @include big-type;
+      padding: em(1) em(10) em(7) em(25);
+    }
+  }
+  
+}
+
+.centered-section, .left-navi-section {
+  textarea {
+    height: lines(5);
+  }
+}
+
+
+// User for simple centered views, mostly with forms
+.centered-section {
+  padding: lines(0.5);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: lines(19);
+  
+  form {
+    padding-bottom: lines(2);
+  }
+  
+  input[type=text], input[type=password], textarea {
+    //margin-bottom: lines(0.5);
+  }
+  
+  a.fb-connect {
+    @include facebook-connect-button;
+    padding: em(10) 2% em(6) 2%;
+    width: 100%;
+    margin-bottom: lines(0.5);
+  }
+  
+  .jsmap {
+    display: block;
+    width: 100%;
+    height: lines(8);
+    margin-top: lines(0.5);
+  }
+  
+  select.full-width {
+    display: block;
+    width: 100%;
+    margin-top: em(5);
+  }
+  
+  @include media(desktop) {
+    padding: 0 lines(0.5);
+  }
+  
+}
+
+// Used for views with left hand navigation
+.left-navi-section {
+  padding: lines(0.5);
+  
+  @include media(tablet) {
+    padding: 0 lines(0.5);
+    margin-left: lines(10.5);
+  }
+  
+  @include media(desktop) {
+    padding: 0;
+  }
+  
+  small {
+    display: inline;
+  }
+  
+  .map {
+    display: block;
+    width: 100%;
+    height: lines(8);
+    margin-top: lines(0.5);
+  }
+  
+}
+
+
+// Left hand navigation menu
+.left-navi {
+  display: none;
+  
+  @include media(tablet) {
+    display: block;
+    position: absolute;
+    a {
+      @include box-sizing(border-box);
+      position: relative;
+      padding: lines(0.25) lines(0.5);
+      display: block;
+      font-weight: normal;
+      cursor: pointer;
+      @include border-radius(em(5));
+      width: lines(9.5);
+      min-height: em(38);
+    }
+    a.selected {
+      background: $highlight;
+      &:after {
+        display: block;
+        position: absolute;
+        right: lines(0.5); top: em(7);
+        content: "→";
+      };
+    }
+    .left-navi-link-text {
+      padding: 0 lines(1) 0 lines(1);
+    }
+    
+    .left-navi-link-icon {
+      position: absolute;
+      top: em(8);
+    }
+  }
+}
+
+.left-navi-dropdown {
+  &:hover { background: $highlight; }
+  color: $body;
+  padding: em(10) lines(1.5) em(10) lines(0.5);
+  border-bottom: 1px dotted $border;
+  
+  .icon-dropdown {
+    position: absolute;
+    right: lines(0.5); top: em(14);
+  }
+  @include media(tablet) {
+    display: none;
+  }
+}
+
+.avatar {
+  position: relative;
+  width: lines(1);
+  
+  img {
+    width: 100%;
+    @include border-radius(em(5));
+  }
+}
+
+
+// These display the amount of notifications
+// .big-badge is for two-number figures
+// .huge-badge is for three-number figures
+.badge {
+  @include small-type;
+  background: $link2;
+  text-align: center;
+  width: em(18, 13);
+  line-height: em( (18 - 1 - 5), 13 );
+  padding: em(1, 13) 0 em(5, 13);
+  color: $background;
+  @include border-radius( em((18/2), 13) );
+  
+  &.big-badge {
+    width: em(22, 13);
+    line-height: em( (22 - 1 - 5), 13 );
+    @include border-radius( em((22/2), 13) );
+  }
+  
+  &.huge-badge {
+    width: em(28, 13);
+    line-height: em( (28 - 1 - 5), 13 );
+    padding: em(2, 13) 0 em(4, 13);    
+    @include border-radius( em((28/2), 13) );
+  }
+}
+
+.icon {
+  @include big-type;
+  height: lines(1, 24);
+  overflow: hidden;
+  text-align: center;
+  display: block;
+  padding-top: lines(0.05);
+}
+
+.icon-with-text { display: inline-block; padding-right: em(4); margin-top: em(2); }
+.ss-list { margin-top: em(3); }
+.text-with-icon { display: inline-block; vertical-align: top; }
+
+.icon-with-text-container {
+  position: relative;
+  display: inline-block;
+  margin-right: em(10);
+  .icon-part {
+    position: absolute;
+    top: em(2);
+  }
+  .text-part {
+    padding-left: em(23);
+    min-height: em(30);
+  }
+}
+
+form {
+  
+  .checkbox-container {
+    position: relative;
+  
+    input[type=checkbox] {
+      position: absolute;
+      top: lines(0.5) + em(3);
+    }
+    
+    input[type=radio] {
+      position: absolute;
+      top: lines(0.5)
+    }
+
+    label {
+      display: inline-block;
+      width: auto;
+      padding: 0 0 0 lines(1);
+      margin-top: lines(0.5) - em(3);
+      margin-bottom: em(3);
+      font-weight: 600;
+    }
+    
+    label.radio {
+      margin-top: lines(0.5) - em(5);
+    }
+    
+    a {
+      display: inline-block;
+    }
+    
+  }
+  
+  .select-tag-dropdown {
+    margin-bottom: lines(0.5);
+  }
+  
+  
+}
+
+input[type=text], input[type=password], textarea {
+  
+  @include box-sizing(border-box);
+  @include border-radius(em(5));
+  border: 1px solid $aside;
+  width: 100%;
+  padding: em(5) em(8);
+  
+  @include media(tablet) {
+    margin: 0;
+    padding: em(8) em(11);
+  }  
+  
+}
+
+.unwanted_text_field {
+  display:none;
+}
+
+.inline-label-container {
+  margin-top: lines(0.5);
+  margin-bottom: em(1);
+}
+
+label {
+  width: 100%;
+  display: block;
+  margin-top: lines(0.5);
+  margin-bottom: em(3);
+  font-weight: 600;
+}
+
+label.inline {
+  width: auto;
+  display: inline;
+  margin-right: lines(0.5);
+}
+
+label.radiobutton {
+  display: inline;
+  margin-left: lines(0.25);
+  font-weight: 500;
+}
+
+.label-info {
+  display: inline;
+  color: $aside;
+  @include small-type;
+}
+
+@mixin button {
+  @include box-sizing(border-box);
+  @include border-radius(em(5));
+  background: $link2;
+  border: em(2) solid darken($link2, 10%);
+  color: $background;
+  text-align: center;
+  cursor: pointer;
+  padding: em(2) em(11) em(4) em(11);
+  margin: lines(0.5) 0;
+  
+  &:hover { 
+    background: darken($link2, 5%);
+    color: $background;
+    border: em(2) solid darken($link2, 15%); 
+  };
+  
+  &:active {
+    background: darken($link2, 10%);
+    color: $background;
+    border: em(2) solid darken($link2, 20%);
+  }
+
+}
+
+@mixin big-button {
+  @include button;
+  @include big-type;
+  padding-top: em(7);
+  padding-bottom: em(11);
+}
+
+button, .button {
+  @include button;
+  @include media(tablet) {
+    padding: em(3) em(16) em(9) em(16);
+  }
+}
+
+label.error {
+  @include border-radius(em(5));
+  @include box-sizing(border-box);
+  padding: em(5) em(10) em(10) em(10);
+  background: red;
+  color: $background;
+  display: block;
+  width: 100%;
+  margin: lines(0.5) 0 lines(0.5) 0;
+  position: relative;
+  &:before {
+    content: "";
+    border: em(8) solid transparent;
+    border-bottom-color: red;
+    position: absolute;
+    left: em(18); top: em(-16);
+  }
+  
+}
+
+.unread {
+  background: $highlight;
+}
+
+// Notification that doesn't disappear
+.permanent-notification {
+  margin-bottom: lines(0.5);
+  @include small-type;
+  color: $aside;
+}
+
+// Creates some bottom padding for absolute-positioned views
+.bottom-margin {
+  display: none;
+  
+  @include media(tablet) {
+    display: block;
+    position: absolute;
+    top: lines(28.5);
+    left: lines(30);
+    width: lines(12);
+    height: lines(5);
+  }
+}
+
+.listing-title {
+  margin-right: lines(0.25);
+}
+
+// Share type label
+.share-type-link {
+  @include ff-tisa;
+  color: $aside;
+  font-size: em(10);
+  font-weight: normal;
+  white-space: nowrap;
+  position: relative;
+  left: em(2);
+  top: em(-2);
+  background: $highlight;
+  color: $body;
+  padding: em(0) em(0) em(2) em(8);
+  @include border-radius(em(5));
+  &:hover {
+    background: $aside;
+    color: $background;
+  }
+  .icon-with-text-container {
+
+  }
+  @include media(tablet) {
+    padding: em(0) em(2) em(3) em(10);
+  }
+}
+
+
+/*
+  ------------------------
+  Global Sharetribe header
+  ------------------------
+*/
+
+.global-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0;
+  background: $background;
+  @include box-shadow(rgba(0,0,0,0.2) 0 em(2) em(5));
+  width: 100%;
+  z-index: 10000;
+
+  .wrapper {
+    border: none;
+  }
+  
+  @include media(tablet) {
+    position: fixed;
+  }
+}
+
+.select-tribe {
+  margin: 0 0;
+  padding: lines(0.5) lines(2.5) lines(0.5) lines(1.75);
+  position: relative;
+  max-width: lines(100);
+  
+  .current-tribe {
+    display: block;
+    height: lines(1);
+    margin-right: lines(1);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .icon-dropdown {
+    position: absolute;
+    right: lines(2.5); top: em(14);
+  }
+  
+  border: solid $border;
+  border-width: 0 1px 0;
+
+  @include media(tablet) {
+    padding: lines(0.5) lines(0.5) lines(0.5) lines(7.25);
+    margin: 0 lines(12) 0 lines(0);
+    max-width: lines(8.75);
+    .icon-dropdown {
+      right: lines(0.5);
+    }
+  }
+}
+
+.full-logo {
+  background: $background url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat;
+  &:hover { 
+    background: $highlight url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat; 
+  }
+  @include media(tablet) {
+    background: $background url("/assets/new-design/sharetribe-logo.png") lines(0.5) lines(0.35) no-repeat;
+    &:hover { 
+      background: $highlight url("/assets/new-design/sharetribe-logo.png") lines(0.5) lines(0.35) no-repeat; 
+    }
+  }
+}
+
+.icon-logo {
+  background: $background url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat;
+  &:hover { 
+    background: $highlight url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat; 
+  }
+  padding-left: lines(1.75);
+  max-width: lines(14.25);
+}
+
+.no-logo {
+  background: $background;
+  &:hover { 
+    background: $highlight; 
+  }
+  padding-left: lines(0.5);
+  max-width: lines(15.5);
+}
+
+.tribe-menu {
+  @include media(tablet) {
+    // Makes the menu float on top of the content
+    position: absolute;
+    //left: lines(9.5) - em(1); 
+    left: lines(0); 
+    top: lines(2); 
+    //right: lines(25.5) - em(2);
+    width: lines(16.5);
+    border: solid $emphasis;
+    border-width: 0 1px 1px;
+//    border: solid $border;
+//    border-width: 0 1px 0;
+  }
+}
+
+.notifications-toggle,
+.inbox-toggle {
+  // Hidden on small screens, because 
+  // this functionality is in .user-menu
+  display: none;
+  color: $body;
+  &:hover { 
+    background: $highlight;
+    color: $body;
+  }
+  
+  @include media(tablet) {
+    // Shown on wider screens, while the
+    // duplicate functionality in .user-menu gets hidden
+    display: block;
+    background: $background;
+    position: absolute;
+    right: lines(10.5); top: lines(0);
+    padding: lines(0.6) lines(0.5) lines(0.4) lines(0.5);
+    //padding-left: (lines(0.5) - em(1));
+    width: lines(1);
+    text-align: center;
+    //border: solid $border;
+    //border-width: 0 0 0 1px;
+  }
+}
+
+.inbox-toggle {
+  @include media(tablet) {
+    right: lines(12.5);
+  }
+}
+
+.global-header .badge {
+  // Positions badges in .inbox-toggle and .notifications-toggle
+  position: absolute;
+  right: lines(0.125, 13); bottom: lines(0.125, 13);
+  
+  &.huge-badge {
+    right: lines(0.0625); bottom: lines(0.0625);
+  }
+}
+
+.user-menu-toggle {
+  background: $background;
+  &:hover { background: $highlight; }
+  position: absolute;
+  right: 0; top: 0;
+  border: solid $border;
+  border-width: 0 1px 0;
+  
+  .user-avatar {
+    display: block;
+    width: lines(1.5);
+    height: lines(1.5);
+    background: $background;
+    @include border-radius(em(5));
+    //margin: lines(0.25) (lines(0.25) - em(1)); // compensates for borders
+    margin: lines(0.25) lines(0.25);
+  }
+  
+  .user-name {
+    display: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: lines(1);
+  }
+  
+  .icon-dropdown {
+    display: none;
+  }
+  
+  @include media(tablet) {
+    // Becomes wider and displays the username
+    width: lines(10);
+    
+    .user-avatar {
+      float: left;
+      margin-right: lines(0.375);
+    }
+    
+    .user-name {
+      display: block;
+      padding: lines(0.5) lines(1.5) 0 0;
+    }
+    
+    .badge {
+      display: none;
+    }
+    
+    .icon-dropdown {
+      display: block;
+      position: absolute;
+      right: lines(0.5); top: lines(0.6);
+    }
+  }
+  
+}
+
+.user-menu {
+  @include media(tablet) {
+    // Makes the menu float on top of the content
+    position: absolute;
+    right: 0; top: lines(2);
+    width: lines(10);
+    border: solid $emphasis;
+    border-width: 0 1px 1px;
+    
+    .inbox-menu-button, .notifications-menu-button {
+      // Hidden, since this functionality is now in
+      // .inbox-toggle and .notifications-toggle
+      display: none;
+    }
+  }
+}
+
+.login-menu-toggle {
+  background: $background;
+  &:hover { background: $highlight; }
+  position: absolute;
+  right: 0; top: 0;
+  border: solid $border;
+  border-width: 0 1px 0;
+  z-index: 6;
+  height: em(48);
+  overflow: hidden;
+  
+  .login-icon {
+    width: em(15);
+    height: em(15);
+    display: block;
+    margin: em(10) em(10);
+    @include big-type;
+  }
+  
+  .login-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: lines(1);
+    display: none;
+  }
+  
+  @include media(tablet) {
+    width: lines(8.5);
+    
+    .login-icon {
+      float: left;
+      margin-right: lines(0.375);
+    }
+    
+    .login-text {
+      display: block;
+      padding: lines(0.5) lines(1.5) 0 0;
+    }
+  }
+}
+
+.login-menu {
+  @include box-sizing(border-box);
+  padding: lines(0.75 )lines(0.5) lines(0.5) lines(0.5);
+
+  
+  input[type=text] {
+    margin-bottom: lines(0.5);
+  }
+  
+  @include media(tablet) {
+    // Makes the menu float on top of the content
+    position: absolute;
+    right: 0; top: lines(2);
+    width: lines(14) + em(2);
+    border: solid $emphasis;
+    border-width: 0 1px 1px;
+  }
+}
+
+.feedback-menu-toggle {
+  background: $background;
+  color: $body;
+  &:hover { 
+    background: $highlight;
+    color: $body;
+  }
+  position: absolute;
+  right: lines(8.5); top: 0;
+  border: solid $border;
+  border-width: 0 1px 0;
+  z-index: 5;
+  display: none;
+  height: em(48);
+  
+  .feedback-icon {
+    width: em(15);
+    height: em(15);
+    display: block;
+    margin: em(10) em(10);
+    @include big-type;
+  }
+  
+  .feedback-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: lines(1);
+    display: none;
+    padding: lines(0.5) lines(1.5) 0 0;
+  }
+  
+  @include media(tablet) {
+    width: lines(7);
+    display: block;
+    
+    .feedback-icon {
+      float: left;
+      margin-right: lines(0.375);
+    }
+    
+    .feedback-text {
+      display: block;
+    }
+  }
+  
+  @include media(small-desktop) {
+    width: lines(8.5);
+  }
+  
+}
+  
+
+/*
+  ------------
+  Toggle menus
+  ------------
+*/
+
+.toggle-menu-feed-filters {
+  
+  &.hidden {
+    // Added and removed via JS, to toggle visibility
+    display: none;
+  }
+  
+  @include media(tablet) {
+    // Makes sure they're never obscured by other elements
+    z-index: 9999;
+    &.hidden {
+      // Added and removed via JS, to toggle visibility
+      display: block;
+    }
+  }
+  
+}
+
+.toggle-menu {
+  background: $emphasis;
+  background-color: transparentize($emphasis, 0.05);
+  border-color: $emphasis !important; // Goes well with the dark background, I think!
+  @include media(tablet) {
+    // Makes sure they're never obscured by other elements
+    z-index: 9999;
+  }
+  
+  a, .feedback {
+    display: block;
+    position: relative;
+    color: $background;
+    padding: lines(0.5);
+    //padding-top: (lines(0.5)); // compensates for the 1px border
+    //border-top: 1px solid $body;
+  }
+  
+  a:after {
+    content: "→"; // Could be replaced by a font icon
+    display: block;
+    position: absolute;
+    right: lines(0.5); top: lines(0.5);
+    color: $aside;
+  }
+
+  a:hover {
+    background: $link;
+    color: $background;
+    //border-top: 1px solid $link;
+    
+    &:after {
+      color: $background;
+    }
+  }
+  
+  a.login-form {
+    padding: 0;
+    &:hover {
+      color: lighten($link, 20%);
+      background: none;
+    }
+    &:after {
+      content: "";
+    }
+  }
+  
+  a.fb-connect {
+    @include facebook-connect-button;
+    @include normal-type;
+    padding: em(10) 2% em(6) 2%;
+    &:after {
+      content: "";
+    }
+    .fb-text {
+      @include normal-type;
+      padding-left: lines(1.5);
+    }
+  }
+  
+  p.login-form {
+    color: $background;
+    margin: lines(0.25) 0 lines(0.5) 0;
+  }
+  
+  .feedback {
+    textarea {
+      @include box-sizing(border-box);
+      @include small-type;
+      display: block;
+      width: 100%;
+      height: lines(3, 13);
+      padding: lines(0.25, 13);
+    }
+  }
+  
+  &.hidden {
+    // Added and removed via JS, to toggle visibility
+    display: none;
+  }
+  
+  .badge {
+    position: absolute;
+    right: em(9, 13); top: em(14, 13); bottom: auto;
+    z-index: 900;
+    
+    &.huge-badge {
+      top: em(10, 13); right: em(9, 13); bottom: auto;
+    }
+  }
+}
+
+.toggle {
+  cursor: pointer;
+  
+  &.toggled {
+    background: $emphasis;
+    color: $background !important;
+    border-color: $emphasis;
+    
+    @include media(tablet) {
+      border-bottom-color: $emphasis !important;
+    }
+  }
+  
+  &.toggled-logo {
+    color: $background !important;
+    border-color: $emphasis;
+    
+    @include media(tablet) {
+      border-bottom-color: $emphasis !important;
+    }
+  }
+  
+  &.toggled-full-logo {
+    background: $emphasis url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat;
+    
+    @include media(tablet) {
+      background: $emphasis url("/assets/new-design/sharetribe-logo.png") lines(0.5) lines(0.35) no-repeat;
+    }
+  }
+  
+  &.toggled-icon-logo {
+    background: $emphasis url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat;
+  }
+  
+  &.toggled-no-logo {
+    background: $emphasis;
+  }
+  
+}
+
+
+/*
+  ------------
+  Tribe header
+  ------------
+*/
+
+.tribe-header {
+  position: relative;
+  padding-top: em(47);
+}
+
+.coverimage {
+  max-width: em(1600);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Calculate fluid ratio based on two dimensions (width/height) */
+@mixin fluid-ratio($large-size, $small-size) {
+  $width-large: nth($large-size, 1);
+  $width-small: nth($small-size, 1);
+  $height-large: nth($large-size, 2);
+  $height-small: nth($small-size, 2);
+  $slope: ($height-large - $height-small) / ($width-large - $width-small);
+  $height: $height-small - $width-small * $slope;
+
+  padding-top: $slope * 100%;
+  height: $height;
+
+  background-size: cover;
+  -moz-background-size: cover;  /* Firefox 3.6 */
+  background-position: center;  /* Internet Explorer 7/8 */
+}
+
+figure.fluidratio {
+  display: block;
+  height: lines(4.3);
+  background-size: cover;
+  -moz-background-size: cover;  /* Firefox 3.6 */
+  background-position: center;  /* Internet Explorer 7/8 */
+  background-position: center center;
+  
+  @include media(tablet) {
+    /* This element will have fluid ratio from 4:1 at 1600px to 2:1 at 300px. */
+    @include fluid-ratio(em(1600) em(195), em(300) em(195));
+  }
+}
+
+figure.tribe-cover {
+  background-image: url($cover-photo-url);
+}
+
+.cover-image {
+  position: relative;
+  
+  img {
+    width: 100%;
+    max-height: lines(20);
+    display: block;
+  }
+  
+}
+  
+.tribe-logo {
+  width: lines(3);
+  height: lines(3);
+  padding: lines(0.2);
+  background: $background;
+  position: absolute;
+  left: lines(0.5);
+  top: lines(-3.85);
+  z-index: 900;
+  @include border-radius(em(5));
+  box-shadow: none;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    background: grey;
+    @include border-radius(em(5));
+  }
+  
+  @include media(tablet) {
+    @include box-shadow(rgba(0,0,0,0.2) 0 0 em(3) em(2));
+    top: lines(-6.7 - 0.25);
+    left: lines(0);
+    width: lines(8);
+    height: lines(8);
+    padding: lines(0.75);
+  }
+}
+
+.tribe-intro {
+  padding: lines(0.55) lines(0.75);
+  background: $emphasis;
+  background-color: transparentize($emphasis, 0.25);
+  position: absolute;
+  left: lines(4.3); top: lines(-3.85); right: lines(0.5);
+  margin-bottom: lines(1);
+  z-index: 900;
+  @include border-radius(em(5));
+  
+  h1 {
+    color: $background;
+    font-weight: 500;
+    @include small-type;
+  }
+  
+  a {
+    color: lighten($link2, 20%);
+    &:hover { color: lighten($link2, 30%); }
+    &:after { content: "→"; }
+  }
+  
+  p {
+    color: $background;
+    max-width: lines(17);
+    @include normal-type;
+    display: none;
+  }
+  
+  @include media(tablet) {
+    padding: lines(0.55) lines(1);
+    margin-right: 0;
+    margin-bottom: 0;
+    top: lines(-6.7 - 0.25);
+    width: lines(17.5);
+    height: lines(4.9);
+    left: lines(10.5);
+    display: block;
+    .intro-wrapper {
+      height: lines(4.8);
+      overflow: auto;
+    }
+    h1 {
+      @include large-type;
+      font-weight: 600;
+      margin-bottom: em(1);
+      line-height: em(20);
+    }
+    p {
+      display: block;
+    }
+    a, span {
+      display: inline;
+    }
+  }
+}
+
+.join-action-buttons {
+  position: absolute;
+  left: lines(31);
+  top: lines(-7) + em(1);
+  padding: lines(0.9) lines(0.95) lines(0.8) lines(0.95);
+  background: $emphasis;
+  background-color: transparentize($emphasis, 0.35);
+  @include border-radius(em(5));
+  display: none;
+  color: $background;
+  text-align: center;
+  height: lines(4.25);
+  a.regular-link {
+    display: inline;
+    padding-top: lines(0.5); 
+    color: lighten($link2, 20%);
+    &:hover { color: lighten($link2, 30%); }
+  }
+  .intro-button {
+    @include big-button;
+    width: 100%;
+    display: block;
+    margin: 0;
+  }
+  @include media(desktop) {
+    display: block;
+    width: lines(9) + em(2);
+  }
+  
+  a.fb-connect {
+    @include facebook-connect-button;
+    padding: em(10) em(5) em(6) em(10);
+    width: 100%;
+  }
+  small {
+    margin-top: lines(0.25);
+  }
+  
+}
+
+.actions-menu {
+  position: relative;
+  @include clearfix;
+  
+  // Right-aligned links
+  .offset-link {
+    display: block;
+    float: right;
+    text-align: center;
+    color: $body;
+    height: lines(1);
+    min-width: lines(1);
+    overflow: hidden;
+    padding: lines(0.5);
+    &:hover { color: $link; }
+  }
+  
+  @include media(tablet) {
+    a {
+      padding: em(9) lines(0.8) em(11) lines(0.8);
+    }
+  }
+
+}
+
+.tribe-navigation {
+  position: relative;
+  background: $link;
+  @include box-shadow(rgba(0,0,0,0.2) 0 em(-3) em(2) em(1));
+  z-index: 600;
+  @include media(tablet) {
+    margin-bottom: lines(1.25);
+  }
+}
+
+.tribe-actions { 
+  
+  background: $link;
+  
+  // Hide texts in narrow viewports
+  .hidden {
+    display: none;
+  }
+  
+  // Left-aligned links
+  a {
+    display: block;
+    float: left;
+    padding: em(8) em(7) em(12) em(9);
+    color: $emphasis;
+    height: em(24);
+    overflow: hidden;
+    color: $background;
+    &:hover { 
+      background: darken($link, 5%);
+    }
+  }
+  
+  a.selected {
+    color: $body;
+    background: $background;
+  }
+  
+  a.first-child { 
+    margin-left: lines(0); 
+  }
+  
+  .about-toggle.toggled {
+    background: $emphasis;
+  }
+  
+  @include media(tablet) {
+    
+    // Tribe intro and search are always shown in wide viewports
+    // so these toggles get hidden
+    .about-toggle {
+      display: none;
+    }
+
+    .search-toggle {
+      display: none;
+    }
+    
+    a {
+      padding: em(8) em(15) em(12) em(15);
+    }
+    
+    a.first-child { 
+      margin-left: lines(10.5); 
+    }
+    
+  }
+  
+  @include media(desktop) {
+    
+    // Show texts only in really wide viewports
+    .hidden {
+      display: inline-block;
+    }
+  }
+
+}
+
+.select-language {
+  height: em(24);
+  overflow: hidden;
+  &:hover { background: darken($link, 5%); }
+  color: $background;
+  float: right;
+  padding: em(8) lines(1.6) em(12) lines(0.8);
+  
+  .current-language {
+    display: block;
+    float: left;
+  }
+  
+  .icon-dropdown {
+    position: absolute;
+    right: lines(0.5); top: em(11);
+  }
+}
+
+.language-menu {
+  @include media(tablet) {
+    // Makes the menu float on top of the content
+    position: absolute;
+    right: 0;
+    width: lines(10);
+    top: em(44);
+    z-index: 999999;
+  }
+}
+
+/*
+  --------------------------------------
+  Common header (no tribe customization)
+  --------------------------------------
+*/
+
+.no-tribe-title {
+  color: $background;
+  position: absolute;
+  bottom: em(-4);
+  left: em(2);
+  
+  @include lft-etica;
+  @include mega-type;
+  z-index: 0;
+  @include media(tablet) {
+    right: 0;
+    left: auto;
+    @include giga-type;
+  }
+}
+
+.no-tribe-section {
+  @include media(tablet) {
+    margin-top: lines(1);
+  }
+}
+
+/*
+  -------------------
+  Flash notifications
+  -------------------
+*/
+
+.flash-notifications {
+  
+  .flash-notification {
+    margin: lines(0.5);
+    position: relative;
+    @include box-sizing(border-box);
+    padding: em(8) em(20) em(12) em(20);
+    @include border-radius(em(5));
+    .flash-icon {
+      position: absolute;
+      top: em(10);
+      left: em(12);
+    }
+    .flash-text {
+      margin-left: lines(0.75);
+      min-height: lines(0.5);
+    }
+  }
+  
+  .flash-notice, .flash-warning {
+    border: 1px solid $border;
+    background: $highlight;
+  }
+  
+  .flash-error {
+    color: $background;
+    background: red;
+  }
+  
+  @include media(tablet) {
+    .flash-notification {
+      margin: 0 0 lines(1) 0;
+    }
+  }
+  
+}
+
+.narrow-notification {
+  @include media(tablet) {
+    margin-right: lines(16);
+  }
+}
+
+
+/*
+  -----------
+  Lightbox
+  -----------
+*/
+
+.lightbox {
+  @include box-sizing(border-box);
+  display: none;
+  position: relative;
+  margin: lines(10) auto;
+  max-width: lines(22);
+  padding: lines(1.25) lines(1);
+}
+
+.lightbox-content {
+  position: relative;
+  @include box-sizing(border-box);
+  width: 100%;
+  background: $background;
+  padding: lines(1);
+  @include border-radius(em(5));
+  
+  h2 {
+    margin-bottom: lines(0.25);
+  }
+  
+  h3, h4 {
+    margin-top: lines(0.5);
+    margin-bottom: lines(0.25);
+  }
+  
+  p {
+    margin-bottom: lines(0.5);
+    @include small-type;
+  }
+  
+  .consent {
+    margin-top: lines(2);
+  }
+  
+  @include media(tablet) {
+    h2 {
+      @include big-type;
+    }
+    p {
+      @include normal-type;
+    }
+  }
+}
+
+.badge-lightbox {
+  max-width: lines(28);
+  
+  .badge-lightbox-content {
+    min-height: lines(5);
+  }
+  
+  small {
+    margin-top: lines(0.5);
+    font-style: italic;
+    color: $aside;
+  }
+  
+  .badge-image {
+    float: right;
+    width: lines(5);
+    margin-left: lines(0.5);
+    img {
+      width: 100%;
+    }
+  }
+  
+  @include media(tablet) {
+    .badge-lightbox-content {
+      min-height: lines(10);
+    }
+    .badge-image {
+      width: lines(8);
+    }
+  }
+}
+
+.image-lightbox {
+  max-width: em(800);
+}
+
+.image-lightbox-content {
+  padding: lines(0.5);
+  img {
+    width: 100%;
+  }
+}
+
+a.lightbox-x {
+  border: em(2) solid $background;
+  width: lines(1.25);
+  height: lines(1.25);
+  
+  @include box-sizing(border-box);
+  padding: em(1) em(4);
+  position: absolute;
+  right: lines(-0.5);
+  top: lines(-0.5);
+  &:hover {
+    background: $body;
+  }
+
+  @include border-radius(50%);
+  background: $emphasis;
+  border: em(3) solid $background;
+  color: $background;
+  @include media(tablet) {
+    width: lines(1.5);
+    height: lines(1.5);
+    @include big-type;
+    padding: em(7);
+  }
+}
+
+/*
+  ------------------------
+  Noscript
+  ------------------------
+*/
+
+.noscript {
+  padding-top: lines(4);
+  max-width: lines(42);
+  margin: 0 auto;
+}
+
+/*
+  ---------------------
+  Error page
+  ---------------------
+*/
+
+.error-page {
+  padding-top: lines(3);
+  p {
+    padding: lines(0.5) 0;
+  }
+  button {
+    padding: em(7) em(20) em(7) em(20);
+  }
+}
+
+
+/*
+  ----------
+  Homepage
+  ----------
+*/
+
+.app-store-badge {
+  display: none;
+  @include media(tablet) {
+    display: block;
+    margin-top: lines(0.75);
+    img {
+      width: 75%;
+    }
+  }
+}
+
+.private-listing-notification {
+  padding: 0 lines(0.75);
+  @include media(tablet) {
+    padding: 0;
+  }
+}
+
+.feed-actions {
+  background: $background;
+  
+  .request-link {
+    display: block;
+    float: left;
+    padding: em(10) em(15) em(10) em(15);
+    color: $link;
+    &:hover { color: darken($link, 15%); }
+  }
+  
+  @include media(tablet) {
+    
+    .request-link {
+      @include big-button;
+      padding: em(8) em(8) em(10) em(8);
+      width: 100%; 
+      margin: 0 0 lines(0.5) 0;
+      &:hover { color: $background; }
+    }
+    
+  }
+  
+}
+
+.feed-filters {
+  background: $emphasis;
+  padding: lines(0.5);
+  position: relative;
+  
+  .filter-title {
+    display: none;
+  }
+  
+  .feed-filter-dropdowns {
+    margin-top: lines(0.25);
+  }
+  
+  @include media(tablet) {
+    background: $background;
+    padding: 0;
+    
+    .filter-title {
+      margin-bottom: lines(0.25);
+      display: block;
+    }
+    
+    .feed-filter-dropdowns {
+      margin-top: 0;
+      select {
+        margin-bottom: lines(0.25);
+      }
+    }
+    
+    select, option { 
+      //-webkit-appearance: none;
+      width: lines(11.4);
+    }
+    
+  }
+  
+}
+
+.feed-search {
+  position: relative;
+
+  input[type=text] {
+    display: inline;
+    @include box-sizing(border-box);
+    width: 75%;
+  }
+  
+  button {
+    margin: 0 0 0 2%;
+    display: inline;
+    width: 22%;
+    .icon-with-text-container {
+      margin-right: 0;
+      .icon-part {
+        position: static;
+      }
+      .text-part {
+        display: none;
+      }
+    }
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  @include media(tablet) {
+    background: transparent;
+    padding: 0;
+    
+    .hidden {
+      display: inline-block;
+    }
+    
+    input[type=text] {
+      position: absolute;
+      top: lines(-3); left: lines(13.5);
+      width: lines(11.5);
+    }
+
+    button {
+      position: absolute;
+      top: lines(-3); left: lines(25.5);
+      width: auto;
+      margin-left: 0;
+      padding: em(4) em(10) em(6) em(16);
+      .icon-with-text-container {
+        margin-right: em(10);
+        .icon-part {
+          position: absolute;
+          left: 0;
+        }
+        .text-part {
+          display: block;
+        }
+      }
+    }
+    
+  }
+
+}
+
+.feed-map-link {
+  position: relative;
+  
+  a.map-link, .hidden-text {
+    display: none;
+  }
+  
+  @include media(tablet) {
+    background: transparent;
+    padding: 0;
+    
+    a.map-link {
+      display: inline;
+      cursor: pointer;
+      position: absolute;
+      top: lines(0); right: 0;
+      padding-top: em(9);
+      color: $body;
+      &:hover { color: $link; }   
+      margin-right: lines(0.5);
+    }
+    
+  }
+  
+  @include media(desktop) {
+    
+    // Show texts only in really wide viewports
+    
+    .hidden-text {
+      margin-right: 0;
+      display: inline-block;
+    }
+  }
+  
+}
+
+
+.feed-navigation {
+  background: $emphasis;
+  
+  @include media(tablet) {
+    // Turns into a sidebar
+    float: left;
+    width: lines(11.5);
+    
+    .toggle {
+      display: none;
+    }
+    
+    .toggle-menu {
+      display: block;
+    }
+  }
+  
+}
+
+
+  
+.feed {
+  
+  .map {
+    display: block;
+    width: 100%;
+    height: lines(12.5);
+  }
+  
+  @include media(tablet) {
+    margin-left: lines(13.5);
+    .map {
+      height: lines(18);
+    }
+  }
+  
+}
+
+.homepage-feed {
+  
+  @include media(tablet) {
+    // Makes space for search
+    padding-top: lines(3);
+  }
+  
+}
+
+.feed-item {
+  position: relative;
+  padding: lines(0.5) lines(0.5) lines(0.5) lines(0.5);
+  border: 1px dotted $border;
+  border-width: 1px 0 0;
+  
+  h2 {
+    line-height: em(21);
+    margin: 0;
+  }
+  
+  small {
+    margin-top: lines(0.25, 13);
+  }
+  
+  .feed-content {
+    margin: em(-3) lines(3.25) 0 lines(2);
+    padding: 0;
+    max-width: lines(20);
+    .author { 
+      @include small-type;
+      margin-bottom: lines(0.25);
+    }
+  }
+  
+  .feed-author-avatar {
+    position: absolute;
+    width: lines(1.5);
+    height: lines(1.5);
+    img {
+      @include border-radius(em(5));
+      width: lines(1.5);
+      height: lines(1.5);
+    }
+    background: $background;
+  }
+  
+  .feed-listing-icon {
+    display: inline-block;
+    margin-right: lines(1);
+  }
+  
+  // Used only if there is an image for the listing
+  .content-with-image {
+    min-height: lines(3);
+  }
+
+  // Used only if there is an image for the listing,
+  // with profile listing
+  .profile-content-with-image {
+    min-height: lines(2.5);
+  }
+  
+  @include media(tablet) {
+    padding: lines(1) lines(0);
+    
+    .feed-content {
+      margin: em(-3) lines(6) 0 lines(2.25);
+    }
+    
+    .feed-excerpt {
+      color: $aside;
+      font-style: italic;
+      
+      a {
+        color: $aside;
+        &:hover { color: darken($aside, 10%); }
+      }
+    }
+    
+    small {
+      @include normal-type;
+      margin-top: lines(0.25);
+    }
+    
+    // Used only if there is an image for the listing
+    .content-with-image {
+      min-height: lines(5);
+    }
+
+    // Used only if there is an image for the listing,
+    // with profile listing
+    .profile-content-with-image {
+      min-height: lines(4.5);
+    }
+  }
+}
+
+.feed-image {
+  position: absolute;
+  right: lines(0.5); top: lines(0.5);
+  width: lines(3);
+  height: lines(3);
+  
+  img {
+    @include border-radius(em(5));
+    width: lines(3);
+    height: lines(3);
+  }
+
+  @include media(tablet) {
+    right: 0; top: lines(1);
+    width: lines(5);
+    height: lines(5);
+    img {
+      width: lines(5);
+      height: lines(5);
+    }
+  }
+
+}
+
+/*
+  ----------------
+  Map Bubble
+  ----------------
+*/
+
+.bubble-item {
+  
+  .bubble-header {
+    padding: 0 lines(2) 0 lines(2.5);
+    max-width: lines(18);
+  }
+  
+  h2 {
+    line-height: lines(0.75);
+    margin-bottom: lines(0);
+    padding-bottom: 0;
+  }
+  
+  small {
+    margin-top: lines(0.25, 13);
+  }
+  
+  .author { 
+    padding-bottom: lines(0.25);
+    @include small-type;
+  }
+  
+  .bubble-content {
+    overflow: hidden;
+    padding-left: lines(0.5);
+    padding: 0;
+    .bubble-image {
+      margin-top: lines(0.5);
+      float: right;
+      width: lines(3);
+      height: lines(3);
+
+      img {
+        @include border-radius(em(5));
+        width: lines(3);
+        height: lines(3);
+      }
+    }
+    .feed-listing-icons {
+      margin-left: lines(0.5);
+      float: left;
+    }
+  }
+  
+  .bubble-author-avatar {
+    position: absolute;
+    width: lines(1.5);
+    height: lines(1.5);
+    left: em(15);
+    img {
+      @include border-radius(em(5));
+      width: lines(1.5);
+      height: lines(1.5);
+    }
+    background: $background;
+  }
+  
+  .bubble-listing-icon {
+    display: inline-block;
+    margin-right: lines(1);
+  }
+  
+  .bubble-excerpt {
+    margin-left: lines(0.5);
+    float: left;
+    max-width: lines(10);
+  }
+  
+  @include media(tablet) {
+    padding: lines(0.5) lines(0);
+    
+    .bubble-header {
+      max-width: lines(15);
+    }
+    
+    .bubble-content {
+      .bubble-image {
+        width: lines(5);
+        height: lines(5);
+        img {
+          width: lines(5);
+          height: lines(5);
+        }
+      }
+    }
+    
+    h2 {
+      @include big-type;
+    }
+    
+    .bubble-excerpt {
+      color: $aside;
+      font-style: italic;
+      max-width: lines(11);
+    }
+    
+    small {
+      @include normal-type;
+      margin-top: lines(0.25);
+    }
+  }
+}
+
+.bubble-spacer {
+  width: 100%;
+  height: 2px;
+  border-bottom: 1px dotted $border;
+}
+
+
+/*
+  ----------------
+  Single item view
+  ----------------
+*/
+
+.view-item {
+  
+  .item-description {
+    @include media(tablet) {
+      padding-right: lines(16); // Makes horizontal space for image
+      min-height: lines(10); // Makes sure there's always enough vertical space for the image
+    }
+    
+    p, li {
+      @include small-type;
+      @include media(small-tablet) {
+        @include normal-type;
+      }
+    }    
+  }
+  
+  .button {
+    margin: 0 0 lines(0.5) 0;
+    width: 100%;
+    display: block;
+    
+    @include media(tablet) {
+      @include big-button;
+      margin: 0;
+      position: absolute;
+      right: 0; top: 0;
+      width: lines(11) - em(2); 
+    }
+  }
+  
+  .action-links {
+    margin: 0 0 lines(0.5) 0;
+    
+    @include media(tablet) {
+      margin: 0;
+      position: absolute;
+      right: 0; top: 0;
+      width: lines(15) - em(4);
+      text-align: left;
+      .icon-with-text-container {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+  
+  
+  .listing-icons {
+    padding-top: lines(0.5);
+    a {
+      color: $body;
+      &:hover { color: $link; }
+    }
+  }
+  
+  .listing-departure-time {
+    padding: lines(0.25) 0 lines(0.5) 0;
+  }
+  
+  
+  .item-image {
+    position: relative;
+    float: right;
+    width: lines(4.5);
+    margin: 0 0 lines(0.5) lines(0.5);
+
+    img {
+      display: block;
+      max-width: 100%;
+      @include border-radius(em(5));
+    }
+    
+    @include media(tablet) {
+      float: none;
+      margin: 0;
+      position: absolute;
+      right: lines(0); top: lines(4);
+      width: lines(15);
+      height: lines(11.25);
+      img {
+        width: lines(15);
+        height: lines(11.25);
+        max-width: lines(15);
+      }
+    }
+  }
+  
+  .jsmap {
+    display: block;
+    width: 100%;
+    height: lines(8);
+    top: 0;
+    
+    @include media(tablet) {
+      position: absolute;
+      right: lines(0); top: lines(17);
+      width: lines(15);
+      height: lines(10);
+    }
+  }
+  
+  .upper-map {
+    @include media(tablet) {
+      top: lines(4);
+    }
+  }
+  
+  .listing-author {
+    position: relative;
+    padding-top: lines(1);
+    min-height: lines(5);
+    
+    h3 {
+      margin: 0;
+      padding: 0;
+      display: inline;
+    }
+    
+    .listing-author-image {
+      padding: em(5) em(5) em(2) em(5);
+      background: $background;
+      position: absolute;
+      top: lines(1);
+      left: em(3);
+      @include border-radius(em(5));
+      @include box-shadow(rgba(0,0,0,0.2) 0 0 em(3) em(2));
+      width: lines(2);
+
+      img {
+        @include border-radius(em(5));
+        width: 100%;
+      }
+    }
+    
+    .listing-author-description {
+      padding-left: lines(3.25);
+      
+      .icon-with-text, .text-with-icon {
+        
+      }
+      
+      .icon-with-text {
+        margin-top: 0;
+        @include small-type;
+      }
+      
+      .text-with-icon {
+        margin-top: em(4);
+        @include small-type;
+      }
+         
+    }
+    
+    @include media(tablet) {
+      padding-top: lines(1.25);
+      
+      .listing-author-image {
+        width: lines(4.5);
+        padding: em(5) em(5) em(2) em(5);
+      }
+      
+      .listing-author-description {
+        padding-left: lines(6);
+        .icon-with-text {
+          margin-top: em(2);
+          @include normal-type;
+        }
+
+        .text-with-icon {
+          margin-top: 0;
+          @include normal-type;
+        }
+      }
+      
+    }
+    
+  }
+
+  .social {
+    position: relative;
+    padding-top: lines(0.5);
+    
+    .fb-like-container {
+      position: absolute;
+    }
+    
+    .tweet-button-container {
+      padding-left: lines(8.5);
+      padding-top: em(5);
+    }
+ 
+  }
+  
+  .discussion {
+  
+    h2 {
+      margin-top: 0;
+      margin-bottom: lines(0.25);
+    }
+    
+    .comment {
+      position: relative;
+      border-top: 1px dotted $border;
+      padding: lines(0.25) lines(1) lines(0.25) lines(1.5);
+
+      .avatar {
+        position: absolute;
+        left: 0; top: lines(0.5);
+        img {
+          @include border-radius(em(5));
+        }
+      }
+      
+      h3, small {
+        display: inline;
+      }
+      
+      small {
+        color: $aside;
+      }
+        
+      .comment-content, .comment-icon {
+        @include small-type;
+        @include media(small-tablet) {
+          @include normal-type;
+        }
+      }
+      
+      .comment-icons {
+        padding-top: lines(0.25);
+        padding-bottom: lines(0.25);
+      }
+      
+      .comment-icon {
+        display: inline-block;
+        margin-right: lines(0.5);
+      }
+      
+    }
+    
+    .comment-form {
+      border-top: 1px dotted $border;
+      padding-top: lines(0.5);
+      position: relative;
+      
+      textarea {
+        width: 95%;
+        height: lines(4);
+      }
+
+    }
+    
+    @include media(tablet) {
+      padding-top: lines(1.5);
+      padding-right: lines(16);
+      
+      h2 {
+        @include big-type;
+      }
+      
+      .comment {
+        padding: lines(0.5) lines(1) lines(0.25) lines(2.5);
+        
+        .avatar {
+          width: lines(2);
+        }
+        
+        h3 {
+          margin: 0;
+        }
+      }
+      
+      .comment-form {
+        textarea {
+          width: 100%;
+          height: lines(6);
+        }
+      }
+    }
+  }
+  
+}
+
+
+
+.view-profile {
+  
+  .profile-description {
+    
+    .profile-details {
+      min-height: lines(5);
+    }
+    
+    p, li {
+      @include small-type;
+      @include media(small-tablet) {
+        @include normal-type;
+      }
+    }
+    
+    @include media(tablet) {
+      padding-right: lines(14); // Makes horizontal space for image
+      
+      .profile-details {
+        min-height: 0;
+      }
+    }    
+  }
+  
+  .button {
+    margin: 0 0 lines(0.5) 0;
+    width: 100%;
+    display: block;
+    
+    @include media(tablet) {
+      @include big-button;
+      margin: 0;
+      position: absolute;
+      right: 0; top: 0;
+      width: lines(8.5) + em(5); 
+    }
+  }
+  
+  .profile-image {
+    position: relative;
+    float: right;
+    width: lines(4.5);
+    height: lines(4.5);
+    margin: 0 0 lines(0.5) lines(0.5);
+
+    img {
+      display: block;
+      width: lines(4.5);
+      height: lines(4.5);
+      @include border-radius(em(5));
+    }
+    
+    @include media(tablet) {
+      float: none;
+      margin: 0;
+      position: absolute;
+      right: lines(0); top: lines(4);
+      width: lines(12);
+      height: lines(12);
+      img {
+        width: lines(12);
+        max-width: lines(12);
+        height: lines(12);
+      }
+    }
+  }
+  
+  .profile-icons {
+    padding-top: lines(0.5);
+  }
+  
+  .jsmap {
+    display: block;
+    width: 100%;
+    height: lines(8);
+    margin-top: lines(0.5);
+    
+    @include media(tablet) {
+      margin-top: 0;
+      margin-bottom: lines(2);
+      position: absolute;
+      right: lines(0); top: lines(17.5);
+      width: lines(12);
+      height: lines(10);
+    }
+  }
+  
+  .trustcloud {
+    display: block;
+    width: 100%;
+    height: lines(8);
+    margin-top: lines(0.5);
+    
+    small {
+      display: inline;
+      margin-left: lines(0.5);
+    }
+    
+    @include media(tablet) {
+      margin-top: 0;
+      margin-bottom: lines(2);
+      position: absolute;
+      right: lines(0); top: lines(19.5);
+      width: lines(12);
+      height: lines(10);
+    }
+  }
+  
+  .trustcard-upper {
+    @include media(tablet) {
+      right: lines(0); top: lines(17.5);
+    }
+  }
+  
+  .trustcard-lower {
+    @include media(tablet) {
+      right: lines(0); top: lines(28.5);
+    }
+  }
+  
+  .action-link {
+    display: block;
+    width: 100%;
+    margin-right: lines(0.5);
+    cursor: pointer;
+    
+    @include media(tablet) {
+      position: absolute;
+      right: 0; top: lines(17.5);
+      width: lines(10.5);
+      text-align: left;
+      padding-bottom: lines(0.25);
+    }
+    
+  }
+  
+  .add-profile-picture-link {
+    display: none;
+    @include media(tablet) {
+      cursor: pointer;
+      position: absolute;
+      right: 0;
+      margin: 0;
+      width: lines(10);
+      padding: lines(0.5) lines(1);
+      display: block;
+      top: lines(15);
+      color: $background;
+      background: $link;
+      @include border-bottom-radius(em(5));
+      &:hover {
+        color: $background;
+        background: darken($link, 10%); 
+      }
+    }
+  }
+  
+  .profile-listings, .profile-testimonials, .profile-badges {
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: lines(0.25);
+      .text-with-icon {
+        padding-top: em(2);
+      }
+    }
+    
+    .load-more-link {
+      border-top: 1px dotted $border;
+      text-align: center;
+      padding: lines(0.5);
+    }
+    
+    @include media(tablet) {
+      margin-top: lines(2); 
+      padding-right: lines(14);
+      h2 {
+        @include big-type;
+        .text-with-icon {
+          padding-top: 0;
+        }
+      }
+    }
+  }
+  
+  .profile-listings {
+    
+    .feed-item {
+      padding: lines(0.5) lines(0);
+      
+      .feed-content {
+        margin: 0 lines(4.25) 0 0;
+        max-width: 100%;
+        // Share type label
+        .share-type-link {
+          font-size: em(12);
+        }
+      }
+      
+      h2 {
+        margin-bottom: 0;
+        @include normal-type;
+        font-weight: 600;
+      }
+      
+      #edit-profile-listing-links {
+        display: inline;
+      }
+      
+      @include media(tablet) {
+        padding: lines(0.5) lines(0);
+        
+        .feed-content {
+          margin: 0 lines(5) 0 0;
+        }
+      }
+      
+    }
+    
+    .feed-image {
+      right: lines(0);
+
+      @include media(tablet) {
+        top: lines(0.75);
+        width: lines(4);
+        height: lines(4);
+        img {
+          width: lines(4);
+          height: lines(4);
+        }
+      }
+    }
+    
+    
+    
+  }
+  
+  .profile-testimonials {
+    
+    h2 {
+      display: inline-block;
+    }
+    
+    .small-text { 
+      display: inline-block; 
+      vertical-align: top;
+      @include normal-type;
+    }
+    
+    .testimonial {
+      @include small-type;
+      position: relative;
+      border-top: 1px dotted $border;
+      padding: lines(0.25) 0 lines(0.25) lines(1.5);
+      
+      .avatar {
+        position: absolute;
+        left: 0; top: lines(0.5);
+        img {
+          @include border-radius(em(5));
+        }
+      }
+      
+      h3, small {
+        display: inline;
+      }
+      
+      .testimonial-description {
+        position: relative;
+        min-height: lines(1.5);   
+      }
+      
+      .testimonial-text {
+        color: $aside;
+        font-style: italic;
+        padding-left: lines(1.5);
+        margin-top: lines(0.25);
+      }
+      
+      .testimonial-icon {
+        position: absolute;
+        @include large-type;
+      }
+      
+      .ss-like {
+        color: $green;
+      }
+      
+      .ss-dislike {
+        color: $red;
+      }
+      
+    }
+    
+    @include media(tablet) {
+      padding-right: lines(14);
+
+      .testimonial {
+        @include normal-type;
+        padding: lines(0.5) 0 lines(0.25) lines(2.5);
+
+        .avatar {
+          width: lines(2);
+        }
+
+        h3 {
+          margin: 0;
+        }
+      }
+
+    }
+    
+  }
+  
+  .profile-badges {
+    
+    .badge-list {
+      border-top: 1px dotted $border;
+      padding-top: lines(0.5);
+    }
+    
+    h2 {
+      margin-bottom: 0;
+      padding-bottom: lines(0.25);
+    }
+    
+    .profile-badge {
+      display: inline-block;
+      margin-right: lines(0.5);
+      img {
+        width: lines(3);
+      }
+    }
+    
+    @include media(tablet) { 
+      
+      .profile-badge {
+        img {
+          width: auto;
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+}
+
+/*
+  ----------------
+  Login form
+  ----------------
+*/
+
+.login-form {
+  
+  .facebook-account-info {
+    color: $body;
+    position: relative;
+    @include box-sizing(border-box);
+    display: block;
+    width: 100%;
+    @include border-radius(em(5));
+    border: 1px solid $border;
+    margin-bottom: lines(0.25);
+    .link-icon {
+      position: absolute;
+      top: em(8);
+      left: em(12);
+    }
+    .link-text {
+      margin-left: em(40);
+      margin-right: lines(1.5);
+      padding: em(6) 0 em(10) 0;
+    }
+  }
+  
+}
+
+#password_forgotten {
+	display: none;
+}
+
+
+
+/*
+  ----------------
+  Signup form
+  ----------------
+*/
+
+.button {
+  display: block;
+}
+
+
+/* 
+  ----------------
+  New message form
+  ----------------
+*/
+
+.title-label {
+  font-weight: 600;
+}
+
+/* 
+  ----------------
+  New feedback form
+  ----------------
+*/
+
+.new-feedback-form {
+  padding-top: lines(1);
+  @include media(tablet) {
+    padding-top: 0;
+  }
+}
+
+/* 
+  ----------------
+  New organization form
+  ----------------
+*/
+
+#merchant_details {
+	display: none;
+}
+
+
+/* 
+  ----------------
+  New listing form
+  ----------------
+*/
+
+.new-listing-form, .edit-listing-form {
+  
+  h2 {
+    margin-top: lines(0.5);
+  }
+  
+  a.option {
+    &:after {
+      content: "→";
+      display: block;
+      position: absolute;
+      right: lines(0.5); top: em(6);
+      color: $link;
+    }
+  }
+  
+  a.select {
+    position: relative;
+    @include box-sizing(border-box);
+    display: block;
+    width: 100%;
+    @include border-radius(em(5));
+    border: 1px solid $border;
+    &:hover { background: $highlight; }
+    margin-bottom: lines(0.25);
+    .link-icon {
+      position: absolute;
+      top: em(7);
+      left: em(10);
+    }
+    .link-text {
+      margin-left: lines(1.5);
+      margin-right: lines(1.5);
+      padding: em(5) 0 em(10) 0;
+    }
+  }
+  
+  a.selected {
+    background: $highlight;
+    position: relative;
+  }
+  
+  select.listing_datetime_select {
+    margin-left: lines(0.25);
+  }
+  
+  .selected-group, .option-group {
+    
+    .hidden {
+      display: none;
+    }
+    
+  }
+  
+}
+
+.price-field {
+  max-width: lines(5);
+}
+
+.currency-selector {
+  margin-left: lines(0.25);
+  display: inline;
+  @include big-type;
+}
+
+.quantity-field {
+  max-width: lines(7);
+}
+
+.quantity-description {
+  margin: 0 lines(0.25);
+  display: inline;
+}
+
+/*
+  -----------
+  Inbox
+  -----------
+*/
+
+.inbox-feed {
+  
+  p {
+    padding: lines(0.25) lines(0.5) 0 lines(0.5);
+  }
+  
+  .inbox-feed-item {
+    padding: lines(0.75) 0 lines(0.5) 0;
+    .feed-author-avatar {
+      left: lines(0.75);
+    }
+    .feed-content {
+      max-width: lines(30);
+      margin: em(-3) 0 0 lines(3);
+    }
+    small {
+      display: block;
+      position: relative;
+    }
+    .conversation-icon {
+      color: $aside;
+      position: absolute;
+      top: em(2);
+    }
+    .conversation-text {
+      color: $aside;
+      margin-left: lines(1);
+      margin-right: lines(1.5);
+      padding: 0;
+    }
+    .status-links {
+      padding-bottom: lines(0.5);
+    }
+    
+  }
+  
+  span.header-info {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: em(21);
+    margin-left: lines(0.25);
+  }
+  
+  @include media(tablet) {
+    p {
+      padding: 0;
+    }
+    .inbox-feed-item {
+      
+    }
+  }
+  
+}
+
+.conversation-status-lower {
+  padding-top: lines(0.75);
+  border-top: 1px dotted $border;
+  border-bottom: 1px dotted $border;
+}
+
+.conversation-status-container {
+  padding-bottom: lines(0.5);
+}
+
+.listed-conversation-status-padding {
+  padding-top: lines(0.25);
+}
+
+.conversation-status {
+  
+  .status-links {
+    display: inline-block;
+    padding-top: lines(0.25);
+  }
+  
+  .status-link {
+    @include button;
+    margin-right: lines(0.5);
+  }
+  
+  .accept, .confirm {
+    color: $green;
+    background: lighten($green, 40%);
+    border-color: $green;
+    &:hover { 
+      color: lighten($green, 10%);
+      background: lighten($green, 50%); 
+      border-color: lighten($green, 10%);
+    }
+  }
+  
+  .reject, .cancel {
+    color: $red;
+    background: lighten($red, 40%);
+    border-color: $red;
+    &:hover { 
+      color: lighten($red, 10%);
+      background: lighten($red, 50%); 
+      border-color: lighten($red, 10%);
+    }
+  }
+  
+}
+
+/*
+  -------------------
+  Inbox notifications
+  -------------------
+*/
+
+.inbox-notifications {
+  
+  .notification {
+    position: relative;
+    border-top: 1px dotted $border;
+    min-height: lines(2);
+    padding: lines(0.5) 0;
+  }
+  
+  .notification-text {
+    padding: em(5) lines(0.5) em(10) lines(2); 
+  }
+
+  .notification-icon {
+    position: absolute;
+    top: em(19);
+    left: em(17);
+  }
+  
+  small {
+    margin-top: lines(0.25);
+    display: block;
+    color: $aside;
+  }
+  
+}
+
+/*
+  -------------------
+  Single conversation
+  -------------------
+*/
+
+.conversation {
+  
+  .conversation-status {
+
+    .status-links {
+      padding-top: lines(0);
+      padding-bottom: lines(0.5);
+    }
+    
+  }
+  
+  .avatar-container {
+    position: relative;
+  }
+  
+  .avatar {
+    position: absolute;
+    top: em(6);
+  }
+  
+  .avatar-text {
+    padding-left: lines(1.5);
+    min-height: lines(1);
+    padding: em(4) 0 lines(0.75) lines(1.5);
+  }
+  
+  h2 {
+    margin-bottom: lines(0.25);
+  }
+  
+  .message {
+    position: relative;
+    border-top: 1px dotted $border;
+    padding: lines(0.25) lines(1) lines(0.25) lines(1.5);
+    min-height: lines(2.25);
+
+    .avatar {
+      position: absolute;
+      left: 0; top: lines(0.5);
+      img {
+        @include border-radius(em(5));
+      }
+    }
+
+    h3, small {
+      display: inline;
+    }
+
+    small {
+      color: $aside;
+    }
+
+    .message-content, .message-icon {
+      @include small-type;
+      @include media(small-tablet) {
+        @include normal-type;
+      }
+    }
+
+    .message-icons {
+      padding-top: lines(0.25);
+      padding-bottom: lines(0.25);
+    }
+
+    .message-icon {
+      display: inline-block;
+      margin-right: lines(0.5);
+    }
+
+  }
+
+  .message-form {
+    border-top: 1px dotted $border;
+    padding-top: lines(0.5);
+    position: relative;
+
+    textarea {
+      width: 95%;
+      height: lines(4);
+    }
+
+  }
+  
+  @include media(tablet) {
+ 
+    h2 {
+      @include big-type;
+    }
+    
+    .message {
+      padding: lines(0.5) lines(1) lines(0.25) lines(2.5);
+      
+      .avatar {
+        width: lines(2);
+      }
+      
+      h3 {
+        margin: 0;
+      }
+    }
+    
+    .message-form {
+      textarea {
+        width: 100%;
+        height: lines(6);
+      }
+    }
+    
+  }
+  
+}
+
+
+/*
+  ------------------------
+  Transaction confirmation
+  ------------------------
+*/
+
+.conversation-status-form {
+  
+  .conversation-action-description {
+    padding: lines(0.25) 0;
+  }
+  
+}
+
+
+
+
+/*
+  ----------------
+  Person settings
+  ----------------
+*/
+
+.account-settings {
+  
+  #account_email_form, #account_password_form {
+  	display: none;
+  }
+
+  .account-settings-row {
+    position: relative;
+    @include border-radius(em(5));
+    border: 1px solid $border;
+    margin-bottom: lines(1);
+    
+    .account-settings-text {
+      margin-left: lines(1.5);
+      padding: em(5) 0 em(10) 0;
+    }
+
+    .account-settings-icon {
+      position: absolute;
+      top: em(7);
+      left: em(10);
+    }
+    
+  }
+  
+  .email-form {
+    margin-top: lines(0.5);
+    padding: 0 lines(0.5);
+  }
+
+  .password-form {
+    padding: 0 lines(0.5);
+    
+    input[type=password] {
+      margin-top: lines(0.5);
+    }
+    
+  }
+  
+  p {
+    padding: 0 lines(0.5) lines(0.25) lines(0.5);
+  }
+  
+  p.global-settings {
+    padding: 0 0 lines(0.25) 0;
+  }
+  
+  @include media(tablet) {
+    
+    a.change-link {
+       margin-left: lines(0.5);
+     }
+      
+  }
+  
+}
+
+.notification-settings {
+  h2 {
+    margin-bottom: 0;
+  }
+  
+  h2.lower {
+    margin-top: lines(1);
+  }
+  
+  .checkbox-container {
+    label {
+      font-weight: 500;
+    }
+  }
+}
+
+/*
+  ----------------
+  About 
+  ----------------
+*/
+
+.about-section {
+  h3 {
+    padding-top: lines(0.5);
+    padding-bottom: lines(0.25);
+  }
+}
+
+/*
+  -----------------------------------------------
+  New testimonial form, conversation status form
+  -----------------------------------------------
+*/
+
+.testimonial-form, .conversation-status-form {
+
+  a.grade, a.conversation-action {
+    color: $body;
+    cursor: pointer;
+    position: relative;
+    @include box-sizing(border-box);
+    display: block;
+    width: 100%;
+    @include border-radius(em(5));
+    border: 1px solid $border;
+    &:hover { background: $highlight; }
+    margin-bottom: lines(0.25);
+    .link-icon {
+      position: absolute;
+      top: em(8);
+      left: em(12);
+    }
+    .link-text {
+      margin-left: em(40);
+      margin-right: lines(1.5);
+      padding: em(6) 0 em(10) 0;
+    }
+  }
+  
+  a.hidden, div.hidden {
+    display: none;
+  }
+
+  a.positive, a.accept, a.confirm {
+    color: $green;
+    background: lighten($green, 40%);
+     &:hover { background: lighten($green, 40%); }
+  }
+
+  a.negative, a.reject, a.cancel {
+    color: $red;
+    background: lighten($red, 40%);
+    &:hover { background: lighten($red, 40%); }
+  }  
+}
+
+/*
+  -----------------
+  Community section
+  -----------------
+*/
+
+.members-intro {
+  padding: lines(0.5);
+  h1 {
+    margin-top: lines(0.5);
+  }
+  
+  @include media(tablet) {
+    text-align: center;
+    padding: 0;
+    
+    h1 {
+      margin-top: 0;
+    }
+    
+    p {
+      margin: 0 auto lines(2) auto;
+      max-width: lines(22);
+    }
+    
+  }
+}
+
+.members {
+  padding: 0 lines(0.5);
+  
+  @include media(tablet) {
+    padding: lines(0);
+  }
+}
+
+.member {
+  position: relative;
+  border-top: 1px dotted $border;
+  
+  h3 {
+    margin-top: lines(0.25);
+    margin-bottom: lines(0.25);
+  }
+  
+  img {
+    width: 100%;
+    @include border-radius(em(5));
+  }
+  
+  .member-image {
+    position: absolute;
+    top: em(10);
+    width: lines(3);
+  }
+  
+  .member-details {
+    padding-left: lines(3.5);
+    padding-bottom: lines(0.5);
+    min-height: lines(3);
+  }
+  
+  @include media(tablet) {
+    @include box-sizing(border-box);
+    @include box-shadow(rgba(0,0,0,0.2) 0 0 em(8));
+    @include border-radius(em(5));
+    display: inline-block;
+    vertical-align: top;
+    width: em(179);
+    padding: em(10);
+    margin-right: lines(1);
+    margin-bottom: lines(1);
+    border-top: 0;
+    
+    .member-image {
+      position: static;
+      top: auto;
+      width: 100%;
+    }
+    
+    .member-details {
+      padding: 0;
+      min-height: auto; 
+    }
+    
+    &:nth-child(5n+5) {
+      margin-right: 0;
+    }
+    
+  }
+  
+}
+
+// Fix to make the paginated member list to be displayed correctly.
+// Pagination creates one extra element inside the member list,
+// so this needs to be taken into account.
+.paginated-member {
+  //width: lines(20);
+  @include media(tablet) {
+    &:nth-child(5n+5) {
+      margin-right: lines(1);
+    }
+    &:nth-child(5n+6) {
+      margin-right: 0;
+    }
+  }
+}
+
+/*
+  ----------------------------------
+  New email to all community members
+  ----------------------------------
+*/
+
+.new-member-email-form {
+  .permanent-notification {
+    margin-bottom: 0;
+  }
+}
+
+/*
+  ----------------------------------
+  Organizations
+  ----------------------------------
+*/
+
+.merchant-registration-radio-buttons {
+  margin-top: lines(0.25);
+}
+
+.listing-organization-representative {
+  display: inline;
+  position: relative;
+  
+  .organization-representative-avatar {
+    position: absolute;
+    top: em(3); left: 0;
+    width: lines(1);
+    img {
+      width: 100%;
+    } 
+  }
+  .organization-representative-name {
+    padding: em(2) 0 em(6) lines(1.5);
+  }
+}
+
+/*
+  ----------------------------------
+  Payments
+  ----------------------------------
+*/
+
+.payment-form {
+  
+  small {
+    margin-top: lines(0.5);
+  }
+  
+  .payment-form-label {
+    font-weight: bold;
+    display: inline-block;
+    width: lines(6);
+  }
+
+  .payment-form-field {
+    display: inline-block;
+  }
+  
+  .send-button {
+    padding-top: lines(0.25);
+  }
+  
+}
+

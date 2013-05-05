@@ -13,8 +13,9 @@ Feature: User browses offered rides
     And there is rideshare offer from "Sydney" to "Melbourne" by "kassi_testperson2"
     And there is rideshare request from "Oulu" to "Helsinki" by "kassi_testperson2"
     And there is item offer with title "axe" from "kassi_testperson1" and with share type "lend"
-    And I am on the offers page
-    And I follow "Rideshare"
+    And I am on the home page
+    When I select "Rideshare" from "listing_category"
+    And I select "Offer" from "share_type"
     Then I should see "tkk - kamppi"
     And I should see "Sydney - Melbourne"
     But I should not see "axe"

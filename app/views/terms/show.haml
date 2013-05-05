@@ -1,53 +1,29 @@
 - content_for :javascript do
   initialize_terms_form();
 
-- if session[:consent_changed]
-  - if @private_layout
-    .container_12
-      .grid_6.prefix_3.suffix_3
-        #signup_form
-          .form_field_container
-            %h2
-              = t('.terms_have_changed')
-            %p
-              - if @current_community.label.eql?("okl")
-                = render :file => community_file("okl_terms_change_reasons", true)
-              - else
-                = t('.you_need_to_accept_new_terms')
-            %p
-              = t('.you_can_view_the_new_terms')
-              = link_to(t(".here"), "#", :id => "terms_link", :class => "form") + "."
-          = form_tag accept_terms_path do
-            .form_field_container
-              = submit_tag(t('.i_accept_new_terms'), :class => "send_button_terms")
+.centered-section
+  - if session[:consent_changed]
+    %h2
+      = t('.terms_have_changed')
+    %p
+      - if @current_community.label.eql?("okl")
+        = render :file => community_file("okl_terms_change_reasons", true)
+      - else
+        = t('.you_need_to_accept_new_terms')
+    %p
+      = t('.you_can_view_the_new_terms')
+      = link_to(t(".here"), "#", :id => "terms_link") + "."
+    = form_tag accept_terms_path do
+      = button_tag t('.i_accept_new_terms')
   - else
-    .grid_10.prefix_7.suffix_7
-      #signup_form
-        .form_field_container
-          %h2
-            = t('.terms_have_changed')
-          %p
-            - if @current_community.label.eql?("okl")
-              = render :file => community_file("okl_terms_change_reasons", true)
-            - else
-              = t('.you_need_to_accept_new_terms')
-          %p
-            = t('.you_can_view_the_new_terms')
-            = link_to(t(".here"), "#", :id => "terms_link") + "."
-        = form_tag accept_terms_path do
-          .form_field_container
-            = submit_tag(t('.i_accept_new_terms'), :class => "send_button_terms")
-- else
-  .grid_10.prefix_7.suffix_7
-    #signup_form
+    %h2
+      = t('.accept_terms')
+    %p
+      = t('.you_need_to_accept')
+      = link_to(t(".terms"), "#", :id => "terms_link") + "."
+    = form_tag accept_terms_path do
       .form_field_container
-        %h2
-          = t('.accept_terms')
-        %p
-          = t('.you_need_to_accept')
-          = link_to(t(".terms"), "#", :id => "terms_link") + "."
-      = form_tag accept_terms_path do
-        .form_field_container
-          = submit_tag(t('.i_accept_terms'), :class => "send_button_terms")
+        = submit_tag(t('.i_accept_terms'), :class => "send_button_terms")
+        
 
 = render :partial => "people/help_texts", :locals => { :field => "terms" }

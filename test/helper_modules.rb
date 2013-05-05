@@ -2,28 +2,25 @@
 
 module TestHelpers
   
-  def create_listing(listing_type, category, share_type)
-    listing_params = {:category => category}
+  def create_listing(category, share_type)
+    listing_params = {}
+    
     if category
-      case category
-      when "favor"
-        listing_params.merge!({ :share_type => nil, :listing_type => listing_type})
-      when "rideshare"
-        listing_params.merge!({:share_type => nil, :origin => "test", :destination => "test2", :listing_type => listing_type})
-      else
-        if share_type.nil? && ["item", "housing"].include?(category)
-          share_type = listing_type.eql?("request") ? "buy" : "sell"
-        end
-        listing_params.merge!({ :share_type => share_type, :listing_type => listing_type})
+      listing_params.merge!({:category => find_or_create_category(category)})
+      if category.eql? "rideshare"
+        listing_params.merge!({:origin => "test", :destination => "test2"})
       end
     else
-      listing_params[:category] = "item"
+      listing_params[:category] = find_or_create_category("item")
+    end
+    
+    if share_type
+      listing_params.merge!({:share_type => find_or_create_share_type(share_type)})
     end
     
     # set author manually as factory doesn't default to kassi_testperson1
     test_person, session = get_test_person_and_session
     listing_params.merge!({:author => test_person})
-    
     
     listing = FactoryGirl.create(:listing, listing_params)
   end
@@ -64,5 +61,22 @@ module TestHelpers
     request.env['warden'].stub :authenticate! => person
     controller.stub :current_person => person
   end
+  
+  def find_or_create_category(category_name)
+    Category.find_by_name(category_name) || FactoryGirl.create(:category, :name => category_name)
+  end
+  
+  def find_or_create_share_type(share_type_name)
+    return nil if share_type_name.blank?
+    ShareType.find_by_name(share_type_name) || FactoryGirl.create(:share_type, :name => share_type_name)
+  end
+  
+  def reset_categories_to_default
+    ShareType.destroy_all #Without this there were some strange entries in the DB without correct parents
+    Category.destroy_all
+    CommunityCategory.destroy_all
+    CategoriesHelper.load_default_categories_to_db
+  end
+  
   
 end

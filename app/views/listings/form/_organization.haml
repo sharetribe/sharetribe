@@ -1,0 +1,5 @@
+- if @current_person.organizations.count > 1
+  = form.label :organization, t(".organization") + "*", :class => "input"
+  = select(:listing, :organization_id, @current_person.organizations_array, { :class => "full-width" })
+- else
+  = form.hidden_field :organization_id, :value => @current_person.organizations.first.id

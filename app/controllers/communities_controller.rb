@@ -7,7 +7,7 @@ class CommunitiesController < ApplicationController
   skip_filter :single_community_only
   
   before_filter :only => [ :set_organization_email ] do |controller|
-    controller.ensure_logged_in "you_must_log_in_to_view_this_content"
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_content")
   end
   
   respond_to :html, :json
@@ -45,10 +45,6 @@ class CommunitiesController < ApplicationController
     end
   end
 
-  def edit
-    @community = Community.find(params[:id])
-  end
-
   def create
     params[:community][:location][:address] = params[:community][:address] if params[:community][:address]
     location = Location.new(params[:community][:location])
@@ -63,24 +59,15 @@ class CommunitiesController < ApplicationController
     @community.use_captcha = false
     @community.save
     @community.community_memberships.first.update_attribute(:admin, true) #make creator an admin
+    
+    # Add his listings that have visibility in all communities to the new one
+    @community.community_memberships.first.person.add_listings_visible_to_all_to(@community)
+    
     location.community = @community
     location.save
     clear_session_variables
+    PersonMailer.welcome_email(@current_user, @community).deliver
     render :action => :new
-  end
-
-  def update
-    @community = Community.find(params[:id])
-
-    respond_to do |format|
-      if @community.update_attributes(params[:community])
-        format.html { redirect_to(@community, :notice => 'Community was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @community.errors, :status => :unprocessable_entity }
-      end
-    end
   end
   
   def check_domain_availability
@@ -112,9 +99,7 @@ class CommunitiesController < ApplicationController
         end
     
         # Send confirmation for additional email
-        PersonMailer.additional_email_confirmation(e, request.host_with_port).deliver
-        e.confirmation_sent_at = Time.now
-        e.save
+        @current_user.send_email_confirmation_to(params[:email], request.host_with_port)
       end
       session[:unconfirmed_email] = params[:email]
     end

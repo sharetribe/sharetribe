@@ -47,7 +47,7 @@
         = form_tag("/change_locale", :method => "get") do
           = hidden_field_tag :redirect_uri, @return_to
           %div{:style => "font-size: 18px"}
-            = select_tag 'locale', options_for_select(@communities.collect { |c| [c.name, get_url_for(c)]}), :onchange => 'open_url(this.value)', :include_blank => "Valitse yhdistyksesi:", :class => "community_select"
+            = select_tag 'locale', options_for_select(@communities.collect { |c| [c.name, c.full_url]}), :onchange => 'open_url(this.value)', :include_blank => "Valitse yhdistyksesi:", :class => "community_select"
       %p.okl.bottom
         Liittyäksesi Sharetribeen sinun pitää kuulua
         johonkin Omakotiliiton jäsenyhdistykseen. Jos et vielä kuulu, nyt on hyvä aika

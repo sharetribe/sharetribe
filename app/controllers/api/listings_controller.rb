@@ -2,51 +2,23 @@ class Api::ListingsController < Api::ApiController
   include ListingsHelper
   before_filter :authenticate_person!, :except => [:index, :show]
   before_filter :require_community, :except => :show
-  
-  # TODO: limit the visibility of one listing. The below doesn't work yet as the param name is different in this case (only id)
-  #before_filter :ensure_authorized_to_view_listing, :only => [:show]
+  before_filter :ensure_authorized_to_view_listing, :only => [:show]
   
   def index
     @page = params["page"] || 1
     @per_page = params["per_page"] || 50
-    
-    query = params.slice("category", "listing_type")
-    
-    if params["status"] == "closed"
-      query["open"] = false
-    elsif params["status"] == "all"
-      # leave "open" out totally to return all statuses
-    else
-      query["open"] = true #default
-    end
-    
-    if params["person_id"]
-      query["author_id"] = params["person_id"]
-    end
-    
-    unless @current_user && @current_user.communities.include?(@current_community)
-      query["visibility"] = "everybody"
-    end
-    
-    if params["search"]
-      @listings = search_listings(params["search"], query)
-    elsif @current_community
-      listings_to_query = (query["open"] ? @current_community.listings.currently_open : @current_community.listings)
-      @listings = listings_to_query.where(query).order("created_at DESC").paginate(:per_page => @per_page, :page => @page)
-    else
-      # This is actually not currently supported. Community_id is currently required parameter.
-      @listings = Listing.where(query).order("created_at DESC").paginate(:per_page => @per_page, :page => @page)
-    end
+      
+    @listings = Listing.find_with(params, @current_user, @current_community, @per_page, @page)
     
     @total_pages = @listings.total_pages
     
     # Few extra fields for ATOM feed
-    if params[:format].to_s == "atom" 
+    if params[:format].to_s == "atom"
       
       @category_label = (params["category"] ? "(" + localized_category_label(params["category"]) + ")" : "")
       
-      if ["request","offer"].include?params['listing_type']
-        listing_type_label = t("listings.index.#{params['listing_type']+"s"}")
+      if ["request","offer"].include?params['share_type']
+        listing_type_label = t("listings.index.#{params['share_type']+"s"}")
       else
          listing_type_label = t("listings.index.listings")
       end
@@ -84,19 +56,62 @@ class Api::ListingsController < Api::ApiController
       end
     end
     
+    if api_version_alpha?
+      # fix old style visibility setting "everybody" to new format
+      if params["visibility"] == "everybody"
+        params["visibility"] = "all_communities"
+        params["privacy"] ||= "public"
+      end
+    
+      # fix old style share_type
+      if params["share_type"] == "trade"
+        if params["listing_type"] == "offer"
+          params["share_type"] = "offer_to_swap"
+        else
+          params["share_type"] = "request_to_swap"
+        end
+      end  
+    end
+    
+    # This is moved out from the "api_version_alpha?" as new iPhone client still sent listing_type
+    if params["share_type"].nil?
+      params["share_type"] = params["listing_type"]
+    end
+    
+    category = Category.find_by_name(params["category"])
+
+    unless category && @current_community.categories.include?(category)
+      response.status = 400
+      render :json => ["Given category is not available in this community."] and return
+    end
+    
+    # Check if old client putting the listing to a top level category while there would be subcategories, and put the listing to "other" subcategory
+    if category.children
+      sub_category_for_misc = category.children.where(["name like ?", "other%"]).first
+      category = sub_category_for_misc if sub_category_for_misc
+    end
+    
+    share_type = ShareType.find_by_name(params["share_type"])
+    unless share_type && @current_community.share_types.include?(share_type)
+      response.status = 400
+      render :json => ["Given share_type is not available in this community."] and return
+    end
     
     @listing = Listing.new(params.slice("title", 
-                                        "description", 
-                                        "category", 
-                                        "share_type", 
-                                        "listing_type", 
+                                        "description",   
                                         "visibility",
+                                        "privacy",
                                         "origin",
                                         "destination",
                                         "origin_loc_attributes",
                                         "valid_until",
+                                        "price_cents",
+                                        "currency",
+                                        "quantity",
                                         "destination_loc_attributes"
-                                        ).merge({"author_id" => current_person.id, 
+                                        ).merge({"author_id" => current_person.id,
+                                                 "category" => category,
+                                                 "share_type" => share_type,
                                                  "listing_images_attributes" => {"0" => {"image" => params["image"]} }}))
     
     
@@ -116,36 +131,6 @@ class Api::ListingsController < Api::ApiController
       render :json => @listing.errors.full_messages and return
     end
     
-  end
-  
-  def search_listings(search, attributes)
-    with = {}
-    
-    unless attributes["open"].nil?
-      with[:open] = true if attributes["open"] == true
-      with[:open] = false if attributes["open"] == false
-    end
-    
-    if attributes["listing_type"]
-      with[:is_request] = true if attributes["listing_type"].eql?("request")
-      with[:is_offer] = true if attributes["listing_type"].eql?("offer")
-    end
-    
-    
-    
-    unless @current_user && @current_user.communities.include?(@current_community)
-      with[:visible_to_everybody] = true
-    end
-    
-    # Here is expected that @current_community always exists as community_id is currently required parameter
-    with[:community_ids] = @current_community.id
-
-    Listing.search(search, :include => :listing_images, 
-                           :page => @page,
-                           :per_page => @per_page, 
-                           :star => true,
-                           :with => with
-                           )
   end
 
 end

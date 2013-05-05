@@ -6,25 +6,26 @@ Feature: User sends feedback to admins
   @javascript
   Scenario: Giving feedback successfully when not logged in
     Given I am on the home page
-    When I follow "Feedback"
+    When I follow "Contact us"
     And I fill in "Your email address" with "test@example.com"
-    And I fill in "Feedback to Sharetribe staff" with "Feedback"
+    And I fill in "What would you like to tell us?" with "Feedback"
     And I press "Send feedback"
-    Then I should see "Thanks for your feedback!" within "#notifications"
+    Then I should see "Thanks a lot for your feedback!" within ".flash-notifications"
   
   @javascript
   Scenario: Giving feedback successfully when logged in
     Given I am logged in
-    When I follow "Feedback"
+    When I click ".user-menu-toggle"
+    When I follow "Contact us"
     And I should not see "Your email"
-    And I fill in "Feedback to Sharetribe staff" with "Feedback"
+    And I fill in "What would you like to tell us?" with "Feedback"
     And I press "Send feedback"
-    Then I should see "Thanks for your feedback!"
+    Then I should see "Thanks a lot for your feedback!"
   
   @javascript
   Scenario: Trying to give invalid feedback
     Given I am on the home page
-    When I follow "Feedback"
+    When I follow "Contact us"
     And I fill in "Your email address" with "test"
     And I press "Send feedback"
     Then I should see "This field is required"
@@ -33,12 +34,12 @@ Feature: User sends feedback to admins
   @javascript
   Scenario: Trying to send a spam link
     Given I am logged in
-    When I follow "Feedback"
-    And I fill in "Feedback to Sharetribe staff" with "[url=testi"
+    When I click ".user-menu-toggle"
+    When I follow "Contact us"
+    And I fill in "What would you like to tell us?" with "[url=testi"
     And I press "Send feedback"
-    Then I should see "Feedback not saved, due to its formatting. Try again or use the feedback forum." within ".error"
-    When I follow "Feedback"
-    And I fill in "Feedback to Sharetribe staff" with "<a href="
+    Then I should see "Feedback not saved, due to its formatting. Try again or use the feedback forum." within ".flash-notifications"
+    And I fill in "What would you like to tell us?" with "<a href="
     And I press "Send feedback"
     Then I should see "Feedback not saved, due to its formatting. Try again or use the feedback forum."
   

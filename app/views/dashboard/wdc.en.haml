@@ -27,7 +27,7 @@
         = form_tag("/change_locale", :method => "get") do
           = hidden_field_tag :redirect_uri, @return_to
           %div{:style => "font-size: 18px"}
-            = select_tag 'locale', options_for_select(@communities.collect { |c| [c.name, get_url_for(c)]}), :onchange => 'open_url(this.value)', :include_blank => "Select your neighborhood:", :class => "community_select"
+            = select_tag 'locale', options_for_select(@communities.collect { |c| [c.name, c.full_url]}), :onchange => 'open_url(this.value)', :include_blank => "Select your neighborhood:", :class => "community_select"
       %p.bottom.okl
         "From Neighborhoods to Village Communities" project is a part of the World Design Capital Helsinki 2012 and Helsinki 200 years as capital celebrations. Aalto University is responsible for the project and Sharetribe Oy will handle practical matters.
         = link_to("Contact us!", "mailto:info@sharetribe.com", :class => "green_part_link_smaller")

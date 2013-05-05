@@ -29,10 +29,10 @@ class Badge < ActiveRecord::Base
     errors.add(:base, "You already have this badge.") if existing_badge
   end
 
-  def self.assign_with_levels(badge_name, condition_value, receiver, levels, host)
+  def self.assign_with_levels(badge_name, condition_value, receiver, levels, community)
     levels.each_with_index do |level, index|
       if condition_value == level
-        receiver.give_badge("#{badge_name}_#{LEVELS[index]}", host)
+        receiver.give_badge("#{badge_name}_#{LEVELS[index]}", community)
       end  
     end  
   end

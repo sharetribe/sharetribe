@@ -1,11 +1,10 @@
 Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
-  title = I18n.t("conversations.new.#{@listing.category}_#{@listing.listing_type}_message_title", :title => @listing.title)
   @conversation = Conversation.create!(:listing_id => @listing.id, 
-                                      :title => title,
+                                      :title => message,
                                       :status => "pending", 
                                       :conversation_participants => { @listing.author.id => "false", @people[sender].id => "true"},
                                       :message_attributes => { :content => message, :sender_id => @people[sender].id }
-                                      )                                   
+                                      ) 
 end
 
 Given /^there is a reply "([^"]*)" to that message by "([^"]*)"$/ do |content, sender|
@@ -23,7 +22,7 @@ Then /^the status of the conversation should be "([^"]*)"$/ do |status|
   @conversation.status.should == status 
 end
 
-Given /^the (offer|request) is (accepted|rejected)$/ do |listing_type, status|
+Given /^the (offer|request) is (accepted|rejected|confirmed|canceled)$/ do |listing_type, status|
   @conversation.update_attribute(:status, status)
 end
 

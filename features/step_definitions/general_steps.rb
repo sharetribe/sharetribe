@@ -12,6 +12,12 @@ When /^I print "(.+)"$/ do |text|
   puts text
 end
 
+When /^(?:|I )click "([^"]*)"(?: within "([^"]*)")?$/ do |css_selector, scope_selector|
+  with_scope(scope_selector) do
+    find(css_selector).click
+  end
+end
+
 Then /^(?:|I )should not see selector "([^"]*)"?$/ do |selector|
   lambda {
     with_scope(selector) do

@@ -15,12 +15,10 @@ class Participation < ActiveRecord::Base
     !has_feedback? && !feedback_skipped?
   end
   
-  def send_testimonial_reminder(host)
+  def send_testimonial_reminder(community)
     if feedback_can_be_given?
       update_attribute(:is_read, false)
-      if person.should_receive?("email_about_testimonial_reminders")
-        PersonMailer.testimonial_reminder(self, host).deliver
-      end
+      PersonMailer.testimonial_reminder(self, community).deliver
     end
   end
   

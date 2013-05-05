@@ -1,5 +1,2 @@
 .notification{:class => (@unread_notifications.include?(notification) ? "unread" : "")}
-  .notification_date
-    = l(notification.created_at, :format => :short)
-  .notification_content  
-    = render :partial => "conversations/notifications/#{notification.notifiable_type.downcase}#{notification.description? ? '_' + notification.description + '_' : '' }notification", :locals => { :notification => notification }
+  = render :partial => "conversations/notifications/#{notification.notifiable_type.downcase}#{notification.description? ? '_' + notification.description + '_' : '' }notification", :locals => { :notification => notification }

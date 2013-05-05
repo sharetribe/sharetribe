@@ -2,7 +2,6 @@ namespace :i18n do
   # Load Config
   require File.expand_path('../../../config/config_loader', __FILE__)
   APP_CONFIG = load_app_config
-
   
   def write_error_page(status, locale = nil)
     dest_filename = [status.to_s, locale, "html"].compact.join(".")
@@ -14,6 +13,7 @@ namespace :i18n do
   
   desc 'Write public/404.html and public/500.html error pages'
   task :write_error_pages => :environment do
+    puts 'Regenerating translated error pages ...'
     [404, 500].each do |status|
       Kassi::Application.config.AVAILABLE_LOCALES.collect{|loc| loc[1]}.each do |locale|
         I18n.with_locale locale do

@@ -5,9 +5,6 @@ sw:
       not_found: ~
       already_confirmed: ~
       not_locked: ~
-      not_saved:
-        one: ~
-        other: ~
   devise:
     failure:
       already_authenticated: ~

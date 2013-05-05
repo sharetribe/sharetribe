@@ -1,6 +1,7 @@
 function initialize_confirmation_pending_form(locale, email_in_use_message) {
 	$('#mistyped_email_link').click(function() { 
-		$('#password_forgotten').slideToggle('fast'); 
+		$('#password_forgotten').slideToggle('fast');
+		$("html, body").animate({ scrollTop: $(document).height() }, 1000); 
 		$('input.email').focus();
 	});
 	var form_id = "#change_mistyped_email_form";
@@ -14,7 +15,7 @@ function initialize_confirmation_pending_form(locale, email_in_use_message) {
      messages: {
        "person[email]": { remote: email_in_use_message }
      },
-     onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls
+     onkeyup: false, //Only do validations when form focus changes to avoid exessive calls
      submitHandler: function(form) {
        disable_and_submit(form_id, form, "false", locale);  
      }
@@ -44,9 +45,9 @@ function prepare_ajax_form(form_id, locale, rules) {
 }
 
 function disable_submit_button(form_id, locale) {
-  $(form_id + ' input[type=submit]').attr('disabled', 'disabled');
+  $(form_id + ' button').attr('disabled', 'disabled');
 	jQuery.getJSON('/assets/locales/' + locale + '.json', function(json) {
-	  $(form_id + ' input[type=submit]').val(json.please_wait);
+	  $(form_id + ' button').text(json.please_wait);
 	});
 }
 

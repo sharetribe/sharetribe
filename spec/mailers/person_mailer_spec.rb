@@ -1,5 +1,9 @@
 require 'spec_helper'
 
+def find_email_body_for(addr)
+  ActionMailer::Base.deliveries.select{ |e| e.to.first == addr}.first
+end
+
 describe PersonMailer do
   fixtures :people, :communities, :community_memberships
   
@@ -13,6 +17,7 @@ describe PersonMailer do
     @test_person2.locale = "en"
     @test_person2.save
     @cookie = (@session.present? ? @session.cookie : nil)
+    @community = FactoryGirl.create(:community)
   end   
 
   it "should send email about a new message" do
@@ -21,9 +26,9 @@ describe PersonMailer do
     @message = FactoryGirl.create(:message)
     @message.conversation = @conversation
     @message.save
-    email = PersonMailer.new_message_notification(@message).deliver
+    email = PersonMailer.new_message_notification(@message, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to unless @test_person2.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
+    assert_equal [@test_person2.email], email.to 
     assert_equal "You have a new message in Sharetribe", email.subject
   end
   
@@ -31,35 +36,38 @@ describe PersonMailer do
     @comment = FactoryGirl.create(:comment)
     @comment.author.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @cookie)
     recipient = @comment.listing.author
-    email = PersonMailer.new_comment_to_own_listing_notification(@comment).deliver
+    email = PersonMailer.new_comment_to_own_listing_notification(@comment, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [recipient.email], email.to unless recipient.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
+    assert_equal [recipient.email], email.to unless recipient.email.nil? 
     assert_equal "Teppo Testaaja has commented on your listing in Sharetribe", email.subject
   end
   
   it "should send email about an accepted and rejected offer or request" do
     @conversation = FactoryGirl.create(:conversation)
-     @conversation.participants = [@test_person2, @test_person]
+    @conversation.participants = [@conversation.listing.author, @test_person2]
     @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @cookie)
     
     @conversation.update_attribute(:status, "accepted")
-    email = PersonMailer.conversation_status_changed(@conversation).deliver
+    message = FactoryGirl.create(:message)
+    @conversation.messages << message
+    @conversation.messages.inspect
+    email = PersonMailer.conversation_status_changed(@conversation, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to unless @test_person2.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
-    assert_equal "Your offer was accepted", email.subject
+    assert_equal [@test_person2.email], email.to
+    assert_equal "Your request was accepted", email.subject
     
     @conversation.update_attribute(:status, "rejected")
-    email = PersonMailer.conversation_status_changed(@conversation).deliver
+    email = PersonMailer.conversation_status_changed(@conversation, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to unless @test_person2.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
-    assert_equal "Your offer was rejected", email.subject
+    assert_equal [@test_person2.email], email.to
+    assert_equal "Your request was rejected", email.subject
   end
   
   it "should send email about a new badge" do
     @badge = FactoryGirl.create(:badge)
-    email = PersonMailer.new_badge(@badge).deliver
+    email = PersonMailer.new_badge(@badge, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@badge.person.email], email.to unless @badge.person.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
+    assert_equal [@badge.person.email], email.to unless @badge.person.email.nil? 
     assert_equal "You have achieved a badge 'Rookie' in Sharetribe!", email.subject
   end
   
@@ -71,9 +79,9 @@ describe PersonMailer do
     @conversation.update_attribute(:status, "accepted")
     @participation = Participation.find_by_person_id_and_conversation_id(@test_person.id, @conversation.id)
     @testimonial = Testimonial.new(:grade => 0.75, :text => "Yeah", :author => @test_person, :receiver => @test_person2, :participation_id => @participation.id)
-    email = PersonMailer.new_testimonial(@testimonial).deliver
+    email = PersonMailer.new_testimonial(@testimonial, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to unless @test_person2.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
+    assert_equal [@test_person2.email], email.to
     assert_equal "Teppo Testaaja has given you feedback in Sharetribe", email.subject
   end
   
@@ -86,9 +94,9 @@ describe PersonMailer do
     @conversation.participants << @test_person2 
     @conversation.update_attribute(:status, "accepted")
     @participation = Participation.find_by_person_id_and_conversation_id(@test_person2.id, @conversation.id)
-    email = PersonMailer.testimonial_reminder(@participation).deliver
+    email = PersonMailer.testimonial_reminder(@conversation, @test_person2, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to unless @test_person2.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
+    assert_equal [@test_person2.email], email.to 
     assert_equal "Reminder: remember to give feedback to Teppo Testaaja", email.subject
   end
   
@@ -103,23 +111,16 @@ describe PersonMailer do
   it "should send email to community admins of new feedback if that setting is on" do
     @feedback = FactoryGirl.create(:feedback)
     @community = FactoryGirl.create(:community, :feedback_to_admin => 1)
-    m = CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id)
+    m = CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id, :status => "accepted")
     m.update_attribute(:admin, true)
     email = PersonMailer.new_feedback(@feedback, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [APP_CONFIG.feedback_mailer_recipients, @test_person.email], email.to
   end
   
-  it "should send email to admins of new contact request" do
-    @contact_request = FactoryGirl.create(:contact_request)
-    email = PersonMailer.contact_request_notification(@contact_request).deliver
-    assert !ActionMailer::Base.deliveries.empty?
-    assert_equal APP_CONFIG.feedback_mailer_recipients.split(", "), email.to
-  end
-  
   it "should send email to community admins of new member if wanted" do
     @community = FactoryGirl.create(:community, :email_admins_about_new_members => 1)
-    m = CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id)
+    m = CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id, :status => "accepted")
     m.update_attribute(:admin, true)
     email = PersonMailer.new_member_notification(@test_person2, @community.domain, @test_person2.email).deliver
     assert !ActionMailer::Base.deliveries.empty?
@@ -127,42 +128,80 @@ describe PersonMailer do
     assert_equal "New member in #{@community.name} Sharetribe", email.subject
   end
   
+  describe "#welcome_email" do
+    
+    before(:each) do
+      @c1 = FactoryGirl.create(:community)
+      @p1 = FactoryGirl.create(:person, :email => "update_tester@example.com")
+      @p1.communities << @c1
+    end
+    
+    it "should welcome a regular member" do
+      @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
+      @email.should deliver_to("update_tester@example.com")
+      @email.should have_subject("Welcome to #{@c1.full_name} - here are some tips to get you started")
+      @email.should have_body_text "Add something you could offer to others"
+      @email.should_not have_body_text "You have now admin rights in this community."
+    end
+    
+    it "should contain custom content if that is defined for the community" do
+      @c1.community_customizations.create(:locale => "en", :welcome_email_content => "Custom email")
+      @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
+      @email.should have_body_text "Custom email"
+      @email.should_not have_body_text "Add something you could offer to others."
+      @email.should_not have_body_text "You have now admin rights in this community."
+    end
+    
+    it "should contain admin info if the receipient is an administrator" do
+      @p1.update_attribute(:is_admin, true)
+      @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
+      @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
+      @email.should deliver_to("update_tester@example.com")
+      @email.should have_subject("You just created #{@c1.full_name} - here are some tips to get you started")
+      @email.should have_body_text "You have now admin rights in this community."
+    end
+  
+  end
+  
   describe "#community_updates" do
     
-    before(:all) do
+    before(:each) do
       @c1 = FactoryGirl.create(:community)
       @p1 = FactoryGirl.create(:person, :email => "update_tester@example.com")
       @p1.communities << @c1
       @l1 = FactoryGirl.create(:listing, 
-          :listing_type => "request", 
+          :share_type => find_or_create_share_type("request"), 
           :title => "bike", 
           :description => "A very nice bike", 
           :created_at => 3.days.ago, 
           :author => @p1).communities = [@c1]
       @l2 = FactoryGirl.create(:listing, 
-          :listing_type => "offer", 
           :title => "hammer", 
           :created_at => 2.days.ago, 
           :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer", 
-          :share_type => "sell").communities = [@c1]
+          :share_type => find_or_create_share_type("sell"))
+      @l2.communities << @c1
       @l3 = FactoryGirl.create(:listing, 
-          :listing_type => "offer", 
           :title => "sledgehammer", 
           :created_at => 12.days.ago, 
           :description => "super <b>shiny</b> sledgehammer, borrow it!", 
-          :share_type => "lend").communities = [@c1]
+          :share_type => find_or_create_share_type("lend")).communities = [@c1]
           
       @email = PersonMailer.community_updates(@p1, @p1.communities.first)
     end
 
     it "should have correct address and subject" do
       @email.should deliver_to("update_tester@example.com")
-      @email.should have_subject("#{@c1.name} Sharetribe community update")
+      @email.should have_subject("Sharetribe #{@c1.name} community update")
     end
     
     it "should contain latest listings" do
       @email.should have_body_text("A very nice bike")
       @email.should have_body_text("new hammer")
+    end
+    
+    it "should have correct links" do
+      @email.should have_body_text(/.*<a href=\"http\:\/\/#{@c1.domain}\.#{APP_CONFIG.domain}\/#{@p1.locale}\/listings\/#{@l2.id}\?auth\=#{@p1.auth_tokens.last.token}\&amp;ref=weeklymail.*/)
     end
     
     it "should pick only new listings" do
@@ -185,17 +224,32 @@ describe PersonMailer do
   
   describe "#deliver_community_updates" do
     before(:each) do
+      
+      # for some reason there were more existing users here than should, which confused results
+      # delete all to have clear table
+      Person.all.each(&:destroy) 
+      
       @c1 = FactoryGirl.create(:community)
+      @c2 = FactoryGirl.create(:community)
       @p1 = FactoryGirl.create(:person)
       @p1.communities << @c1
+      @p2 = FactoryGirl.create(:person)
+      @p2.communities << @c1
+      @p2.communities << @c2
+      
       @l1 = FactoryGirl.create(:listing, 
-          :listing_type => "request", 
+          :share_type => find_or_create_share_type("request"), 
           :title => "bike", 
           :description => "A very nice bike", 
           :created_at => 3.hours.ago, 
           :author => @p1).communities = [@c1]
-      @p2 = FactoryGirl.create(:person)
-      @p2.communities << @c1
+      @l2 = FactoryGirl.create(:listing, 
+          :share_type => find_or_create_share_type("request"), 
+          :title => "motorbike", 
+          :description => "fast!", 
+          :created_at => 1.hours.ago, 
+          :author => @p2).communities = [@c2]
+
       @p3 = FactoryGirl.create(:person)
       @p3.communities << @c1
       @p4 = FactoryGirl.create(:person)
@@ -211,24 +265,27 @@ describe PersonMailer do
       @p1.update_attribute(:min_days_between_community_updates, 1)
       @p2.update_attribute(:min_days_between_community_updates, 1)
       @p3.update_attribute(:min_days_between_community_updates, 7)
-      @p4.update_attribute(:min_days_between_community_updates, 7)   
+      @p4.update_attribute(:min_days_between_community_updates, 7)
     end
     
     it "should send only to people who want it now" do
       PersonMailer.deliver_community_updates
-      ActionMailer::Base.deliveries.size.should == 2
-      ActionMailer::Base.deliveries[0].to.include?(@p2.email).should be_true
-      ActionMailer::Base.deliveries[1].to.include?(@p4.email).should be_true
-           
+      (ActionMailer::Base.deliveries[0].to.include?(@p2.email) || ActionMailer::Base.deliveries[0].to.include?(@p4.email)).should be_true
+      (ActionMailer::Base.deliveries[1].to.include?(@p2.email) || ActionMailer::Base.deliveries[1].to.include?(@p4.email)).should be_true
+      (ActionMailer::Base.deliveries[2].to.include?(@p2.email) || ActionMailer::Base.deliveries[2].to.include?(@p4.email)).should be_true
+      ActionMailer::Base.deliveries.size.should == 3           
     end
     
     it "should contain specific time information" do
       @p1.update_attribute(:community_updates_last_sent_at, 1.day.ago)
       PersonMailer.deliver_community_updates
-      ActionMailer::Base.deliveries.size.should == 3
-      ActionMailer::Base.deliveries[0].body.include?("during the past 1 day").should be_true
-      ActionMailer::Base.deliveries[1].body.include?("during the past 14 days").should be_true
-      ActionMailer::Base.deliveries[2].body.include?("during the past 9 days").should be_true
+      ActionMailer::Base.deliveries.size.should == 4
+      email = find_email_body_for(@p1.email)
+      email.body.include?("during the past 1 day").should be_true
+      email = find_email_body_for(@p2.email)
+      email.body.include?("during the past 14 day").should be_true
+      email = find_email_body_for(@p4.email)
+      email.body.include?("during the past 9 day").should be_true
     end
     
     it "should send with default 7 days to those with nil as last time sent" do
@@ -236,9 +293,11 @@ describe PersonMailer do
       @p5.communities << @c1
       @p5.update_attribute(:community_updates_last_sent_at, nil)     
       PersonMailer.deliver_community_updates
-      ActionMailer::Base.deliveries.size.should == 3
-      ActionMailer::Base.deliveries[2].to.include?(@p5.email).should be_true
-      ActionMailer::Base.deliveries[2].body.include?("during the past 7 days").should be_true
+      ActionMailer::Base.deliveries.size.should == 4
+      email = find_email_body_for(@p5.email)
+      email.should_not be_nil
+      #ActionMailer::Base.deliveries[3].to.include?(@p5.email).should be_true
+      email.body.include?("during the past 7 days").should be_true
     end
     
   end
@@ -251,7 +310,7 @@ describe PersonMailer do
       message = <<-MESSAGE
         New stuff in the service.
         
-        Got check it out at http://example.com!
+        Go check it out at http://example.com!
       MESSAGE
       
       people = [@test_person, @test_person2]
@@ -343,4 +402,5 @@ describe PersonMailer do
     end
     
   end
+  
 end
