@@ -11,6 +11,14 @@ When updating, always run the following commands to update gem set and database 
  - rake RAILS_ENV=production db:migrate
  -  And check this file for changes between your old version and the one you are updating, and do the necessary manual operations if needed.
 
+3.0.2
+-----
+
+This was a big change in the whole user interface to make Sharetribe UI responsive for different screensizes.
+There were challenges that delayed the publishing of the stable open source version and that's why so many changes are packed in one update. In the database side there are also major changes, e.g. changing categories to be dynamic and customizable by community.
+
+There are migrations for all changes, but the possibility of running to issues when updating from earlier versions is considerable, so please back up your data before updating and if encountering any issues, please contact the core team to get help. (Latest instructions how to contact at: https://github.com/sharetribe/sharetribe)
+
 2.4.7
 -----
 
