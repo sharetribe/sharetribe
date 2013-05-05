@@ -4,11 +4,61 @@ module ApplicationHelper
     "ss-pika" => {
       "map" => "ss-maplocation",
       "new_listing" => "ss-addfile",
+      "search"  => "ss-search",
+      "list" => "ss-list",
+      
+      "home" => "ss-home",
+      "community" =>"ss-usergroup",
+      "help" => "ss-help",
+      "admin" => "ss-wrench",
+      
+      "dropdown" => "ss-dropdown",
+      "mail" => "ss-mail",
+      "notifications" => "ss-earth",
+      "login" => "ss-login",
+      "logout" => "ss-logout",
+      "feedback" => "ss-megaphone",
+      "user" => "ss-user",
+      "settings" => "ss-settings",
+      "facebook" => "ss-facebook ss-icon ss-social",
+      
+      
+      "information" => "ss-info",
+      "how_to_use" => "ss-signpost",
+      "privacy" => "ss-lockfile",
+      "terms" => "ss-textfile",
+      
+      
       
     },
     "font-awesome" => {
       "map" => "icon-map-marker",
       "new_listing" => "icon-plus-sign-alt",
+      
+      "search"  => "icon-search",
+      "list" => "icon-reorder",
+      
+      "home" => "icon-home",
+      "community" =>"icon-group",
+      "help" => "icon-question-sign",
+      "admin" => "icon-wrench",
+      
+      "dropdown" => "icon-caret-down",
+      "mail" => "icon-envelope",
+      "notifications" => "icon-globe",
+      "login" => "icon-signin",
+      "logout" => "icon-signout",
+      "feedback" => "icon-bullhorn",
+      "user" => "icon-user",
+      "settings" => " icon-cog",
+      "facebook" => "icon-facebook",
+      
+      
+      "information" => "icon-info-sign",
+      "how_to_use" => "icon-book",
+      "privacy" => "icon-lock",
+      "terms" => "icon-file-alt",
+      
     }    
   }
   
@@ -382,7 +432,7 @@ module ApplicationHelper
     links = [
       { 
         :text => t('layouts.infos.about'),
-        :icon_class => "ss-info", 
+        :icon_class => icon_class("information"), 
         :path => about_infos_path,
         :name => "about"
       }
@@ -390,20 +440,20 @@ module ApplicationHelper
     if @community_customization && !@community_customization.how_to_use.blank?
       links << { 
         :text => t('layouts.infos.how_to_use'),
-        :icon_class => "ss-signpost", 
+        :icon_class => icon_class("how_to_use"), 
         :path => how_to_use_infos_path,
         :name => "how_to_use"
       }
     end
     links << { 
       :text => t('layouts.infos.register_details'),
-      :icon_class => "ss-lockfile", 
+      :icon_class => icon_class("privacy"), 
       :path => privacy_infos_path,
       :name => "privacy"
     }
     links << { 
       :text => t('layouts.infos.terms'),
-      :icon_class => "ss-textfile", 
+      :icon_class => icon_class("terms"), 
       :path => terms_infos_path,
       :name => "terms"
     }

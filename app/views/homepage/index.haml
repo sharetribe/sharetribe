@@ -7,13 +7,13 @@
       = icon_tag("new_listing", ["icon-with-text"])
       .text-with-icon#post_new_listing= t(".post_new_listing")
     %a.offset-link.toggle{href: '#', id: "filters-toggle", data: {toggle: '.feed-filters'}}
-      %i.ss-search
+      = icon_tag("search")
     - if params[:map] == "true"
       %a.offset-link.list-button.toggle{href: root, title: t("homepage.filters.list")}
-        %i.ss-list
+        = icon_tag("list")
     - else
       %a.offset-link.map-button.toggle{href: (root + '?map=true'), title: t("homepage.filters.map")}
-        %i.ss-maplocation
+        = icon_tag("map")
 
   .feed-filters.toggle-menu-feed-filters
     = form_tag({ :action => :index, :controller => :homepage}, :method => "get", :id => "homepage-filters") do
@@ -21,7 +21,7 @@
         %input{name: 'q', id: 'search', value: params[:q], type: 'text', placeholder: t(".what_do_you_need")}
         %button{type: 'submit'}
           .icon-with-text-container
-            %i.ss-search.icon-part
+            = icon_tag("search", ["icon-part"])
             .text-part.hidden= t("homepage.filters.search")
     
       .feed-filter-dropdowns#feed-filter-dropdowns
@@ -37,11 +37,10 @@
 .feed-map-link
   - if params[:map] == "true"
     %a.map-link.list-button{href: root, title: t("homepage.filters.list")}
-      %i.ss-list.icon-with-text
+      = icon_tag("list", ["icon-with-text"])
       .text-with-icon.hidden-text= t("homepage.filters.list")
   - else
     %a.map-link.map-button{href: (root + '?map=true'), title: t("homepage.filters.map")}
-      -# %i.ss-maplocation.icon-with-text
       = icon_tag("map", ["icon-with-text"])
       .text-with-icon.hidden-text= t("homepage.filters.map")      
 
@@ -49,7 +48,7 @@
   - if @listing_count < 10 || (!logged_in? && @private_listing_count > 0)
     .permanent-notification.private-listing-notification
       .icon-with-text-container
-        .ss-info.icon-part
+        = icon_tag("information", ["icon-part"])
         .text-part
           - if ! logged_in? && @private_listing_count > 0
             = t(".private_listing_notification", :listing_count => pluralize(@listing_count, t(".open_listing"), t(".open_listings")), :private_listing_count => @private_listing_count, :log_in_link => link_to(t(".private_listing_notification_log_in"), login_path), :be_verb => (@private_listing_count > 1 ? t(".are")  : t(".is"))).html_safe        

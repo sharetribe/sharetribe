@@ -4,33 +4,33 @@
     .select-tribe.toggle.hidden{data: {toggle: '.tribe-menu', logo_class: "toggled-#{@current_community.service_logo_style}"}, class: @current_community.service_logo_style }
       .current-tribe
         = @current_community.name
-      %i.icon-dropdown.ss-dropdown
+      = icon_tag("dropdown", ["icon-dropdown"])
     
     - if @current_user  
       
       %a.notifications-toggle.toggle.hidden#notifications_link{href: notifications_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.notifications")}
-        %i.icon.ss-earth
+        = icon_tag("notifications", ["icon"])
         = render :partial => "layouts/notifications_badge"
 
       %a.inbox-toggle.toggle.hidden#inbox-link{href: received_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.messages")}
-        %i.icon.ss-mail
+        = icon_tag("mail", ["icon"])
         = render :partial => "layouts/messages_badge"
     
       .user-menu-toggle.toggle.hidden{data: {toggle: '.user-menu'}}
         = image_tag @current_user.image.url(:thumb), alt: '', class: 'user-avatar'
         .user-name= @current_user.name_or_username
 
-        %i.icon-dropdown.ss-dropdown
+        = icon_tag("dropdown", ["icon-dropdown"])
         = render :partial => "layouts/user_badge"
     
     - else  
     
       .login-menu-toggle.toggle.hidden#login-toggle-button{data: {toggle: '.login-menu'}}
-        .login-icon.ss-login
+        = icon_tag("login", ["login-icon"])
         .login-text= t("layouts.logged_in.login")
         
       %a.feedback-menu-toggle.toggle.hidden{href: new_user_feedback_path}
-        .feedback-icon.ss-megaphone
+        = icon_tag("feedback", ["feedback-icon"])
         .feedback-text= t("header.contact_us")
       
       
@@ -47,29 +47,29 @@
     - if @current_user
       %nav.user-menu.toggle-menu.hidden
         %a.profile-menu-button{href: person_path(@current_user)}
-          .ss-user.icon-with-text
+          = icon_tag("user", ["icon-with-text"])
           .text-with-icon
             = t("header.profile")
         %a.inbox-menu-button{href: received_person_messages_path(:person_id => @current_user.id.to_s)}
-          .ss-mail.icon-with-text
+          = icon_tag("mail", ["icon-with-text"])
           .text-with-icon
             = t("layouts.conversations.messages") 
             = render :partial => "layouts/messages_badge"
         %a.notifications-menu-button{href: notifications_person_messages_path(:person_id => @current_user.id.to_s)}
-          .ss-earth.icon-with-text
+          = icon_tag("notifcations", ["icon-with-text"])
           .text-with-icon
             = t("layouts.conversations.notifications")
             = render :partial => "layouts/notifications_badge"
         %a.feedback-menu-button{href: new_user_feedback_path}
-          .ss-megaphone.icon-with-text
+          = icon_tag("feedback", ["icon-with-text"])
           .text-with-icon
             = t("header.contact_us")
         %a{href: person_settings_path(@current_user)}
-          .ss-settings.icon-with-text
+          = icon_tag("settings", ["icon-with-text"])
           .text-with-icon
             = t("layouts.logged_in.settings")
         %a{href: logout_path}
-          .ss-logout.icon-with-text
+          = icon_tag("logout", ["icon-with-text"])
           .text-with-icon
             = t("layouts.logged_in.logout")
     
@@ -79,7 +79,7 @@
           = hidden_field_tag :community, @current_community.domain
         - if APP_CONFIG.fb_connect_id && ! @facebook_merge && @current_community && ! @current_community.label.eql?("okl")
           %a.fb-connect{:href => person_omniauth_authorize_path(:facebook)}
-            %i.ss-icon.ss-social.ss-facebook.fb-icon
+            = icon_tag("facebook", ["fb-icon"])
             .fb-text= t("sessions.new.log_in_with_your_facebook_account")
           %p.login-form= t("sessions.new.or_sign_up_with_your_username")
         = text_field_tag "person[login]", nil, :value => session[:form_login], :placeholder => t("common.username_or_email"), :id => :upper_person_login

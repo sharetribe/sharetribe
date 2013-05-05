@@ -164,10 +164,10 @@ default: &default_settings
   global_service_name: Sharetribe
   
   # Icon set
-  # By default Sharetribe uses the Font Awesome Icon Pack
+  # By default Sharetribe uses the Font Awesome Icon Pack 
   # http://fortawesome.github.io/Font-Awesome/
-  # If you want to use another icon set, you can specify it here
-  # Currently only othe option is "ss-pika" (proprietary icon set)
+  # If you want to use another icon set than "font-awesome", you can specify it here
+  # Currently only othe option is "ss-pika" (a proprietary icon set)
   icon_pack: "font-awesome"
   
   # The default consent (terms of use) all the communities will use.
