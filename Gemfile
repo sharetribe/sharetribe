@@ -62,6 +62,9 @@ gem "rspec-rails"
 gem "truncate_html"
 gem 'money-rails'
 
+#ouisharelabs
+gem 'rdf-turtle'
+
 group :test do
   gem 'capybara'
   gem 'cucumber-rails', :require => false

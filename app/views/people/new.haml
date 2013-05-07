@@ -23,6 +23,17 @@
       = t('okl.member_id_is_your_username')
       = link_to t("okl.join_here"), "http://www.omakotiliitto.fi/liittymislomake", :class => "green_part_link"
   
+  -# Experimental feature for importing profiledata via RDF
+  - if @current_community.uses_rdf_profile_import?
+    = form_tag("/people/fetch_rdf_profile", :method => "get") do
+      %p
+        You can prefill your account information easily if you have an existing profile somewhere online and you can get an URL to the RDF version of your info.
+      = label_tag(:rdf_profile_url, t("Your RDF profile URL:"))
+      = text_field_tag(:rdf_profile_url) 
+      = submit_tag("Prefill the from") 
+  
+  
+  
   = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form|
     
     -# Invite code
@@ -40,7 +51,7 @@
     
     -# Name
     = form.label :given_name, t('.given_name')
-    = form.text_field :given_name, :class => :text_field, :maxlength => "30"
+    = form.text_field :given_name, :class => :text_field, :maxlength => "30", :value => params[:person_given_name]
     = form.label :family_name, t('.family_name')
     = form.text_field :family_name, :class => :text_field, :maxlength => "30"
     - if @current_community.select_whether_name_is_shown_to_everybody

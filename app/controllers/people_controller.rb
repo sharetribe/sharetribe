@@ -1,6 +1,10 @@
+require 'rdf'
+require 'rdf/ntriples'
+
 class PeopleController < Devise::RegistrationsController
   
   include PeopleHelper
+  include RDF
   
   skip_before_filter :verify_authenticity_token, :only => [:creates]
   
@@ -349,6 +353,22 @@ class PeopleController < Devise::RegistrationsController
     change_active_status("deactivated")
   end
 
+  def fetch_rdf_profile
+    puts "RDF URL #{params[:rdf_profile_url]}"
+    graph = RDF::Graph.load(params[:rdf_profile_url])
+    name_from_rdf = ""
+    
+    query = RDF::Query.new do
+      pattern [:person, RDF.type,  FOAF.Person]
+      pattern [:person, FOAF.name, :name]
+    end
+
+    query.execute(graph).each do |solution|
+      name_from_rdf = solution.name
+    end
+    redirect_to new_person_path :person_given_name => name_from_rdf
+  end
+  
   private
   
   def verify_recaptcha_unless_already_accepted(options={})

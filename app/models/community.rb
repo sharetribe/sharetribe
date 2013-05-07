@@ -359,6 +359,10 @@ class Community < ActiveRecord::Base
     settings["require_organization_membership"] == true    
   end
   
+  def uses_rdf_profile_import?
+    settings["use_rdf_profile_import"] == true    
+  end
+  
   # categories_tree
   # Returns a hash that represents the categorization tree that is in use at this community
   # Some assumptions are made here:
