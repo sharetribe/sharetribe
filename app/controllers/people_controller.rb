@@ -44,6 +44,13 @@ class PeopleController < Devise::RegistrationsController
     redirect_to root if logged_in?
     session[:invitation_code] = params[:code] if params[:code]
     @person = Person.new
+    
+    if params[:person] #if values given in params, set them for the form
+      @person.given_name = params[:person][:given_name]
+      @person.family_name = params[:person][:family_name]
+      @person.email = params[:person][:email]
+      @person.username = params[:person][:username]
+    end
     @container_class = params[:private_community] ? "container_12" : "container_24"
     @grid_class = params[:private_community] ? "grid_6 prefix_3 suffix_3" : "grid_10 prefix_7 suffix_7"
   end
@@ -354,22 +361,33 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def fetch_rdf_profile
-    puts "RDF URL #{params[:rdf_profile_url]}"
     graph = RDF::Graph.load(params[:rdf_profile_url])
-    name_from_rdf = ""
-    
-    query = RDF::Query.new do
-      pattern [:person, RDF.type,  FOAF.Person]
-      pattern [:person, FOAF.name, :name]
-    end
 
-    query.execute(graph).each do |solution|
-      name_from_rdf = solution.name
-    end
-    redirect_to new_person_path :person_given_name => name_from_rdf
+    fetched_data = {}
+    name = query_graph(graph, "name")
+    given_name = query_graph(graph, "givenName")
+    fetched_data["given_name"] = given_name || name
+    fetched_data["family_name"] = query_graph(graph, "familyName") 
+    fetched_data["username"] = query_graph(graph, "nick") || given_name
+    fetched_data["email"] = query_graph(graph, "mbox").to_s.sub("mailto:","")
+    
+    redirect_to new_person_path :person => fetched_data, :rdf_profile_url => params[:rdf_profile_url]
   end
   
   private
+  
+  def query_graph(graph, field)
+    solutions = RDF::Query.execute(graph) do
+      pattern [:person, RDF.type, FOAF.Person]
+      pattern [:person, FOAF.send(field), :result]
+    end
+    
+    if solutions.present?
+      return solutions.first.result
+    else
+      return nil
+    end
+  end
   
   def verify_recaptcha_unless_already_accepted(options={})
     # Check if this captcha is already accepted, because ReCAPTCHA API will return false for further queries
