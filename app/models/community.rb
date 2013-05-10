@@ -261,7 +261,7 @@ class Community < ActiveRecord::Base
       
       # Copy original SCSS and do customizations by search & replace
       
-      FileUtils.cp("app/assets/stylesheets/application.scss", "app/assets/stylesheets/#{stylesheet_filename}.scss" )
+      FileUtils.cp("app/assets/stylesheets/application.scss.erb", "app/assets/stylesheets/#{stylesheet_filename}.scss" )
       FileUtils.cp("app/assets/stylesheets/customizations.scss", "app/assets/stylesheets/customizations-#{community_filename}.scss" )
       replace_in_file("app/assets/stylesheets/#{stylesheet_filename}.scss",
                       "@import 'customizations';",
@@ -357,6 +357,10 @@ class Community < ActiveRecord::Base
   
   def requires_organization_membership?
     settings["require_organization_membership"] == true    
+  end
+  
+  def uses_rdf_profile_import?
+    settings["use_rdf_profile_import"] == true    
   end
   
   # categories_tree
