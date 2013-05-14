@@ -261,9 +261,9 @@ class Community < ActiveRecord::Base
       
       # Copy original SCSS and do customizations by search & replace
       
-      FileUtils.cp("app/assets/stylesheets/application.scss.erb", "app/assets/stylesheets/#{stylesheet_filename}.scss" )
+      FileUtils.cp("app/assets/stylesheets/application.scss.erb", "app/assets/stylesheets/#{stylesheet_filename}.scss.erb" )
       FileUtils.cp("app/assets/stylesheets/customizations.scss", "app/assets/stylesheets/customizations-#{community_filename}.scss" )
-      replace_in_file("app/assets/stylesheets/#{stylesheet_filename}.scss",
+      replace_in_file("app/assets/stylesheets/#{stylesheet_filename}.scss.erb",
                       "@import 'customizations';",
                       "@import 'customizations-#{community_filename}';",
                       true)
@@ -309,7 +309,7 @@ class Community < ActiveRecord::Base
         FileUtils.cp("app/assets/webfonts/ss-social.css","app/assets/stylesheets/ss-social.scss")
         FileUtils.cp("app/assets/webfonts/ss-pika.css","app/assets/stylesheets/ss-pika.scss")
         
-        Compass.compiler.compile("app/assets/stylesheets/#{stylesheet_filename}.scss", css_file)
+        Compass.compiler.compile("app/assets/stylesheets/#{stylesheet_filename}.scss.erb", css_file)
         
         url = new_filename_with_time_stamp
         
