@@ -80,6 +80,14 @@
     
     - unless @current_community.settings && @current_community.settings["use_trustcloud"]
       .bottom-margin
+  
+  - if @current_community.requires_organization_membership?
+    .profile-organizations.section
+      %h2
+        = t(".presented_organizations")
+      #profile-organizations-list
+        = render :partial => "organizations/profile_organization", :collection => @person.organizations, :as => :organization
+      = link_to t(".add_new_organization"), new_organization_path
         
   .profile-listings.section
     %h2
