@@ -267,9 +267,9 @@ class Community < ActiveRecord::Base
                       "@import 'customizations';",
                       "@import 'customizations-#{community_filename}';",
                       true)
-    
+
+      # ERB compiling with Compass kept failing, so do the only ERB change manually here    
       icon_import_line = (APP_CONFIG.icon_pack == "ss-pika" ? "@import 'ss-social';\n@import 'ss-pika';" : "")
-      # ERB compiling with Compass kept failing, so do the only ERB change manually here  
       replace_in_file("app/assets/stylesheets/#{stylesheet_filename}.scss",
                       /<%= APP_CONFIG.icon_pack[^%]+%>/,
                       icon_import_line,
