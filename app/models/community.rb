@@ -261,12 +261,20 @@ class Community < ActiveRecord::Base
       
       # Copy original SCSS and do customizations by search & replace
       
-      FileUtils.cp("app/assets/stylesheets/application.scss.erb", "app/assets/stylesheets/#{stylesheet_filename}.scss.erb" )
+      FileUtils.cp("app/assets/stylesheets/application.scss.erb", "app/assets/stylesheets/#{stylesheet_filename}.scss" )
       FileUtils.cp("app/assets/stylesheets/customizations.scss", "app/assets/stylesheets/customizations-#{community_filename}.scss" )
-      replace_in_file("app/assets/stylesheets/#{stylesheet_filename}.scss.erb",
+      replace_in_file("app/assets/stylesheets/#{stylesheet_filename}.scss",
                       "@import 'customizations';",
                       "@import 'customizations-#{community_filename}';",
                       true)
+    
+      icon_import_line = (APP_CONFIG.icon_pack == "ss-pika" ? "@import 'ss-social';\n@import 'ss-pika';" : "")
+      # ERB compiling with Compass kept failing, so do the only ERB change manually here  
+      replace_in_file("app/assets/stylesheets/#{stylesheet_filename}.scss",
+                      /<%= APP_CONFIG.icon_pack[^%]+%>/,
+                      icon_import_line,
+                      true)
+                      
       if custom_color1.present? 
         replace_in_file("app/assets/stylesheets/customizations-#{community_filename}.scss",
                         /\$link:\s*#\w{6};/,
@@ -286,13 +294,12 @@ class Community < ActiveRecord::Base
                         "$cover-photo-url: \"#{cover_photo.url(:header)}\";",
                         true)
       end
-      
       url = stylesheet_filename
-      unless Rails.env.development? # Dev mode uses on-the-fly SCSS compiling
+      unless false #Rails.env.development? # Dev mode uses on-the-fly SCSS compiling
         
         # Generate CSS from SCSS
         css_file = "public/assets/#{new_filename_with_time_stamp}.css"
-        `mkdir public/assets` # Just in case it doesn't exist
+        `mkdir public/assets` unless File.exists?("public/assets")
         
         
         Compass.add_configuration(
@@ -309,7 +316,7 @@ class Community < ActiveRecord::Base
         FileUtils.cp("app/assets/webfonts/ss-social.css","app/assets/stylesheets/ss-social.scss")
         FileUtils.cp("app/assets/webfonts/ss-pika.css","app/assets/stylesheets/ss-pika.scss")
         
-        Compass.compiler.compile("app/assets/stylesheets/#{stylesheet_filename}.scss.erb", css_file)
+        Compass.compiler.compile("app/assets/stylesheets/#{stylesheet_filename}.scss", css_file)
         
         url = new_filename_with_time_stamp
         
