@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425140120) do
+ActiveRecord::Schema.define(:version => 20130514214222) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -308,6 +308,7 @@ ActiveRecord::Schema.define(:version => 20130425140120) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "image_processing"
   end
 
   add_index "listing_images", ["listing_id"], :name => "index_listing_images_on_listing_id"

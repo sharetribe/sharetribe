@@ -12,6 +12,7 @@ class ListingImage < ActiveRecord::Base
 
   
   has_attached_file :image, paperclip_options
+  process_in_background :image, :processing_image_url => "/images/medium/processing.png" 
   validates_attachment_presence :image
   validates_attachment_size :image, :less_than => 8.megabytes
   validates_attachment_content_type :image,
