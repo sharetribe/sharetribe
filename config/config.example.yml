@@ -185,6 +185,10 @@ default: &default_settings
   merchant_api_user_id: 
   merchant_api_password:
   merchant_registration_mode:
+    
+  # Processing uploaded images can be done in a background process, and that is recommended for
+  # environments where long processing times can cause timeouts (e.g. Heroku)
+  delayed_image_processing: true
   
   # Below it is possible to specify different settings for different
   # environments. If you are not developing or testing Sharetribe, you 

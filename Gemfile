@@ -34,6 +34,7 @@ gem 'database_cleaner'
 gem 'rest-client', '>= 1.6.0'
 gem 'acts-as-taggable-on'
 gem 'paperclip'
+gem 'delayed_paperclip'
 gem 'aws-sdk'
 gem "will_paginate"
 gem 'whenever' # could be removed as not currently used

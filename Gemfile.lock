@@ -91,6 +91,8 @@ GEM
     delayed_job_active_record (0.3.3)
       activerecord (>= 2.1.0, < 4)
       delayed_job (~> 3.0)
+    delayed_paperclip (2.5.1.0)
+      paperclip (>= 3.3.0)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -346,6 +348,7 @@ DEPENDENCIES
   database_cleaner
   delayed_job
   delayed_job_active_record
+  delayed_paperclip
   devise
   devise-encryptable
   dynamic_form
