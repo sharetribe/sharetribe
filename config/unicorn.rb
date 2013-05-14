@@ -1,5 +1,5 @@
 worker_processes 2
-timeout 180
+timeout APP_CONFIG.unicorn_timeout || 180
 preload_app true
 
 before_fork do |server, worker|

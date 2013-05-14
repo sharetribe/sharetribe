@@ -29,8 +29,11 @@
     - unless @listing.listing_images.empty?
       .item-image
         - @listing.listing_images.each do |listing_image|
-          %a{:href => "#", :id => "listing-image-link"}
-            = image_tag listing_image.image.url(:medium), :alt => listed_listing_title(@listing)
+          - unless listing_image.image_processing
+            %a{:href => "#", :id => "listing-image-link"}
+              = image_tag listing_image.image.url(:medium), :alt => listed_listing_title(@listing)
+          - else
+            = t("listings.show.processing_uploaded_image")
     
     - if @listing.description && !@listing.description.blank?
       - text_with_line_breaks do
