@@ -367,7 +367,7 @@ class Listing < ActiveRecord::Base
   # And return a string here, as that's what expected in most existing cases (e.g. translation strings)
   def listing_type
     return nil if share_type.nil?
-    share_type.top_level_parent.name
+    return share_type.top_level_parent.transaction_type || share_type.top_level_parent.name
   end
   
   # Returns true if listing exists and valid_until is set
