@@ -3,6 +3,7 @@ Given /^I am logged in(?: as "([^"]*)")?$/ do |person|
   person = Person.find_by_username(username) || FactoryGirl.create(:person, :username => username)
   login_as(person, :scope => :person)
   visit root_path(:locale => :en)
+  @logged_in_user = person
 end
 
 Given /^I log in(?: as "([^"]*)")?$/ do |person|

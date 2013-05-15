@@ -4,8 +4,13 @@ Given /^community "(.*?)" requires organization membership$/ do |community|
   c.save!
 end
 
-Given /^there is an organization "(.*?)"(?: with email requirement "(.*?)")?$/ do |name, allowed_emails|
-  FactoryGirl.create(:organization, :name => name, :allowed_emails => allowed_emails)
+Given /^there is a (seller|non\-seller) organization "(.*?)"(?: with email requirement "(.*?)")?$/ do |seller_status, name, allowed_emails|
+  org_params = {:name => name, :allowed_emails => allowed_emails}
+  
+  if seller_status == "non-seller"
+    org_params.merge!({:merchant_id => nil, :merchant_key => nil})
+  end
+  FactoryGirl.create(:organization, org_params)
 end
 
 Given /^"(.*?)" is member of organization that has registered as a seller$/ do |username|
@@ -37,5 +42,10 @@ end
 
 When /^I click Osuuspankki logo$/ do
   page.find('input[src="https://payment.checkout.fi/static/img/osuuspankki.png"]').click
+end
+
+Then /^organization "(.*?)" should have a merchant_id$/ do |org_name|
+  org = Organization.find_by_name!(org_name)
+  org.merchant_id.should_not be_nil
 end
 

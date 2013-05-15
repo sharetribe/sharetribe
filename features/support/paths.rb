@@ -30,6 +30,8 @@ module NavigationHelpers
       person_message_path(:person_id => @people[$1].id, :id => @conversation.id.to_s, :locale => "en")
     when /^the profile page of "(.*)"$/i
       person_path(:id => @people[$1].id, :locale => "en")
+    when /^my profile page$/i
+      person_path(:id => @logged_in_user.id, :locale => "en")
     when /^the badges page of "(.*)"$/i
       person_badges_path(:person_id => @people[$1].id, :locale => "en")
     when /^the testimonials page of "(.*)"$/i
