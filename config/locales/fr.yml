@@ -126,7 +126,7 @@ fr:
       reject_offer: "Pas cette fois"
       reject_request: "Pas cette fois"
       close_listing: "Clore l'annonce %{listing_title_link}"
-      update_later: "Mettre à jour l'annonce plus tard"
+      update_later: "Ne pas clore l'annonce (vous pourrez la modifier ou la clore plus tard)"
       optional_message: "Message complémentaire"
       price_to_pay: "Montant total à payer"
     confirm:
@@ -417,7 +417,7 @@ fr:
       you_have_not_yet_accepted_or_rejected_request: "Vous n'avez pas encore accepté ou refusé la demande %{title} reçue %{date}."
       show_thread: "Voir la conversation"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Vous n'avez pas encore confirmé ou annulé la demande %{request_link} que vous avez reçu %{date} de %{other_party_full_name}. Si la demande a été satisfaite, vous devriez la marquer comme réalisée. Vous pourrez ensuite donner un avis sur %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Vous n'avez pas encore confirmé ou annulé la demande %{request_link} que vous avez reçue %{date} de %{other_party_full_name}. Si la demande a été satisfaite, vous devriez la marquer comme réalisée. Vous pourrez ensuite donner un avis sur %{other_party_given_name}."
       remember_to_confirm_request: "Rappel de confirmation ou d'annulation d'une demande"
       if_will_not_happen_you_should_cancel: "Si vous pensez que cette demande ne sera pas réalisée pour une raison ou une autre, vous pouvez %{cancel_it_link}."
       cancel_it_link_text: l'annuler
@@ -1200,6 +1200,7 @@ fr:
       time: fois
       times: fois
       times_viewed: Vu
+      processing_uploaded_image: "(Traitement de l'image envoyée...)"
   mapview:
     index:
       all_categories: "Toutes les catégories"
