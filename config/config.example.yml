@@ -188,7 +188,7 @@ default: &default_settings
     
   # Processing uploaded images can be done in a background process, and that is recommended for
   # environments where long processing times can cause timeouts (e.g. Heroku)
-  delayed_image_processing: true
+  delayed_image_processing: false
   
   # Below it is possible to specify different settings for different
   # environments. If you are not developing or testing Sharetribe, you 
@@ -267,3 +267,5 @@ test:
   # never create merchant accounts in tests
   merchant_registration_mode: stub
 
+  # Keep tests simpler with immediate image processing
+  delayed_image_processing: false
