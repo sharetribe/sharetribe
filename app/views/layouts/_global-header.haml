@@ -56,7 +56,7 @@
             = t("layouts.conversations.messages") 
             = render :partial => "layouts/messages_badge"
         %a.notifications-menu-button{href: notifications_person_messages_path(:person_id => @current_user.id.to_s)}
-          = icon_tag("notifcations", ["icon-with-text"])
+          = icon_tag("notifications", ["icon-with-text"])
           .text-with-icon
             = t("layouts.conversations.notifications")
             = render :partial => "layouts/notifications_badge"

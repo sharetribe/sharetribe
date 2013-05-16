@@ -6,7 +6,7 @@
     %h2
       = t('.connect_your_facebook_to_kassi')
     .facebook-account-info
-      %i.ss-icon.ss-social.ss-facebook.fb-icon.link-icon
+      = icon_tag("facebook", ["fb-icon"])
       .link-text
         = t(".facebook_account", :name => @facebook_name, :email => @facebook_email )
         = "#{@facebook_name} (#{@facebook_email})"

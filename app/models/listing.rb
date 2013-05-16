@@ -569,7 +569,7 @@ class Listing < ActiveRecord::Base
       :listing_type => self.listing_type,
       :category => self.category.name,
       :id => self.id,
-      :icon => self.icon_string
+      :icon => icon_class(self.share_type.name)
     }
     if self.origin_loc
       hash.merge!({:latitude => self.origin_loc.latitude,

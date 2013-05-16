@@ -126,7 +126,7 @@ fi:
       reject_offer: "Ei tällä kertaa"
       reject_request: "Ei tällä kertaa"
       close_listing: "Sulje ilmoitus %{listing_title_link}"
-      update_later: "Päivitä ilmoitus ajan tasalle myöhemmin"
+      update_later: "Älä sulje ilmoitusta"
       optional_message: "Vapaaehtoinen viesti"
       price_to_pay: "Maksettava kokonaishinta"
     confirm:
@@ -934,8 +934,7 @@ fi:
       send_comment: "Lähetä kommentti"
       to_send_a_comment: "jotta voisit kommentoida ilmoitusta."
       write_comment: "Kirjoita uusi kommentti:"
-      you_cannot_send_a_new_comment_because_offer_is_closed: "Et voi lähettää uutta kommenttia koska tarjous on suljettu."
-      you_cannot_send_a_new_comment_because_request_is_closed: "Et voi lähettää uutta kommenttia koska pyyntö on suljettu."
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Et voi lähettää uutta kommenttia koska ilmoitus on suljettu."
       you_must: "Sinun täytyy"
       subscribe_to_comments: "Ilmoita minulle uusista kommenteista ja päivityksistä"
     edit:
@@ -1178,8 +1177,7 @@ fi:
       select_category: "Valitse ilmoituskategoria"
     please_comment: Kommentoi
     reply_link:
-      offer_closed: "Tarjous on suljettu"
-      request_closed: "Pyyntö on suljettu"
+      listing_closed: "Ilmoitus on suljettu"
     show:
       add_your_phone_number: "Lisää puhelinnumerosi"
       add_profile_picture: "Lisää profiilikuva"

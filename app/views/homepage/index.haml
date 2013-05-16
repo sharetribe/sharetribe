@@ -10,7 +10,7 @@
       = icon_tag("search")
     - if params[:map] == "true"
       %a.offset-link.list-button.toggle{href: root, title: t("homepage.filters.list")}
-        = icon_tag("list")
+        = icon_tag("list", ["list-icon-margin"])
     - else
       %a.offset-link.map-button.toggle{href: (root + '?map=true'), title: t("homepage.filters.map")}
         = icon_tag("map")
@@ -37,7 +37,7 @@
 .feed-map-link
   - if params[:map] == "true"
     %a.map-link.list-button{href: root, title: t("homepage.filters.list")}
-      = icon_tag("list", ["icon-with-text"])
+      = icon_tag("list", ["icon-with-text list-icon-margin"])
       .text-with-icon.hidden-text= t("homepage.filters.list")
   - else
     %a.map-link.map-button{href: (root + '?map=true'), title: t("homepage.filters.map")}

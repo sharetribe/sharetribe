@@ -28,6 +28,76 @@ module ApplicationHelper
       "privacy" => "ss-lockfile",
       "terms" => "ss-textfile",
       
+      "offer" => "ss-share",
+      "request" => "ss-tip",
+      "item" => "ss-box",
+      "favor" => "ss-heart",
+      "rideshare" => "ss-car",
+      "housing" => "ss-warehouse",
+      "other" => "ss-file",
+      "tools" => "ss-wrench",
+      "sports" => "ss-tabletennis",
+      "music" => "ss-music",
+      "books" => "ss-book",
+      "games" => "ss-fourdie",
+      "furniture" => "ss-lodging",
+      "outdoors" => "ss-campfire",
+      "food" => "ss-sidedish",
+      "electronics" => "ss-smartphone",
+      "pets" => "ss-tropicalfish",
+      "film" => "ss-moviefolder",
+      "clothes" => "ss-hanger",
+      "garden" => "ss-tree",
+      "travel" => "ss-departure",
+      "give_away" => "ss-gift",
+      "share_for_free" => "ss-gift",
+      "accept_for_free" => "ss-gift",
+      "lend" => "ss-flowertag",
+      "borrow" => "ss-flowertag",
+      "offer_to_swap" => "ss-reload",
+      "request_to_swap" => "ss-reload",
+      "buy" => "ss-moneybag",
+      "sell" => "ss-moneybag",
+      "rent" => "ss-pricetag",
+      "rent_out" => "ss-pricetag",
+      "job" => "ss-briefcase",
+      "announcement" => "ss-newspaper",
+      "news" => "ss-newspaper",
+      "wood_based_materials" => "ss-tree",
+      "plastic_and_rubber" => "ss-disc",
+      "metal" => "ss-handbag",
+      "concrete_and_brick" => "ss-form",
+      "glass_and_porcelain" => "ss-fragile",
+      "textile_and_leather" => "ss-hanger",
+      "soil_materials" => "ss-cloud",
+      "liquid_materials" => "ss-droplet",
+      "manufacturing_error_materials" => "ss-wrench",
+      "misc_material" => "ss-box",
+      "clothing" => "ss-hanger",
+      "accessories" => "ss-handbag",
+      "designers" => "ss-star",
+      "mealsharing" => "ss-sidedish",
+      "activities" => "ss-usergroup",
+      "accommodation" => "ss-lodging",
+      "search_material" => "ss-search",
+      "sell_material" => "ss-moneybag",
+      "give_away_material" => "ss-gift",
+      
+      "testimonial" => "ss-star",
+      "like" => "ss-like",
+      "dislike" => "ss-dislike",
+      "calendar" => "ss-calendar",
+      "phone" => "ss-phone",
+      "clock" => "ss-alarmclock",
+      "eye" => "ss-view",
+      "cross" => "ss-delete",
+      "chat_bubble" => "ss-chat",
+      "tag" => "ss-tag",
+      "lock" => "ss-lock",
+      "unlock" => "ss-unlock",
+      "edit" => "ss-draw",
+      "profile" => "ss-userfile",
+      "avatar" => "ss-picturefile"
       
       
     },
@@ -59,6 +129,55 @@ module ApplicationHelper
       "privacy" => "icon-lock",
       "terms" => "icon-file-alt",
       
+      "offer" => "icon-share",
+      "request" => "icon-lightbulb",
+      "item" => "icon-briefcase",
+      "favor" => "icon-heart",
+      "rideshare" => "icon-truck",
+      "housing" => "icon-building",
+      "other" => "icon-file",
+      "tools" => "icon-wrench",
+      "sports" => "icon-trophy",
+      "music" => "icon-music",
+      "books" => "icon-book",
+      "games" => "icon-magic",
+      "furniture" => "icon-picture",
+      "outdoors" => "icon-fire",
+      "food" => "icon-food",
+      "electronics" => "icon-mobile-phone",
+      "pets" => "icon-github-alt",
+      "film" => "icon-film",
+      "clothes" => "icon-headphones",
+      "garden" => "icon-leaf",
+      "travel" => "icon-plane",
+      "give_away" => "icon-gift",
+      "share_for_free" => "icon-gift",
+      "accept_for_free" => "icon-gift",
+      "lend" => "icon-gift",
+      "borrow" => "icon-gift",
+      "offer_to_swap" => "icon-exchange",
+      "request_to_swap" => "icon-exchange",
+      "buy" => "icon-money",
+      "sell" => "icon-money",
+      "rent" => "icon-money",
+      "rent_out" => "icon-money",
+      "job" => "icon-briefcase",
+      
+      "testimonial" => "icon-star",
+      "like" => "icon-thumbs-up",
+      "dislike" => "icon-thumbs-down",
+      "calendar" => "icon-calendar",
+      "phone" => "icon-phone",
+      "clock" => "icon-time",
+      "eye" => "icon-eye-open",
+      "cross" => "icon-remove",
+      "chat_bubble" => "icon-comment",
+      "tag" => "icon-tag",
+      "lock" => "icon-lock",
+      "unlock" => "icon-unlock",
+      "edit" => "icon-edit",
+      "profile" => "ss-user",
+      "avatar" => "icon-picture"
     }    
   }
   
@@ -68,6 +187,7 @@ module ApplicationHelper
   end
   
   def icon_class(icon_name)
+    
     icon_pack = APP_CONFIG.icon_pack || "font-awesome"
     icon = ICONS[icon_pack][icon_name]
     icon = "icon-circle-blank" if icon.nil?
@@ -476,7 +596,7 @@ module ApplicationHelper
       },
       {
         :text => t("admin.emails.new.send_email_to_members"),
-        :icon_class => "ss-mail", 
+        :icon_class => icon_class("mail"), 
         :path => new_admin_community_email_path(:community_id => @current_community.id),
         :name => "email_members"
       },
@@ -494,13 +614,13 @@ module ApplicationHelper
     [
       { 
         :text => t("layouts.conversations.messages"),
-        :icon_class => "ss-mail", 
+        :icon_class => icon_class("mail"), 
         :path => received_person_messages_path(:person_id => person.id.to_s),
         :name => "messages"
       },
       {
         :text => t("layouts.conversations.notifications"),
-        :icon_class => "ss-earth", 
+        :icon_class => icon_class("notifications"), 
         :path => notifications_person_messages_path(:person_id => person.id.to_s),
         :name => "notifications"
       } 
@@ -512,13 +632,13 @@ module ApplicationHelper
     [
       { 
         :text => t("layouts.settings.profile"),
-        :icon_class => "ss-userfile", 
+        :icon_class => icon_class("profile"),  
         :path => profile_person_settings_path(:person_id => person.id.to_s),
         :name => "profile"
       },
       {
         :text => t("layouts.settings.avatar"),
-        :icon_class => "ss-picturefile", 
+        :icon_class => icon_class("avatar"),  
         :path => avatar_person_settings_path(:person_id => person.id.to_s),
         :name => "avatar"
       },
