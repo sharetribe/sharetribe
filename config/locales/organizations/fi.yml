@@ -31,6 +31,10 @@ fi:
       organization_website: "Organisaation verkkosivun osoite"
       not_valid_company_id: "Y-tunnus ei ole oikean muotoinen, esim. 1234567-8"
       fill_in_all_details: "Sinun täytyy täyttää kaikki myyjärekisteröinnin kentät"
+      changes_saved: "Muutokset tallennettu"
+      error_with_organization_registration: "Ennakoimaton virhe myyjäksi rekisteröitymisessä, ota yhteyttä ylläpitoon."
+    profile_organization:
+      edit: "Muokkaa"
   listings:
     show:
       listing_added_by: "Ilmoituksen lisäsi"
@@ -39,6 +43,10 @@ fi:
     form:
       organization:
         organization: "Organisaatio"
+  people:
+    show:
+      presented_organizations: "Edustetut organisaatiot"
+      add_new_organization: "Lisää uusi organisaatio, jota edustat"
   activerecord: 
     attributes:
       organization:

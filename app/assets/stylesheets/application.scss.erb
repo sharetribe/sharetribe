@@ -1,17 +1,24 @@
-<% environment.context_class.instance_eval { include ScssHelper } %>
-@import 'customizations';  // color presets and cover image
+@import 'customizations';   // color presets and cover image
 
-@import 'compass';         // The Compass framework
+@import 'compass';          // The Compass framework
 
 @import "compass/css3/images"; 
 @import "compass/utilities/general/hacks";
 
 
-@import 'reset';           // jonikorpi's custom CSS reset
-@import 'type';            // typography presets and tools
-@import 'media-queries';   // media query presets
-@import 'font-awesome.min';// Font-Awesome icon set
-<%=additional_font_pack_imports%>
+@import 'reset';            // jonikorpi's custom CSS reset
+@import 'type';             // typography presets and tools
+@import 'media-queries';    // media query presets
+/*
+@import 'font-awesome.min'; // Font-Awesome icon set
+*/
+/*
+  This line has now ss-pika as default in order to get it loaded in Heroku.
+  If you want to run in Heroku with font-awesome, you'll need to change this
+  (e.g. by removing the whole line) 
+*/
+
+<%= APP_CONFIG.icon_pack == "font-awesome" ? "" : "@import 'ss-social';\n@import 'ss-pika';".html_safe   %>
 
 
 /*
@@ -2235,7 +2242,7 @@ a.lightbox-x {
         margin-top: em(4);
         @include small-type;
       }
-         
+
     }
     
     @include media(tablet) {
@@ -2275,7 +2282,7 @@ a.lightbox-x {
       padding-left: lines(8.5);
       padding-top: em(5);
     }
- 
+
   }
   
   .discussion {
@@ -2527,7 +2534,7 @@ a.lightbox-x {
     }
   }
   
-  .profile-listings, .profile-testimonials, .profile-badges {
+  .profile-listings, .profile-testimonials, .profile-badges, .profile-organizations {
 
     h2 {
       margin-top: 0;
@@ -2555,7 +2562,7 @@ a.lightbox-x {
     }
   }
   
-  .profile-listings {
+  .profile-listings, .profile-organizations {
     
     .feed-item {
       padding: lines(0.5) lines(0);
@@ -2751,7 +2758,7 @@ a.lightbox-x {
 }
 
 #password_forgotten {
-	display: none;
+  display: none;
 }
 
 
@@ -2797,7 +2804,7 @@ a.lightbox-x {
 */
 
 #merchant_details {
-	display: none;
+  display: none;
 }
 
 
@@ -3115,7 +3122,7 @@ a.lightbox-x {
   }
   
   @include media(tablet) {
- 
+
     h2 {
       @include big-type;
     }
@@ -3170,7 +3177,7 @@ a.lightbox-x {
 .account-settings {
   
   #account_email_form, #account_password_form {
-  	display: none;
+    display: none;
   }
 
   .account-settings-row {
@@ -3217,8 +3224,8 @@ a.lightbox-x {
   @include media(tablet) {
     
     a.change-link {
-       margin-left: lines(0.5);
-     }
+      margin-left: lines(0.5);
+    }
       
   }
   
@@ -3291,7 +3298,7 @@ a.lightbox-x {
   a.positive, a.accept, a.confirm {
     color: $green;
     background: lighten($green, 40%);
-     &:hover { background: lighten($green, 40%); }
+    &:hover { background: lighten($green, 40%); }
   }
 
   a.negative, a.reject, a.cancel {

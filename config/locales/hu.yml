@@ -1,4 +1,4 @@
-lv:
+hu:
   admin:
     communities:
       edit_details:
@@ -74,22 +74,22 @@ lv:
   common:
     default_community_slogan: ~
     default_community_description: ~
-    cancel: Atcelt
-    fields_that_are_mandatory: "Laukus atzīmētus ar (*) ir jāaizpilda obligāti."
-    or: vai
+    cancel: ~
+    fields_that_are_mandatory: ~
+    or: ~
     password: ~
     service_name: ~
     share_types:
       request: ~
       offer: ~
-      borrow: aizņemas
-      buy: pērk
-      give_away: atdod
-      lend: aizdod
-      receive: "par brīvu"
-      rent: īrē
-      rent_out: "meklē īrniekus"
-      sell: pārdod
+      borrow: ~
+      buy: ~
+      give_away: ~
+      lend: ~
+      receive: ~
+      rent: ~
+      rent_out: ~
+      sell: ~
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: ~
@@ -116,7 +116,7 @@ lv:
       other: ~
     username: ~
     username_or_email: ~
-    what_is_this: "Kas tas ir?"
+    what_is_this: ~
   conversations:
     accept:
       respond_to_offer: ~
@@ -141,11 +141,11 @@ lv:
       do_not_give_feedback: ~
     index:
       messages_from_all_tribes: ~
-      loading_more_messages: "Ielādē vēl ziņojumus"
-      message_partitive: ziņojums
-      messages_partitive: ziņojumi
-      no_received_messages: "Nav saņemtu ziņojumu"
-      no_sent_messages: "Nav nosūtītu ziņu"
+      loading_more_messages: ~
+      message_partitive: ~
+      messages_partitive: ~
+      no_received_messages: ~
+      no_sent_messages: ~
     conversation:
       accepted_request: ~
       accepted_offer: ~
@@ -168,9 +168,9 @@ lv:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: "Lūgt palīdzību"
-      favor_request_message_form_title: "Piedāvāt palīdzību"
-      housing_offer_message_form_title: "Piedāvāt vietu"
+      favor_offer_message_form_title: ~
+      favor_request_message_form_title: ~
+      housing_offer_message_form_title: ~
       housing_request_message_form_title: ~
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
@@ -200,8 +200,8 @@ lv:
       send_message_to_user: ~
     notifications:
       badgenotification:
-        see_all_your_badges: "Apskatīt visus savus žetonus"
-        you_have_earned_badge: "Jūs esat nopelnījis žetonu"
+        see_all_your_badges: ~
+        you_have_earned_badge: ~
       comment_to_followed_listing_notification:
         has_commented: ~
         offer_you_follow: ~

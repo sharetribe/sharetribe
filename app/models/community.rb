@@ -245,7 +245,7 @@ class Community < ActiveRecord::Base
   
   # Generates the customization stylesheet scss files to app/assets
   # This should be run before assets:precompile in order to precompile stylesheets for each community that has customizations
-  def self.generate_customization_stylesheets    
+  def self.generate_customization_stylesheets
     Community.with_customizations.each do |community|
       puts "Generating custom CSS for #{community.name}"
       community.generate_customization_stylesheet
@@ -261,12 +261,20 @@ class Community < ActiveRecord::Base
       
       # Copy original SCSS and do customizations by search & replace
       
-      FileUtils.cp("app/assets/stylesheets/application.scss", "app/assets/stylesheets/#{stylesheet_filename}.scss" )
+      FileUtils.cp("app/assets/stylesheets/application.scss.erb", "app/assets/stylesheets/#{stylesheet_filename}.scss" )
       FileUtils.cp("app/assets/stylesheets/customizations.scss", "app/assets/stylesheets/customizations-#{community_filename}.scss" )
       replace_in_file("app/assets/stylesheets/#{stylesheet_filename}.scss",
                       "@import 'customizations';",
                       "@import 'customizations-#{community_filename}';",
                       true)
+
+      # ERB compiling with Compass kept failing, so do the only ERB change manually here    
+      icon_import_line = (APP_CONFIG.icon_pack == "ss-pika" ? "@import 'ss-social';\n@import 'ss-pika';" : "")
+      replace_in_file("app/assets/stylesheets/#{stylesheet_filename}.scss",
+                      /<%= APP_CONFIG.icon_pack[^%]+%>/,
+                      icon_import_line,
+                      true)
+                      
       if custom_color1.present? 
         replace_in_file("app/assets/stylesheets/customizations-#{community_filename}.scss",
                         /\$link:\s*#\w{6};/,
@@ -286,13 +294,12 @@ class Community < ActiveRecord::Base
                         "$cover-photo-url: \"#{cover_photo.url(:header)}\";",
                         true)
       end
-      
       url = stylesheet_filename
-      unless Rails.env.development? # Dev mode uses on-the-fly SCSS compiling
+      unless false #Rails.env.development? # Dev mode uses on-the-fly SCSS compiling
         
         # Generate CSS from SCSS
         css_file = "public/assets/#{new_filename_with_time_stamp}.css"
-        `mkdir public/assets` # Just in case it doesn't exist
+        `mkdir public/assets` unless File.exists?("public/assets")
         
         
         Compass.add_configuration(
@@ -357,6 +364,10 @@ class Community < ActiveRecord::Base
   
   def requires_organization_membership?
     settings["require_organization_membership"] == true    
+  end
+  
+  def uses_rdf_profile_import?
+    settings["use_rdf_profile_import"] == true    
   end
   
   # categories_tree

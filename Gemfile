@@ -13,7 +13,7 @@ gem 'capistrano' # could be removed as not currently used
 # Gems used only for assets and not required  
 # in production environments by default.  
 group :assets do  
-  gem 'sass-rails', "  ~> 3.2.5"
+  gem 'sass-rails', "  ~> 3.2.6"
   gem 'coffee-rails', "~> 3.2.2"
   gem 'uglifier'
   gem 'compass-rails'
@@ -34,6 +34,7 @@ gem 'database_cleaner'
 gem 'rest-client', '>= 1.6.0'
 gem 'acts-as-taggable-on'
 gem 'paperclip'
+gem 'delayed_paperclip'
 gem 'aws-sdk'
 gem "will_paginate"
 gem 'whenever' # could be removed as not currently used
@@ -61,6 +62,9 @@ gem 'dynamic_form'
 gem "rspec-rails"
 gem "truncate_html"
 gem 'money-rails'
+
+#ouisharelabs
+gem 'rdf-turtle'
 
 group :test do
   gem 'capybara'

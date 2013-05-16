@@ -6,7 +6,7 @@ Feature: User joins an organization
   @javascript
   Scenario: user makes new account and joins existing organization
     Given community "test" requires organization membership
-    And there is an organization "Corporation Example" 
+    And there is a seller organization "Corporation Example" 
     # TODO add above    with email requirement "@example.com"
     And I am not logged in
     And I am on the signup page
@@ -38,7 +38,7 @@ Feature: User joins an organization
   @javascript
   Scenario: user logs in and joins an organization that she creates
     Given community "test2" requires organization membership
-    #And there is an organization "Coop Example" 
+    #And there is a seller organization "Coop Example" 
     #with email requirement "@examplecoop.com"
     And I am logged in as "kassi_testperson"
     When I move to community "test2"
