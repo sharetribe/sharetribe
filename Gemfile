@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby '1.9.3'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 
 # Deploy with Capistrano
 gem 'capistrano' # could be removed as not currently used
@@ -37,7 +37,6 @@ gem 'paperclip'
 gem 'delayed_paperclip'
 gem 'aws-sdk'
 gem "will_paginate"
-gem 'whenever' # could be removed as not currently used
 gem 'newrelic_rpm'
 gem 'memcache-client', ">= 1.8.5"
 gem 'thinking-sphinx', "~>2.0.14", :require => 'thinking_sphinx'
