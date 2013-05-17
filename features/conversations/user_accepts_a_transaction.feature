@@ -58,7 +58,7 @@ Feature: User accepts a transaction
     When I follow "inbox-link"
     Then I should see "1" within ".inbox-toggle"
     When I follow "Accept request"
-    And I choose "Update the listing later"
+    And I choose "Leave the listing open"
     And I press "Send message"
     Then I should see "Accepted" 
     And I should see "to mark the request as completed" within ".conversation-status"

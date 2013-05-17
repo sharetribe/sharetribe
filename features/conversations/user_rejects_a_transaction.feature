@@ -36,7 +36,7 @@ Feature: User rejects a transaction
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
     And I follow "Not this time"
-    And I choose "Update the listing later"
+    And I choose "Leave the listing open"
     And I fill in "conversation_message_attributes_content" with "Sorry, not this time."
     And I press "Send message"
     And I should see "Rejected" within ".conversation-status"
