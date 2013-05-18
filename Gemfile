@@ -40,7 +40,7 @@ gem "will_paginate"
 gem 'newrelic_rpm'
 gem 'memcache-client', ">= 1.8.5"
 gem 'thinking-sphinx', "~>2.0.14", :require => 'thinking_sphinx'
-gem 'flying-sphinx'
+gem 'flying-sphinx', "~>0.8.5"
 gem 'recaptcha'
 gem "airbrake"
 gem 'delayed_job'
