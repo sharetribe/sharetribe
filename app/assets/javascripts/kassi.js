@@ -185,7 +185,7 @@ function initialize_new_organization_form(show_merchant_registration) {
 		$('#merchant_details').slideToggle('fast');
 	});
 	
-	var form_id = "#new_organization";
+	var form_id = "#organization_form";
 	$(form_id).validate({
 		rules: {
       "organization[name]": {required: true, minlength: 3, maxlength: 30},
@@ -194,6 +194,7 @@ function initialize_new_organization_form(show_merchant_registration) {
       "organization[website]": {minlength: 5},
       "organization[phone_number]": {minlength: 6},
       "organization[address]": {minlength: 6},
+      "organization[logo]": { accept: "(jpe?g|gif|png)" },
 		},
 		messages: {
 		},

@@ -43,6 +43,12 @@ class Community < ActiveRecord::Base
                       :default_url => "/logos/header/default.png"
   })
   has_attached_file :logo, paperclip_options_for_logo
+  validates_attachment_content_type :logo,
+                                    :content_type => ["image/jpeg",
+                                                      "image/png", 
+                                                      "image/gif", 
+                                                      "image/pjpeg", 
+                                                      "image/x-png"]
   
   paperclip_options_for_cover_photo = PaperclipHelper.paperclip_default_options.merge!({:styles => { 
                       :header => "1600x195#",  
@@ -50,6 +56,12 @@ class Community < ActiveRecord::Base
                       :default_url => "/cover_photos/header/default.jpg"
   })
   has_attached_file :cover_photo, paperclip_options_for_cover_photo
+  validates_attachment_content_type :cover_photo,
+                                    :content_type => ["image/jpeg",
+                                                      "image/png", 
+                                                      "image/gif", 
+                                                      "image/pjpeg", 
+                                                      "image/x-png"]
   
   attr_accessor :terms
   

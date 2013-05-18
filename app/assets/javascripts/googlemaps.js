@@ -18,6 +18,7 @@ var listing_category = ["all"];
 var listing_sharetypes = ["all"];
 var listing_tags = [];
 var listing_search;
+var locale;
 var flagMarker;
 var markers = [];
 var markerContents = [];
@@ -463,7 +464,8 @@ function addCommunityMarkers() {
 	});
 }
 
-function initialize_listing_map(community_location_lat, community_location_lon) {
+function initialize_listing_map(community_location_lat, community_location_lon, locale_to_use) {
+  locale = locale_to_use;
   // infowindow = new google.maps.InfoWindow();
   infowindow = new InfoBubble({
     shadowStyle: 0,
@@ -575,7 +577,7 @@ function addListingMarkers() {
               showingMarker = marker.getTitle();
               infowindow.setContent("<div id='map_bubble'><div style='text-align: center; width: 360px; height: 70px; padding-top: 25px;'><img src='/assets/ajax-loader-grey.gif'></div></div>");
               infowindow.open(map,marker);
-              $.get('/en/listing_bubble/'+entry["id"], function(data) {
+              $.get('/' + locale + '/listing_bubble/' + entry["id"], function(data) {
                 $('#map_bubble').html(data);
                 if (entry["category"]=="rideshare") {
                   var end = new google.maps.LatLng(entry["destination_loc"]["latitude"], entry["destination_loc"]["longitude"]);

@@ -585,7 +585,7 @@ fi:
     error_404:
       if_you_believe: "Jos arvelet, että osoite on oikein ja sillä pitäisi saada näkyviin sisältöä, auta meitä paikallistamaan virhe kertomalla alla olevalla lomakkeella, mikä osoite on kyseessä, ja mitä kyseisellä sivulla pitäisi näkyä."
       page_can_not_be_found: "Sivua ei löydy!"
-      page_you_requested_can_not_be_found: "Haluamaasi osoitetta ei löydy %{service_name_elative}. Oletko varma, että kirjoitit osoitteen oikein?"
+      page_you_requested_can_not_be_found: "Haluamaasi osoitetta ei löydy. Oletko varma, että kirjoitit osoitteen oikein?"
     error_404_title: "sivua ei löydy"
     error_500:
       help_us_find_the_problem: "Voit auttaa virheiden etsinnässä kertomalla alla olevalla lomakkeella, missä tilanteessa virhe ilmeni."

@@ -21,6 +21,12 @@ class Organization < ActiveRecord::Base
   })
   
   has_attached_file :logo, paperclip_options_for_logo
+  validates_attachment_content_type :logo,
+                                    :content_type => ["image/jpeg",
+                                                      "image/png", 
+                                                      "image/gif", 
+                                                      "image/pjpeg", 
+                                                      "image/x-png"]
   
   
   def has_admin?(person)

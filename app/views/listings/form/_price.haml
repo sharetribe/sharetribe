@@ -1,7 +1,7 @@
 - cc = @current_community.community_category(@listing.category.top_level_parent, @listing.share_type)
 .price-container
   - if cc.price?
-    = form.label :price, t(".price")
+    = form.label :price, t(".price") + "*"
     = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (money_without_cents @listing.price || 0)
     .currency-selector
       - if @current_community.available_currencies
