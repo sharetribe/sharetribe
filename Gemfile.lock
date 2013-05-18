@@ -92,7 +92,7 @@ GEM
       delayed_job (~> 3.0)
     delayed_paperclip (2.5.1.0)
       paperclip (>= 3.3.0)
-    devise (2.2.3)
+    devise (2.2.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (~> 3.1)
@@ -145,7 +145,7 @@ GEM
     jquery-rails (2.1.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    json (1.8.0)
+    json (1.7.7)
     jwt (0.1.5)
       multi_json (>= 1.0)
     kgio (2.7.4)
@@ -344,7 +344,7 @@ DEPENDENCIES
   delayed_job
   delayed_job_active_record
   delayed_paperclip
-  devise
+  devise (~> 2.2.3)
   devise-encryptable
   dynamic_form
   email_spec
@@ -352,7 +352,7 @@ DEPENDENCIES
   flying-sphinx
   haml
   jquery-rails
-  json
+  json (~> 1.7.7)
   launchy
   memcache-client (>= 1.8.5)
   money-rails

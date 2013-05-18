@@ -45,12 +45,12 @@ gem 'recaptcha'
 gem "airbrake"
 gem 'delayed_job'
 gem 'delayed_job_active_record'
-gem 'json'
+gem 'json', "~>1.7.7"
 gem 'russian'
 gem 'web_translate_it'
 gem 'postmark-rails' # could be removed as not currently used
 gem 'rails-i18n'
-gem 'devise'
+gem 'devise', "~>2.2.3"  #3.0rc requires bit bigger changes
 gem "devise-encryptable"
 gem "omniauth-facebook"
 gem 'spreadsheet'
