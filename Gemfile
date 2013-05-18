@@ -35,7 +35,7 @@ gem 'rest-client', '>= 1.6.0'
 gem 'acts-as-taggable-on'
 gem 'paperclip'
 gem 'delayed_paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk', "~>1.9.0"
 gem "will_paginate"
 gem 'newrelic_rpm'
 gem 'memcache-client', ">= 1.8.5"
