@@ -16,6 +16,13 @@ class CommunityMembershipsController < ApplicationController
       flash[:notice] = t("layouts.notifications.you_are_already_member")
       redirect_to root and return
     elsif existing_membership && existing_membership.pending_email_confirmation?
+      # Check if requirements are already filled, but the membership just hasn't been updated yet
+      # (This might happen if unexpected error happens during page load and it shouldn't leave people in loop of of
+      # having email confirmed but not the memebership)
+      if @current_user.has_valid_email_for_community?(@current_community)
+        @current_community.approve_pending_membership(@current_user)
+      end
+      
       redirect_to confirmation_pending_path and return
     end
     

@@ -1,5 +1,7 @@
 module ApplicationHelper
   
+  ICON_PACK = APP_CONFIG.icon_pack || "font-awesome"
+  
   ICONS = {
     "ss-pika" => {
       "map" => "ss-maplocation",
@@ -187,12 +189,15 @@ module ApplicationHelper
   end
   
   def icon_class(icon_name)
-    
-    icon_pack = APP_CONFIG.icon_pack || "font-awesome"
-    icon = ICONS[icon_pack][icon_name]
-    icon = "icon-circle-blank" if icon.nil?
-    
+    icon = ICONS[ICON_PACK][icon_name]
+    if icon.nil?
+      icon = (ICON_PACK == "font-awesome" ? "icon-circle-blank" : "ss-record")
+    end    
     return icon
+  end
+  
+  def self.icon_specified?(icon_name)
+    ICONS[ICON_PACK][icon_name].present?
   end
   
   # Removes whitespaces from HAML expressions

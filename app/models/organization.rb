@@ -80,4 +80,8 @@ class Organization < ActiveRecord::Base
   def has_member?(person)
     members.include?(person)
   end
+  
+  def is_registered_as_seller?
+    self.merchant_id.present? && self.merchant_key.present?
+  end
 end
