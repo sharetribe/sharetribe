@@ -624,7 +624,7 @@ en:
     login:
       logged_in_to_kassi: "%{name} logged in to %{service_name} %{time_ago}."
     comment:
-      commented: "%{commenter_name} commented on %{listing_type} %{listing_title} %{time_ago}."
+      commented: "%{commenter_name} commented on listing %{listing_title} %{time_ago}."
       offer_partitive: offer
       request_partitive: request
   header:

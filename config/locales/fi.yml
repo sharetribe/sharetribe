@@ -624,7 +624,7 @@ fi:
     login:
       logged_in_to_kassi: "%{name} kirjautui sisään %{service_name_illative} %{time_ago}."
     comment:
-      commented: "%{commenter_name} kommentoi %{listing_type} %{listing_title} %{time_ago}."
+      commented: "%{commenter_name} kommentoi ilmoitustasi %{listing_title} %{time_ago}."
       offer_partitive: tarjousta
       request_partitive: pyyntöä
   header:

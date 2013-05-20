@@ -5,8 +5,7 @@
 
 #new_listing_form.edit-listing-form.centered-section
   %h1
-    = t(".edit_#{@listing.listing_type}")
-    = @listing.title
+    = t(".edit_listing")
   = form_for @listing, :html => {:multipart => true} do |form|
     - unless @listing.category.name.eql?("rideshare")
       = render :partial => "listings/form/title", :locals => { :form => form }

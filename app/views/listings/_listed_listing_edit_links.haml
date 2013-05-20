@@ -1,7 +1,7 @@
 - if current_user?(listing.author)
   - if listing.closed?
-    = link_to t("listings.edit_links.reopen_#{listing.listing_type}"), edit_listing_path(:id => listing.id)
+    = link_to t("listings.edit_links.reopen_listing"), edit_listing_path(:id => listing.id)
   - else
     = link_to t("listings.listed_listing.edit"), edit_listing_path(:id => listing.id)
     &nbsp;|&nbsp;
-    = link_to t("listings.edit_links.close_#{listing.listing_type}"), close_person_listing_path(@current_user, listing), :method => :put, :remote => true
+    = link_to t("listings.edit_links.close_listing"), close_person_listing_path(@current_user, listing), :method => :put, :remote => true
