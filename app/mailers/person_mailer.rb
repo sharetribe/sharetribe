@@ -214,13 +214,13 @@ class PersonMailer < ActionMailer::Base
   
   # Old layout
   
-  def new_member_notification(person, community, email)
-    @community = Community.find_by_domain(community)
+  def new_member_notification(person, community_domain, email)
+    @community = Community.find_by_domain(community_domain)
     @no_settings = true
     @person = person
     @email = email
     mail(:to => @community.admin_emails, 
-         :from => community_specific_sender(community),
+         :from => community_specific_sender(@community),
          :subject => "New member in #{@community.name} Sharetribe")
   end
   
