@@ -36,6 +36,10 @@ fi:
       error_with_organization_registration: "Ennakoimaton virhe myyjäksi rekisteröitymisessä, ota yhteyttä ylläpitoon."
     profile_organization:
       edit: "Muokkaa"
+    seller_registration_needed:
+      seller_registration_needed: "Myyjäksi rekisteröityminen suorittamatta"
+      seller_registration_instructions: "Ennen kuin voit tehdä myynti-ilmoituksen ja vastaanottaa maksuja, sinun täytyy rekisteröidä edustamasi organisaatio myyjäksi. Voit tehdä sen %{link_to_profile_page} olevan organisaatiolistan kautta."
+      profile_page_link: "profiilisivullasi"
   listings:
     show:
       listing_added_by: "Ilmoituksen lisäsi"
@@ -44,6 +48,7 @@ fi:
     form:
       organization:
         organization: "Organisaatio"
+        only_seller_organizations_listed_here: "(Vaihtoehtoina tässä ovat vain organisaatiot, jotka on rekisteröity myyjäksi)"
   people:
     show:
       presented_organizations: "Edustetut organisaatiot"

@@ -107,8 +107,18 @@ class ListingsController < ApplicationController
       end
     end
     1.times { @listing.listing_images.build }
-    if request.xhr?
-      render :partial => "listings/form/form_content" 
+
+    if request.xhr? # AJAX request to get the actual form contents
+      
+      # prevent creating sell listings if the organization is not registered as seller
+      if @current_community.requires_organization_membership? && 
+            ! @current_user.is_member_of_seller_organization? &&
+            (params[:listing_type] =~ /sell/ || params[:share_type] =~ /sell/)
+        
+        render :partial => "organizations/seller_registration_needed"
+      else
+        render :partial => "listings/form/form_content" 
+      end
     else
       render
     end

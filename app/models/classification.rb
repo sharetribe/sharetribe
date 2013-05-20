@@ -30,8 +30,11 @@ module Classification
     end
   end
   
-  def icon_string
-    Listing::LISTING_ICONS[name] || (parent ? parent.icon_string : Listing::LISTING_ICONS["other"])
+  def icon_name
+    return icon if ApplicationHelper.icon_specified?(icon)
+    return name if ApplicationHelper.icon_specified?(name)
+    return parent.icon_name if parent
+    return "other"
   end
   
   #returns a flattened array of all child objects, including self
