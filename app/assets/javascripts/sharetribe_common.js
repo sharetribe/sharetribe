@@ -1,10 +1,10 @@
 function initialize_confirmation_pending_form(locale, email_in_use_message) {
-	$('#mistyped_email_link').click(function() { 
-		$('#password_forgotten').slideToggle('fast');
-		$("html, body").animate({ scrollTop: $(document).height() }, 1000); 
-		$('input.email').focus();
-	});
-	var form_id = "#change_mistyped_email_form";
+  $('#mistyped_email_link').click(function() { 
+    $('#password_forgotten').slideToggle('fast');
+    $("html, body").animate({ scrollTop: $(document).height() }, 1000); 
+    $('input.email').focus();
+  });
+  var form_id = "#change_mistyped_email_form";
   $(form_id).validate({
      errorPlacement: function(error, element) {
        error.insertAfter(element);
@@ -38,7 +38,7 @@ function prepare_ajax_form(form_id, locale, rules) {
       });
       if ($(form_id).valid() == true) {
         disable_submit_button(form_id, locale);
-  	  }
+      }
       return $(form_id).valid();
     }
   });
@@ -46,9 +46,9 @@ function prepare_ajax_form(form_id, locale, rules) {
 
 function disable_submit_button(form_id, locale) {
   $(form_id + ' button').attr('disabled', 'disabled');
-	jQuery.getJSON('/assets/locales/' + locale + '.json', function(json) {
-	  $(form_id + ' button').text(json.please_wait);
-	});
+  jQuery.getJSON('/assets/locales/' + locale + '.json', function(json) {
+    $(form_id + ' button').text(json.please_wait);
+  });
 }
 
 function auto_resize_text_areas(class_name) {
