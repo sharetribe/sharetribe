@@ -17,8 +17,9 @@
 
 = render :partial => "action_button", :locals => { :text => t("emails.invitation_to_kassi.join_now"), :url => url}
 
-%tr
-  %td{:align => "left", :style => "padding-bottom: 15px;"} 
-    %font{body_font}
-      %b
-        = t("emails.invitation_to_kassi.invitation_code", :code => @invitation.code)
+-if @invitation_code_required
+  %tr
+    %td{:align => "left", :style => "padding-bottom: 15px;"} 
+      %font{body_font}
+        %b
+          = t("emails.invitation_to_kassi.invitation_code", :code => @invitation.code)

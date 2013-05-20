@@ -135,6 +135,8 @@ class PersonMailer < ActionMailer::Base
   
   def invitation_to_kassi(invitation)
     @invitation = invitation
+    I18n.locale = @invitation.inviter.locale
+    @invitation_code_required = @invitation.community.join_with_invite_only
     set_up_urls(nil, @invitation.community)
     @url_params[:locale] = @invitation.inviter.locale
     subject = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name, :community => @invitation.community.full_name_with_separator(@invitation.inviter.locale))
@@ -232,6 +234,7 @@ class PersonMailer < ActionMailer::Base
     end
     
     set_locale @recipient.locale
+    I18n.locale = @recipient.locale  #This was added so that listing share_types get correct translation
 
     @time_since_last_update = t("timestamps.days_since", 
         :count => time_difference_in_days(@recipient.community_updates_last_sent_at || 

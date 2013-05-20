@@ -390,6 +390,7 @@ class Listing < ActiveRecord::Base
   end
   
   def self.opposite_share_type(type)
+    return "" if type.nil?
     st = type.class.eql?(String) ? type : type.name
     case st
     when "borrow"
