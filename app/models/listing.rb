@@ -622,4 +622,8 @@ class Listing < ActiveRecord::Base
     share_type.top_level_parent.transaction_type
   end
   
+  def price_with_vat(vat)
+    price + (price * vat / 100)
+  end
+  
 end

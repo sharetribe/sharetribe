@@ -15,3 +15,8 @@
     - if cc.price_quantity_placeholder?
       .quantity-description= t(".per")
       = form.text_field :quantity, :class => "quantity-field", :placeholder => t(".#{cc.price_quantity_placeholder}")
+
+%small
+  = t(".price_excludes_vat", :vat => @current_community.vat) if @current_community.vat
+  = t(".service_fee_will_be_added", :fee => @current_community.commission_percentage) if @current_community.commission_percentage
+  

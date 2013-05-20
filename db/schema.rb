@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130514214222) do
+ActiveRecord::Schema.define(:version => 20130520140756) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -129,6 +129,8 @@ ActiveRecord::Schema.define(:version => 20130514214222) do
     t.boolean  "payments_in_use",                           :default => false
     t.text     "available_currencies"
     t.boolean  "facebook_connect_enabled",                  :default => true
+    t.integer  "vat"
+    t.integer  "commission_percentage"
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
@@ -436,13 +438,21 @@ ActiveRecord::Schema.define(:version => 20130514214222) do
   add_index "participations", ["conversation_id"], :name => "index_participations_on_conversation_id"
   add_index "participations", ["person_id"], :name => "index_participations_on_person_id"
 
+  create_table "payment_rows", :force => true do |t|
+    t.integer  "payment_id"
+    t.integer  "vat"
+    t.integer  "sum_cents"
+    t.string   "sum_currency"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "title"
+  end
+
   create_table "payments", :force => true do |t|
     t.string   "payer_id"
     t.string   "recipient_id"
     t.string   "organization_id"
     t.integer  "conversation_id"
-    t.integer  "sum_cents"
-    t.string   "currency"
     t.string   "status"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false

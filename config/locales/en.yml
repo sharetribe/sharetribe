@@ -979,6 +979,8 @@ en:
         mass: "piece, kg, l, m2, ..."
         time: "hour, day, week, ..."
         long_time: "week, month, ..."
+        service_fee_will_be_added: "A %{fee}% service fee will be added to the price."
+        price_excludes_vat: "The price doesn't include VAT."
       origin:
         location: Location
         origin: Origin
@@ -1201,6 +1203,8 @@ en:
       times: times
       times_viewed: Viewed
       processing_uploaded_image: "(Processing uploaded image...)"
+    displayed_price:
+      price_excludes_vat: "(excludes VAT)"
   mapview:
     index:
       all_categories: "All categories"

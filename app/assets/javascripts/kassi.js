@@ -449,9 +449,34 @@ function initialize_listing_view(locale) {
   );
 }
 
-function initialize_accept_transaction_form() {
+function initialize_accept_transaction_form(commission_percentage) {
 	auto_resize_text_areas("text_area");
 	style_action_selectors();
+	if (commission_percentage != undefined) {
+	  update_transaction_form_price_fields(commission_percentage);
+  	$(".trigger-focusout").focusout(function(value) {
+  	  update_transaction_form_price_fields(commission_percentage);
+  	});
+  }
+}
+
+function update_transaction_form_price_fields(commission_percentage) {
+  var total_sum = 0;
+  var total_sum_with_vat = 0;
+  for (var i = 0; i < $(".field-row").length; i++) {
+    var sum = parseInt($(".payment-row-sum-field.row" + i).val());
+    var vat = parseInt($(".payment-row-vat-field.row" + i).val());
+    row_sum = sum + (sum * vat / 100);
+    $(".total-label.row" + i).text(row_sum.toFixed(2) + '\u20AC');
+    total_sum += sum;
+    total_sum_with_vat += row_sum;
+  }
+  var service_fee_sum = total_sum*commission_percentage/100;
+  $("#service-fee-sum").text(service_fee_sum.toFixed(2) + '\u20AC');
+  var service_fee_vat = parseInt($("#service-fee-vat").text().substring(0, $("#service-fee-vat").text().length - 1));
+  service_fee_sum_with_vat = service_fee_sum + (service_fee_sum * service_fee_vat / 100);
+  $("#service-fee-total").text(service_fee_sum_with_vat.toFixed(2) + '\u20AC');
+  $("#total").text((total_sum_with_vat + service_fee_sum_with_vat).toFixed(2) + '\u20AC');
 }
 
 function initialize_confirm_transaction_form() {

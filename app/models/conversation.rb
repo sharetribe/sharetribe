@@ -29,8 +29,6 @@ class Conversation < ActiveRecord::Base
   
   def payment_attributes=(attributes)
     payment ||= Payment.new
-    payment.sum = attributes[:sum]
-    payment.currency = "EUR"
     payment.conversation = self
     payment.status = "pending"
     payment.payer = requester
@@ -41,6 +39,7 @@ class Conversation < ActiveRecord::Base
     else
       payment.recipient_organization = listing.organization
     end
+    attributes[:payment_rows].each { |row| payment.rows.build(row.merge(:sum_currency => "EUR")) unless row["title"].blank? }
     payment.save!
   end
   

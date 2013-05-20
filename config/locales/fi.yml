@@ -983,6 +983,8 @@ fi:
         mass: "kpl, kg, l, m2, ..."
         time: "tunti, päivä, ..."
         long_time: "vko, kk, ..."
+        price_excludes_vat: "Merkitse tähän alv 0 -hinta."
+        service_fee_will_be_added: "Hintaan lisätään palvelumaksu %{fee}%."
       origin:
         location: Sijainti
         origin: Lähtöpaikka
@@ -1207,6 +1209,8 @@ fi:
       times: kertaa
       times_viewed: Katsottu
       processing_uploaded_image: "(Ladatun kuvan käsittely kesken...)"
+    displayed_price:
+      price_excludes_vat: "(alv 0)"
   mapview:
     index:
       all_categories: "Kaikki kategoriat"

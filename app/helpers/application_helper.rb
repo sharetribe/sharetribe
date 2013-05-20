@@ -93,6 +93,7 @@ module ApplicationHelper
       "cross" => "ss-delete",
       "chat_bubble" => "ss-chat",
       "tag" => "ss-tag",
+      "pricetag" => "ss-pricetag",
       "lock" => "ss-lock",
       "unlock" => "ss-unlock",
       "edit" => "ss-draw",

@@ -180,26 +180,28 @@ ul {
   
 }
 
-.centered-section, .left-navi-section {
+.centered-section, .centered-section-wide, .left-navi-section {
   textarea {
     height: lines(5);
   }
 }
 
+.centered-section {
+  max-width: lines(19);
+}
+
+.centered-section-wide {
+  max-width: lines(25);
+}
 
 // User for simple centered views, mostly with forms
-.centered-section {
+.centered-section, .centered-section-wide {
   padding: lines(0.5);
   margin-left: auto;
   margin-right: auto;
-  max-width: lines(19);
   
   form {
     padding-bottom: lines(2);
-  }
-  
-  input[type=text], input[type=password], textarea {
-    //margin-bottom: lines(0.5);
   }
   
   a.fb-connect {
@@ -2868,6 +2870,10 @@ a.lightbox-x {
   
 }
 
+.price-title-field {
+  max-width: lines(8);
+}
+
 .price-field {
   max-width: lines(5);
 }
@@ -3303,7 +3309,135 @@ a.lightbox-x {
     color: $red;
     background: lighten($red, 40%);
     &:hover { background: lighten($red, 40%); }
-  }  
+  }
+  
+  span.currency-symbol {
+    display: none;
+  }
+  
+  .payment-row-headings {
+    display: none;
+  }
+  
+  .payment-row {
+    padding: lines(0.125) lines(0.5) lines(0.5) lines(0.5);
+  }
+  
+  .grey {
+    background: $highlight;
+    @include border-radius(em(5));
+  }
+  
+  @include media(tablet) {
+    
+    .payment-row-headings {
+      display: block;
+      margin-top: lines(0.75);
+      margin-bottom: lines(0.375);
+      padding-bottom: lines(0.25);
+    }
+    
+    .bottom-border {
+      border-bottom: 1px solid $body;
+    }
+    
+    .payment-row {
+      margin-bottom: lines(0.5);
+      padding: lines(0.5) lines(0.5) lines(0.5) lines(0.5);
+    }
+    
+    .payment-row-heading {
+      display: inline-block;
+      font-weight: bold;
+    }
+    
+    .payment-row-title-heading {
+      width: lines(10);
+      margin-left: lines(0.5);
+    }
+    
+    .payment-row-sum-heading {
+      width: lines(4);
+      margin-left: lines(0.5);
+    }
+    
+    .payment-row-vat-heading {
+      width: lines(2);
+      margin-left: lines(0.5) + em(12);
+    }
+    
+    .payment-row-total-heading {
+      text-align: center;
+      width: lines(5);
+      margin-left: lines(0.5) + em(15);
+    }
+    
+    .payment-row-label {
+      display: none;
+    }
+    
+    .payment-row-field {
+      display: inline-block;
+    }
+    
+    .payment-row-title-field {
+      width: lines(10);
+    }
+    
+    .payment-row-sum-field {
+      width: lines(4);
+      margin-left: lines(0.5);
+    }
+    
+    span.currency-symbol {
+      display: inline;
+    }
+    
+    .payment-row-vat-field {
+      width: lines(2);
+      margin-left: lines(0.5);
+    }
+    
+    .total-label {
+      display: inline-block;
+      text-align: center;
+      width: lines(4.5);
+      margin-left: lines(0.5);
+    }
+    
+    .payment-row-title-text {
+      width: lines(10);
+      margin-left: lines(0.5);
+    }
+    
+    .payment-row-sum-text {
+      width: lines(4);
+      margin-left: lines(0.5);
+    }
+    
+    .payment-row-vat-text {
+      width: lines(2);
+      margin-left: lines(0.5) + em(12);
+    }
+    
+    .payment-row-total-text {
+      text-align: center;
+      width: lines(5);
+      margin-left: lines(0.5);
+    }
+    
+    .payment-text-row {
+      padding: lines(0) lines(0.5) lines(0.5) lines(0.5);
+    }
+    
+    .payment-row-text {
+      display: inline-block;
+    }
+    
+  }
+  
+  
+  
 }
 
 /*
