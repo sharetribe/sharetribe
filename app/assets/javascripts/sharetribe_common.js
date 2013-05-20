@@ -45,9 +45,9 @@ function prepare_ajax_form(form_id, locale, rules) {
 }
 
 function disable_submit_button(form_id, locale) {
-  $(form_id + ' button').attr('disabled', 'disabled');
+  $(form_id).find("button").attr('disabled', 'disabled');
   jQuery.getJSON('/assets/locales/' + locale + '.json', function(json) {
-    $(form_id + ' button').text(json.please_wait);
+    $(form_id).find("button").text(json.please_wait);
   });
 }
 

@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_new_organization_form(#{@organization.merchant_registration.eql?("true")})
+  initialize_new_organization_form(#{@organization.merchant_registration.eql?("true")}, "#{I18n.locale}")
   
 = form_for @organization, :html => { :id => "organization_form"} do |form|
   = form.label :name, t(".name"), :class => "input"

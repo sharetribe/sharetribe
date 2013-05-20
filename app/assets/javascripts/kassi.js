@@ -177,7 +177,7 @@ function initialize_login_form(password_forgotten) {
   $('#login_form input.text_field:first').focus();
 }
 
-function initialize_new_organization_form(show_merchant_registration) {
+function initialize_new_organization_form(show_merchant_registration, locale) {
   if (show_merchant_registration) {
     $('#merchant_details').slideToggle('fast');
   }
