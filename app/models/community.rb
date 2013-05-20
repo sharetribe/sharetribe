@@ -234,6 +234,9 @@ class Community < ActiveRecord::Base
   
   # Find community by domain, which can be full domain or just subdomain
   def find_by_domain(domain_string)
+    if domain_string =~ /\:/ #string includes port which should be removed
+      domain_string = domain_string..split(":").first
+    end 
     if domain_string =~ /\./ # not just a subdomain
       if domain_string.match(APP_CONFIG.domain) # subdomain with default domain attached
         Community.where(["domain = ?", domain_string.split(".").first])
