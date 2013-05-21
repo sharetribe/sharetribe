@@ -190,7 +190,7 @@ function initialize_new_organization_form(show_merchant_registration, locale) {
   var form_id = "#organization_form";
   $(form_id).validate({
     rules: {
-      "organization[name]": {required: true, minlength: 3, maxlength: 30},
+      "organization[name]": {required: true, minlength: 3, maxlength: 80},
       "organization[company_id]": {minlength: 9, maxlength: 9},
       "organization[email]": {email: true},
       "organization[website]": {minlength: 5},

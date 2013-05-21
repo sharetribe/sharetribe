@@ -203,8 +203,8 @@ class ApplicationController < ActionController::Base
       e.community_id      = @current_community ? @current_community.id : nil
       begin
         if (params["file"] || params["image"] || (params["listing"] && params["listing"]["listing_images_attributes"] ||
-            params["person"] && params["person"]["image"]) || (params["community"] && (params["community"]["cover_photo"] || params["community"]["logo"])))
-          # This case breaks iomage upload (reason unknown) if we use to_json, so we'll have to skip it 
+            params["person"] && params["person"]["image"]) || (params["community"] && (params["community"]["cover_photo"] || params["community"]["logo"])) || (params["organization"] && params["organization"]["logo"]) )
+          # This case breaks image upload (reason unknown) if we use to_json, so we'll have to skip it 
           e.parameters    = params.inspect.gsub('=>', ':')
         else  #normal case
           e.parameters    = request.filtered_parameters.to_json
