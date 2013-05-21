@@ -64,6 +64,7 @@ class PersonMailer < ActionMailer::Base
     @payment = payment
     set_up_urls(@payment.payer, community, @email_type)
     mail(:to => @recipient.email,
+         :from => community_specific_sender(community),
          :subject => t("emails.receipt_to_payer.receipt_of_payment"))
   end
   

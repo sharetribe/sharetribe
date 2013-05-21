@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130521171401) do
+ActiveRecord::Schema.define(:version => 20130521225614) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -134,6 +134,8 @@ ActiveRecord::Schema.define(:version => 20130521171401) do
     t.integer  "vat"
     t.integer  "commission_percentage"
     t.integer  "minimum_price_cents"
+    t.boolean  "badges_in_use",                             :default => true
+    t.boolean  "testimonials_in_use",                       :default => true
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
