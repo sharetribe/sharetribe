@@ -2,6 +2,8 @@ class Community < ActiveRecord::Base
 
   require 'compass'
   require 'sass/plugin'
+  
+  include EmailHelper
 
   has_many :community_memberships, :dependent => :destroy 
   has_many :members, :through => :community_memberships, :conditions => ['community_memberships.status = ?', 'accepted'], :source => :person
@@ -141,7 +143,7 @@ class Community < ActiveRecord::Base
       member.confirmed_at = nil
       member.save
       I18n.locale = member.locale
-      member.send_confirmation_instructions
+      member.send_confirmation_instructions(full_domain, self)
       
     end
     I18n.locale = original_locale
@@ -166,22 +168,6 @@ class Community < ActiveRecord::Base
       return community if community.allowed_emails && community.email_allowed?(email)
     end
     return nil
-  end
-  
-  def email_allowed?(email)
-    return true unless allowed_emails.present?
-    
-    allowed = false
-    allowed_array = allowed_emails.split(",")
-    allowed_array.each do |allowed_domain_or_address|
-      allowed_domain_or_address.strip!
-      allowed_domain_or_address.gsub!('.', '\.') #change . to be \. to only match a dot, not any char
-      if email =~ /#{allowed_domain_or_address}$/
-        allowed = true
-        break
-      end
-    end
-    return allowed
   end
   
   def new_members_during_last(time)
