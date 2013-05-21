@@ -49,4 +49,8 @@ class Payment < ActiveRecord::Base
     sum_without_commission + total_commission
   end
   
+  def summary_string
+    rows.collect(&:title).join(", ")
+  end
+  
 end
