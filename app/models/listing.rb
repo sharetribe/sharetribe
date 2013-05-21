@@ -390,6 +390,7 @@ class Listing < ActiveRecord::Base
   end
   
   def self.opposite_share_type(type)
+    return "" if type.nil?
     st = type.class.eql?(String) ? type : type.name
     case st
     when "borrow"
@@ -569,7 +570,7 @@ class Listing < ActiveRecord::Base
       :listing_type => self.listing_type,
       :category => self.category.name,
       :id => self.id,
-      :icon => icon_class(self.share_type.name)
+      :icon => icon_class(icon_name)
     }
     if self.origin_loc
       hash.merge!({:latitude => self.origin_loc.latitude,
@@ -609,8 +610,8 @@ class Listing < ActiveRecord::Base
     has_organization_in?(community) ? organization : author
   end
   
-  def icon_string
-    category.icon_string
+  def icon_name
+    category.icon_name
   end
   
   # The price symbol based on this listing's price or community default, if no price set

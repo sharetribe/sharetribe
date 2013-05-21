@@ -628,7 +628,7 @@ en:
     login:
       logged_in_to_kassi: "%{name} logged in to %{service_name} %{time_ago}."
     comment:
-      commented: "%{commenter_name} commented on %{listing_type} %{listing_title} %{time_ago}."
+      commented: "%{commenter_name} commented on listing %{listing_title} %{time_ago}."
       offer_partitive: offer
       request_partitive: request
   header:
@@ -1099,16 +1099,6 @@ en:
       link_label_for_item_request_trade: "Offer to swap this item"
       link_label_for_rideshare_offer: "Request this ride"
       link_label_for_rideshare_request: "Offer ride"
-    listed_listing:
-      edit: Edit
-    listed_listings:
-      loading_more_offers: "Loading more offers"
-      loading_more_requests: "Loading more requests"
-      no_offers_with_the_conditions_you_gave: "No offers with the conditions you gave."
-      no_requests_with_the_conditions_you_gave: "No requests with the conditions you gave."
-      offer_something: "Offer something!"
-      request_something: "Request something!"
-      search_returned_no_results: "Your search did not return any results."
     new:
       listing: listing
       offer: "I have something to offer to others"

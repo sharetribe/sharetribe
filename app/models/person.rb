@@ -533,12 +533,17 @@ class Person < ActiveRecord::Base
   
   # This is a helper to get nicely formatted array of this person's organizations
   # for dropdown selection menus
-  def organizations_array
+  def organizations_array(only_seller_organizations=false)
     arr = []
     organizations.each do |org|
-      arr << [org.name, org.id]
+      arr << [org.name, org.id] if (only_seller_organizations == false || org.is_registered_as_seller?)
     end
     return arr
+  end
+  
+  # returns true if person has at least one organization that is registered for seller account
+  def is_member_of_seller_organization?    
+    organizations.select{|o| o.is_registered_as_seller?}.present?
   end
   
   # Merge this person with the data from the person given as parameter

@@ -1,5 +1,5 @@
 - if @listing.closed?
-  = link_to t(".reopen_#{@listing.listing_type}"), edit_listing_path(@listing), :class => "edit_listing"
+  = link_to t(".reopen_listing"), edit_listing_path(@listing), :class => "edit_listing"
 - else   
-  = link_to t(".edit_#{@listing.listing_type}"), edit_listing_path(@listing), :class => "edit_listing"
-  = link_to t(".close_#{@listing.listing_type}"), close_person_listing_path(@current_user, @listing), :class => "close_listing", :method => :put, :remote => true
+  = link_to t(".edit_listing"), edit_listing_path(@listing), :class => "edit_listing"
+  = link_to t(".close_listing"), close_person_listing_path(@current_user, @listing), :class => "close_listing", :method => :put, :remote => true

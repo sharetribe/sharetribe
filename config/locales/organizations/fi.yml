@@ -18,14 +18,15 @@ fi:
       allowed_emails_instructions: "Voit määrittää millainen sähköpostiosoite käyttäjällä on oltava, jotta hän voisi liittyä tähän organisaatioon."
       allowed_emails_example: "@esimerkkiyritys.fi, @esimerkkiyritys.com"
       logo: "Logo"
+      logo_instructions: "Neliönmuotoinen kuvatiedosto toimii parhaiten."
       merhcant_registration: "Organisaation rekisteröityminen myyjäksi"
-      merhcant_registration_instructions: "Jos haluat myydä tavaraa palvelussa ja mahdollistaa ostajille helpon verkkomaksamisen, rekisteröi organisaatiosi myyjäksi."
-      merhcant_registration_detailed_instructions: "Täytä alla olevan lomakkeen kaikki kohdat ja saat sähköpostiin ohjeet siitä, kuinka varmentaa rekisteröityminen ja vastaanottaa tilitykset sinulle saapuvista maksuista."
+      merhcant_registration_instructions: "Jos et rekisteröi organisaatiotasi tässä vaiheessa myyjäksi, voit ainoastaan ostaa, ottaa vastaan tai antaa pois tavaraa. Halutessasi voit rekisteröidä organisaatiosi myyjäksi myös myöhemmin."
+      merhcant_registration_detailed_instructions: "Täytä alla olevan lomakkeen kaikki kohdat. Niiden perusteella luodaan organisaatiotunnus <a href=\"http://checkout.fi/\" target=\"_blank\">Checkout</a>-maksupalveluun, jonka kautta maksut välitetään. Lomakkeen täytön jälkeen saat Checkout Finlandilta sähköpostitse ohjeet siitä, kuinka varmentaa rekisteröityminen ja vastaanottaa tilitykset organisaatiollesi saapuvista maksuista."
       merhcant_registration_done: "Tämä organisaatio on jo rekisteröity myyjäksi."      
       skip_merchant_registration: "ohita myyjäksi rekisteröityminen tässä vaiheessa"
       register_as_merchant: "rekisteröi tämä organisaatio myyjäksi"
       company_id: "Y-tunnus"
-      email: "Sähköpostin, johon ohjeet lähetetään"
+      email: "Sähköposti, johon ohjeet lähetetään"
       phone_number: "Puhelinnumero"
       organization_address: "Postiosoite"
       organization_website: "Organisaation verkkosivun osoite"
@@ -35,6 +36,10 @@ fi:
       error_with_organization_registration: "Ennakoimaton virhe myyjäksi rekisteröitymisessä, ota yhteyttä ylläpitoon."
     profile_organization:
       edit: "Muokkaa"
+    seller_registration_needed:
+      seller_registration_needed: "Myyjäksi rekisteröityminen suorittamatta"
+      seller_registration_instructions: "Ennen kuin voit tehdä myynti-ilmoituksen ja vastaanottaa maksuja, sinun täytyy rekisteröidä edustamasi organisaatio myyjäksi. Voit tehdä sen %{link_to_profile_page} olevan organisaatiolistan kautta."
+      profile_page_link: "profiilisivullasi"
   listings:
     show:
       listing_added_by: "Ilmoituksen lisäsi"
@@ -43,6 +48,7 @@ fi:
     form:
       organization:
         organization: "Organisaatio"
+        only_seller_organizations_listed_here: "(Vaihtoehtoina tässä ovat vain organisaatiot, jotka on rekisteröity myyjäksi)"
   people:
     show:
       presented_organizations: "Edustetut organisaatiot"

@@ -44,6 +44,12 @@ class Community < ActiveRecord::Base
                       :default_url => "/logos/header/default.png"
   })
   has_attached_file :logo, paperclip_options_for_logo
+  validates_attachment_content_type :logo,
+                                    :content_type => ["image/jpeg",
+                                                      "image/png", 
+                                                      "image/gif", 
+                                                      "image/pjpeg", 
+                                                      "image/x-png"]
   
   paperclip_options_for_cover_photo = PaperclipHelper.paperclip_default_options.merge!({:styles => { 
                       :header => "1600x195#",  
@@ -51,6 +57,12 @@ class Community < ActiveRecord::Base
                       :default_url => "/cover_photos/header/default.jpg"
   })
   has_attached_file :cover_photo, paperclip_options_for_cover_photo
+  validates_attachment_content_type :cover_photo,
+                                    :content_type => ["image/jpeg",
+                                                      "image/png", 
+                                                      "image/gif", 
+                                                      "image/pjpeg", 
+                                                      "image/x-png"]
   
   attr_accessor :terms
   
@@ -223,6 +235,9 @@ class Community < ActiveRecord::Base
   
   # Find community by domain, which can be full domain or just subdomain
   def find_by_domain(domain_string)
+    if domain_string =~ /\:/ #string includes port which should be removed
+      domain_string = domain_string..split(":").first
+    end 
     if domain_string =~ /\./ # not just a subdomain
       if domain_string.match(APP_CONFIG.domain) # subdomain with default domain attached
         Community.where(["domain = ?", domain_string.split(".").first])

@@ -22,7 +22,7 @@ Kassi::Application.configure do
   ActionMailer::Base.smtp_settings = {
     :address              => APP_CONFIG.smtp_email_address,
     :port                 => APP_CONFIG.smtp_email_port,
-    :domain               => 'localhost',
+    :domain               => APP_CONFIG.smtp_email_domain || 'localhost',
     :user_name            => APP_CONFIG.smtp_email_user_name,
     :password             => APP_CONFIG.smtp_email_password,
     :authentication       => 'plain',

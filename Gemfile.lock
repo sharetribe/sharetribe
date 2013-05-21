@@ -3,12 +3,12 @@ GEM
   specs:
     action_mailer_cache_delivery (0.3.4)
       actionmailer (~> 3.0)
-    actionmailer (3.2.12)
-      actionpack (= 3.2.12)
-      mail (~> 2.4.4)
-    actionpack (3.2.12)
-      activemodel (= 3.2.12)
-      activesupport (= 3.2.12)
+    actionmailer (3.2.13)
+      actionpack (= 3.2.13)
+      mail (~> 2.5.3)
+    actionpack (3.2.13)
+      activemodel (= 3.2.13)
+      activesupport (= 3.2.13)
       builder (~> 3.0.0)
       erubis (~> 2.7.0)
       journey (~> 1.0.4)
@@ -16,29 +16,29 @@ GEM
       rack-cache (~> 1.2)
       rack-test (~> 0.6.1)
       sprockets (~> 2.2.1)
-    activemodel (3.2.12)
-      activesupport (= 3.2.12)
+    activemodel (3.2.13)
+      activesupport (= 3.2.13)
       builder (~> 3.0.0)
-    activerecord (3.2.12)
-      activemodel (= 3.2.12)
-      activesupport (= 3.2.12)
+    activerecord (3.2.13)
+      activemodel (= 3.2.13)
+      activesupport (= 3.2.13)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
-    activeresource (3.2.12)
-      activemodel (= 3.2.12)
-      activesupport (= 3.2.12)
-    activesupport (3.2.12)
-      i18n (~> 0.6)
+    activeresource (3.2.13)
+      activemodel (= 3.2.13)
+      activesupport (= 3.2.13)
+    activesupport (3.2.13)
+      i18n (= 0.6.1)
       multi_json (~> 1.0)
     acts-as-taggable-on (2.3.3)
       rails (~> 3.0)
     addressable (2.3.3)
-    airbrake (3.1.6)
+    airbrake (3.1.12)
+      activesupport
       builder
-      girl_friday
+      json
     arel (3.0.2)
-    aws-sdk (1.8.0)
-      httparty (~> 0.7)
+    aws-sdk (1.9.5)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
@@ -59,7 +59,6 @@ GEM
       xpath (~> 1.0.0)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
-    chronic (0.9.0)
     chunky_png (1.2.6)
     cocaine (0.4.2)
     coffee-rails (3.2.2)
@@ -75,7 +74,6 @@ GEM
       sass (~> 3.1)
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
-    connection_pool (0.9.3)
     cucumber (1.2.1)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.3)
@@ -86,14 +84,14 @@ GEM
       cucumber (>= 1.1.8)
       nokogiri (>= 1.5.0)
     database_cleaner (0.9.1)
-    delayed_job (3.0.4)
+    delayed_job (3.0.5)
       activesupport (~> 3.0)
     delayed_job_active_record (0.3.3)
       activerecord (>= 2.1.0, < 4)
       delayed_job (~> 3.0)
     delayed_paperclip (2.5.1.0)
       paperclip (>= 3.3.0)
-    devise (2.2.3)
+    devise (2.2.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (~> 3.1)
@@ -116,7 +114,7 @@ GEM
     factory_girl_rails (4.1.0)
       factory_girl (~> 4.1.0)
       railties (>= 3.0.0)
-    faraday (0.8.4)
+    faraday (0.8.7)
       multipart-post (~> 1.1)
     faraday_middleware (0.9.0)
       faraday (>= 0.7.4, < 0.9)
@@ -130,34 +128,27 @@ GEM
     fssm (0.2.9)
     gherkin (2.11.5)
       json (>= 1.4.6)
-    girl_friday (0.11.1)
-      connection_pool (~> 0.9.0)
-      rubinius-actor
     haml (3.1.7)
     hashie (1.2.0)
     highline (1.6.15)
     hike (1.2.2)
-    httparty (0.9.0)
-      multi_json (~> 1.0)
-      multi_xml
     httpauth (0.2.0)
-    i18n (0.6.4)
+    i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.1.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    json (1.8.0)
+    json (1.7.7)
     jwt (0.1.5)
       multi_json (>= 1.0)
-    kgio (2.7.4)
+    kgio (2.8.0)
     launchy (2.1.2)
       addressable (~> 2.3)
-    mail (2.4.4)
-      i18n (>= 0.4.0)
+    mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     memcache-client (1.8.5)
-    mime-types (1.21)
+    mime-types (1.23)
     money (5.1.1)
       i18n (~> 0.6.0)
     money-rails (0.8.1)
@@ -165,7 +156,6 @@ GEM
       money (~> 5.1.0)
       railties (>= 3.0)
     multi_json (1.7.3)
-    multi_xml (0.5.1)
     multipart-post (1.1.5)
     mysql2 (0.3.11)
     net-scp (1.0.4)
@@ -175,8 +165,8 @@ GEM
     net-ssh (2.6.2)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
-    newrelic_rpm (3.5.4.34)
-    nokogiri (1.5.6)
+    newrelic_rpm (3.6.2.96)
+    nokogiri (1.5.9)
     oauth2 (0.8.0)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -222,24 +212,24 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
-    rails (3.2.12)
-      actionmailer (= 3.2.12)
-      actionpack (= 3.2.12)
-      activerecord (= 3.2.12)
-      activeresource (= 3.2.12)
-      activesupport (= 3.2.12)
+    rails (3.2.13)
+      actionmailer (= 3.2.13)
+      actionpack (= 3.2.13)
+      activerecord (= 3.2.13)
+      activeresource (= 3.2.13)
+      activesupport (= 3.2.13)
       bundler (~> 1.0)
-      railties (= 3.2.12)
+      railties (= 3.2.13)
     rails-i18n (0.7.2)
       i18n (~> 0.5)
-    railties (3.2.12)
-      actionpack (= 3.2.12)
-      activesupport (= 3.2.12)
+    railties (3.2.13)
+      actionpack (= 3.2.13)
+      activesupport (= 3.2.13)
       rack-ssl (~> 1.3.2)
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
-    raindrops (0.10.0)
+    raindrops (0.11.0)
     rake (10.0.4)
     rash (0.3.2)
       hashie (~> 1.2.0)
@@ -253,7 +243,7 @@ GEM
     recaptcha (0.3.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
-    riddle (1.5.4)
+    riddle (1.5.6)
     rspec-core (2.12.2)
     rspec-expectations (2.12.1)
       diff-lcs (~> 1.1.3)
@@ -265,9 +255,6 @@ GEM
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
       rspec-mocks (~> 2.12.0)
-    rubinius-actor (0.0.2)
-      rubinius-core-api
-    rubinius-core-api (0.0.1)
     ruby-ole (1.2.11.6)
     ruby-prof (0.11.3)
     rubyzip (0.9.9)
@@ -308,15 +295,15 @@ GEM
       polyglot (>= 0.3.1)
     trollop (1.16.2)
     truncate_html (0.9.1)
-    tzinfo (0.3.35)
+    tzinfo (0.3.37)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    unicorn (4.5.0)
+    unicorn (4.6.2)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    uuidtools (2.1.3)
+    uuidtools (2.1.4)
     warden (1.2.1)
       rack (>= 1.0)
     web_translate_it (2.0.4)
@@ -324,9 +311,6 @@ GEM
       multipart-post (~> 1.1.3)
       trollop (~> 1.16.2)
     websocket (1.0.7)
-    whenever (0.8.1)
-      activesupport (>= 2.3.4)
-      chronic (>= 0.6.3)
     will_paginate (3.0.3)
     xpath (1.0.0)
       nokogiri (~> 1.3)
@@ -338,7 +322,7 @@ DEPENDENCIES
   action_mailer_cache_delivery
   acts-as-taggable-on
   airbrake
-  aws-sdk
+  aws-sdk (~> 1.9.0)
   capistrano
   capybara
   coffee-rails (~> 3.2.2)
@@ -349,15 +333,15 @@ DEPENDENCIES
   delayed_job
   delayed_job_active_record
   delayed_paperclip
-  devise
+  devise (~> 2.2.3)
   devise-encryptable
   dynamic_form
   email_spec
   factory_girl_rails
-  flying-sphinx
+  flying-sphinx (~> 0.8.5)
   haml
   jquery-rails
-  json
+  json (~> 1.7.7)
   launchy
   memcache-client (>= 1.8.5)
   money-rails
@@ -369,7 +353,7 @@ DEPENDENCIES
   pickle
   postmark-rails
   rabl
-  rails (= 3.2.12)
+  rails (= 3.2.13)
   rails-i18n
   rake
   rdf-turtle
@@ -389,6 +373,5 @@ DEPENDENCIES
   uglifier
   unicorn
   web_translate_it
-  whenever
   will_paginate
   xpath

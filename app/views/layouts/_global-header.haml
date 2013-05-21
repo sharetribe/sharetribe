@@ -77,7 +77,7 @@
       = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do
         - if @current_community
           = hidden_field_tag :community, @current_community.domain
-        - if APP_CONFIG.fb_connect_id && ! @facebook_merge && @current_community && ! @current_community.label.eql?("okl")
+        - if facebook_connect_in_use?
           %a.fb-connect{:href => person_omniauth_authorize_path(:facebook)}
             = icon_tag("facebook", ["fb-icon"])
             .fb-text= t("sessions.new.log_in_with_your_facebook_account")

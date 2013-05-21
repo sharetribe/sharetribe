@@ -11,6 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+
 ActiveRecord::Schema.define(:version => 20130521124342) do
 
   create_table "auth_tokens", :force => true do |t|
@@ -131,6 +132,8 @@ ActiveRecord::Schema.define(:version => 20130521124342) do
     t.boolean  "facebook_connect_enabled",                  :default => true
     t.integer  "vat"
     t.integer  "commission_percentage"
+    t.boolean  "only_public_listings",                      :default => false
+    t.string   "custom_email_from_address"
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
