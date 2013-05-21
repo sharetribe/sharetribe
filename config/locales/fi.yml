@@ -494,7 +494,7 @@ fi:
       new_payment: "Olet saanut uuden maksusuorituksen"
       you_have_received_new_payment: "%{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
     receipt_to_payer:
-      receipt_óf_payment: "Kuitti maksusta"
+      receipt_of_payment: "Kuitti maksusta"
       you_have_made_new_payment: "Olet maksanut käyttäjälle %{recipient_full_name} <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta %{service_name_inessive}"
@@ -581,6 +581,7 @@ fi:
       share_type: "Valitse yksi vaihtoehdoista."
       valid_until: "Viimeinen voimassaolopäivä ei voi olla aikaisempi kuin nykyhetki eikä yli vuoden päässä nykyhetkestä."
       price: "Hinnan on oltava positiivinen kokonaisluku."
+      minimum_price: "Minimihinta on %{minimum_price} %{currency}."
     testimonials:
       you_must_explain_not_neutral_feedback: "Jos haluat antaa jonkin muun arvosanan kuin odotusten mukaan, sinun pitää perustella arvosanasi."
       you_must_select_a_grade: "Muistathan kertoa, oliko kokemuksesi positiivinen vai negatiivinen."

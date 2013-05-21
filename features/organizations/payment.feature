@@ -20,7 +20,7 @@ Feature: User pays after accepted transaction
     And I follow "conversation_title_link_1"
     And I follow "Accept request"
     And I fill in "conversation_message_attributes_content" with "Ok, then pay!"
-    And I press "Send message"
+    And I press "Send"
     Then I should see "Accepted"
     When I am logged in as "kassi_testperson1"
     And I follow "inbox-link"
@@ -29,7 +29,7 @@ Feature: User pays after accepted transaction
     Then I should see "Pay"
     When I follow "Pay"
     Then I should see "New payment"
-    And I should see "12 €"
+    And I should see "12.00€"
     When I click "#continue_payment"
     Then I should see "Checkout"
     Then I should see "Testi Oy (123456-7)"
@@ -43,21 +43,23 @@ Feature: User pays after accepted transaction
     Then I should see "Payment successful"
     When I log out
     And the system processes jobs
-    And save and open all html emails
-    Then "kassi_testperson2@example.com" should receive an email
+    Then "kassi_testperson1@example.com" should receive an email
+    When I open the email
+    Then I should see "You have paid" in the email body
+    And "kassi_testperson2@example.com" should receive an email
     When I open the email
     Then I should see "View conversation" in the email body
     When "8" days have passed
     And the system processes jobs
-    Then "kassi_testperson1@example.com" should receive an email
+    Then "kassi_testperson1@example.com" should have 2 emails
     When I open the email with subject "Remember to confirm"
     Then I should see "You have not yet confirmed" in the email body
     When "16" days have passed
     And the system processes jobs
-    Then "kassi_testperson1@example.com" should have 2 emails
+    Then "kassi_testperson1@example.com" should have 3 emails
     When "100" days have passed
     And the system processes jobs
-    Then "kassi_testperson1@example.com" should have 2 emails
+    Then "kassi_testperson1@example.com" should have 3 emails
     And return to current time
 
   

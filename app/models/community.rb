@@ -20,6 +20,8 @@ class Community < ActiveRecord::Base
   
   before_destroy :delete_specific_community_categories
   
+  monetize :minimum_price_cents, :allow_nil => true
+  
   VALID_CATEGORIES = ["company", "university", "association", "neighborhood", "congregation", "town", "apartment_building", "other"]
   
   # Here is a list of subdomain names that we don't want people to reserve for their communities. This should be moved to config.
@@ -526,6 +528,14 @@ class Community < ActiveRecord::Base
     else
       # Use defaults
       return CommunityCategory.find_all_by_community_id(nil, :include => [:category, :share_type])
+    end
+  end
+  
+  def default_currency
+    if available_currencies
+      available_currencies.split(",").first
+    else
+      MoneyRails.default_currency
     end
   end
 
