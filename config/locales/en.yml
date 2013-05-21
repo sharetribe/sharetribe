@@ -193,6 +193,7 @@ en:
       rideshare_offer_message_form_title: "Ask for a ride from %{person}"
       rideshare_request_message_form_title: "Offer a ride to %{person}"
       send_message: "Send message"
+      send: "Send"
       this_message_is_private: "This message is private between you and %{person}. %{person} will be notified of this message by email."
       you_will_get_notified_of_acceptance: "You will get an email notification when %{person} accepts or rejects your proposal."
       you_will_get_notified: "You will get an email notification when %{person} answers you."
@@ -491,7 +492,10 @@ en:
       you_have_a_new_message: "You have a new message in %{service_name}"
     new_payment:
       new_payment: "You have received a new payment"
-      you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. You can now deliver %{listing_title} to %{payer_given_name}."
+      you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. Here is your receipt."
+    receipt_to_payer:
+      receipt_óf_payment: "Receipt of payment"
+      you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> to %{recipient_full_name}. Here is a receipt of the payment."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} has given you feedback in %{service_name}"
       you_can_give_feedback_to: "You haven't yet given feedback to %{name}."

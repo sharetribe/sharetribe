@@ -193,6 +193,7 @@ fi:
       rideshare_offer_message_form_title: "Pyydä kyytiä käyttäjältä"
       rideshare_request_message_form_title: "Tarjoa kyyti käyttäjälle"
       send_message: "Lähetä viesti"
+      send: "Lähetä"
       this_message_is_private: "Tämä viesti on yksityinen sinun ja käyttäjän %{person} välillä. %{person} saa tiedon lähettämästäsi viestistä sähköpostilla."
       you_will_get_notified_of_acceptance: "Saat sähköpostiisi tiedon, kun %{person} hyväksyy tai hylkää ehdotuksesi."
       you_will_get_notified: "Saat sähköpostiisi tiedon, kun %{person} vastaa sinulle."
@@ -491,7 +492,10 @@ fi:
       you_have_a_new_message: "Sinulle on uusi viesti %{service_name_inessive}"
     new_payment:
       new_payment: "Olet saanut uuden maksusuorituksen"
-      you_have_received_new_payment: "%{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Nyt on sinun vuorosi toimittaa %{listing_title} käyttäjälle %{payer_given_name}."
+      you_have_received_new_payment: "%{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
+    receipt_to_payer:
+      receipt_óf_payment: "Kuitti maksusta"
+      you_have_made_new_payment: "Olet maksanut käyttäjälle %{recipient_full_name} <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta %{service_name_inessive}"
       you_can_give_feedback_to: "Voit antaa palautetta käyttäjälle %{name} osoitteessa"

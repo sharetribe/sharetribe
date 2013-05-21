@@ -1,5 +1,7 @@
 class Payment < ActiveRecord::Base
   
+  include MathHelper
+  
   VALID_STATUSES = ["paid", "pending"]
   
   attr_accessible :conversation_id, :payer_id, :recipient_id
@@ -8,6 +10,7 @@ class Payment < ActiveRecord::Base
   belongs_to :payer, :class_name => "Person"
   belongs_to :recipient, :class_name => "Person"
   belongs_to :recipient_organization, :class_name => "Organization", :foreign_key => "organization_id"
+  belongs_to :community
 
   validates_inclusion_of :status, :in => VALID_STATUSES
   
@@ -19,6 +22,31 @@ class Payment < ActiveRecord::Base
     else
       self.rows = [PaymentRow.new]
     end
+  end
+  
+  # Payment excluding VAT and commission
+  def sum_without_vat_and_commission
+    rows.inject(Money.new(0, rows.first.currency)) { |total, row| total += row.sum }
+  end
+
+  # Commission excluding VAT
+  def commission_without_vat
+    sum_without_vat_and_commission*community.commission_percentage/100
+  end
+  
+  # Commission including VAT
+  def total_commission
+    sum_with_percentage(commission_without_vat, community.vat)
+  end
+  
+  # Total payment with VAT but without commission
+  def sum_without_commission
+    rows.inject(Money.new(0, rows.first.currency)) { |total, row| total += row.sum_with_vat }
+  end
+  
+  # Total payment that will be charged from the payer's account
+  def total_sum
+    sum_without_commission + total_commission
   end
   
 end

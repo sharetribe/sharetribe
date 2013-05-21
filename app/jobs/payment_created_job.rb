@@ -17,6 +17,7 @@ class PaymentCreatedJob < Struct.new(:payment_id, :community_id)
       if payment.recipient.should_receive?("email_about_new_payments")
         PersonMailer.new_payment(payment, community).deliver
       end
+      PersonMailer.receipt_to_payer(payment, community).deliver
       Delayed::Job.enqueue(ConfirmReminderJob.new(payment.conversation.id, payment.payer.id, community_id, 0), :priority => 0, :run_at => 1.week.from_now)
     rescue Exception => ex
       puts ex.message

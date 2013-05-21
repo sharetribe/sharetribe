@@ -115,7 +115,9 @@ function add_validator_methods() {
 function initialize_defaults(locale) {
   add_validator_methods();
   translate_validation_messages(locale);
-  setTimeout(hideNotice, 5000);
+  // This can be used if flash notifications should fade out
+  // automatically - currently not used.
+  //setTimeout(hideNotice, 5000);
   $('.flash-notifications').click(function() {
     $('.flash-notifications').fadeOut('slow');
   });

@@ -15,7 +15,10 @@
     
     - if @current_community.payment_possible_for?(@conversation.listing)
       .conversation-price.accept-price{:class => (@action.eql?("accept") ? "" : "hidden")}
+        %h3 Laskutus
+        %p Painaessasi "lähetä" alla oleva lasku lähetetään ostajalle. Ostaja voi maksaa laskun suoraan materiaalipankin järjestelmän kautta. 
         = fields_for "conversation[payment_attributes]", @payment do |payment_form|
+          = payment_form.hidden_field :community_id, :value => @current_community.id
           - @payment.initialize_rows(@current_community)
           .payment-row-headings.bottom-border
             .payment-row-heading.payment-row-title-heading
@@ -32,7 +35,7 @@
             
           .payment-row.payment-text-row.bottom-border
             .payment-row-title-text.payment-row-text
-              Mpankki palvelumaksu
+              Mpankin palvelumaksu
               (#{@current_community.commission_percentage}%)
               
             #service-fee-sum.payment-row-sum-text.payment-row-text
@@ -43,7 +46,7 @@
               
             #service-fee-total.payment-row-total-text.payment-row-text
 
-          .payment-row.payment-text-row
+          .payment-row.payment-text-row.payment-sum-row
             .payment-row-title-text.payment-row-text
               Yhteensä
               
@@ -71,4 +74,4 @@
           = label_tag "do_not_close_listing", t(".update_later"), :class => "radio"
     
     = form.hidden_field :status, :value => "#{@action}ed"
-    = form.button t("conversations.new.send_message"), :class => "send_button", :id => "send_testimonial_button"
+    = form.button t("conversations.new.send"), :class => "send_button", :id => "send_testimonial_button"

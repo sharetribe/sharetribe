@@ -33,13 +33,14 @@ class Conversation < ActiveRecord::Base
     payment.status = "pending"
     payment.payer = requester
     payment.recipient = offerer
+    payment.community_id = attributes[:community_id]
     if listing.author == requester
       raise "trying to create payment when multiple options for recipient_organization" if offerer.organizations.count > 1
       payment.recipient_organization = offerer.organizations.first
     else
       payment.recipient_organization = listing.organization
     end
-    attributes[:payment_rows].each { |row| payment.rows.build(row.merge(:sum_currency => "EUR")) unless row["title"].blank? }
+    attributes[:payment_rows].each { |row| payment.rows.build(row.merge(:currency => "EUR")) unless row["title"].blank? }
     payment.save!
   end
   

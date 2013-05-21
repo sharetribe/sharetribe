@@ -704,7 +704,7 @@ label.error {
     background: $background;
     position: absolute;
     right: lines(10.5); top: lines(0);
-    padding: lines(0.6) lines(0.5) lines(0.4) lines(0.5);
+    padding: em(12) lines(0.5) em(12) lines(0.5);
     //padding-left: (lines(0.5) - em(1));
     width: lines(1);
     text-align: center;
@@ -3270,7 +3270,7 @@ a.lightbox-x {
   -----------------------------------------------
 */
 
-.testimonial-form, .conversation-status-form {
+.testimonial-form, .conversation-status-form, .payment-form {
 
   a.grade, a.conversation-action {
     color: $body;
@@ -3328,11 +3328,15 @@ a.lightbox-x {
     @include border-radius(em(5));
   }
   
+  .conversation-price {
+    margin-top: lines(0.75);
+    margin-bottom: lines(0.25);
+  }
+  
   @include media(tablet) {
     
     .payment-row-headings {
       display: block;
-      margin-top: lines(0.75);
       margin-bottom: lines(0.375);
       padding-bottom: lines(0.25);
     }
@@ -3432,6 +3436,10 @@ a.lightbox-x {
     
     .payment-row-text {
       display: inline-block;
+    }
+    
+    .payment-sum-row {
+      font-weight: bold;
     }
     
   }
@@ -3605,10 +3613,6 @@ a.lightbox-x {
     width: lines(6);
   }
 
-  .payment-form-field {
-    display: inline-block;
-  }
-  
   .send-button {
     padding-top: lines(0.25);
   }

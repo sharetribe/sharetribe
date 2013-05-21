@@ -14,6 +14,7 @@ class Community < ActiveRecord::Base
   has_many :community_categories # Don't add here :dependent  => :destroy because community_categories method confuses it. Instead use separate hook (delete_specific_community_categories) to get rid of entries in that table when destroying.
   has_many :categories, :through => :community_categories
   has_many :share_types, :through => :community_categories
+  has_many :payments
   
   has_and_belongs_to_many :listings
   
