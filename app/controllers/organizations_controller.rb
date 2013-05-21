@@ -12,7 +12,7 @@ class OrganizationsController < ApplicationController
   def index
     @selected_tribe_navi_tab = "members"
     params[:page] = 1 unless request.xhr?
-    @organizations = Organization.all.paginate(:per_page => 15, :page => params[:page])
+    @organizations = Organization.order("id DESC").paginate(:per_page => 15, :page => params[:page])
     request.xhr? ? (render :partial => "additional_organizations") : (render :action => :index)
   end
   
