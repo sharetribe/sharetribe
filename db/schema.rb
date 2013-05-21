@@ -129,10 +129,10 @@ ActiveRecord::Schema.define(:version => 20130521171401) do
     t.boolean  "payments_in_use",                           :default => false
     t.text     "available_currencies"
     t.boolean  "facebook_connect_enabled",                  :default => true
-    t.integer  "vat"
-    t.integer  "commission_percentage"
     t.boolean  "only_public_listings",                      :default => false
     t.string   "custom_email_from_address"
+    t.integer  "vat"
+    t.integer  "commission_percentage"
     t.integer  "minimum_price_cents"
   end
 

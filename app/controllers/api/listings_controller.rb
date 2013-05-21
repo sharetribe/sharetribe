@@ -123,7 +123,7 @@ class Api::ListingsController < Api::ApiController
     end
     
     if @listing.save
-      Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, @current_community.full_domain))
+      Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, @current_community.id))
       response.status = 201 
       respond_with(@listing)
     else
