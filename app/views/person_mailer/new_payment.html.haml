@@ -3,7 +3,7 @@
 %tr
   %td{:align => "left"} 
     %font{body_font}
-      = t("emails.new_payment.you_have_received_new_payment", :listing_title => @payment.conversation.listing.title, :payment_sum => humanized_money_with_symbol(@payment.total_sum), :payer_full_name => @payment.payer.name, :payer_given_name => @payment.payer.given_name_or_username).html_safe
+      = t("emails.new_payment.you_have_received_new_payment", :listing_title => @payment.conversation.listing.title, :payment_sum => humanized_money_with_symbol(@payment.sum_without_commission), :payer_full_name => @payment.payer.name, :payer_given_name => @payment.payer.given_name_or_username).html_safe
 
 %tr
   %td{:align => "left", :style => "padding: 10px 0;"}
@@ -30,20 +30,11 @@
               = row.sum_with_vat.to_s + row.sum_symbol
         %tr
           %td
-            Mpankin palvelumaksu
-          %td
-            = @payment.commission_without_vat.to_s + @payment.rows.first.sum_symbol
-          %td
-            = @payment.community.vat.to_s + "%"
-          %td
-            = @payment.total_commission.to_s + @payment.rows.first.sum_symbol
-        %tr
-          %td
             %b Yhteensä
           %td
           %td
           %td
-            %b= @payment.total_sum.to_s + @payment.rows.first.sum_symbol
+            %b= @payment.sum_without_commission.to_s + @payment.rows.first.sum_symbol
             
             
 = render :partial => "action_button", :locals => { :text => t("emails.conversation_status_changed.view_thread"), :url => conversation_url}
