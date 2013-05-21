@@ -102,28 +102,28 @@
         - if @listings.total_pages > 1
           .load-more-link#load-more-listings
             = link_to t(".show_all_open_listings"), "#"
-  
-  .profile-testimonials.section
-    %h2
+  - if @current_community.testimonials_in_use
+    .profile-testimonials.section
+      %h2
+        - if @person.received_testimonials.size > 0
+          = pluralize(@person.received_testimonials.size, t(".review"), t(".reviews"))
+        - else
+          = t(".no_reviews")
       - if @person.received_testimonials.size > 0
-        = pluralize(@person.received_testimonials.size, t(".review"), t(".reviews"))
-      - else
-        = t(".no_reviews")
-    - if @person.received_testimonials.size > 0
-      .small-text
-        = "(#{@person.feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{@person.received_positive_testimonials.size}/#{@person.received_testimonials.size})"
-      #profile-testimonials-list
-        = render :partial => "testimonial", :collection => @person.received_testimonials.limit(3)
-        - if @person.received_testimonials.size > 3
-          .load-more-link#load-more-testimonials
-            = link_to t(".show_all_reviews"), "#"
+        .small-text
+          = "(#{@person.feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{@person.received_positive_testimonials.size}/#{@person.received_testimonials.size})"
+        #profile-testimonials-list
+          = render :partial => "testimonial", :collection => @person.received_testimonials.limit(3)
+          - if @person.received_testimonials.size > 3
+            .load-more-link#load-more-testimonials
+              = link_to t(".show_all_reviews"), "#"
   
 
-  - if @person.badges.size > 0
+  - if @person.badges.size > 0 && @current_community.badges_in_use
     .profile-badges.section
       %h2= pluralize(@person.badges.size, t(".badge"), t(".badges"))
       .badge-list
         = render :partial => "profile_badge", :collection => @person.badges.order("id DESC"), :as => :badge
 
-- if @person.badges.size > 0 && @person.badges_visible_to?(@current_user)
+- if @person.badges.size > 0 && @person.badges_visible_to?(@current_user) && @current_community.badges_in_use
   = render :partial => "badge_description", :collection => @person.badges.order("id DESC"), :as => :badge    

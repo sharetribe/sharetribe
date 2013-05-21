@@ -352,7 +352,7 @@ class Person < ActiveRecord::Base
   end
    
   def give_badge(badge_name, community)
-    unless has_badge?(badge_name)
+    unless has_badge?(badge_name) || ! community.badges_in_use
       badge = Badge.create(:person_id => id, :name => badge_name)
       Notification.create(:notifiable_id => badge.id, :notifiable_type => "Badge", :receiver_id => id)
       if should_receive?("email_about_new_badges")
