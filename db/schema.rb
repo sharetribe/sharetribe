@@ -11,7 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
 ActiveRecord::Schema.define(:version => 20130521124342) do
 
   create_table "auth_tokens", :force => true do |t|
