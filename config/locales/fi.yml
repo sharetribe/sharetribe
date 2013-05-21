@@ -478,13 +478,11 @@ fi:
       you_can_view_all_your_badges_in: "Näytä ansaitut ansiomerkit"
       you_have_achieved_a_badge: "Olet ansainnut ansiomerkin '%{badge_name}'!"
     new_comment:
-      has_commented_your_offer_in_kassi: "%{author} on kommentoinut tarjoustasi %{listing}"
-      has_commented_your_request_in_kassi: "%{author} on kommentoinut pyyntöäsi %{listing}"
+      has_commented_your_listing_in_kassi: "%{author} on kommentoinut ilmoitustasi '%{listing}'"
       view_comment: "Näytä kommentti"
       you_have_a_new_comment: "%{author} on kommentoinut ilmoitustasi %{service_name_inessive}"
       listing_you_follow_has_a_new_comment: "%{author} on kommentoinut seuraamaasi ilmoitusta %{service_name_inessive}"
-      has_commented_offer_you_follow_in_kassi: "%{author} on kommentoinut seuraamaasi pyyntöä %{listing}"
-      has_commented_request_you_follow_in_kassi: "%{author} on kommentoinut seuraamaasi tarjousta %{listing}"
+      has_commented_listing_you_follow_in_kassi: "%{author} on kommentoinut seuraamaasi ilmoitusta '%{listing}'."
     new_message:
       conversation_title: "Viestiketjun otsikko: %{title}"
       view_message: "Näytä viesti"
@@ -499,12 +497,11 @@ fi:
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta %{service_name_inessive}"
       you_can_give_feedback_to: "Voit antaa palautetta käyttäjälle %{name} osoitteessa"
-      view_feedback: ~
+      view_feedback: "Näytä palaute"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Seuraamasi ilmoitus on päivittynyt"
-      has_updated_offer_you_follow_in_kassi: "%{author} on päivittänyt seuraamasi pyynnön %{listing}"
-      has_updated_request_you_follow_in_kassi: "%{author} on päivittänyt seuraamasi tarjouksen %{listing}"
-      view_changes: ~
+      has_updated_listing_you_follow_in_kassi: "%{author} on päivittänyt seuraamaasi ilmoitusta '%{listing}'."
+      view_changes: "Näytä muutokset"
     community_updates:
       added_offer: "%{name_link} lisäsi tarjouksen:"
       added_request: "%{name_link} lisäsi pyynnön:"

@@ -478,13 +478,11 @@ en:
       you_can_view_all_your_badges_in: "View all your badges"
       you_have_achieved_a_badge: "You have achieved a badge '%{badge_name}' in %{service_name}!"
     new_comment:
-      has_commented_your_offer_in_kassi: "%{author} has commented on your offer %{listing}."
-      has_commented_your_request_in_kassi: "%{author} has commented on your request %{listing}."
+      has_commented_your_listing_in_kassi: "%{author} has commented on your listing '%{listing}'."
       view_comment: "View comment"
       you_have_a_new_comment: "%{author} has commented on your listing in %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} has commented on a listing you follow in %{service_name}"
-      has_commented_offer_you_follow_in_kassi: "%{author} has commented on the request '%{listing}' you are following in %{service_name}"
-      has_commented_request_you_follow_in_kassi: "%{author} has commented on the offer '%{listing}' you are following in %{service_name}."
+      has_commented_listing_you_follow_in_kassi: "%{author} has commented on the listing '%{listing}' you are following in %{service_name}."
     new_message:
       conversation_title: "Message thread title: %{title}"
       view_message: "View message"
@@ -502,8 +500,7 @@ en:
       view_feedback: "View feedback"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Listing you follow has been updated"
-      has_updated_offer_you_follow_in_kassi: "%{author} has updated the request '%{listing}' you are following in %{service_name}"
-      has_updated_request_you_follow_in_kassi: "%{author} has updated the offer '%{listing}' you are following in %{service_name}"
+      has_updated_listing_you_follow_in_kassi: "%{author} has updated the listing '%{listing}' you are following in %{service_name}."
       view_changes: "View changes"
     community_updates:
       added_offer: "%{name_link} added an offer:"
