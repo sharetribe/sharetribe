@@ -90,7 +90,7 @@ class CommunitiesController < ApplicationController
       # Check if there is unconfirmed or should we add one.
       
       if @current_user.email == params[:email] # check primary email
-        @current_user.send_confirmation_instructions
+        @current_user.send_confirmation_instructions(request.host_with_port)
       else
         if @current_user.has_email?(params[:email]) #unconfirmed additional email
           e = Email.find_by_address(params[:email])

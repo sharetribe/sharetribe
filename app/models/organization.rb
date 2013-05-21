@@ -1,4 +1,7 @@
 class Organization < ActiveRecord::Base
+  
+  include EmailHelper
+    
   attr_accessible :allowed_emails, :name, :logo, :company_id,
                   :email, :phone_number, :website, :address, :merchant_registration
   
@@ -30,6 +33,7 @@ class Organization < ActiveRecord::Base
   
   
   def has_admin?(person)
+    return false if person.nil?
     membership = OrganizationMembership.find_by_person_id_and_organization_id(person.id, self.id) 
     membership.present? && membership.admin
   end

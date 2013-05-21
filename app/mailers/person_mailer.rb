@@ -232,16 +232,30 @@ class PersonMailer < ActionMailer::Base
          :subject => "New member in #{@community.name} Sharetribe")
   end
   
-  # The initial email confirmation is sent by Devise, but if people enter additional emails, confirm them with this method
-  # using the same template
-  def additional_email_confirmation(email, host)
+
+  def email_confirmation(person, host, com=nil)
+    community = com || Community.find_by_domain(host)
+    @no_settings = true
+    @resource = person
+    @confirmation_token = person.confirmation_token
+    @host = host
+    person.update_attribute(:confirmation_sent_at, Time.now)
+    mail(:to => person.email, 
+         :from => community_specific_sender(com),
+         :subject => t("devise.mailer.confirmation_instructions.subject"), 
+         :template_path => 'devise/mailer', 
+         :template_name => 'confirmation_instructions')
+  end
+  
+  def additional_email_confirmation(email, host, com=nil)
+    community = com || Community.find_by_domain(host)
     @no_settings = true
     @resource = email.person
     @confirmation_token = email.confirmation_token
     @host = host
     email.update_attribute(:confirmation_sent_at, Time.now)
     mail(:to => email.address, 
-         :from => community_specific_sender(Community.find_by_domain(host)),
+         :from => community_specific_sender(com),
          :subject => t("devise.mailer.confirmation_instructions.subject"), 
          :template_path => 'devise/mailer', 
          :template_name => 'confirmation_instructions')
