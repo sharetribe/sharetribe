@@ -467,12 +467,14 @@ function initialize_listing_view(locale) {
 function initialize_accept_transaction_form(commission_percentage) {
 	auto_resize_text_areas("text_area");
 	style_action_selectors();
+	
 	if (commission_percentage != undefined) {
 	  update_transaction_form_price_fields(commission_percentage);
   	$(".trigger-focusout").focusout(function(value) {
   	  update_transaction_form_price_fields(commission_percentage);
   	});
   }
+	
 }
 
 function update_transaction_form_price_fields(commission_percentage) {
