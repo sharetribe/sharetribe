@@ -245,7 +245,7 @@ class PeopleController < Devise::RegistrationsController
         
         # Send new confirmation email, if was changing for that 
         if params["request_new_email_confirmation"]
-            @person.send_confirmation_instructions
+            @person.send_confirmation_instructions(request.host_with_port, @current_community)
             flash[:notice] = t("layouts.notifications.email_confirmation_sent_to_new_address")
         end
       else

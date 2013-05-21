@@ -1,4 +1,7 @@
 class Organization < ActiveRecord::Base
+  
+  include EmailHelper
+    
   attr_accessible :allowed_emails, :name, :logo, :company_id,
                   :email, :phone_number, :website, :address, :merchant_registration
   
