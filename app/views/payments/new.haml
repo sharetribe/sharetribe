@@ -2,6 +2,7 @@
   %h2= t(".new_payment", )
   %p 
     = t(".payment_receiver")
+    
     = @payment.recipient_organization.name
         
     = "(#{link_to @conversation.other_party(@current_user).name, @conversation.other_party(@current_user)})".html_safe

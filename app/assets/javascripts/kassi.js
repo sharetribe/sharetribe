@@ -109,6 +109,17 @@ function add_validator_methods() {
       }
     );
 
+  $.validator.
+    addMethod( "minimum_price_required", 
+      function(value, element, minimum_price) {
+        if (minimum_price == "") {
+          return true
+        } else {
+          return minimum_price <= value*100; 
+        }
+      }
+    );
+
 }
 
 // Initialize code that is needed for every view
@@ -346,7 +357,8 @@ function initialize_new_listing_form_selectors(locale, attribute_hash, listing_f
 }
 
 // Initialize the actual form fields
-function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_rideshare, is_offer, listing_id, address_validator_message, price_required, price_message) {
+function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_rideshare, is_offer, listing_id, address_validator_message, price_required, price_message, minimum_price, minimum_price_message) {
+  
   $('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true, zIndex: 1000000}); });
   $('input.title_text_field:first').focus();
   
@@ -393,14 +405,14 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
       "listing[title]": {required: true},
       "listing[origin]": {required: rs, address_validator: true},
       "listing[destination]": {required: rs, address_validator: true},
-      "listing[price]": {required: pr, positive_integer: true},
+      "listing[price]": {required: pr, positive_integer: true, minimum_price_required: minimum_price},
       "listing[listing_images_attributes][0][image]": { accept: "(jpe?g|gif|png)" },
       "listing[valid_until(1i)]": { min_date: is_rideshare, max_date: is_rideshare }
     },
     messages: {
       "listing[valid_until(1i)]": { min_date: date_message, max_date: date_message },
       "listing[origin]": { address_validator: address_validator_message },
-      "listing[price]": { positive_integer: price_message },
+      "listing[price]": { positive_integer: price_message, minimum_price_required: minimum_price_message },
     },
     // Run validations only when submitting the form.
     onkeyup: false,

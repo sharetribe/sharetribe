@@ -494,7 +494,7 @@ en:
       new_payment: "You have received a new payment"
       you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. Here is your receipt."
     receipt_to_payer:
-      receipt_óf_payment: "Receipt of payment"
+      receipt_of_payment: "Receipt of payment"
       you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> to %{recipient_full_name}. Here is a receipt of the payment."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} has given you feedback in %{service_name}"
@@ -581,6 +581,7 @@ en:
       share_type: "You must select one."
       valid_until: "This date must be between current time and one year from now."
       price: "Price must be a whole number."
+      minimum_price: "Minimum price is %{minimum_price} %{currency}."
     testimonials:
       you_must_explain_not_neutral_feedback: "If you want to give non-neutral feedback, you must explain why."
       you_must_select_a_grade: "Remember to tell whether your experience was positive or negative."
