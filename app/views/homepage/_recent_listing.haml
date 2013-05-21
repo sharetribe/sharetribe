@@ -1,6 +1,6 @@
 .feed-item.feed-request
   .feed-author-avatar
-    = small_avatar_thumb(listing.organization_our_author?(@current_community))
+    = small_avatar_thumb(listing.organization_or_author?(@current_community))
   .feed-content{:class => (listing.has_image? ? "content-with-image" : "")}
     .author
       = author_link(listing)

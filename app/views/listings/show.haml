@@ -67,7 +67,7 @@
     - if @listing.has_organization_in?(@current_community)
       .listing-author
         .listing-author-image
-          = medium_avatar_thumb(@listing.organization_our_author?(@current_community))    
+          = medium_avatar_thumb(@listing.organization_or_author?(@current_community))    
         .listing-author-description
           %h3
             = @listing.organization.name

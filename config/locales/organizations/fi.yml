@@ -7,6 +7,10 @@ fi:
       create_new_organization: "Lisää uusi yritys tai organisaatio järjestelmään"
       selected_organizatoin_needs_specific_email: "Valittu organisaatio vaatii sähköpostin, joka on muotoa: "
   organizations:
+    index:
+      organizations_that_are_on_board: "Materiaalipankissa mukana olevat organisaatiot"
+      here_are_the_organizations: "Seuraavat %{count} organisaatiota ovat mukana Materiaalipankissa."
+      loading_more_organizations: "Ladataan lisää organisaatioita"
     new:
       create_new_organization: "Luo uusi organisaatio"
       instructions: "Tallenna yrityksen tai yhteisön tiedot järjestelmään. Tässä yhteisössä luomasi ilmoitukset (esim. tavaran myymisestä) näkyvät ensisijaisesti luodun organisaation ilmoituksina. Jos kaipaat apua, <a href='/fi/user_feedbacks/new'>ota yhteyttä</a>."

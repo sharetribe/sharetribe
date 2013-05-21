@@ -606,7 +606,7 @@ class Listing < ActiveRecord::Base
   end
   
   # Return organization if listing has it, otherwise return author
-  def organization_our_author?(community)
+  def organization_or_author?(community)
     has_organization_in?(community) ? organization : author
   end
   

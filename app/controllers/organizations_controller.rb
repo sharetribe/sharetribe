@@ -4,11 +4,17 @@ class OrganizationsController < ApplicationController
   skip_filter :cannot_access_without_joining, :only => [:new, :create]
   skip_filter :check_email_confirmation, :only => [:new, :create]
   
-  before_filter :ensure_organization_admin, :except => [:new, :create]
+  before_filter :ensure_organization_admin, :except => [:new, :create, :index]
   before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_page")
   end
   
+  def index
+    @selected_tribe_navi_tab = "members"
+    params[:page] = 1 unless request.xhr?
+    @organizations = Organization.all.paginate(:per_page => 15, :page => params[:page])
+    request.xhr? ? (render :partial => "additional_organizations") : (render :action => :index)
+  end
   
   def new
     @organization = Organization.new

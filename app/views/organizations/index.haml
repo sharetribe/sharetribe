@@ -1,0 +1,9 @@
+.members-intro
+  %h1= t(".organizations_that_are_on_board")
+  %p
+    = t(".here_are_the_organizations", :count => @organizations.total_entries, :community_name => @current_community.full_name)
+
+#members.members
+  = render :partial => @organizations
+  = will_paginate(@organizations)
+  = pageless(@organizations.total_pages, '#members', request.fullpath, t('.loading_more_organizations'))
