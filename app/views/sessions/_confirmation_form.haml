@@ -12,7 +12,7 @@
   - else
     = t("sessions.confirmation_pending.account_confirmation_instructions_dashboard").html_safe
 
-- if @current_community && @current_user.communities.count == 0
+- if @current_community && @current_user.communities.count == 0 && ! @current_community.requires_organization_membership?
   %b
     = t("sessions.confirmation_pending.get_started")
   %p
