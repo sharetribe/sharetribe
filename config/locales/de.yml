@@ -193,6 +193,7 @@ de:
       rideshare_offer_message_form_title: "Nach einer Mitfahrgelegenheit fragen"
       rideshare_request_message_form_title: "Eine MItfahrgelegenheit anbieten an"
       send_message: "Nachricht senden"
+      send: ~
       this_message_is_private: "Die Nachricht ist privat zwischen Ihnen und %{person}. %{person} wird per Email über diese Nachricht benachrichtigt."
       you_will_get_notified_of_acceptance: "Sie erhalten eine Email Benachrichtigung wenn %{person} Ihren Vorschlag akzeptiert oder ablehnt."
       you_will_get_notified: "Sie erhalten eine Email Benachrichtigung wenn %{person} Ihnen antwortet."
@@ -477,13 +478,11 @@ de:
       you_can_view_all_your_badges_in: "Sie können alle Ihre Abzeichen in                                einsehen"
       you_have_achieved_a_badge: "Sie haben das Abzeichen '%{badge_name}' in %{service_name} erhalten!"
     new_comment:
-      has_commented_your_offer_in_kassi: "%{author} hat Ihr Angebot %{listing} kommentiert"
-      has_commented_your_request_in_kassi: "%{author} hat Ihre Anfrage %{listing} kommentiert"
+      has_commented_your_listing_in_kassi: ~
       view_comment: ~
       you_have_a_new_comment: "%{author} hat Ihren Eintrag in %{service_name} kommentiert"
       listing_you_follow_has_a_new_comment: "%{author} hat auf Ihren Eintrag geantwortet den Sie in %{service_name} verfolgen"
-      has_commented_offer_you_follow_in_kassi: "%{author} hat auf die Anfrage '%{listing}' geantwortet die Sie in %{service_name} verfolgen"
-      has_commented_request_you_follow_in_kassi: "%{author} hat auf das Angebot '%{listing}' geantwortet dass Sie in %{service_name} verfolgen"
+      has_commented_listing_you_follow_in_kassi: ~
     new_message:
       conversation_title: "Nachrichtentitel: %{title}"
       view_message: ~
@@ -492,14 +491,16 @@ de:
     new_payment:
       new_payment: ~
       you_have_received_new_payment: ~
+    receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} hat Ihnen Feedback in %{service_name} hinterlassen"
       you_can_give_feedback_to: "Sie können Feedback für %{name} hier                           hinterlassen"
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Eintrag den Sie verfolgen wurde aktualisiert"
-      has_updated_offer_you_follow_in_kassi: "%{author} hat die Anfrage '%{listing}' aktualisiert die Sie in %{service_name} verfolgen"
-      has_updated_request_you_follow_in_kassi: "%{author} hat auf das Angebot '%{listing}' aktualisiert dass Sie in %{service_name} verfolgen"
+      has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
       added_offer: ~
@@ -577,6 +578,7 @@ de:
       share_type: "Sie müssen eine auswählen."
       valid_until: "Das Datum muss sich zwischen der aktuellen Zeit und einem Jahr befinden."
       price: ~
+      minimum_price: ~
     testimonials:
       you_must_explain_not_neutral_feedback: "Falls Sie ein nicht-neutrales Feedback vergeben wollen, müssen Sie erklären warum."
       you_must_select_a_grade: "Denken Sie daran den Benutzer mit Klick auf den Icons oben zu benoten (Sie können die Erklärung der Icons einsehen indem Sie mit der Maus drübergehen)"
@@ -979,6 +981,8 @@ de:
         mass: ~
         time: ~
         long_time: ~
+        service_fee_will_be_added: ~
+        price_excludes_vat: ~
       origin:
         location: Standort
         origin: Herkunft
@@ -1093,16 +1097,6 @@ de:
       link_label_for_item_request_trade: "Diesen Gegenstand zum Austausch anbieten"
       link_label_for_rideshare_offer: "Diese Mifahrt anfordern"
       link_label_for_rideshare_request: "Mitfahrt anbieten"
-    listed_listing:
-      edit: Bearbeiten
-    listed_listings:
-      loading_more_offers: "Weitere Angebote laden"
-      loading_more_requests: "Weitere Anfragen laden"
-      no_offers_with_the_conditions_you_gave: "Keine Angebote mit den angegebenen Bedingungen vorhanden"
-      no_requests_with_the_conditions_you_gave: "Keine Anfragen mit den angegebenen Bedingungen vorhanden"
-      offer_something: "Etwas anbieten!"
-      request_something: "Etwas anfordern!"
-      search_returned_no_results: "Ihre Suche ergab keine Ergebnisse."
     new:
       listing: ~
       offer: ~
@@ -1201,6 +1195,8 @@ de:
       times: Zeiten
       times_viewed: Gesehen
       processing_uploaded_image: ~
+    displayed_price:
+      price_excludes_vat: ~
   mapview:
     index:
       all_categories: "Alle Kategorien"

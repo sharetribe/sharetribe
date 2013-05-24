@@ -193,6 +193,7 @@ ca:
       rideshare_offer_message_form_title: "Sol·licitar un trasllat a"
       rideshare_request_message_form_title: "Oferir un trasllat a"
       send_message: ~
+      send: ~
       this_message_is_private: "Aquest missatge és privat entre tu i %{person}."
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
@@ -477,13 +478,11 @@ ca:
       you_can_view_all_your_badges_in: "Pots veure les teves medalles a"
       you_have_achieved_a_badge: "Has rebut una medalla '%{badge_name}' dins de Kassi!"
     new_comment:
-      has_commented_your_offer_in_kassi: "%{author} ha comentat la vostra oferta %{listing}"
-      has_commented_your_request_in_kassi: "%{author} ha comentat la vostra sol·licitud %{listing}"
+      has_commented_your_listing_in_kassi: ~
       view_comment: ~
       you_have_a_new_comment: "%{author} ha comentat la teva llista de Kassi"
       listing_you_follow_has_a_new_comment: "%{author} ha comentat un anunci que segueixes a Kassi"
-      has_commented_offer_you_follow_in_kassi: "%{author} ha comentat la sol·licitud '%{listing}' que estàs seguint a Kassi"
-      has_commented_request_you_follow_in_kassi: "%{author} ha comentat l'ferta'%{listing}' que estàs seguint a Kassi"
+      has_commented_listing_you_follow_in_kassi: ~
     new_message:
       conversation_title: "Títol de missatge: %{title}"
       view_message: ~
@@ -492,14 +491,16 @@ ca:
     new_payment:
       new_payment: ~
       you_have_received_new_payment: ~
+    receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} t'ha fet un suggeriment a Kassi"
       you_can_give_feedback_to: "Pots donar-li un suggeriment a %{name} en"
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "La llista que segueixes ha estat actualitzada"
-      has_updated_offer_you_follow_in_kassi: "%{author} ha actualitzat la sol·licitud '%{listing}' que estàs siguint a Kassi"
-      has_updated_request_you_follow_in_kassi: "%{author} ha actualizat l'oferta '%{listing}' que estàs seguint a Kassi"
+      has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
       added_offer: ~
@@ -579,6 +580,7 @@ ca:
       share_type: "Has de seleccionar almenys una de les caselles anteriors."
       valid_until: "La data ha de situar-se entre la data actual i un any a contar des d'avui."
       price: ~
+      minimum_price: ~
     testimonials:
       you_must_explain_not_neutral_feedback: "Si desitges fer un suggeriment no neutral has de raonar-lo"
       you_must_select_a_grade: "Recorda avaluar als usuaris clicant en una de les icones de sobre (pot veure les explicacions de cada icona passant el ratolí per sobre d'elles)"
@@ -981,6 +983,8 @@ ca:
         mass: ~
         time: ~
         long_time: ~
+        service_fee_will_be_added: ~
+        price_excludes_vat: ~
       origin:
         location: Lloc
         origin: Origen
@@ -1095,16 +1099,6 @@ ca:
       link_label_for_item_request_trade: ~
       link_label_for_rideshare_offer: Contactar
       link_label_for_rideshare_request: Contactar
-    listed_listing:
-      edit: Editar
-    listed_listings:
-      loading_more_offers: "Carregant més ofertes"
-      loading_more_requests: "Carregant més sol·licituds"
-      no_offers_with_the_conditions_you_gave: "No hi ha ofertes amb aquestes característiques"
-      no_requests_with_the_conditions_you_gave: "No hi ha ofertes amb aquestes característiques"
-      offer_something: "Ofereix alguna cosa!"
-      request_something: "Demana alguna cosa!"
-      search_returned_no_results: "La cerca no ha generat cap resultat"
     new:
       listing: ~
       offer: ~
@@ -1203,6 +1197,8 @@ ca:
       times: vegades
       times_viewed: Vist
       processing_uploaded_image: ~
+    displayed_price:
+      price_excludes_vat: ~
   mapview:
     index:
       all_categories: "Totes les categories"

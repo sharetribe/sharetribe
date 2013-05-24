@@ -193,6 +193,7 @@ zh:
       rideshare_offer_message_form_title: 想要搭顺风车
       rideshare_request_message_form_title: 提供顺风车
       send_message: 发送信息
+      send: ~
       this_message_is_private: "此消息为您和%{person}之间的悄悄话"
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
@@ -477,13 +478,11 @@ zh:
       you_can_view_all_your_badges_in: 浏览您的所有的徽章
       you_have_achieved_a_badge: "您在Kassi赢取了新的徽章'%{badge_name}' ！"
     new_comment:
-      has_commented_your_offer_in_kassi: "%{author}评论了您的提议%{listing}"
-      has_commented_your_request_in_kassi: "%{author}评论了您的请求%{listing}"
+      has_commented_your_listing_in_kassi: ~
       view_comment: ~
       you_have_a_new_comment: "%{author} 对您的留言发表了评论"
       listing_you_follow_has_a_new_comment: ~
-      has_commented_offer_you_follow_in_kassi: ~
-      has_commented_request_you_follow_in_kassi: ~
+      has_commented_listing_you_follow_in_kassi: ~
     new_message:
       conversation_title: ~
       view_message: ~
@@ -492,14 +491,16 @@ zh:
     new_payment:
       new_payment: ~
       you_have_received_new_payment: ~
+    receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name}在Kassi给您了反馈"
       you_can_give_feedback_to: "您可以在此给%{name}反馈"
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: 以下列表已更新
-      has_updated_offer_you_follow_in_kassi: ~
-      has_updated_request_you_follow_in_kassi: ~
+      has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
       added_offer: ~
@@ -577,6 +578,7 @@ zh:
       share_type: 您必须从中选择至少一项
       valid_until: 该日期必须在现在起一年之内。
       price: ~
+      minimum_price: ~
     testimonials:
       you_must_explain_not_neutral_feedback: 如果您希望给出非中性的评价，您必须解释原因。
       you_must_select_a_grade: 点击上面的图标为用户评分（将鼠标指针悬停在图标上以获得帮助）
@@ -979,6 +981,8 @@ zh:
         mass: ~
         time: ~
         long_time: ~
+        service_fee_will_be_added: ~
+        price_excludes_vat: ~
       origin:
         location: 地点
         origin: 来源
@@ -1093,16 +1097,6 @@ zh:
       link_label_for_item_request_trade: ~
       link_label_for_rideshare_offer: 需要顺风车
       link_label_for_rideshare_request: 提供顺风车
-    listed_listing:
-      edit: 编辑
-    listed_listings:
-      loading_more_offers: 正在加载更多提议
-      loading_more_requests: 正在加载更多请求
-      no_offers_with_the_conditions_you_gave: 没有找到符合您描述的提议
-      no_requests_with_the_conditions_you_gave: 没有找到符合您描述的请求
-      offer_something: 列出您的物品和技能!
-      request_something: 说出您的需要！
-      search_returned_no_results: 没有找到符合您描述的结果
     new:
       listing: ~
       offer: ~
@@ -1201,6 +1195,8 @@ zh:
       times: 次数
       times_viewed: 已阅
       processing_uploaded_image: ~
+    displayed_price:
+      price_excludes_vat: ~
   mapview:
     index:
       all_categories: 全部分类
