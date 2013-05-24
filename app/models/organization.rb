@@ -44,7 +44,7 @@ class Organization < ActiveRecord::Base
     password = APP_CONFIG.merchant_api_password
 
     if APP_CONFIG.merchant_registration_mode == "production"
-      type = 1 # Creates real merchant accounts
+      type = 0 # Creates real merchant accounts
     else
       type = 2 # Creates test accounts
     end
