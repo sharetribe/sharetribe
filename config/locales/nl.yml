@@ -193,6 +193,7 @@ nl:
       rideshare_offer_message_form_title: "Vraag om een rit van"
       rideshare_request_message_form_title: "Bied een rit aan"
       send_message: ~
+      send: ~
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
@@ -477,13 +478,11 @@ nl:
       you_can_view_all_your_badges_in: "Je kan al je badges zien in"
       you_have_achieved_a_badge: "Je hebt een badge '%{badge_name}' verdiend in Kassi!"
     new_comment:
-      has_commented_your_offer_in_kassi: "%{author} heeft een reactie gegeven op uw aanbodr %{listing}"
-      has_commented_your_request_in_kassi: "%{author} heeft een reactie gegeven op u verzoek %{listing}"
+      has_commented_your_listing_in_kassi: ~
       view_comment: ~
       you_have_a_new_comment: "%{author} heeft een reactie gegeven over u lijst in Kassi"
       listing_you_follow_has_a_new_comment: ~
-      has_commented_offer_you_follow_in_kassi: ~
-      has_commented_request_you_follow_in_kassi: ~
+      has_commented_listing_you_follow_in_kassi: ~
     new_message:
       conversation_title: ~
       view_message: ~
@@ -492,14 +491,16 @@ nl:
     new_payment:
       new_payment: ~
       you_have_received_new_payment: ~
+    receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} heeft je feedback gegeven in Kassi"
       you_can_give_feedback_to: "Je kan feedback geven aan %{name} in"
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
-      has_updated_offer_you_follow_in_kassi: ~
-      has_updated_request_you_follow_in_kassi: ~
+      has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
       added_offer: ~
@@ -577,6 +578,7 @@ nl:
       share_type: "Je moet op zijn minst één van de blokken hierboven aanklikken."
       valid_until: "Deze datum moet tussen nu en één jaar vanaf nu zijn."
       price: ~
+      minimum_price: ~
     testimonials:
       you_must_explain_not_neutral_feedback: "Als je niet neutrale feedback wilt geven, moet je uitleggen waarom."
       you_must_select_a_grade: "Vergeet niet om de gebruiker een cijfer te geven door op één van de bovenstaande iconen te klikken (Je kan de uitleg van de iconen zien als je met je muis erover heen beweegt)"
@@ -979,6 +981,8 @@ nl:
         mass: ~
         time: ~
         long_time: ~
+        service_fee_will_be_added: ~
+        price_excludes_vat: ~
       origin:
         location: ~
         origin: Begin
@@ -1093,16 +1097,6 @@ nl:
       link_label_for_item_request_trade: ~
       link_label_for_rideshare_offer: "vraag om een rit"
       link_label_for_rideshare_request: "Bied een rit aan"
-    listed_listing:
-      edit: Bewerken
-    listed_listings:
-      loading_more_offers: "Laad meer aanbod"
-      loading_more_requests: "Laad meer verzoeken"
-      no_offers_with_the_conditions_you_gave: "Geen aanbod, die aan jou voorwaarden voldoet."
-      no_requests_with_the_conditions_you_gave: "Geen verzoeken, die aan jou voorwaarden voldoen."
-      offer_something: "Bied iets aan!"
-      request_something: "Vraag iets aan!"
-      search_returned_no_results: "Geen zoekresultaten."
     new:
       listing: ~
       offer: ~
@@ -1201,6 +1195,8 @@ nl:
       times: keer
       times_viewed: Gezien
       processing_uploaded_image: ~
+    displayed_price:
+      price_excludes_vat: ~
   mapview:
     index:
       all_categories: ~

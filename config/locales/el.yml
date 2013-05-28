@@ -193,6 +193,7 @@ el:
       rideshare_offer_message_form_title: "Κάνε οτοστόπ στον/στην"
       rideshare_request_message_form_title: "Ταξίδεψε μαζί με τον/την"
       send_message: Αποστολή
+      send: ~
       this_message_is_private: "Αυτό το μήνυμα είναι προσωπικό, μεταξύ εσένα και του/της %{person}."
       you_will_get_notified_of_acceptance: "Θα λάβετε μια ειδοποίηση μέσω email όταν ο/η %{person} δεχτεί ή απορρίψει την πρότασή σας."
       you_will_get_notified: "Θα λάβετε μια ειδοποίηση με email όταν ο/η %{person} σας απαντήσει."
@@ -477,13 +478,11 @@ el:
       you_can_view_all_your_badges_in: "Μπορείς να δεις όλες τις κονκάρδες σου στο"
       you_have_achieved_a_badge: "Κέρδισες την κονκάρδα '%{badge_name}' στο %{service_name}!"
     new_comment:
-      has_commented_your_offer_in_kassi: "Ο/Η %{author} σχολίασε την προσφορά σου %{listing}"
-      has_commented_your_request_in_kassi: "Ο/Η %{author} σχολίασε το αίτημά σου \"%{listing}\""
+      has_commented_your_listing_in_kassi: ~
       view_comment: ~
       you_have_a_new_comment: "Ο/Η %{author} σχολίασε την καταχώρησή σου στο %{service_name}"
       listing_you_follow_has_a_new_comment: "Ο/Η %{author} σχολίασε σε μία καταχώρηση που παρακολουθείς στο %{service_name}"
-      has_commented_offer_you_follow_in_kassi: "Ο/Η %{author} σχολίασε στο αίτημα \"%{listing}\" που παρακολουθείς στο %{service_name}"
-      has_commented_request_you_follow_in_kassi: "Ο/Η %{author} σχολίασε στην προσφορά \"%{listing}\" που παρακολουθείς στο %{service_name}"
+      has_commented_listing_you_follow_in_kassi: ~
     new_message:
       conversation_title: "Συνομιλία: %{title}"
       view_message: ~
@@ -492,14 +491,16 @@ el:
     new_payment:
       new_payment: ~
       you_have_received_new_payment: ~
+    receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "O/H %{name} σχολίασε για σένα στο %{service_name}"
       you_can_give_feedback_to: "Μπορείς να κάνεις κριτική για τον/την %{name} στο"
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Η καταχώρηση που παρακολουθείς έχει ενημερωθεί"
-      has_updated_offer_you_follow_in_kassi: "Ο/Η %{author} ενημέρωσε το αίτημα \"%{listing}\" που παρακολουθείς στο %{service_name}"
-      has_updated_request_you_follow_in_kassi: "Ο/Η %{author} ενημέρωσε την προσφορά \"%{listing}\" που παρακολουθείς στο %{service_name}"
+      has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
       added_offer: "ο/η %{name_link} πρόσθεσε μια προσφορά:"
@@ -577,6 +578,7 @@ el:
       share_type: "Πρέπει να επιλέξεις τουλάχιστον ένα."
       valid_until: "Αυτή η ημερομηνία πρέπει να είναι μεταξύ της τρέχουσας ώρας και ενός χρόνου από τώρα."
       price: ~
+      minimum_price: ~
     testimonials:
       you_must_explain_not_neutral_feedback: "Αν θέλεις να κάνεις μη-ουδέτερη κριτική, πρέπει να εξηγήσεις γιατί."
       you_must_select_a_grade: "Μην ξεχνάτε να πείτε αν η εμπειρία σας ήταν καλή ή όχι."
@@ -979,6 +981,8 @@ el:
         mass: ~
         time: ~
         long_time: ~
+        service_fee_will_be_added: ~
+        price_excludes_vat: ~
       origin:
         location: Τοποθεσία
         origin: Αφετηρία
@@ -1093,16 +1097,6 @@ el:
       link_label_for_item_request_trade: "Κάνε ανταλλαγή"
       link_label_for_rideshare_offer: "Κάνε οτοστόπ"
       link_label_for_rideshare_request: "Πρόσφερε το όχημά σου"
-    listed_listing:
-      edit: Επεξεργασία
-    listed_listings:
-      loading_more_offers: "Εμφάνιση περισσότερων προσφορών"
-      loading_more_requests: "Εμφάνιση περισσότερων αιτημάτων"
-      no_offers_with_the_conditions_you_gave: "Δεν υπάρχουν προσφορές με τα κριτήρια που έδωσες."
-      no_requests_with_the_conditions_you_gave: "Δεν υπάρχουν αιτήματα με τα κριτήρια που έδωσες."
-      offer_something: "Πρόσφερε κάτι!"
-      request_something: "Ζήτα κάτι!"
-      search_returned_no_results: "Η αναζήτησή σου δεν επέστρεψε αποτελέσματα."
     new:
       listing: καταχώρηση
       offer: "Έχω κάτι να προσφέρω"
@@ -1201,6 +1195,8 @@ el:
       times: φορές
       times_viewed: Διαβάστηκε
       processing_uploaded_image: ~
+    displayed_price:
+      price_excludes_vat: ~
   mapview:
     index:
       all_categories: "Όλες οι κατηγορίες"

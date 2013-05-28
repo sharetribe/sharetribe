@@ -193,6 +193,7 @@ ru:
       rideshare_offer_message_form_title: "Запросить поездку от"
       rideshare_request_message_form_title: "Предложить поездку"
       send_message: "Отправить сообщение"
+      send: ~
       this_message_is_private: "Это приватное сообщение между вами и %{person}. %{person} будет уведомлен(-а) об этом сообщении по электронной почте."
       you_will_get_notified_of_acceptance: "Вы получите уведомление по электронной почте когда %{person} примет или отклонит ваше предложение."
       you_will_get_notified: "Вы получите уведомление по электронной почте когда %{person} ответит вам."
@@ -477,13 +478,11 @@ ru:
       you_can_view_all_your_badges_in: "Вы можете просмотреть свои значки здесь —"
       you_have_achieved_a_badge: "Вы получили значок «%{badge_name}» в Kassi!"
     new_comment:
-      has_commented_your_offer_in_kassi: "%{author} оставил комментарий на ваше предложение %{listing}"
-      has_commented_your_request_in_kassi: "%{author} оставил комментарий на ваш запрос %{listing}"
+      has_commented_your_listing_in_kassi: ~
       view_comment: ~
       you_have_a_new_comment: "%{author} оставил комментарий на ваш запрос в %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} прокомментировал листинг, за которым вы следите в %{service_name}"
-      has_commented_offer_you_follow_in_kassi: "%{author} прокомментировал запрос «%{listing}», за которым вы следите в %{service_name}"
-      has_commented_request_you_follow_in_kassi: "%{author} прокомментировал предложение «%{listing}», за которым вы следите в %{service_name}"
+      has_commented_listing_you_follow_in_kassi: ~
     new_message:
       conversation_title: "Название цепочки сообщений: %{title}"
       view_message: ~
@@ -492,14 +491,16 @@ ru:
     new_payment:
       new_payment: ~
       you_have_received_new_payment: ~
+    receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} оставил отзыв о вас в Kassi"
       you_can_give_feedback_to: "Вы можете оставить отзыв о %{name} здесь —"
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Листинг, за которым вы следите, был обновлён"
-      has_updated_offer_you_follow_in_kassi: "%{author} обновил запрос «%{listing}», за которым вы следите в %{service_name}"
-      has_updated_request_you_follow_in_kassi: "%{author} обновил предложение «%{listing}», за которым вы следите в %{service_name}"
+      has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
       added_offer: "%{name_link} добавлено предложение:"
@@ -577,6 +578,7 @@ ru:
       share_type: "Вы должны выбрать как минимум один из пунктов."
       valid_until: "Дата должна быть в интервале от сегодняшней даты плюс один год."
       price: ~
+      minimum_price: ~
     testimonials:
       you_must_explain_not_neutral_feedback: "Если вы хотите оставить отзыв, отличный от нейтрального, объясните причину."
       you_must_select_a_grade: "Не забывайте оценивать пользователей, путём выбора одного из значков сверху (вы можете посмотреть, что они значат, наведя на них указатель мыши)"
@@ -979,6 +981,8 @@ ru:
         mass: ~
         time: ~
         long_time: ~
+        service_fee_will_be_added: ~
+        price_excludes_vat: ~
       origin:
         location: Местоположение
         origin: "Исходный пункт"
@@ -1093,16 +1097,6 @@ ru:
       link_label_for_item_request_trade: "Предложение на обмен этой вещи"
       link_label_for_rideshare_offer: "Запросить поездку"
       link_label_for_rideshare_request: "Предложить поездку"
-    listed_listing:
-      edit: Редактировать
-    listed_listings:
-      loading_more_offers: "Загрузка предложений..."
-      loading_more_requests: "Загрузка запросов..."
-      no_offers_with_the_conditions_you_gave: "Нет предложений, соответствующих этим условиям."
-      no_requests_with_the_conditions_you_gave: "Нет запросов, соответствующих этим условиям."
-      offer_something: "Предложить что-нибудь!"
-      request_something: "Запросите что-нибудь!"
-      search_returned_no_results: "Ничего не найдено."
     new:
       listing: ~
       offer: "Я могу что-то предложить другим людям"
@@ -1201,6 +1195,8 @@ ru:
       times: раз(а)
       times_viewed: Просмотрено
       processing_uploaded_image: ~
+    displayed_price:
+      price_excludes_vat: ~
   mapview:
     index:
       all_categories: "Все категории"
