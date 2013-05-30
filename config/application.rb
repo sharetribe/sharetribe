@@ -64,7 +64,14 @@ module Kassi
           ["Tiếng Việt", "vi"],
           ["Deutsch", "de"],
           ["Svenska", "sv"],
-          ["Italiano", "it"]
+          ["Italiano", "it"],
+          
+          # Customization languages for RC
+          ["English", "en-rc"], 
+          ["Français", "fr-rc"], 
+          ["Español", "es-rc"], 
+          ["Deutsch", "de-rc"],
+          
     ]
 
     # This is the list o locales avaible for the dashboard and newly created tribes in UI
