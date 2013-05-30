@@ -1,10 +1,10 @@
 %header.global-header
   .wrapper
-      
-    .select-tribe.toggle.hidden{data: {toggle: '.tribe-menu', logo_class: "toggled-#{@current_community.service_logo_style}"}, class: @current_community.service_logo_style }
-      .current-tribe
-        = @current_community.name
-      = icon_tag("dropdown", ["icon-dropdown"])
+    - unless @current_community.settings["hide_header_dropdown"]
+      .select-tribe.toggle.hidden{data: {toggle: '.tribe-menu', logo_class: "toggled-#{@current_community.service_logo_style}"}, class: @current_community.service_logo_style }
+        .current-tribe
+          = @current_community.name
+        = icon_tag("dropdown", ["icon-dropdown"])
     
     - if @current_user  
       
