@@ -1,0 +1,55 @@
+fr-rc:
+  errors:
+    messages:
+      expired: ~
+      not_found: ~
+      already_confirmed: ~
+      not_locked: ~
+  devise:
+    failure:
+      already_authenticated: ~
+      unauthenticated: ~
+      unconfirmed: ~
+      locked: ~
+      invalid: ~
+      invalid_token: ~
+      timeout: ~
+      inactive: ~
+    passwords:
+      updated_not_active: ~
+      send_paranoid_instructions: ~
+      send_instructions: ~
+      updated: ~
+    sessions:
+      signed_in: ~
+      signed_out: ~
+    confirmations:
+      send_paranoid_instructions: ~
+      send_instructions: ~
+      confirmed: ~
+    registrations:
+      signed_up_but_unconfirmed: ~
+      signed_up_but_inactive: ~
+      signed_up_but_locked: ~
+      reasons:
+        inactive: ~
+        unconfirmed: ~
+        locked: ~
+      update_needs_confirmation: ~
+      signed_up: ~
+      updated: ~
+      destroyed: ~
+    unlocks:
+      send_paranoid_instructions: ~
+      send_instructions: ~
+      unlocked: ~
+    omniauth_callbacks:
+      success: ~
+      failure: ~
+    mailer:
+      confirmation_instructions:
+        subject: ~
+      reset_password_instructions:
+        subject: ~
+      unlock_instructions:
+        subject: ~
