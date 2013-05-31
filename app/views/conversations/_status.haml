@@ -27,14 +27,15 @@
               .icon-with-text{:class => icon_for("canceled")}
               .text-with-icon= t(".cancel_payed_transaction")
       - else
-        - if conversation.listing.offerer?(@current_user)
-          .icon-with-text-container
-            .ss-clock.icon-part
-            .text-part= t(".waiting_confirmation_from_requester", :requester_name => conversation.other_party(@current_user).given_name_or_username)
-        - else
-          .status-links
-            - ["confirm", "cancel"].each do |status|
-              = render :partial => "status_link", :locals => { :conversation => conversation, :status => status }
+        - if @current_community.testimonials_in_use
+          - if conversation.listing.offerer?(@current_user)
+            .icon-with-text-container
+              .ss-clock.icon-part
+              .text-part= t(".waiting_confirmation_from_requester", :requester_name => conversation.other_party(@current_user).given_name_or_username)
+          - else
+            .status-links
+              - ["confirm", "cancel"].each do |status|
+                = render :partial => "status_link", :locals => { :conversation => conversation, :status => status }
     - elsif conversation.status.eql?("paid")
       .icon-with-text-container
         .icon-part{:class => icon_for(conversation.status)}
@@ -52,7 +53,7 @@
       .icon-with-text-container
         .icon-part{:class => icon_for(conversation.status)}
         .text-part= t(".#{conversation.discussion_type}_#{conversation.status}")
-      - if ["confirmed", "canceled"].include? conversation.status
+      - if (["confirmed", "canceled"].include? conversation.status) && @current_community.testimonials_in_use
         - if conversation.has_feedback_from?(@current_user)
           .icon-with-text-container
             = icon_tag("testimonial", ["icon-part"])

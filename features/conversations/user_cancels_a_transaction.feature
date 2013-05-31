@@ -40,12 +40,7 @@ Feature: User cancels a transaction
     And I follow "Did not happen"
     And I choose "Skip feedback"
     And I press "Continue"
-    Then I should see "Feedback skipped"
+    Then I should see "Canceled"
   
-  
-  
-  
-  
-  
-  
-  
+
+    

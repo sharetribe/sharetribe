@@ -62,4 +62,53 @@ Feature: User pays after accepted transaction
     Then "kassi_testperson1@example.com" should have 3 emails
     And return to current time
 
+  @javascript
+  Scenario: requester cancels a transaction with payment that had already been accepted, but not paid and skips feedback
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+      | kassi_testperson2 |
+    And community "test" has payments in use
+    And "kassi_testperson2" is member of organization that has registered as a seller
+    And there is item offer with title "math book" from "kassi_testperson2" and with share type "sell" and with price "12"
+    And all listings of "kassi_testperson2" are made with his first organization
+    And there is a message "I want to buy" from "kassi_testperson1" about that listing
+    And the request is accepted
+    And I am logged in as "kassi_testperson1"
+    When I follow "inbox-link"
+    And I follow "Cancel"
+    And I fill in "Message" with "Sorry I gotta cancel"
+    And I choose "Skip feedback"
+    And I press "Continue"
+    Then I should see "Canceled"
+    And I should see "Sorry I gotta cancel"
+    
+  @javascript
+  Scenario: requester cancels a transaction with payment that had already been accepted, but not paid and gives feedback
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+      | kassi_testperson2 |
+    And community "test" has payments in use
+    And "kassi_testperson2" is member of organization that has registered as a seller
+    And there is item offer with title "math book" from "kassi_testperson2" and with share type "sell" and with price "12"
+    And all listings of "kassi_testperson2" are made with his first organization
+    And there is a message "I want to buy" from "kassi_testperson1" about that listing
+    And the request is accepted
+    And I am logged in as "kassi_testperson1"
+    When I follow "inbox-link"
+    And I follow "Cancel"
+    And I fill in "Message" with "Sorry I gotta cancel"
+    And I choose "Give feedback"
+    And I press "Continue"
+    Then I should see "Give feedback to"
+    And I click "#positive-grade-link"
+    And I fill in "How did things go?" with "Good reply, it was me who changed my mind."
+    And I press "send_testimonial_button"
+    Then I should see "Canceled"
+    And I should see "Sorry I gotta cancel"
+  
+  
+    
+    
   

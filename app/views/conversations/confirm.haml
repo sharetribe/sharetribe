@@ -40,15 +40,16 @@
     
       = form.hidden_field :status, :value => "canceled"
     
-    .close-listing-radio-buttons
+    - if @current_community.testimonials_in_use
+      .close-listing-radio-buttons
     
-      .checkbox-container
-        = radio_button_tag "give_feedback", true, true, :id => "do_give_feedback"
-        = label_tag "do_give_feedback", t(".give_feedback_to", :person_link => link_to(@conversation.other_party(@current_user).name, @conversation.other_party(@current_user))).html_safe, :class => "radio"
+        .checkbox-container
+          = radio_button_tag "give_feedback", true, true, :id => "do_give_feedback"
+          = label_tag "do_give_feedback", t(".give_feedback_to", :person_link => link_to(@conversation.other_party(@current_user).name, @conversation.other_party(@current_user))).html_safe, :class => "radio"
 
-      .checkbox-container
-        = radio_button_tag "give_feedback", false, false, :id => "do_not_give_feedback"
-        = label_tag "do_not_give_feedback", t(".do_not_give_feedback"), :class => "radio"
+        .checkbox-container
+          = radio_button_tag "give_feedback", false, false, :id => "do_not_give_feedback"
+          = label_tag "do_not_give_feedback", t(".do_not_give_feedback"), :class => "radio"
     
     
     
