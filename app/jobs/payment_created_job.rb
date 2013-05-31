@@ -18,7 +18,8 @@ class PaymentCreatedJob < Struct.new(:payment_id, :community_id)
         PersonMailer.new_payment(payment, community).deliver
       end
       PersonMailer.receipt_to_payer(payment, community).deliver
-      Delayed::Job.enqueue(ConfirmReminderJob.new(payment.conversation.id, payment.payer.id, community_id, 0), :priority => 0, :run_at => 1.week.from_now)
+      
+      Delayed::Job.enqueue(ConfirmReminderJob.new(payment.conversation.id, payment.payer.id, community_id, 0), :priority => 0, :run_at => 1.week.from_now) if community.testimonials_in_use
     rescue Exception => ex
       puts ex.message
       puts ex.backtrace.join("\n")
