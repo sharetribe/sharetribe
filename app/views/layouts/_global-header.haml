@@ -5,7 +5,9 @@
         .current-tribe
           = @current_community.name
         = icon_tag("dropdown", ["icon-dropdown"])
-    
+    -else
+      .empty-header
+        &nbsp;
     - if @current_user  
       
       %a.notifications-toggle.toggle.hidden#notifications_link{href: notifications_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.notifications")}
