@@ -16,7 +16,7 @@
     #{service_name}
     - if @listing && action_name.eql?("show")
       = "- #{listed_listing_title(@listing)}"
-    - else
+    - elsif service_name.casecmp(@current_community.name) != 0
       = "- #{@current_community.name}"
   
   
