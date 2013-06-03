@@ -102,6 +102,7 @@
     </script>
 
   /[if lt IE 9]
-    = javascript_include_tag "ss-social"
-    = javascript_include_tag "ss-pika"
+    - if APP_CONFIG.icon_pack == "ss-pika"
+      = javascript_include_tag "ss-social"
+      = javascript_include_tag "ss-pika"
   

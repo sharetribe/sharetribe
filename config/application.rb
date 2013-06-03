@@ -39,7 +39,7 @@ module Kassi
     config.assets.paths << Rails.root.join("app", "assets", "webfonts")
     
     # Define here additional Assset Pipeline Manifests to include to precompilation
-    config.assets.precompile += ['dashboard.js', 'dashboard.css', 'markerclusterer.js', 'communities/custom-style-*', 'ss-pika.js', 'ss-social.js','old_ie.css', 'html5shiv-printshiv.js']
+    config.assets.precompile += ['dashboard.js', 'dashboard.css', 'markerclusterer.js', 'communities/custom-style-*', 'ss-*','old_ie.css', 'html5shiv-printshiv.js']
     
     # Read the config from the config.yml 
     APP_CONFIG = load_app_config
