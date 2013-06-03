@@ -223,8 +223,8 @@ es-rc:
         has_given_you_feedback_on_event: ~
         see_all_the_feedback_you_have_received: ~
     show:
-      in_response_to_listing: ~
-      message_sent_by: ~
+      in_response_to_listing: "sobre la camiseta de"
+      message_sent_by: "Mensaje enviado por"
       message_sent_to: ~
       send_reply: ~
       write_a_reply: ~
@@ -479,13 +479,15 @@ es-rc:
       you_have_achieved_a_badge: ~
     new_comment:
       has_commented_your_listing_in_kassi: ~
-      view_comment: ~
-      you_have_a_new_comment: ~
+      view_comment: "Ver comentario"
+      you_have_a_new_comment: |-
+          %{author} comentó en tu camiseta de '%{listing}' que publicaste en
+          %{service_name}.
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       conversation_title: ~
-      view_message: ~
+      view_message: "Ver mensaje"
       has_sent_you_a_message_in_kassi: ~
       you_have_a_new_message: ~
     new_payment:
@@ -543,7 +545,9 @@ es-rc:
       remember_to_give_feedback_to: ~
       you_have_not_given_feedback_yet: ~
     welcome_email:
-      welcome_email_footer_text: ~
+      welcome_email_footer_text: |-
+          Qué emails quieres recibir de %{service_name}?
+          Revisa tu configuración: %{settings_link}
       settings_link_text: ~
       subject: ~
       welcome_some_tips: ~
@@ -637,7 +641,7 @@ es-rc:
     new_listing: "Subir Camiseta"
     mobile_version: ~
     offers: ~
-    requests: ~
+    requests: Pedidos
     search_kassi: ~
     create_new_marketplace: ~
     contact_us: ~
@@ -677,7 +681,11 @@ es-rc:
     event_feed:
       latest_events: ~
     index:
-      no_listings_notification: ~
+      no_listings_notification: |-
+          Bienvenido a %{service_name}, colección colectiva de camisetas de fútbol.
+          - Para subir tus camisetas, hacé click en Subir camisetas.
+          - Para Ver camisetas, utilizá el buscador.
+          - Para saber qué camisetas están en tu ciudad, usá el Mapa.
       available_on_the_app_store: ~
       private_listing_notification: ~
       open_listing: ~
@@ -685,7 +693,7 @@ es-rc:
       private_listing_notification_log_in: ~
       is: ~
       are: ~
-      what_do_you_need: ~
+      what_do_you_need: "¿Qué camiseta quieres?"
       post_new_listing: "Subir camiseta"
       are_offering: ~
       add_news_item: ~
@@ -733,11 +741,11 @@ es-rc:
       comment: ~
       comments: ~
     filters:
-      show: ~
+      show: "Ver camisetas:"
       search: ~
       map: ~
       list: ~
-      all_listing_types: ~
+      all_listing_types: "Todas las camisetas"
       all_categories: ~
   infos:
     about:
@@ -936,10 +944,10 @@ es-rc:
       you_must: ~
       subscribe_to_comments: ~
     edit:
-      edit_listing: ~
+      edit_listing: "Editar camiseta"
     edit_links:
-      close_listing: ~
-      edit_listing: ~
+      close_listing: "Cerrar el aviso"
+      edit_listing: "Editar camiseta"
       reopen_listing: ~
     follow_links:
       follow: ~
@@ -952,7 +960,7 @@ es-rc:
       departure_time_radio_buttons:
         repeated: ~
       description:
-        detailed_description: ~
+        detailed_description: "Descripción detallada (marca, talle, jugador, número...)"
       destination:
         destination: ~
       form_content:
@@ -974,7 +982,7 @@ es-rc:
         remove_image: ~
         select_file: ~
       location:
-        location: ~
+        location: Ubicación
       price:
         price: ~
         per: ~
@@ -984,7 +992,7 @@ es-rc:
         service_fee_will_be_added: ~
         price_excludes_vat: ~
       origin:
-        location: ~
+        location: Ubicación
         origin: ~
       send_button:
         save_listing: ~
@@ -1013,7 +1021,7 @@ es-rc:
         housing_you_request: ~
         item_you_offer: ~
         item_you_request: ~
-        listing_title: ~
+        listing_title: "¿De qué equipo es tu camiseta?"
       valid_until:
         valid_until: ~
       valid_until_radio_buttons:
@@ -1047,7 +1055,7 @@ es-rc:
       offers: ~
       request_something: ~
       request_type: ~
-      requests: ~
+      requests: Pedidos
       rideshare: ~
       search_verb: ~
       you_have_something_others_do_not: ~
@@ -1136,9 +1144,9 @@ es-rc:
       receive: ~
       rent: ~
       rent_out: ~
-      sell: "Me gustaría venderla"
-      offer_to_swap: ~
-      request_to_swap: ~
+      sell: "Quiero venderla"
+      offer_to_swap: "Quiero intercambiarla"
+      request_to_swap: "Quiero intercambiarla"
       share_for_free: ~
       accept_for_free: ~
       what_kind_of_item: ~
@@ -1161,9 +1169,9 @@ es-rc:
       garden: ~
       travel: ~
       other: ~
-      what_do_you_want_to_do: ~
+      what_do_you_want_to_do: "Elige cómo subir tu camiseta"
       what_can_you_offer: ~
-      what_do_you_need: ~
+      what_do_you_need: "¿Qué camiseta quieres?"
       select_category: ~
     please_comment: ~
     reply_link:
@@ -1183,7 +1191,7 @@ es-rc:
       open_until: ~
       feedback: ~
       qr_code: ~
-      request: ~
+      request: Pedir
       rideshare_offer: ~
       rideshare_request: ~
       send_private_message: ~
@@ -1214,7 +1222,7 @@ es-rc:
       offers: ~
       request_something: ~
       request_type: ~
-      requests: ~
+      requests: Pedidos
       rideshare: ~
       search_verb: ~
       you_have_something_others_do_not: ~
@@ -1467,7 +1475,7 @@ es-rc:
       account_conrimation_instructions: ~
       account_confirmation_instructions_any_email: ~
       get_started: ~
-      getting_started_instructions: ~
+      getting_started_instructions: "Cuando hayas confirmado tu cuenta, puedes agregar una imagen a tu <a href=\"%{profile_url}\">perfil</a> y completar todos los datos. O directamente  <a href=\"es-rc/listings/new?ref=tribe_navi\">subir tus camisetas</a> para empezar a intercambiarlas, venderlas o solo mostrar tu colección."
       resend_confirmation_instructions: ~
       your_current_email_is: ~
       change_email: ~
@@ -1584,7 +1592,7 @@ es-rc:
     testimonial:
       from_user: ~
       to_user: ~
-      about_listing: ~
+      about_listing: "sobre la camiseta de"
   time:
     formats:
       short: ~

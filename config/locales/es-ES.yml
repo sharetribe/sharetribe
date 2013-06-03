@@ -90,8 +90,8 @@ es-ES:
       rent: arrendando
       rent_out: Arrienda
       sell: Vender
-      offer_to_swap: ~
-      request_to_swap: ~
+      offer_to_swap: Intercambio
+      request_to_swap: Intercambio
       share_for_free: "compartido gratuitamente"
       accept_for_free: "queriendo utilizarlo gratis"
     categories:
@@ -120,13 +120,13 @@ es-ES:
   conversations:
     accept:
       respond_to_offer: ~
-      respond_to_request: ~
+      respond_to_request: "Responder al pedido"
       accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
-      close_listing: ~
-      update_later: ~
+      accept_request: "Aceptar el pedido"
+      reject_offer: "Rechazar pedido"
+      reject_request: "Rechazar pedido"
+      close_listing: "Quitar el aviso %{listing_title_link}"
+      update_later: "Dejar el aviso abierto"
       optional_message: ~
       price_to_pay: ~
     confirm:
@@ -158,7 +158,7 @@ es-ES:
     message:
       accepted_request: ~
       accepted_offer: ~
-      rejected_request: ~
+      rejected_request: "rechazó el pedido"
       rejected_offer: ~
       confirmed_request: ~
       confirmed_offer: ~
@@ -193,7 +193,7 @@ es-ES:
       rideshare_offer_message_form_title: "Solicitale un traslado a"
       rideshare_request_message_form_title: "Ofrécele un traslado a"
       send_message: "Enviar mensaje"
-      send: ~
+      send: Enviar
       this_message_is_private: "Este mensaje es privado entre usted y %{person}."
       you_will_get_notified_of_acceptance: "Recibirás una notificación por email cuando %{person} acepte o rechace tu propuesta."
       you_will_get_notified: "Recibirás una notificación por email cuando %{person} te conteste."
@@ -248,7 +248,7 @@ es-ES:
       request_canceled: ~
       skip_feedback: "Omitir sugerencia"
       waiting_for_listing_author_to_accept_offer: ~
-      waiting_for_listing_author_to_accept_request: ~
+      waiting_for_listing_author_to_accept_request: "Esperando que %{listing_author_name} acepte el pedido"
       waiting_confirmation_from_requester: ~
       waiting_payment_from_requester: ~
     status_link:
@@ -443,7 +443,7 @@ es-ES:
       welcome_to_kassi: "Bienvenido a %{service_name}!"
       need_to_confirm: "Antes de empezar a utilizar %{service_name}, deberás confirmar tu dirección de correo electrónico con el siguiente link:"
       confirmation_link_text: "Confirmar mi cuenta"
-      or_paste_link: ~
+      or_paste_link: "Si no funciona, puedes copiar el siguiente link en la barra de tu navegador."
       turning_on_confirmations_in_this_community: "Comenzamos a utilizar e-mails de confirmación en la comunidad %{service_name}."
     common:
       check_your_settings: "Revisa tu configuración"
@@ -456,7 +456,7 @@ es-ES:
       message_not_displaying_correctly: "¿Tienes problemas para ver este correo?"
       view_it_in_your_browser: "Velo en tu buscador"
       or: ~
-      unsubscribe_from_these_emails: ~
+      unsubscribe_from_these_emails: "date de baja de estos emails"
     community_starter_email:
       subject: ~
     conversation_status_changed:
@@ -549,7 +549,7 @@ es-ES:
           Recuerda hacer una sugerencia de cómo %{given_name} actuó en el evento.
     welcome_email:
       welcome_email_footer_text: ~
-      settings_link_text: ~
+      settings_link_text: "Revisa tu configuración"
       subject: "Bienvenido a %{community} - Algunos consejos para ayudarte a empezar"
       welcome_some_tips: "Bienvenido a %{community_link}! Algunos consejos para ayudarte a empezar."
       p_s_did_you_know: "P.D. ¿Sabías que puedes crear un mercado como este para cualquier comunidad a la que perteneces, completamente gratis? %{click_here_link} para saber más!"
@@ -777,7 +777,7 @@ es-ES:
       connect: Regístrate
       invite_your_friends: "Invita amigos!"
       invite_your_neighbors: "¡Invita a tus vecinos!"
-      invite_your_friends_description: "Mientras más gente hay en %{service_name}, más útil será."
+      invite_your_friends_description: "Mientras más gente haya en %{service_name}, más útil será."
       invite_your_friends_invite_only_description: ~
       join_without_facebook: "... o alternativamente %{join_without_facebook_link}"
       join_without_facebook_link: "regístrate sin usar Facebook"
@@ -1007,7 +1007,7 @@ es-ES:
         sell: Vender
         share_for_free: "Compartir gratuitamente"
         accept_for_free: "Aceptando gratis"
-        trade: Comercio
+        trade: Intercambio
       tag_list:
         comma_separate: "(separado por comas)"
         tags: Etiquetas
@@ -1072,7 +1072,7 @@ es-ES:
       sells: Vender
       share_for_frees: "Compartir gratuitamente"
       accept_for_frees: "Aceptando gratis"
-      trades: Comercio
+      trades: Intercambio
     link_labels:
       offer_this: ~
       request_this: ~
@@ -1124,8 +1124,8 @@ es-ES:
       selected_rent: Arrendando
       selected_rent_out: Alquilando
       selected_sell: Vendiendo
-      selected_offer_to_swap: ~
-      selected_request_to_swap: ~
+      selected_offer_to_swap: Intercambio
+      selected_request_to_swap: Intercambio
       selected_share_for_free: "Compartiendo gratis"
       selected_accept_for_free: "Aceptando gratis"
       how_do_you_want_to_share_it: "¿Cómo lo quieres compartir?"
