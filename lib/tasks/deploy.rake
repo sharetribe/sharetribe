@@ -73,7 +73,7 @@ namespace :deploy do
   end
   
   task :update_translations_stored_in_db do
-    puts 'Updating the translations, which stored in the DB'
+    puts 'Updating the translations, which are stored in the DB'
     puts  `heroku run rake sharetribe:update_categorization_translations --app #{APP}`
   end
   
