@@ -185,6 +185,10 @@ default: &default_settings
   # environments where long processing times can cause timeouts (e.g. Heroku)
   delayed_image_processing: false
   
+  # Logger type
+  # the "normal" value is good by default. If you are using Heroku + Unicorn, you'll need to set this to "stdout"
+  logger_type: "normal"
+  
   # Below it is possible to specify different settings for different
   # environments. If you are not developing or testing Sharetribe, you 
   # don't need to change those
