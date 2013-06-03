@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425140120) do
+ActiveRecord::Schema.define(:version => 20130531072349) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20130425140120) do
     t.string   "description"
   end
 
+  add_index "category_translations", ["category_id", "locale"], :name => "category_id_with_locale"
   add_index "category_translations", ["category_id"], :name => "index_category_translations_on_category_id"
 
   create_table "comments", :force => true do |t|
@@ -129,6 +130,13 @@ ActiveRecord::Schema.define(:version => 20130425140120) do
     t.boolean  "payments_in_use",                           :default => false
     t.text     "available_currencies"
     t.boolean  "facebook_connect_enabled",                  :default => true
+    t.boolean  "only_public_listings",                      :default => false
+    t.string   "custom_email_from_address"
+    t.integer  "vat"
+    t.integer  "commission_percentage"
+    t.integer  "minimum_price_cents"
+    t.boolean  "badges_in_use",                             :default => true
+    t.boolean  "testimonials_in_use",                       :default => true
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
@@ -308,6 +316,7 @@ ActiveRecord::Schema.define(:version => 20130425140120) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "image_processing"
   end
 
   add_index "listing_images", ["listing_id"], :name => "index_listing_images_on_listing_id"
@@ -435,16 +444,25 @@ ActiveRecord::Schema.define(:version => 20130425140120) do
   add_index "participations", ["conversation_id"], :name => "index_participations_on_conversation_id"
   add_index "participations", ["person_id"], :name => "index_participations_on_person_id"
 
+  create_table "payment_rows", :force => true do |t|
+    t.integer  "payment_id"
+    t.integer  "vat"
+    t.integer  "sum_cents"
+    t.string   "currency"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "title"
+  end
+
   create_table "payments", :force => true do |t|
     t.string   "payer_id"
     t.string   "recipient_id"
     t.string   "organization_id"
     t.integer  "conversation_id"
-    t.integer  "sum_cents"
-    t.string   "currency"
     t.string   "status"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.integer  "community_id"
   end
 
   create_table "people", :id => false, :force => true do |t|
@@ -541,6 +559,7 @@ ActiveRecord::Schema.define(:version => 20130425140120) do
     t.string   "transaction_button_text"
   end
 
+  add_index "share_type_translations", ["share_type_id", "locale"], :name => "share_type_id_with_locale"
   add_index "share_type_translations", ["share_type_id"], :name => "index_share_type_translations_on_share_type_id"
 
   create_table "share_types", :force => true do |t|

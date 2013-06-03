@@ -13,12 +13,18 @@
         - if last_message.sender.eql?(@current_user)
           .ss-reply.conversation-icon
           - if last_message.content.blank?
-            .conversation-text= t(".#{last_message.action}ed_#{last_message.conversation.discussion_type}").capitalize
+            - if last_message.action.eql?("pay")
+              .conversation-text= t("conversations.message.paid", :sum => humanized_money_with_symbol(last_message.conversation.payment.total_sum))
+            - else
+              .conversation-text= t(".#{last_message.action}ed_#{last_message.conversation.discussion_type}").capitalize
           - else
             .conversation-text= link_to("\"#{truncate(last_message.content, :length => 100, :omission => "...")}\"", single_conversation_path(:conversation_type => action_name, :id => conversation.id))
         - else
           - if last_message.content.blank?
-            = t(".#{last_message.action}ed_#{last_message.conversation.discussion_type}").capitalize
+            - if last_message.action.eql?("pay")
+              = t("conversations.message.paid", :sum => humanized_money_with_symbol(last_message.conversation.payment.total_sum))
+            - else
+              = t(".#{last_message.action}ed_#{last_message.conversation.discussion_type}").capitalize
           - else
             = link_to("\"#{truncate(last_message.content, :length => 100, :omission => "...")}\"", single_conversation_path(:conversation_type => action_name, :id => conversation.id))
       - unless conversation.status.eql?("free")

@@ -52,7 +52,8 @@
           %a{:href => new_listing_path + "?ref=tribe_navi", :title => t('header.new_listing'), :class => (@selected_tribe_navi_tab.eql?("new_listing") ? "selected" : "")}
             = icon_tag("new_listing", ["icon-with-text"])
             .text-with-icon.hidden= t('header.new_listing')
-          %a{:href => people_path, :title => t('header.members'), :class => (@selected_tribe_navi_tab.eql?("members") ? "selected" : "")}
+          - community_path = @current_community.requires_organization_membership? ? organizations_path : people_path
+          %a{:href => community_path, :title => t('header.members'), :class => (@selected_tribe_navi_tab.eql?("members") ? "selected" : "")}
             = icon_tag("community", ["icon-with-text"])
             .text-with-icon.hidden= t('header.members')
           %a{:href => about_infos_path, :title => t('header.about'), :class => (@selected_tribe_navi_tab.eql?("about") ? "selected" : "")}
@@ -101,6 +102,7 @@
     </script>
 
   /[if lt IE 9]
-    = javascript_include_tag "ss-social"
-    = javascript_include_tag "ss-pika"
+    - if APP_CONFIG.icon_pack == "ss-pika"
+      = javascript_include_tag "ss-social"
+      = javascript_include_tag "ss-pika"
   

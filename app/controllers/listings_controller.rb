@@ -107,8 +107,18 @@ class ListingsController < ApplicationController
       end
     end
     1.times { @listing.listing_images.build }
-    if request.xhr?
-      render :partial => "listings/form/form_content" 
+
+    if request.xhr? # AJAX request to get the actual form contents
+      
+      # prevent creating sell listings if the organization is not registered as seller
+      if @current_community.requires_organization_membership? && 
+            ! @current_user.is_member_of_seller_organization? &&
+            (params[:listing_type] =~ /sell/ || params[:share_type] =~ /sell/)
+        
+        render :partial => "organizations/seller_registration_needed"
+      else
+        render :partial => "listings/form/form_content" 
+      end
     else
       render
     end
@@ -125,7 +135,7 @@ class ListingsController < ApplicationController
     else
       path = new_request_category_path(:type => @listing.listing_type, :category => @listing.category.name)
       flash[:notice] = t("layouts.notifications.listing_created_successfully", :new_listing_link => view_context.link_to(t("layouts.notifications.create_new_listing"), path)).html_safe
-      Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, @current_community))
+      Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, @current_community.id))
       redirect_to @listing
     end
   end

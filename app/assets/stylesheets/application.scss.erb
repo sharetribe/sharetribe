@@ -1,17 +1,22 @@
-<% environment.context_class.instance_eval { include ScssHelper } %>
-@import 'customizations';  // color presets and cover image
+@import 'customizations';   // color presets and cover image
 
-@import 'compass';         // The Compass framework
+@import 'compass';          // The Compass framework
 
 @import "compass/css3/images"; 
 @import "compass/utilities/general/hacks";
 
 
-@import 'reset';           // jonikorpi's custom CSS reset
-@import 'type';            // typography presets and tools
-@import 'media-queries';   // media query presets
-@import 'font-awesome.min';// Font-Awesome icon set
-<%=additional_font_pack_imports%>
+@import 'reset';            // jonikorpi's custom CSS reset
+@import 'type';             // typography presets and tools
+@import 'media-queries';    // media query presets
+
+/*
+  This line has now ss-pika as default in order to get it loaded in Heroku.
+  If you want to run in Heroku with font-awesome, you'll need to change this
+  (e.g. by replacing the whole line with font-awesome.min import) 
+*/
+
+<%= (APP_CONFIG.icon_pack == "font-awesome" ? "@import 'font-awesome.min';" : "@import 'ss-social';\n@import 'ss-pika';").html_safe %>
 
 
 /*
@@ -175,26 +180,28 @@ ul {
   
 }
 
-.centered-section, .left-navi-section {
+.centered-section, .centered-section-wide, .left-navi-section {
   textarea {
     height: lines(5);
   }
 }
 
+.centered-section {
+  max-width: lines(19);
+}
+
+.centered-section-wide {
+  max-width: lines(25);
+}
 
 // User for simple centered views, mostly with forms
-.centered-section {
+.centered-section, .centered-section-wide {
   padding: lines(0.5);
   margin-left: auto;
   margin-right: auto;
-  max-width: lines(19);
   
   form {
     padding-bottom: lines(2);
-  }
-  
-  input[type=text], input[type=password], textarea {
-    //margin-bottom: lines(0.5);
   }
   
   a.fb-connect {
@@ -351,7 +358,7 @@ ul {
 }
 
 .icon-with-text { display: inline-block; padding-right: em(4); margin-top: em(2); }
-.ss-list { margin-top: em(3); }
+.list-icon-margin { margin-top: em(3); }
 .text-with-icon { display: inline-block; vertical-align: top; }
 
 .icon-with-text-container {
@@ -597,6 +604,12 @@ label.error {
   @include media(tablet) {
     position: fixed;
   }
+  .empty-header {
+    margin: 0 0;
+    padding: lines(0.5) lines(2.5) lines(0.5) lines(1.75);
+    position: relative;
+    max-width: lines(100);
+  }
 }
 
 .select-tribe {
@@ -697,7 +710,7 @@ label.error {
     background: $background;
     position: absolute;
     right: lines(10.5); top: lines(0);
-    padding: lines(0.6) lines(0.5) lines(0.4) lines(0.5);
+    padding: em(12) lines(0.5) em(12) lines(0.5);
     //padding-left: (lines(0.5) - em(1));
     width: lines(1);
     text-align: center;
@@ -2235,7 +2248,7 @@ a.lightbox-x {
         margin-top: em(4);
         @include small-type;
       }
-         
+
     }
     
     @include media(tablet) {
@@ -2275,7 +2288,7 @@ a.lightbox-x {
       padding-left: lines(8.5);
       padding-top: em(5);
     }
- 
+
   }
   
   .discussion {
@@ -2527,7 +2540,7 @@ a.lightbox-x {
     }
   }
   
-  .profile-listings, .profile-testimonials, .profile-badges {
+  .profile-listings, .profile-testimonials, .profile-badges, .profile-organizations {
 
     h2 {
       margin-top: 0;
@@ -2555,7 +2568,7 @@ a.lightbox-x {
     }
   }
   
-  .profile-listings {
+  .profile-listings, .profile-organizations {
     
     .feed-item {
       padding: lines(0.5) lines(0);
@@ -2654,11 +2667,11 @@ a.lightbox-x {
         @include large-type;
       }
       
-      .ss-like {
+      .positive {
         color: $green;
       }
       
-      .ss-dislike {
+      .negative {
         color: $red;
       }
       
@@ -2751,7 +2764,7 @@ a.lightbox-x {
 }
 
 #password_forgotten {
-	display: none;
+  display: none;
 }
 
 
@@ -2797,7 +2810,7 @@ a.lightbox-x {
 */
 
 #merchant_details {
-	display: none;
+  display: none;
 }
 
 
@@ -2861,6 +2874,10 @@ a.lightbox-x {
     
   }
   
+}
+
+.price-title-field {
+  max-width: lines(8);
 }
 
 .price-field {
@@ -3115,7 +3132,7 @@ a.lightbox-x {
   }
   
   @include media(tablet) {
- 
+
     h2 {
       @include big-type;
     }
@@ -3170,7 +3187,7 @@ a.lightbox-x {
 .account-settings {
   
   #account_email_form, #account_password_form {
-  	display: none;
+    display: none;
   }
 
   .account-settings-row {
@@ -3217,8 +3234,8 @@ a.lightbox-x {
   @include media(tablet) {
     
     a.change-link {
-       margin-left: lines(0.5);
-     }
+      margin-left: lines(0.5);
+    }
       
   }
   
@@ -3259,7 +3276,7 @@ a.lightbox-x {
   -----------------------------------------------
 */
 
-.testimonial-form, .conversation-status-form {
+.testimonial-form, .conversation-status-form, .payment-form {
 
   a.grade, a.conversation-action {
     color: $body;
@@ -3291,14 +3308,150 @@ a.lightbox-x {
   a.positive, a.accept, a.confirm {
     color: $green;
     background: lighten($green, 40%);
-     &:hover { background: lighten($green, 40%); }
+    &:hover { background: lighten($green, 40%); }
   }
 
   a.negative, a.reject, a.cancel {
     color: $red;
     background: lighten($red, 40%);
     &:hover { background: lighten($red, 40%); }
-  }  
+  }
+  
+  span.currency-symbol {
+    display: none;
+  }
+  
+  .payment-row-headings {
+    display: none;
+  }
+  
+  .payment-row {
+    padding: lines(0.125) lines(0.5) lines(0.5) lines(0.5);
+  }
+  
+  .grey {
+    background: $highlight;
+    @include border-radius(em(5));
+  }
+  
+  .conversation-price {
+    margin-top: lines(0.75);
+    margin-bottom: lines(0.25);
+  }
+  
+  @include media(tablet) {
+    
+    .payment-row-headings {
+      display: block;
+      margin-bottom: lines(0.375);
+      padding-bottom: lines(0.25);
+    }
+    
+    .bottom-border {
+      border-bottom: 1px solid $body;
+    }
+    
+    .payment-row {
+      margin-bottom: lines(0.5);
+      padding: lines(0.5) lines(0.5) lines(0.5) lines(0.5);
+    }
+    
+    .payment-row-heading {
+      display: inline-block;
+      font-weight: bold;
+    }
+    
+    .payment-row-title-heading {
+      width: lines(10);
+      margin-left: lines(0.5);
+    }
+    
+    .payment-row-sum-heading {
+      width: lines(4);
+      margin-left: lines(0.5);
+    }
+    
+    .payment-row-vat-heading {
+      width: lines(2);
+      margin-left: lines(0.5) + em(12);
+    }
+    
+    .payment-row-total-heading {
+      text-align: center;
+      width: lines(5);
+      margin-left: lines(0.5) + em(15);
+    }
+    
+    .payment-row-label {
+      display: none;
+    }
+    
+    .payment-row-field {
+      display: inline-block;
+    }
+    
+    .payment-row-title-field {
+      width: lines(10);
+    }
+    
+    .payment-row-sum-field {
+      width: lines(4);
+      margin-left: lines(0.5);
+    }
+    
+    span.currency-symbol {
+      display: inline;
+    }
+    
+    .payment-row-vat-field {
+      width: lines(2);
+      margin-left: lines(0.5);
+    }
+    
+    .total-label {
+      display: inline-block;
+      text-align: center;
+      width: lines(4.5);
+      margin-left: lines(0.5);
+    }
+    
+    .payment-row-title-text {
+      width: lines(10);
+      margin-left: lines(0.5);
+    }
+    
+    .payment-row-sum-text {
+      width: lines(4);
+      margin-left: lines(0.5);
+    }
+    
+    .payment-row-vat-text {
+      width: lines(2);
+      margin-left: lines(0.5) + em(12);
+    }
+    
+    .payment-row-total-text {
+      text-align: center;
+      width: lines(5);
+      margin-left: lines(0.5);
+    }
+    
+    .payment-text-row {
+      padding: lines(0) lines(0.5) lines(0.5) lines(0.5);
+    }
+    
+    .payment-row-text {
+      display: inline-block;
+    }
+    
+    .payment-sum-row {
+      font-weight: bold;
+    }
+    
+  }
+  
+  
+  
 }
 
 /*
@@ -3466,10 +3619,6 @@ a.lightbox-x {
     width: lines(6);
   }
 
-  .payment-form-field {
-    display: inline-block;
-  }
-  
   .send-button {
     padding-top: lines(0.25);
   }

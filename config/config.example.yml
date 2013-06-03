@@ -87,12 +87,7 @@ default: &default_settings
 
 
   # This will be the from field in the mails sent from Sharetribe
-  sharetribe_mail_from_address: "noreply-sharetribe@example.com"
-  # This address is added in the most mail signatures 
-  # (it's good idea to set this if you use no-reply addres as the form
-  # address above so that people can contact the admins if needed)
-  # Can also be left blank.
-  sharetribe_reply_to_address: "real-team-address@example.com"
+  sharetribe_mail_from_address: "your-team@example.com"
   
   # The address where the notifications of feedbacks from Sharetribe UI are sent
   feedback_mailer_recipients:  'admins@example.com'
@@ -185,6 +180,14 @@ default: &default_settings
   merchant_api_user_id: 
   merchant_api_password:
   merchant_registration_mode:
+    
+  # Processing uploaded images can be done in a background process, and that is recommended for
+  # environments where long processing times can cause timeouts (e.g. Heroku)
+  delayed_image_processing: false
+  
+  # Logger type
+  # the "normal" value is good by default. If you are using Heroku + Unicorn, you'll need to set this to "stdout"
+  logger_type: "normal"
   
   # Below it is possible to specify different settings for different
   # environments. If you are not developing or testing Sharetribe, you 
@@ -263,3 +266,5 @@ test:
   # never create merchant accounts in tests
   merchant_registration_mode: stub
 
+  # Keep tests simpler with immediate image processing
+  delayed_image_processing: false

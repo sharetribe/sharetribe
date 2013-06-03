@@ -11,6 +11,10 @@ I18n.fallbacks.map('es-ES' => 'es')
 I18n.fallbacks.map('ca' => 'es-ES')
 I18n.fallbacks.map('zh' => 'en')
 I18n.fallbacks.map('it' => 'en')
+I18n.fallbacks.map('en-rc' => 'en')
+I18n.fallbacks.map('es-rc' => 'es-ES')
+I18n.fallbacks.map('fr-rc' => 'fr')
+I18n.fallbacks.map('de-rc' => 'de')
 
 
 module I18n

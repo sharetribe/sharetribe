@@ -126,7 +126,7 @@ fi:
       reject_offer: "Ei tällä kertaa"
       reject_request: "Ei tällä kertaa"
       close_listing: "Sulje ilmoitus %{listing_title_link}"
-      update_later: "Päivitä ilmoitus ajan tasalle myöhemmin"
+      update_later: "Älä sulje ilmoitusta"
       optional_message: "Vapaaehtoinen viesti"
       price_to_pay: "Maksettava kokonaishinta"
     confirm:
@@ -193,6 +193,7 @@ fi:
       rideshare_offer_message_form_title: "Pyydä kyytiä käyttäjältä"
       rideshare_request_message_form_title: "Tarjoa kyyti käyttäjälle"
       send_message: "Lähetä viesti"
+      send: Lähetä
       this_message_is_private: "Tämä viesti on yksityinen sinun ja käyttäjän %{person} välillä. %{person} saa tiedon lähettämästäsi viestistä sähköpostilla."
       you_will_get_notified_of_acceptance: "Saat sähköpostiisi tiedon, kun %{person} hyväksyy tai hylkää ehdotuksesi."
       you_will_get_notified: "Saat sähköpostiisi tiedon, kun %{person} vastaa sinulle."
@@ -359,7 +360,7 @@ fi:
       you_can_join_with_invite_only: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla kutsu joltakin toiselta yhteisön jäseneltä. Jos sinulla on kutsukoodi, voit liittyä tähän yhteisöön kirjoittamalla koodin alla olevaan kenttään, hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
       if_want_to_view_content: "Jos haluat nähdä mitä yhteisössä tapahtuu liittymättä siihen sinun täytyy"
       log_out: "kirjautua ulos"
-      join_community_button: "Liity yhteisöön"
+      join_community_button: Liity
   dashboard:
     api:
       coming_soon: "Tulossa pian!"
@@ -439,7 +440,7 @@ fi:
       welcome_to_kassi: "Tervetuloa %{service_name_illative}!"
       need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla alla olevaa linkkiä"
       confirmation_link_text: "Varmista tunnukseni"
-      or_paste_link: "Vaihtoehtoisesti voit kopioida seuraavan link selaimesi osoitepalkkiin:"
+      or_paste_link: "Vaihtoehtoisesti voit kopioida seuraavan linkin selaimesi osoitepalkkiin:"
       turning_on_confirmations_in_this_community: "Otamme käyttöön sähköpostivarmistukset tässä %{service_name}-yhteisössä."
     common:
       check_your_settings: "Tarkista asetuksesi"
@@ -465,7 +466,7 @@ fi:
       your_offer_was_rejected: "Tarjouksesi hylättiin"
       your_request_was_accepted: "Pyyntösi hyväksyttiin"
       your_request_was_rejected: "Pyyntösi hylättiin"
-      you_can_now_pay_to: "Voit nyt maksaa käyttäjä %{payment_receiver} pyytämän maksun."
+      you_can_now_pay_to: "Voit nyt maksaa käyttäjän %{payment_receiver} pyytämän maksun."
       pay_now: "Maksa nyt"
     invitation_to_kassi:
       hi: Hei!
@@ -477,13 +478,11 @@ fi:
       you_can_view_all_your_badges_in: "Näytä ansaitut ansiomerkit"
       you_have_achieved_a_badge: "Olet ansainnut ansiomerkin '%{badge_name}'!"
     new_comment:
-      has_commented_your_offer_in_kassi: "%{author} on kommentoinut tarjoustasi %{listing}"
-      has_commented_your_request_in_kassi: "%{author} on kommentoinut pyyntöäsi %{listing}"
+      has_commented_your_listing_in_kassi: "%{author} on kommentoinut ilmoitustasi '%{listing}'"
       view_comment: "Näytä kommentti"
       you_have_a_new_comment: "%{author} on kommentoinut ilmoitustasi %{service_name_inessive}"
       listing_you_follow_has_a_new_comment: "%{author} on kommentoinut seuraamaasi ilmoitusta %{service_name_inessive}"
-      has_commented_offer_you_follow_in_kassi: "%{author} on kommentoinut seuraamaasi pyyntöä %{listing}"
-      has_commented_request_you_follow_in_kassi: "%{author} on kommentoinut seuraamaasi tarjousta %{listing}"
+      has_commented_listing_you_follow_in_kassi: "%{author} on kommentoinut seuraamaasi ilmoitusta '%{listing}'."
     new_message:
       conversation_title: "Viestiketjun otsikko: %{title}"
       view_message: "Näytä viesti"
@@ -491,16 +490,18 @@ fi:
       you_have_a_new_message: "Sinulle on uusi viesti %{service_name_inessive}"
     new_payment:
       new_payment: "Olet saanut uuden maksusuorituksen"
-      you_have_received_new_payment: "%{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Nyt on sinun vuorosi toimittaa %{listing_title} käyttäjälle %{payer_given_name}."
+      you_have_received_new_payment: "%{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
+    receipt_to_payer:
+      receipt_of_payment: "Kuitti maksusta"
+      you_have_made_new_payment: "Olet maksanut käyttäjälle %{recipient_full_name} <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta %{service_name_inessive}"
       you_can_give_feedback_to: "Voit antaa palautetta käyttäjälle %{name} osoitteessa"
-      view_feedback: ~
+      view_feedback: "Näytä palaute"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Seuraamasi ilmoitus on päivittynyt"
-      has_updated_offer_you_follow_in_kassi: "%{author} on päivittänyt seuraamasi pyynnön %{listing}"
-      has_updated_request_you_follow_in_kassi: "%{author} on päivittänyt seuraamasi tarjouksen %{listing}"
-      view_changes: ~
+      has_updated_listing_you_follow_in_kassi: "%{author} on päivittänyt seuraamaasi ilmoitusta '%{listing}'."
+      view_changes: "Näytä muutokset"
     community_updates:
       added_offer: "%{name_link} lisäsi tarjouksen:"
       added_request: "%{name_link} lisäsi pyynnön:"
@@ -577,15 +578,16 @@ fi:
       share_type: "Valitse yksi vaihtoehdoista."
       valid_until: "Viimeinen voimassaolopäivä ei voi olla aikaisempi kuin nykyhetki eikä yli vuoden päässä nykyhetkestä."
       price: "Hinnan on oltava positiivinen kokonaisluku."
+      minimum_price: "Minimihinta on %{minimum_price} %{currency}."
     testimonials:
       you_must_explain_not_neutral_feedback: "Jos haluat antaa jonkin muun arvosanan kuin odotusten mukaan, sinun pitää perustella arvosanasi."
       you_must_select_a_grade: "Muistathan kertoa, oliko kokemuksesi positiivinen vai negatiivinen."
   error_pages:
-    back_to_kassi_front_page: "Takaisin %{service_name_genetive} etusivulle"
+    back_to_kassi_front_page: "Takaisin etusivulle"
     error_404:
       if_you_believe: "Jos arvelet, että osoite on oikein ja sillä pitäisi saada näkyviin sisältöä, auta meitä paikallistamaan virhe kertomalla alla olevalla lomakkeella, mikä osoite on kyseessä, ja mitä kyseisellä sivulla pitäisi näkyä."
       page_can_not_be_found: "Sivua ei löydy!"
-      page_you_requested_can_not_be_found: "Haluamaasi osoitetta ei löydy %{service_name_elative}. Oletko varma, että kirjoitit osoitteen oikein?"
+      page_you_requested_can_not_be_found: "Haluamaasi osoitetta ei löydy. Oletko varma, että kirjoitit osoitteen oikein?"
     error_404_title: "sivua ei löydy"
     error_500:
       help_us_find_the_problem: "Voit auttaa virheiden etsinnässä kertomalla alla olevalla lomakkeella, missä tilanteessa virhe ilmeni."
@@ -624,7 +626,7 @@ fi:
     login:
       logged_in_to_kassi: "%{name} kirjautui sisään %{service_name_illative} %{time_ago}."
     comment:
-      commented: "%{commenter_name} kommentoi %{listing_type} %{listing_title} %{time_ago}."
+      commented: "%{commenter_name} kommentoi ilmoitustasi %{listing_title} %{time_ago}."
       offer_partitive: tarjousta
       request_partitive: pyyntöä
   header:
@@ -754,7 +756,7 @@ fi:
       news_items: Uutiset
       polls: Kyselyt
     application:
-      join_this_community: "Liity yhteisöön"
+      join_this_community: Liity
       read_more: "Lue lisää"
       feedback: "Palaute ylläpidolle"
       default_feedback: "Tee kehitysehdotus, ilmoita virheestä, kerro mielipiteesi palvelusta tai ota yhteyttä muuten vain!"
@@ -824,8 +826,7 @@ fi:
       comment_sent: "Kommentti lähetetty"
       confirmation_link_is_wrong_or_used: "Vahvistuslinkki on jo käytetty tai siinä on jokin vika. Yritä kirjautua sisään tai lähetä palautetta jos ongelma ei ratkea."
       additional_email_confirmed: "Antamasi email osoite on nyt vahvistettu."
-      create_new_offer: "Tarjoa jotain muuta"
-      create_new_request: "Pyydä jotain muuta"
+      create_new_listing: ~
       create_one_here: "luoda uuden"
       email_confirmation_sent_to_new_address: "Sähköpostivarmistus lähetetty uuteen osoitteeseen."
       email_not_found: "Antamaasi sähköpostiosoitetta ei löytynyt %{service_name_genetive} tietokannasta."
@@ -852,10 +853,9 @@ fi:
       offer_confirmed: "Tarjous merkitty toteutuneeksi"
       offer_closed: "Tarjous suljettu"
       listing_created_successfully: "Ilmoitus tallennettu."
-      offer_created_successfully: "Tarjous tallennettu."
       offer_rejected: "Tarjous hylätty"
       offer_canceled: "Tarjous peruttu"
-      offer_updated_successfully: "Tarjous päivitetty onnistuneesti"
+      listing_updated_successfully: ~
       only_kassi_administrators_can_access_this_area: "Vain %{service_name_genetive} ylläpitäjillä on pääsy tähän sisältöön"
       only_listing_author_can_close_a_listing: "Vain ilmoituksen laatija voi sulkea ilmoituksen."
       only_listing_author_can_edit_a_listing: "Vain ilmoituksen laatija voi muokata ilmoitusta."
@@ -878,10 +878,8 @@ fi:
       request_accepted: "Pyyntö hyväksytty"
       request_confirmed: "Pyyntö merkitty toteutuneeksi"
       request_closed: "Pyyntö suljettu"
-      request_created_successfully: "Pyyntö tallennettu."
       request_rejected: "Pyyntö hylätty"
       request_canceled: "Pyyntö peruttu"
-      request_updated_successfully: "Pyyntö päivitetty onnistuneesti"
       message_sent: "Viesti lähetetty"
       this_content_is_not_available_in_this_community: "Pyytämääsi sivua ei löydy tästä %{service_name}-yhteisöstä."
       unknown_error: "Tuntematon virhe. Voit auttaa selvittämisessä lähettämällä palautetta siitä mitä tapahtui."
@@ -934,8 +932,7 @@ fi:
       send_comment: "Lähetä kommentti"
       to_send_a_comment: "jotta voisit kommentoida ilmoitusta."
       write_comment: "Kirjoita uusi kommentti:"
-      you_cannot_send_a_new_comment_because_offer_is_closed: "Et voi lähettää uutta kommenttia koska tarjous on suljettu."
-      you_cannot_send_a_new_comment_because_request_is_closed: "Et voi lähettää uutta kommenttia koska pyyntö on suljettu."
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Et voi lähettää uutta kommenttia koska ilmoitus on suljettu."
       you_must: "Sinun täytyy"
       subscribe_to_comments: "Ilmoita minulle uusista kommenteista ja päivityksistä"
     edit:
@@ -984,6 +981,8 @@ fi:
         mass: "kpl, kg, l, m2, ..."
         time: "tunti, päivä, ..."
         long_time: "vko, kk, ..."
+        service_fee_will_be_added: "Hintaan lisätään palvelumaksu %{fee}%."
+        price_excludes_vat: "Merkitse tähän alv 0 -hinta."
       origin:
         location: Sijainti
         origin: Lähtöpaikka
@@ -1098,16 +1097,6 @@ fi:
       link_label_for_item_request_trade: "Tarjoudu vaihtamaan tämä tavara"
       link_label_for_rideshare_offer: "Pyydä kyytiä"
       link_label_for_rideshare_request: "Tarjoa kyytiä"
-    listed_listing:
-      edit: Muokkaa
-    listed_listings:
-      loading_more_offers: "Ladataan lisää tarjouksia"
-      loading_more_requests: "Ladataan lisää pyyntöjä"
-      no_offers_with_the_conditions_you_gave: "Antamillasi ehdoilla ei löytynyt yhtään tarjousta."
-      no_requests_with_the_conditions_you_gave: "Antamillasi ehdoilla ei löytynyt yhtään pyyntöä."
-      offer_something: "Aseta jotain tarjolle!"
-      request_something: "Pyydä jotakin!"
-      search_returned_no_results: "Antamallasi hakusanalla ei löytynyt tuloksia."
     new:
       listing: ilmoitus
       offer: "Haluan tarjota muille jotain"
@@ -1178,8 +1167,7 @@ fi:
       select_category: "Valitse ilmoituskategoria"
     please_comment: Kommentoi
     reply_link:
-      offer_closed: "Tarjous on suljettu"
-      request_closed: "Pyyntö on suljettu"
+      listing_closed: "Ilmoitus on suljettu"
     show:
       add_your_phone_number: "Lisää puhelinnumerosi"
       add_profile_picture: "Lisää profiilikuva"
@@ -1191,13 +1179,11 @@ fi:
       item_request_trade: "Halutaan vaihdossa"
       no_description: "Ei kuvausta"
       offer: Tarjous
-      offer_author: Tarjoaja
       listing_created: Luotu
       open_until: "Avoinna %{date} asti"
       feedback: "Palaute:"
       qr_code: "QR koodi"
       request: Pyyntö
-      request_author: Pyytäjä
       rideshare_offer: Kyytitarjous
       rideshare_request: Kyytitarve
       send_private_message: "Lähetä yksityisviesti"
@@ -1208,6 +1194,9 @@ fi:
       time: kerta
       times: kertaa
       times_viewed: Katsottu
+      processing_uploaded_image: "(Ladatun kuvan käsittely kesken...)"
+    displayed_price:
+      price_excludes_vat: "(alv 0)"
   mapview:
     index:
       all_categories: "Kaikki kategoriat"

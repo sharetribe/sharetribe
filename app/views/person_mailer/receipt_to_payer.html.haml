@@ -1,0 +1,49 @@
+- conversation_url = person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @payment.conversation.id.to_s}))
+
+%tr
+  %td{:align => "left"} 
+    %font{body_font}
+      = t("emails.receipt_to_payer.you_have_made_new_payment", :listing_title => @payment.conversation.listing.title, :payment_sum => humanized_money_with_symbol(@payment.total_sum), :recipient_full_name => @payment.recipient.name, :recipient_given_name => @payment.recipient.given_name_or_username).html_safe
+
+%tr
+  %td{:align => "left", :style => "padding: 10px 0;"}
+    %table{:cellpadding => 5, :cellspacing => 0}
+      %tbody
+        %tr
+          %td
+            %b Tuote
+          %td
+            %b Hinta (alv 0)
+          %td
+            %b Alv
+          %td
+            %b Hinta yhteensä
+        - @payment.rows.each do |row|
+          %tr
+            %td{:width => "150"}
+              = row.title
+            %td
+              = row.sum.to_s + row.sum_symbol
+            %td
+              = row.vat.to_s + "%"
+            %td
+              = row.sum_with_vat.to_s + row.sum_symbol
+        %tr
+          %td
+            Mpankin palvelumaksu
+          %td
+            = @payment.commission_without_vat.to_s + @payment.rows.first.sum_symbol
+          %td
+            = @payment.community.vat.to_s + "%"
+          %td
+            = @payment.total_commission.to_s + @payment.rows.first.sum_symbol
+        %tr
+          %td
+            %b Yhteensä
+          %td
+          %td
+          %td
+            %b= @payment.total_sum.to_s + @payment.rows.first.sum_symbol
+            
+            
+= render :partial => "action_button", :locals => { :text => t("emails.conversation_status_changed.view_thread"), :url => conversation_url}

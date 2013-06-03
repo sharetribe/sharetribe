@@ -16,6 +16,14 @@ class CommunityMembershipsController < ApplicationController
       flash[:notice] = t("layouts.notifications.you_are_already_member")
       redirect_to root and return
     elsif existing_membership && existing_membership.pending_email_confirmation?
+      # Check if requirements are already filled, but the membership just hasn't been updated yet
+      # (This might happen if unexpected error happens during page load and it shouldn't leave people in loop of of
+      # having email confirmed but not the memebership)
+      if @current_user.has_valid_email_for_community?(@current_community)
+        @current_community.approve_pending_membership(@current_user)
+        redirect_to root and return
+      end
+      
       redirect_to confirmation_pending_path and return
     end
     
@@ -28,7 +36,7 @@ class CommunityMembershipsController < ApplicationController
     # if there already exists one, modify that (normally it's "pending_organization_membership")
     existing = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
     @community_membership = existing || CommunityMembership.new(params[:community_membership])
-        
+                
     if @current_community.join_with_invite_only? || params[:invitation_code]
       unless Invitation.code_usable?(params[:invitation_code], @current_community)
         # abort user creation if invitation is not usable. 
@@ -59,30 +67,43 @@ class CommunityMembershipsController < ApplicationController
         end
         
         # Send confirmation and make membership pending
-        @current_user.send_email_confirmation_to(params[:community_membership][:email], request.host_with_port)
+        @current_user.send_email_confirmation_to(params[:community_membership][:email], request.host_with_port, @current_community)
         @community_membership.status = "pending_email_confirmation"
         
         flash[:notice] = "#{t("layouts.notifications.you_need_to_confirm_your_account_first")} #{t("sessions.confirmation_pending.check_your_email")}."
-        
       end
-      
     end
     
     if @current_community.requires_organization_membership?
-      org = Organization.find_by_id(params[:organization_id])
-      if org.nil?
+      if ! params[:community_membership][:email].blank? && ! @current_user.has_email?(params[:community_membership][:email])
+        # Set the given new email as primary and ensure that it's marked unconfirmed at this point.
+        @community_membership.status = "pending_email_confirmation"
+        @current_user.update_attributes(:email => params[:community_membership][:email], :confirmed_at => nil) 
+      end
+      
+      @org = Organization.find_by_id(params[:organization_id])
+      
+      if @org.nil?
         flash[:error] = t("community_memberships.new.you_need_to_choose_an_organization")
+        @community_membership = CommunityMembership.new
         render :action => :new and return
-      else
-        @current_user.organizations << org unless org.has_member?(@current_user)
-        if @community_membership.pending_organization_membership?
-          if @current_user.has_valid_email_for_community?(@current_community)
-            @community_membership.status = "accepted" 
-          else
-            @current_user.send_email_confirmation_to(params[:community_membership][:email] || @current_user.pending_email(@current_community), request.host_with_port)
-            @community_membership.status = "pending_email_confirmation"
-          end 
-        end
+      end
+      
+      unless @org.email_allowed?(params[:community_membership][:email])
+        flash[:error] = t("community_memberships.new.selected_organizatoin_needs_specific_email") + @org.allowed_emails
+        @community_membership = CommunityMembership.new
+        render :action => :new and return          
+      end 
+      
+      @current_user.organizations << @org unless @org.has_member?(@current_user)      
+      
+      if @community_membership.pending?
+        if @current_user.confirmed_at && @current_user.has_valid_email_for_community?(@current_community)
+          @community_membership.status = "accepted" 
+        else
+          @current_user.send_email_confirmation_to(params[:community_membership][:email] || @current_user.pending_email(@current_community), request.host_with_port, @current_community)
+          @community_membership.status = "pending_email_confirmation"
+        end 
       end
     end
     

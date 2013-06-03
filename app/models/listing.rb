@@ -367,7 +367,7 @@ class Listing < ActiveRecord::Base
   # And return a string here, as that's what expected in most existing cases (e.g. translation strings)
   def listing_type
     return nil if share_type.nil?
-    share_type.top_level_parent.name
+    return share_type.top_level_parent.transaction_type || share_type.top_level_parent.name
   end
   
   # Returns true if listing exists and valid_until is set
@@ -390,6 +390,7 @@ class Listing < ActiveRecord::Base
   end
   
   def self.opposite_share_type(type)
+    return "" if type.nil?
     st = type.class.eql?(String) ? type : type.name
     case st
     when "borrow"
@@ -569,7 +570,7 @@ class Listing < ActiveRecord::Base
       :listing_type => self.listing_type,
       :category => self.category.name,
       :id => self.id,
-      :icon => self.icon_string
+      :icon => icon_class(icon_name)
     }
     if self.origin_loc
       hash.merge!({:latitude => self.origin_loc.latitude,
@@ -605,12 +606,12 @@ class Listing < ActiveRecord::Base
   end
   
   # Return organization if listing has it, otherwise return author
-  def organization_our_author?(community)
+  def organization_or_author?(community)
     has_organization_in?(community) ? organization : author
   end
   
-  def icon_string
-    category.icon_string
+  def icon_name
+    category.icon_name
   end
   
   # The price symbol based on this listing's price or community default, if no price set
@@ -620,6 +621,10 @@ class Listing < ActiveRecord::Base
   
   def transaction_type
     share_type.top_level_parent.transaction_type
+  end
+  
+  def price_with_vat(vat)
+    price + (price * vat / 100)
   end
   
 end

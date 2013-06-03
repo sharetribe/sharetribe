@@ -26,9 +26,9 @@
   .testimonial-description
     .testimonial-icon
       - if testimonial.grade > 0.25
-        .ss-like
+        = icon_tag("like", ["positive"])
       - else
-        .ss-dislike
+        = icon_tag("dislike", ["negative"])
     .testimonial-text
       - if testimonial.text && !testimonial.text.blank?
         - text_with_line_breaks do

@@ -47,15 +47,16 @@
         %select{name: "organization_id"}
           %option{value: 0}= t(".please_select_your_organization")
           - Organization.all.sort_by(&:name).each do |org|
-            %option{value: org.id}= org.name
+            %option{value: org.id, selected: (@org && @org.id == org.id)}= org.name
       %p
         = link_to t(".create_new_organization"), new_organization_path
 
         
             
-    - if @current_community.allowed_emails? && ! @current_user.has_valid_email_for_community?(@current_community)
+    - if @current_community.allowed_emails? && ! @current_user.has_valid_email_for_community?(@current_community) || @current_community.requires_organization_membership?
+      - default_email_field_value = (@current_community.requires_organization_membership? ? @current_user.email : "")
       = form.label :email, t('people.new.email'), :class => "before_description"
-      = form.text_field :email, :class => :text_field, :maxlenght => "255"
+      = form.text_field :email, :class => :text_field, :maxlenght => "255", :value => default_email_field_value 
     
     - unless @skip_terms_checkbox 
       .outer-checkbox-container

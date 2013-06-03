@@ -126,7 +126,7 @@ fr:
       reject_offer: "Pas cette fois"
       reject_request: "Pas cette fois"
       close_listing: "Clore l'annonce %{listing_title_link}"
-      update_later: "Mettre à jour l'annonce plus tard"
+      update_later: "Ne pas clore l'annonce (vous pourrez la modifier ou la clore plus tard)"
       optional_message: "Message complémentaire"
       price_to_pay: "Montant total à payer"
     confirm:
@@ -193,6 +193,7 @@ fr:
       rideshare_offer_message_form_title: "Demander un covoiturage à %{person}"
       rideshare_request_message_form_title: "Proposer un covoiturage à %{person}"
       send_message: "Envoyer le message"
+      send: Envoyer
       this_message_is_private: "Ce message entre %{person} et vous est privé."
       you_will_get_notified_of_acceptance: "Vous recevrez une notification par e-mail lorsque %{person} acceptera ou refusera votre proposition."
       you_will_get_notified: "Vous recevrez une notification par e-mail lorsque %{person} vous répondra."
@@ -369,7 +370,7 @@ fr:
       browse_communities_around_you: "rejoignez une tribu près de vous"
       slogan: "Partagez autour de vous."
       create_your_own: "Créez votre"
-      sharing_website: "site de partage"
+      sharing_website: "place de marché pour votre tribu"
       main_description: "Mettez facilement en place un service où les membres de votre tribu pourront partager des objets, des services, des covoiturages dans un esprit de confiance. C'est gratuit et rapide à créer !"
       kassi_for_your_company: "...POUR VOTRE ENTREPRISE"
       kassi_for_your_company_description: "Envie de rendre votre entreprise plus sociale et connectée ? Envie d'aider les employés à mieux se connaître les uns les autres ? Envie de réduire votre empreinte écologique et devenir une entreprise plus verte ? %{service_name} est la solution."
@@ -417,7 +418,7 @@ fr:
       you_have_not_yet_accepted_or_rejected_request: "Vous n'avez pas encore accepté ou refusé la demande %{title} reçue %{date}."
       show_thread: "Voir la conversation"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Vous n'avez pas encore confirmé ou annulé la demande %{request_link} que vous avez reçu %{date} de %{other_party_full_name}. Si la demande a été satisfaite, vous devriez la marquer comme réalisée. Vous pourrez ensuite donner un avis sur %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Vous n'avez pas encore confirmé ou annulé la demande %{request_link} que vous avez reçue %{date} de %{other_party_full_name}. Si la demande a été satisfaite, vous devriez la marquer comme réalisée. Vous pourrez ensuite donner un avis sur %{other_party_given_name}."
       remember_to_confirm_request: "Rappel de confirmation ou d'annulation d'une demande"
       if_will_not_happen_you_should_cancel: "Si vous pensez que cette demande ne sera pas réalisée pour une raison ou une autre, vous pouvez %{cancel_it_link}."
       cancel_it_link_text: l'annuler
@@ -477,13 +478,11 @@ fr:
       you_can_view_all_your_badges_in: "Voir tous vos badges"
       you_have_achieved_a_badge: "Vous avez gagné un badge '%{badge_name}' sur %{service_name} !"
     new_comment:
-      has_commented_your_offer_in_kassi: "%{author} a déposé un commentaire sur votre offre %{listing}."
-      has_commented_your_request_in_kassi: "%{author} a déposé un commentaire sur votre demande %{listing}."
+      has_commented_your_listing_in_kassi: "%{author} a commenté votre annonce '%{listing}'."
       view_comment: "Voir le commentaire"
       you_have_a_new_comment: "%{author} a déposé un commentaire sur votre annonce sur %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} a commenté une annonce que vous suivez dans %{service_name}"
-      has_commented_offer_you_follow_in_kassi: "%{author} a commenté la demande '%{listing}' que vous suivez dans %{service_name}"
-      has_commented_request_you_follow_in_kassi: "%{author} a commenté l'offre '%{listing}' que vous suivez sur %{service_name}."
+      has_commented_listing_you_follow_in_kassi: "%{author} a commenté l'annonce '%{listing}' que vous suivez sur %{service_name}."
     new_message:
       conversation_title: "Titre du fil de messages : %{title}"
       view_message: "Voir le message"
@@ -491,15 +490,17 @@ fr:
       you_have_a_new_message: "Vous avez un nouveau message sur %{service_name}"
     new_payment:
       new_payment: "Vous avez reçu un nouveau paiement"
-      you_have_received_new_payment: "Vous avez été payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> par %{payer_full_name}. Vous pouvez désormais donner ou réaliser %{listing_title} à %{payer_given_name}."
+      you_have_received_new_payment: "Vous avez été payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> par %{payer_full_name}. Voici votre reçu."
+    receipt_to_payer:
+      receipt_of_payment: "Reçu du paiement"
+      you_have_made_new_payment: "Vous avez payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> à %{recipient_full_name}. Voici un reçu du paiement."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} vous a donné un avis sur %{service_name}"
       you_can_give_feedback_to: "Vous n'avez pas encore donné un avis sur %{name}."
       view_feedback: "Voir l'avis"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Une annonce que vous suivez a été mise à jour"
-      has_updated_offer_you_follow_in_kassi: "%{author} a mis à jour la demande '%{listing}' que vous suivez dans %{service_name}"
-      has_updated_request_you_follow_in_kassi: "%{author} a mis à jour l'offre '%{listing}' que vous suivez dans %{service_name}"
+      has_updated_listing_you_follow_in_kassi: "%{author} a mis à jour l'annonce '%{listing}' que vous suivez sur %{service_name}."
       view_changes: "Voir les modifications"
     community_updates:
       added_offer: "%{name_link} a ajouté une offre : "
@@ -577,11 +578,12 @@ fr:
       share_type: "Vous devez cocher au moins une des cases ci-dessus."
       valid_until: "Cette date doit être comprise entre aujourd'hui et dans un an."
       price: "Le prix doit être un nombre entier positif."
+      minimum_price: "Le prix minimum est de %{minimum_price} %{currency}."
     testimonials:
       you_must_explain_not_neutral_feedback: "Si vous souhaitez donner un avis non-neutre, veuillez expliquer pourquoi."
       you_must_select_a_grade: "Pensez à évaluer l'utilisateur en cliquant sur l'une des icônes ci-dessus (pour voir les explications des icônes, déplacer la souris sur elles)"
   error_pages:
-    back_to_kassi_front_page: "Retour à la page d'accueil de %{service_name}"
+    back_to_kassi_front_page: "Retourner sur la page d'accueil"
     error_404:
       if_you_believe: "Si vous pensez que l'adresse est correcte et qu'elle devrait fonctionner, veuillez nous aider à localiser l'erreur en indiquant notamment l'adresse ayant causé le problème et ce qui aurait dû s'afficher (utiliser formulaire ci-dessous)."
       page_can_not_be_found: "Page introuvable !"
@@ -604,27 +606,27 @@ fr:
     your_email_address: "Votre adresse email"
   event_feed_events:
     accept:
-      has_accepted_lend_item: "%{offerer_name} a accepté de prêter %{listing_title} à %{requester_name} il y a %{time_ago}."
-      has_accepted_borrow_item: "%{offerer_name} a accepté de prêter %{listing_title} à %{requester_name} il y a %{time_ago}."
-      has_accepted_rent_out_item: "%{offerer_name} a accepté de louer %{listing_title} à %{requester_name} il y a %{time_ago}."
-      has_accepted_rent_item: "%{offerer_name} a accepté de prêter %{listing_title} à %{requester_name} il y a %{time_ago}."
-      has_accepted_give_away_item: "%{offerer_name} a accepté de donner %{listing_title} à %{requester_name} il y a %{time_ago}."
-      has_accepted_receive_item: "%{offerer_name} a accepté de donner %{listing_title} à %{requester_name} il y a %{time_ago}."
-      has_accepted_sell_item: "%{offerer_name} a accepté de vendre %{listing_title} à %{requester_name} il y a %{time_ago}."
-      has_accepted_buy_item: "%{offerer_name} a accepté de vendre %{listing_title} à %{requester_name} il y a %{time_ago}."
-      has_accepted_trade_item: "%{offerer_name} a accepté d'échanger %{listing_title} avec %{requester_name} il y a %{time_ago}."
-      has_accepted_sell_housing: "%{offerer_name} a accepté de vendre %{listing_title} à %{requester_name} il y a %{time_ago}."
-      has_accepted_buy_housing: "%{offerer_name} a accepté de vendre %{listing_title} à %{requester_name} il y a %{time_ago}."
-      has_accepted_rent_out_housing: "%{offerer_name} a accepté de louer %{listing_title} à %{requester_name} il y a %{time_ago}."
-      has_accepted_rent_housing: "%{offerer_name} a accepté de louer %{listing_title} à %{requester_name} il y a %{time_ago}."
-      has_accepted_favor: "%{offerer_name} a accepté d'offrir %{listing_title} à %{requester_name} il y a %{time_ago}."
-      has_accepted_rideshare: "%{offerer_name} a accepté de partager un covoiturage %{listing_title} avec %{requester_name} il y a %{time_ago}."
+      has_accepted_lend_item: "%{offerer_name} a accepté de prêter %{listing_title} à %{requester_name} %{time_ago}."
+      has_accepted_borrow_item: "%{offerer_name} a accepté de prêter %{listing_title} à %{requester_name} %{time_ago}."
+      has_accepted_rent_out_item: "%{offerer_name} a accepté de louer %{listing_title} à %{requester_name} %{time_ago}."
+      has_accepted_rent_item: "%{offerer_name} a accepté de prêter %{listing_title} à %{requester_name} %{time_ago}."
+      has_accepted_give_away_item: "%{offerer_name} a accepté de donner %{listing_title} à %{requester_name} %{time_ago}."
+      has_accepted_receive_item: "%{offerer_name} a accepté de donner %{listing_title} à %{requester_name} %{time_ago}."
+      has_accepted_sell_item: "%{offerer_name} a accepté de vendre %{listing_title} à %{requester_name} %{time_ago}."
+      has_accepted_buy_item: "%{offerer_name} a accepté de vendre %{listing_title} à %{requester_name} %{time_ago}."
+      has_accepted_trade_item: "%{offerer_name} a accepté d'échanger %{listing_title} avec %{requester_name} %{time_ago}."
+      has_accepted_sell_housing: "%{offerer_name} a accepté de vendre %{listing_title} à %{requester_name} %{time_ago}."
+      has_accepted_buy_housing: "%{offerer_name} a accepté de vendre %{listing_title} à %{requester_name} %{time_ago}."
+      has_accepted_rent_out_housing: "%{offerer_name} a accepté de louer %{listing_title} à %{requester_name} %{time_ago}."
+      has_accepted_rent_housing: "%{offerer_name} a accepté de louer %{listing_title} à %{requester_name} %{time_ago}."
+      has_accepted_favor: "%{offerer_name} a accepté d'offrir %{listing_title} à %{requester_name} %{time_ago}."
+      has_accepted_rideshare: "%{offerer_name} a accepté de partager un covoiturage %{listing_title} avec %{requester_name} %{time_ago}."
     join:
-      joined_kassi: "%{name} a rejoint %{community_name} %{service_name} il y a %{time_ago}."
+      joined_kassi: "%{name} a rejoint %{community_name} %{service_name} %{time_ago}."
     login:
-      logged_in_to_kassi: "%{name} s'est connecté à %{service_name} il y a %{time_ago}."
+      logged_in_to_kassi: "%{name} s'est connecté à %{service_name} %{time_ago}."
     comment:
-      commented: "%{commenter_name} a commenté %{listing_type} %{listing_title} il y a %{time_ago}."
+      commented: "%{commenter_name} a commenté l'annonce %{listing_title} %{time_ago}."
       offer_partitive: offre
       request_partitive: demande
   header:
@@ -905,7 +907,7 @@ fr:
       you_must_log_in_to_view_your_inbox: "Vous devez vous connecter à %{service_name} pour consulter votre boîte de réception."
       you_must_log_in_to_view_your_settings: "Vous devez vous connecter à %{service_name} pour afficher vos paramètres."
       you_must_log_in_to_add_news_item: "Vous devez vous connecter à %{service_name} pour ajouter un nouvel article."
-      you_need_to_confirm_your_account_first: "Vous devez d'abord confirmer votre inscription et email."
+      you_need_to_confirm_your_account_first: "Vous devez d'abord confirmer votre email."
       you_unfollowed_listing: "Vous ne suivez plus cette annonce"
       joining_community_failed: "Rejoindre cette tribu a échoué."
     profile_extras_header:
@@ -979,6 +981,8 @@ fr:
         mass: "unité, kg, l, m²..."
         time: "heure, jour, semaine..."
         long_time: "semaine, mois..."
+        service_fee_will_be_added: "Une commission de %{fee}% sera ajoutée au prix."
+        price_excludes_vat: "Ce prix n'inclut pas la TVA."
       origin:
         location: Lieu
         origin: "Lieu de départ"
@@ -1093,16 +1097,6 @@ fr:
       link_label_for_item_request_trade: "Proposer d'échanger cet objet"
       link_label_for_rideshare_offer: "Demander ce transport"
       link_label_for_rideshare_request: "Proposer ce transport"
-    listed_listing:
-      edit: Modifier
-    listed_listings:
-      loading_more_offers: "Chargement de plus d'offres"
-      loading_more_requests: "Chargement de plus de demandes"
-      no_offers_with_the_conditions_you_gave: "Il n'y a pas d'offres correspondant aux conditions que vous avez choisies."
-      no_requests_with_the_conditions_you_gave: "Il n'y a pas de demandes correspondant aux conditions que vous avez choisies."
-      offer_something: "Proposez quelque chose !"
-      request_something: "Demandez quelque chose !"
-      search_returned_no_results: "Pas de résultats à votre recherche."
     new:
       listing: annonce
       offer: "J'ai quelque chose à proposer"
@@ -1200,6 +1194,9 @@ fr:
       time: fois
       times: fois
       times_viewed: Vu
+      processing_uploaded_image: "(Traitement de l'image envoyée...)"
+    displayed_price:
+      price_excludes_vat: "(hors TVA)"
   mapview:
     index:
       all_categories: "Toutes les catégories"

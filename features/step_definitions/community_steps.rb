@@ -12,6 +12,12 @@ Given /^the terms of community "([^"]*)" are changed to "([^"]*)"$/ do |communit
   Community.find_by_domain(community).update_attribute(:consent, terms)
 end
 
+Given /^"(.*?)" is a member of community "(.*?)"$/ do |username, community_name|
+  org = Community.find_by_name!(community_name)
+  person = Person.find_by_username!(username)
+  m = CommunityMembership.find_or_create_by_person_id_and_community_id(person.id, org.id)
+end
+
 Then /^Most recently created user should be member of "([^"]*)" community with(?: status "(.*?)" and)? its latest consent accepted(?: with invitation code "([^"]*)")?$/ do |community_domain, status, invitation_code|
     # Person.last seemed to return unreliable results for some reason
     # (kassi_testperson1 instead of the actual newest person, so changed
@@ -38,7 +44,7 @@ Given /^community "([^"]*)" requires users to have an email address of type "(.*
 end
 
 Given /^community "([^"]*)" has payments in use$/ do |community|
-  Community.find_by_domain(community).update_attribute(:payments_in_use, true)
+  Community.find_by_domain(community).update_attributes(:payments_in_use => true, :vat => "24", :commission_percentage => "8")
 end
 
 Given /^users can invite new users to join community "([^"]*)"$/ do |community|

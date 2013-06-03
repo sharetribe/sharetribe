@@ -79,7 +79,7 @@ module CategoriesHelper
 
     share_types.each do |share_type, details|
       parent = ShareType.find_by_name(details[:parent]) if details[:parent]
-      s =  ShareType.find_by_name(share_type) || ShareType.create(:name => share_type, :icon => share_type, :parent => parent)
+      s =  ShareType.find_by_name(share_type) || ShareType.create(:name => share_type, :icon => (details[:icon] || share_type), :parent => parent, :transaction_type => details[:transaction_type])
       details[:categories].each do |category_name|
         c = Category.find_by_name(category_name)
         CommunityCategory.create(:category => c, :share_type => s, :community_id => community_id, :price => details[:price], :payment => details[:payment], :price_quantity_placeholder => details[:price_quantity_placeholder]) if c && ! CommunityCategory.find_by_category_id_and_share_type_id_and_community_id(c.id, s.id, community_id)
@@ -124,11 +124,16 @@ module CategoriesHelper
       
       
       ShareType.find_each do |share_type|
+        share_type_name = share_type.name
+        #see if the name ends with "_alt\d*" meaning that it's an alternative share_type in the DB but can use the same translations as the original
+        if share_type_name.match(/_alt\d*$/)
+          share_type_name = share_type_name.split("_alt").first
+        end
         begin
-          translated_name = (translations[locale] && translations[locale][share_type.name]) || I18n.t!(share_type.name, :locale => locale, :scope => ["common", "share_types"], :raise => true)
+          translated_name = (translations[locale] && translations[locale][share_type_name]) || I18n.t!(share_type_name, :locale => locale, :scope => ["common", "share_types"], :raise => true)
           
           begin 
-            translated_description = (translations[locale] && translations[locale][:descriptions] && translations[locale][:descriptions][share_type.name]) || I18n.t!(share_type.name, :locale => locale, :scope => ["listings", "new"], :raise => true)
+            translated_description = (translations[locale] && translations[locale][:descriptions] && translations[locale][:descriptions][share_type_name]) || I18n.t!(share_type_name, :locale => locale, :scope => ["listings", "new"], :raise => true)
           rescue
             translated_description = nil #if description is nil, still continue to translate the name
           end

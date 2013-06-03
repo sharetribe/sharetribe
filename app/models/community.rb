@@ -2,6 +2,8 @@ class Community < ActiveRecord::Base
 
   require 'compass'
   require 'sass/plugin'
+  
+  include EmailHelper
 
   has_many :community_memberships, :dependent => :destroy 
   has_many :members, :through => :community_memberships, :conditions => ['community_memberships.status = ?', 'accepted'], :source => :person
@@ -14,10 +16,13 @@ class Community < ActiveRecord::Base
   has_many :community_categories # Don't add here :dependent  => :destroy because community_categories method confuses it. Instead use separate hook (delete_specific_community_categories) to get rid of entries in that table when destroying.
   has_many :categories, :through => :community_categories
   has_many :share_types, :through => :community_categories
+  has_many :payments
   
   has_and_belongs_to_many :listings
   
   before_destroy :delete_specific_community_categories
+  
+  monetize :minimum_price_cents, :allow_nil => true
   
   VALID_CATEGORIES = ["company", "university", "association", "neighborhood", "congregation", "town", "apartment_building", "other"]
   
@@ -43,6 +48,12 @@ class Community < ActiveRecord::Base
                       :default_url => "/logos/header/default.png"
   })
   has_attached_file :logo, paperclip_options_for_logo
+  validates_attachment_content_type :logo,
+                                    :content_type => ["image/jpeg",
+                                                      "image/png", 
+                                                      "image/gif", 
+                                                      "image/pjpeg", 
+                                                      "image/x-png"]
   
   paperclip_options_for_cover_photo = PaperclipHelper.paperclip_default_options.merge!({:styles => { 
                       :header => "1600x195#",  
@@ -50,6 +61,12 @@ class Community < ActiveRecord::Base
                       :default_url => "/cover_photos/header/default.jpg"
   })
   has_attached_file :cover_photo, paperclip_options_for_cover_photo
+  validates_attachment_content_type :cover_photo,
+                                    :content_type => ["image/jpeg",
+                                                      "image/png", 
+                                                      "image/gif", 
+                                                      "image/pjpeg", 
+                                                      "image/x-png"]
   
   attr_accessor :terms
   
@@ -128,7 +145,7 @@ class Community < ActiveRecord::Base
       member.confirmed_at = nil
       member.save
       I18n.locale = member.locale
-      member.send_confirmation_instructions
+      member.send_confirmation_instructions(full_domain, self)
       
     end
     I18n.locale = original_locale
@@ -153,22 +170,6 @@ class Community < ActiveRecord::Base
       return community if community.allowed_emails && community.email_allowed?(email)
     end
     return nil
-  end
-  
-  def email_allowed?(email)
-    return true unless allowed_emails.present?
-    
-    allowed = false
-    allowed_array = allowed_emails.split(",")
-    allowed_array.each do |allowed_domain_or_address|
-      allowed_domain_or_address.strip!
-      allowed_domain_or_address.gsub!('.', '\.') #change . to be \. to only match a dot, not any char
-      if email =~ /#{allowed_domain_or_address}$/
-        allowed = true
-        break
-      end
-    end
-    return allowed
   end
   
   def new_members_during_last(time)
@@ -222,6 +223,9 @@ class Community < ActiveRecord::Base
   
   # Find community by domain, which can be full domain or just subdomain
   def find_by_domain(domain_string)
+    if domain_string =~ /\:/ #string includes port which should be removed
+      domain_string = domain_string..split(":").first
+    end 
     if domain_string =~ /\./ # not just a subdomain
       if domain_string.match(APP_CONFIG.domain) # subdomain with default domain attached
         Community.where(["domain = ?", domain_string.split(".").first])
@@ -245,7 +249,7 @@ class Community < ActiveRecord::Base
   
   # Generates the customization stylesheet scss files to app/assets
   # This should be run before assets:precompile in order to precompile stylesheets for each community that has customizations
-  def self.generate_customization_stylesheets    
+  def self.generate_customization_stylesheets
     Community.with_customizations.each do |community|
       puts "Generating custom CSS for #{community.name}"
       community.generate_customization_stylesheet
@@ -261,12 +265,20 @@ class Community < ActiveRecord::Base
       
       # Copy original SCSS and do customizations by search & replace
       
-      FileUtils.cp("app/assets/stylesheets/application.scss", "app/assets/stylesheets/#{stylesheet_filename}.scss" )
+      FileUtils.cp("app/assets/stylesheets/application.scss.erb", "app/assets/stylesheets/#{stylesheet_filename}.scss" )
       FileUtils.cp("app/assets/stylesheets/customizations.scss", "app/assets/stylesheets/customizations-#{community_filename}.scss" )
       replace_in_file("app/assets/stylesheets/#{stylesheet_filename}.scss",
                       "@import 'customizations';",
                       "@import 'customizations-#{community_filename}';",
                       true)
+
+      # ERB compiling with Compass kept failing, so do the only ERB change manually here    
+      icon_import_line = (APP_CONFIG.icon_pack == "ss-pika" ? "@import 'ss-social';\n@import 'ss-pika';" : "@import 'font-awesome.min';")
+      replace_in_file("app/assets/stylesheets/#{stylesheet_filename}.scss",
+                      /<%= \(APP_CONFIG.icon_pack[^%]+%>/,
+                      icon_import_line,
+                      true)
+                      
       if custom_color1.present? 
         replace_in_file("app/assets/stylesheets/customizations-#{community_filename}.scss",
                         /\$link:\s*#\w{6};/,
@@ -286,13 +298,12 @@ class Community < ActiveRecord::Base
                         "$cover-photo-url: \"#{cover_photo.url(:header)}\";",
                         true)
       end
-      
       url = stylesheet_filename
-      unless Rails.env.development? # Dev mode uses on-the-fly SCSS compiling
+      unless false #Rails.env.development? # Dev mode uses on-the-fly SCSS compiling
         
         # Generate CSS from SCSS
         css_file = "public/assets/#{new_filename_with_time_stamp}.css"
-        `mkdir public/assets` # Just in case it doesn't exist
+        `mkdir public/assets` unless File.exists?("public/assets")
         
         
         Compass.add_configuration(
@@ -306,8 +317,10 @@ class Community < ActiveRecord::Base
         
         # There was trouble making Compas find CSS from other folders so use simple copy. :)
         # FIXME: Extend Compass load path to avoid this unnecessary copy operation
-        FileUtils.cp("app/assets/webfonts/ss-social.css","app/assets/stylesheets/ss-social.scss")
-        FileUtils.cp("app/assets/webfonts/ss-pika.css","app/assets/stylesheets/ss-pika.scss")
+        if APP_CONFIG.icon_pack == "ss-pika"
+          FileUtils.cp("app/assets/webfonts/ss-social.css","app/assets/stylesheets/ss-social.scss")
+          FileUtils.cp("app/assets/webfonts/ss-pika.css","app/assets/stylesheets/ss-pika.scss")
+        end
         
         Compass.compiler.compile("app/assets/stylesheets/#{stylesheet_filename}.scss", css_file)
         
@@ -357,6 +370,10 @@ class Community < ActiveRecord::Base
   
   def requires_organization_membership?
     settings["require_organization_membership"] == true    
+  end
+  
+  def uses_rdf_profile_import?
+    settings["use_rdf_profile_import"] == true    
   end
   
   # categories_tree
@@ -499,6 +516,14 @@ class Community < ActiveRecord::Base
     else
       # Use defaults
       return CommunityCategory.find_all_by_community_id(nil, :include => [:category, :share_type])
+    end
+  end
+  
+  def default_currency
+    if available_currencies
+      available_currencies.split(",").first
+    else
+      MoneyRails.default_currency
     end
   end
 

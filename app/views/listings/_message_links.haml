@@ -1,25 +1,26 @@
 - if @listing.closed?
   .action-links
     .icon-with-text-container
-      .ss-lock.icon-part
+      = icon_tag("lock", ["icon-part"]) 
       .text-part= t("listings.reply_link.listing_closed")
     - if current_user?(@listing.author) || (@current_user && @current_user.has_admin_rights_in?(@current_community) && !@current_user.member_of?(@current_community))
       %a.action-link{href: edit_listing_path(@listing)}
         .icon-with-text-container
-          .ss-unlock.icon-part
+          = icon_tag("unlock", ["icon-part"]) 
           .text-part= t("listings.edit_links.reopen_listing")
 - else
   - if current_user?(@listing.author) || (@current_user && @current_user.has_admin_rights_in?(@current_community) && !@current_user.member_of?(@current_community))
     .action-links
       %a.icon-with-text-container{href: edit_listing_path(@listing)}
-        .ss-draw.icon-part
+        = icon_tag("edit", ["icon-part"]) 
         .text-part= t("listings.edit_links.edit_listing")
       %a.icon-with-text-container{href: close_person_listing_path(@current_user, @listing), data: { method: "put", remote: "true"}}
-        .ss-lock.icon-part
+        = icon_tag("lock", ["icon-part"]) 
         .text-part= t("listings.edit_links.close_listing")
   - else
+    - link_path = (@listing.transaction_type.eql?("request") && @current_community.payments_in_use?) ? reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free") : reply_to_listing_path(:id => @listing.id.to_s)
     - if @listing.share_type.transaction_button_text
-      = link_to @listing.share_type.transaction_button_text, reply_to_listing_path(:id => @listing.id.to_s), :class => "button"
+      = link_to @listing.share_type.transaction_button_text, link_path, :class => "button"
     - else
       - listing_type_string = "#{@listing.category.name}_#{@listing.listing_type}#{(@listing.share_type.present? && @listing.share_type.parent) ? '_' + @listing.share_type.name : ''}"
-      = link_to t("listings.link_labels.link_label_for_#{listing_type_string}", :default => t("listings.link_labels.#{Listing.opposite_share_type(@listing.transaction_type)}_this", :default => t("listings.link_labels.#{Listing.opposite_type(@listing.transaction_type)}_this"))), reply_to_listing_path(:id => @listing.id.to_s), :class => "button"
+      = link_to t("listings.link_labels.link_label_for_#{listing_type_string}", :default => t("listings.link_labels.#{Listing.opposite_share_type(@listing.transaction_type)}_this", :default => t("listings.link_labels.#{Listing.opposite_type(@listing.transaction_type)}_this"))), link_path, :class => "button"

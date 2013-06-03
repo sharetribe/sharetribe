@@ -37,6 +37,10 @@ class CommunityMembership < ActiveRecord::Base
     status == "pending_organization_membership"
   end
   
+  def pending?
+    not accepted?
+  end
+  
   def current_terms_accepted?
     consent.present? && consent == community.consent
   end

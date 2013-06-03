@@ -193,6 +193,7 @@ vi:
       rideshare_offer_message_form_title: "Yêu cầu quá giang từ"
       rideshare_request_message_form_title: "Hỗ trợ cuốc xe đến"
       send_message: "Gửi thông điệp"
+      send: ~
       this_message_is_private: "Thông điệp này riêng tư giữa bạn và %{person} . %{person} sẽ được thông báo bằng tin nhắn qua email."
       you_will_get_notified_of_acceptance: "Bạn sẽ nhận được thông báo qua email khi %{person} chấp nhận hoặc từ chối đề xuất của bạn."
       you_will_get_notified: "Bạn sẽ nhận được thông báo qua email khi %{person} trả lời bạn."
@@ -477,13 +478,11 @@ vi:
       you_can_view_all_your_badges_in: "Bạn có thể xem tất cả các huy hiệu của bạn tại"
       you_have_achieved_a_badge: "Bạn đã đạt được một huy hiệu '%{badge_name}' tại %{service_name}!"
     new_comment:
-      has_commented_your_offer_in_kassi: "%{author} đã nhận xét %{listing} hộ trợ của bạn"
-      has_commented_your_request_in_kassi: "%{author} đã nhận xét %{listing} yêu cầu của bạn"
+      has_commented_your_listing_in_kassi: ~
       view_comment: ~
       you_have_a_new_comment: "%{author} đã nhận xét danh sách của bạn tại %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} đã nhận xét về danh sách mà bạn làm theo %{service_name}"
-      has_commented_offer_you_follow_in_kassi: "%{author} đã nhận xét về yêu cầu '%{listing}' bạn đang theo dõi trong %{service_name}"
-      has_commented_request_you_follow_in_kassi: "%{author} đã nhận xét về hỗ trỡ '%{listing}' bạn đang theo dõi trong %{service_name}"
+      has_commented_listing_you_follow_in_kassi: ~
     new_message:
       conversation_title: "Tiêu đề tin nhắn: %{title}"
       view_message: ~
@@ -492,14 +491,16 @@ vi:
     new_payment:
       new_payment: ~
       you_have_received_new_payment: ~
+    receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} đã gửi bạn thông tin phản hồi tại %{service_name}"
       you_can_give_feedback_to: "Ban có thể đưa ra thông tin phản hồi đến %{name} tại"
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Danh sách các bạn theo đã được cập nhật"
-      has_updated_offer_you_follow_in_kassi: "%{author} đã cập nhật yêu cầu '%{listing}' bạn đang theo dõi trong %{service_name}"
-      has_updated_request_you_follow_in_kassi: "%{author} đã cập nhật hỗ trợ '%{listing}' bạn đang theo dõi trong %{service_name}"
+      has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
       added_offer: "%{name_link} đã thêm hỗ trợ:"
@@ -577,6 +578,7 @@ vi:
       share_type: "Bạn phải lựa chọn một."
       valid_until: "Ngày này phải nằm giữa thời gian hiện tại và một năm sau."
       price: ~
+      minimum_price: ~
     testimonials:
       you_must_explain_not_neutral_feedback: "Nếu bạn muốn đưa ra thông tin phản hồi không trung lập, bạn phải giải thích tại sao."
       you_must_select_a_grade: "Nhớ chấm điểm người dùng bằng cách nhấp chuột vào một trong những biểu tượng ở trên (bạn có thể xem lời giải thích của các biểu tượng bằng cách giữ con trỏ chuột trên chúng)"
@@ -979,6 +981,8 @@ vi:
         mass: ~
         time: ~
         long_time: ~
+        service_fee_will_be_added: ~
+        price_excludes_vat: ~
       origin:
         location: "Vị trí"
         origin: Gốc
@@ -1093,16 +1097,6 @@ vi:
       link_label_for_item_request_trade: "Hỗ trợ để trao đổi khoản mục này"
       link_label_for_rideshare_offer: "Yêu cầu cuốc xe này"
       link_label_for_rideshare_request: "Hỗ trợ cuốc xe"
-    listed_listing:
-      edit: "Chỉnh sửa"
-    listed_listings:
-      loading_more_offers: "Tải thêm giao dịch"
-      loading_more_requests: "Tải thêm yêu cầu"
-      no_offers_with_the_conditions_you_gave: "Không có giao dịch nào hợp với điều kiện bạn đưa ra."
-      no_requests_with_the_conditions_you_gave: "Không có yêu cầu nào hợp với điều kiện bạn đưa ra."
-      offer_something: "Hỗ trợ thứ gì đó!"
-      request_something: "Yêu cầu thứ gì đó!"
-      search_returned_no_results: "Tìm kiếm của bạn không có kết quả trả về."
     new:
       listing: ~
       offer: ~
@@ -1200,6 +1194,9 @@ vi:
       time: "thời gian"
       times: lần
       times_viewed: "đã xem"
+      processing_uploaded_image: ~
+    displayed_price:
+      price_excludes_vat: ~
   mapview:
     index:
       all_categories: "Tất cả các chuyên mục"

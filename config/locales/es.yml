@@ -81,7 +81,7 @@ es:
     service_name: ~
     share_types:
       request: ~
-      offer: ~
+      offer: Oferta
       borrow: préstamos
       buy: comprando
       give_away: donando
@@ -119,9 +119,9 @@ es:
     what_is_this: "Qué es esto?"
   conversations:
     accept:
-      respond_to_offer: ~
+      respond_to_offer: "Responder a una oferta"
       respond_to_request: ~
-      accept_offer: ~
+      accept_offer: "Aceptar la oferta"
       accept_request: ~
       reject_offer: ~
       reject_request: ~
@@ -148,25 +148,25 @@ es:
       no_sent_messages: "No hay mensajes enviados"
     conversation:
       accepted_request: ~
-      accepted_offer: ~
+      accepted_offer: "Oferta aceptada."
       rejected_request: ~
-      rejected_offer: ~
+      rejected_offer: "Oferta rechazada."
       confirmed_request: ~
-      confirmed_offer: ~
+      confirmed_offer: "Oferta satisfecha."
       canceled_request: ~
-      canceled_offer: ~
+      canceled_offer: "Oferta cancelada."
     message:
       accepted_request: ~
-      accepted_offer: ~
+      accepted_offer: "has aceptado la oferta"
       rejected_request: ~
-      rejected_offer: ~
+      rejected_offer: "has rechazado la oferta"
       confirmed_request: ~
       confirmed_offer: ~
       canceled_request: ~
       canceled_offer: ~
       paid: ~
     new:
-      offer_message_form_title: ~
+      offer_message_form_title: "Ofertar %{listing} a %{person}"
       request_message_form_title: ~
       favor_offer_message_form_title: "Pide ayuda de"
       favor_request_message_form_title: "Ofrécele ayuda a"
@@ -193,6 +193,7 @@ es:
       rideshare_offer_message_form_title: "Solicítale un traslado a"
       rideshare_request_message_form_title: "Ofrécele un traslado a"
       send_message: "Enviar mensaje"
+      send: ~
       this_message_is_private: "Este mensaje es privado entre tú y %{person}."
       you_will_get_notified_of_acceptance: "Recibirás una notificación por email cuando %{person} acepte o rechace tu propuesta."
       you_will_get_notified: "Recibirás una notificación por email cuando %{person} te conteste."
@@ -246,7 +247,7 @@ es:
       request_confirmed: ~
       request_canceled: ~
       skip_feedback: "Omitir sugerencia"
-      waiting_for_listing_author_to_accept_offer: ~
+      waiting_for_listing_author_to_accept_offer: "Esperando a %{listing_author_name} para que acepte la oferta"
       waiting_for_listing_author_to_accept_request: ~
       waiting_confirmation_from_requester: ~
       waiting_payment_from_requester: ~
@@ -474,19 +475,17 @@ es:
       hi: Hola!
       you_have_been_invited_to_kassi: "%{inviter} te ha invitado a utilizar el servicio web de %{community}"
       here_is_a_message_from: "Tienes un mensaje personal de %{inviter}:"
-      join_now: ~
-      invitation_code: ~
+      join_now: "Inscríbete ahora"
+      invitation_code: "Código de invitación: %{code}"
     new_badge:
       you_can_view_all_your_badges_in: "Pueder ver todas tus medallas en"
       you_have_achieved_a_badge: "Has recibido una medalla '%{badge_name}' en %{service_name}!"
     new_comment:
-      has_commented_your_offer_in_kassi: "%{author} ha comentado tu oferta %{listing}"
-      has_commented_your_request_in_kassi: "%{author} ha comentado tu solicitud %{listing}"
+      has_commented_your_listing_in_kassi: ~
       view_comment: ~
       you_have_a_new_comment: "%{author} ha comentado tu lista en %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} ha comentado un anuncio que sigues en %{service_name}"
-      has_commented_offer_you_follow_in_kassi: "%{author} ha comentado la solicitud '%{listing}' que estás siguiendo en %{service_name}"
-      has_commented_request_you_follow_in_kassi: "%{author} ha comentado la oferta '%{listing}' que estás siguiendo en %{service_name}"
+      has_commented_listing_you_follow_in_kassi: ~
     new_message:
       conversation_title: "Título del hilo del mensaje: %{title}"
       view_message: ~
@@ -495,14 +494,16 @@ es:
     new_payment:
       new_payment: ~
       you_have_received_new_payment: ~
+    receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} te ha dado una sugerencia en %{service_name}"
       you_can_give_feedback_to: "Puedes darle una sugerencia a %{name} en"
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: "La lista que sigues ha sido actualizada"
-      has_updated_offer_you_follow_in_kassi: "%{author} ha actualizado la solicitud '%{listing}' que estás siguiendo en %{service_name}"
-      has_updated_request_you_follow_in_kassi: "%{author} ha actualizado la oferta '%{listing}' que estás siguiendo en %{service_name}"
+      has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
       added_offer: "%{name_link} añadir una oferta:"
@@ -582,6 +583,7 @@ es:
       share_type: "Deber chequear al menos uno de los recuadros anteriores."
       valid_until: "Esta fecha debe estar entre la fecha actual y un año desde ahora."
       price: ~
+      minimum_price: ~
     testimonials:
       you_must_explain_not_neutral_feedback: "Si deseas dar una sugerencia no neutral, debes explicar por qué."
       you_must_select_a_grade: "Recuerda evaluar a los usuarios haciendo click en uno de los íconos de más arriba (pueder ver las explicaciones de cada ícono deslizando el mouse sobre ellos)"
@@ -787,7 +789,7 @@ es:
     dashboard:
       title: "%{service_name} - Comparte bienes, servicios y viajes en tu comunidad local!"
     infos:
-      about: "¿Qué es %{service_name}?"
+      about: "Acerca de"
       how_to_use: "Cómo usar"
       info_about_kassi: "Información acerca de %{service_name}"
       news: Novedades
@@ -853,11 +855,11 @@ es:
       news_item_updated: "Artículo actualizado"
       news_item_deleted: "Artículo eliminado"
       offer_accepted: "Oferta aceptada"
-      offer_confirmed: ~
+      offer_confirmed: "Oferta confirmada"
       offer_closed: "Oferta cerrada"
       listing_created_successfully: ~
       offer_rejected: "Oferta rechazada"
-      offer_canceled: ~
+      offer_canceled: "Oferta cancelada"
       listing_updated_successfully: ~
       only_kassi_administrators_can_access_this_area: "Sólo los administradores de %{service_name} pueden acceder a esta área"
       only_listing_author_can_close_a_listing: "Sólo el creador de una lista puede cerrarla"
@@ -984,6 +986,8 @@ es:
         mass: ~
         time: ~
         long_time: ~
+        service_fee_will_be_added: ~
+        price_excludes_vat: ~
       origin:
         location: Lugar
         origin: Origen
@@ -1070,7 +1074,7 @@ es:
       accept_for_frees: "Aceptando gratis"
       trades: Trueques
     link_labels:
-      offer_this: ~
+      offer_this: Oferta
       request_this: ~
       lend_this: ~
       borrow_this: ~
@@ -1098,16 +1102,6 @@ es:
       link_label_for_item_request_trade: "Ofrece para trocar este artículo"
       link_label_for_rideshare_offer: Contacto
       link_label_for_rideshare_request: Contacto
-    listed_listing:
-      edit: Editar
-    listed_listings:
-      loading_more_offers: "Cargando más ofertas"
-      loading_more_requests: "Cargando más solicitudes"
-      no_offers_with_the_conditions_you_gave: "No hay ofertas con las condiciones que diste."
-      no_requests_with_the_conditions_you_gave: "No hay solicitudes con las condiciones que diste."
-      offer_something: "Ofrece algo!"
-      request_something: "Solicita algo!"
-      search_returned_no_results: "Tu búsqueda no generó resultados"
     new:
       listing: aviso
       offer: "Tengo algo para ofrecer a los demás"
@@ -1205,6 +1199,9 @@ es:
       time: hora
       times: veces
       times_viewed: Visto
+      processing_uploaded_image: ~
+    displayed_price:
+      price_excludes_vat: ~
   mapview:
     index:
       all_categories: "Todas las categorías"
@@ -1519,7 +1516,7 @@ es:
       email_newsletters: "Enviarme ocasionalmente %{service_name} newsletter"
       email_when_conversation_accepted: ".. .alguien acepta mi oferta o solicitud"
       email_when_conversation_rejected: ".. .alguien rechaza mi oferta o solicitud"
-      email_about_completed_transactions: ~
+      email_about_completed_transactions: "...alguien ha marcado mi oferta o demanda como satisfecha"
       email_about_new_payments: ~
       email_about_payment_reminders: ~
       unsubscribe_succesful: "Suscripción cancelada exitosamente"

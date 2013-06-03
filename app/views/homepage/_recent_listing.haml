@@ -1,6 +1,6 @@
 .feed-item.feed-request
   .feed-author-avatar
-    = small_avatar_thumb(listing.organization_our_author?(@current_community))
+    = small_avatar_thumb(listing.organization_or_author?(@current_community))
   .feed-content{:class => (listing.has_image? ? "content-with-image" : "")}
     .author
       = author_link(listing)
@@ -20,5 +20,6 @@
             .text-part= listing.comments.size
   - if listing.has_image?
     .feed-image
-      = link_to image_tag(listing.listing_images.first.image.url(:medium), :alt => listed_listing_title(listing)), listing
+      - unless listing.listing_images.first.image_processing
+        = link_to image_tag(listing.listing_images.first.image.url(:thumb), :alt => listed_listing_title(listing)), listing
 

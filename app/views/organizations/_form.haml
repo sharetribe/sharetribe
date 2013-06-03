@@ -1,7 +1,7 @@
 - content_for :javascript do
-  initialize_new_organization_form(#{@organization.merchant_registration.eql?("true")})
+  initialize_new_organization_form(#{@organization.merchant_registration.eql?("true")}, "#{I18n.locale}")
   
-= form_for @organization do |form|
+= form_for @organization, :html => { :id => "organization_form"} do |form|
   = form.label :name, t(".name"), :class => "input"
   = form.text_field :name, :class => :text_field, :maxlenght => "255"
   = form.label :allowed_emails, t(".allowed_emails"), :class => "input"
@@ -9,6 +9,7 @@
   = form.text_field :allowed_emails, :class => :text_field, :maxlenght => "255", :placeholder => t(".allowed_emails_example")
   
   = form.label :logo, t(".logo"), :class => "input"
+  %p= t(".logo_instructions")
   = form.file_field(:logo, :class => "file_field")
   
   
@@ -28,7 +29,7 @@
         = form.label :register_as_merchant, t(".register_as_merchant"), :class => "radio"
     
     #merchant_details
-      %p= t(".merhcant_registration_detailed_instructions")
+      %p= t(".merhcant_registration_detailed_instructions").html_safe
       = form.label :company_id, t(".company_id"), :class => "input"
       = form.text_field :company_id, :class => :text_field, :maxlenght => "9"
       = form.label :email, t(".email"), :class => "input"

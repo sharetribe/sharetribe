@@ -15,7 +15,7 @@
         .selected-group{:name => attribute} 
           - values.each do |value|
             %a.select.selected{:href => "#", :name => value.name}
-              .link-icon{:class => value.icon_string}
+              = icon_tag(value.icon_name, ["link-icon"])
               .link-text= t(".selected_#{attribute}", attribute.to_sym => t(".selected_#{value.name}", :default => value.display_name.capitalize))
   
   %h2.listing-form-title{:id => "foo"}
@@ -26,7 +26,7 @@
         .option-group{:name => attribute}
           - values.each do |value|
             %a.select.option{:href => "#", :name => value.name}
-              .link-icon{:class => value.icon_string}
+              = icon_tag(value.icon_name, ["link-icon"])
               .link-text= value.description.capitalize
 
   .form-fields

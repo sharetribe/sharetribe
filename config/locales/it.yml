@@ -193,6 +193,7 @@ it:
       rideshare_offer_message_form_title: ~
       rideshare_request_message_form_title: ~
       send_message: ~
+      send: ~
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
@@ -477,13 +478,11 @@ it:
       you_can_view_all_your_badges_in: ~
       you_have_achieved_a_badge: ~
     new_comment:
-      has_commented_your_offer_in_kassi: ~
-      has_commented_your_request_in_kassi: ~
+      has_commented_your_listing_in_kassi: ~
       view_comment: ~
       you_have_a_new_comment: ~
       listing_you_follow_has_a_new_comment: ~
-      has_commented_offer_you_follow_in_kassi: ~
-      has_commented_request_you_follow_in_kassi: ~
+      has_commented_listing_you_follow_in_kassi: ~
     new_message:
       conversation_title: ~
       view_message: ~
@@ -492,14 +491,16 @@ it:
     new_payment:
       new_payment: ~
       you_have_received_new_payment: ~
+    receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: ~
       you_can_give_feedback_to: ~
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
-      has_updated_offer_you_follow_in_kassi: ~
-      has_updated_request_you_follow_in_kassi: ~
+      has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
       added_offer: ~
@@ -577,6 +578,7 @@ it:
       share_type: ~
       valid_until: ~
       price: ~
+      minimum_price: ~
     testimonials:
       you_must_explain_not_neutral_feedback: ~
       you_must_select_a_grade: ~
@@ -979,6 +981,8 @@ it:
         mass: ~
         time: ~
         long_time: ~
+        service_fee_will_be_added: ~
+        price_excludes_vat: ~
       origin:
         location: ~
         origin: ~
@@ -1093,16 +1097,6 @@ it:
       link_label_for_item_request_trade: ~
       link_label_for_rideshare_offer: ~
       link_label_for_rideshare_request: ~
-    listed_listing:
-      edit: ~
-    listed_listings:
-      loading_more_offers: ~
-      loading_more_requests: ~
-      no_offers_with_the_conditions_you_gave: ~
-      no_requests_with_the_conditions_you_gave: ~
-      offer_something: ~
-      request_something: ~
-      search_returned_no_results: ~
     new:
       listing: ~
       offer: ~
@@ -1200,6 +1194,9 @@ it:
       time: ~
       times: ~
       times_viewed: ~
+      processing_uploaded_image: ~
+    displayed_price:
+      price_excludes_vat: ~
   mapview:
     index:
       all_categories: ~

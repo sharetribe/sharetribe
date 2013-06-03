@@ -352,7 +352,7 @@ class Person < ActiveRecord::Base
   end
    
   def give_badge(badge_name, community)
-    unless has_badge?(badge_name)
+    unless has_badge?(badge_name) || ! community.badges_in_use
       badge = Badge.create(:person_id => id, :name => badge_name)
       Notification.create(:notifiable_id => badge.id, :notifiable_type => "Badge", :receiver_id => id)
       if should_receive?("email_about_new_badges")
@@ -433,28 +433,29 @@ class Person < ActiveRecord::Base
   end
   
   def has_valid_email_for_community?(community)
-    allowed = false
-    
-    #check primary email
-    allowed = true if community.email_allowed?(self.email) && confirmed_at.present?
-    
-    #check additional confirmed emails
-    self.emails.select{|e| e.confirmed_at.present?}.each do |e|
-      allowed = true if community.email_allowed?(e.address)
-    end
-    
-    return allowed
+    community.can_accept_user_based_on_email?(self)
   end
   
-  def send_email_confirmation_to(address, host)
+  def send_email_confirmation_to(address, host, community=nil)
     if email == address # check primary email
-      self.send_confirmation_instructions
+      self.send_confirmation_instructions(host, community)
     elsif e = Email.find_by_person_id_and_address(id, address) #unconfirmed additional email
-      PersonMailer.additional_email_confirmation(e, host).deliver
+      PersonMailer.additional_email_confirmation(e, host, community).deliver
     else
       return false
     end
     return true # if address found and email sent
+  end
+  
+  # This is overriding the default devise method
+  # so we get full control on from address etc. options
+  def send_confirmation_instructions(host, community=nil)
+    # this part is straight from Devise
+    self.confirmation_token = nil if reconfirmation_required?
+    @reconfirmation_required = false
+    generate_confirmation_token! if self.confirmation_token.blank?
+
+    PersonMailer.email_confirmation(self, host, community).deliver
   end
   
   # Changes old_email (whether it's a main or additional email)
@@ -533,12 +534,17 @@ class Person < ActiveRecord::Base
   
   # This is a helper to get nicely formatted array of this person's organizations
   # for dropdown selection menus
-  def organizations_array
+  def organizations_array(only_seller_organizations=false)
     arr = []
     organizations.each do |org|
-      arr << [org.name, org.id]
+      arr << [org.name, org.id] if (only_seller_organizations == false || org.is_registered_as_seller?)
     end
     return arr
+  end
+  
+  # returns true if person has at least one organization that is registered for seller account
+  def is_member_of_seller_organization?    
+    organizations.select{|o| o.is_registered_as_seller?}.present?
   end
   
   # Merge this person with the data from the person given as parameter

@@ -1,28 +1,55 @@
-.centered-section.payment-form
+.centered-section-wide.payment-form
   %h2= t(".new_payment", )
   %p 
-    .payment-form-field-container
-      .payment-form-label
-        = t(".payment_receiver")
-      .payment-form-field
-        = @payment.recipient_organization.name
+    = t(".payment_receiver")
+    
+    = @payment.recipient_organization.name
         
-        = "(#{link_to @conversation.other_party(@current_user).name, @conversation.other_party(@current_user)})".html_safe
+    = "(#{link_to @conversation.other_party(@current_user).name, @conversation.other_party(@current_user)})".html_safe
+    
+    .payment-row-headings.bottom-border
+      .payment-row-heading.payment-row-title-heading
+        Tuote
+      .payment-row-heading.payment-row-sum-heading
+        Hinta (alv 0)
+      .payment-row-heading.payment-row-vat-heading
+        Alv
+      .payment-row-heading.payment-row-total-heading
+        Hinta yhteensä
+         
+    = render :partial => "payment_row_static", :collection => @payment.rows, :as => :row
+    
+    .payment-row.payment-text-row.bottom-border
+      .payment-row-title-text.payment-row-text
+        Mpankin palvelumaksu (8%)
+
+      .payment-row-sum-text.payment-row-text
+        = @payment.commission_without_vat.to_s + @payment.conversation.listing.price_symbol
+
+      .payment-row-vat-text.payment-row-text
+        = @current_community.vat.to_s + "%"
+
+      .payment-row-total-text.payment-row-text
+        = @payment.total_commission
+    
+    .payment-row.payment-text-row.payment-sum-row
+      .payment-row-title-text.payment-row-text
+        Yhteensä
         
-    .payment-form-field-container
-      .payment-form-label
-        = t(".sum")
-      .payment-form-field
-        = money_without_cents(@payment.sum)
-        = @conversation.listing.price_symbol
+      .payment-row-sum-text.payment-row-text
+        
+      .payment-row-vat-text.payment-row-text
+        
+      .payment-row-total-text.payment-row-text
+        = @payment.total_sum.to_s + @payment.conversation.listing.price_symbol
+    
   = form_tag("https://payment.checkout.fi/", :method => "post", :id => "payment_form") do
     .payment-form-field-container
     
       -# Include payment data as hidden fields. The MAC takes care people can't modify values before POST
       - @payment_data.each do |key, value|
         = hidden_field_tag key, value
-    %small
-      = t(".commission_will_be_added")
+        
     .send-button
       = button_tag t(".continue"), :id => "continue_payment"
     

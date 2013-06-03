@@ -54,6 +54,7 @@ Kassi::Application.routes.draw do
           get :not_member
           get :cancel
           get :create_facebook_based
+          get :fetch_rdf_profile
         end
         member do 
           put :update_avatar
@@ -112,7 +113,7 @@ Kassi::Application.routes.draw do
       match "/signup" => "people#new", :as => :sign_up    
       match "/people/:id/:type" => "people#show", :as => :person_listings    
       
-    end  
+    end
 
     namespace :admin do
       resources :news_items
@@ -134,6 +135,8 @@ Kassi::Application.routes.draw do
         end
       end
     end
+    
+    resources :organizations
     resources :invitations
     resources :user_feedbacks, :controller => :feedbacks
     resources :homepage do

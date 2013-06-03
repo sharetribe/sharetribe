@@ -126,7 +126,7 @@ en:
       reject_offer: "Not this time"
       reject_request: "Not this time"
       close_listing: "Close the listing %{listing_title_link}"
-      update_later: "Update the listing later"
+      update_later: "Leave the listing open"
       optional_message: "Optional message"
       price_to_pay: "Total price to be paid"
     confirm:
@@ -193,6 +193,7 @@ en:
       rideshare_offer_message_form_title: "Ask for a ride from %{person}"
       rideshare_request_message_form_title: "Offer a ride to %{person}"
       send_message: "Send message"
+      send: Send
       this_message_is_private: "This message is private between you and %{person}. %{person} will be notified of this message by email."
       you_will_get_notified_of_acceptance: "You will get an email notification when %{person} accepts or rejects your proposal."
       you_will_get_notified: "You will get an email notification when %{person} answers you."
@@ -477,13 +478,11 @@ en:
       you_can_view_all_your_badges_in: "View all your badges"
       you_have_achieved_a_badge: "You have achieved a badge '%{badge_name}' in %{service_name}!"
     new_comment:
-      has_commented_your_offer_in_kassi: "%{author} has commented on your offer %{listing}."
-      has_commented_your_request_in_kassi: "%{author} has commented on your request %{listing}."
+      has_commented_your_listing_in_kassi: "%{author} has commented on your listing '%{listing}'."
       view_comment: "View comment"
       you_have_a_new_comment: "%{author} has commented on your listing in %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} has commented on a listing you follow in %{service_name}"
-      has_commented_offer_you_follow_in_kassi: "%{author} has commented on the request '%{listing}' you are following in %{service_name}"
-      has_commented_request_you_follow_in_kassi: "%{author} has commented on the offer '%{listing}' you are following in %{service_name}."
+      has_commented_listing_you_follow_in_kassi: "%{author} has commented on the listing '%{listing}' you are following in %{service_name}."
     new_message:
       conversation_title: "Message thread title: %{title}"
       view_message: "View message"
@@ -491,15 +490,17 @@ en:
       you_have_a_new_message: "You have a new message in %{service_name}"
     new_payment:
       new_payment: "You have received a new payment"
-      you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. You can now deliver %{listing_title} to %{payer_given_name}."
+      you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. Here is your receipt."
+    receipt_to_payer:
+      receipt_of_payment: "Receipt of payment"
+      you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> to %{recipient_full_name}. Here is a receipt of the payment."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} has given you feedback in %{service_name}"
       you_can_give_feedback_to: "You haven't yet given feedback to %{name}."
       view_feedback: "View feedback"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Listing you follow has been updated"
-      has_updated_offer_you_follow_in_kassi: "%{author} has updated the request '%{listing}' you are following in %{service_name}"
-      has_updated_request_you_follow_in_kassi: "%{author} has updated the offer '%{listing}' you are following in %{service_name}"
+      has_updated_listing_you_follow_in_kassi: "%{author} has updated the listing '%{listing}' you are following in %{service_name}."
       view_changes: "View changes"
     community_updates:
       added_offer: "%{name_link} added an offer:"
@@ -577,11 +578,12 @@ en:
       share_type: "You must select one."
       valid_until: "This date must be between current time and one year from now."
       price: "Price must be a whole number."
+      minimum_price: "Minimum price is %{minimum_price} %{currency}."
     testimonials:
       you_must_explain_not_neutral_feedback: "If you want to give non-neutral feedback, you must explain why."
       you_must_select_a_grade: "Remember to tell whether your experience was positive or negative."
   error_pages:
-    back_to_kassi_front_page: "Back to %{service_name} front page"
+    back_to_kassi_front_page: "Back to the front page"
     error_404:
       if_you_believe: "If you believe that the address is correct and it should be working, please help us locate the error by letting us know what address caused the error and what should be seen on the page with the form below."
       page_can_not_be_found: "Page can not be found!"
@@ -624,7 +626,7 @@ en:
     login:
       logged_in_to_kassi: "%{name} logged in to %{service_name} %{time_ago}."
     comment:
-      commented: "%{commenter_name} commented on %{listing_type} %{listing_title} %{time_ago}."
+      commented: "%{commenter_name} commented on listing %{listing_title} %{time_ago}."
       offer_partitive: offer
       request_partitive: request
   header:
@@ -741,7 +743,7 @@ en:
     about:
       default_about_text_title: "What is Sharetribe?"
       default_about_text: "This website was created using the Sharetribe platform. With Sharetribe, anyone can create their own community marketplace. Would you like to create a site like this for your community? It's free and only takes a minute. %{click_here_link} to learn more!"
-      click_here_link_text: "Click here" 
+      click_here_link_text: "Click here"
   layouts:
     no_tribe:
       inbox: Inbox
@@ -782,8 +784,8 @@ en:
     dashboard:
       title: "%{service_name} - share goods, services and rides in your local community!"
     infos:
-      about: "About"
-      how_to_use: "Help"
+      about: About
+      how_to_use: Help
       info_about_kassi: "Information about %{service_name}"
       news: News
       register_details: Privacy
@@ -905,7 +907,7 @@ en:
       you_must_log_in_to_view_your_inbox: "You must log in to %{service_name} to view your inbox."
       you_must_log_in_to_view_your_settings: "You must log in to %{service_name} to view your settings."
       you_must_log_in_to_add_news_item: "You must log in to %{service_name} to add a new article."
-      you_need_to_confirm_your_account_first: "You need to confirm your email first."
+      you_need_to_confirm_your_account_first: "You need to confirm your email."
       you_unfollowed_listing: "You are no longer following this listing"
       joining_community_failed: "Joining this community failed"
     profile_extras_header:
@@ -979,6 +981,8 @@ en:
         mass: "piece, kg, l, m2, ..."
         time: "hour, day, week, ..."
         long_time: "week, month, ..."
+        service_fee_will_be_added: "A %{fee}% service fee will be added to the price."
+        price_excludes_vat: "The price doesn't include VAT."
       origin:
         location: Location
         origin: Origin
@@ -1093,16 +1097,6 @@ en:
       link_label_for_item_request_trade: "Offer to swap this item"
       link_label_for_rideshare_offer: "Request this ride"
       link_label_for_rideshare_request: "Offer ride"
-    listed_listing:
-      edit: Edit
-    listed_listings:
-      loading_more_offers: "Loading more offers"
-      loading_more_requests: "Loading more requests"
-      no_offers_with_the_conditions_you_gave: "No offers with the conditions you gave."
-      no_requests_with_the_conditions_you_gave: "No requests with the conditions you gave."
-      offer_something: "Offer something!"
-      request_something: "Request something!"
-      search_returned_no_results: "Your search did not return any results."
     new:
       listing: listing
       offer: "I have something to offer to others"
@@ -1200,6 +1194,9 @@ en:
       time: time
       times: times
       times_viewed: Viewed
+      processing_uploaded_image: "(Processing uploaded image...)"
+    displayed_price:
+      price_excludes_vat: "(excludes VAT)"
   mapview:
     index:
       all_categories: "All categories"

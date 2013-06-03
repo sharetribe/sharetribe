@@ -19,8 +19,8 @@ class ConversationAcceptedJob < Struct.new(:conversation_id, :current_user_id, :
     end
     if conversation.status.eql?("accepted")
       if conversation.waiting_payment?(community)
-        Delayed::Job.enqueue(PaymentReminderJob.new(conversation.payment.id, conversation.payment.payer.id, community.id, 0), :priority => 0, :run_at => 3.days.from_now)
-      else
+        Delayed::Job.enqueue(PaymentReminderJob.new(conversation.id, conversation.payment.payer.id, community.id, 0), :priority => 0, :run_at => 3.days.from_now)
+      elsif community.testimonials_in_use
         Delayed::Job.enqueue(ConfirmReminderJob.new(conversation.id, conversation.requester.id, community_id, 0), :priority => 0, :run_at => 1.week.from_now)
       end
     end

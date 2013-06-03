@@ -16,7 +16,7 @@ FactoryGirl.define do
   end
   
 
-  factory :person, aliases: [:author, :receiver] do
+  factory :person, aliases: [:author, :receiver, :recipient, :payer] do
     id "dMF4WsJ7Kr3BN6ab9B7ckF"
     is_admin 0
     locale "en"
@@ -164,5 +164,10 @@ FactoryGirl.define do
     company_id "1234567-8"
     merchant_id "375917"
     merchant_key "SAIPPUAKAUPPIAS"
+  end
+  
+  factory :payment do
+    payer
+    recipient
   end
 end

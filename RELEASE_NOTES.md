@@ -12,6 +12,12 @@ When updating, always run the following commands to update gem set and database 
  - check this file for changes between your old version and the one you are updating, and do the necessary manual operations if needed
  - if running on local instance (localhost), you need to precompile assets using "rake assets:precompile" once update is done
 
+
+3.0.3
+-----
+
+ Small improvements and bug fixes. Most important for installations of open source versions is that the earlier version complained about missing ss-pika font pack files, but those dependencies are now better handled.
+ 
 3.0.2
 -----
 

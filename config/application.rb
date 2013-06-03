@@ -39,7 +39,7 @@ module Kassi
     config.assets.paths << Rails.root.join("app", "assets", "webfonts")
     
     # Define here additional Assset Pipeline Manifests to include to precompilation
-    config.assets.precompile += ['dashboard.js', 'dashboard.css', 'markerclusterer.js', 'communities/custom-style-*', 'ss-pika.js', 'ss-social.js','old_ie.css', 'html5shiv-printshiv.js']
+    config.assets.precompile += ['dashboard.js', 'dashboard.css', 'markerclusterer.js', 'communities/custom-style-*', 'ss-*','old_ie.css', 'html5shiv-printshiv.js']
     
     # Read the config from the config.yml 
     APP_CONFIG = load_app_config
@@ -64,7 +64,14 @@ module Kassi
           ["Tiếng Việt", "vi"],
           ["Deutsch", "de"],
           ["Svenska", "sv"],
-          ["Italiano", "it"]
+          ["Italiano", "it"],
+          
+          # Customization languages for RC
+          ["English", "en-rc"], 
+          ["Français", "fr-rc"], 
+          ["Español", "es-rc"], 
+          ["Deutsch", "de-rc"],
+          
     ]
 
     # This is the list o locales avaible for the dashboard and newly created tribes in UI
@@ -123,11 +130,13 @@ module Kassi
       ENV['RECAPTCHA_PRIVATE_KEY'] = APP_CONFIG.recaptcha_private_key
     end
     
-    # Set the logger to STDOUT, based on tip at: http://blog.railsonfire.com/2012/05/06/Unicorn-on-Heroku.html
-    # For unicorn logging to work
-    # It looks stupid that this is not in production.rb, but according to that blog,
-    # it needs to be set here to work
-    if Rails.env.production? || Rails.env.staging? 
+    # If logger_type is set to something else than "normal" we'll use stdout here
+    # the reason for this type of check is that it works also in Heroky where those variables can't be read in slug compilation
+    if (Rails.env.production? || Rails.env.staging?) && APP_CONFIG.logger_type != "normal"
+      # Set the logger to STDOUT, based on tip at: http://blog.codeship.io/2012/05/06/Unicorn-on-Heroku.html
+      # For unicorn logging to work
+      # It looks stupid that this is not in production.rb, but according to that blog,
+      # it needs to be set here to work
       config.logger = Logger.new(STDOUT)
       config.logger.level = Logger.const_get(ENV['LOG_LEVEL'] ? ENV['LOG_LEVEL'].upcase : 'INFO')
     end

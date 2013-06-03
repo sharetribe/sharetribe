@@ -16,7 +16,7 @@ Feature: Transaction process between two users
     When I follow "Hammer"
     And I follow "Buy this item"
     And I fill in "Message" with "I want to buy this item"
-    And I press "Send message"
+    And I press "Send"
     And the system processes jobs
     And "kassi_testperson1@example.com" should receive an email
     When I follow "inbox-link"
@@ -29,7 +29,7 @@ Feature: Transaction process between two users
     Then I should see "1" within ".inbox-toggle"
     When I follow "Accept request"
     And I fill in "conversation_message_attributes_content" with "Ok, that works!"
-    And I press "Send message"
+    And I press "Send"
     Then I should see "Accepted"
     And I should see "to pay"
     And I should not see "1" within ".inbox-toggle"
@@ -50,7 +50,8 @@ Feature: Transaction process between two users
     And wait for 5 seconds
     Then I should see "Payment successful"
     When the system processes jobs
-    Then "kassi_testperson1@example.com" should have 2 emails
+    Then "kassi_testperson2@example.com" should have 2 emails
+    And "kassi_testperson1@example.com" should have 2 emails
     And I log out
     When I open the email with subject "You have received a new payment"
     Then I should see "You have been paid" in the email body
@@ -74,13 +75,13 @@ Feature: Transaction process between two users
     And I follow "Give feedback" in the email
     And I click "#positive-grade-link"
     And I fill in "How did things go?" with "Everything was great!"
-    And "kassi_testperson2@example.com" should have 1 email
+    And "kassi_testperson2@example.com" should have 2 emails
     And I press "send_testimonial_button"
     Then I should see "Feedback sent to" within ".flash-notifications"
     And I should see "Feedback given" within ".conversation-status"
     And the system processes jobs
     And I log out
-    And "kassi_testperson2@example.com" should have 3 emails
+    And "kassi_testperson2@example.com" should have 4 emails
     
     # Viewing feedback
     When I open the email with subject "has given you feedback in Sharetribe"
@@ -104,7 +105,7 @@ Feature: Transaction process between two users
     When I follow "Hammer"
     And I follow "Offer to lend this item"
     And I fill in "Message" with "I can lend this item"
-    And I press "Send message"
+    And I press "Send"
     And the system processes jobs
     And "kassi_testperson1@example.com" should receive an email
     When I follow "inbox-link"
@@ -117,7 +118,7 @@ Feature: Transaction process between two users
     Then I should see "1" within ".inbox-toggle"
     When I follow "Accept offer"
     And I fill in "conversation_message_attributes_content" with "Ok, that works!"
-    And I press "Send message"
+    And I press "Send"
     Then I should see "Mark completed"
     And I should not see "1" within ".inbox-toggle"
     And the system processes jobs
