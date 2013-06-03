@@ -97,12 +97,12 @@ class Api::ApiController < ApplicationController
     @url_root = "#{request.protocol}#{request.host_with_port}"
     
     if @current_community = Community.find_by_domain(request.subdomain)
-      #puts "#{params[:community_id]} ---  #{@current_community.id}"
+
       if params[:community_id] && (params[:community_id].to_s != @current_community.id.to_s)
         response.status = 400
         render :json => ["Community subdomain mismatch with community_id given in params. Using one of these is enough."] and return
       end
-      return
+
     end
     
     if params["community_id"]
@@ -111,11 +111,15 @@ class Api::ApiController < ApplicationController
       if @current_community.nil? 
         response.status = 404
         render :json => ["No community found with given id"] and return
-      else
-        # Set also @root__url that can be used in building links that point to the right community instead of api subdomain
-        @url_root = @current_community.full_url
       end
     end
+    
+    # Set also @root__url that can be used in building links that point to the right community instead of api subdomain
+    @url_root = @current_community.full_url if @current_community
+    
+    # Store to thread the service_name used by current community, so that it can be included in all translations
+    ApplicationHelper.store_community_service_name_to_thread(service_name)
+    
   end
   
   def require_community

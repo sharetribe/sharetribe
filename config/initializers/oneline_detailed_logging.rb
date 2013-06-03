@@ -47,7 +47,10 @@ ActiveSupport::Notifications.subscribe "process_action.action_controller" do |na
   status = payload[:status]
   if status.nil? && payload[:exception].present?
     # 3.1: http://rubydoc.info/docs/rails/3.1.1/ActionController/LogSubscriber#process_action-instance_method
-    status = Rack::Utils.status_code(ActionDispatch::ShowExceptions.rescue_responses[payload[:exception].first]) rescue nil 
+    # line below got deprecated, replaced with the one from: https://gist.github.com/kyamaguchi/4231083
+    # status = Rack::Utils.status_code(ActionDispatch::ShowExceptions.rescue_responses[payload[:exception].first]) rescue nil 
+    exception_class_name = payload[:exception].first
+    status = ActionDispatch::ExceptionWrapper.status_code_for_exception(exception_class_name) rescue nil
   end 
 
   m = "%s %s %s %s %s %s\#%s %s %.1f (DB %.1f, View %.1f) %s %s" % [ 
