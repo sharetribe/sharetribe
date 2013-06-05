@@ -112,10 +112,6 @@ class Person < ActiveRecord::Base
   validates_format_of :username,
                        :with => /^[A-Z0-9_]*$/i
 
-  validates_format_of :password, :with => /^([\x20-\x7E])+$/,              
-                       :allow_blank => true,
-                       :allow_nil => true
-
   validates_format_of :email,
                        :with => /^[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i
 
