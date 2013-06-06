@@ -76,7 +76,7 @@ es-rc:
     default_community_description: ~
     cancel: ~
     fields_that_are_mandatory: ~
-    or: ~
+    or: o
     password: ~
     service_name: ~
     share_types:
@@ -225,7 +225,7 @@ es-rc:
     show:
       in_response_to_listing: "sobre la camiseta de"
       message_sent_by: "Mensaje enviado por"
-      message_sent_to: ~
+      message_sent_to: "Mensaje enviado a"
       send_reply: ~
       write_a_reply: ~
       conversation_about_listing: ~
@@ -428,7 +428,7 @@ es-rc:
       if_will_not_happen_you_should_cancel: ~
       cancel_it_link_text: ~
     transaction_confirmed:
-      here_is_a_message_from: ~
+      here_is_a_message_from: "Este es un mensaje de %{other_party_given_name}"
       request_marked_as_confirmed: ~
       request_marked_as_canceled: ~
       has_marked_request_as_confirmed: ~
@@ -503,7 +503,7 @@ es-rc:
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
       has_updated_listing_you_follow_in_kassi: ~
-      view_changes: ~
+      view_changes: "Ver cambios"
     community_updates:
       added_offer: ~
       added_request: ~
@@ -749,8 +749,32 @@ es-rc:
       all_categories: ~
   infos:
     about:
-      default_about_text_title: ~
-      default_about_text: ~
+      default_about_text_title: "Como funciona ReCambio ?"
+      default_about_text: |-
+          <p><strong>¿Qué es ReCambio?</strong><br />
+            ReCambio es la primera plataforma para intercambiar camisetas de fútbol.<br />
+            <br />
+            <strong>¿Cómo subir tus camisetas a ReCambio?</strong><br />
+            1. Le sacas una foto a tu camiseta de fútbol. <br />
+            2. La subes a ReCambio, eliges la modalidad y publicas el aviso. <br />
+          3. Tu camiseta estará publicada y podrás recibir ofertas y comentarios.</p>
+          <p><strong>¿Cuál es la diferencia entre intercambiar, vender o coleccionar?</strong><br />
+            Intercambiar significa que acuerdas con otro usuario darle tu camiseta a cambio de otra que él o ella tengan.<br />
+            Vender es ponerle a tu precio camiseta para que otros la compren. También puedes comprar las camisetas que otros pongan a la venta.<br />
+          Coleccionar significa que solo muestras tus camisetas y compartes tu colección con el resto.</p>
+          <p><strong>¿Qué pasa si puse una camiseta a la venta y alguien me ofrece un intercambio que es de mi interés?</strong><br />
+          Como el contacto es directo entre las partes, puedes resolver lo que quieras. Luego, te recomendamos cerrar el aviso.</p>
+          <p><strong>¿Cómo hago para intercambiar, comprar o vender camisetas?</strong></p>
+          <p>Los intercambios y las transacciones corren por cuenta de los usuarios. ReCambio no interviene, ni participa ni coordina..</p>
+          <p><strong>¿Cómo recibo o realizo el pago de camisetas?</strong><br />
+          La transacción se coordina entre comprador y vendedor directamente, utilizando los canales de comunicación de ReCambio (mensajes, comentarios, pedidos).</p>
+          <p><strong>¿Quién coordina el envío?</strong><br />
+          La coordinación del envío/entrega está a cargo de los usuarios interesados en el intercambio. Existen, al menos, dos alternativas: puedes encontrarte en persona o arreglar un envío postal.</p>
+          <p><strong>¿Qué pasa si no recibo el envío?</strong><br />
+          ReCambio recomienda encontrarse en persona. Además, contamos con un sistema de ranking con el cual podrás valorar a los usuarios después de cada intercambio. </p>
+          <p><strong>¿Hay punto de encuentro?</strong><br />
+          Podrás coordinar un punto de encuentro para el intercambio de camisetas entre dos o más personas. Si quieres, puedes contactarte con nosotros para organizar un evento colectivo de intercambio de camisetas. <a href="mailto:info@recambio.cc">info@recambio.cc</a></p>
+          <p>Recambio utilita la plataforma <a href="%{click_here_link}">ShareTribe</a></p>
       click_here_link_text: ~
   layouts:
     no_tribe:
@@ -885,8 +909,8 @@ es-rc:
       reply_sent: ~
       request_accepted: ~
       request_confirmed: ~
-      request_closed: ~
-      request_rejected: ~
+      request_closed: "Pedido cerrado"
+      request_rejected: "Pedido rechazado"
       request_canceled: ~
       message_sent: ~
       this_content_is_not_available_in_this_community: ~
@@ -948,7 +972,7 @@ es-rc:
     edit_links:
       close_listing: "Cerrar el aviso"
       edit_listing: "Editar camiseta"
-      reopen_listing: ~
+      reopen_listing: "Reabrir el aviso"
     follow_links:
       follow: ~
       unfollow: ~
@@ -978,7 +1002,7 @@ es-rc:
         googlemap_updatemap: ~
       images:
         image: ~
-        no_file_selected: ~
+        no_file_selected: "Selecciona un archivo"
         remove_image: ~
         select_file: ~
       location:
@@ -995,7 +1019,7 @@ es-rc:
         location: Ubicación
         origin: ~
       send_button:
-        save_listing: ~
+        save_listing: Enviar
       share_type:
         select: ~
         borrow: ~
@@ -1006,7 +1030,7 @@ es-rc:
         receive: ~
         rent: ~
         rent_out: ~
-        request_type: ~
+        request_type: "Tipo de pedido"
         sell: ~
         share_for_free: ~
         accept_for_free: ~
