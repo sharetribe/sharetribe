@@ -74,7 +74,7 @@ es-rc:
   common:
     default_community_slogan: ~
     default_community_description: ~
-    cancel: ~
+    cancel: Cancelar
     fields_that_are_mandatory: ~
     or: o
     password: ~
@@ -142,8 +142,8 @@ es-rc:
     index:
       messages_from_all_tribes: ~
       loading_more_messages: ~
-      message_partitive: ~
-      messages_partitive: ~
+      message_partitive: mensaje
+      messages_partitive: mensajes
       no_received_messages: ~
       no_sent_messages: ~
     conversation:
@@ -189,7 +189,7 @@ es-rc:
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
       item_request_message_form_title: ~
-      message: ~
+      message: Mensaje
       rideshare_offer_message_form_title: ~
       rideshare_request_message_form_title: ~
       send_message: ~
@@ -502,7 +502,7 @@ es-rc:
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
-      has_updated_listing_you_follow_in_kassi: ~
+      has_updated_listing_you_follow_in_kassi: "%{author} actualizó el aviso %{listing} que estás siguiendo en %{service_name}"
       view_changes: "Ver cambios"
     community_updates:
       added_offer: ~
