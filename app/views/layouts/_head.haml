@@ -33,6 +33,9 @@
     %meta{ :property => "og:site_name", :content =>"#{@current_community.full_name}"}
     %meta{ :property => "og:description", :content => community_description(false)}
   
+  -# Temporary tag for google webmaster site verification
+  %meta{ name: "google-site-verification", content: "JUqB3tYmezYEJNAkw8MUdmIocAGztY85eaoNKBD5j0Q"}
+  
   /[if lt IE 9]
     = javascript_include_tag "html5shiv-printshiv"
     
@@ -59,6 +62,8 @@
     $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
 
   %link{:rel => "image_src", :href => "#{@current_community.full_url}/assets/dashboard/sharetribe_logo.png"}
+  
+  %link{:rel => "shortcut icon", :href => @current_community.favicon_url || "https://s3.amazonaws.com/sharetribe/assets/images/favicon.ico"}
   
   = auto_discovery_link_tag(:atom, atom_feed_url )
   

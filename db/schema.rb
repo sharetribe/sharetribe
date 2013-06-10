@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130605074725) do
+ActiveRecord::Schema.define(:version => 20130607165451) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -138,6 +138,10 @@ ActiveRecord::Schema.define(:version => 20130605074725) do
     t.boolean  "badges_in_use",                             :default => true
     t.boolean  "testimonials_in_use",                       :default => true
     t.boolean  "hide_expiration_date",                      :default => false
+    t.string   "facebook_connect_id"
+    t.string   "facebook_connect_secret"
+    t.string   "google_analytics_key"
+    t.string   "favicon_url"
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
