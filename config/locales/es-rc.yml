@@ -546,7 +546,7 @@ es-rc:
       you_have_not_given_feedback_yet: ~
     welcome_email:
       welcome_email_footer_text: |-
-          Qué emails quieres recibir de %{service_name}?
+          ¿Qué emails quieres recibir de %{service_name}?
           Revisa tu configuración: %{settings_link}
       settings_link_text: ~
       subject: ~
@@ -749,7 +749,7 @@ es-rc:
       all_categories: ~
   infos:
     about:
-      default_about_text_title: "Como funciona ReCambio ?"
+      default_about_text_title: "¿Cómo funciona ReCambio?"
       default_about_text: |-
           <p><strong>¿Qué es ReCambio?</strong><br />
             ReCambio es la primera plataforma para intercambiar camisetas de fútbol.<br />
@@ -760,10 +760,10 @@ es-rc:
           3. Tu camiseta estará publicada y podrás recibir ofertas y comentarios.</p>
           <p><strong>¿Cuál es la diferencia entre intercambiar, vender o coleccionar?</strong><br />
             Intercambiar significa que acuerdas con otro usuario darle tu camiseta a cambio de otra que él o ella tengan.<br />
-            Vender es ponerle a tu precio camiseta para que otros la compren. También puedes comprar las camisetas que otros pongan a la venta.<br />
+            Vender es ponerle un precio a tu camiseta para que otros la compren. También puedes comprar las camisetas que otros pongan a la venta.<br />
           Coleccionar significa que solo muestras tus camisetas y compartes tu colección con el resto.</p>
           <p><strong>¿Qué pasa si puse una camiseta a la venta y alguien me ofrece un intercambio que es de mi interés?</strong><br />
-          Como el contacto es directo entre las partes, puedes resolver lo que quieras. Luego, te recomendamos cerrar el aviso.</p>
+          Como el contacto es directo entre las partes, puedes resolver lo que quieras. Después de intercambiar o vender tu camiseta, te recomendamos cerrar el aviso, así no recibes consultas innecesarias.</p>
           <p><strong>¿Cómo hago para intercambiar, comprar o vender camisetas?</strong></p>
           <p>Los intercambios y las transacciones corren por cuenta de los usuarios. ReCambio no interviene, ni participa ni coordina..</p>
           <p><strong>¿Cómo recibo o realizo el pago de camisetas?</strong><br />
@@ -771,10 +771,10 @@ es-rc:
           <p><strong>¿Quién coordina el envío?</strong><br />
           La coordinación del envío/entrega está a cargo de los usuarios interesados en el intercambio. Existen, al menos, dos alternativas: puedes encontrarte en persona o arreglar un envío postal.</p>
           <p><strong>¿Qué pasa si no recibo el envío?</strong><br />
-          ReCambio recomienda encontrarse en persona. Además, contamos con un sistema de ranking con el cual podrás valorar a los usuarios después de cada intercambio. </p>
+          ReCambio recomienda encontrarse en persona. Además, contamos con un sistema de ranking, con el cual podrás valorar a los usuarios después de cada intercambio. </p>
           <p><strong>¿Hay punto de encuentro?</strong><br />
           Podrás coordinar un punto de encuentro para el intercambio de camisetas entre dos o más personas. Si quieres, puedes contactarte con nosotros para organizar un evento colectivo de intercambio de camisetas. <a href="mailto:info@recambio.cc">info@recambio.cc</a></p>
-          <p>Recambio utilita la plataforma <a href="%{click_here_link}">ShareTribe</a></p>
+          <p>Recambio utiliza la plataforma <a href="%{click_here_link}">ShareTribe</a></p>
       click_here_link_text: ~
   layouts:
     no_tribe:
@@ -858,7 +858,7 @@ es-rc:
       comment_sent: ~
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
-      create_new_listing: ~
+      create_new_listing: "Sube otra camiseta."
       create_one_here: ~
       email_confirmation_sent_to_new_address: ~
       email_not_found: ~
@@ -884,7 +884,7 @@ es-rc:
       offer_accepted: ~
       offer_confirmed: ~
       offer_closed: ~
-      listing_created_successfully: ~
+      listing_created_successfully: "La camiseta ya está subida %{new_listing_link}"
       offer_rejected: ~
       offer_canceled: ~
       listing_updated_successfully: ~
