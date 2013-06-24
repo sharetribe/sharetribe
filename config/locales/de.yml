@@ -168,9 +168,9 @@ de:
     new:
       offer_message_form_title: "Angebot %{listing} an %{person}"
       request_message_form_title: "Anfrage %{listing} von %{person}"
-      favor_offer_message_form_title: "Fragen Sie nach Hilfe"
-      favor_request_message_form_title: "Bieten Sie Hilfe an"
-      housing_offer_message_form_title: "Bieten Sie eine Unterkunft an"
+      favor_offer_message_form_title: "Frage %{person} um Hilfe"
+      favor_request_message_form_title: "Biete %{person} Hilfe an"
+      housing_offer_message_form_title: "Biete %{person} eine Unterkunft an"
       housing_request_message_form_title: "Unterkunft anfragen von"
       item_offer_lend_message_form_title: "%{listing} an %{person} ausleihen"
       item_offer_sell_message_form_title: "Kaufen Sie %{listing} von %{person}"
@@ -569,7 +569,7 @@ de:
       you_now_have_admin_rights: "Du hast nun Administrationsrechte für diese Community. Das bedeutet, dass du zum Beispiel Informationen, die Haptik und das Feeling der Community verändern kannst. Das ist wahrscheinlich das erste, was du tun willst. %{edit_community_details_link}. Wenn du Adminrechte an jemanden anderen übertragen willst, dann musst du uns kontaktieren indem du auf diese E-Mail antwortest."
       edit_community_details_link_text: "Ergänze Community Details hier"
       add_content: "Füge Inhalte hinzu. Der beste Weg das zu tun ist ein paar Listungen selber einzutragen. Dadurch sehen neue Leute, dass etwas passiert. Könntest du mir deine Bohrmaschine, dein Tennisschläger oder dein Fondue Set leihen? Kannst du etwas wie nähen, Möbel zusammenstellen oder an Computern herumbasteln? Gibt es etwas in deinem Schrank, das du los werden möchtest? %{add_offer_link} wenn du etwas brauchst, %{add_request_link}."
-      spread_the_word: ~
+      spread_the_word: "<strong>Spread the word. </strong> Um neue Mitglieder in die Community zu bekommen, musst du die Menschen erreichen, die du kennst. Einige Ideen: 1) Informiere über %{service_name} mittels einer Rundmail. 2) Teile diesen Link via Facebook, Twitter und anderen Kanälen: %{url}. 3) Sende E-Mail-Einladungen: %{invite_link}. 4) Erzähle von der Community wenn du Menschen triffst."
       spread_the_word_invite_only: "Teile das Wort! Du hast beschlossen, in die Community Leute nur mit Einladungen aufzunehmen. Das bedeutet, dass sich Leute gegenseitig einladen müssen um beitreten zu können. Deshalb musst du neue Leute einladen. Tue das indem du ihnen diesen Link schickst: %{invite_link}."
       have_fun: "Viel Spaß mit %{service_name}. Möge deine Community lange aufrecht erhalten bleiben und erfolgreich sein."
   error_messages:
