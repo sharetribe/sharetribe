@@ -155,6 +155,11 @@ class SessionsController < ApplicationController
     end
   end
   
+  # Make method alias for each community which has custom FB login
+  Community.with_custom_fb_login.each do |community|
+    alias_method "facebook_app_#{community.facebook_connect_id}".to_sym, :facebook
+  end
+  
   # Callback from Omniauth failures
   def failure    
     I18n.locale = exctract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']

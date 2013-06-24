@@ -20,6 +20,8 @@ class Community < ActiveRecord::Base
   
   has_and_belongs_to_many :listings
   
+  scope :with_custom_fb_login, where("facebook_connect_id IS NOT NULL")
+  
   before_destroy :delete_specific_community_categories
   
   monetize :minimum_price_cents, :allow_nil => true
@@ -524,6 +526,14 @@ class Community < ActiveRecord::Base
       available_currencies.split(",").first
     else
       MoneyRails.default_currency
+    end
+  end
+  
+  def facebook_login_method
+    unless facebook_connect_id
+      return :facebook
+    else
+      return "facebook_app_#{facebook_connect_id}".to_sym
     end
   end
 
