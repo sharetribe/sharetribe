@@ -3,7 +3,7 @@ de:
     communities:
       edit_details:
         community_details: "Community Details"
-        community_look_and_feel: "Community Aussehen und Haptik"
+        community_look_and_feel: "Community \"Look and Feel\""
         edit_community: "Bearbeite die Community %{community_name} Details"
         community_name: "Community Name"
         community_slogan: "Community Slogan"
@@ -13,11 +13,11 @@ de:
       edit_look_and_feel:
         edit_community_look_and_feel: "Bearbeite das Community %{community_name} Ausshen und die Haptigkeit"
         community_logo: Logo
-        community_cover_photo: "Deckblatt Bild"
+        community_cover_photo: Titelfoto
         community_custom_color1: Hauptfarbe
         logo_instructions_text: "Das Logo Dokument wird in ein Quadrat ausgeschnitten und, falls nötig, in eine Größe von 192x192 Pixel angepasst."
         cover_photo_instructions_text: "Deckblatt Bild wird in eine Größe von 1600x195 Pixel Größe angepasst, größere Bilder werden in der Mitte durch geschnitten."
-        custom_color1_instructions_text: "Du kannst die Hauptfarbe des User Faces der Community ändern in dem du einen neuen Farbwert eingibst. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\"> kann dir helfen die Farbe auszuwählen und kopiere den Code hier ein."
+        custom_color1_instructions_text: "Du kannst die Hauptfarbe der Community ändern in dem du einen neuen Farbwert eingibst. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> kann dir helfen die Farbe auszuwählen und kopiere den Code hier ein."
         invalid_color_code: "Der Farben Code sollte 6 Ziffern oder Buchstaben A-F haben, zum Beispiel D96E21"
     emails:
       new:
@@ -72,8 +72,8 @@ de:
       show:
         edit_poll: "Umfrage bearbeiten"
   common:
-    default_community_slogan: "Leihen, helfen, teilen"
-    default_community_description: "%{service_name} ist ein Ort wo Mitglieder einer Community Waren miteinander teilen können oder Dienste, Mitfahrgelegenheiten und Unterkünfte anbieten können. Lassen Sie es andere wissen was Sie zum anbieten haben, oder was Sie brauchen könnten."
+    default_community_slogan: "Leihen, verkaufen, helfen, teilen"
+    default_community_description: "%{service_name} ist ein Ort in dem Mitglieder einer Community Waren, Dienstleistungen, Mitfahrgelegenheiten oder Unterkünfte anbieten und teilen können."
     cancel: Abbrechen
     fields_that_are_mandatory: "Mit einem Stern (*) gekennzeichnete Felder sind Pflichtfelder."
     or: oder
@@ -93,9 +93,9 @@ de:
       offer_to_swap: tauschen
       request_to_swap: tauschen
       share_for_free: "Kostenlose gemeinsame Nutzung"
-      accept_for_free: "Etwas um sonst benützen"
+      accept_for_free: "Etwas kostenlos benützen"
     categories:
-      item: Gegenstand
+      item: Gegenstände
       favor: Dienstleistungen
       rideshare: Mitfahrgelegenheit
       housing: Unterkünfte
@@ -115,7 +115,7 @@ de:
       travel: Reisen
       other: Anderes
     username: Benutzername
-    username_or_email: "Benutzername oder Email"
+    username_or_email: "E-Mail oder Benutzername"
     what_is_this: "Was ist das?"
   conversations:
     accept:
@@ -125,8 +125,8 @@ de:
       accept_request: "Akzeptiere die Anfrage"
       reject_offer: "Nicht dieses Mal"
       reject_request: "Nicht dieses Mal"
-      close_listing: "Schließe die Listung %{listing_title_link}"
-      update_later: "Lass die Listung offen"
+      close_listing: "Schließe den Eintrag %{listing_title_link}"
+      update_later: "Lass den Eintrag offen"
       optional_message: "Optionale Nachricht"
       price_to_pay: "Preis zu bezahlen"
     confirm:
@@ -134,10 +134,10 @@ de:
       cancel_description: "Wenn deine Anfrage nicht erfüllt wurde, dann markiere sie als \"noch nicht erledigt\". Du kannst dem anderen trotzdem Feedback geben und beschreiben, was passiert ist."
       cancel_payed_description: "Wenn deine Anfrage akzeptiert wurde, du aber noch einmal darüber nachdenken willst, kannst du deine Anfrage vor der Bezahlung immer noch ablehnen."
       canceling_payed_transaction: "Transaktion abbrechen"
-      confirm: Erreicht
-      cancel: "Nicht passiert"
+      confirm: erledigt
+      cancel: "nicht erfolgt"
       continue: Weiter
-      give_feedback_to: "Feedback geben an %{person_link}"
+      give_feedback_to: "%{person_link} ein Feedback geben"
       do_not_give_feedback: "Feedback überspringen"
     index:
       messages_from_all_tribes: "Dieser View beinhaltet Nachrichten, die du mit anderen Leuten der Community %{service_name} austauschen kannst."
@@ -171,7 +171,7 @@ de:
       favor_offer_message_form_title: "Frage %{person} um Hilfe"
       favor_request_message_form_title: "Biete %{person} Hilfe an"
       housing_offer_message_form_title: "Biete %{person} eine Unterkunft an"
-      housing_request_message_form_title: "Unterkunft anfragen von"
+      housing_request_message_form_title: "Unterkunft anfragen von %{person}"
       item_offer_lend_message_form_title: "%{listing} an %{person} ausleihen"
       item_offer_sell_message_form_title: "Kaufen Sie %{listing} von %{person}"
       item_offer_give_away_message_form_title: "%{listing} annehmen von %{person}"
@@ -188,10 +188,10 @@ de:
       housing_offer_accept_for_free_message_form_title: "Angebot %{listing} von %{person}"
       housing_request_buy_message_form_title: "%{listing} an %{person} verkaufen"
       housing_request_rent_message_form_title: "%{listing} an %{person} vermieten"
-      item_request_message_form_title: "Bieten Sie einen Gegenstand an"
+      item_request_message_form_title: "Biete einen Gegenstand an %{person}"
       message: Nachricht
-      rideshare_offer_message_form_title: "Nach einer Mitfahrgelegenheit fragen"
-      rideshare_request_message_form_title: "Eine MItfahrgelegenheit anbieten an"
+      rideshare_offer_message_form_title: "Nach einer Mitfahrgelegenheit fragen von %{person}"
+      rideshare_request_message_form_title: "Eine Mitfahrgelegenheit anbieten für %{person}"
       send_message: "Nachricht senden"
       send: Senden
       this_message_is_private: "Die Nachricht ist privat zwischen Ihnen und %{person}. %{person} wird per Email über diese Nachricht benachrichtigt."
@@ -223,12 +223,12 @@ de:
         has_given_you_feedback_on_event: "hat Ihnen Feedback zu einem Ereignis gegeben"
         see_all_the_feedback_you_have_received: "Alle erhaltenen Feedbacks anzeigen"
     show:
-      in_response_to_listing: "über die Listung"
+      in_response_to_listing: "über die Einträge"
       message_sent_by: "Nachricht gesendet von"
       message_sent_to: "Nachricht gesendet an"
       send_reply: "Antwort senden"
       write_a_reply: "Schreiben Sie eine Anwort:"
-      conversation_about_listing: "Gespräch mit  %{person} über  %{listing} ."
+      conversation_about_listing: "Mit %{person} ein Gespräch geführt über %{listing}"
       conversation_with_user: "Gespräch mit  %{person}"
       last_message_at: "(letzte Nachricht %{time})"
     status:
@@ -254,10 +254,10 @@ de:
     status_link:
       accept_offer: "Angebot annehmen"
       accept_request: "Anfrage annehmen"
-      reject_offer: "Angebot ablehnen"
-      reject_request: "Anfrage ablehnen"
-      confirm: Erreicht
-      cancel: "Nicht passiert"
+      reject_offer: "Vielleicht später"
+      reject_request: "Vielleicht später"
+      confirm: erledigt
+      cancel: "nicht erfolgt"
   communities:
     map_bubble:
       view_tribe: "Stamm anzeigen"
@@ -370,7 +370,7 @@ de:
       browse_communities_around_you: "Treten Sie einem Stamm in Ihrer Nähe bei"
       slogan: "Mit Ihrer Community teilen."
       create_your_own: "Erstellen Sie Ihr eigenes"
-      sharing_website: SHARING-WEBSITE
+      sharing_website: "Community Marktplatz"
       main_description: "Richten Sie einen Ort ein wo Mitglieder Ihrer Community Waren, Dienste, Mitfahrgelegenheiten und Unterkünfte in einer vertraulichen und lokalen Umgebung teilen können. Es ist kostenlos und dauert nur eine Minute!"
       kassi_for_your_company: "...FÜR IHR UNTERNEHMEN"
       kassi_for_your_company_description: "Möchten Sie dass Ihre Mitarbeiter sich miteinander verbinden? Wollen Sie Ihre Emissionen senken und ein Grünes Unternehmen werden? Möchten Sie Kosten bei Reisen, Parking und Möbel reduzieren? Dann ist Sharetribe die richtige Lösung für Sie."
@@ -396,7 +396,7 @@ de:
       new: NEU!
       new_text: "%{service_name} ist nun verfügbar für <a href=\"http://www.sharetribe.com/en/wdc\">Nachbarschaften in Helsinki und Lahti</a> und für <a href=\"http://www.kassi.eu/en/okl\">Mitglieder aus Suomen Omakotiliitto</a>!"
       want_to_know_more: "Wollen Sie mehr wissen? %{read_our_faq_link} oder %{contact_us_link}"
-      read_our_faq: "Lesen Sie unsere FAQ"
+      read_our_faq: "Lies unsere FAQ"
       contact_us: "Kontaktieren Sie uns direkt"
       why_you_really_should_have_a_tribe: "Warum Sie einen Stamm haben sollten"
       an_example: "Ein Beispiel:"
@@ -406,7 +406,7 @@ de:
       pricing: Preise
       contact: Kontakt
       university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Sharetribe of Aalto University</a>"
-      company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/en\">Sharetribe von HTC Keilaniemi</a>"
+      company_example_link: "Sharetribe of IF"
       city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe von Kallio, Helsinki</a>"
   emails:
     accept_reminder:
@@ -414,8 +414,8 @@ de:
       remember_to_accept_request: "Vergessen Sie nicht eine Anfrage anzunehmen oder abzulehnen"
       you_can_accept_or_reject_offer_at: "Sie können Angebote annehmen oder ablehnen bei"
       you_can_accept_or_reject_request_at: "Sie können Anfragen annehmen oder ablehnen bei"
-      you_have_not_yet_accepted_or_rejected_offer: "Sie haben das Angebot '%{title}' dass Sie am %{date} erhalten haben noch nicht akzeptiert oder abgelehnt."
-      you_have_not_yet_accepted_or_rejected_request: "Sie haben die Anfrage '%{title}' die Sie am %{date} erhalten haben noch nicht akzeptiert oder abgelehnt."
+      you_have_not_yet_accepted_or_rejected_offer: "Du hast das Angebot %{title}, das du am %{date} erhalten hast noch nicht akzeptiert oder abgelehnt."
+      you_have_not_yet_accepted_or_rejected_request: "Du hast die Anfrage %{title}, die du am %{date} erhalten hast noch nicht akzeptiert oder abgelehnt."
       show_thread: "Konversation anzeigen"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Du hast noch keine Anfrage bestätigt oder abgelehnt %{request_link}, die du am %{date} von %{other_party_full_name} erhalten hast. Wenn die Anfrage vollständig ist musst du das bestätigen. Danach kannst du Feedback an %{other_party_given_name} geben."
@@ -430,7 +430,7 @@ de:
     transaction_confirmed:
       here_is_a_message_from: "Hier kommt eine Nachricht von %{other_party_given_name}."
       request_marked_as_confirmed: "Anfrage bearbeitet. Vergiss nicht, Feedback zu geben."
-      request_marked_as_canceled: "Anfrage gecancellt"
+      request_marked_as_canceled: "Anfrage abgebrochen"
       has_marked_request_as_confirmed: "%{other_party_full_name} hat die Anfrage als %{request} vervollständigt. Du kannst nun Feedback an %{other_party_given_name} geben."
       has_marked_request_as_canceled: "%{other_party_full_name} hat deine Anfrage des %{request} abgelehnt. Du kannst trotzdem der %{other_party_given_name} Feedback geben."
       giving_feedback_is_good_idea: "Feedback zu geben ist immer eine gute Idee. Wenn alles gut war, solltest du es andere wissen lassen, dass %{other_party_given_name} vertraut werden kann. Wenn es Probleme gab, dann ist es gut diese auch zu erwähnen."
@@ -438,29 +438,29 @@ de:
     confirmation_instructions:
       confirmation_instructions_signature: "Liebe Grüße, <br/> das %{service_name} Team"
       welcome_to_kassi: "Willkommen bei %{service_name},"
-      need_to_confirm: "Sie müssen Ihre Email Adresse bestätigen, indem Sie auf den folgenden Link klicken:"
+      need_to_confirm: "Du musst deine Email Adresse bestätigen."
       confirmation_link_text: "Mein Konto bestätigen"
       or_paste_link: "Alternativ kannst du den folgenden Link zu deiner Adresszeile in deinem Browser kopieren:"
       turning_on_confirmations_in_this_community: "Wir beginnen mit der Verwendung von Email Bestätigungen in dieser %{service_name} Community."
     common:
       check_your_settings: "Überprüfen Sie Ihre Einstellungen"
-      hey: "Hallo ${name}!"
+      hey: "Hallo %{name},"
       kassi_team: "Das %{service_name} Team"
       thanks: "Danke,"
       want_to_control_emails: "Wollen Sie kontrollieren welche Emails Sie von %{service_name} erhalten?"
       dont_want_to_receive_these_emails: "Willst du diese E-Mails nicht empfangen?"
       edit_your_email_settings_here: "Bearbeite deine E-Mail Grundeinstellungen hier."
-      message_not_displaying_correctly: "Wird dieses E-Mail nicht richtig dargestellt?"
+      message_not_displaying_correctly: "Wird diese E-Mail nicht richtig dargestellt?"
       view_it_in_your_browser: "Sieh das in deinem Browser an"
       or: oder
       unsubscribe_from_these_emails: "Bestelle diese E-Mails ab"
     community_starter_email:
-      subject: "Neuer Sharetribe - das Mitglieder Limit wurde abgeschafft, schaue dir an und experimentiere wie es verändert werden kann und vieles mehr"
+      subject: "Neuer Sharetribe - das Mitglieder-Limit wurde abgeschafft, schaue dir an und experimentiere wie es verändert werden kann und vieles mehr"
     conversation_status_changed:
-      has_accepted_your_offer: "%{accepter} hat Ihr Angebot unter Berücksichtigung Ihrer Anfrage akzeptiert %{listing}"
-      has_accepted_your_request: "%{accepter} hat Ihre Anfrage unter Berücksichtigung Ihres Angebots akzeptiert %{listing}"
-      has_rejected_your_offer: "%{accepter} hat Ihr Angebot unter Berücksichtigung Ihrer Anfrage abgelehnt %{listing}"
-      has_rejected_your_request: "%{accepter} hat Ihre Anfrage unter Berücksichtigung Ihres Angebots abgelehnt %{listing}"
+      has_accepted_your_offer: "%{accepter} hat dein Angebot unter Berücksichtigung deiner Anfrage akzeptiert %{listing}."
+      has_accepted_your_request: "%{accepter} hat deine Anfrage unter Berücksichtigung deines Angebots akzeptiert %{listing}."
+      has_rejected_your_offer: "%{accepter} hat dein Angebot unter Berücksichtigung deiner Anfrage abgelehnt %{listing}."
+      has_rejected_your_request: "%{accepter} hat deine Anfrage unter Berücksichtigung deines Angebots abgelehnt %{listing}."
       view_thread: "Konversation anzeigen"
       your_offer_was_accepted: "Ihr Angebot wurde akzeptiert"
       your_offer_was_rejected: "Ihr Angebot wurde abgelehnt"
@@ -470,15 +470,15 @@ de:
       pay_now: "Jetzt bezahlen"
     invitation_to_kassi:
       hi: Hallo!
-      you_have_been_invited_to_kassi: "%{inviter} hat Sie dazu eingeladen den %{service_name} Webdienst der %{community} Community zu benutzen."
+      you_have_been_invited_to_kassi: "%{inviter} hat dich dazu eingeladen den %{community} Webdienst zu benutzen."
       here_is_a_message_from: "Hier ist eine persönliche Nachricht von  %{inviter} :"
       join_now: "Jetzt Mitglied werden"
       invitation_code: "Einladungscode %{code}"
     new_badge:
-      you_can_view_all_your_badges_in: "Sie können alle Ihre Abzeichen in                                einsehen"
+      you_can_view_all_your_badges_in: "Du kannst deine Kennzeichen ansehen."
       you_have_achieved_a_badge: "Sie haben das Abzeichen '%{badge_name}' in %{service_name} erhalten!"
     new_comment:
-      has_commented_your_listing_in_kassi: "%{author} hat deine Listung %{listing} kommentiert"
+      has_commented_your_listing_in_kassi: "%{author} hat deine Eintragung %{listing} kommentiert"
       view_comment: "Kommentar ansehen"
       you_have_a_new_comment: "%{author} hat Ihren Eintrag in %{service_name} kommentiert"
       listing_you_follow_has_a_new_comment: "%{author} hat auf Ihren Eintrag geantwortet den Sie in %{service_name} verfolgen"
@@ -486,7 +486,7 @@ de:
     new_message:
       conversation_title: "Nachrichtentitel: %{title}"
       view_message: "Nachricht ansehen"
-      has_sent_you_a_message_in_kassi: "%{sender} hat Ihnen eine Nachricht in %{service_name} gesendet:"
+      has_sent_you_a_message_in_kassi: "%{sender} hat dir eine Nachricht in %{service_name} gesendet."
       you_have_a_new_message: "Sie haben eine neue Nachricht in %{service_name}"
     new_payment:
       new_payment: "Du hast eine neue Zahlung erhalten"
@@ -496,11 +496,11 @@ de:
       you_have_made_new_payment: "Du hast %{payment_sum} bezahlt für %{listing_title} an %{recipient_full_name}. Hier ist eine Rechnung der Zahlung."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} hat Ihnen Feedback in %{service_name} hinterlassen"
-      you_can_give_feedback_to: "Sie können Feedback für %{name} hier                           hinterlassen"
+      you_can_give_feedback_to: "Du hast noch kein Feedback %{name} hier hinterlassen."
       view_feedback: "Feedback anzeigen"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Eintrag den Sie verfolgen wurde aktualisiert"
-      has_updated_listing_you_follow_in_kassi: "%{author} hat deine %{listing} Listung kommentiert, die du aufgegeben hast %{service_name}"
+      has_updated_listing_you_follow_in_kassi: "%{author} hat deine %{listing} Eintragung kommentiert, die du aufgegeben hast %{service_name}"
       view_changes: "Änderungen anzeigen"
     community_updates:
       added_offer: "%{name_link} hat ein Angebot hinzugefügt"
@@ -511,12 +511,12 @@ de:
       intro_paragraph_link_text: "%{community_name}"
       could_you_share_something: "Könntest du etwas teilen?"
       do_you_need_help_with_anything: "Brauchst du Hilfe mit etwas?"
-      post_a_new_listing: "Poste eine neue Listung."
+      post_a_new_listing: "Poste einen neuen Eintrag."
       reduce_email_footer_text: "Zu viele E-Mails? %{settings_link} oder %{unsubscribe_link}"
-      tribe_creation_promotion_footer: "Hast du gewusst, dass du eine Community wie diese umsonst für deine Nachbarschaft, deine Stadt, deine Organisation oder andere lokale Communitys entwerfen kannst? %{create_tribe_link} oder mehr dazu wenn du auf diese E-Mail antwortest."
+      tribe_creation_promotion_footer: "Hast du gewusst, dass du eine Community wie diese kostenlos für deine Nachbarschaft, deine Stadt, deine Organisation oder andere lokale Communitys gründen kannst? %{create_tribe_link} oder mehr dazu wenn du auf diese E-Mail antwortest."
       settings_link_text: "Ändere deine E-Mail Grundeinstellungen hier."
       unsubscribe_link_text: abbestellen
-      create_tribe_link_text: "Entwerfe selber etwas"
+      create_tribe_link_text: "Gründer selber eine"
     newsletter:
       weekly_news_from_kassi: "Wöchentliche Nachrichten von %{community}%{service_name}"
       hi: "Hallo %{name}"
@@ -549,7 +549,7 @@ de:
       welcome_some_tips: "Willkommen zur %{community_link}! Hier sind ein paar Tipps für deinen Start!"
       p_s_did_you_know: "P.S. Wusstest du, dass du einen Marktplatz wie diesen für jede andere Community zu der du gehörst kostenlos erstellen kannst? %{click_here_link} um mehr zu erfahren!"
       click_here_link_text: "Hier klicken"
-      update_your_profile: "Ändere dein Profil. Füge deinen richtigen Namen und ein Profilbild hinzu und erzähle etwas über dich selbst, das dich vertrauenswürdig klingen lässt. Füge deine Kontaktdaten hinzu und es wird die Dinge leicht für dich machen, da du sie nicht jedes Mal einzeln hinzufügen musst, wenn du eine neue Listung erstellst. %{update_profile_link}"
+      update_your_profile: "Ändere dein Profil. Füge deinen richtigen Namen und ein Profilbild hinzu und erzähle etwas über dich selbst, um Vertrauen zu schaffen. Füge deine Kontaktdaten hinzu und es wird die Dinge leicht für dich machen, da du sie nicht jedes Mal einzeln hinzufügen musst, wenn du einen neuen Eintrag erstellst. %{update_profile_link}"
       update_your_profile_link_text: "Ändere dein Profil hier"
       add_something_you_could_offer: "Füge etwas hinzu das du anderen anbieten kannst %{service_name}. Könntest du deine Bohrmaschine, dein Tennisschläger oder dein Fondue Set ausleihen? Magst du nähen, Möbel zusammenstellen oder an Computern basteln? Gibt es Dinge in deinem Schrank, die du los werden willst? %{add_offer_link}"
       add_offer_link_text: "Füge sie als Angebote zu %{service_name}!"
@@ -559,7 +559,7 @@ de:
       invite_your_friends: "Teile das Wort! Je mehr Leute es gibt in dem %{service_name}, desto besser ist die Community für alle. Kennst du Leute, die interessiert sind teilzunehmen? Erzähle ihnen von %{service_name} indem du %{invite_link} oder sende ihnen diesen Link: %{url}. Wenn du sehen willst, wer schon Mitglied ist, %{member_list_link}."
       invite_link_text: "Benütze unsere leichte Einladungsmaske"
       member_list_link_text: "Sieh dir unsere Mitgliederliste an"
-      get_mobile_app: "Lade unsere Mobile App herunter. Wusstest du, dass du %{service_name} unterwegs benützen kannst? Jetzt ist es leichter denn je Listungen hinzuzufügen indem man Fotos von seinem Besitz macht und man sieht was andere in der Nähe von einem machen. Wenn du ein iPhone hast, kannst du auf %{app_store_link}. Wenn du ein Android oder Windows Handy hast gehst du auf %{mobile_web_link}."
+      get_mobile_app: "Lade unsere Mobile App herunter. Wusstest du, dass du %{service_name} unterwegs benützen kannst? Jetzt ist es leichter denn je Einträge hinzuzufügen indem man Fotos von seinem Besitz macht und man sieht was andere in der Nähe von einem machen. Wenn du ein iPhone hast, kannst du auf %{app_store_link}. Wenn du ein Android oder Windows Handy hast gehst du auf %{mobile_web_link}."
       app_store_link_text: "Lade die App vom App Store runter"
       mobile_web_link_text: "Teste unsere mobile Web App"
       go_explore: "Geh entdecken! Schaue was andere anbieten und anfragen in %{service_name}. Vielleicht findest du etwas das du brauchst. Vielleicht kannst du jemandem anderen helfen! Viel Spaß damit!"
@@ -567,8 +567,8 @@ de:
       congrats_for_creating_community: "Du hast gerade eine %{community} erstellt - hier kommen Tipps für den Start"
       you_have_just_created_community: "Du hast gerade eine %{community_link} erstellt! Hier sind ein paar Tipps wie du die neue Community startest."
       you_now_have_admin_rights: "Du hast nun Administrationsrechte für diese Community. Das bedeutet, dass du zum Beispiel Informationen, die Haptik und das Feeling der Community verändern kannst. Das ist wahrscheinlich das erste, was du tun willst. %{edit_community_details_link}. Wenn du Adminrechte an jemanden anderen übertragen willst, dann musst du uns kontaktieren indem du auf diese E-Mail antwortest."
-      edit_community_details_link_text: "Ergänze Community Details hier"
-      add_content: "Füge Inhalte hinzu. Der beste Weg das zu tun ist ein paar Listungen selber einzutragen. Dadurch sehen neue Leute, dass etwas passiert. Könntest du mir deine Bohrmaschine, dein Tennisschläger oder dein Fondue Set leihen? Kannst du etwas wie nähen, Möbel zusammenstellen oder an Computern herumbasteln? Gibt es etwas in deinem Schrank, das du los werden möchtest? %{add_offer_link} wenn du etwas brauchst, %{add_request_link}."
+      edit_community_details_link_text: "Ergänze Community-Details hier"
+      add_content: "Füge Inhalte hinzu. Der beste Weg das zu tun ist ein paar Einträge selber einzutragen. Dadurch sehen neue Leute, dass etwas passiert. Könntest du mir deine Bohrmaschine, dein Tennisschläger oder dein Fondue Set leihen? Kannst du etwas wie nähen, Möbel zusammenstellen oder an Computern herumbasteln? Gibt es etwas in deinem Schrank, das du los werden möchtest? %{add_offer_link} wenn du etwas brauchst, %{add_request_link}."
       spread_the_word: "<strong>Spread the word. </strong> Um neue Mitglieder in die Community zu bekommen, musst du die Menschen erreichen, die du kennst. Einige Ideen: 1) Informiere über %{service_name} mittels einer Rundmail. 2) Teile diesen Link via Facebook, Twitter und anderen Kanälen: %{url}. 3) Sende E-Mail-Einladungen: %{invite_link}. 4) Erzähle von der Community wenn du Menschen triffst."
       spread_the_word_invite_only: "Teile das Wort! Du hast beschlossen, in die Community Leute nur mit Einladungen aufzunehmen. Das bedeutet, dass sich Leute gegenseitig einladen müssen um beitreten zu können. Deshalb musst du neue Leute einladen. Tue das indem du ihnen diesen Link schickst: %{invite_link}."
       have_fun: "Viel Spaß mit %{service_name}. Möge deine Community lange aufrecht erhalten bleiben und erfolgreich sein."
@@ -581,7 +581,7 @@ de:
       minimum_price: "Minimum Preis ist %{minimum_price} %{currency}"
     testimonials:
       you_must_explain_not_neutral_feedback: "Falls Sie ein nicht-neutrales Feedback vergeben wollen, müssen Sie erklären warum."
-      you_must_select_a_grade: "Denken Sie daran den Benutzer mit Klick auf den Icons oben zu benoten (Sie können die Erklärung der Icons einsehen indem Sie mit der Maus drübergehen)"
+      you_must_select_a_grade: "Denke daran uns deine positive oder negative Erfahrung mitzuteilen."
   error_pages:
     back_to_kassi_front_page: "Zurück zur Titelseite von %{service_name}"
     error_404:
@@ -597,7 +597,7 @@ de:
     error_description: Fehlerbeschreibung
     no_javascript:
       javascript_is_disabled_in_your_browser: "JavaScript ist in Ihrem Browser deaktiviert."
-      kassi_does_not_currently_work_without_javascript: "Leider funktioniert %{service_name} derzeit nicht ohne javascript. Versuchen Sie javascript in Ihren Browser Einstellungen zu aktivieren und laden Sie diese Seite dann noch einmal. Falls Sie %{service_name} ohne javascript verwenden wollen, dann schicken Sie uns Feedback über das unten stehende Formular."
+      kassi_does_not_currently_work_without_javascript: "Leider funktioniert %{service_name} derzeit nicht ohne javascript. Versuche javascript in deinen Browser Einstellungen zu aktivieren und lade diese Seite dann noch einmal."
       kassi_does_not_currently_work_without_javascript_dashboard: "Leider funktioniert %{service_name} derzeit nicht ohne javascript. Versuchen Sie javascript in Ihren Browser Einstellungen zu aktivieren und laden Sie die Seite dann noch einmal. Falls Sie %{service_name} ohne javascript nutzen wollen, dann %{contact_us} bitte."
       contact_us: "kontaktieren Sie uns"
       send_feedback: "Feedback senden"
@@ -626,7 +626,7 @@ de:
     login:
       logged_in_to_kassi: "%{name} meldete sich bei %{service_name} an vor %{time_ago}"
     comment:
-      commented: "%{commenter_name} kommentierte auf %{listing_type}%{listing_title} vor %{time_ago}."
+      commented: "%{commenter_name} kommentierte auf %{listing_title} vor %{time_ago}."
       offer_partitive: anbieten
       request_partitive: anfordern
   header:
@@ -634,7 +634,7 @@ de:
     community: Community
     home: Hauptseite
     members: Community
-    new_listing: "neue Listung"
+    new_listing: "neuer Eintrag"
     mobile_version: "Mobile Version"
     offers: Angebote
     requests: Anfragen
@@ -653,7 +653,7 @@ de:
       but_that_is_visible_only_to_registered_members: "aber dies ist nur für registrierte Benutzer sichtbar."
       but_those_are_visible_only_to_registered_members: "aber diese sind nur für registrierte Benutzer sichtbar."
       create_new_account_for_yourself: "Ein neues Konto erstellen"
-      examples_of_what_you_could_offer_to_others: "Was könnten Sie den Anderen anbieten?"
+      examples_of_what_you_could_offer_to_others: "Was kannst du den anderen anbieten?"
       examples_of_what_you_could_request_to_others: "Was könnten Sie von Anderen gebrauchen?"
       favor_offer_list: "Computer-Hilfe, Reparatur von Kleidung, Backen, Fahrrad-Reparatur"
       favor_request_list: "Babysitting, Klavier Unterricht, Gassi gehen, Rasen mähen"
@@ -677,15 +677,15 @@ de:
     event_feed:
       latest_events: "Was ist los"
     index:
-      no_listings_notification: "Es gibt zur Zeit 10 offene Listungen in diesem Stand. Kannst du jemanden deine Bohrmaschine, deinen Tennisschläger oder dein Forndue Set ausleihen? Magst du gerne nähen, Möbel zusammen stellen oder an Computern basteln? Gibt es Dinge in deinem Schrank, die du los werden möchtest? Oder willst du vielleicht eine Mitfahrgelegenheit? Oder willst du Werkzeug ausleihen? Brauchst du jemanden, der deinen Hund spazieren führt? Füge weitere Informationen darüber hier %{service_name} hinzu."
+      no_listings_notification: "Es gibt zur Zeit 10 offene Einträge in diesem Tribe. Kannst du jemanden deine Bohrmaschine, deinen Tennisschläger oder dein Forndue Set ausleihen? Magst du gerne nähen, Möbel zusammen stellen oder an Computern basteln? Gibt es Dinge in deinem Schrank, die du los werden möchtest? Oder willst du vielleicht eine Mitfahrgelegenheit? Oder willst du Werkzeug ausleihen? Brauchst du jemanden, der deinen Hund spazieren führt? Füge weitere Informationen darüber hier %{service_name} hinzu."
       available_on_the_app_store: "Im App Store erhältlich"
-      private_listing_notification: "Es gibt %{listing_count} in der Community. %{private_listing_count} davon %{be_verb} nur für Mitglieder der Community sichtbar. Wenn du auch die Listungen sehen willst, die nur für Mitglieder sichtbar sind, muss du dich eingloggen %{log_in_link}"
-      open_listing: "offene Listung"
-      open_listings: "offene Listungen"
-      private_listing_notification_log_in: einloggen
+      private_listing_notification: "Es gibt %{listing_count} in der Community. %{private_listing_count} davon %{be_verb} nur für Mitglieder der Community sichtbar. Wenn du auch die Einträge sehen willst, die nur für Mitglieder sichtbar sind, muss du dich eingloggen %{log_in_link}"
+      open_listing: "offener Eintrag"
+      open_listings: "offene Einträge"
+      private_listing_notification_log_in: Einloggen
       is: ist
       are: sind
-      what_do_you_need: "Wobei brauchst du Hilfe?"
+      what_do_you_need: "Wobei benötigst du Hilfe?"
       post_new_listing: "Poste eine neue Listung."
       are_offering: Angebot
       add_news_item: "Einen Artikel hinzufügen"
@@ -706,13 +706,13 @@ de:
     invitation_form:
       invite_your_friends: "Laden Sie Ihre Freunde zu  %{service_name} ein !"
       invite_your_neighbors: "Lade deine Nachbaren zum %{service_name} ein!"
-      email: "Email Adresse Ihres Freundes:"
-      message: "Eine persönliche Nachricht:"
+      email: "Email Adresse(n)"
+      message: "Eine persönliche Nachricht"
       send_invitation: "Einladung senden"
       add_as_many_emails_as_you_want: "Füge die E-Mail Adressen der Leute, die du einlädst in das untere Feld. Wenn du mehrere E-Mail Adressen hinzufügst, unterteile sie mit einem Komma."
       invitation_emails_field_placeholder: "Freund1@example.com, Freund2@example.com, ..."
       invitation_message_field_placeholder: "Ich bin der tollen Community beigetreten! Du solltest das auch!"
-      errors_in_emails: "Überprüfe, dass es gültige E-Mail Adressen mit einem Komma getrennt sind."
+      errors_in_emails: "Überprüfe, dass es gültigen E-Mail Adressen mit einem Komma getrennt sind."
     news_item:
       show_less: "Weniger anzeigen"
       show_more: "Mehr anzeigen"
@@ -737,12 +737,12 @@ de:
       search: Durchsuchen
       map: "Karte anzeigen"
       list: "Liste anzeigen"
-      all_listing_types: "Alle Arten von Listungen"
+      all_listing_types: "Alle Arten von Eintragungen"
       all_categories: "Alle Kategorien"
   infos:
     about:
       default_about_text_title: "Was ist Sharetribe?"
-      default_about_text: "Diese Website wurde mit Hilfe der Sharetribe Platform angelegt. Jeder kann mit Sharetribe seinen eigenen Community Marktplatz erstellen. Willst du so eine Seite für deine Community erstellen? Es ist kostenlos und dauert nur eine Minute. Klicke hier um mehr zu erfahren %{click_here_link}!"
+      default_about_text: "Diese Website wurde mit Hilfe der Sharetribe-Plattform angelegt. Jeder kann mit Sharetribe seinen eigenen Community-Marktplatz erstellen. Willst du so eine Seite für deine Community erstellen? Es ist kostenlos und dauert nur eine Minute. Klicke hier um mehr zu erfahren %{click_here_link}!"
       click_here_link_text: "Hier klicken"
   layouts:
     no_tribe:
@@ -758,16 +758,16 @@ de:
     application:
       join_this_community: "Community beitreten"
       read_more: "Mehr lesen"
-      feedback: "Feedback zu %{service_name} Mitarbeiter"
-      default_feedback: "Schlagen Sie eine neue Funktion vor, melden Sie Fehler, sagen Sie uns Ihre Meinung zum Service oder sagen Sie einfach Hallo!"
+      feedback: "Was willst du uns erzählen?"
+      default_feedback: "Bist du auf ein Problem gestoßen mit %{service_name}? Hast du einen Verbesserungsvorschlag für uns um unsere Dienstleistungen zu verbessern? Hast du auffälligen Content gesehen? Oder wolltest du einfach nur etwas mit uns diskutieren? Lass es uns wissen!"
       feedback_forum: Feedback-Forum
       feedback_handle: Feedback
-      give_feedback: "Geben Sie Feedback zu %{service_name}"
+      give_feedback: "Kontaktiere uns"
       keywords: "%{service_name}, Kassi, teilen Sie Ressourcen in einer Community, Gegenstände leihen, Service, Gefallen, Mitfahrgelegenheit, Platz, Unterkunft, Unterbringung, Hilfe, helfen, Angebot, anbieten, Anfrage, anfragen, vermieten, Austausch, Umtausch, kaufen, verkaufen, Kauf, Verkauf, geben, verschenken, ökologisch, Community, Online Community, lokal"
       meta_description: "%{service_name} ist ein Service dass Mitgliedern aus Verbänden und anderen Communitys beim gegenseitigen Verkauf und Verleih hilft, sowie beim organisieren von MItfahrgelegenheiten und beim helfen von vielen anderen Dingen."
       or_check_our: "...oder überprüfen Sie unser"
       send_feedback_to_admin: "Feedback senden"
-      to_see_what_others_have_suggested: "um zu sehen, was andere Benutzer vorgeschlagen haben."
+      to_see_what_others_have_suggested: "um zu sehen, was andere Benutzer vorgeschlagen haben und um die für die Ideen zu stimmen."
       your_email_address: "Ihre Email Adresse (nicht erforderlich)"
       connect: Anmelden
       invite_your_friends: "Freunde einladen"
@@ -784,11 +784,11 @@ de:
     dashboard:
       title: "%{service_name} - Waren teilen, Dienstleistungen und Fahrten in Ihrer lokalen Community!"
     infos:
-      about: "Was ist es"
-      how_to_use: "Wie benutzt man es"
+      about: Über
+      how_to_use: Hilfe
       info_about_kassi: "Informationen über %{service_name}"
       news: News
-      register_details: Anmeldungs-Details
+      register_details: Privatsphäre
       terms: Nutzungsbedingungen
     logged_in:
       admin: Admin
@@ -815,9 +815,9 @@ de:
       settings: Einstellungen
       sign_up: Registrieren
     notifications:
-      something_went_wrong: "Da ist etwas schief gelaufen..."
-      community_updated: "Aktualisierte Stamm Details"
-      community_update_failed: "Stamm Detail U.pdate fehlgeschlagen"
+      something_went_wrong: "Da ist etwas schief gelaufen"
+      community_updated: "Aktualisierte die Details"
+      community_update_failed: "Aktualisierung fehlgeschlagen"
       account_creation_succesful_you_still_need_to_confirm_your_email: "Konto erfolgreich erstellt. Als nächstes müssen Sie Ihre Email-Adresse bestätigen."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Sie sind nun ein Mitglied dieser Community. Als nächstes müssen Sie Ihre Email Adresse bestätigen."
       avatar_upload_failed: "Avatar-Upload fehlgeschlagen. Denken Sie daran, dass das Foto eine .png, .jpg oder .gif-Datei sein muss."
@@ -825,16 +825,16 @@ de:
       comment_cannot_be_empty: "Kommentar darf nicht leer sein."
       comment_sent: "Kommentar gesendet"
       confirmation_link_is_wrong_or_used: "Der Bestätigungslink ist bereits verwendet oder anderweitig defekt. Versuchen Sie sich anzumelden oder senden Sie Feedback sofern das Problem weiterhin besteht."
-      additional_email_confirmed: "Die eingegebene Email ist nun bestätigt. Sie können der Community nun beitreten."
-      create_new_listing: "Eine weitere Listung erstellen"
+      additional_email_confirmed: "Die eingegebene Email ist nun bestätigt."
+      create_new_listing: "Einen weiteren Eintrag erstellen"
       create_one_here: "Einen hier erstellen"
       email_confirmation_sent_to_new_address: "Email Bestätigung wird nun an die neue Adresse gesendet."
       email_not_found: "Die angegebene Email konnte in der Datenbank von %{service_name} nicht gefunden werden."
       error_with_session: "Fehler dieser Sitzung."
       feedback_considered_spam: "Feedback wurde aufgrund seiner Formatierung nicht gespeichert. Versuchen Sie es erneut oder verwenden Sie das Feedback Forum."
       feedback_not_saved: "Feedback konnte nicht gesendet werden."
-      feedback_saved: "Danke für Ihr Feedback!"
-      feedback_sent_to: "Feedback gesendet zu"
+      feedback_saved: "Danke für dein Feedback! Wir werden uns so bald wie möglich bei dir melden."
+      feedback_sent_to: "Feedback an %{target_person} gesendet."
       feedback_skipped: "Feedback übersprungen"
       invitation_cannot_be_sent: "Einladung konnte nicht gesendet werden"
       invitation_sent: "Einladung erfolgreich gesendet"
@@ -842,7 +842,7 @@ de:
       login_again: "Bitte melden Sie sich erneut an."
       login_failed: "Anmeldung fehlgeschlagen. Bitte geben Sie korrekte Anmeldeinformationen ein."
       account_creation_successful: "Willkommen zu %{service_name}, %{person_name}!"
-      login_successful: "Willkommen bei %{service_name}, "
+      login_successful: "Willkommen, %{person_name}!"
       logout_successful: "Sie wurden nun von %{service_name} abgemeldet. Willkommen zurück!"
       news_item_created: "Artikel erstellt"
       news_item_creation_failed: "Artikel Erstellung fehlgeschlagen"
@@ -852,14 +852,17 @@ de:
       offer_accepted: "Angebot angenommen"
       offer_confirmed: "Angebot bestätigt"
       offer_closed: "Angebot geschlossen"
-      listing_created_successfully: "Erstelle erfolgreich eine Listung. %{new_listing_link}"
+      listing_created_successfully: "Eintrag erfolgreich erstellt. %{new_listing_link}"
       offer_rejected: "Angebot abgelehnt"
       offer_canceled: "Angebot abgebrochen"
-      listing_updated_successfully: "Listung erfolgreich upgedated"
+      listing_updated_successfully: "Eintrag erfolgreich aktualisiert"
       only_kassi_administrators_can_access_this_area: "Nur  %{service_name} Administratoren können diesen Bereich aufrufen"
       only_listing_author_can_close_a_listing: "Nur Autoren eines Eintrags können den Eintrag schließen"
       only_listing_author_can_edit_a_listing: "Nur Autoren eines Eintrags können den Eintrag bearbeiten"
       payment_successful: "erfolgreiche Bezahlung"
+      payment_canceled: "Zahlung abgebrochen"
+      error_in_payment: "Es gab Probleme mit der Zahlung. Wenn du die Zahlung noch nicht ausgeführt hast, versuche es bitte noch einmal. Falls die Zahlung ausgeführt wurde, kontaktiere uns bitte."
+      payment_waiting_for_later_accomplishment: "Wenn du bezahlt hast, informieren wir den Zahlungsempfänger und du erhältst einen Beleg via E-Mail"
       password_recovery_sent: "Anweisungen zum Ändern Ihres Passworts wurden an Ihre Email gesendet."
       person_activated: "Benutzer aktiviert"
       person_deactivated: "Benutzer deaktiviert"
@@ -872,17 +875,17 @@ de:
       poll_updated: "Umfrage aktualisiert"
       poll_deleted: "Umfrage entfernt"
       read_more: Weiterlesen!
-      registration_considered_spam: "Registrierung fehlgeschlagen, bitte senden Sie Feedback links und erwähnen Sie \"email2 error\"."
+      registration_considered_spam: "Registrierung fehlgeschlagen, bitte sende Feedback  und erwähne \"email2 error\"."
       reply_cannot_be_empty: "Sie können keine leere Nachricht senden."
       reply_sent: "Antwort erfolgreich gesendet"
       request_accepted: "Anfrage akzeptiert"
       request_confirmed: "Anfrage abgeschlossen"
       request_closed: "Anfrage geschlossen"
       request_rejected: "Anfrage abgelehnt"
-      request_canceled: "Anfrage gecancellt"
+      request_canceled: "Anfrage abgebrochen"
       message_sent: "Nachricht gesendet"
       this_content_is_not_available_in_this_community: "Dieser Inhalt ist in dieser Community nicht verfügbar."
-      unknown_error: "Unbekannter Fehler. Bitte benutzen Sie den Feedback-Link um Details über die Geschehnisse zu senden."
+      unknown_error: "Unbekannter Fehler. Bitte benutze den Feedback-Link um Details über die Geschehnisse zu senden."
       update_error: "Ein Fehler ist beim aktualisieren Ihrer Informationen aufgetreten. Versuchen Sie es erneut."
       welcome_message: "Willkommen zu %{service_name}! %{service_name} ist ein Service dass den Mitgliedern der %{community} Community dabei hilft Gegenstände an Andere zu verleihen und zu verkaufen, Fahrgelegenheiten zu organisieren und kann Ihnen auch bei vielen anderen Dingen helfen."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Sie sind nicht berechtigt Feedback zu dieser Veranstaltung zu vergeben"
@@ -894,9 +897,9 @@ de:
       you_cannot_send_message_to_yourself: "Sie können keine Nachricht an sich selbst senden."
       you_followed_listing: "Sie verfolgen nun diesen Eintrag"
       you_have_already_given_feedback_about_this_event: "Sie haben bereits Feedback zu dieser Veranstaltung gegeben."
-      you_are_now_member: "Sie sind soeben erfolgreich dieser Community beigetreten."
+      you_are_now_member: "Du bist soeben erfolgreich dieser Community beigetreten."
       you_are_already_member: "Sie sind bereits Mitglied dieser %{service_name} Community. Willkommen zurück!"
-      you_must_log_in_to_create_new_listing: "Du musst dich einloggen %{service_name} um eine neue Listung zu entwerfen. Wenn du keinen Account hast, kannst du dich anmelden unter %{sign_up_link}."
+      you_must_log_in_to_create_new_listing: "Du musst dich einloggen %{service_name} um einen neuen Eintrag zu entwerfen. Wenn du keinen Account hast, kannst du dich anmelden unter %{sign_up_link}."
       additional_email_confirmed_dashboard: "Ihre Email ist nun bestätigt."
       you_must_log_in_to_give_feedback: "Sie müssen sich anmelden um Feedback zu geben"
       you_must_log_in_to_invite_new_users: "Sie müssen sich anmelden um neue Benutzer in %{service_name} einzuladen"
@@ -907,7 +910,7 @@ de:
       you_must_log_in_to_view_your_inbox: "Sie müssen sich bei %{service_name} anmelden um Ihren Posteingang anzeigen zu können."
       you_must_log_in_to_view_your_settings: "Sie müssen sich bei %{service_name} anmelden um Ihre Einstellungen anzeigen zu können.."
       you_must_log_in_to_add_news_item: "Sie müssen sich bei %{service_name} anmelden um einen neuen Artikel hinzuzufügen."
-      you_need_to_confirm_your_account_first: "Sie müssen zuerst Ihre Email bestätigen."
+      you_need_to_confirm_your_account_first: "Du musst zuerst deine Email bestätigen."
       you_unfollowed_listing: "SIe verfolgen nicht länger diesen Eintrag"
       joining_community_failed: "Der Beitritt dieser Community ist fehlgeschlagen"
     profile_extras_header:
@@ -927,19 +930,19 @@ de:
       wrote: schrieb
       send_private_message: "Private Nachricht an %{person} senden"
     comment_form:
-      ask_a_question: "Kommentiere zu den Listungen und frage nach mehr Details. Alle anderen User werden deine Kommentare sehen."
+      ask_a_question: "Kommentiere den Eintrag und frage nach mehr Details. Alle anderen Mitglieder werden deine Kommentare sehen."
       log_in: Anmelden
       send_comment: "Kommentar abgeben"
       to_send_a_comment: "um einen neuen Kommentar abzugeben"
       write_comment: "Einen neuen Kommentar abgeben:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: "Du kannst keine neuen Kommentare schicken da diese Listung geschlossen ist."
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Du kannst keine neuen Kommentare schicken da dieser Eintrag geschlossen ist."
       you_must: "Sie müssen"
       subscribe_to_comments: "Benachrichtigen Sie mich über neue Kommentare und Updates"
     edit:
-      edit_listing: "Listung bearbeiten"
+      edit_listing: "Eintrag bearbeiten"
     edit_links:
-      close_listing: "Listung schließen"
-      edit_listing: "Listung bearbeiten"
+      close_listing: "Eintrag schließen"
+      edit_listing: "Eintrag bearbeiten"
       reopen_listing: "Anfrage wieder öffnen"
     follow_links:
       follow: "Eintrag verfolgen"
@@ -981,13 +984,13 @@ de:
         mass: "Stück, kg, l, m2"
         time: "Stunde, Tag, Woche..."
         long_time: "Woche, Monat..."
-        service_fee_will_be_added: "Eine %{fee} Service Gebühr wird zum Preis hinzugefügt."
+        service_fee_will_be_added: "Eine Servicegebühr in Höhe von %{fee}% kommt hinzu."
         price_excludes_vat: "Dieser Preis beinhaltet keine Steuer."
       origin:
         location: Standort
         origin: Herkunft
       send_button:
-        save_listing: "Listung speichern"
+        save_listing: "Eintrag speichern"
       share_type:
         select: Auswählen
         borrow: Ausleihen
@@ -1013,7 +1016,7 @@ de:
         housing_you_request: "Unterkunft die Sie brauchen"
         item_you_offer: "Gegenstand den Sie anbieten"
         item_you_request: "Gegenstand den Sie brauchen"
-        listing_title: Listungstitel
+        listing_title: "Titel des Eintrages"
       valid_until:
         valid_until: Ablaufdatum
       valid_until_radio_buttons:
@@ -1024,8 +1027,8 @@ de:
         visibility: Sichtbarkeit
       privacy:
         privacy: Datenschutz
-        private: "Privat (nur eingeloggte User können es sehen)"
-        public: "Öffentlich (sichtbar zu nicht eingeloggten Usern)"
+        private: "Privat (nur eingeloggte Mitglieder können es sehen)"
+        public: "Öffentlich (sichtbar auch für nicht-eingeloggte Nutzer)"
     help_texts:
       help_share_type_title: "Art des Angebots oder Anfrage"
       help_tags_title: Tags
@@ -1072,10 +1075,10 @@ de:
       offer_this: Angebot
       request_this: Anfrage
       lend_this: ausleihen
-      borrow_this: ausleihen
+      borrow_this: verleihen
       buy_this: kaufen
       rent_out_this: vermieten
-      rent_this: verleihen
+      rent_this: mieten
       sell_this: verkaufen
       link_label_for_favor_offer: "Diese Dienstleistung (Service) anfordern"
       link_label_for_favor_request: "Diese Dienstleistung (Service) anbieten"
@@ -1098,7 +1101,7 @@ de:
       link_label_for_rideshare_offer: "Diese Mifahrt anfordern"
       link_label_for_rideshare_request: "Mitfahrt anbieten"
     new:
-      listing: Listung
+      listing: Eintrag
       offer: "Ich habe etwas anderen anzubieten."
       request: "Ich brauche etwas"
       selected_offer: Angebot
@@ -1110,9 +1113,9 @@ de:
       selected_item: Element
       selected_favor: Service
       selected_rideshare: Mitfahrgelegenheit
-      selected_housing: Leertaste
+      selected_housing: Raum
       selected_borrow: Ausleihen
-      selected_buy: kaufen
+      selected_buy: Kaufen
       selected_give_away: Abgeben
       selected_lend: Verleihen
       selected_receive: "Umsonst nehmen"
@@ -1121,7 +1124,7 @@ de:
       selected_sell: verkaufen
       selected_offer_to_swap: tauschen
       selected_request_to_swap: tauschen
-      selected_share_for_free: "Kostenlose gemeinsame Nutzung"
+      selected_share_for_free: "Kostenlos teilen"
       selected_accept_for_free: "Umsonst akzeptieren"
       how_do_you_want_to_share_it: "Wie willst du es teilen?"
       how_do_you_want_to_get_it: "Wie willst du es bekommen?"
@@ -1167,7 +1170,7 @@ de:
       select_category: "Kategorie auswählen"
     please_comment: Kommentar
     reply_link:
-      listing_closed: "Listung ist geschlossen"
+      listing_closed: "Eintrag ist geschlossen"
     show:
       add_your_phone_number: "Fügen Sie Ihre Telefonnummer hinzu"
       add_profile_picture: "Profilbild hinzufügen"
@@ -1180,7 +1183,7 @@ de:
       no_description: "Keine Beschreibung"
       offer: Angebot
       listing_created: Erstellt
-      open_until: "Offen bis %{date}"
+      open_until: "Gültig bis %{date}"
       feedback: "Feedback:"
       qr_code: "QR Code"
       request: Anfrage
@@ -1194,7 +1197,7 @@ de:
       time: Zeit
       times: Zeiten
       times_viewed: Gesehen
-      processing_uploaded_image: "(Bild hochladen)"
+      processing_uploaded_image: "(Bild wird bearbeitet ...)"
     displayed_price:
       price_excludes_vat: "(Steuer ausgeschlossen)"
   mapview:
@@ -1239,7 +1242,7 @@ de:
   people:
     index:
       loading_more_members: "Lade mehr Mitglieder"
-      meet_the_people: "Triff Leute"
+      meet_the_people: "Treffe Leute"
       you_are_the_only_member: "Du bist das einzige MItglied der %{community_name} Community."
       here_are_the_members: "Hier ist die %{count} Mitglieder der %{community_name} Community."
       wanna_see_more_folks: "Willst du mehr Leute hier sehen?"
@@ -1282,13 +1285,13 @@ de:
         one: "Diese Community ist nur für %{community_name}. Um beitreten zu können brauchen Sie eine '%{allowed_emails}' Email Adresse. "
         other: "Diese Community ist nur für %{community_name}. Um beitreten zu können brauchen Sie eine Email Adresse mit einer der folgenden Endungen: '%{allowed_emails}'"
       enter_captcha: "Ich bin ein Mensch:"
-      family_name: "Nachname:"
-      given_name: "Vorname:"
+      family_name: Nachname
+      given_name: Vorname
       i_accept_the: "Ich akzeptiere die"
       invalid_invitation_code: "Der Einladungs-Code ist ungültig."
       invitation_code: Einladungscode
       not_required: ", nicht erforderlich"
-      password_again: "Passwort bestätigen:"
+      password_again: "Passwort bestätigen"
       show_my_name_to_others: "Anderen %{service_name} Benutzern meinen richtigen Namen anzeigen lassen"
       sign_up: "Ein neues Konto in %{service_name} erstellen"
       terms: Nutzungsbedingungen
@@ -1299,8 +1302,8 @@ de:
       create_account_with_facebook: "Lege ein Account mit Facebook an"
       or_create_new_account_without_facebook: "... oder lege unten einen Account an ohne Facebook User zu sein"
     not_member:
-      explanation_text: "Sie befinden sich zurzeit in der %{community} Community. Sie haben versucht das Profil eines Benutzers aus einer anderen Community anzuzeigen. %{service_name} unterstützt derzeit nicht die Zugehörigkeit zu mehreren Communitys, so dass Sie auf dieses Profil durch die %{community} Community nicht zugreifen können. Zurzeit arbeiten wir daran damit Sie zu mehr als einer Community zugehören können. Diese Funktion wird dem Dienst später hinzugefügt."
-      read_more_about_kassi_communities: "Lesen Sie mehr über %{service_name} Communitys"
+      explanation_text: "Du befindest dich derzeit in der %{community} Community. Du hast versucht ein  Profil eines Benutzers aus einer anderen Community anzuzeigen. Du kannst dieses Profil nicht durch deine %{community} Community einsehen."
+      read_more_about_kassi_communities: "Lies mehr über Sharetribe Communities"
       this_user_does_not_belong_to_this_community: "Dieser Benutzer gehört nicht zu der %{community} Community"
     profile_badge:
       active_member_bronze: "Aktives Mitglied (Bronze)"
@@ -1376,7 +1379,7 @@ de:
       volunteer_gold: "Freiwilliger (Gold)"
       volunteer_gold_description: "Sie können nichts besser als anderen Leuten zu helfen. Sie haben 25 offene Service-Angebote in Ihrem Profil. Fabelhaft!"
       volunteer_silver: "Freiwilliger (Silber)"
-      volunteer_silver_description: "Sie haben viele Fähigkeiten die Sie nutzen um anderen zu helfen: Sie haben 10 Service-Angebote aufgelistet die Sie in %{service_name} tun können!"
+      volunteer_silver_description: "Du hast viele Fähigkeiten, die du nutzen kannst um anderen zu helfen: Du hasz 10 Fähigkeiten aufgelistet, die du anbieten kannst in %{service_name}!"
     profile_feedback:
       as_expected: "Wie erwartet"
       exceeded_expectations: "Viel besser als erwartet"
@@ -1384,13 +1387,13 @@ de:
       and_gave_following_feedback: "und gab das folgende Feedback"
       less_than_expected: "Schlechter als erwartet"
       offered_favor: "Hilfe angeboten"
-      offered_housing: "Unterkunft angeboten"
-      offered_item: "Gegenstand angeboten"
+      offered_housing: angeboten
+      offered_item: angeboten
       offered_rideshare: "Mitfahrt angeboten"
       requested_favor: "Hilfe angefordert"
       requested_housing: "Unterkunft angefordert"
-      requested_item: "Gegenstände angefordert"
-      requested_rideshare: "Mitfahrt angefordert"
+      requested_item: angefordert
+      requested_rideshare: "Mitfahrgelegenheit angefordert"
       slightly_better_than_expected: "Etwas besser als erwartet"
       slightly_less_than_expected: "Etwas schlechter als erwartet"
     profile_listings:
@@ -1408,13 +1411,13 @@ de:
       add_phone_number: "Telefonnummer hinzufügen"
       address: "Standort:"
       as_expected: "Wie erwartet"
-      edit_profile_info: "Bearbeiten Sie Ihre Daten"
+      edit_profile_info: "Bearbeite deine Daten"
       exceeded_expectations: "Erwartungen übertroffen"
       positive: positiv
       hide_description: "Weniger anzeigen"
       joined_this_community: "Dieser Community vor %{time_ago} beigetreten"
-      was_last_seen: "wurde zuletzt vor %{time_ago} gesehen"
-      was_invited_by: "...wurde eingeladen von %{inviter_name}"
+      was_last_seen: "Zuletzt gesehen von %{time_ago}"
+      was_invited_by: "Eingeladen von %{inviter_name}"
       less_than_expected: "Schlechter als erwartet"
       phone_number: "Telefonnummer:"
       show_all_badges: "Alle Abzeichen anzeigen"
@@ -1427,13 +1430,13 @@ de:
       review: "eingegangene Überarbeitung"
       reviews: "eingegangene Überarbeitungen"
       badge: Namensschild
-      badges: Abzeichen
-      open_listing: "offene Listung"
-      open_listings: "offene Listungen"
-      no_open_listings: "Keine offenen Listungen"
-      no_reviews: "Keine Kritiken"
+      badges: Ausweis
+      open_listing: "offener Eintrag"
+      open_listings: "offene Einträge"
+      no_open_listings: "keine offenen Einträge"
+      no_reviews: "Keine Bewertungen"
       no_badges: "Keine Namensschilder"
-      show_all_open_listings: "Zeige all offenen Listungen an"
+      show_all_open_listings: "Zeige alle offenen Einträge an"
       show_all_reviews: "Zeige alle Kritiken an"
       trustcloud: TrustCloud
   search:
@@ -1459,8 +1462,8 @@ de:
       account_creation_link_text: "klicken Sie hier"
       cancle_facebook_connect: "Wenn Sie dieses Konto nicht verbinden wollen, können Sie %{cancel_link}."
       facebook_cancel_link_text: abbrechen
-      log_in_with_your_facebook_account: "Melden Sie sich mit Ihrem Facebook-Konto an:"
-      or_sign_up_with_your_username: ".. .oder mit Ihrem Benutzernamen und Passwort:"
+      log_in_with_your_facebook_account: "Melde dich mit deinem Facebook-Konto an:"
+      or_sign_up_with_your_username: ".. .oder mit deinem Benutzernamen und Passwort:"
       we_will_not_post_without_asking_you: "Wir werden deine Nachrichten nie auf Facebook posten ohne vorher zu fragen."
     password_forgotten:
       email: Email
@@ -1478,7 +1481,7 @@ de:
       your_current_email_is: "Ihre Email Adresse ist %{email}."
       change_email: Ändern
       confirm_your_email: "Bestätigen Sie Ihre Email"
-      account_confirmation_instructions: "Sie werden bald eine Email erhalten mit einem Link den Sie anklicken müssen um die eingegebene Email Adresse zu bestätigen. Nach der Bestätigung Ihrer Email, können Sie mit der Nutzung von %{service_name} anfangen."
+      account_confirmation_instructions: "Du wirst bald eine Email erhalten mit einem Link den du anklicken musst um die eingegebene Email Adresse zu bestätigen. Nach der Bestätigung deiner Email, kannst du der Community beitreten."
       account_confirmation_instructions_dashboard: "Sie werden bald eine Email mit einem Link erhalten den Sie anklicken müssen um die eingegebene Email Adresse zu bestätigen."
   settings:
     settings_affect_all_tribes: "Diese Einstellungen betreffen alle Sharetribe Communitys zu denen du gehörst."
@@ -1487,7 +1490,7 @@ de:
       confirm_new_password: "Neues Passwort bestätigen"
       delete_account: "Konto löschen"
       email: "Email Adresse"
-      instructions_to_delete_account: "Wenn Sie Ihr Konto löschen möchten, dann kontaktieren Sie uns mit Hilfe des Feedback-Buttons auf der linken Seite."
+      instructions_to_delete_account: "Wenn du dein Konto löschen möchtest, dann kontaktiere uns %{contact_admin_link}."
       contact_admin: "Bitte kontaktiere die Administratoren"
       new_email: "Neue Email Adresse"
       new_password: "Neues Passwort"
@@ -1501,15 +1504,15 @@ de:
       i_want_to_get_email_notification_when: "Ich möchte eine Email Benachrichtigung erhalten wenn..."
       newsletters: Newsletter
       community_updates: "Community Neuigkeiten"
-      email_about_accept_reminders: "...Ich habe vergessen, eine Veranstaltung zu akzeptieren"
+      email_about_accept_reminders: "...Ich habe vergessen, ein Angebot oder eine Anfrage zu akzeptieren"
       email_about_confirm_reminders: "... Ich habe vergessen, eine Anfrage als vollständig zu bestätigen"
       email_about_new_badges: "...Ich habe ein neues Abzeichen erhalten"
       email_about_new_comments_to_own_listing: "...jemand kommentiert mein Angebot oder Anfrage"
       email_about_new_messages: "...jemand sendet mir eine Nachricht"
       email_about_new_received_testimonials: "...jemand gibt mir Feedback"
       email_about_testimonial_reminders: "...ich habe vergessen jemandem zu einer Veranstaltung Feedback zu hinterlassen"
-      email_daily_community_updates: "Schicke mir täglich Neuigkeiten per E-Mail wenn neue Listungen herauskommen"
-      email_weekly_community_updates: "Schicke mir wöchentlich Neuigkeiten per E-Mail wenn neue Listungen herauskommen"
+      email_daily_community_updates: "Schicke mir täglich Neuigkeiten per E-Mail wenn es neue Einträge gibt"
+      email_weekly_community_updates: "Schicke mir wöchentlich Neuigkeiten per E-Mail wenn es neue Einträge gibt"
       do_not_email_community_updates: "Sende mit keine Neuigkeiten per E-Mail"
       email_newsletters: "Schicke mir einen gelegentlichen %{service_name} Newsletter"
       email_when_conversation_accepted: "...jemand akzeptiert mein Angebot oder meine Anfrage"
@@ -1517,26 +1520,26 @@ de:
       email_about_completed_transactions: "... Jemand markiert mein Angebot oder Anfrage als erledigt"
       email_about_new_payments: "... Ich erhalte eine neue Zahlung"
       email_about_payment_reminders: "... Ich habe vergessen zu zahlen"
-      unsubscribe_succesful: "Erfolgreiches Abbestellen"
-      unsubscribe_info_text: "Du wirst diese E-Mails weiterhin nicht mehr empfangen. Überprüfe deine %{settings_link} und wähle eine Art von E-Mails aus, die du empfangen magst von %{service_name} oder gehe zurück zu der %{homepage_link}."
+      unsubscribe_succesful: "Abbestellen erfolgreich"
+      unsubscribe_info_text: "Du wirst keines dieser E-Mails mehr erhalten. Überprüfe deine %{settings_link} und wähle die E-Mails aus, die du empfangen magst von %{service_name} oder gehe zurück zu der %{homepage_link}."
       settings_link: Einstellungen
       homepage_link: Homepage
       unsubscribe_unsuccesful: "Fehler im Abbestellen"
       unsuccessful_unsubscribe_info_text: "Der Grund könnte sein, dass der Link für das Abbestellen alt oder kaputt war. Kontaktiere uns durch den Feedback Button auf der linken Seite und wir können deine E-Mails abstellen. Oder logge dich ein um deine E-Mail Einstellungen zu ändern."
     profile:
-      about_you: "Über Sie:"
-      city: "Stadt:"
-      family_name: "Nachname:"
-      given_name: "Vorname:"
-      location_description: "Sie können entweder Ihren exakten Standort oder nur Ihre Postleitzahl angeben. Bitte fügen Sie mindestens Ihre Postleitzahl hinzu. Sie können auch einen Standort aus der Karte auswählen."
-      phone_number: "Telefonnummer:"
-      postal_code: "Postleitzahl:"
+      about_you: "Über dich"
+      city: Stadt
+      family_name: Nachname
+      given_name: Vorname
+      location_description: "Du kannst entweder deinen exakten Standort oder nur deine Postleitzahl angeben. Bitte füge mindestens deine Postleitzahl hinzu. Du kannst auch einen Standort aus der Karte auswählen."
+      phone_number: Telefonnummer
+      postal_code: Postleitzahl
       profile_page: "auf Ihrer Profil-Seite"
       profilemap: Kartenansicht
-      street_address: "Standort:"
+      street_address: Standort
       these_fields_are_shown_in_your: "Diese Informationen sind für alle %{service_name} Benutzer sichtbar"
       visible_to_everybody: "für jeden sichtbar"
-      visible_to_registered_users: "sichtbar für angemeldete Benutzer"
+      visible_to_registered_users: "(sichtbar für angemeldete Benutzer)"
     save_information: "Informationen speichern"
   sms:
     or_check_the_offer_in_kassi: "oder schauen Sie sich das  Angebot %{listing_url} an"
@@ -1559,7 +1562,7 @@ de:
   terms:
     show:
       accept_terms: "Die %{service_name} Nutzungsbedingungen akzeptieren"
-      here: hier
+      here: "hier klicken"
       i_accept_new_terms: "Ich akzeptiere die neuen Nutzungsbedingungen"
       i_accept_terms: "Ich akzeptiere die Nutzungsbedingungen"
       terms: "Nutzungsbedingungen von %{service_name}"
@@ -1577,12 +1580,12 @@ de:
       as_expected: "Wie erwartet"
       exceeded_expectations: "Viel besser als erwartet"
       give_feedback_to: "Feedback geben an %{person}"
-      grade: "Bewerten Sie die Erfahrung"
+      grade: "Was ist dein allgemeines Gefühl?"
       less_than_expected: "Schlechter als erwartet"
       send_feedback: "Feedback senden"
       slightly_better_than_expected: "Etwas besser als erwartet"
       slightly_less_than_expected: "Etwas schlechter als erwartet"
-      textual_feedback: "Wie ist es gelaufen"
+      textual_feedback: "Wie ist es gelaufen?"
       this_will_be_shown_in_profile: "Das Feedback dass Sie abgeben ist für andere Benutzer sichtbar auf der Profilseite von %{person}. Dies hilft anderen Mitgliedern des Stammes bei der Beurteilung ob %{person} eine vertrauenswürdige Person ist."
       positive: Positiv
       negative: Negativ
@@ -1590,7 +1593,7 @@ de:
     testimonial:
       from_user: von
       to_user: bis
-      about_listing: "über die Listung"
+      about_listing: "über den Eintrag"
   time:
     formats:
       short: "%e %b %Y at %H:%M"

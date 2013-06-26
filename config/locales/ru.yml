@@ -78,7 +78,7 @@ ru:
     fields_that_are_mandatory: "Поля, отмеченные звёздочкой (*), являются обязательными."
     or: или
     password: Пароль
-    service_name: ~
+    service_name: "%{service_name}"
     share_types:
       request: запрос
       offer: предложение
@@ -119,15 +119,15 @@ ru:
     what_is_this: "Что это?"
   conversations:
     accept:
-      respond_to_offer: ~
-      respond_to_request: ~
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
-      close_listing: ~
+      respond_to_offer: "Ответить на предложение"
+      respond_to_request: "Ответить на запрос"
+      accept_offer: "Принять предложение"
+      accept_request: "Принять запрос"
+      reject_offer: "Не сейчас"
+      reject_request: "Не сейчас"
+      close_listing: "Закрыть объявление %{listing_title_link}"
       update_later: ~
-      optional_message: ~
+      optional_message: "Сообщение (необязательно)"
       price_to_pay: ~
     confirm:
       confirm_description: ~
@@ -136,7 +136,7 @@ ru:
       canceling_payed_transaction: ~
       confirm: ~
       cancel: ~
-      continue: ~
+      continue: Продолжить
       give_feedback_to: ~
       do_not_give_feedback: ~
     index:
@@ -224,8 +224,8 @@ ru:
         see_all_the_feedback_you_have_received: "просмотреть все отзывы, полученные вами"
     show:
       in_response_to_listing: ~
-      message_sent_by: ~
-      message_sent_to: ~
+      message_sent_by: "Сообщение отправлено"
+      message_sent_to: "Сообщение отправлено"
       send_reply: "Отправить ответ"
       write_a_reply: "Написать ответ:"
       conversation_about_listing: "Диалог с %{person} о %{listing}."
@@ -240,12 +240,12 @@ ru:
       offer_rejected: "Предложение отклонено"
       offer_canceled: ~
       offer_confirmed: ~
-      pay: ~
-      paid: ~
+      pay: Оплатить
+      paid: "Оплата выполнена успешно"
       request_accepted: "Запрос принят"
       request_rejected: "Запрос отклонён"
-      request_confirmed: ~
-      request_canceled: ~
+      request_confirmed: Завершено
+      request_canceled: Отменено
       skip_feedback: "Пропустить отзыв"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
@@ -473,23 +473,23 @@ ru:
       you_have_been_invited_to_kassi: "%{inviter} пригласил вас присоединиться к сервису %{community}"
       here_is_a_message_from: "Для вас есть личное сообщение от %{inviter}:"
       join_now: ~
-      invitation_code: ~
+      invitation_code: "Пригласительный код: %{code}"
     new_badge:
       you_can_view_all_your_badges_in: "Вы можете просмотреть свои значки здесь —"
       you_have_achieved_a_badge: "Вы получили значок «%{badge_name}» в Kassi!"
     new_comment:
       has_commented_your_listing_in_kassi: ~
-      view_comment: ~
+      view_comment: "Просмотреть комментарий"
       you_have_a_new_comment: "%{author} оставил комментарий на ваш запрос в %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} прокомментировал листинг, за которым вы следите в %{service_name}"
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       conversation_title: "Название цепочки сообщений: %{title}"
-      view_message: ~
+      view_message: "Просмотреть сообщение"
       has_sent_you_a_message_in_kassi: "%{sender} отправил вам сообщение в Kassi:"
       you_have_a_new_message: "У вас новое сообщение в Kassi"
     new_payment:
-      new_payment: ~
+      new_payment: "Вы получили новый платёж"
       you_have_received_new_payment: ~
     receipt_to_payer:
       receipt_of_payment: ~
@@ -497,11 +497,11 @@ ru:
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} оставил отзыв о вас в Kassi"
       you_can_give_feedback_to: "Вы можете оставить отзыв о %{name} здесь —"
-      view_feedback: ~
+      view_feedback: "Просмотреть отзывы"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Листинг, за которым вы следите, был обновлён"
       has_updated_listing_you_follow_in_kassi: ~
-      view_changes: ~
+      view_changes: "Просмотр изменений"
     community_updates:
       added_offer: "%{name_link} добавлено предложение:"
       added_request: "%{name_link} добавлен запрос:"
@@ -852,7 +852,7 @@ ru:
       offer_accepted: "Предложение подтверждено"
       offer_confirmed: ~
       offer_closed: "Предложение закрыто"
-      listing_created_successfully: ~
+      listing_created_successfully: "Объявление успешно создано: %{new_listing_link}"
       offer_rejected: "Предложение отклонено"
       offer_canceled: ~
       listing_updated_successfully: ~
@@ -860,6 +860,9 @@ ru:
       only_listing_author_can_close_a_listing: "Листинг может закрыть только автор"
       only_listing_author_can_edit_a_listing: "Листинг может редактировать только автор"
       payment_successful: ~
+      payment_canceled: ~
+      error_in_payment: ~
+      payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: "Инструкции по смене пароля отправлены на ваш почтовый ящик."
       person_activated: "Пользователь активирован"
       person_deactivated: "Пользователь отключен"
@@ -936,11 +939,11 @@ ru:
       you_must: "Вы должны"
       subscribe_to_comments: "Сообщать мне о новых комментариях и обновлениях"
     edit:
-      edit_listing: ~
+      edit_listing: "Редактировать объявление"
     edit_links:
-      close_listing: ~
-      edit_listing: ~
-      reopen_listing: ~
+      close_listing: "Закрыть объявление"
+      edit_listing: "Редактировать объявление"
+      reopen_listing: "Повторно открыть объявление"
     follow_links:
       follow: "Следить за этим листингом"
       unfollow: "Не следить за этим листингом"
@@ -976,18 +979,18 @@ ru:
       location:
         location: Местоположение
       price:
-        price: ~
-        per: ~
-        mass: ~
-        time: ~
-        long_time: ~
+        price: Цена
+        per: за
+        mass: "шт, кг, л, м2, ..."
+        time: "час, день, неделю, ..."
+        long_time: "неделю, месяц, ..."
         service_fee_will_be_added: ~
         price_excludes_vat: ~
       origin:
         location: Местоположение
         origin: "Исходный пункт"
       send_button:
-        save_listing: ~
+        save_listing: "Сохранить объявление"
       share_type:
         select: Выбрать
         borrow: "На время"
@@ -1013,7 +1016,7 @@ ru:
         housing_you_request: "Требуемое жильё"
         item_you_offer: "Предлагаемая вещь"
         item_you_request: "Требуемая вещь"
-        listing_title: ~
+        listing_title: "Заголовок объявления"
       valid_until:
         valid_until: "Дата окончания"
       valid_until_radio_buttons:
@@ -1139,8 +1142,8 @@ ru:
       sell: "Я продаю это"
       offer_to_swap: ~
       request_to_swap: ~
-      share_for_free: ~
-      accept_for_free: ~
+      share_for_free: "Я делюсь этим бесплатно"
+      accept_for_free: "Я бы хотел использовать это бесплатно"
       what_kind_of_item: ~
       what_kind_of_favor: ~
       what_kind_of_rideshare: ~
@@ -1161,8 +1164,8 @@ ru:
       garden: "Сад и огород"
       travel: Путешествия
       other: Прочее
-      what_do_you_want_to_do: ~
-      what_can_you_offer: ~
+      what_do_you_want_to_do: "Что вы хотите сделать?"
+      what_can_you_offer: "Что вы можете предложить другим?"
       what_do_you_need: "Что вам нужно?"
       select_category: ~
     please_comment: Комментарий
