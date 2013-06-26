@@ -131,7 +131,7 @@ module Kassi
     end
     
     # If logger_type is set to something else than "normal" we'll use stdout here
-    # the reason for this type of check is that it works also in Heroky where those variables can't be read in slug compilation
+    # the reason for this type of check is that it works also in Heroku where those variables can't be read in slug compilation
     if (Rails.env.production? || Rails.env.staging?) && APP_CONFIG.logger_type != "normal"
       # Set the logger to STDOUT, based on tip at: http://blog.codeship.io/2012/05/06/Unicorn-on-Heroku.html
       # For unicorn logging to work

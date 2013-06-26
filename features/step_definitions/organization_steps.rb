@@ -44,6 +44,11 @@ When /^I click Osuuspankki logo$/ do
   page.find('input[src="https://payment.checkout.fi/static/img/osuuspankki.png"]').click
 end
 
+When /^I click Tilisiirto logo$/ do
+  page.find('input[src="https://payment.checkout.fi/static/img/tilisiirto.gif"]').click
+end
+
+
 Then /^organization "(.*?)" should have a merchant_id$/ do |org_name|
   org = Organization.find_by_name!(org_name)
   org.merchant_id.should_not be_nil

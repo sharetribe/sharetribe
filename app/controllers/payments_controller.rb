@@ -38,11 +38,28 @@ class PaymentsController < ApplicationController
   
   def done
     @payment = Payment.find(params[:id])
-    @payment.update_attribute(:status, "paid")
-    @payment.conversation.pay
-    @payment.conversation.messages.create(:sender_id => @payment.payer.id, :action => "pay")
-    Delayed::Job.enqueue(PaymentCreatedJob.new(@payment.id, @current_community.id))
-    flash[:notice] = t("layouts.notifications.payment_successful")
+    
+    calculated_mac = Digest::MD5.hexdigest("#{@payment.recipient_organization.merchant_key}&#{params["VERSION"]}&#{params["STAMP"]}&#{params["REFERENCE"]}&#{params["PAYMENT"]}&#{params["STATUS"]}&#{params["ALGORITHM"]}").upcase
+    
+    if calculated_mac == params["MAC"]
+    
+      if ["2","5","6","7","8","9","10"].include?(params["STATUS"])
+        @payment.update_attribute(:status, "paid")
+        @payment.conversation.pay
+        @payment.conversation.messages.create(:sender_id => @payment.payer.id, :action => "pay")
+        Delayed::Job.enqueue(PaymentCreatedJob.new(@payment.id, @current_community.id))
+        flash[:notice] = t("layouts.notifications.payment_successful")
+      elsif ["3","4"].include?(params["STATUS"])
+        flash[:notice] = t("layouts.notifications.payment_waiting_for_later_accomplishment")
+      else
+        flash[:warning] = t("layouts.notifications.payment_canceled")
+      end
+      
+    else # the security check didn't go through
+      flash[:error] = t("layouts.notifications.error_in_payment")
+      ApplicationHelper.send_error_notification("Payment security check failed", "Payment Error", params)
+      
+    end
     redirect_to person_message_path(:id => params[:message_id])
   end
   
