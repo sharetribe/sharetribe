@@ -66,11 +66,14 @@ module Kassi
           ["Svenska", "sv"],
           ["Italiano", "it"],
           
-          # Customization languages for RC
-          ["English", "en-rc"], 
-          ["Français", "fr-rc"], 
-          ["Español", "es-rc"], 
+          # Customization languages
+          ["English", "en-rc"],
+          ["Français", "fr-rc"],
+          ["Español", "es-rc"],
           ["Deutsch", "de-rc"],
+          
+          ["English UL", "en-ul"],
+          
           
     ]
 
