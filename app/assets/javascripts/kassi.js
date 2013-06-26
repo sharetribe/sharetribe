@@ -122,6 +122,12 @@ function add_validator_methods() {
 
 }
 
+function report_analytics_event(params_array) {
+  if (typeof _gaq != 'undefined') {
+    _gaq.push(['_trackEvent'].concat(params_array));
+  }
+}
+
 // Initialize code that is needed for every view
 function initialize_defaults(locale) {
   add_validator_methods();
@@ -421,6 +427,7 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
     onsubmit: true,
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
+      report_analytics_event(["listing", "created"]);
     }
   });
   
@@ -428,7 +435,7 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
   auto_resize_text_areas("listing_description_textarea");
 }
 
-function initialize_send_message_form(locale) {
+function initialize_send_message_form(locale, message_type) {  
   auto_resize_text_areas("text_area");
   $('textarea').focus();
   var form_id = "#new_conversation";
@@ -439,6 +446,7 @@ function initialize_send_message_form(locale) {
     },
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
+      report_analytics_event(["message", "sent", message_type]);
     }
   });  
 }
@@ -462,6 +470,10 @@ function initialize_listing_view(locale) {
     locale, 
     {"comment[content]": {required: true, minlength: 1}}
   );
+  
+  $('#send_comment_button').click(function() {
+    report_analytics_event(["listing", "commented"]);
+  });
 }
 
 function initialize_accept_transaction_form(commission_percentage) {
@@ -617,7 +629,8 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
     },
     onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls
     submitHandler: function(form) {
-      disable_and_submit(form_id, form, "false", locale);  
+      disable_and_submit(form_id, form, "false", locale);
+      report_analytics_event(['user', "signed up"]);
     }
   });  
 }
