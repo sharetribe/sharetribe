@@ -209,7 +209,7 @@ class PeopleController < Devise::RegistrationsController
     # - if there's email limitation the user has suitable email in FB
     # But as this is bit complicated, for now   
     # we don't create the community membership yet, because we can use the already existing checks for invitations and email types.
-    session[:fb_join] = "true"
+    session[:fb_join] = "pending_analytics"
     redirect_to :controller => :community_memberships, :action => :new
   end
   

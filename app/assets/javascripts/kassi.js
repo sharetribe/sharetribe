@@ -633,7 +633,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
     onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
-      report_analytics_event(['user', "signed up"]);
+      report_analytics_event(['user', "signed up", "normal form"]);
     }
   });  
 }
