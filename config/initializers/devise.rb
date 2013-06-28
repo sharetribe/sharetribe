@@ -199,8 +199,12 @@ Devise.setup do |config|
   # up on your models and hooks.
   require "omniauth-facebook"
   config.omniauth :facebook, APP_CONFIG.fb_connect_id, APP_CONFIG.fb_connect_secret, :iframe => true, :scope => 'offline_access,email'
-  Community.with_custom_fb_login.each do |community|
-    config.omniauth "facebook_app_#{community.facebook_connect_id}".to_sym, community.facebook_connect_id, community.facebook_connect_secret, :iframe => true, :scope => 'offline_access,email'
+  begin
+    Community.all_with_custom_fb_login.each do |community|
+      config.omniauth "facebook_app_#{community.facebook_connect_id}".to_sym, community.facebook_connect_id, community.facebook_connect_secret, :iframe => true, :scope => 'offline_access,email'
+    end
+  rescue ActiveRecord::StatementInvalid => e
+    # in some environments (e.g. Travis CI) database might not be fully set up when this is run and in that case just skip additional methods.
   end
   
   

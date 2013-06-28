@@ -427,7 +427,7 @@ class PersonMailer < ActionMailer::Base
           if member.should_receive?("community_updates")
             begin
               PersonMailer.old_style_community_updates(member, community).deliver
-            rescue Exception => e
+            rescue => e
               # Catch the exception and continue sending the news letter
               ApplicationHelper.send_error_notification("Error sending mail for weekly community updates: #{e.message}", e.class)
             end
@@ -446,7 +446,7 @@ class PersonMailer < ActionMailer::Base
           if community.has_new_listings_since?(person.community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago)
             begin
               PersonMailer.community_updates(person, community).deliver
-            rescue Exception => e
+            rescue => e
               # Catch the exception and continue sending emails
             puts "Error sending mail to #{person.email} community updates: #{e.message}"
             ApplicationHelper.send_error_notification("Error sending mail to #{person.email} community updates: #{e.message}", e.class)
@@ -473,7 +473,7 @@ class PersonMailer < ActionMailer::Base
           else
             logger.debug "Skipping sending newsletter to #{person.username}, because his locale is #{person.locale} and that file was not found."
           end
-        rescue Exception => e
+        rescue => e
           # Catch the exception and continue sending the newsletter
           ApplicationHelper.send_error_notification("Error sending newsletter for #{person.username}: #{e.message}", e.class)
         end
@@ -487,7 +487,7 @@ class PersonMailer < ActionMailer::Base
       if person.active && ! addresses_to_skip.include?(person.email)
         begin
           PersonMailer.open_content_message(person, subject, mail_content, default_locale).deliver
-        rescue Exception => e
+        rescue => e
           ApplicationHelper.send_error_notification("Error sending open content email: #{e.message}", e.class)
         end
         if verbose #main intention of this is to get feedback while sending mass emails from console.
@@ -530,7 +530,7 @@ class PersonMailer < ActionMailer::Base
       if recipient.should_receive?("email_from_admins") && (email_locale.eql?("any") || recipient.locale.eql?(email_locale))
         begin
           community_member_email(sender, recipient, email_subject, email_content, community).deliver
-        rescue Exception => e
+        rescue => e
           # Catch the exception and continue sending the emails
           ApplicationHelper.send_error_notification("Error sending email to all the members of community #{community.full_name}: #{e.message}", e.class)
         end
@@ -543,7 +543,7 @@ class PersonMailer < ActionMailer::Base
     CommunityMembership.where(:admin => true).each do |community_membership|
       begin
         community_starter_email(community_membership.person, community_membership.community).deliver
-      rescue Exception => e
+      rescue => e
         # Catch the exception and continue sending the emails
         ApplicationHelper.send_error_notification("Error sending email to all community starters: #{e.message}", e.class)
       end

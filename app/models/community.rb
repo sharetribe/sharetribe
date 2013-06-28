@@ -20,8 +20,6 @@ class Community < ActiveRecord::Base
   
   has_and_belongs_to_many :listings
   
-  scope :with_custom_fb_login, where("facebook_connect_id IS NOT NULL")
-  
   before_destroy :delete_specific_community_categories
   
   monetize :minimum_price_cents, :allow_nil => true
@@ -537,6 +535,16 @@ class Community < ActiveRecord::Base
     end
   end
 
+  def self.all_with_custom_fb_login
+    begin
+      where("facebook_connect_id IS NOT NULL")
+    rescue Mysql2::Error
+      # in some environments (e.g. Travis CI) the tables are not yet loaded when this is called
+      # so return empty array, as it shouldn't matter in those cases
+      return []
+    end
+  end
+  
   private
   
   # Returns an array of unique categories or share_types used in this community.

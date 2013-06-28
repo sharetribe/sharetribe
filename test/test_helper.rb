@@ -4,7 +4,7 @@ require 'rails/test_help'
 
 begin
   require 'redgreen'
-rescue Exception => e
+rescue => e
   #Redgreen is copletely optional so no problem if not found :)
 end
 

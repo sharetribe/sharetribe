@@ -21,7 +21,7 @@ module SmsHelper
       begin
         Rails.logger.info  "Sending sms message: '#{message}' to #{number}"
         response = RestClient.post(sms_uri, sms_text, :content_type => 'application/json')
-      rescue Exception => e
+      rescue => e
         ApplicationHelper.send_error_notification("Sms send failed, message: #{e.message}", "SMS error", params)
         Rails.logger.error { "Sending message failed: #{e.inspect}, #{e.response}" }
       end
@@ -118,7 +118,7 @@ module SmsHelper
               end
               details[:valid_until] = time
               parts_counter += 1  # date parsing succeeded, so read the next word
-            rescue Exception => e
+            rescue => e
               # This is probably caused by that there is no time in the message
               # So use the default time: 
               details[:valid_until] = 1.hour.from_now
@@ -134,7 +134,7 @@ module SmsHelper
         end
       
         return details
-      rescue Exception => e
+      rescue => e
         raise_sms_parse_error(message)
       end
       

@@ -24,7 +24,7 @@ class TransactionConfirmedJob < Struct.new(:conversation_id, :community_id)
         end
         EventFeedEvent.create(:person1_id => conversation.offerer.id, :person2_id => conversation.requester.id, :eventable_id => conversation.id, :eventable_type => "Conversation", :community_id => community_id, :category => "accept", :members_only => !conversation.listing.privacy.eql?("public"))
       end
-    rescue Exception => ex
+    rescue => ex
       puts ex.message
       puts ex.backtrace.join("\n")
     end

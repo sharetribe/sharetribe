@@ -156,7 +156,7 @@ class SessionsController < ApplicationController
   end
   
   # Make method alias for each community which has custom FB login
-  Community.with_custom_fb_login.each do |community|
+  Community.all_with_custom_fb_login.each do |community|
     alias_method "facebook_app_#{community.facebook_connect_id}".to_sym, :facebook
   end
   
