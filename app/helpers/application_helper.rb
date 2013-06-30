@@ -85,6 +85,12 @@ module ApplicationHelper
       "sell_material" => "ss-moneybag",
       "give_away_material" => "ss-gift",
       
+      "cottage_food" => "ss-waterbottle",
+      "eggs" => "ss-bird",
+      "produce" => "ss-carrot",
+      "other_food_item" => "ss-platter",
+      "food_related_supply" => "ss-cookingutensils",
+      
       "testimonial" => "ss-star",
       "like" => "ss-like",
       "dislike" => "ss-dislike",
