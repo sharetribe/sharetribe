@@ -239,7 +239,7 @@ de:
       offer_accepted: "Angebot angenommen"
       offer_rejected: "Angebot abgelehnt"
       offer_canceled: abgelehnt
-      offer_confirmed: Fertig
+      offer_confirmed: fertig
       pay: Zahlen
       paid: "erfolgreiche Bezahlung"
       request_accepted: "Anfrage akzeptiert"
@@ -482,7 +482,7 @@ de:
       view_comment: "Kommentar ansehen"
       you_have_a_new_comment: "%{author} hat Ihren Eintrag in %{service_name} kommentiert"
       listing_you_follow_has_a_new_comment: "%{author} hat auf Ihren Eintrag geantwortet den Sie in %{service_name} verfolgen"
-      has_commented_listing_you_follow_in_kassi: "%{author} hat deine %{listing} Listung kommentiert, die du aufgegeben hast %{service_name}"
+      has_commented_listing_you_follow_in_kassi: "%{author} hat deine %{listing} EIntragung kommentiert, die du aufgegeben hast %{service_name}"
     new_message:
       conversation_title: "Nachrichtentitel: %{title}"
       view_message: "Nachricht ansehen"
@@ -493,7 +493,7 @@ de:
       you_have_received_new_payment: "Du hast bezahlt %{payment_sum} für %{listing_title} an %{payer_full_name}. Das ist deine Rechnung."
     receipt_to_payer:
       receipt_of_payment: Zahlungsbestätigung
-      you_have_made_new_payment: "Du hast %{payment_sum} bezahlt für %{listing_title} an %{recipient_full_name}. Hier ist eine Rechnung der Zahlung."
+      you_have_made_new_payment: "Du hast %{payment_sum} bezahlt für %{listing_title} an %{recipient_full_name}. Hier ist ein Beleg deiner Zahlung."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} hat Ihnen Feedback in %{service_name} hinterlassen"
       you_can_give_feedback_to: "Du hast noch kein Feedback %{name} hier hinterlassen."
@@ -686,7 +686,7 @@ de:
       is: ist
       are: sind
       what_do_you_need: "Wobei benötigst du Hilfe?"
-      post_new_listing: "Poste eine neue Listung."
+      post_new_listing: "Erstelle einen neuen Eintrag."
       are_offering: Angebot
       add_news_item: "Einen Artikel hinzufügen"
       inform_others_about_events: "Neuigkeiten und Veranstaltungen der Community."
@@ -710,8 +710,8 @@ de:
       message: "Eine persönliche Nachricht"
       send_invitation: "Einladung senden"
       add_as_many_emails_as_you_want: "Füge die E-Mail Adressen der Leute, die du einlädst in das untere Feld. Wenn du mehrere E-Mail Adressen hinzufügst, unterteile sie mit einem Komma."
-      invitation_emails_field_placeholder: "Freund1@example.com, Freund2@example.com, ..."
-      invitation_message_field_placeholder: "Ich bin der tollen Community beigetreten! Du solltest das auch!"
+      invitation_emails_field_placeholder: "freund1@beispiel.com, freund2@beispiel.com, ..."
+      invitation_message_field_placeholder: "Ich bin dieser tollen Community beigetreten! Du solltest das auch!"
       errors_in_emails: "Überprüfe, dass es gültigen E-Mail Adressen mit einem Komma getrennt sind."
     news_item:
       show_less: "Weniger anzeigen"
@@ -752,7 +752,7 @@ de:
     admin:
       admin: "%{service_name}Admin-panel"
       back_to_kassi: "Zurück zu %{service_name}"
-      tribe_info: "Grundlegende Stamm Informationen"
+      tribe_info: "Allgemeine Infos zum Tribe"
       news_items: "News Artikel"
       polls: Umfragen
     application:
@@ -1085,7 +1085,7 @@ de:
       link_label_for_housing_offer_sell: "Diese Unterkunft kaufen"
       link_label_for_housing_offer_rent_out: "Diese Unterkunft mieten"
       link_label_for_housing_offer_share_for_free: "Diese Unterkunft anfordern"
-      link_label_for_housing_request_accept_for_free: "Biete diesen Platz an"
+      link_label_for_housing_request_accept_for_free: "Biete diese Räumlichkeit an"
       link_label_for_housing_request_buy: "Diese Unterkunft zum Verkauf anbieten"
       link_label_for_housing_request_rent: "Diese Unterkunft zum mieten anbieten"
       link_label_for_item_offer_lend: "Diesen Gegenstand ausleihen"
@@ -1437,7 +1437,7 @@ de:
       no_reviews: "Keine Bewertungen"
       no_badges: "Keine Namensschilder"
       show_all_open_listings: "Zeige alle offenen Einträge an"
-      show_all_reviews: "Zeige alle Kritiken an"
+      show_all_reviews: "Zeige alle Kritiken Bewertungen an"
       trustcloud: TrustCloud
   search:
     show:
