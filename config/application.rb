@@ -82,7 +82,8 @@ module Kassi
           ["English", "en"], 
           ["Suomi", "fi"],
           ["Español", "es"],
-          ["Français", "fr"], 
+          ["Français", "fr"],
+          ["Deutsch", "de"],
           ["Pусский", "ru"], 
           ["Ελληνικά", "el"]
     ]

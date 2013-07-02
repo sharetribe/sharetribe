@@ -1469,8 +1469,6 @@ ca:
     confirmation_pending:
       welcome_to_kassi: "Benvingut a Kassi!"
       check_your_email: "Revisa la safata d'entrada"
-      account_conrimation_instructions: "Aviat rebràs un correu amb un enllaç en el que tindràs que fer click per aconseguir accés a aquesta comunitat.</p><p>Aquest correu de verificació està fet per assegurar que tots els membres pertanyen, realmeny, a la comunitat (<b>%{community_name}</b>). Això crea un ambient segur per a compartir.</p><p>Si tens qualsevol problema utilitzant Kassi fes click a <a href=\"#\" id=\"give_feedback_link\">feedback</a> a l'esquerra i indica'ns que funciona malament. Són benvingudes les idees per a millorar el servei!"
-      account_confirmation_instructions_any_email: "Aviat rebràs un correu electrònic de Kassi amb un enllaç en el que tindràs que fer click per aconseguir accés a aquesta comunitat Kassi</p><p>Això crea un ambient segur per a compartir.</p><p>Si tens qualsevol problema utilitzant Kassi, fes click a<a href=\"#\" id=\"give_feedback_link\">feedback</a> a l'esquerra i indica'ns que funciona malament. Són benvingudes les idees que ens ajudin a millorar el servei!"
       get_started: "Comença amb Kassi"
       getting_started_instructions: "Quan hagis confirmat el teu compte és una bona idea afegir una imatge al teu  <a href=\"%{profile_url}\">perfil</a> i omplir la resta de dades, o pots anar directe a l'acció afegint una <a href=\"/en/listings/new/offer\">oferta</a> sobre alguna cosa que pots prestar, llogar, vendre o fer per la resta. Si necessites un article específic, o ajuda amb alguna cosa, publica una <a href=\"/en/listings/new/request\">sol·licitud</a>."
       resend_confirmation_instructions: "Reenviament de les instruccions de confirmació"
