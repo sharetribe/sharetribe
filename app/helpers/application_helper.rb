@@ -506,7 +506,14 @@ module ApplicationHelper
          :inessive => "Materiaalipankissa",
          :elative => "Materiaalipankista",
          :partitive => "Materiaalipankkia"
-         }  
+         }
+      when "Larun tori" then {
+        :illative => "Larun torille",
+        :genetive => "Larun torin",
+        :inessive => "Larun torilla",
+        :elative => "Larun torilta",
+        :partitive => "Larun toria"
+        }  
       else nil
     end
   end
