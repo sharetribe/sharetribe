@@ -11,6 +11,8 @@ class CustomDomainCookie
   end
 
   def call(env)
+    puts "NOW CALLED #{env.inspect}"
+    
     if env["HTTP_HOST"]
       host = env["HTTP_HOST"].split(':').first 
     else
