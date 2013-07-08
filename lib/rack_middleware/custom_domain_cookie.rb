@@ -11,7 +11,7 @@ class CustomDomainCookie
   end
 
   def call(env)
-    puts "NOW CALLED #{env.inspect}"
+    # puts "NOW CALLED #{env.inspect}"
     
     if env["HTTP_HOST"]
       host = env["HTTP_HOST"].split(':').first 
@@ -19,7 +19,14 @@ class CustomDomainCookie
       host = nil
     end
     env["rack.session.options"][:domain] = custom_domain?(host) ? ".#{host}" : "#{@default_domain}"
-    @app.call(env)
+    resp = @app.call(env)
+    #puts "APP RETURNED #{resp.inspect}"
+    if resp.class == Array && resp[2] && resp[2] != nil
+      puts "RETURN OK"
+    else
+      puts "NIL BODY ALERT! \nRESP IS: #{resp.inspect} \nREQ ENV WAS: #{env.inspect}"
+    end
+    return resp
   end
 
   def custom_domain?(host)
