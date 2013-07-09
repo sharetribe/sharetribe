@@ -677,7 +677,7 @@ en-ul:
     event_feed:
       latest_events: ~
     index:
-      no_listings_notification: ~
+      no_listings_notification: "There are currently less than 10 open listings in this tribe.  Do you have any extra garden supplies you want to sell or give away?  Maybe you have a garden tool you'd like to rent to your neighbors? Maybe you have extra apples on your tree that you want to give away? Add information about these to %{service_name}!"
       available_on_the_app_store: ~
       private_listing_notification: ~
       open_listing: ~
