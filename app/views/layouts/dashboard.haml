@@ -6,8 +6,9 @@
     %title
       = t(".title")
 
+    %meta{ :property => "og:title", :content => "#{service_name}"} 
     %meta{ :property => "og:type", :content =>"website"}
-    %meta{ :property => "og:url", :content =>"#{request.protocol}#{request.host}"} 
+    %meta{ :property => "og:url", :content =>"#{request.protocol}#{request.host}#{request.fullpath}"} 
     %meta{ :property => "og:image", :content => "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"}
     %meta{ :property => "og:site_name", :content =>"#{service_name}"}
     %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
