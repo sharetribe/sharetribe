@@ -509,14 +509,10 @@ ca:
       title_link_text: ~
       intro_paragraph: ~
       intro_paragraph_link_text: ~
-      could_you_share_something: ~
-      do_you_need_help_with_anything: ~
       post_a_new_listing: ~
       reduce_email_footer_text: ~
-      tribe_creation_promotion_footer: ~
       settings_link_text: ~
       unsubscribe_link_text: ~
-      create_tribe_link_text: ~
     newsletter:
       weekly_news_from_kassi: "Notícies setmanals de %{community} Kassi"
       hi: "Hola %{name},"
@@ -1382,14 +1378,6 @@ ca:
       grade: "puntuació:"
       and_gave_following_feedback: ~
       less_than_expected: "Pitjor de l'esperat"
-      offered_favor: "Vas oferir ajuda"
-      offered_housing: "Vas oferir allotjament"
-      offered_item: "Vas oferir un producte"
-      offered_rideshare: "Vas oferir un trajecte"
-      requested_favor: "Vas sol·licitar ajuda"
-      requested_housing: "Vas sol·licitar allotjament"
-      requested_item: "Vas sol·licitar un article"
-      requested_rideshare: "Vas sol·licitar un trajecte"
       slightly_better_than_expected: "Una mica millor de l'esperat"
       slightly_less_than_expected: "Una mica pitjor de l'esperat"
     profile_listings:
@@ -1585,8 +1573,6 @@ ca:
       negative: ~
       default_textual_feedback: ~
     testimonial:
-      from_user: "Des de"
-      to_user: a
       about_listing: ~
   time:
     formats:
