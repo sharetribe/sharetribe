@@ -13,7 +13,7 @@ class ListingImage < ActiveRecord::Base
   
   has_attached_file :image, paperclip_options
   if APP_CONFIG.delayed_image_processing
-    process_in_background :image, :processing_image_url => "/images/medium/processing.png" 
+    process_in_background :image, :processing_image_url => "/assets/listing_image/processing.png" 
   end
   validates_attachment_presence :image
   validates_attachment_size :image, :less_than => 8.megabytes

@@ -45,7 +45,7 @@ class Community < ActiveRecord::Base
   paperclip_options_for_logo = PaperclipHelper.paperclip_default_options.merge!({:styles => { 
                       :header => "192x192#",  
                       :original => "600x600>"},
-                      :default_url => "/logos/header/default.png"
+                      :default_url => "/assets/logos/header/default.png"
   })
   has_attached_file :logo, paperclip_options_for_logo
   validates_attachment_content_type :logo,
