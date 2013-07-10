@@ -17,6 +17,7 @@ group :assets do
   gem 'coffee-rails', "~> 3.2.2"
   gem 'uglifier'
   gem 'compass-rails'
+  gem 'asset_sync'
 end  
   
 gem 'jquery-rails'

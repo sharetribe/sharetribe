@@ -6,6 +6,8 @@ Kassi::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
+  match "/robots.txt" => RobotsGenerator
+
   # Adds locale to every url right after the root path
   scope "(/:locale)" do
     scope :module => "api", :constraints => ApiRequest do
