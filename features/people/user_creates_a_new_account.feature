@@ -91,6 +91,7 @@ Feature: User creates a new account
     Then I should receive 1 email
     When I open the email
     And I click the first link in the email
+    And wait for 1 seconds
     Then I should have 2 emails
     And I should see "Your account was successfully confirmed"
   
