@@ -38,6 +38,9 @@ GEM
       builder
       json
     arel (3.0.2)
+    asset_sync (0.5.4)
+      activemodel
+      fog
     aws-sdk (1.9.5)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
@@ -107,6 +110,7 @@ GEM
       launchy (~> 2.1)
       mail (~> 2.2)
     erubis (2.7.0)
+    excon (0.25.1)
     execjs (1.4.0)
       multi_json (~> 1.0)
     factory_girl (4.1.0)
@@ -125,6 +129,17 @@ GEM
       rash (~> 0.3.0)
       riddle (>= 1.5.0)
       thinking-sphinx
+    fog (1.9.0)
+      builder
+      excon (~> 0.14)
+      formatador (~> 0.2.0)
+      mime-types
+      multi_json (~> 1.0)
+      net-scp (~> 1.0.4)
+      net-ssh (>= 2.1.3)
+      nokogiri (~> 1.5.0)
+      ruby-hmac
+    formatador (0.2.4)
     fssm (0.2.9)
     gherkin (2.11.5)
       json (>= 1.4.6)
@@ -255,6 +270,7 @@ GEM
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
       rspec-mocks (~> 2.12.0)
+    ruby-hmac (0.4.0)
     ruby-ole (1.2.11.6)
     ruby-prof (0.11.3)
     rubyzip (0.9.9)
@@ -322,6 +338,7 @@ DEPENDENCIES
   action_mailer_cache_delivery
   acts-as-taggable-on
   airbrake
+  asset_sync
   aws-sdk (~> 1.9.0)
   capistrano
   capybara

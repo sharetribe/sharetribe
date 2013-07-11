@@ -509,14 +509,10 @@ ru:
       title_link_text: "%{community_name}"
       intro_paragraph: "В этом письме содержится несколько новостей сообщества %{community_link} за последние %{time_since_last_update}"
       intro_paragraph_link_text: "%{community_name}"
-      could_you_share_something: "Тебе есть что предложить?"
-      do_you_need_help_with_anything: "Нужна помощь?"
       post_a_new_listing: "Пусть об этом узнают!"
       reduce_email_footer_text: "Надоели эти письма? %{settings_link} или %{unsubscribe_link}."
-      tribe_creation_promotion_footer: "А ты знаешь, что можно быстро и легко создать подобный сайт для своего микрорайона, города, объединения или другого сообщества? %{create_tribe_link} или узнай больше, ответив на это письмо."
       settings_link_text: "Отредактируй настройки получения писем"
       unsubscribe_link_text: отпишись
-      create_tribe_link_text: "Создай его"
     newsletter:
       weekly_news_from_kassi: "Еженедельный дайджест новостей сообщества %{service_name} «%{community}»"
       hi: "Привет %{name},"
@@ -1383,14 +1379,6 @@ ru:
       grade: "Оценка:"
       and_gave_following_feedback: "и оставил отзыв"
       less_than_expected: "Хуже чем ожидалось"
-      offered_favor: "предложил услугу"
-      offered_housing: "предложил проживание"
-      offered_item: "предложил вещь"
-      offered_rideshare: "предложил поездку"
-      requested_favor: "запросил услугу"
-      requested_housing: "запросил проживание"
-      requested_item: "запросил вещь"
-      requested_rideshare: "запросил поездку"
       slightly_better_than_expected: "Лучше чем ожидалось"
       slightly_less_than_expected: "Немного хуже, чем ожидалось"
     profile_listings:
@@ -1586,8 +1574,6 @@ ru:
       negative: Отрицательный
       default_textual_feedback: "Всё прошло отлично, большое спасибо!"
     testimonial:
-      from_user: от
-      to_user: для
       about_listing: ~
   time:
     formats:

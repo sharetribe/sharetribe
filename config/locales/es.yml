@@ -512,14 +512,10 @@ es:
       title_link_text: "%{community_name}"
       intro_paragraph: "Aquí están algunos de los sucesos que han ocurrido en la %{community_link} durante el pasado %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
-      could_you_share_something: "¿Podrías compartir algo?"
-      do_you_need_help_with_anything: "¿Necesitas ayuda con algo?"
       post_a_new_listing: "Publica un nuevo aviso!"
       reduce_email_footer_text: "¿Demasiados email? %{settings_link} o %{unsubscribe_link}."
-      tribe_creation_promotion_footer: "¿Sabías que puedes crear un mercado comunitario como este de forma gratuita para tu vecindario, comuna, asociación u otra comunidad local? %{create_tribe_link} o descubre más respondiendo este email."
       settings_link_text: "Edita tu configuración de email aquí"
       unsubscribe_link_text: "cancelar suscripción"
-      create_tribe_link_text: "Crea una tú mismo"
     newsletter:
       weekly_news_from_kassi: "Noticias semanales de %{community} %{service_name}"
       hi: "Hola %{name},"
@@ -1388,14 +1384,6 @@ es:
       grade: "puntaje:"
       and_gave_following_feedback: "y dio los siguientes comentarios"
       less_than_expected: "Peor de lo esperado"
-      offered_favor: "Ofreció ayuda"
-      offered_housing: "Ofreció alojamiento"
-      offered_item: "Ofreció un producto"
-      offered_rideshare: "Ofreció un traslado"
-      requested_favor: "Solicitó ayuda"
-      requested_housing: "Solicitó alojamiento"
-      requested_item: "Solicitó un producto"
-      requested_rideshare: "Solicitó un trayecto de traslado"
       slightly_better_than_expected: "Un poco mejor de lo esperado"
       slightly_less_than_expected: "Un poco peor de lo esperado"
     profile_listings:
@@ -1591,8 +1579,6 @@ es:
       negative: Negativo
       default_textual_feedback: "Todo fue sin problemas, muchas gracias!"
     testimonial:
-      from_user: Desde
-      to_user: a
       about_listing: ~
   time:
     formats:

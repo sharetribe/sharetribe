@@ -509,14 +509,10 @@ de:
       title_link_text: "%{community_name}"
       intro_paragraph: "Hier sind ein paar Beispiele die in der %{community_link} während den letzten %{time_since_last_update} passiert sind."
       intro_paragraph_link_text: "%{community_name}"
-      could_you_share_something: "Könntest du etwas teilen?"
-      do_you_need_help_with_anything: "Brauchst du Hilfe mit etwas?"
       post_a_new_listing: "Erstelle neuen Eintrag."
       reduce_email_footer_text: "Zu viele E-Mails? %{settings_link} oder %{unsubscribe_link}"
-      tribe_creation_promotion_footer: "Hast du gewusst, dass du eine Community wie diese kostenlos für deine Nachbarschaft, deine Stadt, deine Organisation oder andere lokale Communitys gründen kannst? %{create_tribe_link} oder mehr dazu wenn du auf diese E-Mail antwortest."
       settings_link_text: "Ändere deine E-Mail Grundeinstellungen hier."
       unsubscribe_link_text: abbestellen
-      create_tribe_link_text: "Gründer selber eine"
     newsletter:
       weekly_news_from_kassi: "Wöchentliche Nachrichten von %{community}%{service_name}"
       hi: "Hallo %{name}"
@@ -1386,14 +1382,6 @@ de:
       grade: "Note:"
       and_gave_following_feedback: "und gab das folgende Feedback"
       less_than_expected: "Schlechter als erwartet"
-      offered_favor: "Hilfe angeboten"
-      offered_housing: angeboten
-      offered_item: angeboten
-      offered_rideshare: "Mitfahrt angeboten"
-      requested_favor: "Hilfe angefordert"
-      requested_housing: "Unterkunft angefordert"
-      requested_item: angefordert
-      requested_rideshare: "Mitfahrgelegenheit angefordert"
       slightly_better_than_expected: "Etwas besser als erwartet"
       slightly_less_than_expected: "Etwas schlechter als erwartet"
     profile_listings:
@@ -1589,8 +1577,6 @@ de:
       negative: Negativ
       default_textual_feedback: "Alles ist glatt gelaufen, vielen Dank!"
     testimonial:
-      from_user: von
-      to_user: bis
       about_listing: "über den Eintrag"
   time:
     formats:

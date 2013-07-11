@@ -509,14 +509,10 @@ vi:
       title_link_text: "%{community_name}"
       intro_paragraph: ~
       intro_paragraph_link_text: "%{community_name}"
-      could_you_share_something: "Bạn có thể chia sẻ thứ gì đó không?"
-      do_you_need_help_with_anything: "Cần giúp gì?"
       post_a_new_listing: "Gửi danh sách mới!"
       reduce_email_footer_text: "Quá nhiều email? %{settings_link} hoặc %{unsubscribe_link}."
-      tribe_creation_promotion_footer: ~
       settings_link_text: "Chỉnh sửa các thiết lập email của bạn ở đây"
       unsubscribe_link_text: ~
-      create_tribe_link_text: "Tạo một cái cho bạn"
     newsletter:
       weekly_news_from_kassi: "Tin tức hàng tuần từ %{community} %{service_name}"
       hi: "Chào %{name},"
@@ -1381,14 +1377,6 @@ vi:
       grade: "xếp loại:"
       and_gave_following_feedback: "và đã cung cấp thông tin phản hồi sau"
       less_than_expected: "Tệ hơn so với dự kiến"
-      offered_favor: "đã hỗ trợ trợ giúp"
-      offered_housing: "đã hỗ trợ không gian"
-      offered_item: "đã hỗ trợ một thứ"
-      offered_rideshare: "hỗ trợ cuốc xe"
-      requested_favor: "đã yêu cầu trợ giúp"
-      requested_housing: "đã yêu cầu không gian"
-      requested_item: "đã yêu cầu một thứ"
-      requested_rideshare: "đã yêu cầu một cuốc xe"
       slightly_better_than_expected: "Tốt hơn một chút so với dự kiến"
       slightly_less_than_expected: "Tệ hơn một chút so với dự kiến"
     profile_listings:
@@ -1584,8 +1572,6 @@ vi:
       negative: ~
       default_textual_feedback: ~
     testimonial:
-      from_user: từ
-      to_user: đến
       about_listing: ~
   time:
     formats:

@@ -511,10 +511,8 @@ fi:
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Lisää uusi ilmoitus!"
       reduce_email_footer_text: "Liikaa sähköpostia? %{settings_link} tai %{unsubscribe_link}."
-      tribe_creation_promotion_footer: "Tiesitkö, että voit avata tällaisen oman verkkotorin ilmaiseksi myös työpaikallesi, harrastusseurallesi tai muulle paikalliselle yhteisölle? %{create_tribe_link} tai kysy lisätietoa vastaamalla tähän sähköpostiin."
       settings_link_text: "Säädä sähköpostit harvemmaksi"
       unsubscribe_link_text: "peruuta tämän sähköpostin tulo kokonaan"
-      create_tribe_link_text: "Luo uusi yhteisö heti"
     newsletter:
       weekly_news_from_kassi: "Viikon tapahtumat %{community}-%{service_name_inessive}"
       hi: "Hei %{name},"
@@ -1383,14 +1381,6 @@ fi:
       grade: "arvio:"
       and_gave_following_feedback: "ja antoi seuraavan palautteen"
       less_than_expected: "Ei vastannut lainkaan odotuksia"
-      offered_favor: "teki palveluksen"
-      offered_housing: "tarjosi tilan"
-      offered_item: "tarjosi tavaran"
-      offered_rideshare: "tarjosi kyydin"
-      requested_favor: "sai palveluksen"
-      requested_housing: "pyysi tilan"
-      requested_item: "sai tavaran"
-      requested_rideshare: "sai kyydin"
       slightly_better_than_expected: "Ylitti jossain määrin odotukset"
       slightly_less_than_expected: "Ei täysin vastannut odotuksia"
     profile_listings:
@@ -1590,8 +1580,6 @@ fi:
       negative: Negatiivinen
       default_textual_feedback: "Kaikki meni hienosti, paljon kiitoksia!"
     testimonial:
-      from_user: käyttäjältä
-      to_user: käyttäjälle
       about_listing: "liittyen ilmoitukseen"
   time:
     formats:

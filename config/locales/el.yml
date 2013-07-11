@@ -509,14 +509,10 @@ el:
       title_link_text: "%{community_name}"
       intro_paragraph: "Δείτε κάποια από τα νέα του %{community_link} τις τελευταίες %{time_since_last_update}"
       intro_paragraph_link_text: "%{community_name}"
-      could_you_share_something: "Μήπως έχετε κάτι να προσφέρετε;"
-      do_you_need_help_with_anything: "Χρειάζεστε κάποια βοήθεια;"
       post_a_new_listing: "Κάντε μια νέα καταχώρηση!"
       reduce_email_footer_text: "Είναι πολλά τα email που λαμβάνετε; %{settings_link} ή %{unsubscribe_link}"
-      tribe_creation_promotion_footer: "Ξέρετε ότι μπορείτε να δημιουργήσετε δωρεάν μια πλατφόρμα διαμοιρασμού σαν αυτή, για τη γειτονιά σας, την πόλη σας, το σύλλογο ή οποιαδήποτε άλλη κοινότητα; %{create_tribe_link} ή απαντήστε σε αυτό το μήνυμα για να μάθετε περισσότερα."
       settings_link_text: "Επεξεργαστείτε τις ρυθμίσεις ηλεκτρονικού ταχυδρομείου"
       unsubscribe_link_text: "διαγραφτείτε από τη λίστα ενημερώσεων"
-      create_tribe_link_text: "Δημιουργήστε μία"
     newsletter:
       weekly_news_from_kassi: "Εβδομαδιαία ενημέρωση από την κοινότητα %{service_name} \"%{community}\""
       hi: "Γεια σου %{name},"
@@ -1383,14 +1379,6 @@ el:
       grade: "βαθμός:"
       and_gave_following_feedback: "και έδωσε αυτή την κριτική"
       less_than_expected: "Χειρότερα από το αναμενόμενο"
-      offered_favor: "πρόσφερε τη βοήθειά του στο"
-      offered_housing: πρόσφερε
-      offered_item: πρόσφερε
-      offered_rideshare: "πρόσφερε το όχημά του/της"
-      requested_favor: ζήτησε
-      requested_housing: ζήτησε
-      requested_item: έλαβε
-      requested_rideshare: "έκανε οτοστόπ στη διαδρομή"
       slightly_better_than_expected: "Λίγο καλύτερα από το αναμενόμενο"
       slightly_less_than_expected: "Λίγο χειρότερα από το αναμενόμενο"
     profile_listings:
@@ -1586,8 +1574,6 @@ el:
       negative: Αρνητική
       default_textual_feedback: "Όλα ήταν μια χαρά, ευχαριστώ!"
     testimonial:
-      from_user: "από τον/την"
-      to_user: στον/στην
       about_listing: ~
   time:
     formats:
