@@ -1,7 +1,6 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => inbox_links_for(@current_user) }
 
 #conversations.inbox-feed.left-navi-section
-  = render :partial => "layouts/global_view_notification", :locals => { :text => t(".messages_from_all_tribes") }
   - if @conversations && !@conversations.empty?
     = render :partial => @conversations
     = will_paginate(@conversations)

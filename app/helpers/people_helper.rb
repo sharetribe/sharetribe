@@ -4,7 +4,11 @@ require 'base64'
 module PeopleHelper
   
   def persons_listings(person, per_page=3, page=1)
-    person.listings.currently_open.visible_to(@current_user, @current_community).order("created_at DESC").paginate(:per_page => per_page, :page => page)
+    if current_user? (person)
+      person.listings.visible_to(@current_user, @current_community).order("created_at DESC").paginate(:per_page => per_page, :page => page)
+    else
+      person.listings.currently_open.visible_to(@current_user, @current_community).order("created_at DESC").paginate(:per_page => per_page, :page => page)
+    end
   end
   
   def grade_image_class(grade)

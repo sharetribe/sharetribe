@@ -219,7 +219,7 @@ class Listing < ActiveRecord::Base
         AND communities_listings.community_id = '#{current_community.id}'
       ") > 0
     elsif current_community
-      return current_community.listings.include?(self) && public?
+      return current_community.listings.include?(self) && public? && !closed?
     elsif current_user
       return true if self.privacy.eql?("public")
       self.communities.each do |community|

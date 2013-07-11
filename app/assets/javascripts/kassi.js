@@ -1074,6 +1074,10 @@ $(function(){
     event.stopPropagation();
     toggleDropdown($(this));
   });
+  
+  $('.toggle-menu').click( function(event){
+    event.stopPropagation();
+  });
 
   // All dropdowns are collapsed when clicking outside dropdown area
   $(document).click( function(){

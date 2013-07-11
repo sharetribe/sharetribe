@@ -93,15 +93,24 @@
   .profile-listings.section
     %h2
       - if @listings.size > 0
-        = pluralize(@listings.count, t(".open_listing"), t(".open_listings"))
+        - if current_user?(@person)
+          = pluralize(@listings.count, t(".listing"), t(".listings"))
+        - else
+          = pluralize(@listings.count, t(".open_listing"), t(".open_listings"))
       - else
-        = t(".no_open_listings")
+        - if current_user?(@person)
+          = t(".no_listings")
+        - else
+          = t(".no_open_listings")
     - if @listings.size > 0
       #profile-listings-list
         = render :partial => "listings/profile_listing", :collection => @listings.limit(3), :as => :listing
         - if @listings.total_pages > 1
           .load-more-link#load-more-listings
-            = link_to t(".show_all_open_listings"), "#"
+            - if current_user?(@person)
+              = link_to t(".show_all_listings"), "#"
+            - else 
+              = link_to t(".show_all_open_listings"), "#"
   - if @current_community.testimonials_in_use
     .profile-testimonials.section
       %h2
