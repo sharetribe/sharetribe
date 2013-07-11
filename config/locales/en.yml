@@ -673,7 +673,9 @@ en:
     event_feed:
       latest_events: "What's going on"
     index:
-      no_listings_notification: "There are currently less than 10 open listings in this tribe. Could you lend your power drill, tennis racket or fondue pot? Do you like to sew, assemble furniture or fiddle with computers? Is there some things in your closet you want to get rid off? Or perhaps you would like to share a ride? Or borrow some tools? Or need someone to walk your dog? Add information about these to %{service_name}!"
+      no_listings_with_your_search_criteria: "We couldn't find any results that matched your criteria."
+      no_listings_notification: "No listings. %{add_listing_link}."
+      add_listing_link_text: "Add new listing"
       available_on_the_app_store: "Available on the app store"
       private_listing_notification: "There are %{listing_count} in this community. %{private_listing_count} of them %{be_verb} visible only to the members of the community. If you want to see also the listings that are visible only to the members, you need to %{log_in_link}."
       open_listing: "open listing"
@@ -1416,11 +1418,15 @@ en:
       reviews: "received reviews"
       badge: badge
       badges: badges
+      listing: "listing"
+      listings: "listings"
       open_listing: "open listing"
       open_listings: "open listings"
+      no_listings: "No listings"
       no_open_listings: "No open listings"
       no_reviews: "No reviews"
       no_badges: "No badges"
+      show_all_listings: "Show all listings"
       show_all_open_listings: "Show all open listings"
       show_all_reviews: "Show all reviews"
       trustcloud: TrustCard

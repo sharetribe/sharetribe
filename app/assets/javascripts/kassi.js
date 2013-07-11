@@ -1038,31 +1038,31 @@ function closeAllToggleMenus() {
   $('.toggle').removeClass('toggled-no-logo');
 }
 
-function toggleDropdown() {
+function toggleDropdown(event_target) {
   
   //Gets the target toggleable menu from the link's data-attribute
-  var target = $(this).attr('data-toggle');
-  var logo_class = $(this).attr('data-logo_class');
+  var target = event_target.attr('data-toggle');
+  var logo_class = event_target.attr('data-logo_class');
   
   if ($(target).hasClass('hidden')) {
     // Opens the target toggle menu
     closeAllToggleMenus();
     $(target).removeClass('hidden');
-    if($(this).hasClass('select-tribe')) {
-      $(this).addClass('toggled-logo');
+    if(event_target.hasClass('select-tribe')) {
+      event_target.addClass('toggled-logo');
       if (logo_class != undefined) {
-        $(this).addClass(logo_class);
+        event_target.addClass(logo_class);
       }
     } else {
-      $(this).addClass('toggled');
+      event_target.addClass('toggled');
     }
   } else {
     // Closes the target toggle menu
     $(target).addClass('hidden');
-    $(this).removeClass('toggled');
-    $(this).removeClass('toggled-logo');
+    event_target.removeClass('toggled');
+    event_target.removeClass('toggled-logo');
     if (logo_class != undefined) {
-      $(this).removeClass(logo_class);
+      event_target.removeClass(logo_class);
     }
   }
   
@@ -1070,9 +1070,19 @@ function toggleDropdown() {
 
 $(function(){
   
-  // Collapses all toggle menus on load
-  // They're uncollapsed by default to provice support for when JS is turned off
-  closeAllToggleMenus();
-  $('.toggle').on('click', toggleDropdown);
-    
+  $('.toggle').click( function(event){
+    event.stopPropagation();
+    toggleDropdown($(this));
+  });
+  
+  $('.toggle-menu').click( function(event){
+    event.stopPropagation();
+  });
+
+  // All dropdowns are collapsed when clicking outside dropdown area
+  $(document).click( function(){
+    closeAllToggleMenus();
+  });
+  
 });
+
