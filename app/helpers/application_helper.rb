@@ -26,6 +26,7 @@ module ApplicationHelper
       
       
       "information" => "ss-info",
+      "alert" => "ss-alert",
       "how_to_use" => "ss-signpost",
       "privacy" => "ss-lockfile",
       "terms" => "ss-textfile",
@@ -134,6 +135,7 @@ module ApplicationHelper
       
       
       "information" => "icon-info-sign",
+      "alert" => "icon-warning-sign",
       "how_to_use" => "icon-book",
       "privacy" => "icon-lock",
       "terms" => "icon-file-alt",
@@ -743,7 +745,7 @@ module ApplicationHelper
   end
 
   def community_blank_slate
-    @community_customization && !@community_customization.blank_slate.blank? ? @community_customization.blank_slate : t(".no_listings_notification")
+    @community_customization && !@community_customization.blank_slate.blank? ? @community_customization.blank_slate : t(".no_listings_notification", :add_listing_link => link_to(t(".add_listing_link_text"), new_listing_path)).html_safe 
   end
   
   def fb_image

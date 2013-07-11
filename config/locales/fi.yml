@@ -675,7 +675,9 @@ fi:
     event_feed:
       latest_events: "Mitä %{service_name_inessive} tapahtuu"
     index:
-      no_listings_notification: "Tässä yhteisössä on alle 10 ilmoitusta. Voisitko lainata sähköporaasi, tennismailaasi tai fonduepataasi? Pidätkö ompelusta, huonekalujen kokoamisesta tai tietokonehommista? Onko nurkissasi turhia tavaroita, joista haluaisit eroon? Tai ehkä haluaisit jakaa kimppakyydin? Tai jonkin työkalun lainaan? Tai jonkun kävelyttämään koiraasi? Lisää tieto näistä kaikista %{service_name_illative}!"
+      no_listings_with_your_search_criteria: "Antamillasi hakuehdoilla ei löytynyt yhtään ilmoitusta."
+      no_listings_notification: "Ei ilmoituksia. %{add_listing_link}."
+      add_listing_link_text: "Lisää uusi ilmoitus"
       available_on_the_app_store: "Saatavilla App Storesta"
       private_listing_notification: "Tässä yhteisössä on yhteensä %{listing_count}. Näistä %{private_listing_count} näkyy ainoastaan yhteisön jäsenille. Jos haluat nähdä myös vain yhteisön jäsenille näkyvät ilmoitukset, sinun pitää %{log_in_link}."
       open_listing: "avoin ilmoitus"
@@ -1426,12 +1428,16 @@ fi:
       reviews: "saatua palautetta"
       badge: ansiomerkki
       badges: ansiomerkkiä
+      listing: "ilmoitus"
+      listings: "ilmoitusta"
       open_listing: "avoin ilmoitus"
       open_listings: "avointa ilmoitusta"
+      no_listings: "Ei ilmoituksia"
       no_open_listings: "Ei avoimia ilmoituksia"
       no_reviews: "Ei palautteita"
       no_badges: "Ei ansiomerkkejä"
       show_all_open_listings: "Näytä kaikki avoimet ilmoitukset"
+      show_all_listings: "Näytä kaikki ilmoitukset"
       show_all_reviews: "Näytä kaikki palautteet"
       trustcloud: TrustCard
   search:
