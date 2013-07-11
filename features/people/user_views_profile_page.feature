@@ -77,7 +77,7 @@ Feature: User views profile page
      Then I should see "car spare parts"
      And I should see "massage"
      And I should see "Service offer"
-     And I should not see "apartment"
+     And I should see "apartment"
      
   @javascript
   Scenario: User views feedback in a profile page
