@@ -140,7 +140,6 @@ fi:
       give_feedback_to: "Anna palautetta käyttäjälle %{person_link}"
       do_not_give_feedback: "Ohita palaute"
     index:
-      messages_from_all_tribes: "Täällä näet kaikki muiden käyttäjien kanssa vaihtamasi viestit kaikissa %{service_name}-yhteisöissä joihin kuulut."
       loading_more_messages: "Ladataan lisää viestejä"
       message_partitive: viesti
       messages_partitive: viestiä
@@ -217,7 +216,6 @@ fi:
         your_request: pyyntöäsi
       loading_more_notifications: "Ladataan lisää tiedotteita"
       no_notifications: "Ei tiedotteita."
-      notifications_from_all_tribes: "Tässä näkymässä näytetään tiedotteet kaikista Sharetribe-yhteisöistä joihin kuulut."
       testimonialnotification:
         give_feedback_to: "Anna palautetta käyttäjälle %{name}"
         has_given_you_feedback_on_event: "on antanut sinulle palautetta tapahtumasta"
@@ -1473,7 +1471,6 @@ fi:
       account_confirmation_instructions: "Saat pian sähköpostin, jossa on linkki, jota sinun on klikattava varmistaaksesi sähköpostiosoitteesi. Varmistuksen jälkeen voit liittyä tähän yhteisöön."
       account_confirmation_instructions_dashboard: "Saat pian sähköpostin, jossa linkki, jolla voit vahvistaa syöttämäsi sähköpostiosoitteen."
   settings:
-    settings_affect_all_tribes: "Nämä asetukset vaikuttavat kaikkiin Sharetribe-yhteisöihin joihin kuulut."
     account:
       change: Vaihda
       confirm_new_password: "Uusi salasana uudestaan"

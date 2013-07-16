@@ -5,7 +5,6 @@
 
 #person_settings_form.left-navi-section.settings-section
   %h2= t(".update_profile_picture")
-  = render :partial => "layouts/global_view_notification", :locals => { :text => t("settings.settings_affect_all_tribes") }
   :javascript
     function handleResponse() { location = "#{@return_url}%>"}
 

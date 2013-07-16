@@ -4,7 +4,6 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user) }
 
 #person_settings_form.left-navi-section.settings-section.notification-settings
-  = render :partial => "layouts/global_view_notification", :locals => { :text => t("settings.settings_affect_all_tribes") }
   = form_for @person do |form|
   
     %h2= t(".community_updates")

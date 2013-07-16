@@ -140,7 +140,6 @@ en:
       give_feedback_to: "Give feedback to %{person_link}"
       do_not_give_feedback: "Skip feedback"
     index:
-      messages_from_all_tribes: "This view contains messages you have exchanged with other people in all the %{service_name} communities you belong to."
       loading_more_messages: "Loading more messages"
       message_partitive: message
       messages_partitive: messages
@@ -217,7 +216,6 @@ en:
         your_request: "your request"
       loading_more_notifications: "Loading more notifications"
       no_notifications: "No notifications."
-      notifications_from_all_tribes: "This view contains notifications from all the tribes you belong to."
       testimonialnotification:
         give_feedback_to: "Give feedback to %{name}"
         has_given_you_feedback_on_event: "has given you feedback on event"
@@ -1473,7 +1471,6 @@ en:
       account_confirmation_instructions: "You will soon receive an email with a link that you need to click to confirm the email address you entered. After confirming your email you can join this community."
       account_confirmation_instructions_dashboard: "You will soon receive an email with a link that you need to click to confirm the email address you entered."
   settings:
-    settings_affect_all_tribes: "These settings affect all the Sharetribe communities you belong to."
     account:
       change: Change
       confirm_new_password: "Confirm new password"
