@@ -73,7 +73,8 @@ module Kassi
           ["Deutsch", "de-rc"],
           
           ["English UL", "en-ul"],
-          
+
+          ["English SB", "en-sb"],
           
     ]
 
