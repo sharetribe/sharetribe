@@ -140,7 +140,6 @@ de:
       give_feedback_to: "%{person_link} ein Feedback geben"
       do_not_give_feedback: "Feedback überspringen"
     index:
-      messages_from_all_tribes: "Dieser View beinhaltet Nachrichten, die du mit anderen Leuten der Community %{service_name} austauschen kannst."
       loading_more_messages: "weitere Nachrichten laden"
       message_partitive: Nachricht
       messages_partitive: Nachrichten
@@ -217,7 +216,6 @@ de:
         your_request: "Ihre Anfrage"
       loading_more_notifications: "Weitere Benachrichtigungen laden"
       no_notifications: "Keine Benachrichtigungen."
-      notifications_from_all_tribes: "Diese Ansicht beinhaltet Mitteilungen von allen anderen Stämmen zu denen du gehörst."
       testimonialnotification:
         give_feedback_to: "Gebe Feedback zu %{name}"
         has_given_you_feedback_on_event: "hat Ihnen Feedback zu einem Ereignis gegeben"
@@ -1476,7 +1474,6 @@ de:
       account_confirmation_instructions: "Du wirst bald eine Email erhalten mit einem Link den du anklicken musst um die eingegebene Email Adresse zu bestätigen. Nach der Bestätigung deiner Email, kannst du der Community beitreten."
       account_confirmation_instructions_dashboard: "Sie werden bald eine Email mit einem Link erhalten den Sie anklicken müssen um die eingegebene Email Adresse zu bestätigen."
   settings:
-    settings_affect_all_tribes: "Diese Einstellungen betreffen alle Sharetribe Communitys zu denen du gehörst."
     account:
       change: Ändern
       confirm_new_password: "Neues Passwort bestätigen"

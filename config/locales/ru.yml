@@ -140,7 +140,6 @@ ru:
       give_feedback_to: ~
       do_not_give_feedback: ~
     index:
-      messages_from_all_tribes: ~
       loading_more_messages: "Загрузка сообщений"
       message_partitive: сообщение
       messages_partitive: сообщений
@@ -217,7 +216,6 @@ ru:
         your_request: "ваш запрос"
       loading_more_notifications: "Загрузка оповещений"
       no_notifications: "Нет оповещений."
-      notifications_from_all_tribes: ~
       testimonialnotification:
         give_feedback_to: "Оставить отзыв о %{name}"
         has_given_you_feedback_on_event: "оставил отзыв о событии"
@@ -1473,7 +1471,6 @@ ru:
       account_confirmation_instructions: "Вскоре вы получите электронное письмо с ссылкой, которую нужно нажать для подтверждения электронной почты. После подтверждения вашей электронной почты вы сможете начать использовать %{service_name} ."
       account_confirmation_instructions_dashboard: "Вскоре вы получите электронное письмо со ссылкой, по которой нужно будет перейти для подтверждения электронной почты."
   settings:
-    settings_affect_all_tribes: "Эти настройки затронут все сообщества Sharetribe, к которым вы принадлежите"
     account:
       change: Изменить
       confirm_new_password: "Подтвердить новый пароль"

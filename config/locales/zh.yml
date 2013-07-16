@@ -140,7 +140,6 @@ zh:
       give_feedback_to: ~
       do_not_give_feedback: ~
     index:
-      messages_from_all_tribes: ~
       loading_more_messages: 载入更多消息
       message_partitive: 消息
       messages_partitive: 消息
@@ -217,7 +216,6 @@ zh:
         your_request: "您的请求\n"
       loading_more_notifications: 载入更多提醒
       no_notifications: 没有提醒
-      notifications_from_all_tribes: ~
       testimonialnotification:
         give_feedback_to: "评价%{name}"
         has_given_you_feedback_on_event: 基于事件...的评价
@@ -1470,7 +1468,6 @@ zh:
       account_confirmation_instructions: ~
       account_confirmation_instructions_dashboard: ~
   settings:
-    settings_affect_all_tribes: ~
     account:
       change: 修改
       confirm_new_password: 确认新密码

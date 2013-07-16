@@ -140,7 +140,6 @@ ca:
       give_feedback_to: ~
       do_not_give_feedback: ~
     index:
-      messages_from_all_tribes: ~
       loading_more_messages: "Carregant més missatges"
       message_partitive: Missatge
       messages_partitive: Missatges
@@ -217,7 +216,6 @@ ca:
         your_request: "La seva sol·licitud"
       loading_more_notifications: "Carregant més notificacions"
       no_notifications: "Cap notificació."
-      notifications_from_all_tribes: ~
       testimonialnotification:
         give_feedback_to: "Dona un suggeriment a %{name}"
         has_given_you_feedback_on_event: "Heu rebut un suggeriment de l'esdeveniment"
@@ -1472,7 +1470,6 @@ ca:
       account_confirmation_instructions: ~
       account_confirmation_instructions_dashboard: ~
   settings:
-    settings_affect_all_tribes: ~
     account:
       change: Canviar
       confirm_new_password: "Confirmar nova contrasenya"

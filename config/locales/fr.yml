@@ -140,7 +140,6 @@ fr:
       give_feedback_to: "Donner un avis sur %{person_link}"
       do_not_give_feedback: "Ne pas donner d'avis"
     index:
-      messages_from_all_tribes: "Voici les messages que vous avez échangés avec d'autres personnes dans toutes les tribus %{service_name} auxquelles vous appartenez."
       loading_more_messages: "Chargement de la suite des messages"
       message_partitive: message
       messages_partitive: messages
@@ -217,7 +216,6 @@ fr:
         your_request: "votre demande"
       loading_more_notifications: "Chargement de plus de notifications"
       no_notifications: "Pas de notifications."
-      notifications_from_all_tribes: "Voici les notifications relatives à toutes les tribus auxquelles vous appartenez."
       testimonialnotification:
         give_feedback_to: "Donner un avis sur %{name}"
         has_given_you_feedback_on_event: "vous a donné un avis pour l'événement"
@@ -1473,7 +1471,6 @@ fr:
       account_confirmation_instructions: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer votre adresse. Dès que vous l'aurez confirmée, vous pourrez rejoindre cette tribu."
       account_confirmation_instructions_dashboard: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer l'adresse email que vous nous avez fournie."
   settings:
-    settings_affect_all_tribes: "Ces paramètres auront effet sur toutes les tribus auxquelles vous appartenez."
     account:
       change: Changer
       confirm_new_password: "Confirmez votre nouveau mot de passe"

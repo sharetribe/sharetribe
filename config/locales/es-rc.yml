@@ -140,7 +140,6 @@ es-rc:
       give_feedback_to: ~
       do_not_give_feedback: ~
     index:
-      messages_from_all_tribes: ~
       loading_more_messages: ~
       message_partitive: mensaje
       messages_partitive: mensajes
@@ -217,7 +216,6 @@ es-rc:
         your_request: ~
       loading_more_notifications: ~
       no_notifications: ~
-      notifications_from_all_tribes: ~
       testimonialnotification:
         give_feedback_to: ~
         has_given_you_feedback_on_event: ~
@@ -1502,7 +1500,6 @@ es-rc:
       account_confirmation_instructions: ~
       account_confirmation_instructions_dashboard: ~
   settings:
-    settings_affect_all_tribes: ~
     account:
       change: ~
       confirm_new_password: ~

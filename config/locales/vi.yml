@@ -140,7 +140,6 @@ vi:
       give_feedback_to: ~
       do_not_give_feedback: ~
     index:
-      messages_from_all_tribes: ~
       loading_more_messages: "Nạp thêm tin nhắn"
       message_partitive: "tin nhắn"
       messages_partitive: "tin nhắn"
@@ -217,7 +216,6 @@ vi:
         your_request: "bạn yêu cầu"
       loading_more_notifications: "Nạp thêm thông báo"
       no_notifications: "Không có thông báo"
-      notifications_from_all_tribes: ~
       testimonialnotification:
         give_feedback_to: "Cho phản hồi đến %{name}"
         has_given_you_feedback_on_event: "cho bạn thông tin phản hồi về sự kiện"
@@ -1471,7 +1469,6 @@ vi:
       account_confirmation_instructions: "Bạn sẽ sớm nhận được một email với một liên kết mà bạn cần phải nhấn để xác nhận địa chỉ email bạn đã nhập. Sau khi xác nhận email của bạn, bạn có thể bắt đầu sử dụng %{service_name}."
       account_confirmation_instructions_dashboard: "Bạn sẽ sớm nhận được một email với một liên kết mà bạn cần phải nhấn để xác nhận địa chỉ email bạn đã nhập."
   settings:
-    settings_affect_all_tribes: ~
     account:
       change: "Thay đổi"
       confirm_new_password: "Xác nhận mật khẩu mới"

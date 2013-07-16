@@ -140,7 +140,6 @@ es-ES:
       give_feedback_to: ~
       do_not_give_feedback: ~
     index:
-      messages_from_all_tribes: "Esta sección contiene mensajes que has intercambiado con otras personas en todas las tribus a las que perteneces."
       loading_more_messages: "Cargando más mensajes"
       message_partitive: Mensaje
       messages_partitive: Mensajes
@@ -217,7 +216,6 @@ es-ES:
         your_request: "Su solicitud"
       loading_more_notifications: "Cargando más notificaciones"
       no_notifications: "No hay notificaciones."
-      notifications_from_all_tribes: "Esta sección contiene notificaciones de todas las tribus a las que perteneces."
       testimonialnotification:
         give_feedback_to: "Da una sugerencia a %{name}"
         has_given_you_feedback_on_event: "Has recibido una sugerencia del evento"
@@ -1478,7 +1476,6 @@ es-ES:
       account_confirmation_instructions: ~
       account_confirmation_instructions_dashboard: "Pronto recibirás un e-mail con un link al que deberás hacer clic para confirmar la cuenta e-mail ingresada."
   settings:
-    settings_affect_all_tribes: "Esta configuración afecta a todas las comunidades Sharetribe a las que perteneces."
     account:
       change: Cambiar
       confirm_new_password: "Confirmar nueva contraseña"

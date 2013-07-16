@@ -140,7 +140,6 @@ el:
       give_feedback_to: ~
       do_not_give_feedback: ~
     index:
-      messages_from_all_tribes: "Εδώ φαίνονται μηνύματα που έχετε ανταλλάξει με άλλους ανθρώπους σε όλα τα tribes στα οποία ανήκετε."
       loading_more_messages: "Εμφάνιση περισσότερων μηνυμάτων"
       message_partitive: μήνυμα
       messages_partitive: μηνύματα
@@ -217,7 +216,6 @@ el:
         your_request: "το αίτημά σου"
       loading_more_notifications: "Εμφάνιση περισσότερων ειδοποιήσεων"
       no_notifications: "Καμία ειδοποίηση."
-      notifications_from_all_tribes: "Εδώ φαίνονται ειδοποιήσεις από όλα τα tribes στα οποία συμμετέχετε."
       testimonialnotification:
         give_feedback_to: "Κάνε κριτική για τον/την %{name}"
         has_given_you_feedback_on_event: "σχολίασε για σένα σχετικά με το"
@@ -1473,7 +1471,6 @@ el:
       account_confirmation_instructions: "Σύντομα θα λάβεις ένα email με ένα σύνδεσμο στον οποίο πρέπει να κάνεις κλικ για να επιβεβαιώσεις την ηλεκτρονική διεύθυνση που δήλωσες. Αφού γίνει η επιβεβαίωση μπορείς να χρησιμοποιήσεις το %{service_name}."
       account_confirmation_instructions_dashboard: "Σύντομα θα λάβεις ένα email με ένα σύνδεσμο στον οποίο πρέπει να κάνεις κλικ για να επιβεβαιώσεις την ηλεκτρονική διεύθυνση που δήλωσες."
   settings:
-    settings_affect_all_tribes: "Αυτές οι ρυθμίσεις αφορούν όλες τις κοινότητες Sharetribe στις οποίες συμμετέχετε."
     account:
       change: Αλλαγή
       confirm_new_password: "Επιβεβαίωση κωδικού"
