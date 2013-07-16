@@ -673,7 +673,9 @@ en-ul:
     event_feed:
       latest_events: ~
     index:
+      no_listings_with_your_search_criteria: ~
       no_listings_notification: "There are currently less than 10 open listings in this tribe.  Do you have any extra garden supplies you want to sell or give away?  Maybe you have a garden tool you'd like to rent to your neighbors? Maybe you have extra apples on your tree that you want to give away? Add information about these to %{service_name}!"
+      add_listing_link_text: ~
       available_on_the_app_store: ~
       private_listing_notification: ~
       open_listing: ~
@@ -1413,11 +1415,15 @@ en-ul:
       reviews: ~
       badge: ~
       badges: ~
+      listing: ~
+      listings: ~
       open_listing: ~
       open_listings: ~
+      no_listings: ~
       no_open_listings: ~
       no_reviews: ~
       no_badges: ~
+      show_all_listings: ~
       show_all_open_listings: ~
       show_all_reviews: ~
       trustcloud: ~

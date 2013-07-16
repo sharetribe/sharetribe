@@ -678,7 +678,9 @@ es-ES:
     event_feed:
       latest_events: "Qué está pasando"
     index:
+      no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
+      add_listing_link_text: ~
       available_on_the_app_store: "Disponible en la App Store"
       private_listing_notification: "Hay %{listing_count} publicaciones abiertas en esta comunidad. %{private_listing_count} de ellas %{be_verb} visibles sólo para los miembros de la comunidad. Si quieres ver esas publicaciones, necesitas %{log_in_link}."
       open_listing: ~
@@ -1421,11 +1423,15 @@ es-ES:
       reviews: "reseñas recibidas"
       badge: medalla
       badges: Medallas
+      listing: ~
+      listings: ~
       open_listing: "publicación abierta"
       open_listings: "publicaciones abiertas"
+      no_listings: ~
       no_open_listings: "Sin publicaciones abiertas"
       no_reviews: "Sin reseñas"
       no_badges: "Sin medallas"
+      show_all_listings: ~
       show_all_open_listings: "Mostrar todas las publicaciones abiertas"
       show_all_reviews: "Mostrar todas las reseñas"
       trustcloud: ~

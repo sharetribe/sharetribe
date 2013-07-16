@@ -673,7 +673,9 @@ fr:
     event_feed:
       latest_events: "Que se passe t-il"
     index:
-      no_listings_notification: "Il y a moins de 10 annonces en ligne dans cette tribu. Pouvez-vous prêter votre perceuse, votre raquette de tennis ou votre appareil à raclette ? Savez-vous coudre, monter des meubles ou réparer des ordinateurs ? Y a t-il des objets dans vos placards dont vous aimeriez vous séparer ? Ou bien aimeriez-vous faire un covoiturage ? Ou emprunter des outils ? Ou trouver quelqu'un qui pourrait promener votre chien ? Ajoutez des annonces sur %{service_name} !"
+      no_listings_with_your_search_criteria: "Nous n'avons pas trouvé de résultats correspondants à votre requête."
+      no_listings_notification: "Aucune annonce. %{add_listing_link}."
+      add_listing_link_text: "Ajouter une annonce"
       available_on_the_app_store: "Disponible sur l'app store"
       private_listing_notification: "Il y a %{listing_count} annonces disponibles dans cette tribu. %{private_listing_count} d'entre elles ne %{be_verb} visible(s) qu'aux membres de la tribu. Si vous voulez les voir visibles uniquement par les membres, vous devez vous %{log_in_link}."
       open_listing: "annonce en ligne"
@@ -1272,8 +1274,8 @@ fr:
       create_new_account: "Créer un compte"
       email: "Adresse email"
       email_is_in_use: "L'adresse email que vous avez saisi est déjà utilisée."
-      email_is_in_use_or_not_allowed: "Cette adresse email n'est pas acceptée pour cette tribu ou est déjà utilisée. Veuillez utiliser une adresse associée à cette tribu (voir instructions plus haut). Si vous n'arrivez toujours pas à vous connecter, envoyez-nous vos commentaires en utilisant le lien à gauche."
-      email_not_allowed: "Cette adresse email n'est pas autorisée au sein de cette tribu. Merci d'utiliser une adresse qui lui est associée. Si, malgré tout, vous n'arrivez à la rejoindre, envoyez nous un message en cliquant sur le lien à gauche."
+      email_is_in_use_or_not_allowed: "Cette adresse email n'est pas acceptée pour cette tribu ou est déjà utilisée. Veuillez utiliser une adresse associée à cette tribu (voir les instructions ci-dessous). Si vous n'arrivez toujours pas à vous connecter, contactez-nous."
+      email_not_allowed: "Cette adresse email n'est pas autorisée pour cette tribu. Veuillez utiliser une adresse associée à cette tribu. Si vous n'arrivez toujours pas à vous connecter, contactez-nous."
       email_restriction_instructions:
         one: "Cette tribu est réservée à %{community_name}. Pour la rejoindre, vous devez avoir une adresse e-mail du type %{allowed_emails}."
         other: "Cette tribu est réservée à %{community_name}. Pour la rejoindre, vous devez avoir une adresse e-mail se terminant par %{allowed_emails}."
@@ -1416,11 +1418,15 @@ fr:
       reviews: "avis reçus"
       badge: badge
       badges: badges
+      listing: annonce
+      listings: annonces
       open_listing: "annonce en ligne"
       open_listings: "annonces en ligne"
+      no_listings: "Pas d'annonces"
       no_open_listings: "Aucune annonce en ligne"
       no_reviews: "Aucun avis"
       no_badges: "Pas de badges"
+      show_all_listings: "Voir toutes les annonces"
       show_all_open_listings: "Voir toutes les annonces en ligne"
       show_all_reviews: "Vois tous les avis"
       trustcloud: TrustCard

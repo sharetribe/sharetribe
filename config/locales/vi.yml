@@ -673,7 +673,9 @@ vi:
     event_feed:
       latest_events: "Điều gì đang xảy ra"
     index:
+      no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
+      add_listing_link_text: ~
       available_on_the_app_store: ~
       private_listing_notification: ~
       open_listing: ~
@@ -1414,11 +1416,15 @@ vi:
       reviews: ~
       badge: ~
       badges: "Các huy hiệu"
+      listing: ~
+      listings: ~
       open_listing: ~
       open_listings: ~
+      no_listings: ~
       no_open_listings: ~
       no_reviews: ~
       no_badges: ~
+      show_all_listings: ~
       show_all_open_listings: ~
       show_all_reviews: ~
       trustcloud: TrustCloud

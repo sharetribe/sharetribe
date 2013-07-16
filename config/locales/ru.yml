@@ -673,7 +673,9 @@ ru:
     event_feed:
       latest_events: "Последние действия"
     index:
+      no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
+      add_listing_link_text: ~
       available_on_the_app_store: "Доступно в AppStore"
       private_listing_notification: "В этом сообществе содержится %{listing_count} открытых листингов. Из них %{private_listing_count}%{be_verb}видимы только для членов сообщества. Если вы хотите их увидеть, вам нужно %{log_in_link}."
       open_listing: "открытое объявление"
@@ -1416,11 +1418,15 @@ ru:
       reviews: "получены отзывы"
       badge: значок
       badges: Значки
+      listing: ~
+      listings: ~
       open_listing: "открытое объявление"
       open_listings: "открытых объявлений"
+      no_listings: ~
       no_open_listings: "Нет открытых листингов"
       no_reviews: "Нет обзоров"
       no_badges: "Нет значков"
+      show_all_listings: ~
       show_all_open_listings: "Показать все открытые листинги"
       show_all_reviews: "Показать все обзоры"
       trustcloud: TrustCloud

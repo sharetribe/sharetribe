@@ -677,11 +677,13 @@ es-rc:
     event_feed:
       latest_events: ~
     index:
+      no_listings_with_your_search_criteria: ~
       no_listings_notification: |-
           Bienvenido a %{service_name}, colección colectiva de camisetas de fútbol.
           - Para subir tus camisetas, hacé click en Subir camisetas.
           - Para Ver camisetas, utilizá el buscador.
           - Para saber qué camisetas están en tu ciudad, usá el Mapa.
+      add_listing_link_text: ~
       available_on_the_app_store: ~
       private_listing_notification: ~
       open_listing: ~
@@ -1445,11 +1447,15 @@ es-rc:
       reviews: ~
       badge: ~
       badges: ~
+      listing: ~
+      listings: ~
       open_listing: ~
       open_listings: ~
+      no_listings: ~
       no_open_listings: ~
       no_reviews: ~
       no_badges: ~
+      show_all_listings: ~
       show_all_open_listings: ~
       show_all_reviews: ~
       trustcloud: ~

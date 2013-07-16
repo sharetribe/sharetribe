@@ -673,7 +673,9 @@ el:
     event_feed:
       latest_events: "Τι νέα;"
     index:
+      no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
+      add_listing_link_text: ~
       available_on_the_app_store: "Διατίθεται στο app store"
       private_listing_notification: "Υπάρχουν %{listing_count} καταχωρήσεις σε αυτή την κοινότητα. %{private_listing_count} από αυτές %{be_verb} ορατές μόνο σε μέλη της κοινότητας. Αν θέλεις να τις δεις, πρέπει να %{log_in_link}."
       open_listing: ~
@@ -1416,11 +1418,15 @@ el:
       reviews: "έλαβε κριτικές"
       badge: κονκάρδα
       badges: Κονκάρδες
+      listing: ~
+      listings: ~
       open_listing: "ενεργή καταχώρηση"
       open_listings: "ενεργές καταχωρήσεις"
+      no_listings: ~
       no_open_listings: "Καμία ενεργή καταχώρηση"
       no_reviews: "Καμία κριτική"
       no_badges: "Καμία κονκάρδα"
+      show_all_listings: ~
       show_all_open_listings: "Εμφάνισε όλες τις ενεργές καταχωρήσεις"
       show_all_reviews: "Εμφάνισε όλες τις κριτικές"
       trustcloud: TrustCloud

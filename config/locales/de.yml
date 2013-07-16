@@ -509,7 +509,7 @@ de:
       title_link_text: "%{community_name}"
       intro_paragraph: "Hier sind ein paar Beispiele die in der %{community_link} während den letzten %{time_since_last_update} passiert sind."
       intro_paragraph_link_text: "%{community_name}"
-      post_a_new_listing: "Erstelle neuen Eintrag."
+      post_a_new_listing: "Neuer Eintrag"
       reduce_email_footer_text: "Zu viele E-Mails? %{settings_link} oder %{unsubscribe_link}"
       settings_link_text: "Ändere deine E-Mail Grundeinstellungen hier."
       unsubscribe_link_text: abbestellen
@@ -673,7 +673,9 @@ de:
     event_feed:
       latest_events: "Was ist los"
     index:
+      no_listings_with_your_search_criteria: ~
       no_listings_notification: "Es gibt zur Zeit 10 offene Einträge in diesem Tribe. Kannst du jemanden deine Bohrmaschine, deinen Tennisschläger oder dein Forndue Set ausleihen? Magst du gerne nähen, Möbel zusammen stellen oder an Computern basteln? Gibt es Dinge in deinem Schrank, die du los werden möchtest? Oder willst du vielleicht eine Mitfahrgelegenheit? Oder willst du Werkzeug ausleihen? Brauchst du jemanden, der deinen Hund spazieren führt? Füge weitere Informationen darüber hier %{service_name} hinzu."
+      add_listing_link_text: ~
       available_on_the_app_store: "Im App Store erhältlich"
       private_listing_notification: "Es gibt %{listing_count} in der Community. %{private_listing_count} davon %{be_verb} nur für Mitglieder der Community sichtbar. Wenn du auch die Einträge sehen willst, die nur für Mitglieder sichtbar sind, muss du dich eingloggen %{log_in_link}"
       open_listing: "offener Eintrag"
@@ -1419,11 +1421,15 @@ de:
       reviews: "eingegangene Überarbeitungen"
       badge: Namensschild
       badges: Ausweis
+      listing: ~
+      listings: ~
       open_listing: "offener Eintrag"
       open_listings: "offene Einträge"
+      no_listings: ~
       no_open_listings: "keine offenen Einträge"
       no_reviews: "Keine Bewertungen"
       no_badges: "Keine Namensschilder"
+      show_all_listings: ~
       show_all_open_listings: "Zeige alle offenen Einträge an"
       show_all_reviews: "Zeige alle Kritiken Bewertungen an"
       trustcloud: TrustCloud
