@@ -122,7 +122,7 @@ class Person < ActiveRecord::Base
                       :small => "108x108#",
                       :thumb => "48x48#",
                       :original => "600x800>"},
-                    :default_url => "/assets/profile_image/:style/missing.png"
+                    :default_url => ActionController::Base.helpers.image_path("/assets/profile_image/:style/missing.png")
   })
   
   has_attached_file :image, paperclip_options
