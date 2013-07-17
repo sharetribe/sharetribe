@@ -29,6 +29,7 @@ var markerCluster = null;
 $.validator.
 addMethod("address_validator",
   function(value, element, param) {
+    console.log("Address validator");
     var check = null;
   
     // Added to allow empty locations
@@ -170,6 +171,7 @@ function update_source(response,status){
 }
 
 function manually_validate(formhint) {
+  console.log("Manually validate");
   var rray = formhint.split("_");
   var form_id = "#";
   var _element = "#";
