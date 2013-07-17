@@ -734,7 +734,7 @@ module ApplicationHelper
       if @current_community.description && !@current_community.description.blank?
         truncate ? truncate(@current_community.description, :length => 140, :omission => "...") : @current_community.description
       else
-        truncate ? truncate(t("common.default_community_description"), :length => 125, :omission => "...") : t("common.default_community_description")
+        truncate ? truncate(t("common.default_community_description").html_safe, :length => 125, :omission => "...") : t("common.default_community_description").html_safe
       end
     end
   end
