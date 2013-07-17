@@ -73,7 +73,10 @@ en-sb:
         edit_poll: ~
   common:
     default_community_slogan: ~
-    default_community_description: ~
+    default_community_description: |+
+        Snapbike the new bike-sharing platform from person to person (P2P) that enables affordable and easy access to bicycles all over the world. 
+        <p>City bicycle stations, bike rental stores and private bike owners can list their bikes on our platform for rental or trade. Users can also post requests. Prospective bike renters will access Snapbike.net with their PC or Smartphone to receive location based recommendations, and can select a bike to rent. With ratings, a deposit and insurance (coming soon), your bikes are safe with us. We want to create a trusted network of travelers and locals looking for bikes. </p>
+
     cancel: ~
     fields_that_are_mandatory: ~
     or: ~
@@ -734,11 +737,11 @@ en-sb:
       map: ~
       list: ~
       all_listing_types: ~
-      all_categories: ~
+      all_categories: "All Locations"
   infos:
     about:
-      default_about_text_title: ~
-      default_about_text: ~
+      default_about_text_title: " "
+      default_about_text: " "
       click_here_link_text: ~
   layouts:
     no_tribe:
@@ -1030,7 +1033,7 @@ en-sb:
       help_tags_title: ~
       help_valid_until_title: ~
     index:
-      all_categories: ~
+      all_categories: "All Locations"
       all_offer_types: ~
       all_request_types: ~
       category: ~
@@ -1163,7 +1166,7 @@ en-sb:
       what_do_you_want_to_do: ~
       what_can_you_offer: ~
       what_do_you_need: ~
-      select_category: ~
+      select_category: "Select location"
     please_comment: ~
     reply_link:
       listing_closed: ~
@@ -1198,7 +1201,7 @@ en-sb:
       price_excludes_vat: ~
   mapview:
     index:
-      all_categories: ~
+      all_categories: "All Locations"
       all_offer_types: ~
       all_request_types: ~
       category: ~
