@@ -44,6 +44,10 @@ Kassi::Application.configure do
 
   # Generate digests for assets URLs  
   config.assets.digest = true
+  
+  # settings for asset-sync gem
+  config.action_controller.asset_host = "#{APP_CONFIG.s3_bucket_name}.s3.amazonaws.com"
+  config.assets.prefix = "/assets"
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
