@@ -61,7 +61,7 @@
   :javascript
     $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
 
-  %link{:rel => "image_src", :href => "#{@current_community.full_url}/assets/dashboard/sharetribe_logo.png"}
+  %link{:rel => "image_src", :href => "https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png"}
   
   %link{:rel => "shortcut icon", :href => @current_community.favicon_url || "https://s3.amazonaws.com/sharetribe/assets/images/favicon.ico"}
   

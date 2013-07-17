@@ -20,7 +20,7 @@ class Organization < ActiveRecord::Base
                       :small => "108x108",
                       :thumb => "48x48", 
                       :original => "600x600>"},
-                      :default_url => "/organizations/medium/default.png"
+                      :default_url => "/assets/organizations/medium/default.png"
   })
   
   has_attached_file :logo, paperclip_options_for_logo

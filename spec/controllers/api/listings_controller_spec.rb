@@ -336,7 +336,7 @@ describe Api::ListingsController do
       get :index, :community_id => @c1.id, :format => :atom
       response.status.should == 200
       doc = Nokogiri::XML::Document.parse(response.body)
-      doc.at('feed/logo').text.should == "https://www.sharetribe.com/assets/dashboard/sharetribe_logo.png"
+      doc.at('feed/logo').text.should == "https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png"
       
       doc.at("feed/title").text.should =~ /Listings in sharetribe_testcommunity_\d+ Sharetribe/
       doc.search("feed/entry").count.should == 2

@@ -58,7 +58,7 @@ class Community < ActiveRecord::Base
   paperclip_options_for_cover_photo = PaperclipHelper.paperclip_default_options.merge!({:styles => { 
                       :header => "1600x195#",  
                       :original => "3200x3200>"},
-                      :default_url => "/cover_photos/header/default.jpg"
+                      :default_url => "/assets/cover_photos/header/default.jpg"
   })
   has_attached_file :cover_photo, paperclip_options_for_cover_photo
   validates_attachment_content_type :cover_photo,
