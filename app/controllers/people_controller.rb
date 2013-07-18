@@ -137,7 +137,7 @@ class PeopleController < Devise::RegistrationsController
       sign_in(resource_name, resource)
     end
   
-    if @current_community.email_confirmation
+    if @current_community.nil? || @current_community.email_confirmation
       # As automatic confirmation email was skipped, devise marks the person as confirmed, 
       # which isn't actually true, so fix it manually
       @person.update_attributes(:confirmation_sent_at => Time.now, :confirmed_at => nil) 
