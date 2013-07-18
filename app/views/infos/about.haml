@@ -1,12 +1,16 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => about_links }
+- additional_about_text_title = t(".default_about_text_title")
+- additional_about_text = t(".default_about_text", :click_here_link => link_to(t(".click_here_link_text"), dashboard_link(:locale => I18n.locale, :ref => "about_page"))).html_safe
+
 
 .left-navi-section.about-section
   %h2= community_slogan
   = community_description(false)
-  %p
-    %br/
-    ***
-  %small
-    %h3= t(".default_about_text_title")
+  - unless additional_about_text_title.blank? && additional_about_text.blank?
     %p
-      = t(".default_about_text", :click_here_link => link_to(t(".click_here_link_text"), dashboard_link(:locale => I18n.locale, :ref => "about_page"))).html_safe
+      %br/
+      ***
+    %small
+      %h3= additional_about_text_title
+      %p
+        = additional_about_text
