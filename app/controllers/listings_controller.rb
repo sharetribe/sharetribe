@@ -229,7 +229,6 @@ class ListingsController < ApplicationController
   
   def change_follow_status(status)
     status.eql?("follow") ? @current_user.follow(@listing) : @current_user.unfollow(@listing)
-    flash[:notice] = t("layouts.notifications.you_#{status}ed_listing")
     respond_to do |format|
       format.html {
         redirect_to @listing 

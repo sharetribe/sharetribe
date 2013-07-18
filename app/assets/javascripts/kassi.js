@@ -366,7 +366,7 @@ function initialize_new_listing_form_selectors(locale, attribute_hash, listing_f
 }
 
 // Initialize the actual form fields
-function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_rideshare, is_offer, listing_id, address_validator_message, price_required, price_message, minimum_price, minimum_price_message) {
+function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_rideshare, is_offer, listing_id, price_required, price_message, minimum_price, minimum_price_message) {
   
   $('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true, zIndex: 1000000}); });
   $('input.title_text_field:first').focus();
@@ -420,7 +420,6 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
     },
     messages: {
       "listing[valid_until(1i)]": { min_date: date_message, max_date: date_message },
-      "listing[origin]": { address_validator: address_validator_message },
       "listing[price]": { positive_integer: price_message, minimum_price_required: minimum_price_message },
     },
     // Run validations only when submitting the form.
@@ -645,7 +644,7 @@ function initialize_terms_form() {
   });
 }
 
-function initialize_update_profile_info_form(locale, person_id, address_validator, name_required) {
+function initialize_update_profile_info_form(locale, person_id, name_required) {
   auto_resize_text_areas("update_profile_description_text_area");
   $('input.text_field:first').focus();
   var form_id = "#edit_person_" + person_id;
@@ -656,10 +655,10 @@ function initialize_update_profile_info_form(locale, person_id, address_validato
       "person[family_name]": {required: name_required, maxlength: 30},
       "person[phone_number]": {required: false, maxlength: 25}
     },
-     onkeyup: false,
-         onclick: false,
-         onfocusout: false,
-     onsubmit: true,
+    onkeyup: false,
+    onclick: false,
+    onfocusout: false,
+    onsubmit: true,
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
     }

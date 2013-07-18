@@ -53,7 +53,7 @@ function initialize_campaign_page(select_default) {
   $('a:contains("' + select_default + '")').eq(1).parent().remove();
 }
 
-function initialize_new_tribe_form(locale, invalid_domain_message, domain_in_use_message, select_default, address_validator_message) {
+function initialize_new_tribe_form(locale, invalid_domain_message, domain_in_use_message, select_default) {
   auto_resize_text_areas("new_tribe_text_area");
   translate_validation_messages(locale);
   $('select.community_language_select').selectmenu({width: "540px", maxHeight: 175, style: 'dropdown'});
@@ -63,7 +63,7 @@ function initialize_new_tribe_form(locale, invalid_domain_message, domain_in_use
   } else {
     $('a:contains("' + select_default + '")').eq(1).parent().remove();
   }
-  $('input.text_field:first').focus();
+  $('#community_name').focus();
   $('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
   $('#invite_only_help_text_link').click(function() { $('#invite_only_help_text').lightbox_me({centered: true}); });
   var form_id = "#new_community";
@@ -86,8 +86,7 @@ function initialize_new_tribe_form(locale, invalid_domain_message, domain_in_use
       "community[terms]": "required"
     },
     messages: {
-      "community[domain]": { valid_domain: invalid_domain_message, remote: domain_in_use_message },
-      "community[address]": { address_validator: address_validator_message }
+      "community[domain]": { valid_domain: invalid_domain_message, remote: domain_in_use_message }
     },
     onkeyup: false,
     onclick: false,

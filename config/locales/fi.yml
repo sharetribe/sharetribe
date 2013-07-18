@@ -943,7 +943,6 @@ fi:
     follow_links:
       follow: "Seuraa ilmoitusta"
       unfollow: "Lopeta ilmoituksen seuraaminen"
-      follow_description: "Seuraamalla ilmoitusta saat tiedon siihen tulevista kommenteista ja muutoksista."
     form:
       departure_time:
         at: Kellonaika
@@ -1266,7 +1265,6 @@ fi:
       this_person_is_not_active_in_kassi: "Tämä käyttäjä ei ole enää aktiivinen %{service_name_inessive}"
       inactive_description: "Tämä käyttäjä on lopettanut %{service_name_genetive} käytön. Et voi enää lähettää hänelle viestejä, antaa hänelle palautetta tai kommentoida hänen ilmoituksiaan."
     new:
-      address_validator: "Sijaintia ei löytynyt."
       captcha_incorrect: "reCAPTCHA varmistus epäonnistui. Kirjoita kuvassa näkyvät sanat alla olevaan kenttään."
       captcha_was_wrong: "Kirjoittamasi teksti ei vastannut kuvan sanoja."
       create_new_account: "Luo tunnus"
