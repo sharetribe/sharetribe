@@ -130,19 +130,20 @@ class PeopleController < Devise::RegistrationsController
     build_resource
     @person = resource
     
-    
-    # don't send the confirmation email yet as he will need to join an organization too
-    @person.skip_confirmation! if @org_membership_required
-    
-    
+    # Skip automatic email confirmation mail by devise, as that doesn't support custom sender address
+    @person.skip_confirmation! 
+  
     if @person.save!
       sign_in(resource_name, resource)
     end
-    
-    # If confirmation email was skipped, devise marks the person as confirmed, which isn't actually true, so fix it
-    # We set confirmation_sent_at, because otherwise devise acts strangely
-    if @org_membership_required
+  
+    if @current_community.email_confirmation
+      # As automatic confirmation email was skipped, devise marks the person as confirmed, 
+      # which isn't actually true, so fix it manually
       @person.update_attributes(:confirmation_sent_at => Time.now, :confirmed_at => nil) 
+
+      # send the confirmation email manually
+      @person.send_email_confirmation_to(@person.email, request.host_with_port, @current_community) unless @org_membership_required
     end
   
     @person.set_default_preferences
