@@ -315,6 +315,10 @@ class Listing < ActiveRecord::Base
     
     # Two ways of finding, with or without sphinx
     if params[:search].present?
+      
+      # sort by time by default
+      params[:sort] ||= 'created_at DESC'
+      
       with = {}
       if params[:status] == "open" || params[:status].nil?
         with[:open] = true 
@@ -335,7 +339,8 @@ class Listing < ActiveRecord::Base
                                 :page => page,
                                 :per_page => per_page, 
                                 :star => true,
-                                :with => with
+                                :with => with,
+                                :order => params[:sort]
                                 )
                                 
                                 
