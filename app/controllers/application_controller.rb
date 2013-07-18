@@ -11,12 +11,14 @@ class ApplicationController < ActionController::Base
   before_filter :cannot_access_without_joining, :except => [ :confirmation_pending, :check_email_availability]
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
 
-
   # after filter would be more logical, but then log would be skipped when action cache is hit.
   before_filter :log_to_ressi if APP_CONFIG.log_to_ressi
 
   # This updates translation files from WTI on every page load. Only useful in translation test servers.
   before_filter :fetch_translations if APP_CONFIG.update_translations_on_every_page_load == "true"
+
+  #this shuold be last
+  before_filter :push_reported_analytics_event_to_js
 
   rescue_from RestClient::Unauthorized, :with => :session_unauthorized
 
@@ -224,6 +226,23 @@ class ApplicationController < ActionController::Base
     unless @current_user && @current_community && @current_user.has_admin_rights_in?(@current_community)
       flash[:error] = t("layouts.notifications.only_kassi_administrators_can_access_this_area")
       redirect_to root and return
+    end
+  end
+  
+  # Does a push to Google Analytics on next page load
+  # the reason to go via session is that the actions that cause events
+  # often do a redirect.
+  # This is still not fool proof as multiple redirects would lose
+  def report_analytics_event(params_array)
+    session[:analytics_event] = params_array
+  end
+  
+  # if session has analytics event
+  # report that and clean session
+  def push_reported_analytics_event_to_js
+    if session[:analytics_event]
+      @analytics_event = session[:analytics_event]
+      session.delete(:analytics_event)
     end
   end
 

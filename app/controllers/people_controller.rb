@@ -8,7 +8,7 @@ class PeopleController < Devise::RegistrationsController
   
   skip_before_filter :verify_authenticity_token, :only => [:creates]
   
-  before_filter :only => [ :update, :update_avatar ] do |controller|
+  before_filter :only => [ :update, :update_avatar, :destroy ] do |controller|
     controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
   end
   
@@ -259,6 +259,18 @@ class PeopleController < Devise::RegistrationsController
     redirect_to :back
     
   end
+  
+  def destroy
+    if @person && @current_user && @person == @current_user
+      sign_out @current_user
+      @current_user.destroy
+      report_analytics_event(['user', "deleted", "by user"]);
+      flash[:notice] = t("layouts.notifications.account_deleted")
+    end
+    
+    redirect_to root
+  end
+  
   
   def update_avatar
     if params[:person] && params[:person][:image] && @person.update_attributes(params[:person])
