@@ -708,7 +708,7 @@ en:
       add_as_many_emails_as_you_want: "Add the email addresses of the people you are inviting to the field below. If you add multiple email addresses, separate them with comma."
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: "I joined this amazing community. You should too!"
-      errors_in_emails: "Check that there are valid emails, separated by comma."
+      errors_in_emails: "Check that the email addresses you added are valid. If you added multiple addresses, make sure they are separated with comma."
     news_item:
       show_less: "Show less"
       show_more: "Show more"
@@ -1382,10 +1382,6 @@ en:
       slightly_better_than_expected: "Slightly better than expected"
       slightly_less_than_expected: "Slightly worse than expected"
     profile_listings:
-      loading_more_offers: "Loading more offers"
-      loading_more_requests: "Loading more requests"
-      offers: Offers
-      requests: Requests
       show_also_closed: "Show also closed"
       show_only_open: "Show only open"
     show:

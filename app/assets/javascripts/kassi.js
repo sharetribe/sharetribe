@@ -750,9 +750,12 @@ function initialize_reset_password_form() {
   });  
 }
 
-function initialize_profile_view(badges, profile_id) {
+function initialize_profile_view(badges, profile_id, show_closed) {
   $('#load-more-listings').click(function() { 
     request_path = profile_id + "/listings";
+    if (show_closed == true) {
+      request_path += "?show_closed=true";
+    }
     $.get(request_path, function(data) {
       $('#profile-listings-list').html(data);
     });
@@ -864,6 +867,10 @@ function initialize_invitation_form(locale, email_error_message) {
     messages: {
       "invitation[email]": { email_list: email_error_message}
     },
+    onkeyup: false,
+    onclick: false,
+    onfocusout: false,
+    onsubmit: true,
     submitHandler: function(form) {
       disable_and_submit("#new_invitation", form, "false", locale);
     }
