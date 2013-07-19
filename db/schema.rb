@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130718104939) do
+ActiveRecord::Schema.define(:version => 20130719113330) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -177,6 +177,7 @@ ActiveRecord::Schema.define(:version => 20130718104939) do
     t.text     "welcome_email_content"
     t.text     "how_to_use"
     t.text     "custom_head_script"
+    t.text     "about_page_content"
   end
 
   create_table "community_memberships", :force => true do |t|
@@ -378,6 +379,15 @@ ActiveRecord::Schema.define(:version => 20130718104939) do
   add_index "locations", ["community_id"], :name => "index_locations_on_community_id"
   add_index "locations", ["listing_id"], :name => "index_locations_on_listing_id"
   add_index "locations", ["person_id"], :name => "index_locations_on_person_id"
+
+  create_table "mercury_images", :force => true do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
 
   create_table "messages", :force => true do |t|
     t.string   "sender_id"

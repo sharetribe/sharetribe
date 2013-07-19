@@ -2,15 +2,17 @@
 - additional_about_text_title = t(".default_about_text_title")
 - additional_about_text = t(".default_about_text", :click_here_link => link_to(t(".click_here_link_text"), dashboard_link(:locale => I18n.locale, :ref => "about_page"))).html_safe
 
-
 .left-navi-section.about-section
-  %h2= community_slogan
-  = community_description(false)
-  - unless additional_about_text_title.blank? && additional_about_text.blank?
+  - if @current_user && @current_user.has_admin_rights_in?(@current_community)
     %p
-      %br/
-      ***
-    %small
-      %h3= additional_about_text_title
-      %p
-        = additional_about_text
+      %a{:id => "edit_link", :href => "/editor" + request.path, :data => { :save_url => mercury_update_infos_path }}
+        .icon-with-text-container
+          = icon_tag("edit", ["icon-part"]) 
+          .text-part= t("common.edit_page")
+  #page_content{:data => {:mercury => "full"}}
+    - if @community_customization && @community_customization.about_page_content
+      = @community_customization.about_page_content.html_safe
+    - else
+      = render :partial => "default_about_page"
+
+  

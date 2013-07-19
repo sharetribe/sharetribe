@@ -1,7 +1,7 @@
 Feature: User views info about sharetribe
   In order to find information about the service
   As a new user
-  I want to be able to read about Kassi
+  I want to be able to read about the community
 
   @javascript
   Scenario: User views about page
@@ -12,6 +12,15 @@ Feature: User views info about sharetribe
     And I should see "About" within ".selected.left-navi-link"
     And I should see "Terms of use"
     And I should see "Privacy"
+    When I log in as "kassi_testperson2"
+    And I follow "About"
+    Then I should not see "Edit page"
+    When I log out
+    And I log in as "kassi_testperson1"
+    And I follow "About"
+    Then I should not see "Save"
+    When I follow "Edit page"
+    Then I should see "Save"
   
   @javascript
   Scenario: User views terms page

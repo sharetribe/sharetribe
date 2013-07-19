@@ -62,6 +62,7 @@ gem 'dynamic_form'
 gem "rspec-rails"
 gem "truncate_html"
 gem 'money-rails'
+gem 'mercury-rails'
 
 #ouisharelabs
 gem 'rdf-turtle'

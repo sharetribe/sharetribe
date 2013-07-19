@@ -163,6 +163,9 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     memcache-client (1.8.5)
+    mercury-rails (0.9.0)
+      coffee-rails
+      railties (~> 3.2)
     mime-types (1.23)
     money (5.1.1)
       i18n (~> 0.6.0)
@@ -361,6 +364,7 @@ DEPENDENCIES
   json (~> 1.7.7)
   launchy
   memcache-client (>= 1.8.5)
+  mercury-rails
   money-rails
   mysql2
   newrelic_rpm

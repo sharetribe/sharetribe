@@ -114,7 +114,7 @@ class ApplicationController < ActionController::Base
   def fetch_community
     unless on_dashboard?
       # Otherwise pick the domain normally from the request subdomain or custom domain
-      if @current_community = Community.find_by_domain(request.subdomain) || @current_community = Community.find_by_domain(request.host)
+      if @current_community = Community.find_by_domain(request.subdomain) || Community.find_by_domain(request.host)
         # Store to thread the service_name used by current community, so that it can be included in all translations
         ApplicationHelper.store_community_service_name_to_thread(service_name)
       else

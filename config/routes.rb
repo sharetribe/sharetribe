@@ -3,6 +3,12 @@ require 'routes/api_request'
 
 Kassi::Application.routes.draw do
 
+    namespace :mercury do
+      resources :images
+    end
+
+  mount Mercury::Engine => '/'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -179,6 +185,7 @@ Kassi::Application.routes.draw do
         get :terms
         get :privacy
         get :news
+        put :mercury_update
       end  
     end
     resource :terms do
