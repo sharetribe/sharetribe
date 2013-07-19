@@ -708,7 +708,7 @@ en:
       add_as_many_emails_as_you_want: "Add the email addresses of the people you are inviting to the field below. If you add multiple email addresses, separate them with comma."
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: "I joined this amazing community. You should too!"
-      errors_in_emails: "Check that there are valid emails, separated by comma."
+      errors_in_emails: "Check that the email addresses you added are valid. If you added multiple addresses, make sure they are separated with comma."
     news_item:
       show_less: "Show less"
       show_more: "Show more"
@@ -941,9 +941,8 @@ en:
       edit_listing: "Edit listing"
       reopen_listing: "Reopen listing"
     follow_links:
-      follow: "Follow this listing"
-      unfollow: "Stop following this listing"
-      follow_description: "By following a listing you will get notified of new comments and updates to it."
+      follow: "Get emails about new comments"
+      unfollow: "Don't get emails about new comments"
     form:
       departure_time:
         at: At
@@ -1266,7 +1265,6 @@ en:
       this_person_is_not_active_in_kassi: "This user is no longer active in %{service_name}"
       inactive_description: "This user has stopped using %{service_name}. You cannot contact this user, give feedback to them or comment their listings."
     new:
-      address_validator: "The location was not found."
       captcha_incorrect: "reCAPTCHA check failed. Please write the words in the image to the box below."
       captcha_was_wrong: "Captcha text was incorrect."
       create_new_account: "Create account"
@@ -1382,10 +1380,6 @@ en:
       slightly_better_than_expected: "Slightly better than expected"
       slightly_less_than_expected: "Slightly worse than expected"
     profile_listings:
-      loading_more_offers: "Loading more offers"
-      loading_more_requests: "Loading more requests"
-      offers: Offers
-      requests: Requests
       show_also_closed: "Show also closed"
       show_only_open: "Show only open"
     show:

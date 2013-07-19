@@ -4,9 +4,11 @@ require 'base64'
 module PeopleHelper
   
   def persons_listings(person, per_page=3, page=1)
-    if current_user? (person)
+    if current_user?(person) && params[:show_closed]
+      logger.info "Showing also closed"
       person.listings.visible_to(@current_user, @current_community).order("created_at DESC").paginate(:per_page => per_page, :page => page)
     else
+      logger.info "Showing only open"
       person.listings.currently_open.visible_to(@current_user, @current_community).order("created_at DESC").paginate(:per_page => per_page, :page => page)
     end
   end

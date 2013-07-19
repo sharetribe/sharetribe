@@ -58,6 +58,7 @@ addMethod("address_validator",
 
 function timed_input(param) {
   clearTimeout(timer);
+  invalid_locations();
   timer=setTimeout(
     function() {
       update_map(param);
@@ -68,6 +69,8 @@ function timed_input(param) {
 
 function timed_input_on_route(){
   clearTimeout(timer);
+  invalid_locations("listing_origin_loc_attributes");
+  invalid_locations("listing_destination_loc_attributes");
   timer=setTimeout(
     function() {
       startRoute();
@@ -75,7 +78,7 @@ function timed_input_on_route(){
   );
 }
 
-function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable,community_location_lat,community_location_lon) {
+function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable,community_location_lat,community_location_lon,address) {
   prefix = n_prefix;
   textfield = n_textfield;
   
@@ -116,6 +119,14 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable,community_loc
   });
 
   infowindow = new google.maps.InfoWindow();
+  
+  if (address != undefined) {
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.close();
+      infowindow.setContent(address);
+      infowindow.open(map,marker);
+    });
+  }
 
   if (draggable){
     google.maps.event.addListener(map, "click", 
@@ -188,7 +199,7 @@ function manually_validate(formhint) {
       _element += "listing_destination";
     }
   }
-  //$(form_id).validate().element(_element);
+  $(form_id).validate().element(_element);
 }
 
 function nil_locations(_prefix) {
@@ -203,6 +214,15 @@ function nil_locations(_prefix) {
   longitude.value = null;
   google_address.value = null;
   manually_validate(_prefix);
+}
+
+// Make validation fail before it has been checked that the
+// address is found
+function invalid_locations(_prefix) {
+  if (!_prefix)
+    _prefix = prefix;
+  var latitude = document.getElementById(_prefix+ "_latitude");
+  latitude.value = null;
 }
 
 function update_model_location(place,_prefix){
@@ -422,7 +442,6 @@ function addCommunityMarkers() {
       (function() {
         var entry = data_arr[i];
         markerContents[i] = entry["id"];
-        console.log(entry["latitude"], entry["longitude"])
         if (entry["latitude"]) {
           var location;
           location = new google.maps.LatLng(entry["latitude"], entry["longitude"]);
