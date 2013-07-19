@@ -1084,6 +1084,10 @@ $(function(){
   $('.toggle-menu').click( function(event){
     event.stopPropagation();
   });
+  
+  $('.toggle-menu-feed-filters').click( function(event){
+    event.stopPropagation();
+  });
 
   // All dropdowns are collapsed when clicking outside dropdown area
   $(document).click( function(){
