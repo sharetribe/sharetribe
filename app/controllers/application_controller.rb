@@ -119,6 +119,7 @@ class ApplicationController < ActionController::Base
         ApplicationHelper.store_community_service_name_to_thread(service_name)
       else
         # No community found with this domain, so redirecting to dashboard.
+        puts "redirecting to dashboard" if Rails.env.test?
         redirect_to "http://www.#{APP_CONFIG.domain}"
       end
     end
@@ -141,6 +142,7 @@ class ApplicationController < ActionController::Base
   def cannot_access_without_joining
     if @current_user && ! (on_dashboard? || @current_community_membership || @current_user.is_admin?)
       flash.keep
+      puts "cannot_access_without_joining filter activated" if Rails.env.test?
       redirect_to new_tribe_membership_path 
     end
   end
