@@ -78,6 +78,10 @@
       = yield
 
   = render :partial => "layouts/google_analytics_script"
+  
+  - if @analytics_event
+    :javascript
+      report_analytics_event(#{@analytics_event});
 
 
   /[if lt IE 9]

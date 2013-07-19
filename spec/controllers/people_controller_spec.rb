@@ -104,5 +104,38 @@ describe PeopleController do
       flash[:error].to_s.should include("This email is not allowed for this community")
     end
   end
+  
+  describe "#destroy" do
+    before(:each) do
+      @community = FactoryGirl.create(:community)
+      @request.host = "#{@community.domain}.lvh.me"
+      @person = FactoryGirl.create(:person)
+      @community.members << @person
+      @id = @person.id
+      Person.find_by_id(@id).should_not be_nil
+      
+    end
+    
+    it "deletes the person" do
+      sign_in_for_spec(@person)
+      
+      delete :destroy, {:person_id => @id}
+      response.status.should == 302
+      
+      Person.find_by_id(@id).should be_nil
+    end
+    
+    it "doesn't delete if not logged in as target person" do
+      b = FactoryGirl.create(:person)
+      @community.members << b
+      sign_in_for_spec(b)
+      
+      delete :destroy, {:person_id => @id}
+      response.status.should == 302
+      
+      Person.find_by_id(@id).should_not be_nil
+    end
+    
+  end
 
 end
