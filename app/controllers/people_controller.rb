@@ -67,7 +67,7 @@ class PeopleController < Devise::RegistrationsController
       @org_membership_required = false
     end
     
-    if params[:person][:email_confirmation].present? # Honey pot for spammerbots
+    if params[:person][:email_repeated].present? # Honey pot for spammerbots
       flash[:error] = t("layouts.notifications.registration_considered_spam")
       ApplicationHelper.send_error_notification("Registration Honey Pot is hit.", "Honey pot")
       redirect_to error_redirect_path and return
