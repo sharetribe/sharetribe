@@ -7,6 +7,7 @@ class PeopleController < Devise::RegistrationsController
   include RDF
   
   skip_before_filter :verify_authenticity_token, :only => [:creates]
+  skip_before_filter :require_no_authentication, :only => [:new]
   
   before_filter :only => [ :update, :update_avatar, :destroy ] do |controller|
     controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
