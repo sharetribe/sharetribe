@@ -90,8 +90,8 @@ es-ES:
       rent: arrendando
       rent_out: Arrienda
       sell: Vender
-      offer_to_swap: Intercambio
-      request_to_swap: Intercambio
+      offer_to_swap: ~
+      request_to_swap: ~
       share_for_free: "compartido gratuitamente"
       accept_for_free: "queriendo utilizarlo gratis"
     categories:
@@ -120,13 +120,13 @@ es-ES:
   conversations:
     accept:
       respond_to_offer: ~
-      respond_to_request: "Responder al pedido"
+      respond_to_request: ~
       accept_offer: ~
-      accept_request: "Aceptar el pedido"
-      reject_offer: "Rechazar pedido"
-      reject_request: "Rechazar pedido"
-      close_listing: "Quitar el aviso %{listing_title_link}"
-      update_later: "Dejar el aviso abierto"
+      accept_request: ~
+      reject_offer: ~
+      reject_request: ~
+      close_listing: ~
+      update_later: ~
       optional_message: ~
       price_to_pay: ~
     confirm:
@@ -140,6 +140,7 @@ es-ES:
       give_feedback_to: ~
       do_not_give_feedback: ~
     index:
+      messages_from_all_tribes: "Esta sección contiene mensajes que has intercambiado con otras personas en todas las tribus a las que perteneces."
       loading_more_messages: "Cargando más mensajes"
       message_partitive: Mensaje
       messages_partitive: Mensajes
@@ -157,7 +158,7 @@ es-ES:
     message:
       accepted_request: ~
       accepted_offer: ~
-      rejected_request: "rechazó el pedido"
+      rejected_request: ~
       rejected_offer: ~
       confirmed_request: ~
       confirmed_offer: ~
@@ -192,7 +193,7 @@ es-ES:
       rideshare_offer_message_form_title: "Solicitale un traslado a"
       rideshare_request_message_form_title: "Ofrécele un traslado a"
       send_message: "Enviar mensaje"
-      send: Enviar
+      send: ~
       this_message_is_private: "Este mensaje es privado entre usted y %{person}."
       you_will_get_notified_of_acceptance: "Recibirás una notificación por email cuando %{person} acepte o rechace tu propuesta."
       you_will_get_notified: "Recibirás una notificación por email cuando %{person} te conteste."
@@ -216,6 +217,7 @@ es-ES:
         your_request: "Su solicitud"
       loading_more_notifications: "Cargando más notificaciones"
       no_notifications: "No hay notificaciones."
+      notifications_from_all_tribes: "Esta sección contiene notificaciones de todas las tribus a las que perteneces."
       testimonialnotification:
         give_feedback_to: "Da una sugerencia a %{name}"
         has_given_you_feedback_on_event: "Has recibido una sugerencia del evento"
@@ -246,7 +248,7 @@ es-ES:
       request_canceled: ~
       skip_feedback: "Omitir sugerencia"
       waiting_for_listing_author_to_accept_offer: ~
-      waiting_for_listing_author_to_accept_request: "Esperando que %{listing_author_name} acepte el pedido"
+      waiting_for_listing_author_to_accept_request: ~
       waiting_confirmation_from_requester: ~
       waiting_payment_from_requester: ~
     status_link:
@@ -441,7 +443,7 @@ es-ES:
       welcome_to_kassi: "Bienvenido a %{service_name}!"
       need_to_confirm: "Antes de empezar a utilizar %{service_name}, deberás confirmar tu dirección de correo electrónico con el siguiente link:"
       confirmation_link_text: "Confirmar mi cuenta"
-      or_paste_link: "Si no funciona, puedes copiar el siguiente link en la barra de tu navegador."
+      or_paste_link: ~
       turning_on_confirmations_in_this_community: "Comenzamos a utilizar e-mails de confirmación en la comunidad %{service_name}."
     common:
       check_your_settings: "Revisa tu configuración"
@@ -454,7 +456,7 @@ es-ES:
       message_not_displaying_correctly: "¿Tienes problemas para ver este correo?"
       view_it_in_your_browser: "Velo en tu buscador"
       or: ~
-      unsubscribe_from_these_emails: "date de baja de estos emails"
+      unsubscribe_from_these_emails: ~
     community_starter_email:
       subject: ~
     conversation_status_changed:
@@ -510,10 +512,14 @@ es-ES:
       title_link_text: ~
       intro_paragraph: "Aquí están algunos de los sucesos que han ocurrido en la %{community_link} durante el pasado %{time_since_last_update}."
       intro_paragraph_link_text: ~
+      could_you_share_something: "¿Podrías compartir algo?"
+      do_you_need_help_with_anything: "¿Necesitas ayuda con algo?"
       post_a_new_listing: "Publica un nuevo aviso!"
       reduce_email_footer_text: "¿Demasiados email? %{settings_link} o %{unsubscribe_link}."
+      tribe_creation_promotion_footer: "¿Sabías que puedes crear un mercado comunitario como este de forma gratuita para tu vecindario, comuna, asociación u otra comunidad local? %{create_tribe_link} o descubre más respondiendo este email."
       settings_link_text: "Edita tu configuración de email aquí"
       unsubscribe_link_text: "cancelar suscripción"
+      create_tribe_link_text: "Crea una tú mismo"
     newsletter:
       weekly_news_from_kassi: "Noticias semanales de %{community} %{service_name}"
       hi: "Hola %{name},"
@@ -543,7 +549,7 @@ es-ES:
           Recuerda hacer una sugerencia de cómo %{given_name} actuó en el evento.
     welcome_email:
       welcome_email_footer_text: ~
-      settings_link_text: "Revisa tu configuración"
+      settings_link_text: ~
       subject: "Bienvenido a %{community} - Algunos consejos para ayudarte a empezar"
       welcome_some_tips: "Bienvenido a %{community_link}! Algunos consejos para ayudarte a empezar."
       p_s_did_you_know: "P.D. ¿Sabías que puedes crear un mercado como este para cualquier comunidad a la que perteneces, completamente gratis? %{click_here_link} para saber más!"
@@ -676,9 +682,7 @@ es-ES:
     event_feed:
       latest_events: "Qué está pasando"
     index:
-      no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
-      add_listing_link_text: ~
       available_on_the_app_store: "Disponible en la App Store"
       private_listing_notification: "Hay %{listing_count} publicaciones abiertas en esta comunidad. %{private_listing_count} de ellas %{be_verb} visibles sólo para los miembros de la comunidad. Si quieres ver esas publicaciones, necesitas %{log_in_link}."
       open_listing: ~
@@ -773,7 +777,7 @@ es-ES:
       connect: Regístrate
       invite_your_friends: "Invita amigos!"
       invite_your_neighbors: "¡Invita a tus vecinos!"
-      invite_your_friends_description: "Mientras más gente haya en %{service_name}, más útil será."
+      invite_your_friends_description: "Mientras más gente hay en %{service_name}, más útil será."
       invite_your_friends_invite_only_description: ~
       join_without_facebook: "... o alternativamente %{join_without_facebook_link}"
       join_without_facebook_link: "regístrate sin usar Facebook"
@@ -861,9 +865,6 @@ es-ES:
       only_listing_author_can_close_a_listing: "Solo el creador de una lista puede cerrarla"
       only_listing_author_can_edit_a_listing: "Solo el creador de una lista puede editarla"
       payment_successful: ~
-      payment_canceled: ~
-      error_in_payment: ~
-      payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: "Las instrucciones para modificar su contraseña han sido enviadas a su correo electrónico."
       person_activated: "Usuario activado"
       person_deactivated: "Usuario desactivado"
@@ -1006,7 +1007,7 @@ es-ES:
         sell: Vender
         share_for_free: "Compartir gratuitamente"
         accept_for_free: "Aceptando gratis"
-        trade: Intercambio
+        trade: Comercio
       tag_list:
         comma_separate: "(separado por comas)"
         tags: Etiquetas
@@ -1071,7 +1072,7 @@ es-ES:
       sells: Vender
       share_for_frees: "Compartir gratuitamente"
       accept_for_frees: "Aceptando gratis"
-      trades: Intercambio
+      trades: Comercio
     link_labels:
       offer_this: ~
       request_this: ~
@@ -1123,8 +1124,8 @@ es-ES:
       selected_rent: Arrendando
       selected_rent_out: Alquilando
       selected_sell: Vendiendo
-      selected_offer_to_swap: Intercambio
-      selected_request_to_swap: Intercambio
+      selected_offer_to_swap: ~
+      selected_request_to_swap: ~
       selected_share_for_free: "Compartiendo gratis"
       selected_accept_for_free: "Aceptando gratis"
       how_do_you_want_to_share_it: "¿Cómo lo quieres compartir?"
@@ -1384,6 +1385,14 @@ es-ES:
       grade: "puntaje:"
       and_gave_following_feedback: "y dio los siguientes comentarios"
       less_than_expected: "Peor de lo esperado"
+      offered_favor: "Ofreció ayuda"
+      offered_housing: "Ofreció alojamiento"
+      offered_item: "Ofreció un producto"
+      offered_rideshare: "Ofreció un traslado"
+      requested_favor: "Solicitó ayuda"
+      requested_housing: "Solicitó alojamiento"
+      requested_item: "Solicitó un producto"
+      requested_rideshare: "Solicitó un trayecto de traslado"
       slightly_better_than_expected: "Un poco mejor de lo esperado"
       slightly_less_than_expected: "Un poco peor de lo esperado"
     profile_listings:
@@ -1421,15 +1430,11 @@ es-ES:
       reviews: "reseñas recibidas"
       badge: medalla
       badges: Medallas
-      listing: ~
-      listings: ~
       open_listing: "publicación abierta"
       open_listings: "publicaciones abiertas"
-      no_listings: ~
       no_open_listings: "Sin publicaciones abiertas"
       no_reviews: "Sin reseñas"
       no_badges: "Sin medallas"
-      show_all_listings: ~
       show_all_open_listings: "Mostrar todas las publicaciones abiertas"
       show_all_reviews: "Mostrar todas las reseñas"
       trustcloud: ~
@@ -1467,6 +1472,8 @@ es-ES:
     confirmation_pending:
       welcome_to_kassi: "Bienvenido a %{service_name}!"
       check_your_email: "Revise su bandeja de entrada"
+      account_conrimation_instructions: ~
+      account_confirmation_instructions_any_email: ~
       get_started: "Comenzar con %{service_name}"
       getting_started_instructions: ~
       resend_confirmation_instructions: "Reenvío de instrucciones de confirmación"
@@ -1476,6 +1483,7 @@ es-ES:
       account_confirmation_instructions: ~
       account_confirmation_instructions_dashboard: "Pronto recibirás un e-mail con un link al que deberás hacer clic para confirmar la cuenta e-mail ingresada."
   settings:
+    settings_affect_all_tribes: "Esta configuración afecta a todas las comunidades Sharetribe a las que perteneces."
     account:
       change: Cambiar
       confirm_new_password: "Confirmar nueva contraseña"
@@ -1582,6 +1590,8 @@ es-ES:
       negative: Negativo
       default_textual_feedback: "Todo fue sin problemas, muchas gracias!"
     testimonial:
+      from_user: Desde
+      to_user: a
       about_listing: "acerca de"
   time:
     formats:

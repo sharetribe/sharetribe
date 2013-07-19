@@ -140,6 +140,7 @@ fr:
       give_feedback_to: "Donner un avis sur %{person_link}"
       do_not_give_feedback: "Ne pas donner d'avis"
     index:
+      messages_from_all_tribes: "Voici les messages que vous avez échangés avec d'autres personnes dans toutes les tribus %{service_name} auxquelles vous appartenez."
       loading_more_messages: "Chargement de la suite des messages"
       message_partitive: message
       messages_partitive: messages
@@ -216,6 +217,7 @@ fr:
         your_request: "votre demande"
       loading_more_notifications: "Chargement de plus de notifications"
       no_notifications: "Pas de notifications."
+      notifications_from_all_tribes: "Voici les notifications relatives à toutes les tribus auxquelles vous appartenez."
       testimonialnotification:
         give_feedback_to: "Donner un avis sur %{name}"
         has_given_you_feedback_on_event: "vous a donné un avis pour l'événement"
@@ -507,10 +509,14 @@ fr:
       title_link_text: "%{community_name}"
       intro_paragraph: "Voici une partie de ce qu'il s'est passé dans la tribu %{community_link} depuis %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
+      could_you_share_something: "Avez-vous quelque chose à partager ?"
+      do_you_need_help_with_anything: "Avez-vous besoin d'un service ?"
       post_a_new_listing: "Déposez une annonce !"
       reduce_email_footer_text: "Trop d'emails ? %{settings_link} ou %{unsubscribe_link}."
+      tribe_creation_promotion_footer: "Saviez-vous que vous pouvez créer gratuitement une place de marché, comme celle-ci, pour votre quartier, votre ville, votre association ou vos autres communautés locales ? %{create_tribe_link} ou posez-nous vos questions en répondant à cet email."
       settings_link_text: "Gérez vos paramètres d'email"
       unsubscribe_link_text: désabonnez-vous
+      create_tribe_link_text: "Créez la votre"
     newsletter:
       weekly_news_from_kassi: "Cette semaine dans la tribu %{service_name} %{community}"
       hi: "Bonjour %{name},"
@@ -671,9 +677,7 @@ fr:
     event_feed:
       latest_events: "Que se passe t-il"
     index:
-      no_listings_with_your_search_criteria: "Nous n'avons pas trouvé de résultats correspondants à votre requête."
-      no_listings_notification: "Aucune annonce. %{add_listing_link}."
-      add_listing_link_text: "Ajouter une annonce"
+      no_listings_notification: "Il y a moins de 10 annonces en ligne dans cette tribu. Pouvez-vous prêter votre perceuse, votre raquette de tennis ou votre appareil à raclette ? Savez-vous coudre, monter des meubles ou réparer des ordinateurs ? Y a t-il des objets dans vos placards dont vous aimeriez vous séparer ? Ou bien aimeriez-vous faire un covoiturage ? Ou emprunter des outils ? Ou trouver quelqu'un qui pourrait promener votre chien ? Ajoutez des annonces sur %{service_name} !"
       available_on_the_app_store: "Disponible sur l'app store"
       private_listing_notification: "Il y a %{listing_count} annonces disponibles dans cette tribu. %{private_listing_count} d'entre elles ne %{be_verb} visible(s) qu'aux membres de la tribu. Si vous voulez les voir visibles uniquement par les membres, vous devez vous %{log_in_link}."
       open_listing: "annonce en ligne"
@@ -856,9 +860,6 @@ fr:
       only_listing_author_can_close_a_listing: "Seul l'auteur de l'annonce peut la clore"
       only_listing_author_can_edit_a_listing: "Seul l'annonce de liste peut la modifier"
       payment_successful: "Paiement réussi"
-      payment_canceled: "Paiement annulé"
-      error_in_payment: "Erreur lors du paiement. Si vous n'avez pas terminé le paiement, essayez de nouveau. Si vous l'aviez terminé, merci de nous contacter."
-      payment_waiting_for_later_accomplishment: "Quand vous aurez payé, nous le signalerons au vendeur et vous recevrez une facture par email"
       password_recovery_sent: "Les instructions pour réinitialiser votre mot de passe ont été envoyées à votre adresse email."
       person_activated: "Utilisateur activé"
       person_deactivated: "Utilisateur désactivé"
@@ -1272,8 +1273,8 @@ fr:
       create_new_account: "Créer un compte"
       email: "Adresse email"
       email_is_in_use: "L'adresse email que vous avez saisi est déjà utilisée."
-      email_is_in_use_or_not_allowed: "Cette adresse email n'est pas acceptée pour cette tribu ou est déjà utilisée. Veuillez utiliser une adresse associée à cette tribu (voir les instructions ci-dessous). Si vous n'arrivez toujours pas à vous connecter, contactez-nous."
-      email_not_allowed: "Cette adresse email n'est pas autorisée pour cette tribu. Veuillez utiliser une adresse associée à cette tribu. Si vous n'arrivez toujours pas à vous connecter, contactez-nous."
+      email_is_in_use_or_not_allowed: "Cette adresse email n'est pas acceptée pour cette tribu ou est déjà utilisée. Veuillez utiliser une adresse associée à cette tribu (voir instructions plus haut). Si vous n'arrivez toujours pas à vous connecter, envoyez-nous vos commentaires en utilisant le lien à gauche."
+      email_not_allowed: "Cette adresse email n'est pas autorisée au sein de cette tribu. Merci d'utiliser une adresse qui lui est associée. Si, malgré tout, vous n'arrivez à la rejoindre, envoyez nous un message en cliquant sur le lien à gauche."
       email_restriction_instructions:
         one: "Cette tribu est réservée à %{community_name}. Pour la rejoindre, vous devez avoir une adresse e-mail du type %{allowed_emails}."
         other: "Cette tribu est réservée à %{community_name}. Pour la rejoindre, vous devez avoir une adresse e-mail se terminant par %{allowed_emails}."
@@ -1379,6 +1380,14 @@ fr:
       grade: "note :"
       and_gave_following_feedback: "et a donné l'avis suivant"
       less_than_expected: "Ne correspondait pas à mes attentes"
+      offered_favor: "a rendu service"
+      offered_housing: "a proposé"
+      offered_item: "a proposé"
+      offered_rideshare: "a proposé un transport"
+      requested_favor: "a reçu un service"
+      requested_housing: "a demandé un lieu"
+      requested_item: "a reçu"
+      requested_rideshare: "a demandé un transport"
       slightly_better_than_expected: "Mieux qu'attendu"
       slightly_less_than_expected: "Moins bien qu'attendu"
     profile_listings:
@@ -1416,15 +1425,11 @@ fr:
       reviews: "avis reçus"
       badge: badge
       badges: badges
-      listing: annonce
-      listings: annonces
       open_listing: "annonce en ligne"
       open_listings: "annonces en ligne"
-      no_listings: "Pas d'annonces"
       no_open_listings: "Aucune annonce en ligne"
       no_reviews: "Aucun avis"
       no_badges: "Pas de badges"
-      show_all_listings: "Voir toutes les annonces"
       show_all_open_listings: "Voir toutes les annonces en ligne"
       show_all_reviews: "Vois tous les avis"
       trustcloud: TrustCard
@@ -1462,6 +1467,8 @@ fr:
     confirmation_pending:
       welcome_to_kassi: "Bienvenue sur %{service_name} !"
       check_your_email: "Voir vos messages"
+      account_conrimation_instructions: "Vous recevrez bientôt un email de %{service_name} avec un lien sur lequel vous devrez cliquer pour accéder à la tribu %{service_name}.</p><p> Cette vérification par email est effectuée pour s'assurer que tous les membres appartiennent effectivement à la tribu (<b>%{community_name}</b>). L'environnement est ainsi plus sûr pour le partage. </p><p>Si vous rencontrez un problème quelconque en utilisant %{service_name}, cliquez sur <a href=\"#\" id=\"give_feedback_link\">commentaires</a> à gauche de l'écran et faites-nous le savoir. Veuillez aussi partager vos idées sur ce comment améliorer le service !"
+      account_confirmation_instructions_any_email: "Vous allez bientôt recevoir un email de %{service_name} contenant un lien sur lequel vous devez cliquer pour accéder à la communauté %{service_name}.</p><p>Cet email est important pour s'assurer d'un environnement de confiance pour mieux partager.</p><p>Si vous rencontrez le moindre problème avec %{service_name}, cliquez sur le bouton <a href=\"#\" id=\"give_feedback_link\">feedback</a> sur la gauche et dites nous en plus. N'hésitez pas à nous faire part de vos idées d'amélioration !"
       get_started: "Début avec %{service_name}"
       getting_started_instructions: "Lorsque vous avez confirmé votre inscription, il est conseillé d'ajouter une photo à votre <a href=\"%{profile_url}\">profil</a> et de remplir d'autres informations. Vous pouvez également poursuivre directement vers une transaction en ajoutant une <a href=\"/en/listings/new/offer\">offre</a> concernant quelque chose que vous pourriez prêter, louer ou vendre, ou un service que vous pourriez proposer. Sinon, si vous avez besoin d'un certain objet ou d'aide avec quelque chose, vous pouvez envoyer une  <a href=\"/en/listings/new/request\">demande</a>."
       resend_confirmation_instructions: "Renvoyer les instructions de confirmation"
@@ -1471,6 +1478,7 @@ fr:
       account_confirmation_instructions: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer votre adresse. Dès que vous l'aurez confirmée, vous pourrez rejoindre cette tribu."
       account_confirmation_instructions_dashboard: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer l'adresse email que vous nous avez fournie."
   settings:
+    settings_affect_all_tribes: "Ces paramètres auront effet sur toutes les tribus auxquelles vous appartenez."
     account:
       change: Changer
       confirm_new_password: "Confirmez votre nouveau mot de passe"
@@ -1577,6 +1585,8 @@ fr:
       negative: Négatif
       default_textual_feedback: "Tout s'est bien passé, merci !"
     testimonial:
+      from_user: par
+      to_user: à
       about_listing: "à propos de l'annonce"
   time:
     formats:

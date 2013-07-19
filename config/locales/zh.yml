@@ -838,6 +838,7 @@ zh:
       login_again: 请重新登录。
       login_failed: 登录失败，请输入正确的用户凭证
       account_creation_successful: ~
+      account_deleted: ~
       login_successful: "欢迎来到Kassi, "
       logout_successful: 您已登出Kassi，欢迎再次使用！
       news_item_created: 创建文章
@@ -943,7 +944,6 @@ zh:
     follow_links:
       follow: 关注此列表
       unfollow: 不再关注此列表
-      follow_description: 关注列表后，您会获得来自此列表的新评论和更新。
     form:
       departure_time:
         at: 在
@@ -1266,7 +1266,6 @@ zh:
       this_person_is_not_active_in_kassi: 此用户处于冻结状态
       inactive_description: 此用户已停用。您不能联系此用户或评价他们的商品列表。
     new:
-      address_validator: 未发现地点
       captcha_incorrect: 验证码错误。请输入下图中显示的单词
       captcha_was_wrong: 验证码错误
       create_new_account: 创建账户
@@ -1379,10 +1378,6 @@ zh:
       slightly_better_than_expected: 比期望的略好
       slightly_less_than_expected: 比期望的略差
     profile_listings:
-      loading_more_offers: 加载更多提供
-      loading_more_requests: 加载更多请求
-      offers: 提供
-      requests: 请求
       show_also_closed: 显示已关闭的交易
       show_only_open: 仅显示开放交易
     show:
@@ -1472,6 +1467,8 @@ zh:
       change: 修改
       confirm_new_password: 确认新密码
       delete_account: 删除账号
+      delete_account_button: ~
+      delete_account_confirmation_popup: ~
       email: "Email 地址"
       instructions_to_delete_account: ~
       contact_admin: ~

@@ -838,6 +838,7 @@ de:
       login_again: "Bitte melden Sie sich erneut an."
       login_failed: "Anmeldung fehlgeschlagen. Bitte geben Sie korrekte Anmeldeinformationen ein."
       account_creation_successful: "Willkommen zu %{service_name}, %{person_name}!"
+      account_deleted: ~
       login_successful: "Willkommen, %{person_name}!"
       logout_successful: "Sie wurden nun von %{service_name} abgemeldet. Willkommen zurück!"
       news_item_created: "Artikel erstellt"
@@ -943,7 +944,6 @@ de:
     follow_links:
       follow: "Eintrag verfolgen"
       unfollow: "Diesen Eintrag nichtmehr verfolgen"
-      follow_description: "Wenn Sie einen Eintrag verfolgen, werden Sie benachrichtigt über neue Kommentare und Updates."
     form:
       departure_time:
         at: bei
@@ -1269,7 +1269,6 @@ de:
       this_person_is_not_active_in_kassi: "Der Benutzer ist nicht mehr aktiv in %{service_name}"
       inactive_description: "Der Benutzer hat aufgehört %{service_name} zu verwenden. Sie können diesen Benutzer weder kontaktieren, noch können Sie Ihm Feedback oder Kommentare hinterlassen."
     new:
-      address_validator: "Der Standort wurde nicht gefunden."
       captcha_incorrect: "ReCAPTCHA-Überprüfung fehlgeschlagen. Bitte schreiben Sie die Wörter aus dem Bild in das Feld unten."
       captcha_was_wrong: "Captcha-Text war falsch."
       create_new_account: "Konto erstellen"
@@ -1385,10 +1384,6 @@ de:
       slightly_better_than_expected: "Etwas besser als erwartet"
       slightly_less_than_expected: "Etwas schlechter als erwartet"
     profile_listings:
-      loading_more_offers: "Weitere Angebote laden"
-      loading_more_requests: "Weitere Anfragen laden"
-      offers: Angebote
-      requests: Anfragen
       show_also_closed: "Auch geschlossene anzeigen"
       show_only_open: "Nur offene anzeigen"
     show:
@@ -1478,6 +1473,8 @@ de:
       change: Ändern
       confirm_new_password: "Neues Passwort bestätigen"
       delete_account: "Konto löschen"
+      delete_account_button: ~
+      delete_account_confirmation_popup: ~
       email: "Email Adresse"
       instructions_to_delete_account: "Wenn du dein Konto löschen möchtest, dann kontaktiere uns %{contact_admin_link}."
       contact_admin: "Bitte kontaktiere die Administratoren"
