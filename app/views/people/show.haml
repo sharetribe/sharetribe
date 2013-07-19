@@ -35,15 +35,6 @@
             .ss-chat.icon-part
             .ss.text-part= t(".add_description")
       .profile-icons
-        - if logged_in? && @person.phone_number && !@person.phone_number.blank?
-          .icon-with-text-container
-            .ss-phone.icon-part
-            .text-part= @person.phone_number
-        - elsif current_user?(@person)
-          .icon-with-text-container
-            %a{href: person_settings_path(@person)}
-              .ss-phone.icon-part
-              .text-part= t(".add_phone_number")
         .icon-with-text-container
           .ss-adduser.icon-part 
           .text-part= t(".joined_this_community", :name => @person.given_name_or_username, :time_ago => time_ago(@community_membership.created_at))

@@ -517,17 +517,21 @@ function initialize_listing_map(community_location_lat, community_location_lon, 
 function setMapCenter(community_location_lat, community_location_lon, show_alerts) {
   // Set default location to Helsinki
   var defaultPosition = new google.maps.LatLng(60.17, 24.94);
-  // If location given in parameters, use it
-  if (community_location_lat != null && community_location_lat != '') {
-    map.setCenter(new google.maps.LatLng(community_location_lat,community_location_lon));
   // Try Browser Geolocation
-  } else if (navigator.geolocation) {
+  if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       map.setCenter(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
     }, function() {
-      if (show_alerts == true)
-        alert("Geolocation service failed. We've placed you in Helsinki, Finland.");
-      map.setCenter(defaultPosition);
+      if (show_alerts == true) {
+        // If location given in parameters, use it
+        if (community_location_lat != null && community_location_lat != '') {
+          map.setCenter(new google.maps.LatLng(community_location_lat,community_location_lon));
+        // Browser doesn't support Geolocation, we need to use the default location.
+        } else {
+          alert("Geolocation service failed. We've placed you in Helsinki, Finland.");
+          map.setCenter(defaultPosition);
+        }
+      }
     });
   // Browser doesn't support Geolocation, we need to use the default location.
   } else {
