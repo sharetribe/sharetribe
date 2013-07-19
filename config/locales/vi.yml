@@ -838,6 +838,7 @@ vi:
       login_again: "Vui lòng đăng nhập lại."
       login_failed: "Đăng nhập thất bại. Hãy nhập chính xác thông tin."
       account_creation_successful: ~
+      account_deleted: ~
       login_successful: "Chào mừng đến với %{service_name}, "
       logout_successful: "Bây giờ bạn đã đăng xuất khỏi %{service_name}. Chào mừng bạn lần nữa!"
       news_item_created: "Bài viết đã được tạo"
@@ -943,7 +944,6 @@ vi:
     follow_links:
       follow: "Thực hiện theo các danh sách này"
       unfollow: "Ngừng theo danh sách này"
-      follow_description: "Bằng cách làm theo danh sách, bạn sẽ nhận được thông báo về ý kiến mới và cập nhật nó."
     form:
       departure_time:
         at: Tại
@@ -1266,7 +1266,6 @@ vi:
       this_person_is_not_active_in_kassi: "Người dùng này không còn hoạt động trong %{service_name}"
       inactive_description: "Người dùng này đã ngừng sử dụng  %{service_name} . Bạn không thể liên lạc với người dùng này, đưa ra phản hồi cho họ hoặc nhận xét danh sách của họ."
     new:
-      address_validator: "Vị trí không tìm thấy."
       captcha_incorrect: "kiểm tra reCAPTCHA không thành công. Xin vui lòng viết các từ trong hình vào hộp dưới đây."
       captcha_was_wrong: "Văn bản CAPTCHA không chính xác."
       create_new_account: "Tạo tài khoản"
@@ -1380,10 +1379,6 @@ vi:
       slightly_better_than_expected: "Tốt hơn một chút so với dự kiến"
       slightly_less_than_expected: "Tệ hơn một chút so với dự kiến"
     profile_listings:
-      loading_more_offers: "Tải thêm hỗ trợ"
-      loading_more_requests: "Tải thêm yêu cầu"
-      offers: "Các hỗ trợ"
-      requests: "Các yêu cầu"
       show_also_closed: "Hiển thị cũng đóng"
       show_only_open: "Chỉ hiển thị mở"
     show:
@@ -1473,6 +1468,8 @@ vi:
       change: "Thay đổi"
       confirm_new_password: "Xác nhận mật khẩu mới"
       delete_account: "Xóa tài khoản"
+      delete_account_button: ~
+      delete_account_confirmation_popup: ~
       email: "Địa chỉ email:"
       instructions_to_delete_account: "Nếu bạn muốn xóa tài khoản của bạn, liên hệ với chúng tôi bằng cách sử dụng nút phản hồi bên trái."
       contact_admin: ~

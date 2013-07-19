@@ -73,10 +73,152 @@ en-sb:
         edit_poll: ~
   common:
     default_community_slogan: ~
-    default_community_description: |+
-        Snapbike the new bike-sharing platform from person to person (P2P) that enables affordable and easy access to bicycles all over the world. 
-        <p>City bicycle stations, bike rental stores and private bike owners can list their bikes on our platform for rental or trade. Users can also post requests. Prospective bike renters will access Snapbike.net with their PC or Smartphone to receive location based recommendations, and can select a bike to rent. With ratings, a deposit and insurance (coming soon), your bikes are safe with us. We want to create a trusted network of travelers and locals looking for bikes. </p>
+    default_community_description: |
+        <!DOCTYPE html>
+        <html lang="en">
 
+        <head>
+
+        	    <nav>
+
+        	<a href="#how_it_works">How it works</a>
+        	<a href="#team">Team</a>
+          	   </nav>
+
+        	   <h1>Our Vision: Creating a trusted, worldwide rental network of cyclists unified by a
+
+        	   green initiative. </h1>
+
+
+
+        </head>
+        <img src="http://farm7.staticflickr.com/6181/6038859333_518bb77c34_m.jpg" align="right">
+
+        <p id="mission">Every day there is a surplus of
+
+        bicycles sitting idly in garages, while willing bike renters face a concoction of
+
+        restraints. Snapbike offers a platform where adventurous bikers can find idle bikes.
+
+        Effectively, private bike owners will be able to rent out their bikes to the community.
+
+        Like this, we are becoming more responsible citizens by optimizing our available
+
+        resources. In addition, you’ll get to meet some awesome people. Join the movement today!
+        As we are currently carrying out public beta testing, we cannot offer insurance or an
+        easy online payment method.</p>
+
+        <h2 id="how_it_works">How it Works</h2>
+
+        <table width="100%" cellpadding="20" cellspacing="40" border="0">
+            <tr>
+                <td width="25%" valign="top">
+                     <img src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-frc3/988247_10201550005049045_1246737201_n.jpg" alt="Sign up"
+
+        width="200" height="150">
+                    <p>Register and create a <br>profile at Snapbike.net</p>
+                </td>
+
+        <td width="25%" valign="top">
+                     <img src="https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-ash3/17630_10201550983793513_1738890216_n.jpg" alt="Request or List a bike" width="200" height="150">
+                    <p>Browse available bikes<br> in your city or put your<br> bike up for rental</p>
+                </td>
+        <td width="25%" valign="top">
+                     <img src="https://sphotos-a.xx.fbcdn.net/hphotos-frc1/580264_10201551017794363_1700139590_n.jpg" alt="Connect with awesome people" width="200" height="150">
+                    <p>Found a bike you'd like to rent? Someone requested your bike? Meet up with them to complete the transaction!</p>
+                </td>
+        <td width="25%" valign="top">
+                     <img src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-ash4/1003297_10201550984113521_639139419_n.jpg" alt="Write feedback" width="200" height="150">
+                    <p>Tell the world about your Snapbike experience</p>
+                </td>
+            </tr>
+        </table>
+
+        <h1 id="team">The Team</h1>
+
+        <table width="100%" cellpadding="0" cellspacing="17" border="0">
+            <tr>
+                <td width="25%" valign="top">
+                     <img
+
+        src="http://m.c.lnkd.licdn.com/media/p/5/000/216/1ca/1acd3df.jpg" alt="Daniel's face"
+
+        width="175" height="175">
+                    <h3>Daniel Bartel</h3>
+                    <h5>Co-Founder</h5>
+                    <p>Germany</p>
+                </td>
+                <td width="25%" valign="top">
+                     <img
+
+        src="http://m.c.lnkd.licdn.com/media/p/5/000/24b/1fd/39bc963.jpg" alt="Vivian's face"
+
+        width="175" height="175">
+                     <h3>Vivian Maar</h3>
+                     <h5>Co-Founder</h5>
+                    <p>Finland</p>
+                </td>
+        <td width="25%" valign="top">
+                     <img src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-
+
+        ash3/418686_10151147233169879_1613847789_n.jpg" alt="Silver's face" width="175"
+
+        height="175">
+                    <h3>Silver Siniavski</h3>
+                    <h5>Co-Founder</h5>
+                    <p>Estonia</p>
+                </td>
+        <td width="25%" valign="top">
+                     <img src="http://www.kokonsum.org/wp-content/uploads/2012/08/Profile.jpg"
+
+        alt="David's face" width="175" height="175">
+                    <h3>David W</h3>
+                    <h5>Co-Founder</h5>
+                    <p>Germany</p>
+                </td>
+            </tr>
+        </table>
+
+        <table width="100%" cellpadding="0" cellspacing="17" border="0">
+            <tr>
+                <td width="25%" valign="top">
+                     <img
+
+        src="https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-ash3/540993_4428646667534_432849549_n.jpg" alt="Mikk's face"
+
+        width="175" height="175">
+                    <h3>Mikk Pavelson</h3>
+                    <h5>Co-Founder</h5>
+                    <p>Estonia</p>
+                </td>
+                <td width="25%" valign="top">
+                     <img
+
+        src="https://sphotos-b.xx.fbcdn.net/hphotos-prn2/1070098_10201551112156722_2020488192_n.jpg" alt="Marianna's face"
+
+        width="175" height="175">
+                     <h3>Marianna Petrova</h3>
+                     <h5>Co-Founder</h5>
+                    <p>Estonia</p>
+                </td>
+        <td width="25%" valign="top">
+                     <img src="http://m.c.lnkd.licdn.com/media/p/6/000/24d/046/32394a0.jpg" alt="Josh's face" width="175"
+
+        height="175">
+                    <h3>Josh Chua</h3>
+                    <h5>Co-Founder</h5>
+                    <p>Canada</p>
+                </td>
+        <td width="25%" valign="top">
+                     <img src="https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-ash3/557587_10201551139197398_278189972_n.jpg"
+
+        alt="Ilja's face" width="175" height="175">
+                    <h3>Ilja Kozevnikoff</h3>
+                    <h5>Co-Founder</h5>
+                    <p>Estonia</p>
+                </td>
+            </tr>
+        </table>
     cancel: ~
     fields_that_are_mandatory: ~
     or: ~
@@ -542,7 +684,7 @@ en-sb:
     welcome_email:
       welcome_email_footer_text: ~
       settings_link_text: ~
-      subject: ~
+      subject: "Welcome to Snapbike! Here are some tips to get you started"
       welcome_some_tips: ~
       p_s_did_you_know: ~
       click_here_link_text: ~
@@ -628,9 +770,9 @@ en-sb:
       request_partitive: ~
   header:
     about: ~
-    community: ~
+    community: Snapbikers
     home: ~
-    members: ~
+    members: Snapbikers
     new_listing: ~
     mobile_version: ~
     offers: ~
@@ -737,7 +879,7 @@ en-sb:
       map: ~
       list: ~
       all_listing_types: ~
-      all_categories: "All Locations"
+      all_categories: "All locations"
   infos:
     about:
       default_about_text_title: " "
@@ -841,6 +983,7 @@ en-sb:
       login_again: ~
       login_failed: ~
       account_creation_successful: ~
+      account_deleted: ~
       login_successful: ~
       logout_successful: ~
       news_item_created: ~
@@ -946,7 +1089,6 @@ en-sb:
     follow_links:
       follow: ~
       unfollow: ~
-      follow_description: ~
     form:
       departure_time:
         at: ~
@@ -954,7 +1096,7 @@ en-sb:
       departure_time_radio_buttons:
         repeated: ~
       description:
-        detailed_description: ~
+        detailed_description: "Detailed description (type, color, rider height etc.)"
       destination:
         destination: ~
       form_content:
@@ -1033,7 +1175,7 @@ en-sb:
       help_tags_title: ~
       help_valid_until_title: ~
     index:
-      all_categories: "All Locations"
+      all_categories: "All locations"
       all_offer_types: ~
       all_request_types: ~
       category: ~
@@ -1106,7 +1248,7 @@ en-sb:
       selected_offer: ~
       selected_request: ~
       selected_listing_type: ~
-      selected_category: ~
+      selected_category: "Location: %{category}"
       selected_subcategory: ~
       selected_share_type: ~
       selected_item: ~
@@ -1201,7 +1343,7 @@ en-sb:
       price_excludes_vat: ~
   mapview:
     index:
-      all_categories: "All Locations"
+      all_categories: "All locations"
       all_offer_types: ~
       all_request_types: ~
       category: ~
@@ -1269,7 +1411,6 @@ en-sb:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
     new:
-      address_validator: ~
       captcha_incorrect: ~
       captcha_was_wrong: ~
       create_new_account: ~
@@ -1382,10 +1523,6 @@ en-sb:
       slightly_better_than_expected: ~
       slightly_less_than_expected: ~
     profile_listings:
-      loading_more_offers: ~
-      loading_more_requests: ~
-      offers: ~
-      requests: ~
       show_also_closed: ~
       show_only_open: ~
     show:
@@ -1475,6 +1612,8 @@ en-sb:
       change: ~
       confirm_new_password: ~
       delete_account: ~
+      delete_account_button: ~
+      delete_account_confirmation_popup: ~
       email: ~
       instructions_to_delete_account: ~
       contact_admin: ~

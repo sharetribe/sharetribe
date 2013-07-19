@@ -840,6 +840,7 @@ ca:
       login_again: "Siusplau, torna a iniciar sessió"
       login_failed: "Error. Siusplau comprova que les dades són correctes."
       account_creation_successful: ~
+      account_deleted: ~
       login_successful: "Benvingut a Kassi, "
       logout_successful: "Benvingut de nou!"
       news_item_created: "Article creat"
@@ -945,7 +946,6 @@ ca:
     follow_links:
       follow: "Segueix aquest anunci"
       unfollow: "Deixa de segur aquest anunci"
-      follow_description: "Al seguir un anunci seràs notificat dels nous comentaris i actualitzacions."
     form:
       departure_time:
         at: "a les"
@@ -1268,7 +1268,6 @@ ca:
       this_person_is_not_active_in_kassi: "Aquest usuari ja no està actiu."
       inactive_description: "Aquest usuari ha deixat d'utilitzar Kassi. No pots posar-te en contacte amb ell."
     new:
-      address_validator: "No s'ha trobat la ubicació."
       captcha_incorrect: "Error de la verificació de ReCAPTCHA. Si us plau, introdueixi les paraules que apareixen al requadre de sota"
       captcha_was_wrong: "Text captcha incorrecte."
       create_new_account: "Crea un compte"
@@ -1381,10 +1380,6 @@ ca:
       slightly_better_than_expected: "Una mica millor de l'esperat"
       slightly_less_than_expected: "Una mica pitjor de l'esperat"
     profile_listings:
-      loading_more_offers: "Carregant més ofertes"
-      loading_more_requests: "Carregant més sol·licituds"
-      offers: Ofertes
-      requests: Sol·licituds
       show_also_closed: "Mostra com tancada"
       show_only_open: "Mostra com oberta"
     show:
@@ -1474,6 +1469,8 @@ ca:
       change: Canviar
       confirm_new_password: "Confirmar nova contrasenya"
       delete_account: ~
+      delete_account_button: ~
+      delete_account_confirmation_popup: ~
       email: "Correu electrònic:"
       instructions_to_delete_account: ~
       contact_admin: ~

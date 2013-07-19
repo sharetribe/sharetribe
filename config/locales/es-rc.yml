@@ -870,6 +870,7 @@ es-rc:
       login_again: ~
       login_failed: ~
       account_creation_successful: ~
+      account_deleted: ~
       login_successful: ~
       logout_successful: ~
       news_item_created: ~
@@ -975,7 +976,6 @@ es-rc:
     follow_links:
       follow: ~
       unfollow: ~
-      follow_description: ~
     form:
       departure_time:
         at: ~
@@ -1298,7 +1298,6 @@ es-rc:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
     new:
-      address_validator: ~
       captcha_incorrect: ~
       captcha_was_wrong: ~
       create_new_account: ~
@@ -1411,10 +1410,6 @@ es-rc:
       slightly_better_than_expected: ~
       slightly_less_than_expected: ~
     profile_listings:
-      loading_more_offers: ~
-      loading_more_requests: ~
-      offers: ~
-      requests: ~
       show_also_closed: ~
       show_only_open: ~
     show:
@@ -1504,6 +1499,8 @@ es-rc:
       change: ~
       confirm_new_password: ~
       delete_account: ~
+      delete_account_button: ~
+      delete_account_confirmation_popup: ~
       email: ~
       instructions_to_delete_account: ~
       contact_admin: ~

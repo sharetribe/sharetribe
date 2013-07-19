@@ -7,6 +7,7 @@ class PeopleController < Devise::RegistrationsController
   include RDF
   
   skip_before_filter :verify_authenticity_token, :only => [:creates]
+  skip_before_filter :require_no_authentication, :only => [:new]
   
   before_filter :only => [ :update, :update_avatar, :destroy ] do |controller|
     controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
@@ -66,7 +67,7 @@ class PeopleController < Devise::RegistrationsController
       @org_membership_required = false
     end
     
-    if params[:person][:email_confirmation].present? # Honey pot for spammerbots
+    if params[:person][:email_repeated].present? # Honey pot for spammerbots
       flash[:error] = t("layouts.notifications.registration_considered_spam")
       ApplicationHelper.send_error_notification("Registration Honey Pot is hit.", "Honey pot")
       redirect_to error_redirect_path and return

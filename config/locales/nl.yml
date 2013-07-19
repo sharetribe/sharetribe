@@ -140,6 +140,7 @@ nl:
       give_feedback_to: ~
       do_not_give_feedback: ~
     index:
+      messages_from_all_tribes: ~
       loading_more_messages: "Laad meer berichten"
       message_partitive: bericht
       messages_partitive: berichten
@@ -216,6 +217,7 @@ nl:
         your_request: ~
       loading_more_notifications: "Laad meer notificaties"
       no_notifications: "Geen notificaties"
+      notifications_from_all_tribes: ~
       testimonialnotification:
         give_feedback_to: ~
         has_given_you_feedback_on_event: ~
@@ -507,10 +509,14 @@ nl:
       title_link_text: ~
       intro_paragraph: ~
       intro_paragraph_link_text: ~
+      could_you_share_something: ~
+      do_you_need_help_with_anything: ~
       post_a_new_listing: ~
       reduce_email_footer_text: ~
+      tribe_creation_promotion_footer: ~
       settings_link_text: ~
       unsubscribe_link_text: ~
+      create_tribe_link_text: ~
     newsletter:
       weekly_news_from_kassi: ~
       hi: ~
@@ -671,9 +677,7 @@ nl:
     event_feed:
       latest_events: ~
     index:
-      no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
-      add_listing_link_text: ~
       available_on_the_app_store: ~
       private_listing_notification: ~
       open_listing: ~
@@ -856,9 +860,6 @@ nl:
       only_listing_author_can_close_a_listing: "Alleen een geregistreerde auteur kan een lijst sluiten"
       only_listing_author_can_edit_a_listing: "Alleen een geregistreerde auteur kan een lijst wijzigen"
       payment_successful: ~
-      payment_canceled: ~
-      error_in_payment: ~
-      payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: "Intructies om je wachtwoord te veranderen zijn naar je email gestuurd."
       person_activated: ~
       person_deactivated: ~
@@ -1377,6 +1378,14 @@ nl:
       grade: "cijfer:"
       and_gave_following_feedback: ~
       less_than_expected: "Veel minder dan verwacht"
+      offered_favor: "gunst aangeboden"
+      offered_housing: "huisvesting aangeboden"
+      offered_item: "item aangeboden"
+      offered_rideshare: "lift aangeboden"
+      requested_favor: "gunst gezocht"
+      requested_housing: "huisvesting gezocht"
+      requested_item: "item gezocht"
+      requested_rideshare: "lift gezocht"
       slightly_better_than_expected: "Iets beter dan verwacht"
       slightly_less_than_expected: "Iets minder dan verwacht"
     profile_listings:
@@ -1414,15 +1423,11 @@ nl:
       reviews: ~
       badge: ~
       badges: Badges
-      listing: ~
-      listings: ~
       open_listing: ~
       open_listings: ~
-      no_listings: ~
       no_open_listings: ~
       no_reviews: ~
       no_badges: ~
-      show_all_listings: ~
       show_all_open_listings: ~
       show_all_reviews: ~
       trustcloud: ~
@@ -1460,6 +1465,8 @@ nl:
     confirmation_pending:
       welcome_to_kassi: ~
       check_your_email: ~
+      account_conrimation_instructions: ~
+      account_confirmation_instructions_any_email: ~
       get_started: ~
       getting_started_instructions: ~
       resend_confirmation_instructions: ~
@@ -1469,6 +1476,7 @@ nl:
       account_confirmation_instructions: ~
       account_confirmation_instructions_dashboard: ~
   settings:
+    settings_affect_all_tribes: ~
     account:
       change: Wijzig
       confirm_new_password: "Bevestig nieuw wachtwoord"
@@ -1575,6 +1583,8 @@ nl:
       negative: ~
       default_textual_feedback: ~
     testimonial:
+      from_user: van
+      to_user: naar
       about_listing: ~
   time:
     formats:

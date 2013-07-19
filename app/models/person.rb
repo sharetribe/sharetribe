@@ -32,7 +32,7 @@ class Person < ActiveRecord::Base
   attr_accessor :guid, :password2, :form_login,
                 :form_given_name, :form_family_name, :form_password, 
                 :form_password2, :form_email, :consent, :show_real_name_setting_affected,
-                :email_confirmation, :community_category
+                :email_repeated, :community_category
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
