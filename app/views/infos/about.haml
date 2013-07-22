@@ -3,7 +3,7 @@
 - additional_about_text = t(".default_about_text", :click_here_link => link_to(t(".click_here_link_text"), dashboard_link(:locale => I18n.locale, :ref => "about_page"))).html_safe
 
 .left-navi-section.about-section
-  - if @current_user && @current_user.has_admin_rights_in?(@current_community)
+  - if false # diable temporarily # @current_user && @current_user.has_admin_rights_in?(@current_community)
     %p
       %a{:id => "edit_link", :href => "/editor" + request.path, :data => { :save_url => mercury_update_infos_path }}
         .icon-with-text-container
