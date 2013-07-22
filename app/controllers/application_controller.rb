@@ -251,27 +251,6 @@ class ApplicationController < ActionController::Base
     WebTranslateIt.fetch_translations
   end
   
-  # # These rules are specific to the Sharetribe.com server, but shouldn't cause trouble for open source installations.
-  # # And you if you need your own rules for redirection or rewrite, add here.
-  def domain_redirect
-    # to speed up the check on every page load, only check first 
-    # if different domain than specified in config and doesn't match any custom domain
-    if request.domain != APP_CONFIG.domain && ! Community.find_by_domain(request.host) && APP_CONFIG.domain == 'sharetribe.com'
-      
-      # Redirect contry domain dashboards to .com with correct language
-      redirect_to "#{request.protocol}www.sharetribe.com/es" and return if request.host =~ /^(www\.)?sharetribe\.cl/
-      redirect_to "#{request.protocol}www.sharetribe.com/en" and return if request.host =~ /^(www\.)?sharetribe\.us/ || request.host =~ /^(www\.)?sharetri\.be/
-      redirect_to "#{request.protocol}www.sharetribe.com/el" and return if request.host =~ /^(www\.)?sharetribe\.gr/
-      redirect_to "#{request.protocol}www.sharetribe.com/fr" and return if request.host =~ /^(www\.)?sharetribe\.fr/
-      redirect_to "#{request.protocol}www.sharetribe.com/fi" and return if request.host =~ /^(www\.)?sharetribe\.fi/
-      
-      # Redirect to right community (changing to .com) (but let api.sharetribe.fi) through for testing purposes
-      redirect_to "#{request.protocol}#{request.subdomain}.sharetribe.com#{request.fullpath}" and return if (request.host =~ /^.+\.?sharetribe\.(cl|gr|fr|fi|us|de)/ || request.host =~ /^.+\.?sharetri\.be/  || request.host =~ /^.+\.?kassi\.eu/) && ! request.host =~ /^api\.sharetribe\.fi/
-      
-      redirect_to "#{request.protocol}samraksh.sharetribe.com#{request.fullpath}" and return if request.host =~ /^(www\.)?samraksh\.org/
-    end 
-  end
-  
   def check_auth_token
     if params[:auth]
       unless person_signed_in?  #if cookie and session already set up, ignore auth token
@@ -296,13 +275,12 @@ class ApplicationController < ActionController::Base
       path_without_auth_token = request.fullpath.gsub(/auth=[^\&]*(\&?)/,"")
       redirect_to path_without_auth_token
     end
-    
   end
   
   def force_ssl
     # If defined in the config, always redirect to https (unless already using https or coming through Sharetribe proxy)
     if APP_CONFIG.always_use_ssl
-      redirect_to({:protocol => 'https'}.merge(params), :flash => flash) unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy"))
+      redirect_to("https://#{request.host_with_port}#{request.fullpath}") unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy"))
     end
   end
   
