@@ -628,6 +628,12 @@ module ApplicationHelper
         :icon_class => "ss-adduser", 
         :path => new_invitation_path,
         :name => "invite_people"
+      },
+      {
+        :text => t("admin.communities.edit_welcome_email.welcome_email_content"),
+        :icon_class => icon_class("edit"), 
+        :path => edit_welcome_email_admin_community_path(community),
+        :name => "welcome_email"
       } 
     ]
   end

@@ -129,6 +129,9 @@ Kassi::Application.routes.draw do
         member do
           get :edit_details
           get :edit_look_and_feel
+          get :edit_welcome_email
+          get :test_welcome_email
+          put :mercury_update
         end
         resources :emails
       end
