@@ -12,7 +12,7 @@
     .wrapper
       .centered-section.error-page
         = render :partial => "errors/status_#{status}"
-        %p= link_to t("error_pages.back_to_kassi_front_page"), "/"
+        %p= link_to t("error_pages.back_to_kassi_front_page"), "/#{I18n.locale}"
         <form accept-charset="UTF-8" action="/en/user_feedbacks" id="new_error_feedback" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" />
         <label for="feedback_email">
         = t('error_pages.your_email_address')
