@@ -72,6 +72,7 @@ it:
       show:
         edit_poll: "Modifica sondaggio"
   common:
+    edit_page: ~
     default_community_slogan: "Presta, vendi, aiuta, condividi"
     default_community_description: ~
     cancel: Annulla
@@ -625,7 +626,6 @@ it:
       request_partitive: ~
   header:
     about: ~
-    community: ~
     home: ~
     members: ~
     new_listing: ~
