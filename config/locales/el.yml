@@ -72,6 +72,7 @@ el:
       show:
         edit_poll: Επεξεργασία
   common:
+    edit_page: ~
     default_community_slogan: "Δάνεισε, βοήθα, πούλα, μοιράσου"
     default_community_description: "Μέσω του %{service_name} τα μέλη της κοινότητάς μας μπορούν να μοιράζονται αγαθά, υπηρεσίες, να συνταξιδεύουν ή να βρίσκουν συγκάτοικους."
     cancel: Άκυρο
@@ -140,7 +141,6 @@ el:
       give_feedback_to: ~
       do_not_give_feedback: ~
     index:
-      messages_from_all_tribes: "Εδώ φαίνονται μηνύματα που έχετε ανταλλάξει με άλλους ανθρώπους σε όλα τα tribes στα οποία ανήκετε."
       loading_more_messages: "Εμφάνιση περισσότερων μηνυμάτων"
       message_partitive: μήνυμα
       messages_partitive: μηνύματα
@@ -217,7 +217,6 @@ el:
         your_request: "το αίτημά σου"
       loading_more_notifications: "Εμφάνιση περισσότερων ειδοποιήσεων"
       no_notifications: "Καμία ειδοποίηση."
-      notifications_from_all_tribes: "Εδώ φαίνονται ειδοποιήσεις από όλα τα tribes στα οποία συμμετέχετε."
       testimonialnotification:
         give_feedback_to: "Κάνε κριτική για τον/την %{name}"
         has_given_you_feedback_on_event: "σχολίασε για σένα σχετικά με το"
@@ -509,14 +508,10 @@ el:
       title_link_text: "%{community_name}"
       intro_paragraph: "Δείτε κάποια από τα νέα του %{community_link} τις τελευταίες %{time_since_last_update}"
       intro_paragraph_link_text: "%{community_name}"
-      could_you_share_something: "Μήπως έχετε κάτι να προσφέρετε;"
-      do_you_need_help_with_anything: "Χρειάζεστε κάποια βοήθεια;"
       post_a_new_listing: "Κάντε μια νέα καταχώρηση!"
       reduce_email_footer_text: "Είναι πολλά τα email που λαμβάνετε; %{settings_link} ή %{unsubscribe_link}"
-      tribe_creation_promotion_footer: "Ξέρετε ότι μπορείτε να δημιουργήσετε δωρεάν μια πλατφόρμα διαμοιρασμού σαν αυτή, για τη γειτονιά σας, την πόλη σας, το σύλλογο ή οποιαδήποτε άλλη κοινότητα; %{create_tribe_link} ή απαντήστε σε αυτό το μήνυμα για να μάθετε περισσότερα."
       settings_link_text: "Επεξεργαστείτε τις ρυθμίσεις ηλεκτρονικού ταχυδρομείου"
       unsubscribe_link_text: "διαγραφτείτε από τη λίστα ενημερώσεων"
-      create_tribe_link_text: "Δημιουργήστε μία"
     newsletter:
       weekly_news_from_kassi: "Εβδομαδιαία ενημέρωση από την κοινότητα %{service_name} \"%{community}\""
       hi: "Γεια σου %{name},"
@@ -631,7 +626,6 @@ el:
       request_partitive: αίτημα
   header:
     about: Βοήθεια
-    community: Κοινότητα
     home: Αρχική
     members: Κοινότητα
     new_listing: Καταχώρηση
@@ -677,7 +671,9 @@ el:
     event_feed:
       latest_events: "Τι νέα;"
     index:
+      no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
+      add_listing_link_text: ~
       available_on_the_app_store: "Διατίθεται στο app store"
       private_listing_notification: "Υπάρχουν %{listing_count} καταχωρήσεις σε αυτή την κοινότητα. %{private_listing_count} από αυτές %{be_verb} ορατές μόνο σε μέλη της κοινότητας. Αν θέλεις να τις δεις, πρέπει να %{log_in_link}."
       open_listing: ~
@@ -842,6 +838,7 @@ el:
       login_again: "Παρακαλούμε, συνδέσου ξανά."
       login_failed: "Η σύνδεση απέτυχε. Παρακαλούμε δώστε τα σωστά στοιχεία."
       account_creation_successful: "Καλωσήρθες στο %{service_name}!"
+      account_deleted: ~
       login_successful: "Καλωσήρθες στο %{service_name}!"
       logout_successful: "Έχεις αποσυνδεθεί από το %{service_name}. Τα λέμε!"
       news_item_created: "Το άρθρο δημιουργήθηκε"
@@ -860,6 +857,9 @@ el:
       only_listing_author_can_close_a_listing: "Μόνο ο δημιουργός μιας καταχώρησης μπορεί να την κλείσει."
       only_listing_author_can_edit_a_listing: "Μόνο ο δημιουργός μιας καταχώρησης μπορεί να την επεξεργαστεί."
       payment_successful: ~
+      payment_canceled: ~
+      error_in_payment: ~
+      payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: "Έχουν σταλεί στο email σου οδηγίες για να αλλάξεις τον κωδικό σου."
       person_activated: "Ο χρήστης ενεργοποιήθηκε"
       person_deactivated: "Ο χρήστης απενεργοποιήθηκε"
@@ -944,7 +944,6 @@ el:
     follow_links:
       follow: "Παρακολούθηση αυτής της καταχώρησης"
       unfollow: "Παύση παρακολούθησης αυτής της καταχώρησης"
-      follow_description: "Παρακολουθώντας μία καταχώρηση ενημερώνεσαι για νέα σχόλια και αλλαγές που γίνονται σε αυτή."
     form:
       departure_time:
         at: Στις
@@ -1267,7 +1266,6 @@ el:
       this_person_is_not_active_in_kassi: "Αυτός ο χρήστης δεν είναι πια ενεργός στο %{service_name}"
       inactive_description: "Αυτός ο χρήστης έχει σταματήσει να χρησιμοποιεί το %{service_name}. Δεν μπορείς να επικοινωνήσεις μαζί του/της, να του/της κάνεις κριτική, ή να δεις τις καταχωρήσεις του/της."
     new:
-      address_validator: "Άγνωστη τοποθεσία."
       captcha_incorrect: "Ο έλεγχος του reCAPTCHA απέτυχε. Παρακαλούμε, γράψτε στο παρακάτω κουτάκι τις λέξεις που φαίνονται στην εικόνα."
       captcha_was_wrong: "Το κείμενο του Captcha ήταν λάθος."
       create_new_account: Εγγραφή
@@ -1380,21 +1378,9 @@ el:
       grade: "βαθμός:"
       and_gave_following_feedback: "και έδωσε αυτή την κριτική"
       less_than_expected: "Χειρότερα από το αναμενόμενο"
-      offered_favor: "πρόσφερε τη βοήθειά του στο"
-      offered_housing: πρόσφερε
-      offered_item: πρόσφερε
-      offered_rideshare: "πρόσφερε το όχημά του/της"
-      requested_favor: ζήτησε
-      requested_housing: ζήτησε
-      requested_item: έλαβε
-      requested_rideshare: "έκανε οτοστόπ στη διαδρομή"
       slightly_better_than_expected: "Λίγο καλύτερα από το αναμενόμενο"
       slightly_less_than_expected: "Λίγο χειρότερα από το αναμενόμενο"
     profile_listings:
-      loading_more_offers: "Εμφάνιση περισσότερων προσφορών"
-      loading_more_requests: "Εμφάνιση περισσότερων αιτημάτων"
-      offers: Προσφορές
-      requests: Αιτήματα
       show_also_closed: "Εμφάνισε ακόμα και κλειστές καταχωρήσεις"
       show_only_open: "Εμφάνισε μόνο ενεργές καταχωρήσεις"
     show:
@@ -1425,11 +1411,15 @@ el:
       reviews: "έλαβε κριτικές"
       badge: κονκάρδα
       badges: Κονκάρδες
+      listing: ~
+      listings: ~
       open_listing: "ενεργή καταχώρηση"
       open_listings: "ενεργές καταχωρήσεις"
+      no_listings: ~
       no_open_listings: "Καμία ενεργή καταχώρηση"
       no_reviews: "Καμία κριτική"
       no_badges: "Καμία κονκάρδα"
+      show_all_listings: ~
       show_all_open_listings: "Εμφάνισε όλες τις ενεργές καταχωρήσεις"
       show_all_reviews: "Εμφάνισε όλες τις κριτικές"
       trustcloud: TrustCloud
@@ -1467,8 +1457,6 @@ el:
     confirmation_pending:
       welcome_to_kassi: "Καλωσήρθες στο %{service_name}!"
       check_your_email: "Δες τα εισερχόμενα στο ηλεκτρονικό ταχυδρομείο σου."
-      account_conrimation_instructions: "Σύντομα θα λάβεις ένα μήνυμα ηλεκτρονικού ταχυδρομείου από το %{service_name} με ένα σύνδεσμο τον οποίο πρέπει να πατήσεις για να αποκτήσεις πρόσβαση σε αυτή την κοινότητα %{service_name}.</p><p>Αυτός ο έλεγχος γίνεται για να είναι σίγουρο ότι όλα τα μέλη ανήκουν πραγματικά σε αυτή την κοινότητα (<b>%{community_name}</b>). Αυτό δημιουργεί ένα πιο ασφαλές περιβάλλον για να μοιράζεσαι.</p><p>Αν έχεις κάποιο πρόβλημα στη χρήση του %{service_name} απλά κάνε κλικ στο κουμπί <a href=\"#\" id=\"give_feedback_link\">\"Ανατροφοδότηση\"</a> στα αριστερά και πες το μας. Επίσης παρακαλούμε να μας πεις τις προτάσεις σου για το %{service_name}!"
-      account_confirmation_instructions_any_email: "Θα λάβετε σύντομα ένα email από το %{service_name} με ένα σύνδεσμο τον οποίο πρέπει να ακολουθήσετε για να αποκτήσετε πρόσβαση σε αυτή την κοινότητα %{service_name}.</p><p>Αυτός ο έλεγχος γίνεται για να επιτυγχάνεται ένα πιο ασφαλές περιβάλλον διαμοιρασμού.</p><p>Αν έχετε κάποια δυσκολία με τη χρήση του %{service_name}, απλά κάντε κλικ στο <a href=\"#\" id=\"give_feedback_link\">\"Feedback\"</a> στα αριστερά και πείτε το μας. Παρακαλούμε, επίσης στείλτε μας οποισδήποτε ιδέες έχετε για την ανάπτυξη της υπηρεσίας!"
       get_started: "Ξεκίνα να χρησιμοποιείς το %{service_name}"
       getting_started_instructions: "Όταν θα έχεις επιβεβαιώσει το λογαριασμό σου, είναι καλή ιδέα να βάλεις μια φωτογραφία στο <a href=\"%{profile_url}\">προφίλ</a> σου και να συμπληρώσεις και άλλες πληροφορίες για σένα, ή μπορείς κατευθείαν να προσθέσεις μια <a href=\"/en/listings/new/offer\">προσφορά</a> σχετικά με κάτι που θα μπορούσες να δανείσεις, να πουλήσεις, να ενοικιάσεις ή να κάνεις για κάποιον άλλο. Ή, αν χρειάζεσαι κάτι συγκεκριμένο μπορείς να καταχωρήσεις ένα <a href=\"/en/listings/new/request\">αίτημα</a>."
       resend_confirmation_instructions: "Στείλε ξανά τις οδηγίες επιβεβαίωσης."
@@ -1478,11 +1466,12 @@ el:
       account_confirmation_instructions: "Σύντομα θα λάβεις ένα email με ένα σύνδεσμο στον οποίο πρέπει να κάνεις κλικ για να επιβεβαιώσεις την ηλεκτρονική διεύθυνση που δήλωσες. Αφού γίνει η επιβεβαίωση μπορείς να χρησιμοποιήσεις το %{service_name}."
       account_confirmation_instructions_dashboard: "Σύντομα θα λάβεις ένα email με ένα σύνδεσμο στον οποίο πρέπει να κάνεις κλικ για να επιβεβαιώσεις την ηλεκτρονική διεύθυνση που δήλωσες."
   settings:
-    settings_affect_all_tribes: "Αυτές οι ρυθμίσεις αφορούν όλες τις κοινότητες Sharetribe στις οποίες συμμετέχετε."
     account:
       change: Αλλαγή
       confirm_new_password: "Επιβεβαίωση κωδικού"
       delete_account: "Διαγραφή λογαριασμού"
+      delete_account_button: ~
+      delete_account_confirmation_popup: ~
       email: "Ηλεκτρονική διεύθυνση:"
       instructions_to_delete_account: "Αν θέλετε να διαγράψετε το λογαριασμό σας, %{contact_admin_link}."
       contact_admin: "παρακαλούμε επικοινωνήστε με τους διαχειριστές"
@@ -1585,8 +1574,6 @@ el:
       negative: Αρνητική
       default_textual_feedback: "Όλα ήταν μια χαρά, ευχαριστώ!"
     testimonial:
-      from_user: "από τον/την"
-      to_user: στον/στην
       about_listing: ~
   time:
     formats:

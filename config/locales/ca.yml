@@ -72,6 +72,7 @@ ca:
       show:
         edit_poll: "Edita l'enquesta"
   common:
+    edit_page: ~
     default_community_slogan: ~
     default_community_description: ~
     cancel: Cancelar
@@ -627,7 +628,6 @@ ca:
       request_partitive: ~
   header:
     about: Sobre
-    community: Comunitat
     home: Inici
     members: ~
     new_listing: ~

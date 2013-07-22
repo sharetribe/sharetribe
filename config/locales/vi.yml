@@ -72,6 +72,7 @@ vi:
       show:
         edit_poll: "Chỉnh sửa thăm dò ý kiến"
   common:
+    edit_page: ~
     default_community_slogan: "Cho mượn, giúp đỡ, chia sẻ"
     default_community_description: "%{service_name} là nơi mà các thành viên trong cộng đồng của chúng ta có thể chia sẻ hàng hoá, dịch vụ, cuốc xe, và không gian. Bạn có thể cho người khác biết những gì bạn có thể hỗ trợ họ và nhận trợ giúp khi cần."
     cancel: "Hủy bỏ"
@@ -625,7 +626,6 @@ vi:
       request_partitive: "yêu cầu"
   header:
     about: "Tìm hiểu về"
-    community: "Cộng đồng"
     home: "Trang chủ"
     members: ~
     new_listing: ~

@@ -72,6 +72,7 @@ de:
       show:
         edit_poll: "Umfrage bearbeiten"
   common:
+    edit_page: ~
     default_community_slogan: "Leihen, verkaufen, helfen, teilen"
     default_community_description: "%{service_name} ist ein Ort in dem Mitglieder einer Community Waren, Dienstleistungen, Mitfahrgelegenheiten oder Unterkünfte anbieten und teilen können."
     cancel: Abbrechen
@@ -625,7 +626,6 @@ de:
       request_partitive: anfordern
   header:
     about: Über
-    community: Community
     home: Hauptseite
     members: Community
     new_listing: "neuer Eintrag"
