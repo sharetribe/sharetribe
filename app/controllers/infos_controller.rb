@@ -2,6 +2,8 @@ class InfosController < ApplicationController
 
   skip_filter :check_email_confirmation, :dashboard_only
   
+  before_filter :ensure_is_admin, :only => [ :mercury_update ]
+  
   def about
     @selected_tribe_navi_tab = "about"
     @selected_left_navi_link = "about"
