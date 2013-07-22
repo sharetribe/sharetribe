@@ -17,6 +17,7 @@ class Community < ActiveRecord::Base
   has_many :categories, :through => :community_categories
   has_many :share_types, :through => :community_categories
   has_many :payments
+  has_many :statistics, :dependent => :destroy
   
   has_and_belongs_to_many :listings
   
