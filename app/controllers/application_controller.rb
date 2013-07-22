@@ -114,7 +114,7 @@ class ApplicationController < ActionController::Base
   def fetch_community
     unless on_dashboard?
       # Otherwise pick the domain normally from the request subdomain or custom domain
-      if @current_community = Community.find_by_domain(request.subdomain) || @current_community = Community.find_by_domain(request.host)
+      if @current_community = Community.find_by_domain(request.subdomain) || Community.find_by_domain(request.host)
         # Store to thread the service_name used by current community, so that it can be included in all translations
         ApplicationHelper.store_community_service_name_to_thread(service_name)
       else
@@ -302,7 +302,7 @@ class ApplicationController < ActionController::Base
   def force_ssl
     # If defined in the config, always redirect to https (unless already using https or coming through Sharetribe proxy)
     if APP_CONFIG.always_use_ssl
-      redirect_to({:protocol => 'https'}.merge(params), :flash => flash) unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy"))
+      redirect_to("https://#{request.host_with_port}#{request.fullpath}") unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy"))
     end
   end
   
