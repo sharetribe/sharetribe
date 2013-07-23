@@ -14,9 +14,10 @@
     "minlength": "Por favor introduzca al menos  {0} carácteres.",
     "number": "Introduzca un número válido.",
     "range": "Por favor ingrese un valor entre  {0} y  {1} .",
-    "rangelength": null,
+    "rangelength": "Por favor introduce un valor entre {0} y {1} caracteres de longitud.",
     "remote": "Por favor arreglar este campo.",
     "required": "Este campo es obligatorio",
-    "url": "Por favor ingresa una URL válida."
+    "url": "Por favor ingresa una URL válida.",
+    "address_validator": "The location was not found."
   }
 }
