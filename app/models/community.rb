@@ -21,6 +21,7 @@ class Community < ActiveRecord::Base
   
   has_and_belongs_to_many :listings
   
+  after_create :initialize_settings
   before_destroy :delete_specific_community_categories
   
   monetize :minimum_price_cents, :allow_nil => true
@@ -556,6 +557,9 @@ class Community < ActiveRecord::Base
     return community_categories.collect(&categorization_type).compact.uniq
   end
 
+  def initialize_settings
+    update_attribute(:settings,{"locales"=>[APP_CONFIG.default_locale]}) if self.settings.blank?
+  end
   
   # This method deletes the specific community_category entries (but not the default ones)
   def delete_specific_community_categories
