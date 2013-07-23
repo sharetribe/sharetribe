@@ -7,7 +7,11 @@
       Community:
       = @current_community.name
     
-    = render :partial => "statistics",  :locals => { :stats => @community_stats }
+    - if @community_stats
+      = render :partial => "statistics",  :locals => { :stats => @community_stats }
+    - else
+      %p
+        Community statistics are not available.
 
 
   %h2

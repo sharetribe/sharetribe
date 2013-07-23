@@ -18,6 +18,8 @@ task :deploy_translation_without_migrations => ['deploy:set_translation_app', 'd
 task :deploy_custom_migrations => ['deploy:set_staging_app', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
 task :deploy_custom_quick => ['deploy:set_staging_app', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push']
 
+task :deploy_test_servers => ['deploy_staging_migrations', 'deploy_translation_migrations']
+
 
 namespace :deploy do
   PRODUCTION_APP = 'sharetribe-production'
