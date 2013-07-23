@@ -205,4 +205,9 @@ namespace :sharetribe do
   task :update_categorization_translations => :environment do
     CategoriesHelper.update_translations
   end
+  
+  desc "Cleans the auth_tokens table in the DB by deleting expired ones"
+  task :delete_expired_auth_tokens => :environment do
+    AuthToken.delete_expired
+  end
 end

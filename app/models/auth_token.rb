@@ -10,5 +10,9 @@ class AuthToken < ActiveRecord::Base
     self.expires_at ||= 24.hours.from_now 
     self.times_used ||= 0 
   end
+  
+  def self.delete_expired
+    where("expires_at < ?", Time.now ).delete_all
+  end
 
 end
