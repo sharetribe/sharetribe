@@ -88,6 +88,16 @@ Feature: Facebook connect
     And I follow "Log in with your Facebook account"
     Then I should see "Could not authorize you from Facebook"  
   
+  @javascript
+  Scenario: The facebook login doesn't return any email address
+    Given I am on the home page
+    And there will be no email returned in my Facebook login
+    When I click ".login-menu-toggle"
+    And I follow "Log in with your Facebook account"
+    Then I should see "Could not get email address from Facebook"
+    And I should see "create an account without using Facebook below"  
+   
+  
   
   
   

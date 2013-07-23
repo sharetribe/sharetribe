@@ -144,6 +144,12 @@ class SessionsController < ApplicationController
       sign_in_and_redirect @person, :event => :authentication
     else
       data = request.env["omniauth.auth"].extra.raw_info
+      
+      if data.email.blank?
+        flash[:error] = t("layouts.notifications.could_not_get_email_from_facebook")
+        redirect_to sign_up_path and return
+      end
+      
       facebook_data = {"email" => data.email,
                        "given_name" => data.first_name,
                        "family_name" => data.last_name,

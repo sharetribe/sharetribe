@@ -45,6 +45,23 @@ Given /^there will be and error in my Facebook login$/ do
   OmniAuth.config.mock_auth[:facebook] = :access_denied
 end
 
+Given /^there will be no email returned in my Facebook login$/ do 
+  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new( {
+      :provider => 'facebook',
+      :uid => '597015435',
+      :extra =>{
+        :raw_info => {
+          :first_name => "Jackie",
+          :last_name => "Brownie",
+          :username => "jackety-jack",
+          :id => '597015435'
+        }
+      }
+    })
+end
+
+
+
 Given /^there are following users:$/ do |person_table|
   @people = {}
   person_table.hashes.each do |hash|
