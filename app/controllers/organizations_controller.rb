@@ -1,3 +1,8 @@
+# encoding: UTF-8
+
+# This class is currently used by only one specific client
+# The plan is to separate this code later to a plugin
+
 class OrganizationsController < ApplicationController
 
   skip_filter :dashboard_only
@@ -8,6 +13,42 @@ class OrganizationsController < ApplicationController
   before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_page")
   end
+  
+  EXAMPLE_MAIL_CONTENT = <<MESSAGE
+Hei!
+
+--
+HUOM!
+
+TÄMÄ ON VAIN ESIMERKKI VIESTI SIITÄ, MILLAISEN SÄHKÖPOSTIN SAAT KUN REKISTERÖIT ORGANISAATIOSI MYYJÄKSI OIKEASSA MPANKISSA (www.mpankki.fi). NYT VIRALLISTA REKISTERÖITYMISTÄ CHECKOUT FINLAND JÄRJESTELMÄÄN EI OLE TEHTY. KUN SUORITAT REKITERÖITYMISEN VARSINAISESSA PALVELUSSA, SAAT ALLA OLEVAN KALTAISEN SÄHKÖPOSTIN JA VOIT TOIMIA SEN OHJEIDEN MUKAAN
+
+--
+
+Olet rekisteröinyt yrityksenne mpankki.fi-palvelussa myyjäksi. Voit luoda myynti-ilmoituksen heti, mutta myyntitapahtuman tilitys voidaan suorittaa yrityksellenne vasta kun sähköinen allekirjoitus on suoritettu alla olevien ohjeiden mukaan. Tämä toimenpide tehdään vain kerran ja perustuu lakiin maksunvälityspalveluista.
+
+Sähköisen allekirjoituksen voi tehdä ainoastaan henkilö, jolla on yrityksenne nimenkirjoitusoikeus. Jos sinulla ei ole nimenkirjoitusoikeutta, pyydämme lähettämään tämän sähköpostiohjeen yrityksenne nimenkirjoitusoikeuden omaavalle henkilölle.
+
+Sähköisen allekirjoituksen voi suorittaa joko mobiilivarmenteella (aktivoitava teleoperaattorilla) tai verkkopankkitunnuksilla. On huomattava, että allekirjoituksella tunnistetaan henkilö, ei yritystä. Tämän vuoksi yrityksen verkkopankkitunnukset eivät ole hyväksyttävä tapa suorittaa e-allekirjoitusta, vaan on käytettävä henkilökohtaisia verkkopankkitunnuksia.
+
+Mpankki.fi-palvelun maksunvälityspalvelun tarjoaja on Checkout Finland Oy, joka on finanssivalvonnan alaisuudessa toimiva maksunvälittäjä. Yrityksestänne annettavat tiedot tallennetaan vain Checkout Finland Oy:n rekistereihin, eikä niitä saa luovuttaa muille osapuolille, kuten mpankki.fi-palvelulle.
+
+Sähköinen allekirjoitus suoritetaan Checkout Finland Oy:n sivulla (OIKEA VIESTI SISÄLTÄÄ LINKIN JONKA KAUTTA ALLEKIRJOITUKSEN PÄÄSEE TEKEMÄÄN)
+
+Ennen kun kirjaudut osoitteeseen, varmistaudu että sinulla on saatavilla seuraavat tiedot:
+  - Yrityksen tilinumero (IBAN), johon tilitykset ohjataan
+  - Yrityksen omistajien nimet, henkilötunnukset ja omistusosuudet niistä osakkaista, jotka omistavat vähintään 25% osuuden yrityksestä (laki velvoittaa keräämään nämä tiedot, lisätietoja Checkout Finland Oy:n sivuilta)
+
+Extranet -tunnuksenne:
+Osoite: (katso tämä sitten oikean rekisteröitymisen yhteydessä tulevasta viestistä)
+Asiakastunnuksenne: (katso tämä sitten oikean rekisteröitymisen yhteydessä tulevasta viestistä)
+Salasananne:(katso tämä sitten oikean rekisteröitymisen yhteydessä tulevasta viestistä)
+
+  Ystävällisin terveisin, 
+  Mpankki-tiimi
+  palaute@mpankki.fi
+  
+MESSAGE
+  
   
   def index
     @selected_tribe_navi_tab = "members"
@@ -96,6 +137,9 @@ class OrganizationsController < ApplicationController
     end
     
     if org.register_a_merchant_account
+      if APP_CONFIG.merchant_registration_mode == "stub"
+        PersonMailer.open_content_message(@current_user, "ESIMERKKIVIESTI: Tervetuloa Checkout -palvelun kauppiaaksi", EXAMPLE_MAIL_CONTENT).deliver
+      end
       return true
     else
       flash.now[:error] = t("organizations.form.error_with_organization_registration")

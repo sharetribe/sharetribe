@@ -1,3 +1,8 @@
+# encoding: UTF-8
+
+# This class is currently used by only one specific client
+# The plan is to separate this code later to a plugin
+
 class Organization < ActiveRecord::Base
   
   include EmailHelper
@@ -67,7 +72,7 @@ class Organization < ActiveRecord::Base
     else
       # Stub response to avoid unnecessary accounts being created (unless config is set to make real accounts)
       #puts "STUBBING A CALL TO MERCHANT API WITH PARAMS: #{api_params.inspect}"
-      response = "<merchant><id>123456</id><secret>exampledddfGisidnowtAthpowdUshyerbEuvRagNuishUcAnLihanshEmtyeifjitmowlIfyegyewfIvApdec=</secret><banner>http://rpcapi.checkout.fi/banners/5a1e9f504277f6cf17a7026de4375e97.png</banner></merchant>"
+      response = "<merchant><id>375917</id><secret>SAIPPUAKAUPPIAS</secret><banner>http://rpcapi.checkout.fi/banners/5a1e9f504277f6cf17a7026de4375e97.png</banner></merchant>"
     end
 
     self.merchant_id = response[/<id>([^<]+)<\/id>/, 1]
