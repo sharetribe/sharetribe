@@ -134,10 +134,6 @@ Given /^"([^"]*)" has admin rights in community "([^"]*)"$/ do |username, commun
   CommunityMembership.find_by_person_id_and_community_id(@people[username].id, Community.find_by_name(community).id).update_attribute(:admin, true)
 end
 
-When /^I can choose whether I want to show my username to others in community "([^"]*)"$/ do |community|
-  Community.find_by_domain(community).update_attribute(:select_whether_name_is_shown_to_everybody, true)
-end
-
 Then /^I should see my username$/ do
   username = Person.order("updated_at").last.username
   if @values && @values["username"]

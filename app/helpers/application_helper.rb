@@ -307,7 +307,7 @@ module ApplicationHelper
   end
   
   def large_avatar_thumb(person)
-    image_tag person.image.url(:medium), :alt => person.name
+    image_tag person.image.url(:medium), :alt => person.name(@current_community)
   end
 
   def pageless(total_pages, target_id, url=nil, loader_message='Loading more results')
@@ -768,7 +768,7 @@ module ApplicationHelper
   
   # Return either a link to the listing author or the name of the organization
   def author_link(listing)
-    listing.has_organization_in?(@current_community) ? listing.organization.name : link_to(listing.author.name, listing.author)
+    listing.has_organization_in?(@current_community) ? listing.organization.name : link_to(listing.author.name(@current_community), listing.author)
   end
   
   # Send a reminder email related to a transaction

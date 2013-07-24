@@ -5,7 +5,7 @@
   .person_image
     = small_avatar_thumb conversation.other_party(@current_user)
   .conversation_left
-    = link_to receiver.name, receiver
+    = link_to receiver.name(@current_community), receiver
     %br/
     %span= time_ago(last_message.created_at)
   .conversation_center

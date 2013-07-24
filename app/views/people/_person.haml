@@ -2,7 +2,7 @@
   .member-image
     = medium_avatar_thumb(person)
   .member-details
-    %h3= link_to person.name, person
+    %h3= link_to person.name(@current_community), person
     %small
       -# .icon-with-text-container
       -#         .ss-adduser.icon-part 

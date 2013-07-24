@@ -2,7 +2,7 @@ A new member has joined #{@community.name} #{service_name}.
 
 %div{:style => "margin: 15px 0; padding: 10px; background-color: #d1c9b4;"}
   %b Name: 
-  = @person.name
+  = @person.name(@community)
   %br/
   %b Email: 
   = @email

@@ -4,7 +4,7 @@
 %tr
   %td{:align => "left"} 
     %font{body_font}
-      = t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => @testimonial.author.name) + "."
+      = t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => @testimonial.author.name(@current_community)) + "."
 
 = render :partial => "action_button", :locals => { :text => t("emails.new_testimonial.view_feedback"), :url => view_url}
 

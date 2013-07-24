@@ -9,7 +9,7 @@
   .profile-description.section
   
     %h1
-      = @person.name
+      = @person.name(@current_community)
     
     #profile_message_links
       - if current_user?(@person)
@@ -45,7 +45,7 @@
         - if @community_membership.invitation && @community_membership.invitation.inviter
           .icon-with-text-container
             .ss-users.icon-part
-            .text-part= t(".was_invited_by", :inviter_name => (link_to @community_membership.invitation.inviter.name, @community_membership.invitation.inviter)).html_safe
+            .text-part= t(".was_invited_by", :inviter_name => (link_to @community_membership.invitation.inviter.name(@current_community), @community_membership.invitation.inviter)).html_safe
     
     - if logged_in? && @person.location && !@person.location.address.blank?
       #googlemap

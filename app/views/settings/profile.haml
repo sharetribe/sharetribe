@@ -16,11 +16,6 @@
     = form.text_field :given_name, :class => "text_field", :maxlength => "30"
     = form.label :family_name, t(".family_name")
     = form.text_field :family_name, :class => "text_field", :maxlength => "30"
-    - if @current_community.select_whether_name_is_shown_to_everybody
-      .checkbox-container
-        %input{:type => "checkbox", :id => "person_show_real_name_to_other_users", :name => "person[show_real_name_to_other_users]", :checked => @person.show_real_name_to_other_users, :value => "1"}
-        = form.hidden_field :show_real_name_setting_affected, :value => true
-        = form.label :show_real_name_to_other_users, t('people.new.show_my_name_to_others'), :class => "checkbox"
     
     -# Location
     .inline-label-container
