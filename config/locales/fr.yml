@@ -544,7 +544,7 @@ fr:
       welcome_some_tips: "Bienvenue dans la tribu %{community_link} ! Voici quelques astuces pour bien commencer."
       p_s_did_you_know: "PS : saviez-vous que vous pouvez créer une place de marché comme celle ci pour toutes les communautés auxquelles vous appartenez, gratuitement ? %{click_here_link} pour en savoir plus !"
       click_here_link_text: "Cliquez ici"
-      update_your_profile: "<strong>Mettez à jour votre profil.</strong> Ajouter votre vrai nom, mettre votre photo et dire quelques mots à propos de vous permettra de vous faire plus confiance. Ajouter vos informations de contact vous rendra la vie plus facile car vous n'aurez plus à le faire manuellement à chaque fois que vous déposez une annonce."
+      update_your_profile: "<strong>Mettez à jour votre profil.</strong> Ajouter votre vrai nom, mettre votre photo et dire quelques mots à propos de vous permettra aux autres de vous faire plus facilement confiance. Ajouter vos informations de contact vous rendra la vie plus facile car vous n'aurez pas à le faire manuellement à chaque fois que vous déposez une annonce."
       update_your_profile_link_text: "Mettez à jour votre profil en cliquant ici"
       add_something_you_could_offer: "<strong>Proposez quelque chose aux autres membres de %{service_name}.</strong> Pouvez-vous prêter votre perceuse, votre raquette de tennis ou votre appareil à raclette ? Savez-vous coudre, monter des meubles ou réparer des ordinateurs ? Y a t-il des objets dans vos placards dont vous aimeriez vous séparer ? %{add_offer_link}"
       add_offer_link_text: "Proposez les sur %{service_name} !"
@@ -822,6 +822,7 @@ fr:
       comment_sent: "Commentaire envoyé"
       confirmation_link_is_wrong_or_used: "Le lien de confirmation est déjà utilisé ou se trouve en panne. Essayez de vous connecter ou contactez-nous si le problème persiste."
       additional_email_confirmed: "Votre adresse email est désormais confirmée."
+      could_not_get_email_from_facebook: ~
       create_new_listing: "Créer une autre annonce"
       create_one_here: "en créer un ici"
       email_confirmation_sent_to_new_address: "Un email de confirmation est envoyé à la nouvelle adresse."
