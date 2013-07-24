@@ -129,7 +129,7 @@ class Listing < ActiveRecord::Base
     indexes description
     indexes taggings.tag.name, :as => :tags
     indexes comments.content, :as => :comments
-    indexes category.name, :as => :category
+    indexes category.translations.name, :as => :category
     
     # attributes
     has created_at, updated_at
@@ -148,10 +148,10 @@ class Listing < ActiveRecord::Base
     
     set_property :field_weights => {
       :title       => 10,
+      :category    => 8,
       :tags        => 8,
       :description => 3,
-      :comments    => 1,
-      :category    => 8
+      :comments    => 1
     }
   end
   
