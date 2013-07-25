@@ -11,8 +11,8 @@ task :deploy_staging_without_migrations => ['deploy:set_staging_app', 'i18n:writ
 task :deploy_production_without_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
 
 
-task :deploy_translation_migrations => ['deploy:set_translation_app', 'deploy:update_webfonts_folder',  'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
-task :deploy_translation_without_migrations => ['deploy:set_translation_app', 'deploy:update_webfonts_folder',  'deploy:push', 'deploy:restart', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
+task :deploy_translation_migrations => ['deploy:set_translation_app', 'deploy:update_webfonts_folder',  'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:update_translations_stored_in_db']
+task :deploy_translation_without_migrations => ['deploy:set_translation_app', 'deploy:update_webfonts_folder',  'deploy:push', 'deploy:update_translations_stored_in_db']
 
 
 task :deploy_custom_migrations => ['deploy:set_staging_app', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
