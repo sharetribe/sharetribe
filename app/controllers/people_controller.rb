@@ -9,7 +9,7 @@ class PeopleController < Devise::RegistrationsController
   skip_before_filter :verify_authenticity_token, :only => [:creates]
   skip_before_filter :require_no_authentication, :only => [:new]
   
-  before_filter :only => [ :update, :update_avatar, :destroy ] do |controller|
+  before_filter :only => [ :update, :destroy ] do |controller|
     controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
   end
   
@@ -120,10 +120,6 @@ class PeopleController < Devise::RegistrationsController
     # skip email confirmation unless it's required in this community
     params[:person][:confirmed_at] = (@current_community.email_confirmation ? nil : Time.now) if @current_community
     
-    params[:person][:show_real_name_to_other_users] = false unless (params[:person][:show_real_name_to_other_users] || ! @current_community || !@current_community.select_whether_name_is_shown_to_everybody)
-    
-    
-
     params["person"].delete(:terms) #remove terms part which confuses Devise
     
 
@@ -238,7 +234,7 @@ class PeopleController < Devise::RegistrationsController
     end
 
     begin
-      if @person.update_attributes(params[:person], session[:cookie])
+      if @person.update_attributes(params[:person])
         if params[:person][:password]
           #if password changed Devise needs a new sign in.
           sign_in @person, :bypass => true
@@ -270,16 +266,6 @@ class PeopleController < Devise::RegistrationsController
     end
     
     redirect_to root
-  end
-  
-  
-  def update_avatar
-    if params[:person] && params[:person][:image] && @person.update_attributes(params[:person])
-      flash[:notice] = t("layouts.notifications.avatar_upload_successful")
-    else 
-      flash[:error] = t("layouts.notifications.avatar_upload_failed")
-    end
-    redirect_to avatar_person_settings_path(:person_id => @current_user.id.to_s)  
   end
   
   def check_username_availability

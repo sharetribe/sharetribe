@@ -19,6 +19,11 @@ en:
         cover_photo_instructions_text: "Cover photo file will be resized to 1600x195 pixel size and taller images will be cut in the middle."
         custom_color1_instructions_text: "You can change the main color of the user interface of this community by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> can help you choose the color and copy the code here."
         invalid_color_code: "Color code should contain 6 numbers or letters A-F, for example D96E21"
+      edit_welcome_email:
+        welcome_email_content: "Welcome email content"
+        welcome_email_content_description: "The message below will be sent to every new member when they join. You can customize the message to fit your community. By clicking 'Send test message' you can a preview message to your email address, so you can see how it looks in an email client."
+        edit_message: "Edit message"
+        send_test_message: "Send test message"
     emails:
       new:
         send_email_to_members: "Send an email to members"
@@ -811,13 +816,12 @@ en:
       settings: Settings
       sign_up: "Sign up"
     notifications:
+      test_welcome_email_delivered_to: "A test email delivered to %{email}."
       something_went_wrong: "Something went wrong"
       community_updated: "Tribe details updated."
       community_update_failed: "Tribe detail update failed."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Account created successfully. Next you need to confirm your email address."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "You are now a member of this community. Next you need to confirm your email address."
-      avatar_upload_failed: "Avatar upload failed. Remember that the photo has to be a .png, .jpg or .gif -file."
-      avatar_upload_successful: "Avatar upload successful"
       comment_cannot_be_empty: "Comment cannot be empty"
       comment_sent: "Comment sent"
       confirmation_link_is_wrong_or_used: "The confirmation link is already used or otherwise broken. Try logging in, or send feedback if the problem persists."
@@ -917,7 +921,6 @@ en:
       testimonials: "Received feedback"
     settings:
       account: Account
-      avatar: "Profile picture"
       notifications: Notifications
       profile: "Profile info"
       settings: Settings
@@ -1480,9 +1483,6 @@ en:
       new_password: "New password"
       save: Save
       these_fields_are_shown_only_to_you: "Username is shown in your profile unless you have given your name. Other information is only shown to you."
-    avatar:
-      add_avatar_submit: "Save picture"
-      update_profile_picture: "Update profile picture"
     notifications:
       email_from_admins: "I'm willing to receive occasional updates from the administrator(s) of this community"
       i_want_to_get_email_notification_when: "I want to get an email notification when..."
@@ -1517,6 +1517,7 @@ en:
       given_name: "Given name"
       location_description: "You can give either your exact location or, for example, only your zip code. Please add at least your zip code. You can also select a location from the map below."
       phone_number: "Phone number"
+      profile_picture: "Profile picture"
       postal_code: "Postal code"
       profile_page: "in your profile page"
       profilemap: Mapview

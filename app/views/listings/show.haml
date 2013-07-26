@@ -86,7 +86,7 @@
                 = small_avatar_thumb(@listing.author)
               .organization-representative-name
                 = t(".listing_added_by")
-                = link_to @listing.author.name, @listing.author
+                = link_to @listing.author.name(@current_community), @listing.author
             - if @listing.author.received_testimonials.size > 0
               .listing-author-detail-line
                 .icon-with-text-container
@@ -117,7 +117,7 @@
             = medium_avatar_thumb(@listing.author)    
           .listing-author-description
             %h3
-              = link_to @listing.author.name, @listing.author, :id => "listing_author_link"
+              = link_to @listing.author.name(@current_community), @listing.author, :id => "listing_author_link"
             - if @listing.author.received_testimonials.size > 0
               %br/
               .icon-with-text-container

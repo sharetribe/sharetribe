@@ -83,7 +83,7 @@ class PersonMailer < ActionMailer::Base
     @testimonial = testimonial
     mail(:to => @recipient.email,
          :from => community_specific_sender(community),
-         :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => @testimonial.author.name))
+         :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => @testimonial.author.name(community)))
   end
   
   def new_badge(badge, community)
@@ -143,7 +143,7 @@ class PersonMailer < ActionMailer::Base
     @comment = comment
     mail(:to => @recipient.email,
          :from => community_specific_sender(community),
-         :subject => t("emails.new_comment.you_have_a_new_comment", :author => @comment.author.name))
+         :subject => t("emails.new_comment.you_have_a_new_comment", :author => @comment.author.name(community)))
   end
   
   def new_comment_to_followed_listing_notification(comment, recipient, community)
@@ -151,7 +151,7 @@ class PersonMailer < ActionMailer::Base
     @comment = comment
     mail(:to => @recipient.email,
          :from => community_specific_sender(community),
-         :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => @comment.author.name))
+         :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => @comment.author.name(community)))
   end
   
   def new_update_to_followed_listing_notification(listing, recipient, community)
@@ -168,7 +168,7 @@ class PersonMailer < ActionMailer::Base
     @invitation_code_required = @invitation.community.join_with_invite_only
     set_up_urls(nil, @invitation.community)
     @url_params[:locale] = @invitation.inviter.locale
-    subject = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name, :community => @invitation.community.full_name_with_separator(@invitation.inviter.locale))
+    subject = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name(community), :community => @invitation.community.full_name_with_separator(@invitation.inviter.locale))
     mail(:to => @invitation.email, 
          :from => community_specific_sender(@invitation.community),
          :subject => subject, 
@@ -184,7 +184,7 @@ class PersonMailer < ActionMailer::Base
     mail(:to => @recipient.email, 
          :from => community_specific_sender(community),
          :subject => email_subject, 
-         :reply_to => "\"#{sender.name}\"<#{sender.email}>")
+         :reply_to => "\"#{sender.name(community)}\"<#{sender.email}>")
   end
   
   # A custom message to a community starter
@@ -501,10 +501,11 @@ class PersonMailer < ActionMailer::Base
     
   end
   
-  def welcome_email(person, community)
+  def welcome_email(person, community, regular_email=nil)
     @recipient = person
     set_locale @recipient.locale
     @current_community = community
+    @regular_email = regular_email
     @url_params = {}
     @url_params[:host] = "#{@current_community.full_domain}"
     @url_params[:auth] = @recipient.new_email_auth_token
@@ -512,7 +513,7 @@ class PersonMailer < ActionMailer::Base
     @url_params[:ref] = "welcome_email"
     @url_params.freeze # to avoid accidental modifications later
         
-    if @recipient.has_admin_rights_in?(@current_community)
+    if @recipient.has_admin_rights_in?(@current_community) && !@regular_email
       subject = t("emails.welcome_email.congrats_for_creating_community", :community => @current_community.full_name)
     else
       subject = t("emails.welcome_email.subject", :community => @current_community.full_name, :person => person.given_name_or_username)

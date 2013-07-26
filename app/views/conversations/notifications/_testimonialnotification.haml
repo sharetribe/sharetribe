@@ -1,6 +1,6 @@
 = icon_tag("testimonial", ["notification-icon"])
 .notification-text
-  = link_to notification.notifiable.author.name, notification.notifiable.author
+  = link_to notification.notifiable.author.name(@current_community), notification.notifiable.author
   = t(".has_given_you_feedback_on_event")
   = link_to(notification.notifiable.participation.conversation.title, person_message_path(:person_id => @current_user.id, :id => notification.notifiable.participation.conversation.id)) + "."
   - if notification.notifiable.receiver.can_give_feedback_on?(notification.notifiable.participation.conversation)

@@ -108,8 +108,7 @@ module ApplicationHelper
       "lock" => "ss-lock",
       "unlock" => "ss-unlock",
       "edit" => "ss-draw",
-      "profile" => "ss-userfile",
-      "avatar" => "ss-picturefile"
+      "profile" => "ss-userfile"
       
       
     },
@@ -189,8 +188,7 @@ module ApplicationHelper
       "lock" => "icon-lock",
       "unlock" => "icon-unlock",
       "edit" => "icon-edit",
-      "profile" => "ss-user",
-      "avatar" => "icon-picture"
+      "profile" => "ss-user"
     }    
   }
   
@@ -307,7 +305,7 @@ module ApplicationHelper
   end
   
   def large_avatar_thumb(person)
-    image_tag person.image.url(:medium), :alt => person.name
+    image_tag person.image.url(:medium), :alt => person.name(@current_community)
   end
 
   def pageless(total_pages, target_id, url=nil, loader_message='Loading more results')
@@ -628,6 +626,12 @@ module ApplicationHelper
         :icon_class => "ss-adduser", 
         :path => new_invitation_path,
         :name => "invite_people"
+      },
+      {
+        :text => t("admin.communities.edit_welcome_email.welcome_email_content"),
+        :icon_class => icon_class("edit"), 
+        :path => edit_welcome_email_admin_community_path(community),
+        :name => "welcome_email"
       } 
     ]
   end
@@ -658,12 +662,6 @@ module ApplicationHelper
         :icon_class => icon_class("profile"),  
         :path => profile_person_settings_path(:person_id => person.id.to_s),
         :name => "profile"
-      },
-      {
-        :text => t("layouts.settings.avatar"),
-        :icon_class => icon_class("avatar"),  
-        :path => avatar_person_settings_path(:person_id => person.id.to_s),
-        :name => "avatar"
       },
       {
         :text => t("layouts.settings.account"),
@@ -762,7 +760,7 @@ module ApplicationHelper
   
   # Return either a link to the listing author or the name of the organization
   def author_link(listing)
-    listing.has_organization_in?(@current_community) ? listing.organization.name : link_to(listing.author.name, listing.author)
+    listing.has_organization_in?(@current_community) ? listing.organization.name : link_to(listing.author.name(@current_community), listing.author)
   end
   
   # Send a reminder email related to a transaction

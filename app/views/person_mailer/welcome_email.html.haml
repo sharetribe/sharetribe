@@ -14,7 +14,7 @@
                         %h1{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-weight:400;font-size:18px;margin-top:20px;margin-bottom:5px; text-align: left;line-height:22px;"}
                           = t("emails.common.hey", :name => @recipient.given_name_or_username)
                         
-                        - if @recipient.has_admin_rights_in?(@current_community)
+                        - if @recipient.has_admin_rights_in?(@current_community) && !@regular_email
                           
                           %p
                             = t("emails.welcome_email.you_have_just_created_community", :community_link => link_to(@current_community.full_name, root_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
@@ -44,34 +44,7 @@
                           - if customization && !customization.welcome_email_content.blank?
                             = customization.welcome_email_content.html_safe
                           - else
-                            %p
-                              = t("emails.welcome_email.welcome_some_tips", :community_link => link_to(@current_community.full_name, root_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
-                            %p
-                              = t("emails.welcome_email.update_your_profile", :update_profile_link => link_to(t("emails.welcome_email.update_your_profile_link_text"), person_settings_url(@recipient, @url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
-
-                            %p
-                              = t("emails.welcome_email.add_something_you_could_offer", :add_offer_link => link_to(t("emails.welcome_email.add_offer_link_text"), new_listing_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe  
-
-                            %p  
-                              = t("emails.welcome_email.is_there_something_you_need", :add_request_link => link_to(t("emails.welcome_email.add_request_link_text"), new_listing_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe 
-
-                            %p
-                              - if @current_community.join_with_invite_only?
-                                = t("emails.welcome_email.invite_your_friends_invite_only", :invite_link => link_to(t("emails.welcome_email.invite_link_text"), new_invitation_url(@url_params), :style => "color:#d96e21; text-decoration: none;"), :member_list_link => link_to(t("emails.welcome_email.member_list_link_text"), people_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe 
-                              - else
-                                = t("emails.welcome_email.invite_your_friends", :invite_link => link_to(t("emails.welcome_email.invite_link_text"), new_invitation_url(@url_params), :style => "color:#d96e21; text-decoration: none;"), :url => link_to(@current_community.full_url, @current_community.full_url, :style => "color:#d96e21; text-decoration: none;"), :member_list_link => link_to(t("emails.welcome_email.member_list_link_text"), people_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe 
-
-                            %p
-                              = t("emails.welcome_email.get_mobile_app", :app_store_link => link_to(t("emails.welcome_email.app_store_link_text"), "https://itunes.apple.com/us/app/sharetribe/id545640772?mt=8", :style => "color:#d96e21; text-decoration: none;"), :mobile_web_link => link_to(t("emails.welcome_email.mobile_web_link_text"), root_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
-
-                            %p
-                              = t("emails.welcome_email.go_explore").html_safe
-
-                            %p
-                              = t("emails.welcome_email.love_team").html_safe
-
-                            %p
-                              = t("emails.welcome_email.p_s_did_you_know", :click_here_link => link_to(t("emails.welcome_email.click_here_link_text"), "http://#{APP_CONFIG.domain}/#{@recipient.locale}?ref=welcome_mail", :style => "color:#d96e21; text-decoration: none;")).html_safe
+                            = render :partial => "admin/communities/default_welcome_email"
                       %td{:width => "7.5%"}
             %tr
               %td{:style => "text-align: left;width:100%;max-width:602px;padding: 0 45px;"}
