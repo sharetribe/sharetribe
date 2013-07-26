@@ -23,7 +23,10 @@
     = yield(:extra_javascript)
     :javascript
       $(document).ready(function() { initialize_defaults(); #{yield :javascript} });
-      
+    
+    -# Temporary tag for google webmaster site verification
+    %meta{ name: "google-site-verification", content: "JUqB3tYmezYEJNAkw8MUdmIocAGztY85eaoNKBD5j0Q"}
+  
   %body
     %noscript
       .js_enabled
