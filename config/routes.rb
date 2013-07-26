@@ -64,8 +64,7 @@ Kassi::Application.routes.draw do
           get :create_facebook_based
           get :fetch_rdf_profile
         end
-        member do 
-          put :update_avatar
+        member do
           put :activate
           put :deactivate
         end
@@ -105,7 +104,6 @@ Kassi::Application.routes.draw do
         resource :settings do
           member do
             get :profile
-            get :avatar
             get :account
             get :notifications
             get :unsubscribe

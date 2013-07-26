@@ -25,11 +25,6 @@ class SettingsController < ApplicationController
     add_location_to_person
   end
   
-  def avatar
-    @no_tribe_title = "settings"
-    @selected_left_navi_link = "avatar"
-  end
-  
   def account
     @no_tribe_title = "settings"
     @selected_left_navi_link = "account"

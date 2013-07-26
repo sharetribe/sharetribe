@@ -653,7 +653,8 @@ function initialize_update_profile_info_form(locale, person_id, name_required) {
       "person[street_address]": {required: false, address_validator: true},
       "person[given_name]": {required: name_required, maxlength: 30},
       "person[family_name]": {required: name_required, maxlength: 30},
-      "person[phone_number]": {required: false, maxlength: 25}
+      "person[phone_number]": {required: false, maxlength: 25},
+      "person[image]": { accept: "(jpe?g|gif|png)" }
     },
     onkeyup: false,
     onclick: false,
@@ -668,18 +669,6 @@ function initialize_update_profile_info_form(locale, person_id, name_required) {
 function initialize_update_notification_settings_form(locale, person_id) {
   var form_id = "#edit_person_" + person_id;
   $(form_id).validate({
-    submitHandler: function(form) {
-      disable_and_submit(form_id, form, "false", locale);
-    }
-  });  
-}
-
-function initialize_update_avatar_form(fileDefaultText, fileBtnText, locale) {
-  var form_id = "#avatar_form";
-  $(form_id).validate({
-    rules: {
-      "person[image]": { accept: "(jpe?g|gif|png)" } 
-    },
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
     }

@@ -17,9 +17,11 @@ Feature: User updates profile information
     And wait for 2 seconds
     And I fill in "Phone number" with "0700-715517"
     And I fill in "About you" with "Some random text about me"
+    And I attach a valid image file to "avatar_file"
     And I press "Save information"
     Then I should see "Information updated" within ".flash-notifications"
     And the "Given name" field should contain "Test"
     And the "Family name" field should contain "Dude"
     And the "Location" field should contain "Broadway"
     And I should not see my username
+    And I should see the image I just uploaded

@@ -822,8 +822,6 @@ en:
       community_update_failed: "Tribe detail update failed."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Account created successfully. Next you need to confirm your email address."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "You are now a member of this community. Next you need to confirm your email address."
-      avatar_upload_failed: "Avatar upload failed. Remember that the photo has to be a .png, .jpg or .gif -file."
-      avatar_upload_successful: "Avatar upload successful"
       comment_cannot_be_empty: "Comment cannot be empty"
       comment_sent: "Comment sent"
       confirmation_link_is_wrong_or_used: "The confirmation link is already used or otherwise broken. Try logging in, or send feedback if the problem persists."
@@ -923,7 +921,6 @@ en:
       testimonials: "Received feedback"
     settings:
       account: Account
-      avatar: "Profile picture"
       notifications: Notifications
       profile: "Profile info"
       settings: Settings
@@ -1486,9 +1483,6 @@ en:
       new_password: "New password"
       save: Save
       these_fields_are_shown_only_to_you: "Username is shown in your profile unless you have given your name. Other information is only shown to you."
-    avatar:
-      add_avatar_submit: "Save picture"
-      update_profile_picture: "Update profile picture"
     notifications:
       email_from_admins: "I'm willing to receive occasional updates from the administrator(s) of this community"
       i_want_to_get_email_notification_when: "I want to get an email notification when..."
@@ -1523,6 +1517,7 @@ en:
       given_name: "Given name"
       location_description: "You can give either your exact location or, for example, only your zip code. Please add at least your zip code. You can also select a location from the map below."
       phone_number: "Phone number"
+      profile_picture: "Profile picture"
       postal_code: "Postal code"
       profile_page: "in your profile page"
       profilemap: Mapview

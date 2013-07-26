@@ -39,6 +39,10 @@
         = t('.visible_to_registered_users')
     = form.text_field :phone_number, :class => "text_field", :maxlength => "25"
     
+    -# Profile picture
+    = form.label :image, t(".profile_picture")
+    = form.file_field :image, :size => 30, :id => "avatar_file"
+    
     -# About text
     = form.label :description, t(".about_you"), :class => "input"
     = form.text_area :description, :class => "update_profile_description_text_area"

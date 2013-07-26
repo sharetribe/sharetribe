@@ -108,8 +108,7 @@ module ApplicationHelper
       "lock" => "ss-lock",
       "unlock" => "ss-unlock",
       "edit" => "ss-draw",
-      "profile" => "ss-userfile",
-      "avatar" => "ss-picturefile"
+      "profile" => "ss-userfile"
       
       
     },
@@ -189,8 +188,7 @@ module ApplicationHelper
       "lock" => "icon-lock",
       "unlock" => "icon-unlock",
       "edit" => "icon-edit",
-      "profile" => "ss-user",
-      "avatar" => "icon-picture"
+      "profile" => "ss-user"
     }    
   }
   
@@ -664,12 +662,6 @@ module ApplicationHelper
         :icon_class => icon_class("profile"),  
         :path => profile_person_settings_path(:person_id => person.id.to_s),
         :name => "profile"
-      },
-      {
-        :text => t("layouts.settings.avatar"),
-        :icon_class => icon_class("avatar"),  
-        :path => avatar_person_settings_path(:person_id => person.id.to_s),
-        :name => "avatar"
       },
       {
         :text => t("layouts.settings.account"),
