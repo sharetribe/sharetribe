@@ -18,7 +18,7 @@
     .account-settings-text#account_email_content
       %b
         = t(".email")
-      = @person.email(session[:cookie])
+      = @person.email
       = link_to t(".change"), "#", :id => "account_email_link", :class => "change-link"
     #account_email_form.email-form
       = form_for @person, :html => {:id => 'email_form'} do |form|

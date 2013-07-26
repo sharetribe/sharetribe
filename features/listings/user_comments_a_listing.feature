@@ -92,7 +92,7 @@ Feature: User comments a listing
     And I press "Send comment"
     And the system processes jobs
     Then I should see "Test comment 1" within "#comments"
-    And "t1@example.com" should receive an email with subject "Anthony Debugger has commented on your listing in Sharetribe"
+    And "t1@example.com" should receive an email with subject "Anthony D has commented on your listing in Sharetribe"
     And "t2@example.com" should have no emails
     
     When I log out
@@ -105,7 +105,7 @@ Feature: User comments a listing
     And I press "Send comment"
     And the system processes jobs
     Then I should see "Test comment 2" within "#comments"
-    And "t2@example.com" should receive an email with subject "John MacTest has commented on a listing you follow in Sharetribe"
+    And "t2@example.com" should receive an email with subject "John M has commented on a listing you follow in Sharetribe"
     
     When "t2@example.com" opens the email
     And I follow "en/listings" in the email

@@ -28,9 +28,8 @@ Feature: User views a single listing
     #And I should see "Add profile picture"
     When I click ".user-menu-toggle"
     When I follow "Settings"
-    And I follow "Profile picture" within ".left-navi"
     And I attach a valid image file to "avatar_file"
-    And I press "Save picture"
+    And I press "Save information"
     And I go to the home page
     And I follow "Massage"
     Then I should not see "Add profile picture"

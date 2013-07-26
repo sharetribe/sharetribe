@@ -57,7 +57,7 @@
         .text-with-icon= t(".add_location")
     
     - if current_user?(@person) && !@person.has_profile_picture?
-      %a.add-profile-picture-link{href: avatar_person_settings_path(@person)}
+      %a.add-profile-picture-link{href: person_settings_path(@person)}
         .ss-picture.icon-with-text
         .text-with-icon= t("listings.show.add_profile_picture")
     

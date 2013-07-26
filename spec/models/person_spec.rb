@@ -55,7 +55,7 @@ describe Person do
       it "should update the attributes" do
         @test_person.update_attributes({'given_name' => "Totti", 
           'family_name' => "Tester", 
-          'phone_number' => "050-55555555"}, @cookie)
+          'phone_number' => "050-55555555"})
         @test_person.family_name.should == "Tester"
         @test_person.phone_number.should == "050-55555555"
       end
@@ -71,12 +71,12 @@ describe Person do
 
     describe "name getters" do
       before(:each) do
-        @test_person.update_attributes({'given_name' => "Ripa", 'family_name' => "Riuska"}, @cookie)
+        @test_person.update_attributes({'given_name' => "Ripa", 'family_name' => "Riuska"})
       end
 
       it "returns the name of the user" do
         @test_person.name.should_not be_blank
-        @test_person.name.should == "Ripa Riuska"
+        @test_person.name.should == "Ripa R"
       end
 
       it "returns the given or the last name of the user" do
@@ -91,7 +91,7 @@ describe Person do
         end
 
         it "should return blank if given name is blank" do
-          @test_person.update_attributes({'given_name' => "", 'family_name' => ""}, @cookie)
+          @test_person.update_attributes({'given_name' => "", 'family_name' => ""})
           @test_person.given_name.should == ""
         end
 
@@ -104,7 +104,7 @@ describe Person do
         end
 
         it "should return username if given name is blank" do
-          @test_person.update_attributes({'given_name' => "", 'family_name' => ""}, @cookie)
+          @test_person.update_attributes({'given_name' => "", 'family_name' => ""})
           @test_person.given_name_or_username.should == @test_person.username
         end
 
@@ -121,16 +121,16 @@ describe Person do
 
     describe "email functions" do
       before(:each) do
-        @test_person.set_email("testing_one@example.com", @cookie)
+        @test_person.set_email("testing_one@example.com")
       end
 
       it "should return the email correctly" do
-        @test_person.email(@cookie).should == "testing_one@example.com"
+        @test_person.email.should == "testing_one@example.com"
       end
 
       it "should change email" do
-        @test_person.set_email("testing_two@example.com", @cookie)
-        @test_person.email(@cookie).should == "testing_two@example.com"
+        @test_person.set_email("testing_two@example.com")
+        @test_person.email.should == "testing_two@example.com"
       end
     end
     

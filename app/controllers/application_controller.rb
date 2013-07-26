@@ -180,7 +180,7 @@ class ApplicationController < ActionController::Base
   end
 
   def clear_user_session
-    @current_user = session[:person_id] = session[:cookie] = nil
+    @current_user = session[:person_id] = nil
   end
 
   # this generates the event_id that will be used in
