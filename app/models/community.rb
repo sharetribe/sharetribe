@@ -44,12 +44,10 @@ class Community < ActiveRecord::Base
     
   serialize :settings, Hash
   
-  paperclip_options_for_logo = PaperclipHelper.paperclip_default_options.merge!({:styles => { 
+  has_attached_file :logo, :styles => { 
                       :header => "192x192#",  
                       :original => "600x600>"},
                       :default_url => "/assets/logos/header/default.png"
-  })
-  has_attached_file :logo, paperclip_options_for_logo
   validates_attachment_content_type :logo,
                                     :content_type => ["image/jpeg",
                                                       "image/png", 
@@ -57,12 +55,10 @@ class Community < ActiveRecord::Base
                                                       "image/pjpeg", 
                                                       "image/x-png"]
   
-  paperclip_options_for_cover_photo = PaperclipHelper.paperclip_default_options.merge!({:styles => { 
+  has_attached_file :cover_photo, :styles => { 
                       :header => "1600x195#",  
                       :original => "3200x3200>"},
                       :default_url => "/assets/cover_photos/header/default.jpg"
-  })
-  has_attached_file :cover_photo, paperclip_options_for_cover_photo
   validates_attachment_content_type :cover_photo,
                                     :content_type => ["image/jpeg",
                                                       "image/png", 

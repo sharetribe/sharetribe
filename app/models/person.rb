@@ -117,15 +117,13 @@ class Person < ActiveRecord::Base
 
   validate :community_email_type_is_correct
 
-  paperclip_options = PaperclipHelper.paperclip_default_options.merge!({:styles => { 
+  
+  has_attached_file :image, :styles => { 
                       :medium => "288x288#",
                       :small => "108x108#",
                       :thumb => "48x48#",
                       :original => "600x800>"},
                     :default_url => ActionController::Base.helpers.asset_path("/assets/profile_image/:style/missing.png", :digest => true)
-  })
-  
-  has_attached_file :image, paperclip_options
         
   #validates_attachment_presence :image
   validates_attachment_size :image, :less_than => 9.megabytes

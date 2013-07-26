@@ -20,15 +20,12 @@ class Organization < ActiveRecord::Base
   validates_uniqueness_of :name
   validates_format_of :company_id, :with => /^(\d{7}\-\d)?$/, :allow_nil => true
   
-  paperclip_options_for_logo = PaperclipHelper.paperclip_default_options.merge!({:styles => {  
+  has_attached_file :logo, :styles => {  
                       :medium => "288x288",
                       :small => "108x108",
                       :thumb => "48x48", 
                       :original => "600x600>"},
                       :default_url => "/assets/organizations/medium/default.png"
-  })
-  
-  has_attached_file :logo, paperclip_options_for_logo
   validates_attachment_content_type :logo,
                                     :content_type => ["image/jpeg",
                                                       "image/png", 

@@ -5,8 +5,8 @@ class Mercury::Image < ActiveRecord::Base
   attr_accessible :image
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" },
-        :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
-        :url => "/system/:attachment/:id/:style/:filename"
+        :path => "images/mercury/:attachment/:id/:style/:filename",
+        :url => "/system/:class/:attachment/:id/:style/:filename"
 
   delegate :url, :to => :image
 

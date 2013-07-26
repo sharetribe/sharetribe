@@ -135,6 +135,28 @@ module Kassi
       ENV['RECAPTCHA_PRIVATE_KEY'] = APP_CONFIG.recaptcha_private_key
     end
     
+    
+    # Configure Paperclip
+    paperclip_options = {
+          :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
+          :url => "/system/:attachment/:id/:style/:filename"
+    }
+          
+    if (APP_CONFIG.s3_bucket_name && APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key)
+      paperclip_options.merge!({
+        :path => "images/:class/:attachment/:id/:style/:filename",
+        :url => "/system/:class/:attachment/:id/:style/:filename",
+        :storage => :s3,
+        :s3_protocol => 'https',
+        :s3_credentials => {
+              :bucket            => APP_CONFIG.s3_bucket_name, 
+              :access_key_id     => APP_CONFIG.aws_access_key_id, 
+              :secret_access_key => APP_CONFIG.aws_secret_access_key 
+        }
+      })
+    end
+    config.paperclip_defaults = paperclip_options
+    
     # If logger_type is set to something else than "normal" we'll use stdout here
     # the reason for this type of check is that it works also in Heroku where those variables can't be read in slug compilation
     if (Rails.env.production? || Rails.env.staging?) && APP_CONFIG.logger_type != "normal"
