@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130724070139) do
+ActiveRecord::Schema.define(:version => 20130729081847) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20130724070139) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "community_id"
   end
 
   add_index "comments", ["listing_id"], :name => "index_comments_on_listing_id"
@@ -207,6 +208,7 @@ ActiveRecord::Schema.define(:version => 20130724070139) do
     t.datetime "updated_at"
     t.string   "status",          :default => "pending"
     t.datetime "last_message_at"
+    t.integer  "community_id"
   end
 
   create_table "delayed_jobs", :force => true do |t|
@@ -263,8 +265,9 @@ ActiveRecord::Schema.define(:version => 20130724070139) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "is_handled", :default => 0
+    t.integer  "is_handled",   :default => 0
     t.string   "email"
+    t.integer  "community_id"
   end
 
   create_table "groups", :force => true do |t|
