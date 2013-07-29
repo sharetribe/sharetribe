@@ -282,7 +282,7 @@ class Listing < ActiveRecord::Base
     params ||= {}  # Set params to empty hash if it's nil
     joined_tables = []
         
-    params[:include] ||= [:listing_images]
+    params[:include] ||= [:listing_images, :category, :share_type]
         
     params.reject!{ |key,value| (value == "all" || value == ["all"]) && key != "status"} # all means the fliter doesn't need to be included (except with "status")
 

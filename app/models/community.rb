@@ -507,13 +507,17 @@ class Community < ActiveRecord::Base
 
 
   def community_categories
-    custom = CommunityCategory.find_all_by_community_id(id, :include => [:category, :share_type])
+    custom = Rails.cache.fetch("/custom_categories/#{self.id}-#{self.updated_at}") {
+      CommunityCategory.find_all_by_community_id(id, :include => [:category, :share_type])
+    }
     if custom.present?
       # use custom values
       return custom
     else
       # Use defaults
-      return CommunityCategory.find_all_by_community_id(nil, :include => [:category, :share_type])
+      return Rails.cache.fetch("/default_categories") {
+        CommunityCategory.find_all_by_community_id(nil, :include => [:category, :share_type])
+      }
     end
   end
   

@@ -39,7 +39,7 @@ gem 'delayed_paperclip'
 gem 'aws-sdk', "~>1.9.0"
 gem "will_paginate"
 gem 'newrelic_rpm'
-gem 'memcache-client', ">= 1.8.5"
+gem 'dalli'
 gem 'thinking-sphinx', "~>2.0.14", :require => 'thinking_sphinx'
 gem 'flying-sphinx', "~>0.8.5"
 gem 'recaptcha'

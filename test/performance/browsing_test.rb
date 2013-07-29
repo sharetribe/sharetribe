@@ -5,19 +5,19 @@ require 'rails/performance_test_help'
 # Profiling results for each test method are written to tmp/performance.
 class BrowsingTest < ActionController::PerformanceTest
   
-  def setup
-    @author = FactoryGirl(:person)
-    @community = FactoryGirl(:community, :domain => "test")
-    
-  end
+  # def setup
+  #   @author = FactoryGirl(:person)
+  #   @community = FactoryGirl(:community, :domain => "test")
+  #   
+  # end
   
-  def create_listings(n=40)
-    40.times do |n|
-      FactoryGirl(:listing, :author => @author, 
-      :share_types => [FactoryGirl(:share_type, :name => ( n%2 == 0 ? "buy" : "sell" ))],
-      :communities => [@community])
-    end
-  end
+  # def create_listings(n=40)
+  #   40.times do |n|
+  #     FactoryGirl(:listing, :author => @author, 
+  #     :share_types => [FactoryGirl(:share_type, :name => ( n%2 == 0 ? "buy" : "sell" ))],
+  #     :communities => [@community])
+  #   end
+  # end
   
   def test_homepage
     create_listings

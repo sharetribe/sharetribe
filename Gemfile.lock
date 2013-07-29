@@ -86,6 +86,7 @@ GEM
       capybara (>= 1.1.2)
       cucumber (>= 1.1.8)
       nokogiri (>= 1.5.0)
+    dalli (2.6.4)
     database_cleaner (0.9.1)
     delayed_job (3.0.5)
       activesupport (~> 3.0)
@@ -162,7 +163,6 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    memcache-client (1.8.5)
     mercury-rails (0.9.0)
       coffee-rails
       railties (~> 3.2)
@@ -349,6 +349,7 @@ DEPENDENCIES
   compass-rails
   cucumber
   cucumber-rails
+  dalli
   database_cleaner
   delayed_job
   delayed_job_active_record
@@ -363,7 +364,6 @@ DEPENDENCIES
   jquery-rails
   json (~> 1.7.7)
   launchy
-  memcache-client (>= 1.8.5)
   mercury-rails
   money-rails
   mysql2
