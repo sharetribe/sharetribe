@@ -163,6 +163,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memcachier (0.0.2)
     mercury-rails (0.9.0)
       coffee-rails
       railties (~> 3.2)
@@ -363,7 +364,9 @@ DEPENDENCIES
   haml
   jquery-rails
   json (~> 1.7.7)
+  kgio
   launchy
+  memcachier
   mercury-rails
   money-rails
   mysql2

@@ -40,6 +40,8 @@ gem 'aws-sdk', "~>1.9.0"
 gem "will_paginate"
 gem 'newrelic_rpm'
 gem 'dalli'
+gem "memcachier"
+gem 'kgio'
 gem 'thinking-sphinx', "~>2.0.14", :require => 'thinking_sphinx'
 gem 'flying-sphinx', "~>0.8.5"
 gem 'recaptcha'
