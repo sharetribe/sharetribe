@@ -19,6 +19,11 @@ de:
         cover_photo_instructions_text: "Deckblatt Bild wird in eine Größe von 1600x195 Pixel Größe angepasst, größere Bilder werden in der Mitte durch geschnitten."
         custom_color1_instructions_text: "Du kannst die Hauptfarbe der Community ändern in dem du einen neuen Farbwert eingibst. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> kann dir helfen die Farbe auszuwählen und kopiere den Code hier ein."
         invalid_color_code: "Der Farben Code sollte 6 Ziffern oder Buchstaben A-F haben, zum Beispiel D96E21"
+      edit_welcome_email:
+        welcome_email_content: ~
+        welcome_email_content_description: ~
+        edit_message: ~
+        send_test_message: ~
     emails:
       new:
         send_email_to_members: "Sende eine E-Mail an alle Mitglieder"
@@ -811,13 +816,12 @@ de:
       settings: Einstellungen
       sign_up: Registrieren
     notifications:
+      test_welcome_email_delivered_to: ~
       something_went_wrong: "Da ist etwas schief gelaufen"
       community_updated: "Aktualisierte die Details"
       community_update_failed: "Aktualisierung fehlgeschlagen"
       account_creation_succesful_you_still_need_to_confirm_your_email: "Konto erfolgreich erstellt. Als nächstes müssen Sie Ihre Email-Adresse bestätigen."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Sie sind nun ein Mitglied dieser Community. Als nächstes müssen Sie Ihre Email Adresse bestätigen."
-      avatar_upload_failed: "Avatar-Upload fehlgeschlagen. Denken Sie daran, dass das Foto eine .png, .jpg oder .gif-Datei sein muss."
-      avatar_upload_successful: "Avatar Upload erfolgreich"
       comment_cannot_be_empty: "Kommentar darf nicht leer sein."
       comment_sent: "Kommentar gesendet"
       confirmation_link_is_wrong_or_used: "Der Bestätigungslink ist bereits verwendet oder anderweitig defekt. Versuchen Sie sich anzumelden oder senden Sie Feedback sofern das Problem weiterhin besteht."
@@ -917,7 +921,6 @@ de:
       testimonials: "Erhaltene Feedbacks"
     settings:
       account: Konto
-      avatar: Profilbild
       notifications: Benachrichtigungen
       profile: Profil-Info
       settings: Einstellungen
@@ -1483,9 +1486,6 @@ de:
       new_password: "Neues Passwort"
       save: Speichern
       these_fields_are_shown_only_to_you: "Ihr Benutzername wird Ihnen in Ihrem Profil angezeigt, es sei denn Sie haben Ihren Namen angegeben. Andere Informationen sind nur für Sie sichtbar."
-    avatar:
-      add_avatar_submit: "Bild speichern"
-      update_profile_picture: "Profilbild aktualisieren"
     notifications:
       email_from_admins: "Ich bin bereit gelegentliche Neuigkeiten von den Administratoren der Community zu empfangen."
       i_want_to_get_email_notification_when: "Ich möchte eine Email Benachrichtigung erhalten wenn..."
@@ -1520,6 +1520,7 @@ de:
       given_name: Vorname
       location_description: "Du kannst entweder deinen exakten Standort oder nur deine Postleitzahl angeben. Bitte füge mindestens deine Postleitzahl hinzu. Du kannst auch einen Standort aus der Karte auswählen."
       phone_number: Telefonnummer
+      profile_picture: ~
       postal_code: Postleitzahl
       profile_page: "auf Ihrer Profil-Seite"
       profilemap: Kartenansicht

@@ -19,6 +19,11 @@ en-ul:
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
         invalid_color_code: ~
+      edit_welcome_email:
+        welcome_email_content: ~
+        welcome_email_content_description: ~
+        edit_message: ~
+        send_test_message: ~
     emails:
       new:
         send_email_to_members: ~
@@ -872,13 +877,12 @@ en-ul:
       settings: ~
       sign_up: ~
     notifications:
+      test_welcome_email_delivered_to: ~
       something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
-      avatar_upload_failed: ~
-      avatar_upload_successful: ~
       comment_cannot_be_empty: ~
       comment_sent: ~
       confirmation_link_is_wrong_or_used: ~
@@ -978,7 +982,6 @@ en-ul:
       testimonials: ~
     settings:
       account: ~
-      avatar: ~
       notifications: ~
       profile: ~
       settings: ~
@@ -1538,9 +1541,6 @@ en-ul:
       new_password: ~
       save: ~
       these_fields_are_shown_only_to_you: ~
-    avatar:
-      add_avatar_submit: ~
-      update_profile_picture: ~
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: ~
@@ -1575,6 +1575,7 @@ en-ul:
       given_name: ~
       location_description: ~
       phone_number: ~
+      profile_picture: ~
       postal_code: ~
       profile_page: ~
       profilemap: ~

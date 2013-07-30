@@ -19,6 +19,11 @@ vi:
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
         invalid_color_code: ~
+      edit_welcome_email:
+        welcome_email_content: ~
+        welcome_email_content_description: ~
+        edit_message: ~
+        send_test_message: ~
     emails:
       new:
         send_email_to_members: ~
@@ -811,13 +816,12 @@ vi:
       settings: "Cài đặt"
       sign_up: "Đăng kí"
     notifications:
+      test_welcome_email_delivered_to: ~
       something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: "Tài khoản được tạo thành công. Tiếp theo bạn cần phải xác nhận địa chỉ email của bạn."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Bây giờ bạn là một thành viên của cộng đồng này. Tiếp theo, bạn cần phải xác nhận địa chỉ email của bạn."
-      avatar_upload_failed: "Avatar tải lên thất bại. Hãy nhớ rằng tập tin hình ảnh phải ở định dạng .png, .jpg hoặc .gif."
-      avatar_upload_successful: "Avatar tải lên thành công"
       comment_cannot_be_empty: "Bình luận không được để trống"
       comment_sent: "Bình luận đã gửi"
       confirmation_link_is_wrong_or_used: "Liên kết xác nhận vừa được sử dụng hoặc bị hỏng. Thử đăng nhập lại, hoặc gửi thông tin phản hồi nếu lỗi vẫn tồn tại."
@@ -917,7 +921,6 @@ vi:
       testimonials: "Đã nhận thông tin phản hồi"
     settings:
       account: "Tài khoản"
-      avatar: "Ảnh hồ sơ"
       notifications: "Các ghi chú"
       profile: "Thông tin hồ sơ"
       settings: "Cài đặt"
@@ -1478,9 +1481,6 @@ vi:
       new_password: "Mật khẩu mới"
       save: Lưu
       these_fields_are_shown_only_to_you: "Tên người dùng được hiển thị trong tiểu sử của bạn trừ khi bạn đưa ra tên của bạn. Các thông tin khác chỉ hiện thị đối với bạn."
-    avatar:
-      add_avatar_submit: "Lưu hình ảnh"
-      update_profile_picture: "Cập Nhật hình ảnh cá nhân"
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: "Tôi muốn nhận email thông báo khi..."
@@ -1515,6 +1515,7 @@ vi:
       given_name: "Tên:"
       location_description: "Bạn có thể cung cấp vị trí chính xác của bạn hoặc chỉ mã vùng của bạn. Xin vui lòng thêm ít nhất là mã vùng của bạn. Bạn cũng có thể chọn vị trí từ bản đồ."
       phone_number: "Số điện thoại:"
+      profile_picture: ~
       postal_code: "Mã bưu điện:"
       profile_page: "trong trang hồ sơ của bạn"
       profilemap: ~

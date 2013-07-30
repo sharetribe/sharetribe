@@ -19,6 +19,11 @@ zh:
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
         invalid_color_code: ~
+      edit_welcome_email:
+        welcome_email_content: ~
+        welcome_email_content_description: ~
+        edit_message: ~
+        send_test_message: ~
     emails:
       new:
         send_email_to_members: ~
@@ -811,13 +816,12 @@ zh:
       settings: 设置
       sign_up: 注册
     notifications:
+      test_welcome_email_delivered_to: ~
       something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: 账号创建成功。下一步，您需要确认您的Email地址。
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
-      avatar_upload_failed: 头像上传失败。请使用.png，.jpg或者.gif文件。
-      avatar_upload_successful: 头像上传成功！
       comment_cannot_be_empty: 评论不能为空
       comment_sent: 评论已发送
       confirmation_link_is_wrong_or_used: 确认链接以被使用或失效。请尝试登录，如果问题依然存在请发送反馈。
@@ -917,7 +921,6 @@ zh:
       testimonials: 收到的评价
     settings:
       account: 帐号
-      avatar: 头像图片
       notifications: 通知
       profile: 个人资料
       settings: 设置
@@ -1477,9 +1480,6 @@ zh:
       new_password: 新密码
       save: 保存
       these_fields_are_shown_only_to_you: 除非提供了您的真实姓名，否则用户名将会被显示在个人信息页面中。其他信息只对您可见。
-    avatar:
-      add_avatar_submit: 保存图片
-      update_profile_picture: 更新头像
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: 寄给我一封Email通知当…
@@ -1514,6 +1514,7 @@ zh:
       given_name: 名：
       location_description: 您可以选择提供您的准确住址或仅仅提供邮政编码。请至少填写邮政编码。您也可以通过地图选择一个地点。
       phone_number: 电话号码：
+      profile_picture: ~
       postal_code: 邮政编码：
       profile_page: 在您的个人信息页面
       profilemap: 地图
