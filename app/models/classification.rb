@@ -10,6 +10,8 @@ module Classification
           name
         end
       end
+    else
+      name
     end
   end
   
