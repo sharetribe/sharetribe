@@ -502,7 +502,10 @@ class Community < ActiveRecord::Base
   # is it possible to pay for this listing via the payment system
   def payment_possible_for?(listing)
     cc = community_category(listing.category.top_level_parent, listing.share_type)
-    payments_in_use && (cc.price || cc.payment)
+    # as currently all messages are shown in all communities, there might be case where the
+    # message would have payment possible in it's original community, but in this community the cc
+    # is not found with the above search, so then payment is not possible here. (cc must be present)
+    payments_in_use && cc.present? && (cc.price || cc.payment)
   end
 
 
