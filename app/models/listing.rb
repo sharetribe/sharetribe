@@ -118,7 +118,7 @@ class Listing < ActiveRecord::Base
   validates_inclusion_of :visibility, :in => VALID_VISIBILITIES
   validates_presence_of :category
   validates_presence_of :share_type
-  validates_inclusion_of :valid_until, :allow_nil => :true, :in => DateTime.now..DateTime.now + 1.year 
+  validates_inclusion_of :valid_until, :allow_nil => :true, :in => DateTime.now..DateTime.now + 7.months
   validates_numericality_of :price_cents, :only_integer => true, :greater_than_or_equal_to => 0, :message => "price must be numeric", :allow_nil => true
   validate :valid_until_is_not_nil
   

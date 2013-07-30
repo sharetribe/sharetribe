@@ -55,7 +55,7 @@ function add_validator_methods() {
     addMethod("max_date", 
       function(value, element, is_rideshare) {
         var current_time = new Date();
-        maximum_date = new Date((current_time.getFullYear() + 1),current_time.getMonth(),current_time.getDate(),0,0,0);
+        var maximum_date = new Date(new Date(current_time).setMonth(current_time.getMonth()+6));
         if (is_rideshare == "true") {
           return get_datetime_from_datetime_select() < maximum_date;
         } else {
