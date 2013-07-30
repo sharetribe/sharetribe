@@ -308,10 +308,9 @@ class PersonMailer < ActionMailer::Base
     @url_params[:auth] = @auth_token
     @url_params.freeze # to avoid accidental modifications later
     
-    @requests = @community.listings.currently_open.requests.order("created_at DESC").visible_to(@recipient, @community).limit(10)
-    @offers = @community.listings.currently_open.offers.order("created_at DESC").visible_to(@recipient, @community).limit(10)
+    latest = @recipient.community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago
     
-    @listings = select_listings_to_show(@requests, @offers, @recipient)
+    @listings = @community.listings.currently_open.where("created_at > ?", latest).order("created_at DESC").visible_to(@recipient, @community).limit(10)
   
     if @listings.size < 1
       logger.info "There are no new listings in community #{@community.name} since that last update for #{@recipient.id}"
@@ -328,6 +327,8 @@ class PersonMailer < ActionMailer::Base
     else
       delivery_method = APP_CONFIG.mail_delivery_method.to_sym unless Rails.env.test?
     end
+    
+    puts "Listings: #{@listings.inspect}"
     
     mail(:to => @recipient.email,
          :from => community_specific_sender(community),
@@ -564,27 +565,6 @@ class PersonMailer < ActionMailer::Base
       @url_params[:locale] = @recipient.locale
       set_locale @recipient.locale
     end
-  end
-  
-  # selects a set of listings to include in the community updates email
-  def select_listings_to_show(requests, offers, recipient)
-    selected = []
-    latest = recipient.community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago # don't send older in any case
-    
-    requests.each do |r|
-      if r.created_at > latest
-        selected << r
-      end
-      break if selected.count > 5
-    end
-    offers.each do |o|
-      if o.created_at > latest
-        selected << o
-      end
-      break if selected.count > 9
-    end
-        
-    return selected.sort_by{|e| e.created_at}
   end
 
 end
