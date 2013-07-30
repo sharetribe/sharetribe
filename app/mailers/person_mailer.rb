@@ -168,7 +168,7 @@ class PersonMailer < ActionMailer::Base
     @invitation_code_required = @invitation.community.join_with_invite_only
     set_up_urls(nil, @invitation.community)
     @url_params[:locale] = @invitation.inviter.locale
-    subject = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name(community), :community => @invitation.community.full_name_with_separator(@invitation.inviter.locale))
+    subject = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name(@invitation.community), :community => @invitation.community.full_name_with_separator(@invitation.inviter.locale))
     mail(:to => @invitation.email, 
          :from => community_specific_sender(@invitation.community),
          :subject => subject, 

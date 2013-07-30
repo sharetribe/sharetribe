@@ -3,6 +3,7 @@ Feature: User joins invite only community
   As a user in a community
   I want to invite my friend in this Sharetribe community
   
+  @javascript
   Scenario: User invites another user successfully
     Given there are following users:
       | person | 
@@ -20,14 +21,25 @@ Feature: User joins invite only community
     And I fill in "invitation_email" with "test@example.com"
     And I fill in "invitation_message" with "test"
     And I press "Send invitation"
-    Then I should see "Invitation sent successfully" 
+    Then I should see "Invitation sent successfully"
+    When the system processes jobs
+    And "test@example.com" should receive an email
+    
     When I fill in "invitation_email" with "test@example.com"
     And I press "Send invitation"
     Then I should see "Invitation sent successfully" 
-    When I fill in "invitation_email" with "test@example.com, another.test@example.com,third.strange.guy@example.com"
+    When the system processes jobs
+    And "test@example.com" should receive 2 emails
+    
+    When I fill in "invitation_email" with "test2@example.com, another.test@example.com,third.strange.guy@example.com"
     And I fill in "invitation_message" with "test"
     And I press "Send invitation"
     Then I should see "Invitation sent successfully" 
+    
+    When the system processes jobs
+    And "test2@example.com" should receive an email
+    And "another.test@example.com" should receive an email
+    And "third.strange.guy@example.com" should receive an email
     
   @javascript
   Scenario: User tries to invite another user with invalid email address
