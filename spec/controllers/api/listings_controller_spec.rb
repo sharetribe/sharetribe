@@ -5,6 +5,10 @@ require 'spec_helper'
 describe Api::ListingsController do
   render_views
   
+  before (:each) do
+    Rails.cache.clear
+  end
+  
     
   before(:each) do
     Listing.all.collect(&:destroy) # for some reason there's a listing before starting. Destroy to be clear.
@@ -331,7 +335,7 @@ describe Api::ListingsController do
     end
   end
   
-  describe "ATOM feed" do
+  describe "ATOM feed" do    
     it "lists the most recent listings in order" do
       get :index, :community_id => @c1.id, :format => :atom
       response.status.should == 200

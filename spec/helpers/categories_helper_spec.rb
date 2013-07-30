@@ -5,6 +5,11 @@ require 'spec_helper'
 include CategoriesHelper
 
 describe CategoriesHelper do
+  
+  before (:each) do
+    Rails.cache.clear
+  end
+  
   describe "#load_categories_and_share_types_to_db" do
 
     it "loads categorization to db based on given params" do

@@ -515,7 +515,14 @@ module ApplicationHelper
         :inessive => "Larun torilla",
         :elative => "Larun torilta",
         :partitive => "Larun toria"
-        }  
+        } 
+      when "Massainfo" then {
+        :illative => "Massainfoon",
+        :genetive => "Massainfon",
+        :inessive => "Massainfossa",
+        :elative => "Massainfosta",
+        :partitive => "Massainfoa"
+      }
       else nil
     end
   end

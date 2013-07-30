@@ -93,8 +93,10 @@ When /^all categories are custom categories$/ do
   CommunityCategory.create(:community_id => community.id, :category_id => child_category.id)
   CommunityCategory.create(:community_id => community.id, :category_id => child_category2.id)
   CommunityCategory.create(:community_id => community.id, :category_id => child_category3.id)
+  Rails.cache.clear
 end
 
 Then /^add default categories back$/ do
   reset_categories_to_default
+  Rails.cache.clear
 end

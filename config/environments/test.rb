@@ -56,4 +56,6 @@ Kassi::Application.configure do
   # Raise exception on mass assignment protection for Active Record models
   config.active_record.mass_assignment_sanitizer = :strict
   
+  config.cache_store = :memory_store, { :namespace => "sharetribe-test"}
+  
 end

@@ -10,6 +10,16 @@ class PaymentsController < ApplicationController
     @conversation = Conversation.find(params[:message_id])
     @payment = @conversation.payment  #This expects that each conversation already has a (pending) payment at this point
     
+    unless @current_community.settings["mock_cf_payments"]
+      merchant_id = @payment.recipient_organization.merchant_id
+      merchant_key = @payment.recipient_organization.merchant_key
+    else
+      # Make it possible to demonstrate payment system with mock payments if that's set on in community settings
+      merchant_id = "375917"
+      merchant_key = "SAIPPUAKAUPPIAS"
+    end
+    
+    
     @payment_data = {
       "VERSION"   => "0001",
       "STAMP"     => "sharetribe_#{@payment.id}",
@@ -17,7 +27,7 @@ class PaymentsController < ApplicationController
       "REFERENCE" => "1009",
       "MESSAGE"   => @payment.summary_string,
       "LANGUAGE"  => "FI",
-      "MERCHANT"  => @payment.recipient_organization.merchant_id,
+      "MERCHANT"  => merchant_id,
       "RETURN"    => done_person_message_payment_url(:id => @payment.id),
       "CANCEL"    => new_person_message_payment_url,
       "COUNTRY"   => "FIN",
@@ -29,7 +39,7 @@ class PaymentsController < ApplicationController
       "DELIVERY_DATE" => 2.weeks.from_now.strftime("%Y%m%d")
     }
     @payment_data["STAMP"] = Devise.friendly_token if Rails.env.test?
-    @payment_data["MAC"] = Digest::MD5.hexdigest("#{@payment_data['VERSION']}+#{@payment_data['STAMP']}+#{@payment_data['AMOUNT']}+#{@payment_data['REFERENCE']}+#{@payment_data['MESSAGE']}+#{@payment_data['LANGUAGE']}+#{@payment_data['MERCHANT']}+#{@payment_data['RETURN']}+#{@payment_data['CANCEL']}+#{@payment_data['REJECT']}+#{@payment_data['DELAYED']}+#{@payment_data['COUNTRY']}+#{@payment_data['CURRENCY']}+#{@payment_data['DEVICE']}+#{@payment_data['CONTENT']}+#{@payment_data['TYPE']}+#{@payment_data['ALGORITHM']}+#{@payment_data['DELIVERY_DATE']}+#{@payment_data['FIRSTNAME']}+#{@payment_data['FAMILYNAME']}+#{@payment_data['ADDRESS']}+#{@payment_data['POSTCODE']}+#{@payment_data['POSTOFFICE']}+#{@payment.recipient_organization.merchant_key}").upcase
+    @payment_data["MAC"] = Digest::MD5.hexdigest("#{@payment_data['VERSION']}+#{@payment_data['STAMP']}+#{@payment_data['AMOUNT']}+#{@payment_data['REFERENCE']}+#{@payment_data['MESSAGE']}+#{@payment_data['LANGUAGE']}+#{@payment_data['MERCHANT']}+#{@payment_data['RETURN']}+#{@payment_data['CANCEL']}+#{@payment_data['REJECT']}+#{@payment_data['DELAYED']}+#{@payment_data['COUNTRY']}+#{@payment_data['CURRENCY']}+#{@payment_data['DEVICE']}+#{@payment_data['CONTENT']}+#{@payment_data['TYPE']}+#{@payment_data['ALGORITHM']}+#{@payment_data['DELIVERY_DATE']}+#{@payment_data['FIRSTNAME']}+#{@payment_data['FAMILYNAME']}+#{@payment_data['ADDRESS']}+#{@payment_data['POSTCODE']}+#{@payment_data['POSTOFFICE']}+#{merchant_key}").upcase
   end
   
   def choose_method
@@ -39,7 +49,14 @@ class PaymentsController < ApplicationController
   def done
     @payment = Payment.find(params[:id])
     
-    calculated_mac = Digest::MD5.hexdigest("#{@payment.recipient_organization.merchant_key}&#{params["VERSION"]}&#{params["STAMP"]}&#{params["REFERENCE"]}&#{params["PAYMENT"]}&#{params["STATUS"]}&#{params["ALGORITHM"]}").upcase
+    unless @current_community.settings["mock_cf_payments"]
+      merchant_key = @payment.recipient_organization.merchant_key
+    else
+      # Make it possible to demonstrate payment system with mock payments if that's set on in community settings
+      merchant_key = "SAIPPUAKAUPPIAS"
+    end
+    
+    calculated_mac = Digest::MD5.hexdigest("#{merchant_key}&#{params["VERSION"]}&#{params["STAMP"]}&#{params["REFERENCE"]}&#{params["PAYMENT"]}&#{params["STATUS"]}&#{params["ALGORITHM"]}").upcase
     
     if calculated_mac == params["MAC"]
     
