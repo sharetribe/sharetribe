@@ -123,6 +123,8 @@ module ApplicationHelper
       "gravel" => "ss-cloud",
       "rock" => "ss-cloud",
       
+      "friend_for_languages_or_games" => "ss-users",
+      
       
     },
     "font-awesome" => {
