@@ -571,7 +571,7 @@ fi:
     listings:
       departure_time: "Lähtöaika ei voi olla aikaisempi kuin nykyhetki eikä yli vuoden päässä nykyhetkestä."
       share_type: "Valitse yksi vaihtoehdoista."
-      valid_until: "Viimeinen voimassaolopäivä ei voi olla aikaisempi kuin nykyhetki eikä yli vuoden päässä nykyhetkestä."
+      valid_until: "Viimeinen voimassaolopäivä ei voi olla aikaisempi kuin nykyhetki eikä yli kuuden kuukauden päässä nykyhetkestä."
       price: "Hinnan on oltava positiivinen kokonaisluku."
       minimum_price: "Minimihinta on %{minimum_price} %{currency}."
     testimonials:
