@@ -31,6 +31,22 @@ module ApplicationHelper
       "privacy" => "ss-lockfile",
       "terms" => "ss-textfile",
       
+      "testimonial" => "ss-star",
+      "like" => "ss-like",
+      "dislike" => "ss-dislike",
+      "calendar" => "ss-calendar",
+      "phone" => "ss-phone",
+      "clock" => "ss-alarmclock",
+      "eye" => "ss-view",
+      "cross" => "ss-delete",
+      "chat_bubble" => "ss-chat",
+      "tag" => "ss-tag",
+      "pricetag" => "ss-pricetag",
+      "lock" => "ss-lock",
+      "unlock" => "ss-unlock",
+      "edit" => "ss-draw",
+      "profile" => "ss-userfile",
+      
       "offer" => "ss-share",
       "request" => "ss-tip",
       "item" => "ss-box",
@@ -63,6 +79,10 @@ module ApplicationHelper
       "sell" => "ss-moneybag",
       "rent" => "ss-pricetag",
       "rent_out" => "ss-pricetag",
+      
+      
+      
+      
       "job" => "ss-briefcase",
       "announcement" => "ss-newspaper",
       "news" => "ss-newspaper",
@@ -94,21 +114,14 @@ module ApplicationHelper
       
       "bike" => "ss-bike",
       
-      "testimonial" => "ss-star",
-      "like" => "ss-like",
-      "dislike" => "ss-dislike",
-      "calendar" => "ss-calendar",
-      "phone" => "ss-phone",
-      "clock" => "ss-alarmclock",
-      "eye" => "ss-view",
-      "cross" => "ss-delete",
-      "chat_bubble" => "ss-chat",
-      "tag" => "ss-tag",
-      "pricetag" => "ss-pricetag",
-      "lock" => "ss-lock",
-      "unlock" => "ss-unlock",
-      "edit" => "ss-draw",
-      "profile" => "ss-userfile"
+      "peat" => "ss-cloud",
+      "clay" => "ss-cloud",
+      "silt" => "ss-cloud",
+      "fine_moraine" => "ss-cloud",
+      "coarse_moraine" => "ss-cloud",
+      "sand" => "ss-cloud",
+      "gravel" => "ss-cloud",
+      "rock" => "ss-cloud",
       
       
     },

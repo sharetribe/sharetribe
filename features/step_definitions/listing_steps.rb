@@ -72,6 +72,7 @@ When /^there are some custom categories$/ do
   CommunityCategory.create(:category_id => child_category.id)
   CommunityCategory.create(:category_id => child_category2.id)
   CommunityCategory.create(:category_id => child_category3.id)
+  Rails.cache.clear
 end
 
 When /^all categories are custom categories$/ do
