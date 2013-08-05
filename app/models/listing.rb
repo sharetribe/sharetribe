@@ -317,8 +317,7 @@ class Listing < ActiveRecord::Base
     
     # Two ways of finding, with or without sphinx
     # CHANGED: always use sphinx in production as it seems to be faster
-    params[:search] ||= "" if Rails.env.production?
-    if params[:search].present?
+    if params[:search].present? || Rails.env.production?
       
       # sort by time by default
       params[:sort] ||= 'created_at DESC'
