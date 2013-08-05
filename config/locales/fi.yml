@@ -19,6 +19,11 @@ fi:
         cover_photo_instructions_text: "Kansikuva muutetaan 1600x195 pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
         custom_color1_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset värin hex-koodin. Sen selville saamisessa auttaa esimerkiksi <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
         invalid_color_code: "Värikoodin tulisi sisältää 6 merkkiä, ja vain numeroita tai kirjaimia A-F, esimerkiksi: D96E21"
+      edit_welcome_email:
+        welcome_email_content: "Tervetulosähköpostin sisältö"
+        welcome_email_content_description: "Alla oleva viesti lähetetään automaattisesti kaikille uusille käyttäjille näiden liittyessä. Voit muokata viestin sisältöä vastaamaan yhteisösi kuvausta. Klikkaamalla '%{send_test_message_link}' -linkkiä voit lähettää viestin omaan sähköpostiosoitteeseesi."
+        edit_message: "Muokkaa viestiä"
+        send_test_message: "Lähetä testiviesti"
     emails:
       new:
         send_email_to_members: "Lähetä sähköpostia jäsenille"
@@ -811,6 +816,7 @@ fi:
       settings: Asetukset
       sign_up: "Luo uusi tunnus"
     notifications:
+      test_welcome_email_delivered_to: "Testisähköposti lähetettiin osoitteeseen %{email}."
       something_went_wrong: "Jotain meni vikaan"
       community_updated: "Yhteisön tiedot päivitetty."
       community_update_failed: "Yhteisön tietojen päivittäminen epäonnistui."
