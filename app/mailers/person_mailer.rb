@@ -305,8 +305,6 @@ class PersonMailer < ActionMailer::Base
       delivery_method = APP_CONFIG.mail_delivery_method.to_sym unless Rails.env.test?
     end
     
-    puts "Listings: #{@listings.inspect}"
-    
     mail(:to => @recipient.email,
          :from => community_specific_sender(community),
          :subject => subject,
