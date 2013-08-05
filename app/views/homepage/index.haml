@@ -44,31 +44,36 @@
       = icon_tag("map", ["icon-with-text"])
       .text-with-icon.hidden-text= t("homepage.filters.map")      
 
-.homepage-feed.feed
-  - if ! logged_in? && @private_listing_count > 0
-    .permanent-notification.private-listing-notification
-      .icon-with-text-container
-        = icon_tag("information", ["icon-part"])
-        .text-part
-          = t(".private_listing_notification", :listing_count => pluralize(@listing_count, t(".open_listing"), t(".open_listings")), :private_listing_count => @private_listing_count, :log_in_link => link_to(t(".private_listing_notification_log_in"), login_path), :be_verb => (@private_listing_count > 1 ? t(".are")  : t(".is"))).html_safe        
-  - elsif @listing_count < 1
-    - if !params[:q] && !params[:share_type] && !params[:category]
+- begin
+  .homepage-feed.feed
+    - if ! logged_in? && @private_listing_count > 0
       .permanent-notification.private-listing-notification
         .icon-with-text-container
           = icon_tag("information", ["icon-part"])
           .text-part
-            = community_blank_slate
-  - if params[:map] == "true"
-    = render :partial => "map"
-  - else
-    - if @listings.total_entries > 0
-      = render :partial => "recent_listing", :collection => @listings, :as => :listing
-      = will_paginate(@listings)
-      = pageless(@listings.total_pages, '.homepage-feed', request.fullpath, t('.loading_more_content'))
-    - else
-      - if params[:q] || params[:share_type] || params[:category]
+            = t(".private_listing_notification", :listing_count => pluralize(@listing_count, t(".open_listing"), t(".open_listings")), :private_listing_count => @private_listing_count, :log_in_link => link_to(t(".private_listing_notification_log_in"), login_path), :be_verb => (@private_listing_count > 1 ? t(".are")  : t(".is"))).html_safe        
+    - elsif @listing_count < 1
+      - if !params[:q] && !params[:share_type] && !params[:category]
         .permanent-notification.private-listing-notification
           .icon-with-text-container
-            = icon_tag("alert", ["icon-part"])
+            = icon_tag("information", ["icon-part"])
             .text-part
-              = t(".no_listings_with_your_search_criteria")
+              = community_blank_slate
+    - if params[:map] == "true"
+      = render :partial => "map"
+    - else
+      - if @listings.total_entries > 0
+        = render :partial => "recent_listing", :collection => @listings, :as => :listing
+        = will_paginate(@listings)
+        = pageless(@listings.total_pages, '.homepage-feed', request.fullpath, t('.loading_more_content'))
+      - else
+        - if params[:q] || params[:share_type] || params[:category]
+          .permanent-notification.private-listing-notification
+            .icon-with-text-container
+              = icon_tag("alert", ["icon-part"])
+              .text-part
+                = t(".no_listings_with_your_search_criteria")
+- rescue Riddle::ResponseError => e
+  - ApplicationHelper.send_error_notification("Can't connect to sphinx", "Sphinx Error")
+  %b
+    Error: Can't connect to the listings search index.

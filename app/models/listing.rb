@@ -316,8 +316,9 @@ class Listing < ActiveRecord::Base
     
     
     # Two ways of finding, with or without sphinx
-    # CHANGED: always use sphinx as it seems to be faster
-    if true # params[:search].present?
+    # CHANGED: always use sphinx in production as it seems to be faster
+    params[:search] ||= "" if Rails.env.production?
+    if params[:search].present?
       
       # sort by time by default
       params[:sort] ||= 'created_at DESC'
@@ -349,7 +350,7 @@ class Listing < ActiveRecord::Base
                                 
     else # No search query used, no sphinx needed
       
-      # NOTE: THIS IS CURRENTLY NEVER USED
+      # NOTE: THIS IS CURRENTLY NEVER USED IN PRODUCTION
       query = {}
       query[:categories] = params[:categories] if params[:categories]
       query[:share_types] = params[:share_types] if params[:share_types]
