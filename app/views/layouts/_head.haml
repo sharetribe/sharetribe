@@ -20,7 +20,7 @@
       = "- #{@current_community.name}"
   
   
-  %meta{ :property => "og:url", :content =>"#{@current_community.full_url}#{request.fullpath}"}
+  %meta{ :property => "og:url", :content =>"#{@current_community.full_url}#{request.fullpath.split('?').first}"}
   %meta{ :property => "og:type", :content =>"website"}
   %meta{ :property => "og:image", :content => fb_image}
   %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}

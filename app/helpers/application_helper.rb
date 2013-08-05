@@ -125,6 +125,8 @@ module ApplicationHelper
       
       "friend_for_languages_or_games" => "ss-users",
       
+      "location" => "ss-location",
+      
       
     },
     "font-awesome" => {

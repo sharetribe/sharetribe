@@ -70,7 +70,7 @@ Feature: User edits his own listing
     And I select "2014" from "listing_valid_until_1i"
     And I press "Save listing"
     Then I should see "This field is required." 
-    And I should see "This date must be between current time and one year from now."  
+    And I should see "This date must be between current time and 6 months from now."  
 
   @javascript
   Scenario: Trying to update somebody else's listing
