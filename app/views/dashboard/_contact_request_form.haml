@@ -1,0 +1,6 @@
+= form_for @contact_request do |form|
+  .contact-form-container
+    .contact-form-input
+      = form.text_field :email, :placeholder => "Your email"
+    .contact-form-input
+      = form.button "Get started!", :class => "action-button"

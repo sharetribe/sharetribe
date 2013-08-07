@@ -1,38 +1,38 @@
-!!! 5
-!!! xml
-%html{html_attrs(I18n.locale)}
-  %head
-    = render :partial => "layouts/kissmetrics"
-    %title
-      = t(".title")
+= render :partial => 'layouts/head'
 
-    %meta{ :property => "og:title", :content => "#{service_name}"} 
-    %meta{ :property => "og:type", :content =>"website"}
-    %meta{ :property => "og:url", :content =>"#{request.protocol}#{request.host}#{request.fullpath.split('?').first}"} 
-    %meta{ :property => "og:image", :content => "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"}
-    %meta{ :property => "og:site_name", :content =>"#{service_name}"}
-    %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
-    %meta{ :property => "og:description", :content => t("layouts.application.meta_description")}
-    %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" } 
-    %meta{ :name => "description", :content => t("layouts.application.meta_description") }
-    %meta{ :name => "keywords", :content => t("layouts.application.keywords") }
-    = stylesheet_link_tag 'dashboard'
-    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Droid+Serif'
-    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Droid+Sans'
-    = javascript_include_tag 'dashboard'
-    = yield(:extra_javascript)
-    :javascript
-      $(document).ready(function() { initialize_defaults(); #{yield :javascript} });
-    
-    -# Temporary tag for google webmaster site verification
-    %meta{ name: "google-site-verification", content: "JUqB3tYmezYEJNAkw8MUdmIocAGztY85eaoNKBD5j0Q"}
+%body
   
-  %body
-    %noscript
-      .js_enabled
-        #no_javascript
-          = render :partial => "layouts/dashboard_no_javascript"
-    .js_wrapper
-      .wrapper
-        = yield
-        = render :partial => "layouts/google_analytics_script"
+  %header.global-header-network
+    .wrapper
+      .left-side
+        %img{:src => "https://s3.amazonaws.com/sharetribe/cover_photos/network/sharetribe_logo_red.png"}
+      .right-side
+        %ul.network-navi{:id => "nav"}
+          %li= link_to "about", "#about", :class => "global-navi"
+          %li= link_to "how it works", "#how-it-works", :class => "global-navi"
+          %li= link_to "blog", "#", :class => "global-navi"
+          %li= link_to "contact", "#", :class => "global-navi-right"
+    
+  = yield
+  
+  %footer
+    .wrapper
+      .left-side
+        %ul.network-navi{:id => "nav_footer"}
+          %li= link_to "about", "#about", :class => "footer-navi-left"
+          %li= link_to "how it works", "#how-it-works", :class => "footer-navi"
+          %li= link_to "blog", "#", :class => "footer-navi"
+          %li= link_to "contact", "#", :class => "footer-navi"
+      .right-side
+        .company-name
+          sharetribe ltd.
+        %a.social-icon-circle{:href => "#"}
+          .ss-facebook.ss-icon.ss-social
+        %a.social-icon-circle{:href => "#"}
+          .ss-twitter.ss-icon.ss-social
+        %a.social-icon-circle{:href => "#"}
+          .ss-googleplus.ss-icon.ss-social
+        
+        
+        
+        

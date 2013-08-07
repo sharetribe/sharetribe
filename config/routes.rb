@@ -145,6 +145,7 @@ Kassi::Application.routes.draw do
       end
     end
     
+    resources :contact_requests
     resources :organizations
     resources :invitations
     resources :user_feedbacks, :controller => :feedbacks
