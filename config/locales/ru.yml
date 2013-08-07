@@ -19,6 +19,11 @@ ru:
         cover_photo_instructions_text: "Изображение обложки будет уменьшено до размера 1600×95 пикселов, более высокие изображения будут обрезаны сверху и снизу."
         custom_color1_instructions_text: "Вы можете изменить основной цвет интерфейса этого сообщества, введя его шестнадцатеричное значение. Сайт <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> поможет выбрать и скопировать подходящий цвет."
         invalid_color_code: "Код цвета должен содержать 6 цифр или букв от A до F, например D96E21"
+      edit_welcome_email:
+        welcome_email_content: ~
+        welcome_email_content_description: ~
+        edit_message: ~
+        send_test_message: ~
     emails:
       new:
         send_email_to_members: "Отправить электронное письмо членам сообщества"
@@ -811,13 +816,12 @@ ru:
       settings: Настройки
       sign_up: Регистрация
     notifications:
+      test_welcome_email_delivered_to: ~
       something_went_wrong: ~
       community_updated: "Информация о сообществе обновлена."
       community_update_failed: "Не удалось обновить информацию о сообществе."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Учётная запись создана успешно. Теперь вам нужно подтвердить свой адрес электронной почты."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Теперь вы являетесь членом этого сообщества. Далее вам необходимо подтвердить свой адрес электронной почты."
-      avatar_upload_failed: "Ошибка загрузки аватара. Картинка должна быть в формате .png, .jpg или .gif."
-      avatar_upload_successful: "Загрузка аватара успешна"
       comment_cannot_be_empty: "Комментарий не может быть пустым"
       comment_sent: "Комментарий отправлен"
       confirmation_link_is_wrong_or_used: "Ссылка для подтверждения уже была использована, либо неправильна. Попробуйте войти в систему, или отправьте отзыв, если проблема повторяется."
@@ -917,7 +921,6 @@ ru:
       testimonials: Отзывы
     settings:
       account: "Учётная запись"
-      avatar: Аватар
       notifications: Оповещения
       profile: "Информация о вас"
       settings: Настройки
@@ -1480,9 +1483,6 @@ ru:
       new_password: "Новый пароль"
       save: Сохранить
       these_fields_are_shown_only_to_you: "Если вы не сообщили ваше реальное имя, в вашем профиле будет отображаться выбранное вами имя пользователя. Остальная информация будет доступна только вам."
-    avatar:
-      add_avatar_submit: Сохранить
-      update_profile_picture: "Обновить картинку"
     notifications:
       email_from_admins: "Я хотел бы получать иногда оповещения от администраторов этого сообщества"
       i_want_to_get_email_notification_when: "Я хочу получать уведомления по электронной почте, когда"
@@ -1517,6 +1517,7 @@ ru:
       given_name: "Имя:"
       location_description: "Вы можете ввести либо своё точное местоположение, либо почтовый индекс. Укажите как минимум свой индекс. Точное местоположение можно задать с помощью карты."
       phone_number: "Номер телефона:"
+      profile_picture: ~
       postal_code: "Индекс:"
       profile_page: "на странице вашего профиля"
       profilemap: Карта

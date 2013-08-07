@@ -19,6 +19,11 @@ el:
         cover_photo_instructions_text: "Το μέγεθος της φωτογραφίας εξώφυλλου θα γίνει 1600x195 pixels και ψηλότερες εικόνες θα περικοπούν στο κέντρο."
         custom_color1_instructions_text: "Μπορείτε να αλλάξετε το κυρίως χρώμα του περιβάλλοντος αυτής της κοινότητας εισάγοντας ένα χρώμα σε δεκαεξαδική μορφή. Στο <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> μπορείτε να βρείτε το χρώμα που θέλετε και να αντιγράψετε τον κατάλληλο κωδικό εδώ."
         invalid_color_code: "Ο κωδικός του χρώματος πρέπει να αποτελείται από 6 χαρακτήρες, αριθμούς ή γράμματα από A-F, για παράδειγμα D96E21."
+      edit_welcome_email:
+        welcome_email_content: ~
+        welcome_email_content_description: ~
+        edit_message: ~
+        send_test_message: ~
     emails:
       new:
         send_email_to_members: ~
@@ -811,13 +816,12 @@ el:
       settings: Ρυθμίσεις
       sign_up: Εγγραφή
     notifications:
+      test_welcome_email_delivered_to: ~
       something_went_wrong: ~
       community_updated: "Οι πληροφορίες του tribe ενημερώθηκαν."
       community_update_failed: "Απέτυχε η ενημέρωση."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Ο λογαριασμός σου δημιουργήθηκε επιτυχώς. Τώρα θα πρέπει να επιβεβαιώσεις την ηλεκτρονική σου διεύθυνση."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Είσαι πια μέλος αυτής της κοινότητας. Τώρα πρέπει να επιβεβαιώσεις την ηλεκτρονική σου διεύθυνση."
-      avatar_upload_failed: "Η μεταφόρτωση της εικόνας προφίλ απέτυχε. Θυμήσου ότι η φωτογραφία πρέπει να είναι αρχείο .png ή .jpg ή .gif."
-      avatar_upload_successful: "Η μεταφόρτωση της εικόνας προφίλ ήταν επιτυχής"
       comment_cannot_be_empty: "Το σχόλιο δεν μπορεί να είναι κενό"
       comment_sent: "Το σχόλιο εστάλη"
       confirmation_link_is_wrong_or_used: "Ο σύνδεσμος επιβεβαίωσης έχει χρησιμοποιηθεί ήδη ή δεν λειτουργεί για κάποιο άλλο λόγο. Προσπάθησε να συνδεθείς ή επικοινώνησε μαζί μας αν το πρόβλημα παραμένει."
@@ -917,7 +921,6 @@ el:
       testimonials: Κριτική
     settings:
       account: Λογαριασμός
-      avatar: "Εικόνα προφίλ"
       notifications: Ειδοποιήσεις
       profile: "Πληροφορίες προφίλ"
       settings: Ρυθμίσεις
@@ -1480,9 +1483,6 @@ el:
       new_password: "Νέος κωδικός"
       save: Αποθήκευση
       these_fields_are_shown_only_to_you: "Το όνομα χρήστη εμφανίζεται στο προφίλ σου εκτός αν έχεις δώσει το πραγματικό σου όνομα. Οι υπόλοιπες πληροφορίες εμφανίζονται μόνο σε σένα."
-    avatar:
-      add_avatar_submit: "Αποθήκευση εικόνας"
-      update_profile_picture: "Αλλαγή της εικόνας προφίλ"
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: "Θέλω να λαμβάνω ειδοποίηση με email όταν..."
@@ -1517,6 +1517,7 @@ el:
       given_name: Όνομα
       location_description: "Μπορείτε να συμπληρώσετε είτε την ακριβή τοποθεσία σας είτε μόνο τον ταχυδρομικό σας κωδικό. Παρακαλούμε να συμπληρώσετε τουλάχιστον τον ταχυδρομικό σας κωδικό. Εναλλακτικά, μπορείτε να διαλέξετε την τοποθεσία σας από τον χάρτη."
       phone_number: Τηλέφωνο
+      profile_picture: ~
       postal_code: "Ταχυδρομικός κώδικας"
       profile_page: "στο προφίλ σου"
       profilemap: "Προβολή χάρτη"

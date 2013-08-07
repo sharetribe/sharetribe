@@ -19,6 +19,11 @@ es:
         cover_photo_instructions_text: "El archivo de la foto de portada será redimensionado a 1600x195 pixeles de tamaño e imágenes más altas serán cortadas por la mitad."
         custom_color1_instructions_text: "Puedes cambiar el color principal de la interfaz de usuario de esta comunidad ingresando un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> puede ayudarte a elegir el color y copiar el código aquí."
         invalid_color_code: "El código de color debe contener 6 caracteres, números o letras de la A a la F, por ejemplo D96E21"
+      edit_welcome_email:
+        welcome_email_content: ~
+        welcome_email_content_description: ~
+        edit_message: ~
+        send_test_message: ~
     emails:
       new:
         send_email_to_members: ~
@@ -72,6 +77,7 @@ es:
       show:
         edit_poll: "Editar encuesta"
   common:
+    edit_page: ~
     default_community_slogan: "Colabora, ayuda o comparte"
     default_community_description: "%{service_name} es un lugar donde los integrantes de tu comunidad pueden compartir productos, servicios, traslados y espacios. Puedes contarle a los demás lo que podrías ofrecerles y obtener ayuda cuando lo necesites."
     cancel: Cancelar
@@ -140,7 +146,6 @@ es:
       give_feedback_to: ~
       do_not_give_feedback: ~
     index:
-      messages_from_all_tribes: "Esta sección contiene mensajes que has intercambiado con otras personas en todas las tribus a las que perteneces."
       loading_more_messages: "Cargando más mensajes"
       message_partitive: mensaje
       messages_partitive: Mensajes
@@ -217,7 +222,6 @@ es:
         your_request: "Su solicitud"
       loading_more_notifications: "Cargando más notificaciones"
       no_notifications: "No hay notificaciones."
-      notifications_from_all_tribes: "Esta sección contiene notificaciones de todas las tribus a las que perteneces."
       testimonialnotification:
         give_feedback_to: "Da una sugerencia a %{name}"
         has_given_you_feedback_on_event: "Has recibido una sugerencia del evento"
@@ -512,14 +516,10 @@ es:
       title_link_text: "%{community_name}"
       intro_paragraph: "Aquí están algunos de los sucesos que han ocurrido en la %{community_link} durante el pasado %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
-      could_you_share_something: "¿Podrías compartir algo?"
-      do_you_need_help_with_anything: "¿Necesitas ayuda con algo?"
       post_a_new_listing: "Publica un nuevo aviso!"
       reduce_email_footer_text: "¿Demasiados email? %{settings_link} o %{unsubscribe_link}."
-      tribe_creation_promotion_footer: "¿Sabías que puedes crear un mercado comunitario como este de forma gratuita para tu vecindario, comuna, asociación u otra comunidad local? %{create_tribe_link} o descubre más respondiendo este email."
       settings_link_text: "Edita tu configuración de email aquí"
       unsubscribe_link_text: "cancelar suscripción"
-      create_tribe_link_text: "Crea una tú mismo"
     newsletter:
       weekly_news_from_kassi: "Noticias semanales de %{community} %{service_name}"
       hi: "Hola %{name},"
@@ -636,7 +636,6 @@ es:
       request_partitive: solicitud
   header:
     about: "Acerca de"
-    community: Comunidad
     home: Inicio
     members: Comunidad
     new_listing: "Nueva publicación"
@@ -682,7 +681,9 @@ es:
     event_feed:
       latest_events: "Qué está pasando"
     index:
+      no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
+      add_listing_link_text: ~
       available_on_the_app_store: "Disponible en la App Store"
       private_listing_notification: "Hay %{listing_count} publicaciones abiertas en esta comunidad. %{private_listing_count} de ellas %{be_verb} visibles sólo para los miembros de la comunidad. Si quieres ver esas publicaciones, necesitas %{log_in_link}."
       open_listing: ~
@@ -820,17 +821,17 @@ es:
       settings: Opciones
       sign_up: Registrarse
     notifications:
+      test_welcome_email_delivered_to: ~
       something_went_wrong: ~
       community_updated: "Información de la tribu actualizada."
       community_update_failed: "Actualización fallida de la información de la tribu."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Cuenta creada correctamente. A continuación deberás confirmar tu dirección de correo electrónico."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Ahora eres parte de esta comunidad. A continuación necesitas confirmar tu dirección e-mail."
-      avatar_upload_failed: "Falló la actualización del avatar. Recuerda que la foto debe ser un archivo .png, .jpg o .gif"
-      avatar_upload_successful: "Actualización del avatar exitosa."
       comment_cannot_be_empty: "Comentarios no pueden estar vacíos."
       comment_sent: "Comentario enviado"
       confirmation_link_is_wrong_or_used: "El link de confirmación ya ha sido usado o se ha roto en el enlace. Intenta iniciar sesión o escríbenos si el problema persiste."
       additional_email_confirmed: "El e-mail que ingresaste está confirmado. Puedes entrar a la comunidad ingresando nuevamente."
+      could_not_get_email_from_facebook: ~
       create_new_listing: ~
       create_one_here: "Crea uno aquí"
       email_confirmation_sent_to_new_address: "El e-mail de confirmación ya fue enviado a la nueva dirección."
@@ -847,6 +848,7 @@ es:
       login_again: "Por favor, vuelve a iniciar la sesión"
       login_failed: "Falló el inicio de sesión. Por favor ingresa correctamente los datos."
       account_creation_successful: "Bienvenido a %{service_name}, %{person_name}!"
+      account_deleted: ~
       login_successful: "Bienvenido a %{service_name}, "
       logout_successful: "Ahora ya estás registrado en %{service_name}. Bienvenido nuevamente!"
       news_item_created: "Artículo creado"
@@ -865,6 +867,9 @@ es:
       only_listing_author_can_close_a_listing: "Sólo el creador de una lista puede cerrarla"
       only_listing_author_can_edit_a_listing: "Sólo el creador de una lista puede editarla"
       payment_successful: ~
+      payment_canceled: ~
+      error_in_payment: ~
+      payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: "Las instrucciones para modificar tu contraseña han sido enviadas a tu correo electrónico."
       person_activated: "Usuario activado"
       person_deactivated: "Usuario desactivado"
@@ -921,7 +926,6 @@ es:
       testimonials: "Comentario recibido"
     settings:
       account: Cuenta
-      avatar: "Foto de perfil"
       notifications: Notificaciones
       profile: "Información de perfil"
       settings: Opciones
@@ -949,7 +953,6 @@ es:
     follow_links:
       follow: "Seguir este anuncio"
       unfollow: "Dejar de seguir este anuncio"
-      follow_description: "Al seguir un anuncio serás notificado de los nuevos comentarios y las actualizaciones correspondientes."
     form:
       departure_time:
         at: "a las"
@@ -1272,7 +1275,6 @@ es:
       this_person_is_not_active_in_kassi: "Este usuario ya no está activo en %{service_name}"
       inactive_description: "Este usuario ha dejado de utilizar %{service_name}. No puedes ponerte en contacto con él, hacerle sugerencias o comentar sus peticiones."
     new:
-      address_validator: "No se encontró la ubicación."
       captcha_incorrect: "Error de comprobación de reCAPTCHA. Por favor escribe las palabras que aparecen en el recuadro siguiente."
       captcha_was_wrong: "Texto captcha incorrecto."
       create_new_account: "Crea una cuenta"
@@ -1385,21 +1387,9 @@ es:
       grade: "puntaje:"
       and_gave_following_feedback: "y dio los siguientes comentarios"
       less_than_expected: "Peor de lo esperado"
-      offered_favor: "Ofreció ayuda"
-      offered_housing: "Ofreció alojamiento"
-      offered_item: "Ofreció un producto"
-      offered_rideshare: "Ofreció un traslado"
-      requested_favor: "Solicitó ayuda"
-      requested_housing: "Solicitó alojamiento"
-      requested_item: "Solicitó un producto"
-      requested_rideshare: "Solicitó un trayecto de traslado"
       slightly_better_than_expected: "Un poco mejor de lo esperado"
       slightly_less_than_expected: "Un poco peor de lo esperado"
     profile_listings:
-      loading_more_offers: "Cargando más ofertas"
-      loading_more_requests: "Cargando más solicitudes"
-      offers: Ofertas
-      requests: Solicitudes
       show_also_closed: "Mostrar como cerrada"
       show_only_open: "Mostrar como abierta"
     show:
@@ -1430,11 +1420,15 @@ es:
       reviews: "reseñas recibidas"
       badge: medalla
       badges: Medallas
+      listing: ~
+      listings: ~
       open_listing: "publicación abierta"
       open_listings: "publicaciones abiertas"
+      no_listings: ~
       no_open_listings: "Sin publicaciones abiertas"
       no_reviews: "Sin reseñas"
       no_badges: "Sin medallas"
+      show_all_listings: ~
       show_all_open_listings: "Mostrar todas las publicaciones abiertas"
       show_all_reviews: "Mostrar todas las reseñas"
       trustcloud: TrustCloud
@@ -1472,8 +1466,6 @@ es:
     confirmation_pending:
       welcome_to_kassi: "Bienvenido a %{service_name}!"
       check_your_email: "Revisa tu bandeja de entrada"
-      account_conrimation_instructions: "Pronto recibirás un email de %{service_name} con un enlace en el que tendrás que hacer click para obtener acceso a esta comunidad %{service_name}.</p><p>Este email de verificación está hecho para asegurar que todos los miembros realmente pertenecen a esta comunidad (<b>%{community_name}</b>). Esto crea un ambiente más seguro para compartir.</p><p>Si tienes cualquier problema usando %{service_name}, sólo haz click en el <a href=\"#\" id=\"give_feedback_link\">feedback</a> a la izquierda e indícanos que está funcionando mal. También son bienvenidas las ideas que nos ayuden a mejorar el servicio!"
-      account_confirmation_instructions_any_email: "Pronto recibirás un email de %{service_name} con un enlace en el que tendrás que hacer click para obtener acceso a esta comunidad %{service_name}.</p><p>Este email de verificación está hecho para crear un ambiente más seguro para compartir.</p><p>Si tienes cualquier problema usando %{service_name}, sólo haz click en el <a href=\"#\" id=\"give_feedback_link\">feedback</a> a la izquierda e indícanos que está funcionando mal. También son bienvenidas las ideas que nos ayuden a mejorar el servicio!"
       get_started: "Comenzar con %{service_name}"
       getting_started_instructions: "Cuando hayas confirmado tu cuenta, es una buena idea añadir una imagen a tu <a href=\"%{profile_url}\">perfil</a> y rellenar es resto de los datos, o puedes ir directo a la acción añadiendo un <a href=\"/en/listings/new/offer\">offer</a> sobre algo que puedas prestar, arrendar, vender o hacer por los demás. Si necesitas un artículo en específico o ayuda con el algo, publica en <a href=\"/en/listings/new/request\">request</a>."
       resend_confirmation_instructions: "Reenvío de instrucciones de confirmación"
@@ -1483,11 +1475,12 @@ es:
       account_confirmation_instructions: "Pronto recibirás un e-mail con un link al que deberás hacer clic para confirmar la cuenta e-mail ingresada. Después de confirmar tu e-mail puedes comenzar a usar %{service_name}."
       account_confirmation_instructions_dashboard: "Pronto recibirás un e-mail con un link al que deberás hacer clic para confirmar la cuenta e-mail ingresada."
   settings:
-    settings_affect_all_tribes: "Esta configuración afecta a todas las comunidades Sharetribe a las que perteneces."
     account:
       change: Cambiar
       confirm_new_password: "Confirmar nueva contraseña"
       delete_account: "Borrar cuenta"
+      delete_account_button: ~
+      delete_account_confirmation_popup: ~
       email: "Dirección de correo electrónico:"
       instructions_to_delete_account: "Si quieres eliminar tu cuenta, contáctanos usando el botón de feedback a la izquierda"
       contact_admin: "por favor contacta a los administradores"
@@ -1495,9 +1488,6 @@ es:
       new_password: "Nueva contraseña"
       save: Guardar
       these_fields_are_shown_only_to_you: "El nombre del usuario se muestra en tu perfil a menos que hayas dado tu nombre. Cualquier otra información sólo está disponible para ti."
-    avatar:
-      add_avatar_submit: "Guardar imagen"
-      update_profile_picture: "Actualizar imagen de perfil"
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: "Quiero recibir una notificación por correo electrónico cuando..."
@@ -1532,6 +1522,7 @@ es:
       given_name: "Nombre:"
       location_description: "Puedes dar tu ubicación exacta o sólo tu código postal. Por favor añade al menos tu código postal. También puedes elegir una localización desde el mapa."
       phone_number: "Número de teléfono:"
+      profile_picture: ~
       postal_code: "Código postal:"
       profile_page: "en tu página de perfil"
       profilemap: "Vista de mapa"
@@ -1590,8 +1581,6 @@ es:
       negative: Negativo
       default_textual_feedback: "Todo fue sin problemas, muchas gracias!"
     testimonial:
-      from_user: Desde
-      to_user: a
       about_listing: ~
   time:
     formats:

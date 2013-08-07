@@ -19,6 +19,11 @@ fi:
         cover_photo_instructions_text: "Kansikuva muutetaan 1600x195 pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
         custom_color1_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset värin hex-koodin. Sen selville saamisessa auttaa esimerkiksi <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
         invalid_color_code: "Värikoodin tulisi sisältää 6 merkkiä, ja vain numeroita tai kirjaimia A-F, esimerkiksi: D96E21"
+      edit_welcome_email:
+        welcome_email_content: ~
+        welcome_email_content_description: ~
+        edit_message: ~
+        send_test_message: ~
     emails:
       new:
         send_email_to_members: "Lähetä sähköpostia jäsenille"
@@ -811,13 +816,12 @@ fi:
       settings: Asetukset
       sign_up: "Luo uusi tunnus"
     notifications:
+      test_welcome_email_delivered_to: ~
       something_went_wrong: "Jotain meni vikaan"
       community_updated: "Yhteisön tiedot päivitetty."
       community_update_failed: "Yhteisön tietojen päivittäminen epäonnistui."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Käyttäjätunnus luotu. Seuraavaksi sinun pitää vielä varmistaa sähköpostiosoitteesi."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Yhteisöön liittyminen onnistui. Seuraavaksi sinun pitää vielä varmistaa sähköpostiosoitteesi."
-      avatar_upload_failed: "Profiilikuvan päivitys epäonnistui. Muistathan, että kuvan pitää olla joko .png, .jpg tai .gif -tiedosto."
-      avatar_upload_successful: "Profiilikuva päivitetty"
       comment_cannot_be_empty: "Et voi lähettää tyhjää kommenttia"
       comment_sent: "Kommentti lähetetty"
       confirmation_link_is_wrong_or_used: "Vahvistuslinkki on jo käytetty tai siinä on jokin vika. Yritä kirjautua sisään tai lähetä palautetta jos ongelma ei ratkea."
@@ -917,7 +921,6 @@ fi:
       testimonials: "Saatu palaute"
     settings:
       account: "Tilin tiedot"
-      avatar: Profiilikuva
       notifications: Tiedotteet
       profile: "Profiilin tiedot"
       settings: Asetukset
@@ -1514,7 +1517,7 @@ fi:
       given_name: Etunimi
       location_description: "Sijainti voi olla joko tarkka katuosoite tai vaikkapa vain postinumero. Täytäthän ainakin postinumerosi. Voit myös valita sijainnin alla olevalta kartalta."
       phone_number: Puhelinnumero
-      profile_picture: "Profiilikuva"
+      profile_picture: Profiilikuva
       postal_code: Postinumero
       profile_page: profiilisivullasi
       profilemap: Karttanäkymä
