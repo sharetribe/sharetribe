@@ -65,6 +65,7 @@ gem "rspec-rails"
 gem "truncate_html"
 gem 'money-rails'
 gem 'mercury-rails'
+gem 'fb-channel-file'
 
 #ouisharelabs
 gem 'rdf-turtle'

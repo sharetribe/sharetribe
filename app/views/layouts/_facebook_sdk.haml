@@ -4,12 +4,24 @@
   - when :"es-ES" then "es_ES"    
   - else "#{I18n.locale}_#{I18n.locale.to_s.upcase}"
 
-
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<script>
+window.fbAsyncInit = function() {
+// init the FB JS SDK
+FB.init({
+appId      : '#{APP_CONFIG.fb_connect_id}',                        // App ID from the app dashboard
+channelUrl : '//#{@current_community ? @current_community.full_domain : "www." + APP_CONFIG.domain}/channel.html', // Channel file for x-domain comms
+status     : false,                                 // Check Facebook Login status
+xfbml      : true                                  // Look for social plugins on the page
+});
+// Additional initialization code such as adding Event Listeners goes here
+};
+// Load the SDK asynchronously
+(function(d, s, id){
 var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id)) return;
+if (d.getElementById(id)) {return;}
 js = d.createElement(s); js.id = id;
-= "js.src = '//connect.facebook.net/#{loc}/all.js#xfbml=1&appId=#{APP_CONFIG.fb_connect_id}';"
+js.src = "//connect.facebook.net/#{loc}/all.js";
 fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));
+</script>

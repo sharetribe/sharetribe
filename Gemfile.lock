@@ -123,6 +123,8 @@ GEM
       multipart-post (~> 1.1)
     faraday_middleware (0.9.0)
       faraday (>= 0.7.4, < 0.9)
+    fb-channel-file (0.0.2)
+      rails (>= 3.0)
     ffi (1.6.0)
     flying-sphinx (0.8.5)
       faraday_middleware (~> 0.7)
@@ -360,6 +362,7 @@ DEPENDENCIES
   dynamic_form
   email_spec
   factory_girl_rails
+  fb-channel-file
   flying-sphinx (~> 0.8.5)
   haml
   jquery-rails
