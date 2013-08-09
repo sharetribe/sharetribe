@@ -26,7 +26,7 @@
 = csrf_meta_tag
 
 :javascript
-  $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
+  $(document).ready(function() { initialize_network_defaults(); #{yield :javascript} });
 
 %link{:rel => "image_src", :href => "https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png"}
 

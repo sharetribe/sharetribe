@@ -12,8 +12,6 @@
 //= require jquery.pageless
 //= require jquery.autosize-min
 //= require jquery.lightbox_me
-//= require jquery.scrollTo
-//= require jquery.nav
 //= require infobubble
 //= require sharetribe_common
 //= require kassi

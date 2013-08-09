@@ -1,6 +1,10 @@
-= form_for @contact_request do |form|
-  .contact-form-container
-    .contact-form-input
-      = form.text_field :email, :placeholder => "Your email"
-    .contact-form-input
-      = form.button "Get started!", :class => "action-button"
+.contact-form-container
+  - if session[:contact_request_set]
+    .contacted-notification
+      %h3 Thanks for contacting! We'll be in touch soon.
+  - else
+    = form_for @contact_request, :html => { :id => "new_contact_request_#{prefix}" } do |form|
+      .contact-form-input.contact-form-text-field
+        = form.text_field :email, :placeholder => "Your email", :id => "contact_request_email_#{prefix}"
+      .contact-form-input
+        = form.button "Get started!", :class => "action-button"

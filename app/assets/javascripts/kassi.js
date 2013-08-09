@@ -144,42 +144,30 @@ function initialize_defaults(locale) {
   $('#login-toggle-button').click(function() { 
     $('#upper_person_login').focus();
   });
-  $('#nav').onePageNav({
-      currentClass: 'current',
-      changeHash: false,
-      scrollSpeed: 750,
-      scrollOffset: 30,
-      scrollThreshold: 0.5,
-      filter: '',
-      easing: 'swing',
-      begin: function() {
-          //I get fired when the animation is starting
-      },
-      end: function() {
-          //I get fired when the animation is ending
-      },
-      scrollChange: function($currentListItem) {
-          //I get fired when you enter a section and I pass the list item of the section
-      }
-  });
-  $('#nav_footer').onePageNav({
-      currentClass: 'current',
-      changeHash: false,
-      scrollSpeed: 750,
-      scrollOffset: 30,
-      scrollThreshold: 0.5,
-      filter: '',
-      easing: 'swing',
-      begin: function() {
-          //I get fired when the animation is starting
-      },
-      end: function() {
-          //I get fired when the animation is ending
-      },
-      scrollChange: function($currentListItem) {
-          //I get fired when you enter a section and I pass the list item of the section
-      }
-  });
+}
+
+function initialize_network_defaults(required_message, email_message) {  
+  enableSamePageScroll();
+}
+
+function initialize_contact_request_form(required_message, email_message) {
+  var validation = {
+    rules: {
+      "contact_request[email]": {required: true, email: true}
+    },
+    messages: {
+      "contact_request[email]": {required: required_message, email: email_message}
+    },
+    errorPlacement: function(error, element) {
+      error.appendTo(element.parent().parent());
+    },
+    onkeyup: false,
+    onclick: false,
+    onfocusout: false,
+    onsubmit: true
+  }
+  $("#new_contact_request_top").validate(validation);
+  $("#new_contact_request_bottom").validate(validation);
 }
 
 var hideNotice = function() {
@@ -1121,3 +1109,51 @@ $(function(){
   
 });
 
+function enableSamePageScroll() {
+  function filterPath(string) {
+  return string
+    .replace(/^\//,'')
+    .replace(/(index|default).[a-zA-Z]{3,4}$/,'')
+    .replace(/\/$/,'');
+  }
+  var locationPath = filterPath(location.pathname);
+  var scrollElem = scrollableElement('html', 'body');
+ 
+  $('a[href*=#]').each(function() {
+    var thisPath = filterPath(this.pathname) || locationPath;
+    if (  locationPath == thisPath
+    && (location.hostname == this.hostname || !this.hostname)
+    && this.hash.replace(/#/,'') ) {
+      var $target = $(this.hash), target = this.hash;
+      if (target) {
+        var targetOffset = $target.offset().top;
+        $(this).click(function(event) {
+          event.preventDefault();
+          $(scrollElem).animate({scrollTop: targetOffset}, 400, function() {
+            location.hash = target;
+          });
+        });
+      }
+    }
+  });
+ 
+  // use the first element that is "scrollable"
+  function scrollableElement(els) {
+    for (var i = 0, argLength = arguments.length; i <argLength; i++) {
+      var el = arguments[i],
+          $scrollElement = $(el);
+      if ($scrollElement.scrollTop()> 0) {
+        return el;
+      } else {
+        $scrollElement.scrollTop(1);
+        var isScrollable = $scrollElement.scrollTop()> 0;
+        $scrollElement.scrollTop(0);
+        if (isScrollable) {
+          return el;
+        }
+      }
+    }
+    return [];
+  }
+ 
+}

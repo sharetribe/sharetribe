@@ -18,6 +18,8 @@ class PersonMailer < ActionMailer::Base
   
   layout 'email'
 
+  layout false, :only => [ :contact_request_notification, :reply_to_contact_request ]
+
   add_template_helper(EmailTemplateHelper)
 
   def community_specific_sender(com=nil)
@@ -218,6 +220,18 @@ class PersonMailer < ActionMailer::Base
          :reply_to => @feedback.email)
   end
   
+  # Used to send notification to admins when somebody
+  # wants to contact them through the form in the network page
+  def contact_request_notification(email)
+    @email = email
+    subject = "New contact request by #{email}"
+    mail(:to => APP_CONFIG.feedback_mailer_recipients, :subject => subject)
+  end
+  
+  # Automatic reply to people who try to contact us via Dashboard
+  def reply_to_contact_request(email)
+    mail(:to => email, :subject => "Thanks for contacting Sharetribe", :from => "Antti Virolainen <antti@sharetribe.com>")
+  end
   
   
   

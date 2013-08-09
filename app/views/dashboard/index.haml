@@ -1,3 +1,6 @@
+- content_for :javascript do
+  initialize_contact_request_form("Oops! You forgot to give your email address.","It seems the email you gave is not valid, please double check.");
+
 %section.lander
   .coverimage
     %figure.network-cover.fluidratio
@@ -8,7 +11,7 @@
         Let your community sell, rent, swap and
         %br/ 
         share goods and services online.
-      = render :partial => "contact_request_form"
+      = render :partial => "contact_request_form", :locals => { :prefix => "top" }
 
 %section.about{:id => "about"}
   .wrapper
@@ -55,9 +58,9 @@
               %br/
               each transaction.
 
-%section.how-it-works
+%section.how-it-works{:id => "how-it-works"}
   .wrapper
-    .how-it-works-content{:id => "how-it-works"}
+    .how-it-works-content
       %h2 It's so easy. See for yourself.
       .video-container
         %iframe{:width => "853", :height => "480", :src => "//www.youtube.com/embed/mC4Cmjbxk7k", :frameborder => 0}
@@ -65,6 +68,7 @@
 %section.create-now
   .wrapper
     .create-now-content
-      %h2 Contact us now to create your own marketplace.
+      - unless session[:contact_request_sent]
+        %h2 Contact us now to create your own marketplace.
       .create-now-form
-        = render :partial => "contact_request_form"
+        = render :partial => "contact_request_form", :locals => { :prefix => "bottom" }
