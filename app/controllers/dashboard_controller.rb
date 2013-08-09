@@ -9,8 +9,7 @@ class DashboardController < ApplicationController
   skip_filter :fetch_community, :only => :api
   
   def index  
-    I18n.locale = "es" if request.domain =~ /\.cl$/ && params[:locale].blank?
-    clear_session_variables
+    @contact_request = ContactRequest.new
   end
   
   # A custom action for World Design Capital 

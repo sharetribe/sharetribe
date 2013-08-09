@@ -7,7 +7,7 @@ Feature: User views dashboard
   @javascript
   Scenario: User views dashboard
     Given I am on the home page
-    Then I should see "Create your own community marketplace"
+    Then I should see "Create a marketplace"
   
   @no_subdomain
   @javascript

@@ -70,6 +70,12 @@ gem 'fb-channel-file'
 #ouisharelabs
 gem 'rdf-turtle'
 
+group :development do
+  gem 'guard-livereload', require: false
+  gem 'rack-livereload'
+  gem 'rb-fsevent',       require: false
+end
+
 group :test do
   gem 'capybara'
   gem 'cucumber-rails', :require => false

@@ -1,0 +1,36 @@
+%title
+  = t("layouts.dashboard.title")
+
+%meta{ :property => "og:title", :content => "#{service_name}"} 
+%meta{ :property => "og:url", :content =>"#{request.protocol}#{request.host}#{request.fullpath}"} 
+%meta{ :property => "og:image", :content => "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"}
+%meta{ :property => "og:site_name", :content =>"#{service_name}"}
+%meta{ :property => "og:description", :content => t("layouts.application.meta_description")}
+%meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" } 
+%meta{ :name => "description", :content => t("layouts.application.meta_description") }
+%meta{ :name => "keywords", :content => t("layouts.application.keywords") }
+
+/[if lt IE 9]
+  = javascript_include_tag "html5shiv-printshiv"
+  
+/ CSS
+= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600,700&subset=latin,latin-ext'
+= stylesheet_link_tag 'application'
+
+
+/[if lt IE 9]
+= stylesheet_link_tag 'old_ie'
+  
+= javascript_include_tag 'application'
+= yield(:extra_javascript)
+= csrf_meta_tag
+
+:javascript
+  $(document).ready(function() { initialize_network_defaults(); #{yield :javascript} });
+
+%link{:rel => "image_src", :href => "https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png"}
+
+%link{:rel => "shortcut icon", :href => "https://s3.amazonaws.com/sharetribe/assets/images/favicon.ico"}
+
+-# load Facebook SDK for the whole page
+= render :partial => "layouts/facebook_sdk"
