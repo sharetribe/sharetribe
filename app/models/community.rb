@@ -511,7 +511,8 @@ class Community < ActiveRecord::Base
 
   def community_categories
     custom = Rails.cache.fetch("/custom_categories/#{self.id}-#{self.updated_at}") {
-      CommunityCategory.find_all_by_community_id(id, :include => [:category, :share_type])
+      # order the custom categorizations based on the sort priority (or ids of the CommunityCategory)
+      CommunityCategory.order("sort_priority ASC","id ASC").find_all_by_community_id(id, :include => [:category, :share_type])
     }
     if custom.present?
       # use custom values

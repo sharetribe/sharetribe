@@ -316,7 +316,7 @@ class Listing < ActiveRecord::Base
     
     
     # Two ways of finding, with or without sphinx
-    if params[:search].present?
+    if params[:search].present? || params[:share_type].present? || params[:category].present?
       
       # sort by time by default
       params[:sort] ||= 'created_at DESC'
@@ -346,7 +346,7 @@ class Listing < ActiveRecord::Base
                                 )
                                 
                                 
-    else # No search query used, no sphinx needed
+    else # No search query or filters used, no sphinx needed
       query = {}
       query[:categories] = params[:categories] if params[:categories]
       query[:share_types] = params[:share_types] if params[:share_types]

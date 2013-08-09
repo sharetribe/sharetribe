@@ -822,8 +822,6 @@ fi:
       community_update_failed: "Yhteisön tietojen päivittäminen epäonnistui."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Käyttäjätunnus luotu. Seuraavaksi sinun pitää vielä varmistaa sähköpostiosoitteesi."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Yhteisöön liittyminen onnistui. Seuraavaksi sinun pitää vielä varmistaa sähköpostiosoitteesi."
-      avatar_upload_failed: "Profiilikuvan päivitys epäonnistui. Muistathan, että kuvan pitää olla joko .png, .jpg tai .gif -tiedosto."
-      avatar_upload_successful: "Profiilikuva päivitetty"
       comment_cannot_be_empty: "Et voi lähettää tyhjää kommenttia"
       comment_sent: "Kommentti lähetetty"
       confirmation_link_is_wrong_or_used: "Vahvistuslinkki on jo käytetty tai siinä on jokin vika. Yritä kirjautua sisään tai lähetä palautetta jos ongelma ei ratkea."
@@ -923,7 +921,6 @@ fi:
       testimonials: "Saatu palaute"
     settings:
       account: "Tilin tiedot"
-      avatar: Profiilikuva
       notifications: Tiedotteet
       profile: "Profiilin tiedot"
       settings: Asetukset
@@ -1520,7 +1517,7 @@ fi:
       given_name: Etunimi
       location_description: "Sijainti voi olla joko tarkka katuosoite tai vaikkapa vain postinumero. Täytäthän ainakin postinumerosi. Voit myös valita sijainnin alla olevalta kartalta."
       phone_number: Puhelinnumero
-      profile_picture: "Profiilikuva"
+      profile_picture: Profiilikuva
       postal_code: Postinumero
       profile_page: profiilisivullasi
       profilemap: Karttanäkymä

@@ -106,11 +106,14 @@ module ApplicationHelper
       "sell_material" => "ss-moneybag",
       "give_away_material" => "ss-gift",
       
-      "cottage_food" => "ss-waterbottle",
-      "eggs" => "ss-bird",
+      "beekeeping_and_honey" => "ss-waterbottle",
+      "eggs" => "ss-colander",
       "produce" => "ss-carrot",
       "other_food_item" => "ss-platter",
       "food_related_supply" => "ss-cookingutensils",
+      "livestock" => "ss-bird",
+      "seeds_and_starts" => "ss-leaf",
+      
       
       "bike" => "ss-bike",
       

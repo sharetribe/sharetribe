@@ -114,7 +114,7 @@ Feature: User pays after accepted transaction
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-      And community "test" has payments in use
+    And community "test" has payments in use
     And "kassi_testperson2" is member of organization that has registered as a seller
     And there is item offer with title "math book" from "kassi_testperson2" and with share type "sell" and with price "12"
     And all listings of "kassi_testperson2" are made with his first organization
@@ -142,4 +142,32 @@ Feature: User pays after accepted transaction
     And I follow "tästä takaisin kauppiaan sivustolle"
     Then I should see "When you have paid, we'll notify the seller and you will get a receipt in email"
     And I should see "Pay"
+    
+  @javascript
+  Scenario: offerer cancels the request
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+      | kassi_testperson2 |
+    And community "test" has payments in use
+    And "kassi_testperson2" is member of organization that has registered as a seller
+    And there is item offer with title "math book" from "kassi_testperson2" and with share type "sell" and with price "12"
+    And all listings of "kassi_testperson2" are made with his first organization
+    And there is a message "I want to buy" from "kassi_testperson1" about that listing
+    And I am logged in as "kassi_testperson2"
+    When I follow "inbox-link"
+    And I should see "1" within ".inbox-toggle"
+    And I follow "conversation_title_link_1"
+    And I follow "Not this time"
+    And I fill in "conversation_message_attributes_content" with "Sorry I'cant sell it!"
+    And I press "Send"
+    Then I should see "Request rejected"
+
+    When I am logged in as "kassi_testperson1"
+    When I follow "inbox-link"
+    Then I should see "Rejected"
+    Then I should see "Sorry I'cant sell it!"
+  
+  
+  
   

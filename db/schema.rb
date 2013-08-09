@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130729081847) do
+ActiveRecord::Schema.define(:version => 20130807083847) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -163,6 +163,7 @@ ActiveRecord::Schema.define(:version => 20130729081847) do
     t.boolean  "price",                      :default => false
     t.string   "price_quantity_placeholder"
     t.boolean  "payment",                    :default => false
+    t.integer  "sort_priority",              :default => 0
   end
 
   add_index "community_categories", ["community_id", "category_id"], :name => "community_categories"

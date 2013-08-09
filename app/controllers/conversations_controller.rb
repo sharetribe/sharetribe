@@ -86,6 +86,7 @@ class ConversationsController < ApplicationController
   
   def reject
     @action = "reject"
+    @payment = Payment.new
     render :accept
   end
   

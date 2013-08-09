@@ -6,7 +6,7 @@
 
 .view-item
   
-  .item-description.section
+  .item-description.section.overflow-allowed
   
     #admin_edit_links
       = render :partial => "admin_edit_links"   
@@ -154,7 +154,7 @@
   
   
   - unless @listing.closed? && !current_user?(@listing.author)
-    #comments.discussion.section
+    #comments.discussion.section.overflow-allowed
       %h2 
         = icon_tag("chat_bubble", ["icon-with_text"])
         .text-with-icon
