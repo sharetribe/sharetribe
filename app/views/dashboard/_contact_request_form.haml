@@ -1,5 +1,5 @@
 .contact-form-container
-  - if session[:contact_request_set]
+  - if session[:contact_request_sent]
     .contacted-notification
       %h3 Thanks for contacting! We'll be in touch soon.
   - else
