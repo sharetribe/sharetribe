@@ -963,6 +963,9 @@ label.error {
   border-color: $emphasis !important;
   position: relative;
   z-index: 99999;
+  @include media(tablet) {
+    position: absolute;
+  }
   
   a, .feedback {
     display: block;
