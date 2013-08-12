@@ -111,6 +111,11 @@ class CommunityMembershipsController < ApplicationController
     end
     
     @community_membership.invitation = invitation if invitation.present?
+    
+    # If the community doesn't have any members, make the first one an admin
+    if @current_community.members.count == 0
+      @community_membership.admin = true
+    end
 
     # This is reached only if requirements are fulfilled
     if @community_membership.save
