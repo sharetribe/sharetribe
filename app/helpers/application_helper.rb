@@ -113,6 +113,7 @@ module ApplicationHelper
       "food_related_supply" => "ss-cookingutensils",
       "livestock" => "ss-bird",
       "seeds_and_starts" => "ss-leaf",
+      "food_related_classes" => "ss-bookmark",
       
       
       "bike" => "ss-bike",
