@@ -4,6 +4,10 @@ class PaymentsController < ApplicationController
   
   before_filter :payment_can_be_conducted
   
+  before_filter :only => [ :new, :done ] do |controller|
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_inbox")
+  end
+  
   skip_filter :dashboard_only
   
   def new
