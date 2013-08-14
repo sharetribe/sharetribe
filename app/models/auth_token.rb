@@ -12,7 +12,8 @@ class AuthToken < ActiveRecord::Base
   end
   
   def self.delete_expired
-    where("expires_at < ?", Time.now ).delete_all
+    # Delete only tokens older than one week as unsubscribe is allowed with a bit updated token too. :)
+    where("expires_at < ?", 1.week.ago ).delete_all
   end
 
 end

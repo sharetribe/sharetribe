@@ -40,7 +40,8 @@ class SettingsController < ApplicationController
     
     # Check if trying to unsubscribe with expired token and allow that
     if @person_to_unsubscribe.nil? && session[:expired_auth_token]
-      @person_to_unsubscribe = AuthToken.find_by_token(session[:expired_auth_token]).person
+      token = AuthToken.find_by_token(session[:expired_auth_token])
+      @person_to_unsubscribe = token.person if token
     end
     
     if @person_to_unsubscribe && @person_to_unsubscribe.id == params[:person_id] && params[:email_type].present?
