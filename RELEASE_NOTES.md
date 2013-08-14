@@ -11,6 +11,12 @@ When updating, always run the following commands to update gem set and database 
  - rake RAILS_ENV=production db:migrate
  -  And check this file for changes between your old version and the one you are updating, and do the necessary manual operations if needed.
 
+3.1.0
+-----
+
+Lot of fixes in different places. Biggest change is probably that categories are now customizable and some pages can be edited directly. Also more assets are stored to Amazon S3 by default.
+
+There was a bit too long gap between the releases, but if you get trouble with this update, don't hesitate to contact us, preferably at: https://github.com/sharetribe/sharetribe/issues
 
 3.0.3
 -----
