@@ -45,6 +45,8 @@ Feature: User views profile page
     And there is favor request with title "massage" from "kassi_testperson1"
     And there is rideshare offer from "Helsinki" to "Turku" by "kassi_testperson1"
     And there is housing offer with title "Housing" from "kassi_testperson2" and with share type "sell"
+    And there is housing request with title "apartment" from "kassi_testperson1" and with share type "rent"
+    And that listing is closed
     And I am not logged in
     And I am on the home page
     When I follow "car spare parts"
@@ -52,6 +54,7 @@ Feature: User views profile page
     Then I should see "car spare parts"
     And I should see "Helsinki - Turku"
     And I should not see "Housing"
+    And I should not see "apartment"
     And I should see "massage"
   
   @javascript
@@ -78,6 +81,8 @@ Feature: User views profile page
      And I should see "massage"
      And I should see "Service offer"
      And I should not see "apartment"
+     When I follow "Show also closed"
+     Then I should see "apartment"
      
   @javascript
   Scenario: User views feedback in a profile page
@@ -119,13 +124,3 @@ Feature: User views profile page
     And I should see "OK feedback" within "#profile-testimonials-list"
     And I should see "Test feedback" within "#profile-testimonials-list"
     And I should see "Show all reviews"
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  

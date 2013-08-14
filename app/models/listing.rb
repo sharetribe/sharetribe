@@ -118,7 +118,7 @@ class Listing < ActiveRecord::Base
   validates_inclusion_of :visibility, :in => VALID_VISIBILITIES
   validates_presence_of :category
   validates_presence_of :share_type
-  validates_inclusion_of :valid_until, :allow_nil => :true, :in => DateTime.now..DateTime.now + 1.year 
+  validates_inclusion_of :valid_until, :allow_nil => :true, :in => DateTime.now..DateTime.now + 7.months
   validates_numericality_of :price_cents, :only_integer => true, :greater_than_or_equal_to => 0, :message => "price must be numeric", :allow_nil => true
   validate :valid_until_is_not_nil
   
@@ -129,6 +129,7 @@ class Listing < ActiveRecord::Base
     indexes description
     indexes taggings.tag.name, :as => :tags
     indexes comments.content, :as => :comments
+    indexes category.translations.name, :as => :category
     
     # attributes
     has created_at, updated_at
@@ -147,6 +148,7 @@ class Listing < ActiveRecord::Base
     
     set_property :field_weights => {
       :title       => 10,
+      :category    => 8,
       :tags        => 8,
       :description => 3,
       :comments    => 1
@@ -219,7 +221,7 @@ class Listing < ActiveRecord::Base
         AND communities_listings.community_id = '#{current_community.id}'
       ") > 0
     elsif current_community
-      return current_community.listings.include?(self) && public?
+      return current_community.listings.include?(self) && public? && !closed?
     elsif current_user
       return true if self.privacy.eql?("public")
       self.communities.each do |community|
@@ -280,7 +282,7 @@ class Listing < ActiveRecord::Base
     params ||= {}  # Set params to empty hash if it's nil
     joined_tables = []
         
-    params[:include] ||= [:listing_images]
+    params[:include] ||= [:listing_images, :category, :share_type]
         
     params.reject!{ |key,value| (value == "all" || value == ["all"]) && key != "status"} # all means the fliter doesn't need to be included (except with "status")
 
@@ -314,7 +316,11 @@ class Listing < ActiveRecord::Base
     
     
     # Two ways of finding, with or without sphinx
-    if params[:search].present?
+    if params[:search].present? || params[:share_type].present? || params[:category].present?
+      
+      # sort by time by default
+      params[:sort] ||= 'created_at DESC'
+      
       with = {}
       if params[:status] == "open" || params[:status].nil?
         with[:open] = true 
@@ -335,11 +341,12 @@ class Listing < ActiveRecord::Base
                                 :page => page,
                                 :per_page => per_page, 
                                 :star => true,
-                                :with => with
+                                :with => with,
+                                :order => params[:sort]
                                 )
                                 
                                 
-    else # No search query used, no sphinx needed
+    else # No search query or filters used, no sphinx needed
       query = {}
       query[:categories] = params[:categories] if params[:categories]
       query[:share_types] = params[:share_types] if params[:share_types]

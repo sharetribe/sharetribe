@@ -31,8 +31,8 @@ class Person < ActiveRecord::Base
       
   attr_accessor :guid, :password2, :form_login,
                 :form_given_name, :form_family_name, :form_password, 
-                :form_password2, :form_email, :consent, :show_real_name_setting_affected,
-                :email_confirmation, :community_category
+                :form_password2, :form_email, :consent,
+                :email_repeated, :community_category
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
@@ -112,23 +112,18 @@ class Person < ActiveRecord::Base
   validates_format_of :username,
                        :with => /^[A-Z0-9_]*$/i
 
-  validates_format_of :password, :with => /^([\x20-\x7E])+$/,              
-                       :allow_blank => true,
-                       :allow_nil => true
-
   validates_format_of :email,
                        :with => /^[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i
 
   validate :community_email_type_is_correct
 
-  paperclip_options = PaperclipHelper.paperclip_default_options.merge!({:styles => { 
+  
+  has_attached_file :image, :styles => { 
                       :medium => "288x288#",
                       :small => "108x108#",
                       :thumb => "48x48#",
-                      :original => "600x800>"
-  }})
-  
-  has_attached_file :image, paperclip_options
+                      :original => "600x800>"},
+                    :default_url => ActionController::Base.helpers.asset_path("/assets/profile_image/:style/missing.png", :digest => true)
         
   #validates_attachment_presence :image
   validates_attachment_size :image, :less_than => 9.megabytes
@@ -168,7 +163,7 @@ class Person < ActiveRecord::Base
     end
   end
 
-  def self.username_available?(username, cookie=nil)
+  def self.username_available?(username)
      if Person.find_by_username(username).present?
        return false
      else
@@ -176,7 +171,7 @@ class Person < ActiveRecord::Base
      end
    end
 
-   def self.email_available?(email, cookie=nil)
+   def self.email_available?(email)
      if Person.find_by_email(email).present? || Email.find_by_address(email).present?
        return false
      else
@@ -184,33 +179,42 @@ class Person < ActiveRecord::Base
      end
    end
 
-  def name_or_username(cookie=nil)
-    if (given_name.present? || family_name.present?) && show_real_name_to_other_users
-      return "#{given_name} #{family_name}"
+  def name_or_username(community=nil)
+    if given_name.present?
+      if community
+        case community.name_display_type
+        when "first_name_with_initial"
+          return "#{given_name} #{family_name[0,1]}"
+        when "first_name_only"
+          return given_name
+        else
+          return "#{given_name} #{family_name}"
+        end
+      else
+        return "#{given_name} #{family_name[0,1]}"
+      end
     else
       return username
     end
   end
 
-  def name(cookie=nil)
-    # We rather return the username than blank if no name is set
-    return username unless show_real_name_to_other_users
-    return name_or_username(cookie)
+  def name(community=nil)
+    return name_or_username(community)
   end
 
-  def given_name_or_username(cookie=nil)
-    if given_name.present? && show_real_name_to_other_users
+  def given_name_or_username
+    if given_name.present?
       return given_name
     else
       return username
     end
   end
 
-  def set_given_name(name, cookie=nil)
+  def set_given_name(name)
     update_attributes({:given_name => name })
   end
 
-  def street_address(cookie=nil)
+  def street_address
     if location
       return location.address
     else
@@ -218,15 +222,15 @@ class Person < ActiveRecord::Base
     end
   end
 
-  def email(cookie=nil)
+  def email
     super()
   end
 
-  def set_email(email, cookie=nil)
+  def set_email(email)
     update_attributes({:email => email})
   end
 
-  def update_attributes(params, cookie=nil)
+  def update_attributes(params)
     if params[:preferences]
       super(params)
     else  
@@ -247,10 +251,9 @@ class Person < ActiveRecord::Base
         params.delete(:location)
       end
 
-      self.show_real_name_to_other_users = (!params[:show_real_name_to_other_users] && params[:show_real_name_setting_affected]) ? false : true 
       save
 
-      super(params.except("password2", "show_real_name_to_other_users", "show_real_name_setting_affected", "street_address"))    
+      super(params.except("password2", "street_address"))    
     end
   end
   
@@ -509,10 +512,10 @@ class Person < ActiveRecord::Base
   # Changes most special characters to _ to match with current validations
   def self.available_username_based_on(initial_name)
     if initial_name.blank?
-      initial_name = "fb_username_missing"
+      initial_name = "fb_name_missing"
     end
     current_name = initial_name.gsub(/[^A-Z0-9_]/i,"_")
-    current_name = current_name[0..19] #truncate to 20 chars or less
+    current_name = current_name[0..17] #truncate to 18 chars or less (max is 20)
     i = 1
     while self.find_by_username(current_name) do
       current_name = "#{initial_name}#{i}"

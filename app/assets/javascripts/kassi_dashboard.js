@@ -63,17 +63,16 @@ function initialize_new_tribe_form(locale, invalid_domain_message, domain_in_use
   } else {
     $('a:contains("' + select_default + '")').eq(1).parent().remove();
   }
-  $('input.text_field:first').focus();
+  $('#community_name').focus();
   $('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
   $('#invite_only_help_text_link').click(function() { $('#invite_only_help_text').lightbox_me({centered: true}); });
-  //$("input[type=checkbox]").uniform();
   var form_id = "#new_community";
   $(form_id).validate({
     errorPlacement: function(error, element) {
       if (element.attr("name") == "community[domain]") {
         error.appendTo(element.parent());
       } else if (element.attr("name") == "community[terms]") {
-          error.appendTo(element.parent().parent().parent().parent().parent());
+          error.appendTo(element.parent().parent().parent());
       } else {
         error.insertAfter(element);
       }
@@ -87,8 +86,12 @@ function initialize_new_tribe_form(locale, invalid_domain_message, domain_in_use
       "community[terms]": "required"
     },
     messages: {
-      "community[domain]": { valid_domain: invalid_domain_message, remote: domain_in_use_message },
+      "community[domain]": { valid_domain: invalid_domain_message, remote: domain_in_use_message }
     },
+    onkeyup: false,
+    onclick: false,
+    onfocusout: false,
+    onsubmit: true,
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
     }

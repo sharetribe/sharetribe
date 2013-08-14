@@ -107,7 +107,6 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
-    session[:cookie] = nil
     session[:person_id] = nil
     flash[:notice] = t("layouts.notifications.logout_successful")
     redirect_to root
@@ -144,6 +143,12 @@ class SessionsController < ApplicationController
       sign_in_and_redirect @person, :event => :authentication
     else
       data = request.env["omniauth.auth"].extra.raw_info
+      
+      if data.email.blank?
+        flash[:error] = t("layouts.notifications.could_not_get_email_from_facebook")
+        redirect_to sign_up_path and return
+      end
+      
       facebook_data = {"email" => data.email,
                        "given_name" => data.first_name,
                        "family_name" => data.last_name,
@@ -153,6 +158,11 @@ class SessionsController < ApplicationController
       session["devise.facebook_data"] = facebook_data
       redirect_to :action => :create_facebook_based, :controller => :people
     end
+  end
+  
+  # Make method alias for each community which has custom FB login
+  Community.all_with_custom_fb_login.each do |community|
+    alias_method "facebook_app_#{community.facebook_connect_id}".to_sym, :facebook
   end
   
   # Callback from Omniauth failures

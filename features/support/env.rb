@@ -83,5 +83,6 @@ Spork.each_run do
   # The :transaction strategy is faster, but might give you threading problems.
   # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
   Cucumber::Rails::Database.javascript_strategy = :truncation, {:except => %w[categories share_types community_categories category_translations share_type_translations]}
-
+  
+  Rails.cache.clear
 end

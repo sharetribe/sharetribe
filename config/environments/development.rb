@@ -35,7 +35,7 @@ Kassi::Application.configure do
   config.assets.compress = false  
 
   # Expands the lines which load the assets  
-  config.assets.debug = false
+  config.assets.debug = true
   
   # Raise exception on mass assignment protection for Active Record models
   config.active_record.mass_assignment_sanitizer = :strict
@@ -43,5 +43,10 @@ Kassi::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   config.active_record.auto_explain_threshold_in_seconds = 0.5
+  
+  config.cache_store = :memory_store, { :namespace => "sharetribe-dev"}
+  
+  # Automatically inject JavaScript needed for LiveReload
+  config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
   
 end

@@ -13,6 +13,7 @@ class CommunitiesController < ApplicationController
   respond_to :html, :json
   
   def index
+    redirect_to root and return
     @communities = Community.joins(:location).select("communities.id, name, settings, domain, members_count, latitude, longitude")
     respond_with(@communities) do |format|
       format.json { render :json => { :data => @communities } }
@@ -21,11 +22,13 @@ class CommunitiesController < ApplicationController
   end
 
   def show
+    redirect_to root and return
     @community = Community.find(params[:id])
     render :partial => "map_bubble"
   end
 
   def new
+    redirect_to root and return
     @community = Community.new
     @community.community_memberships.build
     unless @community.location
@@ -46,6 +49,7 @@ class CommunitiesController < ApplicationController
   end
 
   def create
+    redirect_to root and return
     params[:community][:location][:address] = params[:community][:address] if params[:community][:address]
     location = Location.new(params[:community][:location])
     params[:community].delete(:location)
@@ -71,12 +75,14 @@ class CommunitiesController < ApplicationController
   end
   
   def check_domain_availability
+    redirect_to root and return
     respond_to do |format|
       format.json { render :json => Community.domain_available?(params[:community][:domain]) }
     end
   end
   
   def set_organization_email
+    redirect_to root and return
     session[:allowed_email] = "@#{params[:email].split('@')[1]}"
     if @current_user.has_confirmed_email?(params[:email])
       session[:confirmed_email] = params[:email]

@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_send_message_form('#{I18n.locale}');
+  initialize_send_message_form('#{I18n.locale}', '#{params[:message_type] ? params[:message_type] : Listing.opposite_type(@listing.transaction_type)}');
 
 #new_message_form.centered-section
   - if params[:message_type]
@@ -38,6 +38,7 @@
       = hidden_field_tag "comment_message", params[:comment_message]
       = hidden_field_tag :listing_id, @listing.id
       = hidden_field_tag "target_person_id", @target_person.id
+    = form.hidden_field :community_id, :value => @current_community.id
     = form.button t(".send_message"), :class => "send_button"
 
   

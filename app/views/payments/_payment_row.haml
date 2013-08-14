@@ -9,6 +9,5 @@
     = payment_row_form.text_field :vat, :value => @current_community.vat, :class => "payment-row-vat-field trigger-focusout row#{index}", :id => "row_vat_#{index}"
     %span.currency-symbol= "%"
     .total-label{:class => "row#{index}"}
-      - logger.info "Values: #{values.inspect}"
       = values[:sum] + (values[:sum] * @current_community.vat / 100)
       = @conversation.listing.price_symbol

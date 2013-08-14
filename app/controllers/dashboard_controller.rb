@@ -8,14 +8,14 @@ class DashboardController < ApplicationController
   skip_filter :dashboard_only, :only => :api
   skip_filter :fetch_community, :only => :api
   
-  def index  
-    I18n.locale = "es" if request.domain =~ /\.cl$/ && params[:locale].blank?
-    clear_session_variables
+  def index
+    @contact_request = ContactRequest.new
   end
   
   # A custom action for World Design Capital 
   # Helsinki 2012 special page
   def wdc
+    redirect_to root and return
     I18n.locale = "fi"
     @communities = Community.where(:label => "wdc").order("name")
   end
@@ -23,25 +23,27 @@ class DashboardController < ApplicationController
   # A custom action for World Design Capital 
   # Helsinki 2012 special page
   def okl
+    redirect_to root and return
     I18n.locale = "fi"
     @communities = Community.where(:label => "okl").order("name")
   end
   
   def faq
-    
+    redirect_to root and return
   end
   
   def api
-    
+    redirect_to root and return
   end
   
   def pricing
+    redirect_to root and return
     redirect_to :faq
-    
   end
   
   # This is for all the custom "campaign" sites
   def campaign
+    redirect_to root and return
     case params[:page_type]
     when "wdc"
       @communities = Community.where(:label => "wdc").order("name")

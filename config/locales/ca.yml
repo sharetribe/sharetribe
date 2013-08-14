@@ -19,6 +19,11 @@ ca:
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
         invalid_color_code: ~
+      edit_welcome_email:
+        welcome_email_content: ~
+        welcome_email_content_description: ~
+        edit_message: ~
+        send_test_message: ~
     emails:
       new:
         send_email_to_members: ~
@@ -72,9 +77,10 @@ ca:
       show:
         edit_poll: "Edita l'enquesta"
   common:
+    edit_page: ~
     default_community_slogan: ~
     default_community_description: ~
-    cancel: Cancelar
+    cancel: Cancel·la
     fields_that_are_mandatory: "Els camps marcats amb (*) són obligatoris"
     or: o
     password: Contrasenya
@@ -82,14 +88,14 @@ ca:
     share_types:
       request: ~
       offer: ~
-      borrow: prèstecs
+      borrow: préstecs
       buy: comprar
-      give_away: donant
+      give_away: regalar
       lend: prestant
       receive: regalar
-      rent: Lloguer
+      rent: lloguer
       rent_out: lloga
-      sell: Vendre
+      sell: vendre
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: ~
@@ -140,7 +146,6 @@ ca:
       give_feedback_to: ~
       do_not_give_feedback: ~
     index:
-      messages_from_all_tribes: ~
       loading_more_messages: "Carregant més missatges"
       message_partitive: Missatge
       messages_partitive: Missatges
@@ -168,10 +173,10 @@ ca:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: "Demana ajuda de"
-      favor_request_message_form_title: "Oferir ajuda a"
-      housing_offer_message_form_title: "Respondre a"
-      housing_request_message_form_title: "Respondre a"
+      favor_offer_message_form_title: "Demana ajuda de %{person}"
+      favor_request_message_form_title: "Ofereix ajuda a %{person}"
+      housing_offer_message_form_title: "Respondre a %{person}"
+      housing_request_message_form_title: "Respondre a %{person}"
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
@@ -188,10 +193,10 @@ ca:
       housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
-      item_request_message_form_title: "Oferir un article a"
+      item_request_message_form_title: "Oferir un article a %{person}"
       message: Missatge
-      rideshare_offer_message_form_title: "Sol·licitar un trasllat a"
-      rideshare_request_message_form_title: "Oferir un trasllat a"
+      rideshare_offer_message_form_title: "Sol·licitar un viatge a %{person}"
+      rideshare_request_message_form_title: "Oferir un viatge a %{person}"
       send_message: ~
       send: ~
       this_message_is_private: "Aquest missatge és privat entre tu i %{person}."
@@ -217,9 +222,8 @@ ca:
         your_request: "La seva sol·licitud"
       loading_more_notifications: "Carregant més notificacions"
       no_notifications: "Cap notificació."
-      notifications_from_all_tribes: ~
       testimonialnotification:
-        give_feedback_to: "Dona un suggeriment a %{name}"
+        give_feedback_to: "Dóna un suggeriment a %{name}"
         has_given_you_feedback_on_event: "Heu rebut un suggeriment de l'esdeveniment"
         see_all_the_feedback_you_have_received: "Revisa totes les suggerències rebudes"
     show:
@@ -445,9 +449,9 @@ ca:
     common:
       check_your_settings: "Revisa la teva configuració"
       hey: "Hola %{name},"
-      kassi_team: "L'equip de Kassi"
+      kassi_team: "L'equip de %{service_name}"
       thanks: "Gràcies,"
-      want_to_control_emails: "Vol controlar els correus electrònics que reps de Kassi?"
+      want_to_control_emails: "Vol controlar els correus electrònics que reps de %{service_name}?"
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
@@ -476,18 +480,18 @@ ca:
       invitation_code: ~
     new_badge:
       you_can_view_all_your_badges_in: "Pots veure les teves medalles a"
-      you_have_achieved_a_badge: "Has rebut una medalla '%{badge_name}' dins de Kassi!"
+      you_have_achieved_a_badge: "Has rebut una medalla '%{badge_name}' dins de %{service_name}!"
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
-      you_have_a_new_comment: "%{author} ha comentat la teva llista de Kassi"
+      you_have_a_new_comment: "%{author} ha comentat la teva llista de %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} ha comentat un anunci que segueixes a Kassi"
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       conversation_title: "Títol de missatge: %{title}"
       view_message: ~
-      has_sent_you_a_message_in_kassi: "%{sender} t'ha enviat un missatge a Kassi:"
-      you_have_a_new_message: "Tens un nou missatge a Kassi"
+      has_sent_you_a_message_in_kassi: "%{sender} t'ha enviat un missatge a %{service_name}:"
+      you_have_a_new_message: "Tens un nou missatge a %{service_name}"
     new_payment:
       new_payment: ~
       you_have_received_new_payment: ~
@@ -495,7 +499,7 @@ ca:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name} t'ha fet un suggeriment a Kassi"
+      has_given_you_feedback_in_kassi: "%{name} t'ha fet un suggeriment a %{service_name}"
       you_can_give_feedback_to: "Pots donar-li un suggeriment a %{name} en"
       view_feedback: ~
     new_update_to_listing:
@@ -509,14 +513,10 @@ ca:
       title_link_text: ~
       intro_paragraph: ~
       intro_paragraph_link_text: ~
-      could_you_share_something: ~
-      do_you_need_help_with_anything: ~
       post_a_new_listing: ~
       reduce_email_footer_text: ~
-      tribe_creation_promotion_footer: ~
       settings_link_text: ~
       unsubscribe_link_text: ~
-      create_tribe_link_text: ~
     newsletter:
       weekly_news_from_kassi: "Notícies setmanals de %{community} Kassi"
       hi: "Hola %{name},"
@@ -534,7 +534,7 @@ ca:
       text_version_text: "Tens alguna cosa que la resta puguin necessitar? O necessites alguna cosa que altra gent pugui tenir? Afegeix una oferta o sol·licitud, o revisa tot allò que s'ofereix a %{url}"
       occasional_newsletter_title: ~
     reply_to_contact_request:
-      thank_you_for_your_interest: "Gràcies pel teu interès amb Kassi!"
+      thank_you_for_your_interest: "Gràcies pel teu interès amb %{service_name}!"
     reset_password_instructions:
       change_my_password: ~
       reset_password_instructions: ~
@@ -599,7 +599,7 @@ ca:
     error_description: "Descripció de l'error"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript està inhabilitat al teu navegador"
-      kassi_does_not_currently_work_without_javascript: "Malauradament Kassi no funciona sense javascript. Intenta activar javascript en els opcions del navegador i torna a carregar la pàgina. Si desitges utilitzar Kassi sense javascript, siusplau, envia'ns un suggeriment utilitzant el formulari que apareix a continuació."
+      kassi_does_not_currently_work_without_javascript: "Malauradament %{service_name} no funciona sense javascript. Intenta activar javascript en els opcions del navegador i torna a carregar la pàgina. Si desitges utilitzar Kassi sense javascript, siusplau, envia'ns un suggeriment utilitzant el formulari que apareix a continuació."
       kassi_does_not_currently_work_without_javascript_dashboard: ~
       contact_us: ~
       send_feedback: "Enviar suggeriment"
@@ -633,14 +633,13 @@ ca:
       request_partitive: ~
   header:
     about: Sobre
-    community: Comunitat
     home: Inici
     members: ~
     new_listing: ~
     mobile_version: "Versió mòbil"
     offers: Ofertes
     requests: Sol·licituds
-    search_kassi: Cerca
+    search_kassi: "Cerca %{service_name}"
     create_new_marketplace: ~
     contact_us: ~
     profile: ~
@@ -679,7 +678,9 @@ ca:
     event_feed:
       latest_events: ~
     index:
+      no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
+      add_listing_link_text: ~
       available_on_the_app_store: ~
       private_listing_notification: ~
       open_listing: ~
@@ -702,9 +703,9 @@ ca:
       or_see_what_the_others: "...o mira el que la resta"
       recent_events: "Esdeveniments recents"
       requesting: necessiten
-      teaser_text: "Kassi és un servei per a la comunitat de %{community}. Pots prestar, llogar, regalar i vendre coses, fer i demanar favors o compartir viatges amb cotxe. Pots prestar alguna cosa a algú o ajudar-lo?"
+      teaser_text: "%{service_name} és un servei per a la comunitat de %{community}. Pots prestar, llogar, regalar i vendre coses, fer i demanar favors o compartir viatges amb cotxe. Pots prestar alguna cosa a algú o ajudar-lo?"
       tell_it_here: "Diga-ho aquí!"
-      welcome_to_new_kassi: "Benvingut al nou Kassi!"
+      welcome_to_new_kassi: "Benvingut al nou %{service_name}!"
     invitation_form:
       invite_your_friends: "Convida als teus amics a Kassi!"
       invite_your_neighbors: ~
@@ -752,8 +753,8 @@ ca:
       settings: ~
       feedback: ~
     admin:
-      admin: "Panell d'administració de Kassi"
-      back_to_kassi: "Tornar a Kassi"
+      admin: "Panell d'administració de %{service_name}"
+      back_to_kassi: "Tornar a %{service_name}"
       tribe_info: ~
       news_items: "Nous articles"
       polls: Enquestes
@@ -817,17 +818,17 @@ ca:
       settings: Opcions
       sign_up: Registre
     notifications:
+      test_welcome_email_delivered_to: ~
       something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: "Compte creat correctament. A continuació hauràs de confirmar la teva adreça de correu electrònic."
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
-      avatar_upload_failed: "No s'ha pogut carregar l'avatar. Recordi que la foto ha de ser un arxiu .png, .jpg o .gif."
-      avatar_upload_successful: "L'avatar s'ha actualitzat amb èxit."
       comment_cannot_be_empty: "Els comentaris no poden restar buits."
       comment_sent: "Comentari enviat"
       confirmation_link_is_wrong_or_used: "L'enllaç de confirmació ja s'ha utilitzat o s'ha trencat. Intenta iniciar sessió o contacta amb nosaltres si el problema continua."
       additional_email_confirmed: ~
+      could_not_get_email_from_facebook: ~
       create_new_listing: ~
       create_one_here: "Crear-ne un aquí"
       email_confirmation_sent_to_new_address: ~
@@ -844,6 +845,7 @@ ca:
       login_again: "Siusplau, torna a iniciar sessió"
       login_failed: "Error. Siusplau comprova que les dades són correctes."
       account_creation_successful: ~
+      account_deleted: ~
       login_successful: "Benvingut a Kassi, "
       logout_successful: "Benvingut de nou!"
       news_item_created: "Article creat"
@@ -862,6 +864,9 @@ ca:
       only_listing_author_can_close_a_listing: "Només el creador d'una llista pot tancar-la"
       only_listing_author_can_edit_a_listing: "Només el creador d'una llista pot editar"
       payment_successful: ~
+      payment_canceled: ~
+      error_in_payment: ~
+      payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: "Les instruccions per canviar la contrasenya s'han enviat a la teva adreça de correu electrònic."
       person_activated: "Usuari activat"
       person_deactivated: "Usuari desactivat"
@@ -918,7 +923,6 @@ ca:
       testimonials: "Comentari rebut"
     settings:
       account: Compte
-      avatar: "Foto de perfil"
       notifications: Notificacions
       profile: "Informació de perfil"
       settings: Opcions
@@ -946,7 +950,6 @@ ca:
     follow_links:
       follow: "Segueix aquest anunci"
       unfollow: "Deixa de segur aquest anunci"
-      follow_description: "Al seguir un anunci seràs notificat dels nous comentaris i actualitzacions."
     form:
       departure_time:
         at: "a les"
@@ -1269,7 +1272,6 @@ ca:
       this_person_is_not_active_in_kassi: "Aquest usuari ja no està actiu."
       inactive_description: "Aquest usuari ha deixat d'utilitzar Kassi. No pots posar-te en contacte amb ell."
     new:
-      address_validator: "No s'ha trobat la ubicació."
       captcha_incorrect: "Error de la verificació de ReCAPTCHA. Si us plau, introdueixi les paraules que apareixen al requadre de sota"
       captcha_was_wrong: "Text captcha incorrecte."
       create_new_account: "Crea un compte"
@@ -1379,21 +1381,9 @@ ca:
       grade: "puntuació:"
       and_gave_following_feedback: ~
       less_than_expected: "Pitjor de l'esperat"
-      offered_favor: "Vas oferir ajuda"
-      offered_housing: "Vas oferir allotjament"
-      offered_item: "Vas oferir un producte"
-      offered_rideshare: "Vas oferir un trajecte"
-      requested_favor: "Vas sol·licitar ajuda"
-      requested_housing: "Vas sol·licitar allotjament"
-      requested_item: "Vas sol·licitar un article"
-      requested_rideshare: "Vas sol·licitar un trajecte"
       slightly_better_than_expected: "Una mica millor de l'esperat"
       slightly_less_than_expected: "Una mica pitjor de l'esperat"
     profile_listings:
-      loading_more_offers: "Carregant més ofertes"
-      loading_more_requests: "Carregant més sol·licituds"
-      offers: Ofertes
-      requests: Sol·licituds
       show_also_closed: "Mostra com tancada"
       show_only_open: "Mostra com oberta"
     show:
@@ -1424,11 +1414,15 @@ ca:
       reviews: ~
       badge: ~
       badges: Medalles
+      listing: ~
+      listings: ~
       open_listing: ~
       open_listings: ~
+      no_listings: ~
       no_open_listings: ~
       no_reviews: ~
       no_badges: ~
+      show_all_listings: ~
       show_all_open_listings: ~
       show_all_reviews: ~
       trustcloud: ~
@@ -1466,8 +1460,6 @@ ca:
     confirmation_pending:
       welcome_to_kassi: "Benvingut a Kassi!"
       check_your_email: "Revisa la safata d'entrada"
-      account_conrimation_instructions: "Aviat rebràs un correu amb un enllaç en el que tindràs que fer click per aconseguir accés a aquesta comunitat.</p><p>Aquest correu de verificació està fet per assegurar que tots els membres pertanyen, realmeny, a la comunitat (<b>%{community_name}</b>). Això crea un ambient segur per a compartir.</p><p>Si tens qualsevol problema utilitzant Kassi fes click a <a href=\"#\" id=\"give_feedback_link\">feedback</a> a l'esquerra i indica'ns que funciona malament. Són benvingudes les idees per a millorar el servei!"
-      account_confirmation_instructions_any_email: "Aviat rebràs un correu electrònic de Kassi amb un enllaç en el que tindràs que fer click per aconseguir accés a aquesta comunitat Kassi</p><p>Això crea un ambient segur per a compartir.</p><p>Si tens qualsevol problema utilitzant Kassi, fes click a<a href=\"#\" id=\"give_feedback_link\">feedback</a> a l'esquerra i indica'ns que funciona malament. Són benvingudes les idees que ens ajudin a millorar el servei!"
       get_started: "Comença amb Kassi"
       getting_started_instructions: "Quan hagis confirmat el teu compte és una bona idea afegir una imatge al teu  <a href=\"%{profile_url}\">perfil</a> i omplir la resta de dades, o pots anar directe a l'acció afegint una <a href=\"/en/listings/new/offer\">oferta</a> sobre alguna cosa que pots prestar, llogar, vendre o fer per la resta. Si necessites un article específic, o ajuda amb alguna cosa, publica una <a href=\"/en/listings/new/request\">sol·licitud</a>."
       resend_confirmation_instructions: "Reenviament de les instruccions de confirmació"
@@ -1477,11 +1469,12 @@ ca:
       account_confirmation_instructions: ~
       account_confirmation_instructions_dashboard: ~
   settings:
-    settings_affect_all_tribes: ~
     account:
       change: Canviar
       confirm_new_password: "Confirmar nova contrasenya"
       delete_account: ~
+      delete_account_button: ~
+      delete_account_confirmation_popup: ~
       email: "Correu electrònic:"
       instructions_to_delete_account: ~
       contact_admin: ~
@@ -1489,9 +1482,6 @@ ca:
       new_password: "Nova contrasenya"
       save: Desa
       these_fields_are_shown_only_to_you: "El nom de l'usuari es mostra en el teu perfil a no ser que hagis donat el teu nom. Qualsevol altra informació està només disponible per a tu."
-    avatar:
-      add_avatar_submit: "Desa la imatge"
-      update_profile_picture: "Actualitza la imatge de perfil"
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: "Desitjo rebre una notificació de correu electrònic quan..."
@@ -1526,6 +1516,7 @@ ca:
       given_name: "Nom:"
       location_description: "Pots donar la teva ubicació exacta o tan sols el codi postal. Si us plau, afegeix almenys el teu codi postal. També pots escollir una localització des del mapa."
       phone_number: "Número de telèfon:"
+      profile_picture: ~
       postal_code: "Codi postal:"
       profile_page: "pàgina de perfil"
       profilemap: "Mostra al mapa"
@@ -1584,8 +1575,6 @@ ca:
       negative: ~
       default_textual_feedback: ~
     testimonial:
-      from_user: "Des de"
-      to_user: a
       about_listing: ~
   time:
     formats:

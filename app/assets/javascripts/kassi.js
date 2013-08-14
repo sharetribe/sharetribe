@@ -55,7 +55,7 @@ function add_validator_methods() {
     addMethod("max_date", 
       function(value, element, is_rideshare) {
         var current_time = new Date();
-        maximum_date = new Date((current_time.getFullYear() + 1),current_time.getMonth(),current_time.getDate(),0,0,0);
+        var maximum_date = new Date(new Date(current_time).setMonth(current_time.getMonth()+6));
         if (is_rideshare == "true") {
           return get_datetime_from_datetime_select() < maximum_date;
         } else {
@@ -122,6 +122,15 @@ function add_validator_methods() {
 
 }
 
+function report_analytics_event(params_array) {
+  if (typeof _gaq != 'undefined') {
+    _gaq.push(['_trackEvent'].concat(params_array));
+    if (secondary_analytics_in_use) {
+      _gaq.push(['b._trackEvent'].concat(params_array));
+    }
+  }
+}
+
 // Initialize code that is needed for every view
 function initialize_defaults(locale) {
   add_validator_methods();
@@ -135,6 +144,30 @@ function initialize_defaults(locale) {
   $('#login-toggle-button').click(function() { 
     $('#upper_person_login').focus();
   });
+}
+
+function initialize_network_defaults(required_message, email_message) {  
+  enableSamePageScroll();
+}
+
+function initialize_contact_request_form(required_message, email_message) {
+  var validation = {
+    rules: {
+      "contact_request[email]": {required: true, email: true}
+    },
+    messages: {
+      "contact_request[email]": {required: required_message, email: email_message}
+    },
+    errorPlacement: function(error, element) {
+      error.appendTo(element.parent().parent());
+    },
+    onkeyup: false,
+    onclick: false,
+    onfocusout: false,
+    onsubmit: true
+  }
+  $("#new_contact_request_top").validate(validation);
+  $("#new_contact_request_bottom").validate(validation);
 }
 
 var hideNotice = function() {
@@ -357,7 +390,7 @@ function initialize_new_listing_form_selectors(locale, attribute_hash, listing_f
 }
 
 // Initialize the actual form fields
-function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_rideshare, is_offer, listing_id, address_validator_message, price_required, price_message, minimum_price, minimum_price_message) {
+function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_rideshare, is_offer, listing_id, price_required, price_message, minimum_price, minimum_price_message) {
   
   $('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true, zIndex: 1000000}); });
   $('input.title_text_field:first').focus();
@@ -411,7 +444,6 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
     },
     messages: {
       "listing[valid_until(1i)]": { min_date: date_message, max_date: date_message },
-      "listing[origin]": { address_validator: address_validator_message },
       "listing[price]": { positive_integer: price_message, minimum_price_required: minimum_price_message },
     },
     // Run validations only when submitting the form.
@@ -421,6 +453,7 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
     onsubmit: true,
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
+      report_analytics_event(["listing", "created"]);
     }
   });
   
@@ -428,7 +461,7 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
   auto_resize_text_areas("listing_description_textarea");
 }
 
-function initialize_send_message_form(locale) {
+function initialize_send_message_form(locale, message_type) {  
   auto_resize_text_areas("text_area");
   $('textarea').focus();
   var form_id = "#new_conversation";
@@ -439,6 +472,7 @@ function initialize_send_message_form(locale) {
     },
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
+      report_analytics_event(["message", "sent", message_type]);
     }
   });  
 }
@@ -462,6 +496,10 @@ function initialize_listing_view(locale) {
     locale, 
     {"comment[content]": {required: true, minlength: 1}}
   );
+  
+  $('#send_comment_button').click(function() {
+    report_analytics_event(["listing", "commented"]);
+  });
 }
 
 function initialize_accept_transaction_form(commission_percentage) {
@@ -617,7 +655,8 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
     },
     onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls
     submitHandler: function(form) {
-      disable_and_submit(form_id, form, "false", locale);  
+      disable_and_submit(form_id, form, "false", locale);
+      report_analytics_event(['user', "signed up", "normal form"]);
     }
   });  
 }
@@ -629,7 +668,7 @@ function initialize_terms_form() {
   });
 }
 
-function initialize_update_profile_info_form(locale, person_id, address_validator, name_required) {
+function initialize_update_profile_info_form(locale, person_id, name_required) {
   auto_resize_text_areas("update_profile_description_text_area");
   $('input.text_field:first').focus();
   var form_id = "#edit_person_" + person_id;
@@ -638,12 +677,13 @@ function initialize_update_profile_info_form(locale, person_id, address_validato
       "person[street_address]": {required: false, address_validator: true},
       "person[given_name]": {required: name_required, maxlength: 30},
       "person[family_name]": {required: name_required, maxlength: 30},
-      "person[phone_number]": {required: false, maxlength: 25}
+      "person[phone_number]": {required: false, maxlength: 25},
+      "person[image]": { accept: "(jpe?g|gif|png)" }
     },
-     onkeyup: false,
-         onclick: false,
-         onfocusout: false,
-     onsubmit: true,
+    onkeyup: false,
+    onclick: false,
+    onfocusout: false,
+    onsubmit: true,
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
     }
@@ -653,18 +693,6 @@ function initialize_update_profile_info_form(locale, person_id, address_validato
 function initialize_update_notification_settings_form(locale, person_id) {
   var form_id = "#edit_person_" + person_id;
   $(form_id).validate({
-    submitHandler: function(form) {
-      disable_and_submit(form_id, form, "false", locale);
-    }
-  });  
-}
-
-function initialize_update_avatar_form(fileDefaultText, fileBtnText, locale) {
-  var form_id = "#avatar_form";
-  $(form_id).validate({
-    rules: {
-      "person[image]": { accept: "(jpe?g|gif|png)" } 
-    },
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
     }
@@ -734,9 +762,12 @@ function initialize_reset_password_form() {
   });  
 }
 
-function initialize_profile_view(badges, profile_id) {
+function initialize_profile_view(badges, profile_id, show_closed) {
   $('#load-more-listings').click(function() { 
     request_path = profile_id + "/listings";
+    if (show_closed == true) {
+      request_path += "?show_closed=true";
+    }
     $.get(request_path, function(data) {
       $('#profile-listings-list').html(data);
     });
@@ -848,6 +879,10 @@ function initialize_invitation_form(locale, email_error_message) {
     messages: {
       "invitation[email]": { email_list: email_error_message}
     },
+    onkeyup: false,
+    onclick: false,
+    onfocusout: false,
+    onsubmit: true,
     submitHandler: function(form) {
       disable_and_submit("#new_invitation", form, "false", locale);
     }
@@ -1022,31 +1057,31 @@ function closeAllToggleMenus() {
   $('.toggle').removeClass('toggled-no-logo');
 }
 
-function toggleDropdown() {
+function toggleDropdown(event_target) {
   
   //Gets the target toggleable menu from the link's data-attribute
-  var target = $(this).attr('data-toggle');
-  var logo_class = $(this).attr('data-logo_class');
+  var target = event_target.attr('data-toggle');
+  var logo_class = event_target.attr('data-logo_class');
   
   if ($(target).hasClass('hidden')) {
     // Opens the target toggle menu
     closeAllToggleMenus();
     $(target).removeClass('hidden');
-    if($(this).hasClass('select-tribe')) {
-      $(this).addClass('toggled-logo');
+    if(event_target.hasClass('select-tribe')) {
+      event_target.addClass('toggled-logo');
       if (logo_class != undefined) {
-        $(this).addClass(logo_class);
+        event_target.addClass(logo_class);
       }
     } else {
-      $(this).addClass('toggled');
+      event_target.addClass('toggled');
     }
   } else {
     // Closes the target toggle menu
     $(target).addClass('hidden');
-    $(this).removeClass('toggled');
-    $(this).removeClass('toggled-logo');
+    event_target.removeClass('toggled');
+    event_target.removeClass('toggled-logo');
     if (logo_class != undefined) {
-      $(this).removeClass(logo_class);
+      event_target.removeClass(logo_class);
     }
   }
   
@@ -1054,9 +1089,71 @@ function toggleDropdown() {
 
 $(function(){
   
-  // Collapses all toggle menus on load
-  // They're uncollapsed by default to provice support for when JS is turned off
-  closeAllToggleMenus();
-  $('.toggle').on('click', toggleDropdown);
-    
+  $('.toggle').click( function(event){
+    event.stopPropagation();
+    toggleDropdown($(this));
+  });
+  
+  $('.toggle-menu').click( function(event){
+    event.stopPropagation();
+  });
+  
+  $('.toggle-menu-feed-filters').click( function(event){
+    event.stopPropagation();
+  });
+
+  // All dropdowns are collapsed when clicking outside dropdown area
+  $(document).click( function(){
+    closeAllToggleMenus();
+  });
+  
 });
+
+function enableSamePageScroll() {
+  function filterPath(string) {
+  return string
+    .replace(/^\//,'')
+    .replace(/(index|default).[a-zA-Z]{3,4}$/,'')
+    .replace(/\/$/,'');
+  }
+  var locationPath = filterPath(location.pathname);
+  var scrollElem = scrollableElement('html', 'body');
+ 
+  $('a[href*=#]').each(function() {
+    var thisPath = filterPath(this.pathname) || locationPath;
+    if (  locationPath == thisPath
+    && (location.hostname == this.hostname || !this.hostname)
+    && this.hash.replace(/#/,'') ) {
+      var $target = $(this.hash), target = this.hash;
+      if (target) {
+        var targetOffset = $target.offset().top;
+        $(this).click(function(event) {
+          event.preventDefault();
+          $(scrollElem).animate({scrollTop: targetOffset}, 400, function() {
+            location.hash = target;
+          });
+        });
+      }
+    }
+  });
+ 
+  // use the first element that is "scrollable"
+  function scrollableElement(els) {
+    for (var i = 0, argLength = arguments.length; i <argLength; i++) {
+      var el = arguments[i],
+          $scrollElement = $(el);
+      if ($scrollElement.scrollTop()> 0) {
+        return el;
+      } else {
+        $scrollElement.scrollTop(1);
+        var isScrollable = $scrollElement.scrollTop()> 0;
+        $scrollElement.scrollTop(0);
+        if (isScrollable) {
+          return el;
+        }
+      }
+    }
+    return [];
+  }
+ 
+}

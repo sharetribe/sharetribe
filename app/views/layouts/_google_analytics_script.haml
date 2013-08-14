@@ -1,5 +1,37 @@
 - if (APP_CONFIG.use_google_analytics)
-  :javascript
-    $(document).ready(function() {
-      start_analytics('#{APP_CONFIG.google_analytics_key.to_s}', '.#{request.domain}');
-    });
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  = "_gaq.push(['_setAccount', '#{APP_CONFIG.google_analytics_key}']);"
+  = "_gaq.push(['_setDomainName', '.#{request.domain}']);"
+  _gaq.push(
+  ['_addIgnoredOrganic', 'sharetribe'],
+  ['_addIgnoredOrganic', 'sharetribe.com'],
+  ['_addIgnoredOrganic', 'www.sharetribe.com'], 
+  ['_addIgnoredOrganic', 'kassi'], 
+  ['_addIgnoredOrganic', 'share tribe'], 
+  ['_addIgnoredOrganic', 'kassi.eu'],
+  ['_setAllowLinker', true],
+  ['_trackPageview'],
+  ['_trackPageLoadTime']
+  );
+  
+  - if @current_community && @current_community.google_analytics_key
+    = "_gaq.push(['b._setAccount', '#{@current_community.google_analytics_key}']);"
+    = "_gaq.push(['b._setDomainName', '.#{request.domain}']);"
+    = "_gaq.push(['b._addIgnoredOrganic', '#{@current_community.name}']);"
+    = "_gaq.push(['b._addIgnoredOrganic', '#{@current_community.domain}']);"
+    _gaq.push(
+    ['b._setAllowLinker', true],
+    ['b._trackPageview'],
+    ['b._trackPageLoadTime']
+    );
+    var secondary_analytics_in_use = true;
+
+  (function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+  </script>

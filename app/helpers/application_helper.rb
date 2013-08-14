@@ -26,9 +26,26 @@ module ApplicationHelper
       
       
       "information" => "ss-info",
+      "alert" => "ss-alert",
       "how_to_use" => "ss-signpost",
       "privacy" => "ss-lockfile",
       "terms" => "ss-textfile",
+      
+      "testimonial" => "ss-star",
+      "like" => "ss-like",
+      "dislike" => "ss-dislike",
+      "calendar" => "ss-calendar",
+      "phone" => "ss-phone",
+      "clock" => "ss-alarmclock",
+      "eye" => "ss-view",
+      "cross" => "ss-delete",
+      "chat_bubble" => "ss-chat",
+      "tag" => "ss-tag",
+      "pricetag" => "ss-pricetag",
+      "lock" => "ss-lock",
+      "unlock" => "ss-unlock",
+      "edit" => "ss-draw",
+      "profile" => "ss-userfile",
       
       "offer" => "ss-share",
       "request" => "ss-tip",
@@ -62,6 +79,10 @@ module ApplicationHelper
       "sell" => "ss-moneybag",
       "rent" => "ss-pricetag",
       "rent_out" => "ss-pricetag",
+      
+      
+      
+      
       "job" => "ss-briefcase",
       "announcement" => "ss-newspaper",
       "news" => "ss-newspaper",
@@ -85,22 +106,30 @@ module ApplicationHelper
       "sell_material" => "ss-moneybag",
       "give_away_material" => "ss-gift",
       
-      "testimonial" => "ss-star",
-      "like" => "ss-like",
-      "dislike" => "ss-dislike",
-      "calendar" => "ss-calendar",
-      "phone" => "ss-phone",
-      "clock" => "ss-alarmclock",
-      "eye" => "ss-view",
-      "cross" => "ss-delete",
-      "chat_bubble" => "ss-chat",
-      "tag" => "ss-tag",
-      "pricetag" => "ss-pricetag",
-      "lock" => "ss-lock",
-      "unlock" => "ss-unlock",
-      "edit" => "ss-draw",
-      "profile" => "ss-userfile",
-      "avatar" => "ss-picturefile"
+      "beekeeping_and_honey" => "ss-waterbottle",
+      "eggs" => "ss-colander",
+      "produce" => "ss-carrot",
+      "other_food_item" => "ss-platter",
+      "food_related_supply" => "ss-cookingutensils",
+      "livestock" => "ss-bird",
+      "seeds_and_starts" => "ss-leaf",
+      "food_related_classes" => "ss-bookmark",
+      
+      
+      "bike" => "ss-bike",
+      
+      "peat" => "ss-cloud",
+      "clay" => "ss-cloud",
+      "silt" => "ss-cloud",
+      "fine_moraine" => "ss-cloud",
+      "coarse_moraine" => "ss-cloud",
+      "sand" => "ss-cloud",
+      "gravel" => "ss-cloud",
+      "rock" => "ss-cloud",
+      
+      "friend_for_languages_or_games" => "ss-users",
+      
+      "location" => "ss-location",
       
       
     },
@@ -128,6 +157,7 @@ module ApplicationHelper
       
       
       "information" => "icon-info-sign",
+      "alert" => "icon-warning-sign",
       "how_to_use" => "icon-book",
       "privacy" => "icon-lock",
       "terms" => "icon-file-alt",
@@ -179,8 +209,7 @@ module ApplicationHelper
       "lock" => "icon-lock",
       "unlock" => "icon-unlock",
       "edit" => "icon-edit",
-      "profile" => "ss-user",
-      "avatar" => "icon-picture"
+      "profile" => "ss-user"
     }    
   }
   
@@ -255,7 +284,7 @@ module ApplicationHelper
       begin
         bit_ly_query = "http://api.bit.ly/shorten/?version=2.0.1&login=#{APP_CONFIG.bitly_username}&longUrl=#{escape_for_url(url)}&apiKey=#{APP_CONFIG.bitly_key}"
         return JSON.parse(RestClient.get(bit_ly_query))["results"][url]["shortUrl"]
-      rescue Exception => e
+      rescue => e
         return url
       end
     else
@@ -297,7 +326,7 @@ module ApplicationHelper
   end
   
   def large_avatar_thumb(person)
-    image_tag person.image.url(:medium), :alt => person.name
+    image_tag person.image.url(:medium), :alt => person.name(@current_community)
   end
 
   def pageless(total_pages, target_id, url=nil, loader_message='Loading more results')
@@ -500,7 +529,21 @@ module ApplicationHelper
          :inessive => "Materiaalipankissa",
          :elative => "Materiaalipankista",
          :partitive => "Materiaalipankkia"
-         }  
+         }
+      when "Larun tori" then {
+        :illative => "Larun torille",
+        :genetive => "Larun torin",
+        :inessive => "Larun torilla",
+        :elative => "Larun torilta",
+        :partitive => "Larun toria"
+        } 
+      when "Massainfo" then {
+        :illative => "Massainfoon",
+        :genetive => "Massainfon",
+        :inessive => "Massainfossa",
+        :elative => "Massainfosta",
+        :partitive => "Massainfoa"
+      }
       else nil
     end
   end
@@ -611,6 +654,12 @@ module ApplicationHelper
         :icon_class => "ss-adduser", 
         :path => new_invitation_path,
         :name => "invite_people"
+      },
+      {
+        :text => t("admin.communities.edit_welcome_email.welcome_email_content"),
+        :icon_class => icon_class("edit"), 
+        :path => edit_welcome_email_admin_community_path(community),
+        :name => "welcome_email"
       } 
     ]
   end
@@ -641,12 +690,6 @@ module ApplicationHelper
         :icon_class => icon_class("profile"),  
         :path => profile_person_settings_path(:person_id => person.id.to_s),
         :name => "profile"
-      },
-      {
-        :text => t("layouts.settings.avatar"),
-        :icon_class => icon_class("avatar"),  
-        :path => avatar_person_settings_path(:person_id => person.id.to_s),
-        :name => "avatar"
       },
       {
         :text => t("layouts.settings.account"),
@@ -719,7 +762,7 @@ module ApplicationHelper
       if @current_community.description && !@current_community.description.blank?
         truncate ? truncate(@current_community.description, :length => 140, :omission => "...") : @current_community.description
       else
-        truncate ? truncate(t("common.default_community_description"), :length => 125, :omission => "...") : t("common.default_community_description")
+        truncate ? truncate(t("common.default_community_description"), :length => 125, :omission => "...").html_safe : t("common.default_community_description").html_safe
       end
     end
   end
@@ -730,7 +773,7 @@ module ApplicationHelper
   end
 
   def community_blank_slate
-    @community_customization && !@community_customization.blank_slate.blank? ? @community_customization.blank_slate : t(".no_listings_notification")
+    @community_customization && !@community_customization.blank_slate.blank? ? @community_customization.blank_slate : t(".no_listings_notification", :add_listing_link => link_to(t(".add_listing_link_text"), new_listing_path)).html_safe 
   end
   
   def fb_image
@@ -745,7 +788,7 @@ module ApplicationHelper
   
   # Return either a link to the listing author or the name of the organization
   def author_link(listing)
-    listing.has_organization_in?(@current_community) ? listing.organization.name : link_to(listing.author.name, listing.author)
+    listing.has_organization_in?(@current_community) ? listing.organization.name : link_to(listing.author.name(@current_community), listing.author)
   end
   
   # Send a reminder email related to a transaction

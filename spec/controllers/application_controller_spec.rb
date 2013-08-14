@@ -28,7 +28,6 @@ describe ApplicationController do
     it "logs the user out from Sharetribe" do
       get :index
       session[:person_id].should be_nil
-      session[:cookie].should be_nil
       assigns("current_user").should be_nil
     end
     

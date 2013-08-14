@@ -28,13 +28,13 @@ Given /^my given name is "([^"]*)"$/ do |name|
   # Using direct model (and ASI) access here
   cookie = nil
   @test_person = Person.find_by_username "kassi_testperson1"
-  @test_person.set_given_name(name, cookie)
+  @test_person.set_given_name(name)
 end
 
 Given /^my phone number in my profile is "([^"]*)"$/ do |phone_number|
   raise RuntimeException.new("@session neede to be set before the line 'my phone number...'") unless @session
   @test_person = Person.find(@session.person_id) if @test_person.nil?
-  @test_person.set_phone_number(phone_number, @session.cookie)
+  @test_person.set_phone_number(phone_number)
 end
 
 Given /^user "(.*?)" has additional email "(.*?)"$/ do |username, email|
@@ -45,17 +45,33 @@ Given /^there will be and error in my Facebook login$/ do
   OmniAuth.config.mock_auth[:facebook] = :access_denied
 end
 
+Given /^there will be no email returned in my Facebook login$/ do 
+  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new( {
+      :provider => 'facebook',
+      :uid => '597015435',
+      :extra =>{
+        :raw_info => {
+          :first_name => "Jackie",
+          :last_name => "Brownie",
+          :username => "jackety-jack",
+          :id => '597015435'
+        }
+      }
+    })
+end
+
+
+
 Given /^there are following users:$/ do |person_table|
   @people = {}
   person_table.hashes.each do |hash|
     @hash_person, @hash_session = get_test_person_and_session(hash['person'])
-    cookie =nil
-    @hash_person.update_attributes({:preferences => { "email_about_new_comments_to_own_listing" => "true", "email_about_new_messages" => "true" }}, cookie)
+    @hash_person.update_attributes({:preferences => { "email_about_new_comments_to_own_listing" => "true", "email_about_new_messages" => "true" }})
     #unless CommunityMembership.find_by_person_id_and_community_id(@hash_person.id, Community.first.id)
       CommunityMembership.create(:community_id => Community.first.id, :person_id => @hash_person.id, :consent => Community.first.consent, :status => "accepted")
     #end
     attributes_to_update = hash.except('person','person_id', 'locale')
-    @hash_person.update_attributes(attributes_to_update, cookie) unless attributes_to_update.empty?
+    @hash_person.update_attributes(attributes_to_update) unless attributes_to_update.empty?
     @hash_person.set_default_preferences
     if hash['locale'] 
       @hash_person.locale = hash['locale']
@@ -115,10 +131,6 @@ end
 
 Given /^"([^"]*)" has admin rights in community "([^"]*)"$/ do |username, community|
   CommunityMembership.find_by_person_id_and_community_id(@people[username].id, Community.find_by_name(community).id).update_attribute(:admin, true)
-end
-
-When /^I can choose whether I want to show my username to others in community "([^"]*)"$/ do |community|
-  Community.find_by_domain(community).update_attribute(:select_whether_name_is_shown_to_everybody, true)
 end
 
 Then /^I should see my username$/ do

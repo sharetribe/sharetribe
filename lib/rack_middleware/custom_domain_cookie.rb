@@ -11,12 +11,17 @@ class CustomDomainCookie
   end
 
   def call(env)
-    host = env["HTTP_HOST"].split(':').first
+    if env["HTTP_HOST"]
+      host = env["HTTP_HOST"].split(':').first 
+    else
+      host = nil
+    end
     env["rack.session.options"][:domain] = custom_domain?(host) ? ".#{host}" : "#{@default_domain}"
-    @app.call(env)
+    return @app.call(env)
   end
 
   def custom_domain?(host)
+    return false if host.nil?
     host !~ /#{@default_domain.sub(/^\./, '')}/i
   end
 end

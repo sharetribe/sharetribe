@@ -54,7 +54,6 @@ h1, h3 {
 h1, h2, h3, h4, h5, h6 {
   @include lft-etica;
   color: $emphasis;
-  
 }
 
 .page-content {
@@ -105,6 +104,17 @@ h1, h2, h3, h4, h5, h6 {
   Often used components
   ---------------------
 */
+
+@mixin photoshop-text-shadow ($angle: 0, $distance: 0, $spread: 0, $size: 0, $color: #000) {
+  // NOTE: $spread has no effect for text shadows
+  $angle: (180 - $angle) * pi() / 180;
+  $h-shadow: round(cos($angle) * $distance);
+  $v-shadow: round(sin($angle) * $distance);
+  $css-spread: $size * $spread/100;
+  $blur: ($size - $css-spread);
+ 
+  @include text-shadow($h-shadow $v-shadow $blur $color);
+}
 
 body {
   background: $background;
@@ -950,10 +960,11 @@ label.error {
 .toggle-menu {
   background: $emphasis;
   background-color: transparentize($emphasis, 0.05);
-  border-color: $emphasis !important; // Goes well with the dark background, I think!
+  border-color: $emphasis !important;
+  position: relative;
+  z-index: 99999;
   @include media(tablet) {
-    // Makes sure they're never obscured by other elements
-    z-index: 9999;
+    position: absolute;
   }
   
   a, .feedback {
@@ -1129,7 +1140,7 @@ figure.fluidratio {
 }
 
 figure.tribe-cover {
-  background-image: url($cover-photo-url);
+  background-image: image-url($cover-photo-url);
 }
 
 .cover-image {
@@ -1327,7 +1338,7 @@ figure.tribe-cover {
     }
   }
   
-  a.selected {
+  a.selected-navi-link {
     color: $body;
     background: $background;
   }
@@ -2111,7 +2122,7 @@ a.lightbox-x {
       @include media(small-tablet) {
         @include normal-type;
       }
-    }    
+    }
   }
   
   .button {
@@ -2286,7 +2297,6 @@ a.lightbox-x {
     
     .tweet-button-container {
       padding-left: lines(8.5);
-      padding-top: em(5);
     }
 
   }
@@ -2296,6 +2306,12 @@ a.lightbox-x {
     h2 {
       margin-top: 0;
       margin-bottom: lines(0.25);
+      display: inline-block;
+    }
+    
+    .follow-links {
+      display: inline-block;
+      margin-left: lines(0.5);
     }
     
     .comment {
@@ -2378,10 +2394,11 @@ a.lightbox-x {
       }
     }
   }
-  
 }
 
-
+.overflow-allowed {
+  overflow: visible;
+}
 
 .view-profile {
   
@@ -2548,7 +2565,15 @@ a.lightbox-x {
       .text-with-icon {
         padding-top: em(2);
       }
+      display: inline-block;
     }
+    
+    .show-closed-link {
+      display: inline-block;
+      @include small-type;
+      margin-left: lines(0.5);
+    }
+      
     
     .load-more-link {
       border-top: 1px dotted $border;
@@ -2580,6 +2605,9 @@ a.lightbox-x {
         .share-type-link {
           font-size: em(12);
         }
+        .feed-listing-icons {
+          display: inline-block;
+        }
       }
       
       h2 {
@@ -2588,8 +2616,9 @@ a.lightbox-x {
         font-weight: 600;
       }
       
-      #edit-profile-listing-links {
-        display: inline;
+      .edit-profile-listing-links {
+        display: inline-block;
+        padding-top: em(5);
       }
       
       @include media(tablet) {
@@ -2659,7 +2688,7 @@ a.lightbox-x {
         color: $aside;
         font-style: italic;
         padding-left: lines(1.5);
-        margin-top: lines(0.25);
+        padding-bottom: lines(0.25);
       }
       
       .testimonial-icon {
@@ -3239,6 +3268,10 @@ a.lightbox-x {
       
   }
   
+  #delete_account_button {
+    margin-left: lines(0.5);
+  }
+  
 }
 
 .notification-settings {
@@ -3624,4 +3657,557 @@ a.lightbox-x {
   }
   
 }
+
+
+
+
+
+/*
+  -----------------------------------
+  Tribe network
+  -----------------------------------
+*/
+
+/* Colors */
+$red: #ff5840;
+$light_grey: #fdfbfb;
+
+.mobile {
+  display: block;
+  @include media(tablet) {
+    display: none;
+  }
+}
+
+.desktop {
+  display: none;
+  @include media(tablet) {
+    display: block;
+  }
+}
+
+section.lander, header.global-header-network, section.about, section.create-now, footer {
+  position: relative;
+  h1, h2, h3, h4, h5, h6, p, a, input, button, div {
+    @include source-sans-pro;
+  }
+}
+
+header.global-header-network {
+  background: $background;
+  height: lines(2.5);
+  width: 100%;
+  @include box-sizing(border-box);
+  border-bottom: em(3) solid $red;
+  
+  .wrapper {
+    @include box-sizing(border-box);
+    padding: 0 lines(0.5);
+    
+    @include media(desktop) {
+      padding: 0;
+    }
+  }
+  
+  .top-menu {
+    a {
+      color: $background;
+      &:hover { 
+        background: $red;
+        color: $background; 
+      }
+    }
+  }
+  
+  .left-side {
+    padding-top: lines(0.5);
+  }
+  
+  .right-side {
+    display: none;
+    @include box-sizing(border-box);
+    padding: 0 lines(0.5);
+    
+    @include media(desktop) {
+      padding: 0;
+    }
+    
+    @include media(tablet) {
+      display: block;
+      position: absolute;
+      right: 0;
+      top: em(16);
+      text-align: right;
+      color: $red;
+      font-weight: 600;
+    }
+  }
+  
+  .right-side-mobile {
+    @include box-sizing(border-box);
+    @include big-type;
+    padding: 0 lines(0.5);
+    color: $red;
+    position: absolute;
+    right: 0;
+    top: em(14);
+    
+    @include media(tablet) {
+      display: none;
+    }
+  }
+  
+  a {
+    font-weight: 600;
+    color: $red;
+    &:hover { 
+      color: darken($red, 20%);
+    };
+  }
+  
+  a.global-navi {
+    margin: 0 lines(0.25);
+  }
+  
+  a.global-navi-right {
+    margin-left: lines(0.25);
+  }
+  
+}
+
+ul.network-navi {
+  list-style-type: none;
+  li { display: inline; }
+  padding-left: 0;
+}
+
+footer {
+  position: relative;
+  color: $red;
+  font-weight: 600;
+  padding: lines(1) 0 lines(1) 0;
+  
+  a {
+    font-weight: 600;
+    color: $red;
+    &:hover { 
+      color: darken($red, 20%);
+    };
+  }
+  
+  a.footer-navi {
+    margin: 0 lines(0.25);
+  }
+  
+  a.footer-navi-left {
+    margin-right: lines(0.25);
+  }
+  
+  .left-side {
+    text-align: center;
+    margin-bottom: lines(1);
+    
+    @include media(tablet) {
+      text-align: left;
+      margin: 0;
+    }
+  }
+  
+  .right-side {
+    text-align: center;
+    padding-bottom: lines(1);
+    
+    @include media(tablet) {
+      padding: 0;
+      position: absolute;
+      right: 0;
+      top: em(-5);
+      text-align: right;
+    }
+  }
+  
+  .company-name {
+    display: inline-block;
+    color: $body;
+    font-weight: 400;
+    margin-right: lines(0.25);
+  }
+  
+  a.social-icon-circle {
+    background-color: $red;
+    border-radius: 14px; /* one half of ( (border * 2) + height + padding ) */
+    color: white;
+    height: 20px; 
+    min-width: 14px;
+    padding: 6px 8px;
+    text-align: center;
+    display: inline-block;
+    &:hover { background-color: darken($red, 20%); }
+    margin-left: lines(0.25);
+  }
+  
+}
+
+section.lander, section.create-now {
+  
+  .coverimage {
+    max-width: em(1920);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  figure.fluidratio {
+    display: block;
+    height: em(600);
+    background-size: cover;
+    -moz-background-size: cover;  /* Firefox 3.6 */
+    background-position: center;  /* Internet Explorer 7/8 */
+    background-position: center center;
+
+    @include media(tablet) {
+      /* This element will have fluid ratio from 4:1 at 1600px to 2:1 at 300px. */
+      @include fluid-ratio(em(1920) em(822), em(300) em(822));
+    }
+  }
+  
+  figure.network-cover {
+    background-image: url("https://s3.amazonaws.com/sharetribe/cover_photos/network/bg_photo_shadow.jpg");
+  }
+  
+  .lander-content {
+    position: absolute;
+    top: lines(-20.5);
+    @include box-sizing(border-box);
+    padding: 0 lines(0.5);
+    width: 100%;
+    text-align: center;
+    
+    @include media(tablet) {
+      padding: 0;
+    }
+  } 
+  
+  h1 {
+    position: relative;
+    z-index: 1;
+    padding: 0;
+    color: $background;
+    @include huge-type;
+    line-height: em(15);
+    @include photoshop-text-shadow(120, 0px, 12, 10px, rgba(black, 0.5));
+    @include media(tablet) {
+      padding: 0 lines(1);
+    }
+  }
+  
+  p {
+    margin-top: lines(1);
+    color: $background;
+    @include normal-type;
+    font-weight: 500;
+    @include text-shadow(2px, 2px, 3px, rgba(black, 0.5));
+  }
+  
+  .contact-form-container {
+    margin-top: lines(1.5);
+  }
+
+  .contact-form-input {
+    vertical-align: top;
+    display: inline;
+  }
+  
+  .contacted-notification {
+    background: rgba($background, 0.75);
+    padding: lines(0.5) lines(1);
+    width: auto;
+    display: inline-block;
+    @include border-radius(em(5));
+    h3 {
+      color: $body;
+    }
+    margin: lines(1) 0 lines(2) 0;
+    
+    @include media(tablet) {
+      width: auto;
+    }
+  }
+  
+  input[type=text] {
+    @include box-sizing(border-box);
+    @include normal-type;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    vertical-align: top;
+    padding: em(11) em(11) em(11) em(11); 
+    border: 3px solid $body;
+    width: 100%;
+  }
+  
+  button.action-button {
+    color: $background;
+    background: $red;
+    
+    @include box-sizing(border-box);
+    @include border-radius(em(5));
+    @include normal-type;
+    border: 3px solid darken($red, 25%);
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    
+    vertical-align: top;
+    padding: em(8) em(13) em(11) em(13);  
+
+    &:hover { 
+      background: darken($red, 15%);
+      color: $background;
+      border-color: darken($red, 35%); 
+    };
+  }
+  
+  @include media(tablet) {
+    
+    .contact-form-container {
+      margin-top: lines(2.5);
+    }
+    
+    .lander-content {
+      top: lines(-27);
+    }
+    
+    h1 {
+      @include mega-type;
+      line-height: em(15);
+    }
+    
+    p {
+      @include large-type;
+    }
+    
+    input[type=text] {
+      padding: em(11) em(14) em(11) em(14);
+      @include big-type;
+      width: lines(10);
+    }
+    
+    .contact-form-text-field {
+      width: lines(10);
+    }
+    
+    label.error {
+      @include box-sizing(border-box);
+      width: lines(21);
+      margin: lines(0.5) auto;
+      padding: em(10) em(15) em(15) em(15);
+    }
+    
+    button.action-button {
+      @include big-type;
+      padding: em(11) em(16) em(14) em(16);
+      width: auto;
+      margin: 0 0 0 lines(0.5);
+    }
+    
+  }
+  
+}
+
+section.lander {
+  
+  h2 {
+    color: $background;
+    @include normal-type;
+    @include photoshop-text-shadow(120, 0px, 12, 10px, rgba(black, 0.5));
+  }
+  
+  @include media(tablet) {
+    h2 {
+      @include large-type;
+    }
+  }
+  
+}
+
+section.create-now {
+  
+  h2 {
+    @include normal-type;
+  }
+  
+  @include media(tablet) {
+    h2 {
+      @include large-type;
+    }
+  }
+}
+
+
+section.about, section.how-it-works, section.create-now {
+  padding: lines(3) 0 lines(3) 0;
+  color: $body;
+  
+  h2 {
+    @include normal-type;
+    font-weight: 600;
+    color: $body;
+  }
+  
+  @include media(tablet) {
+    padding: lines(5) 0 lines(7) 0;
+    h2 {
+      @include large-type;
+    }
+  }
+  
+}
+
+section.about, section.create-now {
+  background: $light_grey;
+  border-top: 3px solid $red;
+  border-bottom: 3px solid $red;
+}
+
+section.about {
+
+  .wrapper {
+    background: $light_grey;
+  }
+  
+  .about-content { 
+    width: 100%;
+    text-align: center;
+  }
+
+  .about-columns {
+    margin-top: lines(2);
+  }
+
+  .about-column {
+    width: lines(11);
+    margin: 0 auto;
+    padding-bottom: lines(2);
+  }
+
+  .about-column-title-icon {
+    display: inline-block;
+    color: $red;
+    font-size: em(20);
+  }
+
+  .about-column-title-text {
+    display: inline-block;
+    @include large-type;
+    color: $red;
+    margin-left: em(3);
+  }
+
+  .about-column-content p {
+    margin-top: lines(0.25);
+    color: $aside;
+    @include small-type;
+  }
+  
+  @include media(tablet) {
+    
+    .about-columns {
+      margin-top: lines(3);
+    }
+    
+    .about-column {
+      display: inline-block;
+      margin: 0 0 0 lines(2);
+      padding-bottom: 0;
+    }
+    
+    .about-column-left {
+      margin-left: 0;
+    }
+    
+    .about-column-title-icon {
+      font-size: em(33);
+    }
+    
+    .about-column-title-text {
+      @include huge-type;
+      font-weight: 400;
+    }
+    
+    .about-column-content p {
+      @include normal-type;
+    }
+    
+  }
+  
+}
+
+section.how-it-works {
+  
+  .how-it-works-content {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .video-container {
+    margin-top: lines(3);
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: em(30);
+    height: 0; 
+    overflow: hidden;
+  }
+
+  .video-container iframe,
+  .video-container object,
+  .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+}
+
+section.create-now {
+  
+  .wrapper {
+    background: $light_grey;
+  }
+  
+  .create-now-content {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .create-now-form {
+    margin-top: lines(1.5);
+    padding: 0 lines(0.5);
+    
+    @include media(tablet) {
+      padding: 0;
+    }
+  }
+  
+}
+
+.top-menu-toggle {
+  @include box-sizing(border-box);
+  @include big-type;
+  color: $red;
+  &:hover { color: darken($red, 25%); }
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: em(14) lines(0.5);
+  cursor: pointer;
+  text-align: right;
+  
+  @include media(tablet) {
+    display: none;
+  }
+}
+  
+
 

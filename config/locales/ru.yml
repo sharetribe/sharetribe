@@ -19,6 +19,11 @@ ru:
         cover_photo_instructions_text: "Изображение обложки будет уменьшено до размера 1600×95 пикселов, более высокие изображения будут обрезаны сверху и снизу."
         custom_color1_instructions_text: "Вы можете изменить основной цвет интерфейса этого сообщества, введя его шестнадцатеричное значение. Сайт <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> поможет выбрать и скопировать подходящий цвет."
         invalid_color_code: "Код цвета должен содержать 6 цифр или букв от A до F, например D96E21"
+      edit_welcome_email:
+        welcome_email_content: ~
+        welcome_email_content_description: ~
+        edit_message: ~
+        send_test_message: ~
     emails:
       new:
         send_email_to_members: "Отправить электронное письмо членам сообщества"
@@ -72,13 +77,14 @@ ru:
       show:
         edit_poll: "Редактировать опрос"
   common:
+    edit_page: ~
     default_community_slogan: "Сотрудничайте, делитесь и помогайте"
     default_community_description: "%{service_name} это место, где участники нашего сообщества могут обмениваться вещами, услугами, поездками и жильём. Расскажите другим, о том, что Вы можете предложить и в чём нуждаетесь сами."
     cancel: Отмена
     fields_that_are_mandatory: "Поля, отмеченные звёздочкой (*), являются обязательными."
     or: или
     password: Пароль
-    service_name: ~
+    service_name: "%{service_name}"
     share_types:
       request: запрос
       offer: предложение
@@ -119,15 +125,15 @@ ru:
     what_is_this: "Что это?"
   conversations:
     accept:
-      respond_to_offer: ~
-      respond_to_request: ~
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
-      close_listing: ~
+      respond_to_offer: "Ответить на предложение"
+      respond_to_request: "Ответить на запрос"
+      accept_offer: "Принять предложение"
+      accept_request: "Принять запрос"
+      reject_offer: "Не сейчас"
+      reject_request: "Не сейчас"
+      close_listing: "Закрыть объявление %{listing_title_link}"
       update_later: ~
-      optional_message: ~
+      optional_message: "Сообщение (необязательно)"
       price_to_pay: ~
     confirm:
       confirm_description: ~
@@ -136,11 +142,10 @@ ru:
       canceling_payed_transaction: ~
       confirm: ~
       cancel: ~
-      continue: ~
+      continue: Продолжить
       give_feedback_to: ~
       do_not_give_feedback: ~
     index:
-      messages_from_all_tribes: ~
       loading_more_messages: "Загрузка сообщений"
       message_partitive: сообщение
       messages_partitive: сообщений
@@ -217,15 +222,14 @@ ru:
         your_request: "ваш запрос"
       loading_more_notifications: "Загрузка оповещений"
       no_notifications: "Нет оповещений."
-      notifications_from_all_tribes: ~
       testimonialnotification:
         give_feedback_to: "Оставить отзыв о %{name}"
         has_given_you_feedback_on_event: "оставил отзыв о событии"
         see_all_the_feedback_you_have_received: "просмотреть все отзывы, полученные вами"
     show:
       in_response_to_listing: ~
-      message_sent_by: ~
-      message_sent_to: ~
+      message_sent_by: "Сообщение отправлено"
+      message_sent_to: "Сообщение отправлено"
       send_reply: "Отправить ответ"
       write_a_reply: "Написать ответ:"
       conversation_about_listing: "Диалог с %{person} о %{listing}."
@@ -240,12 +244,12 @@ ru:
       offer_rejected: "Предложение отклонено"
       offer_canceled: ~
       offer_confirmed: ~
-      pay: ~
-      paid: ~
+      pay: Оплатить
+      paid: "Оплата выполнена успешно"
       request_accepted: "Запрос принят"
       request_rejected: "Запрос отклонён"
-      request_confirmed: ~
-      request_canceled: ~
+      request_confirmed: Завершено
+      request_canceled: Отменено
       skip_feedback: "Пропустить отзыв"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
@@ -351,7 +355,7 @@ ru:
   community_memberships:
     new:
       welcome_fb_user: "%{name}, добро пожаловать в %{service_name}!"
-      fb_join_accept_terms: ~
+      fb_join_accept_terms: "Остался всего один шаг - вы должны принять правила использования."
       join_community: "Присоединяйтесь к сообществу '%{community}'"
       you_are_not_a_member_of_this_community: "У вас есть учетная запись пользователя в %{service_name}, но вы не являетесь членом сообщества '%{community}'."
       you_can_join: "Вы можете присоединиться к этому сообществу, приняв условия использования и нажав кнопку \"Присоединиться\" ниже."
@@ -473,23 +477,23 @@ ru:
       you_have_been_invited_to_kassi: "%{inviter} пригласил вас присоединиться к сервису %{community}"
       here_is_a_message_from: "Для вас есть личное сообщение от %{inviter}:"
       join_now: ~
-      invitation_code: ~
+      invitation_code: "Пригласительный код: %{code}"
     new_badge:
       you_can_view_all_your_badges_in: "Вы можете просмотреть свои значки здесь —"
       you_have_achieved_a_badge: "Вы получили значок «%{badge_name}» в Kassi!"
     new_comment:
       has_commented_your_listing_in_kassi: ~
-      view_comment: ~
+      view_comment: "Просмотреть комментарий"
       you_have_a_new_comment: "%{author} оставил комментарий на ваш запрос в %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} прокомментировал листинг, за которым вы следите в %{service_name}"
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       conversation_title: "Название цепочки сообщений: %{title}"
-      view_message: ~
+      view_message: "Просмотреть сообщение"
       has_sent_you_a_message_in_kassi: "%{sender} отправил вам сообщение в Kassi:"
       you_have_a_new_message: "У вас новое сообщение в Kassi"
     new_payment:
-      new_payment: ~
+      new_payment: "Вы получили новый платёж"
       you_have_received_new_payment: ~
     receipt_to_payer:
       receipt_of_payment: ~
@@ -497,11 +501,11 @@ ru:
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} оставил отзыв о вас в Kassi"
       you_can_give_feedback_to: "Вы можете оставить отзыв о %{name} здесь —"
-      view_feedback: ~
+      view_feedback: "Просмотреть отзывы"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Листинг, за которым вы следите, был обновлён"
       has_updated_listing_you_follow_in_kassi: ~
-      view_changes: ~
+      view_changes: "Просмотр изменений"
     community_updates:
       added_offer: "%{name_link} добавлено предложение:"
       added_request: "%{name_link} добавлен запрос:"
@@ -509,14 +513,10 @@ ru:
       title_link_text: "%{community_name}"
       intro_paragraph: "В этом письме содержится несколько новостей сообщества %{community_link} за последние %{time_since_last_update}"
       intro_paragraph_link_text: "%{community_name}"
-      could_you_share_something: "Тебе есть что предложить?"
-      do_you_need_help_with_anything: "Нужна помощь?"
       post_a_new_listing: "Пусть об этом узнают!"
       reduce_email_footer_text: "Надоели эти письма? %{settings_link} или %{unsubscribe_link}."
-      tribe_creation_promotion_footer: "А ты знаешь, что можно быстро и легко создать подобный сайт для своего микрорайона, города, объединения или другого сообщества? %{create_tribe_link} или узнай больше, ответив на это письмо."
       settings_link_text: "Отредактируй настройки получения писем"
       unsubscribe_link_text: отпишись
-      create_tribe_link_text: "Создай его"
     newsletter:
       weekly_news_from_kassi: "Еженедельный дайджест новостей сообщества %{service_name} «%{community}»"
       hi: "Привет %{name},"
@@ -631,7 +631,6 @@ ru:
       request_partitive: запросил
   header:
     about: "О сервисе"
-    community: Сообщество
     home: Главная
     members: Сообщество
     new_listing: "Новый листинг"
@@ -677,7 +676,9 @@ ru:
     event_feed:
       latest_events: "Последние действия"
     index:
+      no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
+      add_listing_link_text: ~
       available_on_the_app_store: "Доступно в AppStore"
       private_listing_notification: "В этом сообществе содержится %{listing_count} открытых листингов. Из них %{private_listing_count}%{be_verb}видимы только для членов сообщества. Если вы хотите их увидеть, вам нужно %{log_in_link}."
       open_listing: "открытое объявление"
@@ -815,17 +816,17 @@ ru:
       settings: Настройки
       sign_up: Регистрация
     notifications:
+      test_welcome_email_delivered_to: ~
       something_went_wrong: ~
       community_updated: "Информация о сообществе обновлена."
       community_update_failed: "Не удалось обновить информацию о сообществе."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Учётная запись создана успешно. Теперь вам нужно подтвердить свой адрес электронной почты."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Теперь вы являетесь членом этого сообщества. Далее вам необходимо подтвердить свой адрес электронной почты."
-      avatar_upload_failed: "Ошибка загрузки аватара. Картинка должна быть в формате .png, .jpg или .gif."
-      avatar_upload_successful: "Загрузка аватара успешна"
       comment_cannot_be_empty: "Комментарий не может быть пустым"
       comment_sent: "Комментарий отправлен"
       confirmation_link_is_wrong_or_used: "Ссылка для подтверждения уже была использована, либо неправильна. Попробуйте войти в систему, или отправьте отзыв, если проблема повторяется."
       additional_email_confirmed: "Адрес электронной почты, указанный вами теперь подтверждено. Теперь вы можете присоединиться к сообществу, введя его еще раз."
+      could_not_get_email_from_facebook: ~
       create_new_listing: ~
       create_one_here: "создать её"
       email_confirmation_sent_to_new_address: "Письмо с ссылкой подтверждения отправлено на новый адрес."
@@ -842,6 +843,7 @@ ru:
       login_again: "Попробуйте войти ещё раз."
       login_failed: "Не удалось войти. Проверьте правильность введённых данных."
       account_creation_successful: "Добро пожаловать в %{service_name}, %{person_name}!"
+      account_deleted: ~
       login_successful: "Добро пожаловать в %{service_name}, "
       logout_successful: "Вы только что вышли из %{service_name}. Заходите ещё!"
       news_item_created: "Статья создана"
@@ -852,7 +854,7 @@ ru:
       offer_accepted: "Предложение подтверждено"
       offer_confirmed: ~
       offer_closed: "Предложение закрыто"
-      listing_created_successfully: ~
+      listing_created_successfully: "Объявление успешно создано: %{new_listing_link}"
       offer_rejected: "Предложение отклонено"
       offer_canceled: ~
       listing_updated_successfully: ~
@@ -860,6 +862,9 @@ ru:
       only_listing_author_can_close_a_listing: "Листинг может закрыть только автор"
       only_listing_author_can_edit_a_listing: "Листинг может редактировать только автор"
       payment_successful: ~
+      payment_canceled: ~
+      error_in_payment: ~
+      payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: "Инструкции по смене пароля отправлены на ваш почтовый ящик."
       person_activated: "Пользователь активирован"
       person_deactivated: "Пользователь отключен"
@@ -916,7 +921,6 @@ ru:
       testimonials: Отзывы
     settings:
       account: "Учётная запись"
-      avatar: Аватар
       notifications: Оповещения
       profile: "Информация о вас"
       settings: Настройки
@@ -936,15 +940,14 @@ ru:
       you_must: "Вы должны"
       subscribe_to_comments: "Сообщать мне о новых комментариях и обновлениях"
     edit:
-      edit_listing: ~
+      edit_listing: "Редактировать объявление"
     edit_links:
-      close_listing: ~
-      edit_listing: ~
-      reopen_listing: ~
+      close_listing: "Закрыть объявление"
+      edit_listing: "Редактировать объявление"
+      reopen_listing: "Повторно открыть объявление"
     follow_links:
       follow: "Следить за этим листингом"
       unfollow: "Не следить за этим листингом"
-      follow_description: "Вы будете получать сообщения о новых комментариях и обновлениях листинга."
     form:
       departure_time:
         at: В
@@ -976,18 +979,18 @@ ru:
       location:
         location: Местоположение
       price:
-        price: ~
-        per: ~
-        mass: ~
-        time: ~
-        long_time: ~
+        price: Цена
+        per: за
+        mass: "шт, кг, л, м2, ..."
+        time: "час, день, неделю, ..."
+        long_time: "неделю, месяц, ..."
         service_fee_will_be_added: ~
         price_excludes_vat: ~
       origin:
         location: Местоположение
         origin: "Исходный пункт"
       send_button:
-        save_listing: ~
+        save_listing: "Сохранить объявление"
       share_type:
         select: Выбрать
         borrow: "На время"
@@ -1013,7 +1016,7 @@ ru:
         housing_you_request: "Требуемое жильё"
         item_you_offer: "Предлагаемая вещь"
         item_you_request: "Требуемая вещь"
-        listing_title: ~
+        listing_title: "Заголовок объявления"
       valid_until:
         valid_until: "Дата окончания"
       valid_until_radio_buttons:
@@ -1139,8 +1142,8 @@ ru:
       sell: "Я продаю это"
       offer_to_swap: ~
       request_to_swap: ~
-      share_for_free: ~
-      accept_for_free: ~
+      share_for_free: "Я делюсь этим бесплатно"
+      accept_for_free: "Я бы хотел использовать это бесплатно"
       what_kind_of_item: ~
       what_kind_of_favor: ~
       what_kind_of_rideshare: ~
@@ -1161,8 +1164,8 @@ ru:
       garden: "Сад и огород"
       travel: Путешествия
       other: Прочее
-      what_do_you_want_to_do: ~
-      what_can_you_offer: ~
+      what_do_you_want_to_do: "Что вы хотите сделать?"
+      what_can_you_offer: "Что вы можете предложить другим?"
       what_do_you_need: "Что вам нужно?"
       select_category: ~
     please_comment: Комментарий
@@ -1267,7 +1270,6 @@ ru:
       this_person_is_not_active_in_kassi: "Этот пользователь больше не использует %{service_name}"
       inactive_description: "Пользователь прекратил использовать %{service_name}. Вы не можете связаться с этим пользователем, поставить ему оценку или комментировать его листинги."
     new:
-      address_validator: "Местоположение не найдено."
       captcha_incorrect: "Проверка на ввод символов не пройдена. Введите символы с картинки в форму ниже."
       captcha_was_wrong: "Неверно введены символы с картинки."
       create_new_account: Зарегистрироваться
@@ -1380,21 +1382,9 @@ ru:
       grade: "Оценка:"
       and_gave_following_feedback: "и оставил отзыв"
       less_than_expected: "Хуже чем ожидалось"
-      offered_favor: "предложил услугу"
-      offered_housing: "предложил проживание"
-      offered_item: "предложил вещь"
-      offered_rideshare: "предложил поездку"
-      requested_favor: "запросил услугу"
-      requested_housing: "запросил проживание"
-      requested_item: "запросил вещь"
-      requested_rideshare: "запросил поездку"
       slightly_better_than_expected: "Лучше чем ожидалось"
       slightly_less_than_expected: "Немного хуже, чем ожидалось"
     profile_listings:
-      loading_more_offers: "Загрузка предложений"
-      loading_more_requests: "Загрузка запросов"
-      offers: Предложения
-      requests: Запросы
       show_also_closed: "Показывать закрытые"
       show_only_open: "Показывать только открытые"
     show:
@@ -1425,11 +1415,15 @@ ru:
       reviews: "получены отзывы"
       badge: значок
       badges: Значки
+      listing: ~
+      listings: ~
       open_listing: "открытое объявление"
       open_listings: "открытых объявлений"
+      no_listings: ~
       no_open_listings: "Нет открытых листингов"
       no_reviews: "Нет обзоров"
       no_badges: "Нет значков"
+      show_all_listings: ~
       show_all_open_listings: "Показать все открытые листинги"
       show_all_reviews: "Показать все обзоры"
       trustcloud: TrustCloud
@@ -1467,8 +1461,6 @@ ru:
     confirmation_pending:
       welcome_to_kassi: "Добро пожаловать в %{service_name}!"
       check_your_email: "Проверьте ваш почтовый ящик"
-      account_conrimation_instructions: "В скором времени, вы получите письмо от %{service_name}, содержащее ссылку, по которой нужно будет перейти, чтобы получить доступ к этому сообществу %{service_name}.</p><p>Эта проверка нужна для того, чтобы убедиться в том, что все участники на самом деле относятся к сообществу <b>%{community_name}</b>, что создаёт безопасную среду для совместного использования ресурсов.</p><p>Если у вас возникли проблемы с использованием %{service_name}, просто нажмите кнопку <a href=\"#\" id=\"give_feedback_link\">обратной связи</a> слева и дайте нам знать. Пожалуйста, поделитесь своими идеями для улучшения сервиса!"
-      account_confirmation_instructions_any_email: "Вскоре вы получите электронное письмо от %{service_name} со ссылкой, по которой нужно перейти для получения доступа к этому сообществу %{service_name}.<p><p>Эта проверка введена для создания более доверенных условий для совместного использования ресурсов.</p><p>Если у вас возникли проблемы с использованием %{service_name}, просто нажмите кнопку <a href=\"#\" id=\"give_feedback_link\">обратной связи</a> в левой части страницы и дайте нам знать. Пожалуйста, поделитесь своими идеями улучшения нашего сервиса!"
       get_started: "Начало работы с %{service_name}"
       getting_started_instructions: "После подтверждения вашей учетной записи, хорошей идеей будет добавление картинки для вашего <a href=\"%{profile_url}\">профиля</a> и заполнения полей с информацией о вас, либо вы можете перейти прямо к действию, добавив <a href=\"/ru/listings/new/offer\">предложение</a> о чем-то, что вы могли бы сдать напрокат, продать или сделать для других. Или, если вы сами в чём-то конкретно нуждаетесь, разместите <a href=\"/ru/listings/new/request\">запрос</a> ."
       resend_confirmation_instructions: "Повторно выслать инструкции для подтверждения"
@@ -1478,11 +1470,12 @@ ru:
       account_confirmation_instructions: "Вскоре вы получите электронное письмо с ссылкой, которую нужно нажать для подтверждения электронной почты. После подтверждения вашей электронной почты вы сможете начать использовать %{service_name} ."
       account_confirmation_instructions_dashboard: "Вскоре вы получите электронное письмо со ссылкой, по которой нужно будет перейти для подтверждения электронной почты."
   settings:
-    settings_affect_all_tribes: "Эти настройки затронут все сообщества Sharetribe, к которым вы принадлежите"
     account:
       change: Изменить
       confirm_new_password: "Подтвердить новый пароль"
       delete_account: "Удалить учётную запись"
+      delete_account_button: ~
+      delete_account_confirmation_popup: ~
       email: "Адрес электронной почты:"
       instructions_to_delete_account: "Если вы хотите удалить свою учётную запись, используйте форму связи слева."
       contact_admin: "свяжитесь с администратором"
@@ -1490,9 +1483,6 @@ ru:
       new_password: "Новый пароль"
       save: Сохранить
       these_fields_are_shown_only_to_you: "Если вы не сообщили ваше реальное имя, в вашем профиле будет отображаться выбранное вами имя пользователя. Остальная информация будет доступна только вам."
-    avatar:
-      add_avatar_submit: Сохранить
-      update_profile_picture: "Обновить картинку"
     notifications:
       email_from_admins: "Я хотел бы получать иногда оповещения от администраторов этого сообщества"
       i_want_to_get_email_notification_when: "Я хочу получать уведомления по электронной почте, когда"
@@ -1527,6 +1517,7 @@ ru:
       given_name: "Имя:"
       location_description: "Вы можете ввести либо своё точное местоположение, либо почтовый индекс. Укажите как минимум свой индекс. Точное местоположение можно задать с помощью карты."
       phone_number: "Номер телефона:"
+      profile_picture: ~
       postal_code: "Индекс:"
       profile_page: "на странице вашего профиля"
       profilemap: Карта
@@ -1585,8 +1576,6 @@ ru:
       negative: Отрицательный
       default_textual_feedback: "Всё прошло отлично, большое спасибо!"
     testimonial:
-      from_user: от
-      to_user: для
       about_listing: ~
   time:
     formats:

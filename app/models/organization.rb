@@ -1,3 +1,8 @@
+# encoding: UTF-8
+
+# This class is currently used by only one specific client
+# The plan is to separate this code later to a plugin
+
 class Organization < ActiveRecord::Base
   
   include EmailHelper
@@ -15,15 +20,12 @@ class Organization < ActiveRecord::Base
   validates_uniqueness_of :name
   validates_format_of :company_id, :with => /^(\d{7}\-\d)?$/, :allow_nil => true
   
-  paperclip_options_for_logo = PaperclipHelper.paperclip_default_options.merge!({:styles => {  
+  has_attached_file :logo, :styles => {  
                       :medium => "288x288",
                       :small => "108x108",
                       :thumb => "48x48", 
                       :original => "600x600>"},
-                      :default_url => "/organizations/medium/default.png"
-  })
-  
-  has_attached_file :logo, paperclip_options_for_logo
+                      :default_url => "/assets/organizations/medium/default.png"
   validates_attachment_content_type :logo,
                                     :content_type => ["image/jpeg",
                                                       "image/png", 
@@ -67,7 +69,7 @@ class Organization < ActiveRecord::Base
     else
       # Stub response to avoid unnecessary accounts being created (unless config is set to make real accounts)
       #puts "STUBBING A CALL TO MERCHANT API WITH PARAMS: #{api_params.inspect}"
-      response = "<merchant><id>123456</id><secret>exampledddfGisidnowtAthpowdUshyerbEuvRagNuishUcAnLihanshEmtyeifjitmowlIfyegyewfIvApdec=</secret><banner>http://rpcapi.checkout.fi/banners/5a1e9f504277f6cf17a7026de4375e97.png</banner></merchant>"
+      response = "<merchant><id>375917</id><secret>SAIPPUAKAUPPIAS</secret><banner>http://rpcapi.checkout.fi/banners/5a1e9f504277f6cf17a7026de4375e97.png</banner></merchant>"
     end
 
     self.merchant_id = response[/<id>([^<]+)<\/id>/, 1]

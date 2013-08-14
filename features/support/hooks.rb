@@ -7,6 +7,9 @@ Before do
   Capybara.default_host = 'test.lvh.me'
   Capybara.server_port = 9887
   Capybara.app_host = "http://test.lvh.me:9887"
+  
+  # Clear cache for each run as caching is not planned to work when DB contents are changing and communities are removed
+  Rails.cache.clear
 end
 
 

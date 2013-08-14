@@ -17,7 +17,6 @@
 //= require sharetribe_common
 //= require kassi_dashboard
 //= require googlemaps
-//= require google_analytics
 //= require_self 
 
 

@@ -19,6 +19,11 @@ vi:
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
         invalid_color_code: ~
+      edit_welcome_email:
+        welcome_email_content: ~
+        welcome_email_content_description: ~
+        edit_message: ~
+        send_test_message: ~
     emails:
       new:
         send_email_to_members: ~
@@ -72,6 +77,7 @@ vi:
       show:
         edit_poll: "Chỉnh sửa thăm dò ý kiến"
   common:
+    edit_page: ~
     default_community_slogan: "Cho mượn, giúp đỡ, chia sẻ"
     default_community_description: "%{service_name} là nơi mà các thành viên trong cộng đồng của chúng ta có thể chia sẻ hàng hoá, dịch vụ, cuốc xe, và không gian. Bạn có thể cho người khác biết những gì bạn có thể hỗ trợ họ và nhận trợ giúp khi cần."
     cancel: "Hủy bỏ"
@@ -140,7 +146,6 @@ vi:
       give_feedback_to: ~
       do_not_give_feedback: ~
     index:
-      messages_from_all_tribes: ~
       loading_more_messages: "Nạp thêm tin nhắn"
       message_partitive: "tin nhắn"
       messages_partitive: "tin nhắn"
@@ -217,7 +222,6 @@ vi:
         your_request: "bạn yêu cầu"
       loading_more_notifications: "Nạp thêm thông báo"
       no_notifications: "Không có thông báo"
-      notifications_from_all_tribes: ~
       testimonialnotification:
         give_feedback_to: "Cho phản hồi đến %{name}"
         has_given_you_feedback_on_event: "cho bạn thông tin phản hồi về sự kiện"
@@ -509,14 +513,10 @@ vi:
       title_link_text: "%{community_name}"
       intro_paragraph: ~
       intro_paragraph_link_text: "%{community_name}"
-      could_you_share_something: "Bạn có thể chia sẻ thứ gì đó không?"
-      do_you_need_help_with_anything: "Cần giúp gì?"
       post_a_new_listing: "Gửi danh sách mới!"
       reduce_email_footer_text: "Quá nhiều email? %{settings_link} hoặc %{unsubscribe_link}."
-      tribe_creation_promotion_footer: ~
       settings_link_text: "Chỉnh sửa các thiết lập email của bạn ở đây"
       unsubscribe_link_text: ~
-      create_tribe_link_text: "Tạo một cái cho bạn"
     newsletter:
       weekly_news_from_kassi: "Tin tức hàng tuần từ %{community} %{service_name}"
       hi: "Chào %{name},"
@@ -631,7 +631,6 @@ vi:
       request_partitive: "yêu cầu"
   header:
     about: "Tìm hiểu về"
-    community: "Cộng đồng"
     home: "Trang chủ"
     members: ~
     new_listing: ~
@@ -677,7 +676,9 @@ vi:
     event_feed:
       latest_events: "Điều gì đang xảy ra"
     index:
+      no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
+      add_listing_link_text: ~
       available_on_the_app_store: ~
       private_listing_notification: ~
       open_listing: ~
@@ -815,17 +816,17 @@ vi:
       settings: "Cài đặt"
       sign_up: "Đăng kí"
     notifications:
+      test_welcome_email_delivered_to: ~
       something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: "Tài khoản được tạo thành công. Tiếp theo bạn cần phải xác nhận địa chỉ email của bạn."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Bây giờ bạn là một thành viên của cộng đồng này. Tiếp theo, bạn cần phải xác nhận địa chỉ email của bạn."
-      avatar_upload_failed: "Avatar tải lên thất bại. Hãy nhớ rằng tập tin hình ảnh phải ở định dạng .png, .jpg hoặc .gif."
-      avatar_upload_successful: "Avatar tải lên thành công"
       comment_cannot_be_empty: "Bình luận không được để trống"
       comment_sent: "Bình luận đã gửi"
       confirmation_link_is_wrong_or_used: "Liên kết xác nhận vừa được sử dụng hoặc bị hỏng. Thử đăng nhập lại, hoặc gửi thông tin phản hồi nếu lỗi vẫn tồn tại."
       additional_email_confirmed: "Thư điện tử bạn đã nhập bây giờ được xác nhận. Bây giờ, bạn có thể tham gia cộng đồng bằng cách nhập lại nó."
+      could_not_get_email_from_facebook: ~
       create_new_listing: ~
       create_one_here: "tạo một ở đây"
       email_confirmation_sent_to_new_address: "Bây giờ, email xác nhận được gửi đến địa chỉ mới."
@@ -842,6 +843,7 @@ vi:
       login_again: "Vui lòng đăng nhập lại."
       login_failed: "Đăng nhập thất bại. Hãy nhập chính xác thông tin."
       account_creation_successful: ~
+      account_deleted: ~
       login_successful: "Chào mừng đến với %{service_name}, "
       logout_successful: "Bây giờ bạn đã đăng xuất khỏi %{service_name}. Chào mừng bạn lần nữa!"
       news_item_created: "Bài viết đã được tạo"
@@ -860,6 +862,9 @@ vi:
       only_listing_author_can_close_a_listing: "Chỉ tác giả của danh sách mới có thể đóng danh sách"
       only_listing_author_can_edit_a_listing: "Chỉ tác giả của danh sách mới có thể chỉnh sửa danh sách"
       payment_successful: ~
+      payment_canceled: ~
+      error_in_payment: ~
+      payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: "Những chỉ dẫn để thay đổi mật khẩu của bạn đã gửi đến email của bạn."
       person_activated: "Người dùng được kích hoạt"
       person_deactivated: "Người dùng ngừng hoạt động"
@@ -916,7 +921,6 @@ vi:
       testimonials: "Đã nhận thông tin phản hồi"
     settings:
       account: "Tài khoản"
-      avatar: "Ảnh hồ sơ"
       notifications: "Các ghi chú"
       profile: "Thông tin hồ sơ"
       settings: "Cài đặt"
@@ -944,7 +948,6 @@ vi:
     follow_links:
       follow: "Thực hiện theo các danh sách này"
       unfollow: "Ngừng theo danh sách này"
-      follow_description: "Bằng cách làm theo danh sách, bạn sẽ nhận được thông báo về ý kiến mới và cập nhật nó."
     form:
       departure_time:
         at: Tại
@@ -1267,7 +1270,6 @@ vi:
       this_person_is_not_active_in_kassi: "Người dùng này không còn hoạt động trong %{service_name}"
       inactive_description: "Người dùng này đã ngừng sử dụng  %{service_name} . Bạn không thể liên lạc với người dùng này, đưa ra phản hồi cho họ hoặc nhận xét danh sách của họ."
     new:
-      address_validator: "Vị trí không tìm thấy."
       captcha_incorrect: "kiểm tra reCAPTCHA không thành công. Xin vui lòng viết các từ trong hình vào hộp dưới đây."
       captcha_was_wrong: "Văn bản CAPTCHA không chính xác."
       create_new_account: "Tạo tài khoản"
@@ -1378,21 +1380,9 @@ vi:
       grade: "xếp loại:"
       and_gave_following_feedback: "và đã cung cấp thông tin phản hồi sau"
       less_than_expected: "Tệ hơn so với dự kiến"
-      offered_favor: "đã hỗ trợ trợ giúp"
-      offered_housing: "đã hỗ trợ không gian"
-      offered_item: "đã hỗ trợ một thứ"
-      offered_rideshare: "hỗ trợ cuốc xe"
-      requested_favor: "đã yêu cầu trợ giúp"
-      requested_housing: "đã yêu cầu không gian"
-      requested_item: "đã yêu cầu một thứ"
-      requested_rideshare: "đã yêu cầu một cuốc xe"
       slightly_better_than_expected: "Tốt hơn một chút so với dự kiến"
       slightly_less_than_expected: "Tệ hơn một chút so với dự kiến"
     profile_listings:
-      loading_more_offers: "Tải thêm hỗ trợ"
-      loading_more_requests: "Tải thêm yêu cầu"
-      offers: "Các hỗ trợ"
-      requests: "Các yêu cầu"
       show_also_closed: "Hiển thị cũng đóng"
       show_only_open: "Chỉ hiển thị mở"
     show:
@@ -1423,11 +1413,15 @@ vi:
       reviews: ~
       badge: ~
       badges: "Các huy hiệu"
+      listing: ~
+      listings: ~
       open_listing: ~
       open_listings: ~
+      no_listings: ~
       no_open_listings: ~
       no_reviews: ~
       no_badges: ~
+      show_all_listings: ~
       show_all_open_listings: ~
       show_all_reviews: ~
       trustcloud: TrustCloud
@@ -1465,8 +1459,6 @@ vi:
     confirmation_pending:
       welcome_to_kassi: "Chào mừng đến với %{service_name}!"
       check_your_email: "Kiểm tra hộp thư đến của bạn"
-      account_conrimation_instructions: "Bạn sẽ sớm nhận được một email từ %{service_name} với một liên kết mà bạn cần phải nhấn vào đây để truy cập cộng đồng %{service_name} này.<p><p> Việc kiểm tra email này được thực hiện để đảm bảo rằng tất cả các thành viên thực sự thuộc về cộng đồng này (<b>%{community_name}</b>). Điều này tạo ra một môi trường an toàn hơn cho việc chia sẻ.</p><p>Nếu bạn có bất kỳ rắc rối nào khi cách sử dụng %{service_name}, chỉ cần nhấp vào liên kết thông tin phản hồi <a href=\"#\" id=\"give_feedback_link\"></a> bên trái và cho chúng tôi biết. Xin vui lòng cũng chia sẻ những ý tưởng cải thiện của bạn!"
-      account_confirmation_instructions_any_email: "Bạn sẽ sớm nhận được một email từ %{service_name} với một liên kết mà bạn cần phải nhấn vào đây để truy cập cộng đồng %{service_name} này.<p><p>Việc kiểm tra email này được thực hiện để tạo ra một môi trường đáng tin cậy hơn cho việc chia sẻ.</p><p>Nếu bạn có bất kỳ rắc rối nào khi sử dụng %{service_name}, chỉ cần nhấp vào liên kết thông tin phản hồi <a href=\"#\" id=\"give_feedback_link\"></a> bên trái và cho chúng tôi biết. Xin vui lòng cũng chia sẻ các ý tưởng cải thiện của bạn!"
       get_started: "Bắt đầu với %{service_name}"
       getting_started_instructions: "Khi bạn đã xác nhận tài khoản của bạn, một ý tưởng tốt để thêm ảnh vào tiểu sử của bạn và điền vào các chi tiết khác. Bạn cũng có thể cũng tiếp tục thao tác trực tiếp bằng cách thêm một hỗ trợ về một cái gì đó bạn có thể cho vay, cho thuê, bán hoặc làm cho người khác. Hoặc nếu bạn cần một thứ gì đó cụ thể hoặc giúp đỡ một thứ gì đó, hãy gửi yêu cầu."
       resend_confirmation_instructions: "Gửi lại chỉ dẫn xác nhận"
@@ -1476,11 +1468,12 @@ vi:
       account_confirmation_instructions: "Bạn sẽ sớm nhận được một email với một liên kết mà bạn cần phải nhấn để xác nhận địa chỉ email bạn đã nhập. Sau khi xác nhận email của bạn, bạn có thể bắt đầu sử dụng %{service_name}."
       account_confirmation_instructions_dashboard: "Bạn sẽ sớm nhận được một email với một liên kết mà bạn cần phải nhấn để xác nhận địa chỉ email bạn đã nhập."
   settings:
-    settings_affect_all_tribes: ~
     account:
       change: "Thay đổi"
       confirm_new_password: "Xác nhận mật khẩu mới"
       delete_account: "Xóa tài khoản"
+      delete_account_button: ~
+      delete_account_confirmation_popup: ~
       email: "Địa chỉ email:"
       instructions_to_delete_account: "Nếu bạn muốn xóa tài khoản của bạn, liên hệ với chúng tôi bằng cách sử dụng nút phản hồi bên trái."
       contact_admin: ~
@@ -1488,9 +1481,6 @@ vi:
       new_password: "Mật khẩu mới"
       save: Lưu
       these_fields_are_shown_only_to_you: "Tên người dùng được hiển thị trong tiểu sử của bạn trừ khi bạn đưa ra tên của bạn. Các thông tin khác chỉ hiện thị đối với bạn."
-    avatar:
-      add_avatar_submit: "Lưu hình ảnh"
-      update_profile_picture: "Cập Nhật hình ảnh cá nhân"
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: "Tôi muốn nhận email thông báo khi..."
@@ -1525,6 +1515,7 @@ vi:
       given_name: "Tên:"
       location_description: "Bạn có thể cung cấp vị trí chính xác của bạn hoặc chỉ mã vùng của bạn. Xin vui lòng thêm ít nhất là mã vùng của bạn. Bạn cũng có thể chọn vị trí từ bản đồ."
       phone_number: "Số điện thoại:"
+      profile_picture: ~
       postal_code: "Mã bưu điện:"
       profile_page: "trong trang hồ sơ của bạn"
       profilemap: ~
@@ -1583,8 +1574,6 @@ vi:
       negative: ~
       default_textual_feedback: ~
     testimonial:
-      from_user: từ
-      to_user: đến
       about_listing: ~
   time:
     formats:

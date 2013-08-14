@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_update_profile_info_form("#{I18n.locale}","#{@person.id.to_s}", "#{t('address_validator')}", #{@current_community.real_name_required?});
+  initialize_update_profile_info_form("#{I18n.locale}","#{@person.id.to_s}", #{@current_community.real_name_required?});
 
 - content_for :extra_javascript do
   = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
@@ -7,7 +7,6 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user) }
 
 #person_settings_form.left-navi-section.settings-section
-  = render :partial => "layouts/global_view_notification", :locals => { :text => t("settings.settings_affect_all_tribes") }
   %p
     = t(".these_fields_are_shown_in_your")
     = link_to(t(".profile_page"), @person) + "."
@@ -17,11 +16,6 @@
     = form.text_field :given_name, :class => "text_field", :maxlength => "30"
     = form.label :family_name, t(".family_name")
     = form.text_field :family_name, :class => "text_field", :maxlength => "30"
-    - if @current_community.select_whether_name_is_shown_to_everybody
-      .checkbox-container
-        %input{:type => "checkbox", :id => "person_show_real_name_to_other_users", :name => "person[show_real_name_to_other_users]", :checked => @person.show_real_name_to_other_users, :value => "1"}
-        = form.hidden_field :show_real_name_setting_affected, :value => true
-        = form.label :show_real_name_to_other_users, t('people.new.show_my_name_to_others'), :class => "checkbox"
     
     -# Location
     .inline-label-container
@@ -44,6 +38,10 @@
       %small
         = t('.visible_to_registered_users')
     = form.text_field :phone_number, :class => "text_field", :maxlength => "25"
+    
+    -# Profile picture
+    = form.label :image, t(".profile_picture")
+    = form.file_field :image, :size => 30, :id => "avatar_file"
     
     -# About text
     = form.label :description, t(".about_you"), :class => "input"

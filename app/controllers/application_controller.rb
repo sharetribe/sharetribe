@@ -7,16 +7,18 @@ class ApplicationController < ActionController::Base
 
   before_filter :show_maintenance_page
 
-  before_filter :domain_redirect, :force_ssl, :check_auth_token, :fetch_logged_in_user, :dashboard_only, :single_community_only, :fetch_community, :fetch_community_membership, :set_locale, :generate_event_id, :set_default_url_for_mailer
+  before_filter :force_ssl, :check_auth_token, :fetch_logged_in_user, :dashboard_only, :single_community_only, :fetch_community, :fetch_community_membership, :set_locale, :generate_event_id, :set_default_url_for_mailer
   before_filter :cannot_access_without_joining, :except => [ :confirmation_pending, :check_email_availability]
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
-
 
   # after filter would be more logical, but then log would be skipped when action cache is hit.
   before_filter :log_to_ressi if APP_CONFIG.log_to_ressi
 
   # This updates translation files from WTI on every page load. Only useful in translation test servers.
   before_filter :fetch_translations if APP_CONFIG.update_translations_on_every_page_load == "true"
+
+  #this shuold be last
+  before_filter :push_reported_analytics_event_to_js
 
   rescue_from RestClient::Unauthorized, :with => :session_unauthorized
 
@@ -112,7 +114,7 @@ class ApplicationController < ActionController::Base
   def fetch_community
     unless on_dashboard?
       # Otherwise pick the domain normally from the request subdomain or custom domain
-      if @current_community = Community.find_by_domain(request.subdomain) || @current_community = Community.find_by_domain(request.host)
+      if @current_community = Community.find_by_domain(request.subdomain) || Community.find_by_domain(request.host)
         # Store to thread the service_name used by current community, so that it can be included in all translations
         ApplicationHelper.store_community_service_name_to_thread(service_name)
       else
@@ -138,6 +140,7 @@ class ApplicationController < ActionController::Base
   # Before filter to direct a logged-in non-member to join tribe form
   def cannot_access_without_joining
     if @current_user && ! (on_dashboard? || @current_community_membership || @current_user.is_admin?)
+      session[:invitation_code] = params[:code] if params[:code]
       flash.keep
       redirect_to new_tribe_membership_path 
     end
@@ -177,7 +180,7 @@ class ApplicationController < ActionController::Base
   end
 
   def clear_user_session
-    @current_user = session[:person_id] = session[:cookie] = nil
+    @current_user = session[:person_id] = nil
   end
 
   # this generates the event_id that will be used in
@@ -226,30 +229,26 @@ class ApplicationController < ActionController::Base
       redirect_to root and return
     end
   end
+  
+  # Does a push to Google Analytics on next page load
+  # the reason to go via session is that the actions that cause events
+  # often do a redirect.
+  # This is still not fool proof as multiple redirects would lose
+  def report_analytics_event(params_array)
+    session[:analytics_event] = params_array
+  end
+  
+  # if session has analytics event
+  # report that and clean session
+  def push_reported_analytics_event_to_js
+    if session[:analytics_event]
+      @analytics_event = session[:analytics_event]
+      session.delete(:analytics_event)
+    end
+  end
 
   def fetch_translations
     WebTranslateIt.fetch_translations
-  end
-  
-  # # These rules are specific to the Sharetribe.com server, but shouldn't cause trouble for open source installations.
-  # # And you if you need your own rules for redirection or rewrite, add here.
-  def domain_redirect
-    # to speed up the check on every page load, only check first 
-    # if different domain than specified in config and doesn't match any custom domain
-    if request.domain != APP_CONFIG.domain && ! Community.find_by_domain(request.host) && APP_CONFIG.domain == 'sharetribe.com'
-      
-      # Redirect contry domain dashboards to .com with correct language
-      redirect_to "#{request.protocol}www.sharetribe.com/es" and return if request.host =~ /^(www\.)?sharetribe\.cl/
-      redirect_to "#{request.protocol}www.sharetribe.com/en" and return if request.host =~ /^(www\.)?sharetribe\.us/ || request.host =~ /^(www\.)?sharetri\.be/
-      redirect_to "#{request.protocol}www.sharetribe.com/el" and return if request.host =~ /^(www\.)?sharetribe\.gr/
-      redirect_to "#{request.protocol}www.sharetribe.com/fr" and return if request.host =~ /^(www\.)?sharetribe\.fr/
-      redirect_to "#{request.protocol}www.sharetribe.com/fi" and return if request.host =~ /^(www\.)?sharetribe\.fi/
-      
-      # Redirect to right community (changing to .com) (but let api.sharetribe.fi) through for testing purposes
-      redirect_to "#{request.protocol}#{request.subdomain}.sharetribe.com#{request.fullpath}" and return if (request.host =~ /^.+\.?sharetribe\.(cl|gr|fr|fi|us|de)/ || request.host =~ /^.+\.?sharetri\.be/  || request.host =~ /^.+\.?kassi\.eu/) && ! request.host =~ /^api\.sharetribe\.fi/
-      
-      redirect_to "#{request.protocol}samraksh.sharetribe.com#{request.fullpath}" and return if request.host =~ /^(www\.)?samraksh\.org/
-    end 
   end
   
   def check_auth_token
@@ -276,13 +275,12 @@ class ApplicationController < ActionController::Base
       path_without_auth_token = request.fullpath.gsub(/auth=[^\&]*(\&?)/,"")
       redirect_to path_without_auth_token
     end
-    
   end
   
   def force_ssl
     # If defined in the config, always redirect to https (unless already using https or coming through Sharetribe proxy)
     if APP_CONFIG.always_use_ssl
-      redirect_to({:protocol => 'https'}.merge(params), :flash => flash) unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy"))
+      redirect_to("https://#{request.host_with_port}#{request.fullpath}") unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy")) || request.fullpath == "/robots.txt"
     end
   end
   

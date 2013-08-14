@@ -91,56 +91,10 @@ Feature: User creates a new account
     Then I should receive 1 email
     When I open the email
     And I click the first link in the email
-    Then I should have 2 emails
-    And I should see "Your account was successfully confirmed"
-  
-  @javascript
-  Scenario: Creating a new account without allowing to show real name
-    Given I am not logged in
-    And I can choose whether I want to show my username to others in community "test"
-    And I am on the signup page
-    When I fill in "person[username]" with random username
-    And I fill in "Given name" with "Testmanno"
-    And I fill in "Family name" with "Namez"
-    And I uncheck "person_show_real_name_to_other_users"
-    And I fill in "person_password1" with "test"
-    And I fill in "Confirm password" with "test"
-    And I fill in "Email address" with random email
-    And I check "person_terms"
-    And I press "Create account"
     And wait for 1 seconds
-    Then I should receive 1 email
-    When I open the email
-    And I click the first link in the email
     Then I should have 2 emails
     And I should see "Your account was successfully confirmed"
-    Then I should see my username
-    And I should not see "Testmanno"
-    And I should not see "Testmanno!"
-    And Most recently created user should be member of "test" community with its latest consent accepted
   
-  @javascript  
-  Scenario: Creating a new account and allowing to show real name
-    Given I am not logged in
-    And I can choose whether I want to show my username to others in community "test"
-    And I am on the signup page
-    And I fill in "person[username]" with random username
-    And I fill in "Given name" with "Testmanno"
-    And I fill in "Family name" with "Namez"
-    And I fill in "person_password1" with "test"
-    And I fill in "Confirm password" with "test"
-    And I fill in "Email address" with random email
-    And I check "person_terms"
-    And I press "Create account"
-    Then I should see "Confirm your email"
-    When wait for 1 seconds
-    Then I should receive 1 email
-    When I open the email
-    And I click the first link in the email
-    Then I should have 2 emails
-    And I should not see my username
-    And I should see "Testmanno Namez"
-    And Most recently created user should be member of "test" community with its latest consent accepted
     
   @subdomain2  
   Scenario: Seeing info of community's email restriction

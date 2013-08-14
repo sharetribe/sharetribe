@@ -39,7 +39,7 @@ module Kassi
     config.assets.paths << Rails.root.join("app", "assets", "webfonts")
     
     # Define here additional Assset Pipeline Manifests to include to precompilation
-    config.assets.precompile += ['dashboard.js', 'dashboard.css', 'markerclusterer.js', 'communities/custom-style-*', 'ss-*','old_ie.css', 'html5shiv-printshiv.js']
+    config.assets.precompile += ['dashboard.js', 'dashboard.css', 'markerclusterer.js', 'communities/custom-style-*', 'ss-*','old_ie.css', 'html5shiv-printshiv.js', 'mercury.js','jquery-1.7.js']
     
     # Read the config from the config.yml 
     APP_CONFIG = load_app_config
@@ -66,11 +66,15 @@ module Kassi
           ["Svenska", "sv"],
           ["Italiano", "it"],
           
-          # Customization languages for RC
-          ["English", "en-rc"], 
-          ["Français", "fr-rc"], 
-          ["Español", "es-rc"], 
+          # Customization languages
+          ["English", "en-rc"],
+          ["Français", "fr-rc"],
+          ["Español", "es-rc"],
           ["Deutsch", "de-rc"],
+          
+          ["English UL", "en-ul"],
+
+          ["English SB", "en-sb"],
           
     ]
 
@@ -79,7 +83,8 @@ module Kassi
           ["English", "en"], 
           ["Suomi", "fi"],
           ["Español", "es"],
-          ["Français", "fr"], 
+          ["Français", "fr"],
+          ["Deutsch", "de"],
           ["Pусский", "ru"], 
           ["Ελληνικά", "el"]
     ]
@@ -130,8 +135,30 @@ module Kassi
       ENV['RECAPTCHA_PRIVATE_KEY'] = APP_CONFIG.recaptcha_private_key
     end
     
+    
+    # Configure Paperclip
+    paperclip_options = {
+          :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
+          :url => "/system/:attachment/:id/:style/:filename"
+    }
+          
+    if (APP_CONFIG.s3_bucket_name && APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key)
+      paperclip_options.merge!({
+        :path => "images/:class/:attachment/:id/:style/:filename",
+        :url => "/system/:class/:attachment/:id/:style/:filename",
+        :storage => :s3,
+        :s3_protocol => 'https',
+        :s3_credentials => {
+              :bucket            => APP_CONFIG.s3_bucket_name, 
+              :access_key_id     => APP_CONFIG.aws_access_key_id, 
+              :secret_access_key => APP_CONFIG.aws_secret_access_key 
+        }
+      })
+    end
+    config.paperclip_defaults = paperclip_options
+    
     # If logger_type is set to something else than "normal" we'll use stdout here
-    # the reason for this type of check is that it works also in Heroky where those variables can't be read in slug compilation
+    # the reason for this type of check is that it works also in Heroku where those variables can't be read in slug compilation
     if (Rails.env.production? || Rails.env.staging?) && APP_CONFIG.logger_type != "normal"
       # Set the logger to STDOUT, based on tip at: http://blog.codeship.io/2012/05/06/Unicorn-on-Heroku.html
       # For unicorn logging to work

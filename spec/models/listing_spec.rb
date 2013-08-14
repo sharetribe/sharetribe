@@ -51,7 +51,7 @@ describe Listing do
   end
 
   it "should not be valid when valid until is more than one year after current time" do
-    @listing.valid_until = DateTime.now + 1.year + 1.hour
+    @listing.valid_until = DateTime.now + 1.year + 2.days
     @listing.should_not be_valid
   end
   

@@ -19,6 +19,11 @@ en:
         cover_photo_instructions_text: "Cover photo file will be resized to 1600x195 pixel size and taller images will be cut in the middle."
         custom_color1_instructions_text: "You can change the main color of the user interface of this community by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> can help you choose the color and copy the code here."
         invalid_color_code: "Color code should contain 6 numbers or letters A-F, for example D96E21"
+      edit_welcome_email:
+        welcome_email_content: "Welcome email content"
+        welcome_email_content_description: "The message below will be sent to every new member when they join. You can customize the message to fit your community. By clicking '%{send_test_message_link}' you can a preview message to your email address, so you can see how it looks in an email client."
+        edit_message: "Edit message"
+        send_test_message: "Send test message"
     emails:
       new:
         send_email_to_members: "Send an email to members"
@@ -72,6 +77,7 @@ en:
       show:
         edit_poll: "Edit poll"
   common:
+    edit_page: "Edit page"
     default_community_slogan: "Lend, sell, help, share"
     default_community_description: "%{service_name} is a place where the members of our community can share goods, services, rides, and spaces."
     cancel: Cancel
@@ -140,7 +146,6 @@ en:
       give_feedback_to: "Give feedback to %{person_link}"
       do_not_give_feedback: "Skip feedback"
     index:
-      messages_from_all_tribes: "This view contains messages you have exchanged with other people in all the %{service_name} communities you belong to."
       loading_more_messages: "Loading more messages"
       message_partitive: message
       messages_partitive: messages
@@ -217,7 +222,6 @@ en:
         your_request: "your request"
       loading_more_notifications: "Loading more notifications"
       no_notifications: "No notifications."
-      notifications_from_all_tribes: "This view contains notifications from all the tribes you belong to."
       testimonialnotification:
         give_feedback_to: "Give feedback to %{name}"
         has_given_you_feedback_on_event: "has given you feedback on event"
@@ -509,14 +513,10 @@ en:
       title_link_text: "%{community_name}"
       intro_paragraph: "Here are some of the things that happened in the %{community_link} during the past %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
-      could_you_share_something: "Could you share something?"
-      do_you_need_help_with_anything: "Need help with anything?"
       post_a_new_listing: "Post a new listing!"
       reduce_email_footer_text: "Too much email? %{settings_link} or %{unsubscribe_link}."
-      tribe_creation_promotion_footer: "Did you know you can create a community marketplace like this for free for your neigborhood, town, association or other local community? %{create_tribe_link} or find out more by replying to this email."
       settings_link_text: "Edit your email settings here"
       unsubscribe_link_text: unsubscribe
-      create_tribe_link_text: "Create one yourself"
     newsletter:
       weekly_news_from_kassi: "Weekly news from %{community} %{service_name}"
       hi: "Hi %{name},"
@@ -549,7 +549,7 @@ en:
       welcome_some_tips: "Welcome to %{community_link}! Here are some tips to get you started."
       p_s_did_you_know: "P.S. Did you know you can create a marketplace like this for any community you belong to, for free? %{click_here_link} to find out more!"
       click_here_link_text: "Click here"
-      update_your_profile: "<strong>Update your profile.</strong> Adding your real name and profile picture and telling something about yourself will make you appear more trustworthy. Adding your contact details will make things easier for you, since you don't have to add them separately each time you create a new listing. %{update_profile_link}."
+      update_your_profile: "<strong>Update your profile.</strong> Adding your real name and profile picture and telling something about yourself will make you appear more trustworthy. Adding your contact details will make things easier for you, since you don't have to add them separately each time you create a new listing."
       update_your_profile_link_text: "Update your profile here"
       add_something_you_could_offer: "<strong>Add something you could offer to others to %{service_name}.</strong> Could you lend your power drill, tennis racket or fondue pot? Do you like to sew, assemble furniture or fiddle with computers? Is there some things in your closet you want to get rid off? %{add_offer_link}"
       add_offer_link_text: "Add them as offers to %{service_name}!"
@@ -576,7 +576,7 @@ en:
     listings:
       departure_time: "Departure time must be between current time and one year from now."
       share_type: "You must select one."
-      valid_until: "This date must be between current time and one year from now."
+      valid_until: "This date must be between current time and 6 months from now."
       price: "Price must be a whole number."
       minimum_price: "Minimum price is %{minimum_price} %{currency}."
     testimonials:
@@ -631,7 +631,6 @@ en:
       request_partitive: request
   header:
     about: About
-    community: Community
     home: Home
     members: Community
     new_listing: "New listing"
@@ -677,7 +676,9 @@ en:
     event_feed:
       latest_events: "What's going on"
     index:
-      no_listings_notification: "There are currently less than 10 open listings in this tribe. Could you lend your power drill, tennis racket or fondue pot? Do you like to sew, assemble furniture or fiddle with computers? Is there some things in your closet you want to get rid off? Or perhaps you would like to share a ride? Or borrow some tools? Or need someone to walk your dog? Add information about these to %{service_name}!"
+      no_listings_with_your_search_criteria: "We couldn't find any results that matched your criteria. (If you just added something, it might take about 10 minutes before new things appear in search.)"
+      no_listings_notification: "No listings. %{add_listing_link}."
+      add_listing_link_text: "Add new listing"
       available_on_the_app_store: "Available on the app store"
       private_listing_notification: "There are %{listing_count} in this community. %{private_listing_count} of them %{be_verb} visible only to the members of the community. If you want to see also the listings that are visible only to the members, you need to %{log_in_link}."
       open_listing: "open listing"
@@ -712,7 +713,7 @@ en:
       add_as_many_emails_as_you_want: "Add the email addresses of the people you are inviting to the field below. If you add multiple email addresses, separate them with comma."
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: "I joined this amazing community. You should too!"
-      errors_in_emails: "Check that there are valid emails, separated by comma."
+      errors_in_emails: "Check that the email addresses you added are valid. If you added multiple addresses, make sure they are separated with comma."
     news_item:
       show_less: "Show less"
       show_more: "Show more"
@@ -815,17 +816,17 @@ en:
       settings: Settings
       sign_up: "Sign up"
     notifications:
+      test_welcome_email_delivered_to: "A test email was sent to %{email}."
       something_went_wrong: "Something went wrong"
       community_updated: "Tribe details updated."
       community_update_failed: "Tribe detail update failed."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Account created successfully. Next you need to confirm your email address."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "You are now a member of this community. Next you need to confirm your email address."
-      avatar_upload_failed: "Avatar upload failed. Remember that the photo has to be a .png, .jpg or .gif -file."
-      avatar_upload_successful: "Avatar upload successful"
       comment_cannot_be_empty: "Comment cannot be empty"
       comment_sent: "Comment sent"
       confirmation_link_is_wrong_or_used: "The confirmation link is already used or otherwise broken. Try logging in, or send feedback if the problem persists."
       additional_email_confirmed: "The email you entered is now confirmed."
+      could_not_get_email_from_facebook: "Could not get email address from Facebook and can't create an account without email."
       create_new_listing: "Create another listing"
       create_one_here: "create one here"
       email_confirmation_sent_to_new_address: "Email confirmation is now sent to the new address."
@@ -842,6 +843,7 @@ en:
       login_again: "Please, log in again."
       login_failed: "Login failed. Please enter correct credentials."
       account_creation_successful: "Welcome to %{service_name}, %{person_name}!"
+      account_deleted: "Your account is now deleted."
       login_successful: "Welcome, %{person_name}!"
       logout_successful: "You have now been logged out of %{service_name}. Welcome again!"
       news_item_created: "Article created"
@@ -860,6 +862,9 @@ en:
       only_listing_author_can_close_a_listing: "Only listing author can close a listing"
       only_listing_author_can_edit_a_listing: "Only listing author can edit a listing"
       payment_successful: "Payment successful"
+      payment_canceled: "Payment cancelled"
+      error_in_payment: "Error in payment. If you didn't complete the payment yet, try again. If you did, please send us feedback."
+      payment_waiting_for_later_accomplishment: "When you have paid, we'll notify the seller and you will get a receipt in email"
       password_recovery_sent: "Instructions to change your password were sent to your email."
       person_activated: "User activated"
       person_deactivated: "User deactivated"
@@ -916,7 +921,6 @@ en:
       testimonials: "Received feedback"
     settings:
       account: Account
-      avatar: "Profile picture"
       notifications: Notifications
       profile: "Profile info"
       settings: Settings
@@ -942,9 +946,8 @@ en:
       edit_listing: "Edit listing"
       reopen_listing: "Reopen listing"
     follow_links:
-      follow: "Follow this listing"
-      unfollow: "Stop following this listing"
-      follow_description: "By following a listing you will get notified of new comments and updates to it."
+      follow: "Get emails about new comments"
+      unfollow: "Don't get emails about new comments"
     form:
       departure_time:
         at: At
@@ -1267,14 +1270,13 @@ en:
       this_person_is_not_active_in_kassi: "This user is no longer active in %{service_name}"
       inactive_description: "This user has stopped using %{service_name}. You cannot contact this user, give feedback to them or comment their listings."
     new:
-      address_validator: "The location was not found."
       captcha_incorrect: "reCAPTCHA check failed. Please write the words in the image to the box below."
       captcha_was_wrong: "Captcha text was incorrect."
       create_new_account: "Create account"
       email: "Email address"
       email_is_in_use: "The email you gave is already in use."
-      email_is_in_use_or_not_allowed: "This email is not allowed for this community or it is already in use. Please use an address that is associated with this community (see instructions above). If you still cannot get in, send us feedback by clicking the link on the left."
-      email_not_allowed: "This email is not allowed for this community. Please use an address that is associated with this community. If you still cannot get in, send us feedback by clicking the link on the left."
+      email_is_in_use_or_not_allowed: "This email is not allowed for this community or it is already in use. Please use an address that is associated with this community (see instructions above). If you still cannot get in, send us feedback."
+      email_not_allowed: "This email is not allowed for this community. Please use an address that is associated with this community. If you still cannot get in, send us feedback."
       email_restriction_instructions:
         one: "This community is only for %{community_name}. To join you need a '%{allowed_emails}' email address."
         other: "This community is only for %{community_name}. To join you need an email address that has one of the following endings: %{allowed_emails}"
@@ -1380,21 +1382,9 @@ en:
       grade: "grade:"
       and_gave_following_feedback: "and gave the following feedback"
       less_than_expected: "Worse than expected"
-      offered_favor: "offered help in"
-      offered_housing: offered
-      offered_item: offered
-      offered_rideshare: "offered a ride"
-      requested_favor: "got help in"
-      requested_housing: "got a space"
-      requested_item: got
-      requested_rideshare: "got a ride"
       slightly_better_than_expected: "Slightly better than expected"
       slightly_less_than_expected: "Slightly worse than expected"
     profile_listings:
-      loading_more_offers: "Loading more offers"
-      loading_more_requests: "Loading more requests"
-      offers: Offers
-      requests: Requests
       show_also_closed: "Show also closed"
       show_only_open: "Show only open"
     show:
@@ -1425,11 +1415,15 @@ en:
       reviews: "received reviews"
       badge: badge
       badges: badges
+      listing: listing
+      listings: listings
       open_listing: "open listing"
       open_listings: "open listings"
+      no_listings: "No listings"
       no_open_listings: "No open listings"
       no_reviews: "No reviews"
       no_badges: "No badges"
+      show_all_listings: "Show all listings"
       show_all_open_listings: "Show all open listings"
       show_all_reviews: "Show all reviews"
       trustcloud: TrustCard
@@ -1467,8 +1461,6 @@ en:
     confirmation_pending:
       welcome_to_kassi: "Welcome to %{service_name}!"
       check_your_email: "Check your inbox"
-      account_conrimation_instructions: "You will soon receive an email from %{service_name} with a link that you need to click to gain access to this %{service_name} community.</p><p>This email check is done to ensure that all the members really belong to this community (<b>%{community_name}</b>). This creates a safer environment for sharing.</p><p>If you have any trouble using %{service_name}, just click the <a href=\"#\" id=\"give_feedback_link\">feedback</a> on the left and let us know. Please also share your improvement ideas!"
-      account_confirmation_instructions_any_email: "You will soon receive an email from %{service_name} with a link that you need to click to gain access to this %{service_name} community.</p><p>This email check is done to create a more trusted environment for sharing.</p><p>If you have any trouble using %{service_name}, just click the <a href=\"#\" id=\"give_feedback_link\">feedback</a> on the left and let us know. Please also share your improvement ideas!"
       get_started: "Get started with %{service_name}"
       getting_started_instructions: "When you have confirmed your account, it's a good idea to add a picture to your profile and fill in other details. You can also continue straight in to action by adding an offer about something you could possibly lend, rent, sell or do for others. Or if you need a specific item or help with something, post a request."
       resend_confirmation_instructions: "Resend confirmation instructions"
@@ -1478,21 +1470,19 @@ en:
       account_confirmation_instructions: "You will soon receive an email with a link that you need to click to confirm the email address you entered. After confirming your email you can join this community."
       account_confirmation_instructions_dashboard: "You will soon receive an email with a link that you need to click to confirm the email address you entered."
   settings:
-    settings_affect_all_tribes: "These settings affect all the Sharetribe communities you belong to."
     account:
       change: Change
       confirm_new_password: "Confirm new password"
       delete_account: "Delete account"
+      delete_account_button: "Permanently delete my account"
+      delete_account_confirmation_popup: "Are you sure you really want to delete your user account and permanently lose all data related to it? Account deletion can not be reversed."
       email: "Email address:"
-      instructions_to_delete_account: "If you want to delete your account, %{contact_admin_link}."
+      instructions_to_delete_account: "If you delete your account all the data related to it will be removed: your profile details, listings, comments, messages, feedbacks etc."
       contact_admin: "please contact the administrators"
       new_email: "New email address"
       new_password: "New password"
       save: Save
       these_fields_are_shown_only_to_you: "Username is shown in your profile unless you have given your name. Other information is only shown to you."
-    avatar:
-      add_avatar_submit: "Save picture"
-      update_profile_picture: "Update profile picture"
     notifications:
       email_from_admins: "I'm willing to receive occasional updates from the administrator(s) of this community"
       i_want_to_get_email_notification_when: "I want to get an email notification when..."
@@ -1527,6 +1517,7 @@ en:
       given_name: "Given name"
       location_description: "You can give either your exact location or, for example, only your zip code. Please add at least your zip code. You can also select a location from the map below."
       phone_number: "Phone number"
+      profile_picture: "Profile picture"
       postal_code: "Postal code"
       profile_page: "in your profile page"
       profilemap: Mapview
@@ -1585,8 +1576,6 @@ en:
       negative: Negative
       default_textual_feedback: "Everything went smoothly, thanks a lot!"
     testimonial:
-      from_user: from
-      to_user: to
       about_listing: "about listing"
   time:
     formats:

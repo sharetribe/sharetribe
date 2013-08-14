@@ -17,6 +17,7 @@ group :assets do
   gem 'coffee-rails', "~> 3.2.2"
   gem 'uglifier'
   gem 'compass-rails'
+  gem 'asset_sync'
 end  
   
 gem 'jquery-rails'
@@ -38,7 +39,9 @@ gem 'delayed_paperclip'
 gem 'aws-sdk', "~>1.9.0"
 gem "will_paginate"
 gem 'newrelic_rpm'
-gem 'memcache-client', ">= 1.8.5"
+gem 'dalli'
+gem "memcachier"
+gem 'kgio'
 gem 'thinking-sphinx', "~>2.0.14", :require => 'thinking_sphinx'
 gem 'flying-sphinx', "~>0.8.5"
 gem 'recaptcha'
@@ -61,9 +64,17 @@ gem 'dynamic_form'
 gem "rspec-rails"
 gem "truncate_html"
 gem 'money-rails'
+gem 'mercury-rails'
+gem 'fb-channel-file'
 
 #ouisharelabs
 gem 'rdf-turtle'
+
+group :development do
+  gem 'guard-livereload', require: false
+  gem 'rack-livereload'
+  gem 'rb-fsevent',       require: false
+end
 
 group :test do
   gem 'capybara'

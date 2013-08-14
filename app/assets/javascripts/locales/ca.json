@@ -4,7 +4,7 @@
     "accept": "L'arxiu d'imatge ha d'estar en format GIF, JPG o PNG.",
     "creditcard": "Si us plau, introdueix un número de targeta de crèdit vàlida.",
     "date": "Si us plau, introdueix una data vàlida.",
-    "dateISO": "Si us plau, introdueix una data vàlida.",
+    "dateISO": "Si us plau, introdueix una data vàlida (en format ISO)",
     "digits": "Si us plau, introdueix només dígits.",
     "email": "Si us plau, introdueix una adreça electrònica vàlida.",
     "equalTo": "Si us plau, introdueix una altra vegada el mateix valor.",
@@ -17,6 +17,7 @@
     "rangelength": "Si us plau, introdueix un valor entre {0} i {1} caràcters de llargària.",
     "remote": "Si us plau arregla aquest camp.",
     "required": "Aquest camp és obligatori.",
-    "url": "Siusplau, introdueix una adreça URL vàlida."
+    "url": "Si us plau, introdueix una adreça URL vàlida.",
+    "address_validator": "No s'ha trobat la ubicació."
   }
 }

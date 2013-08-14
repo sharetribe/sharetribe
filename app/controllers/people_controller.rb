@@ -7,8 +7,9 @@ class PeopleController < Devise::RegistrationsController
   include RDF
   
   skip_before_filter :verify_authenticity_token, :only => [:creates]
+  skip_before_filter :require_no_authentication, :only => [:new]
   
-  before_filter :only => [ :update, :update_avatar ] do |controller|
+  before_filter :only => [ :update, :destroy ] do |controller|
     controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
   end
   
@@ -66,7 +67,7 @@ class PeopleController < Devise::RegistrationsController
       @org_membership_required = false
     end
     
-    if params[:person][:email_confirmation].present? # Honey pot for spammerbots
+    if params[:person][:email_repeated].present? # Honey pot for spammerbots
       flash[:error] = t("layouts.notifications.registration_considered_spam")
       ApplicationHelper.send_error_notification("Registration Honey Pot is hit.", "Honey pot")
       redirect_to error_redirect_path and return
@@ -119,10 +120,6 @@ class PeopleController < Devise::RegistrationsController
     # skip email confirmation unless it's required in this community
     params[:person][:confirmed_at] = (@current_community.email_confirmation ? nil : Time.now) if @current_community
     
-    params[:person][:show_real_name_to_other_users] = false unless (params[:person][:show_real_name_to_other_users] || ! @current_community || !@current_community.select_whether_name_is_shown_to_everybody)
-    
-    
-
     params["person"].delete(:terms) #remove terms part which confuses Devise
     
 
@@ -130,19 +127,20 @@ class PeopleController < Devise::RegistrationsController
     build_resource
     @person = resource
     
-    
-    # don't send the confirmation email yet as he will need to join an organization too
-    @person.skip_confirmation! if @org_membership_required
-    
-    
+    # Skip automatic email confirmation mail by devise, as that doesn't support custom sender address
+    @person.skip_confirmation! 
+  
     if @person.save!
       sign_in(resource_name, resource)
     end
-    
-    # If confirmation email was skipped, devise marks the person as confirmed, which isn't actually true, so fix it
-    # We set confirmation_sent_at, because otherwise devise acts strangely
-    if @org_membership_required
+  
+    if @current_community.nil? || @current_community.email_confirmation
+      # As automatic confirmation email was skipped, devise marks the person as confirmed, 
+      # which isn't actually true, so fix it manually
       @person.update_attributes(:confirmation_sent_at => Time.now, :confirmed_at => nil) 
+
+      # send the confirmation email manually
+      @person.send_email_confirmation_to(@person.email, request.host_with_port, @current_community) unless @org_membership_required
     end
   
     @person.set_default_preferences
@@ -152,6 +150,10 @@ class PeopleController < Devise::RegistrationsController
       membership.status = "pending_email_confirmation" if @current_community.email_confirmation?
       membership.status = "pending_organization_membership" if @org_membership_required
       membership.invitation = invitation if invitation.present?
+      # If the community doesn't have any members, make the first one an admin
+      if @current_community.members.count == 0
+        membership.admin = true
+      end
       membership.save!
       session[:invitation_code] = nil
     end
@@ -209,7 +211,7 @@ class PeopleController < Devise::RegistrationsController
     # - if there's email limitation the user has suitable email in FB
     # But as this is bit complicated, for now   
     # we don't create the community membership yet, because we can use the already existing checks for invitations and email types.
-    session[:fb_join] = "true"
+    session[:fb_join] = "pending_analytics"
     redirect_to :controller => :community_memberships, :action => :new
   end
   
@@ -236,7 +238,7 @@ class PeopleController < Devise::RegistrationsController
     end
 
     begin
-      if @person.update_attributes(params[:person], session[:cookie])
+      if @person.update_attributes(params[:person])
         if params[:person][:password]
           #if password changed Devise needs a new sign in.
           sign_in @person, :bypass => true
@@ -259,13 +261,15 @@ class PeopleController < Devise::RegistrationsController
     
   end
   
-  def update_avatar
-    if params[:person] && params[:person][:image] && @person.update_attributes(params[:person])
-      flash[:notice] = t("layouts.notifications.avatar_upload_successful")
-    else 
-      flash[:error] = t("layouts.notifications.avatar_upload_failed")
+  def destroy
+    if @person && @current_user && @person == @current_user
+      sign_out @current_user
+      @current_user.destroy
+      report_analytics_event(['user', "deleted", "by user"]);
+      flash[:notice] = t("layouts.notifications.account_deleted")
     end
-    redirect_to avatar_person_settings_path(:person_id => @current_user.id.to_s)  
+    
+    redirect_to root
   end
   
   def check_username_availability

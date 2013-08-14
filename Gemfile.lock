@@ -38,6 +38,9 @@ GEM
       builder
       json
     arel (3.0.2)
+    asset_sync (0.5.4)
+      activemodel
+      fog
     aws-sdk (1.9.5)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
@@ -61,6 +64,7 @@ GEM
       ffi (~> 1.0, >= 1.0.11)
     chunky_png (1.2.6)
     cocaine (0.4.2)
+    coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -83,6 +87,7 @@ GEM
       capybara (>= 1.1.2)
       cucumber (>= 1.1.8)
       nokogiri (>= 1.5.0)
+    dalli (2.6.4)
     database_cleaner (0.9.1)
     delayed_job (3.0.5)
       activesupport (~> 3.0)
@@ -103,10 +108,15 @@ GEM
     ebnf (0.3.0)
       rdf
       sxp
+    em-websocket (0.5.0)
+      eventmachine (>= 0.12.9)
+      http_parser.rb (~> 0.5.3)
     email_spec (1.4.0)
       launchy (~> 2.1)
       mail (~> 2.2)
     erubis (2.7.0)
+    eventmachine (1.0.3)
+    excon (0.25.1)
     execjs (1.4.0)
       multi_json (~> 1.0)
     factory_girl (4.1.0)
@@ -118,6 +128,8 @@ GEM
       multipart-post (~> 1.1)
     faraday_middleware (0.9.0)
       faraday (>= 0.7.4, < 0.9)
+    fb-channel-file (0.0.2)
+      rails (>= 3.0)
     ffi (1.6.0)
     flying-sphinx (0.8.5)
       faraday_middleware (~> 0.7)
@@ -125,13 +137,35 @@ GEM
       rash (~> 0.3.0)
       riddle (>= 1.5.0)
       thinking-sphinx
+    fog (1.9.0)
+      builder
+      excon (~> 0.14)
+      formatador (~> 0.2.0)
+      mime-types
+      multi_json (~> 1.0)
+      net-scp (~> 1.0.4)
+      net-ssh (>= 2.1.3)
+      nokogiri (~> 1.5.0)
+      ruby-hmac
+    formatador (0.2.4)
     fssm (0.2.9)
     gherkin (2.11.5)
       json (>= 1.4.6)
+    guard (1.8.2)
+      formatador (>= 0.2.4)
+      listen (>= 1.0.0)
+      lumberjack (>= 1.0.2)
+      pry (>= 0.9.10)
+      thor (>= 0.14.6)
+    guard-livereload (1.4.0)
+      em-websocket (>= 0.5.0)
+      guard (>= 1.8.0)
+      multi_json (~> 1.7)
     haml (3.1.7)
     hashie (1.2.0)
     highline (1.6.15)
     hike (1.2.2)
+    http_parser.rb (0.5.3)
     httpauth (0.2.0)
     i18n (0.6.1)
     journey (1.0.4)
@@ -144,10 +178,19 @@ GEM
     kgio (2.8.0)
     launchy (2.1.2)
       addressable (~> 2.3)
+    listen (1.2.2)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+      rb-kqueue (>= 0.2)
+    lumberjack (1.0.4)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    memcache-client (1.8.5)
+    memcachier (0.0.2)
+    mercury-rails (0.9.0)
+      coffee-rails
+      railties (~> 3.2)
+    method_source (0.8.2)
     mime-types (1.23)
     money (5.1.1)
       i18n (~> 0.6.0)
@@ -202,12 +245,18 @@ GEM
       actionmailer
       postmark (>= 0.9.0)
       rake
+    pry (0.9.12.2)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
     rabl (0.7.9)
       activesupport (>= 2.3.14)
       multi_json (~> 1.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-livereload (0.3.15)
+      rack
     rack-ssl (1.3.3)
       rack
     rack-test (0.6.2)
@@ -233,6 +282,11 @@ GEM
     rake (10.0.4)
     rash (0.3.2)
       hashie (~> 1.2.0)
+    rb-fsevent (0.9.3)
+    rb-inotify (0.9.0)
+      ffi (>= 0.5.0)
+    rb-kqueue (0.2.0)
+      ffi (>= 0.5.0)
     rdf (1.0.6)
       addressable (>= 2.2)
     rdf-turtle (1.0.5)
@@ -255,6 +309,7 @@ GEM
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
       rspec-mocks (~> 2.12.0)
+    ruby-hmac (0.4.0)
     ruby-ole (1.2.11.6)
     ruby-prof (0.11.3)
     rubyzip (0.9.9)
@@ -270,6 +325,7 @@ GEM
       multi_json (~> 1.0)
       rubyzip
       websocket (~> 1.0.4)
+    slop (3.4.6)
     spork (1.0.0rc3)
     spork-rails (3.2.1)
       rails (>= 3.0.0, < 3.3.0)
@@ -299,7 +355,7 @@ GEM
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    unicorn (4.6.2)
+    unicorn (4.6.3)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
@@ -322,6 +378,7 @@ DEPENDENCIES
   action_mailer_cache_delivery
   acts-as-taggable-on
   airbrake
+  asset_sync
   aws-sdk (~> 1.9.0)
   capistrano
   capybara
@@ -329,6 +386,7 @@ DEPENDENCIES
   compass-rails
   cucumber
   cucumber-rails
+  dalli
   database_cleaner
   delayed_job
   delayed_job_active_record
@@ -338,12 +396,16 @@ DEPENDENCIES
   dynamic_form
   email_spec
   factory_girl_rails
+  fb-channel-file
   flying-sphinx (~> 0.8.5)
+  guard-livereload
   haml
   jquery-rails
   json (~> 1.7.7)
+  kgio
   launchy
-  memcache-client (>= 1.8.5)
+  memcachier
+  mercury-rails
   money-rails
   mysql2
   newrelic_rpm
@@ -353,9 +415,11 @@ DEPENDENCIES
   pickle
   postmark-rails
   rabl
+  rack-livereload
   rails (= 3.2.13)
   rails-i18n
   rake
+  rb-fsevent
   rdf-turtle
   recaptcha
   rest-client (>= 1.6.0)

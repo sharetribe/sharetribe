@@ -36,7 +36,10 @@ class CommunityMembershipsController < ApplicationController
     # if there already exists one, modify that (normally it's "pending_organization_membership")
     existing = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
     @community_membership = existing || CommunityMembership.new(params[:community_membership])
-                
+    
+    # if invitation code is stored in session, use it here
+    params[:invitation_code] ||= session[:invitation_code]
+    
     if @current_community.join_with_invite_only? || params[:invitation_code]
       unless Invitation.code_usable?(params[:invitation_code], @current_community)
         # abort user creation if invitation is not usable. 
@@ -108,6 +111,11 @@ class CommunityMembershipsController < ApplicationController
     end
     
     @community_membership.invitation = invitation if invitation.present?
+    
+    # If the community doesn't have any members, make the first one an admin
+    if @current_community.members.count == 0
+      @community_membership.admin = true
+    end
 
     # This is reached only if requirements are fulfilled
     if @community_membership.save

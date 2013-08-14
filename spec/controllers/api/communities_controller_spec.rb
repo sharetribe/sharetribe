@@ -3,6 +3,10 @@ require 'spec_helper'
 describe Api::CommunitiesController do
   render_views
     
+  before (:each) do
+    Rails.cache.clear
+  end
+  
   describe "#show" do
     
     it "returns the full JSON of a community" do

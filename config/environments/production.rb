@@ -12,6 +12,9 @@ Kassi::Application.configure do
 
   # Specifies the header that your server uses for sending files
   config.action_dispatch.x_sendfile_header = "X-Sendfile"
+  
+  # Set how to handle deprecation warnings
+  config.active_support.deprecation = :notify
 
   # For nginx:
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
@@ -26,7 +29,7 @@ Kassi::Application.configure do
   # config.logger = SyslogLogger.new
 
   # Use a different cache store in production
-  config.cache_store = :mem_cache_store
+  config.cache_store = :dalli_store, { :namespace => "sharetribe", :compress => true }
 
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this
@@ -43,6 +46,10 @@ Kassi::Application.configure do
 
   # Generate digests for assets URLs  
   config.assets.digest = true
+  
+  # settings for asset-sync gem
+  config.action_controller.asset_host = "#{APP_CONFIG.s3_bucket_name}.s3.amazonaws.com"
+  config.assets.prefix = "/assets"
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false

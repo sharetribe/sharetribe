@@ -4,6 +4,7 @@ Feature: Facebook connect
   As a user
   I want to do Facebook connect to link the accounts
   
+  @javascript
   Scenario: Facebook connect first time, with same email in Sharetribe DB
     Given there are following users:
       | person     | given_name | email | 
@@ -16,6 +17,7 @@ Feature: Facebook connect
     And I should see "Mircos"
     And user "facebooker" should not have "image_file_size" with value "nil"
   
+  @javascript
   Scenario: Facebook connect with different email in Sharetribe DB
     Given there are following users:
       | person | given_name |
@@ -35,6 +37,7 @@ Feature: Facebook connect
     And user "markus_sharer_123" should have "facebook_id" with value "597013691"
     And user "markus_sharer_123" should not have "image_file_size" with value "nil"
   
+  @javascript
   Scenario: Facebook connect first time, without existing account in Sharetribe
     Given I am on the home page
     When I click ".login-menu-toggle"
@@ -50,6 +53,7 @@ Feature: Facebook connect
     And user "markus_sharer_123" should have "facebook_id" with value "597013691"
     And user "markus_sharer_123" should not have "image_file_size" with value "nil"
   
+  @javascript
   Scenario: Facebook connect to log in when the accounts are already linked
     Given there are following users:
       | person | facebook_id | given_name |
@@ -60,6 +64,7 @@ Feature: Facebook connect
     Then I should see "Successfully authorized from Facebook account"
     And I should see "Marko"
   
+  @javascript
   Scenario: User gets invitation to an invitation-only community and creates an account with FB
     Given there are following users:
       | person | 
@@ -74,13 +79,24 @@ Feature: Facebook connect
     And I press "Join community"
     Then I should see "successfully joined this community"
     And I should see "Markus"
-
+  
+  @javascript
   Scenario: The facebook login doesn't succeed
     Given I am on the home page
     And there will be and error in my Facebook login
     When I click ".login-menu-toggle"
     And I follow "Log in with your Facebook account"
     Then I should see "Could not authorize you from Facebook"  
+  
+  @javascript
+  Scenario: The facebook login doesn't return any email address
+    Given I am on the home page
+    And there will be no email returned in my Facebook login
+    When I click ".login-menu-toggle"
+    And I follow "Log in with your Facebook account"
+    Then I should see "Could not get email address from Facebook"
+    And I should see "create an account without using Facebook below"  
+   
   
   
   

@@ -31,7 +31,7 @@ $font-size: 16;
 $line-height: 24;
 
 @function em($pixels, $context-font-size: $font-size) {
- @return ($pixels / $context-font-size) * 1em; 
+  @return ($pixels / $context-font-size) * 1em; 
 }
 
 @function lines($lines, $context-font-size: $font-size,  $context-line-height: $line-height) {
@@ -55,6 +55,9 @@ $line-height: 24;
   font-family: "lft-etica-1","lft-etica-2",helvetica,sans-serif;
 }
 
+@mixin source-sans-pro {
+  font-family: 'Source Sans Pro', helvetica, sans-serif;
+}
 
 /*
   ----------------------------------------------------------

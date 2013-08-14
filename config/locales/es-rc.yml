@@ -19,6 +19,11 @@ es-rc:
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
         invalid_color_code: ~
+      edit_welcome_email:
+        welcome_email_content: ~
+        welcome_email_content_description: ~
+        edit_message: ~
+        send_test_message: ~
     emails:
       new:
         send_email_to_members: ~
@@ -72,11 +77,12 @@ es-rc:
       show:
         edit_poll: ~
   common:
+    edit_page: ~
     default_community_slogan: ~
     default_community_description: ~
-    cancel: ~
+    cancel: Cancelar
     fields_that_are_mandatory: ~
-    or: ~
+    or: o
     password: ~
     service_name: ~
     share_types:
@@ -140,10 +146,9 @@ es-rc:
       give_feedback_to: ~
       do_not_give_feedback: ~
     index:
-      messages_from_all_tribes: ~
       loading_more_messages: ~
-      message_partitive: ~
-      messages_partitive: ~
+      message_partitive: mensaje
+      messages_partitive: mensajes
       no_received_messages: ~
       no_sent_messages: ~
     conversation:
@@ -189,7 +194,7 @@ es-rc:
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
       item_request_message_form_title: ~
-      message: ~
+      message: Mensaje
       rideshare_offer_message_form_title: ~
       rideshare_request_message_form_title: ~
       send_message: ~
@@ -217,15 +222,14 @@ es-rc:
         your_request: ~
       loading_more_notifications: ~
       no_notifications: ~
-      notifications_from_all_tribes: ~
       testimonialnotification:
         give_feedback_to: ~
         has_given_you_feedback_on_event: ~
         see_all_the_feedback_you_have_received: ~
     show:
-      in_response_to_listing: ~
-      message_sent_by: ~
-      message_sent_to: ~
+      in_response_to_listing: "sobre la camiseta de"
+      message_sent_by: "Mensaje enviado por"
+      message_sent_to: "Mensaje enviado a"
       send_reply: ~
       write_a_reply: ~
       conversation_about_listing: ~
@@ -428,7 +432,7 @@ es-rc:
       if_will_not_happen_you_should_cancel: ~
       cancel_it_link_text: ~
     transaction_confirmed:
-      here_is_a_message_from: ~
+      here_is_a_message_from: "Este es un mensaje de %{other_party_given_name}"
       request_marked_as_confirmed: ~
       request_marked_as_canceled: ~
       has_marked_request_as_confirmed: ~
@@ -479,13 +483,15 @@ es-rc:
       you_have_achieved_a_badge: ~
     new_comment:
       has_commented_your_listing_in_kassi: ~
-      view_comment: ~
-      you_have_a_new_comment: ~
+      view_comment: "Ver comentario"
+      you_have_a_new_comment: |-
+          %{author} comentó en tu camiseta de '%{listing}' que publicaste en
+          %{service_name}.
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       conversation_title: ~
-      view_message: ~
+      view_message: "Ver mensaje"
       has_sent_you_a_message_in_kassi: ~
       you_have_a_new_message: ~
     new_payment:
@@ -500,8 +506,8 @@ es-rc:
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
-      has_updated_listing_you_follow_in_kassi: ~
-      view_changes: ~
+      has_updated_listing_you_follow_in_kassi: "%{author} actualizó el aviso %{listing} que estás siguiendo en %{service_name}"
+      view_changes: "Ver cambios"
     community_updates:
       added_offer: ~
       added_request: ~
@@ -509,14 +515,10 @@ es-rc:
       title_link_text: ~
       intro_paragraph: ~
       intro_paragraph_link_text: ~
-      could_you_share_something: ~
-      do_you_need_help_with_anything: ~
       post_a_new_listing: ~
       reduce_email_footer_text: ~
-      tribe_creation_promotion_footer: ~
       settings_link_text: ~
       unsubscribe_link_text: ~
-      create_tribe_link_text: ~
     newsletter:
       weekly_news_from_kassi: ~
       hi: ~
@@ -543,7 +545,9 @@ es-rc:
       remember_to_give_feedback_to: ~
       you_have_not_given_feedback_yet: ~
     welcome_email:
-      welcome_email_footer_text: ~
+      welcome_email_footer_text: |-
+          ¿Qué emails quieres recibir de %{service_name}?
+          Revisa tu configuración: %{settings_link}
       settings_link_text: ~
       subject: ~
       welcome_some_tips: ~
@@ -631,13 +635,12 @@ es-rc:
       request_partitive: ~
   header:
     about: ~
-    community: ~
     home: ~
     members: ~
     new_listing: "Subir Camiseta"
     mobile_version: ~
     offers: ~
-    requests: ~
+    requests: Pedidos
     search_kassi: ~
     create_new_marketplace: ~
     contact_us: ~
@@ -677,7 +680,13 @@ es-rc:
     event_feed:
       latest_events: ~
     index:
-      no_listings_notification: ~
+      no_listings_with_your_search_criteria: ~
+      no_listings_notification: |-
+          Bienvenido a %{service_name}, colección colectiva de camisetas de fútbol.
+          - Para subir tus camisetas, hacé click en Subir camisetas.
+          - Para Ver camisetas, utilizá el buscador.
+          - Para saber qué camisetas están en tu ciudad, usá el Mapa.
+      add_listing_link_text: ~
       available_on_the_app_store: ~
       private_listing_notification: ~
       open_listing: ~
@@ -685,7 +694,7 @@ es-rc:
       private_listing_notification_log_in: ~
       is: ~
       are: ~
-      what_do_you_need: ~
+      what_do_you_need: "¿Qué camiseta quieres?"
       post_new_listing: "Subir camiseta"
       are_offering: ~
       add_news_item: ~
@@ -733,16 +742,40 @@ es-rc:
       comment: ~
       comments: ~
     filters:
-      show: ~
+      show: "Ver camisetas:"
       search: ~
       map: ~
       list: ~
-      all_listing_types: ~
+      all_listing_types: "Todas las camisetas"
       all_categories: ~
   infos:
     about:
-      default_about_text_title: ~
-      default_about_text: ~
+      default_about_text_title: "¿Cómo funciona ReCambio?"
+      default_about_text: |-
+          <p><strong>¿Qué es ReCambio?</strong><br />
+            ReCambio es la primera plataforma para intercambiar camisetas de fútbol.<br />
+            <br />
+            <strong>¿Cómo subir tus camisetas a ReCambio?</strong><br />
+            1. Le sacas una foto a tu camiseta de fútbol. <br />
+            2. La subes a ReCambio, eliges la modalidad y publicas el aviso. <br />
+          3. Tu camiseta estará publicada y podrás recibir ofertas y comentarios.</p>
+          <p><strong>¿Cuál es la diferencia entre intercambiar, vender o coleccionar?</strong><br />
+            Intercambiar significa que acuerdas con otro usuario darle tu camiseta a cambio de otra que él o ella tengan.<br />
+            Vender es ponerle un precio a tu camiseta para que otros la compren. También puedes comprar las camisetas que otros pongan a la venta.<br />
+          Coleccionar significa que solo muestras tus camisetas y compartes tu colección con el resto.</p>
+          <p><strong>¿Qué pasa si puse una camiseta a la venta y alguien me ofrece un intercambio que es de mi interés?</strong><br />
+          Como el contacto es directo entre las partes, puedes resolver lo que quieras. Después de intercambiar o vender tu camiseta, te recomendamos cerrar el aviso, así no recibes consultas innecesarias.</p>
+          <p><strong>¿Cómo hago para intercambiar, comprar o vender camisetas?</strong></p>
+          <p>Los intercambios y las transacciones corren por cuenta de los usuarios. ReCambio no interviene, ni participa ni coordina..</p>
+          <p><strong>¿Cómo recibo o realizo el pago de camisetas?</strong><br />
+          La transacción se coordina entre comprador y vendedor directamente, utilizando los canales de comunicación de ReCambio (mensajes, comentarios, pedidos).</p>
+          <p><strong>¿Quién coordina el envío?</strong><br />
+          La coordinación del envío/entrega está a cargo de los usuarios interesados en el intercambio. Existen, al menos, dos alternativas: puedes encontrarte en persona o arreglar un envío postal.</p>
+          <p><strong>¿Qué pasa si no recibo el envío?</strong><br />
+          ReCambio recomienda encontrarse en persona. Además, contamos con un sistema de ranking, con el cual podrás valorar a los usuarios después de cada intercambio. </p>
+          <p><strong>¿Hay punto de encuentro?</strong><br />
+          Podrás coordinar un punto de encuentro para el intercambio de camisetas entre dos o más personas. Si quieres, puedes contactarte con nosotros para organizar un evento colectivo de intercambio de camisetas. <a href="mailto:info@recambio.cc">info@recambio.cc</a></p>
+          <p>Recambio utiliza la plataforma <a href="%{click_here_link}">ShareTribe</a></p>
       click_here_link_text: ~
   layouts:
     no_tribe:
@@ -815,18 +848,18 @@ es-rc:
       settings: ~
       sign_up: ~
     notifications:
+      test_welcome_email_delivered_to: ~
       something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
-      avatar_upload_failed: ~
-      avatar_upload_successful: ~
       comment_cannot_be_empty: ~
       comment_sent: ~
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
-      create_new_listing: ~
+      could_not_get_email_from_facebook: ~
+      create_new_listing: "Sube otra camiseta."
       create_one_here: ~
       email_confirmation_sent_to_new_address: ~
       email_not_found: ~
@@ -842,6 +875,7 @@ es-rc:
       login_again: ~
       login_failed: ~
       account_creation_successful: ~
+      account_deleted: ~
       login_successful: ~
       logout_successful: ~
       news_item_created: ~
@@ -852,7 +886,7 @@ es-rc:
       offer_accepted: ~
       offer_confirmed: ~
       offer_closed: ~
-      listing_created_successfully: ~
+      listing_created_successfully: "La camiseta ya está subida %{new_listing_link}"
       offer_rejected: ~
       offer_canceled: ~
       listing_updated_successfully: ~
@@ -860,6 +894,9 @@ es-rc:
       only_listing_author_can_close_a_listing: ~
       only_listing_author_can_edit_a_listing: ~
       payment_successful: ~
+      payment_canceled: ~
+      error_in_payment: ~
+      payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: ~
       person_activated: ~
       person_deactivated: ~
@@ -877,8 +914,8 @@ es-rc:
       reply_sent: ~
       request_accepted: ~
       request_confirmed: ~
-      request_closed: ~
-      request_rejected: ~
+      request_closed: "Pedido cerrado"
+      request_rejected: "Pedido rechazado"
       request_canceled: ~
       message_sent: ~
       this_content_is_not_available_in_this_community: ~
@@ -916,7 +953,6 @@ es-rc:
       testimonials: ~
     settings:
       account: ~
-      avatar: ~
       notifications: ~
       profile: ~
       settings: ~
@@ -936,15 +972,14 @@ es-rc:
       you_must: ~
       subscribe_to_comments: ~
     edit:
-      edit_listing: ~
+      edit_listing: "Editar camiseta"
     edit_links:
-      close_listing: ~
-      edit_listing: ~
-      reopen_listing: ~
+      close_listing: "Cerrar el aviso"
+      edit_listing: "Editar camiseta"
+      reopen_listing: "Reabrir el aviso"
     follow_links:
       follow: ~
       unfollow: ~
-      follow_description: ~
     form:
       departure_time:
         at: ~
@@ -952,7 +987,7 @@ es-rc:
       departure_time_radio_buttons:
         repeated: ~
       description:
-        detailed_description: ~
+        detailed_description: "Descripción detallada (marca, talle, jugador, número...)"
       destination:
         destination: ~
       form_content:
@@ -970,11 +1005,11 @@ es-rc:
         googlemap_updatemap: ~
       images:
         image: ~
-        no_file_selected: ~
+        no_file_selected: "Selecciona un archivo"
         remove_image: ~
         select_file: ~
       location:
-        location: ~
+        location: Ubicación
       price:
         price: ~
         per: ~
@@ -984,10 +1019,10 @@ es-rc:
         service_fee_will_be_added: ~
         price_excludes_vat: ~
       origin:
-        location: ~
+        location: Ubicación
         origin: ~
       send_button:
-        save_listing: ~
+        save_listing: Enviar
       share_type:
         select: ~
         borrow: ~
@@ -998,7 +1033,7 @@ es-rc:
         receive: ~
         rent: ~
         rent_out: ~
-        request_type: ~
+        request_type: "Tipo de pedido"
         sell: ~
         share_for_free: ~
         accept_for_free: ~
@@ -1013,7 +1048,7 @@ es-rc:
         housing_you_request: ~
         item_you_offer: ~
         item_you_request: ~
-        listing_title: ~
+        listing_title: "¿De qué equipo es tu camiseta?"
       valid_until:
         valid_until: ~
       valid_until_radio_buttons:
@@ -1047,7 +1082,7 @@ es-rc:
       offers: ~
       request_something: ~
       request_type: ~
-      requests: ~
+      requests: Pedidos
       rideshare: ~
       search_verb: ~
       you_have_something_others_do_not: ~
@@ -1136,9 +1171,9 @@ es-rc:
       receive: ~
       rent: ~
       rent_out: ~
-      sell: "Me gustaría venderla"
-      offer_to_swap: ~
-      request_to_swap: ~
+      sell: "Quiero venderla"
+      offer_to_swap: "Quiero intercambiarla"
+      request_to_swap: "Quiero intercambiarla"
       share_for_free: ~
       accept_for_free: ~
       what_kind_of_item: ~
@@ -1161,9 +1196,9 @@ es-rc:
       garden: ~
       travel: ~
       other: ~
-      what_do_you_want_to_do: ~
+      what_do_you_want_to_do: "Elige cómo subir tu camiseta"
       what_can_you_offer: ~
-      what_do_you_need: ~
+      what_do_you_need: "¿Qué camiseta quieres?"
       select_category: ~
     please_comment: ~
     reply_link:
@@ -1183,7 +1218,7 @@ es-rc:
       open_until: ~
       feedback: ~
       qr_code: ~
-      request: ~
+      request: Pedir
       rideshare_offer: ~
       rideshare_request: ~
       send_private_message: ~
@@ -1214,7 +1249,7 @@ es-rc:
       offers: ~
       request_something: ~
       request_type: ~
-      requests: ~
+      requests: Pedidos
       rideshare: ~
       search_verb: ~
       you_have_something_others_do_not: ~
@@ -1267,7 +1302,6 @@ es-rc:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
     new:
-      address_validator: ~
       captcha_incorrect: ~
       captcha_was_wrong: ~
       create_new_account: ~
@@ -1377,21 +1411,9 @@ es-rc:
       grade: ~
       and_gave_following_feedback: ~
       less_than_expected: ~
-      offered_favor: ~
-      offered_housing: ~
-      offered_item: ~
-      offered_rideshare: ~
-      requested_favor: ~
-      requested_housing: ~
-      requested_item: ~
-      requested_rideshare: ~
       slightly_better_than_expected: ~
       slightly_less_than_expected: ~
     profile_listings:
-      loading_more_offers: ~
-      loading_more_requests: ~
-      offers: ~
-      requests: ~
       show_also_closed: ~
       show_only_open: ~
     show:
@@ -1422,11 +1444,15 @@ es-rc:
       reviews: ~
       badge: ~
       badges: ~
+      listing: ~
+      listings: ~
       open_listing: ~
       open_listings: ~
+      no_listings: ~
       no_open_listings: ~
       no_reviews: ~
       no_badges: ~
+      show_all_listings: ~
       show_all_open_listings: ~
       show_all_reviews: ~
       trustcloud: ~
@@ -1464,10 +1490,8 @@ es-rc:
     confirmation_pending:
       welcome_to_kassi: ~
       check_your_email: ~
-      account_conrimation_instructions: ~
-      account_confirmation_instructions_any_email: ~
       get_started: ~
-      getting_started_instructions: ~
+      getting_started_instructions: "Cuando hayas confirmado tu cuenta, puedes agregar una imagen a tu <a href=\"%{profile_url}\">perfil</a> y completar todos los datos. O directamente  <a href=\"es-rc/listings/new?ref=tribe_navi\">subir tus camisetas</a> para empezar a intercambiarlas, venderlas o solo mostrar tu colección."
       resend_confirmation_instructions: ~
       your_current_email_is: ~
       change_email: ~
@@ -1475,11 +1499,12 @@ es-rc:
       account_confirmation_instructions: ~
       account_confirmation_instructions_dashboard: ~
   settings:
-    settings_affect_all_tribes: ~
     account:
       change: ~
       confirm_new_password: ~
       delete_account: ~
+      delete_account_button: ~
+      delete_account_confirmation_popup: ~
       email: ~
       instructions_to_delete_account: ~
       contact_admin: ~
@@ -1487,9 +1512,6 @@ es-rc:
       new_password: ~
       save: ~
       these_fields_are_shown_only_to_you: ~
-    avatar:
-      add_avatar_submit: ~
-      update_profile_picture: ~
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: ~
@@ -1524,6 +1546,7 @@ es-rc:
       given_name: ~
       location_description: ~
       phone_number: ~
+      profile_picture: ~
       postal_code: ~
       profile_page: ~
       profilemap: ~
@@ -1582,9 +1605,7 @@ es-rc:
       negative: ~
       default_textual_feedback: ~
     testimonial:
-      from_user: ~
-      to_user: ~
-      about_listing: ~
+      about_listing: "sobre la camiseta de"
   time:
     formats:
       short: ~

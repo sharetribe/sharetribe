@@ -3,7 +3,7 @@
   %p 
     = t(".payment_receiver")
     
-    = @payment.recipient_organization.name
+    = @payment.recipient_organization.name if @payment.recipient_organization
         
     = "(#{link_to @conversation.other_party(@current_user).name, @conversation.other_party(@current_user)})".html_safe
     

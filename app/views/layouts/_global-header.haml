@@ -20,7 +20,7 @@
     
       .user-menu-toggle.toggle.hidden{data: {toggle: '.user-menu'}}
         = image_tag @current_user.image.url(:thumb), alt: '', class: 'user-avatar'
-        .user-name= @current_user.name_or_username
+        .user-name= @current_user.name(@current_community)
 
         = icon_tag("dropdown", ["icon-dropdown"])
         = render :partial => "layouts/user_badge"

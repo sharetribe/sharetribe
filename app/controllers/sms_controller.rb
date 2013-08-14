@@ -76,7 +76,7 @@ class SmsController < ApplicationController
         else
           delete_message_and_render_error(message, t("sms.category_not_supported")) and return
         end
-      rescue Exception => e
+      rescue => e
         delete_message_and_render_error(message, 
          "Virhe tapahtui. Error occurred: #{e.message}")  and return
       end

@@ -18,6 +18,8 @@ class PersonMailer < ActionMailer::Base
   
   layout 'email'
 
+  layout false, :only => [ :contact_request_notification, :reply_to_contact_request ]
+
   add_template_helper(EmailTemplateHelper)
 
   def community_specific_sender(com=nil)
@@ -83,7 +85,7 @@ class PersonMailer < ActionMailer::Base
     @testimonial = testimonial
     mail(:to => @recipient.email,
          :from => community_specific_sender(community),
-         :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => @testimonial.author.name))
+         :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => @testimonial.author.name(community)))
   end
   
   def new_badge(badge, community)
@@ -143,7 +145,7 @@ class PersonMailer < ActionMailer::Base
     @comment = comment
     mail(:to => @recipient.email,
          :from => community_specific_sender(community),
-         :subject => t("emails.new_comment.you_have_a_new_comment", :author => @comment.author.name))
+         :subject => t("emails.new_comment.you_have_a_new_comment", :author => @comment.author.name(community)))
   end
   
   def new_comment_to_followed_listing_notification(comment, recipient, community)
@@ -151,7 +153,7 @@ class PersonMailer < ActionMailer::Base
     @comment = comment
     mail(:to => @recipient.email,
          :from => community_specific_sender(community),
-         :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => @comment.author.name))
+         :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => @comment.author.name(community)))
   end
   
   def new_update_to_followed_listing_notification(listing, recipient, community)
@@ -168,7 +170,7 @@ class PersonMailer < ActionMailer::Base
     @invitation_code_required = @invitation.community.join_with_invite_only
     set_up_urls(nil, @invitation.community)
     @url_params[:locale] = @invitation.inviter.locale
-    subject = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name, :community => @invitation.community.full_name_with_separator(@invitation.inviter.locale))
+    subject = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name(@invitation.community), :community => @invitation.community.full_name_with_separator(@invitation.inviter.locale))
     mail(:to => @invitation.email, 
          :from => community_specific_sender(@invitation.community),
          :subject => subject, 
@@ -184,7 +186,7 @@ class PersonMailer < ActionMailer::Base
     mail(:to => @recipient.email, 
          :from => community_specific_sender(community),
          :subject => email_subject, 
-         :reply_to => "\"#{sender.name}\"<#{sender.email}>")
+         :reply_to => "\"#{sender.name(community)}\"<#{sender.email}>")
   end
   
   # A custom message to a community starter
@@ -218,6 +220,18 @@ class PersonMailer < ActionMailer::Base
          :reply_to => @feedback.email)
   end
   
+  # Used to send notification to admins when somebody
+  # wants to contact them through the form in the network page
+  def contact_request_notification(email)
+    @email = email
+    subject = "New contact request by #{email}"
+    mail(:to => APP_CONFIG.feedback_mailer_recipients, :subject => subject)
+  end
+  
+  # Automatic reply to people who try to contact us via Dashboard
+  def reply_to_contact_request(email)
+    mail(:to => email, :subject => "Thanks for contacting Sharetribe", :from => "Antti Virolainen <antti@sharetribe.com>")
+  end
   
   
   
@@ -262,29 +276,6 @@ class PersonMailer < ActionMailer::Base
          :template_name => 'confirmation_instructions')
   end
   
-  def old_style_community_updates(recipient, community)
-    @community = community
-    @recipient = recipient
-    set_locale @recipient.locale
-    @url_base = "#{@community.full_url}"
-    @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id, :locale => @recipient.locale)}"
-    @requests = @community.listings.currently_open.requests.visible_to(@recipient, @community).limit(5)
-    @offers = @community.listings.currently_open.offers.visible_to(@recipient, @community).limit(5)
-
-    if APP_CONFIG.mail_delivery_method == "postmark"
-      # Postmark doesn't support bulk emails, so use Sendmail for this
-      delivery_method = :sendmail
-    else
-      delivery_method = APP_CONFIG.mail_delivery_method.to_sym
-    end
-
-    mail(:to => @recipient.email,
-         :from => community_specific_sender(community),
-         :subject => t("emails.newsletter.weekly_news_from_kassi", :community => @community.name_with_separator(@recipient.locale)),
-         :delivery_method => delivery_method)
-  end
-  
-  
   def community_updates(recipient, community)
     @community = community
     @recipient = recipient
@@ -308,10 +299,9 @@ class PersonMailer < ActionMailer::Base
     @url_params[:auth] = @auth_token
     @url_params.freeze # to avoid accidental modifications later
     
-    @requests = @community.listings.currently_open.requests.order("created_at DESC").visible_to(@recipient, @community).limit(10)
-    @offers = @community.listings.currently_open.offers.order("created_at DESC").visible_to(@recipient, @community).limit(10)
+    latest = @recipient.community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago
     
-    @listings = select_listings_to_show(@requests, @offers, @recipient)
+    @listings = @community.listings.currently_open.where("created_at > ?", latest).order("created_at DESC").visible_to(@recipient, @community).limit(10)
   
     if @listings.size < 1
       logger.info "There are no new listings in community #{@community.name} since that last update for #{@recipient.id}"
@@ -427,7 +417,7 @@ class PersonMailer < ActionMailer::Base
           if member.should_receive?("community_updates")
             begin
               PersonMailer.old_style_community_updates(member, community).deliver
-            rescue Exception => e
+            rescue => e
               # Catch the exception and continue sending the news letter
               ApplicationHelper.send_error_notification("Error sending mail for weekly community updates: #{e.message}", e.class)
             end
@@ -446,7 +436,7 @@ class PersonMailer < ActionMailer::Base
           if community.has_new_listings_since?(person.community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago)
             begin
               PersonMailer.community_updates(person, community).deliver
-            rescue Exception => e
+            rescue => e
               # Catch the exception and continue sending emails
             puts "Error sending mail to #{person.email} community updates: #{e.message}"
             ApplicationHelper.send_error_notification("Error sending mail to #{person.email} community updates: #{e.message}", e.class)
@@ -473,7 +463,7 @@ class PersonMailer < ActionMailer::Base
           else
             logger.debug "Skipping sending newsletter to #{person.username}, because his locale is #{person.locale} and that file was not found."
           end
-        rescue Exception => e
+        rescue => e
           # Catch the exception and continue sending the newsletter
           ApplicationHelper.send_error_notification("Error sending newsletter for #{person.username}: #{e.message}", e.class)
         end
@@ -487,7 +477,7 @@ class PersonMailer < ActionMailer::Base
       if person.active && ! addresses_to_skip.include?(person.email)
         begin
           PersonMailer.open_content_message(person, subject, mail_content, default_locale).deliver
-        rescue Exception => e
+        rescue => e
           ApplicationHelper.send_error_notification("Error sending open content email: #{e.message}", e.class)
         end
         if verbose #main intention of this is to get feedback while sending mass emails from console.
@@ -501,10 +491,11 @@ class PersonMailer < ActionMailer::Base
     
   end
   
-  def welcome_email(person, community)
+  def welcome_email(person, community, regular_email=nil)
     @recipient = person
     set_locale @recipient.locale
     @current_community = community
+    @regular_email = regular_email
     @url_params = {}
     @url_params[:host] = "#{@current_community.full_domain}"
     @url_params[:auth] = @recipient.new_email_auth_token
@@ -512,7 +503,7 @@ class PersonMailer < ActionMailer::Base
     @url_params[:ref] = "welcome_email"
     @url_params.freeze # to avoid accidental modifications later
         
-    if @recipient.has_admin_rights_in?(@current_community)
+    if @recipient.has_admin_rights_in?(@current_community) && !@regular_email
       subject = t("emails.welcome_email.congrats_for_creating_community", :community => @current_community.full_name)
     else
       subject = t("emails.welcome_email.subject", :community => @current_community.full_name, :person => person.given_name_or_username)
@@ -530,7 +521,7 @@ class PersonMailer < ActionMailer::Base
       if recipient.should_receive?("email_from_admins") && (email_locale.eql?("any") || recipient.locale.eql?(email_locale))
         begin
           community_member_email(sender, recipient, email_subject, email_content, community).deliver
-        rescue Exception => e
+        rescue => e
           # Catch the exception and continue sending the emails
           ApplicationHelper.send_error_notification("Error sending email to all the members of community #{community.full_name}: #{e.message}", e.class)
         end
@@ -543,7 +534,7 @@ class PersonMailer < ActionMailer::Base
     CommunityMembership.where(:admin => true).each do |community_membership|
       begin
         community_starter_email(community_membership.person, community_membership.community).deliver
-      rescue Exception => e
+      rescue => e
         # Catch the exception and continue sending the emails
         ApplicationHelper.send_error_notification("Error sending email to all community starters: #{e.message}", e.class)
       end
@@ -563,27 +554,6 @@ class PersonMailer < ActionMailer::Base
       @url_params[:locale] = @recipient.locale
       set_locale @recipient.locale
     end
-  end
-  
-  # selects a set of listings to include in the community updates email
-  def select_listings_to_show(requests, offers, recipient)
-    selected = []
-    latest = recipient.community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago # don't send older in any case
-    
-    requests.each do |r|
-      if r.created_at > latest
-        selected << r
-      end
-      break if selected.count > 5
-    end
-    offers.each do |o|
-      if o.created_at > latest
-        selected << o
-      end
-      break if selected.count > 9
-    end
-        
-    return selected.sort_by{|e| e.created_at}
   end
 
 end

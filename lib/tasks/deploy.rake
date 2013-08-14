@@ -10,18 +10,21 @@ task :deploy_production_migrations => ['deploy:set_production_app', 'deploy:push
 task :deploy_staging_without_migrations => ['deploy:set_staging_app', 'i18n:write_error_pages', 'deploy:update_webfonts_folder', 'deploy:push', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
 task :deploy_production_without_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
 
+
+task :deploy_translation_migrations => ['deploy:set_translation_app', 'deploy:update_webfonts_folder',  'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:update_translations_stored_in_db']
+task :deploy_translation_without_migrations => ['deploy:set_translation_app', 'deploy:update_webfonts_folder',  'deploy:push', 'deploy:update_translations_stored_in_db']
+
+
 task :deploy_custom_migrations => ['deploy:set_staging_app', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
 task :deploy_custom_quick => ['deploy:set_staging_app', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push']
+
+task :deploy_test_servers => ['deploy_staging_migrations', 'deploy_translation_migrations']
+
 
 namespace :deploy do
   PRODUCTION_APP = 'sharetribe-production'
   STAGING_APP = 'sharetribe-staging'
-
-  # task :staging_migrations => [:set_staging_app, :push, :off, :migrate, :restart, :on, :tag]
-  # task :staging_rollback => [:set_staging_app, :off, :push_previous, :restart, :on]
-  # 
-  # task :production_migrations => [:set_production_app, :push, :off, :migrate, :restart, :on, :tag]
-  # task :production_rollback => [:set_production_app, :off, :push_previous, :restart, :on]
+  TRANSLATION_APP = "sharetribe-translation"
 
   task :set_staging_app do
     APP = STAGING_APP
@@ -30,7 +33,11 @@ namespace :deploy do
   task :set_production_app do
   	APP = PRODUCTION_APP
   end
-
+  
+  task :set_translation_app do
+  	APP = TRANSLATION_APP
+  end
+  
   task :update_webfonts_folder do
     puts 'Copying webfonts folder ...'
     puts `rm app/assets/webfonts/* `
@@ -57,6 +64,8 @@ namespace :deploy do
     puts 'Deploying site to Heroku ...'
     if APP == PRODUCTION_APP
       puts `git push production closed_source:master --force`
+    elsif APP == TRANSLATION_APP
+      puts `git push translation closed_source:master --force`
     else
       puts `git push staging closed_source:master --force`
     end
@@ -73,7 +82,7 @@ namespace :deploy do
   end
   
   task :update_translations_stored_in_db do
-    puts 'Updating the translations, which stored in the DB'
+    puts 'Updating the translations, which are stored in the DB'
     puts  `heroku run rake sharetribe:update_categorization_translations --app #{APP}`
   end
   

@@ -93,7 +93,7 @@ Spork.each_run do
   
   # Require step definitions
   Dir["#{File.dirname(__FILE__)}/step_defintions/**/*.rb"].each {|f| require f}
-  
+  Rails.cache.clear
 end
 
 # --- Instructions ---

@@ -4,7 +4,6 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user) }
 
 #person_settings_form.left-navi-section.settings-section.account-settings
-  = render :partial => "layouts/global_view_notification", :locals => { :text => t("settings.settings_affect_all_tribes") }
   -# Username
   .account-settings-row
     .ss-key.account-settings-icon
@@ -19,7 +18,7 @@
     .account-settings-text#account_email_content
       %b
         = t(".email")
-      = @person.email(session[:cookie])
+      = @person.email
       = link_to t(".change"), "#", :id => "account_email_link", :class => "change-link"
     #account_email_form.email-form
       = form_for @person, :html => {:id => 'email_form'} do |form|
@@ -47,4 +46,6 @@
         = t(".delete_account")
     %p
       = t(".instructions_to_delete_account", :contact_admin_link => link_to(t(".contact_admin"), new_user_feedback_path)).html_safe
+    = form_tag url_for(:controller => :people, :action => :destroy, :id => @current_user.id), :method => :delete do
+      = button_tag t('.delete_account_button'), :id => "delete_account_button", :data => {:confirm => t('.delete_account_confirmation_popup')}
     

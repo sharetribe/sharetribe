@@ -3,8 +3,16 @@ require 'routes/api_request'
 
 Kassi::Application.routes.draw do
 
+    namespace :mercury do
+      resources :images
+    end
+
+  mount Mercury::Engine => '/'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
+
+  match "/robots.txt" => RobotsGenerator
 
   # Adds locale to every url right after the root path
   scope "(/:locale)" do
@@ -56,8 +64,7 @@ Kassi::Application.routes.draw do
           get :create_facebook_based
           get :fetch_rdf_profile
         end
-        member do 
-          put :update_avatar
+        member do
           put :activate
           put :deactivate
         end
@@ -97,7 +104,6 @@ Kassi::Application.routes.draw do
         resource :settings do
           member do
             get :profile
-            get :avatar
             get :account
             get :notifications
             get :unsubscribe
@@ -121,6 +127,9 @@ Kassi::Application.routes.draw do
         member do
           get :edit_details
           get :edit_look_and_feel
+          get :edit_welcome_email
+          get :test_welcome_email
+          put :mercury_update
         end
         resources :emails
       end
@@ -136,6 +145,7 @@ Kassi::Application.routes.draw do
       end
     end
     
+    resources :contact_requests
     resources :organizations
     resources :invitations
     resources :user_feedbacks, :controller => :feedbacks
@@ -177,6 +187,7 @@ Kassi::Application.routes.draw do
         get :terms
         get :privacy
         get :news
+        put :mercury_update
       end  
     end
     resource :terms do

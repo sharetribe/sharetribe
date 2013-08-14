@@ -34,18 +34,18 @@ describe PersonMailer do
   
   it "should send email about a new comment to own listing" do
     @comment = FactoryGirl.create(:comment)
-    @comment.author.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @cookie)
+    @comment.author.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
     recipient = @comment.listing.author
     email = PersonMailer.new_comment_to_own_listing_notification(@comment, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [recipient.email], email.to unless recipient.email.nil? 
-    assert_equal "Teppo Testaaja has commented on your listing in Sharetribe", email.subject
+    assert_equal "Teppo T has commented on your listing in Sharetribe", email.subject
   end
   
   it "should send email about an accepted and rejected offer or request" do
     @conversation = FactoryGirl.create(:conversation)
     @conversation.participants = [@conversation.listing.author, @test_person2]
-    @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @cookie)
+    @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
     
     @conversation.update_attribute(:status, "accepted")
     message = FactoryGirl.create(:message)
@@ -72,7 +72,7 @@ describe PersonMailer do
   end
   
   it "should send email about a new testimonial" do
-    @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @cookie)
+    @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
     @conversation = FactoryGirl.create(:conversation)
     @conversation.participants << @test_person
     @conversation.participants << @test_person2 
@@ -82,13 +82,13 @@ describe PersonMailer do
     email = PersonMailer.new_testimonial(@testimonial, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [@test_person2.email], email.to
-    assert_equal "Teppo Testaaja has given you feedback in Sharetribe", email.subject
+    assert_equal "Teppo T has given you feedback in Sharetribe", email.subject
   end
   
   it "should remind about testimonial" do
-    @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @cookie)
+    @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
     @test_person.save
-    Person.find(@test_person.id).update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @cookie)
+    Person.find(@test_person.id).update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
     @conversation = FactoryGirl.create(:conversation)
     @conversation.participants << @test_person
     @conversation.participants << @test_person2 
@@ -96,8 +96,8 @@ describe PersonMailer do
     @participation = Participation.find_by_person_id_and_conversation_id(@test_person2.id, @conversation.id)
     email = PersonMailer.testimonial_reminder(@conversation, @test_person2, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to 
-    assert_equal "Reminder: remember to give feedback to Teppo Testaaja", email.subject
+    assert_equal [@test_person2.email], email.to
+    assert_equal "Reminder: remember to give feedback to Teppo T", email.subject
   end
   
   it "should send email to admins of new feedback" do

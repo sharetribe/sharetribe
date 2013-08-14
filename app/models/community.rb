@@ -17,9 +17,11 @@ class Community < ActiveRecord::Base
   has_many :categories, :through => :community_categories
   has_many :share_types, :through => :community_categories
   has_many :payments
+  has_many :statistics, :dependent => :destroy
   
   has_and_belongs_to_many :listings
   
+  after_create :initialize_settings
   before_destroy :delete_specific_community_categories
   
   monetize :minimum_price_cents, :allow_nil => true
@@ -42,12 +44,10 @@ class Community < ActiveRecord::Base
     
   serialize :settings, Hash
   
-  paperclip_options_for_logo = PaperclipHelper.paperclip_default_options.merge!({:styles => { 
+  has_attached_file :logo, :styles => { 
                       :header => "192x192#",  
                       :original => "600x600>"},
-                      :default_url => "/logos/header/default.png"
-  })
-  has_attached_file :logo, paperclip_options_for_logo
+                      :default_url => "/assets/logos/header/default.png"
   validates_attachment_content_type :logo,
                                     :content_type => ["image/jpeg",
                                                       "image/png", 
@@ -55,12 +55,10 @@ class Community < ActiveRecord::Base
                                                       "image/pjpeg", 
                                                       "image/x-png"]
   
-  paperclip_options_for_cover_photo = PaperclipHelper.paperclip_default_options.merge!({:styles => { 
+  has_attached_file :cover_photo, :styles => { 
                       :header => "1600x195#",  
                       :original => "3200x3200>"},
-                      :default_url => "/cover_photos/header/default.jpg"
-  })
-  has_attached_file :cover_photo, paperclip_options_for_cover_photo
+                      :default_url => "/assets/cover_photos/header/default.jpg"
   validates_attachment_content_type :cover_photo,
                                     :content_type => ["image/jpeg",
                                                       "image/png", 
@@ -504,18 +502,26 @@ class Community < ActiveRecord::Base
   # is it possible to pay for this listing via the payment system
   def payment_possible_for?(listing)
     cc = community_category(listing.category.top_level_parent, listing.share_type)
-    payments_in_use && (cc.price || cc.payment)
+    # as currently all messages are shown in all communities, there might be case where the
+    # message would have payment possible in it's original community, but in this community the cc
+    # is not found with the above search, so then payment is not possible here. (cc must be present)
+    payments_in_use && cc.present? && (cc.price || cc.payment)
   end
 
 
   def community_categories
-    custom = CommunityCategory.find_all_by_community_id(id, :include => [:category, :share_type])
+    custom = Rails.cache.fetch("/custom_categories/#{self.id}-#{self.updated_at}") {
+      # order the custom categorizations based on the sort priority (or ids of the CommunityCategory)
+      CommunityCategory.order("sort_priority ASC","id ASC").find_all_by_community_id(id, :include => [:category, :share_type])
+    }
     if custom.present?
       # use custom values
       return custom
     else
       # Use defaults
-      return CommunityCategory.find_all_by_community_id(nil, :include => [:category, :share_type])
+      return Rails.cache.fetch("/default_categories") {
+        CommunityCategory.find_all_by_community_id(nil, :include => [:category, :share_type])
+      }
     end
   end
   
@@ -526,7 +532,25 @@ class Community < ActiveRecord::Base
       MoneyRails.default_currency
     end
   end
+  
+  def facebook_login_method
+    unless facebook_connect_id
+      return :facebook
+    else
+      return "facebook_app_#{facebook_connect_id}".to_sym
+    end
+  end
 
+  def self.all_with_custom_fb_login
+    begin
+      where("facebook_connect_id IS NOT NULL")
+    rescue Mysql2::Error
+      # in some environments (e.g. Travis CI) the tables are not yet loaded when this is called
+      # so return empty array, as it shouldn't matter in those cases
+      return []
+    end
+  end
+  
   private
   
   # Returns an array of unique categories or share_types used in this community.
@@ -537,6 +561,9 @@ class Community < ActiveRecord::Base
     return community_categories.collect(&categorization_type).compact.uniq
   end
 
+  def initialize_settings
+    update_attribute(:settings,{"locales"=>[APP_CONFIG.default_locale]}) if self.settings.blank?
+  end
   
   # This method deletes the specific community_category entries (but not the default ones)
   def delete_specific_community_categories

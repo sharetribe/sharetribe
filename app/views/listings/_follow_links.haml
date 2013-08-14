@@ -3,5 +3,3 @@
     = link_to t(".unfollow"), unfollow_listing_path(@listing || @comment.listing), :class => "unfollow_listing", :method => :delete, :remote => :true
   - else
     = link_to t(".follow"), follow_listing_path(@listing || @comment.listing), :class => "follow_listing", :method => :post, :remote => :true
-  %p.follow_description
-    = t(".follow_description")

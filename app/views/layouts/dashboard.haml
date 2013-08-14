@@ -1,56 +1,47 @@
-!!! 5
-!!! xml
-%html{html_attrs(I18n.locale)}
-  %head
-    = render :partial => "layouts/kissmetrics"
-    %title
-      = t(".title")
+= render :partial => 'layouts/head'
 
-    %meta{ :property => "og:type", :content =>"website"}
-    %meta{ :property => "og:url", :content =>"#{request.protocol}#{request.host}"} 
-    %meta{ :property => "og:image", :content => "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"}
-    %meta{ :property => "og:site_name", :content =>"#{service_name}"}
-    %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
-    %meta{ :property => "og:description", :content => t("layouts.application.meta_description")}
-    %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" } 
-    %meta{ :name => "description", :content => t("layouts.application.meta_description") }
-    %meta{ :name => "keywords", :content => t("layouts.application.keywords") }
-    = stylesheet_link_tag 'dashboard'
-    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Droid+Serif'
-    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Droid+Sans'
-    = javascript_include_tag 'dashboard'
-    = yield(:extra_javascript)
-    :javascript
-      $(document).ready(function() { initialize_defaults(); #{yield :javascript} });
-      
-  %body
-    %noscript
-      .js_enabled
-        #no_javascript
-          = render :partial => "layouts/dashboard_no_javascript"
-    .js_wrapper
-      .wrapper
-        = yield    
-        - if APP_CONFIG.use_google_analytics
-          <script type="text/javascript">
-
-          var _gaq = _gaq || [];
-          = "_gaq.push(['_setAccount', '#{APP_CONFIG.google_analytics_key}']);"
-          = "_gaq.push(['_setDomainName', '.#{request.domain}']);"
-          _gaq.push(['_addIgnoredOrganic', 'sharetribe']);
-          _gaq.push(['_addIgnoredOrganic', 'sharetribe.com']);
-          _gaq.push(['_addIgnoredOrganic', 'www.sharetribe.com']); 
-          _gaq.push(['_addIgnoredOrganic', 'kassi']); 
-          _gaq.push(['_addIgnoredOrganic', 'share tribe']); 
-          _gaq.push(['_addIgnoredOrganic', 'kassi.eu']);
-          _gaq.push(['_setAllowLinker', true]);
-          _gaq.push(['_trackPageview']);
-          _gaq.push(['_trackPageLoadTime']);
-
-          (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
-
-          </script>
+%body
+  
+  %header.global-header-network
+    .wrapper
+      .left-side
+        %img{:src => "https://s3.amazonaws.com/sharetribe/cover_photos/network/sharetribe_logo_red.png"}
+      .right-side
+        %ul.network-navi
+          %li= link_to "about", "#about", :class => "global-navi"
+          %li= link_to "how it works", "#how-it-works", :class => "global-navi"
+          %li= link_to "blog", "http://blog.sharetribe.com/", :class => "global-navi"
+          %li= link_to "contact", "mailto:info@sharetribe.com", :class => "global-navi-right"
+      .top-menu-toggle.toggle.hidden{data: {toggle: '.top-menu'}}
+        .ss-rows
+    
+    
+    %nav.top-menu.toggle-menu.hidden
+      = link_to "about", "#about"
+      = link_to "how it works", "#how-it-works"
+      = link_to "blog", "http://blog.sharetribe.com/"
+      = link_to "contact", "mailto:info@sharetribe.com"
+    
+  = yield
+  
+  %footer
+    .wrapper
+      .left-side
+        %ul.network-navi
+          %li= link_to "about", "#about", :class => "footer-navi-left"
+          %li= link_to "how it works", "#how-it-works", :class => "footer-navi"
+          %li= link_to "blog", "http://blog.sharetribe.com/", :class => "footer-navi"
+          %li= link_to "contact", "mailto:info@sharetribe.com", :class => "footer-navi"
+      .right-side
+        .company-name
+          sharetribe ltd.
+        %a.social-icon-circle{:href => "https://www.facebook.com/Sharetribe"}
+          .ss-facebook.ss-icon.ss-social
+        %a.social-icon-circle{:href => "https://twitter.com/sharetribe"}
+          .ss-twitter.ss-icon.ss-social
+        %a.social-icon-circle{:href => "https://plus.google.com/115623351324372170386"}
+          .ss-googleplus.ss-icon.ss-social
+        
+        
+        
+        

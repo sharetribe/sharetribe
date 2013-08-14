@@ -58,6 +58,7 @@ addMethod("address_validator",
 
 function timed_input(param) {
   clearTimeout(timer);
+  invalid_locations();
   timer=setTimeout(
     function() {
       update_map(param);
@@ -68,6 +69,8 @@ function timed_input(param) {
 
 function timed_input_on_route(){
   clearTimeout(timer);
+  invalid_locations("listing_origin_loc_attributes");
+  invalid_locations("listing_destination_loc_attributes");
   timer=setTimeout(
     function() {
       startRoute();
@@ -75,7 +78,7 @@ function timed_input_on_route(){
   );
 }
 
-function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable,community_location_lat,community_location_lon) {
+function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable,community_location_lat,community_location_lon,address) {
   prefix = n_prefix;
   textfield = n_textfield;
   
@@ -95,9 +98,9 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable,community_loc
   
   map = new google.maps.Map(document.getElementById(canvas), myOptions);
   if (latitude.value != "") {
-    setMapCenter(latitude.value, longitude.value, false);
+    setMapCenter(latitude.value, longitude.value, false, true);
   } else {
-    setMapCenter(community_location_lat, community_location_lon, false);
+    setMapCenter(community_location_lat, community_location_lon, false, false);
   }
   geocoder = new google.maps.Geocoder();
   
@@ -116,6 +119,14 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable,community_loc
   });
 
   infowindow = new google.maps.InfoWindow();
+  
+  if (address != undefined) {
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.close();
+      infowindow.setContent(address);
+      infowindow.open(map,marker);
+    });
+  }
 
   if (draggable){
     google.maps.event.addListener(map, "click", 
@@ -188,7 +199,7 @@ function manually_validate(formhint) {
       _element += "listing_destination";
     }
   }
-  //$(form_id).validate().element(_element);
+  $(form_id).validate().element(_element);
 }
 
 function nil_locations(_prefix) {
@@ -203,6 +214,15 @@ function nil_locations(_prefix) {
   longitude.value = null;
   google_address.value = null;
   manually_validate(_prefix);
+}
+
+// Make validation fail before it has been checked that the
+// address is found
+function invalid_locations(_prefix) {
+  if (!_prefix)
+    _prefix = prefix;
+  var latitude = document.getElementById(_prefix+ "_latitude");
+  latitude.value = null;
 }
 
 function update_model_location(place,_prefix){
@@ -275,7 +295,7 @@ function startRoute(latitude, longitude) {
   } else {
     removeRoute();
     if (foo == '' && bar == '') {
-      setMapCenter(latitude, longitude, false);
+      setMapCenter(latitude, longitude, false, true);
       map.setZoom(12);
     }
   }
@@ -422,7 +442,6 @@ function addCommunityMarkers() {
       (function() {
         var entry = data_arr[i];
         markerContents[i] = entry["id"];
-        console.log(entry["latitude"], entry["longitude"])
         if (entry["latitude"]) {
           var location;
           location = new google.maps.LatLng(entry["latitude"], entry["longitude"]);
@@ -445,7 +464,7 @@ function addCommunityMarkers() {
               showingMarker = "";
             } else {
               showingMarker = marker.getTitle();
-              infowindow.setContent("<div id='map_bubble'><div style='text-align: center; width: 360px; height: 70px; padding-top: 25px;'><img src='/assets/ajax-loader-grey.gif'></div></div>");
+              infowindow.setContent("<div id='map_bubble'><div style='text-align: center; width: 360px; height: 70px; padding-top: 25px;'><img src='https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif'></div></div>");
               infowindow.open(map,marker);
               $.get('/en/tribes/'+entry["id"], function(data) {
                 $('#map_bubble').html(data);
@@ -491,32 +510,63 @@ function initialize_listing_map(community_location_lat, community_location_lon, 
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-  setMapCenter(community_location_lat, community_location_lon, true);
+  setMapCenter(community_location_lat, community_location_lon, true, false);
   google.maps.event.addListenerOnce(map, 'tilesloaded', addListingMarkers);
 }
 
-function setMapCenter(community_location_lat, community_location_lon, show_alerts) {
-  // Set default location to Helsinki
-  var defaultPosition = new google.maps.LatLng(60.17, 24.94);
-  // If location given in parameters, use it
-  if (community_location_lat != null && community_location_lat != '') {
-    map.setCenter(new google.maps.LatLng(community_location_lat,community_location_lon));
-  // Try Browser Geolocation
-  } else if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      map.setCenter(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
-    }, function() {
-      if (show_alerts == true)
-        alert("Geolocation service failed. We've placed you in Helsinki, Finland.");
-      map.setCenter(defaultPosition);
-    });
-  // Browser doesn't support Geolocation, we need to use the default location.
+function setMapCenter(community_location_lat, community_location_lon, show_alerts, prefer_param_loc) {
+  
+  // Try first parameter location, then browser geolocation, then default position
+  if (prefer_param_loc == true) {
+    if (community_location_lat != null && community_location_lon != '') {
+      map.setCenter(new google.maps.LatLng(community_location_lat,community_location_lon));
+    // Browser doesn't support Geolocation, we need to use the default location.
+    } else if (navigator.geolocation) {  
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          map.setCenter(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+        }, 
+        function() {
+          setDefaultMapCenter(map, show_alerts);
+        }
+      );
+    }
+  
+  // Try first browser geolocation, then parameter location, then default position
   } else {
-    if (show_alerts == true)
-      alert("Your browser doesn't support geolocation. We've placed you in Helsinki, Finland.");
-    map.setCenter(defaultPosition);
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition( 
+        function(position) {
+          map.setCenter(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+        }, 
+        function() {
+          setParamMapCenter(map, community_location_lat, community_location_lon, show_alerts);
+        }
+      );
+    } else {
+      setParamMapCenter(map, community_location_lat, community_location_lon, show_alerts);
+    }
+  }
+  
+}
+
+function setParamMapCenter(map, lat, lon, show_alerts) {
+  if (lat != null && lon != '') {
+    map.setCenter(new google.maps.LatLng(lat,lon));
+  } else {
+    setDefaultMapCenter(map, show_alerts);
   }
 }
+
+function setDefaultMapCenter(map, show_alerts) {
+  // Set default location to Helsinki
+  var defaultPosition = new google.maps.LatLng(60.17, 24.94);
+  if (show_alerts == true)
+    alert("Your browser doesn't support geolocation. We've placed you in Helsinki, Finland.");
+  map.setCenter(defaultPosition);
+}
+
+
 
 function addListingMarkers() {
   // Test requesting location data
@@ -575,7 +625,7 @@ function addListingMarkers() {
               showingMarker = "";
             } else {
               showingMarker = marker.getTitle();
-              infowindow.setContent("<div id='map_bubble'><div style='text-align: center; width: 360px; height: 70px; padding-top: 25px;'><img src='/assets/ajax-loader-grey.gif'></div></div>");
+              infowindow.setContent("<div id='map_bubble'><div style='text-align: center; width: 360px; height: 70px; padding-top: 25px;'><img src='https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif'></div></div>");
               infowindow.open(map,marker);
               $.get('/' + locale + '/listing_bubble/' + entry["id"], function(data) {
                 $('#map_bubble').html(data);

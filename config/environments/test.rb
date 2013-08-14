@@ -13,6 +13,8 @@ Kassi::Application.configure do
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
+  
+  config.log_level = :debug
 
   # Raise exceptions instead of rendering exception templates
   config.action_dispatch.show_exceptions = false
@@ -53,5 +55,7 @@ Kassi::Application.configure do
   
   # Raise exception on mass assignment protection for Active Record models
   config.active_record.mass_assignment_sanitizer = :strict
+  
+  config.cache_store = :memory_store, { :namespace => "sharetribe-test"}
   
 end
