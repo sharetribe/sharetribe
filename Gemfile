@@ -36,7 +36,7 @@ gem 'rest-client', '>= 1.6.0'
 gem 'acts-as-taggable-on'
 gem 'paperclip'
 gem 'delayed_paperclip'
-gem 'aws-sdk', "~>1.9.0"
+gem 'aws-sdk'
 gem "will_paginate"
 gem 'newrelic_rpm', "~>3.6.2.96"
 gem 'dalli'
@@ -67,6 +67,7 @@ gem "truncate_html"
 gem 'money-rails'
 gem 'mercury-rails'
 gem 'fb-channel-file'
+#gem 'mangopay'
 
 #ouisharelabs
 gem 'rdf-turtle'
