@@ -67,7 +67,7 @@ gem "truncate_html"
 gem 'money-rails'
 gem 'mercury-rails'
 gem 'fb-channel-file'
-#gem 'mangopay'
+gem 'mangopay'
 
 #ouisharelabs
 gem 'rdf-turtle'
