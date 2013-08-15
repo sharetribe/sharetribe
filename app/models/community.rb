@@ -20,6 +20,7 @@ class Community < ActiveRecord::Base
   has_many :statistics, :dependent => :destroy
   
   has_and_belongs_to_many :listings
+  has_and_belongs_to_many :payment_gateways
   
   after_create :initialize_settings
   before_destroy :delete_specific_community_categories

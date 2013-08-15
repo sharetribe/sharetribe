@@ -156,6 +156,13 @@ ActiveRecord::Schema.define(:version => 20130917094727) do
   add_index "communities_listings", ["community_id"], :name => "index_communities_listings_on_community_id"
   add_index "communities_listings", ["listing_id", "community_id"], :name => "communities_listings"
 
+  create_table "communities_payment_gateways", :id => false, :force => true do |t|
+    t.integer "community_id"
+    t.integer "payment_gateway_id"
+  end
+
+  add_index "communities_payment_gateways", ["community_id"], :name => "index_communities_payment_gateways_on_community_id"
+
   create_table "community_categories", :force => true do |t|
     t.integer  "community_id"
     t.integer  "category_id"
