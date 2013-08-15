@@ -14,47 +14,7 @@
           .link-text{:id => "#{action}-action-link"}= t(".#{action}_#{@conversation.discussion_type}")
     
     - if @current_community.payment_possible_for?(@conversation.listing)
-      .conversation-price.accept-price{:class => (@action.eql?("accept") ? "" : "hidden")}
-        %h3 Laskutus
-        %p Painaessasi "lähetä" alla oleva lasku lähetetään ostajalle. Ostaja voi maksaa laskun suoraan materiaalipankin järjestelmän kautta. 
-        = fields_for "conversation[payment_attributes]", @payment do |payment_form|
-          = payment_form.hidden_field :community_id, :value => @current_community.id
-          - @payment.initialize_rows(@current_community)
-          .payment-row-headings.bottom-border
-            .payment-row-heading.payment-row-title-heading
-              Tuote
-            .payment-row-heading.payment-row-sum-heading
-              Hinta (alv 0)
-            .payment-row-heading.payment-row-vat-heading
-              Alv
-            .payment-row-heading.payment-row-total-heading
-              Hinta yhteensä
-          - @payment.rows.each_with_index do |row, index|
-            = render :partial => "payments/payment_row", :locals => { :row => row, :index => index, :values => ((index == 0) ? {:title => @conversation.listing.title, :sum => @conversation.listing.price} : {:title => "", :sum => 0})}
-              
-            
-          .payment-row.payment-text-row.bottom-border
-            .payment-row-title-text.payment-row-text
-              Mpankin palvelumaksu
-              (#{@current_community.commission_percentage}%)
-              
-            #service-fee-sum.payment-row-sum-text.payment-row-text
-              
-            #service-fee-vat.payment-row-vat-text.payment-row-text
-              = @current_community.vat if @current_community.vat
-              = "%"
-              
-            #service-fee-total.payment-row-total-text.payment-row-text
-
-          .payment-row.payment-text-row.payment-sum-row
-            .payment-row-title-text.payment-row-text
-              Yhteensä
-              
-            .payment-row-sum-text.payment-row-text
-              
-            .payment-row-vat-text.payment-row-text
-              
-            #total.payment-row-total-text.payment-row-text
+      = render :partial => @current_community.payment_gateways.first.form_template
       
     = fields_for "conversation[message_attributes]", Message.new do |message_form|
       = message_form.label :content, t("conversations.new.message"), :class => "input"
