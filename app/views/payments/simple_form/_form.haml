@@ -1,0 +1,36 @@
+.conversation-price.accept-price{:class => (@action.eql?("accept") ? "" : "hidden")}
+  %h3= t("payments.form.request_payment")
+  %p= t("payments.form.payment_request_instructions")
+  = fields_for "conversation[payment_attributes]", @payment do |payment_form|
+    = payment_form.hidden_field :community_id, :value => @current_community.id
+    - @payment.initialize_rows(@current_community)
+    
+    .payment-row-headings.bottom-border
+      .payment-row-heading.payment-row-title-heading
+        = t("payments.form.product")
+      .payment-row-heading.payment-row-sum-heading
+        = t("payments.form.price") 
+
+    - @payment.rows.each_with_index do |row, index|
+      = render :partial => "payments/simple_form/payment_row", :locals => { :row => row, :index => index, :values => ((index == 0) ? {:title => @conversation.listing.title, :sum => @conversation.listing.price} : {:title => "", :sum => 0})}
+        
+      
+    .payment-row.payment-text-row.bottom-border
+      .payment-row-title-text.payment-row-text
+        = t("payments.form.service_charge")
+        =# t("payments.form.including_tax", :tax_percentage => APP_CONFIG.service_fee_tax_percentage) if APP_CONFIG.service_fee_tax_percentage
+        
+      -#service-fee-sum.payment-row-sum-text.payment-row-text
+
+        
+      #service-fee-total.payment-row-total-text.payment-row-text
+
+    .payment-row.payment-text-row.payment-sum-row
+      .payment-row-title-text.payment-row-text
+        = t("payments.form.total")
+        
+      .payment-row-sum-text.payment-row-text
+        
+      .payment-row-vat-text.payment-row-text
+        
+      #total.payment-row-total-text.payment-row-text

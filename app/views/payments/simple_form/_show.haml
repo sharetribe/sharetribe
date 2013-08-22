@@ -1,0 +1,15 @@
+.payment-row-headings.bottom-border
+  .payment-row-heading.payment-row-title-heading
+    = t("payments.form.product")
+  .payment-row-heading.payment-row-total-heading
+    = t("payments.form.price")
+
+.payment-row.payment-text-row
+  .payment-row-title-text.payment-row-text
+    = @payment.rows.first.title
+    
+  .payment-row-total-text.payment-row-text
+    = @payment.total_sum.to_s + @payment.rows.first.sum_symbol
+  
+  
+= link_to t(".continue_to_pay"), @payment_url
