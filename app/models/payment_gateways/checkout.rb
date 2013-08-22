@@ -39,4 +39,39 @@ class Checkout < PaymentGateway
     return payment_data
     
   end
+  
+  def check_payment(payment, options={})
+    
+    results = {}
+    
+    unless options[:mock]
+      merchant_key = payment.recipient_organization.merchant_key
+    else
+      # Make it possible to demonstrate payment system with mock payments if that's set on in community settings
+      merchant_key = "SAIPPUAKAUPPIAS"
+    end
+    
+    params = options[:params]
+    
+    calculated_mac = Digest::MD5.hexdigest("#{merchant_key}&#{params["VERSION"]}&#{params["STAMP"]}&#{params["REFERENCE"]}&#{params["PAYMENT"]}&#{params["STATUS"]}&#{params["ALGORITHM"]}").upcase
+    
+    if calculated_mac == params["MAC"]  
+      if ["2","5","6","7","8","9","10"].include?(params["STATUS"])
+        results[:status] = "paid"
+        results[:notice] = I18n.t("layouts.notifications.payment_successful")
+      elsif ["3","4"].include?(params["STATUS"])
+        results[:status] = "delayed"
+        results[:notice] = I18n.t("layouts.notifications.payment_waiting_for_later_accomplishment")
+      else
+        results[:status] = "canceled"
+        results[:warning] = I18n.t("layouts.notifications.payment_canceled")
+      end  
+    else # the security check didn't go through
+      results[:status] = "error"
+      results[:error] = I18n.t("layouts.notifications.error_in_payment")
+      ApplicationHelper.send_error_notification("Payment security check failed (CheckoutFI)", "Payment Error", params)   
+    end
+    
+    return results
+  end
 end

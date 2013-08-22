@@ -53,4 +53,9 @@ class Payment < ActiveRecord::Base
     rows.collect(&:title).join(", ")
   end
   
+  def paid!
+    update_attribute(:status, "paid")
+    conversation.paid_by!(payer)
+    Delayed::Job.enqueue(PaymentCreatedJob.new(id, community.id))
+  end
 end
