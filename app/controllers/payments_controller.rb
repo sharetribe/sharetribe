@@ -14,36 +14,32 @@ class PaymentsController < ApplicationController
     @conversation = Conversation.find(params[:message_id])
     @payment = @conversation.payment  #This expects that each conversation already has a (pending) payment at this point
     
-    unless @current_community.settings["mock_cf_payments"]
-      merchant_id = @payment.recipient_organization.merchant_id
-      merchant_key = @payment.recipient_organization.merchant_key
-    else
-      # Make it possible to demonstrate payment system with mock payments if that's set on in community settings
-      merchant_id = "375917"
-      merchant_key = "SAIPPUAKAUPPIAS"
+    return_url = done_person_message_payment_url(:id => @payment.id)
+    
+    @payment_gateway = @current_community.payment_gateways.first
+    if @payment_gateway.class == Checkout
+      @payment_data = @payment_gateway.payment_data(@payment, 
+                  :return_url => return_url,
+                  :cancel_url => new_person_message_payment_url,
+                  :mock => @current_community.settings["mock_cf_payments"])
+      @payment_url = "https://payment.checkout.fi/"
+    elsif @payment_gateway.class == Mangopay
+      contribution = MangoPay::Contribution.create({
+                "UserID" => 497018, 
+                "WalletID" => 497022, 
+                "Amount" => 123, 
+                "ReturnURL" => return_url,
+                "PaymentMethodType" => "cb_visa_mastercard", 
+                "Culture" => "en"
+      })
+      
+      @payment_url = contribution["PaymentURL"]
     end
     
     
-    @payment_data = {
-      "VERSION"   => "0001",
-      "STAMP"     => "sharetribe_#{@payment.id}",
-      "AMOUNT"    => @payment.total_sum.cents,
-      "REFERENCE" => "1009",
-      "MESSAGE"   => @payment.summary_string,
-      "LANGUAGE"  => "FI",
-      "MERCHANT"  => merchant_id,
-      "RETURN"    => done_person_message_payment_url(:id => @payment.id),
-      "CANCEL"    => new_person_message_payment_url,
-      "COUNTRY"   => "FIN",
-      "CURRENCY"  => "EUR",
-      "DEVICE"    => 1,
-      "CONTENT"   => 1,
-      "TYPE"      => 0,
-      "ALGORITHM" => 2,
-      "DELIVERY_DATE" => 2.weeks.from_now.strftime("%Y%m%d")
-    }
-    @payment_data["STAMP"] = Devise.friendly_token if Rails.env.test?
-    @payment_data["MAC"] = Digest::MD5.hexdigest("#{@payment_data['VERSION']}+#{@payment_data['STAMP']}+#{@payment_data['AMOUNT']}+#{@payment_data['REFERENCE']}+#{@payment_data['MESSAGE']}+#{@payment_data['LANGUAGE']}+#{@payment_data['MERCHANT']}+#{@payment_data['RETURN']}+#{@payment_data['CANCEL']}+#{@payment_data['REJECT']}+#{@payment_data['DELAYED']}+#{@payment_data['COUNTRY']}+#{@payment_data['CURRENCY']}+#{@payment_data['DEVICE']}+#{@payment_data['CONTENT']}+#{@payment_data['TYPE']}+#{@payment_data['ALGORITHM']}+#{@payment_data['DELIVERY_DATE']}+#{@payment_data['FIRSTNAME']}+#{@payment_data['FAMILYNAME']}+#{@payment_data['ADDRESS']}+#{@payment_data['POSTCODE']}+#{@payment_data['POSTOFFICE']}+#{merchant_key}").upcase
+    puts "URLI ON #{@payment_url}"
+    #= render :partial => @current_community.payment_gateways.first.form_template
+    
   end
   
   def choose_method

@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_accept_transaction_form(#{@current_community.commission_percentage});
+  initialize_accept_transaction_form(#{@current_community.commission_percentage}, #{APP_CONFIG.service_fee_tax_percentage});
 
 .centered-section-wide.conversation-status-form
   %h2= t(".respond_to_#{@conversation.discussion_type}")
@@ -14,7 +14,7 @@
           .link-text{:id => "#{action}-action-link"}= t(".#{action}_#{@conversation.discussion_type}")
     
     - if @current_community.payment_possible_for?(@conversation.listing)
-      = render :partial => @current_community.payment_gateways.first.form_template
+      = render :partial => @current_community.payment_gateways.first.form_template_dir + "/form"
       
     = fields_for "conversation[message_attributes]", Message.new do |message_form|
       = message_form.label :content, t("conversations.new.message"), :class => "input"
