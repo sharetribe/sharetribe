@@ -36,10 +36,6 @@ class PaymentsController < ApplicationController
       @payment_url = contribution["PaymentURL"]
     end
     
-    
-    puts "URLI ON #{@payment_url}"
-    #= render :partial => @current_community.payment_gateways.first.form_template
-    
   end
   
   def choose_method
@@ -48,35 +44,21 @@ class PaymentsController < ApplicationController
   
   def done
     @payment = Payment.find(params[:id])
+    @payment_gateway = @current_community.payment_gateways.first
     
-    unless @current_community.settings["mock_cf_payments"]
-      merchant_key = @payment.recipient_organization.merchant_key
-    else
-      # Make it possible to demonstrate payment system with mock payments if that's set on in community settings
-      merchant_key = "SAIPPUAKAUPPIAS"
-    end
+    check = @payment_gateway.check_payment(@payment, { :params => params, :mock =>@current_community.settings["mock_cf_payments"]})
     
-    calculated_mac = Digest::MD5.hexdigest("#{merchant_key}&#{params["VERSION"]}&#{params["STAMP"]}&#{params["REFERENCE"]}&#{params["PAYMENT"]}&#{params["STATUS"]}&#{params["ALGORITHM"]}").upcase
-    
-    if calculated_mac == params["MAC"]
-    
-      if ["2","5","6","7","8","9","10"].include?(params["STATUS"])
-        @payment.update_attribute(:status, "paid")
-        @payment.conversation.pay
-        @payment.conversation.messages.create(:sender_id => @payment.payer.id, :action => "pay")
-        Delayed::Job.enqueue(PaymentCreatedJob.new(@payment.id, @current_community.id))
-        flash[:notice] = t("layouts.notifications.payment_successful")
-      elsif ["3","4"].include?(params["STATUS"])
-        flash[:notice] = t("layouts.notifications.payment_waiting_for_later_accomplishment")
-      else
-        flash[:warning] = t("layouts.notifications.payment_canceled")
-      end
-      
-    else # the security check didn't go through
+    if check.nil? || check[:status].blank?
       flash[:error] = t("layouts.notifications.error_in_payment")
-      ApplicationHelper.send_error_notification("Payment security check failed", "Payment Error", params)
-      
+    elsif check[:status] == "paid"
+      @payment.paid!
+      flash[:notice] = check[:notice]
+    else # not yet paid
+      flash[:notice] = check[:notice]
+      flash[:warning] = check[:warning]
+      flash[:error] = check[:error]
     end
+
     redirect_to person_message_path(:id => params[:message_id])
   end
   
