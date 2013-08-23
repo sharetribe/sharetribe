@@ -1,8 +1,5 @@
 = render :partial => "listings/form/javascripts", :locals => { :listing_id => "false" }
 
--# This @community_category variable is used to determine if price is used for this category in this community
-- @community_category = @current_community.community_category(@listing.category.top_level_parent, @listing.share_type)
-
 = form_for @listing, :html => {:multipart => true} do |form|
   - unless @listing.category.name.eql?("rideshare")
     = render :partial => "listings/form/title", :locals => { :form => form }

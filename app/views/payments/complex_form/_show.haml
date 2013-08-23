@@ -34,11 +34,11 @@
   .payment-row-total-text.payment-row-text
     = @payment.total_sum.to_s + @payment.conversation.listing.price_symbol
   
-= form_tag("https://payment.checkout.fi/", :method => "post", :id => "payment_form") do
+= form_tag(@payment_data[:payment_url], :method => "post", :id => "payment_form") do
   .payment-form-field-container
   
     -# Include payment data as hidden fields. The MAC takes care people can't modify values before POST
-    - @payment_data.each do |key, value|
+    - @payment_data[:hidden_fields].each do |key, value|
       = hidden_field_tag key, value
       
   .send-button

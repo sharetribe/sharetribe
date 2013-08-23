@@ -4,6 +4,10 @@ class Checkout < PaymentGateway
     "payments/complex_form"
   end
   
+  def gateway_templates_dir
+    "payments/checkout"
+  end
+  
   def payment_data(payment, options={})
     
     unless options[:mock]
@@ -15,7 +19,7 @@ class Checkout < PaymentGateway
       merchant_key = "SAIPPUAKAUPPIAS"
     end
     
-    payment_data = {
+    data = {
       "VERSION"   => "0001",
       "STAMP"     => "sharetribe_#{payment.id}",
       "AMOUNT"    => payment.total_sum.cents,
@@ -33,10 +37,10 @@ class Checkout < PaymentGateway
       "ALGORITHM" => 2,
       "DELIVERY_DATE" => 2.weeks.from_now.strftime("%Y%m%d")
     }
-    payment_data["STAMP"] = Devise.friendly_token if Rails.env.test?
-    payment_data["MAC"] = Digest::MD5.hexdigest("#{payment_data['VERSION']}+#{payment_data['STAMP']}+#{payment_data['AMOUNT']}+#{payment_data['REFERENCE']}+#{payment_data['MESSAGE']}+#{payment_data['LANGUAGE']}+#{payment_data['MERCHANT']}+#{payment_data['RETURN']}+#{payment_data['CANCEL']}+#{payment_data['REJECT']}+#{payment_data['DELAYED']}+#{payment_data['COUNTRY']}+#{payment_data['CURRENCY']}+#{payment_data['DEVICE']}+#{payment_data['CONTENT']}+#{payment_data['TYPE']}+#{payment_data['ALGORITHM']}+#{payment_data['DELIVERY_DATE']}+#{payment_data['FIRSTNAME']}+#{payment_data['FAMILYNAME']}+#{payment_data['ADDRESS']}+#{payment_data['POSTCODE']}+#{payment_data['POSTOFFICE']}+#{merchant_key}").upcase
+    data["STAMP"] = Devise.friendly_token if Rails.env.test?
+    data["MAC"] = Digest::MD5.hexdigest("#{data['VERSION']}+#{data['STAMP']}+#{data['AMOUNT']}+#{data['REFERENCE']}+#{data['MESSAGE']}+#{data['LANGUAGE']}+#{data['MERCHANT']}+#{data['RETURN']}+#{data['CANCEL']}+#{data['REJECT']}+#{data['DELAYED']}+#{data['COUNTRY']}+#{data['CURRENCY']}+#{data['DEVICE']}+#{data['CONTENT']}+#{data['TYPE']}+#{data['ALGORITHM']}+#{data['DELIVERY_DATE']}+#{data['FIRSTNAME']}+#{data['FAMILYNAME']}+#{data['ADDRESS']}+#{data['POSTCODE']}+#{data['POSTOFFICE']}+#{merchant_key}").upcase
     
-    return payment_data
+    return{:payment_url => "https://payment.checkout.fi/", :hidden_fields => data}
     
   end
   
@@ -74,4 +78,5 @@ class Checkout < PaymentGateway
     
     return results
   end
+  
 end

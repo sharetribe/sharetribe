@@ -710,6 +710,18 @@ class Person < ActiveRecord::Base
     end  
   end
   
+  # This determines if the person has done all needed registrations etc. in order to create paid listing
+  # where he would receive money (in this community)
+  def can_create_paid_listings_at?(community)
+      if community.requires_organization_membership?
+        return self.is_member_of_seller_organization?
+      elsif community.payment_gateways
+        return community.payment_gateways.first.can_receive_payments_for?(self)
+      else
+        return true
+      end
+  end
+  
   
   private
   

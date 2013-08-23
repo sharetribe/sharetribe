@@ -1246,6 +1246,12 @@ en:
       service_charge: "Service charge"
       product: "Product"
       price: "Price"
+      continue_to_pay: "Continue to pay"
+    mangopay:
+      seller_registration_needed:
+        seller_registration_needed: "You can't create a money related listing yet"
+        seller_registration_instructions: "Before you can create a listing which could result in you being paid, you'll need to add few required details to your %{link_to_settings_page}."
+        settings_page_link: "profile"
   people:
     index:
       loading_more_members: "Loading more members"
