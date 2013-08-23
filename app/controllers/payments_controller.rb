@@ -14,27 +14,12 @@ class PaymentsController < ApplicationController
     @conversation = Conversation.find(params[:message_id])
     @payment = @conversation.payment  #This expects that each conversation already has a (pending) payment at this point
     
-    return_url = done_person_message_payment_url(:id => @payment.id)
-    
     @payment_gateway = @current_community.payment_gateways.first
-    if @payment_gateway.class == Checkout
-      @payment_data = @payment_gateway.payment_data(@payment, 
-                  :return_url => return_url,
-                  :cancel_url => new_person_message_payment_url,
-                  :mock => @current_community.settings["mock_cf_payments"])
-      @payment_url = "https://payment.checkout.fi/"
-    elsif @payment_gateway.class == Mangopay
-      contribution = MangoPay::Contribution.create({
-                "UserID" => 497018, 
-                "WalletID" => 497022, 
-                "Amount" => 123, 
-                "ReturnURL" => return_url,
-                "PaymentMethodType" => "cb_visa_mastercard", 
-                "Culture" => "en"
-      })
-      
-      @payment_url = contribution["PaymentURL"]
-    end
+    @payment_data = @payment_gateway.payment_data(@payment, 
+                :return_url => done_person_message_payment_url(:id => @payment.id),
+                :cancel_url => new_person_message_payment_url,
+                :locale => I18n.locale,
+                :mock => @current_community.settings["mock_cf_payments"])
     
   end
   

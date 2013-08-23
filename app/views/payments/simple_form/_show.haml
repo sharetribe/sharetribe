@@ -12,4 +12,4 @@
     = @payment.total_sum.to_s + @payment.rows.first.sum_symbol
   
   
-= link_to t(".continue_to_pay"), @payment_url
+= link_to t("payments.form.continue_to_pay"), @payment_data[:payment_url]

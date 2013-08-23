@@ -1246,6 +1246,12 @@ fi:
       service_charge: "Palvelumaksu"
       product: "Tuote"
       price: "Hinta"
+      continue_to_pay: "Jatka maksamaan"
+    mangopay:
+      seller_registration_needed:
+        seller_registration_needed: "Et voi vielä tehdä rahaan liittyvää ilmoitusta"
+        seller_registration_instructions: "Ennen kuin voit tehdä ilmoituksen, josta joku voisi maksaa sinulle rahaa, sinun täytyy täyttää vielä pari lisätietoa %{link_to_settings_page}."
+        settings_page_link: "profiiliisi"
   people:
     index:
       loading_more_members: "Ladataan lisää jäseniä"
