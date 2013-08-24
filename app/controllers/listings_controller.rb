@@ -114,7 +114,7 @@ class ListingsController < ApplicationController
       @community_category = @current_community.community_category(@listing.category.top_level_parent, @listing.share_type)
       
       # prevent creating sell listings if not registered as seller
-      if @community_category.payment? && ! @current_user.can_create_paid_listings_at?(@current_community)            
+      if @community_category.payment? && @listing.share_type.is_offer? && ! @current_user.can_create_paid_listings_at?(@current_community)            
         render :partial => @current_community.payment_gateways.first.gateway_templates_dir + "/seller_registration_needed"
       else
         render :partial => "listings/form/form_content" 
