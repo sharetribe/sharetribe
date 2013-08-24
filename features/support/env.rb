@@ -14,7 +14,11 @@ include TestHelpers
 Spork.prefork do
   require 'cucumber/rails'
   require 'email_spec/cucumber'
-  reset_categories_to_default
+  
+  # This was earlier a call to "reset_categories_to_default" but as the seeds contain now other stuff too, simply load seeds
+  # It doesn't clear the categories though, so modify this if trouble with custom categories remaining. 
+  load "#{Rails.root}/db/seeds.rb" 
+  
 
   # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
   # order to ease the transition to Capybara we set the default here. If you'd
