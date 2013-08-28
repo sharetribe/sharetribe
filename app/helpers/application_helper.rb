@@ -130,7 +130,9 @@ module ApplicationHelper
       "friend_for_languages_or_games" => "ss-users",
       
       "location" => "ss-location",
-      
+      "offer_job" => "ss-briefcase",
+      "internship" => "ss-users",
+      "volunteering" => "ss-heart"
       
     },
     "font-awesome" => {
