@@ -230,7 +230,7 @@ class PersonMailer < ActionMailer::Base
   
   # Automatic reply to people who try to contact us via Dashboard
   def reply_to_contact_request(email)
-    mail(:to => email, :subject => "Thanks for contacting Sharetribe", :from => "Antti Virolainen <antti@sharetribe.com>") do |format|
+    mail(:to => email, :subject => "Thanks for contacting Sharetribe", :from => "Juho Makkonen <juho@sharetribe.com>") do |format|
       format.html { render :layout => false }
     end
   end
