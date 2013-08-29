@@ -132,7 +132,13 @@ module ApplicationHelper
       "location" => "ss-location",
       "offer_job" => "ss-briefcase",
       "internship" => "ss-users",
-      "volunteering" => "ss-heart"
+      "volunteering" => "ss-heart",
+      
+      "parking" => "ss-garage",
+      "meeting_spot" => "ss-usergroup",
+      "work_spot" => "ss-briefcase",
+      "cars" => "ss-car",
+      "raclette_grill" => "ss-cookingutensils",
       
     },
     "font-awesome" => {
