@@ -5,9 +5,8 @@
   - elsif service_name.casecmp(@current_community.name) != 0
     = "- #{@current_community.name}"
 
-
+%meta{ :name => "keywords", :content => t(".keywords") }
 %meta{ :property => "og:url", :content =>"#{@current_community.full_url}#{request.fullpath}"}
-
 %meta{ :property => "og:image", :content => fb_image}
 
 - if @listing && action_name.eql?("show")
