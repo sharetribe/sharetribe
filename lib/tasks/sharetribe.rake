@@ -11,18 +11,93 @@ namespace :sharetribe do
       spreadsheet = load_spreadsheet(locale)
       puts "Aborting" and return if spreadsheet.nil?
       
-      @community = Community.create(:name => "Demo (#{locale})", :domain => "#{locale}-demo")
-      @community.settings = {"locales"=>["#{locale}"]}
-      @community.save
+      community_sheet = spreadsheet.worksheet "Community"
+      community_name = community_sheet.row(1)[0]
+      community_domain = community_sheet.row(1)[1]
       
+      community = Community.create(:name => community_name, :domain => community_domain  )
+      community.settings = {"locales"=>["#{locale}"]}
+      community.badges_in_use = community_sheet.row(1)[2]
+      community.save
+      
+      load_demo_content(community, spreadsheet)
+      
+      puts "Created '#{community_name}' community at subdomain: #{community_domain}"
+    end
+    
+    desc "removes the content created by the demoscript from the DB. It's based on usernames, so don't use if there's a risk of collisions."
+    task :clear, [:locale] => :environment do |t, args|
+      require 'spreadsheet'
+      locale = args[:locale]
+      
+      
+      spreadsheet = load_spreadsheet(locale)
+      puts "Aborting" and return if spreadsheet.nil?
+      
+      community_sheet = spreadsheet.worksheet "Community"
+      community_domain = community_sheet.row(1)[1]
+      
+      c = Community.find_by_domain(community_domain)
+      c.destroy if c
+      
+      user_sheet = spreadsheet.worksheet "Users"
+      user_sheet.each 1 do |row|
+        if row[4].present?
+          p = Person.find_by_username(row[4])
+          p.destroy if p
+        end
+      end
+    end
+    
+    desc "Empties the demo community and resets the default user's etc."
+    task :reset, [:locale] => :environment do |t, args|
+      require 'spreadsheet'
+      locale = args[:locale]
+      
+      spreadsheet = load_spreadsheet(locale)
+      puts "Aborting" and return if spreadsheet.nil?
+      
+      community_sheet = spreadsheet.worksheet "Community"
+      community_domain = community_sheet.row(1)[1]
+      
+      c = Community.find_by_domain(community_domain)
+      
+      c.community_memberships.destroy_all
+      
+      c.listings.destroy_all
+      
+      user_sheet = spreadsheet.worksheet "Users"
+      user_sheet.each 1 do |row|
+        if row[4].present?
+          p = Person.find_by_username(row[4])
+          p.destroy if p
+        end
+      end
+      
+      load_demo_content(c, spreadsheet)
+      puts "Reloaded #{locale} demo contet to community at subdomain: #{community_domain}"
+    end
+    
+    
+    def load_spreadsheet(locale)
+      demo_data_path = "lib/demos/demo_data.#{locale}.xls"
+      unless  File.exists?(demo_data_path)
+        puts "Could not find #{demo_data_path}"
+        return nil
+      end
+      Spreadsheet.open demo_data_path
+    end
+    
+    def load_demo_content(community, spreadsheet)
       
       user_sheet = spreadsheet.worksheet "Users"
       people_array = [nil]
+      demo_auth_token_created = false
       
       user_sheet.each 1 do |row|
         if row[1].present?
-          @community.location = random_location_around(row[9], "community") unless row[9].blank?
-          @community.save
+          community.location = random_location_around(row[9], "community") unless row[9].blank?
+          community.save
           image_path = "lib/demos/images/#{row[8]}" if row[8].present?
           p = Person.create!(
                  :username =>     row[4].downcase,
@@ -34,11 +109,13 @@ namespace :sharetribe do
                  :description =>  row[7],
                  :location =>     row[9].blank?  ? nil : random_location_around(row[9], "person"),
                  :confirmed_at=>  Time.now,
-                 :communities =>  [@community]                 
+                 :communities =>  [community]                 
           )
           p.update_attribute(:image, File.new(image_path)) if image_path && File.exists?(image_path)
           people_array << p
+          demo_auth_token_created = create_demo_auth_token_for(p) unless demo_auth_token_created 
         end
+        
       end
       
       listings_sheet = spreadsheet.worksheet "Requests and Offers"
@@ -65,8 +142,8 @@ namespace :sharetribe do
                  :destination_loc => row[10].blank? ? nil : random_location_around(row[10], "destination_loc"),
                  :origin =>       row[11].blank? ? nil : row[11],
                  :destination  => row[12].blank? ? nil : row[12],
-                 :valid_until  => 11.months.from_now,
-                 :communities =>  [@community],
+                 :valid_until  => 5.months.from_now,
+                 :communities =>  [community],
                  :listing_images => (image.present? ? [image] : [])     
           )
           listings_array << l
@@ -146,38 +223,10 @@ namespace :sharetribe do
          
          end
       end
-      
-      puts "Created 'Demo (#{locale})' community at subdomain: #{locale}-demo"
     end
     
-    desc "removes the content created by the demoscript from the DB. It's based on usernames, so don't use if there's a risk of collisions."
-    task :clear, [:locale] => :environment do |t, args|
-      require 'spreadsheet'
-      locale = args[:locale]
-      
-      
-      spreadsheet = load_spreadsheet(locale)
-      puts "Aborting" and return if spreadsheet.nil?
-      
-      c = Community.find_by_domain("#{locale}-demo")
-      c.destroy if c
-      
-      user_sheet = spreadsheet.worksheet "Users"
-      user_sheet.each 1 do |row|
-        if row[4].present?
-          p = Person.find_by_username(row[4])
-          p.destroy if p
-        end
-      end
-    end
-    
-    def load_spreadsheet(locale)
-      demo_data_path = "lib/demos/demo_data.#{locale}.xls"
-      unless  File.exists?(demo_data_path)
-        puts "Could not find #{demo_data_path}"
-        return nil
-      end
-      Spreadsheet.open demo_data_path
+    def create_demo_auth_token_for(p)
+      AuthToken.create(:person => p, :expires_at => 1.year.from_now, :token => "demo")
     end
   end
   
