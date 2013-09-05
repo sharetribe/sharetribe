@@ -273,6 +273,8 @@ class ApplicationController < ActionController::Base
       
       #if url had auth param, remove it.
       path_without_auth_token = request.fullpath.gsub(/auth=[^\&]*(\&?)/,"")
+      #if ending now with only a ? remove that too
+      path_without_auth_token = path_without_auth_token.gsub(/\?$/,"")
       redirect_to path_without_auth_token
     end
   end

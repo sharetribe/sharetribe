@@ -113,7 +113,7 @@ namespace :sharetribe do
           )
           p.update_attribute(:image, File.new(image_path)) if image_path && File.exists?(image_path)
           people_array << p
-          demo_auth_token_created = create_demo_auth_token_for(p) unless demo_auth_token_created 
+          demo_auth_token_created = create_demo_auth_token_for(p, community.domain) unless demo_auth_token_created 
         end
         
       end
@@ -225,8 +225,8 @@ namespace :sharetribe do
       end
     end
     
-    def create_demo_auth_token_for(p)
-      AuthToken.create(:person => p, :expires_at => 1.year.from_now, :token => "demo")
+    def create_demo_auth_token_for(p, token)
+      AuthToken.create(:person => p, :expires_at => 1.year.from_now, :token => token)
     end
   end
   
@@ -241,8 +241,9 @@ namespace :sharetribe do
   def random_location_around(coordinate_string, location_type)    
     lat = coordinate_string.split(",")[0].to_f + rand*2*MAX_LOC_DIFF - MAX_LOC_DIFF
     lon =  coordinate_string.split(",")[1].to_f + rand*2*MAX_LOC_DIFF - MAX_LOC_DIFF
+    address = coordinate_string.split(",")[2] || "#{lat},#{lon}"
         
-    Location.new(:latitude =>  lat, :longitude =>  lon, :location_type  => location_type, :address => "#{lat},#{lon}", :google_address => "#{lat},#{lon}")
+    Location.new(:latitude =>  lat, :longitude =>  lon, :location_type  => location_type, :address => address, :google_address => "#{lat},#{lon}")
   end
   
   desc "Generates customized CSS stylesheets for all communities that have customizations"
