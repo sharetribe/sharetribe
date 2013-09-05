@@ -18,10 +18,6 @@
     .wrapper
       .no-tribe-section
         = render :partial => "layouts/notifications"
-        - if @no_tribe_title.eql?("inbox")
-          = render :partial => "layouts/left_hand_navigation", :locals => { :links => inbox_links_for(@current_user) }
-        - elsif @no_tribe_title.eql?("settings")
-          = render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user) }     
         
         = yield
 

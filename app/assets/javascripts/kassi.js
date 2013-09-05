@@ -562,6 +562,10 @@ function style_action_selectors() {
             $(".conversation-price").addClass('hidden');
             $("." + action +  "-price").removeClass('hidden');
             
+            // Show or hide payout details missing information
+            $(".hidden-accept-form").addClass('hidden');
+            $(".visible-when-" + action).removeClass('hidden');
+            
             $(this).addClass(action);
             $(".conversation-action").find('input:radio[id=' + $(this).attr('name') + ']').attr('checked', true);
             $("#conversation_message_attributes_action").val(action);

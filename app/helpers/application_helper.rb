@@ -46,6 +46,9 @@ module ApplicationHelper
       "unlock" => "ss-unlock",
       "edit" => "ss-draw",
       "profile" => "ss-userfile",
+      "payments" => "ss-moneybag",
+      "notification_settings" => "ss-callbell",
+      "account_settings" => "ss-lockfile",
       
       "offer" => "ss-share",
       "request" => "ss-tip",
@@ -691,8 +694,8 @@ module ApplicationHelper
   end
   
   # Settings view left hand navigation content
-  def settings_links_for(person)
-    [
+  def settings_links_for(person, community=nil)
+    links = [
       { 
         :text => t("layouts.settings.profile"),
         :icon_class => icon_class("profile"),  
@@ -701,17 +704,28 @@ module ApplicationHelper
       },
       {
         :text => t("layouts.settings.account"),
-        :icon_class => "ss-lockfile", 
+        :icon_class => icon_class("account_settings"), 
         :path => account_person_settings_path(:person_id => person.id.to_s) ,
         :name => "account"
       },
       {
         :text => t("layouts.settings.notifications"),
-        :icon_class => "ss-callbell", 
+        :icon_class => icon_class("notification_settings"), 
         :path => notifications_person_settings_path(:person_id => person.id.to_s),
         :name => "notifications"
       }
     ]
+    if community && community.payments_in_use?
+      links << {
+        :text => t("layouts.settings.payments"),
+        :icon_class => icon_class("payments"), 
+        :path => payments_person_settings_path(:person_id => person.id.to_s) ,
+        :name => "payments"
+      }
+      
+    end
+    
+    return links
   end
   
   def dashboard_link(args)

@@ -13,25 +13,30 @@
           .link-icon{:class => icon_for("#{action}ed")}
           .link-text{:id => "#{action}-action-link"}= t(".#{action}_#{@conversation.discussion_type}")
     
-    - if @current_community.payment_possible_for?(@conversation.listing)
-      = render :partial => @current_community.payment_gateways.first.form_template_dir + "/form"
-      
-    = fields_for "conversation[message_attributes]", Message.new do |message_form|
-      = message_form.label :content, t("conversations.new.message"), :class => "input"
-      = message_form.text_area :content, :class => "text_area", :placeholder => t(".optional_message")
-      = message_form.hidden_field :sender_id, :value => @current_user.id
-      = message_form.hidden_field :action, :value => @action
+    - if @payout_registration_missing
+      .hidden-accept-form.visible-when-accept{:class => (@action.eql?("accept") ? "" : "hidden")}
+        = t(".you_need_to_fill_payout_details_before_accepting")
     
-    - if @conversation.listing.open?
-      .close-listing-radio-buttons
+    %div{:class => (@payout_registration_missing ? "hidden-accept-form visible-when-reject #{@action.eql?("accept") ? "hidden" : ""}" : "")}
+      - if @current_community.payment_possible_for?(@conversation.listing)
+        = render :partial => @current_community.payment_gateways.first.form_template_dir + "/form"
 
-        .checkbox-container
-          = radio_button_tag "close_listing", true, true, :id => "do_close_listing"
-          = label_tag "do_close_listing", t(".close_listing", :listing_title_link => link_to(@conversation.listing.title, @conversation.listing)).html_safe, :class => "radio"
-
-        .checkbox-container
-          = radio_button_tag "close_listing", false, false, :id => "do_not_close_listing"
-          = label_tag "do_not_close_listing", t(".update_later"), :class => "radio"
+      = fields_for "conversation[message_attributes]", Message.new do |message_form|
+        = message_form.label :content, t("conversations.new.message"), :class => "input"
+        = message_form.text_area :content, :class => "text_area", :placeholder => t(".optional_message")
+        = message_form.hidden_field :sender_id, :value => @current_user.id
+        = message_form.hidden_field :action, :value => @action
     
-    = form.hidden_field :status, :value => "#{@action}ed"
-    = form.button t("conversations.new.send"), :class => "send_button", :id => "send_testimonial_button"
+      - if @conversation.listing.open?
+        .close-listing-radio-buttons
+
+          .checkbox-container
+            = radio_button_tag "close_listing", true, true, :id => "do_close_listing"
+            = label_tag "do_close_listing", t(".close_listing", :listing_title_link => link_to(@conversation.listing.title, @conversation.listing)).html_safe, :class => "radio"
+
+          .checkbox-container
+            = radio_button_tag "close_listing", false, false, :id => "do_not_close_listing"
+            = label_tag "do_not_close_listing", t(".update_later"), :class => "radio"
+    
+      = form.hidden_field :status, :value => "#{@action}ed"
+      = form.button t("conversations.new.send"), :class => "send_button", :id => "send_testimonial_button"
