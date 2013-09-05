@@ -508,6 +508,11 @@ class Community < ActiveRecord::Base
     # is not found with the above search, so then payment is not possible here. (cc must be present)
     payments_in_use && cc.present? && (cc.price || cc.payment)
   end
+  
+  # Does this community require that people have registered payout method before accepting requests
+  def requires_payout_registration?
+    payment_gateways && payment_gateways.first.requires_payout_registration_before_accept?
+  end
 
 
   def community_categories

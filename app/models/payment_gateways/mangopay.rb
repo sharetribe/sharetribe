@@ -43,11 +43,18 @@ class Mangopay < PaymentGateway
   end    
   
   def can_receive_payments_for?(person)
-    return true if person.mangopay_id
+    unless person.mangopay_id
+      #if no MangoPay id yet, try to create if enough data available
+      return false unless register_to_mangopay(person)
+    end
     
-    #if no MangoPay id yet, try to create if enough data available
-    return register_to_mangopay(person)
+    # Then check for payout details as at this point we don't keep money in wallets but payout directly
+    return required_payout_details_present?(person)
+
+  end
   
+  def requires_payout_registration_before_accept?
+    true
   end
   
   private
@@ -76,6 +83,10 @@ class Mangopay < PaymentGateway
     else
       return "en"
     end
+  end
+  
+  def required_payout_details_present?(person)
+    person.bank_account_owner_name && person.bank_account_owner_address && person.iban && person.bic.present?
   end
   
 end

@@ -11,14 +11,12 @@ class SettingsController < ApplicationController
   skip_filter :dashboard_only
   
   def show
-    @no_tribe_title = "settings"
     @selected_left_navi_link = "profile"
     add_location_to_person
     render :action => :profile
   end
   
   def profile
-    @no_tribe_title = "settings"
     @selected_left_navi_link = "profile"
     # This is needed if person doesn't yet have a location
     # Build a new one based on old street address or then empty one.
@@ -26,13 +24,15 @@ class SettingsController < ApplicationController
   end
   
   def account
-    @no_tribe_title = "settings"
     @selected_left_navi_link = "account"
   end
 
   def notifications
-    @no_tribe_title = "settings"
     @selected_left_navi_link = "notifications"
+  end
+  
+  def payments
+    @selected_left_navi_link = "payments"
   end
   
   def unsubscribe

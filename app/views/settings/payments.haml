@@ -1,0 +1,18 @@
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user, @current_community) }
+
+#person_settings_form.left-navi-section.settings-section.account-settings
+  %p
+    = t(".these_settings_are_needed_in_order_to_receive_payments")
+
+  = form_for @person do |form|
+    = form.label :bank_account_owner_name, t(".bank_account_owner_name")
+    = form.text_field :bank_account_owner_name, :class => "text_field", :maxlength => "30", :value => @person.bank_account_owner_name || @person.full_name
+    = form.label :bank_account_owner_address, t(".bank_account_owner_address")
+    = form.text_field :bank_account_owner_address, :class => "text_field", :maxlength => "60", :value => @person.bank_account_owner_address || (@person.location && @person.location.address)
+    = form.label :iban, t(".iban")
+    = form.text_field :iban, :class => "text_field", :maxlength => "22"
+    = form.label :bic, t(".bic")
+    = form.text_field :bic, :class => "text_field", :maxlength => "12"
+    = form.button t("settings.save_information"), :class => "send_button"
+    
+  

@@ -1,7 +1,7 @@
 - content_for :javascript do
   initialize_update_account_info_form("#{I18n.locale}","#{t(".change")}","#{t("common.cancel")}","#{t("people.new.email_is_in_use")}");
 
-= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user) }
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user, @current_community) }
 
 #person_settings_form.left-navi-section.settings-section.account-settings
   -# Username
