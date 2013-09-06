@@ -491,7 +491,7 @@ fi:
       conversation_title: "Viestiketjun otsikko: %{title}"
       view_message: "Näytä viesti"
       has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin %{service_name_inessive}."
-      you_have_a_new_message: "Sinulle on uusi viesti %{service_name_inessive}"
+      you_have_a_new_message: "Sinulle on uusi viesti %{service_name_inessive} käyttäjältä %{sender_name}"
     new_payment:
       new_payment: "Olet saanut uuden maksusuorituksen"
       you_have_received_new_payment: "%{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."

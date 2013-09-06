@@ -43,8 +43,7 @@ class PersonMailer < ActionMailer::Base
     set_up_urls(message.conversation.other_party(message.sender), community, @email_type)
     @message = message
     sending_params = {:to => @recipient.email,
-         :subject => t("emails.new_message.you_have_a_new_message"),
-         :reply_to => APP_CONFIG.sharetribe_mail_from_address,
+         :subject => t("emails.new_message.you_have_a_new_message", :sender_name => message.sender.name(community)),
          :from => community_specific_sender(community)}
     
     mail(sending_params)
