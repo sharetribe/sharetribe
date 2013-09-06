@@ -509,6 +509,7 @@ fi:
     community_updates:
       added_offer: "%{name_link} lisäsi tarjouksen:"
       added_request: "%{name_link} lisäsi pyynnön:"
+      added_listing: "%{name_link} lisäsi ilmoituksen:"
       update_mail_title: "%{title_link} - uusimmat kuulumiset"
       title_link_text: "%{community_name}"
       intro_paragraph: "Tässä poimintoja siitä, mitä yhteisössä %{community_link} on tapahtunut viimeisen %{time_since_last_update} aikana."
