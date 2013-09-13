@@ -866,6 +866,7 @@ fi:
       payment_canceled: "Maksaminen peruutettu"
       error_in_payment: "Virhe maksun käsittelyssä. Jos et maksanut vielä, yritä uudelleen. Jos maksoit, ota yhteys ylläpitoon."
       payment_waiting_for_later_accomplishment: "Muista maksaa maksu tilisiirron tiedoilla. Tämän jälkeen saat kuitin ja tieto maksusta välittyy myyjälle."
+      cannot_receive_payment: "Toisen osapuolen tunnukselle, ei voida tällä hetkellä välittää maksuja. Ole hyvä ja ota yhteys ylläpitoon asian selvittämiseksi."
       password_recovery_sent: "Ohjeet salasanan vaihtamiseen on lähetetty sähköpostiisi."
       person_activated: "Käyttäjä aktivoitu"
       person_deactivated: "Käyttäjä muutettu epäaktiiviseksi"
@@ -914,6 +915,7 @@ fi:
       you_must_log_in_to_view_your_settings: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voit nähdä asetuksesi."
       you_must_log_in_to_add_news_item: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit luoda uuden uutisen."
       you_need_to_confirm_your_account_first: "Sinun täytyy varmistaa sähköpostiosoitteesi ennen kuin voit jatkaa."
+      you_must_fill_all_the_fields: "Kaikki kentät täytyy täyttää"
       you_unfollowed_listing: "Ilmoituksen seuraaminen lopetettu"
       joining_community_failed: "Yhteisöön liittyminen epäonnistui"
     profile_extras_header:

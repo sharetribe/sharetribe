@@ -37,7 +37,7 @@ Feature: Transaction process between two users
     And "kassi_testperson2@example.com" should receive an email
     And I log out
     
-    # Paying
+    # Paying with Checkout
     When I open the email
     And I follow "Pay now" in the email
     And I press "Continue"

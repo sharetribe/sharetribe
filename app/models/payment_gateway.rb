@@ -15,4 +15,17 @@ class PaymentGateway < ActiveRecord::Base
     false
   end
   
+  # this is called after the payment is paid.
+  # some gateways might have actions related to this hook, e.g. instant payout
+  def handle_paid_payment(payment)
+    # nothing to do by default
+  end
+  
+  
+  # this is called after the payout information is entered.
+  # some gateways might have actions related to this hook, e.g. cretating a payout/beneficiary object or checking the validity
+  def register_payout_details(person)
+    # nothing to do by default
+  end
+  
 end
