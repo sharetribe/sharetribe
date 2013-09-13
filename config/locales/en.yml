@@ -865,6 +865,7 @@ en:
       payment_successful: "Payment successful"
       payment_canceled: "Payment cancelled"
       error_in_payment: "Error in payment. If you didn't complete the payment yet, try again. If you did, please send us feedback."
+      cannot_receive_payment: "The other party can't receive the payment due some error. Please contact the administrators to clarify the situation"
       payment_waiting_for_later_accomplishment: "When you have paid, we'll notify the seller and you will get a receipt in email"
       password_recovery_sent: "Instructions to change your password were sent to your email."
       person_activated: "User activated"
@@ -914,6 +915,7 @@ en:
       you_must_log_in_to_view_your_settings: "You must log in to %{service_name} to view your settings."
       you_must_log_in_to_add_news_item: "You must log in to %{service_name} to add a new article."
       you_need_to_confirm_your_account_first: "You need to confirm your email."
+      you_must_fill_all_the_fields: "You must fill all the fields"
       you_unfollowed_listing: "You are no longer following this listing"
       joining_community_failed: "Joining this community failed"
     profile_extras_header:

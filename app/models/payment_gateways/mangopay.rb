@@ -42,6 +42,27 @@ class Mangopay < PaymentGateway
     return results
   end    
   
+  # With MangoPay we do an immediate payout to receivers account
+  def handle_paid_payment(payment)
+    response = MangoPay::Withdrawal.create({
+      'UserID' => payment.recipient.mangopay_id,
+      'WalletID' => 0,
+      'BeneficiaryID' => payment.recipient.mangopay_beneficiary_id,
+      'Amount' => payment.total_sum.cents,
+      'Tag' => payment.id
+    })
+    
+    puts "WITHDRAWAL RESPONSE #{response.inspect}"
+    
+    if response["ErrorCode"]
+      ApplicationHelper.send_error_notification(response["ErrorCode"], "MangopayWithdrawalError", response)
+      return false
+    else
+      return true
+    end
+    
+  end
+  
   def can_receive_payments_for?(person)
     unless person.mangopay_id
       #if no MangoPay id yet, try to create if enough data available
@@ -57,22 +78,49 @@ class Mangopay < PaymentGateway
     true
   end
   
+  def register_payout_details(person)
+    create_mangopay_beneficiary(person)
+  end
+  
   private
   
   def register_to_mangopay(person)
-    u = MangoPay::User.create({
+    response = MangoPay::User.create({
         'Tag' => person.id,
         'Email' => person.email,
         'FistName' => person.given_name,
         'LastName' => person.family_name,
-        'CanRegisterMeanOfPayment' => true
+        'CanRegisterMeanOfPayment' => false
     })
-    if u["ErrorCode"]
+    if response["ErrorCode"]
+      ApplicationHelper.send_error_notification(response["ErrorCode"],"MangopayRegistrationError", response)
       return false
     else
-      person.update_attribute(:mangopay_id, u["ID"]) 
+      person.update_attribute(:mangopay_id, response["ID"]) 
       return true
     end
+  end
+  
+  
+  def create_mangopay_beneficiary(person)
+    response = MangoPay::Beneficiary.create({
+      'BankAccountOwnerName' => person.bank_account_owner_name,
+      'BankAccountOwnerAddress' => person.bank_account_owner_address,
+      'BankAccountIBAN' => person.iban,
+      'BankAccountBIC' => person.bic,
+      'UserID' => person.mangopay_id,
+      'Tag' => person.id
+    })
+    puts "BENEFICIARY RESPONSE #{response.inspect}"
+    if response["ErrorCode"]
+      ApplicationHelper.send_error_notification(response["ErrorCode"],"MangopayBeneficiaryError", response)
+      raise response["UserMessage"]
+      return false
+    else
+      person.update_attribute(:mangopay_beneficiary_id, response["ID"])
+      return true
+    end
+    
   end
   
   # will return the parameter locale if Mangopay supports it
@@ -85,8 +133,10 @@ class Mangopay < PaymentGateway
     end
   end
   
+  # Check that required payout details are present (and creates MangoPay benificiary if needed)
   def required_payout_details_present?(person)
-    person.bank_account_owner_name && person.bank_account_owner_address && person.iban && person.bic.present?
+    return false unless person.bank_account_owner_name && person.bank_account_owner_address && person.iban && person.bic.present?
+    return person.mangopay_beneficiary_id.present? || create_mangopay_beneficiary(person)
   end
   
 end

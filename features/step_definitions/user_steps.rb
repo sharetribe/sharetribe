@@ -60,6 +60,14 @@ Given /^there will be no email returned in my Facebook login$/ do
     })
 end
 
+Given /^"(.*?)" has payout details filled$/ do |username|
+  person = Person.find_by_username(username)
+  person.bank_account_owner_name = person.name
+  person.bank_account_owner_address = "Any street 123"
+  person.iban = "GR16 0110 1250 0000 0001 2300 695"
+  person.bic = "DEUTDEFF500"
+  person.save!
+end
 
 
 Given /^there are following users:$/ do |person_table|
