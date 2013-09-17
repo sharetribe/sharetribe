@@ -197,7 +197,7 @@ GEM
       activesupport (>= 3.0)
       money (~> 5.1.0)
       railties (>= 3.0)
-    multi_json (1.8.0)
+    multi_json (1.7.9)
     multipart-post (1.1.5)
     mysql2 (0.3.11)
     net-scp (1.0.4)
@@ -406,6 +406,7 @@ DEPENDENCIES
   memcachier
   mercury-rails
   money-rails
+  multi_json (~> 1.7.3)
   mysql2
   newrelic_rpm (~> 3.6.2.96)
   omniauth-facebook
