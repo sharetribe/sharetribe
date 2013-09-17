@@ -33,9 +33,9 @@ GEM
     acts-as-taggable-on (2.3.3)
       rails (~> 3.0)
     addressable (2.3.5)
-    airbrake (3.1.6)
+    airbrake (3.1.14)
       builder
-      girl_friday
+      json
     arel (3.0.2)
     asset_sync (1.0.0)
       activemodel
@@ -44,7 +44,7 @@ GEM
       json (~> 1.4)
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
-    bcrypt-ruby (3.0.1)
+    bcrypt-ruby (3.1.2)
     builder (3.0.4)
     capistrano (2.13.5)
       highline
@@ -77,7 +77,6 @@ GEM
       sass (~> 3.1)
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
-    connection_pool (0.9.3)
     cucumber (1.2.1)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.3)
@@ -89,14 +88,14 @@ GEM
       nokogiri (>= 1.5.0)
     dalli (2.6.4)
     database_cleaner (0.9.1)
-    delayed_job (3.0.4)
+    delayed_job (3.0.5)
       activesupport (~> 3.0)
     delayed_job_active_record (0.3.3)
       activerecord (>= 2.1.0, < 4)
       delayed_job (~> 3.0)
     delayed_paperclip (2.6.1)
       paperclip (>= 3.3.0)
-    devise (2.2.3)
+    devise (2.2.7)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (~> 3.1)
@@ -151,9 +150,6 @@ GEM
     fssm (0.2.9)
     gherkin (2.11.5)
       json (>= 1.4.6)
-    girl_friday (0.11.1)
-      connection_pool (~> 0.9.0)
-      rubinius-actor
     guard (1.8.3)
       formatador (>= 0.2.4)
       listen (~> 1.3)
@@ -178,7 +174,7 @@ GEM
     json (1.7.7)
     jwt (0.1.5)
       multi_json (>= 1.0)
-    kgio (2.7.4)
+    kgio (2.8.1)
     launchy (2.1.2)
       addressable (~> 2.3)
     listen (1.3.1)
@@ -211,7 +207,7 @@ GEM
     net-ssh (2.6.2)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
-    newrelic_rpm (3.5.4.34)
+    newrelic_rpm (3.6.2.96)
     nokogiri (1.5.6)
     oauth2 (0.8.0)
       faraday (~> 0.8)
@@ -281,7 +277,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
-    raindrops (0.10.0)
+    raindrops (0.12.0)
     rake (10.1.0)
     rash (0.3.2)
       hashie (~> 1.2.0)
@@ -312,16 +308,13 @@ GEM
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
       rspec-mocks (~> 2.12.0)
-    rubinius-actor (0.0.2)
-      rubinius-core-api
-    rubinius-core-api (0.0.1)
     ruby-hmac (0.4.0)
     ruby-ole (1.2.11.6)
     ruby-prof (0.11.3)
     rubyzip (0.9.9)
     russian (0.6.0)
       i18n (>= 0.5.0)
-    sass (3.2.5)
+    sass (3.2.10)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -361,12 +354,12 @@ GEM
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    unicorn (4.5.0)
+    unicorn (4.6.3)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
     uuidtools (2.1.4)
-    warden (1.2.1)
+    warden (1.2.3)
       rack (>= 1.0)
     web_translate_it (2.0.4)
       json
@@ -383,7 +376,7 @@ PLATFORMS
 DEPENDENCIES
   action_mailer_cache_delivery
   acts-as-taggable-on
-  airbrake
+  airbrake (~> 3.1.12)
   asset_sync
   aws-sdk (~> 1.9.0)
   capistrano
@@ -394,10 +387,10 @@ DEPENDENCIES
   cucumber-rails
   dalli
   database_cleaner
-  delayed_job
+  delayed_job (~> 3.0.5)
   delayed_job_active_record
   delayed_paperclip
-  devise (~> 2.2.3)
+  devise (~> 2.2.4)
   devise-encryptable
   dynamic_form
   email_spec
@@ -408,13 +401,13 @@ DEPENDENCIES
   haml
   jquery-rails
   json (~> 1.7.7)
-  kgio
+  kgio (~> 2.8.0)
   launchy
   memcachier
   mercury-rails
   money-rails
   mysql2
-  newrelic_rpm
+  newrelic_rpm (~> 3.6.2.96)
   omniauth-facebook
   paperclip
   parallel_tests
@@ -432,8 +425,8 @@ DEPENDENCIES
   rspec-rails
   ruby-prof
   russian
-  sass
-  sass-rails (~> 3.2.6)
+  sass (~> 3.2.9)
+  sass-rails
   selenium-webdriver
   spork-rails
   spreadsheet
@@ -441,7 +434,7 @@ DEPENDENCIES
   timecop
   truncate_html
   uglifier
-  unicorn
+  unicorn (~> 4.6.3)
   web_translate_it
   will_paginate
   xpath
