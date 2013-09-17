@@ -509,6 +509,7 @@ el:
     community_updates:
       added_offer: "ο/η %{name_link} πρόσθεσε μια προσφορά:"
       added_request: "ο/η %{name_link} πρόσθεσε ένα αίτημα:"
+      added_listing: ~
       update_mail_title: "Ενημερώσεις από το %{title_link}"
       title_link_text: "%{community_name}"
       intro_paragraph: "Δείτε κάποια από τα νέα του %{community_link} τις τελευταίες %{time_since_last_update}"
