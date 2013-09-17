@@ -491,7 +491,7 @@ fr:
       conversation_title: "Titre du fil de messages : %{title}"
       view_message: "Voir le message"
       has_sent_you_a_message_in_kassi: "%{sender} vous a envoyé un message sur %{service_name}."
-      you_have_a_new_message: "Vous avez un nouveau message sur %{service_name}"
+      you_have_a_new_message: "Vous avez un nouveau message sur %{service_name} de %{sender_name}"
     new_payment:
       new_payment: "Vous avez reçu un nouveau paiement"
       you_have_received_new_payment: "Vous avez été payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> par %{payer_full_name}. Voici votre reçu."
@@ -509,6 +509,7 @@ fr:
     community_updates:
       added_offer: "%{name_link} a ajouté une offre : "
       added_request: "%{name_link} a ajouté une demande : "
+      added_listing: "%{name_link} a ajouté une annonce : "
       update_mail_title: "Actualités de la tribu %{title_link}"
       title_link_text: "%{community_name}"
       intro_paragraph: "Voici une partie de ce qu'il s'est passé dans la tribu %{community_link} depuis %{time_since_last_update}."
