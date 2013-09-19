@@ -491,7 +491,7 @@ en:
       conversation_title: "Message thread title: %{title}"
       view_message: "View message"
       has_sent_you_a_message_in_kassi: "%{sender} has sent you a message in %{service_name}."
-      you_have_a_new_message: "You have a new message in %{service_name}"
+      you_have_a_new_message: "You have a new message in %{service_name} from %{sender_name}"
     new_payment:
       new_payment: "You have received a new payment"
       you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. Here is your receipt."
@@ -509,6 +509,7 @@ en:
     community_updates:
       added_offer: "%{name_link} added an offer:"
       added_request: "%{name_link} added a request:"
+      added_listing: "%{name_link} added a listing:"
       update_mail_title: "%{title_link} community update"
       title_link_text: "%{community_name}"
       intro_paragraph: "Here are some of the things that happened in the %{community_link} during the past %{time_since_last_update}."

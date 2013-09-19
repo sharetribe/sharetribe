@@ -5,9 +5,8 @@
   - elsif service_name.casecmp(@current_community.name) != 0
     = "- #{@current_community.name}"
 
-
+%meta{ :name => "keywords", :content => t(".keywords") }
 %meta{ :property => "og:url", :content =>"#{@current_community.full_url}#{request.fullpath}"}
-
 %meta{ :property => "og:image", :content => fb_image}
 
 - if @listing && action_name.eql?("show")
@@ -18,9 +17,6 @@
   %meta{ :property => "og:title", :content => "#{@current_community.full_name} - #{community_slogan}"}
   %meta{ :property => "og:site_name", :content =>"#{@current_community.full_name}"}
   %meta{ :property => "og:description", :content => community_description(false)}
-
--# Temporary tag for google webmaster site verification
-%meta{ name: "google-site-verification", content: "JUqB3tYmezYEJNAkw8MUdmIocAGztY85eaoNKBD5j0Q"}
 
 /[if lt IE 9]
   = javascript_include_tag "html5shiv-printshiv"

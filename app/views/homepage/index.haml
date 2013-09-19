@@ -15,7 +15,7 @@
       %a.offset-link.map-button.toggle{href: (root + '?map=true'), title: t("homepage.filters.map")}
         = icon_tag("map")
 
-  .feed-filters.toggle-menu-feed-filters
+  .feed-filters.toggle-menu-feed-filters.hidden
     = form_tag({ :action => :index, :controller => :homepage}, :method => "get", :id => "homepage-filters") do
       .feed-search
         %input{name: 'q', id: 'search', value: params[:q], type: 'text', placeholder: t(".what_do_you_need")}

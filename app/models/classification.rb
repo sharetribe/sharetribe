@@ -6,6 +6,9 @@ module Classification
        Rails.cache.fetch("/classification_translations/#{id}/#{I18n.locale}/#{updated_at}") do
         if translation(I18n.locale)
           translation(I18n.locale).name
+        elsif translations.first.present?
+          # if didn't find the correct translation, but find any, use that. It's better than just name string
+          translations.first.name
         else
           name
         end

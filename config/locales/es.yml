@@ -512,6 +512,7 @@ es:
     community_updates:
       added_offer: "%{name_link} añadir una oferta:"
       added_request: "%{name_link} añadir una solicitud:"
+      added_listing: ~
       update_mail_title: "%{title_link} actualización de la comunidad"
       title_link_text: "%{community_name}"
       intro_paragraph: "Aquí están algunos de los sucesos que han ocurrido en la %{community_link} durante el pasado %{time_since_last_update}."
