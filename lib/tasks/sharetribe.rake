@@ -11,16 +11,7 @@ namespace :sharetribe do
       spreadsheet = load_spreadsheet(locale)
       puts "Aborting" and return if spreadsheet.nil?
       
-      community_sheet = spreadsheet.worksheet "Community"
-      community_name = community_sheet.row(1)[0]
-      community_domain = community_sheet.row(1)[1]
-      community_slogan = community_sheet.row(1)[3] if community_sheet.row(1)[3].present?
-      community_description = community_sheet.row(1)[4] if community_sheet.row(1)[4].present?
-      
-      community = Community.create(:name => community_name, :domain => community_domain, :slogan => community_slogan, :description => community_description  )
-      community.settings = {"locales"=>["#{locale}"]}
-      community.badges_in_use = community_sheet.row(1)[2]
-      community.save
+      community = create_community(spreadsheet, locale)
       
       load_demo_content(community, spreadsheet)
       
@@ -75,6 +66,9 @@ namespace :sharetribe do
           p.destroy if p
         end
       end
+      
+      c.destroy
+      c = create_community(spreadsheet, locale)
       
       load_demo_content(c, spreadsheet)
       puts "Reloaded #{locale} demo contet to community at subdomain: #{community_domain}"
@@ -232,6 +226,20 @@ namespace :sharetribe do
     
     def create_demo_auth_token_for(p, token)
       AuthToken.create(:person => p, :expires_at => 1.year.from_now, :token => token)
+    end
+    
+    def create_community(spreadsheet, locale)
+      community_sheet = spreadsheet.worksheet "Community"
+      community_name = community_sheet.row(1)[0]
+      community_domain = community_sheet.row(1)[1]
+      community_slogan = community_sheet.row(1)[3] if community_sheet.row(1)[3].present?
+      community_description = community_sheet.row(1)[4] if community_sheet.row(1)[4].present?
+      
+      community = Community.create(:name => community_name, :domain => community_domain, :slogan => community_slogan, :description => community_description  )
+      community.settings = {"locales"=>["#{locale}"]}
+      community.badges_in_use = community_sheet.row(1)[2]
+      community.save
+      return community
     end
   end
   
