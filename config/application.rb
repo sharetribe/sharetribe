@@ -75,6 +75,7 @@ module Kassi
           ["English UL", "en-ul"],
 
           ["English SB", "en-sb"],
+          ["English", "en-bf"],
           
     ]
 
