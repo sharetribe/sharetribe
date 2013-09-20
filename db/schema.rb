@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130917094727) do
+ActiveRecord::Schema.define(:version => 20130920121927) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(:version => 20130917094727) do
     t.boolean  "only_public_listings",           :default => true
     t.string   "custom_email_from_address"
     t.integer  "minimum_price_cents"
-    t.boolean  "badges_in_use",                  :default => true
+    t.boolean  "badges_in_use",                  :default => false
     t.boolean  "testimonials_in_use",            :default => true
     t.boolean  "hide_expiration_date",           :default => false
     t.string   "facebook_connect_id"
@@ -478,12 +478,6 @@ ActiveRecord::Schema.define(:version => 20130917094727) do
   add_index "participations", ["conversation_id"], :name => "index_participations_on_conversation_id"
   add_index "participations", ["person_id"], :name => "index_participations_on_person_id"
 
-  create_table "payment_gateways", :force => true do |t|
-    t.string   "type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "payment_rows", :force => true do |t|
     t.integer  "payment_id"
     t.integer  "vat"
@@ -548,12 +542,6 @@ ActiveRecord::Schema.define(:version => 20130917094727) do
     t.string   "authentication_token"
     t.datetime "community_updates_last_sent_at"
     t.integer  "min_days_between_community_updates",               :default => 1
-    t.string   "mangopay_id"
-    t.string   "bank_account_owner_name"
-    t.string   "bank_account_owner_address"
-    t.string   "iban"
-    t.string   "bic"
-    t.string   "mangopay_beneficiary_id"
   end
 
   add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true
