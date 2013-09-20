@@ -488,10 +488,14 @@ function initialize_listing_map(community_location_lat, community_location_lon, 
   // infowindow = new google.maps.InfoWindow();
   infowindow = new InfoBubble({
     shadowStyle: 0,
-    borderRadius: 5,
+    borderRadius: 0,
     borderWidth: 1,
     arrowPosition: 30,
-    arrowStyle: 0
+    arrowStyle: 0,
+    padding: 0,
+    maxHeight: 150,
+    maxWidth: 200,
+    hideCloseButton: true
   });
   if ($(window).width() >= 768) {
     infowindow.setMinHeight(235);
@@ -618,6 +622,11 @@ function addListingMarkers() {
           markers.push(marker);
           markersArr.push(marker);
           var ind = i;
+
+          google.maps.event.addListener(map, 'mousedown', function() {
+            infowindow.close();
+          });
+
           google.maps.event.addListener(marker, 'click', function() {
             infowindow.close();
             directionsDisplay.setMap(null);
@@ -626,7 +635,7 @@ function addListingMarkers() {
               showingMarker = "";
             } else {
               showingMarker = marker.getTitle();
-              infowindow.setContent("<div id='map_bubble'><div style='text-align: center; width: 360px; height: 70px; padding-top: 25px;'><img src='https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif'></div></div>");
+              infowindow.setContent("<div id='map_bubble'><div style='text-align: center; width: 360px; height: 70px;'><img src='https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif'></div></div>");
               infowindow.open(map,marker);
               $.get('/' + locale + '/listing_bubble/' + entry["id"], function(data) {
                 $('#map_bubble').html(data);

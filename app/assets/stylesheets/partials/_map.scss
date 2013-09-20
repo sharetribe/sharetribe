@@ -1,0 +1,76 @@
+.bubble-item {
+  > img {
+    width: 250px;
+    height: 150px;
+  }
+}
+
+.bubble-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background-color: white;
+  color: white;
+}
+
+.bubble-title-link {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  color: white;
+  font-size: 18px;
+  vertical-align: bottom;
+}
+
+.bubble-avatar {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+
+  > a > img {
+    height: 30px;
+  }
+}
+
+.bubble-details {
+  float: left;
+  color: $body;
+
+  position: absolute;
+  left: 40px;
+  bottom: 5px;
+  right: 5px;
+  top: 5px;
+  line-height: 1em;
+}
+
+.bubble-created {
+  color: $body;
+  margin: 0px 5px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.bubble-description {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.bubble-author {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.bubble-overlay {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  @include background-image(linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)));
+}
