@@ -76,6 +76,8 @@ module Kassi
 
           ["English SB", "en-sb"],
           
+          ["French BD", "fr-bd"],
+          
     ]
 
     # This is the list o locales avaible for the dashboard and newly created tribes in UI

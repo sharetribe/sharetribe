@@ -19,6 +19,8 @@ I18n.fallbacks.map('de-rc' => 'de')
 
 I18n.fallbacks.map('en-ul' => 'en')
 
+I18n.fallbacks.map('fr-bd' => 'fr')
+
 module I18n
   def self.with_locale(locale, &block)
     orig_locale = self.locale
