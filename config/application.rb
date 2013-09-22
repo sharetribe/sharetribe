@@ -77,7 +77,8 @@ module Kassi
           ["English SB", "en-sb"],
           ["English", "en-bf"],
           
-          ["French BD", "fr-bd"],
+          ["French", "fr-bd"],
+          ["English", "en-bd"]
           
     ]
 
