@@ -1295,6 +1295,9 @@ fr-bd:
       visible_to_everybody: ~
       create_account_with_facebook: ~
       or_create_new_account_without_facebook: ~
+      email_restriction_instructions:
+        one: "Cette tribu est réservée à %{community_name} et aux écoles partenaires. Pour la rejoindre, vous devez fournir votre adresse email d'école."
+        other: "Cette tribu est réservée à %{community_name} et aux écoles partenaires. Pour la rejoindre, vous devez fournir votre adresse email d'école."
     not_member:
       explanation_text: ~
       read_more_about_kassi_communities: ~

@@ -1,4 +1,4 @@
-en-bd:
+en-cf:
   admin:
     communities:
       edit_details:
@@ -1295,9 +1295,6 @@ en-bd:
       visible_to_everybody: ~
       create_account_with_facebook: ~
       or_create_new_account_without_facebook: ~
-      email_restriction_instructions:
-        one: "This community is only for %{community_name} and schools who made a partnership. To join it, please use your school email."
-        other: "This community is only for %{community_name} and schools who made a partnership. To join it, please use your school email."
     not_member:
       explanation_text: ~
       read_more_about_kassi_communities: ~
