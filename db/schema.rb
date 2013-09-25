@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130925071631) do
+ActiveRecord::Schema.define(:version => 20130925081815) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -213,6 +213,10 @@ ActiveRecord::Schema.define(:version => 20130925071631) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "country"
+    t.boolean  "free_plan"
+    t.boolean  "paid_plan"
+    t.string   "marketplace_type"
   end
 
   create_table "conversations", :force => true do |t|

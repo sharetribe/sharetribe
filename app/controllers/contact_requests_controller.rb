@@ -7,7 +7,11 @@ class ContactRequestsController < ApplicationController
     session[:contact_request_sent] = true if @contact_request.save
     PersonMailer.contact_request_notification(@contact_request.email).deliver
     PersonMailer.reply_to_contact_request(@contact_request.email).deliver
-    redirect_to root
+    render edit
+  end
+  
+  def edit
+    
   end
   
 end
