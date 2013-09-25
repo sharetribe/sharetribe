@@ -1,10 +1,19 @@
 .contact-form-container
   - if session[:contact_request_sent]
-    .contacted-notification
-      %h3 Thanks for contacting! We'll be in touch soon.
+    - if session[:contact_request_completed]
+      .contact-request-completed-notification
+        %h3 Thanks for contacting! We'll be in touch soon.
+    - else
+      .complete-contact-request-form
+        %h3 Thanks for contacting! 
+        %p We'll contact you shortly. Meanwhile, we'd like to know a bit more about what you're interested in.
+        = form_for @contact_request, :html => { :id => "new_contact_request_#{prefix}" } do |form|
+          .contact-form-input.contact-form-text-field
+            = form.text_field :email, :placeholder => "Your email", :id => "contact_request_email_#{prefix}"
+          .contact-form-input
+            = form.button "Get started!", :class => "action-button"
   - else
+    - logger.info "Session1: #{session[:contact_request_sent]}"
     = form_for @contact_request, :html => { :id => "new_contact_request_#{prefix}" } do |form|
-      .contact-form-input.contact-form-text-field
-        = form.text_field :email, :placeholder => "Your email", :id => "contact_request_email_#{prefix}"
-      .contact-form-input
-        = form.button "Get started!", :class => "action-button"
+      = country_select("contact_request", "country")
+      = form.button "Send", :class => "action-button"

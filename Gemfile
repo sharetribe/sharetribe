@@ -67,6 +67,7 @@ gem "truncate_html"
 gem 'money-rails'
 gem 'mercury-rails'
 gem 'fb-channel-file'
+gem 'country_select'
 
 #ouisharelabs
 gem 'rdf-turtle'

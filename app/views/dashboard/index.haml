@@ -6,11 +6,12 @@
     %figure.network-cover.fluidratio
   .wrapper
     .lander-content
-      %h1 Create a marketplace.
-      %p 
-        Let your community sell, rent, swap and
-        %br/ 
-        share goods and services online.
+      - unless session[:contact_request_sent] || session[:contact_request_completed]
+        %h1 Create a marketplace.
+        %p.lander-description
+          Let your community sell, rent, swap and
+          %br/ 
+          share goods and services online.
       = render :partial => "contact_request_form", :locals => { :prefix => "top" }
 
 %section.about{:id => "about"}

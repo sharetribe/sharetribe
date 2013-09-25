@@ -3928,7 +3928,7 @@ section.lander, section.create-now {
     }
   }
   
-  p {
+  p.lander-description {
     margin-top: lines(1);
     color: $background;
     @include normal-type;
@@ -3945,7 +3945,7 @@ section.lander, section.create-now {
     display: inline;
   }
   
-  .contacted-notification {
+  .contact-request-completed-notification {
     background: rgba($background, 0.75);
     padding: lines(0.5) lines(1);
     width: auto;
@@ -3955,6 +3955,27 @@ section.lander, section.create-now {
       color: $body;
     }
     margin: lines(1) 0 lines(2) 0;
+    
+    @include media(tablet) {
+      width: auto;
+    }
+  }
+  
+  .complete-contact-request-form {
+    background: rgba($background, 0.75);
+    padding: lines(1) lines(2);
+    width: auto;
+    display: inline-block;
+    @include border-radius(em(5));
+    h3 {
+      color: $body;
+      text-align: left;
+    }
+    p {
+      text-align: left;
+    }
+    margin: lines(1) 0 lines(2) 0;
+    max-width: lines(16);
     
     @include media(tablet) {
       width: auto;
