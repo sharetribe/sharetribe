@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130920121927) do
+ActiveRecord::Schema.define(:version => 20130925071631) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(:version => 20130920121927) do
     t.string   "google_analytics_key"
     t.string   "favicon_url"
     t.string   "name_display_type",              :default => "first_name_with_initial"
+    t.string   "twitter_handle"
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
@@ -155,6 +156,13 @@ ActiveRecord::Schema.define(:version => 20130920121927) do
 
   add_index "communities_listings", ["community_id"], :name => "index_communities_listings_on_community_id"
   add_index "communities_listings", ["listing_id", "community_id"], :name => "communities_listings"
+
+  create_table "communities_payment_gateways", :id => false, :force => true do |t|
+    t.integer "community_id"
+    t.integer "payment_gateway_id"
+  end
+
+  add_index "communities_payment_gateways", ["community_id"], :name => "index_communities_payment_gateways_on_community_id"
 
   create_table "community_categories", :force => true do |t|
     t.integer  "community_id"
@@ -478,6 +486,12 @@ ActiveRecord::Schema.define(:version => 20130920121927) do
   add_index "participations", ["conversation_id"], :name => "index_participations_on_conversation_id"
   add_index "participations", ["person_id"], :name => "index_participations_on_person_id"
 
+  create_table "payment_gateways", :force => true do |t|
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "payment_rows", :force => true do |t|
     t.integer  "payment_id"
     t.integer  "vat"
@@ -542,6 +556,12 @@ ActiveRecord::Schema.define(:version => 20130920121927) do
     t.string   "authentication_token"
     t.datetime "community_updates_last_sent_at"
     t.integer  "min_days_between_community_updates",               :default => 1
+    t.string   "mangopay_id"
+    t.string   "bank_account_owner_name"
+    t.string   "bank_account_owner_address"
+    t.string   "iban"
+    t.string   "bic"
+    t.string   "mangopay_beneficiary_id"
   end
 
   add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true

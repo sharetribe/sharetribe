@@ -70,7 +70,7 @@
           .fb-like-container
             = facebook_like(current_user?(@listing.author))
           .tweet-button-container
-            = link_to("", "https://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => "Sharetribe")
+            = link_to("", "https://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => (@current_community.twitter_handle || "Sharetribe"))
             %script{:type => "text/javascript", :src => "https://platform.twitter.com/widgets.js"}
 
       - if @listing.has_organization_in?(@current_community)
