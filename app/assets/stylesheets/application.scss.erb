@@ -3671,6 +3671,34 @@ a.lightbox-x {
 /* Colors */
 $red: #ff5840;
 $light_grey: #fdfbfb;
+$green: #00a26c;
+
+@mixin action-button($color) {
+  @include box-sizing(border-box);
+  @include border-radius(em(5));
+  @include normal-type;
+  
+  color: $background;
+  background: $color;
+  border: 3px solid darken($color, 25%);
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  vertical-align: top;
+  padding: em(8) em(13) em(11) em(13);
+  
+  &:hover { 
+    background: darken($color, 15%);
+    color: $background;
+    border-color: darken($color, 35%); 
+  };
+  
+  @include media(tablet) {
+    @include big-type;
+    padding: em(11) em(16) em(14) em(16);
+    width: auto;
+  }
+}
 
 .mobile {
   display: block;
@@ -3946,25 +3974,10 @@ section.lander, section.create-now {
   }
   
   button.action-button {
-    color: $background;
-    background: $red;
-    
-    @include box-sizing(border-box);
-    @include border-radius(em(5));
-    @include normal-type;
-    border: 3px solid darken($red, 25%);
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    
-    vertical-align: top;
-    padding: em(8) em(13) em(11) em(13);  
-
-    &:hover { 
-      background: darken($red, 15%);
-      color: $background;
-      border-color: darken($red, 35%); 
-    };
+    @include action-button($red);
+    @include media(tablet) {
+      margin: 0 0 0 lines(0.5);
+    }
   }
   
   @include media(tablet) {
@@ -4001,13 +4014,6 @@ section.lander, section.create-now {
       width: lines(21);
       margin: lines(0.5) auto;
       padding: em(10) em(15) em(15) em(15);
-    }
-    
-    button.action-button {
-      @include big-type;
-      padding: em(11) em(16) em(14) em(16);
-      width: auto;
-      margin: 0 0 0 lines(0.5);
     }
     
   }
@@ -4052,6 +4058,27 @@ section.about, section.how-it-works, section.create-now {
     @include normal-type;
     font-weight: 600;
     color: $body;
+  }
+  
+  .view-demo {
+    
+    .action-button {
+      @include action-button($green);
+      border-color: darken($green, 15%); 
+
+      &:hover { 
+        background: darken($green, 5%);
+        border-color: darken($green, 25%); 
+      };
+      
+      @include media(tablet) {
+        padding: em(11) em(20) em(14) em(20);
+      }
+    }
+    
+    @include media(tablet) {
+      margin: lines(4) 0 0 0;
+    }
   }
   
   @include media(tablet) {

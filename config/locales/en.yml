@@ -78,8 +78,8 @@ en:
         edit_poll: "Edit poll"
   common:
     edit_page: "Edit page"
-    default_community_slogan: "Lend, sell, help, share"
-    default_community_description: "%{service_name} is a place where the members of our community can share goods, services, rides, and spaces."
+    default_community_slogan: "Community marketplace"
+    default_community_description: "This is a place to sell, rent, swap and share goods and services with the other members of the community."
     cancel: Cancel
     fields_that_are_mandatory: "Fields marked with star (*) are mandatory."
     or: or
@@ -744,7 +744,7 @@ en:
   infos:
     about:
       default_about_text_title: "What is Sharetribe?"
-      default_about_text: "This website was created using the Sharetribe platform. With Sharetribe, anyone can create their own community marketplace. Would you like to create a site like this for your community? It's free and only takes a minute. %{click_here_link} to learn more!"
+      default_about_text: "This marketplace is powered by Sharetribe platform. With Sharetribe you can easily create your own marketplace website. It's free and only takes a minute. %{click_here_link} to learn more!"
       click_here_link_text: "Click here"
   layouts:
     no_tribe:
