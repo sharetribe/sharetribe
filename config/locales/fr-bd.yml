@@ -787,11 +787,11 @@ fr-bd:
       title: ~
     infos:
       about: ~
-      how_to_use: ~
+      how_to_use: "Comment ça marche"
       info_about_kassi: ~
       news: ~
-      register_details: ~
-      terms: ~
+      register_details: "Notre vision"
+      terms: "CGU et mentions légales"
     logged_in:
       admin: ~
       go_to_your_profile_page: ~
@@ -905,14 +905,14 @@ fr-bd:
       you_must_log_in_to_create_new_listing: ~
       additional_email_confirmed_dashboard: ~
       you_must_log_in_to_give_feedback: ~
-      you_must_log_in_to_invite_new_users: ~
+      you_must_log_in_to_invite_new_users: "Vous devez vous connecter pour pouvoir inviter de nouveaux utilisateurs sur %{service_name}"
       you_must_log_in_to_send_a_comment: ~
       you_must_log_in_to_send_a_message: ~
       you_must_log_in_to_view_this_content: ~
       you_must_log_in_to_view_this_page: ~
       you_must_log_in_to_view_your_inbox: ~
       you_must_log_in_to_view_your_settings: ~
-      you_must_log_in_to_add_news_item: ~
+      you_must_log_in_to_add_news_item: "Vous devez vous connecter à %{service_name} pour ajouter une nouvelle annonce."
       you_need_to_confirm_your_account_first: ~
       you_unfollowed_listing: ~
       joining_community_failed: ~
