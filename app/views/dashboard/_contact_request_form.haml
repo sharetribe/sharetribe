@@ -11,7 +11,7 @@
         
           -# Country
           = form.label :country, "Where do you come from?"
-          = localized_country_select :contact_request, :country, ["FI", "FR", "US"], {:include_blank => 'Please choose your country'}
+          = localized_country_select :contact_request, :country, CountryManager.countries, {:include_blank => 'Please choose your country'}
           
           -# Marketplace type
           = form.label :plan_type, "What kind of marketplace do you need?"
