@@ -1,6 +1,13 @@
 %p New contact request:
 
-%p Email: #{@email}
+%p 
+  Email: #{@contact_request.email}
+  %br/
+  Country: #{CountrySelect::COUNTRIES[@contact_request.country.downcase]}
+  %br/
+  Plan type: #{@contact_request.plan_type}
+  %br/
+  Marketplace type: #{@contact_request.marketplace_type}
 
 %p
   Cheers,

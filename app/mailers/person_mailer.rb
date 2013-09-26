@@ -219,17 +219,22 @@ class PersonMailer < ActionMailer::Base
   
   # Used to send notification to admins when somebody
   # wants to contact them through the form in the network page
-  def contact_request_notification(email)
-    @email = email
-    subject = "New contact request by #{email}"
+  def contact_request_notification(contact_request)
+    @contact_request = contact_request
+    subject = "New contact request by #{@contact_request.email}"
     mail(:to => APP_CONFIG.feedback_mailer_recipients, :subject => subject) do |format|
       format.html {render :layout => false }
     end
   end
   
   # Automatic reply to people who try to contact us via Dashboard
-  def reply_to_contact_request(email)
-    mail(:to => email, :subject => "Thanks for contacting Sharetribe", :from => "Juho Makkonen <juho@sharetribe.com>") do |format|
+  def reply_to_contact_request(contact_request)
+    @contact_request = contact_request
+    @country_manager = CountryManager.find_by_country(@contact_request.country) || CountryManager.find_by_country("global")
+    #@country_manager ||= CountryManager.find_by_country("global")
+    set_locale @country_manager.locale
+    email_from = "#{@country_manager.given_name} #{@country_manager.family_name} <#{@country_manager.email}>"
+    mail(:to => @contact_request.email, :subject => "Thanks for contacting Sharetribe", :from => email_from) do |format|
       format.html { render :layout => false }
     end
   end

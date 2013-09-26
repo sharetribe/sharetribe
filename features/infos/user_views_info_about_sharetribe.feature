@@ -7,7 +7,7 @@ Feature: User views info about sharetribe
   Scenario: User views about page
     Given I am on the home page
     When I follow "About"
-    Then I should see "This website was created using the Sharetribe platform." within ".about-section"
+    Then I should see "This marketplace is powered by Sharetribe platform." within ".about-section"
     And I should see "About" within ".left-navi"
     And I should see "About" within ".selected.left-navi-link"
     And I should see "Terms of use"

@@ -13,15 +13,10 @@
 %p  
   Best Regards,
   %br/
-  Juho 
+  = @country_manager.given_name
 
 %p
   #{"-- "}
   %br/
-  Juho Makkonen
-  %br/
-  CEO & Co-Founder, Sharetribe
-  %br/
-  juho@sharetribe.com
-  %br/
-  http://www.sharetribe.com
+  - text_with_line_breaks_for_email do 
+    = @country_manager.email_signature

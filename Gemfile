@@ -68,6 +68,7 @@ gem 'money-rails'
 gem 'mercury-rails'
 gem 'fb-channel-file'
 gem 'country_select'
+gem 'localized_country_select', '>= 0.9.3'
 
 #ouisharelabs
 gem 'rdf-turtle'

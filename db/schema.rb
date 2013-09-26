@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130925081815) do
+ActiveRecord::Schema.define(:version => 20130926070322) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -214,8 +214,7 @@ ActiveRecord::Schema.define(:version => 20130925081815) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "country"
-    t.boolean  "free_plan"
-    t.boolean  "paid_plan"
+    t.string   "plan_type"
     t.string   "marketplace_type"
   end
 
@@ -227,6 +226,17 @@ ActiveRecord::Schema.define(:version => 20130925081815) do
     t.string   "status",          :default => "pending"
     t.datetime "last_message_at"
     t.integer  "community_id"
+  end
+
+  create_table "country_managers", :force => true do |t|
+    t.string   "given_name"
+    t.string   "family_name"
+    t.string   "email"
+    t.string   "country"
+    t.string   "locale"
+    t.text     "email_signature"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "delayed_jobs", :force => true do |t|

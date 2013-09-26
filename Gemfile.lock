@@ -165,6 +165,7 @@ GEM
     hashie (1.2.0)
     highline (1.6.15)
     hike (1.2.3)
+    hpricot (0.8.6)
     http_parser.rb (0.5.3)
     httpauth (0.2.0)
     i18n (0.6.1)
@@ -182,6 +183,9 @@ GEM
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
       rb-kqueue (>= 0.2)
+    localized_country_select (0.9.3)
+      actionpack (>= 3.0)
+      hpricot
     lumberjack (1.0.4)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -405,6 +409,7 @@ DEPENDENCIES
   json (~> 1.7.7)
   kgio (~> 2.8.0)
   launchy
+  localized_country_select (>= 0.9.3)
   memcachier
   mercury-rails
   money-rails

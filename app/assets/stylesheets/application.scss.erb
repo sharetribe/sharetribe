@@ -3937,7 +3937,18 @@ section.lander, section.create-now {
   }
   
   .contact-form-container {
-    margin-top: lines(1.5);
+    h3 {
+      @include big-type;
+      margin-bottom: lines(0.5);
+    }
+  }
+  
+  .contact-form {
+    margin-top: lines(2.5);
+  }
+  
+  .lander-contact-form {
+    top: lines(-23);
   }
 
   .contact-form-input {
@@ -3947,38 +3958,52 @@ section.lander, section.create-now {
   
   .contact-request-completed-notification {
     background: rgba($background, 0.75);
-    padding: lines(0.5) lines(1);
+    padding: lines(1) lines(2) lines(0.5) lines(2);
     width: auto;
     display: inline-block;
     @include border-radius(em(5));
     h3 {
       color: $body;
     }
-    margin: lines(1) 0 lines(2) 0;
+    margin: lines(2) 0 lines(2) 0;
     
     @include media(tablet) {
       width: auto;
+      margin: lines(8) 0 lines(2) 0;
     }
   }
   
   .complete-contact-request-form {
     background: rgba($background, 0.75);
-    padding: lines(1) lines(2);
+    padding: lines(0.5) lines(0.75);
     width: auto;
     display: inline-block;
     @include border-radius(em(5));
+    text-align: left;
     h3 {
       color: $body;
       text-align: left;
+      @include normal-type;
     }
     p {
       text-align: left;
+      @include small-type;
     }
+    label, input, select, button {
+      @include small-type;
+    }
+    
     margin: lines(1) 0 lines(2) 0;
-    max-width: lines(16);
     
     @include media(tablet) {
-      width: auto;
+      padding: lines(1.5) lines(2);
+      max-width: lines(16);
+      h3 {
+        @include big-type;
+      }
+      p, label, input, select, button {
+        @include normal-type;
+      }
     }
   }
   
@@ -4001,14 +4026,23 @@ section.lander, section.create-now {
     }
   }
   
-  @include media(tablet) {
+  button.small-action-button {
+    @include action-button($red);
     
-    .contact-form-container {
-      margin-top: lines(2.5);
+    @include media(tablet) {
+      @include normal-type;
+      padding: em(6) em(20) em(9) em(20);
     }
+  }
+  
+  @include media(tablet) {
     
     .lander-content {
       top: lines(-27);
+    }
+    
+    .lander-contact-form {
+      top: lines(-30);
     }
     
     h1 {
@@ -4016,7 +4050,7 @@ section.lander, section.create-now {
       line-height: em(15);
     }
     
-    p {
+    p.lander-description {
       @include large-type;
     }
     
@@ -4035,6 +4069,14 @@ section.lander, section.create-now {
       width: lines(21);
       margin: lines(0.5) auto;
       padding: em(10) em(15) em(15) em(15);
+    }
+    
+    .complete-contact-request-form {
+      label.error {
+        width: 100%;
+        font-weight: normal;
+        padding: em(5) em(10) em(10) em(10);
+      }
     }
     
   }
