@@ -78,8 +78,8 @@ fr:
         edit_poll: "Editer le sondage"
   common:
     edit_page: "Modifier la page"
-    default_community_slogan: "Prêter, aider, partager"
-    default_community_description: "%{service_name} est service sur lequel les membres des tribus auxquelles vous appartenez peuvent partager des objets, des services, des covoiturages et des lieux. Sans tarder, dites aux autres ce que vous proposez et recevez de l'aide quand vous en avez besoin."
+    default_community_slogan: "Votre place de marché"
+    default_community_description: "Ce lieu vous permet de vendre, louer, échanger et partager des biens et services avec les autres membres de cette tribu."
     cancel: Annuler
     fields_that_are_mandatory: "Les champs marqués d'un astérisque (*) sont obligatoires."
     or: ou
@@ -744,7 +744,7 @@ fr:
   infos:
     about:
       default_about_text_title: "Qu'est ce que Sharetribe ?"
-      default_about_text: "Ce site a été créé grâce à la plate-forme Sharetribe. Avec Sharetribe, chacun peut créer sa propre place de marché pour sa tribu. Aimeriez-vous créer un site comme celui-ci pour votre communauté ? C'est gratuit et cela ne prend que quelques minutes. %{click_here_link} pour en savoir plus !"
+      default_about_text: "Cette place de marché a été créé grâce à la plate-forme Sharetribe. Avec Sharetribe, vous pouvez facilement créer votre place de marché en ligne. C'est gratuit et ne prend que quelques minutes ! %{click_here_link} pour en savoir plus !"
       click_here_link_text: "Cliquez ici"
   layouts:
     no_tribe:

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130926070322) do
+ActiveRecord::Schema.define(:version => 20130926121237) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -234,9 +234,10 @@ ActiveRecord::Schema.define(:version => 20130926070322) do
     t.string   "email"
     t.string   "country"
     t.string   "locale"
-    t.text     "email_signature"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "subject_line"
+    t.text     "email_content"
   end
 
   create_table "delayed_jobs", :force => true do |t|
