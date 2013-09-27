@@ -597,31 +597,6 @@ label.error {
   ------------------------
 */
 
-.global-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  border: 0;
-  background: $background;
-  @include box-shadow(rgba(0,0,0,0.2) 0 em(2) em(5));
-  width: 100%;
-  z-index: 10000;
-
-  .wrapper {
-    border: none;
-  }
-  
-  @include media(tablet) {
-    position: fixed;
-  }
-  .empty-header {
-    margin: 0 0;
-    padding: lines(0.5) lines(2.5) lines(0.5) lines(1.75);
-    position: relative;
-    max-width: lines(100);
-  }
-}
-
 .select-tribe {
   margin: 0 0;
   padding: lines(0.5) lines(2.5) lines(0.5) lines(1.75);
@@ -1090,230 +1065,13 @@ label.error {
   
 }
 
-
 /*
   ------------
   Tribe header
   ------------
 */
 
-.tribe-header {
-  position: relative;
-  padding-top: em(47);
-}
 
-.coverimage {
-  max-width: em(1600);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Calculate fluid ratio based on two dimensions (width/height) */
-@mixin fluid-ratio($large-size, $small-size) {
-  $width-large: nth($large-size, 1);
-  $width-small: nth($small-size, 1);
-  $height-large: nth($large-size, 2);
-  $height-small: nth($small-size, 2);
-  $slope: ($height-large - $height-small) / ($width-large - $width-small);
-  $height: $height-small - $width-small * $slope;
-
-  padding-top: $slope * 100%;
-  height: $height;
-
-  background-size: cover;
-  -moz-background-size: cover;  /* Firefox 3.6 */
-  background-position: center;  /* Internet Explorer 7/8 */
-}
-
-figure.fluidratio {
-  display: block;
-  height: lines(4.3);
-  background-size: cover;
-  -moz-background-size: cover;  /* Firefox 3.6 */
-  background-position: center;  /* Internet Explorer 7/8 */
-  background-position: center center;
-  
-  @include media(tablet) {
-    /* This element will have fluid ratio from 4:1 at 1600px to 2:1 at 300px. */
-    @include fluid-ratio(em(1600) em(195), em(300) em(195));
-  }
-}
-
-figure.tribe-cover {
-  background-image: image-url($cover-photo-url);
-}
-
-.cover-image {
-  position: relative;
-  
-  img {
-    width: 100%;
-    max-height: lines(20);
-    display: block;
-  }
-  
-}
-  
-.tribe-logo {
-  width: lines(3);
-  height: lines(3);
-  padding: lines(0.2);
-  background: $background;
-  position: absolute;
-  left: lines(0.5);
-  top: lines(-3.85);
-  z-index: 900;
-  @include border-radius(em(5));
-  box-shadow: none;
-  
-  img {
-    width: 100%;
-    height: 100%;
-    background: grey;
-    @include border-radius(em(5));
-  }
-  
-  @include media(tablet) {
-    @include box-shadow(rgba(0,0,0,0.2) 0 0 em(3) em(2));
-    top: lines(-6.7 - 0.25);
-    left: lines(0);
-    width: lines(8);
-    height: lines(8);
-    padding: lines(0.75);
-  }
-}
-
-.tribe-intro {
-  padding: lines(0.55) lines(0.75);
-  background: $emphasis;
-  background-color: transparentize($emphasis, 0.25);
-  position: absolute;
-  left: lines(4.3); top: lines(-3.85); right: lines(0.5);
-  margin-bottom: lines(1);
-  z-index: 900;
-  @include border-radius(em(5));
-  
-  h1 {
-    color: $background;
-    font-weight: 500;
-    @include small-type;
-  }
-  
-  a {
-    color: lighten($link2, 20%);
-    &:hover { color: lighten($link2, 30%); }
-    &:after { content: "→"; }
-  }
-  
-  p {
-    color: $background;
-    max-width: lines(17);
-    @include normal-type;
-    display: none;
-  }
-  
-  @include media(tablet) {
-    padding: lines(0.55) lines(1);
-    margin-right: 0;
-    margin-bottom: 0;
-    top: lines(-6.7 - 0.25);
-    width: lines(17.5);
-    height: lines(4.9);
-    left: lines(10.5);
-    display: block;
-    .intro-wrapper {
-      height: lines(4.8);
-      overflow: auto;
-    }
-    h1 {
-      @include large-type;
-      font-weight: 600;
-      margin-bottom: em(1);
-      line-height: em(20);
-    }
-    p {
-      display: block;
-    }
-    a, span {
-      display: inline;
-    }
-  }
-}
-
-.join-action-buttons {
-  position: absolute;
-  left: lines(31);
-  top: lines(-7) + em(1);
-  padding: lines(0.9) lines(0.95) lines(0.8) lines(0.95);
-  background: $emphasis;
-  background-color: transparentize($emphasis, 0.35);
-  @include border-radius(em(5));
-  display: none;
-  color: $background;
-  text-align: center;
-  height: lines(4.25);
-  a.regular-link {
-    display: inline;
-    padding-top: lines(0.5); 
-    color: lighten($link2, 20%);
-    &:hover { color: lighten($link2, 30%); }
-  }
-  .intro-button {
-    @include big-button;
-    width: 100%;
-    display: block;
-    margin: 0;
-  }
-  @include media(desktop) {
-    display: block;
-    width: lines(9) + em(2);
-  }
-  
-  a.fb-connect {
-    @include facebook-connect-button;
-    padding: em(10) em(5) em(6) em(10);
-    width: 100%;
-  }
-  small {
-    margin-top: lines(0.25);
-  }
-  
-}
-
-.actions-menu {
-  position: relative;
-  @include clearfix;
-  
-  // Right-aligned links
-  .offset-link {
-    display: block;
-    float: right;
-    text-align: center;
-    color: $body;
-    height: lines(1);
-    min-width: lines(1);
-    overflow: hidden;
-    padding: lines(0.5);
-    &:hover { color: $link; }
-  }
-  
-  @include media(tablet) {
-    a {
-      padding: em(9) lines(0.8) em(11) lines(0.8);
-    }
-  }
-
-}
-
-.tribe-navigation {
-  position: relative;
-  background: $link;
-  @include box-shadow(rgba(0,0,0,0.2) 0 em(-3) em(2) em(1));
-  z-index: 600;
-  @include media(tablet) {
-    margin-bottom: lines(1.25);
-  }
-}
 
 .tribe-actions { 
   
@@ -3551,13 +3309,10 @@ a.lightbox-x {
 }
 
 
-
-
-
 /*
-  -----------------------------------
-  Tribe network
-  -----------------------------------
+  --------------------------
+  Common stuff (new layout)
+  --------------------------
 */
 
 /* Colors */
@@ -3592,6 +3347,32 @@ $green: #00a26c;
   }
 }
 
+/* Calculate fluid ratio based on two dimensions (width/height) */
+@mixin fluid-ratio($large-size, $small-size) {
+  $width-large: nth($large-size, 1);
+  $width-small: nth($small-size, 1);
+  $height-large: nth($large-size, 2);
+  $height-small: nth($small-size, 2);
+  $slope: ($height-large - $height-small) / ($width-large - $width-small);
+  $height: $height-small - $width-small * $slope;
+
+  padding-top: $slope * 100%;
+  height: $height;
+
+  background-size: cover;
+  -moz-background-size: cover;  /* Firefox 3.6 */
+  background-position: center;  /* Internet Explorer 7/8 */
+}
+
+
+
+
+/*
+  -----------------------------------
+  Tribe network
+  -----------------------------------
+*/
+
 .mobile {
   display: block;
   @include media(tablet) {
@@ -3606,19 +3387,22 @@ $green: #00a26c;
   }
 }
 
-section.lander, header.global-header-network, section.about, section.create-now, footer {
+section.lander, header.global-header, section.about, section.create-now, footer {
   position: relative;
   h1, h2, h3, h4, h5, h6, p, a, input, button, div {
     @include source-sans-pro;
   }
 }
 
-header.global-header-network {
+header.global-header {
   background: $background;
   height: lines(2.5);
   width: 100%;
   @include box-sizing(border-box);
-  border-bottom: em(3) solid $red;
+  
+  a {
+    font-weight: 600;
+  }
   
   .wrapper {
     @include box-sizing(border-box);
@@ -3645,8 +3429,8 @@ header.global-header-network {
   
   .right-side {
     display: none;
-    @include box-sizing(border-box);
     padding: 0 lines(0.5);
+    @include box-sizing(border-box);
     
     @include media(desktop) {
       padding: 0;
@@ -3677,14 +3461,6 @@ header.global-header-network {
     }
   }
   
-  a {
-    font-weight: 600;
-    color: $red;
-    &:hover { 
-      color: darken($red, 20%);
-    };
-  }
-  
   a.global-navi {
     margin: 0 lines(0.25);
   }
@@ -3695,10 +3471,23 @@ header.global-header-network {
   
 }
 
+header.network-header {
+  border-bottom: em(3) solid $red;
+  
+  a {
+    color: $red;
+    &:hover { 
+      color: darken($red, 20%);
+    };
+  }
+}
+
+
 ul.network-navi {
   list-style-type: none;
   li { display: inline; }
   padding-left: 0;
+  display: inline-block;
 }
 
 footer {
@@ -4193,3 +3982,106 @@ section.create-now {
   
 
 
+
+/* 
+  ----------------------
+  New marketplace layout
+  ----------------------
+*/
+
+
+/* 
+  Top navi
+*/
+
+header.marketplace-header {
+  border-bottom: em(3) solid $body;
+  
+  a {
+    color: $body;
+    &:hover { 
+      color: lighten($body, 20%);
+    };
+  }
+  
+  .new-listing-link {
+    display: inline-block;
+    a {
+      @include action-button($green);
+      margin-left: lines(0.5);
+      font-weight: 300;
+      @include media(tablet) {
+        @include normal-type;
+        font-weight: 300;
+        padding: em(6) em(13) em(9) em(13);
+        width: auto;
+      }
+    }
+  }
+  
+  
+  
+  .logo-side {
+    padding-top: em(8);
+  }
+  
+  img.global-header-logo {
+    height: em(40);
+    display: inline-block;
+  }
+  
+  .marketplace-name {
+    text-transform: uppercase;
+    vertical-align: top;
+    display: inline-block;
+    padding-top: em(5);
+    @include big-type;
+    font-weight: 600;
+  }
+  
+}
+
+
+/* 
+  Lander
+*/
+
+.tribe-header {
+  position: relative;
+  border-bottom: em(3) solid $body;
+}
+
+.coverimage {
+  max-width: em(1920);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+figure.fluidratio {
+  display: block;
+  height: lines(4.3);
+  background-size: cover;
+  -moz-background-size: cover;  /* Firefox 3.6 */
+  background-position: center;  /* Internet Explorer 7/8 */
+  background-position: center center;
+  
+  @include media(tablet) {
+    /* This element will have fluid ratio from 4:1 at 1600px to 2:1 at 300px. */
+    @include fluid-ratio(em(1920) em(450), em(300) em(450));
+  }
+}
+
+figure.tribe-cover {
+  background-image: image-url($cover-photo-url);
+}
+
+.cover-image {
+  position: relative;
+  
+  img {
+    width: 100%;
+    max-height: lines(20);
+    display: block;
+  }
+  
+}
