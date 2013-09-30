@@ -14,8 +14,4 @@
     = form.hidden_field :url, :value => request.headers["HTTP_REFERER"]
     = form.hidden_field :community_id, :value => @current_community.id
     = form.button t("layouts.application.send_feedback_to_admin")
-    %p 
-      = t("layouts.application.or_check_our")
-      = link_to t("layouts.application.feedback_forum"), "http://kassi.uservoice.com"
-      = t("layouts.application.to_see_what_others_have_suggested")
   

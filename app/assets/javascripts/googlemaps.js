@@ -483,7 +483,8 @@ function addCommunityMarkers() {
   });
 }
 
-function initialize_listing_map(community_location_lat, community_location_lon, locale_to_use) {
+function initialize_listing_map(community_location_lat, community_location_lon, locale_to_use, use_community_location_as_default) {
+  console.log("Using community location as default:" + use_community_location_as_default)
   locale = locale_to_use;
   // infowindow = new google.maps.InfoWindow();
   infowindow = new InfoBubble({
@@ -510,7 +511,8 @@ function initialize_listing_map(community_location_lat, community_location_lon, 
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-  setMapCenter(community_location_lat, community_location_lon, true, false);
+  var prefer_param_loc = (use_community_location_as_default === 'true');
+  setMapCenter(community_location_lat, community_location_lon, true, prefer_param_loc);
   google.maps.event.addListenerOnce(map, 'tilesloaded', addListingMarkers);
 }
 
@@ -518,7 +520,9 @@ function setMapCenter(community_location_lat, community_location_lon, show_alert
   
   // Try first parameter location, then browser geolocation, then default position
   if (prefer_param_loc == true) {
+    console.log("Preferring param location");
     if (community_location_lat != null && community_location_lon != '') {
+      console.log("Community location latitude: " + community_location_lat);
       map.setCenter(new google.maps.LatLng(community_location_lat,community_location_lon));
     // Browser doesn't support Geolocation, we need to use the default location.
     } else if (navigator.geolocation) {  
@@ -534,6 +538,7 @@ function setMapCenter(community_location_lat, community_location_lon, show_alert
   
   // Try first browser geolocation, then parameter location, then default position
   } else {
+    console.log("Preferring user location");
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition( 
         function(position) {
