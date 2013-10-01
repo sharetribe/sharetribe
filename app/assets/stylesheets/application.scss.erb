@@ -26,7 +26,7 @@
 */
 
 body {
-  @include ff-tisa;
+  @include source-sans-pro;
   @include normal-type;
   
   @include media(tiny-mobile) {
@@ -52,7 +52,7 @@ h1, h3 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @include lft-etica;
+  @include source-sans-pro;
   color: $emphasis;
 }
 
@@ -566,7 +566,7 @@ label.error {
 
 // Share type label
 .share-type-link {
-  @include ff-tisa;
+  @include source-sans-pro;
   color: $aside;
   font-size: em(10);
   font-weight: normal;
@@ -1183,7 +1183,7 @@ label.error {
   bottom: em(-4);
   left: em(2);
   
-  @include lft-etica;
+  @include source-sans-pro;
   @include mega-type;
   z-index: 0;
   @include media(tablet) {
@@ -1483,70 +1483,6 @@ a.lightbox-x {
     
   }
   
-}
-
-.feed-search {
-  position: relative;
-
-  input[type=text] {
-    display: inline;
-    @include box-sizing(border-box);
-    width: 75%;
-  }
-  
-  button {
-    margin: 0 0 0 2%;
-    display: inline;
-    width: 22%;
-    .icon-with-text-container {
-      margin-right: 0;
-      .icon-part {
-        position: static;
-      }
-      .text-part {
-        display: none;
-      }
-    }
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  @include media(tablet) {
-    background: transparent;
-    padding: 0;
-    
-    .hidden {
-      display: inline-block;
-    }
-    
-    input[type=text] {
-      position: absolute;
-      top: lines(-3); left: lines(13.5);
-      width: lines(11.5);
-    }
-
-    button {
-      position: absolute;
-      top: lines(-3); left: lines(25.5);
-      width: auto;
-      margin-left: 0;
-      padding: em(4) em(10) em(6) em(16);
-      .icon-with-text-container {
-        margin-right: em(10);
-        .icon-part {
-          position: absolute;
-          left: 0;
-        }
-        .text-part {
-          display: block;
-        }
-      }
-    }
-    
-  }
-
 }
 
 .feed-map-link {
@@ -3327,7 +3263,7 @@ $green: #00a26c;
   
   color: $background;
   background: $color;
-  border: 3px solid darken($color, 25%);
+  border: 3px solid darken($color, 15%);
   text-align: center;
   cursor: pointer;
   width: 100%;
@@ -3335,9 +3271,9 @@ $green: #00a26c;
   padding: em(8) em(13) em(11) em(13);
   
   &:hover { 
-    background: darken($color, 15%);
+    background: darken($color, 5%);
     color: $background;
-    border-color: darken($color, 35%); 
+    border-color: darken($color, 20%); 
   };
   
   @include media(tablet) {
@@ -3364,7 +3300,34 @@ $green: #00a26c;
   background-position: center;  /* Internet Explorer 7/8 */
 }
 
+/* User both for marketplace and network landers */
 
+.coverimage {
+  max-width: em(1920);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+figure.fluidratio {
+  display: block;
+  height: lines(4.3);
+  background-size: cover;
+  -moz-background-size: cover;  /* Firefox 3.6 */
+  background-position: center;  /* Internet Explorer 7/8 */
+  background-position: center center;
+}
+
+.lander-content {
+  position: absolute;
+  @include box-sizing(border-box);
+  padding: 0 lines(0.5);
+  width: 100%;
+  text-align: center;
+  
+  @include media(tablet) {
+    padding: 0;
+  }
+}
 
 
 /*
@@ -3559,42 +3522,18 @@ footer {
 
 section.lander, section.create-now {
   
-  .coverimage {
-    max-width: em(1920);
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  figure.fluidratio {
-    display: block;
+  figure.network-cover {
+    background-image: url("https://s3.amazonaws.com/sharetribe/cover_photos/network/bg_photo_shadow.jpg");
     height: em(600);
-    background-size: cover;
-    -moz-background-size: cover;  /* Firefox 3.6 */
-    background-position: center;  /* Internet Explorer 7/8 */
-    background-position: center center;
-
     @include media(tablet) {
       /* This element will have fluid ratio from 4:1 at 1600px to 2:1 at 300px. */
       @include fluid-ratio(em(1920) em(822), em(300) em(822));
     }
   }
   
-  figure.network-cover {
-    background-image: url("https://s3.amazonaws.com/sharetribe/cover_photos/network/bg_photo_shadow.jpg");
-  }
-  
-  .lander-content {
-    position: absolute;
+  .network-lander-content {
     top: lines(-20.5);
-    @include box-sizing(border-box);
-    padding: 0 lines(0.5);
-    width: 100%;
-    text-align: center;
-    
-    @include media(tablet) {
-      padding: 0;
-    }
-  } 
+  }
   
   h1 {
     position: relative;
@@ -3702,6 +3641,8 @@ section.lander, section.create-now {
   
   button.action-button {
     @include action-button($red);
+    border: 3px solid darken($red, 25%);
+    &:hover { border-color: darken($red, 25%); }
     @include media(tablet) {
       margin: 0 0 0 lines(0.5);
     }
@@ -3718,7 +3659,7 @@ section.lander, section.create-now {
   
   @include media(tablet) {
     
-    .lander-content {
+    .network-lander-content {
       top: lines(-27);
     }
     
@@ -4046,42 +3987,124 @@ header.marketplace-header {
   Lander
 */
 
-.tribe-header {
+.marketplace-lander {
   position: relative;
   border-bottom: em(3) solid $body;
-}
 
-.coverimage {
-  max-width: em(1920);
-  margin-left: auto;
-  margin-right: auto;
-}
+  figure.marketplace-cover {
+    background-image: image-url($cover-photo-url);
+    height: em(300);
+    @include media(tablet) {
+      /* This element will have fluid ratio from 4:1 at 1600px to 2:1 at 300px. */
+      @include fluid-ratio(em(1920) em($cover-photo-height), em(300) em($cover-photo-height));
+    }
+  }
 
-figure.fluidratio {
-  display: block;
-  height: lines(4.3);
-  background-size: cover;
-  -moz-background-size: cover;  /* Firefox 3.6 */
-  background-position: center;  /* Internet Explorer 7/8 */
-  background-position: center center;
+  .cover-image {
+    position: relative;
+
+    img {
+      width: 100%;
+      max-height: lines(20);
+      display: block;
+    }
+
+  }
+  
+  .marketplace-lander-content {
+    //top: lines(-5.5);
+  }
+  
+  h1 {
+    position: relative;
+    z-index: 1;
+    padding: 0;
+    color: $background;
+    @include huge-type;
+    line-height: em(15);
+    @include media(tablet) {
+      padding: 0 lines(1);
+    }
+  }
+
+  p {
+    margin-top: lines(1);
+    color: $background;
+    @include normal-type;
+    font-weight: 500;
+    @include text-shadow(2px, 2px, 3px, rgba(black, 0.5));
+  }
+  
+  input[type=text] {
+    @include box-sizing(border-box);
+    @include normal-type;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    vertical-align: top;
+    padding: em(11) em(11) em(11) em(11); 
+    border: 3px solid $body;
+    width: 100%;
+  }
+  
+  button.action-button {
+    @include action-button($link);
+    border: 3px solid darken($link, 25%);
+    &:hover { border-color: darken($link, 25%); }
+    @include media(tablet) {
+      margin: 0 0 0 lines(0.5);
+    }
+  }
+  
+  .search-form {
+    margin-top: lines(2.5);
+  }
+  
+  .search-form-input {
+    vertical-align: top;
+    display: inline;
+  }
   
   @include media(tablet) {
-    /* This element will have fluid ratio from 4:1 at 1600px to 2:1 at 300px. */
-    @include fluid-ratio(em(1920) em(450), em(300) em(450));
+    
+    .marketplace-lander-content {
+      top: lines($lander-content-top);
+    }
+    
+    h1 {
+      @include huge-type;
+      line-height: em(13);
+    }
+    
+    p {
+      @include large-type;
+      margin: lines(0.5) auto;
+      max-width: lines(15);
+    }
+    
+    input[type=text] {
+      padding: em(11) em(14) em(11) em(14);
+      @include big-type;
+      width: lines(15);
+    }
+    
+    button.action-button {
+      width: lines(4);
+      padding: em(14) em(16) em(11) em(16);
+      @include big-type;
+    }
+    
+    .search-form-text-field {
+      width: lines(10);
+    }
+    
   }
-}
-
-figure.tribe-cover {
-  background-image: image-url($cover-photo-url);
-}
-
-.cover-image {
-  position: relative;
   
-  img {
-    width: 100%;
-    max-height: lines(20);
-    display: block;
+  @include media(desktop) {
+    h1 {
+      @include mega-type;
+      line-height: em(15);
+    }
   }
   
 }

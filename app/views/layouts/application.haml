@@ -9,12 +9,25 @@
  
   = render :partial => 'layouts/global-header'
 
-  %header.tribe-header
+  %section.marketplace-lander
 
     .coverimage
-      %figure.tribe-cover.fluidratio
+      %figure.marketplace-cover.fluidratio
 
     .wrapper
+      .lander-content.marketplace-lander-content
+        %h1= community_slogan
+        %p= community_description
+        .search-form
+          = form_tag({ :action => :index, :controller => :homepage}, :method => "get", :id => "homepage-filters") do
+            .search-form-input.search-form-text-field
+              = text_field_tag "q", params[:q], :placeholder => t("homepage.index.what_do_you_need")
+            .search-form-input
+              %button.action-button{type: 'submit'}
+                = icon_tag("search", ["icon-part"])
+          
+            
+            
       
 
   %article.page-content

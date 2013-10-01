@@ -17,12 +17,6 @@
 
   .feed-filters.toggle-menu-feed-filters.hidden
     = form_tag({ :action => :index, :controller => :homepage}, :method => "get", :id => "homepage-filters") do
-      .feed-search
-        %input{name: 'q', id: 'search', value: params[:q], type: 'text', placeholder: t(".what_do_you_need")}
-        %button{type: 'submit'}
-          .icon-with-text-container
-            = icon_tag("search", ["icon-part"])
-            .text-part.hidden= t("homepage.filters.search")
     
       .feed-filter-dropdowns#feed-filter-dropdowns
         .filter-title

@@ -44,8 +44,8 @@ $aside:       hsl($primary-hue, 0%, 50%);
 $body:        hsl($primary-hue, 0%, 23.6%);
 $emphasis:    hsl($primary-hue, 0%, 9%);
 
-$link:        #D96E21;
-$link2:       #D96E21;
+$link:        #a64c5d;
+$link2:       #00a26c;
 //$link2:       hsl($secondary-hue, 76.4%, 50%);
 //$link:      darken(desaturate(hsl($primary-hue, 61.8%, 50%), 23.6%), 11.8%); // Darkened and desaturated version
 
@@ -54,4 +54,6 @@ $green:       hsl($notification-hue, 73.4%, 28.2%);
 $red:         hsl($error-hue, 73.4%, 38.2%);
 
 $cover-photo-url: "/cover_photos/header/default.jpg";
+$cover-photo-height: 450;
+$lander-content-top: -15.25;
 
