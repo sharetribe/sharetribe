@@ -32,5 +32,14 @@ class InfosController < ApplicationController
     end
     render text: ""
   end
+  
+  def mercury_update_how_to_use
+    if @community_customization
+      @community_customization.update_attribute(:how_to_use, params[:content][:page_content][:value])
+    else
+      @current_community.community_customizations.create(:locale => I18n.locale, :how_to_use => params[:content][:page_content][:value])
+    end
+    render text: ""
+  end
 
 end
