@@ -5,8 +5,38 @@
       .marketplace-name= @current_community.name
 
     .right-side
-      %ul.network-navi
-        %li= link_to "home", "#", :class => "global-navi"
-        %li= link_to "about", about_infos_path, :class => "global-navi"
+      = link_to "home", "/", :class => "global-navi"
+      .divider 
+        |
+      = link_to "about", about_infos_path, :class => "global-navi"
+      .divider
+        |
+      = link_to "contact us", new_user_feedback_path, :class => "global-navi"
+      
+      - if available_locales.size > 1
+        .divider
+          |
+        .language-menu-toggle.toggle.hidden{data: {toggle: '.language-menu'}}
+          .language-name
+            = get_full_locale_name(I18n.locale).downcase
+          = icon_tag("dropdown", ["icon-dropdown"])
+      
+      - if @current_user
+        .divider
+          |
+        %a{:href => received_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.messages"), :id => "inbox_link", :class => "global-navi inbox-link"}
+          = icon_tag("mail", ["icon"])
+        .user-menu-toggle.toggle.hidden{data: {toggle: '.user-menu'}}
+          = image_tag @current_user.image.url(:thumb), alt: '', class: 'user-avatar'
+          .user-name= @current_user.name(@current_community)
+
+          = icon_tag("dropdown", ["icon-dropdown"])
+          = render :partial => "layouts/user_badge"
+        
+      - else
+        .divider
+          |
+        = link_to t("layouts.logged_in.login").downcase, login_path, :class => "global-navi"
+      
       .new-listing-link
         = link_to "Post a new listing", new_listing_path, :class => "action-button"

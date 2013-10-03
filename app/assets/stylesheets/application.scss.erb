@@ -135,6 +135,8 @@ ul {
   max-width: lines(42);
 }
 
+
+
 .section {
   padding: lines(0.5);
   @include clearfix;
@@ -191,6 +193,7 @@ ul {
 }
 
 .centered-section, .centered-section-wide, .left-navi-section {
+  margin-top: lines(1.25);
   textarea {
     height: lines(5);
   }
@@ -336,7 +339,7 @@ ul {
 // .huge-badge is for three-number figures
 .badge {
   @include small-type;
-  background: $link2;
+  background: $link;
   text-align: center;
   width: em(18, 13);
   line-height: em( (18 - 1 - 5), 13 );
@@ -479,8 +482,8 @@ label.radiobutton {
 @mixin button {
   @include box-sizing(border-box);
   @include border-radius(em(5));
-  background: $link2;
-  border: em(2) solid darken($link2, 10%);
+  background: $link;
+  border: em(2) solid darken($link, 10%);
   color: $background;
   text-align: center;
   cursor: pointer;
@@ -488,15 +491,15 @@ label.radiobutton {
   margin: lines(0.5) 0;
   
   &:hover { 
-    background: darken($link2, 5%);
+    background: darken($link, 5%);
     color: $background;
-    border: em(2) solid darken($link2, 15%); 
+    border: em(2) solid darken($link, 15%); 
   };
   
   &:active {
-    background: darken($link2, 10%);
+    background: darken($link, 10%);
     color: $background;
-    border: em(2) solid darken($link2, 20%);
+    border: em(2) solid darken($link, 20%);
   }
 
 }
@@ -718,63 +721,6 @@ label.error {
   &.huge-badge {
     right: lines(0.0625); bottom: lines(0.0625);
   }
-}
-
-.user-menu-toggle {
-  background: $background;
-  &:hover { background: $highlight; }
-  position: absolute;
-  right: 0; top: 0;
-  border: solid $border;
-  border-width: 0 1px 0;
-  
-  .user-avatar {
-    display: block;
-    width: lines(1.5);
-    height: lines(1.5);
-    background: $background;
-    @include border-radius(em(5));
-    //margin: lines(0.25) (lines(0.25) - em(1)); // compensates for borders
-    margin: lines(0.25) lines(0.25);
-  }
-  
-  .user-name {
-    display: none;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    height: lines(1);
-  }
-  
-  .icon-dropdown {
-    display: none;
-  }
-  
-  @include media(tablet) {
-    // Becomes wider and displays the username
-    width: lines(10);
-    
-    .user-avatar {
-      float: left;
-      margin-right: lines(0.375);
-    }
-    
-    .user-name {
-      display: block;
-      padding: lines(0.5) lines(1.5) 0 0;
-    }
-    
-    .badge {
-      display: none;
-    }
-    
-    .icon-dropdown {
-      display: block;
-      position: absolute;
-      right: lines(0.5); top: lines(0.6);
-    }
-  }
-  
 }
 
 .user-menu {
@@ -1139,25 +1085,6 @@ label.error {
     }
   }
 
-}
-
-.select-language {
-  height: em(24);
-  overflow: hidden;
-  &:hover { background: darken($link, 5%); }
-  color: $background;
-  float: right;
-  padding: em(8) lines(1.6) em(12) lines(0.8);
-  
-  .current-language {
-    display: block;
-    float: left;
-  }
-  
-  .icon-dropdown {
-    position: absolute;
-    right: lines(0.5); top: em(11);
-  }
 }
 
 .language-menu {
@@ -3252,9 +3179,9 @@ a.lightbox-x {
 */
 
 /* Colors */
-$red: #ff5840;
+$network-red: #ff5840;
 $light_grey: #fdfbfb;
-$green: #00a26c;
+$network-green: #00a26c;
 
 @mixin action-button($color) {
   @include box-sizing(border-box);
@@ -3303,12 +3230,15 @@ $green: #00a26c;
 /* User both for marketplace and network landers */
 
 .coverimage {
+  position: relative;
   max-width: em(1920);
   margin-left: auto;
   margin-right: auto;
+  z-index: -1;
 }
 
 figure.fluidratio {
+  position: relative;
   display: block;
   height: lines(4.3);
   background-size: cover;
@@ -3380,7 +3310,7 @@ header.global-header {
     a {
       color: $background;
       &:hover { 
-        background: $red;
+        background: $network-red;
         color: $background; 
       }
     }
@@ -3388,6 +3318,18 @@ header.global-header {
   
   .left-side {
     padding-top: lines(0.5);
+  }
+  
+}
+
+header.network-header {
+  border-bottom: em(3) solid $network-red;
+  
+  a {
+    color: $network-red;
+    &:hover { 
+      color: darken($network-red, 20%);
+    };
   }
   
   .right-side {
@@ -3405,7 +3347,7 @@ header.global-header {
       right: 0;
       top: em(16);
       text-align: right;
-      color: $red;
+      color: $network-red;
       font-weight: 600;
     }
   }
@@ -3414,7 +3356,7 @@ header.global-header {
     @include box-sizing(border-box);
     @include big-type;
     padding: 0 lines(0.5);
-    color: $red;
+    color: $network-red;
     position: absolute;
     right: 0;
     top: em(14);
@@ -3434,17 +3376,6 @@ header.global-header {
   
 }
 
-header.network-header {
-  border-bottom: em(3) solid $red;
-  
-  a {
-    color: $red;
-    &:hover { 
-      color: darken($red, 20%);
-    };
-  }
-}
-
 
 ul.network-navi {
   list-style-type: none;
@@ -3455,15 +3386,15 @@ ul.network-navi {
 
 footer {
   position: relative;
-  color: $red;
+  color: $network-red;
   font-weight: 600;
   padding: lines(1) 0 lines(1) 0;
   
   a {
     font-weight: 600;
-    color: $red;
+    color: $network-red;
     &:hover { 
-      color: darken($red, 20%);
+      color: darken($network-red, 20%);
     };
   }
   
@@ -3506,7 +3437,7 @@ footer {
   }
   
   a.social-icon-circle {
-    background-color: $red;
+    background-color: $network-red;
     border-radius: 14px; /* one half of ( (border * 2) + height + padding ) */
     color: white;
     height: 20px; 
@@ -3514,7 +3445,7 @@ footer {
     padding: 6px 8px;
     text-align: center;
     display: inline-block;
-    &:hover { background-color: darken($red, 20%); }
+    &:hover { background-color: darken($network-red, 20%); }
     margin-left: lines(0.25);
   }
   
@@ -3526,7 +3457,6 @@ section.lander, section.create-now {
     background-image: url("https://s3.amazonaws.com/sharetribe/cover_photos/network/bg_photo_shadow.jpg");
     height: em(600);
     @include media(tablet) {
-      /* This element will have fluid ratio from 4:1 at 1600px to 2:1 at 300px. */
       @include fluid-ratio(em(1920) em(822), em(300) em(822));
     }
   }
@@ -3640,16 +3570,16 @@ section.lander, section.create-now {
   }
   
   button.action-button {
-    @include action-button($red);
-    border: 3px solid darken($red, 25%);
-    &:hover { border-color: darken($red, 25%); }
+    @include action-button($network-red);
+    border: 3px solid darken($network-red, 25%);
+    &:hover { border-color: darken($network-red, 25%); }
     @include media(tablet) {
       margin: 0 0 0 lines(0.5);
     }
   }
   
   button.small-action-button {
-    @include action-button($red);
+    @include action-button($network-red);
     
     @include media(tablet) {
       @include normal-type;
@@ -3748,12 +3678,12 @@ section.about, section.how-it-works, section.create-now {
   .view-demo {
     
     .action-button {
-      @include action-button($green);
-      border-color: darken($green, 15%); 
+      @include action-button($network-green);
+      border-color: darken($network-green, 15%); 
 
       &:hover { 
-        background: darken($green, 5%);
-        border-color: darken($green, 25%); 
+        background: darken($network-green, 5%);
+        border-color: darken($network-green, 25%); 
       };
       
       @include media(tablet) {
@@ -3777,8 +3707,8 @@ section.about, section.how-it-works, section.create-now {
 
 section.about, section.create-now {
   background: $light_grey;
-  border-top: 3px solid $red;
-  border-bottom: 3px solid $red;
+  border-top: 3px solid $network-red;
+  border-bottom: 3px solid $network-red;
 }
 
 section.about {
@@ -3804,14 +3734,14 @@ section.about {
 
   .about-column-title-icon {
     display: inline-block;
-    color: $red;
+    color: $network-red;
     font-size: em(20);
   }
 
   .about-column-title-text {
     display: inline-block;
     @include large-type;
-    color: $red;
+    color: $network-red;
     margin-left: em(3);
   }
 
@@ -3907,8 +3837,8 @@ section.create-now {
 .top-menu-toggle {
   @include box-sizing(border-box);
   @include big-type;
-  color: $red;
-  &:hover { color: darken($red, 25%); }
+  color: $network-red;
+  &:hover { color: darken($network-red, 25%); }
   position: absolute;
   right: 0;
   top: 0;
@@ -3936,34 +3866,18 @@ section.create-now {
 */
 
 header.marketplace-header {
-  border-bottom: em(3) solid $body;
+  border-bottom: em(3) solid $light-body;
   
   a {
-    color: $body;
+    color: $light-body;
     &:hover { 
       color: lighten($body, 20%);
     };
   }
   
-  .new-listing-link {
-    display: inline-block;
-    a {
-      @include action-button($green);
-      margin-left: lines(0.5);
-      font-weight: 300;
-      @include media(tablet) {
-        @include normal-type;
-        font-weight: 300;
-        padding: em(6) em(13) em(9) em(13);
-        width: auto;
-      }
-    }
-  }
-  
-  
-  
   .logo-side {
     padding-top: em(8);
+    max-width: lines(10);
   }
   
   img.global-header-logo {
@@ -3976,8 +3890,147 @@ header.marketplace-header {
     vertical-align: top;
     display: inline-block;
     padding-top: em(5);
+    margin-left: lines(0.5, 24);
     @include big-type;
     font-weight: 600;
+  }
+  
+  .right-side {
+    display: none;
+    padding: 0 lines(0.5);
+    @include box-sizing(border-box);
+    
+    @include media(desktop) {
+      padding: 0;
+    }
+    
+    @include media(tablet) {
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      text-align: right;
+      font-weight: 600;
+    }
+  }
+  
+  .right-side-mobile {
+    @include box-sizing(border-box);
+    @include big-type;
+    padding: 0 lines(0.5);
+    position: absolute;
+    right: 0;
+    top: em(14);
+    
+    @include media(tablet) {
+      display: none;
+    }
+  }
+  
+  a.global-navi {
+    vertical-align: top;
+    display: inline-block;
+    margin: 0 lines(0.5);
+    padding-top: em(15);
+    &:hover { color: $link; }
+  }
+  
+  .divider {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: em(15);
+  }
+  
+  a.inbox-link {
+    padding-top: em(17);
+  }
+  
+  .language-menu-toggle {
+    vertical-align: top;
+    padding: em(10) lines(0.5) em(5) lines(0.25);
+    display: none;
+    &:hover { color: $link; }
+    
+    .language-name {
+      display: inline-block;
+      vertical-align: top;
+      padding: em(5) 0 0 em(4);
+    }
+
+    .icon-dropdown {
+      display: inline-block;
+      vertical-align: top;
+      padding: em(8) 0 0 em(3);
+    }
+    
+    @include media(tablet) {
+      display: inline-block;
+    }
+    
+  }
+  
+  .user-menu-toggle {
+    display: inline-block;
+    vertical-align: top;
+    padding: em(10) lines(0.5) em(5) lines(0.25);
+    &:hover { color: $link; }
+
+    .user-avatar {
+      display: inline-block;
+      width: lines(1.5);
+      height: lines(1.5);
+      @include border-radius(em(5));
+    }
+
+    .user-name {
+      vertical-align: top;
+      padding: em(5) 0 0 em(4);
+      display: none;
+    }
+
+    .icon-dropdown {
+      vertical-align: top;
+      padding: em(8) 0 0 em(3);
+      display: none;
+    }
+
+    @include media(tablet) {
+
+      .user-avatar {
+        display: inline-block;
+      }
+
+      .user-name {
+        display: inline-block;
+      }
+
+      .badge {
+        display: none;
+      }
+
+      .icon-dropdown {
+        display: inline-block;
+      }
+    }
+
+  }
+  
+  .new-listing-link {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: em(15);
+    a {
+      @include action-button($network-green);
+      border-width: em(2);
+      margin-left: lines(0.25);
+      font-weight: 300;
+      @include media(tablet) {
+        @include normal-type;
+        font-weight: 300;
+        padding: em(5) em(13) em(8) em(13);
+        width: auto;
+      }
+    }
   }
   
 }
@@ -3995,35 +4048,61 @@ header.marketplace-header {
     background-image: image-url($cover-photo-url);
     height: em(300);
     @include media(tablet) {
-      /* This element will have fluid ratio from 4:1 at 1600px to 2:1 at 300px. */
       @include fluid-ratio(em(1920) em($cover-photo-height), em(300) em($cover-photo-height));
     }
   }
-
-  .cover-image {
-    position: relative;
-
-    img {
-      width: 100%;
-      max-height: lines(20);
-      display: block;
+  
+  figure.marketplace-cover-small {
+    background-image: image-url($cover-photo-url);
+    height: em(300);
+    @include media(tablet) {
+      @include fluid-ratio(em(1920) em($small-cover-photo-height), em(300) em($small-cover-photo-height));
     }
-
+  }
+  
+  .coverimage-fade {
+    position: absolute;
+    top: lines(0);
+    max-width: em(1920);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+    background: rgba($highlight, 0.825);
+  }
+  
+  figure.marketplace-cover-small-fade {
+    height: em(300);
+    @include media(tablet) {
+      @include fluid-ratio(em(1920) em($small-cover-photo-height), em(300) em($small-cover-photo-height));
+    }
   }
   
   .marketplace-lander-content {
-    //top: lines(-5.5);
+    h1 {
+      position: relative;
+      padding: 0;
+      color: $background;
+      @include huge-type;
+      line-height: em(15);
+      @include media(tablet) {
+        padding: 0 lines(1);
+      }
+    }
   }
   
-  h1 {
-    position: relative;
-    z-index: 1;
-    padding: 0;
-    color: $background;
-    @include huge-type;
-    line-height: em(15);
-    @include media(tablet) {
-      padding: 0 lines(1);
+  .marketplace-title-header {
+    width: 100%;
+    position: absolute;
+    top: lines(-4);
+    z-index: 2;
+    padding: 0 lines(0.5);
+    @include box-sizing(border-box);
+    
+    h1 {
+      padding: lines(0.75) 0;
+      color: $light-body;
+      @include large-type;
     }
   }
 
@@ -4061,19 +4140,40 @@ header.marketplace-header {
   }
   
   .search-form-input {
+    @include box-sizing(border-box);
     vertical-align: top;
     display: inline;
+  }
+  
+  .browse-view-search-form {
+    @include box-sizing(border-box);
+    width: 100%;
+    padding: lines(1) 0;
+    
+    input[type=text] {
+      @include normal-type;
+      vertical-align: top;
+      border: em(2) solid $body;
+      width: 100%;
+    }
+    
+    button.action-button {
+      border-width: em(2);
+      padding: em(8);
+    }
+    
   }
   
   @include media(tablet) {
     
     .marketplace-lander-content {
       top: lines($lander-content-top);
-    }
-    
-    h1 {
-      @include huge-type;
-      line-height: em(13);
+      @include box-sizing(border-box);
+      
+      h1 {
+        @include huge-type;
+        line-height: em(13);
+      }
     }
     
     p {
@@ -4083,8 +4183,8 @@ header.marketplace-header {
     }
     
     input[type=text] {
-      padding: em(11) em(14) em(11) em(14);
       @include big-type;
+      padding: em(11) em(14) em(11) em(14);
       width: lines(15);
     }
     
@@ -4095,15 +4195,38 @@ header.marketplace-header {
     }
     
     .search-form-text-field {
+      @include box-sizing(border-box);
       width: lines(10);
     }
+    
+    .browse-view-search-form {
+      input[type=text] {
+        margin-right: em(-3);
+        padding: em(11) em(14) em(11) em(14);
+        width: 80%;
+      }
+      
+      button.action-button {
+        margin-left: 1%;
+        width: 19%;
+        padding: em(9) em(16) em(7) em(16);
+      }
+    }
+    
     
   }
   
   @include media(desktop) {
-    h1 {
-      @include mega-type;
-      line-height: em(15);
+    
+    .marketplace-title-header {
+      padding: 0;
+    }
+    
+    .marketplace-lander-content {
+      h1 {
+        @include mega-type;
+        line-height: em(15);
+      }
     }
   }
   

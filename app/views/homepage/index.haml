@@ -1,6 +1,26 @@
 - content_for :javascript do
   initialize_homepage(#{filters_in_use?});
 
+- content_for :title_header do
+  - if @current_user
+    .browse-view-search-form
+      = form_tag({ :action => :index, :controller => :homepage}, :method => "get", :id => "homepage-filters") do
+        .search-form-input.search-form-text-field
+          = text_field_tag "q", params[:q], :placeholder => t("homepage.index.what_do_you_need")
+        .search-form-input
+          %button.action-button{type: 'submit'}
+            = icon_tag("search", ["icon-part"])
+  - else
+    %h1= community_slogan
+    %p= community_description
+    .search-form
+      = form_tag({ :action => :index, :controller => :homepage}, :method => "get", :id => "homepage-filters") do
+        .search-form-input.search-form-text-field
+          = text_field_tag "q", params[:q], :placeholder => t("homepage.index.what_do_you_need")
+        .search-form-input
+          %button.action-button{type: 'submit'}
+            = icon_tag("search", ["icon-part"])
+
 .feed-navigation
   .feed-actions.actions-menu
     %a.request-link{href: new_listing_path + "?ref=homepage"} 

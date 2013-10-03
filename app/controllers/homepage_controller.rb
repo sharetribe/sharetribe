@@ -5,7 +5,8 @@ class HomepageController < ApplicationController
   skip_filter :dashboard_only
 
   def index
-    @selected_tribe_navi_tab = "home"
+    @homepage = true
+    
     listings_per_page = 16
     
     #Load community categories
