@@ -1,42 +1,67 @@
 %header.global-header.marketplace-header
   .wrapper
-    .logo-side
+  
+    .mobile-menu
+      = icon_tag("rows", ["icon"])
+  
+    %a.logo-side{:href => "/", :class => (@current_user ? "logo-side-logged" : "logo-side-unlogged")}
       = image_tag @current_community.logo.url(:header), :class => "global-header-logo"
-      .marketplace-name= @current_community.name
+      .marketplace-name{:class => (@current_user ? "marketplace-name-logged" : "marketplace-name-unlogged")}= @current_community.name
 
     .right-side
-      = link_to "home", "/", :class => "global-navi"
-      .divider 
-        |
-      = link_to "about", about_infos_path, :class => "global-navi"
-      .divider
-        |
+      = link_to "home", "/", :class => "global-navi global-navi-left"
+      = link_to "about", about_infos_path, :class => "global-navi global-navi-left"
       = link_to "contact us", new_user_feedback_path, :class => "global-navi"
       
       - if available_locales.size > 1
-        .divider
-          |
         .language-menu-toggle.toggle.hidden{data: {toggle: '.language-menu'}}
           .language-name
             = get_full_locale_name(I18n.locale).downcase
           = icon_tag("dropdown", ["icon-dropdown"])
+          
+          .language-menu.toggle-menu.hidden
+            = render :partial => "layouts/locale_select", :collection => available_locales, :as => :loc_array
       
       - if @current_user
-        .divider
-          |
         %a{:href => received_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.messages"), :id => "inbox_link", :class => "global-navi inbox-link"}
           = icon_tag("mail", ["icon"])
         .user-menu-toggle.toggle.hidden{data: {toggle: '.user-menu'}}
           = image_tag @current_user.image.url(:thumb), alt: '', class: 'user-avatar'
           .user-name= @current_user.name(@current_community)
-
           = icon_tag("dropdown", ["icon-dropdown"])
           = render :partial => "layouts/user_badge"
         
+          %nav.user-menu.toggle-menu.hidden
+            %a.profile-menu-button{href: person_path(@current_user)}
+              = icon_tag("user", ["icon-with-text"])
+              .text-with-icon
+                = t("header.profile")
+            %a.inbox-menu-button{href: received_person_messages_path(:person_id => @current_user.id.to_s)}
+              = icon_tag("mail", ["icon-with-text"])
+              .text-with-icon
+                = t("layouts.conversations.messages") 
+                = render :partial => "layouts/messages_badge"
+            %a.notifications-menu-button{href: notifications_person_messages_path(:person_id => @current_user.id.to_s)}
+              = icon_tag("notifications", ["icon-with-text"])
+              .text-with-icon
+                = t("layouts.conversations.notifications")
+                = render :partial => "layouts/notifications_badge"
+            %a.feedback-menu-button{href: new_user_feedback_path}
+              = icon_tag("feedback", ["icon-with-text"])
+              .text-with-icon
+                = t("header.contact_us")
+            %a{href: person_settings_path(@current_user)}
+              = icon_tag("settings", ["icon-with-text"])
+              .text-with-icon
+                = t("layouts.logged_in.settings")
+            %a{href: logout_path}
+              = icon_tag("logout", ["icon-with-text"])
+              .text-with-icon
+                = t("layouts.logged_in.logout")
+          
+        
       - else
-        .divider
-          |
-        = link_to t("layouts.logged_in.login").downcase, login_path, :class => "global-navi"
+        = link_to t("layouts.logged_in.login").downcase, login_path, :class => "global-navi login-link"
       
       .new-listing-link
         = link_to "Post a new listing", new_listing_path, :class => "action-button"

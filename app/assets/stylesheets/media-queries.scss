@@ -37,6 +37,9 @@
   @if $point == small-desktop {
     @media (min-width: em(860)) { @content; }
   }
+  @if $point == mid-desktop {
+    @media (min-width: em(960)) { @content; }
+  }
   @if $point == desktop {
     @media (min-width: em(1008)) { @content; }
   }

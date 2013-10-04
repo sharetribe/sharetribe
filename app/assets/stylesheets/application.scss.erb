@@ -600,118 +600,6 @@ label.error {
   ------------------------
 */
 
-.select-tribe {
-  margin: 0 0;
-  padding: lines(0.5) lines(2.5) lines(0.5) lines(1.75);
-  position: relative;
-  max-width: lines(100);
-  
-  .current-tribe {
-    display: block;
-    height: lines(1);
-    margin-right: lines(1);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  
-  .icon-dropdown {
-    position: absolute;
-    right: lines(2.5); top: em(14);
-  }
-  
-  border: solid $border;
-  border-width: 0 1px 0;
-
-  @include media(tablet) {
-    padding: lines(0.5) lines(0.5) lines(0.5) lines(7.25);
-    margin: 0 lines(12) 0 lines(0);
-    max-width: lines(8.75);
-    .icon-dropdown {
-      right: lines(0.5);
-    }
-  }
-}
-
-.full-logo {
-  background: $background url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat;
-  &:hover { 
-    background: $highlight url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat; 
-  }
-  @include media(tablet) {
-    background: $background url("/assets/new-design/sharetribe-logo.png") lines(0.5) lines(0.35) no-repeat;
-    &:hover { 
-      background: $highlight url("/assets/new-design/sharetribe-logo.png") lines(0.5) lines(0.35) no-repeat; 
-    }
-  }
-}
-
-.icon-logo {
-  background: $background url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat;
-  &:hover { 
-    background: $highlight url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat; 
-  }
-  padding-left: lines(1.75);
-  max-width: lines(14.25);
-}
-
-.no-logo {
-  background: $background;
-  &:hover { 
-    background: $highlight; 
-  }
-  padding-left: lines(0.5);
-  max-width: lines(15.5);
-}
-
-.tribe-menu {
-  @include media(tablet) {
-    // Makes the menu float on top of the content
-    position: absolute;
-    //left: lines(9.5) - em(1); 
-    left: lines(0); 
-    top: lines(2); 
-    //right: lines(25.5) - em(2);
-    width: lines(16.5);
-    border: solid $emphasis;
-    border-width: 0 1px 1px;
-//    border: solid $border;
-//    border-width: 0 1px 0;
-  }
-}
-
-.notifications-toggle,
-.inbox-toggle {
-  // Hidden on small screens, because 
-  // this functionality is in .user-menu
-  display: none;
-  color: $body;
-  &:hover { 
-    background: $highlight;
-    color: $body;
-  }
-  
-  @include media(tablet) {
-    // Shown on wider screens, while the
-    // duplicate functionality in .user-menu gets hidden
-    display: block;
-    background: $background;
-    position: absolute;
-    right: lines(10.5); top: lines(0);
-    padding: em(12) lines(0.5) em(12) lines(0.5);
-    //padding-left: (lines(0.5) - em(1));
-    width: lines(1);
-    text-align: center;
-    //border: solid $border;
-    //border-width: 0 0 0 1px;
-  }
-}
-
-.inbox-toggle {
-  @include media(tablet) {
-    right: lines(12.5);
-  }
-}
 
 .global-header .badge {
   // Positions badges in .inbox-toggle and .notifications-toggle
@@ -727,10 +615,8 @@ label.error {
   @include media(tablet) {
     // Makes the menu float on top of the content
     position: absolute;
-    right: 0; top: lines(2);
+    left: 0; top: lines(2.5);
     width: lines(10);
-    border: solid $emphasis;
-    border-width: 0 1px 1px;
     
     .inbox-menu-button, .notifications-menu-button {
       // Hidden, since this functionality is now in
@@ -738,119 +624,6 @@ label.error {
       display: none;
     }
   }
-}
-
-.login-menu-toggle {
-  background: $background;
-  &:hover { background: $highlight; }
-  position: absolute;
-  right: 0; top: 0;
-  border: solid $border;
-  border-width: 0 1px 0;
-  z-index: 6;
-  height: em(48);
-  overflow: hidden;
-  
-  .login-icon {
-    width: em(15);
-    height: em(15);
-    display: block;
-    margin: em(10) em(10);
-    @include big-type;
-  }
-  
-  .login-text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    height: lines(1);
-    display: none;
-  }
-  
-  @include media(tablet) {
-    width: lines(8.5);
-    
-    .login-icon {
-      float: left;
-      margin-right: lines(0.375);
-    }
-    
-    .login-text {
-      display: block;
-      padding: lines(0.5) lines(1.5) 0 0;
-    }
-  }
-}
-
-.login-menu {
-  @include box-sizing(border-box);
-  padding: lines(0.75 )lines(0.5) lines(0.5) lines(0.5);
-
-  
-  input[type=text] {
-    margin-bottom: lines(0.5);
-  }
-  
-  @include media(tablet) {
-    // Makes the menu float on top of the content
-    position: absolute;
-    right: 0; top: lines(2);
-    width: lines(14) + em(2);
-    border: solid $emphasis;
-    border-width: 0 1px 1px;
-  }
-}
-
-.feedback-menu-toggle {
-  background: $background;
-  color: $body;
-  &:hover { 
-    background: $highlight;
-    color: $body;
-  }
-  position: absolute;
-  right: lines(8.5); top: 0;
-  border: solid $border;
-  border-width: 0 1px 0;
-  z-index: 5;
-  display: none;
-  height: em(48);
-  
-  .feedback-icon {
-    width: em(15);
-    height: em(15);
-    display: block;
-    margin: em(10) em(10);
-    @include big-type;
-  }
-  
-  .feedback-text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    height: lines(1);
-    display: none;
-    padding: lines(0.5) lines(1.5) 0 0;
-  }
-  
-  @include media(tablet) {
-    width: lines(7);
-    display: block;
-    
-    .feedback-icon {
-      float: left;
-      margin-right: lines(0.375);
-    }
-    
-    .feedback-text {
-      display: block;
-    }
-  }
-  
-  @include media(small-desktop) {
-    width: lines(8.5);
-  }
-  
 }
   
 
@@ -879,22 +652,17 @@ label.error {
 }
 
 .toggle-menu {
-  background: $emphasis;
-  background-color: transparentize($emphasis, 0.05);
-  border-color: $emphasis !important;
+  background: $light-body;
+  border-color: $light-body !important;
   position: relative;
   z-index: 99999;
-  @include media(tablet) {
-    position: absolute;
-  }
+  text-align: left;
   
   a, .feedback {
     display: block;
     position: relative;
     color: $background;
     padding: lines(0.5);
-    //padding-top: (lines(0.5)); // compensates for the 1px border
-    //border-top: 1px solid $body;
   }
   
   a:after {
@@ -902,13 +670,12 @@ label.error {
     display: block;
     position: absolute;
     right: lines(0.5); top: lines(0.5);
-    color: $aside;
+    color: $background;
   }
 
   a:hover {
     background: $link;
     color: $background;
-    //border-top: 1px solid $link;
     
     &:after {
       color: $background;
@@ -969,44 +736,24 @@ label.error {
       top: em(10, 13); right: em(9, 13); bottom: auto;
     }
   }
+  
+  @include media(tablet) {
+    position: absolute;
+  }
+  
 }
 
 .toggle {
   cursor: pointer;
   
   &.toggled {
-    background: $emphasis;
+    background: $light-body;
     color: $background !important;
-    border-color: $emphasis;
+    border-color: $light-body;
     
     @include media(tablet) {
-      border-bottom-color: $emphasis !important;
+      border-bottom-color: $light-body !important;
     }
-  }
-  
-  &.toggled-logo {
-    color: $background !important;
-    border-color: $emphasis;
-    
-    @include media(tablet) {
-      border-bottom-color: $emphasis !important;
-    }
-  }
-  
-  &.toggled-full-logo {
-    background: $emphasis url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat;
-    
-    @include media(tablet) {
-      background: $emphasis url("/assets/new-design/sharetribe-logo.png") lines(0.5) lines(0.35) no-repeat;
-    }
-  }
-  
-  &.toggled-icon-logo {
-    background: $emphasis url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat;
-  }
-  
-  &.toggled-no-logo {
-    background: $emphasis;
   }
   
 }
@@ -1089,11 +836,10 @@ label.error {
 
 .language-menu {
   @include media(tablet) {
-    // Makes the menu float on top of the content
     position: absolute;
-    right: 0;
+    left: 0;
+    top: lines(2.5);
     width: lines(10);
-    top: em(44);
     z-index: 999999;
   }
 }
@@ -3297,15 +3043,6 @@ header.global-header {
     font-weight: 600;
   }
   
-  .wrapper {
-    @include box-sizing(border-box);
-    padding: 0 lines(0.5);
-    
-    @include media(desktop) {
-      padding: 0;
-    }
-  }
-  
   .top-menu {
     a {
       color: $background;
@@ -3324,6 +3061,15 @@ header.global-header {
 
 header.network-header {
   border-bottom: em(3) solid $network-red;
+  
+  .wrapper {
+    @include box-sizing(border-box);
+    padding: 0 lines(0.5);
+    
+    @include media(desktop) {
+      padding: 0;
+    }
+  }
   
   a {
     color: $network-red;
@@ -3868,16 +3614,62 @@ section.create-now {
 header.marketplace-header {
   border-bottom: em(3) solid $light-body;
   
-  a {
-    color: $light-body;
-    &:hover { 
-      color: lighten($body, 20%);
-    };
+  .mobile-menu {
+    @include box-sizing(border-box);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: lines(2.5);
+    height: (lines(2.5) - em(3));
+    padding: em(17) lines(0.5) em(10) lines(0.5);
+    border-right: 1px solid $aside;
+    
+    @include media(mid-desktop) {
+      display: none;
+    }
   }
   
-  .logo-side {
+  a.logo-side {
+    z-index: 4;
+    color: $body;
+    &:hover { 
+      color: $body;
+      background: $highlight;
+    }
+    @include box-sizing(border-box);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: lines(2.5);
     padding-top: em(8);
-    max-width: lines(10);
+    height: (lines(2.5) - em(3));
+    text-align: center;
+    @include media(mid-desktop) {
+      text-align: left;
+      position: static;
+      vertical-align: top;
+      display: inline-block;
+      padding-left: lines(0.5);
+      &:hover { background: $background; }
+    }
+    @include media(desktop) {
+      padding-left: 0;
+    }
+  }
+  
+  .logo-side-logged {
+    @include box-sizing(border-box);
+    width: lines(2.5);
+    @include media(mid-desktop) {
+      width: lines(7);
+    }
+  }
+  
+  .logo-side-unlogged {
+    width: lines(5);
+    @include media(mid-desktop) {
+      width: lines(7);
+    }
   }
   
   img.global-header-logo {
@@ -3888,57 +3680,70 @@ header.marketplace-header {
   .marketplace-name {
     text-transform: uppercase;
     vertical-align: top;
+    padding-top: em(7);
+    margin-left: lines(0.25);
+    @include media(mid-desktop) {
+      @include big-type;
+      font-weight: 600;
+      margin-left: lines(0.5, 24);
+      padding-top: em(5);
+    }
+  }
+  
+  .marketplace-name-logged {
+    display: none;
+    @include media(mid-desktop) {
+      display: inline-block;
+    }
+  }
+  
+  .marketplace-name-unlogged {
     display: inline-block;
-    padding-top: em(5);
-    margin-left: lines(0.5, 24);
-    @include big-type;
-    font-weight: 600;
   }
   
   .right-side {
-    display: none;
-    padding: 0 lines(0.5);
     @include box-sizing(border-box);
-    
-    @include media(desktop) {
-      padding: 0;
-    }
-    
-    @include media(tablet) {
-      display: block;
+    position: relative;
+    display: inline-block;
+    font-weight: 600;
+    width: 100%;
+    @include media(mid-desktop) {
+      width: lines(33);
       position: absolute;
       right: 0;
       top: 0;
       text-align: right;
-      font-weight: 600;
-    }
-  }
-  
-  .right-side-mobile {
-    @include box-sizing(border-box);
-    @include big-type;
-    padding: 0 lines(0.5);
-    position: absolute;
-    right: 0;
-    top: em(14);
-    
-    @include media(tablet) {
-      display: none;
     }
   }
   
   a.global-navi {
     vertical-align: top;
-    display: inline-block;
-    margin: 0 lines(0.5);
+    display: none;
+    margin-right: lines(0.5);
     padding-top: em(15);
+    color: $light-body;
     &:hover { color: $link; }
+    
+    @include media(mid-desktop) {
+      display: inline-block;
+    }
   }
   
-  .divider {
+  a.login-link {
     display: inline-block;
-    vertical-align: top;
-    padding-top: em(15);
+    position: absolute;
+    top: em(-18);
+    right: lines(0.5);
+    @include media(mid-desktop) {
+      position: static;
+    }
+  }
+  
+  a.global-navi-left {
+    &:after {
+      margin-left: lines(0.5);
+      content: "|";
+    };
   }
   
   a.inbox-link {
@@ -3946,10 +3751,30 @@ header.marketplace-header {
   }
   
   .language-menu-toggle {
+    position: relative;
     vertical-align: top;
-    padding: em(10) lines(0.5) em(5) lines(0.25);
+    padding: em(10) 0 em(15) 0;
+    margin-right: lines(0.5);
     display: none;
     &:hover { color: $link; }
+    &:before {
+      color: $light-body !important;
+      display: inline-block;
+      margin-right: em(8);
+      margin-left: 0;
+      padding-left: 0;
+      padding-top: em(5);
+      content: "|";
+    };
+    &:after {
+      color: $light-body !important;
+      display: inline-block;
+      margin-left: em(8);
+      margin-right: 0;
+      padding-right: 0;
+      padding-top: em(5);
+      content: "|";
+    };
     
     .language-name {
       display: inline-block;
@@ -3963,16 +3788,20 @@ header.marketplace-header {
       padding: em(8) 0 0 em(3);
     }
     
-    @include media(tablet) {
+    @include media(mid-desktop) {
       display: inline-block;
     }
     
   }
   
   .user-menu-toggle {
+    width: 100%;
+    position: relative;
     display: inline-block;
     vertical-align: top;
-    padding: em(10) lines(0.5) em(5) lines(0.25);
+    padding: em(10) lines(0.5) em(5) lines(0.5);
+    margin-left: lines(5);
+    border-left: 1px solid $aside;
     &:hover { color: $link; }
 
     .user-avatar {
@@ -3985,40 +3814,41 @@ header.marketplace-header {
     .user-name {
       vertical-align: top;
       padding: em(5) 0 0 em(4);
-      display: none;
+      display: inline-block;
     }
 
     .icon-dropdown {
-      vertical-align: top;
-      padding: em(8) 0 0 em(3);
+      display: block;
+      position: absolute;
+      top: em(18);
+      right: lines(6.5);
+    }
+    
+    .badge {
       display: none;
     }
-
-    @include media(tablet) {
-
-      .user-avatar {
-        display: inline-block;
-      }
-
-      .user-name {
-        display: inline-block;
-      }
-
-      .badge {
-        display: none;
-      }
-
+    
+    @include media(mid-desktop) {
+      border: 0;
+      padding-left: lines(0.25);
+      margin-left: 0;
+      width: auto;
+      
       .icon-dropdown {
+        position: static;
+        vertical-align: top;
+        padding: em(8) 0 0 em(3);
         display: inline-block;
       }
+    
     }
 
   }
   
   .new-listing-link {
-    display: inline-block;
+    display: none;
     vertical-align: top;
-    padding-top: em(15);
+    padding: em(15) lines(0.5) 0 0;
     a {
       @include action-button($network-green);
       border-width: em(2);
@@ -4030,6 +3860,14 @@ header.marketplace-header {
         padding: em(5) em(13) em(8) em(13);
         width: auto;
       }
+    }
+    
+    @include media(mid-desktop) {
+      display: inline-block;
+    }
+    
+    @include media(desktop) {
+      padding-right: 0;
     }
   }
   
@@ -4046,7 +3884,7 @@ header.marketplace-header {
 
   figure.marketplace-cover {
     background-image: image-url($cover-photo-url);
-    height: em(300);
+    height: em($cover-photo-height);
     @include media(tablet) {
       @include fluid-ratio(em(1920) em($cover-photo-height), em(300) em($cover-photo-height));
     }
@@ -4054,7 +3892,7 @@ header.marketplace-header {
   
   figure.marketplace-cover-small {
     background-image: image-url($cover-photo-url);
-    height: em(300);
+    height: em($small-cover-photo-mobile-height);
     @include media(tablet) {
       @include fluid-ratio(em(1920) em($small-cover-photo-height), em(300) em($small-cover-photo-height));
     }
@@ -4072,9 +3910,9 @@ header.marketplace-header {
   }
   
   figure.marketplace-cover-small-fade {
-    height: em(300);
+    height: em($small-cover-photo-mobile-height, 16);
     @include media(tablet) {
-      @include fluid-ratio(em(1920) em($small-cover-photo-height), em(300) em($small-cover-photo-height));
+      @include fluid-ratio(em(1920) em($small-cover-photo-height), em($small-cover-photo-height) em($small-cover-photo-height));
     }
   }
   
@@ -4148,18 +3986,31 @@ header.marketplace-header {
   .browse-view-search-form {
     @include box-sizing(border-box);
     width: 100%;
-    padding: lines(1) 0;
+    padding-top: lines(1.5);
     
     input[type=text] {
+      @include box-sizing(border-box);
       @include normal-type;
       vertical-align: top;
       border: em(2) solid $body;
-      width: 100%;
+      margin-right: em(-5);
+      padding: em(11) em(14) em(11) em(14);
+      width: 73%;
+      display: inline;
     }
     
     button.action-button {
+      display: inline;
+      vertical-align: top;
       border-width: em(2);
       padding: em(8);
+      margin: 0 0 0 3%;
+      width: 24%;
+      padding: em(12) em(16) em(10) em(16);
+    }
+    
+    @include media(tablet) {
+      padding: lines(1) 0;
     }
     
   }
@@ -4200,19 +4051,18 @@ header.marketplace-header {
     }
     
     .browse-view-search-form {
+      
       input[type=text] {
-        margin-right: em(-3);
-        padding: em(11) em(14) em(11) em(14);
-        width: 80%;
+        width: 77%;
       }
       
       button.action-button {
-        margin-left: 1%;
-        width: 19%;
         padding: em(9) em(16) em(7) em(16);
+        margin-left: 1%;
+        width: 22%;
       }
+
     }
-    
     
   }
   

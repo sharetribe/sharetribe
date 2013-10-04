@@ -4,16 +4,16 @@ module ApplicationHelper
   
   ICONS = {
     "ss-pika" => {
+      
+      # Default UI icons
       "map" => "ss-maplocation",
       "new_listing" => "ss-addfile",
       "search"  => "ss-search",
       "list" => "ss-list",
-      
       "home" => "ss-home",
       "community" =>"ss-usergroup",
       "help" => "ss-help",
       "admin" => "ss-wrench",
-      
       "dropdown" => "ss-dropdown",
       "mail" => "ss-mail",
       "notifications" => "ss-earth",
@@ -23,14 +23,11 @@ module ApplicationHelper
       "user" => "ss-user",
       "settings" => "ss-settings",
       "facebook" => "ss-facebook ss-icon ss-social",
-      
-      
       "information" => "ss-info",
       "alert" => "ss-alert",
       "how_to_use" => "ss-signpost",
       "privacy" => "ss-lockfile",
       "terms" => "ss-textfile",
-      
       "testimonial" => "ss-star",
       "like" => "ss-like",
       "dislike" => "ss-dislike",
@@ -49,7 +46,9 @@ module ApplicationHelper
       "payments" => "ss-moneybag",
       "notification_settings" => "ss-callbell",
       "account_settings" => "ss-lockfile",
+      "rows" => "ss-rows",
       
+      # Default category & share type icons
       "offer" => "ss-share",
       "request" => "ss-tip",
       "item" => "ss-box",
@@ -83,9 +82,7 @@ module ApplicationHelper
       "rent" => "ss-pricetag",
       "rent_out" => "ss-pricetag",
       
-      
-      
-      
+      # Custom category & share type icons
       "job" => "ss-briefcase",
       "announcement" => "ss-newspaper",
       "news" => "ss-newspaper",
@@ -108,7 +105,6 @@ module ApplicationHelper
       "search_material" => "ss-search",
       "sell_material" => "ss-moneybag",
       "give_away_material" => "ss-gift",
-      
       "beekeeping_and_honey" => "ss-waterbottle",
       "eggs" => "ss-colander",
       "produce" => "ss-carrot",
@@ -117,10 +113,7 @@ module ApplicationHelper
       "livestock" => "ss-bird",
       "seeds_and_starts" => "ss-leaf",
       "food_related_classes" => "ss-bookmark",
-      
-      
       "bike" => "ss-bike",
-      
       "peat" => "ss-cloud",
       "clay" => "ss-cloud",
       "silt" => "ss-cloud",
@@ -129,20 +122,16 @@ module ApplicationHelper
       "sand" => "ss-cloud",
       "gravel" => "ss-cloud",
       "rock" => "ss-cloud",
-      
       "friend_for_languages_or_games" => "ss-users",
-      
       "location" => "ss-location",
       "offer_job" => "ss-briefcase",
       "internship" => "ss-users",
       "volunteering" => "ss-heart",
-      
       "parking" => "ss-garage",
       "meeting_spot" => "ss-usergroup",
       "work_spot" => "ss-briefcase",
       "cars" => "ss-car",
       "raclette_grill" => "ss-cookingutensils",
-      
     },
     "font-awesome" => {
       "map" => "icon-map-marker",
