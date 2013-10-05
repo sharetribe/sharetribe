@@ -1,7 +1,17 @@
-.bubble-item {
+.bubble-image-container {
+  $width: 200px;
+  $height: 110px;
+
+  width: $width;
+  height: $height;
+
+  // Hide, if picture height or width is bigger than 250/150
+  overflow: hidden;
+
   > img {
-    width: 250px;
-    height: 150px;
+    width: $width;
+    min-width: $width;
+    min-height: $height;
   }
 }
 
@@ -29,8 +39,13 @@
   left: 5px;
   top: 5px;
 
-  > a > img {
-    height: 30px;
+  > a {
+    $imageHeight: 30px;
+    display: block;
+
+    &, > img {
+      height: $imageHeight;
+    }
   }
 }
 
@@ -46,24 +61,21 @@
   line-height: 1em;
 }
 
-.bubble-created {
-  color: $body;
-  margin: 0px 5px;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
 .bubble-description {
   position: absolute;
-  left: 0;
+  right: 0;
   bottom: 0;
+  line-height: 30px;
 }
 
 .bubble-author {
   position: absolute;
   left: 0;
   top: 0;
+
+  > a {
+    line-height: 30px;
+  }
 }
 
 .bubble-overlay {
@@ -73,4 +85,8 @@
   right: 0;
   height: 80px;
   @include background-image(linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)));
+
+  > a {
+    font-size: 14px;
+  }
 }

@@ -1,5 +1,6 @@
 .bubble-item
-  = image_tag listing.listing_images.first.image.url(:medium), :alt => listed_listing_title(listing)
+  .bubble-image-container
+    = image_tag listing.listing_images.first.image.url(:medium), :alt => listed_listing_title(listing)
   .bubble-overlay
     = link_to listing.title, listing, :class => "bubble-title-link"
   .bubble-title
@@ -8,7 +9,5 @@
     .bubble-details
       .bubble-author
         = author_link(listing)
-      .bubble-created
-        %time{datetime: "#{listing.created_at}"}= time_ago(listing.created_at)
       .bubble-description
-        = "#{truncate_html(listing.description, :length => 30, :omission => '...')}"
+        = render :partial => "listings/displayed_price", :locals => { :listing => listing }
