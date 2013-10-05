@@ -1,3 +1,5 @@
+@import "compass/css3";
+
 .bubble-image-container {
   $width: 200px;
   $height: 110px;
@@ -12,7 +14,14 @@
     width: $width;
     min-width: $width;
     min-height: $height;
+    @include border-radius(5px);
   }
+}
+
+.bubble-loader-gif {
+  position: absolute;
+  top: (150px / 2) - (42px / 2);
+  left: (200px / 2) - (42px / 2);
 }
 
 .bubble-title {
