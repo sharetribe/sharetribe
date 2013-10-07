@@ -10,5 +10,9 @@
     .bubble-details
       .bubble-author
         = author_link(listing)
-      .bubble-description
-        = render :partial => "listings/displayed_price", :locals => { :listing => listing }
+      .bubble-price
+        = money_without_cents_and_with_symbol(listing.price).upcase
+        - unless listing.quantity.blank?
+          = "/ #{listing.quantity}"
+        - if @current_community.vat
+          = t(".price_excludes_vat")

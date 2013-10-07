@@ -61,11 +61,13 @@
   line-height: 1em;
 }
 
-.bubble-description {
+.bubble-details .bubble-price {
   position: absolute;
   right: 0;
   bottom: 0;
   line-height: 30px;
+  font-size: 16px;
+  margin-right: 10px;
 }
 
 .bubble-author {
