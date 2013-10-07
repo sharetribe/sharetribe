@@ -90,6 +90,11 @@ $line-height: 24;
   font-weight: 600;
 }
 
+@mixin larger-type {
+  font-size: em(34); // roughly 16*1.618 (longer part golden ratio)
+  font-weight: 600;
+}
+
 @mixin huge-type {
   font-size: em(42); // roughly 16*1.618^2 (double golden ratio)
   line-height: lines(2, 42); // 48px

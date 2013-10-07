@@ -192,11 +192,20 @@ ul {
   
 }
 
-.centered-section, .centered-section-wide, .left-navi-section {
-  margin-top: lines(1.25);
+.centered-section, .centered-section-wide, .centered-section-narrow, .left-navi-section {
+  margin-top: lines(0.25);
+  
   textarea {
     height: lines(5);
   }
+  
+  @include media(tablet) {
+    margin-top: lines(1.25);
+  }
+}
+
+.centered-section-narrow {
+  max-width: lines(15);
 }
 
 .centered-section {
@@ -208,7 +217,7 @@ ul {
 }
 
 // User for simple centered views, mostly with forms
-.centered-section, .centered-section-wide {
+.centered-section, .centered-section-wide, .centered-section-narrow {
   padding: lines(0.5);
   margin-left: auto;
   margin-right: auto;
@@ -611,21 +620,7 @@ label.error {
   }
 }
 
-.user-menu {
-  @include media(tablet) {
-    // Makes the menu float on top of the content
-    position: absolute;
-    left: 0; top: lines(2.5);
-    width: lines(10);
-    
-    .inbox-menu-button, .notifications-menu-button {
-      // Hidden, since this functionality is now in
-      // .inbox-toggle and .notifications-toggle
-      display: none;
-    }
-  }
-}
-  
+
 
 /*
   ------------
@@ -690,19 +685,6 @@ label.error {
     }
     &:after {
       content: "";
-    }
-  }
-  
-  a.fb-connect {
-    @include facebook-connect-button;
-    @include normal-type;
-    padding: em(10) 2% em(6) 2%;
-    &:after {
-      content: "";
-    }
-    .fb-text {
-      @include normal-type;
-      padding-left: lines(1.5);
     }
   }
   
@@ -834,15 +816,7 @@ label.error {
 
 }
 
-.language-menu {
-  @include media(tablet) {
-    position: absolute;
-    left: 0;
-    top: lines(2.5);
-    width: lines(10);
-    z-index: 999999;
-  }
-}
+
 
 /*
   --------------------------------------
@@ -3608,13 +3582,13 @@ section.create-now {
 
 
 /* 
-  Top navi
+  Top navibar
 */
 
 header.marketplace-header {
   border-bottom: em(3) solid $light-body;
   
-  .mobile-menu {
+  .mobile-menu-toggle {
     @include box-sizing(border-box);
     position: absolute;
     top: 0;
@@ -3623,10 +3597,20 @@ header.marketplace-header {
     height: (lines(2.5) - em(3));
     padding: em(17) lines(0.5) em(10) lines(0.5);
     border-right: 1px solid $aside;
+    &:hover { color: $link; }
+    cursor: pointer;
+    z-index: 10;
     
     @include media(mid-desktop) {
       display: none;
     }
+  }
+  
+  .mobile-menu {
+    position: absolute;
+    left: 0;
+    top: lines(2.5);
+    width: 100%;
   }
   
   a.logo-side {
@@ -3643,9 +3627,7 @@ header.marketplace-header {
     left: lines(2.5);
     padding-top: em(8);
     height: (lines(2.5) - em(3));
-    text-align: center;
     @include media(mid-desktop) {
-      text-align: left;
       position: static;
       vertical-align: top;
       display: inline-block;
@@ -3657,17 +3639,20 @@ header.marketplace-header {
     }
   }
   
-  .logo-side-logged {
-    @include box-sizing(border-box);
+  a.logo-side-logged {
     width: lines(2.5);
+    text-align: center;
     @include media(mid-desktop) {
+      text-align: left;
       width: lines(7);
     }
   }
   
-  .logo-side-unlogged {
+  a.logo-side-unlogged {
     width: lines(5);
+    padding-left: lines(0.75);
     @include media(mid-desktop) {
+      padding-left: 0;
       width: lines(7);
     }
   }
@@ -3794,6 +3779,16 @@ header.marketplace-header {
     
   }
   
+  .language-menu {
+    @include media(tablet) {
+      position: absolute;
+      left: 0;
+      top: lines(2.5);
+      width: lines(10);
+      z-index: 10;
+    }
+  }
+  
   .user-menu-toggle {
     width: 100%;
     position: relative;
@@ -3845,6 +3840,23 @@ header.marketplace-header {
 
   }
   
+  .user-menu {
+    position: absolute;
+    left: 0;
+    top: lines(2.5);
+    width: 100%;
+    @include media(tablet) {
+      width: lines(10);
+
+      .inbox-menu-button {
+        // Hidden, since this functionality is now in
+        // .inbox-link
+        display: none;
+      }
+    }
+  }
+  
+  
   .new-listing-link {
     display: none;
     vertical-align: top;
@@ -3884,7 +3896,7 @@ header.marketplace-header {
 
   figure.marketplace-cover {
     background-image: image-url($cover-photo-url);
-    height: em($cover-photo-height);
+    height: em($cover-photo-mobile-height);
     @include media(tablet) {
       @include fluid-ratio(em(1920) em($cover-photo-height), em(300) em($cover-photo-height));
     }
@@ -3917,20 +3929,26 @@ header.marketplace-header {
   }
   
   .marketplace-lander-content {
+    top: lines($lander-content-top-mobile);
+    
     h1 {
       position: relative;
       padding: 0;
       color: $background;
-      @include huge-type;
-      line-height: em(15);
+      @include larger-type;
+      line-height: em(18);
       @include media(tablet) {
         padding: 0 lines(1);
+        @include huge-type;
+        line-height: em(15);
       }
     }
+ 
   }
   
   .marketplace-title-header {
     width: 100%;
+    text-align: center;
     position: absolute;
     top: lines(-4);
     z-index: 2;
@@ -3938,18 +3956,29 @@ header.marketplace-header {
     @include box-sizing(border-box);
     
     h1 {
-      padding: lines(0.75) 0;
+      padding: (lines(1.5) - em(2)) 0;
       color: $light-body;
-      @include large-type;
+      @include big-type;
+    }
+    
+    @include media(tablet) {
+      text-align: left;
+      h1 {
+        padding: lines(0.75) 0;
+        @include large-type;
+      }
     }
   }
 
   p {
-    margin-top: lines(1);
+    margin-top: lines(0.5);
     color: $background;
     @include normal-type;
     font-weight: 500;
     @include text-shadow(2px, 2px, 3px, rgba(black, 0.5));
+    @include media(tablet) {
+      margin-top: lines(1);
+    }
   }
   
   input[type=text] {
@@ -3974,7 +4003,10 @@ header.marketplace-header {
   }
   
   .search-form {
-    margin-top: lines(2.5);
+    margin-top: lines(1);
+    @include media(tablet) {
+      margin-top: lines(2.5);
+    }
   }
   
   .search-form-input {

@@ -4,7 +4,7 @@
 - content_for :title_header do
   %h1= @facebook_merge ? t('.connect_your_facebook_to_kassi') : t('.login_to_kassi')
 
-.login-form.centered-section
+.login-form.centered-section-narrow
   - if @facebook_merge
     .facebook-account-info
       = icon_tag("facebook", ["fb-icon"])
