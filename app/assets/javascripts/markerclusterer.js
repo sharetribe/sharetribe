@@ -1086,7 +1086,58 @@ ClusterIcon.prototype.triggerClusterClick = function() {
         }
       }
       $.get('/en/listing_bubble_multiple/'+ids, function(data) {
-        $('#map_bubble').html(data);
+        var bubbleContent = ["<div class='bubble-navi-container'>", 
+          "<div class='bubble-navi'>",
+          "  <a><i class='bubble-navi-left ss-navigateleft'></i></a>", 
+          "  <a><i class='bubble-navi-right ss-navigateright'></i></a>",
+          "</div>",
+          "<div class='bubble-content'>",
+          , data
+          , "</div>"].join("");
+        $('#map_bubble').html(bubbleContent);
+
+        var index = 0;
+        var itemsLen = markers.length;
+        var $leftNavi = $('.bubble-navi-left');
+        var $rightNavi = $('.bubble-navi-right');
+        var $content = $('.bubble-content');
+        var itemWidth = 200;
+        $content.width(itemWidth * itemsLen);
+
+        function updateNaviButtonVisibility(index, length, left, right) {
+          if(index > 0) {
+            left.show();
+          } else {
+            left.hide();
+          }
+
+          if(index < (length - 1)) {
+            right.show();
+          } else {
+            right.hide();
+          }
+        }
+
+        function updateContentPosition(index, offset, content) {
+          content.css({left: (index * -1 * offset) + "px"});
+        }
+
+        function updateView(index, length, offset, left, right, content) {
+          updateNaviButtonVisibility(index, length, $leftNavi, $rightNavi);
+          updateContentPosition(index, offset, $content);
+        }
+
+        $leftNavi.on('click', function() {
+          index--;
+          updateView(index, itemsLen, itemWidth, $leftNavi, $rightNavi, $content);
+        });
+
+        $rightNavi.on('click', function() {
+          index++;
+          updateView(index, itemsLen, itemWidth, $leftNavi, $rightNavi, $content);
+        });
+
+        updateView(index, itemsLen, itemWidth, $leftNavi, $rightNavi, $content);
       });
       //this.cluster_.markerClusterer_.infowindow_.setContent(clusterContent);
       this.cluster_.markerClusterer_.infowindow_.open(this.map_, markers[0]);
