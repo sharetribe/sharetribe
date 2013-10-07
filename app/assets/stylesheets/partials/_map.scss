@@ -34,15 +34,6 @@
   color: white;
 }
 
-.bubble-title-link {
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
-  color: white;
-  font-size: 18px;
-  vertical-align: bottom;
-}
-
 .bubble-avatar {
   position: absolute;
   left: 5px;
@@ -93,9 +84,29 @@
   left: 0;
   right: 0;
   height: 80px;
-  @include background-image(linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)));
 
-  > a {
-    font-size: 14px;
+  // Default, with image
+  @include background-image(linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)));
+
+  // No image
+  &.bubble-no-image {
+    height: 150px - 40px - 5px;
+    top: 5px;
+    @include background-image(none);
+  }
+}
+
+a.bubble-title-link {
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  right: 10px;
+  color: white;
+  font-size: 14px;
+  vertical-align: bottom;
+
+  .bubble-no-image & {
+    top: 5px;
+    color: #666;
   }
 }

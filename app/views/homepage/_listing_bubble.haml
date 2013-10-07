@@ -1,7 +1,8 @@
 .bubble-item
   .bubble-image-container
-    = image_tag listing.listing_images.first.image.url(:medium), :alt => listed_listing_title(listing)
-  .bubble-overlay
+    - if listing.has_image?
+      = image_tag listing.listing_images.first.image.url(:medium), :alt => listed_listing_title(listing)
+  .bubble-overlay{:class => ("bubble-no-image" unless listing.has_image?)}
     = link_to listing.title, listing, :class => "bubble-title-link"
   .bubble-title
     .bubble-avatar
