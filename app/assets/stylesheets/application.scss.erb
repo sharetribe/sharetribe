@@ -18,6 +18,11 @@
 
 <%= (APP_CONFIG.icon_pack == "font-awesome" ? "@import 'font-awesome.min';" : "@import 'ss-social';\n@import 'ss-pika';").html_safe %>
 
+/* \,,\ */
+
+*, *:before, *:after {
+  @include box-sizing(border-box);
+}
 
 /*
   --------------------------
@@ -149,7 +154,6 @@ ul {
 }
 
 @mixin facebook-connect-button {
-  @include box-sizing(border-box);
   position: relative;
   cursor: pointer;
   color: white;
@@ -287,7 +291,6 @@ ul {
     display: block;
     position: absolute;
     a {
-      @include box-sizing(border-box);
       position: relative;
       padding: lines(0.25) lines(0.5);
       display: block;
@@ -439,8 +442,6 @@ form {
 }
 
 input[type=text], input[type=password], textarea {
-  
-  @include box-sizing(border-box);
   @include border-radius(em(5));
   border: 1px solid $aside;
   width: 100%;
@@ -489,7 +490,6 @@ label.radiobutton {
 }
 
 @mixin button {
-  @include box-sizing(border-box);
   @include border-radius(em(5));
   background: $link;
   border: em(2) solid darken($link, 10%);
@@ -529,7 +529,6 @@ button, .button {
 
 label.error {
   @include border-radius(em(5));
-  @include box-sizing(border-box);
   padding: em(5) em(10) em(10) em(10);
   background: red;
   color: $background;
@@ -695,7 +694,6 @@ label.error {
   
   .feedback {
     textarea {
-      @include box-sizing(border-box);
       @include small-type;
       display: block;
       width: 100%;
@@ -857,7 +855,6 @@ label.error {
   .flash-notification {
     margin: lines(0.5);
     position: relative;
-    @include box-sizing(border-box);
     padding: em(8) em(20) em(12) em(20);
     @include border-radius(em(5));
     .flash-icon {
@@ -903,7 +900,6 @@ label.error {
 */
 
 .lightbox {
-  @include box-sizing(border-box);
   display: none;
   position: relative;
   margin: lines(10) auto;
@@ -913,7 +909,6 @@ label.error {
 
 .lightbox-content {
   position: relative;
-  @include box-sizing(border-box);
   width: 100%;
   background: $background;
   padding: lines(1);
@@ -994,8 +989,6 @@ a.lightbox-x {
   border: em(2) solid $background;
   width: lines(1.25);
   height: lines(1.25);
-  
-  @include box-sizing(border-box);
   padding: em(1) em(4);
   position: absolute;
   right: lines(-0.5);
@@ -2005,7 +1998,6 @@ a.lightbox-x {
   .facebook-account-info {
     color: $body;
     position: relative;
-    @include box-sizing(border-box);
     display: block;
     width: 100%;
     @include border-radius(em(5));
@@ -2100,7 +2092,6 @@ a.lightbox-x {
   
   a.select {
     position: relative;
-    @include box-sizing(border-box);
     display: block;
     width: 100%;
     @include border-radius(em(5));
@@ -2548,7 +2539,6 @@ a.lightbox-x {
     color: $body;
     cursor: pointer;
     position: relative;
-    @include box-sizing(border-box);
     display: block;
     width: 100%;
     @include border-radius(em(5));
@@ -2783,7 +2773,6 @@ a.lightbox-x {
   }
   
   @include media(tablet) {
-    @include box-sizing(border-box);
     @include box-shadow(rgba(0,0,0,0.2) 0 0 em(8));
     @include border-radius(em(5));
     display: inline-block;
@@ -2904,7 +2893,6 @@ $light_grey: #fdfbfb;
 $network-green: #00a26c;
 
 @mixin action-button($color) {
-  @include box-sizing(border-box);
   @include border-radius(em(5));
   @include normal-type;
   
@@ -2969,7 +2957,6 @@ figure.fluidratio {
 
 .lander-content {
   position: absolute;
-  @include box-sizing(border-box);
   padding: 0 lines(0.5);
   width: 100%;
   text-align: center;
@@ -3011,7 +2998,6 @@ header.global-header {
   background: $background;
   height: lines(2.5);
   width: 100%;
-  @include box-sizing(border-box);
   
   a {
     font-weight: 600;
@@ -3037,7 +3023,6 @@ header.network-header {
   border-bottom: em(3) solid $network-red;
   
   .wrapper {
-    @include box-sizing(border-box);
     padding: 0 lines(0.5);
     
     @include media(desktop) {
@@ -3055,7 +3040,6 @@ header.network-header {
   .right-side {
     display: none;
     padding: 0 lines(0.5);
-    @include box-sizing(border-box);
     
     @include media(desktop) {
       padding: 0;
@@ -3073,7 +3057,6 @@ header.network-header {
   }
   
   .right-side-mobile {
-    @include box-sizing(border-box);
     @include big-type;
     padding: 0 lines(0.5);
     color: $network-red;
@@ -3278,7 +3261,6 @@ section.lander, section.create-now {
   }
   
   input[type=text] {
-    @include box-sizing(border-box);
     @include normal-type;
     padding: 0;
     border: 0;
@@ -3337,7 +3319,6 @@ section.lander, section.create-now {
     }
     
     label.error {
-      @include box-sizing(border-box);
       width: lines(21);
       margin: lines(0.5) auto;
       padding: em(10) em(15) em(15) em(15);
@@ -3555,7 +3536,6 @@ section.create-now {
 }
 
 .top-menu-toggle {
-  @include box-sizing(border-box);
   @include big-type;
   color: $network-red;
   &:hover { color: darken($network-red, 25%); }
@@ -3589,7 +3569,6 @@ header.marketplace-header {
   border-bottom: em(3) solid $light-body;
   
   .mobile-menu-toggle {
-    @include box-sizing(border-box);
     position: absolute;
     top: 0;
     left: 0;
@@ -3620,7 +3599,6 @@ header.marketplace-header {
       color: $body;
       background: $highlight;
     }
-    @include box-sizing(border-box);
     cursor: pointer;
     position: absolute;
     top: 0;
@@ -3687,7 +3665,6 @@ header.marketplace-header {
   }
   
   .right-side {
-    @include box-sizing(border-box);
     position: relative;
     display: inline-block;
     font-weight: 600;
@@ -3953,7 +3930,6 @@ header.marketplace-header {
     top: lines(-4);
     z-index: 2;
     padding: 0 lines(0.5);
-    @include box-sizing(border-box);
     
     h1 {
       padding: (lines(1.5) - em(2)) 0;
@@ -3982,7 +3958,6 @@ header.marketplace-header {
   }
   
   input[type=text] {
-    @include box-sizing(border-box);
     @include normal-type;
     padding: 0;
     border: 0;
@@ -4010,18 +3985,15 @@ header.marketplace-header {
   }
   
   .search-form-input {
-    @include box-sizing(border-box);
     vertical-align: top;
     display: inline;
   }
   
   .browse-view-search-form {
-    @include box-sizing(border-box);
     width: 100%;
     padding-top: lines(1.5);
     
     input[type=text] {
-      @include box-sizing(border-box);
       @include normal-type;
       vertical-align: top;
       border: em(2) solid $body;
@@ -4051,7 +4023,6 @@ header.marketplace-header {
     
     .marketplace-lander-content {
       top: lines($lander-content-top);
-      @include box-sizing(border-box);
       
       h1 {
         @include huge-type;
@@ -4078,7 +4049,6 @@ header.marketplace-header {
     }
     
     .search-form-text-field {
-      @include box-sizing(border-box);
       width: lines(10);
     }
     
