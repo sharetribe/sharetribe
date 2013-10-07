@@ -8,7 +8,7 @@
       = link_to t("header.home"), "/"
       = link_to t("header.about"), about_infos_path
       = link_to t("header.contact_us"), new_user_feedback_path
-      = link_to t("homepage.index.post_new_listing"), new_user_feedback_path
+      = link_to t("homepage.index.post_new_listing"), new_listing_path
       
   
     %a.logo-side{:href => "/", :class => (@current_user ? "logo-side-logged" : "logo-side-unlogged")}
