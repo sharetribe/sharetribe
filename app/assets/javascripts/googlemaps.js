@@ -493,7 +493,7 @@ function initialize_listing_map(community_location_lat, community_location_lon, 
     arrowPosition: 30,
     arrowStyle: 0,
     padding: 0,
-    maxHeight: 150,
+    maxHeight: 150, // 150 for single, 180 for multi
     maxWidth: 200,
     hideCloseButton: true
   });
@@ -616,6 +616,7 @@ function addListingMarkers() {
                     label.set('zIndex', 1234);
                     label.bindTo('position', marker, 'position');
                     label.set('text', "<i class='icon " + entry["icon"] + "'></i>");
+                    label.set('icon', entry["icon"]);
                     label.set('color', icon_color);
                     //label.bindTo('text', marker, 'position');
           marker.set("label", label);
@@ -636,6 +637,8 @@ function addListingMarkers() {
             } else {
               showingMarker = marker.getTitle();
               infowindow.setContent("<div id='map_bubble'><img class='bubble-loader-gif' src='https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif'></div>");
+              infowindow.setMaxHeight(150);
+              infowindow.setMinHeight(150);
               infowindow.open(map,marker);
               $.get('/' + locale + '/listing_bubble/' + entry["id"], function(data) {
                 $('#map_bubble').html(data);

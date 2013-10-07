@@ -1078,20 +1078,34 @@ ClusterIcon.prototype.triggerClusterClick = function() {
       this.showingInfo_ = true;
       var loaderHtml = "<div id='map_bubble'><img class='bubble-loader-gif' src='https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif'></div>";
       this.cluster_.markerClusterer_.infowindow_.setContent(loaderHtml);
-      var ids = "";
+      var ids = [];
       for (var i = 0, marker; marker = markers[i]; i++) {
-        ids =  ids + this.cluster_.markerClusterer_.markerContents_[this.cluster_.markerIndex_[i]];
-        if (i < (markers.length - 1)) {
-          ids = ids + ",";
-        }
+        ids.push(this.cluster_.markerClusterer_.markerContents_[this.cluster_.markerIndex_[i]]);
       }
-      $.get('/en/listing_bubble_multiple/'+ids, function(data) {
+      $.get('/en/listing_bubble_multiple/'+ids.join(','), function(data) {
+        function createIcons(ids, markers) {
+          var icons = [];
+          for(var i = 0; i < ids.length; i++) {
+            icons.push([
+              "<i class='bubble-navi-item-icon ", 
+              markers[i].label.icon, 
+              "'></i>"
+            ].join(""));
+          }
+          return [
+            "<div class='bubble-navi-icons-container'><div class='bubble-navi-icons'>",
+            icons.join(""),
+            "</div></div>"
+          ].join("");
+        }
+
         var bubbleContent = ["<div class='bubble-navi-container'>", 
           "<div class='bubble-navi'>",
           "  <a><i class='bubble-navi-left ss-navigateleft'></i></a>", 
+          createIcons(ids, markers),
           "  <a><i class='bubble-navi-right ss-navigateright'></i></a>",
           "</div>",
-          "<div class='bubble-content'>",
+          "<div class='bubble-multi-content'>",
           , data
           , "</div>"].join("");
         $('#map_bubble').html(bubbleContent);
@@ -1100,46 +1114,71 @@ ClusterIcon.prototype.triggerClusterClick = function() {
         var itemsLen = markers.length;
         var $leftNavi = $('.bubble-navi-left');
         var $rightNavi = $('.bubble-navi-right');
-        var $content = $('.bubble-content');
+        var $content = $('.bubble-multi-content');
+        var $icons = $('.bubble-navi-item-icon');
+        var $iconsContainer = $('.bubble-navi-icons');
+        var iconWidth = 20;
+        $iconsContainer.width(iconWidth * $icons.length)
+
         var itemWidth = 200;
         $content.width(itemWidth * itemsLen);
 
-        function updateNaviButtonVisibility(index, length, left, right) {
+        function updateNaviButtonActivity(index, length, left, right) {
           if(index > 0) {
-            left.show();
+            left.removeClass('disabled');
           } else {
-            left.hide();
+            left.addClass('disabled');
           }
 
           if(index < (length - 1)) {
-            right.show();
+            right.removeClass('disabled');
           } else {
-            right.hide();
+            right.addClass('disabled');
           }
+        }
+
+        function getOffsetMultiply(index, sticky, length) {
+          var start = sticky;
+          var stop = (length - 1) - (sticky * 2); // *2 for both left and right stickies
+          var multiply = Math.max(0, Math.min((index - start), stop));
+          return multiply;
+        }
+
+        function updateActiveIcon(index, icons, container, offset) {
+          var offsetMultiplier = getOffsetMultiply(index, 3, icons.length) * -1;
+          container.css({left: (offsetMultiplier * offset) + "px"});
+          icons.removeClass('active');
+          icons.eq(index).addClass('active');
+          
         }
 
         function updateContentPosition(index, offset, content) {
           content.css({left: (index * -1 * offset) + "px"});
         }
 
-        function updateView(index, length, offset, left, right, content) {
-          updateNaviButtonVisibility(index, length, $leftNavi, $rightNavi);
+        function updateView(index, length, offset, left, right, content, icons, iconsContainer, iconWidth) {
+          updateNaviButtonActivity(index, length, $leftNavi, $rightNavi);
           updateContentPosition(index, offset, $content);
+          updateActiveIcon(index, icons, iconsContainer, iconWidth)
         }
 
         $leftNavi.on('click', function() {
-          index--;
-          updateView(index, itemsLen, itemWidth, $leftNavi, $rightNavi, $content);
+          var min = 0;
+          index = Math.max(index - 1, min);
+          updateView(index, itemsLen, itemWidth, $leftNavi, $rightNavi, $content, $icons, $iconsContainer, iconWidth);
         });
 
         $rightNavi.on('click', function() {
-          index++;
-          updateView(index, itemsLen, itemWidth, $leftNavi, $rightNavi, $content);
+          var max = itemsLen - 1;
+          index = Math.min(index + 1, max);
+          updateView(index, itemsLen, itemWidth, $leftNavi, $rightNavi, $content, $icons, $iconsContainer, iconWidth);
         });
 
-        updateView(index, itemsLen, itemWidth, $leftNavi, $rightNavi, $content);
+        updateView(index, itemsLen, itemWidth, $leftNavi, $rightNavi, $content, $icons, $iconsContainer, iconWidth);
       });
       //this.cluster_.markerClusterer_.infowindow_.setContent(clusterContent);
+      this.cluster_.markerClusterer_.infowindow_.setMaxHeight(180);
+      this.cluster_.markerClusterer_.infowindow_.setMinHeight(180);
       this.cluster_.markerClusterer_.infowindow_.open(this.map_, markers[0]);
     } else {
       this.cluster_.markerClusterer_.infowindow_.close();
