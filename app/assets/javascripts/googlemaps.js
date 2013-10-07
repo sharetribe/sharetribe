@@ -626,6 +626,7 @@ function addListingMarkers() {
 
           google.maps.event.addListener(map, 'mousedown', function() {
             infowindow.close();
+            showingMarker = "";
           });
 
           google.maps.event.addListener(marker, 'click', function() {
@@ -663,9 +664,6 @@ function addListingMarkers() {
                 }
               });
             }
-          });
-          google.maps.event.addListener(infowindow, 'closeclick', function() {
-            showingMarker = "";
           });
         }
       })();

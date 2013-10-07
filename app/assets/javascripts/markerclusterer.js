@@ -1055,6 +1055,16 @@ function ClusterIcon(cluster, styles, opt_padding) {
   this.showingInfo_ =  false;
 
   this.setMap(this.map_);
+
+  var self = this;
+
+  google.maps.event.addListener(this.map_, 'mousedown', function() {
+    if(self.showingInfo_) {
+      self.cluster_.markerClusterer_.infowindow_.close();
+      self.cluster_.markerClusterer_.showingMarker_="";
+      self.showingInfo_ = false;
+    }
+  });
 }
 
 
