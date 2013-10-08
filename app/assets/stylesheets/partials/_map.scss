@@ -1,0 +1,232 @@
+@import "compass/css3";
+@import "compass/css3/user-interface";
+
+$googleMapsFontSize: 11;
+$bubbleItemHeight: em(150, $googleMapsFontSize);
+$bubbleImageHeight: em(110, $googleMapsFontSize);
+$bubbleWidth: em(200, $googleMapsFontSize);
+$bubbleNaviHeight: em(30, $googleMapsFontSize);
+$loaderGifSize: em(42, $googleMapsFontSize);
+$bubbleDetailsHeight: em(40, $googleMapsFontSize);
+$bubbleDetailsMargin: em(5, $googleMapsFontSize);
+
+.bubble-item {
+  position: relative;
+  height: $bubbleItemHeight;
+  z-index: 1;
+  float: left;
+  overflow: hidden;
+}
+
+.bubble-image-container {
+  $width: $bubbleWidth;
+  $height: $bubbleImageHeight;
+
+  width: $width;
+  height: $height;
+
+  // Hide, if picture height or width is bigger than 250/150
+  overflow: hidden;
+
+  img {
+    width: $width;
+    min-width: $width;
+    min-height: $height;
+
+    @include border-top-radius(em(3, $googleMapsFontSize)); // 5px - 2
+
+    .bubble-multi-content & {
+      @include border-top-radius(0);
+    }
+  }
+}
+
+.bubble-multi-content {
+  position: absolute;
+  left: 0px;
+  top: $bubbleNaviHeight;
+  clear: both;
+  @include transition-property(left);
+  @include transition-duration(0.3s);
+}
+
+.bubble-navi-item-icon {
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+  display: block;
+  @include border-radius(20px);
+  text-align: center;
+  line-height: 18px;
+  border: 1px solid $background;
+  background-color: $background;
+  color: $body;
+  float: left;
+  @include user-select(none);
+
+  &.active {
+    background-color: $link;
+  }
+
+  margin-left: 2px;
+  &:first-child {
+    margin-left: 0px;
+  }
+}
+
+.bubble-navi {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: $bubbleNaviHeight;
+  z-index: 2;
+  background-color: $aside;
+  color: $background;
+  width: 200px;
+}
+
+.bubble-navi-icons-container {
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  top: 4px;
+  height: 20px;
+  overflow: hidden;
+  clear: both;
+}
+
+.bubble-navi-icons {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  @include transition-property(left);
+  @include transition-duration(0.3s);
+}
+
+.bubble-navi-container {
+  overflow: hidden;
+  position: relative;
+  height: $bubbleItemHeight + $bubbleNaviHeight;
+  width: $bubbleWidth;
+}
+
+.bubble-navi-button {
+  $fineTuning: 3px; // Fine tune vertical centering
+  font-size: 14px;
+  line-height: 30px - $fineTuning;
+  margin-top: $fineTuning;
+  width: 20px;
+  display: block;
+  position: absolute;
+  text-align: center;
+  @include user-select(none);
+
+  &.disabled {
+    color: lighten($aside, 10%);
+  }
+}
+
+.bubble-navi-left {
+  @extend .bubble-navi-button;
+  left: 5px;
+}
+
+.bubble-navi-right {
+  @extend .bubble-navi-button;
+  right: 5px;
+}
+
+.bubble-loader-gif {
+  position: absolute;
+  top: ($bubbleItemHeight - $loaderGifSize) / 2;
+  left: ($bubbleWidth - $loaderGifSize) / 2;
+}
+
+.bubble-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: $bubbleDetailsHeight;
+  background-color: $background;
+  color: $background;
+  clear: both;
+}
+
+.bubble-avatar {
+  position: absolute;
+  left: $bubbleDetailsMargin;
+  top: $bubbleDetailsMargin;
+
+  > a {
+    display: block;
+
+    &, > img {
+      height: $bubbleDetailsHeight - (2 * $bubbleDetailsMargin);
+    }
+  }
+}
+
+.bubble-details {
+  float: left;
+  color: $body;
+
+  position: absolute;
+  left: $bubbleDetailsHeight;
+  bottom: $bubbleDetailsMargin;
+  right: $bubbleDetailsMargin;
+  top: $bubbleDetailsMargin;
+}
+
+.bubble-details .bubble-price {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  line-height: em(30, 16);
+  font-size: 16px;
+  margin-right: em(10, 16);
+}
+
+.bubble-author {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  > a {
+    line-height: em(30, 11);
+  }
+}
+
+.bubble-overlay {
+  position: absolute;
+  bottom: $bubbleDetailsHeight;
+  left: 0;
+  right: 0;
+  height: em(80, $googleMapsFontSize);
+
+  // Default, with image
+  @include background-image(linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)));
+
+  // No image
+  &.bubble-no-image {
+    height: $bubbleItemHeight - $bubbleDetailsHeight - $bubbleDetailsMargin;
+    top: $bubbleDetailsMargin;
+    @include background-image(none);
+  }
+}
+
+span.bubble-title-link {
+  $margin: em(5, 14);
+  position: absolute;
+  bottom: $margin;
+  left: $margin * 2;
+  right: $margin * 2;
+  color: $background;
+  font-size: 14px;
+  vertical-align: bottom;
+
+  .bubble-no-image & {
+    top: $margin;
+    color: $aside;
+  }
+}

@@ -491,7 +491,11 @@ function initialize_listing_map(community_location_lat, community_location_lon, 
     borderRadius: 5,
     borderWidth: 1,
     arrowPosition: 30,
-    arrowStyle: 0
+    arrowStyle: 0,
+    padding: 0,
+    maxHeight: 150, // 150 for single, 180 for multi
+    maxWidth: 200,
+    hideCloseButton: true
   });
   if ($(window).width() >= 768) {
     infowindow.setMinHeight(235);
@@ -612,12 +616,19 @@ function addListingMarkers() {
                     label.set('zIndex', 1234);
                     label.bindTo('position', marker, 'position');
                     label.set('text', "<i class='icon " + entry["icon"] + "'></i>");
+                    label.set('icon', entry["icon"]);
                     label.set('color', icon_color);
                     //label.bindTo('text', marker, 'position');
           marker.set("label", label);
           markers.push(marker);
           markersArr.push(marker);
           var ind = i;
+
+          google.maps.event.addListener(map, 'mousedown', function() {
+            infowindow.close();
+            showingMarker = "";
+          });
+
           google.maps.event.addListener(marker, 'click', function() {
             infowindow.close();
             directionsDisplay.setMap(null);
@@ -626,7 +637,9 @@ function addListingMarkers() {
               showingMarker = "";
             } else {
               showingMarker = marker.getTitle();
-              infowindow.setContent("<div id='map_bubble'><div style='text-align: center; width: 360px; height: 70px; padding-top: 25px;'><img src='https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif'></div></div>");
+              infowindow.setContent("<div id='map_bubble'><img class='bubble-loader-gif' src='https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif'></div>");
+              infowindow.setMaxHeight(150);
+              infowindow.setMinHeight(150);
               infowindow.open(map,marker);
               $.get('/' + locale + '/listing_bubble/' + entry["id"], function(data) {
                 $('#map_bubble').html(data);
@@ -651,9 +664,6 @@ function addListingMarkers() {
                 }
               });
             }
-          });
-          google.maps.event.addListener(infowindow, 'closeclick', function() {
-            showingMarker = "";
           });
         }
       })();
