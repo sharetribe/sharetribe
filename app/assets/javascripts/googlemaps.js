@@ -616,7 +616,6 @@ function addListingMarkers() {
                     label.set('zIndex', 1234);
                     label.bindTo('position', marker, 'position');
                     label.set('text', "<i class='icon " + entry["icon"] + "'></i>");
-                    label.set('icon', entry["icon"]);
                     label.set('color', icon_color);
                     //label.bindTo('text', marker, 'position');
           marker.set("label", label);
