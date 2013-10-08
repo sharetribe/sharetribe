@@ -1093,32 +1093,7 @@ ClusterIcon.prototype.triggerClusterClick = function() {
         ids.push(this.cluster_.markerClusterer_.markerContents_[this.cluster_.markerIndex_[i]]);
       }
       $.get('/en/listing_bubble_multiple/'+ids.join(','), function(data) {
-        function createIcons(ids, markers) {
-          var icons = [];
-          for(var i = 0; i < ids.length; i++) {
-            icons.push([
-              "<i class='bubble-navi-item-icon ", 
-              markers[i].label.icon, 
-              "'></i>"
-            ].join(""));
-          }
-          return [
-            "<div class='bubble-navi-icons-container'><div class='bubble-navi-icons'>",
-            icons.join(""),
-            "</div></div>"
-          ].join("");
-        }
-
-        var bubbleContent = ["<div class='bubble-navi-container'>", 
-          "<div class='bubble-navi'>",
-          "  <a><i class='bubble-navi-left ss-navigateleft'></i></a>", 
-          createIcons(ids, markers),
-          "  <a><i class='bubble-navi-right ss-navigateright'></i></a>",
-          "</div>",
-          "<div class='bubble-multi-content'>",
-          , data
-          , "</div>"].join("");
-        $('#map_bubble').html(bubbleContent);
+        $('#map_bubble').html(data);
 
         var index = 0;
         var itemsLen = markers.length;

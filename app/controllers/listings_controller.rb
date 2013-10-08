@@ -76,7 +76,7 @@ class ListingsController < ApplicationController
   def listing_bubble_multiple
     @listings = Listing.visible_to(@current_user, @current_community, params[:ids]).order("id DESC")
     if @listings.size > 0
-      render :partial => "homepage/listing_bubble", :collection => @listings, :as => :listing
+      render :partial => "homepage/listing_bubble_multiple"
     else
       render :partial => "bubble_listing_not_visible"
     end
