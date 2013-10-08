@@ -1,17 +1,26 @@
 @import "compass/css3";
 @import "compass/css3/user-interface";
 
+$googleMapsFontSize: 11;
+$bubbleItemHeight: em(150, $googleMapsFontSize);
+$bubbleImageHeight: em(110, $googleMapsFontSize);
+$bubbleWidth: em(200, $googleMapsFontSize);
+$bubbleNaviHeight: em(30, $googleMapsFontSize);
+$loaderGifSize: em(42, $googleMapsFontSize);
+$bubbleDetailsHeight: em(40, $googleMapsFontSize);
+$bubbleDetailsMargin: em(5, $googleMapsFontSize);
+
 .bubble-item {
   position: relative;
-  height: 150px;
+  height: $bubbleItemHeight;
   z-index: 1;
   float: left;
   overflow: hidden;
 }
 
 .bubble-image-container {
-  $width: 200px;
-  $height: 110px;
+  $width: $bubbleWidth;
+  $height: $bubbleImageHeight;
 
   width: $width;
   height: $height;
@@ -24,10 +33,10 @@
     min-width: $width;
     min-height: $height;
 
-    @include border-top-radius(3px); // 5px - 2
+    @include border-top-radius(em(3, $googleMapsFontSize)); // 5px - 2
 
     .bubble-multi-content & {
-      @include border-top-radius(0px);
+      @include border-top-radius(0);
     }
   }
 }
@@ -35,7 +44,7 @@
 .bubble-multi-content {
   position: absolute;
   left: 0px;
-  top: 30px;
+  top: $bubbleNaviHeight;
   clear: both;
   @include transition-property(left);
   @include transition-duration(0.3s);
@@ -69,7 +78,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 30px;
+  height: $bubbleNaviHeight;
   z-index: 2;
   background-color: #333;
   background-color: rgba(0, 0, 0, 0.7);
@@ -98,8 +107,8 @@
 .bubble-navi-container {
   overflow: hidden;
   position: relative;
-  height: 180px;
-  width: 200px;
+  height: $bubbleItemHeight + $bubbleNaviHeight;
+  width: $bubbleWidth;
 }
 
 .bubble-navi-button {
@@ -130,8 +139,8 @@
 
 .bubble-loader-gif {
   position: absolute;
-  top: (150px / 2) - (42px / 2);
-  left: (200px / 2) - (42px / 2);
+  top: ($bubbleItemHeight - $loaderGifSize) / 2;
+  left: ($bubbleWidth - $loaderGifSize) / 2;
 }
 
 .bubble-title {
@@ -165,20 +174,19 @@
   color: $body;
 
   position: absolute;
-  left: 40px;
-  bottom: 5px;
-  right: 5px;
-  top: 5px;
-  line-height: 1em;
+  left: $bubbleDetailsHeight;
+  bottom: $bubbleDetailsMargin;
+  right: $bubbleDetailsMargin;
+  top: $bubbleDetailsMargin;
 }
 
 .bubble-details .bubble-price {
   position: absolute;
   right: 0;
   bottom: 0;
-  line-height: 30px;
+  line-height: em(30, 16);
   font-size: 16px;
-  margin-right: 10px;
+  margin-right: em(10, 16);;
 }
 
 .bubble-author {
@@ -187,39 +195,40 @@
   top: 0;
 
   > a {
-    line-height: 30px;
+    line-height: em(30, 11);
   }
 }
 
 .bubble-overlay {
   position: absolute;
-  bottom: 40px;
+  bottom: $bubbleDetailsHeight;
   left: 0;
   right: 0;
-  height: 80px;
+  height: em(80, $googleMapsFontSize);
 
   // Default, with image
   @include background-image(linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)));
 
   // No image
   &.bubble-no-image {
-    height: 150px - 40px - 5px;
-    top: 5px;
+    height: $bubbleItemHeight - $bubbleDetailsHeight - $bubbleDetailsMargin;
+    top: $bubbleDetailsMargin;
     @include background-image(none);
   }
 }
 
 span.bubble-title-link {
+  $margin: em(5, 14);
   position: absolute;
-  bottom: 5px;
-  left: 10px;
-  right: 10px;
+  bottom: $margin;
+  left: $margin * 2;
+  right: $margin * 2;
   color: white;
   font-size: 14px;
   vertical-align: bottom;
 
   .bubble-no-image & {
-    top: 5px;
+    top: $margin;
     color: #666;
   }
 }
