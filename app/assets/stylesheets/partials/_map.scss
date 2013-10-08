@@ -19,7 +19,7 @@
   // Hide, if picture height or width is bigger than 250/150
   overflow: hidden;
 
-  > img {
+  img {
     width: $width;
     min-width: $width;
     min-height: $height;
@@ -209,7 +209,7 @@
   }
 }
 
-a.bubble-title-link {
+span.bubble-title-link {
   position: absolute;
   bottom: 5px;
   left: 10px;
