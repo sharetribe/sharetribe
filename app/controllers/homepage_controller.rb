@@ -6,6 +6,8 @@ class HomepageController < ApplicationController
 
   def index
     @homepage = true
+    @categories_enabled = true
+    @layout_3_columns = true
     
     listings_per_page = 16
     

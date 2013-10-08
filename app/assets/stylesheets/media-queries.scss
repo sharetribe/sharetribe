@@ -40,6 +40,12 @@
   @if $point == mid-desktop {
     @media (min-width: em(960)) { @content; }
   }
+  @if $point == full-grid {
+    @media (min-width: em(988)) { @content; }
+  }
+  @if $point == full-grid {
+    @media (min-width: em(1008)) { @content; }
+  }
   @if $point == desktop {
     @media (min-width: em(1008)) { @content; }
   }
