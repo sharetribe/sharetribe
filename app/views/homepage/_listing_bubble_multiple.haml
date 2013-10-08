@@ -1,0 +1,12 @@
+.bubble-navi-container
+  .bubble-navi
+    %a
+      %i.bubble-navi-left.ss-navigateleft
+    .bubble-navi-icons-container
+      .bubble-navi-icons
+        - @listings.each do |listing|
+          %i.bubble-navi-item-icon{:class => icon_class(listing.icon_name)}
+    %a
+      %i.bubble-navi-right.ss-navigateright
+  .bubble-multi-content
+    =render :partial => "homepage/listing_bubble", :collection => @listings, :as => :listing
