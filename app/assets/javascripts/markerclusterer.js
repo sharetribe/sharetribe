@@ -1124,7 +1124,20 @@ ClusterIcon.prototype.triggerClusterClick = function() {
           }
         }
 
-        function getOffsetMultiply(index, sticky, length) {
+        /**
+          Get a multiplier which can be used to calculate the amount of `x` move
+          of navi icon
+
+          The amount of icon move: multiplier * iconWidth (offset)
+
+          Params:
+          - `index`: current index
+          - `sticky`: how many icons are "sticky", i.e. not moving in the beginning and end.
+            For example: If there are 7 icons visible at once and 3 of them are sticky, then 
+            the first movement happend on index 4
+          - `length`: number of icons
+        */
+        function calculateNaviIconMoveMultiplier(index, sticky, length) {
           var start = sticky;
           var stop = (length - 1) - (sticky * 2); // *2 for both left and right stickies
           var multiply = Math.max(0, Math.min((index - start), stop));
@@ -1132,33 +1145,42 @@ ClusterIcon.prototype.triggerClusterClick = function() {
         }
 
         function updateActiveIcon(index, icons, container, offset) {
-          var offsetMultiplier = getOffsetMultiply(index, 3, icons.length) * -1;
+          var offsetMultiplier = calculateNaviIconMoveMultiplier(index, 3, icons.length) * -1;
           container.css({left: (offsetMultiplier * offset) + "px"});
           icons.removeClass('active');
           icons.eq(index).addClass('active');
-          
         }
 
         function updateContentPosition(index, offset, content) {
           content.css({left: (index * -1 * offset) + "px"});
         }
 
-        function updateView(index, length, offset, left, right, content, icons, iconsContainer, iconWidth) {
-          updateNaviButtonActivity(index, length, $leftNavi, $rightNavi);
-          updateContentPosition(index, offset, $content);
-          updateActiveIcon(index, icons, iconsContainer, iconWidth)
+        function createViewUpdater(length, offset, left, right, content, icons, iconsContainer, iconWidth) {
+          return function(index) {
+            updateNaviButtonActivity(index, length, left, right);
+            updateContentPosition(index, offset, content);
+            updateActiveIcon(index, icons, iconsContainer, iconWidth);
+          };
         }
+
+        var updateView = createViewUpdater(itemsLen, itemWidth, $leftNavi, $rightNavi, $content, $icons, $iconsContainer, iconWidth);
 
         $leftNavi.on('click', function() {
           var min = 0;
           index = Math.max(index - 1, min);
-          updateView(index, itemsLen, itemWidth, $leftNavi, $rightNavi, $content, $icons, $iconsContainer, iconWidth);
+          updateView(index);
         });
 
         $rightNavi.on('click', function() {
           var max = itemsLen - 1;
           index = Math.min(index + 1, max);
-          updateView(index, itemsLen, itemWidth, $leftNavi, $rightNavi, $content, $icons, $iconsContainer, iconWidth);
+          updateView(index);
+        });
+
+        $icons.each(function(index) {
+          $(this).on('click', function() {
+            updateView(index);
+          })
         });
 
         updateView(index, itemsLen, itemWidth, $leftNavi, $rightNavi, $content, $icons, $iconsContainer, iconWidth);

@@ -62,6 +62,8 @@ $bubbleDetailsMargin: em(5, $googleMapsFontSize);
   background-color: $background;
   color: $body;
   float: left;
+  cursor: pointer;
+
   @include user-select(none);
 
   &.active {
