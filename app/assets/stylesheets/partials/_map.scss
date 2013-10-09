@@ -170,7 +170,6 @@ $bubbleDetailsMargin: em(5, $googleMapsFontSize);
 }
 
 .bubble-details {
-  float: left;
   color: $body;
 
   position: absolute;
@@ -180,22 +179,44 @@ $bubbleDetailsMargin: em(5, $googleMapsFontSize);
   top: $bubbleDetailsMargin;
 }
 
+@mixin details-item-position($floatDirection, $paddingDirection) {
+  width: 50%;
+  float: $floatDirection;
+  text-align: $floatDirection;
+  padding-#{$paddingDirection}: $bubbleDetailsMargin / 2;
+  @include box-sizing(border-box);
+}
+
+.bubble-details-text-overflow {
+  display: block;
+  height: $bubbleDetailsHeight - (2 * $bubbleDetailsMargin);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .bubble-details .bubble-price {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  line-height: em(30, 16);
-  font-size: 16px;
-  margin-right: em(10, 16);
+  @include details-item-position(right, left);
+  
+  line-height: em(30, 14);
+  font-size: 14px;
+  padding-right: em(10, 16);
+
+  @extend .bubble-details-text-overflow;
+}
+
+.bubble-price-quantity {
+  font-size: 11px;
 }
 
 .bubble-author {
-  position: absolute;
-  left: 0;
-  top: 0;
+  @include details-item-position(left, right);
 
   > a {
     line-height: em(30, 11);
+    
+    // Add ellipsis (...) for too long name
+    @extend .bubble-details-text-overflow;
   }
 }
 
