@@ -8,6 +8,7 @@ class HomepageController < ApplicationController
     @homepage = true
     @categories_enabled = true
     @layout_3_columns = true
+    @layout_3_columns_grid = true
     
     listings_per_page = 16
     

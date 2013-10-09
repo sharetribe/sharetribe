@@ -24,27 +24,31 @@
 
 - if @layout_3_columns
   .left-column-2-3
-    .left-inner-column
-      Left column
-      / - 12.times do |i|
-      /   .column-1-4
-      /     .inner-column-1-4
-      /       = "Column #{i}"
+    - if @layout_3_columns_grid
+      - 12.times do |i|
+        .grid-column-2-9>
+          .grid-column-content-2-9
+            = "Column #{i}"
+    - else
+      .left-column-content-2-3
+      
   .right-column-1-3
-    Right column
+    .right-column-content-1-3
+      Right column
 - else
   - if @categories_enabled
     .left-column-1-4
-      Category 1
-      %br/
-      Category 2
-      %br/
-      Category 3
+      .left-column-content-1-4
+        Category 1
+        %br/
+        Category 2
+        %br/
+        Category 3
 
   .grid-container{:class => @categories_enabled ? "grid-container-3-4" : "grid-container-4-4" }
     - 12.times do |i|
-      .column-1-4
-        .inner-column-1-4
+      .grid-column-1-4>
+        .grid-column-content-1-4
           = "Column #{i}"
   
 
