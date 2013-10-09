@@ -78,11 +78,7 @@ namespace :deploy do
   
   task :generate_custom_css => :environment do
     puts 'Generating custom CSS for tribes who use it ...'
-    IO.popen "heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}" do |io|
-      io.each do |line|
-        puts line
-      end
-    end
+    puts  `heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}`
   end
   
   task :update_translations_stored_in_db do
