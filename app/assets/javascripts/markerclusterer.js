@@ -1177,8 +1177,9 @@ ClusterIcon.prototype.triggerClusterClick = function() {
           updateView(index);
         });
 
-        $icons.each(function(index) {
+        $icons.each(function(itemIndex) {
           $(this).on('click', function() {
+            index = itemIndex;
             updateView(index);
           })
         });
