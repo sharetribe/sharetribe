@@ -59,7 +59,7 @@
  * @constructor
  * @extends google.maps.OverlayView
  */
-function MarkerClusterer(map, opt_markers, markerContents, infowindow, showingMarker, opt_options) {
+function MarkerClusterer(map, opt_markers, markerContents, infowindow, showingMarker, locale, opt_options) {
   // MarkerClusterer implements google.maps.OverlayView interface. We use the
   // extend function to extend MarkerClusterer with google.maps.OverlayView
   // because it might not always be available when the code is defined so we
@@ -76,6 +76,7 @@ function MarkerClusterer(map, opt_markers, markerContents, infowindow, showingMa
   this.markers_ = [];
   this.markerContents_ = [];
   this.showingMarker_ = showingMarker;
+  this.locale = locale || "en";
 
   this.infowindow_ = infowindow;
 
@@ -1073,6 +1074,7 @@ function ClusterIcon(cluster, styles, opt_padding) {
  */
 ClusterIcon.prototype.triggerClusterClick = function() {
   var markerClusterer = this.cluster_.getMarkerClusterer();
+  var locale = markerClusterer.locale || "en";
 
   // Trigger the clusterclick event.
   google.maps.event.trigger(markerClusterer, 'clusterclick', this.cluster_);
@@ -1092,7 +1094,7 @@ ClusterIcon.prototype.triggerClusterClick = function() {
       for (var i = 0, marker; marker = markers[i]; i++) {
         ids.push(this.cluster_.markerClusterer_.markerContents_[this.cluster_.markerIndex_[i]]);
       }
-      $.get('/en/listing_bubble_multiple/'+ids.join(','), function(data) {
+      $.get('/' + locale + '/listing_bubble_multiple/'+ids.join(','), function(data) {
         $('#map_bubble').html(data);
 
         var index = 0;

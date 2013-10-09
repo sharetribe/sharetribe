@@ -667,7 +667,7 @@ function addListingMarkers() {
         }
       })();
     }
-    markerCluster = new MarkerClusterer(map, markers, markerContents, infowindow, showingMarker, {
+    markerCluster = new MarkerClusterer(map, markers, markerContents, infowindow, showingMarker, locale, {
     imagePath: '/assets/map_icons/group_'+listing_type});
   
   });
