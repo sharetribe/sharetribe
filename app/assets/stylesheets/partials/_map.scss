@@ -204,17 +204,8 @@ $bubbleDetailsMargin: em(5, $googleMapsFontSize);
   bottom: $bubbleDetailsHeight;
   left: 0;
   right: 0;
-  height: em(80, $googleMapsFontSize);
-
-  // Default, with image
+  top: 0;
   @include background-image(linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)));
-
-  // No image
-  &.bubble-no-image {
-    height: $bubbleItemHeight - $bubbleDetailsHeight - $bubbleDetailsMargin;
-    top: $bubbleDetailsMargin;
-    @include background-image(none);
-  }
 }
 
 span.bubble-title-link {
@@ -226,6 +217,7 @@ span.bubble-title-link {
   color: $background;
   font-size: 14px;
   vertical-align: bottom;
+  line-height: lines(0.9);
 
   .bubble-no-image & {
     top: $margin;
