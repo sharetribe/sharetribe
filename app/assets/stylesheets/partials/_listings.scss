@@ -80,6 +80,34 @@ $right-column-1-3-width: 13;
 	box-sizing: border-box;
 }
 
+// Listing author activity
+
+.listing-author-activity {
+	margin-top: lines(1);
+	@include clearfix();
+}
+
+.listing-author-activity-icon {
+	font-size: 32px;
+	line-height: (em(32, 32) * 1.5);
+	display: block;
+	float: left;
+	width: em(32, 32);
+}
+
+.listing-author-activity-item {
+	float: left;
+	width: lines($right-column-1-3-width) - 0.75em - em(32) - lines(1); // FIXME!!!
+	margin-left: lines(0.5);
+}
+
+.listing-author-activity-description {
+	@include small-type;
+	color: $border;
+}
+
+// Map
+
 // FIXME: Ugly selector
 .listing-aside {
 	.jsmap {

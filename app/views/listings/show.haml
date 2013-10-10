@@ -7,7 +7,6 @@
 - content_for :title_header do
   %h1
     %span.listing-title= @listing.title
-    = render :partial => "listings/share_type_link", :locals => { :listing => @listing }
 
 .listing-wrapper
   .listing-main.left-column-2-3
@@ -67,6 +66,39 @@
             %a{href: reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free"), :class => "listing-author-contact-button"}
               / FIXME
               = "Contact"
+      .listing-author-activity
+        %i.listing-author-activity-icon{:class => icon_class("testimonial")}
+        .listing-author-activity-item
+          .listing-author-activity-value
+            = @listing.author.feedback_positive_percentage.to_s + "%"
+            = t("people.show.positive")
+            = "(#{@listing.author.received_positive_testimonials.size}/#{@listing.author.received_testimonials.size})"
+          .listing-author-activity-description
+            = t(".feedback")
+
+      / .listing-author-activity
+      /   %i.listing-author-activity-icon{:class => icon_class("clock")}
+      /   .listing-author-activity-item
+      /     .listing-author-activity-value
+      /       = "Within a few hours"
+      /     .listing-author-activity-description
+      /       = "Response time"
+
+      / .listing-author-activity
+      /   %i.listing-author-activity-icon{:class => icon_class("chat_bubble")}
+      /   .listing-author-activity-item
+      /     .listing-author-activity-value
+      /       = "100%"
+      /     .listing-author-activity-description
+      /       = "Response rate"
+
+      / .listing-author-activity
+      /   %i.listing-author-activity-icon{:class => icon_class("calendar")}
+      /   .listing-author-activity-item
+      /     .listing-author-activity-value
+      /       = "4 hours ago"
+      /     .listing-author-activity-description
+      /       = "Calendar updated"
 
     .listing-aside-item
       - if @listing.origin_loc && @listing.origin_loc.address != ""
