@@ -18,7 +18,8 @@ $listing-image-aspect-ratio: 3/2;
   width: 100%;
 }
 
-.listing-no-image {
+.listing-no-image,
+.listing-image-processing {
   @extend .listing-image-frame-centered-content;
   @include large-type;
   color: $border;
