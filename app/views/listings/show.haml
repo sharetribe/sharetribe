@@ -16,7 +16,7 @@
           .image-frame<
             - unless listing_image.image_processing
               %a{:href => "#", :id => "listing-image-link"}<
-                = image_tag listing_image.image.url(:big), {:alt => listed_listing_title(@listing), :class => "listing-main-image"}
+                = image_tag listing_image.image.url(:big_cropped), {:alt => listed_listing_title(@listing), :class => "listing-main-image"}
             - else
               %span.listing-image-processing
                 = t("listings.show.processing_uploaded_image")
