@@ -17,8 +17,36 @@ $right-column-1-3-width: 13;
 	}
 }
 
+$listing-image-aspect-ratio: 3/2;
+
+.image-frame {
+	background-color: $highlight;
+	height: lines($left-column-2-3) / $listing-image-aspect-ratio;
+}
+
+/*
+	Ghost element hack to vertically center unknown image size:
+	http://css-tricks.com/centering-in-the-unknown/
+*/
+.image-frame:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+.image-frame > a {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+}
+
 .listing-main-image {
-	width: 100%;
+	display: block;
+	max-width: 100%;
+	max-height: lines($left-column-2-3) / $listing-image-aspect-ratio;
+	margin: auto;
 }
 
 // Social buttons

@@ -13,8 +13,9 @@
     - unless @listing.listing_images.empty?
       - @listing.listing_images.each do |listing_image|
         - unless listing_image.image_processing
-          %a{:href => "#", :id => "listing-image-link"}
-            = image_tag listing_image.image.url(:medium), {:alt => listed_listing_title(@listing), :class => "listing-main-image"}
+          .image-frame
+            %a{:href => "#", :id => "listing-image-link"}
+              = image_tag listing_image.image.url(:big), {:alt => listed_listing_title(@listing), :class => "listing-main-image"}
         - else
           = t("listings.show.processing_uploaded_image")
 

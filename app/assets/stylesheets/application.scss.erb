@@ -1323,22 +1323,6 @@ a.lightbox-x {
 
 }
 
-/*
-  ----------------
-  Map Bubble
-  ----------------
-*/
-
-@import "partials/map";
-
-/*
-  ----------------
-  Single item view
-  ----------------
-*/
-
-@import "partials/listings";
-
 .view-item {
   
   .item-description {
@@ -3032,6 +3016,7 @@ figure.fluidratio {
 }
 
 /* Left hand side bar that is 2/3 of total width */
+$left-column-2-3: 42 - 14 - 0.5;
 .left-column-2-3 {
   margin-bottom: lines(1);
   padding: 0 lines(14) 0 lines(0.5);
@@ -3053,6 +3038,7 @@ figure.fluidratio {
 }
 
 /* Right hand side bar that is 1/3 of total width */
+$right-column-1-3: 13;
 .right-column-1-3 {
   position: absolute;
   top: 0;
@@ -4186,8 +4172,24 @@ header.marketplace-header {
       }
     }
   }
-  
 }
+
+
+/*
+  ----------------
+  Map Bubble
+  ----------------
+*/
+
+@import "partials/map";
+
+/*
+  ----------------
+  Single item view
+  ----------------
+*/
+
+@import "partials/listings";
 
 /* Browse listings view */
 
