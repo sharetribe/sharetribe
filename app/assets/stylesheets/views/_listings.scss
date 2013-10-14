@@ -76,32 +76,51 @@ $listing-image-aspect-ratio: 3/2;
 }
 
 // Listing author
+$listing-author-avatar-width: 108;
+$listing-author-avatar-height: 108;
+
 .listing-author {
-  @include clearfix();
+  position: relative;
 }
 
 .listing-author-avatar {
-  width: em(108);
-  float: left;
-}
+  width: em($listing-author-avatar-width);
+  height: em($listing-author-avatar-height);
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    > img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+ }
 
 .listing-author-details {
-  width: lines($right-column-1-3) - em(108) - lines(1); // lines(1) for margin
-  float: right;
-}
+  width: 100%;
+  padding-left: em($listing-author-avatar-width);
+  min-height: em($listing-author-avatar-height);
+  padding-left: em($listing-author-avatar-width) + lines(0.5);
+ }
 
 .listing-author-name {
   @include big-type;
-
-  height: em(108, 22) / 2;
-  line-height: em(108, 22) / 2;
-}
+  height: em($listing-author-avatar-width, 22) / 2;
+  line-height: em($listing-author-avatar-width, 22) / 2;
+ }
 
 .listing-author-contact-button {
   @extend .button;
 
-  height: em(108) / 2;
-  line-height: em(108) / 2;
+  height: em($listing-author-avatar-width) / 2;
+  line-height: em($listing-author-avatar-width) / 2;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
