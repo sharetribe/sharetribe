@@ -22,18 +22,27 @@
   background: $highlight;
 }
 
+@mixin inline-block-grid($total-width) {
+  $aspect-ratio: 3/2;
+  $item-padding: lines(0.5);
+  $item-width: $total-width / 3;
+
+  display: block;
+  width: $item-width;
+  height: $item-width / $aspect-ratio;
+  margin-bottom: lines(1);
+  padding: 0 $item-padding;
+  float: left;
+}
+
 /* Grid column that is 2/9 of total width */
 .grid-column-2-9 {
-  display: inline-block;
-  width: lines(9.5);
-  height: lines(8.5);
-  margin-bottom: lines(1);
-  padding: 0 lines(0.5);
+  @include inline-block-grid(lines(3 * 9.5));
 }
 
 .grid-column-content-2-9 {
   width: 100%;
-  height: lines(8.5);
+  height: 100%;
   background: $highlight;
 }
 
@@ -66,6 +75,7 @@ $left-column-2-3: 42 - 14 - 0.5;
 
 .left-column-grid-container-2-3 {
   @extend .left-column-2-3;
+  @include clearfix();
   margin: 0 lines(-0.5) lines(1) lines(-0.5);
 }
 

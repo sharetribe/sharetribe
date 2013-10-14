@@ -33,6 +33,20 @@
           - else
             = t(".no_open_listings")
 
+  .left-column-grid-container-2-3
+    - @person.listings.take(6).each do |listing|
+      .grid-column-2-9>
+        .grid-column-content-2-9
+          - if listing.listing_images.size > 0
+            .people-listing-image-frame
+              - unless listing.listing_images.first.image_processing
+                %a{:href => listing_path(listing.id)}<
+                  = image_tag listing.listing_images.first.image.url(:email), {:alt => listed_listing_title(listing)}
+              - else
+                %span.listing-image-processing
+                  = t("listings.show.processing_uploaded_image")
+
+  .listing-main.left-column-2-3
     .row
       %h2
         - if @person.received_testimonials.size > 0
