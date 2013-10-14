@@ -3123,9 +3123,10 @@ footer {
     background-color: $network-red;
     border-radius: 14px; /* one half of ( (border * 2) + height + padding ) */
     color: white;
-    height: 20px; 
-    min-width: 14px;
-    padding: 6px 8px;
+    $vpadding: 6px;
+    height: 20px + (2 * $vpadding); 
+    min-width: 14px + (2 * $vpadding);
+    padding: $vpadding 8px;
     text-align: center;
     display: inline-block;
     &:hover { background-color: darken($network-red, 20%); }
