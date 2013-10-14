@@ -1,0 +1,97 @@
+.grid-container {
+  margin: 0 lines(-0.5);
+}
+
+/* 3 column grid that is 3/4 of total width */
+.grid-container-3-4 {
+  margin-left: lines(10.25);
+}
+
+/* Grid column that is 1/4 of total width */
+.grid-column-1-4 {
+  display: inline-block;
+  width: lines(10.75);
+  height: lines(9.75);
+  margin-bottom: lines(1);
+  padding: 0 lines(0.5);
+}
+
+.grid-column-content-1-4 {
+  width: 100%;
+  height: lines(9.75);
+  background: $highlight;
+}
+
+/* Grid column that is 2/9 of total width */
+.grid-column-2-9 {
+  display: inline-block;
+  width: lines(9.5);
+  height: lines(8.5);
+  margin-bottom: lines(1);
+  padding: 0 lines(0.5);
+}
+
+.grid-column-content-2-9 {
+  width: 100%;
+  height: lines(8.5);
+  background: $highlight;
+}
+
+/* Left side bar that is 1/4 of total width */
+.left-column-1-4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: lines(9.75);
+  padding-left: lines(0.5);
+  @include media(desktop) {
+    padding-left: 0;
+  }
+}
+
+.left-column-content-1-4 {
+  width: 100%;
+  height: lines(20);
+  background: $highlight;
+}
+
+/* Left hand side bar that is 2/3 of total width */
+$left-column-2-3: 42 - 14 - 0.5;
+.left-column-2-3 {
+  margin-bottom: lines(1);
+  padding: 0 lines(14) 0 lines(0.5);
+  
+  @include media(desktop) {
+    padding: 0 lines(14.5) 0 lines(0);
+  }
+}
+
+.left-column-grid-container-2-3 {
+  @extend .left-column-2-3;
+  margin: 0 lines(-0.5) lines(1) lines(-0.5);
+}
+
+.left-column-content-2-3 {
+  width: 100%;
+  height: lines(20);
+  background: $highlight;
+}
+
+/* Right hand side bar that is 1/3 of total width */
+$right-column-1-3: 13;
+.right-column-1-3 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: lines($right-column-1-3);
+  padding-right: lines(0.5);
+  @include media(desktop) {
+    padding-right: 0;
+  }
+}
+
+.right-column-content-1-3 {
+  width: 100%;
+  height: lines(30);
+  background: $highlight;
+}
