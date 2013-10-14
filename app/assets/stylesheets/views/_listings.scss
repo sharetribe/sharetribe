@@ -4,9 +4,26 @@
 
 $listing-image-aspect-ratio: 3/2;
 
+@mixin image-height($prop, $aspect-ratio) {
+  #{$prop}: (em(320) - lines(1)) / $aspect-ratio;
+
+  @include media(mobile) {
+    #{$prop}: (em(480) - lines(1)) / $aspect-ratio;
+  }
+
+  @include media(large-mobile) {
+    #{$prop}: (em(600) - lines(1)) / $aspect-ratio;
+  }
+
+  @include media(small-tablet) {
+    #{$prop}: lines($left-column-2-3) / $aspect-ratio;
+  }
+}
+
 .image-frame {
   background-color: $highlight;
-  height: lines($left-column-2-3) / $listing-image-aspect-ratio;
+
+  @include image-height("height", $listing-image-aspect-ratio);
 }
 
 .listing-image-frame-centered-content {
@@ -34,7 +51,6 @@ $listing-image-aspect-ratio: 3/2;
   display: inline-block;
   height: 100%;
   vertical-align: middle;
-  margin-right: -0.25em; /* Adjusts for spacing */
 }
 
 .image-frame > a {
@@ -42,9 +58,10 @@ $listing-image-aspect-ratio: 3/2;
 }
 
 .listing-main-image {
+  @include image-height("max-height", $listing-image-aspect-ratio);
+
   display: block;
   max-width: 100%;
-  max-height: lines($left-column-2-3) / $listing-image-aspect-ratio;
   margin: auto;
 }
 

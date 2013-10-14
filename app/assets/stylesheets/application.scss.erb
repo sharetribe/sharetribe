@@ -573,10 +573,6 @@ label.error {
   }
 }
 
-.listing-title {
-  margin-right: lines(0.25);
-}
-
 // Share type label
 .share-type-link {
   @include source-sans-pro;
@@ -2930,7 +2926,6 @@ $network-green: #00a26c;
   max-width: em(1920);
   margin-left: auto;
   margin-right: auto;
-  z-index: -1;
 }
 
 figure.fluidratio {
@@ -3651,6 +3646,8 @@ header.marketplace-header {
     display: inline-block;
     font-weight: 600;
     width: 100%;
+    padding-right: lines(0.5);
+
     @include media(mid-desktop) {
       width: lines(33);
       position: absolute;
@@ -3819,7 +3816,7 @@ header.marketplace-header {
   .new-listing-link {
     display: none;
     vertical-align: top;
-    padding: em(15) lines(0.5) 0 0;
+    padding: em(15) 0 0 0;
     a {
       @include action-button($network-green);
       border-width: em(2);
@@ -3876,7 +3873,6 @@ header.marketplace-header {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    z-index: 1;
     background: rgba($highlight, 0.825);
   }
   
@@ -3902,28 +3898,47 @@ header.marketplace-header {
         line-height: em(15);
       }
     }
- 
+  }
+
+  .title-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .title-header-wrapper {
+    @extend .wrapper;
+    max-width: lines(42);
+    background: transparent;
+    width: 100%;
+    height: 100%;
   }
   
   .marketplace-title-header {
     width: 100%;
-    text-align: center;
-    position: absolute;
-    top: lines(-4);
-    z-index: 2;
+    height: 100%;
     padding: 0 lines(0.5);
+
+    display: table;
     
     h1 {
-      padding: (lines(1.5) - em(2)) 0;
       color: $light-body;
-      @include big-type;
-    }
-    
-    @include media(tablet) {
-      text-align: left;
-      h1 {
-        padding-top: lines(0.75);
-        padding-bottom: lines(0.75);
+      @include normal-type;
+      font-weight: bold;
+      line-height: lines(0.8);
+
+      display: table-cell; 
+      vertical-align: middle; 
+      text-align: center;
+
+      @include media(large-mobile) {
+        @include big-type;
+      }
+
+      @include media(tablet) {
+        text-align: left;
         @include large-type;
       }
     }
