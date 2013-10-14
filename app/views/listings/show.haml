@@ -10,37 +10,49 @@
 
 .listing-wrapper
   .listing-main.left-column-2-3
-    - unless @listing.listing_images.empty?
-      - @listing.listing_images.each do |listing_image|
-        - unless listing_image.image_processing
-          %a{:href => "#", :id => "listing-image-link"}
-            = image_tag listing_image.image.url(:medium), {:alt => listed_listing_title(@listing), :class => "listing-main-image"}
-        - else
-          = t("listings.show.processing_uploaded_image")
+    .row
+      - unless @listing.listing_images.empty?
+        - @listing.listing_images.each do |listing_image|
+          .image-frame
+            - unless listing_image.image_processing
+              %a{:href => "#", :id => "listing-image-link"}
+                = image_tag listing_image.image.url(:big), {:alt => listed_listing_title(@listing), :class => "listing-main-image"}
+            - else
+              %span.listing-image-processing
+                = t("listings.show.processing_uploaded_image")
+      - else
+        .image-frame
+          %span.listing-no-image
+            = t(".no_image")
 
-    - if @listing.valid_until && @listing.category.name.eql?("rideshare")
-      / Is there a cleaner way to create 'div' without class or id?
-      %div
-        .icon-with-text-container
-          = icon_tag("rideshare", ["icon-part"])
-          .text-part
-            %strong
-              = t("listings.form.departure_time.departure_time") + ": " + l(@listing.valid_until, :format => :short)
+    .row
+      - if @listing.valid_until && @listing.category.name.eql?("rideshare")
+        / Is there a cleaner way to create 'div' without class or id?
+        %div
+          .icon-with-text-container
+            = icon_tag("rideshare", ["icon-part"])
+            .text-part
+              %strong
+                = t("listings.form.departure_time.departure_time") + ": " + l(@listing.valid_until, :format => :short)
 
-    - if @listing.description && !@listing.description.blank?
-      - text_with_line_breaks do
-        = @listing.description
+    .row
+      - if @listing.description && !@listing.description.blank?
+        - text_with_line_breaks do
+          = @listing.description
+      - else
+        = t("no_description")
 
-    - if @listing.public?
-      .listing-social
-        .listing-fb-like-button
-          = facebook_like(current_user?(@listing.author))
-        .listing-tweet-button
-          = link_to("", "https://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => (@current_community.twitter_handle || "Sharetribe"))
-          %script{:type => "text/javascript", :src => "https://platform.twitter.com/widgets.js"}
+    .row
+      - if @listing.public?
+        .listing-social
+          .listing-fb-like-button
+            = facebook_like(current_user?(@listing.author))
+          .listing-tweet-button
+            = link_to("", "https://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => (@current_community.twitter_handle || "Sharetribe"))
+            %script{:type => "text/javascript", :src => "https://platform.twitter.com/widgets.js"}
 
   %aside.listing-aside.right-column-1-3
-    .listing-aside-item
+    .row
       - if @listing.price
         .listing-price
           %span.listing-price-amount
@@ -52,10 +64,10 @@
             %span.listing-price-excl-vat
               = t(".price_excludes_vat")
 
-      %div
-        = render :partial => "message_links"
+    .row-with-divider
+      = render :partial => "message_links"
 
-    .listing-aside-item
+    .row
       .listing-author
         .listing-author-avatar
           = medium_avatar_thumb(@listing.organization_or_author?(@current_community))
@@ -64,44 +76,22 @@
             = link_to @listing.author.name(@current_community), @listing.author
           .listing-author-contact
             %a{href: reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free"), :class => "listing-author-contact-button"}
-              / FIXME
-              = "Contact"
-      .listing-author-activity
-        %i.listing-author-activity-icon{:class => icon_class("testimonial")}
-        .listing-author-activity-item
-          .listing-author-activity-value
+              = t(".contact")
+    .row-with-divider.listing-author-activity
+      %i.listing-author-activity-icon{:class => icon_class("testimonial")}
+      .listing-author-activity-item
+        .listing-author-activity-value
+          - if @listing.author.received_positive_testimonials.size > 0
             = @listing.author.feedback_positive_percentage.to_s + "%"
             = t("people.show.positive")
             = "(#{@listing.author.received_positive_testimonials.size}/#{@listing.author.received_testimonials.size})"
-          .listing-author-activity-description
-            = t(".feedback")
+          - else
+            = t(".no_reviews")
+        .listing-author-activity-description
+          = t(".feedback")
 
-      / .listing-author-activity
-      /   %i.listing-author-activity-icon{:class => icon_class("clock")}
-      /   .listing-author-activity-item
-      /     .listing-author-activity-value
-      /       = "Within a few hours"
-      /     .listing-author-activity-description
-      /       = "Response time"
-
-      / .listing-author-activity
-      /   %i.listing-author-activity-icon{:class => icon_class("chat_bubble")}
-      /   .listing-author-activity-item
-      /     .listing-author-activity-value
-      /       = "100%"
-      /     .listing-author-activity-description
-      /       = "Response rate"
-
-      / .listing-author-activity
-      /   %i.listing-author-activity-icon{:class => icon_class("calendar")}
-      /   .listing-author-activity-item
-      /     .listing-author-activity-value
-      /       = "4 hours ago"
-      /     .listing-author-activity-description
-      /       = "Calendar updated"
-
-    .listing-aside-item
-      - if @listing.origin_loc && @listing.origin_loc.address != ""
+    - if @listing.origin_loc && @listing.origin_loc.address != ""
+      .row
         #googlemap
           = render :partial => "googlemap", :locals => { :rideshare => (@listing.category.name == "rideshare"), :listing => @listing}
           = render :partial => "origin", :locals => { :origin_loc => @listing.origin_loc }
@@ -256,16 +246,6 @@
                     = @listing.author.phone_number
                   - elsif current_user?(@listing.author)
                     = link_to t(".add_your_phone_number"), person_settings_path(:person_id => @current_user.id)
-
-      / - if @listing.origin_loc && @listing.origin_loc.address != ""
-      /   #googlemap
-      /     = render :partial => "googlemap", :locals => { :rideshare => (@listing.category.name == "rideshare"), :listing => @listing}
-      /     = render :partial => "origin", :locals => { :origin_loc => @listing.origin_loc }
-      /     - if @listing.category.name == "rideshare"
-      /       = render :partial => "destination", :locals => { :destination_loc => @listing.destination_loc }
-
-      .bottom-margin
-  
   
   - unless @listing.closed? && !current_user?(@listing.author)
     #comments.discussion.section.overflow-allowed
