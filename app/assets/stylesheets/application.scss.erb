@@ -3017,10 +3017,6 @@ header.network-header {
   
   .wrapper {
     padding: 0 lines(0.5);
-    
-    @include media(desktop) {
-      padding: 0;
-    }
   }
   
   a {
@@ -3033,10 +3029,6 @@ header.network-header {
   .right-side {
     display: none;
     padding: 0 lines(0.5);
-    
-    @include media(desktop) {
-      padding: 0;
-    }
     
     @include media(tablet) {
       display: block;
@@ -3605,9 +3597,6 @@ header.marketplace-header {
       padding-left: lines(0.5);
       &:hover { background: $background; }
     }
-    @include media(desktop) {
-      padding-left: 0;
-    }
   }
   
   a.logo-side-logged {
@@ -3933,7 +3922,8 @@ header.marketplace-header {
     @include media(tablet) {
       text-align: left;
       h1 {
-        padding: lines(0.75) 0;
+        padding-top: lines(0.75);
+        padding-bottom: lines(0.75);
         @include large-type;
       }
     }
@@ -4063,11 +4053,6 @@ header.marketplace-header {
   }
   
   @include media(desktop) {
-    
-    .marketplace-title-header {
-      padding: 0;
-    }
-    
     .marketplace-lander-content {
       h1 {
         @include mega-type;
