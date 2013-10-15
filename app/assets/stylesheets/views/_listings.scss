@@ -1,7 +1,3 @@
-.listing-wrapper {
-  position: relative;
-}
-
 $listing-image-aspect-ratio: 3/2;
 
 @mixin image-height($prop, $aspect-ratio) {
@@ -176,14 +172,4 @@ $listing-author-avatar-height: 108;
     width: 100%;
     height: lines(8);
   }
-}
-
-.row {
-  margin-bottom: lines(0.5);
-}
-
-.row-with-divider {
-  margin-bottom: lines(1);
-  border-bottom: 1px solid $border;
-  padding-bottom: lines(1);
 }
