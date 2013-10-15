@@ -3,6 +3,11 @@
     width: 100%;
   }
 }
+
+.people-header {
+  padding-bottom: lines(0.25);
+  border-bottom: 2px solid $light-body;
+}
  
 .people-listing-image-frame {
   width: 100%;

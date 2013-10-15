@@ -21,7 +21,7 @@
             .ss.text-part= t(".add_description")
 
     .row
-      %h2
+      %h2.people-header
         - if @listings.size > 0
           - if current_user?(@person) && params[:show_closed]
             = pluralize(@listings.count, t(".listing"), t(".listings"))
@@ -48,21 +48,21 @@
                 %span.listing-image-processing
                   = t("listings.show.processing_uploaded_image")
 
-  .listing-main.left-column-2-3
-    .row
-      %h2
+  - if @current_community.testimonials_in_use
+    .listing-main.left-column-2-3
+      .row
+        %h2.people-header
+          - if @person.received_testimonials.size > 0
+            = pluralize(@person.received_testimonials.size, t(".review"), t(".reviews"))
+            = "(#{@person.feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{@person.received_positive_testimonials.size}/#{@person.received_testimonials.size})"
+          - else
+            = t(".no_reviews")
         - if @person.received_testimonials.size > 0
-          = pluralize(@person.received_testimonials.size, t(".review"), t(".reviews"))
-        - else
-          = t(".no_reviews")
-      - if @person.received_testimonials.size > 0
-        .small-text
-          = "(#{@person.feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{@person.received_positive_testimonials.size}/#{@person.received_testimonials.size})"
-        #profile-testimonials-list
-          = render :partial => "testimonial", :collection => @person.received_testimonials.limit(3)
-          - if @person.received_testimonials.size > 3
-            .load-more-link#load-more-testimonials
-              = link_to t(".show_all_reviews"), "#"
+          #profile-testimonials-list
+            = render :partial => "testimonial", :collection => @person.received_testimonials.limit(3)
+            - if @person.received_testimonials.size > 3
+              .load-more-link#load-more-testimonials
+                = link_to t(".show_all_reviews"), "#"
 
   %aside.listing-aside.right-column-1-3
     .row
