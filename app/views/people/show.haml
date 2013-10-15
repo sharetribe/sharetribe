@@ -9,7 +9,7 @@
     %span.profile-title= @person.name(@current_community)
 
 .relative
-  .listing-main.left-column-2-3
+  .left-column-2-3
     .row
       - if @person.description && !@person.description.blank?
         - text_with_line_breaks do
@@ -79,39 +79,37 @@
           .ss-mail.icon-with-text
           .text-with-icon= t(".contact", :person => @person.given_name_or_username)
 
-    .row.listing-author-activity
-      %h2
-        = "Verifications"
+    / .row.listing-author-activity
+    /   %h2
+    /     = "Verifications"
+    /   %i.listing-author-activity-icon{:class => icon_class("testimonial")}
+    /   .listing-author-activity-item
+    /     .listing-author-activity-value
+    /       = "17.5% "
+    /       = t("people.show.positive")
+    /       = "2/9"
+    /     .listing-author-activity-description
+    /       = t(".feedback")
 
-    .row.listing-author-activity
-      %i.listing-author-activity-icon{:class => icon_class("testimonial")}
-      .listing-author-activity-item
-        .listing-author-activity-value
-          = "17.5% "
-          = t("people.show.positive")
-          = "2/9"
-        .listing-author-activity-description
-          = t(".feedback")
+    / .row.listing-author-activity
+    /   %i.listing-author-activity-icon{:class => icon_class("testimonial")}
+    /   .listing-author-activity-item
+    /     .listing-author-activity-value
+    /       = "17.5% "
+    /       = t("people.show.positive")
+    /       = "2/9"
+    /     .listing-author-activity-description
+    /       = t(".feedback")
 
-    .row.listing-author-activity
-      %i.listing-author-activity-icon{:class => icon_class("testimonial")}
-      .listing-author-activity-item
-        .listing-author-activity-value
-          = "17.5% "
-          = t("people.show.positive")
-          = "2/9"
-        .listing-author-activity-description
-          = t(".feedback")
-
-    .row-with-divider.listing-author-activity
-      %i.listing-author-activity-icon{:class => icon_class("testimonial")}
-      .listing-author-activity-item
-        .listing-author-activity-value
-          = "17.5% "
-          = t("people.show.positive")
-          = "2/9"
-        .listing-author-activity-description
-          = t(".feedback")
+    / .row-with-divider.listing-author-activity
+    /   %i.listing-author-activity-icon{:class => icon_class("testimonial")}
+    /   .listing-author-activity-item
+    /     .listing-author-activity-value
+    /       = "17.5% "
+    /       = t("people.show.positive")
+    /       = "2/9"
+    /     .listing-author-activity-description
+    /       = t(".feedback")
 
     .row
       - if logged_in? && @person.location && !@person.location.address.blank?
