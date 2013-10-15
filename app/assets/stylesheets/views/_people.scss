@@ -16,3 +16,8 @@
     height: 100%;
   }
 }
+
+.load-more-listings-container {
+  clear: both;
+  padding: lines(0) lines(0.5); // Normalize the negative margin set by the grid container
+}

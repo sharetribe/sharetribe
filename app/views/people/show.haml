@@ -22,7 +22,7 @@
 
     .row
       %h2.people-header
-        - if @listings.size > 0
+        - if @listings.count > 0
           - if current_user?(@person) && params[:show_closed]
             = pluralize(@listings.count, t(".listing"), t(".listings"))
           - else
@@ -33,20 +33,9 @@
           - else
             = t(".no_open_listings")
 
-  / FIXME!!!!
-  / What's the difference between listings.count and listings.size?
-  .left-column-grid-container-2-3
-    - @person.listings.each do |listing|
-      .grid-column-2-9
-        .grid-column-content-2-9
-          - if listing.listing_images.size > 0
-            .people-listing-image-frame
-              - unless listing.listing_images.first.image_processing
-                = link_to(listing) do
-                  = image_tag listing.listing_images.first.image.url(:email), {:alt => listed_listing_title(listing)}
-              - else
-                %span.listing-image-processing
-                  = t("listings.show.processing_uploaded_image")
+  #profile-listings-list.left-column-grid-container-2-3
+    - limit = 1
+    = render :partial => 'listings/profile_listings', :locals => {:person => @person, :limit => limit}
 
   - if @current_community.testimonials_in_use
     .listing-main.left-column-2-3
@@ -59,10 +48,7 @@
             = t(".no_reviews")
         - if @person.received_testimonials.size > 0
           #profile-testimonials-list
-            = render :partial => "testimonial", :collection => @person.received_testimonials.limit(3)
-            - if @person.received_testimonials.size > 3
-              .load-more-link#load-more-testimonials
-                = link_to t(".show_all_reviews"), "#"
+            = render :partial => "testimonials", :locals => {:received_testimonials => @person.received_testimonials, :limit => 3}
 
   %aside.listing-aside.right-column-1-3
     .row
