@@ -33,14 +33,16 @@
           - else
             = t(".no_open_listings")
 
+  / FIXME!!!!
+  / What's the difference between listings.count and listings.size?
   .left-column-grid-container-2-3
-    - @person.listings.take(6).each do |listing|
-      .grid-column-2-9>
+    - @person.listings.each do |listing|
+      .grid-column-2-9
         .grid-column-content-2-9
           - if listing.listing_images.size > 0
             .people-listing-image-frame
               - unless listing.listing_images.first.image_processing
-                %a{:href => listing_path(listing.id)}<
+                = link_to(listing) do
                   = image_tag listing.listing_images.first.image.url(:email), {:alt => listed_listing_title(listing)}
               - else
                 %span.listing-image-processing
