@@ -32,9 +32,15 @@
             = t(".no_listings")
           - else
             = t(".no_open_listings")
+        %span.people-show-closed-link
+          - if current_user?(@person)
+            - if params[:show_closed]
+              = link_to t("people.profile_listings.show_only_open"), person_path(@person)
+            - else
+              = link_to t("people.profile_listings.show_also_closed"), person_path(@person, :show_closed => true)
 
   #profile-listings-list.left-column-grid-container-2-3
-    - limit = 1
+    - limit = 9
     = render :partial => 'listings/profile_listings', :locals => {:person => @person, :limit => limit}
 
   - if @current_community.testimonials_in_use
