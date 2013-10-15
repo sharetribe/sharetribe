@@ -37,7 +37,12 @@
 
 /* Grid column that is 2/9 of total width */
 .grid-column-2-9 {
-  @include inline-block-grid(lines(3 * 9.5));
+  $room-for-scroll-bar: em(18); // There may or may not be scroll bars. Leave some room.
+  @include inline-block-grid(em(600) - $room-for-scroll-bar);
+
+  @include media(small-tablet) {
+    @include inline-block-grid(lines(3 * 9.5));
+  }
 }
 
 .grid-column-content-2-9 {
