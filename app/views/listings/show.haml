@@ -8,8 +8,8 @@
   %h1
     %span.listing-title= @listing.title
 
-.listing-wrapper
-  .listing-main.left-column-2-3
+.relative
+  .left-column-2-3
     .row
       - unless @listing.listing_images.empty?
         - @listing.listing_images.each do |listing_image|
