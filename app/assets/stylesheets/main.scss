@@ -1,3 +1,11 @@
+@import "compass/css3/box-sizing";
+@import "compass/utilities/general/clearfix";
+@import "compass/css3/text-shadow";
+@import "compass/css3/images";
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
+@import "all";
+
 /**
   This file is deprecated: Put your SCSS to views/ and partials/ 
   and include them in application.scss.erb
