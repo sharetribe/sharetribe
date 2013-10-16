@@ -18,6 +18,9 @@ task :deploy_translation_without_migrations => ['deploy:set_translation_app', 'd
 task :deploy_custom_migrations => ['deploy:set_staging_app', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
 task :deploy_custom_quick => ['deploy:set_staging_app', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push']
 
+task :deploy_testing_migrations => ['deploy:set_testing_app', 'i18n:write_error_pages', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db' ]
+task :deploy_testing_without_migrations => ['deploy:set_testing_app', 'i18n:write_error_pages', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
+
 task :deploy_test_servers => ['deploy_staging_migrations', 'deploy_translation_migrations']
 
 
@@ -25,9 +28,14 @@ namespace :deploy do
   PRODUCTION_APP = 'sharetribe-production'
   STAGING_APP = 'sharetribe-staging'
   TRANSLATION_APP = "sharetribe-translation"
+  TESTING_APP = 'sharetribe-testing'
 
   task :set_staging_app do
     APP = STAGING_APP
+  end
+
+  task :set_testing_app do
+    APP = TESTING_APP
   end
 
   task :set_production_app do
@@ -66,6 +74,8 @@ namespace :deploy do
       puts `git push production closed_source:master --force`
     elsif APP == TRANSLATION_APP
       puts `git push translation closed_source:master --force`
+    elsif APP == TESTING_APP
+      puts `git push testing closed_source:master --force`
     else
       puts `git push staging closed_source:master --force`
     end
