@@ -1,3 +1,4 @@
+@import "compass/css3/border-radius";
 @import "mixins/all";
 
 .people-image {
@@ -17,6 +18,10 @@
     width: 100%;
     height: 100%;
   }
+
+  > a {
+    position: relative;
+  }
 }
 
 .people-listing-no-image {
@@ -32,4 +37,36 @@
 
 .people-show-closed-link {
   margin-left: lines(0.5);
+}
+
+.people-listing-price {
+  color: $body;
+  font-weight: bold;
+  min-width: em(50);
+  text-align: center;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: lines(0.2);
+  
+  background-color: white;
+  @include border-bottom-left-radius(lines(0.25));
+}
+
+.people-listing-overlay {
+  @include overlay;
+  @include absolutely-all;
+}
+
+.people-listing-description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  color: $background;
+  @include small-type;
+
+  padding: lines(0.5);
 }
