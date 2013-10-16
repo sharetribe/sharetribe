@@ -37,8 +37,7 @@ $listing-image-aspect-ratio: 3/2;
   @include large-type;
   color: $border;
   text-align: center;
-  padding-left: lines(4);
-  padding-right: lines(4);
+  margin-left: -0.25em; // Adjust for spacing. Needed if we're centering text
 }
 
 /*
@@ -50,6 +49,7 @@ $listing-image-aspect-ratio: 3/2;
   display: inline-block;
   height: 100%;
   vertical-align: middle;
+  width: 0px;
 }
 
 .image-frame > a {
