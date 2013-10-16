@@ -1,5 +1,8 @@
 class Community < ActiveRecord::Base
 
+  require 'compass'
+  require 'sass/plugin'
+
   include EmailHelper
 
   has_many :community_memberships, :dependent => :destroy 
