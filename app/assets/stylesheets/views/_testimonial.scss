@@ -1,3 +1,6 @@
+@import "compass/utilities/general/clearfix";
+@import "mixins/all";
+
 $testimonial-avatar-width: em(48);
 $testimonial-avatar-height: $testimonial-avatar-width;
 $testimonial-gutter: lines(0.5);
