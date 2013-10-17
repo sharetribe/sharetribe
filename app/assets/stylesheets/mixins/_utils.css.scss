@@ -1,0 +1,15 @@
+/**
+  Misc utils
+*/
+
+@mixin absolutely($top, $left, $bottom, $right) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  bottom: $bottom;
+  right: $right;
+}
+
+@mixin absolutely-all() {
+  @include absolutely(0, 0, 0, 0);
+}

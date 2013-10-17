@@ -1,13 +1,18 @@
 .grid-column-2-9
   .grid-column-content-2-9
     .people-listing-image-frame
-      - if listing.listing_images.size > 0
-        - unless listing.listing_images.first.image_processing
-          = link_to(listing) do
-            = image_tag listing.listing_images.first.image.url(:email), {:alt => listed_listing_title(listing)}
+      = link_to(listing) do
+        - if listing.listing_images.size > 0 && !listing.listing_images.first.image_processing
+          = image_tag listing.listing_images.first.image.url(:email), {:alt => listed_listing_title(listing), :class => "people-listing-with-overlay"}
+        .people-listing-overlay
+        - if listing.price
+          .people-listing-price
+            = money_without_cents_and_with_symbol(listing.price).upcase
+
+        - if listing.listing_images.size > 0 && listing.listing_images.first.image_processing
+          .people-listing-image-processing
+            %div
+              = t("listings.show.processing_uploaded_image")
         - else
-          %span.listing-image-processing
-            = t("listings.show.processing_uploaded_image")
-      - else
-        %span.people-listing-no-image
-          = t(".no_image")
+          .people-listing-title
+            = listing.title
