@@ -23,37 +23,19 @@ $listing-image-aspect-ratio: 3/2;
   background-color: $highlight;
 
   @include image-height("height", $listing-image-aspect-ratio);
-}
-
-.listing-image-frame-centered-content {
-  display: inline-block;
-  vertical-align: middle;
-  width: 100%;
+  @include vertical-centering-container;
 }
 
 .listing-no-image,
 .listing-image-processing {
-  @extend .listing-image-frame-centered-content;
+  @include vertical-centering-text-content;
   @include large-type;
   color: $border;
   text-align: center;
-  margin-left: -0.25em; // Adjust for spacing. Needed if we're centering text
-}
-
-/*
-  Ghost element hack to vertically center unknown image size:
-  http://css-tricks.com/centering-in-the-unknown/
-*/
-.image-frame:before {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-  width: 0px;
 }
 
 .image-frame > a {
-  @extend .listing-image-frame-centered-content;
+  @include vertical-centering-content;
 }
 
 .listing-main-image {
