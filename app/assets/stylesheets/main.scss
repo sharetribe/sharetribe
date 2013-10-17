@@ -374,9 +374,16 @@ ul {
   padding-top: lines(0.05);
 }
 
-.icon-with-text { display: inline-block; padding-right: em(4); margin-top: em(2); }
+.icon-with-text {
+  display: inline-block;
+  padding-right: em(4);
+
+  // ss-pika is not correctly aligned, thus some fine-tuning is needed
+  position: relative;
+  top: em(2);
+}
 .list-icon-margin { margin-top: em(3); }
-.text-with-icon { display: inline-block; vertical-align: top; }
+.text-with-icon { display: inline-block;}
 
 .icon-with-text-container {
   position: relative;
@@ -489,7 +496,7 @@ label.radiobutton {
   color: $background;
   text-align: center;
   cursor: pointer;
-  padding: em(2) em(11) em(4) em(11);
+  padding: lines(0.5) em(11) lines(0.5) em(11);
   margin: lines(0.5) 0;
   
   &:hover { 
@@ -1232,7 +1239,6 @@ a.lightbox-x {
       width: lines(1.5);
       height: lines(1.5);
     }
-    background: $background;
   }
   
   .feed-listing-icon {
