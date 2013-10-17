@@ -2,7 +2,7 @@ class Community < ActiveRecord::Base
 
   require 'compass'
   require 'sass/plugin'
-  
+
   include EmailHelper
 
   has_many :community_memberships, :dependent => :destroy 
@@ -264,35 +264,27 @@ class Community < ActiveRecord::Base
       
       # Copy original SCSS and do customizations by search & replace
       
-      FileUtils.cp("app/assets/stylesheets/application.scss.erb", "app/assets/stylesheets/#{stylesheet_filename}.scss" )
-      FileUtils.cp("app/assets/stylesheets/customizations.scss", "app/assets/stylesheets/customizations-#{community_filename}.scss" )
-      replace_in_file("app/assets/stylesheets/#{stylesheet_filename}.scss",
-                      "@import 'customizations';",
-                      "@import 'customizations-#{community_filename}';",
-                      true)
+      # Create new stylesheet for community
+      FileUtils.cp("app/assets/stylesheets/application.scss", "app/assets/stylesheets/#{stylesheet_filename}.scss" )
+      
+      # Use default-colors as a starting point for customizations
+      FileUtils.cp("app/assets/stylesheets/default-colors.scss", "app/assets/stylesheets/customizations.scss" )
 
-      # ERB compiling with Compass kept failing, so do the only ERB change manually here    
-      icon_import_line = (APP_CONFIG.icon_pack == "ss-pika" ? "@import 'ss-social';\n@import 'ss-pika';" : "@import 'font-awesome.min';")
-      replace_in_file("app/assets/stylesheets/#{stylesheet_filename}.scss",
-                      /<%= \(APP_CONFIG.icon_pack[^%]+%>/,
-                      icon_import_line,
-                      true)
-                      
       if custom_color1.present? 
-        replace_in_file("app/assets/stylesheets/customizations-#{community_filename}.scss",
+        replace_in_file("app/assets/stylesheets/customizations.scss",
                         /\$link:\s*#\w{6};/,
                         "$link: ##{custom_color1};",
                         true)
       end
       color2 = custom_color2 || custom_color1
       if color2.present? 
-        replace_in_file("app/assets/stylesheets/customizations-#{community_filename}.scss",
+        replace_in_file("app/assets/stylesheets/customizations.scss",
                         /\$link2:\s*#\w{6};/,
                         "$link2: ##{color2};",
                         true)
       end
       if cover_photo.present?
-        replace_in_file("app/assets/stylesheets/customizations-#{community_filename}.scss",
+        replace_in_file("app/assets/stylesheets/customizations.scss",
                         /\$cover-photo-url:\s*\"[^\"]+\";/,
                         "$cover-photo-url: \"#{cover_photo.url(:header)}\";",
                         true)
@@ -303,25 +295,37 @@ class Community < ActiveRecord::Base
         # Generate CSS from SCSS
         css_file = "public/assets/#{new_filename_with_time_stamp}.css"
         `mkdir public/assets` unless File.exists?("public/assets")
-        
-        
-        Compass.add_configuration(
-            {
-                :project_path => '.',
-                :sass_path => 'app/assets/stylesheets',
-                :css_path => 'public/assets'
-            },
-            'custom' # A name for the configuration, can be anything you want
-        )
-        
-        # There was trouble making Compas find CSS from other folders so use simple copy. :)
-        # FIXME: Extend Compass load path to avoid this unnecessary copy operation
-        if APP_CONFIG.icon_pack == "ss-pika"
-          FileUtils.cp("app/assets/webfonts/ss-social.css","app/assets/stylesheets/ss-social.scss")
-          FileUtils.cp("app/assets/webfonts/ss-pika.css","app/assets/stylesheets/ss-pika.scss")
+
+        sprockets = Sprockets::Environment.new(Rails.root).tap do |env|
+          env.append_path File.join(env.root, 'app/assets/stylesheets')
+
+          env.context_class.instance_eval do
+            # Include these helpers to allow SASS files to use image-url etc. helpers
+            include Sprockets::Helpers::RailsHelper
+            include Sprockets::Helpers::IsolatedHelper
+
+            def sass_config
+              ActiveSupport::OrderedOptions.new.tap do |s|
+                compass = Compass::Frameworks['compass']
+
+                s.load_paths = [
+                  # File.join($root, 'app/assets/stylesheets'),
+                  compass.stylesheets_directory,
+                  compass.templates_directory
+                ]
+
+                # Here we can add SASS configurations, such as:
+                # s.style = :expanded
+              end
+            end
+          end
         end
-        
-        Compass.compiler.compile("app/assets/stylesheets/#{stylesheet_filename}.scss", css_file)
+
+        asset = sprockets["#{stylesheet_filename}.scss"]
+        asset.write_to(css_file)
+
+        # Empty the file
+        File.open("app/assets/stylesheets/customizations.scss", 'w') {}
         
         url = new_filename_with_time_stamp
         

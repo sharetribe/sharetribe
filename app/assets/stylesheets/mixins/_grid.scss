@@ -1,0 +1,14 @@
+$left-column-2-3: 42 - 14 - 0.5;
+$right-column-1-3: 13;
+
+@mixin divider {
+  margin-bottom: lines(1);
+  border-bottom: 1px solid $border;
+  padding-bottom: lines(1);
+}
+
+@mixin no-divider {
+  margin-bottom: lines(0);
+  border-bottom: 0;
+  padding-bottom: lines(0);
+}
