@@ -21,35 +21,56 @@
           %button.action-button{type: 'submit'}
             = icon_tag("search", ["icon-part"])
 
+- if @categories_enabled
+  .left-column-1-4
+    .left-column-content-1-4
+      Category 1
+      %br/
+      Category 2
+      %br/
+      Category 3
 
-- if @layout_3_columns
-  .left-column-2-3
-    .left-column-content-2-3
-  .left-column-grid-container-2-3
-    - 9.times do |i|
-      .grid-column-2-9>
-        .grid-column-content-2-9
-          = "Column #{i}"
-      
-  .right-column-1-3
-    .right-column-content-1-3
-      Right column
-- else
-  - if @categories_enabled
-    .left-column-1-4
-      .left-column-content-1-4
-        Category 1
-        %br/
-        Category 2
-        %br/
-        Category 3
+.grid-container{:class => @categories_enabled ? "grid-container-3-4" : "grid-container-4-4" }
+  - @listings.each do |listing|
+    .grid-column-1-4>
+      .grid-column-content-1-4
+        .home-listing-image-container
+          - if listing.listing_images.size > 0
+            = image_tag listing.listing_images.first.image.url(:email), {:alt => listed_listing_title(listing), :class => "home-listing-image"}
+          .home-listing-overlay
+            .home-listing-title
+              = listing.title
+          - if listing.price
+            .home-listing-price
+              = money_without_cents_and_with_symbol(listing.price).upcase
+        .home-listing-details
+          .home-listing-avatar
+            = small_avatar_thumb(listing.organization_or_author?(@current_community))
+          .home-listing-author
+            = listing.author.name
 
-  .grid-container{:class => @categories_enabled ? "grid-container-3-4" : "grid-container-4-4" }
-    - 12.times do |i|
-      .grid-column-1-4>
-        .grid-column-content-1-4
-          = "Column #{i}"
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .feed-navigation
   .feed-actions.actions-menu

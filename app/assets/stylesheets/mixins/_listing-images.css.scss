@@ -1,0 +1,36 @@
+@import "compass/css3/border-radius";
+
+$listing-image-aspect-ratio: 3/2;
+
+/**
+  Give `width` and `aspect-ratio` and get back height
+*/
+@function image-height($width, $aspect-ratio) {
+  @return $width / $aspect-ratio;
+}
+
+/**
+  Listing title font type
+*/
+@mixin listing-overlay-type {
+  color: $background;
+  padding: lines(0.5);
+}
+
+/**
+  Listing top-right overlay price tag
+*/
+@mixin listing-price {
+  color: $body;
+  font-weight: bold;
+  min-width: em(50);
+  text-align: center;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: lines(0.2);
+  
+  background-color: white;
+  @include border-bottom-left-radius(lines(0.25));
+}

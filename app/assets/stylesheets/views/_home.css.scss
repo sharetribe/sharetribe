@@ -1,0 +1,69 @@
+// Home page styles
+
+@import "mixins/all";
+
+$avatar-size: em(48);
+$home-listing-details-padding: lines(0.25);
+$home-listing-details-height: $avatar-size + ($home-listing-details-padding * 2);
+$home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-ratio);
+
+.home-listing-details {
+  background-color: $highlight;
+  height: $home-listing-details-height;
+  position: relative;
+}
+
+// TODO RENAME
+.grid-column-1-4 {
+  @include grid-column-1-4;
+  height: $home-listing-details-height + $home-listing-image-height;
+}
+
+// TODO RENAME
+.grid-column-content-1-4 {
+  @include grid-column-content-1-4;
+  height: 100%;
+}
+
+.home-listing-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.home-listing-image-container {
+  position: relative;
+  height: $home-listing-image-height;
+}
+
+.home-listing-avatar {
+  padding: $home-listing-details-padding;
+}
+
+.home-listing-overlay {
+  @include overlay;
+  @include absolutely-all;
+}
+
+.home-listing-title {
+  position: absolute;
+  bottom: 0;
+  @include listing-overlay-type;
+}
+
+.home-listing-price {
+  @include listing-price;
+}
+
+.home-listing-author {
+  position: absolute;
+  top: $home-listing-details-padding;
+  left: (3 * $home-listing-details-padding) + $avatar-size; // 3 for some extra padding
+  right: $home-listing-details-padding;
+  bottom: $home-listing-details-padding;
+
+  // Vertical centering
+  line-height: em(48);
+  
+  @include ellipsis;
+}
