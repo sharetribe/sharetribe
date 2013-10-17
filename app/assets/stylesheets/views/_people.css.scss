@@ -1,0 +1,85 @@
+@import "compass/css3/border-radius";
+@import "mixins/all";
+
+.people-image {
+  > img {
+    width: 100%;
+  }
+}
+
+.people-header {
+  padding-bottom: lines(0.25);
+  border-bottom: 2px solid $light-body;
+}
+ 
+.people-listing-image-frame {
+  &, > a, > a > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  > a {
+    position: relative;
+  }
+}
+
+.people-listing-no-image {
+  /* FIXME This is not vertically centered */
+  @extend .listing-no-image;
+  padding: lines(1);
+}
+
+.load-more-listings-container {
+  clear: both;
+  padding: lines(0) lines(0.5); // Normalize the negative margin set by the grid container
+}
+
+.people-show-closed-link {
+  margin-left: lines(0.5);
+}
+
+.people-listing-price {
+  color: $body;
+  font-weight: bold;
+  min-width: em(50);
+  text-align: center;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: lines(0.2);
+  
+  background-color: white;
+  @include border-bottom-left-radius(lines(0.25));
+}
+
+.people-listing-overlay {
+  @include overlay;
+  @include absolutely-all;
+}
+
+.people-listing-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  color: $background;
+  @include small-type;
+
+  padding: lines(0.5);
+}
+
+.people-listing-image-processing {
+  width: 100%;
+  height: 100%;
+  @include vertical-centering-table-container;
+  @include normal-type;
+  color: $border;
+  font-weight: bold;
+
+  > div {
+    @include vertical-centering-table-content;
+  }
+}
