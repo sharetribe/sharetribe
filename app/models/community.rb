@@ -265,7 +265,7 @@ class Community < ActiveRecord::Base
       # Copy original SCSS and do customizations by search & replace
       
       # Create new stylesheet for community
-      FileUtils.cp("app/assets/stylesheets/index.scss", "app/assets/stylesheets/#{stylesheet_filename}.scss" )
+      FileUtils.cp("app/assets/stylesheets/application.scss", "app/assets/stylesheets/#{stylesheet_filename}.scss" )
       
       # Use default-colors as a starting point for customizations
       FileUtils.cp("app/assets/stylesheets/default-colors.scss", "app/assets/stylesheets/customizations.scss" )
