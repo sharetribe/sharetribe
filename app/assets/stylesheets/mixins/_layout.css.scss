@@ -32,3 +32,18 @@
     border: em(2) solid darken($link, 20%);
   }
 }
+
+@mixin share-type-link {
+  @include source-sans-pro;
+  color: $aside;
+  font-size: em(10);
+  font-weight: normal;
+  white-space: nowrap;
+  background: $highlight;
+  color: $body;
+  @include border-radius(em(5));
+  &:hover {
+    background: $aside;
+    color: $background;
+  }
+}

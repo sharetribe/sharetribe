@@ -5,7 +5,7 @@ $listing-image-aspect-ratio: 3/2;
 /**
   Give `width` and `aspect-ratio` and get back height
 */
-@function image-height($width, $aspect-ratio) {
+@function image-height($width, $aspect-ratio: $listing-image-aspect-ratio) {
   @return $width / $aspect-ratio;
 }
 

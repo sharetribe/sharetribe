@@ -549,28 +549,7 @@ label.error {
 
 // Share type label
 .share-type-link {
-  @include source-sans-pro;
-  color: $aside;
-  font-size: em(10);
-  font-weight: normal;
-  white-space: nowrap;
-  position: relative;
-  left: em(2);
-  top: em(-2);
-  background: $highlight;
-  color: $body;
-  padding: em(0) em(0) em(2) em(8);
-  @include border-radius(em(5));
-  &:hover {
-    background: $aside;
-    color: $background;
-  }
-  .icon-with-text-container {
-
-  }
-  @include media(tablet) {
-    padding: em(0) em(2) em(3) em(10);
-  }
+  @include share-type-link;
 }
 
 
