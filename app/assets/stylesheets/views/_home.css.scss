@@ -1,6 +1,8 @@
 // Home page styles
 
 @import "mixins/all";
+@import "compass/css3/border-radius";
+@import "compass/utilities/general/clearfix";
 
 $avatar-size: em(48);
 $home-listing-details-padding: lines(0.25);
@@ -13,14 +15,12 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
   position: relative;
 }
 
-// TODO RENAME
-.grid-column-1-4 {
+.home-grid-column {
   @include grid-column-1-4;
   height: $home-listing-details-height + $home-listing-image-height;
 }
 
-// TODO RENAME
-.grid-column-content-1-4 {
+.home-grid-column-content {
   @include grid-column-content-1-4;
   height: 100%;
 }
@@ -66,4 +66,61 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
   line-height: em(48);
   
   @include ellipsis;
+}
+
+.home-toolbar {
+  margin-bottom: lines(1);
+  padding: 0 lines(0.5); // FIXME
+  @include clearfix;
+}
+
+.home-grid {
+  position: relative;
+}
+
+@mixin button-group {
+  @include clearfix;
+}
+
+@mixin button-group-button {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: lines(0.25) lines(0.5);
+
+  // Colors
+  color: $body;
+  background: $highlight;
+  border-color: $border;
+
+  @include border-radius(0);
+  $radius: lines(0.25);
+
+  // Explanation:
+  // - When current element (&) has mouse over (:hover)
+  // - match any (*) element
+  // - immediately precended (+) by the current element
+  &:hover + * {
+    border-left-width: em(0);
+  }
+
+  border-right-width: em(0);
+
+  &:first-child {
+    @include border-left-radius($radius);
+  }
+
+  &:last-child {
+    @include border-right-radius($radius);
+    border-right-width: em(2);
+  }
+}
+
+.home-toolbar-button-group {
+  @include button-group;
+  float: right;
+}
+
+.home-toolbar-button-group-button {
+  @include button-group-button;
 }

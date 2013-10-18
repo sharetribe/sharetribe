@@ -21,33 +21,43 @@
           %button.action-button{type: 'submit'}
             = icon_tag("search", ["icon-part"])
 
-- if @categories_enabled
-  .left-column-1-4
-    .left-column-content-1-4
-      Category 1
-      %br/
-      Category 2
-      %br/
-      Category 3
+.home-toolbar
+  .home-toolbar-button-group
+    %button.home-toolbar-button-group-button
+      = "List"
+    %button.home-toolbar-button-group-button
+      = "Grid"
+    %button.home-toolbar-button-group-button
+      = "Map"
 
-.grid-container{:class => @categories_enabled ? "grid-container-3-4" : "grid-container-4-4" }
-  - @listings.each do |listing|
-    .grid-column-1-4>
-      .grid-column-content-1-4
-        .home-listing-image-container
-          - if listing.listing_images.size > 0
-            = image_tag listing.listing_images.first.image.url(:email), {:alt => listed_listing_title(listing), :class => "home-listing-image"}
-          .home-listing-overlay
-            .home-listing-title
-              = listing.title
-          - if listing.price
-            .home-listing-price
-              = money_without_cents_and_with_symbol(listing.price).upcase
-        .home-listing-details
-          .home-listing-avatar
-            = small_avatar_thumb(listing.organization_or_author?(@current_community))
-          .home-listing-author
-            = listing.author.name
+.home-grid
+  - if @categories_enabled
+    .left-column-1-4
+      .left-column-content-1-4
+        Category 1
+        %br/
+        Category 2
+        %br/
+        Category 3
+
+  .grid-container{:class => @categories_enabled ? "grid-container-3-4" : "grid-container-4-4" }
+    - @listings.each do |listing|
+      .home-grid-column
+        .home-grid-column-content
+          .home-listing-image-container
+            - if listing.listing_images.size > 0
+              = image_tag listing.listing_images.first.image.url(:email), {:alt => listed_listing_title(listing), :class => "home-listing-image"}
+            .home-listing-overlay
+              .home-listing-title
+                = listing.title
+            - if listing.price
+              .home-listing-price
+                = money_without_cents_and_with_symbol(listing.price).upcase
+          .home-listing-details
+            .home-listing-avatar
+              = small_avatar_thumb(listing.organization_or_author?(@current_community))
+            .home-listing-author
+              = listing.author.name
 
 
 
