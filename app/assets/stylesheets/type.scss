@@ -109,6 +109,7 @@ $giga-type:    110;
 
 @mixin larger-type {
   font-size: em($larger-type); // roughly 16*1.618 (longer part golden ratio)
+  line-height: lines(1.5, $larger-type); // 36px
   font-weight: 600;
 }
 
