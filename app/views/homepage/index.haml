@@ -23,12 +23,15 @@
 
 .home-toolbar
   .home-toolbar-button-group
-    %button.home-toolbar-button-group-button
-      = "List"
-    %button.home-toolbar-button-group-button
-      = "Grid"
-    %button.home-toolbar-button-group-button
-      = "Map"
+    %a.home-toolbar-button-group-button{href: (root + '?view=grid'), title: t("homepage.filters.list_button")}
+      = icon_tag("thumbnails", ["icon-fix", "home-button-group-icon"])
+      = t("homepage.filters.grid_button")
+    %a.home-toolbar-button-group-button{href: (root + '?view=list'), title: t("homepage.filters.list_button")}
+      = icon_tag("list", ["icon-fix", "home-button-group-icon"])
+      = t("homepage.filters.list_button")
+    %a.home-toolbar-button-group-button{href: (root + '?view=map'), title: t("homepage.filters.list_button")}
+      = icon_tag("map", ["icon-fix", "home-button-group-icon"])
+      = t("homepage.filters.map_button")
 
 .home-grid
   - if @categories_enabled
@@ -40,6 +43,12 @@
         %br/
         Category 3
 
+/ This is somewhat ugly. Imo, we shouldn't do "routing" in views
+- if params[:view] == "map" || params[:map] == "true"
+  .grid-container{:class => @categories_enabled ? "grid-container-3-4" : "grid-container-4-4" }
+    .home-map
+      = render :partial => "map"
+- elsif params[:view] == "grid"
   .grid-container{:class => @categories_enabled ? "grid-container-3-4" : "grid-container-4-4" }
     - @listings.each do |listing|
       .home-grid-column
@@ -58,6 +67,9 @@
               = small_avatar_thumb(listing.organization_or_author?(@current_community))
             .home-listing-author
               = listing.author.name
+- else
+  = "List"
+
 
 
 
@@ -135,7 +147,7 @@
             .text-part
               = community_blank_slate
     - if params[:map] == "true"
-      = render :partial => "map"
+      = # render :partial => "map"
     - else
       - if @listings.total_entries > 0
         = render :partial => "recent_listing", :collection => @listings, :as => :listing

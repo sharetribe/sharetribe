@@ -157,11 +157,23 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
 }
 
 .home-toolbar-button-group-button {
+  @include button;
   @include button-group-button;
+  @include ellipsis;
+
+  width: lines(4);
+
 
   &.selected {
     background-color: $link;
-    border-color: darken($link, 10%);
     color: $background;
   }
+}
+
+.home-button-group-icon {
+  margin-right: lines(0.25);
+}
+
+.home-map > .map {
+  height: 30em;
 }
