@@ -7,6 +7,7 @@ module ApplicationHelper
       
       # Default UI icons
       "map" => "ss-maplocation",
+      "thumbnails" => "ss-thumbnails",
       "new_listing" => "ss-addfile",
       "search"  => "ss-search",
       "list" => "ss-list",
@@ -135,6 +136,7 @@ module ApplicationHelper
     },
     "font-awesome" => {
       "map" => "icon-map-marker",
+      "thumbnails" => "icon-th",
       "new_listing" => "icon-plus-sign-alt",
       
       "search"  => "icon-search",

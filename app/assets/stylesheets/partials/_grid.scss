@@ -7,35 +7,8 @@
 
 /* 3 column grid that is 3/4 of total width */
 .grid-container-3-4 {
+  @include clearfix();
   margin-left: lines(10.25);
-}
-
-/* Grid column that is 1/4 of total width */
-.grid-column-1-4 {
-  display: inline-block;
-  width: lines(10.75);
-  height: lines(9.75);
-  margin-bottom: lines(1);
-  padding: 0 lines(0.5);
-}
-
-.grid-column-content-1-4 {
-  width: 100%;
-  height: lines(9.75);
-  background: $highlight;
-}
-
-@mixin inline-block-grid($total-width) {
-  $aspect-ratio: 3/2;
-  $item-padding: lines(0.5);
-  $item-width: $total-width / 3;
-
-  display: block;
-  width: $item-width;
-  height: $item-width / $aspect-ratio;
-  margin-bottom: lines(1);
-  padding: 0 $item-padding;
-  float: left;
 }
 
 /* Grid column that is 2/9 of total width */

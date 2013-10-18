@@ -12,3 +12,32 @@ $right-column-1-3: 13;
   border-bottom: 0;
   padding-bottom: lines(0);
 }
+
+/* Grid column that is 1/4 of total width */
+$grid-1-4-padding: lines(0.5);
+$grid-1-4-width: lines(10.75) - ($grid-1-4-padding * 2);
+@mixin grid-column-1-4 {
+  display: block;
+  width: lines(10.75);
+  margin-bottom: lines(1);
+  padding: 0 lines(0.5);
+  float: left;
+}
+
+@mixin grid-column-content-1-4 {
+  width: 100%;
+  background: $highlight;
+}
+
+@mixin inline-block-grid($total-width) {
+  $aspect-ratio: 3/2;
+  $item-padding: lines(0.5);
+  $item-width: $total-width / 3;
+
+  display: block;
+  width: $item-width;
+  height: $item-width / $aspect-ratio;
+  margin-bottom: lines(1);
+  padding: 0 $item-padding;
+  float: left;
+}

@@ -21,20 +21,19 @@
           %button.action-button{type: 'submit'}
             = icon_tag("search", ["icon-part"])
 
+.home-toolbar
+  .home-toolbar-button-group
+    %a.home-toolbar-button-group-button{href: (root + '?view=grid'), title: t("homepage.filters.list_button")}
+      = icon_tag("thumbnails", ["icon-fix", "home-button-group-icon"])
+      = t("homepage.filters.grid_button")
+    %a.home-toolbar-button-group-button{href: (root + '?view=list'), title: t("homepage.filters.list_button")}
+      = icon_tag("list", ["icon-fix", "home-button-group-icon"])
+      = t("homepage.filters.list_button")
+    %a.home-toolbar-button-group-button{href: (root + '?view=map'), title: t("homepage.filters.list_button")}
+      = icon_tag("map", ["icon-fix", "home-button-group-icon"])
+      = t("homepage.filters.map_button")
 
-- if @layout_3_columns
-  .left-column-2-3
-    .left-column-content-2-3
-  .left-column-grid-container-2-3
-    - 9.times do |i|
-      .grid-column-2-9>
-        .grid-column-content-2-9
-          = "Column #{i}"
-      
-  .right-column-1-3
-    .right-column-content-1-3
-      Right column
-- else
+.home-grid
   - if @categories_enabled
     .left-column-1-4
       .left-column-content-1-4
@@ -44,12 +43,56 @@
         %br/
         Category 3
 
+/ This is somewhat ugly. Imo, we shouldn't do "routing" in views
+- if params[:view] == "map" || params[:map] == "true"
   .grid-container{:class => @categories_enabled ? "grid-container-3-4" : "grid-container-4-4" }
-    - 12.times do |i|
-      .grid-column-1-4>
-        .grid-column-content-1-4
-          = "Column #{i}"
-  
+    .home-map
+      = render :partial => "map"
+- elsif params[:view] == "grid"
+  .grid-container{:class => @categories_enabled ? "grid-container-3-4" : "grid-container-4-4" }
+    - @listings.each do |listing|
+      .home-grid-column
+        .home-grid-column-content
+          .home-listing-image-container
+            - if listing.listing_images.size > 0
+              = image_tag listing.listing_images.first.image.url(:email), {:alt => listed_listing_title(listing), :class => "home-listing-image"}
+            .home-listing-overlay
+              .home-listing-title
+                = listing.title
+            - if listing.price
+              .home-listing-price
+                = money_without_cents_and_with_symbol(listing.price).upcase
+          .home-listing-details
+            .home-listing-avatar
+              = small_avatar_thumb(listing.organization_or_author?(@current_community))
+            .home-listing-author
+              = listing.author.name
+- else
+  = "List"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .feed-navigation
   .feed-actions.actions-menu
@@ -104,7 +147,7 @@
             .text-part
               = community_blank_slate
     - if params[:map] == "true"
-      = render :partial => "map"
+      = # render :partial => "map"
     - else
       - if @listings.total_entries > 0
         = render :partial => "recent_listing", :collection => @listings, :as => :listing

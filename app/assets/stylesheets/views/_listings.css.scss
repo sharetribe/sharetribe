@@ -1,8 +1,6 @@
 @import "compass/utilities/general/clearfix";
 @import "mixins/all";
 
-$listing-image-aspect-ratio: 3/2;
-
 @mixin image-height($prop, $aspect-ratio) {
   #{$prop}: (em(320) - lines(1)) / $aspect-ratio;
 

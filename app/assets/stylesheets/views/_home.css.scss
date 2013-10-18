@@ -1,0 +1,179 @@
+// Home page styles
+
+@import "mixins/all";
+@import "compass/css3/border-radius";
+@import "compass/utilities/general/clearfix";
+
+$avatar-size: em(48);
+$home-listing-details-padding: lines(0.25);
+$home-listing-details-height: $avatar-size + ($home-listing-details-padding * 2);
+$home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-ratio);
+
+.home-listing-details {
+  background-color: $highlight;
+  height: $home-listing-details-height;
+  position: relative;
+}
+
+.home-grid-column {
+  @include grid-column-1-4;
+  height: $home-listing-details-height + $home-listing-image-height;
+}
+
+.home-grid-column-content {
+  @include grid-column-content-1-4;
+  height: 100%;
+}
+
+.home-listing-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.home-listing-image-container {
+  position: relative;
+  height: $home-listing-image-height;
+}
+
+.home-listing-avatar {
+  padding: $home-listing-details-padding;
+}
+
+.home-listing-overlay {
+  @include overlay;
+  @include absolutely-all;
+}
+
+.home-listing-title {
+  position: absolute;
+  bottom: 0;
+  @include listing-overlay-type;
+}
+
+.home-listing-price {
+  @include listing-price;
+}
+
+.home-listing-author {
+  position: absolute;
+  top: $home-listing-details-padding;
+  left: (3 * $home-listing-details-padding) + $avatar-size; // 3 for some extra padding
+  right: $home-listing-details-padding;
+  bottom: $home-listing-details-padding;
+
+  // Vertical centering
+  line-height: em(48);
+  
+  @include ellipsis;
+}
+
+.home-toolbar {
+  margin-bottom: lines(1);
+  padding: 0 lines(0.5); // FIXME
+  @include clearfix;
+}
+
+.home-grid {
+  position: relative;
+}
+
+@mixin button-group {
+  @include clearfix;
+}
+
+/**
+  Use this mixin to get correct borders for button group when
+  it is selected/hovered
+
+  Classes added:
+  - `selected`
+
+  The logic and selectors for selected/hovered borders is a
+  bit complicated, that's why they are in their own mixin
+*/
+@mixin button-group-borders($border-width) {
+  border-right-width: em(0);
+
+  &.selected {
+    border-width: $border-width;
+
+    // Explanation:
+    // - match any (*) element
+    // - immediately precended (+)
+    // - by the current element (&)
+    & + * {
+      border-left: $border-width;
+    }
+  }
+
+  // Explanation:
+  // - When current element (&) has mouse over (:hover)
+  // - match any (*) element
+  // - immediately precended (+) by the current element
+  &:hover + * {
+    border-left-width: em(0);
+  }
+
+  // Explanation:
+  // - When current element (&) has mouse over (:hover)
+  // - match element with class `selected`
+  // - immediately precended (+) by the current element
+  &:hover + .selected {
+    border-left: em(0);
+  }
+}
+
+@mixin button-group-button {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: lines(0.25) lines(0.5);
+
+  // Colors
+  color: $body;
+  background: $highlight;
+  border-color: $border;
+
+  // Borders
+  @include button-group-borders(2px);
+  @include border-radius(0);
+
+  // Border radius
+  $radius: lines(0.25);
+  &:first-child {
+    @include border-left-radius($radius);
+  }
+
+  &:last-child {
+    @include border-right-radius($radius);
+    border-right-width: em(2);
+  }
+}
+
+.home-toolbar-button-group {
+  @include button-group;
+  float: right;
+}
+
+.home-toolbar-button-group-button {
+  @include button;
+  @include button-group-button;
+  @include ellipsis;
+
+  width: lines(4);
+
+
+  &.selected {
+    background-color: $link;
+    color: $background;
+  }
+}
+
+.home-button-group-icon {
+  margin-right: lines(0.25);
+}
+
+.home-map > .map {
+  height: 30em;
+}

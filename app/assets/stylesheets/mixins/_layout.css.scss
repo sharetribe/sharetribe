@@ -3,3 +3,32 @@
 @mixin overlay {
   @include background-image(linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)));
 }
+
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin button {
+  @include border-radius(em(5));
+  background: $link;
+  border: em(2) solid darken($link, 10%);
+  color: $background;
+  text-align: center;
+  cursor: pointer;
+  padding: lines(0.5) em(11) lines(0.5) em(11);
+  margin: lines(0.5) 0;
+
+  &:hover {
+    background: darken($link, 5%);
+    color: $background;
+    border: em(2) solid darken($link, 15%);
+  };
+
+  &:active {
+    background: darken($link, 10%);
+    color: $background;
+    border: em(2) solid darken($link, 20%);
+  }
+}
