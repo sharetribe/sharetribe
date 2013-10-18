@@ -71,7 +71,6 @@
   .grid-container{:class => @categories_enabled ? "grid-container-3-4" : "grid-container-4-4" }
     - @listings.each do |listing|
       .home-list-item
-
         = link_to listing, :class => "home-list-image" do
           - if listing.listing_images.size > 0
             = image_tag listing.listing_images.first.image.url(:email), {:alt => listed_listing_title(listing), :class => "home-listing-image"}
@@ -83,7 +82,10 @@
           .home-list-details-left
             %h2.home-list-title
               = link_to listing do
-                = listing.title 
+                = listing.title
+                %a.home-share-type-link{:href => share_type_url(listing)}
+                  = icon_tag(listing.icon_name, ["icon-fix"])
+                  = listed_listing_share_type(listing)
             .home-list-author
               .home-list-avatar
                 = small_avatar_thumb(listing.organization_or_author?(@current_community))

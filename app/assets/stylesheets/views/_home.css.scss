@@ -202,6 +202,9 @@ $image-padding: lines(0.5);
 .home-no-image {
   text-align: center;
   padding-top: lines(2);
+  background: $highlight;
+  height: 100%;
+  width: 100%;
   // FIXME Tee parempi no image
 }
 
@@ -223,6 +226,16 @@ h2.home-list-title {
 
   // Add bottom margin so that the avatar fits there nicely
   padding-bottom: ems-to($home-list-avatar-size, $big-type) + (2 * ems-to($home-list-avatar-padding, $big-type));
+}
+
+.home-share-type-link {
+  @include share-type-link;
+  // Magic number, this just looks better
+  $padding-fine-tuning: 4;
+  padding: em(4) em(8);
+
+  position: relative;
+  top: em($padding-fine-tuning * -1);
 }
 
 .home-list-details-left {
@@ -277,3 +290,4 @@ h2.home-list-title {
 .home-list-price-quantity {
   @include ellipsis;
 }
+
