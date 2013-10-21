@@ -291,3 +291,11 @@ h2.home-list-title {
   @include ellipsis;
 }
 
+.home-categories-main {
+  display: block;
+}
+
+.home-categories-sub {
+  display: block;
+  margin-left: lines(0.5);
+}
