@@ -43,73 +43,73 @@
         %br/
         Category 3
 
-/ This is somewhat ugly. Imo, we shouldn't do "routing" in views
-- if params[:view] == "map" || params[:map] == "true"
-  .grid-container{:class => @categories_enabled ? "grid-container-3-4" : "grid-container-4-4" }
-    .home-map
-      = render :partial => "map"
-- elsif params[:view] == "grid"
-  .grid-container{:class => @categories_enabled ? "grid-container-3-4" : "grid-container-4-4" }
-    - @listings.each do |listing|
-      .home-grid-column
-        .home-grid-column-content
-          .home-listing-image-container
+  / This is somewhat ugly. Imo, we shouldn't do "routing" in views
+  - if params[:view] == "map" || params[:map] == "true"
+    .right-column-3-4
+      .home-map
+        = render :partial => "map"
+  - elsif params[:view] == "grid"
+    .grid-container{:class => @categories_enabled ? "grid-container-3-4" : "grid-container-4-4" }
+      - @listings.each do |listing|
+        .home-grid-column
+          .home-grid-column-content
+            .home-listing-image-container
+              - if listing.listing_images.size > 0
+                = image_tag listing.listing_images.first.image.url(:email), {:alt => listed_listing_title(listing), :class => "home-listing-image"}
+              .home-listing-overlay
+                .home-listing-title
+                  = listing.title
+              - if listing.price
+                .home-listing-price
+                  = money_without_cents_and_with_symbol(listing.price).upcase
+            .home-listing-details
+              .home-listing-avatar
+                = small_avatar_thumb(listing.organization_or_author?(@current_community))
+              .home-listing-author
+                = listing.author.name
+  - else
+    .right-column-3-4
+      - @listings.each do |listing|
+        .home-list-item
+          = link_to listing, :class => "home-list-image" do
             - if listing.listing_images.size > 0
               = image_tag listing.listing_images.first.image.url(:email), {:alt => listed_listing_title(listing), :class => "home-listing-image"}
-            .home-listing-overlay
-              .home-listing-title
-                = listing.title
-            - if listing.price
-              .home-listing-price
-                = money_without_cents_and_with_symbol(listing.price).upcase
-          .home-listing-details
-            .home-listing-avatar
-              = small_avatar_thumb(listing.organization_or_author?(@current_community))
-            .home-listing-author
-              = listing.author.name
-- else
-  .grid-container{:class => @categories_enabled ? "grid-container-3-4" : "grid-container-4-4" }
-    - @listings.each do |listing|
-      .home-list-item
-        = link_to listing, :class => "home-list-image" do
-          - if listing.listing_images.size > 0
-            = image_tag listing.listing_images.first.image.url(:email), {:alt => listed_listing_title(listing), :class => "home-listing-image"}
-          - else
-            .home-no-image
-              = t(".no_image")
-              / FIXME! Add image processing
-        .home-list-details
-          .home-list-details-left
-            %h2.home-list-title
-              = link_to listing do
-                = listing.title
-                %a.home-share-type-link{:href => share_type_url(listing)}
-                  = icon_tag(listing.icon_name, ["icon-fix"])
-                  = listed_listing_share_type(listing)
-            .home-list-author
-              .home-list-avatar
-                = small_avatar_thumb(listing.organization_or_author?(@current_community))
-              .home-list-author-details
-                = link_to listing.author :class => "home-list-author-name" do
-                  = listing.author.name
-                - if @current_community.testimonials_in_use
-                  .home-list-author-reviews
-                    = icon_tag("testimonial")
-                    - if listing.author.received_testimonials.size > 0
-                      = pluralize(listing.author.received_testimonials.size, t(".review"), t(".reviews"))
-                      = "(#{listing.author.feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{listing.author.received_positive_testimonials.size}/#{listing.author.received_testimonials.size})"
-                    - else
-                      = t(".no_reviews")
+            - else
+              .home-no-image
+                = t(".no_image")
+                / FIXME! Add image processing
+          .home-list-details
+            .home-list-details-left
+              %h2.home-list-title
+                = link_to listing do
+                  = listing.title
+                  %a.home-share-type-link{:href => share_type_url(listing)}
+                    = icon_tag(listing.icon_name, ["icon-fix"])
+                    = listed_listing_share_type(listing)
+              .home-list-author
+                .home-list-avatar
+                  = small_avatar_thumb(listing.organization_or_author?(@current_community))
+                .home-list-author-details
+                  = link_to listing.author :class => "home-list-author-name" do
+                    = listing.author.name
+                  - if @current_community.testimonials_in_use
+                    .home-list-author-reviews
+                      = icon_tag("testimonial")
+                      - if listing.author.received_testimonials.size > 0
+                        = pluralize(listing.author.received_testimonials.size, t(".review"), t(".reviews"))
+                        = "(#{listing.author.feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{listing.author.received_positive_testimonials.size}/#{listing.author.received_testimonials.size})"
+                      - else
+                        = t(".no_reviews")
 
-          .home-list-details-right
-            - if listing.price
-              .home-list-price
-                .home-list-price-value
-                  = money_without_cents_and_with_symbol(listing.price).upcase
-                - if !listing.quantity.blank? || @current_community.vat
-                  - price_text = if !listing.quantity.blank? then "/ " + listing.quantity  else "" end + if @current_community.vat then " " + t("listings.displayed_price.price_excludes_vat") else "" end
-                  .home-list-price-quantity{:title => price_text}
-                    = price_text
+            .home-list-details-right
+              - if listing.price
+                .home-list-price
+                  .home-list-price-value
+                    = money_without_cents_and_with_symbol(listing.price).upcase
+                  - if !listing.quantity.blank? || @current_community.vat
+                    - price_text = if !listing.quantity.blank? then "/ " + listing.quantity  else "" end + if @current_community.vat then " " + t("listings.displayed_price.price_excludes_vat") else "" end
+                    .home-list-price-quantity{:title => price_text}
+                      = price_text
 
   / - if @current_community.testimonials_in_use
   /   .listing-main.left-column-2-3

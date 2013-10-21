@@ -125,15 +125,6 @@ ul {
   padding-left: lines(1);
 }
 
-.wrapper {
-  background: $background;
-  position: relative;
-  margin: 0 auto;
-  max-width: lines(42);
-}
-
-
-
 .section {
   padding: lines(0.5);
   @include clearfix;
@@ -2957,6 +2948,7 @@ header.network-header {
   border-bottom: em(3) solid $network-red;
   
   .wrapper {
+    @include wrapper;
     padding: 0 lines(0.5);
   }
   
@@ -3342,6 +3334,7 @@ section.about, section.create-now {
 section.about {
 
   .wrapper {
+    @include wrapper;
     background: $light_grey;
   }
   
@@ -3443,6 +3436,7 @@ section.how-it-works {
 section.create-now {
   
   .wrapper {
+    @include wrapper;
     background: $light_grey;
   }
   
@@ -3536,7 +3530,6 @@ header.marketplace-header {
       position: static;
       vertical-align: top;
       display: inline-block;
-      padding-left: lines(0.5);
       &:hover { background: $background; }
     }
   }
@@ -3856,7 +3849,7 @@ header.marketplace-header {
   }
 
   .title-header-wrapper {
-    @extend .wrapper;
+    @include wrapper;
     max-width: lines(42);
     background: transparent;
     width: 100%;
@@ -3866,7 +3859,7 @@ header.marketplace-header {
   .marketplace-title-header {
     width: 100%;
     height: 100%;
-    padding: 0 lines(0.5);
+    padding: 0;
 
     display: table;
     
