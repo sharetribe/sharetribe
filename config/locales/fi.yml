@@ -705,6 +705,10 @@ fi:
       teaser_text: "%{service_name} on %{community}-yhteisön oma palvelu, jossa voit lainata, vuokrata, antaa ja myydä tavaroita, auttaa ja pyytää apua tai järjestää kimppakyytejä. Voisitko lainata muille tavaroita tai auttaa heitä?"
       tell_it_here: "Kerro se täällä!"
       welcome_to_new_kassi: "%{service_name} on uudistunut!"
+      no_image: "Ei kuvaa"
+      no_reviews: "Ei palautteita"
+      review: "saatu palaute"
+      reviews: "saatua palautetta"
     invitation_form:
       invite_your_friends: "Kutsu kaverisi %{service_name_illative}!"
       invite_your_neighbors: "Kutsu naapurisi %{service_name_illative}!"

@@ -76,7 +76,7 @@
             = image_tag listing.listing_images.first.image.url(:email), {:alt => listed_listing_title(listing), :class => "home-listing-image"}
           - else
             .home-no-image
-              = "Ei kuvaa"
+              = t(".no_image")
               / FIXME! Add image processing
         .home-list-details
           .home-list-details-left
@@ -102,13 +102,14 @@
                       = t(".no_reviews")
 
           .home-list-details-right
-            .home-list-price
-              .home-list-price-value
-                = "700€"
-              - if !listing.quantity.blank? || !@current_community.vat
-                - price_text = if !listing.quantity.blank? then "per " + listing.quantity else "" end + if !@current_community.vat then t("listings.displayed_price.price_excludes_vat") else "" end
-                .home-list-price-quantity{:title => price_text}
-                  = price_text
+            - if listing.price
+              .home-list-price
+                .home-list-price-value
+                  = money_without_cents_and_with_symbol(listing.price).upcase
+                - if !listing.quantity.blank? || @current_community.vat
+                  - price_text = if !listing.quantity.blank? then "/ " + listing.quantity  else "" end + if @current_community.vat then " " + t("listings.displayed_price.price_excludes_vat") else "" end
+                  .home-list-price-quantity{:title => price_text}
+                    = price_text
 
   / - if @current_community.testimonials_in_use
   /   .listing-main.left-column-2-3
