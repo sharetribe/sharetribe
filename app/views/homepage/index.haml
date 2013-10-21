@@ -40,10 +40,11 @@
         - @main_categories.each do |category|
           = link_to category.display_name.mb_chars.capitalize.to_s, params.merge({category: category.name}), :class => "home-categories-main", :data => {category: category.name}
           - if category.children
-            - category.children.each do |sub_category|
-              - if @categories.include?(sub_category)
-                %a.home-categories-sub{href: "&category=" + category.name}
-                  = link_to sub_category.display_name.mb_chars.capitalize.to_s, params.merge({category: sub_category.name}), :class => "home-categories-sub", :data => {:"sub-category" =>sub_category.name}
+            - if show_subcategory_list(category, params[:category], @categories)
+              - category.children.each do |sub_category|
+                - if @categories.include?(sub_category)
+                  %a.home-categories-sub{href: "&category=" + category.name}
+                    = link_to sub_category.display_name.mb_chars.capitalize.to_s, params.merge({category: sub_category.name}), :class => "home-categories-sub", :data => {:"sub-category" =>sub_category.name}
 
   / This is somewhat ugly. Imo, we shouldn't do "routing" in views
   - if params[:view] == "map" || params[:map] == "true"

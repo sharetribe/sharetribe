@@ -852,18 +852,6 @@ function initialize_homepage_news_items(news_item_ids) {
 }
 
 function initialize_homepage(filters_in_use) {
-  
-  if (filters_in_use) { 
-    // keep filters dropdown open in mobile view if any filters selected
-    $('#filters-toggle').click();
-  }
-  
-  $('#feed-filter-dropdowns select').change(
-    function() {      
-      $("#homepage-filters").submit();    
-    }
-  );
-  
   // make map/list button change the value in the filter form and submit the form
   // in order to keep all filter values combinable and remembered
   $('.map-button').click(
@@ -1018,30 +1006,6 @@ function get_datetime_from_datetime_select() {
   minutes = $('#listing_valid_until_5i').val();
   date = new Date(year,month-1,day,hours,minutes);
   return date;
-}
-
-// Credits to ellemayo's StackOverflow answer: http://stackoverflow.com/a/11654596/150382
-function UpdateQueryString(key, value, url) {
-    if (!url) url = window.location.href;
-    var re = new RegExp("([?|&])" + key + "=.*?(&|#|$)", "gi");
-
-    if (url.match(re)) {
-        if (value)
-            return url.replace(re, '$1' + key + "=" + value + '$2');
-        else
-            return url.replace(re, '$2');
-    }
-    else {
-        if (value) {
-            var separator = url.indexOf('?') !== -1 ? '&' : '?',
-                hash = url.split('#');
-            url = hash[0] + separator + key + '=' + value;
-            if (hash[1]) url += '#' + hash[1];
-            return url;
-        }
-        else
-            return url;
-    }
 }
 
 //FB Popup from: http://stackoverflow.com/questions/4491433/turn-omniauth-facebook-login-into-a-popup
