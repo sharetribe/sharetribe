@@ -859,14 +859,8 @@ function initialize_homepage(filters_in_use) {
   }
   
   $('#feed-filter-dropdowns select').change(
-    function() {
-      
-      // It's challenging to get the pageless right if reloading just the small part so reload all page
-      // instead of the method below that would do AJAX update (currently works only partially)
-      //reload_homepage_view();
-      
+    function() {      
       $("#homepage-filters").submit();    
-      
     }
   );
   
@@ -886,24 +880,6 @@ function initialize_homepage(filters_in_use) {
       return false;
     }
   );
-}
-
-function reload_homepage_view() {
-  // Make AJAX request based on selected items
-  var request_path = window.location.toString();
-  var filters = {};
-  filters["share_type"] = $('#share_type').val();
-  filters["category"] = $('#listing_category').val();
-  
-  // Update request path with updated query params
-  for (var key in filters) {
-    request_path = UpdateQueryString(key, filters[key], request_path);
-  }
-  
-  $.get(request_path, filters, function(data) {
-    $('.homepage-feed').html(data);
-    history.pushState(null, document.title, request_path);
-  });
 }
 
 function initialize_invitation_form(locale, email_error_message) {
