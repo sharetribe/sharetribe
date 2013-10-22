@@ -169,12 +169,21 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
   @include button-group-button;
   @include ellipsis;
 
-  width: lines(4);
-
-
   &.selected {
     background-color: $link;
     color: $background;
+  }
+
+  @include media(tablet) {
+    width: lines(4);
+  }
+}
+
+.home-toolbar-button-text {
+  display: none;
+
+  @include media(tablet) {
+    display: inline-block;
   }
 }
 
@@ -218,6 +227,8 @@ $image-padding: lines(0.5);
   margin-left: $image-width + $image-padding;
   min-height: $image-height;
   position: relative;
+
+  @include clearfix;
 }
 
 // FIXME Ugly selector, but there's definition .page-content h2
@@ -245,19 +256,20 @@ h2.home-list-title {
 }
 
 .home-list-details-left {
-  margin-right: em(150);
+  // margin-right: em(150);
+  width: 75%;
+  float: left;
+
   min-height: $image-height;
   @include clearfix;
 }
 
 .home-list-details-right {
-  width: em(150);
-  position: relative;
+  // width: em(150);
+  width: 25%;
+  float: right;
+  
   min-height: $image-height;
-
-  position: absolute;
-  right: 0;
-  top: 0;
 }
 
 .home-list-avatar {

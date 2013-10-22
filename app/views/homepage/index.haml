@@ -25,13 +25,16 @@
   .home-toolbar-button-group
     %a.home-toolbar-button-group-button{href: (root + '?view=grid'), title: t("homepage.filters.list_button")}
       = icon_tag("thumbnails", ["icon-fix", "home-button-group-icon"])
-      = t("homepage.filters.grid_button")
+      %span.home-toolbar-button-text
+        = t("homepage.filters.grid_button")
     %a.home-toolbar-button-group-button{href: (root + '?view=list'), title: t("homepage.filters.list_button")}
       = icon_tag("list", ["icon-fix", "home-button-group-icon"])
-      = t("homepage.filters.list_button")
+      %span.home-toolbar-button-text
+        = t("homepage.filters.list_button")
     %a.home-toolbar-button-group-button{href: (root + '?view=map'), title: t("homepage.filters.list_button")}
       = icon_tag("map", ["icon-fix", "home-button-group-icon"])
-      = t("homepage.filters.map_button")
+      %span.home-toolbar-button-text
+        = t("homepage.filters.map_button")
 
 .home-grid
   - if @categories_enabled

@@ -3845,7 +3845,6 @@ header.marketplace-header {
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
   }
 
   .title-header-wrapper {
@@ -3929,8 +3928,8 @@ header.marketplace-header {
   
   .browse-view-search-form {
     width: 100%;
-    padding-top: lines(1.5);
-    
+    padding-top: lines(0.5);
+
     input[type=text] {
       @include normal-type;
       vertical-align: top;
@@ -3951,11 +3950,10 @@ header.marketplace-header {
       padding: em(12) em(16) em(10) em(16);
       margin-right: em(-4);
     }
-    
+
     @include media(tablet) {
       padding: lines(1) 0;
     }
-    
   }
   
   @include media(tablet) {
