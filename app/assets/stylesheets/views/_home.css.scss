@@ -34,6 +34,12 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
 .home-listing-image-container {
   position: relative;
   height: $home-listing-image-height;
+
+  color: $background;
+
+  &:hover {
+    color: $link;
+  }
 }
 
 .home-listing-avatar {
@@ -48,7 +54,7 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
 .home-listing-title {
   position: absolute;
   bottom: 0;
-  @include listing-overlay-type;
+  padding: lines(0.5);
 }
 
 .home-listing-price {

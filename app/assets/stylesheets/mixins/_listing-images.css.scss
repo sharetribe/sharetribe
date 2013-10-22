@@ -10,14 +10,6 @@ $listing-image-aspect-ratio: 3/2;
 }
 
 /**
-  Listing title font type
-*/
-@mixin listing-overlay-type {
-  color: $background;
-  padding: lines(0.5);
-}
-
-/**
   Listing top-right overlay price tag
 */
 @mixin listing-price {
