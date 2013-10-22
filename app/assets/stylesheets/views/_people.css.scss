@@ -59,14 +59,13 @@
   @include absolutely-all;
 }
 
-.people-listing-description {
+.people-listing-title {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
 
   color: $background;
-  @include small-type;
 
-  padding: lines(0.5);
+  padding: lines(0.25);
 }

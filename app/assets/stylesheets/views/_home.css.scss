@@ -70,7 +70,7 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
 
 .home-toolbar {
   margin-bottom: lines(1);
-  padding: 0 lines(0.5) /*FIXME*/ lines(1) lines(0);
+  padding-bottom: lines(1);
   @include clearfix;
 
   border-bottom: 2px solid $border;
@@ -291,3 +291,11 @@ h2.home-list-title {
   @include ellipsis;
 }
 
+.home-categories-main {
+  display: block;
+}
+
+.home-categories-sub {
+  display: block;
+  margin-left: lines(0.5);
+}
