@@ -3514,6 +3514,7 @@ header.marketplace-header {
   }
   
   a.logo-side {
+    width: lines(2.5);
     z-index: 4;
     color: $body;
     &:hover { 
@@ -3527,6 +3528,7 @@ header.marketplace-header {
     padding-top: em(8);
     height: (lines(2.5) - em(3));
     @include media(mid-desktop) {
+      width: lines(7);
       position: static;
       vertical-align: top;
       display: inline-block;
@@ -3535,24 +3537,20 @@ header.marketplace-header {
   }
   
   a.logo-side-logged {
-    width: lines(2.5);
     text-align: center;
     @include media(mid-desktop) {
       text-align: left;
-      width: lines(7);
     }
   }
   
   a.logo-side-unlogged {
-    width: lines(5);
     padding-left: lines(0.75);
     @include media(mid-desktop) {
       padding-left: 0;
-      width: lines(7);
     }
   }
   
-  img.global-header-logo {
+  img.marketplace-header-logo {
     height: em(40);
     display: inline-block;
   }
@@ -3691,7 +3689,7 @@ header.marketplace-header {
     display: inline-block;
     vertical-align: top;
     padding: em(10) lines(0.5) em(5) lines(0.5);
-    margin-left: lines(5);
+    margin-left: lines(4.5);
     border-left: 1px solid $aside;
     &:hover { color: $link; }
 
@@ -3704,15 +3702,20 @@ header.marketplace-header {
 
     .user-name {
       vertical-align: top;
-      padding: em(5) 0 0 em(4);
+      padding: em(5) 0 0 lines(0.25);
       display: inline-block;
+      max-width: lines(4.5);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
     }
 
     .icon-dropdown {
       display: block;
       position: absolute;
       top: em(18);
-      right: lines(5.5);
+      right: lines(4.5);
     }
     
     .badge {
