@@ -12,8 +12,7 @@
       
   
     %a.logo-side{:href => "/", :class => (@current_user ? "logo-side-logged" : "logo-side-unlogged")}
-      = image_tag @current_community.logo.url(:header), :class => "global-header-logo"
-      .marketplace-name{:class => (@current_user ? "marketplace-name-logged" : "marketplace-name-unlogged")}= @current_community.name
+      = image_tag @current_community.logo.url(:header), :class => "marketplace-header-logo"
 
     .right-side
       = link_to t("header.home").downcase, "/", :class => "global-navi global-navi-left"
@@ -61,10 +60,16 @@
               = icon_tag("settings", ["icon-with-text"])
               .text-with-icon
                 = t("layouts.logged_in.settings")
+            - if logged_in? && @current_user.has_admin_rights_in?(@current_community)
+              %a{:href => edit_details_admin_community_path(@current_community)}
+                = icon_tag("admin", ["icon-with-text"])
+                .text-with-icon
+                  = t("layouts.logged_in.admin")
             %a{href: logout_path}
               = icon_tag("logout", ["icon-with-text"])
               .text-with-icon
                 = t("layouts.logged_in.logout")
+            
           
         
       - else
