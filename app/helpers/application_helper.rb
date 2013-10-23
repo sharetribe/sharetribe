@@ -552,6 +552,13 @@ module ApplicationHelper
         :elative => "Massainfosta",
         :partitive => "Massainfoa"
       }
+      when "University of Helsinki Marketplace" then {
+        :illative => "University of Helsinki Marketplaceen",
+        :genetive => "University of Helsinki Marketplacen",
+        :inessive => "University of Helsinki Marketplacessa",
+        :elative => "University of Helsinki Marketplacesta",
+        :partitive => "University of Helsinki Marketplacea"
+      }
       else nil
     end
   end
