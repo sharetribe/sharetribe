@@ -220,18 +220,18 @@ class Community < ActiveRecord::Base
   end
   
   # Find community by domain, which can be full domain or just subdomain
-  def find_by_domain(domain_string)
+  def self.find_by_domain(domain_string)
     if domain_string =~ /\:/ #string includes port which should be removed
-      domain_string = domain_string..split(":").first
-    end 
+      domain_string = domain_string.split(":").first
+    end
     if domain_string =~ /\./ # not just a subdomain
-      if domain_string.match(APP_CONFIG.domain) # subdomain with default domain attached
-        Community.where(["domain = ?", domain_string.split(".").first])
+      if domain_string.match(APP_CONFIG.domain.split(":").first) # subdomain with default domain attached
+        Community.where(["domain = ?", domain_string.split(".").first]).first
       else # custom domain
-        Community.where(["domain = ?", domain_string])        
+        Community.where(["domain = ?", domain_string]).first
       end
     else # just a subdomain
-      Community.where(["domain = ?", domain_string])
+      Community.where(["domain = ?", domain_string]).first
     end
   end
   
