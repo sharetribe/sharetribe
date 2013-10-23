@@ -8,8 +8,8 @@
   %h1
     %span.profile-title= @person.name(@current_community)
 
-.relative
-  .left-column-2-3
+.row
+  .col-8
     .row
       - if @person.description && !@person.description.blank?
         - text_with_line_breaks do
@@ -39,24 +39,24 @@
             - else
               = link_to t("people.profile_listings.show_also_closed"), person_path(@person, :show_closed => true)
 
-  #profile-listings-list.left-column-grid-container-2-3
-    - limit = 9
-    = render :partial => 'listings/profile_listings', :locals => {:person => @person, :limit => limit}
+    #profile-listings-list
+      - limit = 9
+      = render :partial => 'listings/profile_listings', :locals => {:person => @person, :limit => limit}
 
-  - if @current_community.testimonials_in_use
-    .listing-main.left-column-2-3
-      .row
-        %h2.people-header
+    - if @current_community.testimonials_in_use
+      .listing-main
+        .row
+          %h2.people-header
+            - if @person.received_testimonials.size > 0
+              = pluralize(@person.received_testimonials.size, t(".review"), t(".reviews"))
+              = "(#{@person.feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{@person.received_positive_testimonials.size}/#{@person.received_testimonials.size})"
+            - else
+              = t(".no_reviews")
           - if @person.received_testimonials.size > 0
-            = pluralize(@person.received_testimonials.size, t(".review"), t(".reviews"))
-            = "(#{@person.feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{@person.received_positive_testimonials.size}/#{@person.received_testimonials.size})"
-          - else
-            = t(".no_reviews")
-        - if @person.received_testimonials.size > 0
-          #profile-testimonials-list
-            = render :partial => "testimonials", :locals => {:received_testimonials => @person.received_testimonials, :limit => 3}
+            #profile-testimonials-list
+              = render :partial => "testimonials", :locals => {:received_testimonials => @person.received_testimonials, :limit => 3}
 
-  %aside.listing-aside.right-column-1-3
+  .col-4
     .row
       .people-image
         = huge_avatar_thumb(@person)

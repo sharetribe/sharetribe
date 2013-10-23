@@ -16,8 +16,11 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
 }
 
 .home-grid-column {
-  @include grid-column-1-4;
+  width: (lines(30.25) / 3);
+  padding-left: lines(0.5);
+  margin-bottom: lines(0.5);
   height: $home-listing-details-height + $home-listing-image-height;
+  float: left;
 }
 
 .home-grid-column-content {
