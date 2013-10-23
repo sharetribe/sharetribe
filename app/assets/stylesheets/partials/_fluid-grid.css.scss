@@ -1,0 +1,36 @@
+@import "mixins/all";
+@import "compass/utilities/general/clearfix";
+
+// Fluid grid system
+@mixin create-fluid-grid($prefix, $gutter, $cols) {
+  $col-width: percentage(1 / $cols);
+
+  @for $i from 1 through $cols {
+    .#{$prefix}-#{$i} {
+      width: 100%;
+      padding-left: $gutter;
+      padding-right: $gutter;
+
+      @include media(tablet) {
+        width: $col-width * $i;
+        float: left;
+      }
+    }
+  }
+
+  @include media(tablet) {
+    [class^=col]:first-child {
+      padding-left: 0;
+    }
+
+    [class^=col]:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+.row {
+  @include clearfix;
+}
+
+@include create-fluid-grid("col", lines(0.5), 12);
