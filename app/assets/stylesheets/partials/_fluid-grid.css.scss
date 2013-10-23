@@ -1,7 +1,10 @@
 @import "mixins/all";
 @import "compass/utilities/general/clearfix";
 
-// Fluid grid system
+/**
+  Given `prefix`, `gutter` and `cols`, the mixin creates
+  a grid system
+*/
 @mixin create-fluid-grid($prefix, $gutter, $cols) {
   $col-width: percentage(1 / $cols);
 
@@ -33,4 +36,16 @@
   @include clearfix;
 }
 
+/**
+  Creates a basic grid system, prefixed "col"
+
+  Usage:
+  .row
+    .col-6
+      = "I'm half the size available"
+    .col-3
+      = "I'm 1/4 of the total available size"
+    .col-3
+      = "I'm 1/4 of the total available size"
+*/
 @include create-fluid-grid("col", lines(0.5), 12);
