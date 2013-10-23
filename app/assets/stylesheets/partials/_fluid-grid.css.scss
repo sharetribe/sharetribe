@@ -11,12 +11,12 @@
   @for $i from 1 through $cols {
     .#{$prefix}-#{$i} {
       width: 100%;
-      padding-left: $gutter;
-      padding-right: $gutter;
 
       @include media(tablet) {
         width: $col-width * $i;
         float: left;
+        padding-left: $gutter;
+        padding-right: $gutter;
       }
     }
   }
