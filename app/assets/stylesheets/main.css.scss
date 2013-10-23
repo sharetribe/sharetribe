@@ -2883,12 +2883,13 @@ figure.fluidratio {
 
 .lander-content {
   position: absolute;
-  padding: 0 lines(0.5);
-  width: 100%;
+  left: lines(0.5);
+  right: lines(0.5);
   text-align: center;
   
   @include media(tablet) {
-    padding: 0;
+    left: 0;
+    right: 0;
   }
 }
 
