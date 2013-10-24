@@ -3514,7 +3514,7 @@ header.marketplace-header {
   .language-menu-toggle {
     position: relative;
     vertical-align: top;
-    padding: em(10) 0 em(15) 0;
+    padding: em(10) 0 em(20) 0;
     margin-right: lines(0.5);
     display: none;
     &:hover { color: $link; }
@@ -3541,12 +3541,6 @@ header.marketplace-header {
       display: inline-block;
       vertical-align: top;
       padding: em(5) 0 0 em(4);
-    }
-
-    .icon-dropdown {
-      display: inline-block;
-      vertical-align: top;
-      padding: em(8) 0 0 em(3);
     }
     
     @include media(mid-desktop) {

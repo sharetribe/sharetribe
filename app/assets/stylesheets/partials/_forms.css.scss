@@ -147,14 +147,10 @@
 
 .toggle-header {
   display: inline-block;
-  vertical-align: top;
-  padding: em(5) 0 0 0;
 }
 
 .icon-dropdown {
-  display: inline-block;
-  vertical-align: top;
-  padding: em(8) 0 0 em(3);
+  @include icon-fix;
 }
 
 .toggle-menu-subitem, a.toggle-menu-subitem {

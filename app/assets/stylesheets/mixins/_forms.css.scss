@@ -1,0 +1,99 @@
+@mixin button-group-button-padding {
+  padding: lines(0.25) lines(0.5);
+}
+
+@mixin button-group-button {
+  display: block;
+  float: left;
+  margin: 0;
+  @include button-group-button-padding;
+
+  // Colors
+  color: $body;
+  background: $highlight;
+  border-color: $border;
+
+  // Borders
+  @include button-group-borders(2px);
+  @include border-radius(0);
+
+  // Border radius
+  $radius: lines(0.25);
+  &:first-child {
+    @include border-left-radius($radius);
+  }
+
+  &:last-child {
+    @include border-right-radius($radius);
+    border-right-width: em(2);
+  }
+}
+
+@mixin button-group {
+  @include clearfix;
+}
+
+/**
+  Use this mixin to get correct borders for button group when
+  it is selected/hovered
+
+  Classes added:
+  - `selected`
+
+  The logic and selectors for selected/hovered borders is a
+  bit complicated, that's why they are in their own mixin
+*/
+@mixin button-group-borders($border-width) {
+  border-right-width: em(0);
+
+  &.selected {
+    border-width: $border-width;
+
+    // Explanation:
+    // - match any (*) element
+    // - immediately precended (+)
+    // - by the current element (&)
+    & + * {
+      border-left: $border-width;
+    }
+  }
+
+  // Explanation:
+  // - When current element (&) has mouse over (:hover)
+  // - match any (*) element
+  // - immediately precended (+) by the current element
+  &:hover + * {
+    border-left-width: em(0);
+  }
+
+  // Explanation:
+  // - When current element (&) has mouse over (:hover)
+  // - match element with class `selected`
+  // - immediately precended (+) by the current element
+  &:hover + .selected {
+    border-left: em(0);
+  }
+}
+
+@mixin button {
+  @include border-radius(em(5));
+  background: $link;
+  border: em(2) solid darken($link, 10%);
+  color: $background;
+  text-align: center;
+  cursor: pointer;
+  padding: lines(0.5) em(11) lines(0.5) em(11);
+  margin: lines(0.5) 0;
+
+  &:hover {
+    background: darken($link, 5%);
+    color: $background;
+    border: em(2) solid darken($link, 15%);
+  };
+
+  &:active {
+    background: darken($link, 10%);
+    color: $background;
+    border: em(2) solid darken($link, 20%);
+  }
+}
