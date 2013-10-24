@@ -17,4 +17,5 @@
 //= require kassi
 //= require googlemaps
 //= require map_label
-//= require_self 
+//= require homepage
+//= require_self

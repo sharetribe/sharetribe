@@ -24,7 +24,7 @@
 .home-toolbar
 
   .home-toolbar-show-filters-button-container
-    .home-toolbar-show-filters-button
+    .home-toolbar-show-filters-button#home-toolbar-show-filters
       = t(".filters")
 
   .home-toolbar-button-group
@@ -41,7 +41,7 @@
       %span.home-toolbar-button-text
         = t("homepage.filters.map_button")
 
-  .home-toolbar-filters
+  .home-toolbar-filters.home-toolbar-filters-mobile-hidden#home-toolbar-filters
     .home-toolbar-share-type-toggle-container
       .home-toolbar-share-type-toggle.toggle.with-borders.hidden{data: {toggle: '.home-toolbar-share-type-menu'}}
         .home-toolbar-share-type-toggle-header-container

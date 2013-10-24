@@ -9,12 +9,21 @@
   border-color: $border;
 }
 
+@mixin selected-button-color {
+  &.selected {
+    background-color: $link;
+    color: $background;
+    border-color: darken($link, 10%);
+  }
+}
+
 @mixin button-group-button {
   display: block;
   float: left;
   margin: 0;
   @include button-group-button-padding;
   @include neutral-button-color;
+  @include selected-button-color;
 
   // Borders
   @include button-group-borders(2px);

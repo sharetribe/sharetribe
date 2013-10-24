@@ -84,8 +84,8 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
 }
 
 .home-toolbar {
-  margin-bottom: lines(1);
-  padding-bottom: lines(1);
+  margin-bottom: lines(0.5);
+  padding-bottom: lines(0.5);
   @include clearfix;
 
   border-bottom: 2px solid $border;
@@ -113,11 +113,6 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
   @include button-group-button;
   @include ellipsis;
 
-  &.selected {
-    background-color: $link;
-    color: $background;
-  }
-
   // Notice: hard-coded for three buttons
   width: 33.3%;
 
@@ -142,6 +137,18 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
   }
 }
 
+/**
+  Hidden on mobile if this class is present. Doesn't affect
+  on desktop
+*/
+.home-toolbar-filters-mobile-hidden {
+  display: none;
+
+  @include media(tablet) {
+    display: block;
+  }
+}
+
 .home-toolbar-show-filters-button-container {
   width: 25%;
   float: left;
@@ -152,6 +159,8 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
   @include button;
   @include button-group-button-padding;
   @include neutral-button-color;
+  @include selected-button-color;
+  @include ellipsis;
   width: 100%;
   margin: 0;
 
