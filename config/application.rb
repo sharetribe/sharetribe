@@ -65,6 +65,7 @@ module Kassi
           ["Deutsch", "de"],
           ["Svenska", "sv"],
           ["Italiano", "it"],
+          ["Hrvatski", "hr"],
           
           # Customization languages
           ["English", "en-rc"],
