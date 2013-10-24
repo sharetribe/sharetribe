@@ -3564,13 +3564,14 @@ header.marketplace-header {
     position: relative;
     display: inline-block;
     vertical-align: top;
-    padding: em(10) lines(0.5) em(5) lines(0.5);
+    padding: em(10) lines(0.5) em(11) lines(0.5);
     margin-left: lines(4.5);
     border-left: 1px solid $aside;
     &:hover { color: $link; }
 
     .user-avatar {
-      display: inline-block;
+      display: block;
+      float: left;
       width: lines(1.5);
       height: lines(1.5);
       @include border-radius(em(5));
