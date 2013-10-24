@@ -2,16 +2,19 @@
   padding: lines(0.25) lines(0.5);
 }
 
+@mixin neutral-button-color {
+  // Colors
+  color: $body;
+  background: $highlight;
+  border-color: $border;
+}
+
 @mixin button-group-button {
   display: block;
   float: left;
   margin: 0;
   @include button-group-button-padding;
-
-  // Colors
-  color: $body;
-  background: $highlight;
-  border-color: $border;
+  @include neutral-button-color;
 
   // Borders
   @include button-group-borders(2px);

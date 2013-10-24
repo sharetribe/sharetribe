@@ -110,16 +110,21 @@
 }
 
 .toggle {
-  display: inline-block;
+  display: block;
   cursor: pointer;
+
+  // Mobile
+  width: 100%;
+
+  @include media(tablet) {
+    display: inline-block;
+    width: auto;
+  }
   
   &.toggled {
     background: $light-body;
     color: $background !important;
     border-color: $light-body;
-
-    // Mobile
-    width: 100%;
     
     @include media(tablet) {
       width: auto;
@@ -154,6 +159,11 @@
 
 .icon-dropdown {
   @include icon-fix;
+  float: right;
+
+  @include media(tablet) {
+    float: none;
+  }
 }
 
 .toggle-menu-subitem, a.toggle-menu-subitem {

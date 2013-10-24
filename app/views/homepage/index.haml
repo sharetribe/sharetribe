@@ -22,26 +22,11 @@
             = icon_tag("search", ["icon-part"])
 
 .home-toolbar
-  .home-toolbar-share-type-toggle.toggle.with-borders.hidden{data: {toggle: '.home-toolbar-share-type-menu'}}
-    .home-toolbar-share-type-toggle-header-container
-      .toggle-header
-        - current_share_type = @share_types.find {|type| type.name == params[:share_type]}
-        - if current_share_type
-          = current_share_type.display_name.mb_chars.capitalize.to_s
-        - else
-          = t("homepage.filters.all_listing_types")
 
-      = icon_tag("dropdown", ["icon-dropdown"])
-    
-  .home-toolbar-share-type-menu.toggle-menu.hidden
-    = link_to t("homepage.filters.all_listing_types"), params.merge({share_type: "all"})
-    - @listing_types.each do |main_type|
-      = link_to main_type.display_name.mb_chars.capitalize.to_s, params.merge({share_type: main_type.name})
-      - if main_type.children
-        - main_type.children.each do |share_type|
-          - if @share_types.include?(share_type)
-            = link_to params.merge({share_type: share_type.name}), :class => "toggle-menu-subitem" do
-              = share_type.display_name.mb_chars.capitalize.to_s
+  .home-toolbar-show-filters-button-container
+    .home-toolbar-show-filters-button
+      = t(".filters")
+
   .home-toolbar-button-group
     %a.home-toolbar-button-group-button{href: (root + '?view=grid'), title: t("homepage.filters.list_button")}
       = icon_tag("thumbnails", ["icon-fix", "home-button-group-icon"])
@@ -55,6 +40,29 @@
       = icon_tag("map", ["icon-fix", "home-button-group-icon"])
       %span.home-toolbar-button-text
         = t("homepage.filters.map_button")
+
+  .home-toolbar-filters
+    .home-toolbar-share-type-toggle-container
+      .home-toolbar-share-type-toggle.toggle.with-borders.hidden{data: {toggle: '.home-toolbar-share-type-menu'}}
+        .home-toolbar-share-type-toggle-header-container
+          .toggle-header
+            - current_share_type = @share_types.find {|type| type.name == params[:share_type]}
+            - if current_share_type
+              = current_share_type.display_name.mb_chars.capitalize.to_s
+            - else
+              = t("homepage.filters.all_listing_types")
+
+          = icon_tag("dropdown", ["icon-dropdown"])
+        
+      .home-toolbar-share-type-menu.toggle-menu.hidden
+        = link_to t("homepage.filters.all_listing_types"), params.merge({share_type: "all"})
+        - @listing_types.each do |main_type|
+          = link_to main_type.display_name.mb_chars.capitalize.to_s, params.merge({share_type: main_type.name})
+          - if main_type.children
+            - main_type.children.each do |share_type|
+              - if @share_types.include?(share_type)
+                = link_to params.merge({share_type: share_type.name}), :class => "toggle-menu-subitem" do
+                  = share_type.display_name.mb_chars.capitalize.to_s
 
 .row
   - if @categories_enabled

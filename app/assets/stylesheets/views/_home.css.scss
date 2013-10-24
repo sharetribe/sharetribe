@@ -97,7 +97,15 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
 
 .home-toolbar-button-group {
   @include button-group;
-  float: right;
+  
+  // Leave room for filters button on the left side
+  width: 75%;
+  padding-left: lines(0.5 / 2);
+
+  @include media(tablet) {
+    width: auto;
+    float: right;
+  }
 }
 
 .home-toolbar-button-group-button {
@@ -110,6 +118,9 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
     color: $background;
   }
 
+  // Notice: hard-coded for three buttons
+  width: 33.3%;
+
   @include media(tablet) {
     width: lines(4);
   }
@@ -120,6 +131,32 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
 
   @include media(tablet) {
     display: inline-block;
+  }
+}
+
+.home-toolbar-filters {
+  margin-top: lines(0.5);
+
+  @include media(tablet) {
+    margin-top: 0;
+  }
+}
+
+.home-toolbar-show-filters-button-container {
+  width: 25%;
+  float: left;
+  padding-right: lines(0.5 / 2);
+}
+
+.home-toolbar-show-filters-button {
+  @include button;
+  @include button-group-button-padding;
+  @include neutral-button-color;
+  width: 100%;
+  margin: 0;
+
+  @include media(tablet) {
+    display: none;
   }
 }
 
