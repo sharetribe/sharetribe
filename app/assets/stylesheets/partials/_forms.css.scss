@@ -30,6 +30,9 @@
   z-index: 99999;
   text-align: left;
 
+  // For mobile
+  margin-bottom: lines(0.5);
+
   $arrow-width: 1em;
   
   a, .feedback {
@@ -117,11 +120,9 @@
 
     // Mobile
     width: 100%;
-    margin-bottom: lines(0.5);
     
     @include media(tablet) {
       width: auto;
-      margin-bottom: lines(0);
       border-bottom-color: $light-body !important;
     }
   }
@@ -138,8 +139,10 @@
       @include media(tablet) {
         // Add padding to fill missing space left by removed borders.
         // No need to do this in mobile, since were not absolutely positioned there.
-        padding-right: 2 * $toggle-border-width;
+        padding: $toggle-border-width;
       }
+
+
     }
 
   }
