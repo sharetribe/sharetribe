@@ -32,6 +32,7 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
   width: 100%;
   height: 100%;
   display: block;
+  @include border-radius($default-border-radius);
 }
 
 .home-listing-image-container {
@@ -47,6 +48,11 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
 
 .home-listing-avatar {
   padding: $home-listing-details-padding;
+  display: none;
+  
+  @include media(large-mobile) {
+    display: block;
+  }
 }
 
 .home-listing-overlay {
@@ -75,6 +81,10 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
   line-height: em(48);
   
   @include ellipsis;
+  
+  @include media(tablet) {
+    
+  }
 }
 
 .home-toolbar {
@@ -200,21 +210,47 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
 
 .home-list-item {
   position: relative;
-  padding-bottom: lines(1);
-  margin-bottom: lines(1);
+  padding-bottom: lines(0.5);
+  margin-bottom: lines(0.5);
   border-bottom: 1px solid $border;
+  height: lines(3.5);
+  
+  @include media(tablet) {
+    padding-bottom: lines(1);
+    margin-bottom: lines(1);
+    height: lines(6);
+  }
 }
 
 $image-width: lines(7.5); // FIXME
 $image-height: image-height($image-width);
-$image-padding: lines(0.5);
+$image-padding: lines(1);
+$home-list-image-size-mobile: lines(3);
+$home-list-image-padding-mobile: lines(0.5);
 .home-list-image {
   position: absolute;
   top: 0;
   left: 0;
+}
 
+.home-list-image-desktop {
   height: $image-height;
   width: $image-width;
+  display: none;
+  
+  @include media(tablet) {
+    display: block;
+  }
+}
+
+.home-list-image-mobile {
+  width: $home-list-image-size-mobile;
+  height: $home-list-image-size-mobile;
+  display: block;
+  
+  @include media(tablet) {
+    display: none;
+  }
 }
 
 .home-no-image {
@@ -226,26 +262,36 @@ $image-padding: lines(0.5);
   // FIXME Tee parempi no image
 }
 
-.home-list-details {
-  margin-left: $image-width + $image-padding;
-  min-height: $image-height;
-  position: relative;
-
-  @include clearfix;
+.home-list-details-with-image {
+  margin-left: $home-list-image-size-mobile + $home-list-image-padding-mobile;
+  
+  @include media(tablet) {
+    margin-left: $image-width + $image-padding;
+  }
 }
 
 // FIXME Ugly selector, but there's definition .page-content h2
 // which would otherwise override this
-$home-list-avatar-size: em(48);
+$home-list-avatar-size: em(40);
+$home-list-avatar-size-mobile: em(30);
 $home-list-avatar-padding: lines(0.25);
 h2.home-list-title {
   margin: 0;
   padding: 0;
+  font-weight: 700;
+  @include normal-type;
+  line-height: lines(0.65);
+  padding-bottom: lines(0.25);
 
-  @include big-type;
+  @include media(tablet) {
+    @include big-type;
+  }
 
   // Add bottom margin so that the avatar fits there nicely
-  padding-bottom: ems-to($home-list-avatar-size, $big-type) + (2 * ems-to($home-list-avatar-padding, $big-type));
+  @include media(desktop) {
+    padding-bottom: (ems-to($home-list-avatar-size, $big-type) + (2 * ems-to($home-list-avatar-padding, $big-type)) - em(3));
+  }
+  
 }
 
 .home-share-type-link {
@@ -258,46 +304,110 @@ h2.home-list-title {
   top: em($padding-fine-tuning * -1);
 }
 
-.home-list-details-left {
-  // margin-right: em(150);
-  width: 75%;
-  float: left;
-
-  min-height: $image-height;
-  @include clearfix;
-}
-
 .home-list-details-right {
-  // width: em(150);
-  width: 25%;
+  width: 142px;
   float: right;
-  
-  min-height: $image-height;
+  display: none;
+  margin-left: lines(1);
+  @include media(desktop) {
+    display: block;
+  }
 }
 
 .home-list-avatar {
   position: absolute;
   top: 0;
   left: 0;
+  width: $home-list-avatar-size;
 
   img {
+    @include border-radius($default-border-radius);
+    display: block;
+    width: 100%;
+  }
+  
+  display: none;
+  
+  @include media(large-mobile) {
+    display: block;
+  }
+  
+}
+
+.home-list-author {
+  vertical-align: top;
+  position: absolute;
+  bottom: lines(0.5);
+  
+  @include media(tablet) {
+    bottom: lines(1);
+  }
+}
+
+.home-list-author-with-listing-image {
+  left: 0;
+  
+  @include media(large-mobile) {
+    left: $home-list-image-size-mobile + $home-list-image-padding-mobile;
+  }
+  
+  @include media(tablet) {
+    left: $image-width + $image-padding;
+  }
+}
+
+.home-list-author-without-listing-image {
+  left: 0;
+}
+
+.home-list-author-details {
+  float: left;
+  margin-left: $home-list-avatar-size + (2 * $home-list-avatar-padding);
+  height: 40px;
+  line-height: 22px;
+  max-width: lines(10);
+  
+  display: none;
+  
+  @include media(large-mobile) {
     display: block;
   }
 }
 
-.home-list-author {
-  position: absolute;
-  bottom: 0;
-}
-
-.home-list-author-details {
-  margin-left: $home-list-avatar-size + (2 * $home-list-avatar-padding);
-}
-
 .home-list-author-reviews {
   @include small-type;
-  height: lines(1, $small-type);
-  line-height: lines(1, $small-type);
+}
+
+.home-list-price-mobile {
+  position: absolute;
+  font-size: 24px;
+  bottom: lines(0.25, 24);
+  @include media(large-mobile) {
+    font-size: 36px;
+    right: 0;
+    padding-top: 10px;
+    bottom: lines(0.5, 36);
+  }
+  @include media(tablet) {
+    bottom: lines(1, 36);
+  }
+  @include media(desktop) {
+    display: none;
+  }
+}
+
+.home-list-price-mobile-with-listing-image {
+  left: lines(3.5, 24);
+  
+  @include media(large-mobile) {
+    left: auto;
+  }
+}
+
+.home-list-price-mobile-without-listing-image {
+  @include media(large-mobile) {
+    left: auto;
+  }
 }
 
 .home-list-price {
@@ -305,7 +415,9 @@ h2.home-list-title {
 }
 
 .home-list-price-value {
-  @include larger-type;
+  font-size: em(44);
+  line-height: lines(1.20, 40);
+  font-weight: 400;
 }
 
 .home-list-price-quantity {
