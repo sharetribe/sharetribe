@@ -34,7 +34,8 @@
         - if main_type.children
           - main_type.children.each do |share_type|
             - if @share_types.include?(share_type)
-              = link_to share_type.display_name.mb_chars.capitalize.to_s, params.merge({share_type: share_type.name})
+              = link_to params.merge({share_type: share_type.name}), :class => "toggle-menu-subitem" do
+                = share_type.display_name.mb_chars.capitalize.to_s
   .home-toolbar-button-group
     %a.home-toolbar-button-group-button{href: (root + '?view=grid'), title: t("homepage.filters.list_button")}
       = icon_tag("thumbnails", ["icon-fix", "home-button-group-icon"])
