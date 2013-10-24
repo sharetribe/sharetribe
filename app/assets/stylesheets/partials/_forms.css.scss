@@ -114,19 +114,30 @@
     background: $light-body;
     color: $background !important;
     border-color: $light-body;
+
+    width: 100%;
+    margin-bottom: lines(0.5);
     
     @include media(tablet) {
+      width: auto;
       border-bottom-color: $light-body !important;
     }
   }
 
   &.with-borders {
-    border: 2px solid $border;
+    $toggle-border-width: 2px;
+    border: $toggle-border-width solid $border;
     @include border-radius(em(5));
 
     &.toggled {
       border-width: 0;
       @include border-radius(0);
+
+      @include media(tablet) {
+        // Add padding to fill missing space left by removed borders.
+        // No need to do this in mobile, since were not absolutely positioned there.
+        padding-right: 2 * $toggle-border-width;
+      }
     }
 
   }

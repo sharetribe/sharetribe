@@ -25,10 +25,16 @@
   .home-toolbar-share-type-toggle.toggle.with-borders.hidden{data: {toggle: '.home-toolbar-share-type-menu'}}
     .home-toolbar-share-type-toggle-header-container
       .toggle-header
-        = get_full_locale_name(I18n.locale).downcase
+        - current_share_type = @share_types.find {|type| type.name == params[:share_type]}
+        - if current_share_type
+          = current_share_type.display_name.mb_chars.capitalize.to_s
+        - else
+          = t("homepage.filters.all_listing_types")
+
       = icon_tag("dropdown", ["icon-dropdown"])
     
     .home-toolbar-share-type-menu.toggle-menu.hidden
+      = link_to t("homepage.filters.all_listing_types"), params.merge({share_type: "all"})
       - @listing_types.each do |main_type|
         = link_to main_type.display_name.mb_chars.capitalize.to_s, params.merge({share_type: main_type.name})
         - if main_type.children
