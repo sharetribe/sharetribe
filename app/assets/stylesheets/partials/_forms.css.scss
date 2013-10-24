@@ -115,11 +115,13 @@
     color: $background !important;
     border-color: $light-body;
 
+    // Mobile
     width: 100%;
     margin-bottom: lines(0.5);
     
     @include media(tablet) {
       width: auto;
+      margin-bottom: lines(0);
       border-bottom-color: $light-body !important;
     }
   }
