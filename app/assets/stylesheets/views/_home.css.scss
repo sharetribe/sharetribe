@@ -402,3 +402,8 @@ h2.home-list-title {
 .home-toolbar-share-type-toggle-header-container {
   @include button-group-button-padding;
 }
+
+#pageless-loader {
+  padding-top: lines(0.5);
+  clear: both;
+}
