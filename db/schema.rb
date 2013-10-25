@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130930080143) do
+ActiveRecord::Schema.define(:version => 20131024081428) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -146,6 +146,7 @@ ActiveRecord::Schema.define(:version => 20130930080143) do
     t.string   "name_display_type",                 :default => "first_name_with_initial"
     t.string   "twitter_handle"
     t.boolean  "use_community_location_as_default", :default => false
+    t.boolean  "show_category_in_listing_list",     :default => false
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
