@@ -110,8 +110,8 @@
                 = listing.author.name
               - if @current_community.testimonials_in_use
                 .home-list-author-reviews
-                  = icon_tag("testimonial")
                   - if listing.author.received_testimonials.size > 0
+                    = icon_tag("testimonial")
                     = pluralize(listing.author.received_testimonials.size, t(".review"), t(".reviews"))
 
           - if listing.price
