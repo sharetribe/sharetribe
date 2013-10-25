@@ -99,7 +99,7 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
   @include button-group;
   
   // Leave room for filters button on the left side
-  width: 75%;
+  width: 50%;
   padding-left: lines(0.5 / 2);
 
   @include media(tablet) {
@@ -125,6 +125,7 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
   display: none;
 
   @include media(tablet) {
+    margin-left: lines(0.25);
     display: inline-block;
   }
 }
@@ -150,7 +151,7 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
 }
 
 .home-toolbar-show-filters-button-container {
-  width: 25%;
+  width: 50%;
   float: left;
   padding-right: lines(0.5 / 2);
 }
@@ -167,10 +168,6 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
   @include media(tablet) {
     display: none;
   }
-}
-
-.home-button-group-icon {
-  margin-right: lines(0.25);
 }
 
 .home-map > .map {
