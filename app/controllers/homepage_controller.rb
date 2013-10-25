@@ -25,10 +25,6 @@ class HomepageController < ApplicationController
       @current_community.listing_types
     }
     
-    # If requesting a specific page on non-ajax request, we'll ignore that
-    # and show the normal front page starting from newest listing
-    params[:page] = 1 unless request.xhr? 
-    
     @filter_params = params.slice("category", "share_type")
     
     # If no Share Type specified, use listing_type if that is specified.
