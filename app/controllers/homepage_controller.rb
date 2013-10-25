@@ -48,7 +48,11 @@ class HomepageController < ApplicationController
     end
     
     if request.xhr? # checks if AJAX request
-      render :partial => "recent_listing", :collection => @listings, :as => :listing   
+      if params["view"] == "grid" then
+        render :partial => "grid_item", :collection => @listings, :as => :listing
+      else
+        render :partial => "list_item", :collection => @listings, :as => :listing
+      end
     else
       if @current_community.news_enabled?
         @news_items = @current_community.news_items.order("created_at DESC").limit(2)
