@@ -69,3 +69,49 @@
 .design-giga-type {
   @include giga-type;
 }
+
+.design-block {
+  height: lines(2);
+  margin-bottom: lines(0.5);
+  background-color: $highlight;
+  line-height: lines(2);
+  text-align: center;
+}
+
+@mixin design-mq-active {
+  background-color: #CAEBCC;
+  color: darken(#CAEBCC, 40%);
+}
+
+.design-mq-tiny-mobile {
+  @extend .design-block;
+  @include media(tiny-mobile) { @include design-mq-active; }
+}
+.design-mq-mobile {
+  @extend .design-block;
+  @include media(mobile) { @include design-mq-active; }
+}
+.design-mq-large-mobile {
+  @extend .design-block;
+  @include media(large-mobile) { @include design-mq-active; }
+}
+.design-mq-small-tablet {
+  @extend .design-block;
+  @include media(small-tablet) { @include design-mq-active; }
+}
+.design-mq-tablet {
+  @extend .design-block;
+  @include media(tablet) { @include design-mq-active; }
+}
+.design-mq-small-desktop {
+  @extend .design-block;
+  @include media(small-desktop) { @include design-mq-active; }
+}
+.design-mq-mid-desktop {
+  @extend .design-block;
+  @include media(mid-desktop) { @include design-mq-active; }
+}
+.design-mq-desktop {
+  @extend .design-block;
+  @include media(desktop) { @include design-mq-active; }
+}
