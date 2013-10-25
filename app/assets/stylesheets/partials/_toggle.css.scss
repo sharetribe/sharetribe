@@ -157,6 +157,10 @@
   display: inline-block;
 }
 
+.toggle-header-container {
+  @include button-group-button-padding;
+}
+
 .icon-dropdown {
   @include icon-fix;
   float: right;
