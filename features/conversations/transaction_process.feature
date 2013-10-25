@@ -81,16 +81,16 @@ Feature: Transaction process between two users
     And I should see "Feedback given" within ".conversation-status"
     And the system processes jobs
     And I log out
-    And "kassi_testperson2@example.com" should have 4 emails
+    And "kassi_testperson2@example.com" should have 3 emails
     
     # Viewing feedback
     When I open the email with subject "has given you feedback in Sharetribe"
     And I follow "View feedback" in the email
     Then I should see "Everything was great!"
     
-    # Viewing badge
-    When I open the email with subject "You have achieved a badge"
-    Then I should see "You have achieved a badge 'First event'" in the email body
+    # Viewing badge disabled for now
+    # When I open the email with subject "You have achieved a badge"
+    # Then I should see "You have achieved a badge 'First event'" in the email body
     
   @javascript
   Scenario: Non-monetary ransaction started from a request listing
@@ -153,13 +153,13 @@ Feature: Transaction process between two users
     And I should see "Feedback given" within ".conversation-status"
     And the system processes jobs
     And I log out
-    And "kassi_testperson1@example.com" should have 3 emails
+    And "kassi_testperson1@example.com" should have 2 emails
     
     # Viewing feedback
     When I open the email with subject "has given you feedback in Sharetribe"
     And I follow "View feedback" in the email
     Then I should see "Everything was great!"
     
-    # Viewing badge
-    When I open the email with subject "You have achieved a badge"
-    Then I should see "You have achieved a badge 'First event'" in the email body
+    # Viewing badge is currently disabled
+    # When I open the email with subject "You have achieved a badge"
+    #     Then I should see "You have achieved a badge 'First event'" in the email body

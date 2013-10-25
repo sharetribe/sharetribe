@@ -59,7 +59,7 @@
  * @constructor
  * @extends google.maps.OverlayView
  */
-function MarkerClusterer(map, opt_markers, markerContents, infowindow, showingMarker, opt_options) {
+function MarkerClusterer(map, opt_markers, markerContents, infowindow, showingMarker, locale, opt_options) {
   // MarkerClusterer implements google.maps.OverlayView interface. We use the
   // extend function to extend MarkerClusterer with google.maps.OverlayView
   // because it might not always be available when the code is defined so we
@@ -76,6 +76,7 @@ function MarkerClusterer(map, opt_markers, markerContents, infowindow, showingMa
   this.markers_ = [];
   this.markerContents_ = [];
   this.showingMarker_ = showingMarker;
+  this.locale = locale || "en";
 
   this.infowindow_ = infowindow;
 
@@ -1055,6 +1056,16 @@ function ClusterIcon(cluster, styles, opt_padding) {
   this.showingInfo_ =  false;
 
   this.setMap(this.map_);
+
+  var self = this;
+
+  google.maps.event.addListener(this.map_, 'mousedown', function() {
+    if(self.showingInfo_) {
+      self.cluster_.markerClusterer_.infowindow_.close();
+      self.cluster_.markerClusterer_.showingMarker_="";
+      self.showingInfo_ = false;
+    }
+  });
 }
 
 
@@ -1063,6 +1074,7 @@ function ClusterIcon(cluster, styles, opt_padding) {
  */
 ClusterIcon.prototype.triggerClusterClick = function() {
   var markerClusterer = this.cluster_.getMarkerClusterer();
+  var locale = markerClusterer.locale || "en";
 
   // Trigger the clusterclick event.
   google.maps.event.trigger(markerClusterer, 'clusterclick', this.cluster_);
@@ -1076,18 +1088,107 @@ ClusterIcon.prototype.triggerClusterClick = function() {
     if (!this.showingInfo_) {
       this.cluster_.markerClusterer_.showingMarker_=markers[0].getTitle();
       this.showingInfo_ = true;
-      this.cluster_.markerClusterer_.infowindow_.setContent("<div id='map_bubble'><div style='text-align: center; width: 360px; height: 140px; padding-top: 85px;'><img src='https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif'></div></div>");
-      var ids = "";
+      var loaderHtml = "<div id='map_bubble'><img class='bubble-loader-gif' src='https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif'></div>";
+      this.cluster_.markerClusterer_.infowindow_.setContent(loaderHtml);
+      var ids = [];
       for (var i = 0, marker; marker = markers[i]; i++) {
-        ids =  ids + this.cluster_.markerClusterer_.markerContents_[this.cluster_.markerIndex_[i]];
-        if (i < (markers.length - 1)) {
-          ids = ids + ",";
-        }
+        ids.push(this.cluster_.markerClusterer_.markerContents_[this.cluster_.markerIndex_[i]]);
       }
-      $.get('/en/listing_bubble_multiple/'+ids, function(data) {
+      $.get('/' + locale + '/listing_bubble_multiple/'+ids.join(','), function(data) {
         $('#map_bubble').html(data);
+
+        var index = 0;
+        var itemsLen = markers.length;
+        var $leftNavi = $('.bubble-navi-left');
+        var $rightNavi = $('.bubble-navi-right');
+        var $content = $('.bubble-multi-content');
+        var $icons = $('.bubble-navi-item-icon');
+        var $iconsContainer = $('.bubble-navi-icons');
+        var iconWidth = 20;
+        $iconsContainer.width(iconWidth * $icons.length)
+
+        var itemWidth = 200;
+        $content.width(itemWidth * itemsLen);
+
+        function updateNaviButtonActivity(index, length, left, right) {
+          if(index > 0) {
+            left.removeClass('disabled');
+          } else {
+            left.addClass('disabled');
+          }
+
+          if(index < (length - 1)) {
+            right.removeClass('disabled');
+          } else {
+            right.addClass('disabled');
+          }
+        }
+
+        /**
+          Get a multiplier which can be used to calculate the amount of `x` move
+          of navi icon
+
+          The amount of icon move: multiplier * iconWidth (offset)
+
+          Params:
+          - `index`: current index
+          - `sticky`: how many icons are "sticky", i.e. not moving in the beginning and end.
+            For example: If there are 7 icons visible at once and 3 of them are sticky, then 
+            the first movement happend on index 4
+          - `length`: number of icons
+        */
+        function calculateNaviIconMoveMultiplier(index, sticky, length) {
+          var start = sticky;
+          var stop = (length - 1) - (sticky * 2); // *2 for both left and right stickies
+          var multiply = Math.max(0, Math.min((index - start), stop));
+          return multiply;
+        }
+
+        function updateActiveIcon(index, icons, container, offset) {
+          var offsetMultiplier = calculateNaviIconMoveMultiplier(index, 3, icons.length) * -1;
+          container.css({left: (offsetMultiplier * offset) + "px"});
+          icons.removeClass('active');
+          icons.eq(index).addClass('active');
+        }
+
+        function updateContentPosition(index, offset, content) {
+          content.css({left: (index * -1 * offset) + "px"});
+        }
+
+        function createViewUpdater(length, offset, left, right, content, icons, iconsContainer, iconWidth) {
+          return function(index) {
+            updateNaviButtonActivity(index, length, left, right);
+            updateContentPosition(index, offset, content);
+            updateActiveIcon(index, icons, iconsContainer, iconWidth);
+          };
+        }
+
+        var updateView = createViewUpdater(itemsLen, itemWidth, $leftNavi, $rightNavi, $content, $icons, $iconsContainer, iconWidth);
+
+        $leftNavi.on('click', function() {
+          var min = 0;
+          index = Math.max(index - 1, min);
+          updateView(index);
+        });
+
+        $rightNavi.on('click', function() {
+          var max = itemsLen - 1;
+          index = Math.min(index + 1, max);
+          updateView(index);
+        });
+
+        $icons.each(function(itemIndex) {
+          $(this).on('click', function() {
+            index = itemIndex;
+            updateView(index);
+          })
+        });
+
+        updateView(index, itemsLen, itemWidth, $leftNavi, $rightNavi, $content, $icons, $iconsContainer, iconWidth);
       });
       //this.cluster_.markerClusterer_.infowindow_.setContent(clusterContent);
+      this.cluster_.markerClusterer_.infowindow_.setMaxHeight(180);
+      this.cluster_.markerClusterer_.infowindow_.setMinHeight(180);
       this.cluster_.markerClusterer_.infowindow_.open(this.map_, markers[0]);
     } else {
       this.cluster_.markerClusterer_.infowindow_.close();

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130917094727) do
+ActiveRecord::Schema.define(:version => 20130930080143) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -91,28 +91,28 @@ ActiveRecord::Schema.define(:version => 20130917094727) do
     t.datetime "updated_at"
     t.text     "settings"
     t.string   "consent"
-    t.boolean  "email_admins_about_new_members", :default => false
-    t.boolean  "use_fb_like",                    :default => false
-    t.boolean  "real_name_required",             :default => true
-    t.boolean  "feedback_to_admin",              :default => false
-    t.boolean  "automatic_newsletters",          :default => true
-    t.boolean  "join_with_invite_only",          :default => false
-    t.boolean  "use_captcha",                    :default => true
-    t.boolean  "email_confirmation",             :default => false
+    t.boolean  "email_admins_about_new_members",    :default => false
+    t.boolean  "use_fb_like",                       :default => false
+    t.boolean  "real_name_required",                :default => true
+    t.boolean  "feedback_to_admin",                 :default => false
+    t.boolean  "automatic_newsletters",             :default => true
+    t.boolean  "join_with_invite_only",             :default => false
+    t.boolean  "use_captcha",                       :default => true
+    t.boolean  "email_confirmation",                :default => false
     t.text     "allowed_emails"
-    t.boolean  "users_can_invite_new_users",     :default => false
-    t.boolean  "news_enabled",                   :default => true
-    t.boolean  "private",                        :default => false
+    t.boolean  "users_can_invite_new_users",        :default => false
+    t.boolean  "news_enabled",                      :default => true
+    t.boolean  "private",                           :default => false
     t.string   "label"
-    t.boolean  "all_users_can_add_news",         :default => true
-    t.boolean  "show_date_in_listings_list",     :default => false
-    t.boolean  "custom_frontpage_sidebar",       :default => false
-    t.boolean  "event_feed_enabled",             :default => true
+    t.boolean  "all_users_can_add_news",            :default => true
+    t.boolean  "show_date_in_listings_list",        :default => false
+    t.boolean  "custom_frontpage_sidebar",          :default => false
+    t.boolean  "event_feed_enabled",                :default => true
     t.string   "slogan"
     t.text     "description"
-    t.string   "category",                       :default => "other"
-    t.integer  "members_count",                  :default => 0
-    t.boolean  "polls_enabled",                  :default => false
+    t.string   "category",                          :default => "other"
+    t.integer  "members_count",                     :default => 0
+    t.boolean  "polls_enabled",                     :default => false
     t.string   "plan"
     t.integer  "user_limit"
     t.float    "monthly_price_in_euros"
@@ -127,23 +127,25 @@ ActiveRecord::Schema.define(:version => 20130917094727) do
     t.string   "custom_color1"
     t.string   "custom_color2"
     t.string   "stylesheet_url"
-    t.string   "service_logo_style",             :default => "full-logo"
-    t.boolean  "payments_in_use",                :default => false
+    t.string   "service_logo_style",                :default => "full-logo"
+    t.boolean  "payments_in_use",                   :default => false
     t.text     "available_currencies"
-    t.boolean  "facebook_connect_enabled",       :default => true
+    t.boolean  "facebook_connect_enabled",          :default => true
     t.integer  "vat"
     t.integer  "commission_percentage"
-    t.boolean  "only_public_listings",           :default => true
+    t.boolean  "only_public_listings",              :default => true
     t.string   "custom_email_from_address"
     t.integer  "minimum_price_cents"
-    t.boolean  "badges_in_use",                  :default => true
-    t.boolean  "testimonials_in_use",            :default => true
-    t.boolean  "hide_expiration_date",           :default => false
+    t.boolean  "badges_in_use",                     :default => false
+    t.boolean  "testimonials_in_use",               :default => true
+    t.boolean  "hide_expiration_date",              :default => false
     t.string   "facebook_connect_id"
     t.string   "facebook_connect_secret"
     t.string   "google_analytics_key"
     t.string   "favicon_url"
-    t.string   "name_display_type",              :default => "first_name_with_initial"
+    t.string   "name_display_type",                 :default => "first_name_with_initial"
+    t.string   "twitter_handle"
+    t.boolean  "use_community_location_as_default", :default => false
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
@@ -155,6 +157,13 @@ ActiveRecord::Schema.define(:version => 20130917094727) do
 
   add_index "communities_listings", ["community_id"], :name => "index_communities_listings_on_community_id"
   add_index "communities_listings", ["listing_id", "community_id"], :name => "communities_listings"
+
+  create_table "communities_payment_gateways", :id => false, :force => true do |t|
+    t.integer "community_id"
+    t.integer "payment_gateway_id"
+  end
+
+  add_index "communities_payment_gateways", ["community_id"], :name => "index_communities_payment_gateways_on_community_id"
 
   create_table "community_categories", :force => true do |t|
     t.integer  "community_id"
@@ -205,6 +214,9 @@ ActiveRecord::Schema.define(:version => 20130917094727) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "country"
+    t.string   "plan_type"
+    t.string   "marketplace_type"
   end
 
   create_table "conversations", :force => true do |t|
@@ -215,6 +227,18 @@ ActiveRecord::Schema.define(:version => 20130917094727) do
     t.string   "status",          :default => "pending"
     t.datetime "last_message_at"
     t.integer  "community_id"
+  end
+
+  create_table "country_managers", :force => true do |t|
+    t.string   "given_name"
+    t.string   "family_name"
+    t.string   "email"
+    t.string   "country"
+    t.string   "locale"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "subject_line"
+    t.text     "email_content"
   end
 
   create_table "delayed_jobs", :force => true do |t|

@@ -552,6 +552,13 @@ module ApplicationHelper
         :elative => "Massainfosta",
         :partitive => "Massainfoa"
       }
+      when "University of Helsinki Marketplace" then {
+        :illative => "University of Helsinki Marketplaceen",
+        :genetive => "University of Helsinki Marketplacen",
+        :inessive => "University of Helsinki Marketplacessa",
+        :elative => "University of Helsinki Marketplacesta",
+        :partitive => "University of Helsinki Marketplacea"
+      }
       else nil
     end
   end
@@ -796,7 +803,7 @@ module ApplicationHelper
   
   # Return either a link to the listing author or the name of the organization
   def author_link(listing)
-    listing.has_organization_in?(@current_community) ? listing.organization.name : link_to(listing.author.name(@current_community), listing.author)
+    listing.has_organization_in?(@current_community) ? listing.organization.name : link_to(listing.author.name(@current_community), listing.author, {:title => listing.author.name(@current_community)})
   end
   
   # Send a reminder email related to a transaction

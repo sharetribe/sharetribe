@@ -188,6 +188,7 @@ Kassi::Application.routes.draw do
         get :privacy
         get :news
         put :mercury_update
+        put :mercury_update_how_to_use
       end  
     end
     resource :terms do

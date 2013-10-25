@@ -1,17 +1,26 @@
 - content_for :javascript do
-  initialize_contact_request_form("Oops! You forgot to give your email address.","It seems the email you gave is not valid, please double check.");
+  - if session[:contact_request_sent]
+    initialize_update_contact_request_form("You need to select a country.","You need to select the marketplace type.","Please let us know what plan interests you the most.");
+  - else
+    initialize_contact_request_form("Oops! You forgot to give your email address.","It seems the email you gave is not valid, please double check.");
+  
+    
 
 %section.lander
   .coverimage
     %figure.network-cover.fluidratio
   .wrapper
-    .lander-content
-      %h1 Create a marketplace.
-      %p 
-        Let your community sell, rent, swap and
-        %br/ 
-        share goods and services online.
-      = render :partial => "contact_request_form", :locals => { :prefix => "top" }
+    - if session[:contact_request_sent] || session[:contact_request_completed]
+      .lander-content.lander-contact-form
+        = render :partial => "contact_request_form", :locals => { :prefix => "top" }
+    - else
+      .lander-content
+        %h1 Create a marketplace.
+        %p.lander-description
+          Let your community sell, rent, swap and
+          %br/ 
+          share goods and services online.
+        = render :partial => "contact_request_form", :locals => { :prefix => "top" }
 
 %section.about{:id => "about"}
   .wrapper
@@ -57,6 +66,10 @@
               platfom and take a fee from 
               %br/
               each transaction.
+      
+      .view-demo
+        = link_to "View demo", "http://demo.sharetribe.com", :class => "action-button"
+          
 
 %section.how-it-works{:id => "how-it-works"}
   .wrapper
@@ -73,4 +86,4 @@
       .create-now-form
         = render :partial => "contact_request_form", :locals => { :prefix => "bottom" }
 
-= render :partial => "layouts/google_analytics_script"
+= render :partial => "layouts/google_analytics_script" unless Rails.env.staging?

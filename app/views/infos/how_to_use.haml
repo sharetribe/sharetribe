@@ -1,5 +1,12 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => about_links }
 
 .left-navi-section.about-section
-  - if @community_customization && !@community_customization.how_to_use.blank?
-    = @community_customization.how_to_use.html_safe
+  - if @current_user && @current_user.has_admin_rights_in?(@current_community)
+    %p
+      %a{:id => "edit_link", :href => "/editor" + request.path, :data => { :save_url => mercury_update_how_to_use_infos_path }}
+        .icon-with-text-container
+          = icon_tag("edit", ["icon-part"]) 
+          .text-part= t("common.edit_page")
+  #page_content{:data => {:mercury => "full"}}
+    - if @community_customization && !@community_customization.how_to_use.blank?
+      = @community_customization.how_to_use.html_safe

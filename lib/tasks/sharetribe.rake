@@ -11,14 +11,7 @@ namespace :sharetribe do
       spreadsheet = load_spreadsheet(locale)
       puts "Aborting" and return if spreadsheet.nil?
       
-      community_sheet = spreadsheet.worksheet "Community"
-      community_name = community_sheet.row(1)[0]
-      community_domain = community_sheet.row(1)[1]
-      
-      community = Community.create(:name => community_name, :domain => community_domain  )
-      community.settings = {"locales"=>["#{locale}"]}
-      community.badges_in_use = community_sheet.row(1)[2]
-      community.save
+      community = create_community(spreadsheet, locale)
       
       load_demo_content(community, spreadsheet)
       
@@ -74,6 +67,9 @@ namespace :sharetribe do
         end
       end
       
+      c.destroy
+      c = create_community(spreadsheet, locale)
+      
       load_demo_content(c, spreadsheet)
       puts "Reloaded #{locale} demo contet to community at subdomain: #{community_domain}"
     end
@@ -111,6 +107,7 @@ namespace :sharetribe do
                  :confirmed_at=>  Time.now,
                  :communities =>  [community]                 
           )
+          CommunityMembership.find_by_person_id_and_community_id(p.id, community.id).update_attribute(:admin, 1) if row[9].present?
           p.update_attribute(:image, File.new(image_path)) if image_path && File.exists?(image_path)
           people_array << p
           demo_auth_token_created = create_demo_auth_token_for(p, community.domain) unless demo_auth_token_created 
@@ -142,6 +139,8 @@ namespace :sharetribe do
                  :destination_loc => row[10].blank? ? nil : random_location_around(row[10], "destination_loc"),
                  :origin =>       row[11].blank? ? nil : row[11],
                  :destination  => row[12].blank? ? nil : row[12],
+                 :price_cents => (row[14].present? ? row[14]*100 : nil),
+                 :currency => "EUR",
                  :valid_until  => 5.months.from_now,
                  :communities =>  [community],
                  :listing_images => (image.present? ? [image] : [])     
@@ -227,6 +226,20 @@ namespace :sharetribe do
     
     def create_demo_auth_token_for(p, token)
       AuthToken.create(:person => p, :expires_at => 1.year.from_now, :token => token)
+    end
+    
+    def create_community(spreadsheet, locale)
+      community_sheet = spreadsheet.worksheet "Community"
+      community_name = community_sheet.row(1)[0]
+      community_domain = community_sheet.row(1)[1]
+      community_slogan = community_sheet.row(1)[3] if community_sheet.row(1)[3].present?
+      community_description = community_sheet.row(1)[4] if community_sheet.row(1)[4].present?
+      
+      community = Community.create(:name => community_name, :domain => community_domain, :slogan => community_slogan, :description => community_description  )
+      community.settings = {"locales"=>["#{locale}"]}
+      community.badges_in_use = community_sheet.row(1)[2]
+      community.save
+      return community
     end
   end
   

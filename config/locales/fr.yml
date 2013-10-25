@@ -78,8 +78,8 @@ fr:
         edit_poll: "Editer le sondage"
   common:
     edit_page: "Modifier la page"
-    default_community_slogan: "Prêter, aider, partager"
-    default_community_description: "%{service_name} est service sur lequel les membres des tribus auxquelles vous appartenez peuvent partager des objets, des services, des covoiturages et des lieux. Sans tarder, dites aux autres ce que vous proposez et recevez de l'aide quand vous en avez besoin."
+    default_community_slogan: "Votre place de marché"
+    default_community_description: "Ce lieu vous permet de vendre, louer, échanger et partager des biens et services avec les autres membres de cette tribu."
     cancel: Annuler
     fields_that_are_mandatory: "Les champs marqués d'un astérisque (*) sont obligatoires."
     or: ou
@@ -744,7 +744,7 @@ fr:
   infos:
     about:
       default_about_text_title: "Qu'est ce que Sharetribe ?"
-      default_about_text: "Ce site a été créé grâce à la plate-forme Sharetribe. Avec Sharetribe, chacun peut créer sa propre place de marché pour sa tribu. Aimeriez-vous créer un site comme celui-ci pour votre communauté ? C'est gratuit et cela ne prend que quelques minutes. %{click_here_link} pour en savoir plus !"
+      default_about_text: "Cette place de marché a été créé grâce à la plate-forme Sharetribe. Avec Sharetribe, vous pouvez facilement créer votre place de marché en ligne. C'est gratuit et ne prend que quelques minutes ! %{click_here_link} pour en savoir plus !"
       click_here_link_text: "Cliquez ici"
   layouts:
     no_tribe:
@@ -927,7 +927,7 @@ fr:
       settings: Paramètres
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: "Vous n'avez pas la permission de consultez cette annonce."
+      listing_not_visible: "Vous n'avez pas la permission de consulter cette annonce."
     comment:
       wrote: "a écrit"
       send_private_message: "Envoyer un message à %{person}"
@@ -1462,7 +1462,7 @@ fr:
     confirmation_pending:
       welcome_to_kassi: "Bienvenue sur %{service_name} !"
       check_your_email: "Voir vos messages"
-      get_started: "Début avec %{service_name}"
+      get_started: "Débuter avec %{service_name}"
       getting_started_instructions: "Lorsque vous avez confirmé votre inscription, il est conseillé d'ajouter une photo à votre <a href=\"%{profile_url}\">profil</a> et de remplir d'autres informations. Vous pouvez également poursuivre directement vers une transaction en ajoutant une <a href=\"/en/listings/new/offer\">offre</a> concernant quelque chose que vous pourriez prêter, louer ou vendre, ou un service que vous pourriez proposer. Sinon, si vous avez besoin d'un certain objet ou d'aide avec quelque chose, vous pouvez envoyer une  <a href=\"/en/listings/new/request\">demande</a>."
       resend_confirmation_instructions: "Renvoyer les instructions de confirmation"
       your_current_email_is: "Votre email est : %{email}."

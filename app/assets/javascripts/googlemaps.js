@@ -483,7 +483,7 @@ function addCommunityMarkers() {
   });
 }
 
-function initialize_listing_map(community_location_lat, community_location_lon, locale_to_use) {
+function initialize_listing_map(community_location_lat, community_location_lon, locale_to_use, use_community_location_as_default) {
   locale = locale_to_use;
   // infowindow = new google.maps.InfoWindow();
   infowindow = new InfoBubble({
@@ -491,7 +491,11 @@ function initialize_listing_map(community_location_lat, community_location_lon, 
     borderRadius: 5,
     borderWidth: 1,
     arrowPosition: 30,
-    arrowStyle: 0
+    arrowStyle: 0,
+    padding: 0,
+    maxHeight: 150, // 150 for single, 180 for multi
+    maxWidth: 200,
+    hideCloseButton: true
   });
   if ($(window).width() >= 768) {
     infowindow.setMinHeight(235);
@@ -510,7 +514,8 @@ function initialize_listing_map(community_location_lat, community_location_lon, 
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-  setMapCenter(community_location_lat, community_location_lon, true, false);
+  var prefer_param_loc = (use_community_location_as_default === 'true');
+  setMapCenter(community_location_lat, community_location_lon, true, prefer_param_loc);
   google.maps.event.addListenerOnce(map, 'tilesloaded', addListingMarkers);
 }
 
@@ -617,6 +622,12 @@ function addListingMarkers() {
           markers.push(marker);
           markersArr.push(marker);
           var ind = i;
+
+          google.maps.event.addListener(map, 'mousedown', function() {
+            infowindow.close();
+            showingMarker = "";
+          });
+
           google.maps.event.addListener(marker, 'click', function() {
             infowindow.close();
             directionsDisplay.setMap(null);
@@ -625,7 +636,9 @@ function addListingMarkers() {
               showingMarker = "";
             } else {
               showingMarker = marker.getTitle();
-              infowindow.setContent("<div id='map_bubble'><div style='text-align: center; width: 360px; height: 70px; padding-top: 25px;'><img src='https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif'></div></div>");
+              infowindow.setContent("<div id='map_bubble'><img class='bubble-loader-gif' src='https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif'></div>");
+              infowindow.setMaxHeight(150);
+              infowindow.setMinHeight(150);
               infowindow.open(map,marker);
               $.get('/' + locale + '/listing_bubble/' + entry["id"], function(data) {
                 $('#map_bubble').html(data);
@@ -651,13 +664,10 @@ function addListingMarkers() {
               });
             }
           });
-          google.maps.event.addListener(infowindow, 'closeclick', function() {
-            showingMarker = "";
-          });
         }
       })();
     }
-    markerCluster = new MarkerClusterer(map, markers, markerContents, infowindow, showingMarker, {
+    markerCluster = new MarkerClusterer(map, markers, markerContents, infowindow, showingMarker, locale, {
     imagePath: '/assets/map_icons/group_'+listing_type});
   
   });

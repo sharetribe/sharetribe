@@ -1,7 +1,7 @@
 %tr
   %td{:align => "left", :style => "padding-top: 15px;"} 
     %font{body_font}
-      = "#{(@feedback.author ? @feedback.author.name(@current_community) : 'Unlogged user')} has sent the following feedback from #{service_name} community '#{@current_community.name}':"
+      = "#{@feedback.author_name_and_email} has sent the following feedback from #{service_name} community '#{@current_community.name}':"
 
 = render :partial => "quote", :locals => { :quote => @feedback.content }
 

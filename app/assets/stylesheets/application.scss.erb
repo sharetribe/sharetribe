@@ -1993,115 +1993,7 @@ a.lightbox-x {
   ----------------
 */
 
-.bubble-item {
-  
-  .bubble-header {
-    padding: 0 lines(2) 0 lines(2.5);
-    max-width: lines(18);
-  }
-  
-  h2 {
-    line-height: lines(0.75);
-    margin-bottom: lines(0);
-    padding-bottom: 0;
-  }
-  
-  small {
-    margin-top: lines(0.25, 13);
-  }
-  
-  .author { 
-    padding-bottom: lines(0.25);
-    @include small-type;
-  }
-  
-  .bubble-content {
-    overflow: hidden;
-    padding-left: lines(0.5);
-    padding: 0;
-    .bubble-image {
-      margin-top: lines(0.5);
-      float: right;
-      width: lines(3);
-      height: lines(3);
-
-      img {
-        @include border-radius(em(5));
-        width: lines(3);
-        height: lines(3);
-      }
-    }
-    .feed-listing-icons {
-      margin-left: lines(0.5);
-      float: left;
-    }
-  }
-  
-  .bubble-author-avatar {
-    position: absolute;
-    width: lines(1.5);
-    height: lines(1.5);
-    left: em(15);
-    img {
-      @include border-radius(em(5));
-      width: lines(1.5);
-      height: lines(1.5);
-    }
-    background: $background;
-  }
-  
-  .bubble-listing-icon {
-    display: inline-block;
-    margin-right: lines(1);
-  }
-  
-  .bubble-excerpt {
-    margin-left: lines(0.5);
-    float: left;
-    max-width: lines(10);
-  }
-  
-  @include media(tablet) {
-    padding: lines(0.5) lines(0);
-    
-    .bubble-header {
-      max-width: lines(15);
-    }
-    
-    .bubble-content {
-      .bubble-image {
-        width: lines(5);
-        height: lines(5);
-        img {
-          width: lines(5);
-          height: lines(5);
-        }
-      }
-    }
-    
-    h2 {
-      @include big-type;
-    }
-    
-    .bubble-excerpt {
-      color: $aside;
-      font-style: italic;
-      max-width: lines(11);
-    }
-    
-    small {
-      @include normal-type;
-      margin-top: lines(0.25);
-    }
-  }
-}
-
-.bubble-spacer {
-  width: 100%;
-  height: 2px;
-  border-bottom: 1px dotted $border;
-}
-
+@import "partials/map";
 
 /*
   ----------------
@@ -3671,6 +3563,34 @@ a.lightbox-x {
 /* Colors */
 $red: #ff5840;
 $light_grey: #fdfbfb;
+$green: #00a26c;
+
+@mixin action-button($color) {
+  @include box-sizing(border-box);
+  @include border-radius(em(5));
+  @include normal-type;
+  
+  color: $background;
+  background: $color;
+  border: 3px solid darken($color, 25%);
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  vertical-align: top;
+  padding: em(8) em(13) em(11) em(13);
+  
+  &:hover { 
+    background: darken($color, 15%);
+    color: $background;
+    border-color: darken($color, 35%); 
+  };
+  
+  @include media(tablet) {
+    @include big-type;
+    padding: em(11) em(16) em(14) em(16);
+    width: auto;
+  }
+}
 
 .mobile {
   display: block;
@@ -3900,7 +3820,7 @@ section.lander, section.create-now {
     }
   }
   
-  p {
+  p.lander-description {
     margin-top: lines(1);
     color: $background;
     @include normal-type;
@@ -3909,7 +3829,18 @@ section.lander, section.create-now {
   }
   
   .contact-form-container {
-    margin-top: lines(1.5);
+    h3 {
+      @include big-type;
+      margin-bottom: lines(0.5);
+    }
+  }
+  
+  .contact-form {
+    margin-top: lines(2.5);
+  }
+  
+  .lander-contact-form {
+    top: lines(-23);
   }
 
   .contact-form-input {
@@ -3917,19 +3848,54 @@ section.lander, section.create-now {
     display: inline;
   }
   
-  .contacted-notification {
+  .contact-request-completed-notification {
     background: rgba($background, 0.75);
-    padding: lines(0.5) lines(1);
+    padding: lines(1) lines(2) lines(0.5) lines(2);
     width: auto;
     display: inline-block;
     @include border-radius(em(5));
     h3 {
       color: $body;
     }
-    margin: lines(1) 0 lines(2) 0;
+    margin: lines(2) 0 lines(2) 0;
     
     @include media(tablet) {
       width: auto;
+      margin: lines(8) 0 lines(2) 0;
+    }
+  }
+  
+  .complete-contact-request-form {
+    background: rgba($background, 0.75);
+    padding: lines(0.5) lines(0.75);
+    width: auto;
+    display: inline-block;
+    @include border-radius(em(5));
+    text-align: left;
+    h3 {
+      color: $body;
+      text-align: left;
+      @include normal-type;
+    }
+    p {
+      text-align: left;
+      @include small-type;
+    }
+    label, input, select, button {
+      @include small-type;
+    }
+    
+    margin: lines(1) 0 lines(2) 0;
+    
+    @include media(tablet) {
+      padding: lines(1.5) lines(2);
+      max-width: lines(16);
+      h3 {
+        @include big-type;
+      }
+      p, label, input, select, button {
+        @include normal-type;
+      }
     }
   }
   
@@ -3946,35 +3912,29 @@ section.lander, section.create-now {
   }
   
   button.action-button {
-    color: $background;
-    background: $red;
+    @include action-button($red);
+    @include media(tablet) {
+      margin: 0 0 0 lines(0.5);
+    }
+  }
+  
+  button.small-action-button {
+    @include action-button($red);
     
-    @include box-sizing(border-box);
-    @include border-radius(em(5));
-    @include normal-type;
-    border: 3px solid darken($red, 25%);
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    
-    vertical-align: top;
-    padding: em(8) em(13) em(11) em(13);  
-
-    &:hover { 
-      background: darken($red, 15%);
-      color: $background;
-      border-color: darken($red, 35%); 
-    };
+    @include media(tablet) {
+      @include normal-type;
+      padding: em(6) em(20) em(9) em(20);
+    }
   }
   
   @include media(tablet) {
     
-    .contact-form-container {
-      margin-top: lines(2.5);
-    }
-    
     .lander-content {
       top: lines(-27);
+    }
+    
+    .lander-contact-form {
+      top: lines(-30);
     }
     
     h1 {
@@ -3982,7 +3942,7 @@ section.lander, section.create-now {
       line-height: em(15);
     }
     
-    p {
+    p.lander-description {
       @include large-type;
     }
     
@@ -4003,11 +3963,12 @@ section.lander, section.create-now {
       padding: em(10) em(15) em(15) em(15);
     }
     
-    button.action-button {
-      @include big-type;
-      padding: em(11) em(16) em(14) em(16);
-      width: auto;
-      margin: 0 0 0 lines(0.5);
+    .complete-contact-request-form {
+      label.error {
+        width: 100%;
+        font-weight: normal;
+        padding: em(5) em(10) em(10) em(10);
+      }
     }
     
   }
@@ -4052,6 +4013,27 @@ section.about, section.how-it-works, section.create-now {
     @include normal-type;
     font-weight: 600;
     color: $body;
+  }
+  
+  .view-demo {
+    
+    .action-button {
+      @include action-button($green);
+      border-color: darken($green, 15%); 
+
+      &:hover { 
+        background: darken($green, 5%);
+        border-color: darken($green, 25%); 
+      };
+      
+      @include media(tablet) {
+        padding: em(11) em(20) em(14) em(20);
+      }
+    }
+    
+    @include media(tablet) {
+      margin: lines(4) 0 0 0;
+    }
   }
   
   @include media(tablet) {

@@ -48,7 +48,7 @@ gem 'recaptcha'
 gem "airbrake", "~>3.1.12"
 gem 'delayed_job', "~>3.0.5"
 gem 'delayed_job_active_record'
-gem 'json', "~>1.7.7"
+gem 'json', "~>1.8.0"
 gem 'multi_json', "~>1.7.3" # 1.8.0 caused "invalid byte sequence in UTF-8" at heroku
 gem 'russian'
 gem 'web_translate_it'
@@ -67,6 +67,8 @@ gem "truncate_html"
 gem 'money-rails'
 gem 'mercury-rails'
 gem 'fb-channel-file'
+gem 'country_select'
+gem 'localized_country_select', '>= 0.9.3'
 
 #ouisharelabs
 gem 'rdf-turtle'
@@ -75,6 +77,7 @@ group :development do
   gem 'guard-livereload', require: false
   gem 'rack-livereload'
   gem 'rb-fsevent',       require: false
+  gem 'guard-rspec',      require: false
 end
 
 group :test do
