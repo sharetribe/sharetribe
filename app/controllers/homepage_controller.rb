@@ -8,7 +8,7 @@ class HomepageController < ApplicationController
     @homepage = true
     @categories_enabled = true
     
-    listings_per_page = 16
+    listings_per_page = 24
     
     #Load community categories
     @categories =  Rails.cache.fetch("/community/#{@current_community.id}_#{@current_community.updated_at}/categories") {
