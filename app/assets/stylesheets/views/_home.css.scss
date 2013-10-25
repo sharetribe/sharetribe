@@ -81,10 +81,6 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
   line-height: em(48);
   
   @include ellipsis;
-  
-  @include media(tablet) {
-    
-  }
 }
 
 .home-toolbar {

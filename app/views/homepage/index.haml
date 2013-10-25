@@ -37,8 +37,8 @@
         = t("homepage.filters.map_button")
 
 .row
-  .col-3
-    - if @categories_enabled
+  - if @categories_enabled
+    .col-3
       - @main_categories.each do |category|
         = link_to category.display_name.mb_chars.capitalize.to_s, params.merge({category: category.name}), :class => "home-categories-main", :data => {category: category.name}
         - if category.children
@@ -48,13 +48,13 @@
                 %a.home-categories-sub{href: "&category=" + category.name}
                   = link_to sub_category.display_name.mb_chars.capitalize.to_s, params.merge({category: sub_category.name}), :class => "home-categories-sub", :data => {:"sub-category" =>sub_category.name}
 
-  / This is somewhat ugly. Imo, we shouldn't do "routing" in views
+  - main_container_class = if @categories_enabled then "col-9" else "col-12" end
   - if params[:view] == "map" || params[:map] == "true"
-    .col-9
+    %div{:class => main_container_class}
       .home-map
         = render :partial => "map"
   - elsif params[:view] == "grid"
-    .col-9
+    %div{:class => main_container_class}
       - @listings.each do |listing|
         .home-grid-column
           .home-grid-column-content
@@ -74,7 +74,7 @@
               = link_to(listing.author, :class => "home-listing-author") do
                 = listing.author.name
   - else
-    .col-9
+    %div{:class => main_container_class}
       - @listings.each do |listing|
         .home-list-item
           = link_to listing, :class => "home-list-image home-list-image-desktop" do
@@ -117,15 +117,7 @@
           - if listing.price
             .home-list-price-mobile{:class => (listing.listing_images.size > 0 ? "home-list-price-mobile-with-listing-image" : "home-list-price-mobile-without-listing-image")}
               = money_without_cents_and_with_symbol(listing.price).upcase
-      
 
-          
-            
-                      
-            
-            
-            
-            
   / - if @current_community.testimonials_in_use
   /   .listing-main.left-column-2-3
   /     .row
