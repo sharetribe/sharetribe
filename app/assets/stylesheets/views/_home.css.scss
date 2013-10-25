@@ -85,7 +85,6 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
 
 .home-toolbar {
   margin-bottom: lines(0.5);
-  padding-bottom: lines(0.5);
   @include clearfix;
 
   border-bottom: 2px solid $border;
@@ -97,6 +96,7 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
 
 .home-toolbar-button-group {
   @include button-group;
+  margin-bottom: lines(0.5);
   
   // Leave room for filters button on the left side
   width: 50%;
@@ -127,14 +127,6 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
   @include media(tablet) {
     margin-left: lines(0.25);
     display: inline-block;
-  }
-}
-
-.home-toolbar-filters {
-  margin-top: lines(0.5);
-
-  @include media(tablet) {
-    margin-top: 0;
   }
 }
 
@@ -397,4 +389,8 @@ h2.home-list-title {
 .home-categories-sub {
   display: block;
   margin-left: lines(0.5);
+}
+
+.home-toolbar-toggle-container {
+  margin-bottom: lines(0.5);
 }

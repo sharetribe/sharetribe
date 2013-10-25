@@ -1,0 +1,15 @@
+@import "mixins/all";
+
+.visible-tablet {
+  display: none;
+
+  @include media(tablet) {
+    display: block;
+  }
+}
+
+.hidden-tablet {
+  @include media(tablet) {
+    display: none;
+  }
+}
