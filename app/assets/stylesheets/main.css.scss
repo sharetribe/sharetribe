@@ -561,125 +561,6 @@ label.error {
   }
 }
 
-
-
-/*
-  ------------
-  Toggle menus
-  ------------
-*/
-
-.toggle-menu-feed-filters {
-  
-  &.hidden {
-    // Added and removed via JS, to toggle visibility
-    display: none;
-  }
-  
-  @include media(tablet) {
-    // Makes sure they're never obscured by other elements
-    z-index: 9999;
-    &.hidden {
-      // Added and removed via JS, to toggle visibility
-      display: block;
-    }
-  }
-  
-}
-
-.toggle-menu {
-  background: $light-body;
-  border-color: $light-body !important;
-  position: relative;
-  z-index: 99999;
-  text-align: left;
-  
-  a, .feedback {
-    display: block;
-    position: relative;
-    color: $background;
-    padding: lines(0.5);
-  }
-  
-  a:after {
-    content: "→"; // Could be replaced by a font icon
-    display: block;
-    position: absolute;
-    right: lines(0.5); top: lines(0.5);
-    color: $background;
-  }
-
-  a:hover {
-    background: $link;
-    color: $background;
-    
-    &:after {
-      color: $background;
-    }
-  }
-  
-  a.login-form {
-    padding: 0;
-    &:hover {
-      color: lighten($link, 20%);
-      background: none;
-    }
-    &:after {
-      content: "";
-    }
-  }
-  
-  p.login-form {
-    color: $background;
-    margin: lines(0.25) 0 lines(0.5) 0;
-  }
-  
-  .feedback {
-    textarea {
-      @include small-type;
-      display: block;
-      width: 100%;
-      height: lines(3, 13);
-      padding: lines(0.25, 13);
-    }
-  }
-  
-  &.hidden {
-    // Added and removed via JS, to toggle visibility
-    display: none;
-  }
-  
-  .badge {
-    position: absolute;
-    right: em(9, 13); top: em(14, 13); bottom: auto;
-    z-index: 900;
-    
-    &.huge-badge {
-      top: em(10, 13); right: em(9, 13); bottom: auto;
-    }
-  }
-  
-  @include media(tablet) {
-    position: absolute;
-  }
-  
-}
-
-.toggle {
-  cursor: pointer;
-  
-  &.toggled {
-    background: $light-body;
-    color: $background !important;
-    border-color: $light-body;
-    
-    @include media(tablet) {
-      border-bottom-color: $light-body !important;
-    }
-  }
-  
-}
-
 /*
   ------------
   Tribe header
@@ -3633,7 +3514,7 @@ header.marketplace-header {
   .language-menu-toggle {
     position: relative;
     vertical-align: top;
-    padding: em(10) 0 em(15) 0;
+    padding: em(10) 0 em(20) 0;
     margin-right: lines(0.5);
     display: none;
     &:hover { color: $link; }
@@ -3661,12 +3542,6 @@ header.marketplace-header {
       vertical-align: top;
       padding: em(5) 0 0 em(4);
     }
-
-    .icon-dropdown {
-      display: inline-block;
-      vertical-align: top;
-      padding: em(8) 0 0 em(3);
-    }
     
     @include media(mid-desktop) {
       display: inline-block;
@@ -3689,13 +3564,14 @@ header.marketplace-header {
     position: relative;
     display: inline-block;
     vertical-align: top;
-    padding: em(10) lines(0.5) em(5) lines(0.5);
+    padding: em(10) lines(0.5) em(11) lines(0.5);
     margin-left: lines(4.5);
     border-left: 1px solid $aside;
     &:hover { color: $link; }
 
     .user-avatar {
-      display: inline-block;
+      display: block;
+      float: left;
       width: lines(1.5);
       height: lines(1.5);
       @include border-radius(em(5));

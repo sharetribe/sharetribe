@@ -13,3 +13,11 @@
 @mixin absolutely-all() {
   @include absolutely(0, 0, 0, 0);
 }
+
+/**
+  Use icon-fix to correctly vertical align SS-pika icons
+*/
+@mixin icon-fix {
+  position: relative;
+  top: 2px;
+}
