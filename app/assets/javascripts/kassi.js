@@ -676,6 +676,14 @@ function initialize_terms_form() {
   });
 }
 
+function initialize_mangopay_terms_lightbox() {
+  $('#mangopay_terms_link').click(function(link) {
+    link.preventDefault();
+    $('#mangopay_terms').lightbox_me({ centered: true, zIndex: 1000001 }); 
+  });
+}
+
+
 function initialize_update_profile_info_form(locale, person_id, name_required) {
   auto_resize_text_areas("update_profile_description_text_area");
   $('input.text_field:first').focus();
