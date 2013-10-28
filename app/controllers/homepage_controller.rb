@@ -8,7 +8,7 @@ class HomepageController < ApplicationController
     @homepage = true
     @categories_enabled = true
     
-    listings_per_page = 16
+    listings_per_page = 24
     
     #Load community categories
     @categories =  Rails.cache.fetch("/community/#{@current_community.id}_#{@current_community.updated_at}/categories") {
@@ -24,10 +24,6 @@ class HomepageController < ApplicationController
     @listing_types = Rails.cache.fetch("/community/#{@current_community.id}_#{@current_community.updated_at}/listing_types") {
       @current_community.listing_types
     }
-    
-    # If requesting a specific page on non-ajax request, we'll ignore that
-    # and show the normal front page starting from newest listing
-    params[:page] = 1 unless request.xhr? 
     
     @filter_params = params.slice("category", "share_type")
     
@@ -52,7 +48,11 @@ class HomepageController < ApplicationController
     end
     
     if request.xhr? # checks if AJAX request
-      render :partial => "recent_listing", :collection => @listings, :as => :listing   
+      if params["view"] == "grid" then
+        render :partial => "grid_item", :collection => @listings, :as => :listing
+      else
+        render :partial => "list_item", :collection => @listings, :as => :listing
+      end
     else
       if @current_community.news_enabled?
         @news_items = @current_community.news_items.order("created_at DESC").limit(2)
