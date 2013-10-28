@@ -74,8 +74,6 @@
   min-height: lines(2);
   background-color: $highlight;
   background-color: rgba(0, 0, 0, 0.1);
-  line-height: lines(2);
-  text-align: center;
 }
 
 .design-block-margin {
@@ -85,6 +83,8 @@
 .design-block {
   @extend .design-block-background;
   @extend .design-block-margin;
+  line-height: lines(2);
+  text-align: center;
 }
 
 @mixin design-mq-active {
@@ -144,4 +144,3 @@
   display: block;
   width: 100%;
 }
-
