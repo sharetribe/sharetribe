@@ -1,0 +1,51 @@
+@import "mixins/all";
+@import "compass/utilities/general/clearfix";
+
+$thumbnail-grid-margin: lines(1);
+
+.thumbnail-grid {
+  text-align: center;
+  margin-right: -1 * $thumbnail-grid-margin;
+}
+
+.thumbnail-grid-item {
+  display: inline-block;
+  padding-right: $thumbnail-grid-margin;
+  margin-bottom: $thumbnail-grid-margin;
+}
+
+@mixin thumbnail-item-width($row-count) {
+  width: 100% / $row-count;
+}
+
+@mixin thumnail-grid-items-per-row(
+  $tiny-mobile-rows: 1,
+  $mobile-rows: 1,
+  $large-mobile-rows: 2,
+  $small-tablet-rows: 3,
+  $tablet-rows: 3,
+  $small-desktop-rows: 3,
+  $mid-desktop-rows: 3,
+  $desktop-rows: 3) {
+
+  @include media(tiny-mobile) { @include thumbnail-item-width($tiny-mobile-rows); }
+  @include media(mobile) { @include thumbnail-item-width($mobile-rows); }
+  @include media(large-mobile) { @include thumbnail-item-width($large-mobile-rows); }
+  @include media(small-tablet) { @include thumbnail-item-width($small-tablet-rows); }
+  @include media(tablet) { @include thumbnail-item-width($tablet-rows); }
+  @include media(small-desktop) { @include thumbnail-item-width($small-desktop-rows); }
+  @include media(mid-desktop) { @include thumbnail-item-width($mid-desktop-rows); }
+  @include media(desktop) { @include thumbnail-item-width($desktop-rows); }
+}
+
+.fluid-thumbnail-grid {
+  @include clearfix;
+  margin-right: -1 * $thumbnail-grid-margin;
+}
+
+.fluid-thumbnail-grid-item {
+  float: left;
+  padding-right: $thumbnail-grid-margin;
+  margin-bottom: $thumbnail-grid-margin;
+  @include thumnail-grid-items-per-row(1, 1, 2, 2, 3, 3, 4, 4);
+}

@@ -270,4 +270,25 @@
                     = "Nested col-6 inside col-12"
                   .col-6
                     = "Nested col-6 inside col-12"
+  .design-section
+    %h3.design-h3
+      = "Thumbnail grid"
+    .design-component
+      .design-example
+        .thumbnail-grid
+          - (1..24).map do |i|
+            .thumbnail-grid-item>
+              .thumbnail-grid-item-content.design-thumbnail
+                = "Thumbnail #{i}"
+
+  .design-section
+    %h3.design-h3
+      = "Fluid thumbnail grid"
+    .design-component
+      .design-example
+        .fluid-thumbnail-grid
+          - (1..24).map do |i|
+            .fluid-thumbnail-grid-item
+              .fluid-thumbnail-grid-content.design-thumbnail-fluid
+                = image_tag("camera.jpg", :class => "design-thumbnail-image")
 

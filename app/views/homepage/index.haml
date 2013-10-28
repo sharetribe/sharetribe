@@ -103,7 +103,8 @@
         = render :partial => "map"
   - else
     %div{:class => main_container_class}
-      .home-listings
+      .thumbnail-grid
+        / .home-listings
         - if params[:view] == "grid"
           = render :partial => "grid_item", :collection => @listings, :as => :listing
         - else

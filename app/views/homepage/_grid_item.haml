@@ -1,17 +1,3 @@
-.home-grid-column
-  .home-grid-column-content
-    = link_to listing do
-      .home-listing-image-container
-        - if listing.listing_images.size > 0
-          = image_tag listing.listing_images.first.image.url(:email), {:alt => listed_listing_title(listing), :class => "home-listing-image"}
-        .home-listing-overlay
-          .home-listing-title
-            = listing.title
-        - if listing.price
-          .home-listing-price
-            = money_without_cents_and_with_symbol(listing.price).upcase
-    .home-listing-details
-      .home-listing-avatar
-        = small_avatar_thumb(listing.organization_or_author?(@current_community))
-      = link_to(listing.author, :class => "home-listing-author") do
-        = listing.author.name
+.thumbnail-grid-item.home-thumbnail-grid-item>
+  .home-thumbnail-grid-item-content
+    = "JEEJEE"

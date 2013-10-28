@@ -23,6 +23,22 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
   float: left;
 }
 
+.home-thumbnail-grid-item {
+  // Explanation: 
+  // Total: lines(41)
+  // col-9: 0.75
+  // Column gutter: lines(0.5)
+  // Targeting 3 items per row -> / 3
+  $thumbnail-item-width: ((lines(41) * 0.75) - lines(0.5)) / 3;
+  width: $thumbnail-item-width;
+  height: image-height($thumbnail-item-width);
+}
+
+.home-thumbnail-grid-item-content {
+  background: $highlight;
+  height: 100%;
+}
+
 .home-grid-column-content {
   @include grid-column-content-1-4;
   height: 100%;

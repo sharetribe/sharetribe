@@ -128,3 +128,20 @@
 .col-content {
   @extend .design-block-background;
 }
+
+.design-thumbnail {
+  @extend .design-block-background;
+  height: 140px;
+  width: 210px;
+  line-height: 140px;
+}
+
+.design-thumbnail-fluid {
+  @extend .design-block-background;
+}
+
+.design-thumbnail-image {
+  display: block;
+  width: 100%;
+}
+
