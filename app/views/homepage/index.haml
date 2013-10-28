@@ -89,14 +89,16 @@
 .row
   - if @categories_enabled
     .col-3.visible-tablet
-      = link_to t("homepage.filters.all_categories"), params.merge({category: "all"})
+      = link_to t("homepage.filters.all_categories"), params.merge({category: "all"}), :class => "home-categories-main #{if all_categories_selected(params[:category], @main_categories, @categories) then 'selected' end}"
       - @main_categories.each do |category|
-        = link_to category.display_name.mb_chars.capitalize.to_s, params.merge({category: category.name}), :class => "home-categories-main", :data => {category: category.name}
+        - show_subcategories = show_subcategory_list(category, params[:category], @categories)
+        = link_to category.name, params.merge({category: category.name}), :class => "home-categories-main #{if show_subcategories then 'selected' end} #{if has_subcategories(category, @categories) then 'has-subcategories' end}", :data => {category: category.name}
         - if category.children
-          - if show_subcategory_list(category, params[:category], @categories)
+          - if show_subcategories
             - category.children.each do |sub_category|
               - if @categories.include?(sub_category)
-                = link_to sub_category.display_name.mb_chars.capitalize.to_s, params.merge({category: sub_category.name}), :class => "home-categories-sub", :data => {:"sub-category" =>sub_category.name}
+                - is_selected = sub_category.name == params[:category]
+                = link_to sub_category.display_name.mb_chars.capitalize.to_s, params.merge({category: sub_category.name}), :class => "home-categories-sub #{if is_selected then 'selected' end}", :data => {:"sub-category" =>sub_category.name}
 
   - main_container_class = if @categories_enabled then "col-9" else "col-12" end
   - if params[:view] == "map" || params[:map] == "true"

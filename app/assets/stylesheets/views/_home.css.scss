@@ -382,12 +382,27 @@ h2.home-list-title {
   @include ellipsis;
 }
 
-.home-categories-main {
+.home-categories-link {
   display: block;
+  color: $body;
+  text-transform: uppercase;
+
+  &.selected {
+    font-weight: bold;
+  }
+}
+
+.home-categories-main {
+  @extend .home-categories-link;
+
+  &.selected.has-subcategories {
+    border-bottom: 1px solid $border;
+  }
 }
 
 .home-categories-sub {
-  display: block;
+  @extend .home-categories-link;
+  font-size: 14px;
   margin-left: lines(0.5);
 }
 
