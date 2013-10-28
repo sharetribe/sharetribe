@@ -140,3 +140,56 @@
                 = "This is a subitem"
               %a
                   = "Item 3"
+
+  .h2.design-h2
+    = "Responsive utilities"
+
+  .design-section
+    .h3.design-h3
+      = "Media queries"
+
+    .design-component
+      .design-example
+        .design-mq-tiny-mobile
+          = "Tiny mobile"
+        .design-mq-mobile
+          = "Mobile"
+        .design-mq-large-mobile
+          = "Large mobile"
+        .design-mq-small-tablet
+          = "Small tablet"
+        .design-mq-tablet
+          = "Tablet"
+        .design-mq-small-desktop
+          = "Small desktop"
+        .design-mq-mid-desktop
+          = "Mid desktop"
+        .design-mq-desktop
+          = "Desktop"
+      .design-code
+        %pre
+          :plain
+            .hide-on-mobile-desives {
+              display: none;
+
+              @import media(tablet) {
+                display: block;
+              }
+            }
+
+    .h3.design-h3
+      = "Helper classes"
+
+    .design-component
+      .design-example
+        .design-block.visible-tablet
+          = "Visible on tablet and up"
+        .design-block.hidden-tablet
+          = "Hidden on tablet and up"
+      .design-code
+        %pre
+          :plain
+            .visible-tablet
+              = "Visible on tablet and up"
+            .hidden-tablet
+              = "Hidden on tablet and up"
