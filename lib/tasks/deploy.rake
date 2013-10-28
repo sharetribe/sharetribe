@@ -136,6 +136,7 @@ namespace :deploy do
     puts `mkdir ../tmp-sharetribe/webfonts` unless File.exists?("../tmp-sharetribe/webfonts")
     puts `rm app/assets/webfonts/* `
     puts `git checkout closed_source`
+    puts `git pull`
     puts `cp -R app/assets/webfonts/* ../tmp-sharetribe/webfonts/`
     puts `cp config/mangopay.pem ../tmp-sharetribe/`
     puts `git rebase #{BRANCH}`
