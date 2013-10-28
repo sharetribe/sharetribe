@@ -36,7 +36,7 @@ class Payment < ActiveRecord::Base
   
   # Commission including VAT
   def total_commission
-    sum_with_percentage(commission_without_vat, APP_CONFIG.service_fee_tax_percentage)
+    sum_with_percentage(commission_without_vat, APP_CONFIG.service_fee_tax_percentage.to_i)
   end
   
   # Total payment with VAT but without commission
