@@ -8,7 +8,7 @@ task :deploy_staging_migrations => [
   'deploy:set_staging_app',
   'deploy:set_develop_as_source_branch',
   'i18n:write_error_pages',
-  'deploy:update_webfonts_folder',
+  'deploy:update_closed_source_folders',
   'deploy_with_migrations' 
 ]
 
@@ -28,7 +28,7 @@ task :deploy_staging_without_migrations => [
   'deploy:set_staging_app',
   'deploy:set_develop_as_source_branch',
   'i18n:write_error_pages',
-  'deploy:update_webfonts_folder',
+  'deploy:update_closed_source_folders',
   'deploy_without_migrations'
 ]
 
@@ -47,7 +47,7 @@ task :deploy_production_without_migrations_from_develop => [
 task :deploy_translation_migrations => [
   'deploy:set_translation_app', 
   'deploy:set_develop_as_source_branch', 
-  'deploy:update_webfonts_folder',  
+  'deploy:update_closed_source_folders',  
   'deploy:push',
   'deploy:migrate',
   'deploy:restart',
@@ -57,7 +57,7 @@ task :deploy_translation_migrations => [
 task :deploy_translation_without_migrations => [
   'deploy:set_translation_app',
   'deploy:set_develop_as_source_branch',
-  'deploy:update_webfonts_folder',
+  'deploy:update_closed_source_folders',
   'deploy:push',
   'deploy:update_translations_stored_in_db'
 ]
@@ -130,15 +130,17 @@ namespace :deploy do
   end
 
   
-  task :update_webfonts_folder do
+  task :update_closed_source_folders do
     puts 'Copying webfonts folder ...'
     puts `rm app/assets/webfonts/* `
     puts `git checkout closed_source`
-    puts `cp -R app/assets/webfonts/* ../tmp-sharetribe-webfonts/`
+    puts `cp -R app/assets/webfonts/* ../tmp-sharetribe/webfonts/`
+    puts `cp config/mangopay.pem ../tmp-sharetribe/keys/mangopay.pem`
     puts `git rebase #{BRANCH}`
     puts `git checkout #{BRANCH}`
     puts `mkdir app/assets/webfonts `
-    puts `cp -R ../tmp-sharetribe-webfonts/* app/assets/webfonts/`
+    puts `cp -R ../tmp-sharetribe/webfonts/* app/assets/webfonts/`
+    puts `cp ../tmp-sharetribe/keys/mangopay.pem config/mangopay.pem`
   end
   
   task :push do
