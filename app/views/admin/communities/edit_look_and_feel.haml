@@ -7,8 +7,13 @@
   %h2= t(".edit_community_look_and_feel", :community_name => @community.name)
   = form_for @community, :url => admin_community_path(@community), :method => :put do |form|
     = hidden_field_tag :community_settings_page, "look_and_feel"
-    = form.label :logo, t(".community_logo"), :class => "input"
+    
+    = form.label :wide_logo, t(".community_logo"), :class => "input"
     %p= t(".logo_instructions_text")
+    = form.file_field(:wide_logo, :class => "file_field")
+    
+    = form.label :logo, t(".community_logo_icon"), :class => "input"
+    %p= t(".logo_icon_instructions_text")
     = form.file_field(:logo, :class => "file_field")
     
     = form.label :cover_photo, t(".community_cover_photo"), :class => "input"
