@@ -18,10 +18,6 @@
     .payment-row.payment-text-row.bottom-border
       .payment-row-title-text.payment-row-text
         = t("payments.form.service_charge")
-        =# t("payments.form.including_tax", :tax_percentage => APP_CONFIG.service_fee_tax_percentage) if APP_CONFIG.service_fee_tax_percentage
-        
-      -#service-fee-sum.payment-row-sum-text.payment-row-text
-
         
       #service-fee-total.payment-row-total-text.payment-row-text
 
