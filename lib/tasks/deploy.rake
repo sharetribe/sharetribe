@@ -131,16 +131,17 @@ namespace :deploy do
 
   
   task :update_closed_source_folders do
-    puts 'Copying webfonts folder ...'
+    puts 'Copying closed source contents...'
+    puts `mkdir ../tmp-sharetribe` unless File.exists?("../tmp-sharetribe")
     puts `rm app/assets/webfonts/* `
     puts `git checkout closed_source`
     puts `cp -R app/assets/webfonts/* ../tmp-sharetribe/webfonts/`
-    puts `cp config/mangopay.pem ../tmp-sharetribe/keys/mangopay.pem`
+    puts `cp config/mangopay.pem ../tmp-sharetribe/`
     puts `git rebase #{BRANCH}`
     puts `git checkout #{BRANCH}`
     puts `mkdir app/assets/webfonts `
     puts `cp -R ../tmp-sharetribe/webfonts/* app/assets/webfonts/`
-    puts `cp ../tmp-sharetribe/keys/mangopay.pem config/mangopay.pem`
+    puts `cp ../tmp-sharetribe/keys/mangopay.pem config/`
   end
   
   task :push do
