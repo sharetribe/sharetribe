@@ -163,7 +163,18 @@ $home-listing-image-height: image-height($grid-1-4-width, $listing-image-aspect-
 }
 
 .home-map > .map {
-  height: 30em; // FIXME
+  height: lines(10.5);
+  
+  @include media(tablet) {
+    height: 30em;
+  }
+}
+
+.hide-with-mobile-map {
+  display: none;
+  @include media(tablet) {
+    display: block;
+  }
 }
 
 .home-list-item {
