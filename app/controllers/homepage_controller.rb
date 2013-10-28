@@ -5,6 +5,14 @@ class HomepageController < ApplicationController
   skip_filter :dashboard_only
 
   def index
+    ## Support old /?map=true URL START
+    ## This can be removed after March 2014
+    if !params[:view] && params[:map] == "true" then
+      redirect_params = params.except(:map).merge({view: "map"});
+      redirect_to url_for(redirect_params), status: :moved_permanently
+    end
+    ## Support old /?map=true URL END
+
     @homepage = true
     @categories_enabled = true
     
