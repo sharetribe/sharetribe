@@ -162,7 +162,7 @@
 }
 
 .icon-dropdown {
-  @include icon-fix;
+  @include dropdown-icon-fix;
   float: right;
 
   @include media(tablet) {
