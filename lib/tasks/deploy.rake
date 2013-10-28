@@ -133,6 +133,7 @@ namespace :deploy do
   task :update_closed_source_folders do
     puts 'Copying closed source contents...'
     puts `mkdir ../tmp-sharetribe` unless File.exists?("../tmp-sharetribe")
+    puts `mkdir ../tmp-sharetribe/webfonts` unless File.exists?("../tmp-sharetribe/webfonts")
     puts `rm app/assets/webfonts/* `
     puts `git checkout closed_source`
     puts `cp -R app/assets/webfonts/* ../tmp-sharetribe/webfonts/`
