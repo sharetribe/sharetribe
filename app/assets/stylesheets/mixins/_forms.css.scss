@@ -7,6 +7,11 @@
   color: $body;
   background: $highlight;
   border-color: $border;
+  &:hover { 
+    color: $background;
+    background: $aside;
+    border-color: darken($aside, 10%);
+  }
 }
 
 @mixin selected-button-color {

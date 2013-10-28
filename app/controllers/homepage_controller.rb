@@ -8,6 +8,8 @@ class HomepageController < ApplicationController
     @homepage = true
     @categories_enabled = true
     
+    @view_type = params[:view] || @current_community.default_browse_view || "grid"
+    
     listings_per_page = 24
     
     #Load community categories
