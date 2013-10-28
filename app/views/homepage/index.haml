@@ -29,8 +29,8 @@
 
   .home-toolbar-button-group
     - ["grid", "list", "map"].each do |view_type|
-      %a.home-toolbar-button-group-button{href: (root + "?view=#{view_type}"), title: t("homepage.filters.list_button"), class: (@view_type.include?(view_type) ? "selected" : "")}
-        = icon_tag("thumbnails", ["icon-fix", "home-button-group-icon"])
+      %a.home-toolbar-button-group-button{href: (root + "?view=#{view_type}"), title: t("homepage.filters.#{view_type}_button"), class: (@view_type.include?(view_type) ? "selected" : "")}
+        = icon_tag(view_type, ["icon-fix", "home-button-group-icon"])
         %span.home-toolbar-button-text
           = t("homepage.filters.#{view_type}_button")
 

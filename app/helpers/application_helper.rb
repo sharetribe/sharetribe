@@ -8,6 +8,7 @@ module ApplicationHelper
       # Default UI icons
       "map" => "ss-maplocation",
       "thumbnails" => "ss-thumbnails",
+      "grid" => "ss-thumbnails",
       "new_listing" => "ss-addfile",
       "search"  => "ss-search",
       "list" => "ss-list",
