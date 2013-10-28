@@ -143,7 +143,7 @@ namespace :deploy do
     puts `git checkout #{BRANCH}`
     puts `mkdir app/assets/webfonts `
     puts `cp -R ../tmp-sharetribe/webfonts/* app/assets/webfonts/`
-    puts `cp ../tmp-sharetribe/keys/mangopay.pem config/`
+    puts `cp ../tmp-sharetribe/mangopay.pem config/`
   end
   
   task :push do
