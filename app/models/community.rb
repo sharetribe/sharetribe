@@ -511,7 +511,7 @@ class Community < ActiveRecord::Base
   
   # Does this community require that people have registered payout method before accepting requests
   def requires_payout_registration?
-    payment_gateways && payment_gateways.first.requires_payout_registration_before_accept?
+    payment_gateways.present? && payment_gateways.first.requires_payout_registration_before_accept?
   end
 
 
