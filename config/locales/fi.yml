@@ -718,6 +718,9 @@ fi:
       invitation_emails_field_placeholder: "kaveri1@esimerkki.fi, kaveri2@esimerkki.fi, ..."
       invitation_message_field_placeholder: "Tämä palvelu on mahtava, kannattaa ehdottomasti liittyä!"
       errors_in_emails: "Tarkista että antamasi osoitteet ovat toimivia sähköpostiosoitteita. Jos osoitteita on useampi, tarkista että ne on erotettu pilkulla."
+    list_item:
+      review: "palaute"
+      reviews: "palautetta"
     news_item:
       show_less: "Näytä vähemmän"
       show_more: "Näytä lisää"
