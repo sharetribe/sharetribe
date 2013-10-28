@@ -14,6 +14,8 @@ Kassi::Application.routes.draw do
 
   match "/robots.txt" => RobotsGenerator
 
+  match "/design" => "design#design"
+
   # Adds locale to every url right after the root path
   scope "(/:locale)" do
     scope :module => "api", :constraints => ApiRequest do

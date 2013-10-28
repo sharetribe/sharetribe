@@ -157,8 +157,12 @@
   display: inline-block;
 }
 
+.toggle-header-container {
+  @include button-group-button-padding;
+}
+
 .icon-dropdown {
-  @include icon-fix;
+  @include dropdown-icon-fix;
   float: right;
 
   @include media(tablet) {

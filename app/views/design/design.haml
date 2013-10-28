@@ -1,0 +1,142 @@
+.design-wrapper
+  .h1.design-h1
+    = "Sharetribe Design Components"
+
+  .h2.design-h2
+    = "Typography"
+
+  .design-section
+
+    .h3.design-h3
+      = "Font sizes"
+
+    .design-component
+      .design-example
+        .design-small-type
+          Small
+        .design-normal-type
+          Normal
+        .design-big-type
+          Big
+        .design-large-type
+          Large
+        .design-larger-type
+          Larger
+        .design-huge-type
+          Huge
+        .design-mega-type
+          Mega
+        .design-giga-type
+          Giga
+      .design-code
+        %pre
+          :plain
+            .class-with-giga-type {
+              @include giga-type;
+            }
+
+  .h2.design-h2
+    = "Forms"
+
+  .design-section
+
+    .h3.design-h3
+      = "Buttons"
+
+    .design-component
+      .design-example
+        %button
+          = "This is button"
+      .design-code
+        %pre
+          :plain
+            %button
+              = "This is button"
+
+    .design-section
+
+    .h3.design-h3
+      = "Dropdown menu"
+
+    .design-component
+      .design-example
+        .toggle-container
+          .toggle.hidden{data: {toggle: '#toggle-menu-identifier'}}
+            .toggle-header-container
+              .toggle-header
+                = "Toggle header"
+
+              = icon_tag("dropdown", ["icon-dropdown"])
+              
+          #toggle-menu-identifier.toggle-menu.hidden
+            %a
+              = "Item 1"
+            %a
+              = "A very long item number #2"
+            %a.toggle-menu-subitem
+              = "This is a subitem"
+            %a
+              = "Item 3"
+      .design-code
+        %pre
+          :plain
+            .toggle.with-borders.hidden{data: {toggle: '#toggle-menu-with-borders-identifier'}}
+              .toggle-header-container
+                .toggle-header
+                  = "Toggle header"
+
+                = icon_tag("dropdown", ["icon-dropdown"])
+                
+            #toggle-menu-identifier.toggle-menu.hidden
+              %a
+                = "Item 1"
+              %a
+                = "A very long item number #2"
+              %a.toggle-menu-subitem
+                = "This is a subitem"
+              %a
+                  = "Item 3"
+
+  .design-section
+
+    .h3.design-h3
+      = "Dropdown menu with borders"
+
+    .design-component
+      .design-example
+        .toggle-container
+          .toggle.with-borders.hidden{data: {toggle: '#toggle-menu-with-borders-identifier'}}
+            .toggle-header-container
+              .toggle-header
+                = "Toggle header"
+
+              = icon_tag("dropdown", ["icon-dropdown"])
+                
+          #toggle-menu-with-borders-identifier.toggle-menu.hidden
+            %a
+              = "Item 1"
+            %a
+              = "A very long item number #2"
+            %a.toggle-menu-subitem
+              = "This is a subitem"
+            %a
+              = "Item 3"
+      .design-code
+        %pre
+          :plain
+            .toggle.with-borders.hidden{data: {toggle: '#toggle-menu-with-borders-identifier'}}
+              .toggle-header-container
+                .toggle-header
+                  = "Toggle header"
+
+                = icon_tag("dropdown", ["icon-dropdown"])
+                
+            #toggle-menu-with-borders-identifier.toggle-menu.hidden
+              %a
+                = "Item 1"
+              %a
+                = "A very long item number #2"
+              %a.toggle-menu-subitem
+                = "This is a subitem"
+              %a
+                  = "Item 3"

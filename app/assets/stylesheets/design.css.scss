@@ -1,0 +1,71 @@
+@import "mixins/all";
+
+.design-wrapper {
+  padding: 20px;
+}
+
+.design-h1,
+.design-h2,
+.design-h3 {
+  margin-bottom: lines(0.5);
+}
+
+.design-h1 {
+  @include huge-type;
+}
+
+.design-h2 {
+  @include large-type;
+  border-bottom: 1px solid #CCC;
+}
+
+.design-h3 {
+  @include big-type;
+}
+
+.design-section {
+  margin-bottom: lines(1);
+}
+
+.design-component {
+  border: 1px solid #CCC;
+  @include border-radius(5px);
+}
+
+.design-example {
+  border-bottom: 1px solid #CCC;
+  padding: lines(0.5);
+}
+
+.design-code {
+  background-color: #FCFCFC;
+  padding: lines(0.5);
+  @include small-type;
+  @include border-bottom-radius(5px);
+  overflow-x: scroll;
+}
+
+.design-small-type {
+  @include small-type;
+}
+.design-normal-type {
+  @include normal-type;
+}
+.design-big-type {
+  @include big-type;
+}
+.design-large-type {
+  @include large-type;
+}
+.design-larger-type {
+  @include larger-type;
+}
+.design-huge-type {
+  @include huge-type;
+}
+.design-mega-type {
+  @include mega-type;
+}
+.design-giga-type {
+  @include giga-type;
+}

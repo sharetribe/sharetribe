@@ -42,9 +42,9 @@
         = t("homepage.filters.map_button")
 
   .home-toolbar-filters.home-toolbar-filters-mobile-hidden#home-toolbar-filters
-    .home-toolbar-share-type-toggle-container
-      .home-toolbar-share-type-toggle.toggle.with-borders.hidden{data: {toggle: '.home-toolbar-share-type-menu'}}
-        .home-toolbar-share-type-toggle-header-container
+    .toggle-container
+      .toggle.with-borders.hidden{data: {toggle: '.home-toolbar-share-type-menu'}}
+        .toggle-header-container
           .toggle-header
             - current_share_type = @share_types.find {|type| type.name == params[:share_type]}
             - if current_share_type
