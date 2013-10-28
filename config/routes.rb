@@ -106,6 +106,7 @@ Kassi::Application.routes.draw do
             get :profile
             get :account
             get :notifications
+            get :payments
             get :unsubscribe
           end
         end

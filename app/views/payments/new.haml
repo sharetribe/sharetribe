@@ -7,49 +7,12 @@
         
     = "(#{link_to @conversation.other_party(@current_user).name, @conversation.other_party(@current_user)})".html_safe
     
-    .payment-row-headings.bottom-border
-      .payment-row-heading.payment-row-title-heading
-        Tuote
-      .payment-row-heading.payment-row-sum-heading
-        Hinta (alv 0)
-      .payment-row-heading.payment-row-vat-heading
-        Alv
-      .payment-row-heading.payment-row-total-heading
-        Hinta yhteensä
-         
-    = render :partial => "payment_row_static", :collection => @payment.rows, :as => :row
-    
-    .payment-row.payment-text-row.bottom-border
-      .payment-row-title-text.payment-row-text
-        Mpankin palvelumaksu (8%)
+  = render :partial => @current_community.payment_gateways.first.form_template_dir + "/show"
+  
+  - if @current_community.payment_gateways.include?(Mangopay.first)
+    %br
+    %br
+    = image_tag("/assets/payments/Mango-Frise1.png")
 
-      .payment-row-sum-text.payment-row-text
-        = @payment.commission_without_vat.to_s + @payment.conversation.listing.price_symbol
 
-      .payment-row-vat-text.payment-row-text
-        = @current_community.vat.to_s + "%"
-
-      .payment-row-total-text.payment-row-text
-        = @payment.total_commission
-    
-    .payment-row.payment-text-row.payment-sum-row
-      .payment-row-title-text.payment-row-text
-        Yhteensä
-        
-      .payment-row-sum-text.payment-row-text
-        
-      .payment-row-vat-text.payment-row-text
-        
-      .payment-row-total-text.payment-row-text
-        = @payment.total_sum.to_s + @payment.conversation.listing.price_symbol
-    
-  = form_tag("https://payment.checkout.fi/", :method => "post", :id => "payment_form") do
-    .payment-form-field-container
-    
-      -# Include payment data as hidden fields. The MAC takes care people can't modify values before POST
-      - @payment_data.each do |key, value|
-        = hidden_field_tag key, value
-        
-    .send-button
-      = button_tag t(".continue"), :id => "continue_payment"
     

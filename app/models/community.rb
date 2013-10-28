@@ -20,6 +20,7 @@ class Community < ActiveRecord::Base
   has_many :statistics, :dependent => :destroy
   
   has_and_belongs_to_many :listings
+  has_and_belongs_to_many :payment_gateways
   
   after_create :initialize_settings
   before_destroy :delete_specific_community_categories
@@ -506,6 +507,11 @@ class Community < ActiveRecord::Base
     # message would have payment possible in it's original community, but in this community the cc
     # is not found with the above search, so then payment is not possible here. (cc must be present)
     payments_in_use && cc.present? && (cc.price || cc.payment)
+  end
+  
+  # Does this community require that people have registered payout method before accepting requests
+  def requires_payout_registration?
+    payment_gateways.present? && payment_gateways.first.requires_payout_registration_before_accept?
   end
 
 

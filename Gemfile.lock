@@ -39,10 +39,10 @@ GEM
     arel (3.0.2)
     asset_sync (1.0.0)
       activemodel
-      fog (>= 1.8.0)
-    aws-sdk (1.9.5)
+      fog
+    aws-sdk (1.15.0)
       json (~> 1.4)
-      nokogiri (>= 1.4.4)
+      nokogiri (< 1.6.0)
       uuidtools (~> 2.1)
     bcrypt-ruby (3.1.2)
     builder (3.0.4)
@@ -62,7 +62,10 @@ GEM
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
     chunky_png (1.2.6)
-    cocaine (0.4.2)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.1)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -176,7 +179,7 @@ GEM
     jquery-rails (2.1.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    json (1.7.7)
+    json (1.8.0)
     jwt (0.1.5)
       multi_json (>= 1.0)
     kgio (2.8.1)
@@ -193,6 +196,9 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mangopay (2.0.0)
+      json (~> 1.8.0)
+      multipart-post (~> 1.2.0)
     memcachier (0.0.2)
     mercury-rails (0.9.0)
       coffee-rails
@@ -206,7 +212,7 @@ GEM
       money (~> 5.1.0)
       railties (>= 3.0)
     multi_json (1.7.9)
-    multipart-post (1.1.5)
+    multipart-post (1.2.0)
     mysql2 (0.3.11)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
@@ -216,7 +222,7 @@ GEM
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
     newrelic_rpm (3.6.2.96)
-    nokogiri (1.5.6)
+    nokogiri (1.5.10)
     oauth2 (0.8.0)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -232,11 +238,10 @@ GEM
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
     orm_adapter (0.4.0)
-    paperclip (3.4.0)
+    paperclip (3.5.1)
       activemodel (>= 3.0.0)
-      activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)
-      cocaine (~> 0.4.0)
+      cocaine (~> 0.5.0)
       mime-types
     parallel (0.6.2)
     parallel_tests (0.9.3)
@@ -360,7 +365,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    trollop (1.16.2)
+    trollop (2.0)
     truncate_html (0.9.1)
     tzinfo (0.3.37)
     uglifier (1.3.0)
@@ -373,10 +378,10 @@ GEM
     uuidtools (2.1.4)
     warden (1.2.3)
       rack (>= 1.0)
-    web_translate_it (2.0.4)
-      json
-      multipart-post (~> 1.1.3)
-      trollop (~> 1.16.2)
+    web_translate_it (2.1.6)
+      multi_json
+      multipart-post (~> 1.2.0)
+      trollop (~> 2.0)
     websocket (1.0.7)
     will_paginate (3.0.3)
     xpath (1.0.0)
@@ -390,7 +395,7 @@ DEPENDENCIES
   acts-as-taggable-on
   airbrake (~> 3.1.12)
   asset_sync
-  aws-sdk (~> 1.9.0)
+  aws-sdk
   capistrano
   capybara
   coffee-rails (~> 3.2.2)
@@ -418,6 +423,7 @@ DEPENDENCIES
   kgio (~> 2.8.0)
   launchy
   localized_country_select (>= 0.9.3)
+  mangopay
   memcachier
   mercury-rails
   money-rails

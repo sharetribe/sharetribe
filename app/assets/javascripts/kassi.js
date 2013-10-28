@@ -530,33 +530,37 @@ function initialize_listing_view(locale) {
   });
 }
 
-function initialize_accept_transaction_form(commission_percentage) {
+function initialize_accept_transaction_form(commission_percentage, service_fee_vat) {
 	auto_resize_text_areas("text_area");
 	style_action_selectors();
 	
 	if (commission_percentage != undefined) {
-	  update_transaction_form_price_fields(commission_percentage);
+	  update_transaction_form_price_fields(commission_percentage, service_fee_vat);
   	$(".trigger-focusout").focusout(function(value) {
-  	  update_transaction_form_price_fields(commission_percentage);
+  	  update_transaction_form_price_fields(commission_percentage, service_fee_vat);
   	});
   }
 	
 }
 
-function update_transaction_form_price_fields(commission_percentage) {
+function update_transaction_form_price_fields(commission_percentage, service_fee_vat) {
   var total_sum = 0;
   var total_sum_with_vat = 0;
   for (var i = 0; i < $(".field-row").length; i++) {
     var sum = parseInt($(".payment-row-sum-field.row" + i).val());
+
     var vat = parseInt($(".payment-row-vat-field.row" + i).val());
+    if (! vat > 0) { vat = 0;}
+    
     row_sum = sum + (sum * vat / 100);
     $(".total-label.row" + i).text(row_sum.toFixed(2) + '\u20AC');
     total_sum += sum;
     total_sum_with_vat += row_sum;
   }
+  
   var service_fee_sum = total_sum*commission_percentage/100;
   $("#service-fee-sum").text(service_fee_sum.toFixed(2) + '\u20AC');
-  var service_fee_vat = parseInt($("#service-fee-vat").text().substring(0, $("#service-fee-vat").text().length - 1));
+  
   service_fee_sum_with_vat = service_fee_sum + (service_fee_sum * service_fee_vat / 100);
   $("#service-fee-total").text(service_fee_sum_with_vat.toFixed(2) + '\u20AC');
   $("#total").text((total_sum_with_vat + service_fee_sum_with_vat).toFixed(2) + '\u20AC');
@@ -585,6 +589,10 @@ function style_action_selectors() {
             // Show or hide price field
             $(".conversation-price").addClass('hidden');
             $("." + action +  "-price").removeClass('hidden');
+            
+            // Show or hide payout details missing information
+            $(".hidden-accept-form").addClass('hidden');
+            $(".visible-when-" + action).removeClass('hidden');
             
             $(this).addClass(action);
             $(".conversation-action").find('input:radio[id=' + $(this).attr('name') + ']').attr('checked', true);
@@ -695,6 +703,14 @@ function initialize_terms_form() {
     $('#terms').lightbox_me({ centered: true, zIndex: 1000000 }); 
   });
 }
+
+function initialize_mangopay_terms_lightbox() {
+  $('#mangopay_terms_link').click(function(link) {
+    link.preventDefault();
+    $('#mangopay_terms').lightbox_me({ centered: true, zIndex: 1000001 }); 
+  });
+}
+
 
 function initialize_update_profile_info_form(locale, person_id, name_required) {
   auto_resize_text_areas("update_profile_description_text_area");
