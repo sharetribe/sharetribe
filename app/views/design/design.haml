@@ -176,20 +176,97 @@
                 display: block;
               }
             }
+  .design-section
+    .h3.design-h3
+      = "Helper classes"
 
-  .h3.design-h3
-    = "Helper classes"
+    .design-component
+      .design-example
+        .design-block.visible-tablet
+          = "Visible on tablet and up"
+        .design-block.hidden-tablet
+          = "Hidden on tablet and up"
+      .design-code
+        %pre
+          :plain
+            .visible-tablet
+              = "Visible on tablet and up"
+            .hidden-tablet
+              = "Hidden on tablet and up"
 
-  .design-component
-    .design-example
-      .design-block.visible-tablet
-        = "Visible on tablet and up"
-      .design-block.hidden-tablet
-        = "Hidden on tablet and up"
-    .design-code
-      %pre
-        :plain
-          .visible-tablet
-            = "Visible on tablet and up"
-          .hidden-tablet
-            = "Hidden on tablet and up"
+  .h2.design-h2
+    = "Layout and positioning"
+
+  .design-section
+    .h3.design-h3
+      = "Fluid grid"
+
+    .design-component
+      .design-example
+        - (1..11).each do |i|
+          .row
+            %div{class: "col-#{i}" }
+              .col-content
+                = ".col-#{i}"
+            %div{class: "col-#{12-i}" }
+              .col-content
+                = ".col-#{12-i}"
+        .row
+          .col-12
+            .col-content
+              = ".col-12"
+      .design-code
+        %pre
+          :plain
+            .row
+              .col-1
+                = "Col 1"
+              .col-11
+                = "Col 11"
+
+  .design-section
+    .h3.design-h3
+      = "Nested fluid grid"
+
+    .design-component
+      .design-example
+        .row
+          .col-6
+            .col-content
+              = ".col-6"
+              .row
+                .col-4
+                  .col-content
+                    = ".col-4"
+                .col-4
+                  .col-content
+                    = ".col-4"
+                .col-4
+                  .col-content
+                    = ".col-4"
+          .col-6
+            .col-content
+              = ".col-6"
+              .row
+                .col-3
+                  .col-content
+                    = ".col-3"
+                .col-3
+                  .col-content
+                    = ".col-3"
+                .col-3
+                  .col-content
+                    = ".col-3"
+                .col-3
+                  .col-content
+                    = ".col-3"
+      .design-code
+        %pre
+          :plain
+            .row
+              .col-12
+                .row
+                  .col-6
+                    = "Nested col-6 inside col-12"
+                  .col-6
+                    = "Nested col-6 inside col-12"

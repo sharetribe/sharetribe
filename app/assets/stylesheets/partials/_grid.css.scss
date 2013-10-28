@@ -91,14 +91,6 @@
   background: $highlight;
 }
 
-.row {
-  margin-bottom: lines(0.5);
-}
-
-.row-with-divider {
-  @include divider;
-}
-
 .wrapper {
   @include wrapper;
 }

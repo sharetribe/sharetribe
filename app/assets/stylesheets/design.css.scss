@@ -70,12 +70,21 @@
   @include giga-type;
 }
 
-.design-block {
-  height: lines(2);
-  margin-bottom: lines(0.5);
+.design-block-background {
+  min-height: lines(2);
   background-color: $highlight;
+  background-color: rgba(0, 0, 0, 0.1);
   line-height: lines(2);
   text-align: center;
+}
+
+.design-block-margin {
+  margin-bottom: lines(0.5);
+}
+
+.design-block {
+  @extend .design-block-background;
+  @extend .design-block-margin;
 }
 
 @mixin design-mq-active {
@@ -114,4 +123,8 @@
 .design-mq-desktop {
   @extend .design-block;
   @include media(desktop) { @include design-mq-active; }
+}
+
+.col-content {
+  @extend .design-block-background;
 }
