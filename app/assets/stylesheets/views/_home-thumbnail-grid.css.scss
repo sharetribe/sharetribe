@@ -59,6 +59,10 @@ $home-thumbnail-grid-author: $home-thumbnail-grid-avatar + ($home-thumbnail-grid
   }
 }
 
+.home-fluid-thumbnail-grid-author-avatar-image {
+  @include border-radius($default-border-radius);
+}
+
 .home-fluid-thumbnail-grid-author-name {
   position: absolute;
   top: $home-thumbnail-grid-avatar-padding;

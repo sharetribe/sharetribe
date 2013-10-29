@@ -310,12 +310,12 @@ module ApplicationHelper
     haml_concat add_links_and_br_tags_for_email(capture_haml(&block)).html_safe
   end
   
-  def small_avatar_thumb(person_or_organization)
+  def small_avatar_thumb(person_or_organization, avatar_html_options={})
     return "" if person_or_organization.nil?
     if person_or_organization.class == Organization
-      image_tag person_or_organization.logo.url(:thumb)
+      image_tag person_or_organization.logo.url(:thumb), avatar_html_options
     else
-      link_to((image_tag person_or_organization.image.url(:thumb)), person_or_organization)
+      link_to((image_tag person_or_organization.image.url(:thumb), avatar_html_options), person_or_organization)
     end
   end
   
