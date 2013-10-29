@@ -178,7 +178,7 @@ Feature: User creates a new listing
     Given I am logged in
     And I am on the home page
     When there are some custom categories
-    And I follow "Post a new listing!"
+    And I follow "Post a new listing"
     Then I should see "I need something"
     And I should see "I have something to offer to others"
     When I follow "I need something"
@@ -201,7 +201,7 @@ Feature: User creates a new listing
     Given I am logged in
     And I am on the home page   
     When all categories are custom categories
-    And I follow "Post a new listing!"
+    And I follow "Post a new listing"
     Then I should not see "I need something"
     And I should not see "I have something to offer to others"
     And I should see "Plastic"
