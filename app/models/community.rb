@@ -45,10 +45,14 @@ class Community < ActiveRecord::Base
     
   serialize :settings, Hash
   
-  has_attached_file :logo, :styles => { 
-                      :header => "192x192#",  
-                      :original => "600x600>"},
-                      :default_url => "/assets/logos/header/default.png"
+  has_attached_file :logo, 
+                    :styles => { 
+                      :header => "192x192#",
+                      :header_icon => "40x40#",  
+                      :original => "600x600>"
+                    },
+                    :default_url => "/assets/logos/mobile/default.png"
+  
   validates_attachment_content_type :logo,
                                     :content_type => ["image/jpeg",
                                                       "image/png", 
@@ -56,10 +60,26 @@ class Community < ActiveRecord::Base
                                                       "image/pjpeg", 
                                                       "image/x-png"]
   
-  has_attached_file :cover_photo, :styles => { 
+  has_attached_file :wide_logo, 
+                    :styles => { 
+                      :header => "168x40#",  
+                      :original => "600x600>"
+                    },
+                    :default_url => "/assets/logos/full/default.png"
+  
+  validates_attachment_content_type :wide_logo,
+                                    :content_type => ["image/jpeg",
+                                                      "image/png", 
+                                                      "image/gif", 
+                                                      "image/pjpeg", 
+                                                      "image/x-png"]
+  
+  has_attached_file :cover_photo, 
+                    :styles => { 
                       :header => "1600x195#",  
-                      :original => "3200x3200>"},
-                      :default_url => "/assets/cover_photos/header/default.jpg"
+                      :original => "3200x3200>"
+                    },
+                    :default_url => "/assets/cover_photos/header/default.jpg"
   validates_attachment_content_type :cover_photo,
                                     :content_type => ["image/jpeg",
                                                       "image/png", 

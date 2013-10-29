@@ -12,7 +12,8 @@
       
   
     %a.logo-side{:href => "/", :class => (@current_user ? "logo-side-logged" : "logo-side-unlogged")}
-      = image_tag @current_community.logo.url(:header), :class => "marketplace-header-logo"
+      = image_tag @current_community.wide_logo.url(:header), :class => "marketplace-header-logo"
+      = image_tag @current_community.logo.url(:header_icon), :class => "marketplace-header-logo-mobile"
 
     .right-side
       = link_to t("header.home").downcase, "/", :class => "global-navi global-navi-left"

@@ -3425,15 +3425,30 @@ header.marketplace-header {
   }
   
   a.logo-side-unlogged {
-    padding-left: lines(0.75);
+    padding-left: lines(0.5);
+    padding-right: lines(0.5);
     @include media(mid-desktop) {
       padding-left: 0;
+      padding-right: 0;
     }
   }
   
   img.marketplace-header-logo {
     height: em(40);
+    display: none;
+    
+    @include media(mid-desktop) {
+      display: inline-block;
+    }
+  }
+  
+  img.marketplace-header-logo-mobile {
+    height: em(40);
     display: inline-block;
+    
+    @include media(mid-desktop) {
+      display: none;
+    }
   }
   
   .marketplace-name {
@@ -3493,7 +3508,7 @@ header.marketplace-header {
     display: inline-block;
     position: absolute;
     top: em(-18);
-    right: lines(0.5);
+    right: 0;
     @include media(mid-desktop) {
       position: static;
     }
@@ -3591,7 +3606,7 @@ header.marketplace-header {
       display: block;
       position: absolute;
       top: em(18);
-      right: lines(4.5);
+      right: lines(4);
     }
     
     .badge {
