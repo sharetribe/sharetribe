@@ -867,6 +867,7 @@ ca:
       payment_successful: ~
       payment_canceled: ~
       error_in_payment: ~
+      cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: "Les instruccions per canviar la contrasenya s'han enviat a la teva adreça de correu electrònic."
       person_activated: "Usuari activat"
@@ -916,6 +917,7 @@ ca:
       you_must_log_in_to_view_your_settings: "Iniciar sessió per a veure la teva configuració"
       you_must_log_in_to_add_news_item: "Has d'iniciar sesió per afegir un nou article"
       you_need_to_confirm_your_account_first: "Hauràs de confirmar el teu compte abans."
+      you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Ja no segueixes aquest anunci"
       joining_community_failed: ~
     profile_extras_header:
@@ -1242,6 +1244,20 @@ ca:
       payment_receiver: ~
       sum: ~
       commission_will_be_added: ~
+    form:
+      total: ~
+      service_charge: ~
+      product: ~
+      price: ~
+      continue_to_pay: ~
+    mangopay:
+      terms:
+        mangopay_terms_also_included: ~
+        mangopay_terms_link_text: ~
+      seller_registration_needed:
+        seller_registration_needed: ~
+        seller_registration_instructions: ~
+        settings_page_link: ~
   people:
     index:
       loading_more_members: ~
