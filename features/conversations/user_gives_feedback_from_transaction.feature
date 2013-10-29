@@ -31,7 +31,7 @@ Feature: User gives feedback from transaction
     Then I should see "has given you feedback on event I offer this."
     And I should see "Give feedback to"
     And I should see "see all the feedback you have received"
-    And I should not see "1" within ".inbox-toggle"
+    And I should not see "1" within ".inbox-link"
     When I open the email with subject "has given you feedback"
     And I follow "Give feedback" in the email
     Then I should see "How did things go?"

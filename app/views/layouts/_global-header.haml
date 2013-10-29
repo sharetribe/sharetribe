@@ -30,8 +30,9 @@
             = render :partial => "layouts/locale_select", :collection => available_locales, :as => :loc_array
       
       - if @current_user
-        %a{:href => received_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.messages"), :id => "inbox_link", :class => "global-navi inbox-link"}
+        %a{:href => received_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.messages"), :id => "inbox-link", :class => "global-navi inbox-link"}
           = icon_tag("mail", ["icon"])
+          = render :partial => "layouts/messages_badge"
         .user-menu-toggle.toggle.hidden{data: {toggle: '.user-menu'}}
           = image_tag @current_user.image.url(:thumb), alt: '', class: 'user-avatar'
           .user-name= @current_user.name(@current_community)

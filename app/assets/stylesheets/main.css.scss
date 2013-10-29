@@ -554,7 +554,8 @@ label.error {
 .global-header .badge {
   // Positions badges in .inbox-toggle and .notifications-toggle
   position: absolute;
-  right: lines(0.125, 13); bottom: lines(0.125, 13);
+  top: -10px; // Magic numbers, these just look good
+  left: -5px; // Magic numbers, these just look good
   
   &.huge-badge {
     right: lines(0.0625); bottom: lines(0.0625);
@@ -3519,6 +3520,10 @@ header.marketplace-header {
       margin-left: lines(0.5);
       content: "|";
     };
+  }
+
+  .messages-badge {
+    position: relative;
   }
   
   a.inbox-link {
