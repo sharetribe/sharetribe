@@ -14,7 +14,6 @@ class HomepageController < ApplicationController
     ## Support old /?map=true URL END
 
     @homepage = true
-    @categories_enabled = true
     
     @view_type = params[:view] || @current_community.default_browse_view || "grid"
     
@@ -34,6 +33,8 @@ class HomepageController < ApplicationController
     @listing_types = Rails.cache.fetch("/community/#{@current_community.id}_#{@current_community.updated_at}/listing_types") {
       @current_community.listing_types
     }
+    
+    @category_menu_enabled = @current_community.categories.size > 1
     
     @filter_params = params.slice("category", "share_type")
     

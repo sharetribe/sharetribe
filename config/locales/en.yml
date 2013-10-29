@@ -12,10 +12,12 @@ en:
         invite_people: "Invite people to this community"
       edit_look_and_feel:
         edit_community_look_and_feel: "Edit community \"%{community_name}\" look and feel"
-        community_logo: Logo
+        community_logo: "Full logo"
+        community_logo_icon: "Icon logo"
         community_cover_photo: "Cover photo"
         community_custom_color1: "Main color"
-        logo_instructions_text: "Logo file will be cut in square and resized to 192x192 pixel if needed."
+        logo_instructions_text: "Logo size should be 168x40px."
+        logo_icon_instructions_text: "Icon logo size should be 40x40px."
         cover_photo_instructions_text: "Cover photo file will be resized to 1600x195 pixel size and taller images will be cut in the middle."
         custom_color1_instructions_text: "You can change the main color of the user interface of this community by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> can help you choose the color and copy the code here."
         invalid_color_code: "Color code should contain 6 numbers or letters A-F, for example D96E21"

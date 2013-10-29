@@ -57,7 +57,7 @@
                 = link_to params.merge({share_type: share_type.name}), :class => "toggle-menu-subitem" do
                   = share_type.display_name.mb_chars.capitalize.to_s
 
-    - if @categories_enabled
+    - if @category_menu_enabled
       .toggle-container.home-toolbar-toggle-container.hidden-tablet
         .toggle.with-borders.hidden{data: {toggle: '#home-toolbar-categories-menu'}}
           .toggle-header-container
@@ -80,7 +80,7 @@
                   = link_to sub_category.display_name.mb_chars.capitalize.to_s, params.merge({category: sub_category.name}), :class => "toggle-menu-subitem"
 
 .row
-  - if @categories_enabled
+  - if @category_menu_enabled
     .col-3.visible-tablet
       = link_to t("homepage.filters.all_categories"), params.merge({category: "all"}), :class => "home-categories-main #{if all_categories_selected(params[:category], @main_categories, @categories) then 'selected' end}"
       - @main_categories.each do |category|
@@ -93,7 +93,7 @@
                 - is_selected = sub_category.name == params[:category]
                 = link_to sub_category.display_name.mb_chars.capitalize.to_s, params.merge({category: sub_category.name}), :class => "home-categories-sub #{if is_selected then 'selected' end}", :data => {:"sub-category" =>sub_category.name}
 
-  - main_container_class = if @categories_enabled then "col-9" else "col-12" end
+  - main_container_class = if @category_menu_enabled then "col-9" else "col-12" end
   - if @view_type.eql?("map")
     %div{:class => main_container_class}
       .home-map

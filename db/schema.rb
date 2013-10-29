@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131028110133) do
+ActiveRecord::Schema.define(:version => 20131028183014) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -148,6 +148,10 @@ ActiveRecord::Schema.define(:version => 20131028110133) do
     t.boolean  "use_community_location_as_default", :default => false
     t.boolean  "show_category_in_listing_list",     :default => false
     t.string   "default_browse_view",               :default => "grid"
+    t.string   "wide_logo_file_name"
+    t.string   "wide_logo_content_type"
+    t.integer  "wide_logo_file_size"
+    t.datetime "wide_logo_updated_at"
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"

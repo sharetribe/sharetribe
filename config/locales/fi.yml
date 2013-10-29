@@ -12,10 +12,12 @@ fi:
         invite_people: "Kutsu ihmisiä yhteisöön"
       edit_look_and_feel:
         edit_community_look_and_feel: "Muokkaa yhteisön \"%{community_name}\" ulkoasua"
-        community_logo: Logo
+        community_logo: "Peruslogo"
+        community_logo_icon: "Ikonilogo"
         community_cover_photo: Kansikuva
         community_custom_color1: Pääväri
-        logo_instructions_text: "Logotiedosto leikataan neliöksi ja muutetaan tarvittaessa kokoon 192x192 pikseliä."
+        logo_instructions_text: "Peruslogon koon tulee olla 168x40 pikseliä."
+        logo_icon_instructions_text: "Ikonilogon koon tulee olla 40x40 pikseliä."
         cover_photo_instructions_text: "Kansikuva muutetaan 1600x195 pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
         custom_color1_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset värin hex-koodin. Sen selville saamisessa auttaa esimerkiksi <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
         invalid_color_code: "Värikoodin tulisi sisältää 6 merkkiä, ja vain numeroita tai kirjaimia A-F, esimerkiksi: D96E21"
