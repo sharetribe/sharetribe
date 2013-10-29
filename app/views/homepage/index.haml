@@ -101,8 +101,9 @@
   - else
     %div{:class => main_container_class}
       - if @view_type.eql?("grid")
-        .home-fluid-thumbnail-grid
-          = render :partial => "grid_item", :collection => @listings, :as => :listing
+        %div{class: @category_menu_enabled ? "home-fluid-thumbnail-grid-narrow" : "home-fluid-thumbnail-grid-wide"}
+          .home-fluid-thumbnail-grid
+            = render :partial => "grid_item", :collection => @listings, :as => :listing
       - else
         .home-listings
           = render :partial => "list_item", :collection => @listings, :as => :listing

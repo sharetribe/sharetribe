@@ -8,7 +8,13 @@ $home-thumbnail-grid-avatar: em(48);
 $home-thumbnail-grid-avatar-padding: lines(0.25);
 $home-thumbnail-grid-author: $home-thumbnail-grid-avatar + ($home-thumbnail-grid-avatar-padding * 2);
 
-@include create-fluid-thumbnail-grid(home);
+.home-fluid-thumbnail-grid-narrow {
+  @include create-fluid-thumbnail-grid(home, 1, 1, 2, 3, 3, 3, 3, 3);
+}
+
+.home-fluid-thumbnail-grid-wide {
+  @include create-fluid-thumbnail-grid(home, 1, 1, 2, 3, 4, 4, 4, 4);
+}
 
 .home-fluid-thumbnail-grid-image-container {
   @include border-top-radius($default-border-radius);
