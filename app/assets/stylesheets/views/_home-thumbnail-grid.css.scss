@@ -45,6 +45,7 @@ $home-thumbnail-grid-author: $home-thumbnail-grid-avatar + ($home-thumbnail-grid
 }
 
 .home-fluid-thumbnail-grid-author {
+  @include border-bottom-radius($default-border-radius);
   background-color: $highlight;
   height: $home-thumbnail-grid-author;
   position: relative;
