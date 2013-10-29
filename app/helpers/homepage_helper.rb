@@ -37,7 +37,7 @@ module HomepageHelper
 
   def with_first_listing_image(listing, &block)
     if listing.listing_images.size > 0 && !listing.listing_images.first.image_processing
-      block.call
+      block.call(listing.listing_images.first)
     end
   end
 
