@@ -7,7 +7,7 @@ Feature: User creates a new listing
   Scenario: Creating a new item request successfully
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I follow "I need something"
     And I follow "An item"
     And I should see "What kind of an item are we talking about?"
@@ -26,7 +26,7 @@ Feature: User creates a new listing
   Scenario: Creating a new item offer successfully
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I follow "offer to others"
     And I follow "An item"
     And I follow "Tools" within "#option-groups"
@@ -44,7 +44,7 @@ Feature: User creates a new listing
   Scenario: Creating a new service request successfully
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I follow "I need something"
     And I follow "a service"
     And I fill in "listing_title" with "Massage"
@@ -59,7 +59,7 @@ Feature: User creates a new listing
   Scenario: Creating a new rideshare request successfully
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I follow "I need something"
     And I follow "shared ride"
     And I fill in "listing_origin" with "Otaniemi"
@@ -73,14 +73,14 @@ Feature: User creates a new listing
   Scenario: Trying to create a new request without being logged in
     Given I am not logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I should see "Log in to Sharetribe" within "h2"
 
   @javascript
   Scenario: Trying to create a new item request with insufficient information
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I follow "I need something"
     And I follow "An item"
     And I follow "Sports"
@@ -98,7 +98,7 @@ Feature: User creates a new listing
   Scenario: Trying to create a new rideshare request with insufficient information
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I follow "I need something"
     And I follow "shared ride"
     And I fill in "Origin" with "Test"
@@ -133,7 +133,7 @@ Feature: User creates a new listing
   Scenario: Create a new listing successfully after going back and forth in the listing form
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I follow "I need something"
     And I should see "What do you need?"
     And I should see "Listing type: Request"
@@ -225,7 +225,7 @@ Feature: User creates a new listing
   Scenario: User creates a new listing with price
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I follow "I have something to offer to others"
     And I follow "An item"
     And I follow "Tools" within "#option-groups"

@@ -16,12 +16,12 @@
       = image_tag @current_community.logo.url(:header_icon), :class => "marketplace-header-logo-mobile"
 
     .right-side
-      = link_to t("header.home").downcase, "/", :class => "global-navi global-navi-left"
+      = link_to t("header.home").downcase, "/", :class => "global-navi global-navi-left", :id => "global-navi-home"
       = link_to t("header.about").downcase, about_infos_path, :class => "global-navi global-navi-left"
       = link_to t("header.contact_us").downcase, new_user_feedback_path, :class => "global-navi"
       
       - if available_locales.size > 1
-        .language-menu-toggle.toggle.hidden{data: {toggle: '.language-menu'}}
+        #global-navi-select-language.language-menu-toggle.toggle.hidden{data: {toggle: '.language-menu'}}
           .language-name
             = get_full_locale_name(I18n.locale).downcase
           = icon_tag("dropdown", ["icon-dropdown"])
@@ -77,4 +77,4 @@
         = link_to t("layouts.logged_in.login").downcase, login_path, :class => "global-navi login-link"
       
       .new-listing-link
-        = link_to t("homepage.index.post_new_listing"), new_listing_path, :class => "action-button"
+        = link_to t("homepage.index.post_new_listing"), new_listing_path, :class => "action-button", :id => "new-listing-link"

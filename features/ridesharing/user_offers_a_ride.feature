@@ -4,7 +4,7 @@ Feature: User creates a new rideshare
   Scenario: Creating a new rideshare item request successfully
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I follow "I need something"
     And I follow "A shared ride"
     And wait for 1 seconds
@@ -22,7 +22,7 @@ Feature: User creates a new rideshare
   Scenario: Creating a new rideshare item request with wrong address in destination
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I follow "I need something"
     And I follow "A shared ride"
     And wait for 1 seconds
@@ -35,7 +35,7 @@ Feature: User creates a new rideshare
   Scenario: Creating a new rideshare item request with wrong address in destination
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I follow "I need something"
     And I follow "A shared ride"
     And wait for 1 seconds
@@ -48,7 +48,7 @@ Feature: User creates a new rideshare
   Scenario: Creating a new rideshare item offer successfully
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I follow "offer to others"
     And I follow "A shared ride"
     And wait for 1 seconds
@@ -66,7 +66,7 @@ Feature: User creates a new rideshare
   Scenario: Creating a new rideshare item offer with wrong address in destination
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I follow "offer to others"
     And I follow "A shared ride"
     And wait for 1 seconds
@@ -79,7 +79,7 @@ Feature: User creates a new rideshare
   Scenario: Creating a new rideshare item offer with wrong address in destination
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I follow "offer to others"
     And I follow "A shared ride"
     And wait for 1 seconds

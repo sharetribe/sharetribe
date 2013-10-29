@@ -10,12 +10,12 @@ Feature: User sees available locales
       | fi |
       | en |
     When I am on the home page
-    And I click ".select-language"
+    And I click "#global-navi-select-language"
     Then I should see "English" within ".language-menu"
     Then I should see "Suomi" within ".language-menu"
     Then I follow "English" within ".language-menu"
     And I should see "Post a new listing!" within "#post_new_listing"
-    And I click ".select-language"
+    And I click "#global-navi-select-language"
     And I follow "Suomi" within ".language-menu"
     Then I should see "Lisää uusi ilmoitus!" within "#post_new_listing"
     
@@ -32,12 +32,12 @@ Feature: User sees available locales
     Given the test community has following available locales:
       | locale |
     When I am on the home page
-    And I click ".select-language"
+    And I click "#global-navi-select-language"
     Then I should see "Pусский" within ".language-menu"
     Then I should see "Suomi" within ".language-menu"
     Then I follow "Pусский" within ".language-menu"
     And I should see "Разместить новый листинг!" within "#post_new_listing"
-    And I click ".select-language"
+    And I click "#global-navi-select-language"
     And I follow "Suomi" within ".language-menu"
     Then I should see "Lisää uusi ilmoitus!" within "#post_new_listing"
   
