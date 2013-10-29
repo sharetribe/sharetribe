@@ -15,7 +15,7 @@
 }
 
 .design-h2 {
-  @include large-type;
+  @include larger-type;
   border-bottom: 1px solid #CCC;
 }
 
@@ -70,10 +70,19 @@
   @include giga-type;
 }
 
-.design-block {
-  height: lines(2);
-  margin-bottom: lines(0.5);
+.design-block-background {
+  min-height: lines(2);
   background-color: $highlight;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.design-block-margin {
+  margin-bottom: lines(0.5);
+}
+
+.design-block {
+  @extend .design-block-background;
+  @extend .design-block-margin;
   line-height: lines(2);
   text-align: center;
 }
@@ -114,4 +123,27 @@
 .design-mq-desktop {
   @extend .design-block;
   @include media(desktop) { @include design-mq-active; }
+}
+
+.col-content {
+  @extend .design-block-background;
+}
+
+@include create-fluid-thumbnail-grid(design, 1, 1, 2, 2, 3, 3, 4, 5);
+
+.design-fluid-thumbnail-grid-item-content {
+  @extend .design-block-background;
+  width: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+.design-fluid-thumbnail-grid-item-fixed-height {
+  @extend .design-fluid-thumbnail-grid-item-content;
+  height: 140px;
+  line-height: 140px;
+}
+
+.design-fluid-thumbnail-grid-item-3x2 {
+  @extend .design-fluid-thumbnail-grid-item-content;
 }

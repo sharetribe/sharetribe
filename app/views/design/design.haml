@@ -1,13 +1,13 @@
 .design-wrapper
-  .h1.design-h1
+  %h1.design-h1
     = "Sharetribe Design Components"
 
-  .h2.design-h2
+  %h2.design-h2
     = "Typography"
 
   .design-section
 
-    .h3.design-h3
+    %h3.design-h3
       = "Font sizes"
 
     .design-component
@@ -35,12 +35,12 @@
               @include giga-type;
             }
 
-  .h2.design-h2
+  %h2.design-h2
     = "Forms"
 
   .design-section
 
-    .h3.design-h3
+    %h3.design-h3
       = "Buttons"
 
     .design-component
@@ -55,7 +55,7 @@
 
     .design-section
 
-    .h3.design-h3
+    %h3.design-h3
       = "Dropdown menu"
 
     .design-component
@@ -99,7 +99,7 @@
 
   .design-section
 
-    .h3.design-h3
+    %h3.design-h3
       = "Dropdown menu with borders"
 
     .design-component
@@ -141,11 +141,11 @@
               %a
                   = "Item 3"
 
-  .h2.design-h2
+  %h2.design-h2
     = "Responsive utilities"
 
   .design-section
-    .h3.design-h3
+    %h3.design-h3
       = "Media queries"
 
     .design-component
@@ -177,7 +177,8 @@
               }
             }
 
-    .h3.design-h3
+  .design-section
+    %h3.design-h3
       = "Helper classes"
 
     .design-component
@@ -193,3 +194,121 @@
               = "Visible on tablet and up"
             .hidden-tablet
               = "Hidden on tablet and up"
+
+  %h2.design-h2
+    = "Layout and positioning"
+
+  .design-section
+    %h3.design-h3
+      = "Fluid grid"
+
+    .design-component
+      .design-example
+        - (1..11).each do |i|
+          .row
+            %div{class: "col-#{i}" }
+              .col-content
+                = ".col-#{i}"
+            %div{class: "col-#{12-i}" }
+              .col-content
+                = ".col-#{12-i}"
+        .row
+          .col-12
+            .col-content
+              = ".col-12"
+      .design-code
+        %pre
+          :plain
+            .row
+              .col-1
+                = "Col 1"
+              .col-11
+                = "Col 11"
+
+  .design-section
+    %h3.design-h3
+      = "Nested fluid grid"
+
+    .design-component
+      .design-example
+        .row
+          .col-6
+            .col-content
+              = ".col-6"
+              .row
+                .col-4
+                  .col-content
+                    = ".col-4"
+                .col-4
+                  .col-content
+                    = ".col-4"
+                .col-4
+                  .col-content
+                    = ".col-4"
+          .col-6
+            .col-content
+              = ".col-6"
+              .row
+                .col-3
+                  .col-content
+                    = ".col-3"
+                .col-3
+                  .col-content
+                    = ".col-3"
+                .col-3
+                  .col-content
+                    = ".col-3"
+                .col-3
+                  .col-content
+                    = ".col-3"
+      .design-code
+        %pre
+          :plain
+            .row
+              .col-12
+                .row
+                  .col-6
+                    = "Nested col-6 inside col-12"
+                  .col-6
+                    = "Nested col-6 inside col-12"
+
+  .design-section
+    %h3.design-h3
+      = "Fluid thumbnail grid"
+    .design-component
+      .design-example
+        .design-fluid-thumbnail-grid
+          - (1..24).map do |i|
+            .design-fluid-thumbnail-grid-item
+              .design-fluid-thumbnail-grid-item-fixed-height
+                = "Thumbnail #{i}"
+      .design-code
+        %pre
+          :plain
+            # To use fluid grid, you have to first create it. The following command will create a fluid grid prefixed with `design`:
+
+            @include create-fluid-thumbnail-grid(design, 1, 1, 2, 2, 3, 3, 4, 5);
+
+            After you have created the grid, you can use it like this:
+
+            .design-fluid-thumbnail-grid
+                .design-fluid-thumbnail-grid-item
+                  %div
+                    = "Thumbnail 1"
+                .design-fluid-thumbnail-grid-item
+                  %div
+                    = "Thumbnail 2"
+
+  .design-section
+    %h3.design-h3
+      = "Fluid thumbnail grid with 3/2 aspect ratio"
+    .design-component
+      .design-example
+        .design-fluid-thumbnail-grid
+          - (1..24).map do |i|
+            .design-fluid-thumbnail-grid-item
+              = image_tag("empty_3x2.gif", :class => "design-fluid-thumbnail-grid-item-3x2")
+      .design-code
+        %pre
+          :plain
+            Use an empty image to get the correct aspect ratio

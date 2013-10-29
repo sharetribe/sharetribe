@@ -678,6 +678,8 @@ en:
       some_private_requests_exist: "There are already <b>%{number_of_listings} requests</b>,"
     event_feed:
       latest_events: "What's going on"
+    grid_item:
+      processing_uploaded_image: "(Processing uploaded image...)"
     index:
       no_listings_with_your_search_criteria: "We couldn't find any results that matched your criteria. (If you just added something, it might take about 10 minutes before new things appear in search.)"
       no_listings_notification: "No listings. %{add_listing_link}."

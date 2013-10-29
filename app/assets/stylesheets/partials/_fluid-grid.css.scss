@@ -11,6 +11,7 @@
   @for $i from 1 through $cols {
     .#{$prefix}-#{$i} {
       width: 100%;
+      margin-bottom: lines(0.5);
 
       @include media(tablet) {
         width: $col-width * $i;
@@ -35,6 +36,11 @@
 .row {
   @include clearfix;
 }
+
+.row-with-divider {
+  @include divider;
+}
+
 
 /**
   Creates a basic grid system, prefixed "col"

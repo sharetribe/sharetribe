@@ -678,6 +678,8 @@ fi:
       some_private_requests_exist: "Palvelussa on jo <b>%{number_of_listings} pyyntöä</b>,"
     event_feed:
       latest_events: "Mitä %{service_name_inessive} tapahtuu"
+    grid_item:
+      processing_uploaded_image: "(Ladatun kuvan käsittely kesken...)"
     index:
       no_listings_with_your_search_criteria: "Antamillasi hakuehdoilla ei löytynyt yhtään ilmoitusta."
       no_listings_notification: "Ei ilmoituksia. %{add_listing_link}."

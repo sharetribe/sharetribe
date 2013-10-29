@@ -1,0 +1,60 @@
+@import "compass/utilities/general/clearfix";
+
+$fluid-thumbnail-grid-margin: lines(1);
+
+@mixin thumbnail-item-width($row-count) {
+  width: 100% / $row-count;
+}
+
+@mixin thumnail-grid-items-per-row(
+  $tiny-mobile-rows: 1,
+  $mobile-rows: 1,
+  $large-mobile-rows: 2,
+  $small-tablet-rows: 3,
+  $tablet-rows: 3,
+  $small-desktop-rows: 3,
+  $mid-desktop-rows: 3,
+  $desktop-rows: 3) {
+
+  @include media(tiny-mobile) { @include thumbnail-item-width($tiny-mobile-rows); }
+  @include media(mobile) { @include thumbnail-item-width($mobile-rows); }
+  @include media(large-mobile) { @include thumbnail-item-width($large-mobile-rows); }
+  @include media(small-tablet) { @include thumbnail-item-width($small-tablet-rows); }
+  @include media(tablet) { @include thumbnail-item-width($tablet-rows); }
+  @include media(small-desktop) { @include thumbnail-item-width($small-desktop-rows); }
+  @include media(mid-desktop) { @include thumbnail-item-width($mid-desktop-rows); }
+  @include media(desktop) { @include thumbnail-item-width($desktop-rows); }
+}
+
+@mixin create-fluid-thumbnail-grid($prefix,
+  $tiny-mobile-rows: 1,
+  $mobile-rows: 1,
+  $large-mobile-rows: 2,
+  $small-tablet-rows: 3,
+  $tablet-rows: 3,
+  $small-desktop-rows: 3,
+  $mid-desktop-rows: 3,
+  $desktop-rows: 3
+  ) {
+  
+  .#{$prefix}-fluid-thumbnail-grid {
+    @include clearfix;
+    margin-right: -1 * $fluid-thumbnail-grid-margin;
+  }
+
+  .#{$prefix}-fluid-thumbnail-grid-item {
+    float: left;
+    padding-right: $fluid-thumbnail-grid-margin;
+    margin-bottom: $fluid-thumbnail-grid-margin;
+    @include thumnail-grid-items-per-row(
+      $tiny-mobile-rows,
+      $mobile-rows,
+      $large-mobile-rows,
+      $small-tablet-rows,
+      $tablet-rows,
+      $small-desktop-rows,
+      $mid-desktop-rows,
+      $desktop-rows
+    );
+  }
+}
