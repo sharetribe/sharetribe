@@ -1,3 +1,26 @@
-.thumbnail-grid-item.home-thumbnail-grid-item>
-  .home-thumbnail-grid-item-content
-    = "JEEJEE"
+.home-fluid-thumbnail-grid-item
+  .home-fluid-thumbnail-grid-item-content
+    .home-fluid-thumbnail-grid-image-container
+      - with_first_listing_image(listing) do
+        = image_tag listing.listing_images.first.image.url(:email), {:alt => listed_listing_title(listing), :class => "home-fluid-thumbnail-grid-image"}
+
+      - with_first_listing_image_processing(listing) do
+        = image_tag "empty_3x2.gif", {:class => "home-fluid-thumbnail-grid-image"}
+
+      - without_listing_image(listing) do
+        = image_tag "empty_3x2.gif", {:class => "home-fluid-thumbnail-grid-image"}
+
+      .home-fluid-thumbnail-grid-overlay
+      .home-fluid-thumbnail-grid-title
+        - with_first_listing_image_processing(listing) do
+          = t(".processing_uploaded_image")
+          %br/
+        = listing.title
+      - if listing.price
+        .home-fluid-thumbnail-grid-price
+          = money_without_cents_and_with_symbol(listing.price).upcase
+    .home-fluid-thumbnail-grid-author
+      .home-fluid-thumbnail-grid-author-avatar
+        = small_avatar_thumb(listing.organization_or_author?(@current_community))
+      = link_to(listing.author, :class => "home-fluid-thumbnail-grid-author-name") do
+        = listing.author.name

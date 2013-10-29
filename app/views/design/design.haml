@@ -271,24 +271,44 @@
                     = "Nested col-6 inside col-12"
                   .col-6
                     = "Nested col-6 inside col-12"
-  .design-section
-    %h3.design-h3
-      = "Thumbnail grid"
-    .design-component
-      .design-example
-        .thumbnail-grid
-          - (1..24).map do |i|
-            .thumbnail-grid-item>
-              .thumbnail-grid-item-content.design-thumbnail
-                = "Thumbnail #{i}"
 
   .design-section
     %h3.design-h3
       = "Fluid thumbnail grid"
     .design-component
       .design-example
-        .fluid-thumbnail-grid
+        .design-fluid-thumbnail-grid
           - (1..24).map do |i|
-            .fluid-thumbnail-grid-item
-              .fluid-thumbnail-grid-content.design-thumbnail-fluid
-                = image_tag("camera.jpg", :class => "design-thumbnail-image")
+            .design-fluid-thumbnail-grid-item
+              .design-fluid-thumbnail-grid-item-fixed-height
+                = "Thumbnail #{i}"
+      .design-code
+        %pre
+          :plain
+            # To use fluid grid, you have to first create it. The following command will create a fluid grid prefixed with `design`:
+
+            @include create-fluid-thumbnail-grid(design, 1, 1, 2, 2, 3, 3, 4, 5);
+
+            After you have created the grid, you can use it like this:
+
+            .design-fluid-thumbnail-grid
+                .design-fluid-thumbnail-grid-item
+                  %div
+                    = "Thumbnail 1"
+                .design-fluid-thumbnail-grid-item
+                  %div
+                    = "Thumbnail 2"
+
+  .design-section
+    %h3.design-h3
+      = "Fluid thumbnail grid with 3/2 aspect ratio"
+    .design-component
+      .design-example
+        .design-fluid-thumbnail-grid
+          - (1..24).map do |i|
+            .design-fluid-thumbnail-grid-item
+              = image_tag("empty_3x2.gif", :class => "design-fluid-thumbnail-grid-item-3x2")
+      .design-code
+        %pre
+          :plain
+            Use an empty image to get the correct aspect ratio

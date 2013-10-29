@@ -129,18 +129,21 @@
   @extend .design-block-background;
 }
 
-.design-thumbnail {
+@include create-fluid-thumbnail-grid(design, 1, 1, 2, 2, 3, 3, 4, 5);
+
+.design-fluid-thumbnail-grid-item-content {
   @extend .design-block-background;
+  width: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+.design-fluid-thumbnail-grid-item-fixed-height {
+  @extend .design-fluid-thumbnail-grid-item-content;
   height: 140px;
-  width: 210px;
   line-height: 140px;
 }
 
-.design-thumbnail-fluid {
-  @extend .design-block-background;
-}
-
-.design-thumbnail-image {
-  display: block;
-  width: 100%;
+.design-fluid-thumbnail-grid-item-3x2 {
+  @extend .design-fluid-thumbnail-grid-item-content;
 }
