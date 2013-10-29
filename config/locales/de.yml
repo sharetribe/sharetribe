@@ -865,6 +865,7 @@ de:
       payment_successful: "erfolgreiche Bezahlung"
       payment_canceled: "Zahlung abgebrochen"
       error_in_payment: "Es gab Probleme mit der Zahlung. Wenn du die Zahlung noch nicht ausgeführt hast, versuche es bitte noch einmal. Falls die Zahlung ausgeführt wurde, kontaktiere uns bitte."
+      cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: "Wenn du bezahlt hast, informieren wir den Zahlungsempfänger und du erhältst einen Beleg via E-Mail"
       password_recovery_sent: "Anweisungen zum Ändern Ihres Passworts wurden an Ihre Email gesendet."
       person_activated: "Benutzer aktiviert"
@@ -914,6 +915,7 @@ de:
       you_must_log_in_to_view_your_settings: "Sie müssen sich bei %{service_name} anmelden um Ihre Einstellungen anzeigen zu können.."
       you_must_log_in_to_add_news_item: "Sie müssen sich bei %{service_name} anmelden um einen neuen Artikel hinzuzufügen."
       you_need_to_confirm_your_account_first: "Du musst zuerst deine Email bestätigen."
+      you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "SIe verfolgen nicht länger diesen Eintrag"
       joining_community_failed: "Der Beitritt dieser Community ist fehlgeschlagen"
     profile_extras_header:
@@ -1240,6 +1242,20 @@ de:
       payment_receiver: Zahlungsempfänger
       sum: Summe
       commission_will_be_added: "Eine Servicegebühr von 10% wird hinzugefügt."
+    form:
+      total: ~
+      service_charge: ~
+      product: ~
+      price: ~
+      continue_to_pay: ~
+    mangopay:
+      terms:
+        mangopay_terms_also_included: ~
+        mangopay_terms_link_text: ~
+      seller_registration_needed:
+        seller_registration_needed: ~
+        seller_registration_instructions: ~
+        settings_page_link: ~
   people:
     index:
       loading_more_members: "Lade mehr Mitglieder"

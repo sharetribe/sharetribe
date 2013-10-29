@@ -362,7 +362,7 @@ en:
       you_are_not_a_member_of_this_community: "You have a user account in %{service_name}, but you are not yet a member of %{service_name} community '%{community}'."
       you_can_join: "You can join this community by accepting the terms of use and clicking 'Join community' below."
       you_can_join_email_confirmation: "To join this community you need to have a valid email address that ends with %{email_ending}. You can join by filling in your email address, accepting the terms of use of this community and clicking 'Join community' below, and confirming your email."
-      you_can_join_email_confirmation_multiple_addresses: "To join this community you need to have a valid email address that ends with one of the following: %{email_endings}. You can join by filling in your email address, accepting the terms of use of this community and clicking 'Join this community' below."
+      you_can_join_email_confirmation_multiple_addresses: "This community has email restrictions. You can only join if you have an email address of an organization that the admin of this site has allowed to join. You can join by filling in your email address, accepting the terms of use of this community and clicking 'Join community' below."
       you_can_join_with_invite_only: "You have to have an invitation from another member to join this community. If you have an invitation code, you can join this community by typing the code to the field below, accepting the terms of use of this community and clicking 'Join community' below."
       if_want_to_view_content: "If you want to view the content in this community without joining it you need to"
       log_out: "log out"
@@ -779,7 +779,7 @@ en:
       feedback_handle: Feedback
       give_feedback: "Contact us"
       keywords: "%{service_name}, Kassi, share resources in a community, borrow items, service, favor, item, rideshare, space, car pooling, housing, accommodation, help, helping, offer, request, rent, swap, exchange, buying, selling, buy, sell, giving, give, ecological, community, online community, local"
-      meta_description: "%{service_name} is a service that helps members of associations and other communities to sell and lend items to each other, organize car pooling and help each other in many other ways."
+      meta_description: "Sharetribe is a service that allows you to easily create a marketplace online and let your community sell, rent, swap and share goods and services."
       or_check_our: "...or check our"
       send_feedback_to_admin: "Send feedback"
       to_see_what_others_have_suggested: "to see what other users have suggested, and vote for the ideas there."
@@ -1259,17 +1259,19 @@ en:
       sum: "Payment sum:"
       commission_will_be_added: "A service fee of 10% will be added."
     form:
-      total: "Total"
-      including_tax: "(incl. tax %{tax_percentage}%)"
+      total: Total
       service_charge: "Service charge"
-      product: "Product"
-      price: "Price"
+      product: Product
+      price: Price
       continue_to_pay: "Continue to pay"
     mangopay:
+      terms:
+        mangopay_terms_also_included: "NOTE: MangoPay is used as a payment gateway service and by using this website you also accept %{mangopay_terms_link_text}, in addition to the terms below."
+        mangopay_terms_link_text: "MangoPay terms of use"
       seller_registration_needed:
         seller_registration_needed: "You can't create a money related listing yet"
         seller_registration_instructions: "Before you can create a listing which could result in you being paid, you'll need to add few required details to your %{link_to_settings_page}."
-        settings_page_link: "profile"
+        settings_page_link: profile
   people:
     index:
       loading_more_members: "Loading more members"
@@ -1310,7 +1312,7 @@ en:
       email_not_allowed: "This email is not allowed for this community. Please use an address that is associated with this community. If you still cannot get in, send us feedback."
       email_restriction_instructions:
         one: "This community is only for %{community_name}. To join you need a '%{allowed_emails}' email address."
-        other: "This community is only for %{community_name}. To join you need an email address that has one of the following endings: %{allowed_emails}"
+        other: "This community is only for %{community_name}. To join you need an email address that proves you to be entitled to join here."
       enter_captcha: "I'm a human:"
       family_name: "Family name"
       given_name: "Given name"

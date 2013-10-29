@@ -1,4 +1,4 @@
-en-bd:
+hr:
   admin:
     communities:
       edit_details:
@@ -80,22 +80,22 @@ en-bd:
     edit_page: ~
     default_community_slogan: ~
     default_community_description: ~
-    cancel: ~
-    fields_that_are_mandatory: ~
-    or: ~
+    cancel: Odustani
+    fields_that_are_mandatory: "Polja sa zvjezdicom (*) su obavezna."
+    or: ili
     password: ~
     service_name: ~
     share_types:
       request: ~
       offer: ~
-      borrow: ~
-      buy: ~
-      give_away: ~
-      lend: ~
-      receive: ~
-      rent: ~
-      rent_out: ~
-      sell: ~
+      borrow: posuđivanje
+      buy: kupnja
+      give_away: poklanjanje
+      lend: posuđivanje
+      receive: "dobivanje besplatno"
+      rent: posuđivanje
+      rent_out: posuđivanje
+      sell: prodavanje
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: ~
@@ -122,7 +122,7 @@ en-bd:
       other: ~
     username: ~
     username_or_email: ~
-    what_is_this: ~
+    what_is_this: "Što je ovo?"
   conversations:
     accept:
       respond_to_offer: ~
@@ -146,11 +146,11 @@ en-bd:
       give_feedback_to: ~
       do_not_give_feedback: ~
     index:
-      loading_more_messages: ~
-      message_partitive: ~
-      messages_partitive: ~
-      no_received_messages: ~
-      no_sent_messages: ~
+      loading_more_messages: "Učitavanje još poruka"
+      message_partitive: poruka
+      messages_partitive: poruke
+      no_received_messages: "Nema primljenih poruka"
+      no_sent_messages: "Nema poslanih poruka"
     conversation:
       accepted_request: ~
       accepted_offer: ~
@@ -173,10 +173,10 @@ en-bd:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: ~
-      favor_request_message_form_title: ~
-      housing_offer_message_form_title: ~
-      housing_request_message_form_title: ~
+      favor_offer_message_form_title: "Zatraži pomoć od %{person}"
+      favor_request_message_form_title: "Ponudi pomoć %{person}"
+      housing_offer_message_form_title: "Ponudi smještaj %{person}"
+      housing_request_message_form_title: "Zatraži smještaj od %{person}"
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
@@ -193,21 +193,21 @@ en-bd:
       housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
-      item_request_message_form_title: ~
-      message: ~
-      rideshare_offer_message_form_title: ~
-      rideshare_request_message_form_title: ~
+      item_request_message_form_title: "Ponudi predmet %{person}"
+      message: Poruka
+      rideshare_offer_message_form_title: "Zatraži mjesto u autu od %{person}"
+      rideshare_request_message_form_title: "Ponudi mjesto u autu %{person}"
       send_message: ~
       send: ~
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
-      title: ~
+      title: Naslov
       send_message_to_user: ~
     notifications:
       badgenotification:
-        see_all_your_badges: ~
-        you_have_earned_badge: ~
+        see_all_your_badges: "Pregledaj sve bedževe"
+        you_have_earned_badge: "Zaradili ste bedž"
       comment_to_followed_listing_notification:
         has_commented: ~
         offer_you_follow: ~
@@ -220,46 +220,46 @@ en-bd:
         has_commented: ~
         your_offer: ~
         your_request: ~
-      loading_more_notifications: ~
-      no_notifications: ~
+      loading_more_notifications: "Učitavam još obavijesti"
+      no_notifications: "Nema obavijesti."
       testimonialnotification:
-        give_feedback_to: ~
-        has_given_you_feedback_on_event: ~
-        see_all_the_feedback_you_have_received: ~
+        give_feedback_to: "Daj povratnu informaciju korisniku %{name}"
+        has_given_you_feedback_on_event: "vam je dao povratnu informaciju za događaj"
+        see_all_the_feedback_you_have_received: "pregledajte sve primljene povratne informacije"
     show:
       in_response_to_listing: ~
       message_sent_by: ~
       message_sent_to: ~
-      send_reply: ~
-      write_a_reply: ~
+      send_reply: "Pošalji odgovor"
+      write_a_reply: "Napiši odgovor:"
       conversation_about_listing: ~
       conversation_with_user: ~
       last_message_at: ~
     status:
       cancel_payed_transaction: ~
-      feedback_given: ~
-      feedback_skipped: ~
-      give_feedback: ~
-      offer_accepted: ~
-      offer_rejected: ~
+      feedback_given: "Dali ste povratnu informaciju"
+      feedback_skipped: "Preskočili ste povratnu informaciju"
+      give_feedback: "Dajte povratnu informaciju"
+      offer_accepted: Prihvaćeno
+      offer_rejected: Odbijeno
       offer_canceled: ~
       offer_confirmed: ~
       pay: ~
       paid: ~
-      request_accepted: ~
-      request_rejected: ~
+      request_accepted: Prihvaćeno
+      request_rejected: Odbijeno
       request_confirmed: ~
       request_canceled: ~
-      skip_feedback: ~
+      skip_feedback: "Preskočite povratnu informaciju"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
       waiting_confirmation_from_requester: ~
       waiting_payment_from_requester: ~
     status_link:
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
+      accept_offer: "Prihvati ponudu"
+      accept_request: "Prihvati zahtjev"
+      reject_offer: "Ne ovaj put"
+      reject_request: "Ne ovaj put"
       confirm: ~
       cancel: ~
   communities:
@@ -383,8 +383,8 @@ en-bd:
       kassi_for_your_university: ~
       kassi_for_your_university_description: ~
       want_kassi_for_your_community: ~
-      email_default_text: ~
-      send: ~
+      email_default_text: "Vaša email adresa"
+      send: Pošalji!
       or_drop_us_a_line: ~
       thanks_for_contacting_us: ~
       resources: ~
@@ -414,12 +414,12 @@ en-bd:
       city_example_link: ~
   emails:
     accept_reminder:
-      remember_to_accept_offer: ~
-      remember_to_accept_request: ~
-      you_can_accept_or_reject_offer_at: ~
-      you_can_accept_or_reject_request_at: ~
-      you_have_not_yet_accepted_or_rejected_offer: ~
-      you_have_not_yet_accepted_or_rejected_request: ~
+      remember_to_accept_offer: "Ne zaboravi prihvatiti ili odbiti ponudu"
+      remember_to_accept_request: "Ne zaboravi prihvatiti ili odbiti zahtjev"
+      you_can_accept_or_reject_offer_at: "Možete prihvatiti ili odbiti ponudu na"
+      you_can_accept_or_reject_request_at: "Možete prihvatiti ili odbiti zahtjev na"
+      you_have_not_yet_accepted_or_rejected_offer: "Još niste prihvatili ili odbili ponudu %{title} koju ste dobili %{date}."
+      you_have_not_yet_accepted_or_rejected_request: "Još niste prihvatili ili odbili zahtjev %{title} koju ste dobili %{date}."
       show_thread: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
@@ -447,11 +447,11 @@ en-bd:
       or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
-      check_your_settings: ~
-      hey: ~
-      kassi_team: ~
-      thanks: ~
-      want_to_control_emails: ~
+      check_your_settings: "Provjerite postavke"
+      hey: "Bok %{name},"
+      kassi_team: "%{service_name} tim"
+      thanks: "Hvala,"
+      want_to_control_emails: "Želite li imati kontrolu nad emailovima koje dobijate od %{service_name}?"
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
@@ -461,15 +461,15 @@ en-bd:
     community_starter_email:
       subject: ~
     conversation_status_changed:
-      has_accepted_your_offer: ~
-      has_accepted_your_request: ~
-      has_rejected_your_offer: ~
-      has_rejected_your_request: ~
+      has_accepted_your_offer: "%{accepter} je prihvatio vašu ponudu %{listing}."
+      has_accepted_your_request: "%{accepter} je prihvatio vaš zahtjev %{listing}."
+      has_rejected_your_offer: "%{accepter} je prihvatio vašu ponudu %{listing}."
+      has_rejected_your_request: "%{accepter} je odbio vaš zahtjev %{listing}."
       view_thread: ~
-      your_offer_was_accepted: ~
-      your_offer_was_rejected: ~
-      your_request_was_accepted: ~
-      your_request_was_rejected: ~
+      your_offer_was_accepted: "Vaša ponuda je prihvaćena"
+      your_offer_was_rejected: "Vaša ponuda je odbijena"
+      your_request_was_accepted: "Vaš zahtjev je prihvaćen"
+      your_request_was_rejected: "Vaš zahtjev je odbijen"
       you_can_now_pay_to: ~
       pay_now: ~
     invitation_to_kassi:
@@ -479,19 +479,19 @@ en-bd:
       join_now: ~
       invitation_code: ~
     new_badge:
-      you_can_view_all_your_badges_in: ~
-      you_have_achieved_a_badge: ~
+      you_can_view_all_your_badges_in: "Pregledajte sve bedževe"
+      you_have_achieved_a_badge: "Osvojili ste bedž '%{badge_name}' u %{service_name}!"
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
-      you_have_a_new_comment: ~
+      you_have_a_new_comment: "%{author} je komentirao vaš oglas u %{service_name}"
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       conversation_title: ~
       view_message: ~
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender} vam je poslao poruku u %{service_name}."
+      you_have_a_new_message: "Imate novu poruku u %{service_name} od %{sender_name}"
     new_payment:
       new_payment: ~
       you_have_received_new_payment: ~
@@ -499,8 +499,8 @@ en-bd:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: ~
-      you_can_give_feedback_to: ~
+      has_given_you_feedback_in_kassi: "%{name} vam je ostavio povratnu informaciju u %{service_name}"
+      you_can_give_feedback_to: "Niste još ocijenili %{name}."
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
@@ -535,7 +535,7 @@ en-bd:
       text_version_text: ~
       occasional_newsletter_title: ~
     reply_to_contact_request:
-      thank_you_for_your_interest: ~
+      thank_you_for_your_interest: "Hvala na vašem zanimanju za %{service_name}!"
     reset_password_instructions:
       change_my_password: ~
       reset_password_instructions: ~
@@ -631,116 +631,116 @@ en-bd:
       offer_partitive: ~
       request_partitive: ~
   header:
-    about: ~
-    home: ~
-    members: ~
-    new_listing: ~
-    mobile_version: ~
-    offers: ~
-    requests: ~
-    search_kassi: ~
-    create_new_marketplace: ~
-    contact_us: ~
-    profile: ~
+    about: "O nama"
+    home: Početna
+    members: Zajednica
+    new_listing: "Novi oglas"
+    mobile_version: "Mobilna verzija"
+    offers: Ponude
+    requests: Zahtjevi
+    search_kassi: "Pretraži %{service_name}"
+    create_new_marketplace: "Kreiraj novu tržnicu"
+    contact_us: "Kontaktiraj nas"
+    profile: Profil
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: ~
-      additionally_one_private_request_exists: ~
-      additionally_some_private_offers_exist: ~
-      additionally_some_private_requests_exist: ~
+      additionally_one_private_offer_exists: "Dodatno  postoji <b>još jedna ponuda</b>,"
+      additionally_one_private_request_exists: "Dodatno  postoji <b>još jedan zahtjev</b>,"
+      additionally_some_private_offers_exist: "Postoji <b>%{number_of_listings} dodatnih ponuda</b>,"
+      additionally_some_private_requests_exist: "Postoji <b>%{number_of_listings} dodatnih zahtjeva</b>,"
     blank_slate:
-      add_first: ~
-      but_that_is_visible_only_to_registered_members: ~
-      but_those_are_visible_only_to_registered_members: ~
-      create_new_account_for_yourself: ~
-      examples_of_what_you_could_offer_to_others: ~
-      examples_of_what_you_could_request_to_others: ~
-      favor_offer_list: ~
-      favor_request_list: ~
-      favors_to_offer: ~
-      favors_to_request: ~
-      item_offer_list: ~
-      item_request_list: ~
-      items_to_offer: ~
-      items_to_request: ~
-      log_in: ~
-      no_offers_visible_unless_logged_in: ~
-      no_open_offers_currently: ~
-      no_open_requests_currently: ~
-      no_requests_visible_unless_logged_in: ~
-      one_private_offer_exists: ~
-      one_private_request_exists: ~
-      ride_offer: ~
-      ride_request: ~
-      some_private_offers_exist: ~
-      some_private_requests_exist: ~
+      add_first: "Dodaj jedan!"
+      but_that_is_visible_only_to_registered_members: "ali to je vidljivo samo registriranim korisnicima."
+      but_those_are_visible_only_to_registered_members: "ali oni su vidljivi samo registriranim korisnicima."
+      create_new_account_for_yourself: "Kreirajte si novi korisnički račun"
+      examples_of_what_you_could_offer_to_others: "Što možete ponuditi drugima"
+      examples_of_what_you_could_request_to_others: "Što možete tražiti od drugih"
+      favor_offer_list: "pomoć oko računala, popravak odjeće, kuhanje, popravak bicikla"
+      favor_request_list: "čuvanje djece, tečaj klavira, šetanje pasa, košnja trave"
+      favors_to_offer: "Pomoć: "
+      favors_to_request: "Pomoć: "
+      item_offer_list: "alati, sportska oprema, kostimi, oprema za kampiranje"
+      item_request_list: "alati, sportska oprema, kostimi, oprema za kampiranje"
+      items_to_offer: "Stvari za posuditi: "
+      items_to_request: "Stvari za posuditi: "
+      log_in: "logiraj se!"
+      no_offers_visible_unless_logged_in: "Niti jedan predmet, usluga ili dijeljenje vožnje nisu vidljivi korisnicima koji se nisu prijavili"
+      no_open_offers_currently: "Ne postoje otvorene ponude za opremu, usluge ili vožnje."
+      no_open_requests_currently: "Nema otvorenih zahtjeva za opremu, usluge ili vožnje."
+      no_requests_visible_unless_logged_in: "Zahtjevi za opremu, usluge ili vožnje se ne prikazuju korisnicima koji se nisu prijavili u sustav"
+      one_private_offer_exists: "Već postoji <b>jedna ponuda</b>,"
+      one_private_request_exists: "Već postoji <b>jedan zahtjev</b>,"
+      ride_offer: "Vozite tuđu djecu na izvanškolske aktivnosti"
+      ride_request: "Vožnja na posao"
+      some_private_offers_exist: "Već postoji <b>%{number_of_listings} ponuda</b>,"
+      some_private_requests_exist: "Već postoji <b>%{number_of_listings} zahtjeva</b>,"
     event_feed:
-      latest_events: ~
+      latest_events: "Što se događa"
     index:
-      no_listings_with_your_search_criteria: ~
-      no_listings_notification: ~
-      add_listing_link_text: ~
-      available_on_the_app_store: ~
-      private_listing_notification: ~
-      open_listing: ~
-      open_listings: ~
-      private_listing_notification_log_in: ~
-      is: ~
-      are: ~
-      what_do_you_need: ~
-      post_new_listing: ~
-      are_offering: ~
-      add_news_item: ~
-      inform_others_about_events: ~
-      lend_rent_help_carpool: ~
-      loading_more_content: ~
-      more_events: ~
-      news: ~
-      no_news: ~
-      more_news: ~
-      or: ~
-      or_see_what_the_others: ~
-      recent_events: ~
-      requesting: ~
-      teaser_text: ~
-      tell_it_here: ~
-      welcome_to_new_kassi: ~
+      no_listings_with_your_search_criteria: "Ne možemo naći niti jedan rezultat koji odgovara postavljenim uvjetima. (Ako ste tek nešto dodali, potrebno je 10 minuta prije nego se pojavi na tražilici.)"
+      no_listings_notification: "Nema oglasa. %{add_listing_link}."
+      add_listing_link_text: "Dodaj novi oglas"
+      available_on_the_app_store: "Dostupno u app storeu"
+      private_listing_notification: "Ova zajednica ima %{listing_count}. %{private_listing_count} njih %{be_verb} vidljivi samo članovima zajednice. Ako želite vidjeti i oglase koje mogu vidjeti samo članovi, morate se %{log_in_link}."
+      open_listing: "otvori oglas"
+      open_listings: "otvori oglase"
+      private_listing_notification_log_in: "prijavi se"
+      is: je
+      are: su
+      what_do_you_need: "Što trebate?"
+      post_new_listing: "Napiši oglas!"
+      are_offering: ponuda
+      add_news_item: "Dodaj članak"
+      inform_others_about_events: "Posljednje novosti u zajednici"
+      lend_rent_help_carpool: "Prodaj, posudi, pomozi, podijeli mjesto u autu"
+      loading_more_content: "Učitavam još sadržaja"
+      more_events: "Više događanja..."
+      news: Novosti
+      no_news: "Nema novosti"
+      more_news: "Još novosti"
+      or: i
+      or_see_what_the_others: "... ili vidi što ostali"
+      recent_events: "Nedavna događanja"
+      requesting: potreba
+      teaser_text: "%{service_name} je usluga %{community} zajednice. Ovdje možete posuđivati, iznajmljivati, poklanjati i prodavati stvari, pomoći nekome i zatražiti pomoć ili podijeliti mjesto u autu. Imate li nešto za posuditi drugima ili im možete pomoći na neki drugi način?"
+      tell_it_here: "Reci ovdje!"
+      welcome_to_new_kassi: "Dobrodošli u novi %{service_name}!"
     invitation_form:
-      invite_your_friends: ~
-      invite_your_neighbors: ~
-      email: ~
-      message: ~
-      send_invitation: ~
-      add_as_many_emails_as_you_want: ~
-      invitation_emails_field_placeholder: ~
-      invitation_message_field_placeholder: ~
-      errors_in_emails: ~
+      invite_your_friends: "Pozovi prijatelje na %{service_name}!"
+      invite_your_neighbors: "Pozovite susjede na %{service_name}!"
+      email: "Email adresa(e)"
+      message: "Osobna poruka"
+      send_invitation: "Pošalji pozivnicu"
+      add_as_many_emails_as_you_want: "Dodajte email adrese ljudi koje pozivate u polje ispod. Ako dodate više email adresa, odvojite ih zarezom."
+      invitation_emails_field_placeholder: "prijatelj1@primjer.com, prijatelj2@primjer.com, ..."
+      invitation_message_field_placeholder: "Pridružio sam se ovoj super zajednici. Pridruži se i ti!"
+      errors_in_emails: "Provjerite jesu li unesene email adrese ispravne. Ako ste dodali više adresa, pripazite da su odvojene zarezom."
     news_item:
-      show_less: ~
-      show_more: ~
+      show_less: "Prikaži manje"
+      show_more: "Prikaži više"
     poll_form:
-      poll: ~
-      comment: ~
-      answer: ~
-      results: ~
-      poll_answer: ~
-      poll_answers: ~
+      poll: "Upitnik:"
+      comment: "Komentar:"
+      answer: Odgovor
+      results: Rezultati
+      poll_answer: odgovor
+      poll_answers: odgovori
     profile_info_empty_notification:
-      add_your_info: ~
-      add_a_profile_picture: ~
-      you_have_not_added_your_info: ~
-      add_your_info_link: ~
+      add_your_info: "Dodaj svoje kontakt informacije"
+      add_a_profile_picture: "Dodaj profilnu sliku"
+      you_have_not_added_your_info: "Niste dodali svoje kontakt informacije. Dodajte ih kako bi vas drugi lakše kontaktirali. Dodajte i sliku profila kako bi bili prepoznatljivi drugima i stvorili povjerenje"
+      add_your_info_link: "Dodaj sada svoje informacije"
     recent_listing:
-      please_offer: ~
-      comment: ~
-      comments: ~
+      please_offer: POnuda
+      comment: komentar
+      comments: komentari
     filters:
-      show: ~
-      search: ~
-      map: ~
-      list: ~
-      all_listing_types: ~
-      all_categories: ~
+      show: "Filter:"
+      search: Pretraga
+      map: "Prikaži mapu"
+      list: "Prikaži listu"
+      all_listing_types: "Svi tipovi oglasa"
+      all_categories: "Sve kategorije"
   infos:
     about:
       default_about_text_title: ~
@@ -787,11 +787,11 @@ en-bd:
       title: ~
     infos:
       about: ~
-      how_to_use: "How it works"
+      how_to_use: ~
       info_about_kassi: ~
       news: ~
-      register_details: "Our vision"
-      terms: "Terms of use and Privacy"
+      register_details: ~
+      terms: ~
     logged_in:
       admin: ~
       go_to_your_profile_page: ~
@@ -929,280 +929,280 @@ en-bd:
       settings: ~
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: ~
+      listing_not_visible: "Nije vam odobreno da vidite ovaj oglas"
     comment:
-      wrote: ~
-      send_private_message: ~
+      wrote: "napisao je"
+      send_private_message: "Pošalji privatnu poruku %{person}"
     comment_form:
-      ask_a_question: ~
-      log_in: ~
-      send_comment: ~
-      to_send_a_comment: ~
-      write_comment: ~
-      you_cannot_send_a_new_comment_because_listing_is_closed: ~
-      you_must: ~
-      subscribe_to_comments: ~
+      ask_a_question: "Komentiraj oglas ili zatraži više detalja. Ostali korisnici moći će vidjeti tvoj komentar"
+      log_in: "Prijavi se"
+      send_comment: "Pošalji komentar"
+      to_send_a_comment: "da bi poslali novi komentar"
+      write_comment: "Napiši novi komentar"
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Ne možete komentirati jer je oglas zatvoren"
+      you_must: Morate
+      subscribe_to_comments: "Obavijesti me o novim komentarima i nadopunama"
     edit:
-      edit_listing: ~
+      edit_listing: "Uredi oglas"
     edit_links:
-      close_listing: ~
-      edit_listing: ~
-      reopen_listing: ~
+      close_listing: "Zatvori oglas"
+      edit_listing: "Uredi oglas"
+      reopen_listing: "Ponovno otvori oglas"
     follow_links:
-      follow: ~
-      unfollow: ~
+      follow: "Primi mail za nove komentare"
+      unfollow: "Ne šalji obavijesti o novim komentarima"
     form:
       departure_time:
-        at: ~
-        departure_time: ~
+        at: Kod
+        departure_time: "Vrijeme polaska"
       departure_time_radio_buttons:
-        repeated: ~
+        repeated: "Ponavlja se (dodajte vremena i dane u polje 'detaljan opis')"
       description:
-        detailed_description: ~
+        detailed_description: "Detaljni opis"
       destination:
-        destination: ~
+        destination: Odredište
       form_content:
-        favor: ~
-        housing: ~
-        item: ~
-        offer_something: ~
-        request_something: ~
-        rideshare: ~
-        i_want_to_offer: ~
-        i_want_to_request: ~
+        favor: usluga
+        housing: prostor
+        item: oprema
+        offer_something: "Ponudi nešto"
+        request_something: "Zatraži nešto"
+        rideshare: vožnja
+        i_want_to_offer: "Želim ponuditi..."
+        i_want_to_request: Trebam...
       googlemap:
-        googlemap_copy: ~
-        googlemap_description: ~
-        googlemap_updatemap: ~
+        googlemap_copy: "Odredišne točke na mapi"
+        googlemap_description: "Pregled mape"
+        googlemap_updatemap: "Osvježi mapu"
       images:
-        image: ~
-        no_file_selected: ~
-        remove_image: ~
-        select_file: ~
+        image: Slika
+        no_file_selected: "Niste izabrali file"
+        remove_image: "Ukloni sliku"
+        select_file: "Odaberi file"
       location:
-        location: ~
+        location: Lokacija
       price:
-        price: ~
-        per: ~
-        mass: ~
-        time: ~
-        long_time: ~
-        service_fee_will_be_added: ~
-        price_excludes_vat: ~
+        price: Cijena
+        per: po
+        mass: "komadu, kg, l, m2, ..."
+        time: "sat, dan, tjedan..."
+        long_time: "tjedan, mjesec..."
+        service_fee_will_be_added: "Naknada za uslugu od %{fee} će biti dodana u cijenu."
+        price_excludes_vat: "Ne uključuje PDV"
       origin:
-        location: ~
-        origin: ~
+        location: Lokacija
+        origin: Polazište
       send_button:
-        save_listing: ~
+        save_listing: "Spremi oglas"
       share_type:
-        select: ~
-        borrow: ~
-        buy: ~
-        give_away: ~
-        lend: ~
-        offer_type: ~
-        receive: ~
-        rent: ~
-        rent_out: ~
-        request_type: ~
-        sell: ~
-        share_for_free: ~
-        accept_for_free: ~
-        trade: ~
+        select: Odaberi
+        borrow: "Posuđivati od nekog"
+        buy: Kupovati
+        give_away: Poklanjati
+        lend: "Posuđivati nekome"
+        offer_type: "Tip ponude"
+        receive: "Prihvatiti besplatno"
+        rent: "Iznajmljivati od nekoga"
+        rent_out: "Iznajmljivati nekome"
+        request_type: "Tip zahtjeva"
+        sell: Prodavati
+        share_for_free: "Besplatno dijeljenje"
+        accept_for_free: "Prihvaćam za besplatno"
+        trade: "Mijenjati se"
       tag_list:
-        comma_separate: ~
-        tags: ~
+        comma_separate: "(odvojeno zarezom)"
+        tags: Tagovi
       title:
-        favor_you_offer: ~
-        favor_you_request: ~
-        housing_you_offer: ~
-        housing_you_request: ~
-        item_you_offer: ~
-        item_you_request: ~
-        listing_title: ~
+        favor_you_offer: "Usluga koju nudite"
+        favor_you_request: "Usluga koju trebate"
+        housing_you_offer: "Prostor koji nudite"
+        housing_you_request: "Prostor koji trebate"
+        item_you_offer: "Predmet koji nudite"
+        item_you_request: "Predmet koji trebate"
+        listing_title: "Naslov oglasa"
       valid_until:
-        valid_until: ~
+        valid_until: "Datum istijeka"
       valid_until_radio_buttons:
-        for_the_time_being: ~
+        for_the_time_being: "Za vrijeme"
       visibility:
-        all_communities: ~
-        this_community: ~
-        visibility: ~
+        all_communities: "Sve moje %{service_name} zajednice"
+        this_community: "Samo članovi ovog plemena"
+        visibility: Vidljivost
       privacy:
-        privacy: ~
-        private: ~
-        public: ~
+        privacy: Privatnost
+        private: "Privatan (mogu vidjeti samo registrirani korisnici)"
+        public: "Javan (vidljiv svima)"
     help_texts:
-      help_share_type_title: ~
-      help_tags_title: ~
-      help_valid_until_title: ~
+      help_share_type_title: "Tip ponude ili zahtjeva"
+      help_tags_title: Tagovi
+      help_valid_until_title: "Vrijeme istijeka"
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
-      listings: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
-      feed_title: ~
+      all_categories: "Sve kategorije"
+      all_offer_types: "Svi tipovi ponuda"
+      all_request_types: "Svi tipovi zahtjeva"
+      category: Kategorija
+      did_not_found_what_you_were_looking_for: "Niste našli što ste trebali?"
+      favors: Usluge
+      housing: Prostori
+      items: Predmeti
+      list_view: "Prikaži listu"
+      listings: Oglasi
+      map_view: "Prikaži mapu"
+      offer_something: "Neka drugi saznaju!"
+      offer_type: "Tip ponude"
+      offers: Ponude
+      request_something: "Zatraži nešto!"
+      request_type: "Tip zahtjeva"
+      requests: Zahtjevi
+      rideshare: "Dijeljenje vožnje"
+      search_verb: Traži
+      you_have_something_others_do_not: "Imaš li nešto za ponuditi?"
+      feed_title: "%{listing_type} u %{community_name} %{service_name} %{optional_category}"
     left_panel_link:
-      borrows: ~
-      buys: ~
-      favors: ~
-      give_aways: ~
-      housings: ~
-      items: ~
-      lends: ~
-      receives: ~
-      rent_outs: ~
-      rents: ~
-      rideshares: ~
-      sells: ~
-      share_for_frees: ~
-      accept_for_frees: ~
-      trades: ~
+      borrows: "Posudbe (od nekoga)"
+      buys: Kupnje
+      favors: Usluge
+      give_aways: "Dajem besplatno"
+      housings: Prostori
+      items: Predmeti
+      lends: "Posuđivanje (nekome)"
+      receives: "Uzimanje za besplatno"
+      rent_outs: "Iznajmljujem nekome"
+      rents: "Unajmljujem od nekog"
+      rideshares: "Dijeljenje vožnje"
+      sells: Prodaja
+      share_for_frees: "Besplatno dijeljenje"
+      accept_for_frees: "Prihvaćam besplatno"
+      trades: Mijenjanje
     link_labels:
-      offer_this: ~
-      request_this: ~
-      lend_this: ~
-      borrow_this: ~
-      buy_this: ~
-      rent_out_this: ~
-      rent_this: ~
-      sell_this: ~
-      link_label_for_favor_offer: ~
-      link_label_for_favor_request: ~
-      link_label_for_housing_offer_sell: ~
-      link_label_for_housing_offer_rent_out: ~
-      link_label_for_housing_offer_share_for_free: ~
-      link_label_for_housing_request_accept_for_free: ~
-      link_label_for_housing_request_buy: ~
-      link_label_for_housing_request_rent: ~
-      link_label_for_item_offer_lend: ~
-      link_label_for_item_offer_rent_out: ~
-      link_label_for_item_offer_sell: ~
-      link_label_for_item_offer_give_away: ~
-      link_label_for_item_offer_trade: ~
-      link_label_for_item_request_borrow: ~
-      link_label_for_item_request_rent: ~
-      link_label_for_item_request_buy: ~
-      link_label_for_item_request_receive: ~
-      link_label_for_item_request_trade: ~
-      link_label_for_rideshare_offer: ~
-      link_label_for_rideshare_request: ~
+      offer_this: Ponuda
+      request_this: Zahtjev
+      lend_this: "Posudi nekome"
+      borrow_this: "Posudi od nekoga"
+      buy_this: Kupi
+      rent_out_this: Iznajmi
+      rent_this: Unajmi
+      sell_this: Prodaj
+      link_label_for_favor_offer: "Zatraži ovu uslugu"
+      link_label_for_favor_request: "Ponudi ovu uslugu"
+      link_label_for_housing_offer_sell: "Kupi ovaj prostor"
+      link_label_for_housing_offer_rent_out: "Iznajmi nekome ovaj prostor"
+      link_label_for_housing_offer_share_for_free: "Zatraži ovaj prostor"
+      link_label_for_housing_request_accept_for_free: "Ponudi ovaj prostor"
+      link_label_for_housing_request_buy: "Ponudi ovaj prostor na prodaju"
+      link_label_for_housing_request_rent: "Ponudi da ćeš iznajmiti ovaj prostor"
+      link_label_for_item_offer_lend: "Posudi ovaj predmet"
+      link_label_for_item_offer_rent_out: "Iznajmi nekome ovaj predmet"
+      link_label_for_item_offer_sell: "Kupi ovaj predmet"
+      link_label_for_item_offer_give_away: "Zatraži ovaj predmet"
+      link_label_for_item_offer_trade: "Zamijeni ovaj predmet"
+      link_label_for_item_request_borrow: "Ponudi da posudiš ovaj predmet (besplatno)"
+      link_label_for_item_request_rent: "Ponudi da iznajmiš ovaj predmet (uz naplatu)"
+      link_label_for_item_request_buy: "Ponudi da prodaš ovaj predmet"
+      link_label_for_item_request_receive: "Daj ovaj predmet tražiocu"
+      link_label_for_item_request_trade: "Ponudi zamjenu ovog predmeta"
+      link_label_for_rideshare_offer: "Zatraži ovu vožnju"
+      link_label_for_rideshare_request: "Ponudi prijevoz"
     new:
-      listing: ~
-      offer: ~
-      request: ~
-      selected_offer: ~
-      selected_request: ~
-      selected_listing_type: ~
-      selected_category: ~
-      selected_subcategory: ~
-      selected_share_type: ~
-      selected_item: ~
-      selected_favor: ~
-      selected_rideshare: ~
-      selected_housing: ~
-      selected_borrow: ~
-      selected_buy: ~
-      selected_give_away: ~
-      selected_lend: ~
-      selected_receive: ~
-      selected_rent: ~
-      selected_rent_out: ~
-      selected_sell: ~
-      selected_offer_to_swap: ~
-      selected_request_to_swap: ~
-      selected_share_for_free: ~
-      selected_accept_for_free: ~
-      how_do_you_want_to_share_it: ~
-      how_do_you_want_to_get_it: ~
-      item: ~
-      favor: ~
-      rideshare: ~
-      housing: ~
-      borrow: ~
-      buy: ~
-      give_away: ~
-      lend: ~
-      receive: ~
-      rent: ~
-      rent_out: ~
-      sell: ~
-      offer_to_swap: ~
-      request_to_swap: ~
-      share_for_free: ~
-      accept_for_free: ~
-      what_kind_of_item: ~
-      what_kind_of_favor: ~
-      what_kind_of_rideshare: ~
-      what_kind_of_housing: ~
-      which_subcategory: ~
-      tools: ~
-      sports: ~
-      music: ~
-      books: ~
-      games: ~
-      furniture: ~
-      outdoors: ~
-      food: ~
-      electronics: ~
-      pets: ~
-      film: ~
-      clothes: ~
-      garden: ~
-      travel: ~
-      other: ~
-      what_do_you_want_to_do: ~
-      what_can_you_offer: ~
-      what_do_you_need: ~
-      select_category: ~
-    please_comment: ~
+      listing: oglas
+      offer: "Mogu nešto ponuditi ostalima"
+      request: "Trebam nešto"
+      selected_offer: Ponuda
+      selected_request: Zahtjev
+      selected_listing_type: "Vrsta oglasa: %{listing_type}"
+      selected_category: "Kategorija: %{category}"
+      selected_subcategory: "Podkategorija: %{subcategory}"
+      selected_share_type: "Tip dijeljenja: %{share_type}"
+      selected_item: Predmet
+      selected_favor: Usluga
+      selected_rideshare: Prijevoz
+      selected_housing: Prostor
+      selected_borrow: "Posuđivanje (od nekoga)"
+      selected_buy: Kupnja
+      selected_give_away: Poklanjanje
+      selected_lend: "posuđivanje (nekom)"
+      selected_receive: "Uzeti besplatno"
+      selected_rent: "Iznajmljivati (od nekoga)"
+      selected_rent_out: "Iznajmljivati nekome"
+      selected_sell: Prodaja
+      selected_offer_to_swap: Mijenjanje
+      selected_request_to_swap: Mijenjanje
+      selected_share_for_free: "Besplatno dijeljenje"
+      selected_accept_for_free: "Prihvaćati besplatno"
+      how_do_you_want_to_share_it: "Kako želiš podijeliti?"
+      how_do_you_want_to_get_it: "Kako želiš dobiti?"
+      item: "Predmet - nešto konkretno"
+      favor: "Pomoć - vještina ili usluga"
+      rideshare: "Mjesto u autu"
+      housing: "Prostor - stan, ured ili vrt"
+      borrow: "Želim od nekoga posuditi"
+      buy: "Želim kupiti"
+      give_away: "Dajem besplatno"
+      lend: "Mogu posuditi nekome besplatno"
+      receive: "Mogu prihvatiti besplatno"
+      rent: "Želim iznajmiti od nekoga"
+      rent_out: "Dajem besplatno u najam"
+      sell: Prodajem
+      offer_to_swap: "Želim zamijeniti za nešto drugo"
+      request_to_swap: "Želim zamijeniti za nešto drugo"
+      share_for_free: "Dijelim besplatno"
+      accept_for_free: "Želim koristiti besplatno"
+      what_kind_of_item: "O kakvom predmetu govorimo?"
+      what_kind_of_favor: "O kojem tipu pomoći govorimo?"
+      what_kind_of_rideshare: "O kojem tipu prijevoza govorimo?"
+      what_kind_of_housing: "O kakvom tipu prostora se radi?"
+      which_subcategory: "Što ga od sljedećeg najbolje opisuje?"
+      tools: Alati
+      sports: Sport
+      music: Muzika
+      books: "Knjige i časopisi"
+      games: "Igre i igračke"
+      furniture: Namještaj
+      outdoors: "Kampiranje i sportovi na otvorenom"
+      food: "Hrana i kuhinja"
+      electronics: Elektronika
+      pets: "Kućni ljubimci"
+      film: Filmovi
+      clothes: Odjeća
+      garden: Vrt
+      travel: Putovanja
+      other: Ostalo
+      what_do_you_want_to_do: "Što želite napraviti?"
+      what_can_you_offer: "Što možete ponuditi drugima?"
+      what_do_you_need: "Što trebate?"
+      select_category: "Odaberi kategoriju"
+    please_comment: Komentar
     reply_link:
-      listing_closed: ~
+      listing_closed: "Oglas je zatvoren"
     show:
-      add_your_phone_number: ~
-      add_profile_picture: ~
-      comments: ~
-      contact_by_phone: ~
-      favor_offer: ~
-      favor_request: ~
-      item_offer_trade: ~
-      item_request_trade: ~
-      no_description: ~
-      offer: ~
-      listing_created: ~
-      open_until: ~
-      feedback: ~
-      qr_code: ~
-      request: ~
-      rideshare_offer: ~
-      rideshare_request: ~
-      send_private_message: ~
-      share_types: ~
-      share_types_offer: ~
-      share_types_request: ~
-      tags: ~
-      time: ~
-      times: ~
-      times_viewed: ~
-      processing_uploaded_image: ~
+      add_your_phone_number: "Dodaj svoj broj telefona"
+      add_profile_picture: "Dodaj profilnu sliku"
+      comments: "Javna rasprava"
+      contact_by_phone: "Kontakt telefonom:"
+      favor_offer: "Ponuda usluga"
+      favor_request: "Potražnja usluga"
+      item_offer_trade: "Zamijeni ponudu"
+      item_request_trade: "Zamijeni zahtjev"
+      no_description: "Bez opisa"
+      offer: Ponuda
+      listing_created: Kreiran
+      open_until: "Otvoreno do %{date}"
+      feedback: "Povratna informacija:"
+      qr_code: "QR kod"
+      request: Zahtjev
+      rideshare_offer: "Ponuda vožnje"
+      rideshare_request: "Potražnja za vožnjom"
+      send_private_message: "Pošalji privatnu poruku"
+      share_types: "Tipovi dijeljenja"
+      share_types_offer: "Vrsta ponude"
+      share_types_request: "Vrsta potražnje"
+      tags: Tagovi
+      time: vrijeme
+      times: vremena
+      times_viewed: Pregledano
+      processing_uploaded_image: "(Obrada slike...)"
     displayed_price:
-      price_excludes_vat: ~
+      price_excludes_vat: "(PDV nije uračunat)"
   mapview:
     index:
       all_categories: ~
@@ -1292,11 +1292,8 @@ en-bd:
       create_new_account: ~
       email: ~
       email_is_in_use: ~
-      email_is_in_use_or_not_allowed: "This email is not allowed for this community. Please use your school's address (eg. firstname.lastname@essec.edu). The list of domains accepted is available in the \"About\" section. If you still cannot get in, send us a feedback."
+      email_is_in_use_or_not_allowed: ~
       email_not_allowed: ~
-      email_restriction_instructions:
-        one: "This community is only for %{community_name}. To join it, please use your school email (e.g., firstname.lastname@essec.edu)"
-        other: "This community is only for %{community_name}. To join it, please use your school email (e.g., firstname.lastname@essec.edu)"
       enter_captcha: ~
       family_name: ~
       given_name: ~

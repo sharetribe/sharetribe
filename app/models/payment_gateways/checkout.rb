@@ -79,4 +79,7 @@ class Checkout < PaymentGateway
     return results
   end
   
+  def can_receive_payments_for?(person, listing)
+    listing.organization.merchant_id && listing.organization.merchant_key
+  end
 end

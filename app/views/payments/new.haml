@@ -9,4 +9,9 @@
     
   = render :partial => @current_community.payment_gateways.first.form_template_dir + "/show"
 
+  - if @current_community.payment_gateways.include?(Mangopay.first)
+    %br
+    %br
+    = image_tag("/assets/payments/Mango-Frise1.png")
+
     

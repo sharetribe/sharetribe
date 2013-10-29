@@ -362,7 +362,7 @@ fi:
       you_are_not_a_member_of_this_community: "Sinulla on käyttäjätunnus %{service_name_inessive}, mutta et vielä ole %{service_name}-yhteisön '%{community}' jäsen."
       you_can_join: "Voit liittyä yhteisöön hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
       you_can_join_email_confirmation: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla voimassaoleva sähköpostiosoite, jonka pääte on %{email_ending}. Voit liittyä yhteisöön täyttämällä alla olevaan kenttään sähköpostiosoitteesi, hyväksymällä yhteisön käyttöehdot, klikkaamalla alareunasta 'Liity yhteisöön' -nappia ja klikkaamalla saapuvassa sähköpostissa olevaa vahvistuslinkkiä."
-      you_can_join_email_confirmation_multiple_addresses: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla voimassaoleva sähköpostiosoite, jonka pääte on jokin seuraavista: %{email_endings}. Voit liittyä yhteisöön täyttämällä alla olevaan kenttään sähköpostiosoitteesi, hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
+      you_can_join_email_confirmation_multiple_addresses: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla jonkin sellaisen organisaation sähköpostiosoite, jonka jäsenille tämän yhteisön ylläpitäjä on sallinut liittymisen. Voit liittyä yhteisöön täyttämällä alla olevaan kenttään sähköpostiosoitteesi, hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
       you_can_join_with_invite_only: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla kutsu joltakin toiselta yhteisön jäseneltä. Jos sinulla on kutsukoodi, voit liittyä tähän yhteisöön kirjoittamalla koodin alla olevaan kenttään, hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
       if_want_to_view_content: "Jos haluat nähdä mitä yhteisössä tapahtuu liittymättä siihen sinun täytyy"
       log_out: "kirjautua ulos"
@@ -875,6 +875,7 @@ fi:
       payment_successful: "Maksu suoritettu"
       payment_canceled: "Maksaminen peruutettu"
       error_in_payment: "Virhe maksun käsittelyssä. Jos et maksanut vielä, yritä uudelleen. Jos maksoit, ota yhteys ylläpitoon."
+      cannot_receive_payment: "Toisen osapuolen tunnukselle, ei voida tällä hetkellä välittää maksuja. Ole hyvä ja ota yhteys ylläpitoon asian selvittämiseksi."
       payment_waiting_for_later_accomplishment: "Muista maksaa maksu tilisiirron tiedoilla. Tämän jälkeen saat kuitin ja tieto maksusta välittyy myyjälle."
       cannot_receive_payment: "Toisen osapuolen tunnukselle, ei voida tällä hetkellä välittää maksuja. Ole hyvä ja ota yhteys ylläpitoon asian selvittämiseksi."
       password_recovery_sent: "Ohjeet salasanan vaihtamiseen on lähetetty sähköpostiisi."
@@ -1256,17 +1257,19 @@ fi:
       sum: "Summa:"
       commission_will_be_added: "Hintaan lisätään palvelumaksu 10%."
     form:
-      total: "Yhteensä"
-      including_tax: "(Sis. ALV %{tax_percentage}%)"
-      service_charge: "Palvelumaksu"
-      product: "Tuote"
-      price: "Hinta"
+      total: Yhteensä
+      service_charge: Palvelumaksu
+      product: Tuote
+      price: Hinta
       continue_to_pay: "Jatka maksamaan"
     mangopay:
+      terms:
+        mangopay_terms_also_included: "HUOM: Tämä verkkopalvelu käyttää maksunvälittäjänä MangoPay-palvelua ja käyttämällä tätä verkkopalvelua hyväksyt alla olevien ehtojen lisäksi myös %{mangopay_terms_link_text}."
+        mangopay_terms_link_text: "MangoPayn käyttöehdot"
       seller_registration_needed:
         seller_registration_needed: "Et voi vielä tehdä rahaan liittyvää ilmoitusta"
         seller_registration_instructions: "Ennen kuin voit tehdä ilmoituksen, josta joku voisi maksaa sinulle rahaa, sinun täytyy täyttää vielä pari lisätietoa %{link_to_settings_page}."
-        settings_page_link: "profiiliisi"
+        settings_page_link: profiiliisi
   people:
     index:
       loading_more_members: "Ladataan lisää jäseniä"
@@ -1307,7 +1310,7 @@ fi:
       email_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön. Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön. Jos et silti pääse sisään, lähetä palautetta ylälaidan valikon kautta."
       email_restriction_instructions:
         one: "Tämä on %{community_name}-yhteisölle rajattu %{service_name}. Liittyäksesi tarvitset '%{allowed_emails}'-sähköpostiosoitteen."
-        other: "Tämä on %{community_name}-yhteisölle rajattu %{service_name}. Liittyäksesi tarvitset sähköpostiosoitteen, jonka pääte on jokin seuraavista: %{allowed_emails}"
+        other: "Tämä on %{community_name}-yhteisölle rajattu %{service_name}. Liittyäksesi tarvitset sellaisen organisaation sähköpostiosoitteen, jolle on myönnetty mahdollisuus liittyä tähän yhteisöön."
       enter_captcha: "Olen ihminen"
       family_name: Sukunimi
       given_name: Etunimi

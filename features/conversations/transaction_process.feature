@@ -93,7 +93,7 @@ Feature: Transaction process between two users
     # Then I should see "You have achieved a badge 'First event'" in the email body
     
   @javascript
-  Scenario: Non-monetary ransaction started from a request listing
+  Scenario: Non-monetary transaction started from a request listing
     Given there are following users:
       | person | 
       | kassi_testperson1 |
