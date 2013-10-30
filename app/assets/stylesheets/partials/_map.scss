@@ -228,7 +228,7 @@ $bubbleDetailsMargin: em(5, $googleMapsFontSize);
   left: 0;
   right: 0;
   top: 0;
-  @include background-image(linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)));
+  @include overlay;
 }
 
 span.bubble-title-link {

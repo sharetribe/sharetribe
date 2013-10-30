@@ -20,8 +20,8 @@
         - if listing.price
           .home-fluid-thumbnail-grid-price
             = money_without_cents_and_with_symbol(listing.price).upcase
-      .home-fluid-thumbnail-grid-author
-        .home-fluid-thumbnail-grid-author-avatar
-          = small_avatar_thumb(listing.organization_or_author?(@current_community), :class => "home-fluid-thumbnail-grid-author-avatar-image")
-        = link_to(listing.author, :class => "home-fluid-thumbnail-grid-author-name") do
-          = listing.author.name
+    .home-fluid-thumbnail-grid-author
+      .home-fluid-thumbnail-grid-author-avatar
+        = small_avatar_thumb(listing.organization_or_author?(@current_community), :class => "home-fluid-thumbnail-grid-author-avatar-image")
+      = link_to(listing.author, :class => "home-fluid-thumbnail-grid-author-name") do
+        = listing.author.name

@@ -1,7 +1,13 @@
 @import "compass/css3/images";
 
 @mixin overlay {
-  @include background-image(linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)));
+  $overlay-start-color: rgba(0, 0, 0, 0);
+  $overlay-end-color: rgba(0, 0, 0, 0.6);
+  $overlay-start-color-ie: ie-hex-str($overlay-start-color);
+  $overlay-end-color-ie: ie-hex-str($overlay-end-color);
+  @include background-image(linear-gradient($overlay-start-color, $overlay-end-color));
+  /*For IE7-8-9*/
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#{$overlay-start-color-ie}', endColorstr='#{$overlay-end-color-ie}');
 }
 
 @mixin ellipsis {
