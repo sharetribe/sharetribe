@@ -4,7 +4,7 @@ Feature: User creates a new rideshare
   Scenario: Creating a new rideshare item request successfully
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I follow "I need something"
     And I follow "A shared ride"
     And wait for 1 seconds
@@ -15,14 +15,13 @@ Feature: User creates a new rideshare
     And I select "2014" from "listing_valid_until_1i"
     And wait for 2 seconds
     And I press "Save listing"
-    Then I should see "Tampere - Turku" within ".item-description"
-    And I should see "Rideshare request"
+    Then I should see "Tampere - Turku" within "#listing-title"
 
   @javascript
   Scenario: Creating a new rideshare item request with wrong address in destination
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I follow "I need something"
     And I follow "A shared ride"
     And wait for 1 seconds
@@ -35,7 +34,7 @@ Feature: User creates a new rideshare
   Scenario: Creating a new rideshare item request with wrong address in destination
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I follow "I need something"
     And I follow "A shared ride"
     And wait for 1 seconds
@@ -48,7 +47,7 @@ Feature: User creates a new rideshare
   Scenario: Creating a new rideshare item offer successfully
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I follow "offer to others"
     And I follow "A shared ride"
     And wait for 1 seconds
@@ -59,14 +58,13 @@ Feature: User creates a new rideshare
     And I select "2014" from "listing_valid_until_1i"
     And wait for 2 seconds
     And I press "Save listing"
-    Then I should see "Tampere - Turku" within ".item-description"
-    And I should see "Rideshare offer"
+    Then I should see "Tampere - Turku" within "#listing-title"
 
   @javascript
   Scenario: Creating a new rideshare item offer with wrong address in destination
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I follow "offer to others"
     And I follow "A shared ride"
     And wait for 1 seconds
@@ -79,7 +77,7 @@ Feature: User creates a new rideshare
   Scenario: Creating a new rideshare item offer with wrong address in destination
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "new-listing-link"
     And I follow "offer to others"
     And I follow "A shared ride"
     And wait for 1 seconds
