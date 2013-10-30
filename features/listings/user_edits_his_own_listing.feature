@@ -28,8 +28,7 @@ Feature: User edits his own listing
     And I attach a valid image file to "listing_listing_images_attributes_0_image"
     And I press "Save listing"
     And the system processes jobs
-    Then I should see "Sledgehammer" within ".item-description"
-    And I should see "Buying"
+    Then I should see "Sledgehammer" within "#listing-title"
     And I should see the image I just uploaded
     When I follow "Edit listing"
     Then I should see the image I just uploaded
@@ -96,8 +95,7 @@ Feature: User edits his own listing
     And I follow "Edit listing"
     And I fill in "listing_title" with "Sledgehammer"
     And I press "Save listing"
-    Then I should see "Sledgehammer" within ".item-description"
-    And I should see "Buying"
+    Then I should see "Sledgehammer" within "#listing-title"
     And I should see "Listing updated successfully"
     
   @javascript
@@ -113,6 +111,5 @@ Feature: User edits his own listing
     And I follow "Edit listing"
     And I fill in "listing_title" with "Sledgehammer"
     And I press "Save listing"
-    Then I should see "Sledgehammer" within ".item-description"
-    And I should see "Buying"
+    Then I should see "Sledgehammer" within "#listing-title"
     And I should see "Listing updated successfully"

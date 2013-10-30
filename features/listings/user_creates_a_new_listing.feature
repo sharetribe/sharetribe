@@ -18,8 +18,7 @@ Feature: User creates a new listing
     And I fill in "listing_description" with "My description"
     And I attach a valid image file to "listing_listing_images_attributes_0_image"
     And I press "Save listing"
-    Then I should see "Sledgehammer" within ".item-description"
-    And I should see "Buying"
+    Then I should see "Sledgehammer" within "#listing-title"
     And I should see the image I just uploaded
   
   @javascript
@@ -36,8 +35,7 @@ Feature: User creates a new listing
     And I fill in "listing_description" with "My description"
     And I attach a valid image file to "listing_listing_images_attributes_0_image"
     And I press "Save listing"
-    Then I should see "My offer" within ".item-description"
-    And I should see "Lending"
+    Then I should see "My offer" within "#listing-title"
     And I should see the image I just uploaded
   
   @javascript
@@ -51,8 +49,7 @@ Feature: User creates a new listing
     And I fill in "listing_description" with "My description"
     And I attach a valid image file to "listing_listing_images_attributes_0_image"
     And I press "Save listing"
-    Then I should see "Massage" within ".item-description"
-    And I should see "Service request"
+    Then I should see "Massage" within "#listing-title"
     And I should see the image I just uploaded
   
   @javascript  
@@ -66,7 +63,7 @@ Feature: User creates a new listing
     And I fill in "listing_destination" with "Turku"
     And wait for 2 seconds
     And I press "Save listing"
-    Then I should see "Otaniemi - Turku" within ".item-description"
+    Then I should see "Otaniemi - Turku" within "#listing-title"
   
   @javascript  
   Scenario: Trying to create a new request without being logged in
@@ -168,8 +165,7 @@ Feature: User creates a new listing
     And I fill in "listing_description" with "My description"
     And I attach a valid image file to "listing_listing_images_attributes_0_image"
     And I press "Save listing"
-    Then I should see "My offer" within ".item-description"
-    And I should see "Selling"
+    Then I should see "My offer" within "#listing-title"
     And I should see the image I just uploaded
   
   @javascript
@@ -235,4 +231,4 @@ Feature: User creates a new listing
     Then I should see "Price must be a whole number."
     When I fill in "listing_price" with "20"
     And I press "Save listing"
-    Then I should see "Sledgehammer" within ".item-description"
+    Then I should see "Sledgehammer" within "#listing-title"
