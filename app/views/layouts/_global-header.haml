@@ -9,6 +9,11 @@
       = link_to t("header.about"), about_infos_path
       = link_to t("header.contact_us"), new_user_feedback_path
       = link_to t("homepage.index.post_new_listing"), new_listing_path
+      - with_available_locales do |locales|
+        .toggle-menu-title
+          = t(".select_language")
+        - locales.each do |locale|
+          %a{href: change_locale_path(:locale => "#{locale[1]}", :redirect_uri => "#{@return_to}"), :class => "toggle-menu-subitem"} #{locale[0]}
       
   
     %a.logo-side{:href => "/", :class => (@current_user ? "logo-side-logged" : "logo-side-unlogged")}
@@ -19,15 +24,15 @@
       = link_to t("header.home").downcase, "/", :class => "global-navi global-navi-left", :id => "global-navi-home"
       = link_to t("header.about").downcase, about_infos_path, :class => "global-navi global-navi-left", :id => "global-navi-about"
       = link_to t("header.contact_us").downcase, new_user_feedback_path, :class => "global-navi", :id => "global-navi-contact-us"
-      
-      - if available_locales.size > 1
+
+      - with_available_locales do |locales|
         #global-navi-select-language.language-menu-toggle.toggle.hidden{data: {toggle: '.language-menu'}}
           .language-name
             = get_full_locale_name(I18n.locale).downcase
           = icon_tag("dropdown", ["icon-dropdown"])
           
           .language-menu.toggle-menu.hidden
-            = render :partial => "layouts/locale_select", :collection => available_locales, :as => :loc_array
+            = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array
       
       - if @current_user
         %a{:href => received_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.messages"), :id => "inbox-link", :class => "global-navi inbox-link"}

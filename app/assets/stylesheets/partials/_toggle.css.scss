@@ -34,43 +34,53 @@
   margin-bottom: lines(0.5);
 
   $arrow-width: 1em;
-  
-  a, .feedback {
-    display: block;
-    position: relative;
-    color: $background;
-    padding: lines(0.5);
-    padding-right: lines(0.5) + $arrow-width + lines(0.5);
-  }
 
-  a:after {
-    content: "→"; // Could be replaced by a font icon
-    display: block;
-    position: absolute;
-    right: lines(0.5); top: lines(0.5);
-    color: $background;
-    width: $arrow-width;
-    text-align: right;
-  }
+  a, .toggle-menu-item {
 
-  a:hover {
-    background: $link;
-    color: $background;
-    
-    &:after {
+    &, .feedback {
+      display: block;
+      position: relative;
       color: $background;
+      padding: lines(0.5);
+      padding-right: lines(0.5) + $arrow-width + lines(0.5);
+    }
+    
+    &.login-form {
+      padding: 0;
+      &:hover {
+        color: lighten($link, 20%);
+        background: none;
+      }
+      &:after {
+        content: "";
+      }
     }
   }
-  
-  a.login-form {
-    padding: 0;
-    &:hover {
-      color: lighten($link, 20%);
-      background: none;
-    }
+
+  a, .toggle-menu-link {
     &:after {
-      content: "";
+      content: "→"; // Could be replaced by a font icon
+      display: block;
+      position: absolute;
+      right: lines(0.5); top: lines(0.5);
+      color: $background;
+      width: $arrow-width;
+      text-align: right;
     }
+
+    &:hover {
+      background: $link;
+      color: $background;
+      
+      &:after {
+        color: $background;
+      }
+    }
+  }
+
+  .toggle-menu-title {
+    @extend .toggle-menu-item;
+    background-color: lighten($light-body, 5%);
   }
   
   p.login-form {
