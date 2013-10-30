@@ -67,7 +67,6 @@ Feature: User creates a new listing
     And wait for 2 seconds
     And I press "Save listing"
     Then I should see "Otaniemi - Turku" within ".item-description"
-    And I should see "Rideshare request"
   
   @javascript  
   Scenario: Trying to create a new request without being logged in
