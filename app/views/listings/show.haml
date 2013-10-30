@@ -73,7 +73,7 @@
           = medium_avatar_thumb(@listing.organization_or_author?(@current_community))
         .listing-author-details
           .listing-author-name
-            = link_to @listing.author.name(@current_community), @listing.author
+            = link_to @listing.author.name(@current_community), @listing.author, :id => "listing-author-link"
           .listing-author-contact
             %a#listing-contact{href: reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free"), :class => "listing-author-contact-button"}
               = t(".contact")

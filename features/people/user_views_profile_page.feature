@@ -50,7 +50,7 @@ Feature: User views profile page
     And I am not logged in
     And I am on the home page
     When I follow "car spare parts"
-    And I follow "listing_author_link"
+    When I follow "listing-author-link"
     Then I should see "car spare parts"
     And I should see "Helsinki - Turku"
     And I should not see "Housing"
@@ -71,11 +71,11 @@ Feature: User views profile page
      And I am on the home page
      And I should not see "car spare parts"
      When I follow "massage"
-     And I follow "listing_author_link"
+     And I follow "listing-author-link"
      And I should not see "car spare parts"
      And I should see "massage"
      When I log in as "kassi_testperson1"
-     And I follow "listing_author_link"
+     And I follow "listing-author-link"
      Then I should see "car spare parts"
      And I should see "massage"
      And I should not see "apartment"
