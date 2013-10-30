@@ -27,7 +27,8 @@ Feature: User gives feedback from transaction
     Then I should see "has given you feedback" in the email body
     When I follow "View feedback" in the email
     Then I should see "Everything was great!"
-    When I follow "notifications_link"
+    When I click ".user-menu-toggle"
+    When I follow "Notifications"
     Then I should see "has given you feedback on event I offer this."
     And I should see "Give feedback to"
     And I should see "see all the feedback you have received"

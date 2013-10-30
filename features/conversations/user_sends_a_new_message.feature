@@ -13,7 +13,7 @@ Feature: User sends a new message
     And I am logged in as "kassi_testperson2"
     And I am on the homepage
     When I follow "Hammer"
-    And I follow "Send private message"
+    And I follow "listing-contact"
     And I fill in "Title" with "Question about the hammer"
     And I fill in "Message" with "What kind of hammer is this?"
     And I press "Send message"
@@ -41,7 +41,7 @@ Feature: User sends a new message
     And I am logged in as "kassi_testperson2"
     And I am on the homepage
     When I follow "Hammer"
-    And I follow "Send private message"
+    And I follow "listing-contact"
     And I press "Send message"
     Then I should see "This field is required."
   
@@ -55,22 +55,7 @@ Feature: User sends a new message
     And I am logged in as "kassi_testperson2"
     And I am on the homepage
     When I follow "Hammer"
-    And I follow "message_listing_author_link"
-    Then I should see "Send message to"
-  
-  @javascript
-  Scenario: Sending message to a commenter
-    Given there are following users:
-      | person | 
-      | kassi_testperson1 |
-      | kassi_testperson2 |
-    And there is item offer with title "Hammer" from "kassi_testperson1" and with share type "lend"
-    And there is one comment to the listing from "kassi_testperson2"
-    And I am logged in as "kassi_testperson1"
-    And I am on the homepage
-    When I follow "Hammer"
-    And I should not see "free_message_link"
-    And I follow "Send private message to" within "#comments"
+    And I follow "listing-contact"
     Then I should see "Send message to"
    
   @javascript

@@ -70,7 +70,7 @@ Feature: User requests an item in item offer
     When I follow "Hammer"
     And I follow "Borrow this item"
     Then I should see "You must log in to Sharetribe to send a message to another user." within ".flash-notifications"
-    And I should see "Log in to Sharetribe" within "h2"
+    And I should see "Log in to Sharetribe" within "h1"
     When I log in as "kassi_testperson2"
     Then I should see "This message is private"
   
@@ -85,7 +85,7 @@ Feature: User requests an item in item offer
     When I follow "Hammer"
     And I follow "Borrow this item"
     Then I should see "You must log in to Sharetribe to send a message to another user." within ".flash-notifications"
-    And I should see "Log in to Sharetribe" within "h2"
+    And I should see "Log in to Sharetribe" within "h1"
     When I log in as "kassi_testperson1"
     Then I should see "You cannot send a message to yourself" within ".flash-notifications"
     And I should see "Hammer"

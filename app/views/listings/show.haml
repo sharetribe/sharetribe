@@ -75,7 +75,7 @@
           .listing-author-name
             = link_to @listing.author.name(@current_community), @listing.author
           .listing-author-contact
-            %a{href: reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free"), :class => "listing-author-contact-button"}
+            %a#listing-contact{href: reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free"), :class => "listing-author-contact-button"}
               = t(".contact")
     .row-with-divider.listing-author-activity
       %i.listing-author-activity-icon{:class => icon_class("testimonial")}
