@@ -24,6 +24,12 @@ task :deploy_production_migrations_from_master => [
   'deploy_with_migrations'
 ]
 
+task :deploy_preproduction_migrations_from_develop => [
+  'deploy:set_preproduction_app',
+  'deploy:set_develop_as_source_branch',
+  'deploy_with_migrations'
+]
+
 task :deploy_staging_without_migrations => [
   'deploy:set_staging_app',
   'deploy:set_develop_as_source_branch',
@@ -101,6 +107,7 @@ task :deploy_without_migrations => [
 
 namespace :deploy do
   PRODUCTION_APP = 'sharetribe-production'
+  PREPRODUCTION_APP = 'sharetribe-preproduction'
   STAGING_APP = 'sharetribe-staging'
   TRANSLATION_APP = "sharetribe-translation"
   TESTING_APP = 'sharetribe-testing'
@@ -114,11 +121,15 @@ namespace :deploy do
   end
 
   task :set_production_app do
-  	APP = PRODUCTION_APP
+    APP = PRODUCTION_APP
+  end
+  
+  task :set_preproduction_app do
+    APP = PREPRODUCTION_APP
   end
   
   task :set_translation_app do
-  	APP = TRANSLATION_APP
+    APP = TRANSLATION_APP
   end
   
   task :set_develop_as_source_branch do
@@ -154,6 +165,8 @@ namespace :deploy do
       puts `git push translation closed_source:master --force`
     elsif APP == TESTING_APP
       puts `git push testing closed_source:master --force`
+    elsif APP == PREPRODUCTION_APP
+      puts `git push preproduction closed_source:master --force`  
     else
       puts `git push staging closed_source:master --force`
     end
