@@ -3375,7 +3375,7 @@ header.marketplace-header {
     top: 0;
     left: 0;
     width: lines(2.5);
-    height: (lines(2.5) - em(3));
+    height: lines(2.5) - em(3);
     padding: em(17) lines(0.5) em(10) lines(0.5);
     border-right: 1px solid $aside;
     &:hover { color: $link; }
@@ -3390,7 +3390,7 @@ header.marketplace-header {
   .mobile-menu {
     position: absolute;
     left: 0;
-    top: lines(2.5);
+    top: lines(2.5) - em(3);
     width: 100%;
   }
   
@@ -3480,7 +3480,6 @@ header.marketplace-header {
     display: inline-block;
     font-weight: 600;
     width: 100%;
-    padding-right: lines(0.5);
 
     @include media(mid-desktop) {
       width: lines(33);
@@ -3574,7 +3573,9 @@ header.marketplace-header {
   }
   
   .user-menu-toggle {
+    // Backup for IE
     width: 100%;
+    width: calc(100% - 6.75em);
     position: relative;
     display: inline-block;
     vertical-align: top;
@@ -3606,7 +3607,7 @@ header.marketplace-header {
       display: block;
       position: absolute;
       top: em(18);
-      right: lines(4);
+      right: 0;
     }
     
     .badge {
@@ -3633,7 +3634,7 @@ header.marketplace-header {
   .user-menu {
     position: absolute;
     left: 0;
-    top: lines(2.5);
+    top: lines(2.5) - em(3);
     width: 100%;
     @include media(tablet) {
       width: lines(10);
