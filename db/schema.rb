@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20131028183014) do
   end
 
   add_index "categories", ["name"], :name => "index_categories_on_name"
+  add_index "categories", ["parent_id"], :name => "index_categories_on_parent_id"
 
   create_table "category_translations", :force => true do |t|
     t.integer  "category_id"
@@ -160,6 +161,7 @@ ActiveRecord::Schema.define(:version => 20131028183014) do
     t.integer "listing_id"
   end
 
+  add_index "communities_listings", ["community_id"], :name => "index_communities_listings_on_community_id"
   add_index "communities_listings", ["listing_id", "community_id"], :name => "communities_listings"
 
   create_table "communities_payment_gateways", :id => false, :force => true do |t|
@@ -197,6 +199,8 @@ ActiveRecord::Schema.define(:version => 20131028183014) do
     t.text     "about_page_content"
   end
 
+  add_index "community_customizations", ["community_id"], :name => "index_community_customizations_on_community_id"
+
   create_table "community_memberships", :force => true do |t|
     t.string   "person_id"
     t.integer  "community_id"
@@ -209,6 +213,7 @@ ActiveRecord::Schema.define(:version => 20131028183014) do
     t.string   "status",              :default => "accepted", :null => false
   end
 
+  add_index "community_memberships", ["community_id"], :name => "index_community_memberships_on_community_id"
   add_index "community_memberships", ["person_id", "community_id"], :name => "memberships"
 
   create_table "contact_requests", :force => true do |t|
@@ -277,6 +282,7 @@ ActiveRecord::Schema.define(:version => 20131028183014) do
   end
 
   add_index "emails", ["address"], :name => "index_emails_on_address", :unique => true
+  add_index "emails", ["person_id"], :name => "index_emails_on_person_id"
 
   create_table "event_feed_events", :force => true do |t|
     t.string   "person1_id"
@@ -289,6 +295,8 @@ ActiveRecord::Schema.define(:version => 20131028183014) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "event_feed_events", ["community_id"], :name => "index_event_feed_events_on_community_id"
 
   create_table "feedbacks", :force => true do |t|
     t.text     "content"
@@ -334,6 +342,9 @@ ActiveRecord::Schema.define(:version => 20131028183014) do
     t.string   "email"
   end
 
+  add_index "invitations", ["code"], :name => "index_invitations_on_code"
+  add_index "invitations", ["inviter_id"], :name => "index_invitations_on_inviter_id"
+
   create_table "item_reservations", :force => true do |t|
     t.integer  "item_id"
     t.integer  "reservation_id"
@@ -348,6 +359,7 @@ ActiveRecord::Schema.define(:version => 20131028183014) do
   end
 
   add_index "listing_followers", ["listing_id"], :name => "index_listing_followers_on_listing_id"
+  add_index "listing_followers", ["person_id"], :name => "index_listing_followers_on_person_id"
 
   create_table "listing_images", :force => true do |t|
     t.integer  "listing_id"
@@ -391,8 +403,10 @@ ActiveRecord::Schema.define(:version => 20131028183014) do
     t.string   "quantity"
   end
 
+  add_index "listings", ["category_id"], :name => "index_listings_on_category_id"
+  add_index "listings", ["listing_type_old"], :name => "index_listings_on_listing_type"
   add_index "listings", ["open"], :name => "index_listings_on_open"
-  add_index "listings", ["share_type_old"], :name => "index_listings_on_share_type_old"
+  add_index "listings", ["share_type_id"], :name => "index_listings_on_share_type_id"
   add_index "listings", ["visibility"], :name => "index_listings_on_visibility"
 
   create_table "locations", :force => true do |t|
@@ -464,6 +478,8 @@ ActiveRecord::Schema.define(:version => 20131028183014) do
     t.datetime "updated_at",                         :null => false
   end
 
+  add_index "organization_memberships", ["person_id"], :name => "index_organization_memberships_on_person_id"
+
   create_table "organizations", :force => true do |t|
     t.string   "name"
     t.string   "company_id"
@@ -508,6 +524,8 @@ ActiveRecord::Schema.define(:version => 20131028183014) do
     t.string   "title"
   end
 
+  add_index "payment_rows", ["payment_id"], :name => "index_payment_rows_on_payment_id"
+
   create_table "payments", :force => true do |t|
     t.string   "payer_id"
     t.string   "recipient_id"
@@ -518,6 +536,9 @@ ActiveRecord::Schema.define(:version => 20131028183014) do
     t.datetime "updated_at",      :null => false
     t.integer  "community_id"
   end
+
+  add_index "payments", ["conversation_id"], :name => "index_payments_on_conversation_id"
+  add_index "payments", ["payer_id"], :name => "index_payments_on_payer_id"
 
   create_table "people", :id => false, :force => true do |t|
     t.string   "id",                                 :limit => 22,                   :null => false
@@ -568,6 +589,7 @@ ActiveRecord::Schema.define(:version => 20131028183014) do
   add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true
   add_index "people", ["facebook_id"], :name => "index_people_on_facebook_id", :unique => true
+  add_index "people", ["id"], :name => "index_people_on_id"
   add_index "people", ["reset_password_token"], :name => "index_people_on_reset_password_token", :unique => true
   add_index "people", ["username"], :name => "index_people_on_username", :unique => true
 
@@ -631,6 +653,7 @@ ActiveRecord::Schema.define(:version => 20131028183014) do
   end
 
   add_index "share_types", ["name"], :name => "index_share_types_on_name"
+  add_index "share_types", ["parent_id"], :name => "index_share_types_on_parent_id"
 
   create_table "statistics", :force => true do |t|
     t.integer  "community_id"
