@@ -182,17 +182,17 @@ end
 
 Then /^I should be logged in$/ do
   if page.respond_to? :should
-    page.should have_no_css(".login-menu-toggle")
+    page.should have_no_css("#login-link")
   else
-    assert page.has_no_css?(".login-menu-toggle")
+    assert page.has_no_css?("#login-link")
   end
 end
 
 Then /^I should not be logged in$/ do
   if page.respond_to? :should
-    page.should have_css(".login-menu-toggle")
+    page.should have_css("#login-link")
   else
-    assert page.has_css?(".login-menu-toggle")
+    assert page.has_css?("#login-link")
   end
 end
 

@@ -75,7 +75,7 @@
           
         
       - else
-        = link_to t("layouts.logged_in.login").downcase, login_path, :class => "global-navi login-link"
+        = link_to t("layouts.logged_in.login").downcase, login_path, :class => "global-navi login-link", :id => "login-link"
       
       .new-listing-link
         = link_to t("homepage.index.post_new_listing"), new_listing_path, :class => "action-button", :id => "new-listing-link"
