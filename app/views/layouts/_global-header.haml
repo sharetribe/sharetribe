@@ -80,7 +80,7 @@
         - if @current_community
           = hidden_field_tag :community, @current_community.domain
         - if facebook_connect_in_use?
-          %a.fb-connect{:href => person_omniauth_authorize_path(@current_community ? @current_community.facebook_login_method : :facebook)}
+          %a.fb-connect{:href => person_omniauth_authorize_path(@current_community ? @current_community.facebook_login_method(@current_host_with_port) : :facebook)}
             = icon_tag("facebook", ["fb-icon"])
             .fb-text= t("sessions.new.log_in_with_your_facebook_account")
           %p.login-form= t("sessions.new.or_sign_up_with_your_username")
