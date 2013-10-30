@@ -110,13 +110,14 @@ $image-height: image-height($image-width);
 $image-padding: lines(1);
 $home-list-image-size-mobile: lines(3);
 $home-list-image-padding-mobile: lines(0.5);
-.home-list-image {
+.home-list-image-container {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.home-list-image-desktop {
+.home-list-image-container-desktop {
+  @extend .home-list-image-container;
   height: $image-height;
   width: $image-width;
   display: none;
@@ -126,7 +127,8 @@ $home-list-image-padding-mobile: lines(0.5);
   }
 }
 
-.home-list-image-mobile {
+.home-list-image-container-mobile {
+  @extend .home-list-image-container;
   width: $home-list-image-size-mobile;
   height: $home-list-image-size-mobile;
   display: block;
@@ -134,6 +136,13 @@ $home-list-image-padding-mobile: lines(0.5);
   @include media(tablet) {
     display: none;
   }
+}
+
+.home-list-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  @include border-radius($default-border-radius);
 }
 
 .home-no-image {
