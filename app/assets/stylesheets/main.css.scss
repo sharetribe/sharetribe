@@ -3369,14 +3369,14 @@ section.create-now {
 */
 
 header.marketplace-header {
-  border-bottom: em(3) solid $light-body;
+  //border-bottom: em(3) solid $light-body;
   
   .mobile-menu-toggle {
     position: absolute;
     top: 0;
     left: 0;
     width: lines(2.5);
-    height: lines(2.5) - em(3);
+    height: lines(2.5);
     padding: em(17) lines(0.5) em(10) lines(0.5);
     border-right: 1px solid $aside;
     &:hover { color: $link; }
@@ -3391,7 +3391,7 @@ header.marketplace-header {
   .mobile-menu {
     position: absolute;
     left: 0;
-    top: lines(2.5) - em(3);
+    top: lines(2.5);
     width: 100%;
   }
   
@@ -3407,8 +3407,8 @@ header.marketplace-header {
     position: absolute;
     top: 0;
     left: lines(2.5);
-    padding-top: em(8);
-    height: (lines(2.5) - em(3));
+    padding-top: em(10);
+    height: lines(2.5);
     @include media(mid-desktop) {
       width: lines(7);
       position: static;
@@ -3496,7 +3496,7 @@ header.marketplace-header {
     vertical-align: top;
     display: none;
     margin-right: lines(0.5);
-    padding-top: em(15);
+    padding-top: em(17);
     color: $light-body;
     &:hover { color: $link; }
     
@@ -3527,13 +3527,13 @@ header.marketplace-header {
   }
   
   a.inbox-link {
-    padding-top: em(17);
+    padding-top: em(19);
   }
   
   .language-menu-toggle {
     position: relative;
     vertical-align: top;
-    padding: em(10) 0 em(20) 0;
+    padding: em(12) 0 em(20) 0;
     margin-right: lines(0.5);
     display: none;
     &:hover { color: $link; }
@@ -3581,12 +3581,12 @@ header.marketplace-header {
   .user-menu-toggle {
     // Backup for IE
     width: 100%;
-    width: calc(100% - 6.75em);
+    width: calc(100% - 7.25em);
     position: relative;
     display: inline-block;
     vertical-align: top;
-    padding: em(10) lines(0.5) em(11) lines(0.5);
-    margin-left: lines(4.5);
+    padding: em(12) lines(0.5) em(12) lines(0.5);
+    margin-left: lines(5);
     border-left: 1px solid $aside;
     &:hover { color: $link; }
 
@@ -3640,7 +3640,7 @@ header.marketplace-header {
   .user-menu {
     position: absolute;
     left: 0;
-    top: lines(2.5) - em(3);
+    top: lines(2.5) - em(0);
     width: 100%;
     @include media(tablet) {
       width: lines(10);
@@ -3657,16 +3657,19 @@ header.marketplace-header {
   .new-listing-link {
     display: none;
     vertical-align: top;
-    padding: em(15) 0 0 0;
+    padding: em(10) 0 0 0;
     a {
+      display: block;
       @include action-button($network-green);
-      border-width: em(2);
+      border-width: 0;
       margin-left: lines(0.25);
       font-weight: 300;
       @include media(tablet) {
         @include normal-type;
         font-weight: 300;
-        padding: em(5) em(13) em(8) em(13);
+        height: 40px;
+        line-height: 38px;
+        padding: 0 em(20);
         width: auto;
       }
     }
@@ -3689,7 +3692,8 @@ header.marketplace-header {
 
 .marketplace-lander {
   position: relative;
-  border-bottom: em(3) solid $body;
+  //border-top: em(1) solid $light-body;
+  //border-bottom: em(1) solid $light-body;
 
   figure.marketplace-cover {
     background-image: image-url($cover-photo-url);
@@ -3714,7 +3718,7 @@ header.marketplace-header {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    background: rgba($highlight, 0.825);
+    background: rgba($highlight, 0.625);
   }
   
   figure.marketplace-cover-small-fade {
@@ -3803,13 +3807,14 @@ header.marketplace-header {
     margin: 0;
     vertical-align: top;
     padding: em(11) em(11) em(11) em(11); 
-    border: 3px solid $body;
+    //border: 3px solid $body;
     width: 100%;
   }
   
   button.action-button {
     @include action-button($link);
-    border: 3px solid darken($link, 25%);
+    //border: 3px solid darken($link, 25%);
+    border: 0;
     &:hover { border-color: darken($link, 25%); }
     @include media(tablet) {
       margin: 0 0 0 lines(0.5);
@@ -3835,22 +3840,25 @@ header.marketplace-header {
     input[type=text] {
       @include normal-type;
       vertical-align: top;
-      border: em(2) solid $body;
+      //border: em(2) solid $body;
       margin-right: em(-4);
       padding: em(11) em(14) em(11) em(14);
       width: 73%;
       display: inline;
+      height: 48px;
     }
     
     button.action-button {
       display: inline;
       vertical-align: top;
-      border-width: em(2);
+      //border-width: em(2);
       padding: em(8);
       margin: 0 0 0 3%;
       width: 24%;
       padding: em(12) em(16) em(10) em(16);
       margin-right: em(-4);
+      height: 48px;
+      border-width: 0;
     }
 
     @include media(tablet) {

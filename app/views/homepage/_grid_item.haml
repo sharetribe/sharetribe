@@ -1,6 +1,6 @@
 .home-fluid-thumbnail-grid-item
   .home-fluid-thumbnail-grid-item-content
-    = link_to listing do
+    = link_to listing, :class => "home-fluid-thumbnail-grid-item-link" do
       .home-fluid-thumbnail-grid-image-container
         - with_first_listing_image(listing) do |first_image|
           = image_tag first_image.image.url(:email), {:alt => listed_listing_title(listing), :class => "home-fluid-thumbnail-grid-image"}

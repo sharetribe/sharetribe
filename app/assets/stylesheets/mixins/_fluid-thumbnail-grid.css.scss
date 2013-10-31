@@ -1,6 +1,7 @@
 @import "compass/utilities/general/clearfix";
 
 $fluid-thumbnail-grid-margin: lines(1);
+$fluid-thumbnail-grid-margin-mobile: lines(0.5);
 
 @mixin thumbnail-item-width($row-count) {
   width: 100% / $row-count;
@@ -39,13 +40,17 @@ $fluid-thumbnail-grid-margin: lines(1);
   
   .#{$prefix}-fluid-thumbnail-grid {
     @include clearfix;
-    margin-right: -1 * $fluid-thumbnail-grid-margin;
+    margin-right: -1 * $fluid-thumbnail-grid-margin-mobile;
+    
+    @include media(tablet) {
+      margin-right: -1 * $fluid-thumbnail-grid-margin;
+    }
   }
 
   .#{$prefix}-fluid-thumbnail-grid-item {
     float: left;
-    padding-right: $fluid-thumbnail-grid-margin;
-    margin-bottom: $fluid-thumbnail-grid-margin;
+    padding-right: $fluid-thumbnail-grid-margin-mobile;
+    margin-bottom: $fluid-thumbnail-grid-margin-mobile;
     @include thumnail-grid-items-per-row(
       $tiny-mobile-rows,
       $mobile-rows,
@@ -56,5 +61,9 @@ $fluid-thumbnail-grid-margin: lines(1);
       $mid-desktop-rows,
       $desktop-rows
     );
+    @include media(tablet) {
+      padding-right: $fluid-thumbnail-grid-margin;
+      margin-bottom: $fluid-thumbnail-grid-margin;
+    }
   }
 }

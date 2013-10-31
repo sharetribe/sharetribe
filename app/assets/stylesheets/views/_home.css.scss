@@ -5,10 +5,13 @@
 @import "compass/utilities/general/clearfix";
 
 .home-toolbar {
-  margin-bottom: lines(0.5);
   @include clearfix;
 
-  border-bottom: 2px solid $border;
+  //border-bottom: 1px solid $border;
+  
+  @include media(tablet) {
+    margin-bottom: lines(0.5);
+  }
 }
 
 .home-grid {

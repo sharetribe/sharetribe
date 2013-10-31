@@ -31,7 +31,7 @@
   @include selected-button-color;
 
   // Borders
-  @include button-group-borders(2px);
+  @include button-group-borders(0);
   @include border-radius(0);
 
   // Border radius
@@ -42,7 +42,7 @@
 
   &:last-child {
     @include border-right-radius($radius);
-    border-right-width: em(2);
+    //border-right-width: em(2);
   }
 }
 
@@ -95,7 +95,7 @@
 @mixin button {
   @include border-radius(em(5));
   background: $link;
-  border: em(2) solid darken($link, 10%);
+  //border: em(2) solid darken($link, 10%);
   color: $background;
   text-align: center;
   cursor: pointer;
@@ -105,12 +105,12 @@
   &:hover {
     background: darken($link, 5%);
     color: $background;
-    border: em(2) solid darken($link, 15%);
+    //border: em(2) solid darken($link, 15%);
   };
 
   &:active {
     background: darken($link, 10%);
     color: $background;
-    border: em(2) solid darken($link, 20%);
+    //border: em(2) solid darken($link, 20%);
   }
 }
