@@ -188,7 +188,7 @@ namespace :deploy do
       puts `cp -R ../tmp-sharetribe/webfonts/* app/assets/webfonts/`
       puts `cp ../tmp-sharetribe/mangopay.pem config/`
     else
-      puts "ERROR: Change to closed_source didn't work. Maybe you have uncommitted changes?"
+      puts "ERROR: Checkout for closed_source branch didn't work. Maybe you have uncommitted changes?"
     end
   end
   
@@ -213,8 +213,11 @@ namespace :deploy do
   end
   
   task :generate_custom_css => :environment do
-    puts 'Generating custom CSS for tribes who use it ...'
-    puts  `heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}`
+    puts "NOTE: The CSS generation is disable from build script temporarily"
+    puts "IF YOU NEED TO REBUILD CSS USE:"
+    puts "heroku run rake sharetribe:generate_customization_stylesheets"
+    #puts 'Generating custom CSS for tribes who use it ...'
+    #puts  `heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}`
   end
   
   task :update_translations_stored_in_db do
