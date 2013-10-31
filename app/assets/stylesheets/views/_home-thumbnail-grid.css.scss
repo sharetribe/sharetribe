@@ -59,15 +59,11 @@ $home-thumbnail-grid-author: $home-thumbnail-grid-avatar + ($home-thumbnail-grid
 
 .home-fluid-thumbnail-grid-author-avatar {
   padding: $home-thumbnail-grid-avatar-padding;
-  display: none;
-  
-  @include media(large-mobile) {
-    display: block;
-  }
 }
 
 .home-fluid-thumbnail-grid-author-avatar-image {
   @include border-radius($default-border-radius);
+  height: $home-thumbnail-grid-avatar;
 }
 
 .home-fluid-thumbnail-grid-author-name {
