@@ -105,7 +105,19 @@ class Community < ActiveRecord::Base
   end
   
   def has_customizations?
-    stylesheet_url.present?
+    if APP_CONFIG.preproduction
+      preproduction_stylesheet_url.present?
+    else
+      stylesheet_url.present?
+    end
+  end
+  
+  def custom_stylesheet_url
+    if APP_CONFIG.preproduction
+      self.preproduction_stylesheet_url        
+    else
+      self.stylesheet_url
+    end
   end
   
   def self.with_customizations
@@ -249,6 +261,7 @@ class Community < ActiveRecord::Base
   def self.generate_customization_stylesheets
     Community.with_customizations.each do |community|
       puts "Generating custom CSS for #{community.name}"
+      STDOUT.flush # trying to get the prints out sooner while deploying to heroku
       community.generate_customization_stylesheet
     end
   end
@@ -337,7 +350,16 @@ class Community < ActiveRecord::Base
           
         end
       end
-      update_attribute(:stylesheet_url, url)
+      
+      # If we are at preproduction, only update the preproduction_stylesheet_url in order not
+      # to disturb what's happening at production.
+      # Normally update the stylesheet_url
+      
+      if APP_CONFIG.preproduction
+        update_attribute(:preproduction_stylesheet_url, url)        
+      else
+        update_attribute(:stylesheet_url, url)
+      end
     end
   end
   

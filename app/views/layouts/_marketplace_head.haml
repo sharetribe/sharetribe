@@ -23,7 +23,7 @@
   
 / CSS
 - if @current_community.has_customizations?
-  = stylesheet_link_tag @current_community.stylesheet_url
+  = stylesheet_link_tag @current_community.custom_stylesheet_url
 - else
   = stylesheet_link_tag 'application'
 
