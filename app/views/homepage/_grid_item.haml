@@ -3,7 +3,7 @@
     = link_to listing do
       .home-fluid-thumbnail-grid-image-container
         - with_first_listing_image(listing) do |first_image|
-          = image_tag first_image.image.url(:email), {:alt => listed_listing_title(listing), :class => "home-fluid-thumbnail-grid-image"}
+          = image_tag first_image.image.url(:small_3x2), {:alt => listed_listing_title(listing), :class => "home-fluid-thumbnail-grid-image"}
 
         - with_first_listing_image_processing(listing) do
           = image_tag "empty_3x2.gif", {:class => "home-fluid-thumbnail-grid-image"}
