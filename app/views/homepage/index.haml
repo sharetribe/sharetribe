@@ -7,6 +7,9 @@
       = form_tag({ :action => :index, :controller => :homepage}, :method => "get", :id => "homepage-filters") do
         .search-form-input.search-form-text-field
           = text_field_tag "q", params[:q], :placeholder => t("homepage.index.what_do_you_need")
+          = hidden_field_tag "category", params[:category]
+          = hidden_field_tag "share_type", params[:share_type]
+          = hidden_field_tag "view", params[:view]
         .search-form-input
           %button.action-button{type: 'submit'}
             = icon_tag("search", ["icon-part"])
@@ -29,7 +32,7 @@
 
   .home-toolbar-button-group
     - ["grid", "list", "map"].each do |view_type|
-      %a.home-toolbar-button-group-button{href: (root + "?view=#{view_type}"), title: t("homepage.filters.#{view_type}_button"), class: (@view_type.include?(view_type) ? "selected" : "")}
+      = link_to params.merge(view: view_type), :class => "home-toolbar-button-group-button #{@view_type.include?(view_type) ? 'selected' : ''}", :title => t("homepage.filters.#{view_type}_button") do
         = icon_tag(view_type, ["icon-fix", "home-button-group-icon"])
         %span.home-toolbar-button-text
           = t("homepage.filters.#{view_type}_button")
