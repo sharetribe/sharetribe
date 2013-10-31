@@ -143,13 +143,15 @@
   }
 
   &.with-borders {
-    $toggle-border-width: 2px;
+    $toggle-border-width: 0;
     border: $toggle-border-width solid $border;
     @include border-radius(em(5));
+    background: $highlight;
 
     &.toggled {
       border-width: 0;
       @include border-radius(0);
+      background: $light-body;
 
       @include media(tablet) {
         // Add padding to fill missing space left by removed borders.
