@@ -38,7 +38,7 @@
   width: 33.3%;
 
   @include media(tablet) {
-    width: lines(4);
+    min-width: lines(5);
   }
 }
 
