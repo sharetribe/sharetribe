@@ -3642,7 +3642,7 @@ header.marketplace-header {
     left: 0;
     top: lines(2.5) - em(3);
     width: 100%;
-    @include media(tablet) {
+    @include media(mid-desktop) {
       width: lines(10);
 
       .inbox-menu-button {
