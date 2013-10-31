@@ -795,6 +795,8 @@ fi:
       sent: Lähetetyt
     dashboard:
       title: "%{service_name} - jaa tavaroita, palveluksia ja kyytejä paikallisyhteisössäsi!"
+    global-header:
+      select_language: "Valitse kieli"
     infos:
       about: "Tietoa palvelusta"
       how_to_use: "Miten palvelu toimii"
