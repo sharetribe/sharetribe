@@ -4,31 +4,23 @@
 #task :deploy_staging => ['deploy:set_staging_app', 'deploy:push', 'deploy:restart', 'deploy:tag']
 #task :deploy_production => ['deploy:set_production_app', 'deploy:push', 'deploy:restart', 'deploy:tag']
 
-task :deploy_staging_migrations => [
+
+## STAGING
+
+task :deploy_staging_migrations_from_master => [
   'deploy:set_staging_app',
-  'deploy:set_develop_as_source_branch',
+  'deploy:set_master_as_source_branch',
   'i18n:write_error_pages',
   'deploy:update_closed_source_folders',
   'deploy_with_migrations' 
 ]
 
-task :deploy_production_migrations => [
-  'deploy:set_production_app',
+task :deploy_staging_migrations_from_develop => [
+  'deploy:set_staging_app',
   'deploy:set_develop_as_source_branch',
-  'deploy_with_migrations'
-]
-
-task :deploy_production_migrations_from_master => [
-  'deploy:set_production_app',
-  'deploy:set_master_as_source_branch',
+  'i18n:write_error_pages',
   'deploy:update_closed_source_folders',
-  'deploy_with_migrations'
-]
-
-task :deploy_preproduction_migrations => [
-  'deploy:set_preproduction_app',
-  'deploy:set_develop_as_source_branch',
-  'deploy_with_migrations'
+  'deploy_with_migrations' 
 ]
 
 task :deploy_staging_without_migrations => [
@@ -39,17 +31,47 @@ task :deploy_staging_without_migrations => [
   'deploy_without_migrations'
 ]
 
+
+
+## PRODUCTION
+
+# this one deploy's the closed_source branch but doesn't update it
+task :deploy_production_migrations_from_closed_source => [
+  'deploy:set_production_app',
+  'deploy_with_migrations'
+]
+
+task :deploy_production_migrations_from_master => [
+  'deploy:set_production_app',
+  'deploy:set_master_as_source_branch',
+  'deploy:update_closed_source_folders',
+  'deploy_with_migrations'
+]
+
 task :deploy_production_without_migrations_from_master => [
   'deploy:set_production_app',
   'deploy:set_master_as_source_branch',
+  'deploy:update_closed_source_folders',
   'deploy_without_migrations'
 ]
 
-task :deploy_production_without_migrations_from_develop => [
+# this one deploy's the closed_source branch but doesn't update it
+task :deploy_production_without_migrations_from_closed_source => [
   'deploy:set_production_app',
-  'deploy:set_develop_as_source_branch',
   'deploy_without_migrations'
 ]
+
+
+## PRE PRODUCTION
+
+# this one deploy's the closed_source branch but doesn't update it
+task :deploy_preproduction_migrations_from_closed_source => [
+  'deploy:set_preproduction_app',
+  'deploy_with_migrations'
+]
+
+
+## TRANSLATION
 
 task :deploy_translation_migrations => [
   'deploy:set_translation_app', 
@@ -70,6 +92,8 @@ task :deploy_translation_without_migrations => [
 ]
 
 
+## TESTING
+
 task :deploy_testing_migrations => [
   'deploy:set_testing_app',
   'i18n:write_error_pages',
@@ -84,10 +108,14 @@ task :deploy_testing_without_migrations => [
   'deploy_without_migrations'
 ]
 
+
+
 task :deploy_test_servers => [
   'deploy_staging_migrations',
   'deploy_translation_migrations'
 ]
+
+
 
 task :deploy_with_migrations => [
   'deploy:push',
@@ -148,14 +176,20 @@ namespace :deploy do
     puts `mkdir ../tmp-sharetribe/webfonts` unless File.exists?("../tmp-sharetribe/webfonts")
     puts `rm app/assets/webfonts/* `
     puts `git checkout closed_source`
-    puts `git pull`
-    puts `cp -R app/assets/webfonts/* ../tmp-sharetribe/webfonts/`
-    puts `cp config/mangopay.pem ../tmp-sharetribe/`
-    puts `git rebase #{BRANCH}`
-    puts `git checkout #{BRANCH}`
-    puts `mkdir app/assets/webfonts `
-    puts `cp -R ../tmp-sharetribe/webfonts/* app/assets/webfonts/`
-    puts `cp ../tmp-sharetribe/mangopay.pem config/`
+    # Just in case, check that we really are in the right branch before reset --hard
+    if `git symbolic-ref HEAD` == "refs/heads/closed_source"
+      puts `git reset --hard private/closed_source`
+      puts `git pull`
+      puts `cp -R app/assets/webfonts/* ../tmp-sharetribe/webfonts/`
+      puts `cp config/mangopay.pem ../tmp-sharetribe/`
+      puts `git rebase #{BRANCH}`
+      puts `git checkout #{BRANCH}`
+      puts `mkdir app/assets/webfonts `
+      puts `cp -R ../tmp-sharetribe/webfonts/* app/assets/webfonts/`
+      puts `cp ../tmp-sharetribe/mangopay.pem config/`
+    else
+      puts "ERROR: Change to closed_source didn't work. Maybe you have uncommitted changes?"
+    end
   end
   
   task :push do
