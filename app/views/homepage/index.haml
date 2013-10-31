@@ -112,7 +112,6 @@
           - item_container = if @view_type.eql?("grid") then '.home-fluid-thumbnail-grid' else '.home-listings' end
           = pageless(@listings.total_pages, item_container, request.fullpath, t('.loading_more_content'))
     - else
-      - if params[:q] || params[:share_type] || params[:category]
-        .home-no-listings
-          = t(".no_listings_with_your_search_criteria")
+      .home-no-listings
+        = t(".no_listings_with_your_search_criteria")
   
