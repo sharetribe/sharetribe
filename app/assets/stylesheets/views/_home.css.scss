@@ -20,12 +20,18 @@
   margin-bottom: lines(0.5);
   
   // Leave room for filters button on the left side
-  width: 50%;
-  padding-left: lines(0.5 / 2);
+  width: 100%;
+
+  &.filters-enabled {
+    width: 50%;
+    padding-left: lines(0.5 / 2);
+  }
 
   @include media(tablet) {
-    width: auto;
-    float: right;
+    &, &.filters-enabled {
+      float: right;
+      width: auto;
+    }
   }
 }
 

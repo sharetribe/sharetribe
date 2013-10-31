@@ -23,11 +23,12 @@
 
 .home-toolbar
 
-  .home-toolbar-show-filters-button-container
-    .home-toolbar-show-filters-button#home-toolbar-show-filters
-      = t(".filter")
+  - if @listing_type_menu_enabled || @category_menu_enabled
+    .home-toolbar-show-filters-button-container
+      .home-toolbar-show-filters-button#home-toolbar-show-filters
+        = t(".filter")
 
-  .home-toolbar-button-group
+  .home-toolbar-button-group{:class => @listing_type_menu_enabled || @category_menu_enabled ? "filters-enabled" : ""}
     - ["grid", "list", "map"].each do |view_type|
       %a.home-toolbar-button-group-button{href: (root + "?view=#{view_type}"), title: t("homepage.filters.#{view_type}_button"), class: (@view_type.include?(view_type) ? "selected" : "")}
         = icon_tag(view_type, ["icon-fix", "home-button-group-icon"])
