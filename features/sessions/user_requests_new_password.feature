@@ -6,7 +6,7 @@ Feature: User requests new password
   @javascript
   Scenario: User requests new password successfully
     Given I am on the home page
-    When I click ".login-menu-toggle"
+    When I follow "login-link"
     And I follow "Username or password forgotten"
     And I fill in "Email" with "kassi_testperson2@example.com"
     And I press "Request new password"
@@ -15,7 +15,7 @@ Feature: User requests new password
   @javascript 
   Scenario: title
     Given I am on the home page
-    When I click ".login-menu-toggle"
+    When I follow "login-link"
     And I follow "Username or password forgotten"
     And I fill in "Email" with "some random string"
     And I press "Request new password"

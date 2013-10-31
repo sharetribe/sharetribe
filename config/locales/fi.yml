@@ -12,10 +12,12 @@ fi:
         invite_people: "Kutsu ihmisiä yhteisöön"
       edit_look_and_feel:
         edit_community_look_and_feel: "Muokkaa yhteisön \"%{community_name}\" ulkoasua"
-        community_logo: Logo
+        community_logo: "Peruslogo"
+        community_logo_icon: "Ikonilogo"
         community_cover_photo: Kansikuva
         community_custom_color1: Pääväri
-        logo_instructions_text: "Logotiedosto leikataan neliöksi ja muutetaan tarvittaessa kokoon 192x192 pikseliä."
+        logo_instructions_text: "Peruslogon koon tulee olla 168x40 pikseliä."
+        logo_icon_instructions_text: "Ikonilogon koon tulee olla 40x40 pikseliä."
         cover_photo_instructions_text: "Kansikuva muutetaan 1600x195 pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
         custom_color1_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset värin hex-koodin. Sen selville saamisessa auttaa esimerkiksi <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
         invalid_color_code: "Värikoodin tulisi sisältää 6 merkkiä, ja vain numeroita tai kirjaimia A-F, esimerkiksi: D96E21"
@@ -676,6 +678,8 @@ fi:
       some_private_requests_exist: "Palvelussa on jo <b>%{number_of_listings} pyyntöä</b>,"
     event_feed:
       latest_events: "Mitä %{service_name_inessive} tapahtuu"
+    grid_item:
+      processing_uploaded_image: "(Ladatun kuvan käsittely kesken...)"
     index:
       no_listings_with_your_search_criteria: "Antamillasi hakuehdoilla ei löytynyt yhtään ilmoitusta."
       no_listings_notification: "Ei ilmoituksia. %{add_listing_link}."
@@ -705,6 +709,9 @@ fi:
       teaser_text: "%{service_name} on %{community}-yhteisön oma palvelu, jossa voit lainata, vuokrata, antaa ja myydä tavaroita, auttaa ja pyytää apua tai järjestää kimppakyytejä. Voisitko lainata muille tavaroita tai auttaa heitä?"
       tell_it_here: "Kerro se täällä!"
       welcome_to_new_kassi: "%{service_name} on uudistunut!"
+      no_image: "Ei kuvaa"
+      no_reviews: "Ei palautteita"
+      filter: "Suodata"
     invitation_form:
       invite_your_friends: "Kutsu kaverisi %{service_name_illative}!"
       invite_your_neighbors: "Kutsu naapurisi %{service_name_illative}!"
@@ -715,6 +722,9 @@ fi:
       invitation_emails_field_placeholder: "kaveri1@esimerkki.fi, kaveri2@esimerkki.fi, ..."
       invitation_message_field_placeholder: "Tämä palvelu on mahtava, kannattaa ehdottomasti liittyä!"
       errors_in_emails: "Tarkista että antamasi osoitteet ovat toimivia sähköpostiosoitteita. Jos osoitteita on useampi, tarkista että ne on erotettu pilkulla."
+    list_item:
+      review: "palaute"
+      reviews: "palautetta"
     news_item:
       show_less: "Näytä vähemmän"
       show_more: "Näytä lisää"
@@ -865,7 +875,9 @@ fi:
       payment_successful: "Maksu suoritettu"
       payment_canceled: "Maksaminen peruutettu"
       error_in_payment: "Virhe maksun käsittelyssä. Jos et maksanut vielä, yritä uudelleen. Jos maksoit, ota yhteys ylläpitoon."
+      cannot_receive_payment: "Toisen osapuolen tunnukselle, ei voida tällä hetkellä välittää maksuja. Ole hyvä ja ota yhteys ylläpitoon asian selvittämiseksi."
       payment_waiting_for_later_accomplishment: "Muista maksaa maksu tilisiirron tiedoilla. Tämän jälkeen saat kuitin ja tieto maksusta välittyy myyjälle."
+      cannot_receive_payment: "Toisen osapuolen tunnukselle, ei voida tällä hetkellä välittää maksuja. Ole hyvä ja ota yhteys ylläpitoon asian selvittämiseksi."
       password_recovery_sent: "Ohjeet salasanan vaihtamiseen on lähetetty sähköpostiisi."
       person_activated: "Käyttäjä aktivoitu"
       person_deactivated: "Käyttäjä muutettu epäaktiiviseksi"
@@ -914,6 +926,7 @@ fi:
       you_must_log_in_to_view_your_settings: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voit nähdä asetuksesi."
       you_must_log_in_to_add_news_item: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit luoda uuden uutisen."
       you_need_to_confirm_your_account_first: "Sinun täytyy varmistaa sähköpostiosoitteesi ennen kuin voit jatkaa."
+      you_must_fill_all_the_fields: "Kaikki kentät täytyy täyttää"
       you_unfollowed_listing: "Ilmoituksen seuraaminen lopetettu"
       joining_community_failed: "Yhteisöön liittyminen epäonnistui"
     profile_extras_header:
@@ -1177,11 +1190,14 @@ fi:
       add_profile_picture: "Lisää profiilikuva"
       comments: "Julkinen keskustelu"
       contact_by_phone: "Puhelinnumero:"
+      contact: "Ota yhteyttä"
       favor_offer: Palvelustarjous
       favor_request: Palveluspyyntö
       item_offer_trade: "Annetaan vaihtoon"
       item_request_trade: "Halutaan vaihdossa"
       no_description: "Ei kuvausta"
+      no_image: "Ei kuvaa"
+      no_reviews: "Ei palautteita"
       offer: Tarjous
       listing_created: Luotu
       open_until: "Avoinna %{date} asti"
@@ -1240,6 +1256,20 @@ fi:
       payment_receiver: "Maksun saaja:"
       sum: "Summa:"
       commission_will_be_added: "Hintaan lisätään palvelumaksu 10%."
+    form:
+      total: Yhteensä
+      service_charge: Palvelumaksu
+      product: Tuote
+      price: Hinta
+      continue_to_pay: "Jatka maksamaan"
+    mangopay:
+      terms:
+        mangopay_terms_also_included: "HUOM: Tämä verkkopalvelu käyttää maksunvälittäjänä MangoPay-palvelua ja käyttämällä tätä verkkopalvelua hyväksyt alla olevien ehtojen lisäksi myös %{mangopay_terms_link_text}."
+        mangopay_terms_link_text: "MangoPayn käyttöehdot"
+      seller_registration_needed:
+        seller_registration_needed: "Et voi vielä tehdä rahaan liittyvää ilmoitusta"
+        seller_registration_instructions: "Ennen kuin voit tehdä ilmoituksen, josta joku voisi maksaa sinulle rahaa, sinun täytyy täyttää vielä pari lisätietoa %{link_to_settings_page}."
+        settings_page_link: profiiliisi
   people:
     index:
       loading_more_members: "Ladataan lisää jäseniä"

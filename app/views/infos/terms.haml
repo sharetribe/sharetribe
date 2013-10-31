@@ -4,3 +4,10 @@
   %h3
     = render :file => community_file("terms_title", false)
   = render :partial => "people/help_texts/terms"
+
+
+-# Render lightbox content for additional terms
+- if @mangopay_in_use
+  - content_for :javascript do
+    initialize_mangopay_terms_lightbox();
+  = render :partial => "payments/mangopay/mangopay_terms_lightbox"

@@ -360,7 +360,7 @@ fr:
       you_are_not_a_member_of_this_community: "Vous avez un compte sur %{service_name}, mais vous n'êtes pas encore membre de la tribu %{service_name} '%{community}'."
       you_can_join: "Vous pouvez rejoindre cette tribu en acceptant les conditions d'utilisation et en cliquant sur 'Rejoindre la tribu' ci-dessous."
       you_can_join_email_confirmation: "Pour rejoindre cette tribu, vous devez avoir une adresse email valide qui se termine par %{email_ending}. Complétez votre adresse email, acceptez les conditions d'utilisation de cette tribu puis cliquez sur 'Rejoignez la tribu' ci-dessous."
-      you_can_join_email_confirmation_multiple_addresses: "Pour rejoindre cette tribu, vous devez avoir une adresse email valide qui se termine par %{email_endings}. Complétez votre adresse email, acceptez les conditions d'utilisation de cette tribu puis cliquez sur 'Rejoignez la tribu' ci-dessous."
+      you_can_join_email_confirmation_multiple_addresses: "Cette tribu a un accès restreint selon l'e-mail. Vous ne pouvez la rejoindre que si vous avez un e-mail que l'administrateur de ce site a autorisé. Vous pouvez rejoindre la tribu en saisissant votre e-mail, en acceptant les conditions d'utilisation de cette tribu puis en cliquant sur 'Rejoignez la tribu' ci-dessous."
       you_can_join_with_invite_only: "Vous devez être invité par un autre membre pour rejoindre cette tribu. Si vous avez un code d'invitation, entrez le ci-dessous, acceptez les conditions d'utilisation de cette tribu puis cliquez sur 'Rejoignez la tribu' ci-dessous."
       if_want_to_view_content: "Pour voir le contenu de cette tribu sans la rejoindre, vous devez"
       log_out: "vous déconnecter"
@@ -766,7 +766,7 @@ fr:
       feedback_handle: Commentaires
       give_feedback: "Nous contacter"
       keywords: "%{service_name}, service, article, objet, transport, covoiturage, logement, hébergement, aide, aide, offre, demande, location, affaires, échange, achat, vente, acheter, vendre, don, donner, Kassi, écologique, communauté, communauté en , tribu"
-      meta_description: "%{service_name} est un service qui aide les membres d'associations et d'autres communautés à se rendre service, à se vendre et prêter des objets, à organiser des covoiturages et à s'entraider de plusieurs autres façons."
+      meta_description: "Sharetribe est un service qui vous permet de créer facilement une place de marché en ligne et permet à votre communauté ou tribu de vendre, louer, échanger et partager des biens et services."
       or_check_our: "... ou consultez notre"
       send_feedback_to_admin: "Envoyer votre commentaire"
       to_see_what_others_have_suggested: "pour voir ce que les autres ont suggéré et votez pour vos fonctionnalités préférées."
@@ -865,6 +865,7 @@ fr:
       payment_successful: "Paiement réussi"
       payment_canceled: "Paiement annulé"
       error_in_payment: "Erreur lors du paiement. Si vous n'avez pas terminé le paiement, essayez de nouveau. Si vous l'aviez terminé, merci de nous contacter."
+      cannot_receive_payment: "L'autre partie ne peut recevoir le paiement à cause d'une erreur. Veuillez contacter les administrateurs pour en savoir plus"
       payment_waiting_for_later_accomplishment: "Quand vous aurez payé, nous le signalerons au vendeur et vous recevrez une facture par email"
       password_recovery_sent: "Les instructions pour réinitialiser votre mot de passe ont été envoyées à votre adresse email."
       person_activated: "Utilisateur activé"
@@ -914,6 +915,7 @@ fr:
       you_must_log_in_to_view_your_settings: "Vous devez vous connecter à %{service_name} pour afficher vos paramètres."
       you_must_log_in_to_add_news_item: "Vous devez vous connecter à %{service_name} pour ajouter un nouvel article."
       you_need_to_confirm_your_account_first: "Vous devez d'abord confirmer votre email."
+      you_must_fill_all_the_fields: "Vous devez compléter tous les champs"
       you_unfollowed_listing: "Vous ne suivez plus cette annonce"
       joining_community_failed: "Rejoindre cette tribu a échoué."
     profile_extras_header:
@@ -1240,6 +1242,20 @@ fr:
       payment_receiver: "Destinataire du paiement : "
       sum: "Montant total : "
       commission_will_be_added: "Des frais de service de 10% seront ajoutés."
+    form:
+      total: Total
+      service_charge: Commission
+      product: Produit
+      price: Prix
+      continue_to_pay: "Continuer le paiement"
+    mangopay:
+      terms:
+        mangopay_terms_also_included: "REMARQUE : MangoPay est utilisé comme intermédiaire pour le paiement et en utilisant ce site vous acceptez également les %{mangopay_terms_link_text}, en complément des conditions ci-dessous."
+        mangopay_terms_link_text: "conditions d'utilisation de MangoPay"
+      seller_registration_needed:
+        seller_registration_needed: "Vous ne pouvez pas encore créer une annonce avec un paiement"
+        seller_registration_instructions: "Avant de pouvoir créer une annonce proposant un paiement, vous devez ajouter quelques précisions à votre %{link_to_settings_page}."
+        settings_page_link: profil
   people:
     index:
       loading_more_members: "Chargement des autres membres"
@@ -1280,7 +1296,7 @@ fr:
       email_not_allowed: "Cette adresse email n'est pas autorisée pour cette tribu. Veuillez utiliser une adresse associée à cette tribu. Si vous n'arrivez toujours pas à vous connecter, contactez-nous."
       email_restriction_instructions:
         one: "Cette tribu est réservée à %{community_name}. Pour la rejoindre, vous devez avoir une adresse e-mail du type %{allowed_emails}."
-        other: "Cette tribu est réservée à %{community_name}. Pour la rejoindre, vous devez avoir une adresse e-mail se terminant par %{allowed_emails}."
+        other: "Cette tribu est réservée à %{community_name}. Pour la rejoindre, vous devez avoir une adresse e-mail autorisée."
       enter_captcha: "Je suis un être humain :"
       family_name: "Nom de famille"
       given_name: Prénom
@@ -1475,7 +1491,7 @@ fr:
       change: Changer
       confirm_new_password: "Confirmez votre nouveau mot de passe"
       delete_account: "Supprimer le compte"
-      delete_account_button: "Supprimer définitivement mon compte."
+      delete_account_button: "Supprimer définitivement mon compte"
       delete_account_confirmation_popup: "Etes-vous bien sûr(e) de vouloir supprimer votre compte et de perdre toutes ses données ? La suppression d'un compte est irréversible."
       email: "Adresse email : "
       instructions_to_delete_account: "Si vous supprimez votre compte, toutes ses données seront perdues : les informations de votre profil, les annonces, les commentaires, les messages, les avis etc..."

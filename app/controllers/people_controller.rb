@@ -217,6 +217,7 @@ class PeopleController < Devise::RegistrationsController
   
   def update
 
+    # If setting new location, delete old one first
 	  if params[:person] && params[:person][:location] && (params[:person][:location][:address].empty? || params[:person][:street_address].blank?)
       params[:person].delete("location")
       if @person.location
@@ -236,6 +237,28 @@ class PeopleController < Devise::RegistrationsController
     if params[:person][:email] && @person.confirmed_at
       Email.create(:person => @person, :address => @person.email, :confirmed_at => @person.confirmed_at) unless Email.find_by_address(@person.email)
     end
+
+    # If updating payout details, check that they are valid
+    if params[:person] && (params[:person][:bank_account_owner_name] || params[:person][:bank_account_owner_address] || params[:person][:iban] || params[:person][:bic])
+      
+      # require all fields
+      if params[:person][:bank_account_owner_name].blank? || params[:person][:bank_account_owner_address].blank? || params[:person][:iban].blank? || params[:person][:bic].blank?
+        flash[:error] = t("layouts.notifications.you_must_fill_all_the_fields")
+        redirect_to :back and return
+      end
+      
+      # Try to register the details if payment gateway is present
+      if payment_gateway = @current_community.payment_gateways.first
+        begin
+          payment_gateway.register_payout_details(@person)
+        rescue => e
+          flash[:error] = e.message
+          redirect_to :back and return
+        end
+      end
+
+    end
+    
 
     begin
       if @person.update_attributes(params[:person])
@@ -258,7 +281,6 @@ class PeopleController < Devise::RegistrationsController
     end
     
     redirect_to :back
-    
   end
   
   def destroy

@@ -60,11 +60,11 @@ Feature: User checks inbox
     And I should see "Test2"
     And I should see "Helsinki - Turku" 
     And I should see "Fine"
-    And I should see "3" within ".inbox-toggle"
+    And I should see "3" within "#inbox-link"
     And I follow "Fine"
     And I follow "inbox-link"
     And I should not see "Fine" within ".unread"
-    And I should see "2" within ".inbox-toggle"  
+    And I should see "2" within "#inbox-link"  
   
   @javascript
   Scenario: Viewing sent messages when there are multiple messages from different senders
@@ -103,7 +103,7 @@ Feature: User checks inbox
     And I am not logged in
     When I try to go to inbox of "kassi_testperson1"
     Then I should see "You must log in to Sharetribe to view your inbox." within ".flash-notifications"
-    And I should see "Log in to Sharetribe" within "h2"
+    And I should see "Log in to Sharetribe" within "h1"
   
   @javascript
   Scenario: Trying to view somebody else's inbox

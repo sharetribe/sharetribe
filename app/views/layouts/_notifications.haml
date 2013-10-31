@@ -1,6 +1,6 @@
 - { :notice => "ss-check", :warning => "ss-info", :error => "ss-alert" }.each do |announcement, icon_class|
   - if flash[announcement]
-    .flash-notifications{:class => "#{['listings', 'people'].include?(controller_name) && action_name.eql?('show') ? 'narrow-notification' : ''}"}
+    .flash-notifications
       .flash-notification{:class => "flash-#{announcement.to_s}"}
         .flash-icon{:class => icon_class}
         .flash-text

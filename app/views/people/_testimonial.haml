@@ -1,28 +1,21 @@
 .testimonial{:class => "light_#{testimonial.displayed_grade > 2 ? 'green' : 'red' }", :id => "testimonial#{testimonial.id.to_s}"}
   - listing = testimonial.participation.conversation.listing
-  .avatar
+  .testimonial-avatar
     = small_avatar_thumb(testimonial.author)
-  
-  .testimonial-description
-    .testimonial-icon
-      - if testimonial.grade > 0.25
-        = icon_tag("like", ["positive"])
+  .testimonial-details
+    .testimonial-message
+      - text_with_line_breaks do
+        #{testimonial.text}
+    .testimonial-author
+      = link_to testimonial.author.given_name_or_username, testimonial.author
+      = t("testimonials.testimonial.about_listing")
+      - if listing.visibility.eql?("disabled")
+        &ldquo;#{listing.title}&rdquo;
       - else
-        = icon_tag("dislike", ["negative"])
-    .testimonial-text
-      - if testimonial.text && !testimonial.text.blank?
-        - text_with_line_breaks do
-          &ldquo;#{testimonial.text}&rdquo;
-      %small
-        = "---"
-        = link_to testimonial.author.given_name_or_username, testimonial.author
-        = t("testimonials.testimonial.about_listing")
-        - if listing.visibility.eql?("disabled")
-          &ldquo;#{listing.title}&rdquo;
-        - else
-          = link_to listing.title, listing
-        = time_ago(testimonial.created_at) + "."
-  
-  .testimonial-title
-    
-  
+        = link_to listing.title, listing
+      = time_ago(testimonial.created_at) + "."
+  .testimonial-icon{:class => testimonial.grade > 0.25 ? 'positive' : 'negative'}
+    - if testimonial.grade > 0.25
+      = icon_tag("like", ["positive"])
+    - else
+      = icon_tag("dislike", ["negative"])

@@ -1,4 +1,14 @@
 - if @current_community
+  - if @current_community.payment_gateways.include?(Mangopay.first)
+    - content_for :javascript do
+      initialize_mangopay_terms_lightbox();
+    %b
+      = t('payments.mangopay.terms.mangopay_terms_also_included', :mangopay_terms_link_text => link_to(t("payments.mangopay.terms.mangopay_terms_link_text"), "#", :tabindex => "-1", :id => "mangopay_terms_link")).html_safe
+    
+    = render :partial => "payments/mangopay/mangopay_terms_lightbox"
+    %br
+    %br
+
   - if @current_community.label.eql?("okl")
     = render :file => community_file("okl_terms", true)
   - else

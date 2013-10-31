@@ -3,29 +3,14 @@
 
 - content_for :extra_javascript do
   = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
-  
-.view-profile
 
-  .profile-description.section
-  
-    %h1
-      = @person.name(@current_community)
-    
-    #profile_message_links
-      - if current_user?(@person)
-        %a.button{href: profile_person_settings_path(:person_id => @current_user.id.to_s)}
-          .ss-compose.icon-with-text
-          .text-with-icon= t(".edit_profile_info") 
-      - else
-        %a.button{href: new_person_message_path(:person_id => @person.id, :message_type => "free", :profile_message => true)}
-          .ss-mail.icon-with-text
-          .text-with-icon= t(".contact", :person => @person.given_name_or_username)  
-    
-    .profile-details
-    
-      .profile-image
-        = large_avatar_thumb(@person)
+- content_for :title_header do
+  %h1
+    %span.profile-title= @person.name(@current_community)
 
+.row
+  .col-8
+    .row
       - if @person.description && !@person.description.blank?
         - text_with_line_breaks do
           = @person.description
@@ -34,102 +19,242 @@
           .icon-with-text-container
             .ss-chat.icon-part
             .ss.text-part= t(".add_description")
-      .profile-icons
-        .icon-with-text-container
-          .ss-adduser.icon-part 
-          .text-part= t(".joined_this_community", :name => @person.given_name_or_username, :time_ago => time_ago(@community_membership.created_at))
-        - if @community_membership.last_page_load_date
-          .icon-with-text-container
-            .ss-refresh.icon-part
-            .text-part= t(".was_last_seen", :time_ago => time_ago(@community_membership.last_page_load_date))
-        - if @community_membership.invitation && @community_membership.invitation.inviter
-          .icon-with-text-container
-            .ss-users.icon-part
-            .text-part= t(".was_invited_by", :inviter_name => (link_to @community_membership.invitation.inviter.name(@current_community), @community_membership.invitation.inviter)).html_safe
-    
-    - if logged_in? && @person.location && !@person.location.address.blank?
-      #googlemap
-        = render :partial => "googlemap"
-        = render :partial => "profile_location", :locals => { :location => @person.location }
-    - elsif current_user?(@person)
-      %a.action-link{href: person_settings_path(@person)}
-        .ss-maplocation.icon-with-text
-        .text-with-icon= t(".add_location")
-    
-    - if current_user?(@person) && !@person.has_profile_picture?
-      %a.add-profile-picture-link{href: person_settings_path(@person)}
-        .ss-picture.icon-with-text
-        .text-with-icon= t("listings.show.add_profile_picture")
-    
-    - if @current_community.settings && @current_community.settings["use_trustcloud"] && @person.email.present?
-      .trustcloud{:class => (trustcard_class(@person))}
-        = t('.trustcloud')
-        %small
-          = link_to t("common.what_is_this"), "#", :id => "trustcloud_description_link"
-        = "<script type=\"text/javascript\" src=\"https://api.trustcloud.com/display/showidcard?userid=emailhash-#{Digest::MD5.hexdigest(@person.email)}&darkcolor=ad581a&lightcolor=d96e21&viewerisowner=#{( current_user?(@person) ? "1" : "0")}&lightbox=1\"></script>".html_safe
-        = render :partial => "help_texts", :collection => ["trustcloud_description"], :as => :field
-    
-    - unless @current_community.settings && @current_community.settings["use_trustcloud"]
-      .bottom-margin
-  
-  - if @current_community.requires_organization_membership?
-    .profile-organizations.section
-      %h2
-        = t(".presented_organizations")
-      #profile-organizations-list
-        = render :partial => "organizations/profile_organization", :collection => @person.organizations, :as => :organization
-      - if current_user?(@person)
-        = link_to t(".add_new_organization"), new_organization_path
-        
-  .profile-listings.section
-    %h2
-      - if @listings.size > 0
-        - if current_user?(@person) && params[:show_closed]
-          = pluralize(@listings.count, t(".listing"), t(".listings"))
+
+    .row
+      %h2.people-header
+        - if @listings.count > 0
+          - if current_user?(@person) && params[:show_closed]
+            = pluralize(@listings.count, t(".listing"), t(".listings"))
+          - else
+            = pluralize(@listings.count, t(".open_listing"), t(".open_listings"))
         - else
-          = pluralize(@listings.count, t(".open_listing"), t(".open_listings"))
+          - if current_user?(@person) && params[:show_closed]
+            = t(".no_listings")
+          - else
+            = t(".no_open_listings")
+        %span.people-show-closed-link
+          - if current_user?(@person)
+            - if params[:show_closed]
+              = link_to t("people.profile_listings.show_only_open"), person_path(@person)
+            - else
+              = link_to t("people.profile_listings.show_also_closed"), person_path(@person, :show_closed => true)
+
+    #profile-listings-list
+      - limit = 9
+      = render :partial => 'listings/profile_listings', :locals => {:person => @person, :limit => limit}
+
+    - if @current_community.testimonials_in_use
+      #people-testimonials.listing-main
+        .row
+          %h2.people-header
+            - if @person.received_testimonials.size > 0
+              = pluralize(@person.received_testimonials.size, t(".review"), t(".reviews"))
+              = "(#{@person.feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{@person.received_positive_testimonials.size}/#{@person.received_testimonials.size})"
+            - else
+              = t(".no_reviews")
+          - if @person.received_testimonials.size > 0
+            #profile-testimonials-list
+              = render :partial => "testimonials", :locals => {:received_testimonials => @person.received_testimonials, :limit => 3}
+
+  .col-4
+    .row
+      .people-image
+        = huge_avatar_thumb(@person)
+
+    .row-with-divider
+      - if current_user?(@person)
+        %a.button{href: profile_person_settings_path(:person_id => @current_user.id.to_s)}
+          .ss-compose.icon-with-text
+          .text-with-icon= t(".edit_profile_info") 
       - else
-        - if current_user?(@person) && params[:show_closed]
-          = t(".no_listings")
-        - else
-          = t(".no_open_listings")
-    .show-closed-link
-      - if current_user?(@person)
-        - if params[:show_closed]
-          = link_to t("people.profile_listings.show_only_open"), person_path(@person)
-        - else
-          = link_to t("people.profile_listings.show_also_closed"), person_path(@person, :show_closed => true)
-    - if @listings.size > 0
-      #profile-listings-list
-        = render :partial => "listings/profile_listing", :collection => @listings.limit(3), :as => :listing
-        - if @listings.total_pages > 1
-          .load-more-link#load-more-listings
-            - if current_user?(@person)  && params[:show_closed]
-              = link_to t(".show_all_listings"), "#"
-            - else 
-              = link_to t(".show_all_open_listings"), "#"
-  - if @current_community.testimonials_in_use
-    .profile-testimonials.section
-      %h2
-        - if @person.received_testimonials.size > 0
-          = pluralize(@person.received_testimonials.size, t(".review"), t(".reviews"))
-        - else
-          = t(".no_reviews")
-      - if @person.received_testimonials.size > 0
-        .small-text
-          = "(#{@person.feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{@person.received_positive_testimonials.size}/#{@person.received_testimonials.size})"
-        #profile-testimonials-list
-          = render :partial => "testimonial", :collection => @person.received_testimonials.limit(3)
-          - if @person.received_testimonials.size > 3
-            .load-more-link#load-more-testimonials
-              = link_to t(".show_all_reviews"), "#"
+        %a.button{href: new_person_message_path(:person_id => @person.id, :message_type => "free", :profile_message => true)}
+          .ss-mail.icon-with-text
+          .text-with-icon= t(".contact", :person => @person.given_name_or_username)
+
+    / .row.listing-author-activity
+    /   %h2
+    /     = "Verifications"
+    /   %i.listing-author-activity-icon{:class => icon_class("testimonial")}
+    /   .listing-author-activity-item
+    /     .listing-author-activity-value
+    /       = "17.5% "
+    /       = t("people.show.positive")
+    /       = "2/9"
+    /     .listing-author-activity-description
+    /       = t(".feedback")
+
+    / .row.listing-author-activity
+    /   %i.listing-author-activity-icon{:class => icon_class("testimonial")}
+    /   .listing-author-activity-item
+    /     .listing-author-activity-value
+    /       = "17.5% "
+    /       = t("people.show.positive")
+    /       = "2/9"
+    /     .listing-author-activity-description
+    /       = t(".feedback")
+
+    / .row-with-divider.listing-author-activity
+    /   %i.listing-author-activity-icon{:class => icon_class("testimonial")}
+    /   .listing-author-activity-item
+    /     .listing-author-activity-value
+    /       = "17.5% "
+    /       = t("people.show.positive")
+    /       = "2/9"
+    /     .listing-author-activity-description
+    /       = t(".feedback")
+
+    .row
+      - if logged_in? && @person.location && !@person.location.address.blank?
+        #googlemap
+          = render :partial => "googlemap"
+          = render :partial => "profile_location", :locals => { :location => @person.location }
+      - elsif current_user?(@person)
+        %a.action-link{href: person_settings_path(@person)}
+          .ss-maplocation.icon-with-text
+          .text-with-icon= t(".add_location")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/ .view-profile{:style => "position: absolute; top: 5000px; border-top: 5px dotted red;"}
+
+/   .profile-description.section
+  
+/     %h1
+/       = @person.name(@current_community)
+    
+/     #profile_message_links
+/       - if current_user?(@person)
+/         %a.button{href: profile_person_settings_path(:person_id => @current_user.id.to_s)}
+/           .ss-compose.icon-with-text
+/           .text-with-icon= t(".edit_profile_info") 
+/       - else
+/         %a.button{href: new_person_message_path(:person_id => @person.id, :message_type => "free", :profile_message => true)}
+/           .ss-mail.icon-with-text
+/           .text-with-icon= t(".contact", :person => @person.given_name_or_username)  
+    
+/     .profile-details
+    
+/       .profile-image
+/         = large_avatar_thumb(@person)
+
+/       - if @person.description && !@person.description.blank?
+/         - text_with_line_breaks do
+/           = @person.description
+/       - elsif current_user?(@person)
+/         %a{href: person_settings_path(@person)}
+/           .icon-with-text-container
+/             .ss-chat.icon-part
+/             .ss.text-part= t(".add_description")
+/       .profile-icons
+/         .icon-with-text-container
+/           .ss-adduser.icon-part 
+/           .text-part= t(".joined_this_community", :name => @person.given_name_or_username, :time_ago => time_ago(@community_membership.created_at))
+/         - if @community_membership.last_page_load_date
+/           .icon-with-text-container
+/             .ss-refresh.icon-part
+/             .text-part= t(".was_last_seen", :time_ago => time_ago(@community_membership.last_page_load_date))
+/         - if @community_membership.invitation && @community_membership.invitation.inviter
+/           .icon-with-text-container
+/             .ss-users.icon-part
+/             .text-part= t(".was_invited_by", :inviter_name => (link_to @community_membership.invitation.inviter.name(@current_community), @community_membership.invitation.inviter)).html_safe
+    
+/     - if logged_in? && @person.location && !@person.location.address.blank?
+/       #googlemap
+/         = render :partial => "googlemap"
+/         = render :partial => "profile_location", :locals => { :location => @person.location }
+/     - elsif current_user?(@person)
+/       %a.action-link{href: person_settings_path(@person)}
+/         .ss-maplocation.icon-with-text
+/         .text-with-icon= t(".add_location")
+    
+/     - if current_user?(@person) && !@person.has_profile_picture?
+/       %a.add-profile-picture-link{href: person_settings_path(@person)}
+/         .ss-picture.icon-with-text
+/         .text-with-icon= t("listings.show.add_profile_picture")
+    
+/     - if @current_community.settings && @current_community.settings["use_trustcloud"] && @person.email.present?
+/       .trustcloud{:class => (trustcard_class(@person))}
+/         = t('.trustcloud')
+/         %small
+/           = link_to t("common.what_is_this"), "#", :id => "trustcloud_description_link"
+/         = "<script type=\"text/javascript\" src=\"https://api.trustcloud.com/display/showidcard?userid=emailhash-#{Digest::MD5.hexdigest(@person.email)}&darkcolor=ad581a&lightcolor=d96e21&viewerisowner=#{( current_user?(@person) ? "1" : "0")}&lightbox=1\"></script>".html_safe
+/         = render :partial => "help_texts", :collection => ["trustcloud_description"], :as => :field
+    
+/     - unless @current_community.settings && @current_community.settings["use_trustcloud"]
+/       .bottom-margin
+  
+/   - if @current_community.requires_organization_membership?
+/     .profile-organizations.section
+/       %h2
+/         = t(".presented_organizations")
+/       #profile-organizations-list
+/         = render :partial => "organizations/profile_organization", :collection => @person.organizations, :as => :organization
+/       - if current_user?(@person)
+/         = link_to t(".add_new_organization"), new_organization_path
+        
+/   .profile-listings.section
+/     %h2
+/       - if @listings.size > 0
+/         - if current_user?(@person) && params[:show_closed]
+/           = pluralize(@listings.count, t(".listing"), t(".listings"))
+/         - else
+/           = pluralize(@listings.count, t(".open_listing"), t(".open_listings"))
+/       - else
+/         - if current_user?(@person) && params[:show_closed]
+/           = t(".no_listings")
+/         - else
+/           = t(".no_open_listings")
+/     .show-closed-link
+/       - if current_user?(@person)
+/         - if params[:show_closed]
+/           = link_to t("people.profile_listings.show_only_open"), person_path(@person)
+/         - else
+/           = link_to t("people.profile_listings.show_also_closed"), person_path(@person, :show_closed => true)
+/     - if @listings.size > 0
+/       #profile-listings-list
+/         = render :partial => "listings/profile_listing", :collection => @listings.limit(3), :as => :listing
+/         - if @listings.total_pages > 1
+/           .load-more-link#load-more-listings
+/             - if current_user?(@person)  && params[:show_closed]
+/               = link_to t(".show_all_listings"), "#"
+/             - else 
+/               = link_to t(".show_all_open_listings"), "#"
+/   - if @current_community.testimonials_in_use
+/     .profile-testimonials.section
+/       %h2
+/         - if @person.received_testimonials.size > 0
+/           = pluralize(@person.received_testimonials.size, t(".review"), t(".reviews"))
+/         - else
+/           = t(".no_reviews")
+/       - if @person.received_testimonials.size > 0
+/         .small-text
+/           = "(#{@person.feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{@person.received_positive_testimonials.size}/#{@person.received_testimonials.size})"
+/         #profile-testimonials-list
+/           = render :partial => "testimonial", :collection => @person.received_testimonials.limit(3)
+/           - if @person.received_testimonials.size > 3
+/             .load-more-link#load-more-testimonials
+/               = link_to t(".show_all_reviews"), "#"
   
 
-  - if @person.badges.size > 0 && @current_community.badges_in_use
-    .profile-badges.section
-      %h2= pluralize(@person.badges.size, t(".badge"), t(".badges"))
-      .badge-list
-        = render :partial => "profile_badge", :collection => @person.badges.order("id DESC"), :as => :badge
+/   - if @person.badges.size > 0 && @current_community.badges_in_use
+/     .profile-badges.section
+/       %h2= pluralize(@person.badges.size, t(".badge"), t(".badges"))
+/       .badge-list
+/         = render :partial => "profile_badge", :collection => @person.badges.order("id DESC"), :as => :badge
 
-- if @person.badges.size > 0 && @person.badges_visible_to?(@current_user) && @current_community.badges_in_use
-  = render :partial => "badge_description", :collection => @person.badges.order("id DESC"), :as => :badge    
+/ - if @person.badges.size > 0 && @person.badges_visible_to?(@current_user) && @current_community.badges_in_use
+/   = render :partial => "badge_description", :collection => @person.badges.order("id DESC"), :as => :badge    

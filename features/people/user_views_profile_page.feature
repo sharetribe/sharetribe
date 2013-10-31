@@ -50,7 +50,7 @@ Feature: User views profile page
     And I am not logged in
     And I am on the home page
     When I follow "car spare parts"
-    And I follow "listing_author_link"
+    When I follow "listing-author-link"
     Then I should see "car spare parts"
     And I should see "Helsinki - Turku"
     And I should not see "Housing"
@@ -71,15 +71,13 @@ Feature: User views profile page
      And I am on the home page
      And I should not see "car spare parts"
      When I follow "massage"
-     And I follow "listing_author_link"
+     And I follow "listing-author-link"
      And I should not see "car spare parts"
      And I should see "massage"
-     And I should see "Service offer"
      When I log in as "kassi_testperson1"
-     And I follow "listing_author_link"
+     And I follow "listing-author-link"
      Then I should see "car spare parts"
      And I should see "massage"
-     And I should see "Service offer"
      And I should not see "apartment"
      When I follow "Show also closed"
      Then I should see "apartment"
@@ -100,26 +98,26 @@ Feature: User views profile page
     And there is feedback about that event from "kassi_testperson2" with grade "0.75" and with text "Test feedback"
     And I go to the profile page of "kassi_testperson1"
     Then I should see "1 received review"
-    And I should see "100%" within ".profile-testimonials"
-    And I should see "Test feedback" within ".profile-testimonials"
+    And I should see "100%" within "#people-testimonials"
+    And I should see "Test feedback" within "#people-testimonials"
     When there is item request with title "saw" from "kassi_testperson1" and with share type "borrow"
     And there is a message "I offer this" from "kassi_testperson3" about that listing
     And the offer is accepted
     And there is feedback about that event from "kassi_testperson3" with grade "0.25" and with text "Test feedback"
     And I go to the profile page of "kassi_testperson1"
-    Then I should see "50%" within ".profile-testimonials"
+    Then I should see "50%" within "#people-testimonials"
     When there is item request with title "drill" from "kassi_testperson1" and with share type "borrow"
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And the offer is accepted
     And there is feedback about that event from "kassi_testperson2" with grade "0.75" and with text "OK feedback"
     And I go to the profile page of "kassi_testperson1"
-    Then I should see "67%" within ".profile-testimonials"
+    Then I should see "67%" within "#people-testimonials"
     When there is item request with title "tool" from "kassi_testperson1" and with share type "borrow"
     And there is a message "I offer this" from "kassi_testperson3" about that listing
     And the offer is accepted
     And there is feedback about that event from "kassi_testperson3" with grade "1" and with text "Excellent feedback"
     When I go to the profile page of "kassi_testperson1"
-    Then I should see "75%" within ".profile-testimonials"
+    Then I should see "75%" within "#people-testimonials"
     And I should see "Excellent feedback" within "#profile-testimonials-list"
     And I should see "OK feedback" within "#profile-testimonials-list"
     And I should see "Test feedback" within "#profile-testimonials-list"

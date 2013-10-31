@@ -118,9 +118,9 @@ class Conversation < ActiveRecord::Base
     Delayed::Job.enqueue(TransactionConfirmedJob.new(id, current_community.id))
   end
   
-  def pay
-    # Should update and notify etc. stuff here
+  def paid_by!(payer)
     update_attribute(:status, "paid")
+    messages.create(:sender_id => payer.id, :action => "pay")
   end
   
   def has_feedback_from_all_participants?

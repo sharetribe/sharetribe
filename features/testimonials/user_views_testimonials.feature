@@ -27,7 +27,7 @@ Feature: User views testimonials
     And I am logged in as "kassi_testperson1"
     And I go to the testimonials page of "kassi_testperson3"
     Then I should see "received review"
-    And I should see "67%" within ".profile-testimonials"
+    And I should see "67%" within "#people-testimonials"
     And I should see "Well done"
     And I should see "You suck" within ".light_red"
   

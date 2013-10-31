@@ -12,10 +12,12 @@ en:
         invite_people: "Invite people to this community"
       edit_look_and_feel:
         edit_community_look_and_feel: "Edit community \"%{community_name}\" look and feel"
-        community_logo: Logo
+        community_logo: "Full logo"
+        community_logo_icon: "Icon logo"
         community_cover_photo: "Cover photo"
         community_custom_color1: "Main color"
-        logo_instructions_text: "Logo file will be cut in square and resized to 192x192 pixel if needed."
+        logo_instructions_text: "Logo size should be 168x40px."
+        logo_icon_instructions_text: "Icon logo size should be 40x40px."
         cover_photo_instructions_text: "Cover photo file will be resized to 1600x195 pixel size and taller images will be cut in the middle."
         custom_color1_instructions_text: "You can change the main color of the user interface of this community by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> can help you choose the color and copy the code here."
         invalid_color_code: "Color code should contain 6 numbers or letters A-F, for example D96E21"
@@ -676,8 +678,10 @@ en:
       some_private_requests_exist: "There are already <b>%{number_of_listings} requests</b>,"
     event_feed:
       latest_events: "What's going on"
+    grid_item:
+      processing_uploaded_image: "(Processing uploaded image...)"
     index:
-      no_listings_with_your_search_criteria: "We couldn't find any results that matched your criteria. (If you just added something, it might take about 10 minutes before new things appear in search.)"
+      no_listings_with_your_search_criteria: "We couldn't find any results that matched your search criteria."
       no_listings_notification: "No listings. %{add_listing_link}."
       add_listing_link_text: "Add new listing"
       available_on_the_app_store: "Available on the app store"
@@ -687,8 +691,8 @@ en:
       private_listing_notification_log_in: "log in"
       is: is
       are: are
-      what_do_you_need: "What do you need?"
-      post_new_listing: "Post a new listing!"
+      what_do_you_need: "What are you looking for?"
+      post_new_listing: "Post a new listing"
       are_offering: offer
       add_news_item: "Add an article"
       inform_others_about_events: "Latest news and events in the community."
@@ -705,6 +709,9 @@ en:
       teaser_text: "%{service_name} is a service for the %{community} community. Here you can lend, rent, give away and sell stuff, give and get help or share rides. Could you lend something to others or help them?"
       tell_it_here: "Tell it here!"
       welcome_to_new_kassi: "Welcome to new %{service_name}!"
+      no_reviews: "No reviews"
+      no_image: "No image"
+      filter: "Filter"
     invitation_form:
       invite_your_friends: "Invite your friends to %{service_name}!"
       invite_your_neighbors: "Invite your neighbors to %{service_name}!"
@@ -715,6 +722,9 @@ en:
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: "I joined this amazing community. You should too!"
       errors_in_emails: "Check that the email addresses you added are valid. If you added multiple addresses, make sure they are separated with comma."
+    list_item:
+      review: "review"
+      reviews: "reviews"
     news_item:
       show_less: "Show less"
       show_more: "Show more"
@@ -739,6 +749,9 @@ en:
       search: Search
       map: "Show map"
       list: "Show list"
+      map_button: "Map"
+      grid_button: "Grid"
+      list_button: "List"
       all_listing_types: "All listing types"
       all_categories: "All categories"
   infos:
@@ -865,6 +878,7 @@ en:
       payment_successful: "Payment successful"
       payment_canceled: "Payment cancelled"
       error_in_payment: "Error in payment. If you didn't complete the payment yet, try again. If you did, please send us feedback."
+      cannot_receive_payment: "The other party can't receive the payment due some error. Please contact the administrators to clarify the situation"
       payment_waiting_for_later_accomplishment: "When you have paid, we'll notify the seller and you will get a receipt in email"
       password_recovery_sent: "Instructions to change your password were sent to your email."
       person_activated: "User activated"
@@ -914,6 +928,7 @@ en:
       you_must_log_in_to_view_your_settings: "You must log in to %{service_name} to view your settings."
       you_must_log_in_to_add_news_item: "You must log in to %{service_name} to add a new article."
       you_need_to_confirm_your_account_first: "You need to confirm your email."
+      you_must_fill_all_the_fields: "You must fill all the fields"
       you_unfollowed_listing: "You are no longer following this listing"
       joining_community_failed: "Joining this community failed"
     profile_extras_header:
@@ -1177,15 +1192,18 @@ en:
       add_profile_picture: "Add profile picture"
       comments: "Public discussion"
       contact_by_phone: "Contact by phone:"
+      contact: "Contact"
       favor_offer: "Service offer"
       favor_request: "Service request"
       item_offer_trade: "Swap offer"
       item_request_trade: "Swap request"
       no_description: "No description"
+      no_image: "No image"
+      no_reviews: "No reviews received"
       offer: Offer
       listing_created: Created
       open_until: "Open until %{date}"
-      feedback: "Feedback:"
+      feedback: "Feedback"
       qr_code: "QR code"
       request: Request
       rideshare_offer: "Rideshare offer"
@@ -1240,6 +1258,20 @@ en:
       payment_receiver: "Payment receiver:"
       sum: "Payment sum:"
       commission_will_be_added: "A service fee of 10% will be added."
+    form:
+      total: Total
+      service_charge: "Service charge"
+      product: Product
+      price: Price
+      continue_to_pay: "Continue to pay"
+    mangopay:
+      terms:
+        mangopay_terms_also_included: "NOTE: MangoPay is used as a payment gateway service and by using this website you also accept %{mangopay_terms_link_text}, in addition to the terms below."
+        mangopay_terms_link_text: "MangoPay terms of use"
+      seller_registration_needed:
+        seller_registration_needed: "You can't create a money related listing yet"
+        seller_registration_instructions: "Before you can create a listing which could result in you being paid, you'll need to add few required details to your %{link_to_settings_page}."
+        settings_page_link: profile
   people:
     index:
       loading_more_members: "Loading more members"
@@ -1388,6 +1420,7 @@ en:
     profile_listings:
       show_also_closed: "Show also closed"
       show_only_open: "Show only open"
+      no_image: "No image"
     show:
       contact: "Contact %{person}"
       about_me: "About me:"
@@ -1451,7 +1484,7 @@ en:
       account_creation_link_text: "click here"
       cancle_facebook_connect: "If you don't want to link this account, you can %{cancel_link}."
       facebook_cancel_link_text: cancel
-      log_in_with_your_facebook_account: "Log in with your Facebook account"
+      log_in_with_your_facebook_account: "Log in with Facebook"
       or_sign_up_with_your_username: "...or with your username or email:"
       we_will_not_post_without_asking_you: "We will never post to Facebook without asking you."
     password_forgotten:

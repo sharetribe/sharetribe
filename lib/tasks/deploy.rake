@@ -4,24 +4,99 @@
 #task :deploy_staging => ['deploy:set_staging_app', 'deploy:push', 'deploy:restart', 'deploy:tag']
 #task :deploy_production => ['deploy:set_production_app', 'deploy:push', 'deploy:restart', 'deploy:tag']
 
-task :deploy_staging_migrations => ['deploy:set_staging_app', 'i18n:write_error_pages', 'deploy:update_webfonts_folder', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db' ]
-task :deploy_production_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
+task :deploy_staging_migrations => [
+  'deploy:set_staging_app',
+  'deploy:set_develop_as_source_branch',
+  'i18n:write_error_pages',
+  'deploy:update_closed_source_folders',
+  'deploy_with_migrations' 
+]
 
-task :deploy_staging_without_migrations => ['deploy:set_staging_app', 'i18n:write_error_pages', 'deploy:update_webfonts_folder', 'deploy:push', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
-task :deploy_production_without_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
+task :deploy_production_migrations_from_develop => [
+  'deploy:set_production_app',
+  'deploy:set_develop_as_source_branch',
+  'deploy_with_migrations'
+]
+
+task :deploy_production_migrations_from_master => [
+  'deploy:set_production_app',
+  'deploy:set_master_as_source_branch',
+  'deploy_with_migrations'
+]
+
+task :deploy_staging_without_migrations => [
+  'deploy:set_staging_app',
+  'deploy:set_develop_as_source_branch',
+  'i18n:write_error_pages',
+  'deploy:update_closed_source_folders',
+  'deploy_without_migrations'
+]
+
+task :deploy_production_without_migrations_from_master => [
+  'deploy:set_production_app',
+  'deploy:set_master_as_source_branch',
+  'deploy_without_migrations'
+]
+
+task :deploy_production_without_migrations_from_develop => [
+  'deploy:set_production_app',
+  'deploy:set_develop_as_source_branch',
+  'deploy_without_migrations'
+]
+
+task :deploy_translation_migrations => [
+  'deploy:set_translation_app', 
+  'deploy:set_develop_as_source_branch', 
+  'deploy:update_closed_source_folders',  
+  'deploy:push',
+  'deploy:migrate',
+  'deploy:restart',
+  'deploy:update_translations_stored_in_db'
+]
+
+task :deploy_translation_without_migrations => [
+  'deploy:set_translation_app',
+  'deploy:set_develop_as_source_branch',
+  'deploy:update_closed_source_folders',
+  'deploy:push',
+  'deploy:update_translations_stored_in_db'
+]
 
 
-task :deploy_translation_migrations => ['deploy:set_translation_app', 'deploy:update_webfonts_folder',  'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:update_translations_stored_in_db']
-task :deploy_translation_without_migrations => ['deploy:set_translation_app', 'deploy:update_webfonts_folder',  'deploy:push', 'deploy:update_translations_stored_in_db']
+task :deploy_testing_migrations => [
+  'deploy:set_testing_app',
+  'i18n:write_error_pages',
+  'deploy:prepare_custom_branch_for_deploy',
+  'deploy_with_migrations'
+]
+  
+task :deploy_testing_without_migrations => [
+  'deploy:set_testing_app',
+  'i18n:write_error_pages',
+  'deploy:prepare_custom_branch_for_deploy',
+  'deploy_without_migrations'
+]
+
+task :deploy_test_servers => [
+  'deploy_staging_migrations',
+  'deploy_translation_migrations'
+]
+
+task :deploy_with_migrations => [
+  'deploy:push',
+  'deploy:migrate',
+  'deploy:restart',
+  'deploy:generate_custom_css',
+  'deploy:update_translations_stored_in_db'
+]
+
+task :deploy_without_migrations => [
+  'deploy:push',
+  'deploy:generate_custom_css',
+  'deploy:update_translations_stored_in_db'
+]
 
 
-task :deploy_custom_migrations => ['deploy:set_staging_app', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
-task :deploy_custom_quick => ['deploy:set_staging_app', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push']
-
-task :deploy_testing_migrations => ['deploy:set_testing_app', 'i18n:write_error_pages', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db' ]
-task :deploy_testing_without_migrations => ['deploy:set_testing_app', 'i18n:write_error_pages', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
-
-task :deploy_test_servers => ['deploy_staging_migrations', 'deploy_translation_migrations']
 
 
 namespace :deploy do
@@ -46,26 +121,29 @@ namespace :deploy do
   	APP = TRANSLATION_APP
   end
   
-  task :update_webfonts_folder do
-    puts 'Copying webfonts folder ...'
-    puts `rm app/assets/webfonts/* `
-    puts `git checkout closed_source`
-    puts `cp -R app/assets/webfonts/* ../tmp-sharetribe-webfonts/`
-    puts `git rebase develop`
-    puts `git checkout develop`
-    puts `mkdir app/assets/webfonts `
-    puts `cp -R ../tmp-sharetribe-webfonts/* app/assets/webfonts/`
+  task :set_develop_as_source_branch do
+    BRANCH = "develop"
   end
   
-  task :prepare_custom_branch_for_deploy do
-    puts 'Copying webfonts folder ...'
+  task :set_master_as_source_branch do
+    BRANCH = "master"
+  end
+
+  
+  task :update_closed_source_folders do
+    puts 'Copying closed source contents...'
+    puts `mkdir ../tmp-sharetribe` unless File.exists?("../tmp-sharetribe")
+    puts `mkdir ../tmp-sharetribe/webfonts` unless File.exists?("../tmp-sharetribe/webfonts")
     puts `rm app/assets/webfonts/* `
     puts `git checkout closed_source`
-    puts `cp -R app/assets/webfonts/* ../tmp-sharetribe-webfonts/`
-    puts `git rebase custom`
-    puts `git checkout custom`
+    puts `git pull`
+    puts `cp -R app/assets/webfonts/* ../tmp-sharetribe/webfonts/`
+    puts `cp config/mangopay.pem ../tmp-sharetribe/`
+    puts `git rebase #{BRANCH}`
+    puts `git checkout #{BRANCH}`
     puts `mkdir app/assets/webfonts `
-    puts `cp -R ../tmp-sharetribe-webfonts/* app/assets/webfonts/`
+    puts `cp -R ../tmp-sharetribe/webfonts/* app/assets/webfonts/`
+    puts `cp ../tmp-sharetribe/mangopay.pem config/`
   end
   
   task :push do
