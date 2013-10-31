@@ -94,121 +94,24 @@
                 = link_to sub_category.display_name.mb_chars.capitalize.to_s, params.merge({category: sub_category.name}), :class => "home-categories-sub #{if is_selected then 'selected' end}", :data => {:"sub-category" =>sub_category.name}
 
   - main_container_class = if @category_menu_enabled then "col-9" else "col-12" end
-  - if @view_type.eql?("map")
-    %div{:class => main_container_class}
-      .home-map
-        = render :partial => "map"
-  - else
-    %div{:class => main_container_class}
-      - if @view_type.eql?("grid")
-        %div{class: @category_menu_enabled ? "home-fluid-thumbnail-grid-narrow" : "home-fluid-thumbnail-grid-wide"}
-          .home-fluid-thumbnail-grid
-            = render :partial => "grid_item", :collection => @listings, :as => :listing
+  %div{:class => main_container_class}
+    - if @listings.total_entries > 0
+      - if @view_type.eql?("map")
+        .home-map
+          = render :partial => "map"
       - else
-        .home-listings
-          = render :partial => "list_item", :collection => @listings, :as => :listing
-      .home-loading-more
-        = will_paginate(@listings)
-        - item_container = if @view_type.eql?("grid") then '.home-fluid-thumbnail-grid' else '.home-listings' end
-        = pageless(@listings.total_pages, item_container, request.fullpath, t('.loading_more_content'))
-
-  / - if @current_community.testimonials_in_use
-  /   .listing-main.left-column-2-3
-  /     .row
-  /       %h2.people-header
-  /         - if listing.author.received_testimonials.size > 0
-  /           = pluralize(listing.author.received_testimonials.size, t(".review"), t(".reviews"))
-  /           = "(#{listing.author.feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{listing.author.received_positive_testimonials.size}/#{listing.author.received_testimonials.size})"
-  /         - else
-  /           = t(".no_reviews")
-  /       - if listing.author.received_testimonials.size > 0
-  /         #profile-testimonials-list
-  /           = render :partial => "testimonials", :locals => {:received_testimonials => listing.author.received_testimonials, :limit => 3}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/ .feed-navigation
-/   .feed-actions.actions-menu
-/     %a.request-link{href: new_listing_path + "?ref=homepage"} 
-/       = icon_tag("new_listing", ["icon-with-text"])
-/       .text-with-icon#post_new_listing= t(".post_new_listing")
-/     %a.offset-link.toggle{href: '#', id: "filters-toggle", data: {toggle: '.feed-filters'}}
-/       = icon_tag("search")
-/     - if params[:map] == "true"
-/       %a.offset-link.list-button.toggle{href: root, title: t("homepage.filters.list")}
-/         = icon_tag("list", ["list-icon-margin"])
-/     - else
-/       %a.offset-link.map-button.toggle{href: (root + '?map=true'), title: t("homepage.filters.map")}
-/         = icon_tag("map")
-
-/   .feed-filters.toggle-menu-feed-filters.hidden
-/     = form_tag({ :action => :index, :controller => :homepage}, :method => "get", :id => "homepage-filters") do
-    
-/       .feed-filter-dropdowns#feed-filter-dropdowns
-/         .filter-title
-/           = t("homepage.filters.show")
-/         = render :partial => "filter_share_types"
-/         = render :partial => "filter_categories"
-/       %input{type: "hidden", name: "map", id: "hidden-map-toggle", value: params[:map]}
-      
-/       -#.app-store-badge
-/         =# link_to image_tag(@app_store_badge_filename), "https://itunes.apple.com/us/app/sharetribe/id545640772?mt=8", :title => t(".available_on_the_app_store")
-
-/ .feed-map-link
-/   - if params[:map] == "true"
-/     %a.map-link.list-button{href: root, title: t("homepage.filters.list")}
-/       = icon_tag("list", ["icon-with-text list-icon-margin"])
-/       .text-with-icon.hidden-text= t("homepage.filters.list")
-/   - else
-/     %a.map-link.map-button{href: (root + '?map=true'), title: t("homepage.filters.map")}
-/       = icon_tag("map", ["icon-with-text"])
-/       .text-with-icon.hidden-text= t("homepage.filters.map")      
-
-/ - begin
-/   .homepage-feed.feed
-/     - if ! logged_in? && @private_listing_count > 0
-/       .permanent-notification.private-listing-notification
-/         .icon-with-text-container
-/           = icon_tag("information", ["icon-part"])
-/           .text-part
-/             = t(".private_listing_notification", :listing_count => pluralize(@listing_count, t(".open_listing"), t(".open_listings")), :private_listing_count => @private_listing_count, :log_in_link => link_to(t(".private_listing_notification_log_in"), login_path), :be_verb => (@private_listing_count > 1 ? t(".are")  : t(".is"))).html_safe        
-/     - elsif @listing_count < 1
-/       - if !params[:q] && !params[:share_type] && !params[:category]
-/         .permanent-notification.private-listing-notification
-/           .icon-with-text-container
-/             = icon_tag("information", ["icon-part"])
-/             .text-part
-/               = community_blank_slate
-/     - if params[:map] == "true"
-/       = # render :partial => "map"
-/     - else
-/       - if @listings.total_entries > 0
-/         = render :partial => "recent_listing", :collection => @listings, :as => :listing
-/         / = will_paginate(@listings)
-/         / = pageless(@listings.total_pages, '.homepage-feed', request.fullpath, t('.loading_more_content'))
-/       - else
-/         - if params[:q] || params[:share_type] || params[:category]
-/           .permanent-notification.private-listing-notification
-/             .icon-with-text-container
-/               = icon_tag("alert", ["icon-part"])
-/               .text-part
-/                 = t(".no_listings_with_your_search_criteria")
-/ - rescue Riddle::ResponseError => e
-/   - ApplicationHelper.send_error_notification("Can't connect to sphinx", "Sphinx Error")
-/   %b
-/     Error: Can't connect to the listings search index.
+        - if @view_type.eql?("grid")
+          %div{class: @category_menu_enabled ? "home-fluid-thumbnail-grid-narrow" : "home-fluid-thumbnail-grid-wide"}
+            .home-fluid-thumbnail-grid
+              = render :partial => "grid_item", :collection => @listings, :as => :listing
+        - else
+          .home-listings
+            = render :partial => "list_item", :collection => @listings, :as => :listing
+        .home-loading-more
+          = will_paginate(@listings)
+          - item_container = if @view_type.eql?("grid") then '.home-fluid-thumbnail-grid' else '.home-listings' end
+          = pageless(@listings.total_pages, item_container, request.fullpath, t('.loading_more_content'))
+    - else
+      .home-no-listings
+        = t(".no_listings_with_your_search_criteria")
+  

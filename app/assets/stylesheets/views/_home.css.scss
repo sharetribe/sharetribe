@@ -316,6 +316,12 @@ h2.home-list-title {
   @include ellipsis;
 }
 
+.home-no-listings {
+  @include border-radius($default-border-radius);
+  padding: lines(0.5) lines(1);
+  background: $highlight;
+}
+
 .home-categories-link {
   display: block;
   color: $body;
