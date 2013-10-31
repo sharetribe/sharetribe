@@ -847,5 +847,10 @@ module ApplicationHelper
       Delayed::Job.enqueue(Object.const_get("#{reminder_type.capitalize}ReminderJob").new(conversation.id, recipient.id, community.id, number_of_reminders_sent), :priority => 0, :run_at => run_at)
     end
   end
-  
+
+  def with_available_locales(&block)
+    if available_locales.size > 1
+      block.call(available_locales)
+    end
+  end
 end
