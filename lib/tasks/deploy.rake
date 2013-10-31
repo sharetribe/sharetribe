@@ -21,7 +21,7 @@ task :deploy_production_migrations => [
 task :deploy_production_migrations_from_master => [
   'deploy:set_production_app',
   'deploy:set_master_as_source_branch',
-  'deploy:update_closed_source_folders'
+  'deploy:update_closed_source_folders',
   'deploy_with_migrations'
 ]
 
