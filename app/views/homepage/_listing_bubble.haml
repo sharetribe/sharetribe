@@ -1,7 +1,7 @@
 .bubble-item
   .bubble-image-container
     - if listing.has_image?
-      = link_to(image_tag(listing.listing_images.first.image.url(:medium), :alt => listed_listing_title(listing)), listing)
+      = link_to(image_tag(listing.listing_images.first.image.url(:small_3x2), :alt => listed_listing_title(listing)), listing)
   %a.bubble-overlay{:href => listing_path(listing)}
     %span{:class => "bubble-title-link"}
       = listing.title
