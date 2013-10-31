@@ -3483,6 +3483,7 @@ header.marketplace-header {
     width: 100%;
 
     @include media(mid-desktop) {
+      padding-right: lines(0.5);
       width: lines(33);
       position: absolute;
       right: 0;
@@ -3612,7 +3613,7 @@ header.marketplace-header {
       display: block;
       position: absolute;
       top: em(18);
-      right: 0;
+      right: lines(0.5);
     }
     
     .badge {
