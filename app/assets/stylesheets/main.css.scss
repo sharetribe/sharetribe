@@ -338,23 +338,56 @@ ul {
   text-align: center;
   width: em(18, 13);
   line-height: em( (18 - 1 - 5), 13 );
-  padding: em(1, 13) 0 em(5, 13);
+  padding: 4px 5px 4px 5px;
   color: $background;
   @include border-radius( em((18/2), 13) );
   
   &.big-badge {
-    width: em(22, 13);
+    width: em(24, 13);
     line-height: em( (22 - 1 - 5), 13 );
     @include border-radius( em((22/2), 13) );
   }
   
   &.huge-badge {
-    width: em(28, 13);
-    line-height: em( (28 - 1 - 5), 13 );
-    padding: em(2, 13) 0 em(4, 13);    
+    width: em(30, 13);
+    line-height: em( (28 - 1 - 5), 13 );   
     @include border-radius( em((28/2), 13) );
   }
 }
+
+.mobile-badge {
+  @include small-type;
+  @include border-radius(10px);
+  margin-left: lines(0.25);
+  margin-top: 9px;
+  width: 20px;
+  padding-left: 7px;
+  display: inline-block;
+  background: $link;
+  color: $background;
+  
+  &.big-badge {
+    width: 27px;
+    @include border-radius(13px);
+  }
+  
+  &.huge-badge {
+    width: 34px;
+    @include border-radius(13px);
+  }
+  
+  @include media(mid-desktop) {
+    display: none;
+  }
+}
+
+.mobile-badge-menu {
+  @extend .mobile-badge;
+  margin-top: 0;
+  background: $background;
+  color: $light-body;
+}
+
 
 .icon {
   @include big-type;
@@ -555,10 +588,18 @@ label.error {
   // Positions badges in .inbox-toggle and .notifications-toggle
   position: absolute;
   top: -10px; // Magic numbers, these just look good
-  left: -5px; // Magic numbers, these just look good
+  left: 13px; // Magic numbers, these just look good
+  
+  &.big-badge {
+    width: em(24, 13);
+    line-height: em( (22 - 1 - 5), 13 );
+    @include border-radius( em((22/2), 13) );
+  }
   
   &.huge-badge {
-    right: lines(0.0625); bottom: lines(0.0625);
+    width: em(30, 13);
+    line-height: em( (28 - 1 - 5), 13 );   
+    @include border-radius( em((28/2), 13) );
   }
 }
 
@@ -3580,7 +3621,7 @@ header.marketplace-header {
   .user-menu-toggle {
     // Backup for IE
     width: 100%;
-    width: calc(100% - 7.25em);
+    width: calc(100% - 7.5em);
     position: relative;
     display: inline-block;
     vertical-align: top;
@@ -3599,7 +3640,7 @@ header.marketplace-header {
 
     .user-name {
       vertical-align: top;
-      padding: em(5) 0 0 lines(0.25);
+      padding: em(5) 0 0 lines(0.375);
       display: inline-block;
       max-width: lines(4.5);
       white-space: nowrap;
@@ -3611,7 +3652,7 @@ header.marketplace-header {
     .icon-dropdown {
       display: block;
       position: absolute;
-      top: em(18);
+      top: em(20);
       right: lines(0.5);
     }
     

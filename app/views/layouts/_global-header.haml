@@ -37,12 +37,16 @@
       - if @current_user
         %a{:href => received_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.messages"), :id => "inbox-link", :class => "global-navi inbox-link"}
           = icon_tag("mail", ["icon"])
-          = render :partial => "layouts/messages_badge"
+          .messages-badge
+            .badge{:class => get_badge_class(Conversation.unread_count(@current_user.id.to_s))} 
+              = Conversation.unread_count(@current_user.id.to_s)
         .user-menu-toggle.toggle.hidden{data: {toggle: '.user-menu'}}
           = image_tag @current_user.image.url(:thumb), alt: '', class: 'user-avatar'
-          .user-name= @current_user.name(@current_community)
+          .user-name
+            = @current_user.name(@current_community)
+          .mobile-badge{:class => get_badge_class(Conversation.unread_count(@current_user.id.to_s))}
+            = Conversation.unread_count(@current_user.id.to_s)
           = icon_tag("dropdown", ["icon-dropdown"])
-          = render :partial => "layouts/user_badge"
         
           %nav.user-menu.toggle-menu.hidden
             %a.profile-menu-button{href: person_path(@current_user)}
@@ -53,7 +57,8 @@
               = icon_tag("mail", ["icon-with-text"])
               .text-with-icon
                 = t("layouts.conversations.messages") 
-                = render :partial => "layouts/messages_badge"
+              .mobile-badge-menu{:class => get_badge_class(Conversation.unread_count(@current_user.id.to_s))}
+                = Conversation.unread_count(@current_user.id.to_s)
             %a.feedback-menu-button{href: new_user_feedback_path}
               = icon_tag("feedback", ["icon-with-text"])
               .text-with-icon
