@@ -177,7 +177,7 @@ namespace :deploy do
     puts `rm app/assets/webfonts/* `
     puts `git checkout closed_source`
     # Just in case, check that we really are in the right branch before reset --hard
-    if `git symbolic-ref HEAD` == "refs/heads/closed_source"
+    if `git symbolic-ref HEAD`.match("refs/heads/closed_source")
       puts `git reset --hard private/closed_source`
       puts `git pull`
       puts `cp -R app/assets/webfonts/* ../tmp-sharetribe/webfonts/`
