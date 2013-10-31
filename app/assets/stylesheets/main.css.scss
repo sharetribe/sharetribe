@@ -3369,8 +3369,7 @@ section.create-now {
 */
 
 header.marketplace-header {
-  //border-bottom: em(3) solid $light-body;
-  
+
   .mobile-menu-toggle {
     position: absolute;
     top: 0;
@@ -3692,8 +3691,6 @@ header.marketplace-header {
 
 .marketplace-lander {
   position: relative;
-  //border-top: em(1) solid $light-body;
-  //border-bottom: em(1) solid $light-body;
 
   figure.marketplace-cover {
     background-image: image-url($cover-photo-url);
@@ -3807,13 +3804,11 @@ header.marketplace-header {
     margin: 0;
     vertical-align: top;
     padding: em(11) em(11) em(11) em(11); 
-    //border: 3px solid $body;
     width: 100%;
   }
   
   button.action-button {
     @include action-button($link);
-    //border: 3px solid darken($link, 25%);
     border: 0;
     &:hover { border-color: darken($link, 25%); }
     @include media(tablet) {
@@ -3840,7 +3835,6 @@ header.marketplace-header {
     input[type=text] {
       @include normal-type;
       vertical-align: top;
-      //border: em(2) solid $body;
       margin-right: em(-4);
       padding: em(11) em(14) em(11) em(14);
       width: 73%;
@@ -3851,7 +3845,6 @@ header.marketplace-header {
     button.action-button {
       display: inline;
       vertical-align: top;
-      //border-width: em(2);
       padding: em(8);
       margin: 0 0 0 3%;
       width: 24%;
