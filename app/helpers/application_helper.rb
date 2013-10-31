@@ -753,11 +753,11 @@ module ApplicationHelper
   def get_badge_class(count)
     case count
     when 1..9
-      "badge"
+      ""
     when 10..99
-      "badge big-badge"
+      "big-badge"
     else
-      "badge huge-badge"
+      "huge-badge"
     end
   end
   

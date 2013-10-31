@@ -1,3 +1,3 @@
 - if count > 0
-  %div{:class => get_badge_class(count)}
+  %div{:class => "badge #{get_badge_class(count)}"}
     = count.to_s
