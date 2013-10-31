@@ -865,6 +865,7 @@ fi:
       payment_successful: "Maksu suoritettu"
       payment_canceled: "Maksaminen peruutettu"
       error_in_payment: "Virhe maksun käsittelyssä. Jos et maksanut vielä, yritä uudelleen. Jos maksoit, ota yhteys ylläpitoon."
+      cannot_receive_payment: "Toisen osapuolen tunnukselle, ei voida tällä hetkellä välittää maksuja. Ole hyvä ja ota yhteys ylläpitoon asian selvittämiseksi."
       payment_waiting_for_later_accomplishment: "Muista maksaa maksu tilisiirron tiedoilla. Tämän jälkeen saat kuitin ja tieto maksusta välittyy myyjälle."
       password_recovery_sent: "Ohjeet salasanan vaihtamiseen on lähetetty sähköpostiisi."
       person_activated: "Käyttäjä aktivoitu"
@@ -914,6 +915,7 @@ fi:
       you_must_log_in_to_view_your_settings: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voit nähdä asetuksesi."
       you_must_log_in_to_add_news_item: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit luoda uuden uutisen."
       you_need_to_confirm_your_account_first: "Sinun täytyy varmistaa sähköpostiosoitteesi ennen kuin voit jatkaa."
+      you_must_fill_all_the_fields: "Kaikki kentät täytyy täyttää"
       you_unfollowed_listing: "Ilmoituksen seuraaminen lopetettu"
       joining_community_failed: "Yhteisöön liittyminen epäonnistui"
     profile_extras_header:
@@ -1240,6 +1242,20 @@ fi:
       payment_receiver: "Maksun saaja:"
       sum: "Summa:"
       commission_will_be_added: "Hintaan lisätään palvelumaksu 10%."
+    form:
+      total: Yhteensä
+      service_charge: Palvelumaksu
+      product: Tuote
+      price: Hinta
+      continue_to_pay: "Jatka maksamaan"
+    mangopay:
+      terms:
+        mangopay_terms_also_included: "HUOM: Tämä verkkopalvelu käyttää maksunvälittäjänä MangoPay-palvelua ja käyttämällä tätä verkkopalvelua hyväksyt alla olevien ehtojen lisäksi myös %{mangopay_terms_link_text}."
+        mangopay_terms_link_text: "MangoPayn käyttöehdot"
+      seller_registration_needed:
+        seller_registration_needed: "Et voi vielä tehdä rahaan liittyvää ilmoitusta"
+        seller_registration_instructions: "Ennen kuin voit tehdä ilmoituksen, josta joku voisi maksaa sinulle rahaa, sinun täytyy täyttää vielä pari lisätietoa %{link_to_settings_page}."
+        settings_page_link: profiiliisi
   people:
     index:
       loading_more_members: "Ladataan lisää jäseniä"

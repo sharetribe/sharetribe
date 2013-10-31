@@ -865,6 +865,7 @@ en-cf:
       payment_successful: ~
       payment_canceled: ~
       error_in_payment: ~
+      cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: ~
       person_activated: ~
@@ -914,6 +915,7 @@ en-cf:
       you_must_log_in_to_view_your_settings: ~
       you_must_log_in_to_add_news_item: ~
       you_need_to_confirm_your_account_first: ~
+      you_must_fill_all_the_fields: ~
       you_unfollowed_listing: ~
       joining_community_failed: ~
     profile_extras_header:
@@ -1240,6 +1242,20 @@ en-cf:
       payment_receiver: ~
       sum: ~
       commission_will_be_added: ~
+    form:
+      total: ~
+      service_charge: ~
+      product: ~
+      price: ~
+      continue_to_pay: ~
+    mangopay:
+      terms:
+        mangopay_terms_also_included: ~
+        mangopay_terms_link_text: ~
+      seller_registration_needed:
+        seller_registration_needed: ~
+        seller_registration_instructions: ~
+        settings_page_link: ~
   people:
     index:
       loading_more_members: ~
