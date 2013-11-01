@@ -1,6 +1,8 @@
 @import "mixins/all";
 @import "compass/utilities/general/clearfix";
 
+$bottom-gutter: lines(0.5);
+
 /**
   Given `prefix`, `gutter` and `cols`, the mixin creates
   a grid system
@@ -11,7 +13,7 @@
   @for $i from 1 through $cols {
     .#{$prefix}-#{$i} {
       width: 100%;
-      margin-bottom: lines(0.5);
+      margin-bottom: $bottom-gutter;
 
       @include media(tablet) {
         width: $col-width * $i;
@@ -38,7 +40,10 @@
 }
 
 .row-with-divider {
-  @include divider;
+  @extend .row;
+  border-bottom: 1px solid $border;
+
+  margin-bottom: $bottom-gutter;
 }
 
 
