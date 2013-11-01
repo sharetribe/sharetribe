@@ -6,9 +6,11 @@
 
 .home-toolbar {
   @include clearfix;
+  margin-bottom: lines(0.5);
+  border-bottom: 1px solid $border;
 
   @include media(tablet) {
-    margin-bottom: lines(0.5);
+    margin-bottom: lines(1);
   }
 }
 
