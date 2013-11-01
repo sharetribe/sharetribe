@@ -33,7 +33,7 @@
           
           .language-menu.toggle-menu.hidden
             = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array
-      
+
       - if @current_user
         %a{:href => received_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.messages"), :id => "inbox-link", :class => "global-navi inbox-link"}
           = icon_tag("mail", ["icon"])

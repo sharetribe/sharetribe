@@ -1292,7 +1292,7 @@ fr-bd:
       create_new_account: ~
       email: ~
       email_is_in_use: ~
-      email_is_in_use_or_not_allowed: "Cette adresse email n'est pas acceptée par Boulevard-21. Veuillez utiliser l'adresse email fournie par votre école (par ex., prenom.nom@essec.edu). La liste des écoles concernées est disponible dans la section \"A propos\". Si vous n'arrivez toujours pas à vous connecter, contactez-nous."
+      email_is_in_use_or_not_allowed: "Cette adresse email n'est pas acceptée par Boulevard-21. Veuillez utiliser l'adresse email fournie par votre école (par ex., prenom.nom@essec.edu). Si vous n'arrivez toujours pas à vous connecter, contactez-nous."
       email_not_allowed: ~
       email_restriction_instructions:
         one: "Cette communauté est réservée à %{community_name}. Pour la rejoindre, vous devez fournir votre adresse email d'école (ex. prenom.nom@essec.edu)"

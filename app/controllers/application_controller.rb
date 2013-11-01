@@ -112,6 +112,9 @@ class ApplicationController < ActionController::Base
   
   # Before filter to get the current community
   def fetch_community
+    # store the host of the current request (as sometimes needed in views)
+    @current_host_with_port = request.host_with_port
+    
     unless on_dashboard?
       # Otherwise pick the domain normally from the request subdomain or custom domain
       if @current_community = Community.find_by_domain(request.subdomain) || Community.find_by_domain(request.host)
