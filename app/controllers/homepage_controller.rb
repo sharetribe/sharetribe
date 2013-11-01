@@ -65,7 +65,7 @@ class HomepageController < ApplicationController
     end
     
     if request.xhr? # checks if AJAX request
-      if params["view"] == "grid" then
+      if @view_type == "grid" then
         render :partial => "grid_item", :collection => @listings, :as => :listing
       else
         render :partial => "list_item", :collection => @listings, :as => :listing
