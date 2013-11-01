@@ -2,7 +2,8 @@ class ListingImage < ActiveRecord::Base
   
   belongs_to :listing
     
-  has_attached_file :image, :styles => { 
+  has_attached_file :image, :styles => {
+        :small_3x2 => "240x160#",
         :medium => "360x270#", 
         :thumb => "120x120#", 
         :original => "1600x1600>",
