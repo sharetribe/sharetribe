@@ -688,7 +688,11 @@ en-vg:
       is: ~
       are: ~
       what_do_you_need: ~
-      post_new_listing: ~
+<<<<<<< HEAD
+      post_new_listing: "Share a new posting"
+=======
+      post_new_listing: "Share a new posting!"
+>>>>>>> 586a45f7ed0226963c8f38f9c8ae1f361ae54002
       are_offering: ~
       add_news_item: ~
       inform_others_about_events: ~
@@ -865,6 +869,7 @@ en-vg:
       payment_successful: ~
       payment_canceled: ~
       error_in_payment: ~
+      cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: ~
       person_activated: ~
@@ -914,6 +919,7 @@ en-vg:
       you_must_log_in_to_view_your_settings: ~
       you_must_log_in_to_add_news_item: ~
       you_need_to_confirm_your_account_first: ~
+      you_must_fill_all_the_fields: ~
       you_unfollowed_listing: ~
       joining_community_failed: ~
     profile_extras_header:
@@ -1240,6 +1246,20 @@ en-vg:
       payment_receiver: ~
       sum: ~
       commission_will_be_added: ~
+    form:
+      total: ~
+      service_charge: ~
+      product: ~
+      price: ~
+      continue_to_pay: ~
+    mangopay:
+      terms:
+        mangopay_terms_also_included: ~
+        mangopay_terms_link_text: ~
+      seller_registration_needed:
+        seller_registration_needed: ~
+        seller_registration_instructions: ~
+        settings_page_link: ~
   people:
     index:
       loading_more_members: ~

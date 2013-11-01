@@ -26,18 +26,18 @@ Feature: Transaction process between two users
     # Accepting
     When I open the email
     And I follow "View message" in the email
-    Then I should see "1" within ".inbox-toggle"
+    Then I should see "1" within "#inbox-link"
     When I follow "Accept request"
     And I fill in "conversation_message_attributes_content" with "Ok, that works!"
     And I press "Send"
     Then I should see "Accepted"
     And I should see "to pay"
-    And I should not see "1" within ".inbox-toggle"
+    And I should not see "1" within "#inbox-link"
     And the system processes jobs
     And "kassi_testperson2@example.com" should receive an email
     And I log out
     
-    # Paying
+    # Paying with Checkout
     When I open the email
     And I follow "Pay now" in the email
     And I press "Continue"
@@ -66,7 +66,7 @@ Feature: Transaction process between two users
     Then I should see "Completed"
     And I should see "Feedback skipped"
     And the system processes jobs
-    And I should not see "1" within ".inbox-toggle"
+    And I should not see "1" within "#inbox-link"
     And "kassi_testperson1@example.com" should have 3 emails
     And I log out
     
@@ -93,7 +93,7 @@ Feature: Transaction process between two users
     # Then I should see "You have achieved a badge 'First event'" in the email body
     
   @javascript
-  Scenario: Non-monetary ransaction started from a request listing
+  Scenario: Non-monetary transaction started from a request listing
     Given there are following users:
       | person | 
       | kassi_testperson1 |
@@ -115,12 +115,12 @@ Feature: Transaction process between two users
     # Accepting
     When I open the email
     And I follow "View message" in the email
-    Then I should see "1" within ".inbox-toggle"
+    Then I should see "1" within "#inbox-link"
     When I follow "Accept offer"
     And I fill in "conversation_message_attributes_content" with "Ok, that works!"
     And I press "Send"
     Then I should see "Mark completed"
-    And I should not see "1" within ".inbox-toggle"
+    And I should not see "1" within "#inbox-link"
     And the system processes jobs
     And "kassi_testperson2@example.com" should receive an email
     And I log out
@@ -138,7 +138,7 @@ Feature: Transaction process between two users
     Then I should see "Completed"
     And I should see "Feedback skipped"
     And the system processes jobs
-    And I should not see "1" within ".inbox-toggle"
+    And I should not see "1" within "#inbox-link"
     And "kassi_testperson2@example.com" should have 2 emails
     And I log out
     

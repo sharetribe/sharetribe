@@ -132,7 +132,7 @@ nl:
       reject_offer: ~
       reject_request: ~
       close_listing: ~
-      update_later: ~
+      update_later: "Laat de listing open"
       optional_message: ~
       price_to_pay: ~
     confirm:
@@ -374,7 +374,7 @@ nl:
       browse_communities_around_you: "Wordt lid van een stam in jouw buurt"
       slogan: ~
       create_your_own: "Creëer je eigen"
-      sharing_website: "Gemeenschap marktplaats"
+      sharing_website: "Deelmarktplaats voor lokale gemeenschappen"
       main_description: ~
       kassi_for_your_company: "Voor je bedrijf"
       kassi_for_your_company_description: ~
@@ -423,7 +423,7 @@ nl:
       show_thread: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
-      remember_to_confirm_request: ~
+      remember_to_confirm_request: "Herrinnering om een verzoek te bevestigen of te annuleren"
       if_will_not_happen_you_should_cancel: ~
       cancel_it_link_text: ~
     payment_reminder:
@@ -662,7 +662,7 @@ nl:
       item_offer_list: "gereedschap, sport uitrusting, kostumes, camping spullen"
       item_request_list: "Gereedschappen, sport uitrusting, kostumes, camping spullen"
       items_to_offer: "Spullen te leen: "
-      items_to_request: "Spullen te leen: "
+      items_to_request: "Spullen om te ontlenen: "
       log_in: "log in!"
       no_offers_visible_unless_logged_in: "Geen item, gunst of rit aanbod is zichtbaar voor niet-ingelogde-gebruikers."
       no_open_offers_currently: "Geen open item, gunst of rit aanbod."
@@ -677,15 +677,15 @@ nl:
     event_feed:
       latest_events: "Wat gebeurt er"
     index:
-      no_listings_with_your_search_criteria: ~
-      no_listings_notification: ~
-      add_listing_link_text: ~
+      no_listings_with_your_search_criteria: "We slaagden er niet in om resultaten te vinde die voldoen aan de door jou opgegeven criteria ( indien je gewoon iets toegevoegd hebt, zou het ongeveer 10 minuten duren voordat nieuwe zaken verschijnen in de zoekfunctie)."
+      no_listings_notification: "Geen lijsten%{add_listing_link}."
+      add_listing_link_text: "Voeg een nieuwe listing toe"
       available_on_the_app_store: "Beschikbaar in de app store"
-      private_listing_notification: ~
+      private_listing_notification: "Er zijn %{listing_count} in deze gemeenschap. %{private_listing_count} van hun %{be_verb} zichtbaar enkel door de andere leden van de gemeenschap. Indien je ook de listings zichtbaar enkel voor leden wil zien, moet je %{log_in_link}"
       open_listing: "Open lijst"
-      open_listings: ~
+      open_listings: "Open lijst"
       private_listing_notification_log_in: "Log in"
-      is: ~
+      is: is
       are: zijn
       what_do_you_need: "Wat zoek je?"
       post_new_listing: "Post een nieuwe item"
@@ -712,9 +712,9 @@ nl:
       message: "een persoonlijk bericht"
       send_invitation: "Verstuur uitnodiging"
       add_as_many_emails_as_you_want: ~
-      invitation_emails_field_placeholder: ~
+      invitation_emails_field_placeholder: "vriend1@voorbeeld.com, vriend2@voorbeeld.com"
       invitation_message_field_placeholder: "I werd lid van deze ongeloofelijke gemeenschap. Doe het ook!"
-      errors_in_emails: ~
+      errors_in_emails: "Check of de e-mail adressen die je toegevoegd hebt geldig zijn. indien je meerdere adressen hebt toegevoegd, verzeker je ervan dat ze zijn gescheiden door comma's"
     news_item:
       show_less: "Toon minder"
       show_more: "Toon meer"
@@ -732,14 +732,14 @@ nl:
       add_your_info_link: "Voeg jouw info toe"
     recent_listing:
       please_offer: Aanbod
-      comment: ~
+      comment: Commentaar
       comments: Commentaar
     filters:
       show: Filter
       search: Zoek
       map: "Toon kaart"
       list: "Toon lijst"
-      all_listing_types: ~
+      all_listing_types: "Alle lijst types"
       all_categories: "Alle categoriën"
   infos:
     about:
@@ -865,6 +865,7 @@ nl:
       payment_successful: ~
       payment_canceled: ~
       error_in_payment: ~
+      cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: "Intructies om je wachtwoord te veranderen zijn naar je email gestuurd."
       person_activated: ~
@@ -914,6 +915,7 @@ nl:
       you_must_log_in_to_view_your_settings: ~
       you_must_log_in_to_add_news_item: ~
       you_need_to_confirm_your_account_first: ~
+      you_must_fill_all_the_fields: ~
       you_unfollowed_listing: ~
       joining_community_failed: ~
     profile_extras_header:
@@ -927,28 +929,28 @@ nl:
       settings: Instellingen
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: ~
+      listing_not_visible: "U heeft geen toestemming om deze listing te bekijken"
     comment:
-      wrote: ~
-      send_private_message: ~
+      wrote: Schreef
+      send_private_message: "Verstuur privé bericht%{person}"
     comment_form:
       ask_a_question: ~
       log_in: "log in"
       send_comment: "Verzend commentaar"
       to_send_a_comment: "om een nieuw commentaar te verzenden."
       write_comment: "Schrijf een nieuw commentaar:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: ~
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Je kan geen nieuwe commentaar geven want de listing is gesloten"
       you_must: "Je moet"
-      subscribe_to_comments: ~
+      subscribe_to_comments: "Verwittig me van nieuwe commentaren en updates"
     edit:
-      edit_listing: ~
+      edit_listing: "Edit listing"
     edit_links:
-      close_listing: ~
-      edit_listing: ~
-      reopen_listing: ~
+      close_listing: "Close listing"
+      edit_listing: "Edit listing"
+      reopen_listing: "Heropen ;listing"
     follow_links:
-      follow: ~
-      unfollow: ~
+      follow: "Ontvang e-mail over de nieuwe commentaren"
+      unfollow: "Ontvang geen e-mails over nieuwe commentaren"
     form:
       departure_time:
         at: Op
@@ -966,34 +968,34 @@ nl:
         offer_something: "Bied iets aan"
         request_something: "Vraag iets"
         rideshare: "Rit delen"
-        i_want_to_offer: ~
-        i_want_to_request: ~
+        i_want_to_offer: "Ik wil aanbieden..."
+        i_want_to_request: "Ik zoek.."
       googlemap:
         googlemap_copy: ~
-        googlemap_description: ~
-        googlemap_updatemap: ~
+        googlemap_description: Kaart
+        googlemap_updatemap: "Update kaart"
       images:
         image: foto
         no_file_selected: "Geen bestand geselecteerd"
         remove_image: "Verwijder foto"
         select_file: "Selecteer bestand"
       location:
-        location: ~
+        location: Locatie
       price:
-        price: ~
-        per: ~
-        mass: ~
-        time: ~
-        long_time: ~
-        service_fee_will_be_added: ~
-        price_excludes_vat: ~
+        price: Prijs
+        per: per
+        mass: "stuk,kg,l,m2"
+        time: "uur, dag, week"
+        long_time: "week, maand"
+        service_fee_will_be_added: "Een%{fee}diensten fee zal bij de prijs geteld worden"
+        price_excludes_vat: "De prijs is exclusief BTW"
       origin:
-        location: ~
+        location: Locatie
         origin: Begin
       send_button:
-        save_listing: ~
+        save_listing: "Save listing"
       share_type:
-        select: ~
+        select: Selecteer
         borrow: Leen
         buy: Koop
         give_away: "Geef weg"
@@ -1004,8 +1006,8 @@ nl:
         rent_out: Verhuren
         request_type: "Verzoek type"
         sell: Verkoop
-        share_for_free: ~
-        accept_for_free: ~
+        share_for_free: "Gratis lenen voor gebruik"
+        accept_for_free: "Ontvang gratis"
         trade: Ruilen
       tag_list:
         comma_separate: "(comma separate)"
@@ -1017,19 +1019,19 @@ nl:
         housing_you_request: "Huisvesting vraag"
         item_you_offer: "Jou item aanbod"
         item_you_request: "Jou item vraag"
-        listing_title: ~
+        listing_title: "lijst titel"
       valid_until:
         valid_until: "Verval datum"
       valid_until_radio_buttons:
         for_the_time_being: "Voor nu"
       visibility:
-        all_communities: ~
+        all_communities: "All mijn%{service_name}gemeenschappen"
         this_community: "Alleen %{community} leden"
         visibility: Zichtbaarheid
       privacy:
-        privacy: ~
-        private: ~
-        public: ~
+        privacy: Privacy
+        private: Privé
+        public: Publiek
     help_texts:
       help_share_type_title: "Type aanbod of verzoek"
       help_tags_title: Tags
@@ -1044,7 +1046,7 @@ nl:
       housing: Ruimtes
       items: Items
       list_view: "Lijst view"
-      listings: ~
+      listings: Listings
       map_view: "Overzicht op de kaart"
       offer_something: "Vertel het anderen!"
       offer_type: "Aanbod type"
@@ -1069,128 +1071,128 @@ nl:
       rents: Huren
       rideshares: "Rit delen"
       sells: Verkopen
-      share_for_frees: ~
-      accept_for_frees: ~
+      share_for_frees: "Gratis lenen voor gebruik"
+      accept_for_frees: "Gratis ontvangen"
       trades: Ruilen
     link_labels:
-      offer_this: ~
-      request_this: ~
-      lend_this: ~
-      borrow_this: ~
-      buy_this: ~
-      rent_out_this: ~
-      rent_this: ~
-      sell_this: ~
+      offer_this: Aanbod
+      request_this: Verzoek
+      lend_this: "Leen uit"
+      borrow_this: Ontleen
+      buy_this: Koop
+      rent_out_this: Verhuur
+      rent_this: Huur
+      sell_this: Verkoop
       link_label_for_favor_offer: "Vraag een gunst"
       link_label_for_favor_request: "Bied je hulp aan"
-      link_label_for_housing_offer_sell: ~
-      link_label_for_housing_offer_rent_out: ~
-      link_label_for_housing_offer_share_for_free: ~
-      link_label_for_housing_request_accept_for_free: ~
-      link_label_for_housing_request_buy: ~
-      link_label_for_housing_request_rent: ~
-      link_label_for_item_offer_lend: ~
+      link_label_for_housing_offer_sell: "Koop deze ruimte"
+      link_label_for_housing_offer_rent_out: "Huur deze ruimte"
+      link_label_for_housing_offer_share_for_free: "Vraag deze ruimte"
+      link_label_for_housing_request_accept_for_free: "Biedt deze ruimte aan"
+      link_label_for_housing_request_buy: "Aanbod om deze ruimte te verkopen"
+      link_label_for_housing_request_rent: "Aanbod om deze ruimte te huren"
+      link_label_for_item_offer_lend: "Ontleen dit item"
       link_label_for_item_offer_rent_out: ~
-      link_label_for_item_offer_sell: ~
-      link_label_for_item_offer_give_away: ~
-      link_label_for_item_offer_trade: ~
-      link_label_for_item_request_borrow: ~
-      link_label_for_item_request_rent: ~
-      link_label_for_item_request_buy: ~
-      link_label_for_item_request_receive: ~
-      link_label_for_item_request_trade: ~
+      link_label_for_item_offer_sell: "Koop dit item"
+      link_label_for_item_offer_give_away: "Vraag dit item"
+      link_label_for_item_offer_trade: "Ruil dit item"
+      link_label_for_item_request_borrow: "Bied aan om dit item te ontlenen"
+      link_label_for_item_request_rent: "Bied aan om dit item te huren"
+      link_label_for_item_request_buy: "Bied aan om dit item te verkopen"
+      link_label_for_item_request_receive: "Geef dit item aan de vrager"
+      link_label_for_item_request_trade: "Bied aan om dit item te ruilen"
       link_label_for_rideshare_offer: "vraag om een rit"
       link_label_for_rideshare_request: "Bied een rit aan"
     new:
-      listing: ~
-      offer: ~
-      request: ~
-      selected_offer: ~
-      selected_request: ~
+      listing: Listing
+      offer: "Ik heb iets aan te bieden aan anderen"
+      request: "Ik zoek iets"
+      selected_offer: Aanbod
+      selected_request: Verzoek
       selected_listing_type: ~
-      selected_category: ~
-      selected_subcategory: ~
+      selected_category: "Categorie%{category}"
+      selected_subcategory: "Subcatego%{subcategory}rie"
       selected_share_type: ~
-      selected_item: ~
-      selected_favor: ~
-      selected_rideshare: ~
-      selected_housing: ~
-      selected_borrow: ~
-      selected_buy: ~
-      selected_give_away: ~
-      selected_lend: ~
-      selected_receive: ~
-      selected_rent: ~
-      selected_rent_out: ~
-      selected_sell: ~
-      selected_offer_to_swap: ~
-      selected_request_to_swap: ~
-      selected_share_for_free: ~
-      selected_accept_for_free: ~
-      how_do_you_want_to_share_it: ~
-      how_do_you_want_to_get_it: ~
-      item: ~
-      favor: ~
-      rideshare: ~
-      housing: ~
-      borrow: ~
-      buy: ~
-      give_away: ~
-      lend: ~
-      receive: ~
-      rent: ~
-      rent_out: ~
-      sell: ~
-      offer_to_swap: ~
-      request_to_swap: ~
-      share_for_free: ~
-      accept_for_free: ~
-      what_kind_of_item: ~
-      what_kind_of_favor: ~
-      what_kind_of_rideshare: ~
-      what_kind_of_housing: ~
+      selected_item: Item
+      selected_favor: Gunst
+      selected_rideshare: "Gedeelde rit"
+      selected_housing: Ruimte
+      selected_borrow: Ontlenen
+      selected_buy: Kopen
+      selected_give_away: Weggeven
+      selected_lend: Uitlenen
+      selected_receive: "Gratis ontvangen"
+      selected_rent: Huren
+      selected_rent_out: Verhuren
+      selected_sell: Verkopen
+      selected_offer_to_swap: Ruilen
+      selected_request_to_swap: Ruilen
+      selected_share_for_free: "Gratis lenen voor gebruik"
+      selected_accept_for_free: "Gratis ontvangen"
+      how_do_you_want_to_share_it: "Hoe wil je het delen"
+      how_do_you_want_to_get_it: "Hoe wil je het krijgen"
+      item: "Een item- iets materieel"
+      favor: "Hulp - een vaardigheid of  dienst"
+      rideshare: "Een gedeelde rit - in een auto of ander transportmiddel"
+      housing: "Een ruimte - een appartement, een kantoor of tuin"
+      borrow: "Ik wil het ontlenen"
+      buy: "Ik wil het kopen"
+      give_away: "Ik geef het gratis weg"
+      lend: "Ik kan het gratis lenen"
+      receive: "Ik kan het gratis ontvangen"
+      rent: "Ik wil het huren"
+      rent_out: "Ik verhuurt het voor een fee"
+      sell: "Ik verkoop het"
+      offer_to_swap: "Ik wil het ruilen voor iets anders"
+      request_to_swap: "Ik wil het ruilen voor iets anders"
+      share_for_free: "Ik deel het gratis"
+      accept_for_free: "ik zou het gratis willen gebruiken"
+      what_kind_of_item: "Over wat soort item hebben we het?"
+      what_kind_of_favor: "Over wat soort hulp hebben we het?"
+      what_kind_of_rideshare: "Over welke soort transport hebben we het?"
+      what_kind_of_housing: "Over welk soort ruimte hebben we het?"
       which_subcategory: ~
-      tools: ~
-      sports: ~
-      music: ~
-      books: ~
-      games: ~
-      furniture: ~
-      outdoors: ~
-      food: ~
-      electronics: ~
-      pets: ~
-      film: ~
-      clothes: ~
-      garden: ~
-      travel: ~
-      other: ~
-      what_do_you_want_to_do: ~
-      what_can_you_offer: ~
-      what_do_you_need: ~
-      select_category: ~
+      tools: Tools
+      sports: Sporten
+      music: Muziek
+      books: "Boeken & Magazines"
+      games: "Spellen en speelgoed"
+      furniture: Meubilair
+      outdoors: "Kamperen & outdoors"
+      food: "Voeding & keuken"
+      electronics: Electronica
+      pets: Dieren
+      film: Films
+      clothes: "Kledij & accesoires"
+      garden: Tuin
+      travel: Reizen
+      other: Andere
+      what_do_you_want_to_do: "Wat wil je doen?"
+      what_can_you_offer: "Wat kan je aabieden aan anderen?"
+      what_do_you_need: "Wat heb je nodig?"
+      select_category: "Selecteer categorie"
     please_comment: Commentaar
     reply_link:
-      listing_closed: ~
+      listing_closed: "Listing is gesloten"
     show:
-      add_your_phone_number: ~
-      add_profile_picture: ~
+      add_your_phone_number: "Voeg je telefoonnr. toe"
+      add_profile_picture: "Voeg profiel foto toe"
       comments: Commentaar
-      contact_by_phone: ~
+      contact_by_phone: "Contaceer per telefoon"
       favor_offer: "Gunst aanbod"
       favor_request: "Gunst gezocht"
-      item_offer_trade: ~
-      item_request_trade: ~
+      item_offer_trade: "Ruil aanbod"
+      item_request_trade: "Ruil verzoek"
       no_description: "Geen beschrijving"
       offer: Aanbod
-      listing_created: ~
-      open_until: ~
-      feedback: ~
+      listing_created: Gecreërd
+      open_until: "Open tot %{date}"
+      feedback: Feedback
       qr_code: ~
       request: Verzoek
       rideshare_offer: Ritaanbod
       rideshare_request: "Rit gezocht"
-      send_private_message: ~
+      send_private_message: "Stuur privé boodschap"
       share_types: "Deel types"
       share_types_offer: "Type aanbod"
       share_types_request: "Type verzoek"
@@ -1200,7 +1202,7 @@ nl:
       times_viewed: Gezien
       processing_uploaded_image: ~
     displayed_price:
-      price_excludes_vat: ~
+      price_excludes_vat: "(exclusief BTW)"
   mapview:
     index:
       all_categories: ~
@@ -1240,6 +1242,20 @@ nl:
       payment_receiver: ~
       sum: ~
       commission_will_be_added: ~
+    form:
+      total: ~
+      service_charge: ~
+      product: ~
+      price: ~
+      continue_to_pay: ~
+    mangopay:
+      terms:
+        mangopay_terms_also_included: ~
+        mangopay_terms_link_text: ~
+      seller_registration_needed:
+        seller_registration_needed: ~
+        seller_registration_instructions: ~
+        settings_page_link: ~
   people:
     index:
       loading_more_members: ~

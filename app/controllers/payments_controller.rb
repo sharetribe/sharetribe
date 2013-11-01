@@ -14,36 +14,17 @@ class PaymentsController < ApplicationController
     @conversation = Conversation.find(params[:message_id])
     @payment = @conversation.payment  #This expects that each conversation already has a (pending) payment at this point
     
-    unless @current_community.settings["mock_cf_payments"]
-      merchant_id = @payment.recipient_organization.merchant_id
-      merchant_key = @payment.recipient_organization.merchant_key
+    @payment_gateway = @current_community.payment_gateways.first
+    if @payment_gateway.can_receive_payments_for?(@payment.recipient, @conversation.listing)
+      @payment_data = @payment_gateway.payment_data(@payment, 
+                :return_url => done_person_message_payment_url(:id => @payment.id),
+                :cancel_url => new_person_message_payment_url,
+                :locale => I18n.locale,
+                :mock => @current_community.settings["mock_cf_payments"])
     else
-      # Make it possible to demonstrate payment system with mock payments if that's set on in community settings
-      merchant_id = "375917"
-      merchant_key = "SAIPPUAKAUPPIAS"
+      flash[:error] = t("layouts.notifications.cannot_receive_payment")
+      redirect_to single_conversation_path(:conversation_type => :received, :id => @conversation.id) and return
     end
-    
-    
-    @payment_data = {
-      "VERSION"   => "0001",
-      "STAMP"     => "sharetribe_#{@payment.id}",
-      "AMOUNT"    => @payment.total_sum.cents,
-      "REFERENCE" => "1009",
-      "MESSAGE"   => @payment.summary_string,
-      "LANGUAGE"  => "FI",
-      "MERCHANT"  => merchant_id,
-      "RETURN"    => done_person_message_payment_url(:id => @payment.id),
-      "CANCEL"    => new_person_message_payment_url,
-      "COUNTRY"   => "FIN",
-      "CURRENCY"  => "EUR",
-      "DEVICE"    => 1,
-      "CONTENT"   => 1,
-      "TYPE"      => 0,
-      "ALGORITHM" => 2,
-      "DELIVERY_DATE" => 2.weeks.from_now.strftime("%Y%m%d")
-    }
-    @payment_data["STAMP"] = Devise.friendly_token if Rails.env.test?
-    @payment_data["MAC"] = Digest::MD5.hexdigest("#{@payment_data['VERSION']}+#{@payment_data['STAMP']}+#{@payment_data['AMOUNT']}+#{@payment_data['REFERENCE']}+#{@payment_data['MESSAGE']}+#{@payment_data['LANGUAGE']}+#{@payment_data['MERCHANT']}+#{@payment_data['RETURN']}+#{@payment_data['CANCEL']}+#{@payment_data['REJECT']}+#{@payment_data['DELAYED']}+#{@payment_data['COUNTRY']}+#{@payment_data['CURRENCY']}+#{@payment_data['DEVICE']}+#{@payment_data['CONTENT']}+#{@payment_data['TYPE']}+#{@payment_data['ALGORITHM']}+#{@payment_data['DELIVERY_DATE']}+#{@payment_data['FIRSTNAME']}+#{@payment_data['FAMILYNAME']}+#{@payment_data['ADDRESS']}+#{@payment_data['POSTCODE']}+#{@payment_data['POSTOFFICE']}+#{merchant_key}").upcase
   end
   
   def choose_method
@@ -52,35 +33,22 @@ class PaymentsController < ApplicationController
   
   def done
     @payment = Payment.find(params[:id])
+    @payment_gateway = @current_community.payment_gateways.first
     
-    unless @current_community.settings["mock_cf_payments"]
-      merchant_key = @payment.recipient_organization.merchant_key
-    else
-      # Make it possible to demonstrate payment system with mock payments if that's set on in community settings
-      merchant_key = "SAIPPUAKAUPPIAS"
-    end
+    check = @payment_gateway.check_payment(@payment, { :params => params, :mock =>@current_community.settings["mock_cf_payments"]})
     
-    calculated_mac = Digest::MD5.hexdigest("#{merchant_key}&#{params["VERSION"]}&#{params["STAMP"]}&#{params["REFERENCE"]}&#{params["PAYMENT"]}&#{params["STATUS"]}&#{params["ALGORITHM"]}").upcase
-    
-    if calculated_mac == params["MAC"]
-    
-      if ["2","5","6","7","8","9","10"].include?(params["STATUS"])
-        @payment.update_attribute(:status, "paid")
-        @payment.conversation.pay
-        @payment.conversation.messages.create(:sender_id => @payment.payer.id, :action => "pay")
-        Delayed::Job.enqueue(PaymentCreatedJob.new(@payment.id, @current_community.id))
-        flash[:notice] = t("layouts.notifications.payment_successful")
-      elsif ["3","4"].include?(params["STATUS"])
-        flash[:notice] = t("layouts.notifications.payment_waiting_for_later_accomplishment")
-      else
-        flash[:warning] = t("layouts.notifications.payment_canceled")
-      end
-      
-    else # the security check didn't go through
+    if check.nil? || check[:status].blank?
       flash[:error] = t("layouts.notifications.error_in_payment")
-      ApplicationHelper.send_error_notification("Payment security check failed", "Payment Error", params)
-      
+    elsif check[:status] == "paid"
+      @payment.paid!
+      @payment_gateway.handle_paid_payment(@payment)
+      flash[:notice] = check[:notice]
+    else # not yet paid
+      flash[:notice] = check[:notice]
+      flash[:warning] = check[:warning]
+      flash[:error] = check[:error]
     end
+
     redirect_to person_message_path(:id => params[:message_id])
   end
   

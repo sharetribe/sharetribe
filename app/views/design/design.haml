@@ -1,0 +1,322 @@
+.design-wrapper
+  %h1.design-h1
+    = "Sharetribe Design Components"
+
+  %h2.design-h2
+    = "Typography"
+
+  .design-section
+
+    %h3.design-h3
+      = "Font sizes"
+
+    .design-component
+      .design-example
+        .design-small-type
+          Small
+        .design-normal-type
+          Normal
+        .design-big-type
+          Big
+        .design-large-type
+          Large
+        .design-larger-type
+          Larger
+        .design-huge-type
+          Huge
+        .design-mega-type
+          Mega
+        .design-giga-type
+          Giga
+      .design-code
+        %pre
+          :plain
+            .class-with-giga-type {
+              @include giga-type;
+            }
+
+  %h2.design-h2
+    = "Forms"
+
+  .design-section
+
+    %h3.design-h3
+      = "Buttons"
+
+    .design-component
+      .design-example
+        %button
+          = "This is button"
+      .design-code
+        %pre
+          :plain
+            %button
+              = "This is button"
+
+    .design-section
+
+    %h3.design-h3
+      = "Dropdown menu"
+
+    .design-component
+      .design-example
+        .toggle-container
+          .toggle.hidden{data: {toggle: '#toggle-menu-identifier'}}
+            .toggle-header-container
+              .toggle-header
+                = "Toggle header"
+
+              = icon_tag("dropdown", ["icon-dropdown"])
+              
+          #toggle-menu-identifier.toggle-menu.hidden
+            %a
+              = "Item 1"
+            %a
+              = "A very long item number #2"
+            %a.toggle-menu-subitem
+              = "This is a subitem"
+            %div.toggle-menu-item
+              = "Element doesn't have to be `a`"
+            %a
+              = "Item 3"
+            .toggle-menu-title
+              = "Title item"
+            %a.toggle-menu-subitem
+              = "This is a subitem"
+            %a.toggle-menu-subitem
+              = "This is a subitem"
+      .design-code
+        %pre
+          :plain
+            .toggle.with-borders.hidden{data: {toggle: '#toggle-menu-with-borders-identifier'}}
+              .toggle-header-container
+                .toggle-header
+                  = "Toggle header"
+
+                = icon_tag("dropdown", ["icon-dropdown"])
+                
+            #toggle-menu-identifier.toggle-menu.hidden
+              %a
+                = "Item 1"
+              %a
+                = "A very long item number #2"
+              %a.toggle-menu-subitem
+                = "This is a subitem"
+              %a
+                  = "Item 3"
+
+  .design-section
+
+    %h3.design-h3
+      = "Dropdown menu with borders"
+
+    .design-component
+      .design-example
+        .toggle-container
+          .toggle.with-borders.hidden{data: {toggle: '#toggle-menu-with-borders-identifier'}}
+            .toggle-header-container
+              .toggle-header
+                = "Toggle header"
+
+              = icon_tag("dropdown", ["icon-dropdown"])
+                
+          #toggle-menu-with-borders-identifier.toggle-menu.hidden
+            %a
+              = "Item 1"
+            %a
+              = "A very long item number #2"
+            %a.toggle-menu-subitem
+              = "This is a subitem"
+            %a
+              = "Item 3"
+      .design-code
+        %pre
+          :plain
+            .toggle.with-borders.hidden{data: {toggle: '#toggle-menu-with-borders-identifier'}}
+              .toggle-header-container
+                .toggle-header
+                  = "Toggle header"
+
+                = icon_tag("dropdown", ["icon-dropdown"])
+                
+            #toggle-menu-with-borders-identifier.toggle-menu.hidden
+              %a
+                = "Item 1"
+              %a
+                = "A very long item number #2"
+              %a.toggle-menu-subitem
+                = "This is a subitem"
+              %a
+                  = "Item 3"
+
+  %h2.design-h2
+    = "Responsive utilities"
+
+  .design-section
+    %h3.design-h3
+      = "Media queries"
+
+    .design-component
+      .design-example
+        .design-mq-tiny-mobile
+          = "Tiny mobile"
+        .design-mq-mobile
+          = "Mobile"
+        .design-mq-large-mobile
+          = "Large mobile"
+        .design-mq-small-tablet
+          = "Small tablet"
+        .design-mq-tablet
+          = "Tablet"
+        .design-mq-small-desktop
+          = "Small desktop"
+        .design-mq-mid-desktop
+          = "Mid desktop"
+        .design-mq-desktop
+          = "Desktop"
+      .design-code
+        %pre
+          :plain
+            .hide-on-mobile-desives {
+              display: none;
+
+              @import media(tablet) {
+                display: block;
+              }
+            }
+
+  .design-section
+    %h3.design-h3
+      = "Helper classes"
+
+    .design-component
+      .design-example
+        .design-block.visible-tablet
+          = "Visible on tablet and up"
+        .design-block.hidden-tablet
+          = "Hidden on tablet and up"
+      .design-code
+        %pre
+          :plain
+            .visible-tablet
+              = "Visible on tablet and up"
+            .hidden-tablet
+              = "Hidden on tablet and up"
+
+  %h2.design-h2
+    = "Layout and positioning"
+
+  .design-section
+    %h3.design-h3
+      = "Fluid grid"
+
+    .design-component
+      .design-example
+        - (1..11).each do |i|
+          .row
+            %div{class: "col-#{i}" }
+              .col-content
+                = ".col-#{i}"
+            %div{class: "col-#{12-i}" }
+              .col-content
+                = ".col-#{12-i}"
+        .row
+          .col-12
+            .col-content
+              = ".col-12"
+      .design-code
+        %pre
+          :plain
+            .row
+              .col-1
+                = "Col 1"
+              .col-11
+                = "Col 11"
+
+  .design-section
+    %h3.design-h3
+      = "Nested fluid grid"
+
+    .design-component
+      .design-example
+        .row
+          .col-6
+            .col-content
+              = ".col-6"
+              .row
+                .col-4
+                  .col-content
+                    = ".col-4"
+                .col-4
+                  .col-content
+                    = ".col-4"
+                .col-4
+                  .col-content
+                    = ".col-4"
+          .col-6
+            .col-content
+              = ".col-6"
+              .row
+                .col-3
+                  .col-content
+                    = ".col-3"
+                .col-3
+                  .col-content
+                    = ".col-3"
+                .col-3
+                  .col-content
+                    = ".col-3"
+                .col-3
+                  .col-content
+                    = ".col-3"
+      .design-code
+        %pre
+          :plain
+            .row
+              .col-12
+                .row
+                  .col-6
+                    = "Nested col-6 inside col-12"
+                  .col-6
+                    = "Nested col-6 inside col-12"
+
+  .design-section
+    %h3.design-h3
+      = "Fluid thumbnail grid"
+    .design-component
+      .design-example
+        .design-fluid-thumbnail-grid
+          - (1..24).map do |i|
+            .design-fluid-thumbnail-grid-item
+              .design-fluid-thumbnail-grid-item-fixed-height
+                = "Thumbnail #{i}"
+      .design-code
+        %pre
+          :plain
+            # To use fluid grid, you have to first create it. The following command will create a fluid grid prefixed with `design`:
+
+            @include create-fluid-thumbnail-grid(design, 1, 1, 2, 2, 3, 3, 4, 5);
+
+            After you have created the grid, you can use it like this:
+
+            .design-fluid-thumbnail-grid
+                .design-fluid-thumbnail-grid-item
+                  %div
+                    = "Thumbnail 1"
+                .design-fluid-thumbnail-grid-item
+                  %div
+                    = "Thumbnail 2"
+
+  .design-section
+    %h3.design-h3
+      = "Fluid thumbnail grid with 3/2 aspect ratio"
+    .design-component
+      .design-example
+        .design-fluid-thumbnail-grid
+          - (1..24).map do |i|
+            .design-fluid-thumbnail-grid-item
+              = image_tag("empty_3x2.gif", :class => "design-fluid-thumbnail-grid-item-3x2")
+      .design-code
+        %pre
+          :plain
+            Use an empty image to get the correct aspect ratio

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130930080143) do
+ActiveRecord::Schema.define(:version => 20131031093809) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -146,6 +146,14 @@ ActiveRecord::Schema.define(:version => 20130930080143) do
     t.string   "name_display_type",                 :default => "first_name_with_initial"
     t.string   "twitter_handle"
     t.boolean  "use_community_location_as_default", :default => false
+    t.boolean  "show_category_in_listing_list",     :default => false
+    t.string   "default_browse_view",               :default => "grid"
+    t.string   "wide_logo_file_name"
+    t.string   "wide_logo_content_type"
+    t.integer  "wide_logo_file_size"
+    t.datetime "wide_logo_updated_at"
+    t.string   "domain_alias"
+    t.string   "preproduction_stylesheet_url"
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"

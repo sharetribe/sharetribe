@@ -36,7 +36,7 @@ class Payment < ActiveRecord::Base
   
   # Commission including VAT
   def total_commission
-    sum_with_percentage(commission_without_vat, community.vat)
+    sum_with_percentage(commission_without_vat, APP_CONFIG.service_fee_tax_percentage.to_i)
   end
   
   # Total payment with VAT but without commission
@@ -53,4 +53,9 @@ class Payment < ActiveRecord::Base
     rows.collect(&:title).join(", ")
   end
   
+  def paid!
+    update_attribute(:status, "paid")
+    conversation.paid_by!(payer)
+    Delayed::Job.enqueue(PaymentCreatedJob.new(id, community.id))
+  end
 end

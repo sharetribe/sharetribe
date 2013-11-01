@@ -13,13 +13,14 @@ gem 'capistrano' # could be removed as not currently used
 # Gems used only for assets and not required  
 # in production environments by default.  
 group :assets do  
-  gem 'sass-rails'
   gem 'coffee-rails', "~> 3.2.2"
   gem 'uglifier'
-  gem 'compass-rails'
   gem 'asset_sync'
 end  
-  
+
+gem 'sass-rails'
+gem 'compass-rails'
+
 gem 'jquery-rails'
 
 # Bundle the extra gems:
@@ -36,7 +37,7 @@ gem 'rest-client', '>= 1.6.0'
 gem 'acts-as-taggable-on'
 gem 'paperclip'
 gem 'delayed_paperclip'
-gem 'aws-sdk', "~>1.9.0"
+gem 'aws-sdk'
 gem "will_paginate"
 gem 'newrelic_rpm', "~>3.6.2.96"
 gem 'dalli'
@@ -48,7 +49,7 @@ gem 'recaptcha'
 gem "airbrake", "~>3.1.12"
 gem 'delayed_job', "~>3.0.5"
 gem 'delayed_job_active_record'
-gem 'json', "~>1.7.7"
+gem 'json', "~>1.8.0"
 gem 'multi_json', "~>1.7.3" # 1.8.0 caused "invalid byte sequence in UTF-8" at heroku
 gem 'russian'
 gem 'web_translate_it'
@@ -69,6 +70,7 @@ gem 'mercury-rails'
 gem 'fb-channel-file'
 gem 'country_select'
 gem 'localized_country_select', '>= 0.9.3'
+gem 'mangopay'
 
 #ouisharelabs
 gem 'rdf-turtle'
@@ -77,6 +79,7 @@ group :development do
   gem 'guard-livereload', require: false
   gem 'rack-livereload'
   gem 'rb-fsevent',       require: false
+  gem 'guard-rspec',      require: false
 end
 
 group :test do

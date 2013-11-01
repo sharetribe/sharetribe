@@ -23,7 +23,7 @@ Feature: User views news items
   # @javascript
   # Scenario: User views info page news items
   #   Given I am on the home page
-  #   When I follow "About"
+  #   When I follow "global-navi-about"
   #   Then I should not see "News"
   #   When news are enabled in community "test"
   #   And I am on the infos page

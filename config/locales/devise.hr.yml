@@ -1,0 +1,60 @@
+hr:
+  errors:
+    messages:
+      expired: ~
+      not_found: ~
+      already_confirmed: ~
+      not_locked: ~
+      not_saved:
+        one: "1 greška je onemogućila da ovaj %{resource} bude spremljen"
+        few: "%{count} greške su onemogućile da ovaj %{resource} bude spremljen"
+        many: "%{count} grešaka je onemogućilo da ovaj %{resource} bude spremljen"
+        other: "%{count} greške su onemogućile da ovaj %{resource} bude spremljen"
+  devise:
+    failure:
+      already_authenticated: "Već ste prijavljeni"
+      unauthenticated: "Potrebno je prijaviti se prije nego nastavite"
+      unconfirmed: "Trebate potvrditi vaš korisnički račun prije nastavka."
+      locked: "Vaš korisnički račun je zaključan."
+      invalid: "Neispravna e-mail adresa ili lozinka."
+      invalid_token: "Neispravan token za autentifikaciju"
+      timeout: "Vaš session je istekao, potrebno je ponovno se prijaviti u sustav"
+      inactive: "Vaš račun još nije aktiviran."
+    passwords:
+      updated_not_active: "Vaša lozinka je uspješno promijenjena."
+      send_paranoid_instructions: "Ako vaša email adresa postoji u našoj bazi podataka, na mail će vam stići link za promjenu lozinke."
+      send_instructions: "Kroz par minuta ćete primiti email sa uputama kako resetirati vašu lozinku."
+      updated: "Vaša lozinka je uspješno promijenjena i prijavljeni ste u sustav."
+    sessions:
+      signed_in: "Uspješno ste se prijavili."
+      signed_out: "Uspješno ste odjavljeni."
+    confirmations:
+      send_paranoid_instructions: "Ako vaša email adresa postoji u našoj bazi podataka, na mail će vam stići upute za potvrdu vašeg korisničkog računa."
+      send_instructions: "Na email će vam uskoro stići uputstva kako da potvrdite svoj korisnički račun."
+      confirmed: "Vaš korisnički račun je uspješno potvrđen."
+    registrations:
+      signed_up_but_unconfirmed: "Poruka sa linkom za potvrdu poslana je na vaš email. Molimo kliknite na link kako bi aktivirali vaš korisnički račun."
+      signed_up_but_inactive: "Uspješno ste se prijavili, no ne možemo vas ulogirati u sustav jer vam korisnički račun još nije aktiviran."
+      signed_up_but_locked: "Uspješno ste se prijavili, no ne možemo vas ulogirati u sustav jer vam je korisnički račun zaključan."
+      reasons:
+        inactive: neaktivan
+        unconfirmed: nepotvrđen
+        locked: zaključan
+      update_needs_confirmation: "Uspješno ste osvježili svoj korisnički račun, ali moramo verificirati vašu novu email adresu. Molimo provjerite svoj mail i kliknite na link kako bi potvrdili svoju novu email adresu."
+      signed_up: "Dobrodošli! Uspješno ste se prijavili."
+      updated: "Uspješno ste osvježili svoj korisnički račun."
+      destroyed: "Doviđenja! Vaš račun je uspješno otkazan. Nadamo se da ćete nam se uskoro vratiti :)"
+    unlocks:
+      send_paranoid_instructions: "Ako vaš korisnički račun postoji, uskoro ćete dobiti email sa uputama kako ga otključati."
+      send_instructions: "Uskoro ćete dobiti email sa uputama kako otključati svoj korisnički račun."
+      unlocked: "Vaš korisnički račun je uspješno otključan. Molimo da se za nastavak prijavite na sustav."
+    omniauth_callbacks:
+      success: "Uspješno potvrđen od %{kind} korisničkog računa."
+      failure: "Ne možemo vas potvrditi od %{kind} zbog \"%{reason}\"."
+    mailer:
+      confirmation_instructions:
+        subject: "Potvrda lozinke"
+      reset_password_instructions:
+        subject: "Upute za resetiranje lozinke"
+      unlock_instructions:
+        subject: "Upute za otključavanje računa"

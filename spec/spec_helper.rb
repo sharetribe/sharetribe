@@ -84,7 +84,7 @@ Spork.prefork do
 
   # Seed the database only in the beginning for better test performance
   # This needs to be changed if/when any test modify seeded values
-  CategoriesHelper.load_default_categories_to_db
+  load "#{Rails.root}/db/seeds.rb" 
   
 end
 

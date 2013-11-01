@@ -530,33 +530,37 @@ function initialize_listing_view(locale) {
   });
 }
 
-function initialize_accept_transaction_form(commission_percentage) {
+function initialize_accept_transaction_form(commission_percentage, service_fee_vat) {
 	auto_resize_text_areas("text_area");
 	style_action_selectors();
 	
 	if (commission_percentage != undefined) {
-	  update_transaction_form_price_fields(commission_percentage);
+	  update_transaction_form_price_fields(commission_percentage, service_fee_vat);
   	$(".trigger-focusout").focusout(function(value) {
-  	  update_transaction_form_price_fields(commission_percentage);
+  	  update_transaction_form_price_fields(commission_percentage, service_fee_vat);
   	});
   }
 	
 }
 
-function update_transaction_form_price_fields(commission_percentage) {
+function update_transaction_form_price_fields(commission_percentage, service_fee_vat) {
   var total_sum = 0;
   var total_sum_with_vat = 0;
   for (var i = 0; i < $(".field-row").length; i++) {
     var sum = parseInt($(".payment-row-sum-field.row" + i).val());
+
     var vat = parseInt($(".payment-row-vat-field.row" + i).val());
+    if (! vat > 0) { vat = 0;}
+    
     row_sum = sum + (sum * vat / 100);
     $(".total-label.row" + i).text(row_sum.toFixed(2) + '\u20AC');
     total_sum += sum;
     total_sum_with_vat += row_sum;
   }
+  
   var service_fee_sum = total_sum*commission_percentage/100;
   $("#service-fee-sum").text(service_fee_sum.toFixed(2) + '\u20AC');
-  var service_fee_vat = parseInt($("#service-fee-vat").text().substring(0, $("#service-fee-vat").text().length - 1));
+  
   service_fee_sum_with_vat = service_fee_sum + (service_fee_sum * service_fee_vat / 100);
   $("#service-fee-total").text(service_fee_sum_with_vat.toFixed(2) + '\u20AC');
   $("#total").text((total_sum_with_vat + service_fee_sum_with_vat).toFixed(2) + '\u20AC');
@@ -585,6 +589,10 @@ function style_action_selectors() {
             // Show or hide price field
             $(".conversation-price").addClass('hidden');
             $("." + action +  "-price").removeClass('hidden');
+            
+            // Show or hide payout details missing information
+            $(".hidden-accept-form").addClass('hidden');
+            $(".visible-when-" + action).removeClass('hidden');
             
             $(this).addClass(action);
             $(".conversation-action").find('input:radio[id=' + $(this).attr('name') + ']').attr('checked', true);
@@ -695,6 +703,14 @@ function initialize_terms_form() {
     $('#terms').lightbox_me({ centered: true, zIndex: 1000000 }); 
   });
 }
+
+function initialize_mangopay_terms_lightbox() {
+  $('#mangopay_terms_link').click(function(link) {
+    link.preventDefault();
+    $('#mangopay_terms').lightbox_me({ centered: true, zIndex: 1000001 }); 
+  });
+}
+
 
 function initialize_update_profile_info_form(locale, person_id, name_required) {
   auto_resize_text_areas("update_profile_description_text_area");
@@ -844,24 +860,6 @@ function initialize_homepage_news_items(news_item_ids) {
 }
 
 function initialize_homepage(filters_in_use) {
-  
-  if (filters_in_use) { 
-    // keep filters dropdown open in mobile view if any filters selected
-    $('#filters-toggle').click();
-  }
-  
-  $('#feed-filter-dropdowns select').change(
-    function() {
-      
-      // It's challenging to get the pageless right if reloading just the small part so reload all page
-      // instead of the method below that would do AJAX update (currently works only partially)
-      //reload_homepage_view();
-      
-      $("#homepage-filters").submit();    
-      
-    }
-  );
-  
   // make map/list button change the value in the filter form and submit the form
   // in order to keep all filter values combinable and remembered
   $('.map-button').click(
@@ -878,24 +876,6 @@ function initialize_homepage(filters_in_use) {
       return false;
     }
   );
-}
-
-function reload_homepage_view() {
-  // Make AJAX request based on selected items
-  var request_path = window.location.toString();
-  var filters = {};
-  filters["share_type"] = $('#share_type').val();
-  filters["category"] = $('#listing_category').val();
-  
-  // Update request path with updated query params
-  for (var key in filters) {
-    request_path = UpdateQueryString(key, filters[key], request_path);
-  }
-  
-  $.get(request_path, filters, function(data) {
-    $('.homepage-feed').html(data);
-    history.pushState(null, document.title, request_path);
-  });
 }
 
 function initialize_invitation_form(locale, email_error_message) {
@@ -1034,30 +1014,6 @@ function get_datetime_from_datetime_select() {
   minutes = $('#listing_valid_until_5i').val();
   date = new Date(year,month-1,day,hours,minutes);
   return date;
-}
-
-// Credits to ellemayo's StackOverflow answer: http://stackoverflow.com/a/11654596/150382
-function UpdateQueryString(key, value, url) {
-    if (!url) url = window.location.href;
-    var re = new RegExp("([?|&])" + key + "=.*?(&|#|$)", "gi");
-
-    if (url.match(re)) {
-        if (value)
-            return url.replace(re, '$1' + key + "=" + value + '$2');
-        else
-            return url.replace(re, '$2');
-    }
-    else {
-        if (value) {
-            var separator = url.indexOf('?') !== -1 ? '&' : '?',
-                hash = url.split('#');
-            url = hash[0] + separator + key + '=' + value;
-            if (hash[1]) url += '#' + hash[1];
-            return url;
-        }
-        else
-            return url;
-    }
 }
 
 //FB Popup from: http://stackoverflow.com/questions/4491433/turn-omniauth-facebook-login-into-a-popup

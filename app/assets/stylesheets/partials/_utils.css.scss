@@ -1,0 +1,12 @@
+@import "mixins/all";
+
+.relative {
+  position: relative;
+}
+
+/**
+  Use icon-fix to correctly vertical align SS-pika icons
+*/
+.icon-fix {
+  @include icon-fix;
+}

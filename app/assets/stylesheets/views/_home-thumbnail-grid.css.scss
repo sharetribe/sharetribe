@@ -1,0 +1,80 @@
+/**
+  Homepage thumbnail grid view
+*/
+
+@import "mixins/all";
+
+$home-thumbnail-grid-avatar: em(48);
+$home-thumbnail-grid-avatar-padding: lines(0.25);
+$home-thumbnail-grid-author: $home-thumbnail-grid-avatar + ($home-thumbnail-grid-avatar-padding * 2);
+
+.home-fluid-thumbnail-grid-narrow {
+  @include create-fluid-thumbnail-grid(home, 1, 1, 2, 3, 3, 3, 3, 3);
+}
+
+.home-fluid-thumbnail-grid-wide {
+  @include create-fluid-thumbnail-grid(home, 1, 1, 2, 3, 4, 4, 4, 4);
+}
+
+.home-fluid-thumbnail-grid-image-container {
+  @include border-top-radius($default-border-radius);
+  position: relative;
+  color: $background;
+
+  &:hover {
+    color: $highlight;
+  }
+}
+
+.home-fluid-thumbnail-grid-title {
+  position: absolute;
+  bottom: 0;
+  padding: $home-thumbnail-grid-avatar-padding;
+  line-height: lines(0.75);
+  font-size: 15px; // 16 is just a little bit too big
+}
+
+.home-fluid-thumbnail-grid-overlay {
+  @include border-top-radius($default-border-radius);
+  @include overlay;
+  @include absolutely-all;
+}
+
+.home-fluid-thumbnail-grid-image {
+  @include border-top-radius($default-border-radius);
+  display: block;
+  width: 100%;
+}
+
+.home-fluid-thumbnail-grid-price {
+  @include listing-price;
+}
+
+.home-fluid-thumbnail-grid-author {
+  @include border-bottom-radius($default-border-radius);
+  background-color: $highlight;
+  height: $home-thumbnail-grid-author;
+  position: relative;
+}
+
+.home-fluid-thumbnail-grid-author-avatar {
+  padding: $home-thumbnail-grid-avatar-padding;
+}
+
+.home-fluid-thumbnail-grid-author-avatar-image {
+  @include border-radius($default-border-radius);
+  height: $home-thumbnail-grid-avatar;
+}
+
+.home-fluid-thumbnail-grid-author-name {
+  position: absolute;
+  top: $home-thumbnail-grid-avatar-padding;
+  left: (3 * $home-thumbnail-grid-avatar-padding) + $home-thumbnail-grid-avatar; // 3 for some extra padding
+  right: $home-thumbnail-grid-avatar-padding;
+  bottom: $home-thumbnail-grid-avatar-padding;
+
+  // Vertical centering
+  line-height: $home-thumbnail-grid-avatar;
+  
+  @include ellipsis;
+}

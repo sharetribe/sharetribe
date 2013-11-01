@@ -1,0 +1,31 @@
+/**
+  Misc utils
+*/
+
+@mixin absolutely($top, $left, $bottom, $right) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  bottom: $bottom;
+  right: $right;
+}
+
+@mixin absolutely-all() {
+  @include absolutely(0, 0, 0, 0);
+}
+
+/**
+  Use icon-fix to correctly vertical align SS-pika icons
+*/
+@mixin icon-fix {
+  position: relative;
+  top: 2px;
+}
+
+/**
+  Dropdown icon needs to be a bit lower
+*/
+@mixin dropdown-icon-fix {
+  position: relative;
+  top: 3px;
+}

@@ -1,0 +1,4 @@
+%h2
+  = t("organizations.seller_registration_needed.seller_registration_needed")
+%p
+  = t("organizations.seller_registration_needed.seller_registration_instructions", :link_to_profile_page => link_to(t("organizations.seller_registration_needed.profile_page_link"), person_path(@current_user))).html_safe

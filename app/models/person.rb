@@ -184,18 +184,26 @@ class Person < ActiveRecord::Base
       if community
         case community.name_display_type
         when "first_name_with_initial"
-          return "#{given_name} #{family_name[0,1]}"
+          return first_name_with_initial
         when "first_name_only"
           return given_name
         else
-          return "#{given_name} #{family_name}"
+          return full_name
         end
       else
-        return "#{given_name} #{family_name[0,1]}"
+        return first_name_with_initial
       end
     else
       return username
     end
+  end
+  
+  def full_name
+    "#{given_name} #{family_name}"
+  end
+  
+  def first_name_with_initial
+    "#{given_name} #{family_name[0,1]}"
   end
 
   def name(community=nil)
@@ -708,6 +716,33 @@ class Person < ActiveRecord::Base
     else
       return pending_emails.first
     end  
+  end
+  
+  # This determines if the person has done all needed registrations etc. in order to create paid listing
+  # where he would receive money (in this community)
+  def can_create_paid_listings_at?(community)
+    if community.requires_organization_membership?
+      return self.is_member_of_seller_organization?
+    
+    # this is commented out as we only limit creating listings when organizations in use
+    # in other cases the check happens before accepting
+      
+    # elsif community.payment_gateways
+    #      return community.payment_gateways.first.can_receive_payments_for?(self)
+    
+    else
+      return true
+    end
+  end
+  
+  
+  # Has the person filled in all the information needed to receive payments in this community?
+  def can_receive_payments_at?(community)
+    if community.payment_gateways
+      return community.payment_gateways.first.can_receive_payments_for?(self)
+    else
+      throw "can_receive_payments_at? was checked in a community which has no payment gateways"
+    end
   end
   
   

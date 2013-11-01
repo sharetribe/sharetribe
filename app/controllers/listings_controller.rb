@@ -36,8 +36,7 @@ class ListingsController < ApplicationController
       # Returns the listings for one person formatted for profile page view
       per_page = params[:per_page] || 200 # the point is to show all here by default
       page = params[:page] || 1
-      @listings = persons_listings(@person, per_page, page)
-      render :partial => "listings/profile_listing", :collection => @listings, :as => :listing
+      render :partial => "listings/profile_listings", :locals => {:person => @person, :limit => per_page}
       return
     end
     redirect_to root
@@ -110,12 +109,12 @@ class ListingsController < ApplicationController
 
     if request.xhr? # AJAX request to get the actual form contents
       
-      # prevent creating sell listings if the organization is not registered as seller
-      if @current_community.requires_organization_membership? && 
-            ! @current_user.is_member_of_seller_organization? &&
-            (params[:listing_type] =~ /sell/ || params[:share_type] =~ /sell/)
-        
-        render :partial => "organizations/seller_registration_needed"
+      # This @community_category variable is used to determine if price is used for this category in this community
+      @community_category = @current_community.community_category(@listing.category.top_level_parent, @listing.share_type)
+      
+      # prevent creating sell listings if not registered as seller
+      if @community_category.payment? && @listing.share_type.is_offer? && ! @current_user.can_create_paid_listings_at?(@current_community)            
+        render :partial => @current_community.payment_gateways.first.gateway_templates_dir + "/seller_registration_needed"
       else
         render :partial => "listings/form/form_content" 
       end

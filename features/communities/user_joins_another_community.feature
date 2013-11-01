@@ -13,7 +13,6 @@ Feature: User joins another community
     And I am on the home page
     And I log in as "kassi_testperson3"
     Then I should see "Join community"
-    And I should not see "Post a new listing"
     When I press "Join community"
     Then I should see "This field is required"
     When I check "community_membership_consent"
@@ -54,7 +53,6 @@ Feature: User joins another community
     When I move to community "test2"
     And I am on the home page
     Then I should see "Join community"
-    And I should not see "Post a new listing"
     And I should see "Email address"
     When I check "community_membership_consent"
     And I press "Join community"
@@ -111,8 +109,6 @@ Feature: User joins another community
     And user "kassi_testperson3" should have additional confirmed email "other.email@example.com"
     And I should not see "Email address"
     Then I should see "Post a new listing"
-    When I follow "Community"
-    Then I should see "Meet the people"
   
   @javascript
   Scenario: User joins another community when having both visible and non-visible listings
@@ -130,7 +126,6 @@ Feature: User joins another community
     And I move to community "test2"
     And I am on the home page
     Then I should see "Join community"
-    And I should not see "Post a new listing"
     When I press "Join community"
     Then I should see "This field is required"
     When I check "community_membership_consent"
