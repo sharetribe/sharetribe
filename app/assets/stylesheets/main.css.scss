@@ -3756,10 +3756,10 @@ header.marketplace-header {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    background: rgba($highlight, 0.625);
+    background: rgba($highlight, 0.9);
 
-    &.with-text {
-      background: rgba($highlight, 0.9);
+    &.without-text {
+      background: rgba($highlight, 0.625);
     }
   }
   

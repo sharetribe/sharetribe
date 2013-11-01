@@ -1,6 +1,9 @@
 - content_for :javascript do
   initialize_homepage(#{filters_in_use?});
 
+- content_for :coverfade_class do
+  = "without-text"
+
 - content_for :title_header do
   - if @current_user
     .browse-view-search-form
