@@ -5,11 +5,9 @@ Feature: User pays with MangoPay after accepted transaction
   
   @javascript
   Scenario: requester pays with MangoPay
-    
+
     # This step definition is not found on purpose. It's just to disable this test for now.
     Given MangoPay is currently returning Internal error, so THIS TEST IS TEMPORARILY DISABLED
-    
-    
     
     Given there are following users:
       | person | 
@@ -22,7 +20,7 @@ Feature: User pays with MangoPay after accepted transaction
     And there is a message "I want to buy" from "kassi_testperson1" about that listing
     And I am logged in as "kassi_testperson2"
     When I follow "inbox-link"
-    And I should see "1" within ".inbox-toggle"
+    And I should see "1" within ".inbox-link"
     And I follow "conversation_title_link_1"
     And I follow "Accept"
     And I fill in "conversation_message_attributes_content" with "Ok, then pay!"

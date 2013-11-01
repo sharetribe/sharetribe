@@ -38,6 +38,14 @@ $line-height: 24;
   @return $lines * ($context-line-height / $context-font-size) * 1em;
 }
 
+@function ems-to($ems, $new-context-font-size, $old-context-font-size: $font-size) {
+  @return $ems * $old-context-font-size / $new-context-font-size
+}
+
+@function lines-to($lines, $new-context-font-size, $old-context-font-size: $font-size) {
+  @return ems-to($lines, $new-context-font-size, $old-context-font-size);
+}
+
 
 /*
   --------------------------------------------------
@@ -68,42 +76,57 @@ $line-height: 24;
   ----------------------------------------------------------
 */
 
+$small-type:   13;
+$normal-type:  16;
+$big-type:     22;
+$large-type:   26;
+$larger-type:  34;
+$huge-type:    42;
+$mega-type:    68;
+$giga-type:    110;
+
 @mixin small-type {
-  font-size: em(13);
-  line-height: lines(0.75, 13); // 18px, aligns with baseline grid every 4 lines
+  font-size: em($small-type);
+  line-height: lines(0.75, $small-type); // 18px, aligns with baseline grid every 4 lines
 }
 
 @mixin normal-type {
-  font-size: em($font-size, 16); // 16 is the base font-size of all(?) browsers
+  font-size: em($font-size, $normal-type); // 16 is the base font-size of all(?) browsers
   line-height: lines(1); // 24px
 }
 
 @mixin big-type {
-  font-size: em(22); // roughly 16*1.382 (shorter part of golden ratio)
-  line-height: lines(1, 22); // 24px
-  font-weight: 500;
+  font-size: em($big-type); // roughly 16*1.382 (shorter part of golden ratio)
+  line-height: lines(1, $big-type); // 24px
+  font-weight: 600;
 }
 
 @mixin large-type {
-  font-size: em(26); // roughly 16*1.618 (longer part golden ratio)
-  line-height: lines(1.5, 26); // 36px
+  font-size: em($large-type); // roughly 16*1.618 (longer part golden ratio)
+  line-height: lines(1.5, $large-type); // 36px
+  font-weight: 600;
+}
+
+@mixin larger-type {
+  font-size: em($larger-type); // roughly 16*1.618 (longer part golden ratio)
+  line-height: lines(1.5, $larger-type); // 36px
   font-weight: 600;
 }
 
 @mixin huge-type {
-  font-size: em(42); // roughly 16*1.618^2 (double golden ratio)
-  line-height: lines(2, 42); // 48px
+  font-size: em($huge-type); // roughly 16*1.618^2 (double golden ratio)
+  line-height: lines(2, $huge-type); // 48px
   font-weight: 700;
 }
 
 @mixin mega-type {
-  font-size: em(68); // roughly 16*1.618^3 (triple golden ratio)
-  line-height: lines(3, 68); // 72px
+  font-size: em($mega-type); // roughly 16*1.618^3 (triple golden ratio)
+  line-height: lines(3, $mega-type); // 72px
   font-weight: 700;
 }
 
 @mixin giga-type {
-  font-size: em(110); // just in case you need something this big!
-  line-height: lines(5, 110); // 120px
+  font-size: em($giga-type); // just in case you need something this big!
+  line-height: lines(5, $giga-type); // 120px
   font-weight: 700;
 }

@@ -1,0 +1,365 @@
+// Home page styles
+
+@import "mixins/all";
+@import "compass/css3/border-radius";
+@import "compass/utilities/general/clearfix";
+
+.home-toolbar {
+  @include clearfix;
+  margin-bottom: lines(0.5);
+  border-bottom: 1px solid $border;
+
+  @include media(tablet) {
+    margin-bottom: lines(1);
+  }
+}
+
+.home-grid {
+  position: relative;
+}
+
+.home-toolbar-button-group {
+  @include button-group;
+  margin-bottom: lines(0.5);
+  
+  // Leave room for filters button on the left side
+  width: 100%;
+
+  &.filters-enabled {
+    width: 50%;
+    padding-left: lines(0.5 / 2);
+  }
+
+  @include media(tablet) {
+    &, &.filters-enabled {
+      float: right;
+      width: auto;
+    }
+  }
+}
+
+.home-toolbar-button-group-button {
+  @include button;
+  @include button-group-button;
+  @include ellipsis;
+
+  // Notice: hard-coded for three buttons
+  width: 33.3%;
+
+  @include media(tablet) {
+    min-width: lines(5);
+  }
+}
+
+.home-toolbar-button-text {
+  display: none;
+
+  @include media(tablet) {
+    margin-left: lines(0.25);
+    display: inline-block;
+  }
+}
+
+/**
+  Hidden on mobile if this class is present. Doesn't affect
+  on desktop
+*/
+.home-toolbar-filters-mobile-hidden {
+  display: none;
+
+  @include media(tablet) {
+    display: block;
+  }
+}
+
+.home-toolbar-show-filters-button-container {
+  width: 50%;
+  float: left;
+  padding-right: lines(0.5 / 2);
+}
+
+.home-toolbar-show-filters-button {
+  @include button;
+  @include button-group-button-padding;
+  @include neutral-button-color;
+  @include selected-button-color;
+  @include ellipsis;
+  width: 100%;
+  margin: 0;
+
+  @include media(tablet) {
+    display: none;
+  }
+}
+
+.home-map > .map {
+  height: lines(10.5); // Magical number, this just looks good on iPhone
+  
+  @include media(tablet) {
+    height: 30em;
+  }
+}
+
+.home-list-item {
+  position: relative;
+  padding-bottom: lines(0.5);
+  margin-bottom: lines(0.5);
+  border-bottom: 1px solid $border;
+  height: lines(3.5);
+  
+  @include media(tablet) {
+    padding-bottom: lines(1);
+    margin-bottom: lines(1);
+    height: lines(6);
+  }
+}
+
+$image-width: lines(7.5); // FIXME
+$image-height: image-height($image-width);
+$image-padding: lines(1);
+$home-list-image-size-mobile: lines(3);
+$home-list-image-padding-mobile: lines(0.5);
+.home-list-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.home-list-image-container-desktop {
+  @extend .home-list-image-container;
+  height: $image-height;
+  width: $image-width;
+  display: none;
+  
+  @include media(tablet) {
+    display: block;
+  }
+}
+
+.home-list-image-container-mobile {
+  @extend .home-list-image-container;
+  width: $home-list-image-size-mobile;
+  height: $home-list-image-size-mobile;
+  display: block;
+  
+  @include media(tablet) {
+    display: none;
+  }
+}
+
+.home-list-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  @include border-radius($default-border-radius);
+}
+
+.home-no-image {
+  text-align: center;
+  padding-top: lines(2);
+  background: $highlight;
+  height: 100%;
+  width: 100%;
+  // FIXME Tee parempi no image
+}
+
+.home-list-details-with-image {
+  margin-left: $home-list-image-size-mobile + $home-list-image-padding-mobile;
+  
+  @include media(tablet) {
+    margin-left: $image-width + $image-padding;
+  }
+}
+
+// FIXME Ugly selector, but there's definition .page-content h2
+// which would otherwise override this
+$home-list-avatar-size: em(40);
+$home-list-avatar-size-mobile: em(30);
+$home-list-avatar-padding: lines(0.25);
+h2.home-list-title {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  @include normal-type;
+  line-height: lines(0.65);
+  padding-bottom: lines(0.25);
+
+  @include media(tablet) {
+    @include big-type;
+  }
+
+  // Add bottom margin so that the avatar fits there nicely
+  @include media(desktop) {
+    padding-bottom: (ems-to($home-list-avatar-size, $big-type) + (2 * ems-to($home-list-avatar-padding, $big-type)) - em(3));
+  }
+  
+}
+
+.home-share-type-link {
+  @include share-type-link;
+  // Magic number, this just looks better
+  $padding-fine-tuning: 4;
+  padding: em(4) em(8);
+
+  position: relative;
+  top: em($padding-fine-tuning * -1);
+}
+
+.home-list-details-right {
+  width: 142px;
+  float: right;
+  display: none;
+  margin-left: lines(1);
+  @include media(desktop) {
+    display: block;
+  }
+}
+
+.home-list-avatar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $home-list-avatar-size;
+
+  img {
+    @include border-radius($default-border-radius);
+    display: block;
+    width: 100%;
+  }
+  
+  display: none;
+  
+  @include media(large-mobile) {
+    display: block;
+  }
+  
+}
+
+.home-list-author {
+  vertical-align: top;
+  position: absolute;
+  bottom: lines(0.5);
+  
+  @include media(tablet) {
+    bottom: lines(1);
+  }
+}
+
+.home-list-author-with-listing-image {
+  left: 0;
+  
+  @include media(large-mobile) {
+    left: $home-list-image-size-mobile + $home-list-image-padding-mobile;
+  }
+  
+  @include media(tablet) {
+    left: $image-width + $image-padding;
+  }
+}
+
+.home-list-author-without-listing-image {
+  left: 0;
+}
+
+.home-list-author-details {
+  float: left;
+  margin-left: $home-list-avatar-size + (2 * $home-list-avatar-padding);
+  height: 40px;
+  line-height: 22px;
+  max-width: lines(10);
+  
+  display: none;
+  
+  @include media(large-mobile) {
+    display: block;
+  }
+}
+
+.home-list-author-reviews {
+  @include small-type;
+}
+
+.home-list-price-mobile {
+  position: absolute;
+  font-size: 24px;
+  bottom: lines(0.25, 24);
+  @include media(large-mobile) {
+    font-size: 36px;
+    right: 0;
+    padding-top: 10px;
+    bottom: lines(0.5, 36);
+  }
+  @include media(tablet) {
+    bottom: lines(1, 36);
+  }
+  @include media(desktop) {
+    display: none;
+  }
+}
+
+.home-list-price-mobile-with-listing-image {
+  left: lines(3.5, 24);
+  
+  @include media(large-mobile) {
+    left: auto;
+  }
+}
+
+.home-list-price-mobile-without-listing-image {
+  @include media(large-mobile) {
+    left: auto;
+  }
+}
+
+.home-list-price {
+  text-align: right;
+}
+
+.home-list-price-value {
+  font-size: em(44);
+  line-height: lines(1.20, 40);
+  font-weight: 400;
+}
+
+.home-list-price-quantity {
+  @include ellipsis;
+}
+
+.home-no-listings {
+  @include border-radius($default-border-radius);
+  padding: lines(0.5) lines(1);
+  background: $highlight;
+}
+
+.home-categories-link {
+  display: block;
+  color: $body;
+  text-transform: uppercase;
+
+  &.selected {
+    font-weight: bold;
+  }
+}
+
+.home-categories-main {
+  @extend .home-categories-link;
+
+  &.selected.has-subcategories {
+    border-bottom: 1px solid $border;
+  }
+}
+
+.home-categories-sub {
+  @extend .home-categories-link;
+  font-size: 14px;
+  margin-left: lines(0.5);
+}
+
+.home-toolbar-toggle-container {
+  margin-bottom: lines(0.5);
+}
+
+#pageless-loader {
+  padding-top: lines(0.5);
+  clear: both;
+}

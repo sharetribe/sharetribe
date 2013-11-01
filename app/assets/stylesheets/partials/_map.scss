@@ -1,5 +1,8 @@
-@import "compass/css3";
+@import "compass/css3/border-radius";
 @import "compass/css3/user-interface";
+@import "compass/css3/transition";
+@import "compass/css3/box-sizing";
+@import "mixins/all";
 
 $googleMapsFontSize: 11;
 $bubbleItemHeight: em(150, $googleMapsFontSize);
@@ -184,7 +187,6 @@ $bubbleDetailsMargin: em(5, $googleMapsFontSize);
   float: $floatDirection;
   text-align: $floatDirection;
   padding-#{$paddingDirection}: $bubbleDetailsMargin / 2;
-  @include box-sizing(border-box);
 }
 
 .bubble-details-text-overflow {
@@ -226,7 +228,7 @@ $bubbleDetailsMargin: em(5, $googleMapsFontSize);
   left: 0;
   right: 0;
   top: 0;
-  @include background-image(linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)));
+  @include overlay;
 }
 
 span.bubble-title-link {
@@ -244,4 +246,8 @@ span.bubble-title-link {
     top: $margin;
     color: $aside;
   }
+}
+
+.map div {
+  @include box-sizing(content-box);
 }

@@ -1,0 +1,6 @@
+.profile-testimonials-list
+  = render :partial => "people/testimonial", :collection => received_testimonials.limit(limit)
+.row.load-more-link
+  - if received_testimonials.size > limit
+    #load-more-testimonials.load-more-testimonials
+      = link_to t("people.show.show_all_reviews"), "#"

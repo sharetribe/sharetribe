@@ -4,172 +4,266 @@
 - content_for :extra_javascript do
   = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
 
-.view-item
-  
-  .item-description.section.overflow-allowed
-  
-    #admin_edit_links
-      = render :partial => "admin_edit_links"   
-    
-    %h1
-      %span.listing-title= @listing.title
-      = render :partial => "listings/share_type_link", :locals => { :listing => @listing }
-    
-    - if @listing.closed? && !current_user?(@listing.author)
-    
-      .listing-icons
-        .icon-with-text-container
-          = icon_tag("lock", ["icon-part"]) 
-          .text-part= t("listings.reply_link.listing_closed")
-    
-    - else
-    
+- content_for :title_header do
+  %h1
+    %span#listing-title.listing-title= @listing.title
+
+.relative
+  .left-column-2-3
+    .row
+      - unless @listing.listing_images.empty?
+        - @listing.listing_images.each do |listing_image|
+          .image-frame<
+            - unless listing_image.image_processing
+              %a{:href => "#", :id => "listing-image-link"}<
+                = image_tag listing_image.image.url(:big), {:alt => listed_listing_title(@listing), :class => "listing-main-image"}
+            - else
+              %span.listing-image-processing
+                = t("listings.show.processing_uploaded_image")
+      - else
+        .image-frame
+          %span.listing-no-image
+            = t(".no_image")
+
+    .row
       - if @listing.valid_until && @listing.category.name.eql?("rideshare")
-        .listing-departure-time
+        / Is there a cleaner way to create 'div' without class or id?
+        %div
           .icon-with-text-container
-            = icon_tag("rideshare", ["icon-part"]) 
+            = icon_tag("rideshare", ["icon-part"])
             .text-part
               %strong
                 = t("listings.form.departure_time.departure_time") + ": " + l(@listing.valid_until, :format => :short)
 
-      #listing_message_links
-        = render :partial => "message_links"
-
-      - unless @listing.listing_images.empty?
-        .item-image
-          - @listing.listing_images.each do |listing_image|
-            - unless listing_image.image_processing
-              %a{:href => "#", :id => "listing-image-link"}
-                = image_tag listing_image.image.url(:medium), :alt => listed_listing_title(@listing)
-            - else
-              = t("listings.show.processing_uploaded_image")
-
+    .row
       - if @listing.description && !@listing.description.blank?
         - text_with_line_breaks do
           = @listing.description
+      - else
+        = t("no_description")
 
-      .listing-icons
-        = render :partial => "displayed_price", :locals => { :listing => @listing }
-        .icon-with-text-container
-          = icon_tag("calendar", ["icon-part"]) 
-          .text-part
-            = t(".listing_created") + " " + time_ago(@listing.created_at)
-        .icon-with-text-container
-          = icon_tag("eye", ["icon-part"])
-          .text-part
-            = t(".times_viewed")
-            = pluralize(@listing.times_viewed.to_s, t(".time"), t(".times"))
-        - if @listing.valid_until && @listing.open? && !@listing.category.name.eql?("rideshare")
-          .icon-with-text-container
-            = icon_tag("clock", ["icon-part"])
-            .text-part
-              = t(".open_until", :date => l(@listing.valid_until, :format => :short))
-
-      - if @listing.public? 
-        .social
-          .fb-like-container
+    .row
+      - if @listing.public?
+        .listing-social
+          .listing-fb-like-button
             = facebook_like(current_user?(@listing.author))
-          .tweet-button-container
+          .listing-tweet-button
             = link_to("", "https://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => (@current_community.twitter_handle || "Sharetribe"))
             %script{:type => "text/javascript", :src => "https://platform.twitter.com/widgets.js"}
 
-      - if @listing.has_organization_in?(@current_community)
-        .listing-author
-          .listing-author-image
-            = medium_avatar_thumb(@listing.organization_or_author?(@current_community))    
-          .listing-author-description
-            %h3
-              = @listing.organization.name
-            .listing-organization-representative
-              %br/
-              .organization-representative-avatar
-                = small_avatar_thumb(@listing.author)
-              .organization-representative-name
-                = t(".listing_added_by")
-                = link_to @listing.author.name(@current_community), @listing.author
-            - if @listing.author.received_testimonials.size > 0
-              .listing-author-detail-line
-                .icon-with-text-container
-                  = icon_tag("testimonial", ["icon-part"])
-                  .text-part
-                    = t(".feedback")
-                    = @listing.author.feedback_positive_percentage.to_s + "%"
-                    = t("people.show.positive")
-                    = "(#{@listing.author.received_positive_testimonials.size}/#{@listing.author.received_testimonials.size})"
-            - unless @listing.closed? || current_user?(@listing.author)
-              .listing-author-detail-line
-                %a{href: reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free"), id: "message_listing_author_link"}
-                  .icon-with-text-container
-                    = icon_tag("mail", ["icon-part"])
-                    .text-part= t(".send_private_message")
-            - if @current_user && @current_user.member_of?(@current_community) && @listing.author.phone_number && !@listing.author.phone_number.blank? && !@listing.closed?
-              .listing-author-detail-line
-                .icon-with-text-container
-                  = icon_tag("phone", ["icon-part"])
-                  .text-part
-                    - if @listing.author.phone_number && !@listing.author.phone_number.blank?
-                      = @listing.author.phone_number
-                    - elsif current_user?(@listing.author)
-                      = link_to t(".add_your_phone_number"), person_settings_path(:person_id => @current_user.id)
-      - else
-        .listing-author
-          .listing-author-image
-            = medium_avatar_thumb(@listing.author)    
-          .listing-author-description
-            %h3
-              = link_to @listing.author.name(@current_community), @listing.author, :id => "listing_author_link"
-            - if @listing.author.received_testimonials.size > 0
-              %br/
-              .icon-with-text-container
-                = icon_tag("testimonial", ["icon-part"])
-                .text-part
-                  = t(".feedback")
-                  = @listing.author.feedback_positive_percentage.to_s + "%"
-                  = t("people.show.positive")
-                  = "(#{@listing.author.received_positive_testimonials.size}/#{@listing.author.received_testimonials.size})"
-            - unless @listing.closed? || current_user?(@listing.author)
-              %br/
-              %a{href: reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free"), id: "message_listing_author_link"}
-                .icon-with-text-container
-                  = icon_tag("mail", ["icon-part"])
-                  .text-part= t(".send_private_message")
-            - if @current_user && @current_user.member_of?(@current_community) && @listing.author.phone_number && !@listing.author.phone_number.blank? && !@listing.closed?
-              %br/
-              .icon-with-text-container
-                = icon_tag("phone", ["icon-part"])
-                .text-part
-                  - if @listing.author.phone_number && !@listing.author.phone_number.blank?
-                    = @listing.author.phone_number
-                  - elsif current_user?(@listing.author)
-                    = link_to t(".add_your_phone_number"), person_settings_path(:person_id => @current_user.id)
+  %aside.listing-aside.right-column-1-3
+    .row
+      - if @listing.price
+        .listing-price
+          %span.listing-price-amount
+            = money_without_cents_and_with_symbol(@listing.price).upcase
+          - unless @listing.quantity.blank?
+            %span.listing-price-quantity
+              = "/ #{@listing.quantity}"
+          - if @current_community.vat
+            %span.listing-price-excl-vat
+              = t(".price_excludes_vat")
 
-      - if @listing.origin_loc && @listing.origin_loc.address != ""
+    .row-with-divider
+      = render :partial => "message_links"
+
+    .row
+      .listing-author
+        .listing-author-avatar
+          = medium_avatar_thumb(@listing.organization_or_author?(@current_community))
+        .listing-author-details
+          .listing-author-name
+            = link_to @listing.author.name(@current_community), @listing.author, :id => "listing-author-link"
+          .listing-author-contact
+            %a#listing-contact{href: reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free"), :class => "listing-author-contact-button"}
+              = t(".contact")
+    .row-with-divider.listing-author-activity
+      %i.listing-author-activity-icon{:class => icon_class("testimonial")}
+      .listing-author-activity-item
+        .listing-author-activity-value
+          - if @listing.author.received_positive_testimonials.size > 0
+            = @listing.author.feedback_positive_percentage.to_s + "%"
+            = t("people.show.positive")
+            = "(#{@listing.author.received_positive_testimonials.size}/#{@listing.author.received_testimonials.size})"
+          - else
+            = t(".no_reviews")
+        .listing-author-activity-description
+          = t(".feedback")
+
+    - if @listing.origin_loc && @listing.origin_loc.address != ""
+      .row
         #googlemap
           = render :partial => "googlemap", :locals => { :rideshare => (@listing.category.name == "rideshare"), :listing => @listing}
           = render :partial => "origin", :locals => { :origin_loc => @listing.origin_loc }
           - if @listing.category.name == "rideshare"
             = render :partial => "destination", :locals => { :destination_loc => @listing.destination_loc }
 
-      .bottom-margin
-  
-  
-  - unless @listing.closed? && !current_user?(@listing.author)
-    #comments.discussion.section.overflow-allowed
-      %h2 
-        = icon_tag("chat_bubble", ["icon-with_text"])
-        .text-with-icon
-          = t(".comments")
-          %span= "(#{@listing.comments.count})"
-      #follow-links.follow-links
-        = render :partial => "follow_links"
-      #comment-list
-        = render :partial => "comment", :collection => @listing.comments
-      #comment-form
-        = render :partial => "comment_form"
 
-- unless @listing.listing_images.empty?
-  #listing-image-lightbox.lightbox.image-lightbox
-    .lightbox-content.image-lightbox-content
-      %a{:href => "#", :class => "close lightbox-x", :id => "close_x"}
-        = icon_tag("cross")
-      = image_tag @listing.listing_images.first.image.url(:original)
+
+
+
+
+
+
+
+
+
+
+
+
+
+/ .view-item{:style => "position: absolute; top: 1000px"}
+  
+/   .item-description.section.overflow-allowed
+  
+/     #admin_edit_links
+/       = render :partial => "admin_edit_links"   
+    
+/     - if @listing.closed? && !current_user?(@listing.author)
+    
+/       .listing-icons
+/         .icon-with-text-container
+/           = icon_tag("lock", ["icon-part"]) 
+/           .text-part= t("listings.reply_link.listing_closed")
+    
+/     - else
+    
+/       - if @listing.valid_until && @listing.category.name.eql?("rideshare")
+/         .listing-departure-time
+/           .icon-with-text-container
+/             = icon_tag("rideshare", ["icon-part"]) 
+/             .text-part
+/               %strong
+/                 = t("listings.form.departure_time.departure_time") + ": " + l(@listing.valid_until, :format => :short)
+
+/       #listing_message_links
+/         = render :partial => "message_links"
+
+/       - unless @listing.listing_images.empty?
+/         .item-image
+/           - @listing.listing_images.each do |listing_image|
+/             - unless listing_image.image_processing
+/               %a{:href => "#", :id => "listing-image-link"}
+/                 = image_tag listing_image.image.url(:medium), :alt => listed_listing_title(@listing)
+/             - else
+/               = t("listings.show.processing_uploaded_image")
+
+/       - if @listing.description && !@listing.description.blank?
+/         - text_with_line_breaks do
+/           = @listing.description
+
+/       .listing-icons
+/         = render :partial => "displayed_price", :locals => { :listing => @listing }
+/         .icon-with-text-container
+/           = icon_tag("calendar", ["icon-part"]) 
+/           .text-part
+/             = t(".listing_created") + " " + time_ago(@listing.created_at)
+/         .icon-with-text-container
+/           = icon_tag("eye", ["icon-part"])
+/           .text-part
+/             = t(".times_viewed")
+/             = pluralize(@listing.times_viewed.to_s, t(".time"), t(".times"))
+/         - if @listing.valid_until && @listing.open? && !@listing.category.name.eql?("rideshare")
+/           .icon-with-text-container
+/             = icon_tag("clock", ["icon-part"])
+/             .text-part
+/               = t(".open_until", :date => l(@listing.valid_until, :format => :short))
+
+/       - if @listing.public? 
+/         .social
+/           .fb-like-container
+/             = facebook_like(current_user?(@listing.author))
+/           .tweet-button-container
+/             = link_to("", "https://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => (@current_community.twitter_handle || "Sharetribe"))
+/             %script{:type => "text/javascript", :src => "https://platform.twitter.com/widgets.js"}
+
+/       - if @listing.has_organization_in?(@current_community)
+/         .listing-author
+/           .listing-author-image
+/             = medium_avatar_thumb(@listing.organization_or_author?(@current_community))    
+/           .listing-author-description
+/             %h3
+/               = @listing.organization.name
+/             .listing-organization-representative
+/               %br/
+/               .organization-representative-avatar
+/                 = small_avatar_thumb(@listing.author)
+/               .organization-representative-name
+/                 = t(".listing_added_by")
+/                 = link_to @listing.author.name(@current_community), @listing.author
+/             - if @listing.author.received_testimonials.size > 0
+/               .listing-author-detail-line
+/                 .icon-with-text-container
+/                   = icon_tag("testimonial", ["icon-part"])
+/                   .text-part
+/                     = t(".feedback")
+/                     = @listing.author.feedback_positive_percentage.to_s + "%"
+/                     = t("people.show.positive")
+/                     = "(#{@listing.author.received_positive_testimonials.size}/#{@listing.author.received_testimonials.size})"
+/             - unless @listing.closed? || current_user?(@listing.author)
+/               .listing-author-detail-line
+/                 %a{href: reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free"), id: "message_listing_author_link"}
+/                   .icon-with-text-container
+/                     = icon_tag("mail", ["icon-part"])
+/                     .text-part= t(".send_private_message")
+/             - if @current_user && @current_user.member_of?(@current_community) && @listing.author.phone_number && !@listing.author.phone_number.blank? && !@listing.closed?
+/               .listing-author-detail-line
+/                 .icon-with-text-container
+/                   = icon_tag("phone", ["icon-part"])
+/                   .text-part
+/                     - if @listing.author.phone_number && !@listing.author.phone_number.blank?
+/                       = @listing.author.phone_number
+/                     - elsif current_user?(@listing.author)
+/                       = link_to t(".add_your_phone_number"), person_settings_path(:person_id => @current_user.id)
+/       - else
+/         .listing-author
+/           .listing-author-image
+/             = medium_avatar_thumb(@listing.author)    
+/           .listing-author-description
+/             %h3
+/               = link_to @listing.author.name(@current_community), @listing.author, :id => "listing_author_link"
+/             - if @listing.author.received_testimonials.size > 0
+/               %br/
+/               .icon-with-text-container
+/                 = icon_tag("testimonial", ["icon-part"])
+/                 .text-part
+/                   = t(".feedback")
+/                   = @listing.author.feedback_positive_percentage.to_s + "%"
+/                   = t("people.show.positive")
+/                   = "(#{@listing.author.received_positive_testimonials.size}/#{@listing.author.received_testimonials.size})"
+/             - unless @listing.closed? || current_user?(@listing.author)
+/               %br/
+/               %a{href: reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free"), id: "message_listing_author_link"}
+/                 .icon-with-text-container
+/                   = icon_tag("mail", ["icon-part"])
+/                   .text-part= t(".send_private_message")
+/             - if @current_user && @current_user.member_of?(@current_community) && @listing.author.phone_number && !@listing.author.phone_number.blank? && !@listing.closed?
+/               %br/
+/               .icon-with-text-container
+/                 = icon_tag("phone", ["icon-part"])
+/                 .text-part
+/                   - if @listing.author.phone_number && !@listing.author.phone_number.blank?
+/                     = @listing.author.phone_number
+/                   - elsif current_user?(@listing.author)
+/                     = link_to t(".add_your_phone_number"), person_settings_path(:person_id => @current_user.id)
+  
+/   - unless @listing.closed? && !current_user?(@listing.author)
+/     #comments.discussion.section.overflow-allowed
+/       %h2 
+/         = icon_tag("chat_bubble", ["icon-with_text"])
+/         .text-with-icon
+/           = t(".comments")
+/           %span= "(#{@listing.comments.count})"
+/       #follow-links.follow-links
+/         = render :partial => "follow_links"
+/       #comment-list
+/         = render :partial => "comment", :collection => @listing.comments
+/       #comment-form
+/         = render :partial => "comment_form"
+
+/ - unless @listing.listing_images.empty?
+/   #listing-image-lightbox.lightbox.image-lightbox
+/     .lightbox-content.image-lightbox-content
+/       %a{:href => "#", :class => "close lightbox-x", :id => "close_x"}
+/         = icon_tag("cross")
+/       = image_tag @listing.listing_images.first.image.url(:original)

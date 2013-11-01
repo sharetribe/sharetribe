@@ -14,8 +14,6 @@ namespace :sharetribe do
       community = create_community(spreadsheet, locale)
       
       load_demo_content(community, spreadsheet)
-      
-      puts "Created '#{community_name}' community at subdomain: #{community_domain}"
     end
     
     desc "removes the content created by the demoscript from the DB. It's based on usernames, so don't use if there's a risk of collisions."
@@ -239,6 +237,9 @@ namespace :sharetribe do
       community.settings = {"locales"=>["#{locale}"]}
       community.badges_in_use = community_sheet.row(1)[2]
       community.save
+
+      puts "Created '#{community_name}' community at subdomain: #{community_domain}"
+
       return community
     end
   end

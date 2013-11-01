@@ -19,7 +19,7 @@ Feature: User accepts a transaction
   #   And there is a message "Math book offer" from "kassi_testperson2" about that listing
   #   And I am logged in as "kassi_testperson1"
   #   When I follow "inbox-link"
-  #   And I should see "1" within ".inbox-toggle"
+  #   And I should see "1" within ".inbox-link"
   #   And I follow "conversation_title_link_1"
   #   And I follow "Accept offer"
   #   And I fill in "conversation_payment_attributes_sum" with "30"
@@ -59,7 +59,7 @@ Feature: User accepts a transaction
     And there is a message "I request this" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
-    Then I should see "1" within ".inbox-toggle"
+    Then I should see "1" within ".inbox-link"
     When I follow "Accept request"
     And I choose "Leave the listing open"
     And I press "Send"
