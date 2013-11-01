@@ -152,11 +152,8 @@ ActiveRecord::Schema.define(:version => 20131031093809) do
     t.string   "wide_logo_content_type"
     t.integer  "wide_logo_file_size"
     t.datetime "wide_logo_updated_at"
-<<<<<<< HEAD
-=======
     t.string   "domain_alias"
     t.string   "preproduction_stylesheet_url"
->>>>>>> develop
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
