@@ -4,6 +4,9 @@ class HomepageController < ApplicationController
 
   skip_filter :dashboard_only
 
+  APP_DEFAULT_VIEW_TYPE = "grid"
+  VIEW_TYPES = ["grid", "list", "map"]
+
   def index
     ## Support old /?map=true URL START
     ## This can be removed after March 2014
@@ -15,7 +18,7 @@ class HomepageController < ApplicationController
 
     @homepage = true
     
-    @view_type = params[:view] || @current_community.default_browse_view || "grid"
+    @view_type = HomepageController.selected_view_type(params[:view], @current_community.default_browse_view, APP_DEFAULT_VIEW_TYPE, VIEW_TYPES)
     
     listings_per_page = 24
     
@@ -72,6 +75,16 @@ class HomepageController < ApplicationController
         @news_items = @current_community.news_items.order("created_at DESC").limit(2)
         @news_item_count = @current_community.news_items.count
       end  
+    end
+  end
+
+  def self.selected_view_type(view_param, community_default, app_default, all_types)
+    if view_param.present? and all_types.include?(view_param)
+      view_param
+    elsif community_default.present? and all_types.include?(community_default)
+      community_default
+    else
+      app_default
     end
   end
 end
