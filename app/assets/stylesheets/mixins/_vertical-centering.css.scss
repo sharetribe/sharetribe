@@ -5,6 +5,10 @@
   http://css-tricks.com/centering-in-the-unknown/
 */
 @mixin vertical-centering-container {
+  // Set font-size to 0 to remove the small gap between
+  // inline-block elements
+  font-size: 0;
+
   &:before {
     content: '';
     display: inline-block;

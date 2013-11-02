@@ -1,0 +1,39 @@
+/**
+  Create a block element, which preserves given aspect ratio
+*/
+@mixin block-with-aspect-ratio($aspect-ratio) {
+  width: 100%;
+  padding-bottom: 100% / $aspect-ratio;
+}
+
+/**
+  Just a helper
+*/
+@mixin image-block {
+  display: block;
+  margin: auto;
+}
+
+/**
+  Create a style for `block` *landscape* image:
+  
+  - Takes all the *vertical* space available
+  - Presenving the aspect ratio
+*/
+@mixin image-landscape {
+  @include image-block;
+  width: 100%;
+  height: auto;
+}
+
+/**
+  Create a style for `block` portrait image:
+  
+  - Takes all the *horizontal* space available
+  - Presenving the aspect ratio
+*/
+@mixin image-portrait {
+  @include image-block;
+  height: 100%;
+  width: auto;
+}

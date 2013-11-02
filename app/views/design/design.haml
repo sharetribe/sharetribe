@@ -67,7 +67,7 @@
                 = "Toggle header"
 
               = icon_tag("dropdown", ["icon-dropdown"])
-              
+
           #toggle-menu-identifier.toggle-menu.hidden
             %a
               = "Item 1"
@@ -94,7 +94,7 @@
                   = "Toggle header"
 
                 = icon_tag("dropdown", ["icon-dropdown"])
-                
+
             #toggle-menu-identifier.toggle-menu.hidden
               %a
                 = "Item 1"
@@ -119,7 +119,7 @@
                 = "Toggle header"
 
               = icon_tag("dropdown", ["icon-dropdown"])
-                
+
           #toggle-menu-with-borders-identifier.toggle-menu.hidden
             %a
               = "Item 1"
@@ -138,7 +138,7 @@
                   = "Toggle header"
 
                 = icon_tag("dropdown", ["icon-dropdown"])
-                
+
             #toggle-menu-with-borders-identifier.toggle-menu.hidden
               %a
                 = "Item 1"
@@ -320,3 +320,49 @@
         %pre
           :plain
             Use an empty image to get the correct aspect ratio
+
+  %h2.design-h2
+    = "Images"
+
+  .design-section
+    %h3.design-h3
+      = "Block element with aspect ratio (Image frame)"
+    .design-component
+      .design-example
+        .design-max-width-300
+          .design-aspect-ratio
+            .design-aspect-ratio-content
+
+      .design-code
+        %pre
+          :plain
+
+  .design-section
+    %h3.design-h3
+      = "Fluid image frame with vertically/horizontally centered 100% width/height image"
+    .design-component
+      .design-example
+        .design-max-width-300
+          .design-aspect-ratio
+            .design-aspect-ratio-content
+              .design-vertical-centering-content-landscape
+                = image_tag "design/landscape_small.png", :class => "design-image-landscape"
+        .design-max-width-300
+          .design-aspect-ratio
+            .design-aspect-ratio-content
+              .design-vertical-centering-content-landscape
+                = image_tag "design/landscape_large.png", :class => "design-image-landscape"
+        .design-max-width-300
+          .design-aspect-ratio
+            .design-aspect-ratio-content
+              .design-vertical-centering-content-portrait
+                = image_tag "design/portrait_small.png", :class => "design-image-portrait"
+        .design-max-width-300
+          .design-aspect-ratio
+            .design-aspect-ratio-content
+              .design-vertical-centering-content-portrait
+                = image_tag "design/portrait_large.png", :class => "design-image-portrait"
+
+      .design-code
+        %pre
+          :plain
