@@ -48,4 +48,11 @@ class ListingImage < ActiveRecord::Base
     !portrait?
   end
 
+  def aspect_ratio?(aspect_ratio)
+    # Very naive implementation
+    # This may need some roundings since we're doing
+    # floating point operations here
+    (self.width / self.height) == aspect_ratio
+  end
+
 end

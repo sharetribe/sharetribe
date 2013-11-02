@@ -12,19 +12,23 @@
   .col-8
     .row
       .col-12
-        - unless @listing.listing_images.empty?
-          - @listing.listing_images.each do |listing_image|
-            .image-frame<
-              - unless listing_image.image_processing
-                %a{:href => "#", :id => "listing-image-link"}<
-                  = image_tag listing_image.image.url(:big), {:alt => listed_listing_title(@listing), :class => "listing-main-image"}
-              - else
-                %span.listing-image-processing
-                  = t("listings.show.processing_uploaded_image")
-        - else
-          .image-frame
-            %span.listing-no-image
-              = t(".no_image")
+        .listing-image-frame
+
+          - with_listing_image(@listing) do |listing_image|
+            %a{:href => "#", :id => "listing-image-link", :class => "listing-image-frame-content"}
+              - orientation_class = listing_image.portrait? ? "portrait" : "landscape"
+              - aspect_ratio_class = listing_image.aspect_ratio?(3/2) ? "correct-ratio" : ""
+              .listing-image-vertical-centering{:class => "#{orientation_class} #{aspect_ratio_class}" }
+                = image_tag listing_image.image.url(:big), :alt => listed_listing_title(@listing), :class => "listing-image #{orientation_class}"
+
+          - without_listing_image(@listing) do |reason|
+            .listing-image-frame-content
+              .listing-image-vertical-centering
+                .listing-no-image
+                  - if reason == :image_processing
+                    = t("listings.show.processing_uploaded_image")
+                  - else
+                    = t(".no_image")
 
     .row
       .col-12
@@ -123,25 +127,25 @@
 
 
 / .view-item{:style => "position: absolute; top: 1000px"}
-  
+
 /   .item-description.section.overflow-allowed
-  
+
 /     #admin_edit_links
-/       = render :partial => "admin_edit_links"   
-    
+/       = render :partial => "admin_edit_links"
+
 /     - if @listing.closed? && !current_user?(@listing.author)
-    
+
 /       .listing-icons
 /         .icon-with-text-container
-/           = icon_tag("lock", ["icon-part"]) 
+/           = icon_tag("lock", ["icon-part"])
 /           .text-part= t("listings.reply_link.listing_closed")
-    
+
 /     - else
-    
+
 /       - if @listing.valid_until && @listing.category.name.eql?("rideshare")
 /         .listing-departure-time
 /           .icon-with-text-container
-/             = icon_tag("rideshare", ["icon-part"]) 
+/             = icon_tag("rideshare", ["icon-part"])
 /             .text-part
 /               %strong
 /                 = t("listings.form.departure_time.departure_time") + ": " + l(@listing.valid_until, :format => :short)
@@ -165,7 +169,7 @@
 /       .listing-icons
 /         = render :partial => "displayed_price", :locals => { :listing => @listing }
 /         .icon-with-text-container
-/           = icon_tag("calendar", ["icon-part"]) 
+/           = icon_tag("calendar", ["icon-part"])
 /           .text-part
 /             = t(".listing_created") + " " + time_ago(@listing.created_at)
 /         .icon-with-text-container
@@ -179,7 +183,7 @@
 /             .text-part
 /               = t(".open_until", :date => l(@listing.valid_until, :format => :short))
 
-/       - if @listing.public? 
+/       - if @listing.public?
 /         .social
 /           .fb-like-container
 /             = facebook_like(current_user?(@listing.author))
@@ -190,7 +194,7 @@
 /       - if @listing.has_organization_in?(@current_community)
 /         .listing-author
 /           .listing-author-image
-/             = medium_avatar_thumb(@listing.organization_or_author?(@current_community))    
+/             = medium_avatar_thumb(@listing.organization_or_author?(@current_community))
 /           .listing-author-description
 /             %h3
 /               = @listing.organization.name
@@ -228,7 +232,7 @@
 /       - else
 /         .listing-author
 /           .listing-author-image
-/             = medium_avatar_thumb(@listing.author)    
+/             = medium_avatar_thumb(@listing.author)
 /           .listing-author-description
 /             %h3
 /               = link_to @listing.author.name(@current_community), @listing.author, :id => "listing_author_link"
@@ -256,10 +260,10 @@
 /                     = @listing.author.phone_number
 /                   - elsif current_user?(@listing.author)
 /                     = link_to t(".add_your_phone_number"), person_settings_path(:person_id => @current_user.id)
-  
+
 /   - unless @listing.closed? && !current_user?(@listing.author)
 /     #comments.discussion.section.overflow-allowed
-/       %h2 
+/       %h2
 /         = icon_tag("chat_bubble", ["icon-with_text"])
 /         .text-with-icon
 /           = t(".comments")
