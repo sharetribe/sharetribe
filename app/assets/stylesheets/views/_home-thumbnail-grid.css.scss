@@ -4,8 +4,8 @@
 
 @import "mixins/all";
 
-$home-thumbnail-grid-avatar: em(36);
-$home-thumbnail-grid-avatar-padding: lines(0.25);
+$home-thumbnail-grid-avatar: 36px;
+$home-thumbnail-grid-avatar-padding: 6px;
 $home-thumbnail-grid-author: $home-thumbnail-grid-avatar + ($home-thumbnail-grid-avatar-padding * 2);
 
 .home-fluid-thumbnail-grid-narrow {
@@ -67,9 +67,10 @@ $home-thumbnail-grid-author: $home-thumbnail-grid-avatar + ($home-thumbnail-grid
 }
 
 .home-fluid-thumbnail-grid-author-name {
+  @include small-type;
   position: absolute;
   top: $home-thumbnail-grid-avatar-padding;
-  left: (3 * $home-thumbnail-grid-avatar-padding) + $home-thumbnail-grid-avatar; // 3 for some extra padding
+  left: (2.5 * $home-thumbnail-grid-avatar-padding) + $home-thumbnail-grid-avatar; // 3 for some extra padding
   right: $home-thumbnail-grid-avatar-padding;
   bottom: $home-thumbnail-grid-avatar-padding;
 
