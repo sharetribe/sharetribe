@@ -514,11 +514,11 @@ label.radiobutton {
 }
 
 button, .button {
-  @include button;
+  @include button($link);
 }
 
 .big-button {
-  @include big-button;
+  @include big-button($link);
 }
 
 label.error {
@@ -934,7 +934,7 @@ a.lightbox-x {
   @include media(tablet) {
     
     .request-link {
-      @include big-button;
+      @include big-button($link);
       padding: em(8) em(8) em(10) em(8);
       width: 100%; 
       margin: 0 0 lines(0.5) 0;
@@ -1200,7 +1200,7 @@ a.lightbox-x {
     display: block;
     
     @include media(tablet) {
-      @include big-button;
+      @include big-button($link);
       margin: 0;
       position: absolute;
       right: 0; top: 0;
@@ -1499,7 +1499,7 @@ a.lightbox-x {
     display: block;
     
     @include media(tablet) {
-      @include big-button;
+      @include big-button($link);
       margin: 0;
       position: absolute;
       right: 0; top: 0;
@@ -2073,7 +2073,7 @@ a.lightbox-x {
   }
   
   .status-link {
-    @include button;
+    @include button($link);
     margin-right: lines(0.5);
   }
   
@@ -3104,17 +3104,18 @@ section.lander, section.create-now {
   }
   
   button.action-button {
-    @include action-button($network-red);
+    @include cover-photo-button($network-red);
     border: 3px solid darken($network-red, 25%);
     &:hover { border-color: darken($network-red, 25%); }
     @include media(tablet) {
       margin: 0 0 0 lines(0.5);
+      height: 64px;
     }
   }
   
   button.small-action-button {
-    @include action-button($network-red);
-    
+    @include cover-photo-button($network-red);
+    height: 64px;
     @include media(tablet) {
       @include normal-type;
       padding: em(6) em(20) em(9) em(20);
@@ -3211,7 +3212,8 @@ section.about, section.how-it-works, section.create-now {
   .view-demo {
     
     .action-button {
-      @include action-button($network-green);
+      @include cover-photo-button($network-green);
+      height: 64px;
       border-color: darken($network-green, 15%); 
 
       &:hover { 
@@ -3689,9 +3691,8 @@ header.marketplace-header {
     vertical-align: top;
     padding: em(10) 0 0 0;
     a {
-      display: block;
-      @include action-button($network-green);
-      border-width: 0;
+      @include button($network-green);
+      margin: 0;
       margin-left: lines(0.25);
       font-weight: 300;
       @include media(tablet) {
@@ -3843,9 +3844,8 @@ header.marketplace-header {
   }
   
   button.action-button {
-    @include action-button($link);
+    @include cover-photo-button($link);
     border: 0;
-    &:hover { border-color: darken($link, 25%); }
     @include media(tablet) {
       margin: 0 0 0 lines(0.5);
     }

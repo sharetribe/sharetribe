@@ -1,5 +1,5 @@
 @mixin button-group-button-padding {
-  padding: lines(0.25) lines(0.5);
+  padding: 0 lines(0.5);
 }
 
 @mixin neutral-button-color {
@@ -26,6 +26,7 @@
   display: block;
   float: left;
   margin: 0;
+  line-height: 40px;
   @include button-group-button-padding;
   @include neutral-button-color;
   @include selected-button-color;
@@ -92,10 +93,10 @@
 }
 
 // Form button or a link that looks like a button
-@mixin button {
+@mixin button($bg-color) {
   @include border-radius(em(5));
   display: inline-block;
-  background: $link;
+  background: $bg-color;
   color: $background;
   text-align: center;
   cursor: pointer;
@@ -114,20 +115,47 @@
   }
 
   &:hover {
-    background: darken($link, 5%);
+    background: darken($bg-color, 5%);
     color: $background;
   };
 
   &:active {
-    background: darken($link, 10%);
+    background: darken($bg-color, 10%);
     color: $background;
   }
 }
 
-@mixin big-button {
-  @include button;
+@mixin big-button($bg-color) {
+  @include button($bg-color);
   font-size: 22px;
   height: 60px;
   line-height: 24px;
   padding-bottom: 3px;
+}
+
+// Button on top of cover photo
+@mixin cover-photo-button($color) {
+  @include border-radius(em(5));
+  @include normal-type;
+  
+  color: $background;
+  background: $color;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  vertical-align: top;
+  padding: em(8) em(13) em(11) em(13);
+  
+  &:hover { 
+    background: darken($color, 5%);
+    color: $background;
+  };
+  
+  @include media(tablet) {
+    @include big-type;
+    height: 58px;
+    display: inline;
+    padding: em(11) em(16) em(14) em(16);
+    width: auto;
+  }
 }
