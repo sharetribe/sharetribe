@@ -513,18 +513,12 @@ label.radiobutton {
   @include small-type;
 }
 
-@mixin big-button {
-  @include button;
-  @include big-type;
-  padding-top: em(7);
-  padding-bottom: em(11);
-}
-
 button, .button {
   @include button;
-  @include media(tablet) {
-    padding: em(3) em(16) em(9) em(16);
-  }
+}
+
+.big-button {
+  @include big-button;
 }
 
 label.error {
@@ -1877,10 +1871,6 @@ a.lightbox-x {
   Signup form
   ----------------
 */
-
-.button {
-  display: block;
-}
 
 
 /* 
@@ -3708,7 +3698,7 @@ header.marketplace-header {
         @include normal-type;
         font-weight: 300;
         height: 40px;
-        line-height: 38px;
+        line-height: 37px;
         padding: 0 em(20);
         width: auto;
       }
