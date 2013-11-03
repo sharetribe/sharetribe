@@ -29,3 +29,14 @@
   position: relative;
   top: 3px;
 }
+
+/**
+  Round notification badge
+*/
+@mixin badge($size) {
+  width: $size;
+  height: $size;
+  line-height: $size - 1px;
+  border-radius: $size/2;
+  text-align: center;
+}
