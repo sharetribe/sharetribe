@@ -4,7 +4,7 @@
 
 @import "mixins/all";
 
-$home-thumbnail-grid-avatar: em(48);
+$home-thumbnail-grid-avatar: em(36);
 $home-thumbnail-grid-avatar-padding: lines(0.25);
 $home-thumbnail-grid-author: $home-thumbnail-grid-avatar + ($home-thumbnail-grid-avatar-padding * 2);
 
@@ -29,9 +29,9 @@ $home-thumbnail-grid-author: $home-thumbnail-grid-avatar + ($home-thumbnail-grid
 .home-fluid-thumbnail-grid-title {
   position: absolute;
   bottom: 0;
-  padding: $home-thumbnail-grid-avatar-padding;
-  line-height: lines(0.75);
-  font-size: 15px; // 16 is just a little bit too big
+  padding: lines(0.5);
+  line-height: 1.2em;
+  font-size: 16px; // 16 is just a little bit too big
 }
 
 .home-fluid-thumbnail-grid-overlay {
