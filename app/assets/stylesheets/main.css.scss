@@ -3550,15 +3550,6 @@ header.marketplace-header {
     margin-right: lines(0.5);
     display: none;
     &:hover { color: $link; }
-    &:before {
-      color: $light-body !important;
-      display: inline-block;
-      margin-right: em(8);
-      margin-left: 0;
-      padding-left: 0;
-      padding-top: em(5);
-      content: "|";
-    };
     &:after {
       color: $light-body !important;
       display: inline-block;
