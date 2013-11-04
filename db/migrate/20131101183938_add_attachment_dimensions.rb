@@ -26,7 +26,7 @@ class AddAttachmentDimensions < ActiveRecord::Migration
 
         listing.listing_images.each do |listing_image|
           # Before save extracts dimensions
-          listing_image.save()
+          listing_image.save
           print "."
           STDOUT.flush
         end
