@@ -95,4 +95,11 @@ describe ApplicationController do
     end
     
   end
+  
+  describe "#fetch_community" do
+    it "gets the right community" do
+      request.host = "test23.lvh.me"
+      
+    end
+  end
 end
