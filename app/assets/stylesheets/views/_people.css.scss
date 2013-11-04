@@ -7,6 +7,7 @@ $profile-pic-gutter-mobile: lines(0.5);
 .people-image {
   display: none;
   > img {
+    @include border-radius($default-border-radius);
     width: 100%;
   }
   
@@ -111,6 +112,7 @@ $profile-pic-gutter-mobile: lines(0.5);
   left: lines(0.5);
   
   > img {
+    @include border-radius($default-border-radius);
     width: 100%;
   }
   
