@@ -530,21 +530,21 @@ label.error {
   @include small-type;
   background: $link;
   position: absolute;
-  top: -10px;
-  left: 13px;
+  top: -10px; // Magic number, this just looks good
+  left: 13px; // Magic number, this just looks good
   color: $background;
   display: none;
   
   &.big-badge {
     @include badge(26px);
-    top: -12px;
-    left: 11px;
+    top: -12px; // Magic number, this just looks good
+    left: 11px; // Magic number, this just looks good
   }
   
   &.huge-badge {
     @include badge(32px);
-    top: -14px;
-    left: 9px;
+    top: -14px; // Magic number, this just looks good
+    left: 9px; // Magic number, this just looks good
   }
   
   @include media(mid-desktop) {
@@ -3921,19 +3921,20 @@ header.marketplace-header {
     }
     
     .browse-view-search-form {
-      
+      $search-bar-height: 48px;
+
       input[type=text] {
         @include normal-type;
         width: 77%;
-        line-height: 48px;
-        height: 48px;
+        line-height: $search-bar-height;
+        height: $search-bar-height;
       }
       
       button.action-button {
         margin-left: 1%;
         width: 22%;
-        line-height: 46px;
-        height: 48px;
+        line-height: $search-bar-height - 2px; // -2 for finetuning vertical centering
+        height: $search-bar-height;
       }
 
     }
