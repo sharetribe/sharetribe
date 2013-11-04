@@ -3,7 +3,7 @@ module Classification
   
   def display_name
     if I18n.locale
-       Rails.cache.fetch("/classification_translations/#{id}/#{I18n.locale}/#{updated_at}") do
+       Rails.cache.fetch("/#{self.class.name}_translations/#{id}/#{I18n.locale}/#{updated_at}") do
         if translation(I18n.locale)
           translation(I18n.locale).name
         elsif translations.first.present?
