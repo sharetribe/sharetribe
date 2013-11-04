@@ -31,7 +31,6 @@ $home-thumbnail-grid-author: $home-thumbnail-grid-avatar + ($home-thumbnail-grid
   bottom: 0;
   padding: lines(0.5);
   line-height: 1.2em;
-  font-size: 16px; // 16 is just a little bit too big
 }
 
 .home-fluid-thumbnail-grid-overlay {
@@ -70,7 +69,7 @@ $home-thumbnail-grid-author: $home-thumbnail-grid-avatar + ($home-thumbnail-grid
   @include small-type;
   position: absolute;
   top: $home-thumbnail-grid-avatar-padding;
-  left: (2.5 * $home-thumbnail-grid-avatar-padding) + $home-thumbnail-grid-avatar; // 3 for some extra padding
+  left: (2.5 * $home-thumbnail-grid-avatar-padding) + $home-thumbnail-grid-avatar; // 2.5 for some extra padding
   right: $home-thumbnail-grid-avatar-padding;
   bottom: $home-thumbnail-grid-avatar-padding;
 
