@@ -4,7 +4,6 @@ class NewCoverPhoto < ActiveRecord::Migration
   def up
     Community.all.each do |community|
       community.cover_photo.reprocess! :hd_header
-      community.cover_photo.reprocess! :original
       print "."
       STDOUT.flush
     end
