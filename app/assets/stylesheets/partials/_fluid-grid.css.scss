@@ -43,7 +43,7 @@ $bottom-gutter: lines(0.5);
   @extend .row;
   border-bottom: 1px solid $border;
 
-  margin-bottom: $bottom-gutter;
+  margin-bottom: lines(1);
 }
 
 
