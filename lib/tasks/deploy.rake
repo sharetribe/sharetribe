@@ -70,6 +70,15 @@ task :deploy_preproduction_migrations_from_closed_source => [
   'deploy_with_migrations'
 ]
 
+task :deploy_preproduction_migrations_from_develop => [
+  'deploy:set_preproduction_app',
+  'deploy:set_develop_as_source_branch',
+  'deploy:update_closed_source_folders',
+  'deploy_with_migrations'
+]
+
+
+
 
 ## TRANSLATION
 

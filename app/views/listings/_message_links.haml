@@ -15,10 +15,14 @@
   - unless current_user?(@listing.author)
     - link_path = (@listing.transaction_type.eql?("request") && @current_community.payments_in_use?) ? reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free") : reply_to_listing_path(:id => @listing.id.to_s)
     - if @listing.share_type.transaction_button_text
-      = link_to @listing.share_type.transaction_button_text, link_path, :class => "button"
+      = link_to link_path, :class => "book-button" do
+        .content
+          = @listing.share_type.transaction_button_text 
     - else
       - listing_type_string = "#{@listing.category.name}_#{@listing.listing_type}#{(@listing.share_type.present? && @listing.share_type.parent) ? '_' + @listing.share_type.name : ''}"
-      = link_to t("listings.link_labels.link_label_for_#{listing_type_string}", :default => t("listings.link_labels.#{Listing.opposite_share_type(@listing.transaction_type)}_this", :default => t("listings.link_labels.#{Listing.opposite_type(@listing.transaction_type)}_this"))), link_path, :class => "button"
+      = link_to link_path, :class => "book-button" do
+        .content
+          = t("listings.link_labels.link_label_for_#{listing_type_string}", :default => t("listings.link_labels.#{Listing.opposite_share_type(@listing.transaction_type)}_this", :default => t("listings.link_labels.#{Listing.opposite_type(@listing.transaction_type)}_this")))
   
   - if current_user?(@listing.author) || (@current_user && @current_user.has_admin_rights_in?(@current_community))
     .listing-view-admin-links

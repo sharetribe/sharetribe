@@ -11,10 +11,10 @@ $testimonial-icon-width: 40;
   @include clearfix;
   min-height: $testimonial-avatar-height;
 
-  @include divider;
+  border-bottom: 1px solid $background;
 
   &:last-child {
-    @include no-divider;
+    border-bottom: 1px solid $background;
   }
 }
 
