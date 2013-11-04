@@ -95,7 +95,7 @@
       = link_to t("homepage.filters.all_categories"), params.merge({category: "all"}), :class => "home-categories-main #{if all_categories_selected(params[:category], @main_categories, @categories) then 'selected' end}"
       - @main_categories.each do |category|
         - show_subcategories = show_subcategory_list(category, params[:category], @categories)
-        = link_to category.name, params.merge({category: category.name}), :class => "home-categories-main #{if show_subcategories then 'selected' end} #{if has_subcategories(category, @categories) then 'has-subcategories' end}", :data => {category: category.name}
+        = link_to category.display_name, params.merge({category: category.name}), :class => "home-categories-main #{if show_subcategories then 'selected' end} #{if has_subcategories(category, @categories) then 'has-subcategories' end}", :data => {category: category.name}
         - if category.children
           - if show_subcategories
             - category.children.each do |sub_category|
