@@ -97,9 +97,31 @@ describe ApplicationController do
   end
   
   describe "#fetch_community" do
-    it "gets the right community" do
-      request.host = "test23.lvh.me"
-      
+    
+    controller do
+      skip_filter :dashboard_only
+      def index
+        # do nothing as we are testing the filters here only
+        # just return a dummy json
+        render :json => "test_result".to_json
+      end 
     end
+    
+    it "gets the right community by subdomain" do
+      c1 = FactoryGirl.create(:community, :domain => "test23")
+      c2 = FactoryGirl.create(:community, :domain => "test23.custom.org")
+      request.host = "test23.lvh.me"
+      get :index
+      assigns["current_community"].id.should == c1.id
+    end
+    
+    it "gets the right community by full domain even when matching subdomain exists" do
+      c1 = FactoryGirl.create(:community, :domain => "market.custom.org")
+      c2 = FactoryGirl.create(:community, :domain => "market")
+      request.host = "market.custom.org"
+      get :index
+      assigns["current_community"].id.should == c1.id
+    end
+    
   end
 end
