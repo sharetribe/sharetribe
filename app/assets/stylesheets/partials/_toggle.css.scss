@@ -171,6 +171,8 @@
 
 .toggle-header-container {
   @include button-group-button-padding;
+  height: $default-button-height;
+  line-height: $default-button-line-height;
 }
 
 .icon-dropdown {

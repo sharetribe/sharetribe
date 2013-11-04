@@ -45,8 +45,25 @@
 
     .design-component
       .design-example
+        %a.button
+          .content
+            = "This is a link styled like a button"
+        %a.button
+          .content
+            = "This is a button"
+            %br/
+            = "in two lines"
         %button
-          = "This is button"
+          .content
+            = "This is a <button> element"
+        %a.big-button
+          .content
+            = "This is a big button"
+        %a.big-button
+          .content
+            = "This is a big button"
+            %br/
+            = "in two lines"
       .design-code
         %pre
           :plain

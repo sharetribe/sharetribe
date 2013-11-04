@@ -76,8 +76,9 @@ class Community < ActiveRecord::Base
   
   has_attached_file :cover_photo, 
                     :styles => { 
-                      :header => "1600x195#",  
-                      :original => "3200x3200>"
+                      :header => "1600x195#",
+                      :hd_header => "1920x450#",  
+                      :original => "3840x3840>"
                     },
                     :default_url => "/assets/cover_photos/header/default.jpg"
   validates_attachment_content_type :cover_photo,
@@ -287,7 +288,7 @@ class Community < ActiveRecord::Base
   end
   
   def generate_customization_stylesheet
-    if custom_color1 || cover_photo.present?
+    if custom_color1 || custom_color2 || cover_photo.present?
       community_filename = domain.gsub(".", "_")
       stylesheet_filename = "custom-style-#{community_filename}"
       new_filename_with_time_stamp = "#{stylesheet_filename}-#{Time.now.strftime("%Y%m%d%H%M%S")}"
@@ -317,7 +318,7 @@ class Community < ActiveRecord::Base
       if cover_photo.present?
         replace_in_file("app/assets/stylesheets/customizations.scss",
                         /\$cover-photo-url:\s*\"[^\"]+\";/,
-                        "$cover-photo-url: \"#{cover_photo.url(:header)}\";",
+                        "$cover-photo-url: \"#{cover_photo.url(:hd_header)}\";",
                         true)
       end
       url = stylesheet_filename
