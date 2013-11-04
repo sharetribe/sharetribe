@@ -3672,7 +3672,7 @@ header.marketplace-header {
     vertical-align: top;
     padding: em(10) 0 0 0;
     a {
-      @include button($network-green);
+      @include button($link2);
       margin: 0;
       margin-left: lines(0.25);
       font-weight: 300;
