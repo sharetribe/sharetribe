@@ -124,6 +124,10 @@ class Listing < ActiveRecord::Base
   
   # Index for sphinx search
   define_index do
+    
+    # limit to open listings
+    where "open = '1' AND (valid_until IS NULL OR valid_until > now())"
+    
     # fields
     indexes title
     indexes description
