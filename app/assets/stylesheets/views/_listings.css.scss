@@ -35,9 +35,9 @@
 .listing-image-vertical-centering {
   @include vertical-centering-content;
 
-  // Default to landscape
+  // Default to landscape (too wide)
 
-  &.portrait {
+  &.too-narrow {
     // vertical-align may cause 1px flickering, if the image
     // uses all vertical size available.
     height: 100%;
@@ -54,12 +54,12 @@
 .listing-image {
 
   // Default to landscape
-  &, &.landscape {
-    @include image-landscape;
+  &, &.too-wide {
+    @include image-too-wide;
   }
 
-  &.portrait {
-    @include image-portrait;
+  &.too-narrow {
+    @include image-too-narrow;
   }
 }
 

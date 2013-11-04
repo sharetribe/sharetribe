@@ -150,4 +150,15 @@ module ListingsHelper
       block.call(:image_processing)
     end
   end
+
+  def aspect_ratio_class(image)
+    aspect_ratio = 3/2.to_f
+    if image.correct_size? aspect_ratio
+      "correct-ratio"
+    elsif image.too_narrow? aspect_ratio
+      "too-narrow"
+    else
+      "too-wide"
+    end
+  end
 end

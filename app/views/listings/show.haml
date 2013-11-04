@@ -17,9 +17,8 @@
           - with_listing_image(@listing) do |listing_image|
             %a{:href => "#", :id => "listing-image-link", :class => "listing-image-frame-content"}
               - orientation_class = listing_image.portrait? ? "portrait" : "landscape"
-              - aspect_ratio_class = listing_image.aspect_ratio?(3/2) ? "correct-ratio" : ""
-              .listing-image-vertical-centering{:class => "#{orientation_class} #{aspect_ratio_class}" }
-                = image_tag listing_image.image.url(:big), :alt => listed_listing_title(@listing), :class => "listing-image #{orientation_class}"
+              .listing-image-vertical-centering{:class => aspect_ratio_class(listing_image) }
+                = image_tag listing_image.image.url(:big), :alt => listed_listing_title(@listing), :class => "listing-image #{aspect_ratio_class(listing_image)}"
 
           - without_listing_image(@listing) do |reason|
             .listing-image-frame-content

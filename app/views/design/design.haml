@@ -362,23 +362,33 @@
         .design-max-width-300
           .design-aspect-ratio
             .design-aspect-ratio-content
-              .design-vertical-centering-content-landscape
-                = image_tag "design/landscape_small.png", :class => "design-image-landscape"
+              .design-vertical-centering-content-too-wide
+                = image_tag "design/landscape_small.png", :class => "design-image-too-wide"
         .design-max-width-300
           .design-aspect-ratio
             .design-aspect-ratio-content
-              .design-vertical-centering-content-landscape
-                = image_tag "design/landscape_large.png", :class => "design-image-landscape"
+              .design-vertical-centering-content-too-wide
+                = image_tag "design/landscape_large.png", :class => "design-image-too-wide"
         .design-max-width-300
           .design-aspect-ratio
             .design-aspect-ratio-content
-              .design-vertical-centering-content-portrait
-                = image_tag "design/portrait_small.png", :class => "design-image-portrait"
+              .design-vertical-centering-content-too-narrow
+                = image_tag "design/landscape_almost_square.png", :class => "design-image-too-narrow"
         .design-max-width-300
           .design-aspect-ratio
             .design-aspect-ratio-content
-              .design-vertical-centering-content-portrait
-                = image_tag "design/portrait_large.png", :class => "design-image-portrait"
+              .design-vertical-centering-content-too-narrow
+                = image_tag "design/portrait_small.png", :class => "design-image-too-narrow"
+        .design-max-width-300
+          .design-aspect-ratio
+            .design-aspect-ratio-content
+              .design-vertical-centering-content-too-narrow
+                = image_tag "design/portrait_large.png", :class => "design-image-too-narrow"
+        .design-max-width-300
+          .design-aspect-ratio
+            .design-aspect-ratio-content
+              .design-vertical-centering-content-too-narrow
+                = image_tag "design/portrait_almost_square.png", :class => "design-image-too-narrow"
 
       .design-code
         %pre

@@ -48,11 +48,28 @@ class ListingImage < ActiveRecord::Base
     !portrait?
   end
 
-  def aspect_ratio?(aspect_ratio)
-    # Very naive implementation
-    # This may need some roundings since we're doing
-    # floating point operations here
-    (self.width / self.height) == aspect_ratio
+  def correct_size?(aspect_ratio)
+    ListingImage.correct_size? self.width, self.height, aspect_ratio
+  end
+
+  def too_narrow?(aspect_ratio)
+    ListingImage.too_narrow? self.width, self.height, aspect_ratio
+  end
+
+  def too_wide?(aspect_ratio)
+    ListingImage.too_wide? self.width, self.height, aspect_ratio
+  end
+
+  def self.correct_size?(width, height, aspect_ratio)
+    width.to_f / height.to_f == aspect_ratio.to_f
+  end
+
+  def self.too_narrow?(width, height, aspect_ratio)
+    width.to_f / height.to_f < aspect_ratio.to_f
+  end
+
+  def self.too_wide?(width, height, aspect_ratio)
+    width.to_f / height.to_f > aspect_ratio.to_f
   end
 
 end

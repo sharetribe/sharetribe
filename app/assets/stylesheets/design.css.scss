@@ -158,6 +158,7 @@
   max-width: 300px;
   float: left;
   padding-right: lines(0.5);
+  margin-bottom: lines(0.5);
 }
 
 .design-aspect-ratio {
@@ -171,19 +172,19 @@
   @include vertical-centering-container;
 }
 
-.design-vertical-centering-content-landscape {
+.design-vertical-centering-content-too-wide {
   @include vertical-centering-content;
 }
 
-.design-vertical-centering-content-portrait {
+.design-vertical-centering-content-too-narrow {
   @include vertical-centering-content;
   height: 100%;
 }
 
-.design-image-landscape {
-  @include image-landscape;
+.design-image-too-wide {
+  @include image-too-wide;
 }
 
-.design-image-portrait {
-  @include image-portrait;
+.design-image-too-narrow {
+  @include image-too-narrow;
 }
