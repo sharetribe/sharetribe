@@ -56,9 +56,9 @@
               %script{:type => "text/javascript", :src => "https://platform.twitter.com/widgets.js"}
 
   %aside.col-4
-    .row
-      .col-12
-        - if @listing.price
+    - if @listing.price
+      .row
+        .col-12
           .listing-price
             %span.listing-price-amount
               = money_without_cents_and_with_symbol(@listing.price).upcase
