@@ -329,66 +329,6 @@ ul {
 }
 
 
-// These display the amount of notifications
-// .big-badge is for two-number figures
-// .huge-badge is for three-number figures
-.badge {
-  @include small-type;
-  background: $link;
-  text-align: center;
-  width: em(18, 13);
-  line-height: em( (18 - 1 - 5), 13 );
-  padding: 4px 5px 4px 5px;
-  color: $background;
-  @include border-radius( em((18/2), 13) );
-  
-  &.big-badge {
-    width: em(24, 13);
-    line-height: em( (22 - 1 - 5), 13 );
-    @include border-radius( em((22/2), 13) );
-  }
-  
-  &.huge-badge {
-    width: em(30, 13);
-    line-height: em( (28 - 1 - 5), 13 );   
-    @include border-radius( em((28/2), 13) );
-  }
-}
-
-.mobile-badge {
-  @include small-type;
-  @include border-radius(10px);
-  margin-left: lines(0.25);
-  margin-top: 9px;
-  width: 20px;
-  padding-left: 7px;
-  display: inline-block;
-  background: $link;
-  color: $background;
-  
-  &.big-badge {
-    width: 27px;
-    @include border-radius(13px);
-  }
-  
-  &.huge-badge {
-    width: 34px;
-    @include border-radius(13px);
-  }
-  
-  @include media(mid-desktop) {
-    display: none;
-  }
-}
-
-.mobile-badge-menu {
-  @extend .mobile-badge;
-  margin-top: 0;
-  background: $background;
-  color: $light-body;
-}
-
-
 .icon {
   @include big-type;
   height: lines(1, 24);
@@ -584,23 +524,64 @@ label.error {
 */
 
 
-.global-header .badge {
-  // Positions badges in .inbox-toggle and .notifications-toggle
+// Positions new message badges
+.badge {
+  @include badge(20px);
+  @include small-type;
+  background: $link;
   position: absolute;
-  top: -10px; // Magic numbers, these just look good
-  left: 13px; // Magic numbers, these just look good
+  top: -10px; // Magic number, this just looks good
+  left: 13px; // Magic number, this just looks good
+  color: $background;
+  display: none;
   
   &.big-badge {
-    width: em(24, 13);
-    line-height: em( (22 - 1 - 5), 13 );
-    @include border-radius( em((22/2), 13) );
+    @include badge(26px);
+    top: -12px; // Magic number, this just looks good
+    left: 11px; // Magic number, this just looks good
   }
   
   &.huge-badge {
-    width: em(30, 13);
-    line-height: em( (28 - 1 - 5), 13 );   
-    @include border-radius( em((28/2), 13) );
+    @include badge(32px);
+    top: -14px; // Magic number, this just looks good
+    left: 9px; // Magic number, this just looks good
   }
+  
+  @include media(mid-desktop) {
+    display: block;
+  }
+  
+}
+
+.mobile-badge {
+  @include badge(20px);
+  @include small-type;
+  margin-left: lines(0.25);
+  margin-top: 8px;
+  display: inline-block;
+  background: $link;
+  color: $background;
+  
+  &.big-badge {
+    @include badge(26px);
+    margin-top: 5px;
+  }
+  
+  &.huge-badge {
+    margin-top: 2px;
+    @include badge(32px);
+  }
+  
+  @include media(mid-desktop) {
+    display: none;
+  }
+}
+
+.mobile-badge-menu {
+  @extend .mobile-badge;
+  margin-top: 0;
+  background: $background;
+  color: $light-body;
 }
 
 /*
@@ -3881,10 +3862,11 @@ header.marketplace-header {
       @include normal-type;
       vertical-align: top;
       margin-right: em(-4);
-      padding: em(11) em(14) em(11) em(14);
+      padding: 0 em(15);
       width: 73%;
       display: inline;
-      height: 48px;
+      line-height: 40px;
+      height: 42px;
     }
     
     button.action-button {
@@ -3893,10 +3875,11 @@ header.marketplace-header {
       padding: em(8);
       margin: 0 0 0 3%;
       width: 24%;
-      padding: em(12) em(16) em(10) em(16);
       margin-right: em(-4);
-      height: 48px;
       border-width: 0;
+      padding: 3px 0 0 0;
+      line-height: 38px;
+      height: 42px;
     }
 
     @include media(tablet) {
@@ -3938,15 +3921,20 @@ header.marketplace-header {
     }
     
     .browse-view-search-form {
-      
+      $search-bar-height: 48px;
+
       input[type=text] {
+        @include normal-type;
         width: 77%;
+        line-height: $search-bar-height;
+        height: $search-bar-height;
       }
       
       button.action-button {
-        padding: em(9) em(16) em(7) em(16);
         margin-left: 1%;
         width: 22%;
+        line-height: $search-bar-height - 2px; // -2 for finetuning vertical centering
+        height: $search-bar-height;
       }
 
     }

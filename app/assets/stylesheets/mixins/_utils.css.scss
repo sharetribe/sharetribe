@@ -1,3 +1,5 @@
+@import "compass/css3/border-radius";
+
 /**
   Misc utils
 */
@@ -28,4 +30,15 @@
 @mixin dropdown-icon-fix {
   position: relative;
   top: 3px;
+}
+
+/**
+  Round notification badge
+*/
+@mixin badge($size) {
+  width: $size;
+  height: $size;
+  line-height: $size - 1px;
+  @include border-radius($size/2);
+  text-align: center;
 }
