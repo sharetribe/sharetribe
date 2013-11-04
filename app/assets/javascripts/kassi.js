@@ -463,7 +463,7 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
     },
     debug: false,
     rules: {
-      "listing[title]": {required: true},
+      "listing[title]": {required: true, maxlength: 60},
       "listing[origin]": {required: rs, address_validator: true},
       "listing[destination]": {required: rs, address_validator: true},
       "listing[price]": {required: pr, positive_integer: true, minimum_price_required: minimum_price},

@@ -39,7 +39,7 @@
 }
 
 .home-toolbar-button-group-button {
-  @include button;
+  @include button($link);
   @include button-group-button;
   @include ellipsis;
 
@@ -47,6 +47,7 @@
   width: 33.3%;
 
   @include media(tablet) {
+    width: auto;
     min-width: lines(5);
   }
 }
@@ -79,13 +80,14 @@
 }
 
 .home-toolbar-show-filters-button {
-  @include button;
+  @include button($link);
   @include button-group-button-padding;
   @include neutral-button-color;
   @include selected-button-color;
   @include ellipsis;
   width: 100%;
   margin: 0;
+  line-height: $default-button-line-height;
 
   @include media(tablet) {
     display: none;

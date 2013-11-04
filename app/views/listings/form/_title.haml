@@ -1,2 +1,2 @@
 = form.label :title, t(".#{@listing.category.top_level_parent.name}_you_#{@listing.listing_type}", :default => t(".listing_title")) + "*", :class => "input"
-= form.text_field(:title, :class => "title_text_field", :maxlength => "90")
+= form.text_field(:title, :class => "title_text_field", :maxlength => "60")

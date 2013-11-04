@@ -37,15 +37,17 @@
       - if @current_user
         %a{:href => received_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.messages"), :id => "inbox-link", :class => "global-navi inbox-link"}
           = icon_tag("mail", ["icon"])
-          .messages-badge
-            .badge{:class => get_badge_class(Conversation.unread_count(@current_user.id.to_s))} 
-              = Conversation.unread_count(@current_user.id.to_s)
+          - if Conversation.unread_count(@current_user.id.to_s) > 0
+            .messages-badge
+              .badge{:class => get_badge_class(Conversation.unread_count(@current_user.id.to_s))} 
+                = Conversation.unread_count(@current_user.id.to_s)
         .user-menu-toggle.toggle.hidden{data: {toggle: '.user-menu'}}
           = image_tag @current_user.image.url(:thumb), alt: '', class: 'user-avatar'
           .user-name
             = @current_user.name(@current_community)
-          .mobile-badge{:class => get_badge_class(Conversation.unread_count(@current_user.id.to_s))}
-            = Conversation.unread_count(@current_user.id.to_s)
+          - if Conversation.unread_count(@current_user.id.to_s) > 0
+            .mobile-badge{:class => get_badge_class(Conversation.unread_count(@current_user.id.to_s))}
+              = Conversation.unread_count(@current_user.id.to_s)
           = icon_tag("dropdown", ["icon-dropdown"])
         
           %nav.user-menu.toggle-menu.hidden
@@ -56,9 +58,10 @@
             %a.inbox-menu-button{href: received_person_messages_path(:person_id => @current_user.id.to_s)}
               = icon_tag("mail", ["icon-with-text"])
               .text-with-icon
-                = t("layouts.conversations.messages") 
-              .mobile-badge-menu{:class => get_badge_class(Conversation.unread_count(@current_user.id.to_s))}
-                = Conversation.unread_count(@current_user.id.to_s)
+                = t("layouts.conversations.messages")
+              - if Conversation.unread_count(@current_user.id.to_s) > 0
+                .mobile-badge-menu{:class => get_badge_class(Conversation.unread_count(@current_user.id.to_s))}
+                  = Conversation.unread_count(@current_user.id.to_s)
             %a.feedback-menu-button{href: new_user_feedback_path}
               = icon_tag("feedback", ["icon-with-text"])
               .text-with-icon
