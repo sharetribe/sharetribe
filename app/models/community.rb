@@ -288,7 +288,7 @@ class Community < ActiveRecord::Base
   end
   
   def generate_customization_stylesheet
-    if custom_color1 || cover_photo.present?
+    if custom_color1 || custom_color2 || cover_photo.present?
       community_filename = domain.gsub(".", "_")
       stylesheet_filename = "custom-style-#{community_filename}"
       new_filename_with_time_stamp = "#{stylesheet_filename}-#{Time.now.strftime("%Y%m%d%H%M%S")}"
