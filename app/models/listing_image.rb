@@ -25,6 +25,7 @@ class ListingImage < ActiveRecord::Base
   # @note Do this after resize operations to account for auto-orientation.
   # https://github.com/thoughtbot/paperclip/wiki/Extracting-image-dimensions
   def extract_dimensions
+    return unless image?
     tempfile = image.queued_for_write[:original]
 
     # Works with uploaded files and existing files
