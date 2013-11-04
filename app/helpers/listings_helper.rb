@@ -121,7 +121,7 @@ module ListingsHelper
     if @current_community.vat then " " + t("listings.displayed_price.price_excludes_vat") else "" end
   end
 
-  def image_processing?(listing)
+  def is_image_processing?(listing)
     with_first_listing_image(listing) do |first_image|
       first_image.image_processing
     end
@@ -138,7 +138,7 @@ module ListingsHelper
   end
 
   def with_listing_image(listing, &block)
-    unless self.no_images? listing or self.image_processing? listing
+    unless self.no_images? listing or self.is_image_processing? listing
       with_first_listing_image(listing, &block)
     end
   end
@@ -146,7 +146,7 @@ module ListingsHelper
   def without_listing_image(listing, &block)
     if self.no_images? listing
       block.call(:no_images)
-    elsif self.image_processing? listing
+    elsif self.is_image_processing? listing
       block.call(:image_processing)
     end
   end
