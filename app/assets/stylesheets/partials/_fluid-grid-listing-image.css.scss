@@ -1,0 +1,38 @@
+/**
+  Contains styles for listing grid's image part
+*/
+
+@import "mixins/all";
+
+.fluid-thumbnail-grid-image-image-container {
+  @include border-top-radius($default-border-radius);
+  position: relative;
+  color: $background;
+
+  &:hover {
+    color: $highlight;
+  }
+}
+
+.fluid-thumbnail-grid-image-title {
+  position: absolute;
+  bottom: 0;
+  padding: lines(0.5);
+  line-height: 1.2em;
+}
+
+.fluid-thumbnail-grid-image-overlay {
+  @include border-top-radius($default-border-radius);
+  @include overlay;
+  @include absolutely-all;
+}
+
+.fluid-thumbnail-grid-image-image {
+  @include border-top-radius($default-border-radius);
+  display: block;
+  width: 100%;
+}
+
+.fluid-thumbnail-grid-image-price {
+  @include listing-price;
+}
