@@ -1,8 +1,8 @@
 /* Update single listing page links */
-$("#listing_message_links").html("<%= escape_javascript(render(:partial => 'listings/message_links')) %>");
+$("#listing-message-links").html("<%= escape_javascript(render(:partial => 'listings/message_links')) %>");
 
-/* Update single listing page links */
-$("#admin_edit_links").html("<%= escape_javascript(render(:partial => 'listings/admin_edit_links')) %>");
+/* Highlight action */
+$("#listing-message-links").effect("highlight", {}, 2000);
 
 /* Update profile listing page links */
 $("#edit-profile-listing-links-" + <%= @listing.id.to_s %>).html("<%= escape_javascript(render(:partial => 'listings/edit_profile_listing_links', :locals => { :listing => @listing })) %>");
