@@ -12,22 +12,21 @@
   .col-8
     .row
       .col-12
-        .listing-image-frame
-
-          - with_listing_image(@listing) do |listing_image|
-            %a{:href => "#", :id => "listing-image-link", :class => "listing-image-frame-content"}
-              - orientation_class = listing_image.portrait? ? "portrait" : "landscape"
-              .listing-image-vertical-centering{:class => aspect_ratio_class(listing_image) }
-                = image_tag listing_image.image.url(:big), :alt => listed_listing_title(@listing), :class => "listing-image #{aspect_ratio_class(listing_image)}"
-
-          - without_listing_image(@listing) do |reason|
-            .listing-image-frame-content
-              .listing-image-vertical-centering
-                .listing-no-image
-                  - if reason == :image_processing
-                    = t("listings.show.processing_uploaded_image")
-                  - else
-                    = t(".no_image")
+        - with_image_frame(@listing) do |reason, listing_image|
+          .listing-image-frame
+            - if reason == :image_ok
+              %a{:href => "#", :id => "listing-image-link", :class => "listing-image-frame-content"}
+                - orientation_class = listing_image.portrait? ? "portrait" : "landscape"
+                .listing-image-vertical-centering{:class => aspect_ratio_class(listing_image) }
+                  = image_tag listing_image.image.url(:big), :alt => listed_listing_title(@listing), :class => "listing-image #{aspect_ratio_class(listing_image)}"
+            - else
+              .listing-image-frame-content
+                .listing-image-vertical-centering
+                  .listing-no-image
+                    - if reason == :image_processing
+                      = t("listings.show.processing_uploaded_image")
+                    - else
+                      = t(".no_description")
 
     .row
       .col-12
@@ -45,8 +44,6 @@
         - if @listing.description && !@listing.description.blank?
           - text_with_line_breaks do
             = @listing.description
-        - else
-          = t("no_description")
 
     .row
       .col-12
@@ -59,9 +56,9 @@
               %script{:type => "text/javascript", :src => "https://platform.twitter.com/widgets.js"}
 
   %aside.col-4
-    .row
-      .col-12
-        - if @listing.price
+    - if @listing.price
+      .row
+        .col-12
           .listing-price
             %span.listing-price-amount
               = money_without_cents_and_with_symbol(@listing.price).upcase
@@ -74,7 +71,8 @@
 
     .row-with-divider
       .col-12
-        = render :partial => "message_links"
+        #listing-message-links
+          = render :partial => "message_links"
 
     .row
       .col-12
@@ -84,9 +82,11 @@
           .listing-author-details
             .listing-author-name
               = link_to @listing.author.name(@current_community), @listing.author, :id => "listing-author-link"
-            .listing-author-contact
-              %a#listing-contact{href: reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free"), :class => "listing-author-contact-button"}
-                = t(".contact")
+            - unless current_user?(@listing.author)
+              .listing-author-contact
+                %a#listing-contact{href: reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free"), :class => "listing-author-contact-button"}
+                  .content
+                    = t(".contact")
 
     .row-with-divider.listing-author-activity
       .col-12
