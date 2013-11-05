@@ -47,10 +47,8 @@
               = link_to t("people.profile_listings.show_also_closed"), person_path(@person, :show_closed => true)
 
     #profile-listings-list
-      - limit = 9
-      .people-fluid-thumbnail-grid-container
-        .people-fluid-thumbnail-grid
-          = render :partial => "grid_item", :collection => @listings, :as => :listing
+      - limit = 6
+      = render :partial => 'listings/profile_listings', :locals => {:person => @person, :limit => limit}
 
     - if @current_community.testimonials_in_use
       #people-testimonials.listing-main
