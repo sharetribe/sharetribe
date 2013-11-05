@@ -91,7 +91,7 @@ end
 
 When /^I log out$/ do
   find(".user-menu-toggle").click
-  click_link "Logout"
+  click_link "Log out"
 end
 
 # Filling in with random strings
