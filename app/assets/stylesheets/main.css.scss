@@ -1185,23 +1185,6 @@ a.lightbox-x {
     }
   }
   
-  .action-links {
-    margin: 0 0 lines(0.5) 0;
-    
-    @include media(tablet) {
-      margin: 0;
-      position: absolute;
-      right: 0; top: 0;
-      width: lines(15) - em(4);
-      text-align: left;
-      .icon-with-text-container {
-        display: block;
-        width: 100%;
-      }
-    }
-  }
-  
-  
   .listing-icons {
     padding-top: lines(0.5);
     a {
