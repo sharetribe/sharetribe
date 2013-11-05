@@ -224,15 +224,13 @@ class Community < ActiveRecord::Base
     if domain_string =~ /\:/ #string includes port which should be removed
       domain_string = domain_string.split(":").first
     end
-    if domain_string =~ /\./ # not just a subdomain
-      if domain_string.match(APP_CONFIG.domain.split(":").first) # subdomain with default domain attached
-        Community.where(["domain = ?", domain_string.split(".").first]).first
-      else # custom domain
-        Community.where(["domain = ?", domain_string]).first
-      end
-    else # just a subdomain
-      Community.where(["domain = ?", domain_string]).first
-    end
+
+    # search for exact match or then match by first part of domain string.
+    # first priority is the domain, then domain_alias
+    return Community.where(["domain = ?", domain_string]).first || 
+           Community.where(["domain = ?", domain_string.split(".").first]).first ||
+           Community.where(["domain_alias = ?", domain_string]).first ||
+           Community.where(["domain_alias = ?", domain_string.split(".").first]).first
   end
   
   # Check if communities with this category are email restricted
