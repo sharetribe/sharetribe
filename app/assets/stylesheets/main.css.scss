@@ -180,10 +180,6 @@ ul {
   textarea {
     height: lines(5);
   }
-  
-  @include media(tablet) {
-    //margin-top: lines(1.25);
-  }
 }
 
 .centered-section-narrow {
@@ -306,7 +302,8 @@ ul {
   
   .icon-dropdown {
     position: absolute;
-    right: lines(1); top: em(12);
+    right: lines(1);
+    top: em(12);
   }
   @include media(tablet) {
     display: none;
