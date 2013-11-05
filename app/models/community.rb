@@ -80,7 +80,8 @@ class Community < ActiveRecord::Base
                       :hd_header => "1920x450#",  
                       :original => "3840x3840>"
                     },
-                    :default_url => "/assets/cover_photos/header/default.jpg"
+                    :default_url => "/assets/cover_photos/header/default.jpg",
+                    :keep_old_files => true # Temporarily to make preprod work aside production
   validates_attachment_content_type :cover_photo,
                                     :content_type => ["image/jpeg",
                                                       "image/png", 
