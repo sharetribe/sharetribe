@@ -23,7 +23,7 @@
     .right-side
       = link_to t("header.home").downcase, "/", :class => "global-navi global-navi-left", :id => "global-navi-home"
       = link_to t("header.about").downcase, about_infos_path, :class => "global-navi global-navi-left", :id => "global-navi-about"
-      = link_to t("header.contact_us").downcase, new_user_feedback_path, :class => "global-navi global-navi-left", :id => "global-navi-contact-us"
+      = link_to t("header.contact_us").downcase, new_user_feedback_path, :class => "global-navi#{available_locales.size > 1 ? '' : ' global-navi-left'}", :id => "global-navi-contact-us"
 
       - with_available_locales do |locales|
         #global-navi-select-language.language-menu-toggle.toggle.hidden{data: {toggle: '.language-menu'}}
