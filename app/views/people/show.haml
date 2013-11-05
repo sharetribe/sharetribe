@@ -50,7 +50,7 @@
       - limit = 9
       .people-fluid-thumbnail-grid-container
         .people-fluid-thumbnail-grid
-          = render :partial => "homepage/grid_item", :collection => @listings, :as => :listing, :locals => {:grid_class_prefix => "people"}
+          = render :partial => "grid_item", :collection => @listings, :as => :listing
 
     - if @current_community.testimonials_in_use
       #people-testimonials.listing-main

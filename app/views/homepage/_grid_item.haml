@@ -1,7 +1,7 @@
-%div{:class => "#{grid_class_prefix}-fluid-thumbnail-grid-item"}
+.home-fluid-thumbnail-grid-item
   %div
     -# Listing image
-    = render :partial => "layouts/grid_item_listing_image", :locals => {:listing => listing}
+    = render :partial => "layouts/grid_item_listing_image", :locals => {:listing => listing, :modifier_class => ""}
     
     -# Listing author details
     .home-fluid-thumbnail-grid-author

@@ -126,3 +126,9 @@ $profile-pic-gutter-mobile: lines(0.5);
   @include create-fluid-thumbnail-grid(people, 1, 1, 2, 3, 2, 2, 3, 3);
 }
 
+.profile-listings {
+  &.fluid-thumbnail-grid-image-overlay,
+  &.fluid-thumbnail-grid-image-image {
+    @include border-radius($default-border-radius);
+  }
+}
