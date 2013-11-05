@@ -143,13 +143,9 @@ $listing-author-avatar-height: 108;
 }
 
 // Map
-
-// FIXME: Ugly selector
-.listing-aside {
-  .jsmap {
-    width: 100%;
-    height: lines(8);
-  }
+.listing-map {
+  width: 100%;
+  height: lines(8);
 }
 
 .listing-view-admin-links {
