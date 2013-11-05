@@ -6,68 +6,85 @@
           - ["accept", "reject"].each do |status|
             = render :partial => "status_link", :locals => { :conversation => conversation, :status => status }
       - else
-        .icon-with-text-container
-          .ss-clock.icon-part
-          .text-part= t(".waiting_for_listing_author_to_accept_#{conversation.discussion_type}", :listing_author_name => conversation.other_party(@current_user).given_name_or_username)   
-    - elsif conversation.status.eql?("accepted")
-      .icon-with-text-container
-        .icon-part{:class => icon_for(conversation.status)}
-        .text-part= t(".#{conversation.discussion_type}_#{conversation.status}")
-      - if conversation.requires_payment?(@current_community)
-        - if conversation.listing.offerer?(@current_user)
+        .inbox-horizontally-aligned-status
           .icon-with-text-container
             .ss-clock.icon-part
-            .text-part= t(".waiting_payment_from_requester", :requester_name => conversation.requester.given_name_or_username)
+            .text-part= t(".waiting_for_listing_author_to_accept_#{conversation.discussion_type}", :listing_author_name => conversation.other_party(@current_user).given_name_or_username)
+    - elsif conversation.status.eql?("accepted")
+      .inbox-horizontally-aligned-status
+        .icon-with-text-container
+          .icon-part{:class => icon_for(conversation.status)}
+          .text-part= t(".#{conversation.discussion_type}_#{conversation.status}")
+      - if conversation.requires_payment?(@current_community)
+        - if conversation.listing.offerer?(@current_user)
+          .inbox-horizontally-aligned-status
+            .icon-with-text-container
+              .ss-clock.icon-part
+              .text-part= t(".waiting_payment_from_requester", :requester_name => conversation.requester.given_name_or_username)
         - else
           .status-links
-            %a{:href => new_person_message_payment_path(:person_id => @current_user.id, :message_id => conversation.id), :class => "status-link accept"}
-              .icon-with-text.ss-coins
-              .text-with-icon= t(".pay")
-            %a{:href => cancel_person_message_path(:person_id => @current_user.id, :id => conversation.id.to_s), :class => "status-link cancel"}
-              .icon-with-text{:class => icon_for("canceled")}
-              .text-with-icon= t(".cancel_payed_transaction")
+            .inbox-horizontally-aligned-link
+              %a{:href => new_person_message_payment_path(:person_id => @current_user.id, :message_id => conversation.id), :class => "status-link accept"}
+                .content
+                  .icon-with-text.ss-coins
+                  .text-with-icon= t(".pay")
+            .inbox-horizontally-aligned-link
+              %a{:href => cancel_person_message_path(:person_id => @current_user.id, :id => conversation.id.to_s), :class => "status-link cancel"}
+                .content
+                  .icon-with-text{:class => icon_for("canceled")}
+                  .text-with-icon= t(".cancel_payed_transaction")
       - else
         - if @current_community.testimonials_in_use
           - if conversation.listing.offerer?(@current_user)
-            .icon-with-text-container
-              .ss-clock.icon-part
-              .text-part= t(".waiting_confirmation_from_requester", :requester_name => conversation.other_party(@current_user).given_name_or_username)
+            .inbox-horizontally-aligned-status
+              .icon-with-text-container
+                .ss-clock.icon-part
+                .text-part= t(".waiting_confirmation_from_requester", :requester_name => conversation.other_party(@current_user).given_name_or_username)
           - else
             .status-links
               - ["confirm", "cancel"].each do |status|
                 = render :partial => "status_link", :locals => { :conversation => conversation, :status => status }
     - elsif conversation.status.eql?("paid")
-      .icon-with-text-container
-        .icon-part{:class => icon_for(conversation.status)}
-        .text-part= t(".#{conversation.status}")
+      .inbox-horizontally-aligned-status
+        .icon-with-text-container
+          .icon-part{:class => icon_for(conversation.status)}
+          .text-part= t(".#{conversation.status}")
       - if @current_community.testimonials_in_use
         - if conversation.listing.offerer?(@current_user)
-          .icon-with-text-container
-            .ss-clock.icon-part
-            .text-part= t(".waiting_confirmation_from_requester", :requester_name => conversation.other_party(@current_user).given_name_or_username)
+          .inbox-horizontally-aligned-status
+            .icon-with-text-container
+              .ss-clock.icon-part
+              .text-part= t(".waiting_confirmation_from_requester", :requester_name => conversation.other_party(@current_user).given_name_or_username)
         - else
           .status-links
             - ["confirm", "cancel"].each do |status|
               = render :partial => "status_link", :locals => { :conversation => conversation, :status => status }
     - elsif conversation.status
-      .icon-with-text-container
-        .icon-part{:class => icon_for(conversation.status)}
-        .text-part= t(".#{conversation.discussion_type}_#{conversation.status}")
+      .inbox-horizontally-aligned-status
+        .icon-with-text-container
+          .icon-part{:class => icon_for(conversation.status)}
+          .text-part= t(".#{conversation.discussion_type}_#{conversation.status}")
       - if (["confirmed", "canceled"].include? conversation.status) && @current_community.testimonials_in_use
         - if conversation.has_feedback_from?(@current_user)
-          .icon-with-text-container
-            = icon_tag("testimonial", ["icon-part"])
-            .text-part= t(".feedback_given")
+          .inbox-horizontally-aligned-status
+            .icon-with-text-container
+              = icon_tag("testimonial", ["icon-part"])
+              .text-part= t(".feedback_given")
         - elsif conversation.feedback_skipped_by?(@current_user)
-          .icon-with-text-container
-            .ss-skipforward.icon-part
-            .text-part= t(".feedback_skipped")
+          .inbox-horizontally-aligned-status
+            .icon-with-text-container
+              .ss-skipforward.icon-part
+              .text-part= t(".feedback_skipped")
         - else
           .status-links
-            %a{:href => new_person_message_feedback_path(:person_id => @current_user.id, :message_id => conversation.id.to_s), :class => "status-link"}
-              = icon_tag("testimonial", ["icon-with-text"])
-              .text-with-icon= t(".give_feedback")
-            %a{:href => skip_person_message_feedbacks_path(:person_id => @current_user.id, :message_id => conversation.id.to_s), :class => "status-link", :data => { :method => "put", :remote => "true"}}
-              .ss-skipforward.icon-with-text
-              .text-with-icon= t(".skip_feedback")
+            .inbox-horizontally-aligned-link
+              %a{:href => new_person_message_feedback_path(:person_id => @current_user.id, :message_id => conversation.id.to_s), :class => "status-link"}
+                .content
+                  = icon_tag("testimonial", ["icon-with-text"])
+                  .text-with-icon= t(".give_feedback")
+            .inbox-horizontally-aligned-link
+              %a{:href => skip_person_message_feedbacks_path(:person_id => @current_user.id, :message_id => conversation.id.to_s), :class => "status-link", :data => { :method => "put", :remote => "true"}}
+                .content
+                  .ss-skipforward.icon-with-text
+                  .text-with-icon= t(".skip_feedback")
             

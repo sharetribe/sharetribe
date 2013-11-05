@@ -1,5 +1,8 @@
 - content_for :javascript do
-  initialize_accept_transaction_form(#{@current_community.commission_percentage}, #{APP_CONFIG.service_fee_tax_percentage});
+  initialize_accept_transaction_form(#{@current_community.commission_percentage || "null"}, #{APP_CONFIG.service_fee_tax_percentage});
+
+- content_for :title_header do
+  %h1= t("layouts.no_tribe.inbox")
 
 .centered-section-wide.conversation-status-form
   %h2= t(".respond_to_#{@conversation.discussion_type}")

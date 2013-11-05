@@ -1,6 +1,9 @@
 - content_for :javascript do
   initialize_confirm_transaction_form();
 
+- content_for :title_header do
+  %h1= t("layouts.no_tribe.inbox")
+
 .centered-section.conversation-status-form
   = form_for @conversation, :url => confirmation_person_message_path(:person_id => @current_user.id, :id => @conversation.id), :html => { :method => "put" } do |form|
     

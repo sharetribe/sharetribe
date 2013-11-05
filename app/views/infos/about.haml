@@ -2,6 +2,9 @@
 - additional_about_text_title = t(".default_about_text_title")
 - additional_about_text = t(".default_about_text", :click_here_link => link_to(t(".click_here_link_text"), dashboard_link(:locale => I18n.locale, :ref => "about_page"))).html_safe
 
+- content_for :title_header do
+  %h1= t("layouts.infos.info_about_kassi")
+
 .left-navi-section.about-section
   - if @current_user && @current_user.has_admin_rights_in?(@current_community)
     %p

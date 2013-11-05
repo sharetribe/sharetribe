@@ -165,6 +165,13 @@
   }
 }
 
+// Toggle that is shown only in mobile
+.toggle-mobile-only {
+  @include media(tablet) {
+    display: none;
+  }
+}
+
 .toggle-header {
   display: inline-block;
 }

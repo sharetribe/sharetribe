@@ -141,16 +141,12 @@ ul {
   cursor: pointer;
   color: white;
   display: block;
-  //border: em(2) solid #25567c;
   text-align: left;
   @include single-text-shadow;
-  @include filter-gradient(#5a87ac, #265376);
   background: #25567c;
-  @include background-image(linear-gradient(#5a87ac, #265376));
+  min-height: 42px;
   &:hover {
-    @include filter-gradient(#6f99bc, #37668a);
     background: #6f99bc;
-    @include background-image(linear-gradient(#6f99bc, #37668a)); 
   }
   @include border-radius(em(5));
 
@@ -168,12 +164,11 @@ ul {
   @include media(tablet) {
     .fb-icon {
       @include large-type;
-      top: em(6);
+      top: em(5);
       left: em(5);
     }
     .fb-text {
-      @include big-type;
-      padding: em(1) em(10) em(7) em(25);
+      padding: em(1) em(10) em(7) em(35);
     }
   }
   
@@ -187,7 +182,7 @@ ul {
   }
   
   @include media(tablet) {
-    margin-top: lines(1.25);
+    //margin-top: lines(1.25);
   }
 }
 
@@ -241,7 +236,7 @@ ul {
 
 // Used for views with left hand navigation
 .left-navi-section {
-  padding: lines(0.5);
+  padding: lines(0.5) 0;
   
   @include media(tablet) {
     padding: 0 lines(0.5);
@@ -311,7 +306,7 @@ ul {
   
   .icon-dropdown {
     position: absolute;
-    right: lines(0.5); top: em(14);
+    right: lines(1); top: em(12);
   }
   @include media(tablet) {
     display: none;
@@ -407,9 +402,10 @@ form {
 
 input[type=text], input[type=password], textarea {
   @include border-radius(em(5));
-  border: 1px solid $aside;
+  border: 2px solid $border;
+  min-height: 42px;
   width: 100%;
-  padding: em(5) em(8);
+  padding: em(4) em(8);
   
   @include media(tablet) {
     margin: 0;
@@ -1915,7 +1911,8 @@ a.lightbox-x {
     display: block;
     width: 100%;
     @include border-radius(em(5));
-    border: 1px solid $border;
+    border: 2px solid $border;
+    min-height: 42px;
     &:hover { background: $highlight; }
     margin-bottom: lines(0.25);
     .link-icon {
@@ -2051,6 +2048,16 @@ a.lightbox-x {
   .status-links {
     display: inline-block;
     padding-top: lines(0.25);
+  }
+  
+  .inbox-horizontally-aligned-status {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 25px;
+  }
+  
+  .inbox-horizontally-aligned-link {
+    display: inline-block;
   }
   
   .status-link {
@@ -2258,6 +2265,7 @@ a.lightbox-x {
 */
 
 .account-settings {
+  padding-top: lines(0.25);
   
   #account_email_form, #account_password_form {
     display: none;
@@ -2266,8 +2274,9 @@ a.lightbox-x {
   .account-settings-row {
     position: relative;
     @include border-radius(em(5));
-    border: 1px solid $border;
+    border: 2px solid $border;
     margin-bottom: lines(1);
+    min-height: 42px;
     
     .account-settings-text {
       margin-left: lines(1.5);
@@ -2342,7 +2351,7 @@ a.lightbox-x {
 
 .about-section {
   h3 {
-    padding-top: lines(0.5);
+    padding-top: lines(0.25);
     padding-bottom: lines(0.25);
   }
 }
@@ -2362,7 +2371,7 @@ a.lightbox-x {
     display: block;
     width: 100%;
     @include border-radius(em(5));
-    border: 1px solid $border;
+    border: 2px solid $border;
     &:hover { background: $highlight; }
     margin-bottom: lines(0.25);
     .link-icon {
