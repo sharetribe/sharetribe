@@ -103,23 +103,18 @@ $listing-author-avatar-height: 108;
   width: 100%;
   padding-left: em($listing-author-avatar-width);
   min-height: em($listing-author-avatar-height);
-  padding-left: em($listing-author-avatar-width) + lines(0.5);
+  padding-left: em($listing-author-avatar-width) + lines(0.75);
  }
 
 .listing-author-name {
   @include big-type;
   height: em($listing-author-avatar-width, 22) / 2;
-  line-height: em($listing-author-avatar-width, 22) / 2;
+  line-height: em($listing-author-avatar-width, 18) / 2;
  }
 
 .listing-author-contact-button {
-  @extend .button;
-
-  height: em($listing-author-avatar-width) / 2;
-  line-height: em($listing-author-avatar-width) / 2;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+  @include grey-button;
+  width: 100%;
 }
 
 // Listing author activity

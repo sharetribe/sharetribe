@@ -95,18 +95,16 @@
 // Form button or a link that looks like a button
 @mixin button($bg-color) {
   @include border-radius(em(5));
-  display: inline-block;
   background: $bg-color;
   color: $background;
   text-align: center;
   cursor: pointer;
   margin: lines(0.5) 0;
   padding: 0 lines(1);
-  height: 42px;
-  padding-bottom: 2px;
+  height: em(42);
   border: 0;
   display: table;
-  line-height: 16px;
+  line-height: lines(1);
   
   .content {
     display: table-cell; 
@@ -131,6 +129,15 @@
   height: 60px;
   line-height: 24px;
   padding-bottom: 3px;
+}
+
+
+@mixin grey-button {
+  @include button($highlight);
+  color: $light-body;
+  
+  &:hover { color: $light-body; }
+  &:active { color: $light-body; }
 }
 
 // Button on top of cover photo
