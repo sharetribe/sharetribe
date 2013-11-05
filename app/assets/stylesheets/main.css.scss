@@ -446,8 +446,13 @@ label.radiobutton {
   @include small-type;
 }
 
-button, .button {
+.button {
   @include button($link);
+}
+
+button {
+  @include button($link);
+  padding-bottom: 9px; // Button element needs 1px more bottom padding to center text vertically
 }
 
 .big-button {
