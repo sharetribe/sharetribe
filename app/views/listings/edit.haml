@@ -1,5 +1,8 @@
 = render :partial => "listings/form/javascripts", :locals => { :listing_id => @listing.id.to_s }
 
+- content_for :title_header do
+  %h1= t(".edit_listing")
+
 - content_for :extra_javascript do
   = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
 
@@ -7,8 +10,6 @@
 - @community_category = @current_community.community_category(@listing.category.top_level_parent, @listing.share_type)
 
 #new_listing_form.edit-listing-form.centered-section
-  %h1
-    = t(".edit_listing")
   = form_for @listing, :html => {:multipart => true} do |form|
     - unless @listing.category.name.eql?("rideshare")
       = render :partial => "listings/form/title", :locals => { :form => form }

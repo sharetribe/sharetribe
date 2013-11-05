@@ -198,7 +198,8 @@ default: &default_settings
   # don't need to change those
   # ----------------------------------------------------------------
   
-
+  # If there's a tax related to payment service charge (e.g. VAT) mark the percentage here
+  service_fee_tax_percentage: 24
 
 production: &production_settings
   <<: *default_settings

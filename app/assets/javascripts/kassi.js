@@ -534,7 +534,7 @@ function initialize_accept_transaction_form(commission_percentage, service_fee_v
 	auto_resize_text_areas("text_area");
 	style_action_selectors();
 	
-	if (commission_percentage != undefined) {
+	if (commission_percentage != null) {
 	  update_transaction_form_price_fields(commission_percentage, service_fee_vat);
   	$(".trigger-focusout").focusout(function(value) {
   	  update_transaction_form_price_fields(commission_percentage, service_fee_vat);
