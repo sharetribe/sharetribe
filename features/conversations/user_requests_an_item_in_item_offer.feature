@@ -22,7 +22,7 @@ Feature: User requests an item in item offer
     Then I should see "I want to borrow this item"
     And I should see "to accept the request"
     When I click ".user-menu-toggle"
-    When I follow "Logout"
+    When I follow "Log out"
     And I log in as "kassi_testperson1"
     And I follow "inbox-link"
     Then I should see "Accept"
