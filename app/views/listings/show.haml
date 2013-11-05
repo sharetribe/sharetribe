@@ -21,10 +21,10 @@
               - else
                 %span.listing-image-processing
                   = t("listings.show.processing_uploaded_image")
-        - else
+        - if @listing.listing_images.empty? && @listing.description.blank?
           .image-frame
             %span.listing-no-image
-              = t(".no_image")
+              = t(".no_description")
 
     .row
       .col-12
@@ -42,8 +42,6 @@
         - if @listing.description && !@listing.description.blank?
           - text_with_line_breaks do
             = @listing.description
-        - else
-          = t("no_description")
 
     .row
       .col-12
