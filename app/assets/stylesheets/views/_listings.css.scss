@@ -1,47 +1,66 @@
 @import "compass/utilities/general/clearfix";
+@import "compass/css3/box-sizing";
 @import "mixins/all";
 
-@mixin image-height($prop, $aspect-ratio) {
-  #{$prop}: (em(320) - lines(1)) / $aspect-ratio;
-
-  @include media(mobile) {
-    #{$prop}: (em(480) - lines(1)) / $aspect-ratio;
-  }
-
-  @include media(large-mobile) {
-    #{$prop}: (em(600) - lines(1)) / $aspect-ratio;
-  }
-
-  @include media(small-tablet) {
-    #{$prop}: lines($left-column-2-3) / $aspect-ratio;
-  }
-}
-
-.image-frame {
-  background-color: $highlight;
-
-  @include image-height("height", $listing-image-aspect-ratio);
-  @include vertical-centering-container;
-}
-
-.listing-no-image,
-.listing-image-processing {
-  @include vertical-centering-text-content;
+.listing-no-image {
   @include large-type;
   color: $border;
   text-align: center;
 }
 
-.image-frame > a {
-  @include vertical-centering-content;
+// Image frame with 3/2 aspect ratio
+.listing-image-frame {
+  position: relative;
+  @include block-with-aspect-ratio(3/2);
+  background-color: $highlight;
 }
 
-.listing-main-image {
-  @include image-height("max-height", $listing-image-aspect-ratio);
+// The content for 3/2 aspect ratio container
+// - This works also as a container for vertically
+//   centered image
+.listing-image-frame-content {
+  // With Firefox, there's 1px flickering. That's why
+  // the frame looks better if it has 1px border
+  $border-margin: 1px;
+  position: absolute;
+  top: $border-margin;
+  bottom: $border-margin;
+  left: $border-margin;
+  right: $border-margin;
 
-  display: block;
-  max-width: 100%;
-  margin: auto;
+  overflow: hidden;
+  @include vertical-centering-container;
+}
+
+.listing-image-vertical-centering {
+  @include vertical-centering-content;
+
+  // Default to landscape (too wide)
+
+  &.too-narrow {
+    // vertical-align may cause 1px flickering, if the image
+    // uses all vertical size available.
+    height: 100%;
+    vertical-align: inherit;
+  }
+
+  &.correct-ratio {
+    // vertical-align may cause 1px flickering, if the image
+    // uses all vertical size available.
+    vertical-align: top;
+  }
+}
+
+.listing-image {
+
+  // Default to landscape
+  &, &.too-wide {
+    @include image-too-wide;
+  }
+
+  &.too-narrow {
+    @include image-too-narrow;
+  }
 }
 
 // Social buttons

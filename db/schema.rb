@@ -372,6 +372,8 @@ ActiveRecord::Schema.define(:version => 20131104090808) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.boolean  "image_processing"
+    t.integer  "width"
+    t.integer  "height"
   end
 
   add_index "listing_images", ["listing_id"], :name => "index_listing_images_on_listing_id"

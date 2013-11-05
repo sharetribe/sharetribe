@@ -35,6 +35,7 @@
 .design-example {
   border-bottom: 1px solid #CCC;
   padding: lines(0.5);
+  @include clearfix;
 }
 
 .design-code {
@@ -70,10 +71,14 @@
   @include giga-type;
 }
 
-.design-block-background {
-  min-height: lines(2);
+.design-block-background-color {
   background-color: $highlight;
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.design-block-background {
+  min-height: lines(2);
+  @extend .design-block-background-color;
 }
 
 .design-block-margin {
@@ -146,4 +151,40 @@
 
 .design-fluid-thumbnail-grid-item-3x2 {
   @extend .design-fluid-thumbnail-grid-item-content;
+}
+
+.design-max-width-300 {
+  width: 25%;
+  max-width: 300px;
+  float: left;
+  padding-right: lines(0.5);
+  margin-bottom: lines(0.5);
+}
+
+.design-aspect-ratio {
+  position: relative;
+  @include block-with-aspect-ratio(3/2);
+}
+
+.design-aspect-ratio-content {
+  @include absolutely-all;
+  @extend .design-block-background-color;
+  @include vertical-centering-container;
+}
+
+.design-vertical-centering-content-too-wide {
+  @include vertical-centering-content;
+}
+
+.design-vertical-centering-content-too-narrow {
+  @include vertical-centering-content;
+  height: 100%;
+}
+
+.design-image-too-wide {
+  @include image-too-wide;
+}
+
+.design-image-too-narrow {
+  @include image-too-narrow;
 }
