@@ -13,11 +13,15 @@ es-ES:
       edit_look_and_feel:
         edit_community_look_and_feel: "Editar apariencia de la comunidad %{community_name}"
         community_logo: Logo
+        community_logo_icon: ~
         community_cover_photo: "Foto de portada"
         community_custom_color1: "Color principal"
+        community_custom_color2: ~
         logo_instructions_text: "El archivo del logo será cortado en cuadrado y redimensionado a 192x192 pixeles si es necesario"
+        logo_icon_instructions_text: ~
         cover_photo_instructions_text: "El archivo de la foto de portada será redimensionado a 1600x195 pixeles de tamaño e imágenes más altas serán cortadas por la mitad."
         custom_color1_instructions_text: "Puedes cambiar el color principal de la interfaz de usuario de esta comunidad ingresando un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> puede ayudarte a elegir el color y copiar el código aquí."
+        custom_color2_instructions_text: ~
         invalid_color_code: "El código de color debe contener 6 caracteres, números o letras de la A a la F, por ejemplo D96E21"
       edit_welcome_email:
         welcome_email_content: ~
@@ -681,6 +685,8 @@ es-ES:
       some_private_requests_exist: "Ya existen <b>%{number_of_listings} solicitudes</b>,"
     event_feed:
       latest_events: "Qué está pasando"
+    grid_item:
+      processing_uploaded_image: ~
     index:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
@@ -710,6 +716,9 @@ es-ES:
       teaser_text: "%{service_name} es un servicio para la comunidad %{community}. Aquí podrás prestar, arrendar, regalar y vender cosas, dar y hacer favores o compartir trayectos de traslado. ¿Puedes prestarle algo a alguien o ayudarlo con algo?"
       tell_it_here: "Dilo aquí!"
       welcome_to_new_kassi: "Bienvenido al nuevo %{service_name}!"
+      no_reviews: ~
+      no_image: ~
+      filter: ~
     invitation_form:
       invite_your_friends: "Invita a tus amigos a %{service_name}!"
       invite_your_neighbors: ~
@@ -720,6 +729,9 @@ es-ES:
       invitation_emails_field_placeholder: "amigo1@ejemplo.com, amigo2@ejemplo.com, ..."
       invitation_message_field_placeholder: "Me uní a este fantástico servicio. Deberías hacer lo mismo!"
       errors_in_emails: "Revisa que sean emails válidos, separados por una coma."
+    list_item:
+      review: ~
+      reviews: ~
     news_item:
       show_less: "Menos de"
       show_more: "Más de"
@@ -744,6 +756,9 @@ es-ES:
       search: Buscar
       map: "Mostrar mapa"
       list: "Mostrar lista"
+      map_button: ~
+      grid_button: ~
+      list_button: ~
       all_listing_types: "Todos los tipos de listado"
       all_categories: "Todas las categorías"
   infos:
@@ -790,6 +805,8 @@ es-ES:
       sent: Enviado
     dashboard:
       title: "%{service_name} - Comparte bienes, servicios y viajes en tu comunidad local!"
+    global-header:
+      select_language: ~
     infos:
       about: "¿Qué es %{service_name}?"
       how_to_use: "Cómo usar"
@@ -1109,6 +1126,7 @@ es-ES:
       link_label_for_rideshare_offer: Contacto
       link_label_for_rideshare_request: Contacto
     new:
+      post_a_new_listing: ~
       listing: aviso
       offer: "Tengo algo para ofrecer a los demás"
       request: "Necesito algo"
@@ -1184,11 +1202,14 @@ es-ES:
       add_profile_picture: "Añada una imagen de perfil"
       comments: Comentarios
       contact_by_phone: "Contactar por teléfono:"
+      contact: ~
       favor_offer: "Oferta de servicios"
       favor_request: "Solicitud de servicio"
       item_offer_trade: "Oferta de trueque"
       item_request_trade: "Solicitud de trueque"
       no_description: "No hay descripción"
+      no_image: ~
+      no_reviews: ~
       offer: Oferta
       listing_created: ~
       open_until: "Abierto hasta %{date}"
@@ -1409,6 +1430,7 @@ es-ES:
     profile_listings:
       show_also_closed: "Mostrar como cerrada"
       show_only_open: "Mostrar como abierta"
+      no_image: ~
     show:
       contact: "Contactar a %{person}"
       about_me: "Acerca de mí:"

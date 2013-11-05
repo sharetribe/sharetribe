@@ -13,11 +13,15 @@ fr:
       edit_look_and_feel:
         edit_community_look_and_feel: "Modifier la présentation et l'aspect de la tribu \"%{community_name}\""
         community_logo: Logo
+        community_logo_icon: Icône
         community_cover_photo: "Photo de couverture"
         community_custom_color1: "Couleur principale"
-        logo_instructions_text: "Le logo sera redimensionné en carré de 192x192 pixels si nécessaire."
+        community_custom_color2: "Couleur secondaire"
+        logo_instructions_text: "Le logo doit avoir des dimensions de 168x40 pixels."
+        logo_icon_instructions_text: "L'icône doit avoir des dimensions de 40x40 pixels."
         cover_photo_instructions_text: "La photo de couverture sera redimensionnée en 1600x195 pixels et les images trop grandes seront coupées."
         custom_color1_instructions_text: "Vous pouvez changer la couleur principale de l'interface de cette tribu en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> peut vous aider à choisir cette valeur que pourrez alors copier."
+        custom_color2_instructions_text: "Vous pouvez changer la couleur principale de l'interface de cette tribu en entrant une valeur hexadécimale."
         invalid_color_code: "Le code de la couleur doit être une suite de 6 chiffres ou lettres (de A à F), par exemple D96E21"
       edit_welcome_email:
         welcome_email_content: "Contenu du message de bienvenue"
@@ -676,8 +680,10 @@ fr:
       some_private_requests_exist: "Il y a déjà <b>%{number_of_listings} demandes</b>,"
     event_feed:
       latest_events: "Que se passe t-il"
+    grid_item:
+      processing_uploaded_image: "(Traitement de l'image envoyée...)"
     index:
-      no_listings_with_your_search_criteria: "Nous n'avons pas trouvé de résultats correspondants à votre requête. (Si vous venez d'ajouter quelque chose, cela peut prendre une dizaine de minutes avant que cela n'apparaisse dans les résultats de recherche)."
+      no_listings_with_your_search_criteria: "Nous n'avons pas trouvé de résultats correspondants à votre requête."
       no_listings_notification: "Aucune annonce. %{add_listing_link}."
       add_listing_link_text: "Ajouter une annonce"
       available_on_the_app_store: "Disponible sur l'app store"
@@ -687,7 +693,7 @@ fr:
       private_listing_notification_log_in: connecter
       is: est
       are: sont
-      what_do_you_need: "De quoi avez-vous besoin ?"
+      what_do_you_need: "Que recherchez-vous ?"
       post_new_listing: "Déposer une annonce"
       are_offering: offrent
       add_news_item: "Ajouter un article"
@@ -705,6 +711,9 @@ fr:
       teaser_text: "%{service_name} est un service pour la tribu %{community}. Ici vous pouvez prêter, louer, donner et vendre des objets, donner et recevoir de l'aide ou organiser des covoiturages. Y a-t-il quelque chose que vous pourriez prêter aux autres ou avec quoi vous pourriez les aider ?"
       tell_it_here: "Dites-le ici !"
       welcome_to_new_kassi: "Bienvenue sur la nouvelle version de %{service_name} !"
+      no_reviews: "Aucun avis"
+      no_image: "Aucune image"
+      filter: Filtre
     invitation_form:
       invite_your_friends: "Inviter vos amis sur %{service_name}"
       invite_your_neighbors: "Invitez vos voisins sur %{service_name} !"
@@ -715,6 +724,9 @@ fr:
       invitation_emails_field_placeholder: "ami1@exemple.fr, ami2@exemple.fr, ..."
       invitation_message_field_placeholder: "J'ai rejoint cette super tribu. Tu devrais aussi !"
       errors_in_emails: "Vérifiiez que les adresses email que vous ajoutez sont valides. Si vous ajoutez plusieurs adresses, assurez-vous qu'elles soient séparées par une virgule."
+    list_item:
+      review: avis
+      reviews: avis
     news_item:
       show_less: Réduire
       show_more: Développer
@@ -739,6 +751,9 @@ fr:
       search: Chercher
       map: "Voir sur la carte"
       list: "Voir la liste"
+      map_button: Carte
+      grid_button: Grille
+      list_button: Liste
       all_listing_types: "Tous les types d'annonces"
       all_categories: "Toutes les catégories"
   infos:
@@ -785,6 +800,8 @@ fr:
       sent: Envoyés
     dashboard:
       title: "%{service_name} - Partagez des objets, des services et des transports avec votre tribu locale !"
+    global-header:
+      select_language: ""
     infos:
       about: "A propos"
       how_to_use: Aide
@@ -1104,6 +1121,7 @@ fr:
       link_label_for_rideshare_offer: "Demander ce transport"
       link_label_for_rideshare_request: "Proposer ce transport"
     new:
+      post_a_new_listing: "Déposer une annonce"
       listing: annonce
       offer: "J'ai quelque chose à proposer"
       request: "J'ai besoin de quelque chose"
@@ -1179,15 +1197,18 @@ fr:
       add_profile_picture: "Ajoutez une photo de profil"
       comments: Commentaires
       contact_by_phone: "Contacter par téléphone : "
+      contact: ""
       favor_offer: "Offre de service "
       favor_request: "Demande de service "
       item_offer_trade: "Offre d'échange "
       item_request_trade: "Demande d'échange "
-      no_description: "Pas de description"
+      no_description: "Cette annonce n'a pas de description"
+      no_image: ""
+      no_reviews: ""
       offer: "Offre "
       listing_created: Créée
       open_until: "Valide jusqu'au %{date}"
-      feedback: "Remarque :"
+      feedback: Remarque
       qr_code: "QR code"
       request: Demande
       rideshare_offer: "Offre de covoiturage"
@@ -1404,6 +1425,7 @@ fr:
     profile_listings:
       show_also_closed: "Voir également les offres et demandes closes"
       show_only_open: "Voir uniquement les offres et demandes en cours"
+      no_image: ""
     show:
       contact: "Contacter %{person}"
       about_me: "A propos de moi : "

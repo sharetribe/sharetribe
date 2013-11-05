@@ -13,11 +13,15 @@ vi:
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
+        community_logo_icon: ~
         community_cover_photo: ~
         community_custom_color1: ~
+        community_custom_color2: ~
         logo_instructions_text: ~
+        logo_icon_instructions_text: ~
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
+        custom_color2_instructions_text: ~
         invalid_color_code: ~
       edit_welcome_email:
         welcome_email_content: ~
@@ -676,6 +680,8 @@ vi:
       some_private_requests_exist: "Vừa có <b>%{number_of_listings} yêu cầu</b>,"
     event_feed:
       latest_events: "Điều gì đang xảy ra"
+    grid_item:
+      processing_uploaded_image: ~
     index:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
@@ -705,6 +711,9 @@ vi:
       teaser_text: "%{service_name} là một dịch vụ cho cộng đồng %{community}. Ở đây bạn có thể cho vay, cho thuê, cho đi và bán đồ đạc, cho và nhận giúp đỡ hoặc cho quá giang xe. Bạn có thể cho người khác mượn một thứ gì đó hoặc giúp đỡ họ không?"
       tell_it_here: "Cho nó biết ở đây!"
       welcome_to_new_kassi: "Chào mừng %{service_name} mới!"
+      no_reviews: ~
+      no_image: ~
+      filter: ~
     invitation_form:
       invite_your_friends: "Mời bạn bè của bạn vào %{service_name}!"
       invite_your_neighbors: ~
@@ -715,6 +724,9 @@ vi:
       invitation_emails_field_placeholder: ~
       invitation_message_field_placeholder: ~
       errors_in_emails: ~
+    list_item:
+      review: ~
+      reviews: ~
     news_item:
       show_less: "Hiển thị ít hơn"
       show_more: "Hiển thị thêm"
@@ -739,6 +751,9 @@ vi:
       search: ~
       map: ~
       list: ~
+      map_button: ~
+      grid_button: ~
+      list_button: ~
       all_listing_types: ~
       all_categories: ~
   infos:
@@ -785,6 +800,8 @@ vi:
       sent: "Đã gửi"
     dashboard:
       title: "%{service_name} - chia sẻ hàng hóa, dịch vụ và chuyến đi trong cộng đồng địa phương của bạn!"
+    global-header:
+      select_language: ~
     infos:
       about: "Đó là gì"
       how_to_use: "Làm sao dùng"
@@ -1104,6 +1121,7 @@ vi:
       link_label_for_rideshare_offer: "Yêu cầu cuốc xe này"
       link_label_for_rideshare_request: "Hỗ trợ cuốc xe"
     new:
+      post_a_new_listing: ~
       listing: ~
       offer: ~
       request: ~
@@ -1179,11 +1197,14 @@ vi:
       add_profile_picture: "Thêm ảnh tiểu sử"
       comments: "Thảo luận công khai"
       contact_by_phone: "Liên hệ bằng điện thoại:"
+      contact: ~
       favor_offer: "Dịch vụ hỗ trợ"
       favor_request: "Dịch vụ yêu cầu"
       item_offer_trade: "Trao đổi hỗ trợ"
       item_request_trade: "Trao đổi yêu cầu"
       no_description: "Không mô tả"
+      no_image: ~
+      no_reviews: ~
       offer: "Hỗ trợ"
       listing_created: ~
       open_until: ~
@@ -1402,6 +1423,7 @@ vi:
     profile_listings:
       show_also_closed: "Hiển thị cũng đóng"
       show_only_open: "Chỉ hiển thị mở"
+      no_image: ~
     show:
       contact: "Liên hệ %{person}"
       about_me: "Về tôi:"

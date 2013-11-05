@@ -1,4 +1,4 @@
-ro:
+en-bl:
   admin:
     communities:
       edit_details:
@@ -84,22 +84,22 @@ ro:
     edit_page: ~
     default_community_slogan: ~
     default_community_description: ~
-    cancel: Anulează
-    fields_that_are_mandatory: "Campurile cu stea (*) sunt obligatorii."
-    or: sau
+    cancel: ~
+    fields_that_are_mandatory: ~
+    or: ~
     password: ~
     service_name: ~
     share_types:
       request: ~
       offer: ~
-      borrow: imprumutare
-      buy: cumpărare
-      give_away: oferire
-      lend: împrumut
-      receive: gratuit
-      rent: inchiriere
-      rent_out: "de dat spre închiriere"
-      sell: "de vânzare"
+      borrow: ~
+      buy: ~
+      give_away: ~
+      lend: ~
+      receive: ~
+      rent: ~
+      rent_out: ~
+      sell: ~
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: ~
@@ -126,7 +126,7 @@ ro:
       other: ~
     username: ~
     username_or_email: ~
-    what_is_this: "Ce înseamnă asta?"
+    what_is_this: ~
   conversations:
     accept:
       respond_to_offer: ~
@@ -150,11 +150,11 @@ ro:
       give_feedback_to: ~
       do_not_give_feedback: ~
     index:
-      loading_more_messages: "Se încarcă mai multe mesaje"
-      message_partitive: mesaj
-      messages_partitive: mesaje
-      no_received_messages: "Nici un mesaj primit"
-      no_sent_messages: "Nici un mesaj trimis"
+      loading_more_messages: ~
+      message_partitive: ~
+      messages_partitive: ~
+      no_received_messages: ~
+      no_sent_messages: ~
     conversation:
       accepted_request: ~
       accepted_offer: ~
@@ -177,9 +177,9 @@ ro:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: "Cere o favoare de la"
-      favor_request_message_form_title: "Oferă o favoare pentru"
-      housing_offer_message_form_title: Răspunde
+      favor_offer_message_form_title: ~
+      favor_request_message_form_title: ~
+      housing_offer_message_form_title: ~
       housing_request_message_form_title: ~
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
@@ -197,21 +197,21 @@ ro:
       housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
-      item_request_message_form_title: "Oferă un produs pentru"
-      message: Mesaj
-      rideshare_offer_message_form_title: "Cere un drum cu mașina de la"
-      rideshare_request_message_form_title: "Oferă un drum cu mașina pentru"
+      item_request_message_form_title: ~
+      message: ~
+      rideshare_offer_message_form_title: ~
+      rideshare_request_message_form_title: ~
       send_message: ~
       send: ~
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
-      title: Titlu
+      title: ~
       send_message_to_user: ~
     notifications:
       badgenotification:
-        see_all_your_badges: "Vezi toate etichetele"
-        you_have_earned_badge: "Ai castigat ecticheta"
+        see_all_your_badges: ~
+        you_have_earned_badge: ~
       comment_to_followed_listing_notification:
         has_commented: ~
         offer_you_follow: ~
@@ -224,34 +224,34 @@ ro:
         has_commented: ~
         your_offer: ~
         your_request: ~
-      loading_more_notifications: "Se incarca mai multe notificari"
-      no_notifications: "Nici o notificare"
+      loading_more_notifications: ~
+      no_notifications: ~
       testimonialnotification:
-        give_feedback_to: "Ofera feedback pentru %{name}"
-        has_given_you_feedback_on_event: "ti-a oferit feedback pentru eveniment"
-        see_all_the_feedback_you_have_received: "vezi toate feedback-urile primite"
+        give_feedback_to: ~
+        has_given_you_feedback_on_event: ~
+        see_all_the_feedback_you_have_received: ~
     show:
       in_response_to_listing: ~
       message_sent_by: ~
       message_sent_to: ~
-      send_reply: "Trimite raspuns"
-      write_a_reply: "Scrie un răspuns"
+      send_reply: ~
+      write_a_reply: ~
       conversation_about_listing: ~
       conversation_with_user: ~
       last_message_at: ~
     status:
       cancel_payed_transaction: ~
-      feedback_given: "Feedback oferit"
-      feedback_skipped: "Feedback omis"
-      give_feedback: "Oferă feedback"
-      offer_accepted: "Oferă acceptată"
-      offer_rejected: "Ofertă respinsă"
+      feedback_given: ~
+      feedback_skipped: ~
+      give_feedback: ~
+      offer_accepted: ~
+      offer_rejected: ~
       offer_canceled: ~
       offer_confirmed: ~
       pay: ~
       paid: ~
-      request_accepted: "Cerere acceptată"
-      request_rejected: "Cerere refuzată"
+      request_accepted: ~
+      request_rejected: ~
       request_confirmed: ~
       request_canceled: ~
       skip_feedback: ~
@@ -260,10 +260,10 @@ ro:
       waiting_confirmation_from_requester: ~
       waiting_payment_from_requester: ~
     status_link:
-      accept_offer: "Acceptă ofertă"
-      accept_request: "Acceptă cerere"
-      reject_offer: "Respinge ofertă"
-      reject_request: "Respinge cerere"
+      accept_offer: ~
+      accept_request: ~
+      reject_offer: ~
+      reject_request: ~
       confirm: ~
       cancel: ~
   communities:
@@ -387,7 +387,7 @@ ro:
       kassi_for_your_university: ~
       kassi_for_your_university_description: ~
       want_kassi_for_your_community: ~
-      email_default_text: "Adresa ta de e-mail"
+      email_default_text: ~
       send: ~
       or_drop_us_a_line: ~
       thanks_for_contacting_us: ~
@@ -605,10 +605,10 @@ ro:
       kassi_does_not_currently_work_without_javascript: ~
       kassi_does_not_currently_work_without_javascript_dashboard: ~
       contact_us: ~
-      send_feedback: "Trimite feedback"
-      your_feedback_to_admins: "Feedback-ul tau pentru administratori"
-    send: Trimite
-    your_email_address: "Adresa ta de e-mail"
+      send_feedback: ~
+      your_feedback_to_admins: ~
+    send: ~
+    your_email_address: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: ~
@@ -636,12 +636,12 @@ ro:
       request_partitive: ~
   header:
     about: ~
-    home: Acasa
+    home: ~
     members: ~
     new_listing: ~
-    mobile_version: "Versiune pentru mobil"
-    offers: Oferte
-    requests: Cereri
+    mobile_version: ~
+    offers: ~
+    requests: ~
     search_kassi: ~
     create_new_marketplace: ~
     contact_us: ~
@@ -661,13 +661,13 @@ ro:
       examples_of_what_you_could_request_to_others: ~
       favor_offer_list: ~
       favor_request_list: ~
-      favors_to_offer: "Ajutor: "
-      favors_to_request: "Ajutor: "
+      favors_to_offer: ~
+      favors_to_request: ~
       item_offer_list: ~
       item_request_list: ~
       items_to_offer: ~
       items_to_request: ~
-      log_in: conecteaza-te!
+      log_in: ~
       no_offers_visible_unless_logged_in: ~
       no_open_offers_currently: ~
       no_open_requests_currently: ~
@@ -695,16 +695,16 @@ ro:
       are: ~
       what_do_you_need: ~
       post_new_listing: ~
-      are_offering: oferta
+      are_offering: ~
       add_news_item: ~
       inform_others_about_events: ~
       lend_rent_help_carpool: ~
       loading_more_content: ~
       more_events: ~
-      news: Stiri
+      news: ~
       no_news: ~
       more_news: ~
-      or: sau
+      or: ~
       or_see_what_the_others: ~
       recent_events: ~
       requesting: ~
@@ -743,7 +743,7 @@ ro:
       you_have_not_added_your_info: ~
       add_your_info_link: ~
     recent_listing:
-      please_offer: Oferta
+      please_offer: ~
       comment: ~
       comments: ~
     filters:
@@ -794,45 +794,45 @@ ro:
       join_without_facebook: ~
       join_without_facebook_link: ~
     conversations:
-      messages: Mesaje
-      notifications: Notificări
-      received: Primite
-      sent: Trimise
+      messages: ~
+      notifications: ~
+      received: ~
+      sent: ~
     dashboard:
       title: ~
     global-header:
       select_language: ~
     infos:
-      about: "Ce este Kassi?"
-      how_to_use: "Cum să folosești Kassi"
-      info_about_kassi: "Informații despre Kassi"
+      about: ~
+      how_to_use: ~
+      info_about_kassi: ~
       news: ~
       register_details: ~
       terms: ~
     logged_in:
-      admin: Admin
-      go_to_your_profile_page: Profil
-      hi: Salut
-      login: Conectează-te
-      logout: Deconectează-te
-      notifications: Notificări
-      requests: "Cereri prietenie"
+      admin: ~
+      go_to_your_profile_page: ~
+      hi: ~
+      login: ~
+      logout: ~
+      notifications: ~
+      requests: ~
       settings: ~
-      sign_up: "Creează cont"
+      sign_up: ~
     logged_in_messages_icon:
-      messages: Mesaje
+      messages: ~
     logged_in_notifications_icon:
-      notifications: Notificări
+      notifications: ~
     mobile_logged_in:
-      admin: Admin
-      go_to_your_profile_page: Profil
-      hi: Salut
-      login: Conectare
-      logout: Deconectare
-      notifications: Notificari
-      requests: "Cereri prietenie"
+      admin: ~
+      go_to_your_profile_page: ~
+      hi: ~
+      login: ~
+      logout: ~
+      notifications: ~
+      requests: ~
       settings: ~
-      sign_up: Înregistrare
+      sign_up: ~
     notifications:
       test_welcome_email_delivered_to: ~
       something_went_wrong: ~
@@ -841,7 +841,7 @@ ro:
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       comment_cannot_be_empty: ~
-      comment_sent: "Comentariu trimis"
+      comment_sent: ~
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: ~
@@ -1495,11 +1495,11 @@ ro:
       request_new_password: ~
       change_your_password: ~
     confirmation_pending:
-      welcome_to_kassi: "Bine ați venit la Kassi!"
+      welcome_to_kassi: ~
       check_your_email: ~
       get_started: ~
-      getting_started_instructions: "După ce ați confirmat contul, este o idee bună sa adăugați o fotografie la <a href=\"%{profile_url}\"> profilul dumnveavoastră</a> și să completați alte detalii, sau puteți continua direct spre portal adăugând o <a href=\"/en/listings/new/offer\"> ofertă </a> despre ceva ce puteți împrumuta, închiria, vinde sau face pentru ceilalți. Sau dacă aveți nevoie de un lucru ori de ajutor, scrieți o<a href=\"/en/listings/new/request\"> cerere </a>."
-      resend_confirmation_instructions: "Retrimite instrucțiunile de confirmare"
+      getting_started_instructions: ~
+      resend_confirmation_instructions: ~
       your_current_email_is: ~
       change_email: ~
       confirm_your_email: ~
