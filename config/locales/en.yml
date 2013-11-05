@@ -418,8 +418,8 @@ en:
       city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe of Kallio, Helsinki</a>"
   emails:
     accept_reminder:
-      remember_to_accept_offer: "Remember to accept or reject an offer"
-      remember_to_accept_request: "Remember to accept or reject a request"
+      remember_to_accept_offer: "Remember to accept or reject an offer from %{sender_name}"
+      remember_to_accept_request: "Remember to accept or reject a request from %{sender_name}"
       you_can_accept_or_reject_offer_at: "You can accept or reject the offer at"
       you_can_accept_or_reject_request_at: "You can accept or reject the request at"
       you_have_not_yet_accepted_or_rejected_offer: "You have not yet accepted or rejected the offer %{title} you received %{date}."
@@ -495,7 +495,7 @@ en:
       conversation_title: "Message thread title: %{title}"
       view_message: "View message"
       has_sent_you_a_message_in_kassi: "%{sender} has sent you a message in %{service_name}."
-      you_have_a_new_message: "You have a new message in %{service_name} from %{sender_name}"
+      you_have_a_new_message: "A new message in %{service_name} from %{sender_name}"
     new_payment:
       new_payment: "You have received a new payment"
       you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. Here is your receipt."
