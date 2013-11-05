@@ -38,6 +38,9 @@ $testimonial-icon-width: 40;
 .testimonial-details {
   padding-left: $testimonial-avatar-width + $testimonial-gutter;
   padding-right: em($testimonial-icon-width) + $testimonial-gutter;
+  padding-bottom: lines(0.5);
+  border-bottom: 1px solid $border;
+  margin-bottom: lines(0.5);
 }
 
 .testimonial-icon {
