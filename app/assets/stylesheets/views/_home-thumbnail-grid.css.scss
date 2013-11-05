@@ -16,39 +16,6 @@ $home-thumbnail-grid-author: $home-thumbnail-grid-avatar + ($home-thumbnail-grid
   @include create-fluid-thumbnail-grid(home, 1, 1, 2, 3, 4, 4, 4, 4);
 }
 
-.home-fluid-thumbnail-grid-image-container {
-  @include border-top-radius($default-border-radius);
-  position: relative;
-  color: $background;
-
-  &:hover {
-    color: $highlight;
-  }
-}
-
-.home-fluid-thumbnail-grid-title {
-  position: absolute;
-  bottom: 0;
-  padding: lines(0.5);
-  line-height: 1.2em;
-}
-
-.home-fluid-thumbnail-grid-overlay {
-  @include border-top-radius($default-border-radius);
-  @include overlay;
-  @include absolutely-all;
-}
-
-.home-fluid-thumbnail-grid-image {
-  @include border-top-radius($default-border-radius);
-  display: block;
-  width: 100%;
-}
-
-.home-fluid-thumbnail-grid-price {
-  @include listing-price;
-}
-
 .home-fluid-thumbnail-grid-author {
   @include border-bottom-radius($default-border-radius);
   background-color: $highlight;

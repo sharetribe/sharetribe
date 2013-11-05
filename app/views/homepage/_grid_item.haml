@@ -1,25 +1,9 @@
 .home-fluid-thumbnail-grid-item
-  .home-fluid-thumbnail-grid-item-content
-    = link_to listing, :class => "home-fluid-thumbnail-grid-item-link" do
-      .home-fluid-thumbnail-grid-image-container
-        - with_first_listing_image(listing) do |first_image|
-          = image_tag first_image.image.url(:small_3x2), {:alt => listed_listing_title(listing), :class => "home-fluid-thumbnail-grid-image"}
-
-        - with_first_listing_image_processing(listing) do
-          = image_tag "empty_3x2.gif", {:class => "home-fluid-thumbnail-grid-image"}
-
-        - without_listing_image(listing) do
-          = image_tag "empty_3x2.gif", {:class => "home-fluid-thumbnail-grid-image"}
-
-        .home-fluid-thumbnail-grid-overlay
-        .home-fluid-thumbnail-grid-title
-          - with_first_listing_image_processing(listing) do
-            = t(".processing_uploaded_image")
-            %br/
-          = listing.title
-        - if listing.price
-          .home-fluid-thumbnail-grid-price
-            = money_without_cents_and_with_symbol(listing.price).upcase
+  %div
+    -# Listing image
+    = render :partial => "layouts/grid_item_listing_image", :locals => {:listing => listing, :modifier_class => ""}
+    
+    -# Listing author details
     .home-fluid-thumbnail-grid-author
       .home-fluid-thumbnail-grid-author-avatar
         = small_avatar_thumb(listing.organization_or_author?(@current_community), :class => "home-fluid-thumbnail-grid-author-avatar-image")

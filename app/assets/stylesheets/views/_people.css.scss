@@ -20,64 +20,15 @@ $profile-pic-gutter-mobile: lines(0.5);
   padding-bottom: lines(0.25);
   border-bottom: 1px solid $border;
 }
- 
-.people-listing-image-frame {
-  &, > a, > a > img {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
 
-  > a {
-    position: relative;
-  }
-}
-
-.people-listing-no-image {
-  /* FIXME This is not vertically centered */
-  @extend .listing-no-image;
-  padding: lines(1);
-}
-
-.load-more-listings-container {
+.people-load-more-listings-container {
   clear: both;
-  padding: lines(0) lines(0.5); // Normalize the negative margin set by the grid container
+  margin-bottom: lines(1);
 }
 
 .people-show-closed-link {
   font-size: 13px;
   margin-left: lines(0.5);
-}
-
-.people-listing-price {
-  color: $body;
-  font-weight: bold;
-  min-width: em(50);
-  text-align: center;
-
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: lines(0.2);
-  
-  background-color: white;
-  @include border-bottom-left-radius(lines(0.25));
-}
-
-.people-listing-overlay {
-  @include overlay;
-  @include absolutely-all;
-}
-
-.people-listing-title {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  color: $background;
-
-  padding: lines(0.25);
 }
 
 .profile-action-button-desktop {
@@ -122,3 +73,13 @@ $profile-pic-gutter-mobile: lines(0.5);
   
 }
 
+.people-fluid-thumbnail-grid-container {
+  @include create-fluid-thumbnail-grid(people, 1, 1, 2, 3, 2, 2, 3, 3);
+}
+
+.people-listings {
+  &.fluid-thumbnail-grid-image-overlay,
+  &.fluid-thumbnail-grid-image-image {
+    @include border-radius($default-border-radius);
+  }
+}

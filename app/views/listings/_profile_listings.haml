@@ -1,10 +1,12 @@
-- listings = persons_listings(person, limit)
-= render :partial => 'listings/profile_listing', :collection => listings, :as => :listing
+- listings = persons_listings(@person, limit)
+.people-fluid-thumbnail-grid-container
+  .people-fluid-thumbnail-grid#profile-listings-list
+    = render :partial => "people/grid_item", :collection => listings, :as => :listing
 
-.row.load-more-listings-container
-  - if listings.count > limit
+- if listings.count > limit
+  .people-load-more-listings-container
     #load-more-listings
-      - if current_user?(@person)  && params[:show_closed]
+      - if current_user?(@person) && params[:show_closed]
         = link_to t("people.show.show_all_listings"), "#"
       - else 
         = link_to t("people.show.show_all_open_listings"), "#"
