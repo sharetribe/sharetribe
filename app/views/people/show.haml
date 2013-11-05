@@ -48,7 +48,9 @@
 
     #profile-listings-list
       - limit = 9
-      = render :partial => 'listings/profile_listings', :locals => {:person => @person, :limit => limit}
+      .people-fluid-thumbnail-grid-container
+        .people-fluid-thumbnail-grid
+          = render :partial => "homepage/grid_item", :collection => @listings, :as => :listing, :locals => {:grid_class_prefix => "people"}
 
     - if @current_community.testimonials_in_use
       #people-testimonials.listing-main
