@@ -29,9 +29,18 @@ class ListingImage < ActiveRecord::Base
     tempfile = image.queued_for_write[:original]
 
     # Works with uploaded files and existing files
-    file = if tempfile.nil? then image else tempfile end
+    path_or_url = if !tempfile.nil? then
+      # Uploading new file
+      tempfile.path
+    else
+      if image.options[:storage] === :s3
+        image.url
+      else
+        image.path
+      end
+    end
 
-    geometry = Paperclip::Geometry.from_file(file)
+    geometry = Paperclip::Geometry.from_file(path_or_url)
     self.width = geometry.width.to_i
     self.height = geometry.height.to_i
   end

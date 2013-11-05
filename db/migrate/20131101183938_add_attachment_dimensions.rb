@@ -7,7 +7,7 @@ class AddAttachmentDimensions < ActiveRecord::Migration
         else 100
         end
 
-    if i % n === 0 then
+    if i > 0 && i % n === 0 then
       puts "\n[#{i}/#{count}] #{message}\n"
     end
   end
@@ -32,11 +32,11 @@ class AddAttachmentDimensions < ActiveRecord::Migration
         end
       end
       puts ""
-    rescue
+    rescue Exception => e
       puts "Migration failed, going down\n"
       self.down
 
-      raise "Migration failed, cleaned up created columns\n"
+      raise e
     end
   end
 
