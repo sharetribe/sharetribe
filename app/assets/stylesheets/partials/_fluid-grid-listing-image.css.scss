@@ -5,7 +5,6 @@
 @import "mixins/all";
 
 .fluid-thumbnail-grid-image-image-container {
-  @include border-top-radius($default-border-radius);
   position: relative;
   color: $background;
 
