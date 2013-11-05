@@ -45,19 +45,6 @@ class ListingImage < ActiveRecord::Base
     self.height = geometry.height.to_i
   end
 
-  def portrait?
-    if self.height && self.width then
-      self.height > self.width
-    else
-      # Default to landscape
-      false
-    end
-  end
-
-  def landscape?
-    !portrait?
-  end
-
   def correct_size?(aspect_ratio)
     ListingImage.correct_size? self.width, self.height, aspect_ratio
   end
