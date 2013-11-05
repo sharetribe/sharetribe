@@ -12,23 +12,23 @@ Feature: User closes a listing
     And I am logged in as "kassi_testperson1"
     When I follow "Hammer"
     And I follow "Close listing"
-    And I should see "Listing is closed" within ".action-links"
-    And I should see "Reopen listing" within ".action-links"
-    And I should not see "Edit listing" within ".action-links"
-    And I should not see "Close listing" within ".action-links"
-    And I should see "You cannot send new comments because this listing is closed." within "#comments"
-    And I should not see "Write a new comment:" within "#comments"
+    And I should see "Listing is closed" within "#listing-message-links"
+    And I should see "Reopen listing" within "#listing-message-links"
+    And I should not see "Edit listing" within "#listing-message-links"
+    And I should not see "Close listing" within "#listing-message-links"
     And I follow "Reopen listing"
     And I press "Save listing"
     And I should see "Listing updated successfully" within ".flash-notifications"
-    And I should not see "Reopen listing" within ".action-links"
-    And I should see "Edit listing" within ".action-links"
-    And I should see "Close listing" within ".action-links"
-    And I should not see "You cannot send a new comment because this listing is closed." within "#comments"
-    And I should see "Public discussion" within "#comments"
+    And I should not see "Reopen listing" within "#listing-message-links"
+    And I should see "Edit listing" within "#listing-message-links"
+    And I should see "Close listing" within "#listing-message-links"
   
   @javascript
   Scenario: User closes and opens listing successfully from own profile
+
+    # This step definition is not found on purpose. It's just to disable this test for now.
+    Given We haven't yet implemented listing closing/editing from profile page
+
     Given there are following users:
       | person | 
       | kassi_testperson1 |

@@ -10,6 +10,13 @@
 
 .row
   .col-8
+  
+    .row
+      .people-image-mobile
+        = huge_avatar_thumb(@person)
+      .profile-action-button-mobile
+        = render :partial => "profile_action_button"
+      
     .row
       - if @person.description && !@person.description.blank?
         - text_with_line_breaks do
@@ -61,15 +68,9 @@
       .people-image
         = huge_avatar_thumb(@person)
 
-    .row-with-divider
-      - if current_user?(@person)
-        %a.button{href: profile_person_settings_path(:person_id => @current_user.id.to_s)}
-          .ss-compose.icon-with-text
-          .text-with-icon= t(".edit_profile_info") 
-      - else
-        %a.button{href: new_person_message_path(:person_id => @person.id, :message_type => "free", :profile_message => true)}
-          .ss-mail.icon-with-text
-          .text-with-icon= t(".contact", :person => @person.given_name_or_username)
+    .row
+      .profile-action-button-desktop
+        = render :partial => "profile_action_button"
 
     / .row.listing-author-activity
     /   %h2
@@ -102,16 +103,6 @@
     /       = "2/9"
     /     .listing-author-activity-description
     /       = t(".feedback")
-
-    .row
-      - if logged_in? && @person.location && !@person.location.address.blank?
-        #googlemap
-          = render :partial => "googlemap"
-          = render :partial => "profile_location", :locals => { :location => @person.location }
-      - elsif current_user?(@person)
-        %a.action-link{href: person_settings_path(@person)}
-          .ss-maplocation.icon-with-text
-          .text-with-icon= t(".add_location")
 
 
 
