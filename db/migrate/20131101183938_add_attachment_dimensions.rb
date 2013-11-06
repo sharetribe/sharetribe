@@ -29,7 +29,11 @@ class AddAttachmentDimensions < ActiveRecord::Migration
 
         listing.listing_images.each do |listing_image|
           # Before save extracts dimensions
-          listing_image.save
+          begin
+            listing_image.save
+          rescue Paperclip::Errors::NotIdentifiedByImageMagickError
+            puts "COULD NOT RETRIVE DIMENSIONS FOR ListingImage (id: #{listing_image.id}) SKIPPING!"
+          end
           print "."
           STDOUT.flush
         end
