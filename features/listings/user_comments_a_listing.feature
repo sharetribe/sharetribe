@@ -50,7 +50,7 @@ Feature: User comments a listing
     And I fill in "comment_content" with "Test answer 2"
     And I press "Send comment"
     When I click ".user-menu-toggle"
-    And I follow "Logout"
+    And I follow "Log out"
     And I log in as "kassi_testperson2"
     And the system processes jobs
     Then I should not see "1" within "#notifications_link"

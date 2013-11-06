@@ -80,7 +80,7 @@ end
 Then /^I create a new (item|favor|rideshare) (offer|request) listing(?: with share type "([^"]*)")?$/ do |category, listing_type, share_type|
   steps %Q{ 
     When I go to the home page 
-    And I follow "Post a new listing!"
+    And I follow "Post a new listing"
   }
   
   case listing_type

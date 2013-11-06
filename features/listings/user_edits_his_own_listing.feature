@@ -14,7 +14,7 @@ Feature: User edits his own listing
     #And I follow "Follow this listing"
     #TODO: re-enable following here and below in this scenario
     And I click ".user-menu-toggle"
-    And I follow "Logout"
+    And I follow "Log out"
     And I log in as "kassi_testperson1"
     When I follow "Hammer"
     And I follow "Edit listing"
