@@ -15,7 +15,7 @@
         - with_image_frame(@listing) do |reason, listing_image|
           .listing-image-frame
             - if reason == :image_ok
-              %a{:href => "#", :id => "listing-image-link", :class => "listing-image-frame-content"}
+              #listing-image-link.listing-image-frame-content
                 .listing-image-vertical-centering{:class => aspect_ratio_class(listing_image) }
                   = image_tag listing_image.image.url(:big), :alt => listed_listing_title(@listing), :class => "listing-image #{aspect_ratio_class(listing_image)}"
             - else
