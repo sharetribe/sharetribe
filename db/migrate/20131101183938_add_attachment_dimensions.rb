@@ -16,6 +16,9 @@ class AddAttachmentDimensions < ActiveRecord::Migration
     add_column :listing_images, :width, :int
     add_column :listing_images, :height, :int
 
+    # Let's us use the newly added width/height
+    ListingImage.reset_column_information
+
     begin
       count = Listing.count
 
