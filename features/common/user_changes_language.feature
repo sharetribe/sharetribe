@@ -6,7 +6,7 @@ Feature: User changes language
   @javascript
   Scenario: User changes language without logging in
     Given I am on the home page
-    When I follow "Post a new listing!"
+    When I follow "Post a new listing"
     And I follow "Home" 
     And I click ".select-language"
     Then I follow "Suomi" within ".language-menu"

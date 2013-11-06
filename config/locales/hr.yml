@@ -13,11 +13,15 @@ hr:
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
+        community_logo_icon: ~
         community_cover_photo: ~
         community_custom_color1: ~
+        community_custom_color2: ~
         logo_instructions_text: ~
+        logo_icon_instructions_text: ~
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
+        custom_color2_instructions_text: ~
         invalid_color_code: ~
       edit_welcome_email:
         welcome_email_content: ~
@@ -676,6 +680,8 @@ hr:
       some_private_requests_exist: "Već postoji <b>%{number_of_listings} zahtjeva</b>,"
     event_feed:
       latest_events: "Što se događa"
+    grid_item:
+      processing_uploaded_image: ~
     index:
       no_listings_with_your_search_criteria: "Ne možemo naći niti jedan rezultat koji odgovara postavljenim uvjetima. (Ako ste tek nešto dodali, potrebno je 10 minuta prije nego se pojavi na tražilici.)"
       no_listings_notification: "Nema oglasa. %{add_listing_link}."
@@ -705,6 +711,9 @@ hr:
       teaser_text: "%{service_name} je usluga %{community} zajednice. Ovdje možete posuđivati, iznajmljivati, poklanjati i prodavati stvari, pomoći nekome i zatražiti pomoć ili podijeliti mjesto u autu. Imate li nešto za posuditi drugima ili im možete pomoći na neki drugi način?"
       tell_it_here: "Reci ovdje!"
       welcome_to_new_kassi: "Dobrodošli u novi %{service_name}!"
+      no_reviews: ~
+      no_image: ~
+      filter: ~
     invitation_form:
       invite_your_friends: "Pozovi prijatelje na %{service_name}!"
       invite_your_neighbors: "Pozovite susjede na %{service_name}!"
@@ -715,6 +724,9 @@ hr:
       invitation_emails_field_placeholder: "prijatelj1@primjer.com, prijatelj2@primjer.com, ..."
       invitation_message_field_placeholder: "Pridružio sam se ovoj super zajednici. Pridruži se i ti!"
       errors_in_emails: "Provjerite jesu li unesene email adrese ispravne. Ako ste dodali više adresa, pripazite da su odvojene zarezom."
+    list_item:
+      review: ~
+      reviews: ~
     news_item:
       show_less: "Prikaži manje"
       show_more: "Prikaži više"
@@ -739,6 +751,9 @@ hr:
       search: Pretraga
       map: "Prikaži mapu"
       list: "Prikaži listu"
+      map_button: ~
+      grid_button: ~
+      list_button: ~
       all_listing_types: "Svi tipovi oglasa"
       all_categories: "Sve kategorije"
   infos:
@@ -785,6 +800,8 @@ hr:
       sent: ~
     dashboard:
       title: ~
+    global-header:
+      select_language: ~
     infos:
       about: ~
       how_to_use: ~
@@ -1104,6 +1121,7 @@ hr:
       link_label_for_rideshare_offer: "Zatraži ovu vožnju"
       link_label_for_rideshare_request: "Ponudi prijevoz"
     new:
+      post_a_new_listing: ~
       listing: oglas
       offer: "Mogu nešto ponuditi ostalima"
       request: "Trebam nešto"
@@ -1179,11 +1197,14 @@ hr:
       add_profile_picture: "Dodaj profilnu sliku"
       comments: "Javna rasprava"
       contact_by_phone: "Kontakt telefonom:"
+      contact: ~
       favor_offer: "Ponuda usluga"
       favor_request: "Potražnja usluga"
       item_offer_trade: "Zamijeni ponudu"
       item_request_trade: "Zamijeni zahtjev"
       no_description: "Bez opisa"
+      no_image: ~
+      no_reviews: ~
       offer: Ponuda
       listing_created: Kreiran
       open_until: "Otvoreno do %{date}"
@@ -1401,6 +1422,7 @@ hr:
     profile_listings:
       show_also_closed: ~
       show_only_open: ~
+      no_image: ~
     show:
       contact: ~
       about_me: ~

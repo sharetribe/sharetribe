@@ -13,11 +13,15 @@ nl:
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
+        community_logo_icon: ~
         community_cover_photo: ~
         community_custom_color1: ~
+        community_custom_color2: ~
         logo_instructions_text: ~
+        logo_icon_instructions_text: ~
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
+        custom_color2_instructions_text: ~
         invalid_color_code: ~
       edit_welcome_email:
         welcome_email_content: ~
@@ -676,6 +680,8 @@ nl:
       some_private_requests_exist: "Er zijn al <b>%{number_of_listings} verzoeken</b>,"
     event_feed:
       latest_events: "Wat gebeurt er"
+    grid_item:
+      processing_uploaded_image: ~
     index:
       no_listings_with_your_search_criteria: "We slaagden er niet in om resultaten te vinde die voldoen aan de door jou opgegeven criteria ( indien je gewoon iets toegevoegd hebt, zou het ongeveer 10 minuten duren voordat nieuwe zaken verschijnen in de zoekfunctie)."
       no_listings_notification: "Geen lijsten%{add_listing_link}."
@@ -705,6 +711,9 @@ nl:
       teaser_text: "Kassi is een service voor de %{community} gemeenschap. Hier kan je lenen, huren, weggeven en spullen verkopen, geef en krijg hulp of deel ritten. Kan jij iemand iets lenen of helpen?"
       tell_it_here: "Vertel het hier!"
       welcome_to_new_kassi: "Welkom bij Kassi!"
+      no_reviews: ~
+      no_image: ~
+      filter: ~
     invitation_form:
       invite_your_friends: ~
       invite_your_neighbors: "Nodig je buren uit om %{service_name}"
@@ -715,6 +724,9 @@ nl:
       invitation_emails_field_placeholder: "vriend1@voorbeeld.com, vriend2@voorbeeld.com"
       invitation_message_field_placeholder: "I werd lid van deze ongeloofelijke gemeenschap. Doe het ook!"
       errors_in_emails: "Check of de e-mail adressen die je toegevoegd hebt geldig zijn. indien je meerdere adressen hebt toegevoegd, verzeker je ervan dat ze zijn gescheiden door comma's"
+    list_item:
+      review: ~
+      reviews: ~
     news_item:
       show_less: "Toon minder"
       show_more: "Toon meer"
@@ -739,6 +751,9 @@ nl:
       search: Zoek
       map: "Toon kaart"
       list: "Toon lijst"
+      map_button: ~
+      grid_button: ~
+      list_button: ~
       all_listing_types: "Alle lijst types"
       all_categories: "Alle categoriën"
   infos:
@@ -785,6 +800,8 @@ nl:
       sent: Verstuurd
     dashboard:
       title: "Kassi - deel spullen, gunsten and ritten in jou gemeenschap!"
+    global-header:
+      select_language: ~
     infos:
       about: "Wat is Kassi?"
       how_to_use: "Hoe Kassi te gebruiken"
@@ -1104,6 +1121,7 @@ nl:
       link_label_for_rideshare_offer: "vraag om een rit"
       link_label_for_rideshare_request: "Bied een rit aan"
     new:
+      post_a_new_listing: ~
       listing: Listing
       offer: "Ik heb iets aan te bieden aan anderen"
       request: "Ik zoek iets"
@@ -1179,11 +1197,14 @@ nl:
       add_profile_picture: "Voeg profiel foto toe"
       comments: Commentaar
       contact_by_phone: "Contaceer per telefoon"
+      contact: ~
       favor_offer: "Gunst aanbod"
       favor_request: "Gunst gezocht"
       item_offer_trade: "Ruil aanbod"
       item_request_trade: "Ruil verzoek"
       no_description: "Geen beschrijving"
+      no_image: ~
+      no_reviews: ~
       offer: Aanbod
       listing_created: Gecreërd
       open_until: "Open tot %{date}"
@@ -1402,6 +1423,7 @@ nl:
     profile_listings:
       show_also_closed: "Laat ook gesloten zien"
       show_only_open: "Laat alleen open zien"
+      no_image: ~
     show:
       contact: ~
       about_me: "Over mij:"

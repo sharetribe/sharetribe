@@ -96,13 +96,16 @@ class PersonMailer < ActionMailer::Base
   end
   
   # Remind users of conversations that have not been accepted or rejected
-  def accept_reminder(conversation, recipient, community)
+  # NOTE: the not_really_a_recipient is at the same spot in params
+  # to keep the call structure similar for reminder mails
+  # but the actual recipient is always the listing author.
+  def accept_reminder(conversation, not_really_a_recipient, community)
     @email_type = "email_about_accept_reminders"
     set_up_urls(conversation.listing.author, community, @email_type)
     @conversation = conversation
     mail(:to => @recipient.email,
          :from => community_specific_sender(community),
-         :subject => t("emails.accept_reminder.remember_to_accept_#{@conversation.discussion_type}"))
+         :subject => t("emails.accept_reminder.remember_to_accept_#{@conversation.discussion_type}", :sender_name => @conversation.other_party(@recipient).name(community)))
   end
   
   # Remind users to pay

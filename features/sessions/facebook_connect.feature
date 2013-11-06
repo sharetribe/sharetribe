@@ -12,7 +12,7 @@ Feature: Facebook connect
     Then user "facebooker" should have "image_file_size" with value "nil"
     Given I am on the home page
     When I click ".login-menu-toggle"
-    And I follow "Log in with your Facebook account"
+    And I follow "Log in with Facebook"
     Then I should see "Successfully authorized from Facebook account"
     And I should see "Mircos"
     And user "facebooker" should not have "image_file_size" with value "nil"
@@ -25,7 +25,7 @@ Feature: Facebook connect
     Then user "facebooker" should have "image_file_size" with value "nil"
     Given I am on the home page
     When I click ".login-menu-toggle" 
-    And I follow "Log in with your Facebook account"
+    And I follow "Log in with Facebook"
     Then I should see "Welcome to Sharetribe, Markus! There's one more step to join this community"
     When I check "community_membership_consent"
     And I press "Join community"
@@ -41,7 +41,7 @@ Feature: Facebook connect
   Scenario: Facebook connect first time, without existing account in Sharetribe
     Given I am on the home page
     When I click ".login-menu-toggle"
-    And I follow "Log in with your Facebook account"
+    And I follow "Log in with Facebook"
     Then I should see "Welcome to Sharetribe, Markus! There's one more step to join this community"
     When I check "community_membership_consent"
     And I press "Join community"
@@ -60,7 +60,7 @@ Feature: Facebook connect
       | marko | 597013691 | Marko |
     Given I am on the home page
     When I click ".login-menu-toggle"
-    And I follow "Log in with your Facebook account"
+    And I follow "Log in with Facebook"
     Then I should see "Successfully authorized from Facebook account"
     And I should see "Marko"
   
@@ -85,7 +85,7 @@ Feature: Facebook connect
     Given I am on the home page
     And there will be and error in my Facebook login
     When I click ".login-menu-toggle"
-    And I follow "Log in with your Facebook account"
+    And I follow "Log in with Facebook"
     Then I should see "Could not authorize you from Facebook"  
   
   @javascript
@@ -93,7 +93,7 @@ Feature: Facebook connect
     Given I am on the home page
     And there will be no email returned in my Facebook login
     When I click ".login-menu-toggle"
-    And I follow "Log in with your Facebook account"
+    And I follow "Log in with Facebook"
     Then I should see "Could not get email address from Facebook"
     And I should see "create an account without using Facebook below"  
    

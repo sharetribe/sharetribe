@@ -13,11 +13,15 @@ zh:
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
+        community_logo_icon: ~
         community_cover_photo: ~
         community_custom_color1: ~
+        community_custom_color2: ~
         logo_instructions_text: ~
+        logo_icon_instructions_text: ~
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
+        custom_color2_instructions_text: ~
         invalid_color_code: ~
       edit_welcome_email:
         welcome_email_content: ~
@@ -676,6 +680,8 @@ zh:
       some_private_requests_exist: "已有<b>%{number_of_listings} 请求</b>,"
     event_feed:
       latest_events: 事情发展的如何
+    grid_item:
+      processing_uploaded_image: ~
     index:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
@@ -705,6 +711,9 @@ zh:
       teaser_text: "Kassi是针对 %{community} 社区的服务。在这里您可以租售或赠送物品，提供或请求帮助，拼车。您能出借某些东西或者帮助他人么？"
       tell_it_here: 在这里说出来！
       welcome_to_new_kassi: 欢迎来到新Kassi!
+      no_reviews: ~
+      no_image: ~
+      filter: ~
     invitation_form:
       invite_your_friends: 邀请您的朋友加入Kassi！
       invite_your_neighbors: ~
@@ -715,6 +724,9 @@ zh:
       invitation_emails_field_placeholder: ~
       invitation_message_field_placeholder: ~
       errors_in_emails: ~
+    list_item:
+      review: ~
+      reviews: ~
     news_item:
       show_less: 显示更少
       show_more: "显示更多\n"
@@ -739,6 +751,9 @@ zh:
       search: ~
       map: ~
       list: ~
+      map_button: ~
+      grid_button: ~
+      list_button: ~
       all_listing_types: ~
       all_categories: ~
   infos:
@@ -785,6 +800,8 @@ zh:
       sent: 已发送
     dashboard:
       title: Kassi—在您的当地社区中分享物品，互相帮助以及拼车@
+    global-header:
+      select_language: ~
     infos:
       about: 什么是Kassi？
       how_to_use: 如何使用Kassi
@@ -1104,6 +1121,7 @@ zh:
       link_label_for_rideshare_offer: 需要顺风车
       link_label_for_rideshare_request: 提供顺风车
     new:
+      post_a_new_listing: ~
       listing: ~
       offer: ~
       request: ~
@@ -1179,11 +1197,14 @@ zh:
       add_profile_picture: ~
       comments: 评论
       contact_by_phone: ~
+      contact: ~
       favor_offer: 已有帮助
       favor_request: 已有请求
       item_offer_trade: ~
       item_request_trade: ~
       no_description: 无描述
+      no_image: ~
+      no_reviews: ~
       offer: 提议
       listing_created: ~
       open_until: ~
@@ -1401,6 +1422,7 @@ zh:
     profile_listings:
       show_also_closed: 显示已关闭的交易
       show_only_open: 仅显示开放交易
+      no_image: ~
     show:
       contact: ~
       about_me: 关于我：

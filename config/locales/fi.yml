@@ -12,12 +12,16 @@ fi:
         invite_people: "Kutsu ihmisiä yhteisöön"
       edit_look_and_feel:
         edit_community_look_and_feel: "Muokkaa yhteisön \"%{community_name}\" ulkoasua"
-        community_logo: Logo
+        community_logo: Peruslogo
+        community_logo_icon: Ikonilogo
         community_cover_photo: Kansikuva
         community_custom_color1: Pääväri
-        logo_instructions_text: "Logotiedosto leikataan neliöksi ja muutetaan tarvittaessa kokoon 192x192 pikseliä."
+        community_custom_color2: "Toinen väri"
+        logo_instructions_text: "Peruslogon koon tulee olla 168x40 pikseliä."
+        logo_icon_instructions_text: "Ikonilogon koon tulee olla 40x40 pikseliä."
         cover_photo_instructions_text: "Kansikuva muutetaan 1600x195 pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
         custom_color1_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset värin hex-koodin. Sen selville saamisessa auttaa esimerkiksi <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
+        custom_color2_instructions_text: "Tästä voit vaihtaa käyttöliittymän toisen värin."
         invalid_color_code: "Värikoodin tulisi sisältää 6 merkkiä, ja vain numeroita tai kirjaimia A-F, esimerkiksi: D96E21"
       edit_welcome_email:
         welcome_email_content: "Tervetulosähköpostin sisältö"
@@ -414,8 +418,8 @@ fi:
       city_example_link: "<a href=\"http://kallio.sharetribe.com/fi\">Kallion Sharetribe (Helsinki)</a>"
   emails:
     accept_reminder:
-      remember_to_accept_offer: "Muista hyväksyä tai hylätä saamasi tarjous"
-      remember_to_accept_request: "Muista hyväksyä tai hylätä saamasi pyyntö"
+      remember_to_accept_offer: "Muistutus: hyväksy/hylkää käyttäjän %{sender_name} tarjous"
+      remember_to_accept_request: "Muistutus: hyväksy/hylkää käyttäjän %{sender_name} pyyntö"
       you_can_accept_or_reject_offer_at: "Voit hyväksyä tai hylätä tarjouksen osoitteessa"
       you_can_accept_or_reject_request_at: "Voit hyväksyä tai hylätä pyynnön osoitteessa"
       you_have_not_yet_accepted_or_rejected_offer: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi tarjousta %{title}."
@@ -491,7 +495,7 @@ fi:
       conversation_title: "Viestiketjun otsikko: %{title}"
       view_message: "Näytä viesti"
       has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin %{service_name_inessive}."
-      you_have_a_new_message: "Sinulle on uusi viesti %{service_name_inessive} käyttäjältä %{sender_name}"
+      you_have_a_new_message: "Viesti %{service_name_inessive} käyttäjältä %{sender_name}"
     new_payment:
       new_payment: "Olet saanut uuden maksusuorituksen"
       you_have_received_new_payment: "%{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
@@ -676,6 +680,8 @@ fi:
       some_private_requests_exist: "Palvelussa on jo <b>%{number_of_listings} pyyntöä</b>,"
     event_feed:
       latest_events: "Mitä %{service_name_inessive} tapahtuu"
+    grid_item:
+      processing_uploaded_image: "(Ladatun kuvan käsittely kesken...)"
     index:
       no_listings_with_your_search_criteria: "Antamillasi hakuehdoilla ei löytynyt yhtään ilmoitusta."
       no_listings_notification: "Ei ilmoituksia. %{add_listing_link}."
@@ -705,6 +711,9 @@ fi:
       teaser_text: "%{service_name} on %{community}-yhteisön oma palvelu, jossa voit lainata, vuokrata, antaa ja myydä tavaroita, auttaa ja pyytää apua tai järjestää kimppakyytejä. Voisitko lainata muille tavaroita tai auttaa heitä?"
       tell_it_here: "Kerro se täällä!"
       welcome_to_new_kassi: "%{service_name} on uudistunut!"
+      no_reviews: "Ei palautteita"
+      no_image: "Ei kuvaa"
+      filter: Suodata
     invitation_form:
       invite_your_friends: "Kutsu kaverisi %{service_name_illative}!"
       invite_your_neighbors: "Kutsu naapurisi %{service_name_illative}!"
@@ -715,6 +724,9 @@ fi:
       invitation_emails_field_placeholder: "kaveri1@esimerkki.fi, kaveri2@esimerkki.fi, ..."
       invitation_message_field_placeholder: "Tämä palvelu on mahtava, kannattaa ehdottomasti liittyä!"
       errors_in_emails: "Tarkista että antamasi osoitteet ovat toimivia sähköpostiosoitteita. Jos osoitteita on useampi, tarkista että ne on erotettu pilkulla."
+    list_item:
+      review: palaute
+      reviews: palautetta
     news_item:
       show_less: "Näytä vähemmän"
       show_more: "Näytä lisää"
@@ -739,6 +751,9 @@ fi:
       search: Hae
       map: "Näytä kartta"
       list: "Näytä lista"
+      map_button: Kartta
+      grid_button: Ruudukko
+      list_button: Lista
       all_listing_types: "Kaikki ilmoitustyypit"
       all_categories: "Kaikki ilmoituskategoriat"
   infos:
@@ -785,6 +800,8 @@ fi:
       sent: Lähetetyt
     dashboard:
       title: "%{service_name} - jaa tavaroita, palveluksia ja kyytejä paikallisyhteisössäsi!"
+    global-header:
+      select_language: "Valitse kieli"
     infos:
       about: "Tietoa palvelusta"
       how_to_use: "Miten palvelu toimii"
@@ -1104,6 +1121,7 @@ fi:
       link_label_for_rideshare_offer: "Pyydä kyytiä"
       link_label_for_rideshare_request: "Tarjoa kyytiä"
     new:
+      post_a_new_listing: "Lisää uusi ilmoitus"
       listing: ilmoitus
       offer: "Haluan tarjota muille jotain"
       request: "Tarvitsen jotain"
@@ -1179,11 +1197,14 @@ fi:
       add_profile_picture: "Lisää profiilikuva"
       comments: "Julkinen keskustelu"
       contact_by_phone: "Puhelinnumero:"
+      contact: "Ota yhteyttä"
       favor_offer: Palvelustarjous
       favor_request: Palveluspyyntö
       item_offer_trade: "Annetaan vaihtoon"
       item_request_trade: "Halutaan vaihdossa"
-      no_description: "Ei kuvausta"
+      no_description: "Tällä ilmoituksella ei ole kuvausta"
+      no_image: "Ei kuvaa"
+      no_reviews: "Ei palautteita"
       offer: Tarjous
       listing_created: Luotu
       open_until: "Avoinna %{date} asti"
@@ -1404,6 +1425,7 @@ fi:
     profile_listings:
       show_also_closed: "Näytä myös suljetut"
       show_only_open: "Näytä vain avoimet"
+      no_image: ~
     show:
       contact: "Lähetä yksityisviesti"
       about_me: "Tietoa minusta:"

@@ -21,7 +21,7 @@ Feature: User views profile badges
   #      | person | 
   #      | kassi_testperson1 |
   #   And I am logged in as "kassi_testperson1"
-  #   When I follow "Post a new listing!"
+  #   When I follow "Post a new listing"
   #   And I follow "need something"
   #   And I follow "An item"
   #   And I follow "Tools"
@@ -57,7 +57,7 @@ Feature: User views profile badges
   #   And I press "send_testimonial_button"
   #   And the system processes jobs
   #   When I click ".user-menu-toggle"
-  #   And I follow "Logout"
+  #   And I follow "Log out"
   #   And I log in as "kassi_testperson1"
   #   When I click ".user-menu-toggle"
   #   And I follow "Profile"
