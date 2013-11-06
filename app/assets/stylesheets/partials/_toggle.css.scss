@@ -123,9 +123,6 @@
   display: block;
   cursor: pointer;
 
-  // Mobile
-  width: 100%;
-
   @include media(tablet) {
     display: inline-block;
     width: auto;
