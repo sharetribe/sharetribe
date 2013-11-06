@@ -18,6 +18,7 @@
   right: 0;
   padding: lines(0.2) lines(0.5);
   text-transform: uppercase;
+  @include border-top-right-radius(lines(0.25));
   @include border-bottom-left-radius(lines(0.25));
 }
 

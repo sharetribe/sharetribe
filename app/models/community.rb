@@ -133,6 +133,10 @@ class Community < ActiveRecord::Base
       stylesheet_url.present?
     end
   end
+
+  def has_price?
+    self.community_categories.any? { |community_category| community_category.price }
+  end
   
   def custom_stylesheet_url
     if APP_CONFIG.preproduction

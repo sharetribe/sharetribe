@@ -4,7 +4,7 @@
   Includes:
   - Listing image
   - Overlay (transparent gradient black)
-  - Listing price
+  - Listing price (if commuity has prices)
   - Adds `modifier_class` which can be used for view specific fine tunings
 
 = link_to listing, :class => "#{modifier_class} fluid-thumbnail-grid-image-item-link" do
@@ -24,10 +24,9 @@
         = t(".processing_uploaded_image")
         %br/
       = listing.title
-    - if listing.price
-      - if listing.price != 0
-        .fluid-thumbnail-grid-image-price{:class => "#{modifier_class}"}
-          = money_without_cents_and_with_symbol(listing.price).upcase
-      - else
-        .fluid-thumbnail-grid-image-price-free{:class => "#{modifier_class}"}
-          = t(".price_free")
+    - with_price(community, listing) do |price|
+      .fluid-thumbnail-grid-image-price{:class => "#{modifier_class}"}
+        = money_without_cents_and_with_symbol(listing.price).upcase
+    - with_free_price(community, listing) do
+      .fluid-thumbnail-grid-image-price-free{:class => "#{modifier_class}"}
+        = t(".price_free")
