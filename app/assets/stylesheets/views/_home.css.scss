@@ -117,7 +117,8 @@
 }
 
 $image-width: lines(7.5); // FIXME
-$image-height: image-height($image-width);
+$image-aspect-ratio: 3/2;
+$image-height: $image-width / $image-aspect-ratio;
 $image-padding: lines(1);
 $home-list-image-size-mobile: lines(3);
 $home-list-image-padding-mobile: lines(0.5);
