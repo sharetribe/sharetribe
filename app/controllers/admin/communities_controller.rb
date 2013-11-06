@@ -44,6 +44,7 @@ class Admin::CommunitiesController < ApplicationController
     
     params[:community][:join_with_invite_only] = params[:community][:join_with_invite_only].present?
     params[:community][:custom_color1] = nil if params[:community][:custom_color1] == ""
+    params[:community][:custom_color2] = nil if params[:community][:custom_color2] == ""
     
     if @community.update_attributes(params[:community])
       flash[:notice] = t("layouts.notifications.community_updated")
