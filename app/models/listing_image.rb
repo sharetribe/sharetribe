@@ -28,6 +28,10 @@ class ListingImage < ActiveRecord::Base
     return unless image?
     tempfile = image.queued_for_write[:original]
 
+    # Silently return, if there's no `width` and `height`
+    # Prevents old migrations from crashing
+    return unless self.respond_to?(:width) && self.respond_to?(:height)
+
     # Works with uploaded files and existing files
     path_or_url = if !tempfile.nil? then
       # Uploading new file
