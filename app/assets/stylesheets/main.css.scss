@@ -3519,6 +3519,7 @@ header.marketplace-header {
   
   a.global-navi-left {
     &:after {
+      color: $light-body;
       margin-left: lines(0.5);
       content: "|";
     };
