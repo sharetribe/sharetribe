@@ -13,11 +13,15 @@ de:
       edit_look_and_feel:
         edit_community_look_and_feel: "Bearbeite das Community %{community_name} Ausshen und die Haptigkeit"
         community_logo: Logo
+        community_logo_icon: ~
         community_cover_photo: Titelfoto
         community_custom_color1: Hauptfarbe
+        community_custom_color2: ~
         logo_instructions_text: "Das Logo Dokument wird in ein Quadrat ausgeschnitten und, falls nötig, in eine Größe von 192x192 Pixel angepasst."
+        logo_icon_instructions_text: ~
         cover_photo_instructions_text: "Deckblatt Bild wird in eine Größe von 1600x195 Pixel Größe angepasst, größere Bilder werden in der Mitte durch geschnitten."
         custom_color1_instructions_text: "Du kannst die Hauptfarbe der Community ändern in dem du einen neuen Farbwert eingibst. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> kann dir helfen die Farbe auszuwählen und kopiere den Code hier ein."
+        custom_color2_instructions_text: ~
         invalid_color_code: "Der Farben Code sollte 6 Ziffern oder Buchstaben A-F haben, zum Beispiel D96E21"
       edit_welcome_email:
         welcome_email_content: ~
@@ -676,6 +680,8 @@ de:
       some_private_requests_exist: "Es gibt bereits <b>%{number_of_listings} Anfragen</b>,"
     event_feed:
       latest_events: "Was ist los"
+    grid_item:
+      processing_uploaded_image: ~
     index:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: "Es gibt zur Zeit 10 offene Einträge in diesem Tribe. Kannst du jemanden deine Bohrmaschine, deinen Tennisschläger oder dein Forndue Set ausleihen? Magst du gerne nähen, Möbel zusammen stellen oder an Computern basteln? Gibt es Dinge in deinem Schrank, die du los werden möchtest? Oder willst du vielleicht eine Mitfahrgelegenheit? Oder willst du Werkzeug ausleihen? Brauchst du jemanden, der deinen Hund spazieren führt? Füge weitere Informationen darüber hier %{service_name} hinzu."
@@ -705,6 +711,9 @@ de:
       teaser_text: "%{service_name} ist ein Dienst für die %{community} Community. Hier können Sie Dinge verleihen, vermieten, verschenken oder verkaufen und Hilfe bekommen oder Mifahrgelegenheiten anbieten. Können Sie jemandem etwas verleihen oder jemandem helfen?"
       tell_it_here: "Sagen Sie es hier!"
       welcome_to_new_kassi: "Willkommen in der neuen %{service_name}!"
+      no_reviews: ~
+      no_image: ~
+      filter: ~
     invitation_form:
       invite_your_friends: "Laden Sie Ihre Freunde zu  %{service_name} ein !"
       invite_your_neighbors: "Lade deine Nachbaren zum %{service_name} ein!"
@@ -715,6 +724,9 @@ de:
       invitation_emails_field_placeholder: "freund1@beispiel.com, freund2@beispiel.com, ..."
       invitation_message_field_placeholder: "Ich bin dieser tollen Community beigetreten! Du solltest das auch!"
       errors_in_emails: "Überprüfe, dass es gültigen E-Mail Adressen mit einem Komma getrennt sind."
+    list_item:
+      review: ~
+      reviews: ~
     news_item:
       show_less: "Weniger anzeigen"
       show_more: "Mehr anzeigen"
@@ -739,6 +751,9 @@ de:
       search: Durchsuchen
       map: "Karte anzeigen"
       list: "Liste anzeigen"
+      map_button: ~
+      grid_button: ~
+      list_button: ~
       all_listing_types: "Alle Arten von Eintragungen"
       all_categories: "Alle Kategorien"
   infos:
@@ -785,6 +800,8 @@ de:
       sent: Gesendet
     dashboard:
       title: "%{service_name} - Waren teilen, Dienstleistungen und Fahrten in Ihrer lokalen Community!"
+    global-header:
+      select_language: ~
     infos:
       about: Über
       how_to_use: Hilfe
@@ -1104,6 +1121,7 @@ de:
       link_label_for_rideshare_offer: "Diese Mifahrt anfordern"
       link_label_for_rideshare_request: "Mitfahrt anbieten"
     new:
+      post_a_new_listing: ~
       listing: Eintrag
       offer: "Ich habe etwas anderen anzubieten."
       request: "Ich brauche etwas"
@@ -1179,11 +1197,14 @@ de:
       add_profile_picture: "Profilbild hinzufügen"
       comments: "Öffentliche Diskussion"
       contact_by_phone: "Kontakt per Telefon:"
+      contact: ~
       favor_offer: "Dienstleitsungs- (Service) Angebot"
       favor_request: "Dienstleistungs- (Servce) Anfrage"
       item_offer_trade: Tauschangebot
       item_request_trade: Tauschanfrage
       no_description: "Keine Beschreibung"
+      no_image: ~
+      no_reviews: ~
       offer: Angebot
       listing_created: Erstellt
       open_until: "Gültig bis %{date}"
@@ -1407,6 +1428,7 @@ de:
     profile_listings:
       show_also_closed: "Auch geschlossene anzeigen"
       show_only_open: "Nur offene anzeigen"
+      no_image: ~
     show:
       contact: "%{person} kontaktieren"
       about_me: "Über mich:"

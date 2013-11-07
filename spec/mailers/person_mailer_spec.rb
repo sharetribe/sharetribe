@@ -29,7 +29,7 @@ describe PersonMailer do
     email = PersonMailer.new_message_notification(@message, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [@test_person2.email], email.to 
-    assert_equal "You have a new message in Sharetribe from #{@message.sender.name}", email.subject
+    assert_equal "A new message in Sharetribe from #{@message.sender.name}", email.subject
   end
   
   it "should send email about a new comment to own listing" do
@@ -98,6 +98,21 @@ describe PersonMailer do
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [@test_person2.email], email.to
     assert_equal "Reminder: remember to give feedback to Teppo T", email.subject
+  end
+  
+  it "should remind to accept or reject" do
+    Person.find(@test_person2.id).update_attributes({ "given_name" => "Jack", "family_name" => "Dexter" })
+    @listing = FactoryGirl.create(:listing, :author => @test_person)
+    @conversation = FactoryGirl.create(:conversation, :listing => @listing)
+    @conversation.participants << @test_person
+    @conversation.participants << @test_person2 
+    @conversation.update_attribute(:status, "pending")
+
+    email = PersonMailer.accept_reminder(@conversation, "this_can_be_anything", @community).deliver
+    assert !ActionMailer::Base.deliveries.empty?
+
+    assert_equal [@test_person.email], email.to
+    assert_equal "Remember to accept or reject a request from Jack D", email.subject
   end
   
   it "should send email to admins of new feedback" do

@@ -12,8 +12,8 @@ fi:
         invite_people: "Kutsu ihmisiä yhteisöön"
       edit_look_and_feel:
         edit_community_look_and_feel: "Muokkaa yhteisön \"%{community_name}\" ulkoasua"
-        community_logo: "Peruslogo"
-        community_logo_icon: "Ikonilogo"
+        community_logo: Peruslogo
+        community_logo_icon: Ikonilogo
         community_cover_photo: Kansikuva
         community_custom_color1: Pääväri
         community_custom_color2: "Toinen väri"
@@ -418,8 +418,8 @@ fi:
       city_example_link: "<a href=\"http://kallio.sharetribe.com/fi\">Kallion Sharetribe (Helsinki)</a>"
   emails:
     accept_reminder:
-      remember_to_accept_offer: "Muista hyväksyä tai hylätä saamasi tarjous"
-      remember_to_accept_request: "Muista hyväksyä tai hylätä saamasi pyyntö"
+      remember_to_accept_offer: "Muistutus: hyväksy/hylkää käyttäjän %{sender_name} tarjous"
+      remember_to_accept_request: "Muistutus: hyväksy/hylkää käyttäjän %{sender_name} pyyntö"
       you_can_accept_or_reject_offer_at: "Voit hyväksyä tai hylätä tarjouksen osoitteessa"
       you_can_accept_or_reject_request_at: "Voit hyväksyä tai hylätä pyynnön osoitteessa"
       you_have_not_yet_accepted_or_rejected_offer: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi tarjousta %{title}."
@@ -495,7 +495,7 @@ fi:
       conversation_title: "Viestiketjun otsikko: %{title}"
       view_message: "Näytä viesti"
       has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin %{service_name_inessive}."
-      you_have_a_new_message: "Sinulle on uusi viesti %{service_name_inessive} käyttäjältä %{sender_name}"
+      you_have_a_new_message: "Viesti %{service_name_inessive} käyttäjältä %{sender_name}"
     new_payment:
       new_payment: "Olet saanut uuden maksusuorituksen"
       you_have_received_new_payment: "%{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
@@ -711,9 +711,9 @@ fi:
       teaser_text: "%{service_name} on %{community}-yhteisön oma palvelu, jossa voit lainata, vuokrata, antaa ja myydä tavaroita, auttaa ja pyytää apua tai järjestää kimppakyytejä. Voisitko lainata muille tavaroita tai auttaa heitä?"
       tell_it_here: "Kerro se täällä!"
       welcome_to_new_kassi: "%{service_name} on uudistunut!"
-      no_image: "Ei kuvaa"
       no_reviews: "Ei palautteita"
-      filter: "Suodata"
+      no_image: "Ei kuvaa"
+      filter: Suodata
     invitation_form:
       invite_your_friends: "Kutsu kaverisi %{service_name_illative}!"
       invite_your_neighbors: "Kutsu naapurisi %{service_name_illative}!"
@@ -725,8 +725,8 @@ fi:
       invitation_message_field_placeholder: "Tämä palvelu on mahtava, kannattaa ehdottomasti liittyä!"
       errors_in_emails: "Tarkista että antamasi osoitteet ovat toimivia sähköpostiosoitteita. Jos osoitteita on useampi, tarkista että ne on erotettu pilkulla."
     list_item:
-      review: "palaute"
-      reviews: "palautetta"
+      review: palaute
+      reviews: palautetta
     news_item:
       show_less: "Näytä vähemmän"
       show_more: "Näytä lisää"
@@ -751,9 +751,9 @@ fi:
       search: Hae
       map: "Näytä kartta"
       list: "Näytä lista"
-      grid_button: "Ruudukko"
-      list_button: "Lista"
-      map_button: "Kartta"
+      map_button: Kartta
+      grid_button: Ruudukko
+      list_button: Lista
       all_listing_types: "Kaikki ilmoitustyypit"
       all_categories: "Kaikki ilmoituskategoriat"
   infos:
@@ -1203,8 +1203,8 @@ fi:
       favor_request: Palveluspyyntö
       item_offer_trade: "Annetaan vaihtoon"
       item_request_trade: "Halutaan vaihdossa"
-      no_image: "Ei kuvaa"
       no_description: "Tällä ilmoituksella ei ole kuvausta"
+      no_image: "Ei kuvaa"
       no_reviews: "Ei palautteita"
       offer: Tarjous
       listing_created: Luotu
@@ -1427,6 +1427,7 @@ fi:
     profile_listings:
       show_also_closed: "Näytä myös suljetut"
       show_only_open: "Näytä vain avoimet"
+      no_image: ~
     show:
       contact: "Lähetä yksityisviesti"
       about_me: "Tietoa minusta:"

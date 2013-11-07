@@ -418,8 +418,8 @@ en:
       city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe of Kallio, Helsinki</a>"
   emails:
     accept_reminder:
-      remember_to_accept_offer: "Remember to accept or reject an offer"
-      remember_to_accept_request: "Remember to accept or reject a request"
+      remember_to_accept_offer: "Remember to accept or reject an offer from %{sender_name}"
+      remember_to_accept_request: "Remember to accept or reject a request from %{sender_name}"
       you_can_accept_or_reject_offer_at: "You can accept or reject the offer at"
       you_can_accept_or_reject_request_at: "You can accept or reject the request at"
       you_have_not_yet_accepted_or_rejected_offer: "You have not yet accepted or rejected the offer %{title} you received %{date}."
@@ -495,7 +495,7 @@ en:
       conversation_title: "Message thread title: %{title}"
       view_message: "View message"
       has_sent_you_a_message_in_kassi: "%{sender} has sent you a message in %{service_name}."
-      you_have_a_new_message: "You have a new message in %{service_name} from %{sender_name}"
+      you_have_a_new_message: "A new message in %{service_name} from %{sender_name}"
     new_payment:
       new_payment: "You have received a new payment"
       you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. Here is your receipt."
@@ -713,7 +713,7 @@ en:
       welcome_to_new_kassi: "Welcome to new %{service_name}!"
       no_reviews: "No reviews"
       no_image: "No image"
-      filter: "Filter"
+      filter: Filter
     invitation_form:
       invite_your_friends: "Invite your friends to %{service_name}!"
       invite_your_neighbors: "Invite your neighbors to %{service_name}!"
@@ -725,8 +725,8 @@ en:
       invitation_message_field_placeholder: "I joined this amazing community. You should too!"
       errors_in_emails: "Check that the email addresses you added are valid. If you added multiple addresses, make sure they are separated with comma."
     list_item:
-      review: "review"
-      reviews: "reviews"
+      review: review
+      reviews: reviews
     news_item:
       show_less: "Show less"
       show_more: "Show more"
@@ -751,9 +751,9 @@ en:
       search: Search
       map: "Show map"
       list: "Show list"
-      map_button: "Map"
-      grid_button: "Grid"
-      list_button: "List"
+      map_button: Map
+      grid_button: Grid
+      list_button: List
       all_listing_types: "All listing types"
       all_categories: "All categories"
   infos:
@@ -1197,19 +1197,18 @@ en:
       add_profile_picture: "Add profile picture"
       comments: "Public discussion"
       contact_by_phone: "Contact by phone:"
-      contact: "Contact"
+      contact: Contact
       favor_offer: "Service offer"
       favor_request: "Service request"
       item_offer_trade: "Swap offer"
       item_request_trade: "Swap request"
-      no_description: "No description"
-      no_image: "No image"
       no_description: "This listing doesn't have description"
+      no_image: "No image"
       no_reviews: "No reviews received"
       offer: Offer
       listing_created: Created
       open_until: "Open until %{date}"
-      feedback: "Feedback"
+      feedback: Feedback
       qr_code: "QR code"
       request: Request
       rideshare_offer: "Rideshare offer"

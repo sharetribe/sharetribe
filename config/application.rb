@@ -75,18 +75,15 @@ module Kassi
           ["Français", "fr-rc"],
           ["Español", "es-rc"],
           ["Deutsch", "de-rc"],
-          
           ["English UL", "en-ul"],
-
           ["English SB", "en-sb"],
           ["English", "en-bf"],
-          
           ["French", "fr-bd"],
           ["English", "en-bd"],
-          
           ["English", "en-cf"],
-          
-          ["English", "en-vg"]
+          ["English", "en-vg"],
+          ["English", "en-bl"],
+          ["English", "en-un"]
           
     ]
 

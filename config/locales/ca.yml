@@ -13,11 +13,15 @@ ca:
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
+        community_logo_icon: ~
         community_cover_photo: ~
         community_custom_color1: ~
+        community_custom_color2: ~
         logo_instructions_text: ~
+        logo_icon_instructions_text: ~
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
+        custom_color2_instructions_text: ~
         invalid_color_code: ~
       edit_welcome_email:
         welcome_email_content: ~
@@ -678,6 +682,8 @@ ca:
       some_private_requests_exist: "Ja hi han <b>%{number_of_listings} sol·licituds</b>,"
     event_feed:
       latest_events: ~
+    grid_item:
+      processing_uploaded_image: ~
     index:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
@@ -707,6 +713,9 @@ ca:
       teaser_text: "%{service_name} és un servei per a la comunitat de %{community}. Pots prestar, llogar, regalar i vendre coses, fer i demanar favors o compartir viatges amb cotxe. Pots prestar alguna cosa a algú o ajudar-lo?"
       tell_it_here: "Diga-ho aquí!"
       welcome_to_new_kassi: "Benvingut al nou %{service_name}!"
+      no_reviews: ~
+      no_image: ~
+      filter: ~
     invitation_form:
       invite_your_friends: "Convida als teus amics a Kassi!"
       invite_your_neighbors: ~
@@ -717,6 +726,9 @@ ca:
       invitation_emails_field_placeholder: ~
       invitation_message_field_placeholder: ~
       errors_in_emails: ~
+    list_item:
+      review: ~
+      reviews: ~
     news_item:
       show_less: "Menys de"
       show_more: "Més de"
@@ -741,6 +753,9 @@ ca:
       search: ~
       map: ~
       list: ~
+      map_button: ~
+      grid_button: ~
+      list_button: ~
       all_listing_types: ~
       all_categories: ~
   infos:
@@ -787,6 +802,8 @@ ca:
       sent: Enviat
     dashboard:
       title: "Kassi - comparteix bens, serveis i viatges dins de la teva comunitat!"
+    global-header:
+      select_language: ~
     infos:
       about: "Què és Kassi"
       how_to_use: "Com funciona"
@@ -1106,6 +1123,7 @@ ca:
       link_label_for_rideshare_offer: Contactar
       link_label_for_rideshare_request: Contactar
     new:
+      post_a_new_listing: ~
       listing: ~
       offer: ~
       request: ~
@@ -1181,11 +1199,14 @@ ca:
       add_profile_picture: ~
       comments: Comentaris
       contact_by_phone: ~
+      contact: ~
       favor_offer: "Oferta de serveis"
       favor_request: "Sol·licitud de servei"
       item_offer_trade: ~
       item_request_trade: ~
       no_description: "Sense descripció"
+      no_image: ~
+      no_reviews: ~
       offer: Oferta
       listing_created: ~
       open_until: ~
@@ -1403,6 +1424,7 @@ ca:
     profile_listings:
       show_also_closed: "Mostra com tancada"
       show_only_open: "Mostra com oberta"
+      no_image: ~
     show:
       contact: ~
       about_me: "Quant a mi:"

@@ -259,7 +259,7 @@ class Community < ActiveRecord::Base
     if domain_string =~ /\:/ #string includes port which should be removed
       domain_string = domain_string.split(":").first
     end
-    
+
     # search for exact match or then match by first part of domain string.
     # first priority is the domain, then domain_alias
     return Community.where(["domain = ?", domain_string]).first || 
