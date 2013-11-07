@@ -75,18 +75,27 @@
 }
 
 // Listing price
+.listing-price {
+  clear: both; // Price floats to left
+}
+
 .listing-price-amount {
   @include huge-type;
   color: $light-body;
+  display: block;
+  float: left;
+  margin-right: lines(0.25);
 }
 
 .listing-price-quantity {
   vertical-align: top;
   $hugeTypeLineHeight: lines(2);
-  $hugeTypeFontSize: em(42);
-  $hugeTypeMargin: ($hugeTypeLineHeight - em(42)) / 2;
-  $quantityFontSize: lines(1);
-  line-height: $hugeTypeMargin + $quantityFontSize + $hugeTypeMargin;
+  $hugeTypeFontSize: em($huge-type);
+  $hugeTypeMargin: ($hugeTypeLineHeight - $hugeTypeFontSize) / 2; // Calculate the top margin based on the huge type
+  $positionFineTune: em(2); // hugeTypeMargin calculates the correct position, but due to the different font size, some finetuning is needed
+  // Use position relative, since the element is inline (no top-margin/padding should be used)
+  position: relative;
+  top: $hugeTypeMargin + $positionFineTune;
   color: $aside;
 }
 

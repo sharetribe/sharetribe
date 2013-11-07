@@ -154,4 +154,17 @@ module ListingsHelper
       "too-wide"
     end
   end
+
+  def with_quantity_and_vat_text(community, listing, &block)
+    buffer = []
+    unless listing.quantity.blank?
+      buffer.push("/ #{@listing.quantity}")
+    end
+
+    if community.vat
+      buffer.push(t(".price_excludes_vat"))
+    end
+
+    block.call(buffer.join(" ")) unless buffer.empty?
+  end
 end
