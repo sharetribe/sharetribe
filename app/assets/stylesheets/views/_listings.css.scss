@@ -109,14 +109,15 @@ $listing-author-avatar-height: 108;
     display: block;
     width: 100%;
     height: 100%;
-
-    > img {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
   }
- }
+}
+
+.listing-author-avatar-image {
+  @include border-radius($default-border-radius);
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 
 .listing-author-details {
   width: 100%;
