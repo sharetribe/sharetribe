@@ -77,7 +77,7 @@
       .col-12
         .listing-author
           .listing-author-avatar
-            = medium_avatar_thumb(@listing.organization_or_author?(@current_community))
+            = medium_avatar_thumb(@listing.organization_or_author?(@current_community), {:class => "listing-author-avatar-image"})
           .listing-author-details
             .listing-author-name
               = link_to @listing.author.name(@current_community), @listing.author, :id => "listing-author-link"

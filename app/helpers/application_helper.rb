@@ -311,20 +311,19 @@ module ApplicationHelper
   end
   
   def small_avatar_thumb(person_or_organization, avatar_html_options={})
-    return "" if person_or_organization.nil?
-    if person_or_organization.class == Organization
-      image_tag person_or_organization.logo.url(:thumb), avatar_html_options
-    else
-      link_to((image_tag person_or_organization.image.url(:thumb), avatar_html_options), person_or_organization)
-    end
+    avatar_thumb(:thumb, person_or_organization, avatar_html_options)
   end
   
-  def medium_avatar_thumb(person_or_organization)
+  def medium_avatar_thumb(person_or_organization, avatar_html_options={})
+    avatar_thumb(:small, person_or_organization, avatar_html_options)
+  end
+
+  def avatar_thumb(size, person_or_organization, avatar_html_options={})
     return "" if person_or_organization.nil?
     if person_or_organization.class == Organization
-      image_tag person_or_organization.logo.url(:small)
+      image_tag person_or_organization.logo.url(size), avatar_html_options
     else
-      link_to((image_tag person_or_organization.image.url(:small)), person_or_organization)
+      link_to((image_tag person_or_organization.image.url(size), avatar_html_options), person_or_organization)
     end
   end
   
