@@ -3539,8 +3539,15 @@ header.marketplace-header {
     margin-right: lines(0.5);
     display: none;
     &:hover { color: $link; }
+    &:before {
+      color: $light-body;
+      display: inline-block;
+      margin-right: em(8);
+      padding-top: em(5);
+      content: "|";
+    };
     &:after {
-      color: $light-body !important;
+      color: $light-body;
       display: inline-block;
       margin-left: em(8);
       margin-right: 0;
