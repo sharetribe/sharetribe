@@ -61,12 +61,9 @@
           .listing-price
             %span.listing-price-amount
               = money_without_cents_and_with_symbol(@listing.price).upcase
-            - unless @listing.quantity.blank?
+            - with_quantity_and_vat_text(@current_community, @listing) do |text|
               %span.listing-price-quantity
-                = "/ #{@listing.quantity}"
-            - if @current_community.vat
-              %span.listing-price-excl-vat
-                = t(".price_excludes_vat")
+                = text
 
     .row-with-divider
       .col-12
