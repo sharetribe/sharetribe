@@ -238,7 +238,7 @@ namespace :deploy do
     release_name = "#{APP}_release-#{Time.now.utc.strftime("%Y%m%d%H%M%S")}"
     puts "Tagging release as '#{release_name}'"
     puts `git tag -a #{release_name} -m 'Tagged release'`
-    system("git push --tags git@heroku.com:#{APP}.git"
+    system("git push --tags git@heroku.com:#{APP}.git")
   end
   
   task :migrate do
