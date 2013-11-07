@@ -19,7 +19,7 @@ fr:
         community_custom_color2: "Couleur secondaire"
         logo_instructions_text: "Le logo doit avoir des dimensions de 168x40 pixels."
         logo_icon_instructions_text: "L'icône doit avoir des dimensions de 40x40 pixels."
-        cover_photo_instructions_text: "La photo de couverture sera redimensionnée en 1600x195 pixels et les images trop grandes seront coupées."
+        cover_photo_instructions_text: "La photo de couverture sera redimensionnée en 1920x450 pixels et les images trop grandes seront coupées."
         custom_color1_instructions_text: "Vous pouvez changer la couleur principale de l'interface de cette tribu en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> peut vous aider à choisir cette valeur que pourrez alors copier."
         custom_color2_instructions_text: "Vous pouvez changer la couleur principale de l'interface de cette tribu en entrant une valeur hexadécimale."
         invalid_color_code: "Le code de la couleur doit être une suite de 6 chiffres ou lettres (de A à F), par exemple D96E21"
@@ -1222,6 +1222,7 @@ fr:
       times: fois
       times_viewed: Vu
       processing_uploaded_image: "(Traitement de l'image envoyée...)"
+      price_excludes_vat: "(hors TVA)"
     displayed_price:
       price_excludes_vat: "(hors TVA)"
   mapview:
