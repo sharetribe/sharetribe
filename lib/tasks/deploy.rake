@@ -23,7 +23,7 @@ task :deploy_staging_migrations_from_develop => [
   'deploy_with_migrations' 
 ]
 
-task :deploy_staging_without_migrations => [
+task :deploy_staging_without_migrations_from_develop => [
   'deploy:set_staging_app',
   'deploy:set_develop_as_source_branch',
   'i18n:write_error_pages',
@@ -82,7 +82,7 @@ task :deploy_preproduction_migrations_from_develop => [
 
 ## TRANSLATION
 
-task :deploy_translation_migrations => [
+task :deploy_translation_migrations_from_develop => [
   'deploy:set_translation_app', 
   'deploy:set_develop_as_source_branch', 
   'deploy:update_closed_source_folders',  
@@ -92,7 +92,7 @@ task :deploy_translation_migrations => [
   'deploy:update_translations_stored_in_db'
 ]
 
-task :deploy_translation_without_migrations => [
+task :deploy_translation_without_migrations_from_develop => [
   'deploy:set_translation_app',
   'deploy:set_develop_as_source_branch',
   'deploy:update_closed_source_folders',
@@ -218,7 +218,7 @@ namespace :deploy do
   
   task :restart do
     puts 'Restarting app servers ...'
-    puts `heroku restart --app #{APP}`
+    system("heroku restart --app #{APP}")
   end
   
   task :generate_custom_css => :environment do
@@ -226,19 +226,19 @@ namespace :deploy do
     puts "IF YOU NEED TO REBUILD CSS USE:"
     puts "heroku run rake sharetribe:generate_customization_stylesheets"
     #puts 'Generating custom CSS for tribes who use it ...'
-    #puts  `heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}`
+    #system("heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}")
   end
   
   task :update_translations_stored_in_db do
     puts 'Updating the translations, which are stored in the DB'
-    puts  `heroku run rake sharetribe:update_categorization_translations --app #{APP}`
+    system("heroku run rake sharetribe:update_categorization_translations --app #{APP}")
   end
   
   task :tag do
     release_name = "#{APP}_release-#{Time.now.utc.strftime("%Y%m%d%H%M%S")}"
     puts "Tagging release as '#{release_name}'"
     puts `git tag -a #{release_name} -m 'Tagged release'`
-    puts `git push --tags git@heroku.com:#{APP}.git`
+    system("git push --tags git@heroku.com:#{APP}.git"
   end
   
   task :migrate do
