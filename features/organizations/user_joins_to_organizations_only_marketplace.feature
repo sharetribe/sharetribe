@@ -9,4 +9,4 @@ Feature: User joins to an organizations only community
     Then I should see "Confirm your email"
     When I confirm my email address
     Then there should be an organization account "company"
-    And I should see "Company Ltd" as signed user
+    And I should see "Company Ltd" as logged in user

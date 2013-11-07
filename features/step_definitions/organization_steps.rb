@@ -39,7 +39,7 @@ Given /^community "(.*?)" requires organization membership$/ do |community|
   c.save!
 end
 
-Then /^I should see "(.*?)" as signed user$/ do |display_name|
+Then /^I should see "(.*?)" as logged in user$/ do |display_name|
   steps %Q{
     Then I should see "#{display_name}" within ".user-name"
   }
