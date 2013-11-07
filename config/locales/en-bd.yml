@@ -1222,6 +1222,7 @@ en-bd:
       times: ~
       times_viewed: ~
       processing_uploaded_image: ~
+      price_excludes_vat: ~
     displayed_price:
       price_excludes_vat: ~
   mapview:
@@ -1313,7 +1314,7 @@ en-bd:
       create_new_account: ~
       email: ~
       email_is_in_use: ~
-      email_is_in_use_or_not_allowed: "This email is not allowed for this community. Please use your college's address (eg. firstname.lastname@essec.edu). If you still cannot get in, please send us a message via our feedback form"
+      email_is_in_use_or_not_allowed: "This email is not allowed for this community. Please use your college's address (eg. firstname.lastname@school.edu). If you still cannot get in, please send us a message via our feedback form"
       email_not_allowed: ~
       email_restriction_instructions:
         one: "This community is only for %{community_name}. To join it, please use your school email (e.g., firstname.lastname@essec.edu)"
