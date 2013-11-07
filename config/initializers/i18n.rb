@@ -24,6 +24,7 @@ I18n.fallbacks.map('en-cf' => 'en')
 I18n.fallbacks.map('en-vg' => 'en')
 I18n.fallbacks.map('en-un' => 'en')
 I18n.fallbacks.map('en-bl' => 'en')
+I18n.fallbacks.map('de-bl' => 'de')
 I18n.fallbacks.map('en-qr' => 'en')
 
 module I18n

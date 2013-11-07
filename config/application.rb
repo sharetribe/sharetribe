@@ -83,6 +83,7 @@ module Kassi
           ["English", "en-cf"],
           ["English", "en-vg"],
           ["English", "en-bl"],
+          ["Deutsch", "de-bl"],
           ["English", "en-un"],
           ["English", "en-qr"],
           
