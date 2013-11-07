@@ -61,6 +61,7 @@ class PeopleController < Devise::RegistrationsController
     error_redirect_path = domain + sign_up_path
     
     # special handling for communities that require organization membership
+    # deprecated
     if @current_community && @current_community.requires_organization_membership?
       @org_membership_required = true
     else
@@ -121,12 +122,14 @@ class PeopleController < Devise::RegistrationsController
     params[:person][:confirmed_at] = (@current_community.email_confirmation ? nil : Time.now) if @current_community
     
     params["person"].delete(:terms) #remove terms part which confuses Devise
-    
 
     # This part is copied from Devise's regstration_controller#create
     build_resource
     @person = resource
-    
+
+    # Mark as organization user if signed up through market place which is only for orgs
+    @person.is_organization = @current_community.only_organizations
+
     # Skip automatic email confirmation mail by devise, as that doesn't support custom sender address
     @person.skip_confirmation! 
   
@@ -140,7 +143,7 @@ class PeopleController < Devise::RegistrationsController
       @person.update_attributes(:confirmation_sent_at => Time.now, :confirmed_at => nil) 
 
       # send the confirmation email manually
-      @person.send_email_confirmation_to(@person.email, request.host_with_port, @current_community) unless @org_membership_required
+      @person.send_email_confirmation_to(@person.email, request.host_with_port, @current_community)
     end
   
     @person.set_default_preferences
@@ -148,6 +151,7 @@ class PeopleController < Devise::RegistrationsController
     if @current_community
       membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent)
       membership.status = "pending_email_confirmation" if @current_community.email_confirmation?
+      # Deprecated
       membership.status = "pending_organization_membership" if @org_membership_required
       membership.invitation = invitation if invitation.present?
       # If the community doesn't have any members, make the first one an admin
@@ -171,6 +175,7 @@ class PeopleController < Devise::RegistrationsController
       session[:allowed_email] = "@#{params[:person][:email].split('@')[1]}" if community_email_restricted?
       redirect_to domain + new_tribe_path
     elsif @org_membership_required
+      # Deprecated
       redirect_to :controller => "community_memberships", :action => "new"
     elsif @current_community.email_confirmation
       flash[:notice] = t("layouts.notifications.account_creation_succesful_you_still_need_to_confirm_your_email")

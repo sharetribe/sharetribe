@@ -15,10 +15,12 @@
     = link_to(t(".profile_page"), @person) + "."
 
   = form_for @person do |form|
-    = form.label :given_name, t(".given_name")
+    - name_label = @current_community.only_organizations ? t("organizations.form.name") : t(".given_name")
+    = form.label :given_name, name_label
     = form.text_field :given_name, :class => "text_field", :maxlength => "30"
-    = form.label :family_name, t(".family_name")
-    = form.text_field :family_name, :class => "text_field", :maxlength => "30"
+    - unless @current_community.only_organizations
+      = form.label :family_name, t(".family_name")
+      = form.text_field :family_name, :class => "text_field", :maxlength => "30"
     
     -# Location
     .inline-label-container
