@@ -27,5 +27,8 @@ class PaymentGateway < ActiveRecord::Base
   def register_payout_details(person)
     # nothing to do by default
   end
-  
+
+  def has_registered?(person)
+    # nothing by default
+  end
 end

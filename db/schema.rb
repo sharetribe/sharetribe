@@ -591,6 +591,9 @@ ActiveRecord::Schema.define(:version => 20131111140902) do
     t.string   "bic"
     t.string   "mangopay_beneficiary_id"
     t.boolean  "is_organization"
+    t.string   "company_id"
+    t.string   "checkout_merchant_id"
+    t.string   "checkout_merchant_key"
   end
 
   add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true

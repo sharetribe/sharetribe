@@ -4,9 +4,10 @@ Feature: User adds payment information
 
   @javascript
   Scenario: user adds payment information
-    Given I am logged in as organization "company"
-    And I go to settings page
-    Then I should see link to payment details
-    When I follow payment details link
-    And I fill in payment details form
-    Then I should have required payment details saved to my account information
+    Given there is an organization "company"
+    And "company" is a member of community "test"
+    And community "test" has payments in use via Checkout
+    And I am logged in as "company"
+    When I browse to payment settings
+    And I fill the payment details form
+    Then "company" should have required payment details saved to my account information

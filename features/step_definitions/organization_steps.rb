@@ -27,6 +27,15 @@ When /^I confirm my email address$/ do
   }
 end
 
+Then /^"(.*?)" should have required payment details saved to my account information$/ do |username|
+  p = Person.find_by_username(username)
+
+  p.checkout_merchant_id.should_not be_nil
+  p.checkout_merchant_id.should_not be_blank
+  p.checkout_merchant_key.should_not be_nil
+  p.checkout_merchant_key.should_not be_blank
+end
+
 Then /^there should be an organization account "(.*?)"$/ do |org_username|
   o = Person.find_by_username(org_username)
   o.is_organization.should be_true
@@ -43,6 +52,39 @@ Then /^I should see "(.*?)" as logged in user$/ do |display_name|
   steps %Q{
     Then I should see "#{display_name}" within ".user-name"
   }
+end
+
+When /^I browse to payment settings$/ do
+  steps %Q{
+    When I go to the settings page
+    Then the link to payment settings should be visible
+    When I follow link to payment settings
+    Then I should be on the payment settings page
+  }
+end
+
+Then /^the link to payment settings should be visible$/ do
+  find("#settings-tab-payments").should be_visible
+end
+
+When /^I follow link to payment settings$/ do
+  steps %Q{
+    When I follow "settings-tab-payments"
+  }
+end
+
+When /^I fill the payment details form$/ do
+  steps %Q{
+    When I fill in "person[company_id]" with "1234567-8"
+    And I fill in "person[organization_address]" with "Startup Sauna, Betonimiehenkuja, Espoo, Finland"
+    And I fill in "person[phone_number]" with "555-12345678"
+    And I fill in "person[organization_website]" with "http://www.company.com/"
+    And I press submit
+  }
+end
+
+Given /^there is an organization "(.*?)"$/ do |org_username|
+  FactoryGirl.create(:person, :username => org_username, :is_organization => true)
 end
 
 Given /^there is a (seller|non\-seller) organization "(.*?)"(?: with email requirement "(.*?)")?$/ do |seller_status, name, allowed_emails|
