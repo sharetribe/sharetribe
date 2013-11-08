@@ -128,6 +128,6 @@ class Checkout < PaymentGateway
   end
 
   def has_registered?(person)
-    person.merchant_id.present? && person.merchant_key.present?
+    person.checkout_merchant_id.present? && person.checkout_merchant_key.present?
   end
 end

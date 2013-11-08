@@ -87,6 +87,28 @@ Given /^there is an organization "(.*?)"$/ do |org_username|
   FactoryGirl.create(:person, :username => org_username, :is_organization => true)
 end
 
+Given /^"(.*?)" has Checkout account$/ do |org_username|
+  org = Person.find_by_username(org_username)
+  org.checkout_merchant_key = "SAIPPUAKAUPPIAS"
+  org.checkout_merchant_id = "123456"
+  org.save!
+end
+
+Then /^I should see information about existing Checkout account$/ do
+  find("#payment-help-checkout-exists").visible?.should be_true
+  steps %Q{
+    And I should not see payment setting fields
+  }
+end
+
+Then /^I should not see payment setting fields$/ do
+  page.should have_no_selector("#person-company-id")
+  page.should have_no_selector("#person-organization-address")
+  page.should have_no_selector("#person-phone-number")
+  page.should have_no_selector("#person-organization-website")
+  page.should have_no_selector("[type=submit]")
+end
+
 Given /^there is a (seller|non\-seller) organization "(.*?)"(?: with email requirement "(.*?)")?$/ do |seller_status, name, allowed_emails|
   org_params = {:name => name, :allowed_emails => allowed_emails}
   
