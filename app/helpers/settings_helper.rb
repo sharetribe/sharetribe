@@ -30,7 +30,7 @@ module SettingsHelper
   def with_information_text(community, person, &block)
     if uses_mangopay?(community)
       # Mango
-      block.call([t(".these_settings_are_needed_in_order_to_receive_payments")])
+      block.call([t(".these_settings_are_needed_in_order_to_receive_payments")], {})
     elsif registered_checkout?(community, person)
       # Checkout
 
@@ -40,7 +40,7 @@ module SettingsHelper
         :id => "payment-help-checkout-exists")
     else
       # Checkout
-      block.call([t("organizations.form.merhcant_registration_detailed_instructions").html_safe])
+      block.call([t("organizations.form.merhcant_registration_detailed_instructions").html_safe], {})
     end
   end
 

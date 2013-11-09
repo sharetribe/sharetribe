@@ -14,8 +14,20 @@ Feature: User adds payment information
     And I fill the payment details form
     Then "company" should have required payment details saved to my account information
 
+  @javascript
+  Scenario: user does not add required information
+    When I browse to payment settings
+    And I press submit
+    Then I should see flash error
+
+  @javascript
+  Scenario: user adds invalid information
+    When I browse to payment settings
+    And I fill the payment details form with invalid information
+    Then I should see validation error
+
+  @javascript
   Scenario: user views payment information
     Given "company" has Checkout account
     And I browse to payment settings
     Then I should see information about existing Checkout account
-

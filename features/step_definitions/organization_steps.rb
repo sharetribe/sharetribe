@@ -73,7 +73,7 @@ When /^I follow link to payment settings$/ do
   }
 end
 
-When /^I fill the payment details form$/ do
+When /^I fill the payment details form(?: with valid information)?$/ do
   steps %Q{
     When I fill in "person[company_id]" with "1234567-8"
     And I fill in "person[organization_address]" with "Startup Sauna, Betonimiehenkuja, Espoo, Finland"
@@ -81,6 +81,24 @@ When /^I fill the payment details form$/ do
     And I fill in "person[organization_website]" with "http://www.company.com/"
     And I press submit
   }
+end
+
+When /^I fill the payment details form with invalid information$/ do
+  steps %Q{
+    When I fill in "person[company_id]" with "12345465467484578"
+    And I fill in "person[organization_address]" with ""
+    And I fill in "person[phone_number]" with "555"
+    And I fill in "person[organization_website]" with ""
+    And I press submit
+  }
+end
+
+Then /^I should see flash error$/ do
+  find(".flash-error").should be_visible
+end
+
+Then /^I should see validation error$/ do
+  find("[generated='true'].error").should be_visible
 end
 
 Given /^there is an organization "(.*?)"$/ do |org_username|

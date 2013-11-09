@@ -280,6 +280,26 @@ function initialize_new_organization_form(show_merchant_registration, locale) {
 
 }
 
+function initialize_payments_form(locale) {
+  var form_id = "#payment_settings_form";
+  console.log($(form_id))
+  $(form_id).validate({
+    rules: {
+      "person[company_id]": {minlength: 9, maxlength: 9},
+      "person[phone_number]": {maxlength: 25},
+      "person[organization_address]": {minlength: 6},
+      "person[organization_website]": {minlength: 5}
+    },
+    messages: {
+    },
+    onkeyup: false, //Only do validations when form focus changes
+    submitHandler: function(form) {
+      disable_and_submit(form_id, form, "false", locale);  
+    }
+  });
+  console.log($(form_id));
+}
+
 
 
 function select_listing_form_menu_link(link, locale, attribute_hash, listing_form_menu_titles, ordered_attributes, selected_attributes) {
