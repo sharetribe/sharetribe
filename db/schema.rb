@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131104090808) do
+ActiveRecord::Schema.define(:version => 20131111140902) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -154,6 +154,8 @@ ActiveRecord::Schema.define(:version => 20131104090808) do
     t.datetime "wide_logo_updated_at"
     t.string   "domain_alias"
     t.string   "preproduction_stylesheet_url"
+    t.boolean  "only_organizations"
+    t.boolean  "logo_change_allowed"
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
@@ -588,6 +590,7 @@ ActiveRecord::Schema.define(:version => 20131104090808) do
     t.string   "iban"
     t.string   "bic"
     t.string   "mangopay_beneficiary_id"
+    t.boolean  "is_organization"
   end
 
   add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true
