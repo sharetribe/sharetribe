@@ -17,7 +17,8 @@ Feature: User pays after accepted transaction
     When I follow "inbox-link"
     And I should see "1" within ".inbox-link"
     And I follow "conversation_title_link_1"
-    Then I should see "You can not accept requests before filling in your payment details"
+    And I follow "Accept request"
+    Then I should see information about missing payment details
 
   @javascript
   Scenario: User goes to payment service, but decides to cancel and comes back
