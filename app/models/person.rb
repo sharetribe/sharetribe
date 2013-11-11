@@ -108,7 +108,6 @@ class Person < ActiveRecord::Base
   validates_length_of :family_name, :within => 1..30, :allow_nil => true, :allow_blank => true
   validates_length_of :email, :maximum => 255
 
-  validates_uniqueness_of :organization_name
   validates_format_of :company_id, :with => /^(\d{7}\-\d)?$/, :allow_nil => true
 
   validates_format_of :username,
