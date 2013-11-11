@@ -22,13 +22,7 @@ class SessionsController < ApplicationController
   end
  
   def create
- 
-    if current_community = Community.find_by_domain(params[:community])
-      domain = current_community.full_url
-    else
-      domain = "#{request.protocol}#{request.host_with_port}"
-    end
-
+    
     session[:form_login] = params[:person][:login]
     
 
@@ -41,7 +35,7 @@ class SessionsController < ApplicationController
     # Since the authentication happens in the rack layer,
     # we need to tell Devise to call the action "sessions#new"
     # in case something goes bad.
-    if current_community
+    if @current_community
       person = authenticate_person!(:recall => "sessions#new")
     else
       person = authenticate_person!(:recall => "dashboard#login")
@@ -68,17 +62,16 @@ class SessionsController < ApplicationController
       @current_user.update_attribute(:active, true) unless @current_user.active?
     end
      
-    unless @current_user && (!@current_user.communities.include?(@current_community) || current_community.consent.eql?(@current_user.consent(current_community)) || @current_user.is_admin?)
+    unless @current_user && (!@current_user.communities.include?(@current_community) || @current_community.consent.eql?(@current_user.consent(@current_community)) || @current_user.is_admin?)
       # Either the user has succesfully logged in, but is not found in Sharetribe DB
-      # (Existing OtaSizzle user's first login in Sharetribe) or the user is a member
-      # of this community but the terms of use have changed.
+      # or the user is a member of this community but the terms of use have changed.
 
       sign_out @current_user
       session[:temp_cookie] = "pending acceptance of new terms"
       session[:temp_person_id] =  @current_user.id  
-      session[:temp_community_id] = current_community.id
+      session[:temp_community_id] = @current_community.id
       session[:consent_changed] = true if @current_user
-      redirect_to domain + terms_path and return
+      redirect_to terms_path and return
     end
 
     session[:person_id] = current_person.id
@@ -87,21 +80,21 @@ class SessionsController < ApplicationController
     
     
     if not @current_community
-      redirect_to domain + new_tribe_path
+      redirect_to new_tribe_path
     elsif @current_user.communities.include?(@current_community) || @current_user.is_admin?
       flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(@current_user.given_name_or_username, person_path(@current_user))).html_safe
-      EventFeedEvent.create(:person1_id => @current_user.id, :community_id => current_community.id, :category => "login") unless (@current_user.is_admin? && !@current_user.communities.include?(@current_community))
+      EventFeedEvent.create(:person1_id => @current_user.id, :community_id => @current_community.id, :category => "login") unless (@current_user.is_admin? && !@current_user.communities.include?(@current_community))
       if session[:return_to]
-        redirect_to domain + session[:return_to]
+        redirect_to session[:return_to]
         session[:return_to] = nil
       elsif session[:return_to_content]
         redirect_to session[:return_to_content]
         session[:return_to_content] = nil
       else
-        redirect_to domain + root_path
+        redirect_to root_path
       end
     else
-      redirect_to domain + new_tribe_membership_path
+      redirect_to new_tribe_membership_path
     end
   end
 

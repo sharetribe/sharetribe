@@ -205,7 +205,12 @@ class Person < ActiveRecord::Base
   end
   
   def first_name_with_initial
-    "#{given_name} #{family_name[0,1]}"
+    if family_name
+      initial = family_name[0,1]
+    else
+      initial = ""
+    end
+    "#{given_name} #{initial}"
   end
 
   def name(community=nil)

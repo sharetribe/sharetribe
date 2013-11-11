@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131107125413) do
+ActiveRecord::Schema.define(:version => 20131111140902) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -155,6 +155,7 @@ ActiveRecord::Schema.define(:version => 20131107125413) do
     t.string   "domain_alias"
     t.string   "preproduction_stylesheet_url"
     t.boolean  "only_organizations"
+    t.boolean  "logo_change_allowed"
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
