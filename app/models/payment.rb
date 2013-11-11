@@ -9,7 +9,10 @@ class Payment < ActiveRecord::Base
   belongs_to :conversation
   belongs_to :payer, :class_name => "Person"
   belongs_to :recipient, :class_name => "Person"
+  
+  # DEPRECATED
   belongs_to :recipient_organization, :class_name => "Organization", :foreign_key => "organization_id"
+  
   belongs_to :community
 
   validates_inclusion_of :status, :in => VALID_STATUSES
@@ -31,6 +34,7 @@ class Payment < ActiveRecord::Base
 
   # Commission excluding VAT
   def commission_without_vat
+    throw "Comission percentage has to be set" unless community.commission_percentage 
     sum_without_vat_and_commission*community.commission_percentage/100
   end
   

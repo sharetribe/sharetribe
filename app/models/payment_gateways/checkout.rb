@@ -11,8 +11,8 @@ class Checkout < PaymentGateway
   def payment_data(payment, options={})
     
     unless options[:mock]
-      merchant_id = payment.recipient_organization.merchant_id
-      merchant_key = payment.recipient_organization.merchant_key
+      merchant_id = payment.recipient.checkout_merchant_id
+      merchant_key = payment.recipient.checkout_merchant_key
     else
       # Make it possible to demonstrate payment system with mock payments if that's set on in community settings
       merchant_id = "375917"
@@ -49,7 +49,7 @@ class Checkout < PaymentGateway
     results = {}
     
     unless options[:mock]
-      merchant_key = payment.recipient_organization.merchant_key
+      merchant_key = payment.recipient.checkout_merchant_key
     else
       # Make it possible to demonstrate payment system with mock payments if that's set on in community settings
       merchant_key = "SAIPPUAKAUPPIAS"
@@ -79,8 +79,8 @@ class Checkout < PaymentGateway
     return results
   end
   
-  def can_receive_payments_for?(person, listing)
-    listing.organization.merchant_id && listing.organization.merchant_key
+  def can_receive_payments_for?(person)
+    self.has_registered?(person)
   end
 
   def register_payout_details(person)

@@ -108,7 +108,7 @@ end
 Given /^"(.*?)" has Checkout account$/ do |org_username|
   org = Person.find_by_username(org_username)
   org.checkout_merchant_key = "SAIPPUAKAUPPIAS"
-  org.checkout_merchant_id = "123456"
+  org.checkout_merchant_id = "375917"
   org.save!
 end
 
