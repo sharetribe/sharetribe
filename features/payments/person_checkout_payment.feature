@@ -2,7 +2,23 @@ Feature: User pays after accepted transaction
   In order to pay easily for what I've bought
   As a user
   I want to pay via the platform
-  
+
+  @javascript
+  Scenario: User can not accept transaction before filling in payment details
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+      | kassi_testperson2 |
+    And community "test" has payments in use via Checkout
+    And "kassi_testperson2" does not have Checkout account
+    And there is item offer with title "math book" from "kassi_testperson2" and with share type "sell" and with price "12"
+    And there is a message "I want to buy" from "kassi_testperson1" about that listing
+    And I am logged in as "kassi_testperson2"
+    When I follow "inbox-link"
+    And I should see "1" within ".inbox-link"
+    And I follow "conversation_title_link_1"
+    Then I should see "You can not accept requests before filling in your payment details"
+
   @javascript
   Scenario: User goes to payment service, but decides to cancel and comes back
     Given there are following users:
@@ -12,7 +28,6 @@ Feature: User pays after accepted transaction
     And community "test" has payments in use via Checkout
     And "kassi_testperson2" has Checkout account
     And there is item offer with title "math book" from "kassi_testperson2" and with share type "sell" and with price "12"
-    And all listings of "kassi_testperson2" are made with his first organization
     And there is a message "I want to buy" from "kassi_testperson1" about that listing
     And I am logged in as "kassi_testperson2"
     When I follow "inbox-link"
