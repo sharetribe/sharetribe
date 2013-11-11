@@ -180,7 +180,9 @@ class Person < ActiveRecord::Base
    end
 
   def name_or_username(community=nil)
-    if given_name.present?
+    if is_organization
+      return given_name
+    elsif given_name.present?
       if community
         case community.name_display_type
         when "first_name_with_initial"

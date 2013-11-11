@@ -1,7 +1,48 @@
+Given /^community "(.*?)" allows only organizations$/ do |community|
+  c = Community.find_by_domain(community)
+  c.only_organizations = true
+  c.save!
+end
+
+Given /^I signup as an organization "(.*?)" with name "(.*?)"$/ do |org_username, org_display_name|
+  steps %Q{
+    Given I am on the signup page
+    When I fill in "person[username]" with "#{org_username}"
+    And I fill in "person[given_name]" with "#{org_display_name}"
+    And I fill in "person_password1" with "test"
+    And I fill in "Confirm password" with "test"
+    And I fill in "Email address" with random email
+    And I check "person[terms]"
+    And I press "Create account"
+  }
+end
+
+When /^I confirm my email address$/ do
+  steps %Q{
+    Then I should receive 1 email
+    When I open the email
+    And I click the first link in the email
+    Then I should have 2 emails
+    And I should see "Your account was successfully confirmed"
+  }
+end
+
+Then /^there should be an organization account "(.*?)"$/ do |org_username|
+  o = Person.find_by_username(org_username)
+  o.is_organization.should be_true
+  o.confirmed_at.should_not be_nil
+end
+
 Given /^community "(.*?)" requires organization membership$/ do |community|
   c = Community.find_by_domain(community)
   c.settings.merge!({"require_organization_membership" => true})
   c.save!
+end
+
+Then /^I should see "(.*?)" as logged in user$/ do |display_name|
+  steps %Q{
+    Then I should see "#{display_name}" within ".user-name"
+  }
 end
 
 Given /^there is a (seller|non\-seller) organization "(.*?)"(?: with email requirement "(.*?)")?$/ do |seller_status, name, allowed_emails|

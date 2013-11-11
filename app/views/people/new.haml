@@ -51,10 +51,14 @@
     = form.text_field :username, :class => :text_field, :maxlength => "20", :id => "person_username1"
     
     -# Name
-    = form.label :given_name, t('.given_name')
-    = form.text_field :given_name, :class => :text_field, :maxlength => "30"
-    = form.label :family_name, t('.family_name')
-    = form.text_field :family_name, :class => :text_field, :maxlength => "30"
+    - if @current_community.only_organizations
+      = form.label :given_name, t('organizations.form.name')
+      = form.text_field :given_name, :class => :text_field, :maxlength => "30"
+    - else
+      = form.label :given_name, t('.given_name')
+      = form.text_field :given_name, :class => :text_field, :maxlength => "30"
+      = form.label :family_name, t('.family_name')
+      = form.text_field :family_name, :class => :text_field, :maxlength => "30"
 
     -# Email
     = form.label :email, t('.email')
@@ -73,9 +77,10 @@
     -# Terms
     .outer-checkbox-container
       .checkbox-container
-        %input{:type => "checkbox", :id => "person_terms", :name => "person[terms]"}
-        = form.label :terms, t('.i_accept_the'), :class => "checkbox"
-        = link_to t(".terms"), "#", :tabindex => "-1", :id => "terms_link"
+        - unless @skip_terms_checkbox
+          %input{:type => "checkbox", :id => "person_terms", :name => "person[terms]"}
+          = form.label :terms, t('.i_accept_the'), :class => "checkbox"
+          = link_to t(".terms"), "#", :tabindex => "-1", :id => "terms_link", :class => "form"
     
     = form.hidden_field :consent, :value => @current_community.consent
     = hidden_field_tag :community, @current_community.domain
