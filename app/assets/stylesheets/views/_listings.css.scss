@@ -133,13 +133,18 @@ $listing-author-avatar-height: 108;
   padding-left: em($listing-author-avatar-width);
   min-height: em($listing-author-avatar-height);
   padding-left: em($listing-author-avatar-width) + lines(0.75);
- }
+}
 
 .listing-author-name {
   @include big-type;
   height: em($listing-author-avatar-width, 22) / 2;
   line-height: em($listing-author-avatar-width, 18) / 2;
- }
+}
+
+.listing-author-name-link {
+  display: block;
+  @include ellipsis;
+}
 
 .listing-author-contact-button {
   @include grey-button;
