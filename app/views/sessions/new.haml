@@ -36,7 +36,9 @@
     = password_field_tag "person[password]", nil, :class => :text_field, :id => :main_person_password 
     - if @current_community
       = hidden_field_tag :community, @current_community.domain
-    = button_tag(t('.login'), :class => "send_button", :id => :main_log_in_button)
+    %button{:id => "main_log_in_button"}
+      .content
+        = t('.login')
     .links
       - unless @facebook_merge
         = link_to t('.create_new_account'), (@current_community ? sign_up_path : new_tribe_path), :class => "green_part_link"
