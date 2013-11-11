@@ -77,7 +77,7 @@
             = medium_avatar_thumb(@listing.organization_or_author?(@current_community), {:class => "listing-author-avatar-image"})
           .listing-author-details
             .listing-author-name
-              = link_to @listing.author.name(@current_community), @listing.author, :id => "listing-author-link"
+              = link_to @listing.author.name(@current_community), @listing.author, :id => "listing-author-link", :class => "listing-author-name-link", :title => "#{@listing.author.name(@current_community)}"
             - unless current_user?(@listing.author)
               .listing-author-contact
                 %a#listing-contact{href: reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free"), :class => "listing-author-contact-button"}
