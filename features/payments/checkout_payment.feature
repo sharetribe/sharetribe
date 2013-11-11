@@ -8,6 +8,7 @@ Feature: User pays after accepted transaction
   
   @javascript
   Scenario: User goes to payment service, but decides to cancel and comes back
+    Given this test is deprecated and you should remove all old organization specific code
     Given there are following users:
       | person | 
       | kassi_testperson1 |
@@ -67,6 +68,7 @@ Feature: User pays after accepted transaction
 
   @javascript
   Scenario: requester cancels a transaction with payment that had already been accepted, but not paid and skips feedback
+    Given this test is deprecated and you should remove all old organization specific code
     Given there are following users:
       | person | 
       | kassi_testperson1 |
@@ -88,6 +90,7 @@ Feature: User pays after accepted transaction
     
   @javascript
   Scenario: requester cancels a transaction with payment that had already been accepted, but not paid and gives feedback
+    Given this test is deprecated and you should remove all old organization specific code
     Given there are following users:
       | person | 
       | kassi_testperson1 |
@@ -113,6 +116,7 @@ Feature: User pays after accepted transaction
   
   @javascript
   Scenario: requester pays with delayed billing
+    Given this test is deprecated and you should remove all old organization specific code
     Given there are following users:
       | person | 
       | kassi_testperson1 |
@@ -148,6 +152,7 @@ Feature: User pays after accepted transaction
     
   @javascript
   Scenario: offerer cancels the request
+    Given this test is deprecated and you should remove all old organization specific code
     Given there are following users:
       | person | 
       | kassi_testperson1 |
