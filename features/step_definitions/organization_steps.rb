@@ -12,7 +12,7 @@ Given /^I signup as an organization "(.*?)" with name "(.*?)"$/ do |org_username
     And I fill in "person_password1" with "test"
     And I fill in "Confirm password" with "test"
     And I fill in "Email address" with random email
-    And I check "community_membership[consent]"
+    And I check "person[terms]"
     And I press "Create account"
   }
 end
