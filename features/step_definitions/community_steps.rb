@@ -13,9 +13,10 @@ Given /^the terms of community "([^"]*)" are changed to "([^"]*)"$/ do |communit
 end
 
 Given /^"(.*?)" is a member of community "(.*?)"$/ do |username, community_name|
-  org = Community.find_by_name!(community_name)
+  community = Community.find_by_name!(community_name)
   person = Person.find_by_username!(username)
-  m = CommunityMembership.find_or_create_by_person_id_and_community_id(person.id, org.id)
+  membership = FactoryGirl.create(:community_membership, :person => person, :community => community)
+  membership.save!
 end
 
 Then /^Most recently created user should be member of "([^"]*)" community with(?: status "(.*?)" and)? its latest consent accepted(?: with invitation code "([^"]*)")?$/ do |community_domain, status, invitation_code|

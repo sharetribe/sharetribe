@@ -30,6 +30,12 @@ When /^(?:|I )press "([^"]*)"(?: within "([^"]*)")?$/ do |button, selector|
   end
 end
 
+When /^(?:|I )press submit(?: within "([^"]*)")?$/ do |selector|
+  with_scope(selector) do
+    find("[type=submit]").click
+  end
+end
+
 When /^(?:|I )follow "([^"]*)"(?: within "([^"]*)")?$/ do |link, selector|
   with_scope(selector) do
     click_link(link)

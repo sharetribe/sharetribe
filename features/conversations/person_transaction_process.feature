@@ -2,14 +2,12 @@ Feature: Transaction process between two users
 
   @javascript
   Scenario: Monetary transaction started from an offer listing
-    Given this scenario is DEPRECATED because it uses out-dated organization user information
-
     Given there are following users:
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
     And community "test" has payments in use
-    And "kassi_testperson1" is member of organization that has registered as a seller
+    And "kassi_testperson1" has Checkout account
     And there is item offer with title "Hammer" from "kassi_testperson1" and with share type "sell" and with price "20"
     And all listings of "kassi_testperson1" are made with his first organization
     And I am logged in as "kassi_testperson2"
@@ -96,8 +94,6 @@ Feature: Transaction process between two users
     
   @javascript
   Scenario: Non-monetary transaction started from a request listing
-    Given this scenario is DEPRECATED because it uses out-dated organization user information
-
     Given there are following users:
       | person | 
       | kassi_testperson1 |

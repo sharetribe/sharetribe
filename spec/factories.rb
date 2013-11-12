@@ -28,6 +28,7 @@ FactoryGirl.define do
     username
     password "testi"
     email
+    is_organization false
   end  
 
   factory :listing do

@@ -6,6 +6,14 @@ Given /^I am logged in(?: as "([^"]*)")?$/ do |person|
   @logged_in_user = person
 end
 
+Given /^I am logged in as organization(?: "([^"]*)")?$/ do |org_username|
+  username = org_username || "company"
+  person = Person.find_by_username(username) || FactoryGirl.create(:person, :username => username, :is_organization => true)
+  login_as(person, :scope => :person)
+  visit root_path(:locale => :en)
+  @logged_in_user = person
+end
+
 Given /^I log in(?: as "([^"]*)")?$/ do |person|
   visit login_path(:locale => :en)
   fill_in("main_person_login", :with => (person ? person : "kassi_testperson1"))

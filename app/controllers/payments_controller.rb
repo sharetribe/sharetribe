@@ -15,7 +15,8 @@ class PaymentsController < ApplicationController
     @payment = @conversation.payment  #This expects that each conversation already has a (pending) payment at this point
     
     @payment_gateway = @current_community.payment_gateways.first
-    if @payment_gateway.can_receive_payments_for?(@payment.recipient, @conversation.listing)
+
+    if @payment_gateway.can_receive_payments_for?(@payment.recipient)
       @payment_data = @payment_gateway.payment_data(@payment, 
                 :return_url => done_person_message_payment_url(:id => @payment.id),
                 :cancel_url => new_person_message_payment_url,

@@ -11,8 +11,8 @@ class Checkout < PaymentGateway
   def payment_data(payment, options={})
     
     unless options[:mock]
-      merchant_id = payment.recipient_organization.merchant_id
-      merchant_key = payment.recipient_organization.merchant_key
+      merchant_id = payment.recipient.checkout_merchant_id
+      merchant_key = payment.recipient.checkout_merchant_key
     else
       # Make it possible to demonstrate payment system with mock payments if that's set on in community settings
       merchant_id = "375917"
@@ -49,7 +49,7 @@ class Checkout < PaymentGateway
     results = {}
     
     unless options[:mock]
-      merchant_key = payment.recipient_organization.merchant_key
+      merchant_key = payment.recipient.checkout_merchant_key
     else
       # Make it possible to demonstrate payment system with mock payments if that's set on in community settings
       merchant_key = "SAIPPUAKAUPPIAS"
@@ -79,7 +79,55 @@ class Checkout < PaymentGateway
     return results
   end
   
-  def can_receive_payments_for?(person, listing)
-    listing.organization.merchant_id && listing.organization.merchant_key
+  def can_receive_payments_for?(person)
+    self.has_registered?(person)
+  end
+
+  def register_payout_details(person)
+
+    url = "https://rpcapi.checkout.fi/reseller/createMerchant"
+    user = APP_CONFIG.merchant_api_user_id
+    password = APP_CONFIG.merchant_api_password
+
+    if APP_CONFIG.merchant_registration_mode == "production"
+      type = 0 # Creates real merchant accounts
+    else
+      type = 2 # Creates test accounts
+    end
+         
+    api_params = {
+      "company" => person.name,
+      "vat_id"  => person.company_id,
+      "name"    => person.name,
+      "email"   => person.email,
+      "gsm"     => person.phone_number,
+      "type"    => type,
+      "info"    => "Materiaalipankki",
+      "address" => person.organization_address,
+      "url"     => person.organization_website,
+      "kkhinta" => "0",
+    }
+    
+    if APP_CONFIG.merchant_registration_mode == "production" || APP_CONFIG.merchant_registration_mode == "test" 
+      response = RestClient::Request.execute(:method => :post, :url => url, :user => user, :password => password, :payload => api_params)
+    else
+      # Stub response to avoid unnecessary accounts being created (unless config is set to make real accounts)
+      #puts "STUBBING A CALL TO MERCHANT API WITH PARAMS: #{api_params.inspect}"
+      response = "<merchant><id>375917</id><secret>SAIPPUAKAUPPIAS</secret><banner>http://rpcapi.checkout.fi/banners/5a1e9f504277f6cf17a7026de4375e97.png</banner></merchant>"
+    end
+
+    person.checkout_merchant_id = response[/<id>([^<]+)<\/id>/, 1]
+    person.checkout_merchant_key = response[/<secret>([^<]+)<\/secret>/, 1]
+    person.save!
+    
+    if person.checkout_merchant_id && person.checkout_merchant_key
+      return true
+    else
+      return false
+    end
+  end
+
+  def has_registered?(person)
+    person.checkout_merchant_id.present? && person.checkout_merchant_key.present?
   end
 end
