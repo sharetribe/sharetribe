@@ -418,8 +418,8 @@ fr:
       city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Tribu de Kallio à Helsinki, Finlande</a>"
   emails:
     accept_reminder:
-      remember_to_accept_offer: "N'oubliez pas d'accepter ou de rejeter une offre"
-      remember_to_accept_request: "N'oubliez pas d'accepter ou de rejeter une demande"
+      remember_to_accept_offer: "N'oubliez pas d'accepter ou de rejeter l'offre de %{sender_name}"
+      remember_to_accept_request: "N'oubliez pas d'accepter ou de rejeter la demande de %{sender_name}"
       you_can_accept_or_reject_offer_at: "Vous pouvez accepter ou rejeter l'offre à"
       you_can_accept_or_reject_request_at: "Vous pouvez accepter ou rejeter la demande à"
       you_have_not_yet_accepted_or_rejected_offer: "Vous n'avez pas encore accepté ou refusé l'offre %{title} reçue %{date}."
@@ -495,7 +495,7 @@ fr:
       conversation_title: "Titre du fil de messages : %{title}"
       view_message: "Voir le message"
       has_sent_you_a_message_in_kassi: "%{sender} vous a envoyé un message sur %{service_name}."
-      you_have_a_new_message: "Vous avez un nouveau message sur %{service_name} de %{sender_name}"
+      you_have_a_new_message: "Vous avez un nouveau message sur %{service_name} de la part de %{sender_name}"
     new_payment:
       new_payment: "Vous avez reçu un nouveau paiement"
       you_have_received_new_payment: "Vous avez été payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> par %{payer_full_name}. Voici votre reçu."

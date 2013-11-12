@@ -86,11 +86,8 @@ def restart
 end
 
 def generate_custom_css
-  puts "NOTE: The CSS generation is disable from build script temporarily"
-  puts "IF YOU NEED TO REBUILD CSS USE:"
-  puts "heroku run rake sharetribe:generate_customization_stylesheets"
-  #puts 'Generating custom CSS for tribes who use it ...'
-  #system("heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}")
+  puts 'Generating custom CSS for tribes who use it ...'
+  system("heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}")
 end
 
 def update_translations
@@ -316,11 +313,8 @@ namespace :deploy do
   end
   
   task :generate_custom_css => :environment do
-    puts "NOTE: The CSS generation is disable from build script temporarily"
-    puts "IF YOU NEED TO REBUILD CSS USE:"
-    puts "heroku run rake sharetribe:generate_customization_stylesheets"
-    #puts 'Generating custom CSS for tribes who use it ...'
-    #system("heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}")
+    puts 'Generating custom CSS for tribes who use it ...'
+    system("heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}")
   end
   
   task :update_translations_stored_in_db do
