@@ -40,7 +40,6 @@ def deploy(params)
   end
   generate_custom_css
   update_translations
-   
 end
 
 def set_app(destination)
@@ -87,7 +86,7 @@ end
 
 def generate_custom_css
   puts 'Generating custom CSS for tribes who use it ...'
-  system("heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}")
+  system("heroku run rake sharetribe:generate_customization_stylesheets --app #{@app}")
 end
 
 def update_translations
