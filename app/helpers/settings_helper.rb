@@ -12,7 +12,7 @@ module SettingsHelper
   end
 
   def has_registered_payment_info?(community, person)
-    payment_gateway_to_use(community).has_registered_payment_info?(person)
+    payment_gateway_to_use(community).has_registered?(person)
   end
 
   def uses_mangopay?(community)

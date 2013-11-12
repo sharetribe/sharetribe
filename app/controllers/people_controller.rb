@@ -219,6 +219,32 @@ class PeopleController < Devise::RegistrationsController
     session[:fb_join] = "pending_analytics"
     redirect_to :controller => :community_memberships, :action => :new
   end
+
+  def any_fields?(hash, fields)
+    fields.any? { |field_name| !hash[field_name].blank? }
+  end
+
+  def all_fields?(hash, fields)
+    fields.all? { |field_name| !hash[field_name].blank? }
+  end
+
+  def register_payout(payment_gateway, person_params, payment_param_keys, person)
+    if self.any_fields?(person_params, payment_param_keys)
+      # require all fields
+      if !self.all_fields?(person_params, payment_param_keys)
+        flash[:error] = t("layouts.notifications.you_must_fill_all_the_fields")
+        return false
+      end
+
+      # Try to register the details if payment gateway is present
+      begin
+        payment_gateway.register_payout_details(person)
+      rescue => e
+        flash[:error] = e.message
+        return false
+      end
+    end
+  end
   
   def update
 
@@ -246,50 +272,14 @@ class PeopleController < Devise::RegistrationsController
     payment_gateway = @current_community.payment_gateways && @current_community.payment_gateways.first
 
     # If updating payout details, check that they are valid
-    if payment_gateway
-      if payment_gateway.type == "Mangopay" && params[:person] && (params[:person][:bank_account_owner_name] || params[:person][:bank_account_owner_address] || params[:person][:iban] || params[:person][:bic])
-        
-        # require all fields
-        if params[:person][:bank_account_owner_name].blank? || params[:person][:bank_account_owner_address].blank? || params[:person][:iban].blank? || params[:person][:bic].blank?
-          flash[:error] = t("layouts.notifications.you_must_fill_all_the_fields")
-          redirect_to :back and return
-        end
-        
-        # Try to register the details if payment gateway is present
-        begin
-          payment_gateway.register_payout_details(@person)
-        rescue => e
-          flash[:error] = e.message
-          redirect_to :back and return
-        end
-      end
+    mango_param_keys = [:bank_account_owner_name, :bank_account_owner_address, :iban, :bic]
+    checkout_param_keys = [:company_id, :organization_address, :phone_number, :organization_website]
 
-      # Checkout
-      if (payment_gateway.type == "Checkout" && 
-        params[:person] && 
-        (params[:person][:company_id] || 
-          params[:person][:organization_address] ||
-          params[:person][:phone_number] ||
-          params[:person][:organization_website]))
+    if params[:person] && payment_gateway
+      payment_param_keys = payment_gateway.type == "Mangopay" ? mango_param_keys : checkout_param_keys
+      registering_successful = self.register_payout(payment_gateway, params[:person], payment_param_keys, @person)
 
-        # require all fields
-        if (params[:person][:company_id].blank? ||
-          params[:person][:organization_address].blank? ||
-          params[:person][:phone_number].blank? ||
-          params[:person][:organization_website].blank?)
-
-          flash[:error] = t("layouts.notifications.you_must_fill_all_the_fields")
-          redirect_to :back and return
-        end
-
-        # # Try to register the details if payment gateway is present
-        begin
-          payment_gateway.register_payout_details(@person)
-        rescue => e
-          flash[:error] = e.message
-          redirect_to :back and return
-        end
-      end
+      redirect_to :back and return unless registering_successful
     end
 
     begin
