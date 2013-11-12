@@ -116,7 +116,7 @@ el:
       games: παιχνίδια
       furniture: έπιπλα
       outdoors: "είδη κάμπινγκ"
-      food: "κουζινικά & φαγητό"
+      food: "είδη κουζίνας & φαγητό"
       electronics: ηλεκτρονικά
       pets: κατοικίδια
       film: ταινίες
@@ -187,7 +187,7 @@ el:
       item_offer_trade_message_form_title: "Αντάλλαξε το %{listing} με τον/την %{person}"
       item_offer_rent_out_message_form_title: "Νοίκιασε το %{listing} από τον/την%{person}"
       item_request_borrow_message_form_title: "Δάνεισε το %{listing} στον/στην %{person}"
-      item_request_buy_message_form_title: "Πούλα το %{listing} στον/στην %{person}"
+      item_request_buy_message_form_title: "Πούλησε %{listing} στο χρήστη %{person}"
       item_request_take_for_free_message_form_title: "Δώσε το %{listing} στον/στην %{person}"
       item_request_trade_message_form_title: "Αντάλλαξε το %{listing} με τον/την %{person}"
       item_request_rent_message_form_title: "Νοίκιασε το %{listing} στον/στην %{person}"
@@ -195,7 +195,7 @@ el:
       housing_offer_rent_out_message_form_title: "Νοίκιασε το %{listing} από τον/την %{person}"
       housing_offer_share_for_free_message_form_title: "Ζήτα το %{listing} από τον/την %{person}"
       housing_offer_accept_for_free_message_form_title: "Πρόσφερε το %{listing} στον/στην %{person}"
-      housing_request_buy_message_form_title: "Πούλα το %{listing} στον/στην %{person}"
+      housing_request_buy_message_form_title: "Πούλησε %{listing} στο χρήστη %{person}"
       housing_request_rent_message_form_title: "Νοίκιασε το %{listing} στον/στην %{person}"
       item_request_message_form_title: "Πρόσφερε ένα αντικείμενο στον/στην"
       message: Μήνυμα
@@ -203,8 +203,8 @@ el:
       rideshare_request_message_form_title: "Ταξίδεψε μαζί με τον/την"
       send_message: Αποστολή
       send: Αποστολή
-      this_message_is_private: "Αυτό το μήνυμα είναι προσωπικό, μεταξύ εσένα και του/της %{person}."
-      you_will_get_notified_of_acceptance: "Θα λάβετε μια ειδοποίηση μέσω email όταν ο/η %{person} δεχτεί ή απορρίψει την πρότασή σας."
+      this_message_is_private: "Αυτό το μήνυμα είναι προσωπικό, μεταξύ εσένα και του χρήστη %{person}. Ο/η %{person} θα ειδοποιηθεί γι' αυτό το μήνυμα με email."
+      you_will_get_notified_of_acceptance: "Θα λάβετε μια ειδοποίηση με email όταν ο/η %{person} δεχτεί ή απορρίψει την πρότασή σας."
       you_will_get_notified: "Θα λάβετε μια ειδοποίηση με email όταν ο/η %{person} σας απαντήσει."
       title: Τίτλος
       send_message_to_user: "Αποστολή μηνύματος στον/στην %{person}"
@@ -635,15 +635,15 @@ el:
       offer_partitive: προσφορά
       request_partitive: αίτημα
   header:
-    about: Βοήθεια
+    about: Σχετικά
     home: Αρχική
     members: Κοινότητα
-    new_listing: Καταχώρηση
+    new_listing: "Νέα καταχώρηση"
     mobile_version: "Έκδοση για κινητά"
     offers: Προσφορές
     requests: Αιτήματα
-    search_kassi: Αναζήτηση
-    create_new_marketplace: "Δημιούργησε καινούριο tribe"
+    search_kassi: "Αναζήτηση στο %{service_name}"
+    create_new_marketplace: "Δημιουργήστε μια καινούρια αγορά"
     contact_us: Επικοινωνία
     profile: Προφίλ
   homepage:
@@ -694,7 +694,7 @@ el:
       is: είναι
       are: είναι
       what_do_you_need: "Τι χρειάζεστε;"
-      post_new_listing: "Κάντε μια καταχώρηση"
+      post_new_listing: "Νέα καταχώρηση"
       are_offering: προσφέρουν
       add_news_item: "Προσθήκη άρθρου"
       inform_others_about_events: "Τελευταία νέα και γεγονότα στην κοινότητα"
@@ -754,8 +754,8 @@ el:
       map_button: Χάρτης
       grid_button: Πλέγμα
       list_button: Λίστα
-      all_listing_types: "Τύποι καταχωρήσεων"
-      all_categories: Κατηγορίες
+      all_listing_types: "Όλοι τύποι καταχωρήσεων"
+      all_categories: "Όλες οι κατηγορίες"
   infos:
     about:
       default_about_text_title: "Τι είναι το Sharetribe;"
@@ -776,7 +776,7 @@ el:
       join_this_community: "Εγγραφή στην κοινότητα"
       read_more: "Διαβάστε περισσότερα"
       feedback: "Τι θα θέλατε να μας πείτε;"
-      default_feedback: "Αντιμετωπίσατε κάποιο πρόβλημα με το %{service_name}; Έχετε κάποια πρόταση για να βελτιωθεί η υπηρεσία; Μήπως βρήκατε ύποπτο περιεχόμενο; Απλώς έχετε κάτι να μας πείτε; Στείλτε μας!"
+      default_feedback: "Αντιμετωπίσατε κάποιο πρόβλημα με το %{service_name}; Έχετε κάποια πρόταση για να βελτιωθεί η υπηρεσία; Μήπως βρήκατε ύποπτο περιεχόμενο; Θέλετε απλώς να μας μιλήσετε; Στείλτε μας μήνυμα!"
       feedback_forum: "περιοχή σχολίων"
       feedback_handle: Ανατροφοδότηση
       give_feedback: "Επικοινωνήστε μαζί μας"
@@ -863,7 +863,7 @@ el:
       account_creation_successful: "Καλωσήρθες στο %{service_name}!"
       account_deleted: "Ο λογαριασμός έχει διαγραφτεί"
       login_successful: "Καλωσήρθες στο %{service_name}!"
-      logout_successful: "Έχεις αποσυνδεθεί από το %{service_name}. Τα λέμε!"
+      logout_successful: "Έχετε αποσυνδεθεί από το %{service_name}. Τα λέμε!"
       news_item_created: "Το άρθρο δημιουργήθηκε"
       news_item_creation_failed: "Η δημιουργία άρθρου απέτυχε"
       news_item_update_failed: "Η ενημέρωση του άρθρου απέτυχε"
@@ -1054,7 +1054,7 @@ el:
       help_tags_title: Ετικέτες
       help_valid_until_title: "Ημερομηνία λήξης"
     index:
-      all_categories: Όλα
+      all_categories: "Όλες οι κατηγορίες"
       all_offer_types: Όλα
       all_request_types: Όλα
       category: Κατηγορία
@@ -1078,7 +1078,7 @@ el:
     left_panel_link:
       borrows: Δανεισμοί
       buys: Αγορές
-      favors: Βοήθεια
+      favors: Υπηρεσίες
       give_aways: Δωρεές
       housings: Διαμονή
       items: Αντικείμενα
@@ -1121,7 +1121,7 @@ el:
       link_label_for_rideshare_offer: "Κάνε οτοστόπ"
       link_label_for_rideshare_request: "Πρόσφερε το όχημά σου"
     new:
-      post_a_new_listing: "Κάντε μια καταχώρηση"
+      post_a_new_listing: "Νέα καταχώρηση"
       listing: καταχώρηση
       offer: "Έχω κάτι να προσφέρω"
       request: "Χρειάζομαι κάτι"
@@ -1177,7 +1177,7 @@ el:
       games: Παιχνίδια
       furniture: Έπιπλα
       outdoors: "Είδη κάμπινγκ"
-      food: "Είδη κουζίνας"
+      food: "Είδη κουζίνας & φαγητό"
       electronics: Ηλεκτρονικά
       pets: Κατοικίδια
       film: Ταινίες
@@ -1227,7 +1227,7 @@ el:
       price_excludes_vat: "(χωρίς ΦΠΑ)"
   mapview:
     index:
-      all_categories: Kατηγορίες
+      all_categories: "Όλες οι κατηγορίες"
       all_offer_types: "Όλες οι προσφορές"
       all_request_types: "Όλα τα αιτήματα"
       category: Κατηγορία
@@ -1452,7 +1452,7 @@ el:
       slightly_less_than_expected: "Χειρότερα από το αναμενόμενο"
       what_are_these: "Τι είναι αυτά;"
       review: "έλαβε κριτική"
-      reviews: "έλαβε κριτικές"
+      reviews: "ληφθείσες κριτικές"
       badge: κονκάρδα
       badges: Κονκάρδες
       listing: καταχώρηση
@@ -1516,13 +1516,13 @@ el:
       delete_account: "Διαγραφή λογαριασμού"
       delete_account_button: "Διαγράψτε μόνιμα το λογαριασμό μου"
       delete_account_confirmation_popup: "Είστε σίγουροι ότι θέλετε να διαγράψετε το λογαριασμό σας και να διαγραφούν όλα τα δεδομένα που σχετίζονται με αυτόν; Η διαγραφή λογαριασμού είναι μη αναστρέψιμη."
-      email: "Ηλεκτρονική διεύθυνση:"
-      instructions_to_delete_account: "Αν θέλετε να διαγράψετε το λογαριασμό σας, %{contact_admin_link}."
+      email: "Διεύθυνση email:"
+      instructions_to_delete_account: "Αν διαγράψετε το λογαριασμό σας, όλα τα δεδομένα που σχετίζονται με αυτόν θα διαγραφτούν: το προφίλ σας, οι καταχωρήσεις σας, τα μηνύματά σας, η κριτική που έχετε λάβει κλπ."
       contact_admin: "παρακαλούμε επικοινωνήστε με τους διαχειριστές"
-      new_email: "Νέα ηλεκτρονική διεύθυνση"
+      new_email: "Νέα διεύθυνση email"
       new_password: "Νέος κωδικός"
       save: Αποθήκευση
-      these_fields_are_shown_only_to_you: "Το όνομα χρήστη εμφανίζεται στο προφίλ σου εκτός αν έχεις δώσει το πραγματικό σου όνομα. Οι υπόλοιπες πληροφορίες εμφανίζονται μόνο σε σένα."
+      these_fields_are_shown_only_to_you: "Το όνομα χρήστη εμφανίζεται στο προφίλ σας εκτός αν έχετε δώσει το πραγματικό σας όνομα. Οι υπόλοιπες πληροφορίες είναι ορατές μόνο σε σας."
     notifications:
       email_from_admins: "Θα ήθελα να λαμβάνω περιστασιακές ενημερώσεις από τους διαχειριστές αυτής της κοινότητας"
       i_want_to_get_email_notification_when: "Θέλω να λαμβάνω ειδοποίηση με email όταν..."
