@@ -28,8 +28,7 @@ Feature: User edits his own listing
     And I attach a valid image file to "listing_listing_images_attributes_0_image"
     And I press "Save listing"
     And the system processes jobs
-    Then I should see "Sledgehammer" within ".item-description"
-    And I should see "Buying"
+    Then I should see "Sledgehammer" within "#listing-title"
     And I should see the image I just uploaded
     When I follow "Edit listing"
     Then I should see the image I just uploaded
@@ -63,7 +62,7 @@ Feature: User edits his own listing
     And there is item request with title "Hammer" from "kassi_testperson1" and with share type "buy"
     And I am logged in as "kassi_testperson1"
     When I follow "Hammer"
-    And I follow "Edit listing" within ".action-links"
+    And I follow "Edit listing" within "#listing-message-links"
     And I fill in "listing_title" with ""
     And I select "31" from "listing_valid_until_3i"
     And I select "December" from "listing_valid_until_2i"
@@ -96,8 +95,7 @@ Feature: User edits his own listing
     And I follow "Edit listing"
     And I fill in "listing_title" with "Sledgehammer"
     And I press "Save listing"
-    Then I should see "Sledgehammer" within ".item-description"
-    And I should see "Buying"
+    Then I should see "Sledgehammer" within "#listing-title"
     And I should see "Listing updated successfully"
     
   @javascript
@@ -113,6 +111,5 @@ Feature: User edits his own listing
     And I follow "Edit listing"
     And I fill in "listing_title" with "Sledgehammer"
     And I press "Save listing"
-    Then I should see "Sledgehammer" within ".item-description"
-    And I should see "Buying"
+    Then I should see "Sledgehammer" within "#listing-title"
     And I should see "Listing updated successfully"

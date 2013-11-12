@@ -7,7 +7,7 @@ Feature: User creates a new listing
   Scenario: Creating a new item request successfully
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing"
+    When I follow "new-listing-link"
     And I follow "I need something"
     And I follow "An item"
     And I should see "What kind of an item are we talking about?"
@@ -18,15 +18,14 @@ Feature: User creates a new listing
     And I fill in "listing_description" with "My description"
     And I attach a valid image file to "listing_listing_images_attributes_0_image"
     And I press "Save listing"
-    Then I should see "Sledgehammer" within ".item-description"
-    And I should see "Buying"
+    Then I should see "Sledgehammer" within "#listing-title"
     And I should see the image I just uploaded
   
   @javascript
   Scenario: Creating a new item offer successfully
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing"
+    When I follow "new-listing-link"
     And I follow "offer to others"
     And I follow "An item"
     And I follow "Tools" within "#option-groups"
@@ -36,51 +35,48 @@ Feature: User creates a new listing
     And I fill in "listing_description" with "My description"
     And I attach a valid image file to "listing_listing_images_attributes_0_image"
     And I press "Save listing"
-    Then I should see "My offer" within ".item-description"
-    And I should see "Lending"
+    Then I should see "My offer" within "#listing-title"
     And I should see the image I just uploaded
   
   @javascript
   Scenario: Creating a new service request successfully
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing"
+    When I follow "new-listing-link"
     And I follow "I need something"
     And I follow "a service"
     And I fill in "listing_title" with "Massage"
     And I fill in "listing_description" with "My description"
     And I attach a valid image file to "listing_listing_images_attributes_0_image"
     And I press "Save listing"
-    Then I should see "Massage" within ".item-description"
-    And I should see "Service request"
+    Then I should see "Massage" within "#listing-title"
     And I should see the image I just uploaded
   
   @javascript  
   Scenario: Creating a new rideshare request successfully
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing"
+    When I follow "new-listing-link"
     And I follow "I need something"
     And I follow "shared ride"
     And I fill in "listing_origin" with "Otaniemi"
     And I fill in "listing_destination" with "Turku"
     And wait for 2 seconds
     And I press "Save listing"
-    Then I should see "Otaniemi - Turku" within ".item-description"
-    And I should see "Rideshare request"
+    Then I should see "Otaniemi - Turku" within "#listing-title"
   
   @javascript  
   Scenario: Trying to create a new request without being logged in
     Given I am not logged in
     And I am on the home page
-    When I follow "Post a new listing"
-    And I should see "Log in to Sharetribe" within "h2"
+    When I follow "new-listing-link"
+    And I should see "Log in to Sharetribe" within "h1"
 
   @javascript
   Scenario: Trying to create a new item request with insufficient information
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing"
+    When I follow "new-listing-link"
     And I follow "I need something"
     And I follow "An item"
     And I follow "Sports"
@@ -98,7 +94,7 @@ Feature: User creates a new listing
   Scenario: Trying to create a new rideshare request with insufficient information
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing"
+    When I follow "new-listing-link"
     And I follow "I need something"
     And I follow "shared ride"
     And I fill in "Origin" with "Test"
@@ -133,7 +129,7 @@ Feature: User creates a new listing
   Scenario: Create a new listing successfully after going back and forth in the listing form
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing"
+    When I follow "new-listing-link"
     And I follow "I need something"
     And I should see "What do you need?"
     And I should see "Listing type: Request"
@@ -169,8 +165,7 @@ Feature: User creates a new listing
     And I fill in "listing_description" with "My description"
     And I attach a valid image file to "listing_listing_images_attributes_0_image"
     And I press "Save listing"
-    Then I should see "My offer" within ".item-description"
-    And I should see "Selling"
+    Then I should see "My offer" within "#listing-title"
     And I should see the image I just uploaded
   
   @javascript
@@ -225,7 +220,7 @@ Feature: User creates a new listing
   Scenario: User creates a new listing with price
     Given I am logged in
     And I am on the home page
-    When I follow "Post a new listing"
+    When I follow "new-listing-link"
     And I follow "I have something to offer to others"
     And I follow "An item"
     And I follow "Tools" within "#option-groups"
@@ -236,4 +231,4 @@ Feature: User creates a new listing
     Then I should see "Price must be a whole number."
     When I fill in "listing_price" with "20"
     And I press "Save listing"
-    Then I should see "Sledgehammer" within ".item-description"
+    Then I should see "Sledgehammer" within "#listing-title"

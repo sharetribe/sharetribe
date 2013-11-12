@@ -60,6 +60,14 @@ Given /^there will be no email returned in my Facebook login$/ do
     })
 end
 
+Given /^"(.*?)" has payout details filled$/ do |username|
+  person = Person.find_by_username(username)
+  person.bank_account_owner_name = person.name
+  person.bank_account_owner_address = "Any street 123"
+  person.iban = "GR16 0110 1250 0000 0001 2300 695"
+  person.bic = "DEUTDEFF500"
+  person.save!
+end
 
 
 Given /^there are following users:$/ do |person_table|
@@ -174,17 +182,17 @@ end
 
 Then /^I should be logged in$/ do
   if page.respond_to? :should
-    page.should have_no_css(".login-menu-toggle")
+    page.should have_no_css("#login-link")
   else
-    assert page.has_no_css?(".login-menu-toggle")
+    assert page.has_no_css?("#login-link")
   end
 end
 
 Then /^I should not be logged in$/ do
   if page.respond_to? :should
-    page.should have_css(".login-menu-toggle")
+    page.should have_css("#login-link")
   else
-    assert page.has_css?(".login-menu-toggle")
+    assert page.has_css?("#login-link")
   end
 end
 

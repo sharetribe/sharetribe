@@ -1,7 +1,9 @@
-%a{:href => path_for_status_link(status, conversation, @current_user), :class => "status-link #{status}"}
-  .icon-with-text{:class => icon_for("#{status}ed")}
-  .text-with-icon
-    - if ["accept", "reject"].include?(status)
-      = t(".#{status}_#{conversation.discussion_type}")
-    - else
-      = t(".#{status}")
+.inbox-horizontally-aligned-link
+  %a{:href => path_for_status_link(status, conversation, @current_user), :class => "status-link #{status}"}
+    .content
+      .icon-with-text{:class => icon_for("#{status}ed")}
+      .text-with-icon
+        - if ["accept", "reject"].include?(status)
+          = t(".#{status}_#{conversation.discussion_type}")
+        - else
+          = t(".#{status}")

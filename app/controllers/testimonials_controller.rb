@@ -15,7 +15,8 @@ class TestimonialsController < ApplicationController
   def index
     if request.xhr?
       @testimonials = @person.received_testimonials.paginate(:per_page => params[:per_page], :page => params[:page])
-      render :partial => "people/testimonial", :collection => @testimonials
+      limit = params[:per_page].to_i
+      render :partial => "people/testimonials", :locals => {:received_testimonials => @testimonials, :limit => limit}
     else
       redirect_to person_path(@person)
     end

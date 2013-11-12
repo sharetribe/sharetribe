@@ -99,6 +99,3 @@ Feature: User joins invite only community
     And I should see "successfully confirmed"
     And Most recently created user should be member of "test" community with its latest consent accepted with invitation code "GH1JX8"
     And Invitation with code "GH1JX8" should have 0 usages_left
-    When I click ".user-menu-toggle"
-    When I follow "Profile"
-    Then I should see "Invited by"

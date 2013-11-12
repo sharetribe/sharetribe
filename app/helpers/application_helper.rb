@@ -4,16 +4,18 @@ module ApplicationHelper
   
   ICONS = {
     "ss-pika" => {
+      
+      # Default UI icons
       "map" => "ss-maplocation",
+      "thumbnails" => "ss-thumbnails",
+      "grid" => "ss-thumbnails",
       "new_listing" => "ss-addfile",
       "search"  => "ss-search",
       "list" => "ss-list",
-      
       "home" => "ss-home",
       "community" =>"ss-usergroup",
       "help" => "ss-help",
       "admin" => "ss-wrench",
-      
       "dropdown" => "ss-dropdown",
       "mail" => "ss-mail",
       "notifications" => "ss-earth",
@@ -23,14 +25,11 @@ module ApplicationHelper
       "user" => "ss-user",
       "settings" => "ss-settings",
       "facebook" => "ss-facebook ss-icon ss-social",
-      
-      
       "information" => "ss-info",
       "alert" => "ss-alert",
       "how_to_use" => "ss-signpost",
       "privacy" => "ss-lockfile",
       "terms" => "ss-textfile",
-      
       "testimonial" => "ss-star",
       "like" => "ss-like",
       "dislike" => "ss-dislike",
@@ -46,7 +45,12 @@ module ApplicationHelper
       "unlock" => "ss-unlock",
       "edit" => "ss-draw",
       "profile" => "ss-userfile",
+      "payments" => "ss-moneybag",
+      "notification_settings" => "ss-callbell",
+      "account_settings" => "ss-lockfile",
+      "rows" => "ss-rows",
       
+      # Default category & share type icons
       "offer" => "ss-share",
       "request" => "ss-tip",
       "item" => "ss-box",
@@ -80,9 +84,7 @@ module ApplicationHelper
       "rent" => "ss-pricetag",
       "rent_out" => "ss-pricetag",
       
-      
-      
-      
+      # Custom category & share type icons
       "job" => "ss-briefcase",
       "announcement" => "ss-newspaper",
       "news" => "ss-newspaper",
@@ -105,7 +107,6 @@ module ApplicationHelper
       "search_material" => "ss-search",
       "sell_material" => "ss-moneybag",
       "give_away_material" => "ss-gift",
-      
       "beekeeping_and_honey" => "ss-waterbottle",
       "eggs" => "ss-colander",
       "produce" => "ss-carrot",
@@ -114,10 +115,7 @@ module ApplicationHelper
       "livestock" => "ss-bird",
       "seeds_and_starts" => "ss-leaf",
       "food_related_classes" => "ss-bookmark",
-      
-      
       "bike" => "ss-bike",
-      
       "peat" => "ss-cloud",
       "clay" => "ss-cloud",
       "silt" => "ss-cloud",
@@ -126,23 +124,20 @@ module ApplicationHelper
       "sand" => "ss-cloud",
       "gravel" => "ss-cloud",
       "rock" => "ss-cloud",
-      
       "friend_for_languages_or_games" => "ss-users",
-      
       "location" => "ss-location",
       "offer_job" => "ss-briefcase",
       "internship" => "ss-users",
       "volunteering" => "ss-heart",
-      
       "parking" => "ss-garage",
       "meeting_spot" => "ss-usergroup",
       "work_spot" => "ss-briefcase",
       "cars" => "ss-car",
       "raclette_grill" => "ss-cookingutensils",
-      
     },
     "font-awesome" => {
       "map" => "icon-map-marker",
+      "thumbnails" => "icon-th",
       "new_listing" => "icon-plus-sign-alt",
       
       "search"  => "icon-search",
@@ -315,25 +310,29 @@ module ApplicationHelper
     haml_concat add_links_and_br_tags_for_email(capture_haml(&block)).html_safe
   end
   
-  def small_avatar_thumb(person_or_organization)
-    return "" if person_or_organization.nil?
-    if person_or_organization.class == Organization
-      image_tag person_or_organization.logo.url(:thumb)
-    else
-      link_to((image_tag person_or_organization.image.url(:thumb)), person_or_organization)
-    end
+  def small_avatar_thumb(person_or_organization, avatar_html_options={})
+    avatar_thumb(:thumb, person_or_organization, avatar_html_options)
   end
   
-  def medium_avatar_thumb(person_or_organization)
+  def medium_avatar_thumb(person_or_organization, avatar_html_options={})
+    avatar_thumb(:small, person_or_organization, avatar_html_options)
+  end
+
+  def avatar_thumb(size, person_or_organization, avatar_html_options={})
     return "" if person_or_organization.nil?
     if person_or_organization.class == Organization
-      image_tag person_or_organization.logo.url(:small)
+      image_tag person_or_organization.logo.url(size), avatar_html_options
     else
-      link_to((image_tag person_or_organization.image.url(:small)), person_or_organization)
+      link_to((image_tag person_or_organization.image.url(size), avatar_html_options), person_or_organization)
     end
   end
   
   def large_avatar_thumb(person)
+    image_tag person.image.url(:medium), :alt => person.name(@current_community)
+  end
+
+  def huge_avatar_thumb(person)
+    # FIXME! Need a new picture size: :large
     image_tag person.image.url(:medium), :alt => person.name(@current_community)
   end
 
@@ -698,8 +697,8 @@ module ApplicationHelper
   end
   
   # Settings view left hand navigation content
-  def settings_links_for(person)
-    [
+  def settings_links_for(person, community=nil)
+    links = [
       { 
         :text => t("layouts.settings.profile"),
         :icon_class => icon_class("profile"),  
@@ -708,17 +707,28 @@ module ApplicationHelper
       },
       {
         :text => t("layouts.settings.account"),
-        :icon_class => "ss-lockfile", 
+        :icon_class => icon_class("account_settings"), 
         :path => account_person_settings_path(:person_id => person.id.to_s) ,
         :name => "account"
       },
       {
         :text => t("layouts.settings.notifications"),
-        :icon_class => "ss-callbell", 
+        :icon_class => icon_class("notification_settings"), 
         :path => notifications_person_settings_path(:person_id => person.id.to_s),
         :name => "notifications"
       }
     ]
+    if community && community.payments_in_use?
+      links << {
+        :text => t("layouts.settings.payments"),
+        :icon_class => icon_class("payments"), 
+        :path => payments_person_settings_path(:person_id => person.id.to_s) ,
+        :name => "payments"
+      }
+      
+    end
+    
+    return links
   end
   
   def dashboard_link(args)
@@ -742,11 +752,11 @@ module ApplicationHelper
   def get_badge_class(count)
     case count
     when 1..9
-      "badge"
+      ""
     when 10..99
-      "badge big-badge"
+      "big-badge"
     else
-      "badge huge-badge"
+      "huge-badge"
     end
   end
   
@@ -836,5 +846,10 @@ module ApplicationHelper
       Delayed::Job.enqueue(Object.const_get("#{reminder_type.capitalize}ReminderJob").new(conversation.id, recipient.id, community.id, number_of_reminders_sent), :priority => 0, :run_at => run_at)
     end
   end
-  
+
+  def with_available_locales(&block)
+    if available_locales.size > 1
+      block.call(available_locales)
+    end
+  end
 end

@@ -1,0 +1,29 @@
+-#
+  Listing image for grid
+  
+  Includes:
+  - Listing image
+  - Overlay (transparent gradient black)
+  - Listing price
+  - Adds `modifier_class` which can be used for view specific fine tunings
+
+= link_to listing, :class => "#{modifier_class} fluid-thumbnail-grid-image-item-link" do
+  .fluid-thumbnail-grid-image-image-container{:class => "#{modifier_class}"}
+    - with_first_listing_image(listing) do |first_image|
+      = image_tag first_image.image.url(:small_3x2), {:alt => listed_listing_title(listing), :class => "#{modifier_class} fluid-thumbnail-grid-image-image"}
+
+    - with_first_listing_image_processing(listing) do
+      = image_tag "empty_3x2.gif", {:class => "#{modifier_class} fluid-thumbnail-grid-image-image"}
+
+    - without_listing_image(listing) do
+      = image_tag "empty_3x2.gif", {:class => "#{modifier_class} fluid-thumbnail-grid-image-image"}
+
+    .fluid-thumbnail-grid-image-overlay{:class => "#{modifier_class}"}
+    .fluid-thumbnail-grid-image-title{:class => "#{modifier_class}"}
+      - with_first_listing_image_processing(listing) do
+        = t(".processing_uploaded_image")
+        %br/
+      = listing.title
+    - if listing.price
+      .fluid-thumbnail-grid-image-price{:class => "#{modifier_class}"}
+        = money_without_cents_and_with_symbol(listing.price).upcase

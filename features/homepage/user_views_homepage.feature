@@ -49,7 +49,6 @@ Feature: User views homepage
      And I should not see "car spare parts"
      And I should see "massage"
      And I should not see "place to live"
-     And I should see "There are 3 open listings in this community. 2 of them are visible only to the members of the community. If you want to see also the listings that are visible only to the members, you need to log in."
      When I log in as "kassi_testperson1"
      Then I should see "car spare parts"
      And I should see "massage"
@@ -105,12 +104,10 @@ Feature: User views homepage
      And I am on the home page page
      And I should not see "car spare parts"
      And I should not see "place to live"
-     And I should see "There are 2 open listings in this community. 2 of them are visible only to the members of the community. If you want to see also the listings that are visible only to the members, you need to log in."
      When there is item request with title "bike parts" from "kassi_testperson2" and with share type "buy"
      And privacy of that listing is "private"
      And I am on the homepage
      Then I should not see "bike parts"
-     And I should see "There are 3 open listings in this community. 3 of them are visible only to the members of the community. If you want to see also the listings that are visible only to the members, you need to log in."
   
   @wip
   @javascript

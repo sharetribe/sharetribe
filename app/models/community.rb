@@ -2,7 +2,7 @@ class Community < ActiveRecord::Base
 
   require 'compass'
   require 'sass/plugin'
-  
+
   include EmailHelper
 
   has_many :community_memberships, :dependent => :destroy 
@@ -20,6 +20,7 @@ class Community < ActiveRecord::Base
   has_many :statistics, :dependent => :destroy
   
   has_and_belongs_to_many :listings
+  has_and_belongs_to_many :payment_gateways
   
   after_create :initialize_settings
   before_destroy :delete_specific_community_categories
@@ -44,10 +45,14 @@ class Community < ActiveRecord::Base
     
   serialize :settings, Hash
   
-  has_attached_file :logo, :styles => { 
-                      :header => "192x192#",  
-                      :original => "600x600>"},
-                      :default_url => "/assets/logos/header/default.png"
+  has_attached_file :logo, 
+                    :styles => { 
+                      :header => "192x192#",
+                      :header_icon => "40x40#",  
+                      :original => "600x600>"
+                    },
+                    :default_url => "/assets/logos/mobile/default.png"
+  
   validates_attachment_content_type :logo,
                                     :content_type => ["image/jpeg",
                                                       "image/png", 
@@ -55,10 +60,28 @@ class Community < ActiveRecord::Base
                                                       "image/pjpeg", 
                                                       "image/x-png"]
   
-  has_attached_file :cover_photo, :styles => { 
-                      :header => "1600x195#",  
-                      :original => "3200x3200>"},
-                      :default_url => "/assets/cover_photos/header/default.jpg"
+  has_attached_file :wide_logo, 
+                    :styles => { 
+                      :header => "168x40#",  
+                      :original => "600x600>"
+                    },
+                    :default_url => "/assets/logos/full/default.png"
+  
+  validates_attachment_content_type :wide_logo,
+                                    :content_type => ["image/jpeg",
+                                                      "image/png", 
+                                                      "image/gif", 
+                                                      "image/pjpeg", 
+                                                      "image/x-png"]
+  
+  has_attached_file :cover_photo, 
+                    :styles => { 
+                      :header => "1600x195#",
+                      :hd_header => "1920x450#",  
+                      :original => "3840x3840>"
+                    },
+                    :default_url => "/assets/cover_photos/header/default.jpg",
+                    :keep_old_files => true # Temporarily to make preprod work aside production
   validates_attachment_content_type :cover_photo,
                                     :content_type => ["image/jpeg",
                                                       "image/png", 
@@ -104,7 +127,19 @@ class Community < ActiveRecord::Base
   end
   
   def has_customizations?
-    stylesheet_url.present?
+    if APP_CONFIG.preproduction
+      preproduction_stylesheet_url.present?
+    else
+      stylesheet_url.present?
+    end
+  end
+  
+  def custom_stylesheet_url
+    if APP_CONFIG.preproduction
+      self.preproduction_stylesheet_url        
+    else
+      self.stylesheet_url
+    end
   end
   
   def self.with_customizations
@@ -248,12 +283,13 @@ class Community < ActiveRecord::Base
   def self.generate_customization_stylesheets
     Community.with_customizations.each do |community|
       puts "Generating custom CSS for #{community.name}"
+      STDOUT.flush # trying to get the prints out sooner while deploying to heroku
       community.generate_customization_stylesheet
     end
   end
   
   def generate_customization_stylesheet
-    if custom_color1 || cover_photo.present?
+    if custom_color1 || custom_color2 || cover_photo.present?
       community_filename = domain.gsub(".", "_")
       stylesheet_filename = "custom-style-#{community_filename}"
       new_filename_with_time_stamp = "#{stylesheet_filename}-#{Time.now.strftime("%Y%m%d%H%M%S")}"
@@ -261,37 +297,29 @@ class Community < ActiveRecord::Base
       
       # Copy original SCSS and do customizations by search & replace
       
-      FileUtils.cp("app/assets/stylesheets/application.scss.erb", "app/assets/stylesheets/#{stylesheet_filename}.scss" )
-      FileUtils.cp("app/assets/stylesheets/customizations.scss", "app/assets/stylesheets/customizations-#{community_filename}.scss" )
-      replace_in_file("app/assets/stylesheets/#{stylesheet_filename}.scss",
-                      "@import 'customizations';",
-                      "@import 'customizations-#{community_filename}';",
-                      true)
+      # Create new stylesheet for community
+      FileUtils.cp("app/assets/stylesheets/application.scss", "app/assets/stylesheets/#{stylesheet_filename}.scss" )
+      
+      # Use default-colors as a starting point for customizations
+      FileUtils.cp("app/assets/stylesheets/default-colors.scss", "app/assets/stylesheets/customizations.scss" )
 
-      # ERB compiling with Compass kept failing, so do the only ERB change manually here    
-      icon_import_line = (APP_CONFIG.icon_pack == "ss-pika" ? "@import 'ss-social';\n@import 'ss-pika';" : "@import 'font-awesome.min';")
-      replace_in_file("app/assets/stylesheets/#{stylesheet_filename}.scss",
-                      /<%= \(APP_CONFIG.icon_pack[^%]+%>/,
-                      icon_import_line,
-                      true)
-                      
       if custom_color1.present? 
-        replace_in_file("app/assets/stylesheets/customizations-#{community_filename}.scss",
+        replace_in_file("app/assets/stylesheets/customizations.scss",
                         /\$link:\s*#\w{6};/,
                         "$link: ##{custom_color1};",
                         true)
       end
       color2 = custom_color2 || custom_color1
       if color2.present? 
-        replace_in_file("app/assets/stylesheets/customizations-#{community_filename}.scss",
+        replace_in_file("app/assets/stylesheets/customizations.scss",
                         /\$link2:\s*#\w{6};/,
                         "$link2: ##{color2};",
                         true)
       end
       if cover_photo.present?
-        replace_in_file("app/assets/stylesheets/customizations-#{community_filename}.scss",
+        replace_in_file("app/assets/stylesheets/customizations.scss",
                         /\$cover-photo-url:\s*\"[^\"]+\";/,
-                        "$cover-photo-url: \"#{cover_photo.url(:header)}\";",
+                        "$cover-photo-url: \"#{cover_photo.url(:hd_header)}\";",
                         true)
       end
       url = stylesheet_filename
@@ -300,25 +328,37 @@ class Community < ActiveRecord::Base
         # Generate CSS from SCSS
         css_file = "public/assets/#{new_filename_with_time_stamp}.css"
         `mkdir public/assets` unless File.exists?("public/assets")
-        
-        
-        Compass.add_configuration(
-            {
-                :project_path => '.',
-                :sass_path => 'app/assets/stylesheets',
-                :css_path => 'public/assets'
-            },
-            'custom' # A name for the configuration, can be anything you want
-        )
-        
-        # There was trouble making Compas find CSS from other folders so use simple copy. :)
-        # FIXME: Extend Compass load path to avoid this unnecessary copy operation
-        if APP_CONFIG.icon_pack == "ss-pika"
-          FileUtils.cp("app/assets/webfonts/ss-social.css","app/assets/stylesheets/ss-social.scss")
-          FileUtils.cp("app/assets/webfonts/ss-pika.css","app/assets/stylesheets/ss-pika.scss")
+
+        sprockets = Sprockets::Environment.new(Rails.root).tap do |env|
+          env.append_path File.join(env.root, 'app/assets/stylesheets')
+
+          env.context_class.instance_eval do
+            # Include these helpers to allow SASS files to use image-url etc. helpers
+            include Sprockets::Helpers::RailsHelper
+            include Sprockets::Helpers::IsolatedHelper
+
+            def sass_config
+              ActiveSupport::OrderedOptions.new.tap do |s|
+                compass = Compass::Frameworks['compass']
+
+                s.load_paths = [
+                  # File.join($root, 'app/assets/stylesheets'),
+                  compass.stylesheets_directory,
+                  compass.templates_directory
+                ]
+
+                # Here we can add SASS configurations, such as:
+                # s.style = :expanded
+              end
+            end
+          end
         end
-        
-        Compass.compiler.compile("app/assets/stylesheets/#{stylesheet_filename}.scss", css_file)
+
+        asset = sprockets["#{stylesheet_filename}.scss"]
+        asset.write_to(css_file)
+
+        # Empty the file
+        File.open("app/assets/stylesheets/customizations.scss", 'w') {}
         
         url = new_filename_with_time_stamp
         
@@ -336,7 +376,16 @@ class Community < ActiveRecord::Base
           
         end
       end
-      update_attribute(:stylesheet_url, url)
+      
+      # If we are at preproduction, only update the preproduction_stylesheet_url in order not
+      # to disturb what's happening at production.
+      # Normally update the stylesheet_url
+      
+      if APP_CONFIG.preproduction
+        update_attribute(:preproduction_stylesheet_url, url)        
+      else
+        update_attribute(:stylesheet_url, url)
+      end
     end
   end
   
@@ -505,6 +554,11 @@ class Community < ActiveRecord::Base
     # is not found with the above search, so then payment is not possible here. (cc must be present)
     payments_in_use && cc.present? && (cc.price || cc.payment)
   end
+  
+  # Does this community require that people have registered payout method before accepting requests
+  def requires_payout_registration?
+    payment_gateways.present? && payment_gateways.first.requires_payout_registration_before_accept?
+  end
 
 
   def community_categories
@@ -531,11 +585,11 @@ class Community < ActiveRecord::Base
     end
   end
   
-  def facebook_login_method
-    unless facebook_connect_id
-      return :facebook
-    else
+  def facebook_login_method(host=nil)
+    if facebook_connect_id && (!host || full_domain.match(host))
       return "facebook_app_#{facebook_connect_id}".to_sym
+    else
+      return :facebook
     end
   end
 

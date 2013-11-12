@@ -1,0 +1,40 @@
+$left-column-2-3: 42 - 14 - 0.5;
+$right-column-1-3: 13;
+
+/* Grid column that is 1/4 of total width */
+$grid-1-4-padding: lines(0.5);
+$grid-1-4-width: lines(10.75) - ($grid-1-4-padding * 2);
+@mixin grid-column-1-4 {
+  display: block;
+  width: lines(10.25 + (0.5 / 3));
+  margin-bottom: lines(1);
+  padding: 0 lines(0.5) 0 0;
+  float: left;
+}
+
+@mixin grid-column-content-1-4 {
+  width: 100%;
+  background: $highlight;
+}
+
+@mixin inline-block-grid($total-width) {
+  $aspect-ratio: 3/2;
+  $item-padding: lines(0.5);
+  $item-width: ($total-width - (1 * $item-padding)) / 3;
+
+  display: block;
+  width: $item-width;
+  height: $item-width / $aspect-ratio;
+  margin-bottom: lines(1);
+  padding: 0 $item-padding 0 0;
+  float: left;
+}
+
+@mixin wrapper {
+  background: $background;
+  position: relative;
+  margin: 0 auto;
+  padding-left: lines(0.5);
+  padding-right: lines(0.5);
+  max-width: lines(42);
+}

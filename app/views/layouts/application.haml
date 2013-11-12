@@ -9,71 +9,24 @@
  
   = render :partial => 'layouts/global-header'
 
-  %header.tribe-header
-
-    .coverimage
-      %figure.tribe-cover.fluidratio
-
-    .wrapper
-      .tribe-logo
-        %a{href: '/'}
-          = image_tag @current_community.logo.url(:header)
-      .tribe-intro.hidden
-        .intro-wrapper
-          %h1= community_slogan
-          %p
-            = community_description
-            = link_to t(".read_more"), about_infos_path
-      - if @current_user
-        - if @current_community.allows_user_to_send_invitations?(@current_user)
-          .join-action-buttons
-            - if @current_user
-              - link_label = @current_community.category.eql?("neighborhood") ? t(".invite_your_neighbors") : t(".invite_your_friends")
-              = link_to link_label, new_invitation_path, :class => "intro-button"
-              %small
-                - if @current_community.join_with_invite_only?
-                  = t(".invite_your_friends_invite_only_description")
-                - else 
-                  = t(".invite_your_friends_description")
-      - else
-        .join-action-buttons
-          - if facebook_connect_in_use?
-            = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".connect") }
-            %small
-              = t(".join_without_facebook", :join_without_facebook_link => link_to(t(".join_without_facebook_link"), sign_up_path(:no_fb => true), :class => "regular-link")).html_safe
-          - else
-            = link_to t(".join_this_community"), sign_up_path, :class => "intro-button"
-
-    .tribe-navigation
-
+  %section.marketplace-lander
+    - if @homepage && !@current_user
+      .coverimage
+        %figure.marketplace-cover.fluidratio
       .wrapper
-
-        %nav.tribe-actions.actions-menu
-          %a.first-child{:href => root, :title => t('header.home'), :class => (@selected_tribe_navi_tab.eql?("home") ? "selected-navi-link" : "")}
-            = icon_tag("home", ["icon-with-text"])
-            .text-with-icon.hidden= t('header.home')
-          %a{:href => new_listing_path + "?ref=tribe_navi", :title => t('header.new_listing'), :class => (@selected_tribe_navi_tab.eql?("new_listing") ? "selected-navi-link" : "")}
-            = icon_tag("new_listing", ["icon-with-text"])
-            .text-with-icon.hidden= t('header.new_listing')
-          - community_path = @current_community.requires_organization_membership? ? organizations_path : people_path
-          %a{:href => community_path, :title => t('header.members'), :class => (@selected_tribe_navi_tab.eql?("members") ? "selected-navi-link" : "")}
-            = icon_tag("community", ["icon-with-text"])
-            .text-with-icon.hidden= t('header.members')
-          %a{:href => about_infos_path, :title => t('header.about'), :class => (@selected_tribe_navi_tab.eql?("about") ? "selected-navi-link" : "")}
-            = icon_tag("help", ["icon-with-text"])
-            .text-with-icon.hidden= t('header.about')
-          - if logged_in? && @current_user.has_admin_rights_in?(@current_community)
-            %a{:href => edit_details_admin_community_path(@current_community), :title => t("layouts.logged_in.admin"), :class => (@selected_tribe_navi_tab.eql?("admin") ? "selected-navi-link" : "")}
-              = icon_tag("admin", ["icon-with-text"])
-              .text-with-icon.hidden= t("layouts.logged_in.admin")
-          - if available_locales.size > 1
-            .select-language.toggle{data: {toggle: '.language-menu'}}
-              = icon_tag("dropdown", ["icon-dropdown"])
-              .current-language
-                = get_full_locale_name(I18n.locale)
-        - if available_locales.size > 1
-          .language-menu.toggle-menu.hidden
-            = render :partial => "layouts/locale_select", :collection => available_locales, :as => :loc_array
+        .lander-content.marketplace-lander-content
+          = yield :title_header 
+    - else
+      .coverimage
+        %figure.marketplace-cover-small.fluidratio
+      .coverimage-fade{:class => yield(:coverfade_class)}
+        %figure.marketplace-cover-small-fade.fluidratio 
+      .title-container
+        .title-header-wrapper
+          .marketplace-title-header
+            = yield :title_header
+            
+      
 
   %article.page-content
     .wrapper

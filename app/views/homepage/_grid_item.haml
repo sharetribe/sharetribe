@@ -1,0 +1,11 @@
+.home-fluid-thumbnail-grid-item
+  %div
+    -# Listing image
+    = render :partial => "layouts/grid_item_listing_image", :locals => {:listing => listing, :modifier_class => ""}
+    
+    -# Listing author details
+    .home-fluid-thumbnail-grid-author
+      .home-fluid-thumbnail-grid-author-avatar
+        = small_avatar_thumb(listing.organization_or_author?(@current_community), :class => "home-fluid-thumbnail-grid-author-avatar-image")
+      = link_to(listing.author, :class => "home-fluid-thumbnail-grid-author-name") do
+        = listing.author.name

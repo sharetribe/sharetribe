@@ -1,4 +1,7 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => about_links }
 
+- content_for :title_header do
+  %h1= t("layouts.infos.info_about_kassi")
+
 .left-navi-section.about-section
   = render :file => community_file("register_details", true)

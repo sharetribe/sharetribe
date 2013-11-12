@@ -1,0 +1,48 @@
+/*
+  Vertical centering using "ghost" element
+  Use for: Centering blocks with unknown height/width
+
+  http://css-tricks.com/centering-in-the-unknown/
+*/
+@mixin vertical-centering-container {
+  // Set font-size to 0 to remove the small gap between
+  // inline-block elements
+  font-size: 0;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+}
+
+@mixin vertical-centering-content {
+  // Reset font-size
+  font-size: #{$font-size}px;
+
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+}
+
+@mixin vertical-centering-text-content {
+  @include vertical-centering-content;
+  margin-left: -0.25em; // Adjust for spacing. Needed if we're centering text
+}
+
+/*
+  Vertical centering using tables
+  Use for: Center multiline text
+
+  http://css-tricks.com/vertically-center-multi-lined-text/
+*/
+@mixin vertical-centering-table-container {
+  display: table;
+}
+
+@mixin vertical-centering-table-content {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}

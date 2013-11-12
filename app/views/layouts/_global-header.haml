@@ -1,93 +1,94 @@
-%header.global-header
-  .wrapper
-    - unless @current_community.settings["hide_header_dropdown"]
-      .select-tribe.toggle.hidden{data: {toggle: '.tribe-menu', logo_class: "toggled-#{@current_community.service_logo_style}"}, class: @current_community.service_logo_style }
-        .current-tribe
-          = @current_community.name
-        = icon_tag("dropdown", ["icon-dropdown"])
-    -else
-      .empty-header
-        &nbsp;
-    - if @current_user  
+%header.global-header.marketplace-header{:class => (params[:view].eql?("map") ? "visible-tablet" : "")}
+  .global-header-wrapper
+  
+    .mobile-menu-toggle.toggle.hidden{data: {toggle: '.mobile-menu'}}
+      = icon_tag("rows", ["icon"])
       
-      %a.notifications-toggle.toggle.hidden#notifications_link{href: notifications_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.notifications")}
-        = icon_tag("notifications", ["icon"])
-        = render :partial => "layouts/notifications_badge"
+    %nav.mobile-menu.toggle-menu.hidden
+      = link_to t("header.home"), "/"
+      = link_to t("header.about"), about_infos_path
+      = link_to t("header.contact_us"), new_user_feedback_path
+      = link_to t("homepage.index.post_new_listing"), new_listing_path
+      - with_available_locales do |locales|
+        .toggle-menu-title
+          = t(".select_language")
+        - locales.each do |locale|
+          %a{href: change_locale_path(:locale => "#{locale[1]}", :redirect_uri => "#{@return_to}"), :class => "toggle-menu-subitem"} #{locale[0]}
+      
+  
+    %a.logo-side{:href => "/", :class => (@current_user ? "logo-side-logged" : "logo-side-unlogged")}
+      = image_tag @current_community.wide_logo.url(:header), :class => "marketplace-header-logo"
+      = image_tag @current_community.logo.url(:header_icon), :class => "marketplace-header-logo-mobile"
 
-      %a.inbox-toggle.toggle.hidden#inbox-link{href: received_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.messages")}
-        = icon_tag("mail", ["icon"])
-        = render :partial => "layouts/messages_badge"
-    
-      .user-menu-toggle.toggle.hidden{data: {toggle: '.user-menu'}}
-        = image_tag @current_user.image.url(:thumb), alt: '', class: 'user-avatar'
-        .user-name= @current_user.name(@current_community)
+    .right-side
+      - show_contact_us = !@current_user
+      = link_to t("header.home").downcase, "/", :class => "global-navi global-navi-left", :id => "global-navi-home"
+      
+      - about_class = show_contact_us ? "global-navi-left" : available_locales.size > 1 ? "" : "global-navi-left"
+      - contact_us_class = available_locales.size > 1 ? "" : "global-navi-left"
+      = link_to t("header.about").downcase, about_infos_path, :class => "global-navi #{about_class}", :id => "global-navi-about"
+      - if show_contact_us
+        = link_to t("header.contact_us").downcase, new_user_feedback_path, :class => "global-navi #{contact_us_class}", :id => "global-navi-contact-us"
 
-        = icon_tag("dropdown", ["icon-dropdown"])
-        = render :partial => "layouts/user_badge"
-    
-    - else  
-    
-      .login-menu-toggle.toggle.hidden#login-toggle-button{data: {toggle: '.login-menu'}}
-        = icon_tag("login", ["login-icon"])
-        .login-text= t("layouts.logged_in.login")
-        
-      %a.feedback-menu-toggle.toggle.hidden{href: new_user_feedback_path}
-        = icon_tag("feedback", ["feedback-icon"])
-        .feedback-text= t("header.contact_us")
-      
-      
-    %nav.tribe-menu.toggle-menu.hidden
-      %a{href: "#{@current_community.full_url}"}= @current_community.full_name
-      - if @current_user && @current_user.communities.present?
-        - @current_user.communities.each do |community|
-          - unless community == @current_community
-            %a{href: "#{community.full_url}", on_click: "_gaq.push(['_link', '#{community.full_url}']); return false;"}
-              = community.full_name
-      %a{href: dashboard_link(:locale => I18n.locale, :ref => "gh"), on_click: "_gaq.push(['_link', '#{dashboard_link(:locale => I18n.locale, :ref => "gh")}']); return false;"}
-        = t("header.create_new_marketplace")
-    
-    - if @current_user
-      %nav.user-menu.toggle-menu.hidden
-        %a.profile-menu-button{href: person_path(@current_user)}
-          = icon_tag("user", ["icon-with-text"])
-          .text-with-icon
-            = t("header.profile")
-        %a.inbox-menu-button{href: received_person_messages_path(:person_id => @current_user.id.to_s)}
-          = icon_tag("mail", ["icon-with-text"])
-          .text-with-icon
-            = t("layouts.conversations.messages") 
-            = render :partial => "layouts/messages_badge"
-        %a.notifications-menu-button{href: notifications_person_messages_path(:person_id => @current_user.id.to_s)}
-          = icon_tag("notifications", ["icon-with-text"])
-          .text-with-icon
-            = t("layouts.conversations.notifications")
-            = render :partial => "layouts/notifications_badge"
-        %a.feedback-menu-button{href: new_user_feedback_path}
-          = icon_tag("feedback", ["icon-with-text"])
-          .text-with-icon
-            = t("header.contact_us")
-        %a{href: person_settings_path(@current_user)}
-          = icon_tag("settings", ["icon-with-text"])
-          .text-with-icon
-            = t("layouts.logged_in.settings")
-        %a{href: logout_path}
-          = icon_tag("logout", ["icon-with-text"])
-          .text-with-icon
-            = t("layouts.logged_in.logout")
-    
-    %nav.login-menu.toggle-menu.hidden
-      = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do
-        - if @current_community
-          = hidden_field_tag :community, @current_community.domain
-        - if facebook_connect_in_use?
-          %a.fb-connect{:href => person_omniauth_authorize_path(@current_community ? @current_community.facebook_login_method : :facebook)}
-            = icon_tag("facebook", ["fb-icon"])
-            .fb-text= t("sessions.new.log_in_with_your_facebook_account")
-          %p.login-form= t("sessions.new.or_sign_up_with_your_username")
-        = text_field_tag "person[login]", nil, :value => session[:form_login], :placeholder => t("common.username_or_email"), :id => :upper_person_login
-        = password_field_tag "person[password]", nil, :placeholder => t("common.password"), :id => :upper_person_password
-        = button_tag t('sessions.new.login')
-        = link_to t('sessions.new.create_new_account'), sign_up_path, :class => "login-form"
-        = link_to t('sessions.new.i_forgot_my_password'), login_path(:password_forgotten => true), :class => "login-form"
-        
+      - with_available_locales do |locales|
+        #global-navi-select-language.language-menu-toggle.toggle.hidden{data: {toggle: '.language-menu'}}
+          .language-name
+            = get_full_locale_name(I18n.locale).downcase
+          = icon_tag("dropdown", ["icon-dropdown"])
           
+          .language-menu.toggle-menu.hidden
+            = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array
+
+      - if @current_user
+        %a{:href => received_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.messages"), :id => "inbox-link", :class => "global-navi inbox-link"}
+          = icon_tag("mail", ["icon"])
+          - if Conversation.unread_count(@current_user.id.to_s) > 0
+            .messages-badge
+              .badge{:class => get_badge_class(Conversation.unread_count(@current_user.id.to_s))} 
+                = Conversation.unread_count(@current_user.id.to_s)
+        .user-menu-toggle.toggle.hidden{data: {toggle: '.user-menu'}}
+          = image_tag @current_user.image.url(:thumb), alt: '', class: 'user-avatar'
+          .user-name
+            = @current_user.name(@current_community)
+          - if Conversation.unread_count(@current_user.id.to_s) > 0
+            .mobile-badge{:class => get_badge_class(Conversation.unread_count(@current_user.id.to_s))}
+              = Conversation.unread_count(@current_user.id.to_s)
+          = icon_tag("dropdown", ["icon-dropdown"])
+        
+          %nav.user-menu.toggle-menu.hidden
+            %a.profile-menu-button{href: person_path(@current_user)}
+              = icon_tag("user", ["icon-with-text"])
+              .text-with-icon
+                = t("header.profile")
+            %a.inbox-menu-button{href: received_person_messages_path(:person_id => @current_user.id.to_s)}
+              = icon_tag("mail", ["icon-with-text"])
+              .text-with-icon
+                = t("layouts.conversations.messages")
+              - if Conversation.unread_count(@current_user.id.to_s) > 0
+                .mobile-badge-menu{:class => get_badge_class(Conversation.unread_count(@current_user.id.to_s))}
+                  = Conversation.unread_count(@current_user.id.to_s)
+            %a#feedback-menu-button.feedback-menu-button{href: new_user_feedback_path}
+              = icon_tag("feedback", ["icon-with-text"])
+              .text-with-icon
+                = t("header.contact_us")
+            %a{href: person_settings_path(@current_user)}
+              = icon_tag("settings", ["icon-with-text"])
+              .text-with-icon
+                = t("layouts.logged_in.settings")
+            - if logged_in? && @current_user.has_admin_rights_in?(@current_community)
+              %a{:href => edit_details_admin_community_path(@current_community)}
+                = icon_tag("admin", ["icon-with-text"])
+                .text-with-icon
+                  = t("layouts.logged_in.admin")
+            %a{href: logout_path}
+              = icon_tag("logout", ["icon-with-text"])
+              .text-with-icon
+                = t("layouts.logged_in.logout")
+            
+          
+        
+      - else
+        = link_to t("layouts.logged_in.login").downcase, login_path, :class => "global-navi login-link", :id => "login-link"
+      
+      .new-listing-link
+        = link_to t("homepage.index.post_new_listing"), new_listing_path, :class => "action-button", :id => "new-listing-link"

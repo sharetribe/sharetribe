@@ -4,28 +4,239 @@
 #task :deploy_staging => ['deploy:set_staging_app', 'deploy:push', 'deploy:restart', 'deploy:tag']
 #task :deploy_production => ['deploy:set_production_app', 'deploy:push', 'deploy:restart', 'deploy:tag']
 
-task :deploy_staging_migrations => ['deploy:set_staging_app', 'i18n:write_error_pages', 'deploy:update_webfonts_folder', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db' ]
-task :deploy_production_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
+## generic deploy methods
 
-task :deploy_staging_without_migrations => ['deploy:set_staging_app', 'i18n:write_error_pages', 'deploy:update_webfonts_folder', 'deploy:push', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
-task :deploy_production_without_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
+task :deploy_without_migrations_to, [:destination] do |t, args|
+  deploy(:destination => args[:destination], :migrations => false)  
+end
+
+task :deploy_with_migrations_to, [:destination] do |t, args|
+  deploy(:destination => args[:destination], :migrations => true)
+end
+
+def deploy(params)
+  @destination = params[:destination]
+  @branch = `git symbolic-ref HEAD`[/refs\/heads\/(.+)$/,1]
+  
+  puts "Deploying from: #{@branch}"
+  puts "Deploying to:   #{@destination}"
+  
+  if @destination == "production" || @destination == "preproduction"
+    puts "YOU ARE GOING TO DEPLOY #{@branch} BRANCH TO #{@destination}"
+    puts "MAKE SURE THE DETAILS ARE CORRECT! Are you sure you want to continue? (y/n)"
+    response = STDIN.gets.strip
+    exit if response != 'y' && response != 'Y'
+  else
+    #update_error_page_translations
+    Rake::Task["i18n:write_error_pages"].invoke
+  end
+  
+  set_app(@destination)
+  prepare_closed_source_branch
+  deploy_to_server
+  if params[:migrations]
+    run_migrations
+    restart
+  end
+  generate_custom_css
+  update_translations
+   
+end
+
+def set_app(destination)
+  @app = "sharetribe-#{destination}"
+  puts "Destination Heroku app: #{@app}"
+end
+
+def prepare_closed_source_branch
+  puts 'Copying closed source contents...'
+  puts `mkdir ../tmp-sharetribe` unless File.exists?("../tmp-sharetribe")
+  puts `mkdir ../tmp-sharetribe/webfonts` unless File.exists?("../tmp-sharetribe/webfonts")
+  puts `rm app/assets/webfonts/* `
+  puts `git checkout closed_source`
+  # Just in case, check that we really are in the right branch before reset --hard
+  if `git symbolic-ref HEAD`.match("refs/heads/closed_source")
+    puts `git reset --hard private/closed_source`
+    puts `git pull`
+    puts `cp -R app/assets/webfonts/* ../tmp-sharetribe/webfonts/`
+    puts `cp config/mangopay.pem ../tmp-sharetribe/`
+    puts `git rebase #{@branch}`
+    puts `git checkout #{@branch}`
+    puts `mkdir app/assets/webfonts `
+    puts `cp -R ../tmp-sharetribe/webfonts/* app/assets/webfonts/`
+    puts `cp ../tmp-sharetribe/mangopay.pem config/`
+  else
+    puts "ERROR: Checkout for closed_source branch didn't work. Maybe you have uncommitted changes?"
+  end
+end
+
+def deploy_to_server
+  system("git push #{@destination} closed_source:master --force")
+
+end
+
+def run_migrations
+  puts 'Running database migrations ...'
+  system("heroku run rake db:migrate --app #{@app}")
+end
+
+def restart
+  puts 'Restarting app servers ...'
+  system("heroku restart --app #{@app}")
+end
+
+def generate_custom_css
+  puts 'Generating custom CSS for tribes who use it ...'
+  system("heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}")
+end
+
+def update_translations
+  puts 'Updating the translations, which are stored in the DB'
+  system("heroku run rake sharetribe:update_categorization_translations --app #{@app}")
+end
 
 
-task :deploy_translation_migrations => ['deploy:set_translation_app', 'deploy:update_webfonts_folder',  'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:update_translations_stored_in_db']
-task :deploy_translation_without_migrations => ['deploy:set_translation_app', 'deploy:update_webfonts_folder',  'deploy:push', 'deploy:update_translations_stored_in_db']
+## STAGING
+
+task :deploy_staging_migrations_from_master => [
+  'deploy:set_staging_app',
+  'deploy:set_master_as_source_branch',
+  'i18n:write_error_pages',
+  'deploy:update_closed_source_folders',
+  'deploy_with_migrations' 
+]
+
+task :deploy_staging_migrations_from_develop => [
+  'deploy:set_staging_app',
+  'deploy:set_develop_as_source_branch',
+  'i18n:write_error_pages',
+  'deploy:update_closed_source_folders',
+  'deploy_with_migrations' 
+]
+
+task :deploy_staging_without_migrations_from_develop => [
+  'deploy:set_staging_app',
+  'deploy:set_develop_as_source_branch',
+  'i18n:write_error_pages',
+  'deploy:update_closed_source_folders',
+  'deploy_without_migrations'
+]
 
 
-task :deploy_custom_migrations => ['deploy:set_staging_app', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
-task :deploy_custom_quick => ['deploy:set_staging_app', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push']
 
-task :deploy_testing_migrations => ['deploy:set_testing_app', 'i18n:write_error_pages', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db' ]
-task :deploy_testing_without_migrations => ['deploy:set_testing_app', 'i18n:write_error_pages', 'deploy:prepare_custom_branch_for_deploy', 'deploy:push', 'deploy:generate_custom_css', 'deploy:update_translations_stored_in_db']
+## PRODUCTION
 
-task :deploy_test_servers => ['deploy_staging_migrations', 'deploy_translation_migrations']
+# this one deploy's the closed_source branch but doesn't update it
+task :deploy_production_migrations_from_closed_source => [
+  'deploy:set_production_app',
+  'deploy_with_migrations'
+]
+
+task :deploy_production_migrations_from_master => [
+  'deploy:set_production_app',
+  'deploy:set_master_as_source_branch',
+  'deploy:update_closed_source_folders',
+  'deploy_with_migrations'
+]
+
+task :deploy_production_without_migrations_from_master => [
+  'deploy:set_production_app',
+  'deploy:set_master_as_source_branch',
+  'deploy:update_closed_source_folders',
+  'deploy_without_migrations'
+]
+
+# this one deploy's the closed_source branch but doesn't update it
+task :deploy_production_without_migrations_from_closed_source => [
+  'deploy:set_production_app',
+  'deploy_without_migrations'
+]
+
+
+## PRE PRODUCTION
+
+# this one deploy's the closed_source branch but doesn't update it
+task :deploy_preproduction_migrations_from_closed_source => [
+  'deploy:set_preproduction_app',
+  'deploy_with_migrations'
+]
+
+task :deploy_preproduction_migrations_from_develop => [
+  'deploy:set_preproduction_app',
+  'deploy:set_develop_as_source_branch',
+  'deploy:update_closed_source_folders',
+  'deploy_with_migrations'
+]
+
+
+
+
+## TRANSLATION
+
+task :deploy_translation_migrations_from_develop => [
+  'deploy:set_translation_app', 
+  'deploy:set_develop_as_source_branch', 
+  'deploy:update_closed_source_folders',  
+  'deploy:push',
+  'deploy:migrate',
+  'deploy:restart',
+  'deploy:update_translations_stored_in_db'
+]
+
+task :deploy_translation_without_migrations_from_develop => [
+  'deploy:set_translation_app',
+  'deploy:set_develop_as_source_branch',
+  'deploy:update_closed_source_folders',
+  'deploy:push',
+  'deploy:update_translations_stored_in_db'
+]
+
+
+## TESTING
+
+task :deploy_testing_migrations => [
+  'deploy:set_testing_app',
+  'i18n:write_error_pages',
+  'deploy:prepare_custom_branch_for_deploy',
+  'deploy_with_migrations'
+]
+  
+task :deploy_testing_without_migrations => [
+  'deploy:set_testing_app',
+  'i18n:write_error_pages',
+  'deploy:prepare_custom_branch_for_deploy',
+  'deploy_without_migrations'
+]
+
+
+
+task :deploy_test_servers => [
+  'deploy_staging_migrations',
+  'deploy_translation_migrations'
+]
+
+
+
+task :deploy_with_migrations => [
+  'deploy:push',
+  'deploy:migrate',
+  'deploy:restart',
+  'deploy:generate_custom_css',
+  'deploy:update_translations_stored_in_db'
+]
+
+task :deploy_without_migrations => [
+  'deploy:push',
+  'deploy:generate_custom_css',
+  'deploy:update_translations_stored_in_db'
+]
+
+
 
 
 namespace :deploy do
   PRODUCTION_APP = 'sharetribe-production'
+  PREPRODUCTION_APP = 'sharetribe-preproduction'
   STAGING_APP = 'sharetribe-staging'
   TRANSLATION_APP = "sharetribe-translation"
   TESTING_APP = 'sharetribe-testing'
@@ -39,33 +250,46 @@ namespace :deploy do
   end
 
   task :set_production_app do
-  	APP = PRODUCTION_APP
+    APP = PRODUCTION_APP
+  end
+  
+  task :set_preproduction_app do
+    APP = PREPRODUCTION_APP
   end
   
   task :set_translation_app do
-  	APP = TRANSLATION_APP
+    APP = TRANSLATION_APP
   end
   
-  task :update_webfonts_folder do
-    puts 'Copying webfonts folder ...'
-    puts `rm app/assets/webfonts/* `
-    puts `git checkout closed_source`
-    puts `cp -R app/assets/webfonts/* ../tmp-sharetribe-webfonts/`
-    puts `git rebase develop`
-    puts `git checkout develop`
-    puts `mkdir app/assets/webfonts `
-    puts `cp -R ../tmp-sharetribe-webfonts/* app/assets/webfonts/`
+  task :set_develop_as_source_branch do
+    BRANCH = "develop"
   end
   
-  task :prepare_custom_branch_for_deploy do
-    puts 'Copying webfonts folder ...'
+  task :set_master_as_source_branch do
+    BRANCH = "master"
+  end
+
+  
+  task :update_closed_source_folders do
+    puts 'Copying closed source contents...'
+    puts `mkdir ../tmp-sharetribe` unless File.exists?("../tmp-sharetribe")
+    puts `mkdir ../tmp-sharetribe/webfonts` unless File.exists?("../tmp-sharetribe/webfonts")
     puts `rm app/assets/webfonts/* `
     puts `git checkout closed_source`
-    puts `cp -R app/assets/webfonts/* ../tmp-sharetribe-webfonts/`
-    puts `git rebase custom`
-    puts `git checkout custom`
-    puts `mkdir app/assets/webfonts `
-    puts `cp -R ../tmp-sharetribe-webfonts/* app/assets/webfonts/`
+    # Just in case, check that we really are in the right branch before reset --hard
+    if `git symbolic-ref HEAD`.match("refs/heads/closed_source")
+      puts `git reset --hard private/closed_source`
+      puts `git pull`
+      puts `cp -R app/assets/webfonts/* ../tmp-sharetribe/webfonts/`
+      puts `cp config/mangopay.pem ../tmp-sharetribe/`
+      puts `git rebase #{BRANCH}`
+      puts `git checkout #{BRANCH}`
+      puts `mkdir app/assets/webfonts `
+      puts `cp -R ../tmp-sharetribe/webfonts/* app/assets/webfonts/`
+      puts `cp ../tmp-sharetribe/mangopay.pem config/`
+    else
+      puts "ERROR: Checkout for closed_source branch didn't work. Maybe you have uncommitted changes?"
+    end
   end
   
   task :push do
@@ -76,6 +300,8 @@ namespace :deploy do
       puts `git push translation closed_source:master --force`
     elsif APP == TESTING_APP
       puts `git push testing closed_source:master --force`
+    elsif APP == PREPRODUCTION_APP
+      puts `git push preproduction closed_source:master --force`  
     else
       puts `git push staging closed_source:master --force`
     end
@@ -83,29 +309,29 @@ namespace :deploy do
   
   task :restart do
     puts 'Restarting app servers ...'
-    puts `heroku restart --app #{APP}`
+    system("heroku restart --app #{APP}")
   end
   
   task :generate_custom_css => :environment do
     puts 'Generating custom CSS for tribes who use it ...'
-    puts  `heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}`
+    system("heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}")
   end
   
   task :update_translations_stored_in_db do
     puts 'Updating the translations, which are stored in the DB'
-    puts  `heroku run rake sharetribe:update_categorization_translations --app #{APP}`
+    system("heroku run rake sharetribe:update_categorization_translations --app #{APP}")
   end
   
   task :tag do
     release_name = "#{APP}_release-#{Time.now.utc.strftime("%Y%m%d%H%M%S")}"
     puts "Tagging release as '#{release_name}'"
     puts `git tag -a #{release_name} -m 'Tagged release'`
-    puts `git push --tags git@heroku.com:#{APP}.git`
+    system("git push --tags git@heroku.com:#{APP}.git")
   end
   
   task :migrate do
     puts 'Running database migrations ...'
-    puts `heroku run rake db:migrate --app #{APP}`
+    system("heroku run rake db:migrate --app #{APP}")
   end
   
   task :off do

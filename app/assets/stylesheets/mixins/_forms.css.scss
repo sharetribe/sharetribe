@@ -1,0 +1,169 @@
+@mixin button-group-button-padding {
+  padding: 0 lines(0.5);
+}
+
+@mixin neutral-button-color {
+  // Colors
+  color: $body;
+  background: $highlight;
+  border-color: $border;
+  &:hover { 
+    color: $background;
+    background: $aside;
+    border-color: darken($aside, 10%);
+  }
+}
+
+@mixin selected-button-color {
+  &.selected {
+    background-color: $link;
+    color: $background;
+    border-color: darken($link, 10%);
+  }
+}
+
+@mixin button-group-button {
+  display: block;
+  float: left;
+  margin: 0;
+  line-height: 40px;
+  @include button-group-button-padding;
+  @include neutral-button-color;
+  @include selected-button-color;
+
+  // Borders
+  @include button-group-borders(0);
+  @include border-radius(0);
+
+  // Border radius
+  $radius: lines(0.25);
+  &:first-child {
+    @include border-left-radius($radius);
+  }
+
+  &:last-child {
+    @include border-right-radius($radius);
+  }
+}
+
+@mixin button-group {
+  @include clearfix;
+}
+
+/**
+  Use this mixin to get correct borders for button group when
+  it is selected/hovered
+
+  Classes added:
+  - `selected`
+
+  The logic and selectors for selected/hovered borders is a
+  bit complicated, that's why they are in their own mixin
+*/
+@mixin button-group-borders($border-width) {
+  border-right-width: em(0);
+
+  &.selected {
+    border-width: $border-width;
+
+    // Explanation:
+    // - match any (*) element
+    // - immediately precended (+)
+    // - by the current element (&)
+    & + * {
+      border-left: $border-width;
+    }
+  }
+
+  // Explanation:
+  // - When current element (&) has mouse over (:hover)
+  // - match any (*) element
+  // - immediately precended (+) by the current element
+  &:hover + * {
+    border-left-width: em(0);
+  }
+
+  // Explanation:
+  // - When current element (&) has mouse over (:hover)
+  // - match element with class `selected`
+  // - immediately precended (+) by the current element
+  &:hover + .selected {
+    border-left: em(0);
+  }
+}
+
+// Form button or a link that looks like a button
+@mixin button($bg-color) {
+  @include border-radius(em(5));
+  background: $bg-color;
+  color: $background;
+  text-align: center;
+  cursor: pointer;
+  margin: lines(0.5) 0;
+  padding: 0 lines(1);
+  padding-bottom: 4px; // To center text vertically
+  height: em(42);
+  border: 0;
+  display: table;
+  line-height: lines(1);
+  
+  .content {
+    display: table-cell; 
+    vertical-align: middle; 
+    text-align: center;
+  }
+
+  &:hover {
+    background: darken($bg-color, 5%);
+    color: $background;
+  };
+
+  &:active {
+    background: darken($bg-color, 10%);
+    color: $background;
+  }
+}
+
+@mixin big-button($bg-color) {
+  @include button($bg-color);
+  font-size: 22px;
+  height: 60px;
+  line-height: 24px;
+  padding-bottom: 3px;
+}
+
+
+@mixin grey-button {
+  @include button($highlight);
+  color: $light-body;
+  
+  &:hover { color: $light-body; }
+  &:active { color: $light-body; }
+}
+
+// Button on top of cover photo
+@mixin cover-photo-button($color) {
+  @include border-radius(em(5));
+  @include normal-type;
+  
+  color: $background;
+  background: $color;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  vertical-align: top;
+  padding: em(8) em(13) em(11) em(13);
+  
+  &:hover { 
+    background: darken($color, 5%);
+    color: $background;
+  };
+  
+  @include media(tablet) {
+    @include big-type;
+    height: 58px;
+    display: inline;
+    padding: em(11) em(16) em(14) em(16);
+    width: auto;
+  }
+}

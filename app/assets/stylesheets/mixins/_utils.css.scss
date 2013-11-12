@@ -1,0 +1,44 @@
+@import "compass/css3/border-radius";
+
+/**
+  Misc utils
+*/
+
+@mixin absolutely($top, $left, $bottom, $right) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  bottom: $bottom;
+  right: $right;
+}
+
+@mixin absolutely-all() {
+  @include absolutely(0, 0, 0, 0);
+}
+
+/**
+  Use icon-fix to correctly vertical align SS-pika icons
+*/
+@mixin icon-fix {
+  position: relative;
+  top: 2px;
+}
+
+/**
+  Dropdown icon needs to be a bit lower
+*/
+@mixin dropdown-icon-fix {
+  position: relative;
+  top: 3px;
+}
+
+/**
+  Round notification badge
+*/
+@mixin badge($size) {
+  width: $size;
+  height: $size;
+  line-height: $size - 1px;
+  @include border-radius($size/2);
+  text-align: center;
+}

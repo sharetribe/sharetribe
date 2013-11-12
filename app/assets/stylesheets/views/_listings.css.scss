@@ -1,0 +1,194 @@
+@import "compass/utilities/general/clearfix";
+@import "compass/css3/box-sizing";
+@import "mixins/all";
+
+.listing-no-image {
+  @include large-type;
+  color: $border;
+  text-align: center;
+}
+
+// Image frame with 3/2 aspect ratio
+.listing-image-frame {
+  position: relative;
+  @include block-with-aspect-ratio(3/2);
+  background-color: $highlight;
+}
+
+// The content for 3/2 aspect ratio container
+// - This works also as a container for vertically
+//   centered image
+.listing-image-frame-content {
+  // With Firefox, there's 1px flickering. That's why
+  // the frame looks better if it has 1px border
+  $border-margin: 1px;
+  position: absolute;
+  top: $border-margin;
+  bottom: $border-margin;
+  left: $border-margin;
+  right: $border-margin;
+
+  overflow: hidden;
+  @include vertical-centering-container;
+}
+
+.listing-image-vertical-centering {
+  @include vertical-centering-content;
+
+  // Default to landscape (too wide)
+
+  &.too-narrow {
+    // vertical-align may cause 1px flickering, if the image
+    // uses all vertical size available.
+    height: 100%;
+    vertical-align: inherit;
+  }
+
+  &.correct-ratio {
+    // vertical-align may cause 1px flickering, if the image
+    // uses all vertical size available.
+    vertical-align: top;
+  }
+}
+
+.listing-image {
+
+  // Default to landscape
+  &, &.too-wide {
+    @include image-too-wide;
+  }
+
+  &.too-narrow {
+    @include image-too-narrow;
+  }
+}
+
+// Social buttons
+.listing-social {
+  @include clearfix();
+}
+
+.listing-fb-like-button,
+.listing-tweet-button {
+  float: left;
+  margin-right: lines(1);
+}
+
+// Listing price
+.listing-price {
+  clear: both; // Price floats to left
+}
+
+.listing-price-amount {
+  @include huge-type;
+  color: $light-body;
+  display: block;
+  float: left;
+  margin-right: lines(0.25);
+}
+
+.listing-price-quantity {
+  vertical-align: top;
+  $hugeTypeLineHeight: lines(2);
+  $hugeTypeFontSize: em($huge-type);
+  $hugeTypeMargin: ($hugeTypeLineHeight - $hugeTypeFontSize) / 2; // Calculate the top margin based on the huge type
+  $positionFineTune: em(2); // hugeTypeMargin calculates the correct position, but due to the different font size, some finetuning is needed
+  // Use position relative, since the element is inline (no top-margin/padding should be used)
+  position: relative;
+  top: $hugeTypeMargin + $positionFineTune;
+  color: $aside;
+}
+
+// Listing author
+$listing-author-avatar-width: 108;
+$listing-author-avatar-height: 108;
+
+.listing-author {
+  position: relative;
+}
+
+.listing-author-avatar {
+  width: em($listing-author-avatar-width);
+  height: em($listing-author-avatar-height);
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.listing-author-avatar-image {
+  @include border-radius($default-border-radius);
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.listing-author-details {
+  width: 100%;
+  padding-left: em($listing-author-avatar-width);
+  min-height: em($listing-author-avatar-height);
+  padding-left: em($listing-author-avatar-width) + lines(0.75);
+}
+
+.listing-author-name {
+  @include big-type;
+  height: em($listing-author-avatar-width, 22) / 2;
+  line-height: em($listing-author-avatar-width, 18) / 2;
+}
+
+.listing-author-name-link {
+  display: block;
+  @include ellipsis;
+}
+
+.listing-author-contact-button {
+  @include grey-button;
+  width: 100%;
+}
+
+// Listing author activity
+
+.listing-author-activity {
+  @include clearfix();
+}
+
+.listing-author-activity-icon {
+  font-size: 32px;
+  line-height: (em(32, 32) * 1.5);
+  display: block;
+  float: left;
+  width: em(32, 32);
+}
+
+.listing-author-activity-item {
+  float: left;
+  width: lines($right-column-1-3) - 0.75em - em(32) - lines(1); // FIXME!!!
+  margin-left: lines(0.5);
+}
+
+.listing-author-activity-description {
+  @include small-type;
+  color: $border;
+}
+
+// Map
+.listing-map {
+  width: 100%;
+  height: lines(8);
+}
+
+.listing-view-admin-links {
+  margin-top: lines(0.5);
+}
+
+// Transaction action button
+.book-button {
+  @include big-button($link);
+  margin-top: 0;
+  width: 100%;
+}

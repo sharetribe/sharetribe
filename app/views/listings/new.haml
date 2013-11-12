@@ -6,6 +6,9 @@
 - content_for :extra_javascript do
   = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
 
+- content_for :title_header do
+  %h1= t("listings.new.post_a_new_listing")
+  
 - available_categorizations = @current_community.available_categorizations
 #new_listing_form.new-listing-form.centered-section
 

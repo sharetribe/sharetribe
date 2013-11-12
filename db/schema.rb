@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130930080143) do
+ActiveRecord::Schema.define(:version => 20131111140902) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -146,6 +146,16 @@ ActiveRecord::Schema.define(:version => 20130930080143) do
     t.string   "name_display_type",                 :default => "first_name_with_initial"
     t.string   "twitter_handle"
     t.boolean  "use_community_location_as_default", :default => false
+    t.boolean  "show_category_in_listing_list",     :default => false
+    t.string   "default_browse_view",               :default => "grid"
+    t.string   "wide_logo_file_name"
+    t.string   "wide_logo_content_type"
+    t.integer  "wide_logo_file_size"
+    t.datetime "wide_logo_updated_at"
+    t.string   "domain_alias"
+    t.string   "preproduction_stylesheet_url"
+    t.boolean  "only_organizations"
+    t.boolean  "logo_change_allowed"
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
@@ -364,6 +374,8 @@ ActiveRecord::Schema.define(:version => 20130930080143) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.boolean  "image_processing"
+    t.integer  "width"
+    t.integer  "height"
   end
 
   add_index "listing_images", ["listing_id"], :name => "index_listing_images_on_listing_id"
@@ -578,6 +590,7 @@ ActiveRecord::Schema.define(:version => 20130930080143) do
     t.string   "iban"
     t.string   "bic"
     t.string   "mangopay_beneficiary_id"
+    t.boolean  "is_organization"
   end
 
   add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true

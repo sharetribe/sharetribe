@@ -173,6 +173,10 @@ default: &default_settings
   # you can show the maintenance page on every pageload by turning on the following
   show_maintenance_page: false
   
+  # If you want to run this server in a preproduction mode set this to true
+  # I preproduction mode, e.g. alternative url is used for custom CSS files
+  preproduction: false
+  
   # If an integration to a merchant registration API is needed, fill the details here
   # The mode needs to be "production" for real accounts and "test" for test accounts
   # Other values result the API call being omitted and stub response used
@@ -194,7 +198,8 @@ default: &default_settings
   # don't need to change those
   # ----------------------------------------------------------------
   
-
+  # If there's a tax related to payment service charge (e.g. VAT) mark the percentage here
+  service_fee_tax_percentage: 24
 
 production: &production_settings
   <<: *default_settings

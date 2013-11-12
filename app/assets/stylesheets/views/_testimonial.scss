@@ -1,0 +1,65 @@
+@import "compass/utilities/general/clearfix";
+@import "mixins/all";
+
+$testimonial-avatar-width: em(48);
+$testimonial-avatar-height: $testimonial-avatar-width;
+$testimonial-gutter: lines(0.5);
+$testimonial-icon-width: 40;
+
+.testimonial {
+  position: relative;
+  @include clearfix;
+  min-height: $testimonial-avatar-height;
+
+  border-bottom: 1px solid $background;
+
+  &:last-child {
+    border-bottom: 1px solid $background;
+  }
+}
+
+.testimonial-avatar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  float: left;
+  width: em(48);
+  height: em(48);
+
+  // Set size to 100%, so the image shrinks when font-size is reduced
+  // for smaller devices
+  > a, > a > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.testimonial-details {
+  padding-left: $testimonial-avatar-width + $testimonial-gutter;
+  padding-right: em($testimonial-icon-width) + $testimonial-gutter;
+  padding-bottom: lines(0.5);
+  border-bottom: 1px solid $border;
+  margin-bottom: lines(0.5);
+}
+
+.testimonial-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: em($testimonial-icon-width, 26);
+
+  @include large-type;
+
+  &.positive {
+    color: $green;
+  }
+
+  &.negative {
+    color: $red;
+  }
+}
+
+.load-more-testimonials {
+  margin-top: lines(1);
+}

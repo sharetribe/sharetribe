@@ -2,10 +2,11 @@
   initialize_signup_form("#{I18n.locale}","#{t("people.new.username_is_in_use")}","#{t("people.new.username_is_invalid")}","#{email_not_accepted_message}","#{t("people.new.captcha_was_wrong")}", "#{t("people.new.invalid_invitation_code")}", #{@current_community.real_name_required?}, #{@current_community.join_with_invite_only?} );
 
 
+- content_for :title_header do
+  %h1= t('.sign_up')
+
 .signup-form.centered-section
 
-  %h2
-    = t('.sign_up')
   - unless !facebook_connect_in_use? || params[:no_fb]
     = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".create_account_with_facebook") }
     %p= t(".or_create_new_account_without_facebook")

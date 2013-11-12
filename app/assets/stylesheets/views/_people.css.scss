@@ -1,0 +1,85 @@
+@import "compass/css3/border-radius";
+@import "mixins/all";
+
+$profile-pic-size-mobile: lines(3);
+$profile-pic-gutter-mobile: lines(0.5);
+
+.people-image {
+  display: none;
+  > img {
+    @include border-radius($default-border-radius);
+    width: 100%;
+  }
+  
+  @include media(tablet) {
+    display: block;
+  }
+}
+
+.people-header {
+  padding-bottom: lines(0.25);
+  border-bottom: 1px solid $border;
+}
+
+.people-load-more-listings-container {
+  clear: both;
+  margin-bottom: lines(1);
+}
+
+.people-show-closed-link {
+  font-size: 13px;
+  margin-left: lines(0.5);
+}
+
+.profile-action-button-desktop {
+  display: none;
+  
+  @include media(tablet) {
+    display: block;
+  }
+}
+
+.profile-action-button-mobile {
+  padding-left: $profile-pic-size-mobile + $profile-pic-gutter-mobile;
+  padding-bottom: lines(0.75);
+  margin-top: lines(0.65);
+  margin-bottom: lines(0.5);
+  border-bottom: 1px solid $border;
+  
+  @include media(tablet) {
+    display: none;
+  }
+}
+
+.profile-edit-link, .profile-contact-link {
+  @include grey-button;
+  width: 100%;
+}
+
+.people-image-mobile {
+  width: $profile-pic-size-mobile;
+  position: absolute;
+  top: 0;
+  left: lines(0.5);
+  
+  > img {
+    @include border-radius($default-border-radius);
+    width: 100%;
+  }
+  
+  @include media(tablet) {
+    display: none;
+  }
+  
+}
+
+.people-fluid-thumbnail-grid-container {
+  @include create-fluid-thumbnail-grid(people, 1, 1, 2, 3, 2, 2, 3, 3);
+}
+
+.people-listings {
+  &.fluid-thumbnail-grid-image-overlay,
+  &.fluid-thumbnail-grid-image-image {
+    @include border-radius($default-border-radius);
+  }
+}

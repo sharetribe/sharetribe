@@ -30,16 +30,16 @@ el:
         send_test_message: "Αποστολή δοκιμαστικού μηνύματος"
     emails:
       new:
-        send_email_to_members: ~
-        send_email_to_members_title: ~
-        email_subject: ~
-        email_content: ~
-        email_content_placeholder: ~
-        email_language: ~
-        any_language: ~
-        send_email: ~
-        message_will_be_sent_only_to_people_with_this_language: ~
-        email_sent: ~
+        send_email_to_members: "Στείλτε ένα μήνυμα ηλεκτρονικού ταχυδρομείου στα μέλη"
+        send_email_to_members_title: "Στείλτε ένα μήνυμα ηλεκτρονικού ταχυδρομείου σε όλα τα μέλη αυτής της κοινότητας"
+        email_subject: "Θέμα μηνύματος"
+        email_content: "Περιεχόμενο μηνύματος"
+        email_content_placeholder: "Τι θέλετε να πείτε στα μέλη;"
+        email_language: "Γλώσσα των παραληπτών"
+        any_language: "Οποιαδήποτε γλώσσα"
+        send_email: Αποστολή
+        message_will_be_sent_only_to_people_with_this_language: "Σημείωση: Το μήνυμα θα σταλεί μόνο στα μηνύματα που χρησιμοποιούν το %{service_name} στη γλώσσα που επιλέξατε."
+        email_sent: "Το μήνυμα στάλθηκε."
     news_items:
       index:
         news_items: "Νεότερα άρθρα"
@@ -88,67 +88,67 @@ el:
     fields_that_are_mandatory: "Τα πεδία με το αστεράκι (*) είναι υποχρεωτικά."
     or: ή
     password: Κωδικός
-    service_name: ~
+    service_name: "%{service_name}"
     share_types:
-      request: ~
-      offer: προσφορά
+      request: αιτήματα
+      offer: προσφορές
       borrow: δανεισμός
       buy: αγορά
-      give_away: δωρεάν
+      give_away: δωρεά
       lend: δανεισμός
       receive: δωρεάν
       rent: ενοικίαση
       rent_out: εκμίσθωση
       sell: πώληση
       offer_to_swap: ανταλλαγές
-      request_to_swap: ~
-      share_for_free: δωρεάν
+      request_to_swap: ανταλλαγές
+      share_for_free: "δωρεάν παραχώρηση"
       accept_for_free: "δωρεάν χρήση"
     categories:
       item: αντικείμενα
       favor: υπηρεσίες
       rideshare: συνεπιβατισμός
       housing: χώροι
-      tools: ~
-      sports: ~
-      music: ~
-      books: ~
-      games: ~
-      furniture: ~
-      outdoors: ~
-      food: ~
-      electronics: ~
-      pets: ~
-      film: ~
-      clothes: ~
-      garden: ~
-      travel: ~
-      other: ~
+      tools: εργαλεία
+      sports: "αθλητικός εξοπλισμός"
+      music: μουσική
+      books: "βιβλία & περιοδικά"
+      games: παιχνίδια
+      furniture: έπιπλα
+      outdoors: "είδη κάμπινγκ"
+      food: "κουζινικά & φαγητό"
+      electronics: ηλεκτρονικά
+      pets: κατοικίδια
+      film: ταινίες
+      clothes: "ρούχα & αξεσουάρ"
+      garden: "είδη κήπου"
+      travel: "ταξιδιωτικά είδη"
+      other: άλλα
     username: "Όνομα χρήστη"
     username_or_email: "Ηλεκτρονική διεύθυνση ή όνομα χρήστη"
     what_is_this: "Τι είναι αυτό;"
   conversations:
     accept:
-      respond_to_offer: ~
-      respond_to_request: ~
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
-      close_listing: ~
+      respond_to_offer: "Απαντήστε σε μια προσφορά"
+      respond_to_request: "Απαντήστε σε ένα αίτημα"
+      accept_offer: "Αποδεχτείτε την προσφορά"
+      accept_request: "Αποδεχτείτε το αίτημα"
+      reject_offer: "Όχι αυτή τη φορά"
+      reject_request: "Όχι αυτή τη φορά"
+      close_listing: "Απενεργοποιήστε την καταχώρηση \"%{listing_title_link}\""
       update_later: "Η καταχώρηση να παραμείνει ανοιχτή"
-      optional_message: ~
-      price_to_pay: ~
+      optional_message: "Προαιρετικό μήνυμα"
+      price_to_pay: "Τελική τιμή"
     confirm:
-      confirm_description: ~
-      cancel_description: ~
-      cancel_payed_description: ~
-      canceling_payed_transaction: ~
-      confirm: ~
-      cancel: ~
-      continue: ~
-      give_feedback_to: ~
-      do_not_give_feedback: ~
+      confirm_description: "Αν το αίτημά σας έχει εκπληρωθεί θα πρέπει να το επιβεβαιώσετε ως ολοκληρωμένο. Τότε μόνο μπορείτε να γράψετε κριτική για το άλλο μέλος της συναλλαγής."
+      cancel_description: "Αν το αίτημά σας δεν εκπληρώθηκε τότε μπορείτε να δηλώσετε ότι δεν πραγματοποιήθηκε η συναλλαγή. Μπορείτε και πάλι να γράψετε κριτική για το άλλο μέλος και να περιγράψετε τι συνέβη."
+      cancel_payed_description: "Αν το αίτημά σας έγινε δεκτό αλλά το ξανασκέφτεστε, μπορείτε να ακυρώσετε τη συναλλαγή πριν την πληρωμή."
+      canceling_payed_transaction: "Ακύρωση συναλλαγής"
+      confirm: Ολοκληρώθηκε
+      cancel: "Δεν πραγματοποιήθηκε"
+      continue: Συνέχεια
+      give_feedback_to: "Γράψτε κριτική για τον/την %{person_link}"
+      do_not_give_feedback: "Παραλείψτε την κριτική"
     index:
       loading_more_messages: "Εμφάνιση περισσότερων μηνυμάτων"
       message_partitive: μήνυμα
@@ -156,27 +156,27 @@ el:
       no_received_messages: "Κανένα εισερχόμενο μήνυμα"
       no_sent_messages: "Κανένα απεσταλμένο μήνυμα"
     conversation:
-      accepted_request: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
+      accepted_request: "Το αίτημα έγινε δεκτό."
+      accepted_offer: "Η προσφορά έγινε δεκτή."
+      rejected_request: "Το αίτημα απορρίφθηκε."
+      rejected_offer: "Η προσφορά απορρίφθηκε."
+      confirmed_request: "Το αίτημα ολοκληρώθηκε."
+      confirmed_offer: "Η προσφορά ολοκληρώθηκε."
+      canceled_request: "Το αίτημα ακυρώθηκε."
+      canceled_offer: "Η προσφορά ακυρώθηκε."
     message:
-      accepted_request: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
-      paid: ~
+      accepted_request: "δέχτηκε το αίτημα"
+      accepted_offer: "δέχτηκε την προσφορά"
+      rejected_request: "απόρριψε το αίτημα"
+      rejected_offer: "απόρριψε την προσφορά"
+      confirmed_request: "δήλωσε ότι το αίτημα ολοκληρώθηκε"
+      confirmed_offer: "δήλωσε ότι η προσφορά ολοκληρώθηκε"
+      canceled_request: "ακύρωση το αίτημα"
+      canceled_offer: "ακύρωσε την προσφορά"
+      paid: "πλήρωσε %{sum}"
     new:
-      offer_message_form_title: ~
-      request_message_form_title: ~
+      offer_message_form_title: "Πρόσφερε %{listing} στον/στην %{person}"
+      request_message_form_title: "Ζήτα %{listing} από τον/την %{person}"
       favor_offer_message_form_title: "Ζήτα μια χάρη από τον/την"
       favor_request_message_form_title: "Κάνε μια χάρη στον/στην"
       housing_offer_message_form_title: "Απάντησε στον/στην"
@@ -231,41 +231,41 @@ el:
         has_given_you_feedback_on_event: "σχολίασε για σένα σχετικά με το"
         see_all_the_feedback_you_have_received: "Δες όλα τα σχόλια που έχουν αφήσει άλλοι για σένα"
     show:
-      in_response_to_listing: ~
-      message_sent_by: ~
-      message_sent_to: ~
+      in_response_to_listing: "σχετικά με την καταχώρηση"
+      message_sent_by: "Μήνυμα από τον/την"
+      message_sent_to: "Μήνυμα προς τον/την"
       send_reply: Αποστολή
       write_a_reply: "Απάντησε:"
       conversation_about_listing: "Με τον/την %{person} σχετικά με την καταχώρηση \"%{listing}\""
       conversation_with_user: "Με τον/την %{person}"
       last_message_at: "(τελευταίο μήνυμα %{time})"
     status:
-      cancel_payed_transaction: ~
+      cancel_payed_transaction: Άκυρο
       feedback_given: "Δόθηκε κριτική"
       feedback_skipped: "Η κριτική παραλείφθηκε"
       give_feedback: "Κάνε κριτική"
       offer_accepted: "Η προσφορά έγινε δεκτή"
       offer_rejected: "Η προσφορά απορρίφθηκε"
-      offer_canceled: ~
-      offer_confirmed: ~
-      pay: ~
-      paid: ~
+      offer_canceled: Ακυρώθηκε
+      offer_confirmed: Ολοκληρώθηκε
+      pay: Πληρωμή
+      paid: "Επιτυχής πληρωμή"
       request_accepted: "Το αίτημα έγινε δεκτό"
       request_rejected: "Το αίτημα απορρίφθηκε"
-      request_confirmed: ~
-      request_canceled: ~
+      request_confirmed: Ολοκληρώθηκε
+      request_canceled: Ακυρώθηκε
       skip_feedback: "Παράλειψε την κριτική"
-      waiting_for_listing_author_to_accept_offer: ~
-      waiting_for_listing_author_to_accept_request: ~
-      waiting_confirmation_from_requester: ~
-      waiting_payment_from_requester: ~
+      waiting_for_listing_author_to_accept_offer: "Αναμονή αποδοχής της προσφοράς από τον/την %{listing_author_name}"
+      waiting_for_listing_author_to_accept_request: "Αναμονή αποδοχής του αιτήματος από τον/την %{listing_author_name}"
+      waiting_confirmation_from_requester: "Αναμονή να δηλωθεί ως ολοκληρωμένο από τον/την %{requester_name}"
+      waiting_payment_from_requester: "Αναμονή πληρωμής από τον/την %{requester_name}"
     status_link:
       accept_offer: "Αποδοχή προσφοράς"
       accept_request: "Αποδοχή αιτήματος"
       reject_offer: "Κάποια άλλη φορά"
       reject_request: "Κάποια άλλη φορά"
-      confirm: ~
-      cancel: ~
+      confirm: Ολοκληρώθηκε
+      cancel: "Δεν πραγματοποιήθηκε"
   communities:
     map_bubble:
       view_tribe: "Εμφάνιση του sharetribe"
@@ -373,7 +373,7 @@ el:
     api:
       coming_soon: Σύντομα!
     index:
-      watch_the_video: ~
+      watch_the_video: "Δείτε το βίντεο"
       get_started: "ΞΕΚΙΝΗΣΤΕ ΕΔΩ!"
       browse_communities_around_you: "βρείτε ένα sharetribe κοντά σε σας"
       slogan: "Μοιραζόμαστε πόρους στην κοινότητά μας."
@@ -424,21 +424,21 @@ el:
       you_can_accept_or_reject_request_at: "Μπορείς να αποδεχθείς ή να απορρίψεις το αίτημα στο"
       you_have_not_yet_accepted_or_rejected_offer: "Δεν έχετε ακόμα αποδεχτεί ή απορρίψει την προσφορά '%{title}' που λάβατε στις %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Δεν έχετε ακόμα αποδεχτεί ή απορρίψει το αίτημα '%{title}' που λάβατε στις %{date}."
-      show_thread: ~
+      show_thread: "Εμφάνιση συνομιλίας"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
-      remember_to_confirm_request: ~
-      if_will_not_happen_you_should_cancel: ~
-      cancel_it_link_text: ~
+      remember_to_confirm_request: "Θυμηθείτε να επιβεβαιώσετε ή να ακυρώσετε ένα αίτημα"
+      if_will_not_happen_you_should_cancel: "Αν πιστεύετε ότι αυτό το αίτημα για οποιοδήποτε λόγο δεν θα ολοκληρωθεί, μπορείτε να %{cancel_it_link}."
+      cancel_it_link_text: "το ακυρώσετε"
     payment_reminder:
-      remember_to_pay: ~
-      you_have_not_yet_paid: ~
-      if_will_not_happen_you_should_cancel: ~
-      cancel_it_link_text: ~
+      remember_to_pay: "Θυμηθείτε να πληρώσετε για το %{listing_title}"
+      you_have_not_yet_paid: "Δεν έχετε ακόμα πληρώσει το %{listing_title} το οποίο δέχτηκε να σας προσφέρει ο/η %{other_party_name}."
+      if_will_not_happen_you_should_cancel: "Αν πιστεύετε ότι αυτό το αίτημα για οποιοδήποτε λόγο δεν θα ολοκληρωθεί, μπορείτε να %{cancel_it_link}."
+      cancel_it_link_text: "το ακυρώσετε"
     transaction_confirmed:
       here_is_a_message_from: ~
-      request_marked_as_confirmed: ~
-      request_marked_as_canceled: ~
+      request_marked_as_confirmed: "Το αίτημα ολοκληρώθηκε - θυμηθείτε να κάνετε κριτική για το άλλο μέλος"
+      request_marked_as_canceled: "Το αίτημα ακυρώθηκε"
       has_marked_request_as_confirmed: ~
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: ~
@@ -460,10 +460,10 @@ el:
       edit_your_email_settings_here: "Επεξεργαστείτε τις ρυθμίσεις ηλεκτρονικού ταχυδρομείου εδώ"
       message_not_displaying_correctly: "Μήπως αυτό το μήνυμα δεν εμφανίζεται σωστά;"
       view_it_in_your_browser: "Δείτε το στο φυλλομετρητή σας."
-      or: ~
-      unsubscribe_from_these_emails: ~
+      or: ή
+      unsubscribe_from_these_emails: "απεγγραφείτε από αυτά τα μηνύματα"
     community_starter_email:
-      subject: ~
+      subject: "Δείτε το νέο Sharetribe - Χωρίς όριο μελών, με εμφάνιση που μπορείτε να τροποποιήσετε στα μέτρα σας και πολλά άλλα"
     conversation_status_changed:
       has_accepted_your_offer: "Ο/Η %{accepter} δέχτηκε την προσφορά σας για την καταχώρηση \"%{listing}\""
       has_accepted_your_request: "Ο/Η %{accepter} δέχτηκε το αίτημά σας για την καταχώρηση \"%{listing}\""
@@ -564,19 +564,19 @@ el:
       invite_your_friends: "<strong>Διαδώστε το.</strong> Όσο περισσότεροι χρησιμοποιούν το %{service_name} τόσο πιο χρήσιμο γίνεται. Αν ξέρετε κόσμο που θα ενδιαφερόταν να το χρησιμοποιήσει, καλέστε τους! Χρησιμοποιείστε %{invite_link} ή στείλτε τους τον σύνδεσμο: %{url}. Στη %{member_list_link} μπορείτε να δείτε ποιοι είναι ήδη μέλη."
       invite_link_text: "τη φόρμα πρόσκλησης"
       member_list_link_text: "λίστα μελών"
-      get_mobile_app: ~
-      app_store_link_text: ~
-      mobile_web_link_text: ~
-      go_explore: ~
+      get_mobile_app: "<strong>Κατεβάστε την εφαρμογή μας.</strong> Ξέρατε ότι μπορείτε να χρησιμοποιείτε το %{service_name} καθ' οδόν; Μπορείτε να κάνετε καταχωρήσεις απλώς βγάζοντας φωτογραφίες από αντικείμενα που θέλετε να προσφέρετε ή να δείτε τι κάνουν άλλοι κοντά σε σας. Αν έχετε iPhone %{app_store_link}. Αν χρησιμοποιείτε κινητό με Android ή Windows Phone, %{mobile_web_link}."
+      app_store_link_text: "κατεβάστε την εφαρμογή από το App Store"
+      mobile_web_link_text: "δοκιμάστε την προβολή για κινητά"
+      go_explore: "<strong>Εξερευνήστε!</strong> Δείτε τι προσφέρουν και τι ζητούν άλλοι στο %{service_name}. Ίσως να βρείτε κάτι που χρειάζεστε ή να μπορέσετε να βοηθήσετε κάποιον. Απολαύστε το!"
       love_team: "Με αγάπη,<br /><i>Η Ομάδα του %{service_name}"
-      congrats_for_creating_community: ~
-      you_have_just_created_community: ~
-      you_now_have_admin_rights: ~
-      edit_community_details_link_text: ~
+      congrats_for_creating_community: "Μόλις δημιουργήσατε την κοινότητα %{community} - μερικές συμβουλές για να ξεκινήσετε"
+      you_have_just_created_community: "Μόλις δημιουργήσατε την κοινότητα %{community_link}! Σας δίνουμε μερικές συμβουλές για να ξεκινήσετε με την νέα σας κοινότητα."
+      you_now_have_admin_rights: "<b>Έχετε δικαιώματα διαχειριστή σε αυτή την κοινότητα.</b> Αυτό σημαίνει ότι μπορείτε, για παράδειγμα, να επεξεργαστείτε τις πληροφορίες και την εμφάνιση της κοινότητας. Αυτό είναι μάλλον το πρώτο πράγμα που πρέπει να κάνετε. %{edit_community_details_link}. Αν θέλετε να μεταβιβάσετε τα δικαιώματα διαχειριστή σε κάποιον άλλο, παρακαλούμε επικοινωνήστε μαζί μας απαντώντας σε αυτό το email."
+      edit_community_details_link_text: "Επεξεργαστείτε τις λεπτομέρειες της κοινότητας εδώ"
       add_content: ~
       spread_the_word: ~
       spread_the_word_invite_only: ~
-      have_fun: ~
+      have_fun: "Ευχόμαστε να απολάυσετε τη χρήση του %{service_name}. Μακάρι η κοινότητά σας να προκόψει!"
   error_messages:
     listings:
       departure_time: "Η ώρα αναχώρησης πρέπει να είναι μεταξύ της τρέχουσας ώρας και ενός χρόνου από τώρα."
@@ -688,8 +688,8 @@ el:
       add_listing_link_text: "Προσθέστε κάτι"
       available_on_the_app_store: "Διατίθεται στο app store"
       private_listing_notification: "Υπάρχουν %{listing_count} καταχωρήσεις σε αυτή την κοινότητα. %{private_listing_count} από αυτές %{be_verb} ορατές μόνο σε μέλη της κοινότητας. Αν θέλετε να τις δείτε, πρέπει να %{log_in_link}."
-      open_listing: ~
-      open_listings: ~
+      open_listing: "ενεργή καταχώρηση"
+      open_listings: "ενεργές καταχωρήσεις"
       private_listing_notification_log_in: συνδεθείς
       is: είναι
       are: είναι
@@ -754,7 +754,7 @@ el:
       map_button: Χάρτης
       grid_button: Πλέγμα
       list_button: Λίστα
-      all_listing_types: Καταχωρήσεις
+      all_listing_types: "Τύποι καταχωρήσεων"
       all_categories: Κατηγορίες
   infos:
     about:
@@ -790,7 +790,7 @@ el:
       invite_your_friends: "Προσκαλέστε φίλους!"
       invite_your_neighbors: "Προσκαλέστε τους γείτονές σας!"
       invite_your_friends_description: "Όσο περισσότεροι χρησιμοποιούν το %{service_name} τόσο πιο χρήσιμο γίνεται."
-      invite_your_friends_invite_only_description: ~
+      invite_your_friends_invite_only_description: "Οι εγγραφές σε αυτή την κοινότητα γίνονται μόνο με πρόσκληση"
       join_without_facebook: "... ή %{join_without_facebook_link}"
       join_without_facebook_link: "κάντε εγγραφή χωρίς το Facebook"
     conversations:
@@ -973,7 +973,7 @@ el:
         at: Στις
         departure_time: Αναχώρηση
       departure_time_radio_buttons:
-        repeated: "Επαναλαμβανόμενο - πρόσθεσε λεπτομέρειες στην περιγραφή"
+        repeated: "Επαναλαμβανόμενο - προσθέστε λεπτομέρειες στην περιγραφή"
       description:
         detailed_description: Περιγραφή
       destination:
@@ -982,8 +982,8 @@ el:
         favor: βοήθεια
         housing: διαμονή
         item: αντικείμενα
-        offer_something: "Πρόσφερε κάτι"
-        request_something: "Ζήτα κάτι"
+        offer_something: "Προσφέρετε κάτι"
+        request_something: "Ζητείστε κάτι"
         rideshare: "να συνταξιδέψω"
         i_want_to_offer: "Θέλω να προσφέρω..."
         i_want_to_request: Χρειάζομαι...
@@ -995,15 +995,15 @@ el:
         image: Εικόνα
         no_file_selected: "Δεν έχει επιλεγεί αρχείο"
         remove_image: "Κατάργηση εικόνας"
-        select_file: "Επέλεξε αρχείο"
+        select_file: "Επιλέξτε αρχείο"
       location:
         location: Τοποθεσία
       price:
         price: Τιμή
-        per: το
+        per: ανά
         mass: "κομμάτι, κιλό, λίτρο, τετραγωνικό μέτρο"
-        time: "ώρα, μέρα, βδομάδα, ..."
-        long_time: "βδομάδα, μήνας, ..."
+        time: "ώρα, ημέρα, εβδομάδα, ..."
+        long_time: "εβδομάδα, μήνα, ..."
         service_fee_will_be_added: "Στην τιμή θα προστεθεί προμήθεια %{fee}% για την υπηρεσία."
         price_excludes_vat: "Η τιμή δεν συμπεριλαμβάνει το ΦΠΑ."
       origin:
@@ -1030,12 +1030,12 @@ el:
         comma_separate: "(χωρισμένες με κόμμα)"
         tags: Ετικέτες
       title:
-        favor_you_offer: Τίτλος
-        favor_you_request: "Υπηρεσία που χρειάζεσαι"
-        housing_you_offer: Τίτλος
-        housing_you_request: "Διαμονή που χρειάζεσαι"
-        item_you_offer: Τίτλος
-        item_you_request: "Αντικείμενο που χρειάζεσαι"
+        favor_you_offer: "Υπηρεσία που προσφέρετε"
+        favor_you_request: "Υπηρεσία που χρειάζεστε"
+        housing_you_offer: "Χώρος που προσφέρετε"
+        housing_you_request: "Χώρος που χρειάζεστε"
+        item_you_offer: "Αντικείμενο που προσφέρετε"
+        item_you_request: "Αντικείμενο που χρειάζεστε"
         listing_title: "Τίτλος καταχώρησης"
       valid_until:
         valid_until: "Ημερομηνία λήξης"
@@ -1152,26 +1152,26 @@ el:
       item: "Ένα αντικείμενο - κάτι χειροπιαστό"
       favor: "Βοήθεια - μια ικανότητα ή μια υπηρεσία"
       rideshare: "Συνεπιβατισμός - με αυτοκίνητο ή άλλο μέσο μεταφοράς"
-      housing: "Κάποιο χώρο - ένα διαμέρισμα, ένα γραφείο ή ένα κήπο"
+      housing: "Κάποιο χώρο - ένα διαμέρισμα, ένα γραφείο ή ένα χωράφι"
       borrow: "Θέλω να το δανειστώ"
       buy: "Θέλω να το αγοράσω"
       give_away: "Το χαρίζω"
       lend: "Το δανείζω"
       receive: "Θα το ήθελα δωρεάν"
-      rent: "Μπορώ να το νοικιάσω"
+      rent: "Θέλω να το νοικιάσω"
       rent_out: "Το νοικιάζω"
       sell: "Το πουλάω"
       offer_to_swap: "Θέλω να το ανταλλάξω"
       request_to_swap: "Θέλω να το ανταλλάξω"
       share_for_free: "Το μοιράζομαι δωρεάν"
       accept_for_free: "Θα ήθελα να το χρησιμοποίησω δωρεάν"
-      what_kind_of_item: ~
-      what_kind_of_favor: ~
-      what_kind_of_rideshare: ~
+      what_kind_of_item: "Για τι αντικείμενο πρόκειται;"
+      what_kind_of_favor: "Για τι βοήθεια πρόκειται;"
+      what_kind_of_rideshare: "Για τι διαδρομή πρόκειται;"
       what_kind_of_housing: "Για τι χώρο μιλάμε;"
       which_subcategory: "Ποιο από αυτά το περιγράφει καλύτερα;"
       tools: Εργαλεία
-      sports: Σπορ
+      sports: "Αθλητικός εξοπλισμός"
       music: Μουσική
       books: "Βιβλία & περιοδικά"
       games: Παιχνίδια
@@ -1179,12 +1179,12 @@ el:
       outdoors: "Είδη κάμπινγκ"
       food: "Είδη κουζίνας"
       electronics: Ηλεκτρονικά
-      pets: Ζώα
+      pets: Κατοικίδια
       film: Ταινίες
       clothes: "Ρούχα & αξεσουάρ"
-      garden: Κήπος
-      travel: Ταξίδια
-      other: Άλλο
+      garden: "Είδη κήπου"
+      travel: "Ταξιδιωτικά είδη"
+      other: "Κάτι άλλο"
       what_do_you_want_to_do: "Τι θα θέλατε να καταχωρήσετε;"
       what_can_you_offer: "Τι μπορείτε να προσφέρετε;"
       what_do_you_need: "Τι χρειάζεστε;"
@@ -1524,7 +1524,7 @@ el:
       save: Αποθήκευση
       these_fields_are_shown_only_to_you: "Το όνομα χρήστη εμφανίζεται στο προφίλ σου εκτός αν έχεις δώσει το πραγματικό σου όνομα. Οι υπόλοιπες πληροφορίες εμφανίζονται μόνο σε σένα."
     notifications:
-      email_from_admins: ~
+      email_from_admins: "Θα ήθελα να λαμβάνω περιστασιακές ενημερώσεις από τους διαχειριστές αυτής της κοινότητας"
       i_want_to_get_email_notification_when: "Θέλω να λαμβάνω ειδοποίηση με email όταν..."
       newsletters: Newsletters
       community_updates: "Νέα της κοινότητας"

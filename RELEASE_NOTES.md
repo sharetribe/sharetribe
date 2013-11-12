@@ -12,6 +12,10 @@ When updating, always run the following commands to update gem set and database 
  - check this file for changes between your old version and the one you are updating, and do the necessary manual operations if needed
  - if running on local instance (localhost), you need to precompile assets using "rake assets:precompile" once update is done
 
+4.0.0
+-----
+- New enhanced user interface with grid view, bigger images and cleaner look
+
 3.1.3
 -----
 - added new translations

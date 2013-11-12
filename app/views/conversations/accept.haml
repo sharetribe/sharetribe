@@ -1,5 +1,8 @@
 - content_for :javascript do
-  initialize_accept_transaction_form(#{@current_community.commission_percentage});
+  initialize_accept_transaction_form(#{@current_community.commission_percentage || "null"}, #{APP_CONFIG.service_fee_tax_percentage});
+
+- content_for :title_header do
+  %h1= t("layouts.no_tribe.inbox")
 
 .centered-section-wide.conversation-status-form
   %h2= t(".respond_to_#{@conversation.discussion_type}")
@@ -13,65 +16,30 @@
           .link-icon{:class => icon_for("#{action}ed")}
           .link-text{:id => "#{action}-action-link"}= t(".#{action}_#{@conversation.discussion_type}")
     
-    - if @current_community.payment_possible_for?(@conversation.listing)
-      .conversation-price.accept-price{:class => (@action.eql?("accept") ? "" : "hidden")}
-        %h3 Laskutus
-        %p Painaessasi "lähetä" alla oleva lasku lähetetään ostajalle. Ostaja voi maksaa laskun suoraan materiaalipankin järjestelmän kautta. 
-        = fields_for "conversation[payment_attributes]", @payment do |payment_form|
-          = payment_form.hidden_field :community_id, :value => @current_community.id
-          - @payment.initialize_rows(@current_community)
-          .payment-row-headings.bottom-border
-            .payment-row-heading.payment-row-title-heading
-              Tuote
-            .payment-row-heading.payment-row-sum-heading
-              Hinta (alv 0)
-            .payment-row-heading.payment-row-vat-heading
-              Alv
-            .payment-row-heading.payment-row-total-heading
-              Hinta yhteensä
-          - @payment.rows.each_with_index do |row, index|
-            = render :partial => "payments/payment_row", :locals => { :row => row, :index => index, :values => ((index == 0) ? {:title => @conversation.listing.title, :sum => @conversation.listing.price} : {:title => "", :sum => 0})}
-              
-            
-          .payment-row.payment-text-row.bottom-border
-            .payment-row-title-text.payment-row-text
-              Mpankin palvelumaksu
-              (#{@current_community.commission_percentage}%)
-              
-            #service-fee-sum.payment-row-sum-text.payment-row-text
-              
-            #service-fee-vat.payment-row-vat-text.payment-row-text
-              = @current_community.vat if @current_community.vat
-              = "%"
-              
-            #service-fee-total.payment-row-total-text.payment-row-text
-
-          .payment-row.payment-text-row.payment-sum-row
-            .payment-row-title-text.payment-row-text
-              Yhteensä
-              
-            .payment-row-sum-text.payment-row-text
-              
-            .payment-row-vat-text.payment-row-text
-              
-            #total.payment-row-total-text.payment-row-text
-      
-    = fields_for "conversation[message_attributes]", Message.new do |message_form|
-      = message_form.label :content, t("conversations.new.message"), :class => "input"
-      = message_form.text_area :content, :class => "text_area", :placeholder => t(".optional_message")
-      = message_form.hidden_field :sender_id, :value => @current_user.id
-      = message_form.hidden_field :action, :value => @action
+    - if @payout_registration_missing
+      .hidden-accept-form.visible-when-accept{:class => (@action.eql?("accept") ? "" : "hidden")}
+        = t(".you_need_to_fill_payout_details_before_accepting")
     
-    - if @conversation.listing.open?
-      .close-listing-radio-buttons
+    %div{:class => (@payout_registration_missing ? "hidden-accept-form visible-when-reject #{@action.eql?("accept") ? "hidden" : ""}" : "")}
+      - if @current_community.payment_possible_for?(@conversation.listing)
+        = render :partial => @current_community.payment_gateways.first.form_template_dir + "/form"
 
-        .checkbox-container
-          = radio_button_tag "close_listing", true, true, :id => "do_close_listing"
-          = label_tag "do_close_listing", t(".close_listing", :listing_title_link => link_to(@conversation.listing.title, @conversation.listing)).html_safe, :class => "radio"
-
-        .checkbox-container
-          = radio_button_tag "close_listing", false, false, :id => "do_not_close_listing"
-          = label_tag "do_not_close_listing", t(".update_later"), :class => "radio"
+      = fields_for "conversation[message_attributes]", Message.new do |message_form|
+        = message_form.label :content, t("conversations.new.message"), :class => "input"
+        = message_form.text_area :content, :class => "text_area", :placeholder => t(".optional_message")
+        = message_form.hidden_field :sender_id, :value => @current_user.id
+        = message_form.hidden_field :action, :value => @action
     
-    = form.hidden_field :status, :value => "#{@action}ed"
-    = form.button t("conversations.new.send"), :class => "send_button", :id => "send_testimonial_button"
+      - if @conversation.listing.open?
+        .close-listing-radio-buttons
+
+          .checkbox-container
+            = radio_button_tag "close_listing", true, true, :id => "do_close_listing"
+            = label_tag "do_close_listing", t(".close_listing", :listing_title_link => link_to(@conversation.listing.title, @conversation.listing)).html_safe, :class => "radio"
+
+          .checkbox-container
+            = radio_button_tag "close_listing", false, false, :id => "do_not_close_listing"
+            = label_tag "do_not_close_listing", t(".update_later"), :class => "radio"
+    
+      = form.hidden_field :status, :value => "#{@action}ed"
+      = form.button t("conversations.new.send"), :class => "send_button", :id => "send_testimonial_button"

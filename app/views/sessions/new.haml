@@ -1,10 +1,11 @@
 - content_for :javascript do
   initialize_login_form(#{params[:password_forgotten]});
 
-.login-form.centered-section
+- content_for :title_header do
+  %h1= @facebook_merge ? t('.connect_your_facebook_to_kassi') : t('.login_to_kassi')
+
+.login-form.centered-section-narrow
   - if @facebook_merge
-    %h2
-      = t('.connect_your_facebook_to_kassi')
     .facebook-account-info
       = icon_tag("facebook", ["fb-icon"])
       .link-text
@@ -19,8 +20,6 @@
     %p
       = t(".we_will_not_post_without_asking_you")
     %br/
-  %h2
-    = t('.login_to_kassi')
   - if facebook_connect_in_use?
     = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".log_in_with_your_facebook_account") }
     %p= t(".or_sign_up_with_your_username")  

@@ -6,7 +6,7 @@
 
 - links.each do |link|
   - if link[:name].eql?(@selected_left_navi_link)
-    .left-navi-dropdown.toggle{data: {toggle: '.left-navi-menu'}}
+    .left-navi-dropdown.toggle.with-borders.hidden-tablet{data: {toggle: '.left-navi-menu'}}
       .icon-with-text{:class => link[:icon_class]}
       .text-with-icon= link[:text]
       %i.icon-dropdown.ss-dropdown

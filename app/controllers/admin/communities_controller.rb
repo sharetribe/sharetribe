@@ -40,10 +40,11 @@ class Admin::CommunitiesController < ApplicationController
     return_to_action =  (params[:community_settings_page] == "look_and_feel" ? :edit_look_and_feel : :edit_details)
     
     @community = Community.find(params[:id])
-    need_to_regenerate_css = params[:community][:custom_color1] != @community.custom_color1 || params[:community][:cover_photo]
+    need_to_regenerate_css = params[:community][:custom_color1] != @community.custom_color1 || params[:community][:custom_color2] != @community.custom_color2 || params[:community][:cover_photo]
     
     params[:community][:join_with_invite_only] = params[:community][:join_with_invite_only].present?
     params[:community][:custom_color1] = nil if params[:community][:custom_color1] == ""
+    params[:community][:custom_color2] = nil if params[:community][:custom_color2] == ""
     
     if @community.update_attributes(params[:community])
       flash[:notice] = t("layouts.notifications.community_updated")

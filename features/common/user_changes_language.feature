@@ -6,18 +6,18 @@ Feature: User changes language
   @javascript
   Scenario: User changes language without logging in
     Given I am on the home page
-    When I follow "Post a new listing"
-    And I follow "Home" 
-    And I click ".select-language"
+    When I follow "new-listing-link"
+    And I follow "global-navi-home" 
+    And I click "#global-navi-select-language"
     Then I follow "Suomi" within ".language-menu"
-    Then I should see "Lisää uusi ilmoitus!" within "#post_new_listing"
+    Then I should see "Lisää uusi ilmoitus!" within "#new-listing-link"
   
   @javascript
   Scenario: User changes language when logged in
     Given I am logged in
-    When I click ".select-language"
+    When I click "#global-navi-select-language"
     And I follow "Suomi" within ".language-menu"
-    Then I should see "Lisää uusi ilmoitus!" within "#post_new_listing"
+    Then I should see "Lisää uusi ilmoitus!" within "#new-listing-link"
   
   
   

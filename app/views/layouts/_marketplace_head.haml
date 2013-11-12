@@ -23,19 +23,12 @@
   
 / CSS
 - if @current_community.has_customizations?
-  = stylesheet_link_tag @current_community.stylesheet_url
+  = stylesheet_link_tag @current_community.custom_stylesheet_url
 - else
   = stylesheet_link_tag 'application'
 
 /[if lt IE 9]
   = stylesheet_link_tag 'old_ie'
-
-- if APP_CONFIG.typekit_url
-  = javascript_include_tag APP_CONFIG.typekit_url
-  :javascript
-    try{Typekit.load();}catch(e){
-      // in case of error, just ignore. Default fonts will be used.
-    }
   
 = javascript_include_tag 'application'
 = yield(:extra_javascript)

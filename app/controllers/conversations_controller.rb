@@ -27,13 +27,11 @@ class ConversationsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:accept, :reject]
   
   def index
-    @no_tribe_title = "inbox"
     @selected_left_navi_link = "messages"
     redirect_to received_person_messages_path(:person_id => @current_user.id)
   end
   
   def received
-    @no_tribe_title = "inbox"
     @selected_left_navi_link = "messages"
     params[:page] = 1 unless request.xhr?
     @conversations = @current_user.conversations.order("last_message_at DESC").paginate(:per_page => 15, :page => params[:page])
@@ -41,7 +39,6 @@ class ConversationsController < ApplicationController
   end
   
   def notifications
-    @no_tribe_title = "inbox"
     @selected_left_navi_link = "notifications"
     @notifications = @current_user.notifications.paginate(:per_page => 20, :page => params[:page])
     @unread_notifications = @current_user.notifications.unread.all
@@ -50,7 +47,6 @@ class ConversationsController < ApplicationController
   end
   
   def show
-    @no_tribe_title = "inbox"
     @selected_left_navi_link = "messages"
     @current_user.read(@conversation) unless @conversation.read_by?(@current_user)
     @other_party = @conversation.other_party(@current_user)
@@ -80,13 +76,13 @@ class ConversationsController < ApplicationController
   end
   
   def accept
+    prepare_accept_or_reject_form
     @action = "accept"
-    @payment = Payment.new
   end
   
   def reject
+    prepare_accept_or_reject_form
     @action = "reject"
-    @payment = Payment.new
     render :accept
   end
   
@@ -197,6 +193,15 @@ class ConversationsController < ApplicationController
   
   def ensure_authorized_to_cancel
     redirect_to person_message_path(:person_id => @current_user.id, :message_id => @conversation.id) and return unless @conversation.can_be_canceled? && current_user?(@conversation.requester)
+  end
+  
+  def prepare_accept_or_reject_form
+    @payment = Payment.new
+    
+    if @current_community.requires_payout_registration? && @current_community.payment_possible_for?(@conversation.listing) && ! @current_user.can_receive_payments_at?(@current_community)
+      @payout_registration_missing = true
+    end
+    
   end
 
 end

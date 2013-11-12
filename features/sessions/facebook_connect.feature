@@ -11,8 +11,8 @@ Feature: Facebook connect
       | facebooker | Mircos     | markus@example.com |
     Then user "facebooker" should have "image_file_size" with value "nil"
     Given I am on the home page
-    When I click ".login-menu-toggle"
-    And I follow "Log in with Facebook"
+    When I follow "login-link"
+    And I follow "fb-login"
     Then I should see "Successfully authorized from Facebook account"
     And I should see "Mircos"
     And user "facebooker" should not have "image_file_size" with value "nil"
@@ -24,8 +24,8 @@ Feature: Facebook connect
       | facebooker | Marcos |
     Then user "facebooker" should have "image_file_size" with value "nil"
     Given I am on the home page
-    When I click ".login-menu-toggle" 
-    And I follow "Log in with Facebook"
+    When I follow "login-link" 
+    And I follow "fb-login"
     Then I should see "Welcome to Sharetribe, Markus! There's one more step to join this community"
     When I check "community_membership_consent"
     And I press "Join community"
@@ -40,8 +40,8 @@ Feature: Facebook connect
   @javascript
   Scenario: Facebook connect first time, without existing account in Sharetribe
     Given I am on the home page
-    When I click ".login-menu-toggle"
-    And I follow "Log in with Facebook"
+    When I follow "login-link"
+    And I follow "fb-login"
     Then I should see "Welcome to Sharetribe, Markus! There's one more step to join this community"
     When I check "community_membership_consent"
     And I press "Join community"
@@ -59,8 +59,8 @@ Feature: Facebook connect
       | person | facebook_id | given_name |
       | marko | 597013691 | Marko |
     Given I am on the home page
-    When I click ".login-menu-toggle"
-    And I follow "Log in with Facebook"
+    When I follow "login-link"
+    And I follow "fb-login"
     Then I should see "Successfully authorized from Facebook account"
     And I should see "Marko"
   
@@ -84,16 +84,16 @@ Feature: Facebook connect
   Scenario: The facebook login doesn't succeed
     Given I am on the home page
     And there will be and error in my Facebook login
-    When I click ".login-menu-toggle"
-    And I follow "Log in with Facebook"
+    When I follow "login-link"
+    And I follow "fb-login"
     Then I should see "Could not authorize you from Facebook"  
   
   @javascript
   Scenario: The facebook login doesn't return any email address
     Given I am on the home page
     And there will be no email returned in my Facebook login
-    When I click ".login-menu-toggle"
-    And I follow "Log in with Facebook"
+    When I follow "login-link"
+    And I follow "fb-login"
     Then I should see "Could not get email address from Facebook"
     And I should see "create an account without using Facebook below"  
    
