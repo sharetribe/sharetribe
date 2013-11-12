@@ -67,7 +67,7 @@
               - if Conversation.unread_count(@current_user.id.to_s) > 0
                 .mobile-badge-menu{:class => get_badge_class(Conversation.unread_count(@current_user.id.to_s))}
                   = Conversation.unread_count(@current_user.id.to_s)
-            %a.feedback-menu-button{href: new_user_feedback_path}
+            %a#feedback-menu-button.feedback-menu-button{href: new_user_feedback_path}
               = icon_tag("feedback", ["icon-with-text"])
               .text-with-icon
                 = t("header.contact_us")
