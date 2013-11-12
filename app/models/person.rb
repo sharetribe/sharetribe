@@ -182,7 +182,7 @@ class Person < ActiveRecord::Base
 
   def name_or_username(community=nil)
     if is_organization
-      return given_name
+      return organization_name
     elsif given_name.present?
       if community
         case community.name_display_type
