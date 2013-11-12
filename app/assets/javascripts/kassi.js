@@ -282,7 +282,6 @@ function initialize_new_organization_form(show_merchant_registration, locale) {
 
 function initialize_payments_form(locale) {
   var form_id = "#payment_settings_form";
-  console.log($(form_id))
   $(form_id).validate({
     rules: {
       "person[company_id]": {minlength: 9, maxlength: 9},
@@ -297,7 +296,6 @@ function initialize_payments_form(locale) {
       disable_and_submit(form_id, form, "false", locale);  
     }
   });
-  console.log($(form_id));
 }
 
 

@@ -2,6 +2,8 @@ Feature: Transaction process between two users
 
   @javascript
   Scenario: Monetary transaction started from an offer listing
+    Given this scenario is DEPRECATED because it uses out-dated organization user information
+
     Given there are following users:
       | person | 
       | kassi_testperson1 |
@@ -94,6 +96,8 @@ Feature: Transaction process between two users
     
   @javascript
   Scenario: Non-monetary transaction started from a request listing
+    Given this scenario is DEPRECATED because it uses out-dated organization user information
+
     Given there are following users:
       | person | 
       | kassi_testperson1 |

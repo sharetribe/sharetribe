@@ -13,8 +13,8 @@ Given /^the terms of community "([^"]*)" are changed to "([^"]*)"$/ do |communit
 end
 
 Given /^"(.*?)" is a member of community "(.*?)"$/ do |username, community_name|
-  community = Community.find_by_name(community_name)
-  person = Person.find_by_username(username)
+  community = Community.find_by_name!(community_name)
+  person = Person.find_by_username!(username)
   membership = FactoryGirl.create(:community_membership, :person => person, :community => community)
   membership.save!
 end

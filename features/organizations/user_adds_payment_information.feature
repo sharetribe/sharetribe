@@ -12,7 +12,7 @@ Feature: User adds payment information
   Scenario: user adds payment information
     When I browse to payment settings
     And I fill the payment details form
-    Then "company" should have required payment details saved to my account information
+    Then "company" should have required Checkout payment details saved to my account information
 
   @javascript
   Scenario: user does not add required information

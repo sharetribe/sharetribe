@@ -27,7 +27,7 @@ When /^I confirm my email address$/ do
   }
 end
 
-Then /^"(.*?)" should have required payment details saved to my account information$/ do |username|
+Then /^"(.*?)" should have required Checkout payment details saved to my account information$/ do |username|
   p = Person.find_by_username(username)
 
   p.checkout_merchant_id.should_not be_nil

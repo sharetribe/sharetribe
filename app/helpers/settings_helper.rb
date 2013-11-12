@@ -11,8 +11,8 @@ module SettingsHelper
     community.payment_gateways.first
   end
 
-  def has_registered?(community, person)
-    payment_gateway_to_use(community).has_registered?(person)
+  def has_registered_payment_info?(community, person)
+    payment_gateway_to_use(community).has_registered_payment_info?(person)
   end
 
   def uses_mangopay?(community)
@@ -24,7 +24,7 @@ module SettingsHelper
   end
 
   def registered_checkout?(community, person)
-    uses_checkout?(community) && has_registered?(community, person)
+    uses_checkout?(community) && has_registered_payment_info?(community, person)
   end
 
   def with_information_text(community, person, &block)
