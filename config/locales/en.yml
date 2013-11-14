@@ -139,6 +139,8 @@ en:
       update_later: "Leave the listing open"
       optional_message: "Optional message"
       price_to_pay: "Total price to be paid"
+      you_need_to_fill_payout_details_before_accepting: "You need to fill in payout details before you can accept the request and receive the payment. Go to %{payment_settings_link} to fill in the details."
+      payment_settings_link: "payment settings"
     confirm:
       confirm_description: "If your request has been fulfilled you should confirm it as done. Then you can give feedback to the other party."
       cancel_description: "If your request was not fulfilled, you can mark it as 'not happened'. You can still give feedback to the other party and describe what happened."
@@ -944,6 +946,7 @@ en:
       notifications: Notifications
       profile: "Profile info"
       settings: Settings
+      payments: Payments
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "You do not have permission to view this listing."

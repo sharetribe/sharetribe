@@ -83,6 +83,10 @@ class Checkout < PaymentGateway
     self.has_registered?(person)
   end
 
+  def requires_payout_registration_before_accept?
+    true
+  end
+
   def register_payout_details(person)
 
     url = "https://rpcapi.checkout.fi/reseller/createMerchant"

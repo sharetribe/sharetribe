@@ -139,6 +139,8 @@ fi:
       update_later: "Älä sulje ilmoitusta"
       optional_message: "Vapaaehtoinen viesti"
       price_to_pay: "Maksettava kokonaishinta"
+      you_need_to_fill_payout_details_before_accepting: "Sinun pitää täyttää maksutietosi ennen kuin voit hyväksyä pyynnön ja vastaanottaa maksun. Täytä maksutietosi %{payment_settings_link}."
+      payment_settings_link: "täällä"
     confirm:
       confirm_description: "Jos olet saanut pyytämäsi asian, voit merkitä pyynnön toteutuneeksi. Tämän jälkeen voit antaa toiselle osapuolelle palautetta."
       cancel_description: "Jos et saanut pyytämäsi asiaa, voit merkitä pyynnön peruuntuneeksi. Voit silti antaa toiselle osapuolelle palautetta ja kertoa miksi pyyntö ei tällä kertaa toteutunut."
@@ -945,6 +947,7 @@ fi:
       notifications: Tiedotteet
       profile: "Profiilin tiedot"
       settings: Asetukset
+      payments: Maksutiedot
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Sinulla ei ole oikeuksia nähdä tätä ilmoitusta."

@@ -112,6 +112,13 @@ Given /^"(.*?)" has Checkout account$/ do |org_username|
   org.save!
 end
 
+Given /^"(.*?)" does not have Checkout account$/ do |org_username|
+  org = Person.find_by_username(org_username)
+  org.checkout_merchant_key = nil
+  org.checkout_merchant_id = nil
+  org.save!
+end
+
 Then /^I should see information about existing Checkout account$/ do
   find("#payment-help-checkout-exists").visible?.should be_true
   steps %Q{
