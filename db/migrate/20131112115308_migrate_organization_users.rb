@@ -12,11 +12,11 @@ class MigrateOrganizationUsers < ActiveRecord::Migration
           File.new(organization.logo.path)
         end
 
-      # Members
       members = organization.members
 
       puts "Company '#{name}' with id '#{company_id}', merch.id '#{merchant_id}', merch.key '#{merchant_key}', logo '#{logo_file_or_uri}'"
 
+      # ------------- Skip
       skip_migration = false
 
       if members.count != 1 then
@@ -34,7 +34,18 @@ class MigrateOrganizationUsers < ActiveRecord::Migration
         end
         skip_migration = true
       end
+
+      members_with_multiple_communities = members.select { |member| member.communities.count != 1 }
+
+      if members_with_multiple_communities.length > 0 then
+        puts "ERROR: Company has members which are members of more than 1 community! Migrate manually."
+        members_with_multiple_communities.each do |member|
+          puts "Member '#{member.name}' is member of communities #{member.communities.collect(&:name).join(", ")}"
+        end
+        skip_migration = true
+      end
       
+      # ------------- Migrate
       unless skip_migration
         puts "Migrating..."
         member = members.first
