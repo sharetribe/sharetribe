@@ -19,6 +19,8 @@ Feature: User pays after accepted transaction
     And I follow "conversation_title_link_1"
     And I follow "Accept request"
     Then I should see information about missing payment details
+    When I follow "#conversation-payment-settings-link"
+    Then I should be on the payment settings page
 
   @javascript
   Scenario: User goes to payment service, but decides to cancel and comes back
