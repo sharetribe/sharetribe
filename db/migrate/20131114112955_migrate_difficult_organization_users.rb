@@ -6,11 +6,14 @@ class MigrateDifficultOrganizationUsers < ActiveRecord::Migration
     member.confirmed_at = Time.now
     member.set_default_preferences
     member.locale = "fi"
+    member.id = UUID.timestamp_create.to_s22
+    member
   end
 
   def create_new_user_from_old(old_user)
-    new_org_user = member.dup
+    new_org_user = old_user.dup
     new_org_user.id = UUID.timestamp_create.to_s22
+    new_org_user
   end
 
   def set_membership!(new_org_user)
