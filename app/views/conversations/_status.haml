@@ -42,7 +42,7 @@
                 .text-part= t(".waiting_confirmation_from_requester", :requester_name => conversation.other_party(@current_user).given_name_or_username)
           - else
             .status-links
-              - [{:status => "confirm", :class => "confirm"}, {:status => "cancel", :class => "cancel"}].each do |status|
+              - ["confirm", "cancel"].each do |status|
                 = render :partial => "status_link", :locals => { :conversation => conversation, :status => status }
     - elsif conversation.status.eql?("paid")
       .inbox-horizontally-aligned-status
@@ -57,7 +57,7 @@
               .text-part= t(".waiting_confirmation_from_requester", :requester_name => conversation.other_party(@current_user).given_name_or_username)
         - else
           .status-links
-            - [{:status => "confirm", :class => "confirm"}, {:status => "cancel", :class => "cancel"}].each do |status|
+            - ["confirm", "cancel"].each do |status|
               = render :partial => "status_link", :locals => { :conversation => conversation, :status => status }
     - elsif conversation.status
       .inbox-horizontally-aligned-status
