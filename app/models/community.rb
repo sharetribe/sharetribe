@@ -413,10 +413,6 @@ class Community < ActiveRecord::Base
     settings["service_name"] ? settings["service_name"] : "Sharetribe #{name}"
   end
   
-  def requires_organization_membership?
-    settings["require_organization_membership"] == true    
-  end
-  
   def uses_rdf_profile_import?
     settings["use_rdf_profile_import"] == true    
   end

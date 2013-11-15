@@ -1,6 +1,6 @@
 class CommunityMembership < ActiveRecord::Base
   
-  VALID_STATUSES = ["accepted", "pending_email_confirmation", "pending_organization_membership"]
+  VALID_STATUSES = ["accepted", "pending_email_confirmation"]
   
   belongs_to :person
   belongs_to :community, :counter_cache => :members_count
@@ -31,10 +31,6 @@ class CommunityMembership < ActiveRecord::Base
   
   def pending_email_confirmation?
     status == "pending_email_confirmation"
-  end
-  
-  def pending_organization_membership?
-    status == "pending_organization_membership"
   end
   
   def pending?
