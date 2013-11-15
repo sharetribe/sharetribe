@@ -3,8 +3,7 @@ class MigrateDifficultOrganizationUsers < ActiveRecord::Migration
   def migrate_listing_author!(new_author, organization)
     organization.listings.each do |listing|
       old_author = listing.author.name
-      listing.author = new_author
-      listing.save!
+      listing.update_column(:author_id, new_author.id)
 
       puts "Listing '#{listing.title}' moved from '#{old_author}' to '#{new_author.name}'"
     end
