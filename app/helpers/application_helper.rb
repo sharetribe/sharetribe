@@ -310,21 +310,17 @@ module ApplicationHelper
     haml_concat add_links_and_br_tags_for_email(capture_haml(&block)).html_safe
   end
   
-  def small_avatar_thumb(person_or_organization, avatar_html_options={})
-    avatar_thumb(:thumb, person_or_organization, avatar_html_options)
+  def small_avatar_thumb(person, avatar_html_options={})
+    avatar_thumb(:thumb, person, avatar_html_options)
   end
   
-  def medium_avatar_thumb(person_or_organization, avatar_html_options={})
-    avatar_thumb(:small, person_or_organization, avatar_html_options)
+  def medium_avatar_thumb(person, avatar_html_options={})
+    avatar_thumb(:small, person, avatar_html_options)
   end
 
-  def avatar_thumb(size, person_or_organization, avatar_html_options={})
-    return "" if person_or_organization.nil?
-    if person_or_organization.class == Organization
-      image_tag person_or_organization.logo.url(size), avatar_html_options
-    else
-      link_to((image_tag person_or_organization.image.url(size), avatar_html_options), person_or_organization)
-    end
+  def avatar_thumb(size, person, avatar_html_options={})
+    return "" if person.nil?
+    link_to((image_tag person.image.url(size), avatar_html_options), person)
   end
   
   def large_avatar_thumb(person)
@@ -815,9 +811,9 @@ module ApplicationHelper
     end
   end
   
-  # Return either a link to the listing author or the name of the organization
+  # Return a link to the listing author
   def author_link(listing)
-    listing.has_organization_in?(@current_community) ? listing.organization.name : link_to(listing.author.name(@current_community), listing.author, {:title => listing.author.name(@current_community)})
+    link_to(listing.author.name(@current_community), listing.author, {:title => listing.author.name(@current_community)})
   end
   
   # Send a reminder email related to a transaction

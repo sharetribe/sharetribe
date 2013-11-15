@@ -15,7 +15,6 @@ Feature: User accepts a transaction
   #   And community "test" has payments in use
   #   And "kassi_testperson2" is member of organization that has registered as a seller
   #   And there is item request with title "math book" from "kassi_testperson1" and with share type "buy"
-  #   And all listings of "kassi_testperson2" are made with his first organization
   #   And there is a message "Math book offer" from "kassi_testperson2" about that listing
   #   And I am logged in as "kassi_testperson1"
   #   When I follow "inbox-link"

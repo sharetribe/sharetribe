@@ -27,8 +27,6 @@
       = render :partial => "listings/form/images", :locals => { :form => form }
     - if @listing.closed?
       = form.hidden_field :open, :value => true
-    - if @current_community.requires_organization_membership?
-      = render :partial => "listings/form/organization", :locals => { :form => form }
     = form.hidden_field :last_modified, :value => DateTime.now
     = render :partial => "listings/form/visibility", :locals => { :form => form }
     = render :partial => "listings/form/privacy", :locals => { :form => form }

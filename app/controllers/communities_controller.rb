@@ -6,6 +6,7 @@ class CommunitiesController < ApplicationController
   
   skip_filter :single_community_only
   
+  # Is this DEPRECATED?
   before_filter :only => [ :set_organization_email ] do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_content")
   end
@@ -81,6 +82,7 @@ class CommunitiesController < ApplicationController
     end
   end
   
+  # Is this DEPRECATED?
   def set_organization_email
     redirect_to root and return
     session[:allowed_email] = "@#{params[:email].split('@')[1]}"

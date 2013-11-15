@@ -33,7 +33,7 @@ class CommunityMembershipsController < ApplicationController
   
   
   def create
-    # if there already exists one, modify that (normally it's "pending_organization_membership")
+    # if there already exists one, modify that
     existing = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
     @community_membership = existing || CommunityMembership.new(params[:community_membership])
     
@@ -74,39 +74,6 @@ class CommunityMembershipsController < ApplicationController
         @community_membership.status = "pending_email_confirmation"
         
         flash[:notice] = "#{t("layouts.notifications.you_need_to_confirm_your_account_first")} #{t("sessions.confirmation_pending.check_your_email")}."
-      end
-    end
-    
-    if @current_community.requires_organization_membership?
-      if ! params[:community_membership][:email].blank? && ! @current_user.has_email?(params[:community_membership][:email])
-        # Set the given new email as primary and ensure that it's marked unconfirmed at this point.
-        @community_membership.status = "pending_email_confirmation"
-        @current_user.update_attributes(:email => params[:community_membership][:email], :confirmed_at => nil) 
-      end
-      
-      @org = Organization.find_by_id(params[:organization_id])
-      
-      if @org.nil?
-        flash[:error] = t("community_memberships.new.you_need_to_choose_an_organization")
-        @community_membership = CommunityMembership.new
-        render :action => :new and return
-      end
-      
-      unless @org.email_allowed?(params[:community_membership][:email])
-        flash[:error] = t("community_memberships.new.selected_organizatoin_needs_specific_email") + @org.allowed_emails
-        @community_membership = CommunityMembership.new
-        render :action => :new and return          
-      end 
-      
-      @current_user.organizations << @org unless @org.has_member?(@current_user)      
-      
-      if @community_membership.pending?
-        if @current_user.confirmed_at && @current_user.has_valid_email_for_community?(@current_community)
-          @community_membership.status = "accepted" 
-        else
-          @current_user.send_email_confirmation_to(params[:community_membership][:email] || @current_user.pending_email(@current_community), request.host_with_port, @current_community)
-          @community_membership.status = "pending_email_confirmation"
-        end 
       end
     end
     
