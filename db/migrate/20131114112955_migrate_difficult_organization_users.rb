@@ -1,5 +1,15 @@
 class MigrateDifficultOrganizationUsers < ActiveRecord::Migration
 
+  def migrate_listing_author!(new_author, organization)
+    organization.listings.each do |listing|
+      old_author = listing.author.name
+      listing.author = new_author
+      listing.save!
+
+      puts "Listing '#{listing.title}' moved from '#{old_author}' to '#{new_author.name}'"
+    end
+  end
+
   def create_new_empty_user
     member = Person.new
     member.password = random_pass
@@ -80,6 +90,12 @@ class MigrateDifficultOrganizationUsers < ActiveRecord::Migration
     (0...12).map{ all[rand(all.length)] }.join
   end
 
+  def finalize!(new_org_user, org)
+    set_membership!(new_org_user)
+    migrate_listing_author!(new_org_user, org)
+    print_user(new_org_user)
+  end
+
   def migrate_organization_more_than_one_user!(org, members)
     puts "Using blank user to create new org accoutn for '#{org.name}"
 
@@ -88,8 +104,7 @@ class MigrateDifficultOrganizationUsers < ActiveRecord::Migration
 
     new_org = create_new_organization_account!(org, new_user_base, email)
 
-    set_membership!(new_org)
-    print_user(new_org)
+    finalize!(new_org, org)
   end
 
   def migrate_user_more_than_one_organization!(member, orgs)
@@ -101,8 +116,7 @@ class MigrateDifficultOrganizationUsers < ActiveRecord::Migration
       
       new_org = create_new_organization_account!(org, new_user_base, email)
 
-      set_membership!(new_org)
-      print_user(new_org)
+      finalize!(new_org, org)
     end
   end
 
@@ -115,8 +129,7 @@ class MigrateDifficultOrganizationUsers < ActiveRecord::Migration
 
       new_org = create_new_organization_account!(org, new_user_base, email)
 
-      set_membership!(new_org)
-      print_user(new_org)
+      finalize!(new_org, org)
     end
   end
 

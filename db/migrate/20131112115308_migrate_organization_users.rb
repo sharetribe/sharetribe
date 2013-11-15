@@ -1,4 +1,15 @@
 class MigrateOrganizationUsers < ActiveRecord::Migration
+
+  def migrate_listing_author!(new_author, organization)
+    organization.listings.each do |listing|
+      old_author = listing.author.name
+      listing.author = new_author
+      listing.save!
+
+      puts "Listing '#{listing.title}' moved from '#{old_author}' to '#{new_author.name}'"
+    end
+  end
+
   def up
     Organization.all.each do |organization|
       name = organization.name
@@ -65,6 +76,8 @@ class MigrateOrganizationUsers < ActiveRecord::Migration
 
         # Save
         member.save!
+
+        migrate_listing_author!(member, organization)
       end
       puts ""
     end
