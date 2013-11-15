@@ -15,6 +15,8 @@ class Listing < ActiveRecord::Base
   # #for context-dependent tags:
   # has_many :tags, :through => :taggings, :source => :tag, :class_name => "ActsAsTaggableOn::Tag",
   #           :conditions => "taggings.context = 'tags'"
+
+  belongs_to :organization
   
   has_many :listing_images, :dependent => :destroy
   accepts_nested_attributes_for :listing_images, :reject_if => lambda { |t| t['image'].blank? }
