@@ -262,7 +262,7 @@ class PeopleController < Devise::RegistrationsController
     mango_param_keys = [:bank_account_owner_name, :bank_account_owner_address, :iban, :bic]
     checkout_param_keys = [:company_id, :organization_address, :phone_number, :organization_website]
 
-    if params[:person] && payment_gateway
+    if params[:person] && payment_gateway && params[:payment_settings]
       payment_param_keys = payment_gateway.type == "Mangopay" ? mango_param_keys : checkout_param_keys
       registering_successful = self.register_payout(payment_gateway, params[:person], payment_param_keys, @person)
 
