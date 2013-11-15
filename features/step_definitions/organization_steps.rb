@@ -44,6 +44,7 @@ end
 
 Given /^community "(.*?)" requires organization membership$/ do |community|
   c = Community.find_by_domain(community)
+  # DERPECATED
   c.settings.merge!({"require_organization_membership" => true})
   c.save!
 end
@@ -103,6 +104,12 @@ end
 
 Given /^there is an organization "(.*?)"$/ do |org_username|
   FactoryGirl.create(:person, :username => org_username, :is_organization => true)
+end
+
+Given /^"(.*?)" is not an organization$/ do |username|
+  user = Person.find_by_username(username)
+  user.is_organization = false
+  user.save!
 end
 
 Given /^"(.*?)" has Checkout account$/ do |org_username|
