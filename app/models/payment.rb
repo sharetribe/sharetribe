@@ -10,9 +10,6 @@ class Payment < ActiveRecord::Base
   belongs_to :payer, :class_name => "Person"
   belongs_to :recipient, :class_name => "Person"
   
-  # DEPRECATED
-  belongs_to :recipient_organization, :class_name => "Organization", :foreign_key => "organization_id"
-  
   belongs_to :community
 
   validates_inclusion_of :status, :in => VALID_STATUSES
