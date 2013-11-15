@@ -101,3 +101,20 @@ Then /^add default categories back$/ do
   reset_categories_to_default
   Rails.cache.clear
 end
+
+When /^I create a new listing "([^"]*)" with price$/ do |title|
+  steps %Q{
+    Given I am on the home page
+    When I follow "new-listing-link"
+    And I follow "I have something to offer to others"
+    And I follow "An item"
+    And I follow "Tools" within "#option-groups"
+    And I follow "I'm selling it"
+    And I fill in "listing_title" with "#{title}"
+    And I fill in "listing_price" with "dsfsdf"
+    And I press "Save listing"
+    Then I should see "Price must be a whole number."
+    When I fill in "listing_price" with "20"
+    And I press "Save listing"
+  }
+end
