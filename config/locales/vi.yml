@@ -139,6 +139,8 @@ vi:
       update_later: ~
       optional_message: ~
       price_to_pay: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -935,6 +937,7 @@ vi:
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Bạn đang không còn được đề cập trong danh sách này"
       joining_community_failed: "Tham gia cộng đồng này thất bại"
+      can_not_login_with_private_user: ~
     profile_extras_header:
       back_to_profile_of_person: "Quay về hồ sơ của người dùng"
       badges: "Huy hiệu"
@@ -944,6 +947,7 @@ vi:
       notifications: "Các ghi chú"
       profile: "Thông tin hồ sơ"
       settings: "Cài đặt"
+      payments: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Bạn không có quyền xem danh sách này."

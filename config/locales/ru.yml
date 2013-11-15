@@ -139,16 +139,18 @@ ru:
       update_later: ~
       optional_message: "Сообщение (необязательно)"
       price_to_pay: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
       cancel_payed_description: ~
-      canceling_payed_transaction: ~
+      canceling_payed_transaction: "Отменить транзакцию"
       confirm: ~
       cancel: ~
       continue: Продолжить
-      give_feedback_to: ~
-      do_not_give_feedback: ~
+      give_feedback_to: "Оставить отзыв о %{person_link}"
+      do_not_give_feedback: "Не оставлять отзыв"
     index:
       loading_more_messages: "Загрузка сообщений"
       message_partitive: сообщение
@@ -156,19 +158,19 @@ ru:
       no_received_messages: "Нет полученных сообщений"
       no_sent_messages: "Нет отправленных сообщений"
     conversation:
-      accepted_request: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
+      accepted_request: "Запрос принят."
+      accepted_offer: "Предложение принято."
+      rejected_request: "Запрос отклонен."
+      rejected_offer: "Предложение отклонено."
+      confirmed_request: "Сделка по запросу завершена."
+      confirmed_offer: "Сделка по предложению завершена."
+      canceled_request: "Запрос отменен."
+      canceled_offer: "Предложение отменено."
     message:
-      accepted_request: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
+      accepted_request: "принял запрос"
+      accepted_offer: "принял предложение"
+      rejected_request: "отклонил запрос"
+      rejected_offer: "отклонил предложение"
       confirmed_request: ~
       confirmed_offer: ~
       canceled_request: ~
@@ -240,14 +242,14 @@ ru:
       conversation_with_user: "Диалог с %{person}."
       last_message_at: "(последнее сообщение: %{time})"
     status:
-      cancel_payed_transaction: ~
+      cancel_payed_transaction: Отменить
       feedback_given: "Отзыв отправлен"
       feedback_skipped: "Отзыв отменён"
       give_feedback: "Дать отзыв"
       offer_accepted: "Предложение принято"
       offer_rejected: "Предложение отклонено"
-      offer_canceled: ~
-      offer_confirmed: ~
+      offer_canceled: Отменено
+      offer_confirmed: Завершено
       pay: Оплатить
       paid: "Оплата выполнена успешно"
       request_accepted: "Запрос принят"
@@ -424,7 +426,7 @@ ru:
       you_can_accept_or_reject_request_at: "Вы можете принять или отклонить запрос "
       you_have_not_yet_accepted_or_rejected_offer: "Вы всё ещё не приняли решение по предложению '%{title}', полученному вами %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Вы всё ещё не приняли решение по запросу '%{title}', полученному вами %{date}."
-      show_thread: ~
+      show_thread: "Показать диалог"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
       remember_to_confirm_request: ~
@@ -552,7 +554,7 @@ ru:
       settings_link_text: "Проверьте настройки"
       subject: "Добро пожаловать в сообщество %{community} - перед началом работы прочтите несколько советов"
       welcome_some_tips: "Добро пожаловать в сообщество %{community_link}! Перед началом работы прочтите несколько советов."
-      p_s_did_you_know: ~
+      p_s_did_you_know: "Знаете ли вы, что можно бесплатно создать отдельный сайт для любого сообщества, членом которого вы являетесь? Чтобы узнать больше, %{click_here_link}!"
       click_here_link_text: "Нажмите здесь"
       update_your_profile: ~
       update_your_profile_link_text: "Обновить профиль"
@@ -571,8 +573,8 @@ ru:
       love_team: ~
       congrats_for_creating_community: ~
       you_have_just_created_community: ~
-      you_now_have_admin_rights: ~
-      edit_community_details_link_text: ~
+      you_now_have_admin_rights: "<b>Теперь вы являетесь администратором этого сообщества.</b> Это значит, что вы можете, например, редактировать информацию о сообществе и внешний вид сайта. Возможно, это первое, что вы захотите сделать. %{edit_community_details_link}. Если вы хотите передать права администратора кому-то другому, свяжитесь с нами, ответив на это письмо."
+      edit_community_details_link_text: "Редактировать описание сообщества."
       add_content: ~
       spread_the_word: ~
       spread_the_word_invite_only: ~
@@ -935,6 +937,7 @@ ru:
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Вы больше не следите за этим листингом"
       joining_community_failed: "Ошибка при вступлении в сообщество"
+      can_not_login_with_private_user: ~
     profile_extras_header:
       back_to_profile_of_person: "Назад к профилю пользователя"
       badges: Значки
@@ -944,6 +947,7 @@ ru:
       notifications: Оповещения
       profile: "Информация о вас"
       settings: Настройки
+      payments: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "У вас нет прав для просмотра этой записи."

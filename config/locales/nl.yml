@@ -139,6 +139,8 @@ nl:
       update_later: "Laat de listing open"
       optional_message: ~
       price_to_pay: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -935,6 +937,7 @@ nl:
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: ~
       joining_community_failed: ~
+      can_not_login_with_private_user: ~
     profile_extras_header:
       back_to_profile_of_person: "Terug naar de gebruikers profiel"
       badges: Badges
@@ -944,6 +947,7 @@ nl:
       notifications: Notificaties
       profile: "Profiel info"
       settings: Instellingen
+      payments: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "U heeft geen toestemming om deze listing te bekijken"

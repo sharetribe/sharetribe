@@ -139,6 +139,8 @@ de:
       update_later: "Lass den Eintrag offen"
       optional_message: "Optionale Nachricht"
       price_to_pay: "Preis zu bezahlen"
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
     confirm:
       confirm_description: "Deine Anfrage wurde aufgenommen, du solltest sie bestätigen nachdem du fertig bist. Dann kannst du dem anderen Feedback geben."
       cancel_description: "Wenn deine Anfrage nicht erfüllt wurde, dann markiere sie als \"noch nicht erledigt\". Du kannst dem anderen trotzdem Feedback geben und beschreiben, was passiert ist."
@@ -935,6 +937,7 @@ de:
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "SIe verfolgen nicht länger diesen Eintrag"
       joining_community_failed: "Der Beitritt dieser Community ist fehlgeschlagen"
+      can_not_login_with_private_user: ~
     profile_extras_header:
       back_to_profile_of_person: "Zurück zum Profil des Benutzers"
       badges: Abzeichen
@@ -944,6 +947,7 @@ de:
       notifications: Benachrichtigungen
       profile: Profil-Info
       settings: Einstellungen
+      payments: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "SIe haben keine Berechtigung diesen Eintrag anzuschauen."

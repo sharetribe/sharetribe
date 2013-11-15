@@ -139,6 +139,8 @@ en-bd:
       update_later: ~
       optional_message: ~
       price_to_pay: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -935,6 +937,7 @@ en-bd:
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: ~
       joining_community_failed: ~
+      can_not_login_with_private_user: ~
     profile_extras_header:
       back_to_profile_of_person: ~
       badges: ~
@@ -944,6 +947,7 @@ en-bd:
       notifications: ~
       profile: ~
       settings: ~
+      payments: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: ~
@@ -1317,8 +1321,8 @@ en-bd:
       email_is_in_use_or_not_allowed: "This email is not allowed for this community. Please use your college's address (eg. firstname.lastname@school.edu). If you still cannot get in, please send us a message via our feedback form"
       email_not_allowed: ~
       email_restriction_instructions:
-        one: "This community is only for %{community_name}. To join it, please use your school email (e.g., firstname.lastname@essec.edu)"
-        other: "This community is only for %{community_name}. To join it, please use your school email (e.g., firstname.lastname@essec.edu)"
+        one: "This community is only for %{community_name}. To join it, please use your school email (e.g., firstname.lastname@yourschooldomain.edu)"
+        other: "This community is only for %{community_name}. To join it, please use your school email (e.g., firstname.lastname@yourschooldomain.edu)"
       enter_captcha: ~
       family_name: ~
       given_name: ~
