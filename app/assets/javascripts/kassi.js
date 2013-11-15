@@ -251,35 +251,6 @@ function initialize_login_form(password_forgotten) {
   $('#login_form input.text_field:first').focus();
 }
 
-function initialize_new_organization_form(show_merchant_registration, locale) {
-  if (show_merchant_registration) {
-    $('#merchant_details').slideToggle('fast');
-  }
-  $(':radio[name="organization[merchant_registration]"]').change(function() { 
-    $('#merchant_details').slideToggle('fast');
-  });
-  
-  var form_id = "#organization_form";
-  $(form_id).validate({
-    rules: {
-      "organization[name]": {required: true, minlength: 3, maxlength: 80},
-      "organization[company_id]": {minlength: 9, maxlength: 9},
-      "organization[email]": {email: true},
-      "organization[website]": {minlength: 5},
-      "organization[phone_number]": {minlength: 6},
-      "organization[address]": {minlength: 6},
-      "organization[logo]": { accept: "(jpe?g|gif|png)" },
-    },
-    messages: {
-    },
-    onkeyup: false, //Only do validations when form focus changes
-    submitHandler: function(form) {
-      disable_and_submit(form_id, form, "false", locale);  
-    }
-  });
-
-}
-
 function initialize_payments_form(locale) {
   var form_id = "#payment_settings_form";
   $(form_id).validate({

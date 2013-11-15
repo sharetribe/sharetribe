@@ -11,7 +11,6 @@ Feature: Transaction process between two users
     And community "test" has payments in use
     And "kassi_testperson1" is member of organization that has registered as a seller
     And there is item offer with title "Hammer" from "kassi_testperson1" and with share type "sell" and with price "20"
-    And all listings of "kassi_testperson1" are made with his first organization
     And I am logged in as "kassi_testperson2"
 
     # Starting the conversation

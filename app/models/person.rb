@@ -556,16 +556,6 @@ class Person < ActiveRecord::Base
     return t.token
   end
   
-  # This is a helper to get nicely formatted array of this person's organizations
-  # for dropdown selection menus
-  def organizations_array(only_seller_organizations=false)
-    arr = []
-    organizations.each do |org|
-      arr << [org.name, org.id] if (only_seller_organizations == false || org.is_registered_as_seller?)
-    end
-    return arr
-  end
-  
   # returns true if person has at least one organization that is registered for seller account
   def is_member_of_seller_organization?    
     organizations.select{|o| o.is_registered_as_seller?}.present?
@@ -731,21 +721,11 @@ class Person < ActiveRecord::Base
     end  
   end
   
-  # This determines if the person has done all needed registrations etc. in order to create paid listing
-  # where he would receive money (in this community)
+  # FIXME!
+  # This should be removed: After the recent changes, everyone can create paid listing
+  # even without payment details
   def can_create_paid_listings_at?(community)
-    if community.requires_organization_membership?
-      return self.is_member_of_seller_organization?
-    
-    # this is commented out as we only limit creating listings when organizations in use
-    # in other cases the check happens before accepting
-      
-    # elsif community.payment_gateways
-    #      return community.payment_gateways.first.can_receive_payments_for?(self)
-    
-    else
-      return true
-    end
+    true
   end
   
   
