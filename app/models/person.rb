@@ -219,7 +219,12 @@ class Person < ActiveRecord::Base
   end
 
   def given_name_or_username
-    if given_name.present?
+    if is_organization
+      # Quick and somewhat dirty solution. `given_name_or_username`
+      # is quite explicit method name and thus it should return the
+      # given name or username. Maybe this should be cleaned in the future.
+      return organization_name
+    elsif given_name.present?
       return given_name
     else
       return username
