@@ -1855,17 +1855,6 @@ a.lightbox-x {
 
 /* 
   ----------------
-  New organization form
-  ----------------
-*/
-
-#merchant_details {
-  display: none;
-}
-
-
-/* 
-  ----------------
   New listing form
   ----------------
 */
@@ -2635,33 +2624,6 @@ a.lightbox-x {
 .new-member-email-form {
   .permanent-notification {
     margin-bottom: 0;
-  }
-}
-
-/*
-  ----------------------------------
-  Organizations
-  ----------------------------------
-*/
-
-.merchant-registration-radio-buttons {
-  margin-top: lines(0.25);
-}
-
-.listing-organization-representative {
-  display: inline;
-  position: relative;
-  
-  .organization-representative-avatar {
-    position: absolute;
-    top: em(3); left: 0;
-    width: lines(1);
-    img {
-      width: 100%;
-    } 
-  }
-  .organization-representative-name {
-    padding: em(2) 0 em(6) lines(1.5);
   }
 }
 

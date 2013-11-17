@@ -51,6 +51,18 @@ Feature: User logging in and out
     And I click "#main_log_in_button"
     Then I should see "Welcome, Kassi!"
     Then I should be logged in
+
+  Scenario: User tries to log in to organization community with personal account
+    Given community "test" allows only organizations
+    And "kassi_testperson1" is not an organization
+    And I am not logged in
+    And I am on the login page
+    When I fill in "main_person_login" with "kassi_testperson1"
+    And I fill in "main_person_password" with "testi"
+    And I click "#main_log_in_button"
+    Then I should see "You can not login to this community with your personal account"
+    Then I should not be logged in
+
   
   
   

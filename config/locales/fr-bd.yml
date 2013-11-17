@@ -139,6 +139,8 @@ fr-bd:
       update_later: ~
       optional_message: ~
       price_to_pay: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -935,6 +937,7 @@ fr-bd:
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: ~
       joining_community_failed: ~
+      can_not_login_with_private_user: ~
     profile_extras_header:
       back_to_profile_of_person: ~
       badges: ~
@@ -944,6 +947,7 @@ fr-bd:
       notifications: ~
       profile: ~
       settings: ~
+      payments: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: ~
@@ -1317,8 +1321,8 @@ fr-bd:
       email_is_in_use_or_not_allowed: "Cette adresse email n'est pas acceptée par Boulevard-21. Veuillez utiliser l'adresse email fournie par votre école (par ex., prenom.nom@ecole.edu). Si vous n'arrivez toujours pas à vous connecter, contactez-nous."
       email_not_allowed: ~
       email_restriction_instructions:
-        one: "Cette communauté est réservée à %{community_name}. Pour la rejoindre, vous devez fournir votre adresse email d'école (ex. prenom.nom@essec.edu)"
-        other: "Cette communauté est réservée à %{community_name}. Pour la rejoindre, vous devez fournir votre adresse email d'école (ex. prenom.nom@essec.edu)"
+        one: "Cette communauté est réservée à %{community_name}. Pour la rejoindre, vous devez fournir votre adresse email d'école (ex. prenom.nom@ecole.edu)"
+        other: "Cette communauté est réservée à %{community_name}. Pour la rejoindre, vous devez fournir votre adresse email d'école (ex. prenom.nom@ecole.edu)"
       enter_captcha: ~
       family_name: ~
       given_name: ~

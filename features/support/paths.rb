@@ -48,6 +48,11 @@ module NavigationHelpers
       new_tribe_path(:community_locale => "en", :locale => "en")
     when /invitations page$/i
       new_invitation_path(:locale => "en")
+    when /the settings page/
+      "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings"
+    when /the payment settings page/
+      "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings/payments"
+
     # the following are examples using path_to_pickle
 
     when /^#{capture_model}(?:'s)? page$/                           # eg. the forum's page

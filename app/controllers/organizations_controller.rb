@@ -118,6 +118,7 @@ MESSAGE
   
   private
   
+  # Deprecated
   def merchant_registration(org)
     # Check if any params missing
     if (org.email.blank? ||

@@ -10,7 +10,7 @@
   - session[:fb_join] = "analytics_reported"
 
 .centered-section
-  - unless session[:fb_join] || (@current_community.requires_organization_membership?)
+  - unless session[:fb_join]
     %p
       = t('.you_are_not_a_member_of_this_community', :community => @current_community.name)
   %p
@@ -25,11 +25,11 @@
       - if session[:fb_join]
         = t('.welcome_fb_user', :name => @current_user.given_name_or_username)
         = t('.fb_join_accept_terms')
-      - elsif ! (@current_community.requires_organization_membership?)
+      - else
         = t('.you_can_join')
         
 
-  - unless @current_user.communities.size < 1 || @current_community.requires_organization_membership?
+  - unless @current_user.communities.size < 1
     %p
       = t(".if_want_to_view_content")
       = link_to(t(".log_out"), logout_path) + "."
@@ -44,24 +44,10 @@
         = label_tag :invitation_code, t('people.new.invitation_code'), :class => "inline"
         = link_to t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link", :class => "label-info"
         = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20", :value => (params[:code] || "")
-        
-    - if @current_community.requires_organization_membership? 
-      %p
-        =t(".to_join_you_need_organization_membership")
-      - if Organization.count > 0
-        %select{name: "organization_id"}
-          %option{value: 0}= t(".please_select_your_organization")
-          - Organization.all.sort_by(&:name).each do |org|
-            %option{value: org.id, selected: (@org && @org.id == org.id)}= org.name
-      %p
-        = link_to t(".create_new_organization"), new_organization_path
 
-        
-            
-    - if @current_community.allowed_emails? && ! @current_user.has_valid_email_for_community?(@current_community) || @current_community.requires_organization_membership?
-      - default_email_field_value = (@current_community.requires_organization_membership? ? @current_user.email : "")
+    - if @current_community.allowed_emails? && ! @current_user.has_valid_email_for_community?(@current_community)
       = form.label :email, t('people.new.email'), :class => "before_description"
-      = form.text_field :email, :class => :text_field, :maxlenght => "255", :value => default_email_field_value 
+      = form.text_field :email, :class => :text_field, :maxlenght => "255"
     
     - unless @skip_terms_checkbox 
       .outer-checkbox-container

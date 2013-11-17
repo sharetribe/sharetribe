@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :force_ssl, :check_auth_token, :fetch_logged_in_user, :dashboard_only, :single_community_only, :fetch_community, :fetch_community_membership, :set_locale, :generate_event_id, :set_default_url_for_mailer
   before_filter :cannot_access_without_joining, :except => [ :confirmation_pending, :check_email_availability]
+  before_filter :can_access_only_organizations_communities
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
 
   # after filter would be more logical, but then log would be skipped when action cache is hit.
@@ -146,6 +147,16 @@ class ApplicationController < ActionController::Base
       session[:invitation_code] = params[:code] if params[:code]
       flash.keep
       redirect_to new_tribe_membership_path 
+    end
+  end
+
+  def can_access_only_organizations_communities
+    if (@current_community && @current_community.only_organizations) &&
+      (@current_user && !@current_user.is_organization)
+      
+      sign_out @current_user
+      flash[:warning] = t("layouts.notifications.can_not_login_with_private_user")
+      redirect_to login_path
     end
   end
 

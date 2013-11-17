@@ -32,7 +32,7 @@ class Person < ActiveRecord::Base
   attr_accessor :guid, :password2, :form_login,
                 :form_given_name, :form_family_name, :form_password, 
                 :form_password2, :form_email, :consent,
-                :email_repeated, :community_category
+                :email_repeated, :community_category, :organization_website, :organization_address
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
@@ -108,6 +108,7 @@ class Person < ActiveRecord::Base
   validates_length_of :family_name, :within => 1..30, :allow_nil => true, :allow_blank => true
   validates_length_of :email, :maximum => 255
 
+  validates_format_of :company_id, :with => /^(\d{7}\-\d)?$/, :allow_nil => true
 
   validates_format_of :username,
                        :with => /^[A-Z0-9_]*$/i
@@ -180,7 +181,9 @@ class Person < ActiveRecord::Base
    end
 
   def name_or_username(community=nil)
-    if given_name.present?
+    if is_organization
+      return organization_name
+    elsif given_name.present?
       if community
         case community.name_display_type
         when "first_name_with_initial"
@@ -216,7 +219,12 @@ class Person < ActiveRecord::Base
   end
 
   def given_name_or_username
-    if given_name.present?
+    if is_organization
+      # Quick and somewhat dirty solution. `given_name_or_username`
+      # is quite explicit method name and thus it should return the
+      # given name or username. Maybe this should be cleaned in the future.
+      return organization_name
+    elsif given_name.present?
       return given_name
     else
       return username
@@ -548,16 +556,6 @@ class Person < ActiveRecord::Base
     return t.token
   end
   
-  # This is a helper to get nicely formatted array of this person's organizations
-  # for dropdown selection menus
-  def organizations_array(only_seller_organizations=false)
-    arr = []
-    organizations.each do |org|
-      arr << [org.name, org.id] if (only_seller_organizations == false || org.is_registered_as_seller?)
-    end
-    return arr
-  end
-  
   # returns true if person has at least one organization that is registered for seller account
   def is_member_of_seller_organization?    
     organizations.select{|o| o.is_registered_as_seller?}.present?
@@ -723,21 +721,11 @@ class Person < ActiveRecord::Base
     end  
   end
   
-  # This determines if the person has done all needed registrations etc. in order to create paid listing
-  # where he would receive money (in this community)
+  # FIXME!
+  # This should be removed: After the recent changes, everyone can create paid listing
+  # even without payment details
   def can_create_paid_listings_at?(community)
-    if community.requires_organization_membership?
-      return self.is_member_of_seller_organization?
-    
-    # this is commented out as we only limit creating listings when organizations in use
-    # in other cases the check happens before accepting
-      
-    # elsif community.payment_gateways
-    #      return community.payment_gateways.first.can_receive_payments_for?(self)
-    
-    else
-      return true
-    end
+    true
   end
   
   

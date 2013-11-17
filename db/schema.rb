@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131111140902) do
+ActiveRecord::Schema.define(:version => 20131114112955) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -591,6 +591,10 @@ ActiveRecord::Schema.define(:version => 20131111140902) do
     t.string   "bic"
     t.string   "mangopay_beneficiary_id"
     t.boolean  "is_organization"
+    t.string   "company_id"
+    t.string   "checkout_merchant_id"
+    t.string   "checkout_merchant_key"
+    t.string   "organization_name"
   end
 
   add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true

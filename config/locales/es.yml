@@ -139,6 +139,8 @@ es:
       update_later: ~
       optional_message: ~
       price_to_pay: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -940,6 +942,7 @@ es:
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Ya no estás siguiendo este anuncio"
       joining_community_failed: "Error al unirte a esta comunidad"
+      can_not_login_with_private_user: ~
     profile_extras_header:
       back_to_profile_of_person: "Volver al perfil del usuario"
       badges: Medallas
@@ -949,6 +952,7 @@ es:
       notifications: Notificaciones
       profile: "Información de perfil"
       settings: Opciones
+      payments: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "No estás autorizado para ver este anuncio."

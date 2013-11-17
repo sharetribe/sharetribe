@@ -15,7 +15,7 @@ class Listing < ActiveRecord::Base
   # #for context-dependent tags:
   # has_many :tags, :through => :taggings, :source => :tag, :class_name => "ActsAsTaggableOn::Tag",
   #           :conditions => "taggings.context = 'tags'"
-  
+
   belongs_to :organization
   
   has_many :listing_images, :dependent => :destroy
@@ -611,14 +611,10 @@ class Listing < ActiveRecord::Base
     !listing_images.empty?
   end
   
-  # Does listing belong to a certain organization in this community?
-  def has_organization_in?(community)
-    community.requires_organization_membership? && organization
-  end
-  
   # Return organization if listing has it, otherwise return author
+  # FIXME! This should be removed
   def organization_or_author?(community)
-    has_organization_in?(community) ? organization : author
+    author
   end
   
   def icon_name

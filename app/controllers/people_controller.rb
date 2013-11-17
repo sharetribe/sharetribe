@@ -60,13 +60,6 @@ class PeopleController < Devise::RegistrationsController
     @current_community ? domain = @current_community.full_url : domain = "#{request.protocol}#{request.host_with_port}"
     error_redirect_path = domain + sign_up_path
     
-    # special handling for communities that require organization membership
-    if @current_community && @current_community.requires_organization_membership?
-      @org_membership_required = true
-    else
-      @org_membership_required = false
-    end
-    
     if params[:person][:email_repeated].present? # Honey pot for spammerbots
       flash[:error] = t("layouts.notifications.registration_considered_spam")
       ApplicationHelper.send_error_notification("Registration Honey Pot is hit.", "Honey pot")
@@ -121,12 +114,14 @@ class PeopleController < Devise::RegistrationsController
     params[:person][:confirmed_at] = (@current_community.email_confirmation ? nil : Time.now) if @current_community
     
     params["person"].delete(:terms) #remove terms part which confuses Devise
-    
 
     # This part is copied from Devise's regstration_controller#create
     build_resource
     @person = resource
-    
+
+    # Mark as organization user if signed up through market place which is only for orgs
+    @person.is_organization = @current_community.only_organizations
+
     # Skip automatic email confirmation mail by devise, as that doesn't support custom sender address
     @person.skip_confirmation! 
   
@@ -140,7 +135,7 @@ class PeopleController < Devise::RegistrationsController
       @person.update_attributes(:confirmation_sent_at => Time.now, :confirmed_at => nil) 
 
       # send the confirmation email manually
-      @person.send_email_confirmation_to(@person.email, request.host_with_port, @current_community) unless @org_membership_required
+      @person.send_email_confirmation_to(@person.email, request.host_with_port, @current_community)
     end
   
     @person.set_default_preferences
@@ -148,7 +143,6 @@ class PeopleController < Devise::RegistrationsController
     if @current_community
       membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent)
       membership.status = "pending_email_confirmation" if @current_community.email_confirmation?
-      membership.status = "pending_organization_membership" if @org_membership_required
       membership.invitation = invitation if invitation.present?
       # If the community doesn't have any members, make the first one an admin
       if @current_community.members.count == 0
@@ -170,8 +164,6 @@ class PeopleController < Devise::RegistrationsController
       session[:unconfirmed_email] = params[:person][:email]
       session[:allowed_email] = "@#{params[:person][:email].split('@')[1]}" if community_email_restricted?
       redirect_to domain + new_tribe_path
-    elsif @org_membership_required
-      redirect_to :controller => "community_memberships", :action => "new"
     elsif @current_community.email_confirmation
       flash[:notice] = t("layouts.notifications.account_creation_succesful_you_still_need_to_confirm_your_email")
       redirect_to :controller => "sessions", :action => "confirmation_pending"
@@ -214,6 +206,32 @@ class PeopleController < Devise::RegistrationsController
     session[:fb_join] = "pending_analytics"
     redirect_to :controller => :community_memberships, :action => :new
   end
+
+  def any_fields?(hash, fields)
+    fields.any? { |field_name| !hash[field_name].blank? }
+  end
+
+  def all_fields?(hash, fields)
+    fields.all? { |field_name| !hash[field_name].blank? }
+  end
+
+  def register_payout(payment_gateway, person_params, payment_param_keys, person)
+    if self.any_fields?(person_params, payment_param_keys)
+      # require all fields
+      if !self.all_fields?(person_params, payment_param_keys)
+        flash[:error] = t("layouts.notifications.you_must_fill_all_the_fields")
+        return false
+      end
+
+      # Try to register the details if payment gateway is present
+      begin
+        payment_gateway.register_payout_details(person)
+      rescue => e
+        flash[:error] = e.message
+        return false
+      end
+    end
+  end
   
   def update
 
@@ -238,27 +256,18 @@ class PeopleController < Devise::RegistrationsController
       Email.create(:person => @person, :address => @person.email, :confirmed_at => @person.confirmed_at) unless Email.find_by_address(@person.email)
     end
 
-    # If updating payout details, check that they are valid
-    if params[:person] && (params[:person][:bank_account_owner_name] || params[:person][:bank_account_owner_address] || params[:person][:iban] || params[:person][:bic])
-      
-      # require all fields
-      if params[:person][:bank_account_owner_name].blank? || params[:person][:bank_account_owner_address].blank? || params[:person][:iban].blank? || params[:person][:bic].blank?
-        flash[:error] = t("layouts.notifications.you_must_fill_all_the_fields")
-        redirect_to :back and return
-      end
-      
-      # Try to register the details if payment gateway is present
-      if payment_gateway = @current_community.payment_gateways.first
-        begin
-          payment_gateway.register_payout_details(@person)
-        rescue => e
-          flash[:error] = e.message
-          redirect_to :back and return
-        end
-      end
+    payment_gateway = @current_community.payment_gateways && @current_community.payment_gateways.first
 
+    # If updating payout details, check that they are valid
+    mango_param_keys = [:bank_account_owner_name, :bank_account_owner_address, :iban, :bic]
+    checkout_param_keys = [:company_id, :organization_address, :phone_number, :organization_website]
+
+    if params[:person] && payment_gateway && params[:payment_settings]
+      payment_param_keys = payment_gateway.type == "Mangopay" ? mango_param_keys : checkout_param_keys
+      registering_successful = self.register_payout(payment_gateway, params[:person], payment_param_keys, @person)
+
+      redirect_to :back and return unless registering_successful
     end
-    
 
     begin
       if @person.update_attributes(params[:person])

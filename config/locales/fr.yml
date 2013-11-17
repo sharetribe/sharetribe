@@ -13,15 +13,15 @@ fr:
       edit_look_and_feel:
         edit_community_look_and_feel: "Modifier la présentation et l'aspect de la tribu \"%{community_name}\""
         community_logo: Logo
-        community_logo_icon: Icône
+        community_logo_icon: "Logo sur mobile"
         community_cover_photo: "Photo de couverture"
         community_custom_color1: "Couleur principale"
         community_custom_color2: "Couleur secondaire"
         logo_instructions_text: "Le logo doit avoir des dimensions de 168x40 pixels."
-        logo_icon_instructions_text: "L'icône doit avoir des dimensions de 40x40 pixels."
+        logo_icon_instructions_text: "Le logo sur mobile doit avoir des dimensions de 40x40 pixels."
         cover_photo_instructions_text: "La photo de couverture sera redimensionnée en 1920x450 pixels et les images trop grandes seront coupées."
         custom_color1_instructions_text: "Vous pouvez changer la couleur principale de l'interface de cette tribu en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> peut vous aider à choisir cette valeur que pourrez alors copier."
-        custom_color2_instructions_text: "Vous pouvez changer la couleur principale de l'interface de cette tribu en entrant une valeur hexadécimale."
+        custom_color2_instructions_text: "Vous pouvez changer la couleur secondaire de l'interface de cette tribu en entrant une valeur hexadécimale."
         invalid_color_code: "Le code de la couleur doit être une suite de 6 chiffres ou lettres (de A à F), par exemple D96E21"
       edit_welcome_email:
         welcome_email_content: "Contenu du message de bienvenue"
@@ -125,7 +125,7 @@ fr:
       travel: voyage
       other: autre
     username: "Nom d'utilisateur "
-    username_or_email: "Nom d'utilisateur ou e-mail"
+    username_or_email: "E-mail ou nom d'utilisateur "
     what_is_this: "Qu'est-ce que c'est ?"
   conversations:
     accept:
@@ -139,6 +139,8 @@ fr:
       update_later: "Ne pas clore l'annonce (vous pourrez la modifier ou la clore plus tard)"
       optional_message: "Message complémentaire"
       price_to_pay: "Montant total à payer"
+      you_need_to_fill_payout_details_before_accepting: "Vous devez compléter les détails de paiements avant de pouvoir accepter la demande et recevoir le paiement. Allez aux %{payment_settings_link} pour compléter les détails."
+      payment_settings_link: "paramètres de paiement"
     confirm:
       confirm_description: "Si votre demande a été satisfaite, vous pouvez la marquer comme réalisée. Vous pourrez alors donner un avis sur l'autre personne."
       cancel_description: "Si votre demande n'a pas été satisfaite, vous pouvez la marquer comme \"non réalisée\". Vous pourrez toujours donner un avis sur l'autre personne et décrire ce qu'il s'est passé."
@@ -935,6 +937,7 @@ fr:
       you_must_fill_all_the_fields: "Vous devez compléter tous les champs"
       you_unfollowed_listing: "Vous ne suivez plus cette annonce"
       joining_community_failed: "Rejoindre cette tribu a échoué."
+      can_not_login_with_private_user: "Vous ne pouvez pas vous connecter à cette tribu avec votre compte personnel. Connectez vous avec le compte de votre organisation ou créez en un nouveau."
     profile_extras_header:
       back_to_profile_of_person: "Retour au profil"
       badges: Badges
@@ -944,6 +947,7 @@ fr:
       notifications: Notifications
       profile: "Info du profil"
       settings: Paramètres
+      payments: Paiements
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Vous n'avez pas la permission de consulter cette annonce."
@@ -1480,7 +1484,7 @@ fr:
   sessions:
     new:
       create_new_account: "Créer un nouveau compte"
-      i_forgot_my_password: "Identifiant ou mon mot de passe oublié"
+      i_forgot_my_password: "Identifiant ou mot de passe oublié"
       login: "Se connecter"
       login_to_kassi: "Se connecter à %{service_name}"
       connect_your_facebook_to_kassi: "Lier votre compte Facebook à %{service_name}"
