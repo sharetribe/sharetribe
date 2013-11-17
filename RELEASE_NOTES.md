@@ -12,6 +12,10 @@ When updating, always run the following commands to update gem set and database 
  - check this file for changes between your old version and the one you are updating, and do the necessary manual operations if needed
  - if running on local instance (localhost), you need to precompile assets using "rake assets:precompile" once update is done
 
+4.1.0
+-----
+Much simpler system for creating organization accounts. The migrations that move old organizations to new model can be tricky if you have been using that feature extensively. If you run into problems just contact Sharetribe admins e.g. via Github issues. Most users should be able to update normally without issues.
+
 4.0.0
 -----
 - New enhanced user interface with grid view, bigger images and cleaner look
