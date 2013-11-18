@@ -41,6 +41,17 @@ describe PersonMailer do
     assert_equal [recipient.email], email.to unless recipient.email.nil? 
     assert_equal "Teppo T has commented on your listing in Sharetribe", email.subject
   end
+
+  it "should send email about listing with payment but without user's payment details" do
+    community = FactoryGirl.create(:community)
+    listing = FactoryGirl.create(:listing)
+    recipient = listing.author
+    email = PersonMailer.payment_settings_reminder(listing, recipient, community).deliver
+
+    assert !ActionMailer::Base.deliveries.empty?
+    assert_equal [recipient.email], email.to unless recipient.email.nil?
+    assert_equal "Remember to add your payment details to receive payments", email.subject
+  end
   
   it "should send email about an accepted and rejected offer or request" do
     @conversation = FactoryGirl.create(:conversation)
