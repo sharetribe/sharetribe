@@ -1,0 +1,11 @@
+- payment_settings_link = payments_person_settings_url(@url_params.merge({:person_id => @listing.author.id}))
+
+%tr
+  %td{:align => "left"} 
+    %font{body_font}
+      = t("emails.payment_settings_reminder.you_have_added_listing_with_payment", :listing_title => @listing.title)
+
+%tr
+  %td{:align => "left", :style => "padding-bottom: 25px;"} 
+    %font{body_font}
+      = t("emails.payment_settings_reminder.please_go_to_payment_settings", :payment_settings_link => link_to(t("emails.payment_settings_reminder.payment_settings_link"), payment_settings_link, :style => body_link_style)).html_safe
