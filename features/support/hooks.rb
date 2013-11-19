@@ -1,3 +1,5 @@
+start_time = Time.now
+
 Before do
   ActiveRecord::Fixtures.reset_cache
   fixtures_folder = File.join(Rails.root  , 'spec', 'fixtures')
@@ -55,4 +57,10 @@ end
 After('@www_subdomain') do
   Capybara.default_host = 'test.lvh.me'
   Capybara.app_host = "http://test.lvh.me:9887"
+end
+
+After do |scenario|
+  if(scenario.failed?)
+    save_screenshot("tmp/screenshots/#{start_time}/#{scenario.name}.png")
+  end
 end
