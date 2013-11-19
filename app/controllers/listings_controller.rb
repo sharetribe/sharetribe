@@ -108,19 +108,18 @@ class ListingsController < ApplicationController
     1.times { @listing.listing_images.build }
 
     if request.xhr? # AJAX request to get the actual form contents
-      
-      # This @community_category variable is used to determine if price is used for this category in this community
       @community_category = @current_community.community_category(@listing.category.top_level_parent, @listing.share_type)
-      
-      # prevent creating sell listings if not registered as seller
-      if @community_category.payment? && @listing.share_type.is_offer? && ! @current_user.can_create_paid_listings_at?(@current_community)            
-        render :partial => @current_community.payment_gateways.first.gateway_templates_dir + "/seller_registration_needed"
-      else
-        render :partial => "listings/form/form_content" 
-      end
+      render :partial => "listings/form/form_content" 
     else
       render
     end
+  end
+
+  def send_payment_settings_reminder?(community_category, listing, current_user, current_community)
+    community_category.payment? &&
+      listing.share_type.is_offer? &&
+      current_community.payments_in_use? &&
+      !@current_user.can_receive_payments_at?(@current_community)
   end
   
   def create
@@ -135,6 +134,14 @@ class ListingsController < ApplicationController
       path = new_request_category_path(:type => @listing.listing_type, :category => @listing.category.name)
       flash[:notice] = t("layouts.notifications.listing_created_successfully", :new_listing_link => view_context.link_to(t("layouts.notifications.create_new_listing"), path)).html_safe
       Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, @current_community.id))
+
+      community_category = @current_community.community_category(@listing.category.top_level_parent, @listing.share_type)
+
+      # Send reminder about missing payment information
+      if send_payment_settings_reminder?(community_category, @listing, @current_user, @current_community)
+        PersonMailer.payment_settings_reminder(@listing, @listing.author, @current_community).deliver
+      end
+
       redirect_to @listing
     end
   end
