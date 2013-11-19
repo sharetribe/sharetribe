@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131114112955) do
+ActiveRecord::Schema.define(:version => 20131119085625) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -283,6 +283,7 @@ ActiveRecord::Schema.define(:version => 20131114112955) do
     t.string   "confirmation_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "send_notifications"
   end
 
   add_index "emails", ["address"], :name => "index_emails_on_address", :unique => true
