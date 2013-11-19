@@ -172,3 +172,10 @@ Then /^organization "(.*?)" should have a merchant_id$/ do |org_name|
   org.merchant_id.should_not be_nil
 end
 
+Then /^I should receive an email about missing payment details$/ do
+  steps %Q{
+    Then I should receive an email with subject "Remember to add your payment details to receive payments"
+    When I open the email
+    And I should see "However, you haven't yet added your payment details. In order to receive the payment you have to add your payment information." in the email body
+  }
+end

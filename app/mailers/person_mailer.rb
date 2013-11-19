@@ -117,6 +117,19 @@ class PersonMailer < ActionMailer::Base
          :from => community_specific_sender(community),
          :subject => t("emails.payment_reminder.remember_to_pay", :listing_title => @conversation.listing.title))
   end
+
+  # Remind user to fill in payment details
+  def payment_settings_reminder(listing, recipient, community)
+    set_up_urls(recipient, community)
+    @listing = listing
+    @recipient = recipient
+
+    mail(:to => recipient.email,
+         :from => community_specific_sender(community),
+         :subject => t("emails.payment_settings_reminder.remember_to_add_payment_details")) do |format|
+            format.html {render :locals => {:skip_unsubscribe_footer => true} }
+    end
+  end
   
   # Remind users of conversations that have not been accepted or rejected
   def confirm_reminder(conversation, recipient, community)
