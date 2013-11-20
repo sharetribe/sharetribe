@@ -435,13 +435,19 @@ class Person < ActiveRecord::Base
   end
 
   def confirmed_notification_emails
-    emails.select { |email| email.send_notifications && email.confirmed_at.present? }
+    emails.select do |email| 
+      email.send_notifications && email.confirmed_at.present?
+    end
+  end
+
+  def confirmed_notification_email_addresses
+    self.confirmed_notification_emails.collect(&:address)
   end
 
   # Return a string of notification emails joined with ,
   # Can be used in PersonMailers to field
   def confirmed_notification_emails_to
-    self.confirmed_notification_emails.collect(&:address).join ", "
+    self.confirmed_notification_email_addresses.join ", "
   end
 
   def last_confirmed_notification_email_to
@@ -452,6 +458,10 @@ class Person < ActiveRecord::Base
   def has_confirmed_email?(address)
     email = Email.find_by_address_and_person_id(address, self.id)
     email.present? && email.confirmed_at.present?
+  end
+
+  def email_addresses()
+    emails.collect(&:address)
   end
 
   # Add new email to emails array
@@ -691,7 +701,7 @@ class Person < ActiveRecord::Base
     else
       pending_emails
     end
-    
+
     allowed_emails.last
   end
   

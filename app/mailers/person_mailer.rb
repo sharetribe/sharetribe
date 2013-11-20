@@ -124,7 +124,7 @@ class PersonMailer < ActionMailer::Base
     @listing = listing
     @recipient = recipient
 
-    mail(:to => recipient.email,
+    mail(:to => recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.payment_settings_reminder.remember_to_add_payment_details")) do |format|
             format.html {render :locals => {:skip_unsubscribe_footer => true} }

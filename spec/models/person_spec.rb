@@ -4,10 +4,8 @@ describe Person do
   
  
    before(:all) do
-    
       #These will be created only once for the whole example group
-      @test_person, @session = get_test_person_and_session
-    
+      @test_person = FactoryGirl.build(:person)
     end
   
 
@@ -42,7 +40,7 @@ describe Person do
           lambda {
             p = Person.create!({:username => username, 
               :password => "testi", 
-              :email => "invalid-email",
+              :emails => [Email.new(:address => "invalid-email")],
               "given_name" => "Tero",
               "family_name" => "Turari"})
           }.should raise_error(ActiveRecord::RecordInvalid)

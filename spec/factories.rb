@@ -151,6 +151,7 @@ FactoryGirl.define do
     person
     address { generate(:email_address) }
     confirmed_at Time.now
+    send_notifications true
   end
   
   factory :category do

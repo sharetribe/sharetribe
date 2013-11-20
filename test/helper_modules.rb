@@ -24,7 +24,7 @@ module TestHelpers
     
     listing = FactoryGirl.create(:listing, listing_params)
   end
-  
+
   def get_test_person_and_session(username="kassi_testperson1")
     session = nil
     test_person = nil

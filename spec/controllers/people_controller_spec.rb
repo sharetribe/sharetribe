@@ -19,8 +19,7 @@ describe PeopleController do
   describe "#check_email_availability" do
     it "should return unavailable if email is in use" do
       @request.host = "test.lvh.me"
-      person, session = get_test_person_and_session
-      person.update_attribute(:email, "test@example.com")
+      person = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "test@example.com")])
 
       get :check_email_availability,  {:person => {:email => "test@example.com"}, :format => :json}
       response.body.should == "false"
@@ -53,8 +52,7 @@ describe PeopleController do
       # one reason for this is that people can't use one email to create many accounts in email restricted community
       community = FactoryGirl.build(:community, :allowed_emails => "@examplecompany.co")
       @request.host = "#{community.domain}.lvh.me"
-      member = FactoryGirl.build(:person)
-      member.email = "one@examplecompany.co"
+      member = FactoryGirl.build(:person, :emails => [ FactoryGirl.build(:email, :address => "one@examplecompany.co")])
       member.communities.push community
       member.save
       
@@ -86,7 +84,7 @@ describe PeopleController do
       @request.host = "test.lvh.me"
       person_count = Person.count
       username = generate_random_username
-      post :create, {:person => {:username => username, :password => "test", :emails => Email.new(:address => "#{username}@example.com", :send_notifications => true), :given_name => "", :family_name => ""}, :community => "test"}
+      post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => "test"}
       Person.find_by_username(username).should_not be_nil 
       Person.count.should == person_count + 1 
     end

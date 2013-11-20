@@ -5,8 +5,8 @@ describe Api::PeopleController do
   
   describe "index" do
     it "returns correct user based on email" do
-      @p1 = FactoryGirl.create(:person, :given_name => "Danny", :family_name => "van Testburg", :phone_number => "123456789", :email => "danny@example.com")
-      get :index, :email => @p1.email, :format => :json
+      @p1 = FactoryGirl.create(:person, :given_name => "Danny", :family_name => "van Testburg", :phone_number => "123456789", :emails => [ FactoryGirl.create(:email, :address => "danny@example.com") ] )
+      get :index, :email => "danny@example.com", :format => :json
       resp = JSON.parse(response.body)
       response.status.should == 200
       resp["people"][0]["given_name"].should == "Danny"
@@ -60,7 +60,7 @@ describe Api::PeopleController do
       resp = JSON.parse(response.body)
       #puts resp.to_yaml
       resp["id"].should == @p1.id
-      resp["email"].should == @p1.email
+      resp["email"].should == @p1.confirmed_notification_email_addresses.last
       resp["picture_url"].should =~ /^http/
       resp["thumbnail_url"].should =~ /^http/
     end

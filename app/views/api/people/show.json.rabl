@@ -18,7 +18,9 @@ node do |person|
 end
 
 if @show_email
-  attributes :email
+  node :email do |person|
+    person.confirmed_notification_email_addresses.last
+  end
 end
 
 if @current_user

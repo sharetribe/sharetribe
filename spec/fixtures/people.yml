@@ -5,7 +5,7 @@ one:
   id: dMF4WsJ7Kr3BN6ab9B7ckF
   is_admin: 0
   locale: en
-  email: kassi_testperson1@example.com
+  # email: kassi_testperson1@example.com
   encrypted_password: 64ae669314a3fb4b514fa5607ef28d3e1c1937a486e3f04f758270913de4faf5
   password_salt: vGpGrfvaOhp3
   confirmed_at: "2012-05-04 18:17:04"
@@ -19,7 +19,7 @@ two:
   username: kassi_testperson2
   is_admin: 0
   locale: en
-  email: kassi_testperson2@example.com
+  # email: kassi_testperson2@example.com
   encrypted_password: 72bf5831e031cbcf2e226847677fccd6d8ec6fe0673549a60abb5fd05f726462
   password_salt: zXklAGLwt7Cu
   confirmed_at: "2012-05-04 18:17:04"
