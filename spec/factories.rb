@@ -1,10 +1,10 @@
 FactoryGirl.define do
   sequence :username do |n|
-    "kassi_tester#{n}" 
+    "kassi_tester#{n}"
   end
 
-  sequence :email do |n|
-    "kassi_tester#{n}@example.com" 
+  sequence :email_address do |n|
+    "kassi_tester#{n}@example.com"
   end
 
   sequence :domain do |n|
@@ -17,7 +17,6 @@ FactoryGirl.define do
   
 
   factory :person, aliases: [:author, :receiver, :recipient, :payer] do
-    id "dMF4WsJ7Kr3BN6ab9B7ckF"
     is_admin 0
     locale "en"
     test_group_number 4
@@ -26,9 +25,13 @@ FactoryGirl.define do
     family_name "Testro"
     phone_number "0000-123456"
     username
+    email "fake_email_because@devise.needs.it"
     password "testi"
-    email
     is_organization false
+
+    after(:create) do |person|
+      FactoryGirl.create_list(:email, 1, person: person)
+    end
   end  
 
   factory :listing do
@@ -144,9 +147,9 @@ FactoryGirl.define do
     google_address "Helsinki, Finland"
   end
   
-  factory :additional_email, class: Email do
+  factory :email, class: Email do
     person
-    address "test_person@example.com"
+    address { generate(:email_address) }
     confirmed_at Time.now
   end
   

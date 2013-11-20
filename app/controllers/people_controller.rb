@@ -44,14 +44,13 @@ class PeopleController < Devise::RegistrationsController
     @selected_tribe_navi_tab = "members"
     redirect_to root if logged_in?
     session[:invitation_code] = params[:code] if params[:code]
-    @person = Person.new
-    
-    if params[:person] #if values given in params, set them for the form
-      @person.given_name = params[:person][:given_name]
-      @person.family_name = params[:person][:family_name]
-      @person.email = params[:person][:email]
-      @person.username = params[:person][:username]
+
+    @person = if params[:person] then 
+      Person.new(params[:person].slice(:given_name, :family_name, :email, :username))
+    else
+      Person.new()
     end
+
     @container_class = params[:private_community] ? "container_12" : "container_24"
     @grid_class = params[:private_community] ? "grid_6 prefix_3 suffix_3" : "grid_10 prefix_7 suffix_7"
   end
@@ -83,7 +82,7 @@ class PeopleController < Devise::RegistrationsController
     end
     
     # Check that email is not taken
-    unless Person.email_available?(params[:person][:email])
+    unless Email.email_available?(params[:person][:email])
       flash[:error] = t("people.new.email_is_in_use")
       redirect_to error_redirect_path and return
     end
@@ -109,22 +108,21 @@ class PeopleController < Devise::RegistrationsController
 
     params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
     params[:person][:test_group_number] = 1 + rand(4)
-    
-    # skip email confirmation unless it's required in this community
-    params[:person][:confirmed_at] = (@current_community.email_confirmation ? nil : Time.now) if @current_community
-    
-    params["person"].delete(:terms) #remove terms part which confuses Devise
+  
+    email = Email.new(:person => @person, :address => params[:person][:email].downcase, :send_notifications => true)
+    params["person"].delete(:email)
 
-    # This part is copied from Devise's regstration_controller#create
-    build_resource
-    @person = resource
+    ## FIXME
+    ## The answer might be this: https://github.com/plataformatec/devise#strong-parameters
+    params["person"]["email"] = "fake@fake.com"
+
+    @person = build_devise_resource_from_person(@person)
+
+    @person.emails << email
 
     # Mark as organization user if signed up through market place which is only for orgs
     @person.is_organization = @current_community.only_organizations
 
-    # Skip automatic email confirmation mail by devise, as that doesn't support custom sender address
-    @person.skip_confirmation! 
-  
     if @person.save!
       sign_in(resource_name, resource)
     end
@@ -135,7 +133,7 @@ class PeopleController < Devise::RegistrationsController
       @person.update_attributes(:confirmation_sent_at => Time.now, :confirmed_at => nil) 
 
       # send the confirmation email manually
-      @person.send_email_confirmation_to(@person.email, request.host_with_port, @current_community)
+      Email.send_confirmation(email, request.host_with_port, @current_community)
     end
   
     @person.set_default_preferences
@@ -171,6 +169,19 @@ class PeopleController < Devise::RegistrationsController
       flash[:notice] = t("layouts.notifications.account_creation_successful", :person_name => view_context.link_to((@person.given_name_or_username).to_s, person_path(@person))).html_safe
       redirect_to(session[:return_to].present? ? domain + session[:return_to]: domain + root_path)
     end
+  end
+
+  def build_devise_resource_from_person(person)
+    params["person"].delete(:terms) #remove terms part which confuses Devise
+
+    # This part is copied from Devise's regstration_controller#create
+    build_resource
+    person = resource
+
+    # Skip automatic email confirmation mail by devise, as that doesn't support custom sender address
+    person.skip_confirmation! 
+
+    person
   end
   
   def create_facebook_based
@@ -252,9 +263,15 @@ class PeopleController < Devise::RegistrationsController
     # If person is changing email address, store the old confirmed address as additional email
     # One point of this is that same email cannot be used more than one in email restricted community
     # (This has to be remembered also when creating a possibility to modify additional emails)
-    if params[:person][:email] && @person.confirmed_at
-      Email.create(:person => @person, :address => @person.email, :confirmed_at => @person.confirmed_at) unless Email.find_by_address(@person.email)
-    end
+
+    # DEPRECETAD
+    # However, we need to prevent removing all community emails
+    # if params[:person][:email] && @person.confirmed_at
+    #   Email.create(:person => @person, :address => @person.email, :confirmed_at => @person.confirmed_at) unless Email.find_by_address(@person.email)
+    # end
+
+    # FIXME This is for Devise, which doesn't allow blank emails
+    params["person"]["email"] = "fake@fake.com"
 
     payment_gateway = @current_community.payment_gateways && @current_community.payment_gateways.first
 
@@ -338,7 +355,7 @@ class PeopleController < Devise::RegistrationsController
   # this checks only that email is not already in use
   def check_email_availability
     email = params[:person] ? params[:person][:email] : params[:email] || params[:community_membership][:email]
-    available = email_available_for_user?(@current_user, email)
+    available = Email.email_available_for_user?(@current_user, email)
     
     respond_to do |format|
       format.json { render :json => available }
@@ -348,7 +365,7 @@ class PeopleController < Devise::RegistrationsController
   # this checks only that email is not already in use
   def check_email_availability_for_new_tribe
     email = params[:person] ? params[:person][:email] : params[:email]
-    if email_available_for_user?(@current_user, email)
+    if Email.email_available_for_user?(@current_user, email)
       existing_communities = Community.find_by_allowed_email(email)
       if existing_communities.size > 0 && Community.email_restricted?(params[:community_category])
         available = restricted_tribe_already_exists_error_message(existing_communities.first)      

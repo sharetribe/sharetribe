@@ -86,7 +86,7 @@ describe PeopleController do
       @request.host = "test.lvh.me"
       person_count = Person.count
       username = generate_random_username
-      post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => "test"}
+      post :create, {:person => {:username => username, :password => "test", :emails => Email.new(:address => "#{username}@example.com", :send_notifications => true), :given_name => "", :family_name => ""}, :community => "test"}
       Person.find_by_username(username).should_not be_nil 
       Person.count.should == person_count + 1 
     end

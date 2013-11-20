@@ -70,7 +70,7 @@ class CommunityMembershipsController < ApplicationController
         end
         
         # Send confirmation and make membership pending
-        @current_user.send_email_confirmation_to(params[:community_membership][:email], request.host_with_port, @current_community)
+        Email.send_confirmation(e, request.host_with_port, @current_community)
         @community_membership.status = "pending_email_confirmation"
         
         flash[:notice] = "#{t("layouts.notifications.you_need_to_confirm_your_account_first")} #{t("sessions.confirmation_pending.check_your_email")}."

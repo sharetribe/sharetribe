@@ -1,10 +1,7 @@
 - content_for :javascript do
   initialize_confirmation_pending_form("#{I18n.locale}","#{email_not_accepted_message}");
     
-- if @current_community && @current_user
-  - email_to_confirm = @current_user.pending_email(@current_community)
-- else
-  - email_to_confirm = session[:unconfirmed_email]
+- email_to_confirm = @current_user.latest_pending_email(@current_community)
 
 %p
   - if @current_community
@@ -28,5 +25,5 @@
         = t("sessions.confirmation_pending.your_current_email_is", :email => email_to_confirm).html_safe
         = link_to t('sessions.confirmation_pending.change_email'), "#", :id => "mistyped_email_link", :class => "green_part_link"
       #password_forgotten
-        = render :partial => "sessions/change_mistyped_email", :locals => {:email_to_change => email_to_confirm}
+        = render :partial => "sessions/change_mistyped_email", :locals => {:email_to_confirm => email_to_confirm}
       

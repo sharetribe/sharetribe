@@ -68,15 +68,6 @@ module PeopleHelper
     end
   end
   
-  def email_available_for_user?(user, email)
-      if user && (user.email == email || Email.find_by_address_and_person_id(email, user.id) )
-        # Current user's own email should not be shown as unavailable
-        return true
-      else
-        return Person.email_available?(email)
-      end
-  end
-  
   def encrypted_email_for_trustcloud(email)
     # Public RSA key of TrustCloud
     tcpublickey =  OpenSSL::PKey::RSA.new("-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDY1tLeY6qZtq8BqDnbArujYyjG\nwGPrkzLhyQMUX4ASW+912gf1RPRJVsuufGuhTYsP+biXxjWAI8rUX1k4YisiOK8u\nflUED8i5Zrpn7dR8NNGQc/A3LLjPzmaqW7g++5Q+iIoSCRYczsUxx6Bmo/a9YIFJ\nWWbeYnKh10eHN/JMewIDAQAB\n-----END PUBLIC KEY-----")

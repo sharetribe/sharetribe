@@ -19,17 +19,9 @@ module EmailHelper
   
   
   def can_accept_user_based_on_email?(person)
-    allowed = false
-    
-    #check primary email
-    allowed = true if email_allowed?(person.email) && person.confirmed_at.present?
-    
-    #check additional confirmed emails
-    person.emails.select{|e| e.confirmed_at.present?}.each do |e|
-      allowed = true if email_allowed?(e.address)
+    person.emails.select{ |email| email.confirmed_at.present? }.find do |email|
+      email_allowed?(email.address)
     end
-    
-    return allowed
   end
   
 end

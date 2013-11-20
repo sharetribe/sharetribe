@@ -21,11 +21,11 @@
     .account-settings-text#account_email_content
       %b
         = t(".email")
-      = @person.email
+      = @person.notification_email_address
       = link_to t(".change"), "#", :id => "account_email_link", :class => "change-link"
     #account_email_form.email-form
       = form_for @person, :html => {:id => 'email_form'} do |form|
-        = form.text_field :email, :class => "text_field_account", :maxlenght => "255", :placeholder => t(".new_email")
+        = form.text_field :notification_email_address, :class => "text_field_account", :maxlenght => "255", :placeholder => t(".new_email")
         = form.button t(".save"), :class => "send_button_account", :id => "email_submit"
   
   -# Password

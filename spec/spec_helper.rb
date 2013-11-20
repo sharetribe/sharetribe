@@ -59,6 +59,19 @@ Spork.prefork do
     # examples within a transaction, comment the following line or assign false
     # instead of true.
     config.use_transactional_fixtures = true
+
+    config.before(:suite) do
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.clean_with(:truncation)
+    end
+
+    config.before(:each) do
+      DatabaseCleaner.start
+    end
+
+    config.after(:each) do
+      DatabaseCleaner.clean
+    end
   end
 
   require File.expand_path('../../test/helper_modules', __FILE__)
