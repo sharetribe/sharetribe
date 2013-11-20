@@ -106,7 +106,7 @@ ru:
       accept_for_free: ~
     categories:
       item: ~
-      favor: ~
+      favor: Услуги
       rideshare: ~
       housing: ~
       tools: инструменты
@@ -719,7 +719,7 @@ ru:
       tell_it_here: "Расскажите об этом здесь!"
       welcome_to_new_kassi: "Добро пожаловать в новый %{service_name}!"
       no_reviews: ~
-      no_image: ~
+      no_image: "нет картинки"
       filter: ~
     invitation_form:
       invite_your_friends: "Пригласите друзей в %{service_name}!"
@@ -732,7 +732,7 @@ ru:
       invitation_message_field_placeholder: ~
       errors_in_emails: "Проверьте правильность адресов электронной почты, разделённых запятой."
     list_item:
-      review: ~
+      review: Проверка
       reviews: ~
     news_item:
       show_less: Меньше
@@ -952,7 +952,7 @@ ru:
       notifications: Оповещения
       profile: "Информация о вас"
       settings: Настройки
-      payments: ~
+      payments: Оплата
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "У вас нет прав для просмотра этой записи."
@@ -1149,13 +1149,13 @@ ru:
       selected_give_away: ~
       selected_lend: ~
       selected_receive: ~
-      selected_rent: ~
+      selected_rent: Аренда
       selected_rent_out: ~
-      selected_sell: ~
+      selected_sell: Продажа
       selected_offer_to_swap: ~
       selected_request_to_swap: ~
       selected_share_for_free: ~
-      selected_accept_for_free: ~
+      selected_accept_for_free: "Приму в дар"
       how_do_you_want_to_share_it: ~
       how_do_you_want_to_get_it: ~
       item: "Вещь — что-то осязаемое"
@@ -1269,15 +1269,15 @@ ru:
   payments:
     new:
       new_payment: ~
-      continue: ~
+      continue: Продолжить
       payment_receiver: ~
       sum: ~
       commission_will_be_added: ~
     form:
-      total: ~
+      total: Итого
       service_charge: ~
-      product: ~
-      price: ~
+      product: Товар
+      price: Цена
       continue_to_pay: ~
     mangopay:
       terms:
