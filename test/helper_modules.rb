@@ -33,8 +33,9 @@ module TestHelpers
     test_person = Person.find_by_username(username)
     unless test_person.present?
       test_person = FactoryGirl.build(:person, { :username => username, 
-                      :password => "testi", 
-                      :email => "#{username}@example.com",
+                      :password => "testi",
+                      :email => "fake_email_because@devise.needs.it",
+                      :emails => [ FactoryGirl.create(:email, :address => "#{username}@example.com" ) ],
                       :given_name => "Test",
                       :family_name => "Person"})
     end
