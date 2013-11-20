@@ -1,9 +1,8 @@
 class StatisticsController < ApplicationController
 
-  skip_filter :single_community_only, :dashboard_only
+  skip_filter  :dashboard_only
   
-  layout 'dashboard'
-  
+  before_filter :ensure_is_admin
   
   def index
     

@@ -114,16 +114,10 @@ WAU:
 DAU:
 = "#{stats.dau_g3*100}% (#{extra_stats["dau_g3"]}/#{ stats.users_count})"
 
-%h3
-  Referral
-
-Invitations on average per user (accepted/sent)
-= "#{stats.invitations_accepted_per_user} / #{stats.invitations_sent_per_user}"
-
-
--# commented out for now as pricing still partly experimental
+-# COMMENTED OUT AS USERS CANNOT SEND INVITES CURRENTLY
 -# %h3
--#   Revenue
+-#   Referral
 -# 
--# Revenue per MAU:
--# = "#{stats.revenue_per_mau_g1}€ - #{extra_stats["revenue_sum"]}€ / #{stats.mau_g1_count} "
+-# Invitations on average per user (accepted/sent)
+-# = "#{stats.invitations_accepted_per_user} / #{stats.invitations_sent_per_user}"
+
