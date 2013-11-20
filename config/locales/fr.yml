@@ -437,6 +437,11 @@ fr:
       you_have_not_yet_paid: "Vous n'avez pas encore payé pour %{listing_title} que %{other_party_name} a accepté de vous proposer."
       if_will_not_happen_you_should_cancel: "Si vous pensez que cette demande ne sera pas réalisée pour une raison ou une autre, vous pouvez %{cancel_it_link}."
       cancel_it_link_text: l'annuler
+    payment_settings_reminder:
+      remember_to_add_payment_details: "N'oubliez pas d'ajouter vos détails de paiements pour recevoir les paiements"
+      you_have_added_listing_with_payment: "Vous avez ajouté une annonce %{listing_link} avec un paiement. Cependant, vous n'avez pas ajouté vos détails de paiement. Pour en recevoir, vous devez ajouter vos informations de paiement."
+      please_go_to_payment_settings: "Rendez-vous sur les %{payment_settings_link} et complétez les informations nécessaires."
+      payment_settings_link: "paramètres de paiement"
     transaction_confirmed:
       here_is_a_message_from: "Voici un message de %{other_party_given_name} : "
       request_marked_as_confirmed: "Demande réalisée - n'oubliez pas de déposer un avis"
