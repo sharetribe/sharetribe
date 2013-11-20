@@ -167,6 +167,10 @@ GEM
     guard-rspec (2.5.4)
       guard (>= 1.1)
       rspec (~> 2.11)
+    guard-spork (1.5.1)
+      childprocess (>= 0.2.3)
+      guard (>= 1.1)
+      spork (>= 0.8.4)
     haml (3.1.7)
     hashie (1.2.0)
     highline (1.6.15)
@@ -417,6 +421,7 @@ DEPENDENCIES
   flying-sphinx (~> 0.8.5)
   guard-livereload
   guard-rspec
+  guard-spork
   haml
   jquery-rails
   json (~> 1.8.0)

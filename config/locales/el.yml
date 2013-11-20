@@ -437,6 +437,11 @@ el:
       you_have_not_yet_paid: "Δεν έχετε ακόμα πληρώσει το %{listing_title} το οποίο δέχτηκε να σας προσφέρει ο/η %{other_party_name}."
       if_will_not_happen_you_should_cancel: "Αν πιστεύετε ότι αυτό το αίτημα για οποιοδήποτε λόγο δεν θα ολοκληρωθεί, μπορείτε να %{cancel_it_link}."
       cancel_it_link_text: "το ακυρώσετε"
+    payment_settings_reminder:
+      remember_to_add_payment_details: ~
+      you_have_added_listing_with_payment: ~
+      please_go_to_payment_settings: ~
+      payment_settings_link: ~
     transaction_confirmed:
       here_is_a_message_from: "Δείτε ένα μήνυμα από το χρήστη %{other_party_given_name}:"
       request_marked_as_confirmed: "Το αίτημα ολοκληρώθηκε - θυμηθείτε να κάνετε κριτική για το άλλο μέλος"

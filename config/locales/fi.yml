@@ -441,7 +441,7 @@ fi:
       remember_to_add_payment_details: "Muistutus: Käy lisäämässä maksutietosi"
       you_have_added_listing_with_payment: "Olet lisännyt ilmoituksen %{listing_link}, jolla on hinta. Et ole kuitenkaan vielä syöttänyt maksutietojasi. Jotta voit vastaanottaa maksun ilmoituksestasi, käy täyttämässä maksutietosi."
       please_go_to_payment_settings: "Siirry %{payment_settings_link} ja täytä tarvittavat tiedot."
-      payment_settings_link: "maksutiedot-sivulle"
+      payment_settings_link: maksutiedot-sivulle
     transaction_confirmed:
       here_is_a_message_from: "Tässä viesti käyttäjältä %{other_party_given_name}:"
       request_marked_as_confirmed: "Pyyntö merkitty toteutuneeksi - muistathan antaa palautetta"
