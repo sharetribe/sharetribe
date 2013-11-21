@@ -63,6 +63,10 @@ Spork.prefork do
     config.before(:suite) do
       DatabaseCleaner.strategy = :transaction
       DatabaseCleaner.clean_with(:truncation)
+
+      # Seed the database only in the beginning for better test performance
+      # This needs to be changed if/when any test modify seeded values
+      load "#{Rails.root}/db/seeds.rb"
     end
 
     config.before(:each) do
@@ -94,11 +98,6 @@ Spork.prefork do
   RSpec.configure do |config|
     config.include Devise::TestHelpers, :type => :controller
   end
-
-  # Seed the database only in the beginning for better test performance
-  # This needs to be changed if/when any test modify seeded values
-  load "#{Rails.root}/db/seeds.rb" 
-  
 end
 
 Spork.each_run do

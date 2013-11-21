@@ -191,7 +191,6 @@ class PeopleController < Devise::RegistrationsController
       :username => username,
       :given_name => session["devise.facebook_data"]["given_name"],
       :family_name => session["devise.facebook_data"]["family_name"],
-      :email => session["devise.facebook_data"]["email"],
       :facebook_id => session["devise.facebook_data"]["id"],
       :locale => I18n.locale,
       :test_group_number => 1 + rand(4),
@@ -199,6 +198,8 @@ class PeopleController < Devise::RegistrationsController
       :password => Devise.friendly_token[0,20]
     }
     @person = Person.create!(person_hash)
+    Email.create(:address => session["devise.facebook_data"]["email"], :send_notifications => true, :person => @person)
+
     @person.set_default_preferences
 
     @person.store_picture_from_facebook

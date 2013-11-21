@@ -448,13 +448,19 @@ class Person < ActiveRecord::Base
   end
 
   def confirmed_notification_emails
-    emails.select { |email| email.send_notifications && email.confirmed_at.present? }
+    emails.select do |email| 
+      email.send_notifications && email.confirmed_at.present?
+    end
+  end
+
+  def confirmed_notification_email_addresses
+    self.confirmed_notification_emails.collect(&:address)
   end
 
   # Return a string of notification emails joined with ,
   # Can be used in PersonMailers to field
   def confirmed_notification_emails_to
-    self.confirmed_notification_emails.collect(&:address).join ", "
+    self.confirmed_notification_email_addresses.join ", "
   end
 
   def last_confirmed_notification_email_to
@@ -465,6 +471,10 @@ class Person < ActiveRecord::Base
   def has_confirmed_email?(address)
     email = Email.find_by_address_and_person_id(address, self.id)
     email.present? && email.confirmed_at.present?
+  end
+
+  def email_addresses()
+    emails.collect(&:address)
   end
 
   # Add new email to emails array
@@ -502,17 +512,10 @@ class Person < ActiveRecord::Base
   
   # Override the default finder to find also based on additional emails
   def self.find_by_email(*args)
-    person = super(*args)
-    
-    if person.nil?
-      # look for additional emails
-      email = Email.find_by_address(*args)
-      if email
-        person = email.person
-      end
+    email = Email.find_by_address(*args)
+    if email
+      email.person
     end
-    
-    return person
   end
   
   # returns the same if its available, otherwise "same1", "same2" etc.
@@ -545,6 +548,14 @@ class Person < ActiveRecord::Base
   # returns true if person has at least one organization that is registered for seller account
   def is_member_of_seller_organization?    
     organizations.select{|o| o.is_registered_as_seller?}.present?
+  end
+
+  def email_required?
+    false
+  end
+
+  def email_changed?
+    false
   end
   
   # Merge this person with the data from the person given as parameter
@@ -704,7 +715,7 @@ class Person < ActiveRecord::Base
     else
       pending_emails
     end
-    
+
     allowed_emails.last
   end
   

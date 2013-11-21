@@ -7,7 +7,7 @@ describe Api::TokensController do
   describe "show" do
   
     before(:each) do
-      @p1 = FactoryGirl.create(:person, :password => "test1234", :username => "jack", :email => "jack@example.com")
+      @p1 = FactoryGirl.create(:person, :password => "test1234", :username => "jack", :emails => [ FactoryGirl.create(:email, :address => "jack@example.com") ])
       @p1.ensure_authentication_token!
     end
   

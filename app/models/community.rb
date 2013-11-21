@@ -119,7 +119,7 @@ class Community < ActiveRecord::Base
   
   # Returns the emails of admins in an array
   def admin_emails
-    admins.collect { |p| p.email }
+    admins.collect { |p| p.confirmed_notification_email_addresses } .flatten
   end
   
   def allows_user_to_send_invitations?(user)

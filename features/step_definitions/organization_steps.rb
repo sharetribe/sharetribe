@@ -23,7 +23,7 @@ When /^I confirm my email address$/ do
     When I open the email
     And I click the first link in the email
     Then I should have 2 emails
-    And I should see "Your account was successfully confirmed"
+    And I should see "The email you entered is now confirmed"
   }
 end
 
