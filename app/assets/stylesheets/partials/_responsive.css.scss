@@ -13,3 +13,17 @@
     display: none;
   }
 }
+
+.visible-desktop {
+  display: none;
+
+  @include media(desktop) {
+    display: block;
+  }
+}
+
+.hidden-desktop {
+  @include media(desktop) {
+    display: none;
+  }
+}

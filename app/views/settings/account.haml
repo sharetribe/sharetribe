@@ -24,7 +24,7 @@
           %b
             = t(".email_addresses")
       .account-settings-email-form
-        .account-settings-email-row
+        .account-settings-email-row.visible-desktop
           .account-settings-email-row-address
             %b Address
           .account-settings-email-row-delete
@@ -34,27 +34,48 @@
           .account-settings-email-row-confirmed
             %b Confirmation
         .account-settings-email-content-rows
-          - @person.emails.each do |email|
+          - @person.emails.each_with_index do |email, index|
             - unless email.new_record? 
-              .account-settings-email-row
+              .account-settings-email-row{:class => ((index % 2 == 0) ? "account-settings-email-row-highlight" : "")}
                 .account-settings-email-row-address
                   = email.address
                 .account-settings-email-row-delete
-                  = link_to icon_tag("cross"), "#"
+                  = link_to "#", :data => {:confirm => "Are you sure you want to remove this email address?"} do
+                    .settings-email-mobile-label-container
+                      .visible-desktop.settings-email-mobile-label= icon_tag("cross")
+                      .hidden-desktop.settings-email-mobile-label.settings-email-mobile-label
+                        Remove
                 .account-settings-email-row-send-notification
-                  = check_box_tag "person[send_notifications][]", email.id, email.send_notifications?
+                  .settings-email-mobile-label-container
+                    .settings-email-mobile-label= check_box_tag "person[send_notifications][]", email.id, email.send_notifications?
+                    .hidden-desktop.settings-email-mobile-label.settings-email-mobile-label-right 
+                      Send notifications
                 .account-settings-email-row-confirmed
-                  = email.confirmed_at ? "Confirmed" : "Pending"
-        = link_to "+ Add new email address", "#", :class => "account-new-email-link"
+                  .hidden-desktop.settings-email-mobile-label
+                    %b Confirmation:
+                  .settings-email-mobile-label.settings-email-mobile-label-right
+                    - if email.confirmed_at
+                      Confirmed
+                    - else
+                      Pending
+                      %small= link_to('Resend', send_confirmation_person_email_path(@current_user, email), :method => :post)
+        .account-settings-email-row.account-new-email-link
+          = link_to "+ Add new email address", "#"
         .account-settings-hidden-email-form
           = fields_for "person[email_attributes]", Email.new do |email_form|
-            .account-settings-email-row
-              .account-settings-email-row-address
+            .account-settings-email-row.account-settings-email-form-row
+              .account-settings-email-row-address.account-settings-email-form-row-address
                 = email_form.text_field :address, :class => "text_field_account", :maxlenght => "255", :placeholder => t(".new_email"), :disabled => "disabled"
               .account-settings-email-row-delete.account-settings-new-email-row
-                = link_to icon_tag("cross"), "#", :class => "account-hide-new-email-link"
+                = link_to "#", :class => "account-hide-new-email-link" do
+                  .visible-desktop= icon_tag("cross")
+                  .hidden-desktop
+                    Cancel
               .account-settings-email-row-send-notification.account-settings-new-email-row
-                = email_form.check_box :send_notifications, :disabled => "disabled"
+                .settings-email-mobile-label= email_form.check_box :send_notifications, :disabled => "disabled"
+                .hidden-desktop.settings-email-mobile-label.settings-email-mobile-label-right
+                  Send notifications
+                  
               .account-settings-email-row-confirmed
                 &nbsp;
         

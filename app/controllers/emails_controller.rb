@@ -6,6 +6,13 @@ class EmailsController < ApplicationController
 
   skip_filter :dashboard_only
 
+  def send_confirmation
+    @email = Email.find(params[:id])
+    Email.send_confirmation(@email, request.host_with_port, @current_community)
+    flash[:notice] = t("sessions.confirmation_pending.check_your_email")
+    redirect_to account_person_settings_path(@current_user)
+  end
+
   def destroy
     # TODO
   end

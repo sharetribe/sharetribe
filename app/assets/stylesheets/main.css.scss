@@ -2263,37 +2263,73 @@ a.lightbox-x {
     }
     
     .account-settings-email-row {
+      @include border-radius($default-border-radius);
       width: 100%;
-      padding-bottom: lines(0.25);
       overflow: hidden;
-    }
-    
-    .account-settings-email-row-address {
-      @include media(tablet) {
-        @include ellipsis;
-        min-width: lines(6);
-        float: left;
+      padding: lines(0.5) 0;
+      @include media(desktop) {
+        padding: 0;
+        height: lines(1.5);
+        line-height: (lines(1.5) - em(2)); // Magic number to vertically center text
       }
     }
     
+    .account-settings-email-form-row {
+      padding-top: lines(0.5);
+      height: auto;
+      line-height: auto;
+      width: 100%;
+    }
+    
+    .account-settings-email-row-highlight {
+      background: $highlight;
+    }
+    
+    .account-settings-email-row-address {
+      padding-left: lines(0.5);
+      
+      
+      @include media(desktop) {
+        @include ellipsis;
+        width: lines(6);
+        float: left;
+      }
+      
+      @include media(desktop) {
+        width: lines(12);
+      }
+    }
+    
+    .account-settings-email-form-row-address {
+      padding-left: 0;
+    }
+    
     .account-settings-email-row-send-notification {
-      @include media(tablet) {
+      padding-left: lines(0.5);
+      @include media(desktop) {
         float: right;
-        min-width: lines(6);
+        width: lines(7);
         text-align: center;
       }
     }
     
     .account-settings-email-row-confirmed {
-      @include media(tablet) {
+      padding-left: lines(0.5);
+      small {
+        margin-left: lines(0.25);
+      }
+      
+      @include media(desktop) {
         float: right;
-        min-width: lines(6);
+        width: lines(7);
         text-align: center;
       }
+      
     }
     
     .account-settings-email-row-delete {
-      @include media(tablet) {
+      padding-left: lines(0.5);
+      @include media(desktop) {
         float: right;
         min-width: lines(2);
         text-align: center;
@@ -2301,14 +2337,27 @@ a.lightbox-x {
       }
     }
     
-    .account-settings-new-email-row {
-      @include media(tablet) {
-        padding-top: 7px; // To align content with form field
+    .account-settings-hidden-email-form {
+      display: none;
+    }
+    
+    .settings-email-mobile-label-container {
+      width: 100%;
+      overflow: hidden;
+    }
+    
+    .settings-email-mobile-label {
+      float: left;
+      @include media(desktop) {
+        float: none;
       }
     }
     
-    .account-settings-hidden-email-form {
-      display: none;
+    .settings-email-mobile-label-right {
+      padding-left: lines(0.25);
+      @include media(desktop) {
+        padding: 0;
+      }
     }
     
   }
