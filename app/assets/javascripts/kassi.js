@@ -737,7 +737,7 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
     function() {
       $('#account_email_form').show();
       $(this).text(cancel_text);
-      $('#person_email').focus();
+      $('#person_notification_email_address').focus();
     },
     function() {
       $('#account_email_form').hide();

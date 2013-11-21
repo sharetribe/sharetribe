@@ -22,7 +22,7 @@ Feature: User creates a new account
     When I open the email
     And I click the first link in the email
     Then I should have 2 emails
-    And I should see "Your account was successfully confirmed"
+    And I should see "The email you entered is now confirmed"
     And I should not see my username
     And Most recently created user should be member of "test" community with its latest consent accepted
     When I open the email with subject "Welcome to"
@@ -93,7 +93,7 @@ Feature: User creates a new account
     And I click the first link in the email
     And wait for 1 seconds
     Then I should have 2 emails
-    And I should see "Your account was successfully confirmed"
+    And I should see "The email you entered is now confirmed"
   
     
   @subdomain2  

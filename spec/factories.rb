@@ -25,7 +25,7 @@ FactoryGirl.define do
     family_name "Testro"
     phone_number "0000-123456"
     username
-    email "fake_email_because@devise.needs.it"
+    # email "fake_email_because@devise.needs.it"
     password "testi"
     is_organization false
 

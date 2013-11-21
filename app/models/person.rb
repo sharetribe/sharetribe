@@ -499,17 +499,10 @@ class Person < ActiveRecord::Base
   
   # Override the default finder to find also based on additional emails
   def self.find_by_email(*args)
-    person = super(*args)
-    
-    if person.nil?
-      # look for additional emails
-      email = Email.find_by_address(*args)
-      if email
-        person = email.person
-      end
+    email = Email.find_by_address(*args)
+    if email
+      email.person
     end
-    
-    return person
   end
   
   # returns the same if its available, otherwise "same1", "same2" etc.
@@ -542,6 +535,14 @@ class Person < ActiveRecord::Base
   # returns true if person has at least one organization that is registered for seller account
   def is_member_of_seller_organization?    
     organizations.select{|o| o.is_registered_as_seller?}.present?
+  end
+
+  def email_required?
+    false
+  end
+
+  def email_changed?
+    false
   end
   
   # Merge this person with the data from the person given as parameter

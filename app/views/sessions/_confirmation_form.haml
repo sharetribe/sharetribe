@@ -1,7 +1,7 @@
 - content_for :javascript do
   initialize_confirmation_pending_form("#{I18n.locale}","#{email_not_accepted_message}");
     
-- email_to_confirm = @current_user.latest_pending_email(@current_community)
+- email_to_confirm = @current_user.latest_pending_email_address(@current_community)
 
 %p
   - if @current_community

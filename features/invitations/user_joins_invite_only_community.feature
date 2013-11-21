@@ -96,6 +96,6 @@ Feature: User joins invite only community
     When I open the email
     And I follow "confirmation" in the email
     Then I should have 2 emails
-    And I should see "successfully confirmed"
+    And I should see "The email you entered is now confirmed"
     And Most recently created user should be member of "test" community with its latest consent accepted with invitation code "GH1JX8"
     And Invitation with code "GH1JX8" should have 0 usages_left

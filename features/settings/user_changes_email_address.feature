@@ -13,7 +13,7 @@ Feature: User changes email address
     When I follow "Settings"
     And I follow "Account" within ".left-navi"
     And I follow "account_email_link"
-    And I fill in "person_email" with random email
+    And I fill in "person_notification_email_address" with random email
     And wait for 1 seconds
     And I press "email_submit"
     Then I should see "Information updated" within ".flash-notifications"
@@ -30,7 +30,7 @@ Feature: User changes email address
     When I follow "Settings"
     And I follow "Account" within ".left-navi"
     And I follow "account_email_link"
-    And I fill in "person_email" with "this is not email"
+    And I fill in "person_notification_email_address" with "this is not email"
     And I press "email_submit"
     Then I should not see "Information updated"
     And I should see "Please enter a valid email address." 
