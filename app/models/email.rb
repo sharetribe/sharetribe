@@ -18,10 +18,12 @@ class Email < ActiveRecord::Base
     Email.find_by_address(email).confirmed_at.present?
   end
   
+  # Email already in use for current user or someone else
   def self.email_available?(email)
     !Email.find_by_address(email).present?
   end
 
+  # Email already in use for someone else than current user
   def self.email_available_for_user?(user, address)
     email = Email.find_by_address(address)
     !email.present? || email.person == user

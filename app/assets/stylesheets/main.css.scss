@@ -2258,6 +2258,59 @@ a.lightbox-x {
       left: em(10);
     }
     
+    .account-settings-email-form {
+      padding: 0 lines(0.5) lines(0.5) lines(0.5);
+    }
+    
+    .account-settings-email-row {
+      width: 100%;
+      padding-bottom: lines(0.25);
+      overflow: hidden;
+    }
+    
+    .account-settings-email-row-address {
+      @include media(tablet) {
+        @include ellipsis;
+        min-width: lines(6);
+        float: left;
+      }
+    }
+    
+    .account-settings-email-row-send-notification {
+      @include media(tablet) {
+        float: right;
+        min-width: lines(6);
+        text-align: center;
+      }
+    }
+    
+    .account-settings-email-row-confirmed {
+      @include media(tablet) {
+        float: right;
+        min-width: lines(6);
+        text-align: center;
+      }
+    }
+    
+    .account-settings-email-row-delete {
+      @include media(tablet) {
+        float: right;
+        min-width: lines(2);
+        text-align: center;
+        padding-top: 3px; // To align icon with text
+      }
+    }
+    
+    .account-settings-new-email-row {
+      @include media(tablet) {
+        padding-top: 7px; // To align content with form field
+      }
+    }
+    
+    .account-settings-hidden-email-form {
+      display: none;
+    }
+    
   }
   
   .email-form {

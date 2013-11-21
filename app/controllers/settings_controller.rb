@@ -25,6 +25,7 @@ class SettingsController < ApplicationController
   
   def account
     @selected_left_navi_link = "account"
+    @person.emails.build
   end
 
   def notifications

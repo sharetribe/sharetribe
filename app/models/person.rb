@@ -32,7 +32,7 @@ class Person < ActiveRecord::Base
   attr_accessor :guid, :password2, :form_login,
                 :form_given_name, :form_family_name, :form_password, 
                 :form_password2, :form_email, :consent,
-                :email, :email_repeated, :community_category, :organization_website, :organization_address
+:email_repeated, :community_category, :organization_website, :organization_address, :send_notifications
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
@@ -130,6 +130,19 @@ class Person < ActiveRecord::Base
   before_validation(:on => :create) do
     self.id = UUID.timestamp_create.to_s22
     set_default_preferences unless self.preferences
+  end
+
+  # Creates a new email
+  def email_attributes=(attributes)
+    emails.build(attributes)
+  end
+  
+  def set_emails_that_receive_notifications(email_ids)
+    if email_ids
+      emails.each do |email|
+        email.update_attribute(:send_notifications, email_ids.include?(email.id.to_s))
+      end
+    end
   end
 
   # Override Devise's authentication finder method to allow log in with username OR email

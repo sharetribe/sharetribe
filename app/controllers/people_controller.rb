@@ -269,6 +269,8 @@ class PeopleController < Devise::RegistrationsController
     # if params[:person][:email] && @person.confirmed_at
     #   Email.create(:person => @person, :address => @person.email, :confirmed_at => @person.confirmed_at) unless Email.find_by_address(@person.email)
     # end
+    
+    @person.set_emails_that_receive_notifications(params[:person][:send_notifications])
 
     # FIXME This is for Devise, which doesn't allow blank emails
     params["person"]["email"] = "fake@fake.com"
@@ -330,7 +332,7 @@ class PeopleController < Devise::RegistrationsController
   def check_email_availability_and_validity
     
     # If asked from dashboard, only check availability
-    return check_email_availability if @current_community.nil?
+    return email_availability(true) if @current_community.nil?
     
     # this can be asked from community_membership page or new user page 
     email = params[:person] && params[:person][:email] ? params[:person][:email] : params[:community_membership][:email]
@@ -344,7 +346,7 @@ class PeopleController < Devise::RegistrationsController
     
     if available
       # Then check if it's already in use
-      check_email_availability
+      email_availability(true)
     else #respond false  
       respond_to do |format|
         format.json { render :json => available }
@@ -352,14 +354,9 @@ class PeopleController < Devise::RegistrationsController
     end
   end
   
-  # this checks only that email is not already in use
+  # this checks that email is not already in use for anyone (including current user)
   def check_email_availability
-    email = params[:person] ? params[:person][:email] : params[:email] || params[:community_membership][:email]
-    available = Email.email_available_for_user?(@current_user, email)
-    
-    respond_to do |format|
-      format.json { render :json => available }
-    end
+    email_availability(false)
   end
   
   # this checks only that email is not already in use
@@ -427,6 +424,15 @@ class PeopleController < Devise::RegistrationsController
   end
   
   private
+  
+  def email_availability(own_email_allowed)
+    email = params[:person] ? (params[:person][:email] || params[:person][:email_attributes][:address]) : (params[:email] || params[:community_membership][:email]) 
+    available = own_email_allowed ? Email.email_available_for_user?(@current_user, email) : Email.email_available?(email)
+    
+    respond_to do |format|
+      format.json { render :json => available }
+    end
+  end
   
   def query_graph(graph, field)
     solutions = RDF::Query.execute(graph) do

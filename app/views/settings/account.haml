@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_update_account_info_form("#{I18n.locale}","#{t(".change")}","#{t("common.cancel")}","#{t("people.new.email_is_in_use")}");
+  initialize_update_account_info_form("#{I18n.locale}","#{t(".change")}","#{t("common.cancel")}","#{t("people.new.email_is_in_use")}", "You must pick at least one email address for receiving notifications. If you don't want to receive any emails from Sharetribe, check your email notification settings.");
 
 - content_for :title_header do
   %h1= t("layouts.no_tribe.settings")
@@ -17,22 +17,58 @@
   
   -# Email
   .account-settings-row
-    .ss-mail.account-settings-icon
-    .account-settings-text#account_email_content
-      %b
-        = t(".email")
-      = @person.notification_email_address
-      = link_to t(".change"), "#", :id => "account_email_link", :class => "change-link"
-    #account_email_form.email-form
-      = form_for @person, :html => {:id => 'email_form'} do |form|
-        = form.text_field :notification_email_address, :class => "text_field_account", :maxlenght => "255", :placeholder => t(".new_email")
+    = form_for @person, :html => {:id => 'email_form'} do |form|
+      .ss-mail.account-settings-icon
+      .account-settings-text#account_email_content
+        .account-settings-title
+          %b
+            = t(".email_addresses")
+      .account-settings-email-form
+        .account-settings-email-row
+          .account-settings-email-row-address
+            %b Address
+          .account-settings-email-row-delete
+            &nbsp;
+          .account-settings-email-row-send-notification
+            %b Send notifications
+          .account-settings-email-row-confirmed
+            %b Confirmation
+        .account-settings-email-content-rows
+          - @person.emails.each do |email|
+            - unless email.new_record? 
+              .account-settings-email-row
+                .account-settings-email-row-address
+                  = email.address
+                .account-settings-email-row-delete
+                  = link_to icon_tag("cross"), "#"
+                .account-settings-email-row-send-notification
+                  = check_box_tag "person[send_notifications][]", email.id, email.send_notifications?
+                .account-settings-email-row-confirmed
+                  = email.confirmed_at ? "Confirmed" : "Pending"
+        = link_to "+ Add new email address", "#", :class => "account-new-email-link"
+        .account-settings-hidden-email-form
+          = fields_for "person[email_attributes]", Email.new do |email_form|
+            .account-settings-email-row
+              .account-settings-email-row-address
+                = email_form.text_field :address, :class => "text_field_account", :maxlenght => "255", :placeholder => t(".new_email"), :disabled => "disabled"
+              .account-settings-email-row-delete.account-settings-new-email-row
+                = link_to icon_tag("cross"), "#", :class => "account-hide-new-email-link"
+              .account-settings-email-row-send-notification.account-settings-new-email-row
+                = email_form.check_box :send_notifications, :disabled => "disabled"
+              .account-settings-email-row-confirmed
+                &nbsp;
+        
         = form.button t(".save"), :class => "send_button_account", :id => "email_submit"
+    #account_email_form.email-form
+      
+        
   
   -# Password
   .account-settings-row
     .ss-lock.account-settings-icon
     .account-settings-text#account_password_content
-      = t("common.password") + ":"
+      %b
+        = t("common.password") + ":"
       = "********"
       = link_to t(".change"), "#", :id => "account_password_link", :class => "change-link"
     #account_password_form.password-form
