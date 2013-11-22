@@ -59,14 +59,18 @@ Spork.prefork do
     # examples within a transaction, comment the following line or assign false
     # instead of true.
     config.use_transactional_fixtures = true
-
+    
+    # Load stuff from seeds.rb to DB
+    load "#{Rails.root}/db/seeds.rb"
+    
     config.before(:suite) do
       DatabaseCleaner.strategy = :transaction
-      DatabaseCleaner.clean_with(:truncation)
+      
+      # This is removed in order to keep the seed data
+      #DatabaseCleaner.clean_with(:truncation)
 
       # Seed the database only in the beginning for better test performance
       # This needs to be changed if/when any test modify seeded values
-      load "#{Rails.root}/db/seeds.rb"
     end
 
     config.before(:each) do

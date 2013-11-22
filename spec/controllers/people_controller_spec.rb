@@ -29,22 +29,32 @@ describe PeopleController do
       response.body.should == "false"  
     end
     
-    it "should return available for user's own adress" do
+    it "should return NOT available for user's own adress" do
       @request.host = "test.lvh.me"
-
+    
       person, session = get_test_person_and_session
       sign_in person
-    
-      person.update_attribute(:email, "test@example.com")
-      get :check_email_availability,  {:person => {:email => "test@example.com"}, :format => :json}
-      response.body.should == "true"
       
       Email.create(:person_id => person.id, :address => "test2@example.com")
       get :check_email_availability,  {:person => {:email => "test2@example.com"}, :format => :json}
-      response.body.should == "true"
+      response.body.should == "false"
     end
     
   end
+  
+  describe "#check_email_availability_and_validity" do
+    it "should return available for user's own adress" do
+      @request.host = "test.lvh.me"
+    
+      person, session = get_test_person_and_session
+      sign_in person
+      
+      Email.create(:person_id => person.id, :address => "test2@example.com")
+      get :check_email_availability_and_validity,  {:person => {:email => "test2@example.com"}, :format => :json}
+      response.body.should == "true"
+    end
+  end
+  
   
   describe "#update" do
     it "should store the old accepted email as additional email when changing email" do
