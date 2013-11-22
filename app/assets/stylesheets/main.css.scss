@@ -2269,7 +2269,6 @@ a.lightbox-x {
       padding: lines(0.5) 0;
       @include media(desktop) {
         padding: 0;
-        height: lines(1.5);
         line-height: (lines(1.5) - em(2)); // Magic number to vertically center text
       }
     }
