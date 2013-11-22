@@ -274,6 +274,7 @@ class PeopleController < Devise::RegistrationsController
     @person.set_emails_that_receive_notifications(params[:person][:send_notifications])
 
     # FIXME This is for Devise, which doesn't allow blank emails
+    # (this shouldn't be needed when :validatable is removed from person.rb) 
     params["person"]["email"] = "fake@fake.com"
 
     payment_gateway = @current_community.payment_gateways && @current_community.payment_gateways.first
@@ -295,6 +296,12 @@ class PeopleController < Devise::RegistrationsController
           #if password changed Devise needs a new sign in.
           sign_in @person, :bypass => true
         end
+        
+        if params[:person][:email_attributes] && params[:person][:email_attributes][:address] 
+          # A new email was added, send confirmation email to the latest address
+          Email.send_confirmation(@person.emails.last, request.host_with_port, @current_community)
+        end
+        
         flash[:notice] = t("layouts.notifications.person_updated_successfully")
         
         # Send new confirmation email, if was changing for that 

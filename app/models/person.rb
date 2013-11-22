@@ -270,8 +270,7 @@ class Person < ActiveRecord::Base
       end
 
       save
-
-      super(params.except("password2", "street_address"))    
+      super(params.except("password2", "street_address"))
     end
   end
   
