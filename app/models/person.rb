@@ -17,7 +17,7 @@ class Person < ActiveRecord::Base
   # :lockable, :timeoutable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, 
-         :validatable, :omniauthable, :token_authenticatable, :confirmable
+         :omniauthable, :token_authenticatable, :confirmable
          
   if APP_CONFIG.use_asi_encryptor
     require Rails.root.join('lib', 'devise', 'encryptors', 'asi')

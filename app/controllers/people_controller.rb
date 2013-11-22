@@ -112,10 +112,6 @@ class PeopleController < Devise::RegistrationsController
     email = Email.new(:person => @person, :address => params[:person][:email].downcase, :send_notifications => true)
     params["person"].delete(:email)
 
-    ## FIXME
-    ## The answer might be this: https://github.com/plataformatec/devise#strong-parameters
-    params["person"]["email"] = "fake@fake.com"
-
     @person = build_devise_resource_from_person(@person)
 
     @person.emails << email
@@ -272,10 +268,6 @@ class PeopleController < Devise::RegistrationsController
     # end
     
     @person.set_emails_that_receive_notifications(params[:person][:send_notifications])
-
-    # FIXME This is for Devise, which doesn't allow blank emails
-    # (this shouldn't be needed when :validatable is removed from person.rb) 
-    params["person"]["email"] = "fake@fake.com"
 
     payment_gateway = @current_community.payment_gateways && @current_community.payment_gateways.first
 
