@@ -8,10 +8,11 @@ Feature: User changes email address
       | person      |
       | sharetribe1 |
     And there are following emails:
-      | person      | address                 | send_notifications |
-      | sharetribe1 | sharetribe@example.com  | false              |
-      | sharetribe1 | sharetribe2@example.com | true               |
-      | sharetribe1 | sharetribe@gmail.com    | false              |
+      | person      | address                 | send_notifications | confirmed_at        |
+      | sharetribe1 | sharetribe@example.com  | false              | 2013-11-14 20:02:23 |
+      | sharetribe1 | sharetribe2@example.com | true               | 2013-11-14 20:02:23 |
+      | sharetribe1 | sharetribe@gmail.com    | false              | 2013-11-14 20:02:23 |
+      | sharetribe1 | sharetribe@yahoo.com    | false              | nil                 |
     And there are following communities:
       | community               | allowed_emails |
       | test_community          | @example.com   |
@@ -40,3 +41,14 @@ Feature: User changes email address
     Then I should not be able to remove notifications from "sharetribe2@example.com"
     When I set notifications for email "sharetribe@example.com"
     Then I should be able to remove notifications from "sharetribe2@example.com"
+
+  @javascript
+  Scenario: User resends confirmation mail
+    Then I should have unconfirmed email "sharetribe@yahoo.com"
+    And I should not be able to resend confirmation for "sharetribe@example.com"
+    And I should not be able to resend confirmation for "sharetribe2@example.com"
+    And I should not be able to resend confirmation for "sharetribe@gmail.com"
+    And I should be able to resend confirmation for "sharetribe@yahoo.com"
+    When I resend confirmation for "sharetribe@yahoo.com"
+    And I confirm email address "sharetribe@yahoo.com"
+    Then I should have confirmed email "sharetribe@yahoo.com"

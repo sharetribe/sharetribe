@@ -73,7 +73,7 @@
                       = t(".email.status_confirmed")
                     - else
                       = t(".email.status_pending")
-                      %small= link_to(t(".email.confirmation_resend"), send_confirmation_person_email_path(@current_user, email), :method => :post)
+                      %small= link_to(t(".email.confirmation_resend"), send_confirmation_person_email_path(@current_user, email), :method => :post, :class => "account-settings-email-row-resend-link")
         .account-settings-email-row.account-new-email-link
           = link_to t(".email.add_new_with_plus"), "#", id: "account-new-email"
         .account-settings-hidden-email-form

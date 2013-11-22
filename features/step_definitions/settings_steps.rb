@@ -1,6 +1,7 @@
 module SettingsSteps
   DELETE_LINK_SELECTOR = ".account-settings-email-row-delete-link"
   NOTIFICATION_CHECKOUT_SELECTOR = ".account-settings-email-row-send-notification-checkbox"
+  RESEND_LINK_SELECTOR = ".account-settings-email-row-resend-link"
 
   def find_row_for_email(email)
     email_div = find(".account-settings-email-row-address", :text => "#{email}")
@@ -17,6 +18,14 @@ module SettingsSteps
 
   def find_notification_checkbox_for_email(email)
     find_row_for_email(email).find(NOTIFICATION_CHECKOUT_SELECTOR)
+  end
+
+  def find_resend_link_for_email(email)
+    find_row_for_email(email).find(RESEND_LINK_SELECTOR)
+  end
+
+  def should_not_find_resend_link_for_email(email)
+    find_row_for_email(email).should have_no_selector(RESEND_LINK_SELECTOR)
   end
 end
 
@@ -96,4 +105,16 @@ end
 
 Then /^I should not receive notifications for email "(.*?)"$/ do |email|
   Email.find_by_address(email).send_notifications.should be_false
+end
+
+Then /^I should not be able to resend confirmation for "(.*?)"$/ do |email|
+  should_not_find_resend_link_for_email(email)
+end
+
+Then /^I should be able to resend confirmation for "(.*?)"$/ do |email|
+  find_resend_link_for_email(email)
+end
+
+When /^I resend confirmation for "(.*?)"$/ do |email|
+  find_resend_link_for_email(email).click
 end
