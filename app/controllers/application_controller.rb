@@ -80,9 +80,11 @@ class ApplicationController < ActionController::Base
     if logged_in?
       @person = Person.find(params[:person_id] || params[:id])
       return if current_user?(@person)
-      flash[:error] = error_message
-      redirect_to root and return
     end
+    
+    # This is reached only if not authorized
+    flash[:error] = error_message
+    redirect_to root and return
   end
 
   def logged_in?

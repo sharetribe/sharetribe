@@ -46,12 +46,6 @@ GEM
       uuidtools (~> 2.1)
     bcrypt-ruby (3.1.2)
     builder (3.0.4)
-    capistrano (2.13.5)
-      highline
-      net-scp (>= 1.0.0)
-      net-sftp (>= 2.0.0)
-      net-ssh (>= 2.0.14)
-      net-ssh-gateway (>= 1.1.0)
     capybara (2.0.2)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -173,7 +167,6 @@ GEM
       spork (>= 0.8.4)
     haml (3.1.7)
     hashie (1.2.0)
-    highline (1.6.15)
     hike (1.2.3)
     hpricot (0.8.6)
     http_parser.rb (0.5.3)
@@ -220,11 +213,7 @@ GEM
     mysql2 (0.3.11)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
-    net-sftp (2.0.5)
-      net-ssh (>= 2.0.9)
     net-ssh (2.6.2)
-    net-ssh-gateway (1.1.0)
-      net-ssh (>= 1.99.1)
     newrelic_rpm (3.6.2.96)
     nokogiri (1.5.10)
     oauth2 (0.8.0)
@@ -400,7 +389,6 @@ DEPENDENCIES
   airbrake (~> 3.1.12)
   asset_sync
   aws-sdk
-  capistrano
   capybara
   coffee-rails (~> 3.2.2)
   compass-rails

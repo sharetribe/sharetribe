@@ -3203,6 +3203,10 @@ section.lander, section.create-now {
         font-weight: normal;
         padding: em(5) em(10) em(10) em(10);
       }
+
+      select {
+        width: 100%;
+      }
     }
     
   }

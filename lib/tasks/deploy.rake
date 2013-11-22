@@ -40,7 +40,6 @@ def deploy(params)
   end
   generate_custom_css
   update_translations
-   
 end
 
 def set_app(destination)

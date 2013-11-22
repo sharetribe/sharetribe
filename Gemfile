@@ -4,9 +4,6 @@ ruby '1.9.3'
 
 gem 'rails', '3.2.13'
 
-# Deploy with Capistrano
-gem 'capistrano' # could be removed as not currently used
-
 # To use debugger
 # gem 'ruby-debug'
 
@@ -39,14 +36,12 @@ gem 'paperclip'
 gem 'delayed_paperclip'
 gem 'aws-sdk'
 gem "will_paginate"
-gem 'newrelic_rpm', "~>3.6.2.96"
 gem 'dalli'
 gem "memcachier"
 gem 'kgio', "~>2.8.0"
 gem 'thinking-sphinx', "~>2.0.14", :require => 'thinking_sphinx'
 gem 'flying-sphinx', "~>0.8.5"
 gem 'recaptcha'
-gem "airbrake", "~>3.1.12"
 gem 'delayed_job', "~>3.0.5"
 gem 'delayed_job_active_record'
 gem 'json', "~>1.8.0"
@@ -63,7 +58,6 @@ gem 'rabl'
 gem 'rake'
 gem 'xpath'
 gem 'dynamic_form'
-gem "rspec-rails"
 gem "truncate_html"
 gem 'money-rails'
 gem 'mercury-rails'
@@ -75,6 +69,16 @@ gem 'mangopay'
 #ouisharelabs
 gem 'rdf-turtle'
 
+group :staging do
+  gem "airbrake", "~>3.1.12"
+  gem 'newrelic_rpm', "~>3.6.2.96"
+end
+
+group :production do
+  gem "airbrake", "~>3.1.12"
+  gem 'newrelic_rpm', "~>3.6.2.96"
+end
+
 group :development do
   gem 'guard-livereload', require: false
   gem 'rack-livereload'
@@ -84,6 +88,7 @@ group :development do
 end
 
 group :test do
+  gem "rspec-rails"
   gem 'capybara'
   gem 'cucumber-rails', :require => false
   gem 'cucumber' 
