@@ -63,7 +63,7 @@
                     .settings-email-mobile-label
                       = check_box_tag "person[send_notifications][]", email.id, email.send_notifications?, :class => "account-settings-email-row-send-notification-checkbox"
                     .hidden-desktop.settings-email-mobile-label.settings-email-mobile-label-right 
-                      Send notifications
+                      = t(".email.send_notifications_title_mobile")
                 .account-settings-email-row-confirmed
                   .hidden-desktop.settings-email-mobile-label
                     %b 
@@ -89,7 +89,7 @@
               .account-settings-email-row-send-notification.account-settings-new-email-row
                 .settings-email-mobile-label= email_form.check_box :send_notifications, :disabled => "disabled"
                 .hidden-desktop.settings-email-mobile-label.settings-email-mobile-label-right
-                  = t(".email.send_notifications_title_mobile")
+                  = t(".email.send_notifications_new_title_mobile")
                   
               .account-settings-email-row-confirmed
                 &nbsp;
