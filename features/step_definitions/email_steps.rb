@@ -24,6 +24,21 @@
 #
 # The Cucumber steps below are setup in this order.
 
+Given /^there are following emails:$/ do |emails_table|
+  emails_table.hashes.each do |hash|
+    person = Person.find_by_username(hash[:person])
+    @hash_email = FactoryGirl.create(:email, :person => person)
+    
+    attributes_to_update = hash.except('person')
+    @hash_email.update_attributes(attributes_to_update) unless attributes_to_update.empty?
+
+    person.emails << @hash_email
+    person.save!
+  end
+end
+
+
+
 module EmailHelpers
   def current_email_address
     # Replace with your a way to find your current email. e.g @current_user.email

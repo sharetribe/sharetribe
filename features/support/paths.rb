@@ -52,6 +52,8 @@ module NavigationHelpers
       "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings"
     when /the payment settings page/
       "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings/payments"
+    when /the account settings page/
+      "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings/account"
 
     # the following are examples using path_to_pickle
 

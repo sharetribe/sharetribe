@@ -191,10 +191,16 @@ Then /^user "(.*?)" should have email "(.*?)"$/ do |username, email|
   e.should_not be_nil
 end
 
+Then /^I should have (confirmed|unconfirmed) email "(.*?)"$/ do |conf, email|
+  steps %Q{
+    Then user "#{@logged_in_user.username}" should have #{conf} email "#{email}"
+  }
+end
+
 Then /^user "(.*?)" should have (confirmed|unconfirmed) email "(.*?)"$/ do |username, conf, email|
   p = Person.find_by_username(username)
   e = Email.find_by_person_id_and_address(p.id, email)
-  
+
   e.should_not be_nil
 
   if conf == "unconfirmed"

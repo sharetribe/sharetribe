@@ -27,6 +27,16 @@ When /^I confirm my email address$/ do
   }
 end
 
+When /^I confirm email address "(.*?)"$/ do |email|
+  steps %Q{
+    Then "#{email}" should receive 1 email
+    When "#{email}" open the email
+    And I click the first link in the email
+    Then "#{email}" should have 2 emails
+    And I should see "The email you entered is now confirmed"
+  }
+end
+
 Then /^"(.*?)" should have required Checkout payment details saved to my account information$/ do |username|
   p = Person.find_by_username(username)
 

@@ -1,3 +1,5 @@
+require File.expand_path('../../services/email_service', __FILE__)
+
 class EmailsController < ApplicationController
 
   before_filter do |controller|

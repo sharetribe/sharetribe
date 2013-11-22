@@ -42,7 +42,12 @@
                 .account-settings-email-row-delete
                   = link_to "#", :data => {:confirm => "Are you sure you want to remove this email address?"} do
                     .settings-email-mobile-label-container
-                      .visible-desktop.settings-email-mobile-label= icon_tag("cross")
+                      .visible-desktop.settings-email-mobile-label
+                        - if @person.can_delete_email(email)
+                          = link_to person_email_path(@person.id, email.id), :method => :delete do
+                            = icon_tag("cross")
+                        - else
+                          = icon_tag("cross")
                       .hidden-desktop.settings-email-mobile-label.settings-email-mobile-label
                         Remove
                 .account-settings-email-row-send-notification
@@ -60,7 +65,7 @@
                       Pending
                       %small= link_to('Resend', send_confirmation_person_email_path(@current_user, email), :method => :post)
         .account-settings-email-row.account-new-email-link
-          = link_to "+ Add new email address", "#"
+          = link_to "+ Add new email address", "#", id: "account-new-email"
         .account-settings-hidden-email-form
           = fields_for "person[email_attributes]", Email.new do |email_form|
             .account-settings-email-row.account-settings-email-form-row
