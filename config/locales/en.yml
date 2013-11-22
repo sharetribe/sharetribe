@@ -1536,6 +1536,19 @@ en:
       new_password: "New password"
       save: Save
       these_fields_are_shown_only_to_you: "Username is shown in your profile unless you have given your name. Other information is only shown to you."
+      email:
+        address_title: "Address"
+        remove_title: Remove
+        remove_confirmation: Are you sure you want to remove this email address?
+        send_notifications_title_desktop: Send notifications
+        send_notifications_title_mobile: Send notifications
+        add_new_with_plus: "+ Add new email address"
+        add_new_cancel: Cancel
+        confirmation_title_mobile: "Confirmation:"
+        confirmation_title_desktop: "Confirmation"
+        confirmation_resend: Resend
+        status_confirmed: Confirmed
+        status_pending: Pending
     notifications:
       email_from_admins: "I'm willing to receive occasional updates from the administrator(s) of this community"
       i_want_to_get_email_notification_when: "I want to get an email notification when..."

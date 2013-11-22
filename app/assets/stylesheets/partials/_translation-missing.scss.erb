@@ -1,0 +1,3 @@
+@charset "UTF-8";
+
+<%= ( if !Rails.env.production? then ".translation_missing { background-color: red }" end ).html_safe %>

@@ -1532,6 +1532,19 @@ fi:
       new_password: "Uusi salasana"
       save: Tallenna
       these_fields_are_shown_only_to_you: "Käyttäjätunnus näytetään profiilissasi, jos et ole syöttänyt nimeäsi. Muut tiedot näytetään vain sinulle."
+      email:
+        address_title: "Osoite"
+        remove_title: Poista
+        remove_confirmation: "Oletko varma, että haluat poistaa tämän sähköpostin?"
+        send_notifications_title_desktop: Vastaanota ilmoituksia
+        send_notifications_title_mobile: Vastaanota ilmoituksia
+        add_new_with_plus: "+ Lisää uusi sähköposti"
+        add_new_cancel: Peruuta
+        confirmation_title_mobile: "Vahvistus:"
+        confirmation_title_desktop: "Vahvistus"
+        confirmation_resend: Lähetä uudelleen
+        status_confirmed: Vahvistettu
+        status_pending: Odottaa
     notifications:
       email_from_admins: "Tämän yhteisön ylläpitäjä voi lähettää minulle sähköpostia"
       i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."

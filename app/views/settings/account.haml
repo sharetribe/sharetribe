@@ -26,13 +26,16 @@
       .account-settings-email-form
         .account-settings-email-row.visible-desktop
           .account-settings-email-row-address
-            %b Address
+            %b 
+              = t(".email.address_title")
           .account-settings-email-row-delete
             &nbsp;
           .account-settings-email-row-send-notification
-            %b Send notifications
+            %b 
+              = t(".email.send_notifications_title_desktop")
           .account-settings-email-row-confirmed
-            %b Confirmation
+            %b 
+              = t(".email.confirmation_title_desktop")
         .account-settings-email-content-rows
           - @person.emails.each_with_index do |email, index|
             - unless email.new_record? 
@@ -43,18 +46,18 @@
                   - can_delete = @person.can_delete_email(email)
                   - disabled_class = can_delete ? "" : "disabled"
                   - if can_delete
-                    = link_to person_email_path(@person.id, email.id), :method => :delete, :data => {:confirm => "Are you sure you want to remove this email address?"}, :class => "account-settings-email-row-delete-link" do
+                    = link_to person_email_path(@person.id, email.id), :method => :delete, :data => {:confirm => t(".email.remove_confirmation")}, :class => "account-settings-email-row-delete-link" do
                       .settings-email-mobile-label-container
                         .visible-desktop.settings-email-mobile-label
                           = icon_tag("cross", ["account-settings-email-row-delete-cross", disabled_class])
                         .hidden-desktop.settings-email-mobile-label.settings-email-mobile-label{:class => disabled_class}
-                          Remove
+                          = t(".email.remove_title")
                   - else
                     .settings-email-mobile-label-container
                       .visible-desktop.settings-email-mobile-label
                         = icon_tag("cross", ["account-settings-email-row-delete-cross", disabled_class])
                       .hidden-desktop.settings-email-mobile-label.settings-email-mobile-label{:class => disabled_class}
-                        Remove
+                        = t(".email.remove_title")
                 .account-settings-email-row-send-notification
                   .settings-email-mobile-label-container
                     .settings-email-mobile-label
@@ -63,15 +66,16 @@
                       Send notifications
                 .account-settings-email-row-confirmed
                   .hidden-desktop.settings-email-mobile-label
-                    %b Confirmation:
+                    %b 
+                      = t(".email.confirmation_title_mobile")
                   .settings-email-mobile-label.settings-email-mobile-label-right
                     - if email.confirmed_at
-                      Confirmed
+                      = t(".email.status_confirmed")
                     - else
-                      Pending
-                      %small= link_to('Resend', send_confirmation_person_email_path(@current_user, email), :method => :post)
+                      = t(".email.status_pending")
+                      %small= link_to(t(".email.confirmation_resend"), send_confirmation_person_email_path(@current_user, email), :method => :post)
         .account-settings-email-row.account-new-email-link
-          = link_to "+ Add new email address", "#", id: "account-new-email"
+          = link_to t(".email.add_new_with_plus"), "#", id: "account-new-email"
         .account-settings-hidden-email-form
           = fields_for "person[email_attributes]", Email.new do |email_form|
             .account-settings-email-row.account-settings-email-form-row
@@ -81,11 +85,11 @@
                 = link_to "#", :class => "account-hide-new-email-link" do
                   .visible-desktop= icon_tag("cross")
                   .hidden-desktop
-                    Cancel
+                    = t(".email.add_new_cancel")
               .account-settings-email-row-send-notification.account-settings-new-email-row
                 .settings-email-mobile-label= email_form.check_box :send_notifications, :disabled => "disabled"
                 .hidden-desktop.settings-email-mobile-label.settings-email-mobile-label-right
-                  Send notifications
+                  = t(".email.send_notifications_title_mobile")
                   
               .account-settings-email-row-confirmed
                 &nbsp;
