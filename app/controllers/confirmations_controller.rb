@@ -58,17 +58,13 @@ class ConfirmationsController < Devise::ConfirmationsController
         e.person.confirm!
       end
       
-      # This redirect expects that additional emails are only added when joining a community that requires it
-      if on_dashboard?
-        redirect_to new_tribe_path and return
-      else
-        # Accept pending community membership if needed
-        @current_community.approve_pending_membership(@current_user, e.address)
-          
+      # Accept pending community membership if needed
+      if @current_community.approve_pending_membership(@current_user, e.address)
+        # If the pending membership was accepted now, it's time to send the welcome email
         PersonMailer.welcome_email(@current_user, @current_community).deliver
-        flash[:notice] = t("layouts.notifications.additional_email_confirmed")
-        redirect_to root and return
       end
+      flash[:notice] = t("layouts.notifications.additional_email_confirmed")
+      redirect_to root and return
     end
     
     flash[:error] = t("layouts.notifications.confirmation_link_is_wrong_or_used")

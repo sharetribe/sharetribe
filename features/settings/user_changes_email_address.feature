@@ -50,5 +50,7 @@ Feature: User changes email address
     And I should not be able to resend confirmation for "sharetribe@gmail.com"
     And I should be able to resend confirmation for "sharetribe@yahoo.com"
     When I resend confirmation for "sharetribe@yahoo.com"
+    And "sharetribe@yahoo.com" should have 1 emails
     And I confirm email address "sharetribe@yahoo.com"
     Then I should have confirmed email "sharetribe@yahoo.com"
+    And "sharetribe@yahoo.com" should have 1 emails

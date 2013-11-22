@@ -108,7 +108,10 @@ Feature: User joins another community
     Then I should see "The email you entered is now confirmed"
     And user "kassi_testperson3" should have confirmed email "other.email@example.com"
     And I should not see "Email address"
-    Then I should see "Post a new listing"
+    Then I should see "Test P"
+    And "other.email@example.com" should have 2 emails
+    And I should receive an email with subject "Welcome to Sharetribe Test2 - here are some tips to get you started"
+    
   
   @javascript
   Scenario: User joins another community when having both visible and non-visible listings
