@@ -766,7 +766,7 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
   $(email_form_id).validate({
     errorPlacement: function(error, element) {
       if (element.attr("name") == "person[send_notifications][]") {
-        error.insertAfter(element.parent().parent().parent());
+        error.insertAfter($("#account-settings-email-content-rows"));
       } else {
         error.insertAfter(element);
       }

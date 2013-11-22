@@ -36,7 +36,7 @@
           .account-settings-email-row-confirmed
             %b 
               = t(".email.confirmation_title_desktop")
-        .account-settings-email-content-rows
+        .account-settings-email-content-rows#account-settings-email-content-rows
           - @person.emails.each_with_index do |email, index|
             - unless email.new_record? 
               .account-settings-email-row{:class => ((index % 2 == 0) ? "account-settings-email-row-highlight" : "")}
