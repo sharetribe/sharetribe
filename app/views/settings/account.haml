@@ -40,19 +40,25 @@
                 .account-settings-email-row-address
                   = email.address
                 .account-settings-email-row-delete
-                  = link_to "#", :data => {:confirm => "Are you sure you want to remove this email address?"} do
+                  - can_delete = @person.can_delete_email(email)
+                  - disabled_class = can_delete ? "" : "disabled"
+                  - if can_delete
+                    = link_to person_email_path(@person.id, email.id), :method => :delete, :data => {:confirm => "Are you sure you want to remove this email address?"}, :class => "account-settings-email-row-delete-link" do
+                      .settings-email-mobile-label-container
+                        .visible-desktop.settings-email-mobile-label
+                          = icon_tag("cross", ["account-settings-email-row-delete-cross", disabled_class])
+                        .hidden-desktop.settings-email-mobile-label.settings-email-mobile-label{:class => disabled_class}
+                          Remove
+                  - else
                     .settings-email-mobile-label-container
                       .visible-desktop.settings-email-mobile-label
-                        - if @person.can_delete_email(email)
-                          = link_to person_email_path(@person.id, email.id), :method => :delete do
-                            = icon_tag("cross")
-                        - else
-                          = icon_tag("cross")
-                      .hidden-desktop.settings-email-mobile-label.settings-email-mobile-label
+                        = icon_tag("cross", ["account-settings-email-row-delete-cross", disabled_class])
+                      .hidden-desktop.settings-email-mobile-label.settings-email-mobile-label{:class => disabled_class}
                         Remove
                 .account-settings-email-row-send-notification
                   .settings-email-mobile-label-container
-                    .settings-email-mobile-label= check_box_tag "person[send_notifications][]", email.id, email.send_notifications?
+                    .settings-email-mobile-label
+                      = check_box_tag "person[send_notifications][]", email.id, email.send_notifications?, :class => "account-settings-email-row-send-notification-checkbox"
                     .hidden-desktop.settings-email-mobile-label.settings-email-mobile-label-right 
                       Send notifications
                 .account-settings-email-row-confirmed

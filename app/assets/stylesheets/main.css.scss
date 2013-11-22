@@ -2336,6 +2336,12 @@ a.lightbox-x {
         padding-top: 3px; // To align icon with text
       }
     }
+
+    .account-settings-email-row-delete-cross {
+      &.disabled {
+        color: $border;
+      }
+    }
     
     .account-settings-hidden-email-form {
       display: none;
