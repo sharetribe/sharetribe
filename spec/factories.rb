@@ -147,7 +147,7 @@ FactoryGirl.define do
     google_address "Helsinki, Finland"
   end
   
-  factory :email, class: Email do
+  factory :email do
     person
     address { generate(:email_address) }
     confirmed_at Time.now

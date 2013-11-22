@@ -22,7 +22,6 @@ guard 'spork', :wait => 60, test_unit: false, :cucumber_env => { 'RAILS_ENV' => 
   watch('app/helpers/email_helper.rb')
   watch('app/helpers/errors_helper.rb')
   watch('app/models/community.rb')
-  watch('app/models/email.rb')
   watch('app/models/person.rb')
   watch('config/boot.rb')
   watch('config/config_loader.rb')

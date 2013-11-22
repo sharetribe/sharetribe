@@ -9,6 +9,8 @@ class Email < ActiveRecord::Base
                        :with => /^[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i
   
   before_save do
+    #force email to be lower case
+    self.address = self.address.downcase
     if not confirmed_at
       self.confirmation_token ||= SecureRandom.base64(12)
     end
