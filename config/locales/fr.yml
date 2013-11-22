@@ -808,7 +808,7 @@ fr:
     dashboard:
       title: "%{service_name} - Partagez des objets, des services et des transports avec votre tribu locale !"
     global-header:
-      select_language: ""
+      select_language: "Choisir la langue"
     infos:
       about: "A propos"
       how_to_use: Aide
@@ -1212,8 +1212,8 @@ fr:
       item_offer_trade: "Offre d'échange "
       item_request_trade: "Demande d'échange "
       no_description: "Cette annonce n'a pas de description"
-      no_image: ""
-      no_reviews: ""
+      no_image: "Aucune image"
+      no_reviews: "Aucun avis reçu"
       offer: "Offre "
       listing_created: Créée
       open_until: "Valide jusqu'au %{date}"
@@ -1435,7 +1435,7 @@ fr:
     profile_listings:
       show_also_closed: "Voir également les offres et demandes closes"
       show_only_open: "Voir uniquement les offres et demandes en cours"
-      no_image: ""
+      no_image: "Aucune image"
     show:
       contact: "Contacter %{person}"
       about_me: "A propos de moi : "
