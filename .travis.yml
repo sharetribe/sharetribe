@@ -24,5 +24,5 @@ before_script:
   - sh -e /etc/init.d/xvfb start
 
 script:
-  - bundle exec $SUITE
+  - USE_POLTERGEIST=true bundle exec $SUITE
 
