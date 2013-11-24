@@ -125,6 +125,8 @@ GEM
       multipart-post (~> 1.1)
     faraday_middleware (0.9.0)
       faraday (>= 0.7.4, < 0.9)
+    faye-websocket (0.4.7)
+      eventmachine (>= 0.12.0)
     fb-channel-file (0.0.2)
       rails (>= 3.0)
     ffi (1.9.0)
@@ -242,6 +244,10 @@ GEM
     pickle (0.4.11)
       cucumber (>= 0.8)
       rake
+    poltergeist (1.1.2)
+      capybara (~> 2.0.1)
+      faye-websocket (~> 0.4.4)
+      http_parser.rb (~> 0.5.3)
     polyglot (0.3.3)
     postmark (0.9.15)
       json
@@ -427,6 +433,7 @@ DEPENDENCIES
   paperclip
   parallel_tests
   pickle
+  poltergeist
   postmark-rails
   rabl
   rack-livereload

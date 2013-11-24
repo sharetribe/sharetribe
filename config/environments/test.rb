@@ -43,6 +43,11 @@ Kassi::Application.configure do
     require "selenium-webdriver"
     Selenium::WebDriver.for :chrome
   end
+
+  if ENV["USE_POLTERGEIST"]
+    require 'capybara/poltergeist'
+    Capybara.javascript_driver = :poltergeist
+  end
   
   Capybara.default_wait_time = 10
   Capybara.ignore_hidden_elements = true

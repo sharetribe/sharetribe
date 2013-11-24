@@ -102,5 +102,6 @@ group :test do
   gem "parallel_tests", :group => :development
   gem 'spork-rails'
   gem 'timecop'
+  gem 'poltergeist'
 end
 
