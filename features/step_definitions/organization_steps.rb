@@ -17,25 +17,6 @@ Given /^I signup as an organization "(.*?)" with name "(.*?)"$/ do |org_username
   }
 end
 
-When /^I confirm my email address$/ do
-  steps %Q{
-    Then I should receive 1 email
-    When I open the email
-    And I click the first link in the email
-    Then I should have 2 emails
-    And I should see "The email you entered is now confirmed"
-  }
-end
-
-When /^I confirm email address "(.*?)"$/ do |email|
-  steps %Q{
-    Then "#{email}" should receive 1 email
-    When "#{email}" open the email
-    And I click the first link in the email
-    And I should see "The email you entered is now confirmed"
-  }
-end
-
 Then /^"(.*?)" should have required Checkout payment details saved to my account information$/ do |username|
   p = Person.find_by_username(username)
 

@@ -1,6 +1,5 @@
 # Commonly used email steps
 #
-# To add your own steps make a custom_email_steps.rb
 # The provided methods are:
 #
 # last_email_address
@@ -46,7 +45,24 @@ Given /^there are following emails:$/ do |emails_table|
   end
 end
 
+When /^I confirm my email address$/ do
+  steps %Q{
+    Then I should receive 1 email
+    When I open the email
+    And I click the first link in the email
+    Then I should have 2 emails
+    And I should see "The email you entered is now confirmed"
+  }
+end
 
+When /^I confirm email address "(.*?)"$/ do |email|
+  steps %Q{
+    Then "#{email}" should receive 1 email
+    When "#{email}" open the email
+    And I click the first link in the email
+    And I should see "The email you entered is now confirmed"
+  }
+end
 
 module EmailHelpers
   def current_email_address
