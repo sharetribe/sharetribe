@@ -243,11 +243,6 @@ class Person < ActiveRecord::Base
     end
   end
 
-  def set_email(email)
-    # DON'T USE THIS!
-    update_attributes({:email => email})
-  end
-
   def update_attributes(params)
     if params[:preferences]
       super(params)

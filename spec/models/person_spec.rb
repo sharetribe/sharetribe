@@ -133,21 +133,6 @@ describe Person do
 
     end
 
-    describe "email functions" do
-      before(:each) do
-        @test_person.set_email("testing_one@example.com")
-      end
-
-      it "should return the email correctly" do
-        @test_person.email.should == "testing_one@example.com"
-      end
-
-      it "should change email" do
-        @test_person.set_email("testing_two@example.com")
-        @test_person.email.should == "testing_two@example.com"
-      end
-    end
-    
     describe "#delete" do
       it "should delete also related conversations and testimonials" do
         conv = FactoryGirl.create(:conversation)
