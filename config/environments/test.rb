@@ -41,9 +41,12 @@ Kassi::Application.configure do
   # Register PhantomJS over selenium-webdriver
   if ENV['PHANTOMJS'] then
     require "selenium-webdriver"
-    require "#{Rails.root}/lib/selenium_webdriver_phantomjs_monkey_patch"
     Capybara.register_driver :webdriver_phantomjs do |app|
       Capybara::Selenium::Driver.new(app, :browser => :phantomjs)
+    end
+
+    unless ENV['NO_WEBDRIVER_MONKEY_PATCH']
+      require "#{Rails.root}/lib/selenium_webdriver_phantomjs_monkey_patch"
     end
   end
   
