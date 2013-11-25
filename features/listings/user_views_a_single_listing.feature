@@ -3,6 +3,7 @@ Feature: User views a single listing
   As a role
   I want feature
 
+  @phantomjs_skip
   @javascript
   @only_without_asi
   Scenario: User views a listing that he is allowed to see

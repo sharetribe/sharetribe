@@ -37,11 +37,14 @@ Kassi::Application.configure do
   
   # As instructed by Devise, to make local mails work
   config.action_mailer.default_url_options = { :host => 'test.lvh.me:9887' }
-  
-  # Use chrome for testing javascript
-  if ENV["USE_CHROME"]
+
+  # Register PhantomJS over selenium-webdriver
+  if ENV['PHANTOMJS'] then
     require "selenium-webdriver"
-    Selenium::WebDriver.for :chrome
+    require "#{Rails.root}/lib/selenium_webdriver_phantomjs_monkey_patch"
+    Capybara.register_driver :webdriver_phantomjs do |app|
+      Capybara::Selenium::Driver.new(app, :browser => :phantomjs)
+    end
   end
   
   Capybara.default_wait_time = 10
