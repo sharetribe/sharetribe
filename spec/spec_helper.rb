@@ -65,9 +65,6 @@ Spork.prefork do
     
     config.before(:suite) do
       DatabaseCleaner.strategy = :transaction
-      
-      # This is removed in order to keep the seed data
-      #DatabaseCleaner.clean_with(:truncation)
 
       # Seed the database only in the beginning for better test performance
       # This needs to be changed if/when any test modify seeded values

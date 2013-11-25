@@ -1,6 +1,6 @@
 class EmailService
 
-  # Give users `all_emails` and list of list of `allowed_emails` and the
+  # Give user's `all_emails` and list of list of `allowed_emails` and the
   # `email` that will be removed. Return hash with true/false and a 
   # reason
   def self.can_delete_email(all_emails, email, allowed_emails=[])

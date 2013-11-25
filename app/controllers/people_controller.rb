@@ -257,16 +257,6 @@ class PeopleController < Devise::RegistrationsController
 	    redirect_to :back and return
     end
     
-    # If person is changing email address, store the old confirmed address as additional email
-    # One point of this is that same email cannot be used more than one in email restricted community
-    # (This has to be remembered also when creating a possibility to modify additional emails)
-
-    # DEPRECETAD
-    # However, we need to prevent removing all community emails
-    # if params[:person][:email] && @person.confirmed_at
-    #   Email.create(:person => @person, :address => @person.email, :confirmed_at => @person.confirmed_at) unless Email.find_by_address(@person.email)
-    # end
-    
     @person.set_emails_that_receive_notifications(params[:person][:send_notifications])
 
     payment_gateway = @current_community.payment_gateways && @current_community.payment_gateways.first
