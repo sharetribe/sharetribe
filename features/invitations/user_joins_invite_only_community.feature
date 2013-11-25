@@ -92,10 +92,11 @@ Feature: User joins invite only community
     And I press "Create account"
     Then I should not see "The invitation code is not valid."
     And I should not see "This field is required."
+    And I should see "Confirm your email"
     And I should receive 1 email
     When I open the email
     And I follow "confirmation" in the email
-    Then I should have 2 emails
-    And I should see "The email you entered is now confirmed"
+    Then I should see "The email you entered is now confirmed"
+    And I should have 2 emails
     And Most recently created user should be member of "test" community with its latest consent accepted with invitation code "GH1JX8"
     And Invitation with code "GH1JX8" should have 0 usages_left
