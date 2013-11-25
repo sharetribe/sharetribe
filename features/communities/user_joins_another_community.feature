@@ -81,7 +81,7 @@ Feature: User joins another community
     And wait for 1 second
     Then I should see "Confirm your email"
     And "random@example.com" should receive an email
-    And user "kassi_testperson3" should have additional unconfirmed email "random@example.com"
+    And user "kassi_testperson3" should have unconfirmed email "random@example.com"
     
     # Try resending
     When I press "Resend confirmation instructions"
@@ -106,9 +106,12 @@ Feature: User joins another community
     When I open the email
     And I follow "confirmation" in the email
     Then I should see "The email you entered is now confirmed"
-    And user "kassi_testperson3" should have additional confirmed email "other.email@example.com"
+    And user "kassi_testperson3" should have confirmed email "other.email@example.com"
     And I should not see "Email address"
-    Then I should see "Post a new listing"
+    Then I should see "Test P"
+    And "other.email@example.com" should have 2 emails
+    And I should receive an email with subject "Welcome to Sharetribe Test2 - here are some tips to get you started"
+    
   
   @javascript
   Scenario: User joins another community when having both visible and non-visible listings

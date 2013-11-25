@@ -1,3 +1,13 @@
+Given /^there are following communities:$/ do |communities_table|
+  communities_table.hashes.each do |hash|
+    domain = hash[:community]
+    @hash_community = FactoryGirl.create(:community, :name => domain, :domain => domain)
+    
+    attributes_to_update = hash.except('community')
+    @hash_community.update_attributes(attributes_to_update) unless attributes_to_update.empty?
+  end
+end
+
 Given /^the test community has following available locales:$/ do |locale_table|
   @locales = []
   locale_table.hashes.each do |hash|

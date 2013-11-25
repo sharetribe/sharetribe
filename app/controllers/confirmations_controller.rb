@@ -10,18 +10,17 @@ class ConfirmationsController < Devise::ConfirmationsController
   
   # POST /resource/confirmation
   def create
-    if params[:person] && params[:person][:email] && ! @current_user.has_email?(params[:person][:email]) && @current_community
+    email_param_present = params[:person] && params[:person][:email]
+
+    # Change the email address
+    if email_param_present && ! @current_user.has_email?(params[:person][:email]) && @current_community
       # If user submitted the email change form, change the email before sending again.
-      if Person.email_available?(params[:person][:email])
+      if Email.email_available?(params[:person][:email])
         if @current_community.email_allowed?(params[:person][:email])
-          if params[:person][:email_to_change] && @current_user.has_email?(params[:person][:email_to_change])
-            @current_user.change_email(params[:person][:email_to_change], params[:person][:email])
-            @current_user.send_email_confirmation_to(params[:person][:email], request.host_with_port, @current_community)
-            flash[:notice] = t("sessions.confirmation_pending.check_your_email")
-            redirect_to :controller => "sessions", :action => "confirmation_pending" and return
-          else
-            @current_user.update_attribute(:email, params[:person][:email])
-          end
+          email = Email.create(:person => @current_user, :address => params[:person][:email], :send_notifications => true)
+          Email.send_confirmation(email, request.host_with_port, @current_community)
+          flash[:notice] = t("sessions.confirmation_pending.check_your_email")
+          redirect_to :controller => "sessions", :action => "confirmation_pending" and return
         else
           flash[:error] = t("people.new.email_not_allowed")
           redirect_to :controller => "sessions", :action => "confirmation_pending" and return
@@ -32,35 +31,13 @@ class ConfirmationsController < Devise::ConfirmationsController
       end
     end
     
-    # If looks like were confirming here a company email on dashboard, send manually 
-    if session[:unconfirmed_email] && 
-           session[:allowed_email] &&
-           session[:unconfirmed_email].match(session[:allowed_email]) && 
-           @current_user.has_email?(session[:unconfirmed_email]) 
-      @current_user.send_email_confirmation_to(session[:unconfirmed_email], request.host_with_port, @current_community)
-      flash[:notice] = t("sessions.confirmation_pending.account_confirmation_instructions_dashboard")
-      redirect_to new_tribe_path and return
-    
-    elsif params[:person][:email] && params[:person][:email] != @current_user.email # resend confirmation for an additional email
-      @current_user.send_email_confirmation_to(params[:person][:email], request.host_with_port, @current_community)
+    # Resend confirmation
+    if email_param_present
+      email = Email.find_by_address(params[:person][:email])
+      Email.send_confirmation(email, request.host_with_port, @current_community)
       flash[:notice] = t("sessions.confirmation_pending.check_your_email")
       redirect_to :controller => "sessions", :action => "confirmation_pending" and return
-    
-    else #resend confirmation for primary email
-      self.resource = @current_user.send_confirmation_instructions(request.host_with_port, @current_community)
-      if successfully_sent?(resource)
-        if on_dashboard?
-          flash[:notice] = t("sessions.confirmation_pending.account_confirmation_instructions_dashboard")
-          redirect_to new_tribe_path and return
-        else
-          set_flash_message(:notice, :send_instructions) if is_navigational_format?
-          redirect_to :controller => "sessions", :action => "confirmation_pending" # This is changed from Devise's default
-        end
-      else
-        respond_with(resource)
-      end
     end
-
     
   end
   
@@ -71,49 +48,34 @@ class ConfirmationsController < Devise::ConfirmationsController
       params[:confirmation_token] = params[:confirmation_token].chomp("'") 
     end
     
-    self.resource = resource_class.confirm_by_token(params[:confirmation_token])
+    #check if this confirmation code matches to additional emails
+    if e = Email.find_by_confirmation_token(params[:confirmation_token])
+      e.confirmed_at = Time.now
+      e.confirmation_token = nil
+      e.save
 
-    if resource.errors.empty?
-      set_flash_message(:notice, :confirmed) if is_navigational_format?
-      sign_in(resource_name, resource)
-      @current_user = current_person
-      if on_dashboard?
-        redirect_to new_tribe_path and return
-      else
-        @current_community.approve_pending_membership(@current_user, @current_user.email)
-        PersonMailer.welcome_email(@current_user, @current_community).deliver
-        redirect_to root
-      end
-    else
-      #check if this confirmation code matches to additional emails
-      if e = Email.find_by_confirmation_token(params[:confirmation_token])
-        e.confirmed_at = Time.now
-        e.confirmation_token = nil
-        e.save
-        
-        # This redirect expects that additional emails are only added when joining a community that requires it
-        if on_dashboard?
-          redirect_to new_tribe_path and return
-        else
-          # Accept pending community membership if needed
-          @current_community.approve_pending_membership(@current_user, e.address)
-            
-          PersonMailer.welcome_email(@current_user, @current_community).deliver
-          flash[:notice] = t("layouts.notifications.additional_email_confirmed")
-          redirect_to root and return
-        end
+      if !e.person.confirmed_at.present?
+        e.person.confirm!
       end
       
-      flash[:error] = t("layouts.notifications.confirmation_link_is_wrong_or_used")
-      if @current_user
-        if on_dashboard?
-          redirect_to new_tribe_path
-        else
-          redirect_to :controller => "sessions", :action => "confirmation_pending"
-        end
-      else
-        redirect_to :root
+      # Accept pending community membership if needed
+      if @current_community.approve_pending_membership(@current_user, e.address)
+        # If the pending membership was accepted now, it's time to send the welcome email
+        PersonMailer.welcome_email(@current_user, @current_community).deliver
       end
+      flash[:notice] = t("layouts.notifications.additional_email_confirmed")
+      redirect_to root and return
+    end
+    
+    flash[:error] = t("layouts.notifications.confirmation_link_is_wrong_or_used")
+    if @current_user
+      if on_dashboard?
+        redirect_to new_tribe_path
+      else
+        redirect_to :controller => "sessions", :action => "confirmation_pending"
+      end
+    else
+      redirect_to :root
     end
   end
   

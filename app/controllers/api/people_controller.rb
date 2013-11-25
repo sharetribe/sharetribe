@@ -2,7 +2,8 @@ class Api::PeopleController < Api::ApiController
 
   def index
     if params["email"]
-      @people = Person.find_by_email(params["email"])
+      e = Email.find_by_address(params["email"])
+      @people = e.person
       @total_pages = 1
     elsif @current_community
       @people = @current_community.members.paginate(:per_page => @per_page, :page => @page)

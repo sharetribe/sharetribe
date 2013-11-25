@@ -3,6 +3,7 @@ Feature: User creates a new listing
   As a person who does not have the required item, skill, or transport, or has them and wants offer them to others
   I want to be able to offer and request an item, a favor, a transport or housing
   
+  @phantomjs_skip
   @javascript
   Scenario: Creating a new item request successfully
     Given I am logged in
@@ -21,6 +22,7 @@ Feature: User creates a new listing
     Then I should see "Sledgehammer" within "#listing-title"
     And I should see the image I just uploaded
   
+  @phantomjs_skip
   @javascript
   Scenario: Creating a new item offer successfully
     Given I am logged in
@@ -38,6 +40,7 @@ Feature: User creates a new listing
     Then I should see "My offer" within "#listing-title"
     And I should see the image I just uploaded
   
+  @phantomjs_skip
   @javascript
   Scenario: Creating a new service request successfully
     Given I am logged in
@@ -72,6 +75,7 @@ Feature: User creates a new listing
     When I follow "new-listing-link"
     And I should see "Log in to Sharetribe" within "h1"
 
+  @phantomjs_skip
   @javascript
   Scenario: Trying to create a new item request with insufficient information
     Given I am logged in
@@ -125,6 +129,7 @@ Feature: User creates a new listing
     And I am on the homepage
     Then I should see "Hammer"
 
+  @phantomjs_skip
   @javascript
   Scenario: Create a new listing successfully after going back and forth in the listing form
     Given I am logged in

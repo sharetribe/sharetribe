@@ -19,33 +19,42 @@ describe PeopleController do
   describe "#check_email_availability" do
     it "should return unavailable if email is in use" do
       @request.host = "test.lvh.me"
-      person, session = get_test_person_and_session
-      person.update_attribute(:email, "test@example.com")
+      person = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "test@example.com")])
 
-      get :check_email_availability,  {:person => {:email => "test@example.com"}, :format => :json}
+      get :check_email_availability,  {:person => {:email_attributes => {:address => "test@example.com"} }, :format => :json}
       response.body.should == "false"
 
       Email.create(:person_id => person.id, :address => "test2@example.com")
-      get :check_email_availability,  {:person => {:email => "test2@example.com"}, :format => :json}
+      get :check_email_availability,  {:person => {:email_attributes => {:address => "test2@example.com"} }, :format => :json}
       response.body.should == "false"  
     end
     
-    it "should return available for user's own adress" do
+    it "should return NOT available for user's own adress" do
       @request.host = "test.lvh.me"
-
+    
       person, session = get_test_person_and_session
       sign_in person
-    
-      person.update_attribute(:email, "test@example.com")
-      get :check_email_availability,  {:person => {:email => "test@example.com"}, :format => :json}
-      response.body.should == "true"
       
       Email.create(:person_id => person.id, :address => "test2@example.com")
-      get :check_email_availability,  {:person => {:email => "test2@example.com"}, :format => :json}
-      response.body.should == "true"
+      get :check_email_availability,  {:person => {:email_attributes => {:address => "test2@example.com"} }, :format => :json}
+      response.body.should == "false"
     end
     
   end
+  
+  describe "#check_email_availability_and_validity" do
+    it "should return available for user's own adress" do
+      @request.host = "test.lvh.me"
+    
+      person, session = get_test_person_and_session
+      sign_in person
+      
+      Email.create(:person_id => person.id, :address => "test2@example.com")
+      get :check_email_availability_and_validity,  {:person => {:email => "test2@example.com"}, :format => :json}
+      response.body.should == "true"
+    end
+  end
+  
   
   describe "#update" do
     it "should store the old accepted email as additional email when changing email" do
@@ -53,8 +62,7 @@ describe PeopleController do
       # one reason for this is that people can't use one email to create many accounts in email restricted community
       community = FactoryGirl.build(:community, :allowed_emails => "@examplecompany.co")
       @request.host = "#{community.domain}.lvh.me"
-      member = FactoryGirl.build(:person)
-      member.email = "one@examplecompany.co"
+      member = FactoryGirl.build(:person, :emails => [ FactoryGirl.build(:email, :address => "one@examplecompany.co")])
       member.communities.push community
       member.save
       

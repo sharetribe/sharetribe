@@ -224,6 +224,10 @@ Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
   end
 end
 
+When /^I confirm alert popup$/ do
+  page.driver.browser.switch_to.alert.accept
+end
+
 Then /^take a screenshot$/ do
   save_screenshot('screenshot.png')
 end

@@ -1,6 +1,5 @@
 # Commonly used email steps
 #
-# To add your own steps make a custom_email_steps.rb
 # The provided methods are:
 #
 # last_email_address
@@ -24,12 +23,53 @@
 #
 # The Cucumber steps below are setup in this order.
 
+Given /^there are following emails:$/ do |emails_table|
+  # Clean up old emails first
+  emails_table.hashes.each do |hash|
+    person = Person.find_by_username(hash[:person])
+    person.emails.each { |email| email.destroy }
+  end
+
+  # Create new emails 
+  emails_table.hashes.each do |hash|
+    person = Person.find_by_username(hash[:person])
+    @hash_email = FactoryGirl.create(:email, :person => person)
+    
+    attributes_to_update = hash.except('person')
+    @hash_email.update_attributes(attributes_to_update) unless attributes_to_update.empty?
+    @hash_email
+
+    # Save
+    person.emails << @hash_email
+    person.save!
+  end
+end
+
+When /^I confirm my email address$/ do
+  steps %Q{
+    Then I should receive 1 email
+    When I open the email
+    And I click the first link in the email
+    Then I should have 2 emails
+    And I should see "The email you entered is now confirmed"
+  }
+end
+
+When /^I confirm email address "(.*?)"$/ do |email|
+  steps %Q{
+    Then "#{email}" should receive 1 email
+    When "#{email}" open the email
+    And I click the first link in the email
+    And I should see "The email you entered is now confirmed"
+  }
+end
+
 module EmailHelpers
   def current_email_address
     # Replace with your a way to find your current email. e.g @current_user.email
     # last_email_address will return the last email address used by email spec to find an email.
     # Note that last_email_address will be reset after each Scenario.
-    last_email_address || (@logged_in_user && @logged_in_user.email) || Thread.current[:latest_used_random_email] || "example@example.com"
+    last_email_address || (@logged_in_user && @logged_in_user.confirmed_notification_email_addresses.last) || Thread.current[:latest_used_random_email] || "example@example.com"
   end
 end
 

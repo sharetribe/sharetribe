@@ -938,11 +938,15 @@ en:
       you_must_log_in_to_view_your_inbox: "You must log in to %{service_name} to view your inbox."
       you_must_log_in_to_view_your_settings: "You must log in to %{service_name} to view your settings."
       you_must_log_in_to_add_news_item: "You must log in to %{service_name} to add a new article."
+      you_must_log_in_to_change_profile_settings: "You must log in to %{service_name} to change profile settings"
       you_need_to_confirm_your_account_first: "You need to confirm your email."
       you_must_fill_all_the_fields: "You must fill all the fields"
       you_unfollowed_listing: "You are no longer following this listing"
       joining_community_failed: "Joining this community failed"
       can_not_login_with_private_user: "You can not login to this community with your personal account. Log in with organization account or create a new account."
+      can_not_delete_email: "You can not remove the email address"
+      user_does_not_have_email_to_delete: "You don't have the email address you're trying to remove"
+      email_deleted: "Email removed"
     profile_extras_header:
       back_to_profile_of_person: "Back to user's profile"
       badges: Badges
@@ -1525,13 +1529,27 @@ en:
       delete_account: "Delete account"
       delete_account_button: "Permanently delete my account"
       delete_account_confirmation_popup: "Are you sure you really want to delete your user account and permanently lose all data related to it? Account deletion can not be reversed."
-      email: "Email address:"
+      email_addresses: "Email addresses"
       instructions_to_delete_account: "If you delete your account all the data related to it will be removed: your profile details, listings, comments, messages, feedbacks etc."
       contact_admin: "please contact the administrators"
       new_email: "New email address"
       new_password: "New password"
       save: Save
       these_fields_are_shown_only_to_you: "Username is shown in your profile unless you have given your name. Other information is only shown to you."
+      email:
+        address_title: "Address"
+        remove_title: Remove
+        remove_confirmation: Are you sure you want to remove this email address?
+        send_notifications_title_desktop: Send notifications
+        send_notifications_title_mobile: Send notifications
+        send_notifications_new_title_mobile: Send notifications
+        add_new_with_plus: "+ Add new email address"
+        add_new_cancel: Cancel
+        confirmation_title_mobile: "Confirmation:"
+        confirmation_title_desktop: "Confirmation"
+        confirmation_resend: Resend
+        status_confirmed: Confirmed
+        status_pending: Pending
     notifications:
       email_from_admins: "I'm willing to receive occasional updates from the administrator(s) of this community"
       i_want_to_get_email_notification_when: "I want to get an email notification when..."

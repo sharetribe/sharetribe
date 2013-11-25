@@ -33,7 +33,7 @@ class PersonMailer < ActionMailer::Base
     @email_type =  (conversation.status == "accepted" ? "email_when_conversation_accepted" : "email_when_conversation_rejected")
     set_up_urls(conversation.other_party(conversation.listing.author), community, @email_type)
     @conversation = conversation
-    mail(:to => @recipient.email,
+    mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.conversation_status_changed.your_#{Listing.opposite_type(conversation.listing.listing_type)}_was_#{conversation.status}"))
   end
@@ -42,7 +42,7 @@ class PersonMailer < ActionMailer::Base
     @email_type =  "email_about_new_messages"
     set_up_urls(message.conversation.other_party(message.sender), community, @email_type)
     @message = message
-    sending_params = {:to => @recipient.email,
+    sending_params = {:to => @recipient.confirmed_notification_emails_to,
          :subject => t("emails.new_message.you_have_a_new_message", :sender_name => message.sender.name(community)),
          :from => community_specific_sender(community)}
     
@@ -53,7 +53,7 @@ class PersonMailer < ActionMailer::Base
     @email_type =  "email_about_new_payments"
     @payment = payment
     set_up_urls(@payment.recipient, community, @email_type)
-    mail(:to => @recipient.email,
+    mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.new_payment.new_payment"))
   end
@@ -62,7 +62,7 @@ class PersonMailer < ActionMailer::Base
     @email_type =  "email_about_new_payments"
     @payment = payment
     set_up_urls(@payment.payer, community, @email_type)
-    mail(:to => @recipient.email,
+    mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.receipt_to_payer.receipt_of_payment"))
   end
@@ -71,7 +71,7 @@ class PersonMailer < ActionMailer::Base
     @email_type =  "email_about_completed_transactions"
     @conversation = conversation
     set_up_urls(@conversation.offerer, community, @email_type)
-    mail(:to => @recipient.email,
+    mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.transaction_confirmed.request_marked_as_#{@conversation.status}"))
   end
@@ -80,7 +80,7 @@ class PersonMailer < ActionMailer::Base
     @email_type =  "email_about_new_received_testimonials"
     set_up_urls(testimonial.receiver, community, @email_type)
     @testimonial = testimonial
-    mail(:to => @recipient.email,
+    mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => @testimonial.author.name(community)))
   end
@@ -90,7 +90,7 @@ class PersonMailer < ActionMailer::Base
     set_up_urls(badge.person, community, @email_type)
     @badge = badge
     @badge_name = t("people.profile_badge.#{@badge.name}")
-    mail(:to => @recipient.email,
+    mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.new_badge.you_have_achieved_a_badge", :badge_name => @badge_name))
   end
@@ -103,7 +103,7 @@ class PersonMailer < ActionMailer::Base
     @email_type = "email_about_accept_reminders"
     set_up_urls(conversation.listing.author, community, @email_type)
     @conversation = conversation
-    mail(:to => @recipient.email,
+    mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.accept_reminder.remember_to_accept_#{@conversation.discussion_type}", :sender_name => @conversation.other_party(@recipient).name(community)))
   end
@@ -113,7 +113,7 @@ class PersonMailer < ActionMailer::Base
     @email_type = "email_about_payment_reminders"
     set_up_urls(conversation.payment.payer, community, @email_type)
     @conversation = conversation
-    mail(:to => @recipient.email,
+    mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.payment_reminder.remember_to_pay", :listing_title => @conversation.listing.title))
   end
@@ -124,7 +124,7 @@ class PersonMailer < ActionMailer::Base
     @listing = listing
     @recipient = recipient
 
-    mail(:to => recipient.email,
+    mail(:to => recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.payment_settings_reminder.remember_to_add_payment_details")) do |format|
             format.html {render :locals => {:skip_unsubscribe_footer => true} }
@@ -136,7 +136,7 @@ class PersonMailer < ActionMailer::Base
     @email_type = "email_about_confirm_reminders"
     set_up_urls(conversation.requester, community, @email_type)
     @conversation = conversation
-    mail(:to => @recipient.email,
+    mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.confirm_reminder.remember_to_confirm_request"))
   end
@@ -147,7 +147,7 @@ class PersonMailer < ActionMailer::Base
     set_up_urls(recipient, community, @email_type)
     @conversation = conversation
     @other_party = @conversation.other_party(@recipient)
-    mail(:to => @recipient.email,
+    mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.testimonial_reminder.remember_to_give_feedback_to", :name => @other_party.name))
   end
@@ -156,7 +156,7 @@ class PersonMailer < ActionMailer::Base
     @email_type = "email_about_new_comments_to_own_listing"
     set_up_urls(comment.listing.author, community, @email_type)
     @comment = comment
-    mail(:to => @recipient.email,
+    mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.new_comment.you_have_a_new_comment", :author => @comment.author.name(community)))
   end
@@ -164,7 +164,7 @@ class PersonMailer < ActionMailer::Base
   def new_comment_to_followed_listing_notification(comment, recipient, community)
     set_up_urls(recipient, community)
     @comment = comment
-    mail(:to => @recipient.email,
+    mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => @comment.author.name(community)))
   end
@@ -172,7 +172,7 @@ class PersonMailer < ActionMailer::Base
   def new_update_to_followed_listing_notification(listing, recipient, community)
     set_up_urls(recipient, community)
     @listing = listing
-    mail(:to => @recipient.email,
+    mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.new_update_to_listing.listing_you_follow_has_been_updated"))
   end
@@ -196,10 +196,10 @@ class PersonMailer < ActionMailer::Base
     set_up_urls(recipient, community, @email_type)
     @email_content = email_content
     @no_recipient_name = true
-    mail(:to => @recipient.email, 
+    mail(:to => @recipient.confirmed_notification_emails_to, 
          :from => community_specific_sender(community),
          :subject => email_subject, 
-         :reply_to => "\"#{sender.name(community)}\"<#{sender.email}>")
+         :reply_to => "\"#{sender.name(community)}\"<#{sender.last_confirmed_notification_email_to}>")
   end
   
   # A custom message to a community starter
@@ -211,7 +211,7 @@ class PersonMailer < ActionMailer::Base
     # This check needs to be here because this method is currently
     # usually called directly from console.
     if @recipient.should_receive?("email_from_admins")
-      mail(:to => @recipient.email, 
+      mail(:to => @recipient.confirmed_notification_emails_to, 
            :from => community_specific_sender(community),
            :subject => t("emails.community_starter_email.subject")) do |format|
         format.html { render "community_starter_email_#{@recipient.locale}" }
@@ -223,7 +223,13 @@ class PersonMailer < ActionMailer::Base
   # gives feedback on Sharetribe
   def new_feedback(feedback, community)
     @feedback = feedback
-    @feedback.email ||= feedback.author.try(:email)
+
+    @feedback.email = if feedback.author then
+      feedback.author.last_confirmed_notification_email_to
+    else
+      @feedback.email
+    end
+
     @current_community = community
     subject = "New #unanswered #feedback from #{@current_community.name} community from user #{feedback.author.try(:name)} "
     mail_to = APP_CONFIG.feedback_mailer_recipients + (@current_community.feedback_to_admin? ? ", #{@current_community.admin_emails.join(",")}" : "")
@@ -268,23 +274,8 @@ class PersonMailer < ActionMailer::Base
          :from => community_specific_sender(@community),
          :subject => "New member in #{@community.name} Sharetribe")
   end
-  
 
-  def email_confirmation(person, host, com=nil)
-    community = com || Community.find_by_domain(host)
-    @no_settings = true
-    @resource = person
-    @confirmation_token = person.confirmation_token
-    @host = host
-    person.update_attribute(:confirmation_sent_at, Time.now)
-    mail(:to => person.email, 
-         :from => community_specific_sender(com),
-         :subject => t("devise.mailer.confirmation_instructions.subject"), 
-         :template_path => 'devise/mailer', 
-         :template_name => 'confirmation_instructions')
-  end
-  
-  def additional_email_confirmation(email, host, com=nil)
+  def email_confirmation(email, host, com=nil)
     community = com || Community.find_by_domain(host)
     @no_settings = true
     @resource = email.person
@@ -341,7 +332,7 @@ class PersonMailer < ActionMailer::Base
       delivery_method = APP_CONFIG.mail_delivery_method.to_sym unless Rails.env.test?
     end
     
-    mail(:to => @recipient.email,
+    mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => subject,
          :delivery_method => delivery_method) do |format|
@@ -362,7 +353,7 @@ class PersonMailer < ActionMailer::Base
     @url_base = "#{@community.full_url}"
     @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id, :locale => @recipient.locale)}"
     
-    mail(:to => @recipient.email, 
+    mail(:to => @recipient.confirmed_notification_emails_to, 
          :from => community_specific_sender(@community),
          :subject => t("emails.newsletter.occasional_newsletter_title")) do |format|
       format.html { render :layout => "newsletter" }
@@ -385,7 +376,7 @@ class PersonMailer < ActionMailer::Base
       delivery_method = APP_CONFIG.mail_delivery_method.to_sym
     end
     
-    mail(:to => recipient.email, :subject => subject, :reply_to => "diego@sharetribe.com", :delivery_method => delivery_method)
+    mail(:to => recipient.confirmed_notification_emails_to, :subject => subject, :reply_to => "diego@sharetribe.com", :delivery_method => delivery_method)
   end
   
   # This method can send any plain text mail where subject and mail contents are given in parameters.
@@ -427,7 +418,7 @@ class PersonMailer < ActionMailer::Base
     # disable escaping since this is currently always coming from trusted source.
     @mail_content = @mail_content.html_safe
     
-    mail(:to => @recipient.email, :subject => @subject) do |format|
+    mail(:to => @recipient.confirmed_notification_emails_to, :subject => @subject) do |format|
       format.text { render :layout => false }
     end
   end
@@ -460,8 +451,8 @@ class PersonMailer < ActionMailer::Base
               PersonMailer.community_updates(person, community).deliver
             rescue => e
               # Catch the exception and continue sending emails
-            puts "Error sending mail to #{person.email} community updates: #{e.message}"
-            ApplicationHelper.send_error_notification("Error sending mail to #{person.email} community updates: #{e.message}", e.class)
+            puts "Error sending mail to #{person.confirmed_notification_emails} community updates: #{e.message}"
+            ApplicationHelper.send_error_notification("Error sending mail to #{person.confirmed_notification_emails} community updates: #{e.message}", e.class)
             end
           end
         end
@@ -496,7 +487,7 @@ class PersonMailer < ActionMailer::Base
   def self.deliver_open_content_messages(people_array, subject, mail_content, default_locale="en", verbose=false, addresses_to_skip=[])
     people_array.each do |person|
       # only send mail to people whose profile is active and not asked to be skipped
-      if person.active && ! addresses_to_skip.include?(person.email)
+      if person.active && ! person.confirmed_notification_emails.any? { |notification_email| addresses_to_skip.include?(notification_email) }
         begin
           PersonMailer.open_content_message(person, subject, mail_content, default_locale).deliver
         rescue => e
@@ -530,7 +521,7 @@ class PersonMailer < ActionMailer::Base
     else
       subject = t("emails.welcome_email.subject", :community => @current_community.full_name, :person => person.given_name_or_username)
     end
-    mail(:to => @recipient.email,
+    mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(@community),
          :subject => subject) do |format|
       format.html { render :layout => false }

@@ -3,6 +3,7 @@ Feature: User edits his own listing
   As the creator of the listing
   I want to be able to edit the listing
 
+  @phantomjs_skip
   @javascript
   Scenario: User edits an item request
     Given there are following users:

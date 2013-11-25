@@ -1,7 +1,17 @@
 require 'spec_helper'
 
-def find_email_body_for(addr)
-  ActionMailer::Base.deliveries.select{ |e| e.to.first == addr}.first
+def find_email_body_for(email)
+  ActionMailer::Base.deliveries.select do |e|
+    e.to.first == email.address
+  end.first
+end
+
+# Give `arr` and `needle_arr` and get back
+# true if all elements of `needle_arr` are included in `arr`
+#
+# http://stackoverflow.com/questions/7387937/ruby-rails-how-to-determine-if-one-array-contains-all-elements-of-another-array
+def include_all?(arr, needle_arr)
+  (needle_arr - arr).empty?
 end
 
 describe PersonMailer do
@@ -12,11 +22,12 @@ describe PersonMailer do
   include(EmailSpec::Matchers)
   
   before(:each) do
-    @test_person, @session = get_test_person_and_session
-    @test_person2, @session2 = get_test_person_and_session("kassi_testperson2")
+    # @test_person, @session = get_test_person_and_session
+    # @test_person2, @session2 = get_test_person_and_session("kassi_testperson2")
+    @test_person = FactoryGirl.create(:person)
+    @test_person2 = FactoryGirl.create(:person)
     @test_person2.locale = "en"
     @test_person2.save
-    @cookie = (@session.present? ? @session.cookie : nil)
     @community = FactoryGirl.create(:community)
   end   
 
@@ -28,7 +39,7 @@ describe PersonMailer do
     @message.save
     email = PersonMailer.new_message_notification(@message, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to 
+    assert_equal @test_person2.confirmed_notification_email_addresses, email.to 
     assert_equal "A new message in Sharetribe from #{@message.sender.name}", email.subject
   end
   
@@ -38,7 +49,7 @@ describe PersonMailer do
     recipient = @comment.listing.author
     email = PersonMailer.new_comment_to_own_listing_notification(@comment, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [recipient.email], email.to unless recipient.email.nil? 
+    assert_equal recipient.confirmed_notification_email_addresses, email.to
     assert_equal "Teppo T has commented on your listing in Sharetribe", email.subject
   end
 
@@ -49,7 +60,7 @@ describe PersonMailer do
     email = PersonMailer.payment_settings_reminder(listing, recipient, community).deliver
 
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [recipient.email], email.to unless recipient.email.nil?
+    assert_equal recipient.confirmed_notification_email_addresses, email.to
     assert_equal "Remember to add your payment details to receive payments", email.subject
   end
   
@@ -64,13 +75,13 @@ describe PersonMailer do
     @conversation.messages.inspect
     email = PersonMailer.conversation_status_changed(@conversation, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to
+    assert_equal @test_person2.confirmed_notification_email_addresses, email.to
     assert_equal "Your request was accepted", email.subject
     
     @conversation.update_attribute(:status, "rejected")
     email = PersonMailer.conversation_status_changed(@conversation, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to
+    assert_equal @test_person2.confirmed_notification_email_addresses, email.to
     assert_equal "Your request was rejected", email.subject
   end
   
@@ -78,7 +89,7 @@ describe PersonMailer do
     @badge = FactoryGirl.create(:badge)
     email = PersonMailer.new_badge(@badge, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@badge.person.email], email.to unless @badge.person.email.nil? 
+    assert_equal @badge.person.confirmed_notification_email_addresses, email.to unless @badge.person.email.nil? 
     assert_equal "You have achieved a badge 'Rookie' in Sharetribe!", email.subject
   end
   
@@ -92,7 +103,7 @@ describe PersonMailer do
     @testimonial = Testimonial.new(:grade => 0.75, :text => "Yeah", :author => @test_person, :receiver => @test_person2, :participation_id => @participation.id)
     email = PersonMailer.new_testimonial(@testimonial, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to
+    assert_equal @test_person2.confirmed_notification_email_addresses, email.to
     assert_equal "Teppo T has given you feedback in Sharetribe", email.subject
   end
   
@@ -107,12 +118,12 @@ describe PersonMailer do
     @participation = Participation.find_by_person_id_and_conversation_id(@test_person2.id, @conversation.id)
     email = PersonMailer.testimonial_reminder(@conversation, @test_person2, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to
+    assert_equal @test_person2.confirmed_notification_email_addresses, email.to
     assert_equal "Reminder: remember to give feedback to Teppo T", email.subject
   end
   
   it "should remind to accept or reject" do
-    Person.find(@test_person2.id).update_attributes({ "given_name" => "Jack", "family_name" => "Dexter" })
+    @test_person2.update_attributes({ "given_name" => "Jack", "family_name" => "Dexter" })
     @listing = FactoryGirl.create(:listing, :author => @test_person)
     @conversation = FactoryGirl.create(:conversation, :listing => @listing)
     @conversation.participants << @test_person
@@ -122,7 +133,7 @@ describe PersonMailer do
     email = PersonMailer.accept_reminder(@conversation, "this_can_be_anything", @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
 
-    assert_equal [@test_person.email], email.to
+    assert_equal @test_person.confirmed_notification_email_addresses, email.to
     assert_equal "Remember to accept or reject a request from Jack D", email.subject
   end
   
@@ -141,7 +152,7 @@ describe PersonMailer do
     m.update_attribute(:admin, true)
     email = PersonMailer.new_feedback(@feedback, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [APP_CONFIG.feedback_mailer_recipients, @test_person.email], email.to
+    assert_equal [APP_CONFIG.feedback_mailer_recipients].concat(@test_person.confirmed_notification_email_addresses) , email.to
   end
   
   it "should send email to community admins of new member if wanted" do
@@ -150,7 +161,7 @@ describe PersonMailer do
     m.update_attribute(:admin, true)
     email = PersonMailer.new_member_notification(@test_person2, @community.domain, @test_person2.email).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person.email], email.to
+    assert_equal @test_person.confirmed_notification_email_addresses, email.to
     assert_equal "New member in #{@community.name} Sharetribe", email.subject
   end
   
@@ -158,7 +169,8 @@ describe PersonMailer do
     
     before(:each) do
       @c1 = FactoryGirl.create(:community)
-      @p1 = FactoryGirl.create(:person, :email => "update_tester@example.com")
+      @p1 = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "update_tester@example.com") ])
+
       @p1.communities << @c1
     end
     
@@ -193,7 +205,7 @@ describe PersonMailer do
     
     before(:each) do
       @c1 = FactoryGirl.create(:community)
-      @p1 = FactoryGirl.create(:person, :email => "update_tester@example.com")
+      @p1 = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "update_tester@example.com") ])
       @p1.communities << @c1
       @l1 = FactoryGirl.create(:listing, 
           :share_type => find_or_create_share_type("request"), 
@@ -297,9 +309,9 @@ describe PersonMailer do
     
     it "should send only to people who want it now" do
       PersonMailer.deliver_community_updates
-      (ActionMailer::Base.deliveries[0].to.include?(@p2.email) || ActionMailer::Base.deliveries[0].to.include?(@p4.email)).should be_true
-      (ActionMailer::Base.deliveries[1].to.include?(@p2.email) || ActionMailer::Base.deliveries[1].to.include?(@p4.email)).should be_true
-      (ActionMailer::Base.deliveries[2].to.include?(@p2.email) || ActionMailer::Base.deliveries[2].to.include?(@p4.email)).should be_true
+      (include_all?(ActionMailer::Base.deliveries[0].to, @p2.confirmed_notification_email_addresses) || include_all?(ActionMailer::Base.deliveries[0].to, @p4.confirmed_notification_email_addresses)).should be_true
+      (include_all?(ActionMailer::Base.deliveries[1].to, @p2.confirmed_notification_email_addresses) || include_all?(ActionMailer::Base.deliveries[1].to, @p4.confirmed_notification_email_addresses)).should be_true
+      (include_all?(ActionMailer::Base.deliveries[2].to, @p2.confirmed_notification_email_addresses) || include_all?(ActionMailer::Base.deliveries[2].to, @p4.confirmed_notification_email_addresses)).should be_true
       ActionMailer::Base.deliveries.size.should == 3           
     end
     
@@ -307,11 +319,11 @@ describe PersonMailer do
       @p1.update_attribute(:community_updates_last_sent_at, 1.day.ago)
       PersonMailer.deliver_community_updates
       ActionMailer::Base.deliveries.size.should == 4
-      email = find_email_body_for(@p1.email)
+      email = find_email_body_for(@p1.emails.first)
       email.body.include?("during the past 1 day").should be_true
-      email = find_email_body_for(@p2.email)
+      email = find_email_body_for(@p2.emails.first)
       email.body.include?("during the past 14 day").should be_true
-      email = find_email_body_for(@p4.email)
+      email = find_email_body_for(@p4.emails.first)
       email.body.include?("during the past 9 day").should be_true
     end
     
@@ -321,7 +333,7 @@ describe PersonMailer do
       @p5.update_attribute(:community_updates_last_sent_at, nil)     
       PersonMailer.deliver_community_updates
       ActionMailer::Base.deliveries.size.should == 4
-      email = find_email_body_for(@p5.email)
+      email = find_email_body_for(@p5.emails.first)
       email.should_not be_nil
       #ActionMailer::Base.deliveries[3].to.include?(@p5.email).should be_true
       email.body.include?("during the past 7 days").should be_true
@@ -345,9 +357,9 @@ describe PersonMailer do
       
       
       ActionMailer::Base.deliveries.size.should == 2
-      
-      ActionMailer::Base.deliveries[0].to.include?(@test_person.email).should be_true
-      ActionMailer::Base.deliveries[1].to.include?(@test_person2.email).should be_true
+
+      include_all?(ActionMailer::Base.deliveries[0].to, @test_person.confirmed_notification_email_addresses).should be_true
+      include_all?(ActionMailer::Base.deliveries[1].to, @test_person2.confirmed_notification_email_addresses).should be_true
       ActionMailer::Base.deliveries[0].subject.should == "News"
       ActionMailer::Base.deliveries[1].subject.should == "News"
       ActionMailer::Base.deliveries[0].body.include?("check it out").should be_true
@@ -371,9 +383,9 @@ describe PersonMailer do
       PersonMailer.deliver_open_content_messages(people, "SHOULD NOT BE SEEN", content, "en")
       
       ActionMailer::Base.deliveries.size.should == 3
-      ActionMailer::Base.deliveries[0].to.include?(@test_person.email).should be_true
-      ActionMailer::Base.deliveries[1].to.include?(@test_person2.email).should be_true
-      ActionMailer::Base.deliveries[2].to.include?(@test_person3.email).should be_true
+      include_all?(ActionMailer::Base.deliveries[0].to, @test_person.confirmed_notification_email_addresses).should be_true
+      include_all?(ActionMailer::Base.deliveries[1].to, @test_person2.confirmed_notification_email_addresses).should be_true
+      include_all?(ActionMailer::Base.deliveries[2].to, @test_person3.confirmed_notification_email_addresses).should be_true
       ActionMailer::Base.deliveries[0].subject.should == "changes coming"
       ActionMailer::Base.deliveries[1].subject.should == "uudistuksia"
       ActionMailer::Base.deliveries[2].subject.should == "changes coming"      
@@ -393,7 +405,7 @@ describe PersonMailer do
 
       ActionMailer::Base.deliveries.size.should == 1
 
-      ActionMailer::Base.deliveries[0].to.include?(@test_person.email).should be_true
+      include_all?(ActionMailer::Base.deliveries[0].to, @test_person.confirmed_notification_email_addresses).should be_true
       ActionMailer::Base.deliveries[0].subject.should == "News"
       ActionMailer::Base.deliveries[0].body.include?("Just a short email").should be_true
     end
@@ -416,9 +428,9 @@ describe PersonMailer do
         PersonMailer.deliver_open_content_messages(people, "SHOULD NOT BE SEEN", content, "en")
 
         ActionMailer::Base.deliveries.size.should == 3
-        ActionMailer::Base.deliveries[0].to.include?(@test_person.email).should be_true
-        ActionMailer::Base.deliveries[1].to.include?(@test_person2.email).should be_true
-        ActionMailer::Base.deliveries[2].to.include?(@test_person3.email).should be_true
+        include_all?(ActionMailer::Base.deliveries[0].to, @test_person.confirmed_notification_email_addresses).should be_true
+        include_all?(ActionMailer::Base.deliveries[1].to, @test_person2.confirmed_notification_email_addresses).should be_true
+        include_all?(ActionMailer::Base.deliveries[2].to, @test_person3.confirmed_notification_email_addresses).should be_true
         ActionMailer::Base.deliveries[0].subject.should == "changes coming"
         ActionMailer::Base.deliveries[1].subject.should == "Ahorro ahora!"
         ActionMailer::Base.deliveries[2].subject.should == "Ahorro ahora!"      

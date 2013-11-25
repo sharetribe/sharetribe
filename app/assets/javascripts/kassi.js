@@ -732,16 +732,23 @@ function initialize_update_notification_settings_form(locale, person_id) {
   });  
 }
 
-function initialize_update_account_info_form(locale, change_text, cancel_text, email_in_use_message) {
-  $('#account_email_link').toggle(
-    function() {
-      $('#account_email_form').show();
-      $(this).text(cancel_text);
-      $('#person_email').focus();
-    },
-    function() {
-      $('#account_email_form').hide();
-      $(this).text(change_text);
+function initialize_update_account_info_form(locale, change_text, cancel_text, email_in_use_message, one_email_must_receive_notifications_message) {
+  $('.account-new-email-link').click(
+    function(event) {
+      event.preventDefault();
+      $('.account-new-email-link').hide();
+      $('.account-settings-hidden-email-form').show();
+      $("#person_email_attributes_address").removeAttr("disabled");
+      $("#person_email_attributes_send_notifications").removeAttr("disabled");
+    }
+  );
+  $('.account-hide-new-email-link').click(
+    function(event) {
+      event.preventDefault();
+      $('.account-new-email-link').show();
+      $('.account-settings-hidden-email-form').hide();
+      $("#person_email_attributes_address").attr("disabled", "disabled");
+      $("#person_email_attributes_send_notifications").attr("disabled", "disabled");
     }
   );
   $('#account_password_link').toggle(
@@ -757,11 +764,20 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
   );
   var email_form_id = "#email_form";
   $(email_form_id).validate({
+    errorPlacement: function(error, element) {
+      if (element.attr("name") == "person[send_notifications][]") {
+        error.insertAfter($("#account-settings-email-content-rows"));
+      } else {
+        error.insertAfter(element);
+      }
+    },
     rules: {
-      "person[email]": {required: true, email: true, remote: "/people/check_email_availability"}
+      "person[email_attributes][address]": {required: true, email: true, remote: "/people/check_email_availability"},
+      "person[send_notifications][]": {required: true}
     },
     messages: {
-      "person[email]": { remote: email_in_use_message }
+      "person[email_attributes][address]": { remote: email_in_use_message },
+      "person[send_notifications][]": { required: one_email_must_receive_notifications_message }
     },
     submitHandler: function(form) {
       disable_and_submit(email_form_id, form, "false", locale);

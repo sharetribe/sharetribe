@@ -1,3 +1,5 @@
+start_time = Time.now
+
 Before do
   ActiveRecord::Fixtures.reset_cache
   fixtures_folder = File.join(Rails.root  , 'spec', 'fixtures')
@@ -12,6 +14,12 @@ Before do
   Rails.cache.clear
 end
 
+Before('@javascript') do
+  if ENV['PHANTOMJS']
+    Capybara.current_driver = :webdriver_phantomjs
+    page.driver.browser.manage.window.resize_to(1024, 768)
+  end
+end
 
 Before('@badge') do
   # FactoryGirl.create(:community, :domain => "test3")
@@ -55,4 +63,10 @@ end
 After('@www_subdomain') do
   Capybara.default_host = 'test.lvh.me'
   Capybara.app_host = "http://test.lvh.me:9887"
+end
+
+After do |scenario|
+  if(scenario.failed?)
+    save_screenshot("tmp/screenshots/#{scenario.name}.png")
+  end
 end

@@ -13,7 +13,14 @@ class Api::TokensController < Api::ApiController
        return
     end
 
-    @person = Person.where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+    matched = Person.where(["lower(username) = :value", { :value => login.downcase }]).first
+
+    @person = if matched then
+      matched
+    else
+      e = Email.find_by_address(login.downcase)
+      e.person if e
+    end
 
     if @person.nil?
       logger.info("User #{login} failed signin, user cannot be found.")

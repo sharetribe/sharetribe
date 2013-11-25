@@ -116,6 +116,11 @@ Kassi::Application.routes.draw do
         resources :badges
         resources :testimonials
         resources :poll_answers
+        resources :emails do
+          member do
+            post :send_confirmation
+          end
+        end
       end
       
       # List few specific routes here for Devise to understand those

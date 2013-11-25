@@ -5,6 +5,8 @@ class PeopleController < Devise::RegistrationsController
   
   include PeopleHelper
   include RDF
+
+  
   
   skip_before_filter :verify_authenticity_token, :only => [:creates]
   skip_before_filter :require_no_authentication, :only => [:new]
@@ -44,14 +46,13 @@ class PeopleController < Devise::RegistrationsController
     @selected_tribe_navi_tab = "members"
     redirect_to root if logged_in?
     session[:invitation_code] = params[:code] if params[:code]
-    @person = Person.new
-    
-    if params[:person] #if values given in params, set them for the form
-      @person.given_name = params[:person][:given_name]
-      @person.family_name = params[:person][:family_name]
-      @person.email = params[:person][:email]
-      @person.username = params[:person][:username]
+
+    @person = if params[:person] then 
+      Person.new(params[:person].slice(:given_name, :family_name, :email, :username))
+    else
+      Person.new()
     end
+
     @container_class = params[:private_community] ? "container_12" : "container_24"
     @grid_class = params[:private_community] ? "grid_6 prefix_3 suffix_3" : "grid_10 prefix_7 suffix_7"
   end
@@ -83,7 +84,7 @@ class PeopleController < Devise::RegistrationsController
     end
     
     # Check that email is not taken
-    unless Person.email_available?(params[:person][:email])
+    unless Email.email_available?(params[:person][:email])
       flash[:error] = t("people.new.email_is_in_use")
       redirect_to error_redirect_path and return
     end
@@ -109,22 +110,17 @@ class PeopleController < Devise::RegistrationsController
 
     params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
     params[:person][:test_group_number] = 1 + rand(4)
-    
-    # skip email confirmation unless it's required in this community
-    params[:person][:confirmed_at] = (@current_community.email_confirmation ? nil : Time.now) if @current_community
-    
-    params["person"].delete(:terms) #remove terms part which confuses Devise
+  
+    email = Email.new(:person => @person, :address => params[:person][:email].downcase, :send_notifications => true)
+    params["person"].delete(:email)
 
-    # This part is copied from Devise's regstration_controller#create
-    build_resource
-    @person = resource
+    @person = build_devise_resource_from_person(@person)
+
+    @person.emails << email
 
     # Mark as organization user if signed up through market place which is only for orgs
     @person.is_organization = @current_community.only_organizations
 
-    # Skip automatic email confirmation mail by devise, as that doesn't support custom sender address
-    @person.skip_confirmation! 
-  
     if @person.save!
       sign_in(resource_name, resource)
     end
@@ -135,7 +131,7 @@ class PeopleController < Devise::RegistrationsController
       @person.update_attributes(:confirmation_sent_at => Time.now, :confirmed_at => nil) 
 
       # send the confirmation email manually
-      @person.send_email_confirmation_to(@person.email, request.host_with_port, @current_community)
+      Email.send_confirmation(email, request.host_with_port, @current_community)
     end
   
     @person.set_default_preferences
@@ -172,6 +168,19 @@ class PeopleController < Devise::RegistrationsController
       redirect_to(session[:return_to].present? ? domain + session[:return_to]: domain + root_path)
     end
   end
+
+  def build_devise_resource_from_person(person)
+    params["person"].delete(:terms) #remove terms part which confuses Devise
+
+    # This part is copied from Devise's regstration_controller#create
+    build_resource
+    person = resource
+
+    # Skip automatic email confirmation mail by devise, as that doesn't support custom sender address
+    person.skip_confirmation! 
+
+    person
+  end
   
   def create_facebook_based
     username = Person.available_username_based_on(session["devise.facebook_data"]["username"])
@@ -180,7 +189,6 @@ class PeopleController < Devise::RegistrationsController
       :username => username,
       :given_name => session["devise.facebook_data"]["given_name"],
       :family_name => session["devise.facebook_data"]["family_name"],
-      :email => session["devise.facebook_data"]["email"],
       :facebook_id => session["devise.facebook_data"]["id"],
       :locale => I18n.locale,
       :test_group_number => 1 + rand(4),
@@ -188,6 +196,8 @@ class PeopleController < Devise::RegistrationsController
       :password => Devise.friendly_token[0,20]
     }
     @person = Person.create!(person_hash)
+    Email.create(:address => session["devise.facebook_data"]["email"], :send_notifications => true, :person => @person)
+
     @person.set_default_preferences
 
     @person.store_picture_from_facebook
@@ -249,12 +259,7 @@ class PeopleController < Devise::RegistrationsController
 	    redirect_to :back and return
     end
     
-    # If person is changing email address, store the old confirmed address as additional email
-    # One point of this is that same email cannot be used more than one in email restricted community
-    # (This has to be remembered also when creating a possibility to modify additional emails)
-    if params[:person][:email] && @person.confirmed_at
-      Email.create(:person => @person, :address => @person.email, :confirmed_at => @person.confirmed_at) unless Email.find_by_address(@person.email)
-    end
+    @person.set_emails_that_receive_notifications(params[:person][:send_notifications])
 
     payment_gateway = @current_community.payment_gateways && @current_community.payment_gateways.first
 
@@ -275,6 +280,12 @@ class PeopleController < Devise::RegistrationsController
           #if password changed Devise needs a new sign in.
           sign_in @person, :bypass => true
         end
+        
+        if params[:person][:email_attributes] && params[:person][:email_attributes][:address] 
+          # A new email was added, send confirmation email to the latest address
+          Email.send_confirmation(@person.emails.last, request.host_with_port, @current_community)
+        end
+        
         flash[:notice] = t("layouts.notifications.person_updated_successfully")
         
         # Send new confirmation email, if was changing for that 
@@ -311,10 +322,6 @@ class PeopleController < Devise::RegistrationsController
   
   #This checks also that email is allowed for this community
   def check_email_availability_and_validity
-    
-    # If asked from dashboard, only check availability
-    return check_email_availability if @current_community.nil?
-    
     # this can be asked from community_membership page or new user page 
     email = params[:person] && params[:person][:email] ? params[:person][:email] : params[:community_membership][:email]
         
@@ -327,7 +334,7 @@ class PeopleController < Devise::RegistrationsController
     
     if available
       # Then check if it's already in use
-      check_email_availability
+      email_availability(email, true)
     else #respond false  
       respond_to do |format|
         format.json { render :json => available }
@@ -335,20 +342,16 @@ class PeopleController < Devise::RegistrationsController
     end
   end
   
-  # this checks only that email is not already in use
+  # this checks that email is not already in use for anyone (including current user)
   def check_email_availability
-    email = params[:person] ? params[:person][:email] : params[:email] || params[:community_membership][:email]
-    available = email_available_for_user?(@current_user, email)
-    
-    respond_to do |format|
-      format.json { render :json => available }
-    end
+    email = params[:person] && params[:person][:email_attributes] && params[:person][:email_attributes][:address]
+    email_availability(email, false)
   end
   
   # this checks only that email is not already in use
   def check_email_availability_for_new_tribe
     email = params[:person] ? params[:person][:email] : params[:email]
-    if email_available_for_user?(@current_user, email)
+    if Email.email_available_for_user?(@current_user, email)
       existing_communities = Community.find_by_allowed_email(email)
       if existing_communities.size > 0 && Community.email_restricted?(params[:community_category])
         available = restricted_tribe_already_exists_error_message(existing_communities.first)      
@@ -410,6 +413,14 @@ class PeopleController < Devise::RegistrationsController
   end
   
   private
+  
+  def email_availability(email, own_email_allowed)
+    available = own_email_allowed ? Email.email_available_for_user?(@current_user, email) : Email.email_available?(email)
+    
+    respond_to do |format|
+      format.json { render :json => available }
+    end
+  end
   
   def query_graph(graph, field)
     solutions = RDF::Query.execute(graph) do
