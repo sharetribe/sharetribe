@@ -5,6 +5,8 @@ class PeopleController < Devise::RegistrationsController
   
   include PeopleHelper
   include RDF
+
+  
   
   skip_before_filter :verify_authenticity_token, :only => [:creates]
   skip_before_filter :require_no_authentication, :only => [:new]
