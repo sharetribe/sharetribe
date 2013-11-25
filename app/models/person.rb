@@ -476,21 +476,6 @@ class Person < ActiveRecord::Base
     email.present? && email.confirmed_at.present?
   end
 
-  def email_addresses()
-    emails.collect(&:address)
-  end
-
-  # Add new email to emails array
-  # Convinient to use a form field with name :new_email
-  def notification_email_address
-    self.confirmed_notification_emails.last.address
-  end
-
-  def notification_email_address=(address)
-    # TODO Confirmation required
-    self.emails << Email.new(:address => address, :send_notifications => true, :confirmed_at => Time.now)
-  end
-  
   def has_valid_email_for_community?(community)
     community.can_accept_user_based_on_email?(self)
   end
