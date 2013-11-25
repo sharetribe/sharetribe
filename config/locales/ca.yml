@@ -940,11 +940,15 @@ ca:
       you_must_log_in_to_view_your_inbox: "Iniciar sessió per a revisar la safata d'entrada"
       you_must_log_in_to_view_your_settings: "Iniciar sessió per a veure la teva configuració"
       you_must_log_in_to_add_news_item: "Has d'iniciar sesió per afegir un nou article"
+      you_must_log_in_to_change_profile_settings: ~
       you_need_to_confirm_your_account_first: "Hauràs de confirmar el teu compte abans."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Ja no segueixes aquest anunci"
       joining_community_failed: ~
       can_not_login_with_private_user: ~
+      can_not_delete_email: ~
+      user_does_not_have_email_to_delete: ~
+      email_deleted: ~
     profile_extras_header:
       back_to_profile_of_person: "Torna al perfil d'usuari"
       badges: Medalles
@@ -1524,13 +1528,27 @@ ca:
       delete_account: ~
       delete_account_button: ~
       delete_account_confirmation_popup: ~
-      email: "Correu electrònic:"
+      email_addresses: ~
       instructions_to_delete_account: ~
       contact_admin: ~
       new_email: "Nou correu electrònic:"
       new_password: "Nova contrasenya"
       save: Desa
       these_fields_are_shown_only_to_you: "El nom de l'usuari es mostra en el teu perfil a no ser que hagis donat el teu nom. Qualsevol altra informació està només disponible per a tu."
+      email:
+        address_title: ~
+        remove_title: ~
+        remove_confirmation: ~
+        send_notifications_title_desktop: ~
+        send_notifications_title_mobile: ~
+        send_notifications_new_title_mobile: ~
+        add_new_with_plus: ~
+        add_new_cancel: ~
+        confirmation_title_mobile: ~
+        confirmation_title_desktop: ~
+        confirmation_resend: ~
+        status_confirmed: ~
+        status_pending: ~
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: "Desitjo rebre una notificació de correu electrònic quan..."

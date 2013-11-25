@@ -938,11 +938,15 @@ de:
       you_must_log_in_to_view_your_inbox: "Sie müssen sich bei %{service_name} anmelden um Ihren Posteingang anzeigen zu können."
       you_must_log_in_to_view_your_settings: "Sie müssen sich bei %{service_name} anmelden um Ihre Einstellungen anzeigen zu können.."
       you_must_log_in_to_add_news_item: "Sie müssen sich bei %{service_name} anmelden um einen neuen Artikel hinzuzufügen."
+      you_must_log_in_to_change_profile_settings: ~
       you_need_to_confirm_your_account_first: "Du musst zuerst deine Email bestätigen."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "SIe verfolgen nicht länger diesen Eintrag"
       joining_community_failed: "Der Beitritt dieser Community ist fehlgeschlagen"
       can_not_login_with_private_user: ~
+      can_not_delete_email: ~
+      user_does_not_have_email_to_delete: ~
+      email_deleted: ~
     profile_extras_header:
       back_to_profile_of_person: "Zurück zum Profil des Benutzers"
       badges: Abzeichen
@@ -1528,13 +1532,27 @@ de:
       delete_account: "Konto löschen"
       delete_account_button: ~
       delete_account_confirmation_popup: ~
-      email: "Email Adresse"
+      email_addresses: ~
       instructions_to_delete_account: "Wenn du dein Konto löschen möchtest, dann kontaktiere uns %{contact_admin_link}."
       contact_admin: "Bitte kontaktiere die Administratoren"
       new_email: "Neue Email Adresse"
       new_password: "Neues Passwort"
       save: Speichern
       these_fields_are_shown_only_to_you: "Ihr Benutzername wird Ihnen in Ihrem Profil angezeigt, es sei denn Sie haben Ihren Namen angegeben. Andere Informationen sind nur für Sie sichtbar."
+      email:
+        address_title: ~
+        remove_title: ~
+        remove_confirmation: ~
+        send_notifications_title_desktop: ~
+        send_notifications_title_mobile: ~
+        send_notifications_new_title_mobile: ~
+        add_new_with_plus: ~
+        add_new_cancel: ~
+        confirmation_title_mobile: ~
+        confirmation_title_desktop: ~
+        confirmation_resend: ~
+        status_confirmed: ~
+        status_pending: ~
     notifications:
       email_from_admins: "Ich bin bereit gelegentliche Neuigkeiten von den Administratoren der Community zu empfangen."
       i_want_to_get_email_notification_when: "Ich möchte eine Email Benachrichtigung erhalten wenn..."

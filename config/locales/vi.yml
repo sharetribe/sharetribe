@@ -938,11 +938,15 @@ vi:
       you_must_log_in_to_view_your_inbox: "Bạn phải đăng nhập vào %{service_name} để xem hộp thư đến của bạn."
       you_must_log_in_to_view_your_settings: "Bạn phải đăng nhập vào %{service_name} để xem được các thiết lập của bạn."
       you_must_log_in_to_add_news_item: "Bạn phải đăng nhập vào %{service_name} mới thêm được bài viết mới."
+      you_must_log_in_to_change_profile_settings: ~
       you_need_to_confirm_your_account_first: "Bạn cần phải xác nhận email của bạn lần trước tiên."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Bạn đang không còn được đề cập trong danh sách này"
       joining_community_failed: "Tham gia cộng đồng này thất bại"
       can_not_login_with_private_user: ~
+      can_not_delete_email: ~
+      user_does_not_have_email_to_delete: ~
+      email_deleted: ~
     profile_extras_header:
       back_to_profile_of_person: "Quay về hồ sơ của người dùng"
       badges: "Huy hiệu"
@@ -1523,13 +1527,27 @@ vi:
       delete_account: "Xóa tài khoản"
       delete_account_button: ~
       delete_account_confirmation_popup: ~
-      email: "Địa chỉ email:"
+      email_addresses: ~
       instructions_to_delete_account: "Nếu bạn muốn xóa tài khoản của bạn, liên hệ với chúng tôi bằng cách sử dụng nút phản hồi bên trái."
       contact_admin: ~
       new_email: "Địa chỉ email mới"
       new_password: "Mật khẩu mới"
       save: Lưu
       these_fields_are_shown_only_to_you: "Tên người dùng được hiển thị trong tiểu sử của bạn trừ khi bạn đưa ra tên của bạn. Các thông tin khác chỉ hiện thị đối với bạn."
+      email:
+        address_title: ~
+        remove_title: ~
+        remove_confirmation: ~
+        send_notifications_title_desktop: ~
+        send_notifications_title_mobile: ~
+        send_notifications_new_title_mobile: ~
+        add_new_with_plus: ~
+        add_new_cancel: ~
+        confirmation_title_mobile: ~
+        confirmation_title_desktop: ~
+        confirmation_resend: ~
+        status_confirmed: ~
+        status_pending: ~
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: "Tôi muốn nhận email thông báo khi..."

@@ -938,11 +938,15 @@ pt-BR:
       you_must_log_in_to_view_your_inbox: ~
       you_must_log_in_to_view_your_settings: ~
       you_must_log_in_to_add_news_item: ~
+      you_must_log_in_to_change_profile_settings: ~
       you_need_to_confirm_your_account_first: ~
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: ~
       joining_community_failed: ~
       can_not_login_with_private_user: ~
+      can_not_delete_email: ~
+      user_does_not_have_email_to_delete: ~
+      email_deleted: ~
     profile_extras_header:
       back_to_profile_of_person: ~
       badges: ~
@@ -1522,13 +1526,27 @@ pt-BR:
       delete_account: ~
       delete_account_button: ~
       delete_account_confirmation_popup: ~
-      email: ~
+      email_addresses: ~
       instructions_to_delete_account: ~
       contact_admin: ~
       new_email: ~
       new_password: ~
       save: ~
       these_fields_are_shown_only_to_you: ~
+      email:
+        address_title: ~
+        remove_title: ~
+        remove_confirmation: ~
+        send_notifications_title_desktop: ~
+        send_notifications_title_mobile: ~
+        send_notifications_new_title_mobile: ~
+        add_new_with_plus: ~
+        add_new_cancel: ~
+        confirmation_title_mobile: ~
+        confirmation_title_desktop: ~
+        confirmation_resend: ~
+        status_confirmed: ~
+        status_pending: ~
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: ~
