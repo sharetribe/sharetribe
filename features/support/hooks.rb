@@ -14,6 +14,12 @@ Before do
   Rails.cache.clear
 end
 
+Before('@javascript') do
+  if ENV['PHANTOMJS']
+    Capybara.current_driver = :webdriver_phantomjs
+    page.driver.browser.manage.window.resize_to(1024, 768)
+  end
+end
 
 Before('@badge') do
   # FactoryGirl.create(:community, :domain => "test3")
@@ -61,6 +67,6 @@ end
 
 After do |scenario|
   if(scenario.failed?)
-    save_screenshot("tmp/screenshots/#{start_time}/#{scenario.name}.png")
+    save_screenshot("tmp/screenshots/#{scenario.name}.png")
   end
 end
