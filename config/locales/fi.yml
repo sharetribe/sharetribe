@@ -938,11 +938,15 @@ fi:
       you_must_log_in_to_view_your_inbox: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voit nähdä uusimmat viestisi."
       you_must_log_in_to_view_your_settings: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voit nähdä asetuksesi."
       you_must_log_in_to_add_news_item: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit luoda uuden uutisen."
+      you_must_log_in_to_change_profile_settings: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voit muuttaa profiiliasetuksia."
       you_need_to_confirm_your_account_first: "Sinun täytyy varmistaa sähköpostiosoitteesi ennen kuin voit jatkaa."
       you_must_fill_all_the_fields: "Kaikki kentät täytyy täyttää"
       you_unfollowed_listing: "Ilmoituksen seuraaminen lopetettu"
       joining_community_failed: "Yhteisöön liittyminen epäonnistui"
       can_not_login_with_private_user: "Et voi kirjautua tähän yksityishenkilön tunnuksilla. Kirjaudu organisaatiotunnuksella tai luo uusi tunnus."
+      can_not_delete_email: "Et voi poistaa valitsemaasi sähköpostiosoitetta."
+      user_does_not_have_email_to_delete: "Et omista sähköpostiosoitetta, jota yrität poistaa."
+      email_deleted: "Sähköpostiosoite poistettu"
     profile_extras_header:
       back_to_profile_of_person: "Takaisin käyttäjän profiiliin"
       badges: Ansiomerkit
