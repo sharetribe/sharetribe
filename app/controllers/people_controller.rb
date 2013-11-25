@@ -330,10 +330,6 @@ class PeopleController < Devise::RegistrationsController
   
   #This checks also that email is allowed for this community
   def check_email_availability_and_validity
-    
-    # If asked from dashboard, only check availability
-    return email_availability(true) if @current_community.nil?
-    
     # this can be asked from community_membership page or new user page 
     email = params[:person] && params[:person][:email] ? params[:person][:email] : params[:community_membership][:email]
         
@@ -346,7 +342,7 @@ class PeopleController < Devise::RegistrationsController
     
     if available
       # Then check if it's already in use
-      email_availability(true)
+      email_availability(email, true)
     else #respond false  
       respond_to do |format|
         format.json { render :json => available }
@@ -356,7 +352,8 @@ class PeopleController < Devise::RegistrationsController
   
   # this checks that email is not already in use for anyone (including current user)
   def check_email_availability
-    email_availability(false)
+    email = params[:person] && params[:person][:email_attributes] && params[:person][:email_attributes][:address]
+    email_availability(email, false)
   end
   
   # this checks only that email is not already in use
@@ -425,8 +422,7 @@ class PeopleController < Devise::RegistrationsController
   
   private
   
-  def email_availability(own_email_allowed)
-    email = params[:person] ? (params[:person][:email] || params[:person][:email_attributes][:address]) : (params[:email] || params[:community_membership][:email]) 
+  def email_availability(email, own_email_allowed)
     available = own_email_allowed ? Email.email_available_for_user?(@current_user, email) : Email.email_available?(email)
     
     respond_to do |format|

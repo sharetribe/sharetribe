@@ -553,10 +553,12 @@ class Person < ActiveRecord::Base
     organizations.select{|o| o.is_registered_as_seller?}.present?
   end
 
+  # Tell Devise that email is not required
   def email_required?
     false
   end
 
+  # Tell Devise that email is not required
   def email_changed?
     false
   end
