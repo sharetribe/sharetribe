@@ -59,6 +59,24 @@ Spork.prefork do
     # examples within a transaction, comment the following line or assign false
     # instead of true.
     config.use_transactional_fixtures = true
+    
+    # Load stuff from seeds.rb to DB
+    load "#{Rails.root}/db/seeds.rb"
+    
+    config.before(:suite) do
+      DatabaseCleaner.strategy = :transaction
+
+      # Seed the database only in the beginning for better test performance
+      # This needs to be changed if/when any test modify seeded values
+    end
+
+    config.before(:each) do
+      DatabaseCleaner.start
+    end
+
+    config.after(:each) do
+      DatabaseCleaner.clean
+    end
   end
 
   require File.expand_path('../../test/helper_modules', __FILE__)
@@ -81,11 +99,6 @@ Spork.prefork do
   RSpec.configure do |config|
     config.include Devise::TestHelpers, :type => :controller
   end
-
-  # Seed the database only in the beginning for better test performance
-  # This needs to be changed if/when any test modify seeded values
-  load "#{Rails.root}/db/seeds.rb" 
-  
 end
 
 Spork.each_run do

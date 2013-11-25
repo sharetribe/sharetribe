@@ -17,7 +17,7 @@ class Person < ActiveRecord::Base
   # :lockable, :timeoutable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, 
-         :validatable, :omniauthable, :token_authenticatable, :confirmable
+         :omniauthable, :token_authenticatable, :confirmable
          
   if APP_CONFIG.use_asi_encryptor
     require Rails.root.join('lib', 'devise', 'encryptors', 'asi')
@@ -26,13 +26,13 @@ class Person < ActiveRecord::Base
   
   
   # Setup accessible attributes for your model (the rest are protected)
-  attr_accessible :username, :email, :password, :password2, :password_confirmation, 
+  attr_accessible :username, :password, :password2, :password_confirmation, 
                   :remember_me, :consent, :login
       
   attr_accessor :guid, :password2, :form_login,
                 :form_given_name, :form_family_name, :form_password, 
                 :form_password2, :form_email, :consent,
-                :email_repeated, :community_category, :organization_website, :organization_address
+:email_repeated, :community_category, :organization_website, :organization_address, :send_notifications
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
@@ -101,20 +101,15 @@ class Person < ActiveRecord::Base
   serialize :preferences
 
 #  validates_uniqueness_of :username
-  validates_uniqueness_of :email
   validates_length_of :phone_number, :maximum => 25, :allow_nil => true, :allow_blank => true
   validates_length_of :username, :within => 3..20
   validates_length_of :given_name, :within => 1..30, :allow_nil => true, :allow_blank => true
   validates_length_of :family_name, :within => 1..30, :allow_nil => true, :allow_blank => true
-  validates_length_of :email, :maximum => 255
 
   validates_format_of :company_id, :with => /^(\d{7}\-\d)?$/, :allow_nil => true
 
   validates_format_of :username,
                        :with => /^[A-Z0-9_]*$/i
-
-  validates_format_of :email,
-                       :with => /^[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i
 
   validate :community_email_type_is_correct
 
@@ -137,19 +132,32 @@ class Person < ActiveRecord::Base
     set_default_preferences unless self.preferences
   end
 
+  # Creates a new email
+  def email_attributes=(attributes)
+    emails.build(attributes)
+  end
+  
+  def set_emails_that_receive_notifications(email_ids)
+    if email_ids
+      emails.each do |email|
+        email.update_attribute(:send_notifications, email_ids.include?(email.id.to_s))
+      end
+    end
+  end
+
   # Override Devise's authentication finder method to allow log in with username OR email
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
 
-      matched = where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+      matched = where(conditions).where(["lower(username) = :value", { :value => login.downcase }]).first
       
-      if matched.nil? # If not found search still by additional email
+      if matched
+        return matched
+      else
         e = Email.find_by_address(login.downcase)
-        matched = e.person if e
+        return e.person if e
       end
-      
-      return matched
     else
       where(conditions).first
     end
@@ -166,14 +174,6 @@ class Person < ActiveRecord::Base
 
   def self.username_available?(username)
      if Person.find_by_username(username).present?
-       return false
-     else
-       return true
-     end
-   end
-
-   def self.email_available?(email)
-     if Person.find_by_email(email).present? || Email.find_by_address(email).present?
        return false
      else
        return true
@@ -243,14 +243,6 @@ class Person < ActiveRecord::Base
     end
   end
 
-  def email
-    super()
-  end
-
-  def set_email(email)
-    update_attributes({:email => email})
-  end
-
   def update_attributes(params)
     if params[:preferences]
       super(params)
@@ -273,8 +265,7 @@ class Person < ActiveRecord::Base
       end
 
       save
-
-      super(params.except("password2", "street_address"))    
+      super(params.except("password2", "street_address"))
     end
   end
   
@@ -326,6 +317,10 @@ class Person < ActiveRecord::Base
     if new_record?
       return form_password2 ? form_password2 : ""
     end
+  end
+
+  def can_delete_email(email)
+    EmailService.can_delete_email(self.emails, email, self.communities.collect(&:allowed_emails))[:result]
   end
 
   # Returns true if the person has global admin rights in Sharetribe.
@@ -447,55 +442,39 @@ class Person < ActiveRecord::Base
   end
   
   def has_email?(address)
-    self.email == address || Email.find_by_address_and_person_id(address, self.id).present?
+    Email.find_by_address_and_person_id(address, self.id).present?
   end
-    
+
+  def confirmed_notification_emails
+    emails.select do |email| 
+      email.send_notifications && email.confirmed_at.present?
+    end
+  end
+
+  def confirmed_notification_email_addresses
+    self.confirmed_notification_emails.collect(&:address)
+  end
+
+  # Return a string of notification emails joined with ,
+  # Can be used in PersonMailers to field
+  def confirmed_notification_emails_to
+    self.confirmed_notification_email_addresses.join ", "
+  end
+
+  def last_confirmed_notification_email_to
+    self.confirmed_notification_emails.last.address
+  end
+
   # Returns true if the address given as a parameter is confirmed
   def has_confirmed_email?(address)
-    additional_email = Email.find_by_address(address)
-    (self.email.eql?(address) && self.confirmed_at) || (additional_email && additional_email.confirmed_at.present?)
+    email = Email.find_by_address_and_person_id(address, self.id)
+    email.present? && email.confirmed_at.present?
   end
-  
+
   def has_valid_email_for_community?(community)
     community.can_accept_user_based_on_email?(self)
   end
-  
-  def send_email_confirmation_to(address, host, community=nil)
-    if email == address # check primary email
-      self.send_confirmation_instructions(host, community)
-    elsif e = Email.find_by_person_id_and_address(id, address) #unconfirmed additional email
-      PersonMailer.additional_email_confirmation(e, host, community).deliver
-    else
-      return false
-    end
-    return true # if address found and email sent
-  end
-  
-  # This is overriding the default devise method
-  # so we get full control on from address etc. options
-  def send_confirmation_instructions(host, community=nil)
-    # this part is straight from Devise
-    self.confirmation_token = nil if reconfirmation_required?
-    @reconfirmation_required = false
-    generate_confirmation_token! if self.confirmation_token.blank?
 
-    PersonMailer.email_confirmation(self, host, community).deliver
-  end
-  
-  # Changes old_email (whether it's a main or additional email)
-  # And sets that email unconfirmed
-  # NOTE: The confirmation email needs to be sent separately
-  def change_email(old_address, new_address)
-    if old_address == email
-      update_attributes(:email => new_address, :confirmed_at => nil, :confirmation_token => Devise.friendly_token)
-    elsif e = emails.where(:address => old_address).first
-      e.update_attributes(:address => new_address, :confirmed_at => nil, :confirmation_token => Devise.friendly_token)
-    else
-      raise "Tried to change email which this user doesn't have."
-    end
-    
-  end
-  
   def self.find_for_facebook_oauth(facebook_data, logged_in_user=nil)
     data = facebook_data.extra.raw_info
     
@@ -516,17 +495,10 @@ class Person < ActiveRecord::Base
   
   # Override the default finder to find also based on additional emails
   def self.find_by_email(*args)
-    person = super(*args)
-    
-    if person.nil?
-      # look for additional emails
-      email = Email.find_by_address(*args)
-      if email
-        person = email.person
-      end
+    email = Email.find_by_address(*args)
+    if email
+      email.person
     end
-    
-    return person
   end
   
   # returns the same if its available, otherwise "same1", "same2" etc.
@@ -560,6 +532,16 @@ class Person < ActiveRecord::Base
   def is_member_of_seller_organization?    
     organizations.select{|o| o.is_registered_as_seller?}.present?
   end
+
+  # Tell Devise that email is not required
+  def email_required?
+    false
+  end
+
+  # Tell Devise that email is not required
+  def email_changed?
+    false
+  end
   
   # Merge this person with the data from the person given as parameter
   # This person is saved and THE PERSON GIVEN IN PARAMETER IS DESTROYED
@@ -571,7 +553,7 @@ class Person < ActiveRecord::Base
     
     begin  
       # Merge data in people table
-      fields_to_check = %w(username email given_name family_name phone_number description facebook_id authentication_token)
+      fields_to_check = %w(username given_name family_name phone_number description facebook_id authentication_token)
       fields_to_check.each do |attr|
         begin
           original_attr_value = self.try(attr)
@@ -707,18 +689,19 @@ class Person < ActiveRecord::Base
   # Returns and email that is pending confirmation
   # If community is given as parameter, in case of many pending 
   # emails the one required by the community is returned
-  def pending_email(community=nil)
-    pending_emails = []  
-    pending_emails << email if confirmed_at.blank? 
+  def latest_pending_email_address(community=nil)
+    pending_emails = []
     Email.where(:person_id => id, :confirmed_at => nil).all.each { |e| pending_emails << e.address }
     
-    if community && community.allowed_emails
-      pending_emails.each do |e|
-        return e if community.email_allowed?(e)
+    allowed_emails = if community && community.allowed_emails
+      pending_emails.select do |e|
+        community.email_allowed?(e)
       end
     else
-      return pending_emails.first
-    end  
+      pending_emails
+    end
+
+    allowed_emails.last
   end
   
   # FIXME!
@@ -818,7 +801,7 @@ class Person < ActiveRecord::Base
     puts "ID:\t#{p1.id}\t#{p2.id}"
     puts "seen_at:\t#{p1.current_sign_in_at}\t#{p2.current_sign_in_at}"
     puts "username:\t#{p1.username}\t#{p2.username}"
-    puts "email:\t#{p1.email}\t#{p2.email}"
+    puts "emails:\t#{p1.emails.join(",")}\t#{p2.emails.join(",")}"
     puts "given_name:\t#{p1.given_name}\t#{p2.given_name}"
     puts "family_name:\t#{p1.family_name}\t#{p2.family_name}"
     puts "listings:\t#{p1.listings.count}\t#{p2.listings.count}"

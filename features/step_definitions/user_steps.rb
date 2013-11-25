@@ -82,6 +82,12 @@ Given /^there are following users:$/ do |person_table|
   @people = {}
   person_table.hashes.each do |hash|
     @hash_person, @hash_session = get_test_person_and_session(hash['person'])
+
+    if hash['email'] then
+      @hash_person.emails = [Email.create(:address => hash['email'], :send_notifications => true, :person => @hash_person)]
+      @hash_person.save!
+    end
+
     @hash_person.update_attributes({:preferences => { "email_about_new_comments_to_own_listing" => "true", "email_about_new_messages" => "true" }})
     #unless CommunityMembership.find_by_person_id_and_community_id(@hash_person.id, Community.first.id)
       CommunityMembership.create(:community_id => Community.first.id, :person_id => @hash_person.id, :consent => Community.first.consent, :status => "accepted")
@@ -178,12 +184,30 @@ Then /^user "([^"]*)" (should|should not) have "([^"]*)" with value "([^"]*)"$/ 
   user.send(attribute).send(verb) == value
 end
 
-Then /^user "(.*?)" should have additional (confirmed|unconfirmed) email "(.*?)"$/ do |username, conf, email|
+Then /^user "(.*?)" should have email "(.*?)"$/ do |username, email|
   p = Person.find_by_username(username)
   e = Email.find_by_person_id_and_address(p.id, email)
+  
+  e.should_not be_nil
+end
+
+Then /^I should have (confirmed|unconfirmed) email "(.*?)"$/ do |conf, email|
+  steps %Q{
+    Then user "#{@logged_in_user.username}" should have #{conf} email "#{email}"
+  }
+end
+
+Then /^user "(.*?)" should have (confirmed|unconfirmed) email "(.*?)"$/ do |username, conf, email|
+  p = Person.find_by_username(username)
+  e = Email.find_by_person_id_and_address(p.id, email)
+
+  e.should_not be_nil
+
   if conf == "unconfirmed"
     e.confirmed_at.should be_nil
-  else
+  end
+
+  if conf == "confirmed"
     e.confirmed_at.should_not be_nil
   end
 end

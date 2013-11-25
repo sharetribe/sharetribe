@@ -119,7 +119,7 @@ class Community < ActiveRecord::Base
   
   # Returns the emails of admins in an array
   def admin_emails
-    admins.collect { |p| p.email }
+    admins.collect { |p| p.confirmed_notification_email_addresses } .flatten
   end
   
   def allows_user_to_send_invitations?(user)
@@ -402,11 +402,15 @@ class Community < ActiveRecord::Base
   
   # approves a membership pending email if one is found
   # if email is given, only approves if email is allowed
+  # returns true if membership was now approved
+  # false if it wasn't allowed or if already a member
   def approve_pending_membership(person, email_address=nil)
     membership = community_memberships.where(:person_id => person.id, :status => "pending_email_confirmation").first
     if membership && (email_address.nil? || email_allowed?(email_address)) 
       membership.update_attribute(:status, "accepted")
+      return true
     end
+    return false
   end
   
   def full_name

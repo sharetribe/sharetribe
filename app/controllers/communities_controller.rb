@@ -107,7 +107,7 @@ class CommunitiesController < ApplicationController
         end
     
         # Send confirmation for additional email
-        @current_user.send_email_confirmation_to(params[:email], request.host_with_port)
+        Email.send_confirmation(e, request.host_with_port)
       end
       session[:unconfirmed_email] = params[:email]
     end

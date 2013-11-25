@@ -33,7 +33,7 @@ Feature: Facebook connect
     And I should see "Markus"
     And user "markus_sharer_123" should have "given_name" with value "Markus"
     And user "markus_sharer_123" should have "family_name" with value "Sugarberg"
-    And user "markus_sharer_123" should have "email" with value "markus@example.com"
+    And user "markus_sharer_123" should have email "markus@example.com"
     And user "markus_sharer_123" should have "facebook_id" with value "597013691"
     And user "markus_sharer_123" should not have "image_file_size" with value "nil"
   
@@ -49,7 +49,7 @@ Feature: Facebook connect
     And I should see "Markus"
     And user "markus_sharer_123" should have "given_name" with value "Markus"
     And user "markus_sharer_123" should have "family_name" with value "Sugarberg"
-    And user "markus_sharer_123" should have "email" with value "markus@example.com"
+    And user "markus_sharer_123" should have email "markus@example.com"
     And user "markus_sharer_123" should have "facebook_id" with value "597013691"
     And user "markus_sharer_123" should not have "image_file_size" with value "nil"
   

@@ -4,10 +4,8 @@ describe Person do
   
  
    before(:all) do
-    
       #These will be created only once for the whole example group
-      @test_person, @session = get_test_person_and_session
-    
+      @test_person = FactoryGirl.build(:person)
     end
   
 
@@ -42,7 +40,7 @@ describe Person do
           lambda {
             p = Person.create!({:username => username, 
               :password => "testi", 
-              :email => "invalid-email",
+              :emails => [Email.new(:address => "invalid-email")],
               "given_name" => "Tero",
               "family_name" => "Turari"})
           }.should raise_error(ActiveRecord::RecordInvalid)
@@ -135,21 +133,6 @@ describe Person do
 
     end
 
-    describe "email functions" do
-      before(:each) do
-        @test_person.set_email("testing_one@example.com")
-      end
-
-      it "should return the email correctly" do
-        @test_person.email.should == "testing_one@example.com"
-      end
-
-      it "should change email" do
-        @test_person.set_email("testing_two@example.com")
-        @test_person.email.should == "testing_two@example.com"
-      end
-    end
-    
     describe "#delete" do
       it "should delete also related conversations and testimonials" do
         conv = FactoryGirl.create(:conversation)
@@ -172,35 +155,28 @@ describe Person do
       end
     end
     
-    describe "#pending_email" do
+    describe "#latest_pending_email_address" do
       
       before (:all) do
         @p = FactoryGirl.create(:person)
       end
       
       it "should return nil if none pending" do
-        @p.pending_email.should be_nil
+        @p.latest_pending_email_address().should be_nil
       end
       
       it "should return main email if that's pending" do
-         @p.update_attribute(:confirmed_at, nil)
-         @p.pending_email.should =~ /kassi_tester\d+@example.com/
-      end
-      
-      it "should return additional, if that's pending" do
-        @p.update_attribute(:confirmed_at, Time.now)
-        e = FactoryGirl.create(:additional_email, :address => "jack@aalto.fi", :confirmed_at => nil, :person => @p)
-        @p.pending_email.should == "jack@aalto.fi"
+        @p.emails.each { |email| email.update_attribute(:confirmed_at, nil) }
+        @p.latest_pending_email_address().should =~ /kassi_tester\d+@example.com/
       end
       
       it "should pick the right email to return" do
         c = FactoryGirl.create(:community, :allowed_emails => "@example.com, @ex.ample, @something.else")
-        e = FactoryGirl.create(:additional_email, :address => "jack@aalto.fi", :confirmed_at => nil, :person => @p)
-        e2 = FactoryGirl.create(:additional_email, :address => "jack@example.com", :confirmed_at => nil, :person => @p)
-        
-        @p.pending_email(c).should == "jack@example.com"
-        
-        
+        e = FactoryGirl.create(:email, :address => "jack@aalto.fi", :confirmed_at => nil, :person => @p)
+        e2 = FactoryGirl.create(:email, :address => "jack@example.com", :confirmed_at => nil, :person => @p)
+        # e3 = FactoryGirl.create(:email, :address => "jack@helsinki.fi", :confirmed_at => nil, :person => @p)
+
+        @p.latest_pending_email_address(c).should == "jack@example.com"
       end
     end
 
