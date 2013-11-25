@@ -21,11 +21,11 @@ describe PeopleController do
       @request.host = "test.lvh.me"
       person = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "test@example.com")])
 
-      get :check_email_availability,  {:person => {:email => "test@example.com"}, :format => :json}
+      get :check_email_availability,  {:person => {:email_attributes => {:address => "test@example.com"} }, :format => :json}
       response.body.should == "false"
 
       Email.create(:person_id => person.id, :address => "test2@example.com")
-      get :check_email_availability,  {:person => {:email => "test2@example.com"}, :format => :json}
+      get :check_email_availability,  {:person => {:email_attributes => {:address => "test2@example.com"} }, :format => :json}
       response.body.should == "false"  
     end
     
@@ -36,7 +36,7 @@ describe PeopleController do
       sign_in person
       
       Email.create(:person_id => person.id, :address => "test2@example.com")
-      get :check_email_availability,  {:person => {:email => "test2@example.com"}, :format => :json}
+      get :check_email_availability,  {:person => {:email_attributes => {:address => "test2@example.com"} }, :format => :json}
       response.body.should == "false"
     end
     
