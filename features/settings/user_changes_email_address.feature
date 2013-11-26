@@ -29,6 +29,7 @@ Feature: User changes email address
     When I confirm email address "sharetribe1-2@example.com"
     Then I should have confirmed email "sharetribe1-2@example.com"
 
+  @phantomjs_skip
   @javascript
   Scenario: User removes an email
     Then I should not be able to remove email "sharetribe2@example.com"

@@ -10,11 +10,7 @@ FactoryGirl.define do
   sequence :domain do |n|
     "sharetribe_testcommunity_#{n}" 
   end
-  
-  sequence :organization_name do |n|
-    "test_organization#{n}" 
-  end
-  
+
 
   factory :person, aliases: [:author, :receiver, :recipient, :payer] do
     is_admin 0
@@ -161,13 +157,6 @@ FactoryGirl.define do
   factory :share_type do
     name "sell"
     icon "sell"
-  end
-  
-  factory :organization do
-    name { generate(:organization_name) }
-    company_id "1234567-8"
-    merchant_id "375917"
-    merchant_key "SAIPPUAKAUPPIAS"
   end
   
   factory :payment do

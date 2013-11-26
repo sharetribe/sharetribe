@@ -154,7 +154,6 @@ Kassi::Application.routes.draw do
     end
     
     resources :contact_requests
-    resources :organizations
     resources :invitations
     resources :user_feedbacks, :controller => :feedbacks
     resources :homepage do
@@ -216,7 +215,6 @@ Kassi::Application.routes.draw do
     end
     resources :news_items
     resources :statistics
-    resources :organizations
   end
   
   # Some non-RESTful mappings

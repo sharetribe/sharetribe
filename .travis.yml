@@ -1,28 +1,36 @@
+bundler_args: --without development --path=~/.bundle
 language: ruby
 rvm:
-  - 1.9.3
-
+- 1.9.3
 env:
+  matrix:
   - SUITE="rake spec"
   - SUITE="cucumber -ptravis"
-
+  global:
+    - BUNDLE_ARCHIVE="travis-bundle-cache"
+    - AWS_S3_REGION="us-east-1"
+    - AWS_S3_BUCKET="sharetribe-travis-cache"
+    - RAILS_ENV=test
+    - secure: QJBiGsabtqY6qvGdrYoCJtSCOl53jt1dPTYG4Md++icBK4llEzRsXYoNKJdBG9Q6p3vmR/Yw76Ph2dX1lh5GeDE3aPJ1iWNSrUYDoURV/LeTNZR8bGEncJp961qYPWGoKv5t4NlgehJzwpTHIIC3ToRT5RlkZYaxTUNxvbAqj70=
 notifications:
   recipients:
-    - main@sharetribe.flowdock.com
-    - main@kassi.flowdock.com
-    - suomi@kassi.flowdock.com
-
+  - main@sharetribe.flowdock.com
+  - main@kassi.flowdock.com
+  - suomi@kassi.flowdock.com
 branches:
   only:
-    - develop
-
+  - master
+  - develop
+# Ensure Bundler >= 1.1, don't install rdocs, and fetch a cached bundle from S3
+before_install:
+- "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+- gem install bundler bundle_cache
+- bundle_cache_install
 before_script:
-  - cp config/database.example.yml config/database.yml
-  - mysql -e 'create database sharetribe_test;'
-  - rake db:test:load
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-
+- cp config/database.example.yml config/database.yml
+- mysql -e 'create database sharetribe_test;'
+- rake db:test:load
 script:
-  - bundle exec $SUITE
-
+- PHANTOMJS=true NO_WEBDRIVER_MONKEY_PATCH=true bundle exec $SUITE
+after_script:
+- bundle_cache

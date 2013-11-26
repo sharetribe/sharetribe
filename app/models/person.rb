@@ -57,8 +57,6 @@ class Person < ActiveRecord::Base
   has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id", :dependent => :destroy
   has_many :community_memberships, :dependent => :destroy 
   has_many :communities, :through => :community_memberships, :conditions => ['status = ?', 'accepted']
-  has_many :organization_memberships, :dependent => :destroy
-  has_many :organizations, :through => :organization_memberships
   has_many :invitations, :foreign_key => "inviter_id", :dependent => :destroy
   has_many :poll_answers, :class_name => "PollAnswer", :foreign_key => "answerer_id", :dependent => :destroy
   has_many :answered_polls, :through => :poll_answers, :source => :poll
@@ -356,12 +354,6 @@ class Person < ActiveRecord::Base
   end
   
   def create_listing(params)
-    # Check that this person is member of the (optional) organization
-    if params[:organization_id]
-      org = Organization.find(params[:organization_id])
-      raise "tried to create a listing with organization that the user is not member of" unless org.has_member?(self)
-    end
-    
     params = Listing.find_category_and_share_type_based_on_string_params(params)
     listings.create params #.except([:category, :share_type])
   end
@@ -526,11 +518,6 @@ class Person < ActiveRecord::Base
   def new_email_auth_token(valid_for = 36.hours)
     t = AuthToken.create(:person => self, :expires_at => valid_for.from_now)
     return t.token
-  end
-  
-  # returns true if person has at least one organization that is registered for seller account
-  def is_member_of_seller_organization?    
-    organizations.select{|o| o.is_registered_as_seller?}.present?
   end
 
   # Tell Devise that email is not required

@@ -7,7 +7,7 @@
       = listing.title
   .bubble-title
     .bubble-avatar
-      = small_avatar_thumb(listing.organization_or_author?(@current_community))
+      = small_avatar_thumb(listing.author)
     .bubble-details
       .bubble-author
         = author_link(listing)
