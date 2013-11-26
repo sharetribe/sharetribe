@@ -1,21 +1,14 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => about_links }
-- additional_about_text_title = t(".default_about_text_title")
-- additional_about_text = t(".default_about_text", :click_here_link => link_to(t(".click_here_link_text"), dashboard_link(:locale => I18n.locale, :ref => "about_page"))).html_safe
 
 - content_for :title_header do
   %h1= t("layouts.infos.info_about_kassi")
 
 .left-navi-section.about-section
-  - if @current_user && @current_user.has_admin_rights_in?(@current_community)
-    %p
-      %a{:id => "edit_link", :href => "/editor" + request.path, :data => { :save_url => mercury_update_infos_path }}
-        .icon-with-text-container
-          = icon_tag("edit", ["icon-part"]) 
-          .text-part= t("common.edit_page")
-  #page_content{:data => {:mercury => "full"}}
+  = render :layout => "layouts/mercury_editable_page", :locals => { :content_type => "about_page_content", :editing_allowed => true } do
     - if @community_customization && @community_customization.about_page_content
       = @community_customization.about_page_content.html_safe
     - else
       = render :partial => "default_about_page"
+    
 
   

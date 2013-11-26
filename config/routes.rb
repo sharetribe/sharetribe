@@ -137,7 +137,6 @@ Kassi::Application.routes.draw do
           get :edit_look_and_feel
           get :edit_welcome_email
           get :test_welcome_email
-          put :mercury_update
         end
         resources :emails
       end
@@ -194,8 +193,6 @@ Kassi::Application.routes.draw do
         get :terms
         get :privacy
         get :news
-        put :mercury_update
-        put :mercury_update_how_to_use
       end  
     end
     resource :terms do
@@ -218,6 +215,7 @@ Kassi::Application.routes.draw do
   end
   
   # Some non-RESTful mappings
+  match '/:locale/mercury_update' => "mercury_update#update", :as => :mercury_update, :method => :put
   match '/:locale/api' => "dashboard#api", :as => :api
   match '/:locale/faq' => "dashboard#faq", :as => :faq
   match '/:locale/pricing' => "dashboard#pricing", :as => :pricing

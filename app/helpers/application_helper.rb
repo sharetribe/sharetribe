@@ -616,7 +616,7 @@ module ApplicationHelper
         :name => "about"
       }
     ]
-    if @community_customization && !@community_customization.how_to_use.blank?
+    if @community_customization && !@community_customization.how_to_use_page_content.blank?
       links << { 
         :text => t('layouts.infos.how_to_use'),
         :icon_class => icon_class("how_to_use"), 
