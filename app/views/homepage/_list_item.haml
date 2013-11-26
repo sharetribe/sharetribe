@@ -26,7 +26,7 @@
   
   .home-list-author{:class => (listing.listing_images.size > 0 ? "home-list-author-with-listing-image" : "home-list-author-without-listing-image")}
     .home-list-avatar
-      = small_avatar_thumb(listing.organization_or_author?(@current_community))
+      = small_avatar_thumb(listing.author)
     .home-list-author-details
       = link_to listing.author :class => "home-list-author-name" do
         = listing.author.name
