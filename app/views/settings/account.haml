@@ -55,7 +55,7 @@
                   - else
                     .settings-email-mobile-label-container
                       .visible-desktop.settings-email-mobile-label
-                        = icon_tag("cross", ["account-settings-email-row-delete-cross", disabled_class])
+                        = icon_tag("cross", ["account-settings-email-row-delete-cross icon-fix", disabled_class])
                       .hidden-desktop.settings-email-mobile-label.settings-email-mobile-label{:class => disabled_class}
                         = t(".email.remove_title")
                 .account-settings-email-row-send-notification
@@ -71,7 +71,7 @@
                   .settings-email-mobile-label.settings-email-mobile-label-right
                     - if email.confirmed_at
                       .account-settings-email-row-confirmation-content
-                        = icon_tag("check")
+                        = icon_tag("check", ["icon-fix"])
                     - else
                       = t(".email.status_pending")
                       %small= link_to(t(".email.confirmation_resend"), send_confirmation_person_email_path(@current_user, email), :method => :post, :class => "account-settings-email-row-resend-link")
