@@ -15,8 +15,6 @@ class Listing < ActiveRecord::Base
   # #for context-dependent tags:
   # has_many :tags, :through => :taggings, :source => :tag, :class_name => "ActsAsTaggableOn::Tag",
   #           :conditions => "taggings.context = 'tags'"
-
-  belongs_to :organization
   
   has_many :listing_images, :dependent => :destroy
   accepts_nested_attributes_for :listing_images, :reject_if => lambda { |t| t['image'].blank? }
@@ -609,12 +607,6 @@ class Listing < ActiveRecord::Base
   
   def has_image?
     !listing_images.empty?
-  end
-  
-  # Return organization if listing has it, otherwise return author
-  # FIXME! This should be removed
-  def organization_or_author?(community)
-    author
   end
   
   def icon_name

@@ -1,5 +1,0 @@
-.member{:class => (params[:page] && params[:page].to_i > 1) ? "paginated-member" : "" }
-  .member-image
-    = medium_avatar_thumb(organization) 
-  .member-details
-    %h3= organization.name
