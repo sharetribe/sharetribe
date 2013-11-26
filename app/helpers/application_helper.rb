@@ -50,6 +50,7 @@ module ApplicationHelper
       "account_settings" => "ss-lockfile",
       "rows" => "ss-rows",
       "check" => "ss-check",
+      "invite" => "ss-adduser",
       
       # Default category & share type icons
       "offer" => "ss-share",
@@ -158,6 +159,7 @@ module ApplicationHelper
       "user" => "icon-user",
       "settings" => " icon-cog",
       "facebook" => "icon-facebook",
+      "invite" => "icon-users",
       
       
       "information" => "icon-info-sign",
@@ -851,6 +853,12 @@ module ApplicationHelper
   def with_available_locales(&block)
     if available_locales.size > 1
       block.call(available_locales)
+    end
+  end
+
+  def with_invite_link(&block)
+    if @current_user.has_admin_rights_in?(@current_community) || @current_community.users_can_invite_new_users
+      block.call()
     end
   end
 end

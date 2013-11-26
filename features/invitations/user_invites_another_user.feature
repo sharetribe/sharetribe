@@ -3,11 +3,20 @@ Feature: User joins invite only community
   As a user in a community
   I want to invite my friend in this Sharetribe community
   
-  @javascript
-  Scenario: User invites another user successfully
+  Background:
     Given there are following users:
       | person | 
       | kassi_testperson2 |
+      | kassi_testperson1 |
+
+  @javascript
+  Scenario: User can access invite page from menu
+    And I am logged in as "kassi_testperson1"
+    When I navigate to invitations page
+    Then I should be on invitations page
+
+  @javascript
+  Scenario: User invites another user successfully
     And I am on the homepage
     And I should not see "Invite friends"
     When I log in as "kassi_testperson2"
@@ -43,9 +52,6 @@ Feature: User joins invite only community
     
   @javascript
   Scenario: User tries to invite another user with invalid email address
-    Given there are following users:
-      | person | 
-      | kassi_testperson1 |
     And I am logged in as "kassi_testperson1"
     And I am on invitations page
     And users can invite new users to join community "test"

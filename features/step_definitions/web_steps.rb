@@ -235,3 +235,11 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+When /^I navigate to invitations page$/ do
+  steps %Q{
+    When I click ".user-menu-toggle"
+    When I follow "Invite"
+  }
+end
+

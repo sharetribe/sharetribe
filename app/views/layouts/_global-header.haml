@@ -71,6 +71,11 @@
               = icon_tag("feedback", ["icon-with-text"])
               .text-with-icon
                 = t("header.contact_us")
+            - with_invite_link do
+              %a#invite-menu-button.invite-menu-button{href: new_invitation_path}
+                = icon_tag("invite", ["icon-with-text"])
+                .text-with-icon
+                  = t("header.invite")
             %a{href: person_settings_path(@current_user)}
               = icon_tag("settings", ["icon-with-text"])
               .text-with-icon
