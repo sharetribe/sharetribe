@@ -69,11 +69,12 @@
                     %b 
                       = t(".email.confirmation_title_mobile")
                   .settings-email-mobile-label.settings-email-mobile-label-right
-                    - if email.confirmed_at
-                      = t(".email.status_confirmed")
-                    - else
-                      = t(".email.status_pending")
-                      %small= link_to(t(".email.confirmation_resend"), send_confirmation_person_email_path(@current_user, email), :method => :post, :class => "account-settings-email-row-resend-link")
+                    .account-settings-email-row-confirmation-content
+                      - if email.confirmed_at
+                        = icon_tag("check", ["account-settings-email-row-confirmation-status-icon"])
+                      - else
+                        = icon_tag("cross", ["account-settings-email-row-confirmation-status-icon"])
+                        = link_to(t(".email.confirmation_resend"), send_confirmation_person_email_path(@current_user, email), :method => :post, :class => "account-settings-email-row-resend-link")
         .account-settings-email-row.account-new-email-link
           = link_to t(".email.add_new_with_plus"), "#", id: "account-new-email"
         .account-settings-hidden-email-form
