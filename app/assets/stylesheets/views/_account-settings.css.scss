@@ -108,28 +108,15 @@
         padding-top: 3px; // To align icon with text
       }
     }
+    
+    .account-settings-email-row-confirmation-content {
+      padding-top: 3px; // To align icon with text
+    }
 
     .account-settings-email-row-delete-cross {
       &.disabled {
         color: $border;
       }
-    }
-    
-    .account-settings-email-row-confirmation-content {
-      padding-top: 4px; // to vertically center
-    }
-    
-    .account-settings-email-row-confirmation-status-icon {
-      display: inline-block;
-    }
-    
-    .account-settings-email-row-resend-link {
-      @include small-type;
-      line-height: lines(1.5);
-      display: inline-block;
-      vertical-align: top;
-      padding-top: 1px; // to align with icon
-      padding-left: lines(0.25);
     }
     
     .account-settings-hidden-email-form {
