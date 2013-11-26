@@ -34,7 +34,7 @@ class EmailsController < ApplicationController
       # User didn't have the email she's trying to delete
     end
 
-    flash[:error] = t("layouts.notifications.email_deleted")
+    flash[:notice] = t("layouts.notifications.email_deleted")
     redirect_to account_person_settings_path
   end
 end

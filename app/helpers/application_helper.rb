@@ -49,6 +49,7 @@ module ApplicationHelper
       "notification_settings" => "ss-callbell",
       "account_settings" => "ss-lockfile",
       "rows" => "ss-rows",
+      "check" => "ss-check",
       
       # Default category & share type icons
       "offer" => "ss-share",
