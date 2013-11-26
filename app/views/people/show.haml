@@ -3,7 +3,7 @@
 
 - content_for :title_header do
   %h1
-    %span.profile-title= @person.name(@current_community)
+    %span.profile-title= @person.name(@current_community) + (@community_customization && @community_customization.storefront_label ? @community_customization.storefront_label : "")
 
 .row
   .col-8

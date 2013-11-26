@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131126134024) do
+ActiveRecord::Schema.define(:version => 20131126184439) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -205,6 +205,7 @@ ActiveRecord::Schema.define(:version => 20131126134024) do
     t.text     "about_page_content"
     t.text     "terms_page_content"
     t.text     "privacy_page_content"
+    t.string   "storefront_label"
   end
 
   add_index "community_customizations", ["community_id"], :name => "index_community_customizations_on_community_id"
