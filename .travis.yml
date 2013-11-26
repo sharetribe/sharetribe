@@ -14,15 +14,14 @@ notifications:
 
 branches:
   only:
+    - master
     - develop
 
 before_script:
   - cp config/database.example.yml config/database.yml
   - mysql -e 'create database sharetribe_test;'
   - rake db:test:load
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
 
 script:
-  - bundle exec $SUITE
+  - PHANTOMJS=true NO_WEBDRIVER_MONKEY_PATCH=true bundle exec $SUITE
 
