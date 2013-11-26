@@ -847,9 +847,33 @@ module ApplicationHelper
     end
   end
 
+  def is_swap_offer(share_type)
+    share_type.name == "offer_to_swap"
+  end
+
   def with_available_locales(&block)
     if available_locales.size > 1
       block.call(available_locales)
+    end
+  end
+
+  def show_price?(community, listing)
+    return listing.share_type.is_offer? && !is_swap_offer(listing.share_type) && community.has_price?
+  end
+
+  def with_price(community, listing, &block)
+    if show_price?(community, listing)
+      if listing.price && listing.price > 0 
+        block.call(listing.price)
+      end
+    end
+  end
+
+  def with_free_price(community, listing, &block)
+    if show_price?(community, listing)
+      if !listing.price || listing.price == 0 
+        block.call(listing.price)
+      end
     end
   end
 end

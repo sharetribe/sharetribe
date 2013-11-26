@@ -4,6 +4,24 @@
 
 @import "mixins/all";
 
+/**
+  Listing top-right overlay price tag
+*/
+%listing-price {
+  font-weight: 600;
+  font-size: 18px;
+  min-width: em(50);
+  text-align: center;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: lines(0.2) lines(0.5);
+  text-transform: uppercase;
+  @include border-top-right-radius(lines(0.25));
+  @include border-bottom-left-radius(lines(0.25));
+}
+
 .fluid-thumbnail-grid-image-image-container {
   position: relative;
   color: $background;
@@ -33,5 +51,17 @@
 }
 
 .fluid-thumbnail-grid-image-price {
-  @include listing-price;
+  @extend %listing-price;
+  color: $body;
+  background-color: white;
+  background-color: rgba(white, 0.95);
 }
+
+.fluid-thumbnail-grid-image-price-free {
+  @extend %listing-price;
+  color: $background;
+  background-color: $link2;
+  background-color: rgba($link2, 0.95);
+}
+
+
