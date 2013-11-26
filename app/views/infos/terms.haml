@@ -4,9 +4,7 @@
   %h1= t("layouts.infos.info_about_kassi")
 
 .left-navi-section.about-section
-  %h3
-    = render :file => community_file("terms_title", false)
-  = render :partial => "people/help_texts/terms"
+  = render :partial => "infos/terms_content"
 
 
 -# Render lightbox content for additional terms
