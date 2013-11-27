@@ -10,14 +10,6 @@ Feature: User views terms
     When I follow "terms"
     Then I should see "Rights of Content"
   
-  @javascript
-  @subdomain2
-  Scenario: User views terms in community Test2
-    Given I am not logged in
-    And I am on the signup page
-    When I follow "terms"
-    Then I should see "This is another community"
-  
   
   
   
