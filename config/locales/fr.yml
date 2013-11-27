@@ -125,7 +125,7 @@ fr:
       travel: voyage
       other: autre
     username: "Nom d'utilisateur "
-    username_or_email: "E-mail ou nom d'utilisateur "
+    username_or_email: "Email ou nom d'utilisateur"
     what_is_this: "Qu'est-ce que c'est ?"
   conversations:
     accept:
@@ -206,8 +206,8 @@ fr:
       send_message: "Envoyer le message"
       send: Envoyer
       this_message_is_private: "Ce message entre %{person} et vous est privé."
-      you_will_get_notified_of_acceptance: "Vous recevrez une notification par e-mail lorsque %{person} acceptera ou refusera votre proposition."
-      you_will_get_notified: "Vous recevrez une notification par e-mail lorsque %{person} vous répondra."
+      you_will_get_notified_of_acceptance: "Vous recevrez une notification par email lorsque %{person} acceptera ou refusera votre proposition."
+      you_will_get_notified: "Vous recevrez une notification par email lorsque %{person} vous répondra."
       title: Titre
       send_message_to_user: "Envoyer un message à %{person}"
     notifications:
@@ -366,7 +366,7 @@ fr:
       you_are_not_a_member_of_this_community: "Vous avez un compte sur %{service_name}, mais vous n'êtes pas encore membre de la tribu %{service_name} '%{community}'."
       you_can_join: "Vous pouvez rejoindre cette tribu en acceptant les conditions d'utilisation et en cliquant sur 'Rejoindre la tribu' ci-dessous."
       you_can_join_email_confirmation: "Pour rejoindre cette tribu, vous devez avoir une adresse email valide qui se termine par %{email_ending}. Complétez votre adresse email, acceptez les conditions d'utilisation de cette tribu puis cliquez sur 'Rejoignez la tribu' ci-dessous."
-      you_can_join_email_confirmation_multiple_addresses: "Cette tribu a un accès restreint selon l'e-mail. Vous ne pouvez la rejoindre que si vous avez un e-mail que l'administrateur de ce site a autorisé. Vous pouvez rejoindre la tribu en saisissant votre e-mail, en acceptant les conditions d'utilisation de cette tribu puis en cliquant sur 'Rejoignez la tribu' ci-dessous."
+      you_can_join_email_confirmation_multiple_addresses: "Cette tribu a un accès restreint selon l'email. Vous ne pouvez la rejoindre que si vous avez un email que l'administrateur de ce site a autorisé. Vous pouvez rejoindre la tribu en saisissant votre email, en acceptant les conditions d'utilisation de cette tribu puis en cliquant sur 'Rejoignez la tribu' ci-dessous."
       you_can_join_with_invite_only: "Vous devez être invité par un autre membre pour rejoindre cette tribu. Si vous avez un code d'invitation, entrez le ci-dessous, acceptez les conditions d'utilisation de cette tribu puis cliquez sur 'Rejoignez la tribu' ci-dessous."
       if_want_to_view_content: "Pour voir le contenu de cette tribu sans la rejoindre, vous devez"
       log_out: "vous déconnecter"
@@ -454,7 +454,7 @@ fr:
       confirmation_instructions_signature: "Cordialement, <br/> L'équipe de %{service_name}"
       welcome_to_kassi: "Bienvenue sur %{service_name} !"
       need_to_confirm: "Vous devez confirmer votre adresse email."
-      confirmation_link_text: "confirmer mon inscription"
+      confirmation_link_text: "Confirmer mon inscription"
       or_paste_link: "Vous pouvez également copier le lien suivant dans la barre d'adresse de votre navigateur : "
       turning_on_confirmations_in_this_community: "Nous commençons à utiliser les email de confirmation dans cette tribu %{service_name}."
     common:
@@ -571,9 +571,6 @@ fr:
       invite_your_friends: "<strong>Passez le mot.</strong> Plus il y a d'utilisateurs sur %{service_name}, plus la tribu sera utile à tous. Connaissez-vous des gens qui pourraient vous rejoindre ? Parlez leur de %{service_name} %{invite_link} ou en leur envoyant ce lien : %{url}. Si vous voulez voir qui est déjà présent, %{member_list_link}."
       invite_link_text: "en utilisant le formulaire d'invitation"
       member_list_link_text: "regardez la liste des membres"
-      get_mobile_app: "<strong>Téléchargez notre application mobile.</strong> Saviez-vous que vous pouvez utiliser %{service_name} sur votre smartphone ? C'est encore plus simple d'ajouter des annonce en prenant des photos de ce que vous possédez et de voir ce que les autres proposent autour de vous. Si vous avez un iPhone, vous pouvez %{app_store_link}. Si vous utilisez Android ou Windows Phone, %{mobile_web_link}."
-      app_store_link_text: "télécharger l'app depuis l'App Store"
-      mobile_web_link_text: "regardez notre site mobile adapté"
       go_explore: "<strong>Explorez !</strong> Regardez ce que les autres offrent et demandent déjà sur %{service_name}. Peut-être trouverez vous quelque chose dont vous avez besoin. Peut-être pourrez vous aider quelqu'un d'autre. Profitez en !"
       love_team: "Love,<br /><i>L'équipe %{service_name}</i>"
       congrats_for_creating_community: "Vous avez créé la tribu %{community} - voici quelques astuces pour bien démarrer"
@@ -653,6 +650,7 @@ fr:
     create_new_marketplace: "Créer une nouvelle tribu"
     contact_us: "Nous contacter"
     profile: Profil
+    invite: Inviter
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Il y a aussi <b>une autre offre</b>,"
@@ -938,11 +936,15 @@ fr:
       you_must_log_in_to_view_your_inbox: "Vous devez vous connecter à %{service_name} pour consulter votre boîte de réception."
       you_must_log_in_to_view_your_settings: "Vous devez vous connecter à %{service_name} pour afficher vos paramètres."
       you_must_log_in_to_add_news_item: "Vous devez vous connecter à %{service_name} pour ajouter un nouvel article."
+      you_must_log_in_to_change_profile_settings: "Vous devez vous connecter à %{service_name} pour modifier les paramètres de profil."
       you_need_to_confirm_your_account_first: "Vous devez d'abord confirmer votre email."
       you_must_fill_all_the_fields: "Vous devez compléter tous les champs"
       you_unfollowed_listing: "Vous ne suivez plus cette annonce"
       joining_community_failed: "Rejoindre cette tribu a échoué."
       can_not_login_with_private_user: "Vous ne pouvez pas vous connecter à cette tribu avec votre compte personnel. Connectez vous avec le compte de votre organisation ou créez en un nouveau."
+      can_not_delete_email: "Vous ne pouvez pas supprimer cette adresse email"
+      user_does_not_have_email_to_delete: "Vous n'avez pas l'adresse email que vous essayez de supprimer"
+      email_deleted: "Email supprimé"
     profile_extras_header:
       back_to_profile_of_person: "Retour au profil"
       badges: Badges
@@ -1264,7 +1266,7 @@ fr:
   okl:
     member_id: "Member id"
     member_id_is_your_username: "Vous devez fournir votre Omakotiliitto member id (jäsennumero) pour rejoindre %{service_name}. Votre member id est également votre nom d'utilisateur, dont vous aurez besoin pour vous connecter à %{service_name}. Si vous n'êtes pas encore membre de Omakotiliitto, vous pouvez"
-    member_id_or_email: "Identifiant ou e-mail"
+    member_id_or_email: "Identifiant ou email"
     join_here: rejoindre.
   payments:
     new:
@@ -1326,8 +1328,8 @@ fr:
       email_is_in_use_or_not_allowed: "Cette adresse email n'est pas acceptée pour cette tribu ou est déjà utilisée. Veuillez utiliser une adresse associée à cette tribu (voir les instructions ci-dessous). Si vous n'arrivez toujours pas à vous connecter, contactez-nous."
       email_not_allowed: "Cette adresse email n'est pas autorisée pour cette tribu. Veuillez utiliser une adresse associée à cette tribu. Si vous n'arrivez toujours pas à vous connecter, contactez-nous."
       email_restriction_instructions:
-        one: "Cette tribu est réservée à %{community_name}. Pour la rejoindre, vous devez avoir une adresse e-mail du type %{allowed_emails}."
-        other: "Cette tribu est réservée à %{community_name}. Pour la rejoindre, vous devez avoir une adresse e-mail autorisée."
+        one: "Cette tribu est réservée à %{community_name}. Pour la rejoindre, vous devez avoir une adresse email du type %{allowed_emails}."
+        other: "Cette tribu est réservée à %{community_name}. Pour la rejoindre, vous devez avoir une adresse email autorisée."
       enter_captcha: "Je suis un être humain :"
       family_name: "Nom de famille"
       given_name: Prénom
@@ -1525,13 +1527,27 @@ fr:
       delete_account: "Supprimer le compte"
       delete_account_button: "Supprimer définitivement mon compte"
       delete_account_confirmation_popup: "Etes-vous bien sûr(e) de vouloir supprimer votre compte et de perdre toutes ses données ? La suppression d'un compte est irréversible."
-      email: "Adresse email : "
+      email_addresses: "Adresses email"
       instructions_to_delete_account: "Si vous supprimez votre compte, toutes ses données seront perdues : les informations de votre profil, les annonces, les commentaires, les messages, les avis etc..."
       contact_admin: "merci de contacter les administrateurs"
       new_email: "Nouvelle adresse email"
       new_password: "Votre nouveau mot de passe"
       save: Sauvegarder
       these_fields_are_shown_only_to_you: "Le nom d'utilisateur apparaît dans votre profil sauf si vous avez communiqué votre nom. Il n'y a que vous qui voyez les autres informations."
+      email:
+        address_title: Adresse
+        remove_title: Supprimer
+        remove_confirmation: "Voulez-vous vraiment supprimer cette adresse email ?"
+        receive_notifications_title_desktop: "Recevoir les notifications"
+        receive_notifications_title_mobile: "Recevoir les notifications"
+        receive_notifications_new_title_mobile: "Recevoir les notifications"
+        add_new_with_plus: "+ Ajouter une adresse email"
+        add_new_cancel: Annuler
+        confirmation_title_mobile: "Confirmation :"
+        confirmation_title_desktop: Confirmation
+        confirmation_resend: Renvoyer
+        status_confirmed: Confirmé
+        status_pending: "En attente"
     notifications:
       email_from_admins: "J'accepte de recevoir des informations occasionnelles des administrateurs de cette tribu"
       i_want_to_get_email_notification_when: "Je souhaite recevoir un email de notification lorsque..."

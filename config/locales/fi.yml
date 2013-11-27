@@ -571,9 +571,6 @@ fi:
       invite_your_friends: "<strong>Levitä sanaa. </strong> Mitä enemmän ihmisiä %{service_name_inessive} on, sitä paremmin palvelu toimii kaikkien kannalta. Tiedätkö jonkun, joka voisi olla kiinnostunut %{service_name_elative}? Kerro siitä heille %{invite_link} tai lähettämällä heille tämän linkin: %{url}. Jos haluat nähdä, keitä palvelussa on jäsenenä tällä hetkellä, %{member_list_link}."
       invite_link_text: "käyttämällä helppoa kutsulomakettamme"
       member_list_link_text: "voit selailla jäsenlistaa"
-      get_mobile_app: "<strong>Lataa mobiilisovelluksemme. </strong> Tiesitkö, että voit käyttää %{service_name_partitive} myös mobiilisti? Ilmoitusten lisääminen hoituu parilla klikkauksella kännykkäkameran avulla, ja näet aina, mitä ympärilläsi tapahtuu. Jos sinulla on iPhone, voit %{app_store_link}. Jos sinulla on Android- tai Windows Phone -puhelin, %{mobile_web_link}."
-      app_store_link_text: "ladata sovelluksen App Storesta"
-      mobile_web_link_text: "kokeile HTML5-sovellustamme"
       go_explore: "<strong>Selaile ja tutustu! </strong> Katso mitä muut tarjoavat tai pyytävät tällä hetkellä %{service_name_inessive}. Ehkä löydät jotain mitä tarvitset. Ehkä voit tarjota apua jollekulle toiselle. Pidä hauskaa!"
       love_team: "Rakkaudella,<br /><i>%{service_name}-tiimi</i>"
       congrats_for_creating_community: "Perustit juuri yhteisön %{community} - tässä muutama vinkki alkuun pääsemiseksi"
@@ -1530,7 +1527,7 @@ fi:
       delete_account: "Käyttäjätilin poisto"
       delete_account_button: "Poista tilini pysyvästi"
       delete_account_confirmation_popup: "Oletko aivan varma, että haluat pysyvästi poistaa käyttäjätilisi ja kaikki siihen liittyvät tiedot? Poistoa ei voi peruuttaa."
-      email_addresses: "Sähköpostiosoitteet"
+      email_addresses: Sähköpostiosoitteet
       instructions_to_delete_account: "Jos poistat käyttäjätilisi, samalla poistetaan kaikki profiilin tiedot, ilmoitukset, viestit, palautteet ym "
       contact_admin: "otathan yhteyttä ylläpitoon"
       new_email: "Uusi sähköpostiosoite"
@@ -1538,17 +1535,17 @@ fi:
       save: Tallenna
       these_fields_are_shown_only_to_you: "Käyttäjätunnus näytetään profiilissasi, jos et ole syöttänyt nimeäsi. Muut tiedot näytetään vain sinulle."
       email:
-        address_title: "Osoite"
+        address_title: Osoite
         remove_title: Poista
         remove_confirmation: "Oletko varma, että haluat poistaa tämän sähköpostin?"
-        receive_notifications_title_desktop: Vastaanota ilmoituksia
-        receive_notifications_title_mobile: Vastaanota ilmoituksia
-        receive_notifications_new_title_mobile: Vastaanota ilmoituksia
+        receive_notifications_title_desktop: "Vastaanota ilmoituksia"
+        receive_notifications_title_mobile: "Vastaanota ilmoituksia"
+        receive_notifications_new_title_mobile: "Vastaanota ilmoituksia"
         add_new_with_plus: "+ Lisää uusi sähköposti"
         add_new_cancel: Peruuta
         confirmation_title_mobile: "Vahvistus:"
-        confirmation_title_desktop: "Vahvistus"
-        confirmation_resend: Lähetä uudelleen
+        confirmation_title_desktop: Vahvistus
+        confirmation_resend: "Lähetä uudelleen"
         status_confirmed: Vahvistettu
         status_pending: Odottaa
     notifications:

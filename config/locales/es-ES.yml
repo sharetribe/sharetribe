@@ -576,9 +576,6 @@ es-ES:
       invite_your_friends: ~
       invite_link_text: ~
       member_list_link_text: ~
-      get_mobile_app: ~
-      app_store_link_text: ~
-      mobile_web_link_text: ~
       go_explore: ~
       love_team: ~
       congrats_for_creating_community: ~
@@ -658,6 +655,7 @@ es-ES:
     create_new_marketplace: "Crear un nuevo mercado"
     contact_us: Contáctanos
     profile: Perfil
+    invite: ~
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Adicionalmente existe <b>y esta otra oferta</b>,"
@@ -943,11 +941,15 @@ es-ES:
       you_must_log_in_to_view_your_inbox: "Debes iniciar tu sesión en %{service_name} para revisar tu bandeja de entrada"
       you_must_log_in_to_view_your_settings: "Debes registrarte en %{service_name} para ver tu configuración"
       you_must_log_in_to_add_news_item: ~
+      you_must_log_in_to_change_profile_settings: ~
       you_need_to_confirm_your_account_first: "Deberás confirmar tu cuenta primero."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Ya no estás siguiendo este anuncio"
       joining_community_failed: "Error al unirte a esta comunidad"
       can_not_login_with_private_user: ~
+      can_not_delete_email: ~
+      user_does_not_have_email_to_delete: ~
+      email_deleted: ~
     profile_extras_header:
       back_to_profile_of_person: "Volver al perfil del usuario"
       badges: Medallas
@@ -1530,13 +1532,27 @@ es-ES:
       delete_account: "Borrar cuenta"
       delete_account_button: ~
       delete_account_confirmation_popup: ~
-      email: "Dirección de correo electrónico:"
+      email_addresses: ~
       instructions_to_delete_account: ~
       contact_admin: "por favor contacta a los administradores"
       new_email: "Nieva Dirección de Correo Electrónico"
       new_password: "Nueva contraseña"
       save: Guardar
       these_fields_are_shown_only_to_you: "El nombre del usuario se muestra en tu perfil a menos que hayas dado tu nombre. Cualquier otra información sólo está disponible para ti."
+      email:
+        address_title: ~
+        remove_title: ~
+        remove_confirmation: ~
+        receive_notifications_title_desktop: ~
+        receive_notifications_title_mobile: ~
+        receive_notifications_new_title_mobile: ~
+        add_new_with_plus: ~
+        add_new_cancel: ~
+        confirmation_title_mobile: ~
+        confirmation_title_desktop: ~
+        confirmation_resend: ~
+        status_confirmed: ~
+        status_pending: ~
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: "Quiero recibir una notificación por correo electrónico cuando..."

@@ -571,9 +571,6 @@ el:
       invite_your_friends: "<strong>Διαδώστε το.</strong> Όσο περισσότεροι χρησιμοποιούν το %{service_name} τόσο πιο χρήσιμο γίνεται. Αν ξέρετε κόσμο που θα ενδιαφερόταν να το χρησιμοποιήσει, καλέστε τους! Χρησιμοποιείστε %{invite_link} ή στείλτε τους τον σύνδεσμο: %{url}. Στη %{member_list_link} μπορείτε να δείτε ποιοι είναι ήδη μέλη."
       invite_link_text: "τη φόρμα πρόσκλησης"
       member_list_link_text: "λίστα μελών"
-      get_mobile_app: "<strong>Κατεβάστε την εφαρμογή μας.</strong> Ξέρατε ότι μπορείτε να χρησιμοποιείτε το %{service_name} καθ' οδόν; Μπορείτε να κάνετε καταχωρήσεις απλώς βγάζοντας φωτογραφίες από αντικείμενα που θέλετε να προσφέρετε ή να δείτε τι κάνουν άλλοι κοντά σε σας. Αν έχετε iPhone %{app_store_link}. Αν χρησιμοποιείτε κινητό με Android ή Windows Phone, %{mobile_web_link}."
-      app_store_link_text: "κατεβάστε την εφαρμογή από το App Store"
-      mobile_web_link_text: "δοκιμάστε την προβολή για κινητά"
       go_explore: "<strong>Εξερευνήστε!</strong> Δείτε τι προσφέρουν και τι ζητούν άλλοι στο %{service_name}. Ίσως να βρείτε κάτι που χρειάζεστε ή να μπορέσετε να βοηθήσετε κάποιον. Απολαύστε το!"
       love_team: "Με αγάπη,<br /><i>Η Ομάδα του %{service_name}"
       congrats_for_creating_community: "Μόλις δημιουργήσατε την κοινότητα %{community} - μερικές συμβουλές για να ξεκινήσετε"
@@ -653,6 +650,7 @@ el:
     create_new_marketplace: "Δημιουργήστε μια καινούρια αγορά"
     contact_us: Επικοινωνία
     profile: Προφίλ
+    invite: ~
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Υπάρχει <b>μία ακόμα προσφορά</b>,"
@@ -938,11 +936,15 @@ el:
       you_must_log_in_to_view_your_inbox: "Πρέπει να συνδεθείτε στο %{service_name} για να δείτε τα εισερχόμενα σας."
       you_must_log_in_to_view_your_settings: "Πρέπει να συνδεθείτε στο %{service_name} για να δείτε τις ρυθμίσεις σας."
       you_must_log_in_to_add_news_item: "Πρέπει να συνδεθείτε στο %{service_name} για να προσθέσετε ένα άρθρο."
+      you_must_log_in_to_change_profile_settings: ~
       you_need_to_confirm_your_account_first: "Πρέπει να επιβεβαιώσετε την διεύθυνση ηλεκτρονικού ταχυδρομείου σας."
       you_must_fill_all_the_fields: "Πρέπει να συμπληρώσετε όλα τα πεδία"
       you_unfollowed_listing: "Δεν παρακολουθείς πλέον αυτή την καταχώρηση"
       joining_community_failed: "Η εγγραφή σε αυτή την κοινότητα απέτυχε"
       can_not_login_with_private_user: ~
+      can_not_delete_email: ~
+      user_does_not_have_email_to_delete: ~
+      email_deleted: ~
     profile_extras_header:
       back_to_profile_of_person: "Επιστροφή στο προφίλ του χρήστη"
       badges: Κονκάρδες
@@ -1525,13 +1527,27 @@ el:
       delete_account: "Διαγραφή λογαριασμού"
       delete_account_button: "Διαγράψτε μόνιμα το λογαριασμό μου"
       delete_account_confirmation_popup: "Είστε σίγουροι ότι θέλετε να διαγράψετε το λογαριασμό σας και να διαγραφούν όλα τα δεδομένα που σχετίζονται με αυτόν; Η διαγραφή λογαριασμού είναι μη αναστρέψιμη."
-      email: "Διεύθυνση email:"
+      email_addresses: ~
       instructions_to_delete_account: "Αν διαγράψετε το λογαριασμό σας, όλα τα δεδομένα που σχετίζονται με αυτόν θα διαγραφτούν: το προφίλ σας, οι καταχωρήσεις σας, τα μηνύματά σας, η κριτική που έχετε λάβει κλπ."
       contact_admin: "παρακαλούμε επικοινωνήστε με τους διαχειριστές"
       new_email: "Νέα διεύθυνση email"
       new_password: "Νέος κωδικός"
       save: Αποθήκευση
       these_fields_are_shown_only_to_you: "Το όνομα χρήστη εμφανίζεται στο προφίλ σας εκτός αν έχετε δώσει το πραγματικό σας όνομα. Οι υπόλοιπες πληροφορίες είναι ορατές μόνο σε σας."
+      email:
+        address_title: ~
+        remove_title: ~
+        remove_confirmation: ~
+        receive_notifications_title_desktop: ~
+        receive_notifications_title_mobile: ~
+        receive_notifications_new_title_mobile: ~
+        add_new_with_plus: ~
+        add_new_cancel: ~
+        confirmation_title_mobile: ~
+        confirmation_title_desktop: ~
+        confirmation_resend: ~
+        status_confirmed: ~
+        status_pending: ~
     notifications:
       email_from_admins: "Θα ήθελα να λαμβάνω περιστασιακές ενημερώσεις από τους διαχειριστές αυτής της κοινότητας"
       i_want_to_get_email_notification_when: "Θέλω να λαμβάνω ειδοποίηση με email όταν..."

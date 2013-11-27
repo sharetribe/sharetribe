@@ -571,9 +571,6 @@ fr-bd:
       invite_your_friends: ~
       invite_link_text: ~
       member_list_link_text: ~
-      get_mobile_app: ~
-      app_store_link_text: ~
-      mobile_web_link_text: ~
       go_explore: ~
       love_team: ~
       congrats_for_creating_community: ~
@@ -653,6 +650,7 @@ fr-bd:
     create_new_marketplace: ~
     contact_us: ~
     profile: ~
+    invite: ~
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: ~
@@ -700,7 +698,7 @@ fr-bd:
       private_listing_notification_log_in: ~
       is: ~
       are: ~
-      what_do_you_need: ~
+      what_do_you_need: "Où souhaitez-vous habiter ?"
       post_new_listing: ~
       are_offering: ~
       add_news_item: ~
@@ -762,7 +760,7 @@ fr-bd:
       grid_button: ~
       list_button: ~
       all_listing_types: ~
-      all_categories: ~
+      all_categories: "Toutes les villes"
   infos:
     about:
       default_about_text_title: ~
@@ -1067,7 +1065,7 @@ fr-bd:
       help_tags_title: ~
       help_valid_until_title: ~
     index:
-      all_categories: ~
+      all_categories: "Toutes les villes"
       all_offer_types: ~
       all_request_types: ~
       category: ~
@@ -1240,7 +1238,7 @@ fr-bd:
       price_excludes_vat: ~
   mapview:
     index:
-      all_categories: ~
+      all_categories: "Toutes les villes"
       all_offer_types: ~
       all_request_types: ~
       category: ~
@@ -1540,9 +1538,9 @@ fr-bd:
         address_title: ~
         remove_title: ~
         remove_confirmation: ~
-        send_notifications_title_desktop: ~
-        send_notifications_title_mobile: ~
-        send_notifications_new_title_mobile: ~
+        receive_notifications_title_desktop: ~
+        receive_notifications_title_mobile: ~
+        receive_notifications_new_title_mobile: ~
         add_new_with_plus: ~
         add_new_cancel: ~
         confirmation_title_mobile: ~

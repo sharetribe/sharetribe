@@ -571,9 +571,6 @@ en:
       invite_your_friends: "<strong>Spread the word. </strong> The more people there are in %{service_name}, the more helpful the community is for everyone. Do you know people who might be interested in joining? Tell them about %{service_name} by %{invite_link} or sending them this link: %{url}. If you want to see who are already members, %{member_list_link}."
       invite_link_text: "using our easy invite form"
       member_list_link_text: "check out the member list"
-      get_mobile_app: "<strong>Get our mobile app. </strong> Did you know that you can use %{service_name} on the go? Now it's easier than ever to add listings by simply taking photos of things you own, and seeing what others are doing near you. If you have an iPhone, you can %{app_store_link}. If you are on Android or Windows Phone, %{mobile_web_link}."
-      app_store_link_text: "download the app from the App Store"
-      mobile_web_link_text: "try our mobile web app"
       go_explore: "<strong>Go explore! </strong> See what others are already offering and requesting in %{service_name}. Maybe you'll find something you need. Maybe you could help someone else out. Have fun!"
       love_team: "Love,<br /><i>The %{service_name} Crew</i>"
       congrats_for_creating_community: "You just created %{community} - here are some tips to get you started"
@@ -1538,16 +1535,16 @@ en:
       save: Save
       these_fields_are_shown_only_to_you: "Username is shown in your profile unless you have given your name. Other information is only shown to you."
       email:
-        address_title: "Address"
+        address_title: Address
         remove_title: Remove
-        remove_confirmation: Are you sure you want to remove this email address?
-        receive_notifications_title_desktop: Receive notifications
-        receive_notifications_title_mobile: Receive notifications
-        receive_notifications_new_title_mobile: Receive notifications
+        remove_confirmation: "Are you sure you want to remove this email address?"
+        receive_notifications_title_desktop: "Receive notifications"
+        receive_notifications_title_mobile: "Receive notifications"
+        receive_notifications_new_title_mobile: "Receive notifications"
         add_new_with_plus: "+ Add new email address"
         add_new_cancel: Cancel
         confirmation_title_mobile: "Confirmation:"
-        confirmation_title_desktop: "Confirmation"
+        confirmation_title_desktop: Confirmation
         confirmation_resend: Resend
         status_confirmed: Confirmed
         status_pending: Pending

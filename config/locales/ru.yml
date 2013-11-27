@@ -571,9 +571,6 @@ ru:
       invite_your_friends: ~
       invite_link_text: ~
       member_list_link_text: ~
-      get_mobile_app: ~
-      app_store_link_text: "загрузите приложение из AppStore"
-      mobile_web_link_text: "попробуйте мобильное приложение"
       go_explore: ~
       love_team: ~
       congrats_for_creating_community: ~
@@ -653,6 +650,7 @@ ru:
     create_new_marketplace: ~
     contact_us: "Обратная связь"
     profile: Профиль
+    invite: ~
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Кроме того, есть <b>одно другое предложение</b>,"
@@ -938,11 +936,15 @@ ru:
       you_must_log_in_to_view_your_inbox: "Для того, чтобы просмотреть входящие сообщения, вы должны зайти в %{service_name}."
       you_must_log_in_to_view_your_settings: "Для просмотра настроек требуется авторизация."
       you_must_log_in_to_add_news_item: "Вы должны авторизоваться в %{service_name}, чтобы добавить новую статью."
+      you_must_log_in_to_change_profile_settings: ~
       you_need_to_confirm_your_account_first: "Сначала вы должны подтвердить свою учётную запись."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Вы больше не следите за этим листингом"
       joining_community_failed: "Ошибка при вступлении в сообщество"
       can_not_login_with_private_user: ~
+      can_not_delete_email: ~
+      user_does_not_have_email_to_delete: ~
+      email_deleted: ~
     profile_extras_header:
       back_to_profile_of_person: "Назад к профилю пользователя"
       badges: Значки
@@ -1525,13 +1527,27 @@ ru:
       delete_account: "Удалить учётную запись"
       delete_account_button: ~
       delete_account_confirmation_popup: ~
-      email: "Адрес электронной почты:"
+      email_addresses: ~
       instructions_to_delete_account: "Если вы хотите удалить свою учётную запись, используйте форму связи слева."
       contact_admin: "свяжитесь с администратором"
       new_email: "Новый адрес электронной почты"
       new_password: "Новый пароль"
       save: Сохранить
       these_fields_are_shown_only_to_you: "Если вы не сообщили ваше реальное имя, в вашем профиле будет отображаться выбранное вами имя пользователя. Остальная информация будет доступна только вам."
+      email:
+        address_title: ~
+        remove_title: ~
+        remove_confirmation: ~
+        receive_notifications_title_desktop: ~
+        receive_notifications_title_mobile: ~
+        receive_notifications_new_title_mobile: ~
+        add_new_with_plus: ~
+        add_new_cancel: ~
+        confirmation_title_mobile: ~
+        confirmation_title_desktop: ~
+        confirmation_resend: ~
+        status_confirmed: ~
+        status_pending: ~
     notifications:
       email_from_admins: "Я хотел бы получать иногда оповещения от администраторов этого сообщества"
       i_want_to_get_email_notification_when: "Я хочу получать уведомления по электронной почте, когда"

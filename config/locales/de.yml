@@ -571,9 +571,6 @@ de:
       invite_your_friends: "Teile das Wort! Je mehr Leute es gibt in dem %{service_name}, desto besser ist die Community für alle. Kennst du Leute, die interessiert sind teilzunehmen? Erzähle ihnen von %{service_name} indem du %{invite_link} oder sende ihnen diesen Link: %{url}. Wenn du sehen willst, wer schon Mitglied ist, %{member_list_link}."
       invite_link_text: "Benütze unsere leichte Einladungsmaske"
       member_list_link_text: "Sieh dir unsere Mitgliederliste an"
-      get_mobile_app: "Lade unsere Mobile App herunter. Wusstest du, dass du %{service_name} unterwegs benützen kannst? Jetzt ist es leichter denn je Einträge hinzuzufügen indem man Fotos von seinem Besitz macht und man sieht was andere in der Nähe von einem machen. Wenn du ein iPhone hast, kannst du auf %{app_store_link}. Wenn du ein Android oder Windows Handy hast gehst du auf %{mobile_web_link}."
-      app_store_link_text: "Lade die App vom App Store runter"
-      mobile_web_link_text: "Teste unsere mobile Web App"
       go_explore: "Geh entdecken! Schaue was andere anbieten und anfragen in %{service_name}. Vielleicht findest du etwas das du brauchst. Vielleicht kannst du jemandem anderen helfen! Viel Spaß damit!"
       love_team: "Viele Grüße, das %{service_name} Team"
       congrats_for_creating_community: "Du hast gerade eine %{community} erstellt - hier kommen Tipps für den Start"
@@ -653,6 +650,7 @@ de:
     create_new_marketplace: "Entwerfe einen neuen Marktplatz"
     contact_us: Kontakt
     profile: Profil
+    invite: ~
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Zusätzlich gibt es ein <b>anderes Angebot</b>,"
@@ -1543,9 +1541,9 @@ de:
         address_title: ~
         remove_title: ~
         remove_confirmation: ~
-        send_notifications_title_desktop: ~
-        send_notifications_title_mobile: ~
-        send_notifications_new_title_mobile: ~
+        receive_notifications_title_desktop: ~
+        receive_notifications_title_mobile: ~
+        receive_notifications_new_title_mobile: ~
         add_new_with_plus: ~
         add_new_cancel: ~
         confirmation_title_mobile: ~

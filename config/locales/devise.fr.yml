@@ -20,14 +20,14 @@ fr:
       inactive: "Votre compte n'est pas encore activé."
     passwords:
       updated_not_active: "Votre mot de passe a bien été changé."
-      send_paranoid_instructions: "Si nous trouvons bien votre email dans notre base de données, vous recevrez un lien pour récupérer votre mot de mail"
+      send_paranoid_instructions: "Si votre email existe bien dans notre base de données, vous recevrez un lien pour récupérer votre mot de passe par email"
       send_instructions: "Vous allez recevoir les instructions de réinitialisation du mot de passe dans quelques instants"
       updated: "Votre mot de passe a été modifié avec succès, vous êtes maintenant connecté."
     sessions:
       signed_in: Connecté.
       signed_out: Déconnecté.
     confirmations:
-      send_paranoid_instructions: "Si nous trouvons bien votre email dans notre base de données, vous recevez dans quelques minutes des informations pour confirmer votre compte."
+      send_paranoid_instructions: "Si votre email existe bien dans notre base de données, vous recevrez dans quelques instants un email avec les instructions à suivre pour confirmer votre compte."
       send_instructions: "Vous allez recevoir les instructions nécessaires à la confirmation de votre compte dans quelques minutes"
       confirmed: "Votre compte a été validé, vous êtes maintenant connecté"
     registrations:

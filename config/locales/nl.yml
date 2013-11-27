@@ -571,9 +571,6 @@ nl:
       invite_your_friends: ~
       invite_link_text: ~
       member_list_link_text: ~
-      get_mobile_app: ~
-      app_store_link_text: ~
-      mobile_web_link_text: ~
       go_explore: ~
       love_team: ~
       congrats_for_creating_community: ~
@@ -653,6 +650,7 @@ nl:
     create_new_marketplace: ~
     contact_us: ~
     profile: ~
+    invite: ~
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Daarnaast is er <b>één ander aanbod</b>,"
@@ -938,11 +936,15 @@ nl:
       you_must_log_in_to_view_your_inbox: "Je moet ingelogd zijn om je inbox te zien."
       you_must_log_in_to_view_your_settings: ~
       you_must_log_in_to_add_news_item: ~
+      you_must_log_in_to_change_profile_settings: ~
       you_need_to_confirm_your_account_first: ~
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: ~
       joining_community_failed: ~
       can_not_login_with_private_user: ~
+      can_not_delete_email: ~
+      user_does_not_have_email_to_delete: ~
+      email_deleted: ~
     profile_extras_header:
       back_to_profile_of_person: "Terug naar de gebruikers profiel"
       badges: Badges
@@ -1523,13 +1525,27 @@ nl:
       delete_account: ~
       delete_account_button: ~
       delete_account_confirmation_popup: ~
-      email: "Email adres:"
+      email_addresses: ~
       instructions_to_delete_account: ~
       contact_admin: ~
       new_email: "Nieuw email adres"
       new_password: "Nieuw wachtwoord"
       save: Opslaan
       these_fields_are_shown_only_to_you: "Gebruikersnaam is zichtbaar in je profiel tenzij je je naam hebt opgegeven. Overige informatie is alleen zichtbaar voor jou."
+      email:
+        address_title: ~
+        remove_title: ~
+        remove_confirmation: ~
+        receive_notifications_title_desktop: ~
+        receive_notifications_title_mobile: ~
+        receive_notifications_new_title_mobile: ~
+        add_new_with_plus: ~
+        add_new_cancel: ~
+        confirmation_title_mobile: ~
+        confirmation_title_desktop: ~
+        confirmation_resend: ~
+        status_confirmed: ~
+        status_pending: ~
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: "Ik wil graag een email bevestiging krijgen als..."
