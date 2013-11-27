@@ -6,7 +6,7 @@
 .left-navi-section
   %h2= t(".welcome_email_content", :community_name => @community.name)
   %p= t(".welcome_email_content_description", :send_test_message_link => t(".send_test_message"))
-  %a{:id => "edit_link", :href => "/editor" + request.path, :data => { :save_url => mercury_update_admin_community_path(@community) }}
+  %a{:id => "edit_link", :href => "/editor" + request.path, :data => { :save_url => mercury_update_path(:content_type => "welcome_email_content") }}
     .icon-with-text-container
       = icon_tag("edit", ["icon-part"]) 
       .text-part= t(".edit_message")

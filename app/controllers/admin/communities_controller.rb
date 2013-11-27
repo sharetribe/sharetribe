@@ -58,13 +58,4 @@ class Admin::CommunitiesController < ApplicationController
     end
   end
   
-  def mercury_update
-    if @community_customization
-      @community_customization.update_attribute(:welcome_email_content, params[:content][:page_content][:value])
-    else
-      @current_community.community_customizations.create(:locale => I18n.locale, :welcome_email_content => params[:content][:page_content][:value])
-    end
-    render text: ""
-  end
-  
 end

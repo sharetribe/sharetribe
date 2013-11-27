@@ -16,9 +16,6 @@
     = t("emails.welcome_email.invite_your_friends", :invite_link => link_to(t("emails.welcome_email.invite_link_text"), new_invitation_url(@url_params), :style => "color:#d96e21; text-decoration: none;"), :url => link_to(@current_community.full_url, @current_community.full_url, :style => "color:#d96e21; text-decoration: none;"), :member_list_link => link_to(t("emails.welcome_email.member_list_link_text"), people_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe 
 
 %p
-  = t("emails.welcome_email.get_mobile_app", :app_store_link => link_to(t("emails.welcome_email.app_store_link_text"), "https://itunes.apple.com/us/app/sharetribe/id545640772?mt=8", :style => "color:#d96e21; text-decoration: none;"), :mobile_web_link => link_to(t("emails.welcome_email.mobile_web_link_text"), root_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
-
-%p
   = t("emails.welcome_email.go_explore").html_safe
 
 %p
