@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131122175753) do
+ActiveRecord::Schema.define(:version => 20131126184439) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -156,6 +156,8 @@ ActiveRecord::Schema.define(:version => 20131122175753) do
     t.string   "preproduction_stylesheet_url"
     t.boolean  "only_organizations"
     t.boolean  "logo_change_allowed"
+    t.boolean  "terms_change_allowed",              :default => false
+    t.boolean  "privacy_policy_change_allowed",     :default => false
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
@@ -194,13 +196,16 @@ ActiveRecord::Schema.define(:version => 20131122175753) do
     t.string   "locale"
     t.string   "slogan"
     t.text     "description"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.text     "blank_slate"
     t.text     "welcome_email_content"
-    t.text     "how_to_use"
+    t.text     "how_to_use_page_content"
     t.text     "custom_head_script"
     t.text     "about_page_content"
+    t.text     "terms_page_content"
+    t.text     "privacy_page_content"
+    t.string   "storefront_label"
   end
 
   add_index "community_customizations", ["community_id"], :name => "index_community_customizations_on_community_id"

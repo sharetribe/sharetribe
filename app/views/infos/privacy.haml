@@ -4,4 +4,10 @@
   %h1= t("layouts.infos.info_about_kassi")
 
 .left-navi-section.about-section
-  = render :file => community_file("register_details", true)
+  = render :layout => "layouts/mercury_editable_page", :locals => { :content_type => "privacy_page_content", :editing_allowed => @current_community.privacy_policy_change_allowed? } do
+    - if @community_customization && @community_customization.privacy_page_content
+      = @community_customization.privacy_page_content.html_safe
+    - elsif File.exists?("app/views/infos/localized_privacy_policy/privacy_policy.#{I18n.locale}.haml")
+      = render :file => "infos/localized_privacy_policy/privacy_policy.#{I18n.locale}"
+    - else
+      = render :file => "infos/localized_privacy_policy/privacy_policy.en"
