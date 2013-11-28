@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(:version => 20131128074910) do
 
   add_index "badges", ["person_id"], :name => "index_badges_on_person_id"
 
+  create_table "braintree_accounts", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "person_id"
+  end
+
   create_table "cached_ressi_events", :force => true do |t|
     t.string   "user_id"
     t.string   "application_id"
