@@ -1,6 +1,7 @@
 class PaymentGateway < ActiveRecord::Base
   
-  has_and_belongs_to_many :communities
+  has_many :community_payment_gateways, :dependent => :destroy 
+  has_many :communities, :through => :community_payment_gateways
   
   # methods that must be defined in subclasses, but are not defined here as 
   # this model is never directly used, only via subclasses
