@@ -1,4 +1,5 @@
 class PaymentGateway < ActiveRecord::Base
+  include Rails.application.routes.url_helpers
   
   has_many :community_payment_gateways, :dependent => :destroy 
   has_many :communities, :through => :community_payment_gateways
