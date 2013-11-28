@@ -605,6 +605,10 @@ class Community < ActiveRecord::Base
     end
   end
   
+  def braintree_in_use?
+    payment_gateways.include?(PaymentGateway.find_by_type("Braintree"))
+  end
+  
   private
   
   # Returns an array of unique categories or share_types used in this community.

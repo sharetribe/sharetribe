@@ -1478,6 +1478,23 @@ fi:
       show_all_open_listings: "Näytä kaikki avoimet ilmoitukset"
       show_all_reviews: "Näytä kaikki palautteet"
       trustcloud: TrustCard
+  payments:
+    braintree:
+      payout_details_form:
+        add_payout_details: "Lisää maksutiedot"
+        first_name: "Etunimi"
+        last_name: "Sukunimi"
+        email: "Sähköpostiosoite"
+        phone: "Puhelinnumero"
+        address_street_address: "Katuosoite"
+        address_postal_code: "Postinumero"
+        address_locality: "Kaupunki"
+        address_region: "Osavaltio"
+        date_of_birth: "Syntymäaika"
+        ssn: "SSN"
+        routing_number: "Reititysnumero"
+        account_number: "Tilinumero"
+        save: "Tallenna"
   search:
     show:
       all_results: Kaikista
