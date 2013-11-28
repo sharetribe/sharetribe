@@ -121,6 +121,7 @@ Kassi::Application.routes.draw do
             post :send_confirmation
           end
         end
+        resources :braintree_accounts
       end
       
       # List few specific routes here for Devise to understand those
