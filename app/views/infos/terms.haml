@@ -5,10 +5,3 @@
 
 .left-navi-section.about-section
   = render :partial => "infos/terms_content"
-
-
--# Render lightbox content for additional terms
-- if @mangopay_in_use
-  - content_for :javascript do
-    initialize_mangopay_terms_lightbox();
-  = render :partial => "payments/mangopay/mangopay_terms_lightbox"
