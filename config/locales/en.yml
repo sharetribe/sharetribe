@@ -1481,18 +1481,20 @@ en:
   payments:
     braintree:
       payout_details_form:
+        add_payout_details: "Add your payout details"
         first_name: "First name"
         last_name: "Last name"
         email: "Email address"
         phone: "Phone number"
-        street_address: "123 Credibility St."
-        postal_code: "60606"
-        locality: "City"
-        region: "State"
+        address_street_address: "Street address"
+        address_postal_code: "Zip/Postal code"
+        address_locality: "City"
+        address_region: "State"
         date_of_birth: "Date of birth"
         ssn: "SSN"
         routing_number: "Routing number"
         account_number: "Account number"
+        save: "Save"
   search:
     show:
       all_results: "All results"

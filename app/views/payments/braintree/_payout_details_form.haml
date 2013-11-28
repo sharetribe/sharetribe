@@ -1,6 +1,8 @@
-
 .left-navi-section.settings-section
-  = form_for @BraintreeAccount do |form|
+
+  %h2= t(".add_payout_details")
+
+  = form_for @braintree_account, :url => person_braintree_accounts_path(@current_user) do |form|
 
     = form.label :first_name, t(".first_name"), :class => "input"
     = form.text_field :first_name, :class => :text_field
@@ -8,19 +10,34 @@
     = form.label :last_name, t(".last_name"), :class => "input"
     = form.text_field :last_name, :class => :text_field
     
-    = form.label :email, t(".email_address"), :class => "input"
+    = form.label :email, t(".email"), :class => "input"
     = form.text_field :last_name, :class => :text_field
     
+    = form.label :phone, t(".phone"), :class => "input"
+    = form.text_field :phone, :class => :text_field
     
+    = form.label :address_street_address, t(".address_street_address"), :class => "input"
+    = form.text_field :address_street_address, :class => :text_field
     
+    = form.label :address_postal_code, t(".address_postal_code"), :class => "input"
+    = form.text_field :address_postal_code, :class => :text_field
     
-    email: "Email address"
-    phone: "Phone number"
-    street_address: "123 Credibility St."
-    postal_code: "60606"
-    locality: "City"
-    region: "State"
-    date_of_birth: "Date of birth"
-    ssn: "SSN"
-    routing_number: "Routing number"
-    account_number: "Account number"
+    = form.label :address_locality, t(".address_locality"), :class => "input"
+    = form.text_field :address_locality, :class => :text_field
+    
+    = form.label :address_region, t(".address_region"), :class => "input"
+    = form.text_field :address_region, :class => :text_field
+    
+    = form.label :date_of_birth, t(".date_of_birth"), :class => "input"
+    = form.text_field :date_of_birth, :class => :text_field
+    
+    = form.label :ssn, t(".ssn"), :class => "input"
+    = form.text_field :ssn, :class => :text_field
+    
+    = form.label :routing_number, t(".routing_number"), :class => "input"
+    = form.text_field :routing_number, :class => :text_field
+    
+    = form.label :account_number, t(".account_number"), :class => "input"
+    = form.text_field :account_number, :class => :text_field
+    
+    = form.button t(".save"), :class => "send_button"
