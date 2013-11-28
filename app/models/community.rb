@@ -554,7 +554,11 @@ class Community < ActiveRecord::Base
     # as currently all messages are shown in all communities, there might be case where the
     # message would have payment possible in it's original community, but in this community the cc
     # is not found with the above search, so then payment is not possible here. (cc must be present)
-    payments_in_use && cc.present? && (cc.price || cc.payment)
+    payments_in_use? && cc.present? && (cc.price || cc.payment)
+  end
+  
+  def payments_in_use?
+    payment_gateways.present?
   end
   
   # Does this community require that people have registered payout method before accepting requests
