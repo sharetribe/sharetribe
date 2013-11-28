@@ -1478,6 +1478,21 @@ en:
       show_all_open_listings: "Show all open listings"
       show_all_reviews: "Show all reviews"
       trustcloud: TrustCard
+  payments:
+    braintree:
+      payout_details_form:
+        first_name: "First name"
+        last_name: "Last name"
+        email: "Email address"
+        phone: "Phone number"
+        street_address: "123 Credibility St."
+        postal_code: "60606"
+        locality: "City"
+        region: "State"
+        date_of_birth: "Date of birth"
+        ssn: "SSN"
+        routing_number: "Routing number"
+        account_number: "Account number"
   search:
     show:
       all_results: "All results"
