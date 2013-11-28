@@ -1,4 +1,4 @@
-- if gateway_name == "mangopay" || gateway_name == "braintree"
+- if gateway_name === "mangopay" || gateway_name === "braintree"
   - content_for :javascript do
     initialize_payment_gateway_terms_lightbox("#{gateway_name}");
   %b
