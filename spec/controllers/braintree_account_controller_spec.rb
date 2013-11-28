@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe BraintreeAccountController do
+describe BraintreeAccountsController do
   describe "#create" do
     before(:each) do
       @community = FactoryGirl.create(:community)
@@ -8,16 +8,6 @@ describe BraintreeAccountController do
       @person = FactoryGirl.create(:person)
       @community.members << @person
       sign_in_for_spec(@person)
-    end
-
-    it "should create braintree details" do
-      post :create, :braintree_account => {:person_id => @person.id, :first_name => "Joe", :last_name => "Bloggs"}
-      
-      response.status.should == 302
-
-      braintree_account = BraintreeAccount.find_by_person_id(@person.id)
-      braintree_account.first_name.should be_eql("Joe")
-      braintree_account.last_name.should be_eql("Bloggs")
     end
 
     it "should create braintree details with detailed information" do
@@ -52,6 +42,11 @@ describe BraintreeAccountController do
       braintree_account.ssn.should be_eql("123-00-1234")
       braintree_account.routing_number.should be_eql("1234567890")
       braintree_account.account_number.should be_eql("43759348798")
+    end
+
+    it "should not create braintree account with missing information" do
+      post :create, :braintree_account => {:person_id => @person.id, :first_name => "Joe", :last_name => "Bloggs"}
+      BraintreeAccount.find_by_person_id(@person.id).should be_nil
     end
   end
 end
