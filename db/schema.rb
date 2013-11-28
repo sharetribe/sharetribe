@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131128103251) do
+ActiveRecord::Schema.define(:version => 20131128143205) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -146,7 +146,6 @@ ActiveRecord::Schema.define(:version => 20131128103251) do
     t.string   "custom_color2"
     t.string   "stylesheet_url"
     t.string   "service_logo_style",                :default => "full-logo"
-    t.boolean  "payments_in_use",                   :default => false
     t.text     "available_currencies"
     t.boolean  "facebook_connect_enabled",          :default => true
     t.integer  "vat"
