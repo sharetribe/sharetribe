@@ -32,4 +32,8 @@ class PaymentGateway < ActiveRecord::Base
   def has_registered?(person)
     # nothing by default
   end
+
+  def settings_path(person, locale)
+    payments_person_settings_path(:person_id => person.id.to_s, :locale => locale)
+  end
 end

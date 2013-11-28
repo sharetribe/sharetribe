@@ -121,7 +121,6 @@ Kassi::Application.routes.draw do
             post :send_confirmation
           end
         end
-        resources :braintree_accounts
       end
       
       # List few specific routes here for Devise to understand those
@@ -248,6 +247,10 @@ Kassi::Application.routes.draw do
   match "/:locale/listing_bubble/:id" => "listings#listing_bubble", :as => :listing_bubble
   match "/:locale/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
   match '/:locale/:page_type' => 'dashboard#campaign'
+
+  # We have here only "save" and "edit" because user can not create new payment details (because she has only one piece of payment information) 
+  match '/:locale/people/:person_id/settings/payments/braintree/' => 'braintree_accounts#edit', :as => :braintree_settings_payment, :method => :get
+  match '/:locale/people/:person_id/settings/payments/braintree/save' => 'braintree_accounts#save', :as => :braintree_settings_payment_save, :method => :post
   
   # Inside this constraits are the routes that are used when request has subdomain other than www
   constraints(CommunityDomain) do
