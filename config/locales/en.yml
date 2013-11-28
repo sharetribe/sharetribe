@@ -1281,6 +1281,10 @@ en:
       product: Product
       price: Price
       continue_to_pay: "Continue to pay"
+    braintree:
+      terms:
+        braintree_terms_also_included: "NOTE: Braintree is used as a payment gateway service and by using this website you also accept %{terms_link_text}, in addition to the terms below."
+        terms_link_text: "Braintree terms of use"
     mangopay:
       terms:
         mangopay_terms_also_included: "NOTE: MangoPay is used as a payment gateway service and by using this website you also accept %{terms_link_text}, in addition to the terms below."

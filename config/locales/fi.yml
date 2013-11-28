@@ -1281,6 +1281,10 @@ fi:
       product: Tuote
       price: Hinta
       continue_to_pay: "Jatka maksamaan"
+    braintree:
+      terms:
+        braintree_terms_also_included: "HUOM: Tämä verkkopalvelu käyttää maksunvälittäjänä Braintree-palvelua ja käyttämällä tätä verkkopalvelua hyväksyt alla olevien ehtojen lisäksi myös %{terms_link_text}."
+        terms_link_text: "Braintreen käyttöehdot"  
     mangopay:
       terms:
         mangopay_terms_also_included: "HUOM: Tämä verkkopalvelu käyttää maksunvälittäjänä MangoPay-palvelua ja käyttämällä tätä verkkopalvelua hyväksyt alla olevien ehtojen lisäksi myös %{terms_link_text}."

@@ -693,10 +693,10 @@ function initialize_terms_form() {
   });
 }
 
-function initialize_mangopay_terms_lightbox() {
-  $('#mangopay_terms_link').click(function(link) {
+function initialize_payment_gateway_terms_lightbox(gateway_name) {
+  $('#' + gateway_name + '_terms_link').click(function(link) {
     link.preventDefault();
-    $('#mangopay_terms').lightbox_me({ centered: true, zIndex: 1000001 }); 
+    $('#' + gateway_name + '_terms').lightbox_me({ centered: true, zIndex: 1000001 }); 
   });
 }
 
