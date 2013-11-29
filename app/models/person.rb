@@ -447,14 +447,18 @@ class Person < ActiveRecord::Base
     self.confirmed_notification_emails.collect(&:address)
   end
 
-  # Return a string of notification emails joined with ,
-  # Can be used in PersonMailers to field
+  # Notice: If no confirmed notification emails is found, this
+  # method returns the first confirmed emails
   def confirmed_notification_emails_to
-    self.confirmed_notification_email_addresses.join ", "
+    send_message_to = EmailService.emails_to_send_message(emails)
+    EmailService.emails_to_smtp_addresses(send_message_to)
   end
 
-  def last_confirmed_notification_email_to
-    self.confirmed_notification_emails.last.address
+  # Notice: If no confirmed notification emails is found, this
+  # method returns the first confirmed emails
+  def confirmed_notification_email_to
+    send_message_to = EmailService.emails_to_send_message(emails).first
+    EmailService.emails_to_smtp_addresses([send_message_to])
   end
 
   # Returns true if the address given as a parameter is confirmed

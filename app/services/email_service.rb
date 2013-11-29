@@ -1,5 +1,27 @@
 class EmailService
 
+  class << self
+
+    # Give list of `emails` and get back a list of email where the mail
+    # should be sent to
+    def emails_to_send_message(emails)
+      send_to = confirmed_notification_emails(emails)
+
+      unless send_to.empty?
+        send_to
+      else
+        confirmed_emails(emails).take(1)
+      end
+    end
+
+    # Give list of `emails` and get back a comma-separated string representation
+    # which can be set as SMTP to address
+    def emails_to_smtp_addresses(emails)
+      emails.collect(&:address).join(", ")
+    end
+  end
+
+
   # Give user's `all_emails` and list of list of `allowed_emails` and the
   # `email` that will be removed. Return hash with true/false and a 
   # reason
@@ -22,7 +44,7 @@ class EmailService
   end
 
   def self.is_only_confirmed?(all_emails, email)
-    email.confirmed_at && all_emails.select { |email| email.confirmed_at }.count == 1
+    email.confirmed_at && self.confirmed_emails(all_emails).count == 1
   end
 
   def self.is_only_allowed_email?(all_emails, list_of_allowed_emails, email)
@@ -58,8 +80,12 @@ class EmailService
     all_emails.select { |email| email.send_notifications }
   end
 
+  def self.confirmed_emails(all_emails)
+    all_emails.select { |email| email.confirmed_at }
+  end
+
   def self.confirmed_notification_emails(all_emails)
-    all_emails.select { |email| email.send_notifications && email.confirmed_at }
+    self.confirmed_emails(all_emails).select { |email| email.send_notifications }
   end
 
   def self.is_only_notification_email?(all_emails, email)
