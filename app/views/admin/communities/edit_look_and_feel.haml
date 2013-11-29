@@ -13,15 +13,15 @@
     
     - if @current_community.logo_change_allowed || @current_user.is_admin? # global admin
       = form.label :wide_logo, t(".community_logo"), :class => "input"
-      %p= t(".logo_instructions_text")
+      %p= t(".logo_instructions_text_with_dimensions", :width => 168, :height => 40)
       = form.file_field(:wide_logo, :class => "file_field")
     
       = form.label :logo, t(".community_logo_icon"), :class => "input"
-      %p= t(".logo_icon_instructions_text")
+      %p= t(".logo_icon_instructions_text_with_dimensions", :width => 300, :height => 300)
       = form.file_field(:logo, :class => "file_field")
     
     = form.label :cover_photo, t(".community_cover_photo"), :class => "input"
-    %p= t(".cover_photo_instructions_text")
+    %p= t(".cover_photo_instructions_text_with_dimensions", :width => 1920, :height => 450)
     = form.file_field(:cover_photo, :class => "file_field")
     
     = form.label :custom_color1, t(".community_custom_color1"), :class => "input"
