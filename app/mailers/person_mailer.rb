@@ -199,7 +199,7 @@ class PersonMailer < ActionMailer::Base
     mail(:to => @recipient.confirmed_notification_emails_to, 
          :from => community_specific_sender(community),
          :subject => email_subject, 
-         :reply_to => "\"#{sender.name(community)}\"<#{sender.last_confirmed_notification_email_to}>")
+         :reply_to => "\"#{sender.name(community)}\"<#{sender.confirmed_notification_email_to}>")
   end
   
   # A custom message to a community starter
@@ -225,7 +225,7 @@ class PersonMailer < ActionMailer::Base
     @feedback = feedback
 
     @feedback.email = if feedback.author then
-      feedback.author.last_confirmed_notification_email_to
+      feedback.author.confirmed_notification_email_to
     else
       @feedback.email
     end
