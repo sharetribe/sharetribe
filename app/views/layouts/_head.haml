@@ -25,7 +25,7 @@
   -# A tag for google webmaster site verification
   %meta{ name: "google-site-verification", content: "JUqB3tYmezYEJNAkw8MUdmIocAGztY85eaoNKBD5j0Q"}
   
-  - if Rails.env.staging?
+  - if on_dashboard?
     <!-- Google Tag Manager -->
     <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-M8T5JR"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
