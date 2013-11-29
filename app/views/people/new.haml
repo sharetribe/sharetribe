@@ -18,11 +18,7 @@
       = t('.email_restriction_instructions', 
             :community_name => @current_community.name,
             :allowed_emails => @current_community.allowed_emails,
-            :count => (@current_community.allowed_emails.split(",").count)) 
-  - if @current_community.label.eql?("okl")
-    %p
-      = t('okl.member_id_is_your_username')
-      = link_to t("okl.join_here"), "http://www.omakotiliitto.fi/liittymislomake", :class => "green_part_link"
+            :count => (@current_community.allowed_emails.split(",").count))
   
   -# Experimental feature for importing profiledata via RDF
   - if @current_community.uses_rdf_profile_import?
