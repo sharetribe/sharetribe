@@ -21,5 +21,17 @@
       %small
         = link_to t("common.what_is_this"), "#", :id => "invite_only_help_text_link"
     = form.button t(".update_information"), :id => "edit_community_button"
-
+  
+  .edit-signup-info
+    %b= t(".edit_signup_info")
+    %p= t(".edit_signup_info_description")
+    %a{:id => "edit_link", :href => "/editor" + request.path, :data => { :save_url => mercury_update_path(:content_type => "signup_info_content") }}
+      .icon-with-text-container
+        = icon_tag("edit", ["icon-part"]) 
+        .text-part= t(".edit_signup_info_link")
+    #page_content{:data => {:mercury => "full"}}
+      - if @community_customization && @community_customization.signup_info_content
+        = @community_customization.signup_info_content.html_safe
+      - else
+        &nbsp;
 = render :partial => "people/help_texts", :collection => ["invite_only_help_text"], :as => :field

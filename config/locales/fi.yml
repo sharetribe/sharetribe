@@ -10,6 +10,9 @@ fi:
         community_description: "Yhteisön kuvaus:"
         update_information: "Päivitä tiedot"
         invite_people: "Kutsu ihmisiä yhteisöön"
+        edit_signup_info: "Liittymisohjeiden muokkaus"
+        edit_signup_info_description: "Tähän voit lisätä ohjeita siihen, miten palveluun liitytään. Ohjeet näytetään käyttäjille, kun he ovat liittymässä palveluun. Oletuksena ohjekenttä on tyhjä, voit lisätä niitä klikkaamalla alla olevaa linkkiä."
+        edit_signup_info_link: "Muokkaa liittymisohjeita"
       edit_look_and_feel:
         edit_community_look_and_feel: "Muokkaa yhteisön \"%{community_name}\" ulkoasua"
         community_logo: Peruslogo

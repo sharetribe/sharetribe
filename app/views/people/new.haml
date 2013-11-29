@@ -11,8 +11,8 @@
     = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".create_account_with_facebook") }
     %p= t(".or_create_new_account_without_facebook")
   
-  - if community_file?("signup_information", true)
-    = render :file => community_file("signup_information", true)
+  - if @community_customization && @community_customization.signup_info_content
+    = @community_customization.signup_info_content.html_safe
   - elsif @current_community.allowed_emails
     %p
       = t('.email_restriction_instructions', 
