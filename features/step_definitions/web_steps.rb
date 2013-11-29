@@ -243,3 +243,6 @@ When /^I navigate to invitations page$/ do
   }
 end
 
+When /^I refresh the page$/ do
+  visit(current_path)
+end
