@@ -808,7 +808,7 @@ module ApplicationHelper
     if @listing && action_name.eql?("show") && !@listing.listing_images.empty?
       @listing.listing_images.first.image.url(:medium)
     elsif @current_community.logo?
-      @current_community.logo.url(:header) 
+      @current_community.wide_logo.url(:original) 
     else
       "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"
     end
