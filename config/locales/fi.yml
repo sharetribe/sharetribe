@@ -1287,9 +1287,7 @@ fi:
       delete_news_item: "Poista uutinen"
   okl:
     member_id: Jäsennumero
-    member_id_is_your_username: "Sinun on annettava voimassaoleva Omakotiliiton jäsennumerosi, jotta voit liittyä tähän yhteisöön. Jäsennumero toimii myös käyttäjätunnuksenasi, kun kirjaudut %{service_name_illative}. Jos et ole vielä Omakotiliiton jäsen,"
     member_id_or_email: "Jäsennumero tai sähköposti"
-    join_here: "liity tästä."
   payments:
     new:
       new_payment: "Uusi maksu"
