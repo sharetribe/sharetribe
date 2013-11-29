@@ -3,14 +3,15 @@ Feature: User views a single listing
   As a role
   I want feature
 
-  @phantomjs_skip
-  @javascript
-  @only_without_asi
-  Scenario: User views a listing that he is allowed to see
+  Background:
     Given there are following users:
       | person | 
       | kassi_testperson1 |
-      | kassi_testperson2 |    
+      | kassi_testperson2 |
+
+  @javascript
+  @only_without_asi
+  Scenario: User views a listing that he is allowed to see
     And there is favor request with title "Massage" from "kassi_testperson1"
     And I am on the home page
     When I follow "Massage"
@@ -23,7 +24,10 @@ Feature: User views a single listing
     Then I should see "Feedback"
     And I should see "100%"
     And I should see "(2/2)"
-    #And I should see "Add profile picture"
+  
+  @phantomjs_skip
+  Scenario: User sees the avatar in listing page
+    Given I am logged in as "kassi_testperson1"
     When I click ".user-menu-toggle"
     When I follow "Settings"
     And I attach a valid image file to "avatar_file"

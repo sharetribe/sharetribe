@@ -5,7 +5,7 @@ Feature: User creates a new listing
   
   @phantomjs_skip
   @javascript
-  Scenario: Creating a new item request successfully
+  Scenario: Creating a new item request with image successfully
     Given I am logged in
     And I am on the home page
     When I follow "new-listing-link"
@@ -22,7 +22,22 @@ Feature: User creates a new listing
     Then I should see "Sledgehammer" within "#listing-title"
     And I should see the image I just uploaded
   
-  @phantomjs_skip
+  @javascript
+  Scenario: Creating a new item request without image successfully
+    Given I am logged in
+    And I am on the home page
+    When I follow "new-listing-link"
+    And I follow "I need something"
+    And I follow "An item"
+    And I should see "What kind of an item are we talking about?"
+    And I follow "Tools" within "#option-groups"
+    And I should see "How do you want to get it?"
+    And I follow "buy it"
+    And I fill in "listing_title" with "Sledgehammer"
+    And I fill in "listing_description" with "My description"
+    And I press "Save listing"
+    Then I should see "Sledgehammer" within "#listing-title"
+
   @javascript
   Scenario: Creating a new item offer successfully
     Given I am logged in
@@ -35,12 +50,9 @@ Feature: User creates a new listing
     And I follow "lend"
     And I fill in "listing_title" with "My offer"
     And I fill in "listing_description" with "My description"
-    And I attach a valid image file to "listing_listing_images_attributes_0_image"
     And I press "Save listing"
     Then I should see "My offer" within "#listing-title"
-    And I should see the image I just uploaded
   
-  @phantomjs_skip
   @javascript
   Scenario: Creating a new service request successfully
     Given I am logged in
@@ -50,10 +62,8 @@ Feature: User creates a new listing
     And I follow "a service"
     And I fill in "listing_title" with "Massage"
     And I fill in "listing_description" with "My description"
-    And I attach a valid image file to "listing_listing_images_attributes_0_image"
     And I press "Save listing"
     Then I should see "Massage" within "#listing-title"
-    And I should see the image I just uploaded
   
   @javascript  
   Scenario: Creating a new rideshare request successfully
@@ -129,7 +139,6 @@ Feature: User creates a new listing
     And I am on the homepage
     Then I should see "Hammer"
 
-  @phantomjs_skip
   @javascript
   Scenario: Create a new listing successfully after going back and forth in the listing form
     Given I am logged in
@@ -168,10 +177,8 @@ Feature: User creates a new listing
     And I fill in "listing_title" with "My offer"
     And I fill in "listing_price" with "20"
     And I fill in "listing_description" with "My description"
-    And I attach a valid image file to "listing_listing_images_attributes_0_image"
     And I press "Save listing"
     Then I should see "My offer" within "#listing-title"
-    And I should see the image I just uploaded
   
   @javascript
   Scenario: User creates a new listing in a tribe with some custom categories
