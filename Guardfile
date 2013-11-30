@@ -10,7 +10,7 @@ guard 'livereload' do
   watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html))).*}) { |m| "/assets/#{m[3]}" }
 end
 
-guard 'spork', :wait => 60, test_unit: false, :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAILS_ENV' => 'test' } do
+guard 'spork', :wait => 60, test_unit: false, :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec => false do
   
   # Load for all envs (rspec and cucumber)
   watch('config/application.rb')
@@ -40,9 +40,6 @@ guard 'spork', :wait => 60, test_unit: false, :cucumber_env => { 'RAILS_ENV' => 
   watch('lib/routes/community_domain.rb')
   watch('test/helper_modules.rb')
 
-  # Load for RSpec only
-  watch('spec/spec_helper.rb') { :rspec }
-
   # Load for Cucumber only
   watch('app/helpers/categories_helper.rb') { :cucumber }
   watch('app/models/category.rb') { :cucumber }
@@ -59,7 +56,7 @@ guard 'spork', :wait => 60, test_unit: false, :cucumber_env => { 'RAILS_ENV' => 
   watch(%r{features/support/}) { :cucumber }
 end
 
-guard 'rspec', :all_on_start => false, :all_after_pass => false do
+guard 'rspec', :all_on_start => false, :all_after_pass => false, :zeus => true, bundler: false do
   watch('Guardfile')
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
