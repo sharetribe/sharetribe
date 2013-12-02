@@ -64,7 +64,7 @@ Given /^community "([^"]*)" has payments in use(?: via (\w+))?$/ do |community_d
   end
   
   community = Community.find_by_domain(community_domain)
-  community.update_attributes(:vat => "24", :commission_percentage => "8")
+  community.update_attributes(:vat => "24", :commission_from_seller => "8")
   community.payment_gateways << gateway
 end
 

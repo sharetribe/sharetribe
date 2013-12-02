@@ -613,6 +613,18 @@ class Community < ActiveRecord::Base
     payment_gateways.include?(PaymentGateway.find_by_type("Braintree"))
   end
   
+  # Returns the total service fee for a certain listing
+  # in the current community (including gateway fee, platform
+  # fee and marketplace fee)
+  def service_fee_for(listing)
+    (listing.price * (commission_from_seller.to_f/100)).to_f.ceil
+  end
+  
+  # Price that the seller gets after the service fee is deducted
+  def price_seller_gets_for(listing)
+    listing.price - Money.new(service_fee_for(listing)*100, listing.currency)
+  end
+  
   private
   
   # Returns an array of unique categories or share_types used in this community.

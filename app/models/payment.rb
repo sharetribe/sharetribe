@@ -31,8 +31,8 @@ class Payment < ActiveRecord::Base
 
   # Commission excluding VAT
   def commission_without_vat
-    throw "Comission percentage has to be set" unless community.commission_percentage 
-    sum_without_vat_and_commission*community.commission_percentage/100
+    throw "Comission percentage has to be set" unless community.commission_from_seller 
+    sum_without_vat_and_commission*community.commission_from_seller/100
   end
   
   # Commission including VAT

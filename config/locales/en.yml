@@ -1278,9 +1278,12 @@ en:
     form:
       total: Total
       service_charge: "Service charge"
-      product: Product
-      price: Price
+      product: "Product:"
+      price: "Price:"
       continue_to_pay: "Continue to pay"
+      invoice: "Invoice"
+      service_fee: "%{service_name} service fee:"
+      you_will_get: "You will get:"
     mangopay:
       terms:
         mangopay_terms_also_included: "NOTE: MangoPay is used as a payment gateway service and by using this website you also accept %{terms_link_text}, in addition to the terms below."
