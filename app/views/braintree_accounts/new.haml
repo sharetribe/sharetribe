@@ -1,8 +1,10 @@
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user, @current_community) }
+
 .left-navi-section.settings-section
 
   %h2= t(".add_payout_details")
 
-  = form_for @braintree_account, :url => person_braintree_accounts_path(@current_user) do |form|
+  = form_for @braintree_account, :url => form_action do |form|
 
     = form.label :first_name, t(".first_name"), :class => "input"
     = form.text_field :first_name, :class => :text_field
@@ -11,7 +13,7 @@
     = form.text_field :last_name, :class => :text_field
     
     = form.label :email, t(".email"), :class => "input"
-    = form.text_field :last_name, :class => :text_field
+    = form.text_field :email, :class => :text_field
     
     = form.label :phone, t(".phone"), :class => "input"
     = form.text_field :phone, :class => :text_field

@@ -1,4 +1,5 @@
 class PaymentGateway < ActiveRecord::Base
+  include Rails.application.routes.url_helpers
   
   has_many :community_payment_gateways, :dependent => :destroy 
   has_many :communities, :through => :community_payment_gateways
@@ -31,5 +32,9 @@ class PaymentGateway < ActiveRecord::Base
 
   def has_registered?(person)
     # nothing by default
+  end
+
+  def settings_path(person, locale)
+    payments_person_settings_path(:person_id => person.id.to_s, :locale => locale)
   end
 end

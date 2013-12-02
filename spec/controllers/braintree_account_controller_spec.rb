@@ -26,8 +26,6 @@ describe BraintreeAccountsController do
         :routing_number => "1234567890",
         :account_number => "43759348798"
       }
-      
-      response.status.should == 302
 
       braintree_account = BraintreeAccount.find_by_person_id(@person.id)
       braintree_account.first_name.should be_eql("Joe")
@@ -65,12 +63,10 @@ describe BraintreeAccountsController do
         :routing_number => "1234567890",
         :account_number => "43759348798").id
 
-      put :update, :id => id, :braintree_account => {
+      post :update, :id => id, :braintree_account => {
         :person_id => @person.id,
         :first_name => "Jane",
       }
-
-      response.status.should == 302
 
       braintree_account = BraintreeAccount.find_by_person_id(@person.id)
       braintree_account.first_name.should be_eql("Jane")
