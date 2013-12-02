@@ -4,7 +4,7 @@
 #
 class BraintreeService
   class << self
-    mutex = Mutex.new
+    @@mutex = Mutex.new
 
 
     
@@ -41,31 +41,31 @@ class BraintreeService
               :account_number => braintree_account.account_number
             },
             :tos_accepted => true,
-          
+            :id => braintree_account.person_id,
             :master_merchant_account_id => master_merchant_id(community),
           )
 
         if merchant_account_result.success?
           puts "success!: created merchant account"
           puts merchant_account_result.merchant_account.inspect
-          return merchant_account_result.merchant_account.id
         else
           puts "error: in creating merchant account"
-          p merchant_account_result.errors
-          throw "error: in creating merchant account"
+          puts merchant_account_result.errors
         end
+        return merchant_account_result
+        
       end
     end
     
     def master_merchant_id(community)
-      community.payment_gateways.first.braintree_master_merchant_id
+      community.community_payment_gateways.first.braintree_master_merchant_id
     end
     
     private
     
     def with_braintree_config(community, &block)
       
-      mutex.synchronize {
+      @@mutex.synchronize {
         configure_for(community)
 
         return_value = block.call
@@ -78,9 +78,9 @@ class BraintreeService
     
     def configure_for(community)
       Braintree::Configuration.environment = :sandbox
-      Braintree::Configuration.merchant_id = community.payment_gateways.first.braintree_merchat_id
-      Braintree::Configuration.public_key = community.payment_gateways.first.braintree_public_key
-      Braintree::Configuration.private_key = community.payment_gateways.first.braintree_private_key
+      Braintree::Configuration.merchant_id = community.community_payment_gateways.first.braintree_merchant_id
+      Braintree::Configuration.public_key = community.community_payment_gateways.first.braintree_public_key
+      Braintree::Configuration.private_key = community.community_payment_gateways.first.braintree_private_key
     end
     
     def reset_configurations
