@@ -610,7 +610,7 @@ class Community < ActiveRecord::Base
   end
   
   def braintree_in_use?
-    payment_gateways.include?(PaymentGateway.find_by_type("Braintree"))
+    payment_gateways.include?(PaymentGateway.find_by_type("BraintreePaymentGateway"))
   end
   
   private

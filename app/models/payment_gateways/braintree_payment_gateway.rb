@@ -1,5 +1,5 @@
-class Braintree < PaymentGateway
-  include Rails.application.routes.url_helpers
+class BraintreePaymentGateway < PaymentGateway
+  # include Rails.application.routes.url_helpers
 
   def settings_path(person, locale)
     if person.braintree_account.blank?

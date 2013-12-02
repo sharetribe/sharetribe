@@ -4,6 +4,9 @@ describe BraintreeAccountsController do
   describe "#create" do
     before(:each) do
       @community = FactoryGirl.create(:community)
+      braintree_payment_gateway = PaymentGateway.find_by_type("BraintreePaymentGateway")
+      FactoryGirl.create(:community_payment_gateway, :community => @community, :payment_gateway => braintree_payment_gateway)
+      
       @request.host = "#{@community.domain}.lvh.me"
       @person = FactoryGirl.create(:person)
       @community.members << @person
@@ -23,7 +26,7 @@ describe BraintreeAccountsController do
         :address_region => "IL",
         :date_of_birth => "1980-10-09",
         :ssn => "123-00-1234",
-        :routing_number => "1234567890",
+        :routing_number => "101000187",
         :account_number => "43759348798"
       }
 
@@ -38,7 +41,7 @@ describe BraintreeAccountsController do
       braintree_account.address_region.should be_eql("IL")
       braintree_account.date_of_birth.should be_eql("1980-10-09")
       braintree_account.ssn.should be_eql("123-00-1234")
-      braintree_account.routing_number.should be_eql("1234567890")
+      braintree_account.routing_number.should be_eql("101000187")
       braintree_account.account_number.should be_eql("43759348798")
     end
 
@@ -60,7 +63,7 @@ describe BraintreeAccountsController do
         :address_region => "IL",
         :date_of_birth => "1980-10-09",
         :ssn => "123-00-1234",
-        :routing_number => "1234567890",
+        :routing_number => "101000187",
         :account_number => "43759348798").id
 
       post :update, :id => id, :braintree_account => {
@@ -79,7 +82,7 @@ describe BraintreeAccountsController do
       braintree_account.address_region.should be_eql("IL")
       braintree_account.date_of_birth.should be_eql("1980-10-09")
       braintree_account.ssn.should be_eql("123-00-1234")
-      braintree_account.routing_number.should be_eql("1234567890")
+      braintree_account.routing_number.should be_eql("101000187")
       braintree_account.account_number.should be_eql("43759348798")
     end
   end

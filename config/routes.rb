@@ -215,6 +215,10 @@ Kassi::Application.routes.draw do
   end
   
   # Some non-RESTful mappings
+
+  get '/webhooks/braintree' => 'braintree_webhooks#challenge'
+  post '/webhooks/braintree' => 'braintree_webhooks#hooks'
+
   match '/:locale/mercury_update' => "mercury_update#update", :as => :mercury_update, :method => :put
   match '/:locale/api' => "dashboard#api", :as => :api
   match '/:locale/faq' => "dashboard#faq", :as => :faq
@@ -252,7 +256,7 @@ Kassi::Application.routes.draw do
   match '/:locale/people/:person_id/settings/payments/braintree/edit' => 'braintree_accounts#edit', :as => :edit_braintree_settings_payment
   match '/:locale/people/:person_id/settings/payments/braintree/create' => 'braintree_accounts#create', :as => :create_braintree_settings_payment
   match '/:locale/people/:person_id/settings/payments/braintree/update' => 'braintree_accounts#update', :as => :update_braintree_settings_payment
-  
+
   # Inside this constraits are the routes that are used when request has subdomain other than www
   constraints(CommunityDomain) do
     match '/:locale/' => 'homepage#index'

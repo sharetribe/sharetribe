@@ -3,27 +3,27 @@
 # different configurations per Braintree call
 #
 class BraintreeService
+
   class << self
-    mutex = Mutex.new
 
-
+    @@mutex = Mutex.new
     
-    
-    # Give `community` and set Braintree configurations
     def configure_for(community)
-      # TODO
+      Braintree::Configuration.environment = :sandbox
+      Braintree::Configuration.merchant_id = community.community_payment_gateways.first.braintree_merchant_id
+      Braintree::Configuration.public_key = community.community_payment_gateways.first.braintree_public_key
+      Braintree::Configuration.private_key = community.community_payment_gateways.first.braintree_private_key
     end
-
-    # Reset Braintree configurations
-    def reset_configurations()
-      # TODO
-    end
-
-
     
+    def reset_configurations
+      Braintree::Configuration.merchant_id = nil
+      Braintree::Configuration.public_key = nil
+      Braintree::Configuration.private_key = nil
+    end
+
     def create_merchant_account(braintree_account, community)
       with_braintree_config(community) do
-        merchant_account_result = Braintree::MerchantAccount.create(
+        Braintree::MerchantAccount.create(
             :applicant_details => {
               :first_name => braintree_account.first_name,
               :last_name => braintree_account.last_name,
@@ -44,49 +44,41 @@ class BraintreeService
           
             :master_merchant_account_id => master_merchant_id(community),
           )
-
-        if merchant_account_result.success?
-          puts "success!: created merchant account"
-          puts merchant_account_result.merchant_account.inspect
-          return merchant_account_result.merchant_account.id
-        else
-          puts "error: in creating merchant account"
-          p merchant_account_result.errors
-          throw "error: in creating merchant account"
-        end
       end
     end
     
     def master_merchant_id(community)
-      community.payment_gateways.first.braintree_master_merchant_id
+      community.community_payment_gateways.first.braintree_master_merchant_id
     end
     
-    private
-    
     def with_braintree_config(community, &block)
-      
-      mutex.synchronize {
+      @@mutex.synchronize {
         configure_for(community)
 
         return_value = block.call
 
         reset_configurations()
-      }
-      return return_value
 
+        return return_value
+      }
     end
-    
-    def configure_for(community)
-      Braintree::Configuration.environment = :sandbox
-      Braintree::Configuration.merchant_id = community.payment_gateways.first.braintree_merchat_id
-      Braintree::Configuration.public_key = community.payment_gateways.first.braintree_public_key
-      Braintree::Configuration.private_key = community.payment_gateways.first.braintree_private_key
+
+    def webhook_notification_verify(community, challenge)
+      with_braintree_config(community) do
+        Braintree::WebhookNotification.verify(challenge)
+      end
     end
-    
-    def reset_configurations
-      Braintree::Configuration.merchant_id = nil
-      Braintree::Configuration.public_key = nil
-      Braintree::Configuration.private_key = nil
+
+    def webhook_notification_parse(community, signature, payload)
+      with_braintree_config(community) do
+        Braintree::WebhookNotification.parse(signature, payload)
+      end
+    end
+
+    def webhook_testing_sample_notification(community, kind, id)
+      with_braintree_config(community) do
+        Braintree::WebhookTesting.sample_notification(kind, id)
+      end
     end
   end
 end
