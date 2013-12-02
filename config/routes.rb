@@ -248,7 +248,6 @@ Kassi::Application.routes.draw do
   match "/:locale/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
   match '/:locale/:page_type' => 'dashboard#campaign'
 
-  # We have here only "save" and "edit" because user can not create new payment details (because she has only one piece of payment information) 
   match '/:locale/people/:person_id/settings/payments/braintree/new' => 'braintree_accounts#new', :as => :new_braintree_settings_payment
   match '/:locale/people/:person_id/settings/payments/braintree/edit' => 'braintree_accounts#edit', :as => :edit_braintree_settings_payment
   match '/:locale/people/:person_id/settings/payments/braintree/create' => 'braintree_accounts#create', :as => :create_braintree_settings_payment

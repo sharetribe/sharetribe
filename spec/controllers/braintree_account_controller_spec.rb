@@ -11,7 +11,7 @@ describe BraintreeAccountsController do
     end
 
     it "should create braintree details with detailed information" do
-      post :save, :braintree_account => {
+      post :create, :braintree_account => {
         :person_id => @person.id,
         :first_name => "Joe",
         :last_name => "Bloggs",
@@ -43,7 +43,7 @@ describe BraintreeAccountsController do
     end
 
     it "should not create braintree account with missing information" do
-      post :save, :braintree_account => {:person_id => @person.id, :first_name => "Joe", :last_name => "Bloggs"}
+      post :create, :braintree_account => {:person_id => @person.id, :first_name => "Joe", :last_name => "Bloggs"}
       BraintreeAccount.find_by_person_id(@person.id).should be_nil
     end
 
@@ -63,7 +63,7 @@ describe BraintreeAccountsController do
         :routing_number => "1234567890",
         :account_number => "43759348798").id
 
-      post :save, :id => id, :braintree_account => {
+      post :update, :id => id, :braintree_account => {
         :person_id => @person.id,
         :first_name => "Jane",
       }
