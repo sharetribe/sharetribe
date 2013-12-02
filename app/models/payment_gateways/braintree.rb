@@ -1,0 +1,5 @@
+class Braintree < PaymentGateway
+  
+  
+  
+end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131128074910) do
+ActiveRecord::Schema.define(:version => 20131128143205) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -33,6 +33,24 @@ ActiveRecord::Schema.define(:version => 20131128074910) do
   end
 
   add_index "badges", ["person_id"], :name => "index_badges_on_person_id"
+
+  create_table "braintree_accounts", :force => true do |t|
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "person_id"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "address_street_address"
+    t.string   "address_postal_code"
+    t.string   "address_locality"
+    t.string   "address_region"
+    t.string   "date_of_birth"
+    t.string   "ssn"
+    t.string   "routing_number"
+    t.string   "account_number"
+  end
 
   create_table "cached_ressi_events", :force => true do |t|
     t.string   "user_id"
@@ -128,7 +146,6 @@ ActiveRecord::Schema.define(:version => 20131128074910) do
     t.string   "custom_color2"
     t.string   "stylesheet_url"
     t.string   "service_logo_style",                :default => "full-logo"
-    t.boolean  "payments_in_use",                   :default => false
     t.text     "available_currencies"
     t.boolean  "facebook_connect_enabled",          :default => true
     t.integer  "vat"

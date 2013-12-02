@@ -34,6 +34,9 @@ class SettingsController < ApplicationController
   
   def payments
     @selected_left_navi_link = "payments"
+    if @current_community.braintree_in_use?
+      @braintree_account = BraintreeAccount.new
+    end
   end
   
   def unsubscribe
