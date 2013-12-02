@@ -10,6 +10,9 @@ fi:
         community_description: "Yhteisön kuvaus:"
         update_information: "Päivitä tiedot"
         invite_people: "Kutsu ihmisiä yhteisöön"
+        edit_signup_info: "Liittymisohjeet"
+        edit_signup_info_description: "Tähän voit lisätä ohjeita siihen, miten palveluun liitytään. Ohjeet näytetään käyttäjille, kun he ovat liittymässä palveluun. Oletuksena ohjekenttä on tyhjä. Voit lisätä niitä klikkaamalla alla olevaa linkkiä."
+        edit_signup_info_link: "Muokkaa liittymisohjeita"
       edit_look_and_feel:
         edit_community_look_and_feel: "Muokkaa yhteisön \"%{community_name}\" ulkoasua"
         community_logo: Peruslogo
@@ -17,9 +20,9 @@ fi:
         community_cover_photo: Kansikuva
         community_custom_color1: Pääväri
         community_custom_color2: "Toinen väri"
-        logo_instructions_text: "Peruslogon koon tulee olla 168x40 pikseliä."
-        logo_icon_instructions_text: "Ikonilogon koon tulee olla 40x40 pikseliä."
-        cover_photo_instructions_text: "Kansikuva muutetaan 1920x450 pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
+        logo_instructions_text_with_dimensions: "Peruslogon koon tulee olla %{width}x%{height} pikseliä."
+        logo_icon_instructions_text_with_dimensions: "Ikonilogon koon tulee olla %{width}x%{height} pikseliä."
+        cover_photo_instructions_text_with_dimensions: "Kansikuva muutetaan %{width}x%{height} pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
         custom_color1_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset värin hex-koodin. Sen selville saamisessa auttaa esimerkiksi <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
         custom_color2_instructions_text: "Tästä voit vaihtaa käyttöliittymän toisen värin."
         invalid_color_code: "Värikoodin tulisi sisältää 6 merkkiä, ja vain numeroita tai kirjaimia A-F, esimerkiksi: D96E21"
