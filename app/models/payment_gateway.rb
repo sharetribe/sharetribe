@@ -4,6 +4,9 @@ class PaymentGateway < ActiveRecord::Base
   has_many :community_payment_gateways, :dependent => :destroy 
   has_many :communities, :through => :community_payment_gateways
   
+  # Allow only one object per gateway class to be stored in DB
+  validates_uniqueness_of :type
+  
   # methods that must be defined in subclasses, but are not defined here as 
   # this model is never directly used, only via subclasses
   

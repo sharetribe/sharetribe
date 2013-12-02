@@ -33,14 +33,21 @@ class BraintreeAccountsController < ApplicationController
 
   def create
     @braintree_account = BraintreeAccount.new(params[:braintree_account].merge(person: @current_user))
-    success = @braintree_account.save
+    merchant_account = BraintreeService.create_merchant_account(@braintree_account, @current_community)
+
+    if merchant_account.succesfully_created?
+      success = @braintree_account.save 
+    else
+      success = false
+      flash[:error] = merchant_account.errors_should_be_here
+    end
 
     if success
       # FIXME Copy text
       flash[:notice] = "Successfully saved!"
       redirect_to @edit_path
     else
-      flash[:error] = "Error in saving"
+      flash[:error] ||= "Error in saving"
       render :new, locals: { form_action: @create_path }
     end
   end
@@ -85,7 +92,7 @@ class BraintreeAccountsController < ApplicationController
     person_details = {
       first_name: person.given_name,
       last_name: person.family_name,
-      email: person.last_confirmed_notification_email_to, # Our best guess for "primary" email
+      email: person.confirmed_notification_email_to, # Our best guess for "primary" email
       phone: person.phone_number
     }
 
