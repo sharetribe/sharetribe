@@ -8,7 +8,7 @@ class BraintreeAccountsController < ApplicationController
   skip_filter :dashboard_only
 
   def edit
-    render locals: { braintree_account: BraintreeAccount.find_by_person_id(@current_user.id) || BraintreeAccount.new(params[:braintree_account]) }
+    render locals: { braintree_account: BraintreeAccount.find_by_person_id(@current_user.id) || create_new_account_object }
   end
 
   def save
@@ -35,6 +35,18 @@ class BraintreeAccountsController < ApplicationController
       flash[:error] = "Error in saving"
       render :edit, locals: { braintree_account: braintree_account }
     end
+  end
+
+  def create_new_account_object
+    person = @current_user
+    person_details = {
+      first_name: person.given_name,
+      last_name: person.family_name,
+      email: person.last_confirmed_notification_email_to, # Our best guess for "primary" email
+      phone: person.phone_number
+    }
+
+    BraintreeAccount.new(person_details)
   end
 
   def update(braintree_account)
