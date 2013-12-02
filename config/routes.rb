@@ -249,8 +249,10 @@ Kassi::Application.routes.draw do
   match '/:locale/:page_type' => 'dashboard#campaign'
 
   # We have here only "save" and "edit" because user can not create new payment details (because she has only one piece of payment information) 
-  match '/:locale/people/:person_id/settings/payments/braintree/' => 'braintree_accounts#edit', :as => :braintree_settings_payment, :method => :get
-  match '/:locale/people/:person_id/settings/payments/braintree/save' => 'braintree_accounts#save', :as => :braintree_settings_payment_save, :method => :post
+  match '/:locale/people/:person_id/settings/payments/braintree/new' => 'braintree_accounts#new', :as => :new_braintree_settings_payment
+  match '/:locale/people/:person_id/settings/payments/braintree/edit' => 'braintree_accounts#edit', :as => :edit_braintree_settings_payment
+  match '/:locale/people/:person_id/settings/payments/braintree/create' => 'braintree_accounts#create', :as => :create_braintree_settings_payment
+  match '/:locale/people/:person_id/settings/payments/braintree/update' => 'braintree_accounts#update', :as => :update_braintree_settings_payment
   
   # Inside this constraits are the routes that are used when request has subdomain other than www
   constraints(CommunityDomain) do

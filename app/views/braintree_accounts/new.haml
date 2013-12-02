@@ -4,7 +4,7 @@
 
   %h2= t(".add_payout_details")
 
-  = form_for braintree_account, :url => braintree_settings_payment_save_path(@current_user) do |form|
+  = form_for @braintree_account, :url => form_action do |form|
 
     = form.label :first_name, t(".first_name"), :class => "input"
     = form.text_field :first_name, :class => :text_field
