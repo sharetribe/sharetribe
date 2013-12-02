@@ -22,7 +22,7 @@ class BraintreeService
 
     
     def create_merchant_account(braintree_account, community)
-      with_braintree_config do
+      with_braintree_config(community) do
         merchant_account_result = Braintree::MerchantAccount.create(
             :applicant_details => {
               :first_name => braintree_account.first_name,
@@ -68,10 +68,11 @@ class BraintreeService
       mutex.synchronize {
         configure_for(community)
 
-        block.call
+        return_value = block.call
 
         reset_configurations()
       }
+      return return_value
 
     end
     
