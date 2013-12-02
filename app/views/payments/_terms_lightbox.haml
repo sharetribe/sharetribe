@@ -1,6 +1,6 @@
-.lightbox{:id => "mangopay_terms"}
+.lightbox{:id => "#{gateway_name}_terms"}
   .lightbox-content
     %a{:href => "#", :class => "close lightbox-x", :id => "close_x"}
       .ss-delete
     - text_with_line_breaks do
-      = render :partial => "payments/mangopay/mangopay_terms"
+      = render :partial => "payments/#{gateway_name}/terms"
