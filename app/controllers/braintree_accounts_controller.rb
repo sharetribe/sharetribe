@@ -106,10 +106,10 @@ class BraintreeAccountsController < ApplicationController
   end
 
   def log_info(msg)
-    logger.tagged("Braintree") { logger.info msg }
+    logger.info "[Braintree] #{msg}"
   end
 
   def log_error(msg)
-    logger.tagged("Braintree") { logger.error msg }
+    logger.error "[Braintree] #{msg}"
   end
 end
