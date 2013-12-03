@@ -18,6 +18,10 @@ class BraintreeWebhooksController < ApplicationController
         person_id = notification.merchant_account.id
         braintree_account = BraintreeAccount.find_by_person_id(person_id)
         braintree_account.update_attributes(:status => "active")
+
+        person = Person.find_by_id(person_id)
+
+        PersonMailer.braintree_account_approved(person, @current_community).deliver
       end
 
       def sub_merchant_account_declined(notification)
