@@ -14,17 +14,17 @@ class BraintreeWebhooksController < ApplicationController
   # Method name MUST match to the notification kind
   module Handlers
     class << self
-      def sub_merchant_account_approved(notification)
+      def sub_merchant_account_approved(notification, community)
         person_id = notification.merchant_account.id
         braintree_account = BraintreeAccount.find_by_person_id(person_id)
         braintree_account.update_attributes(:status => "active")
 
         person = Person.find_by_id(person_id)
 
-        PersonMailer.braintree_account_approved(person, @current_community).deliver
+        PersonMailer.braintree_account_approved(person, community).deliver
       end
 
-      def sub_merchant_account_declined(notification)
+      def sub_merchant_account_declined(notification, community)
         person_id = notification.merchant_account.id
         braintree_account = BraintreeAccount.find_by_person_id(person_id)
         braintree_account.update_attributes(:status => "suspended")
@@ -54,7 +54,7 @@ class BraintreeWebhooksController < ApplicationController
     search_privates = true
 
     if Handlers.respond_to?(kind, search_privates)
-      Handlers.send(kind, parsed_response)
+      Handlers.send(kind, parsed_response, @current_community)
     else
       # Logging here?
     end
