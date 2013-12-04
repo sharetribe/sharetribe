@@ -1,3 +1,51 @@
+Given /^there are following Braintree accounts:$/ do |bt_accounts|
+  # Create new accounts
+  bt_accounts.hashes.each do |hash|
+    person = Person.find_by_username(hash[:person])
+    @hash_account = FactoryGirl.create(:braintree_account, :person => person)
+    
+    attributes_to_update = hash.except('person')
+    @hash_account.update_attributes(attributes_to_update) unless attributes_to_update.empty?
+  end
+end
+
+Given /^there is an accepted request for "(.*?)" with price "(.*?)" from "(.*?)"$/ do |item_title, price, requester_username|
+  community = Community.find_by_name("test") # Default testing community
+  listing = Listing.find_by_title(item_title)
+  requester = Person.find_by_username(requester_username)
+
+  message = Message.new()
+  message.sender = listing.author
+  message.content = "Please pay"
+  message.action = "accept"
+
+  conversation = Conversation.new()
+  conversation.messages << message
+  conversation.participants << listing.author
+  conversation.participants << requester
+  conversation.status = "accepted"
+  conversation.title = "Conversation title"
+
+  payment = Payment.new()
+  payment.payer = requester
+  payment.recipient = listing.author
+  payment.status = "pending"
+
+  row = PaymentRow.new()
+  row.sum_cents = price.to_i * 100
+  row.currency = "EUR"
+
+  payment.rows << row
+
+  conversation.payment = payment
+  community.payments << payment
+
+  listing.conversations << conversation
+
+  community.save!
+  listing.save!
+end
+
 Then /^"(.*?)" should have required Checkout payment details saved to my account information$/ do |username|
   p = Person.find_by_username(username)
 
@@ -5,6 +53,26 @@ Then /^"(.*?)" should have required Checkout payment details saved to my account
   p.checkout_merchant_id.should_not be_blank
   p.checkout_merchant_key.should_not be_nil
   p.checkout_merchant_key.should_not be_blank
+end
+
+Given /^I want to pay "(.*?)"$/ do |item_title|
+  steps %Q{Given I am on the messages page}
+  steps %Q{Then I should see "Pay"} # This fails if there are many payments waiting
+  steps %Q{When I follow "Pay"} # This fails if there are many payments waiting
+end
+
+Then /^I should be able to fill in my payment details for Braintree$/ do
+  steps %Q{
+    Then I should see payment details form for Braintree
+    When I fill payment details for Braintree
+    And I submit the payment
+  }
+end
+
+Then /^I should be able to see that the payment was successful$/ do
+  steps %Q{
+    Then I should see "Your payment was successful"
+  }
 end
 
 When /^I browse to payment settings$/ do
