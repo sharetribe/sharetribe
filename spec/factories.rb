@@ -163,4 +163,28 @@ FactoryGirl.define do
     payer
     recipient
   end
+
+  factory :braintree_account do
+    person
+    first_name "Joe"
+    last_name "Bloggs"
+    email "joe@14ladders.com"
+    phone "5551112222"
+    address_street_address "123 Credibility St."
+    address_postal_code "60606"
+    address_locality "Chicago"
+    address_region "IL"
+    date_of_birth "1980-10-09"
+    ssn "123-00-1234"
+    routing_number "1234567890"
+    account_number "43759348798"
+    status "active"
+  end
+
+  factory :community_payment_gateway do
+    braintree_merchant_id { APP_CONFIG.braintree_test_merchant_id }
+    braintree_master_merchant_id { APP_CONFIG.braintree_test_master_merchant_id }
+    braintree_public_key { APP_CONFIG.braintree_test_public_key }
+    braintree_private_key { APP_CONFIG.braintree_test_private_key }
+  end
 end

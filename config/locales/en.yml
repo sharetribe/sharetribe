@@ -446,6 +446,9 @@ en:
       you_have_not_yet_accepted_or_rejected_offer: "You have not yet accepted or rejected the offer %{title} you received %{date}."
       you_have_not_yet_accepted_or_rejected_request: "You have not yet accepted or rejected the request %{title} you received %{date}."
       show_thread: "Show conversation"
+    braintree_account_approved:
+      account_ready: "You are ready to receive payments"
+      message: "Your payment information has been confirmed and you are now ready to receive payments in %{service_name}"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "You have not yet confirmed or canceled the request %{request_link} you received %{date} from %{other_party_full_name}. If the request has been completed, you should confirm that. After that you can give feedback to %{other_party_given_name}."
       remember_to_confirm_request: "Remember to confirm or cancel a request"
@@ -542,7 +545,7 @@ en:
       added_listing: "%{name_link} added a listing:"
       update_mail_title: "%{title_link} community update"
       title_link_text: "%{community_name}"
-      intro_paragraph: "Here are some of the things that happened in the %{community_link} during the past %{time_since_last_update}."
+      intro_paragraph: "Here are some of the things that happened in %{community_link} during the past %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Post a new listing!"
       reduce_email_footer_text: "Too much email? %{settings_link} or %{unsubscribe_link}."
@@ -887,7 +890,7 @@ en:
       account_creation_successful: "Welcome to %{service_name}, %{person_name}!"
       account_deleted: "Your account is now deleted."
       login_successful: "Welcome, %{person_name}!"
-      logout_successful: "You have now been logged out of %{service_name}. Welcome again!"
+      logout_successful: "You have now been logged out of %{service_name}. See you soon!"
       news_item_created: "Article created"
       news_item_creation_failed: "Article creation failed"
       news_item_update_failed: "Article update failed"

@@ -446,6 +446,9 @@ fi:
       you_have_not_yet_accepted_or_rejected_offer: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi tarjousta %{title}."
       you_have_not_yet_accepted_or_rejected_request: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi pyyntöä %{title}."
       show_thread: "Näytä viestiketju"
+    braintree_account_approved:
+      account_ready: "Voit nyt vastaanottaa maksuja"
+      message: "Maksutietosi on nyt tarkistettu ja hyväksytty. Voit tästä lähetien vastaanottaa maksuja yhteisössä %{service_name}"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Et ole vielä merkinnyt käyttäjältä %{other_party_full_name} %{date} saamaasi pyyntöä '%{request_link}' toteutuneeksi tai toteutumattomaksi. Jos pyyntö on toteutettu, sinun kannattaa ilmoittaa siitä, jotta voit antaa palautetta tapahtuneesta käyttäjälle %{other_party_given_name}."
       remember_to_confirm_request: "Muista merkitä pyyntö toteutuneeksi tai toteutumattomaksi"

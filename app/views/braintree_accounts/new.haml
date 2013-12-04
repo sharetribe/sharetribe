@@ -4,6 +4,25 @@
 
   %h2= t(".add_payout_details")
 
+  - status = @braintree_account.status
+  - if status
+    %h3= "Account status: #{status}"
+
+    - if status == "pending"
+      %p
+        = "Your account is pending for approval. This shouldn't take more than couple minutes. We'll email you when your payment account is ready to be used."
+    - elsif status == "suspended"
+      %p
+        = "Your account was declined during the activation process. Please contact the administrators for more information."
+    - elsif status == "active"
+      %p
+        = "Your payment account is approved and ready to be used"
+    - else
+      %p
+        = "Something went wrong. Please contact administrators."
+      %p
+        = "Error: Unknown account status '#{status}'"
+
   = form_for @braintree_account, :url => form_action do |form|
 
     = form.label :first_name, t(".first_name"), :class => "input"
