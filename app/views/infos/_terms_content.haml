@@ -1,4 +1,4 @@
-- if @current_community.payment_gateways.first.has_additional_terms_of_use
+- if @current_community.payment_gateways.first && @current_community.payment_gateways.first.has_additional_terms_of_use
   = render :partial => "payments/gateway_additional_terms", 
            :locals => {:gateway_name => @current_community.payment_gateways.first.name.downcase}
 
