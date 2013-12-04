@@ -408,8 +408,13 @@ input[type=text], input[type=password], textarea {
     margin: 0;
     padding: em(8) em(11);
   }  
-  
 }
+
+input.auto_width {
+  width:auto;
+}
+
+
 
 .unwanted_text_field {
   display:none;

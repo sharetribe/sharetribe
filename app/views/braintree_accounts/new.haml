@@ -26,39 +26,39 @@
   = form_for @braintree_account, :url => form_action do |form|
 
     = form.label :first_name, t(".first_name"), :class => "input"
-    = form.text_field :first_name, :class => :text_field
+    = form.text_field :first_name, :class => "auto_width", :size => 30
     
     = form.label :last_name, t(".last_name"), :class => "input"
-    = form.text_field :last_name, :class => :text_field
+    = form.text_field :last_name, :class => "auto_width", :size => 30
     
     = form.label :email, t(".email"), :class => "input"
-    = form.text_field :email, :class => :text_field
+    = form.text_field :email, :class => "auto_width", :size => 30
     
     = form.label :phone, t(".phone"), :class => "input"
-    = form.text_field :phone, :class => :text_field
+    = form.text_field :phone, :class => "auto_width", :size => 12
     
     = form.label :address_street_address, t(".address_street_address"), :class => "input"
-    = form.text_field :address_street_address, :class => :text_field
+    = form.text_field :address_street_address, :class => "auto_width", :size => 30
     
     = form.label :address_postal_code, t(".address_postal_code"), :class => "input"
-    = form.text_field :address_postal_code, :class => :text_field
+    = form.text_field :address_postal_code, :class => "auto_width", :size => 6
     
     = form.label :address_locality, t(".address_locality"), :class => "input"
-    = form.text_field :address_locality, :class => :text_field
+    = form.text_field :address_locality, :class => "auto_width", :size => 20
     
     = form.label :address_region, t(".address_region"), :class => "input"
-    = form.text_field :address_region, :class => :text_field
+    = form.text_field :address_region, :class => "auto_width", :size => 2
     
     = form.label :date_of_birth, t(".date_of_birth"), :class => "input"
-    = form.text_field :date_of_birth, :class => :text_field
+    = form.text_field :date_of_birth, :class => "auto_width", :size => 10
     
     = form.label :ssn, t(".ssn"), :class => "input"
-    = form.text_field :ssn, :class => :text_field
+    = form.text_field :ssn, :class => "auto_width", :size => 11
     
     = form.label :routing_number, t(".routing_number"), :class => "input"
-    = form.text_field :routing_number, :class => :text_field
+    = form.text_field :routing_number, :class => "auto_width", :size => 9
     
     = form.label :account_number, t(".account_number"), :class => "input"
-    = form.text_field :account_number, :class => :text_field
+    = form.text_field :account_number, :class => "auto_width", :size => 17
     
     = form.button t(".save"), :class => "send_button"
