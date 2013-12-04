@@ -33,8 +33,12 @@ class BraintreeAccountsController < ApplicationController
 
   def create
     @braintree_account = BraintreeAccount.new(params[:braintree_account].merge(person: @current_user))
-
-    merchant_account_result = BraintreeService.create_merchant_account(@braintree_account, @current_community)
+    if @braintree_account.valid?
+      merchant_account_result = BraintreeService.create_merchant_account(@braintree_account, @current_community)
+    else
+      flash[:error] = @braintree_account.errors.full_messages
+      render :new, locals: { form_action: @create_path } and return
+    end
 
     if merchant_account_result.success?
       log_info("Successfully created Braintree account for person id #{@current_user.id}")
