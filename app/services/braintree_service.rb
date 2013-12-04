@@ -41,8 +41,8 @@ class BraintreeService
               :account_number => braintree_account.account_number
             },
             :tos_accepted => true,
-          
             :master_merchant_account_id => master_merchant_id(community),
+            :id => braintree_account.person_id
           )
       end
     end

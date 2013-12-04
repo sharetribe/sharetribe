@@ -14,6 +14,10 @@ describe BraintreeAccountsController do
     end
 
     it "should create braintree details with detailed information" do
+      # Mock BraintreeService
+      BraintreeService.should_receive(:create_merchant_account)
+        .and_return(Braintree::SuccessfulResult.new(:merchant_account => HashClass.new(:status => "pending")))
+
       post :create, :braintree_account => {
         :person_id => @person.id,
         :first_name => "Joe",
@@ -46,6 +50,10 @@ describe BraintreeAccountsController do
     end
 
     it "should not create braintree account with missing information" do
+      # Mock BraintreeService
+      BraintreeService.should_receive(:create_merchant_account)
+        .and_return(Braintree::SuccessfulResult.new(:merchant_account => HashClass.new(:status => "pending")))
+      
       post :create, :braintree_account => {:person_id => @person.id, :first_name => "Joe", :last_name => "Bloggs"}
       BraintreeAccount.find_by_person_id(@person.id).should be_nil
     end

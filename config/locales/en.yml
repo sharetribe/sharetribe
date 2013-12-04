@@ -446,6 +446,9 @@ en:
       you_have_not_yet_accepted_or_rejected_offer: "You have not yet accepted or rejected the offer %{title} you received %{date}."
       you_have_not_yet_accepted_or_rejected_request: "You have not yet accepted or rejected the request %{title} you received %{date}."
       show_thread: "Show conversation"
+    braintree_account_approved:
+      account_ready: "You are ready to receive payments"
+      message: "Your payment information has been confirmed and you are now ready to receive payments in %{service_name}"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "You have not yet confirmed or canceled the request %{request_link} you received %{date} from %{other_party_full_name}. If the request has been completed, you should confirm that. After that you can give feedback to %{other_party_given_name}."
       remember_to_confirm_request: "Remember to confirm or cancel a request"
