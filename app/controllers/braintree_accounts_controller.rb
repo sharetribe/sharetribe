@@ -35,13 +35,15 @@ class BraintreeAccountsController < ApplicationController
     @braintree_account = BraintreeAccount.new(params[:braintree_account].merge(person: @current_user))
     merchant_account_result = BraintreeService.create_merchant_account(@braintree_account, @current_community)
 
-    puts merchant_account_result.to_yaml
-
     if merchant_account_result.success?
-      success = @braintree_account.save 
+      success = @braintree_account.save!
     else
       success = false
-      flash[:error] = merchant_account_result.errors
+      error_string = "Your payout details could not be saved, because of following errors: "
+      merchant_account_result.errors.each do |e|
+        error_string << e.message + " "
+      end
+      flash[:error] = error_string
     end
 
     if success
