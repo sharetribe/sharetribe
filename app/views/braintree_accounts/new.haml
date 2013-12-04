@@ -1,3 +1,6 @@
+- content_for :javascript do
+  initialize_braintree_account_form("#{I18n.locale}");
+  
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user, @current_community) }
 
 .left-navi-section.settings-section
@@ -23,7 +26,7 @@
       %p
         = "Error: Unknown account status '#{status}'"
 
-  = form_for @braintree_account, :url => form_action do |form|
+  = form_for @braintree_account, :url => form_action, :html => { :id => "braintree_account_form"} do |form|
 
     = form.label :first_name, t(".first_name"), :class => "input"
     = form.text_field :first_name, :class => "auto_width", :size => 30
@@ -47,7 +50,7 @@
     = form.text_field :address_locality, :class => "auto_width", :size => 20
     
     = form.label :address_region, t(".address_region"), :class => "input"
-    = form.text_field :address_region, :class => "auto_width", :size => 2
+    = form.select :address_region, @list_of_states
     
     = form.label :date_of_birth, t(".date_of_birth"), :class => "input"
     = form.text_field :date_of_birth, :class => "auto_width", :size => 10

@@ -1,5 +1,7 @@
 class BraintreeAccountsController < ApplicationController
 
+  LIST_OF_STATES = ["","AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"]
+  
   before_filter do |controller|
     # FIXME Change copy text
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_change_profile_settings")
@@ -27,11 +29,13 @@ class BraintreeAccountsController < ApplicationController
   end
 
   def edit
+    @list_of_states = LIST_OF_STATES
     @braintree_account = BraintreeAccount.find_by_person_id(@current_user.id)
     render :new, locals: { form_action: @update_path }
   end
 
   def create
+    @list_of_states = LIST_OF_STATES
     @braintree_account = BraintreeAccount.new(params[:braintree_account].merge(person: @current_user))
     if @braintree_account.valid?
       merchant_account_result = BraintreeService.create_merchant_account(@braintree_account, @current_community)
