@@ -40,4 +40,16 @@ class PaymentGateway < ActiveRecord::Base
   def settings_path(person, locale)
     payments_person_settings_path(:person_id => person.id.to_s, :locale => locale)
   end
+  
+  # If the payment gateway has terms of use that need to be shown to the user override this and return true
+  # And add those terms in the corresponding file. (See Braintree for example)
+  def has_additional_terms_of_use
+    false
+  end
+  
+  # by default return the class name, but this can be overridden 
+  # in child classes if name is not exaxtly the class name
+  def name
+    self.class.name.downcase
+  end
 end

@@ -1,5 +1,4 @@
 class BraintreePaymentGateway < PaymentGateway
-  # include Rails.application.routes.url_helpers
 
   def settings_path(person, locale)
     if person.braintree_account.blank?
@@ -7,5 +6,13 @@ class BraintreePaymentGateway < PaymentGateway
     else
       edit_braintree_settings_payment_path(:person_id => person.id.to_s, :locale => locale)
     end
+  end
+  
+  def has_additional_terms_of_use
+    true
+  end
+  
+  def name
+    "braintree"
   end
 end
