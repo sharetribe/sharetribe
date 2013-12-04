@@ -12,4 +12,4 @@ CategoriesHelper.load_default_categories_to_db
 # Create default payment gateways to DB
 Mangopay.create unless Mangopay.count > 0
 Checkout.create unless Checkout.count > 0
-Braintree.create unless Braintree.count > 0
+BraintreePaymentGateway.create unless BraintreePaymentGateway.count > 0
