@@ -930,8 +930,8 @@ function initialize_admin_edit_tribe_form(locale, community_id) {
   $(form_id).validate({
      rules: {
        "community[name]": {required: true, minlength: 2, maxlength: 50},
-       "community[slogan]": {required: true, minlength: 2, maxlength: 100},
-       "community[description]": {required: true, minlength: 2}
+       "community[slogan]": {required: false, maxlength: 100},
+       "community[description]": {required: false}
      },
      submitHandler: function(form) {
        disable_and_submit(form_id, form, "false", locale);
