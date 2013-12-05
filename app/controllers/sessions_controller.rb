@@ -110,9 +110,9 @@ class SessionsController < ApplicationController
   end
   
   def request_new_password
-    if Person.find_by_email(params[:email])
-      #Call devise based method
-      resource = Person.send_reset_password_instructions(params)
+    if person = Person.find_by_email(params[:email])
+      person.reset_password_token_if_needed
+      PersonMailer.reset_password_instructions(person,params[:email], @current_community).deliver
       flash[:notice] = t("layouts.notifications.password_recovery_sent")
     else
       flash[:error] = t("layouts.notifications.email_not_found")
