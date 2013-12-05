@@ -5,7 +5,7 @@ class BraintreeWebhooksController < ApplicationController
 
   before_filter do
     unless @current_community.braintree_in_use?
-      log_error("Received webhook notification even though '#{@current_community.domain}' does not have Braintree in use")
+      BraintreeWebhooksController.log_error("Received webhook notification even though '#{@current_community.domain}' does not have Braintree in use")
       render :nothing => true, :status => 400 and return
     end
   end
@@ -16,7 +16,7 @@ class BraintreeWebhooksController < ApplicationController
     class << self
       def sub_merchant_account_approved(notification, community)
         person_id = notification.merchant_account.id
-        log_info("Approved submerchant account for person #{person_id}")
+        BraintreeWebhooksController.log_info("Approved submerchant account for person #{person_id}")
 
         braintree_account = BraintreeAccount.find_by_person_id(person_id)
         braintree_account.update_attributes(:status => "active")
@@ -28,7 +28,7 @@ class BraintreeWebhooksController < ApplicationController
 
       def sub_merchant_account_declined(notification, community)
         person_id = notification.merchant_account.id
-        log_info("Approved submerchant account for person #{person_id}")
+        BraintreeWebhooksController.log_info("Approved submerchant account for person #{person_id}")
         
         braintree_account = BraintreeAccount.find_by_person_id(person_id)
         braintree_account.update_attributes(:status => "suspended")
@@ -52,7 +52,7 @@ class BraintreeWebhooksController < ApplicationController
     begin
       parsed_response = BraintreeService.webhook_notification_parse(@current_community, params[:bt_signature], params[:bt_payload])
     rescue Braintree::BraintreeError => bt_e
-      log_error("Error while parsing webhook notification: #{bt_e.inspect}")
+      BraintreeWebhooksController.log_error("Error while parsing webhook notification: #{bt_e.inspect}")
       render :nothing => true, :status => 400 and return
     end
 
@@ -68,11 +68,11 @@ class BraintreeWebhooksController < ApplicationController
     render :nothing => true
   end
 
-  def log_info(msg)
+  def self.log_info(msg)
     logger.info "[Braintree] #{msg}"
   end
 
-  def log_error(msg)
+  def self.log_error(msg)
     logger.error "[Braintree] #{msg}"
   end
 end

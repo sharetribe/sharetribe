@@ -33,19 +33,26 @@ class BraintreeAccountsController < ApplicationController
 
   def create
     @braintree_account = BraintreeAccount.new(params[:braintree_account].merge(person: @current_user))
-
-    result = BraintreeService.create_merchant_account(@braintree_account, @current_community)
-
-    if result.success?
-      log_info("Successfully created Braintree account for person id #{@current_user.id}")
-
-      @braintree_account.status = result.merchant_account.status
-      success = @braintree_account.save 
+    if @braintree_account.valid?
+      merchant_account_result = BraintreeService.create_merchant_account(@braintree_account, @current_community)
     else
-      log_error("Failed to created Braintree account for person id #{@current_user.id}: #{result.message}")
+      flash[:error] = @braintree_account.errors.full_messages
+      render :new, locals: { form_action: @create_path } and return
+    end
+
+    if merchant_account_result.success?
+      log_info("Successfully created Braintree account for person id #{@current_user.id}")
+      @braintree_account.status = merchant_account_result.merchant_account.status
+      success = @braintree_account.save!
+    else
+      log_error("Failed to created Braintree account for person id #{@current_user.id}: #{merchant_account_result.message}")
 
       success = false
-      flash[:error] = result.errors
+      error_string = "Your payout details could not be saved, because of following errors: "
+      merchant_account_result.errors.each do |e|
+        error_string << e.message + " "
+      end
+      flash[:error] = error_string
     end
 
     if success

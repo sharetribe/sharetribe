@@ -3,7 +3,6 @@
 # different configurations per Braintree call
 #
 class BraintreeService
-
   class << self
 
     @@mutex = Mutex.new
@@ -20,6 +19,21 @@ class BraintreeService
       Braintree::Configuration.public_key = nil
       Braintree::Configuration.private_key = nil
     end
+    
+    # This method should be used for all actions that require setting correct
+    # Merchant details for the Braintree gem
+    def with_braintree_config(community, &block)
+      @@mutex.synchronize {
+        configure_for(community)
+
+        return_value = block.call
+
+        reset_configurations()
+
+        return return_value
+      }
+    end
+
 
     def create_merchant_account(braintree_account, community)
       with_braintree_config(community) do
@@ -51,18 +65,6 @@ class BraintreeService
       community.community_payment_gateways.first.braintree_master_merchant_id
     end
     
-    def with_braintree_config(community, &block)
-      @@mutex.synchronize {
-        configure_for(community)
-
-        return_value = block.call
-
-        reset_configurations()
-
-        return return_value
-      }
-    end
-
     def webhook_notification_verify(community, challenge)
       with_braintree_config(community) do
         Braintree::WebhookNotification.verify(challenge)
@@ -80,5 +82,6 @@ class BraintreeService
         Braintree::WebhookTesting.sample_notification(kind, id)
       end
     end
+    
   end
 end
