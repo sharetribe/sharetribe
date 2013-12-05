@@ -6,10 +6,7 @@
     %h2
       = t('.terms_have_changed')
     %p
-      - if @current_community.label.eql?("okl")
-        = render :file => community_file("okl_terms_change_reasons", true)
-      - else
-        = t('.you_need_to_accept_new_terms')
+      = t('.you_need_to_accept_new_terms')
     %p
       = t('.you_can_view_the_new_terms')
       = link_to(t(".here"), "#", :id => "terms_link") + "."
