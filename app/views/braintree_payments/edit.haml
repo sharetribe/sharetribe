@@ -1,0 +1,19 @@
+.centered-section-wide.payment-form
+  = render :partial => "layouts/payment_header", :locals => { :payment_receiver => @conversation.other_party(@current_user) }
+
+  .left-navi-section.settings-section
+
+    %p
+      = "conv: #{@conversation.id}"
+      = "user: #{@current_user.id}"
+    = form_for @braintree_payment, :url => person_message_braintree_payment_path(@current_user.id, @conversation.id, @braintree_payment.id) do |form|
+
+      = form.label :credit_card_number, t(".credit_card_number", :class => "input")
+      = form.text_field :credit_card_number, :class => :text_field
+
+
+      = form.label :credit_card_expiration_date, t(".credit_card_expiration_date", :class => "input")
+      = form.text_field :credit_card_expiration_date, :class => :text_field
+
+
+      = form.button t(".save"), :class => "send_button"
