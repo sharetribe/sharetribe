@@ -17,8 +17,8 @@
           %button.action-button{type: 'submit'}
             = icon_tag("search", ["icon-part"])
   - else
-    %h1= community_slogan
-    %p= community_description
+    %h1#community-slogan= community_slogan
+    %p#community-description= community_description
     .search-form
       = form_tag({ :action => :index, :controller => :homepage}, :method => "get", :id => "homepage-filters") do
         .search-form-input.search-form-text-field
