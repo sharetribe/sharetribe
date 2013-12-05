@@ -60,6 +60,25 @@ class BraintreeService
           )
       end
     end
+
+    def transaction_sale(receiver, credit_card_number, credit_card_expiration, amount, service_fee, community)
+      with_braintree_config(community) do
+        Braintree::Transaction.create(
+          :type => "sale",
+          :amount => amount.to_s,
+          :merchant_account_id => receiver.id,
+          :credit_card => {
+            :number => credit_card_number,
+            :expiration_date => credit_card_expiration
+          },
+          :options => {
+            :submit_for_settlement => false,
+            :hold_in_escrow => false
+          },
+          :service_fee_amount => service_fee.to_s
+        )
+      end
+    end
     
     def master_merchant_id(community)
       community.community_payment_gateways.first.braintree_master_merchant_id

@@ -581,11 +581,18 @@ ActiveRecord::Schema.define(:version => 20131209133946) do
     t.string   "organization_id"
     t.integer  "conversation_id"
     t.string   "status"
+<<<<<<< HEAD
     t.datetime "created_at",                                              :null => false
     t.datetime "updated_at",                                              :null => false
     t.integer  "community_id"
     t.string   "type",                     :default => "CheckoutPayment"
     t.string   "braintree_transaction_id"
+=======
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
+    t.integer  "community_id"
+    t.string   "type",            :default => "CheckoutPayment"
+>>>>>>> First end-to-end braintree payment
   end
 
   add_index "payments", ["conversation_id"], :name => "index_payments_on_conversation_id"
