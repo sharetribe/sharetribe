@@ -56,6 +56,8 @@ module NavigationHelpers
       "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings/payments"
     when /the account settings page/
       "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings/account"
+    when /the community details admin page/
+      edit_details_admin_community_path(:id => 1, :locale => "en") # The ID seems to be required, but does not matter what it is.
 
     # the following are examples using path_to_pickle
 
