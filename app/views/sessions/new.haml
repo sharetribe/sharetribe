@@ -30,7 +30,7 @@
   = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do
     %label{:for => "login"}
       = username_or_email_label + ":"
-    = text_field_tag "person[login]", nil, :value => session[:form_login], :class => :text_field, :id => :main_person_login 
+    = text_field_tag "person[login]", nil, :value => session[:form_login], :class => :text_field, :id => :main_person_login, :autofocus => true
     %label{:for => "password"}
       = t('common.password') + ":"
     = password_field_tag "person[password]", nil, :class => :text_field, :id => :main_person_password 
