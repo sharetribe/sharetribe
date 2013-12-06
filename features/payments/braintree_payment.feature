@@ -15,5 +15,6 @@ Feature: User pays accepted request
   Scenario:
     Given I am logged in as "kassi_testperson2"
     And I want to pay "math book"
-    Then I should be able to fill in my payment details for Braintree
-    And I should be able to see that the payment was successful
+    When I fill in my payment details for Braintree
+    And I press submit
+    Then I should be see that the payment was successful
