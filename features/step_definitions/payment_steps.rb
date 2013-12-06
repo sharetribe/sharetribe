@@ -1,9 +1,7 @@
-module PaymentSteps
-  CC_NUMBER = "[data-encrypted-name='braintree_payment[credit_card_number]']"
-  CC_EXPIRATION_DATE = "[data-encrypted-name='braintree_payment[credit_card_expiration_date]']"
-end
+require 'cucumber/rspec/doubles'
 
-World(PaymentSteps)
+CC_NUMBER = "[name='braintree_payment[credit_card_number]']"
+CC_EXPIRATION_DATE = "[name='braintree_payment[credit_card_expiration_date]']"
 
 Given /^there are following Braintree accounts:$/ do |bt_accounts|
   # Create new accounts
@@ -32,10 +30,13 @@ Given /^there is an accepted request for "(.*?)" with price "(.*?)" from "(.*?)"
   conversation.participants << requester
   conversation.status = "accepted"
   conversation.title = "Conversation title"
+  conversation.community_id = community.id
+  conversation.listing_id = listing.id
 
   payment = Payment.new()
   payment.payer = requester
   payment.recipient = listing.author
+  payment.community_id = community.id
   payment.status = "pending"
   payment.type = "BraintreePayment" # hard-coded, change if needed
 
@@ -61,6 +62,11 @@ Then /^"(.*?)" should have required Checkout payment details saved to my account
   p.checkout_merchant_id.should_not be_blank
   p.checkout_merchant_key.should_not be_nil
   p.checkout_merchant_key.should_not be_blank
+end
+
+Given /^Braintree transaction is mocked$/ do
+  BraintreeService.should_receive(:transaction_sale)
+    .and_return(Braintree::SuccessfulResult.new())
 end
 
 Given /^I want to pay "(.*?)"$/ do |item_title|
@@ -145,6 +151,21 @@ Then /^I should see information about existing Checkout account$/ do
   find("#payment-help-checkout-exists").visible?.should be_true
   steps %Q{
     And I should not see payment setting fields
+  }
+end
+
+Then /^I should be see that the payment was successful$/ do
+  steps %Q{
+    Then I should see "paid"
+    Then I should see "109.92"
+  }
+end
+
+Then /^"(.*?)" should receive email about payment$/ do |receiver|
+  email = Person.find_by_username(receiver).confirmed_notification_emails.first.address
+  steps %Q{
+    When the system processes jobs
+    Then "#{email}" should receive an email
   }
 end
 

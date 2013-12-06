@@ -32,23 +32,25 @@ class BraintreePaymentsController < ApplicationController
 
     payment_params = params[:braintree_payment]
 
-    result = BraintreeService.transaction_sale(
-      recipient, 
-      payment_params[:credit_card_number], 
-      payment_params[:credit_card_expiration_date], 
-      amount, 
-      service_fee, 
-      @current_community
-    )
+    result = with_expection_logging do 
+      BraintreeService.transaction_sale(
+        recipient, 
+        payment_params[:credit_card_number], 
+        payment_params[:credit_card_expiration_date], 
+        amount, 
+        service_fee, 
+        @current_community
+      )
+    end
 
     if result.success?
       log_info("Successful sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
-      transaction = result.transaction
+      @braintree_payment.paid!
     else
       log_error("Unsuccessful sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}: #{result.message}")
     end
 
-    # Where to?
+    redirect_to person_message_path(:id => params[:message_id])
   end
 
   private
@@ -56,6 +58,15 @@ class BraintreePaymentsController < ApplicationController
   def payment_can_be_conducted
     @conversation = Conversation.find(params[:message_id])
     redirect_to person_message_path(@current_user, @conversation) unless @conversation.requires_payment?(@current_community)
+  end
+
+  def with_expection_logging(&block)
+    begin
+      block.call
+    rescue Exception => e
+      log_error("Expection #{e}")
+      raise e
+    end
   end
 
   def log_info(msg)
