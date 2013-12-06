@@ -65,7 +65,8 @@ Given /^community "([^"]*)" has payments in use(?: via (\w+))?$/ do |community_d
   
   community = Community.find_by_domain(community_domain)
   community.update_attributes(:vat => "24", :commission_percentage => "8")
-  community.payment_gateways << gateway
+  
+  FactoryGirl.create(:community_payment_gateway, :community => community, :payment_gateway => gateway)
 end
 
 Given /^users can invite new users to join community "([^"]*)"$/ do |community|

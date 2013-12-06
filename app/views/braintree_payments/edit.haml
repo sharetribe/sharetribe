@@ -22,12 +22,12 @@
         :html => { :id => "braintree-payment-form", :class => "hidden" } do |form|
 
       = form.label :credit_card_number, t(".credit_card_number", :class => "input")
-      = form.text_field :credit_card_number, :class => :text_field, :name => "", :data => { :'encrypted-name' => "braintree_payment[credit_card_number]" }
+      = form.text_field :credit_card_number, with_braintree_field_name("braintree_payment[credit_card_number]", :class => :text_field )
 
       = form.label :credit_card_expiration_date, t(".credit_card_expiration_date", :class => "input")
-      = form.text_field :credit_card_expiration_date, :class => :text_field, :name => "", :data => { :'encrypted-name' => "braintree_payment[credit_card_expiration_date]" }
+      = form.text_field :credit_card_expiration_date, with_braintree_field_name("braintree_payment[credit_card_expiration_date]", :class => :text_field )
 
-      = form.button t(".save"), :class => "send_button", :confirm => "Really?"
+      = form.button t(".save"), :class => "send_button"
 
     %noscript
       = "For security reasons JavaScript has to be enabled"
