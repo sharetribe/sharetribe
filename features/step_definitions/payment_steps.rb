@@ -1,3 +1,10 @@
+module PaymentSteps
+  CC_NUMBER = "[data-encrypted-name='braintree_payment[credit_card_number]']"
+  CC_EXPIRATION_DATE = "[data-encrypted-name='braintree_payment[credit_card_expiration_date]']"
+end
+
+World(PaymentSteps)
+
 Given /^there are following Braintree accounts:$/ do |bt_accounts|
   # Create new accounts
   bt_accounts.hashes.each do |hash|
@@ -30,6 +37,7 @@ Given /^there is an accepted request for "(.*?)" with price "(.*?)" from "(.*?)"
   payment.payer = requester
   payment.recipient = listing.author
   payment.status = "pending"
+  payment.type = "BraintreePayment" # hard-coded, change if needed
 
   row = PaymentRow.new()
   row.sum_cents = price.to_i * 100
@@ -57,16 +65,21 @@ end
 
 Given /^I want to pay "(.*?)"$/ do |item_title|
   steps %Q{Given I am on the messages page}
-  steps %Q{Then I should see "Pay"} # This fails if there are many payments waiting
-  steps %Q{When I follow "Pay"} # This fails if there are many payments waiting
+  steps %Q{Then I should see "Pay"} # This probably fails if there are many payments waiting
+  steps %Q{When I follow "Pay"} # This probably fails if there are many payments waiting
+  steps %Q{Then I should see payment details form for Braintree}
 end
 
-Then /^I should be able to fill in my payment details for Braintree$/ do
+Then /^I should see payment details form for Braintree$/ do
   steps %Q{
-    Then I should see payment details form for Braintree
-    When I fill payment details for Braintree
-    And I submit the payment
+    Then I should see selector "#{CC_NUMBER}"
+    Then I should see selector "#{CC_EXPIRATION_DATE}"
   }
+end
+
+When /^I fill in my payment details for Braintree$/ do
+  find("#{CC_NUMBER}").set("5105105105105100")
+  find("#{CC_EXPIRATION_DATE}").set("05/12")
 end
 
 Then /^I should be able to see that the payment was successful$/ do

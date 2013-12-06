@@ -18,6 +18,12 @@ When /^(?:|I )click "([^"]*)"(?: within "([^"]*)")?$/ do |css_selector, scope_se
   end
 end
 
+Then /^I should see selector "([^"]*)"(?: within "([^"]*)")?$/ do |css_selector, scope_selector|
+  with_scope(scope_selector) do
+    page.should have_selector(css_selector)
+  end
+end
+
 Then /^(?:|I )should not see selector "([^"]*)"?$/ do |selector|
   lambda {
     with_scope(selector) do
