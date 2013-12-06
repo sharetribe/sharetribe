@@ -61,15 +61,17 @@ class BraintreeService
       end
     end
 
-    def transaction_sale(receiver, credit_card_number, credit_card_expiration, amount, service_fee, community)
+    def transaction_sale(receiver, payment_params, amount, service_fee, community)
       with_braintree_config(community) do
         Braintree::Transaction.create(
           :type => "sale",
           :amount => amount.to_s,
           :merchant_account_id => receiver.id,
           :credit_card => {
-            :number => credit_card_number,
-            :expiration_date => credit_card_expiration
+            :number => payment_params[:credit_card_number],
+            :expiration_date => payment_params[:credit_card_expiration_date],
+            :cvv => payment_params[:cvv],
+            :cardholder_name => payment_params[:cardholder_name],
           },
           :options => {
             :submit_for_settlement => false,
