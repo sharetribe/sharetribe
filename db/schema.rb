@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131204103910) do
+ActiveRecord::Schema.define(:version => 20131206163837) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -244,8 +244,9 @@ ActiveRecord::Schema.define(:version => 20131204103910) do
     t.string   "braintree_master_merchant_id"
     t.string   "braintree_public_key"
     t.string   "braintree_private_key"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.text     "braintree_client_side_encryption_key"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
   end
 
   create_table "contact_requests", :force => true do |t|
