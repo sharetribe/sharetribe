@@ -585,7 +585,7 @@ class Community < ActiveRecord::Base
   
   def default_currency
     if available_currencies
-      available_currencies.split(",").first
+      available_currencies.gsub(" ","").split(",").first
     else
       MoneyRails.default_currency
     end
