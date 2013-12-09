@@ -1,0 +1,1 @@
+class CheckoutPayment < Payment end
