@@ -391,26 +391,6 @@ module ApplicationHelper
     return ""
   end
   
-  def community_file(type, with_locale=false)
-    locale_string = with_locale ? ".#{I18n.locale}" : ""
-    file_path = "communities/#{@current_community.domain}/#{type}/#{type}#{locale_string}"
-    if File.exists?("#{file_path}.haml")
-      file_path
-    elsif File.exists?("communities/default/#{type}/#{type}#{locale_string}.haml")
-      # This should match usually since locale string is blank if no locale in use
-      "communities/default/#{type}/#{type}#{locale_string}"
-    else
-      # However, we fallback to non-locale default if there is such
-      "communities/default/#{type}/#{type}"
-    end
-  end
-  
-  def community_file?(type, with_locale=false)
-    locale_string = with_locale ? ".#{I18n.locale}" : ""
-    file_path = "communities/#{@current_community.domain}/#{type}/#{type}#{locale_string}.haml"
-    File.exists?(file_path)
-  end
-  
   # If we are not in a single community defined by a subdomain,
   # we are on dashboard
   def on_dashboard?

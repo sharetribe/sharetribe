@@ -1,6 +1,5 @@
 class Listing < ActiveRecord::Base
   
-  include LocationsHelper
   include ApplicationHelper
   include ActionView::Helpers::TranslationHelper
   include Rails.application.routes.url_helpers
@@ -103,7 +102,6 @@ class Listing < ActiveRecord::Base
   
   before_validation :set_rideshare_title, :set_valid_until_time
   before_save :downcase_tags, :set_community_visibilities
-  after_create :check_possible_matches
   
   validates_presence_of :author_id
   validates_length_of :title, :in => 2..60, :allow_nil => false
@@ -447,128 +445,6 @@ class Listing < ActiveRecord::Base
   # should be request, and vice versa
   def discussion_type
     share_type.is_request? ? "offer" : "request"
-  end
-  
-  # Called after create
-  # Checks if there was already an offer matching this request
-  # or a request matching this offer
-  # Inform the requester if possible match is found
-  def check_possible_matches
-    logger.info "Checking possible matches for just created rideshare listing."
-    timing_tolerance = 1.6.hours # how big difference in starting time is accepted
-        
-    # currently check only rideshare listings
-    return true unless (category == "rideshare" && APP_CONFIG.use_sms)
-    
-    potential_listings = []
-    if listing_type == "request"
-      potential_listings =  Listing.currently_open.rideshare.offers
-    else
-      potential_listings = Listing.currently_open.rideshare.requests
-    end
-    
-    potential_listings.each do |candidate|
-      if listing_type == "request"
-        if ((valid_until-timing_tolerance..valid_until+timing_tolerance) === (candidate.valid_until) &&
-            candidate.origin_and_destination_close_enough?(self))
-            
-          inform_requester_about_potential_match(self, candidate)
-        end
-      else
-        if ((valid_until-timing_tolerance..valid_until+timing_tolerance) === (candidate.valid_until) &&
-            origin_and_destination_close_enough?(candidate))
-        
-          inform_requester_about_potential_match(candidate, self)
-        end
-      end
-      
-    end
-    
-  end
-  
-  def origin_and_destination_close_enough?(candidate)
-    
-    # The Google routing API is used to check
-    # how much the offerer's route would be longer if he
-    # would pickup the requester. If difference is small it the ride 
-    # is suggested to the requester)
-    
-    # consider origin and destaination being close enough, if the
-    # difference between direct journey and with waypoints is 
-    # smaller than the tolerance for duration and distance.
-    duration_tolerence_percentage = 20
-    min_duration_tolerance = 15 # in minutes
-    distance_tolerance_percentage = 20
-    min_distance_tolerance = 10
-    
-    # If routing fails, fall back to old solution of comparing strings and posibly geocoded coordinates.
-    # This is used by the old method only:
-    location_tolerance = 5 # kilometers, the max distance between spots to match them
-    
-    logger.info "Comparing origin and destinations of #{title} and #{candidate.title}"
-    
-    
-    # Try first with route comparison
-    begin
-      direct_route = route_duration_and_distance(origin, destination)
-      ridesharing_route = route_duration_and_distance(origin, destination, [candidate.origin, candidate.destination])
-      duration_difference = ridesharing_route[0] - direct_route[0]
-      distance_difference = ridesharing_route[1] - direct_route[1]
-      
-      logger.info "Result was that difference in duration would be: #{duration_difference} minutes and in distance #{distance_difference} km."
-      
-      if ((duration_difference < min_duration_tolerance || 
-         duration_difference < direct_route[0] * duration_tolerence_percentage * 0.01) &&
-         (distance_difference < min_distance_tolerance ||
-         distance_difference < direct_route[1] * distance_tolerance_percentage * 0.01))
-        return true
-      else
-        # got valid result from routing, but the difference was too big, so return false.
-        return false
-      end
-    rescue  RuntimeError => e
-      logger.info "Error while calculating route: #{e.message}"
-      # encountered and error with routing so continue and try the other method
-    end
-    # try second if exact match or closeness by geocoded coordinates is close enough
-    begin
-      if  (( origin.casecmp(candidate.origin) == 0 || distance_between(get_coordinates(origin), get_coordinates(candidate.origin)) < location_tolerance) && 
-          (destination.casecmp(candidate.destination) == 0 || distance_between(get_coordinates(destination), get_coordinates(candidate.destination)) < location_tolerance))
-        return true
-      else 
-        return false
-      end
-    rescue RuntimeError => e
-      logger.info "Error while  geocoding: #{e.message}"
-      return false
-    end
-  end
-  
-  def inform_requester_about_potential_match(request, offer)
-    logger.info "Informing the author of: #{request.title} (starting at #{request.valid_until}) about the possible match of #{offer.title} (starting at #{offer.valid_until})"
-
-    # Check if requester has a phone number and sens sms if sms's are in use
-    if APP_CONFIG.use_sms && !request.author.phone_number.blank?
-
-      # send the message in recipients language and use very short date format to fit in sms
-      locale = request.author.locale.to_sym || :fi
-      Time::DATE_FORMATS[:sms] = I18n.t("time.formats.sms", :locale => locale)
-      message = I18n.t("sms.potential_ride_share_offer", :author_name => offer.author.given_name_or_username, :origin => offer.origin, :destination => offer.destination, :start_time  => offer.valid_until.to_formatted_s(:sms), :locale => locale)
-      listing_url = ApplicationHelper.shorten_url("http://demo.sharetribe.com/#{locale.to_s}/listings/#{offer.id}")
-      unless offer.author.phone_number.blank?
-        message += " " + I18n.t("sms.you_can_call_him_at", :phone_number  => offer.author.phone_number, :locale => locale)
-        message += " " + I18n.t("sms.or_check_the_offer_in_kassi", :listing_url => listing_url, :locale => locale)
-        
-      else
-        message += " " + I18n.t("sms.check_the_offer_in_kassi", :listing_url => listing_url, :locale => locale)
-      end
-      message += " " +  I18n.t("sms.you_can_pay_gas_money_to_driver", :driver => offer.author.given_name_or_username, :locale => locale)
-      # Here it should be stored somewhere (DB probably) that a payment suggestion is made from potential passenger
-      # to the driver (and the time and date of the suggestions)
-      # But as there is not yet real payment API, this is not yet implemented.
-
-      SmsHelper.send(message, request.author.phone_number)
-    end
   end
   
   # This is used to provide clean JSON-strings for map view queries

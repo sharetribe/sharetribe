@@ -476,7 +476,7 @@ en:
       confirmation_instructions_signature: "Best regards,<br/>The %{service_name} Team"
       welcome_to_kassi: "Welcome to %{service_name}!"
       need_to_confirm: "You need to confirm your email address."
-      confirmation_link_text: "Confirm my account"
+      confirmation_link_text: "Confirm my email"
       or_paste_link: "Alternatively you can copy the following link to the address bar of your browser:"
       turning_on_confirmations_in_this_community: "We are starting to use email confirmations in this %{service_name} community."
     common:
@@ -1287,9 +1287,7 @@ en:
       delete_news_item: "Remove article"
   okl:
     member_id: "Member id"
-    member_id_is_your_username: "You must give your Omakotiliitto member id (jäsennumero) in order to join %{service_name}. Your member id is also your username that you will need when logging in to %{service_name}. If you are not a member of Omakotiliitto yet, you can"
     member_id_or_email: "Member id or email"
-    join_here: "join here."
   payments:
     new:
       new_payment: "New payment"
@@ -1617,20 +1615,6 @@ en:
       visible_to_everybody: "visible to everybody"
       visible_to_registered_users: "(visible to users that have logged in)"
     save_information: "Save information"
-  sms:
-    or_check_the_offer_in_kassi: "or check the offer %{listing_url}"
-    parsing_error: "Could not understand the message contents. Please check the instructions and try again."
-    pay: pay|payment
-    payment_delivered: "Payment of %{amount} euros is delivered to %{receiver}. You'll be paying %{amount_plus_commission} euros in your phone bill."
-    potential_ride_share_offer: "%{author_name} offers a ride in %{service_name} from %{origin} to %{destination} %{start_time}."
-    request: ^request$|^r$
-    rideshare: ride|rideshare
-    you_can_call_him_at: "You can call the driver at %{phone_number}"
-    you_can_pay_gas_money_to_driver: "To pay some gas money, reply 'kassi pay %{driver} Xe' where X is the amount. The amount + 5% commission is put in your phone bill."
-    category_not_supported: "This category not yet supported by sms."
-    check_the_offer_in_kassi: "Check the offer in %{service_name}: %{listing_url}"
-    listing_created: "Thank you for the message, a listing is now added to %{service_name}."
-    offer: ^offer$|^o$
   tag_cloud:
     tag_used:
       with_tag: "With tag"

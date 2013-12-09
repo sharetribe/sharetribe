@@ -476,7 +476,7 @@ fi:
       confirmation_instructions_signature: "Terveisin,<br/>%{service_name}-tiimi"
       welcome_to_kassi: "Tervetuloa %{service_name_illative}!"
       need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla alla olevaa linkkiä"
-      confirmation_link_text: "Varmista tunnukseni"
+      confirmation_link_text: "Vahvista sähköpostini"
       or_paste_link: "Vaihtoehtoisesti voit kopioida seuraavan linkin selaimesi osoitepalkkiin:"
       turning_on_confirmations_in_this_community: "Otamme käyttöön sähköpostivarmistukset tässä %{service_name}-yhteisössä."
     common:
@@ -1287,9 +1287,7 @@ fi:
       delete_news_item: "Poista uutinen"
   okl:
     member_id: Jäsennumero
-    member_id_is_your_username: "Sinun on annettava voimassaoleva Omakotiliiton jäsennumerosi, jotta voit liittyä tähän yhteisöön. Jäsennumero toimii myös käyttäjätunnuksenasi, kun kirjaudut %{service_name_illative}. Jos et ole vielä Omakotiliiton jäsen,"
     member_id_or_email: "Jäsennumero tai sähköposti"
-    join_here: "liity tästä."
   payments:
     new:
       new_payment: "Uusi maksu"

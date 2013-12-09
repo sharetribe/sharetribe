@@ -1,8 +1,0 @@
-%select.item-type#share_type{name: "share_type"}
-  %option{value: "all"}= "#{t("homepage.filters.all_listing_types")}"
-  - @listing_types.each do |type|
-    %option{value: "#{type.name}", selected: params[:share_type] == type.name}= "#{type.display_name.mb_chars.capitalize.to_s}"
-    - if type.children
-      - type.children.each do |share_type|
-        - if @share_types.include?(share_type)
-          %option{value: "#{share_type.name}", selected: params[:share_type] == share_type.name}= "- #{share_type.display_name.mb_chars.capitalize.to_s}"

@@ -224,8 +224,17 @@ Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
   end
 end
 
+# This is a workaround for PhantomJS, which doesn't (or actually WebDriver) support confirm dialogs.
+# Use this keyword BEFORE the confirmation dialog appears
+Given /^I will(?:| (not)) confirm the next confirmation dialog if I am running PhantomJS$/ do |do_not_confirm|
+  confirm = do_not_confirm != "not"
+  if ENV['PHANTOMJS'] then
+    page.execute_script("window.confirm = function() { return #{confirm}; };")
+  end
+end
+
 When /^I confirm alert popup$/ do
-  page.driver.browser.switch_to.alert.accept
+  page.driver.browser.switch_to.alert.accept unless ENV['PHANTOMJS']
 end
 
 Then /^take a screenshot$/ do
@@ -243,3 +252,6 @@ When /^I navigate to invitations page$/ do
   }
 end
 
+When /^I refresh the page$/ do
+  visit(current_path)
+end
