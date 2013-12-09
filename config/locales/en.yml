@@ -287,6 +287,13 @@ en:
       routing_number: "Routing number"
       account_number: "Account number"
       save: "Save"
+  braintree_payments:
+    edit:
+      cardholder_name: Cardholder name
+      credit_card_number: Credit card number
+      cvv: CVV
+      credit_card_expiration_date: Credit card expiration date
+      save: "Save"
   communities:
     map_bubble:
       view_tribe: "View tribe"
@@ -967,6 +974,9 @@ en:
       can_not_delete_email: "You can not remove the email address"
       user_does_not_have_email_to_delete: "You don't have the email address you're trying to remove"
       email_deleted: "Email removed"
+    payment_header:
+      new_payment: New payment
+      payment_receiver: "Payment receiver:"
     profile_extras_header:
       back_to_profile_of_person: "Back to user's profile"
       badges: Badges

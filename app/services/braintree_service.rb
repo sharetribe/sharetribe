@@ -69,7 +69,8 @@ class BraintreeService
           :merchant_account_id => receiver.id,
           :credit_card => {
             :number => payment_params[:credit_card_number],
-            :expiration_date => payment_params[:credit_card_expiration_date],
+            :expiration_month => payment_params[:credit_card_expiration_month],
+            :expiration_year => payment_params[:credit_card_expiration_year],
             :cvv => payment_params[:cvv],
             :cardholder_name => payment_params[:cardholder_name],
           },

@@ -25,8 +25,8 @@ class BraintreePaymentsController < ApplicationController
     payer = @current_user
     recipient = @braintree_payment.recipient
 
-    amount = 100 # FIXME
-    service_fee = 10 # FIXME
+    amount = @braintree_payment.sum_without_commission
+    service_fee = @braintree_payment.total_commission
 
     log_info("Sending sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
 
@@ -34,10 +34,10 @@ class BraintreePaymentsController < ApplicationController
 
     result = with_expection_logging do 
       BraintreeService.transaction_sale(
-        recipient, 
+        recipient,
         payment_params,
-        amount, 
-        service_fee, 
+        amount,
+        service_fee,
         @current_community
       )
     end
@@ -52,7 +52,7 @@ class BraintreePaymentsController < ApplicationController
     else
       log_error("Unsuccessful sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}: #{result.message}")
       flash[:error] = result.message
-      render :edit
+      redirect_to :edit_person_message_braintree_payment
     end
   end
 
