@@ -30,6 +30,15 @@ default: &default_settings
   aws_access_key_id: 
   aws_secret_access_key: 
 
+  # Braintree credentials to be used in tests. In production, each
+  # community have their own credentials.
+  # Ask for shared Braintree credentials if you don't want to create
+  # new Braintree account
+  braintree_test_merchant_id: 
+  braintree_test_master_merchant_id: 
+  braintree_test_public_key: 
+  braintree_test_private_key: 
+
   # If you want to force all use to be SSL secured (https://) you can set this to true
   # Note that you can set this value separately to each enironment below (e.g. if your developing)
   always_use_ssl: false
@@ -121,19 +130,6 @@ default: &default_settings
   # if you leave these empty, urls will be kept long
   bitly_username: 
   bitly_key: 
-  
-  # TeliaSonera sms API is optional and experimental
-  # leave this to false unless you know what you're doing
-  # (The receiver resource must be created separately. see: http://developer.medialab.sonera.fi/info/index.php/Receiver_resource)
-  use_sms: false
-  sms_username: your_api_username
-  sms_password: your_api_password
-  sms_service_key: your_api_service_key
-  sms_receiver_id: your_separately_registered_keyword
-  
-  # In rideshare matching, the Helsinki Area Journey Planner API can be used if you have access. Otherwise leave empty.
-  journey_planner_username:
-  journey_planner_password:  
   
   # If you want to force Sharetribe to show mobile view even when accessed with normal desktop browser, set this to true
   # Useful only for mobile development

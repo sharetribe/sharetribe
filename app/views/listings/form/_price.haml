@@ -4,7 +4,7 @@
     = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.price_cents ? @listing.price_cents / 100 : 0)
     .currency-selector
       - if @current_community.available_currencies
-        - currencies = @current_community.available_currencies.split(",")
+        - currencies = @current_community.available_currencies.gsub(" ","").split(",")
         - if currencies.size > 1
           = form.select :currency, currencies, { :selected => (@listing.currency || currencies.first) }
         - else

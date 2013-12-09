@@ -44,6 +44,7 @@ class Person < ActiveRecord::Base
   has_many :emails, :dependent => :destroy
   
   has_one :location, :conditions => ['location_type = ?', 'person'], :dependent => :destroy
+  has_one :braintree_account, :dependent => :destroy
   
   has_many :participations, :dependent => :destroy 
   has_many :conversations, :through => :participations, :dependent => :destroy
@@ -447,14 +448,18 @@ class Person < ActiveRecord::Base
     self.confirmed_notification_emails.collect(&:address)
   end
 
-  # Return a string of notification emails joined with ,
-  # Can be used in PersonMailers to field
+  # Notice: If no confirmed notification emails is found, this
+  # method returns the first confirmed emails
   def confirmed_notification_emails_to
-    self.confirmed_notification_email_addresses.join ", "
+    send_message_to = EmailService.emails_to_send_message(emails)
+    EmailService.emails_to_smtp_addresses(send_message_to)
   end
 
-  def last_confirmed_notification_email_to
-    self.confirmed_notification_emails.last.address
+  # Notice: If no confirmed notification emails is found, this
+  # method returns the first confirmed emails
+  def confirmed_notification_email_to
+    send_message_to = EmailService.emails_to_send_message(emails).first
+    EmailService.emails_to_smtp_addresses([send_message_to])
   end
 
   # Returns true if the address given as a parameter is confirmed
@@ -491,6 +496,11 @@ class Person < ActiveRecord::Base
     if email
       email.person
     end
+  end
+  
+  def reset_password_token_if_needed
+    # Using methods from Devise
+    generate_reset_password_token! if should_generate_reset_token?
   end
   
   # returns the same if its available, otherwise "same1", "same2" etc.

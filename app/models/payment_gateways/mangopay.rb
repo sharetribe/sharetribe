@@ -82,6 +82,10 @@ class Mangopay < PaymentGateway
     create_mangopay_beneficiary(person)
   end
   
+  def has_additional_terms_of_use
+    true
+  end
+  
   private
   
   def register_to_mangopay(person)

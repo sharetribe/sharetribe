@@ -130,6 +130,18 @@ class PersonMailer < ActionMailer::Base
             format.html {render :locals => {:skip_unsubscribe_footer => true} }
     end
   end
+
+  # Braintree account was approved (via Webhook)
+  def braintree_account_approved(recipient, community)
+    set_up_urls(recipient, community)
+    @recipient = recipient
+
+    mail(:to => recipient.confirmed_notification_emails_to,
+         :from => community_specific_sender(community),
+         :subject => t("emails.braintree_account_approved.account_ready")) do |format|
+            format.html {render :locals => {:skip_unsubscribe_footer => true} }
+    end
+  end
   
   # Remind users of conversations that have not been accepted or rejected
   def confirm_reminder(conversation, recipient, community)
@@ -199,7 +211,7 @@ class PersonMailer < ActionMailer::Base
     mail(:to => @recipient.confirmed_notification_emails_to, 
          :from => community_specific_sender(community),
          :subject => email_subject, 
-         :reply_to => "\"#{sender.name(community)}\"<#{sender.last_confirmed_notification_email_to}>")
+         :reply_to => "\"#{sender.name(community)}\"<#{sender.confirmed_notification_email_to}>")
   end
   
   # A custom message to a community starter
@@ -225,7 +237,7 @@ class PersonMailer < ActionMailer::Base
     @feedback = feedback
 
     @feedback.email = if feedback.author then
-      feedback.author.last_confirmed_notification_email_to
+      feedback.author.confirmed_notification_email_to
     else
       @feedback.email
     end
@@ -287,6 +299,17 @@ class PersonMailer < ActionMailer::Base
          :subject => t("devise.mailer.confirmation_instructions.subject"), 
          :template_path => 'devise/mailer', 
          :template_name => 'confirmation_instructions')
+  end
+  
+  def reset_password_instructions(person, email_address, community)
+    set_up_urls(nil, community) # Using nil as recipient, as we don't want auth token here.
+    @person = person
+    @no_settings = true
+    mail(:to => email_address,
+         :from => community_specific_sender(@community),
+         :subject => t("devise.mailer.reset_password_instructions.subject")) do |format|
+       format.html { render :layout => false }
+     end
   end
   
   def community_updates(recipient, community)

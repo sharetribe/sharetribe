@@ -2,10 +2,11 @@
 rerun = File.file?('rerun.txt') ? IO.read('rerun.txt') : ""
 rerun_opts = rerun.to_s.strip.empty? ? "--format #{ENV['CUCUMBER_FORMAT'] || 'progress'} features" : "--format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} #{rerun}"
 std_opts = "-rfeatures --format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} --strict --tags ~@wip"
+skip_phantomjs = ENV['PHANTOMJS'] ? "--tags ~@phantomjs_skip" : ""
 %>
-default: --drb  --tags ~@phantomjs_skip <%= std_opts %> features
+default: --drb <%= skip_phantomjs %>  <%= std_opts %> features
 wip: --drb --tags @wip:3 --wip features
 rerun: --drb <%= rerun_opts %> --format rerun --out rerun.txt --strict --tags ~@wip
-travis: -rfeatures --tags ~@badge --tags ~@pending --tags ~@fix_for_new_design --tags ~@phantomjs_skip --format progress features
+travis: -rfeatures --tags ~@badge --tags ~@pending --tags ~@fix_for_new_design <%= skip_phantomjs %> --format progress features
 temp: -rfeatures --drb --strict --tags ~@wip --tags ~@badge --tags ~@pending --tags ~@fix_for_new_design --format progress features
 parallel: -rfeatures --tags ~@wip --format progress features

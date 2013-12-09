@@ -1,21 +1,64 @@
-# This should go to a helper
-# http://pullmonkey.com/2008/01/06/convert-a-ruby-hash-into-a-class-object/
-class HashClass
-  def initialize(hash)
-    hash.each do |k,v|
-      self.instance_variable_set("@#{k}", v)  ## create and initialize an instance variable for this key/value pair
-      self.class.send(:define_method, k, proc{self.instance_variable_get("@#{k}")})  ## create the getter that returns the instance variable
-      self.class.send(:define_method, "#{k}=", proc{|v| self.instance_variable_set("@#{k}", v)})  ## create the setter that sets the instance variable
-    end
-  end
-end
-
 def email(h)
   defaults = {confirmed_at: Time.now, send_notifications: true}
   HashClass.new(defaults.merge(h))
 end
 
 describe EmailService do
+  describe "#emails_to_send_message" do
+
+    it "returns all confirmed notification emails" do
+      e1 = email(id: 1, send_notifications: false, confirmed_at: Time.now)
+      e2 = email(id: 2, send_notifications: true, confirmed_at: Time.now)
+      e3 = email(id: 3, send_notifications: true, confirmed_at: Time.now)
+      e4 = email(id: 4, send_notifications: true, confirmed_at: nil)
+
+      EmailService.emails_to_send_message([e1, e2, e3, e4]).should eql([e2, e3])
+    end
+
+    it "returns first confirmed email if no confirmed notification email is found" do
+      e1 = email(id: 1, send_notifications: false, confirmed_at: Time.now)
+      e2 = email(id: 2, send_notifications: false, confirmed_at: Time.now)
+      e3 = email(id: 3, send_notifications: false, confirmed_at: Time.now)
+      e4 = email(id: 4, send_notifications: true, confirmed_at: nil)
+
+      EmailService.emails_to_send_message([e1, e2, e3, e4]).should eql([e1])
+    end
+
+    it "otherwise returns an empty array" do
+      # This should never happen in production.
+      # We should always have at least one confirmed email
+      e1 = email(id: 1, send_notifications: false, confirmed_at: nil)
+      e2 = email(id: 2, send_notifications: true, confirmed_at: nil)
+      e3 = email(id: 3, send_notifications: true, confirmed_at: nil)
+      e4 = email(id: 4, send_notifications: true, confirmed_at: nil)
+
+      EmailService.emails_to_send_message([e1, e2, e3, e4]).should eql([])
+    end
+
+  end
+
+  describe "#emails_to_smtp_addresses" do
+
+    it "returns comma-separated list of emails" do
+      EmailService.emails_to_smtp_addresses([
+        email(address: "john.doe@example.com"),
+        email(address: "john_d@example.com"),
+        email(address: "jdoe@example.com")
+      ]).should eql "john.doe@example.com, john_d@example.com, jdoe@example.com"
+    end
+
+    it "returns only one email (without commas, of course)" do
+      EmailService.emails_to_smtp_addresses([
+        email(address: "john.doe@example.com"),
+      ]).should eql "john.doe@example.com"
+    end
+
+    it "returns empty string" do
+      EmailService.emails_to_smtp_addresses([]).should eql ""
+    end
+
+  end
+
   describe "#can_delete_email" do
     it "can not delete email if email count == 1" do
       EmailService.can_delete_email(

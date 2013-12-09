@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20131204091623) do
     t.string   "ssn"
     t.string   "routing_number"
     t.string   "account_number"
+    t.string   "status"
   end
 
   create_table "cached_ressi_events", :force => true do |t|

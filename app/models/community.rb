@@ -585,7 +585,7 @@ class Community < ActiveRecord::Base
   
   def default_currency
     if available_currencies
-      available_currencies.split(",").first
+      available_currencies.gsub(" ","").split(",").first
     else
       MoneyRails.default_currency
     end
@@ -610,7 +610,7 @@ class Community < ActiveRecord::Base
   end
   
   def braintree_in_use?
-    payment_gateways.include?(PaymentGateway.find_by_type("Braintree"))
+    payment_gateways.include?(BraintreePaymentGateway.first)
   end
   
   # Returns the total service fee for a certain listing

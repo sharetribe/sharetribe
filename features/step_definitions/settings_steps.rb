@@ -35,6 +35,7 @@ When /^I add a new email "(.*?)"$/ do |email|
   steps %Q{
     When I click "#account-new-email"
     And I fill in "person_email_attributes_address" with "#{email}"
+    And I wait for 1 second
     And I save email settings
     Then I should see "#{email}"
   }

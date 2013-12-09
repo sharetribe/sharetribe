@@ -9,7 +9,7 @@ Feature: Seller creates an invoice with Braintree
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And community "test" has payments in use via Braintree with seller commission 10
+    And community "test" has payments in use via BraintreePaymentGateway with seller commission 10
     And there is item offer with title "Power drill" from "kassi_testperson1" and with share type "sell" and with price "20.90"
     And there is a message "I request this" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"

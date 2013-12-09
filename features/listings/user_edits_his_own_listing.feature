@@ -5,15 +5,13 @@ Feature: User edits his own listing
 
   @phantomjs_skip
   @javascript
-  Scenario: User edits an item request
+  Scenario: User edits an item request with image
     Given there are following users:
       | person | 
       | kassi_testperson1 |
     And there is item request with title "Hammer" from "kassi_testperson1" and with share type "buy"
     And I am logged in as "kassi_testperson2"
     And I follow "Hammer"
-    #And I follow "Follow this listing"
-    #TODO: re-enable following here and below in this scenario
     And I click ".user-menu-toggle"
     And I follow "Log out"
     And I log in as "kassi_testperson1"
@@ -21,11 +19,8 @@ Feature: User edits his own listing
     And I follow "Edit listing"
     And the "listing_title" field should contain "Hammer"
     And the "description" field should contain "test"
-    #And the "listing_tag_list" field should contain "tools, hammers"
-    #And I select "Renting" from "listing_share_type"
     And I fill in "listing_title" with "Sledgehammer"
     And I fill in "listing_description" with "My description"
-    #And I fill in "listing_tag_list" with "hammers, sledges"
     And I attach a valid image file to "listing_listing_images_attributes_0_image"
     And I press "Save listing"
     And the system processes jobs
@@ -37,23 +32,27 @@ Feature: User edits his own listing
     And wait for 5 seconds
     And I press "Save listing"
     Then I should not see the image I just uploaded
-    # TODO Add this back after listings can be followed and unfollowed again
-    #And I log out
-    #And I log in as "kassi_testperson2"
-    #Then I should see "1" within "#notifications_link"
-    #When I follow "notifications_link"
-    #Then I should see "has updated a request you follow"
-    #When I follow "a request you follow"
-    #And I follow "Stop following this listing"
-    #And I log out
-    #And I log in as "kassi_testperson1"
-    # And I follow "Sledgehammer"
-    # And I follow "Edit listing"
-    # And I press "Save listing"
-    # And the system processes jobs
-    # And I log out
-    # And I log in as "kassi_testperson2"
-    # Then I should not see "1" within "#notifications_link"
+
+  @javascript
+  Scenario: User edits an item request without image
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+    And there is item request with title "Hammer" from "kassi_testperson1" and with share type "buy"
+    And I am logged in as "kassi_testperson2"
+    And I follow "Hammer"
+    And I click ".user-menu-toggle"
+    And I follow "Log out"
+    And I log in as "kassi_testperson1"
+    When I follow "Hammer"
+    And I follow "Edit listing"
+    And the "listing_title" field should contain "Hammer"
+    And the "description" field should contain "test"
+    And I fill in "listing_title" with "Sledgehammer"
+    And I fill in "listing_description" with "My description"
+    And I press "Save listing"
+    And the system processes jobs
+    Then I should see "Sledgehammer" within "#listing-title"
   
   @javascript
   Scenario: Trying to update an item request with invalid information

@@ -3541,10 +3541,10 @@ header.marketplace-header {
       @include button($link2);
       margin: 0;
       margin-left: lines(0.25);
-      font-weight: 300;
+      font-weight: 400;
       @include media(tablet) {
         @include normal-type;
-        font-weight: 300;
+        font-weight: 400;
         height: 40px;
         line-height: 37px;
         padding: 0 em(20);
