@@ -127,54 +127,6 @@ describe Listing do
       @listing.valid_until = nil
       @listing.should be_valid
     end
-    
-    describe "#origin_and_destination_close_enough?" do
-      it "should return true, when comparing listings with origin and destination close enough" do
-        other_listing = FactoryGirl.build(:listing)
-        other_listing.category = find_or_create_category("rideshare") 
-        other_listing.origin = "Otakaari 20"
-        other_listing.destination = "Simonkatu 4"
-        @listing.destination = "helsinki"
-        @listing.origin_and_destination_close_enough?(other_listing).should be_true
-      end
-      
-      it "should return true, when comparing listings with origin and destination exact same string, but not found on map." do
-        other_listing = FactoryGirl.build(:listing)
-        other_listing.category = find_or_create_category("rideshare") 
-        other_listing.origin = "Otski"
-        other_listing.destination = "Taikki"
-        @listing.origin = "Otski"
-        @listing.destination = "Taikki"
-        @listing.origin_and_destination_close_enough?(other_listing).should be_true       
-      end
-      
-      it "should return false when comparing places too far away (either destination or origin)" do
-        sleep 1 # without this there might be too many requests going to gmaps API and it will respond "over quota limit".
-        other_listing = FactoryGirl.build(:listing)
-        other_listing.category = find_or_create_category("rideshare") 
-        other_listing.origin = "Otakaari 20"
-        other_listing.destination = "Vilhonvuorenkatu 3"
-        @listing.destination = "Espoon keskus"
-        @listing.origin_and_destination_close_enough?(other_listing).should be_false
-      end
-      
-      it "should handle location nicknames in Helsinki if journey planner in use" do
-        other_listing = FactoryGirl.build(:listing)
-        other_listing.category = find_or_create_category("rideshare")
-        other_listing.origin = "dipoli"
-        other_listing.destination = "taik"
-        @listing.origin = "otski"
-        @listing.destination = "arabianranta"
-        response = @listing.origin_and_destination_close_enough?(other_listing)
-        if APP_CONFIG.journey_planner_username
-          response.should be_true
-        else
-          response.should be_false
-        end  
-      end
-      
-      
-    end
   end
   
 end 
