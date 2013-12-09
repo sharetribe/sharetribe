@@ -162,6 +162,8 @@ FactoryGirl.define do
   factory :payment do
     payer
     recipient
+    status "pending"
+    type "Checkout"
   end
 
   factory :braintree_account do

@@ -46,6 +46,8 @@ class BraintreePaymentsController < ApplicationController
       transaction_id = result.transaction.id
       log_info("Successful sale transaction #{transaction_id} from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
       @braintree_payment.paid!
+      @braintree_payment.braintree_transaction_id = transaction_id
+      @braintree_payment.save
       redirect_to person_message_path(:id => params[:message_id])
     else
       log_error("Unsuccessful sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}: #{result.message}")

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131206163837) do
+ActiveRecord::Schema.define(:version => 20131209073416) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -187,6 +187,18 @@ ActiveRecord::Schema.define(:version => 20131206163837) do
 
   add_index "communities_listings", ["community_id"], :name => "index_communities_listings_on_community_id"
   add_index "communities_listings", ["listing_id", "community_id"], :name => "communities_listings"
+
+  create_table "communities_payment_gateways", :force => true do |t|
+    t.integer  "community_id"
+    t.integer  "payment_gateway_id"
+    t.string   "braintree_merchant_id"
+    t.string   "braintree_master_merchant_id"
+    t.string   "braintree_public_key"
+    t.string   "braintree_private_key"
+    t.text     "braintree_client_side_encryption_key"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+  end
 
   create_table "community_categories", :force => true do |t|
     t.integer  "community_id"
@@ -568,10 +580,11 @@ ActiveRecord::Schema.define(:version => 20131206163837) do
     t.string   "organization_id"
     t.integer  "conversation_id"
     t.string   "status"
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
+    t.datetime "created_at",                                              :null => false
+    t.datetime "updated_at",                                              :null => false
     t.integer  "community_id"
-    t.string   "type",            :default => "CheckoutPayment"
+    t.string   "type",                     :default => "CheckoutPayment"
+    t.string   "braintree_transaction_id"
   end
 
   add_index "payments", ["conversation_id"], :name => "index_payments_on_conversation_id"
