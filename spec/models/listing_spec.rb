@@ -175,60 +175,6 @@ describe Listing do
       
       
     end
-    if APP_CONFIG.use_sms 
-      describe "#inform_requester_about_potential_match" do
-        context "When driver has a phone number in profile" do
-          it "should send sms including driver's phone number and offer url" do
-            offer = FactoryGirl.build(:listing)
-            request = FactoryGirl.build(:listing)
-            author = FactoryGirl.build(:person)
-            request_author = FactoryGirl.build(:person)
-            offer.id = 13
-            offer.category = find_or_create_category("rideshare")
-            offer.origin = "Otakaari 20"
-            offer.destination = "Vilhonvuorenkatu 3"
-            offer.share_type = find_or_create_share_type("offer")
-            offer.author = author
-            request.share_type = find_or_create_share_type("request")
-            request.author = request_author
-            
-            SmsHelper.should_receive(:send).with(/Danny.+Otakaari 20.+ Vilhonvuorenkatu 3 .+ 358507654321.+ http:\/\/.+ /, request_author.phone_number).and_return(true)
-            
-            author.should_receive(:phone_number).twice.and_return("358507654321")
-            author.should_receive(:given_name).twice.and_return("Danny")
-            
-            request.inform_requester_about_potential_match(request, offer)
-            
-          end        
-        end
-      
-        context "When driver doesn't have a phone number in profile" do
-          it "should send sms including offers url" do
-            offer = FactoryGirl.build(:listing)
-            request = FactoryGirl.build(:listing)
-            author = FactoryGirl.build(:person)
-            request_author = FactoryGirl.build(:person)
-            offer.id = 15
-            #author.phone_number = nil
-            
-            if APP_CONFIG.bitly_username && APP_CONFIG.bitly_key
-              SmsHelper.should_receive(:send).with(/ http:\/\/bit.ly\/.+ /, request_author.phone_number).and_return(true)
-            else
-              SmsHelper.should_receive(:send).with(/ http:\/\/.+\/#{offer.id} /, request_author.phone_number).and_return(true)
-            end
-            
-            author.should_receive(:phone_number).once.and_return(nil)
-            offer.share_type = find_or_create_share_type("offer")
-            offer.author = author
-            request.share_type = find_or_create_share_type("request")
-            request.author = FactoryGirl.build(:person)
-            
-            request.inform_requester_about_potential_match(request, offer)
-          end
-        end
-      
-      end
-    end
   end
   
 end 
