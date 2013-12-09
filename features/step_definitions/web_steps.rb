@@ -135,6 +135,10 @@ Then /^(?:|I )should see \/([^\/]*)\/(?: within "([^"]*)")?$/ do |regexp, select
   end
 end
 
+Then /^I should see "([^"]*)" in the "([^"]*)" input$/ do |content, field|
+  find_field(field).value.should == content
+end
+
 Then /^(?:|I )should not see "([^"]*)"(?: within "([^"]*)")?$/ do |text, selector|
   with_scope(selector) do
     if page.respond_to? :should

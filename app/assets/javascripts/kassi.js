@@ -115,8 +115,16 @@ function add_validator_methods() {
         if (minimum_price == "") {
           return true
         } else {
-          return minimum_price <= value*100; 
+          return minimum_price <= getFloatFromFieldValue(value)*100; 
         }
+      }
+    );
+    
+  $.validator.
+    addMethod( "money", 
+      function(value, element, minimum_price) {
+        var regex  = /^\d+((\.|\,)\d{0,2})?$/;
+        return regex.test(value);
       }
     );
 
@@ -519,20 +527,43 @@ function initialize_listing_view(locale) {
   });
 }
 
-function initialize_accept_transaction_form(commission_percentage, service_fee_vat) {
+function initialize_accept_transaction_form(commission_percentage, service_fee_vat, form_type, form_id, minimum_price, minimum_price_message) {
 	auto_resize_text_areas("text_area");
 	style_action_selectors();
 	
 	if (commission_percentage != null) {
-	  update_transaction_form_price_fields(commission_percentage, service_fee_vat);
-  	$(".trigger-focusout").focusout(function(value) {
-  	  update_transaction_form_price_fields(commission_percentage, service_fee_vat);
-  	});
+	  if (form_type === "simple_form") {
+	    $(".trigger-focusout").keyup(function(value) {
+	      update_simple_form_price_fields(commission_percentage);
+	    });
+	    $(form_id).validate({
+	      rules: {
+          "conversation[payment_attributes][sum]": {money: true, minimum_price_required: minimum_price}
+        },
+        messages: {
+          "conversation[payment_attributes][sum]": {minimum_price_required: minimum_price_message}
+        },
+	    });
+	  } else {
+	    update_complex_form_price_fields(commission_percentage, service_fee_vat);
+	    $(".trigger-focusout").focusout(function(value) {
+	      update_complex_form_price_fields(commission_percentage, service_fee_vat);
+	    });
+	  }
+	  
   }
-	
+  
 }
 
-function update_transaction_form_price_fields(commission_percentage, service_fee_vat) {
+function update_simple_form_price_fields(commission_percentage) {
+  var sum = parseFloat(getFloatFromFieldValue($(".invoice-sum-field").val()));
+  var service_fee_sum = Math.ceil(sum*commission_percentage/100);
+  var seller_sum = sum - service_fee_sum;
+  $("#service-fee").text(service_fee_sum);
+  $("#payment-to-seller").text(seller_sum.toFixed(2));
+}
+
+function update_complex_form_price_fields(commission_percentage, service_fee_vat) {
   var total_sum = 0;
   var total_sum_with_vat = 0;
   for (var i = 0; i < $(".field-row").length; i++) {
@@ -1145,4 +1176,10 @@ function enableSamePageScroll() {
     return [];
   }
  
+}
+
+// Parses a numeric field value and returns correct float value,
+// whether dot or comma is used as a decimal separator.
+function getFloatFromFieldValue(value) {
+  return parseFloat(value.toString().replace(',', '.'));
 }

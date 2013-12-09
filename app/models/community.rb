@@ -625,6 +625,12 @@ class Community < ActiveRecord::Base
     listing.price - Money.new(service_fee_for(listing)*100, listing.currency)
   end
   
+  # Return either minimum price defined by this community or the absolute
+  # platform default minimum price.
+  def absolute_minimum_price(currency)
+    self.minimum_price || Money.new(100, currency)
+  end
+  
   private
   
   # Returns an array of unique categories or share_types used in this community.

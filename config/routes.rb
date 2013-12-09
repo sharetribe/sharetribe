@@ -230,7 +230,6 @@ Kassi::Application.routes.draw do
   match "/:locale/offers" => "listings#offers", :as => :offers
   match "/:locale/requests" => "listings#requests", :as => :requests
   match "/:locale/people/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
-  #match "/:locale/people/:person_id/messages" => "conversations#received", :as => :reply_to_listing
   match "/:locale/listings/:id/reply" => "conversations#new", :as => :reply_to_listing
   match "/:locale/listings/new/:type/:category" => "listings#new", :as => :new_request_category
   match "/:locale/listings/new/:type" => "listings#new", :as => :new_request

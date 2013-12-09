@@ -93,8 +93,8 @@ class ConversationsController < ApplicationController
       flash[:notice] = t("layouts.notifications.#{@conversation.discussion_type}_#{@conversation.status}")
       redirect_to person_message_path(:person_id => @current_user.id, :id => @conversation.id)
     else
-      flash.now[:error] = t("layouts.notifications.something_went_wrong")
-      render :edit
+      flash[:error] = t("layouts.notifications.something_went_wrong")
+      redirect_to person_message_path(@current_user, @conversation)
     end  
   end
   

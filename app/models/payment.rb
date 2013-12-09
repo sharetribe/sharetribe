@@ -12,9 +12,28 @@ class Payment < ActiveRecord::Base
   
   belongs_to :community
 
-  validates_inclusion_of :status, :in => VALID_STATUSES
-  
   has_many :rows, :class_name => "PaymentRow"
+  
+  monetize :sum_cents
+
+  validates_inclusion_of :status, :in => VALID_STATUSES
+  validate :sum_exists
+  validate :one_conversation_cannot_have_multiple_payments
+  
+  # There can be only one payment related to a certain conversation
+  def one_conversation_cannot_have_multiple_payments
+    payments = Payment.where(:conversation_id => conversation.id)
+    if payments.size > 1 || (payments.size == 1 && payments.first.id != self.id)
+      errors.add(:base, "An invoice exists already for this conversation")
+    end
+  end
+  
+  # Payment must have either sum or at least one row
+  def sum_exists
+    if rows.empty? && !sum_cents
+      errors.add(:base, "Payment is not valid without sum")
+    end
+  end
   
   def initialize_rows(community)
     if community.vat
@@ -26,7 +45,7 @@ class Payment < ActiveRecord::Base
   
   # Payment excluding VAT and commission
   def sum_without_vat_and_commission
-    rows.inject(Money.new(0, rows.first.currency)) { |total, row| total += row.sum }
+    rows.empty? ? sum : rows.inject(Money.new(0, rows.first.currency)) { |total, row| total += row.sum }
   end
 
   # Commission excluding VAT

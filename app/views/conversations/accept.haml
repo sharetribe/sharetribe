@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_accept_transaction_form(#{@current_community.commission_from_seller || "null"}, #{APP_CONFIG.service_fee_tax_percentage || "0"});
+  initialize_accept_transaction_form(#{@current_community.commission_from_seller || "null"}, #{APP_CONFIG.service_fee_tax_percentage || "0"}, '#{@current_community.payment_gateways.first.form_template_dir.eql?('payments/simple_form') ? "simple_form" : "complex_form"}', '#edit_conversation_#{@conversation.id.to_s}', #{@current_community.absolute_minimum_price(@conversation.listing.currency).cents}, "#{t('.minimum_price_error_message', :amount => humanized_money_with_symbol(@current_community.absolute_minimum_price(@conversation.listing.currency)))}");
 
 - content_for :title_header do
   %h1= t("layouts.no_tribe.inbox")
