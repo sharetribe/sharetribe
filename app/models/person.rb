@@ -497,6 +497,11 @@ class Person < ActiveRecord::Base
     end
   end
   
+  def reset_password_token_if_needed
+    # Using methods from Devise
+    generate_reset_password_token! if should_generate_reset_token?
+  end
+  
   # returns the same if its available, otherwise "same1", "same2" etc.
   # Changes most special characters to _ to match with current validations
   def self.available_username_based_on(initial_name)

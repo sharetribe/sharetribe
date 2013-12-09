@@ -289,6 +289,17 @@ class PersonMailer < ActionMailer::Base
          :template_name => 'confirmation_instructions')
   end
   
+  def reset_password_instructions(person, email_address, community)
+    set_up_urls(nil, community) # Using nil as recipient, as we don't want auth token here.
+    @person = person
+    @no_settings = true
+    mail(:to => email_address,
+         :from => community_specific_sender(@community),
+         :subject => t("devise.mailer.reset_password_instructions.subject")) do |format|
+       format.html { render :layout => false }
+     end
+  end
+  
   def community_updates(recipient, community)
     @community = community
     @recipient = recipient
