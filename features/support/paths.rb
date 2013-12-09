@@ -50,6 +50,8 @@ module NavigationHelpers
       new_invitation_path(:locale => "en")
     when /the settings page/
       "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings"
+    when /the profile settings page/
+      "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings"
     when /the payment settings page/
       "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings/payments"
     when /the account settings page/
