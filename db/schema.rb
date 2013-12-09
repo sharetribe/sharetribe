@@ -582,6 +582,7 @@ ActiveRecord::Schema.define(:version => 20131209133946) do
     t.integer  "conversation_id"
     t.string   "status"
 <<<<<<< HEAD
+<<<<<<< HEAD
     t.datetime "created_at",                                              :null => false
     t.datetime "updated_at",                                              :null => false
     t.integer  "community_id"
@@ -593,6 +594,13 @@ ActiveRecord::Schema.define(:version => 20131209133946) do
     t.integer  "community_id"
     t.string   "type",            :default => "CheckoutPayment"
 >>>>>>> First end-to-end braintree payment
+=======
+    t.datetime "created_at",                                              :null => false
+    t.datetime "updated_at",                                              :null => false
+    t.integer  "community_id"
+    t.string   "type",                     :default => "CheckoutPayment"
+    t.string   "braintree_transaction_id"
+>>>>>>> Transaction disbursed webhook
   end
 
   add_index "payments", ["conversation_id"], :name => "index_payments_on_conversation_id"
