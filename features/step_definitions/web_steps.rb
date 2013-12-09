@@ -48,6 +48,10 @@ When /^(?:|I )fill in "([^"]*)" with "([^"]*)"(?: within "([^"]*)")?$/ do |field
   end
 end
 
+When(/^I send keys "(.*?)" to form field "([^"]*)"$/) do |keys, field|
+  find_field(field).native.send_keys "#{keys}"
+end
+
 When /^(?:|I )wait for (\d+) seconds?$/ do |arg1|
   sleep Integer(arg1)
 end

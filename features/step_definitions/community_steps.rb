@@ -54,8 +54,9 @@ Given /^community "([^"]*)" requires users to have an email address of type "(.*
   Community.find_by_domain(community).update_attribute(:allowed_emails, email)
 end
 
-Given /^community "([^"]*)" has payments in use(?: via (\w+))?$/ do |community_domain, gateway_name|
+Given /^community "([^"]*)" has payments in use(?: via (\w+))?(?: with seller commission (\w+))?$/ do |community_domain, gateway_name, commission|
   gateway_name ||= "Checkout"
+  commission ||= "8"
   gateway = PaymentGateway.find_by_type(gateway_name)
   
   if gateway.nil?
@@ -64,7 +65,7 @@ Given /^community "([^"]*)" has payments in use(?: via (\w+))?$/ do |community_d
   end
   
   community = Community.find_by_domain(community_domain)
-  community.update_attributes(:vat => "24", :commission_from_seller => "8")
+  community.update_attributes(:vat => "24", :commission_from_seller => commission.to_i)
   community.payment_gateways << gateway
 end
 

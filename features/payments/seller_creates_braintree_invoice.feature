@@ -9,7 +9,7 @@ Feature: Seller creates an invoice with Braintree
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And community "test" has payments in use via Braintree
+    And community "test" has payments in use via Braintree with seller commission 10
     And there is item offer with title "Power drill" from "kassi_testperson1" and with share type "sell" and with price "20.90"
     And there is a message "I request this" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
@@ -17,7 +17,20 @@ Feature: Seller creates an invoice with Braintree
     Then I should see "1" within ".inbox-link"
     When I follow "Accept request"
     Then I should see "20.90" in the "conversation_payment_attributes_sum" input
-    When I fill in "conversation_payment_attributes_sum" with "30"
+    And I should see "3" within "#service-fee"
+    And I should see "17.90" within "#payment-to-seller"
+    When I fill in "conversation_payment_attributes_sum" with "dsdfs"
+    And I press "Send"
+    Then I should see "You need to insert a valid monetary value."
+    When I fill in "conversation_payment_attributes_sum" with "0,9"
+    And I press "Send"
+    Then I should see "The price cannot be lower than"
+    When I fill in "conversation_payment_attributes_sum" with ""
+    And I press "Send"
+    Then I should see "You need to insert a valid monetary value."
+    When I send keys "178,30" to form field "conversation_payment_attributes_sum"
+    Then I should see "18" within "#service-fee"
+    And I should see "160.30" within "#payment-to-seller"
     And I press "Send"
     Then I should see "Accepted" 
     And I should see "to pay" within ".conversation-status"
