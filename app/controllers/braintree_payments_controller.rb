@@ -30,7 +30,7 @@ class BraintreePaymentsController < ApplicationController
 
     log_info("Sending sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
 
-    payment_params = params[:braintree_payment]
+    payment_params = params[:braintree_payment] || {}
 
     result = with_expection_logging do 
       BraintreeService.transaction_sale(
@@ -49,6 +49,7 @@ class BraintreePaymentsController < ApplicationController
       redirect_to person_message_path(:id => params[:message_id])
     else
       log_error("Unsuccessful sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}: #{result.message}")
+      flash[:error] = result.message
       render :edit
     end
   end
