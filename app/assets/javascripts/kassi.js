@@ -983,7 +983,7 @@ function initialize_new_community_membership_form(email_invalid_message, invitat
   });    
 }
 
-function initialize_braintree_payment_form() {
+function initialize_braintree_payment_form(beforeSubmit, locale) {
   var form_id = "#braintree-payment-form";
 
   $(form_id).validate({
@@ -994,7 +994,10 @@ function initialize_braintree_payment_form() {
       "braintree_payment[credit_card_expiration_date]": {required: true, minlength: 5}
     },
     submitHandler: function(form) {
-      disable_and_submit(form_id, form, "false", locale);
+      beforeSubmit = beforeSubmit || function(callback) { callback() };
+      beforeSubmit(function() {
+        disable_and_submit(form_id, form, "false", locale);
+      });
     }
   });
 }

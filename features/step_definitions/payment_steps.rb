@@ -1,7 +1,7 @@
 require 'cucumber/rspec/doubles'
 
+CC_NAME = "[name='braintree_payment[cardholder_name]']"
 CC_NUMBER = "[name='braintree_payment[credit_card_number]']"
-CC_EXPIRATION_DATE = "[name='braintree_payment[credit_card_expiration_date]']"
 
 Given /^there are following Braintree accounts:$/ do |bt_accounts|
   # Create new accounts
@@ -66,7 +66,7 @@ end
 
 Given /^Braintree transaction is mocked$/ do
   BraintreeService.should_receive(:transaction_sale)
-    .and_return(Braintree::SuccessfulResult.new())
+    .and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
 end
 
 Given /^I want to pay "(.*?)"$/ do |item_title|
@@ -78,14 +78,14 @@ end
 
 Then /^I should see payment details form for Braintree$/ do
   steps %Q{
+    Then I should see selector "#{CC_NAME}"
     Then I should see selector "#{CC_NUMBER}"
-    Then I should see selector "#{CC_EXPIRATION_DATE}"
   }
 end
 
 When /^I fill in my payment details for Braintree$/ do
+  find("#{CC_NAME}").set("Joe Bloggs")
   find("#{CC_NUMBER}").set("5105105105105100")
-  find("#{CC_EXPIRATION_DATE}").set("05/12")
 end
 
 Then /^I should be able to see that the payment was successful$/ do

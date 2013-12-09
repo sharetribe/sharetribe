@@ -5,10 +5,12 @@
   :javascript
 
     $(document).ready(function() {
-      var braintree = Braintree.create("#{@braintree_client_side_encryption_key}");
       var braintreePaymentForm = $("#braintree-payment-form");
-      braintree.onSubmitEncryptForm(braintreePaymentForm);
-      initialize_braintree_payment_form();
+      initialize_braintree_payment_form(function beforeSubmit(next) {
+        var braintree = Braintree.create("#{@braintree_client_side_encryption_key}");
+        braintree.encryptForm(braintreePaymentForm);
+        next();
+      });
 
       braintreePaymentForm.show();
     });
@@ -16,27 +18,43 @@
 .centered-section-wide.payment-form
   = render :partial => "layouts/payment_header", :locals => { :payment_receiver => @conversation.other_party(@current_user) }
 
-  .left-navi-section.settings-section
+  %p
+    = "#{t("payments.form.product")}:"
+    = "#{@braintree_payment.rows.first.title}"
+  %p
+    = "#{t("payments.form.price")}:"
+    = @braintree_payment.total_sum.to_s + @braintree_payment.rows.first.sum_symbol
 
-    = form_for @braintree_payment, 
-      :url => person_message_braintree_payment_path(@current_user.id, 
-        @conversation.id, 
-        @braintree_payment.id), 
-        :html => { :id => "braintree-payment-form", :class => "hidden" } do |form|
+  = form_for @braintree_payment, 
+    :url => person_message_braintree_payment_path(@current_user.id, 
+      @conversation.id, 
+      @braintree_payment.id), 
+      :html => { :id => "braintree-payment-form", :class => "hidden" } do |form|
 
-      = form.label :cardholder_name, t(".cardholder_name", :class => "input")
-      = form.text_field :cardholder_name, with_braintree_field_name("braintree_payment[cardholder_name]", :class => :text_field )
+    .row.overflow-visible
+      .col-12
+        = form.label :cardholder_name, t(".cardholder_name", :class => "input")
+        = form.text_field :cardholder_name, with_braintree_field_name("braintree_payment[cardholder_name]", :class => :text_field)
 
-      = form.label :credit_card_number, t(".credit_card_number", :class => "input")
-      = form.text_field :credit_card_number, with_braintree_field_name("braintree_payment[credit_card_number]", :class => :text_field )
+    .row.overflow-visible
+      .col-9
+        = form.label :credit_card_number, t(".credit_card_number", :class => "input")
+        = form.text_field :credit_card_number, with_braintree_field_name("braintree_payment[credit_card_number]", :class => :text_field)
 
-      = form.label :cvv, t(".cvv", :class => "input")
-      = form.text_field :cvv, with_braintree_field_name("braintree_payment[cvv]", :class => :text_field )
+      .col-3
+        = form.label :cvv, t(".cvv", :class => "input")
+        = form.text_field :cvv, with_braintree_field_name("braintree_payment[cvv]", :class => :text_field, :maxlength => 4)
 
-      = form.label :credit_card_expiration_date, t(".credit_card_expiration_date", :class => "input")
-      = form.text_field :credit_card_expiration_date, with_braintree_field_name("braintree_payment[credit_card_expiration_date]", :class => :text_field )
+    .row.overflow-visible
+      .col-12
+        = form.label :credit_card_expiration_month, t(".credit_card_expiration_date", :class => "input")
+        = select_tag :credit_card_expiration_month, options_for_select(credit_card_expiration_month_options), with_braintree_field_name("braintree_payment[credit_card_expiration_month]")
+        = " / "
+        = select_tag :credit_card_expiration_month, options_for_select(credit_card_expiration_year_options), with_braintree_field_name("braintree_payment[credit_card_expiration_year]")
+    
+    .row.overflow-visible
+      .col-12
+        = form.button t(".save"), :class => "send_button"
 
-      = form.button t(".save"), :class => "send_button"
-
-    %noscript
-      = "For security reasons JavaScript has to be enabled"
+  %noscript
+    = "For security reasons JavaScript has to be enabled"

@@ -18,6 +18,5 @@ Feature: User pays accepted request
     And I want to pay "math book"
     When I fill in my payment details for Braintree
     And I press submit
-    Then show me the page
     Then I should be see that the payment was successful
     Then "kassi_testperson1" should receive email about payment

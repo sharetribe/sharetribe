@@ -71,5 +71,6 @@ describe "braintree webhooks" do
         # Assert
         BraintreeAccount.find_by_person_id(@person.id).status.should == "active"
       end
+    end
   end
 end
