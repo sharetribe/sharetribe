@@ -14,7 +14,7 @@ class Payment < ActiveRecord::Base
 
   has_many :rows, :class_name => "PaymentRow"
   
-  monetize :sum_cents
+  monetize :sum_cents, :allow_nil => true
 
   validates_inclusion_of :status, :in => VALID_STATUSES
   validate :sum_exists

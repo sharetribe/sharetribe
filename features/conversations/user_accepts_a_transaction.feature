@@ -6,7 +6,7 @@ Feature: User accepts a transaction
   I want to be able to accept the conversation
 
   @javascript
-  Scenario: User accepts a non-payment-requiring request without message and doesn't close the listing
+  Scenario: User accepts a non-payment-requiring request without message
     Given there are following users:
       | person | 
       | kassi_testperson1 |
@@ -17,7 +17,6 @@ Feature: User accepts a transaction
     When I follow "inbox-link"
     Then I should see "1" within ".inbox-link"
     When I follow "Accept request"
-    And I choose "Leave the listing open"
     And I press "Send"
     Then I should see "Accepted" 
     And I should see "to mark the request as completed" within ".conversation-status"

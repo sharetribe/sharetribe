@@ -628,7 +628,11 @@ class Community < ActiveRecord::Base
   # Return either minimum price defined by this community or the absolute
   # platform default minimum price.
   def absolute_minimum_price(currency)
-    self.minimum_price || Money.new(100, currency)
+    self.minimum_price || Money.new(100, (currency || "EUR"))
+  end
+  
+  def invoice_form_type_for(listing)
+    payment_possible_for?(listing) ? payment_gateways.first.invoice_form_type : "no_form"
   end
   
   private

@@ -532,7 +532,7 @@ function initialize_accept_transaction_form(commission_percentage, service_fee_v
 	style_action_selectors();
 	
 	if (commission_percentage != null) {
-	  if (form_type === "simple_form") {
+	  if (form_type === "simple") {
 	    $(".trigger-focusout").keyup(function(value) {
 	      update_simple_form_price_fields(commission_percentage);
 	    });

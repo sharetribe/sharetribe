@@ -20,4 +20,8 @@ class BraintreePaymentGateway < PaymentGateway
     "payments/simple_form"
   end
   
+  def invoice_form_type
+    "simple"
+  end
+  
 end
