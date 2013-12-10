@@ -115,7 +115,7 @@ function add_validator_methods() {
         if (minimum_price == "") {
           return true
         } else {
-          return minimum_price <= getFloatFromFieldValue(value)*100; 
+          return minimum_price <= parseFloatFromFieldValue(value)*100; 
         }
       }
     );
@@ -556,7 +556,7 @@ function initialize_accept_transaction_form(commission_percentage, service_fee_v
 }
 
 function update_simple_form_price_fields(commission_percentage) {
-  var sum = parseFloat(getFloatFromFieldValue($(".invoice-sum-field").val()));
+  var sum = parseFloatFromFieldValue($(".invoice-sum-field").val());
   var service_fee_sum = Math.ceil(sum*commission_percentage/100);
   var seller_sum = sum - service_fee_sum;
   $("#service-fee").text(service_fee_sum);
@@ -1180,6 +1180,6 @@ function enableSamePageScroll() {
 
 // Parses a numeric field value and returns correct float value,
 // whether dot or comma is used as a decimal separator.
-function getFloatFromFieldValue(value) {
-  return parseFloat(value.toString().replace(',', '.'));
+function parseFloatFromFieldValue(value) {
+  return parseFloat(value.replace(',', '.'));
 }
