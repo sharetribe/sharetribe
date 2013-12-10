@@ -1,8 +1,8 @@
 class BraintreePaymentGateway < PaymentGateway
 
   def can_receive_payments_for?(person, listing=nil)
-    # TODO: And status is active
-    !BraintreeAccount.find_by_person_id(person.id).nil?
+    braintree_account = BraintreeAccount.find_by_person_id(person.id)
+    braintree_account.present? && braintree_account.status == "active"
   end
 
   def new_payment_path(person, message, locale)
