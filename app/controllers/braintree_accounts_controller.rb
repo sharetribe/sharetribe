@@ -31,7 +31,11 @@ class BraintreeAccountsController < ApplicationController
   end
 
   def create
-    @braintree_account = BraintreeAccount.new(params[:braintree_account].merge(person: @current_user))
+    braintree_params = params[:braintree_account]
+      .merge(person: @current_user)
+      .merge(community_id: @current_community.id)
+
+    @braintree_account = BraintreeAccount.new(braintree_params)
     if @braintree_account.valid?
       merchant_account_result = BraintreeService.create_merchant_account(@braintree_account, @current_community)
     else
