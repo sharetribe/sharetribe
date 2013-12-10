@@ -1,6 +1,6 @@
 object @community
 
-attributes :id, :name, :slogan, :description, :custom_color1, :custom_color2, :payments_in_use, :available_currencies, :join_with_invite_only, :members_count, :service_logo_style
+attributes :id, :name, :slogan, :description, :custom_color1, :custom_color2, :available_currencies, :join_with_invite_only, :members_count, :service_logo_style
 
 
 node do |community|
@@ -18,6 +18,10 @@ node do |community|
   
   node :cover_photo_url do |community|
     ensure_full_image_url(community.cover_photo.url(:header))
+  end
+  
+  node :payments_in_use do |community|
+    community.payments_in_use?
   end
 end
 

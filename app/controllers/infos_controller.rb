@@ -15,7 +15,6 @@ class InfosController < ApplicationController
   def terms
     @selected_tribe_navi_tab = "about"
     @selected_left_navi_link = "terms"
-    @mangopay_in_use = @current_community.payment_gateways.include?(Mangopay.first)
   end
   
   def privacy

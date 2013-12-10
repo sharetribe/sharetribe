@@ -42,6 +42,8 @@ module NavigationHelpers
       "/en/signup?code=#{$1}"
     when /the infos page/
       about_infos_path(:locale => "en")
+    when /the terms page/
+      terms_infos_path(:locale => "en")
     when /the news page/
       news_items_path(:locale => "en")
     when /new tribe in English/

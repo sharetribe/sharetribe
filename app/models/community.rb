@@ -20,7 +20,9 @@ class Community < ActiveRecord::Base
   has_many :statistics, :dependent => :destroy
   
   has_and_belongs_to_many :listings
-  has_and_belongs_to_many :payment_gateways
+  
+  has_many :community_payment_gateways, :dependent => :destroy 
+  has_many :payment_gateways, :through => :community_payment_gateways
   
   after_create :initialize_settings
   before_destroy :delete_specific_community_categories
@@ -552,7 +554,11 @@ class Community < ActiveRecord::Base
     # as currently all messages are shown in all communities, there might be case where the
     # message would have payment possible in it's original community, but in this community the cc
     # is not found with the above search, so then payment is not possible here. (cc must be present)
-    payments_in_use && cc.present? && (cc.price || cc.payment)
+    payments_in_use? && cc.present? && (cc.price || cc.payment)
+  end
+  
+  def payments_in_use?
+    payment_gateways.present?
   end
   
   # Does this community require that people have registered payout method before accepting requests
@@ -579,7 +585,7 @@ class Community < ActiveRecord::Base
   
   def default_currency
     if available_currencies
-      available_currencies.split(",").first
+      available_currencies.gsub(" ","").split(",").first
     else
       MoneyRails.default_currency
     end
@@ -601,6 +607,10 @@ class Community < ActiveRecord::Base
       # so return empty array, as it shouldn't matter in those cases
       return []
     end
+  end
+  
+  def braintree_in_use?
+    payment_gateways.include?(BraintreePaymentGateway.first)
   end
   
   private

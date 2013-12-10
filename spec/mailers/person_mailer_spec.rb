@@ -84,6 +84,19 @@ describe PersonMailer do
     assert_equal @test_person2.confirmed_notification_email_addresses, email.to
     assert_equal "Your request was rejected", email.subject
   end
+
+  it "should send email about approved Braintree account" do
+    community = FactoryGirl.create(:community)
+    person = FactoryGirl.create(:person)
+    email = PersonMailer.braintree_account_approved(person, community).deliver
+
+    assert !ActionMailer::Base.deliveries.empty?
+    assert_equal person.confirmed_notification_email_addresses, email.to
+    assert_equal "You are ready to receive payments", email.subject
+    assert_equal "You are ready to receive payments", email.subject
+
+    email.body.include?("Your payment information has been confirmed and you are now ready").should be_true
+  end
   
   it "should send email about a new badge" do
     @badge = FactoryGirl.create(:badge)
