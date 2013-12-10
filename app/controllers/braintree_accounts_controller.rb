@@ -24,6 +24,7 @@ class BraintreeAccountsController < ApplicationController
   skip_filter :dashboard_only
 
   def new
+    @list_of_states = LIST_OF_STATES
     @braintree_account = create_new_account_object
     render locals: { form_action: @create_path }
   end
@@ -35,7 +36,6 @@ class BraintreeAccountsController < ApplicationController
   end
 
   def create
-    @list_of_states = LIST_OF_STATES
     @braintree_account = BraintreeAccount.new(params[:braintree_account].merge(person: @current_user))
     if @braintree_account.valid?
       merchant_account_result = BraintreeService.create_merchant_account(@braintree_account, @current_community)
