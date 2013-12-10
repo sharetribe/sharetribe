@@ -42,6 +42,14 @@ When /^(?:|I )follow "([^"]*)"(?: within "([^"]*)")?$/ do |link, selector|
   end
 end
 
+When /^I remove the focus from "([^"]*)"?$/ do |selector|
+  page.evaluate_script("$('#{selector}').blur();")
+end
+
+When /^I move the focus to "([^"]*)"?$/ do |selector|
+  page.evaluate_script("$('#{selector}').focus();")
+end
+
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"(?: within "([^"]*)")?$/ do |field, value, selector|
   with_scope(selector) do
     fill_in(field, :with => value)

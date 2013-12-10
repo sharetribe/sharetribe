@@ -983,6 +983,25 @@ function initialize_new_community_membership_form(email_invalid_message, invitat
   });    
 }
 
+function initialize_braintree_payment_form(beforeSubmit, locale) {
+  var form_id = "#braintree-payment-form";
+
+  $(form_id).validate({
+    rules: {
+      "braintree_payment[cardholder_name]": {required: true, minlength: 2, maxlength: 50},
+      "braintree_payment[credit_card_number]": {required: true, creditcard: true},
+      "braintree_payment[cvv]": {required: true, digits: true, minlength: 3, maxlength: 4},
+      "braintree_payment[credit_card_expiration_date]": {required: true, minlength: 5}
+    },
+    submitHandler: function(form) {
+      beforeSubmit = beforeSubmit || function(callback) { callback() };
+      beforeSubmit(function() {
+        disable_and_submit(form_id, form, "false", locale);
+      });
+    }
+  });
+}
+
 function set_textarea_maxlength() {
   var ignore = [8,9,13,33,34,35,36,37,38,39,40,46];
   var eventName = 'keypress';

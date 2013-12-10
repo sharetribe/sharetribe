@@ -18,17 +18,18 @@ When /^(?:|I )click "([^"]*)"(?: within "([^"]*)")?$/ do |css_selector, scope_se
   end
 end
 
+Then /^I should see selector "([^"]*)"(?: within "([^"]*)")?$/ do |css_selector, scope_selector|
+  with_scope(scope_selector) do
+    page.should have_selector(css_selector)
+  end
+end
+
 Then /^(?:|I )should not see selector "([^"]*)"?$/ do |selector|
   lambda {
     with_scope(selector) do
       # nothing to do here, just try to search the selector and should fail on that
     end
   }.should raise_error(Capybara::ElementNotFound)
-end
-
-When /^I move the focus to "([^"]*)"?$/ do |selected_element_id|
-  #find("##{selected_element_id}").trigger('focus')
-  page.evaluate_script("$('##{selected_element_id}').focus();")
 end
 
 When /^(?:|I )attach a valid image file to "([^"]*)"(?: within "([^"]*)")?$/ do |field, selector|

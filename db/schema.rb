@@ -581,9 +581,6 @@ ActiveRecord::Schema.define(:version => 20131209133946) do
     t.string   "organization_id"
     t.integer  "conversation_id"
     t.string   "status"
-    t.datetime "created_at",                                              :null => false
-    t.datetime "updated_at",                                              :null => false
-    t.integer  "community_id"
     t.string   "type",                     :default => "CheckoutPayment"
     t.string   "braintree_transaction_id"
   end

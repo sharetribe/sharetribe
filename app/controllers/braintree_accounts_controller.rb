@@ -1,8 +1,7 @@
 class BraintreeAccountsController < ApplicationController
 
   before_filter do |controller|
-    # FIXME Change copy text
-    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_change_profile_settings")
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_change_payment_settings")
   end
 
   # Commonly used paths
@@ -18,6 +17,8 @@ class BraintreeAccountsController < ApplicationController
 
   # Edit/update
   before_filter :ensure_user_has_account, :only => [:edit, :update]
+
+  before_filter :ensure_user_does_not_have_account_for_another_community
 
   skip_filter :dashboard_only
 
@@ -60,11 +61,10 @@ class BraintreeAccountsController < ApplicationController
     end
 
     if success
-      # FIXME Copy text
-      flash[:notice] = "Successfully saved!"
+      flash[:notice] = t("layouts.notifications.payment_details_add_successful")
       redirect_to @edit_path
     else
-      flash[:error] ||= "Error in saving"
+      flash[:error] ||= t("layouts.notifications.payment_details_add_error")
       render :new, locals: { form_action: @create_path }
     end
   end
@@ -101,6 +101,28 @@ class BraintreeAccountsController < ApplicationController
     if @braintree_account.blank?
       flash[:error] = "Illegal Braintree accout id"
       redirect_to @new_path
+    end
+  end
+
+  # Before filter
+  #
+  # Support for multiple Braintree account in multipe communities
+  # is not implemented. Show error.
+  def ensure_user_does_not_have_account_for_another_community
+    @braintree_account = BraintreeAccount.find_by_person_id(@current_user.id)
+
+    if @braintree_account
+      # Braintree account exists
+      if @braintree_account.community_id != @current_community.id
+        # ...but is associated to different community
+        account_community = Community.find(@braintree_account.community_id)
+        flash[:error] = "You have payment account for community #{account_community.name}. Unfortunately, you can not have payment accounts for multiple communities. You are unable to receive money from transactions in community #{@current_community.name}. Please contact administrators."
+
+        error_msg = "User #{@current_user.id} tried to create a Braintree payment account for community #{@current_community.name} even though she has existing account for #{account_community.name}"
+        log_error(error_msg)
+        ApplicationHelper.send_error_notification(error_msg, "BraintreePaymentAccountError")
+        redirect_to profile_person_settings_path
+      end
     end
   end
 

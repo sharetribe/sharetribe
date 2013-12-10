@@ -162,6 +162,8 @@ FactoryGirl.define do
   factory :payment do
     payer
     recipient
+    status "pending"
+    type "Checkout"
   end
 
   factory :braintree_account do
@@ -186,5 +188,6 @@ FactoryGirl.define do
     braintree_master_merchant_id { APP_CONFIG.braintree_test_master_merchant_id }
     braintree_public_key { APP_CONFIG.braintree_test_public_key }
     braintree_private_key { APP_CONFIG.braintree_test_private_key }
+    braintree_client_side_encryption_key { APP_CONFIG.braintree_client_side_encryption_key }
   end
 end
