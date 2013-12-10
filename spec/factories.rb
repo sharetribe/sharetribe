@@ -181,6 +181,7 @@ FactoryGirl.define do
     routing_number "1234567890"
     account_number "43759348798"
     status "active"
+    community_id 1
   end
 
   factory :community_payment_gateway do

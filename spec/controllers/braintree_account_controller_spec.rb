@@ -72,7 +72,8 @@ describe BraintreeAccountsController do
         :date_of_birth => "1980-10-09",
         :ssn => "123-00-1234",
         :routing_number => "101000187",
-        :account_number => "43759348798").id
+        :account_number => "43759348798",
+        :community_id => @community.id).id
 
       post :update, :id => id, :braintree_account => {
         :person_id => @person.id,
