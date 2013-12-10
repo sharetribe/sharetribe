@@ -1,8 +1,7 @@
 class BraintreeAccountsController < ApplicationController
 
   before_filter do |controller|
-    # FIXME Change copy text
-    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_change_profile_settings")
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_change_payment_settings")
   end
 
   # Commonly used paths
@@ -56,11 +55,10 @@ class BraintreeAccountsController < ApplicationController
     end
 
     if success
-      # FIXME Copy text
-      flash[:notice] = "Successfully saved!"
+      flash[:notice] = t("layouts.notifications.payment_details_add_successful")
       redirect_to @edit_path
     else
-      flash[:error] ||= "Error in saving"
+      flash[:error] ||= t("layouts.notifications.payment_details_add_error")
       render :new, locals: { form_action: @create_path }
     end
   end
