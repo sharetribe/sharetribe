@@ -38,6 +38,10 @@ Feature: User joins another community
     And I press "Join community"
     Then I should see "The invitation code is not valid."
     When I fill in "Invitation code" with "GH1JX8"
+    # This is a hacky-wacky solution to make the JS validations to trigger
+    When I uncheck "community_membership_consent"
+    When I check "community_membership_consent"
+
     And I press "Join community"
     Then I should see "You have successfully joined this community"
     And I should see "Post a new listing"

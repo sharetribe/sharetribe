@@ -34,7 +34,7 @@ Then /^I should see flash error$/ do
 end
 
 Then /^I should see validation error$/ do
-  find("[generated='true'].error").should be_visible
+  find("label.error").should be_visible
 end
 
 Given /^there is an organization "(.*?)"$/ do |org_username|
