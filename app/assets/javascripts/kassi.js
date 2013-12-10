@@ -269,6 +269,32 @@ function initialize_payments_form(locale) {
   });
 }
 
+function initialize_braintree_account_form(locale) {
+  var form_id = "#braintree_account_form";
+  $(form_id).validate({
+    rules: {
+      "braintree_account[first_name]": {required: true},
+      "braintree_account[last_name]": {required: true},
+      "braintree_account[email]": {required: true, email: true},      
+      "braintree_account[phone]": {required: true},
+      "braintree_account[address_street_address]": {required: true},
+      "braintree_account[address_postal_code]": {required: true, minlength: 2, maxlength: 6},
+      "braintree_account[address_locality]": {required: true},
+      "braintree_account[address_region]": {required: true},
+      "braintree_account[date_of_birth]": {required: true},
+      "braintree_account[ssn]": {required: true, minlength: 4, maxlength: 11},
+      "braintree_account[routing_number]": {required: true, minlength: 9, maxlength: 9},
+      "braintree_account[account_number]": {required: true},
+    },
+    messages: {
+    },
+    onkeyup: false, //Only do validations when form focus changes
+    submitHandler: function(form) {
+      disable_and_submit(form_id, form, "false", locale);  
+    }
+  });
+}
+
 
 
 function select_listing_form_menu_link(link, locale, attribute_hash, listing_form_menu_titles, ordered_attributes, selected_attributes) {
@@ -981,6 +1007,25 @@ function initialize_new_community_membership_form(email_invalid_message, invitat
       "invitation_code": { remote: invalid_invitation_code_message }
     },
   });    
+}
+
+function initialize_braintree_payment_form(beforeSubmit, locale) {
+  var form_id = "#braintree-payment-form";
+
+  $(form_id).validate({
+    rules: {
+      "braintree_payment[cardholder_name]": {required: true, minlength: 2, maxlength: 50},
+      "braintree_payment[credit_card_number]": {required: true, creditcard: true},
+      "braintree_payment[cvv]": {required: true, digits: true, minlength: 3, maxlength: 4},
+      "braintree_payment[credit_card_expiration_date]": {required: true, minlength: 5}
+    },
+    submitHandler: function(form) {
+      beforeSubmit = beforeSubmit || function(callback) { callback() };
+      beforeSubmit(function() {
+        disable_and_submit(form_id, form, "false", locale);
+      });
+    }
+  });
 }
 
 function set_textarea_maxlength() {

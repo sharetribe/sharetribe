@@ -38,6 +38,7 @@ default: &default_settings
   braintree_test_master_merchant_id: 
   braintree_test_public_key: 
   braintree_test_private_key: 
+  braintree_client_side_encryption_key: 
 
   # If you want to force all use to be SSL secured (https://) you can set this to true
   # Note that you can set this value separately to each enironment below (e.g. if your developing)

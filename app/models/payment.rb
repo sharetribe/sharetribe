@@ -2,9 +2,9 @@ class Payment < ActiveRecord::Base
   
   include MathHelper
   
-  VALID_STATUSES = ["paid", "pending"]
+  VALID_STATUSES = ["paid", "pending", "disbursed"]
   
-  attr_accessible :conversation_id, :payer_id, :recipient_id
+  attr_accessible :conversation_id, :payer_id, :recipient_id, :braintree_transaction_id
   
   belongs_to :conversation
   belongs_to :payer, :class_name => "Person"
@@ -58,5 +58,10 @@ class Payment < ActiveRecord::Base
     update_attribute(:status, "paid")
     conversation.paid_by!(payer)
     Delayed::Job.enqueue(PaymentCreatedJob.new(id, community.id))
+  end
+
+  def disbursed!
+    update_attribute(:status, "disbursed")
+    # Notification here?
   end
 end
