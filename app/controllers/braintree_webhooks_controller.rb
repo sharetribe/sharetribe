@@ -33,6 +33,14 @@ class BraintreeWebhooksController < ApplicationController
         braintree_account = BraintreeAccount.find_by_person_id(person_id)
         braintree_account.update_attributes(:status => "suspended")
       end
+
+      def transaction_disbursed(notification, community)
+        transaction = notification.transaction
+        BraintreeWebhooksController.log_info("Transaction #{transaction.id} disbursed")
+
+        payment = Payment.find_by_braintree_transaction_id(transaction.id)
+        payment.disbursed!
+      end
     end
   end
 
@@ -41,7 +49,7 @@ class BraintreeWebhooksController < ApplicationController
     begin
       challenge_response = BraintreeService.webhook_notification_verify(@current_community, params[:bt_challenge])
     rescue Braintree::BraintreeError => bt_e
-      log_error("Error while parsing challenge: #{bt_e.inspect}")
+      BraintreeWebhooksController.log_error("Error while parsing challenge: #{bt_e.inspect}")
       render :nothing => true, :status => 400 and return
     end
 
@@ -62,7 +70,7 @@ class BraintreeWebhooksController < ApplicationController
     if Handlers.respond_to?(kind, search_privates)
       Handlers.send(kind, parsed_response, @current_community)
     else
-      log_info("Received unimplemented webhook notification #{kind}: #{parsed_response.inspect}")
+      BraintreeWebhooksController.log_info("Received unimplemented webhook notification #{kind}: #{parsed_response.inspect}")
     end
 
     render :nothing => true

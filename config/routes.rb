@@ -99,8 +99,8 @@ Kassi::Application.routes.draw do
             member do
               get :done
             end
-            
           end
+          resources :braintree_payments
           
         end
         resource :settings do

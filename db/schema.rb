@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131204091623) do
+ActiveRecord::Schema.define(:version => 20131209133946) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20131204091623) do
     t.string   "routing_number"
     t.string   "account_number"
     t.string   "status"
+    t.integer  "community_id"
   end
 
   create_table "cached_ressi_events", :force => true do |t|
@@ -188,6 +189,18 @@ ActiveRecord::Schema.define(:version => 20131204091623) do
   add_index "communities_listings", ["community_id"], :name => "index_communities_listings_on_community_id"
   add_index "communities_listings", ["listing_id", "community_id"], :name => "communities_listings"
 
+  create_table "communities_payment_gateways", :force => true do |t|
+    t.integer  "community_id"
+    t.integer  "payment_gateway_id"
+    t.string   "braintree_merchant_id"
+    t.string   "braintree_master_merchant_id"
+    t.string   "braintree_public_key"
+    t.string   "braintree_private_key"
+    t.text     "braintree_client_side_encryption_key"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+  end
+
   create_table "community_categories", :force => true do |t|
     t.integer  "community_id"
     t.integer  "category_id"
@@ -244,8 +257,9 @@ ActiveRecord::Schema.define(:version => 20131204091623) do
     t.string   "braintree_master_merchant_id"
     t.string   "braintree_public_key"
     t.string   "braintree_private_key"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.text     "braintree_client_side_encryption_key"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
   end
 
   create_table "contact_requests", :force => true do |t|
@@ -567,11 +581,16 @@ ActiveRecord::Schema.define(:version => 20131204091623) do
     t.string   "organization_id"
     t.integer  "conversation_id"
     t.string   "status"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                                              :null => false
+    t.datetime "updated_at",                                              :null => false
     t.integer  "community_id"
+<<<<<<< HEAD
     t.integer  "sum_cents"
     t.string   "currency"
+=======
+    t.string   "type",                     :default => "CheckoutPayment"
+    t.string   "braintree_transaction_id"
+>>>>>>> edecca3ca1601cdd3651f76bbb1e715e22e7db48
   end
 
   add_index "payments", ["conversation_id"], :name => "index_payments_on_conversation_id"
