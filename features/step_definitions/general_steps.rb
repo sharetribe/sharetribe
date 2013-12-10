@@ -32,11 +32,6 @@ Then /^(?:|I )should not see selector "([^"]*)"?$/ do |selector|
   }.should raise_error(Capybara::ElementNotFound)
 end
 
-When /^I move the focus to "([^"]*)"?$/ do |selected_element_id|
-  #find("##{selected_element_id}").trigger('focus')
-  page.evaluate_script("$('##{selected_element_id}').focus();")
-end
-
 When /^(?:|I )attach a valid image file to "([^"]*)"(?: within "([^"]*)")?$/ do |field, selector|
   @latest_uploaded_image = 'Australian_painted_lady.jpg'
   attach_image(@latest_uploaded_image, field, selector)
