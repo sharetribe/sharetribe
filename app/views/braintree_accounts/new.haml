@@ -53,7 +53,7 @@
     = form.select :address_region, @list_of_states
     
     = form.label :date_of_birth, t(".date_of_birth"), :class => "input"
-    = form.date_select :date_of_birth, {:start_year => Time.now.year - 17, :end_year => Time.now.year - 100, :default => 17.years.from_now}
+    = form.date_select :date_of_birth, {:start_year => Time.now.year - 12, :end_year => Time.now.year - 100, :default => 12.years.from_now}
     
     = form.label :ssn, t(".ssn"), :class => "input"
     = form.text_field :ssn, :class => "auto_width", :size => 11
