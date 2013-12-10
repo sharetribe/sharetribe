@@ -253,9 +253,8 @@ Kassi::Application.routes.draw do
   match '/:locale/:page_type' => 'dashboard#campaign'
 
   match '/:locale/people/:person_id/settings/payments/braintree/new' => 'braintree_accounts#new', :as => :new_braintree_settings_payment
-  match '/:locale/people/:person_id/settings/payments/braintree/edit' => 'braintree_accounts#edit', :as => :edit_braintree_settings_payment
+  match '/:locale/people/:person_id/settings/payments/braintree/show' => 'braintree_accounts#show', :as => :show_braintree_settings_payment
   match '/:locale/people/:person_id/settings/payments/braintree/create' => 'braintree_accounts#create', :as => :create_braintree_settings_payment
-  match '/:locale/people/:person_id/settings/payments/braintree/update' => 'braintree_accounts#update', :as => :update_braintree_settings_payment
 
   # Inside this constraits are the routes that are used when request has subdomain other than www
   constraints(CommunityDomain) do

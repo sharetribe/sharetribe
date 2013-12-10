@@ -1,0 +1,85 @@
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user, @current_community) }
+
+.left-navi-section.settings-section
+
+  %h2= t(".payout_details")
+
+  - status = @braintree_account.status
+  - if status
+    %h3= "Account status: #{status}"
+
+    - if status == "pending"
+      %p
+        = "Your account is pending for approval. This shouldn't take more than couple minutes. We'll email you when your payment account is ready to be used."
+    - elsif status == "suspended"
+      %p
+        = "Your account was declined during the activation process. Please contact the administrators for more information."
+    - elsif status == "active"
+      %p
+        = "Your payment account is approved and ready to be used"
+    - else
+      %p
+        = "Something went wrong. Please contact administrators."
+      %p
+        = "Error: Unknown account status '#{status}'"
+    
+  %dl.braintree-account-details
+    %dt.braintree-account-key
+      = t(".first_name")
+    %dd.braintree-account-value
+      = @braintree_account.first_name
+
+    %dt.braintree-account-key
+      = t(".last_name")
+    %dd.braintree-account-value
+      = @braintree_account.last_name
+
+    %dt.braintree-account-key
+      = t(".email")
+    %dd.braintree-account-value
+      = @braintree_account.email
+
+    %dt.braintree-account-key
+      = t(".phone")
+    %dd.braintree-account-value
+      = @braintree_account.phone
+
+    %dt.braintree-account-key
+      = t(".address_street_address")
+    %dd.braintree-account-value
+      = @braintree_account.address_street_address
+
+    %dt.braintree-account-key
+      = t(".address_postal_code")
+    %dd.braintree-account-value
+      = @braintree_account.address_postal_code
+
+    %dt.braintree-account-key
+      = t(".address_locality")
+    %dd.braintree-account-value
+      = @braintree_account.address_locality
+
+    %dt.braintree-account-key
+      = t(".address_region")
+    %dd.braintree-account-value
+      = @braintree_account.address_region
+
+    %dt.braintree-account-key
+      = t(".date_of_birth")
+    %dd.braintree-account-value
+      = @braintree_account.date_of_birth
+
+    %dt.braintree-account-key
+      = t(".ssn")
+    %dd.braintree-account-value
+      = @braintree_account.ssn
+
+    %dt.braintree-account-key
+      = t(".routing_number")
+    %dd.braintree-account-value
+      = @braintree_account.routing_number
+
+    %dt.braintree-account-key
+      = t(".account_number")
+    %dd.braintree-account-value
+      = @braintree_account.account_number

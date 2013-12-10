@@ -287,6 +287,20 @@ en:
       routing_number: "Routing number"
       account_number: "Account number"
       save: "Save"
+    show:
+      payout_details: "Your payout details"
+      first_name: "First name"
+      last_name: "Last name"
+      email: "Email address"
+      phone: "Phone number"
+      address_street_address: "Street address"
+      address_postal_code: "Zip/Postal code"
+      address_locality: "City"
+      address_region: "State"
+      date_of_birth: "Date of birth"
+      ssn: "SSN"
+      routing_number: "Routing number"
+      account_number: "Account number"
   braintree_payments:
     edit:
       cardholder_name: Cardholder name
