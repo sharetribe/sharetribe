@@ -584,13 +584,10 @@ ActiveRecord::Schema.define(:version => 20131209133946) do
     t.datetime "created_at",                                              :null => false
     t.datetime "updated_at",                                              :null => false
     t.integer  "community_id"
-<<<<<<< HEAD
     t.integer  "sum_cents"
     t.string   "currency"
-=======
     t.string   "type",                     :default => "CheckoutPayment"
     t.string   "braintree_transaction_id"
->>>>>>> edecca3ca1601cdd3651f76bbb1e715e22e7db48
   end
 
   add_index "payments", ["conversation_id"], :name => "index_payments_on_conversation_id"
