@@ -75,7 +75,7 @@ class BraintreeService
             :cardholder_name => payment_params[:cardholder_name],
           },
           :options => {
-            :submit_for_settlement => false,
+            :submit_for_settlement => true,
             :hold_in_escrow => false
           },
           :service_fee_amount => service_fee.to_s
