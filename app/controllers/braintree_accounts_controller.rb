@@ -1,5 +1,7 @@
 class BraintreeAccountsController < ApplicationController
 
+  LIST_OF_STATES = ["","AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"]
+  
   before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_change_payment_settings")
   end
@@ -21,11 +23,13 @@ class BraintreeAccountsController < ApplicationController
   skip_filter :dashboard_only
 
   def new
+    @list_of_states = LIST_OF_STATES
     @braintree_account = create_new_account_object
     render locals: { form_action: @create_path }
   end
 
   def edit
+    @list_of_states = LIST_OF_STATES
     @braintree_account = BraintreeAccount.find_by_person_id(@current_user.id)
     render :new, locals: { form_action: @update_path }
   end
