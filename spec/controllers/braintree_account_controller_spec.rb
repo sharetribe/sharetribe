@@ -47,6 +47,7 @@ describe BraintreeAccountsController do
       braintree_account.ssn.should be_eql("123-00-1234")
       braintree_account.routing_number.should be_eql("101000187")
       braintree_account.account_number.should be_eql("43759348798")
+      braintree_account.community_id.should == @community.id
     end
 
     it "should not create braintree account with missing information" do
