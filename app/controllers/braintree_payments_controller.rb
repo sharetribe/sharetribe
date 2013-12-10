@@ -1,8 +1,5 @@
 class BraintreePaymentsController < ApplicationController
-  
-  # TODO Add filter: Only if Braintree in use
 
-  # TODO These should be shared with PaymentsController
   before_filter :payment_can_be_conducted
   
   before_filter :only => [ :new ] do |controller|
