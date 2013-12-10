@@ -35,6 +35,7 @@ class BraintreeAccountsController < ApplicationController
   end
 
   def create
+    @list_of_states = LIST_OF_STATES
     braintree_params = params[:braintree_account]
       .merge(person: @current_user)
       .merge(community_id: @current_community.id)
