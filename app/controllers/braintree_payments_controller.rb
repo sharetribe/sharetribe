@@ -24,8 +24,8 @@ class BraintreePaymentsController < ApplicationController
     payer = @current_user
     recipient = @braintree_payment.recipient
 
-    amount = @braintree_payment.sum_without_commission
-    service_fee = @braintree_payment.total_commission
+    amount = @braintree_payment.sum_without_vat_and_commission
+    service_fee = @braintree_payment.commission_without_vat
 
     log_info("Sending sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
 
