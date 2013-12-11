@@ -100,6 +100,11 @@ Given /^Braintree merchant creation is mocked$/ do
   end.and_return(Braintree::SuccessfulResult.new({:merchant_account => HashClass.new({:id => "123abc", :status => "pending"})}))
 end
 
+Given /^Braintree merchant creation is mocked to return failure$/ do
+  BraintreeService.should_receive(:create_merchant_account)
+    .and_return(Braintree::ErrorResult.new(nil, :errors => { :errors => [] } ))
+end
+
 Given /^I want to pay "(.*?)"$/ do |item_title|
   steps %Q{Given I am on the messages page}
   steps %Q{Then I should see "Pay"} # This probably fails if there are many payments waiting
@@ -166,7 +171,6 @@ When /^I fill in Braintree account details$/ do
     And I fill in "braintree_account[ssn]" with "123-00-1234"
     And I fill in "braintree_account[routing_number]" with "101000187"
     And I fill in "braintree_account[account_number]" with "43759348798"
-    And I press submit
   }
 end
 
