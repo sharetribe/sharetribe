@@ -613,6 +613,28 @@ class Community < ActiveRecord::Base
     payment_gateways.include?(BraintreePaymentGateway.first)
   end
   
+  # Returns the total service fee for a certain listing
+  # in the current community (including gateway fee, platform
+  # fee and marketplace fee)
+  def service_fee_for(listing)
+    (listing.price * (commission_from_seller.to_f/100)).to_f.ceil
+  end
+  
+  # Price that the seller gets after the service fee is deducted
+  def price_seller_gets_for(listing)
+    listing.price - Money.new(service_fee_for(listing)*100, listing.currency)
+  end
+  
+  # Return either minimum price defined by this community or the absolute
+  # platform default minimum price.
+  def absolute_minimum_price(currency)
+    self.minimum_price || Money.new(100, (currency || "EUR"))
+  end
+  
+  def invoice_form_type_for(listing)
+    payment_possible_for?(listing) ? payment_gateways.first.invoice_form_type : "no_form"
+  end
+  
   private
   
   # Returns an array of unique categories or share_types used in this community.

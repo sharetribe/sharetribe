@@ -144,6 +144,7 @@ en:
       price_to_pay: "Total price to be paid"
       you_need_to_fill_payout_details_before_accepting: "You need to fill in payout details before you can accept the request and receive the payment. Go to %{payment_settings_link} to fill in the details."
       payment_settings_link: "payment settings"
+      minimum_price_error_message: "The price cannot be lower than %{amount}."
     confirm:
       confirm_description: "If your request has been fulfilled you should confirm it as done. Then you can give feedback to the other party."
       cancel_description: "If your request was not fulfilled, you can mark it as 'not happened'. You can still give feedback to the other party and describe what happened."
@@ -1325,9 +1326,12 @@ en:
     form:
       total: Total
       service_charge: "Service charge"
-      product: Product
-      price: Price
+      product: "Product:"
+      price: "Price:"
       continue_to_pay: "Continue to pay"
+      invoice: "Invoice"
+      service_fee: "%{service_name} service fee:"
+      you_will_get: "You will get:"
     mangopay:
       terms:
         mangopay_terms_also_included: "NOTE: MangoPay is used as a payment gateway service and by using this website you also accept %{terms_link_text}, in addition to the terms below."

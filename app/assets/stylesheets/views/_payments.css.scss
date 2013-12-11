@@ -1,0 +1,63 @@
+@import "mixins/all";
+
+$invoice-row-left-column-width: 175px;
+$invoice-row-left-column-mobile-width: 100px;
+$invoice-row-right-column-mobile-width: 145px;
+$invoice-row-right-column-desktop-width: 230px;
+$invoice-row-symbol-width: 30px; // Enough to fit any currency symbol
+$invoice-row-gutter: 16px; // Just enough to fit on 320px screen with 2 columns
+$invoice-row-text-column-padding: 8px; // Padding for rows that contain text to align them with the form field
+
+
+.invoice-title {
+  margin-bottom: lines(0.5);
+}
+
+.invoice-row {
+  overflow: hidden;
+  min-height: lines(2);
+}
+
+
+.invoice-row-left {
+  font-weight: 600;
+  float: left;
+  width: $invoice-row-left-column-mobile-width;
+  padding-right: $invoice-row-gutter;
+  @include media(tablet) {
+    width: $invoice-row-left-column-width;
+  }
+}
+
+.invoice-row-symbol {
+  float: left;
+  padding-right: ($invoice-row-gutter/2);
+  padding-top: $invoice-row-text-column-padding;
+  max-width: $invoice-row-symbol-width; // Enough to fit any currency symbol
+}
+
+.invoice-row-right {
+  float: left;
+  width: $invoice-row-right-column-mobile-width;
+  @include media(tablet) {
+    width: $invoice-row-right-column-desktop-width;
+  }
+}
+
+.invoice-row-text-field {
+  float: right;
+  width: ($invoice-row-right-column-mobile-width - $invoice-row-symbol-width);
+  @include media(tablet) {
+    width: ($invoice-row-right-column-desktop-width - $invoice-row-symbol-width);
+  }
+}
+
+.invoice-row-text-column {
+  padding-top: $invoice-row-text-column-padding;
+}
+
+.invoice-row {
+  input[type=text] {
+    width: 100%;
+  }
+}

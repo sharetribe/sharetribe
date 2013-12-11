@@ -17,5 +17,5 @@
       = form.text_field :quantity, :class => "quantity-field", :placeholder => t(".#{@community_category.price_quantity_placeholder}")
     %small
       = t(".price_excludes_vat", :vat => @current_community.vat) if @current_community.vat
-      = t(".service_fee_will_be_added", :fee => @current_community.commission_percentage) if @current_community.commission_percentage
+      = t(".service_fee_will_be_added", :fee => @current_community.commission_from_seller) if @current_community.commission_from_seller
   

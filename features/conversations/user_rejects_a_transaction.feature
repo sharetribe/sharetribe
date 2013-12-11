@@ -18,8 +18,7 @@ Feature: User rejects a transaction
     And I press "Send"
     And I should see "Rejected" within ".conversation-status"
     When I follow "Massage"
-    Then I should see "Listing is closed"
-    Then I should not see "Close listing"
+    Then I should see "Close listing"
     When the system processes jobs
     Then "kassi_testperson2@example.com" should receive an email
     When I open the email
@@ -36,7 +35,6 @@ Feature: User rejects a transaction
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
     And I follow "Not this time"
-    And I choose "Leave the listing open"
     And I fill in "conversation_message_attributes_content" with "Sorry, not this time."
     And I press "Send"
     And I should see "Rejected" within ".conversation-status"

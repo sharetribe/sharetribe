@@ -34,7 +34,14 @@ class Conversation < ActiveRecord::Base
     payment.payer = requester
     payment.recipient = offerer
     payment.community_id = attributes[:community_id]
-    attributes[:payment_rows].each { |row| payment.rows.build(row.merge(:currency => "EUR")) unless row["title"].blank? }
+    # Simple payment form
+    if attributes[:sum]
+      payment.sum_cents = Money.parse(attributes[:sum]).cents
+      payment.currency = attributes[:currency]
+    # Complex (multi-row) payment form
+    else
+      attributes[:payment_rows].each { |row| payment.rows.build(row.merge(:currency => "EUR")) unless row["title"].blank? }
+    end
     payment.save!
   end
   

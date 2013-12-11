@@ -8,6 +8,10 @@ class Mangopay < PaymentGateway
     "payments/mangopay"
   end
   
+  def invoice_form_type
+    "simple"
+  end
+  
   def payment_data(payment, options={})
   
     contribution = MangoPay::Contribution.create({

@@ -24,4 +24,13 @@ class BraintreePaymentGateway < PaymentGateway
   def name
     "braintree"
   end
+  
+  def form_template_dir
+    "payments/simple_form"
+  end
+  
+  def invoice_form_type
+    "simple"
+  end
+  
 end

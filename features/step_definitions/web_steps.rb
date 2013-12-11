@@ -56,6 +56,10 @@ When /^(?:|I )fill in "([^"]*)" with "([^"]*)"(?: within "([^"]*)")?$/ do |field
   end
 end
 
+When(/^I send keys "(.*?)" to form field "([^"]*)"$/) do |keys, field|
+  find_field(field).native.send_keys "#{keys}"
+end
+
 When /^(?:|I )wait for (\d+) seconds?$/ do |arg1|
   sleep Integer(arg1)
 end
@@ -141,6 +145,10 @@ Then /^(?:|I )should see \/([^\/]*)\/(?: within "([^"]*)")?$/ do |regexp, select
       assert page.has_xpath?('//*', :text => regexp)
     end
   end
+end
+
+Then /^I should see "([^"]*)" in the "([^"]*)" input$/ do |content, field|
+  find_field(field).value.should == content
 end
 
 Then /^(?:|I )should not see "([^"]*)"(?: within "([^"]*)")?$/ do |text, selector|

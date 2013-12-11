@@ -32,6 +32,7 @@ Given /^there is an accepted request for "(.*?)" with price "(.*?)" from "(.*?)"
   conversation.title = "Conversation title"
   conversation.community_id = community.id
   conversation.listing_id = listing.id
+  conversation.save!
 
   payment = Payment.new()
   payment.payer = requester

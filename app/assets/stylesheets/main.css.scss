@@ -2136,7 +2136,7 @@ a.lightbox-x {
     position: relative;
     border-top: 1px dotted $border;
     padding: lines(0.25) lines(1) lines(0.25) lines(1.5);
-    min-height: lines(2.25);
+    min-height: lines(3);
 
     .avatar {
       position: absolute;
@@ -2349,7 +2349,7 @@ a.lightbox-x {
     
     .payment-row-total-heading {
       text-align: center;
-      width: lines(5);
+      width: lines(4.5);
       margin-left: lines(0.5) + em(15);
     }
     
@@ -2382,7 +2382,7 @@ a.lightbox-x {
     .total-label {
       display: inline-block;
       text-align: center;
-      width: lines(4.5);
+      width: lines(4);
       margin-left: lines(0.5);
     }
     
@@ -2403,7 +2403,7 @@ a.lightbox-x {
     
     .payment-row-total-text {
       text-align: center;
-      width: lines(5);
+      width: lines(4);
       margin-left: lines(0.5);
     }
     

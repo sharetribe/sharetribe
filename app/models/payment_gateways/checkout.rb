@@ -8,6 +8,10 @@ class Checkout < PaymentGateway
     "payments/checkout"
   end
   
+  def invoice_form_type
+    "complex"
+  end
+  
   def payment_data(payment, options={})
     
     unless options[:mock]
