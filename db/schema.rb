@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131209133946) do
+ActiveRecord::Schema.define(:version => 20131210155502) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20131209133946) do
     t.string   "address_postal_code"
     t.string   "address_locality"
     t.string   "address_region"
-    t.string   "date_of_birth"
+    t.date     "date_of_birth"
     t.string   "ssn"
     t.string   "routing_number"
     t.string   "account_number"
@@ -586,6 +586,8 @@ ActiveRecord::Schema.define(:version => 20131209133946) do
     t.integer  "community_id"
     t.string   "type",                     :default => "CheckoutPayment"
     t.string   "braintree_transaction_id"
+    t.integer  "sum_cents"
+    t.string   "currency"
   end
 
   add_index "payments", ["conversation_id"], :name => "index_payments_on_conversation_id"
