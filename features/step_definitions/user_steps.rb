@@ -110,7 +110,7 @@ Given /^there are following users:$/ do |person_table|
     @hash_person = force_override_model_id(hash['id'], @hash_person, Person, [Email]) if hash['id']
 
     if hash['email'] then
-      @hash_person.emails = [Email.create(:address => hash['email'], :send_notifications => true, :person => @hash_person), :confirmed_at => Date.new]
+      @hash_person.emails = [Email.create(:address => hash['email'], :send_notifications => true, :person => @hash_person)]
       @hash_person.save!
     end
 
