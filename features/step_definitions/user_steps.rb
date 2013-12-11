@@ -1,3 +1,26 @@
+module UserSteps
+  # Updates model's ID and associated IDs
+  # 
+  # Reasoning: Setting custom model for FactoryGirl is cubersome, since id
+  # is protected attribute and it's created on validation phase automatically.
+  # Thus this helper function
+  def force_override_model_id(id, model_instance, model_class, associated_model_classes=[])
+    old_id = model_instance.id
+    model_class.update_all({:id => id}, {:id => old_id})
+    
+    # Associates
+    foreign_key = "#{model_class.name.downcase}_id".to_sym
+    associated_model_classes.each do |associated_model_class|
+      associated_model_class.update_all({foreign_key => id}, {foreign_key => old_id})
+    end
+
+    # Reload
+    model_class.find(id)
+  end
+end
+
+World(UserSteps)
+
 Given /^I am logged in(?: as "([^"]*)")?$/ do |person|
   username = person || "kassi_testperson1"
   person = Person.find_by_username(username) || FactoryGirl.create(:person, :username => username)
@@ -82,9 +105,12 @@ Given /^there are following users:$/ do |person_table|
   @people = {}
   person_table.hashes.each do |hash|
     @hash_person, @hash_session = get_test_person_and_session(hash['person'])
+    @hash_person.save!
+
+    @hash_person = force_override_model_id(hash['id'], @hash_person, Person, [Email]) if hash['id']
 
     if hash['email'] then
-      @hash_person.emails = [Email.create(:address => hash['email'], :send_notifications => true, :person => @hash_person)]
+      @hash_person.emails = [Email.create(:address => hash['email'], :send_notifications => true, :person => @hash_person), :confirmed_at => Date.new]
       @hash_person.save!
     end
 
