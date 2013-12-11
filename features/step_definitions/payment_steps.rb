@@ -65,9 +65,45 @@ Then /^"(.*?)" should have required Checkout payment details saved to my account
   p.checkout_merchant_key.should_not be_blank
 end
 
+When /^Braintree webhook "(.*?)" with id "(.*?)" is triggered$/ do |kind, id|
+  community = Community.find_by_name("test") # Hard-coded default test community
+  signature, payload = BraintreeService.webhook_testing_sample_notification(
+    community, kind, id
+  )
+
+  # Do
+  post "#{Capybara.app_host}/webhooks/braintree", :bt_signature => signature, :bt_payload => payload
+end
+
 Given /^Braintree transaction is mocked$/ do
   BraintreeService.should_receive(:transaction_sale)
     .and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
+end
+
+Given /^Braintree merchant creation is mocked$/ do
+  BraintreeService.should_receive(:create_merchant_account) do |braintree_account, community|
+    braintree_account.first_name.should == "Joe"
+    braintree_account.last_name.should == "Bloggs"
+    braintree_account.email.should == "joe@14ladders.com"
+    braintree_account.phone.should == "5551112222"
+    braintree_account.address_street_address.should == "123 Credibility St."
+    braintree_account.address_postal_code.should == "60606"
+    braintree_account.address_locality.should == "Chicago"
+    braintree_account.address_region.should == "IL"
+    braintree_account.date_of_birth.year.should == 1980
+    braintree_account.date_of_birth.month.should == 10
+    braintree_account.date_of_birth.day.should == 9
+    braintree_account.ssn.should == "123-00-1234"
+    braintree_account.routing_number.should == "101000187"
+    braintree_account.account_number.should == "43759348798"
+    braintree_account.person_id.should == "123abc"
+    community.name.should == "test"
+  end.and_return(Braintree::SuccessfulResult.new({:merchant_account => HashClass.new({:id => "123abc", :status => "pending"})}))
+end
+
+Given /^Braintree merchant creation is mocked to return failure$/ do
+  BraintreeService.should_receive(:create_merchant_account)
+    .and_return(Braintree::ErrorResult.new(nil, :errors => { :errors => [] } ))
 end
 
 Given /^I want to pay "(.*?)"$/ do |item_title|
@@ -100,6 +136,12 @@ When /^I browse to payment settings$/ do
     When I go to the settings page
     Then the link to payment settings should be visible
     When I follow link to payment settings
+  }
+end
+
+When /^I browse to Checkout payment settings$/ do
+  steps %Q{
+    When I browser to payment settings
     Then I should be on the payment settings page
   }
 end
@@ -111,6 +153,25 @@ end
 When /^I follow link to payment settings$/ do
   steps %Q{
     When I follow "settings-tab-payments"
+  }
+end
+
+When /^I fill in Braintree account details$/ do
+  steps %Q{
+    When I fill in "braintree_account[first_name]" with "Joe"
+    And I fill in "braintree_account[last_name]" with "Bloggs"
+    And I fill in "braintree_account[email]" with "joe@14ladders.com"
+    And I fill in "braintree_account[phone]" with "5551112222"
+    And I fill in "braintree_account[address_street_address]" with "123 Credibility St."
+    And I fill in "braintree_account[address_postal_code]" with "60606"
+    And I fill in "braintree_account[address_locality]" with "Chicago"
+    And I select "IL" from "braintree_account[address_region]"
+    And I select "1980" from "braintree_account[date_of_birth(1i)]"
+    And I select "October" from "braintree_account[date_of_birth(2i)]"
+    And I select "9" from "braintree_account[date_of_birth(3i)]"
+    And I fill in "braintree_account[ssn]" with "123-00-1234"
+    And I fill in "braintree_account[routing_number]" with "101000187"
+    And I fill in "braintree_account[account_number]" with "43759348798"
   }
 end
 
