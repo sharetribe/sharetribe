@@ -9,8 +9,7 @@ class BraintreeAccountsController < ApplicationController
   # Commonly used paths
   before_filter do |controller|
     @create_path = create_braintree_settings_payment_path(@current_user)
-    @update_path = update_braintree_settings_payment_path(@current_user)
-    @edit_path = edit_braintree_settings_payment_path(@current_user)
+    @show_path = show_braintree_settings_payment_path(@current_user)
     @new_path = new_braintree_settings_payment_path(@current_user)
   end
 
@@ -18,7 +17,9 @@ class BraintreeAccountsController < ApplicationController
   before_filter :ensure_user_does_not_have_account, :only => [:new, :create]
 
   # Edit/update
-  before_filter :ensure_user_has_account, :only => [:edit, :update]
+  before_filter :ensure_user_has_account, :only => [:show]
+
+  before_filter :ensure_user_does_not_have_account_for_another_community
 
   skip_filter :dashboard_only
 
@@ -28,10 +29,10 @@ class BraintreeAccountsController < ApplicationController
     render locals: { form_action: @create_path }
   end
 
-  def edit
+  def show
     @list_of_states = LIST_OF_STATES
     @braintree_account = BraintreeAccount.find_by_person_id(@current_user.id)
-    render :new, locals: { form_action: @update_path }
+    render locals: { form_action: @create_path }
   end
 
   def create
@@ -65,23 +66,10 @@ class BraintreeAccountsController < ApplicationController
 
     if success
       flash[:notice] = t("layouts.notifications.payment_details_add_successful")
-      redirect_to @edit_path
+      redirect_to @show_path
     else
       flash[:error] ||= t("layouts.notifications.payment_details_add_error")
       render :new, locals: { form_action: @create_path }
-    end
-  end
-
-  def update
-    success = @braintree_account.update_attributes(params[:braintree_account])
-
-    if success
-      # FIXME Copy text
-      flash[:notice] = "Successfully updated!"
-      redirect_to @edit_path
-    else
-      flash[:error] = "Error in update"
-      render :new, locals: { form_action: @update_path }
     end
   end
 
@@ -93,7 +81,7 @@ class BraintreeAccountsController < ApplicationController
 
     unless braintree_account.blank?
       flash[:error] = "Can not create a new Braintree account. You already have one"
-      redirect_to @edit_path
+      redirect_to @show_path
     end
   end
 
@@ -104,6 +92,28 @@ class BraintreeAccountsController < ApplicationController
     if @braintree_account.blank?
       flash[:error] = "Illegal Braintree accout id"
       redirect_to @new_path
+    end
+  end
+
+  # Before filter
+  #
+  # Support for multiple Braintree account in multipe communities
+  # is not implemented. Show error.
+  def ensure_user_does_not_have_account_for_another_community
+    @braintree_account = BraintreeAccount.find_by_person_id(@current_user.id)
+
+    if @braintree_account
+      # Braintree account exists
+      if @braintree_account.community_id != @current_community.id
+        # ...but is associated to different community
+        account_community = Community.find(@braintree_account.community_id)
+        flash[:error] = "You have payment account for community #{account_community.name}. Unfortunately, you can not have payment accounts for multiple communities. You are unable to receive money from transactions in community #{@current_community.name}. Please contact administrators."
+
+        error_msg = "User #{@current_user.id} tried to create a Braintree payment account for community #{@current_community.name} even though she has existing account for #{account_community.name}"
+        log_error(error_msg)
+        ApplicationHelper.send_error_notification(error_msg, "BraintreePaymentAccountError")
+        redirect_to profile_person_settings_path
+      end
     end
   end
 

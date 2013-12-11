@@ -1,10 +1,14 @@
 class BraintreePaymentsController < ApplicationController
 
+  before_filter :fetch_conversation
+
   before_filter :payment_can_be_conducted
   
-  before_filter :only => [ :new ] do |controller|
+  before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_inbox")
   end
+
+  before_filter :ensure_recipient_does_not_have_account_for_another_community
   
   skip_filter :dashboard_only
 
@@ -17,8 +21,6 @@ class BraintreePaymentsController < ApplicationController
   end
 
   def update
-    @conversation = Conversation.find(params[:message_id])
-    @braintree_payment = @conversation.payment
     payer = @current_user
     recipient = @braintree_payment.recipient
 
@@ -54,9 +56,36 @@ class BraintreePaymentsController < ApplicationController
   end
 
   private
+
+  # Before filter
+  #
+  # Support for multiple Braintree account in multipe communities
+  # is not implemented. Show error.
+  def ensure_recipient_does_not_have_account_for_another_community
+    @braintree_account = BraintreeAccount.find_by_person_id(@braintree_payment.recipient_id)
+
+    if @braintree_account
+      # Braintree account exists
+      if @braintree_account.community_id != @current_community.id
+        # ...but is associated to different community
+        account_community = Community.find(@braintree_account.community_id)
+        flash[:error] = "Unfortunately, we can not proceed with the payment. Please contact administrators."
+
+        error_msg = "User #{@current_user.id} tries to pay for user #{@braintree_payment.recipient_id} which has Braintree account for another community #{account_community.name}"
+        log_error(error_msg)
+        ApplicationHelper.send_error_notification(error_msg, "BraintreePaymentAccountError")
+        redirect_to person_message_path
+      end
+    end
+  end
+
+  # Before filter
+  def fetch_conversation
+    @conversation = Conversation.find(params[:message_id])
+    @braintree_payment = @conversation.payment
+  end
   
   def payment_can_be_conducted
-    @conversation = Conversation.find(params[:message_id])
     redirect_to person_message_path(@current_user, @conversation) unless @conversation.requires_payment?(@current_community)
   end
 

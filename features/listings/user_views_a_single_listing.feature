@@ -25,9 +25,11 @@ Feature: User views a single listing
     And I should see "100%"
     And I should see "(2/2)"
   
+  @javascript
   @phantomjs_skip
   Scenario: User sees the avatar in listing page
     Given I am logged in as "kassi_testperson1"
+    And there is favor request with title "Massage" from "kassi_testperson1"
     When I click ".user-menu-toggle"
     When I follow "Settings"
     And I attach a valid image file to "avatar_file"
