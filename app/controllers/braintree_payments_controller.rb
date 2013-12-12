@@ -35,9 +35,13 @@ class BraintreePaymentsController < ApplicationController
   def update
     payer = @current_user
     recipient = @braintree_payment.recipient
+    listing = @conversation.listing
 
-    amount = @braintree_payment.total_sum
-    service_fee = @braintree_payment.commission_without_vat
+    commission = @current_community.commission_from_seller
+    price = @braintree_payment.sum_cents.to_f / 100
+
+    amount = PaymentMath::SellerCommission.seller_gets(price, commission)
+    service_fee = PaymentMath.service_fee(price, commission)
 
     BTLog.info("Sending sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
 
