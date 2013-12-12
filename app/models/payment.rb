@@ -72,11 +72,21 @@ class Payment < ActiveRecord::Base
   def summary_string
     rows.collect(&:title).join(", ")
   end
+
+  # This is a hacky solution to prevent sending mail if Braintree is used
+  def send_receipt_email
+    true
+  end
+
+  # This is a hacky solution to prevent sending mail if Braintree is used
+  def send_payment_email
+    true
+  end
   
   def paid!
     update_attribute(:status, "paid")
     conversation.paid_by!(payer)
-    Delayed::Job.enqueue(PaymentCreatedJob.new(id, community.id))
+    Delayed::Job.enqueue(PaymentCreatedJob.new(id, community.id, send_payment_email, send_receipt_email))
   end
 
   def disbursed!
