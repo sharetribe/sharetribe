@@ -8,7 +8,7 @@ class BraintreeService
     @@mutex = Mutex.new
     
     def configure_for(community)
-      Braintree::Configuration.environment = :sandbox
+      Braintree::Configuration.environment = community.community_payment_gateways.first.braintree_environment.to_sym
       Braintree::Configuration.merchant_id = community.community_payment_gateways.first.braintree_merchant_id
       Braintree::Configuration.public_key = community.community_payment_gateways.first.braintree_public_key
       Braintree::Configuration.private_key = community.community_payment_gateways.first.braintree_private_key

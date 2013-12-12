@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131210155502) do
+ActiveRecord::Schema.define(:version => 20131212065037) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -192,6 +192,7 @@ ActiveRecord::Schema.define(:version => 20131210155502) do
   create_table "communities_payment_gateways", :force => true do |t|
     t.integer  "community_id"
     t.integer  "payment_gateway_id"
+    t.string   "braintree_environment"
     t.string   "braintree_merchant_id"
     t.string   "braintree_master_merchant_id"
     t.string   "braintree_public_key"
@@ -249,18 +250,6 @@ ActiveRecord::Schema.define(:version => 20131210155502) do
 
   add_index "community_memberships", ["community_id"], :name => "index_community_memberships_on_community_id"
   add_index "community_memberships", ["person_id", "community_id"], :name => "memberships"
-
-  create_table "community_payment_gateways", :force => true do |t|
-    t.integer  "community_id"
-    t.integer  "payment_gateway_id"
-    t.string   "braintree_merchant_id"
-    t.string   "braintree_master_merchant_id"
-    t.string   "braintree_public_key"
-    t.string   "braintree_private_key"
-    t.text     "braintree_client_side_encryption_key"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
-  end
 
   create_table "contact_requests", :force => true do |t|
     t.string   "email"
