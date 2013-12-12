@@ -32,5 +32,9 @@ class BraintreePaymentGateway < PaymentGateway
   def invoice_form_type
     "simple"
   end
+
+  def new_payment
+    BraintreePayment.new
+  end
   
 end
