@@ -17,7 +17,7 @@ class PaymentGateway < ActiveRecord::Base
   # initializes the payment and returns the data that is needed by the template.
   
   def requires_payout_registration_before_accept?
-    false
+    true
   end
   
   # this is called after the payment is paid.
