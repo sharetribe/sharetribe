@@ -15,7 +15,7 @@
       braintreePaymentForm.show();
     });
 
-.centered-section-wide.payment-form
+.centered-section.payment-form
   = render :partial => "layouts/payment_header", :locals => { :payment_receiver => @conversation.other_party(@current_user) }
 
   %p
