@@ -89,6 +89,7 @@ class ListingsController < ApplicationController
   end
   
   def new
+    @seller_commission = @current_community.payment_gateways.first.seller_pays_commission? if @current_community.payments_in_use?
     @selected_tribe_navi_tab = "new_listing"
     @listing = Listing.new
     @listing.category = Category.find_by_name(params[:subcategory].blank? ? params[:category] : params[:subcategory])

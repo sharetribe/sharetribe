@@ -16,6 +16,10 @@ class BraintreePaymentGateway < PaymentGateway
       show_braintree_settings_payment_path(:person_id => person.id.to_s, :locale => locale)
     end
   end
+
+  def seller_pays_commission?
+    true
+  end
   
   def has_additional_terms_of_use
     true
