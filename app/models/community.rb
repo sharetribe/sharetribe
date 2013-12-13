@@ -622,7 +622,7 @@ class Community < ActiveRecord::Base
   
   # Price that the seller gets after the service fee is deducted
   def price_seller_gets_for(listing)
-    seller_gets = PaymentMath::SellerCommission.seller_gets(listing.price_cents.to_f / 100, commission_from_seller)
+    seller_gets = PaymentMath::SellerCommission.seller_gets(listing.price_cents.to_f, commission_from_seller)
     Money.new(seller_gets, listing.currency)
   end
   
