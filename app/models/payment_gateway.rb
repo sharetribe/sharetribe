@@ -1,8 +1,7 @@
 class PaymentGateway < ActiveRecord::Base
   include Rails.application.routes.url_helpers
   
-  has_many :community_payment_gateways, :dependent => :destroy 
-  has_many :communities, :through => :community_payment_gateways
+  belongs_to :community
   
   # Allow only one object per gateway class to be stored in DB
   validates_uniqueness_of :type

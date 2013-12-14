@@ -11,8 +11,7 @@ require 'spec_helper'
 describe "braintree webhooks" do
   before(:each) do
     @community = FactoryGirl.create(:community, :domain => "market.custom.org")
-    braintree_payment_gateway = PaymentGateway.find_by_type("BraintreePaymentGateway")
-    FactoryGirl.create(:community_payment_gateway, :community => @community, :payment_gateway => braintree_payment_gateway)
+    FactoryGirl.create(:payment_gateway, :community => @community, :type => "BraintreePaymentGateway")
 
     # Refresh from DB
     @community.reload

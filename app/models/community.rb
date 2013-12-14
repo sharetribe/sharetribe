@@ -21,8 +21,7 @@ class Community < ActiveRecord::Base
   
   has_and_belongs_to_many :listings
   
-  has_many :community_payment_gateways, :dependent => :destroy 
-  has_many :payment_gateways, :through => :community_payment_gateways
+  has_many :payment_gateways, :dependent => :destroy
   
   after_create :initialize_settings
   before_destroy :delete_specific_community_categories
@@ -610,7 +609,7 @@ class Community < ActiveRecord::Base
   end
   
   def braintree_in_use?
-    payment_gateways.include?(BraintreePaymentGateway.first)
+    payment_gateways.any? { |gateway| gateway.type == "BraintreePaymentGateway"}
   end
   
   # Returns the total service fee for a certain listing

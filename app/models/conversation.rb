@@ -29,7 +29,7 @@ class Conversation < ActiveRecord::Base
   end
   
   def payment_attributes=(attributes)
-    payment ||= community.community_payment_gateways.first.payment_gateway.new_payment
+    payment ||= community.payment_gateways.first.new_payment
     payment.conversation = self
     payment.status = "pending"
     payment.payer = requester
