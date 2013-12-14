@@ -17,7 +17,7 @@ class BraintreeWebhooksController < ApplicationController
       end
 
       def error(msg)
-        Rails.logger.info "[Braintree] #{msg}"
+        Rails.logger.error "[Braintree] #{msg}"
       end
     end
   end
