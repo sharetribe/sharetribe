@@ -8,7 +8,7 @@ module SettingsHelper
 
   def payment_gateway_to_use(community)
     # Currently, we always use the first (which is probably the only one)
-    community.payment_gateways.first
+    community.payment_gateway
   end
 
   def has_registered_payment_info?(community, person)

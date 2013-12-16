@@ -20,11 +20,11 @@
       .hidden-accept-form.visible-when-accept{:class => (@action.eql?("accept") ? "" : "hidden")}
         %br
         %p#conversation-payment-details-missing
-          = t(".you_need_to_fill_payout_details_before_accepting", :payment_settings_link => link_to(t(".payment_settings_link"), @current_community.payment_gateways.first.settings_path(@current_user, I18n.locale), :id => "#conversation-payment-settings-link")).html_safe
+          = t(".you_need_to_fill_payout_details_before_accepting", :payment_settings_link => link_to(t(".payment_settings_link"), @current_community.payment_gateway.settings_path(@current_user, I18n.locale), :id => "#conversation-payment-settings-link")).html_safe
     
     %div{:class => (@payout_registration_missing ? "hidden-accept-form visible-when-reject #{@action.eql?("accept") ? "hidden" : ""}" : "")}
       - if @current_community.payment_possible_for?(@conversation.listing)
-        = render :partial => @current_community.payment_gateways.first.form_template_dir + "/form"
+        = render :partial => @current_community.payment_gateway.form_template_dir + "/form"
 
       = fields_for "conversation[message_attributes]", Message.new do |message_form|
         = message_form.label :content, t("conversations.new.message"), :class => "input"

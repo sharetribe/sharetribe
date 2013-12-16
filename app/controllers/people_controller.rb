@@ -259,7 +259,7 @@ class PeopleController < Devise::RegistrationsController
     
     @person.set_emails_that_receive_notifications(params[:person][:send_notifications])
 
-    payment_gateway = @current_community.payment_gateways && @current_community.payment_gateways.first
+    payment_gateway = @current_community.payment_gateway
 
     # If updating payout details, check that they are valid
     mango_param_keys = [:bank_account_owner_name, :bank_account_owner_address, :iban, :bic]

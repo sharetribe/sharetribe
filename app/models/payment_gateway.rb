@@ -3,9 +3,6 @@ class PaymentGateway < ActiveRecord::Base
   
   belongs_to :community
   
-  # Allow only one object per gateway class to be stored in DB
-  validates_uniqueness_of :type
-  
   # methods that must be defined in subclasses, but are not defined here as 
   # this model is never directly used, only via subclasses
   
