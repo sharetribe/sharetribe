@@ -15,11 +15,11 @@ class BraintreePaymentsController < ApplicationController
   module BTLog
     class << self
       def info(msg)
-        Rails.logger.info "[Braintree] #{msg}"
+        Rails.logger.warn "[Braintree] #{msg}"
       end
 
       def error(msg)
-        Rails.logger.info "[Braintree] #{msg}"
+        Rails.logger.error "[Braintree] #{msg}"
       end
     end
   end
@@ -43,7 +43,7 @@ class BraintreePaymentsController < ApplicationController
     amount = PaymentMath::SellerCommission.seller_gets(price, commission) / 100
     service_fee = PaymentMath.service_fee(price, commission) / 100
 
-    BTLog.info("Sending sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
+    BTLog.warn("Sending sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
 
     payment_params = params[:braintree_payment] || {}
 
@@ -59,7 +59,7 @@ class BraintreePaymentsController < ApplicationController
 
     if result.success?
       transaction_id = result.transaction.id
-      BTLog.info("Successful sale transaction #{transaction_id} from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
+      BTLog.warn("Successful sale transaction #{transaction_id} from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
       @braintree_payment.paid!
       @braintree_payment.braintree_transaction_id = transaction_id
       @braintree_payment.save

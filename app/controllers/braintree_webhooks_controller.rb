@@ -12,8 +12,8 @@ class BraintreeWebhooksController < ApplicationController
 
   module BTLog
     class << self
-      def info(msg)
-        Rails.logger.info "[Braintree] #{msg}"
+      def warn(msg)
+        Rails.logger.warn "[Braintree] #{msg}"
       end
 
       def error(msg)
@@ -28,7 +28,7 @@ class BraintreeWebhooksController < ApplicationController
     class << self
       def sub_merchant_account_approved(notification, community)
         person_id = notification.merchant_account.id
-        BTLog.info("Approved submerchant account for person #{person_id}")
+        BTLog.warn("Approved submerchant account for person #{person_id}")
 
         braintree_account = BraintreeAccount.find_by_person_id(person_id)
         braintree_account.update_attributes(:status => "active")
@@ -40,7 +40,7 @@ class BraintreeWebhooksController < ApplicationController
 
       def sub_merchant_account_declined(notification, community)
         person_id = notification.merchant_account.id
-        BTLog.info("Approved submerchant account for person #{person_id}")
+        BTLog.warn("Approved submerchant account for person #{person_id}")
         
         braintree_account = BraintreeAccount.find_by_person_id(person_id)
         braintree_account.update_attributes(:status => "suspended")
@@ -48,7 +48,7 @@ class BraintreeWebhooksController < ApplicationController
 
       def transaction_disbursed(notification, community)
         transaction = notification.transaction
-        BTLog.info("Transaction #{transaction.id} disbursed")
+        BTLog.warn("Transaction #{transaction.id} disbursed")
 
         payment = Payment.find_by_braintree_transaction_id(transaction.id)
         payment.disbursed!
@@ -82,7 +82,7 @@ class BraintreeWebhooksController < ApplicationController
     if Handlers.respond_to?(kind, search_privates)
       Handlers.send(kind, parsed_response, @current_community)
     else
-      BTLog.info("Received unimplemented webhook notification #{kind}: #{parsed_response.inspect}")
+      BTLog.warn("Received unimplemented webhook notification #{kind}: #{parsed_response.inspect}")
     end
 
     render :nothing => true
