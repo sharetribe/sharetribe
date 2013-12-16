@@ -38,10 +38,10 @@ class BraintreePaymentsController < ApplicationController
     listing = @conversation.listing
 
     commission = @current_community.commission_from_seller
-    price = @braintree_payment.sum_cents.to_f / 100
+    price = @braintree_payment.sum_cents
 
-    amount = PaymentMath::SellerCommission.seller_gets(price, commission)
-    service_fee = PaymentMath.service_fee(price, commission)
+    amount = PaymentMath::SellerCommission.seller_gets(price, commission) / 100
+    service_fee = PaymentMath.service_fee(price, commission) / 100
 
     BTLog.info("Sending sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
 
