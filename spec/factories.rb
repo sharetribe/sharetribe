@@ -185,6 +185,7 @@ FactoryGirl.define do
   end
 
   factory :payment_gateway do
+    type "Checkout"
     braintree_merchant_id { APP_CONFIG.braintree_test_merchant_id }
     braintree_master_merchant_id { APP_CONFIG.braintree_test_master_merchant_id }
     braintree_public_key { APP_CONFIG.braintree_test_public_key }
