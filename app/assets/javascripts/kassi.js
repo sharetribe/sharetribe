@@ -1040,7 +1040,7 @@ function initialize_new_community_membership_form(email_invalid_message, invitat
   });    
 }
 
-function initialize_braintree_payment_form(beforeSubmit, locale) {
+function initialize_braintree_payment_form(locale, beforeSubmit) {
   var form_id = "#braintree-payment-form";
 
   $(form_id).validate({
