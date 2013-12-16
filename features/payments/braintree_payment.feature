@@ -11,7 +11,7 @@ Feature: User pays accepted request
     And community "test" has payments in use via BraintreePaymentGateway
     And Braintree transaction is mocked
     And there is item offer with title "math book" from "kassi_testperson1" and with share type "sell" and with price "12"
-    And there is an accepted request for "math book" with price "100" from "kassi_testperson2"
+    And there is an accepted request for "math book" with price "101" from "kassi_testperson2"
 
   Scenario:
     Given I am logged in as "kassi_testperson2"

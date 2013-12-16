@@ -24,8 +24,8 @@ class BraintreePaymentsController < ApplicationController
     payer = @current_user
     recipient = @braintree_payment.recipient
 
-    amount = @braintree_payment.sum_without_commission
-    service_fee = @braintree_payment.total_commission
+    amount = @braintree_payment.total_sum
+    service_fee = @braintree_payment.commission_without_vat
 
     log_info("Sending sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
 
@@ -66,7 +66,7 @@ class BraintreePaymentsController < ApplicationController
 
     if @braintree_account
       # Braintree account exists
-      if @braintree_account.community_id != @current_community.id
+      if @braintree_account.community_id.present? && @braintree_account.community_id != @current_community.id
         # ...but is associated to different community
         account_community = Community.find(@braintree_account.community_id)
         flash[:error] = "Unfortunately, we can not proceed with the payment. Please contact administrators."

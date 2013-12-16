@@ -1,4 +1,4 @@
-class PaymentCreatedJob < Struct.new(:payment_id, :community_id)
+class PaymentCreatedJob < Struct.new(:payment_id, :community_id, :send_payment_email, :send_receipt_email)
   
   include DelayedAirbrakeNotification
   
@@ -15,9 +15,9 @@ class PaymentCreatedJob < Struct.new(:payment_id, :community_id)
       payment = Payment.find(payment_id)
       community = Community.find(community_id)
       if payment.recipient.should_receive?("email_about_new_payments")
-        PersonMailer.new_payment(payment, community).deliver
+        PersonMailer.new_payment(payment, community).deliver if send_payment_email
       end
-      PersonMailer.receipt_to_payer(payment, community).deliver
+      PersonMailer.receipt_to_payer(payment, community).deliver if send_receipt_email
       
       Delayed::Job.enqueue(ConfirmReminderJob.new(payment.conversation.id, payment.payer.id, community_id, 0), :priority => 0, :run_at => 1.week.from_now) if community.testimonials_in_use
     rescue => ex
