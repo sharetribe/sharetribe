@@ -14,12 +14,12 @@ class BraintreePaymentsController < ApplicationController
 
   module BTLog
     class << self
-      def info(msg)
-        Rails.logger.info "[Braintree] #{msg}"
+      def warn(msg)
+        Rails.logger.warn "[Braintree] #{msg}"
       end
 
       def error(msg)
-        Rails.logger.info "[Braintree] #{msg}"
+        Rails.logger.error "[Braintree] #{msg}"
       end
     end
   end
@@ -28,7 +28,7 @@ class BraintreePaymentsController < ApplicationController
   def edit
     @conversation = Conversation.find(params[:message_id])
     @braintree_payment = @conversation.payment
-    community_payment_gateway = @current_community.community_payment_gateways.first
+    community_payment_gateway = @current_community.payment_gateways.first
     @braintree_client_side_encryption_key = community_payment_gateway.braintree_client_side_encryption_key
   end
 
@@ -38,12 +38,12 @@ class BraintreePaymentsController < ApplicationController
     listing = @conversation.listing
 
     commission = @current_community.commission_from_seller
-    price = @braintree_payment.sum_cents.to_f / 100
+    price = @braintree_payment.sum_cents
 
-    amount = PaymentMath::SellerCommission.seller_gets(price, commission)
-    service_fee = PaymentMath.service_fee(price, commission)
+    amount = PaymentMath::SellerCommission.seller_gets(price, commission) / 100
+    service_fee = PaymentMath.service_fee(price, commission) / 100
 
-    BTLog.info("Sending sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
+    BTLog.warn("Sending sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
 
     payment_params = params[:braintree_payment] || {}
 
@@ -59,7 +59,7 @@ class BraintreePaymentsController < ApplicationController
 
     if result.success?
       transaction_id = result.transaction.id
-      BTLog.info("Successful sale transaction #{transaction_id} from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
+      BTLog.warn("Successful sale transaction #{transaction_id} from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
       @braintree_payment.paid!
       @braintree_payment.braintree_transaction_id = transaction_id
       @braintree_payment.save

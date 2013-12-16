@@ -3,8 +3,7 @@ Feature: Seller creates an invoice with Braintree
   As a seller
   I want to invoice the buyer with Braintree payments
 
-  @javascript
-  Scenario: User accepts a payment-requiring request and creates an invoice
+  Background:
     Given there are following users:
       | person | 
       | kassi_testperson1 |
@@ -15,6 +14,25 @@ Feature: Seller creates an invoice with Braintree
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
     Then I should see "1" within ".inbox-link"
+
+  @javascript
+  Scenario: User can not accept request without Braintree account
+    When I follow "Accept request"
+    Then I should see "You need to fill in payout details before you can accept the request"
+
+  @javascript
+  Scenario: User can not accept request without active Braintree account
+    Given there are following Braintree accounts:
+      | person            | status |
+      | kassi_testperson1 | pending |
+    When I follow "Accept request"
+    Then I should see "You need to fill in payout details before you can accept the request"
+
+  @javascript
+  Scenario: User accepts a payment-requiring request and creates an invoice
+    Given there are following Braintree accounts:
+      | person            | status |
+      | kassi_testperson1 | active |
     When I follow "Accept request"
     Then I should see "20.90" in the "conversation_payment_attributes_sum" input
     And I should see "3" within "#service-fee"

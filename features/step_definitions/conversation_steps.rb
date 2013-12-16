@@ -1,9 +1,13 @@
 Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
+  # Hard-coded to the first community. Change this if needed
+  community = @listing.communities.first
+
   @conversation = Conversation.create!(:listing_id => @listing.id, 
                                       :title => message,
                                       :status => "pending", 
                                       :conversation_participants => { @listing.author.id => "false", @people[sender].id => "true"},
-                                      :message_attributes => { :content => message, :sender_id => @people[sender].id }
+                                      :message_attributes => { :content => message, :sender_id => @people[sender].id },
+                                      :community => community
                                       ) 
 end
 

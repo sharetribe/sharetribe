@@ -21,8 +21,7 @@ class Community < ActiveRecord::Base
   
   has_and_belongs_to_many :listings
   
-  has_many :community_payment_gateways, :dependent => :destroy 
-  has_many :payment_gateways, :through => :community_payment_gateways
+  has_many :payment_gateways, :dependent => :destroy
   
   after_create :initialize_settings
   before_destroy :delete_specific_community_categories
@@ -610,19 +609,20 @@ class Community < ActiveRecord::Base
   end
   
   def braintree_in_use?
-    payment_gateways.include?(BraintreePaymentGateway.first)
+    payment_gateways.any? { |gateway| gateway.type == "BraintreePaymentGateway"}
   end
   
   # Returns the total service fee for a certain listing
   # in the current community (including gateway fee, platform
   # fee and marketplace fee)
   def service_fee_for(listing)
-    PaymentMath.service_fee(listing.price, commission_from_seller)
+    service_fee = PaymentMath.service_fee(listing.price_cents, commission_from_seller)
+    Money.new(service_fee, listing.currency)
   end
   
   # Price that the seller gets after the service fee is deducted
   def price_seller_gets_for(listing)
-    seller_gets = PaymentMath::SellerCommission.seller_gets(listing.price_cents.to_f, commission_from_seller)
+    seller_gets = PaymentMath::SellerCommission.seller_gets(listing.price_cents, commission_from_seller)
     Money.new(seller_gets, listing.currency)
   end
   
