@@ -14,7 +14,7 @@ class BraintreePaymentsController < ApplicationController
 
   module BTLog
     class << self
-      def info(msg)
+      def warn(msg)
         Rails.logger.warn "[Braintree] #{msg}"
       end
 
