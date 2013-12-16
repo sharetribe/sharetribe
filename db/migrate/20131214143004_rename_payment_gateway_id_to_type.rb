@@ -1,4 +1,8 @@
 class RenamePaymentGatewayIdToType < ActiveRecord::Migration
+  class CommunityPaymentGateway < ActiveRecord::Base
+    # Just empty class to make the migration through even if that class is already deleted when running this.
+  end
+  
   def up
     add_column :community_payment_gateways, :type, :string, :after => :payment_gateway_id
 
