@@ -12,6 +12,18 @@ class BraintreePaymentsController < ApplicationController
   
   skip_filter :dashboard_only
 
+  module BTLog
+    class << self
+      def info(msg)
+        Rails.logger.info "[Braintree] #{msg}"
+      end
+
+      def error(msg)
+        Rails.logger.info "[Braintree] #{msg}"
+      end
+    end
+  end
+
   # This expects that each conversation already has a (pending) payment at this point
   def edit
     @conversation = Conversation.find(params[:message_id])
@@ -23,11 +35,15 @@ class BraintreePaymentsController < ApplicationController
   def update
     payer = @current_user
     recipient = @braintree_payment.recipient
+    listing = @conversation.listing
 
-    amount = @braintree_payment.total_sum
-    service_fee = @braintree_payment.commission_without_vat
+    commission = @current_community.commission_from_seller
+    price = @braintree_payment.sum_cents.to_f / 100
 
-    log_info("Sending sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
+    amount = PaymentMath::SellerCommission.seller_gets(price, commission)
+    service_fee = PaymentMath.service_fee(price, commission)
+
+    BTLog.info("Sending sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
 
     payment_params = params[:braintree_payment] || {}
 
@@ -43,13 +59,13 @@ class BraintreePaymentsController < ApplicationController
 
     if result.success?
       transaction_id = result.transaction.id
-      log_info("Successful sale transaction #{transaction_id} from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
+      BTLog.info("Successful sale transaction #{transaction_id} from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
       @braintree_payment.paid!
       @braintree_payment.braintree_transaction_id = transaction_id
       @braintree_payment.save
       redirect_to person_message_path(:id => params[:message_id])
     else
-      log_error("Unsuccessful sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}: #{result.message}")
+      BTLog.error("Unsuccessful sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}: #{result.message}")
       flash[:error] = result.message
       redirect_to :edit_person_message_braintree_payment
     end
@@ -72,7 +88,7 @@ class BraintreePaymentsController < ApplicationController
         flash[:error] = "Unfortunately, we can not proceed with the payment. Please contact administrators."
 
         error_msg = "User #{@current_user.id} tries to pay for user #{@braintree_payment.recipient_id} which has Braintree account for another community #{account_community.name}"
-        log_error(error_msg)
+        BTLog.error(error_msg)
         ApplicationHelper.send_error_notification(error_msg, "BraintreePaymentAccountError")
         redirect_to person_message_path
       end
@@ -93,16 +109,8 @@ class BraintreePaymentsController < ApplicationController
     begin
       block.call
     rescue Exception => e
-      log_error("Expection #{e}")
+      BTLog.error("Expection #{e}")
       raise e
     end
-  end
-
-  def log_info(msg)
-    logger.info "[Braintree] #{msg}"
-  end
-
-  def log_error(msg)
-    logger.error "[Braintree] #{msg}"
   end
 end

@@ -617,12 +617,13 @@ class Community < ActiveRecord::Base
   # in the current community (including gateway fee, platform
   # fee and marketplace fee)
   def service_fee_for(listing)
-    (listing.price * (commission_from_seller.to_f/100)).to_f.ceil
+    PaymentMath.service_fee(listing.price, commission_from_seller)
   end
   
   # Price that the seller gets after the service fee is deducted
   def price_seller_gets_for(listing)
-    listing.price - Money.new(service_fee_for(listing)*100, listing.currency)
+    seller_gets = PaymentMath::SellerCommission.seller_gets(listing.price_cents.to_f, commission_from_seller)
+    Money.new(seller_gets, listing.currency)
   end
   
   # Return either minimum price defined by this community or the absolute

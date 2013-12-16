@@ -190,5 +190,6 @@ FactoryGirl.define do
     braintree_public_key { APP_CONFIG.braintree_test_public_key }
     braintree_private_key { APP_CONFIG.braintree_test_private_key }
     braintree_client_side_encryption_key { APP_CONFIG.braintree_client_side_encryption_key }
+    braintree_environment { APP_CONFIG.braintree_environment }
   end
 end

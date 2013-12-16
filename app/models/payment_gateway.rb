@@ -17,7 +17,7 @@ class PaymentGateway < ActiveRecord::Base
   # initializes the payment and returns the data that is needed by the template.
   
   def requires_payout_registration_before_accept?
-    false
+    true
   end
   
   # this is called after the payment is paid.
@@ -46,6 +46,10 @@ class PaymentGateway < ActiveRecord::Base
   def has_additional_terms_of_use
     false
   end
+
+  def seller_pays_commission?
+    false
+  end
   
   # by default return the class name, but this can be overridden 
   # in child classes if name is not exaxtly the class name
@@ -55,5 +59,9 @@ class PaymentGateway < ActiveRecord::Base
 
   def new_payment_path(person, message, locale)
     new_person_message_payment_path(:person_id => person.id.to_s, :message_id => message.id.to_s, :locale => locale)
+  end
+
+  def new_payment
+    Payment.new
   end
 end

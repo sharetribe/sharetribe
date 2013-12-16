@@ -78,10 +78,6 @@ class Mangopay < PaymentGateway
 
   end
   
-  def requires_payout_registration_before_accept?
-    true
-  end
-  
   def register_payout_details(person)
     create_mangopay_beneficiary(person)
   end

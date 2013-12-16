@@ -35,12 +35,6 @@ describe BraintreeWebhooksController do
       # Prepare
       @person = FactoryGirl.create(:person, :id => "123abc")
 
-      # TODO Move these
-      Braintree::Configuration.environment = :sandbox
-      Braintree::Configuration.merchant_id = "vyhwdzxmbvw64z8v"
-      Braintree::Configuration.public_key = "fp654nr3qzzz5k78"
-      Braintree::Configuration.private_key = "119c7481abe69f6e4c1ca1d3d8ad17e3"
-
       signature, payload = BraintreeService.webhook_testing_sample_notification(
         @community,
         Braintree::WebhookNotification::Kind::SubMerchantAccountApproved,
