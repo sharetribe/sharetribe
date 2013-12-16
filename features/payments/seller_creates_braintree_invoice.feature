@@ -36,7 +36,6 @@ Feature: Seller creates an invoice with Braintree
     When I follow "Accept request"
     Then I should see "20.90" in the "conversation_payment_attributes_sum" input
     And I should see "3" within "#service-fee"
-    Then show me the page
     And I should see "17.90" within "#payment-to-seller"
     When I fill in "conversation_payment_attributes_sum" with "dsdfs"
     And I press "Send"
