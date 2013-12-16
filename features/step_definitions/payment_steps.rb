@@ -2,6 +2,7 @@ require 'cucumber/rspec/doubles'
 
 CC_NAME = "[name='braintree_payment[cardholder_name]']"
 CC_NUMBER = "[name='braintree_payment[credit_card_number]']"
+CC_CVV = "[name='braintree_payment[cvv]']"
 
 Given /^there are following Braintree accounts:$/ do |bt_accounts|
   # Create new accounts
@@ -119,6 +120,7 @@ end
 When /^I fill in my payment details for Braintree$/ do
   find("#{CC_NAME}").set("Joe Bloggs")
   find("#{CC_NUMBER}").set("5105105105105100")
+  find("#{CC_CVV}").set("123")
 end
 
 When /^I browse to payment settings$/ do
