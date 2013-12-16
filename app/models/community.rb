@@ -20,7 +20,8 @@ class Community < ActiveRecord::Base
   has_many :statistics, :dependent => :destroy
   
   has_and_belongs_to_many :listings
-  has_and_belongs_to_many :payment_gateways
+  
+  has_one :payment_gateway, :dependent => :destroy
   
   after_create :initialize_settings
   before_destroy :delete_specific_community_categories
@@ -552,12 +553,16 @@ class Community < ActiveRecord::Base
     # as currently all messages are shown in all communities, there might be case where the
     # message would have payment possible in it's original community, but in this community the cc
     # is not found with the above search, so then payment is not possible here. (cc must be present)
-    payments_in_use && cc.present? && (cc.price || cc.payment)
+    payments_in_use? && cc.present? && (cc.price || cc.payment)
+  end
+  
+  def payments_in_use?
+    payment_gateway.present?
   end
   
   # Does this community require that people have registered payout method before accepting requests
   def requires_payout_registration?
-    payment_gateways.present? && payment_gateways.first.requires_payout_registration_before_accept?
+    payment_gateway.present? && payment_gateway.requires_payout_registration_before_accept?
   end
 
 
@@ -579,7 +584,7 @@ class Community < ActiveRecord::Base
   
   def default_currency
     if available_currencies
-      available_currencies.split(",").first
+      available_currencies.gsub(" ","").split(",").first
     else
       MoneyRails.default_currency
     end
@@ -601,6 +606,38 @@ class Community < ActiveRecord::Base
       # so return empty array, as it shouldn't matter in those cases
       return []
     end
+  end
+  
+  def braintree_in_use?
+    payment_gateway.present? && payment_gateway.type == "BraintreePaymentGateway"
+  end
+  
+  def mangopay_in_use?
+    payment_gateway.present? && payment_gateway.type == "Mangopay"
+  end
+  
+  # Returns the total service fee for a certain listing
+  # in the current community (including gateway fee, platform
+  # fee and marketplace fee)
+  def service_fee_for(listing)
+    service_fee = PaymentMath.service_fee(listing.price_cents, commission_from_seller)
+    Money.new(service_fee, listing.currency)
+  end
+  
+  # Price that the seller gets after the service fee is deducted
+  def price_seller_gets_for(listing)
+    seller_gets = PaymentMath::SellerCommission.seller_gets(listing.price_cents, commission_from_seller)
+    Money.new(seller_gets, listing.currency)
+  end
+  
+  # Return either minimum price defined by this community or the absolute
+  # platform default minimum price.
+  def absolute_minimum_price(currency)
+    self.minimum_price || Money.new(100, (currency || "EUR"))
+  end
+  
+  def invoice_form_type_for(listing)
+    payment_possible_for?(listing) ? payment_gateway.invoice_form_type : "no_form"
   end
   
   private

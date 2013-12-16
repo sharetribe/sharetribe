@@ -4,7 +4,7 @@
     = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.price_cents ? @listing.price_cents / 100 : 0)
     .currency-selector
       - if @current_community.available_currencies
-        - currencies = @current_community.available_currencies.split(",")
+        - currencies = @current_community.available_currencies.gsub(" ","").split(",")
         - if currencies.size > 1
           = form.select :currency, currencies, { :selected => (@listing.currency || currencies.first) }
         - else
@@ -17,5 +17,8 @@
       = form.text_field :quantity, :class => "quantity-field", :placeholder => t(".#{@community_category.price_quantity_placeholder}")
     %small
       = t(".price_excludes_vat", :vat => @current_community.vat) if @current_community.vat
-      = t(".service_fee_will_be_added", :fee => @current_community.commission_percentage) if @current_community.commission_percentage
-  
+      - if @current_community.commission_from_seller
+        - if @seller_commission
+          = t(".service_fee_will_be_deducted", :fee => @current_community.commission_from_seller)
+        - else
+          = t(".service_fee_will_be_added", :fee => @current_community.commission_from_seller)

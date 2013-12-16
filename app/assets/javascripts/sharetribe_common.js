@@ -76,6 +76,7 @@ function translate_validation_messages(locale) {
         max: jQuery.validator.format(json.validation_messages.max),
         min: jQuery.validator.format(json.validation_messages.min),
         address_validator: jQuery.validator.format(json.validation_messages.address_validator),
+        money: jQuery.validator.format(json.validation_messages.money),
     });
   });
 }

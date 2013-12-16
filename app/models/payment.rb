@@ -2,9 +2,9 @@ class Payment < ActiveRecord::Base
   
   include MathHelper
   
-  VALID_STATUSES = ["paid", "pending"]
+  VALID_STATUSES = ["paid", "pending", "disbursed"]
   
-  attr_accessible :conversation_id, :payer_id, :recipient_id
+  attr_accessible :conversation_id, :payer_id, :recipient_id, :braintree_transaction_id
   
   belongs_to :conversation
   belongs_to :payer, :class_name => "Person"
@@ -12,9 +12,28 @@ class Payment < ActiveRecord::Base
   
   belongs_to :community
 
-  validates_inclusion_of :status, :in => VALID_STATUSES
-  
   has_many :rows, :class_name => "PaymentRow"
+  
+  monetize :sum_cents, :allow_nil => true
+
+  validates_inclusion_of :status, :in => VALID_STATUSES
+  validate :sum_exists
+  validate :one_conversation_cannot_have_multiple_payments
+  
+  # There can be only one payment related to a certain conversation
+  def one_conversation_cannot_have_multiple_payments
+    payments = Payment.where(:conversation_id => conversation.id)
+    if payments.size > 1 || (payments.size == 1 && payments.first.id != self.id)
+      errors.add(:base, "An invoice exists already for this conversation")
+    end
+  end
+  
+  # Payment must have either sum or at least one row
+  def sum_exists
+    if rows.empty? && !sum_cents
+      errors.add(:base, "Payment is not valid without sum")
+    end
+  end
   
   def initialize_rows(community)
     if community.vat
@@ -26,13 +45,13 @@ class Payment < ActiveRecord::Base
   
   # Payment excluding VAT and commission
   def sum_without_vat_and_commission
-    rows.inject(Money.new(0, rows.first.currency)) { |total, row| total += row.sum }
+    rows.empty? ? sum : rows.inject(Money.new(0, rows.first.currency)) { |total, row| total += row.sum }
   end
 
   # Commission excluding VAT
   def commission_without_vat
-    throw "Comission percentage has to be set" unless community.commission_percentage 
-    sum_without_vat_and_commission*community.commission_percentage/100
+    throw "Comission percentage has to be set" unless community.commission_from_seller 
+    sum_without_vat_and_commission*community.commission_from_seller/100
   end
   
   # Commission including VAT
@@ -53,10 +72,25 @@ class Payment < ActiveRecord::Base
   def summary_string
     rows.collect(&:title).join(", ")
   end
+
+  # This is a hacky solution to prevent sending mail if Braintree is used
+  def send_receipt_email
+    true
+  end
+
+  # This is a hacky solution to prevent sending mail if Braintree is used
+  def send_payment_email
+    true
+  end
   
   def paid!
     update_attribute(:status, "paid")
     conversation.paid_by!(payer)
-    Delayed::Job.enqueue(PaymentCreatedJob.new(id, community.id))
+    Delayed::Job.enqueue(PaymentCreatedJob.new(id, community.id, send_payment_email, send_receipt_email))
+  end
+
+  def disbursed!
+    update_attribute(:status, "disbursed")
+    # Notification here?
   end
 end

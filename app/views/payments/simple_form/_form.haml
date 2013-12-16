@@ -1,32 +1,35 @@
 .conversation-price.accept-price{:class => (@action.eql?("accept") ? "" : "hidden")}
-  %h3= t("payments.form.request_payment")
-  %p= t("payments.form.payment_request_instructions")
+  %h3.invoice-title= t("payments.form.invoice")
   = fields_for "conversation[payment_attributes]", @payment do |payment_form|
     = payment_form.hidden_field :community_id, :value => @current_community.id
-    - @payment.initialize_rows(@current_community)
+    = payment_form.hidden_field :currency, :value => @conversation.listing.currency
     
-    .payment-row-headings.bottom-border
-      .payment-row-heading.payment-row-title-heading
+    .invoice-row
+      .invoice-row-left.invoice-row-text-column
         = t("payments.form.product")
-      .payment-row-heading.payment-row-sum-heading
-        = t("payments.form.price") 
+      .invoice-row-right.invoice-row-text-column
+        = link_to @conversation.listing.title, @conversation.listing
 
-    - @payment.rows.each_with_index do |row, index|
-      = render :partial => "payments/simple_form/payment_row", :locals => { :row => row, :index => index, :values => ((index == 0) ? {:title => @conversation.listing.title, :sum => @conversation.listing.price} : {:title => "", :sum => 0})}
-        
-      
-    .payment-row.payment-text-row.bottom-border
-      .payment-row-title-text.payment-row-text
-        = t("payments.form.service_charge")
-        
-      #service-fee-total.payment-row-total-text.payment-row-text
+    .invoice-row
+      .invoice-row-left.invoice-row-text-column
+        = t("payments.form.price")
+      .invoice-row-symbol
+        = @conversation.listing.price_symbol
+      .invoice-row-right
+        = payment_form.text_field :sum, :value => @conversation.listing.price, :class => "invoice-sum-field trigger-focusout"
 
-    .payment-row.payment-text-row.payment-sum-row
-      .payment-row-title-text.payment-row-text
-        = t("payments.form.total")
-        
-      .payment-row-sum-text.payment-row-text
-        
-      .payment-row-vat-text.payment-row-text
-        
-      #total.payment-row-total-text.payment-row-text
+    .invoice-row
+      .invoice-row-left.invoice-row-text-column
+        = t("payments.form.service_fee")
+      .invoice-row-symbol
+        = @conversation.listing.price_symbol
+      #service-fee.invoice-row-right.invoice-row-text-column
+        = @current_community.service_fee_for(@conversation.listing)
+
+    .invoice-row
+      .invoice-row-left.invoice-row-text-column
+        = t("payments.form.you_will_get")
+      .invoice-row-symbol
+        = @conversation.listing.price_symbol
+      #payment-to-seller.invoice-row-right.invoice-row-text-column
+        = @current_community.price_seller_gets_for(@conversation.listing)

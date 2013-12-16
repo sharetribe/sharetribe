@@ -12,6 +12,13 @@ env:
     - AWS_S3_BUCKET="sharetribe-travis-cache"
     - RAILS_ENV=test
     - secure: QJBiGsabtqY6qvGdrYoCJtSCOl53jt1dPTYG4Md++icBK4llEzRsXYoNKJdBG9Q6p3vmR/Yw76Ph2dX1lh5GeDE3aPJ1iWNSrUYDoURV/LeTNZR8bGEncJp961qYPWGoKv5t4NlgehJzwpTHIIC3ToRT5RlkZYaxTUNxvbAqj70=
+
+    # Braintree sandbox credentials
+    - braintree_environment: sandbox
+    - secure: JKcR0dOvEzjuL9qrwmPX8E49UzLxK8PslpZR1F3/+bj/ZEB8dqI01eoAVLLB9aoy/7wBMizl1hzgdEk94OJLSiJibXugadOcECpjvbL4n2g8bntiij1HSpsTiBzTJqYrXBN9VCqCCxjvVNsseX4KWfyfWdKNKHX9+1eWAl6gZG8=
+    - secure: X1DiDlQ+HFY8ICLwPD+sw0d1zhxoIPFDvL0WTugRzTcQlTDt+tdLJCsGs523YAp3ci/9kEPDRXlQNTN5l0PZp6S1c1Ye8nO3mTGrlIkKnkB32Y59rpR9T980LgahL3lcod1uc3EM95lOkmvO8Ma4uMM9rWjcYxnyS9TJOXuGbqE=
+    - secure: AquipD3Ru6Xyk2K/mt2jmb/kh0GiAhTpLKlOsg6EdEE4VK/JPJUdbki3K/3jfwmCXZIDVBUfKjG/jt8ui0OKGlcI0ToTu4b9U1ZJ7EuMh2MibcKWb6b5XJlfYXC34jDSM4JSOyuR0ZMi0U1hcT6CJDabs6wSGQrJFiQMRSaDyMg=
+    - secure: VObS2Rnc3KgPz3uO50KiWcxXa+QXrbe0HPVVmzd5AUvJuRRvv0dPJZVrgzVLh8L1KfwFemcGz/Px9Ftt6kHqGeQktrb5QypGRgyuNJccFw0Qrqk2oTE0V8eOovixoufG9pRjPGOJMBenf6IKa3+5qBrCpCmdP2je6QHIkpbG4wk=
 notifications:
   recipients:
   - main@sharetribe.flowdock.com

@@ -14,7 +14,7 @@ class PaymentsController < ApplicationController
     @conversation = Conversation.find(params[:message_id])
     @payment = @conversation.payment  #This expects that each conversation already has a (pending) payment at this point
     
-    @payment_gateway = @current_community.payment_gateways.first
+    @payment_gateway = @current_community.payment_gateway
 
     if @payment_gateway.can_receive_payments_for?(@payment.recipient)
       @payment_data = @payment_gateway.payment_data(@payment, 
@@ -34,7 +34,7 @@ class PaymentsController < ApplicationController
   
   def done
     @payment = Payment.find(params[:id])
-    @payment_gateway = @current_community.payment_gateways.first
+    @payment_gateway = @current_community.payment_gateway
     
     check = @payment_gateway.check_payment(@payment, { :params => params, :mock =>@current_community.settings["mock_cf_payments"]})
     

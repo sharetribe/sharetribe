@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131129095727) do
+ActiveRecord::Schema.define(:version => 20131214143005) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -33,6 +33,26 @@ ActiveRecord::Schema.define(:version => 20131129095727) do
   end
 
   add_index "badges", ["person_id"], :name => "index_badges_on_person_id"
+
+  create_table "braintree_accounts", :force => true do |t|
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "person_id"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "address_street_address"
+    t.string   "address_postal_code"
+    t.string   "address_locality"
+    t.string   "address_region"
+    t.date     "date_of_birth"
+    t.string   "ssn"
+    t.string   "routing_number"
+    t.string   "account_number"
+    t.string   "status"
+    t.integer  "community_id"
+  end
 
   create_table "cached_ressi_events", :force => true do |t|
     t.string   "user_id"
@@ -128,11 +148,10 @@ ActiveRecord::Schema.define(:version => 20131129095727) do
     t.string   "custom_color2"
     t.string   "stylesheet_url"
     t.string   "service_logo_style",                :default => "full-logo"
-    t.boolean  "payments_in_use",                   :default => false
     t.text     "available_currencies"
     t.boolean  "facebook_connect_enabled",          :default => true
     t.integer  "vat"
-    t.integer  "commission_percentage"
+    t.integer  "commission_from_seller"
     t.boolean  "only_public_listings",              :default => true
     t.string   "custom_email_from_address"
     t.integer  "minimum_price_cents"
@@ -169,13 +188,6 @@ ActiveRecord::Schema.define(:version => 20131129095727) do
 
   add_index "communities_listings", ["community_id"], :name => "index_communities_listings_on_community_id"
   add_index "communities_listings", ["listing_id", "community_id"], :name => "communities_listings"
-
-  create_table "communities_payment_gateways", :id => false, :force => true do |t|
-    t.integer "community_id"
-    t.integer "payment_gateway_id"
-  end
-
-  add_index "communities_payment_gateways", ["community_id"], :name => "index_communities_payment_gateways_on_community_id"
 
   create_table "community_categories", :force => true do |t|
     t.integer  "community_id"
@@ -522,9 +534,16 @@ ActiveRecord::Schema.define(:version => 20131129095727) do
   add_index "participations", ["person_id"], :name => "index_participations_on_person_id"
 
   create_table "payment_gateways", :force => true do |t|
+    t.integer  "community_id"
     t.string   "type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "braintree_environment"
+    t.string   "braintree_merchant_id"
+    t.string   "braintree_master_merchant_id"
+    t.string   "braintree_public_key"
+    t.string   "braintree_private_key"
+    t.text     "braintree_client_side_encryption_key"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
   end
 
   create_table "payment_rows", :force => true do |t|
@@ -545,9 +564,13 @@ ActiveRecord::Schema.define(:version => 20131129095727) do
     t.string   "organization_id"
     t.integer  "conversation_id"
     t.string   "status"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                                              :null => false
+    t.datetime "updated_at",                                              :null => false
     t.integer  "community_id"
+    t.string   "type",                     :default => "CheckoutPayment"
+    t.string   "braintree_transaction_id"
+    t.integer  "sum_cents"
+    t.string   "currency"
   end
 
   add_index "payments", ["conversation_id"], :name => "index_payments_on_conversation_id"

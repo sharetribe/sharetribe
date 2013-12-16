@@ -65,6 +65,7 @@ gem 'fb-channel-file'
 gem 'country_select'
 gem 'localized_country_select', '>= 0.9.3'
 gem 'mangopay'
+gem 'braintree'
 
 #ouisharelabs
 gem 'rdf-turtle'
@@ -102,5 +103,6 @@ group :test do
   gem "parallel_tests", :group => :development
   gem 'spork-rails'
   gem 'timecop'
+  gem 'rack-test'
 end
 

@@ -6,6 +6,7 @@ class Conversation < ActiveRecord::Base
   
   has_many :participations, :dependent => :destroy
   has_many :participants, :through => :participations, :source => :person
+  belongs_to :community
 
   has_one :payment
   
@@ -28,13 +29,22 @@ class Conversation < ActiveRecord::Base
   end
   
   def payment_attributes=(attributes)
-    payment ||= Payment.new
+    payment ||= community.payment_gateway.new_payment
     payment.conversation = self
     payment.status = "pending"
     payment.payer = requester
     payment.recipient = offerer
     payment.community_id = attributes[:community_id]
-    attributes[:payment_rows].each { |row| payment.rows.build(row.merge(:currency => "EUR")) unless row["title"].blank? }
+    # Simple payment form
+    if attributes[:sum]
+      payment.sum_cents = Money.parse(attributes[:sum]).cents
+      payment.currency = attributes[:currency]
+    # Complex (multi-row) payment form
+    else
+      attributes[:payment_rows].each { |row| payment.rows.build(row.merge(:currency => "EUR")) unless row["title"].blank? }
+    end
+
+
     payment.save!
   end
   

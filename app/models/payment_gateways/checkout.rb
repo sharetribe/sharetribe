@@ -8,6 +8,10 @@ class Checkout < PaymentGateway
     "payments/checkout"
   end
   
+  def invoice_form_type
+    "complex"
+  end
+  
   def payment_data(payment, options={})
     
     unless options[:mock]
@@ -81,10 +85,6 @@ class Checkout < PaymentGateway
   
   def can_receive_payments_for?(person)
     self.has_registered?(person)
-  end
-
-  def requires_payout_registration_before_accept?
-    true
   end
 
   def register_payout_details(person)
