@@ -978,6 +978,9 @@ fi:
       profile: "Profiilin tiedot"
       settings: Asetukset
       payments: Maksutiedot
+    payment_header:
+      new_payment: "Uusi maksu"
+      payment_receiver: "Maksun saaja:"
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Sinulla ei ole oikeuksia nähdä tätä ilmoitusta."
@@ -1305,6 +1308,9 @@ fi:
       invoice: "Lasku"
       service_fee: "%{service_name} palvelumaksu:"
       you_will_get: "Sinulle tilitetään:"
+    complex_form:
+      show:
+        continue: Jatka
     braintree:
       terms:
         braintree_terms_also_included: "HUOM: Tämä verkkopalvelu käyttää maksunvälittäjänä Braintree-palvelua ja käyttämällä tätä verkkopalvelua hyväksyt alla olevien ehtojen lisäksi myös %{terms_link_text}."
