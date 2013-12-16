@@ -10,13 +10,13 @@
 
     - if status == "pending"
       %p
-        = "Your account is pending for approval. This shouldn't take more than couple minutes. We'll email you when your payment account is ready to be used."
+        = "Your account is pending for approval. This shouldn't take more than a couple of minutes. We'll email you when your payment account is ready to be used."
     - elsif status == "suspended"
       %p
         = "Your account was declined during the activation process. Please contact the administrators for more information."
     - elsif status == "active"
       %p
-        = "Your payment account is approved and ready to be used"
+        = "Your payment account is approved and ready to be used."
     - else
       %p
         = "Something went wrong. Please contact administrators."

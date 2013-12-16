@@ -1,7 +1,7 @@
 class BraintreePaymentsController < ApplicationController
 
   before_filter :fetch_conversation
-
+  before_filter :ensure_not_paid_already
   before_filter :payment_can_be_conducted
   
   before_filter do |controller|
@@ -99,6 +99,14 @@ class BraintreePaymentsController < ApplicationController
   def fetch_conversation
     @conversation = Conversation.find(params[:message_id])
     @braintree_payment = @conversation.payment
+  end
+
+  # Before filter
+  def ensure_not_paid_already
+    if @conversation.payment.status != "pending"
+      flash[:error] = "Could not find pending payment. It might be the payment is paid already."
+      redirect_to single_conversation_path(:conversation_type => :received, :id => @conversation.id) and return
+    end
   end
   
   def payment_can_be_conducted
