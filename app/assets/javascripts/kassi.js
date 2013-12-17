@@ -582,7 +582,6 @@ function initialize_accept_transaction_form(commission_percentage, service_fee_v
 }
 
 function update_simple_form_price_fields(commission_percentage) {
-  debugger
   var sum = parseFloatFromFieldValue($(".invoice-sum-field").val());
   var service_fee_sum = Math.ceil(sum*commission_percentage/100);
   var seller_sum = sum - service_fee_sum;
