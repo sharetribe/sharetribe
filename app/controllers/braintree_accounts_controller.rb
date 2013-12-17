@@ -104,7 +104,7 @@ class BraintreeAccountsController < ApplicationController
 
     if @braintree_account
       # Braintree account exists
-      if @braintree_account.community_id != @current_community.id
+      if @braintree_account.community_id.present? && @braintree_account.community_id != @current_community.id
         # ...but is associated to different community
         account_community = Community.find(@braintree_account.community_id)
         flash[:error] = "You have payment account for community #{account_community.name}. Unfortunately, you can not have payment accounts for multiple communities. You are unable to receive money from transactions in community #{@current_community.name}. Please contact administrators."
