@@ -1,0 +1,32 @@
+- conversation_url = person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @payment.conversation.id.to_s}))
+
+%tr
+  %td{:align => "left"} 
+    %font{body_font}
+      = t("emails.receipt_to_payer.you_have_made_new_payment", :listing_title => @payment.conversation.listing.title, :payment_sum => humanized_money_with_symbol(@payment.total_sum), :recipient_full_name => @payment.recipient.name(@community), :recipient_given_name => @payment.recipient.given_name_or_username).html_safe
+
+%tr
+  %td{:align => "left", :style => "padding: 10px 0;"}
+    %table{:cellpadding => 5, :cellspacing => 0}
+      %tbody
+        %tr
+          %td
+            %b
+              =t("emails.receipt_to_payer.item")
+          %td
+            %b
+              =t("emails.receipt_to_payer.price")
+          %tr
+            %td{:width => "250"}
+              = @payment.conversation.listing.title
+            %td
+              = "#{@payment.currency} #{@payment.total_sum.to_s}"
+        %tr
+          %td
+            %b
+              =t("emails.receipt_to_payer.total")
+          %td
+            %b= "#{@payment.currency} #{@payment.total_sum.to_s}"
+            
+            
+= render :partial => "action_button", :locals => { :text => t("emails.conversation_status_changed.view_thread"), :url => conversation_url}

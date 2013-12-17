@@ -49,4 +49,15 @@ class MailPreview < MailView
 
     PersonMailer.braintree_receipt_to_payer(payment, community)
   end
+
+  def braintree_new_payment
+    recipient = Struct.new(:id, :given_name_or_username, :confirmed_notification_emails_to, :new_email_auth_token, :locale).new("123", "Test Recipient", "test@example.com", "123-abc", "en")
+    payer = Struct.new(:id, :name, :given_name_or_username).new("123", "Test Payer", "Test Payer")
+    listing = Struct.new(:title).new("Hammer")
+    conversation = Struct.new(:id, :listing).new(123, listing)
+    community = Struct.new(:full_domain, :name, :full_name, :custom_email_from_address, :commission_from_seller).new('http://marketplace.example.com', 'Example Marketplace', 'Example Marketplace', 'marketplace@example.com', 12)
+    payment = Struct.new(:recipient, :payer, :conversation, :community, :commission_without_vat, :total_sum, :sum_cents, :currency).new(recipient, payer, conversation, community, 5000, 10, 5000, 500000, "EUR")
+    
+    PersonMailer.braintree_new_payment(payment, community)
+  end
 end
