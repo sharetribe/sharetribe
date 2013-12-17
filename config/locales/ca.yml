@@ -10,6 +10,9 @@ ca:
         community_description: ~
         update_information: ~
         invite_people: ~
+        edit_signup_info: ~
+        edit_signup_info_description: ~
+        edit_signup_info_link: ~
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
@@ -17,9 +20,9 @@ ca:
         community_cover_photo: ~
         community_custom_color1: ~
         community_custom_color2: ~
-        logo_instructions_text: ~
-        logo_icon_instructions_text: ~
-        cover_photo_instructions_text: ~
+        logo_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: ~
+        cover_photo_instructions_text_with_dimensions: ~
         custom_color1_instructions_text: ~
         custom_color2_instructions_text: ~
         invalid_color_code: ~
@@ -141,6 +144,7 @@ ca:
       price_to_pay: ~
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
+      minimum_price_error_message: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -268,6 +272,43 @@ ca:
       reject_request: "Rebutjar la sol·licitud"
       confirm: ~
       cancel: ~
+  braintree_accounts:
+    new:
+      add_payout_details: ~
+      first_name: ~
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+      save: ~
+    show:
+      payout_details: ~
+      first_name: ~
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+  braintree_payments:
+    edit:
+      cardholder_name: ~
+      credit_card_number: ~
+      cvv: ~
+      credit_card_expiration_date: ~
+      save: ~
   communities:
     map_bubble:
       view_tribe: ~
@@ -427,6 +468,9 @@ ca:
       you_have_not_yet_accepted_or_rejected_offer: "Encara no has acceptat o rebutjat l'oferta %{title} que vas rebre el %{date} ."
       you_have_not_yet_accepted_or_rejected_request: "Encara no has acceptat o rebutjat la sol·licitud %{title} que vas rebre al %{date} ."
       show_thread: ~
+    braintree_account_approved:
+      account_ready: ~
+      message: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
       remember_to_confirm_request: ~
@@ -939,6 +983,7 @@ ca:
       you_must_log_in_to_view_your_settings: "Iniciar sessió per a veure la teva configuració"
       you_must_log_in_to_add_news_item: "Has d'iniciar sesió per afegir un nou article"
       you_must_log_in_to_change_profile_settings: ~
+      you_must_log_in_to_change_payment_settings: ~
       you_need_to_confirm_your_account_first: "Hauràs de confirmar el teu compte abans."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Ja no segueixes aquest anunci"
@@ -947,6 +992,11 @@ ca:
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: ~
       email_deleted: ~
+      payment_details_add_successful: ~
+      payment_details_add_error: ~
+    payment_header:
+      new_payment: ~
+      payment_receiver: ~
     profile_extras_header:
       back_to_profile_of_person: "Torna al perfil d'usuari"
       badges: Medalles
@@ -1018,6 +1068,7 @@ ca:
         time: ~
         long_time: ~
         service_fee_will_be_added: ~
+        service_fee_will_be_deducted: ~
         price_excludes_vat: ~
       origin:
         location: Lloc
@@ -1267,9 +1318,7 @@ ca:
       delete_news_item: "Suprimeix l'article"
   okl:
     member_id: "Número d'identificació"
-    member_id_is_your_username: "Tens que donar la teva identificació de membre de Omakotiliitto (jäsennumero) per a iniciar sessió. La teva identificació de membre és també el teu nom d'usuari que necessitaràs quan inicis sessió. Si encara no ets membre d'Omakotiliitto, pots"
     member_id_or_email: ~
-    join_here: "Inicia sessió aquí."
   payments:
     new:
       new_payment: ~
@@ -1283,14 +1332,21 @@ ca:
       product: ~
       price: ~
       continue_to_pay: ~
+      invoice: ~
+      service_fee: ~
+      you_will_get: ~
     mangopay:
       terms:
         mangopay_terms_also_included: ~
-        mangopay_terms_link_text: ~
+        terms_link_text: ~
       seller_registration_needed:
         seller_registration_needed: ~
         seller_registration_instructions: ~
         settings_page_link: ~
+    braintree:
+      terms:
+        braintree_terms_also_included: ~
+        terms_link_text: ~
   people:
     index:
       loading_more_members: ~
@@ -1590,20 +1646,6 @@ ca:
       visible_to_everybody: "visible per a tothom"
       visible_to_registered_users: "visible per als usuaris que han iniciat la sessió"
     save_information: "Desa la informació"
-  sms:
-    or_check_the_offer_in_kassi: "o mira l'oferta %{listing_url}"
-    parsing_error: "Error. Siusplau consulta les instruccions i prova novament."
-    pay: Pagar
-    payment_delivered: "Pagament de %{amount} euros s'entrega a  %{receiver}. Pagaràs  %{amount_plus_commission} euros a la teva factura de telèfon."
-    potential_ride_share_offer: "%{author_name} ofereix un trasllat desde %{origin} fins a %{destination} %{start_time}."
-    request: "^ sol·licita$ | ^ r$"
-    rideshare: "Compartir cotxe"
-    you_can_call_him_at: "Pots trucar al conductor a %{phone_number}"
-    you_can_pay_gas_money_to_driver: "Per a pagar els diners de la benzina a  %{driver} Xe' donde x es la cantidad. La cantidad + 5% de comisión irá en tu factura de teléfono."
-    category_not_supported: "Aquesta categoria encara no està suportada per SMS."
-    check_the_offer_in_kassi: "Mira la oferta a Kassi: %{listing_url}"
-    listing_created: "Gràcies pel teu missatge, el llistat s'agrega ara a Kassi"
-    offer: "^ ofereix$ | ^ o$"
   tag_cloud:
     tag_used:
       with_tag: "Amb etiqueta"
