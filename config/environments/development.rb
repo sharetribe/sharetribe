@@ -10,7 +10,7 @@ Kassi::Application.configure do
 
   # To autoload MailPreview, uncomment this line
   # (this is a hack which is fixed properly in Rails 4)
-  config.action_view.cache_template_loading = false
+  # config.action_view.cache_template_loading = false
 
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
