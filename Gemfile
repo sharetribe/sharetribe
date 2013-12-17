@@ -86,6 +86,7 @@ group :development do
   gem 'rb-fsevent',       require: false
   gem 'guard-rspec',      require: false
   gem 'guard-spork',      require: false
+  gem "mail_view",        "~> 1.0.3"
 end
 
 group :test do
