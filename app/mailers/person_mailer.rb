@@ -33,6 +33,11 @@ class PersonMailer < ActionMailer::Base
     @email_type =  (conversation.status == "accepted" ? "email_when_conversation_accepted" : "email_when_conversation_rejected")
     set_up_urls(conversation.other_party(conversation.listing.author), community, @email_type)
     @conversation = conversation
+
+    if community.payments_in_use?
+      @payment_url = community.payment_gateway.new_payment_url(@recipient, @conversation, @recipient.locale, @url_params)
+    end
+
     mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.conversation_status_changed.your_#{Listing.opposite_type(conversation.listing.listing_type)}_was_#{conversation.status}"))
@@ -123,6 +128,10 @@ class PersonMailer < ActionMailer::Base
     set_up_urls(recipient, community)
     @listing = listing
     @recipient = recipient
+
+    if community.payments_in_use?
+      @payment_settings_link = community.payment_gateway.settings_url(@recipient, @recipient.locale, @url_params)
+    end
 
     mail(:to => recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
