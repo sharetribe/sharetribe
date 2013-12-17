@@ -10,6 +10,9 @@ nl:
         community_description: ~
         update_information: ~
         invite_people: ~
+        edit_signup_info: ~
+        edit_signup_info_description: ~
+        edit_signup_info_link: ~
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
@@ -17,9 +20,9 @@ nl:
         community_cover_photo: ~
         community_custom_color1: ~
         community_custom_color2: ~
-        logo_instructions_text: ~
-        logo_icon_instructions_text: ~
-        cover_photo_instructions_text: ~
+        logo_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: ~
+        cover_photo_instructions_text_with_dimensions: ~
         custom_color1_instructions_text: ~
         custom_color2_instructions_text: ~
         invalid_color_code: ~
@@ -141,6 +144,7 @@ nl:
       price_to_pay: ~
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
+      minimum_price_error_message: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -268,6 +272,43 @@ nl:
       reject_request: "Sla verzoek af"
       confirm: ~
       cancel: ~
+  braintree_accounts:
+    new:
+      add_payout_details: ~
+      first_name: ~
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+      save: ~
+    show:
+      payout_details: ~
+      first_name: ~
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+  braintree_payments:
+    edit:
+      cardholder_name: ~
+      credit_card_number: ~
+      cvv: ~
+      credit_card_expiration_date: ~
+      save: ~
   communities:
     map_bubble:
       view_tribe: ~
@@ -427,6 +468,9 @@ nl:
       you_have_not_yet_accepted_or_rejected_offer: ~
       you_have_not_yet_accepted_or_rejected_request: ~
       show_thread: ~
+    braintree_account_approved:
+      account_ready: ~
+      message: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
       remember_to_confirm_request: "Herrinnering om een verzoek te bevestigen of te annuleren"
@@ -531,14 +575,14 @@ nl:
       unsubscribe_link_text: ~
     newsletter:
       weekly_news_from_kassi: ~
-      hi: ~
+      hi: "Hoi %{name}"
       update_on_what_is_happening: ~
-      newest_offers: ~
-      newest_requests: ~
-      could_you_offer_something: ~
-      add: ~
-      an_offer: ~
-      a_request: ~
+      newest_offers: "Wat mensen op dit moment aanbieden aan anderen"
+      newest_requests: "Wat mensen op dit moment nodig hebben"
+      could_you_offer_something: "Kan je iets delen dat anderen wellicht nodig hebben? Of heb je iets nodig dat anderen wellicht hebben?"
+      add: "Voeg toe"
+      an_offer: "Een aanbod"
+      a_request: "een verzoek"
       to_kassi: ~
       check_everything_that_others_are: ~
       offering: ~
@@ -595,8 +639,8 @@ nl:
     back_to_kassi_front_page: ~
     error_404:
       if_you_believe: ~
-      page_can_not_be_found: ~
-      page_you_requested_can_not_be_found: ~
+      page_can_not_be_found: "Pagina niet gevonden!"
+      page_you_requested_can_not_be_found: "Pagina niet gevonden. Weet je zeker dat je het adres goed hebt geschreven?"
     error_404_title: "Pagina niet gevonden"
     error_500:
       help_us_find_the_problem: ~
@@ -611,8 +655,8 @@ nl:
       contact_us: ~
       send_feedback: ~
       your_feedback_to_admins: ~
-    send: ~
-    your_email_address: ~
+    send: Verstuur
+    your_email_address: "Je e-mail adres"
   event_feed_events:
     accept:
       has_accepted_lend_item: ~
@@ -830,20 +874,20 @@ nl:
       notifications: Notificaties
     mobile_logged_in:
       admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
-      settings: ~
-      sign_up: ~
+      go_to_your_profile_page: Profiel
+      hi: Hallo
+      login: "Log in"
+      logout: "Log uit"
+      notifications: Notificaties
+      requests: Vriendverzoeken
+      settings: Instellingen
+      sign_up: "Meld je aan"
     notifications:
       test_welcome_email_delivered_to: ~
       something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
-      account_creation_succesful_you_still_need_to_confirm_your_email: ~
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Je account is aangemaakt. De volgende stap is het bevestigen van je e-mailadres."
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       comment_cannot_be_empty: "Reactie kan niet leeg zijn"
       comment_sent: "Reactie verstuurd"
@@ -890,8 +934,8 @@ nl:
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: "Intructies om je wachtwoord te veranderen zijn naar je email gestuurd."
-      person_activated: ~
-      person_deactivated: ~
+      person_activated: "Gebruiker geactiveerd"
+      person_deactivated: "Gebruiker gedeactiveerd"
       person_updated_successfully: "Informatie bijgewerkt"
       poll_answered: ~
       poll_could_not_be_answered: ~
@@ -910,7 +954,7 @@ nl:
       request_rejected: "Verzoek afgewezen"
       request_canceled: ~
       message_sent: ~
-      this_content_is_not_available_in_this_community: ~
+      this_content_is_not_available_in_this_community: "Deze inhoud is niet beschikbaar voor deze community"
       unknown_error: "Onbekende error. Gebruik alstublieft de feedback link om error details te verzenden."
       update_error: "Er is een fout opgetreden bij het bijwerken van jouw informatie, probeer opnieuw"
       welcome_message: "Welkom bij Kassi! Kassi is een service die leden van de %{community} gemeenschap helpt om elkaar te helpen met gunsten, verkopen en lenen aan anderen, organiseren van carpoolen en op vele anderen manieren."
@@ -937,6 +981,7 @@ nl:
       you_must_log_in_to_view_your_settings: ~
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
+      you_must_log_in_to_change_payment_settings: ~
       you_need_to_confirm_your_account_first: ~
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: ~
@@ -945,6 +990,11 @@ nl:
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: ~
       email_deleted: ~
+      payment_details_add_successful: ~
+      payment_details_add_error: ~
+    payment_header:
+      new_payment: ~
+      payment_receiver: ~
     profile_extras_header:
       back_to_profile_of_person: "Terug naar de gebruikers profiel"
       badges: Badges
@@ -1016,6 +1066,7 @@ nl:
         time: "uur, dag, week"
         long_time: "week, maand"
         service_fee_will_be_added: "Een%{fee}diensten fee zal bij de prijs geteld worden"
+        service_fee_will_be_deducted: ~
         price_excludes_vat: "De prijs is exclusief BTW"
       origin:
         location: Locatie
@@ -1238,26 +1289,26 @@ nl:
       price_excludes_vat: "(exclusief BTW)"
   mapview:
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
+      all_categories: "Alle categoriën"
+      all_offer_types: "Alle aanbod types"
+      all_request_types: "Alle verzoek types"
+      category: Categorie
+      did_not_found_what_you_were_looking_for: "Heb je gevonden wat je zocht?"
+      favors: Diensten
       housing: ~
-      items: ~
-      list_view: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
+      items: items
+      list_view: Lijstweergave
+      map_view: "Overzicht op de kaart"
+      offer_something: "Vertel het door!"
+      offer_type: "Aanbod type"
+      offers: Aanbod
+      request_something: "Verzoek iets anders!"
+      request_type: "Verzoek type"
       requests: Vraag
       rideshare: "Ritten delen"
       search_verb: Zoek
       you_have_something_others_do_not: "Heb je iets aan te bieden?"
-    please_comment: ~
+    please_comment: Reactie
   news_items:
     index:
       news_from_community: ~
@@ -1265,9 +1316,7 @@ nl:
       delete_news_item: ~
   okl:
     member_id: ~
-    member_id_is_your_username: ~
     member_id_or_email: ~
-    join_here: ~
   payments:
     new:
       new_payment: ~
@@ -1281,14 +1330,21 @@ nl:
       product: ~
       price: ~
       continue_to_pay: ~
+      invoice: ~
+      service_fee: ~
+      you_will_get: ~
     mangopay:
       terms:
         mangopay_terms_also_included: ~
-        mangopay_terms_link_text: ~
+        terms_link_text: ~
       seller_registration_needed:
         seller_registration_needed: ~
         seller_registration_instructions: ~
         settings_page_link: ~
+    braintree:
+      terms:
+        braintree_terms_also_included: ~
+        terms_link_text: ~
   people:
     index:
       loading_more_members: ~
@@ -1304,13 +1360,13 @@ nl:
       badge_achieved_at: "Badge behaald "
       you_do_not_yet_have_this_badge: "Badge is nog niet behaald."
     edit_links:
-      activate: ~
-      deactivate: ~
+      activate: Activeer
+      deactivate: Deactiveer
     help_texts:
       badges_description_title: Badges
       feedback_description_title: Feedback
       help_captcha_title: "Ben je mens?"
-      help_invitation_code_title: ~
+      help_invitation_code_title: "Je hebt een uitnodiging nodig om deel te nemen"
       terms_title: "Kassi gebruiksvoorwaarden"
       trustcloud_description_title: ~
       trustcloud_description_text: ~
@@ -1332,7 +1388,7 @@ nl:
       family_name: "Familie naam:"
       given_name: "Naam:"
       i_accept_the: "Ik accepteer de"
-      invalid_invitation_code: ~
+      invalid_invitation_code: "Deze code is niet geldig"
       invitation_code: ~
       not_required: "niet vereist"
       password_again: "Bevestig wachtwoord:"
@@ -1341,7 +1397,7 @@ nl:
       terms: gebruiksvoorwaarden
       username_is_in_use: "De gebruikersnaam is al in gebruik."
       username_is_invalid: "Gebruikersnaam is ongeldig. Toegestane tekens zijn, nummers en liggend streepje."
-      visible_only_to_you: ~
+      visible_only_to_you: "alleen zichtbaar voor jou en de community admin"
       visible_to_everybody: "zichtbaar voor iedereen"
       create_account_with_facebook: ~
       or_create_new_account_without_facebook: ~
@@ -1549,7 +1605,7 @@ nl:
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: "Ik wil graag een email bevestiging krijgen als..."
-      newsletters: ~
+      newsletters: Nieuwsbrieven
       community_updates: ~
       email_about_accept_reminders: ~
       email_about_confirm_reminders: ~
@@ -1583,30 +1639,16 @@ nl:
       profile_picture: ~
       postal_code: "Post code:"
       profile_page: "op je profielpagina"
-      profilemap: ~
+      profilemap: "Overzicht op kaart"
       street_address: "Straat en huisnummer:"
       these_fields_are_shown_in_your: "Deze informatie is zichtbaar voor alle Kassi gebruikers"
-      visible_to_everybody: ~
+      visible_to_everybody: "zichtbaar voor iedereen"
       visible_to_registered_users: ~
     save_information: "Informatie opslaan"
-  sms:
-    or_check_the_offer_in_kassi: "of controleer het aanbod %{listing_url}"
-    parsing_error: "De inhoud van het bericht is niet begrepen. Lees de instructies en probeer het opnieuw."
-    pay: pay|payment
-    payment_delivered: " De betaling van %{amount} euros is bezorgd aan %{receiver}. Je betaalt %{amount_plus_commission} euros in je telefoonrekening."
-    potential_ride_share_offer: "%{author_name} biedt een lift aan in Kassi van %{origin} naar %{destination} %{start_time}."
-    request: ^request$|^r$
-    rideshare: ride|rideshare
-    you_can_call_him_at: "Je kunt de bestuurder bellen op %{phone_number}"
-    you_can_pay_gas_money_to_driver: "Om brandstof-kosten te betalen, antwoord 'kassi betaal %{driver} Xe' waar X het bedrag is. Het bedrag + 5% commissie staat in je telefoonrekening."
-    category_not_supported: "Deze catogorie wordt nog niet gesteund door sms."
-    check_the_offer_in_kassi: "Controleer het aanbod in Kassi: %{listing_url}"
-    listing_created: "Bedankt for je bericht, een listing is nu toegevoegd aan Kassi."
-    offer: ^offer$|^o$
   tag_cloud:
     tag_used:
-      with_tag: ~
-      without_tag: ~
+      with_tag: "met tag"
+      without_tag: "zonder tag"
   terms:
     show:
       accept_terms: "Kassi gebruiksvoorwaarden accepteren"

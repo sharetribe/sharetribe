@@ -10,6 +10,9 @@ el:
         community_description: Περιγραφή
         update_information: "Ενημέρωση στοιχείων"
         invite_people: "Καλέστε κόσμο σε αυτή την κοινότητα"
+        edit_signup_info: "Πληροφορίες εγγραφής"
+        edit_signup_info_description: "Αυτό είναι ένα ενημερωτικό κείμενο που εμφανίζεται στους χρήστες στη σελίδα εγγραφής. Μέσω αυτού μπορείτε να δώσετε οδηγίες για την εγγγραφή, πληροφορίες για το που μπορούν να βρουν ένα κωδικό πρόσκλησης στην κοινότητα κ.α. Αρχικά δεν εμφανίζονται καθόλου οδηγίες μπορείτε όμως να προσθέσετε μερικές κάνοντας κλικ στον παρακάτω σύνδεσμο."
+        edit_signup_info_link: "Επεξεργασία πληροφοριών εγγραφής"
       edit_look_and_feel:
         edit_community_look_and_feel: "Αλλαγή της εμφάνισης της κοινότητας \"%{community_name}\""
         community_logo: Λογότυπο
@@ -83,7 +86,7 @@ el:
   common:
     edit_page: "Επεξεργασία σελίδας"
     default_community_slogan: "Δάνεισε, βοήθα, πούλα, μοιράσου"
-    default_community_description: "Μέσω του %{service_name} τα μέλη της κοινότητάς μας μπορούν να μοιράζονται αγαθά, υπηρεσίες, να συνταξιδεύουν ή να βρίσκουν συγκάτοικους."
+    default_community_description: "Εδώ μπορείτε να πουλήσετε, να νοικιάσετε, να ανταλλάξετε ή να μοιραστείτε αγαθά και να προσφέρετε υπηρεσίες σε άλλα μέλη αυτής της κοινότητας."
     cancel: Άκυρο
     fields_that_are_mandatory: "Τα πεδία με το αστεράκι (*) είναι υποχρεωτικά."
     or: ή
@@ -141,6 +144,7 @@ el:
       price_to_pay: "Τελική τιμή"
       you_need_to_fill_payout_details_before_accepting: "Πριν αποδεχτείτε το αίτημα και λάβετε την πληρωμή πρέπει να συμπληρώσετε τα στοιχεία για την πληρωμή σας. Πηγαίνετε στις %{payment_settings_link} για να τα συμπληρώσετε."
       payment_settings_link: "ρυθμίσεις πληρωμών"
+      minimum_price_error_message: "Η τιμή δεν μπορεί να είναι μικρότερη από %{amount}."
     confirm:
       confirm_description: "Αν το αίτημά σας έχει εκπληρωθεί θα πρέπει να το επιβεβαιώσετε ως ολοκληρωμένο. Τότε μόνο μπορείτε να γράψετε κριτική για το άλλο μέλος της συναλλαγής."
       cancel_description: "Αν το αίτημά σας δεν εκπληρώθηκε τότε μπορείτε να δηλώσετε ότι δεν πραγματοποιήθηκε η συναλλαγή. Μπορείτε και πάλι να γράψετε κριτική για το άλλο μέλος και να περιγράψετε τι συνέβη."
@@ -268,6 +272,43 @@ el:
       reject_request: "Κάποια άλλη φορά"
       confirm: Ολοκληρώθηκε
       cancel: "Δεν πραγματοποιήθηκε"
+  braintree_accounts:
+    new:
+      add_payout_details: "Προσθέστε τα στοιχεία σας για τις πληρωμές"
+      first_name: Όνομα
+      last_name: Επώνυμο
+      email: "Διεύθυνση email"
+      phone: Τηλέφωνο
+      address_street_address: "Ταχυδρομική διεύθυνση"
+      address_postal_code: "Ταχυδρομικός κώδικας"
+      address_locality: Πόλη
+      address_region: Νομός
+      date_of_birth: "Ημερομηνία γέννησης"
+      ssn: SSN
+      routing_number: "Routing number"
+      account_number: "Αριθμός λογαριασμού"
+      save: Αποθήκευση
+    show:
+      payout_details: "Τα στοιχεία πληρωμής σας"
+      first_name: Όνομα
+      last_name: Επώνυμο
+      email: "Διεύθυνση email"
+      phone: Τηλέφωνο
+      address_street_address: "Ταχυδρομική διεύθυνση"
+      address_postal_code: "Ταχυδρομικός κώδικας"
+      address_locality: Πόλη
+      address_region: Νομός
+      date_of_birth: "Ημερομηνία γέννησης"
+      ssn: SSN
+      routing_number: "Routing number"
+      account_number: "Αριθμός λογαριασμού"
+  braintree_payments:
+    edit:
+      cardholder_name: "Κάτοχος κάρτας"
+      credit_card_number: "Αριθμός πιστωτικής κάρτας"
+      cvv: CVV
+      credit_card_expiration_date: "Ημερομηνία λήξης πιστωτικής κάρτας"
+      save: Αποθήκευση
   communities:
     map_bubble:
       view_tribe: "Εμφάνιση του sharetribe"
@@ -427,6 +468,9 @@ el:
       you_have_not_yet_accepted_or_rejected_offer: "Δεν έχετε ακόμα αποδεχτεί ή απορρίψει την προσφορά '%{title}' που λάβατε στις %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Δεν έχετε ακόμα αποδεχτεί ή απορρίψει το αίτημα '%{title}' που λάβατε στις %{date}."
       show_thread: "Εμφάνιση συνομιλίας"
+    braintree_account_approved:
+      account_ready: "Είστε έτοιμοι να λάβετε πληρωμές"
+      message: "Τα στοιχεία πληρωμών σας έχουν επιβεβαιωθεί και πλέον είστε έτοιμοι να λάβετε πληρωμές στο %{service_name}"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Δεν έχετε ακόμα επιβεβαιώσει ή ακυρώσει το αίτημα %{request_link} που λάβατε στις %{date} από το χρήστη %{other_party_full_name}. Αν το αίτημα έχει ολοκληρωθεί θα πρέπει να το επιβεβαιώσετε έτσι ώστε να μπορέσετε να κάνετε κριτική για το χρήστη %{other_party_given_name}."
       remember_to_confirm_request: "Θυμηθείτε να επιβεβαιώσετε ή να ακυρώσετε ένα αίτημα"
@@ -438,10 +482,10 @@ el:
       if_will_not_happen_you_should_cancel: "Αν πιστεύετε ότι αυτό το αίτημα για οποιοδήποτε λόγο δεν θα ολοκληρωθεί, μπορείτε να %{cancel_it_link}."
       cancel_it_link_text: "το ακυρώσετε"
     payment_settings_reminder:
-      remember_to_add_payment_details: ~
-      you_have_added_listing_with_payment: ~
-      please_go_to_payment_settings: ~
-      payment_settings_link: ~
+      remember_to_add_payment_details: "Μην ξεχάσετε να προσθέσετε τα στοιχεία σας για να λαμβάνετε πληρωμές"
+      you_have_added_listing_with_payment: "Έχετε κάνει μια καταχώρηση \"%{listing_link}\" με πληρωμή όμως δεν έχετε ακόμα συμπληρώσει τα στοιχεία σας. Για να λάβετε την πληρωμή σας πρέπει να συμπληρώσετε τις απαραίτητες πληροφορίες."
+      please_go_to_payment_settings: "Παρακαλούμε δείτε τις %{payment_settings_link} και συμπληρώστε τις απαραίτητες πληροφορίες."
+      payment_settings_link: "ρυθμίσεις πληρωμών"
     transaction_confirmed:
       here_is_a_message_from: "Δείτε ένα μήνυμα από το χρήστη %{other_party_given_name}:"
       request_marked_as_confirmed: "Το αίτημα ολοκληρώθηκε - θυμηθείτε να κάνετε κριτική για το άλλο μέλος"
@@ -552,7 +596,7 @@ el:
       reset_password_instructions: "<p>Δήλωσες ότι έχεις ξεχάσει το όνομα χρήστη ή τον κωδικό σου στο %{service_name}.</p><p>Το όνομα χρήστη είναι: %{username}</p><p>Αν θέλεις να επαναφέρεις τον κωδικό σου κάνε κλικ στον παρακάτω σύνδεσμο: %{password_reset_link}</p><br/><p>Αν δεν το ζήτησες εσύ αυτό, παρακαλούμε να αγνοήσεις αυτό το μήνυμα. Ο κωδικός σου δεν θα αλλάξει μέχρι να κάνεις κλικ στον παραπάνω σύνδεσμο και να δημιουργήσεις νέο κωδικό.</p>"
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Η κριτική είναι δημόσια και φαίνεται στους άλλους χρήστες. Βασιζόμενοι σε αυτή οι άλλοι χρήστες μπορούν να κρίνουν αν ο/η %{name} είναι αξιόπιστο άτομο και αν θέλουν να έχουν συναλλαγές μαζί του. Γι' αυτό, καλό είναι να θυμάσαι πάντα να κάνεις κριτική και να υπενθυμίζεις σε αυτούς με τους οποίους αλληλεπιδράς να σχολιάζουν κι αυτοί για σένα. Για να κερδίσεις τις περισσότερες κονκάρδες πρέπει να έχεις καλά σχόλια."
-      remember_to_give_feedback_to: "Υπενθύμιση: θυμηθείτε να πείτε τη γνώμη σας για το χρήστη %{name}"
+      remember_to_give_feedback_to: "Υπενθύμιση: θυμηθείτε να γράψετε την κριτική σας για το χρήστη %{name}"
       you_have_not_given_feedback_yet: "Δεν έχετε κάνει ακόμα κριτική στο χρήστη %{name} σχετικά με το συμβάν \"%{event}\". Θυμηθείτε να πείτε τη γνώμη σας για το πόσο καλά ανταποκρίθηκε ο/η %{given_name}."
     welcome_email:
       welcome_email_footer_text: "Θέλετε να ελέγξετε τι μηνύματα θα λαμβάνετε από το %{service_name}; %{settings_link}"
@@ -650,7 +694,7 @@ el:
     create_new_marketplace: "Δημιουργήστε μια καινούρια αγορά"
     contact_us: Επικοινωνία
     profile: Προφίλ
-    invite: ~
+    invite: Πρόσκληση
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Υπάρχει <b>μία ακόμα προσφορά</b>,"
@@ -936,15 +980,21 @@ el:
       you_must_log_in_to_view_your_inbox: "Πρέπει να συνδεθείτε στο %{service_name} για να δείτε τα εισερχόμενα σας."
       you_must_log_in_to_view_your_settings: "Πρέπει να συνδεθείτε στο %{service_name} για να δείτε τις ρυθμίσεις σας."
       you_must_log_in_to_add_news_item: "Πρέπει να συνδεθείτε στο %{service_name} για να προσθέσετε ένα άρθρο."
-      you_must_log_in_to_change_profile_settings: ~
+      you_must_log_in_to_change_profile_settings: "Πρέπει να συνδεθείτε στο %{service_name} για να αλλάξετε τις ρυθμίσεις του προφίλ"
+      you_must_log_in_to_change_payment_settings: "Πρέπει να συνδεθείτε στο %{service_name} για να αλλάξετε τις ρυθμίσεις των πληρωμών"
       you_need_to_confirm_your_account_first: "Πρέπει να επιβεβαιώσετε την διεύθυνση ηλεκτρονικού ταχυδρομείου σας."
       you_must_fill_all_the_fields: "Πρέπει να συμπληρώσετε όλα τα πεδία"
       you_unfollowed_listing: "Δεν παρακολουθείς πλέον αυτή την καταχώρηση"
       joining_community_failed: "Η εγγραφή σε αυτή την κοινότητα απέτυχε"
-      can_not_login_with_private_user: ~
-      can_not_delete_email: ~
-      user_does_not_have_email_to_delete: ~
-      email_deleted: ~
+      can_not_login_with_private_user: "Δεν γίνεται να συνδεθείτε σε αυτή την κοινότητα με τον προσωπικό σας λογαριασμό. Συνδεθείτε με το λογαριασμό της οργάνωσης ή δημιουργήστε νέο λογαριασμό."
+      can_not_delete_email: "Δεν μπορείτε να αφαιρέσετε αυτή τη διεύθυνση email"
+      user_does_not_have_email_to_delete: "Δεν έχετε τη διεύθυνση email που προσπαθείτε να αφαιρέσετε"
+      email_deleted: "Η διεύθυνση email αφαιρέθηκε"
+      payment_details_add_successful: "Οι πληροφορίες των πληρωμών εισήχθησαν επιτυχώς"
+      payment_details_add_error: "Αποτυχία εισαγωγής στοιχείων πληρωμών"
+    payment_header:
+      new_payment: "Νέα πληρωμή"
+      payment_receiver: "Αποδέκτης πληρωμής:"
     profile_extras_header:
       back_to_profile_of_person: "Επιστροφή στο προφίλ του χρήστη"
       badges: Κονκάρδες
@@ -1016,6 +1066,7 @@ el:
         time: "ώρα, ημέρα, εβδομάδα, ..."
         long_time: "εβδομάδα, μήνα, ..."
         service_fee_will_be_added: "Στην τιμή θα προστεθεί προμήθεια %{fee}% για την υπηρεσία."
+        service_fee_will_be_deducted: "Μια χρέωση %{fee}% για την υπηρεσία θα αφαιρεθεί από την τιμή."
         price_excludes_vat: "Η τιμή δεν συμπεριλαμβάνει το ΦΠΑ."
       origin:
         location: Τοποθεσία
@@ -1265,9 +1316,7 @@ el:
       delete_news_item: "Αφαίρεση άρθρου"
   okl:
     member_id: ""
-    member_id_is_your_username: ""
     member_id_or_email: "ID μέλους ή email"
-    join_here: ""
   payments:
     new:
       new_payment: "Νέα πληρωμή"
@@ -1281,14 +1330,21 @@ el:
       product: Προϊόν
       price: Τιμή
       continue_to_pay: "Συνεχίστε στην πληρωμή"
+      invoice: Απόδειξη
+      service_fee: "Η χρέωση για το %{service_name} είναι:"
+      you_will_get: "Θα λάβετε:"
     mangopay:
       terms:
         mangopay_terms_also_included: "ΣΗΜΕΙΩΣΗ: Το MangoPay χρησιμοποιείται για την εξυπηρέτηση των πληρωμών και με τη χρήση αυτής της ιστοσελίδας αποδέχεστε %{mangopay_terms_link_text} όπως επίσης και τους παρακάτω όρους."
-        mangopay_terms_link_text: "τους όρους χρήσης του MangoPay"
+        terms_link_text: "τους όρους χρήσης του MangoPay"
       seller_registration_needed:
         seller_registration_needed: "Δεν μπορείτε να κάνετε μια εμπορική καταχώρηση ακόμα"
         seller_registration_instructions: "Πριν κάνετε μια καταχώρηση από την οποία ενδέχεται να πληρωθείτε, πρέπει πρώτα να προσθέσετε κάποιες πληροφορίες στο %{link_to_settings_page} σας."
         settings_page_link: προφίλ
+    braintree:
+      terms:
+        braintree_terms_also_included: "Σημείωση: Το Braintree χρησιμοποιείται για την πραγματοποιήση των πληρωμών και με το να χρησιμοποιείτε αυτό το site αποδέχεστε %{terms_link_text} όπως επίσης και τους παρακάτω όρους."
+        terms_link_text: "τους όρους χρήσης του Braintree"
   people:
     index:
       loading_more_members: "Εμφάνιση περισσότερων μελών"
@@ -1326,10 +1382,10 @@ el:
       email: "Διεύθυνση email:"
       email_is_in_use: "Το email που δώσατε χρησιμοποιείται ήδη."
       email_is_in_use_or_not_allowed: "Αυτή η ηλεκτρονική διεύθυνση δεν επιτρέπεται σε αυτή την κοινότητα ή χρησιμοποιείται ήδη. Παρακαλούμε χρησιμοποιήστε μία ηλεκτρονική διεύθυνση που σχετίζεται με αυτή την κοινότητα (δείτε τις οδηγίες παραπάνω). Αν και πάλι δεν μπορείτε να συνδεθείτε επικοινωνήστε μαζί μας."
-      email_not_allowed: "Αυτή η ηλεκτρονική διεύθυνση δεν επιτρέπεται σε αυτή την κοινότητα. Παρακαλούμε, χρησιμοποιήστε μία διεύθυνση που να σχετίζεται με αυτή την κοινότητα. Αν και πάλι δεν μπορείτε να γραφτείτε, παρακαλούμε επικοινωνήστε μαζί μας."
+      email_not_allowed: "Αυτή η διεύθυνση email δεν επιτρέπεται σε αυτή την κοινότητα. Παρακαλούμε, χρησιμοποιήστε μία διεύθυνση που να σχετίζεται με αυτή την κοινότητα. Αν και πάλι δεν μπορείτε να γραφτείτε, παρακαλούμε επικοινωνήστε μαζί μας."
       email_restriction_instructions:
-        one: "Αυτό το sharetribe είναι για την κοινότητα %{community_name}. Για να συμμετέχετε σε αυτό πρέπει να έχετε ηλεκτρονική διεύθυνση της μορφής '%{allowed_emails}'."
-        other: "Αυτό το sharetribe είναι για την κοινότητα %{community_name}. Για να συμμετέχετε σε αυτό πρέπει η ηλεκτρονική σας διεύθυνση να έχει μία από αυτές τις καταλήξεις: '%{allowed_emails}'."
+        one: "Αυτή η κοινότητα αφορά το %{community_name}. Για να συμμετέχετε πρέπει να έχετε διεύθυνση email της μορφής '%{allowed_emails}'."
+        other: "Αυτή η κοινότητα αφορά το %{community_name}. Για να εγγραφείτε πρέπει η διεύθυνση email σας να αποδεικνύει ότι μπορείτε να συμμετέχετε εδώ."
       enter_captcha: "Είμαι άνθρωπος:"
       family_name: Επώνυμο
       given_name: Όνομα
@@ -1518,7 +1574,7 @@ el:
       your_current_email_is: "Η διεύθυνση email σας είναι %{email}."
       change_email: Αλλαγή
       confirm_your_email: "Επιβεβαιώστε την ηλεκτρονική σας διεύθυνση"
-      account_confirmation_instructions: "Σύντομα θα λάβεις ένα email με ένα σύνδεσμο στον οποίο πρέπει να κάνεις κλικ για να επιβεβαιώσεις την ηλεκτρονική διεύθυνση που δήλωσες. Αφού γίνει η επιβεβαίωση μπορείς να χρησιμοποιήσεις το %{service_name}."
+      account_confirmation_instructions: "Σύντομα θα λάβετε ένα email με ένα σύνδεσμο τον οποίο πρέπει να ακολουθήσετε για να επιβεβαιώσετε τη διεύθυνση email σας. Μετά την επιβεβαίωση θα μπορείτε να εγγραφείτε σε αυτή την κοινότητα."
       account_confirmation_instructions_dashboard: "Σύντομα θα λάβεις ένα email με ένα σύνδεσμο στον οποίο πρέπει να κάνεις κλικ για να επιβεβαιώσεις την ηλεκτρονική διεύθυνση που δήλωσες."
   settings:
     account:
@@ -1527,7 +1583,7 @@ el:
       delete_account: "Διαγραφή λογαριασμού"
       delete_account_button: "Διαγράψτε μόνιμα το λογαριασμό μου"
       delete_account_confirmation_popup: "Είστε σίγουροι ότι θέλετε να διαγράψετε το λογαριασμό σας και να διαγραφούν όλα τα δεδομένα που σχετίζονται με αυτόν; Η διαγραφή λογαριασμού είναι μη αναστρέψιμη."
-      email_addresses: ~
+      email_addresses: "Διευθύνσεις email"
       instructions_to_delete_account: "Αν διαγράψετε το λογαριασμό σας, όλα τα δεδομένα που σχετίζονται με αυτόν θα διαγραφτούν: το προφίλ σας, οι καταχωρήσεις σας, τα μηνύματά σας, η κριτική που έχετε λάβει κλπ."
       contact_admin: "παρακαλούμε επικοινωνήστε με τους διαχειριστές"
       new_email: "Νέα διεύθυνση email"
@@ -1535,19 +1591,19 @@ el:
       save: Αποθήκευση
       these_fields_are_shown_only_to_you: "Το όνομα χρήστη εμφανίζεται στο προφίλ σας εκτός αν έχετε δώσει το πραγματικό σας όνομα. Οι υπόλοιπες πληροφορίες είναι ορατές μόνο σε σας."
       email:
-        address_title: ~
-        remove_title: ~
-        remove_confirmation: ~
-        receive_notifications_title_desktop: ~
-        receive_notifications_title_mobile: ~
-        receive_notifications_new_title_mobile: ~
-        add_new_with_plus: ~
-        add_new_cancel: ~
-        confirmation_title_mobile: ~
-        confirmation_title_desktop: ~
-        confirmation_resend: ~
-        status_confirmed: ~
-        status_pending: ~
+        address_title: Διεύθυνση
+        remove_title: Αφαίρεση
+        remove_confirmation: "Είστε σίγουροι ότι θέλετε να αφαιρέσετε αυτή τη διεύθυνση email;"
+        receive_notifications_title_desktop: Ειδοποιήσεις
+        receive_notifications_title_mobile: Ειδοποιήσεις
+        receive_notifications_new_title_mobile: Ειδοποιήσεις
+        add_new_with_plus: "+ Προσθήκη νέας διεύθυνσης email"
+        add_new_cancel: Άκυρο
+        confirmation_title_mobile: "Επιβεβαίωση:"
+        confirmation_title_desktop: Επιβεβαίωση
+        confirmation_resend: "Αποστολή ξανά"
+        status_confirmed: Επιβεβαιώθηκε
+        status_pending: "Εκκρεμεί επιβεβαίωση"
     notifications:
       email_from_admins: "Θα ήθελα να λαμβάνω περιστασιακές ενημερώσεις από τους διαχειριστές αυτής της κοινότητας"
       i_want_to_get_email_notification_when: "Θέλω να λαμβάνω ειδοποίηση με email όταν..."
@@ -1591,20 +1647,6 @@ el:
       visible_to_everybody: "ορατό σε όλους"
       visible_to_registered_users: "(ορατό σε συνδεδεμένους χρήστες)"
     save_information: Αποθήκευση
-  sms:
-    or_check_the_offer_in_kassi: "ή δες την προσφορά \"%{listing_url}\""
-    parsing_error: "Το μήνυμα δεν ήταν κατανοητό. Παρακαλούμε έλεγξε τις οδηγίες και προσπάθησε πάλι."
-    pay: πλήρωσε|πληρωμή
-    payment_delivered: "%{amount} ευρώ μεταφέρονται στον %{receiver}. Θα χρεωθείτε %{amount_plus_commission} ευρώ στον λογαριασμό του τηλεφώνου σας."
-    potential_ride_share_offer: "Ο %{author_name} προσφέρει στο %{service_name} τη διαδρομή από %{origin} - %{destination} στις %{start_time}."
-    request: ^αίτημα$|^α$
-    rideshare: διαδρομή|συνταξίδεψε
-    you_can_call_him_at: "Μπορείς να καλέσεις τον οδηγό στο %{phone_number}"
-    you_can_pay_gas_money_to_driver: "Για να συνεισφέρεις στη βενζίνα απάντησε με μήνυμα \"%{service_name} πλήρωσε στον %{driver} Χe\" όπου Χ είναι το ποσό που θέλεις να στείλεις. Το ποσό + 5% προμήθεια θα χρεωθεί στο λογαριασμό σου."
-    category_not_supported: "Αυτή η κατηγορία δεν υποστηρίζεται ακόμη από sms."
-    check_the_offer_in_kassi: "Δες αυτή την προσφορά στο %{service_name}: %{listing_url}"
-    listing_created: "Ευχαριστούμε για το μήνυμα, τώρα γίνεται η καταχώρηση στο %{service_name}."
-    offer: ^προσφορά$|^π$
   tag_cloud:
     tag_used:
       with_tag: "Με ετικέτα"
