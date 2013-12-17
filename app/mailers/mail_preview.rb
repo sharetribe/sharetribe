@@ -37,4 +37,16 @@ class MailPreview < MailView
 
     PersonMailer.receipt_to_payer(payment, community)
   end
+
+  def braintree_receipt_to_payer
+    recipient = Struct.new(:id, :given_name_or_username).new("123", "Test Recipient")
+    recipient.define_singleton_method(:name) { |*args| "Test Recipient" }
+    payer = Struct.new(:id, :name, :given_name_or_username, :new_email_auth_token, :confirmed_notification_emails_to, :locale).new("123", "Test Payer", "Test Payer", "123-abc", "test@example.com", "en")
+    listing = Struct.new(:title).new("Hammer")
+    conversation = Struct.new(:id, :listing).new(123, listing)
+    community = Struct.new(:full_domain, :name, :full_name, :custom_email_from_address, :vat).new('http://marketplace.example.com', 'Example Marketplace', 'Example Marketplace', 'marketplace@example.com', 12)
+    payment = Struct.new(:recipient, :payer, :conversation, :community, :sum_without_commission, :commission_without_vat, :total_sum, :total_commission, :currency).new(recipient, payer, conversation, community, 5000, 10, 5000, 12, "EUR")
+
+    PersonMailer.braintree_receipt_to_payer(payment, community)
+  end
 end
