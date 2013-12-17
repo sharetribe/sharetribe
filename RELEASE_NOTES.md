@@ -15,6 +15,7 @@ When updating, always run the following commands to update gem set and database 
 4.2.0
 -----
 Improve payment system integrations and add first version of integration with Braintree Marketplace payments
+ - Check config.example.yml for new config params needed e.g. if you want to run all the tests with Braintree API
 
 4.1.1
 -----
