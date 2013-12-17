@@ -6,21 +6,16 @@ module SettingsHelper
     "inbox_tab_#{current_tab_name.eql?(tab_name) ? 'selected' : 'unselected'}"
   end
 
-  def payment_gateway_to_use(community)
-    # Currently, we always use the first (which is probably the only one)
-    community.payment_gateways.first
-  end
-
   def has_registered_payment_info?(community, person)
-    payment_gateway_to_use(community).has_registered?(person)
+    community.payment_gateway.has_registered?(person)
   end
 
   def uses_mangopay?(community)
-    payment_gateway_to_use(community).type == "Mangopay"
+    community.payment_gateway.type == "Mangopay"
   end
 
   def uses_checkout?(community)
-    payment_gateway_to_use(community).type == "Checkout"
+    community.payment_gateway.type == "Checkout"
   end
 
   def registered_checkout?(community, person)

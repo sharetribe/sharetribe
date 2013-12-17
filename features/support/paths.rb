@@ -28,6 +28,8 @@ module NavigationHelpers
       new_person_message_feedback_path(:person_id => @people[$1].id, :message_id => @conversation.id.to_s, :locale => "en")
     when /^the conversation path of "(.*)"$/i
       person_message_path(:person_id => @people[$1].id, :id => @conversation.id.to_s, :locale => "en")
+    when /^the messages page$/i
+      received_person_messages_path(:person_id => @logged_in_user.id, :locale => "en")
     when /^the profile page of "(.*)"$/i
       person_path(:id => @people[$1].id, :locale => "en")
     when /^my profile page$/i
@@ -42,6 +44,8 @@ module NavigationHelpers
       "/en/signup?code=#{$1}"
     when /the infos page/
       about_infos_path(:locale => "en")
+    when /the terms page/
+      terms_infos_path(:locale => "en")
     when /the news page/
       news_items_path(:locale => "en")
     when /new tribe in English/
@@ -54,6 +58,8 @@ module NavigationHelpers
       "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings"
     when /the payment settings page/
       "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings/payments"
+    when /the new Braintree account page/
+      "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings/payments/braintree/new"
     when /the account settings page/
       "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings/account"
     when /the about page$/

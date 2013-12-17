@@ -10,6 +10,9 @@ zh:
         community_description: ~
         update_information: ~
         invite_people: ~
+        edit_signup_info: ~
+        edit_signup_info_description: ~
+        edit_signup_info_link: ~
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
@@ -17,9 +20,9 @@ zh:
         community_cover_photo: ~
         community_custom_color1: ~
         community_custom_color2: ~
-        logo_instructions_text: ~
-        logo_icon_instructions_text: ~
-        cover_photo_instructions_text: ~
+        logo_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: ~
+        cover_photo_instructions_text_with_dimensions: ~
         custom_color1_instructions_text: ~
         custom_color2_instructions_text: ~
         invalid_color_code: ~
@@ -141,6 +144,7 @@ zh:
       price_to_pay: ~
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
+      minimum_price_error_message: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -268,6 +272,43 @@ zh:
       reject_request: 拒绝请求
       confirm: ~
       cancel: ~
+  braintree_accounts:
+    new:
+      add_payout_details: ~
+      first_name: ~
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+      save: ~
+    show:
+      payout_details: ~
+      first_name: ~
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+  braintree_payments:
+    edit:
+      cardholder_name: ~
+      credit_card_number: ~
+      cvv: ~
+      credit_card_expiration_date: ~
+      save: ~
   communities:
     map_bubble:
       view_tribe: ~
@@ -427,6 +468,9 @@ zh:
       you_have_not_yet_accepted_or_rejected_offer: "您尚未接受或拒绝您在%{date}收到的提议'%{title}'"
       you_have_not_yet_accepted_or_rejected_request: "您尚未接受或拒绝您在%{date}收到的请求'%{title}'"
       show_thread: ~
+    braintree_account_approved:
+      account_ready: ~
+      message: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
       remember_to_confirm_request: ~
@@ -937,6 +981,7 @@ zh:
       you_must_log_in_to_view_your_settings: 您必须登录Kassi以查看您的设置
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
+      you_must_log_in_to_change_payment_settings: ~
       you_need_to_confirm_your_account_first: 您需要先确认账户
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: 您不再关注此列表
@@ -945,6 +990,11 @@ zh:
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: ~
       email_deleted: ~
+      payment_details_add_successful: ~
+      payment_details_add_error: ~
+    payment_header:
+      new_payment: ~
+      payment_receiver: ~
     profile_extras_header:
       back_to_profile_of_person: 回到用户个人资料
       badges: 徽章
@@ -1016,6 +1066,7 @@ zh:
         time: ~
         long_time: ~
         service_fee_will_be_added: ~
+        service_fee_will_be_deducted: ~
         price_excludes_vat: ~
       origin:
         location: 地点
@@ -1265,9 +1316,7 @@ zh:
       delete_news_item: 移除文章
   okl:
     member_id: "会员号\n"
-    member_id_is_your_username: ~
     member_id_or_email: ~
-    join_here: 加入这里
   payments:
     new:
       new_payment: ~
@@ -1281,14 +1330,21 @@ zh:
       product: ~
       price: ~
       continue_to_pay: ~
+      invoice: ~
+      service_fee: ~
+      you_will_get: ~
     mangopay:
       terms:
         mangopay_terms_also_included: ~
-        mangopay_terms_link_text: ~
+        terms_link_text: ~
       seller_registration_needed:
         seller_registration_needed: ~
         seller_registration_instructions: ~
         settings_page_link: ~
+    braintree:
+      terms:
+        braintree_terms_also_included: ~
+        terms_link_text: ~
   people:
     index:
       loading_more_members: ~
@@ -1588,22 +1644,6 @@ zh:
       visible_to_everybody: 对所有人可见
       visible_to_registered_users: 对已登录用户可见
     save_information: 保存信息
-  sms:
-    or_check_the_offer_in_kassi: "或者查看商品%{listing_url}"
-    parsing_error: 不能理解信息内容。请查看帮助并重试。
-    pay: 支付
-    payment_delivered: "%{amount}欧已支付至%{receiver}。您将会通过手机账单支付%{amount_plus_commission}欧，包括支付款和服务费。"
-    potential_ride_share_offer: "%{author_name}提供拼车服务。地点从%{origin}到%{destination}。出发时间：%{start_time}。"
-    request: |+
-        请求
-
-    rideshare: 拼车
-    you_can_call_him_at: "您可以联系司机，电话：%{phone_number}"
-    you_can_pay_gas_money_to_driver: "如需支付油钱，请回复'Kassi pay %{driver} Xe'，其中X为需支付数额。支付款和5%的服务费将会计算进您的电话账单。"
-    category_not_supported: 此分类尚不支持短消息
-    check_the_offer_in_kassi: "查看%{listing_url}的商品"
-    listing_created: 感谢您的信息，一条新列表以添加至Kassi。
-    offer: 提供
   tag_cloud:
     tag_used:
       with_tag: 有标签

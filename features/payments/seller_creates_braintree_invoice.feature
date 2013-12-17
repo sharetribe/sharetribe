@@ -1,0 +1,70 @@
+Feature: Seller creates an invoice with Braintree
+  In order to get money from buyer
+  As a seller
+  I want to invoice the buyer with Braintree payments
+
+  Background:
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+      | kassi_testperson2 |
+    And community "test" has payments in use via BraintreePaymentGateway with seller commission 10
+    And there is item offer with title "Power drill" from "kassi_testperson1" and with share type "sell" and with price "20.90"
+    And there is a message "I request this" from "kassi_testperson2" about that listing
+    And I am logged in as "kassi_testperson1"
+    When I follow "inbox-link"
+    Then I should see "1" within ".inbox-link"
+
+  @javascript
+  Scenario: User can not accept request without Braintree account
+    When I follow "Accept request"
+    Then I should see "You need to fill in payout details before you can accept the request"
+
+  @javascript
+  Scenario: User can not accept request without active Braintree account
+    Given there are following Braintree accounts:
+      | person            | status |
+      | kassi_testperson1 | pending |
+    When I follow "Accept request"
+    Then I should see "You need to fill in payout details before you can accept the request"
+
+  @javascript
+  Scenario: User accepts a payment-requiring request and creates an invoice
+    Given there are following Braintree accounts:
+      | person            | status |
+      | kassi_testperson1 | active |
+    When I follow "Accept request"
+    Then I should see "20.90" in the "conversation_payment_attributes_sum" input
+    And I should see "3" within "#service-fee"
+    And I should see "17.90" within "#payment-to-seller"
+    When I fill in "conversation_payment_attributes_sum" with "dsdfs"
+    And I press "Send"
+    Then I should see "You need to insert a valid monetary value."
+    When I fill in "conversation_payment_attributes_sum" with "0,9"
+    And I press "Send"
+    Then I should see "The price cannot be lower than"
+    When I fill in "conversation_payment_attributes_sum" with ""
+    And I press "Send"
+    Then I should see "You need to insert a valid monetary value."
+    When I send keys "178,30" to form field "conversation_payment_attributes_sum"
+    Then I should see "18" within "#service-fee"
+    And I should see "160.30" within "#payment-to-seller"
+    And I press "Send"
+    Then I should see "Accepted" 
+    And I should see "to pay" within ".conversation-status"
+    When the system processes jobs
+    Then "kassi_testperson2@example.com" should have 1 email
+    When I open the email with subject "Your request was accepted"
+    Then I should see "has accepted your request" in the email body
+    When "4" days have passed
+    And the system processes jobs
+    Then "kassi_testperson2@example.com" should have 2 emails
+    When I open the email with subject "Remember to pay"
+    Then I should see "You have not yet paid" in the email body
+    When "8" days have passed
+    And the system processes jobs
+    Then "kassi_testperson2@example.com" should have 3 emails
+    When "100" days have passed
+    And the system processes jobs
+    Then "kassi_testperson2@example.com" should have 3 emails
+    And return to current time

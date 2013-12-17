@@ -62,6 +62,14 @@ Spork.prefork do
     
     # Load stuff from seeds.rb to DB
     load "#{Rails.root}/db/seeds.rb"
+
+    # Clean once when guard starts
+    DatabaseCleaner.clean_with(:truncation, {:except => %w[categories share_types community_categories category_translations share_type_translations]})    
+
+    config.after(:suite) do
+      # Otherwise clean AFTER the suite
+      DatabaseCleaner.clean_with(:truncation, {:except => %w[categories share_types community_categories category_translations share_type_translations]})
+    end
     
     config.before(:suite) do
       DatabaseCleaner.strategy = :transaction

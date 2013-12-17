@@ -99,8 +99,8 @@ Kassi::Application.routes.draw do
             member do
               get :done
             end
-            
           end
+          resources :braintree_payments
           
         end
         resource :settings do
@@ -215,6 +215,10 @@ Kassi::Application.routes.draw do
   end
   
   # Some non-RESTful mappings
+
+  get '/webhooks/braintree' => 'braintree_webhooks#challenge'
+  post '/webhooks/braintree' => 'braintree_webhooks#hooks'
+
   match '/:locale/mercury_update' => "mercury_update#update", :as => :mercury_update, :method => :put
   match '/:locale/api' => "dashboard#api", :as => :api
   match '/:locale/faq' => "dashboard#faq", :as => :faq
@@ -229,7 +233,6 @@ Kassi::Application.routes.draw do
   match "/:locale/offers" => "listings#offers", :as => :offers
   match "/:locale/requests" => "listings#requests", :as => :requests
   match "/:locale/people/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
-  #match "/:locale/people/:person_id/messages" => "conversations#received", :as => :reply_to_listing
   match "/:locale/listings/:id/reply" => "conversations#new", :as => :reply_to_listing
   match "/:locale/listings/new/:type/:category" => "listings#new", :as => :new_request_category
   match "/:locale/listings/new/:type" => "listings#new", :as => :new_request
@@ -247,7 +250,11 @@ Kassi::Application.routes.draw do
   match "/:locale/listing_bubble/:id" => "listings#listing_bubble", :as => :listing_bubble
   match "/:locale/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
   match '/:locale/:page_type' => 'dashboard#campaign'
-  
+
+  match '/:locale/people/:person_id/settings/payments/braintree/new' => 'braintree_accounts#new', :as => :new_braintree_settings_payment
+  match '/:locale/people/:person_id/settings/payments/braintree/show' => 'braintree_accounts#show', :as => :show_braintree_settings_payment
+  match '/:locale/people/:person_id/settings/payments/braintree/create' => 'braintree_accounts#create', :as => :create_braintree_settings_payment
+
   # Inside this constraits are the routes that are used when request has subdomain other than www
   constraints(CommunityDomain) do
     match '/:locale/' => 'homepage#index'

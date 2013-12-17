@@ -30,6 +30,17 @@ default: &default_settings
   aws_access_key_id: 
   aws_secret_access_key: 
 
+  # Braintree credentials to be used in tests. In production, each
+  # community have their own credentials.
+  # Ask for shared Braintree credentials if you don't want to create
+  # new Braintree account
+  braintree_environment:
+  braintree_test_merchant_id:
+  braintree_test_master_merchant_id:
+  braintree_test_public_key:
+  braintree_test_private_key:
+  braintree_client_side_encryption_key:
+
   # If you want to force all use to be SSL secured (https://) you can set this to true
   # Note that you can set this value separately to each enironment below (e.g. if your developing)
   always_use_ssl: false

@@ -54,18 +54,14 @@ Given /^community "([^"]*)" requires users to have an email address of type "(.*
   Community.find_by_domain(community).update_attribute(:allowed_emails, email)
 end
 
-Given /^community "([^"]*)" has payments in use(?: via (\w+))?$/ do |community_domain, gateway_name|
+Given /^community "([^"]*)" has payments in use(?: via (\w+))?(?: with seller commission (\w+))?$/ do |community_domain, gateway_name, commission|
   gateway_name ||= "Checkout"
-  gateway = PaymentGateway.find_by_type(gateway_name)
-  
-  if gateway.nil?
-    # if missing, create it
-    gateway = Kernel.const_get(gateway_name).create
-  end
+  commission ||= "8"
   
   community = Community.find_by_domain(community_domain)
-  community.update_attributes(:payments_in_use => true, :vat => "24", :commission_percentage => "8")
-  community.payment_gateways << gateway
+  community.update_attributes(:vat => "24", :commission_from_seller => commission.to_i)
+  
+  FactoryGirl.create(:payment_gateway, :community => community, :type => gateway_name)
 end
 
 Given /^users can invite new users to join community "([^"]*)"$/ do |community|

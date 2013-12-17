@@ -10,6 +10,9 @@ en-vg:
         community_description: ~
         update_information: ~
         invite_people: ~
+        edit_signup_info: ~
+        edit_signup_info_description: ~
+        edit_signup_info_link: ~
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
@@ -17,9 +20,9 @@ en-vg:
         community_cover_photo: ~
         community_custom_color1: ~
         community_custom_color2: ~
-        logo_instructions_text: ~
-        logo_icon_instructions_text: ~
-        cover_photo_instructions_text: ~
+        logo_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: ~
+        cover_photo_instructions_text_with_dimensions: ~
         custom_color1_instructions_text: ~
         custom_color2_instructions_text: ~
         invalid_color_code: ~
@@ -141,6 +144,7 @@ en-vg:
       price_to_pay: ~
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
+      minimum_price_error_message: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -268,6 +272,43 @@ en-vg:
       reject_request: ~
       confirm: ~
       cancel: ~
+  braintree_accounts:
+    new:
+      add_payout_details: ~
+      first_name: ~
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+      save: ~
+    show:
+      payout_details: ~
+      first_name: ~
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+  braintree_payments:
+    edit:
+      cardholder_name: ~
+      credit_card_number: ~
+      cvv: ~
+      credit_card_expiration_date: ~
+      save: ~
   communities:
     map_bubble:
       view_tribe: ~
@@ -427,6 +468,9 @@ en-vg:
       you_have_not_yet_accepted_or_rejected_offer: ~
       you_have_not_yet_accepted_or_rejected_request: ~
       show_thread: ~
+    braintree_account_approved:
+      account_ready: ~
+      message: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
       remember_to_confirm_request: ~
@@ -937,6 +981,7 @@ en-vg:
       you_must_log_in_to_view_your_settings: ~
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
+      you_must_log_in_to_change_payment_settings: ~
       you_need_to_confirm_your_account_first: ~
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: ~
@@ -945,6 +990,11 @@ en-vg:
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: ~
       email_deleted: ~
+      payment_details_add_successful: ~
+      payment_details_add_error: ~
+    payment_header:
+      new_payment: ~
+      payment_receiver: ~
     profile_extras_header:
       back_to_profile_of_person: ~
       badges: ~
@@ -1016,6 +1066,7 @@ en-vg:
         time: ~
         long_time: ~
         service_fee_will_be_added: ~
+        service_fee_will_be_deducted: ~
         price_excludes_vat: ~
       origin:
         location: ~
@@ -1265,9 +1316,7 @@ en-vg:
       delete_news_item: ~
   okl:
     member_id: ~
-    member_id_is_your_username: ~
     member_id_or_email: ~
-    join_here: ~
   payments:
     new:
       new_payment: ~
@@ -1281,14 +1330,21 @@ en-vg:
       product: ~
       price: ~
       continue_to_pay: ~
+      invoice: ~
+      service_fee: ~
+      you_will_get: ~
     mangopay:
       terms:
         mangopay_terms_also_included: ~
-        mangopay_terms_link_text: ~
+        terms_link_text: ~
       seller_registration_needed:
         seller_registration_needed: ~
         seller_registration_instructions: ~
         settings_page_link: ~
+    braintree:
+      terms:
+        braintree_terms_also_included: ~
+        terms_link_text: ~
   people:
     index:
       loading_more_members: ~
@@ -1588,20 +1644,6 @@ en-vg:
       visible_to_everybody: ~
       visible_to_registered_users: ~
     save_information: ~
-  sms:
-    or_check_the_offer_in_kassi: ~
-    parsing_error: ~
-    pay: ~
-    payment_delivered: ~
-    potential_ride_share_offer: ~
-    request: ~
-    rideshare: ~
-    you_can_call_him_at: ~
-    you_can_pay_gas_money_to_driver: ~
-    category_not_supported: ~
-    check_the_offer_in_kassi: ~
-    listing_created: ~
-    offer: ~
   tag_cloud:
     tag_used:
       with_tag: ~

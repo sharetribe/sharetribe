@@ -33,6 +33,11 @@ class PersonMailer < ActionMailer::Base
     @email_type =  (conversation.status == "accepted" ? "email_when_conversation_accepted" : "email_when_conversation_rejected")
     set_up_urls(conversation.other_party(conversation.listing.author), community, @email_type)
     @conversation = conversation
+
+    if community.payments_in_use?
+      @payment_url = community.payment_gateway.new_payment_url(@recipient, @conversation, @recipient.locale, @url_params)
+    end
+
     mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.conversation_status_changed.your_#{Listing.opposite_type(conversation.listing.listing_type)}_was_#{conversation.status}"))
@@ -124,9 +129,25 @@ class PersonMailer < ActionMailer::Base
     @listing = listing
     @recipient = recipient
 
+    if community.payments_in_use?
+      @payment_settings_link = community.payment_gateway.settings_url(@recipient, @recipient.locale, @url_params)
+    end
+
     mail(:to => recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.payment_settings_reminder.remember_to_add_payment_details")) do |format|
+            format.html {render :locals => {:skip_unsubscribe_footer => true} }
+    end
+  end
+
+  # Braintree account was approved (via Webhook)
+  def braintree_account_approved(recipient, community)
+    set_up_urls(recipient, community)
+    @recipient = recipient
+
+    mail(:to => recipient.confirmed_notification_emails_to,
+         :from => community_specific_sender(community),
+         :subject => t("emails.braintree_account_approved.account_ready")) do |format|
             format.html {render :locals => {:skip_unsubscribe_footer => true} }
     end
   end

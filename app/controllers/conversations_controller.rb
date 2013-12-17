@@ -93,8 +93,8 @@ class ConversationsController < ApplicationController
       flash[:notice] = t("layouts.notifications.#{@conversation.discussion_type}_#{@conversation.status}")
       redirect_to person_message_path(:person_id => @current_user.id, :id => @conversation.id)
     else
-      flash.now[:error] = t("layouts.notifications.something_went_wrong")
-      render :edit
+      flash[:error] = t("layouts.notifications.something_went_wrong")
+      redirect_to person_message_path(@current_user, @conversation)
     end  
   end
   
@@ -196,7 +196,9 @@ class ConversationsController < ApplicationController
   end
   
   def prepare_accept_or_reject_form
-    @payment = Payment.new
+    if @current_community.payments_in_use?
+      @payment = @current_community.payment_gateway.new_payment
+    end
     
     if @current_community.requires_payout_registration? && @current_community.payment_possible_for?(@conversation.listing) && ! @current_user.can_receive_payments_at?(@current_community)
       @payout_registration_missing = true

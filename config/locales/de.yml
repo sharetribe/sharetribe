@@ -10,6 +10,9 @@ de:
         community_description: "Community Beschreibung"
         update_information: Neuigkeiten
         invite_people: "Lade Leute zu dieser Community ein"
+        edit_signup_info: ~
+        edit_signup_info_description: ~
+        edit_signup_info_link: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Bearbeite das Community %{community_name} Ausshen und die Haptigkeit"
         community_logo: Logo
@@ -17,9 +20,9 @@ de:
         community_cover_photo: Titelfoto
         community_custom_color1: Hauptfarbe
         community_custom_color2: ~
-        logo_instructions_text: "Das Logo Dokument wird in ein Quadrat ausgeschnitten und, falls nötig, in eine Größe von 192x192 Pixel angepasst."
-        logo_icon_instructions_text: ~
-        cover_photo_instructions_text: "Deckblatt Bild wird in eine Größe von 1600x195 Pixel Größe angepasst, größere Bilder werden in der Mitte durch geschnitten."
+        logo_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: ~
+        cover_photo_instructions_text_with_dimensions: ~
         custom_color1_instructions_text: "Du kannst die Hauptfarbe der Community ändern in dem du einen neuen Farbwert eingibst. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> kann dir helfen die Farbe auszuwählen und kopiere den Code hier ein."
         custom_color2_instructions_text: ~
         invalid_color_code: "Der Farben Code sollte 6 Ziffern oder Buchstaben A-F haben, zum Beispiel D96E21"
@@ -141,6 +144,7 @@ de:
       price_to_pay: "Preis zu bezahlen"
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
+      minimum_price_error_message: ~
     confirm:
       confirm_description: "Deine Anfrage wurde aufgenommen, du solltest sie bestätigen nachdem du fertig bist. Dann kannst du dem anderen Feedback geben."
       cancel_description: "Wenn deine Anfrage nicht erfüllt wurde, dann markiere sie als \"noch nicht erledigt\". Du kannst dem anderen trotzdem Feedback geben und beschreiben, was passiert ist."
@@ -268,6 +272,43 @@ de:
       reject_request: "Vielleicht später"
       confirm: erledigt
       cancel: "nicht erfolgt"
+  braintree_accounts:
+    new:
+      add_payout_details: ~
+      first_name: ~
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+      save: ~
+    show:
+      payout_details: ~
+      first_name: ~
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+  braintree_payments:
+    edit:
+      cardholder_name: ~
+      credit_card_number: ~
+      cvv: ~
+      credit_card_expiration_date: ~
+      save: ~
   communities:
     map_bubble:
       view_tribe: "Stamm anzeigen"
@@ -427,6 +468,9 @@ de:
       you_have_not_yet_accepted_or_rejected_offer: "Du hast das Angebot %{title}, das du am %{date} erhalten hast noch nicht akzeptiert oder abgelehnt."
       you_have_not_yet_accepted_or_rejected_request: "Du hast die Anfrage %{title}, die du am %{date} erhalten hast noch nicht akzeptiert oder abgelehnt."
       show_thread: "Konversation anzeigen"
+    braintree_account_approved:
+      account_ready: ~
+      message: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Du hast noch keine Anfrage bestätigt oder abgelehnt %{request_link}, die du am %{date} von %{other_party_full_name} erhalten hast. Wenn die Anfrage vollständig ist musst du das bestätigen. Danach kannst du Feedback an %{other_party_given_name} geben."
       remember_to_confirm_request: "Erinnere dich deine Anfrage zu bestätigen oder abzulehnen"
@@ -937,6 +981,7 @@ de:
       you_must_log_in_to_view_your_settings: "Sie müssen sich bei %{service_name} anmelden um Ihre Einstellungen anzeigen zu können.."
       you_must_log_in_to_add_news_item: "Sie müssen sich bei %{service_name} anmelden um einen neuen Artikel hinzuzufügen."
       you_must_log_in_to_change_profile_settings: ~
+      you_must_log_in_to_change_payment_settings: ~
       you_need_to_confirm_your_account_first: "Du musst zuerst deine Email bestätigen."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "SIe verfolgen nicht länger diesen Eintrag"
@@ -945,6 +990,11 @@ de:
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: ~
       email_deleted: ~
+      payment_details_add_successful: ~
+      payment_details_add_error: ~
+    payment_header:
+      new_payment: ~
+      payment_receiver: ~
     profile_extras_header:
       back_to_profile_of_person: "Zurück zum Profil des Benutzers"
       badges: Abzeichen
@@ -1016,6 +1066,7 @@ de:
         time: "Stunde, Tag, Woche..."
         long_time: "Woche, Monat..."
         service_fee_will_be_added: "Eine Servicegebühr in Höhe von %{fee}% kommt hinzu."
+        service_fee_will_be_deducted: ~
         price_excludes_vat: "Dieser Preis beinhaltet keine Steuer."
       origin:
         location: Standort
@@ -1265,9 +1316,7 @@ de:
       delete_news_item: "Artikel entfernen"
   okl:
     member_id: "Mitglieds ID"
-    member_id_is_your_username: "Sie müssen Ihren Omakotiliitto Mitglieds Id (jäsennumero) eingeben um %{service_name} beitreten zu können. Ihre Mitglieds Id ist ebenfalls Ihr Benutzername den Sie brauchen um sich bei %{service_name} anmelden zu können. Fall Sie noch kein Mitglied von Omakotiliitto sind, so können Sie"
     member_id_or_email: "Mitglieds-Id oder Email"
-    join_here: "hier beitreten."
   payments:
     new:
       new_payment: "Neue Zahlung"
@@ -1281,14 +1330,21 @@ de:
       product: ~
       price: ~
       continue_to_pay: ~
+      invoice: ~
+      service_fee: ~
+      you_will_get: ~
     mangopay:
       terms:
         mangopay_terms_also_included: ~
-        mangopay_terms_link_text: ~
+        terms_link_text: ~
       seller_registration_needed:
         seller_registration_needed: ~
         seller_registration_instructions: ~
         settings_page_link: ~
+    braintree:
+      terms:
+        braintree_terms_also_included: ~
+        terms_link_text: ~
   people:
     index:
       loading_more_members: "Lade mehr Mitglieder"
@@ -1594,20 +1650,6 @@ de:
       visible_to_everybody: "für jeden sichtbar"
       visible_to_registered_users: "(sichtbar für angemeldete Benutzer)"
     save_information: "Informationen speichern"
-  sms:
-    or_check_the_offer_in_kassi: "oder schauen Sie sich das  Angebot %{listing_url} an"
-    parsing_error: "Der Inhalt der Nachricht konnte nicht verstanden werden. Bitte schauen Sie sich die Anweisungen an und probieren Sie es erneut."
-    pay: zahlen|Zahlung
-    payment_delivered: "Die Zahlung von %{amount} Euro wird an %{receiver} gesendet. Sie werden %{amount_plus_commission} Euro in Ihrer Telefonrechnung zahlen."
-    potential_ride_share_offer: "%{author_name} bietet eine Mitfahrgelegenheit in %{service_name} von %{origin} zu %{destination} %{start_time} an."
-    request: ^Anfrage$|^r$
-    rideshare: Fahrt|Mitfahrgelegenheit
-    you_can_call_him_at: "SIe können den Fahrer unter %{phone_number} erreichen"
-    you_can_pay_gas_money_to_driver: "Um etwas Spritgeld zu zahlen, antworten Sie mit 'kassi pay %{driver} Xe', wobei X der Betrag ist den Sie zahlen wollen. Eine +5% Kommission wird auf Ihre Telefonrechnung gesetzt."
-    category_not_supported: "Diese Kategorie wird noch nicht mit SMS unterstützt."
-    check_the_offer_in_kassi: "Schauen Sie sich das Angebot in %{service_name} an: %{listing_url}"
-    listing_created: "Vielen Dank für Ihre Nachricht, das Angebot wurde zu %{service_name} hinzugefügt."
-    offer: ^bieten$|^o$
   tag_cloud:
     tag_used:
       with_tag: "Mit Tag"

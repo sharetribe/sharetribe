@@ -1,13 +1,9 @@
 .centered-section-wide.payment-form
-  %h2= t(".new_payment", )
-  %p 
-    = t(".payment_receiver")
-        
-    = "#{link_to @conversation.other_party(@current_user).name, @conversation.other_party(@current_user)}".html_safe
-    
-  = render :partial => @current_community.payment_gateways.first.form_template_dir + "/show"
+  = render :partial => "layouts/payment_header", :locals => { :payment_receiver => @conversation.other_party(@current_user) }
 
-  - if @current_community.payment_gateways.include?(Mangopay.first)
+  = render :partial => @current_community.payment_gateway.form_template_dir + "/show"
+
+  - if @current_community.mangopay_in_use?
     %br
     %br
     = image_tag("/assets/payments/Mango-Frise1.png")

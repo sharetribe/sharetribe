@@ -44,6 +44,7 @@ class Person < ActiveRecord::Base
   has_many :emails, :dependent => :destroy
   
   has_one :location, :conditions => ['location_type = ?', 'person'], :dependent => :destroy
+  has_one :braintree_account, :dependent => :destroy
   
   has_many :participations, :dependent => :destroy 
   has_many :conversations, :through => :participations, :dependent => :destroy
@@ -710,8 +711,8 @@ class Person < ActiveRecord::Base
   
   # Has the person filled in all the information needed to receive payments in this community?
   def can_receive_payments_at?(community)
-    if community.payment_gateways
-      return community.payment_gateways.first.can_receive_payments_for?(self)
+    if community.payment_gateway
+      return community.payment_gateway.can_receive_payments_for?(self)
     else
       throw "can_receive_payments_at? was checked in a community which has no payment gateways"
     end

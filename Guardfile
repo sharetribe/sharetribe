@@ -50,6 +50,7 @@ guard 'spork', :wait => 60, test_unit: false, :cucumber_env => { 'RAILS_ENV' => 
   watch('app/models/classification.rb') { :cucumber }
   watch('app/models/community_category.rb') { :cucumber }
   watch('app/models/payment_gateway.rb') { :cucumber }
+  watch('app/models/community_payment_gateway.rb') { :cucumber }
   watch('app/models/payment_gateways/checkout.rb') { :cucumber }
   watch('app/models/payment_gateways/mangopay.rb') { :cucumber }
   watch('app/models/share_type.rb') { :cucumber }

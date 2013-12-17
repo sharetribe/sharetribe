@@ -144,6 +144,7 @@ en:
       price_to_pay: "Total price to be paid"
       you_need_to_fill_payout_details_before_accepting: "You need to fill in payout details before you can accept the request and receive the payment. Go to %{payment_settings_link} to fill in the details."
       payment_settings_link: "payment settings"
+      minimum_price_error_message: "The price cannot be lower than %{amount}."
     confirm:
       confirm_description: "If your request has been fulfilled you should confirm it as done. Then you can give feedback to the other party."
       cancel_description: "If your request was not fulfilled, you can mark it as 'not happened'. You can still give feedback to the other party and describe what happened."
@@ -271,6 +272,43 @@ en:
       reject_request: "Not this time"
       confirm: "Mark completed"
       cancel: "Did not happen"
+  braintree_accounts:
+    new:
+      add_payout_details: "Add your payout details"
+      first_name: "First name"
+      last_name: "Last name"
+      email: "Email address"
+      phone: "Phone number"
+      address_street_address: "Street address"
+      address_postal_code: "Zip/Postal code"
+      address_locality: "City"
+      address_region: "State"
+      date_of_birth: "Date of birth"
+      ssn: "SSN"
+      routing_number: "Routing number"
+      account_number: "Account number"
+      save: "Save"
+    show:
+      payout_details: "Your payout details"
+      first_name: "First name"
+      last_name: "Last name"
+      email: "Email address"
+      phone: "Phone number"
+      address_street_address: "Street address"
+      address_postal_code: "Zip/Postal code"
+      address_locality: "City"
+      address_region: "State"
+      date_of_birth: "Date of birth"
+      ssn: "SSN"
+      routing_number: "Routing number"
+      account_number: "Account number"
+  braintree_payments:
+    edit:
+      cardholder_name: Cardholder name
+      credit_card_number: Credit card number
+      cvv: CVV
+      credit_card_expiration_date: Credit card expiration date
+      save: "Save"
   communities:
     map_bubble:
       view_tribe: "View tribe"
@@ -430,6 +468,9 @@ en:
       you_have_not_yet_accepted_or_rejected_offer: "You have not yet accepted or rejected the offer %{title} you received %{date}."
       you_have_not_yet_accepted_or_rejected_request: "You have not yet accepted or rejected the request %{title} you received %{date}."
       show_thread: "Show conversation"
+    braintree_account_approved:
+      account_ready: "You are ready to receive payments"
+      message: "Your payment information has been confirmed and you are now ready to receive payments in %{service_name}."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "You have not yet confirmed or canceled the request %{request_link} you received %{date} from %{other_party_full_name}. If the request has been completed, you should confirm that. After that you can give feedback to %{other_party_given_name}."
       remember_to_confirm_request: "Remember to confirm or cancel a request"
@@ -526,7 +567,7 @@ en:
       added_listing: "%{name_link} added a listing:"
       update_mail_title: "%{title_link} community update"
       title_link_text: "%{community_name}"
-      intro_paragraph: "Here are some of the things that happened in the %{community_link} during the past %{time_since_last_update}."
+      intro_paragraph: "Here are some of the things that happened in %{community_link} during the past %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Post a new listing!"
       reduce_email_footer_text: "Too much email? %{settings_link} or %{unsubscribe_link}."
@@ -871,7 +912,7 @@ en:
       account_creation_successful: "Welcome to %{service_name}, %{person_name}!"
       account_deleted: "Your account is now deleted."
       login_successful: "Welcome, %{person_name}!"
-      logout_successful: "You have now been logged out of %{service_name}. Welcome again!"
+      logout_successful: "You have now been logged out of %{service_name}. See you soon!"
       news_item_created: "Article created"
       news_item_creation_failed: "Article creation failed"
       news_item_update_failed: "Article update failed"
@@ -940,6 +981,7 @@ en:
       you_must_log_in_to_view_your_settings: "You must log in to %{service_name} to view your settings."
       you_must_log_in_to_add_news_item: "You must log in to %{service_name} to add a new article."
       you_must_log_in_to_change_profile_settings: "You must log in to %{service_name} to change profile settings"
+      you_must_log_in_to_change_payment_settings: "You must log in to %{service_name} to change payment settings"
       you_need_to_confirm_your_account_first: "You need to confirm your email."
       you_must_fill_all_the_fields: "You must fill all the fields"
       you_unfollowed_listing: "You are no longer following this listing"
@@ -948,6 +990,11 @@ en:
       can_not_delete_email: "You can not remove the email address"
       user_does_not_have_email_to_delete: "You don't have the email address you're trying to remove"
       email_deleted: "Email removed"
+      payment_details_add_successful: "Successfully added payment details"
+      payment_details_add_error: "Could not add payment details"
+    payment_header:
+      new_payment: New payment
+      payment_receiver: "Payment receiver:"
     profile_extras_header:
       back_to_profile_of_person: "Back to user's profile"
       badges: Badges
@@ -1019,6 +1066,7 @@ en:
         time: "hour, day, week, ..."
         long_time: "week, month, ..."
         service_fee_will_be_added: "A %{fee}% service fee will be added to the price."
+        service_fee_will_be_deducted: "A %{fee}% service fee will be deducted from the price."
         price_excludes_vat: "The price doesn't include VAT."
       origin:
         location: Location
@@ -1279,17 +1327,24 @@ en:
     form:
       total: Total
       service_charge: "Service charge"
-      product: Product
-      price: Price
+      product: "Product:"
+      price: "Price:"
       continue_to_pay: "Continue to pay"
+      invoice: "Invoice"
+      service_fee: "%{service_name} service fee:"
+      you_will_get: "You will get:"
     mangopay:
       terms:
-        mangopay_terms_also_included: "NOTE: MangoPay is used as a payment gateway service and by using this website you also accept %{mangopay_terms_link_text}, in addition to the terms below."
-        mangopay_terms_link_text: "MangoPay terms of use"
+        mangopay_terms_also_included: "NOTE: MangoPay is used as a payment gateway service and by using this website you also accept %{terms_link_text}, in addition to the terms below."
+        terms_link_text: "MangoPay terms of use"
       seller_registration_needed:
         seller_registration_needed: "You can't create a money related listing yet"
         seller_registration_instructions: "Before you can create a listing which could result in you being paid, you'll need to add few required details to your %{link_to_settings_page}."
         settings_page_link: profile
+    braintree:
+      terms:
+        braintree_terms_also_included: "NOTE: Braintree is used as a payment gateway service and by using this website you also accept %{terms_link_text}, in addition to the terms below."
+        terms_link_text: "Braintree terms of use"
   people:
     index:
       loading_more_members: "Loading more members"

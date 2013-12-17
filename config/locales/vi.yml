@@ -10,6 +10,9 @@ vi:
         community_description: ~
         update_information: ~
         invite_people: ~
+        edit_signup_info: ~
+        edit_signup_info_description: ~
+        edit_signup_info_link: ~
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
@@ -17,9 +20,9 @@ vi:
         community_cover_photo: ~
         community_custom_color1: ~
         community_custom_color2: ~
-        logo_instructions_text: ~
-        logo_icon_instructions_text: ~
-        cover_photo_instructions_text: ~
+        logo_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: ~
+        cover_photo_instructions_text_with_dimensions: ~
         custom_color1_instructions_text: ~
         custom_color2_instructions_text: ~
         invalid_color_code: ~
@@ -141,6 +144,7 @@ vi:
       price_to_pay: ~
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
+      minimum_price_error_message: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -268,6 +272,43 @@ vi:
       reject_request: "Từ chối yêu cầu"
       confirm: ~
       cancel: ~
+  braintree_accounts:
+    new:
+      add_payout_details: ~
+      first_name: ~
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+      save: ~
+    show:
+      payout_details: ~
+      first_name: ~
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+  braintree_payments:
+    edit:
+      cardholder_name: ~
+      credit_card_number: ~
+      cvv: ~
+      credit_card_expiration_date: ~
+      save: ~
   communities:
     map_bubble:
       view_tribe: "Xem cộng đồng"
@@ -427,6 +468,9 @@ vi:
       you_have_not_yet_accepted_or_rejected_offer: "Bạn chưa chấp nhận hoặc từ chối hỗ trợ '%{title}' bạn đã nhận vào ngày %{date}"
       you_have_not_yet_accepted_or_rejected_request: "Bạn chưa chấp nhận hoặc từ chối yêu câu '%{title}' bạn đã nhận được vào ngày %{date}"
       show_thread: ~
+    braintree_account_approved:
+      account_ready: ~
+      message: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
       remember_to_confirm_request: ~
@@ -937,6 +981,7 @@ vi:
       you_must_log_in_to_view_your_settings: "Bạn phải đăng nhập vào %{service_name} để xem được các thiết lập của bạn."
       you_must_log_in_to_add_news_item: "Bạn phải đăng nhập vào %{service_name} mới thêm được bài viết mới."
       you_must_log_in_to_change_profile_settings: ~
+      you_must_log_in_to_change_payment_settings: ~
       you_need_to_confirm_your_account_first: "Bạn cần phải xác nhận email của bạn lần trước tiên."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Bạn đang không còn được đề cập trong danh sách này"
@@ -945,6 +990,11 @@ vi:
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: ~
       email_deleted: ~
+      payment_details_add_successful: ~
+      payment_details_add_error: ~
+    payment_header:
+      new_payment: ~
+      payment_receiver: ~
     profile_extras_header:
       back_to_profile_of_person: "Quay về hồ sơ của người dùng"
       badges: "Huy hiệu"
@@ -1016,6 +1066,7 @@ vi:
         time: ~
         long_time: ~
         service_fee_will_be_added: ~
+        service_fee_will_be_deducted: ~
         price_excludes_vat: ~
       origin:
         location: "Vị trí"
@@ -1265,9 +1316,7 @@ vi:
       delete_news_item: "Loại bỏ bài viết"
   okl:
     member_id: "ID thành viên"
-    member_id_is_your_username: "Bạn phải cung cấp nhận dạng (id) thành viên Omakotiliitto (jäsennumero) của bạn để tham gia %{service_name}. Nhận dạng thành viên của bạn cũng là tên mà bạn sẽ cần khi đăng nhập vào %{service_name} . Nếu bạn chưa phải là thành viên của Omakotiliitto, bạn có thể"
     member_id_or_email: "Định danh hoặc email của thành viên"
-    join_here: "tham gia ở đây."
   payments:
     new:
       new_payment: ~
@@ -1281,14 +1330,21 @@ vi:
       product: ~
       price: ~
       continue_to_pay: ~
+      invoice: ~
+      service_fee: ~
+      you_will_get: ~
     mangopay:
       terms:
         mangopay_terms_also_included: ~
-        mangopay_terms_link_text: ~
+        terms_link_text: ~
       seller_registration_needed:
         seller_registration_needed: ~
         seller_registration_instructions: ~
         settings_page_link: ~
+    braintree:
+      terms:
+        braintree_terms_also_included: ~
+        terms_link_text: ~
   people:
     index:
       loading_more_members: ~
@@ -1589,20 +1645,6 @@ vi:
       visible_to_everybody: "hiển thị đối với mọi người"
       visible_to_registered_users: "hiển thị cho người dùng đã đăng nhập"
     save_information: "Lưu thông tin"
-  sms:
-    or_check_the_offer_in_kassi: "hoặc kiểm tra sự trợ giúp %{listing_url}"
-    parsing_error: "Có thể không hiểu nội dùng thông điệp. Vui lòng kiểm tra các chỉ dẫn và thử lại."
-    pay: "thanh toán|số tiền thanh toán"
-    payment_delivered: "Số tiền thanh toán %{amount} Euro đã được chuyển đến %{receiver}. Bạn sẽ trả %{amount_plus_commission} Euro cho tiền điện thoại của bạn."
-    potential_ride_share_offer: "%{author_name} hỗ trợ một cuốc đi tại %{service_name} từ %{origin} đến %{destination} %{start_time}."
-    request: ~
-    rideshare: "cuốc xe|cuốc xe chia sẻ"
-    you_can_call_him_at: "Bạn có thể gọi tài xế xe bằng số %{phone_number}"
-    you_can_pay_gas_money_to_driver: "Để trả tiền gas, phản hồi trả kassi %{driver} . Số tiền + 5% hoa hồng vào hóa đơn điện thoại của bạn."
-    category_not_supported: "Thể loại này chưa được hỗ trợ bằng tin nhắn sms."
-    check_the_offer_in_kassi: "Kiểm tra hộ trợ tại  %{service_name}: %{listing_url}"
-    listing_created: "Cảm ơn cảm ơn bạn đã thông báo, danh sách bây giờ được thêm vào %{service_name}."
-    offer: ~
   tag_cloud:
     tag_used:
       with_tag: "Với thẻ"
