@@ -281,13 +281,13 @@ en:
       phone: "Phone number"
       address_street_address: "Street address"
       address_postal_code: "Zip/Postal code"
-      address_locality: "City"
-      address_region: "State"
+      address_locality: City
+      address_region: State
       date_of_birth: "Date of birth"
-      ssn: "SSN"
+      ssn: SSN
       routing_number: "Routing number"
       account_number: "Account number"
-      save: "Save"
+      save: Save
     show:
       payout_details: "Your payout details"
       first_name: "First name"
@@ -296,19 +296,19 @@ en:
       phone: "Phone number"
       address_street_address: "Street address"
       address_postal_code: "Zip/Postal code"
-      address_locality: "City"
-      address_region: "State"
+      address_locality: City
+      address_region: State
       date_of_birth: "Date of birth"
-      ssn: "SSN"
+      ssn: SSN
       routing_number: "Routing number"
       account_number: "Account number"
   braintree_payments:
     edit:
-      cardholder_name: Cardholder name
-      credit_card_number: Credit card number
+      cardholder_name: "Cardholder name"
+      credit_card_number: "Credit card number"
       cvv: CVV
-      credit_card_expiration_date: Credit card expiration date
-      save: "Save"
+      credit_card_expiration_date: "Credit card expiration date"
+      save: Save
   communities:
     map_bubble:
       view_tribe: "View tribe"
@@ -993,7 +993,7 @@ en:
       payment_details_add_successful: "Successfully added payment details"
       payment_details_add_error: "Could not add payment details"
     payment_header:
-      new_payment: New payment
+      new_payment: "New payment"
       payment_receiver: "Payment receiver:"
     profile_extras_header:
       back_to_profile_of_person: "Back to user's profile"
@@ -1330,7 +1330,7 @@ en:
       product: "Product:"
       price: "Price:"
       continue_to_pay: "Continue to pay"
-      invoice: "Invoice"
+      invoice: Invoice
       service_fee: "%{service_name} service fee:"
       you_will_get: "You will get:"
     mangopay:

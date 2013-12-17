@@ -10,6 +10,9 @@ es:
         community_description: "Descripción:"
         update_information: "Actualizar información"
         invite_people: ~
+        edit_signup_info: ~
+        edit_signup_info_description: ~
+        edit_signup_info_link: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Editar apariencia de la comunidad %{community_name}"
         community_logo: Logo
@@ -17,9 +20,9 @@ es:
         community_cover_photo: "Foto de portada"
         community_custom_color1: "Color principal"
         community_custom_color2: ~
-        logo_instructions_text: "El archivo del logo será cortado en cuadrado y redimensionado a 192x192 pixeles si es necesario"
-        logo_icon_instructions_text: ~
-        cover_photo_instructions_text: "El archivo de la foto de portada será redimensionado a 1600x195 pixeles de tamaño e imágenes más altas serán cortadas por la mitad."
+        logo_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: ~
+        cover_photo_instructions_text_with_dimensions: ~
         custom_color1_instructions_text: "Puedes cambiar el color principal de la interfaz de usuario de esta comunidad ingresando un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> puede ayudarte a elegir el color y copiar el código aquí."
         custom_color2_instructions_text: ~
         invalid_color_code: "El código de color debe contener 6 caracteres, números o letras de la A a la F, por ejemplo D96E21"
@@ -92,9 +95,9 @@ es:
     share_types:
       request: ~
       offer: Oferta
-      borrow: préstamos
+      borrow: prestando
       buy: comprando
-      give_away: donando
+      give_away: regalando
       lend: prestando
       receive: regalando
       rent: arrendando
@@ -141,6 +144,7 @@ es:
       price_to_pay: ~
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
+      minimum_price_error_message: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -265,9 +269,46 @@ es:
       accept_offer: "Aceptar oferta"
       accept_request: "Aceptar solicitud"
       reject_offer: "Rechazar oferta"
-      reject_request: "Rechazar solicitud"
+      reject_request: "Por el momento no"
       confirm: ~
       cancel: ~
+  braintree_accounts:
+    new:
+      add_payout_details: ~
+      first_name: ~
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+      save: ~
+    show:
+      payout_details: ~
+      first_name: ~
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+  braintree_payments:
+    edit:
+      cardholder_name: ~
+      credit_card_number: ~
+      cvv: ~
+      credit_card_expiration_date: ~
+      save: ~
   communities:
     map_bubble:
       view_tribe: "Ver la tribu"
@@ -282,7 +323,7 @@ es:
     done:
       done: Hecho!
       tribe_created_successfully: "Has creado correctamente tu tribu."
-      go_to_your_tribe: "Ve a tu tribu"
+      go_to_your_tribe: "Ir a tu tribu"
       we_will_contact_you_about_invoicing: "Te contactaremos prontamente por e-mail sobre la facturación correspondiente."
     index:
       find_your_local_tribe: "Encuentra tu tribu"
@@ -430,6 +471,9 @@ es:
       you_have_not_yet_accepted_or_rejected_offer: "Aún no has aceptado o rechazado la oferta '%{title}' que recibiste el %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Aún no has aceptado o rechazado la solicitud '%{title}' que recibiste el %{date}."
       show_thread: ~
+    braintree_account_approved:
+      account_ready: ~
+      message: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
       remember_to_confirm_request: ~
@@ -738,8 +782,8 @@ es:
       review: ~
       reviews: ~
     news_item:
-      show_less: "Menos de"
-      show_more: "Más de"
+      show_less: "Mostrar menos"
+      show_more: "Mostrar más"
     poll_form:
       poll: "Encuesta:"
       comment: "Comentario:"
@@ -784,7 +828,7 @@ es:
       polls: Encuestas
     application:
       join_this_community: "Únete a la comunidad"
-      read_more: "Lee más"
+      read_more: "Leer más"
       feedback: "Sugerencia al equipo de %{service_name}"
       default_feedback: "¿Tuviste algún problema con %{service_name}?¿Tienes alguna sugerencia para mejorar el servicio? ¿Notaste algún contenido sospechoso? ¿O quieres conversar sobre un tema con nosotros? Cuéntanos!"
       feedback_forum: "Forum de sugerencias"
@@ -905,7 +949,7 @@ es:
       poll_update_failed: "Error en la actualización de la encuesta"
       poll_updated: "Encuesta actualizada"
       poll_deleted: "Encuesta eliminada"
-      read_more: "Lee más!"
+      read_more: "Leer más!"
       registration_considered_spam: "El registro no funcionó, por favor envíanos tu comentario y menciona \"email2 error\"."
       reply_cannot_be_empty: "No puedes enviar un mensaje vacío"
       reply_sent: "Respuesta enviada satisfactoriamente"
@@ -942,6 +986,7 @@ es:
       you_must_log_in_to_view_your_settings: "Debes registrarte en %{service_name} para ver tu configuración"
       you_must_log_in_to_add_news_item: "Debes iniciar sesión en %{service_name} para añadir un nuevo artículo"
       you_must_log_in_to_change_profile_settings: ~
+      you_must_log_in_to_change_payment_settings: ~
       you_need_to_confirm_your_account_first: "Deberás confirmar tu cuenta primero."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Ya no estás siguiendo este anuncio"
@@ -950,6 +995,11 @@ es:
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: ~
       email_deleted: ~
+      payment_details_add_successful: ~
+      payment_details_add_error: ~
+    payment_header:
+      new_payment: ~
+      payment_receiver: ~
     profile_extras_header:
       back_to_profile_of_person: "Volver al perfil del usuario"
       badges: Medallas
@@ -1021,6 +1071,7 @@ es:
         time: ~
         long_time: ~
         service_fee_will_be_added: ~
+        service_fee_will_be_deducted: ~
         price_excludes_vat: ~
       origin:
         location: Lugar
@@ -1138,7 +1189,7 @@ es:
       link_label_for_rideshare_request: Contacto
     new:
       post_a_new_listing: ~
-      listing: aviso
+      listing: listado
       offer: "Tengo algo para ofrecer a los demás"
       request: "Necesito algo"
       selected_offer: Oferta
@@ -1270,9 +1321,7 @@ es:
       delete_news_item: "Eliminar artículo"
   okl:
     member_id: "Número de identificación"
-    member_id_is_your_username: "Tienes que dar tu identificación de miembro de Omakotiliitto (jäsennumero) para ingresar a %{service_name}. Tu identificación de miembro es también tu nombre de usuario que necesitarás cuando inicies sesión en %{service_name}. Si todavía no eres un miembro de Omakotiliitto, puedes"
     member_id_or_email: "Identificación de usuario o email"
-    join_here: "Ingresa aquí."
   payments:
     new:
       new_payment: ~
@@ -1286,14 +1335,21 @@ es:
       product: ~
       price: ~
       continue_to_pay: ~
+      invoice: ~
+      service_fee: ~
+      you_will_get: ~
     mangopay:
       terms:
         mangopay_terms_also_included: ~
-        mangopay_terms_link_text: ~
+        terms_link_text: ~
       seller_registration_needed:
         seller_registration_needed: ~
         seller_registration_instructions: ~
         settings_page_link: ~
+    braintree:
+      terms:
+        braintree_terms_also_included: ~
+        terms_link_text: ~
   people:
     index:
       loading_more_members: "Cargando más miembros"
@@ -1389,14 +1445,14 @@ es:
       generous_gold_description: "Lo que es tuyo también es de los demás! Has prestado o regalado 15 artículos, fantástico!"
       generous_silver: "Generoso (plata)"
       generous_silver_description: "Te gusta compartir con los demás! Ya has prestado o regalado 6 artículos. Bien!"
-      helper_bronze: "Ayudador (bronce)"
+      helper_bronze: "Ayudante (bronce)"
       helper_bronze_description: "Usted ha ofrecido su ayuda a los demás en dos oportunidades, genial!"
-      helper_gold: "Voluntarioso (oro)"
+      helper_gold: "Ayudante (oro)"
       helper_gold_description: "Siempre estás disponible cuando alguien necesita ayuda! Ya son 15 los favores realizados. Superlativo!"
-      helper_silver: "Voluntarioso (plata)"
+      helper_silver: "Ayudante (plata)"
       helper_silver_description: "Dedicas parte de tu tiempo ayudando a los demás: 6 favores realizados!"
       jack_of_all_trades: "Un fenómeno para hacer intercambios!"
-      jack_of_all_trades_description: "Eres un verdadero multitalentos! Has participado intercambiando recursos en cinco roles diferentes. Continúa y completa los 8: ofrece o solicita artículos, servicios, viajes y lugares."
+      jack_of_all_trades_description: "Eres un verdadero multitalentoso! Has participado intercambiando recursos en cinco roles diferentes. Continúa y completa los 8: ofrece o solicita artículos, servicios, viajes y lugares."
       lender_bronze: "Colaborador (bronce)"
       lender_bronze_description: "Has listado tres artículos que podrías compartir en tu perfil Bien!"
       lender_gold: "Colaborador (oro)"
@@ -1425,14 +1481,14 @@ es:
       taxi_stand_gold_description: "Tú siempre estás disponible, listo para ofrecer un viaje a los demás. Ya van 25! Extraordinario!"
       taxi_stand_silver: "Parada de taxis (plata)"
       taxi_stand_silver_description: "10 ofertas de transporte compartido añadidas. Bien! La gente ya sabe con quién contactarse si necesita un traslado."
-      volunteer_bronze: "Voluntarioso (bronce)"
+      volunteer_bronze: "Voluntario (bronce)"
       volunteer_bronze_description: "Gustas de poner tus habilidades al servicio de los demás. Tienes tres ofertas de servicio abiertas en %{service_name}."
       volunteer_gold: "Voluntario (oro)"
       volunteer_gold_description: "Tú sabes más que nadie sobre cómo ayudar a los demás. Tienes 25 ofertas de servicio abiertas en tu perfil. Fenómeno!"
       volunteer_silver: "Voluntario (plata)"
       volunteer_silver_description: "Tienes mucho para dar a los demás: has publicado 10 servicios que podrías hacer en %{service_name}!"
     profile_feedback:
-      as_expected: "Lo esperado"
+      as_expected: "Como lo esperado"
       exceeded_expectations: "Mucho mejor de lo esperado"
       grade: "puntaje:"
       and_gave_following_feedback: "y dio los siguientes comentarios"
@@ -1440,8 +1496,8 @@ es:
       slightly_better_than_expected: "Un poco mejor de lo esperado"
       slightly_less_than_expected: "Un poco peor de lo esperado"
     profile_listings:
-      show_also_closed: "Mostrar como cerrada"
-      show_only_open: "Mostrar como abierta"
+      show_also_closed: "Mostrar los cerrados"
+      show_only_open: "Mostrar los abiertos"
       no_image: ~
     show:
       contact: "Contactar a %{person}"
@@ -1561,7 +1617,7 @@ es:
       email_about_accept_reminders: "...He olvidado aceptar un evento"
       email_about_confirm_reminders: ~
       email_about_new_badges: "...He obtenido una nueva medalla"
-      email_about_new_comments_to_own_listing: ".. .alguien comenta mi oferta o solicitud"
+      email_about_new_comments_to_own_listing: ".. .alguien comenta en mi oferta o solicitud"
       email_about_new_messages: ".. .alguien me envía un mensaje"
       email_about_new_received_testimonials: ".. .alguien me da sugerencias"
       email_about_testimonial_reminders: "...He olvidado hacer una sugerencia o dar información sobre un evento"
@@ -1596,20 +1652,6 @@ es:
       visible_to_everybody: "visible para todo el mundo"
       visible_to_registered_users: "visible para los usuarios que han iniciado sesión"
     save_information: "Guardar Información"
-  sms:
-    or_check_the_offer_in_kassi: "o mira la oferta %{listing_url}"
-    parsing_error: "No se pudo comprender el contenido del mensaje. Por favor consulta las instrucciones y prueba nuevamente."
-    pay: Pagar
-    payment_delivered: "Pago de  %{amount} euros se entrega a  %{receiver} . Tú pagarás  %{amount_plus_commission} euros en tu factura de teléfono."
-    potential_ride_share_offer: "%{author_name} ofrece un traslado en %{service_name} desde %{origin} hacia %{destination} %{start_time}."
-    request: "^ solicita$ | ^ r$"
-    rideshare: "Traslado compartido"
-    you_can_call_him_at: "Puedes llamar al conductor al %{phone_number}"
-    you_can_pay_gas_money_to_driver: "Para pagar dinero por bencina, responde ' pago de kassi  %{driver} Xe' donde x es la cantidad. La cantidad + 5% de comisión irá en tu factura de teléfono."
-    category_not_supported: "Esta categoría todavía no es soportada por SMS."
-    check_the_offer_in_kassi: "Mira la oferta en %{service_name}: %{listing_url}"
-    listing_created: "Gracias por tu mensaje, el listado se agrega ahora a %{service_name}."
-    offer: "^ ofrece$ | ^ o$"
   tag_cloud:
     tag_used:
       with_tag: "Con etiqueta"
@@ -1653,7 +1695,7 @@ es:
       shorter: "%e %b al %H:%M"
       sms: "%e %b al %H:%M"
   timestamps:
-    day_ago: "un día atrás"
+    day_ago: "Hace %{count} día atrás"
     days_ago: "%{count} días atrás"
     hour_ago: "una hora atrás"
     hours_ago: "%{count} horas atrás"

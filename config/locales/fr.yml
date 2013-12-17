@@ -10,6 +10,9 @@ fr:
         community_description: "Description de la tribu"
         update_information: "Mettre les informations à jour"
         invite_people: "Invitez des gens dans cette tribu"
+        edit_signup_info: "Informations lors de l'inscription"
+        edit_signup_info_description: "Ce texte peut être affiché aux utilisateurs sur la page d'inscription. Vous pouvez y donner des instructions à propos de l'inscription, des conseils pour obtenir une invitation, etc. Par défaut, il n'y a pas de consignes, vous pouvez en ajouter en cliquant sur le lien ci-dessous."
+        edit_signup_info_link: "Modifier les informations d'inscription"
       edit_look_and_feel:
         edit_community_look_and_feel: "Modifier la présentation et l'aspect de la tribu \"%{community_name}\""
         community_logo: Logo
@@ -141,6 +144,7 @@ fr:
       price_to_pay: "Montant total à payer"
       you_need_to_fill_payout_details_before_accepting: "Vous devez compléter les détails de paiements avant de pouvoir accepter la demande et recevoir le paiement. Allez aux %{payment_settings_link} pour compléter les détails."
       payment_settings_link: "paramètres de paiement"
+      minimum_price_error_message: "Le prix ne peut pas être plus bas que %{amount}."
     confirm:
       confirm_description: "Si votre demande a été satisfaite, vous pouvez la marquer comme réalisée. Vous pourrez alors donner un avis sur l'autre personne."
       cancel_description: "Si votre demande n'a pas été satisfaite, vous pouvez la marquer comme \"non réalisée\". Vous pourrez toujours donner un avis sur l'autre personne et décrire ce qu'il s'est passé."
@@ -268,6 +272,43 @@ fr:
       reject_request: "Pas cette fois"
       confirm: Réalisée
       cancel: "Non réalisée"
+  braintree_accounts:
+    new:
+      add_payout_details: "Ajouter vos informations de paiement"
+      first_name: Prénom
+      last_name: Nom
+      email: "Adresse email"
+      phone: Téléphone
+      address_street_address: Adresse
+      address_postal_code: "Code postal"
+      address_locality: Ville
+      address_region: Etat
+      date_of_birth: "Date de naissance"
+      ssn: "Numéro de sécurité sociale"
+      routing_number: "Numéros de routage"
+      account_number: "Numéro de compte"
+      save: Sauvegarder
+    show:
+      payout_details: "Vos détails de paiement"
+      first_name: Prénom
+      last_name: Nom
+      email: "Adresse email"
+      phone: "Numéro de téléphone"
+      address_street_address: Adresse
+      address_postal_code: "Code postal"
+      address_locality: Ville
+      address_region: Etat
+      date_of_birth: "Date de naissance"
+      ssn: "Numéro de sécurité sociale"
+      routing_number: "Numéros de routage"
+      account_number: "Numéro de compte"
+  braintree_payments:
+    edit:
+      cardholder_name: "Nom du porteur de la carte"
+      credit_card_number: "Numéro de carte bancaire"
+      cvv: Cryptogramme
+      credit_card_expiration_date: "Date d'expiration"
+      save: Sauvegarder
   communities:
     map_bubble:
       view_tribe: "Voir la tribu"
@@ -427,6 +468,9 @@ fr:
       you_have_not_yet_accepted_or_rejected_offer: "Vous n'avez pas encore accepté ou refusé l'offre %{title} reçue %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Vous n'avez pas encore accepté ou refusé la demande %{title} reçue %{date}."
       show_thread: "Voir la conversation"
+    braintree_account_approved:
+      account_ready: "Vous êtes prêt à recevoir des paiements"
+      message: "Vos informations de paiement ont été confirmées et vous êtes maintenant prêt à recevoir des paiements sur %{service_name}."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Vous n'avez pas encore confirmé ou annulé la demande %{request_link} que vous avez reçue %{date} de %{other_party_full_name}. Si la demande a été satisfaite, vous devriez la marquer comme réalisée. Vous pourrez ensuite donner un avis sur %{other_party_given_name}."
       remember_to_confirm_request: "Rappel de confirmation ou d'annulation d'une demande"
@@ -454,7 +498,7 @@ fr:
       confirmation_instructions_signature: "Cordialement, <br/> L'équipe de %{service_name}"
       welcome_to_kassi: "Bienvenue sur %{service_name} !"
       need_to_confirm: "Vous devez confirmer votre adresse email."
-      confirmation_link_text: "Confirmer mon inscription"
+      confirmation_link_text: "Confirmer mon email"
       or_paste_link: "Vous pouvez également copier le lien suivant dans la barre d'adresse de votre navigateur : "
       turning_on_confirmations_in_this_community: "Nous commençons à utiliser les email de confirmation dans cette tribu %{service_name}."
     common:
@@ -847,7 +891,7 @@ fr:
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Vous êtes désormais membre de cette tribu. Il vous reste à confirmer votre adresse email."
       comment_cannot_be_empty: "Commentaire ne peut pas être vide"
       comment_sent: "Commentaire envoyé"
-      confirmation_link_is_wrong_or_used: "Le lien de confirmation est déjà utilisé ou se trouve en panne. Essayez de vous connecter ou contactez-nous si le problème persiste."
+      confirmation_link_is_wrong_or_used: "Le lien de confirmation a déjà été utilisé ou est erroné. Essayez de vous connecter ou contactez-nous si le problème persiste."
       additional_email_confirmed: "Votre adresse email est désormais confirmée."
       could_not_get_email_from_facebook: "Impossible de récupérer l'adresse email depuis Facebook et impossible de créer un compte sans adresse email."
       create_new_listing: "Créer une autre annonce"
@@ -868,7 +912,7 @@ fr:
       account_creation_successful: "Bienvenue sur %{service_name}, %{person_name} !"
       account_deleted: "Votre compte est supprimé."
       login_successful: "Bienvenue, %{person_name} !"
-      logout_successful: "Vous avez été déconnecté de %{service_name}. Bienvenue de nouveau !"
+      logout_successful: "Vous avez été déconnecté de %{service_name}. A bientôt !"
       news_item_created: "Article créé"
       news_item_creation_failed: "Erreur lors de la création de l'article"
       news_item_update_failed: "Erreur lors de la mise à jour de l'article"
@@ -937,6 +981,7 @@ fr:
       you_must_log_in_to_view_your_settings: "Vous devez vous connecter à %{service_name} pour afficher vos paramètres."
       you_must_log_in_to_add_news_item: "Vous devez vous connecter à %{service_name} pour ajouter un nouvel article."
       you_must_log_in_to_change_profile_settings: "Vous devez vous connecter à %{service_name} pour modifier les paramètres de profil."
+      you_must_log_in_to_change_payment_settings: "Vous devez être connecté à %{service_name} pour modifier les paramètres de paiement"
       you_need_to_confirm_your_account_first: "Vous devez d'abord confirmer votre email."
       you_must_fill_all_the_fields: "Vous devez compléter tous les champs"
       you_unfollowed_listing: "Vous ne suivez plus cette annonce"
@@ -945,6 +990,11 @@ fr:
       can_not_delete_email: "Vous ne pouvez pas supprimer cette adresse email"
       user_does_not_have_email_to_delete: "Vous n'avez pas l'adresse email que vous essayez de supprimer"
       email_deleted: "Email supprimé"
+      payment_details_add_successful: "Détails de paiement ajoutés avec succès"
+      payment_details_add_error: "Impossible d'ajouter les détails de paiement"
+    payment_header:
+      new_payment: "Nouveau paiement"
+      payment_receiver: "Destinataire du paiement"
     profile_extras_header:
       back_to_profile_of_person: "Retour au profil"
       badges: Badges
@@ -1016,6 +1066,7 @@ fr:
         time: "heure, jour, semaine..."
         long_time: "semaine, mois..."
         service_fee_will_be_added: "Une commission de %{fee}% sera ajoutée au prix."
+        service_fee_will_be_deducted: "Une commission de %{fee}% sera déduite du prix."
         price_excludes_vat: "Ce prix n'inclut pas la TVA."
       origin:
         location: Lieu
@@ -1265,9 +1316,7 @@ fr:
       delete_news_item: "Supprimer l'article"
   okl:
     member_id: "Member id"
-    member_id_is_your_username: "Vous devez fournir votre Omakotiliitto member id (jäsennumero) pour rejoindre %{service_name}. Votre member id est également votre nom d'utilisateur, dont vous aurez besoin pour vous connecter à %{service_name}. Si vous n'êtes pas encore membre de Omakotiliitto, vous pouvez"
     member_id_or_email: "Identifiant ou email"
-    join_here: rejoindre.
   payments:
     new:
       new_payment: "Nouveau paiement"
@@ -1278,17 +1327,24 @@ fr:
     form:
       total: Total
       service_charge: Commission
-      product: Produit
-      price: Prix
+      product: "Produit : "
+      price: "Prix : "
       continue_to_pay: "Continuer le paiement"
+      invoice: Facture
+      service_fee: "commission de %{service_name} : "
+      you_will_get: "Vous recevrez : "
     mangopay:
       terms:
-        mangopay_terms_also_included: "REMARQUE : MangoPay est utilisé comme intermédiaire pour le paiement et en utilisant ce site vous acceptez également les %{mangopay_terms_link_text}, en complément des conditions ci-dessous."
-        mangopay_terms_link_text: "conditions d'utilisation de MangoPay"
+        mangopay_terms_also_included: "REMARQUE : MangoPay est utilisé comme intermédiaire pour le paiement et en utilisant ce site vous acceptez les %{terms_link_text}, en complément des conditions ci-dessous."
+        terms_link_text: "Conditions d'utilisation de MangoPay"
       seller_registration_needed:
         seller_registration_needed: "Vous ne pouvez pas encore créer une annonce avec un paiement"
         seller_registration_instructions: "Avant de pouvoir créer une annonce proposant un paiement, vous devez ajouter quelques précisions à votre %{link_to_settings_page}."
         settings_page_link: profil
+    braintree:
+      terms:
+        braintree_terms_also_included: "REMARQUE : Braintree est utilisé comme intermédiaire pour le paiement et en utilisant ce site vous acceptez les %{terms_link_text}, en complément des conditions ci-dessous."
+        terms_link_text: "Conditions d'utilisation de Braintree"
   people:
     index:
       loading_more_members: "Chargement des autres membres"
@@ -1591,20 +1647,6 @@ fr:
       visible_to_everybody: "visible à tout le monde"
       visible_to_registered_users: "(visible par les utilisateurs connectés)"
     save_information: "Sauvegarder les informations"
-  sms:
-    or_check_the_offer_in_kassi: "ou voir l'offre %{listing_url}"
-    parsing_error: "Impossible de comprendre le contenu du message. Veuillez relire les instructions et réessayer."
-    pay: payer|paiement
-    payment_delivered: "Un paiement de %{amount} euros a été transmis à %{receiver}. Un montant de  %{amount_plus_commission} euros sera ajouté à votre facture téléphonique."
-    potential_ride_share_offer: "%{author_name} propose un transport sur %{service_name} de %{origin} à %{destination} %{start_time}."
-    request: ^demande$|^r$
-    rideshare: transport|covoiturage
-    you_can_call_him_at: "Vous pouvez téléphoner au conducteur au %{phone_number}"
-    you_can_pay_gas_money_to_driver: "Pour participer aux frais d'essence, répondre 'kassi payer %{driver} Xe' où X est le montant. Le montant + une commission de 5% seront ajoutés à votre facture téléphonique."
-    category_not_supported: "Cette catégorie n'est pas encore supportée par les sms."
-    check_the_offer_in_kassi: "Voir l'offre sur %{service_name} : %{listing_url}"
-    listing_created: "Merci pour votre message, une annonce vient d'être ajoutée sur %{service_name}."
-    offer: ^offre$|^o$
   tag_cloud:
     tag_used:
       with_tag: "Avec tag"

@@ -10,6 +10,9 @@ ru:
         community_description: "Описание:"
         update_information: "Обновить информацию"
         invite_people: ~
+        edit_signup_info: ~
+        edit_signup_info_description: ~
+        edit_signup_info_link: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Изменить оформление сообщества «%{community_name}»"
         community_logo: Логотип
@@ -17,9 +20,9 @@ ru:
         community_cover_photo: Обложка
         community_custom_color1: "Основной цвет"
         community_custom_color2: ~
-        logo_instructions_text: "Изображение логотипа будет обрезано и уменьшено в размере до размера 192×192 пиксела."
-        logo_icon_instructions_text: ~
-        cover_photo_instructions_text: "Изображение обложки будет уменьшено до размера 1600×95 пикселов, более высокие изображения будут обрезаны сверху и снизу."
+        logo_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: ~
+        cover_photo_instructions_text_with_dimensions: ~
         custom_color1_instructions_text: "Вы можете изменить основной цвет интерфейса этого сообщества, введя его шестнадцатеричное значение. Сайт <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> поможет выбрать и скопировать подходящий цвет."
         custom_color2_instructions_text: ~
         invalid_color_code: "Код цвета должен содержать 6 цифр или букв от A до F, например D96E21"
@@ -141,6 +144,7 @@ ru:
       price_to_pay: ~
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
+      minimum_price_error_message: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -268,6 +272,43 @@ ru:
       reject_request: "Отклонить запрос"
       confirm: ~
       cancel: ~
+  braintree_accounts:
+    new:
+      add_payout_details: ~
+      first_name: ~
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+      save: ~
+    show:
+      payout_details: ~
+      first_name: ~
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+  braintree_payments:
+    edit:
+      cardholder_name: ~
+      credit_card_number: ~
+      cvv: ~
+      credit_card_expiration_date: ~
+      save: ~
   communities:
     map_bubble:
       view_tribe: "Просмотреть сообщество"
@@ -427,6 +468,9 @@ ru:
       you_have_not_yet_accepted_or_rejected_offer: "Вы всё ещё не приняли решение по предложению '%{title}', полученному вами %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Вы всё ещё не приняли решение по запросу '%{title}', полученному вами %{date}."
       show_thread: "Показать диалог"
+    braintree_account_approved:
+      account_ready: ~
+      message: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
       remember_to_confirm_request: ~
@@ -937,6 +981,7 @@ ru:
       you_must_log_in_to_view_your_settings: "Для просмотра настроек требуется авторизация."
       you_must_log_in_to_add_news_item: "Вы должны авторизоваться в %{service_name}, чтобы добавить новую статью."
       you_must_log_in_to_change_profile_settings: ~
+      you_must_log_in_to_change_payment_settings: ~
       you_need_to_confirm_your_account_first: "Сначала вы должны подтвердить свою учётную запись."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Вы больше не следите за этим листингом"
@@ -945,6 +990,11 @@ ru:
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: ~
       email_deleted: ~
+      payment_details_add_successful: ~
+      payment_details_add_error: ~
+    payment_header:
+      new_payment: ~
+      payment_receiver: ~
     profile_extras_header:
       back_to_profile_of_person: "Назад к профилю пользователя"
       badges: Значки
@@ -1016,6 +1066,7 @@ ru:
         time: "час, день, неделю, ..."
         long_time: "неделю, месяц, ..."
         service_fee_will_be_added: ~
+        service_fee_will_be_deducted: ~
         price_excludes_vat: ~
       origin:
         location: Местоположение
@@ -1265,9 +1316,7 @@ ru:
       delete_news_item: "Удалить статью"
   okl:
     member_id: Идентификатор
-    member_id_is_your_username: "You must give your Omakotiliitto member id (jäsennumero) in order to join %{service_name}. Your member id is also your username that you will need when logging in to %{service_name}. If you are not a member of Omakotiliitto yet, you can"
     member_id_or_email: "ID пользователя или электронная почта"
-    join_here: присоединиться.
   payments:
     new:
       new_payment: ~
@@ -1281,14 +1330,21 @@ ru:
       product: Товар
       price: Цена
       continue_to_pay: ~
+      invoice: ~
+      service_fee: ~
+      you_will_get: ~
     mangopay:
       terms:
         mangopay_terms_also_included: ~
-        mangopay_terms_link_text: ~
+        terms_link_text: ~
       seller_registration_needed:
         seller_registration_needed: ~
         seller_registration_instructions: ~
         settings_page_link: ~
+    braintree:
+      terms:
+        braintree_terms_also_included: ~
+        terms_link_text: ~
   people:
     index:
       loading_more_members: ~
@@ -1591,20 +1647,6 @@ ru:
       visible_to_everybody: "видимо для всех"
       visible_to_registered_users: "видимо только для зарегистрированных пользователей"
     save_information: Сохранить
-  sms:
-    or_check_the_offer_in_kassi: "или просмотреть предложение %{listing_url}"
-    parsing_error: "Невозможно определить формат сообщения. Проверьте, всё ли вы делаете правильно и попробуйте ещё раз."
-    pay: pay|payment
-    payment_delivered: "Payment of %{amount} euros is delivered to %{receiver}. You'll be paying %{amount_plus_commission} euros in your phone bill."
-    potential_ride_share_offer: "%{author_name} предлагает поездку из %{origin} в %{destination} %{start_time}."
-    request: ^request$|^r$
-    rideshare: ride|rideshare
-    you_can_call_him_at: "Вы можете связаться с водителем по телефону %{phone_number}"
-    you_can_pay_gas_money_to_driver: "To pay some gas money, reply 'kassi pay %{driver} Xe' where X is the amount. The amount + 5% commission is put in your phone bill."
-    category_not_supported: "SMS для этой категории ещё не поддерживается."
-    check_the_offer_in_kassi: "Просмотреть предложение в %{service_name}: %{listing_url}"
-    listing_created: "Спасибо за сообщение, листинг добавлен в %{service_name}."
-    offer: ^offer$|^o$
   tag_cloud:
     tag_used:
       with_tag: "С меткой"
