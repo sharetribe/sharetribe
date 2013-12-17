@@ -582,11 +582,14 @@ function initialize_accept_transaction_form(commission_percentage, service_fee_v
 }
 
 function update_simple_form_price_fields(commission_percentage) {
+  debugger
   var sum = parseFloatFromFieldValue($(".invoice-sum-field").val());
   var service_fee_sum = Math.ceil(sum*commission_percentage/100);
   var seller_sum = sum - service_fee_sum;
-  $("#service-fee").text(service_fee_sum);
-  $("#payment-to-seller").text(seller_sum.toFixed(2));
+  var fee_display = service_fee_sum ? service_fee_sum.toFixed(2) : "-";
+  var sum_display = seller_sum ? seller_sum.toFixed(2) : "-";
+  $("#service-fee").text(fee_display);
+  $("#payment-to-seller").text(sum_display);
 }
 
 function update_complex_form_price_fields(commission_percentage, service_fee_vat) {
