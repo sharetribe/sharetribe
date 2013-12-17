@@ -33,7 +33,7 @@ describe "braintree webhooks" do
     end
 
     it "returns 400 Bad Request if community doesn't have Braintree" do
-      @community.payment_gateways = []
+      @community.payment_gateway = nil
       @community.save!
 
       # Guard assert

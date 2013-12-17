@@ -21,7 +21,7 @@ class Community < ActiveRecord::Base
   
   has_and_belongs_to_many :listings
   
-  has_many :payment_gateways, :dependent => :destroy
+  has_one :payment_gateway, :dependent => :destroy
   
   after_create :initialize_settings
   before_destroy :delete_specific_community_categories
@@ -557,12 +557,12 @@ class Community < ActiveRecord::Base
   end
   
   def payments_in_use?
-    payment_gateways.present?
+    payment_gateway.present?
   end
   
   # Does this community require that people have registered payout method before accepting requests
   def requires_payout_registration?
-    payment_gateways.present? && payment_gateways.first.requires_payout_registration_before_accept?
+    payment_gateway.present? && payment_gateway.requires_payout_registration_before_accept?
   end
 
 
@@ -609,7 +609,11 @@ class Community < ActiveRecord::Base
   end
   
   def braintree_in_use?
-    payment_gateways.any? { |gateway| gateway.type == "BraintreePaymentGateway"}
+    payment_gateway.present? && payment_gateway.type == "BraintreePaymentGateway"
+  end
+  
+  def mangopay_in_use?
+    payment_gateway.present? && payment_gateway.type == "Mangopay"
   end
   
   # Returns the total service fee for a certain listing
@@ -633,7 +637,7 @@ class Community < ActiveRecord::Base
   end
   
   def invoice_form_type_for(listing)
-    payment_possible_for?(listing) ? payment_gateways.first.invoice_form_type : "no_form"
+    payment_possible_for?(listing) ? payment_gateway.invoice_form_type : "no_form"
   end
   
   private

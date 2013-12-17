@@ -28,7 +28,7 @@ class BraintreePaymentsController < ApplicationController
   def edit
     @conversation = Conversation.find(params[:message_id])
     @braintree_payment = @conversation.payment
-    community_payment_gateway = @current_community.payment_gateways.first
+    community_payment_gateway = @current_community.payment_gateway
     @braintree_client_side_encryption_key = community_payment_gateway.braintree_client_side_encryption_key
   end
 

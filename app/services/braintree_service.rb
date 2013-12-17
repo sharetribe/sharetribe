@@ -8,10 +8,10 @@ class BraintreeService
     @@mutex = Mutex.new
     
     def configure_for(community)
-      Braintree::Configuration.environment = community.payment_gateways.first.braintree_environment.to_sym
-      Braintree::Configuration.merchant_id = community.payment_gateways.first.braintree_merchant_id
-      Braintree::Configuration.public_key = community.payment_gateways.first.braintree_public_key
-      Braintree::Configuration.private_key = community.payment_gateways.first.braintree_private_key
+      Braintree::Configuration.environment = community.payment_gateway.braintree_environment.to_sym
+      Braintree::Configuration.merchant_id = community.payment_gateway.braintree_merchant_id
+      Braintree::Configuration.public_key = community.payment_gateway.braintree_public_key
+      Braintree::Configuration.private_key = community.payment_gateway.braintree_private_key
     end
     
     def reset_configurations
@@ -84,7 +84,7 @@ class BraintreeService
     end
     
     def master_merchant_id(community)
-      community.payment_gateways.first.braintree_master_merchant_id
+      community.payment_gateway.braintree_master_merchant_id
     end
     
     def webhook_notification_verify(community, challenge)

@@ -24,7 +24,7 @@
         - else
           .status-links
             .inbox-horizontally-aligned-link
-              %a{:href => @current_community.payment_gateways.first.new_payment_path(@current_user, conversation, params[:locale]), :class => "status-link accept"}
+              %a{:href => @current_community.payment_gateway.new_payment_path(@current_user, conversation, params[:locale]), :class => "status-link accept"}
                 .content
                   .icon-with-text.ss-coins
                   .text-with-icon= t(".pay")
