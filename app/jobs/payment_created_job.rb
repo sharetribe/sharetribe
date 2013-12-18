@@ -1,4 +1,4 @@
-class PaymentCreatedJob < Struct.new(:payment_id, :community_id, :send_payment_email, :send_receipt_email)
+class PaymentCreatedJob < Struct.new(:payment_id, :community_id)
   
   include DelayedAirbrakeNotification
   
