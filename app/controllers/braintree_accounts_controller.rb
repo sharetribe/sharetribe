@@ -1,7 +1,60 @@
 class BraintreeAccountsController < ApplicationController
 
-  LIST_OF_STATES = ["","AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"]
-  
+  LIST_OF_STATES = [
+      ['Alabama', 'AL'],
+      ['Alaska', 'AK'],
+      ['Arizona', 'AZ'],
+      ['Arkansas', 'AR'],
+      ['California', 'CA'],
+      ['Colorado', 'CO'],
+      ['Connecticut', 'CT'],
+      ['Delaware', 'DE'],
+      ['District of Columbia', 'DC'],
+      ['Florida', 'FL'],
+      ['Georgia', 'GA'],
+      ['Hawaii', 'HI'],
+      ['Idaho', 'ID'],
+      ['Illinois', 'IL'],
+      ['Indiana', 'IN'],
+      ['Iowa', 'IA'],
+      ['Kansas', 'KS'],
+      ['Kentucky', 'KY'],
+      ['Louisiana', 'LA'],
+      ['Maine', 'ME'],
+      ['Maryland', 'MD'],
+      ['Massachusetts', 'MA'],
+      ['Michigan', 'MI'],
+      ['Minnesota', 'MN'],
+      ['Mississippi', 'MS'],
+      ['Missouri', 'MO'],
+      ['Montana', 'MT'],
+      ['Nebraska', 'NE'],
+      ['Nevada', 'NV'],
+      ['New Hampshire', 'NH'],
+      ['New Jersey', 'NJ'],
+      ['New Mexico', 'NM'],
+      ['New York', 'NY'],
+      ['North Carolina', 'NC'],
+      ['North Dakota', 'ND'],
+      ['Ohio', 'OH'],
+      ['Oklahoma', 'OK'],
+      ['Oregon', 'OR'],
+      ['Pennsylvania', 'PA'],
+      ['Puerto Rico', 'PR'],
+      ['Rhode Island', 'RI'],
+      ['South Carolina', 'SC'],
+      ['South Dakota', 'SD'],
+      ['Tennessee', 'TN'],
+      ['Texas', 'TX'],
+      ['Utah', 'UT'],
+      ['Vermont', 'VT'],
+      ['Virginia', 'VA'],
+      ['Washington', 'WA'],
+      ['West Virginia', 'WV'],
+      ['Wisconsin', 'WI'],
+      ['Wyoming', 'WY']
+    ]
+
   before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_change_payment_settings")
   end
@@ -32,6 +85,11 @@ class BraintreeAccountsController < ApplicationController
   def show
     @list_of_states = LIST_OF_STATES
     @braintree_account = BraintreeAccount.find_by_person_id(@current_user.id)
+    @state_name, _ = LIST_OF_STATES.find do |state|
+      name, code = state
+      code == @braintree_account.address_region
+    end
+
     render locals: { form_action: @create_path }
   end
 
