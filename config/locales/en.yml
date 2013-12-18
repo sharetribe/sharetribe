@@ -1074,7 +1074,7 @@ en:
         time: "hour, day, week, ..."
         long_time: "week, month, ..."
         service_fee_will_be_added: "A %{fee}% service fee will be added to the price."
-        service_fee_will_be_deducted: "A %{fee}% service fee will be deducted from the price."
+        after_service_fee_you_will_get: "After %{service_name} service fee you will get %{sum_with_currency}"
         price_excludes_vat: "The price doesn't include VAT."
       origin:
         location: Location
