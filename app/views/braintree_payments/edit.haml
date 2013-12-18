@@ -20,7 +20,7 @@
 
   %p
     = "#{t("payments.form.product")}"
-    = "#{@conversation.listing.title}"
+    = link_to "#{@conversation.listing.title}", @conversation.listing
   %p
     = "#{t("payments.form.price")}"
     = "#{@braintree_payment.sum} #{@braintree_payment.currency}"
