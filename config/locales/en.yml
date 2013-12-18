@@ -304,11 +304,13 @@ en:
       account_number: "Account number"
   braintree_payments:
     edit:
+      new_credit_card_payment: New credit card payment
+      payment_receiver: Payment receiver
       cardholder_name: "Cardholder name"
       credit_card_number: "Credit card number"
       cvv: CVV
       credit_card_expiration_date: "Credit card expiration date"
-      save: Save
+      confirm_payment: Confirm payment
   communities:
     map_bubble:
       view_tribe: "View tribe"
@@ -1001,9 +1003,6 @@ en:
       email_deleted: "Email removed"
       payment_details_add_successful: "Successfully added payment details"
       payment_details_add_error: "Could not add payment details"
-    payment_header:
-      new_payment: "New payment"
-      payment_receiver: "Payment receiver:"
     profile_extras_header:
       back_to_profile_of_person: "Back to user's profile"
       badges: Badges
