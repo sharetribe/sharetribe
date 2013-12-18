@@ -1,0 +1,30 @@
+- conversation_url = person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @payment.conversation.id.to_s}))
+
+%tr
+  %td{:align => "left"} 
+    %font{body_font}
+      = t("emails.new_payment.you_have_received_new_payment", :listing_title => @payment.conversation.listing.title, :payment_sum => humanized_money_with_symbol(@you_get), :payer_full_name => @payment.payer.name, :payer_given_name => @payment.payer.given_name_or_username).html_safe
+
+%tr
+  %td{:align => "left", :style => "padding: 20px 0;"}
+    %table{:cellpadding => 5, :cellspacing => 0, :style => "border-collapse: collapse; width: 100%"}
+      %tbody
+        %tr
+          %td{:width => "200"}
+            %b= t("emails.braintree_new_payment.product")
+          %td
+            = @payment.conversation.listing.title
+        %tr
+          %td
+            %b= t("emails.braintree_new_payment.price_payer_paid", :payer_full_name => @payment.payer.given_name_or_username)
+          %td= humanized_money_with_symbol(@payment.total_sum)
+        %tr
+          %td
+            %b= t("emails.braintree_new_payment.service_fee")
+          %td= humanized_money_with_symbol(@service_fee)
+        %tr{:style => "border-top: 1px solid black"}
+          %td
+            %b= t("emails.braintree_new_payment.you_will_get")
+          %td= humanized_money_with_symbol(@you_get)
+
+= render :partial => "action_button", :locals => { :text => t("emails.conversation_status_changed.view_thread"), :url => conversation_url}

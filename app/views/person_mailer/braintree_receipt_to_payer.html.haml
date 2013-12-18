@@ -11,39 +11,22 @@
       %tbody
         %tr
           %td
-            %b Tuote
+            %b
+              =t("emails.receipt_to_payer.product")
           %td
-            %b Hinta (alv 0)
-          %td
-            %b Alv
-          %td
-            %b Hinta yhteensä
-        - @payment.rows.each do |row|
+            %b
+              =t("emails.receipt_to_payer.price")
           %tr
-            %td{:width => "150"}
-              = row.title
+            %td{:width => "250"}
+              = @payment.conversation.listing.title
             %td
-              = row.sum.to_s + row.sum_symbol
-            %td
-              = row.vat.to_s + "%"
-            %td
-              = row.sum_with_vat.to_s + row.sum_symbol
+              = humanized_money_with_symbol(@payment.total_sum)
         %tr
           %td
-            Mpankin palvelumaksu
+            %b
+              =t("emails.receipt_to_payer.total")
           %td
-            = @payment.commission_without_vat.to_s + @payment.rows.first.sum_symbol
-          %td
-            = "#{APP_CONFIG.service_fee_tax_percentage}%"
-          %td
-            = @payment.total_commission.to_s + @payment.rows.first.sum_symbol
-        %tr
-          %td
-            %b Yhteensä
-          %td
-          %td
-          %td
-            %b= @payment.total_sum.to_s + @payment.rows.first.sum_symbol
+            %b= humanized_money_with_symbol(@payment.total_sum)
             
             
 = render :partial => "action_button", :locals => { :text => t("emails.conversation_status_changed.view_thread"), :url => conversation_url}
