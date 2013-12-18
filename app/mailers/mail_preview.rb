@@ -56,7 +56,8 @@ class MailPreview < MailView
     listing = Struct.new(:title).new("Hammer")
     conversation = Struct.new(:id, :listing).new(123, listing)
     community = Struct.new(:full_domain, :name, :full_name, :custom_email_from_address, :commission_from_seller).new('http://marketplace.example.com', 'Example Marketplace', 'Example Marketplace', 'marketplace@example.com', 12)
-    payment = Struct.new(:recipient, :payer, :conversation, :community, :commission_without_vat, :total_sum, :sum_cents, :currency).new(recipient, payer, conversation, community, 5000, 10, 5000, 500000, "EUR")
+    payment = Struct.new(:recipient, :payer, :conversation, :community, :commission_without_vat, :total_sum, :sum_cents, :currency)
+                    .new(recipient,   payer,  conversation,  community,                    5000,       5000,     500000,     "EUR")
     
     PersonMailer.braintree_new_payment(payment, community)
   end
