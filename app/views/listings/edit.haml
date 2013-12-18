@@ -18,7 +18,7 @@
       = render :partial => "listings/form/destination", :locals => { :form => form, :destination_loc => @listing.destination_loc }
       = render :partial => "listings/form/googlemap", :locals => { :form => form, :rideshare => true }
       = render :partial => "listings/form/departure_time", :locals => { :form => form }
-    = render :partial => "listings/form/price", :locals => { :form => form }
+    = render :partial => "listings/form/price", :locals => { :form => form, :seller_commission => @seller_commission }
     = render :partial => "listings/form/description", :locals => { :form => form }
     - unless @listing.category.name.eql?("rideshare")
       = render :partial => "listings/form/valid_until", :locals => { :form => form }
