@@ -23,7 +23,7 @@
     = link_to "#{@conversation.listing.title}", @conversation.listing
   %p
     = "#{t("payments.form.price")}"
-    = "#{@braintree_payment.sum} #{@braintree_payment.currency}"
+    = humanized_money_with_symbol(@braintree_payment.sum)
 
   = form_for @braintree_payment, 
     :url => person_message_braintree_payment_path(@current_user.id, 
