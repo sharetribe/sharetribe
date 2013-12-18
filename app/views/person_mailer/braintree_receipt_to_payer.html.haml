@@ -20,13 +20,13 @@
             %td{:width => "250"}
               = @payment.conversation.listing.title
             %td
-              = "#{@payment.currency} #{@payment.total_sum.to_s}"
+              = humanized_money_with_symbol(@payment.total_sum)
         %tr
           %td
             %b
               =t("emails.receipt_to_payer.total")
           %td
-            %b= "#{@payment.currency} #{@payment.total_sum.to_s}"
+            %b= humanized_money_with_symbol(@payment.total_sum)
             
             
 = render :partial => "action_button", :locals => { :text => t("emails.conversation_status_changed.view_thread"), :url => conversation_url}
