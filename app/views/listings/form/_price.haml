@@ -1,7 +1,7 @@
 .price-container
   - if @community_category.price?
     = form.label :price, t(".price") + "*"
-    = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.price_cents ? @listing.price_cents / 100 : 0), :id => "listing-price-input"
+    = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.price_cents ? @listing.price_cents / 100 : 0)
     .currency-selector
       - if @current_community.available_currencies
         - currencies = @current_community.available_currencies.gsub(" ","").split(",")
@@ -21,7 +21,7 @@
         - if seller_commission
           :javascript
             $(function() {
-              updateSellerGetsValue("#listing-price-input", "#you-will-get", "#listing_currency", #{@current_community.commission_from_seller});
+              updateSellerGetsValue("#listing_price", "#you-will-get", "#listing_currency", #{@current_community.commission_from_seller});
             });
 
           = t(".after_service_fee_you_will_get", :sum_with_currency => '<span id="you-will-get"></span>').html_safe
