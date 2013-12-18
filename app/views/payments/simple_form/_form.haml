@@ -12,7 +12,8 @@
 
     .invoice-row
       .invoice-row-left.invoice-row-text-column
-        = t("payments.form.price")
+        - payer = @conversation.other_party(@current_user)
+        = t("payments.form.price_for", :payer_given_name => link_to(payer.given_name_or_username, payer)).html_safe
       .invoice-row-symbol
         = @conversation.listing.price_symbol
       .invoice-row-right
