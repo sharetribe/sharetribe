@@ -10,52 +10,6 @@ guard 'livereload' do
   watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html))).*}) { |m| "/assets/#{m[3]}" }
 end
 
-guard 'spork', :wait => 60, test_unit: false, :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec => false do
-  
-  # Load for all envs (rspec and cucumber)
-  watch('config/application.rb')
-  watch(%r{^config/initializers/.+\.rb$})
-  watch('Gemfile.lock')
-  watch('Guardfile')
-  watch('spec/factories.rb')
-  watch('app/helpers/application_helper.rb')
-  watch('app/helpers/email_helper.rb')
-  watch('app/helpers/errors_helper.rb')
-  watch('app/models/community.rb')
-  watch('app/models/person.rb')
-  watch('config/boot.rb')
-  watch('config/config_loader.rb')
-  watch('config/environment.rb')
-  watch('config/environments/test.rb')
-  watch('config/routes.rb')
-  watch('lib/devise/encryptors/asi.rb')
-  watch('lib/i18n_action_mailer/i18n_action_mailer.rb')
-  watch('lib/mercury/authentication.rb')
-  watch('lib/np_guid/usesnpguid.rb')
-  watch('lib/np_guid/uuid22.rb')
-  watch('lib/np_guid/uuidtools.rb')
-  watch('lib/rack_middleware/custom_domain_cookie.rb')
-  watch('lib/rack_middleware/robots_generator.rb')
-  watch('lib/routes/api_request.rb')
-  watch('lib/routes/community_domain.rb')
-  watch('test/helper_modules.rb')
-
-  # Load for Cucumber only
-  watch('app/helpers/categories_helper.rb') { :cucumber }
-  watch('app/models/category.rb') { :cucumber }
-  watch('app/models/category_translation.rb') { :cucumber }
-  watch('app/models/classification.rb') { :cucumber }
-  watch('app/models/community_category.rb') { :cucumber }
-  watch('app/models/payment_gateway.rb') { :cucumber }
-  watch('app/models/community_payment_gateway.rb') { :cucumber }
-  watch('app/models/payment_gateways/checkout.rb') { :cucumber }
-  watch('app/models/payment_gateways/mangopay.rb') { :cucumber }
-  watch('app/models/share_type.rb') { :cucumber }
-  watch('app/models/share_type_translation.rb') { :cucumber }
-  watch('db/seeds.rb') { :cucumber }
-  watch(%r{features/support/}) { :cucumber }
-end
-
 guard 'rspec', :all_on_start => false, :all_after_pass => false, :zeus => true, bundler: false do
   watch('Guardfile')
   watch(%r{^spec/.+_spec\.rb$})
