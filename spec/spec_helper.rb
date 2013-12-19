@@ -65,11 +65,6 @@ prefork = lambda {
 
     # Clean once when guard starts
     DatabaseCleaner.clean_with(:truncation, {:except => %w[categories share_types community_categories category_translations share_type_translations]})
-
-    config.after(:suite) do
-      # Otherwise clean AFTER the suite
-      DatabaseCleaner.clean_with(:truncation, {:except => %w[categories share_types community_categories category_translations share_type_translations]})
-    end
     
     config.after(:suite) do
       # Otherwise clean AFTER the suite
