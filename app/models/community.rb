@@ -293,10 +293,10 @@ class Community < ActiveRecord::Base
     puts "Reset all custom CSS urls"
     Community.reset_custom_stylesheets!
 
-    communities_with_customizations = Community.with_customizations
+    with_customizations_prioritized = Community.with_customizations.order("members_count DESC")
 
-    puts "Genarete custom CSS for #{communities_with_customizations.count} communities"
-    communities_with_customizations.each do |community|
+    puts "Genarete custom CSS for #{with_customizations_prioritized.count} communities"
+    with_customizations_prioritized.each do |community|
       Delayed::Job.enqueue(CompileCustomStylesheetJob.new(community.id))
     end
   end
