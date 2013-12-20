@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131214143005) do
+ActiveRecord::Schema.define(:version => 20131220104804) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -177,6 +177,10 @@ ActiveRecord::Schema.define(:version => 20131214143005) do
     t.boolean  "logo_change_allowed"
     t.boolean  "terms_change_allowed",              :default => false
     t.boolean  "privacy_policy_change_allowed",     :default => false
+    t.string   "small_cover_photo_file_name"
+    t.string   "small_cover_photo_content_type"
+    t.integer  "small_cover_photo_file_size"
+    t.datetime "small_cover_photo_updated_at"
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
@@ -567,10 +571,10 @@ ActiveRecord::Schema.define(:version => 20131214143005) do
     t.datetime "created_at",                                              :null => false
     t.datetime "updated_at",                                              :null => false
     t.integer  "community_id"
-    t.integer  "sum_cents"
-    t.string   "currency"
     t.string   "type",                     :default => "CheckoutPayment"
     t.string   "braintree_transaction_id"
+    t.integer  "sum_cents"
+    t.string   "currency"
   end
 
   add_index "payments", ["conversation_id"], :name => "index_payments_on_conversation_id"

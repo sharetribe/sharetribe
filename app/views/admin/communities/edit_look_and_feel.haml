@@ -23,6 +23,10 @@
     = form.label :cover_photo, t(".community_cover_photo"), :class => "input"
     %p= t(".cover_photo_instructions_text_with_dimensions", :width => 1920, :height => 450)
     = form.file_field(:cover_photo, :class => "file_field")
+
+    = form.label :small_cover_photo, t(".small_community_cover_photo"), :class => "input"
+    %p= t(".small_cover_photo_instructions_text_with_dimensions", :width => 1920, :height => 96)
+    = form.file_field(:small_cover_photo, :class => "file_field")
     
     = form.label :custom_color1, t(".community_custom_color1"), :class => "input"
     %p= t(".custom_color1_instructions_text").html_safe
