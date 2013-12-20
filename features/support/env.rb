@@ -8,12 +8,10 @@ require 'rubygems'
 require File.expand_path('../../../test/helper_modules', __FILE__)
 include TestHelpers
 
-
+require 'cucumber/rails'
+require 'email_spec/cucumber'
  
 prefork = lambda {
-  require 'cucumber/rails'
-  require 'email_spec/cucumber'
-
   # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
   # order to ease the transition to Capybara we set the default here. If you'd
   # prefer to use XPath just remove this line and adjust any selectors in your
@@ -96,10 +94,18 @@ if defined?(Zeus)
     alias_method_chain :after_fork, :test
   end
 elsif ENV['spork'] || $0 =~ /\bspork$/
+  # This was earlier a call to "reset_categories_to_default" but as the seeds contain now other stuff too, simply load seeds
+  # It doesn't clear the categories though, so modify this if trouble with custom categories remaining. 
+  load "#{Rails.root}/db/seeds.rb"
+
   require 'spork'
   Spork.prefork(&prefork)
   Spork.each_run(&each_run)
 else
+  # This was earlier a call to "reset_categories_to_default" but as the seeds contain now other stuff too, simply load seeds
+  # It doesn't clear the categories though, so modify this if trouble with custom categories remaining. 
+  load "#{Rails.root}/db/seeds.rb"
+
   prefork.call
   each_run.call
 end
