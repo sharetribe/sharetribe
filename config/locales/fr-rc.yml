@@ -304,11 +304,13 @@ fr-rc:
       account_number: ~
   braintree_payments:
     edit:
+      new_credit_card_payment: ~
+      payment_receiver: ~
       cardholder_name: ~
       credit_card_number: ~
       cvv: ~
       credit_card_expiration_date: ~
-      save: ~
+      confirm_payment: ~
   communities:
     map_bubble:
       view_tribe: ~
@@ -550,9 +552,18 @@ fr-rc:
     new_payment:
       new_payment: ~
       you_have_received_new_payment: ~
+    braintree_new_payment:
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
     receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
+      product: ~
+      total: ~
+      price: ~
+      service_fee: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: ~
       you_can_give_feedback_to: ~
@@ -992,9 +1003,6 @@ fr-rc:
       email_deleted: ~
       payment_details_add_successful: ~
       payment_details_add_error: ~
-    payment_header:
-      new_payment: ~
-      payment_receiver: ~
     profile_extras_header:
       back_to_profile_of_person: ~
       badges: ~
@@ -1066,7 +1074,7 @@ fr-rc:
         time: ~
         long_time: ~
         service_fee_will_be_added: ~
-        service_fee_will_be_deducted: ~
+        after_service_fee_you_will_get: ~
         price_excludes_vat: ~
       origin:
         location: ~
@@ -1328,7 +1336,7 @@ fr-rc:
       total: ~
       service_charge: ~
       product: ~
-      price: ~
+      price_for: ~
       continue_to_pay: ~
       invoice: ~
       service_fee: ~

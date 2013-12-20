@@ -141,7 +141,7 @@ es:
       close_listing: ~
       update_later: ~
       optional_message: ~
-      price_to_pay: ~
+      price_to_pay: "Total precio pagado"
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
@@ -304,11 +304,13 @@ es:
       account_number: ~
   braintree_payments:
     edit:
+      new_credit_card_payment: ~
+      payment_receiver: ~
       cardholder_name: ~
       credit_card_number: ~
       cvv: ~
       credit_card_expiration_date: ~
-      save: ~
+      confirm_payment: ~
   communities:
     map_bubble:
       view_tribe: "Ver la tribu"
@@ -553,9 +555,18 @@ es:
     new_payment:
       new_payment: ~
       you_have_received_new_payment: ~
+    braintree_new_payment:
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
     receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
+      product: ~
+      total: ~
+      price: Precio
+      service_fee: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} te ha dado una sugerencia en %{service_name}"
       you_can_give_feedback_to: "Puedes darle una sugerencia a %{name} en"
@@ -572,7 +583,7 @@ es:
       title_link_text: "%{community_name}"
       intro_paragraph: "Aquí están algunos de los sucesos que han ocurrido en la %{community_link} durante el pasado %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
-      post_a_new_listing: "Publica un nuevo aviso!"
+      post_a_new_listing: "Publica un nuevo listado!"
       reduce_email_footer_text: "¿Demasiados email? %{settings_link} o %{unsubscribe_link}."
       settings_link_text: "Edita tu configuración de email aquí"
       unsubscribe_link_text: "cancelar suscripción"
@@ -635,7 +646,7 @@ es:
       departure_time: "La hora de salida debe estar entre la fecha actual y un año a partir de ahora."
       share_type: "Deber chequear al menos uno de los recuadros anteriores."
       valid_until: "Esta fecha debe estar entre la fecha actual y un año desde ahora."
-      price: ~
+      price: "Precio debe ser un número entero"
       minimum_price: ~
     testimonials:
       you_must_explain_not_neutral_feedback: "Si deseas dar una sugerencia no neutral, debes explicar por qué."
@@ -737,7 +748,7 @@ es:
     grid_item:
       processing_uploaded_image: ~
     index:
-      no_listings_with_your_search_criteria: ~
+      no_listings_with_your_search_criteria: "No pudimos encontrar ningun resultado con su criterio de búsqueda."
       no_listings_notification: ~
       add_listing_link_text: ~
       available_on_the_app_store: "Disponible en la App Store"
@@ -765,7 +776,7 @@ es:
       teaser_text: "%{service_name} es un servicio para la comunidad %{community}. Aquí podrás prestar, arrendar, regalar y vender cosas, dar y hacer favores o compartir trayectos de traslado. ¿Puedes prestarle algo a alguien o ayudarlo con algo?"
       tell_it_here: "Dilo aquí!"
       welcome_to_new_kassi: "Bienvenido al nuevo %{service_name}!"
-      no_reviews: ~
+      no_reviews: "no tiene reseñas"
       no_image: ~
       filter: ~
     invitation_form:
@@ -780,7 +791,7 @@ es:
       errors_in_emails: "Revisa que sean emails válidos, separados por una coma."
     list_item:
       review: ~
-      reviews: ~
+      reviews: reseñas
     news_item:
       show_less: "Mostrar menos"
       show_more: "Mostrar más"
@@ -997,9 +1008,6 @@ es:
       email_deleted: ~
       payment_details_add_successful: ~
       payment_details_add_error: ~
-    payment_header:
-      new_payment: ~
-      payment_receiver: ~
     profile_extras_header:
       back_to_profile_of_person: "Volver al perfil del usuario"
       badges: Medallas
@@ -1065,19 +1073,19 @@ es:
       location:
         location: Lugar
       price:
-        price: ~
-        per: ~
-        mass: ~
+        price: precio
+        per: por
+        mass: "unidad, kg, l, m2"
         time: ~
-        long_time: ~
+        long_time: "semana, mes, ..."
         service_fee_will_be_added: ~
-        service_fee_will_be_deducted: ~
+        after_service_fee_you_will_get: ~
         price_excludes_vat: ~
       origin:
         location: Lugar
         origin: Origen
       send_button:
-        save_listing: ~
+        save_listing: "Guardar listado"
       share_type:
         select: Seleccionar
         borrow: Prestar
@@ -1188,7 +1196,7 @@ es:
       link_label_for_rideshare_offer: Contacto
       link_label_for_rideshare_request: Contacto
     new:
-      post_a_new_listing: ~
+      post_a_new_listing: "Publica un nuevo listado"
       listing: listado
       offer: "Tengo algo para ofrecer a los demás"
       request: "Necesito algo"
@@ -1236,7 +1244,7 @@ es:
       what_kind_of_favor: ~
       what_kind_of_rideshare: ~
       what_kind_of_housing: ~
-      which_subcategory: ~
+      which_subcategory: "Cuál de estas lo describe mejor?"
       tools: Herramientas
       sports: Deportes
       music: Música
@@ -1271,7 +1279,7 @@ es:
       item_request_trade: "Solicitud de trueque"
       no_description: "Sin descripción"
       no_image: ~
-      no_reviews: ~
+      no_reviews: "No ha recibido feedback"
       offer: Oferta
       listing_created: ~
       open_until: "Abierto hasta %{date}"
@@ -1333,7 +1341,7 @@ es:
       total: ~
       service_charge: ~
       product: ~
-      price: ~
+      price_for: ~
       continue_to_pay: ~
       invoice: ~
       service_fee: ~

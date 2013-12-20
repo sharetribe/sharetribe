@@ -304,11 +304,13 @@ fr:
       account_number: "Numéro de compte"
   braintree_payments:
     edit:
+      new_credit_card_payment: "Nouvelle carte de crédit"
+      payment_receiver: "Destinataire du paiement"
       cardholder_name: "Nom du porteur de la carte"
       credit_card_number: "Numéro de carte bancaire"
       cvv: Cryptogramme
       credit_card_expiration_date: "Date d'expiration"
-      save: Sauvegarder
+      confirm_payment: "Confirmer le paiement"
   communities:
     map_bubble:
       view_tribe: "Voir la tribu"
@@ -550,9 +552,18 @@ fr:
     new_payment:
       new_payment: "Vous avez reçu un nouveau paiement"
       you_have_received_new_payment: "Vous avez été payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> par %{payer_full_name}. Voici votre reçu."
+    braintree_new_payment:
+      product: "Produit : "
+      price_payer_paid: "Prix payé par %{payer_full_name} : "
+      service_fee: "Commission de %{service_name} : "
+      you_will_get: "Vous recevrez : "
     receipt_to_payer:
       receipt_of_payment: "Reçu du paiement"
       you_have_made_new_payment: "Vous avez payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> à %{recipient_full_name}. Voici un reçu du paiement."
+      product: Produit
+      total: Total
+      price: Prix
+      service_fee: "Frais de service"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} vous a donné un avis sur %{service_name}"
       you_can_give_feedback_to: "Vous n'avez pas encore donné un avis sur %{name}."
@@ -992,9 +1003,6 @@ fr:
       email_deleted: "Email supprimé"
       payment_details_add_successful: "Détails de paiement ajoutés avec succès"
       payment_details_add_error: "Impossible d'ajouter les détails de paiement"
-    payment_header:
-      new_payment: "Nouveau paiement"
-      payment_receiver: "Destinataire du paiement"
     profile_extras_header:
       back_to_profile_of_person: "Retour au profil"
       badges: Badges
@@ -1066,7 +1074,7 @@ fr:
         time: "heure, jour, semaine..."
         long_time: "semaine, mois..."
         service_fee_will_be_added: "Une commission de %{fee}% sera ajoutée au prix."
-        service_fee_will_be_deducted: "Une commission de %{fee}% sera déduite du prix."
+        after_service_fee_you_will_get: "Après la commission de %{service_name} vous recevrez %{sum_with_currency}"
         price_excludes_vat: "Ce prix n'inclut pas la TVA."
       origin:
         location: Lieu
@@ -1328,7 +1336,7 @@ fr:
       total: Total
       service_charge: Commission
       product: "Produit : "
-      price: "Prix : "
+      price_for: "Prix pour %{payer_given_name} : "
       continue_to_pay: "Continuer le paiement"
       invoice: Facture
       service_fee: "commission de %{service_name} : "

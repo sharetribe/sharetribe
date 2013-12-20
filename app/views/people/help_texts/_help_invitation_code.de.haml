@@ -1,7 +1,7 @@
 %p 
-  Um die  #{service_name} community beitreten zu können
+  Um die beitreten zu können
   %strong  
-    = @current_community.name 
+    = @current_community.full_name(I18n.locale) 
   benötigen Sie eine Einladung. Falls Sie eine Einladung haben, so schreiben Sie diese in das untere Feld.  
  
 %p 
