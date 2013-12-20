@@ -50,21 +50,27 @@ class ConfirmationsController < Devise::ConfirmationsController
     
     #check if this confirmation code matches to additional emails
     if e = Email.find_by_confirmation_token(params[:confirmation_token])
+      person = e.person
       e.confirmed_at = Time.now
       e.confirmation_token = nil
       e.save
 
-      if !e.person.confirmed_at.present?
-        e.person.confirm!
+      if !person.confirmed_at.present?
+        person.confirm!
       end
       
       # Accept pending community membership if needed
-      if @current_community.approve_pending_membership(@current_user, e.address)
+      if @current_community.approve_pending_membership(person, e.address)
         # If the pending membership was accepted now, it's time to send the welcome email
-        PersonMailer.welcome_email(@current_user, @current_community).deliver
+        PersonMailer.welcome_email(person, @current_community).deliver
       end
       flash[:notice] = t("layouts.notifications.additional_email_confirmed")
-      redirect_to root and return
+      
+      if @current_user
+        redirect_to root and return
+      else
+        redirect_to login_path and return
+      end
     end
     
     flash[:error] = t("layouts.notifications.confirmation_link_is_wrong_or_used")
