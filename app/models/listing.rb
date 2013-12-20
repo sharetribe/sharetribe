@@ -106,6 +106,14 @@ class Listing < ActiveRecord::Base
   validates_presence_of :author_id
   validates_length_of :title, :in => 2..60, :allow_nil => false
   validates_length_of :origin, :destination, :in => 2..48, :allow_nil => false, :if => :rideshare?
+
+  before_validation do
+    # Normalize browser line-breaks.
+    # Reason: Some browsers send line-break as \r\n which counts for 2 characters making the 
+    # 5000 character max length validation to fail.
+    # This could be more general helper function, if this is needed in other textareas.
+    self.description = description.gsub("\r\n","\n") if self.description
+  end
   validates_length_of :description, :maximum => 5000, :allow_nil => true
   # TODO: validate with community specific details
   # validates_inclusion_of :listing_type, :in => VALID_TYPES

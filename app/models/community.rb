@@ -126,8 +126,12 @@ class Community < ActiveRecord::Base
   def allows_user_to_send_invitations?(user)
     (users_can_invite_new_users && user.member_of?(self)) || user.has_admin_rights_in?(self)
   end
-  
+
   def has_customizations?
+    custom_color1 || custom_color2 || cover_photo.present?
+  end
+  
+  def has_custom_stylesheet?
     if APP_CONFIG.preproduction
       preproduction_stylesheet_url.present?
     else
@@ -278,19 +282,27 @@ class Community < ActiveRecord::Base
   def self.all_admins
     Person.joins(:community_memberships).where("community_memberships.admin = '1'").group("people.id")
   end
+
+  def self.reset_custom_stylesheets!
+    Community.with_customizations.update_all(:stylesheet_url => nil)
+  end
   
   # Generates the customization stylesheet scss files to app/assets
   # This should be run before assets:precompile in order to precompile stylesheets for each community that has customizations
   def self.generate_customization_stylesheets
-    Community.with_customizations.each do |community|
-      puts "Generating custom CSS for #{community.name}"
-      STDOUT.flush # trying to get the prints out sooner while deploying to heroku
-      community.generate_customization_stylesheet
+    puts "Reset all custom CSS urls"
+    Community.reset_custom_stylesheets!
+
+    with_customizations_prioritized = Community.with_customizations.order("members_count DESC")
+
+    puts "Genarete custom CSS for #{with_customizations_prioritized.count} communities"
+    with_customizations_prioritized.each do |community|
+      Delayed::Job.enqueue(CompileCustomStylesheetJob.new(community.id))
     end
   end
   
   def generate_customization_stylesheet
-    if custom_color1 || custom_color2 || cover_photo.present?
+    if has_customizations?
       community_filename = domain.gsub(".", "_")
       stylesheet_filename = "custom-style-#{community_filename}"
       new_filename_with_time_stamp = "#{stylesheet_filename}-#{Time.now.strftime("%Y%m%d%H%M%S")}"

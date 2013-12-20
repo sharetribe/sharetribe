@@ -304,11 +304,13 @@ el:
       account_number: "Αριθμός λογαριασμού"
   braintree_payments:
     edit:
+      new_credit_card_payment: ~
+      payment_receiver: ~
       cardholder_name: "Κάτοχος κάρτας"
       credit_card_number: "Αριθμός πιστωτικής κάρτας"
       cvv: CVV
       credit_card_expiration_date: "Ημερομηνία λήξης πιστωτικής κάρτας"
-      save: Αποθήκευση
+      confirm_payment: ~
   communities:
     map_bubble:
       view_tribe: "Εμφάνιση του sharetribe"
@@ -550,9 +552,18 @@ el:
     new_payment:
       new_payment: "Λάβατε μια νέα πληρωμή"
       you_have_received_new_payment: "Πληρωθήκατε <b>%{payment_sum}</b> για το \"<b>%{listing_title}</b>\" από τον/την %{payer_full_name}. Ορίστε η απόδειξή σας."
+    braintree_new_payment:
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
     receipt_to_payer:
       receipt_of_payment: "Απόδειξη πληρωμής"
       you_have_made_new_payment: "Πληρώσατε <b>%{payment_sum}</b> για το <b>%{listing_title}</b> στον/στην %{recipient_full_name}. Ορίστε η απόδειξη πληρωμής."
+      product: ~
+      total: ~
+      price: ~
+      service_fee: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "O/H %{name} σχολίασε για σένα στο %{service_name}"
       you_can_give_feedback_to: "Έχετε παραλείψει να γράψετε την κριτική σας για τον/την %{name}."
@@ -992,9 +1003,6 @@ el:
       email_deleted: "Η διεύθυνση email αφαιρέθηκε"
       payment_details_add_successful: "Οι πληροφορίες των πληρωμών εισήχθησαν επιτυχώς"
       payment_details_add_error: "Αποτυχία εισαγωγής στοιχείων πληρωμών"
-    payment_header:
-      new_payment: "Νέα πληρωμή"
-      payment_receiver: "Αποδέκτης πληρωμής:"
     profile_extras_header:
       back_to_profile_of_person: "Επιστροφή στο προφίλ του χρήστη"
       badges: Κονκάρδες
@@ -1066,7 +1074,7 @@ el:
         time: "ώρα, ημέρα, εβδομάδα, ..."
         long_time: "εβδομάδα, μήνα, ..."
         service_fee_will_be_added: "Στην τιμή θα προστεθεί προμήθεια %{fee}% για την υπηρεσία."
-        service_fee_will_be_deducted: "Μια χρέωση %{fee}% για την υπηρεσία θα αφαιρεθεί από την τιμή."
+        after_service_fee_you_will_get: ~
         price_excludes_vat: "Η τιμή δεν συμπεριλαμβάνει το ΦΠΑ."
       origin:
         location: Τοποθεσία
@@ -1328,7 +1336,7 @@ el:
       total: Σύνολο
       service_charge: "Χρέωση υπηρεσίας"
       product: Προϊόν
-      price: Τιμή
+      price_for: ~
       continue_to_pay: "Συνεχίστε στην πληρωμή"
       invoice: Απόδειξη
       service_fee: "Η χρέωση για το %{service_name} είναι:"
