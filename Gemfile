@@ -85,7 +85,6 @@ group :development do
   gem 'rack-livereload'
   gem 'rb-fsevent',       require: false
   gem 'guard-rspec',      require: false
-  gem 'guard-spork',      require: false
   gem 'zeus'
 end
 
@@ -102,7 +101,6 @@ group :test do
   gem 'email_spec'
   gem 'action_mailer_cache_delivery'
   gem "parallel_tests", :group => :development
-  gem 'spork-rails'
   gem 'timecop'
   gem 'rack-test'
 end

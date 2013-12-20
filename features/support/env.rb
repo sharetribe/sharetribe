@@ -93,14 +93,6 @@ if defined?(Zeus)
     end
     alias_method_chain :after_fork, :test
   end
-elsif ENV['spork'] || $0 =~ /\bspork$/
-  # This was earlier a call to "reset_categories_to_default" but as the seeds contain now other stuff too, simply load seeds
-  # It doesn't clear the categories though, so modify this if trouble with custom categories remaining. 
-  load "#{Rails.root}/db/seeds.rb"
-
-  require 'spork'
-  Spork.prefork(&prefork)
-  Spork.each_run(&each_run)
 else
   # This was earlier a call to "reset_categories_to_default" but as the seeds contain now other stuff too, simply load seeds
   # It doesn't clear the categories though, so modify this if trouble with custom categories remaining. 
