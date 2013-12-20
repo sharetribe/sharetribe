@@ -2930,7 +2930,7 @@ section.lander, section.create-now {
     margin: lines(1) 0 lines(2) 0;
     
     @include media(tablet) {
-      padding: lines(1.5) lines(2);
+      padding: lines(1.25) lines(1.5);
       max-width: lines(16);
       h3 {
         @include big-type;
@@ -2964,9 +2964,11 @@ section.lander, section.create-now {
   
   button.small-action-button {
     @include cover-photo-button($network-red);
-    height: 64px;
+    height: 42px;
     @include media(tablet) {
       @include normal-type;
+      height: 48px;
+      min-width: 150px; // Looks better wider
       padding: em(6) em(20) em(9) em(20);
     }
   }
