@@ -4,7 +4,7 @@
   %h1= t("layouts.admin.admin")
 
 .left-navi-section
-  %h2= t(".welcome_email_content", :community_name => @community.name)
+  %h2= t(".welcome_email_content", :community_name => @community.name(I18n.locale))
   %p= t(".welcome_email_content_description", :send_test_message_link => t(".send_test_message"))
   %a{:id => "edit_link", :href => "/editor" + request.path, :data => { :save_url => mercury_update_path(:content_type => "welcome_email_content") }}
     .icon-with-text-container

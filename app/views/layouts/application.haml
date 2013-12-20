@@ -10,7 +10,7 @@
   = render :partial => 'layouts/global-header'
 
   %section.marketplace-lander
-    - if @homepage && !@current_user
+    - if @homepage && (!@current_user || params[:big_cover_photo])
       .coverimage
         %figure.marketplace-cover.fluidratio
       .wrapper

@@ -92,6 +92,27 @@ class Community < ActiveRecord::Base
   
   attr_accessor :terms
   
+  def name(locale)
+    cc = community_customizations.find_by_locale(locale)
+    cc ? cc.name : super()
+  end
+  
+  def full_name(locale)
+    settings["service_name"] ? settings["service_name"] : "Sharetribe #{name(locale)}"
+  end
+  
+  # If community name has several words, add an extra space
+  # to the end to make Finnish translation look better.
+  def name_with_separator(locale)
+    (name.include?(" ") && locale.to_s.eql?("fi")) ? "#{name(locale)} " : name(locale)
+  end
+  
+  # If community full name has several words, add an extra space
+  # to the end to make Finnish translation look better.
+  def full_name_with_separator(locale)
+    (full_name.include?(" ") && locale.to_s.eql?("fi")) ? "#{full_name(locale)} " : full_name(locale)
+  end
+  
   def address
     location ? location.address : nil
   end
@@ -145,18 +166,6 @@ class Community < ActiveRecord::Base
   
   def self.with_customizations
     where("custom_color1 IS NOT NULL OR cover_photo_file_name IS NOT NULL")
-  end
-  
-  # If community name has several words, add an extra space
-  # to the end to make Finnish translation look better.
-  def name_with_separator(locale)
-    (name.include?(" ") && locale.to_s.eql?("fi")) ? "#{name} " : name
-  end
-  
-  # If community full name has several words, add an extra space
-  # to the end to make Finnish translation look better.
-  def full_name_with_separator(locale)
-    (full_name.include?(" ") && locale.to_s.eql?("fi")) ? "#{full_name} " : full_name
   end
   
   def active_poll
@@ -283,7 +292,7 @@ class Community < ActiveRecord::Base
   # This should be run before assets:precompile in order to precompile stylesheets for each community that has customizations
   def self.generate_customization_stylesheets
     Community.with_customizations.each do |community|
-      puts "Generating custom CSS for #{community.name}"
+      puts "Generating custom CSS for #{community.name('en')}"
       STDOUT.flush # trying to get the prints out sooner while deploying to heroku
       community.generate_customization_stylesheet
     end
@@ -412,10 +421,6 @@ class Community < ActiveRecord::Base
       return true
     end
     return false
-  end
-  
-  def full_name
-    settings["service_name"] ? settings["service_name"] : "Sharetribe #{name}"
   end
   
   def uses_rdf_profile_import?

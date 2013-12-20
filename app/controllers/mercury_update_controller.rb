@@ -8,11 +8,12 @@ class MercuryUpdateController < ApplicationController
   
   # Update content with WYSIWYG editor Mercury
   def update
-    attribute = params[:content_type].to_sym
+    param_hash = {}
+    params[:content].each { |content_type, content_attributes| param_hash[content_type] = content_attributes[:value] }
     if @community_customization
-      @community_customization.update_attribute(attribute, params[:content][:page_content][:value])
+      @community_customization.update_attributes(param_hash)
     else
-      @current_community.community_customizations.create(:locale => I18n.locale, attribute => params[:content][:page_content][:value])
+      @current_community.community_customizations.create(param_hash.merge({:locale => I18n.locale}))
     end
     render text: ""
   end

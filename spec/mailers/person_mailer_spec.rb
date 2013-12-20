@@ -175,7 +175,7 @@ describe PersonMailer do
     email = PersonMailer.new_member_notification(@test_person2, @community.domain, @test_person2.email).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal @test_person.confirmed_notification_email_addresses, email.to
-    assert_equal "New member in #{@community.name} Sharetribe", email.subject
+    assert_equal "New member in #{@community.name('en')} Sharetribe", email.subject
   end
   
   describe "#welcome_email" do

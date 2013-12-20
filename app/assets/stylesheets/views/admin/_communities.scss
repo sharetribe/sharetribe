@@ -1,0 +1,30 @@
+@import "mixins/all";
+
+.edit-community-details-edit-link {
+  margin-bottom: lines(0.5);
+}
+
+.edit-community-details-field {
+  margin-bottom: lines(1);
+}
+
+.edit-community-details-field-title {
+  font-weight: bold;
+}
+
+.edit-community-details-field-info {
+  position: relative;
+  color: $aside;
+  @include small-type;
+  margin-top: lines(0.25);
+}
+
+.edit-community-details-field-icon {
+  position: absolute;
+  width: lines(0.5);
+  margin-top: 1px; // to align with text
+}
+
+.edit-community-details-field-text {
+  padding-left: lines(1);
+}

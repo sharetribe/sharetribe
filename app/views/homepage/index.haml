@@ -5,7 +5,7 @@
   = "without-text"
 
 - content_for :title_header do
-  - if @current_user
+  - if @current_user && !params[:big_cover_photo]
     .browse-view-search-form
       = form_tag({ :action => :index, :controller => :homepage}, :method => "get", :id => "homepage-filters") do
         .search-form-input.search-form-text-field
