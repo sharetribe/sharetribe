@@ -194,7 +194,8 @@ class PeopleController < Devise::RegistrationsController
       :password => Devise.friendly_token[0,20]
     }
     @person = Person.create!(person_hash)
-    Email.create(:address => session["devise.facebook_data"]["email"], :send_notifications => true, :person => @person)
+    # We trust that Facebook has already confirmed these and save the user few clicks
+    Email.create(:address => session["devise.facebook_data"]["email"], :send_notifications => true, :person => @person, :confirmed_at => Time.now)
 
     @person.set_default_preferences
 
