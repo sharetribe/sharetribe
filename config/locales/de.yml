@@ -304,11 +304,13 @@ de:
       account_number: ~
   braintree_payments:
     edit:
+      new_credit_card_payment: ~
+      payment_receiver: ~
       cardholder_name: ~
       credit_card_number: ~
       cvv: ~
       credit_card_expiration_date: ~
-      save: ~
+      confirm_payment: ~
   communities:
     map_bubble:
       view_tribe: "Stamm anzeigen"
@@ -550,9 +552,18 @@ de:
     new_payment:
       new_payment: "Du hast eine neue Zahlung erhalten"
       you_have_received_new_payment: "Du hast bezahlt %{payment_sum} für %{listing_title} an %{payer_full_name}. Das ist deine Rechnung."
+    braintree_new_payment:
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
     receipt_to_payer:
       receipt_of_payment: Zahlungsbestätigung
       you_have_made_new_payment: "Du hast %{payment_sum} bezahlt für %{listing_title} an %{recipient_full_name}. Hier ist ein Beleg deiner Zahlung."
+      product: ~
+      total: ~
+      price: ~
+      service_fee: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} hat Ihnen Feedback in %{service_name} hinterlassen"
       you_can_give_feedback_to: "Du hast noch kein Feedback %{name} hier hinterlassen."
@@ -992,9 +1003,6 @@ de:
       email_deleted: ~
       payment_details_add_successful: ~
       payment_details_add_error: ~
-    payment_header:
-      new_payment: ~
-      payment_receiver: ~
     profile_extras_header:
       back_to_profile_of_person: "Zurück zum Profil des Benutzers"
       badges: Abzeichen
@@ -1066,7 +1074,7 @@ de:
         time: "Stunde, Tag, Woche..."
         long_time: "Woche, Monat..."
         service_fee_will_be_added: "Eine Servicegebühr in Höhe von %{fee}% kommt hinzu."
-        service_fee_will_be_deducted: ~
+        after_service_fee_you_will_get: ~
         price_excludes_vat: "Dieser Preis beinhaltet keine Steuer."
       origin:
         location: Standort
@@ -1328,7 +1336,7 @@ de:
       total: ~
       service_charge: ~
       product: ~
-      price: ~
+      price_for: ~
       continue_to_pay: ~
       invoice: ~
       service_fee: ~

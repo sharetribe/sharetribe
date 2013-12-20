@@ -88,21 +88,21 @@ it:
     default_community_slogan: "Presta, vendi, aiuta, condividi"
     default_community_description: ~
     cancel: Annulla
-    fields_that_are_mandatory: ~
+    fields_that_are_mandatory: "I campi segnalati con l'asterisco (*) sono obbligatori."
     or: o
     password: Password
     service_name: ~
     share_types:
       request: ~
       offer: ~
-      borrow: ~
-      buy: ~
-      give_away: ~
-      lend: ~
-      receive: ~
-      rent: ~
-      rent_out: ~
-      sell: ~
+      borrow: "prendere in prestito"
+      buy: acquistare
+      give_away: "dare via"
+      lend: prestare
+      receive: "prendere gratuitamente"
+      rent: affittare
+      rent_out: noleggiare
+      sell: vendere
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: ~
@@ -156,7 +156,7 @@ it:
       give_feedback_to: ~
       do_not_give_feedback: ~
     index:
-      loading_more_messages: ~
+      loading_more_messages: "Caricamento di altri messaggi"
       message_partitive: messaggio
       messages_partitive: messaggi
       no_received_messages: "Nessun messaggio ricevuto"
@@ -183,10 +183,10 @@ it:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: "Chiedi aiuto da %{person}"
-      favor_request_message_form_title: ~
-      housing_offer_message_form_title: ~
-      housing_request_message_form_title: ~
+      favor_offer_message_form_title: "Chiedi aiuto a %{person}"
+      favor_request_message_form_title: "Offri aiuto a %{person}"
+      housing_offer_message_form_title: "Offri spazio fisico a %{person}"
+      housing_request_message_form_title: "Richiesi spazio fisico a %{person}"
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
@@ -203,10 +203,10 @@ it:
       housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
-      item_request_message_form_title: ~
+      item_request_message_form_title: "Offri un articolo a %{person}"
       message: Messaggio
-      rideshare_offer_message_form_title: ~
-      rideshare_request_message_form_title: ~
+      rideshare_offer_message_form_title: "Chiedi un passaggio a %{person}"
+      rideshare_request_message_form_title: "Offri un passaggio a %{person}"
       send_message: ~
       send: ~
       this_message_is_private: ~
@@ -230,11 +230,11 @@ it:
         has_commented: ~
         your_offer: ~
         your_request: ~
-      loading_more_notifications: ~
-      no_notifications: ~
+      loading_more_notifications: "Caricamento altre notifiche"
+      no_notifications: "Nessuna notifica."
       testimonialnotification:
         give_feedback_to: "Rilascia feedback a %{name}"
-        has_given_you_feedback_on_event: ~
+        has_given_you_feedback_on_event: "ti ha rilasciato un feedback per l'evento"
         see_all_the_feedback_you_have_received: "Mostra tutti i feedback che hai ricevuto"
     show:
       in_response_to_listing: ~
@@ -247,8 +247,8 @@ it:
       last_message_at: "(ultimo messaggio %{time})"
     status:
       cancel_payed_transaction: ~
-      feedback_given: ~
-      feedback_skipped: ~
+      feedback_given: "Feedback rilasciato"
+      feedback_skipped: "Feedback saltato"
       give_feedback: "Rilascia feedback"
       offer_accepted: "Offerta accettata"
       offer_rejected: "Offerta rifiutata"
@@ -260,7 +260,7 @@ it:
       request_rejected: "Richiesta rifiutata"
       request_confirmed: ~
       request_canceled: ~
-      skip_feedback: ~
+      skip_feedback: "Salta il feedback"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
       waiting_confirmation_from_requester: ~
@@ -304,11 +304,13 @@ it:
       account_number: ~
   braintree_payments:
     edit:
+      new_credit_card_payment: ~
+      payment_receiver: ~
       cardholder_name: ~
       credit_card_number: ~
       cvv: ~
       credit_card_expiration_date: ~
-      save: ~
+      confirm_payment: ~
   communities:
     map_bubble:
       view_tribe: ~
@@ -431,7 +433,7 @@ it:
       kassi_for_your_university_description: ~
       want_kassi_for_your_community: ~
       email_default_text: "Il tuo indirizzo email"
-      send: ~
+      send: Invia!
       or_drop_us_a_line: ~
       thanks_for_contacting_us: ~
       resources: RISORSE
@@ -550,9 +552,18 @@ it:
     new_payment:
       new_payment: ~
       you_have_received_new_payment: ~
+    braintree_new_payment:
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
     receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
+      product: ~
+      total: ~
+      price: ~
+      service_fee: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: ~
       you_can_give_feedback_to: ~
@@ -992,9 +1003,6 @@ it:
       email_deleted: ~
       payment_details_add_successful: ~
       payment_details_add_error: ~
-    payment_header:
-      new_payment: ~
-      payment_receiver: ~
     profile_extras_header:
       back_to_profile_of_person: ~
       badges: ~
@@ -1066,7 +1074,7 @@ it:
         time: ~
         long_time: ~
         service_fee_will_be_added: ~
-        service_fee_will_be_deducted: ~
+        after_service_fee_you_will_get: ~
         price_excludes_vat: ~
       origin:
         location: ~
@@ -1328,7 +1336,7 @@ it:
       total: ~
       service_charge: ~
       product: ~
-      price: ~
+      price_for: ~
       continue_to_pay: ~
       invoice: ~
       service_fee: ~
