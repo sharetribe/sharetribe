@@ -144,6 +144,10 @@ ActiveRecord::Schema.define(:version => 20131220104804) do
     t.string   "cover_photo_content_type"
     t.integer  "cover_photo_file_size"
     t.datetime "cover_photo_updated_at"
+    t.string   "small_cover_photo_file_name"
+    t.string   "small_cover_photo_content_type"
+    t.integer  "small_cover_photo_file_size"
+    t.datetime "small_cover_photo_updated_at"
     t.string   "custom_color1"
     t.string   "custom_color2"
     t.string   "stylesheet_url"
@@ -177,10 +181,6 @@ ActiveRecord::Schema.define(:version => 20131220104804) do
     t.boolean  "logo_change_allowed"
     t.boolean  "terms_change_allowed",              :default => false
     t.boolean  "privacy_policy_change_allowed",     :default => false
-    t.string   "small_cover_photo_file_name"
-    t.string   "small_cover_photo_content_type"
-    t.integer  "small_cover_photo_file_size"
-    t.datetime "small_cover_photo_updated_at"
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
