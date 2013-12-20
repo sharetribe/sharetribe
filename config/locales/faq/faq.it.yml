@@ -2,31 +2,31 @@ it:
   dashboard:
     faq:
       faq_title: FAQ
-      new_tribe_link: ~
-      tribes_map_link: ~
+      new_tribe_link: link
+      tribes_map_link: "in tutto il mondo"
       translations_link: "stato attuale delle traduzioni"
       github_link: Github
       q1: "Cos'è Sharetribe?"
-      a1: ~
+      a1: "Sharetribe è una rete di tribù, vale a dire una comunità online dove è possibile condividere beni, servizi, passaggi e spazi fisici in una dimensione locale e di fiducia. Puoi creare gratuitamente una tribù per la tua università, la tua azienda, il tuo vicinato, la tua associazione, la tua squadra sportiva o qualsiasi altro gruppo di persone!"
       q2: "Cosa puoi condividere su Sharetribe?"
-      a2: ~
+      a2: "Praticamente tutto quello che vuoi! Alcuni esempi: puoi vendere, scambiare o regalare le cose di cui non hai più bisogno, come vecchi abiti, libri, dvd, arredamento o giocattoli. Puoi noleggiare o prestare gli oggetti di cui non vuoi sbarazzarti ma che non usi tutti i giorni, come attrezzi, articoli sportivi o strumenti musicali. Puoi condividere un passaggio per andare a lavoro o formare un giro di passaggi per portare i tuoi bambini alla lezione di calcio. Puoi aiutare gli altri in vari modi mettendo a disposizione il tuo tempo, le tue competenze e conoscenze: portare il cane del vicino a fare una passeggiata, aiutare un collega a risolvere problemi al computer. Oppure puoi affittare il tuo appartamento o anche solo il divano. Puoi chiedere un pagamento per i beni e servizi che condividi oppure farlo gratuitamente."
       q3: "Perché Sharetribe?"
-      a3: ~
-      q4: ~
-      a4: ~
+      a3: "La vita è migliore quando condividi! Condividere le cose che possiedi ti permette di guadagnare dei soldi, dare una mano all'ambiente, ed entrare in contatto con le persone che ti stanno vicino. Al mondo d'oggi, però, condividere non è ancora tanto semplice da farlo diventare parte della cultura dominante. Noi ci siamo imposti di cambiare ciò rendendo la condivisione semplice, divertente e cool. "
+      q4: "Perché molte tribù invece di un'unica comunità globale?"
+      a4: "Due ragioni: localizzazione e fiducia. Condividere beni materiali richiede una dimensione locale. Si verifica nelle vicinanze di dove vivi. Con le tribù locali. è più facile guardare cose c'è intorno a te. La fiducia è l'elemento chiave per rendere la condivisione più semplice. Dar fiducia a sconosciuti è difficile, perciò crediamo che sia positivo iniziare a condividere con persone con cui abbiamo già una qualche connessione: colleghi, compagni di studi o vicini."
       q5: "Chi c'è dietro Sharetribe?"
-      a5: ~
-      q6: ~
-      a6: ~
+      a5: "Sharetribe è un'impresa sociale costituita in Finlandia. La nostra missione è aiutare le persone a creare connessioni con i membri delle proprie comunità ed eliminare lo spreco rendendo più efficiente l'utilizzo dei beni attraverso la condivisione. Se vuoi saperne di più sulla nostra filosofia e sul nostro team clicca qui o contatta il nostro CEO Juho Makkonen o il nostro CTO Antti Virolainen"
+      q6: "Come faccio ad avviare una nuova tribù nel mio vicinato/università/lavoro etc?"
+      a6: "Tutto ciò che devi fare è cliccare qui %{new_tribe_link}! Segui le istruzioni per creare la tua tribù. E' completamente gratuito!"
       q7: "È sicuro prestare i miei oggetti a persone che non conosco?"
-      a7: ~
+      a7: "Con Sharetribe sarai in contatto con le persone che formano la tua stessa tribù. Potresti essere nel loro stesso ufficio, vivere nella stessa via o dividere la stessa classe a scuola. Tuttavia, è difficile avere una totale e piena fiducia in chi non conosci. Usa comunque il buon senso  quando entri in contatto con altre persone attraverso Sharetribe. Se incontri qualcuno per la prima volta, fallo in un luogo pubblico. Controlla le recensioni che ha ricevuto in passato nel suo profilo Sharetribe dagli altri utenti. Una volta che avrai maturato maggiore esperienza ti renderai conto che condividere può essere un'esperienza vincente per tutti."
       q8: "Dove è già usato Sharetribe?"
-      a8: ~
+      a8: "Sharetribe è usato in centinaia di comunità %{tribes_map_link}, e nuove comunità vengono aperte continuamente. Università, aziende, organizzazioni di vario tipo, comunità di vicinato, squadre sportive ed ogni altra sorta di comunità usano Sharetribe per condividere in tutto il mondo."
       q9: "Posso avere Sharetribe nella mia lingua?"
-      a9: ~
+      a9: "Sharetibe al momento è disponibile, tra le altre, in Inglese, Spagnolo, Finlandese, Greco, Russo e Tedesco e sarà tradotto in futuro in ulteriori lingue. Puoi controllare in quali lingue è disponibile qui %{translations_link}. Se hai bisogno di Sharetribe in una specifica lingua o se ci vuoi aiutare nel tradurre il nostro servizio, inviaci un'email a language@sharetribe.com!"
       q10: "Sharetribe è Open Source?"
-      a10: ~
-      q11: ~
-      a11: ~
+      a10: "Si. Sharetribe si basa su una licenza gratuita MIT. E' possibile scaricare il codice da %{github_link} e usarla come si vuole. Contattateci per qualsiasi domanda relativa allo sviluppo basato sul codice di Sharetribe. La nostra vision è di sviluppare la migliore piattaforma per la condivisione locale delle risorse e siamo convinti che il miglior modo per raggiungere questo obiettivo è attraverso l'open source rendendo possibile agli sviluppatori esterni aggiungere nuove customizzazioni al codice e fare, così, di Sharetribe uno strumento sempre più versatile per i diversi bisogni di condividere. La nostra comunità di sviluppatori esterni è ancora molto giovane ma incoraggiamo tutti gli interessati a unirsi alla comunità a condividere il vostro lavoro. Ma se volete semplicemente avere il codice ed installare gratuitamente un server Sharetribe va bene ugualmente."
+      q11: "Posso modificare l'aspetto e l'atmosfera della mia tribù?"
+      a11: "Offriamo un'ampia gamma di customizzazioni per soddisfare le esigenze della vostra comunità. Si possono aggiungere slogan, descrizioni e logo. Si può cambiare lo schema dei colori per soddisfare l'aspetto e l'atmosfera della vostra comunità. E' anche possibile modificare la lista delle categorie di default."
       q12: "Quanto costa Sharetribe?"
-      a12: ~
+      a12: "Le versione base di Sharetribe è completamente gratuita. Per le organizzazioni più grandi, come università o aziende, che necessitano specifici interventi, come l'integrazione con la propria intranet, personalizzazione di funzioni o supporto più esteso, contattaci per farci sapere di cosa avete bisogno e vi faremo avere un'offerta."
