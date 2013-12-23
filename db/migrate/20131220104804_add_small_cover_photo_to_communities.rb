@@ -5,7 +5,12 @@ class AddSmallCoverPhotoToCommunities < ActiveRecord::Migration
 
   class Community < ActiveRecord::Base
     has_attached_file :cover_photo
-    has_attached_file :small_cover_photo
+    has_attached_file :small_cover_photo, :styles => { 
+        :header => "1600x195#",
+        :hd_header => "1920x96#",
+        :original => "3840x3840>"
+      },
+      :path => "images/communities/:attachment/:id/:style/:filename",
   end
   
   def up
