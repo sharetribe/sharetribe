@@ -112,7 +112,7 @@ class Community < ActiveRecord::Base
   def name(locale=nil)
     if locale
       cc = community_customizations.find_by_locale(locale)
-      cc ? cc.name : super()
+      (cc && cc.name) ? cc.name : super()
     else
       super()
     end
