@@ -354,7 +354,7 @@ class PersonMailer < ActionMailer::Base
     end
     
     @title_link_text = t("emails.community_updates.title_link_text", 
-          :community_name => @community.full_name(@recipient.locale)))
+          :community_name => @community.full_name(@recipient.locale))
     subject = t("emails.community_updates.update_mail_title", :title_link => @title_link_text)
     
     if APP_CONFIG.mail_delivery_method == "postmark"

@@ -92,9 +92,13 @@ class Community < ActiveRecord::Base
   
   attr_accessor :terms
   
-  def name(locale)
-    cc = community_customizations.find_by_locale(locale)
-    cc ? cc.name : super()
+  def name(locale=nil)
+    if locale
+      cc = community_customizations.find_by_locale(locale)
+      cc ? cc.name : super()
+    else
+      super()
+    end
   end
   
   def full_name(locale)
