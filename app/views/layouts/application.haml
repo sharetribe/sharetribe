@@ -48,5 +48,13 @@
   -#
     Most of the JavaScript should be for performance reasons at the end of the body
 
+  = javascript_include_tag 'application'
+  = yield(:extra_javascript)
+  - if @current_community
+    :javascript
+      $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
+  - else
+    :javascript
+      $(document).ready(function() { initialize_network_defaults(); #{yield :javascript} });
   = yield(:body_javascript)
   

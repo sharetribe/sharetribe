@@ -28,11 +28,7 @@
 /[if lt IE 9]
   = stylesheet_link_tag 'old_ie'
   
-= javascript_include_tag 'application'
-= yield(:extra_javascript)
 = csrf_meta_tag
-:javascript
-  $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
 
 %link{:rel => "image_src", :href => "https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png"}
 
