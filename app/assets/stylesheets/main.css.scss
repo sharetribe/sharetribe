@@ -3587,7 +3587,7 @@ header.marketplace-header {
   }
   
   figure.marketplace-cover-small {
-    background-image: image-url($cover-photo-url);
+    background-image: image-url($small-cover-photo-url);
     height: em($small-cover-photo-mobile-height);
     @include media(tablet) {
       @include fluid-ratio(em(1920) em($small-cover-photo-height), em(300) em($small-cover-photo-height));
