@@ -22,10 +22,8 @@
   = javascript_include_tag "html5shiv-printshiv"
   
 / CSS
-- if @current_community.has_customizations?
-  = stylesheet_link_tag @current_community.custom_stylesheet_url
-- else
-  = stylesheet_link_tag 'application'
+- with_stylesheet_url(@current_community) do |stylesheet_url|
+  = stylesheet_link_tag stylesheet_url
 
 /[if lt IE 9]
   = stylesheet_link_tag 'old_ie'

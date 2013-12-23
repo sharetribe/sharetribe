@@ -42,6 +42,7 @@ Feature: User joins another community
     Then I should see "You have successfully joined this community"
     And I should see "Post a new listing"
     And Invitation with code "GH1JX8" should have 0 usages_left
+    
   
   @javascript
   Scenario: User joins another community that accepts only certain email addresses
