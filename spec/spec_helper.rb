@@ -1,11 +1,10 @@
 require 'rubygems'
-require 'spork'
 
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 
-Spork.prefork do
-  # Loading more in this block will cause your tests to run faster. However,
+prefork = lambda {
+# Loading more in this block will cause your tests to run faster. However,
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
   
@@ -64,13 +63,13 @@ Spork.prefork do
     load "#{Rails.root}/db/seeds.rb"
 
     # Clean once when guard starts
-    DatabaseCleaner.clean_with(:truncation, {:except => %w[categories share_types community_categories category_translations share_type_translations]})    
-
+    DatabaseCleaner.clean_with(:truncation, {:except => %w[categories share_types community_categories category_translations share_type_translations]})
+    
     config.after(:suite) do
       # Otherwise clean AFTER the suite
       DatabaseCleaner.clean_with(:truncation, {:except => %w[categories share_types community_categories category_translations share_type_translations]})
     end
-    
+
     config.before(:suite) do
       DatabaseCleaner.strategy = :transaction
 
@@ -107,14 +106,29 @@ Spork.prefork do
   RSpec.configure do |config|
     config.include Devise::TestHelpers, :type => :controller
   end
-end
+}
 
-Spork.each_run do
+each_run = lambda {
   # This code will be run each time you run your specs.
   
   # Require step definitions
   Dir["#{File.dirname(__FILE__)}/step_defintions/**/*.rb"].each {|f| require f}
   Rails.cache.clear
+}
+
+if defined?(Zeus)
+  prefork.call
+  $each_run = each_run
+  class << Zeus.plan
+    def after_fork_with_test
+      after_fork_without_test
+      $each_run.call
+    end
+    alias_method_chain :after_fork, :test
+  end
+else
+  prefork.call
+  each_run.call
 end
 
 # --- Instructions ---
