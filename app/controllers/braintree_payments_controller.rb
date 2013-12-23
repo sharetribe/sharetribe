@@ -87,7 +87,7 @@ class BraintreePaymentsController < ApplicationController
         account_community = Community.find(@braintree_account.community_id)
         flash[:error] = "Unfortunately, we can not proceed with the payment. Please contact administrators."
 
-        error_msg = "User #{@current_user.id} tries to pay for user #{@braintree_payment.recipient_id} which has Braintree account for another community #{account_community.name}"
+        error_msg = "User #{@current_user.id} tries to pay for user #{@braintree_payment.recipient_id} which has Braintree account for another community #{account_community.name(I18n.locale)}"
         BTLog.error(error_msg)
         ApplicationHelper.send_error_notification(error_msg, "BraintreePaymentAccountError")
         redirect_to person_message_path

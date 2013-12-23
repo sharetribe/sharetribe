@@ -252,7 +252,7 @@ class PersonMailer < ActionMailer::Base
     end
 
     @current_community = community
-    subject = "New #unanswered #feedback from #{@current_community.name} community from user #{feedback.author.try(:name)} "
+    subject = "New #unanswered #feedback from #{@current_community.name('en')} community from user #{feedback.author.try(:name)} "
     mail_to = APP_CONFIG.feedback_mailer_recipients + (@current_community.feedback_to_admin? ? ", #{@current_community.admin_emails.join(",")}" : "")
     mail(:to => mail_to,
          :from => community_specific_sender(community),
@@ -349,12 +349,12 @@ class PersonMailer < ActionMailer::Base
     @listings = @community.listings.currently_open.where("created_at > ?", latest).order("created_at DESC").visible_to(@recipient, @community).limit(10)
   
     if @listings.size < 1
-      logger.info "There are no new listings in community #{@community.name} since that last update for #{@recipient.id}"
+      logger.info "There are no new listings in community #{@community.name(@recipient.locale)} since that last update for #{@recipient.id}"
       return
     end
     
     @title_link_text = t("emails.community_updates.title_link_text", 
-          :community_name => @community.full_name)
+          :community_name => @community.full_name(@recipient.locale))
     subject = t("emails.community_updates.update_mail_title", :title_link => @title_link_text)
     
     if APP_CONFIG.mail_delivery_method == "postmark"
@@ -549,9 +549,9 @@ class PersonMailer < ActionMailer::Base
     @url_params.freeze # to avoid accidental modifications later
         
     if @recipient.has_admin_rights_in?(@current_community) && !@regular_email
-      subject = t("emails.welcome_email.congrats_for_creating_community", :community => @current_community.full_name)
+      subject = t("emails.welcome_email.congrats_for_creating_community", :community => @current_community.full_name(@recipient.locale))
     else
-      subject = t("emails.welcome_email.subject", :community => @current_community.full_name, :person => person.given_name_or_username)
+      subject = t("emails.welcome_email.subject", :community => @current_community.full_name(@recipient.locale), :person => person.given_name_or_username)
     end
     mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(@community),
@@ -568,7 +568,7 @@ class PersonMailer < ActionMailer::Base
           community_member_email(sender, recipient, email_subject, email_content, community).deliver
         rescue => e
           # Catch the exception and continue sending the emails
-          ApplicationHelper.send_error_notification("Error sending email to all the members of community #{community.full_name}: #{e.message}", e.class)
+          ApplicationHelper.send_error_notification("Error sending email to all the members of community #{community.full_name(email_locale)}: #{e.message}", e.class)
         end
       end
     end

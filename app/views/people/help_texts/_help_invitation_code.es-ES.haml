@@ -1,7 +1,7 @@
 %p 
-  Para unirte a la comunidad #{service_name} 
+  Para unirte a la comunidad
   %strong  
-    = @current_community.name 
+    = @current_community.full_name(I18n.locale) 
   necesitas tener una invitación. Si tienes una, por favor ingresa el código en el recuadro de más abajo.  
  
 %p 

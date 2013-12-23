@@ -1,5 +1,5 @@
 %p
-  = t("emails.welcome_email.welcome_some_tips", :community_link => link_to(@current_community.full_name, root_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
+  = t("emails.welcome_email.welcome_some_tips", :community_link => link_to(@current_community.full_name(I18n.locale), root_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
 %p
   = t("emails.welcome_email.update_your_profile", :update_profile_link => link_to(t("emails.welcome_email.update_your_profile_link_text"), person_settings_url(@recipient, @url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
 

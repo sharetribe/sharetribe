@@ -109,6 +109,31 @@ class Community < ActiveRecord::Base
   
   attr_accessor :terms
   
+  def name(locale=nil)
+    if locale
+      cc = community_customizations.find_by_locale(locale)
+      (cc && cc.name) ? cc.name : super()
+    else
+      super()
+    end
+  end
+  
+  def full_name(locale)
+    settings["service_name"] ? settings["service_name"] : "Sharetribe #{name(locale)}"
+  end
+  
+  # If community name has several words, add an extra space
+  # to the end to make Finnish translation look better.
+  def name_with_separator(locale)
+    (name(locale).include?(" ") && locale.to_s.eql?("fi")) ? "#{name(locale)} " : name(locale)
+  end
+  
+  # If community full name has several words, add an extra space
+  # to the end to make Finnish translation look better.
+  def full_name_with_separator(locale)
+    (full_name(locale).include?(" ") && locale.to_s.eql?("fi")) ? "#{full_name(locale)} " : full_name(locale)
+  end
+  
   def address
     location ? location.address : nil
   end
@@ -168,18 +193,6 @@ class Community < ActiveRecord::Base
     where("custom_color1 IS NOT NULL OR cover_photo_file_name IS NOT NULL OR small_cover_photo_file_name IS NOT NULL")
   end
   
-  # If community name has several words, add an extra space
-  # to the end to make Finnish translation look better.
-  def name_with_separator(locale)
-    (name.include?(" ") && locale.to_s.eql?("fi")) ? "#{name} " : name
-  end
-  
-  # If community full name has several words, add an extra space
-  # to the end to make Finnish translation look better.
-  def full_name_with_separator(locale)
-    (full_name.include?(" ") && locale.to_s.eql?("fi")) ? "#{full_name} " : full_name
-  end
-  
   def active_poll
     polls.where(:active => true).first
   end
@@ -207,7 +220,7 @@ class Community < ActiveRecord::Base
   end
   
   def email_all_members(subject, mail_content, default_locale="en", verbose=false)
-    puts "Sending mail to all #{members.count} members in community: #{self.name}" if verbose
+    puts "Sending mail to all #{members.count} members in community: #{self.name(default_locale)}" if verbose
     PersonMailer.deliver_open_content_messages(members.all, subject, mail_content, default_locale, verbose)
   end
 
@@ -447,10 +460,6 @@ class Community < ActiveRecord::Base
       return true
     end
     return false
-  end
-  
-  def full_name
-    settings["service_name"] ? settings["service_name"] : "Sharetribe #{name}"
   end
   
   def uses_rdf_profile_import?

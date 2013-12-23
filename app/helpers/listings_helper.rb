@@ -33,7 +33,7 @@ module ListingsHelper
     array = []
     Listing::VALID_VISIBILITIES.each do |visibility|
       if visibility.eql?("this_community")
-        array << [t(".#{visibility}", :community => @current_community.name), visibility]
+        array << [t(".#{visibility}", :community => @current_community.name(I18n.locale)), visibility]
       else
         array << [t(".#{visibility}"), visibility]
       end

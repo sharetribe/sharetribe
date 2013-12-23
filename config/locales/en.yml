@@ -6,13 +6,17 @@ en:
         community_look_and_feel: "Community look and feel"
         edit_community: "Edit community \"%{community_name}\" details"
         community_name: "Community name"
+        edit_community_name_description: "The name of your community. This is shown to users in emails and various other places."
         community_slogan: "Community slogan"
+        edit_community_slogan_description: "This is shown on the home page of the community for the users who are not logged in. %{see_how_it_looks_like}."
         community_description: "Community description"
+        edit_community_description_description: "This is shown on the home page of the community for the users who are not logged in. %{see_how_it_looks_like}."
         update_information: "Update information"
         invite_people: "Invite people to this community"
         edit_signup_info: "Signup info"
         edit_signup_info_description: "This is an info text that can be shown to users in the signup page. There you can give the users instructions for signing up, information like where to get an invite, etc. By default there are no instructions, you can add some by clicking the link below."
-        edit_signup_info_link: "Edit signup info"
+        edit_info: "Edit information"
+        see_how_it_looks_like: "See how it looks like"
       edit_look_and_feel:
         edit_community_look_and_feel: "Edit community \"%{community_name}\" look and feel"
         community_logo: "Full logo"
@@ -309,11 +313,13 @@ en:
       account_number: "Account number"
   braintree_payments:
     edit:
+      new_credit_card_payment: "New credit card payment"
+      payment_receiver: "Payment receiver"
       cardholder_name: "Cardholder name"
       credit_card_number: "Credit card number"
       cvv: CVV
       credit_card_expiration_date: "Credit card expiration date"
-      save: Save
+      confirm_payment: "Confirm payment"
   communities:
     map_bubble:
       view_tribe: "View tribe"
@@ -555,9 +561,18 @@ en:
     new_payment:
       new_payment: "You have received a new payment"
       you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. Here is your receipt."
+    braintree_new_payment:
+      product: "Product:"
+      price_payer_paid: "Price %{payer_full_name} paid:"
+      service_fee: "%{service_name} service fee:"
+      you_will_get: "You will get:"
     receipt_to_payer:
       receipt_of_payment: "Receipt of payment"
       you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> to %{recipient_full_name}. Here is a receipt of the payment."
+      product: Product
+      total: Total
+      price: Price
+      service_fee: "Service fee"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} has given you feedback in %{service_name}"
       you_can_give_feedback_to: "You haven't yet given feedback to %{name}."
@@ -997,9 +1012,6 @@ en:
       email_deleted: "Email removed"
       payment_details_add_successful: "Successfully added payment details"
       payment_details_add_error: "Could not add payment details"
-    payment_header:
-      new_payment: "New payment"
-      payment_receiver: "Payment receiver:"
     profile_extras_header:
       back_to_profile_of_person: "Back to user's profile"
       badges: Badges
@@ -1071,7 +1083,7 @@ en:
         time: "hour, day, week, ..."
         long_time: "week, month, ..."
         service_fee_will_be_added: "A %{fee}% service fee will be added to the price."
-        service_fee_will_be_deducted: "A %{fee}% service fee will be deducted from the price."
+        after_service_fee_you_will_get: "After %{service_name} service fee you will get %{sum_with_currency}"
         price_excludes_vat: "The price doesn't include VAT."
       origin:
         location: Location
@@ -1333,7 +1345,7 @@ en:
       total: Total
       service_charge: "Service charge"
       product: "Product:"
-      price: "Price:"
+      price_for: "Price for %{payer_given_name}:"
       continue_to_pay: "Continue to pay"
       invoice: Invoice
       service_fee: "%{service_name} service fee:"
