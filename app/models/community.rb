@@ -125,13 +125,13 @@ class Community < ActiveRecord::Base
   # If community name has several words, add an extra space
   # to the end to make Finnish translation look better.
   def name_with_separator(locale)
-    (name.include?(" ") && locale.to_s.eql?("fi")) ? "#{name(locale)} " : name(locale)
+    (name(locale).include?(" ") && locale.to_s.eql?("fi")) ? "#{name(locale)} " : name(locale)
   end
   
   # If community full name has several words, add an extra space
   # to the end to make Finnish translation look better.
   def full_name_with_separator(locale)
-    (full_name.include?(" ") && locale.to_s.eql?("fi")) ? "#{full_name(locale)} " : full_name(locale)
+    (full_name(locale).include?(" ") && locale.to_s.eql?("fi")) ? "#{full_name(locale)} " : full_name(locale)
   end
   
   def address
@@ -220,7 +220,7 @@ class Community < ActiveRecord::Base
   end
   
   def email_all_members(subject, mail_content, default_locale="en", verbose=false)
-    puts "Sending mail to all #{members.count} members in community: #{self.name}" if verbose
+    puts "Sending mail to all #{members.count} members in community: #{self.name(default_locale)}" if verbose
     PersonMailer.deliver_open_content_messages(members.all, subject, mail_content, default_locale, verbose)
   end
 
