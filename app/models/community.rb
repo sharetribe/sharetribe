@@ -83,7 +83,24 @@ class Community < ActiveRecord::Base
                     },
                     :default_url => "/assets/cover_photos/header/default.jpg",
                     :keep_old_files => true # Temporarily to make preprod work aside production
+
   validates_attachment_content_type :cover_photo,
+                                    :content_type => ["image/jpeg",
+                                                      "image/png", 
+                                                      "image/gif", 
+                                                      "image/pjpeg", 
+                                                      "image/x-png"]
+
+  has_attached_file :small_cover_photo, 
+                    :styles => { 
+                      :header => "1600x195#",
+                      :hd_header => "1920x96#",
+                      :original => "3840x3840>"
+                    },
+                    :default_url => "/assets/cover_photos/header/default.jpg",
+                    :keep_old_files => true # Temporarily to make preprod work aside production
+
+  validates_attachment_content_type :small_cover_photo,
                                     :content_type => ["image/jpeg",
                                                       "image/png", 
                                                       "image/gif", 
@@ -128,7 +145,7 @@ class Community < ActiveRecord::Base
   end
 
   def has_customizations?
-    custom_color1 || custom_color2 || cover_photo.present?
+    custom_color1 || custom_color2 || cover_photo.present? || small_cover_photo.present?
   end
   
   def has_custom_stylesheet?
@@ -148,7 +165,7 @@ class Community < ActiveRecord::Base
   end
   
   def self.with_customizations
-    where("custom_color1 IS NOT NULL OR cover_photo_file_name IS NOT NULL")
+    where("custom_color1 IS NOT NULL OR cover_photo_file_name IS NOT NULL OR small_cover_photo_file_name IS NOT NULL")
   end
   
   # If community name has several words, add an extra space
@@ -333,6 +350,12 @@ class Community < ActiveRecord::Base
         replace_in_file("app/assets/stylesheets/customizations.scss",
                         /\$cover-photo-url:\s*\"[^\"]+\";/,
                         "$cover-photo-url: \"#{cover_photo.url(:hd_header)}\";",
+                        true)
+      end
+      if small_cover_photo.present?
+        replace_in_file("app/assets/stylesheets/customizations.scss",
+                        /\$small-cover-photo-url:\s*\"[^\"]+\";/,
+                        "$small-cover-photo-url: \"#{small_cover_photo.url(:hd_header)}\";",
                         true)
       end
       url = stylesheet_filename
