@@ -8,8 +8,12 @@ class MercuryUpdateController < ApplicationController
   
   # Update content with WYSIWYG editor Mercury
   def update
-    param_hash = {}
-    params[:content].each { |content_type, content_attributes| param_hash[content_type] = content_attributes[:value] }
+    param_hash = params[:content].inject({}) do |memo, content_hash|
+      content_type, content_attributes = content_hash
+      memo[content_type] = content_attributes[:value]
+      memo
+    end
+    
     if @community_customization
       @community_customization.update_attributes(param_hash)
     else

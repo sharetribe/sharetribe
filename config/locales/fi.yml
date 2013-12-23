@@ -5,14 +5,18 @@ fi:
         community_details: "Yhteisön tiedot"
         community_look_and_feel: "Yhteisön ulkoasu"
         edit_community: "Muokkaa yhteisön \"%{community_name}\" tietoja"
-        community_name: "Yhteisön nimi:"
-        community_slogan: "Yhteisön slogan:"
-        community_description: "Yhteisön kuvaus:"
+        community_name: "Yhteisön nimi"
+        edit_community_name_description: "Yhteisön nimi näytetään käyttäjille lähetettävissä sähköposteissa ja useissa muissa paikoissa."
+        community_slogan: "Yhteisön slogan"
+        edit_community_slogan_description: "Näytetään etusivulla kirjautumattomille käyttäjille. %{see_how_it_looks_like}."
+        community_description: "Yhteisön kuvaus"
+        edit_community_description_description: "Näytetään etusivulla kirjautumattomille käyttäjille. %{see_how_it_looks_like}."
         update_information: "Päivitä tiedot"
         invite_people: "Kutsu ihmisiä yhteisöön"
-        edit_signup_info: Liittymisohjeet
+        edit_signup_info: "Liittymisohjeet"
         edit_signup_info_description: "Tähän voit lisätä ohjeita siihen, miten palveluun liitytään. Ohjeet näytetään käyttäjille, kun he ovat liittymässä palveluun. Oletuksena ohjekenttä on tyhjä. Voit lisätä niitä klikkaamalla alla olevaa linkkiä."
-        edit_signup_info_link: "Muokkaa liittymisohjeita"
+        edit_info: "Muokkaa tietoja"
+        see_how_it_looks_like: "Näytä"
       edit_look_and_feel:
         edit_community_look_and_feel: "Muokkaa yhteisön \"%{community_name}\" ulkoasua"
         community_logo: Peruslogo
