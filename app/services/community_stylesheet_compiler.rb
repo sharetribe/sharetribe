@@ -35,7 +35,7 @@ module CommunityStylesheetCompiler
 
       variable_hash = create_variable_hash(community)
       target_file_no_ext = create_new_filename(community.domain)
-      target_file_path = "public/assets/#{target_file_no_ext}.css"
+      target_file_path = "public/assets/#{target_file_no_ext}.css.gz"
 
       StylesheetCompiler.compile(SOURCE_DIR, SOURCE_FILE, target_file_path, VARIABLE_FILE, variable_hash)
 
