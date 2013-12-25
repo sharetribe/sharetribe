@@ -1,7 +1,7 @@
 // Custom Javascript functions for Sharetribe
 // Add custom validation methods
 function add_validator_methods() {
-  
+
   // If some element is required, it should be validated even if it's hidden
   $.validator.setDefaults({ ignore: [] });
   
