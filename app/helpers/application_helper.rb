@@ -344,7 +344,9 @@ module ApplicationHelper
       :div1       => target_id
     }
     
-    javascript_tag("$('#{target_id}').pageless(#{opts.to_json});")
+    content_for :extra_javascript do
+      javascript_tag("$('#{target_id}').pageless(#{opts.to_json});")
+    end
   end
   
   # Class is selected if conversation type is currently selected
