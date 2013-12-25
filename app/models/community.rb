@@ -397,7 +397,7 @@ class Community < ActiveRecord::Base
                 ]
 
                 # Here we can add SASS configurations, such as:
-                # s.style = :expanded
+                s.style = :compressed
               end
             end
           end
