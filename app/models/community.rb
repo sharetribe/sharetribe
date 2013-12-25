@@ -376,6 +376,7 @@ class Community < ActiveRecord::Base
         
         # Generate CSS from SCSS
         css_file = "public/assets/#{new_filename_with_time_stamp}.css"
+        gzip_file = "#{css_file}.gz"
         `mkdir public/assets` unless File.exists?("public/assets")
 
         sprockets = Sprockets::Environment.new(Rails.root).tap do |env|
@@ -404,7 +405,7 @@ class Community < ActiveRecord::Base
         end
 
         asset = sprockets["#{stylesheet_filename}.scss"]
-        asset.write_to(css_file)
+        asset.write_to(gzip_file)
 
         # Empty the file
         File.open("app/assets/stylesheets/customizations.scss", 'w') {}
@@ -419,7 +420,7 @@ class Community < ActiveRecord::Base
           b = s3.buckets.create(APP_CONFIG.s3_bucket_name)
           basename = File.basename("#{Rails.root}/#{css_file}")
           o = b.objects["assets/custom/#{basename}"]
-          o.write(:file => "#{Rails.root}/#{css_file}", :cache_control => "public, max-age=30000000", :content_type => "text/css")
+          o.write(:file => "#{Rails.root}/#{gzip_file}", :cache_control => "public, max-age=30000000", :content_type => "text/css", :content_encoding => "gzip")
           o.acl = :public_read
           url = o.public_url.to_s
           
