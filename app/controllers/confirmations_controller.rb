@@ -54,10 +54,6 @@ class ConfirmationsController < Devise::ConfirmationsController
       e.confirmed_at = Time.now
       e.confirmation_token = nil
       e.save
-
-      if !person.confirmed_at.present?
-        person.confirm!
-      end
       
       # Accept pending community membership if needed
       if @current_community.approve_pending_membership(person, e.address)

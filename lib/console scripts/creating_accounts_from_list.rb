@@ -19,7 +19,6 @@ accounts.each do |acc|
   p.email = acc[3]
   p.username = acc[3][/^[^@]+/,0].gsub(".", "_")
   p.password = pass
-  p.confirmed_at = Time.now
   p.set_default_preferences
   p.test_group_number = 1 + rand(4)
   p.active = 0 # Create inactive users so they don't receive mails if they never log in
