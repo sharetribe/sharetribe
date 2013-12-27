@@ -58,7 +58,6 @@ class CommunitiesController < ApplicationController
     @community = Community.new(params[:community])
     @community.settings = {"locales"=>["#{params[:community_locale]}"]}
     @community.join_with_invite_only = params[:community][:join_with_invite_only].present?
-    @community.email_confirmation = true
     @community.plan = session[:pricing_plan]
     @community.users_can_invite_new_users = true
     @community.use_captcha = false

@@ -123,7 +123,7 @@ class PeopleController < Devise::RegistrationsController
       sign_in(resource_name, resource)
     end
   
-    if @current_community.nil? || @current_community.email_confirmation
+    if @current_community.nil?
       # As automatic confirmation email was skipped, devise marks the person as confirmed, 
       # which isn't actually true, so fix it manually
       @person.update_attributes(:confirmation_sent_at => Time.now, :confirmed_at => nil) 
@@ -136,7 +136,7 @@ class PeopleController < Devise::RegistrationsController
     # Make person a member of the current community
     if @current_community
       membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent)
-      membership.status = "pending_email_confirmation" if @current_community.email_confirmation?
+      membership.status = "pending_email_confirmation"
       membership.invitation = invitation if invitation.present?
       # If the community doesn't have any members, make the first one an admin
       if @current_community.members.count == 0
@@ -158,12 +158,9 @@ class PeopleController < Devise::RegistrationsController
       session[:unconfirmed_email] = params[:person][:email]
       session[:allowed_email] = "@#{params[:person][:email].split('@')[1]}" if community_email_restricted?
       redirect_to domain + new_tribe_path
-    elsif @current_community.email_confirmation
+    else
       flash[:notice] = t("layouts.notifications.account_creation_succesful_you_still_need_to_confirm_your_email")
       redirect_to :controller => "sessions", :action => "confirmation_pending"
-    else
-      flash[:notice] = t("layouts.notifications.account_creation_successful", :person_name => view_context.link_to((@person.given_name_or_username).to_s, person_path(@person))).html_safe
-      redirect_to(session[:return_to].present? ? domain + session[:return_to]: domain + root_path)
     end
   end
 
