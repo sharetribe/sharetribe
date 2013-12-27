@@ -178,7 +178,6 @@ class PeopleController < Devise::RegistrationsController
       :facebook_id => session["devise.facebook_data"]["id"],
       :locale => I18n.locale,
       :test_group_number => 1 + rand(4),
-      :confirmed_at => Time.now,  # We trust that Facebook has already confirmed these and save the user few clicks
       :password => Devise.friendly_token[0,20]
     }
     @person = Person.create!(person_hash)

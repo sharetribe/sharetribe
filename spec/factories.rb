@@ -16,7 +16,6 @@ FactoryGirl.define do
     is_admin 0
     locale "en"
     test_group_number 4
-    confirmed_at Time.now
     given_name "Proto"
     family_name "Testro"
     phone_number "0000-123456"
