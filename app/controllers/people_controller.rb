@@ -123,9 +123,6 @@ class PeopleController < Devise::RegistrationsController
       sign_in(resource_name, resource)
     end
 
-    # send the confirmation email manually
-    Email.send_confirmation(email, request.host_with_port, @current_community)
-
     @person.set_default_preferences
     # Make person a member of the current community
     if @current_community
@@ -153,8 +150,18 @@ class PeopleController < Devise::RegistrationsController
       session[:allowed_email] = "@#{params[:person][:email].split('@')[1]}" if community_email_restricted?
       redirect_to domain + new_tribe_path
     else
-      flash[:notice] = t("layouts.notifications.account_creation_succesful_you_still_need_to_confirm_your_email")
-      redirect_to :controller => "sessions", :action => "confirmation_pending"
+      # send email confirmation
+      # (unless disabled for testing environment)
+      if APP_CONFIG.skip_email_confirmation
+        email.confirm!
+
+        redirect_to root
+      else
+        Email.send_confirmation(email, request.host_with_port, @current_community)
+        
+        flash[:notice] = t("layouts.notifications.account_creation_succesful_you_still_need_to_confirm_your_email")
+        redirect_to :controller => "sessions", :action => "confirmation_pending"
+      end
     end
   end
 
