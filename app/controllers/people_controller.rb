@@ -122,16 +122,10 @@ class PeopleController < Devise::RegistrationsController
     if @person.save!
       sign_in(resource_name, resource)
     end
-  
-    if @current_community.nil?
-      # As automatic confirmation email was skipped, devise marks the person as confirmed, 
-      # which isn't actually true, so fix it manually
-      @person.update_attributes(:confirmation_sent_at => Time.now, :confirmed_at => nil) 
 
-      # send the confirmation email manually
-      Email.send_confirmation(email, request.host_with_port, @current_community)
-    end
-  
+    # send the confirmation email manually
+    Email.send_confirmation(email, request.host_with_port, @current_community)
+
     @person.set_default_preferences
     # Make person a member of the current community
     if @current_community
@@ -170,9 +164,6 @@ class PeopleController < Devise::RegistrationsController
     # This part is copied from Devise's regstration_controller#create
     build_resource
     person = resource
-
-    # Skip automatic email confirmation mail by devise, as that doesn't support custom sender address
-    person.skip_confirmation! 
 
     person
   end
