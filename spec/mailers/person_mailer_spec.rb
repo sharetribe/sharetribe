@@ -175,7 +175,7 @@ describe PersonMailer do
     email = PersonMailer.new_member_notification(@test_person2, @community.domain, @test_person2.email).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal @test_person.confirmed_notification_email_addresses, email.to
-    assert_equal "New member in #{@community.name} Sharetribe", email.subject
+    assert_equal "New member in #{@community.name('en')} Sharetribe", email.subject
   end
   
   describe "#welcome_email" do
@@ -190,7 +190,7 @@ describe PersonMailer do
     it "should welcome a regular member" do
       @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
       @email.should deliver_to("update_tester@example.com")
-      @email.should have_subject("Welcome to #{@c1.full_name} - here are some tips to get you started")
+      @email.should have_subject("Welcome to #{@c1.full_name('en')} - here are some tips to get you started")
       @email.should have_body_text "Add something you could offer to others"
       @email.should_not have_body_text "You have now admin rights in this community."
     end
@@ -208,7 +208,7 @@ describe PersonMailer do
       @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
       @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
       @email.should deliver_to("update_tester@example.com")
-      @email.should have_subject("You just created #{@c1.full_name} - here are some tips to get you started")
+      @email.should have_subject("You just created #{@c1.full_name('en')} - here are some tips to get you started")
       @email.should have_body_text "You have now admin rights in this community."
     end
   

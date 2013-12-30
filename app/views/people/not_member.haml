@@ -1,8 +1,8 @@
 .centered-section
   %h1
-    = t(".this_user_does_not_belong_to_this_community", :community => @current_community.name)
+    = t(".this_user_does_not_belong_to_this_community", :community => @current_community.name(I18n.locale))
   %p
-    = t(".explanation_text", :community => @current_community.name)
+    = t(".explanation_text", :community => @current_community.name(I18n.locale))
   %p
     = link_to t(".read_more_about_kassi_communities"), (about_infos_path + "#sharetribe")
   = image_tag "/assets/kaapo/kaapo_confused.png"

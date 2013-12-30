@@ -6,12 +6,37 @@
 
 ## generic deploy methods
 
+# Give an environment variable name and convert it to boolean.
+# Otherwise return `default`
+def env_to_bool(var_name, default)
+  value = ENV[var_name] || ""
+  if value.downcase == "true"
+    true
+  elsif value.downcase == "false"
+    false
+  else
+    default
+  end
+end
+
+# Usage example: Deploy to production without migrations, with css compile
+#
+# > rake deploy_to[production] migrations=false css=true
+#
+task :deploy_to, [:destination] do |t, args|
+  deploy(
+    :destination => args[:destination],
+    :migrations => env_to_bool('migrations', true),
+    :css => env_to_bool('css', true)
+  )
+end
+
 task :deploy_without_migrations_to, [:destination] do |t, args|
-  deploy(:destination => args[:destination], :migrations => false)  
+  deploy(:destination => args[:destination], :migrations => false, :css => env_to_bool('css', true))
 end
 
 task :deploy_with_migrations_to, [:destination] do |t, args|
-  deploy(:destination => args[:destination], :migrations => true)
+  deploy(:destination => args[:destination], :migrations => true, :css => env_to_bool('css', true))
 end
 
 def deploy(params)
@@ -20,6 +45,9 @@ def deploy(params)
   
   puts "Deploying from: #{@branch}"
   puts "Deploying to:   #{@destination}"
+  puts "Deploy options:"
+  puts "  migrations: #{params[:migrations]}"
+  puts "  css:        #{params[:css]}"
   
   if @destination == "production" || @destination == "preproduction"
     puts "YOU ARE GOING TO DEPLOY #{@branch} BRANCH TO #{@destination}"
@@ -38,7 +66,9 @@ def deploy(params)
     run_migrations
     restart
   end
-  generate_custom_css
+  if params[:css]
+    generate_custom_css
+  end
   update_translations
 end
 

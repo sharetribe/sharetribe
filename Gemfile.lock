@@ -162,10 +162,6 @@ GEM
     guard-rspec (2.5.4)
       guard (>= 1.1)
       rspec (~> 2.11)
-    guard-spork (1.5.1)
-      childprocess (>= 0.2.3)
-      guard (>= 1.1)
-      spork (>= 0.8.4)
     haml (3.1.7)
     hashie (1.2.0)
     hike (1.2.3)
@@ -338,10 +334,6 @@ GEM
       rubyzip (~> 1.0.0)
       websocket (~> 1.0.4)
     slop (3.4.6)
-    spork (1.0.0rc3)
-    spork-rails (3.2.1)
-      rails (>= 3.0.0, < 3.3.0)
-      spork (>= 1.0rc0)
     spreadsheet (0.7.5)
       ruby-ole (>= 1.0)
     sprockets (2.2.2)
@@ -382,6 +374,8 @@ GEM
     will_paginate (3.0.3)
     xpath (2.0.0)
       nokogiri (~> 1.3)
+    zeus (0.13.3)
+      method_source (>= 0.6.7)
 
 PLATFORMS
   ruby
@@ -413,7 +407,6 @@ DEPENDENCIES
   flying-sphinx (~> 0.8.5)
   guard-livereload
   guard-rspec
-  guard-spork
   haml
   jquery-rails
   json (~> 1.8.0)
@@ -449,7 +442,6 @@ DEPENDENCIES
   sass (~> 3.2.9)
   sass-rails
   selenium-webdriver
-  spork-rails
   spreadsheet
   thinking-sphinx (~> 2.0.14)
   timecop
@@ -459,3 +451,4 @@ DEPENDENCIES
   web_translate_it
   will_paginate
   xpath
+  zeus

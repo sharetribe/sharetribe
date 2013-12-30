@@ -5,7 +5,17 @@
   = "without-text"
 
 - content_for :title_header do
-  - if @current_user
+  - with_big_cover_photo do
+    %h1= community_slogan.html_safe
+    %p= community_description.html_safe
+    .search-form
+      = form_tag({ :action => :index, :controller => :homepage}, :method => "get", :id => "homepage-filters") do
+        .search-form-input.search-form-text-field
+          = text_field_tag "q", params[:q], :placeholder => t("homepage.index.what_do_you_need")
+        .search-form-input
+          %button.action-button{type: 'submit'}
+            = icon_tag("search", ["icon-part"])
+  - with_small_cover_photo do
     .browse-view-search-form
       = form_tag({ :action => :index, :controller => :homepage}, :method => "get", :id => "homepage-filters") do
         .search-form-input.search-form-text-field
@@ -16,17 +26,8 @@
         .search-form-input
           %button.action-button{type: 'submit'}
             = icon_tag("search", ["icon-part"])
-  - else
-    %h1= community_slogan.html_safe
-    %p= community_description.html_safe
-    .search-form
-      = form_tag({ :action => :index, :controller => :homepage}, :method => "get", :id => "homepage-filters") do
-        .search-form-input.search-form-text-field
-          = text_field_tag "q", params[:q], :placeholder => t("homepage.index.what_do_you_need")
-        .search-form-input
-          %button.action-button{type: 'submit'}
-            = icon_tag("search", ["icon-part"])
-
+  
+    
 .home-toolbar
 
   - if @listing_type_menu_enabled || @category_menu_enabled

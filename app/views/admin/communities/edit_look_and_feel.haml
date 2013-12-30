@@ -7,7 +7,7 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@community) }
 
 #new_news_item_form.left-navi-section
-  %h2= t(".edit_community_look_and_feel", :community_name => @community.name)
+  %h2= t(".edit_community_look_and_feel", :community_name => @community.name(I18n.locale))
   = form_for @community, :url => admin_community_path(@community), :method => :put do |form|
     = hidden_field_tag :community_settings_page, "look_and_feel"
     

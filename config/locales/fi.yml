@@ -5,14 +5,18 @@ fi:
         community_details: "Yhteisön tiedot"
         community_look_and_feel: "Yhteisön ulkoasu"
         edit_community: "Muokkaa yhteisön \"%{community_name}\" tietoja"
-        community_name: "Yhteisön nimi:"
-        community_slogan: "Yhteisön slogan:"
-        community_description: "Yhteisön kuvaus:"
+        community_name: "Yhteisön nimi"
+        edit_community_name_description: "Yhteisön nimi näytetään käyttäjille lähetettävissä sähköposteissa ja useissa muissa paikoissa."
+        community_slogan: "Yhteisön slogan"
+        edit_community_slogan_description: "Näytetään etusivulla kirjautumattomille käyttäjille. %{see_how_it_looks_like}."
+        community_description: "Yhteisön kuvaus"
+        edit_community_description_description: "Näytetään etusivulla kirjautumattomille käyttäjille. %{see_how_it_looks_like}."
         update_information: "Päivitä tiedot"
         invite_people: "Kutsu ihmisiä yhteisöön"
         edit_signup_info: "Liittymisohjeet"
         edit_signup_info_description: "Tähän voit lisätä ohjeita siihen, miten palveluun liitytään. Ohjeet näytetään käyttäjille, kun he ovat liittymässä palveluun. Oletuksena ohjekenttä on tyhjä. Voit lisätä niitä klikkaamalla alla olevaa linkkiä."
-        edit_signup_info_link: "Muokkaa liittymisohjeita"
+        edit_info: "Muokkaa tietoja"
+        see_how_it_looks_like: "Näytä"
       edit_look_and_feel:
         edit_community_look_and_feel: "Muokkaa yhteisön \"%{community_name}\" ulkoasua"
         community_logo: Peruslogo
@@ -88,22 +92,6 @@ fi:
         closed: Suljettu
       show:
         edit_poll: "Muokkaa kyselyä"
-  braintree_accounts:
-    edit:
-      add_payout_details: "Lisää maksutiedot"
-      first_name: "Etunimi"
-      last_name: "Sukunimi"
-      email: "Sähköpostiosoite"
-      phone: "Puhelinnumero"
-      address_street_address: "Katuosoite"
-      address_postal_code: "Postinumero"
-      address_locality: "Kaupunki"
-      address_region: "Osavaltio"
-      date_of_birth: "Syntymäaika"
-      ssn: "SSN"
-      routing_number: "Reititysnumero"
-      account_number: "Tilinumero"
-      save: "Tallenna"
   common:
     edit_page: "Muokkaa sivua"
     default_community_slogan: "Lainaa, myy, auta, jaa"
@@ -293,6 +281,45 @@ fi:
       reject_request: "Ei tällä kertaa"
       confirm: "Merkitse toteutuneeksi"
       cancel: "Ei toteutunut"
+  braintree_accounts:
+    new:
+      add_payout_details: ~
+      first_name: ~
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+      save: ~
+    show:
+      payout_details: ~
+      first_name: ~
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+  braintree_payments:
+    edit:
+      new_credit_card_payment: ~
+      payment_receiver: ~
+      cardholder_name: ~
+      credit_card_number: ~
+      cvv: ~
+      credit_card_expiration_date: ~
+      confirm_payment: ~
   communities:
     map_bubble:
       view_tribe: "Näytä yhteisö"
@@ -534,6 +561,11 @@ fi:
     new_payment:
       new_payment: "Olet saanut uuden maksusuorituksen"
       you_have_received_new_payment: "%{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
+    braintree_new_payment:
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
     receipt_to_payer:
       receipt_of_payment: "Kuitti maksusta"
       you_have_made_new_payment: "Olet maksanut käyttäjälle %{recipient_full_name} <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
@@ -969,6 +1001,7 @@ fi:
       you_must_log_in_to_view_your_settings: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voit nähdä asetuksesi."
       you_must_log_in_to_add_news_item: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit luoda uuden uutisen."
       you_must_log_in_to_change_profile_settings: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voit muuttaa profiiliasetuksia."
+      you_must_log_in_to_change_payment_settings: ~
       you_need_to_confirm_your_account_first: "Sinun täytyy varmistaa sähköpostiosoitteesi ennen kuin voit jatkaa."
       you_must_fill_all_the_fields: "Kaikki kentät täytyy täyttää"
       you_unfollowed_listing: "Ilmoituksen seuraaminen lopetettu"
@@ -977,6 +1010,8 @@ fi:
       can_not_delete_email: "Et voi poistaa valitsemaasi sähköpostiosoitetta."
       user_does_not_have_email_to_delete: "Et omista sähköpostiosoitetta, jota yrität poistaa."
       email_deleted: "Sähköpostiosoite poistettu"
+      payment_details_add_successful: ~
+      payment_details_add_error: ~
     profile_extras_header:
       back_to_profile_of_person: "Takaisin käyttäjän profiiliin"
       badges: Ansiomerkit
@@ -1048,6 +1083,7 @@ fi:
         time: "tunti, päivä, ..."
         long_time: "vko, kk, ..."
         service_fee_will_be_added: "Hintaan lisätään palvelumaksu %{fee}%."
+        after_service_fee_you_will_get: ~
         price_excludes_vat: "Merkitse tähän alv 0 -hinta."
       origin:
         location: Sijainti
@@ -1309,18 +1345,11 @@ fi:
       total: Yhteensä
       service_charge: Palvelumaksu
       product: "Tuote:"
-      price: "Hinta:"
+      price_for: ~
       continue_to_pay: "Jatka maksamaan"
-      invoice: "Lasku"
+      invoice: Lasku
       service_fee: "%{service_name} palvelumaksu:"
       you_will_get: "Sinulle tilitetään:"
-    complex_form:
-      show:
-        continue: Jatka
-    braintree:
-      terms:
-        braintree_terms_also_included: "HUOM: Tämä verkkopalvelu käyttää maksunvälittäjänä Braintree-palvelua ja käyttämällä tätä verkkopalvelua hyväksyt alla olevien ehtojen lisäksi myös %{terms_link_text}."
-        terms_link_text: "Braintreen käyttöehdot"  
     mangopay:
       terms:
         mangopay_terms_also_included: "HUOM: Tämä verkkopalvelu käyttää maksunvälittäjänä MangoPay-palvelua ja käyttämällä tätä verkkopalvelua hyväksyt alla olevien ehtojen lisäksi myös %{terms_link_text}."
@@ -1329,6 +1358,10 @@ fi:
         seller_registration_needed: "Et voi vielä tehdä rahaan liittyvää ilmoitusta"
         seller_registration_instructions: "Ennen kuin voit tehdä ilmoituksen, josta joku voisi maksaa sinulle rahaa, sinun täytyy täyttää vielä pari lisätietoa %{link_to_settings_page}."
         settings_page_link: profiiliisi
+    braintree:
+      terms:
+        braintree_terms_also_included: "HUOM: Tämä verkkopalvelu käyttää maksunvälittäjänä Braintree-palvelua ja käyttämällä tätä verkkopalvelua hyväksyt alla olevien ehtojen lisäksi myös %{terms_link_text}."
+        terms_link_text: "Braintreen käyttöehdot"
   people:
     index:
       loading_more_members: "Ladataan lisää jäseniä"
@@ -1631,20 +1664,6 @@ fi:
       visible_to_everybody: "näytetään kaikille"
       visible_to_registered_users: "(näytetään kirjautuneille käyttäjille)"
     save_information: "Tallenna tiedot"
-  sms:
-    or_check_the_offer_in_kassi: " tai katsoa tarjouksen: %{listing_url}"
-    parsing_error: "Viestin tulkinta epäonnistui. Tarkista viestin muotoon liittyvät ohjeet ja yritä uudestaan."
-    pay: maksa|maksu
-    payment_delivered: "Maksettu käyttäjälle %{receiver} %{amount} euroa. Maksu + välityspalkkio on lisätty puhelinlaskuusi summalla %{amount_plus_commission} euroa."
-    potential_ride_share_offer: "%{author_name} tarjoaa %{service_name_inessive} kyytiä välille %{origin} - %{destination} %{start_time}."
-    request: ^pyyntö$|^p$
-    rideshare: kyyti
-    you_can_call_him_at: "Voit soittaa hänelle: %{phone_number}"
-    you_can_pay_gas_money_to_driver: "Voit maksaa bensarahaa lähettämällä 'kassi maksa %{driver} Xe', missä X on maksettava summa. Tuo summa + 5% komissio lisätään puhelinlaskuusi."
-    category_not_supported: "Tähän kategoriaan ei vielä voi ilmoittaa tekstiviestillä."
-    check_the_offer_in_kassi: "Katso tarjous %{service_name_inessive}: %{listing_url}"
-    listing_created: "Kiitos viestistä, ilmoituksesi on nyt lisätty %{service_name_illative}."
-    offer: ^tarjous$|^t$
   tag_cloud:
     tag_used:
       with_tag: Avainsanalla

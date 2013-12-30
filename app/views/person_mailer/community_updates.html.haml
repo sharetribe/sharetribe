@@ -18,7 +18,7 @@
                           %p 
                             = t("emails.newsletter.hi", :name => link_to(@recipient.given_name_or_username, person_url(@url_params.merge({:id => @recipient.id})), :style => "color:#d96e21;text-decoration:none;")).html_safe
                           %p
-                            = t("emails.community_updates.intro_paragraph", :community_link => link_to(t("emails.community_updates.intro_paragraph_link_text", :community_name => @community.full_name), root_url(@url_params), :style => "color:#d96e21;text-decoration:none;"), :time_since_last_update => @time_since_last_update).html_safe
+                            = t("emails.community_updates.intro_paragraph", :community_link => link_to(t("emails.community_updates.intro_paragraph_link_text", :community_name => @community.full_name(I18n.locale)), root_url(@url_params), :style => "color:#d96e21;text-decoration:none;"), :time_since_last_update => @time_since_last_update).html_safe
                       %td{:width => "5%"}
                     %tr
                       %td{:width => "5%"}

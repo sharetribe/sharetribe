@@ -94,7 +94,7 @@ Given /^Braintree merchant creation is mocked$/ do
     braintree_account.routing_number.should == "101000187"
     braintree_account.account_number.should == "43759348798"
     braintree_account.person_id.should == "123abc"
-    community.name.should == "test"
+    community.name('en').should == "test"
   end.and_return(Braintree::SuccessfulResult.new({:merchant_account => HashClass.new({:id => "123abc", :status => "pending"})}))
 end
 

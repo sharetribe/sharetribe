@@ -17,7 +17,7 @@
                         - if @recipient.has_admin_rights_in?(@current_community) && !@regular_email
                           
                           %p
-                            = t("emails.welcome_email.you_have_just_created_community", :community_link => link_to(@current_community.full_name, root_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
+                            = t("emails.welcome_email.you_have_just_created_community", :community_link => link_to(@current_community.full_name(@recipient.locale), root_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
                             
                           %p
                             = t("emails.welcome_email.you_now_have_admin_rights", :edit_community_details_link => link_to(t("emails.welcome_email.edit_community_details_link_text"), edit_details_admin_community_url(@current_community, @url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe

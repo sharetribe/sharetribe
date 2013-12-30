@@ -10,13 +10,13 @@
   = render :partial => 'layouts/global-header'
 
   %section.marketplace-lander
-    - if @homepage && !@current_user
+    - with_big_cover_photo do
       .coverimage
         %figure.marketplace-cover.fluidratio
       .wrapper
         .lander-content.marketplace-lander-content
           = yield :title_header 
-    - else
+    - with_small_cover_photo do
       .coverimage
         %figure.marketplace-cover-small.fluidratio
       .coverimage-fade{:class => yield(:coverfade_class)}

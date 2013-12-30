@@ -18,11 +18,16 @@ ru:
         community_logo: Логотип
         community_logo_icon: ~
         community_cover_photo: Обложка
+        small_community_cover_photo: ~
         community_custom_color1: "Основной цвет"
         community_custom_color2: ~
         logo_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions: ~
+        cover_photo_visibility: ~
         cover_photo_instructions_text_with_dimensions: ~
+        small_cover_photo_visibility: ~
+        small_cover_photo_instructions_text_with_dimensions: ~
+        main_content_width: ~
         custom_color1_instructions_text: "Вы можете изменить основной цвет интерфейса этого сообщества, введя его шестнадцатеричное значение. Сайт <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> поможет выбрать и скопировать подходящий цвет."
         custom_color2_instructions_text: ~
         invalid_color_code: "Код цвета должен содержать 6 цифр или букв от A до F, например D96E21"
