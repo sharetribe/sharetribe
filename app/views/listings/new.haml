@@ -19,7 +19,7 @@
           - values.each do |value|
             %a.select.selected{:href => "#", :name => value.name}
               = icon_tag(value.icon_name, ["link-icon"])
-              .link-text= t(".selected_#{attribute}", attribute.to_sym => t(".selected_#{value.name}", :default => value.display_name.capitalize))
+              .link-text= t(".selected_#{attribute}", attribute.to_sym => t(".selected_#{value.name}", :default => value.display_name))
   
   %h2.listing-form-title{:id => "foo"}
 
@@ -30,6 +30,6 @@
           - values.each do |value|
             %a.select.option{:href => "#", :name => value.name}
               = icon_tag(value.icon_name, ["link-icon"])
-              .link-text= value.description.capitalize
+              .link-text= value.description
 
   .form-fields
