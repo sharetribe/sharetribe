@@ -61,7 +61,7 @@ describe Api::CommunitiesController do
       resp["sell"]["price"].should_not be_nil
       resp["sell"]["price"].should be_true
       resp["rent_out"]["price_quantity_placeholder"].should == "hour, day, week, ..."
-      resp["housing"]["translated_name"].should == "spaces"
+      resp["housing"]["translated_name"].should == "Spaces"
       resp["housing"]["description"].should == "A space - an apartment, an office or a garden"
       
       
