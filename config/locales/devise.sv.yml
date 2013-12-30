@@ -2,29 +2,29 @@ sv:
   errors:
     messages:
       expired: ~
-      not_found: ~
-      already_confirmed: ~
-      not_locked: ~
+      not_found: "Hittades inte"
+      already_confirmed: "har redan bekräftats, försök att logga in"
+      not_locked: "låstes inte"
   devise:
     failure:
-      already_authenticated: ~
-      unauthenticated: ~
-      unconfirmed: ~
-      locked: ~
-      invalid: ~
+      already_authenticated: "Du är redan inloggad."
+      unauthenticated: "Du måste logga in innan du kan fortsätta."
+      unconfirmed: "Du måste verifiera ditt konto innan du kan fortsätta."
+      locked: "Ditt konto är låst."
+      invalid: "Ogiltig e-post eller lösenord"
       invalid_token: ~
-      timeout: ~
-      inactive: ~
+      timeout: "Din session är avslutad, var vänlig logga in igen."
+      inactive: "Ditt konto är inte aktiverat."
     passwords:
-      updated_not_active: ~
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      updated: ~
+      updated_not_active: "Ditt lösenord har ändrats."
+      send_paranoid_instructions: "Om din e-postadress finns i vår databas kommer du att få en länk för att återställa ditt lösenord via e-post"
+      send_instructions: "Du kommer snart att få ett e-postmeddelande med instruktioner om hur du återställer ditt lösenord"
+      updated: "Ditt lösenord har ändrats och du är inloggad."
     sessions:
-      signed_in: ~
-      signed_out: ~
+      signed_in: "Inloggningen lyckades."
+      signed_out: "Utloggningen lyckades"
     confirmations:
-      send_paranoid_instructions: ~
+      send_paranoid_instructions: "Om din e-postadress finns i vår databas kommer du snart att få ett e-postmeddelande med instruktioner om hur du bekräftar ditt konto."
       send_instructions: ~
       confirmed: ~
     registrations:
