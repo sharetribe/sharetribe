@@ -274,14 +274,22 @@ ActiveRecord::Schema.define(:version => 20140102150134) do
     t.text     "email_content"
   end
 
-  create_table "custom_field_options", :force => true do |t|
-    t.integer  "CustomField_id"
-    t.integer  "sort_priority"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+  create_table "custom_field_names", :force => true do |t|
+    t.string   "value"
+    t.string   "locale"
+    t.string   "custom_field_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
-  add_index "custom_field_options", ["CustomField_id"], :name => "index_custom_field_options_on_CustomField_id"
+  create_table "custom_field_options", :force => true do |t|
+    t.integer  "custom_field_id"
+    t.integer  "sort_priority"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "custom_field_options", ["custom_field_id"], :name => "index_custom_field_options_on_custom_field_id"
 
   create_table "custom_field_values", :force => true do |t|
     t.integer  "custom_field_id"
