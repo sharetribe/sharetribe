@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140102125702) do
+ActiveRecord::Schema.define(:version => 20140102150134) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -273,6 +273,25 @@ ActiveRecord::Schema.define(:version => 20140102125702) do
     t.string   "subject_line"
     t.text     "email_content"
   end
+
+  create_table "custom_field_options", :force => true do |t|
+    t.integer  "CustomField_id"
+    t.integer  "sort_priority"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "custom_field_options", ["CustomField_id"], :name => "index_custom_field_options_on_CustomField_id"
+
+  create_table "custom_field_values", :force => true do |t|
+    t.integer  "custom_field_id"
+    t.integer  "listing_id"
+    t.text     "text_value"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "custom_field_values", ["listing_id"], :name => "index_custom_field_values_on_listing_id"
 
   create_table "custom_fields", :force => true do |t|
     t.string   "type"
@@ -578,10 +597,10 @@ ActiveRecord::Schema.define(:version => 20140102125702) do
     t.datetime "created_at",                                              :null => false
     t.datetime "updated_at",                                              :null => false
     t.integer  "community_id"
-    t.integer  "sum_cents"
-    t.string   "currency"
     t.string   "type",                     :default => "CheckoutPayment"
     t.string   "braintree_transaction_id"
+    t.integer  "sum_cents"
+    t.string   "currency"
   end
 
   add_index "payments", ["conversation_id"], :name => "index_payments_on_conversation_id"
@@ -671,6 +690,15 @@ ActiveRecord::Schema.define(:version => 20140102125702) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "selected_options", :force => true do |t|
+    t.integer  "custom_field_value_id"
+    t.integer  "custom_field_options_id"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  add_index "selected_options", ["custom_field_value_id"], :name => "index_selected_options_on_custom_field_value_id"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
