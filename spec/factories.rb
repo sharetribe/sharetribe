@@ -153,6 +153,15 @@ FactoryGirl.define do
     name "item"
     icon "item"
   end
+
+  factory :custom_field do
+    type "DropdownField"
+  end
+
+  factory :category_custom_field do
+    association :category
+    association :custom_field
+  end
   
   factory :share_type do
     name "sell"
