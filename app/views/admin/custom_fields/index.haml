@@ -15,12 +15,20 @@
       - available_locales.each do |locale_name, locale_value|
         = fields_for "custom_field[name_attributes][]", CustomFieldName.new do |name_form|
           - if available_locales.size > 1
-            .new-field-name-locale-row
-              = name_form.label :value, locale_name + ": ", :class => "new-field-name-locale-label"
-              = name_form.text_field :value, :class => "new-field-name-locale-text-field"
+            .row
+              .col-2
+                = name_form.label :value, locale_name + ": ", :class => "new-field-name-locale-label"
+              .col-10
+                = name_form.text_field :value, :class => "new-field-name-locale-text-field"
           - else
             = name_form.text_field :value
           = name_form.hidden_field :locale, :value => locale_value
+      
+      
+      = form.label :type, t(".field_type")
+      .row
+        = form.select :type, options_for_select(CustomField::VALID_TYPES)
+      
       .inline-button-container
         = form.button t(".save")
       .inline-button-container
