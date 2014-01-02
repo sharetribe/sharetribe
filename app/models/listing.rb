@@ -138,7 +138,7 @@ class Listing < ActiveRecord::Base
     indexes taggings.tag.name, :as => :tags
     indexes comments.content, :as => :comments
     indexes category.translations.name, :as => :category
-    indexes field_values.text_value :as => :custom_text_fields
+    # indexes field_values.text_value :as => :custom_text_fields
     
     # attributes
     has created_at, updated_at
@@ -147,9 +147,9 @@ class Listing < ActiveRecord::Base
     has "privacy = 'public'", :as => :visible_to_everybody, :type => :boolean
     has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
     has communities(:id), :as => :community_ids
-    Fields.each do |field|
-      has field_values.selected_options.option_id :as => "#options_ids_for_field_{field.id}"
-    end
+    # Fields.each do |field|
+    #   has field_values.selected_options.option_id :as => "#options_ids_for_field_{field.id}"
+    # end
     
     set_property :enable_star => true
     if APP_CONFIG.FLYING_SPHINX_API_KEY
