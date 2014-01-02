@@ -6,13 +6,17 @@ de:
         community_look_and_feel: "Community \"Look and Feel\""
         edit_community: "Bearbeite die Community %{community_name} Details"
         community_name: "Community Name"
+        edit_community_name_description: "Der Name deiner Community. Dieser wird allen Benutzern in E-Mails und an verschiedenen anderen Stellen angezeigt."
         community_slogan: "Community Slogan"
+        edit_community_slogan_description: "Dies wird den Nutzern auf der Startseite der Community angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
         community_description: "Community Beschreibung"
+        edit_community_description_description: "Dies wird den Nutzern auf der Startseite der Community angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
         update_information: Neuigkeiten
         invite_people: "Lade Leute zu dieser Community ein"
         edit_signup_info: Anmeldedaten
         edit_signup_info_description: "Dies ist ein Infotext, der den Nutzern auf der Anmeldeseite angezeigt wird. Hier kannst du den Nutzern Anleitungen zum Anmelden geben, Informationen darüber, wie sie eine Einladung erhalten können etc.. Standardmäßig gibt es hier keine Anweisungen, aber du kannst sie hinzufügen, wenn du auf den Link unten klickst."
-        edit_signup_info_link: "Anmeldedaten bearbeiten"
+        edit_info: "Angaben bearbeiten"
+        see_how_it_looks_like: "Sieh es dir an"
       edit_look_and_feel:
         edit_community_look_and_feel: "Bearbeite das \"Look & Feel\" der Community %{community_name}"
         community_logo: Logo
@@ -117,7 +121,7 @@ de:
       favor: Dienstleistungen
       rideshare: Mitfahrgelegenheit
       housing: Räumlichkeiten
-      tools: Wekzeuge
+      tools: Werkzeug
       sports: Sport
       music: Musik
       books: "Bücher und Magazine"
@@ -126,7 +130,7 @@ de:
       outdoors: "Camping & Outdoor"
       food: "Esssen & Küche"
       electronics: Elektronik
-      pets: "Haustiere und Lebewesen"
+      pets: Tiere
       film: Filme
       clothes: "Kleidung & Accessoires"
       garden: Garten
@@ -440,7 +444,7 @@ de:
       email_default_text: "Deine E-Mail-Adresse"
       send: Senden!
       or_drop_us_a_line: "... ...oder schreib uns:"
-      thanks_for_contacting_us: "Vielen Dank für die Kontaktaufnahme mit uns! Wir schicken Ihnen bald weitere Informationen zum Erstellen einer %{service_name} Community.."
+      thanks_for_contacting_us: "Vielen Dank für die Kontaktaufnahme mit uns! Wir schicken dir bald weitere Informationen zum Erstellen einer %{service_name} Community."
       resources: RESSOURCEN
       connect: VERBINDEN
       about: "ÜBER SHARETRIBE"
@@ -611,7 +615,7 @@ de:
       change_my_password: "Mein Passwort ändern"
       reset_password_instructions: "<p>Du hast angegeben, dein Passwort oder den Benutzernamen im %{service_name} Dienst vergessen zu haben.</p><p>Dein Benutzername ist: %{username}</p><p>Um dein Passwort zurückzusetzen, klicke auf den folgenden Link: %{password_reset_link}</p><br/><p> Falls du das Zurücksetzen des Passworts nicht angefordert hast, ignoriere diese E-Mail. Dein Passwort wird nicht zurückgesetzt, solange du den oberen Link nicht anklickst und ein neues Passwort erstellst.</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Feedback ist öffentlich und wird allen anderen Benutzern angezeigt. Basierend auf den Feedbacks können andere Benutzer beurteilen, ob %{name} eine vertrauenswürdige Person ist, mit der sie interagieren würden. Daher ist es immer gut, Feedbacks zu Transaktionen zu hinterlassen und die andere Person daran zu erinnern, ein Feedback zurückzugeben. Außerdem benötigst du positives Feedback, um Abzeichen erlangen zu können."
+      feedback_is_public_and_is_shown: "Feedback ist öffentlich und wird allen anderen Nutzern angezeigt. Basierend auf den Feedbacks können andere Nutzer beurteilen, ob %{name} eine vertrauenswürdige Person ist, mit der sie interagieren würden. Daher ist es immer gut, Feedbacks zu Transaktionen zu hinterlassen und die andere Person daran zu erinnern, ein Feedback zurückzugeben. Außerdem benötigst du positives Feedback, um Abzeichen erlangen zu können."
       remember_to_give_feedback_to: "Zur Erinnerung: Denke daran, %{name} ein Feedback zu geben"
       you_have_not_given_feedback_yet: "Du hast %{name} noch kein Feedback zur Transaktion '%{event}' gegeben. Denke daran, ein Feedback darüber zu hinterlassen, wie %{given_name} die Transaktion durchgeführt hat."
     welcome_email:
@@ -719,8 +723,8 @@ de:
       additionally_some_private_requests_exist: "Zusätzlich gibt es <b>%{number_of_listings} andere Anfragen</b>,"
     blank_slate:
       add_first: "Eintrag hinzufügen!"
-      but_that_is_visible_only_to_registered_members: "aber dies ist nur für registrierte Benutzer sichtbar."
-      but_those_are_visible_only_to_registered_members: "aber diese sind nur für registrierte Benutzer sichtbar."
+      but_that_is_visible_only_to_registered_members: "aber dies ist nur für registrierte Mitglieder sichtbar."
+      but_those_are_visible_only_to_registered_members: "aber diese sind nur für registrierte Mitglieder sichtbar."
       create_new_account_for_yourself: "Ein neues Konto erstellen"
       examples_of_what_you_could_offer_to_others: "Was könntest du anderen anbieten?"
       examples_of_what_you_could_request_to_others: "Was könntest du von anderen gebrauchen?"
@@ -733,10 +737,10 @@ de:
       items_to_offer: "Gegenstände zum Verleihen: "
       items_to_request: "Gegenstände zum Ausleihen: "
       log_in: Anmelden!
-      no_offers_visible_unless_logged_in: "Angebote zu Gegenständen, Dienstleistungen oder MItfahrgelegenheiten sind für nicht-angemeldete Benutzer nicht sichtbar."
+      no_offers_visible_unless_logged_in: "Angebote zu Gegenständen, Dienstleistungen oder MItfahrgelegenheiten sind für nicht-angemeldete Nutzer nicht sichtbar."
       no_open_offers_currently: "Keine Angebote zu Gegenständen, Dienstleistungen oder Mitfahrgelegenheiten vorhanden."
       no_open_requests_currently: "Keine Anfragen zu Gegenständen, Dienstleistungen oder Mitfahrgelegenheiten vorhanden."
-      no_requests_visible_unless_logged_in: "Anfragen zu Gegenständen, Dienstleistungen oder Mitfahrgelegenheiten sind für nicht-angemeldete Benutzer nicht sichtbar."
+      no_requests_visible_unless_logged_in: "Anfragen zu Gegenständen, Dienstleistungen oder Mitfahrgelegenheiten sind für nicht-angemeldete Nutzer nicht sichtbar."
       one_private_offer_exists: "Es gibt bereits <b>ein Angebot</b>,"
       one_private_request_exists: "Es gibt bereits <b>eine Anfrage</b>,"
       ride_offer: "Kinder anderer zu ihren Freizeitaktivitäten fahren"
@@ -922,7 +926,7 @@ de:
       feedback_skipped: "Feedback übersprungen"
       invitation_cannot_be_sent: "Einladung konnte nicht gesendet werden"
       invitation_sent: "Einladung erfolgreich gesendet"
-      inviting_new_users_is_not_allowed_in_this_community: "Neue Benutzer in dieser %{service_name} Community einzuladen ist nicht gestattet"
+      inviting_new_users_is_not_allowed_in_this_community: "Neue Benutzer zu dieser %{service_name} Community einzuladen, ist nicht gestattet"
       login_again: "Bitte melden Sie sich erneut an."
       login_failed: "Anmeldung fehlgeschlagen. Bitte geben Sie korrekte Anmeldeinformationen ein."
       account_creation_successful: "Willkommen zu %{service_name}, %{person_name}!"
@@ -1030,7 +1034,7 @@ de:
       send_comment: "Kommentar abgeben"
       to_send_a_comment: "um einen neuen Kommentar abzugeben"
       write_comment: "Einen neuen Kommentar abgeben:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: "Du kannst keine neuen Kommentare schicken da dieser Eintrag geschlossen ist."
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Du kannst keine neuen Kommentare schicken, da dieser Eintrag geschlossen wurde."
       you_must: "Du musst dich"
       subscribe_to_comments: "Benachrichtigt mich über neue Kommentare und Updates"
     edit:
@@ -1410,7 +1414,7 @@ de:
       invitation_code: Einladungscode
       not_required: ", nicht erforderlich"
       password_again: "Passwort bestätigen"
-      show_my_name_to_others: "Anderen %{service_name} Benutzern meinen richtigen Namen anzeigen lassen"
+      show_my_name_to_others: "Anderen %{service_name} Benutzern meinen richtigen Namen anzeigen"
       sign_up: "Ein neues Konto in %{service_name} erstellen"
       terms: Nutzungsbedingungen
       username_is_in_use: "Dieser Benutzername wird bereits verwendet."
@@ -1625,22 +1629,22 @@ de:
       i_want_to_get_email_notification_when: "Ich möchte eine E-Mail-Benachrichtigung erhalten, wenn..."
       newsletters: Newsletter
       community_updates: "Community Neuigkeiten"
-      email_about_accept_reminders: "...Ich habe vergessen, ein Angebot oder eine Anfrage zu akzeptieren"
-      email_about_confirm_reminders: "... Ich habe vergessen, eine Anfrage als vollständig zu bestätigen"
-      email_about_new_badges: "...Ich habe ein neues Abzeichen erhalten"
-      email_about_new_comments_to_own_listing: "...jemand kommentiert mein Angebot oder Anfrage"
-      email_about_new_messages: "...jemand sendet mir eine Nachricht"
-      email_about_new_received_testimonials: "...jemand gibt mir Feedback"
-      email_about_testimonial_reminders: "...ich habe vergessen, jemandem zu einer Transaktion Feedback zu hinterlassen"
-      email_daily_community_updates: "Schicke mir täglich Neuigkeiten per E-Mail, wenn es neue Einträge gibt"
-      email_weekly_community_updates: "Schicke mir wöchentlich Neuigkeiten per E-Mail, wenn es neue Einträge gibt"
+      email_about_accept_reminders: "...ich vergessen habe, ein Angebot oder eine Anfrage zu akzeptieren"
+      email_about_confirm_reminders: "...ich vergessen habe, eine Anfrage als vollständig zu bestätigen"
+      email_about_new_badges: "...ich ein neues Abzeichen erhalten habe"
+      email_about_new_comments_to_own_listing: "...jemand mein Angebot oder meine Anfrage kommentiert"
+      email_about_new_messages: "...mir jemand eine Nachricht sendet"
+      email_about_new_received_testimonials: "...mir jemand ein Feedback gibt"
+      email_about_testimonial_reminders: "...ich vergessen habe, jemandem zu einer Transaktion ein Feedback zu geben"
+      email_daily_community_updates: "Schickt mir täglich Neuigkeiten per E-Mail, sofern es neue Einträge gibt"
+      email_weekly_community_updates: "Schickt mir wöchentlich Neuigkeiten per E-Mail, sofern es neue Einträge gibt"
       do_not_email_community_updates: "Sende mit keine Neuigkeiten per E-Mail"
-      email_newsletters: "Schicke mir gelegentlich einen %{service_name} Newsletter"
-      email_when_conversation_accepted: "...jemand akzeptiert mein Angebot oder meine Anfrage"
-      email_when_conversation_rejected: "...jemand lehnt mein Angebot oder meine Anfrage ab"
-      email_about_completed_transactions: "... Jemand markiert mein Angebot oder Anfrage als erledigt"
-      email_about_new_payments: "... Ich erhalte eine neue Zahlung"
-      email_about_payment_reminders: "... Ich habe vergessen zu zahlen"
+      email_newsletters: "Schickt mir gelegentlich einen %{service_name} Newsletter"
+      email_when_conversation_accepted: "...jemand mein Angebot oder meine Anfrage akzeptiert"
+      email_when_conversation_rejected: "...jemand mein Angebot oder meine Anfrage ablehnt"
+      email_about_completed_transactions: "...jemand mein Angebot oder meine Anfrage als erledigt markiert"
+      email_about_new_payments: "...ich eine neue Zahlung erhalte"
+      email_about_payment_reminders: "...ich vergessen habe zu zahlen"
       unsubscribe_succesful: "Abbestellen erfolgreich"
       unsubscribe_info_text: "Du wirst keine dieser E-Mails mehr erhalten. Überprüfe deine %{settings_link} und wähle die E-Mails aus, die du empfangen möchtest von %{service_name} oder gehe zurück zu der %{homepage_link}."
       settings_link: Einstellungen

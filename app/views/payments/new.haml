@@ -1,5 +1,10 @@
 .centered-section-wide.payment-form
-  = render :partial => "layouts/payment_header", :locals => { :payment_receiver => @conversation.other_party(@current_user) }
+  - payment_receiver = @conversation.other_party(@current_user)
+  %h2= t(".new_payment")
+  %p 
+    = t(".payment_receiver")
+
+    = "#{link_to payment_receiver.name, payment_receiver}".html_safe
 
   = render :partial => @current_community.payment_gateway.form_template_dir + "/show"
 
@@ -7,5 +12,3 @@
     %br
     %br
     = image_tag("/assets/payments/Mango-Frise1.png")
-
-    
