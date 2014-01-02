@@ -1032,6 +1032,15 @@ function initialize_admin_edit_tribe_look_and_feel_form(locale, community_id, in
    });
 }
 
+function initialize_admin_listing_fields_view() {
+  $('#add-new-field-link').click(function(link) {
+    $('#new-field-form').show(); 
+  });
+  $('#cancel-new-field-link').click(function(link) {
+    $('#new-field-form').hide(); 
+  });
+}
+
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {
   $('#help_invitation_code_link').click(function(link) {
     $('#help_invitation_code').lightbox_me({centered: true, zIndex: 1000000 }); 

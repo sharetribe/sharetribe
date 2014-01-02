@@ -145,6 +145,7 @@ Kassi::Application.routes.draw do
         end
         resources :emails
       end
+      resources :custom_fields
       resources :polls do
         collection do
           get :add_option

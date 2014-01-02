@@ -1,0 +1,29 @@
+- content_for :javascript do
+  initialize_admin_listing_fields_view();
+
+- content_for :title_header do
+  %h1= t(".listing_fields")
+  
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@community) }
+
+.left-navi-section
+  = link_to t(".add_new_field"), "#", :id => "add-new-field-link"
+  #new-field-form.new-field-form
+    = form_for @custom_field, :url => admin_custom_fields_path do |form|
+      = form.hidden_field :type, :value => "DropdownField"
+      = form.label :name_attributes, t(".field_title")
+      - available_locales.each do |locale_name, locale_value|
+        = fields_for "custom_field[name_attributes][]", CustomFieldName.new do |name_form|
+          - if available_locales.size > 1
+            .new-field-name-locale-row
+              = name_form.label :value, locale_name + ": ", :class => "new-field-name-locale-label"
+              = name_form.text_field :value, :class => "new-field-name-locale-text-field"
+          - else
+            = name_form.text_field :value
+          = name_form.hidden_field :locale, :value => locale_value
+      .inline-button-container
+        = form.button t(".save")
+      .inline-button-container
+        %a{:id => "cancel-new-field-link", :class => "cancel-button"}
+          .content
+            = t(".cancel")

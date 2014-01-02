@@ -40,6 +40,13 @@ en:
         welcome_email_content_description: "The message below will be sent to every new member when they join. You can customize the message to fit your community. By clicking '%{send_test_message_link}' you can a preview message to your email address, so you can see how it looks in an email client."
         edit_message: "Edit message"
         send_test_message: "Send test message"
+    custom_fields:
+      index:
+        listing_fields: "Listing fields"
+        add_new_field: "Add new field"
+        cancel: "Cancel"
+        save: "Save"
+        field_title: "Field title"
     emails:
       new:
         send_email_to_members: "Send an email to members"

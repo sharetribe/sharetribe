@@ -455,6 +455,16 @@ button, .button {
   @include button($link);
 }
 
+.inline-button-container {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.cancel-button {
+  @include button($aside);
+  margin-left: lines(0.25);
+}
+
 .big-button {
   @include big-button($link);
 }
@@ -3812,4 +3822,22 @@ header.marketplace-header {
       }
     }
   }
+}
+
+/* Custom fields */
+
+.new-field-form {
+  display: none;
+}
+
+.new-field-name-locale-label {
+  display: inline-block;
+  width: lines(5);
+  font-weight: 500;
+}
+
+.new-field-name-locale-text-field {
+  display: inline-block;
+  max-width: lines(10);
+  height: 30px;
 }
