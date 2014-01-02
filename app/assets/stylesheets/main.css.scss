@@ -455,6 +455,16 @@ button, .button {
   @include button($link);
 }
 
+.inline-button {
+  @extend .button;
+  display: inline-block;
+}
+
+.cancel-button {
+  @include button($aside);
+  display: inline-block;
+}
+
 .big-button {
   @include big-button($link);
 }
@@ -3812,4 +3822,10 @@ header.marketplace-header {
       }
     }
   }
+}
+
+/* Custom fields */
+
+.new-field-form {
+  display: none;
 }

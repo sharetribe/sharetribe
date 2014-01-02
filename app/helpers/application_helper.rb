@@ -51,6 +51,7 @@ module ApplicationHelper
       "rows" => "ss-rows",
       "check" => "ss-check",
       "invite" => "ss-adduser",
+      "" => "",
       
       # Default category & share type icons
       "offer" => "ss-share",
@@ -653,7 +654,13 @@ module ApplicationHelper
         :icon_class => icon_class("edit"), 
         :path => edit_welcome_email_admin_community_path(community),
         :name => "welcome_email"
-      } 
+      },
+      {
+        :text => t("admin.custom_fields.index.listing_fields"),
+        :icon_class => icon_class("list"), 
+        :path => admin_custom_fields_path(community),
+        :name => "listing_fields"
+      }
     ]
   end
   
