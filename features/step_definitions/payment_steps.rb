@@ -157,7 +157,7 @@ When /^I fill in Braintree account details$/ do
     And I fill in "braintree_account[address_street_address]" with "123 Credibility St."
     And I fill in "braintree_account[address_postal_code]" with "60606"
     And I fill in "braintree_account[address_locality]" with "Chicago"
-    And I select "IL" from "braintree_account[address_region]"
+    And I select "Illinois" from "braintree_account[address_region]"
     And I select "1980" from "braintree_account[date_of_birth(1i)]"
     And I select "October" from "braintree_account[date_of_birth(2i)]"
     And I select "9" from "braintree_account[date_of_birth(3i)]"

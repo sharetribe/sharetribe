@@ -148,6 +148,7 @@ class ListingsController < ApplicationController
   end
   
   def edit
+    @seller_commission = @current_community.payment_gateway.seller_pays_commission? if @current_community.payments_in_use?
     @selected_tribe_navi_tab = "home"
 	  if !@listing.origin_loc
 	      @listing.build_origin_loc(:location_type => "origin_loc")

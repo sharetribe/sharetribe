@@ -115,7 +115,7 @@ function add_validator_methods() {
         if (minimum_price == "") {
           return true
         } else {
-          return minimum_price <= parseFloatFromFieldValue(value)*100; 
+          return minimum_price <= ST.paymentMath.parseFloatFromFieldValue(value)*100; 
         }
       }
     );
@@ -578,17 +578,35 @@ function initialize_accept_transaction_form(commission_percentage, service_fee_v
 	  }
 	  
   }
+}
+
+function updateSellerGetsValue(priceInputSelector, youWillGetSelector, currencySelector, commissionPercentage) {
+  $display = $(youWillGetSelector);
+  $input = $(priceInputSelector);
+  $currency = $(currencySelector);
   
+  function updateYouWillGet() {
+    var sum = ST.paymentMath.parseFloatFromFieldValue($input.val());
+    var serviceFee = ST.paymentMath.serviceFee(sum, commissionPercentage);
+    var sellerGets = sum - serviceFee;
+    var currency = $currency.val();
+
+    $display.text([ST.paymentMath.displayMoney(sellerGets), currency].join(" "));
+  }
+  
+  $input.keyup(updateYouWillGet);
+  $currency.change(updateYouWillGet);
+
+  // Run once immediately
+  updateYouWillGet();
 }
 
 function update_simple_form_price_fields(commission_percentage) {
-  var sum = parseFloatFromFieldValue($(".invoice-sum-field").val());
-  var service_fee_sum = Math.ceil(sum*commission_percentage/100);
+  var sum = ST.paymentMath.parseFloatFromFieldValue($(".invoice-sum-field").val());
+  var service_fee_sum = ST.paymentMath.serviceFee(sum, commission_percentage);
   var seller_sum = sum - service_fee_sum;
-  var fee_display = service_fee_sum ? service_fee_sum.toFixed(2) : "-";
-  var sum_display = seller_sum ? seller_sum.toFixed(2) : "-";
-  $("#service-fee").text(fee_display);
-  $("#payment-to-seller").text(sum_display);
+  $("#service-fee").text(ST.paymentMath.displayMoney(service_fee_sum));
+  $("#payment-to-seller").text(ST.paymentMath.displayMoney(seller_sum));
 }
 
 function update_complex_form_price_fields(commission_percentage, service_fee_vat) {
@@ -1223,10 +1241,4 @@ function enableSamePageScroll() {
     return [];
   }
  
-}
-
-// Parses a numeric field value and returns correct float value,
-// whether dot or comma is used as a decimal separator.
-function parseFloatFromFieldValue(value) {
-  return parseFloat(value.replace(',', '.'));
 }
