@@ -128,6 +128,9 @@ class ListingsController < ApplicationController
       params[:listing].delete("origin_loc_attributes")
     end
     @listing = @current_user.create_listing params[:listing]
+
+    @listing.custom_field_values = create_field_values(params[:custom_fields])
+
     if @listing.new_record?
       1.times { @listing.listing_images.build } if @listing.listing_images.empty?
       render :action => :new
@@ -163,6 +166,9 @@ class ListingsController < ApplicationController
         @listing.origin_loc.delete
       end
     end
+
+    @listing.custom_field_values = create_field_values(params[:custom_fields])
+
     if @listing.update_fields(params[:listing])
       @listing.location.update_attributes(params[:location]) if @listing.location
       flash[:notice] = t("layouts.notifications.listing_updated_successfully")
@@ -244,6 +250,15 @@ class ListingsController < ApplicationController
       format.js {
         render :follow, :layout => false 
       }
+    end
+  end
+
+  def create_field_values(custom_field_params={})
+    custom_field_params.map do |custom_field_id, custom_field_option_id|
+      val = CustomFieldValue.new()
+      val.custom_field_id = custom_field_id
+      val.text_value = custom_field_option_id # FIXME using text_value only for testing, should be "selected_option or something similar"
+      val
     end
   end
 

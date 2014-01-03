@@ -14,6 +14,7 @@ class CustomField < ActiveRecord::Base
   end
 
   def name(locale="en")
-    names.find { |name| name.locale == locale.to_s }.value
+    n = names.find { |name| name.locale == locale.to_s }
+    n ? n.value : ""
   end
 end

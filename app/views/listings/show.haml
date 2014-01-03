@@ -44,6 +44,12 @@
           - text_with_line_breaks do
             = @listing.description
 
+    - unless @listing.custom_field_values.blank?
+      .row
+        .col-12
+          - @listing.custom_field_values.each do |custom_field_value|
+            = "#{custom_field_value.question.name(I18n.locale)}: #{custom_field_value.text_value}"
+
     .row
       .col-12
         - if @listing.public?

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140102153949) do
+ActiveRecord::Schema.define(:version => 20140103131350) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -287,6 +287,14 @@ ActiveRecord::Schema.define(:version => 20140102153949) do
     t.string   "custom_field_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "custom_field_option_titles", :force => true do |t|
+    t.string   "value"
+    t.string   "locale"
+    t.integer  "custom_field_option_id"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
   end
 
   create_table "custom_field_options", :force => true do |t|
