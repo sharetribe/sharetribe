@@ -161,6 +161,10 @@ Then /^(?:|I )should not see "([^"]*)"(?: within "([^"]*)")?$/ do |text, selecto
   end
 end
 
+Then /^I should see dropdown field with label "([^"]*)"$/ do |label|
+  find_field(label).tag_name == "select"
+end
+
 Then /^(?:|I )should not see \/([^\/]*)\/(?: within "([^"]*)")?$/ do |regexp, selector|
   regexp = Regexp.new(regexp)
   with_scope(selector) do
