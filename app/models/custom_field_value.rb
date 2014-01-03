@@ -5,4 +5,5 @@ class CustomFieldValue < ActiveRecord::Base
 
   has_many :selected_options
 
+  delegate :with_type, :to => :question
 end

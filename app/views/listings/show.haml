@@ -48,7 +48,14 @@
       .row
         .col-12
           - @listing.custom_field_values.each do |custom_field_value|
-            = "#{custom_field_value.question.name(I18n.locale)}: #{custom_field_value.text_value}"
+            - custom_field_value.with_type do |question_type|
+              / TODO These could be in partials
+              - if question_type == :dropdown
+                - question_name = custom_field_value.question.name(I18n.locale)
+                - answer_title = custom_field_value.selected_options.first.custom_field_option.title(I18n.locale)
+                = "#{question_name}: #{answer_title}"
+              - else
+                = "Unimplemented type #{question_type}"
 
     .row
       .col-12

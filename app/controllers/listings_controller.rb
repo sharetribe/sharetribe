@@ -253,12 +253,29 @@ class ListingsController < ApplicationController
     end
   end
 
+  def custom_field_value_factory(custom_field_id, answer_value)
+    question = CustomField.find(custom_field_id)
+    answer = CustomFieldValue.new()
+    answer.question = question
+
+    question.with_type { |question_type|
+      case question_type
+      when :dropdown
+        selected = SelectedOption.new
+        option_id = answer_value.to_i
+        option = CustomFieldOption.find(option_id)
+        selected.custom_field_option = option
+        answer.selected_options = [selected]
+        answer
+      else
+        throw "Unimplemented custom field answer for question #{question_type}"
+      end
+    }
+  end
+
   def create_field_values(custom_field_params={})
-    custom_field_params.map do |custom_field_id, custom_field_option_id|
-      val = CustomFieldValue.new()
-      val.custom_field_id = custom_field_id
-      val.text_value = custom_field_option_id # FIXME using text_value only for testing, should be "selected_option or something similar"
-      val
+    custom_field_params.map do |custom_field_id, answer_value|
+      custom_field_value_factory(custom_field_id, answer_value)
     end
   end
 
