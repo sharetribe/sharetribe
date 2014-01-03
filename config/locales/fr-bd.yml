@@ -40,6 +40,14 @@ fr-bd:
         welcome_email_content_description: ~
         edit_message: ~
         send_test_message: ~
+    custom_fields:
+      index:
+        listing_fields: ~
+        add_new_field: ~
+        cancel: ~
+        save: ~
+        field_title: ~
+        field_type: ~
     emails:
       new:
         send_email_to_members: ~
@@ -1586,7 +1594,10 @@ fr-bd:
       welcome_to_kassi: ~
       check_your_email: ~
       get_started: ~
-      getting_started_instructions: ~
+      getting_started_instructions: |-
+          Lorsque vous avez confirmé votre inscription, il est conseillé d'ajouter une photo et de rattacher une adresse email personnelle à votre <a href="%{profile_url}">profil</a> et de vous présenter en quelques mots.
+          Vous pouvez également ajouter une <a href="/en/listings/new/offer">offre</a> et partager un plan appart à Paris, Londres, Singapour, ou ailleurs.
+          Enfin, vous pouvez inviter vos amis à rejoindre la communauté, en publiant un lien sur Facebook ou en envoyant un email via le bouton "Inviter". Et nous faire part de vos commentaires à travers notre formulaire dédié.
       resend_confirmation_instructions: ~
       your_current_email_is: ~
       change_email: ~

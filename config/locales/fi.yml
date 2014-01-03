@@ -40,6 +40,14 @@ fi:
         welcome_email_content_description: "Alla oleva viesti lähetetään automaattisesti kaikille uusille käyttäjille näiden liittyessä. Voit muokata viestin sisältöä vastaamaan yhteisösi kuvausta. Klikkaamalla '%{send_test_message_link}' -linkkiä voit lähettää viestin omaan sähköpostiosoitteeseesi."
         edit_message: "Muokkaa viestiä"
         send_test_message: "Lähetä testiviesti"
+    custom_fields:
+      index:
+        listing_fields: ~
+        add_new_field: ~
+        cancel: ~
+        save: ~
+        field_title: ~
+        field_type: ~
     emails:
       new:
         send_email_to_members: "Lähetä sähköpostia jäsenille"
