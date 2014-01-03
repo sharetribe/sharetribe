@@ -149,7 +149,7 @@ class Listing < ActiveRecord::Base
     has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
     has communities(:id), :as => :community_ids
     CustomField.all.each do |field|
-     has custom_field_values.selected_options(:custom_field_options_id), :type => :multi, :as => "options_ids_for_field_#{field.id}"
+     has custom_field_values.selected_options(:custom_field_option_id), :type => :multi, :as => "options_ids_for_field_#{field.id}"
     end
     
     set_property :enable_star => true
