@@ -21,6 +21,15 @@ end
 
 World(UserSteps)
 
+Given /^there is a logged in user "(.*?)"$/ do |username|
+  steps %Q{
+    Given there are following users:
+      | person | 
+      | #{username} |
+    And I am logged in as "#{username}"
+  }
+end
+
 Given /^I am logged in(?: as "([^"]*)")?$/ do |person|
   username = person || "kassi_testperson1"
   person = Person.find_by_username(username) || FactoryGirl.create(:person, :username => username)

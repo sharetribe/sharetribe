@@ -118,3 +118,24 @@ When /^I create a new listing "([^"]*)" with price$/ do |title|
     And I press "Save listing"
   }
 end
+
+When /^I select that I want to sell housing$/ do
+  steps %Q{
+    And I follow "I have something to offer"
+    And I follow "A space"
+    And I follow "I'm selling it"
+    Then I should see "Space you offer"
+  }
+end
+
+Given /^there is a dropdown field "(.*?)" for category "(.*?)" with options:$/ do |field_title, category_name, opts_table|
+  @category = Category.find_by_name(category_name)
+  @custom_field = FactoryGirl.create(:custom_field, :type => "DropdownField", :categories => [@category])
+  @custom_field.names << CustomFieldName.create(:value => field_title, :locale => "en")
+  
+  opts_table.hashes.each do |hash|
+    @custom_field.options << FactoryGirl.create(:custom_field_option)
+  end
+
+  @custom_field.save!
+end

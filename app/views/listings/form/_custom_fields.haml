@@ -1,0 +1,6 @@
+- if category.custom_fields.count > 0
+  .new_listing_form_field_container
+    - category.custom_fields.each do |custom_field|
+      - partials = {:dropdown => "listings/form/custom_field_partials/dropdown"} # Add more partials here
+      - custom_field.with_type do |field_type|
+        = render :partial => partials[field_type], :locals => { :custom_field => custom_field }

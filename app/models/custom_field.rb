@@ -1,7 +1,8 @@
 class CustomField < ActiveRecord::Base
   attr_accessible :type, :name_attributes
   
-  has_many :custom_field_names
+  has_many :names, :class_name => "CustomFieldName"
+  has_many :options, :class_name => "CustomFieldOption"
 
   has_many :category_custom_fields, :dependent => :destroy 
   has_many :categories, :through => :category_custom_fields
@@ -9,7 +10,10 @@ class CustomField < ActiveRecord::Base
   VALID_TYPES = [["Dropdown", "DropdownField"]]
   
   def name_attributes=(attributes)
-    attributes.each { |a| custom_field_names.build(a) }
+    attributes.each { |a| names.build(a) }
   end
-  
+
+  def name(locale="en")
+    names.find { |name| name.locale == locale.to_s }.value
+  end
 end

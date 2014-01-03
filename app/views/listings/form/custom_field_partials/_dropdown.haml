@@ -1,0 +1,2 @@
+= label_tag "custom_field_#{custom_field.id}".to_sym, custom_field.name(I18n.locale)
+= select_tag "custom_field_#{custom_field.id}", options_from_collection_for_select(custom_field.options, 'id', 'id')

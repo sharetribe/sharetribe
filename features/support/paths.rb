@@ -22,6 +22,8 @@ module NavigationHelpers
       '/en/offers'
     when /the login page/
       login_path(:locale => "en")
+    when /the new listing page/
+      new_listing_path(:locale => "en") 
     when /the edit listing page/
       edit_listing_path(:id => @listing.id, :locale => "en") 
     when /^the give feedback path of "(.*)"$/i

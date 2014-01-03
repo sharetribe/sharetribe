@@ -31,6 +31,7 @@
     = render :partial => "listings/form/visibility", :locals => { :form => form }
     = render :partial => "listings/form/privacy", :locals => { :form => form }
     = form.hidden_field :current_community_id, :value => @current_community.id
+    = render :partial => "listings/form/custom_fields", :locals => { :form => form, :category => @listing.category }
     = render :partial => "listings/form/send_button", :locals => { :form => form }
   
 - ["help_valid_until"].each do |field|

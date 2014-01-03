@@ -162,6 +162,10 @@ FactoryGirl.define do
     association :category
     association :custom_field
   end
+
+  factory :custom_field_option do
+
+  end
   
   factory :share_type do
     name "sell"
