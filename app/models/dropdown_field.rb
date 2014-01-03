@@ -1,0 +1,3 @@
+class DropdownField < CustomField
+
+end

@@ -2,6 +2,9 @@ class CustomField < ActiveRecord::Base
   attr_accessible :type, :name_attributes
   
   has_many :custom_field_names
+
+  has_many :category_custom_fields, :dependent => :destroy 
+  has_many :categories, :through => :category_custom_fields
   
   VALID_TYPES = [["Dropdown", "DropdownField"]]
   
