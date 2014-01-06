@@ -15,6 +15,16 @@
   @include box-sizing(border-box);
 }
 
+/**
+  Enable fast click:
+
+  For IE10, you can use -ms-touch-action: none to disable double-tap-to-zoom on certain elements 
+  (like links and buttons) as described in this MSDN blog post.
+*/
+a, input, button {
+  -ms-touch-action: none !important;
+}
+
 /*
   --------------------------
   Typography and link styles

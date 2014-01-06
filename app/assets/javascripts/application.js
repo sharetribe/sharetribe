@@ -12,6 +12,7 @@
 //= require jquery.pageless
 //= require jquery.autosize-min
 //= require jquery.lightbox_me
+//= require fastclick.min
 //= require infobubble
 //= require sharetribe_common
 //= require kassi

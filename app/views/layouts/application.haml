@@ -48,5 +48,9 @@
   -#
     Most of the JavaScript should be for performance reasons at the end of the body
 
+  :javascript
+    $(function() {
+      FastClick.attach(document.body);
+    });
+
   = yield(:body_javascript)
-  
