@@ -1,5 +1,5 @@
 class CustomFieldValue < ActiveRecord::Base
-  include Comparable
+  include SortableByPriority # use `sort_priority()` for sorting
   
   belongs_to :listing
   belongs_to :question, :class_name => "CustomField", :foreign_key => "custom_field_id"
@@ -7,10 +7,5 @@ class CustomFieldValue < ActiveRecord::Base
 
   has_many :selected_options
 
-  delegate :with_type, :to => :question
-
-  def <=> other
-    # Answer follows question's sort priority
-    question.sort_priority <=> other.question.sort_priority
-  end
+  delegate :sort_priority, :with_type, :to => :question
 end
