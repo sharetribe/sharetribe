@@ -44,6 +44,7 @@
 
   = link_to t(".add_new_field"), "#", :id => "add-new-field-link"
   #new-field-form.new-field-form
+    %h2= t(".add_new_field_to_listing_form")
     = form_for @custom_field, :url => admin_custom_fields_path do |form|
       = form.hidden_field :type, :value => "DropdownField"
       = form.label :name_attributes, t(".field_title")
@@ -59,14 +60,21 @@
             = name_form.text_field :value
           = name_form.hidden_field :locale, :value => locale_value
       
-      
       = form.label :type, t(".field_type")
       .row
         = form.select :type, options_for_select(CustomField::VALID_TYPES)
       
-      .inline-button-container
-        = form.button t(".save")
-      .inline-button-container
-        %a{:id => "cancel-new-field-link", :class => "cancel-button"}
-          .content
-            = t(".cancel")
+      = form.label :category_attributes, t(".categories")
+      .custom-field-categories-container.clearfix
+        - @current_community.categories.reject { |c| !c.children.empty? }.each do |category|
+          .custom-field-categories-checkbox-container
+            = check_box_tag "custom_field[category_attributes][#{category.id}]", "true", @custom_field.categories.include?(category) ? true : false, :id => "#{category.name}_checkbox", :class => "custom-field-category-checkbox"
+            = label_tag "#{category.name}_checkbox", category.display_name, :class => "custom-field-category-checkbox-label"
+        
+      .add-custom-field-buttons
+        .inline-button-container
+          = form.button t(".save")
+        .inline-button-container
+          %a{:id => "cancel-new-field-link", :class => "cancel-button"}
+            .content
+              = t(".cancel")

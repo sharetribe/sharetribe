@@ -1,7 +1,7 @@
 class CustomField < ActiveRecord::Base
   include Comparable
   
-  attr_accessible :type, :name_attributes, :sort_priority
+  attr_accessible :type, :name_attributes, :category_attributes, :sort_priority
   
   has_many :names, :class_name => "CustomFieldName"
   has_many :options, :class_name => "CustomFieldOption"
@@ -13,6 +13,10 @@ class CustomField < ActiveRecord::Base
   
   def name_attributes=(attributes)
     attributes.each { |a| names.build(a) }
+  end
+  
+  def category_attributes=(attributes)
+    attributes.each { |id, value| category_custom_fields.build(:category_id => id) }
   end
 
   def name(locale="en")
