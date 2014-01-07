@@ -1055,6 +1055,9 @@ fi:
       follow: "Seuraa ilmoitusta"
       unfollow: "Lopeta ilmoituksen seuraaminen"
     form:
+      custom_field_partials:
+        dropdown:
+          select_one___: "Valitse yksi..."
       departure_time:
         at: Kellonaika
         departure_time: Lähtöaika

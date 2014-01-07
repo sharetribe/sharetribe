@@ -128,6 +128,9 @@ function add_validator_methods() {
       }
     );
 
+  $.validator.addClassRules("required", {
+    required: true
+  });
 }
 
 function report_analytics_event(params_array) {
