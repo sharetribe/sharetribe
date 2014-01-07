@@ -87,6 +87,9 @@ group :development do
   gem 'rb-fsevent',       require: false
   gem 'guard-rspec',      require: false
   gem 'zeus'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-nav'
 end
 
 group :test do
