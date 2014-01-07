@@ -9,11 +9,27 @@ class Admin::CustomFieldsController < ApplicationController
     @selected_left_navi_link = "listing_fields"
     @community = @current_community
     @custom_field = CustomField.new
+    @custom_field.options.build
+    session[:option_amount] = 1
   end
   
   def create
     @custom_field = CustomField.create(params[:custom_field])
     redirect_to admin_custom_fields_path
+  end
+  
+  def add_option
+    session[:option_amount] += 1
+    respond_to do |format|
+      format.js { render :layout => false }
+    end
+  end
+  
+  def remove_option
+    session[:option_amount] -= 1
+    respond_to do |format|
+      format.js { render :layout => false }
+    end
   end
   
 end

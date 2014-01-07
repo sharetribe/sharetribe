@@ -70,6 +70,13 @@
           .custom-field-categories-checkbox-container
             = check_box_tag "custom_field[category_attributes][#{category.id}]", "true", @custom_field.categories.include?(category) ? true : false, :id => "#{category.name}_checkbox", :class => "custom-field-category-checkbox"
             = label_tag "#{category.name}_checkbox", category.display_name, :class => "custom-field-category-checkbox-label"
+      
+      = form.label :option_attributes, t(".dropdown_options")
+      #options
+        - @custom_field.options.each_with_index do |option, index|
+          = render :partial => "new_option", :locals => { :option => option, :index => index }
+      = link_to t(".add_option"), add_option_admin_custom_fields_path, :remote => true
+      
         
       .add-custom-field-buttons
         .inline-button-container

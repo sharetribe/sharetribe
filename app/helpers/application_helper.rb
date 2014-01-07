@@ -658,7 +658,7 @@ module ApplicationHelper
       {
         :text => t("admin.custom_fields.index.listing_fields"),
         :icon_class => icon_class("list"), 
-        :path => admin_custom_fields_path(community),
+        :path => admin_custom_fields_path,
         :name => "listing_fields"
       }
     ]

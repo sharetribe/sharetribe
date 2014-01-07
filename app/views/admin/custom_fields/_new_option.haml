@@ -1,0 +1,17 @@
+%div{:id => "custom_field_option_#{index}"}
+  = fields_for "custom_field[option_attributes][#{index}][]", CustomFieldOption.new do |option_form|
+    - available_locales.each do |locale_name, locale_value|
+      = fields_for "custom_field[option_attributes][#{index}][title_attributes][]", CustomFieldOptionTitle.new do |option_title_form|
+        - if available_locales.size > 1
+          .row
+            .col-1
+              = session[:option_amount]
+            .col-2
+              = option_title_form.label :value, locale_name + ": ", :class => "new-field-name-locale-label"
+            .col-8
+              = option_title_form.text_field :value, :class => "new-field-name-locale-text-field"
+            .col-1
+              = link_to "x", remove_option_admin_custom_fields_path(:option => index), :remote => true, :tabindex => "-1"
+        - else
+          = option_title_form.label :value
+        = option_title_form.hidden_field :locale, :value => locale_value
