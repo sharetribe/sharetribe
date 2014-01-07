@@ -6,13 +6,17 @@ fr:
         community_look_and_feel: "Présentation et aspect de la tribu"
         edit_community: "Modifier les détails de la tribu \"%{community_name}\""
         community_name: "Nom de la tribu"
+        edit_community_name_description: "Le nom de votre tribu. Ceci est visible par les utilisateurs dans les emails et plusieurs autres endroits."
         community_slogan: "Slogan de la tribu"
+        edit_community_slogan_description: "Ceci est affiché sur la page d'accueil de votre tribu aux utilisateurs qui ne sont pas connectés. %{see_how_it_looks_like}."
         community_description: "Description de la tribu"
+        edit_community_description_description: "Ceci est affiché sur la page d'accueil de votre tribu aux utilisateurs qui ne sont pas connectés. %{see_how_it_looks_like}."
         update_information: "Mettre les informations à jour"
         invite_people: "Invitez des gens dans cette tribu"
         edit_signup_info: "Informations lors de l'inscription"
-        edit_signup_info_description: "Ce texte peut être affiché aux utilisateurs sur la page d'inscription. Vous pouvez y donner des instructions à propos de l'inscription, des conseils pour obtenir une invitation, etc. Par défaut, il n'y a pas de consignes, vous pouvez en ajouter en cliquant sur le lien ci-dessous."
-        edit_signup_info_link: "Modifier les informations d'inscription"
+        edit_signup_info_description: "Ce texte peut être affiché aux utilisateurs sur la page d'inscription. Vous pouvez y donner des instructions à propos de l'inscription, des conseils pour obtenir une invitation, etc. Par défaut, il n'y a pas d'instructions."
+        edit_info: "Modifier les informations"
+        see_how_it_looks_like: "Voir un aperçu"
       edit_look_and_feel:
         edit_community_look_and_feel: "Modifier la présentation et l'aspect de la tribu \"%{community_name}\""
         community_logo: Logo
@@ -36,6 +40,14 @@ fr:
         welcome_email_content_description: "Le message ci-dessous sera envoyé à chaque nouveau membre de la tribu, quand il la rejoindra. Vous pouvez le modifier pour l'adapter à vos envies. En cliquant sur \"%{send_test_message_link}\" vous pouvez pré-visualiser le message en l'envoyant à votre adresse personnelle pour voir à quoi cela ressemblera exactement."
         edit_message: "Modifier le message"
         send_test_message: "Envoyer un message de test"
+    custom_fields:
+      index:
+        listing_fields: "Champs pour annonces"
+        add_new_field: "Ajouter un nouveau champ"
+        cancel: Annuler
+        save: Sauvegarder
+        field_title: "Nom du champ"
+        field_type: "Type de champ"
     emails:
       new:
         send_email_to_members: "Envoyer un email aux membres"
@@ -113,25 +125,25 @@ fr:
       share_for_free: "partage gratuit "
       accept_for_free: "usage gratuit "
     categories:
-      item: objets
-      favor: services
-      rideshare: covoiturage
-      housing: lieux
-      tools: outils
-      sports: sport
-      music: musique
-      books: "livres & magazines"
-      games: "jeux & jouets"
-      furniture: mobilier
-      outdoors: "plein air & extérieur"
-      food: "alimentation & cuisine"
-      electronics: "matériel électronique"
-      pets: animaux
-      film: "films & vidéos"
-      clothes: "vêtements & accessoires"
-      garden: jardin
-      travel: voyage
-      other: autre
+      item: Objets
+      favor: Services
+      rideshare: Covoiturage
+      housing: Lieux
+      tools: Outils
+      sports: Sport
+      music: Musique
+      books: "Livres & magazines"
+      games: "Jeux & jouets"
+      furniture: Mobilier
+      outdoors: "Plein air & extérieur"
+      food: "Alimentation & cuisine"
+      electronics: "Matériel électronique"
+      pets: Animaux
+      film: "Films & vidéos"
+      clothes: "Vêtements & accessoires"
+      garden: Jardin
+      travel: Voyage
+      other: Autre
     username: "Nom d'utilisateur "
     username_or_email: "Email ou nom d'utilisateur"
     what_is_this: "Qu'est-ce que c'est ?"

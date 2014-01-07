@@ -6,13 +6,17 @@ en-bd:
         community_look_and_feel: ~
         edit_community: ~
         community_name: ~
+        edit_community_name_description: ~
         community_slogan: ~
+        edit_community_slogan_description: ~
         community_description: ~
+        edit_community_description_description: ~
         update_information: ~
         invite_people: ~
         edit_signup_info: ~
         edit_signup_info_description: ~
-        edit_signup_info_link: ~
+        edit_info: ~
+        see_how_it_looks_like: ~
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
@@ -36,6 +40,14 @@ en-bd:
         welcome_email_content_description: ~
         edit_message: ~
         send_test_message: ~
+    custom_fields:
+      index:
+        listing_fields: ~
+        add_new_field: ~
+        cancel: ~
+        save: ~
+        field_title: ~
+        field_type: ~
     emails:
       new:
         send_email_to_members: ~
@@ -1582,7 +1594,10 @@ en-bd:
       welcome_to_kassi: ~
       check_your_email: ~
       get_started: ~
-      getting_started_instructions: ~
+      getting_started_instructions: |-
+          Upon confirmation of your account, it's a good idea to add a picture to your <a href="%{profile_url}">profil</a> and to add your preferred email address to receive notifications, as well as a short bio.
+          You can also continue straight in to action by adding an housing ad you would like to share, in Paris, London, Singapore, Shanghai, you name it! Sharing is Finding, right?
+          Finally, we encourage you to spread the word and send an invite to your fellow classmate via our "Invite" button in the drop-down menu under your profile, or to post the link on Facebook.
       resend_confirmation_instructions: ~
       your_current_email_is: ~
       change_email: ~

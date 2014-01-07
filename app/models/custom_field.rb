@@ -1,5 +1,7 @@
 class CustomField < ActiveRecord::Base
-  attr_accessible :type, :name_attributes
+  include Comparable
+  
+  attr_accessible :type, :name_attributes, :sort_priority
   
   has_many :names, :class_name => "CustomFieldName"
   has_many :options, :class_name => "CustomFieldOption"
@@ -16,5 +18,9 @@ class CustomField < ActiveRecord::Base
   def name(locale="en")
     n = names.find { |name| name.locale == locale.to_s }
     n ? n.value : ""
+  end
+
+  def <=> other
+    self.sort_priority <=> other.sort_priority
   end
 end

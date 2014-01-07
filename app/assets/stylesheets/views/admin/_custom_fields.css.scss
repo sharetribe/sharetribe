@@ -1,0 +1,10 @@
+@import "mixins/all";
+
+.custom-fields-list-title,
+.custom-fields-mobile-list-title {
+  font-weight: bold;
+}
+
+.custom-fields-list-options {
+  @include small-type;
+}
