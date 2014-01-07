@@ -7,6 +7,41 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@community) }
 
 .left-navi-section
+  .row.visible-tablet
+    .col-3.custom-fields-list-title
+      = t(".field_title")
+    .col-3.custom-fields-list-title
+      = t(".field_type")
+    .col-3.custom-fields-list-title
+      = t(".category")
+    .col-3.custom-fields-list-title
+      = t(".actions")
+  - @current_community.categories.each do |category|
+    - category.custom_fields.each do |custom_field|
+      .row
+        .col-3
+          %span.custom-fields-mobile-list-title.hidden-tablet
+            = t(".field_title")
+          = custom_field.name(I18n.locale)
+        .col-3
+          %span.custom-fields-mobile-list-title.hidden-tablet
+            = t(".field_type")
+          %div
+            = custom_field.type
+          %div.custom-fields-list-options
+            = "(#{custom_field.options.collect { |option| option.title(I18n.locale) }.join(", ")})"
+        .col-3
+          %span.custom-fields-mobile-list-title.hidden-tablet
+            = t(".category")
+          = category.name
+        .col-3
+          %span.custom-fields-mobile-list-title.hidden-tablet
+            = t(".actions")
+          = link_to t(".list.action.remove")
+          = link_to t(".list.action.edit")
+          = link_to t(".list.action.up")
+          = link_to t(".list.action.down")
+
   = link_to t(".add_new_field"), "#", :id => "add-new-field-link"
   #new-field-form.new-field-form
     = form_for @custom_field, :url => admin_custom_fields_path do |form|
