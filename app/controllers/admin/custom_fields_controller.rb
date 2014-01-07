@@ -10,6 +10,7 @@ class Admin::CustomFieldsController < ApplicationController
     @community = @current_community
     @custom_field = CustomField.new
     @custom_field.options.build
+    @custom_fields = @current_community.categories.flat_map(&:custom_fields).uniq.sort
     session[:option_amount] = 1
   end
   
