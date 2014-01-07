@@ -3,11 +3,13 @@ class CustomField < ActiveRecord::Base
   
   attr_accessible :type, :name_attributes, :category_attributes, :option_attributes, :sort_priority
   
-  has_many :names, :class_name => "CustomFieldName"
-  has_many :options, :class_name => "CustomFieldOption"
+  has_many :names, :class_name => "CustomFieldName", :dependent => :destroy
+  has_many :options, :class_name => "CustomFieldOption", :dependent => :destroy
 
-  has_many :category_custom_fields, :dependent => :destroy 
+  has_many :category_custom_fields, :dependent => :destroy
   has_many :categories, :through => :category_custom_fields
+
+  has_many :answers, :class_name => "CustomFieldValue", :dependent => :destroy
   
   VALID_TYPES = [["Dropdown", "DropdownField"]]
   

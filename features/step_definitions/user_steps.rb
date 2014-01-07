@@ -183,11 +183,13 @@ Then /^(?:|I )should see the (username|email) I gave(?: within "([^"]*)")?$/ do 
 end
 
 Given /^"([^"]*)" is superadmin$/ do |username|
-  @people[username].update_attribute(:is_admin, true)
+  user = Person.find_by_username(username)
+  user.update_attribute(:is_admin, true)
 end
 
 Given /^"([^"]*)" has admin rights in community "([^"]*)"$/ do |username, community|
-  CommunityMembership.find_by_person_id_and_community_id(@people[username].id, Community.find_by_name(community).id).update_attribute(:admin, true)
+  user = Person.find_by_username(username)
+  CommunityMembership.find_by_person_id_and_community_id(user.id, Community.find_by_name(community).id).update_attribute(:admin, true)
 end
 
 Then /^I should see my username$/ do
