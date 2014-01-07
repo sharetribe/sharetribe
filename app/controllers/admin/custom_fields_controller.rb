@@ -15,5 +15,11 @@ class Admin::CustomFieldsController < ApplicationController
     @custom_field = CustomField.create(params[:custom_field])
     redirect_to admin_custom_fields_path
   end
+
+  def destroy
+    @custom_field = CustomField.find(params[:id])
+    success = @custom_field.destroy
+    redirect_to admin_custom_fields_path
+  end
   
 end
