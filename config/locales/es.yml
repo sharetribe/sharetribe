@@ -6,13 +6,17 @@ es:
         community_look_and_feel: "Apariencia de la tribu"
         edit_community: "Editar detalles de la comunidad \"%{community_name}\""
         community_name: "Nombre de la tribu:"
+        edit_community_name_description: ~
         community_slogan: "Eslogan de la tribu:"
+        edit_community_slogan_description: ~
         community_description: "Descripción:"
+        edit_community_description_description: ~
         update_information: "Actualizar información"
         invite_people: ~
         edit_signup_info: ~
         edit_signup_info_description: ~
-        edit_signup_info_link: ~
+        edit_info: ~
+        see_how_it_looks_like: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Editar apariencia de la comunidad %{community_name}"
         community_logo: Logo
@@ -36,6 +40,14 @@ es:
         welcome_email_content_description: ~
         edit_message: ~
         send_test_message: ~
+    custom_fields:
+      index:
+        listing_fields: ~
+        add_new_field: ~
+        cancel: ~
+        save: ~
+        field_title: ~
+        field_type: ~
     emails:
       new:
         send_email_to_members: ~
