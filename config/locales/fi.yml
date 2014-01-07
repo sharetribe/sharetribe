@@ -44,6 +44,7 @@ fi:
       index:
         listing_fields: ~
         add_new_field: ~
+        remove_field_confirmation: "Poista kenttä '%{field_name}'?"
         cancel: ~
         save: ~
         field_title: ~

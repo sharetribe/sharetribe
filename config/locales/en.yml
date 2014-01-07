@@ -44,13 +44,14 @@ en:
       index:
         listing_fields: "Listing fields"
         add_new_field: "+ Add new field"
+        remove_field_confirmation: "Remove field '%{field_name}'?"
         cancel: Cancel
         save: Save
         field_title: "Field title"
         field_type: "Field type"
-        category: "Category"
         categories: "Categories"
         add_new_field_to_listing_form: "Add new field to listing form"
+        no_custom_listing_fields: "You don't have any marketplace specific listing fields."
     emails:
       new:
         send_email_to_members: "Send an email to members"

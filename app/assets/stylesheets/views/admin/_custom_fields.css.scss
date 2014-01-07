@@ -7,6 +7,7 @@
 
 .custom-fields-list-options {
   @include small-type;
+  @include ellipsis;
 }
 
 .new-field-form {

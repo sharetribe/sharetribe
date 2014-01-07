@@ -3,7 +3,7 @@
     - available_locales.each do |locale_name, locale_value|
       = fields_for "custom_field[option_attributes][#{index}][title_attributes][]", CustomFieldOptionTitle.new do |option_title_form|
         - if available_locales.size > 1
-          .row
+          .row.overflow-visible
             .col-1
               = session[:option_amount]
             .col-2

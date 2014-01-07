@@ -7,42 +7,42 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@community) }
 
 .left-navi-section
-  #custom-fields-list
-    .row.visible-tablet
-      .col-3.custom-fields-list-title
-        = t(".field_title")
-      .col-3.custom-fields-list-title
-        = t(".field_type")
-      .col-3.custom-fields-list-title
-        = t(".category")
-    - @current_community.categories.each do |category|
-      - category.custom_fields.each do |custom_field|
+  - if @custom_fields.empty?
+    .row
+      .col-12
+        = t(".no_custom_listing_fields")
+  - else
+    #custom-fields-list
+      .row.visible-tablet
+        .col-5.custom-fields-list-title
+          = t(".field_title")
+        .col-5.custom-fields-list-title
+          = t(".field_type")
+      - @custom_fields.each do |custom_field|
         .row
-          .col-3
+          .col-5
             %span.custom-fields-mobile-list-title.hidden-tablet
               = t(".field_title")
             = custom_field.name(I18n.locale)
-          .col-3
+          .col-5
             %span.custom-fields-mobile-list-title.hidden-tablet
               = t(".field_type")
             %div
               = custom_field.type
             %div.custom-fields-list-options
-              = "(#{custom_field.options.collect { |option| option.title(I18n.locale) }.join(", ")})"
-          .col-3
-            %span.custom-fields-mobile-list-title.hidden-tablet
-              = t(".category")
-            = category.name
-          .col-3
+              = custom_field.options.collect { |option| option.title(I18n.locale) }.join(", ")
+          .col-2
             %span.custom-fields-mobile-list-title.hidden-tablet
               = t(".actions")
-            = link_to admin_custom_field_path(custom_field), :method => :delete, :class => "custom-fields-action-remove" do
+            = link_to admin_custom_field_path(custom_field), :method => :delete, :class => "custom-fields-action-remove", :confirm => t(".remove_field_confirmation", :field_name => custom_field.name(I18n.locale)) do
               = icon_tag("cross", ["icon-fix"])
             / = link_to t(".list.action.edit")
             / = link_to t(".list.action.up")
             / = link_to t(".list.action.down")
+  .row
+    .col-12
+      = link_to t(".add_new_field"), "#", :id => "add-new-field-link"
 
-  = link_to t(".add_new_field"), "#", :id => "add-new-field-link"
   #new-field-form.new-field-form
     %h2= t(".add_new_field_to_listing_form")
     = form_for @custom_field, :url => admin_custom_fields_path do |form|
