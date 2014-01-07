@@ -1,5 +1,5 @@
 class CustomField < ActiveRecord::Base
-  include Comparable
+  include SortableByPriority # use `sort_priority()` for sorting
   
   attr_accessible :type, :name_attributes, :category_attributes, :sort_priority
   
@@ -24,7 +24,7 @@ class CustomField < ActiveRecord::Base
     n ? n.value : ""
   end
 
-  def <=> other
-    self.sort_priority <=> other.sort_priority
+  def answer_for(listing)
+    CustomFieldValue.find_by_listing_id_and_custom_field_id(listing.id, self.id)
   end
 end
