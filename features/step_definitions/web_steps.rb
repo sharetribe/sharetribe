@@ -9,6 +9,17 @@ require 'uri'
 require 'cgi'
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 
+module FillInHelpers
+  def fill_in_first(locator, options={})
+    # Highly inspired by Capybara's fill_in implementation
+    # https://github.com/jnicklas/capybara/blob/80befdad73c791eeaea50a7cbe23f04a445a24bc/lib/capybara/node/actions.rb#L50
+    raise "Must pass a hash containing 'with'" if not options.is_a?(Hash) or not options.has_key?(:with)
+    with = options.delete(:with)
+    first(:fillable_field, locator, options).set(with)
+  end
+end
+World(FillInHelpers)
+
 module WithinHelpers
   def with_scope(locator)
     locator ? within(locator) { yield } : yield
@@ -53,6 +64,12 @@ end
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"(?: within "([^"]*)")?$/ do |field, value, selector|
   with_scope(selector) do
     fill_in(field, :with => value)
+  end
+end
+
+When /^(?:|I )fill in first "([^"]*)" with "([^"]*)"(?: within "([^"]*)")?$/ do |field, value, selector|
+  with_scope(selector) do
+    fill_in_first(field, :with => value)
   end
 end
 

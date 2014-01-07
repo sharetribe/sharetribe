@@ -49,6 +49,7 @@ fi:
         save: ~
         field_title: ~
         field_type: ~
+        no_custom_listing_fields: "Yhteisöllä ei ole yhtään yhteisökohtaista listauskenttää."
     emails:
       new:
         send_email_to_members: "Lähetä sähköpostia jäsenille"

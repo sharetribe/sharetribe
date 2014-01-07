@@ -75,7 +75,7 @@
       #options
         - @custom_field.options.each_with_index do |option, index|
           = render :partial => "new_option", :locals => { :option => option, :index => index }
-      = link_to t(".add_option"), add_option_admin_custom_fields_path, :remote => true
+      = link_to t(".add_option"), add_option_admin_custom_fields_path, :remote => true, :id => "custom-fields-add-option"
       
         
       .add-custom-field-buttons
