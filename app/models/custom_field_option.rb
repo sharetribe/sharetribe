@@ -4,7 +4,7 @@ class CustomFieldOption < ActiveRecord::Base
   belongs_to :custom_field
   attr_accessible :sort_priority
 
-  has_many :titles, :class_name => "CustomFieldOptionTitle"
+  has_many :titles, :class_name => "CustomFieldOptionTitle", :dependent => :destroy
 
   def title(locale="en")
     t = titles.find { |title| title.locale == locale.to_s }
