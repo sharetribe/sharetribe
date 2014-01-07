@@ -9,8 +9,8 @@ class Admin::CustomFieldsController < ApplicationController
     @selected_left_navi_link = "listing_fields"
     @community = @current_community
     @custom_field = CustomField.new
-    @custom_field.options.build
-    session[:option_amount] = 1
+    @custom_field.options = [CustomFieldOption.new, CustomFieldOption.new]
+    session[:option_amount] = 2
   end
   
   def create

@@ -13,5 +13,9 @@
             .col-1
               = link_to "x", remove_option_admin_custom_fields_path(:option => index), :remote => true, :tabindex => "-1"
         - else
-          = option_title_form.label :value
+          .row
+            .col-11
+              = option_title_form.text_field :value
+            .col-1
+              = link_to "x", remove_option_admin_custom_fields_path(:option => index), :remote => true, :tabindex => "-1"
         = option_title_form.hidden_field :locale, :value => locale_value
