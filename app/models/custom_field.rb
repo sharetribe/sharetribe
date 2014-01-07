@@ -1,5 +1,5 @@
 class CustomField < ActiveRecord::Base
-  include Comparable
+  include SortableByPriority # use `sort_priority()` for sorting
   
   attr_accessible :type, :name_attributes, :sort_priority
   
@@ -18,9 +18,5 @@ class CustomField < ActiveRecord::Base
   def name(locale="en")
     n = names.find { |name| name.locale == locale.to_s }
     n ? n.value : ""
-  end
-
-  def <=> other
-    self.sort_priority <=> other.sort_priority
   end
 end
