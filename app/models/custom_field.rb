@@ -1,7 +1,7 @@
 class CustomField < ActiveRecord::Base
   include SortableByPriority # use `sort_priority()` for sorting
   
-  attr_accessible :type, :name_attributes, :sort_priority
+  attr_accessible :type, :name_attributes, :category_attributes, :option_attributes, :sort_priority
   
   has_many :names, :class_name => "CustomFieldName", :dependent => :destroy
   has_many :options, :class_name => "CustomFieldOption", :dependent => :destroy
@@ -14,7 +14,16 @@ class CustomField < ActiveRecord::Base
   VALID_TYPES = [["Dropdown", "DropdownField"]]
   
   def name_attributes=(attributes)
-    attributes.each { |a| names.build(a) }
+    attributes.each { |name| names.build(name) }
+  end
+  
+  def category_attributes=(attributes)
+    attributes.each { |category_id, category_present| category_custom_fields.build(:category_id => category_id) }
+  end
+  
+  def option_attributes=(attributes)
+    logger.info "Attributes: #{attributes.inspect}"
+    attributes.each { |index, option| options.build(option) }
   end
 
   def name(locale="en")

@@ -8,3 +8,36 @@
 .custom-fields-list-options {
   @include small-type;
 }
+
+.new-field-form {
+  display: none;
+}
+
+.new-field-name-locale-label {
+  font-weight: 500;
+}
+
+.new-field-name-locale-text-field {
+  max-width: lines(10);
+}
+
+.custom-field-categories-checkbox-container {
+  float: left;
+  min-width: lines(9.5);
+}
+
+.custom-field-category-checkbox {
+  display: inline-block;
+  width: auto;
+}
+
+.custom-field-category-checkbox-label {
+  display: inline-block;
+  width: auto;
+  font-weight: normal;
+  margin-left: lines(0.25);
+}
+
+.add-custom-field-buttons {
+  width: 100%;
+}

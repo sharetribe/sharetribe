@@ -1037,10 +1037,12 @@ function initialize_admin_edit_tribe_look_and_feel_form(locale, community_id, in
 
 function initialize_admin_listing_fields_view() {
   $('#add-new-field-link').click(function(link) {
-    $('#new-field-form').show(); 
+    $('#new-field-form').show();
+    $('#add-new-field-link').hide();  
   });
   $('#cancel-new-field-link').click(function(link) {
-    $('#new-field-form').hide(); 
+    $('#new-field-form').hide();
+    $('#add-new-field-link').show();  
   });
 }
 

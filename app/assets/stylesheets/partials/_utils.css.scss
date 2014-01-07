@@ -1,4 +1,5 @@
 @import "mixins/all";
+@import "compass/utilities/general/clearfix";
 
 .relative {
   position: relative;
@@ -13,4 +14,8 @@
 
 .hidden {
   display: none;
+}
+
+.clearfix {
+  @include clearfix;
 }

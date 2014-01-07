@@ -8,13 +8,6 @@ class Listing < ActiveRecord::Base
   
   acts_as_taggable_on :tags
   
-  # TODO: these should help to use search with tags, but not yet working
-  # has_many :taggings, :as => :taggable, :dependent => :destroy, :include => :tag, :class_name => "ActsAsTaggableOn::Tagging",
-  #             :conditions => "taggings.taggable_type = 'Listing'"
-  # #for context-dependent tags:
-  # has_many :tags, :through => :taggings, :source => :tag, :class_name => "ActsAsTaggableOn::Tag",
-  #           :conditions => "taggings.context = 'tags'"
-  
   has_many :listing_images, :dependent => :destroy
   accepts_nested_attributes_for :listing_images, :reject_if => lambda { |t| t['image'].blank? }
   
