@@ -19,4 +19,8 @@ class CustomField < ActiveRecord::Base
     n = names.find { |name| name.locale == locale.to_s }
     n ? n.value : ""
   end
+
+  def answer_for(listing)
+    CustomFieldValue.find_by_listing_id_and_custom_field_id(listing.id, self.id)
+  end
 end
