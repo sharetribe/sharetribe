@@ -48,12 +48,13 @@ de:
         save: Speichern
         field_title: "Name des Feldes"
         field_type: "Art des Feldes"
+        category: Kategorie
     emails:
       new:
         send_email_to_members: "Sende eine E-Mail an alle Mitglieder"
         send_email_to_members_title: "Sende eine E-Mail an alle Mitglieder dieser Community"
         email_subject: "E-Mail Betreff"
-        email_content: "E-Mail Inhalt"
+        email_content: E-Mail-Inhalt
         email_content_placeholder: "Was willst du den Mitgliedern mitteilen?"
         email_language: "Sprache der E-Mail-Empfänger"
         any_language: "Beliebige Sprache"
@@ -595,7 +596,7 @@ de:
       added_listing: "%{name_link} hat einen Eintrag hinzugefügt:"
       update_mail_title: "%{title_link} Community Update"
       title_link_text: "%{community_name}"
-      intro_paragraph: "Hier sind einige Ereignisse, die in der %{community_link} seit %{time_since_last_update} passiert sind."
+      intro_paragraph: "Hier sind einige Ereignisse, die auf %{community_link} seit %{time_since_last_update} passiert sind."
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Neuer Eintrag"
       reduce_email_footer_text: "Zu viele E-Mails? %{settings_link} oder %{unsubscribe_link}"
@@ -765,8 +766,8 @@ de:
       add_listing_link_text: "Neuen Eintrag hinzufügen"
       available_on_the_app_store: "Im App Store erhältlich"
       private_listing_notification: "Es gibt %{listing_count} in der Community. %{private_listing_count} davon sind %{be_verb} nur für Mitglieder der Community sichtbar. Wenn du auch die Einträge sehen willst, die nur für Mitglieder sichtbar sind, muss du dich %{log_in_link}"
-      open_listing: "offener Eintrag"
-      open_listings: "offene Einträge"
+      open_listing: "aktiver Eintrag"
+      open_listings: "aktive Einträge"
       private_listing_notification_log_in: Einloggen
       is: ist
       are: sind
@@ -952,9 +953,9 @@ de:
       listing_created_successfully: "Eintrag erfolgreich erstellt. %{new_listing_link}"
       offer_rejected: "Angebot abgelehnt"
       offer_canceled: "Angebot abgebrochen"
-      listing_updated_successfully: "Eintrag erfolgreich aktualisiert"
+      listing_updated_successfully: "Eintrag wurde erfolgreich aktualisiert"
       only_kassi_administrators_can_access_this_area: "Nur  %{service_name} Administratoren können diesen Bereich aufrufen"
-      only_listing_author_can_close_a_listing: "Nur Autoren eines Eintrags können den Eintrag schließen"
+      only_listing_author_can_close_a_listing: "Nur Autoren eines Eintrags können den Eintrag beenden"
       only_listing_author_can_edit_a_listing: "Nur Autoren eines Eintrags können den Eintrag bearbeiten"
       payment_successful: "erfolgreiche Bezahlung"
       payment_canceled: "Zahlung abgebrochen"
@@ -1048,9 +1049,9 @@ de:
     edit:
       edit_listing: "Eintrag bearbeiten"
     edit_links:
-      close_listing: "Eintrag schließen"
+      close_listing: "Eintrag beenden"
       edit_listing: "Eintrag bearbeiten"
-      reopen_listing: "Anfrage wieder öffnen"
+      reopen_listing: "Eintrag wieder aktivieren"
     follow_links:
       follow: "Erhalte E-Mails bei neuen Kommentaren"
       unfollow: "Diesem Eintrag nicht mehr folgen"
@@ -1123,7 +1124,7 @@ de:
         housing_you_request: "Dein Raumgesuch"
         item_you_offer: "Gegenstand, den du anbietest"
         item_you_request: "Gegenstand, den du brauchst"
-        listing_title: "Titel des Eintrages"
+        listing_title: "Titel des Eintrags"
       valid_until:
         valid_until: Ablaufdatum
       valid_until_radio_buttons:
@@ -1373,7 +1374,7 @@ de:
   people:
     index:
       loading_more_members: "Lade mehr Mitglieder"
-      meet_the_people: "Triff die Mitglieder"
+      meet_the_people: "Triff die anderen Mitglieder"
       you_are_the_only_member: "Du bist das einzige MItglied der %{community_name} Community."
       here_are_the_members: "Hier sind die %{count} Mitglieder der %{community_name} Community."
       wanna_see_more_folks: "Willst du hier mehr Leute sehen?"
@@ -1552,8 +1553,8 @@ de:
       badges: Ausweis
       listing: Eintrag
       listings: Einträge
-      open_listing: "offener Eintrag"
-      open_listings: "offene Einträge"
+      open_listing: "aktiver Eintrag"
+      open_listings: "aktive Einträge"
       no_listings: "Keine Einträge"
       no_open_listings: "Keine aktiven Einträge"
       no_reviews: "Keine Bewertungen"
