@@ -852,7 +852,7 @@ module ApplicationHelper
   def with_stylesheet_url(community, &block)
     stylesheet_url = if community.has_customizations?
       unless community.has_custom_stylesheet?
-        community.generate_customization_stylesheet
+        CommunityStylesheetCompiler.compile(community)
       end
 
       community.custom_stylesheet_url

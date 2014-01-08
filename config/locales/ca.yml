@@ -44,10 +44,18 @@ ca:
       index:
         listing_fields: ~
         add_new_field: ~
+        remove_field_confirmation: ~
         cancel: ~
         save: ~
         field_title: ~
         field_type: ~
+        categories: ~
+        add_new_field_to_listing_form: ~
+        no_custom_listing_fields: ~
+        dropdown_options: ~
+        add_option: ~
+      field_types:
+        dropdown: ~
     emails:
       new:
         send_email_to_members: ~
@@ -1057,6 +1065,9 @@ ca:
       follow: "Segueix aquest anunci"
       unfollow: "Deixa de segur aquest anunci"
     form:
+      custom_field_partials:
+        dropdown:
+          select_one___: ~
       departure_time:
         at: "a les"
         departure_time: "Hora de sortida"
