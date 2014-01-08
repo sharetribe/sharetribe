@@ -15,7 +15,11 @@ class Admin::CustomFieldsController < ApplicationController
   end
   
   def create
-    @custom_field = DropdownField.create(params[:custom_field])
+    @custom_field = DropdownField.new(params[:custom_field])
+    success = @custom_field.save
+
+    flash[:error] = "Listing field saving failed" unless success
+
     redirect_to admin_custom_fields_path
   end
 
