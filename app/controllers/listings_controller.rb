@@ -129,7 +129,7 @@ class ListingsController < ApplicationController
     end
     @listing = @current_user.create_listing params[:listing]
 
-    @listing.custom_field_values = create_field_values(params[:custom_fields])
+    @listing.custom_field_values = create_field_values(params[:custom_fields]) if params[:custom_fields]
 
     if @listing.new_record?
       1.times { @listing.listing_images.build } if @listing.listing_images.empty?
