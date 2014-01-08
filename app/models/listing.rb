@@ -15,14 +15,6 @@ class Listing < ActiveRecord::Base
   has_many :notifications, :as => :notifiable, :dependent => :destroy
   has_many :comments, :dependent => :destroy
   has_many :custom_field_values, :dependent => :destroy
-
-  # Create a specific relation to each custom field
-  # This helps in Sphinx indexing
-  CustomField.all.each do |field|
-    # FIXME: This is looped only when loading the code. It should be updated when new custom_fields are created or removed.
-    has_many "values_for_field_#{field.id}".to_sym, :class_name => "CustomFieldValue", :conditions => {:custom_field_id => field.id}
-  end  
-
   
   has_one :location, :dependent => :destroy
   has_one :origin_loc, :class_name => "Location", :conditions => ['location_type = ?', 'origin_loc'], :dependent => :destroy
@@ -132,8 +124,6 @@ class Listing < ActiveRecord::Base
   
   # Index for sphinx search
   define_index do
-    join custom_field_values
-    join selected_options
 
     # limit to open listings
     where "open = '1' AND (valid_until IS NULL OR valid_until > now())"
@@ -141,8 +131,6 @@ class Listing < ActiveRecord::Base
     # fields
     indexes title
     indexes description
-    #indexes taggings.tag.name, :as => :tags
-    #indexes comments.content, :as => :comments
     indexes category.translations.name, :as => :category
     indexes custom_field_values(:text_value), :as => :custom_text_fields
     
@@ -153,44 +141,7 @@ class Listing < ActiveRecord::Base
     has "privacy = 'public'", :as => :visible_to_everybody, :type => :boolean
     has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
     has communities(:id), :as => :community_ids
-
-    CustomField.all.each do |field|
-      # has custom_field_values.selected_options(:custom_field_option_id), :type => :multi, :as => "options_ids_for_field_#{field.id}"
-      #custom_field_values(where id = #{field.id} ).selected_options(:custom_field_option_id)
-      #has "GROUP_CONCAT((CASE WHEN custom_field_values.custom_field_id = #{field.id} THEN custom_field_values.selected_options.id ELSE NULL END CASE) SEPARATOR ',')", :type => :multi, :as => "options_ids_for_field_#{field.id}"
-      
-      #has "value_for_field_#{field.id}.selected_options(:custom_field_option_id)", :type => :multi, :as => "options_ids_for_field_#{field.id}"
-
-      #eval("has(values_for_field_2.selected_options(:custom_field_option_id), :type => :multi, :as => \"options_ids_for_field_#{field.id}\")")
-  
-      #has values_for_field_2.selected_options(:custom_field_option_id), :type => :multi, :as => "options_ids_for_field_#{field.id}"
-
-      #has values_for_field_2.selected_options(:custom_field_option_id), :type => :multi, :as => "options_ids_for_field_#{field.id}"
-
-      #has [1,3], :type => :multi, :as => "options_ids_for_field_#{field.id}"
-
-#has "GROUP_CONCAT( selected_options.id)", :type => :multi, :as => "option_ids_for_field_#{field.id}"
-
-      # has "GROUP_CONCAT(CASE WHEN 1 = 1 THEN values_for_field_2.selected_options.id ELSE NULL END CASE)", :type => :multi, :as => "options_ids_for_field_#{field.id}"
-
-      #has "(select GROUP_CONCAT(custom_field_option_id) from selected_options LEFT OUTER JOIN custom_field_values ON custom_field_values.id = selected_options.custom_field_value_id WHERE custom_field_values.custom_field_id = #{field.id})", :type => :multi, :as => "options_ids_for_field_#{field.id}"
-
-      #has "(select GROUP_CONCAT(custom_field_option_id) from selected_options LEFT OUTER JOIN custom_field_values ON custom_field_values.id = selected_options.custom_field_value_id WHERE custom_field_values.listing_id = #{this.id} AND custom_field_values.custom_field_id = #{field.id})", :type => :multi, :as => "options_ids_for_field_#{field.id}"
-
-
-      #{}LEFT OUTER JOIN custom_field_values ON custom_field_values.id = selected_options.custom_field_value_id WHERE custom_field_values.listing_id = 652 AND custom_field_values.custom_field_id = 2;"
-
-    #has "GROUP_CONCAT(CASE WHEN custom_field_values.custom_field_id = 2 THEN custom_field_values.selected_options.id ELSE NULL END CASE)", :type => :multi, :as => "options_ids_for_field_2"
-    #has "GROUP_CONCAT((CASE WHEN custom_field_values.id = 1 THEN custom_field_values.id ELSE NULL END CASE) SEPARATOR ',')", :as => :first_value_ids, :type => :multi
-    end
-
-      #puts "DEBUG 1"
-      
-      #has self.send(:values_for_field_2).selected_options(:custom_field_option_id), :type => :multi, :as => "options_ids_for_field_2"
-      
-      has custom_field_values.options(:id), :type => :multi, :as => "custom_field_options"
-
-      #puts "DEBUG 2"
+    has custom_field_values.options(:id), :type => :multi, :as => "custom_field_options"
       
 
     set_property :enable_star => true
@@ -208,11 +159,6 @@ class Listing < ActiveRecord::Base
       :comments    => 1
     }
   end
-  
-def temp
-  send("value_for_field_2").selected_options(:custom_field_option_id)
-end
-
 
   def set_community_visibilities
     if current_community_id
