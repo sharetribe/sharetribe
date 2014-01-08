@@ -4,6 +4,7 @@ class CustomField < ActiveRecord::Base
   attr_accessible :type, :name_attributes, :category_attributes, :option_attributes, :sort_priority
   
   has_many :names, :class_name => "CustomFieldName", :dependent => :destroy
+  has_many :options, :class_name => "CustomFieldOption", :dependent => :destroy
 
   has_many :category_custom_fields, :dependent => :destroy
   has_many :categories, :through => :category_custom_fields
@@ -11,9 +12,6 @@ class CustomField < ActiveRecord::Base
   has_many :answers, :class_name => "CustomFieldValue", :dependent => :destroy
   
   VALID_TYPES = [["Dropdown", "DropdownField"]]
-
-  validates_length_of :names, :minimum => 1
-  validates_length_of :categories, :minimum => 1
   
   def name_attributes=(attributes)
     attributes.each { |name| names.build(name) }
