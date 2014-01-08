@@ -1,3 +1,0 @@
-class Dropdown < CustomField
-
-end
