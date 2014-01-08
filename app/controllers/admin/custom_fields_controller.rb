@@ -8,19 +8,19 @@ class Admin::CustomFieldsController < ApplicationController
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "listing_fields"
     @community = @current_community
-    @custom_field = CustomField.new
+    @custom_field = DropdownField.new
     @custom_fields = @current_community.categories.flat_map(&:custom_fields).uniq.sort
     @custom_field.options = [CustomFieldOption.new, CustomFieldOption.new]
     session[:option_amount] = 2
   end
   
   def create
-    @custom_field = CustomField.create(params[:custom_field])
+    @custom_field = DropdownField.create(params[:custom_field])
     redirect_to admin_custom_fields_path
   end
 
   def destroy
-    @custom_field = CustomField.find(params[:id])
+    @custom_field = DropdownField.find(params[:id])
     success = @custom_field.destroy
     redirect_to admin_custom_fields_path
   end
