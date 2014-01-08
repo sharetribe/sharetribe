@@ -11,7 +11,7 @@ class CustomField < ActiveRecord::Base
 
   has_many :answers, :class_name => "CustomFieldValue", :dependent => :destroy
   
-  VALID_TYPES = [["Dropdown", "DropdownField"]]
+  VALID_TYPES = [["dropdown", "DropdownField"]]
   
   def name_attributes=(attributes)
     attributes.each { |name| names.build(name) }

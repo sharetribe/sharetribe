@@ -1,21 +1,20 @@
-%div{:id => "custom_field_option_#{index}"}
-  = fields_for "custom_field[option_attributes][#{index}][]", CustomFieldOption.new do |option_form|
-    - available_locales.each do |locale_name, locale_value|
-      = fields_for "custom_field[option_attributes][#{index}][title_attributes][]", CustomFieldOptionTitle.new do |option_title_form|
-        - if available_locales.size > 1
-          .row.overflow-visible
-            .col-1
-              = session[:option_amount]
-            .col-2
-              = option_title_form.label :value, locale_name + ": ", :class => "new-field-name-locale-label"
-            .col-8
-              = option_title_form.text_field :value, :class => "new-field-name-locale-text-field"
-            .col-1
-              = link_to "x", remove_option_admin_custom_fields_path(:option => index), :remote => true, :tabindex => "-1"
-        - else
-          .row
-            .col-11
-              = option_title_form.text_field :value
-            .col-1
-              = link_to "x", remove_option_admin_custom_fields_path(:option => index), :remote => true, :tabindex => "-1"
-        = option_title_form.hidden_field :locale, :value => locale_value
+.custom-field-option-locales{:id => "custom_field_option_#{index}", :class => (available_locales.size > 1 ? "custom-field-new-option-row-with-multiple-locales" : "")}
+  .row
+    .col-8{:class => available_locales.size > 1 ? "" : "custom-field-column-without-bottom-margin"}
+      = fields_for "custom_field[option_attributes][#{index}][]", CustomFieldOption.new do |option_form|
+        - available_locales.each do |locale_name, locale_value|
+          = fields_for "custom_field[option_attributes][#{index}][title_attributes][]", CustomFieldOptionTitle.new do |option_title_form|
+            = option_title_form.hidden_field :locale, :value => locale_value
+            - if available_locales.size > 1
+              .row.custom-field-option-locale-row
+                .col-3.custom-field-option-locale-column
+                  = option_title_form.label :value, locale_name + ": ", :class => "custom-field-option-with-multiple-locales-label"
+                .col-9.custom-field-option-locale-column
+                  = option_title_form.text_field :value
+            - else
+              .row
+                .col-12.custom-field-option-locale-column
+                  = option_title_form.text_field :value  
+    .col-4.custom-field-remove-option-link-container
+      = link_to remove_option_admin_custom_fields_path(:option => index), :class => (available_locales.size > 1 ? "custom-field-option-with-locale-remove" : "custom-field-option-remove"), :remote => true, :tabindex => "-1" do
+        = icon_tag("cross", ["icon-fix"])
