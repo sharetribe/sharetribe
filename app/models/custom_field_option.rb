@@ -6,6 +6,11 @@ class CustomFieldOption < ActiveRecord::Base
 
   has_many :titles, :class_name => "CustomFieldOptionTitle", :dependent => :destroy
 
+
+  has_many :selected_options, :dependent => :destroy
+  has_many :custom_field_values, :through => :selected_options
+
+
   def title(locale="en")
     t = titles.find { |title| title.locale == locale.to_s }
     t ? t.value : ""

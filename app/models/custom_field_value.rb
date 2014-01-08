@@ -6,6 +6,7 @@ class CustomFieldValue < ActiveRecord::Base
   attr_accessible :text_value
 
   has_many :selected_options, :dependent => :destroy
+  has_many :options, :through => :selected_options, :source => :custom_field_option
 
   delegate :sort_priority, :with_type, :to => :question
 end
