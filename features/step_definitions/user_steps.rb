@@ -189,7 +189,7 @@ end
 
 Given /^"([^"]*)" has admin rights in community "([^"]*)"$/ do |username, community|
   user = Person.find_by_username(username)
-  CommunityMembership.find_by_person_id_and_community_id(user.id, Community.find_by_name(community).id).update_attribute(:admin, true)
+  CommunityMembership.find_by_person_id_and_community_id(user.id, Community.find_by_domain(community).id).update_attribute(:admin, true)
 end
 
 Then /^I should see my username$/ do
