@@ -342,8 +342,6 @@ class Listing < ActiveRecord::Base
       with[:share_type_id] = params[:share_types][:id] if params[:share_types].present?
       
       with_all = {:custom_field_options => params[:custom_field_options]}
-      
-      puts "With all: #{with_all.inspect}"
             
       listings = Listing.search(params[:search],
                                 :include => params[:include], 
