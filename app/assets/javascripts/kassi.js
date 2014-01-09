@@ -1075,7 +1075,7 @@ function initialize_admin_listing_fields_view() {
   ST.newOptionAdded = (function removeLinkEnabledState(initialCount, minCount, containerSelector, linkSelector) {
     var enabled;
     var count = initialCount;
-    updateEnabled();
+    update();
 
     $(containerSelector).on("click", linkSelector, function(event) {
       event.preventDefault();
@@ -1084,34 +1084,24 @@ function initialize_admin_listing_fields_view() {
         var el = $(event.currentTarget);
         var container = el.closest(".custom-field-option-locales");
         container.remove();
-        removeCount();
+        count -= 1;
+        update();
       }
     });
 
-    function updateUI() {
+    function update() {
+      enabled = count > minCount;
+
       $links = $(linkSelector);
       $links.addClass(enabled ? "enabled" : "disabled");
       $links.removeClass(!enabled ? "enabled" : "disabled");
     }
 
-    function updateEnabled() {
-      enabled = count > minCount;
-    }
-
-    function addCount() {
-      count += 1;
-      updateEnabled();
-      updateUI();
-    }
-
-    function removeCount() {
-      count -= 1;
-      updateEnabled();
-      updateUI();
-    }
-
     return {
-      add: addCount
+      add: function() {
+        count += 1;
+        update();
+      }
     };
 
   })(2, 2, "#options", ".custom-field-option-with-locale-remove").add;

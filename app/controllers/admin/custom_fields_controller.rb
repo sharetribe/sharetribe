@@ -36,11 +36,4 @@ class Admin::CustomFieldsController < ApplicationController
     end
   end
   
-  def remove_option
-    session[:option_amount] -= 1
-    respond_to do |format|
-      format.js { render :layout => false }
-    end
-  end
-  
 end
