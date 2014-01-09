@@ -10,6 +10,10 @@ class CustomField < ActiveRecord::Base
 
   has_many :answers, :class_name => "CustomFieldValue", :dependent => :destroy
   
+  has_many :options, :class_name => "CustomFieldOption"
+  
+  belongs_to :community
+  
   VALID_TYPES = [["dropdown", "DropdownField"]]
 
   validates_length_of :names, :minimum => 1

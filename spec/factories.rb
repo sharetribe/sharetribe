@@ -160,15 +160,26 @@ FactoryGirl.define do
 
   factory :custom_field do
     type "DropdownField"
+    before(:create) do |custom_field|
+      custom_field.categories << FactoryGirl.create(:category)
+      custom_field
+      puts "Custom field categories: #{custom_field.categories.inspect}"
+      custom_field.names << FactoryGirl.create(:custom_field_name)
+    end
   end
 
   factory :category_custom_field do
-    association :category
-    association :custom_field
+    category
+    custom_field
   end
 
   factory :custom_field_option do
-
+    association :custom_field
+  end
+  
+  factory :custom_field_name do
+    value "Test field"
+    locale "en"
   end
   
   factory :share_type do

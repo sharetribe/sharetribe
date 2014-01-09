@@ -341,6 +341,9 @@ class Listing < ActiveRecord::Base
 
       with[:category_id] = params[:categories][:id] if params[:categories].present?
       with[:share_type_id] = params[:share_types][:id] if params[:share_types].present?
+      
+      with_all = {:custom_field_options => params[:custom_field_options]}
+      with_all = {}
             
       listings = Listing.search(params[:search],
                                 :include => params[:include], 
@@ -348,6 +351,7 @@ class Listing < ActiveRecord::Base
                                 :per_page => per_page, 
                                 :star => true,
                                 :with => with,
+                                :with_all => with_all,
                                 :order => params[:sort]
                                 )
                                 

@@ -109,7 +109,23 @@
               - if category.children.include?(possible_subcategory)
                 - is_selected = possible_subcategory.name == params[:category]
                 = link_to possible_subcategory.display_name.mb_chars.capitalize.to_s, params.merge({category: possible_subcategory.name}), :class => "home-categories-sub #{if is_selected then 'selected' end}", :data => {:"sub-category" =>possible_subcategory.name}
-
+      
+      - unless @current_community.custom_fields.empty?
+        = form_tag "/", :method => :get do
+          - @current_community.custom_fields.each do |field|
+            .custom-filter
+              .custom-filter-title
+                = field.name(I18n.locale)
+              - field.options.each do |option|
+                .custom-filter-checkbox-container
+                  = check_box_tag "filter_option_#{option.id}", "#{option.id}", params["filter_option_#{option.id}"]
+                  = label_tag "custom_filter", option.title(I18n.locale), :class => "custom-filter-checkbox-label"
+          - params.except("action", "controller").each do |param, value|
+            - unless param.match(/^filter_option/)
+              = hidden_field_tag param, value
+          %button{type: 'submit'}
+            = t(".update_filters")
+        
   - main_container_class = if @category_menu_enabled then "col-9" else "col-12" end
   %div{:class => main_container_class}
     - if @listings.total_entries > 0
