@@ -58,6 +58,10 @@ $add-custom-field-option-with-multiple-locales-label-top-padding: 5px; // Used t
   position: absolute;
   right: 0;
   top: 0;
+
+  &.disabled {
+    color: $border;
+  }
 }
 
 .custom-field-new-option-row-with-multiple-locales {

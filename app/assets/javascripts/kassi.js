@@ -1070,6 +1070,51 @@ function initialize_admin_listing_fields_view() {
     }
    });
 
+  // Create ST namespace if not exist
+  window.ST = window.ST || {}
+  ST.newOptionAdded = (function removeLinkEnabledState(initialCount, minCount, containerSelector, linkSelector) {
+    var enabled;
+    var count = initialCount;
+    updateEnabled();
+
+    $(containerSelector).on("click", linkSelector, function(event) {
+      event.preventDefault();
+
+      if(enabled) {
+        var el = $(event.currentTarget);
+        var container = el.closest(".custom-field-option-locales");
+        container.remove();
+        removeCount();
+      }
+    });
+
+    function updateUI() {
+      $links = $(linkSelector);
+      $links.addClass(enabled ? "enabled" : "disabled");
+      $links.removeClass(!enabled ? "enabled" : "disabled");
+    }
+
+    function updateEnabled() {
+      enabled = count > minCount;
+    }
+
+    function addCount() {
+      count += 1;
+      updateEnabled();
+      updateUI();
+    }
+
+    function removeCount() {
+      count -= 1;
+      updateEnabled();
+      updateUI();
+    }
+
+    return {
+      add: addCount
+    };
+
+  })(2, 2, "#options", ".custom-field-option-with-locale-remove").add;
 }
 
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {
