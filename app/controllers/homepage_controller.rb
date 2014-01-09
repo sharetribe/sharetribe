@@ -93,6 +93,7 @@ class HomepageController < ApplicationController
   
   private
   
+  # Extract correct type of array from query parameters
   def self.custom_field_options_for_search(params)
     option_ids = []
     option_hash = {}

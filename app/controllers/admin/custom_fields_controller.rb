@@ -8,7 +8,7 @@ class Admin::CustomFieldsController < ApplicationController
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "listing_fields"
     @community = @current_community
-    @custom_field = DropdownField.new
+    @custom_field = Dropdown.new
     @custom_fields = @current_community.categories.flat_map(&:custom_fields).uniq.sort
     @custom_field.options = [CustomFieldOption.new, CustomFieldOption.new]
     session[:option_amount] = 1
@@ -17,7 +17,7 @@ class Admin::CustomFieldsController < ApplicationController
   def create
 
     success = if valid_categories?(@current_community, params[:custom_field][:category_attributes])
-      @custom_field = DropdownField.new(params[:custom_field])
+      @custom_field = Dropdown.new(params[:custom_field])
       @custom_field.community = @current_community
       @custom_field.save
     end
@@ -28,7 +28,7 @@ class Admin::CustomFieldsController < ApplicationController
   end
 
   def destroy
-    @custom_field = DropdownField.find(params[:id])
+    @custom_field = Dropdown.find(params[:id])
     success = @custom_field.destroy
     redirect_to admin_custom_fields_path
   end
