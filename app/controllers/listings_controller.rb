@@ -263,7 +263,7 @@ class ListingsController < ApplicationController
       case question_type
       when :dropdown
         option_id = answer_value.to_i
-        answer.selected_options = [CustomFieldOption.find(option_id)]
+        answer.custom_field_option_selections = [CustomFieldOptionSelection.new(:custom_field_value => answer, :custom_field_option_id => answer_value)]
         answer
       else
         throw "Unimplemented custom field answer for question #{question_type}"

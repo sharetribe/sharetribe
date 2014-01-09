@@ -3,6 +3,7 @@ Feature: Admin adds custom field for category
   Background:
     Given I am logged in as "kassi_testperson2"
     And "kassi_testperson2" has admin rights in community "test"
+    And community "test" has custom fields enabled
     And I am on the custom fields admin page
     Then I should see that I do not have any custom fields
 
