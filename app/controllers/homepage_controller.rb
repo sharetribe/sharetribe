@@ -1,6 +1,4 @@
 class HomepageController < ApplicationController
-  
-  require "addressable/uri"
 
   before_filter :save_current_path, :except => :sign_in
 
