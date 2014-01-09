@@ -42,7 +42,6 @@ class Admin::CustomFieldsController < ApplicationController
 
   # Return `true` if all the category id's belong to `community`
   def valid_categories?(community, category_attributes)
-    binding.pry
     is_community_category = category_attributes.map do |category|
       community.categories.any? { |community_category| community_category.id == category[:category_id].to_i }
     end
