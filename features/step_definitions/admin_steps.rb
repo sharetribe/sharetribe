@@ -38,14 +38,37 @@ When /^I remove custom field "(.*?)"$/ do |title|
   find_remove_link_for_custom_field(title).click()
 end
 
-When /^I add a new custom field "(.*?)" for category "(.*?)" with options "(.*?)" and "(.*?)"$/ do |field_name, category, opt1, opt2|
+When /^I toggle category "(.*?)"$/ do |category|
+  find(:css, "label", :text => category).click()
+end
+
+When /^I add a new custom field "(.*?)"$/ do |field_name|
   steps %Q{
     When I follow "add-new-field-link"
-    And I fill in first "custom_field[name_attributes][][value]" with "#{field_name}"
-    And I check "#{category}"
-    And I fill in first "custom_field[option_attributes][0][title_attributes][][value]" with "#{opt1}"
+    And I fill in "custom_field[name_attributes][en]" with "#{field_name}"
+    And I fill in "custom_field[name_attributes][fi]" with "Talon tyyppi"
+    And I toggle category "Spaces"
+    And I fill in "custom_field[option_attributes][0][title_attributes][en]" with "Room"
+    And I fill in "custom_field[option_attributes][0][title_attributes][fi]" with "Huone"
+    And I fill in "custom_field[option_attributes][1][title_attributes][en]" with "Appartment"
+    And I fill in "custom_field[option_attributes][1][title_attributes][fi]" with "Asunto"
     And I follow "custom-fields-add-option"
-    And I fill in first "custom_field[option_attributes][2][title_attributes][][value]" with "#{opt2}"
+    And I fill in "custom_field[option_attributes][2][title_attributes][en]" with "House"
+    And I fill in "custom_field[option_attributes][2][title_attributes][fi]" with "Talo"
+    And I press submit
+  }
+end
+
+When /^I add a new custom field "(.*?)" with invalid data$/ do |field_name|
+  steps %Q{
+    When I follow "add-new-field-link"
+    And I fill in "custom_field[name_attributes][en]" with "#{field_name}"
+    And I fill in "custom_field[option_attributes][0][title_attributes][en]" with "Room"
+    And I fill in "custom_field[option_attributes][0][title_attributes][fi]" with "Huone"
+    And I fill in "custom_field[option_attributes][1][title_attributes][en]" with "Appartment"
+    And I follow "custom-fields-add-option"
+    And I fill in "custom_field[option_attributes][2][title_attributes][en]" with "House"
+    And I fill in "custom_field[option_attributes][2][title_attributes][fi]" with "Talo"
     And I press submit
   }
 end

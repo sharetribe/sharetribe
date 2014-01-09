@@ -1035,7 +1035,9 @@ function initialize_admin_edit_tribe_look_and_feel_form(locale, community_id, in
    });
 }
 
-function initialize_admin_listing_fields_view() {
+function initialize_admin_listing_fields_view(locale) {
+  translate_validation_messages(locale);
+
   $('#add-new-field-link').click(function(link) {
     $('#new-field-form').show();
     $('#add-new-field-link').hide();  

@@ -274,6 +274,16 @@ When /^I confirm alert popup$/ do
   page.driver.browser.switch_to.alert.accept unless ENV['PHANTOMJS']
 end
 
+Then /^I should see validation error$/ do
+  find("label.error").should be_visible
+end
+
+Then /^I should see (\d+) validation errors$/ do |errors_count|
+  errors = all("label.error");
+  errors.size.should eql(errors_count.to_i)
+  all("label.error").each { |error| error.should be_visible }
+end
+
 Then /^take a screenshot$/ do
   save_screenshot('screenshot.png')
 end

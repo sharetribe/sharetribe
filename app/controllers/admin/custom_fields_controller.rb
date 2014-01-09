@@ -11,7 +11,7 @@ class Admin::CustomFieldsController < ApplicationController
     @custom_field = DropdownField.new
     @custom_fields = @current_community.categories.flat_map(&:custom_fields).uniq.sort
     @custom_field.options = [CustomFieldOption.new, CustomFieldOption.new]
-    session[:option_amount] = 2
+    session[:option_amount] = 1
   end
   
   def create
