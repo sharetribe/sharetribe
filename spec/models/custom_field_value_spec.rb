@@ -8,12 +8,12 @@ describe CustomFieldValue do
       @value.should_not be_valid
 
       @value1 = CustomFieldValue.new
-      @value1.selected_options << SelectedOption.new()
+      @value1.custom_field_option_selections << CustomFieldOptionSelection.new()
       @value1.should be_valid
 
       @value2 = CustomFieldValue.new
-      @value2.selected_options << SelectedOption.new()
-      @value2.selected_options << SelectedOption.new()
+      @value2.custom_field_option_selections << CustomFieldOptionSelection.new()
+      @value2.custom_field_option_selections << CustomFieldOptionSelection.new()
       @value2.should_not be_valid
     end
   end
