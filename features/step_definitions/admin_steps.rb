@@ -39,6 +39,9 @@ When /^I remove custom field "(.*?)"$/ do |title|
     Given I will confirm all following confirmation dialogs if I am running PhantomJS
   }
   find_remove_link_for_custom_field(title).click()
+  steps %Q{
+    And I confirm alert popup
+  }
 end
 
 When /^I toggle category "(.*?)"$/ do |category|
