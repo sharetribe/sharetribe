@@ -143,11 +143,12 @@ end
 
 Given /^there is a dropdown field "(.*?)" for category "(.*?)" with options:$/ do |field_title, category_name, opts_table|
   @category = Category.find_by_name(category_name)
-  @custom_field = FactoryGirl.create(:custom_field, :type => "DropdownField", :categories => [@category])
+  @custom_field = FactoryGirl.build(:custom_field, :type => "DropdownField")
+  @custom_field.category_custom_fields << FactoryGirl.build(:category_custom_field, :category => @category, :custom_field => @custom_field)
   @custom_field.names << CustomFieldName.create(:value => field_title, :locale => "en")
   
   opts_table.hashes.each do |hash|
-    option = FactoryGirl.create(:custom_field_option)
+    option = FactoryGirl.build(:custom_field_option)
     option.titles << CustomFieldOptionTitle.create(:value => hash[:title], :locale => "en")
     @custom_field.options << option
   end
