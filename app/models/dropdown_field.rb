@@ -22,7 +22,6 @@ class DropdownField < CustomField
   end
 
   def option_attributes=(attributes)
-    logger.info "Attributes: #{attributes.inspect}"
     attributes.each { |index, option| options.build(option) }
   end
 end

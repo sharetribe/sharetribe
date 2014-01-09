@@ -14,7 +14,7 @@ class CustomFieldOption < ActiveRecord::Base
   end
   
   def title_attributes=(attributes)
-    attributes.each { |title| titles.build(:value => title[:value], :locale => title[:locale]) }
+    attributes.each { |locale, value| titles.build(:value => value, :locale => locale) }
   end
   
 end
