@@ -321,7 +321,7 @@ class Listing < ActiveRecord::Base
     
     
     # Two ways of finding, with or without sphinx
-    if params[:search].present? || params[:share_type].present? || params[:category].present?
+    if params[:search].present? || params[:share_type].present? || params[:category].present? || params[:custom_field_options].present?
       
       # sort by time by default
       params[:sort] ||= 'created_at DESC'
@@ -342,7 +342,8 @@ class Listing < ActiveRecord::Base
       with[:share_type_id] = params[:share_types][:id] if params[:share_types].present?
       
       with_all = {:custom_field_options => params[:custom_field_options]}
-      with_all = {}
+      
+      puts "With all: #{with_all.inspect}"
             
       listings = Listing.search(params[:search],
                                 :include => params[:include], 
