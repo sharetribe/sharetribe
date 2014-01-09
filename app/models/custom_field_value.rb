@@ -9,7 +9,7 @@ class CustomFieldValue < ActiveRecord::Base
   has_many :selected_options, :through => :custom_field_option_selections, :source => :custom_field_option
 
   # Hard-coded for Dropdowns
-  validates_length_of :selected_options, :is => 1
+  validates_length_of :custom_field_option_selections, :is => 1
 
   delegate :sort_priority, :with_type, :to => :question
 end

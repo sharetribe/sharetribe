@@ -13,4 +13,4 @@ Feature: Admin removes custom field from category
   @javascript
   Scenario: Admin removes custom field from category
     When I remove custom field "House type"
-    Then I should see that there is no custom field "House type"
+    Then I should see that I do not have any custom fields

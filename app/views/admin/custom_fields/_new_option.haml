@@ -3,7 +3,7 @@
     .col-8{:class => available_locales.size > 1 ? "" : "custom-field-column-without-bottom-margin"}
       = fields_for "custom_field[option_attributes][#{index}][]", CustomFieldOption.new do |option_form|
         - show_locales = available_locales.size > 1
-        - input_col_size = show_locales ? "12" : "9"
+        - input_col_size = show_locales ? "9" : "12"
         - available_locales.each do |locale_name, locale_value|
           .row.custom-field-option-locale-row
             - if show_locales
