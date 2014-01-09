@@ -1044,6 +1044,32 @@ function initialize_admin_listing_fields_view() {
     $('#new-field-form').hide();
     $('#add-new-field-link').show();  
   });
+
+  var form_id = "#new_dropdown_field";
+  var $form = $(form_id);
+  var CATEGORY_CHECKBOX_NAME = "custom_field[category_attributes][][category_id]";
+
+  var rules = {}
+  rules[CATEGORY_CHECKBOX_NAME] = {
+    required: true
+  };
+
+  $(form_id).validate({
+    rules: rules,
+    errorPlacement: function(error, element) {
+      // Custom placement for checkbox group
+      if (element.attr("name") === CATEGORY_CHECKBOX_NAME) {
+        var container = $("#custom-field-categories-container")
+        error.insertAfter(container);
+      } else {
+        error.insertAfter(element);
+      }
+    },
+    submitHandler: function(form) {
+      disable_and_submit(form_id, form, "false", locale);
+    }
+   });
+
 }
 
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {

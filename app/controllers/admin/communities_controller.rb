@@ -48,7 +48,7 @@ class Admin::CommunitiesController < ApplicationController
     
     if @community.update_attributes(params[:community])
       flash[:notice] = t("layouts.notifications.community_updated")
-      @community.generate_customization_stylesheet if need_to_regenerate_css
+      CommunityStylesheetCompiler.compile(@community) if need_to_regenerate_css
       redirect_to (return_to_action == :edit_look_and_feel ? 
                    edit_look_and_feel_admin_community_path(@community) : 
                    edit_details_admin_community_path(@community))  

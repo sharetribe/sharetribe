@@ -11,6 +11,10 @@ FactoryGirl.define do
     "sharetribe_testcommunity_#{n}" 
   end
 
+  sequence :category_name do |n|
+    "item_#{n}" 
+  end
+
 
   factory :person, aliases: [:author, :receiver, :recipient, :payer] do
     is_admin 0
@@ -150,7 +154,7 @@ FactoryGirl.define do
   end
   
   factory :category do
-    name "item"
+    name { generate(:category_name) }
     icon "item"
   end
 

@@ -1,5 +1,8 @@
 @import "mixins/all";
 
+$add-custom-field-label-top-padding: 7px; // Used to center label text vertically with inline text field
+$add-custom-field-option-with-multiple-locales-label-top-padding: 5px; // Used to center label text vertically with inline text field
+
 .custom-fields-list-title,
 .custom-fields-mobile-list-title {
   font-weight: bold;
@@ -12,14 +15,13 @@
 
 .new-field-form {
   display: none;
+  border-top: 1px solid $border;
+  padding-top: lines(1);
 }
 
 .new-field-name-locale-label {
   font-weight: 500;
-}
-
-.new-field-name-locale-text-field {
-  max-width: lines(10);
+  margin: $add-custom-field-label-top-padding 0 0 0;
 }
 
 .custom-field-categories-checkbox-container {
@@ -36,9 +38,58 @@
   display: inline-block;
   width: auto;
   font-weight: normal;
-  margin-left: lines(0.25);
+  margin: 0 0 0 lines(0.25);
 }
 
 .add-custom-field-buttons {
   width: 100%;
+}
+
+.custom-field-option-remove {
+  display: inline-block;
+  padding-top: $add-custom-field-label-top-padding; // To center with form field
+}
+
+.custom-field-remove-option-link-container {
+  position: relative;
+}
+
+.custom-field-option-with-locale-remove {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.custom-field-new-option-row-with-multiple-locales {
+  padding: lines(0.5) lines(0.5) 0 lines(0.5);
+}
+
+.custom-field-options {
+  div.custom-field-new-option-row-with-multiple-locales:nth-of-type(odd) {
+    background: $highlight;
+  }
+}
+
+.custom-field-option-locales {
+  margin-bottom: lines(0.25);
+}
+
+.custom-field-option-locale-column {
+  margin-bottom: lines(0.125);
+}
+
+.custom-field-column-without-bottom-margin {
+  margin-bottom: 0;
+}
+
+.custom-field-option-with-multiple-locales-label {
+  margin: $add-custom-field-option-with-multiple-locales-label-top-padding 0 0 0;
+}
+
+.custom-field-option-locale-row input[type=text]{
+  @include media(tablet) {
+    margin: 0;
+    padding: 0;
+    min-height: 36px;
+  }
 }

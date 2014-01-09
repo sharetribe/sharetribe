@@ -6,9 +6,10 @@ class CustomFieldOption < ActiveRecord::Base
 
   has_many :titles, :class_name => "CustomFieldOptionTitle", :dependent => :destroy
 
-
   has_many :custom_field_option_selections, :dependent => :destroy
   has_many :custom_field_values, :through => :custom_field_option_selections
+
+  validates_length_of :titles, :minimum => 1
 
 
   def title(locale="en")
@@ -17,7 +18,7 @@ class CustomFieldOption < ActiveRecord::Base
   end
   
   def title_attributes=(attributes)
-    attributes.each { |title| titles.build(:value => title[:value], :locale => title[:locale]) }
+    attributes.each { |locale, value| titles.build(:value => value, :locale => locale) }
   end
   
 end

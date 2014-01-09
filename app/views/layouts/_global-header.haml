@@ -22,18 +22,18 @@
 
     .right-side
       - show_contact_us = !@current_user
-      = link_to t("header.home").downcase, "/", :class => "global-navi global-navi-left", :id => "global-navi-home"
+      = link_to t("header.home").mb_chars.downcase.to_s, "/", :class => "global-navi global-navi-left", :id => "global-navi-home"
       
       - about_class = show_contact_us ? "global-navi-left" : available_locales.size > 1 ? "" : "global-navi-left"
       - contact_us_class = available_locales.size > 1 ? "" : "global-navi-left"
-      = link_to t("header.about").downcase, about_infos_path, :class => "global-navi #{about_class}", :id => "global-navi-about"
+      = link_to t("header.about").mb_chars.downcase.to_s, about_infos_path, :class => "global-navi #{about_class}", :id => "global-navi-about"
       - if show_contact_us
-        = link_to t("header.contact_us").downcase, new_user_feedback_path, :class => "global-navi #{contact_us_class}", :id => "global-navi-contact-us"
+        = link_to t("header.contact_us").mb_chars.downcase.to_s, new_user_feedback_path, :class => "global-navi #{contact_us_class}", :id => "global-navi-contact-us"
 
       - with_available_locales do |locales|
         #global-navi-select-language.language-menu-toggle.toggle.hidden{data: {toggle: '.language-menu'}}
           .language-name
-            = get_full_locale_name(I18n.locale).downcase
+            = get_full_locale_name(I18n.locale).mb_chars.downcase.to_s
           = icon_tag("dropdown", ["icon-dropdown"])
           
           .language-menu.toggle-menu.hidden
@@ -93,7 +93,7 @@
           
         
       - else
-        = link_to t("layouts.logged_in.login").downcase, login_path, :class => "global-navi login-link", :id => "login-link"
+        = link_to t("layouts.logged_in.login").mb_chars.downcase.to_s, login_path, :class => "global-navi login-link", :id => "login-link"
       
       .new-listing-link
         = link_to t("homepage.index.post_new_listing"), new_listing_path, :class => "action-button", :id => "new-listing-link"
