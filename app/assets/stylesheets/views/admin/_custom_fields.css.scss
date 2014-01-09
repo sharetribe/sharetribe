@@ -46,22 +46,24 @@ $add-custom-field-option-with-multiple-locales-label-top-padding: 5px; // Used t
 }
 
 .custom-field-option-remove {
-  display: inline-block;
-  padding-top: $add-custom-field-label-top-padding; // To center with form field
+  &.disabled {
+    color: $border;
+  }
 }
 
 .custom-field-remove-option-link-container {
   position: relative;
 }
 
+.custom-field-option-without-locale-remove{
+  display: inline-block;
+  padding-top: $add-custom-field-label-top-padding; // To center with form field
+}
+
 .custom-field-option-with-locale-remove {
   position: absolute;
   right: 0;
   top: 0;
-
-  &.disabled {
-    color: $border;
-  }
 }
 
 .custom-field-new-option-row-with-multiple-locales {

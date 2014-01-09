@@ -1104,7 +1104,7 @@ function initialize_admin_listing_fields_view() {
       }
     };
 
-  })(2, 2, "#options", ".custom-field-option-with-locale-remove").add;
+  })(2, 2, "#options", ".custom-field-option-remove").add;
 }
 
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {
