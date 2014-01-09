@@ -15,8 +15,10 @@ class Admin::CustomFieldsController < ApplicationController
   end
   
   def create
-    @custom_field = DropdownField.new(params[:custom_field])
-    success = @custom_field.save
+    success = if valid_categories?(@current_community, params[:custom_field][:category_attributes])
+      @custom_field = DropdownField.new(params[:custom_field])
+      @custom_field.save
+    end
 
     flash[:error] = "Listing field saving failed" unless success
 
@@ -35,5 +37,17 @@ class Admin::CustomFieldsController < ApplicationController
       format.js { render :layout => false }
     end
   end
-  
+
+  private
+
+  # Return `true` if all the category id's belong to `community`
+  def valid_categories?(community, category_attributes)
+    binding.pry
+    is_community_category = category_attributes.map do |category|
+      community.categories.any? { |community_category| community_category.id == category[:category_id].to_i }
+    end
+
+    is_community_category.all?
+  end
+
 end
