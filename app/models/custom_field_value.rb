@@ -5,8 +5,8 @@ class CustomFieldValue < ActiveRecord::Base
   belongs_to :question, :class_name => "CustomField", :foreign_key => "custom_field_id"
   attr_accessible :text_value
 
-  has_many :selected_options, :dependent => :destroy
-  has_many :options, :through => :selected_options, :source => :custom_field_option
+  has_many :custom_field_option_selections, :dependent => :destroy
+  has_many :selected_options, :through => :custom_field_option_selections, :source => :custom_field_option
 
   delegate :sort_priority, :with_type, :to => :question
 end

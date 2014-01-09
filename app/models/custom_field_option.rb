@@ -7,8 +7,8 @@ class CustomFieldOption < ActiveRecord::Base
   has_many :titles, :class_name => "CustomFieldOptionTitle", :dependent => :destroy
 
 
-  has_many :selected_options, :dependent => :destroy
-  has_many :custom_field_values, :through => :selected_options
+  has_many :custom_field_option_selections, :dependent => :destroy
+  has_many :custom_field_values, :through => :custom_field_option_selections
 
 
   def title(locale="en")
