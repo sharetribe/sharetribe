@@ -13,7 +13,7 @@ class CustomFieldOption < ActiveRecord::Base
 
 
   def title(locale="en")
-    t = titles.find { |title| title.locale == locale.to_s }
+    t = titles.find { |title| title.locale == locale.to_s } || titles.first # Fallback to first
     t ? t.value : ""
   end
   
