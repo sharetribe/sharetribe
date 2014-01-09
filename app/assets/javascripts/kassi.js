@@ -1044,6 +1044,16 @@ function initialize_admin_listing_fields_view() {
     $('#new-field-form').hide();
     $('#add-new-field-link').show();  
   });
+
+  var form_id = "#new_dropdown_field";
+  var $form = $(form_id)
+
+  $(form_id).validate({
+    submitHandler: function(form) {
+      disable_and_submit(form_id, form, "false", locale);
+    }
+   });
+
 }
 
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {
