@@ -167,7 +167,7 @@ class ListingsController < ApplicationController
       end
     end
 
-    @listing.custom_field_values = create_field_values(params[:custom_fields])
+    @listing.custom_field_values = create_field_values(params[:custom_fields]) if params[:custom_fields]
 
     if @listing.update_fields(params[:listing])
       @listing.location.update_attributes(params[:location]) if @listing.location
@@ -261,11 +261,8 @@ class ListingsController < ApplicationController
     question.with_type { |question_type|
       case question_type
       when :dropdown
-        selected = SelectedOption.new
         option_id = answer_value.to_i
-        option = CustomFieldOption.find(option_id)
-        selected.custom_field_option = option
-        answer.selected_options = [selected]
+        answer.selected_options = [CustomFieldOption.find(option_id)]
         answer
       else
         throw "Unimplemented custom field answer for question #{question_type}"
