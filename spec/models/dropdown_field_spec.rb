@@ -5,7 +5,7 @@ describe Dropdown do
     before(:each) do
       # Create valid Dropdown entity
       @dropdown = Dropdown.new
-      @dropdown.category_custom_fields << FactoryGirl.build(:category_custom_field, :custom_field => @dropdown_field)
+      @dropdown.category_custom_fields << FactoryGirl.build(:category_custom_field, :custom_field => @dropdown)
       @dropdown.names << CustomFieldName.new(:locale => "en", :value => "Field name")
       option1 = CustomFieldOption.new()
       option1_title = CustomFieldOptionTitle.new(:locale => "en", :value => "Field option1")
