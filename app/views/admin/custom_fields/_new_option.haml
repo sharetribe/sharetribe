@@ -13,5 +13,6 @@
             .custom-field-option-locale-column{:class => "col-#{input_col_size}"}
               = text_field_tag "custom_field[option_attributes][#{index}][title_attributes][#{locale_value}]", nil, :class => "required"
     .col-4.custom-field-remove-option-link-container
-      = link_to remove_option_admin_custom_fields_path(:option => index), :class => (available_locales.size > 1 ? "custom-field-option-with-locale-remove" : "custom-field-option-remove"), :remote => true, :tabindex => "-1" do
+      - link_class = "custom-field-option-#{(available_locales.size > 1 ? "with" : "without")}-locale-remove"
+      = link_to remove_option_admin_custom_fields_path(:option => index), :class => "custom-field-option-remove #{link_class}", :tabindex => "-1" do
         = icon_tag("cross", ["icon-fix"])

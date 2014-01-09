@@ -27,6 +27,8 @@ class Listing < ActiveRecord::Base
   belongs_to :category  
   belongs_to :share_type
 
+
+
   monetize :price_cents, :allow_nil => true
   
   attr_accessor :current_community_id
@@ -122,15 +124,13 @@ class Listing < ActiveRecord::Base
   
   # Index for sphinx search
   define_index do
-    
+
     # limit to open listings
     where "open = '1' AND (valid_until IS NULL OR valid_until > now())"
     
     # fields
     indexes title
     indexes description
-    indexes taggings.tag.name, :as => :tags
-    indexes comments.content, :as => :comments
     indexes category.translations.name, :as => :category
     indexes custom_field_values(:text_value), :as => :custom_text_fields
     
@@ -141,10 +141,9 @@ class Listing < ActiveRecord::Base
     has "privacy = 'public'", :as => :visible_to_everybody, :type => :boolean
     has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
     has communities(:id), :as => :community_ids
-    CustomField.all.each do |field|
-     has custom_field_values.selected_options(:custom_field_option_id), :type => :multi, :as => "options_ids_for_field_#{field.id}"
-    end
-    
+    has custom_field_values.selected_options(:id), :type => :multi, :as => "custom_field_options"
+      
+
     set_property :enable_star => true
     if APP_CONFIG.FLYING_SPHINX_API_KEY
       set_property :delta => false # try to get sphinx working  FlyingSphinx::DelayedDelta
@@ -160,7 +159,7 @@ class Listing < ActiveRecord::Base
       :comments    => 1
     }
   end
-  
+
   def set_community_visibilities
     if current_community_id
       communities.clear

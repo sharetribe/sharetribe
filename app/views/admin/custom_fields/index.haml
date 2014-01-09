@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_admin_listing_fields_view();
+  initialize_admin_listing_fields_view("#{I18n.locale}");
 
 - content_for :title_header do
   %h1= t(".listing_fields")

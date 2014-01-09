@@ -16,7 +16,7 @@ class DropdownField < CustomField
     answer = answer_for(listing)
 
     if answer
-      selected_option = answer.selected_options.first.custom_field_option # Select first, dropdown only has one answer
+      selected_option = answer.selected_options.first # Select first, dropdown only has one answer
       return selected_option.id
     end
   end

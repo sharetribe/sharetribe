@@ -1035,7 +1035,9 @@ function initialize_admin_edit_tribe_look_and_feel_form(locale, community_id, in
    });
 }
 
-function initialize_admin_listing_fields_view() {
+function initialize_admin_listing_fields_view(locale) {
+  translate_validation_messages(locale);
+
   $('#add-new-field-link').click(function(link) {
     $('#new-field-form').show();
     $('#add-new-field-link').hide();  
@@ -1070,6 +1072,41 @@ function initialize_admin_listing_fields_view() {
     }
    });
 
+  // Create ST namespace if not exist
+  window.ST = window.ST || {}
+  ST.newOptionAdded = (function removeLinkEnabledState(initialCount, minCount, containerSelector, linkSelector) {
+    var enabled;
+    var count = initialCount;
+    update();
+
+    $(containerSelector).on("click", linkSelector, function(event) {
+      event.preventDefault();
+
+      if(enabled) {
+        var el = $(event.currentTarget);
+        var container = el.closest(".custom-field-option-locales");
+        container.remove();
+        count -= 1;
+        update();
+      }
+    });
+
+    function update() {
+      enabled = count > minCount;
+
+      $links = $(linkSelector);
+      $links.addClass(enabled ? "enabled" : "disabled");
+      $links.removeClass(!enabled ? "enabled" : "disabled");
+    }
+
+    return {
+      add: function() {
+        count += 1;
+        update();
+      }
+    };
+
+  })(2, 2, "#options", ".custom-field-option-remove").add;
 }
 
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {

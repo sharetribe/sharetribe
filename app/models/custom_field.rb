@@ -29,7 +29,7 @@ class CustomField < ActiveRecord::Base
   end
 
   def name(locale="en")
-    n = names.find { |name| name.locale == locale.to_s }
+    n = names.find { |name| name.locale == locale.to_s } || names.first # Fallback to first
     n ? n.value : ""
   end
 

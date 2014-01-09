@@ -158,7 +158,7 @@ FactoryGirl.define do
     icon "item"
   end
 
-  factory :custom_field do
+  factory :custom_field, class: 'DropdownField' do
     type "DropdownField"
     before(:create) do |custom_field|
       custom_field.categories << FactoryGirl.create(:category)
