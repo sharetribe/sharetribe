@@ -21,7 +21,7 @@ class CustomField < ActiveRecord::Base
   end
   
   def category_attributes=(attributes)
-    attributes.each { |category_id, category_present| category_custom_fields.build(:category_id => category_id) }
+    attributes.each { |category| category_custom_fields.build(category) }
   end
 
   def name(locale="en")

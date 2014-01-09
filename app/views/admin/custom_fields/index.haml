@@ -68,10 +68,10 @@
         = form.label :category_attributes, t(".categories")
         .row
           .col-12
-            .custom-field-categories-container.clearfix
+            .custom-field-categories-container.clearfix#custom-field-categories-container
               - @current_community.categories.reject { |c| !c.children.empty? }.each do |category|
                 .custom-field-categories-checkbox-container
-                  = check_box_tag "custom_field[category_attributes][#{category.id}]", "true", @custom_field.categories.include?(category) ? true : false, :id => "#{category.name}_checkbox", :class => "custom-field-category-checkbox"
+                  = check_box_tag "custom_field[category_attributes][][category_id]", "#{category.id}", @custom_field.categories.include?(category) ? true : false, :id => "#{category.name}_checkbox", :class => "custom-field-category-checkbox"
                   = label_tag "#{category.name}_checkbox", category.display_name, :class => "custom-field-category-checkbox-label"
       - else
         = hidden_field_tag "custom_field[category_attributes][#{@current_community.categories.first.id}]", "true"
