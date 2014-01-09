@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(:version => 20140109143257) do
     t.boolean  "automatic_newsletters",             :default => true
     t.boolean  "join_with_invite_only",             :default => false
     t.boolean  "use_captcha",                       :default => true
+    t.boolean  "email_confirmation",                :default => false
     t.text     "allowed_emails"
     t.boolean  "users_can_invite_new_users",        :default => false
     t.boolean  "news_enabled",                      :default => true
@@ -188,7 +189,6 @@ ActiveRecord::Schema.define(:version => 20140109143257) do
     t.boolean  "terms_change_allowed",              :default => false
     t.boolean  "privacy_policy_change_allowed",     :default => false
     t.boolean  "custom_fields_allowed",             :default => false
-    t.boolean  "email_confirmation"
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
@@ -331,6 +331,7 @@ ActiveRecord::Schema.define(:version => 20140109143257) do
     t.integer  "sort_priority"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "community_id"
   end
 
   create_table "delayed_jobs", :force => true do |t|
@@ -631,10 +632,10 @@ ActiveRecord::Schema.define(:version => 20140109143257) do
     t.datetime "created_at",                                              :null => false
     t.datetime "updated_at",                                              :null => false
     t.integer  "community_id"
-    t.string   "type",                     :default => "CheckoutPayment"
-    t.string   "braintree_transaction_id"
     t.integer  "sum_cents"
     t.string   "currency"
+    t.string   "type",                     :default => "CheckoutPayment"
+    t.string   "braintree_transaction_id"
   end
 
   add_index "payments", ["conversation_id"], :name => "index_payments_on_conversation_id"
@@ -651,6 +652,9 @@ ActiveRecord::Schema.define(:version => 20140109143257) do
     t.datetime "last_page_load_date"
     t.integer  "test_group_number",                                :default => 1
     t.boolean  "active",                                           :default => true
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.string   "username"
     t.string   "email"
     t.string   "encrypted_password",                               :default => "",   :null => false
@@ -686,9 +690,6 @@ ActiveRecord::Schema.define(:version => 20140109143257) do
     t.string   "checkout_merchant_id"
     t.string   "checkout_merchant_key"
     t.string   "organization_name"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
   end
 
   add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true

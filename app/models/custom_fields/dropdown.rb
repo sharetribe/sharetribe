@@ -1,9 +1,9 @@
-class DropdownField < CustomField
+class Dropdown < CustomField
 
   # Idea: In the future, if we have other field types with options (like checkbox or radio button)
   # we could move this to subclasses, etc:
-  # DropdownField < OptionField < CustomField
-  # CheckboxField < OptionField < CustomField
+  # Dropdown < OptionField < CustomField
+  # Checkbox < OptionField < CustomField
   has_many :options, :class_name => "CustomFieldOption", :dependent => :destroy, :foreign_key => 'custom_field_id'
   
   validates_length_of :options, :minimum => 2

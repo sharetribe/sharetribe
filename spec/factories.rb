@@ -158,17 +158,34 @@ FactoryGirl.define do
     icon "item"
   end
 
-  factory :custom_field, class: 'DropdownField' do
-    type "DropdownField"
+  factory :custom_field, class: 'Dropdown' do
+    type "Dropdown"
+    before(:create) do |custom_field|
+      category = FactoryGirl.create(:category)
+      custom_field.category_custom_fields << FactoryGirl.create(:category_custom_field, :category => category, :custom_field => custom_field)
+      custom_field.names << FactoryGirl.create(:custom_field_name)
+      custom_field.options << FactoryGirl.create(:custom_field_option)
+      custom_field.options << FactoryGirl.create(:custom_field_option)
+    end
   end
 
   factory :category_custom_field do
-    association :category
-    association :custom_field
+    category
+    custom_field
   end
 
   factory :custom_field_option do
-
+    titles { [ FactoryGirl.create(:custom_field_option_title) ] }
+  end
+  
+  factory :custom_field_option_title do
+    value "Test option"
+    locale "en"
+  end
+  
+  factory :custom_field_name do
+    value "Test field"
+    locale "en"
   end
   
   factory :share_type do

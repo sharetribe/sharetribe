@@ -763,6 +763,8 @@ en:
       ride_request: "A ride to work"
       some_private_offers_exist: "There are already <b>%{number_of_listings} offers</b>,"
       some_private_requests_exist: "There are already <b>%{number_of_listings} requests</b>,"
+    custom_filters:
+      update_view: "Update view"
     event_feed:
       latest_events: "What's going on"
     grid_item:

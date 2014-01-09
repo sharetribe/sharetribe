@@ -11,7 +11,7 @@ class HomepageController < ApplicationController
     ## Support old /?map=true URL START
     ## This can be removed after March 2014
     if !params[:view] && params[:map] == "true" then
-      redirect_params = params.except(:map).merge({view: "map"});
+      redirect_params = params.except(:map).merge({view: "map"})
       redirect_to url_for(redirect_params), status: :moved_permanently
     end
     ## Support old /?map=true URL END
@@ -56,6 +56,7 @@ class HomepageController < ApplicationController
     
     @filter_params[:search] = params[:q] if params[:q]
     @filter_params[:include] = [:listing_images, :author, :category, :share_type]
+    @filter_params[:custom_field_options] = HomepageController.custom_field_options_for_search(params)
       
     @listings = Listing.find_with(@filter_params, @current_user, @current_community, listings_per_page, params[:page])
 
@@ -87,4 +88,32 @@ class HomepageController < ApplicationController
       app_default
     end
   end
+  
+  private
+  
+  # Extract correct type of array from query parameters
+  def self.custom_field_options_for_search(params)
+    option_ids = []
+    option_hash = {}
+    array_for_search = []
+    
+    params.each do |key, value|
+      if key.to_s.match(/^filter_option/)
+        option_ids << value
+      end  
+    end
+    
+    custom_field_options = CustomFieldOption.find(option_ids)
+    custom_field_options.each do |cfo|
+      option_hash[cfo.custom_field_id] ||= []
+      option_hash[cfo.custom_field_id] << cfo.id
+    end
+    
+    option_hash.each do |key, value|
+      array_for_search << value
+    end
+    
+    array_for_search
+  end
+  
 end

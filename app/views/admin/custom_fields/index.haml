@@ -28,7 +28,7 @@
             %span.custom-fields-mobile-list-title.hidden-tablet
               = t(".field_type")
             %div
-              = custom_field.type
+              = t("admin.custom_fields.field_types.#{custom_field.type.downcase}")
             %div.custom-fields-list-options
               = custom_field.options.collect { |option| option.title(I18n.locale) }.join(", ")
           .col-2

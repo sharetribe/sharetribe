@@ -1047,7 +1047,7 @@ function initialize_admin_listing_fields_view(locale) {
     $('#add-new-field-link').show();  
   });
 
-  var form_id = "#new_dropdown_field";
+  var form_id = "#new_dropdown";
   var $form = $(form_id);
   var CATEGORY_CHECKBOX_NAME = "custom_field[category_attributes][][category_id]";
 
