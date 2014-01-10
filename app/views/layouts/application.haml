@@ -54,6 +54,7 @@
       FastClick.attach(document.body);
     });
 
-  = yield(:extra_javascript)
+  = content_for :extra_javascript
+
   :javascript
     $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
