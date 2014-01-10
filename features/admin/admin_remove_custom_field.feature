@@ -1,7 +1,7 @@
 Feature: Admin removes custom field from category
   
   Background:
-    Given there is a dropdown field "House type" for category "housing" with options:
+    Given there is a dropdown field "House type" for category "housing" in community "test" with options:
       | title |
       | condo |
       | house |

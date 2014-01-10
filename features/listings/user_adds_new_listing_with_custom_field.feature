@@ -5,7 +5,7 @@ Feature: User adds new listing with custom field
 
   Background:
     Given there is a logged in user "real_estate_seller"
-    And there is a dropdown field "House type" for category "housing" with options:
+    And there is a dropdown field "House type" for category "housing" in community "test" with options:
       | title |
       | condo |
       | house |

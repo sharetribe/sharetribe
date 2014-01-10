@@ -160,6 +160,7 @@ FactoryGirl.define do
 
   factory :custom_field, class: 'Dropdown' do
     type "Dropdown"
+    community
     before(:create) do |custom_field|
       category = FactoryGirl.create(:category)
       custom_field.category_custom_fields << FactoryGirl.create(:category_custom_field, :category => category, :custom_field => custom_field)

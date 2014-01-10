@@ -18,6 +18,7 @@ class CustomField < ActiveRecord::Base
 
   validates_length_of :names, :minimum => 1
   validates_length_of :category_custom_fields, :minimum => 1
+  validates_presence_of :community
   
   def name_attributes=(attributes)
     build_attrs = attributes.map { |locale, value| {locale: locale, value: value } }
