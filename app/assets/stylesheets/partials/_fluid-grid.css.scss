@@ -36,13 +36,7 @@ $bottom-gutter: lines(0.5);
 }
 
 .row {
-  @include clearfix;
-
-  &.overflow-visible {
-    // Overflow hidden hides some input element selection highlights.
-    // Thus, you might want to turn if off
-    overflow: visible;
-  }
+  @include pie-clearfix;
 }
 
 .row-with-divider {

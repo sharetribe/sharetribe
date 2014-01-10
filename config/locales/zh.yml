@@ -44,11 +44,18 @@ zh:
       index:
         listing_fields: ~
         add_new_field: ~
+        remove_field_confirmation: ~
         cancel: ~
         save: ~
         field_title: ~
         field_type: ~
-        category: ~
+        categories: ~
+        add_new_field_to_listing_form: ~
+        no_custom_listing_fields: ~
+        dropdown_options: ~
+        add_option: ~
+      field_types:
+        dropdown: ~
     emails:
       new:
         send_email_to_members: ~
@@ -756,6 +763,8 @@ zh:
       ride_request: 搭车去上班
       some_private_offers_exist: "已有<b>%{number_of_listings}个提议</b>,"
       some_private_requests_exist: "已有<b>%{number_of_listings} 请求</b>,"
+    custom_filters:
+      update_view: ~
     event_feed:
       latest_events: 事情发展的如何
     grid_item:
@@ -1056,6 +1065,9 @@ zh:
       follow: 关注此列表
       unfollow: 不再关注此列表
     form:
+      custom_field_partials:
+        dropdown:
+          select_one___: ~
       departure_time:
         at: 在
         departure_time: 出发时间

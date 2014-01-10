@@ -31,7 +31,7 @@ fr:
         cover_photo_instructions_text_with_dimensions: "La photo sera redimensionnée en %{width}x%{height} pixels et les images trop grandes seront coupées au centre."
         small_cover_photo_visibility: "La photo de couverture réduite est affichée sur toute les pages excepté pour les visiteurs non connectés sur la page d'accueil."
         small_cover_photo_instructions_text_with_dimensions: "La photo sera redimensionnée en %{width}x%{height} pixels et les images trop grandes seront coupées au centre."
-        main_content_width: "Lorsque vous choisissez les photos de couverture, gardez à l'esprit que la page principale a une largeur maximale de %{main_width}. N'oubliez pas non plus de vérifier comment s'affiche votre photo de couverture sur des petits écrans."
+        main_content_width: "Lorsque vous choisissez les photos de couverture, gardez à l'esprit que la page principale a une largeur maximale de %{main_width} pixels. N'oubliez pas non plus de vérifier comment s'affiche votre photo de couverture sur des petits écrans."
         custom_color1_instructions_text: "Vous pouvez changer la couleur principale de l'interface de cette tribu en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> peut vous aider à choisir cette valeur que pourrez alors copier."
         custom_color2_instructions_text: "Vous pouvez changer la couleur secondaire de l'interface de cette tribu en entrant une valeur hexadécimale."
         invalid_color_code: "Le code de la couleur doit être une suite de 6 chiffres ou lettres (de A à F), par exemple D96E21"
@@ -43,11 +43,19 @@ fr:
     custom_fields:
       index:
         listing_fields: "Champs pour annonces"
-        add_new_field: "Ajouter un nouveau champ"
+        add_new_field: "+ Ajouter un nouveau champ"
+        remove_field_confirmation: "Voulez-vous vraiment supprimer le champ '%{field_name}' ?"
         cancel: Annuler
         save: Sauvegarder
         field_title: "Nom du champ"
         field_type: "Type de champ"
+        categories: "Catégories d'annonces pour lequel le champ est utilisé"
+        add_new_field_to_listing_form: "Ajouter un nouveau champ d'annonce"
+        no_custom_listing_fields: "Aucun champ d'annonce propre à votre place de marché."
+        dropdown_options: "Liste déroulante d'options"
+        add_option: "+ Ajouter une option"
+      field_types:
+        dropdown: "Liste déroulante"
     emails:
       new:
         send_email_to_members: "Envoyer un email aux membres"
@@ -755,6 +763,8 @@ fr:
       ride_request: "Covoiturage pour aller travailler"
       some_private_offers_exist: "Il y a déjà <b>%{number_of_listings} offres</b>,"
       some_private_requests_exist: "Il y a déjà <b>%{number_of_listings} demandes</b>,"
+    custom_filters:
+      update_view: ~
     event_feed:
       latest_events: "Que se passe t-il"
     grid_item:
@@ -1055,6 +1065,9 @@ fr:
       follow: "Recevoir les nouveaux commentaires par email."
       unfollow: "Ne pas recevoir les nouveaux commentaires par email."
     form:
+      custom_field_partials:
+        dropdown:
+          select_one___: Choisir...
       departure_time:
         at: A
         departure_time: "Heure de départ"
@@ -1080,7 +1093,7 @@ fr:
       images:
         image: Image
         no_file_selected: "Aucun fichier sélectionné"
-        remove_image: "Supprimer image"
+        remove_image: "Supprimer l'image"
         select_file: "Choisir une image"
       location:
         location: Localisation

@@ -8,19 +8,13 @@ class Listing < ActiveRecord::Base
   
   acts_as_taggable_on :tags
   
-  # TODO: these should help to use search with tags, but not yet working
-  # has_many :taggings, :as => :taggable, :dependent => :destroy, :include => :tag, :class_name => "ActsAsTaggableOn::Tagging",
-  #             :conditions => "taggings.taggable_type = 'Listing'"
-  # #for context-dependent tags:
-  # has_many :tags, :through => :taggings, :source => :tag, :class_name => "ActsAsTaggableOn::Tag",
-  #           :conditions => "taggings.context = 'tags'"
-  
   has_many :listing_images, :dependent => :destroy
   accepts_nested_attributes_for :listing_images, :reject_if => lambda { |t| t['image'].blank? }
   
   has_many :conversations
   has_many :notifications, :as => :notifiable, :dependent => :destroy
   has_many :comments, :dependent => :destroy
+  has_many :custom_field_values, :dependent => :destroy
   
   has_one :location, :dependent => :destroy
   has_one :origin_loc, :class_name => "Location", :conditions => ['location_type = ?', 'origin_loc'], :dependent => :destroy
@@ -32,6 +26,8 @@ class Listing < ActiveRecord::Base
 
   belongs_to :category  
   belongs_to :share_type
+
+
 
   monetize :price_cents, :allow_nil => true
   
@@ -128,16 +124,15 @@ class Listing < ActiveRecord::Base
   
   # Index for sphinx search
   define_index do
-    
+
     # limit to open listings
     where "open = '1' AND (valid_until IS NULL OR valid_until > now())"
     
     # fields
     indexes title
     indexes description
-    indexes taggings.tag.name, :as => :tags
-    indexes comments.content, :as => :comments
     indexes category.translations.name, :as => :category
+    indexes custom_field_values(:text_value), :as => :custom_text_fields
     
     # attributes
     has created_at, updated_at
@@ -146,7 +141,9 @@ class Listing < ActiveRecord::Base
     has "privacy = 'public'", :as => :visible_to_everybody, :type => :boolean
     has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
     has communities(:id), :as => :community_ids
-    
+    has custom_field_values.selected_options(:id), :type => :multi, :as => "custom_field_options"
+      
+
     set_property :enable_star => true
     if APP_CONFIG.FLYING_SPHINX_API_KEY
       set_property :delta => false # try to get sphinx working  FlyingSphinx::DelayedDelta
@@ -162,7 +159,7 @@ class Listing < ActiveRecord::Base
       :comments    => 1
     }
   end
-  
+
   def set_community_visibilities
     if current_community_id
       communities.clear
@@ -324,7 +321,7 @@ class Listing < ActiveRecord::Base
     
     
     # Two ways of finding, with or without sphinx
-    if params[:search].present? || params[:share_type].present? || params[:category].present?
+    if params[:search].present? || params[:share_type].present? || params[:category].present? || params[:custom_field_options].present?
       
       # sort by time by default
       params[:sort] ||= 'created_at DESC'
@@ -343,6 +340,8 @@ class Listing < ActiveRecord::Base
 
       with[:category_id] = params[:categories][:id] if params[:categories].present?
       with[:share_type_id] = params[:share_types][:id] if params[:share_types].present?
+      
+      with_all = {:custom_field_options => params[:custom_field_options]}
             
       listings = Listing.search(params[:search],
                                 :include => params[:include], 
@@ -350,6 +349,7 @@ class Listing < ActiveRecord::Base
                                 :per_page => per_page, 
                                 :star => true,
                                 :with => with,
+                                :with_all => with_all,
                                 :order => params[:sort]
                                 )
                                 

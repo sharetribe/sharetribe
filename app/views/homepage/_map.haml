@@ -11,7 +11,9 @@
     $(document).ready(function() {SetFiltersForMap("#{@filter_params['listing_type']}",
                                                         "#{@filter_params['category']}",
                                                         "#{@filter_params['share_type']}",
-                                                        "#{@filter_params['search']}");
+                                                        "#{@filter_params['search']}",
+                                                        "#{@filter_params['custom_field_options']}"
+                                                        );
                                                         initialize_listing_map("#{community_location_lat}",
                                                         "#{community_location_lon}", "#{I18n.locale}", 
                                                         "#{@current_community.use_community_location_as_default}"); });

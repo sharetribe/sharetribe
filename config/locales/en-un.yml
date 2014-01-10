@@ -44,11 +44,18 @@ en-un:
       index:
         listing_fields: ~
         add_new_field: ~
+        remove_field_confirmation: ~
         cancel: ~
         save: ~
         field_title: ~
         field_type: ~
-        category: ~
+        categories: ~
+        add_new_field_to_listing_form: ~
+        no_custom_listing_fields: ~
+        dropdown_options: ~
+        add_option: ~
+      field_types:
+        dropdown: ~
     emails:
       new:
         send_email_to_members: ~
@@ -756,6 +763,8 @@ en-un:
       ride_request: ~
       some_private_offers_exist: ~
       some_private_requests_exist: ~
+    custom_filters:
+      update_view: ~
     event_feed:
       latest_events: ~
     grid_item:
@@ -1056,6 +1065,9 @@ en-un:
       follow: ~
       unfollow: ~
     form:
+      custom_field_partials:
+        dropdown:
+          select_one___: ~
       departure_time:
         at: ~
         departure_time: ~

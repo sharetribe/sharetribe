@@ -20,7 +20,7 @@ de:
       inactive: "Dein Konto wurde noch nicht aktiviert."
     passwords:
       updated_not_active: "Dein Passwort wurde erfolgreich geändert."
-      send_paranoid_instructions: "Wenn Deine E-Mail-Adresse in unserer Datenbank existiert, wirst du per E-Mail einen Passwort-Wiederherstellungs-Link erhalten."
+      send_paranoid_instructions: "Wenn Deine E-Mail-Adresse in unserer Datenbank existiert, wirst du per E-Mail einen Link zur Wiederherstellung deines Passwortes erhalten."
       send_instructions: "Du erhältst in wenigen Minuten eine E-Mail mit Anweisungen zum Zurücksetzen deines Passworts."
       updated: "Dein Passwort wurde erfolgreich geändert. Du bist nun angemeldet."
     sessions:
@@ -53,6 +53,6 @@ de:
       confirmation_instructions:
         subject: "Anweisungen zur Bestätigung"
       reset_password_instructions:
-        subject: "Anweisungen zum zurücksetzen des Passworts"
+        subject: "Anleitung zum Zurücksetzen des Passworts"
       unlock_instructions:
-        subject: "Anweisungen zum Entsperren"
+        subject: "Anleitung zum Entsperren"

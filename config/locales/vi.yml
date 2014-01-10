@@ -44,11 +44,18 @@ vi:
       index:
         listing_fields: ~
         add_new_field: ~
+        remove_field_confirmation: ~
         cancel: ~
         save: ~
         field_title: ~
         field_type: ~
-        category: ~
+        categories: ~
+        add_new_field_to_listing_form: ~
+        no_custom_listing_fields: ~
+        dropdown_options: ~
+        add_option: ~
+      field_types:
+        dropdown: ~
     emails:
       new:
         send_email_to_members: ~
@@ -756,6 +763,8 @@ vi:
       ride_request: "Một cuốc xe đi làm"
       some_private_offers_exist: "Vừa có <b>%{number_of_listings} hỗ trợ</b>,"
       some_private_requests_exist: "Vừa có <b>%{number_of_listings} yêu cầu</b>,"
+    custom_filters:
+      update_view: ~
     event_feed:
       latest_events: "Điều gì đang xảy ra"
     grid_item:
@@ -1056,6 +1065,9 @@ vi:
       follow: "Thực hiện theo các danh sách này"
       unfollow: "Ngừng theo danh sách này"
     form:
+      custom_field_partials:
+        dropdown:
+          select_one___: ~
       departure_time:
         at: Tại
         departure_time: "Thời gian khởi hành"

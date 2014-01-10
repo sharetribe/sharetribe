@@ -259,14 +259,18 @@ ul {
 
 // Left hand navigation menu
 .left-navi {
+  $selected-highlight-padding: lines(0.25);
   display: none;
+  // Add negative margin, which pulls the container up the amount of highlight padding.
+  // This ensures the texts are aligned.
+  margin-top: -1 * $selected-highlight-padding;
   
   @include media(tablet) {
     display: block;
     position: absolute;
     a {
       position: relative;
-      padding: lines(0.25) lines(0.5);
+      padding: $selected-highlight-padding lines(0.5);
       display: block;
       font-weight: normal;
       cursor: pointer;
@@ -453,6 +457,16 @@ label.radiobutton {
 
 button, .button {
   @include button($link);
+}
+
+.inline-button-container {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.cancel-button {
+  @include button($aside);
+  margin-left: lines(0.25);
 }
 
 .big-button {

@@ -9,6 +9,17 @@ require 'uri'
 require 'cgi'
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 
+module FillInHelpers
+  def fill_in_first(locator, options={})
+    # Highly inspired by Capybara's fill_in implementation
+    # https://github.com/jnicklas/capybara/blob/80befdad73c791eeaea50a7cbe23f04a445a24bc/lib/capybara/node/actions.rb#L50
+    raise "Must pass a hash containing 'with'" if not options.is_a?(Hash) or not options.has_key?(:with)
+    with = options.delete(:with)
+    first(:fillable_field, locator, options).set(with)
+  end
+end
+World(FillInHelpers)
+
 module WithinHelpers
   def with_scope(locator)
     locator ? within(locator) { yield } : yield
@@ -53,6 +64,12 @@ end
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"(?: within "([^"]*)")?$/ do |field, value, selector|
   with_scope(selector) do
     fill_in(field, :with => value)
+  end
+end
+
+When /^(?:|I )fill in first "([^"]*)" with "([^"]*)"(?: within "([^"]*)")?$/ do |field, value, selector|
+  with_scope(selector) do
+    fill_in_first(field, :with => value)
   end
 end
 
@@ -161,6 +178,10 @@ Then /^(?:|I )should not see "([^"]*)"(?: within "([^"]*)")?$/ do |text, selecto
   end
 end
 
+Then /^I should see dropdown field with label "([^"]*)"$/ do |label|
+  find_field(label).tag_name == "select"
+end
+
 Then /^(?:|I )should not see \/([^\/]*)\/(?: within "([^"]*)")?$/ do |regexp, selector|
   regexp = Regexp.new(regexp)
   with_scope(selector) do
@@ -242,15 +263,25 @@ end
 
 # This is a workaround for PhantomJS, which doesn't (or actually WebDriver) support confirm dialogs.
 # Use this keyword BEFORE the confirmation dialog appears
-Given /^I will(?:| (not)) confirm the next confirmation dialog if I am running PhantomJS$/ do |do_not_confirm|
+Given /^I will(?:| (not)) confirm all following confirmation dialogs if I am running PhantomJS$/ do |do_not_confirm|
   confirm = do_not_confirm != "not"
   if ENV['PHANTOMJS'] then
-    page.execute_script("window.confirm = function() { return #{confirm}; };")
+    page.execute_script("window.__original_confirm = window.confirm; window.confirm = function() { return #{confirm}; };")
   end
 end
 
 When /^I confirm alert popup$/ do
   page.driver.browser.switch_to.alert.accept unless ENV['PHANTOMJS']
+end
+
+Then /^I should see validation error$/ do
+  find("label.error").should be_visible
+end
+
+Then /^I should see (\d+) validation errors$/ do |errors_count|
+  errors = all("label.error");
+  errors.size.should eql(errors_count.to_i)
+  all("label.error").each { |error| error.should be_visible }
 end
 
 Then /^take a screenshot$/ do

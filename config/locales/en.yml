@@ -43,12 +43,19 @@ en:
     custom_fields:
       index:
         listing_fields: "Listing fields"
-        add_new_field: "Add new field"
+        add_new_field: "+ Add new field"
+        remove_field_confirmation: "Are you sure you want to remove field '%{field_name}'?"
         cancel: Cancel
         save: Save
         field_title: "Field title"
         field_type: "Field type"
-        category: Category
+        categories: "Listing categories where the field is used"
+        add_new_field_to_listing_form: "Add new field to listing form"
+        no_custom_listing_fields: "No marketplace specific listing fields."
+        dropdown_options: "Dropdown options"
+        add_option: "+ Add option"
+      field_types:
+        dropdown: Dropdown
     emails:
       new:
         send_email_to_members: "Send an email to members"
@@ -756,6 +763,8 @@ en:
       ride_request: "A ride to work"
       some_private_offers_exist: "There are already <b>%{number_of_listings} offers</b>,"
       some_private_requests_exist: "There are already <b>%{number_of_listings} requests</b>,"
+    custom_filters:
+      update_view: "Update view"
     event_feed:
       latest_events: "What's going on"
     grid_item:
@@ -1056,6 +1065,9 @@ en:
       follow: "Get emails about new comments"
       unfollow: "Don't get emails about new comments"
     form:
+      custom_field_partials:
+        dropdown:
+          select_one___: "Select one..."
       departure_time:
         at: At
         departure_time: "Departure time"

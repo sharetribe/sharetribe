@@ -42,3 +42,9 @@
   @include border-radius($size/2);
   text-align: center;
 }
+
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
