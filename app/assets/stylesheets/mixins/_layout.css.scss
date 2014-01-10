@@ -10,12 +10,6 @@
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#{$overlay-start-color-ie}', endColorstr='#{$overlay-end-color-ie}');
 }
 
-@mixin ellipsis {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 @mixin share-type-link {
   @include source-sans-pro;
   color: $aside;

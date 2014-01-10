@@ -22,6 +22,8 @@ class Community < ActiveRecord::Base
   
   has_one :payment_gateway, :dependent => :destroy
   
+  has_many :custom_fields, :dependent => :destroy
+  
   after_create :initialize_settings
   before_destroy :delete_specific_community_categories
   

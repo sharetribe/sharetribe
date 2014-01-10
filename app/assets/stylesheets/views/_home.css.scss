@@ -5,7 +5,7 @@
 @import "compass/utilities/general/clearfix";
 
 .home-toolbar {
-  @include clearfix;
+  @include pie-clearfix;
   margin-bottom: lines(0.5);
   border-bottom: 1px solid $border;
 
@@ -364,4 +364,23 @@ h2.home-list-title {
 #pageless-loader {
   padding-top: lines(0.5);
   clear: both;
+}
+
+/* Filters */
+
+.custom-filter {
+  margin-bottom: lines(1);
+}
+
+.custom-filter-title {
+  font-weight: 700;
+}
+
+.custom-filter-checkbox-label {
+  margin: 0;
+}
+
+.custom-filter-checkbox-label-text {
+  font-weight: 400;
+  margin-left: lines(0.125);
 }

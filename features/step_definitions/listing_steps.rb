@@ -102,6 +102,12 @@ Then /^add default categories back$/ do
   Rails.cache.clear
 end
 
+When /^I save the listing$/ do
+  steps %Q{
+    And I press "Save listing"
+  }
+end
+
 When /^I create a new listing "([^"]*)" with price$/ do |title|
   steps %Q{
     Given I am on the home page
@@ -115,6 +121,38 @@ When /^I create a new listing "([^"]*)" with price$/ do |title|
     And I press "Save listing"
     Then I should see "Price must be a whole number."
     When I fill in "listing_price" with "20"
-    And I press "Save listing"
+    And I save the listing
   }
+end
+
+When /^I select that I want to sell housing$/ do
+  steps %Q{
+    And I follow "I have something to offer"
+    And I follow "A space"
+    And I follow "I'm selling it"
+    Then I should see "Space you offer"
+  }
+end
+
+When /^I fill in listing form with housing information$/ do
+  steps %Q{
+    And I fill in "listing_title" with "Nice appartment in the city centre"
+    And I fill in "listing_price" with "10000"
+  }
+end
+
+Given /^there is a dropdown field "(.*?)" for category "(.*?)" in community "(.*?)" with options:$/ do |field_title, category_name, community_domain, opts_table|
+  @community = Community.find_by_domain(community_domain)
+  @category = Category.find_by_name(category_name)
+  @custom_field = FactoryGirl.build(:custom_field, :type => "Dropdown", :community => @community)
+  @custom_field.category_custom_fields << FactoryGirl.build(:category_custom_field, :category => @category, :custom_field => @custom_field)
+  @custom_field.names << CustomFieldName.create(:value => field_title, :locale => "en")
+  
+  opts_table.hashes.each do |hash|
+    title = CustomFieldOptionTitle.create(:value => hash[:title], :locale => "en")
+    option = FactoryGirl.build(:custom_field_option, :titles => [title])
+    @custom_field.options << option
+  end
+
+  @custom_field.save!
 end

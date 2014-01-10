@@ -33,10 +33,6 @@ Then /^I should see flash error$/ do
   find(".flash-error").should be_visible
 end
 
-Then /^I should see validation error$/ do
-  find("label.error").should be_visible
-end
-
 Given /^there is an organization "(.*?)"$/ do |org_username|
   FactoryGirl.create(:person, :username => org_username, :is_organization => true)
 end

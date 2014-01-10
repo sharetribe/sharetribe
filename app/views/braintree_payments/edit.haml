@@ -38,12 +38,12 @@
       @braintree_payment.id), 
       :html => { :id => "braintree-payment-form", :class => "hidden" } do |form|
 
-    .row.overflow-visible
+    .row
       .col-12
         = form.label :cardholder_name, t(".cardholder_name", :class => "input")
         = form.text_field :cardholder_name, :class => :text_field, :data => { :'encrypted-name' => "braintree_payment[cardholder_name]" }
 
-    .row.overflow-visible
+    .row
       .col-9
         = form.label :credit_card_number, t(".credit_card_number", :class => "input")
         = form.text_field :credit_card_number, :class => :text_field, :data => { :'encrypted-name' => "braintree_payment[credit_card_number]"}
@@ -52,14 +52,14 @@
         = form.label :cvv, t(".cvv", :class => "input")
         = form.text_field :cvv, :class => :text_field, :maxlength => 4, :data => { :'encrypted-name' => "braintree_payment[cvv]"}
 
-    .row.overflow-visible
+    .row
       .col-12
         = form.label :credit_card_expiration_month, t(".credit_card_expiration_date", :class => "input")
         = select_tag :credit_card_expiration_month, options_for_select(credit_card_expiration_month_options), :data => { :'encrypted-name' => "braintree_payment[credit_card_expiration_month]" }
         = " / "
         = select_tag :credit_card_expiration_month, options_for_select(credit_card_expiration_year_options), :data => { :'encrypted-name' => "braintree_payment[credit_card_expiration_year]" }
     
-    .row.overflow-visible
+    .row
       .col-12
         = form.button t(".confirm_payment"), :class => "send_button"
 
