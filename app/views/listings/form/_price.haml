@@ -19,10 +19,11 @@
       = t(".price_excludes_vat", :vat => @current_community.vat) if @current_community.vat
       - if @current_community.commission_from_seller
         - if seller_commission
-          :javascript
-            $(function() {
-              updateSellerGetsValue("#listing_price", "#you-will-get", "#listing_currency", #{@current_community.commission_from_seller});
-            });
+          - content_for :extra_javascript do
+            :javascript
+              $(function() {
+                updateSellerGetsValue("#listing_price", "#you-will-get", "#listing_currency", #{@current_community.commission_from_seller});
+              });
 
           = t(".after_service_fee_you_will_get", :sum_with_currency => '<span id="you-will-get"></span>').html_safe
 
