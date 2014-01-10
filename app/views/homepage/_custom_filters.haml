@@ -6,8 +6,10 @@
           = field.name(I18n.locale)
         - field.options.each do |option|
           .custom-filter-checkbox-container
-            = check_box_tag "filter_option_#{option.id}", "#{option.id}", params["filter_option_#{option.id}"]
-            = label_tag "custom_filter", option.title(I18n.locale), :class => "custom-filter-checkbox-label"
+            %label.custom-filter-checkbox-label
+              = check_box_tag "filter_option_#{option.id}", "#{option.id}", params["filter_option_#{option.id}"]
+              %span.custom-filter-checkbox-label-text
+                = option.title(I18n.locale)
   - params.except("action", "controller").each do |param, value|
     - unless param.match(/^filter_option/)
       = hidden_field_tag param, value

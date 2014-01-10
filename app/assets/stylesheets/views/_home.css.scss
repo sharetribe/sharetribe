@@ -377,9 +377,10 @@ h2.home-list-title {
 }
 
 .custom-filter-checkbox-label {
+  margin: 0;
+}
+
+.custom-filter-checkbox-label-text {
   font-weight: 400;
-  display: inline-block;
-  width: auto;
-  margin: 0 0 0 lines(0.125);
-  padding: 0;
+  margin-left: lines(0.125);
 }
