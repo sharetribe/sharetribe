@@ -41,7 +41,8 @@
           .ss-twitter.ss-icon.ss-social
         %a.social-icon-circle{:href => "https://plus.google.com/115623351324372170386"}
           .ss-googleplus.ss-icon.ss-social
-        
-        
-        
-        
+
+  = javascript_include_tag 'application'
+  = yield(:extra_javascript)
+  :javascript
+    $(document).ready(function() { initialize_network_defaults(); #{yield :javascript} });
