@@ -30,7 +30,12 @@ class Admin::CustomFieldsController < ApplicationController
 
   def destroy
     @custom_field = Dropdown.find(params[:id])
-    success = @custom_field.destroy
+
+    success = if custom_field_belongs_to_community?(@custom_field, @current_community)
+      @custom_field.destroy
+    end
+
+    flash[:error] = "Field doesn't belong to current community" unless success
     redirect_to admin_custom_fields_path
   end
   
@@ -58,6 +63,10 @@ class Admin::CustomFieldsController < ApplicationController
       flash[:error] = "Custom listing fields are not enabled for this community"
       redirect_to edit_details_admin_community_path(@current_community)
     end
+  end
+
+  def custom_field_belongs_to_community?(custom_field, community)
+    community.custom_fields.include?(custom_field)
   end
 
 end

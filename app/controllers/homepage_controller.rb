@@ -40,7 +40,9 @@ class HomepageController < ApplicationController
     # This assumes that we don't never ever have communities with only 1 main share type and
     # only 1 sub share type, as that would make the listing type menu visible and it would look bit silly
     @listing_type_menu_enabled = @share_types.size > 1
-    @category_menu_enabled = @current_community.categories.size > 1
+    @show_categories = @current_community.categories.size > 1
+    @show_custom_fields = @current_community.custom_fields.size > 0
+    @category_menu_enabled = @show_categories || @show_custom_fields
     
     @filter_params = params.slice("category", "share_type")
     

@@ -36,9 +36,6 @@
               = t(".actions")
             = link_to admin_custom_field_path(custom_field), :method => :delete, :class => "custom-fields-action-remove", :confirm => t(".remove_field_confirmation", :field_name => custom_field.name(I18n.locale)) do
               = icon_tag("cross", ["icon-fix"])
-            / = link_to t(".list.action.edit")
-            / = link_to t(".list.action.up")
-            / = link_to t(".list.action.down")
   .row
     .col-12
       = link_to t(".add_new_field"), "#", :id => "add-new-field-link"
@@ -74,7 +71,7 @@
                   = check_box_tag "custom_field[category_attributes][][category_id]", "#{category.id}", @custom_field.categories.include?(category) ? true : false, :id => "#{category.name}_checkbox", :class => "custom-field-category-checkbox"
                   = label_tag "#{category.name}_checkbox", category.display_name, :class => "custom-field-category-checkbox-label"
       - else
-        = hidden_field_tag "custom_field[category_attributes][#{@current_community.categories.first.id}]", "true"
+        = hidden_field_tag "custom_field[category_attributes][][category_id]", @current_community.categories.first.id
       
       / Field option attributes
       = form.label :option_attributes, t(".dropdown_options")

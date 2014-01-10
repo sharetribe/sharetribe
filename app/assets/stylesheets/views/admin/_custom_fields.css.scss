@@ -99,21 +99,3 @@ $add-custom-field-option-with-multiple-locales-label-top-padding: 5px; // Used t
     min-height: 36px;
   }
 }
-
-/* Filters */
-
-.custom-filter {
-  margin-top: lines(1);
-}
-
-.custom-filter-title {
-  font-weight: 700;
-}
-
-.custom-filter-checkbox-label {
-  font-weight: 400;
-  display: inline-block;
-  width: auto;
-  margin: 0 0 0 lines(0.125);
-  padding: 0;
-}
