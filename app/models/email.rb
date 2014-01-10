@@ -15,6 +15,11 @@ class Email < ActiveRecord::Base
       self.confirmation_token ||= SecureRandom.base64(12)
     end
   end
+
+  def confirm!
+    self.confirmed_at = Time.now
+    self.save
+  end
   
   def self.confirmed?(email)
     Email.find_by_address(email).confirmed_at.present?
