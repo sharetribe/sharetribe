@@ -83,8 +83,10 @@ each_run = lambda {
   Rails.cache.clear
 }
 
+prefork.call
+each_run.call
+
 if defined?(Zeus)
-  prefork.call
   $each_run = each_run
   class << Zeus.plan
     def after_fork_with_test
@@ -97,7 +99,4 @@ else
   # This was earlier a call to "reset_categories_to_default" but as the seeds contain now other stuff too, simply load seeds
   # It doesn't clear the categories though, so modify this if trouble with custom categories remaining. 
   load "#{Rails.root}/db/seeds.rb"
-
-  prefork.call
-  each_run.call
 end

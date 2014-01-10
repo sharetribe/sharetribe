@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131220104805) do
+ActiveRecord::Schema.define(:version => 20140109190928) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -81,6 +81,13 @@ ActiveRecord::Schema.define(:version => 20131220104805) do
   add_index "categories", ["name"], :name => "index_categories_on_name"
   add_index "categories", ["parent_id"], :name => "index_categories_on_parent_id"
 
+  create_table "category_custom_fields", :force => true do |t|
+    t.integer  "category_id"
+    t.integer  "custom_field_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "category_translations", :force => true do |t|
     t.integer  "category_id"
     t.string   "locale"
@@ -118,7 +125,6 @@ ActiveRecord::Schema.define(:version => 20131220104805) do
     t.boolean  "automatic_newsletters",             :default => true
     t.boolean  "join_with_invite_only",             :default => false
     t.boolean  "use_captcha",                       :default => true
-    t.boolean  "email_confirmation",                :default => false
     t.text     "allowed_emails"
     t.boolean  "users_can_invite_new_users",        :default => false
     t.boolean  "news_enabled",                      :default => true
@@ -181,6 +187,7 @@ ActiveRecord::Schema.define(:version => 20131220104805) do
     t.boolean  "logo_change_allowed"
     t.boolean  "terms_change_allowed",              :default => false
     t.boolean  "privacy_policy_change_allowed",     :default => false
+    t.boolean  "custom_fields_allowed",             :default => false
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
@@ -273,6 +280,64 @@ ActiveRecord::Schema.define(:version => 20131220104805) do
     t.string   "subject_line"
     t.text     "email_content"
   end
+
+  create_table "custom_field_names", :force => true do |t|
+    t.string   "value"
+    t.string   "locale"
+    t.string   "custom_field_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "custom_field_names", ["custom_field_id"], :name => "index_custom_field_names_on_custom_field_id"
+
+  create_table "custom_field_option_selections", :force => true do |t|
+    t.integer  "custom_field_value_id"
+    t.integer  "custom_field_option_id"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
+  add_index "custom_field_option_selections", ["custom_field_value_id"], :name => "index_selected_options_on_custom_field_value_id"
+
+  create_table "custom_field_option_titles", :force => true do |t|
+    t.string   "value"
+    t.string   "locale"
+    t.integer  "custom_field_option_id"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
+  add_index "custom_field_option_titles", ["custom_field_option_id"], :name => "index_custom_field_option_titles_on_custom_field_option_id"
+
+  create_table "custom_field_options", :force => true do |t|
+    t.integer  "custom_field_id"
+    t.integer  "sort_priority"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "custom_field_options", ["custom_field_id"], :name => "index_custom_field_options_on_custom_field_id"
+
+  create_table "custom_field_values", :force => true do |t|
+    t.integer  "custom_field_id"
+    t.integer  "listing_id"
+    t.text     "text_value"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "custom_field_values", ["listing_id"], :name => "index_custom_field_values_on_listing_id"
+
+  create_table "custom_fields", :force => true do |t|
+    t.string   "type"
+    t.integer  "sort_priority"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "community_id"
+  end
+
+  add_index "custom_fields", ["community_id"], :name => "index_custom_fields_on_community_id"
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -572,10 +637,10 @@ ActiveRecord::Schema.define(:version => 20131220104805) do
     t.datetime "created_at",                                              :null => false
     t.datetime "updated_at",                                              :null => false
     t.integer  "community_id"
-    t.integer  "sum_cents"
-    t.string   "currency"
     t.string   "type",                     :default => "CheckoutPayment"
     t.string   "braintree_transaction_id"
+    t.integer  "sum_cents"
+    t.string   "currency"
   end
 
   add_index "payments", ["conversation_id"], :name => "index_payments_on_conversation_id"
@@ -592,9 +657,6 @@ ActiveRecord::Schema.define(:version => 20131220104805) do
     t.datetime "last_page_load_date"
     t.integer  "test_group_number",                                :default => 1
     t.boolean  "active",                                           :default => true
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
     t.string   "username"
     t.string   "email"
     t.string   "encrypted_password",                               :default => "",   :null => false
@@ -632,7 +694,6 @@ ActiveRecord::Schema.define(:version => 20131220104805) do
     t.string   "organization_name"
   end
 
-  add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true
   add_index "people", ["facebook_id"], :name => "index_people_on_facebook_id", :unique => true
   add_index "people", ["id"], :name => "index_people_on_id"

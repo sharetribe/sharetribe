@@ -11,12 +11,15 @@ FactoryGirl.define do
     "sharetribe_testcommunity_#{n}" 
   end
 
+  sequence :category_name do |n|
+    "item_#{n}" 
+  end
+
 
   factory :person, aliases: [:author, :receiver, :recipient, :payer] do
     is_admin 0
     locale "en"
     test_group_number 4
-    confirmed_at Time.now
     given_name "Proto"
     family_name "Testro"
     phone_number "0000-123456"
@@ -150,8 +153,39 @@ FactoryGirl.define do
   end
   
   factory :category do
-    name "item"
+    name { generate(:category_name) }
     icon "item"
+  end
+
+  factory :custom_field, class: 'Dropdown' do
+    type "Dropdown"
+    community
+    before(:create) do |custom_field|
+      category = FactoryGirl.create(:category)
+      custom_field.category_custom_fields << FactoryGirl.create(:category_custom_field, :category => category, :custom_field => custom_field)
+      custom_field.names << FactoryGirl.create(:custom_field_name)
+      custom_field.options << FactoryGirl.create(:custom_field_option)
+      custom_field.options << FactoryGirl.create(:custom_field_option)
+    end
+  end
+
+  factory :category_custom_field do
+    category
+    custom_field
+  end
+
+  factory :custom_field_option do
+    titles { [ FactoryGirl.create(:custom_field_option_title) ] }
+  end
+  
+  factory :custom_field_option_title do
+    value "Test option"
+    locale "en"
+  end
+  
+  factory :custom_field_name do
+    value "Test field"
+    locale "en"
   end
   
   factory :share_type do

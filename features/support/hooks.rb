@@ -18,6 +18,17 @@ Before('@javascript') do
   if ENV['PHANTOMJS']
     Capybara.current_driver = :webdriver_phantomjs
     page.driver.browser.manage.window.resize_to(1024, 768)
+
+    # Store the reference to original confirm() function
+    # (this might be mocked later)
+    page.execute_script("window.__original_confirm = window.confirm")
+  end
+end
+
+After('@javascript') do
+  if ENV['PHANTOMJS']
+    # Restore maybe mocked confirm()
+    page.execute_script("window.confirm = window.__original_confirm")
   end
 end
 

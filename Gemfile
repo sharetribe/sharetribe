@@ -66,6 +66,7 @@ gem 'country_select'
 gem 'localized_country_select', '>= 0.9.3'
 gem 'mangopay'
 gem 'braintree'
+gem "mail_view", "~> 1.0.3"
 
 #ouisharelabs
 gem 'rdf-turtle'
@@ -86,6 +87,9 @@ group :development do
   gem 'rb-fsevent',       require: false
   gem 'guard-rspec',      require: false
   gem 'zeus'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-nav'
 end
 
 group :test do

@@ -106,3 +106,7 @@ end
 When /^editing "(.*?)" page is allowed in community "(.*?)"$/ do |page, community|
   Community.find_by_domain(community).update_attribute("#{page.tr(' ', '_')}_change_allowed".to_sym, true)
 end
+
+Given /^community "(.*?)" has custom fields enabled$/ do |community_domain|
+  Community.find_by_domain(community_domain).update_attributes({:custom_fields_allowed => true})
+end

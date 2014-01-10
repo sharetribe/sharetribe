@@ -190,6 +190,8 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mail_view (1.0.3)
+      tilt
     mangopay (2.0.0)
       json (~> 1.8.0)
       multipart-post (~> 1.2.0)
@@ -251,6 +253,10 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
+    pry-nav (0.2.3)
+      pry (~> 0.9.10)
+    pry-rails (0.3.2)
+      pry (>= 0.9.10)
     rabl (0.7.9)
       activesupport (>= 2.3.14)
       multi_json (~> 1.0)
@@ -281,7 +287,7 @@ GEM
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
     raindrops (0.12.0)
-    rake (10.1.0)
+    rake (10.1.1)
     rash (0.3.2)
       hashie (~> 1.2.0)
     rb-fsevent (0.9.3)
@@ -411,6 +417,7 @@ DEPENDENCIES
   kgio (~> 2.8.0)
   launchy
   localized_country_select (>= 0.9.3)
+  mail_view (~> 1.0.3)
   mangopay
   memcachier
   mercury-rails
@@ -423,6 +430,9 @@ DEPENDENCIES
   parallel_tests
   pickle
   postmark-rails
+  pry
+  pry-nav
+  pry-rails
   rabl
   rack-livereload
   rack-test

@@ -20,7 +20,6 @@ end
 Then /^there should be an organization account "(.*?)"$/ do |org_username|
   o = Person.find_by_username(org_username)
   o.is_organization.should be_true
-  o.confirmed_at.should_not be_nil
 end
 
 Then /^I should see "(.*?)" as logged in user$/ do |display_name|
@@ -31,10 +30,6 @@ end
 
 Then /^I should see flash error$/ do
   find(".flash-error").should be_visible
-end
-
-Then /^I should see validation error$/ do
-  find("label.error").should be_visible
 end
 
 Given /^there is an organization "(.*?)"$/ do |org_username|

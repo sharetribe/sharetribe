@@ -116,8 +116,10 @@ each_run = lambda {
   Rails.cache.clear
 }
 
+prefork.call
+each_run.call
+
 if defined?(Zeus)
-  prefork.call
   $each_run = each_run
   class << Zeus.plan
     def after_fork_with_test
@@ -126,9 +128,6 @@ if defined?(Zeus)
     end
     alias_method_chain :after_fork, :test
   end
-else
-  prefork.call
-  each_run.call
 end
 
 # --- Instructions ---

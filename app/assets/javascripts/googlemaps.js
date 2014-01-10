@@ -18,6 +18,7 @@ var listing_category = ["all"];
 var listing_sharetypes = ["all"];
 var listing_tags = [];
 var listing_search;
+var listing_custom_field_options;
 var locale;
 var flagMarker;
 var markers = [];
@@ -582,7 +583,7 @@ function addListingMarkers() {
   
   var starttime = new Date().getTime();
   var request_path = '/listings/locations_json'
-  $.get(request_path, { listing_type: listing_type, 'category[]': listing_category, 'share_type[]': listing_sharetypes, search: listing_search}, function(data) {  
+  $.get(request_path, { listing_type: listing_type, 'category[]': listing_category, 'share_type[]': listing_sharetypes, search: listing_search, custom_field_options: listing_custom_field_options}, function(data) {  
 
     var data_arr = data.data;
     for (i in data_arr) {
@@ -694,11 +695,12 @@ function clearMarkers() {
     }
 }
 
-function SetFiltersForMap(type, category, sharetypes, search) {
-  if (type)       { listing_type = type;               } else { listing_type = "all";}
-  if (category)   { listing_category = [category];     } else { listing_category = ["all"];}
-  if (sharetypes) { listing_sharetypes = [sharetypes]; } else { listing_sharetypes = ["all"];}
-  if (search)     { listing_search = search            } else { listing_search = "";}
+function SetFiltersForMap(type, category, sharetypes, search, custom_field_options) {
+  if (type)                 { listing_type = type;               } else { listing_type = "all";}
+  if (category)             { listing_category = [category];     } else { listing_category = ["all"];}
+  if (sharetypes)           { listing_sharetypes = [sharetypes]; } else { listing_sharetypes = ["all"];}
+  if (search)               { listing_search = search            } else { listing_search = "";}
+  if (custom_field_options) { listing_custom_field_options = custom_field_options} else { listing_custom_field_options = [];}
   initialize_labels();
 }
 

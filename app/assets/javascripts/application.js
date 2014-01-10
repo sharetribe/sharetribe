@@ -18,4 +18,5 @@
 //= require googlemaps
 //= require map_label
 //= require homepage
+//= require payment_math
 //= require_self

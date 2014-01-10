@@ -16,6 +16,11 @@ Kassi::Application.routes.draw do
 
   match "/design" => "design#design"
 
+  # config/routes.rb
+  if Rails.env.development?
+    mount MailPreview => 'mail_view'
+  end
+
   # Adds locale to every url right after the root path
   scope "(/:locale)" do
     scope :module => "api", :constraints => ApiRequest do
@@ -139,6 +144,12 @@ Kassi::Application.routes.draw do
           get :test_welcome_email
         end
         resources :emails
+      end
+      resources :custom_fields do
+        collection do
+          get :add_option
+          get :remove_option
+        end
       end
       resources :polls do
         collection do

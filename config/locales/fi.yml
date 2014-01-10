@@ -13,10 +13,10 @@ fi:
         edit_community_description_description: "Näytetään etusivulla kirjautumattomille käyttäjille. %{see_how_it_looks_like}."
         update_information: "Päivitä tiedot"
         invite_people: "Kutsu ihmisiä yhteisöön"
-        edit_signup_info: "Liittymisohjeet"
-        edit_signup_info_description: "Tähän voit lisätä ohjeita siihen, miten palveluun liitytään. Ohjeet näytetään käyttäjille, kun he ovat liittymässä palveluun. Oletuksena ohjekenttä on tyhjä. Voit lisätä niitä klikkaamalla alla olevaa linkkiä."
+        edit_signup_info: Liittymisohjeet
+        edit_signup_info_description: "Tähän voit lisätä ohjeita siihen, miten palveluun liitytään. Ohjeet näytetään käyttäjille, kun he ovat liittymässä palveluun. Oletuksena ohjekenttä on tyhjä."
         edit_info: "Muokkaa tietoja"
-        see_how_it_looks_like: "Näytä"
+        see_how_it_looks_like: Näytä
       edit_look_and_feel:
         edit_community_look_and_feel: "Muokkaa yhteisön \"%{community_name}\" ulkoasua"
         community_logo: Peruslogo
@@ -40,6 +40,22 @@ fi:
         welcome_email_content_description: "Alla oleva viesti lähetetään automaattisesti kaikille uusille käyttäjille näiden liittyessä. Voit muokata viestin sisältöä vastaamaan yhteisösi kuvausta. Klikkaamalla '%{send_test_message_link}' -linkkiä voit lähettää viestin omaan sähköpostiosoitteeseesi."
         edit_message: "Muokkaa viestiä"
         send_test_message: "Lähetä testiviesti"
+    custom_fields:
+      index:
+        listing_fields: Ilmoituskentät
+        add_new_field: "+ Lisää uusi kenttä"
+        remove_field_confirmation: "Oletko varma että haluat poistaa kentän '%{field_name}'?"
+        cancel: Peruuta
+        save: Tallenna
+        field_title: "Kentän nimi"
+        field_type: "Kentän tyyppi"
+        categories: "Ilmoituskategoriat joihin kenttä liittyy"
+        add_new_field_to_listing_form: "Lisää uusi kenttä ilmoituslomakkeeseen"
+        no_custom_listing_fields: "Yhteisöllä ei ole yhtään yhteisökohtaista listauskenttää."
+        dropdown_options: "Pudotusvalikon vastausvaihtoehdot"
+        add_option: "+ Lisää vastausvaihtoehto"
+      field_types:
+        dropdown: Pudotusvalikko
     emails:
       new:
         send_email_to_members: "Lähetä sähköpostia jäsenille"
@@ -747,6 +763,8 @@ fi:
       ride_request: "Kyyti töihin"
       some_private_offers_exist: "Palvelussa on jo <b>%{number_of_listings} tarjousta</b>,"
       some_private_requests_exist: "Palvelussa on jo <b>%{number_of_listings} pyyntöä</b>,"
+    custom_filters:
+      update_view: "Päivitä näkymä"
     event_feed:
       latest_events: "Mitä %{service_name_inessive} tapahtuu"
     grid_item:
@@ -1047,6 +1065,9 @@ fi:
       follow: "Seuraa ilmoitusta"
       unfollow: "Lopeta ilmoituksen seuraaminen"
     form:
+      custom_field_partials:
+        dropdown:
+          select_one___: "Valitse yksi..."
       departure_time:
         at: Kellonaika
         departure_time: Lähtöaika

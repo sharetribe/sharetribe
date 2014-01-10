@@ -6,13 +6,17 @@ el:
         community_look_and_feel: Εμφάνιση
         edit_community: "Επεξεργασία των στοιχείων της κοινότητας %{community_name}"
         community_name: Όνομα
+        edit_community_name_description: ~
         community_slogan: Slogan
+        edit_community_slogan_description: ~
         community_description: Περιγραφή
+        edit_community_description_description: ~
         update_information: "Ενημέρωση στοιχείων"
         invite_people: "Καλέστε κόσμο σε αυτή την κοινότητα"
         edit_signup_info: "Πληροφορίες εγγραφής"
         edit_signup_info_description: "Αυτό είναι ένα ενημερωτικό κείμενο που εμφανίζεται στους χρήστες στη σελίδα εγγραφής. Μέσω αυτού μπορείτε να δώσετε οδηγίες για την εγγγραφή, πληροφορίες για το που μπορούν να βρουν ένα κωδικό πρόσκλησης στην κοινότητα κ.α. Αρχικά δεν εμφανίζονται καθόλου οδηγίες μπορείτε όμως να προσθέσετε μερικές κάνοντας κλικ στον παρακάτω σύνδεσμο."
-        edit_signup_info_link: "Επεξεργασία πληροφοριών εγγραφής"
+        edit_info: ~
+        see_how_it_looks_like: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Αλλαγή της εμφάνισης της κοινότητας \"%{community_name}\""
         community_logo: Λογότυπο
@@ -36,6 +40,22 @@ el:
         welcome_email_content_description: "Αυτό είναι το μήνυμα ηλεκτρονικού ταχυδρομείου που στέλνεται σε κάθε νέο μέλος όταν εγγράφεται. Μπορείτε να το τροποποιήσετε για να ταιριάζει στην κοινότητα. Αν θέλετε να δείτε πως φαίνεται στους χρήστες, πατήστε \"%{send_test_message_link}\" για να σταλεί ένα μήνυμα στη δική σας διεύθυνση."
         edit_message: "Επεξεργασία μηνύματος"
         send_test_message: "Αποστολή δοκιμαστικού μηνύματος"
+    custom_fields:
+      index:
+        listing_fields: ~
+        add_new_field: ~
+        remove_field_confirmation: ~
+        cancel: ~
+        save: ~
+        field_title: ~
+        field_type: ~
+        categories: ~
+        add_new_field_to_listing_form: ~
+        no_custom_listing_fields: ~
+        dropdown_options: ~
+        add_option: ~
+      field_types:
+        dropdown: ~
     emails:
       new:
         send_email_to_members: "Στείλτε ένα μήνυμα ηλεκτρονικού ταχυδρομείου στα μέλη"
@@ -743,6 +763,8 @@ el:
       ride_request: "Να σε πάει κάποιος στη δουλειά ή στη σχολή"
       some_private_offers_exist: "Υπάρχουν ήδη <b>%{number_of_listings} προσφορές</b>"
       some_private_requests_exist: "Υπάρχουν ήδη  <b>%{number_of_listings} αιτήματα</b>"
+    custom_filters:
+      update_view: ~
     event_feed:
       latest_events: "Τι νέα;"
     grid_item:
@@ -1043,6 +1065,9 @@ el:
       follow: "Να ειδοποιούμαι για νέα σχόλια"
       unfollow: "Παύση ειδοποιήσεων για νέα σχόλια"
     form:
+      custom_field_partials:
+        dropdown:
+          select_one___: ~
       departure_time:
         at: Στις
         departure_time: Αναχώρηση

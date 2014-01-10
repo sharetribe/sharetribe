@@ -55,6 +55,7 @@ class ListingsController < ApplicationController
     params[:include] = :origin_loc
     params.delete("controller")
     params.delete("action")
+    params["custom_field_options"] = JSON.parse(params["custom_field_options"]) if params["custom_field_options"].present?
     # Limit the amount of listings to get to 500 newest to avoid slowing down the map too much.
     @listings = Listing.find_with(params, @current_user, @current_community, 500)
     render :json => { :data => @listings }
@@ -128,6 +129,9 @@ class ListingsController < ApplicationController
       params[:listing].delete("origin_loc_attributes")
     end
     @listing = @current_user.create_listing params[:listing]
+
+    @listing.custom_field_values = create_field_values(params[:custom_fields]) if params[:custom_fields]
+
     if @listing.new_record?
       1.times { @listing.listing_images.build } if @listing.listing_images.empty?
       render :action => :new
@@ -148,6 +152,7 @@ class ListingsController < ApplicationController
   end
   
   def edit
+    @seller_commission = @current_community.payment_gateway.seller_pays_commission? if @current_community.payments_in_use?
     @selected_tribe_navi_tab = "home"
 	  if !@listing.origin_loc
 	      @listing.build_origin_loc(:location_type => "origin_loc")
@@ -162,6 +167,9 @@ class ListingsController < ApplicationController
         @listing.origin_loc.delete
       end
     end
+
+    @listing.custom_field_values = create_field_values(params[:custom_fields]) if params[:custom_fields]
+
     if @listing.update_fields(params[:listing])
       @listing.location.update_attributes(params[:location]) if @listing.location
       flash[:notice] = t("layouts.notifications.listing_updated_successfully")
@@ -243,6 +251,29 @@ class ListingsController < ApplicationController
       format.js {
         render :follow, :layout => false 
       }
+    end
+  end
+
+  def custom_field_value_factory(custom_field_id, answer_value)
+    question = CustomField.find(custom_field_id)
+    answer = CustomFieldValue.new()
+    answer.question = question
+
+    question.with_type { |question_type|
+      case question_type
+      when :dropdown
+        option_id = answer_value.to_i
+        answer.custom_field_option_selections = [CustomFieldOptionSelection.new(:custom_field_value => answer, :custom_field_option_id => answer_value)]
+        answer
+      else
+        throw "Unimplemented custom field answer for question #{question_type}"
+      end
+    }
+  end
+
+  def create_field_values(custom_field_params={})
+    custom_field_params.map do |custom_field_id, answer_value|
+      custom_field_value_factory(custom_field_id, answer_value)
     end
   end
 

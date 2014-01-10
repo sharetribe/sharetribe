@@ -6,13 +6,17 @@ nl:
         community_look_and_feel: ~
         edit_community: ~
         community_name: ~
+        edit_community_name_description: ~
         community_slogan: ~
+        edit_community_slogan_description: ~
         community_description: ~
+        edit_community_description_description: ~
         update_information: ~
         invite_people: ~
         edit_signup_info: ~
         edit_signup_info_description: ~
-        edit_signup_info_link: ~
+        edit_info: ~
+        see_how_it_looks_like: ~
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
@@ -36,6 +40,22 @@ nl:
         welcome_email_content_description: ~
         edit_message: ~
         send_test_message: ~
+    custom_fields:
+      index:
+        listing_fields: ~
+        add_new_field: ~
+        remove_field_confirmation: ~
+        cancel: ~
+        save: ~
+        field_title: ~
+        field_type: ~
+        categories: ~
+        add_new_field_to_listing_form: ~
+        no_custom_listing_fields: ~
+        dropdown_options: ~
+        add_option: ~
+      field_types:
+        dropdown: ~
     emails:
       new:
         send_email_to_members: ~
@@ -470,8 +490,8 @@ nl:
     accept_reminder:
       remember_to_accept_offer: ~
       remember_to_accept_request: ~
-      you_can_accept_or_reject_offer_at: ~
-      you_can_accept_or_reject_request_at: ~
+      you_can_accept_or_reject_offer_at: "Je kan het aanbod accepteren of weigeren op"
+      you_can_accept_or_reject_request_at: "Je kan het verzoek accepteren of weigeren op"
       you_have_not_yet_accepted_or_rejected_offer: ~
       you_have_not_yet_accepted_or_rejected_request: ~
       show_thread: ~
@@ -743,6 +763,8 @@ nl:
       ride_request: "Een rit naar het werk"
       some_private_offers_exist: "Er zijn al <b>%{number_of_listings} aanbiedingen</b>,"
       some_private_requests_exist: "Er zijn al <b>%{number_of_listings} verzoeken</b>,"
+    custom_filters:
+      update_view: ~
     event_feed:
       latest_events: "Wat gebeurt er"
     grid_item:
@@ -1043,6 +1065,9 @@ nl:
       follow: "Ontvang e-mail over de nieuwe commentaren"
       unfollow: "Ontvang geen e-mails over nieuwe commentaren"
     form:
+      custom_field_partials:
+        dropdown:
+          select_one___: ~
       departure_time:
         at: Op
         departure_time: "Vertrek tijd"

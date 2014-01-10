@@ -34,7 +34,7 @@
           %td
             = @payment.commission_without_vat.to_s + @payment.rows.first.sum_symbol
           %td
-            = @payment.community.vat.to_s + "%"
+            = "#{APP_CONFIG.service_fee_tax_percentage}%"
           %td
             = @payment.total_commission.to_s + @payment.rows.first.sum_symbol
         %tr

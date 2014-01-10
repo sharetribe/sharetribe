@@ -6,13 +6,17 @@ ca:
         community_look_and_feel: ~
         edit_community: ~
         community_name: ~
+        edit_community_name_description: ~
         community_slogan: ~
+        edit_community_slogan_description: ~
         community_description: ~
+        edit_community_description_description: ~
         update_information: ~
         invite_people: ~
         edit_signup_info: ~
         edit_signup_info_description: ~
-        edit_signup_info_link: ~
+        edit_info: ~
+        see_how_it_looks_like: ~
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
@@ -36,6 +40,22 @@ ca:
         welcome_email_content_description: ~
         edit_message: ~
         send_test_message: ~
+    custom_fields:
+      index:
+        listing_fields: ~
+        add_new_field: ~
+        remove_field_confirmation: ~
+        cancel: ~
+        save: ~
+        field_title: ~
+        field_type: ~
+        categories: ~
+        add_new_field_to_listing_form: ~
+        no_custom_listing_fields: ~
+        dropdown_options: ~
+        add_option: ~
+      field_types:
+        dropdown: ~
     emails:
       new:
         send_email_to_members: ~
@@ -745,6 +765,8 @@ ca:
       ride_request: "Viatge compartit a la feina"
       some_private_offers_exist: "Ja hi han <b>%{number_of_listings} ofertes</b>,"
       some_private_requests_exist: "Ja hi han <b>%{number_of_listings} sol·licituds</b>,"
+    custom_filters:
+      update_view: ~
     event_feed:
       latest_events: ~
     grid_item:
@@ -1045,6 +1067,9 @@ ca:
       follow: "Segueix aquest anunci"
       unfollow: "Deixa de segur aquest anunci"
     form:
+      custom_field_partials:
+        dropdown:
+          select_one___: ~
       departure_time:
         at: "a les"
         departure_time: "Hora de sortida"
@@ -1629,8 +1654,8 @@ ca:
       email_about_new_received_testimonials: "...algú em dóna suggeriments"
       email_about_testimonial_reminders: "...he oblidat fer un suggeriment o donar informació sobre un esdeveniment"
       email_daily_community_updates: ~
-      email_weekly_community_updates: ~
       do_not_email_community_updates: ~
+      email_weekly_community_updates: ~
       email_newsletters: ~
       email_when_conversation_accepted: "...algú ha acceptat la meva oferta o sol·licitud"
       email_when_conversation_rejected: "...algú ha rebutjat la meva oferta o sol·licitud"

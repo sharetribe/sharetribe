@@ -51,6 +51,7 @@ module ApplicationHelper
       "rows" => "ss-rows",
       "check" => "ss-check",
       "invite" => "ss-adduser",
+      "" => "",
       
       # Default category & share type icons
       "offer" => "ss-share",
@@ -623,7 +624,7 @@ module ApplicationHelper
   
   # Admin view left hand navigation content
   def admin_links_for(community)
-    [
+    links = [
       { 
         :text => t("admin.communities.edit_details.community_details"),
         :icon_class => "ss-page", 
@@ -653,8 +654,19 @@ module ApplicationHelper
         :icon_class => icon_class("edit"), 
         :path => edit_welcome_email_admin_community_path(community),
         :name => "welcome_email"
-      } 
+      }
     ]
+
+    if community.custom_fields_allowed
+      links << {
+        :text => t("admin.custom_fields.index.listing_fields"),
+        :icon_class => icon_class("list"), 
+        :path => admin_custom_fields_path,
+        :name => "listing_fields"
+      }
+    end
+
+    links
   end
   
   # Inbox view left hand navigation content
@@ -845,7 +857,7 @@ module ApplicationHelper
   def with_stylesheet_url(community, &block)
     stylesheet_url = if community.has_customizations?
       unless community.has_custom_stylesheet?
-        community.generate_customization_stylesheet
+        CommunityStylesheetCompiler.compile(community)
       end
 
       community.custom_stylesheet_url
