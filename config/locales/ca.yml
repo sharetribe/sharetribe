@@ -765,6 +765,8 @@ ca:
       ride_request: "Viatge compartit a la feina"
       some_private_offers_exist: "Ja hi han <b>%{number_of_listings} ofertes</b>,"
       some_private_requests_exist: "Ja hi han <b>%{number_of_listings} sol·licituds</b>,"
+    custom_filters:
+      update_view: ~
     event_feed:
       latest_events: ~
     grid_item:
@@ -1652,8 +1654,8 @@ ca:
       email_about_new_received_testimonials: "...algú em dóna suggeriments"
       email_about_testimonial_reminders: "...he oblidat fer un suggeriment o donar informació sobre un esdeveniment"
       email_daily_community_updates: ~
-      email_weekly_community_updates: ~
       do_not_email_community_updates: ~
+      email_weekly_community_updates: ~
       email_newsletters: ~
       email_when_conversation_accepted: "...algú ha acceptat la meva oferta o sol·licitud"
       email_when_conversation_rejected: "...algú ha rebutjat la meva oferta o sol·licitud"

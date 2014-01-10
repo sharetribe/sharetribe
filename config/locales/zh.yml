@@ -763,6 +763,8 @@ zh:
       ride_request: 搭车去上班
       some_private_offers_exist: "已有<b>%{number_of_listings}个提议</b>,"
       some_private_requests_exist: "已有<b>%{number_of_listings} 请求</b>,"
+    custom_filters:
+      update_view: ~
     event_feed:
       latest_events: 事情发展的如何
     grid_item:

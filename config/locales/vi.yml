@@ -763,6 +763,8 @@ vi:
       ride_request: "Một cuốc xe đi làm"
       some_private_offers_exist: "Vừa có <b>%{number_of_listings} hỗ trợ</b>,"
       some_private_requests_exist: "Vừa có <b>%{number_of_listings} yêu cầu</b>,"
+    custom_filters:
+      update_view: ~
     event_feed:
       latest_events: "Điều gì đang xảy ra"
     grid_item:

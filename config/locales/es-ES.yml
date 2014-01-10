@@ -44,10 +44,18 @@ es-ES:
       index:
         listing_fields: ~
         add_new_field: ~
+        remove_field_confirmation: ~
         cancel: ~
         save: ~
         field_title: ~
         field_type: ~
+        categories: ~
+        add_new_field_to_listing_form: ~
+        no_custom_listing_fields: ~
+        dropdown_options: ~
+        add_option: ~
+      field_types:
+        dropdown: ~
     emails:
       new:
         send_email_to_members: ~
@@ -760,6 +768,8 @@ es-ES:
       ride_request: "Un trayecto al trabajo"
       some_private_offers_exist: "Ya existen <b>%{number_of_listings} ofertas</b>,"
       some_private_requests_exist: "Ya existen <b>%{number_of_listings} solicitudes</b>,"
+    custom_filters:
+      update_view: ~
     event_feed:
       latest_events: "Qué está pasando"
     grid_item:
@@ -1060,6 +1070,9 @@ es-ES:
       follow: "Seguir este anuncio"
       unfollow: "Dejar de seguir este anuncio"
     form:
+      custom_field_partials:
+        dropdown:
+          select_one___: ~
       departure_time:
         at: "a las"
         departure_time: "Hora de salida"

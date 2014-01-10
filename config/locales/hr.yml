@@ -763,6 +763,8 @@ hr:
       ride_request: "Vožnja na posao"
       some_private_offers_exist: "Već postoji <b>%{number_of_listings} ponuda</b>,"
       some_private_requests_exist: "Već postoji <b>%{number_of_listings} zahtjeva</b>,"
+    custom_filters:
+      update_view: ~
     event_feed:
       latest_events: "Što se događa"
     grid_item:

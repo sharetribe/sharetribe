@@ -719,7 +719,7 @@ en-at:
       offer_partitive: ~
       request_partitive: ~
   header:
-    about: ~
+    about: "Who are we?"
     home: ~
     members: ~
     new_listing: ~
@@ -763,6 +763,8 @@ en-at:
       ride_request: ~
       some_private_offers_exist: ~
       some_private_requests_exist: ~
+    custom_filters:
+      update_view: ~
     event_feed:
       latest_events: ~
     grid_item:
