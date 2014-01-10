@@ -253,6 +253,10 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
+    pry-nav (0.2.3)
+      pry (~> 0.9.10)
+    pry-rails (0.3.2)
+      pry (>= 0.9.10)
     rabl (0.7.9)
       activesupport (>= 2.3.14)
       multi_json (~> 1.0)
@@ -426,6 +430,9 @@ DEPENDENCIES
   parallel_tests
   pickle
   postmark-rails
+  pry
+  pry-nav
+  pry-rails
   rabl
   rack-livereload
   rack-test

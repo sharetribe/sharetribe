@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131227081256) do
+ActiveRecord::Schema.define(:version => 20140106114557) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -80,6 +80,13 @@ ActiveRecord::Schema.define(:version => 20131227081256) do
 
   add_index "categories", ["name"], :name => "index_categories_on_name"
   add_index "categories", ["parent_id"], :name => "index_categories_on_parent_id"
+
+  create_table "category_custom_fields", :force => true do |t|
+    t.integer  "category_id"
+    t.integer  "custom_field_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "category_translations", :force => true do |t|
     t.integer  "category_id"
@@ -271,6 +278,48 @@ ActiveRecord::Schema.define(:version => 20131227081256) do
     t.datetime "updated_at",    :null => false
     t.string   "subject_line"
     t.text     "email_content"
+  end
+
+  create_table "custom_field_names", :force => true do |t|
+    t.string   "value"
+    t.string   "locale"
+    t.string   "custom_field_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "custom_field_option_titles", :force => true do |t|
+    t.string   "value"
+    t.string   "locale"
+    t.integer  "custom_field_option_id"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
+  create_table "custom_field_options", :force => true do |t|
+    t.integer  "custom_field_id"
+    t.integer  "sort_priority"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "custom_field_options", ["custom_field_id"], :name => "index_custom_field_options_on_custom_field_id"
+
+  create_table "custom_field_values", :force => true do |t|
+    t.integer  "custom_field_id"
+    t.integer  "listing_id"
+    t.text     "text_value"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "custom_field_values", ["listing_id"], :name => "index_custom_field_values_on_listing_id"
+
+  create_table "custom_fields", :force => true do |t|
+    t.string   "type"
+    t.integer  "sort_priority"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "delayed_jobs", :force => true do |t|
@@ -660,6 +709,15 @@ ActiveRecord::Schema.define(:version => 20131227081256) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "selected_options", :force => true do |t|
+    t.integer  "custom_field_value_id"
+    t.integer  "custom_field_option_id"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
+  add_index "selected_options", ["custom_field_value_id"], :name => "index_selected_options_on_custom_field_value_id"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
