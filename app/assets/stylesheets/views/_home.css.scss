@@ -5,7 +5,7 @@
 @import "compass/utilities/general/clearfix";
 
 .home-toolbar {
-  @include clearfix;
+  @include pie-clearfix;
   margin-bottom: lines(0.5);
   border-bottom: 1px solid $border;
 
