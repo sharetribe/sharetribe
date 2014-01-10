@@ -44,10 +44,18 @@ es:
       index:
         listing_fields: ~
         add_new_field: ~
+        remove_field_confirmation: ~
         cancel: ~
         save: ~
         field_title: ~
         field_type: ~
+        categories: ~
+        add_new_field_to_listing_form: ~
+        no_custom_listing_fields: ~
+        dropdown_options: ~
+        add_option: ~
+      field_types:
+        dropdown: ~
     emails:
       new:
         send_email_to_members: ~
@@ -593,7 +601,7 @@ es:
       has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
-      added_offer: "%{name_link} añadir una oferta:"
+      added_offer: "%{name_link} ha añadido una oferta:"
       added_request: "%{name_link} añadir una solicitud:"
       added_listing: ~
       update_mail_title: "%{title_link} actualización de la comunidad"
@@ -760,6 +768,8 @@ es:
       ride_request: "Un trayecto al trabajo"
       some_private_offers_exist: "Ya existen <b>%{number_of_listings} ofertas</b>,"
       some_private_requests_exist: "Ya existen <b>%{number_of_listings} solicitudes</b>,"
+    custom_filters:
+      update_view: ~
     event_feed:
       latest_events: "Qué está pasando"
     grid_item:
@@ -793,7 +803,7 @@ es:
       teaser_text: "%{service_name} es un servicio para la comunidad %{community}. Aquí podrás prestar, arrendar, regalar y vender cosas, dar y hacer favores o compartir trayectos de traslado. ¿Puedes prestarle algo a alguien o ayudarlo con algo?"
       tell_it_here: "Dilo aquí!"
       welcome_to_new_kassi: "Bienvenido al nuevo %{service_name}!"
-      no_reviews: "no tiene reseñas"
+      no_reviews: "no tiene calificaciones"
       no_image: ~
       filter: ~
     invitation_form:
@@ -807,8 +817,8 @@ es:
       invitation_message_field_placeholder: "Me uní a este fantástico servicio. Deberías hacer lo mismo!"
       errors_in_emails: "Revisa que sean emails válidos, separados por una coma."
     list_item:
-      review: ~
-      reviews: reseñas
+      review: calificación
+      reviews: calificaciones
     news_item:
       show_less: "Mostrar menos"
       show_more: "Mostrar más"
@@ -1060,6 +1070,9 @@ es:
       follow: "Seguir este anuncio"
       unfollow: "Dejar de seguir este anuncio"
     form:
+      custom_field_partials:
+        dropdown:
+          select_one___: ~
       departure_time:
         at: "a las"
         departure_time: "Hora de salida"
@@ -1296,7 +1309,7 @@ es:
       item_request_trade: "Solicitud de trueque"
       no_description: "Sin descripción"
       no_image: ~
-      no_reviews: "No ha recibido feedback"
+      no_reviews: "No ha recibido calificaciones"
       offer: Oferta
       listing_created: ~
       open_until: "Abierto hasta %{date}"
@@ -1548,8 +1561,8 @@ es:
       slightly_better_than_expected: "Ha superado las expectativas"
       slightly_less_than_expected: "Peor de lo esperado"
       what_are_these: "¿Qué son estos?"
-      review: "reseña recibida"
-      reviews: "reseñas recibidas"
+      review: "calificación recibida"
+      reviews: "calificaciones recibidas"
       badge: medalla
       badges: Medallas
       listing: ~
@@ -1558,11 +1571,11 @@ es:
       open_listings: "publicaciones abiertas"
       no_listings: ~
       no_open_listings: "Sin publicaciones abiertas"
-      no_reviews: "Sin reseñas"
+      no_reviews: "Sin calificación"
       no_badges: "Sin medallas"
       show_all_listings: ~
       show_all_open_listings: "Mostrar todas las publicaciones abiertas"
-      show_all_reviews: "Mostrar todas las reseñas"
+      show_all_reviews: "Mostrar todas las calificaciones"
       trustcloud: TrustCloud
   search:
     show:

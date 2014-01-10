@@ -184,7 +184,7 @@ de:
       loading_more_messages: "weitere Nachrichten laden"
       message_partitive: Nachricht
       messages_partitive: Nachrichten
-      no_received_messages: "Keine Nachrichten empfangenen"
+      no_received_messages: "Keine Nachrichten empfangen"
       no_sent_messages: "Keine gesendeten Nachrichten"
     conversation:
       accepted_request: "Anfrage akzeptiert"
@@ -719,7 +719,7 @@ de:
       offer_partitive: anbieten
       request_partitive: anfordern
   header:
-    about: Über
+    about: Info
     home: Startseite
     members: Community
     new_listing: "neuer Eintrag"
@@ -763,6 +763,8 @@ de:
       ride_request: "Jemanden zur Arbeit mitnehmen"
       some_private_offers_exist: "Es gibt bereits <b>%{number_of_listings} Angebote</b>,"
       some_private_requests_exist: "Es gibt bereits <b>%{number_of_listings} Anfragen</b>,"
+    custom_filters:
+      update_view: ~
     event_feed:
       latest_events: "Was ist los"
     grid_item:
@@ -888,7 +890,7 @@ de:
     global-header:
       select_language: "Sprache auswählen"
     infos:
-      about: Über
+      about: Info
       how_to_use: Hilfe
       info_about_kassi: "Informationen über %{service_name}"
       news: News

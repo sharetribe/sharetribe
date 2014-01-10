@@ -42,11 +42,11 @@ fi:
         send_test_message: "Lähetä testiviesti"
     custom_fields:
       index:
-        listing_fields: "Ilmoituskentät"
+        listing_fields: Ilmoituskentät
         add_new_field: "+ Lisää uusi kenttä"
         remove_field_confirmation: "Oletko varma että haluat poistaa kentän '%{field_name}'?"
-        cancel: "Peruuta"
-        save: "Tallenna"
+        cancel: Peruuta
+        save: Tallenna
         field_title: "Kentän nimi"
         field_type: "Kentän tyyppi"
         categories: "Ilmoituskategoriat joihin kenttä liittyy"
@@ -55,7 +55,7 @@ fi:
         dropdown_options: "Pudotusvalikon vastausvaihtoehdot"
         add_option: "+ Lisää vastausvaihtoehto"
       field_types:
-        dropdown: "Pudotusvalikko"
+        dropdown: Pudotusvalikko
     emails:
       new:
         send_email_to_members: "Lähetä sähköpostia jäsenille"

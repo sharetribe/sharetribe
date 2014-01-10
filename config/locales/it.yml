@@ -733,10 +733,10 @@ it:
     invite: ~
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: ~
-      additionally_one_private_request_exists: ~
-      additionally_some_private_offers_exist: ~
-      additionally_some_private_requests_exist: ~
+      additionally_one_private_offer_exists: "Inoltre c'è <b>un'altra offerta</b>,  "
+      additionally_one_private_request_exists: "Inoltre c'è <b>un'altra richiesta</b>,  "
+      additionally_some_private_offers_exist: "Inoltre ci sono <b> %{number_of_listings} altre offerte</b>,  "
+      additionally_some_private_requests_exist: "Inoltre ci sono <b>%{number_of_listings} altre richieste</b>,  "
     blank_slate:
       add_first: "Aggiungi uno!"
       but_that_is_visible_only_to_registered_members: "ma è visibile solo ai membri registrati."
@@ -763,6 +763,8 @@ it:
       ride_request: "Un passaggio a lavoro"
       some_private_offers_exist: "Ci sono già <b>%{number_of_listings} offerte</b>,"
       some_private_requests_exist: ~
+    custom_filters:
+      update_view: ~
     event_feed:
       latest_events: ~
     grid_item:
