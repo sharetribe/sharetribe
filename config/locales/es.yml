@@ -37,7 +37,7 @@ es:
         invalid_color_code: "El código de color debe contener 6 caracteres, números o letras de la A a la F, por ejemplo D96E21"
       edit_welcome_email:
         welcome_email_content: ~
-        welcome_email_content_description: ~
+        welcome_email_content_description: "Este mensaje será enviado a todos los miembros nuevos cuando ellos se unen a la comunidad. Puede modificar el contenido para adaptar a su comunidad. Haciendo click en '%{send_test_message_link}' puede ver cómo queda el mensaje en tu email."
         edit_message: ~
         send_test_message: ~
     custom_fields:
@@ -126,7 +126,7 @@ es:
       lend: prestando
       receive: regalando
       rent: arrendando
-      rent_out: arriendo
+      rent_out: Alquilando
       sell: Venta
       offer_to_swap: ~
       request_to_swap: ~
@@ -166,7 +166,7 @@ es:
       close_listing: ~
       update_later: ~
       optional_message: ~
-      price_to_pay: "Total precio pagado"
+      price_to_pay: "Total precio por pagar"
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
@@ -196,7 +196,7 @@ es:
       canceled_request: ~
       canceled_offer: "Oferta cancelada."
     message:
-      accepted_request: ~
+      accepted_request: "aceptada la solicitud"
       accepted_offer: "has aceptado la oferta"
       rejected_request: ~
       rejected_offer: "has rechazado la oferta"
@@ -204,7 +204,7 @@ es:
       confirmed_offer: ~
       canceled_request: ~
       canceled_offer: ~
-      paid: ~
+      paid: "%{sum} pagado"
     new:
       offer_message_form_title: "Ofertar %{listing} a %{person}"
       request_message_form_title: ~
@@ -263,8 +263,8 @@ es:
         see_all_the_feedback_you_have_received: "Revisa todas las sugerencias que has recibido"
     show:
       in_response_to_listing: ~
-      message_sent_by: ~
-      message_sent_to: ~
+      message_sent_by: "Mensaje enviado por"
+      message_sent_to: "Mensaje enviado a"
       send_reply: "Enviar respuesta"
       write_a_reply: "Escribe una respuesta:"
       conversation_about_listing: "Conversación con %{person} sobre %{listing}."
@@ -280,16 +280,16 @@ es:
       offer_canceled: ~
       offer_confirmed: ~
       pay: ~
-      paid: ~
+      paid: "pago exitoso"
       request_accepted: "Solicitud aceptada"
       request_rejected: "Solicitud rechazada"
       request_confirmed: ~
       request_canceled: ~
       skip_feedback: "Omitir sugerencia"
-      waiting_for_listing_author_to_accept_offer: "Esperando a %{listing_author_name} para que acepte la oferta"
-      waiting_for_listing_author_to_accept_request: ~
-      waiting_confirmation_from_requester: ~
-      waiting_payment_from_requester: ~
+      waiting_for_listing_author_to_accept_offer: "Esperando a %{listing_author_name}  para aceptar la oferta"
+      waiting_for_listing_author_to_accept_request: "Esperando a  %{listing_author_name} para aceptar la oferta"
+      waiting_confirmation_from_requester: "Esperando a %{requester_name} para marcar la solicitud como completada"
+      waiting_payment_from_requester: "Esperando a %{requester_name} para que haga el pago"
     status_link:
       accept_offer: "Aceptar oferta"
       accept_request: "Aceptar solicitud"
@@ -485,7 +485,7 @@ es:
       faq: FAQ
       browse_tribes: "Buscar tribus"
       pricing: Precios
-      contact: Contacto
+      contact: Contactar
       university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Sharetribe para la Universidad Aalto</a>"
       company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/en\">Sharetribe para HTC Keilaniemi</a>"
       city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe para Kallio, Helsinki</a>"
@@ -508,7 +508,7 @@ es:
       cancel_it_link_text: ~
     payment_reminder:
       remember_to_pay: ~
-      you_have_not_yet_paid: ~
+      you_have_not_yet_paid: "No ha pagado por %{listing_title}  que %{other_party_name} ha aceptado en ofrecerle."
       if_will_not_happen_you_should_cancel: ~
       cancel_it_link_text: ~
     payment_settings_reminder:
@@ -574,20 +574,20 @@ es:
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       conversation_title: "Título del hilo del mensaje: %{title}"
-      view_message: ~
+      view_message: "Ver mensaje"
       has_sent_you_a_message_in_kassi: "%{sender} te ha enviado un mensaje en %{service_name}:"
-      you_have_a_new_message: "Tienes un nuevo mensaje en %{service_name}"
+      you_have_a_new_message: "Tienes un nuevo mensaje en %{service_name} de %{sender_name}"
     new_payment:
       new_payment: ~
-      you_have_received_new_payment: ~
+      you_have_received_new_payment: "Has sido pagado  <b> %{payment_sum}</b> por  <b>%{listing_title}</b> %{payer_full_name}. Aquí estatu comprobante."
     braintree_new_payment:
       product: ~
-      price_payer_paid: ~
+      price_payer_paid: "Precio que %{payer_full_name} pagó"
       service_fee: ~
       you_will_get: ~
     receipt_to_payer:
       receipt_of_payment: ~
-      you_have_made_new_payment: ~
+      you_have_made_new_payment: "Le has pagado <b>%{payment_sum}</b> a  %{recipient_full_name}  por <b>%{listing_title}</b>. Aquí está el comprobante."
       product: ~
       total: ~
       price: Precio
@@ -604,12 +604,12 @@ es:
       added_offer: "%{name_link} ha añadido una oferta:"
       added_request: "%{name_link} añadir una solicitud:"
       added_listing: ~
-      update_mail_title: "%{title_link} actualización de la comunidad"
+      update_mail_title: "Actualización de la comunidad %{title_link}"
       title_link_text: "%{community_name}"
-      intro_paragraph: "Aquí están algunos de los sucesos que han ocurrido en la %{community_link} durante el pasado %{time_since_last_update}."
+      intro_paragraph: "Aquí están algunas actualizaciones que han ocurrido en %{community_link} durante el pasado %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
       post_a_new_listing: "Publica un nuevo listado!"
-      reduce_email_footer_text: "¿Demasiados email? %{settings_link} o %{unsubscribe_link}."
+      reduce_email_footer_text: "¿Demasiados emails? %{settings_link} o %{unsubscribe_link}."
       settings_link_text: "Edita tu configuración de email aquí"
       unsubscribe_link_text: "cancelar suscripción"
     newsletter:
@@ -640,7 +640,7 @@ es:
           Aún no has enviado una sugerencia a %{name} acerca del evento '%{event}'.
           Recuerda hacer una sugerencia de cómo %{given_name} actuó en el evento.
     welcome_email:
-      welcome_email_footer_text: ~
+      welcome_email_footer_text: "¿Qué tipo de emails desea recibir de %{service_name}? %{settings_link}"
       settings_link_text: ~
       subject: "Bienvenido a %{community} - Algunos consejos para ayudarte a empezar"
       welcome_some_tips: "Bienvenido a %{community_link}! Algunos consejos para ayudarte a empezar."
@@ -769,7 +769,7 @@ es:
       some_private_offers_exist: "Ya existen <b>%{number_of_listings} ofertas</b>,"
       some_private_requests_exist: "Ya existen <b>%{number_of_listings} solicitudes</b>,"
     custom_filters:
-      update_view: ~
+      update_view: "Actualizar búsqueda"
     event_feed:
       latest_events: "Qué está pasando"
     grid_item:
@@ -803,7 +803,7 @@ es:
       teaser_text: "%{service_name} es un servicio para la comunidad %{community}. Aquí podrás prestar, arrendar, regalar y vender cosas, dar y hacer favores o compartir trayectos de traslado. ¿Puedes prestarle algo a alguien o ayudarlo con algo?"
       tell_it_here: "Dilo aquí!"
       welcome_to_new_kassi: "Bienvenido al nuevo %{service_name}!"
-      no_reviews: "no tiene calificaciones"
+      no_reviews: "Sin reviews"
       no_image: ~
       filter: ~
     invitation_form:
@@ -817,8 +817,8 @@ es:
       invitation_message_field_placeholder: "Me uní a este fantástico servicio. Deberías hacer lo mismo!"
       errors_in_emails: "Revisa que sean emails válidos, separados por una coma."
     list_item:
-      review: calificación
-      reviews: calificaciones
+      review: review
+      reviews: reviews
     news_item:
       show_less: "Mostrar menos"
       show_more: "Mostrar más"
@@ -975,7 +975,7 @@ es:
       payment_canceled: ~
       error_in_payment: ~
       cannot_receive_payment: ~
-      payment_waiting_for_later_accomplishment: ~
+      payment_waiting_for_later_accomplishment: "Cuando has sido pagado, notificaremos al vendedor y tu recibirás el comprabante por email"
       password_recovery_sent: "Las instrucciones para modificar tu contraseña han sido enviadas a tu correo electrónico."
       person_activated: "Usuario activado"
       person_deactivated: "Usuario desactivado"
@@ -1057,22 +1057,22 @@ es:
       send_comment: "Enviar comentario"
       to_send_a_comment: "Enviar un nuevo comentario"
       write_comment: "Escribir un nuevo comentario:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: ~
+      you_cannot_send_a_new_comment_because_listing_is_closed: "No puede enviar comentarios nuevos porque este listado está cerrado"
       you_must: "Tú deberías"
       subscribe_to_comments: "Notifícame los nuevos comentarios y actualizaciones"
     edit:
-      edit_listing: ~
+      edit_listing: "Editar listado"
     edit_links:
-      close_listing: ~
-      edit_listing: ~
-      reopen_listing: ~
+      close_listing: "Cerrar listado"
+      edit_listing: "Editar listado"
+      reopen_listing: "rehabilitar listado"
     follow_links:
       follow: "Seguir este anuncio"
       unfollow: "Dejar de seguir este anuncio"
     form:
       custom_field_partials:
         dropdown:
-          select_one___: ~
+          select_one___: Selecciona...
       departure_time:
         at: "a las"
         departure_time: "Hora de salida"
@@ -1106,7 +1106,7 @@ es:
         price: precio
         per: por
         mass: "unidad, kg, l, m2"
-        time: ~
+        time: "hora, día, semana, ..."
         long_time: "semana, mes, ..."
         service_fee_will_be_added: ~
         after_service_fee_you_will_get: ~
@@ -1125,7 +1125,7 @@ es:
         offer_type: "Tipo de oferta"
         receive: "Tomar gratis"
         rent: Alquiler
-        rent_out: Arrienda
+        rent_out: Alquilando
         request_type: "Tipo de solicitud"
         sell: Vender
         share_for_free: "Compartir gratuitamente"
@@ -1141,7 +1141,7 @@ es:
         housing_you_request: "Alojamiento o espacio que necesitas"
         item_you_offer: "Artículo que ofreces"
         item_you_request: "Artículo que necesitas"
-        listing_title: ~
+        listing_title: "Título de listado"
       valid_until:
         valid_until: "Fecha de caducidad"
       valid_until_radio_buttons:
@@ -1189,7 +1189,7 @@ es:
       items: Productos
       lends: Prestando
       receives: "Tómalo gratis!"
-      rent_outs: Arriendo
+      rent_outs: Alquilando
       rents: "Lo arriendo"
       rideshares: "Traslado compartido"
       sells: Vender
@@ -1205,8 +1205,8 @@ es:
       rent_out_this: ~
       rent_this: ~
       sell_this: ~
-      link_label_for_favor_offer: Contacto
-      link_label_for_favor_request: Contacto
+      link_label_for_favor_offer: "Solicitar este servicio"
+      link_label_for_favor_request: "Ofrecer este servicio"
       link_label_for_housing_offer_sell: "Comprar este espacio"
       link_label_for_housing_offer_rent_out: "Arrendar este espacio"
       link_label_for_housing_offer_share_for_free: "Solicitar este espacio"
@@ -1296,7 +1296,7 @@ es:
       select_category: ~
     please_comment: Comentario
     reply_link:
-      listing_closed: ~
+      listing_closed: "Listado cerrado"
     show:
       add_your_phone_number: "Añade tu número de teléfono"
       add_profile_picture: "Añada una imagen de perfil"
@@ -1309,13 +1309,13 @@ es:
       item_request_trade: "Solicitud de trueque"
       no_description: "Sin descripción"
       no_image: ~
-      no_reviews: "No ha recibido calificaciones"
+      no_reviews: "No has recibido reviews"
       offer: Oferta
       listing_created: ~
       open_until: "Abierto hasta %{date}"
       feedback: "Comentarios:"
       qr_code: "Código QR"
-      request: Solicitud
+      request: Solicitar
       rideshare_offer: "Oferta de traslado compartido"
       rideshare_request: "Solicitud de traslado compartido"
       send_private_message: "Enviar mensaje privado"
@@ -1382,7 +1382,7 @@ es:
         terms_link_text: ~
       seller_registration_needed:
         seller_registration_needed: ~
-        seller_registration_instructions: ~
+        seller_registration_instructions: "Antes de que puedas crear un listado para tener ganancia, necesitarás agregar unos requisitos de detalle a su %{link_to_settings_page}"
         settings_page_link: ~
     braintree:
       terms:
@@ -1561,8 +1561,8 @@ es:
       slightly_better_than_expected: "Ha superado las expectativas"
       slightly_less_than_expected: "Peor de lo esperado"
       what_are_these: "¿Qué son estos?"
-      review: "calificación recibida"
-      reviews: "calificaciones recibidas"
+      review: "review recibida"
+      reviews: "reviews recibidas"
       badge: medalla
       badges: Medallas
       listing: ~
@@ -1571,11 +1571,11 @@ es:
       open_listings: "publicaciones abiertas"
       no_listings: ~
       no_open_listings: "Sin publicaciones abiertas"
-      no_reviews: "Sin calificación"
+      no_reviews: "Sin reviews"
       no_badges: "Sin medallas"
       show_all_listings: ~
       show_all_open_listings: "Mostrar todas las publicaciones abiertas"
-      show_all_reviews: "Mostrar todas las calificaciones"
+      show_all_reviews: "Mostrar todas las reviews"
       trustcloud: TrustCloud
   search:
     show:

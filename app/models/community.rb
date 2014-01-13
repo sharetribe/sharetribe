@@ -198,28 +198,6 @@ class Community < ActiveRecord::Base
     polls.where(:active => true).first
   end
   
-  def set_email_confirmation_on_and_send_mail_to_existing_users
-    # If email confirmation is already active, do nothing
-    return if self.email_confirmation == true
-    
-    self.email_confirmation = true
-    save
-    
-    original_locale = I18n.locale
-    
-    #Store host to global variable to be able to use this from console
-    $host = full_domain
-    
-    members.all.each do |member|
-      member.confirmed_at = nil
-      member.save
-      I18n.locale = member.locale
-      member.send_confirmation_instructions(full_domain, self)
-      
-    end
-    I18n.locale = original_locale
-  end
-  
   def email_all_members(subject, mail_content, default_locale="en", verbose=false)
     puts "Sending mail to all #{members.count} members in community: #{self.name(default_locale)}" if verbose
     PersonMailer.deliver_open_content_messages(members.all, subject, mail_content, default_locale, verbose)
@@ -317,7 +295,7 @@ class Community < ActiveRecord::Base
   def self.reset_custom_stylesheets!
     Community.with_customizations.update_all(:stylesheet_url => nil)
   end
-  
+
   # approves a membership pending email if one is found
   # if email is given, only approves if email is allowed
   # returns true if membership was now approved

@@ -1,7 +1,12 @@
 // Custom Javascript functions for Sharetribe
 // Add custom validation methods
+
+function ___trigger_asset_sync() {
+  // You can remove this :)
+}
+
 function add_validator_methods() {
-  
+
   // If some element is required, it should be validated even if it's hidden
   $.validator.setDefaults({ ignore: [] });
   
@@ -1307,5 +1312,4 @@ function enableSamePageScroll() {
     }
     return [];
   }
- 
 }

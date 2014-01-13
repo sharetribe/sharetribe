@@ -34,11 +34,6 @@
       = yield
 
   = render :partial => "layouts/google_analytics_script"
-  
-  - if @analytics_event
-    :javascript
-      report_analytics_event(#{@analytics_event});
-
 
   /[if lt IE 9]
     - if APP_CONFIG.icon_pack == "ss-pika"
@@ -48,5 +43,18 @@
   -#
     Most of the JavaScript should be for performance reasons at the end of the body
 
-  = yield(:body_javascript)
-  
+  = javascript_include_tag 'application'
+
+  - if @analytics_event
+    :javascript
+      report_analytics_event(#{@analytics_event});
+
+  :javascript
+    $(function() {
+      FastClick.attach(document.body);
+    });
+
+  = content_for :extra_javascript
+
+  :javascript
+    $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });

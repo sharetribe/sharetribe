@@ -35,7 +35,7 @@ module CommunityStylesheetCompiler
 
       variable_hash = create_variable_hash(community)
       target_file_no_ext = create_new_filename(community.domain)
-      target_file_path = "public/assets/#{target_file_no_ext}.css"
+      target_file_path = "public/assets/#{target_file_no_ext}.css.gz"
 
       StylesheetCompiler.compile(SOURCE_DIR, SOURCE_FILE, target_file_path, VARIABLE_FILE, variable_hash)
 
@@ -60,7 +60,7 @@ module CommunityStylesheetCompiler
         b = s3.buckets.create(APP_CONFIG.s3_bucket_name)
         basename = File.basename("#{Rails.root}/#{target_file_path}")
         o = b.objects["assets/custom/#{basename}"]
-        o.write(:file => "#{Rails.root}/#{target_file_path}", :cache_control => "public, max-age=30000000", :content_type => "text/css")
+        o.write(:file => "#{Rails.root}/#{target_file_path}", :cache_control => "public, max-age=30000000", :content_type => "text/css", :content_encoding => "gzip")
         o.acl = :public_read
         o.public_url.to_s
       end

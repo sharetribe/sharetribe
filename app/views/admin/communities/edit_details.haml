@@ -25,7 +25,7 @@
   .edit-community-details-field
     .edit-community-details-field-title
       = t(".community_slogan")
-    = render :partial => "info_text", :locals => { :text => t(".edit_community_slogan_description", :see_how_it_looks_like => link_to(t(".see_how_it_looks_like"), "/?big_cover_photo=true")).html_safe }
+    = render :partial => "info_text", :locals => { :text => t(".edit_community_slogan_description", :see_how_it_looks_like => link_to(t(".see_how_it_looks_like"), "/?big_cover_photo=true", :id => "view_slogan_link")).html_safe }
     #slogan{:data => {:mercury => "full"}}
       - if @community_customization && @community_customization.slogan
         = @community_customization.slogan

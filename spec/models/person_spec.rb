@@ -27,8 +27,7 @@ describe Person do
           :password => "testi", 
           :email => "#{username}@example.com",
           "given_name" => "Tero",
-          "family_name" => "Turari",
-          "confirmed_at" => Time.now})
+          "family_name" => "Turari"})
         Person.find(p.id).should_not be_nil
         p.username.should == username
       end

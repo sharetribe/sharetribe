@@ -12,24 +12,6 @@ Feature: User views info about sharetribe
     And I should see "About" within ".selected.left-navi-link"
     And I should see "Terms of use"
     And I should see "Privacy"
-
-  @javascript
-  Scenario: Normal user can not edit about page
-    Given I am logged in as "kassi_testperson2"
-    And I am on the about page
-    Then I should not see "Edit page"
-
-  @javascript
-  Scenario: Admin user can edit about page
-    Given I am logged in as "kassi_testperson1"
-    And I am on the about page
-    Then I should not have editor open
-    When I follow "Edit page"
-    Then I should have editor open
-    When I send keys "This is a new line to about text" to editor
-    And I click save on the editor
-    And I refresh the page
-    Then I should see "This is a new line to about text"
   
   @javascript
   Scenario: User views terms page
