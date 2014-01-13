@@ -1317,5 +1317,4 @@ function enableSamePageScroll() {
     }
     return [];
   }
- 
 }
