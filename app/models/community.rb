@@ -295,7 +295,7 @@ class Community < ActiveRecord::Base
   def self.reset_custom_stylesheets!
     Community.with_customizations.update_all(:stylesheet_url => nil)
   end
-  
+
   # approves a membership pending email if one is found
   # if email is given, only approves if email is allowed
   # returns true if membership was now approved

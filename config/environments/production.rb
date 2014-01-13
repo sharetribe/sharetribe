@@ -38,7 +38,11 @@ Kassi::Application.configure do
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
   
-  # Compress JavaScript and CSS  
+  # Compress JavaScript and CSS
+  #
+  # Notice: To GZIP assets on production (with S3) you also need to setup
+  # ENV['ASSET_SYNC_GZIP_COMPRESSION'] = true. It will replace the 
+  # uncompressed file with the compressed one
   config.assets.compress = true  
 
   # Don't fallback to assets pipeline  
