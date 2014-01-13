@@ -11,14 +11,11 @@ include TestHelpers
 require 'cucumber/rails'
 require 'email_spec/cucumber'
  
-prefork = lambda {
-  # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
-  # order to ease the transition to Capybara we set the default here. If you'd
-  # prefer to use XPath just remove this line and adjust any selectors in your
-  # steps to use the XPath syntax.
-  Capybara.default_selector = :css
-  Capybara.ignore_hidden_elements = true
 
+# NOTE: Zeus doesn't load this part, it only runs custom_plan.rb and each_run block  
+prefork = lambda {
+  #puts "CUCUMBER PREFORK"
+ 
   # Uncomment this if needed to keep the browser open after the test
   # Capybara::Selenium::Driver.class_eval do
   #   def quit
@@ -29,10 +26,23 @@ prefork = lambda {
   #     # Browser must have already gone
   #   end
   # end
-  
+
+  # This was earlier a call to "reset_categories_to_default" but as the seeds contain now other stuff too, simply load seeds
+  # It doesn't clear the categories though, so modify this if trouble with custom categories remaining. 
+  load "#{Rails.root}/db/seeds.rb"
 }
  
 each_run = lambda {
+
+  #puts "CUCUMBER EACH_RUN"
+
+  # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
+  # order to ease the transition to Capybara we set the default here. If you'd
+  # prefer to use XPath just remove this line and adjust any selectors in your
+  # steps to use the XPath syntax.
+  Capybara.default_selector = :css
+  Capybara.ignore_hidden_elements = true
+  # These settigs could be in prefork block, but Zeus wouldn't run that, so moved here.
 
   # By default, any exception happening in your Rails application will bubble up
   # to Cucumber so that your scenario will fail. This is a different from how 
@@ -83,10 +93,8 @@ each_run = lambda {
   Rails.cache.clear
 }
 
-prefork.call
-each_run.call
-
 if defined?(Zeus)
+  # prefork.call # This is commented out as the prefork stuff is already added to custom_plan.rb so that it's run only once
   $each_run = each_run
   class << Zeus.plan
     def after_fork_with_test
@@ -95,8 +103,14 @@ if defined?(Zeus)
     end
     alias_method_chain :after_fork, :test
   end
+elsif ENV['spork'] || $0 =~ /\bspork$/
+  require 'spork'
+  #puts "RUNNING WITH SPORK"
+  Spork.prefork(&prefork)
+  Spork.each_run(&each_run)
 else
-  # This was earlier a call to "reset_categories_to_default" but as the seeds contain now other stuff too, simply load seeds
-  # It doesn't clear the categories though, so modify this if trouble with custom categories remaining. 
-  load "#{Rails.root}/db/seeds.rb"
+  #puts "RUNNING WITHOUT ZEUS OR SPORK"
+  prefork.call
+  each_run.call  
 end
+
