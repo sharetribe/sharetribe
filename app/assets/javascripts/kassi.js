@@ -1035,19 +1035,9 @@ function initialize_admin_edit_tribe_look_and_feel_form(locale, community_id, in
    });
 }
 
-function initialize_admin_listing_fields_view(locale) {
+function initialize_admin_listing_field_form_view(locale, form_id) {
   translate_validation_messages(locale);
 
-  $('#add-new-field-link').click(function(link) {
-    $('#new-field-form').show();
-    $('#add-new-field-link').hide();  
-  });
-  $('#cancel-new-field-link').click(function(link) {
-    $('#new-field-form').hide();
-    $('#add-new-field-link').show();  
-  });
-
-  var form_id = "#new_dropdown";
   var $form = $(form_id);
   var CATEGORY_CHECKBOX_NAME = "custom_field[category_attributes][][category_id]";
 

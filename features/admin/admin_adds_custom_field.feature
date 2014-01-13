@@ -1,4 +1,4 @@
-Feature: Admin adds custom field for category
+Feature: Admin adds a custom field
   
   Background:
     Given I am logged in as "kassi_testperson2"
@@ -8,11 +8,11 @@ Feature: Admin adds custom field for category
     Then I should see that I do not have any custom fields
 
   @javascript
-  Scenario: Admin adds custom field from category
+  Scenario: Admin adds custom field
     When I add a new custom field "House type"
     Then I should see that there is a custom field "House type"
 
   @javascript
-  Scenario: Admin adds custom field category with invalid data
+  Scenario: Admin adds custom field with invalid data
     When I add a new custom field "House type" with invalid data
     Then I should see 3 validation errors

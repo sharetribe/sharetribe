@@ -22,7 +22,13 @@ class CustomField < ActiveRecord::Base
   
   def name_attributes=(attributes)
     build_attrs = attributes.map { |locale, value| {locale: locale, value: value } }
-    build_attrs.each { |name| names.build(name) }
+    build_attrs.each do |name| 
+      if existing_name = names.find_by_locale(name[:locale])
+        existing_name.update_attribute(:value, name[:value])
+      else
+        names.build(name)
+      end
+    end
   end
   
   def category_attributes=(attributes)

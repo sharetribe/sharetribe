@@ -78,3 +78,29 @@ When /^I add a new custom field "(.*?)" with invalid data$/ do |field_name|
     And I press submit
   }
 end
+
+Given /^there is a custom field "(.*?)" in community "(.*?)"$/ do |name, community|
+  current_community = Community.find_by_domain(community)
+  @custom_field = FactoryGirl.build(:custom_field, :community_id => current_community.id)
+  @custom_field.names << CustomFieldName.create(:value => name, :locale => "en")
+  @custom_field.category_custom_fields.build(:category => current_community.categories.first)
+  @custom_field.options << FactoryGirl.build(:custom_field_option)
+  @custom_field.options << FactoryGirl.build(:custom_field_option)
+  @custom_field.save
+end
+
+When /^I change custom field "(.*?)" name to "(.*?)"$/ do |old_name, new_name|
+  steps %Q{
+    When I follow "edit_custom_field_#{@custom_field.id}"
+    And I fill in "custom_field[name_attributes][en]" with "#{new_name}"
+    And I press submit
+  }
+end
+
+When /^I try to edit custom field "(.*?)" with invalid data$/ do |field_name|
+  steps %Q{
+    When I follow "edit_custom_field_#{@custom_field.id}"
+    And I fill in "custom_field[name_attributes][en]" with ""
+    And I press submit
+  }
+end

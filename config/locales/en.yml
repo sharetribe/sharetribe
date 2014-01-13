@@ -41,6 +41,8 @@ en:
         edit_message: "Edit message"
         send_test_message: "Send test message"
     custom_fields:
+      edit:
+        edit_listing_field: "Edit listing field '%{field_name}'"
       index:
         listing_fields: "Listing fields"
         add_new_field: "+ Add new field"
@@ -50,10 +52,11 @@ en:
         field_title: "Field title"
         field_type: "Field type"
         categories: "Listing categories where the field is used"
-        add_new_field_to_listing_form: "Add new field to listing form"
         no_custom_listing_fields: "No marketplace specific listing fields."
         dropdown_options: "Dropdown options"
         add_option: "+ Add option"
+      new:
+        new_listing_field: "New listing field"
       field_types:
         dropdown: Dropdown
     emails:

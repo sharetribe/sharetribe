@@ -6,25 +6,40 @@ class Admin::CustomFieldsController < ApplicationController
   skip_filter :dashboard_only
   
   def index
-    @selected_tribe_navi_tab = "admin"
+    @selected_left_navi_link = "listing_fields"
+    @community = @current_community
+    @custom_fields = @current_community.custom_fields
+  end
+  
+  def new
     @selected_left_navi_link = "listing_fields"
     @community = @current_community
     @custom_field = Dropdown.new
-    @custom_fields = @current_community.categories.flat_map(&:custom_fields).uniq.sort
     @custom_field.options = [CustomFieldOption.new, CustomFieldOption.new]
-    session[:option_amount] = 1
+    session[:option_amount] = 2
   end
   
   def create
-
     success = if valid_categories?(@current_community, params[:custom_field][:category_attributes])
       @custom_field = Dropdown.new(params[:custom_field])
       @custom_field.community = @current_community
       @custom_field.save
     end
-
     flash[:error] = "Listing field saving failed" unless success
-
+    redirect_to admin_custom_fields_path
+  end
+  
+  def edit
+    @selected_tribe_navi_tab = "admin"
+    @selected_left_navi_link = "listing_fields"
+    @community = @current_community
+    @custom_field = CustomField.find(params[:id])
+    session[:option_amount] = @custom_field.options.size
+  end
+  
+  def update
+    @custom_field = CustomField.find(params[:id])
+    @custom_field.update_attributes(params[:custom_field])
     redirect_to admin_custom_fields_path
   end
 
