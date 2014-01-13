@@ -44,15 +44,19 @@ module NavigationHelpers
       listing_path(:id => @listing.id, :locale => "en")
     when /^the registration page with invitation code "(.*)"$/i
       "/en/signup?code=#{$1}"
+    when /^the admin view of community "(.*)"$/i
+      edit_details_admin_community_path(:id => Community.find_by_domain($1).id, :locale => "en")
     when /the infos page/
       about_infos_path(:locale => "en")
     when /the terms page/
       terms_infos_path(:locale => "en")
+    when /the privacy policy page/
+      privacy_infos_path(:locale => "en")
     when /the news page/
       news_items_path(:locale => "en")
     when /new tribe in English/
       new_tribe_path(:community_locale => "en", :locale => "en")
-    when /invitations page$/i
+    when /invitations page/
       new_invitation_path(:locale => "en")
     when /the settings page/
       "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings"

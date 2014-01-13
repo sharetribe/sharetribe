@@ -33,11 +33,12 @@
           = form.label :address, t(".address"), :class => "input"
           = form.text_field :address, :class => "text_field", :onkeyup => "timed_input(this)"
           #new_community_map_canvas.map
-            :javascript
-              source = document.getElementById("community_address");
-              $(document).ready(function(){
-                googlemapMarkerInit("new_community_map_canvas","community_location","community_address", true, undefined, undefined);
-              });
+            - content_for :extra_javascript do
+              :javascript
+                source = document.getElementById("community_address");
+                $(document).ready(function(){
+                  googlemapMarkerInit("new_community_map_canvas","community_location","community_address", true, undefined, undefined);
+                });
         .form_field_container_taller
           = form.label :description, t(".describe_your_tribe")
           = form.text_area :description, :maxlength => "500", :value => (@community.description || t("common.default_community_description", :locale => (session[:community_locale] || "en"))), :class => "new_tribe_text_area"

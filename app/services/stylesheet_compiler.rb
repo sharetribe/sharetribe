@@ -18,7 +18,7 @@ module StylesheetCompiler
     # examples params:
     # - `source_dir`: "app/assets/stylesheets"
     # - `source_file`: "application.scss"
-    # - `target_file`: "public/assets/blue-links.css"
+    # - `target_file`: "public/assets/blue-links.css.gz"
     # - `variable_file`: "colors.scss"
     # - `variable_hash`: {link_color: "#0000FF"}
     #
@@ -49,8 +49,8 @@ module StylesheetCompiler
                 compass.templates_directory
               ]
 
-              # Here we can add SASS configurations, such as:
-              # s.style = :expanded
+              # Here we can add SASS configurations
+              s.style = :compressed
             end
           end
         end

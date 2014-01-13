@@ -4,16 +4,7 @@ describe Dropdown do
   describe "validations" do
     before(:each) do
       # Create valid Dropdown entity
-      @dropdown = Dropdown.new
-      @dropdown.category_custom_fields << FactoryGirl.build(:category_custom_field, :custom_field => @dropdown)
-      @dropdown.names << CustomFieldName.new(:locale => "en", :value => "Field name")
-      option1 = CustomFieldOption.new()
-      option1_title = CustomFieldOptionTitle.new(:locale => "en", :value => "Field option1")
-      option1.titles << option1_title
-      option2 = CustomFieldOption.new()
-      option2_title = CustomFieldOptionTitle.new(:locale => "en", :value => "Field option2")
-      option2.titles << option2_title
-      @dropdown.options << [option1, option2]
+      @dropdown = FactoryGirl.create(:custom_field)
       @dropdown.should be_valid
     end
 

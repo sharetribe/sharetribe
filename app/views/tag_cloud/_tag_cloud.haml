@@ -10,5 +10,6 @@
       - result.each do |k, v|
         = link_to k, '#', :class => v, :name => "tags_"+k
 
-:javascript
-  var remember_tag = "#{params[:tag]}";
+- content_for :extra_javascript do
+  :javascript
+    var remember_tag = "#{params[:tag]}";
