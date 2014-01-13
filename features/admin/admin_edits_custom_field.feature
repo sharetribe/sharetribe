@@ -14,6 +14,11 @@ Feature: Admin edits a custom field
     Then I should see "Room type"
 
   @javascript
-  Scenario: Admin tries to edit custom field with invalid data
-    When I try to edit custom field "House type" with invalid data
+   Scenario: Admin changes categories
+     When I change custom field "House type" categories
+     Then correct categories should be stored
+
+  @javascript
+  Scenario: Admin tries to remove all categories
+    When I try to remove all categories
     Then I should see 1 validation errors

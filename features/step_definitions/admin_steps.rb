@@ -104,3 +104,27 @@ When /^I try to edit custom field "(.*?)" with invalid data$/ do |field_name|
     And I press submit
   }
 end
+
+When /^I change custom field "(.*?)" categories$/ do |field_name|
+  current_community = Community.find_by_domain("test")
+  steps %Q{
+    When I follow "edit_custom_field_#{@custom_field.id}"
+    And I toggle category "#{current_community.categories.first.display_name}"
+    And I toggle category "#{current_community.categories[1].display_name}"
+    And I toggle category "#{current_community.categories[2].display_name}"
+    And I press submit
+  }
+end
+
+Then /^correct categories should be stored$/ do
+  current_community = Community.find_by_domain("test")
+  @custom_field.categories.should == [current_community.categories[1], current_community.categories[2]]
+end  
+
+When /^I try to remove all categories$/ do
+  steps %Q{
+    When I follow "edit_custom_field_#{@custom_field.id}"
+    And I toggle category "#{@custom_field.categories.first.display_name}"
+    And I press submit
+  }
+end
