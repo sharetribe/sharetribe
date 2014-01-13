@@ -15,9 +15,11 @@
 //= require fastclick.min
 //= require infobubble
 //= require sharetribe_common
+//= require Bacon.min
 //= require kassi
 //= require googlemaps
 //= require map_label
 //= require homepage
+//= require custom_fields
 //= require payment_math
 //= require_self
