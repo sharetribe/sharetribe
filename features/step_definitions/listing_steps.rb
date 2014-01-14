@@ -145,6 +145,14 @@ When /^I fill in listing form with housing information$/ do
   }
 end
 
+When /^I choose to view only share type "(.*?)"$/ do |share_type_name|
+  steps %Q{
+    When I click "#home_toolbar-select-share-type"
+    And I follow "#{share_type_name}" within ".home-toolbar-share-type-menu"
+  }
+end
+
+
 Given /^there is a dropdown field "(.*?)" for category "(.*?)" in community "(.*?)" with options:$/ do |field_title, category_name, community_domain, opts_table|
   @community = Community.find_by_domain(community_domain)
   @category = Category.find_by_name(category_name)
