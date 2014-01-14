@@ -20,8 +20,24 @@ $(function() {
   */
   var orderManager = (function createSwapper(fieldMap, utils) {
     function swapDomElements(downEl, upEl) {
-      downEl.transition({ y: '+=' + upEl.height() });
-      upEl.transition({ y: '-=' + downEl.height() });
+      var downAnimateEl = downEl.clone();
+      var upElAnimate = upEl.clone();
+
+      downEl.before(downAnimateEl);
+      upEl.before(upElAnimate);
+      downEl.hide();
+      upEl.hide();
+
+      var downDone = downAnimateEl.transition({ y: '+=' + upElAnimate.height() }).promise();
+      var upDone = upElAnimate.transition({ y: '-=' + downAnimateEl.height() }).promise();
+
+      $.when(downDone, upDone).done(function() {
+        downEl.before(upEl);
+        downAnimateEl.remove();
+        upElAnimate.remove();
+        downEl.show();
+        upEl.show();
+      });
     }
 
     function swap(downId, upId) {
