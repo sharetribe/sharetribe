@@ -38,7 +38,7 @@ When /^I remove custom field "(.*?)"$/ do |title|
   steps %Q{
     Given I will confirm all following confirmation dialogs if I am running PhantomJS
   }
-  find_remove_link_for_custom_field(title).click()
+  find_remove_link_for_custom_field(title).click
   steps %Q{
     And I confirm alert popup
   }
@@ -54,13 +54,13 @@ When /^I add a new custom field "(.*?)"$/ do |field_name|
     And I fill in "custom_field[name_attributes][en]" with "#{field_name}"
     And I fill in "custom_field[name_attributes][fi]" with "Talon tyyppi"
     And I toggle category "Spaces"
-    And I fill in "custom_field[option_attributes][new_1][title_attributes][en]" with "Room"
-    And I fill in "custom_field[option_attributes][new_1][title_attributes][fi]" with "Huone"
-    And I fill in "custom_field[option_attributes][new_2][title_attributes][en]" with "Appartment"
-    And I fill in "custom_field[option_attributes][new_2][title_attributes][fi]" with "Asunto"
+    And I fill in "custom_field[option_attributes][new-1][title_attributes][en]" with "Room"
+    And I fill in "custom_field[option_attributes][new-1][title_attributes][fi]" with "Huone"
+    And I fill in "custom_field[option_attributes][new-2][title_attributes][en]" with "Appartment"
+    And I fill in "custom_field[option_attributes][new-2][title_attributes][fi]" with "Asunto"
     And I follow "custom-fields-add-option"
-    And I fill in "custom_field[option_attributes][new_3][title_attributes][en]" with "House"
-    And I fill in "custom_field[option_attributes][new_3][title_attributes][fi]" with "Talo"
+    And I fill in "custom_field[option_attributes][new-3][title_attributes][en]" with "House"
+    And I fill in "custom_field[option_attributes][new-3][title_attributes][fi]" with "Talo"
     And I press submit
   }
 end
@@ -69,12 +69,12 @@ When /^I add a new custom field "(.*?)" with invalid data$/ do |field_name|
   steps %Q{
     When I follow "Add new field"
     And I fill in "custom_field[name_attributes][en]" with "#{field_name}"
-    And I fill in "custom_field[option_attributes][new_1][title_attributes][en]" with "Room"
-    And I fill in "custom_field[option_attributes][new_1][title_attributes][fi]" with "Huone"
-    And I fill in "custom_field[option_attributes][new_2][title_attributes][en]" with "Appartment"
+    And I fill in "custom_field[option_attributes][new-1][title_attributes][en]" with "Room"
+    And I fill in "custom_field[option_attributes][new-1][title_attributes][fi]" with "Huone"
+    And I fill in "custom_field[option_attributes][new-2][title_attributes][en]" with "Appartment"
     And I follow "custom-fields-add-option"
-    And I fill in "custom_field[option_attributes][new_3][title_attributes][en]" with "House"
-    And I fill in "custom_field[option_attributes][new_3][title_attributes][fi]" with "Talo"
+    And I fill in "custom_field[option_attributes][new-3][title_attributes][en]" with "House"
+    And I fill in "custom_field[option_attributes][new-3][title_attributes][fi]" with "Talo"
     And I press submit
   }
 end

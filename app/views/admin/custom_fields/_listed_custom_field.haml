@@ -13,7 +13,7 @@
   .col-2
     %span.custom-fields-mobile-list-title.hidden-tablet
       = t(".actions")
-    = link_to edit_admin_custom_field_path(custom_field), :class => "custom-fields-action-remove", :id => "edit_custom_field_#{custom_field.id}" do
+    = link_to edit_admin_custom_field_path(custom_field), :class => "custom-fields-action-edit", :id => "edit_custom_field_#{custom_field.id}" do
       = icon_tag("edit", ["icon-fix"])
     = link_to admin_custom_field_path(custom_field), :method => :delete, :class => "custom-fields-action-remove", :confirm => t("admin.custom_fields.index.remove_field_confirmation", :field_name => custom_field.name(I18n.locale)) do
       = icon_tag("cross", ["icon-fix"])
