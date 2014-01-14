@@ -53,6 +53,7 @@ module ApplicationHelper
       "rows" => "ss-rows",
       "check" => "ss-check",
       "invite" => "ss-adduser",
+      "loading" => "ss-loading",
       "" => "",
       
       # Default category & share type icons

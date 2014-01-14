@@ -54,6 +54,9 @@ fi:
         no_custom_listing_fields: "Yhteisöllä ei ole yhtään yhteisökohtaista listauskenttää."
         dropdown_options: "Pudotusvalikon vastausvaihtoehdot"
         add_option: "+ Lisää vastausvaihtoehto"
+        saving_order: Tallennetaan kenttien järjestystä
+        save_order_successful: Kenttien järjestyksen tallennus onnistui
+        save_order_error: Virhe tallennettaessa kenttien järjestystä. Päivitä sivu ja yritä uudelleen.
       field_types:
         dropdown: Pudotusvalikko
     emails:

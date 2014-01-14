@@ -151,11 +151,11 @@ function report_analytics_event(params_array) {
 function initialize_defaults(locale) {
   add_validator_methods();
   translate_validation_messages(locale);
-  // This can be used if flash notifications should fade out
-  // automatically - currently not used.
-  //setTimeout(hideNotice, 5000);
   $('.flash-notifications').click(function() {
     $('.flash-notifications').fadeOut('slow');
+  });
+  $('.ajax-notification').click(function() {
+    $('.ajax-notification').fadeOut('slow');
   });
   $('#login-toggle-button').click(function() { 
     $('#upper_person_login').focus();

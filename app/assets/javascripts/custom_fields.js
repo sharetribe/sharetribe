@@ -81,7 +81,7 @@ $(function() {
     up.onValue(orderManager.up);
     down.onValue(orderManager.down);
 
-    var ajaxRequest = up.merge(down).debounce(500).map(function() {
+    var ajaxRequest = up.merge(down).debounceImmediate(1500).map(function() {
       return {
         type: "POST",
         url: customFieldUrl("order"),
@@ -89,8 +89,7 @@ $(function() {
       };
     });
 
-    var ajaxResponse = ajaxRequest.ajax();
-    var ajaxStatus = ajaxResponse
+    var ajaxResponse = ajaxRequest.ajax()
       .map(function() { return true; })
       .mapError(function() { return false; });
 
@@ -100,18 +99,28 @@ $(function() {
       $("#custom-field-ajax-success").hide();
     });
 
-    ajaxStatus.onValue(function(success) {
+    var canHideLoadingMessage = ajaxRequest.flatMapLatest(function() {
+      return Bacon.later(1000, true).toProperty(false);
+    }).toProperty(false);
+
+    var ajaxLoading = ajaxRequest.awaiting(ajaxResponse);
+    canUpdateMessage = canHideLoadingMessage.and(ajaxLoading.not());
+
+    var isTrue = function(value) { return value === true};
+    var isFalse = function(value) { return value === false};
+
+    canHideLoadingMessage.and(ajaxResponse).filter(isTrue).onValue(function(v) {
       $("#custom-field-ajax-saving").hide();
-      if(success) {
-        $("#custom-field-ajax-success").show();
-      } else {
-        $("#custom-field-ajax-error").show();
-      }
+      $("#custom-field-ajax-success").show();
     });
 
-    var hideSuccessMessage = ajaxStatus.filter(true).throttle(3000);
-    hideSuccessMessage.onValue(function() {
-      $("#custom-field-ajax-success").hide();
+    canHideLoadingMessage.and(ajaxResponse.not()).filter(isTrue).onValue(function(v) {
+      $("#custom-field-ajax-saving").hide();
+      $("#custom-field-ajax-error").show();
+    });
+
+    canHideLoadingMessage.and(ajaxResponse).debounce(3000).onValue(function() {
+      $("#custom-field-ajax-success").fadeOut();
     });
   });
 });
