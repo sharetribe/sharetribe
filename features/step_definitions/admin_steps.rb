@@ -1,16 +1,19 @@
 LIST_SELECTOR = "#custom-fields-list"
 REMOVE_SELECTOR = ".custom-fields-action-remove"
+UP_SELECTOR = ".custom-fields-action-up"
 
 module AdminSteps
 
   def find_row_for_custom_field(title)
-    list = find(LIST_SELECTOR)
-    title_div = list.find(".row", :text => "#{title}")
-    custom_field_row = title_div.first(:xpath, ".//..")
+    find(".custom-field-list-row", :text => "#{title}")
   end
 
   def find_remove_link_for_custom_field(title)
     find_row_for_custom_field(title).find(REMOVE_SELECTOR)
+  end
+
+  def find_up_link_for_custom_field(title)
+    find_row_for_custom_field(title).find(UP_SELECTOR)
   end
 end
 
@@ -141,4 +144,21 @@ Then /^options should be stored correctly$/ do
   @custom_field.options[0].title.should == "House2"
   @custom_field.options[1].title.should == "House3"
   @custom_field.options[2].title.should == "House4"
+end
+
+Then /^I should see "(.*?)" before "(.*?)"$/ do |arg1, arg2|
+  steps %Q{
+    Then I should see "#{arg1}"
+    Then I should see "#{arg2}"
+  }
+
+  # http://stackoverflow.com/questions/8423576/is-it-possible-to-test-the-order-of-elements-via-rspec-capybara
+  page.body.index(arg1).should < page.body.index(arg2)
+end
+
+When /^I move custom field "(.*?)" up$/ do |custom_field|
+  find_up_link_for_custom_field(custom_field).click();
+  steps %Q{
+    Then I should see "Successfully saved field order"
+  }
 end
