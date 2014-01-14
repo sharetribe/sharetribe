@@ -18,8 +18,18 @@
           = t(".field_title")
         .col-5.custom-fields-list-title
           = t(".field_type")
-      = render :partial => "listed_custom_field", :collection => @custom_fields, :as => :custom_field
-        
+      = render :partial => "listed_custom_field", :collection => @custom_fields.sort, :as => :custom_field
+    #custom-field-ajax-status
+      .ajax-notification.ajax-notice.custom-field-ajax-status-message#custom-field-ajax-saving
+        .ajax-icon{:class => icon_class("loading")}
+        .ajax-text
+          = t(".saving_order")
+      .ajax-notification.ajax-success.custom-field-ajax-status-message#custom-field-ajax-success
+        .ajax-icon{:class => icon_class("check")}
+        .ajax-text
+          = t(".save_order_successful")
+      .ajax-notification.ajax-error.custom-field-ajax-status-message#custom-field-ajax-error
+        = t(".save_order_error")
   .row
     .col-12
       = link_to t(".add_new_field"), new_admin_custom_field_path

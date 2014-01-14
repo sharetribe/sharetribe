@@ -61,6 +61,21 @@ class Admin::CustomFieldsController < ApplicationController
     end
   end
 
+  def order
+    sort_priorities = params[:order].each_with_index.map do |custom_field_id, index|
+      [custom_field_id, index]
+    end.inject({}) do |hash, ids|
+      custom_field_id, sort_priority = ids
+      hash.merge(custom_field_id.to_i => sort_priority)
+    end
+
+    @current_community.custom_fields.each do |custom_field|
+      custom_field.update_attributes(:sort_priority => sort_priorities[custom_field.id])
+    end
+
+    render nothing: true, status: 200
+  end
+
   private
 
   # Return `true` if all the category id's belong to `community`
