@@ -1,4 +1,5 @@
-$(function() {
+window.ST = window.ST || {}; 
+window.ST.customFields = function() {
 
   /**
     Fetch all custom field rows and save them to a variable
@@ -127,4 +128,4 @@ $(function() {
   canHideLoadingMessage.and(ajaxResponse).debounce(3000).onValue(function() {
     $("#custom-field-ajax-success").fadeOut();
   });
-});
+};
