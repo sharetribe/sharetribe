@@ -1,19 +1,27 @@
 $(function() {
-  function idFromRow($row) {
-    return $row.data("field-id");
-  }
 
+  /**
+    Fetch all custom field rows and save them to a variable
+  */
   var customFields = $(".custom-field-list-row").map(function(id, row) {
-    var $row = $(row);
     return { 
-      id: idFromRow($row),
-      element: $row
+      id: $(row).data("field-id"),
+      element: $(row)
     };
   }).get();
 
+  /**
+    Order manager is in charge of keeping and updating the field order.
+    It provides three methods:
+
+    - `up(fieldId)`: Moves up
+    - `down(fieldId)`: Moves down
+    - `getOrder()`: Returns array of fieldIds, in correct order
+  */
   var orderManager = (function createSwapper(fieldMap, utils) {
     function swapDomElements(downEl, upEl) {
-      $(downEl).before($(upEl));
+      downEl.transition({ y: '+=' + upEl.height() });
+      upEl.transition({ y: '-=' + downEl.height() });
     }
 
     function swap(downId, upId) {
@@ -48,18 +56,21 @@ $(function() {
     }
   })(customFields, ST.utils);
 
+  function customFieldUrl(url) {
+    return [window.location.pathname, url].join("/").replace("//", "/");
+  }
+
+  function clickStream(selector, field) {
+    return $(selector, field.element).clickE().doAction(".preventDefault").map(_.constant(field.id));
+  }
+
+  /**
+    For each custom field, setup click listeners (streams, using Bacon)
+  */
   customFields.forEach(function(field) {
 
-    function customFieldUrl(url) {
-      return [window.location.pathname, url].join("/").replace("//", "/");
-    }
-
-    function clickStream(selector, $container, id) {
-      return $(selector, field.element).clickE().doAction(".preventDefault").map(_.constant(field.id));
-    }
-
-    var up = clickStream(".custom-fields-action-up");
-    var down = clickStream(".custom-fields-action-down");
+    var up = clickStream(".custom-fields-action-up", field);
+    var down = clickStream(".custom-fields-action-down", field);
 
     up.onValue(orderManager.up);
     down.onValue(orderManager.down);
