@@ -151,11 +151,11 @@ function report_analytics_event(params_array) {
 function initialize_defaults(locale) {
   add_validator_methods();
   translate_validation_messages(locale);
-  // This can be used if flash notifications should fade out
-  // automatically - currently not used.
-  //setTimeout(hideNotice, 5000);
   $('.flash-notifications').click(function() {
     $('.flash-notifications').fadeOut('slow');
+  });
+  $('.ajax-notification').click(function() {
+    $('.ajax-notification').fadeOut('slow');
   });
   $('#login-toggle-button').click(function() { 
     $('#upper_person_login').focus();
@@ -1040,7 +1040,7 @@ function initialize_admin_edit_tribe_look_and_feel_form(locale, community_id, in
    });
 }
 
-function initialize_admin_listing_field_form_view(locale, form_id) {
+function initialize_admin_listing_field_form_view(locale, form_id, option_count) {
   translate_validation_messages(locale);
 
   var $form = $(form_id);
@@ -1101,7 +1101,7 @@ function initialize_admin_listing_field_form_view(locale, form_id) {
       }
     };
 
-  })(2, 2, "#options", ".custom-field-option-remove").add;
+  })(option_count, 2, "#options", ".custom-field-option-remove").add;
 }
 
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {

@@ -4,7 +4,7 @@ class CustomFieldOption < ActiveRecord::Base
   belongs_to :custom_field
   attr_accessible :sort_priority, :title_attributes
 
-  has_many :titles, :class_name => "CustomFieldOptionTitle", :dependent => :destroy
+  has_many :titles, :foreign_key => "custom_field_option_id", :class_name => "CustomFieldOptionTitle", :dependent => :destroy
 
   has_many :custom_field_option_selections, :dependent => :destroy
   has_many :custom_field_values, :through => :custom_field_option_selections
@@ -18,7 +18,13 @@ class CustomFieldOption < ActiveRecord::Base
   end
   
   def title_attributes=(attributes)
-    attributes.each { |locale, value| titles.build(:value => value, :locale => locale) }
+    attributes.each do |locale, value|
+      if title = titles.find_by_locale(locale)
+        title.update_attribute(:value, value)
+      else
+        titles.build(:value => value, :locale => locale)
+      end
+    end
   end
   
 end

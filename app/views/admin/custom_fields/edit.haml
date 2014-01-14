@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_admin_listing_field_form_view("#{I18n.locale}", "#edit_dropdown_#{@custom_field.id}");
+  initialize_admin_listing_field_form_view("#{I18n.locale}", "#edit_dropdown_#{@custom_field.id}", #{session[:option_amount]});
   
 - content_for :title_header do
   %h1
@@ -13,5 +13,9 @@
   = form_for @custom_field, :url => admin_custom_field_path(@custom_field), :method => :put do |form|
     
     = render :partial => "admin/custom_fields/form/field_name", :locals => { :form => form }
+    
+    = render :partial => "admin/custom_fields/form/field_categories", :locals => { :form => form }
+    
+    = render :partial => "admin/custom_fields/form/field_options", :locals => { :form => form }
     
     = render :partial => "admin/custom_fields/form/buttons", :locals => { :form => form }

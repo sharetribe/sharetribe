@@ -148,7 +148,7 @@ Kassi::Application.routes.draw do
       resources :custom_fields do
         collection do
           get :add_option
-          get :remove_option
+          post :order
         end
       end
       resources :polls do

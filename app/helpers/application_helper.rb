@@ -16,6 +16,8 @@ module ApplicationHelper
       "community" =>"ss-usergroup",
       "help" => "ss-help",
       "admin" => "ss-wrench",
+      "directup" => "ss-directup",
+      "directdown" => "ss-dropdown",
       "dropdown" => "ss-dropdown",
       "mail" => "ss-mail",
       "notifications" => "ss-earth",
@@ -51,6 +53,7 @@ module ApplicationHelper
       "rows" => "ss-rows",
       "check" => "ss-check",
       "invite" => "ss-adduser",
+      "loading" => "ss-loading",
       "" => "",
       
       # Default category & share type icons
@@ -151,6 +154,8 @@ module ApplicationHelper
       "help" => "icon-question-sign",
       "admin" => "icon-wrench",
       
+      "directup" => "icon-sort-up",
+      "directdown" => "icon-sort-down",
       "dropdown" => "icon-caret-down",
       "mail" => "icon-envelope",
       "notifications" => "icon-globe",
