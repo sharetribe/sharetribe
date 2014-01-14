@@ -18,8 +18,14 @@
           = t(".field_title")
         .col-5.custom-fields-list-title
           = t(".field_type")
-      = render :partial => "listed_custom_field", :collection => @custom_fields, :as => :custom_field
-        
+      = render :partial => "listed_custom_field", :collection => @custom_fields.sort, :as => :custom_field
+    #custom-field-ajax-status
+      %span.custom-field-ajax-status-message#custom-field-ajax-saving
+        Saving new listing order
+      %span.custom-field-ajax-status-message#custom-field-ajax-success
+        Successfully saved
+      %span.custom-field-ajax-status-message#custom-field-ajax-error
+        Error during the save. Please refresh the page and try again.
   .row
     .col-12
       = link_to t(".add_new_field"), new_admin_custom_field_path

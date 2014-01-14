@@ -3,11 +3,6 @@ $(function() {
     return $row.data("field-id");
   }
 
-  function clickStream(selector, $container, id) {
-    var $el = $(selector, $container);
-    return $el.asEventStream("click").doAction(".preventDefault");
-  }
-
   var customFields = $(".custom-field-list-row").map(function(id, row) {
     var $row = $(row);
     return { 
@@ -16,90 +11,90 @@ $(function() {
     };
   }).get();
 
-  var swapper = (function createSwapper(fieldMap) {
-    function getById(id) {
-      // USE UNDERSCORE FIND
-      return fieldMap.reduce(function(a, b) {
-        return b.id === id ? b : a;
-      }, null)
-    }
-
-    function swapElements(down, up) {
-      var downEl = getById(down).element;
-      var upEl = getById(up).element;
-
+  var orderManager = (function createSwapper(fieldMap, utils) {
+    function swapDomElements(downEl, upEl) {
       $(downEl).before($(upEl));
     }
 
-    function pushSecondLast(arr, item) {
-      var curLastIdx = arr.length - 1;
-      var newLastIdx = arr.length;
-      arr[newLastIdx] = arr[curLastIdx];
-      arr[curLastIdx] = item;
-      return arr;
+    function swap(downId, upId) {
+      var downEl = fieldMap[downId].element;
+      var upEl = fieldMap[upId].element;
+
+      swapDomElements(downEl, upEl);
+      fieldMap = utils.swapArrayElements(fieldMap, downId, upId);
     }
 
-    function swapArray(down, up) {
-      debugger;
-      fieldMap = fieldMap.reduce(function(arr, item) {
-        return item.id === up ? pushSecondLast(arr, item) : arr.concat([item])
-      }, []);
-    }
-
-    function findBefore(arr, id) {
-      var prev;
-      var found;
-      arr.forEach(function(item) {
-        if(item.id === id) {
-          found = prev.id;
-        } else {
-          prev = item;
-        }
+    function createSwapFn(upIdFinder, downIdFinder) {
+      var byFieldId = _.curry(function(id, field) {
+        return field.id == id;
       });
-      return found;
-    }
 
-    function findNext(arr, id) {
-      var prev;
-      var found;
-      arr.forEach(function(item) {
-        if(prev && prev.id === id) {
-          found = item.id;
-        } else {
-          prev = item;
+      return function(fieldId) {
+        var upArrayId = upIdFinder(fieldMap, byFieldId(fieldId));
+        var downArrayId = downIdFinder(fieldMap, byFieldId(fieldId));
+
+        if (downArrayId >= 0 && upArrayId >= 0) {
+          swap(downArrayId, upArrayId);
         }
-      });
-      return found;
-    }
-
-    function up(upId) {
-      var downId = findBefore(fieldMap, upId);
-
-      swapElements(downId, upId);
-      swapArray(downId, upId);
-    }
-
-    function down(downId) {
-      var upId = findNext(fieldMap, downId);
-      swapElements(downId, upId);
-      swapArray(downId, upId);
+      }
     }
 
     return {
-      up: up,
-      down: down
+      up: createSwapFn(_.findIndex, utils.findPrevIndex),
+      down: createSwapFn(utils.findNextIndex, _.findIndex),
+      getOrder: function() {
+        return _.map(fieldMap, 'id');
+      }
     }
-  })(customFields);
+  })(customFields, ST.utils);
 
   customFields.forEach(function(field) {
-    var up = clickStream(".custom-fields-action-up", field.element).map(function() {
-      return field.id;
-    });
-    var down = clickStream(".custom-fields-action-down", field.element).map(function() {
-      return field.id;
+
+    function customFieldUrl(url) {
+      return [window.location.pathname, url].join("/").replace("//", "/");
+    }
+
+    function clickStream(selector, $container, id) {
+      return $(selector, field.element).clickE().doAction(".preventDefault").map(_.constant(field.id));
+    }
+
+    var up = clickStream(".custom-fields-action-up");
+    var down = clickStream(".custom-fields-action-down");
+
+    up.onValue(orderManager.up);
+    down.onValue(orderManager.down);
+
+    var ajaxRequest = up.merge(down).debounce(500).map(function() {
+      return {
+        type: "POST",
+        url: customFieldUrl("order"),
+        data: {order: orderManager.getOrder() }
+      };
     });
 
-    up.onValue(swapper.up);
-    down.onValue(swapper.down);
+    var ajaxResponse = ajaxRequest.ajax();
+    var ajaxStatus = ajaxResponse
+      .map(function() { return true; })
+      .mapError(function() { return false; });
+
+    ajaxRequest.onValue(function() {
+      $("#custom-field-ajax-saving").show();
+      $("#custom-field-ajax-error").hide();
+      $("#custom-field-ajax-success").hide();
+    });
+
+    ajaxStatus.onValue(function(success) {
+      $("#custom-field-ajax-saving").hide();
+      if(success) {
+        $("#custom-field-ajax-success").show();
+      } else {
+        $("#custom-field-ajax-error").show();
+      }
+    });
+
+    var hideSuccessMessage = ajaxStatus.filter(true).throttle(3000);
+    hideSuccessMessage.onValue(function() {
+      $("#custom-field-ajax-success").hide();
+    });
   });
 });

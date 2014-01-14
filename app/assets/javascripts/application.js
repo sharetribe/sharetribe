@@ -16,6 +16,9 @@
 //= require infobubble
 //= require sharetribe_common
 //= require Bacon.min
+//= require Bacon.jquery.min
+//= require lodash.min
+//= require utils
 //= require kassi
 //= require googlemaps
 //= require map_label
