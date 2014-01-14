@@ -73,7 +73,7 @@ $(function() {
   /**
     For each custom field, setup click listeners (streams, using Bacon)
   */
-  customFields.forEach(function(field) {
+  var upAndDownStreams = _.flatten(customFields.map(function(field) {
 
     var up = clickStream(".custom-fields-action-up", field);
     var down = clickStream(".custom-fields-action-down", field);
@@ -81,46 +81,50 @@ $(function() {
     up.onValue(orderManager.up);
     down.onValue(orderManager.down);
 
-    var ajaxRequest = up.merge(down).debounceImmediate(1500).map(function() {
-      return {
-        type: "POST",
-        url: customFieldUrl("order"),
-        data: {order: orderManager.getOrder() }
-      };
-    });
+    return [up, down];
+  }));
 
-    var ajaxResponse = ajaxRequest.ajax()
-      .map(function() { return true; })
-      .mapError(function() { return false; });
+  var ajaxRequest = Bacon.mergeAll.apply(null, upAndDownStreams).debounce(800).map(function() {
+    return orderManager.getOrder();
+  }).toProperty(orderManager.getOrder())
+    .skipDuplicates(_.isEqual)
+    .changes()
+    .map(function(order) {
+    return {
+      type: "POST",
+      url: customFieldUrl("order"),
+      data: { order: orderManager.getOrder() }
+    };
+  }).log("ajaxRequest");
 
-    ajaxRequest.onValue(function() {
-      $("#custom-field-ajax-saving").show();
-      $("#custom-field-ajax-error").hide();
-      $("#custom-field-ajax-success").hide();
-    });
+  var ajaxResponse = ajaxRequest.ajax()
+    .map(function() { return true; })
+    .mapError(function() { return false; });
 
-    var canHideLoadingMessage = ajaxRequest.flatMapLatest(function() {
-      return Bacon.later(1000, true).toProperty(false);
-    }).toProperty(false);
+  ajaxRequest.onValue(function() {
+    $("#custom-field-ajax-saving").show();
+    $("#custom-field-ajax-error").hide();
+    $("#custom-field-ajax-success").hide();
+  });
 
-    var ajaxLoading = ajaxRequest.awaiting(ajaxResponse);
-    canUpdateMessage = canHideLoadingMessage.and(ajaxLoading.not());
+  var canHideLoadingMessage = ajaxRequest.flatMapLatest(function() {
+    return Bacon.later(1000, true).toProperty(false);
+  }).toProperty(false);
 
-    var isTrue = function(value) { return value === true};
-    var isFalse = function(value) { return value === false};
+  var isTrue = function(value) { return value === true};
+  var isFalse = function(value) { return value === false};
 
-    canHideLoadingMessage.and(ajaxResponse).filter(isTrue).onValue(function(v) {
-      $("#custom-field-ajax-saving").hide();
-      $("#custom-field-ajax-success").show();
-    });
+  canHideLoadingMessage.and(ajaxResponse).filter(isTrue).onValue(function(v) {
+    $("#custom-field-ajax-saving").hide();
+    $("#custom-field-ajax-success").show();
+  });
 
-    canHideLoadingMessage.and(ajaxResponse.not()).filter(isTrue).onValue(function(v) {
-      $("#custom-field-ajax-saving").hide();
-      $("#custom-field-ajax-error").show();
-    });
+  canHideLoadingMessage.and(ajaxResponse.not()).filter(isTrue).onValue(function(v) {
+    $("#custom-field-ajax-saving").hide();
+    $("#custom-field-ajax-error").show();
+  });
 
-    canHideLoadingMessage.and(ajaxResponse).debounce(3000).onValue(function() {
-      $("#custom-field-ajax-success").fadeOut();
-    });
+  canHideLoadingMessage.and(ajaxResponse).debounce(3000).onValue(function() {
+    $("#custom-field-ajax-success").fadeOut();
   });
 });
