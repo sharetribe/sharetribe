@@ -7,12 +7,11 @@ class CustomPlan < Zeus::Rails
   # end
 
   def cucumber_environment
-  	# Load the seeds here 
+  	# Load the seeds here
+    # As this seemed the only place possible to make Zeus load default categories while Zeus starts 
+    # And not every time cucumber tests are run
   	load "#{Rails.root}/db/seeds.rb"
-  	
-  	# this didn't work from here
-  	#load "#{Rails.root}/features/support/env.rb"
-
+ 
   end
 
 end

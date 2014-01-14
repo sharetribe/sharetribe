@@ -29,7 +29,6 @@ gem 'unicorn', "~>4.6.3"
 gem "mysql2"
 gem 'haml'
 gem 'sass', "  ~> 3.2.9"
-gem 'database_cleaner'
 gem 'rest-client', '>= 1.6.0'
 gem 'acts-as-taggable-on'
 gem 'paperclip'
@@ -106,5 +105,7 @@ group :test do
   gem "parallel_tests", :group => :development
   gem 'timecop'
   gem 'rack-test'
+  gem 'spork'
+  gem 'database_cleaner'
 end
 
