@@ -20,23 +20,13 @@ $(function() {
   */
   var orderManager = (function createSwapper(fieldMap, utils) {
     function swapDomElements(downEl, upEl) {
-      var downAnimateEl = downEl.clone();
-      var upElAnimate = upEl.clone();
-
-      downEl.before(downAnimateEl);
-      upEl.before(upElAnimate);
-      downEl.hide();
-      upEl.hide();
-
-      var downDone = downAnimateEl.transition({ y: '+=' + upElAnimate.height() }).promise();
-      var upDone = upElAnimate.transition({ y: '-=' + downAnimateEl.height() }).promise();
+      var downDone = downEl.transition({ y: upEl.height() }).promise();
+      var upDone = upEl.transition({ y: (-1) * downEl.height() }).promise();
 
       $.when(downDone, upDone).done(function() {
-        downEl.before(upEl);
-        downAnimateEl.remove();
-        upElAnimate.remove();
-        downEl.show();
-        upEl.show();
+        $(downEl).before($(upEl));
+        upEl.transition({y: 0, duration: 0});
+        downEl.transition({y: 0, duration: 0});
       });
     }
 
