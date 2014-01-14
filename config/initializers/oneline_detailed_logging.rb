@@ -61,4 +61,12 @@ ActiveSupport::Notifications.subscribe "process_action.action_controller" do |na
     params.inspect, payload[:stash].try(:inspect) || {}.inspect ]
     
   Rails.logger.warn(m)
+
+  # This is added to get full stack trace to log, which was previously hidden for errors during AJAX calls in tests
+  if Rails.env.test? && status.to_i > 399 #only print out errors in tests
+    Rails.logger.error($!)
+    if $!.present?
+      $!.backtrace.each {|line| Rails.logger.error(line) }
+    end
+  end
 end
