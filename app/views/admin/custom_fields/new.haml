@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_admin_listing_field_form_view("#{I18n.locale}", "#new_dropdown");
+  initialize_admin_listing_field_form_view("#{I18n.locale}", "#new_dropdown", "#{session[:option_amount]}");
   
 - content_for :title_header do
   %h1
@@ -22,15 +22,7 @@
       
       = render :partial => "admin/custom_fields/form/field_categories", :locals => { :form => form }
       
-      / Field option attributes
-      = form.label :option_attributes, t("admin.custom_fields.index.dropdown_options")
-      .row
-        .col-12
-          #options.custom-field-options
-            - @custom_field.options.each_with_index do |option, index|
-              = render :partial => "new_option", :locals => { :option => option, :index => index }
-          = link_to t("admin.custom_fields.index.add_option"), add_option_admin_custom_fields_path, :remote => true, :id => "custom-fields-add-option"
+      = render :partial => "admin/custom_fields/form/field_options", :locals => { :form => form }
       
-        
       = render :partial => "admin/custom_fields/form/buttons", :locals => { :form => form }
   
