@@ -14,95 +14,105 @@ window.ST = window.ST || {};
   }
 */
 window.ST.orderManager = function(rowSelector) {
+  var utils = ST.utils;
 
   /**
     Fetch all custom field rows and save them to a variable
   */
-  var customFields = $(rowSelector).map(function(id, row) {
+  var fieldMap = $(rowSelector).map(function(id, row) {
     return { 
       id: $(row).data("field-id"),
       element: $(row)
     };
   }).get();
 
-  /**
-    Order manager is in charge of keeping and updating the field order.
-    It provides three methods:
+  var moveUp = createSwapFn(_.findIndex, utils.findPrevIndex);
+  var moveDown = createSwapFn(utils.findNextIndex, _.findIndex);
 
-    - `up(fieldId)`: Moves up
-    - `down(fieldId)`: Moves down
-    - `getOrder()`: Returns array of fieldIds, in correct order
-  */
-  var orderManager = (function createSwapper(fieldMap, utils) {
-    function swapDomElements(downEl, upEl) {
-      var downDone = downEl.transition({ y: upEl.height() }).promise();
-      var upDone = upEl.transition({ y: (-1) * downEl.height() }).promise();
-
-      $.when(downDone, upDone).done(function() {
-        $(downEl).before($(upEl));
-        upEl.transition({y: 0, duration: 0});
-        downEl.transition({y: 0, duration: 0});
-      });
-    }
-
-    function swap(downId, upId) {
-      var downField = fieldMap[downId];
-      var upField = fieldMap[upId];
-
-      var downEl = downField.element;
-      var upEl = upField.element;
-
-      swapDomElements(downEl, upEl);
-      fieldMap = utils.swapArrayElements(fieldMap, downId, upId);
-
-      return Bacon.once({down: downField, up: upField, order: getOrder()});
-    }
-
-    function getOrder() {
-      return _.map(fieldMap, 'id');
-    }
-
-    function createSwapFn(upIdFinder, downIdFinder) {
-      var byFieldId = _.curry(function(id, field) {
-        return field.id == id;
-      });
-
-      return function(fieldId) {
-        var upArrayId = upIdFinder(fieldMap, byFieldId(fieldId));
-        var downArrayId = downIdFinder(fieldMap, byFieldId(fieldId));
-
-        if (downArrayId >= 0 && upArrayId >= 0) {
-          return swap(downArrayId, upArrayId);
-        }
-      }
-    }
-
-    return {
-      up: createSwapFn(_.findIndex, utils.findPrevIndex),
-      down: createSwapFn(utils.findNextIndex, _.findIndex),
-      getOrder: getOrder
-    }
-  })(customFields, ST.utils);
-
-  function clickStream(selector, field) {
-    return $(selector, field.element).clickE().doAction(".preventDefault").map(_.constant(field.id));
-  }
+  var eventBus = new Bacon.Bus();
 
   /**
     For each custom field, setup click listeners (streams, using Bacon)
   */
-  var upAndDownStreams = _.flatten(customFields.map(function(field) {
+  fieldMap.forEach(createUpDownStreams);
 
-    var up = clickStream(".custom-fields-action-up", field);
-    var down = clickStream(".custom-fields-action-down", field);
+  function createUpDownStreams(field) {
+    var up = createClickStream(".custom-fields-action-up", field);
+    var down = createClickStream(".custom-fields-action-down", field);
 
-    var upChange = up.flatMap(orderManager.up);
-    var downChange = down.flatMap(orderManager.down);
+    var upChange = up.flatMap(moveUp);
+    var downChange = down.flatMap(moveDown);
 
-    return [upChange, downChange];
-  }));
+    eventBus.plug(upChange);
+    eventBus.plug(downChange);
+  }
 
-  return Bacon.mergeAll.apply(null, upAndDownStreams).filter(_.isObject).toProperty({order: orderManager.getOrder()}).changes();
+  function createClickStream(selector, field) {
+    return $(selector, field.element).clickE().doAction(".preventDefault").map(_.constant(field.id));
+  }
+
+  function swapDomElements(downEl, upEl) {
+    var downDone = downEl.transition({ y: upEl.height() }).promise();
+    var upDone = upEl.transition({ y: (-1) * downEl.height() }).promise();
+
+    $.when(downDone, upDone).done(function() {
+      $(downEl).before($(upEl));
+      upEl.transition({y: 0, duration: 0});
+      downEl.transition({y: 0, duration: 0});
+    });
+  }
+
+  function swap(downId, upId) {
+    var downField = fieldMap[downId];
+    var upField = fieldMap[upId];
+
+    var downEl = downField.element;
+    var upEl = upField.element;
+
+    swapDomElements(downEl, upEl);
+    fieldMap = utils.swapArrayElements(fieldMap, downId, upId);
+
+    return Bacon.once({down: downField, up: upField, order: getOrder()});
+  }
+
+  function getOrder() {
+    return _.map(fieldMap, 'id');
+  }
+
+  function createSwapFn(upIdFinder, downIdFinder) {
+    var byFieldId = _.curry(function(id, field) {
+      return field.id == id;
+    });
+
+    return function(fieldId) {
+      var upArrayId = upIdFinder(fieldMap, byFieldId(fieldId));
+      var downArrayId = downIdFinder(fieldMap, byFieldId(fieldId));
+
+      if (downArrayId >= 0 && upArrayId >= 0) {
+        return swap(downArrayId, upArrayId);
+      }
+    }
+  }
+
+  function add(fieldId) {
+    var el = $(rowSelector).filter("[data-field-id=" + fieldId + "]");
+    var newField = {
+      id: fieldId,
+      element: el
+    };
+    fieldMap.push(newField);
+    createUpDownStreams(newField);
+  }
+
+  function remove(fieldId) {
+    delete fieldMap[fieldId];
+  }
+
+  return {
+    add: add,
+    remove: remove,
+    changes: eventBus.filter(_.isObject).toProperty({order: getOrder()}).changes()
+  };
 }
 
 /**
@@ -110,7 +120,7 @@ window.ST.orderManager = function(rowSelector) {
 
   Makes a POST request when order changes.
 */
-window.ST.customFieldOrder = function(rowSelector) {
+window.ST.createCustomFieldOrder = function(rowSelector) {
 
   function customFieldUrl(url) {
     return [window.location.pathname, url].join("/").replace("//", "/");
@@ -118,7 +128,7 @@ window.ST.customFieldOrder = function(rowSelector) {
 
   orderManager = window.ST.orderManager(rowSelector)
 
-  var ajaxRequest = orderManager.debounce(800).map(".order")
+  var ajaxRequest = orderManager.changes.debounce(800).map(".order")
     .skipDuplicates(_.isEqual)
     .map(function(order) {
     return {
@@ -165,10 +175,10 @@ window.ST.customFieldOrder = function(rowSelector) {
 
   Changes `sort_priority` hidden field when order changes.
 */
-window.ST.customFieldOptionOrder = function(rowSelector) {
+window.ST.createCustomFieldOptionOrder = function(rowSelector) {
   orderManager = window.ST.orderManager(rowSelector)
 
-  orderManager.onValue(function(changedFields) {
+  orderManager.changes.onValue(function(changedFields) {
     var up = changedFields.up;
     var down = changedFields.down;
 
@@ -181,4 +191,9 @@ window.ST.customFieldOptionOrder = function(rowSelector) {
     upHidden.val(newUpValue);
     downHidden.val(newDownValue);
   });
+
+  return {
+    remove: orderManager.remove,
+    add: orderManager.add
+  }
 };
