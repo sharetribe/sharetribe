@@ -1,3 +1,4 @@
 /* Add a new option field */
 $("#options").append("<%= escape_javascript(render(:partial => 'admin/custom_fields/new_option', :locals => {:option => CustomFieldOption.new, :index => session[:option_amount]})) %>");
 ST.newOptionAdded();
+ST.customFieldOptionOrder.add("new-<%= session[:option_amount]%>");
