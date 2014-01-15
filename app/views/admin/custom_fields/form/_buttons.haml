@@ -1,0 +1,7 @@
+.add-custom-field-buttons
+  .inline-button-container
+    = form.button t("admin.custom_fields.index.save")
+  .inline-button-container
+    %a{:href => admin_custom_fields_path, :class => "cancel-button"}
+      .content
+        = t("admin.custom_fields.index.cancel")

@@ -13,12 +13,6 @@ $add-custom-field-option-with-multiple-locales-label-top-padding: 5px; // Used t
   @include ellipsis;
 }
 
-.new-field-form {
-  display: none;
-  border-top: 1px solid $border;
-  padding-top: lines(1);
-}
-
 .new-field-name-locale-label {
   font-weight: 500;
   margin: $add-custom-field-label-top-padding 0 0 0;
@@ -98,4 +92,8 @@ $add-custom-field-option-with-multiple-locales-label-top-padding: 5px; // Used t
     padding: 0 lines(0.25);
     min-height: 36px;
   }
+}
+
+.custom-field-ajax-status-message {
+  display: none;
 }

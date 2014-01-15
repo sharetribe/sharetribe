@@ -110,16 +110,15 @@ prefork = lambda {
 
 each_run = lambda {
   # This code will be run each time you run your specs.
-  
   # Require step definitions
   Dir["#{File.dirname(__FILE__)}/step_defintions/**/*.rb"].each {|f| require f}
   Rails.cache.clear
 }
 
-prefork.call
-each_run.call
+
 
 if defined?(Zeus)
+  prefork.call
   $each_run = each_run
   class << Zeus.plan
     def after_fork_with_test
@@ -128,6 +127,9 @@ if defined?(Zeus)
     end
     alias_method_chain :after_fork, :test
   end
+else
+  prefork.call
+  each_run.call
 end
 
 # --- Instructions ---

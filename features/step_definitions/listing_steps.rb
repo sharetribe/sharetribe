@@ -42,6 +42,10 @@ Given /^that listing is visible to members of community "([^"]*)"$/ do |domain|
   @listing.communities << Community.find_by_domain(domain)
 end
 
+Given /^that listing has a description "(.*?)"$/ do |description|
+  @listing.update_attribute(:description, description)
+end
+
 Then /^There should be a rideshare (offer|request) from "([^"]*)" to "([^"]*)" starting at "([^"]*)"$/ do |share_type, origin, destination, time|
   listings = Listing.find_all_by_title("#{origin} - #{destination}")
 end
@@ -140,6 +144,14 @@ When /^I fill in listing form with housing information$/ do
     And I fill in "listing_price" with "10000"
   }
 end
+
+When /^I choose to view only share type "(.*?)"$/ do |share_type_name|
+  steps %Q{
+    When I click "#home_toolbar-select-share-type"
+    And I follow "#{share_type_name}" within ".home-toolbar-share-type-menu"
+  }
+end
+
 
 Given /^there is a dropdown field "(.*?)" for category "(.*?)" in community "(.*?)" with options:$/ do |field_title, category_name, community_domain, opts_table|
   @community = Community.find_by_domain(community_domain)
