@@ -1,10 +1,6 @@
 // Custom Javascript functions for Sharetribe
 // Add custom validation methods
 
-function ___trigger_asset_sync() {
-  // You can remove this :)
-}
-
 function add_validator_methods() {
 
   // If some element is required, it should be validated even if it's hidden
@@ -1079,8 +1075,9 @@ function initialize_admin_listing_field_form_view(locale, form_id, option_count)
 
       if(enabled) {
         var el = $(event.currentTarget);
-        var container = el.closest(".custom-field-option-locales");
+        var container = el.closest(".custom-field-option-container");
         container.remove();
+        ST.customFieldOptionOrder.remove(container.data("field-id"));
         count -= 1;
         update();
       }

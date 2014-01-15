@@ -4,7 +4,7 @@
       .col-12
         .custom-filter-title
           = field.name(I18n.locale)
-        - field.options.each do |option|
+        - field.options.sort.each do |option|
           .custom-filter-checkbox-container
             %label.custom-filter-checkbox-label
               = check_box_tag "filter_option_#{option.id}", "#{option.id}", params["filter_option_#{option.id}"]

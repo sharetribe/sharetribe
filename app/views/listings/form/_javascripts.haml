@@ -3,7 +3,6 @@
 - content_for :listing_js do
   :javascript
     $(document).ready(function() {
-      debugger
       initialize_new_listing_form("#{t('listings.form.images.no_file_selected')}", "#{t('listings.form.images.select_file')}", "#{I18n.locale}", "#{t('error_messages.listings.share_type')}", "#{valid_until_msg}", "#{@listing.rideshare?}", "#{@listing.listing_type == "offer" ? "true" : "false"}", "#{listing_id}", "#{@current_community.community_category(@listing.category.top_level_parent, @listing.share_type).price?}","#{t('error_messages.listings.price')}","#{@current_community.minimum_price_cents}","#{t('error_messages.listings.minimum_price', :minimum_price => money_without_cents(@current_community.minimum_price), :currency => @current_community.default_currency)}");
     });
 

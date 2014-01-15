@@ -2,6 +2,8 @@
 .row
   .col-12
     #options.custom-field-options
-      - @custom_field.options.each_with_index do |option, index|
+      - @custom_field.options.sort.each_with_index do |option, index|
         = render :partial => "new_option", :locals => { :option => option, :index => (index + 1) }
+.row
+  .col-12
     = link_to t("admin.custom_fields.index.add_option"), add_option_admin_custom_fields_path, :remote => true, :id => "custom-fields-add-option"
