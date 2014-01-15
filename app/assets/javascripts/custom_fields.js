@@ -1,10 +1,24 @@
-window.ST = window.ST || {}; 
-window.ST.customFields = function() {
+window.ST = window.ST || {};
+
+/**
+  Almost generic order manager.
+
+  Keeps track order of the fields and updates DOM when change happens.
+
+  Return Bacon stream, which is triggered when ever an order change
+  happens. The stream event has following payload:
+  {
+    down: {id: <option.id>, element: <DOM element> } // Field that went down
+    up: {id: <option.id>, element: <DOM element> }, // Field that went up
+    order: [<option.id>, <option.id>, <option.id> , ...] // Current order
+  }
+*/
+window.ST.orderManager = function(rowSelector) {
 
   /**
     Fetch all custom field rows and save them to a variable
   */
-  var customFields = $(".custom-field-list-row").map(function(id, row) {
+  var customFields = $(rowSelector).map(function(id, row) {
     return { 
       id: $(row).data("field-id"),
       element: $(row)
@@ -32,11 +46,20 @@ window.ST.customFields = function() {
     }
 
     function swap(downId, upId) {
-      var downEl = fieldMap[downId].element;
-      var upEl = fieldMap[upId].element;
+      var downField = fieldMap[downId];
+      var upField = fieldMap[upId];
+
+      var downEl = downField.element;
+      var upEl = upField.element;
 
       swapDomElements(downEl, upEl);
       fieldMap = utils.swapArrayElements(fieldMap, downId, upId);
+
+      return Bacon.once({down: downField, up: upField, order: getOrder()});
+    }
+
+    function getOrder() {
+      return _.map(fieldMap, 'id');
     }
 
     function createSwapFn(upIdFinder, downIdFinder) {
@@ -49,7 +72,7 @@ window.ST.customFields = function() {
         var downArrayId = downIdFinder(fieldMap, byFieldId(fieldId));
 
         if (downArrayId >= 0 && upArrayId >= 0) {
-          swap(downArrayId, upArrayId);
+          return swap(downArrayId, upArrayId);
         }
       }
     }
@@ -57,15 +80,9 @@ window.ST.customFields = function() {
     return {
       up: createSwapFn(_.findIndex, utils.findPrevIndex),
       down: createSwapFn(utils.findNextIndex, _.findIndex),
-      getOrder: function() {
-        return _.map(fieldMap, 'id');
-      }
+      getOrder: getOrder
     }
   })(customFields, ST.utils);
-
-  function customFieldUrl(url) {
-    return [window.location.pathname, url].join("/").replace("//", "/");
-  }
 
   function clickStream(selector, field) {
     return $(selector, field.element).clickE().doAction(".preventDefault").map(_.constant(field.id));
@@ -79,24 +96,37 @@ window.ST.customFields = function() {
     var up = clickStream(".custom-fields-action-up", field);
     var down = clickStream(".custom-fields-action-down", field);
 
-    up.onValue(orderManager.up);
-    down.onValue(orderManager.down);
+    var upChange = up.flatMap(orderManager.up);
+    var downChange = down.flatMap(orderManager.down);
 
-    return [up, down];
+    return [upChange, downChange];
   }));
 
-  var ajaxRequest = Bacon.mergeAll.apply(null, upAndDownStreams).debounce(800).map(function() {
-    return orderManager.getOrder();
-  }).toProperty(orderManager.getOrder())
+  return Bacon.mergeAll.apply(null, upAndDownStreams).filter(_.isObject).toProperty({order: orderManager.getOrder()}).changes();
+}
+
+/**
+  Custom field order manager.
+
+  Makes a POST request when order changes.
+*/
+window.ST.customFieldOrder = function(rowSelector) {
+
+  function customFieldUrl(url) {
+    return [window.location.pathname, url].join("/").replace("//", "/");
+  }
+
+  orderManager = window.ST.orderManager(rowSelector)
+
+  var ajaxRequest = orderManager.debounce(800).map(".order")
     .skipDuplicates(_.isEqual)
-    .changes()
     .map(function(order) {
     return {
       type: "POST",
       url: customFieldUrl("order"),
-      data: { order: orderManager.getOrder() }
+      data: { order: order }
     };
-  }).log("ajaxRequest");
+  });
 
   var ajaxResponse = ajaxRequest.ajax()
     .map(function() { return true; })
@@ -127,5 +157,28 @@ window.ST.customFields = function() {
 
   canHideLoadingMessage.and(ajaxResponse).debounce(3000).onValue(function() {
     $("#custom-field-ajax-success").fadeOut();
+  });
+};
+
+/**
+  Custom field option order manager.
+
+  Changes `sort_priority` hidden field when order changes.
+*/
+window.ST.customFieldOptionOrder = function(rowSelector) {
+  orderManager = window.ST.orderManager(rowSelector)
+
+  orderManager.onValue(function(changedFields) {
+    var up = changedFields.up;
+    var down = changedFields.down;
+
+    var upHidden = up.element.find(".custom-field-hidden-sort-priority");
+    var downHidden = down.element.find(".custom-field-hidden-sort-priority");
+
+    var newUpValue = downHidden.val();
+    var newDownValue = upHidden.val();
+
+    upHidden.val(newUpValue);
+    downHidden.val(newDownValue);
   });
 };
