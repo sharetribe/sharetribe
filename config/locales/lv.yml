@@ -41,6 +41,8 @@ lv:
         edit_message: ~
         send_test_message: ~
     custom_fields:
+      edit:
+        edit_listing_field: ~
       index:
         listing_fields: ~
         add_new_field: ~
@@ -50,10 +52,14 @@ lv:
         field_title: ~
         field_type: ~
         categories: ~
-        add_new_field_to_listing_form: ~
         no_custom_listing_fields: ~
         dropdown_options: ~
         add_option: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+      new:
+        new_listing_field: ~
       field_types:
         dropdown: ~
     emails:

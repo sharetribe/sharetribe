@@ -41,19 +41,25 @@ de:
         edit_message: "Nachricht bearbeiten"
         send_test_message: "Test-Nachricht senden"
     custom_fields:
+      edit:
+        edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
       index:
         listing_fields: Eintragsfelder
-        add_new_field: "Neues Feld hinzufügen"
+        add_new_field: "+ Neues Feld hinzufügen"
         remove_field_confirmation: "Willst du das Feld '%{field_name}' wirklich entfernen?"
         cancel: Abbrechen
         save: Speichern
         field_title: "Name des Feldes"
         field_type: "Art des Feldes"
         categories: "Kategorien, in denen das Feld angewendet wird"
-        add_new_field_to_listing_form: "Neues Feld zum Eintragsformular hinzufügen"
         no_custom_listing_fields: "Keine marktplatzspezifischen Eintragsfelder."
         dropdown_options: "Auswahloptionen des Dropdown-Menüs"
         add_option: "+ Auswahl hinzufügen"
+        saving_order: "Feldreihenfolge speichern"
+        save_order_successful: "Reihenfolge der Felder erfolgreich gespeichert"
+        save_order_error: "Während des Speicherns der Feldreihenfolge ist ein Fehler aufgetreten. Bitte lade die Seite neu und versuche es noch einmal."
+      new:
+        new_listing_field: "Neues Eintragsfeld"
       field_types:
         dropdown: Dropdown-Menü
     emails:
