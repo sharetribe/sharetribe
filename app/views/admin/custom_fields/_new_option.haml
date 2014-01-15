@@ -1,4 +1,3 @@
-- logger.info "Option: #{option.inspect}"
 .custom-field-option-locales{:id => "custom_field_option_#{index}", :class => (available_locales.size > 1 ? "custom-field-new-option-row-with-multiple-locales" : "")}
   .row
     .col-8{:class => available_locales.size > 1 ? "" : "custom-field-column-without-bottom-margin"}
@@ -12,7 +11,12 @@
                 = label_tag "custom_field[option_attributes][#{index}][title_attributes][#{locale_value}]", locale_name + ": ", :class => "custom-field-option-with-multiple-locales-label"
             .custom-field-option-locale-column{:class => "col-#{input_col_size}"}
               = text_field_tag "custom_field[option_attributes][#{option.id || ('new-' + index.to_s)}][title_attributes][#{locale_value}]", option.title(locale_value), :class => "required", :value => option.title(locale_value)
-    .col-4.custom-field-remove-option-link-container
+    .col-4.custom-field-actions
       - link_class = "custom-field-option-#{(available_locales.size > 1 ? "with" : "without")}-locale-remove"
+      
       = link_to "#", :class => "custom-field-option-remove #{link_class}", :tabindex => "-1", :id => "remove-option-#{index}" do
         = icon_tag("cross", ["icon-fix"])
+      = link_to '#', :class => "custom-fields-action-up" do
+        = icon_tag("directup", ["icon-fix"])
+      = link_to '#', :class => "custom-fields-action-down" do
+        = icon_tag("directdown", ["icon-fix"])
