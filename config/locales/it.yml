@@ -41,6 +41,8 @@ it:
         edit_message: ~
         send_test_message: ~
     custom_fields:
+      edit:
+        edit_listing_field: ~
       index:
         listing_fields: ~
         add_new_field: ~
@@ -50,10 +52,14 @@ it:
         field_title: ~
         field_type: ~
         categories: ~
-        add_new_field_to_listing_form: ~
         no_custom_listing_fields: ~
         dropdown_options: ~
         add_option: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+      new:
+        new_listing_field: ~
       field_types:
         dropdown: ~
     emails:
@@ -1507,58 +1513,58 @@ it:
       rookie_description: "Hai aggiunto un'offerta o una richiesta nel %{service_name} per la prima volta. Vai così!"
       santa: "Babbo Natale"
       santa_description: "Oh oh oh e Buon Natale! Hai regalato almeno un bene a Dicembre."
-      taxi_stand_bronze: ~
-      taxi_stand_bronze_description: ~
-      taxi_stand_gold: ~
-      taxi_stand_gold_description: ~
-      taxi_stand_silver: ~
-      taxi_stand_silver_description: ~
+      taxi_stand_bronze: "Stazione taxi (bronzo)"
+      taxi_stand_bronze_description: "Hai aggiunto tre offerte di passaggi al %{service_name}"
+      taxi_stand_gold: "Stazione taxi (oro)"
+      taxi_stand_gold_description: "Sei sempre in servizio, pronto ad offrire passaggi. 25 passaggi offerti, eccellente!"
+      taxi_stand_silver: "Stazione taxi (argento)"
+      taxi_stand_silver_description: "10 offerte di passaggio aggiunte, grande! La gente sa a chi rivolgersi per un passaggio."
       volunteer_bronze: "Volontario (bronzo)"
-      volunteer_bronze_description: ~
+      volunteer_bronze_description: "Ti piace mettere al servizio degli altri le tue competenze. Hai tre offerte di servizio in %{service_name}."
       volunteer_gold: "Volontario (oro)"
-      volunteer_gold_description: ~
+      volunteer_gold_description: "Sai che non c'è niente di meglio che aiutare gli altri. Hai 25 offerte di servizio nel tuo profilo, favoloso!"
       volunteer_silver: "Volontario (argento)"
-      volunteer_silver_description: ~
+      volunteer_silver_description: "Hai molto da offrire agli altri: hai listato 10 servizi che potresti dare in %{service_name}!"
     profile_feedback:
       as_expected: "Come previsto"
-      exceeded_expectations: ~
-      grade: ~
+      exceeded_expectations: "Molto meglio del previsto"
+      grade: "grado:"
       and_gave_following_feedback: ~
       less_than_expected: "Peggio del previsto"
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
+      slightly_better_than_expected: "Leggermente meglio del previsto"
+      slightly_less_than_expected: "Leggermente peggio del previsto"
     profile_listings:
-      show_also_closed: ~
-      show_only_open: ~
+      show_also_closed: "Mostra anche quelli chiusi"
+      show_only_open: "Mostra solo quelli aperti"
       no_image: ~
     show:
       contact: ~
-      about_me: ~
+      about_me: "Su di me:"
       add_description: ~
       add_location: ~
       add_phone_number: "Aggiungi numero di telefono"
-      address: ~
+      address: "Luogo:"
       as_expected: "Come previsto"
-      edit_profile_info: ~
-      exceeded_expectations: ~
+      edit_profile_info: "Modifica profilo"
+      exceeded_expectations: "Oltre le aspettative"
       positive: ~
-      hide_description: ~
-      joined_this_community: ~
+      hide_description: "Mostra di meno"
+      joined_this_community: "Iscritto %{time_ago}"
       was_last_seen: "Visto l'ultima volta %{time_ago}"
       was_invited_by: "Invitato da %{inviter_name}"
       less_than_expected: "Peggio del previsto"
       phone_number: "Numero di telefono:"
-      show_all_badges: ~
-      show_all_feedback: ~
-      show_all_testimonials: ~
-      show_full_description: ~
-      slightly_better_than_expected: ~
+      show_all_badges: "Mostra tutti i badge"
+      show_all_feedback: "Mostra tutti i feedback"
+      show_all_testimonials: "Mostra tutti i feedback"
+      show_full_description: "Mostra di più"
+      slightly_better_than_expected: "Oltre le aspettative"
       slightly_less_than_expected: "Peggio del previsto"
-      what_are_these: ~
+      what_are_these: "Cosa sono?"
       review: ~
       reviews: ~
       badge: ~
-      badges: ~
+      badges: badge
       listing: ~
       listings: ~
       open_listing: ~
@@ -1573,20 +1579,20 @@ it:
       trustcloud: ~
   search:
     show:
-      all_results: ~
-      loading_more_search_results: ~
-      offers: ~
+      all_results: "Tutti i risultati"
+      loading_more_search_results: "Caricando ulteriori risultati della ricerca"
+      offers: Offerte
       requests: Richieste
-      search: ~
-      search_results: ~
-      search_returned_no_results: ~
-      search_verb: ~
+      search: Cerca
+      search_results: "Risultati della ricerca"
+      search_returned_no_results: "La tua ricerca non ha prodotto risultati."
+      search_verb: Cerca
   sessions:
     new:
       create_new_account: "Crea un nuovo account"
       i_forgot_my_password: "Username o password dimenticata"
-      login: ~
-      login_to_kassi: ~
+      login: Accedi
+      login_to_kassi: "Accedi al %{service_name}"
       connect_your_facebook_to_kassi: ~
       facebook_account: "Account Facebook:"
       log_in_to_link_account: ~
@@ -1599,7 +1605,7 @@ it:
       we_will_not_post_without_asking_you: ~
     password_forgotten:
       email: Email
-      password_recovery_instructions: ~
+      password_recovery_instructions: "Fornisci la tua email e ricevi la tua username e le istruzioni per cambiare la tua password."
       request_new_password: "Richiedi una nuova password"
       change_your_password: "Cambia la tua password"
     confirmation_pending:
@@ -1615,7 +1621,7 @@ it:
       account_confirmation_instructions_dashboard: ~
   settings:
     account:
-      change: ~
+      change: Cambia
       confirm_new_password: "Conferma la nuova password"
       delete_account: "Elimina account"
       delete_account_button: ~
@@ -1626,7 +1632,7 @@ it:
       new_email: "Nuovo indirizzo email"
       new_password: "Nuova password"
       save: Salva
-      these_fields_are_shown_only_to_you: ~
+      these_fields_are_shown_only_to_you: "Lo username è mostrato nel tuo profilo a meno che non abbia fornito il tuo nome. Altre informazioni sono mostrate solo a te."
       email:
         address_title: ~
         remove_title: ~
@@ -1643,22 +1649,22 @@ it:
         status_pending: ~
     notifications:
       email_from_admins: ~
-      i_want_to_get_email_notification_when: ~
+      i_want_to_get_email_notification_when: "Voglio ricevere una notifica email quando..."
       newsletters: ~
       community_updates: ~
-      email_about_accept_reminders: ~
+      email_about_accept_reminders: "...Ho dimenticato di accettare un'offerta o una richiesta"
       email_about_confirm_reminders: ~
-      email_about_new_badges: ~
-      email_about_new_comments_to_own_listing: ~
-      email_about_new_messages: ~
-      email_about_new_received_testimonials: ~
-      email_about_testimonial_reminders: ~
+      email_about_new_badges: "...ho raggiunto un nuovo badge"
+      email_about_new_comments_to_own_listing: "...qualcuno commente la mia offerta o richiesta"
+      email_about_new_messages: "...qualcuno mi invia un messaggio"
+      email_about_new_received_testimonials: "...qualcuno mi offre feedback"
+      email_about_testimonial_reminders: "...ho dimenticato di offrire feedback su un evento"
       email_daily_community_updates: ~
       email_weekly_community_updates: ~
       do_not_email_community_updates: ~
       email_newsletters: ~
-      email_when_conversation_accepted: ~
-      email_when_conversation_rejected: ~
+      email_when_conversation_accepted: "...qualcuno accetta la mia offerta o richiesta"
+      email_when_conversation_rejected: "...qualcuno rifiuta la mia offerta o richiesta"
       email_about_completed_transactions: ~
       email_about_new_payments: ~
       email_about_payment_reminders: ~
@@ -1669,7 +1675,7 @@ it:
       unsubscribe_unsuccesful: ~
       unsuccessful_unsubscribe_info_text: ~
     profile:
-      about_you: ~
+      about_you: "Su di te"
       city: Città
       family_name: Cognome
       given_name: Nome
@@ -1677,17 +1683,17 @@ it:
       phone_number: "Numero di telefono"
       profile_picture: ~
       postal_code: CAP
-      profile_page: ~
-      profilemap: ~
-      street_address: ~
+      profile_page: "nella pagina del tuo profilo"
+      profilemap: "Visione della mappa"
+      street_address: Luogo
       these_fields_are_shown_in_your: "Questa informazione è visibile a tutti gli utenti di %{service_name}"
       visible_to_everybody: "Visibile a tutti"
       visible_to_registered_users: ~
-    save_information: ~
+    save_information: "Salva le informazioni"
   tag_cloud:
     tag_used:
-      with_tag: ~
-      without_tag: ~
+      with_tag: "Con tag"
+      without_tag: "Senza tag"
   terms:
     show:
       accept_terms: ~

@@ -41,6 +41,8 @@ fr:
         edit_message: "Modifier le message"
         send_test_message: "Envoyer un message de test"
     custom_fields:
+      edit:
+        edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
       index:
         listing_fields: "Champs pour annonces"
         add_new_field: "+ Ajouter un nouveau champ"
@@ -50,10 +52,14 @@ fr:
         field_title: "Nom du champ"
         field_type: "Type de champ"
         categories: "Catégories d'annonces pour lequel le champ est utilisé"
-        add_new_field_to_listing_form: "Ajouter un nouveau champ d'annonce"
         no_custom_listing_fields: "Aucun champ d'annonce propre à votre place de marché."
         dropdown_options: "Liste déroulante d'options"
         add_option: "+ Ajouter une option"
+        saving_order: "Sauvegarder l'ordre des champs"
+        save_order_successful: "Sauvegarde de l'ordre des champs réussie"
+        save_order_error: "Il y a eu un problème lors de la sauvegarde de l'ordre des champs. Rafraîchissez la page et essayez de nouveau."
+      new:
+        new_listing_field: "Nouveau champ d'annonce"
       field_types:
         dropdown: "Liste déroulante"
     emails:

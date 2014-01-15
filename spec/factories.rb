@@ -157,7 +157,7 @@ FactoryGirl.define do
     icon "item"
   end
 
-  factory :custom_field, class: 'Dropdown' do
+  factory :custom_field, aliases: [:question], class: 'Dropdown' do
     type "Dropdown"
     community
     before(:create) do |custom_field|
@@ -187,6 +187,12 @@ FactoryGirl.define do
     value "Test field"
     locale "en"
   end
+
+  factory :custom_field_value do
+    question
+    listing
+  end
+
   
   factory :share_type do
     name "sell"

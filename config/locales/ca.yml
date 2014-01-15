@@ -41,6 +41,8 @@ ca:
         edit_message: ~
         send_test_message: ~
     custom_fields:
+      edit:
+        edit_listing_field: ~
       index:
         listing_fields: ~
         add_new_field: ~
@@ -50,10 +52,14 @@ ca:
         field_title: ~
         field_type: ~
         categories: ~
-        add_new_field_to_listing_form: ~
         no_custom_listing_fields: ~
         dropdown_options: ~
         add_option: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+      new:
+        new_listing_field: ~
       field_types:
         dropdown: ~
     emails:
@@ -1654,8 +1660,8 @@ ca:
       email_about_new_received_testimonials: "...algú em dóna suggeriments"
       email_about_testimonial_reminders: "...he oblidat fer un suggeriment o donar informació sobre un esdeveniment"
       email_daily_community_updates: ~
-      do_not_email_community_updates: ~
       email_weekly_community_updates: ~
+      do_not_email_community_updates: ~
       email_newsletters: ~
       email_when_conversation_accepted: "...algú ha acceptat la meva oferta o sol·licitud"
       email_when_conversation_rejected: "...algú ha rebutjat la meva oferta o sol·licitud"
