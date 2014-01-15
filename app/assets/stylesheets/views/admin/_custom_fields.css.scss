@@ -54,16 +54,6 @@ $custom-field-option-height: lines(1.5); // Used to center label text vertically
   padding: lines(0.5) lines(0.5) 0 lines(0.5);
 }
 
-.custom-field-options {
-  div.custom-field-new-option-row-with-multiple-locales:nth-of-type(odd) {
-    background: $highlight;
-  }
-}
-
-.custom-field-option-locales {
-  margin-bottom: lines(0.25);
-}
-
 .custom-field-option-locale-column {
   margin-bottom: lines(0.125);
 }
@@ -86,4 +76,8 @@ $custom-field-option-height: lines(1.5); // Used to center label text vertically
 
 .custom-field-ajax-status-message {
   display: none;
+}
+
+.custom-field-option-container:nth-of-type(odd) {
+  background: $highlight;
 }
