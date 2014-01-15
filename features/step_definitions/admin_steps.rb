@@ -1,5 +1,6 @@
 LIST_SELECTOR = "#custom-fields-list"
 REMOVE_SELECTOR = ".custom-fields-action-remove"
+EDIT_SELECTOR = ".custom-fields-action-edit"
 UP_SELECTOR = ".custom-fields-action-up"
 
 module AdminSteps
@@ -10,6 +11,10 @@ module AdminSteps
 
   def find_remove_link_for_custom_field(title)
     find_row_for_custom_field(title).find(REMOVE_SELECTOR)
+  end
+
+  def find_edit_link_for_custom_field(title)
+    find_row_for_custom_field(title).find(EDIT_SELECTOR)
   end
 
   def find_up_link_for_custom_field(title)
@@ -160,5 +165,82 @@ When /^I move custom field "(.*?)" up$/ do |custom_field|
   find_up_link_for_custom_field(custom_field).click();
   steps %Q{
     Then I should see "Successfully saved field order"
+  }
+end
+
+Given /^there is a custom dropdown field "(.*?)" in community "(.*?)" with options:$/ do |name, community, options|
+  current_community = Community.find_by_domain(community)
+  custom_field = FactoryGirl.build(:custom_field, :community_id => current_community.id)
+  custom_field.names << CustomFieldName.create(:value => name, :locale => "en")
+  custom_field.category_custom_fields.build(:category => current_community.categories.first)
+
+  custom_field.options << options.hashes.map do |hash|
+    en = FactoryGirl.build(:custom_field_option_title, :value => hash['fi'], :locale => 'fi')
+    fi = FactoryGirl.build(:custom_field_option_title, :value => hash['en'], :locale => 'en')
+    FactoryGirl.build(:custom_field_option, :titles => [en, fi])
+  end
+
+  custom_field.save!
+end
+
+Then /^the option order for "(.*?)" should be following:$/ do |custom_field, table|
+  table.hashes.each_cons(2).map do |two_hashes|
+    first, second = two_hashes
+
+    steps %Q{
+      Then I should see "#{first['option']}" before "#{second['option']}"
+    }
+  end
+end
+
+When /^I click edit for custom field "(.*?)"$/ do |custom_field|
+  find_edit_link_for_custom_field(custom_field).click()
+end
+
+When /^I click down for option "(.*?)"$/ do |option|
+  page.evaluate_script("$(\"[value='#{option}']\")
+    .closest(\".custom-field-option-locales\")
+    .find(\".custom-fields-action-down\")
+    .click()
+  ");
+end
+
+When /^I click up for option "(.*?)"$/ do |option|
+  page.evaluate_script("$(\"[value='#{option}']\")
+    .closest(\".custom-field-option-locales\")
+    .find(\".custom-fields-action-up\")
+    .click()
+  ");
+end
+
+When /^I move option "(.*?)" for "(.*?)" down (\d+) steps?$/ do |option, custom_field, n|
+  steps %Q{
+    When I click edit for custom field "#{custom_field}"
+  }
+
+  n.to_i.times do
+    steps %Q{
+      And I click down for option "#{option}"
+    }
+  end
+
+  steps %Q{
+    And I press submit
+  }
+end
+
+When /^I move option "(.*?)" for "(.*?)" up (\d+) steps?$/ do |option, custom_field, n|
+  steps %Q{
+    When I click edit for custom field "#{custom_field}"
+  }
+
+  n.to_i.times do
+    steps %Q{
+      And I click up for option "#{option}"
+    }
+  end
+
+  steps %Q{
+    And I press submit
   }
 end
