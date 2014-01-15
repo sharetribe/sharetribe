@@ -1,6 +1,6 @@
 - option_id = option.id || ('new-' + index.to_s)
 .custom-field-option-container{:data => {:"field-id" => "#{option_id}"}}
-  .custom-field-option-locales{:id => "custom_field_option_#{index}", :class => (available_locales.size > 1 ? "custom-field-new-option-row-with-multiple-locales" : "")}
+  .custom-field-option-locales{:id => "custom_field_option_#{index}"}
     .row
       .col-8{:class => available_locales.size > 1 ? "" : "custom-field-column-without-bottom-margin"}
         = fields_for "custom_field[option_attributes][#{option_id}][]", option do |option_form|
