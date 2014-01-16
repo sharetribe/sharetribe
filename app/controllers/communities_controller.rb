@@ -64,9 +64,6 @@ class CommunitiesController < ApplicationController
     @community.save
     @community.community_memberships.first.update_attribute(:admin, true) #make creator an admin
     
-    # Add his listings that have visibility in all communities to the new one
-    @community.community_memberships.first.person.add_listings_visible_to_all_to(@community)
-    
     location.community = @community
     location.save
     clear_session_variables
