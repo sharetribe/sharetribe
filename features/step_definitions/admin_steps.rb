@@ -75,8 +75,8 @@ When /^I add a new custom field "(.*?)"$/ do |field_name|
     And I fill in "custom_field[option_attributes][new-2][title_attributes][en]" with "Appartment"
     And I fill in "custom_field[option_attributes][new-2][title_attributes][fi]" with "Asunto"
     And I follow "custom-fields-add-option"
-    And I fill in "custom_field[option_attributes][new-3][title_attributes][en]" with "House"
-    And I fill in "custom_field[option_attributes][new-3][title_attributes][fi]" with "Talo"
+    When I fill in "custom_field[option_attributes][jsnew-1][title_attributes][en]" with "House"
+    And I fill in "custom_field[option_attributes][jsnew-1][title_attributes][fi]" with "Talo"
     And I press submit
   }
 end
@@ -89,8 +89,8 @@ When /^I add a new custom field "(.*?)" with invalid data$/ do |field_name|
     And I fill in "custom_field[option_attributes][new-1][title_attributes][fi]" with "Huone"
     And I fill in "custom_field[option_attributes][new-2][title_attributes][en]" with "Appartment"
     And I follow "custom-fields-add-option"
-    And I fill in "custom_field[option_attributes][new-3][title_attributes][en]" with "House"
-    And I fill in "custom_field[option_attributes][new-3][title_attributes][fi]" with "Talo"
+    And I fill in "custom_field[option_attributes][jsnew-1][title_attributes][en]" with "House"
+    And I fill in "custom_field[option_attributes][jsnew-1][title_attributes][fi]" with "Talo"
     And I press submit
   }
 end
@@ -141,12 +141,12 @@ When /^I edit dropdown "(.*?)" options$/ do |field_name|
     And I fill in "custom_field[option_attributes][#{@custom_field.options[1].id}][title_attributes][en]" with "House2"
     And I fill in "custom_field[option_attributes][#{@custom_field.options[1].id}][title_attributes][fi]" with "Talo2"
     And I follow "custom-fields-add-option"
-    And I fill in "custom_field[option_attributes][new-3][title_attributes][en]" with "House3"
-    And I fill in "custom_field[option_attributes][new-3][title_attributes][fi]" with "Talo3"
+    And I fill in "custom_field[option_attributes][jsnew-1][title_attributes][en]" with "House3"
+    And I fill in "custom_field[option_attributes][jsnew-1][title_attributes][fi]" with "Talo3"
     And I follow "custom-fields-add-option"
-    And I fill in "custom_field[option_attributes][new-4][title_attributes][en]" with "House4"
-    And I fill in "custom_field[option_attributes][new-4][title_attributes][fi]" with "Talo4"
-    And I follow "remove-option-1"
+    And I fill in "custom_field[option_attributes][jsnew-2][title_attributes][en]" with "House4"
+    And I fill in "custom_field[option_attributes][jsnew-2][title_attributes][fi]" with "Talo4"
+    And I follow "custom-field-option-remove-1"
     And I press submit
   }
 end
