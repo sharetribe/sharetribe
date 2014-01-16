@@ -374,6 +374,14 @@ h2.home-list-title {
 
 .custom-filter-title {
   font-weight: 700;
+  border-bottom: 1px solid $highlight;
+}
+
+.custom-filter-options {
+  &.scrollable {
+    max-height: 180px;
+    overflow-y: scroll;
+  }
 }
 
 .custom-filter-checkbox-label {
