@@ -11,7 +11,7 @@
 
 .left-navi-section
   #new-field-form.new-field-form
-    = form_for @custom_field, :url => admin_custom_fields_path do |form|
+    = form_for @custom_field, :as => :custom_field, :url => admin_custom_fields_path do |form|
       
       = render :partial => "admin/custom_fields/form/field_name", :locals => { :form => form }
 
@@ -19,6 +19,8 @@
       .row
         .col-12
           = form.select :type, custom_field_dropdown_options(CustomField::VALID_TYPES)
+      
+      = render :partial => "admin/custom_fields/form/field_required", :locals => { :form => form }
       
       = render :partial => "admin/custom_fields/form/field_categories", :locals => { :form => form }
       

@@ -20,6 +20,14 @@ module AdminSteps
   def find_up_link_for_custom_field(title)
     find_row_for_custom_field(title).find(UP_SELECTOR)
   end
+  
+  def find_custom_field_by_name(field_name)
+    @custom_fields.inject("") do |memo, f|
+      memo = f if f.name.eql?(field_name)
+      memo
+    end
+  end
+  
 end
 
 World(AdminSteps)
@@ -254,9 +262,10 @@ When /^I move option "(.*?)" for "(.*?)" up (\d+) steps?$/ do |option, custom_fi
 end
 
 When /^(?:|I )select "([^"]*)" from dropdown "([^"]*)"$/ do |value, field_name|
-  field_id = @custom_fields.inject("") do |memo, f|
-    memo = f.id if f.name.eql?(field_name)
-    memo
-  end
+  field_id = find_custom_field_by_name(field_name).id
   select(value, :from => "custom_fields_#{field_id}")
+end
+
+When /^custom field "(.*?)" is not required$/ do |field_name|
+  find_custom_field_by_name(field_name).update_attribute(:required, false)
 end

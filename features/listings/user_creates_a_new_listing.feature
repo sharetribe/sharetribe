@@ -242,6 +242,11 @@ Feature: User creates a new listing
       | en             | fi                   |
       | Big house      | Iso talo             |
       | Small house    | Pieni talo           |
+    And there is a custom dropdown field "Balcony type" in community "test" in category "housing" with options:
+      | en             | fi                   |
+      | No balcony     | Ei parveketta        |
+      | French balcony | Ranskalainen parveke |
+      | Backyard       | Takapiha             |
     And there is a custom dropdown field "Service type" in community "test" in category "favor" with options:
       | en             | fi                   |
       | Cleaning       | Siivous              |
@@ -252,10 +257,20 @@ Feature: User creates a new listing
     And I follow "A space"
     And I follow "I'm selling it"
     Then I should see "House type"
+    And I should see "Balcony type"
     And I should not see "Service type"  
     When I fill in "listing_title" with "My house"
     And I press "Save listing"
-    Then I should see "This field is required"
+    Then I should see 2 validation errors
+    When custom field "Balcony type" is not required
+    And I am on the home page
+    And I follow "new-listing-link"
+    And I follow "offer to others"
+    And I follow "A space"
+    And I follow "I'm selling it"
+    And I fill in "listing_title" with "My house"
+    And I press "Save listing"
+    Then I should see 1 validation errors
     When I select "Big house" from dropdown "House type"
     And I press "Save listing"
     Then I should see "House type: Big house"

@@ -272,9 +272,11 @@ class ListingsController < ApplicationController
   end
 
   def create_field_values(custom_field_params={})
-    custom_field_params.map do |custom_field_id, answer_value|
-      custom_field_value_factory(custom_field_id, answer_value)
-    end
+    mapped_values = custom_field_params.map do |custom_field_id, answer_value|
+      custom_field_value_factory(custom_field_id, answer_value) unless answer_value.blank?
+    end.compact
+    
+    return mapped_values
   end
 
 end

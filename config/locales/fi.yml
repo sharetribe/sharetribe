@@ -42,7 +42,10 @@ fi:
         send_test_message: "Lähetä testiviesti"
     custom_fields:
       edit:
-        edit_listing_field: ~
+        edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
+      form:
+        field_required: 
+          this_field_is_required: "This field is required"
       index:
         listing_fields: Ilmoituskentät
         add_new_field: "+ Lisää uusi kenttä"
@@ -59,7 +62,7 @@ fi:
         save_order_successful: "Kenttien järjestyksen tallennus onnistui"
         save_order_error: "Virhe tallennettaessa kenttien järjestystä. Päivitä sivu ja yritä uudelleen."
       new:
-        new_listing_field: ~
+        new_listing_field: "Uusi ilmoituskenttä"
       field_types:
         dropdown: Pudotusvalikko
     emails:

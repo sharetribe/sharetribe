@@ -52,7 +52,8 @@
             - if question_type == :dropdown
               - question_name = custom_field_value.question.name(I18n.locale)
               - answer_title = custom_field_value.selected_options.first.title(I18n.locale)
-              = "#{question_name}: #{answer_title}"
+              %b= "#{question_name}:" 
+              = answer_title
             - else
               = "Unimplemented type #{question_type}"
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140109190928) do
+ActiveRecord::Schema.define(:version => 20140116131654) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -332,9 +332,10 @@ ActiveRecord::Schema.define(:version => 20140109190928) do
   create_table "custom_fields", :force => true do |t|
     t.string   "type"
     t.integer  "sort_priority"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.integer  "community_id"
+    t.boolean  "required",      :default => true
   end
 
   add_index "custom_fields", ["community_id"], :name => "index_custom_fields_on_community_id"
@@ -637,10 +638,10 @@ ActiveRecord::Schema.define(:version => 20140109190928) do
     t.datetime "created_at",                                              :null => false
     t.datetime "updated_at",                                              :null => false
     t.integer  "community_id"
-    t.string   "type",                     :default => "CheckoutPayment"
-    t.string   "braintree_transaction_id"
     t.integer  "sum_cents"
     t.string   "currency"
+    t.string   "type",                     :default => "CheckoutPayment"
+    t.string   "braintree_transaction_id"
   end
 
   add_index "payments", ["conversation_id"], :name => "index_payments_on_conversation_id"
