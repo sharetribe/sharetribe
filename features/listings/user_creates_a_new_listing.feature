@@ -233,3 +233,30 @@ Feature: User creates a new listing
     Given I am logged in
     When I create a new listing "Sledgehammer" with price
     Then I should see "Sledgehammer" within "#listing-title"
+  
+  @javascript
+  Scenario: User creates a new listing with a custom field
+    Given I am logged in
+    And community "test" has custom fields enabled
+    And there is a custom dropdown field "House type" in community "test" in category "housing" with options:
+      | en             | fi                   |
+      | Big house      | Iso talo             |
+      | Small house    | Pieni talo           |
+    And there is a custom dropdown field "Service type" in community "test" in category "favor" with options:
+      | en             | fi                   |
+      | Cleaning       | Siivous              |
+      | Delivery       | Kuljetus             |
+    And I am on the home page
+    When I follow "new-listing-link"
+    And I follow "offer to others"
+    And I follow "A space"
+    And I follow "I'm selling it"
+    Then I should see "House type"
+    And I should not see "Service type"  
+    When I fill in "listing_title" with "My house"
+    And I press "Save listing"
+    Then I should see "This field is required"
+    When I select "Big house" from dropdown "House type"
+    And I press "Save listing"
+    Then I should see "House type: Big house"
+    

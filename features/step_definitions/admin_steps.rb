@@ -168,11 +168,16 @@ When /^I move custom field "(.*?)" up$/ do |custom_field|
   }
 end
 
-Given /^there is a custom dropdown field "(.*?)" in community "(.*?)" with options:$/ do |name, community, options|
+Given /^there is a custom dropdown field "(.*?)" in community "(.*?)"(?: in category "([^"]*)")? with options:$/ do |name, community, category, options|
   current_community = Community.find_by_domain(community)
   custom_field = FactoryGirl.build(:custom_field, :community_id => current_community.id)
   custom_field.names << CustomFieldName.create(:value => name, :locale => "en")
-  custom_field.category_custom_fields.build(:category => current_community.categories.first)
+  
+  if category
+    custom_field.category_custom_fields.build(:category => Category.find_by_name(category))
+  else
+    custom_field.category_custom_fields.build(:category => current_community.categories.first)
+  end
 
   custom_field.options << options.hashes.map do |hash|
     en = FactoryGirl.build(:custom_field_option_title, :value => hash['fi'], :locale => 'fi')
@@ -181,6 +186,9 @@ Given /^there is a custom dropdown field "(.*?)" in community "(.*?)" with optio
   end
 
   custom_field.save!
+  
+  @custom_fields ||= []
+  @custom_fields << custom_field 
 end
 
 Then /^the option order for "(.*?)" should be following:$/ do |custom_field, table|
@@ -243,4 +251,12 @@ When /^I move option "(.*?)" for "(.*?)" up (\d+) steps?$/ do |option, custom_fi
   steps %Q{
     And I press submit
   }
+end
+
+When /^(?:|I )select "([^"]*)" from dropdown "([^"]*)"$/ do |value, field_name|
+  field_id = @custom_fields.inject("") do |memo, f|
+    memo = f.id if f.name.eql?(field_name)
+    memo
+  end
+  select(value, :from => "custom_fields_#{field_id}")
 end
