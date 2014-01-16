@@ -1,5 +1,6 @@
 - content_for :javascript do
-  initialize_admin_listing_field_form_view("#{I18n.locale}", "#new_dropdown", #{session[:option_amount]});
+  initialize_admin_listing_field_form_view("#{I18n.locale}", "#new_dropdown", 2);
+  ST.customFieldOptionOrder = ST.createCustomFieldOptionOrder(".custom-field-option-container");
   
 - content_for :title_header do
   %h1

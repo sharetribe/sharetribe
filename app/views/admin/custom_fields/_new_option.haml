@@ -1,23 +1,22 @@
-- option_id = option.id || ('new-' + index.to_s)
 .custom-field-option-container{:data => {:"field-id" => "#{option_id}"}}
-  .custom-field-option-locales{:id => "custom_field_option_#{index}"}
+  .custom-field-option-locales
     .row
-      .col-8{:class => available_locales.size > 1 ? "" : "custom-field-column-without-bottom-margin"}
+      - show_locales = available_locales.size > 1
+      .col-8{:class => show_locales ? "" : "custom-field-column-without-bottom-margin"}
         = fields_for "custom_field[option_attributes][#{option_id}][]", option do |option_form|
-          - show_locales = available_locales.size > 1
           - input_col_size = show_locales ? "9" : "12"
           - available_locales.each do |locale_name, locale_value|
             .row.custom-field-option-locale-row
               - if show_locales
                 .col-3.custom-field-option-locale-column
-                  = label_tag "custom_field[option_attributes][#{index}][title_attributes][#{locale_value}]", locale_name + ": ", :class => "custom-field-option-with-multiple-locales-label"
+                  = label_tag "custom_field[option_attributes][#{option_id}][title_attributes][#{locale_value}]", locale_name + ": ", :class => "custom-field-option-with-multiple-locales-label"
               .custom-field-option-locale-column{:class => "col-#{input_col_size}"}
                 = text_field_tag "custom_field[option_attributes][#{option_id}][title_attributes][#{locale_value}]", option.title(locale_value), :class => "required", :value => option.title(locale_value)
-          = hidden_field_tag "custom_field[option_attributes][#{option_id}][sort_priority]", "#{index}", :class => "custom-field-hidden-sort-priority"
+          = hidden_field_tag "custom_field[option_attributes][#{option_id}][sort_priority]", sort_priority, :class => "custom-field-hidden-sort-priority"
       .col-4.custom-field-actions
-        - link_class = "custom-field-option-#{(available_locales.size > 1 ? "with" : "without")}-locale-remove"
+        - link_class = "custom-field-option-#{(show_locales ? "with" : "without")}-locale-remove"
         
-        = link_to "#", :class => "custom-field-option-remove #{link_class}", :tabindex => "-1", :id => "remove-option-#{index}" do
+        = link_to "#", :class => "custom-field-option-remove #{link_class}", :tabindex => "-1", :id => "custom-field-option-remove-#{option_id}" do
           = icon_tag("cross", ["icon-fix"])
         = link_to '#', :class => "custom-fields-action-up" do
           = icon_tag("directup", ["icon-fix"])

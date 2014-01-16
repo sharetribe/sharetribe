@@ -13,18 +13,8 @@ window.ST = window.ST || {};
     order: [<option.id>, <option.id>, <option.id> , ...] // Current order
   }
 */
-window.ST.orderManager = function(rowSelector) {
+window.ST.orderManager = function(fieldMap) {
   var utils = ST.utils;
-
-  /**
-    Fetch all custom field rows and save them to a variable
-  */
-  var fieldMap = $(rowSelector).map(function(id, row) {
-    return { 
-      id: $(row).data("field-id"),
-      element: $(row)
-    };
-  }).get();
 
   var moveUp = createSwapFn(_.findIndex, utils.findPrevIndex);
   var moveDown = createSwapFn(utils.findNextIndex, _.findIndex);
@@ -94,12 +84,7 @@ window.ST.orderManager = function(rowSelector) {
     }
   }
 
-  function add(fieldId) {
-    var el = $(rowSelector).filter("[data-field-id=" + fieldId + "]");
-    var newField = {
-      id: fieldId,
-      element: el
-    };
+  function add(newField) {
     fieldMap.push(newField);
     createUpDownStreams(newField);
   }
@@ -122,11 +107,21 @@ window.ST.orderManager = function(rowSelector) {
 */
 window.ST.createCustomFieldOrder = function(rowSelector) {
 
+  /**
+    Fetch all custom field rows and save them to a variable
+  */
+  var fieldMap = $(rowSelector).map(function(id, row) {
+    return { 
+      id: $(row).data("field-id"),
+      element: $(row)
+    };
+  }).get();
+
   function customFieldUrl(url) {
     return [window.location.pathname, url].join("/").replace("//", "/");
   }
 
-  orderManager = window.ST.orderManager(rowSelector)
+  orderManager = window.ST.orderManager(fieldMap)
 
   var ajaxRequest = orderManager.changes.debounce(800).map(".order")
     .skipDuplicates(_.isEqual)
@@ -176,7 +171,42 @@ window.ST.createCustomFieldOrder = function(rowSelector) {
   Changes `sort_priority` hidden field when order changes.
 */
 window.ST.createCustomFieldOptionOrder = function(rowSelector) {
-  orderManager = window.ST.orderManager(rowSelector)
+
+  /**
+    Fetch all custom field rows and save them to a variable
+  */
+  var fieldMap = $(rowSelector).map(function(id, row) {
+    return { 
+      id: $(row).data("field-id"),
+      element: $(row),
+      sortPriority: Number($(row).find(".custom-field-hidden-sort-priority").val())
+    };
+  }).get();
+
+  function highestSortPriority(fieldMap) {
+    return _(fieldMap)
+      .map("sortPriority")
+      .max()
+      .value()
+  }
+
+  var nextSortPriority = (function(startValue) {
+    var i = startValue;
+    return function() {
+      i += 1;
+      return i;
+    }
+  })(highestSortPriority(fieldMap));
+
+  var nextId = (function() {
+    var i = 0;
+    return function() {
+      i += 1;
+      return i;
+    }
+  })();
+
+  orderManager = window.ST.orderManager(fieldMap)
 
   orderManager.changes.onValue(function(changedFields) {
     var up = changedFields.up;
@@ -190,6 +220,22 @@ window.ST.createCustomFieldOptionOrder = function(rowSelector) {
 
     upHidden.val(newUpValue);
     downHidden.val(newDownValue);
+  });
+
+  var newOptionTmpl = _.template($("#new-option-tmpl").html());
+  var $customFieldOptions = $("#options");
+
+  $("#custom-fields-add-option").click(function(e) {
+    e.preventDefault();
+    var id = "jsnew-" + nextId();
+    var newFieldEl = $(newOptionTmpl({id: id, sortPriority: nextSortPriority()}));
+    $customFieldOptions.append(newFieldEl);
+    var newField = {
+      id: id,
+      element: newFieldEl
+    };
+    ST.newOptionAdded();
+    ST.customFieldOptionOrder.add(newField);
   });
 
   return {
