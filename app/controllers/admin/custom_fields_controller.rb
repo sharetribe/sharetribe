@@ -16,7 +16,6 @@ class Admin::CustomFieldsController < ApplicationController
     @community = @current_community
     @custom_field = Dropdown.new
     @custom_field.options = [CustomFieldOption.new, CustomFieldOption.new]
-    session[:option_amount] = 2
   end
   
   def create
@@ -34,7 +33,6 @@ class Admin::CustomFieldsController < ApplicationController
     @selected_left_navi_link = "listing_fields"
     @community = @current_community
     @custom_field = CustomField.find(params[:id])
-    session[:option_amount] = @custom_field.options.size
   end
   
   def update
@@ -52,13 +50,6 @@ class Admin::CustomFieldsController < ApplicationController
 
     flash[:error] = "Field doesn't belong to current community" unless success
     redirect_to admin_custom_fields_path
-  end
-  
-  def add_option
-    session[:option_amount] += 1
-    respond_to do |format|
-      format.js { render :layout => false }
-    end
   end
 
   def order

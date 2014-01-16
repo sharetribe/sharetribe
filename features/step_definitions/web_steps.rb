@@ -17,6 +17,17 @@ module FillInHelpers
     with = options.delete(:with)
     first(:fillable_field, locator, options).set(with)
   end
+
+  def fill_in_nth(locator, n, options={})
+    # Highly inspired by Capybara's fill_in implementation
+    # https://github.com/jnicklas/capybara/blob/80befdad73c791eeaea50a7cbe23f04a445a24bc/lib/capybara/node/actions.rb#L50
+    raise "Must pass a hash containing 'with'" if not options.is_a?(Hash) or not options.has_key?(:with)
+    with = options.delete(:with)
+    results = all(:fillable_field, locator, options)
+    if results.size >= n
+      results[n - 1].set(with)
+    end
+  end
 end
 World(FillInHelpers)
 
@@ -67,9 +78,12 @@ When /^(?:|I )fill in "([^"]*)" with "([^"]*)"(?: within "([^"]*)")?$/ do |field
   end
 end
 
-When /^(?:|I )fill in first "([^"]*)" with "([^"]*)"(?: within "([^"]*)")?$/ do |field, value, selector|
+When /^(?:|I )fill in (first|second|third) "([^"]*)" with "([^"]*)"(?: within "([^"]*)")?$/ do |ordinal, field, value, selector|
+  nums = {"first" => 1, "second" => 2, "third" => 3}
+  n = nums[ordinal]
+
   with_scope(selector) do
-    fill_in_first(field, :with => value)
+    fill_in_nth(field, n, :with => value)
   end
 end
 

@@ -2,8 +2,10 @@
 .row
   .col-12
     #options.custom-field-options
+      %script{type: "text/template", class: "template", id: "new-option-tmpl"}
+        = render :partial => "new_option", :locals => { :option => CustomFieldOption.new, :option_id => "${id}", :sort_priority => "${sortPriority}" }
       - @custom_field.options.sort.each_with_index do |option, index|
-        = render :partial => "new_option", :locals => { :option => option, :index => (index + 1) }
+        = render :partial => "new_option", :locals => { :option => option, :option_id => option.id || "new-#{index+1}", :sort_priority => index }
 .row
   .col-12
-    = link_to t("admin.custom_fields.index.add_option"), add_option_admin_custom_fields_path, :remote => true, :id => "custom-fields-add-option"
+    = link_to t("admin.custom_fields.index.add_option"), "#", :id => "custom-fields-add-option"
