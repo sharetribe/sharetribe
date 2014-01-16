@@ -236,6 +236,9 @@ window.ST.createCustomFieldOptionOrder = function(rowSelector) {
     };
     ST.newOptionAdded();
     ST.customFieldOptionOrder.add(newField);
+
+    // Focus the new one
+    newFieldEl.find("input").first().focus();
   });
 
   return {
