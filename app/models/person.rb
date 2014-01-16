@@ -642,15 +642,6 @@ class Person < ActiveRecord::Base
     return true if community_updates_last_sent_at.nil?
     return community_updates_last_sent_at + min_days_between_community_updates.days - 45.minutes < Time.now
   end
-
-  def add_listings_visible_to_all_to(community)
-    listings.each do |listing|
-      if listing.visibility == "all_communities" && !listing.communities.include?(community)
-        listing.communities << community
-      end
-    end
-    
-  end
   
   # Return true if this user should use a payment
   # system in this transaction
