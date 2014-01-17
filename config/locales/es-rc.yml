@@ -43,6 +43,9 @@ es-rc:
     custom_fields:
       edit:
         edit_listing_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
       index:
         listing_fields: ~
         add_new_field: ~

@@ -43,6 +43,9 @@ de:
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
+      form:
+        field_required:
+          this_field_is_required: "Dieses Feld ist erforderlich."
       index:
         listing_fields: Eintragsfelder
         add_new_field: "+ Neues Feld hinzufügen"
