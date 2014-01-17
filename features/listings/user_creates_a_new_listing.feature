@@ -121,7 +121,7 @@ Feature: User creates a new listing
     And I should see "Departure time must be between current time and one year from now." 
 
 
-  Scenario: User creates a listing and sees it in another community
+  Scenario: User creates a listing and it is not visible in communities user joins
     Given there are following users:
       | person | 
       | kassi_testperson3 |
@@ -137,7 +137,7 @@ Feature: User creates a new listing
     And I press "Join community"
     And the system processes jobs
     And I am on the homepage
-    Then I should see "Hammer"
+    Then I should not see "Hammer"
 
   @javascript
   Scenario: Create a new listing successfully after going back and forth in the listing form
