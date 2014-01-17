@@ -70,12 +70,7 @@ gem "mail_view", "~> 1.0.3"
 #ouisharelabs
 gem 'rdf-turtle'
 
-group :staging do
-  gem "airbrake", "~>3.1.12"
-  gem 'newrelic_rpm', "~>3.6.2.96"
-end
-
-group :production do
+group :staging, :production do
   gem "airbrake", "~>3.1.12"
   gem 'newrelic_rpm', "~>3.6.2.96"
 end
