@@ -42,7 +42,7 @@
       position: relative;
       color: $background;
       padding: lines(0.5);
-      padding-right: lines(0.5) + $arrow-width + lines(0.5);
+      padding-right: lines(0.5);
     }
     
     &.login-form {
@@ -58,16 +58,6 @@
   }
 
   a, .toggle-menu-link {
-    &:after {
-      content: "→"; // Could be replaced by a font icon
-      display: block;
-      position: absolute;
-      right: lines(0.5); top: lines(0.5);
-      color: $background;
-      width: $arrow-width;
-      text-align: right;
-    }
-
     &:hover {
       background: $link;
       color: $background;
