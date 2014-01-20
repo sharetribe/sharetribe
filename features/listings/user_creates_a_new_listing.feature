@@ -120,25 +120,6 @@ Feature: User creates a new listing
     Then I should see "This field is required."
     And I should see "Departure time must be between current time and one year from now." 
 
-
-  Scenario: User creates a listing and sees it in another community
-    Given there are following users:
-      | person | 
-      | kassi_testperson3 |
-    And there is item request with title "Hammer" from "kassi_testperson3" and with share type "buy"
-    And visibility of that listing is "all_communities"
-    And I am on the homepage
-    Then I should see "Hammer"
-    When I move to community "test2"
-    And I am on the homepage
-    Then I should not see "Hammer"
-    And I log in as "kassi_testperson3"
-    And I check "community_membership_consent"
-    And I press "Join community"
-    And the system processes jobs
-    And I am on the homepage
-    Then I should see "Hammer"
-
   @javascript
   Scenario: Create a new listing successfully after going back and forth in the listing form
     Given I am logged in
