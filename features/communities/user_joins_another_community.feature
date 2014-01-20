@@ -112,30 +112,3 @@ Feature: User joins another community
     Then I should see "Test P"
     And "other.email@example.com" should have 2 emails
     And I should receive an email with subject "Welcome to Sharetribe Test2 - here are some tips to get you started"
-    
-  
-  @javascript
-  Scenario: User joins another community when having both visible and non-visible listings
-    Given there are following users:
-      | person | 
-      | kassi_testperson3 |
-    And there is favor request with title "Massage" from "kassi_testperson3"
-    And privacy of that listing is "private"
-    And there is favor request with title "Sewing" from "kassi_testperson3"
-    And visibility of that listing is "all_communities"
-    And I log in as "kassi_testperson3"
-    And I am on the home page
-    And I should see "Massage"
-    And I should see "Sewing"
-    And I move to community "test2"
-    And I am on the home page
-    Then I should see "Join community"
-    When I press "Join community"
-    Then I should see "This field is required"
-    When I check "community_membership_consent"
-    And I press "Join community"
-    Then I should see "You have successfully joined this community"
-    When the system processes jobs
-    And I am on the home page
-    And I should see "Sewing"
-    And I should not see "Massage"
