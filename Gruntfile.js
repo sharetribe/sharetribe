@@ -19,37 +19,53 @@ module.exports = function(grunt) {
         eqnull: true,
         browser: true,
         globals: {
-          jQuery: true
+          jQuery: true,
+          "$": true,
+          _: true,
+          ST: true,
+          Bacon: true
         }
       },
       gruntfile: {
         src: 'Gruntfile.js'
       },
-      lib_test: {
-        src: ['lib/**/*.js', 'test/**/*.js']
+      src: {
+        src: [
+          'app/assets/javascripts/**/*.js',
+          '!app/assets/javascripts/application.js',
+          '!app/assets/javascripts/dashboard.js',
+          '!app/assets/javascripts/fastclick.min.js',
+          '!app/assets/javascripts/googlemaps.js',
+          '!app/assets/javascripts/homepage.js',
+          '!app/assets/javascripts/kassi.js',
+          '!app/assets/javascripts/kassi_dashboard.js',
+          '!app/assets/javascripts/map_label.js',
+          '!app/assets/javascripts/markerclusterer.js',
+          '!app/assets/javascripts/mercury.js',
+          '!app/assets/javascripts/sharetribe_common.js'
+          ]
       }
     },
-    qunit: {
-      files: ['test/**/*.html']
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec',
+          require: './app/assets/javascripts/test/node_globals.js'
+        },
+        src: ['app/assets/javascripts/test/**/*.js']
+      }
     },
     watch: {
-      gruntfile: {
-        files: '<%= jshint.gruntfile.src %>',
-        tasks: ['jshint:gruntfile']
-      },
-      lib_test: {
-        files: '<%= jshint.lib_test.src %>',
-        tasks: ['jshint:lib_test', 'qunit']
-      }
+      // Nothing here
     }
   });
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-mocha-test');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'qunit']);
+  grunt.registerTask('default', ['jshint', 'mochaTest']);
 
 };
