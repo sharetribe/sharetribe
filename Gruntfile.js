@@ -46,14 +46,13 @@ module.exports = function(grunt) {
           ]
       }
     },
-    mochaTest: {
+    mocha: {
       test: {
         options: {
-          reporter: 'spec',
-          require: './app/assets/javascripts/test/node_globals.js'
+          urls: [ 'http://localhost:3000/test/index.html' ],
+          run: true
         },
-        src: ['app/assets/javascripts/test/**/*.js']
-      }
+      },
     },
     watch: {
       // Nothing here
@@ -63,7 +62,7 @@ module.exports = function(grunt) {
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-mocha-test');
+  grunt.loadNpmTasks('grunt-mocha');
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'mochaTest']);
