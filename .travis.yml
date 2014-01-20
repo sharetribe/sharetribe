@@ -24,10 +24,6 @@ notifications:
   - main@sharetribe.flowdock.com
   - main@kassi.flowdock.com
   - suomi@kassi.flowdock.com
-branches:
-  only:
-  - master
-  - develop
 # Ensure Bundler >= 1.1, don't install rdocs, and fetch a cached bundle from S3
 before_install:
 - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
