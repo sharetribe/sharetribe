@@ -48,7 +48,7 @@ en:
           this_field_is_required: "This field is required"
       index:
         listing_fields: "Listing fields"
-        add_new_field: "+ Add new field"
+        add_new_field: "Add new field:"
         remove_field_confirmation: "Are you sure you want to remove field '%{field_name}'?"
         cancel: Cancel
         save: Save
@@ -61,10 +61,13 @@ en:
         saving_order: "Saving field order"
         save_order_successful: "Successfully saved field order"
         save_order_error: "An error occured while saving listing order. Please refresh the page and try again."
+        select_one: "Select field type..."
+        continue: "Continue"
       new:
         new_listing_field: "New listing field"
       field_types:
         dropdown: Dropdown
+        textfield: "Text field"
     emails:
       new:
         send_email_to_members: "Send an email to members"

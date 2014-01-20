@@ -12,20 +12,16 @@
 
 .left-navi-section
   #new-field-form.new-field-form
-    = form_for @custom_field, :as => :custom_field, :url => admin_custom_fields_path do |form|
+    = form_for @custom_field, :as => :custom_field, :url => admin_custom_fields_path(:field_type => @custom_field.type) do |form|
       
       = render :partial => "admin/custom_fields/form/field_name", :locals => { :form => form }
-
-      = form.label :type, t("admin.custom_fields.index.field_type")
-      .row
-        .col-12
-          = form.select :type, custom_field_dropdown_options(CustomField::VALID_TYPES)
       
       = render :partial => "admin/custom_fields/form/field_required", :locals => { :form => form }
       
       = render :partial => "admin/custom_fields/form/field_categories", :locals => { :form => form }
       
-      = render :partial => "admin/custom_fields/form/field_options", :locals => { :form => form }
+      - if @custom_field.is_a?(Dropdown)
+        = render :partial => "admin/custom_fields/form/field_options", :locals => { :form => form }
       
       = render :partial => "admin/custom_fields/form/buttons", :locals => { :form => form }
   

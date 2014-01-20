@@ -235,7 +235,7 @@ Feature: User creates a new listing
     Then I should see "Sledgehammer" within "#listing-title"
   
   @javascript
-  Scenario: User creates a new listing with a custom field
+  Scenario: User creates a new listing with custom dropdown fields
     Given I am logged in
     And community "test" has custom fields enabled
     And there is a custom dropdown field "House type" in community "test" in category "housing" with options:
@@ -275,3 +275,20 @@ Feature: User creates a new listing
     And I press "Save listing"
     Then I should see "House type: Big house"
     
+  @javascript
+  Scenario: User creates a new listing with custom text field
+    Given I am logged in
+    And community "test" has custom fields enabled
+    And there is a custom text field "Details" in community "test" in category "housing"
+    When I follow "new-listing-link"
+    And I follow "offer to others"
+    And I follow "A space"
+    And I follow "I'm selling it"
+    And I fill in "listing_title" with "My house"
+    And I fill in text field "Details" with "Test details"
+    And I press "Save listing"
+    And the Listing indexes are processed
+    When I go to the home page
+    And I fill in "q" with "Test details"
+    And I press "search-button"
+    Then I should see "My house"

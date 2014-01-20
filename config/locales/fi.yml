@@ -48,7 +48,7 @@ fi:
           this_field_is_required: "Tämä on pakollinen kenttä"
       index:
         listing_fields: Ilmoituskentät
-        add_new_field: "+ Lisää uusi kenttä"
+        add_new_field: "Lisää uusi kenttä:"
         remove_field_confirmation: "Oletko varma että haluat poistaa kentän '%{field_name}'?"
         cancel: Peruuta
         save: Tallenna
@@ -61,10 +61,13 @@ fi:
         saving_order: "Tallennetaan kenttien järjestystä"
         save_order_successful: "Kenttien järjestyksen tallennus onnistui"
         save_order_error: "Virhe tallennettaessa kenttien järjestystä. Päivitä sivu ja yritä uudelleen."
+        select_one: "Valitse kentän tyyppi..."
+        continue: "Jatka"
       new:
         new_listing_field: "Uusi ilmoituskenttä"
       field_types:
         dropdown: Pudotusvalikko
+        textfield: "Tekstikenttä"
     emails:
       new:
         send_email_to_members: "Lähetä sähköpostia jäsenille"

@@ -66,7 +66,7 @@ end
 
 When /^I add a new custom field "(.*?)"$/ do |field_name|
   steps %Q{
-    When I follow "Add new field"
+    When I select "Dropdown" from "field_type"
     And I fill in "custom_field[name_attributes][en]" with "#{field_name}"
     And I fill in "custom_field[name_attributes][fi]" with "Talon tyyppi"
     And I toggle category "Spaces"
@@ -83,7 +83,7 @@ end
 
 When /^I add a new custom field "(.*?)" with invalid data$/ do |field_name|
   steps %Q{
-    When I follow "Add new field"
+    When I select "Dropdown" from "field_type" 
     And I fill in "custom_field[name_attributes][en]" with "#{field_name}"
     And I fill in "custom_field[option_attributes][new-1][title_attributes][en]" with "Room"
     And I fill in "custom_field[option_attributes][new-1][title_attributes][fi]" with "Huone"
@@ -97,7 +97,7 @@ end
 
 Given /^there is a custom field "(.*?)" in community "(.*?)"$/ do |name, community|
   current_community = Community.find_by_domain(community)
-  @custom_field = FactoryGirl.build(:custom_field, :community_id => current_community.id)
+  @custom_field = FactoryGirl.build(:custom_dropdown_field, :community_id => current_community.id)
   @custom_field.names << CustomFieldName.create(:value => name, :locale => "en")
   @custom_field.category_custom_fields.build(:category => current_community.categories.first)
   @custom_field.options << FactoryGirl.build(:custom_field_option)
@@ -178,7 +178,7 @@ end
 
 Given /^there is a custom dropdown field "(.*?)" in community "(.*?)"(?: in category "([^"]*)")? with options:$/ do |name, community, category, options|
   current_community = Community.find_by_domain(community)
-  custom_field = FactoryGirl.build(:custom_field, :community_id => current_community.id)
+  custom_field = FactoryGirl.build(:custom_dropdown_field, :community_id => current_community.id)
   custom_field.names << CustomFieldName.create(:value => name, :locale => "en")
   
   if category
@@ -191,6 +191,23 @@ Given /^there is a custom dropdown field "(.*?)" in community "(.*?)"(?: in cate
     en = FactoryGirl.build(:custom_field_option_title, :value => hash['fi'], :locale => 'fi')
     fi = FactoryGirl.build(:custom_field_option_title, :value => hash['en'], :locale => 'en')
     FactoryGirl.build(:custom_field_option, :titles => [en, fi])
+  end
+
+  custom_field.save!
+  
+  @custom_fields ||= []
+  @custom_fields << custom_field 
+end
+
+Given /^there is a custom text field "(.*?)" in community "(.*?)"(?: in category "([^"]*)")?$/ do |name, community, category|
+  current_community = Community.find_by_domain(community)
+  custom_field = FactoryGirl.build(:custom_text_field, :community_id => current_community.id)
+  custom_field.names << CustomFieldName.create(:value => name, :locale => "en")
+  
+  if category
+    custom_field.category_custom_fields.build(:category => Category.find_by_name(category))
+  else
+    custom_field.category_custom_fields.build(:category => current_community.categories.first)
   end
 
   custom_field.save!
@@ -268,4 +285,9 @@ end
 
 When /^custom field "(.*?)" is not required$/ do |field_name|
   find_custom_field_by_name(field_name).update_attribute(:required, false)
+end
+
+When /^(?:|I )fill in text field "([^"]*)" with "([^"]*)"$/ do |field_name, value|
+  field_id = find_custom_field_by_name(field_name).id
+  fill_in("custom_fields_#{field_id}", :with => value)
 end

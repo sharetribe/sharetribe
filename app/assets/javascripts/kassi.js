@@ -1041,6 +1041,10 @@ function initialize_admin_listing_field_form_view(locale, form_id, option_count)
 
   var $form = $(form_id);
   var CATEGORY_CHECKBOX_NAME = "custom_field[category_attributes][][category_id]";
+  
+  $(".target").change(function() {
+    alert( "Handler for .change() called." );
+  });
 
   var rules = {}
   rules[CATEGORY_CHECKBOX_NAME] = {

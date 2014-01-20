@@ -265,6 +265,9 @@ class ListingsController < ApplicationController
         option_id = answer_value.to_i
         answer.custom_field_option_selections = [CustomFieldOptionSelection.new(:custom_field_value => answer, :custom_field_option_id => answer_value)]
         answer
+      when :text_field
+        answer.text_value = answer_value
+        answer
       else
         throw "Unimplemented custom field answer for question #{question_type}"
       end

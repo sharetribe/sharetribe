@@ -4,7 +4,7 @@ describe CustomField do
   describe "validations" do
     before(:each) do
       # Create valid CustomField entity
-      @custom_field = FactoryGirl.create(:custom_field)
+      @custom_field = FactoryGirl.create(:custom_dropdown_field)
       @custom_field.should be_valid
     end
 
