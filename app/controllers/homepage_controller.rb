@@ -36,7 +36,16 @@ class HomepageController < ApplicationController
     @listing_types = Rails.cache.fetch("/community/#{@current_community.id}_#{@current_community.updated_at}/listing_types") {
       @current_community.listing_types
     }
-    
+
+    # Create also @sorted_subcategories as it helps sorting sub categories for filters
+    # (This can probably be simplified when categories can belong to single community only)
+    community_categories = @current_community.community_categories
+    @sorted_subcategories = {}
+    @main_categories.each do |main_cat|
+      child_ccs = community_categories.select{ |cc| main_cat.children.collect(&:id).include?(cc.category_id)}
+      @sorted_subcategories[main_cat.id] = child_ccs.collect(&:category_id)
+    end
+
     # This assumes that we don't never ever have communities with only 1 main share type and
     # only 1 sub share type, as that would make the listing type menu visible and it would look bit silly
     @listing_type_menu_enabled = @share_types.size > 1

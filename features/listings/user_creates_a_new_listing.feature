@@ -120,7 +120,7 @@ Feature: User creates a new listing
     Then I should see "This field is required."
     And I should see "Departure time must be between current time and one year from now." 
 
-
+  @javascript
   Scenario: User creates a listing and it is not visible in communities user joins
     Given there are following users:
       | person | 
