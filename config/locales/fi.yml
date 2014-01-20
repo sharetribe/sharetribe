@@ -44,7 +44,7 @@ fi:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
       form:
-        field_required: 
+        field_required:
           this_field_is_required: "Tämä on pakollinen kenttä"
       index:
         listing_fields: Ilmoituskentät

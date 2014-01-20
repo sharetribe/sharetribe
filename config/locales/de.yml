@@ -646,8 +646,8 @@ de:
     welcome_email:
       welcome_email_footer_text: "Welche Art von E-Mails willst du empfangen von %{service_name}? %{settings_link}"
       settings_link_text: "Überprüfe deine Einstellungen"
-      subject: "Willkommen zur %{community} - hier sind ein paar Tipps zum Start"
-      welcome_some_tips: "Willkommen zur %{community_link}! Hier sind ein paar Tipps zum Start."
+      subject: "Willkommen bei %{community} - hier sind ein paar Tipps zum Start"
+      welcome_some_tips: "Willkommen bei %{community_link}! Hier sind ein paar Tipps zum Start."
       p_s_did_you_know: "P.S.: Wusstest du, dass du einen Marktplatz wie diesen für jede andere Community, zu der du gehörst, kostenlos erstellen kannst? %{click_here_link} um mehr zu erfahren!"
       click_here_link_text: "Hier klicken"
       update_your_profile: "<strong>Ändere dein Profil.</strong> Füge deinen richtigen Namen und ein Profilbild hinzu und erzähle etwas über dich selbst, um Vertrauen zu schaffen. Wenn du deine Kontaktdaten hinzufügst, musst du sie nicht jedes Mal einzeln angeben, wenn du einen neuen Eintrag erstellst."
@@ -806,7 +806,7 @@ de:
       requesting: brauchen
       teaser_text: "%{service_name} ist ein Dienst für die %{community} Community. Hier kannst du Dinge verleihen, vermieten, verschenken oder verkaufen und Hilfe bekommen oder Mifahrgelegenheiten anbieten. Kannst du etwas verleihen oder jemandem helfen?"
       tell_it_here: "Sag es hier!"
-      welcome_to_new_kassi: "Willkommen in der neuen %{service_name}!"
+      welcome_to_new_kassi: "Willkommen bei dem neuen %{service_name}!"
       no_reviews: "Keine Bewertungen"
       no_image: "Kein Bild"
       filter: Filter
@@ -956,7 +956,7 @@ de:
       inviting_new_users_is_not_allowed_in_this_community: "Neue Benutzer zu dieser %{service_name} Community einzuladen, ist nicht gestattet"
       login_again: "Bitte melden Sie sich erneut an."
       login_failed: "Anmeldung fehlgeschlagen. Bitte gib korrekte Anmeldedaten ein."
-      account_creation_successful: "Willkommen zu %{service_name}, %{person_name}!"
+      account_creation_successful: "Willkommen bei %{service_name}, %{person_name}!"
       account_deleted: "Dein Konto wurde nun gelöscht."
       login_successful: "Willkommen, %{person_name}!"
       logout_successful: "Du wurdest nun von %{service_name} abgemeldet. Bis bald!"
@@ -1004,7 +1004,7 @@ de:
       this_content_is_not_available_in_this_community: "Dieser Inhalt ist in dieser Community nicht verfügbar."
       unknown_error: "Unbekannter Fehler. Bitte benutze den Kontakt-Link, um uns über Details zum Vorfall zu informieren."
       update_error: "Ein Fehler ist beim Aktualisieren deiner Informationen aufgetreten. Bitte versuche es erneut."
-      welcome_message: "Willkommen zu %{service_name}! %{service_name} ist ein Service, der es den Mitgliedern der %{community} Community ermöglicht, Gegenstände an andere zu verleihen und zu verkaufen sowie Mitfahrgelegenheiten und viele andere hilfreiche Dinge zu organisieren."
+      welcome_message: "Willkommen bei %{service_name}! %{service_name} ist ein Service, der es den Mitgliedern der %{community} Community ermöglicht, Gegenstände an andere zu verleihen und zu verkaufen sowie Mitfahrgelegenheiten und viele andere hilfreiche Dinge zu organisieren."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Du bist nicht berechtigt, Feedback zu dieser Transaktion zu geben"
       you_are_not_authorized_to_do_this: "Du bist nicht berechtigt, dies zu tun"
       you_are_not_authorized_to_view_this_content: "Du bist nicht berechtigt, diesen Inhalt zu sehen"
@@ -1710,7 +1710,7 @@ de:
       terms: "Nutzungsbedingungen von %{service_name}"
       terms_have_changed: "Die Nutzungbedingungen haben sich geändert"
       you_can_view_the_new_terms: "Du kannst die neuen Nutzungsbedingungen ansehen"
-      you_need_to_accept: "Willkommen zu %{service_name}! Dies scheint das erste Mal zu sein, dass du diesen Service nutzt. Bevor es losgeht, akzeptiere zuerst die"
+      you_need_to_accept: "Willkommen bei %{service_name}! Dies scheint das erste Mal zu sein, dass du diesen Service nutzt. Bevor es losgeht, akzeptiere zuerst die"
       you_need_to_accept_new_terms: "Die Nutzungsbedingungen von %{service_name} haben sich geändert. Du musst die neuen Nutzungsbedingungen akzeptieren, um %{service_name} weiter zu verwenden. Die neuen Nutzungsbedingungen sollen die Instandhaltung des Dienstes ermöglichen, nachdem das Forschungsprojekt beendet wurde."
   testimonials:
     index:
