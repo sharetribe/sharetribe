@@ -25,8 +25,8 @@ describe HomepageController do
   describe "custom field options for search" do
     
     it "returns ids in correct order" do
-      @custom_field1 = FactoryGirl.create(:custom_field)
-      @custom_field2 = FactoryGirl.create(:custom_field)
+      @custom_field1 = FactoryGirl.create(:custom_dropdown_field)
+      @custom_field2 = FactoryGirl.create(:custom_dropdown_field)
       @custom_field_option1 = FactoryGirl.create(:custom_field_option, :custom_field =>  @custom_field1)
       @custom_field_option2 = FactoryGirl.create(:custom_field_option, :custom_field =>  @custom_field1)
       @custom_field_option3 = FactoryGirl.create(:custom_field_option, :custom_field =>  @custom_field2)

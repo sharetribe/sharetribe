@@ -18,7 +18,7 @@ describe Admin::CustomFieldsController do
     def create_custom_field_for(community)
       custom_field_count = community.custom_fields.count
       community.custom_fields.count.should eql(0)
-      custom_field = FactoryGirl.create(:custom_field)
+      custom_field = FactoryGirl.create(:custom_dropdown_field)
       community.categories << custom_field.category_custom_fields.first.category
       community.custom_fields << custom_field
       community.save!

@@ -9,7 +9,12 @@ class CustomFieldValue < ActiveRecord::Base
   has_many :selected_options, :through => :custom_field_option_selections, :source => :custom_field_option
 
   # Hard-coded for Dropdowns
-  #validates_length_of :custom_field_option_selections, :is => 1
+  validate :text_value_or_selected_option_present
 
   delegate :sort_priority, :with_type, :to => :question
+
+  def text_value_or_selected_option_present
+    errors.add(:base, "CustomFieldValue must have value") unless custom_field_option_selections.size == 1 || text_value
+  end
+
 end
