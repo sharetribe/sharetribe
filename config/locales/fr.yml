@@ -43,6 +43,9 @@ fr:
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
+      form:
+        field_required:
+          this_field_is_required: "Ce champ est obligatoire"
       index:
         listing_fields: "Champs pour annonces"
         add_new_field: "+ Ajouter un nouveau champ"

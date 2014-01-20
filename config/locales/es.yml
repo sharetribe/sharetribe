@@ -43,6 +43,9 @@ es:
     custom_fields:
       edit:
         edit_listing_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
       index:
         listing_fields: ~
         add_new_field: ~
@@ -124,7 +127,7 @@ es:
     password: Contraseña
     service_name: ~
     share_types:
-      request: ~
+      request: Solicitar
       offer: Oferta
       borrow: prestando
       buy: comprando
@@ -208,7 +211,7 @@ es:
       rejected_offer: "has rechazado la oferta"
       confirmed_request: ~
       confirmed_offer: ~
-      canceled_request: ~
+      canceled_request: "Solicitud cancelada"
       canceled_offer: ~
       paid: "%{sum} pagado"
     new:
@@ -230,7 +233,7 @@ es:
       item_request_rent_message_form_title: "Arrendar %{listing} a %{person}"
       housing_offer_sell_message_form_title: "Comprar %{listing} de %{person}"
       housing_offer_rent_out_message_form_title: "Arrendar %{listing} de %{person}"
-      housing_offer_share_for_free_message_form_title: "Solicitar %{listing} de %{person}"
+      housing_offer_share_for_free_message_form_title: "Solicitar %{listing} a %{person}"
       housing_offer_accept_for_free_message_form_title: "Ofertar %{listing} a %{person}"
       housing_request_buy_message_form_title: "Vender %{listing} a %{person}"
       housing_request_rent_message_form_title: "Arrendar %{listing} a %{person}"
@@ -290,7 +293,7 @@ es:
       request_accepted: "Solicitud aceptada"
       request_rejected: "Solicitud rechazada"
       request_confirmed: ~
-      request_canceled: ~
+      request_canceled: Cancelada
       skip_feedback: "Omitir sugerencia"
       waiting_for_listing_author_to_accept_offer: "Esperando a %{listing_author_name}  para aceptar la oferta"
       waiting_for_listing_author_to_accept_request: "Esperando a  %{listing_author_name} para aceptar la oferta"
@@ -300,7 +303,7 @@ es:
       accept_offer: "Aceptar oferta"
       accept_request: "Aceptar solicitud"
       reject_offer: "Rechazar oferta"
-      reject_request: "Por el momento no"
+      reject_request: "No por el momento"
       confirm: ~
       cancel: ~
   braintree_accounts:
@@ -535,7 +538,7 @@ es:
       welcome_to_kassi: "Bienvenido a %{service_name}!"
       need_to_confirm: "Antes de empezar a utilizar %{service_name}, deberás confirmar tu dirección de correo electrónico con el siguiente link:"
       confirmation_link_text: "Confirmar mi cuenta"
-      or_paste_link: ~
+      or_paste_link: "Como otra alternativa, puedes copiar el siguiente link a la barra de direcciones de tu explorador de web."
       turning_on_confirmations_in_this_community: "Comenzamos a utilizar e-mails de confirmación en la comunidad %{service_name}."
     common:
       check_your_settings: "Revisa tu configuración"
@@ -554,8 +557,8 @@ es:
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha aceptado tu oferta considerando la solicitud %{listing}"
       has_accepted_your_request: "%{accepter} ha aceptado tu solicitud considerando la oferta %{listing}"
-      has_rejected_your_offer: "%{accepter} ha rechazado tu oferta considerando la solicitud %{listing}"
-      has_rejected_your_request: "%{accepter} ha rechazado tu solicitud considerando la oferta %{listing}"
+      has_rejected_your_offer: "%{accepter} ha rechazado tu oferta de la solicitud %{listing}"
+      has_rejected_your_request: "%{accepter} ha rechazado tu solicitud de la oferta %{listing}"
       view_thread: ~
       your_offer_was_accepted: "Felicitaciones! Tu oferta ha sido aceptada"
       your_offer_was_rejected: "Oh! Tu oferta fue rechazada..."
@@ -675,7 +678,7 @@ es:
   error_messages:
     listings:
       departure_time: "La hora de salida debe estar entre la fecha actual y un año a partir de ahora."
-      share_type: "Deber chequear al menos uno de los recuadros anteriores."
+      share_type: "Deber de seleccionar al menos uno de los recuadros anteriores."
       valid_until: "Esta fecha debe estar entre la fecha actual y un año desde ahora."
       price: "Precio debe ser un número entero"
       minimum_price: ~
@@ -728,7 +731,7 @@ es:
     comment:
       commented: "%{commenter_name} comentó %{listing_type} %{listing_title} %{time_ago}."
       offer_partitive: oferta
-      request_partitive: solicitud
+      request_partitive: Solicitar
   header:
     about: "Acerca de"
     home: Inicio
@@ -781,9 +784,9 @@ es:
     grid_item:
       processing_uploaded_image: ~
     index:
-      no_listings_with_your_search_criteria: "No pudimos encontrar ningun resultado con su criterio de búsqueda."
+      no_listings_with_your_search_criteria: "No pudimos encontrar ningún resultado con su criterio de búsqueda."
       no_listings_notification: ~
-      add_listing_link_text: ~
+      add_listing_link_text: "Agregar nuevo listado"
       available_on_the_app_store: "Disponible en la App Store"
       private_listing_notification: "Hay %{listing_count} publicaciones abiertas en esta comunidad. %{private_listing_count} de ellas %{be_verb} visibles sólo para los miembros de la comunidad. Si quieres ver esas publicaciones, necesitas %{log_in_link}."
       open_listing: ~
@@ -849,9 +852,9 @@ es:
       search: Buscar
       map: "Mostrar mapa"
       list: "Mostrar lista"
-      map_button: ~
-      grid_button: ~
-      list_button: ~
+      map_button: Mapa
+      grid_button: "Vista en Grilla"
+      list_button: Lista
       all_listing_types: "Todos los tipos de listado"
       all_categories: "Todas las categorías"
   infos:
@@ -1018,7 +1021,7 @@ es:
       you_have_already_given_feedback_about_this_event: "Ya has enviado una sugerencia sobre este evento"
       you_are_now_member: "Te has unido exitosamente a esta comunidad"
       you_are_already_member: "Ya eres miembro de esta %{service_name} comunidad. Bienvenido otra vez!"
-      you_must_log_in_to_create_new_listing: "Tienes que iniciar sesión en %{service_name} para crear un nuevo aviso. Si no tienes una cuenta, puedes %{sign_up_link}."
+      you_must_log_in_to_create_new_listing: "Tienes que iniciar sesión en %{service_name} para crear un nuevo listado. Si no tienes una cuenta, puedes %{sign_up_link}."
       additional_email_confirmed_dashboard: "Tu e-mail ahora está confirmado."
       you_must_log_in_to_give_feedback: "Debes iniciar tu sesión para dar una sugerencia"
       you_must_log_in_to_invite_new_users: "Debes iniciar sesión para invitar a nuevos usuarios a %{service_name}"
@@ -1058,7 +1061,7 @@ es:
       wrote: escrito
       send_private_message: "Enviar mensaje privado a %{person}"
     comment_form:
-      ask_a_question: "Comenta en el aviso o pregunta por más detalles. Todos los otros usuarios podrán ver tu comentario."
+      ask_a_question: "Comenta en el listado o pregunta por más detalles. Todos los otros usuarios podrán ver tu comentario."
       log_in: Registrarse
       send_comment: "Enviar comentario"
       to_send_a_comment: "Enviar un nuevo comentario"
@@ -1204,7 +1207,7 @@ es:
       trades: Trueques
     link_labels:
       offer_this: Oferta
-      request_this: ~
+      request_this: Solicitar
       lend_this: ~
       borrow_this: ~
       buy_this: ~
@@ -1229,8 +1232,8 @@ es:
       link_label_for_item_request_buy: "Ofrece para la venta este artículo"
       link_label_for_item_request_receive: "Da este artículo al solicitante"
       link_label_for_item_request_trade: "Ofrece para trocar este artículo"
-      link_label_for_rideshare_offer: Contacto
-      link_label_for_rideshare_request: Contacto
+      link_label_for_rideshare_offer: "Solicitar este viaje."
+      link_label_for_rideshare_request: "Ofrecer viaje"
     new:
       post_a_new_listing: "Publica un nuevo listado"
       listing: listado
@@ -1238,7 +1241,7 @@ es:
       request: "Necesito algo"
       selected_offer: Oferta
       selected_request: Solicitud
-      selected_listing_type: "Tipo de aviso: %{listing_type}"
+      selected_listing_type: "Tipo de listado: %{listing_type}"
       selected_category: "Categoría: %{category}"
       selected_subcategory: "Subcategoría: %{subcategory}"
       selected_share_type: ~
@@ -1299,7 +1302,7 @@ es:
       what_do_you_want_to_do: "¿Qué quieres hacer?"
       what_can_you_offer: "¿Qué puedes ofrecerles a los demás?"
       what_do_you_need: "¿Qué necesitas?"
-      select_category: ~
+      select_category: "Selecionar una categoría"
     please_comment: Comentario
     reply_link:
       listing_closed: "Listado cerrado"
@@ -1308,16 +1311,16 @@ es:
       add_profile_picture: "Añada una imagen de perfil"
       comments: Comentarios
       contact_by_phone: "Contactar por teléfono:"
-      contact: ~
+      contact: Contactar
       favor_offer: "Oferta de servicios"
       favor_request: "Solicitud de servicio"
       item_offer_trade: "Oferta de trueque"
       item_request_trade: "Solicitud de trueque"
       no_description: "Sin descripción"
-      no_image: ~
+      no_image: "No hay imagen"
       no_reviews: "No has recibido reviews"
       offer: Oferta
-      listing_created: ~
+      listing_created: Creado
       open_until: "Abierto hasta %{date}"
       feedback: "Comentarios:"
       qr_code: "Código QR"
@@ -1328,7 +1331,7 @@ es:
       share_types: "Modos de compartir"
       share_types_offer: "Tipo de oferta"
       share_types_request: "Tipo de solicitud"
-      tags: Tarjetas
+      tags: Etiquetas
       time: hora
       times: veces
       times_viewed: Visto
@@ -1347,7 +1350,7 @@ es:
       housing: Alojamiento
       items: Artículos
       list_view: "Vista de lista"
-      map_view: "Vista de mapa"
+      map_view: "Vista en mapa"
       offer_something: "Cuéntale a los demás!"
       offer_type: "Tipo de oferta"
       offers: Ofertas
@@ -1571,7 +1574,7 @@ es:
       reviews: "reviews recibidas"
       badge: medalla
       badges: Medallas
-      listing: ~
+      listing: Listado
       listings: ~
       open_listing: "publicación abierta"
       open_listings: "publicaciones abiertas"
@@ -1602,7 +1605,7 @@ es:
       connect_your_facebook_to_kassi: "Conecta tu cuenta de Facebook a %{service_name}"
       facebook_account: "Cuenta de Facebook:"
       log_in_to_link_account: "Si ya tienes una cuenta en %{service_name}, inicia sesión para vincularla con tu cuenta de Facebook."
-      you_can_also_create_new_account: ~
+      you_can_also_create_new_account: "Si no tienen una cuenta en %{service_name}, todavía. Crea una con tu cuenta de Facebook %{accont_creation_link} ."
       account_creation_link_text: "haz clic aquí"
       cancle_facebook_connect: "Si no quieres vincular esta cuenta, puedes %{cancel_link}."
       facebook_cancel_link_text: cancelar
@@ -1615,9 +1618,9 @@ es:
       request_new_password: "Solicitar nueva contraseña"
       change_your_password: "Cambia tu contraseña"
     confirmation_pending:
-      welcome_to_kassi: "Bienvenido a %{service_name}!"
+      welcome_to_kassi: "Bienvenido (a) a %{service_name}!"
       check_your_email: "Revisa tu bandeja de entrada"
-      get_started: "Comenzar con %{service_name}"
+      get_started: "Comience con %{service_name}"
       getting_started_instructions: "Cuando hayas confirmado tu cuenta, es una buena idea añadir una imagen a tu <a href=\"%{profile_url}\">perfil</a> y rellenar es resto de los datos, o puedes ir directo a la acción añadiendo un <a href=\"/en/listings/new/offer\">offer</a> sobre algo que puedas prestar, arrendar, vender o hacer por los demás. Si necesitas un artículo en específico o ayuda con el algo, publica en <a href=\"/en/listings/new/request\">request</a>."
       resend_confirmation_instructions: "Reenvío de instrucciones de confirmación"
       your_current_email_is: "Tu e-mail es %{email}."
@@ -1690,7 +1693,7 @@ es:
       profile_picture: ~
       postal_code: "Código postal:"
       profile_page: "en tu página de perfil"
-      profilemap: "Vista de mapa"
+      profilemap: "Vista en mapa"
       street_address: "Ubicación:"
       these_fields_are_shown_in_your: "Esta información se encuentra disponible para todos los usuarios de %{service_name}"
       visible_to_everybody: "visible para todo el mundo"
