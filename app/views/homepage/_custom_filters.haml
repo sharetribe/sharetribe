@@ -1,5 +1,5 @@
 = form_tag "/", :method => :get do
-  - @current_community.custom_fields.sort.each do |field|
+  - @current_community.custom_dropdown_fields.sort.each do |field|
     .row
       .col-12
         .custom-filter-title

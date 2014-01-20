@@ -82,3 +82,12 @@ $custom-field-option-height: lines(1.5); // Used to center label text vertically
 .custom-field-option-container:nth-of-type(odd) {
   background: $highlight;
 }
+
+.new-custom-field-type-form {
+  margin-top: lines(1);
+}
+
+.new-custom-field-type-form-column {
+  margin-right: lines(0.5);
+  display: inline-block;
+}

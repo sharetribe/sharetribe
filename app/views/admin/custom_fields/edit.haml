@@ -19,6 +19,7 @@
     
     = render :partial => "admin/custom_fields/form/field_categories", :locals => { :form => form }
     
-    = render :partial => "admin/custom_fields/form/field_options", :locals => { :form => form }
+    - if @custom_field.is_a?(Dropdown)
+      = render :partial => "admin/custom_fields/form/field_options", :locals => { :form => form }
     
     = render :partial => "admin/custom_fields/form/buttons", :locals => { :form => form }

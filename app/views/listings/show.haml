@@ -54,6 +54,10 @@
               - answer_title = custom_field_value.selected_options.first.title(I18n.locale)
               %b= "#{question_name}:" 
               = answer_title
+            - elsif question_type == :text_field
+              - question_name = custom_field_value.question.name(I18n.locale)
+              %b= "#{question_name}:" 
+              = custom_field_value.text_value
             - else
               = "Unimplemented type #{question_type}"
 

@@ -33,7 +33,12 @@
           = t(".save_order_successful")
       .ajax-notification.ajax-error.custom-field-ajax-status-message#custom-field-ajax-error
         = t(".save_order_error")
-  .row
-    .col-12
-      = link_to t(".add_new_field"), new_admin_custom_field_path
+  .row.new-custom-field-type-form 
+    = form_tag new_admin_custom_field_path, :method => :get do |form|
+      .new-custom-field-type-form-column
+        = t(".add_new_field")
+      .new-custom-field-type-form-column
+        = select_tag :field_type, options_for_select(custom_field_dropdown_options(CustomField::VALID_TYPES)), :onChange => "form.submit();"
+        
+      
 

@@ -2,6 +2,7 @@ class Admin::CustomFieldsController < ApplicationController
   
   before_filter :ensure_is_admin
   before_filter :custom_fields_allowed
+  before_filter :field_type_is_valid, :only => [:new, :create]
   
   skip_filter :dashboard_only
   
@@ -14,13 +15,13 @@ class Admin::CustomFieldsController < ApplicationController
   def new
     @selected_left_navi_link = "listing_fields"
     @community = @current_community
-    @custom_field = Dropdown.new
+    @custom_field = params[:field_type].constantize.new
     @custom_field.options = [CustomFieldOption.new, CustomFieldOption.new]
   end
   
   def create
     success = if valid_categories?(@current_community, params[:custom_field][:category_attributes])
-      @custom_field = Dropdown.new(params[:custom_field])
+      @custom_field = params[:field_type].constantize.new(params[:custom_field])
       @custom_field.community = @current_community
       @custom_field.save
     end
@@ -88,6 +89,12 @@ class Admin::CustomFieldsController < ApplicationController
 
   def custom_field_belongs_to_community?(custom_field, community)
     community.custom_fields.include?(custom_field)
+  end
+  
+  private
+  
+  def field_type_is_valid
+    redirect_to admin_custom_fields_path unless CustomField::VALID_TYPES.include?(params[:field_type])
   end
 
 end
