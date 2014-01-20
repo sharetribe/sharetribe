@@ -6,6 +6,7 @@ env:
   matrix:
   - SUITE="rake spec"
   - SUITE="cucumber -ptravis"
+  - SUITE="rails server ; grunt mocha"
   global:
     - BUNDLE_ARCHIVE="travis-bundle-cache"
     - AWS_S3_REGION="us-east-1"
@@ -29,6 +30,7 @@ before_install:
 - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
 - gem install bundler bundle_cache
 - bundle_cache_install
+- npm install
 before_script:
 - cp config/database.example.yml config/database.yml
 - mysql -e 'create database sharetribe_test;'
