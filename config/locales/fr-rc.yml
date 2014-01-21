@@ -61,10 +61,13 @@ fr-rc:
         saving_order: ~
         save_order_successful: ~
         save_order_error: ~
+        select_one: ~
+        continue: ~
       new:
         new_listing_field: ~
       field_types:
         dropdown: ~
+        textfield: ~
     emails:
       new:
         send_email_to_members: ~

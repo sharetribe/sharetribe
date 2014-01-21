@@ -61,10 +61,13 @@ es:
         saving_order: ~
         save_order_successful: ~
         save_order_error: ~
+        select_one: ~
+        continue: ~
       new:
         new_listing_field: ~
       field_types:
         dropdown: ~
+        textfield: ~
     emails:
       new:
         send_email_to_members: ~
@@ -369,7 +372,7 @@ es:
       select_your_plan: "Selecciona tu plan"
       pick_one_of_the_options_below: "Elige una de las opciones a continuación."
       create_for_free: "Crear gratis"
-      contact_us: Contáctanos
+      contact_us: Contáctenos
       free_plan: "Plan gratuito"
       max_members: "Máx. %{number} usuarios"
       premium_plan: "Plan Premium"
@@ -487,7 +490,7 @@ es:
       new_text: "Actualmente %{service_name} está disponible para <a href=\"http://www.kassi.eu/en/wdc\">vecindarios en Helsinki y Lahti</a> y para <a href=\"http://www.kassi.eu/en/okl\">miembros de Suomen Omakotiliitto</a>!"
       want_to_know_more: "¿Quieres saber más? %{read_our_faq_link} o %{contact_us_link}."
       read_our_faq: "Lee nuestras preguntas frecuentes"
-      contact_us: "contáctanos directamente"
+      contact_us: "contáctenos directamente"
       why_you_really_should_have_a_tribe: "Porqué deberías tener una tribu"
       an_example: "Un ejemplo:"
       home: Inicio
@@ -702,7 +705,7 @@ es:
       javascript_is_disabled_in_your_browser: "Javascript está desactivado en tu buscador"
       kassi_does_not_currently_work_without_javascript: "Desafortunadamente en la actualidad %{service_name} no funciona sin javascript. Intenta activar javascript en las preferencias de tu buscador y vuelva a cargar la página. Si deseas utilizar %{service_name} sin javascript, por favor envíanos una sugerencia utilizando el formulario que aparece a continuación."
       kassi_does_not_currently_work_without_javascript_dashboard: "Lamentablemente por ahora %{service_name} no funciona sin javascript. Intenta habilitar javascript desde las preferencias de tu buscador y luego carga esta página nuevamente. Si quisieras usar %{service_name} sin javascript, por favor %{contact_us}."
-      contact_us: contáctanos
+      contact_us: contáctenos
       send_feedback: "Enviar sugerencia"
       your_feedback_to_admins: "Envía tu sugerencia al administrador"
     send: Enviar
@@ -742,7 +745,7 @@ es:
     requests: Solicitudes
     search_kassi: "Buscar en %{service_name}"
     create_new_marketplace: "Crear un nuevo mercado"
-    contact_us: Contáctanos
+    contact_us: Contáctenos
     profile: Perfil
     invite: ~
   homepage:
@@ -853,7 +856,7 @@ es:
       map: "Mostrar mapa"
       list: "Mostrar lista"
       map_button: Mapa
-      grid_button: "Vista en Grilla"
+      grid_button: "Vista en matriz"
       list_button: Lista
       all_listing_types: "Todos los tipos de listado"
       all_categories: "Todas las categorías"
@@ -866,7 +869,7 @@ es:
     no_tribe:
       inbox: "Buzón de entrada"
       settings: Configuración
-      feedback: Contáctanos
+      feedback: Contáctenos
     admin:
       admin: "Panel de administración de %{service_name}"
       back_to_kassi: "Volver a %{service_name}"
@@ -880,7 +883,7 @@ es:
       default_feedback: "¿Tuviste algún problema con %{service_name}?¿Tienes alguna sugerencia para mejorar el servicio? ¿Notaste algún contenido sospechoso? ¿O quieres conversar sobre un tema con nosotros? Cuéntanos!"
       feedback_forum: "Forum de sugerencias"
       feedback_handle: Sugerencia
-      give_feedback: "Da una sugerencia en %{service_name}"
+      give_feedback: Contáctenos
       keywords: "%{service_name}, Servicio, favor, artículo, trayecto compartido, autos prestados, hospedaje, alojamiento, ayuda, ayudando, oferta, solicitud, arrendar, comerciar, intercambiar, comprando, vendiendo, comprar, vender, regalando, dar, Kassi, ecológico, comunidad, comunidad online"
       meta_description: "%{service_name} es un servicio que ayuda a los miembros de agrupaciones y otras comunidades a vender y prestarse artículos entre ellos, organizar trayectos de traslado compartidos o a cooperarse mutuamente de múltiples formas."
       or_check_our: "...o revisa nuestro"
@@ -947,7 +950,7 @@ es:
       additional_email_confirmed: "El e-mail que ingresaste está confirmado. Puedes entrar a la comunidad ingresando nuevamente."
       could_not_get_email_from_facebook: ~
       create_new_listing: ~
-      create_one_here: "Crea uno aquí"
+      create_one_here: "Crea una aquí"
       email_confirmation_sent_to_new_address: "El e-mail de confirmación ya fue enviado a la nueva dirección."
       email_not_found: "No se encontró la dirección de correo en la base de datos de %{service_name}."
       error_with_session: "Error con la sesión."

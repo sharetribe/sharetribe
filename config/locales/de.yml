@@ -48,7 +48,7 @@ de:
           this_field_is_required: "Dieses Feld ist erforderlich."
       index:
         listing_fields: Eintragsfelder
-        add_new_field: "+ Neues Feld hinzufügen"
+        add_new_field: "Neues Feld hinzufügen:"
         remove_field_confirmation: "Willst du das Feld '%{field_name}' wirklich entfernen?"
         cancel: Abbrechen
         save: Speichern
@@ -61,10 +61,13 @@ de:
         saving_order: "Feldreihenfolge speichern"
         save_order_successful: "Reihenfolge der Felder erfolgreich gespeichert"
         save_order_error: "Während des Speicherns der Feldreihenfolge ist ein Fehler aufgetreten. Bitte lade die Seite neu und versuche es noch einmal."
+        select_one: "Art des Feldes auswählen..."
+        continue: Weiter
       new:
         new_listing_field: "Neues Eintragsfeld"
       field_types:
         dropdown: Dropdown-Menü
+        textfield: Textfeld
     emails:
       new:
         send_email_to_members: "Sende eine E-Mail an alle Mitglieder"
@@ -548,7 +551,7 @@ de:
       message_not_displaying_correctly: "Wird diese E-Mail nicht richtig dargestellt?"
       view_it_in_your_browser: "Sieh es dir in deinem Browser an"
       or: oder
-      unsubscribe_from_these_emails: "Bestelle diese E-Mails ab"
+      unsubscribe_from_these_emails: "bestelle diese E-Mails ab"
     community_starter_email:
       subject: "Sharetribe Neuerungen - das Mitglieder-Limit wurde abgeschafft, das Look & Feel kann verändert werden und vieles mehr"
     conversation_status_changed:

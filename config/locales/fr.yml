@@ -61,10 +61,13 @@ fr:
         saving_order: "Sauvegarder l'ordre des champs"
         save_order_successful: "Sauvegarde de l'ordre des champs réussie"
         save_order_error: "Il y a eu un problème lors de la sauvegarde de l'ordre des champs. Rafraîchissez la page et essayez de nouveau."
+        select_one: ~
+        continue: ~
       new:
         new_listing_field: "Nouveau champ d'annonce"
       field_types:
         dropdown: "Liste déroulante"
+        textfield: ~
     emails:
       new:
         send_email_to_members: "Envoyer un email aux membres"

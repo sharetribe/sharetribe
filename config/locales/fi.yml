@@ -62,12 +62,12 @@ fi:
         save_order_successful: "Kenttien järjestyksen tallennus onnistui"
         save_order_error: "Virhe tallennettaessa kenttien järjestystä. Päivitä sivu ja yritä uudelleen."
         select_one: "Valitse kentän tyyppi..."
-        continue: "Jatka"
+        continue: Jatka
       new:
         new_listing_field: "Uusi ilmoituskenttä"
       field_types:
         dropdown: Pudotusvalikko
-        textfield: "Tekstikenttä"
+        textfield: Tekstikenttä
     emails:
       new:
         send_email_to_members: "Lähetä sähköpostia jäsenille"
