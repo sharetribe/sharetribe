@@ -146,9 +146,9 @@ class Listing < ActiveRecord::Base
 
     set_property :enable_star => true
     if APP_CONFIG.FLYING_SPHINX_API_KEY
-      set_property :delta => false # try to get sphinx working  FlyingSphinx::DelayedDelta
+      set_property :delta => :delayed
     else
-      set_property :delta => true
+      set_property :delta => :delayed
     end
     
     set_property :field_weights => {

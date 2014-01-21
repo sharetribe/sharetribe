@@ -40,6 +40,7 @@ gem "memcachier"
 gem 'kgio', "~>2.8.0"
 gem 'thinking-sphinx', "~>2.0.14", :require => 'thinking_sphinx'
 gem 'flying-sphinx', "~>0.8.5"
+gem "ts-delayed-delta"
 gem 'recaptcha'
 gem 'delayed_job', "~>3.0.5"
 gem 'delayed_job_active_record'
