@@ -122,43 +122,6 @@ class Listing < ActiveRecord::Base
   validates_numericality_of :price_cents, :only_integer => true, :greater_than_or_equal_to => 0, :message => "price must be numeric", :allow_nil => true
   validate :valid_until_is_not_nil
   
-  # Index for sphinx search
-  define_index do
-
-    # limit to open listings
-    where "open = '1' AND (valid_until IS NULL OR valid_until > now())"
-    
-    # fields
-    indexes title
-    indexes description
-    indexes category.translations.name, :as => :category
-    indexes custom_field_values(:text_value), :as => :custom_text_fields
-    
-    # attributes
-    has created_at, updated_at
-    has category(:id), :as => :category_id
-    has share_type(:id), :as => :share_type_id 
-    has "privacy = 'public'", :as => :visible_to_everybody, :type => :boolean
-    has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
-    has communities(:id), :as => :community_ids
-    has custom_field_values.selected_options(:id), :type => :multi, :as => "custom_field_options"
-      
-
-    set_property :enable_star => true
-    if APP_CONFIG.FLYING_SPHINX_API_KEY
-      set_property :delta => :delayed
-    else
-      set_property :delta => :delayed
-    end
-    
-    set_property :field_weights => {
-      :title       => 10,
-      :category    => 8,
-      :tags        => 8,
-      :description => 3,
-      :comments    => 1
-    }
-  end
 
   def set_community_visibilities
     if current_community_id
