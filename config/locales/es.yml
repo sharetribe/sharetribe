@@ -950,7 +950,7 @@ es:
       additional_email_confirmed: "El e-mail que ingresaste está confirmado. Puedes entrar a la comunidad ingresando nuevamente."
       could_not_get_email_from_facebook: ~
       create_new_listing: ~
-      create_one_here: "Crea una aquí"
+      create_one_here: "Crear una aquí"
       email_confirmation_sent_to_new_address: "El e-mail de confirmación ya fue enviado a la nueva dirección."
       email_not_found: "No se encontró la dirección de correo en la base de datos de %{service_name}."
       error_with_session: "Error con la sesión."
@@ -1433,7 +1433,7 @@ es:
     new:
       captcha_incorrect: "Error de comprobación de reCAPTCHA. Por favor escribe las palabras que aparecen en el recuadro siguiente."
       captcha_was_wrong: "Texto captcha incorrecto."
-      create_new_account: "Crea una cuenta"
+      create_new_account: "Crear una cuenta"
       email: "Dirección de correo electrónico:"
       email_is_in_use: "El mail ingresado ya se encuentra registrado."
       email_is_in_use_or_not_allowed: "El e-mail ingresado no está autorizado para entrar a esta comunidad o ya está siendo utilizado. Por favor usa una dirección de correo electrónico que esté asociada con esta comunidad (ver instrucciones más arriba). Si todavía tienes problemas para ingresar, envíanos un comentario usando el link de \"Feedback\" a la izquierda."
@@ -1456,7 +1456,7 @@ es:
       username_is_invalid: "Nombre de usuario no válido. Los caracteres permitidos son letras, números y guión bajo."
       visible_only_to_you: "visible solamente para ti y el administrador de la comunidad"
       visible_to_everybody: "Visible para todos"
-      create_account_with_facebook: "Crea una cuenta con Facebook"
+      create_account_with_facebook: "Crear una cuenta con Facebook"
       or_create_new_account_without_facebook: "... o crea una cuenta sin utilizar Facebook más abajo."
     not_member:
       explanation_text: "Actualmente perteneces a la comunidad %{community}. Intentaste ver el perfil de un usuario que pertenece a otra comunidad Sharetribe. No puedes acceder a ese perfil a través de la comunidad %{community}."
