@@ -15,7 +15,4 @@ class Category < ActiveRecord::Base
   has_many :category_custom_fields, :dependent => :destroy
   has_many :custom_fields, :through => :category_custom_fields
 
-  #validates_presence_of :name
-  #validate :name_is_not_taken_by_categories_or_share_types
-
 end
