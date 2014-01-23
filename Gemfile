@@ -38,7 +38,7 @@ gem "will_paginate"
 gem 'dalli'
 gem "memcachier"
 gem 'kgio', "~>2.8.0"
-gem 'thinking-sphinx', :require => 'thinking_sphinx'
+gem 'thinking-sphinx', "~>3.0.6", :require => 'thinking_sphinx' # 3.1.0 has problem with UTF-8 chars in query
 gem 'flying-sphinx', "~>1.0.0"
 gem "ts-delayed-delta"
 gem 'recaptcha'

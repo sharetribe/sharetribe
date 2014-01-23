@@ -14,9 +14,9 @@ ThinkingSphinx::Index.define :listing, :with => :active_record, :delta => Thinki
   has category(:id), :as => :category_id
   has share_type(:id), :as => :share_type_id 
   has "privacy = 'public'", :as => :visible_to_everybody, :type => :boolean
-  has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
   has communities(:id), :as => :community_ids
-  has custom_field_values.selected_options(:id), :multi => true, :type => :integer, :as => "custom_field_options"
+  has custom_field_values.selected_options.id, :as => :custom_field_options, :type => :integer, :multi => true
+  
     
   set_property :enable_star => true
   

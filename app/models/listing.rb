@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Listing < ActiveRecord::Base
   
   include ApplicationHelper
@@ -290,11 +291,12 @@ class Listing < ActiveRecord::Base
       params[:sort] ||= 'created_at DESC'
       
       with = {}
-      if params[:status] == "open" || params[:status].nil?
-        with[:open] = true 
-      elsif params[:status] == "closed"
-        with[:open] = false
-      end
+      # Currently forced to only open at listing_index.rb
+      # if params[:status] == "open" || params[:status].nil?
+      #   with[:open] = true 
+      # elsif params[:status] == "closed"
+      #   with[:open] = false
+      # end
       
       unless current_user && current_user.communities.include?(current_community)
         with[:visible_to_everybody] = true
@@ -306,7 +308,7 @@ class Listing < ActiveRecord::Base
       
       with_all = {:custom_field_options => params[:custom_field_options]}
             
-      listings = Listing.search(params[:search],
+      listings = Listing.search(Riddle::Query.escape(params[:search]),
                                 :include => params[:include], 
                                 :page => page,
                                 :per_page => per_page, 

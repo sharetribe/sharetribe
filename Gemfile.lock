@@ -214,7 +214,7 @@ GEM
       railties (>= 3.0)
     multi_json (1.7.9)
     multipart-post (1.2.0)
-    mysql2 (0.3.11)
+    mysql2 (0.3.14)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.6.2)
@@ -355,7 +355,7 @@ GEM
       tilt (~> 1.1, != 1.3.0)
     sxp (0.1.3)
       json (>= 1.1.1)
-    thinking-sphinx (3.1.0)
+    thinking-sphinx (3.0.6)
       activerecord (>= 3.1.0)
       builder (>= 2.1.2)
       innertube (>= 1.0.2)
@@ -463,7 +463,7 @@ DEPENDENCIES
   selenium-webdriver
   spork
   spreadsheet
-  thinking-sphinx
+  thinking-sphinx (~> 3.0.6)
   timecop
   truncate_html
   ts-delayed-delta
