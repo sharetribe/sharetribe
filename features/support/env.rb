@@ -61,6 +61,9 @@ each_run = lambda {
   #
   ActionController::Base.allow_rescue = false
   
+  # Disable delta indexing as it is not needed and generates unnecessary delay and output
+  ThinkingSphinx::Deltas.suspend!
+
   # Remove/comment out the lines below if your app doesn't have a database.
   # For some databases (like MongoDB and CouchDB) you may need to use :truncation instead.
   begin
