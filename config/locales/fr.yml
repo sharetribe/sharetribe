@@ -48,7 +48,7 @@ fr:
           this_field_is_required: "Ce champ est obligatoire"
       index:
         listing_fields: "Champs pour annonces"
-        add_new_field: "+ Ajouter un nouveau champ"
+        add_new_field: "Ajouter un nouveau champ : "
         remove_field_confirmation: "Voulez-vous vraiment supprimer le champ '%{field_name}' ?"
         cancel: Annuler
         save: Sauvegarder
@@ -61,13 +61,13 @@ fr:
         saving_order: "Sauvegarder l'ordre des champs"
         save_order_successful: "Sauvegarde de l'ordre des champs réussie"
         save_order_error: "Il y a eu un problème lors de la sauvegarde de l'ordre des champs. Rafraîchissez la page et essayez de nouveau."
-        select_one: ~
-        continue: ~
+        select_one: "Sélectionner le type du champ..."
+        continue: Continuer
       new:
         new_listing_field: "Nouveau champ d'annonce"
       field_types:
         dropdown: "Liste déroulante"
-        textfield: ~
+        textfield: "Champ texte"
     emails:
       new:
         send_email_to_members: "Envoyer un email aux membres"

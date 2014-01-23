@@ -94,17 +94,18 @@ namespace :sharetribe do
           community.save
           image_path = "lib/demos/images/#{row[8]}" if row[8].present?
           p = Person.create!(
-                 :username =>     row[4].downcase,
-                 :email =>        row[2],
+                 :username =>     row[4].downcase,                 
                  :password =>     "test",
                  :given_name =>   row[4],
                  :family_name =>  row[5],
                  :phone_number => row[6],
                  :description =>  row[7],
                  :location =>     row[9].blank?  ? nil : random_location_around(row[9], "person"),
-                 :confirmed_at=>  Time.now,
                  :communities =>  [community]                 
           )
+          
+          e = Email.create!(:person_id => p.id, :address => row[2], :confirmed_at=>  Time.now, :send_notifications => true)
+
           CommunityMembership.find_by_person_id_and_community_id(p.id, community.id).update_attribute(:admin, 1) if row[9].present?
           p.update_attribute(:image, File.new(image_path)) if image_path && File.exists?(image_path)
           people_array << p
