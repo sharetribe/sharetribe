@@ -1,7 +1,7 @@
 # The charset_table is really long because we want to allow folding of accented characters¨é ->e, ä->a etc. AND the use of cyrillic letters.
 
 production:
-  version: '2.1.0'
+  version: '2.1.4'
   mysql41: 3564
   enable_star: true
   min_infix_len: 3
