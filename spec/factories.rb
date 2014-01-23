@@ -157,26 +157,25 @@ FactoryGirl.define do
     icon "item"
   end
 
-  factory :custom_dropdown_field, aliases: [:question], class: 'Dropdown' do
-    type "Dropdown"
+  factory :custom_field, aliases: [:question] do
     community
-    before(:create) do |custom_field|
-      category = FactoryGirl.create(:category)
-      custom_field.category_custom_fields << FactoryGirl.create(:category_custom_field, :category => category, :custom_field => custom_field)
-      custom_field.names << FactoryGirl.create(:custom_field_name)
-      custom_field.options << FactoryGirl.create(:custom_field_option)
-      custom_field.options << FactoryGirl.create(:custom_field_option)
-    end
-  end
-  
-  factory :custom_text_field, class: 'TextField' do
-    type "TextField"
-    community
+
     before(:create) do |custom_field|
       category = FactoryGirl.create(:category)
       custom_field.category_custom_fields << FactoryGirl.create(:category_custom_field, :category => category, :custom_field => custom_field)
       custom_field.names << FactoryGirl.create(:custom_field_name)
     end
+
+    factory :custom_dropdown_field, class: 'Dropdown' do
+      before(:create) do |custom_field|
+        custom_field.options << FactoryGirl.create(:custom_field_option)
+        custom_field.options << FactoryGirl.create(:custom_field_option)
+      end
+    end
+
+    factory :custom_text_field, class: 'TextField' do
+    end
+    
   end
 
   factory :category_custom_field do
