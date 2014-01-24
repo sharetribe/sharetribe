@@ -11,7 +11,7 @@ de:
         edit_community_slogan_description: "Dies wird den Nutzern auf der Startseite der Community angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
         community_description: "Community Beschreibung"
         edit_community_description_description: "Dies wird den Nutzern auf der Startseite der Community angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
-        update_information: Neuigkeiten
+        update_information: Erneuern
         invite_people: "Lade Leute zu dieser Community ein"
         edit_signup_info: Anmeldedaten
         edit_signup_info_description: "Dies ist ein Infotext, der den Nutzern auf der Anmeldeseite angezeigt wird. Hier kannst du den Nutzern Anleitungen zum Anmelden geben, wie z.B. Informationen darüber, wie sie eine Einladung erhalten können etc.. Standardgemäß gibt es hier keine Anweisungen, aber du kannst sie hinzufügen, wenn du auf den Link unten klickst."
@@ -935,7 +935,7 @@ de:
     notifications:
       test_welcome_email_delivered_to: "Eine Test-Mail wurde gesendet an %{email}."
       something_went_wrong: "Da ist etwas schief gelaufen"
-      community_updated: "Aktualisierte die Details"
+      community_updated: "Die Informationen wurden aktualisiert."
       community_update_failed: "Aktualisierung fehlgeschlagen"
       account_creation_succesful_you_still_need_to_confirm_your_email: "Konto erfolgreich erstellt. Als nächstes musst du deine E-Mail-Adresse bestätigen."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Du bist nun ein Mitglied dieser Community. Als nächstes musst du deine E-Mail-Adresse bestätigen."
