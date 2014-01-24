@@ -617,10 +617,10 @@ de:
       title_link_text: "%{community_name}"
       intro_paragraph: "Hier sind einige Dinge, die sich auf %{community_link} seit %{time_since_last_update} ereignet haben."
       intro_paragraph_link_text: "%{community_name}"
-      post_a_new_listing: "Neuer Eintrag"
+      post_a_new_listing: "Erstelle einen neuen Eintrag!"
       reduce_email_footer_text: "Zu viele E-Mails? %{settings_link} oder %{unsubscribe_link}"
       settings_link_text: "Bearbeite hier deine E-Mail-Grundeinstellungen."
-      unsubscribe_link_text: abbestellen
+      unsubscribe_link_text: "bestelle die E-Mails ab."
     newsletter:
       weekly_news_from_kassi: "Wöchentliche Nachrichten von %{community}%{service_name}"
       hi: "Hallo %{name}"
