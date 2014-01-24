@@ -159,52 +159,6 @@ Feature: User browses listings
     Then I should see "car spare parts"
     And I should see "massage"
     And I should not see "apartment"
-  
-  @pending
-  @javascript
-  Scenario: User browses offers page
-    Given TAGS ARE NOW NOT SELECTABLE AS FILTERS SO THIS TEST IS UNDEFINDED
-    Given there are following users:
-      | person | 
-      | kassi_testperson1 |
-      | kassi_testperson2 |
-    And there is item offer with title "car spare parts" from "kassi_testperson2" and with share type "sell"
-    And there is item offer with title "other car spare parts" from "kassi_testperson2" and with share type "sell"
-    And there is favor offer with title "massage" from "kassi_testperson1"
-    And there is rideshare offer from "Helsinki" to "Turku" by "kassi_testperson1"
-    And there is housing offer with title "Apartment" from "kassi_testperson2" and with share type "sell"
-    And there is item offer with title "axe" from "kassi_testperson2" and with share type "lend"
-    And that listing is closed
-    And I am on the home page
-    And I select "Offers" from "share_type"
-    Then I should see "car spare parts"
-    And I should see "other car spare parts"
-    And I should see "massage"
-    And I should see "Helsinki - Turku"
-    And I should see "Apartment"
-    And I should not see "toolbox"
-    And I should not see "axe"
-    And I select "Services" from "listing_category"
-    And I should not see "car spare parts"
-    And I should not see "other car spare parts"
-    And I should see "massage"
-    And I should not see "Helsinki - Turku"
-    And I should not see "Apartment"
-    And I should not see "axe"
-    And I follow "car"
-    And I should see "car spare parts"
-    And I should see "other car spare parts"
-    And I should see "massage"
-    And I should not see "Helsinki - Turku"
-    And I should not see "Apartment"
-    And I should not see "axe"
-    And I select "Services" from "listing_category"
-    And I should see "car spare parts"
-    And I should see "other car spare parts"
-    And I should not see "massage"
-    And I should not see "Helsinki - Turku"
-    And I should not see "Apartment"
-    And I should not see "axe"
 
   @javascript
   @subdomain2
