@@ -205,6 +205,7 @@ class PersonMailer < ActionMailer::Base
   end
   
   def new_comment_to_followed_listing_notification(comment, recipient, community)
+    puts "Sending email to #{recipient.inspect} from Person mailer"
     set_up_urls(recipient, community)
     @comment = comment
     mail(:to => @recipient.confirmed_notification_emails_to,
@@ -498,7 +499,7 @@ class PersonMailer < ActionMailer::Base
   # It looks through all users and send email to those who want it now 
   def deliver_community_updates
     Person.find_each do |person|
-      if person.should_recieve_community_updates_now?
+      if person.should_receive_community_updates_now?
         person.communities.each do |community|
           if community.has_new_listings_since?(person.community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago)
             begin

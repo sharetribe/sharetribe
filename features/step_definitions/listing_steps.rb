@@ -178,3 +178,8 @@ Given /^that listing has custom field "(.*?)" with value "(.*?)"$/ do |field_tit
   value.custom_field_option_selections << selection
   value.save!
 end
+
+Given /^listing comments are in use in community "(.*?)"$/ do |community_domain|
+  community = Community.find_by_domain(community_domain)
+  community.update_attribute(:listing_comments_in_use, true)
+end

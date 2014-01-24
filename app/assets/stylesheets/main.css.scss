@@ -1375,7 +1375,6 @@ a.lightbox-x {
     
     @include media(tablet) {
       padding-top: lines(1.5);
-      padding-right: lines(16);
       
       h2 {
         @include big-type;
