@@ -43,7 +43,7 @@ class Admin::CustomFieldsController < ApplicationController
   end
 
   def destroy
-    @custom_field = Dropdown.find(params[:id])
+    @custom_field = CustomField.find(params[:id])
 
     success = if custom_field_belongs_to_community?(@custom_field, @current_community)
       @custom_field.destroy
