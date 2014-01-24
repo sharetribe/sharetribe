@@ -61,6 +61,13 @@ each_run = lambda {
   #
   ActionController::Base.allow_rescue = false
   
+  # Ensure sphinx directories exist for the test environment
+  ThinkingSphinx::Test.init
+  # Configure and start Sphinx, and automatically
+  # stop Sphinx at the end of the test suite.
+  ThinkingSphinx::Test.start_with_autostop
+  # This makes tests bit slower, but it's better to use Zeus if wanting to keep sphinx running
+
   # Remove/comment out the lines below if your app doesn't have a database.
   # For some databases (like MongoDB and CouchDB) you may need to use :truncation instead.
   begin
@@ -95,6 +102,10 @@ each_run = lambda {
 # # The :transaction strategy is faster, but might give you threading problems.
 # # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation, {:except => %w[categories share_types community_categories category_translations share_type_translations]}
+
+# Disable delta indexing as it is not needed and generates unnecessary delay and output
+ThinkingSphinx::Deltas.suspend!
+
 
 # The each call functionality below doesn't seem to work with zeus (but it works with spork if that's needed anymore)
 # Better to but stuff that's needed on every run straight to here. Like the javascript_strategy above

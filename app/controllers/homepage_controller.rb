@@ -1,3 +1,4 @@
+# encoding: utf-8
 class HomepageController < ApplicationController
 
   before_filter :save_current_path, :except => :sign_in
