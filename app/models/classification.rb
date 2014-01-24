@@ -1,22 +1,22 @@
 # Classification module contains methods that are common to Category and ShareType
 module Classification
   
-  def display_name
-    if I18n.locale
-       Rails.cache.fetch("/#{self.class.name}_translations/#{id}/#{I18n.locale}/#{updated_at}") do
-        if translation(I18n.locale)
-          translation(I18n.locale).name
-        elsif translations.first.present?
-          # if didn't find the correct translation, but find any, use that. It's better than just name string
-          translations.first.name
-        else
-          name
-        end
-      end
-    else
-      name
-    end
-  end
+  # def display_name
+  #   if I18n.locale
+  #      Rails.cache.fetch("/#{self.class.name}_translations/#{id}/#{I18n.locale}/#{updated_at}") do
+  #       if translation(I18n.locale)
+  #         translation(I18n.locale).name
+  #       elsif translations.first.present?
+  #         # if didn't find the correct translation, but find any, use that. It's better than just name string
+  #         translations.first.name
+  #       else
+  #         name
+  #       end
+  #     end
+  #   else
+  #     name
+  #   end
+  # end
   
   def description
     if I18n.locale && translation(I18n.locale)

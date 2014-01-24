@@ -1,5 +1,11 @@
 en:
   admin:
+    categories:
+      index:
+        listing_categories: "Listing categories"
+        create_a_new_category: "+ Create a new category"
+      new:
+        new_listing_category: "New listing category"
     communities:
       edit_details:
         community_details: "Community details"

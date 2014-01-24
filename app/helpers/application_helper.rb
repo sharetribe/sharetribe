@@ -661,6 +661,12 @@ module ApplicationHelper
         :icon_class => icon_class("edit"), 
         :path => edit_welcome_email_admin_community_path(community),
         :name => "welcome_email"
+      },
+      {
+        :text => t("admin.categories.index.listing_categories"),
+        :icon_class => icon_class("list"), 
+        :path => admin_categories_path,
+        :name => "listing_categories"
       }
     ]
 

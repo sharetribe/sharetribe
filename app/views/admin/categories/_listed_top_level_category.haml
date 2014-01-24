@@ -1,0 +1,8 @@
+.row
+  .col-10
+    .row
+      .col-12
+        = category.display_name(I18n.locale)
+    - unless category.children.empty?
+      = render :partial => "listed_subcategory", :collection => category.children, :as => :subcategory
+  .col-2

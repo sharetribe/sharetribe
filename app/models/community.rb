@@ -13,8 +13,10 @@ class Community < ActiveRecord::Base
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy
   has_many :community_categories # Don't add here :dependent  => :destroy because community_categories method confuses it. Instead use separate hook (delete_specific_community_categories) to get rid of entries in that table when destroying.
-  has_many :categories, :through => :community_categories
-  has_many :share_types, :through => :community_categories
+  
+  has_many :categories
+  has_many :top_level_categories, :class_name => "Category", :conditions => ["parent_id IS NULL"]
+  
   has_many :payments
   has_many :statistics, :dependent => :destroy
   
@@ -409,12 +411,6 @@ class Community < ActiveRecord::Base
     values["subcategory"] = subcategories
     values["share_type"] = share_types.reject { |st| listing_types.include?(st) }
     return values
-  end
-  
-
-  # returns all categories
-  def categories
-    unique_categorizations(:category)
   end
   
   def main_categories

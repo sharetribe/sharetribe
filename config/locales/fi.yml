@@ -1,5 +1,11 @@
 fi:
   admin:
+    categories:
+      index:
+        listing_categories: "Ilmoituskategoriat"
+        create_a_new_category: "+ Uusi kategoria"
+      new:
+        new_listing_category: "Uusi ilmoituskategoria"
     communities:
       edit_details:
         community_details: "Yhteisön tiedot"

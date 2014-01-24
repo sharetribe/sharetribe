@@ -151,6 +151,7 @@ Kassi::Application.routes.draw do
           post :order
         end
       end
+      resources :categories
       resources :polls do
         collection do
           get :add_option

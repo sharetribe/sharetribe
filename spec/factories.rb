@@ -153,8 +153,15 @@ FactoryGirl.define do
   end
   
   factory :category do
-    name { generate(:category_name) }
     icon "item"
+    before(:create) do |category|
+      category.translations << FactoryGirl.create(:category_translation)
+    end
+  end
+
+  factory :category_translation do
+    name "test category"
+    locale "en"
   end
 
   factory :custom_dropdown_field, aliases: [:question], class: 'Dropdown' do

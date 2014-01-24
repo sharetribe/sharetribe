@@ -291,3 +291,20 @@ When /^(?:|I )fill in text field "([^"]*)" with "([^"]*)"$/ do |field_name, valu
   field_id = find_custom_field_by_name(field_name).id
   fill_in("custom_fields_#{field_id}", :with => value)
 end
+
+Given 
+
+Given /^community "(.*?)" has following category structure:$/ do |community, categories|
+  current_community = Community.find_by_domain(community)
+ 
+  current_community.categories << options.hashes.map do |hash|
+    en = FactoryGirl.create(:category_translation, :name => hash['fi'], :locale => 'fi')
+    fi = FactoryGirl.build(:custom_field_option_title, :value => hash['en'], :locale => 'en')
+    if hash['category_type'].eql?("main")
+      @category = FactoryGirl.create(:custom_field_option, :translations => [en, fi])
+    else
+      FactoryGirl.create(:category, :parent_id => @category.id, :translations => [en, fi])
+    end
+  end
+
+end

@@ -14,5 +14,12 @@ class Category < ActiveRecord::Base
 
   has_many :category_custom_fields, :dependent => :destroy
   has_many :custom_fields, :through => :category_custom_fields
+  
+  belongs_to :community
+
+  def display_name(locale="en")
+    n = translations.find { |translation| translation.locale == locale.to_s } || translations.first # Fallback to first
+    n ? n.name : ""
+  end
 
 end
