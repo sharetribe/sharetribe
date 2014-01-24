@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140116131654) do
+ActiveRecord::Schema.define(:version => 20140124095930) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -74,8 +74,9 @@ ActiveRecord::Schema.define(:version => 20140116131654) do
     t.string   "name"
     t.integer  "parent_id"
     t.string   "icon"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "community_id"
   end
 
   add_index "categories", ["name"], :name => "index_categories_on_name"
@@ -188,6 +189,7 @@ ActiveRecord::Schema.define(:version => 20140116131654) do
     t.boolean  "terms_change_allowed",              :default => false
     t.boolean  "privacy_policy_change_allowed",     :default => false
     t.boolean  "custom_fields_allowed",             :default => false
+    t.boolean  "listing_comments_in_use",           :default => false
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"

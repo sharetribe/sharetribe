@@ -635,7 +635,7 @@ class Person < ActiveRecord::Base
     end
   end
   
-  def should_recieve_community_updates_now?
+  def should_receive_community_updates_now?
     return false unless should_receive?("community_updates")
     # return whether or not enought time has passed. The - 45.minutes is because the sending takes some time so we want 
     # 1 day limit to match even if there's 23.55 minutes passed since last sending.
