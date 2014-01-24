@@ -24,3 +24,20 @@ Feature: Admin edits info pages
     And I follow "log in"
     And I follow "Create a new account"
     Then I should see "Custom signup info"
+
+  @javascript
+  Scenario: Admin user can edit community details
+    Given I am logged in as "kassi_testperson1"
+    When I go to the admin view of community "test"
+    Then I should not see "Private community homepage content"
+    When community "test" is private
+    And I go to the admin view of community "test"
+    Then I should see "Private community homepage content"
+    When I follow "Edit information"
+    And I change the contents of "private_community_homepage_content" to "Private homepage info"
+    And I click save on the editor
+    And I refresh the page
+    Then I should see "Private homepage info"
+    When I log out
+    And I go to the homepage
+    Then I should see "Private homepage info"

@@ -483,6 +483,11 @@ button, .button {
   @include big-button($link);
 }
 
+.inline-big-button {
+  @extend .big-button;
+  margin: 0 auto;
+}
+
 label.error {
   @include border-radius(em(5));
   padding: em(5) em(10) em(10) em(10);

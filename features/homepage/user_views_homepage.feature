@@ -14,10 +14,11 @@ Feature: User views homepage
     And there is item request with title "saw" from "kassi_testperson2" and with share type "buy"
     And privacy of that listing is "private"
     When I am on the homepage
-    And I should see "car spare parts"
+    Then I should see "car spare parts"
     And I should not see "bike"
     And I should not see "saw"
-    And I log in as "kassi_testperson1"
+    And I should not see "Sign up"
+    When I log in as "kassi_testperson1"
     Then I should see "saw"
     And I should see "car spare parts"
     And I should not see "bike"
@@ -202,3 +203,15 @@ Feature: User views homepage
     And I am on the home page
     Then I should not see "Join community"
     And I should see "Post a new listing"
+
+  @javascript
+  Scenario: Unlogged user views private community
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+    And there is item offer with title "car spare parts" from "kassi_testperson1" and with share type "sell"
+    And community "test" is private
+    When I am on the home page
+    Then I should not see "car spare parts"
+    And I should see "Sign up"
+    
