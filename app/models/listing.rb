@@ -307,7 +307,9 @@ class Listing < ActiveRecord::Base
       with[:share_type_id] = params[:share_types][:id] if params[:share_types].present?
       
       with_all = {:custom_field_options => params[:custom_field_options]}
-            
+      
+      params[:search] ||= "" #at this point use empty string as Riddle::Query.escape fails with nil 
+
       listings = Listing.search(Riddle::Query.escape(params[:search]),
                                 :include => params[:include], 
                                 :page => page,
