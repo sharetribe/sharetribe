@@ -38,7 +38,7 @@ gem "will_paginate"
 gem 'dalli'
 gem "memcachier"
 gem 'kgio', "~>2.8.0"
-gem 'thinking-sphinx', "~>3.0.4", :require => 'thinking_sphinx' # 3.1.0 has problem with UTF-8 chars in query
+gem 'thinking-sphinx', "3.0.4", :require => 'thinking_sphinx' # 3.1.0 has problem with UTF-8 chars in query
 # And 3.0.6 had problems with requiring app/log which didn't exists for some reason
 gem 'flying-sphinx', "~>1.0.0"
 gem "ts-delayed-delta"
