@@ -205,7 +205,6 @@ class PersonMailer < ActionMailer::Base
   end
   
   def new_comment_to_followed_listing_notification(comment, recipient, community)
-    puts "Sending email to #{recipient.inspect} from Person mailer"
     set_up_urls(recipient, community)
     @comment = comment
     mail(:to => @recipient.confirmed_notification_emails_to,
