@@ -21,7 +21,7 @@ de:
         edit_community_look_and_feel: "Bearbeite das \"Look & Feel\" der Community %{community_name}"
         community_logo: Logo
         community_logo_icon: "Icon Logo"
-        community_cover_photo: Titelfoto
+        community_cover_photo: Titelbild
         small_community_cover_photo: "Kleines Titelbild"
         community_custom_color1: Hauptfarbe
         community_custom_color2: "Zweite Farbe"
@@ -1600,7 +1600,7 @@ de:
   sessions:
     new:
       create_new_account: "Ein neues Konto in %{service_name} erstellen"
-      i_forgot_my_password: "Ich habe meinen Benutzernamen oder das Passwort vergessen"
+      i_forgot_my_password: "Benutzernamen oder Passwort vergessen"
       login: Anmelden
       login_to_kassi: "Bei %{service_name} anmelden"
       connect_your_facebook_to_kassi: "Verbinde dein Facebook-Konto mit %{service_name}"
