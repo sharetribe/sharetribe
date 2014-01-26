@@ -28,3 +28,9 @@ See RELEASE_NOTES.md for information about what has changed and if special tasks
 ## Known issues
  
 See http://github.com/sharetribe/sharetribe/issues and please report any issues you find
+
+
+
+
+
+
