@@ -4,8 +4,8 @@ rvm:
 - 1.9.3
 env:
   matrix:
-  - SUITE="rake spec"
-  - SUITE="cucumber -ptravis"
+  - SUITE="PHANTOMJS=true NO_WEBDRIVER_MONKEY_PATCH=true bundle exec rake spec"
+  - SUITE="PHANTOMJS=true NO_WEBDRIVER_MONKEY_PATCH=true bundle exec cucumber -ptravis"
   - SUITE="rails server ; grunt mocha"
   global:
     - BUNDLE_ARCHIVE="travis-bundle-cache"
@@ -36,6 +36,6 @@ before_script:
 - mysql -e 'create database sharetribe_test;'
 - rake db:test:load
 script:
-- PHANTOMJS=true NO_WEBDRIVER_MONKEY_PATCH=true bundle exec $SUITE
+- $SUITE
 after_script:
 - bundle_cache
