@@ -11,7 +11,7 @@ de:
         edit_community_slogan_description: "Dies wird den Nutzern auf der Startseite der Community angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
         community_description: "Community Beschreibung"
         edit_community_description_description: "Dies wird den Nutzern auf der Startseite der Community angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
-        update_information: Neuigkeiten
+        update_information: Erneuern
         invite_people: "Lade Leute zu dieser Community ein"
         edit_signup_info: Anmeldedaten
         edit_signup_info_description: "Dies ist ein Infotext, der den Nutzern auf der Anmeldeseite angezeigt wird. Hier kannst du den Nutzern Anleitungen zum Anmelden geben, wie z.B. Informationen darüber, wie sie eine Einladung erhalten können etc.. Standardgemäß gibt es hier keine Anweisungen, aber du kannst sie hinzufügen, wenn du auf den Link unten klickst."
@@ -21,7 +21,7 @@ de:
         edit_community_look_and_feel: "Bearbeite das \"Look & Feel\" der Community %{community_name}"
         community_logo: Logo
         community_logo_icon: "Icon Logo"
-        community_cover_photo: Titelfoto
+        community_cover_photo: Titelbild
         small_community_cover_photo: "Kleines Titelbild"
         community_custom_color1: Hauptfarbe
         community_custom_color2: "Zweite Farbe"
@@ -617,10 +617,10 @@ de:
       title_link_text: "%{community_name}"
       intro_paragraph: "Hier sind einige Dinge, die sich auf %{community_link} seit %{time_since_last_update} ereignet haben."
       intro_paragraph_link_text: "%{community_name}"
-      post_a_new_listing: "Neuer Eintrag"
+      post_a_new_listing: "Erstelle einen neuen Eintrag!"
       reduce_email_footer_text: "Zu viele E-Mails? %{settings_link} oder %{unsubscribe_link}"
       settings_link_text: "Bearbeite hier deine E-Mail-Grundeinstellungen."
-      unsubscribe_link_text: abbestellen
+      unsubscribe_link_text: "bestelle die E-Mails ab."
     newsletter:
       weekly_news_from_kassi: "Wöchentliche Nachrichten von %{community}%{service_name}"
       hi: "Hallo %{name}"
@@ -935,7 +935,7 @@ de:
     notifications:
       test_welcome_email_delivered_to: "Eine Test-Mail wurde gesendet an %{email}."
       something_went_wrong: "Da ist etwas schief gelaufen"
-      community_updated: "Aktualisierte die Details"
+      community_updated: "Die Informationen wurden aktualisiert."
       community_update_failed: "Aktualisierung fehlgeschlagen"
       account_creation_succesful_you_still_need_to_confirm_your_email: "Konto erfolgreich erstellt. Als nächstes musst du deine E-Mail-Adresse bestätigen."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Du bist nun ein Mitglied dieser Community. Als nächstes musst du deine E-Mail-Adresse bestätigen."
@@ -1600,7 +1600,7 @@ de:
   sessions:
     new:
       create_new_account: "Ein neues Konto in %{service_name} erstellen"
-      i_forgot_my_password: "Ich habe meinen Benutzernamen oder das Passwort vergessen"
+      i_forgot_my_password: "Benutzernamen oder Passwort vergessen"
       login: Anmelden
       login_to_kassi: "Bei %{service_name} anmelden"
       connect_your_facebook_to_kassi: "Verbinde dein Facebook-Konto mit %{service_name}"

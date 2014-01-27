@@ -156,7 +156,7 @@ end
 Given /^there is a dropdown field "(.*?)" for category "(.*?)" in community "(.*?)" with options:$/ do |field_title, category_name, community_domain, opts_table|
   @community = Community.find_by_domain(community_domain)
   @category = Category.find_by_name(category_name)
-  @custom_field = FactoryGirl.build(:custom_dropdown_field, :type => "Dropdown", :community => @community)
+  @custom_field = FactoryGirl.build(:custom_dropdown_field, :community => @community)
   @custom_field.category_custom_fields << FactoryGirl.build(:category_custom_field, :category => @category, :custom_field => @custom_field)
   @custom_field.names << CustomFieldName.create(:value => field_title, :locale => "en")
   
@@ -177,4 +177,9 @@ Given /^that listing has custom field "(.*?)" with value "(.*?)"$/ do |field_tit
   selection = CustomFieldOptionSelection.create!(:custom_field_value => value, :custom_field_option => option)
   value.custom_field_option_selections << selection
   value.save!
+end
+
+Given /^listing comments are in use in community "(.*?)"$/ do |community_domain|
+  community = Community.find_by_domain(community_domain)
+  community.update_attribute(:listing_comments_in_use, true)
 end

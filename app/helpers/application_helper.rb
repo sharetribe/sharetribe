@@ -1,3 +1,4 @@
+# encoding: utf-8
 module ApplicationHelper
   
   ICON_PACK = APP_CONFIG.icon_pack || "font-awesome"
@@ -544,6 +545,20 @@ module ApplicationHelper
         :inessive => "University of Helsinki Marketplacessa",
         :elative => "University of Helsinki Marketplacesta",
         :partitive => "University of Helsinki Marketplacea"
+      }
+      when "Autopaikkapörssi" then {
+        :illative => "Autopaikkapörssiin",
+        :genetive => "Autopaikkapörssin",
+        :inessive => "Autopaikkapörssissä",
+        :elative => "Autopaikkapörssistä",
+        :partitive => "Autopaikkapörssiä"
+      }
+      when "Työpooli" then {
+        :illative => "Työpooliin",
+        :genetive => "Työpoolin",
+        :inessive => "Työpoolissa",
+        :elative => "Työpoolista",
+        :partitive => "Työpoolia"
       }
       else nil
     end

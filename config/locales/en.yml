@@ -50,7 +50,7 @@ en:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
       form:
-        field_required: 
+        field_required:
           this_field_is_required: "This field is required"
       index:
         listing_fields: "Listing fields"
@@ -68,7 +68,7 @@ en:
         save_order_successful: "Successfully saved field order"
         save_order_error: "An error occured while saving listing order. Please refresh the page and try again."
         select_one: "Select field type..."
-        continue: "Continue"
+        continue: Continue
       new:
         new_listing_field: "New listing field"
       field_types:

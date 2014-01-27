@@ -8,7 +8,6 @@ class CustomFieldValue < ActiveRecord::Base
   has_many :custom_field_option_selections, :dependent => :destroy
   has_many :selected_options, :through => :custom_field_option_selections, :source => :custom_field_option
 
-  # Hard-coded for Dropdowns
   validate :text_value_or_selected_option_present
 
   delegate :sort_priority, :with_type, :to => :question
