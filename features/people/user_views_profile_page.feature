@@ -122,3 +122,12 @@ Feature: User views profile page
     And I should see "OK feedback" within "#profile-testimonials-list"
     And I should see "Test feedback" within "#profile-testimonials-list"
     And I should see "Show all reviews"
+
+  @javascript
+  Scenario: Unlogged user tries to view profile page in a private community
+    Given there are following users:
+       | person | 
+       | kassi_testperson1 |
+    And community "test" is private
+    When I go to the profile page of "kassi_testperson1"
+    Then I should see "Sign up"

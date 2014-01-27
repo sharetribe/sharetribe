@@ -110,3 +110,7 @@ end
 Given /^community "(.*?)" has custom fields enabled$/ do |community_domain|
   Community.find_by_domain(community_domain).update_attributes({:custom_fields_allowed => true})
 end
+
+Given /^community "(.*?)" is private$/ do |community_domain|
+  Community.find_by_domain(community_domain).update_attributes({:private => true})
+end

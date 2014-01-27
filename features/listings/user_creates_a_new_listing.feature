@@ -292,3 +292,26 @@ Feature: User creates a new listing
     And I fill in "q" with "Test details"
     And I press "search-button"
     Then I should see "My house"
+
+  @javascript
+  Scenario: User creates a new listing in private community
+    Given I am logged in
+    And community "test" is private
+    And I am on the home page
+    When I follow "new-listing-link"
+    And I follow "I need something"
+    And I follow "An item"
+    And I should see "What kind of an item are we talking about?"
+    And I follow "Tools" within "#option-groups"
+    And I should see "How do you want to get it?"
+    And I follow "buy it"
+    Then I should not see "Privacy*"
+    And I fill in "listing_title" with "Sledgehammer"
+    And I fill in "listing_description" with "My description"
+    And I press "Save listing"
+    Then I should see "Sledgehammer" within "#listing-title"
+    When I go to the home page
+    Then I should see "Sledgehammer"
+    When I log out
+    And I go to the home page
+    Then I should not see "Sledgehammer"

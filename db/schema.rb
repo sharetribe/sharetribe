@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140124095930) do
+ActiveRecord::Schema.define(:version => 20140124141214) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -222,8 +222,8 @@ ActiveRecord::Schema.define(:version => 20140124095930) do
     t.string   "name"
     t.string   "slogan"
     t.text     "description"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.text     "blank_slate"
     t.text     "welcome_email_content"
     t.text     "how_to_use_page_content"
@@ -233,6 +233,7 @@ ActiveRecord::Schema.define(:version => 20140124095930) do
     t.text     "privacy_page_content"
     t.string   "storefront_label"
     t.text     "signup_info_content"
+    t.text     "private_community_homepage_content"
   end
 
   add_index "community_customizations", ["community_id"], :name => "index_community_customizations_on_community_id"
