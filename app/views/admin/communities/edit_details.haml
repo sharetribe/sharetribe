@@ -49,7 +49,7 @@
       = render :partial => "info_text", :locals => { :text => t(".edit_private_community_homepage_content_description", :see_how_it_looks_like => link_to(t(".see_how_it_looks_like"), "/?big_cover_photo=true")).html_safe }
       #private_community_homepage_content{:data => {:mercury => "full"}}
         - if @community_customization && @community_customization.private_community_homepage_content
-          = truncate(@community_customization.private_community_homepage_content, length: 100)
+          = @community_customization.private_community_homepage_content.html_safe
 
 
   .edit-community-details-field
