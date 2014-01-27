@@ -11,6 +11,8 @@ de:
         edit_community_slogan_description: "Dies wird den Nutzern auf der Startseite der Community angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
         community_description: "Community Beschreibung"
         edit_community_description_description: "Dies wird den Nutzern auf der Startseite der Community angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
+        private_community_homepage_content: "Privater Inhalt der Community Startseite"
+        edit_private_community_homepage_content_description: "Der Content ist nur in privaten Communities sichtbar. User, die nicht eingeloggt sind, sehen ihn auf der Startseite. Beschreibe hier deine Community und wie man ihr beitreten kann. Du kannst hier außerdem Bilder, Videos und HTML-Content hinzufügen. %{see_how_it_looks_like}."
         update_information: Erneuern
         invite_people: "Lade Leute zu dieser Community ein"
         edit_signup_info: Anmeldedaten
@@ -813,6 +815,7 @@ de:
       no_reviews: "Keine Bewertungen"
       no_image: "Kein Bild"
       filter: Filter
+      this_is_private_community: "Du musst dich erst anmelden, um die Artikel sehen zu können."
     invitation_form:
       invite_your_friends: "Lade deine Freunde zu %{service_name} ein!"
       invite_your_neighbors: "Lade deine Nachbarn ein zu %{service_name}!"
@@ -912,7 +915,7 @@ de:
       admin: Administrator
       go_to_your_profile_page: Profil
       hi: Hallo
-      login: Anmelden
+      login: Einloggen
       logout: Abmelden
       notifications: Benachrichtigungen
       requests: Freundschaftsanfragen

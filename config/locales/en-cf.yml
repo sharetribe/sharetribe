@@ -11,6 +11,8 @@ en-cf:
         edit_community_slogan_description: ~
         community_description: ~
         edit_community_description_description: ~
+        private_community_homepage_content: ~
+        edit_private_community_homepage_content_description: ~
         update_information: ~
         invite_people: ~
         edit_signup_info: ~
@@ -813,6 +815,7 @@ en-cf:
       no_reviews: ~
       no_image: ~
       filter: ~
+      this_is_private_community: ~
     invitation_form:
       invite_your_friends: ~
       invite_your_neighbors: ~
@@ -1685,10 +1688,10 @@ en-cf:
       given_name: ~
       location_description: ~
       phone_number: ~
-      profile_picture: ~
-      postal_code: ~
       profile_page: ~
       profilemap: ~
+      profile_picture: ~
+      postal_code: ~
       street_address: ~
       these_fields_are_shown_in_your: ~
       visible_to_everybody: ~
