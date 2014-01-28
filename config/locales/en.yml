@@ -11,6 +11,8 @@ en:
         edit_community_slogan_description: "This is shown on the home page of the community for the users who are not logged in. %{see_how_it_looks_like}."
         community_description: "Community description"
         edit_community_description_description: "This is shown on the home page of the community for the users who are not logged in. %{see_how_it_looks_like}."
+        private_community_homepage_content: "Private community homepage content"
+        edit_private_community_homepage_content_description: "This content is shown to unlogged users on the home page of private communities. Here you can describe your community and the process to join it. You can also add images, videos and HTML content here. %{see_how_it_looks_like}."
         update_information: "Update information"
         invite_people: "Invite people to this community"
         edit_signup_info: "Signup info"
@@ -44,7 +46,7 @@ en:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
       form:
-        field_required: 
+        field_required:
           this_field_is_required: "This field is required"
       index:
         listing_fields: "Listing fields"
@@ -62,7 +64,7 @@ en:
         save_order_successful: "Successfully saved field order"
         save_order_error: "An error occured while saving listing order. Please refresh the page and try again."
         select_one: "Select field type..."
-        continue: "Continue"
+        continue: Continue
       new:
         new_listing_field: "New listing field"
       field_types:
@@ -813,6 +815,7 @@ en:
       no_reviews: "No reviews"
       no_image: "No image"
       filter: Filter
+      this_is_private_community: "You need to sign up before you can view the content."
     invitation_form:
       invite_your_friends: "Invite your friends to %{service_name}!"
       invite_your_neighbors: "Invite your neighbors to %{service_name}!"

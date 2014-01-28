@@ -1,5 +1,8 @@
-- unless @current_community.only_public_listings
+- if @current_community.only_public_listings
+  = form.hidden_field :privacy, :value => "public"
+- elsif @current_community.private
+  = form.hidden_field :privacy, :value => "private"
+- else
   = form.label :privacy, t(".privacy") + "*", :class => "input"
   = select("listing", "privacy", privacy_array, {:selected => (@listing.privacy || "public")}, { :class => "full-width" })
-- else
-  = form.hidden_field :privacy, :value => "public"
+  

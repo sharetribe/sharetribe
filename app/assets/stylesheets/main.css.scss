@@ -483,6 +483,11 @@ button, .button {
   @include big-button($link);
 }
 
+.inline-big-button {
+  @extend .big-button;
+  margin: 0 auto;
+}
+
 label.error {
   @include border-radius(em(5));
   padding: em(5) em(10) em(10) em(10);
@@ -1375,7 +1380,6 @@ a.lightbox-x {
     
     @include media(tablet) {
       padding-top: lines(1.5);
-      padding-right: lines(16);
       
       h2 {
         @include big-type;

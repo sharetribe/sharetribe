@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Listing < ActiveRecord::Base
   
   include ApplicationHelper
@@ -122,43 +123,6 @@ class Listing < ActiveRecord::Base
   validates_numericality_of :price_cents, :only_integer => true, :greater_than_or_equal_to => 0, :message => "price must be numeric", :allow_nil => true
   validate :valid_until_is_not_nil
   
-  # Index for sphinx search
-  define_index do
-
-    # limit to open listings
-    where "open = '1' AND (valid_until IS NULL OR valid_until > now())"
-    
-    # fields
-    indexes title
-    indexes description
-    indexes category.translations.name, :as => :category
-    indexes custom_field_values(:text_value), :as => :custom_text_fields
-    
-    # attributes
-    has created_at, updated_at
-    has category(:id), :as => :category_id
-    has share_type(:id), :as => :share_type_id 
-    has "privacy = 'public'", :as => :visible_to_everybody, :type => :boolean
-    has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
-    has communities(:id), :as => :community_ids
-    has custom_field_values.selected_options(:id), :type => :multi, :as => "custom_field_options"
-      
-
-    set_property :enable_star => true
-    if APP_CONFIG.FLYING_SPHINX_API_KEY
-      set_property :delta => false # try to get sphinx working  FlyingSphinx::DelayedDelta
-    else
-      set_property :delta => true
-    end
-    
-    set_property :field_weights => {
-      :title       => 10,
-      :category    => 8,
-      :tags        => 8,
-      :description => 3,
-      :comments    => 1
-    }
-  end
 
   def set_community_visibilities
     if current_community_id
@@ -327,11 +291,12 @@ class Listing < ActiveRecord::Base
       params[:sort] ||= 'created_at DESC'
       
       with = {}
-      if params[:status] == "open" || params[:status].nil?
-        with[:open] = true 
-      elsif params[:status] == "closed"
-        with[:open] = false
-      end
+      # Currently forced to only open at listing_index.rb
+      # if params[:status] == "open" || params[:status].nil?
+      #   with[:open] = true 
+      # elsif params[:status] == "closed"
+      #   with[:open] = false
+      # end
       
       unless current_user && current_user.communities.include?(current_community)
         with[:visible_to_everybody] = true
@@ -342,8 +307,10 @@ class Listing < ActiveRecord::Base
       with[:share_type_id] = params[:share_types][:id] if params[:share_types].present?
       
       with_all = {:custom_field_options => params[:custom_field_options]}
-            
-      listings = Listing.search(params[:search],
+      
+      params[:search] ||= "" #at this point use empty string as Riddle::Query.escape fails with nil 
+
+      listings = Listing.search(Riddle::Query.escape(params[:search]),
                                 :include => params[:include], 
                                 :page => page,
                                 :per_page => per_page, 

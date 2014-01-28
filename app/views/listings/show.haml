@@ -71,6 +71,22 @@
               = link_to("", "https://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => (@current_community.twitter_handle || "Sharetribe"))
               %script{:type => "text/javascript", :src => "https://platform.twitter.com/widgets.js"}
 
+
+    - unless (@listing.closed? && !current_user?(@listing.author)) || !@current_community.listing_comments_in_use
+      .view-item
+        #comments.discussion.overflow-allowed
+          %h2 
+            = icon_tag("chat_bubble", ["icon-with_text"])
+            .text-with-icon
+              = t(".comments")
+              %span= "(#{@listing.comments.count})"
+          #follow-links.follow-links
+            = render :partial => "follow_links"
+          #comment-list
+            = render :partial => "comment", :collection => @listing.comments
+          #comment-form
+            = render :partial => "comment_form"
+
   %aside.col-4
     - if @listing.price
       .row
