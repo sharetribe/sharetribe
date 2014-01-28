@@ -3,7 +3,7 @@ REMOVE_SELECTOR = ".custom-fields-action-remove"
 EDIT_SELECTOR = ".custom-fields-action-edit"
 UP_SELECTOR = ".custom-fields-action-up"
 
-module AdminSteps
+module AdminCustomFieldSteps
 
   def find_row_for_custom_field(title)
     find(".custom-field-list-row", :text => "#{title}")
@@ -30,7 +30,7 @@ module AdminSteps
   
 end
 
-World(AdminSteps)
+World(AdminCustomFieldSteps)
 
 Then /^I should see that there is a custom field "(.*?)"$/ do |field_name|
   steps %Q{
@@ -290,8 +290,4 @@ end
 When /^(?:|I )fill in text field "([^"]*)" with "([^"]*)"$/ do |field_name, value|
   field_id = find_custom_field_by_name(field_name).id
   fill_in("custom_fields_#{field_id}", :with => value)
-end
-
-Then /^(?:|I )should see "([^"]*)" as a top level category$/ do |category|
-  
 end

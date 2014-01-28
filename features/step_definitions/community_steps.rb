@@ -119,10 +119,8 @@ Given /^community "(.*?)" has following category structure:$/ do |community, cat
     en = FactoryGirl.create(:category_translation, :name => hash['fi'], :locale => 'fi')
     fi = FactoryGirl.create(:category_translation, :name => hash['en'], :locale => 'en')
     if hash['category_type'].eql?("main")
-      puts "Creating category #{hash['en']}"
       @category = FactoryGirl.create(:category, :translations => [en, fi])
     else
-      puts "Creating subcategory #{hash['en']}"
       FactoryGirl.create(:category, :parent_id => @category.id, :translations => [en, fi])
     end
   end

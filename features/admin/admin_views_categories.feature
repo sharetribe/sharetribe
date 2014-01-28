@@ -12,10 +12,9 @@ Feature: Admin views categories
       | sub            | Assembly          | Kokoaminen     |
       | sub            | Delivery          | Toimitus       | 
       | sub            | Cleaning          | Siivous        |  
-  
+    
   @javascript  
   Scenario: Admin views category list
-    And I am on the categories admin page
-    And wait for 10 seconds
-    Then I should see "Items" within "#top-level-category-items"
-    And I should see "Assembly" within "#subcategory-assembly"
+    When I go to the categories admin page
+    Then I should see that there is a top level category "Items"
+    And I should see that there is a subcategory "Assembly"

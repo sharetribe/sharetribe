@@ -3,3 +3,11 @@
 .subcategory-label {
   margin-left: lines(1);
 }
+
+.new-category-name-locale-label {
+  @extend .new-field-name-locale-label;
+}
+
+.add-category-buttons {
+  @extend .add-custom-field-buttons;
+}

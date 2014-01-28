@@ -17,6 +17,17 @@ class Category < ActiveRecord::Base
   
   belongs_to :community
 
+  def translation_attributes=(attributes)
+    build_attrs = attributes.map { |locale, values| { locale: locale, values: values } }
+    build_attrs.each do |translation| 
+      if existing_translation = translations.find_by_locale(translation[:locale])
+        existing_translation.update_attributes(translation[:values])
+      else
+        translations.build(translation[:values].merge({:locale => translation[:locale]}))
+      end
+    end
+  end
+
   def display_name(locale="en")
     n = translations.find { |translation| translation.locale == locale.to_s } || translations.first # Fallback to first
     n ? n.name : ""
