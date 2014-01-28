@@ -7,4 +7,5 @@ class TransactionType < ActiveRecord::Base
   has_many :category_transaction_types, :dependent => :destroy
   has_many :categories, :through => :category_transaction_types
 
+  validates_presence_of :community
 end
