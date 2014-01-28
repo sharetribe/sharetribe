@@ -1,4 +1,4 @@
-Feature: Admin views a category
+Feature: Admin views categories
   
   Background:
     Given I am logged in as "kassi_testperson2"
@@ -12,6 +12,10 @@ Feature: Admin views a category
       | sub            | Assembly          | Kokoaminen     |
       | sub            | Delivery          | Toimitus       | 
       | sub            | Cleaning          | Siivous        |  
+  
+  @javascript  
+  Scenario: Admin views category list
     And I am on the categories admin page
-    Then I should see "Items" as a top level category
-    And I should see "Assembly" as a subcategory
+    And wait for 10 seconds
+    Then I should see "Items" within "#top-level-category-items"
+    And I should see "Assembly" within "#subcategory-assembly"

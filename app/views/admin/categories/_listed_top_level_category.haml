@@ -1,6 +1,6 @@
 .row
   .col-10
-    .row
+    .row{:id => "top-level-category-#{category.display_name(I18n.locale).squish.downcase.tr(" ","_")}"}
       .col-12
         = category.display_name(I18n.locale)
     - unless category.children.empty?
