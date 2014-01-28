@@ -6,6 +6,12 @@ fi:
         create_a_new_category: "+ Uusi kategoria"
       new:
         new_listing_category: "Uusi ilmoituskategoria"
+      form:
+        category_name:
+          category_title: "Kategorian nimi"
+        buttons:
+          save: "Tallenna"
+          cancel: "Peruuta"
     communities:
       edit_details:
         community_details: "Yhteisön tiedot"
