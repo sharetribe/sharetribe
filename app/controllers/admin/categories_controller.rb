@@ -18,9 +18,12 @@ class Admin::CategoriesController < ApplicationController
     @selected_left_navi_link = "listing_categories"
     @category = Category.new(params[:category])
     @category.community = @current_community
+    @category.parent_id = nil if params[:category][:parent_id].blank?
+    logger.info "Translations #{@category.translations.inspect}"
     if @category.save
       redirect_to admin_categories_path
     else
+      logger.info "Errors: #{@category.errors.full_messages.inspect}"
       flash[:error] = "Category saving failed"
       render :action => :new
     end

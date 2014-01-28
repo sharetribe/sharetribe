@@ -9,6 +9,9 @@ en:
       form:
         category_name:
           category_title: "Category title"
+        category_parent:
+          category_parent: "Parent category"
+          no_parent: "No parent"
         buttons:
           save: "Save"
           cancel: "Cancel"

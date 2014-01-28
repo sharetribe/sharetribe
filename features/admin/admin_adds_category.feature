@@ -12,3 +12,8 @@ Feature: Admin adds a category
   Scenario: Admin adds a top level category
     When I add a new category "Spaces"
     Then I should see that there is a top level category "Spaces"
+
+  @javascript
+  Scenario: Admin adds a subcategory
+    When I add a new category "Tools" under category "Items"
+    Then I should see that there is a subcategory "Tools"

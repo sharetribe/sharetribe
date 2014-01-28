@@ -9,6 +9,9 @@ fi:
       form:
         category_name:
           category_title: "Kategorian nimi"
+        category_parent:
+          category_parent: "Yläkategoria"
+          no_parent: "Ei yläkategoriaa"
         buttons:
           save: "Tallenna"
           cancel: "Peruuta"
