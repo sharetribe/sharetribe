@@ -124,5 +124,8 @@ Given /^community "(.*?)" has following category structure:$/ do |community, cat
       FactoryGirl.create(:category, :parent_id => @category.id, :translations => [en, fi])
     end
   end
+end
 
+Given /^community "(.*?)" is private$/ do |community_domain|
+  Community.find_by_domain(community_domain).update_attributes({:private => true})
 end

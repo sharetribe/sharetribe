@@ -1,0 +1,3 @@
+class Request < TransactionType
+
+end

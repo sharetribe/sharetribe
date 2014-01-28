@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140124095930) do
+ActiveRecord::Schema.define(:version => 20140128095047) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -87,6 +87,13 @@ ActiveRecord::Schema.define(:version => 20140124095930) do
     t.integer  "custom_field_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "category_transaction_types", :force => true do |t|
+    t.integer  "category_id"
+    t.integer  "transaction_type_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "category_translations", :force => true do |t|
@@ -222,8 +229,8 @@ ActiveRecord::Schema.define(:version => 20140124095930) do
     t.string   "name"
     t.string   "slogan"
     t.text     "description"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.text     "blank_slate"
     t.text     "welcome_email_content"
     t.text     "how_to_use_page_content"
@@ -233,6 +240,7 @@ ActiveRecord::Schema.define(:version => 20140124095930) do
     t.text     "privacy_page_content"
     t.string   "storefront_label"
     t.text     "signup_info_content"
+    t.text     "private_community_homepage_content"
   end
 
   add_index "community_customizations", ["community_id"], :name => "index_community_customizations_on_community_id"
@@ -640,10 +648,10 @@ ActiveRecord::Schema.define(:version => 20140124095930) do
     t.datetime "created_at",                                              :null => false
     t.datetime "updated_at",                                              :null => false
     t.integer  "community_id"
-    t.integer  "sum_cents"
-    t.string   "currency"
     t.string   "type",                     :default => "CheckoutPayment"
     t.string   "braintree_transaction_id"
+    t.integer  "sum_cents"
+    t.string   "currency"
   end
 
   add_index "payments", ["conversation_id"], :name => "index_payments_on_conversation_id"
@@ -835,5 +843,23 @@ ActiveRecord::Schema.define(:version => 20140124095930) do
   end
 
   add_index "testimonials", ["receiver_id"], :name => "index_testimonials_on_receiver_id"
+
+  create_table "transaction_type_translations", :force => true do |t|
+    t.integer  "transaction_type_id"
+    t.string   "locale"
+    t.string   "name"
+    t.string   "action_button_label"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "transaction_types", :force => true do |t|
+    t.string   "type"
+    t.integer  "community_id"
+    t.integer  "sort_priority"
+    t.boolean  "price_field"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
 end

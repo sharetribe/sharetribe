@@ -1,0 +1,3 @@
+class Swap < TransactionType
+
+end

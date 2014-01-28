@@ -33,4 +33,8 @@ class Category < ActiveRecord::Base
     n ? n.name : ""
   end
 
+  has_many :category_transaction_types, :dependent => :destroy
+  has_many :transaction_types, :through => :category_transaction_types
+  
+
 end

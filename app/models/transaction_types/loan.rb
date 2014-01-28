@@ -1,0 +1,3 @@
+class Loan < TransactionType
+
+end

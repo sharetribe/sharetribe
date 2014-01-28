@@ -1,0 +1,3 @@
+class FreeService < TransactionType
+
+end

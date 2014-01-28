@@ -1,0 +1,3 @@
+class Rent < TransactionType
+
+end
