@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140123141906) do
+ActiveRecord::Schema.define(:version => 20140128095047) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -87,6 +87,13 @@ ActiveRecord::Schema.define(:version => 20140123141906) do
     t.integer  "custom_field_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "category_transaction_types", :force => true do |t|
+    t.integer  "category_id"
+    t.integer  "transaction_type_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "category_translations", :force => true do |t|
@@ -189,6 +196,7 @@ ActiveRecord::Schema.define(:version => 20140123141906) do
     t.boolean  "terms_change_allowed",              :default => false
     t.boolean  "privacy_policy_change_allowed",     :default => false
     t.boolean  "custom_fields_allowed",             :default => false
+    t.boolean  "listing_comments_in_use",           :default => false
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
@@ -639,10 +647,10 @@ ActiveRecord::Schema.define(:version => 20140123141906) do
     t.datetime "created_at",                                              :null => false
     t.datetime "updated_at",                                              :null => false
     t.integer  "community_id"
-    t.integer  "sum_cents"
-    t.string   "currency"
     t.string   "type",                     :default => "CheckoutPayment"
     t.string   "braintree_transaction_id"
+    t.integer  "sum_cents"
+    t.string   "currency"
   end
 
   add_index "payments", ["conversation_id"], :name => "index_payments_on_conversation_id"
@@ -834,5 +842,23 @@ ActiveRecord::Schema.define(:version => 20140123141906) do
   end
 
   add_index "testimonials", ["receiver_id"], :name => "index_testimonials_on_receiver_id"
+
+  create_table "transaction_type_translations", :force => true do |t|
+    t.integer  "transaction_type_id"
+    t.string   "locale"
+    t.string   "name"
+    t.string   "action_button_label"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "transaction_types", :force => true do |t|
+    t.string   "type"
+    t.integer  "community_id"
+    t.integer  "sort_priority"
+    t.boolean  "price_field"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
 end

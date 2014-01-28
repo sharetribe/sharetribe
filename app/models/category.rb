@@ -15,4 +15,8 @@ class Category < ActiveRecord::Base
   has_many :category_custom_fields, :dependent => :destroy
   has_many :custom_fields, :through => :category_custom_fields
 
+  has_many :category_transaction_types, :dependent => :destroy
+  has_many :transaction_types, :through => :category_transaction_types
+  
+
 end
