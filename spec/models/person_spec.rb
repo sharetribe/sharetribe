@@ -156,7 +156,7 @@ describe Person do
     
     describe "#latest_pending_email_address" do
       
-      before (:all) do
+      before (:each) do
         @p = FactoryGirl.create(:person)
       end
       

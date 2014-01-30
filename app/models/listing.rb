@@ -306,6 +306,8 @@ class Listing < ActiveRecord::Base
       with[:category_id] = params[:categories][:id] if params[:categories].present?
       with[:share_type_id] = params[:share_types][:id] if params[:share_types].present?
       
+      params[:custom_field_options] ||= [] # use emtpy table rather than nil to avoid confused sphinx
+
       with_all = {:custom_field_options => params[:custom_field_options]}
       
       params[:search] ||= "" #at this point use empty string as Riddle::Query.escape fails with nil 

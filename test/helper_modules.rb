@@ -88,6 +88,20 @@ module TestHelpers
     CommunityCategory.destroy_all
     CategoriesHelper.load_default_categories_to_db
   end
+
+  def ensure_sphinx_is_running_and_indexed
+    begin 
+      Listing.search("").total_pages
+    rescue Mysql2::Error => e
+      # Sphinx was not running so start it for this session
+      ThinkingSphinx::Test.init
+      ThinkingSphinx::Test.start_with_autostop
+    end
+    ThinkingSphinx::Test.index
+    # Wait for Sphinx to finish loading in the new index files.
+    sleep 0.25
+    
+  end
   
   
 end

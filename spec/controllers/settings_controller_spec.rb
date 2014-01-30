@@ -11,7 +11,7 @@ describe SettingsController do
       sign_in_for_spec(p1)
       
       p1.set_default_preferences
-      
+      p1.communities << Community.find_by_domain("test")      
       
       p1.min_days_between_community_updates.should == 1
       get :unsubscribe, {:email_type => "community_updates", :person_id => p1.id}
