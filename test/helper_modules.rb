@@ -89,5 +89,4 @@ module TestHelpers
     CategoriesHelper.load_default_categories_to_db
   end
   
-  
 end

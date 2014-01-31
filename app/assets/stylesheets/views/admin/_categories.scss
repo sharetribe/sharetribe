@@ -4,10 +4,12 @@
   margin-left: lines(1);
 }
 
-.new-category-name-locale-label {
-  @extend .new-field-name-locale-label;
+.top-level-category-row {
+  border-bottom: 1px solid $highlight;
+  margin-bottom: lines(0.25);
+  padding-bottom: lines(0.25)
 }
 
-.add-category-buttons {
-  @extend .add-custom-field-buttons;
+.listed-category-col {
+  margin-bottom: 0;
 }

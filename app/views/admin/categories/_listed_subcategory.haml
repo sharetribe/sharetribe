@@ -1,4 +1,7 @@
 .row{:id => "subcategory-#{subcategory.display_name(I18n.locale).squish.downcase.tr(" ","_")}"}
-  .col-12
+  .col-8.listed-category-col
     .subcategory-label
       = subcategory.display_name(I18n.locale)
+  .col-2.listed-category-col
+    = link_to edit_admin_category_path(subcategory), :class => "custom-fields-action-edit", :id => "edit_category_#{subcategory.id}" do
+      = icon_tag("edit", ["icon-fix"])

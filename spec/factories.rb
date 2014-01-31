@@ -156,11 +156,21 @@ FactoryGirl.define do
     icon "item"
     before(:create) do |category|
       category.translations << FactoryGirl.create(:category_translation)
+      category.transaction_types << FactoryGirl.create(:transaction_type)
     end
   end
 
   factory :category_translation do
     name "test category"
+    locale "en"
+  end
+
+  factory :transaction_type do
+    type "SellProducts"
+  end
+
+  factory :transaction_type_translation do
+    name "Selling"
     locale "en"
   end
 

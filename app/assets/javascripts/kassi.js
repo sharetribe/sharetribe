@@ -1105,6 +1105,35 @@ function initialize_admin_listing_field_form_view(locale, form_id, option_count)
   })(option_count, 2, "#options", ".custom-field-option-remove").add;
 }
 
+function initialize_admin_category_form_view(locale, form_id) {
+  translate_validation_messages(locale);
+
+  var $form = $(form_id);
+  var TRANSACTION_TYPE_CHECKBOX_NAME = "category[transaction_type_attributes][][transaction_type_id]";
+
+  var rules = {}
+  rules[TRANSACTION_TYPE_CHECKBOX_NAME] = {
+    required: true
+  };
+
+  $(form_id).validate({
+    rules: rules,
+    errorPlacement: function(error, element) {
+      // Custom placement for checkbox group
+      if (element.attr("name") === TRANSACTION_TYPE_CHECKBOX_NAME) {
+        var container = $("#category-transaction-types-container")
+        error.insertAfter(container);
+      } else {
+        error.insertAfter(element);
+      }
+    },
+    submitHandler: function(form) {
+      disable_and_submit(form_id, form, "false", locale);
+    }
+   });
+
+}
+
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {
   $('#help_invitation_code_link').click(function(link) {
     $('#help_invitation_code').lightbox_me({centered: true, zIndex: 1000000 }); 

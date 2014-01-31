@@ -1,4 +1,4 @@
-class Request < TransactionType
+class Lend < TransactionType
 
   before_validation(:on => :create) do
     self.price_field ||= 0

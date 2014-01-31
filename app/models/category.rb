@@ -1,5 +1,7 @@
 class Category < ActiveRecord::Base
 
+  attr_accessible :community_id, :parent_id, :translation_attributes, :transaction_type_attributes
+
   # Classification module contains methods that are common to Category and ShareType
   include Classification
 
@@ -14,6 +16,9 @@ class Category < ActiveRecord::Base
 
   has_many :category_custom_fields, :dependent => :destroy
   has_many :custom_fields, :through => :category_custom_fields
+
+  has_many :category_transaction_types, :dependent => :destroy
+  has_many :transaction_types, :through => :category_transaction_types
   
   belongs_to :community
 
@@ -28,13 +33,14 @@ class Category < ActiveRecord::Base
     end
   end
 
+  def transaction_type_attributes=(attributes)
+    transaction_types.clear
+    attributes.each { |transaction_type| category_transaction_types.build(transaction_type) }
+  end
+
   def display_name(locale="en")
     n = translations.find { |translation| translation.locale == locale.to_s } || translations.first # Fallback to first
     n ? n.name : ""
   end
-
-  has_many :category_transaction_types, :dependent => :destroy
-  has_many :transaction_types, :through => :category_transaction_types
-  
 
 end

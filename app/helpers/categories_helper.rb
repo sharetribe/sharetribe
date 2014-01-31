@@ -1,47 +1,87 @@
 module CategoriesHelper
-  
-  DEFAULT_CATEGORIES = [
+
+  require File.expand_path('../../../test/helper_modules', __FILE__)
+  include TestHelpers
+
+  DEFAULT_TRANSACTION_TYPES_FOR_TESTS = ["Sell", "Give"]
+
+  DEFAULT_CATEGORIES_FOR_TESTS = [
     {
     "item" => [
       "tools",
-      "sports",
-      "music",
       "books",
-      "games",
       "furniture",
-      "outdoors",
-      "food",
-      "electronics",
-      "pets",
-      "film",
-      "clothes",
-      "garden",
-      "travel",
       "other"
       ]
     },
     "favor",
-    "rideshare",
     "housing" 
   ]
 
-  DEFAULT_SHARE_TYPES = {
-    "offer" => {:categories => ["item", "favor", "rideshare", "housing"]},
-      "sell" => {:parent => "offer", :categories => ["item", "housing"], :price => true, :payment => true},
-      "rent_out" => {:parent => "offer", :categories => ["item", "housing"], :price => true, :payment => true, :price_quantity_placeholder => "time"},
-      "lend" => {:parent => "offer", :categories => ["item"]}, 
-      "offer_to_swap" => {:parent => "offer", :categories => ["item"]}, 
-      "give_away" => {:parent => "offer", :categories => ["item"]},
-      "share_for_free" => {:parent => "offer", :categories => ["housing"]},
+  def self.load_test_categories_and_transaction_types_to_db
+    # Create categories and transaction types for the 3 default text
+    # communities defined in fixtures.
+    Community.find_each { |c| c.destroy }
+    ["test", "test2", "test3"].each do |domain|
+      community = Community.create!(:name => domain, :domain => domain, :settings => {"locales" => ["en", "fi"]})
+      community.categories.each { |c| c.destroy }
+      community.transaction_types.each { |t| t.destroy }
+      CategoriesHelper.load_categories_and_transaction_types_to_db(community, DEFAULT_TRANSACTION_TYPES_FOR_TESTS, DEFAULT_CATEGORIES_FOR_TESTS)
+    end
+  end
 
-    "request" => {:categories => ["item", "favor", "rideshare", "housing"]}, 
-      "buy" => {:parent => "request", :categories => ["item", "housing"], :payment => true},
-      "rent" => {:parent => "request", :categories => ["item", "housing"], :payment => true},
-      "borrow" => {:parent => "request", :categories => ["item"]},
-      "request_to_swap" => {:parent => "request", :categories => ["item"]}, 
-      "receive" => {:parent => "request", :categories => ["item"]}, 
-      "accept_for_free" => {:parent => "request", :categories => ["housing"]}
-  }
+  def self.load_categories_and_transaction_types_to_db(community, transaction_types, categories)
+
+    # Load transaction types
+    transaction_types.each do |tt|
+      transaction_type = TransactionType.create!(:type => tt, :community_id => community.id)
+      community.locales.each do |locale|
+        tt_name = I18n.t!(tt.underscore, :locale => locale, :scope => ["admin", "transaction_types"], :raise => true)
+        transaction_type.translations.create!(:locale => locale, :name => tt_name)
+      end
+    end
+
+    # Load categories
+    categories.each do |c|
+
+      # Categories that do not have subcategories
+      if c.is_a?(String)
+        category = Category.create!(:community_id => community.id)
+        CategoriesHelper.add_transaction_types_and_translations_to_category(category, c)
+
+      # Categories that have subcategories
+      elsif c.is_a?(Hash)
+        puts "C (hash): #{c.inspect}"
+        top_level_category = Category.create!(:community_id => community.id)
+        puts "Top level category: #{top_level_category}"
+        CategoriesHelper.add_transaction_types_and_translations_to_category(top_level_category, c.keys.first)
+        c.values.first.each do |sg|
+          subcategory = Category.create!(:community_id => community.id, :parent_id => top_level_category.id)
+          CategoriesHelper.add_transaction_types_and_translations_to_category(subcategory, sg)
+        end
+      end
+
+    end
+  end
+
+  def self.add_transaction_types_and_translations_to_category(category, category_name)
+    category.community.transaction_types.each { |tt| category.transaction_types << tt }
+    category.community.locales.each do |locale|
+      puts "Category name: #{category_name}"
+      cat_name = I18n.t!(category_name, :locale => locale, :scope => ["common", "categories"], :raise => true)
+      category.translations.create!(:locale => locale, :name => cat_name)
+    end
+  end
+
+
+
+
+
+
+
+
+
+
   
   def self.load_default_categories_to_db(params={})
     load_categories_and_share_types_to_db(:community_id => nil, :categories => DEFAULT_CATEGORIES, :share_types => DEFAULT_SHARE_TYPES)

@@ -1,3 +1,0 @@
-class SellProducts < TransactionType
-
-end

@@ -59,8 +59,8 @@ prefork = lambda {
     # instead of true.
     config.use_transactional_fixtures = true
     
-    # Load stuff from seeds.rb to DB
-    load "#{Rails.root}/db/seeds.rb"
+    # Load default categories and transaction types to DB
+    CategoriesHelper.load_test_categories_and_transaction_types_to_db
 
     # Clean once when guard starts
     DatabaseCleaner.clean_with(:truncation, {:except => %w[categories share_types community_categories category_translations share_type_translations]})

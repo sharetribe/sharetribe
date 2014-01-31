@@ -111,6 +111,10 @@ Given /^community "(.*?)" has custom fields enabled$/ do |community_domain|
   Community.find_by_domain(community_domain).update_attributes({:custom_fields_allowed => true})
 end
 
+Given /^community "(.*?)" is private$/ do |community_domain|
+  Community.find_by_domain(community_domain).update_attributes({:private => true})
+end
+
 Given /^community "(.*?)" has following category structure:$/ do |community, categories|
   current_community = Community.find_by_domain(community)
   current_community.categories.clear
@@ -120,12 +124,24 @@ Given /^community "(.*?)" has following category structure:$/ do |community, cat
     fi = FactoryGirl.create(:category_translation, :name => hash['en'], :locale => 'en')
     if hash['category_type'].eql?("main")
       @category = FactoryGirl.create(:category, :translations => [en, fi])
+      category.transaction_types << current_community.transaction.types.first
     else
-      FactoryGirl.create(:category, :parent_id => @category.id, :translations => [en, fi])
+      category = FactoryGirl.create(:category, :parent_id => @category.id, :translations => [en, fi])
+      category.transaction_types << current_community.transaction.types.first
     end
   end
 end
 
-Given /^community "(.*?)" is private$/ do |community_domain|
-  Community.find_by_domain(community_domain).update_attributes({:private => true})
+Given /^community "(.*?)" has following transaction types enabled:$/ do |community, transaction_types|
+  current_community = Community.find_by_domain(community)
+  current_community.transaction_types.clear
+ 
+  current_community.transaction_types << transaction_types.hashes.map do |hash|
+    en = FactoryGirl.create(:transaction_type_translation, :name => hash['fi'], :locale => 'fi')
+    fi = FactoryGirl.create(:transaction_type_translation, :name => hash['en'], :locale => 'en')
+    transaction_type = FactoryGirl.create(:transaction_type, :type => hash['transaction_type'])
+    transaction_type.translations.clear
+    transaction_type.translations << en
+    transaction_type.translations << fi
+  end
 end

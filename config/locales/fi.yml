@@ -1,6 +1,8 @@
 fi:
   admin:
     categories:
+      edit:
+        edit_listing_category: "Muokkaa kategoriaa '%{category}'"
       index:
         listing_categories: "Ilmoituskategoriat"
         create_a_new_category: "+ Uusi kategoria"
@@ -12,6 +14,9 @@ fi:
         category_parent:
           category_parent: "Yläkategoria"
           no_parent: "Ei yläkategoriaa"
+        category_transaction_types:
+          transaction_types: "Transaktiotyypit"
+          transaction_types_description: "Transaktiotyypit määrittelevät, millaiset transaktiot ovat sallittuja tässä kategoriassa oleville ilmoituksille. Voit esimerkiksi määritellä, että ainoastaan myynti-ilmoitukset ovat sallittuja, tai sitten sallia myös vuokrauksen ja lainaamisen."
         buttons:
           save: "Tallenna"
           cancel: "Peruuta"
@@ -137,6 +142,14 @@ fi:
         closed: Suljettu
       show:
         edit_poll: "Muokkaa kyselyä"
+    transaction_types:
+      sell: "Myydään"
+      rent: "Annetaan vuokralle"
+      give: "Annetaan"
+      lend: "Annetaan lainaan"
+      swap: "Vaihdetaan"
+      service: "Tarjotaan palvelua"
+      request: "Tarvitaan"
   common:
     edit_page: "Muokkaa sivua"
     default_community_slogan: "Lainaa, myy, auta, jaa"
@@ -960,7 +973,7 @@ fi:
       comment_cannot_be_empty: "Et voi lähettää tyhjää kommenttia"
       comment_sent: "Kommentti lähetetty"
       confirmation_link_is_wrong_or_used: "Vahvistuslinkki on jo käytetty tai siinä on jokin vika. Yritä kirjautua sisään tai lähetä palautetta jos ongelma ei ratkea."
-      additional_email_confirmed: "Antamasi email osoite on nyt vahvistettu."
+      additional_email_confirmed: "Antamasi sähköpostiosoite on nyt vahvistettu."
       could_not_get_email_from_facebook: "Ei saatu sähköpostiosoitetta Facebookista, eikä uuden tunnuksen luonti onnistu ilman sitä."
       create_new_listing: "Lisää uusi ilmoitus"
       create_one_here: "luoda uuden"

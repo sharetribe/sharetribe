@@ -151,7 +151,11 @@ Kassi::Application.routes.draw do
           post :order
         end
       end
-      resources :categories
+      resources :categories do
+        member do
+          get :remove
+        end
+      end
       resources :polls do
         collection do
           get :add_option

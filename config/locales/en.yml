@@ -1,6 +1,8 @@
 en:
   admin:
     categories:
+      edit:
+        edit_listing_category: "Edit category '%{category}'"
       index:
         listing_categories: "Listing categories"
         create_a_new_category: "+ Create a new category"
@@ -12,6 +14,9 @@ en:
         category_parent:
           category_parent: "Parent category"
           no_parent: "No parent"
+        category_transaction_types:
+          transaction_types: "Transaction types"
+          transaction_types_description: "Transaction types determine what kind of transactions are allowed with listings in this category. For example, is it only selling, or are renting and giving away for free also allowed."
         buttons:
           save: "Save"
           cancel: "Cancel"
@@ -137,6 +142,14 @@ en:
         closed: Closed
       show:
         edit_poll: "Edit poll"
+    transaction_types:
+      sell: "Selling"
+      rent: "Renting out"
+      give: "Giving away"
+      lend: "Lending"
+      swap: "Swapping"
+      service: "Selling services"
+      request: "Requesting"
   common:
     edit_page: "Edit page"
     default_community_slogan: "Community marketplace"
