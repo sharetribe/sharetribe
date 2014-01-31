@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe PeopleController do
-  fixtures :communities
-  fixtures :people
   
   before(:each) do
     @request.env["devise.mapping"] = Devise.mappings[:person]
