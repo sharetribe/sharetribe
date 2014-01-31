@@ -1,5 +1,5 @@
-- if @category.children.empty?
+- if @category.children.empty? && top_level_categories.size > 1
   .row
     .col-12
       = form.label :parent_id, t(".category_parent")
-      = form.select :parent_id, options_for_select([[t(".no_parent"), nil]] + @current_community.top_level_categories.collect { |c| [c.display_name, c.id] }, @category.parent_id)
+      = form.select :parent_id, options_for_select([[t(".no_parent"), nil]] + @current_community.top_level_categories.reject { |c| c.id == @category.id }.collect { |c| [c.display_name, c.id] }, @category.parent_id)
