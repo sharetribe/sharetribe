@@ -15,7 +15,6 @@ def include_all?(arr, needle_arr)
 end
 
 describe PersonMailer do
-  fixtures :people, :communities, :community_memberships
   
   # Include EmailSpec stuff (https://github.com/bmabey/email-spec)
   include(EmailSpec::Helpers)

@@ -103,8 +103,6 @@ module TestHelpers
     
   end
 
-
-  # This method is called every time a new test is started
   def load_default_test_data_to_db
     community1 = FactoryGirl.create(:community, :domain => "test", :name => "Test", :consent => "test_consent0.1", :settings => {"locales" => ["en", "fi"]}, :real_name_required => true, :news_enabled => false, :all_users_can_add_news => false)
     community2 = FactoryGirl.create(:community, :domain => "test2", :name => "Test2", :consent => "KASSI_FI1.0", :settings => {"locales" => ["en"]}, :real_name_required => true, :allowed_emails => "@example.com")
@@ -146,6 +144,7 @@ module TestHelpers
     :address => "kassi_testperson2@example.com",
     :send_notifications => true,
     :confirmed_at => "2012-05-04 18:17:04")
+
 
     [community1, community2, community3].each { |c| CategoriesHelper.load_test_categories_and_transaction_types_to_db(c) }
   end
