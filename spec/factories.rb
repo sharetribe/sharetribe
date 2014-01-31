@@ -154,6 +154,7 @@ FactoryGirl.define do
   
   factory :category do
     icon "item"
+    association :community
     before(:create) do |category|
       category.translations << FactoryGirl.create(:category_translation)
       category.transaction_types << FactoryGirl.create(:transaction_type)
@@ -166,6 +167,7 @@ FactoryGirl.define do
   end
 
   factory :transaction_type do
+    association :community
     type "SellProducts"
   end
 

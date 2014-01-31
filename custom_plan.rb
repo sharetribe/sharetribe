@@ -19,12 +19,6 @@ class CustomPlan < Zeus::Rails
     # With Zeus we don't care if it stays running afterwards. It's anyway restarted next time Zeus starts
     # And keeping it running makes running new tests much faster
     ThinkingSphinx::Test.start
-
-
-  	# Load the seeds here
-    # As this seemed the only place possible to make Zeus load default categories while Zeus starts 
-    # And not every time cucumber tests are run
-  	CategoriesHelper.load_test_categories_and_transaction_types_to_db
  
   end
 

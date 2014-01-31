@@ -58,11 +58,9 @@ prefork = lambda {
     # examples within a transaction, comment the following line or assign false
     # instead of true.
     config.use_transactional_fixtures = false
-    
-    # Load default categories and transaction types to DB
-    CategoriesHelper.load_test_categories_and_transaction_types_to_db
 
-    tables_to_keep = %w[categories transaction_types category_transaction_types category_translations transaction_type_translations]
+    tables_to_keep = %w[]
+    # tables_to_keep = %w[categories transaction_types category_transaction_types category_translations transaction_type_translations]
 
     # Clean once when guard starts
     DatabaseCleaner.clean_with(:truncation, {:except => tables_to_keep})

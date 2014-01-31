@@ -2,10 +2,6 @@ start_time = Time.now
 
 Before do
   load_default_test_data_to_db
-  ActiveRecord::Fixtures.reset_cache
-  fixtures_folder = File.join(Rails.root  , 'spec', 'fixtures')
-  fixtures = Dir[File.join(fixtures_folder, '*.yml')].map {|f| File.basename(f, '.yml') }
-  ActiveRecord::Fixtures.create_fixtures(fixtures_folder, fixtures)
   
   Capybara.default_host = 'test.lvh.me'
   Capybara.server_port = 9887
