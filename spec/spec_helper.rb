@@ -62,16 +62,18 @@ prefork = lambda {
     # Load default categories and transaction types to DB
     CategoriesHelper.load_test_categories_and_transaction_types_to_db
 
+    tables_to_keep = %w[categories transaction_types category_transaction_types category_translations transaction_type_translations]
+
     # Clean once when guard starts
-    DatabaseCleaner.clean_with(:truncation, {:except => %w[categories share_types community_categories category_translations share_type_translations]})
+    DatabaseCleaner.clean_with(:truncation, {:except => tables_to_keep})
     
     config.after(:suite) do
       # Otherwise clean AFTER the suite
-      DatabaseCleaner.clean_with(:truncation, {:except => %w[categories share_types community_categories category_translations share_type_translations]})
+      DatabaseCleaner.clean_with(:truncation, {:except => tables_to_keep})
     end
 
     config.before(:suite) do
-      DatabaseCleaner.strategy = :truncation, {:except => %w[categories share_types community_categories category_translations share_type_translations]}
+      DatabaseCleaner.strategy = :truncation, {:except => tables_to_keep}
 
       # Seed the database only in the beginning for better test performance
       # This needs to be changed if/when any test modify seeded values
@@ -79,6 +81,7 @@ prefork = lambda {
 
     config.before(:each) do
       DatabaseCleaner.start
+      load_default_test_data_to_db
     end
 
     config.after(:each) do

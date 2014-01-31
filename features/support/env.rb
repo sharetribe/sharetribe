@@ -12,6 +12,8 @@ require 'cucumber/rails'
 require 'email_spec/cucumber'
  
 
+tables_to_keep = %w[categories transaction_types category_transaction_types category_translations transaction_type_translations] 
+
 # NOTE: Zeus doesn't load this part, it only runs custom_plan.rb and each_run block  
 prefork = lambda {
   #puts "CUCUMBER PREFORK"
@@ -28,7 +30,7 @@ prefork = lambda {
   # end
 
   # Default categories and share types
-  # CategoriesHelper.load_test_categories_and_transaction_types_to_db
+  CategoriesHelper.load_test_categories_and_transaction_types_to_db
 }
  
 each_run = lambda {
@@ -72,7 +74,7 @@ each_run = lambda {
   begin
     # General setting is :transaction, but see below for changes
     #DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.strategy = :truncation, {:except => %w[categories transaction_types category_transaction_types category_translations transaction_type_translations]}
+    DatabaseCleaner.strategy = :truncation, {:except => tables_to_keep}
     #:truncation, {:except => %w[categories share_types community_categories category_translations share_type_translations]}
   rescue NameError
     raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
@@ -100,11 +102,13 @@ each_run = lambda {
 # # Possible values are :truncation and :transaction
 # # The :transaction strategy is faster, but might give you threading problems.
 # # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
-Cucumber::Rails::Database.javascript_strategy = :truncation, {:except => %w[categories transaction_types category_transaction_types category_translations transaction_type_translations]}
+Cucumber::Rails::Database.javascript_strategy = :truncation, {:except => tables_to_keep}
 
 # Disable delta indexing as it is not needed and generates unnecessary delay and output
 ThinkingSphinx::Deltas.suspend!
 
+# Default categories & share types
+#CategoriesHelper.load_test_categories_and_transaction_types_to_db
 
 # The each call functionality below doesn't seem to work with zeus (but it works with spork if that's needed anymore)
 # Better to but stuff that's needed on every run straight to here. Like the javascript_strategy above

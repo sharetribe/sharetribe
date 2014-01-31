@@ -9,9 +9,7 @@ module CategoriesHelper
     {
     "item" => [
       "tools",
-      "books",
-      "furniture",
-      "other"
+      "books"
       ]
     },
     "favor",
@@ -21,13 +19,15 @@ module CategoriesHelper
   def self.load_test_categories_and_transaction_types_to_db
     # Create categories and transaction types for the 3 default text
     # communities defined in fixtures.
-    Community.find_each { |c| c.destroy }
-    ["test", "test2", "test3"].each do |domain|
-      community = Community.create!(:name => domain, :domain => domain, :settings => {"locales" => ["en", "fi"]})
-      community.categories.each { |c| c.destroy }
-      community.transaction_types.each { |t| t.destroy }
-      CategoriesHelper.load_categories_and_transaction_types_to_db(community, DEFAULT_TRANSACTION_TYPES_FOR_TESTS, DEFAULT_CATEGORIES_FOR_TESTS)
-    end
+    # Community.find_each { |c| c.destroy }
+    # ["test", "test2", "test3"].each_with_index do |domain, index|
+    #   community = Community.create!(:name => domain, :domain => domain, :settings => {"locales" => ["en", "fi"]})
+    #   # Force community id to be the same than default test community id
+    #   community.update_attribute(:id, index + 1)
+    #   community.categories.each { |c| c.destroy }
+    #   community.transaction_types.each { |t| t.destroy }
+    #   CategoriesHelper.load_categories_and_transaction_types_to_db(community, DEFAULT_TRANSACTION_TYPES_FOR_TESTS, DEFAULT_CATEGORIES_FOR_TESTS)
+    # end
   end
 
   def self.load_categories_and_transaction_types_to_db(community, transaction_types, categories)
@@ -51,9 +51,7 @@ module CategoriesHelper
 
       # Categories that have subcategories
       elsif c.is_a?(Hash)
-        puts "C (hash): #{c.inspect}"
         top_level_category = Category.create!(:community_id => community.id)
-        puts "Top level category: #{top_level_category}"
         CategoriesHelper.add_transaction_types_and_translations_to_category(top_level_category, c.keys.first)
         c.values.first.each do |sg|
           subcategory = Category.create!(:community_id => community.id, :parent_id => top_level_category.id)
@@ -67,7 +65,6 @@ module CategoriesHelper
   def self.add_transaction_types_and_translations_to_category(category, category_name)
     category.community.transaction_types.each { |tt| category.transaction_types << tt }
     category.community.locales.each do |locale|
-      puts "Category name: #{category_name}"
       cat_name = I18n.t!(category_name, :locale => locale, :scope => ["common", "categories"], :raise => true)
       category.translations.create!(:locale => locale, :name => cat_name)
     end

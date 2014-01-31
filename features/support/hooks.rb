@@ -1,6 +1,7 @@
 start_time = Time.now
 
 Before do
+  load_default_test_data_to_db
   ActiveRecord::Fixtures.reset_cache
   fixtures_folder = File.join(Rails.root  , 'spec', 'fixtures')
   fixtures = Dir[File.join(fixtures_folder, '*.yml')].map {|f| File.basename(f, '.yml') }

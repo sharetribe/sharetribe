@@ -24,7 +24,7 @@ class CustomPlan < Zeus::Rails
   	# Load the seeds here
     # As this seemed the only place possible to make Zeus load default categories while Zeus starts 
     # And not every time cucumber tests are run
-  	#CategoriesHelper.load_test_categories_and_transaction_types_to_db
+  	CategoriesHelper.load_test_categories_and_transaction_types_to_db
  
   end
 
