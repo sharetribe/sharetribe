@@ -11,6 +11,8 @@ fr:
         edit_community_slogan_description: "Ceci est affiché sur la page d'accueil de votre tribu aux utilisateurs qui ne sont pas connectés. %{see_how_it_looks_like}."
         community_description: "Description de la tribu"
         edit_community_description_description: "Ceci est affiché sur la page d'accueil de votre tribu aux utilisateurs qui ne sont pas connectés. %{see_how_it_looks_like}."
+        private_community_homepage_content: "Page d'accueil d'une tribu privée"
+        edit_private_community_homepage_content_description: "Ce contenu n'est visible qu'aux utilisateurs non connectés, sur la page d'accueil de tribus privées. Vous pouvez décrire ici votre tribu et comment la rejoindre. Vous pouvez aussi ajouter des images, des vidéos et du contenu HTML. %{see_how_it_looks_like}."
         update_information: "Mettre les informations à jour"
         invite_people: "Invitez des gens dans cette tribu"
         edit_signup_info: "Informations lors de l'inscription"
@@ -813,6 +815,7 @@ fr:
       no_reviews: "Aucun avis"
       no_image: "Aucune image"
       filter: Filtre
+      this_is_private_community: "Vous devez vous connecter pour voir le contenu."
     invitation_form:
       invite_your_friends: "Inviter vos amis sur %{service_name}"
       invite_your_neighbors: "Invitez vos voisins sur %{service_name} !"
