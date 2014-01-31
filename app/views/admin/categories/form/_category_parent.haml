@@ -1,4 +1,4 @@
-- if @category.children.empty? && top_level_categories.size > 1
+- if @category.children.empty? && @current_community.top_level_categories.size > 1
   .row
     .col-12
       = form.label :parent_id, t(".category_parent")
