@@ -57,7 +57,7 @@ prefork = lambda {
     # If you're not using ActiveRecord, or you'd prefer not to run each of your
     # examples within a transaction, comment the following line or assign false
     # instead of true.
-    config.use_transactional_fixtures = true
+    config.use_transactional_fixtures = false
     
     # Load default categories and transaction types to DB
     CategoriesHelper.load_test_categories_and_transaction_types_to_db
@@ -71,7 +71,7 @@ prefork = lambda {
     end
 
     config.before(:suite) do
-      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.strategy = :truncation, {:except => %w[categories share_types community_categories category_translations share_type_translations]}
 
       # Seed the database only in the beginning for better test performance
       # This needs to be changed if/when any test modify seeded values

@@ -12,7 +12,7 @@ de:
         community_description: "Community Beschreibung"
         edit_community_description_description: "Dies wird den Nutzern auf der Startseite der Community angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
         private_community_homepage_content: "Privater Inhalt der Community Startseite"
-        edit_private_community_homepage_content_description: "Der Content ist nur in privaten Communities sichtbar. User, die nicht eingeloggt sind, sehen ihn auf der Startseite. Beschreibe hier deine Community und wie man ihr beitreten kann. Du kannst hier außerdem Bilder, Videos und HTML-Content hinzufügen. %{see_how_it_looks_like}."
+        edit_private_community_homepage_content_description: "Dieser Content ist nur bei privaten Communities sichtbar. User, die nicht eingeloggt sind, sehen den Text auf der Startseite. Beschreibe hier deine Community und wie man ihr beitreten kann. Du kannst hier außerdem Bilder, Videos und HTML-Content hinzufügen. %{see_how_it_looks_like}."
         update_information: Erneuern
         invite_people: "Lade Leute zu dieser Community ein"
         edit_signup_info: Anmeldedaten
@@ -888,7 +888,7 @@ de:
       send_feedback_to_admin: "Feedback senden"
       to_see_what_others_have_suggested: "um zu sehen, was andere Benutzer vorgeschlagen haben und um die für die Ideen zu stimmen."
       your_email_address: "Deine E-Mail-Adresse (nicht erforderlich)"
-      connect: Anmelden
+      connect: "Jetzt anmelden"
       invite_your_friends: "Freunde einladen"
       invite_your_neighbors: "Lade Nachbarn ein!"
       invite_your_friends_description: "Je mehr Leute im %{service_name} sind, desto nützlicher ist es."
@@ -1603,8 +1603,8 @@ de:
   sessions:
     new:
       create_new_account: "Ein neues Konto in %{service_name} erstellen"
-      i_forgot_my_password: "Benutzernamen oder Passwort vergessen"
-      login: Anmelden
+      i_forgot_my_password: "Benutzernamen oder Passwort vergessen?"
+      login: Einloggen
       login_to_kassi: "Bei %{service_name} anmelden"
       connect_your_facebook_to_kassi: "Verbinde dein Facebook-Konto mit %{service_name}"
       facebook_account: "Facebook-Konto:"
@@ -1618,7 +1618,7 @@ de:
       we_will_not_post_without_asking_you: "Wir werden deine Nachrichten nie auf Facebook posten ohne vorher zu fragen."
     password_forgotten:
       email: E-Mail
-      password_recovery_instructions: "Gib deine E-Mail-Adresse ein, um deinen Benutzernamen zu erhalten und Anweisungen, wie du dein Passwort ändern kannst."
+      password_recovery_instructions: "Gib deine E-Mail-Adresse ein, um deinen Benutzernamen zu erhalten sowie Anweisungen, wie du dein Passwort ändern kannst."
       request_new_password: "Neues Passwort anfordern"
       change_your_password: "Ändere dein Passwort"
     confirmation_pending:

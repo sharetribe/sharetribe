@@ -11,6 +11,8 @@ es:
         edit_community_slogan_description: ~
         community_description: "Descripción:"
         edit_community_description_description: ~
+        private_community_homepage_content: ~
+        edit_private_community_homepage_content_description: ~
         update_information: "Actualizar información"
         invite_people: ~
         edit_signup_info: ~
@@ -818,6 +820,7 @@ es:
       no_reviews: "Sin reviews"
       no_image: ~
       filter: ~
+      this_is_private_community: ~
     invitation_form:
       invite_your_friends: "Invita a tus amigos a %{service_name}!"
       invite_your_neighbors: ~
@@ -949,7 +952,7 @@ es:
       confirmation_link_is_wrong_or_used: "El link de confirmación ya ha sido usado o se ha roto en el enlace. Intenta iniciar sesión o escríbenos si el problema persiste."
       additional_email_confirmed: "El e-mail que ingresaste está confirmado. Puedes entrar a la comunidad ingresando nuevamente."
       could_not_get_email_from_facebook: ~
-      create_new_listing: ~
+      create_new_listing: "Crear otro listado."
       create_one_here: "Crear una aquí"
       email_confirmation_sent_to_new_address: "El e-mail de confirmación ya fue enviado a la nueva dirección."
       email_not_found: "No se encontró la dirección de correo en la base de datos de %{service_name}."
@@ -963,7 +966,7 @@ es:
       invitation_sent: "Invitación enviada satisfactoriamente"
       inviting_new_users_is_not_allowed_in_this_community: "Invitar a nuevos usuarios no está permitido en ésta comunidad de %{service_name}"
       login_again: "Por favor, vuelve a iniciar la sesión"
-      login_failed: "Falló el inicio de sesión. Por favor ingresa correctamente los datos."
+      login_failed: "No se pudo ingresar. Por favor revisa los datos ingresados"
       account_creation_successful: "Bienvenido a %{service_name}, %{person_name}!"
       account_deleted: ~
       login_successful: "Bienvenido a %{service_name}, "
@@ -976,7 +979,7 @@ es:
       offer_accepted: "Oferta aceptada"
       offer_confirmed: "Oferta confirmada"
       offer_closed: "Oferta cerrada"
-      listing_created_successfully: ~
+      listing_created_successfully: "Listado creado exitosamente. %{new_listing_link}"
       offer_rejected: "Oferta rechazada"
       offer_canceled: "Oferta cancelada"
       listing_updated_successfully: ~

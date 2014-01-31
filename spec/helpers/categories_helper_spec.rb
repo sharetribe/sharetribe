@@ -102,7 +102,7 @@ describe CategoriesHelper do
       community.main_categories.count.should == 10
       community.categories.count.should == 21
       #puts community.categories_tree.to_yaml
-      
+      reset_categories_to_default
     end
 
     
