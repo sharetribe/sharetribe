@@ -6,6 +6,8 @@ Before do
   fixtures = Dir[File.join(fixtures_folder, '*.yml')].map {|f| File.basename(f, '.yml') }
   ActiveRecord::Fixtures.create_fixtures(fixtures_folder, fixtures)
   
+  load_default_test_data_to_db
+
   Capybara.default_host = 'test.lvh.me'
   Capybara.server_port = 9887
   Capybara.app_host = "http://test.lvh.me:9887"

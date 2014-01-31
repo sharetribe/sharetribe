@@ -79,6 +79,7 @@ prefork = lambda {
 
     config.before(:each) do
       DatabaseCleaner.start
+      load_default_test_data_to_db
     end
 
     config.after(:each) do
