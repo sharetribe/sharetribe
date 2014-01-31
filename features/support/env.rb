@@ -11,8 +11,7 @@ include TestHelpers
 require 'cucumber/rails'
 require 'email_spec/cucumber'
  
-tables_to_keep = %w[]
-#tables_to_keep = %w[categories transaction_types category_transaction_types category_translations transaction_type_translations] 
+tables_to_keep = %w[categories transaction_types category_transaction_types category_translations transaction_type_translations communities community_categories] 
 
 # NOTE: Zeus doesn't load this part, it only runs custom_plan.rb and each_run block  
 prefork = lambda {
@@ -28,6 +27,10 @@ prefork = lambda {
   #     # Browser must have already gone
   #   end
   # end
+
+  # Populate db with default data
+  load_default_test_data_to_db_before_tests
+
 }
  
 each_run = lambda {

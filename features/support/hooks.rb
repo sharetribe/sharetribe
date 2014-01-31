@@ -1,7 +1,7 @@
 start_time = Time.now
 
 Before do
-  load_default_test_data_to_db
+  load_default_test_data_to_db_before_test
 
   Capybara.default_host = 'test.lvh.me'
   Capybara.server_port = 9887

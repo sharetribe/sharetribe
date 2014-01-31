@@ -59,8 +59,7 @@ prefork = lambda {
     # instead of true.
     config.use_transactional_fixtures = false
 
-    tables_to_keep = %w[]
-    # tables_to_keep = %w[categories transaction_types category_transaction_types category_translations transaction_type_translations]
+    tables_to_keep = %w[categories transaction_types category_transaction_types category_translations transaction_type_translations communities community_categories]
 
     # Clean once when guard starts
     DatabaseCleaner.clean_with(:truncation, {:except => tables_to_keep})
@@ -79,17 +78,13 @@ prefork = lambda {
 
     config.before(:each) do
       DatabaseCleaner.start
-      load_default_test_data_to_db
+      load_default_test_data_to_db_before_test
     end
 
     config.after(:each) do
       DatabaseCleaner.clean
     end
   end
-
-  require File.expand_path('../../test/helper_modules', __FILE__)
-  include TestHelpers
-
 
   def uploaded_file(filename, content_type)
     t = Tempfile.new(filename)
@@ -130,6 +125,13 @@ if defined?(Zeus)
   end
 else
   prefork.call
+  
+  # Populate db with default data. If Zeus is in use, this is called
+  # from Zeus custom plan.
+  require File.expand_path('../../test/helper_modules', __FILE__)
+  include TestHelpers  
+  load_default_test_data_to_db_before_tests
+
   each_run.call
 end
 

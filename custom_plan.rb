@@ -1,5 +1,8 @@
 require 'zeus/rails'
 
+require File.expand_path('../test/helper_modules', __FILE__)
+include TestHelpers
+
 class CustomPlan < Zeus::Rails
 
   # def my_custom_command
@@ -19,6 +22,9 @@ class CustomPlan < Zeus::Rails
     # With Zeus we don't care if it stays running afterwards. It's anyway restarted next time Zeus starts
     # And keeping it running makes running new tests much faster
     ThinkingSphinx::Test.start
+
+    # Populate db with default data
+    load_default_test_data_to_db_before_tests
  
   end
 
