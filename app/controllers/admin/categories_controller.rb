@@ -55,14 +55,9 @@ class Admin::CategoriesController < ApplicationController
 
   # Remove action
   def destroy
-    @custom_field = CustomField.find(params[:id])
-
-    success = if custom_field_belongs_to_community?(@custom_field, @current_community)
-      @custom_field.destroy
-    end
-
-    flash[:error] = "Field doesn't belong to current community" unless success
-    redirect_to admin_custom_fields_path
+    @category = Category.find_by_id_and_community_id(params[:id], @current_community.id)
+    @category.destroy
+    redirect_to admin_categories_path
   end
 
 end
