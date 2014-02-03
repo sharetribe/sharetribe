@@ -43,4 +43,8 @@ class Category < ActiveRecord::Base
     n ? n.name : ""
   end
 
+  def has_listings?
+    listings.count > 0
+  end
+
 end

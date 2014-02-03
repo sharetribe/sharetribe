@@ -8,5 +8,6 @@
   .col-2.listed-category-col
     = link_to edit_admin_category_path(category), :class => "custom-fields-action-edit", :id => "edit_category_#{category.id}" do
       = icon_tag("edit", ["icon-fix"])
-    = link_to admin_category_path(category), :class => "custom-fields-action-remove", :id => "remove_category_#{category.id}", :method => :delete, :confirm => t("admin.categories.index.remove_category_confirmation", {category_name: category.display_name(I18n.locale)}) do
-      = icon_tag("cross", ["icon-fix"])
+    - unless category.has_listings?
+      = link_to admin_category_path(category), :class => "custom-fields-action-remove", :id => "remove_category_#{category.id}", :method => :delete, :confirm => t("admin.categories.index.remove_category_confirmation", {category_name: category.display_name(I18n.locale)}) do
+        = icon_tag("cross", ["icon-fix"])
