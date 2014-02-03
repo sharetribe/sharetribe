@@ -47,4 +47,33 @@ class Category < ActiveRecord::Base
     listings.count > 0
   end
 
+  def has_subcategories?
+    subcategories.count > 0
+  end
+
+  def subcategory_ids
+    subcategories.collect(&:id)
+  end
+
+  def own_and_subcategory_ids
+    [id].concat(subcategory_ids)
+  end
+
+  def is_own_or_subcategory_id?(id)
+    own_and_subcategory_ids.include?(id)
+  end
+
+  def all_but_me
+    community.categories.select do |category|
+      !is_own_or_subcategory_id?(category.id)
+    end
+  end
+
+  def remove_needs_caution?
+    has_listings? or has_subcategories?
+  end
+
+  def own_and_subcategory_listings
+    Listing.find_by_category_and_subcategory(self)
+  end
 end

@@ -5,6 +5,10 @@
   .col-2.listed-category-col
     = link_to edit_admin_category_path(subcategory), :class => "custom-fields-action-edit", :id => "edit_category_#{subcategory.id}" do
       = icon_tag("edit", ["icon-fix"])
-    - unless subcategory.has_listings?
-      = link_to admin_category_path(subcategory), :class => "custom-fields-action-remove", :id => "remove_category_#{subcategory.id}", :method => :delete, :confirm => t("admin.categories.index.remove_category_confirmation", {category_name: subcategory.display_name(I18n.locale)}) do
+    - remove_html_opts = { class: "custom-fields-action-remove", id: "remove_category_#{subcategory.id}" }
+    - if subcategory.remove_needs_caution?
+      = link_to remove_admin_category_path(subcategory), remove_html_opts do
+        = icon_tag("cross", ["icon-fix"])
+    - else
+      = link_to admin_category_path(subcategory), remove_html_opts.merge(:method => :delete, :confirm => t("admin.categories.index.remove_category_confirmation", {category_name: subcategory.display_name(I18n.locale)})) do
         = icon_tag("cross", ["icon-fix"])

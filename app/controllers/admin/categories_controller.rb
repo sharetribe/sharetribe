@@ -60,4 +60,15 @@ class Admin::CategoriesController < ApplicationController
     redirect_to admin_categories_path
   end
 
+  def destroy_and_move
+    @category = Category.find_by_id_and_community_id(params[:id], @current_community.id)
+    new_category_id = Category.find_by_id_and_community_id(params[:new_category], @current_community.id)
+
+    @category.own_and_subcategory_listings.update_all(:category_id => new_category_id)
+
+    @category.destroy
+
+    redirect_to admin_categories_path
+  end
+
 end

@@ -479,6 +479,10 @@ button, .button {
   margin-left: lines(0.25);
 }
 
+.delete-button {
+  @include button(red);
+}
+
 .big-button {
   @include big-button($link);
 }

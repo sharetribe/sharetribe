@@ -332,6 +332,10 @@ class Listing < ActiveRecord::Base
     end
     return listings
   end
+
+  def self.find_by_category_and_subcategory(category)
+    Listing.where(:category_id => category.own_and_subcategory_ids)
+  end
   
   def self.find_category_and_share_type_based_on_string_params(p)
     p[:category] = Category.find_by_name(p[:subcategory] || p[:category])
