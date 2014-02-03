@@ -40,12 +40,6 @@ $custom-field-option-height: lines(1.5); // Used to center label text vertically
   width: 100%;
 }
 
-.custom-field-option-remove {
-  &.disabled {
-    color: $border;
-  }
-}
-
 .custom-field-actions {
   text-align: right;
   line-height: $custom-field-option-height;

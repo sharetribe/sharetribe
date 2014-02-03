@@ -22,6 +22,8 @@ class Category < ActiveRecord::Base
   
   belongs_to :community
 
+  before_destroy :can_destroy?
+
   def translation_attributes=(attributes)
     build_attrs = attributes.map { |locale, values| { locale: locale, values: values } }
     build_attrs.each do |translation| 
@@ -67,6 +69,14 @@ class Category < ActiveRecord::Base
     community.categories.select do |category|
       !is_own_or_subcategory_id?(category.id)
     end
+  end
+
+  def is_subcategory?
+    !parent_id.nil?
+  end
+
+  def can_destroy?
+    is_subcategory? || community.top_level_categories.count > 1
   end
 
   def remove_needs_caution?
