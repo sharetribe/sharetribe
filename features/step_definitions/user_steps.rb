@@ -187,9 +187,17 @@ Given /^"([^"]*)" is superadmin$/ do |username|
   user.update_attribute(:is_admin, true)
 end
 
+Given /^user "([^"]*)" is member of community "([^"]*)"$/ do |username, community|
+  user = Person.find_by_username(username)
+  community = Community.find_by_domain(community)
+  cm = CommunityMembership.find_by_person_id_and_community_id(user.id, community.id)
+  CommunityMembership.create(:person_id => user.id, :community_id => community.id) unless cm
+end
+
 Given /^"([^"]*)" has admin rights in community "([^"]*)"$/ do |username, community|
   user = Person.find_by_username(username)
-  CommunityMembership.find_by_person_id_and_community_id(user.id, Community.find_by_domain(community).id).update_attribute(:admin, true)
+  community = Community.find_by_domain(community)
+  CommunityMembership.find_by_person_id_and_community_id(user.id, community.id).update_attribute(:admin, true)
 end
 
 Then /^I should see my username$/ do

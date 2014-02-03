@@ -1,7 +1,9 @@
 Given /^there are following communities:$/ do |communities_table|
   communities_table.hashes.each do |hash|
     domain = hash[:community]
-    @hash_community = FactoryGirl.create(:community, :name => domain, :domain => domain)
+    existing_community = Community.find_by_domain(domain)
+    existing_community.destroy if existing_community
+    @hash_community = FactoryGirl.create(:community, :name => domain, :domain => domain, :settings => {"locales" => ["en", "fi"]})
     
     attributes_to_update = hash.except('community')
     @hash_community.update_attributes(attributes_to_update) unless attributes_to_update.empty?
@@ -117,31 +119,29 @@ end
 
 Given /^community "(.*?)" has following category structure:$/ do |community, categories|
   current_community = Community.find_by_domain(community)
-  current_community.categories.clear
+  current_community.categories.destroy_all
  
   current_community.categories << categories.hashes.map do |hash|
-    en = FactoryGirl.create(:category_translation, :name => hash['fi'], :locale => 'fi')
-    fi = FactoryGirl.create(:category_translation, :name => hash['en'], :locale => 'en')
+    category = current_community.categories.create!
+    category.translations.create!(:name => hash['fi'], :locale => 'fi')
+    category.translations.create!(:name => hash['en'], :locale => 'en')
+    category.transaction_types << current_community.transaction_types.first
     if hash['category_type'].eql?("main")
-      @category = FactoryGirl.create(:category, :translations => [en, fi])
-      category.transaction_types << current_community.transaction.types.first
+      @top_level_category = category
     else
-      category = FactoryGirl.create(:category, :parent_id => @category.id, :translations => [en, fi])
-      category.transaction_types << current_community.transaction.types.first
+      category.update_attribute(:parent_id, @top_level_category.id)
     end
   end
 end
 
 Given /^community "(.*?)" has following transaction types enabled:$/ do |community, transaction_types|
   current_community = Community.find_by_domain(community)
-  current_community.transaction_types.clear
+  current_community.transaction_types.destroy_all
  
   current_community.transaction_types << transaction_types.hashes.map do |hash|
-    en = FactoryGirl.create(:transaction_type_translation, :name => hash['fi'], :locale => 'fi')
-    fi = FactoryGirl.create(:transaction_type_translation, :name => hash['en'], :locale => 'en')
-    transaction_type = FactoryGirl.create(:transaction_type, :type => hash['transaction_type'])
-    transaction_type.translations.clear
-    transaction_type.translations << en
-    transaction_type.translations << fi
+    transaction_type = FactoryGirl.create(:transaction_type, :type => hash['transaction_type'], :community_id => current_community.id)
+    transaction_type.translations.create(:name => hash['fi'], :locale => 'fi')
+    transaction_type.translations.create(:name => hash['en'], :locale => 'en')
+    transaction_type
   end
 end

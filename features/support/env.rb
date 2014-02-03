@@ -75,6 +75,7 @@ each_run = lambda {
     # General setting is :transaction, but see below for changes
     #DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.strategy = :truncation, {:except => tables_to_keep}
+    DatabaseCleaner.clean_with(:truncation)
   rescue NameError
     raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
   end
