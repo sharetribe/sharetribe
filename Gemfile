@@ -85,6 +85,7 @@ group :development do
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-nav'
+  gem 'zeus'
 end
 
 group :test do
