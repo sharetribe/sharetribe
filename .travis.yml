@@ -36,6 +36,6 @@ before_script:
 - mysql -e 'create database sharetribe_test;'
 - rake db:test:load
 script:
-- run_travis.sh
+- ./run_travis.sh
 after_script:
 - bundle_cache
