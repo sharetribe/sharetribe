@@ -1,4 +1,4 @@
-describe Category do
+describe Admin::CategoryService do
 
   before(:each) do
     @category = FactoryGirl.create(:category, :community => @community)
@@ -11,37 +11,50 @@ describe Category do
 
     @category.reload
     @subcategory.reload
+
+    @category.custom_fields.count.should == 1
+    @subcategory.custom_fields.count.should == 1
+  end
+
+  def include_by_id?(xs, model)
+    xs.find { |x| x.id == model.id }
   end
 
   describe "#move_custom_fields" do
 
     it "removing moves custom fields to new category" do
-      @category2.custom_fields.should_not include(@custom_field)
-      
-      move_custom_fields(@category, @category2)
-      
-      @category2.custom_fields.should include(@custom_field)
+      include_by_id?(@category2.custom_fields, @custom_field).should be_false
+
+      Admin::CategoryService.move_custom_fields!(@category, @category2)
+      @category2.reload
+
+      include_by_id?(@category2.custom_fields, @custom_field).should be_true
     end
 
     it "removing moves custom fields from subcategories to new category" do
-      @category2.custom_fields.should_not include(@custom_field)
-      @category2.custom_fields.should_not include(@subcustom_field)
+      include_by_id?(@category2.custom_fields, @custom_field).should be_false
+      include_by_id?(@category2.custom_fields, @subcustom_field).should be_false
 
-      move_custom_fields(@category, @category2)
+      Admin::CategoryService.move_custom_fields!(@category, @category2)
+      @category2.reload
 
-      @category2.custom_fields.should include(@custom_field)
-      @category2.custom_fields.should include(@subcustom_field)
+      include_by_id?(@category2.custom_fields, @custom_field).should be_true
+      include_by_id?(@category2.custom_fields, @subcustom_field).should be_true
     end
 
     it "moving custom fields does not create duplicates" do
       @custom_field.categories << @category2
 
-      @category2.custom_fields.should include(@custom_field)
-      @category2.custom_fields.should_not include(@subcustom_field)
+      include_by_id?(@category2.custom_fields, @custom_field).should be_true
+      include_by_id?(@category2.custom_fields, @subcustom_field).should_not be_true
+      @category2.custom_fields.count.should == 1
 
-      move_custom_fields(@category, @category2)
-      @category2.custom_fields.should include(@custom_field)
-      @category2.custom_fields.should include(@subcustom_field)
+      Admin::CategoryService.move_custom_fields!(@category, @category2)
+      @category2.reload
+
+      include_by_id?(@category2.custom_fields, @custom_field).should be_true
+      include_by_id?(@category2.custom_fields, @subcustom_field).should be_true
+      @category2.custom_fields.count.should == 2
     end
   end
 end
