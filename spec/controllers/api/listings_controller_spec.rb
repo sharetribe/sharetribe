@@ -30,7 +30,7 @@ describe Api::ListingsController do
     @l4.save!
     @l4.update_attribute(:valid_until, 2.days.ago)
 
-  
+    set_subdomain("api")
   end
 
 
