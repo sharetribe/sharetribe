@@ -122,14 +122,14 @@ en:
         closed: Closed
       show:
         edit_poll: "Edit poll"
-      transaction_types:
-        sell: "Selling"
-        rent: "Renting out"
-        give: "Giving away"
-        lend: "Lending"
-        swap: "Swapping"
-        service: "Selling services"
-        request: "Requesting"
+    transaction_types:
+      sell: "Selling"
+      rent: "Renting out"
+      give: "Giving away"
+      lend: "Lending"
+      swap: "Swapping"
+      service: "Selling services"
+      request: "Requesting"
   common:
     edit_page: "Edit page"
     default_community_slogan: "Community marketplace"

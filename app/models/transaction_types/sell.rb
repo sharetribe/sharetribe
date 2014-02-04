@@ -1,0 +1,3 @@
+class Sell < TransactionType
+
+end
