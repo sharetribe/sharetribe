@@ -51,6 +51,7 @@ class Admin::CategoriesController < ApplicationController
   def remove
     @selected_left_navi_link = "listing_categories"
     @category = Category.find(params[:id])
+    @new_category_candidates = @current_community.leaf_categories.reject { |category| @category.id == category.id }
   end
 
   # Remove action

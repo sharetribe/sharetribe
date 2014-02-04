@@ -496,6 +496,10 @@ class Community < ActiveRecord::Base
       return []
     end
   end
+
+  def leaf_categories
+    categories.reject { |c| !c.children.empty? }
+  end
   
   def braintree_in_use?
     payment_gateway.present? && payment_gateway.type == "BraintreePaymentGateway"
