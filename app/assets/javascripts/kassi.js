@@ -309,9 +309,9 @@ function initialize_braintree_account_form(locale) {
 
 
 
-function select_listing_form_menu_link(link, locale, attribute_hash, listing_form_menu_titles, ordered_attributes, selected_attributes) {
+function select_listing_form_menu_link(link, locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes) {
   if (link.hasClass('option')) {
-    selected_attributes[link.parent().attr('name')] = link.attr('name');
+    selected_attributes[link.parent().attr('name')] = link.attr('data-id');
   } else {
     selected_attributes[link.parent().attr('name')] = null;
     index_found = false;
@@ -324,21 +324,22 @@ function select_listing_form_menu_link(link, locale, attribute_hash, listing_for
       }
     }
   }
-  update_listing_form_view(locale, attribute_hash, listing_form_menu_titles, ordered_attributes, selected_attributes);
+  console.log(JSON.stringify(selected_attributes, null, 4));
+  update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
 }
 
 // Return true if the menu for the given attribute should be shown in
 // the listing form in this community.
-function menu_applicable(attribute, selected_attributes, attribute_hash) {
-  if (attribute == "listing_type") {
-    var values = attribute_hash;
-  } else if (attribute == "category") {
-    var values = attribute_hash[selected_attributes["listing_type"]];
+function menu_applicable(attribute, selected_attributes, attribute_array) {
+  if (attribute == "category") {
+    var values = attribute_array;
+  } else if (attribute == "subcategory") {
+    var values = attribute_array[selected_attributes["category"]];
   } else if (attribute == "subcategory" || attribute == "share_type") {
-    if ((attribute_hash[selected_attributes["listing_type"]] == undefined) || (attribute_hash[selected_attributes["listing_type"]][selected_attributes["category"]] == undefined)) {
+    if ((attribute_array[selected_attributes["category"]] == undefined) || (attribute_array[selected_attributes["category"]][selected_attributes["subcategory"]] == undefined)) {
       values == undefined;
     } else {
-      var values = attribute_hash[selected_attributes["listing_type"]][selected_attributes["category"]][attribute];
+      var values = attribute_array[selected_attributes["category"]][selected_attributes["subcategory"]][attribute];
     }
   }
   if (values == undefined) {
@@ -369,76 +370,169 @@ function get_keys(values) {
    return keys;
 }
 
-function update_listing_form_view(locale, attribute_hash, listing_form_menu_titles, ordered_attributes, selected_attributes) {
+function update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes) {
   $('a.selected').addClass('hidden');
   $('a.option').addClass('hidden');
   $('.form-fields').html("");
   
   $('.selected-group').each(function() {
-    if (selected_attributes[$(this).attr('name')] != null) {
-      $('a.selected[name=' + selected_attributes[$(this).attr('name')] + ']').removeClass('hidden');
+    if (selected_attributes[$(this).attr('data-id')] != null) {
+      $('a.selected[data-id=' + selected_attributes[$(this).attr('data-id')] + ']').removeClass('hidden');
     }
   }); 
   
   var title = "";
   
-  if ((selected_attributes["listing_type"] != null) || !menu_applicable("listing_type", selected_attributes, attribute_hash))  {
-    if ((selected_attributes["category"] != null) || !menu_applicable("category", selected_attributes, attribute_hash)) {
-      if ((selected_attributes["subcategory"] != null) || !menu_applicable("subcategory", selected_attributes, attribute_hash)) {
-        if ((selected_attributes["share_type"]  != null) || !menu_applicable("share_type", selected_attributes, attribute_hash)) {
-          $('.form-fields').removeClass('hidden');
-          var new_listing_path = '/' + locale + '/listings/new';
-          $.get(new_listing_path, selected_attributes, function(data) {
-            $('.form-fields').html(data);
-          });
-        } else {
-          $('.option-group[name=share_type]').children().each(function() {
-            if ($.inArray($(this).attr('name'), attribute_hash[selected_attributes["listing_type"]][selected_attributes["category"]]["share_type"]) > -1) {
-              $(this).removeClass('hidden');
-            }
-          });
-          title = listing_form_menu_titles["share_type"][selected_attributes["listing_type"]];
-        }
-      } else {
-        $('.option-group[name=subcategory]').children().each(function() {
-          if ($.inArray($(this).attr('name'), attribute_hash[selected_attributes["listing_type"]][selected_attributes["category"]]["subcategory"]) > -1) {
-            $(this).removeClass('hidden');
-          }
-        });
-        title = listing_form_menu_titles["subcategory"][selected_attributes["category"]];
-      }
-    } else {
-      $('.option-group[name=category]').children().each(function() {
-        if (attribute_hash[selected_attributes["listing_type"]][$(this).attr('name')] != null) {
-          $(this).removeClass('hidden');
-        }
-      });
-      if (listing_form_menu_titles["category"][selected_attributes["listing_type"]] == undefined) {
-        title = listing_form_menu_titles["category"]["default"];
-      } else {
-        title = listing_form_menu_titles["category"][selected_attributes["listing_type"]];
-      }
-    }
+  if (should_show_menu_for("category", selected_attributes, attribute_array)) {
+    display_option_group("category");
+  } else if (should_show_menu_for("subcategory", selected_attributes, attribute_array)) {
+    display_option_group("subcategory");
+  } else if (should_show_menu_for("transaction_type", selected_attributes, attribute_array)) {
+    display_option_group("transaction_type");
   } else {
-    title = listing_form_menu_titles["listing_type"];
-    $('.option-group[name=listing_type]').children().each(function() {
-      $(this).removeClass('hidden');
-    });
+    display_listing_form();
   }
+
   
-  $('h2.listing-form-title').html(title);
+
+
+  // if ((selected_attributes["listing_type"] != null) || !menu_applicable("category", selected_attributes, attribute_array))  {
+  //   if ((selected_attributes["category"] != null) || !menu_applicable("category", selected_attributes, attribute_array)) {
+  //     if ((selected_attributes["subcategory"] != null) || !menu_applicable("subcategory", selected_attributes, attribute_array)) {
+  //       if ((selected_attributes["share_type"] != null) || !menu_applicable("share_type", selected_attributes, attribute_array)) {
+  //         $('.form-fields').removeClass('hidden');
+  //         var new_listing_path = '/' + locale + '/listings/new';
+  //         $.get(new_listing_path, selected_attributes, function(data) {
+  //           $('.form-fields').html(data);
+  //         });
+  //       } else {
+  //         $('.option-group[name=share_type]').children().each(function() {
+  //           if ($.inArray($(this).attr('name'), attribute_array[selected_attributes["listing_type"]][selected_attributes["category"]]["share_type"]) > -1) {
+  //             $(this).removeClass('hidden');
+  //           }
+  //         });
+  //         title = listing_form_menu_titles["share_type"][selected_attributes["listing_type"]];
+  //       }
+  //     } else {
+  //       $('.option-group[name=subcategory]').children().each(function() {
+  //         if ($.inArray($(this).attr('name'), attribute_array[selected_attributes["listing_type"]][selected_attributes["category"]]["subcategory"]) > -1) {
+  //           $(this).removeClass('hidden');
+  //         }
+  //       });
+  //       title = listing_form_menu_titles["subcategory"][selected_attributes["category"]];
+  //     }
+  //   } else {
+  //     $('.option-group[name=category]').children().each(function() {
+  //       if (attribute_array[selected_attributes["listing_type"]][$(this).attr('name')] != null) {
+  //         $(this).removeClass('hidden');
+  //       }
+  //     });
+  //     if (listing_form_menu_titles["category"][selected_attributes["listing_type"]] == undefined) {
+  //       title = listing_form_menu_titles["category"]["default"];
+  //     } else {
+  //       title = listing_form_menu_titles["category"][selected_attributes["listing_type"]];
+  //     }
+  //   }
+  // } else {
+  //   title = listing_form_menu_titles["listing_type"];
+  //   $('.option-group[name=listing_type]').children().each(function() {
+  //     $(this).removeClass('hidden');
+  //   });
+  // }
+  
+  // $('h2.listing-form-title').html(title);
 }
 
-// Initialize the listing type & category selection part of the form
-function initialize_new_listing_form_selectors(locale, attribute_hash, listing_form_menu_titles) {
-  var ordered_attributes = ["listing_type", "category", "subcategory", "share_type"];
-  var selected_attributes = {"listing_type": null, "category": null, "subcategory": null, "share_type": null};
+function should_show_menu_for(attribute, selected_attributes, attribute_array) {
+  // console.log("Selected attributes: " + JSON.stringify(selected_attributes, null, 4));
+  // console.log("Attribute array: " + JSON.stringify(attribute_array, null, 4));
+  // console.log("Attribute: " + attribute);
+
+  if (attribute_selected(attribute, selected_attributes)) {
+    return false
+  } else if (attribute == "category") {
+    console.log("Should show menu for category");
+    if (attribute_array.length < 2) {
+      return false;
+    } else {
+      return true;
+    }
+  } else if (attribute == "subcategory") {
+    console.log("Should show menu for subcategory");
+    if (should_show_menu_for("category", selected_attributes, attribute_array)) {
+      console.log("Category menu should be present");
+      return false;
+    } else if (get_subcategories_for(selected_attributes["category"], attribute_array).length < 2) {
+      console.log("Not enough subcategories");
+      return false
+    } else {
+      return true;
+    }
+  } else if (attribute == "transaction_type") {
+    console.log("Should show menu for transaction type");
+    if (should_show_menu_for("category", selected_attributes, attribute_array)) {
+      return false;
+    } else if (should_show_menu_for("subcategory", selected_attributes, attribute_array)) {
+      return false;
+    } else {
+      if (selected_attributes["subcategory"] == null) {
+        transaction_types = get_transaction_types_for_subcategory(selected_attributes["subcategory"], attribute_array);
+      } else {
+        transaction_types = get_transaction_types_for_category(selected_attributes["category"], attribute_array);
+      }
+      return (transaction_types.length < 2);
+    }
+  }
+}
+
+function attribute_selected(attribute, selected_attributes) {
+  return (selected_attributes[attribute] != null);
+}
+
+function display_option_group(group_type) {
+  $('.option-group[name=' + group_type + ']').children().each(function() {
+    $(this).removeClass('hidden');
+  });
+}
+
+function display_form(selected_attributes) {
+  $('.form-fields').removeClass('hidden');
+  var new_listing_path = '/' + locale + '/listings/new';
+  $.get(new_listing_path, selected_attributes, function(data) {
+    $('.form-fields').html(data);
+  });
+}
+
+function get_subcategories_for(category_id, category_array) {
+  subcategories = []
+  $.each(category_array, function(index, category) {
+    if (category["id"] == category_id) {
+      subcategories.push(category_id);
+    }
+  });
+  return subcategories;
+}
+
+function get_transaction_types_for_category(category_id, category_array) {
   
-  update_listing_form_view(locale, attribute_hash, listing_form_menu_titles, ordered_attributes, selected_attributes);
+}
+
+function get_transaction_types_for_subcategory(subcategory_id, subcategory_array) {
+
+}
+
+
+
+// Initialize the listing type & category selection part of the form
+function initialize_new_listing_form_selectors(locale, attribute_array, listing_form_menu_titles) {
+  var ordered_attributes = ["category", "subcategory", "transaction_type"];
+  var selected_attributes = {"category": null, "subcategory": null, "transaction_type": null};
+  
+  update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
   
   $('.new-listing-form').find('a.select').click(
     function() {
-      select_listing_form_menu_link($(this), locale, attribute_hash, listing_form_menu_titles, ordered_attributes, selected_attributes);
+      select_listing_form_menu_link($(this), locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
     }
   );
   

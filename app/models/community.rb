@@ -16,6 +16,7 @@ class Community < ActiveRecord::Base
   
   has_many :categories
   has_many :top_level_categories, :class_name => "Category", :conditions => ["parent_id IS NULL"]
+  has_many :subcategories, :class_name => "Category", :conditions => ["parent_id IS NOT NULL"]
   
   has_many :payments
   has_many :statistics, :dependent => :destroy
@@ -317,71 +318,53 @@ class Community < ActiveRecord::Base
     settings["use_rdf_profile_import"] == true    
   end
   
-  # categories_tree
-  # Returns a hash that represents the categorization tree that is in use at this community
-  # Some assumptions are made here:
-  # - Listing types and share_types are only linked to top level categories in DB
-  # If wanting to do differently, this code needs to be changed and probably the UI code too
-  # Example of a returned tree:
-  #   "offer" => {
-  #     "item" => {
-  #       "subcategory" => ["tools", "sports", "music", "books", "games"],
-  #       "share_type" => ["lend", "sell", "rent_out", "trade", "give_away"]
-  #     },
-  #     "favor" => {
-  #       "subcategory" => ["furniture_assemble", "walking_dogs"]
-  #     }, 
-  #     "rideshare" => {},
-  #     "housing" => {
-  #       "share_type" => ["rent_out", "sell", "share_for_free"]
-  #     }
+  # Returns an array that contains the hierarchy of categories and transaction types
+  # 
+  # An xample of a returned tree:
+  #
+  # [
+  #   { 
+  #     "label" => "item",
+  #     "id" => id,
+  #     "subcategories" => [
+  #       { 
+  #         "label" => "tools",
+  #         "id" => id,
+  #         "transaction_types" => [
+  #           {
+  #             "label" => "sell",
+  #             "id" => id
+  #           }
+  #         ]
+  #       }
+  #     ]
   #   },
-  #   "request" => {
-  #     "rideshare" => {}
+  #   {
+  #     "label" => "services",
+  #     "id" => "id"
   #   }
-  # }
-  def categories_tree
-    tree = {}
-    
-    # store few variables here so that they are fetched only once during the loops
-    this_tribe_community_categories = community_categories
-    this_tribe_categories = categories
-    this_tribe_share_types = share_types
-    
-    listing_types.each do |listing_type| # Listing types are the root level of the tree
-      categories_for_listing_type = {}
-      
-      # pick the categories that are linked for this listing type in this community
-      # "top_level_linked_community_category" means that we assume here that those categories that are linked
-      # to listing types, are top level categories (not sub categories)
-      this_tribe_community_categories.select{|cc| cc.share_type_id == listing_type.id}.each do |top_level_linked_community_category|
-        
-        category_hash = {} # empty by default if no subcategories or share_types
-
-        # Check for existing subcategories for this category
-        this_tribe_categories.select{|cat| cat.parent_id == top_level_linked_community_category.category_id}.each do |subcat|
-          category_hash["subcategory"] ||= []
-          category_hash["subcategory"] << subcat.name
-        end
-        
-        # Check for existing linked share_types for this category
-        this_tribe_share_types.select{|st|  
-                this_tribe_community_categories.select{|comcat| 
-                  comcat.category_id == top_level_linked_community_category.category_id && 
-                  st.id == comcat.share_type_id
-                }.present? &&
-                st.parent_id == top_level_linked_community_category.share_type_id}.each do |sub_share_type|
-          category_hash["share_type"] ||= []
-          category_hash["share_type"] << sub_share_type.name
-        end
-        
-        # Insert this top level category to hash and make it's value contain the sub categories and share types
-        categories_for_listing_type[top_level_linked_community_category.category.name] = category_hash
-      end
-      
-      tree[listing_type.name] = categories_for_listing_type
+  # ]
+  def category_tree
+    top_level_categories.inject([]) do |category_array, category|
+      category_array << hash_for_category(category)
     end
-    return tree
+  end
+
+  # Returns a hash for a single category
+  def hash_for_category(category)
+    category_hash = {"id" => category.id, "label" => category.display_name}
+    if category.children.empty?
+      category_hash["transaction_types"] = category.transaction_types.inject([]) do |transaction_type_array, transaction_type|
+        transaction_type_array << {"id" => transaction_type.id, "label" => transaction_type.display_name}
+        transaction_type_array
+      end
+    else
+      category_hash["subcategories"] = category.children.inject([]) do |subcategory_array, subcategory|
+        subcategory_array << hash_for_category(subcategory)
+        subcategory_array
+      end
+    end
+    category_hash
   end
   
   
@@ -397,29 +380,23 @@ class Community < ActiveRecord::Base
   # }
   def available_categorization_values
     values = {}
-    values["listing_type"] = listing_types.collect(&:name)
-    values["category"] = main_categories.collect(&:name)
-    values["subcategory"] = subcategories.collect(&:name)
-    values["share_type"] = share_types.collect(&:name).reject { |st| values["listing_type"].include?(st) }
+    values["category"] = top_level_categories.collect(&:id)
+    values["subcategory"] = subcategories.collect(&:id)
+    values["transaction_type"] = transaction_types.collect(&:id)
     return values
   end
   
   # same as available_categorization_values but returns the models instead of just values
   def available_categorizations
     values = {}
-    values["listing_type"] = listing_types
-    values["category"] = main_categories
+    values["category"] = top_level_categories
     values["subcategory"] = subcategories
-    values["share_type"] = share_types.reject { |st| listing_types.include?(st) }
+    values["transaction_type"] = transaction_types
     return values
   end
   
   def main_categories
-    categories.select{|c| c.parent_id.nil?}
-  end
-  
-  def subcategories
-    categories.select{|c| ! c.parent_id.nil?}
+    top_level_categories
   end
   
   # Finds all top level share_types (=listing_types) used in this community
