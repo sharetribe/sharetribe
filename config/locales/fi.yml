@@ -122,6 +122,14 @@ fi:
         closed: Suljettu
       show:
         edit_poll: "Muokkaa kyselyä"
+      transaction_types:
+        sell: "Myydään"
+        rent: "Annetaan vuokralle"
+        give: "Annetaan"
+        lend: "Annetaan lainaan"
+        swap: "Vaihdetaan"
+        service: "Tarjotaan palvelua"
+        request: "Tarvitaan"
   common:
     edit_page: "Muokkaa sivua"
     default_community_slogan: "Lainaa, myy, auta, jaa"

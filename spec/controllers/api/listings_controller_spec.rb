@@ -27,6 +27,7 @@ describe Api::ListingsController do
     FactoryGirl.create(:listing, :share_type => find_or_create_share_type("buy"), :title => "old junk", :open => false, :description => "This should be closed already, but nice stuff anyway", :privacy => "public").communities = [@c1]
     @l4 = FactoryGirl.create(:listing, :title => "car", :created_at => 2.months.ago, :description => "I needed a car earlier, but now this listing is no more open", :share_type => find_or_create_share_type("borrow"), :privacy => "public")
     @l4.communities = [@c1]
+    @l4.save!
     @l4.update_attribute(:valid_until, 2.days.ago)
 
   
@@ -52,30 +53,32 @@ describe Api::ListingsController do
       resp["total_pages"].should == 1
     end
   
-    # Commented out as requires sphinx and that caused some problems in test
-    # that we didn't fix now as we might soon change the search engine
-    # it "supports community_id and type as parameters" do
-    #   get :index, :community_id => @c1.id, :format => :json
-    #   resp = JSON.parse(response.body)
-    #   response.status.should == 200
-    #   resp["listings"].count.should == 2
-    # 
-    #   get :index, :community_id => @c2.id, :format => :json
-    #   resp = JSON.parse(response.body)
-    #   resp["listings"].count.should == 1
-    # 
-    #   get :index, :community_id => @c1.id, :share_type => "offer", :format => :json
-    #   resp = JSON.parse(response.body)
-    #   resp["listings"].count.should == 1
-    # 
-    #   get :index, :community_id => @c2.id, :share_type => "offer", :format => :json
-    #   resp = JSON.parse(response.body)
-    #   resp["listings"].count.should == 0
-    # 
-    #   get :index, :community_id => @c1.id, :share_type => "request", :format => :json
-    #   resp = JSON.parse(response.body)
-    #   resp["listings"].count.should == 1
-    # end
+    it "supports community_id and type as parameters" do
+
+      ensure_sphinx_is_running_and_indexed
+
+      get :index, :community_id => @c1.id, :format => :json
+      resp = JSON.parse(response.body)
+      response.status.should == 200
+      resp["listings"].count.should == 2
+ 
+      get :index, :community_id => @c2.id, :format => :json
+      resp = JSON.parse(response.body)
+      resp["listings"].count.should == 1
+    
+      get :index, :community_id => @c1.id, :share_type => "offer", :format => :json
+      resp = JSON.parse(response.body)
+      resp["listings"].count.should == 1
+
+      get :index, :community_id => @c1.id, :share_type => "request", :format => :json
+      resp = JSON.parse(response.body)
+      resp["listings"].count.should == 1
+
+      get :index, :community_id => @c2.id, :share_type => "offer", :format => :json
+      resp = JSON.parse(response.body)
+      resp["listings"].count.should == 0
+      
+    end
   
     it "uses status parameter with default: 'open'" do
       get :index, :community_id => @c1.id, :format => :json

@@ -11,6 +11,8 @@ ru:
         edit_community_slogan_description: ~
         community_description: "Описание:"
         edit_community_description_description: ~
+        private_community_homepage_content: ~
+        edit_private_community_homepage_content_description: ~
         update_information: "Обновить информацию"
         invite_people: ~
         edit_signup_info: ~
@@ -813,6 +815,7 @@ ru:
       no_reviews: ~
       no_image: "нет картинки"
       filter: ~
+      this_is_private_community: ~
     invitation_form:
       invite_your_friends: "Пригласите друзей в %{service_name}!"
       invite_your_neighbors: ~
