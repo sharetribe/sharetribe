@@ -12,51 +12,73 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
 
       custom_community_categories = CommunityCategory.find_by_community_id(community.id)
 
-      # Check if using custom categories
-      if custom_community_categories
-      
 
+      if custom_community_categories || community.listings.count > 0      
+
+        # Loop main categories first, so that parents are done when getting to sub categories
         main_categories.each do |category|
-          create_new_cat_and_trans_if_needed(category, community)
+          new_category = create_new_cat_and_trans_if_needed(category, community)
+          update_custom_fields_category(category, new_category)
         end
 
         # Second loop sub categories
         subcategories.each do |category|
           create_new_cat_and_trans_if_needed(category, community)
+          update_custom_fields_category(category, new_category)
         end
 
-        print_stat "c"
 
-      else # Using default categories
+        # update listings 
+        community.listings.each do |listing|
+          listing.update_column(:new_category_id, Category.find_by_community_id_and_name(community.id, listing.category.name).id )
+  
+          transaction_type_class = SHARE_TYPE_MAP[listing.share_type.name]
+          listing.update_column(:transaction_id, transaction_type_class.find_by_community_id(community.id).id)
+        end
 
-        if community.listings.count == 0
-          # No listings at all, create just item and sell
-          # TODO
-          print_stat "e"
+        if custom_community_categories
+          # Keep even empty categories if they are customized
+          print_stat "c"
         else
-          # Loop all listings and create needed categories and update listing's data
-          community.listings.each do |listing|
-            #ensure_cat_and_transaction_exist(community, listing)
-            #listing.update_column ...
-            # TODO
+          # Default categories, we'll keep only those which had listings
+          
+          new_categories = Category.find_by_community_id(community.id)
+          new_main_categories = new_categories{|c| c.parent_id.nil?}
+          new_subcategories = new_categories.select{|c| ! c.parent_id.nil?}
+
+          new_subcategories.each do |cat|
+            if Listing.find_by_category_id(cat.id).nil?
+              puts "Would delete subcategory #{cat.name} for community #{community.domain}"
+            end
           end
+
+          new_main_categories.each do |cat|
+            if Listing.find_by_category_id(cat.id).nil? && Category.find_by_parent_id(cat.id).nil?
+              puts "Would delete main category #{cat.name} for community #{community.domain}"
+            end
+          end
+
           print_stat "d"
         end
 
+      else # Using default categories and having 0 listings
+        crete_minimum_category_set(community)
+        print_stat "e"
       end
-
       
     end
 
   end
 
   def down
+    puts "This is too comlicated migration to reverse \
+    Although it generally only adds data, and doesn't delete anything, but listings and custom \
+    fields are linked to new categories and transaction types."
+    # raise  ActiveRecord::IrreversibleMigration, "This is too comlicated migration to reverse \
+    # Although it generally only adds data, and doesn't delete anything, but listings and custom \
+    # fields are linked to new categories and transaction types."
   end
 
-
-  def ensure_cat_and_transaction_exist(community, listing)
-    # TODO
-  end
 
   def create_new_cat_and_trans_if_needed(old_cat, community)
 
@@ -71,11 +93,11 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
 
     if new_cat = Category.find_by_community_id_and_name(community.id, old_cat.name) 
       #Avoid duplicates
-      puts "WARNING: category #{old_cat.name} already exists for community_id: #{community.id}"
+      puts "WARNING: category #{old_cat.name} already exists for community: #{community.domain}"
     else
-      new_cat = Category.create(:name => old_cat.name, :parent_id => new_parent_id, :icon => old_cat.icon, :community_id => community.id)
+      new_cat = Category.create!(:name => old_cat.name, :parent_id => new_parent_id, :icon => old_cat.icon, :community_id => community.id)
       old_cat.translations.each do |old_trans|
-        CategoryTranslation.create!(:category_id => new_cat.id, :locale => old_trans.locale, :name => old_cat.name, :description => old_cat.description)
+        CategoryTranslation.create!(:category_id => new_cat.id, :locale => old_trans.locale, :name => old_trans.name, :description => old_trans.description)
       end
     end
 
@@ -95,7 +117,7 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
       new_type_class = SHARE_TYPE_MAP[community_category.share_type.name]
 
       if  new_trt = new_type_class.find_by_community_id(community.id)
-        puts "WARNING: transaction type #{new_trt.class.name} for community_id: #{community.id} already exists"
+        puts "WARNING: transaction type #{new_trt.class.name} for community: #{community.domain} already exists"
       else 
         new_trt = new_type_class.create!(:community_id => community.id, :sort_priority => com_cat.sort_priority, :price_field => com_cat.price)
       end
@@ -122,6 +144,33 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
       end
     end
 
+  end
+
+  def crete_minimum_category_set(community)
+    
+    # Create Item
+
+    old_cat = Category.find_by_community_id_and_name(nil, "item")
+    new_cat = Category.create!(:name => "item", :parent_id => nil, :icon => "item", :community_id => community.id)
+    community.locales.each do |locale|
+      old_trans = CategoryTranslation.find_by_category_id_and_locale(old_cat.id, locale)
+      CategoryTranslation.create!(:category_id => new_cat.id, :locale => old_trans.locale, :name => old_trans.name, :description => old_trans.description)
+    end
+
+    # Create Sell
+
+    new_trt = Sell.create!(:community_id => community.id, :price_field => true)
+    create_translations_for(new_trt, community)
+
+    # Link them
+    CategoryTransactionType.create!(:category_id => new_cat.id, :transaction_type_id => new_trt.id)    
+
+  end
+
+  def update_custom_fields_category(category, new_category)
+    category.category_custom_fields.each do |ccf|
+      ccf.update_column(:category_id, new_category.id)
+    end
   end
 
 
