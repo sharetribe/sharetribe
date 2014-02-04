@@ -17,36 +17,20 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
       
 
         main_categories.each do |category|
-          #create_new_cat_and_trans_if_needed(category, community.id)
+          create_new_cat_and_trans_if_needed(category, community.id)
+
+          # A luo cat jos tarvii
+          # B Luo trans type jos tarvii
+          # C linkitä noi jos tarvii
+
+          # D transalations mukanan
+          # E Community id mukana
         end
 
+        # Second loop sub categories
         subcategories.each do |category|
-
+          create_new_cat_and_trans_if_needed(category, community.id)
         end
-
-        # # For all custom category communities, save all categories and share_types 
-        # custom_community_categories.each do |community_category|
-        #   create_new_cat_and_trans_if_needed(community_category)
-        #   # A luo cat jos tarvii
-        #   # B Luo trans type jos tarvii
-        #   # C linkitä noi jos tarvii
-
-        #   # D transalations mukanan
-        #   # E Community id mukana
-        # end
-
-        # # Second loop sub categories
-        # custom_community_categories.each do |community_category|
-        #   create_new_cat_and_trans_if_needed(community_category)
- 
-        # end
-
-
-        # categories.each do |category|
-        #   Category.create()
-        #   # TODO  
-        # end
-
 
         print_stat "c"
 
@@ -92,16 +76,30 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
       new_parent_id = nil
     end
 
-    unless new_cat = Category.find_by_community_id_and_name(community_id, old_cat.name)
-      new_cat = Category.create(:name => old_cat.name, :parent_id => new_parent_id, :icon => old_cat.icon :community_id => community_id)
+    if new_cat = Category.find_by_community_id_and_name(community_id, old_cat.name) 
+      #Avoid duplicates
+      puts "WARNING: category #{old_cat.name} already exists for community_id: #{community_id}"
+
+    else
+      new_cat = Category.create(:name => old_cat.name, :parent_id => new_parent_id, :icon => old_cat.icon, :community_id => community_id)
       # TODO Translations
     end
 
     com_cats_for_this_cat = CommunityCategory.find_all_by_community_id_and_category_id(community_id, old_cat.id)
+    if com_cats_for_this_cat.empty?
+      # defaults in use
+      com_cats_for_this_cat = CommunityCategory.find_all_by_community_id_and_category_id(nil, old_cat.id)
+    end
 
-    com_cats_for_this_cat.each do |com_cats_for_this_catcom_cat|
-      unless #TODO
-        new_trt = TransactionType.create(:community_id => community_id, :sort_priority => com_cat.sort_priority, :price_field => com_cat.price)
+    com_cats_for_this_cat.each do |community_category|
+
+      new_type_class = get_new_type_based_on_old(community_category.share_type)
+
+      if  new_trt = new_type_class.find_by_community_id(community_id)
+
+
+      else 
+        new_trt = new_type_class.create(:community_id => community_id, :sort_priority => com_cat.sort_priority, :price_field => com_cat.price)
       end
     end
 
@@ -112,6 +110,11 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
           # D transalations mukanan
           # E Community id mukana
           # F parent_id uuteen id:hen
+    
+  end
+
+  def get_new_type_based_on_old(old_share_type)
+    # TODO
     
   end
 end
