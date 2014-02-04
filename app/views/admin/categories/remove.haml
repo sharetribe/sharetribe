@@ -20,12 +20,23 @@
 
   = form_tag('destroy_and_move', :method => :delete) do
 
-    - if @category.has_listings?
-      %p
-        = "There are #{@category.own_and_subcategory_listings.count} listings in category '#{@category.display_name(I18n.locale)}' and its subcategories. Select a new category for the listings:"
+    -if @category.has_own_or_subcategory_listings? || @category.has_own_or_subcategory_custom_fields?
 
-        %p
-          = select_tag "new_category", options_for_select(@category.all_but_me.collect { |c| [c.display_name(I18n.locale), c.id] })
+      %p
+        %ul
+        - if @category.has_own_or_subcategory_listings?
+          %li
+            = "There are #{@category.own_and_subcategory_listings.count} listings in category '#{@category.display_name(I18n.locale)}' and its subcategories."
+
+        -if @category.has_own_or_subcategory_custom_fields?
+          %li
+            = "There are #{@category.own_and_subcategory_custom_fields.count} custom field in category '#{@category.display_name(I18n.locale)}' and its subcategories."
+
+      %p
+        = "Select a new category where the items listed above will be moved:"
+
+      %p
+        = select_tag "new_category", options_for_select(@new_category_candidates.collect { |c| [c.display_name(I18n.locale), c.id] })
 
     .inline-button-container
       = button_tag t(".remove"), :class => "delete-button"

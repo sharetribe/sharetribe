@@ -5,6 +5,7 @@ describe Category do
   before(:each) do
     @community = FactoryGirl.create(:community)
     @category = FactoryGirl.create(:category, :community => @community)
+    @category2 = FactoryGirl.create(:category, :community => @community)
     @subcategory = FactoryGirl.create(:category)
     @subcategory.update_attribute(:parent_id, @category.id)
 
@@ -31,7 +32,6 @@ describe Category do
   end
 
   it "removes subcategories if parent is removed" do
-    @category2 = FactoryGirl.create(:category, :community => @community)
     Category.find(@category.id).should_not be_nil
     Category.find(@subcategory.id).should_not be_nil
 
@@ -40,5 +40,4 @@ describe Category do
     Category.find(@category.id).should be_nil
     Category.find(@subcategory.id).should be_nil
   end
-
 end
