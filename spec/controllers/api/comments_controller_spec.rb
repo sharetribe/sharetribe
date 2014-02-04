@@ -14,7 +14,7 @@ describe Api::CommentsController do
     @p1 = FactoryGirl.create(:person)
     @p1.communities << @c1
     @p1.ensure_authentication_token!
-  
+    set_subdomain("api")
   end
 
   describe "create" do
@@ -27,7 +27,6 @@ describe Api::CommentsController do
                       :format => :json
       response.status.should == 201  
       @l1.comments.count.should == comments_count + 1
-      #puts response.body
       resp = JSON.parse(response.body)
       resp["listing_id"].should == @l1.id
       resp["author"]["id"].should == @p1.id

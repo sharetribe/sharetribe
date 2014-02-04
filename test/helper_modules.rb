@@ -104,10 +104,7 @@ module TestHelpers
   end
 
   # This is loaded only once before running the whole test set
-  def load_default_test_data_to_db_before_tests
-    # Remove persistent data in case there is any
-    DatabaseCleaner.clean_with(:truncation)
-
+  def load_default_test_data_to_db_before_suite
     community1 = FactoryGirl.create(:community, :domain => "test", :name => "Test", :consent => "test_consent0.1", :settings => {"locales" => ["en", "fi"]}, :real_name_required => true, :news_enabled => false, :all_users_can_add_news => false)
     community2 = FactoryGirl.create(:community, :domain => "test2", :name => "Test2", :consent => "KASSI_FI1.0", :settings => {"locales" => ["en"]}, :real_name_required => true, :allowed_emails => "@example.com")
     community3 = FactoryGirl.create(:community, :domain => "test3", :name => "Test3", :consent => "KASSI_FI1.0", :settings => {"locales" => ["en"]}, :real_name_required => true)
