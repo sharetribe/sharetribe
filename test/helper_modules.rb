@@ -153,7 +153,6 @@ module TestHelpers
     :address => "kassi_testperson2@example.com",
     :send_notifications => true,
     :confirmed_at => "2012-05-04 18:17:04")
-
   end
 
 end
