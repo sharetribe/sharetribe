@@ -103,7 +103,6 @@ group :test do
   gem "parallel_tests", :group => :development
   gem 'timecop'
   gem 'rack-test'
-  gem 'spork'
   gem 'database_cleaner'
 end
 
