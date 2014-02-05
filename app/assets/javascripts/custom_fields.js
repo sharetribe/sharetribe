@@ -27,8 +27,8 @@ window.ST.orderManager = function(fieldMap) {
   fieldMap.forEach(createUpDownStreams);
 
   function createUpDownStreams(field) {
-    var up = createClickStream(".custom-fields-action-up", field);
-    var down = createClickStream(".custom-fields-action-down", field);
+    var up = createClickStream(field.up, field.id);
+    var down = createClickStream(field.down, field.id);
 
     var upChange = up.flatMap(moveUp);
     var downChange = down.flatMap(moveDown);
@@ -37,8 +37,8 @@ window.ST.orderManager = function(fieldMap) {
     eventBus.plug(downChange);
   }
 
-  function createClickStream(selector, field) {
-    return $(selector, field.element).clickE().doAction(".preventDefault").map(_.constant(field.id));
+  function createClickStream(el, id) {
+    return el.clickE().doAction(".preventDefault").map(_.constant(id));
   }
 
   function swapDomElements(downEl, upEl) {
@@ -113,7 +113,9 @@ window.ST.createCustomFieldOrder = function(rowSelector) {
   var fieldMap = $(rowSelector).map(function(id, row) {
     return { 
       id: $(row).data("field-id"),
-      element: $(row)
+      element: $(row),
+      up: $(".custom-fields-action-up", row),
+      down: $(".custom-fields-action-down", row)
     };
   }).get();
 
@@ -179,7 +181,9 @@ window.ST.createCustomFieldOptionOrder = function(rowSelector) {
     return { 
       id: $(row).data("field-id"),
       element: $(row),
-      sortPriority: Number($(row).find(".custom-field-hidden-sort-priority").val())
+      sortPriority: Number($(row).find(".custom-field-hidden-sort-priority").val()),
+      up: $(".custom-fields-action-up", row),
+      down: $(".custom-fields-action-down", row)
     };
   }).get();
 

@@ -177,20 +177,20 @@
           .col-10
             = "Banana"
           .col-2
-            %a.design-sort-arrow.custom-fields-action-up="↑"
-            %a.design-sort-arrow.custom-fields-action-down="↓"
+            %a.design-sort-arrow.arrow-up="↑"
+            %a.design-sort-arrow.arrow-down="↓"
         #sortable-row2.row.sortable-row
           .col-10
             = "Orange"
           .col-2
-            %a.design-sort-arrow.custom-fields-action-up="↑"
-            %a.design-sort-arrow.custom-fields-action-down="↓"
+            %a.design-sort-arrow.arrow-up="↑"
+            %a.design-sort-arrow.arrow-down="↓"
         #sortable-row3.row.sortable-row
           .col-10
             = "Apple"
           .col-2
-            %a.design-sort-arrow.custom-fields-action-up="↑"
-            %a.design-sort-arrow.custom-fields-action-down="↓"
+            %a.design-sort-arrow.arrow-up="↑"
+            %a.design-sort-arrow.arrow-down="↓"
 
       - content_for :extra_javascript do
         :javascript
@@ -198,7 +198,9 @@
           var fieldMap = $(".sortable-row").map(function(id, row) {
             return { 
               id: $(row).attr("id"), // Id, that identifies the sortable row
-              element: $(row) // jQuery element of a sortable row
+              element: $(row), // jQuery element of a sortable row
+              up: $(".arrow-up", row),
+              down: $(".arrow-down", row)
             };
           }).get();
 
@@ -214,20 +216,20 @@
               .col-10
                 = "Banana"
               .col-2
-                %a.design-sort-arrow.custom-fields-action-up="↑"
-                %a.design-sort-arrow.custom-fields-action-down="↓"
+                %a.design-sort-arrow.arrow-up="↑"
+                %a.design-sort-arrow.arrow-down="↓"
             #sortable-row2.row.sortable-row
               .col-10
                 = "Orange"
               .col-2
-                %a.design-sort-arrow.custom-fields-action-up="↑"
-                %a.design-sort-arrow.custom-fields-action-down="↓"
+                %a.design-sort-arrow.arrow-up="↑"
+                %a.design-sort-arrow.arrow-down="↓"
             #sortable-row3.row.sortable-row
               .col-10
                 = "Apple"
               .col-2
-                %a.design-sort-arrow.custom-fields-action-up="↑"
-                %a.design-sort-arrow.custom-fields-action-down="↓"
+                %a.design-sort-arrow.arrow-up="↑"
+                %a.design-sort-arrow.arrow-down="↓"
 
             - content_for :extra_javascript do
               :javascript
@@ -235,7 +237,9 @@
                 var fieldMap = $(".sortable-row").map(function(id, row) {
                   return { 
                     id: $(row).attr("id"),
-                    element: $(row)
+                    element: $(row),
+                    up: $(".arrow-up", row),
+                    down: $(".arrow-down", row)
                   };
                 }).get();
 
