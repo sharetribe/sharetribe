@@ -70,7 +70,7 @@
             %button
               = "This is button"
 
-    .design-section
+  .design-section
 
     %h3.design-h3
       = "Dropdown menu"
@@ -165,6 +165,84 @@
                 = "This is a subitem"
               %a
                   = "Item 3"
+
+  .design-section
+
+    %h3.design-h3
+      = "Sortable list"
+
+    .design-component
+      .design-example
+        #sortable-row1.row.sortable-row
+          .col-10
+            = "Banana"
+          .col-2
+            %a.design-sort-arrow.custom-fields-action-up="↑"
+            %a.design-sort-arrow.custom-fields-action-down="↓"
+        #sortable-row2.row.sortable-row
+          .col-10
+            = "Orange"
+          .col-2
+            %a.design-sort-arrow.custom-fields-action-up="↑"
+            %a.design-sort-arrow.custom-fields-action-down="↓"
+        #sortable-row3.row.sortable-row
+          .col-10
+            = "Apple"
+          .col-2
+            %a.design-sort-arrow.custom-fields-action-up="↑"
+            %a.design-sort-arrow.custom-fields-action-down="↓"
+
+      - content_for :extra_javascript do
+        :javascript
+          debugger
+          var fieldMap = $(".sortable-row").map(function(id, row) {
+            return { 
+              id: $(row).attr("id"), // Id, that identifies the sortable row
+              element: $(row) // jQuery element of a sortable row
+            };
+          }).get();
+
+          orderManager = window.ST.orderManager(fieldMap);
+          orderManager.changes.onValue(function(orderStatus) {
+            // Do something with the orderStatus
+          });
+
+      .design-code
+        %pre
+          :plain
+            #sortable-row1.row.sortable-row
+              .col-10
+                = "Banana"
+              .col-2
+                %a.design-sort-arrow.custom-fields-action-up="↑"
+                %a.design-sort-arrow.custom-fields-action-down="↓"
+            #sortable-row2.row.sortable-row
+              .col-10
+                = "Orange"
+              .col-2
+                %a.design-sort-arrow.custom-fields-action-up="↑"
+                %a.design-sort-arrow.custom-fields-action-down="↓"
+            #sortable-row3.row.sortable-row
+              .col-10
+                = "Apple"
+              .col-2
+                %a.design-sort-arrow.custom-fields-action-up="↑"
+                %a.design-sort-arrow.custom-fields-action-down="↓"
+
+            - content_for :extra_javascript do
+              :javascript
+                debugger
+                var fieldMap = $(".sortable-row").map(function(id, row) {
+                  return { 
+                    id: $(row).attr("id"),
+                    element: $(row)
+                  };
+                }).get();
+
+                orderManager = window.ST.orderManager(fieldMap);
+                orderManager.changes.onValue(function(orderStatus) {
+                  // Do something with the orderStatus
+                });
 
   %h2.design-h2
     = "Responsive utilities"

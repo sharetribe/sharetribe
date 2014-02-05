@@ -188,3 +188,10 @@
 .design-image-too-narrow {
   @include image-too-narrow;
 }
+
+
+.design-sort-arrow {
+  display: inline-block;
+  margin: 0px 10px;
+  cursor: pointer;
+}
