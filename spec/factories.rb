@@ -168,7 +168,7 @@ FactoryGirl.define do
 
   factory :transaction_type do
     association :community
-    type "SellProducts"
+    type "Sell"
   end
 
   factory :transaction_type_translation do
