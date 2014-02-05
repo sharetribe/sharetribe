@@ -27,7 +27,7 @@ class Listing < ActiveRecord::Base
 
   belongs_to :category  
   belongs_to :share_type
-
+  belongs_to :transaction_type
 
 
   monetize :price_cents, :allow_nil => true

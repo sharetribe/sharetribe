@@ -376,7 +376,7 @@ function update_listing_form_view(locale, attribute_array, listing_form_menu_tit
   $('.form-fields').html("");
   
   $('.selected-group').each(function() {
-    if (selected_attributes[$(this).attr('data-id')] != null) {
+    if (selected_attributes[$(this).attr('data-name')] != null) {
       $('a.selected[data-id=' + selected_attributes[$(this).attr('data-id')] + ']').removeClass('hidden');
     }
   }); 
@@ -390,7 +390,7 @@ function update_listing_form_view(locale, attribute_array, listing_form_menu_tit
   } else if (should_show_menu_for("transaction_type", selected_attributes, attribute_array)) {
     display_option_group("transaction_type");
   } else {
-    display_listing_form();
+    display_listing_form(selected_attributes, locale);
   }
 
   
@@ -497,7 +497,7 @@ function display_option_group(group_type) {
   });
 }
 
-function display_listing_form(selected_attributes) {
+function display_listing_form(selected_attributes, locale) {
   $('.form-fields').removeClass('hidden');
   var new_listing_path = '/' + locale + '/listings/new';
   $.get(new_listing_path, selected_attributes, function(data) {

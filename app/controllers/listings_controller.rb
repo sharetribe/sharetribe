@@ -93,8 +93,6 @@ class ListingsController < ApplicationController
     @seller_commission = @current_community.payment_gateway.seller_pays_commission? if @current_community.payments_in_use?
     @selected_tribe_navi_tab = "new_listing"
     @listing = Listing.new
-    @listing.category = Category.find_by_name(params[:subcategory].blank? ? params[:category] : params[:subcategory])
-    @listing.transaction_type = TransactionType.find(params[:transaction_type])
     
     if (@current_user.location != nil)
       temp = @current_user.location
@@ -107,7 +105,9 @@ class ListingsController < ApplicationController
     1.times { @listing.listing_images.build }
 
     if request.xhr? # AJAX request to get the actual form contents
-      @community_category = @current_community.community_category(@listing.category.top_level_parent, @listing.share_type)
+      @listing.category = Category.find_by_name(params[:subcategory].blank? ? params[:category] : params[:subcategory])
+      @listing.transaction_type = TransactionType.find(params[:transaction_type])
+      logger.info "Category: #{@listing.category.inspect}"
       render :partial => "listings/form/form_content" 
     else
       render
