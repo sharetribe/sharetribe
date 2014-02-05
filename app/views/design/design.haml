@@ -173,24 +173,36 @@
 
     .design-component
       .design-example
-        #sortable-row1.row.sortable-row
-          .col-10
-            = "Banana"
-          .col-2
-            %a.design-sort-arrow.arrow-up="↑"
-            %a.design-sort-arrow.arrow-down="↓"
-        #sortable-row2.row.sortable-row
-          .col-10
-            = "Orange"
-          .col-2
-            %a.design-sort-arrow.arrow-up="↑"
-            %a.design-sort-arrow.arrow-down="↓"
-        #sortable-row3.row.sortable-row
-          .col-10
-            = "Apple"
-          .col-2
-            %a.design-sort-arrow.arrow-up="↑"
-            %a.design-sort-arrow.arrow-down="↓"
+        #sortable-row1.sortable-row
+          .design-block
+            .design-sort-title= "Bananas"
+            .design-sort-arrows
+              %a.design-sort-arrow.arrow-up="↑"
+              %a.design-sort-arrow.arrow-down="↓"
+        #sortable-row2.sortable-row
+          .design-block
+            .design-sort-title= "Oranges"
+            .design-sort-arrows
+              %a.design-sort-arrow.arrow-up="↑"
+              %a.design-sort-arrow.arrow-down="↓"
+        #sortable-row3.sortable-row
+          .design-block
+            .design-sort-title= "Apples"
+            .design-sort-arrows
+              %a.design-sort-arrow.arrow-up="↑"
+              %a.design-sort-arrow.arrow-down="↓"
+          #sortable-sub-row1.sortable-sub-row
+            .design-block
+              .design-sort-title.sub= "Red Apple"
+              .design-sort-arrows
+                %a.design-sort-arrow.sub-arrow-up="↑"
+                %a.design-sort-arrow.sub-arrow-down="↓"
+          #sortable-sub-row2.sortable-sub-row
+            .design-block
+              .design-sort-title.sub= "Green Apple"
+              .design-sort-arrows
+                %a.design-sort-arrow.sub-arrow-up="↑"
+                %a.design-sort-arrow.sub-arrow-down="↓"
 
       - content_for :extra_javascript do
         :javascript
@@ -209,25 +221,36 @@
             // Do something with the orderStatus
           });
 
+          var subFieldMap = $(".sortable-sub-row").map(function(id, row) {
+            return { 
+              id: $(row).attr("id"), // Id, that identifies the sortable row
+              element: $(row), // jQuery element of a sortable row
+              up: $(".sub-arrow-up", row),
+              down: $(".sub-arrow-down", row)
+            };
+          }).get();
+
+          orderManager = window.ST.orderManager(subFieldMap);
+          orderManager.changes.onValue(function(orderStatus) {
+            // Do something with the orderStatus
+          });
+
       .design-code
         %pre
           :plain
-            #sortable-row1.row.sortable-row
-              .col-10
-                = "Banana"
-              .col-2
+            #sortable-row1.sortable-row.design-block
+              .design-sort-title= "Banana"
+              .design-sort-arrows
                 %a.design-sort-arrow.arrow-up="↑"
                 %a.design-sort-arrow.arrow-down="↓"
-            #sortable-row2.row.sortable-row
-              .col-10
-                = "Orange"
-              .col-2
+            #sortable-row2.sortable-row.design-block
+              .design-sort-title= "Orange"
+              .design-sort-arrows
                 %a.design-sort-arrow.arrow-up="↑"
                 %a.design-sort-arrow.arrow-down="↓"
-            #sortable-row3.row.sortable-row
-              .col-10
-                = "Apple"
-              .col-2
+            #sortable-row3.sortable-row.design-block
+              .design-sort-title= "Apple"
+              .design-sort-arrows
                 %a.design-sort-arrow.arrow-up="↑"
                 %a.design-sort-arrow.arrow-down="↓"
 

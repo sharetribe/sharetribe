@@ -189,9 +189,20 @@
   @include image-too-narrow;
 }
 
-
 .design-sort-arrow {
-  display: inline-block;
   margin: 0px 10px;
   cursor: pointer;
+}
+
+.design-sort-arrows {
+  margin: 0px 10px;
+  float: right;
+}
+
+.design-sort-title {
+  margin: 0px 10px;
+  &.sub {
+    margin: 0px 30px;
+  }
+  float: left;
 }
