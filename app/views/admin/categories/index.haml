@@ -7,18 +7,35 @@
 - content_for :extra_javascript do
   :javascript
     debugger
-    var fieldMap = $(".top-level-category-row").map(function(id, row) {
+    var fieldMap = $(".top-level-category-container").map(function(id, row) {
       return { 
         id: $(row).data("id"), // Id, that identifies the sortable row
         element: $(row), // jQuery element of a sortable row
-        up: $(".category-action-up", row),
-        down: $(".category-action-down", row)
+        up: $(row).find(".top-level-category-row").find(".category-action-up"),
+        down: $(row).find(".top-level-category-row").find(".category-action-down"),
       };
     }).get();
 
     orderManager = window.ST.orderManager(fieldMap);
     orderManager.changes.onValue(function(orderStatus) {
       
+    });
+
+    $(".top-level-category-container").each(function(idx, topLevelContainer) {
+      debugger;
+      var subFieldMap = $(".sub-category-row", topLevelContainer).map(function(id, row) {
+        return { 
+          id: $(row).data("id"), // Id, that identifies the sortable row
+          element: $(row), // jQuery element of a sortable row
+          up: $(".category-action-up", row),
+          down: $(".category-action-down", row)
+        };
+      }).get();
+
+      orderManager = window.ST.orderManager(subFieldMap);
+      orderManager.changes.onValue(function(orderStatus) {
+        
+      });
     });
 
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
