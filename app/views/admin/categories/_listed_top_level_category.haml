@@ -1,4 +1,4 @@
-.row.top-level-category-row
+.row.top-level-category-row{data: {id: category.id}}
   .row.category-row
     .col-10.listed-category-col
       .row{:id => "top-level-category-#{category.display_name(I18n.locale).squish.downcase.tr(" ","_")}"}
