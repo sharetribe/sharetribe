@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140205092212) do
+ActiveRecord::Schema.define(:version => 20140205101011) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -861,8 +861,9 @@ ActiveRecord::Schema.define(:version => 20140205092212) do
     t.integer  "community_id"
     t.integer  "sort_priority"
     t.boolean  "price_field"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.string   "price_quantity_placeholder"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
 end

@@ -354,11 +354,6 @@ class Person < ActiveRecord::Base
     end
   end
   
-  def create_listing(params)
-    params = Listing.find_category_and_share_type_based_on_string_params(params)
-    listings.create params #.except([:category, :share_type])
-  end
-  
   def read(conversation)
     conversation.participations.where(["person_id LIKE ?", self.id]).first.update_attribute(:is_read, true)
   end

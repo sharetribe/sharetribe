@@ -1,9 +1,5 @@
 class Offer < TransactionType
 
-  DIRECTION = "offer"
-  IS_OFFER = true
-  IS_REQUEST = false
-
   def direction
     "offer"
   end
@@ -13,7 +9,7 @@ class Offer < TransactionType
   end
 
   def is_request?
-    
+    false
   end
 
 end

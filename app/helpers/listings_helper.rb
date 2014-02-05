@@ -45,24 +45,12 @@ module ListingsHelper
     Listing::VALID_PRIVACY_OPTIONS.collect { |option| [t(".#{option}"), option] }
   end
 
-  def listed_listing_share_type(listing)
-    if listing.share_type && listing.share_type.parent
-      if listing.share_type.name.eql?("offer_to_swap") || listing.share_type.name.eql?("request_to_swap")
-        t("listings.show.#{listing.category.name}_#{listing.listing_type}_#{listing.share_type.name}", :default => listing.share_type.display_name.capitalize)
-      else
-        localized_share_type_label(listing.share_type).mb_chars.capitalize.to_s
-      end
-    else
-      t("listings.show.#{listing.category.name}_#{listing.listing_type}", :default => listing.share_type.display_name)
-    end
-  end
-
   def listed_listing_title(listing)
-    listed_listing_share_type(listing) + ": #{listing.title}"
+    listing.transaction_type.display_name + ": #{listing.title}"
   end
 
   def share_type_url(listing, map=false)
-    root_path(:share_type => listing.share_type.name, :category => listing.category.name, :map => map)
+    root_path(:share_type => listing.transaction_type.display_name, :category => listing.category.name, :map => map)
   end
 
   # expects category to be "item", "favor", "rideshare" or "housing"

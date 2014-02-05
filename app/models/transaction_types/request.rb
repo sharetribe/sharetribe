@@ -1,11 +1,19 @@
 class Request < TransactionType
 
-  DIRECTION = "request"
-  IS_OFFER = false
-  IS_REQUEST = true
-
   before_validation(:on => :create) do
     self.price_field ||= 0
+  end
+
+  def direction
+    "request"
+  end
+
+  def is_offer?
+    false
+  end
+
+  def is_request?
+    true
   end
 
 end

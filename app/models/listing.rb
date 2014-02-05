@@ -26,7 +26,6 @@ class Listing < ActiveRecord::Base
   has_and_belongs_to_many :followers, :class_name => "Person", :join_table => "listing_followers"
 
   belongs_to :category  
-  belongs_to :share_type
   belongs_to :transaction_type
 
 
@@ -39,63 +38,6 @@ class Listing < ActiveRecord::Base
 
   VALID_VISIBILITIES = ["this_community", "all_communities"]
   VALID_PRIVACY_OPTIONS = ["private", "public"]
-  
-  LISTING_ICONS = {
-    "offer" => "ss-share",
-    "request" => "ss-tip",
-    "item" => "ss-box",
-    "favor" => "ss-heart",
-    "rideshare" => "ss-car",
-    "housing" => "ss-warehouse",
-    "other" => "ss-file",
-    "tools" => "ss-wrench",
-    "sports" => "ss-tabletennis",
-    "music" => "ss-music",
-    "books" => "ss-book",
-    "games" => "ss-fourdie",
-    "furniture" => "ss-lodging",
-    "outdoors" => "ss-campfire",
-    "food" => "ss-sidedish",
-    "electronics" => "ss-smartphone",
-    "pets" => "ss-tropicalfish",
-    "film" => "ss-moviefolder",
-    "clothes" => "ss-hanger",
-    "garden" => "ss-tree",
-    "travel" => "ss-departure",
-    "give_away" => "ss-gift",
-    "share_for_free" => "ss-gift",
-    "accept_for_free" => "ss-gift",
-    "lend" => "ss-flowertag",
-    "borrow" => "ss-flowertag",
-    "offer_to_swap" => "ss-reload",
-    "request_to_swap" => "ss-reload",
-    "buy" => "ss-moneybag",
-    "sell" => "ss-moneybag",
-    "rent" => "ss-pricetag",
-    "rent_out" => "ss-pricetag",
-    "job" => "ss-briefcase",
-    "announcement" => "ss-newspaper",
-    "news" => "ss-newspaper",
-    "wood_based_materials" => "ss-tree",
-    "plastic_and_rubber" => "ss-disc",
-    "metal" => "ss-handbag",
-    "concrete_and_brick" => "ss-form",
-    "glass_and_porcelain" => "ss-fragile",
-    "textile_and_leather" => "ss-hanger",
-    "soil_materials" => "ss-cloud",
-    "liquid_materials" => "ss-droplet",
-    "manufacturing_error_materials" => "ss-wrench",
-    "misc_material" => "ss-box",
-    "clothing" => "ss-hanger",
-    "accessories" => "ss-handbag",
-    "designers" => "ss-star",
-    "mealsharing" => "ss-sidedish",
-    "activities" => "ss-usergroup",
-    "accommodation" => "ss-lodging",
-    "search_material" => "ss-search",
-    "sell_material" => "ss-moneybag",
-    "give_away_material" => "ss-gift"
-  }
   
   before_validation :set_rideshare_title, :set_valid_until_time
   before_save :downcase_tags, :set_community_visibilities
@@ -112,18 +54,13 @@ class Listing < ActiveRecord::Base
     self.description = description.gsub("\r\n","\n") if self.description
   end
   validates_length_of :description, :maximum => 5000, :allow_nil => true
-  # TODO: validate with community specific details
-  # validates_inclusion_of :listing_type, :in => VALID_TYPES
-  # validates_inclusion_of :category, :in => VALID_CATEGORIES
-  # validate :given_share_type_is_one_of_valid_share_types
   validates_inclusion_of :visibility, :in => VALID_VISIBILITIES
   validates_presence_of :category
-  validates_presence_of :share_type
+  validates_presence_of :transaction_type
   validates_inclusion_of :valid_until, :allow_nil => :true, :in => DateTime.now..DateTime.now + 7.months
   validates_numericality_of :price_cents, :only_integer => true, :greater_than_or_equal_to => 0, :message => "price must be numeric", :allow_nil => true
   validate :valid_until_is_not_nil
   
-
   def set_community_visibilities
     if current_community_id
       communities.clear
@@ -237,7 +174,7 @@ class Listing < ActiveRecord::Base
   end
   
   def valid_until_is_not_nil
-    if !rideshare? && share_type.is_request? && !valid_until
+    if !rideshare? && transaction_type.is_request? && !valid_until
       errors.add(:valid_until, "cannot be empty")
     end  
   end
@@ -337,25 +274,10 @@ class Listing < ActiveRecord::Base
     Listing.where(:category_id => category.own_and_subcategory_ids)
   end
   
-  def self.find_category_and_share_type_based_on_string_params(p)
-    p[:category] = Category.find_by_name(p[:subcategory] || p[:category])
-    p[:share_type] = ShareType.find_by_name(p[:share_type])
-    
-    # If there's no specific Share Type defined, use the listing_type param for the "top level share type"
-    if p[:share_type].nil?
-      p[:share_type] = ShareType.find_by_name(p[:listing_type])
-    end
-    
-    p.delete(:listing_type) # Remove old style listing_type from params
-    
-    return p
-  end
-  
   # Listing type is not anymore stored separately, so we serach it by share_type top level parent
   # And return a string here, as that's what expected in most existing cases (e.g. translation strings)
   def listing_type
-    return nil if share_type.nil?
-    return share_type.top_level_parent.transaction_type || share_type.top_level_parent.name
+    return transaction_type.direction
   end
   
   # Returns true if listing exists and valid_until is set
@@ -364,7 +286,6 @@ class Listing < ActiveRecord::Base
   end
   
   def update_fields(params)
-    params = Listing.find_category_and_share_type_based_on_string_params(params)
     update_attribute(:valid_until, nil) unless params[:valid_until]
     update_attributes(params)
   end
@@ -400,12 +321,12 @@ class Listing < ActiveRecord::Base
   
   # Returns true if the given person is offerer and false if requester
   def offerer?(person)
-    (transaction_type::OFFER && author.eql?(person)) || (share_type::REQUEST && !author.eql?(person))
+    (transaction_type.is_offer? && author.eql?(person)) || (transaction_type.is_request? && !author.eql?(person))
   end
   
   # Returns true if the given person is requester and false if offerer
   def requester?(person)
-    (transaction_type::REQUEST && author.eql?(person)) || (transaction_type::OFFER && !author.eql?(person))
+    (transaction_type.is_request? && author.eql?(person)) || (transaction_type.is_offer? && !author.eql?(person))
   end
   
   def selling_or_renting?
@@ -477,7 +398,7 @@ class Listing < ActiveRecord::Base
   
   # Is this listing an offer or a request
   def transaction_direction
-    transaction_type::DIRECTION
+    transaction_type.direction
   end
   
   def price_with_vat(vat)
