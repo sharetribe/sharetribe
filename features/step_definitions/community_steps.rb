@@ -131,6 +131,7 @@ Given /^community "(.*?)" has following category structure:$/ do |community, cat
     else
       category.update_attribute(:parent_id, @top_level_category.id)
     end
+    category
   end
 end
 

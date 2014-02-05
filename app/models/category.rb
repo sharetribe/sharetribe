@@ -84,4 +84,12 @@ class Category < ActiveRecord::Base
   def own_and_subcategory_custom_fields
     CategoryCustomField.find_by_category_and_subcategory(self).includes(:custom_field).collect(&:custom_field)
   end
+
+  # Please note! At the moment this is only used in tests. Consider moving this out of production code.
+  def self.find_by_community_and_translation(community, category_name)
+    community.categories.
+      select { |category| category.translations.
+        any? { |translation| translation.name == category_name} }.
+      first
+  end
 end

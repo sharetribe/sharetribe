@@ -1,4 +1,4 @@
-.row{:id => "subcategory-#{subcategory.display_name(I18n.locale).squish.downcase.tr(" ","_")}"}
+.row.category-row{:id => "subcategory-#{subcategory.display_name(I18n.locale).squish.downcase.tr(" ","_")}"}
   .col-10.listed-category-col
     .subcategory-label
       = subcategory.display_name(I18n.locale)
