@@ -1,4 +1,4 @@
-= form.hidden_field(:category, :value => @listing.category.name)
-= form.hidden_field(:share_type, :value => @listing.share_type.name)
+= form.hidden_field(:category, :value => @listing.category.id)
+= form.hidden_field(:transaction_type, :value => @listing.transaction_type.id)
 = form.button t(".save_listing"), :class => "send_button"
   

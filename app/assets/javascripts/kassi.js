@@ -476,9 +476,11 @@ function should_show_menu_for(attribute, selected_attributes, attribute_array) {
       return false;
     } else {
       if (selected_attributes["subcategory"] == null) {
-        transaction_types = get_transaction_types_for_subcategory(selected_attributes["subcategory"], attribute_array);
-      } else {
         transaction_types = get_transaction_types_for_category(selected_attributes["category"], attribute_array);
+        console.log("here");
+      } else {
+        console.log("here2");
+        transaction_types = get_transaction_types_for_subcategory(selected_attributes["category"], selected_attributes["subcategory"], attribute_array);
       }
       return (transaction_types.length < 2);
     }
@@ -495,7 +497,7 @@ function display_option_group(group_type) {
   });
 }
 
-function display_form(selected_attributes) {
+function display_listing_form(selected_attributes) {
   $('.form-fields').removeClass('hidden');
   var new_listing_path = '/' + locale + '/listings/new';
   $.get(new_listing_path, selected_attributes, function(data) {
@@ -504,21 +506,41 @@ function display_form(selected_attributes) {
 }
 
 function get_subcategories_for(category_id, category_array) {
-  subcategories = []
+  subcategories = [];
   $.each(category_array, function(index, category) {
     if (category["id"] == category_id) {
-      subcategories.push(category_id);
+      subcategories = category["subcategories"];
     }
   });
   return subcategories;
 }
 
 function get_transaction_types_for_category(category_id, category_array) {
-  
+  transaction_types = [];
+  $.each(category_array, function(index, category) {
+    if (category["id"] == category_id) {
+      transaction_types = category["transaction_types"];
+    }
+  });
+  return transaction_types;
 }
 
-function get_transaction_types_for_subcategory(subcategory_id, subcategory_array) {
-
+function get_transaction_types_for_subcategory(category_id, subcategory_id, category_array) {
+  console.log("Category: " +  category_id);
+  console.log("Subcategory: " + subcategory_id);
+  transaction_types = [];
+  $.each(category_array, function(index, category) {
+    console.log(JSON.stringify(category, null, 4));
+    if (category["id"] == category_id) {
+      console.log(JSON.stringify(category["subcategories"], null, 4));
+      $.each(category["subcategories"], function(index, subcategory) {
+        if (category["id"] == subcategory_id) {
+          transaction_types = subcategory["transaction_types"];
+        }
+      });
+    }
+  });
+  return transaction_types;
 }
 
 

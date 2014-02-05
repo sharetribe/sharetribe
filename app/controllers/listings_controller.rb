@@ -94,19 +94,16 @@ class ListingsController < ApplicationController
     @selected_tribe_navi_tab = "new_listing"
     @listing = Listing.new
     @listing.category = Category.find_by_name(params[:subcategory].blank? ? params[:category] : params[:subcategory])
-    @listing.share_type = ShareType.find_by_name(params[:share_type].blank? ? params[:listing_type] : params[:share_type])
-    if @listing.category && @listing.category.name == "rideshare"
-	    @listing.build_origin_loc(:location_type => "origin_loc")
-	    @listing.build_destination_loc(:location_type => "destination_loc")
+    @listing.transaction_type = TransactionType.find(params[:transaction_type])
+    
+    if (@current_user.location != nil)
+      temp = @current_user.location
+      temp.location_type = "origin_loc"
+      @listing.build_origin_loc(temp.attributes)
     else
-	    if (@current_user.location != nil)
-	      temp = @current_user.location
-	      temp.location_type = "origin_loc"
-	      @listing.build_origin_loc(temp.attributes)
-      else
-	      @listing.build_origin_loc(:location_type => "origin_loc")
-      end
+      @listing.build_origin_loc(:location_type => "origin_loc")
     end
+
     1.times { @listing.listing_images.build }
 
     if request.xhr? # AJAX request to get the actual form contents
