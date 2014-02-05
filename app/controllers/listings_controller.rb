@@ -115,8 +115,7 @@ class ListingsController < ApplicationController
   end
 
   def send_payment_settings_reminder?(community_category, listing, current_user, current_community)
-    community_category.payment? &&
-      listing.share_type.is_offer? &&
+    listing.share_type.is_offer? &&
       current_community.payments_in_use? &&
       !@current_user.can_receive_payments_at?(@current_community)
   end
