@@ -371,18 +371,19 @@ function get_keys(values) {
 }
 
 function update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes) {
+  // Hide everything
   $('a.selected').addClass('hidden');
   $('a.option').addClass('hidden');
   $('.form-fields').html("");
   
+  // Display correct selected attributes
   $('.selected-group').each(function() {
     if (selected_attributes[$(this).attr('data-name')] != null) {
       $('a.selected[data-id=' + selected_attributes[$(this).attr('data-id')] + ']').removeClass('hidden');
     }
   }); 
   
-  var title = "";
-  
+  // Display correct attribute menus
   if (should_show_menu_for("category", selected_attributes, attribute_array)) {
     display_option_group("category");
   } else if (should_show_menu_for("subcategory", selected_attributes, attribute_array)) {
@@ -393,80 +394,36 @@ function update_listing_form_view(locale, attribute_array, listing_form_menu_tit
     display_listing_form(selected_attributes, locale);
   }
 
-  
-
-
-  // if ((selected_attributes["listing_type"] != null) || !menu_applicable("category", selected_attributes, attribute_array))  {
-  //   if ((selected_attributes["category"] != null) || !menu_applicable("category", selected_attributes, attribute_array)) {
-  //     if ((selected_attributes["subcategory"] != null) || !menu_applicable("subcategory", selected_attributes, attribute_array)) {
-  //       if ((selected_attributes["share_type"] != null) || !menu_applicable("share_type", selected_attributes, attribute_array)) {
-  //         $('.form-fields').removeClass('hidden');
-  //         var new_listing_path = '/' + locale + '/listings/new';
-  //         $.get(new_listing_path, selected_attributes, function(data) {
-  //           $('.form-fields').html(data);
-  //         });
-  //       } else {
-  //         $('.option-group[name=share_type]').children().each(function() {
-  //           if ($.inArray($(this).attr('name'), attribute_array[selected_attributes["listing_type"]][selected_attributes["category"]]["share_type"]) > -1) {
-  //             $(this).removeClass('hidden');
-  //           }
-  //         });
-  //         title = listing_form_menu_titles["share_type"][selected_attributes["listing_type"]];
-  //       }
-  //     } else {
-  //       $('.option-group[name=subcategory]').children().each(function() {
-  //         if ($.inArray($(this).attr('name'), attribute_array[selected_attributes["listing_type"]][selected_attributes["category"]]["subcategory"]) > -1) {
-  //           $(this).removeClass('hidden');
-  //         }
-  //       });
-  //       title = listing_form_menu_titles["subcategory"][selected_attributes["category"]];
-  //     }
-  //   } else {
-  //     $('.option-group[name=category]').children().each(function() {
-  //       if (attribute_array[selected_attributes["listing_type"]][$(this).attr('name')] != null) {
-  //         $(this).removeClass('hidden');
-  //       }
-  //     });
-  //     if (listing_form_menu_titles["category"][selected_attributes["listing_type"]] == undefined) {
-  //       title = listing_form_menu_titles["category"]["default"];
-  //     } else {
-  //       title = listing_form_menu_titles["category"][selected_attributes["listing_type"]];
-  //     }
-  //   }
-  // } else {
-  //   title = listing_form_menu_titles["listing_type"];
-  //   $('.option-group[name=listing_type]').children().each(function() {
-  //     $(this).removeClass('hidden');
-  //   });
-  // }
-  
-  // $('h2.listing-form-title').html(title);
+  // Display correct menu title
+  title = listing_form_menu_titles["share_type"][selected_attributes["listing_type"]];
+  $('h2.listing-form-title').html(title);
 }
 
 function should_show_menu_for(attribute, selected_attributes, attribute_array) {
-  // console.log("Selected attributes: " + JSON.stringify(selected_attributes, null, 4));
-  // console.log("Attribute array: " + JSON.stringify(attribute_array, null, 4));
-  // console.log("Attribute: " + attribute);
-
   if (attribute_selected(attribute, selected_attributes)) {
     return false
   } else if (attribute == "category") {
-    console.log("Should show menu for category");
     if (attribute_array.length < 2) {
       return false;
     } else {
       return true;
     }
   } else if (attribute == "subcategory") {
-    console.log("Should show menu for subcategory");
     if (should_show_menu_for("category", selected_attributes, attribute_array)) {
-      console.log("Category menu should be present");
       return false;
-    } else if (get_subcategories_for(selected_attributes["category"], attribute_array).length < 2) {
-      console.log("Not enough subcategories");
-      return false
     } else {
-      return true;
+      subcategories = get_subcategories_for(selected_attributes["category"], attribute_array);
+      if (subcategories.length < 2) {
+        // If there is exactly 1 subcategory, 
+        // it should be marked automatically as selected,
+        // without showing the form.
+        if (subcategories.length == 1) {
+          selected_attributes["subcategory"] = subcategories[0];
+        }
+        return false
+      } else {
+        return true;
+      }
     }
   } else if (attribute == "transaction_type") {
     console.log("Should show menu for transaction type");
@@ -477,12 +434,15 @@ function should_show_menu_for(attribute, selected_attributes, attribute_array) {
     } else {
       if (selected_attributes["subcategory"] == null) {
         transaction_types = get_transaction_types_for_category(selected_attributes["category"], attribute_array);
-        console.log("here");
       } else {
-        console.log("here2");
         transaction_types = get_transaction_types_for_subcategory(selected_attributes["category"], selected_attributes["subcategory"], attribute_array);
       }
-      return (transaction_types.length < 2);
+      // If there is exactly 1 transaction type, it should be marked automatically as selected,
+      // without showing the form
+      if (transaction_types.length == 1) {
+        selected_attributes["transaction_type"] = transaction_types[0];
+      }
+      return (transaction_types.length > 1);
     }
   }
 }
@@ -506,10 +466,12 @@ function display_listing_form(selected_attributes, locale) {
 }
 
 function get_subcategories_for(category_id, category_array) {
-  subcategories = [];
+  var subcategories = [];
   $.each(category_array, function(index, category) {
     if (category["id"] == category_id) {
-      subcategories = category["subcategories"];
+      if (category["subcategories"] != undefined) {
+        subcategories = category["subcategories"];
+      }
     }
   });
   return subcategories;
@@ -522,19 +484,16 @@ function get_transaction_types_for_category(category_id, category_array) {
       transaction_types = category["transaction_types"];
     }
   });
+  console.log(JSON.stringify(transaction_types, null, 4));
   return transaction_types;
 }
 
 function get_transaction_types_for_subcategory(category_id, subcategory_id, category_array) {
-  console.log("Category: " +  category_id);
-  console.log("Subcategory: " + subcategory_id);
   transaction_types = [];
   $.each(category_array, function(index, category) {
-    console.log(JSON.stringify(category, null, 4));
     if (category["id"] == category_id) {
-      console.log(JSON.stringify(category["subcategories"], null, 4));
       $.each(category["subcategories"], function(index, subcategory) {
-        if (category["id"] == subcategory_id) {
+        if (subcategory["id"] == subcategory_id) {
           transaction_types = subcategory["transaction_types"];
         }
       });
