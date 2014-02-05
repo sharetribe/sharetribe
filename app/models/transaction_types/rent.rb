@@ -1,4 +1,4 @@
-class Rent < TransactionType
+class Rent < Offer
 
   before_validation(:on => :create) do
     self.price_field ||= 1

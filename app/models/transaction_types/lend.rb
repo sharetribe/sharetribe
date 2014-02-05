@@ -1,4 +1,4 @@
-class Lend < TransactionType
+class Lend < Offer
 
   before_validation(:on => :create) do
     self.price_field ||= 0

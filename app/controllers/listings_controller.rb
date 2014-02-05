@@ -105,7 +105,7 @@ class ListingsController < ApplicationController
     1.times { @listing.listing_images.build }
 
     if request.xhr? # AJAX request to get the actual form contents
-      @listing.category = Category.find_by_name(params[:subcategory].blank? ? params[:category] : params[:subcategory])
+      @listing.category = Category.find(params[:subcategory].blank? ? params[:category] : params[:subcategory])
       @listing.transaction_type = TransactionType.find(params[:transaction_type])
       logger.info "Category: #{@listing.category.inspect}"
       render :partial => "listings/form/form_content" 

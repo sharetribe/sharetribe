@@ -400,12 +400,12 @@ class Listing < ActiveRecord::Base
   
   # Returns true if the given person is offerer and false if requester
   def offerer?(person)
-    (share_type.is_offer? && author.eql?(person)) || (share_type.is_request? && !author.eql?(person))
+    (transaction_type::OFFER && author.eql?(person)) || (share_type::REQUEST && !author.eql?(person))
   end
   
   # Returns true if the given person is requester and false if offerer
   def requester?(person)
-    (share_type.is_request? && author.eql?(person)) || (share_type.is_offer? && !author.eql?(person))
+    (transaction_type::REQUEST && author.eql?(person)) || (transaction_type::OFFER && !author.eql?(person))
   end
   
   def selling_or_renting?
@@ -475,8 +475,9 @@ class Listing < ActiveRecord::Base
     price ? price.symbol : MoneyRails.default_currency.symbol
   end
   
-  def transaction_type
-    share_type.top_level_parent.transaction_type
+  # Is this listing an offer or a request
+  def transaction_direction
+    transaction_type::DIRECTION
   end
   
   def price_with_vat(vat)
