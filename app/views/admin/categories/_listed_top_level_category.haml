@@ -10,3 +10,14 @@
 
   - unless category.children.empty?
     = render :partial => "listed_subcategory", :collection => category.children, :as => :subcategory
+
+  -#
+    Make divider border between the elements without margins (only paddings)
+
+    This is a little bit hacky-wacky solution, but it seems to work ok. The animation
+    relies on the height of the animated element and it doesn't include the margins
+    in the height. Best result for animation is when element doesn't have top/bottom
+    margins
+    
+  .top-level-category-divider-wrapper
+    .top-level-category-divider
