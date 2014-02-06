@@ -19,10 +19,6 @@ window.ST.createCustomFieldOrder = function(rowSelector) {
     };
   }).get();
 
-  function customFieldUrl(url) {
-    return [window.location.pathname, url].join("/").replace("//", "/");
-  }
-
   orderManager = window.ST.orderManager(fieldMap)
 
   var ajaxRequest = orderManager.order.changes().debounce(800).map(".order")
@@ -30,7 +26,7 @@ window.ST.createCustomFieldOrder = function(rowSelector) {
     .map(function(order) {
     return {
       type: "POST",
-      url: customFieldUrl("order"),
+      url: ST.utils.relativeUrl("order"),
       data: { order: order }
     };
   });

@@ -29,10 +29,26 @@ ST.utils = (function(_) {
     return newArr;
   }
 
+  /**
+    Create relative URLs.
+
+    ## Usage:
+    
+    If you're in 'http://market.sharetribe.com/admin/categories/' then
+
+    ```
+      console.log(relativeUrl("order/14")) // -> 'http://market.sharetribe.com/admin/categories/order/15'
+    ```
+  */
+  function relativeUrl(url) {
+    return [window.location.pathname, url].join("/").replace("//", "/");
+  }
+
   return {
     findNextIndex: findNextIndex,
     findPrevIndex: findPrevIndex,
-    swapArrayElements: swapArrayElements
+    swapArrayElements: swapArrayElements,
+    relativeUrl: relativeUrl
   };
 
 })(_);
