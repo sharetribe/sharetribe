@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140128095047) do
+ActiveRecord::Schema.define(:version => 20140205101011) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -74,9 +74,10 @@ ActiveRecord::Schema.define(:version => 20140128095047) do
     t.string   "name"
     t.integer  "parent_id"
     t.string   "icon"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.integer  "community_id"
+    t.integer  "sort_priority"
   end
 
   add_index "categories", ["name"], :name => "index_categories_on_name"
@@ -484,25 +485,27 @@ ActiveRecord::Schema.define(:version => 20140128095047) do
     t.string   "author_id"
     t.string   "category_old"
     t.string   "title"
-    t.integer  "times_viewed",     :default => 0
+    t.integer  "times_viewed",        :default => 0
     t.string   "language"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "last_modified"
-    t.string   "visibility",       :default => "this_community"
+    t.string   "visibility",          :default => "this_community"
     t.string   "listing_type_old"
     t.text     "description"
     t.string   "origin"
     t.string   "destination"
     t.datetime "valid_until"
-    t.boolean  "delta",            :default => true,             :null => false
-    t.boolean  "open",             :default => true
+    t.boolean  "delta",               :default => true,             :null => false
+    t.boolean  "open",                :default => true
     t.string   "share_type_old"
-    t.string   "privacy",          :default => "private"
-    t.integer  "comments_count",   :default => 0
+    t.string   "privacy",             :default => "private"
+    t.integer  "comments_count",      :default => 0
     t.string   "subcategory_old"
     t.integer  "category_id"
+    t.integer  "new_category_id"
     t.integer  "share_type_id"
+    t.integer  "transaction_type_id"
     t.integer  "organization_id"
     t.integer  "price_cents"
     t.string   "currency"
@@ -858,8 +861,9 @@ ActiveRecord::Schema.define(:version => 20140128095047) do
     t.integer  "community_id"
     t.integer  "sort_priority"
     t.boolean  "price_field"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.string   "price_quantity_placeholder"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
 end

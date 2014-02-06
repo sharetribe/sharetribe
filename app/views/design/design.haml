@@ -217,7 +217,7 @@
           }).get();
 
           orderManager = window.ST.orderManager(fieldMap);
-          orderManager.changes.onValue(function(orderStatus) {
+          orderManager.order.changes().onValue(function(orderStatus) {
             // Do something with the orderStatus
           });
 
@@ -231,7 +231,7 @@
           }).get();
 
           orderManager = window.ST.orderManager(subFieldMap);
-          orderManager.changes.onValue(function(orderStatus) {
+          orderManager.order.changes().onValue(function(orderStatus) {
             // Do something with the orderStatus
           });
 
@@ -267,7 +267,7 @@
                 }).get();
 
                 orderManager = window.ST.orderManager(fieldMap);
-                orderManager.changes.onValue(function(orderStatus) {
+                orderManager.order.changes().onValue(function(orderStatus) {
                   // Do something with the orderStatus
                 });
 

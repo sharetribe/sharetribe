@@ -7,6 +7,9 @@ en:
         listing_categories: "Listing categories"
         create_a_new_category: "+ Create a new category"
         remove_category_confirmation: "Are you sure you want to remove category '%{category_name}'?"
+        saving_order: "Saving category order"
+        save_order_successful: "Successfully saved category order"
+        save_order_error: "An error occured while saving category order. Please refresh the page and try again."
       new:
         new_listing_category: "New listing category"
       form:
@@ -83,7 +86,7 @@ en:
         add_option: "+ Add option"
         saving_order: "Saving field order"
         save_order_successful: "Successfully saved field order"
-        save_order_error: "An error occured while saving listing order. Please refresh the page and try again."
+        save_order_error: "An error occured while saving field order. Please refresh the page and try again."
         select_one: "Select field type..."
         continue: Continue
       new:
