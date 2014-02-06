@@ -20,6 +20,24 @@ fi:
         buttons:
           save: "Tallenna"
           cancel: "Peruuta"
+      remove:
+        remove_category: "Poista kategoria"
+        remove_category_name: "Poista kategoria '%{category_name}'"
+        warning_remove_effects: "Varoitus! Kategorian '%{category_name}' poistamisella on seuraavat vaikutukset:"
+        warning_listing_will_be_moved: "Kategorialla on %{listing_count} ilmoitus. Tämä ilmoitus siirretään uuteen kategoriaan."
+        warning_listings_will_be_moved: "Kategorialla on %{listing_count} ilmoitusta. Nämä ilmoitukset siirtämään uuteen kategoriaan."
+        warning_custom_field_will_be_moved: "Kategorialla on %{custom_field_count} ilmoituskenttä. Tämä ilmoituskenttä siirretään uuteen kategoriaan."
+        warning_custom_fields_will_be_moved: "Kategorialla on %{custom_field_count} ilmoituskenttää. Nämä ilmoituskentät siirretään uuteen kategoriaan."
+        warning_subcategory_will_be_removed: "Kategorialla on %{subcategory_count} alakategoria. Tämä alakategoria poistetaan."
+        warning_subcategories_will_be_removed: "Kategorialla on %{subcategory_count} alakategoriaa. Nämä alakategoriat poistetaan."
+        warning_with_subcategories_listing_will_be_moved: "Kategorialla ja sen alakategorioilla on %{listing_count} ilmoitus. Tämä ilmoitus siirretään uuteen kategoriaan."
+        warning_with_subcategories_listings_will_be_moved: "Kategorialla ja sen alakategorioilla on %{listing_count} ilmoitusta. Nämä ilmoitukset siirtämään uuteen kategoriaan."
+        warning_with_subcategories_custom_field_will_be_moved: "Kategorialla ja sen alakategorioilla on %{custom_field_count} ilmoituskenttä. Tämä ilmoituskenttä siirretään uuteen kategoriaan."
+        warning_with_subcategories_custom_fields_will_be_moved: "Kategorialla ja sen alakategorioilla on %{custom_field_count} ilmoituskenttää. Nämä ilmoituskentät siirretään uuteen kategoriaan."
+        select_new_category: "Valitse uusi kategoria, johon yllämainitut elementit siirretään:"
+        buttons:
+          remove: "Remove"
+          cancel: "Cancel"
     communities:
       edit_details:
         community_details: "Yhteisön tiedot"
