@@ -1854,16 +1854,6 @@ a.lightbox-x {
     margin-top: lines(0.5);
   }
   
-  a.option {
-    &:after {
-      content: "→";
-      display: block;
-      position: absolute;
-      right: lines(0.5); top: em(6);
-      color: $link;
-    }
-  }
-  
   a.select {
     position: relative;
     display: block;
@@ -1873,15 +1863,9 @@ a.lightbox-x {
     min-height: 42px;
     &:hover { background: $highlight; }
     margin-bottom: lines(0.25);
-    .link-icon {
-      position: absolute;
-      top: em(7);
-      left: em(10);
-    }
     .link-text {
-      margin-left: lines(1.5);
-      margin-right: lines(1.5);
-      padding: em(5) 0 em(10) 0;
+      margin-left: em(15);
+      padding: em(6) 0 em(8) 0;
     }
   }
   

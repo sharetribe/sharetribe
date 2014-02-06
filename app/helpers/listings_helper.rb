@@ -45,24 +45,12 @@ module ListingsHelper
     Listing::VALID_PRIVACY_OPTIONS.collect { |option| [t(".#{option}"), option] }
   end
 
-  def listed_listing_share_type(listing)
-    if listing.share_type && listing.share_type.parent
-      if listing.share_type.name.eql?("offer_to_swap") || listing.share_type.name.eql?("request_to_swap")
-        t("listings.show.#{listing.category.name}_#{listing.listing_type}_#{listing.share_type.name}", :default => listing.share_type.display_name.capitalize)
-      else
-        localized_share_type_label(listing.share_type).mb_chars.capitalize.to_s
-      end
-    else
-      t("listings.show.#{listing.category.name}_#{listing.listing_type}", :default => listing.share_type.display_name)
-    end
-  end
-
   def listed_listing_title(listing)
-    listed_listing_share_type(listing) + ": #{listing.title}"
+    listing.transaction_type.display_name + ": #{listing.title}"
   end
 
   def share_type_url(listing, map=false)
-    root_path(:share_type => listing.share_type.name, :category => listing.category.name, :map => map)
+    root_path(:share_type => listing.transaction_type.display_name, :category => listing.category.name, :map => map)
   end
 
   # expects category to be "item", "favor", "rideshare" or "housing"
@@ -86,24 +74,11 @@ module ListingsHelper
     return t("listings.show.#{listing_type_string}", :default => listing_type_string.capitalize)
   end
 
-  def listing_form_menu_title(attribute)
-    # - if
-    # t(".what_kind_of_category", :category => t(".#{category}_with_article", :default => t(".listing")))
-  end
-
   def listing_form_menu_titles(community_attribute_values)
     titles = {
-      "listing_type" => t(".what_do_you_want_to_do"),
-      "category" => {
-        "offer" => t(".what_can_you_offer"),
-        "request" => t(".what_do_you_need"),
-        "default" => t(".select_category")
-      },
-      "subcategory" => Hash[community_attribute_values["category"].collect { |category| [category, t(".what_kind_of_#{category}", :default => t(".which_subcategory"))]}],
-      "share_type" => {
-        "offer" => t(".how_do_you_want_to_share_it"),
-        "request" => t(".how_do_you_want_to_get_it")
-      }
+      "category" => t(".select_category"),
+      "subcategory" => t(".select_subcategory"),
+      "transaction_type" => t(".select_transaction_type")
     }
   end
 

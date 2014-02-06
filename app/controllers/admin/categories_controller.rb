@@ -82,11 +82,13 @@ class Admin::CategoriesController < ApplicationController
     @category = Category.find_by_id_and_community_id(params[:id], @current_community.id)
     new_category = Category.find_by_id_and_community_id(params[:new_category], @current_community.id)
 
-    # Move listings
-    @category.own_and_subcategory_listings.update_all(:category_id => new_category.id)
+    if new_category
+      # Move listings
+      @category.own_and_subcategory_listings.update_all(:category_id => new_category.id)
 
-    # Move custom fields
-    Admin::CategoryService.move_custom_fields!(@category, new_category)
+      # Move custom fields
+      Admin::CategoryService.move_custom_fields!(@category, new_category)
+    end
 
     @category.destroy
 

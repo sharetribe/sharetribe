@@ -6,7 +6,7 @@
       #category-transaction-types-container.clearfix
         - @current_community.transaction_types.each do |transaction_type|
           .custom-field-categories-checkbox-container
-            = check_box_tag "category[transaction_type_attributes][][transaction_type_id]", "#{transaction_type.id}", @default_transaction_types.include?(transaction_type), :id => "#{transaction_type.name}_checkbox", :class => "category-transaction-type-checkbox"
-            = label_tag "#{transaction_type.name}_checkbox", transaction_type.name(I18n.locale), :class => "category-transaction-type-checkbox-label"
+            = check_box_tag "category[transaction_type_attributes][][transaction_type_id]", "#{transaction_type.id}", @default_transaction_types.include?(transaction_type), :id => "#{transaction_type.display_name}_checkbox", :class => "category-transaction-type-checkbox"
+            = label_tag "#{transaction_type.display_name}_checkbox", transaction_type.display_name(I18n.locale), :class => "category-transaction-type-checkbox-label"
 - else
   = hidden_field_tag "category[transaction_type_attributes][][transaction_type_id]", @current_community.transaction_types.first.id

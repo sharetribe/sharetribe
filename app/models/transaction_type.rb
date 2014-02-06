@@ -6,10 +6,11 @@ class TransactionType < ActiveRecord::Base
   has_many :translations, :class_name => "TransactionTypeTranslation", :dependent => :destroy
   has_many :category_transaction_types, :dependent => :destroy
   has_many :categories, :through => :category_transaction_types
+  has_many :listings
 
   validates_presence_of :community
 
-  def name(locale="en")
+  def display_name(locale="en")
     n = translations.find { |translation| translation.locale == locale.to_s } || translations.first # Fallback to first
     n ? n.name : ""
   end

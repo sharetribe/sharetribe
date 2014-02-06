@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_send_message_form('#{I18n.locale}', '#{params[:message_type] ? params[:message_type] : Listing.opposite_type(@listing.transaction_type)}');
+  initialize_send_message_form('#{I18n.locale}', '#{params[:message_type] ? params[:message_type] : Listing.opposite_type(@listing.transaction_direction)}');
 
 #new_message_form.centered-section
   - if params[:message_type]
@@ -9,7 +9,7 @@
       = @listing.share_type.transaction_button_text
       = link_to(@listing.title, @listing)
   - else
-    %h2= t(".#{transaction_proposal_form_title(@listing)}", :listing => link_to(@listing.title, @listing), :person => author_link(@listing), :default => t(".#{Listing.opposite_type(@listing.transaction_type)}_message_form_title", :listing => link_to(@listing.title, @listing), :person => author_link(@listing)).html_safe).html_safe   
+    %h2= t(".#{transaction_proposal_form_title(@listing)}", :listing => link_to(@listing.title, @listing), :person => author_link(@listing), :default => t(".#{Listing.opposite_type(@listing.transaction_direction)}_message_form_title", :listing => link_to(@listing.title, @listing), :person => author_link(@listing)).html_safe).html_safe   
   %p
     = t(".this_message_is_private", :person => @target_person.given_name_or_username)
     - if params[:message_type]

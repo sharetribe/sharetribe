@@ -8,39 +8,45 @@
 
 .left-navi-section
   %h2
-    = "Remove category '#{@category.display_name(I18n.locale)}'"
+    = t('.remove_category_name', category_name: @category.display_name(I18n.locale))
 
-  - if @category.has_subcategories?
+  .category-remove-warning-box
     %p
-      = "Warning! If you remove the category '#{@category.display_name(I18n.locale)}' the following subcategories will be also deleted:"
+      %span.category-remove-warning-box-icon<>
+        = icon_tag("alert", ["icon-fix"])
+      %span<
+        = t('.warning_remove_effects', category_name: @category.display_name(I18n.locale))
 
-      %ul
-        - @category.subcategories.collect { |subcategory| subcategory.display_name(I18n.locale) }.each do |subcategory_name|
-          %li= subcategory_name
+    %ul
+      - prefix = @category.has_subcategories? ? '.warning_with_subcategories_' : '.warning_'
 
-  = form_tag('destroy_and_move', :method => :delete) do
+      - if @category.has_subcategories?
+        %li
+          - count = @category.subcategories.count
+          = t(count == 1 ? '.warning_subcategory_will_be_removed' : '.warning_subcategories_will_be_removed', subcategory_count: count)
 
-    -if @category.has_own_or_subcategory_listings? || @category.has_own_or_subcategory_custom_fields?
+      -if @category.has_own_or_subcategory_listings?
+        %li
+          - count = @category.own_and_subcategory_listings.count
+          = t(prefix + (count == 1 ? 'listing_will_be_moved' : 'listings_will_be_moved'), listing_count: count)
 
-      %p
-        %ul
-        - if @category.has_own_or_subcategory_listings?
-          %li
-            = "There are #{@category.own_and_subcategory_listings.count} listings in category '#{@category.display_name(I18n.locale)}' and its subcategories."
+      -if @category.has_own_or_subcategory_custom_fields?
+        %li
+          - count = @category.own_and_subcategory_custom_fields.count
+          = t(prefix + (count == 1 ? 'custom_field_will_be_moved' : 'custom_fields_will_be_moved'), custom_field_count: count)
 
-        -if @category.has_own_or_subcategory_custom_fields?
-          %li
-            = "There are #{@category.own_and_subcategory_custom_fields.count} custom field in category '#{@category.display_name(I18n.locale)}' and its subcategories."
+  -if @category.has_own_or_subcategory_listings? || @category.has_own_or_subcategory_custom_fields?
+    %p
+      = t('.select_new_category')
 
-      %p
-        = "Select a new category where the items listed above will be moved:"
+    = form_tag('destroy_and_move', :method => :delete) do
 
       %p
         = select_tag "new_category", options_for_select(@new_category_candidates.collect { |c| [c.display_name(I18n.locale), c.id] })
 
-    .inline-button-container
-      = button_tag t(".remove"), :class => "delete-button"
-    .inline-button-container
-      %a{:href => admin_categories_path, :class => "cancel-button"}
-        .content
-          = t(".cancel")
+      .inline-button-container
+        = button_tag t(".buttons.remove"), :class => "delete-button"
+      .inline-button-container
+        %a{:href => admin_categories_path, :class => "cancel-button"}
+          .content
+            = t(".buttons.cancel")

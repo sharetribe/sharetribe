@@ -12,7 +12,7 @@ ThinkingSphinx::Index.define :listing, :with => :active_record, :delta => Thinki
   # attributes
   has created_at, updated_at
   has category(:id), :as => :category_id
-  has share_type(:id), :as => :share_type_id 
+  has transaction_type(:id), :as => :transaction_type_id 
   has "privacy = 'public'", :as => :visible_to_everybody, :type => :boolean
   has communities(:id), :as => :community_ids
   has custom_field_values.selected_options.id, :as => :custom_field_options, :type => :integer, :multi => true

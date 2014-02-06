@@ -101,7 +101,6 @@ describe CategoriesHelper do
       #puts community.share_types.collect(&:name)
       community.main_categories.count.should == 10
       community.categories.count.should == 21
-      #puts community.categories_tree.to_yaml
       reset_categories_to_default
     end
 
@@ -119,7 +118,6 @@ describe CategoriesHelper do
       CommunityCategory.find_by_category_id_and_share_type_id_and_community_id(Category.find_by_name("housing").id, ShareType.find_by_name("rent_out").id, nil).price_quantity_placeholder.should == "long_time"
       CommunityCategory.find_by_category_id_and_share_type_id_and_community_id(Category.find_by_name("item").id, ShareType.find_by_name("sell").id, nil).price.should be_true
       
-      #puts community.categories_tree.to_yaml
     end
     
   end
