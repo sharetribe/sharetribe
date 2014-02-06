@@ -9,7 +9,7 @@
         = render :partial => "category_action_buttons", :locals => {:category => category}
 
   - unless category.children.empty?
-    = render :partial => "listed_subcategory", :collection => category.children, :as => :subcategory
+    = render :partial => "listed_subcategory", :collection => category.children.sort, :as => :subcategory
 
   -#
     Make divider border between the elements without margins (only paddings)
@@ -18,6 +18,6 @@
     relies on the height of the animated element and it doesn't include the margins
     in the height. Best result for animation is when element doesn't have top/bottom
     margins
-    
+
   .top-level-category-divider-wrapper
     .top-level-category-divider

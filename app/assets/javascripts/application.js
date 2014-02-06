@@ -25,5 +25,6 @@
 //= require map_label
 //= require homepage
 //= require custom_fields
+//= require categories
 //= require payment_math
 //= require_self

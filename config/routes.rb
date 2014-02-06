@@ -156,6 +156,9 @@ Kassi::Application.routes.draw do
           get :remove
           delete :destroy_and_move
         end
+        collection do
+          post :order
+        end
       end
       resources :polls do
         collection do
