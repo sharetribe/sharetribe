@@ -14,6 +14,19 @@ Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: fr
   
 end
 
+Given /^there is a listing with title "([^"]*)"(?: and with category "([^"]*)")? in community "([^"]*)"$/ do |title, category_name, community_name|
+  community = Community.find_by_name(community_name)
+
+  opts = Hash.new
+  opts[:title] = title
+  
+  if category_name
+    opts[:category] = Category.find_by_community_and_translation(community, category_name)
+  end
+
+  FactoryGirl.create(:listing, opts)
+end
+
 Given /^there is rideshare (offer|request) from "([^"]*)" to "([^"]*)" by "([^"]*)"$/ do |type, origin, destination, author|
   @listing = FactoryGirl.create(:listing,
                                :category => find_or_create_category("rideshare"),

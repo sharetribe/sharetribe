@@ -1,9 +1,11 @@
 class Category < ActiveRecord::Base
-
-  attr_accessible :community_id, :parent_id, :translation_attributes, :transaction_type_attributes
+  attr_accessible :community_id, :parent_id, :translation_attributes, :transaction_type_attributes, :sort_priority
 
   # Classification module contains methods that are common to Category and ShareType
   include Classification
+
+  # use `sort_priority` for sorting
+  include SortableByPriority
 
   has_many :subcategories, :class_name => "Category", :foreign_key => "parent_id", :dependent => :destroy
   # children is a more generic alias for sub categories, used in classification.rb
@@ -45,12 +47,16 @@ class Category < ActiveRecord::Base
     n ? n.name : ""
   end
 
-  def has_listings?
-    listings.count > 0
+  def has_own_or_subcategory_listings?
+    listings.count > 0 || subcategories.any? { |subcategory| !subcategory.listings.empty? }
   end
 
   def has_subcategories?
     subcategories.count > 0
+  end
+
+  def has_own_or_subcategory_custom_fields?
+    custom_fields.count > 0 || subcategories.any? { |subcategory| !subcategory.custom_fields.empty? }
   end
 
   def subcategory_ids
@@ -59,16 +65,6 @@ class Category < ActiveRecord::Base
 
   def own_and_subcategory_ids
     [id].concat(subcategory_ids)
-  end
-
-  def is_own_or_subcategory_id?(id)
-    own_and_subcategory_ids.include?(id)
-  end
-
-  def all_but_me
-    community.categories.select do |category|
-      !is_own_or_subcategory_id?(category.id)
-    end
   end
 
   def is_subcategory?
@@ -80,10 +76,22 @@ class Category < ActiveRecord::Base
   end
 
   def remove_needs_caution?
-    has_listings? or has_subcategories?
+    has_own_or_subcategory_listings? or has_subcategories?
   end
 
   def own_and_subcategory_listings
     Listing.find_by_category_and_subcategory(self)
+  end
+
+  def own_and_subcategory_custom_fields
+    CategoryCustomField.find_by_category_and_subcategory(self).includes(:custom_field).collect(&:custom_field)
+  end
+
+  # Please note! At the moment this is only used in tests. Consider moving this out of production code.
+  def self.find_by_community_and_translation(community, category_name)
+    community.categories.
+      select { |category| category.translations.
+        any? { |translation| translation.name == category_name} }.
+      first
   end
 end

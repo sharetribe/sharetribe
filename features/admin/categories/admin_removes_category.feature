@@ -9,12 +9,12 @@ Feature: Admin removes a category
       | sub            | Tools             | Työkalut       |
       | sub            | Books             | Kirjat         |
       | main           | Services          | Palvelut       |
-    And there is item offer with title "Sound of Music" and with category "Books"
+    And there is a listing with title "Sound of Music" and with category "Books" in community "test"
 
   @javascript
   Scenario: Admin removes a subcategory
     Given I am on the categories admin page
-    When I remove subcategory "Tools"
+    When I remove category "Tools"
     Then the category "Tools" should be removed
 
   @javascript
@@ -27,7 +27,7 @@ Feature: Admin removes a category
 
   @javascript
   Scenario: Admin is not able to remove last top level categories
-    Given "Services" is the only top level category
+    Given "Services" is the only top level category in community "test"
     And I am on the categories admin page
     Then I should not be able to remove category "Services"
 
@@ -36,7 +36,7 @@ Feature: Admin removes a category
     Given I am on the categories admin page
     When I remove category "Books"
     Then I should be able to select new category for listing "Sound of Music"
-    When I select "Items" as a new category
+    When I select "Services" as a new category
     And I confirm category removal
     Then the category "Books" should be removed
     And the listing "Sound of Music" should belong to category "Items"

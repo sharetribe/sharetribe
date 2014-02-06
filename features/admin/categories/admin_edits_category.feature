@@ -5,7 +5,7 @@ Feature: Admin edits a category
     And "kassi_testperson2" has admin rights in community "test"
     And community "test" has following transaction types enabled:
       | transaction_type  | en                | fi             |
-      | SellProducts      | Selling           | Myydään        |
+      | Sell              | Selling           | Myydään        |
       | Give              | Giving away       | Annetaan       |
       | Lend              | Lending           | Lainataan      |
     And community "test" has following category structure:

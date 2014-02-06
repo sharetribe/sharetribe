@@ -343,7 +343,6 @@ GEM
       rubyzip (~> 1.0.0)
       websocket (~> 1.0.4)
     slop (3.4.6)
-    spork (1.0.0rc3)
     spreadsheet (0.7.5)
       ruby-ole (>= 1.0)
     sprockets (2.2.2)
@@ -460,7 +459,6 @@ DEPENDENCIES
   sass (~> 3.2.9)
   sass-rails
   selenium-webdriver
-  spork
   spreadsheet
   thinking-sphinx (= 3.0.4)
   timecop

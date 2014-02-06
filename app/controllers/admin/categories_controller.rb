@@ -47,10 +47,28 @@ class Admin::CategoriesController < ApplicationController
     end
   end
 
+  def order
+    sort_priorities = params[:order].each_with_index.map do |category_id, index|
+      [category_id, index]
+    end.inject({}) do |hash, ids|
+      category_id, sort_priority = ids
+      hash.merge(category_id.to_i => sort_priority)
+    end
+
+    @current_community.categories.select do |category|
+      sort_priorities.has_key?(category.id)
+    end.each do |category|
+      category.update_attributes(:sort_priority => sort_priorities[category.id])
+    end
+
+    render nothing: true, status: 200
+  end
+
   # Remove form
   def remove
     @selected_left_navi_link = "listing_categories"
     @category = Category.find(params[:id])
+    @new_category_candidates = @current_community.leaf_categories.reject { |category| @category.id == category.id }
   end
 
   # Remove action
@@ -62,9 +80,13 @@ class Admin::CategoriesController < ApplicationController
 
   def destroy_and_move
     @category = Category.find_by_id_and_community_id(params[:id], @current_community.id)
-    new_category_id = Category.find_by_id_and_community_id(params[:new_category], @current_community.id)
+    new_category = Category.find_by_id_and_community_id(params[:new_category], @current_community.id)
 
-    @category.own_and_subcategory_listings.update_all(:category_id => new_category_id)
+    # Move listings
+    @category.own_and_subcategory_listings.update_all(:category_id => new_category.id)
+
+    # Move custom fields
+    Admin::CategoryService.move_custom_fields!(@category, new_category)
 
     @category.destroy
 

@@ -398,6 +398,10 @@ class Community < ActiveRecord::Base
   def main_categories
     top_level_categories
   end
+
+  def leaf_categories
+    categories.reject { |c| !c.children.empty? }
+  end
   
   # Finds all top level share_types (=listing_types) used in this community
   def listing_types
@@ -473,7 +477,7 @@ class Community < ActiveRecord::Base
       return []
     end
   end
-  
+
   def braintree_in_use?
     payment_gateway.present? && payment_gateway.type == "BraintreePaymentGateway"
   end
