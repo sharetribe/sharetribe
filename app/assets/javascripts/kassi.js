@@ -235,20 +235,6 @@ function initialize_email_members_form() {
   });
 }
 
-function initialize_feedback_tab() {
-  $('.feedback_div').tabSlideOut({
-    tabHandle: '.handle',                     //class of the element that will become your tab
-    pathToTabImage: '/assets/feedback_handles.png',
-    imageHeight: '122px',                     //height of tab image           //Optionally can be set using css
-    imageWidth: '40px',                       //width of tab image            //Optionally can be set using css
-    tabLocation: 'left',                      //side of screen where tab lives, top, right, bottom, or left
-    speed: 300,                               //speed of animation
-    action: 'click',                          //options: 'click' or 'hover', action to trigger animation
-     topPos: '200px',                          //position from the top/ use if tabLocation is left or right
-    fixedPosition: true
-  });
-}
-
 function initialize_login_form(password_forgotten) {
   if (password_forgotten == true) {
     $('#password_forgotten').slideDown('fast');
@@ -307,13 +293,33 @@ function initialize_braintree_account_form(locale) {
   });
 }
 
+// Initialize the listing type & category selection part of the form
+function initialize_new_listing_form_selectors(locale, attribute_array, listing_form_menu_titles) {
+  var ordered_attributes = ["category", "subcategory", "transaction_type"];
+  var selected_attributes = {"category": null, "subcategory": null, "transaction_type": null};
+  
+  // Reset the view to initial state
+  update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
+  
+  // Listener for attribute menu clicks
+  $('.new-listing-form').find('a.select').click(
+    function() {
+      select_listing_form_menu_link($(this), locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
+    }
+  );
+  
+}
 
-
+// Called when a link is clicked in the listing form attribute menus
 function select_listing_form_menu_link(link, locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes) {
+  
+  // Update selected attributes based on the selection that has been made
   if (link.hasClass('option')) {
     selected_attributes[link.parent().attr('name')] = link.attr('data-id');
   } else {
     selected_attributes[link.parent().attr('name')] = null;
+    // Unselect also all sub-attributes if certain attribute is unselected
+    // (for instance, unselect subcategory if category is unselected).
     index_found = false;
     for (i = 0; i < ordered_attributes.length; i++) {
       if (ordered_attributes[i] == link.parent().attr('name')) {
@@ -324,52 +330,12 @@ function select_listing_form_menu_link(link, locale, attribute_array, listing_fo
       }
     }
   }
-  console.log(JSON.stringify(selected_attributes, null, 4));
+
+  // Update form view based on the selection that has been made
   update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
 }
 
-// Return true if the menu for the given attribute should be shown in
-// the listing form in this community.
-function menu_applicable(attribute, selected_attributes, attribute_array) {
-  if (attribute == "category") {
-    var values = attribute_array;
-  } else if (attribute == "subcategory") {
-    var values = attribute_array[selected_attributes["category"]];
-  } else if (attribute == "subcategory" || attribute == "share_type") {
-    if ((attribute_array[selected_attributes["category"]] == undefined) || (attribute_array[selected_attributes["category"]][selected_attributes["subcategory"]] == undefined)) {
-      values == undefined;
-    } else {
-      var values = attribute_array[selected_attributes["category"]][selected_attributes["subcategory"]][attribute];
-    }
-  }
-  if (values == undefined) {
-    return false;
-  } else {
-    var value_array = null;
-    if ($.isArray(values) == true) {
-      value_array = values; 
-    } else {
-      value_array = get_keys(values);
-    }
-    if (value_array.length < 1) {
-      return false;
-    } else if (value_array.length == 1) {
-      selected_attributes[attribute] = value_array[0];
-      return false;
-    } else {
-      return true;
-    }
-  }
-}
-
-function get_keys(values) {
-   var keys = [];
-   for(var key in values){
-      keys.push(key);
-   }
-   return keys;
-}
-
+// Update the state of the new listing form based on current status
 function update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes) {
   // Hide everything
   $('a.selected').addClass('hidden');
@@ -378,27 +344,29 @@ function update_listing_form_view(locale, attribute_array, listing_form_menu_tit
   
   // Display correct selected attributes
   $('.selected-group').each(function() {
-    if (selected_attributes[$(this).attr('data-name')] != null) {
-      $('a.selected[data-id=' + selected_attributes[$(this).attr('data-id')] + ']').removeClass('hidden');
+    if (selected_attributes[$(this).attr('name')] != null) {
+      $('a.selected[data-id=' + selected_attributes[$(this).attr('name')] + ']').removeClass('hidden');
     }
   }); 
   
-  // Display correct attribute menus
+  // Display correct attribute menus and their titles
+  var title = "";
   if (should_show_menu_for("category", selected_attributes, attribute_array)) {
-    display_option_group("category");
+    title = listing_form_menu_titles["category"];
+    display_option_group("category", selected_attributes, attribute_array);
   } else if (should_show_menu_for("subcategory", selected_attributes, attribute_array)) {
-    display_option_group("subcategory");
+    title = listing_form_menu_titles["subcategory"];
+    display_option_group("subcategory", selected_attributes, attribute_array);
   } else if (should_show_menu_for("transaction_type", selected_attributes, attribute_array)) {
-    display_option_group("transaction_type");
+    title = listing_form_menu_titles["transaction_type"];
+    display_option_group("transaction_type", selected_attributes, attribute_array);
   } else {
     display_listing_form(selected_attributes, locale);
   }
-
-  // Display correct menu title
-  title = listing_form_menu_titles["share_type"][selected_attributes["listing_type"]];
   $('h2.listing-form-title').html(title);
 }
 
+// Return true if given menu should be displayed
 function should_show_menu_for(attribute, selected_attributes, attribute_array) {
   if (attribute_selected(attribute, selected_attributes)) {
     return false
@@ -414,11 +382,10 @@ function should_show_menu_for(attribute, selected_attributes, attribute_array) {
     } else {
       subcategories = get_subcategories_for(selected_attributes["category"], attribute_array);
       if (subcategories.length < 2) {
-        // If there is exactly 1 subcategory, 
-        // it should be marked automatically as selected,
+        // If there is exactly 1 subcategory, it should be marked automatically as selected,
         // without showing the form.
         if (subcategories.length == 1) {
-          selected_attributes["subcategory"] = subcategories[0];
+          selected_attributes["subcategory"] = subcategories[0]["id"];
         }
         return false
       } else {
@@ -426,45 +393,32 @@ function should_show_menu_for(attribute, selected_attributes, attribute_array) {
       }
     }
   } else if (attribute == "transaction_type") {
-    console.log("Should show menu for transaction type");
     if (should_show_menu_for("category", selected_attributes, attribute_array)) {
       return false;
     } else if (should_show_menu_for("subcategory", selected_attributes, attribute_array)) {
       return false;
     } else {
-      if (selected_attributes["subcategory"] == null) {
-        transaction_types = get_transaction_types_for_category(selected_attributes["category"], attribute_array);
-      } else {
+      if (attribute_selected("subcategory", selected_attributes)) {
         transaction_types = get_transaction_types_for_subcategory(selected_attributes["category"], selected_attributes["subcategory"], attribute_array);
+      } else {
+        transaction_types = get_transaction_types_for_category(selected_attributes["category"], attribute_array);
       }
       // If there is exactly 1 transaction type, it should be marked automatically as selected,
       // without showing the form
       if (transaction_types.length == 1) {
-        selected_attributes["transaction_type"] = transaction_types[0];
+        selected_attributes["transaction_type"] = transaction_types[0]["id"];
       }
       return (transaction_types.length > 1);
     }
   }
 }
 
+// Returns true if given attribute has been selected
 function attribute_selected(attribute, selected_attributes) {
   return (selected_attributes[attribute] != null);
 }
 
-function display_option_group(group_type) {
-  $('.option-group[name=' + group_type + ']').children().each(function() {
-    $(this).removeClass('hidden');
-  });
-}
-
-function display_listing_form(selected_attributes, locale) {
-  $('.form-fields').removeClass('hidden');
-  var new_listing_path = '/' + locale + '/listings/new';
-  $.get(new_listing_path, selected_attributes, function(data) {
-    $('.form-fields').html(data);
-  });
-}
-
+// Return subcategories of given category
 function get_subcategories_for(category_id, category_array) {
   var subcategories = [];
   $.each(category_array, function(index, category) {
@@ -477,6 +431,8 @@ function get_subcategories_for(category_id, category_array) {
   return subcategories;
 }
 
+// Return transaction types of given category (expects
+// that this category does not have subcategories)
 function get_transaction_types_for_category(category_id, category_array) {
   transaction_types = [];
   $.each(category_array, function(index, category) {
@@ -484,39 +440,76 @@ function get_transaction_types_for_category(category_id, category_array) {
       transaction_types = category["transaction_types"];
     }
   });
-  console.log(JSON.stringify(transaction_types, null, 4));
   return transaction_types;
 }
 
+// Returns transaction types of given subcategory
 function get_transaction_types_for_subcategory(category_id, subcategory_id, category_array) {
   transaction_types = [];
   $.each(category_array, function(index, category) {
     if (category["id"] == category_id) {
-      $.each(category["subcategories"], function(index, subcategory) {
-        if (subcategory["id"] == subcategory_id) {
-          transaction_types = subcategory["transaction_types"];
-        }
-      });
+      transaction_types = get_transaction_types_for_category(subcategory_id, category["subcategories"]);
     }
   });
   return transaction_types;
 }
 
-
-
-// Initialize the listing type & category selection part of the form
-function initialize_new_listing_form_selectors(locale, attribute_array, listing_form_menu_titles) {
-  var ordered_attributes = ["category", "subcategory", "transaction_type"];
-  var selected_attributes = {"category": null, "subcategory": null, "transaction_type": null};
-  
-  update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
-  
-  $('.new-listing-form').find('a.select').click(
-    function() {
-      select_listing_form_menu_link($(this), locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
+// Displays the given menu where category or transaction type can be selected
+function display_option_group(group_type, selected_attributes, attribute_array) {
+  $('.option-group[name=' + group_type + ']').children().each(function() {
+    if (group_type == "category") {
+      $(this).removeClass('hidden');
+    } else if (group_type == "subcategory") {
+      if (has_subcategory(selected_attributes["category"], $(this).attr('data-id'), attribute_array)) {
+        $(this).removeClass('hidden');
+      }
+    } else if (group_type == "transaction_type") {
+      if (has_transaction_type(selected_attributes, $(this).attr('data-id'), attribute_array)) {
+        $(this).removeClass('hidden');
+      }
     }
-  );
-  
+  });
+}
+
+// Check if category has a certain subcategory
+function has_subcategory(category_id, subcategory_id, attribute_array) {
+  has_sub = false;
+  subcategories = get_subcategories_for(category_id, attribute_array);
+  $.each(subcategories, function(index, subcategory) {
+    if (subcategory['id'] == subcategory_id) {
+      has_sub = true;
+    }
+  });
+  return has_sub;
+}
+
+// Check if selected category or subcategory has certain transaction type
+function has_transaction_type(selected_attributes, transaction_type_id, attribute_array) {
+  has_tt = false;
+  // If subcategory is selected, loop through transaction types of that subcategory
+  if (attribute_selected("subcategory", selected_attributes)) {
+    transaction_types = get_transaction_types_for_subcategory(selected_attributes["category"], selected_attributes["subcategory"],attribute_array);
+  // If there's no subcategory, it means this top level category has no subcategories.
+  // Thus, loop through transaction_types of top level category.
+  } else {
+    transaction_types = get_transaction_types_for_category(selected_attributes["category"] ,attribute_array);
+  }
+  $.each(transaction_types, function(index, transaction_type) {
+    if (transaction_type['id'] == transaction_type_id) {
+      has_tt = true;
+    }
+  });
+  return has_tt;
+}
+
+// Ajax call to display listing form after categories and 
+// transaction type have been selected
+function display_listing_form(selected_attributes, locale) {
+  $('.form-fields').removeClass('hidden');
+  var new_listing_path = '/' + locale + '/listings/new';
+  $.get(new_listing_path, selected_attributes, function(data) {
+    $('.form-fields').html(data);
+  });
 }
 
 // Initialize the actual form fields

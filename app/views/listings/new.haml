@@ -19,7 +19,7 @@
         .selected-group{:name => attribute} 
           - values.each do |value|
             %a.select.selected{:href => "#", :data => {:id => value.id}}
-              .link-text= value.display_name(I18n.locale)
+              .link-text= t(".selected_#{attribute}", attribute.to_sym => value.display_name(I18n.locale))
   
   %h2.listing-form-title{:id => "foo"}
 

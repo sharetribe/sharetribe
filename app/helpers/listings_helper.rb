@@ -74,24 +74,11 @@ module ListingsHelper
     return t("listings.show.#{listing_type_string}", :default => listing_type_string.capitalize)
   end
 
-  def listing_form_menu_title(attribute)
-    # - if
-    # t(".what_kind_of_category", :category => t(".#{category}_with_article", :default => t(".listing")))
-  end
-
   def listing_form_menu_titles(community_attribute_values)
     titles = {
-      "listing_type" => t(".what_do_you_want_to_do"),
-      "category" => {
-        "offer" => t(".what_can_you_offer"),
-        "request" => t(".what_do_you_need"),
-        "default" => t(".select_category")
-      },
-      "subcategory" => Hash[community_attribute_values["category"].collect { |category| [category, t(".what_kind_of_#{category}", :default => t(".which_subcategory"))]}],
-      "share_type" => {
-        "offer" => t(".how_do_you_want_to_share_it"),
-        "request" => t(".how_do_you_want_to_get_it")
-      }
+      "category" => t(".select_category"),
+      "subcategory" => t(".select_subcategory"),
+      "transaction_type" => t(".select_transaction_type")
     }
   end
 

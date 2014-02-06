@@ -1266,72 +1266,12 @@ fi:
     new:
       post_a_new_listing: "Lisää uusi ilmoitus"
       listing: ilmoitus
-      offer: "Haluan tarjota muille jotain"
-      request: "Tarvitsen jotain"
-      selected_offer: Tarjous
-      selected_request: Pyyntö
-      selected_listing_type: "Ilmoitustyyppi: %{listing_type}"
       selected_category: "Kategoria: %{category}"
       selected_subcategory: "Alakategoria: %{subcategory}"
-      selected_share_type: "Jakamistapa: %{share_type}"
-      selected_item: Tavara
-      selected_favor: Palvelus
-      selected_rideshare: Kimppakyyti
-      selected_housing: Tila
-      selected_borrow: Lainataan
-      selected_buy: Ostetaan
-      selected_give_away: "Annetaan ilmaiseksi"
-      selected_lend: "Annetaan lainaksi"
-      selected_receive: "Otetaan vastaan ilmaiseksi"
-      selected_rent: Vuokrataan
-      selected_rent_out: "Annetaan vuokralle"
-      selected_sell: Myydään
-      selected_offer_to_swap: Vaihdetaan
-      selected_request_to_swap: Vaihdetaan
-      selected_share_for_free: "Annetaan käyttöön ilmaiseksi"
-      selected_accept_for_free: "Otetaan vastaan ilmaiseksi"
-      how_do_you_want_to_share_it: "Millä tavalla haluat jakaa sen?"
-      how_do_you_want_to_get_it: "Millä tavalla haluat saada sen?"
-      item: "Tavara - jotain käsinkosketeltavaa"
-      favor: "Palvelus - osaamista tai aikaa"
-      rideshare: "Kimppakyyti - autolla tai muulla kulkuvälineellä"
-      housing: "Tila - asunto, toimistotila tai puutarha"
-      borrow: "Haluan lainata sen"
-      buy: "Haluan ostaa sen"
-      give_away: "Annan sen pois ilmaiseksi"
-      lend: "Voin lainata sen ilmaiseksi"
-      receive: "Toivoisin saavani sen ilmaiseksi"
-      rent: "Haluan vuokrata sen"
-      rent_out: "Annan sen vuokralle maksua vastaan"
-      sell: "Myyn sen"
-      offer_to_swap: "Haluan vaihtaa sen johonkin muuhun"
-      request_to_swap: "Haluan vaihtaa sen johonkin muuhun"
-      share_for_free: "Tarjoan sen käyttöön ilmaiseksi"
-      accept_for_free: "Toivoisin saavani sen käyttöön ilmaiseksi"
-      what_kind_of_item: "Millaisesta tavarasta on kyse?"
-      what_kind_of_favor: "Millaisesta palveluksesta on kyse?"
-      what_kind_of_rideshare: "Millaisesta kyydistä on kyse?"
-      what_kind_of_housing: "Millaisesta tilasta on kyse?"
-      which_subcategory: "Tarkempi kuvaus"
-      tools: Työkalut
-      sports: Urheilu
-      music: Musiikki
-      books: "Kirjat & lehdet"
-      games: "Pelit & lelut"
-      furniture: Huonekalut
-      outdoors: "Ulkoilu ja retkeily"
-      food: "Ruoka ja ruuanlaitto"
-      electronics: Elektroniikka
-      pets: "Eläimet ja lemmikit"
-      film: "Elokuvat ja tv-sarjat"
-      clothes: "Vaatteet ja asusteet"
-      garden: Puutarha
-      travel: Matkailu
-      other: Muut
-      what_do_you_want_to_do: "Mitä haluat tehdä?"
-      what_can_you_offer: "Mitä haluat tarjota muille?"
-      what_do_you_need: "Mitä tarvitset?"
+      selected_transaction_type: "Ilmoitustyyppi: %{transaction_type}"
       select_category: "Valitse ilmoituskategoria"
+      select_subcategory: "Valitse alakategoria"
+      select_transaction_type: "Valitse ilmoitustyyppi"
     please_comment: Kommentoi
     reply_link:
       listing_closed: "Ilmoitus on suljettu"
