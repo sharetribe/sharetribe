@@ -11,15 +11,9 @@ window.ST.initializeCategoriesOrder = function() {
     };
   }).get();
 
-  orderManager = window.ST.orderManager(fieldMap);
+  var topLevelChanges = window.ST.orderManager(fieldMap).order;
 
-  function customFieldUrl(url) {
-    return [window.location.pathname, url].join("/").replace("//", "/");
-  }
-
-  var topLevelChanges = orderManager.order;
-
-  subLevelChanges = $(".top-level-category-container").get().map(function(topLevelContainer) {
+  var subLevelChanges = $(".top-level-category-container").get().map(function(topLevelContainer) {
     var subFieldMap = $(".sub-category-row", topLevelContainer).map(function(id, row) {
       return { 
         id: $(row).data("id"),
@@ -29,8 +23,7 @@ window.ST.initializeCategoriesOrder = function() {
       };
     }).get();
 
-    orderManager = window.ST.orderManager(subFieldMap);
-    return orderManager.order;
+    return window.ST.orderManager(subFieldMap).order;
   });
 
   var allChanges = [topLevelChanges].concat(subLevelChanges);
@@ -47,7 +40,7 @@ window.ST.initializeCategoriesOrder = function() {
     .map(function(order) {
       return {
         type: "POST",
-        url: customFieldUrl("order"),
+        url: ST.utils.relativeUrl("order"),
         data: { order: order }
       };
     });
