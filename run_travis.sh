@@ -16,6 +16,10 @@ then
 	bundle exec rails server 2>&1
 	grunt mocha 2>&1
 	exit
+elif [ "$SUITE" = "jshint" ]
+then
+	grunt jshint 2>&1
+	exit
 else
 	echo -e "Error: SUITE is illegal or not set\n"
 	exit 1
