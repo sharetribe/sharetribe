@@ -49,6 +49,20 @@ Capybara.ignore_hidden_elements = true
 #
 ActionController::Base.allow_rescue = false
 
+# Hack to support transactional tests in cucumber
+class ActiveRecord::Base
+  mattr_accessor :shared_connection
+  @@shared_connection = nil
+ 
+  def self.connection
+    @@shared_connection || retrieve_connection
+  end
+end
+ 
+# Forces all threads to share the same connection. This works on
+# Capybara because it starts the web server in a thread.
+ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
+
 # Ensure sphinx directories exist for the test environment
 ThinkingSphinx::Test.init
 # Configure and start Sphinx, and automatically
@@ -56,16 +70,23 @@ ThinkingSphinx::Test.init
 ThinkingSphinx::Test.start_with_autostop
 # This makes tests bit slower, but it's better to use Zeus if wanting to keep sphinx running
 
-# Populate db with default data
-DatabaseCleaner.clean_with(:truncation)
-load_default_test_data_to_db_before_suite
+# Clear cache for each run as caching is not planned to work when DB contents are changing and communities are removed
+Rails.cache.clear
 
 begin
   require 'database_cleaner'
   require 'database_cleaner/cucumber'
 
-  DatabaseCleaner.strategy = :truncation, {:except => tables_to_keep}
-  Cucumber::Rails::Database.javascript_strategy = :truncation, {:except => tables_to_keep}
+  if !defined?(Zeus)
+    # Test seed data is loaded on Zeus startup (custom_plan). If not using Zeus, load
+    # them here.
+    DatabaseCleaner.clean_with(:truncation)
+    load_default_test_data_to_db_before_suite
+    load_default_test_data_to_db_before_test
+  end
+
+  DatabaseCleaner.strategy = :transaction
+  Cucumber::Rails::Database.javascript_strategy = :transaction
 rescue NameError
   raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
 end
@@ -74,13 +95,8 @@ end
 ThinkingSphinx::Deltas.suspend!
 
 Before do
-  # Populate db with default data
-  DatabaseCleaner.clean_with(:truncation)
-  load_default_test_data_to_db_before_suite
-  load_default_test_data_to_db_before_test
-  
-  # Clear cache for each run as caching is not planned to work when DB contents are changing and communities are removed
   Rails.cache.clear
+  DatabaseCleaner.start
 end
 
 After do
