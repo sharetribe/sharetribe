@@ -31,6 +31,7 @@ before_install:
 - gem install bundler bundle_cache
 - bundle_cache_install
 - npm install
+- npm install -g grunt-cli
 before_script:
 - cp config/database.example.yml config/database.yml
 - mysql -e 'create database sharetribe_test;'
