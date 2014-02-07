@@ -1,3 +1,0 @@
-class Sell < TransactionType
-
-end
