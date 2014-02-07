@@ -119,9 +119,9 @@ end
 
 Given /^community "(.*?)" has following category structure:$/ do |community, categories|
   current_community = Community.find_by_domain(community)
-  current_community.categories.destroy_all
+  old_category_ids = current_community.categories.collect(&:id)
  
-  current_community.categories << categories.hashes.map do |hash|
+  current_community.categories = categories.hashes.map do |hash|
     category = current_community.categories.create!
     category.translations.create!(:name => hash['fi'], :locale => 'fi')
     category.translations.create!(:name => hash['en'], :locale => 'en')
@@ -132,6 +132,13 @@ Given /^community "(.*?)" has following category structure:$/ do |community, cat
       category.update_attribute(:parent_id, @top_level_category.id)
     end
     category
+  end
+
+  # Clean old
+  current_community.categories.select do |category|
+    old_category_ids.include? category.id
+  end.each do |category|
+    category.destroy!
   end
 end
 

@@ -50,3 +50,28 @@ Feature: Admin edits a category
   Scenario: Admin tries to remove all transaction types
     When I unselect all transaction types from category "Items"
     Then I should see 1 validation errors
+
+  @javascript
+  Scenario: Admin edits category order
+    Given I am on the categories admin page
+    When I move category "Items" down 1 step
+    Then the category order should be following:
+      | category |
+      | Services |
+      | Items    |
+      | Tools    |
+      | Books    |
+    When I move category "Books" up 1 step
+    Then the category order should be following:
+      | category |
+      | Services |
+      | Items    |
+      | Books    |
+      | Tools    |
+    When I refresh the page
+    Then the category order should be following:
+      | category |
+      | Services |
+      | Items    |
+      | Books    |
+      | Tools    |

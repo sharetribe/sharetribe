@@ -1,5 +1,7 @@
 module AdminCategorySteps
   DELETE_LINK_SELECTOR = ".category-action-remove"
+  UP_LINK_SELECTOR = ".category-action-up"
+  DOWN_LINK_SELECTOR = ".category-action-down"
 
   def find_category_row(category_name)
     find(".category-row", :text => "#{category_name}")
@@ -7,6 +9,14 @@ module AdminCategorySteps
 
   def find_remove_link_for_category(category_name)
     find_category_row(category_name).find(DELETE_LINK_SELECTOR)
+  end
+
+  def find_up_link_for_category(category_name)
+    find_category_row(category_name).find(UP_LINK_SELECTOR)
+  end
+
+  def find_down_link_for_category(category_name)
+    find_category_row(category_name).find(DOWN_LINK_SELECTOR)
   end
 
   def should_not_find_remove_link_for_category(category_name)
@@ -109,4 +119,38 @@ end
 Then /^the listing "(.*?)" should belong to category "(.*?)"$/ do |listing_title, category_name|
   listing = Listing.find_by_title(listing_title)
   listing.category.translations.any? { |t| t.name == category_name }
+end
+
+Then /^the category order should be following:$/ do |table|
+  table.hashes.each_cons(2).map do |two_hashes|
+    first, second = two_hashes
+
+    steps %Q{
+      Then I should see "#{first['category']}" before "#{second['category']}"
+    }
+  end
+end
+
+When /^I move category "(.*?)" down (\d+) steps?$/ do |category, n|
+  n.to_i.times do
+    steps %Q{
+      When I click down for category "#{category}"
+    }
+  end
+end
+
+When /^I move category "(.*?)" up (\d+) steps?$/ do |category, n|
+  n.to_i.times do
+    steps %Q{
+      When I click up for category "#{category}"
+    }
+  end
+end
+
+When /^I click down for category "(.*?)"$/ do |category|
+  find_down_link_for_category(category).click()
+end
+
+When /^I click up for category "(.*?)"$/ do |category|
+  find_up_link_for_category(category).click()
 end
