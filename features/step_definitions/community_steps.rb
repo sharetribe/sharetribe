@@ -114,3 +114,8 @@ end
 Given /^community "(.*?)" is private$/ do |community_domain|
   Community.find_by_domain(community_domain).update_attributes({:private => true})
 end
+
+Given /^listing publishing date is shown in community "(.*?)"$/ do |community_domain|
+  Community.find_by_domain(community_domain).update_attributes({:show_listing_publishing_date => true})
+end
+
