@@ -13,7 +13,7 @@ then
 	exit
 elif [ "$SUITE" = "mocha" ]
 then
-	bundle exec rails server 2>&1
+	bundle exec rails server &
 	grunt mocha 2>&1
 	exit
 elif [ "$SUITE" = "jshint" ]
