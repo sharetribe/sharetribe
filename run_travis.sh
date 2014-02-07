@@ -15,7 +15,7 @@ elif [ "$SUITE" = "mocha" ]
 then
 	bundle exec rails server &
 	echo "Waiting rails server to start..."
-	sleep 10
+	sleep 30
 	grunt mocha 2>&1
 	exit
 elif [ "$SUITE" = "jshint" ]
