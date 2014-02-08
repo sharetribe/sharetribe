@@ -13,7 +13,7 @@ then
 	exit
 elif [ "$SUITE" = "mocha" ]
 then
-	grunt mocha 2>&1
+	grunt connect mocha 2>&1
 	exit
 elif [ "$SUITE" = "jshint" ]
 then
