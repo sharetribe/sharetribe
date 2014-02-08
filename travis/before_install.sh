@@ -17,6 +17,9 @@ then
 	exit
 elif [ "$SUITE" = "mocha" ]
 then
+	"echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+	gem install bundler bundle_cache
+	bundle_cache_install
 	npm install
 	npm install -g grunt-cli
 	exit
