@@ -17,6 +17,7 @@ then
 	exit
 elif [ "$SUITE" = "mocha" ]
 then
+	rake assets:precompile
 	exit
 elif [ "$SUITE" = "jshint" ]
 then
