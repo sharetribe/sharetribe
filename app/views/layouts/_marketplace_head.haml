@@ -24,9 +24,6 @@
 / CSS
 - with_stylesheet_url(@current_community) do |stylesheet_url|
   = stylesheet_link_tag stylesheet_url
-
-/[if lt IE 9]
-  = stylesheet_link_tag 'old_ie'
   
 = csrf_meta_tag
 
