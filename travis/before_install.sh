@@ -3,18 +3,23 @@
 echo "Running before_install"
 echo "SUITE: ${SUITE}"
 
-"echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
-gem install bundler bundle_cache
-bundle_cache_install
-
 if [ "$SUITE" = "rspec" ]
 then
+	"echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+	gem install bundler bundle_cache
+	bundle_cache_install
 	exit
 elif [ "$SUITE" = "cucumber" ]
 then
+	"echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+	gem install bundler bundle_cache
+	bundle_cache_install
 	exit
 elif [ "$SUITE" = "mocha" ]
 then
+	"echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+	gem install bundler bundle_cache
+	bundle_cache_install
 	npm install
 	npm install -g grunt-cli
 	exit
