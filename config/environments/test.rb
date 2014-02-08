@@ -27,11 +27,6 @@ Kassi::Application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :cache
   config.action_mailer.cache_settings = { :location => "#{Rails.root}/tmp/cache/action_mailer_cache_delivery#{ENV['TEST_ENV_NUMBER']}.cache" }
-
-  # Use SQL instead of Active Record's schema dumper when creating the test database.
-  # This is necessary if your schema can't be completely dumped by the schema dumper,
-  # like if you have constraints or database-specific column types
-  # config.active_record.schema_format = :sql
     
   config.active_support.deprecation = :stderr  
   
