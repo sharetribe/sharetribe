@@ -32,6 +32,6 @@ before_install:
 before_script:
 - ./travis/before_script.sh
 script:
-- ./travis/run_travis.sh
+- ./travis/script.sh
 after_script:
 - bundle_cache
