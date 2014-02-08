@@ -28,19 +28,10 @@ notifications:
   - suomi@kassi.flowdock.com
 # Ensure Bundler >= 1.1, don't install rdocs, and fetch a cached bundle from S3
 before_install:
-- "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
-- gem install bundler bundle_cache
-- bundle_cache_install
-- npm install
-- npm install -g grunt-cli
+- ./travis/before_install.sh
 before_script:
-- cp config/database.example.yml config/database.yml
-- mysql -e 'create database sharetribe_test;'
-- rake db:test:load
-- bundle exec rails server &
-- echo "Waiting rails server to start..."
-- sleep 30
+- ./travis/before_script.sh
 script:
-- ./run_travis.sh
+- ./travis/run_travis.sh
 after_script:
 - bundle_cache

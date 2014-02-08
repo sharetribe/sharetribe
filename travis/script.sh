@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Travis test runner..."
+echo "Running script"
 echo "SUITE: ${SUITE}"
 
 if [ "$SUITE" = "rspec" ]
