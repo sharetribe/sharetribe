@@ -46,10 +46,18 @@ module.exports = function(grunt) {
           ]
       }
     },
+    connect: {
+      server: {
+        options: {
+          port: 8888,
+          base: './public',
+        },
+      },
+    },
     mocha: {
       test: {
         options: {
-          urls: [ 'http://localhost:3000/test/index.html' ],
+          urls: [ 'http://localhost:8888/test/index.html' ],
           run: true
         },
       },
@@ -63,6 +71,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-mocha');
+  grunt.loadNpmTasks('grunt-contrib-connect');
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'mochaTest']);

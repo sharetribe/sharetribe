@@ -17,12 +17,6 @@ then
 	exit
 elif [ "$SUITE" = "mocha" ]
 then
-	cp config/database.example.yml config/database.yml
-	mysql -e 'create database sharetribe_test;'
-	rake db:test:load
-	bundle exec rails server &
-	echo "Waiting rails server to start..."
-	sleep 30
 	exit
 elif [ "$SUITE" = "jshint" ]
 then
