@@ -32,7 +32,6 @@ function initialize_defaults() {
   $('select.language_select').selectmenu({style: 'dropdown', width: "100px"});
   add_validator_methods();
   $('.js_wrapper').addClass('js_enabled');
-  $("a[rel^='prettyPhoto']").prettyPhoto();
 }
 
 function initialize_dashboard(email_default_text) { 
