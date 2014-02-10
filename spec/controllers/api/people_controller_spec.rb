@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe Api::PeopleController do
   render_views
+
+  before(:each) do
+    pending("API tests are pending")
+  end
   
   describe "index" do
     it "returns correct user based on email" do

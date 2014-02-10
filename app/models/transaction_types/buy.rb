@@ -1,4 +1,4 @@
-class Give < Offer
+class Buy < Offer
 
   before_validation(:on => :create) do
     self.price_field ||= 0

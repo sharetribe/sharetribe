@@ -16,7 +16,7 @@ FactoryGirl.define do
   end
 
 
-  factory :person, aliases: [:author, :receiver, :recipient, :payer] do
+  factory :person, aliases: [:author, :receiver, :recipient, :payer, :sender] do
     is_admin 0
     locale "en"
     test_group_number 4
@@ -37,7 +37,7 @@ FactoryGirl.define do
     description("test")
     author
     category {find_or_create_category("item")}
-    share_type {find_or_create_share_type("sell")}
+    transaction_type { FactoryGirl.create(:transaction_type_sell) }
     tag_list("tools, hammers")
     valid_until 3.months.from_now
     times_viewed 0
@@ -55,7 +55,7 @@ FactoryGirl.define do
   factory :message do
     content "Test"
     association :conversation
-    sender { |sender| sender.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+    sender # { |sender| sender.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
   end
 
   factory :participation do
@@ -66,7 +66,7 @@ FactoryGirl.define do
   end
 
   factory :testimonial do
-    author { |author| author.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+    author # { |author| author.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
     association :participation
     grade 0.5
     text "Test text"
@@ -79,7 +79,7 @@ FactoryGirl.define do
   end
 
   factory :feedback do
-    author { |author| author.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+    author # { |author| author.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
     content "Test feedback"
     url "/requests"
     email "kassi_testperson1@example.com"
@@ -87,7 +87,7 @@ FactoryGirl.define do
   end
 
   factory :badge do
-    person { |person| person.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+    person # { |person| person.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
     name "rookie"
   end
 
@@ -157,7 +157,7 @@ FactoryGirl.define do
     association :community
     before(:create) do |category|
       category.translations << FactoryGirl.create(:category_translation)
-      category.transaction_types << FactoryGirl.create(:transaction_type)
+      category.transaction_types << FactoryGirl.create(:transaction_type_sell)
     end
   end
 
@@ -166,14 +166,28 @@ FactoryGirl.define do
     locale "en"
   end
 
-  factory :transaction_type do
-    association :community
-    type "Sell"
-  end
+  # factory :transaction_type do
+  #   association :community
+  #   type "Sell"
+  # end
 
   factory :transaction_type_translation do
     name "Selling"
     locale "en"
+  end
+
+  factory :transaction_type do
+    association :community
+    
+    ['Sell', 'Give', 'Buy', 'Borrow', 'Lend'].each do |type|
+      factory_name = "transaction_type_#{type.downcase}"
+      factory factory_name.to_sym, class: type do
+        type type
+        after(:create) do |transaction_type|
+          transaction_type.translations << FactoryGirl.create(:transaction_type_translation, :name => type, :transaction_type_id => transaction_type.id)
+        end
+      end
+    end
   end
 
   factory :custom_field, aliases: [:question] do
@@ -219,12 +233,6 @@ FactoryGirl.define do
   factory :custom_field_value do
     question
     listing
-  end
-
-  
-  factory :share_type do
-    name "sell"
-    icon "sell"
   end
   
   factory :payment do

@@ -46,7 +46,7 @@ module ListingsHelper
   end
 
   def listed_listing_title(listing)
-    listing.transaction_type.display_name + ": #{listing.title}"
+    listing.transaction_type.display_name(I18n.locale) + ": #{listing.title}"
   end
 
   def share_type_url(listing, map=false)

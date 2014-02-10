@@ -5,7 +5,6 @@ describe Category do
   before(:each) do
     @community = FactoryGirl.create(:community)
     @category = FactoryGirl.create(:category, :community => @community)
-    @category2 = FactoryGirl.create(:category, :community => @community)
     @subcategory = FactoryGirl.create(:category)
     @subcategory.update_attribute(:parent_id, @category.id)
 
@@ -15,29 +14,31 @@ describe Category do
   end
 
   it "has listings?" do
-    @category.has_listings?.should be_false
+    @category.has_own_or_subcategory_listings?.should be_false
 
     @listing = FactoryGirl.create(:listing, {category: @category})
     @category.reload
 
-    @category.has_listings?.should be_true
+    @category.has_own_or_subcategory_listings?.should be_true
   end
 
   it "can not be deleted if it's the only top level category" do
-    Category.find(@category.id).should_not be_nil
+    Category.find_by_id(@category.id).should_not be_nil
 
     @category.destroy
 
-    Category.find(@category.id).should_not be_nil
+    Category.find_by_id(@category.id).should_not be_nil
   end
 
   it "removes subcategories if parent is removed" do
-    Category.find(@category.id).should_not be_nil
-    Category.find(@subcategory.id).should_not be_nil
+    @category2 = FactoryGirl.create(:category, :community => @community)
+    
+    Category.find_by_id(@category.id).should_not be_nil
+    Category.find_by_id(@subcategory.id).should_not be_nil
 
     @category.destroy
 
-    Category.find(@category.id).should be_nil
-    Category.find(@subcategory.id).should be_nil
+    Category.find_by_id(@category.id).should be_nil
+    Category.find_by_id(@subcategory.id).should be_nil
   end
 end

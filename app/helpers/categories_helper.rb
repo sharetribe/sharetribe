@@ -60,64 +60,6 @@ module CategoriesHelper
     end
   end
 
-
-
-
-
-
-
-
-
-
-  
-  def self.load_default_categories_to_db(params={})
-    load_categories_and_share_types_to_db(:community_id => nil, :categories => DEFAULT_CATEGORIES, :share_types => DEFAULT_SHARE_TYPES)
-
-    add_custom_price_quantity_placeholders unless params[:without_price_updates]
-    update_default_rent_out_quantity_placeholder # Just a small change to default categorization
-  end
-  
-  # Usage:
-  # CategoriesHelper.load_categories_and_share_types_to_db(:community => c, :categories => categories, :share_types => share_types, :translations => custom_translations)
-  
-  
-  def self.load_categories_and_share_types_to_db(params={})
-    community_id = params[:community_id] || (params[:community] ? params[:community].id : nil)
-    categories = params[:categories]
-    share_types = params[:share_types]
-    translations = params[:translations]
-    
-    categories.each do |category| 
-      if category.class == String
-        Category.create([{:name => category, :icon => category}]) unless Category.find_by_name(category)
-      elsif category.class == Hash
-        parent = Category.find_by_name(category.keys.first) || Category.create(:name => category.keys.first, :icon => category.keys.first) 
-        category.values.first.each do |subcategory|
-          c = Category.find_by_name(subcategory) || Category.create({:name => subcategory, :icon => subcategory, :parent_id => parent.id}) 
-          # As subcategories won't get their own link to share_types (as they inherit that from parent category)
-          # We create a CommunityCategory entry here to mark that these subcategories exist in the default tribe
-          CommunityCategory.create(:category => c, :community_id => community_id) unless CommunityCategory.find_by_category_id_and_community_id(c.id, community_id)
-        end
-      else
-        puts "Invalid data for categories. It must be array of Strings and Hashes."
-        return
-      end
-    end
-
-    share_types.each do |share_type, details|
-      parent = ShareType.find_by_name(details[:parent]) if details[:parent]
-      s =  ShareType.find_by_name(share_type) || ShareType.create(:name => share_type, :icon => (details[:icon] || share_type), :parent => parent, :transaction_type => details[:transaction_type])
-      details[:categories].each do |category_name|
-        c = Category.find_by_name(category_name)
-        CommunityCategory.create(:category => c, :share_type => s, :community_id => community_id, :price => details[:price], :payment => details[:payment], :price_quantity_placeholder => details[:price_quantity_placeholder]) if c && ! CommunityCategory.find_by_category_id_and_share_type_id_and_community_id(c.id, s.id, community_id)
-      end
-      s.update_attribute(:transaction_type, s.name) if ["offer","request"].include? s.name
-    end
-    
-    update_translations(:translations => translations) unless params[:skip_translations]
-    
-  end
-  
   def self.update_translations(params={})
     translations = params[:translations] || {}
     # Store translations for all that can be found from translation files

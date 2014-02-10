@@ -30,7 +30,7 @@ describe PeopleController do
     it "should return NOT available for user's own adress" do
       @request.host = "test.lvh.me"
     
-      person, session = get_test_person_and_session
+      person = FactoryGirl.create(:person)
       sign_in person
       
       Email.create(:person_id => person.id, :address => "test2@example.com")
@@ -44,7 +44,7 @@ describe PeopleController do
     it "should return available for user's own adress" do
       @request.host = "test.lvh.me"
     
-      person, session = get_test_person_and_session
+      person = FactoryGirl.create(:person)
       sign_in person
       
       Email.create(:person_id => person.id, :address => "test2@example.com")

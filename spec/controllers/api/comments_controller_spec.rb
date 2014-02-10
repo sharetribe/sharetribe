@@ -5,6 +5,7 @@ describe Api::CommentsController do
  
     
   before(:each) do
+    pending("API tests are pending")
     @c1 = FactoryGirl.create(:community)
     @c2 = FactoryGirl.create(:community)
     @l1 = FactoryGirl.create(:listing, :privacy => "public")

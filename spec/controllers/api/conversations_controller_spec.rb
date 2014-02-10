@@ -5,6 +5,7 @@ describe Api::ConversationsController do
 
   
    before(:each) do
+      pending("API tests are pending")
       Listing.all.collect(&:destroy) # for some reason there's a listing before starting. Destroy to be clear.
 
       @c1 = FactoryGirl.create(:community)
