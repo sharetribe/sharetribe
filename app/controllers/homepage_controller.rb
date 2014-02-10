@@ -23,10 +23,6 @@ class HomepageController < ApplicationController
     
     listings_per_page = 24
 
-    require "#{Rails.root}/app/models/transaction_types/offer.rb"
-    require "#{Rails.root}/app/models/transaction_types/sell.rb"
-    require "#{Rails.root}/app/models/transaction_types/give.rb"
-
     #Load community categories
     @categories =  Rails.cache.fetch("/community/#{@current_community.id}_#{@current_community.updated_at}/categories") {
       @current_community.categories
