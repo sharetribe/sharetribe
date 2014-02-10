@@ -1328,6 +1328,7 @@ en:
       times_viewed: Viewed
       processing_uploaded_image: "(Processing uploaded image...)"
       price_excludes_vat: "(excludes VAT)"
+      listing_created_at: "Listing created"
     displayed_price:
       price_excludes_vat: "(excludes VAT)"
   mapview:
@@ -1731,6 +1732,7 @@ en:
     formats:
       short: "%e %b %Y at %H:%M"
       shorter: "%e %b at %H:%M"
+      short_date: "%e %b %Y"
       sms: "%e %b at %H:%M"
   timestamps:
     day_ago: "%{count} day ago"

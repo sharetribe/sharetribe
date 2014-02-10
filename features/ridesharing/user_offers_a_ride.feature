@@ -11,7 +11,7 @@ Feature: User creates a new rideshare
     And I fill in "listing_origin" with "Tampere"
     And I fill in "listing_destination" with "Turku"
     And I choose "valid_until_select_date"
-    And I select "January" from "listing_valid_until_2i"
+    And I select "June" from "listing_valid_until_2i"
     And I select "2014" from "listing_valid_until_1i"
     And wait for 2 seconds
     And I press "Save listing"
@@ -54,7 +54,7 @@ Feature: User creates a new rideshare
     And I fill in "listing_origin" with "Tampere"
     And I fill in "listing_destination" with "Turku"
     And I choose "valid_until_select_date"
-    And I select "January" from "listing_valid_until_2i"
+    And I select "June" from "listing_valid_until_2i"
     And I select "2014" from "listing_valid_until_1i"
     And wait for 2 seconds
     And I press "Save listing"

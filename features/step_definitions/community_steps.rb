@@ -153,3 +153,7 @@ Given /^community "(.*?)" has following transaction types enabled:$/ do |communi
     transaction_type
   end
 end
+
+Given /^listing publishing date is shown in community "(.*?)"$/ do |community_domain|
+  Community.find_by_domain(community_domain).update_attributes({:show_listing_publishing_date => true})
+end

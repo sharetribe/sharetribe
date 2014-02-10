@@ -61,16 +61,25 @@
             - else
               = "Unimplemented type #{question_type}"
 
-    .row
-      .col-12
-        - if @listing.public?
+    - if @current_community.show_listing_publishing_date?
+      .row
+        .col-12
+          .icon-with-text-container
+            = icon_tag("calendar", ["icon-part"])
+            .text-part
+              %b
+                = t(".listing_created_at")
+                = l @listing.created_at, :format => :short_date
+
+    - if @listing.public?
+      .row
+        .col-12
           .listing-social
             .listing-fb-like-button
               = facebook_like(current_user?(@listing.author))
             .listing-tweet-button
               = link_to("", "https://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => (@current_community.twitter_handle || "Sharetribe"))
               %script{:type => "text/javascript", :src => "https://platform.twitter.com/widgets.js"}
-
 
     - unless (@listing.closed? && !current_user?(@listing.author)) || !@current_community.listing_comments_in_use
       .view-item
