@@ -5,6 +5,7 @@ module ConversationsHelper
   end
   
   def transaction_proposal_form_title(listing)
+    throw "Uses share_type"
     if ["item", "favor", "housing", "rideshare"].include?(listing.category.top_level_parent.name)
       "#{listing.category.top_level_parent.name}_#{listing.listing_type}#{listing.share_type.present? ? '_' + listing.share_type.name : ''}_message_form_title"
     else

@@ -12,7 +12,6 @@ class Community < ActiveRecord::Base
   has_many :event_feed_events, :dependent => :destroy
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy
-  has_many :community_categories # Don't add here :dependent  => :destroy because community_categories method confuses it. Instead use separate hook (delete_specific_community_categories) to get rid of entries in that table when destroying.
   
   has_many :categories
   has_many :top_level_categories, :class_name => "Category", :conditions => ["parent_id IS NULL"]
@@ -405,16 +404,19 @@ class Community < ActiveRecord::Base
   
   # Finds all top level share_types (=listing_types) used in this community
   def listing_types
+    throw "Uses share_types"
     share_types.select{|s| s.parent_id.nil?}
   end
   
   # finds community specific share_types or default values if no customizations found
   def share_types
+    throw "Uses share_types"
     unique_categorizations(:share_type)
   end
   
   def community_category(category, share_type)
     # This should be removed
+    throw "Uses share_type"
     CommunityCategory.where("category_id = ? AND share_type_id = ? AND (community_id IS NULL OR community_id = ?)", category.id.to_s, share_type.id.to_s, id.to_s).order("category_id DESC").first
   end
 
@@ -432,23 +434,6 @@ class Community < ActiveRecord::Base
     payment_gateway.present? && payment_gateway.requires_payout_registration_before_accept?
   end
 
-
-  def community_categories
-    custom = Rails.cache.fetch("/custom_categories/#{self.id}-#{self.updated_at}") {
-      # order the custom categorizations based on the sort priority (or ids of the CommunityCategory)
-      CommunityCategory.order("sort_priority ASC","id ASC").find_all_by_community_id(id, :include => [:category, :share_type])
-    }
-    if custom.present?
-      # use custom values
-      return custom
-    else
-      # Use defaults
-      return Rails.cache.fetch("/default_categories") {
-        CommunityCategory.find_all_by_community_id(nil, :include => [:category, :share_type])
-      }
-    end
-  end
-  
   def default_currency
     if available_currencies
       available_currencies.gsub(" ","").split(",").first
@@ -510,12 +495,12 @@ class Community < ActiveRecord::Base
   private
   
   # Returns an array of unique categories or share_types used in this community.
-  def unique_categorizations(categorization_type)
-    unless [:category, :share_type].include?(categorization_type)
-      throw "unique_categorizations called with wrong type. Only :category and :share_type allowed" 
-    end
-    return community_categories.collect(&categorization_type).compact.uniq
-  end
+  # def unique_categorizations(categorization_type)
+  #   unless [:category, :share_type].include?(categorization_type)
+  #     throw "unique_categorizations called with wrong type. Only :category and :share_type allowed" 
+  #   end
+  #   return community_categories.collect(&categorization_type).compact.uniq
+  # end
 
   def initialize_settings
     update_attribute(:settings,{"locales"=>[APP_CONFIG.default_locale]}) if self.settings.blank?

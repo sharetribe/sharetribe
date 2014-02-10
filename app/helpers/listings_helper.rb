@@ -50,6 +50,7 @@ module ListingsHelper
   end
 
   def share_type_url(listing, map=false)
+    throw "Uses share_type"
     root_path(:share_type => listing.transaction_type.display_name, :category => listing.category.name, :map => map)
   end
 
@@ -65,6 +66,7 @@ module ListingsHelper
   end
 
   def localized_share_type_label(share_type)
+    throw "Uses share_type"
     return nil if share_type.nil?
     return share_type.display_name.capitalize
   end
