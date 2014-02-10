@@ -22,6 +22,46 @@ Given /^there is rideshare (offer|request) from "([^"]*)" to "([^"]*)" by "([^"]
                                )
 end
 
+Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: from "([^"]*)")?(?: and with share type "([^"]*)")?(?: and with price "([^"]*)")?$/ do |category, type, title, author, share_type, price|
+  puts "WARNING! Using deprecated step"
+  puts "This step maps old deprecated step to new one. You shouldn't use this anymore"
+
+  new_category = case category
+  when "item"
+    "Items"
+  when "favor"
+    "Services"
+  when "housing"
+    "Spaces"
+  end
+
+  transaction_type = if share_type == "sell" then "Selling"
+  elsif share_type == "borrow" then "Requesting"
+  elsif share_type == "favor offer" then "Selling services"
+  else
+    "Requesting"
+  end
+
+  author_step = if author
+    " from \"#{author}\""
+  else
+    ""
+  end
+
+  community ||= "test"
+
+  steps %Q{
+    Given there is a listing with title "#{title}"#{author_step} with category "#{new_category}" and with transaction type "#{transaction_type}" in community "#{community}"
+  }
+
+  puts %Q{Given there is a listing with title "#{title}"#{author_step} with category "#{new_category}" and with transaction type "#{transaction_type}" in community "#{community}"}
+
+  if price
+    @listing.update_attribute(:price, price) 
+  end
+  
+end
+
 Given /^that listing is closed$/ do
   @listing.update_attribute(:open, false)
 end
