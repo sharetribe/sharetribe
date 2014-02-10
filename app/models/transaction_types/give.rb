@@ -4,8 +4,4 @@ class Give < Offer
     self.price_field ||= 0
   end
 
-  def direction
-    
-  end
-
 end

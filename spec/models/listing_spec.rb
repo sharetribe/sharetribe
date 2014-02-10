@@ -58,7 +58,7 @@ describe Listing do
   context "with listing type 'offer'" do
   
     before(:each) do
-      @listing.share_type = find_or_create_share_type("lend")
+      @listing.transaction_type = FactoryGirl.create(:transaction_type_give)
     end
     
     it "should be valid when there is no valid until" do
@@ -71,7 +71,7 @@ describe Listing do
   context "with category 'rideshare'" do
     
     before(:each) do
-      @listing.share_type = find_or_create_share_type("offer")
+      @listing.transaction_type = FactoryGirl.create(:transaction_type_give)
       @listing.category = find_or_create_category("rideshare") 
       @listing.origin = "Otaniemi, Espoo"
       @listing.destination = "Turku"
@@ -123,7 +123,7 @@ describe Listing do
     end
     
     it "should be valid when there is no valid until" do
-      @listing.share_type = find_or_create_share_type("offer")
+      @listing.transaction_type = FactoryGirl.create(:transaction_type_give)
       @listing.valid_until = nil
       @listing.should be_valid
     end

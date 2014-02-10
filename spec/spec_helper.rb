@@ -56,7 +56,7 @@ prefork = lambda {
   def uploaded_file(filename, content_type)
     t = Tempfile.new(filename)
     t.binmode
-    path = "#{fixture_path}/#{filename}"
+    path = "#{File.dirname(__FILE__)}/fixtures/#{filename}"
     FileUtils.copy_file(path, t.path)
     (class << t; self; end).class_eval do
       alias local_path path

@@ -414,16 +414,13 @@ class Community < ActiveRecord::Base
   end
   
   def community_category(category, share_type)
+    # This should be removed
     CommunityCategory.where("category_id = ? AND share_type_id = ? AND (community_id IS NULL OR community_id = ?)", category.id.to_s, share_type.id.to_s, id.to_s).order("category_id DESC").first
   end
 
   # is it possible to pay for this listing via the payment system
   def payment_possible_for?(listing)
-    cc = community_category(listing.category.top_level_parent, listing.share_type)
-    # as currently all messages are shown in all communities, there might be case where the
-    # message would have payment possible in it's original community, but in this community the cc
-    # is not found with the above search, so then payment is not possible here. (cc must be present)
-    payments_in_use? && cc.present? && (cc.price || cc.payment)
+    listing.transaction_type.price_field? && payments_in_use?
   end
   
   def payments_in_use?
