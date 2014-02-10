@@ -29,7 +29,6 @@ class Community < ActiveRecord::Base
   has_many :custom_dropdown_fields, :class_name => "CustomField", :conditions => ["type = 'Dropdown'"], :dependent => :destroy
   
   after_create :initialize_settings
-  before_destroy :delete_specific_community_categories
   
   monetize :minimum_price_cents, :allow_nil => true
   
@@ -505,12 +504,4 @@ class Community < ActiveRecord::Base
   def initialize_settings
     update_attribute(:settings,{"locales"=>[APP_CONFIG.default_locale]}) if self.settings.blank?
   end
-  
-  # This method deletes the specific community_category entries (but not the default ones)
-  def delete_specific_community_categories
-    CommunityCategory.find_all_by_community_id(id).each do |c|
-      c.destroy
-    end
-  end
-
 end
