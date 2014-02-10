@@ -21,11 +21,11 @@ describe Api::ListingsController do
     @p1.communities << @c1
     @p1.ensure_authentication_token!
     
-    @l1 = FactoryGirl.create(:listing, :transaction_type => FactoryGirl.create(:transaction_type_buy), :title => "bike", :description => "A very nice bike", :created_at => 3.days.ago, :author => @p1, :privacy => "public")
+    @l1 = FactoryGirl.create(:listing, :transaction_type => FactoryGirl.create(:transaction_type_request), :title => "bike", :description => "A very nice bike", :created_at => 3.days.ago, :author => @p1, :privacy => "public")
     @l1.communities = [@c1]
     FactoryGirl.create(:listing, :title => "hammer", :created_at => 2.days.ago, :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer", :transaction_type => FactoryGirl.create(:transaction_type_sell), :privacy => "public").communities = [@c1]
-    FactoryGirl.create(:listing, :transaction_type => FactoryGirl.create(:transaction_type_buy), :title => "help me", :created_at => 12.days.ago, :privacy => "public").communities = [@c2]
-    FactoryGirl.create(:listing, :transaction_type => FactoryGirl.create(:transaction_type_buy), :title => "old junk", :open => false, :description => "This should be closed already, but nice stuff anyway", :privacy => "public").communities = [@c1]
+    FactoryGirl.create(:listing, :transaction_type => FactoryGirl.create(:transaction_type_request), :title => "help me", :created_at => 12.days.ago, :privacy => "public").communities = [@c2]
+    FactoryGirl.create(:listing, :transaction_type => FactoryGirl.create(:transaction_type_request), :title => "old junk", :open => false, :description => "This should be closed already, but nice stuff anyway", :privacy => "public").communities = [@c1]
     @l4 = FactoryGirl.create(:listing, :title => "car", :created_at => 2.months.ago, :description => "I needed a car earlier, but now this listing is no more open", :transaction_type => FactoryGirl.create(:transaction_type_borrow), :privacy => "public")
     @l4.communities = [@c1]
     @l4.save!

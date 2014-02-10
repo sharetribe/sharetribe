@@ -220,7 +220,7 @@ describe PersonMailer do
       @p1 = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "update_tester@example.com") ])
       @p1.communities << @c1
       @l1 = FactoryGirl.create(:listing, 
-          :transaction_type => FactoryGirl.create(:transaction_type_buy), 
+          :transaction_type => FactoryGirl.create(:transaction_type_request), 
           :title => "bike", 
           :description => "A very nice bike", 
           :created_at => 3.days.ago, 
@@ -289,13 +289,13 @@ describe PersonMailer do
       @p2.communities << @c2
       
       @l1 = FactoryGirl.create(:listing, 
-          :transaction_type => FactoryGirl.create(:transaction_type_buy),
+          :transaction_type => FactoryGirl.create(:transaction_type_request),
           :title => "bike", 
           :description => "A very nice bike", 
           :created_at => 3.hours.ago, 
           :author => @p1).communities = [@c1]
       @l2 = FactoryGirl.create(:listing, 
-          :transaction_type => FactoryGirl.create(:transaction_type_buy),
+          :transaction_type => FactoryGirl.create(:transaction_type_request),
           :title => "motorbike", 
           :description => "fast!", 
           :created_at => 1.hours.ago, 
