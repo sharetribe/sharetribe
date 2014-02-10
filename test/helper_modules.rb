@@ -36,6 +36,18 @@ module TestHelpers
     Category.find_by_name(category_name) || FactoryGirl.create(:category, :name => category_name)
   end
 
+  def find_category_by_name(category_name)
+    Category.all.select do |category|
+      category.display_name("en") == category_name
+    end.first
+  end
+
+  def find_transaction_type_by_name(transaction_type_name)
+    TransactionType.all.select do |transaction_type|
+      transaction_type.display_name("en") == transaction_type_name
+    end.first
+  end
+
   def ensure_sphinx_is_running_and_indexed
     begin 
       Listing.search("").total_pages

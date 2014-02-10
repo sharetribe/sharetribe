@@ -113,7 +113,7 @@ end
 Given /^there are following users:$/ do |person_table|
   @people = {}
   person_table.hashes.each do |hash|
-    @hash_person, @hash_session = FactoryGirl.create(:person, :username => hash['person'])
+    @hash_person, @hash_session = Person.find_by_username(hash['person']) || FactoryGirl.create(:person, :username => hash['person'])
     @hash_person.save!
 
     @hash_person = force_override_model_id(hash['id'], @hash_person, Person, [Email]) if hash['id']

@@ -1,30 +1,13 @@
-Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: from "([^"]*)")?(?: and with share type "([^"]*)")?(?: and with price "([^"]*)")?$/ do |category, type, title, author, share_type, price|
-  share_type ||= type
-  @listing = FactoryGirl.create(:listing, 
-                               :category => find_or_create_category(category),
-                               :title => title,
-                               :share_type => find_or_create_share_type(share_type),
-                               :author => (@people && @people[author] ? @people[author] : Person.first),
-                               :communities => [Community.find_by_domain("test")],
-                               :privacy => "public"
-                               )
-  if price
-    @listing.update_attribute(:price, price) 
-  end
-  
-end
-
-Given /^there is a listing with title "([^"]*)"(?: and with category "([^"]*)")? in community "([^"]*)"$/ do |title, category_name, community_name|
-  community = Community.find_by_name(community_name)
-
+Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with category "([^"]*)")?(?: and with transaction type "([^"]*)")?(?: in community "([^"]*)")?$/ do |title, author, category_name, transaction_type, community|
   opts = Hash.new
   opts[:title] = title
-  
-  if category_name
-    opts[:category] = Category.find_by_community_and_translation(community, category_name)
-  end
+  opts[:category] = find_category_by_name(category_name) if category_name
+  opts[:transaction_type] = find_transaction_type_by_name(transaction_type) if transaction_type
+  opts[:author] = Person.find_by_username(author) if author
+  community ||= "test"
+  opts[:communities] = [Community.find_by_name(community)]
 
-  FactoryGirl.create(:listing, opts)
+  @listing = FactoryGirl.create(:listing, opts)
 end
 
 Given /^there is rideshare (offer|request) from "([^"]*)" to "([^"]*)" by "([^"]*)"$/ do |type, origin, destination, author|

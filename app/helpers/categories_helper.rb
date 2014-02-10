@@ -3,7 +3,7 @@ module CategoriesHelper
   require File.expand_path('../../../test/helper_modules', __FILE__)
   include TestHelpers
 
-  DEFAULT_TRANSACTION_TYPES_FOR_TESTS = ["Sell", "Lend"]
+  DEFAULT_TRANSACTION_TYPES_FOR_TESTS = ["Sell", "Lend", "Request"]
 
   DEFAULT_CATEGORIES_FOR_TESTS = [
     {
