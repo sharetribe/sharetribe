@@ -55,7 +55,7 @@ FactoryGirl.define do
   factory :message do
     content "Test"
     association :conversation
-    sender # { |sender| sender.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+    sender
   end
 
   factory :participation do
@@ -66,7 +66,7 @@ FactoryGirl.define do
   end
 
   factory :testimonial do
-    author # { |author| author.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+    author
     association :participation
     grade 0.5
     text "Test text"
@@ -79,7 +79,7 @@ FactoryGirl.define do
   end
 
   factory :feedback do
-    author # { |author| author.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+    author
     content "Test feedback"
     url "/requests"
     email "kassi_testperson1@example.com"
@@ -87,7 +87,7 @@ FactoryGirl.define do
   end
 
   factory :badge do
-    person # { |person| person.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+    person
     name "rookie"
   end
 
@@ -165,11 +165,6 @@ FactoryGirl.define do
     name "test category"
     locale "en"
   end
-
-  # factory :transaction_type do
-  #   association :community
-  #   type "Sell"
-  # end
 
   factory :transaction_type_translation do
     name "Selling"
