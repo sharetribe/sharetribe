@@ -44,7 +44,7 @@ gem 'kgio', "~>2.8.0"
 gem 'thinking-sphinx', '~> 3.1.0',
   :git    => 'git://github.com/pat/thinking-sphinx.git',
   :branch => 'develop',
-  :ref    => '94461cf6f2'
+  :ref    => 'c82ccdbe12'
 gem 'flying-sphinx', "~>1.0.0"
 gem "ts-delayed-delta"
 gem 'recaptcha'
