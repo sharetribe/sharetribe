@@ -113,10 +113,24 @@ end
 Given /^there are following users:$/ do |person_table|
   @people = {}
   person_table.hashes.each do |hash|
-    @hash_person, @hash_session = get_test_person_and_session(hash['person'])
+    defaults = { 
+      password: "testi",
+      given_name: "Test",
+      family_name: "Person"
+    }
+
+    username = hash['person']
+    id = hash['id']
+
+    person_opts = {
+      username: username,
+      id: id
+    }.merge(defaults)
+
+    @hash_person, @hash_session = Person.find_by_username(username) || FactoryGirl.create(:person, person_opts)
     @hash_person.save!
 
-    @hash_person = force_override_model_id(hash['id'], @hash_person, Person, [Email]) if hash['id']
+    @hash_person = force_override_model_id(id, @hash_person, Person, [Email]) if id
 
     if hash['email'] then
       @hash_person.emails = [Email.create(:address => hash['email'], :send_notifications => true, :person => @hash_person, :confirmed_at => DateTime.now)]
@@ -134,7 +148,7 @@ Given /^there are following users:$/ do |person_table|
       @hash_person.locale = hash['locale']
       @hash_person.save
     end
-    @people[hash['person']] = @hash_person
+    @people[username] = @hash_person
   end
 end
 

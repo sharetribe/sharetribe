@@ -50,6 +50,7 @@ module PeopleHelper
   end
   
   def profile_testimonial_other_person_role(person, listing)
+    throw "Uses share_type"
     if (person.eql?(listing.author) && listing.share_type.is_request?) || (!person.eql?(listing.author) && listing.share_type.is_offer?)
       "offer"
     else

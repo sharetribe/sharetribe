@@ -83,14 +83,17 @@ class Listing < ActiveRecord::Base
   end
   
   def self.requests
+    throw "Uses share types"
     with_share_type_or_its_children("request")
   end
   
   def self.offers
+    throw "Uses share types"
     with_share_type_or_its_children("offer")
   end
   
   def self.with_share_type_or_its_children(share_type)
+    throw "Uses share types"
     share_type = ShareType.find_by_name(share_type) unless share_type.class == ShareType
     joins(:share_type).where({:share_types => {:id => share_type.with_all_children.collect(&:id)}})
   end
@@ -188,12 +191,11 @@ class Listing < ActiveRecord::Base
     params ||= {}  # Set params to empty hash if it's nil
     joined_tables = []
         
-    params[:include] ||= [:listing_images, :category, :share_type]
+    params[:include] ||= [:listing_images, :category, :transaction_type]
         
     params.reject!{ |key,value| (value == "all" || value == ["all"]) && key != "status"} # all means the fliter doesn't need to be included (except with "status")
 
     # If no Share Type specified, use listing_type param if that is specified.
-    params[:share_type] ||= params[:listing_type]
     params.delete(:listing_type) # In any case listing_type is not a search param used any more
 
     params[:search] ||= params[:q] # Read search query also from q param
@@ -208,21 +210,14 @@ class Listing < ActiveRecord::Base
       end
     end
     
-    if params[:share_type]   
-      share_type = ShareType.find_by_name(params[:share_type])
-      if share_type
-        params[:share_types] = {:id => share_type.with_all_children.collect(&:id)}
-        joined_tables << :share_type
-      else
-        # Ignore share_type if not found
-        # response.status = :bad_request
-        # render :json => ["Share type '#{params["share_type"]}' not found."] and return
-      end
+    if params[:transaction_type]   
+      params[:transaction_types] = {:id => params[:transaction_type]}
+      joined_tables << :transaction_type
     end
     
     
     # Two ways of finding, with or without sphinx
-    if params[:search].present? || params[:share_type].present? || params[:category].present? || params[:custom_field_options].present?
+    if params[:search].present? || params[:transaction_type].present? || params[:category].present? || params[:custom_field_options].present?
       
       # sort by time by default
       params[:sort] ||= 'created_at DESC'
@@ -241,7 +236,7 @@ class Listing < ActiveRecord::Base
       with[:community_ids] = current_community.id
 
       with[:category_id] = params[:categories][:id] if params[:categories].present?
-      with[:share_type_id] = params[:share_types][:id] if params[:share_types].present?
+      with[:transaction_type_id] = params[:transaction_types][:id] if params[:transaction_types].present?
       
       params[:custom_field_options] ||= [] # use emtpy table rather than nil to avoid confused sphinx
 
@@ -263,7 +258,7 @@ class Listing < ActiveRecord::Base
     else # No search query or filters used, no sphinx needed
       query = {}
       query[:categories] = params[:categories] if params[:categories]
-      query[:share_types] = params[:share_types] if params[:share_types]
+      # FIX THIS query[:transaction_types] = params[:transaction_types] if params[:transaction_types]
       query[:author_id] = params[:person_id] if params[:person_id]    # this is not yet used with search
       listings = joins(joined_tables).where(query).currently_open(params[:status]).visible_to(current_user, current_community).includes(params[:include]).order("listings.created_at DESC").paginate(:per_page => per_page, :page => page)
     end
@@ -338,6 +333,7 @@ class Listing < ActiveRecord::Base
   end
   
   def does_not_have_any_of_share_types?(sts)
+    throw "Uses sharetype"
     return_value = true
     sts.each { |st| return_value = false if share_type.eql?(st) }
     return return_value
@@ -346,6 +342,7 @@ class Listing < ActiveRecord::Base
   # If listing is an offer, a discussion about the listing
   # should be request, and vice versa
   def discussion_type
+    throw "Uses share type"
     share_type.is_request? ? "offer" : "request"
   end
   

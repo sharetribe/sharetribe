@@ -11,8 +11,6 @@ class Category < ActiveRecord::Base
   # children is a more generic alias for sub categories, used in classification.rb
   has_many :children, :class_name => "Category", :foreign_key => "parent_id"
   belongs_to :parent, :class_name => "Category"
-  has_many :community_categories, :dependent => :destroy 
-  has_many :communities, :through => :community_categories
   has_many :listings
   has_many :translations, :class_name => "CategoryTranslation", :dependent => :destroy
 

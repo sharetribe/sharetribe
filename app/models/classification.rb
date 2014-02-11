@@ -48,6 +48,7 @@ module Classification
   
   #returns a flattened array of all child objects, including self
   def with_all_children
+    # This could be moved to Category since TransactionType doesn't have children anymore
     
     # first add self
     child_array = [self] 
@@ -65,6 +66,7 @@ module Classification
   private
   
   def name_is_not_taken_by_categories_or_share_types
+    throw "Uses share_type"
     if (Category.find_by_name(name).present? && Category.find_by_name(name) != self) ||
         (ShareType.find_by_name(name).present? && ShareType.find_by_name(name) != self)
       errors.add(:name, "is already in use by a category or share type")

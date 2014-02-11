@@ -3,7 +3,7 @@ module CategoriesHelper
   require File.expand_path('../../../test/helper_modules', __FILE__)
   include TestHelpers
 
-  DEFAULT_TRANSACTION_TYPES_FOR_TESTS = ["Sell", "Lend"]
+  DEFAULT_TRANSACTION_TYPES_FOR_TESTS = ["Sell", "Lend", "Request", "Service"]
 
   DEFAULT_CATEGORIES_FOR_TESTS = [
     {
@@ -91,7 +91,7 @@ module CategoriesHelper
         end
       end
       
-      
+      throw "Uses share types"
       ShareType.find_each do |share_type|
         share_type_name = share_type.name
         #see if the name ends with "_alt\d*" meaning that it's an alternative share_type in the DB but can use the same translations as the original
@@ -127,6 +127,7 @@ module CategoriesHelper
 
   
   def self.add_custom_price_quantity_placeholders
+    throw "Uses share_type"
     sell = ShareType.find_by_name("sell")
     rent_out = ShareType.find_by_name("rent_out")
     item = Category.find_by_name("item")
@@ -167,6 +168,7 @@ module CategoriesHelper
   end
   
   def self.remove_all_categories_from_db
+    throw "Uses share type"
     Category.delete_all
     CategoryTranslation.delete_all
     ShareType.delete_all

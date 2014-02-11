@@ -47,8 +47,9 @@ Feature: User joins another community
   @javascript
   Scenario: User joins another community that accepts only certain email addresses
     Given there are following users:
-      | person | email |
-      | kassi_testperson3 | k3@lvh.me |
+      | person            | email     | given_name | family_name |
+      | kassi_testperson3 | k3@lvh.me | Tester     | Person      |
+    And community "test2" does not require invite to join
     And I am logged in as "kassi_testperson3"
     And community "test2" requires users to have an email address of type "@example.com"
     When I move to community "test2"
@@ -79,7 +80,6 @@ Feature: User joins another community
     And I press "Join community"
     Then I should not see "This email is not allowed for this community or it is already in use."
     
-    And wait for 1 second
     Then I should see "Confirm your email"
     And "random@example.com" should receive an email
     And user "kassi_testperson3" should have unconfirmed email "random@example.com"
@@ -100,7 +100,6 @@ Feature: User joins another community
     When I fill in "person_email" with "other.email@example.com"
     And I press "Change"
     Then I should see "Check your inbox"
-    And wait for 1 second
     And "other.email@example.com" should receive an email
     
     # confirm
@@ -109,6 +108,6 @@ Feature: User joins another community
     Then I should see "The email you entered is now confirmed"
     And user "kassi_testperson3" should have confirmed email "other.email@example.com"
     And I should not see "Email address"
-    Then I should see "Test P"
+    Then I should see "Tester P"
     And "other.email@example.com" should have 2 emails
     And I should receive an email with subject "Welcome to Sharetribe Test2 - here are some tips to get you started"
