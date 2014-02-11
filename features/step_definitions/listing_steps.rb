@@ -116,54 +116,6 @@ Then /^the total number of comments should be (\d+)$/ do |no_of_comments|
   Comment.all.count.should == no_of_comments.to_i
 end
 
-When /^there are some custom categories$/ do
-  community = Community.first
-  parent_share_type = ShareType.find_by_name("request")
-  parent_category = Category.find_by_name("item")
-  top_category = Category.create(:name => "wood", :icon => "other")
-  child_category = Category.create(:name => "doll", :icon => "other", :parent_id => parent_category.id)
-  child_category2 = Category.create(:name => "record", :icon => "other", :parent_id => parent_category.id)
-  child_category3 = Category.create(:name => "bottle", :icon => "other", :parent_id => parent_category.id)
-  child_share_type = ShareType.create(:name => "lost", :icon => "other", :parent_id => parent_share_type.id)
-  child_share_type2 = ShareType.create(:name => "found", :icon => "other", :parent_id => parent_share_type.id)
-  
-  CommunityCategory.create(:category_id => parent_category.id, :share_type_id => parent_share_type.id)
-  CommunityCategory.create(:category_id => top_category.id, :share_type_id => parent_share_type.id)
-  CommunityCategory.create(:category_id => top_category.id, :share_type_id => child_share_type.id)
-  CommunityCategory.create(:category_id => top_category.id, :share_type_id => child_share_type2.id)
-  CommunityCategory.create(:category_id => child_category.id)
-  CommunityCategory.create(:category_id => child_category2.id)
-  CommunityCategory.create(:category_id => child_category3.id)
-  Rails.cache.clear
-end
-
-When /^all categories are custom categories$/ do
-  CategoriesHelper.remove_all_categories_from_db
-  community = Community.first
-  parent_share_type = ShareType.create(:name => "offer", :icon => "offer")
-  parent_category = Category.create(:name => "plastic", :icon => "other")
-  top_category = Category.create(:name => "wood", :icon => "other")
-  child_category = Category.create(:name => "doll", :icon => "other", :parent_id => parent_category.id)
-  child_category2 = Category.create(:name => "record", :icon => "other", :parent_id => parent_category.id)
-  child_category3 = Category.create(:name => "bottle", :icon => "other", :parent_id => parent_category.id)
-  child_share_type = ShareType.create(:name => "lost", :icon => "other", :parent_id => parent_share_type.id)
-  child_share_type2 = ShareType.create(:name => "found", :icon => "other", :parent_id => parent_share_type.id)
-  
-  CommunityCategory.create(:community_id => community.id, :category_id => parent_category.id, :share_type_id => parent_share_type.id)
-  CommunityCategory.create(:community_id => community.id, :category_id => top_category.id, :share_type_id => parent_share_type.id)
-  CommunityCategory.create(:community_id => community.id, :category_id => top_category.id, :share_type_id => child_share_type.id)
-  CommunityCategory.create(:community_id => community.id, :category_id => top_category.id, :share_type_id => child_share_type2.id)
-  CommunityCategory.create(:community_id => community.id, :category_id => child_category.id)
-  CommunityCategory.create(:community_id => community.id, :category_id => child_category2.id)
-  CommunityCategory.create(:community_id => community.id, :category_id => child_category3.id)
-  Rails.cache.clear
-end
-
-Then /^add default categories back$/ do
-  reset_categories_to_default
-  Rails.cache.clear
-end
-
 When /^I save the listing$/ do
   steps %Q{
     And I press "Save listing"

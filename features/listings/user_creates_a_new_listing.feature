@@ -9,12 +9,9 @@ Feature: User creates a new listing
     Given I am logged in
     And I am on the home page
     When I follow "new-listing-link"
-    And I follow "I need something"
-    And I follow "An item"
-    And I should see "What kind of an item are we talking about?"
+    And I follow "Items"
     And I follow "Tools" within "#option-groups"
-    And I should see "How do you want to get it?"
-    And I follow "buy it"
+    And I follow "Requesting"
     And I fill in "listing_title" with "Sledgehammer"
     And I fill in "listing_description" with "My description"
     And I attach a valid image file to "listing_listing_images_attributes_0_image"
@@ -27,12 +24,9 @@ Feature: User creates a new listing
     Given I am logged in
     And I am on the home page
     When I follow "new-listing-link"
-    And I follow "I need something"
-    And I follow "An item"
-    And I should see "What kind of an item are we talking about?"
+    And I follow "Items"
     And I follow "Tools" within "#option-groups"
-    And I should see "How do you want to get it?"
-    And I follow "buy it"
+    And I follow "Requesting"
     And I fill in "listing_title" with "Sledgehammer"
     And I fill in "listing_description" with "My description"
     And I press "Save listing"
@@ -43,11 +37,9 @@ Feature: User creates a new listing
     Given I am logged in
     And I am on the home page
     When I follow "new-listing-link"
-    And I follow "offer to others"
-    And I follow "An item"
+    And I follow "Items"
     And I follow "Tools" within "#option-groups"
-    And I should see "How do you want to share it?"
-    And I follow "lend"
+    And I follow "Lending"
     And I fill in "listing_title" with "My offer"
     And I fill in "listing_description" with "My description"
     And I press "Save listing"
@@ -58,25 +50,12 @@ Feature: User creates a new listing
     Given I am logged in
     And I am on the home page
     When I follow "new-listing-link"
-    And I follow "I need something"
-    And I follow "a service"
+    And I follow "Services"
+    And I follow "Requesting"
     And I fill in "listing_title" with "Massage"
     And I fill in "listing_description" with "My description"
     And I press "Save listing"
     Then I should see "Massage" within "#listing-title"
-  
-  @javascript  
-  Scenario: Creating a new rideshare request successfully
-    Given I am logged in
-    And I am on the home page
-    When I follow "new-listing-link"
-    And I follow "I need something"
-    And I follow "shared ride"
-    And I fill in "listing_origin" with "Otaniemi"
-    And I fill in "listing_destination" with "Turku"
-    And wait for 2 seconds
-    And I press "Save listing"
-    Then I should see "Otaniemi - Turku" within "#listing-title"
   
   @javascript  
   Scenario: Trying to create a new request without being logged in
@@ -91,10 +70,9 @@ Feature: User creates a new listing
     Given I am logged in
     And I am on the home page
     When I follow "new-listing-link"
-    And I follow "I need something"
-    And I follow "An item"
-    And I follow "Sports"
-    And I follow "borrow it"
+    And I follow "Items"
+    And I follow "Books"
+    And I follow "Requesting"
     And I attach an image with invalid extension to "listing_listing_images_attributes_0_image"
     And I select "31" from "listing_valid_until_3i"
     And I select "December" from "listing_valid_until_2i"
@@ -103,22 +81,6 @@ Feature: User creates a new listing
     Then I should see "This field is required." 
     And I should see "This date must be between current time and 6 months from now." 
     And I should see "The image file must be either in GIF, JPG or PNG format." 
-    
-  @javascript  
-  Scenario: Trying to create a new rideshare request with insufficient information
-    Given I am logged in
-    And I am on the home page
-    When I follow "new-listing-link"
-    And I follow "I need something"
-    And I follow "shared ride"
-    And I fill in "Origin" with "Test"
-    And I choose "valid_until_select_date"
-    And I select "31" from "listing_valid_until_3i"
-    And I select "December" from "listing_valid_until_2i"
-    And I select "2014" from "listing_valid_until_1i"
-    And I press "Save listing"
-    Then I should see "This field is required."
-    And I should see "Departure time must be between current time and one year from now." 
 
   @javascript
   Scenario: User creates a listing and it is not visible in communities user joins
@@ -144,90 +106,30 @@ Feature: User creates a new listing
     Given I am logged in
     And I am on the home page
     When I follow "new-listing-link"
-    And I follow "I need something"
-    And I should see "What do you need?"
-    And I should see "Listing type: Request"
-    And I follow "An item"
-    And I should see "Listing type: Request"
-    And I should see "Category: Item"
-    And I should see "What kind of an item are we talking about?"
-    And I follow "Tools" within "#option-groups"
-    And I should see "Listing type: Request"
-    And I should see "Category: Item"
+    And I follow "Items"
+    Then I should see "Category: Item"
+    When I follow "Tools" within "#option-groups"
+    Then I should see "Category: Item"
     And I should see "Subcategory: Tools"
-    And I should see "How do you want to get it?"
-    And I follow "buy it"
-    And I should see "Share type: Buying"
-    And I should see "Item you need*"
-    And I follow "Listing type: Request"
-    And I should not see "Listing type: Request"
+    When I follow "Requesting"
+    Then I should see "Listing type: Requesting"
+    When I follow "Category: Item"
+    And I follow "Services"
+    Then I should see "Category: Services"
     And I should not see "Category: Item"
-    And I should not see "Item you need*"
-    And I should not see "Subcategory: Tools"
-    And I should not see "Share type: Buying"
-    And I follow "I have something to offer to others"
-    And I follow "A shared ride"
-    And I should see "Origin*"
-    And I follow "Category: Rideshare"
-    And I follow "A space"
-    And I follow "I'm sharing it for free"
-    And I follow "Share type: Sharing for free"
-    And I follow "I'm selling it"
-    And I should see "Space you offer*"
-    And I fill in "listing_title" with "My offer"
+    When I follow "Category: Services"
+    And I follow "Spaces"
+    Then I should see "Category: Spaces"
+    And I should not see "Category: Services"
+    When I follow "Selling"
+    Then I should see "Category: Spaces"
+    And I should see "Listing type: Selling"
+    When I fill in "listing_title" with "My offer"
     And I fill in "listing_price" with "20"
     And I fill in "listing_description" with "My description"
     And I press "Save listing"
     Then I should see "My offer" within "#listing-title"
-  
-  @javascript
-  Scenario: User creates a new listing in a tribe with some custom categories
-    Given I am logged in
-    And I am on the home page
-    When there are some custom categories
-    And I follow "Post a new listing"
-    Then I should see "I need something"
-    And I should see "I have something to offer to others"
-    When I follow "I need something"
-    And I follow "An item - something tangible"
-    Then I should see "Tools"
-    And I should see "doll"
-    When I follow "bottle"
-    And I follow "buy it"
-    Then I should see "Item you need*"
-    When I follow "Category: Item"
-    And I follow "wood"
-    Then I should not see "doll"
-    And I should see "lost"
-    When I follow "found"
-    Then I should see "Listing title*"
-    And add default categories back
-    
-  @javascript
-  Scenario: User creates a new listing in a tribe with only custom categories
-    Given I am logged in
-    And I am on the home page   
-    When all categories are custom categories
-    And I follow "Post a new listing"
-    Then I should not see "I need something"
-    And I should not see "I have something to offer to others"
-    And I should see "plastic"
-    And I should see "wood"
-    When I follow "plastic"
-    Then I should see "doll"
-    And I should see "record"
-    And I should see "bottle"
-    When I follow "doll"
-    Then I should see "Listing title*"
-    When I follow "Category: plastic"
-    And I follow "wood"
-    Then I should not see "doll"
-    And I should see "lost"
-    And I should see "found"
-    When I follow "lost"
-    Then I should see "Listing title*"
-    And add default categories back
-  
+
   @javascript
   Scenario: User creates a new listing with price
     Given I am logged in
@@ -299,12 +201,9 @@ Feature: User creates a new listing
     And community "test" is private
     And I am on the home page
     When I follow "new-listing-link"
-    And I follow "I need something"
-    And I follow "An item"
-    And I should see "What kind of an item are we talking about?"
+    And I follow "Items"
     And I follow "Tools" within "#option-groups"
-    And I should see "How do you want to get it?"
-    And I follow "buy it"
+    And I follow "Requesting"
     Then I should not see "Privacy*"
     And I fill in "listing_title" with "Sledgehammer"
     And I fill in "listing_description" with "My description"
