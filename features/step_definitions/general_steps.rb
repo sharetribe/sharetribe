@@ -55,3 +55,9 @@ def attach_image(filename, field, selector)
     attach_file(field, path)
   end
 end
+
+Then /^reset database$/ do
+  puts "Remove this step when transactional database cleaner is in use"
+  DatabaseCleaner.clean_with(:truncation)
+  load_default_test_data_to_db_before_suite
+end
