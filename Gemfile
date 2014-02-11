@@ -104,5 +104,7 @@ group :test do
   gem 'timecop'
   gem 'rack-test'
   gem 'database_cleaner'
+  gem 'pry'
+  gem 'pry-rails'
 end
 

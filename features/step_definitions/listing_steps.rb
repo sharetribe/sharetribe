@@ -5,7 +5,11 @@ Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with cate
   opts[:transaction_type] = find_transaction_type_by_name(transaction_type) if transaction_type
   opts[:author] = Person.find_by_username(author) if author
   community ||= "test"
-  opts[:communities] = [Community.find_by_name(community)]
+  opts[:communities] = [Community.find_by_domain(community)]
+
+  if opts[:communities].empty?
+    raise "No community"
+  end
 
   @listing = FactoryGirl.create(:listing, opts)
 end

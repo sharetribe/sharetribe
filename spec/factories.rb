@@ -42,7 +42,7 @@ FactoryGirl.define do
     valid_until 3.months.from_now
     times_viewed 0
     visibility "this_community"
-    privacy "private"
+    privacy "public"
     communities { [ FactoryGirl.create(:community) ] }
   end
 
