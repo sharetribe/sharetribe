@@ -52,6 +52,10 @@ Given /^community "([^"]*)" requires invite to join$/ do |community|
   Community.find_by_domain(community).update_attribute(:join_with_invite_only, true)
 end
 
+Given /^community "([^"]*)" does not require invite to join$/ do |community|
+  Community.find_by_domain(community).update_attribute(:join_with_invite_only, false)
+end
+
 Given /^community "([^"]*)" requires users to have an email address of type "(.*?)"$/ do |community, email|
   Community.find_by_domain(community).update_attribute(:allowed_emails, email)
 end
