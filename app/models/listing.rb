@@ -200,12 +200,12 @@ class Listing < ActiveRecord::Base
 
     params[:search] ||= params[:q] # Read search query also from q param
     
-    if params[:category]
+    if params[:category].present?
       params[:categories] = {:id => params[:category]} 
       joined_tables << :category
     end
     
-    if params[:transaction_type]   
+    if params[:transaction_type].present?
       params[:transaction_types] = {:id => params[:transaction_type]}
       joined_tables << :transaction_type
     end
