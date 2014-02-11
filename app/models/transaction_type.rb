@@ -15,4 +15,8 @@ class TransactionType < ActiveRecord::Base
     n ? n.name : ""
   end
 
+  def action_button_label(locale="en")
+    n = translations.find { |translation| translation.locale == locale.to_s } || translations.first # Fallback to first
+    n ? n.action_button_label : ""
+  end
 end
