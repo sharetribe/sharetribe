@@ -56,12 +56,20 @@ Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: fr
     "Spaces"
   end
 
-  transaction_type = if share_type == "sell" then "Selling"
-  elsif share_type == "borrow" then "Requesting"
-  elsif share_type == "favor offer" then "Selling services"
-  elsif share_type == "lend" then "Lending"
+  transaction_type = if share_type.present?
+    transaction_type = if share_type == "sell" then "Selling"
+    elsif share_type == "borrow" then "Requesting"
+    elsif share_type == "offer" then "Selling services"
+    elsif share_type == "lend" then "Lending"
+    else
+      "Requesting"
+    end
   else
-    "Requesting"
+    if type == "offer" then
+      "Selling services"
+    else
+      "Requesting"
+    end
   end
 
   author_step = if author

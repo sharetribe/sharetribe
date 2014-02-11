@@ -16,9 +16,6 @@ class TransactionConfirmedJob < Struct.new(:conversation_id, :community_id)
       community = Community.find(community_id)
       PersonMailer.transaction_confirmed(conversation, community).deliver
       if conversation.status.eql?("confirmed")
-        if conversation.listing.share_type.name.eql?(["give_away"]) && Time.now.month == 12
-          conversation.offerer.give_badge("santa", host)
-        end
         conversation.participations.each do |participation|
           Delayed::Job.enqueue(TestimonialReminderJob.new(conversation.id, participation.person.id, community.id, 0), :priority => 0, :run_at => 3.days.from_now)
         end

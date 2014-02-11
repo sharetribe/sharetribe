@@ -102,7 +102,7 @@ Feature: Transaction process between two users
 
     # Starting the conversation
     When I follow "Hammer"
-    And I follow "Offer to lend this item"
+    And I follow "Offer"
     And I fill in "Message" with "I can lend this item"
     And I press "Send"
     And the system processes jobs

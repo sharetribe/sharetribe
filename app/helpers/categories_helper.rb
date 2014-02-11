@@ -3,7 +3,28 @@ module CategoriesHelper
   require File.expand_path('../../../test/helper_modules', __FILE__)
   include TestHelpers
 
-  DEFAULT_TRANSACTION_TYPES_FOR_TESTS = ["Sell", "Lend", "Request", "Service"]
+  DEFAULT_TRANSACTION_TYPES_FOR_TESTS = {
+    Sell: {
+      en: {
+        name: "Selling", action_button_label: "Buy this item"
+      }
+    },
+    Lend: {
+      en: {
+        name: "Lending", action_button_label: "Borrow this item"
+      }
+    },
+    Request: {
+      en: {
+        name: "Requesting", action_button_label: "Offer"
+      }
+    },
+    Service: {
+      en: {
+        name: "Selling services", action_button_label: ""
+      }
+    }
+  }
 
   DEFAULT_CATEGORIES_FOR_TESTS = [
     {
@@ -21,15 +42,18 @@ module CategoriesHelper
   end
 
   def self.load_categories_and_transaction_types_to_db(community, transaction_types, categories)
-
     # Load transaction types
-    transaction_types.each do |tt|
+    transaction_types.each do |type, translations|
 
-      transaction_type = Object.const_get(tt).create!(:type => tt, :community_id => community.id)
+      transaction_type = Object.const_get(type.to_s).create!(:type => type, :community_id => community.id)
       community.locales.each do |locale|
-        tt_name = I18n.t!(tt.underscore, :locale => locale, :scope => ["admin", "transaction_types"], :raise => true)
-        tt_action = I18n.t!(tt.underscore, :locale => locale, :scope => ["admin", "transaction_action_label"], :raise => true)
-        transaction_type.translations.create!(:locale => locale, :name => tt_name, :action_button_label => tt_action)
+        translation = translations[locale.to_sym]
+
+        if translation then
+          tt_name = translation[:name]
+          tt_action = translation[:action_button_label]
+          transaction_type.translations.create!(:locale => locale, :name => tt_name, :action_button_label => tt_action)
+        end
       end
     end
 
