@@ -11,15 +11,32 @@ Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with cate
 end
 
 Given /^there is rideshare (offer|request) from "([^"]*)" to "([^"]*)" by "([^"]*)"$/ do |type, origin, destination, author|
-  @listing = FactoryGirl.create(:listing,
-                               :category => find_or_create_category("rideshare"),
-                               :origin => origin,
-                               :destination => destination,
-                               :author => @people[author],
-                               :communities => [Community.find_by_domain("test")],
-                               :share_type => find_or_create_share_type(type),
-                               :privacy => "public"
-                               )
+  puts "WARNING! Using deprecated step"
+  puts "This step maps old deprecated step to new one. You shouldn't use this anymore"
+
+  new_category = "Services"
+
+  transaction_type = if type == "offer" then
+    "Selling services"
+  else
+    "Requesting"
+  end
+
+  author_step = if author
+    " from \"#{author}\""
+  else
+    ""
+  end
+
+  community ||= "test"
+
+  title = "#{origin} - #{destination}"
+
+  puts %Q{Given there is a listing with title "#{title}"#{author_step} with category "#{new_category}" and with transaction type "#{transaction_type}" in community "#{community}"}
+
+  steps %Q{
+    Given there is a listing with title "#{title}"#{author_step} with category "#{new_category}" and with transaction type "#{transaction_type}" in community "#{community}"
+  }
 end
 
 Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: from "([^"]*)")?(?: and with share type "([^"]*)")?(?: and with price "([^"]*)")?$/ do |category, type, title, author, share_type, price|
@@ -38,6 +55,7 @@ Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: fr
   transaction_type = if share_type == "sell" then "Selling"
   elsif share_type == "borrow" then "Requesting"
   elsif share_type == "favor offer" then "Selling services"
+  elsif share_type == "lend" then "Lending"
   else
     "Requesting"
   end
@@ -182,9 +200,17 @@ When /^I fill in listing form with housing information$/ do
 end
 
 When /^I choose to view only share type "(.*?)"$/ do |share_type_name|
+  puts "Using deprecated step When I choose to view only share type"
   steps %Q{
     When I click "#home_toolbar-select-share-type"
     And I follow "#{share_type_name}" within ".home-toolbar-share-type-menu"
+  }
+end
+
+When /^I choose to view only transaction type "(.*?)"$/ do |transaction_type|
+  steps %Q{
+    When I click "#home_toolbar-select-share-type"
+    And I follow "#{transaction_type}" within ".home-toolbar-share-type-menu"
   }
 end
 
