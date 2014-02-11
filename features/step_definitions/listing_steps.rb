@@ -126,10 +126,9 @@ When /^I create a new listing "([^"]*)" with price$/ do |title|
   steps %Q{
     Given I am on the home page
     When I follow "new-listing-link"
-    And I follow "I have something to offer to others"
-    And I follow "An item"
+    And I follow "Items"
     And I follow "Tools" within "#option-groups"
-    And I follow "I'm selling it"
+    And I follow "Selling"
     And I fill in "listing_title" with "#{title}"
     And I fill in "listing_price" with "dsfsdf"
     And I press "Save listing"

@@ -140,24 +140,23 @@ Feature: User creates a new listing
   Scenario: User creates a new listing with custom dropdown fields
     Given I am logged in
     And community "test" has custom fields enabled
-    And there is a custom dropdown field "House type" in community "test" in category "housing" with options:
+    And there is a custom dropdown field "House type" in community "test" in category "Spaces" with options:
       | en             | fi                   |
       | Big house      | Iso talo             |
       | Small house    | Pieni talo           |
-    And there is a custom dropdown field "Balcony type" in community "test" in category "housing" with options:
+    And there is a custom dropdown field "Balcony type" in community "test" in category "Spaces" with options:
       | en             | fi                   |
       | No balcony     | Ei parveketta        |
       | French balcony | Ranskalainen parveke |
       | Backyard       | Takapiha             |
-    And there is a custom dropdown field "Service type" in community "test" in category "favor" with options:
+    And there is a custom dropdown field "Service type" in community "test" in category "Services" with options:
       | en             | fi                   |
       | Cleaning       | Siivous              |
       | Delivery       | Kuljetus             |
     And I am on the home page
     When I follow "new-listing-link"
-    And I follow "offer to others"
-    And I follow "A space"
-    And I follow "I'm selling it"
+    And I follow "Spaces"
+    And I follow "Selling"
     Then I should see "House type"
     And I should see "Balcony type"
     And I should not see "Service type"  
@@ -167,9 +166,8 @@ Feature: User creates a new listing
     When custom field "Balcony type" is not required
     And I am on the home page
     And I follow "new-listing-link"
-    And I follow "offer to others"
-    And I follow "A space"
-    And I follow "I'm selling it"
+    And I follow "Spaces"
+    And I follow "Selling"
     And I fill in "listing_title" with "My house"
     And I press "Save listing"
     Then I should see 1 validation errors
@@ -181,11 +179,10 @@ Feature: User creates a new listing
   Scenario: User creates a new listing with custom text field
     Given I am logged in
     And community "test" has custom fields enabled
-    And there is a custom text field "Details" in community "test" in category "housing"
+    And there is a custom text field "Details" in community "test" in category "Spaces"
     When I follow "new-listing-link"
-    And I follow "offer to others"
-    And I follow "A space"
-    And I follow "I'm selling it"
+    And I follow "Spaces"
+    And I follow "Selling"
     And I fill in "listing_title" with "My house"
     And I fill in text field "Details" with "Test details"
     And I press "Save listing"

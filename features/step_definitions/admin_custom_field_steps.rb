@@ -176,13 +176,14 @@ When /^I move custom field "(.*?)" up$/ do |custom_field|
   }
 end
 
-Given /^there is a custom dropdown field "(.*?)" in community "(.*?)"(?: in category "([^"]*)")? with options:$/ do |name, community, category, options|
+Given /^there is a custom dropdown field "(.*?)" in community "(.*?)"(?: in category "([^"]*)")? with options:$/ do |name, community, category_name, options|
   current_community = Community.find_by_domain(community)
   custom_field = FactoryGirl.build(:custom_dropdown_field, :community_id => current_community.id)
   custom_field.names << CustomFieldName.create(:value => name, :locale => "en")
   
-  if category
-    custom_field.category_custom_fields.build(:category => Category.find_by_name(category))
+  if category_name
+    category = find_category_by_name(category_name)
+    custom_field.category_custom_fields.build(:category => category)
   else
     custom_field.category_custom_fields.build(:category => current_community.categories.first)
   end
@@ -199,13 +200,14 @@ Given /^there is a custom dropdown field "(.*?)" in community "(.*?)"(?: in cate
   @custom_fields << custom_field 
 end
 
-Given /^there is a custom text field "(.*?)" in community "(.*?)"(?: in category "([^"]*)")?$/ do |name, community, category|
+Given /^there is a custom text field "(.*?)" in community "(.*?)"(?: in category "([^"]*)")?$/ do |name, community, category_name|
   current_community = Community.find_by_domain(community)
   custom_field = FactoryGirl.build(:custom_text_field, :community_id => current_community.id)
   custom_field.names << CustomFieldName.create(:value => name, :locale => "en")
   
-  if category
-    custom_field.category_custom_fields.build(:category => Category.find_by_name(category))
+  if category_name
+    category = find_category_by_name(category_name)
+    custom_field.category_custom_fields.build(:category => category)
   else
     custom_field.category_custom_fields.build(:category => current_community.categories.first)
   end
