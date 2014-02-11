@@ -121,6 +121,11 @@ Given /^community "(.*?)" is private$/ do |community_domain|
   Community.find_by_domain(community_domain).update_attributes({:private => true})
 end
 
+Given /^community "(.*?)" is public$/ do |community_domain|
+  puts "Remove this step when transactional database cleanup is in use"
+  Community.find_by_domain(community_domain).update_attributes({:private => false})
+end
+
 Given /^community "(.*?)" has following category structure:$/ do |community, categories|
   current_community = Community.find_by_domain(community)
   old_category_ids = current_community.categories.collect(&:id)
