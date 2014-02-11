@@ -114,12 +114,6 @@ class ListingsController < ApplicationController
     end
   end
 
-  def send_payment_settings_reminder?(listing, current_user, current_community)
-    listing.transaction_type.is_offer? && 
-    current_community.payments_in_use? && 
-    !current_user.can_receive_payments_at?(current_community)
-  end
-  
   def create
     if params[:listing][:origin_loc_attributes][:address].empty? || params[:listing][:origin_loc_attributes][:address].blank?
       params[:listing].delete("origin_loc_attributes")

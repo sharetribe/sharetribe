@@ -14,7 +14,7 @@ class ListingCreatedJob < Struct.new(:listing_id, :community_id)
     listing = Listing.find(listing_id)
     community = Community.find(community_id)
     # Send reminder about missing payment information
-    if send_payment_settings_reminder?(listing, listing.author, community)
+    if Listing.send_payment_settings_reminder?(listing, listing.author, community)
       PersonMailer.payment_settings_reminder(listing, listing.author, community).deliver
     end
   end

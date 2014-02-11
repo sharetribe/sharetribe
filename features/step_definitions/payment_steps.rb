@@ -133,7 +133,7 @@ end
 
 When /^I browse to Checkout payment settings$/ do
   steps %Q{
-    When I browser to payment settings
+    When I browse to payment settings
     Then I should be on the payment settings page
   }
 end

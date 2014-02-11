@@ -396,5 +396,11 @@ class Listing < ActiveRecord::Base
   def price_with_vat(vat)
     price + (price * vat / 100)
   end
+
+  def self.send_payment_settings_reminder?(listing, current_user, current_community)
+    listing.transaction_type.is_offer? && 
+    current_community.payments_in_use? && 
+    !current_user.can_receive_payments_at?(current_community)
+  end
   
 end
