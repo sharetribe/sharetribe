@@ -30,4 +30,4 @@ Feature: Admin adds a category
   @javascript
   Scenario: Admin adds category with invalid data
     When I add a new category "Buildings" with invalid data
-    Then I should see 2 validation errors
+    Then I should see 1 validation errors
