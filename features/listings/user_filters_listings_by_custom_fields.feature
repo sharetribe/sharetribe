@@ -5,11 +5,11 @@ Feature: Custom field filters
 
   Background:
     Given community "test" has custom fields enabled
-    And there is a dropdown field "House type" for category "housing" in community "test" with options:
+    And there is a dropdown field "House type" for category "Spaces" in community "test" with options:
       | title |
       | condo |
       | house |
-    And there is a dropdown field "Balcony type" for category "housing" in community "test" with options:
+    And there is a dropdown field "Balcony type" for category "Spaces" in community "test" with options:
       | title  |
       | glazed |
       | open   |
