@@ -122,6 +122,14 @@ es-ES:
         closed: Cerrado
       show:
         edit_poll: "Editar encuesta"
+    transaction_types:
+      sell: ~
+      rent: ~
+      give: ~
+      lend: ~
+      swap: ~
+      service: ~
+      request: ~
   common:
     edit_page: ~
     default_community_slogan: ~
@@ -1343,6 +1351,7 @@ es-ES:
       times_viewed: Visto
       processing_uploaded_image: ~
       price_excludes_vat: ~
+      listing_created_at: ~
     displayed_price:
       price_excludes_vat: ~
   mapview:
@@ -1746,6 +1755,7 @@ es-ES:
     formats:
       short: "%e %b %Y al %H:%M"
       shorter: "%e %b al %H:%M"
+      short_date: ~
       sms: "%e %b al %H:%M"
   timestamps:
     day_ago: "un día atrás"

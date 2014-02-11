@@ -122,6 +122,14 @@ ca:
         closed: Tancat
       show:
         edit_poll: "Edita l'enquesta"
+    transaction_types:
+      sell: ~
+      rent: ~
+      give: ~
+      lend: ~
+      swap: ~
+      service: ~
+      request: ~
   common:
     edit_page: ~
     default_community_slogan: ~
@@ -1340,6 +1348,7 @@ ca:
       times_viewed: Vist
       processing_uploaded_image: ~
       price_excludes_vat: ~
+      listing_created_at: ~
     displayed_price:
       price_excludes_vat: ~
   mapview:
@@ -1740,6 +1749,7 @@ ca:
     formats:
       short: "%e %b %Y al %H:%M"
       shorter: "%e %b al %H:%M"
+      short_date: ~
       sms: "%e %b al %H:%M"
   timestamps:
     day_ago: "fa un dia"

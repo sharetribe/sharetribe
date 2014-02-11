@@ -122,6 +122,14 @@ zh:
         closed: 关闭的
       show:
         edit_poll: ~
+    transaction_types:
+      sell: ~
+      rent: ~
+      give: ~
+      lend: ~
+      swap: ~
+      service: ~
+      request: ~
   common:
     edit_page: ~
     default_community_slogan: 借，帮助，分享
@@ -1338,6 +1346,7 @@ zh:
       times_viewed: 已阅
       processing_uploaded_image: ~
       price_excludes_vat: ~
+      listing_created_at: ~
     displayed_price:
       price_excludes_vat: ~
   mapview:
@@ -1738,6 +1747,7 @@ zh:
     formats:
       short: "%e %b %Y  %H:%M"
       shorter: "%e %b %H:%M"
+      short_date: ~
       sms: "%e %b %H:%M"
   timestamps:
     day_ago: "%{count} 天前"

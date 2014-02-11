@@ -122,6 +122,14 @@ ru:
         closed: Закрытый
       show:
         edit_poll: "Редактировать опрос"
+    transaction_types:
+      sell: ~
+      rent: ~
+      give: ~
+      lend: ~
+      swap: ~
+      service: ~
+      request: ~
   common:
     edit_page: ~
     default_community_slogan: "Сотрудничайте, делитесь и помогайте"
@@ -1338,6 +1346,7 @@ ru:
       times_viewed: Просмотрено
       processing_uploaded_image: ~
       price_excludes_vat: ~
+      listing_created_at: ~
     displayed_price:
       price_excludes_vat: ~
   mapview:
@@ -1741,6 +1750,7 @@ ru:
     formats:
       short: "%e %b %Y в %H:%M"
       shorter: "%e %b в %H:%M"
+      short_date: ~
       sms: "%e %b в %H:%M"
   timestamps:
     day_ago: "%{count} день назад"

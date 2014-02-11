@@ -122,6 +122,14 @@ vi:
         closed: "Đã đóng"
       show:
         edit_poll: "Chỉnh sửa thăm dò ý kiến"
+    transaction_types:
+      sell: ~
+      rent: ~
+      give: ~
+      lend: ~
+      swap: ~
+      service: ~
+      request: ~
   common:
     edit_page: ~
     default_community_slogan: "Cho mượn, giúp đỡ, chia sẻ"
@@ -1338,6 +1346,7 @@ vi:
       times_viewed: "đã xem"
       processing_uploaded_image: ~
       price_excludes_vat: ~
+      listing_created_at: ~
     displayed_price:
       price_excludes_vat: ~
   mapview:
@@ -1739,6 +1748,7 @@ vi:
     formats:
       short: "%e %b %Y lúc % H: % M"
       shorter: "%e %b lúc %H:% M"
+      short_date: ~
       sms: "%e %b lúc  %H:% M"
   timestamps:
     day_ago: "%{count} ngày trước"
