@@ -24,3 +24,28 @@ Then /^I (should|should not) see (big|small) (happy|semihappy|content|semiunhapp
     page.should have_css(image_class)
   end  
 end
+
+# Given /^I have "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([^"]*)")?(?: as "([^"]*)")?(?: with share type "([^"]*)")?$/ do |amount, grade, category, role, share_type|
+#   listing_type = role ? role.chop.chop : "request"
+#   category = category || "item"
+#   share_type ||= listing_type
+#   amount.to_i.times do
+#     listing = create_listing(category, share_type)
+#     conversation = FactoryGirl.create(:conversation, :status => "confirmed", :listing => listing)
+#     conversation.participants << @people["kassi_testperson1"] << @people["kassi_testperson2"]
+#     message = Message.create(:sender_id => @people["kassi_testperson1"].id, :content => "Test", :conversation_id => conversation.id)
+#     participation = Participation.find_by_person_id_and_conversation_id(@people["kassi_testperson2"].id, conversation.id)
+#     @testimonial = Testimonial.create!(:grade => grade.to_i, :text => "Yeah", :author_id => @people["kassi_testperson2"], :receiver_id => @people["kassi_testperson1"], :participation_id => participation.id)
+#   end
+# end
+
+Given /^I have "([^"]*)" testimonials? with grade "([^"]*)"$/ do |amount, grade|
+  amount.to_i.times do
+    listing = FactoryGirl.create(:listing)
+    conversation = FactoryGirl.create(:conversation, :status => "confirmed", :listing => listing)
+    conversation.participants << @people["kassi_testperson1"] << @people["kassi_testperson2"]
+    message = Message.create(:sender_id => @people["kassi_testperson1"].id, :content => "Test", :conversation_id => conversation.id)
+    participation = Participation.find_by_person_id_and_conversation_id(@people["kassi_testperson2"].id, conversation.id)
+    @testimonial = Testimonial.create!(:grade => grade.to_i, :text => "Yeah", :author_id => @people["kassi_testperson2"], :receiver_id => @people["kassi_testperson1"], :participation_id => participation.id)
+  end
+end
