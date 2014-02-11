@@ -172,6 +172,11 @@ en:
       swap: "Swapping"
       service: "Selling services"
       request: "Requesting"
+    transaction_action_label:
+      sell: ""
+      lend: "Borrow this item"
+      service: ""
+      request: ""
   common:
     edit_page: "Edit page"
     default_community_slogan: "Community marketplace"

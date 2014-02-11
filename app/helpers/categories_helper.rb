@@ -28,7 +28,8 @@ module CategoriesHelper
       transaction_type = Object.const_get(tt).create!(:type => tt, :community_id => community.id)
       community.locales.each do |locale|
         tt_name = I18n.t!(tt.underscore, :locale => locale, :scope => ["admin", "transaction_types"], :raise => true)
-        transaction_type.translations.create!(:locale => locale, :name => tt_name)
+        tt_action = I18n.t!(tt.underscore, :locale => locale, :scope => ["admin", "transaction_action_label"], :raise => true)
+        transaction_type.translations.create!(:locale => locale, :name => tt_name, :action_button_label => tt_action)
       end
     end
 
