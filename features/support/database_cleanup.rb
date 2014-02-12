@@ -22,13 +22,10 @@ begin
   require 'database_cleaner'
   require 'database_cleaner/cucumber'
 
-  if !defined?(Zeus)
-    # Test seed data is loaded on Zeus startup (custom_plan). If not using Zeus, load
-    # them here.
-    DatabaseCleaner.clean_with(:truncation)
-    load_default_test_data_to_db_before_suite
-    load_default_test_data_to_db_before_test
-  end
+  puts "*** Cleaning database (don't do me too often. I'm slow)"
+  DatabaseCleaner.clean_with(:truncation)
+  load_default_test_data_to_db_before_suite
+  load_default_test_data_to_db_before_test
 
   DatabaseCleaner.strategy = :transaction
   Cucumber::Rails::Database.javascript_strategy = :transaction
