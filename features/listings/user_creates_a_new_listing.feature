@@ -175,7 +175,7 @@ Feature: User creates a new listing
     And I press "Save listing"
     Then I should see "House type: Big house"
     
-  @javascript
+  @javascript @sphinx @no-transaction
   Scenario: User creates a new listing with custom text field
     Given I am logged in
     And community "test" has custom fields enabled

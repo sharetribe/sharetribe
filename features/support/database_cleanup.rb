@@ -3,43 +3,28 @@ require File.expand_path('../../../test/helper_modules', __FILE__)
 include TestHelpers
 
 require 'cucumber/rails'
+require 'database_cleaner'
 
-# Hack to support transactional tests in cucumber
-class ActiveRecord::Base
-  mattr_accessor :shared_connection
-  @@shared_connection = nil
- 
-  def self.connection
-    @@shared_connection || retrieve_connection
-  end
-end
- 
-# Forces all threads to share the same connection. This works on
-# Capybara because it starts the web server in a thread.
-ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
+DatabaseCleaner.clean_with :truncation
 
-begin
-  require 'database_cleaner'
-  require 'database_cleaner/cucumber'
-
-  puts "*** Cleaning database (don't do me too often. I'm slow)"
-  DatabaseCleaner.clean_with(:truncation)
-  load_default_test_data_to_db_before_suite
-  load_default_test_data_to_db_before_test
-
-  DatabaseCleaner.strategy = :transaction
-  Cucumber::Rails::Database.javascript_strategy = :transaction
-rescue NameError
-  raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
-end
-
-# Clear cache for each run as caching is not planned to work when DB contents are changing and communities are removed
-Rails.cache.clear
+$cumulative = 0
 
 Before do
-  DatabaseCleaner.start
+  beginning_time = Time.now
+  load_default_test_data_to_db_before_suite
+  load_default_test_data_to_db_before_test
+  time_elapsed = (Time.now - beginning_time)*1000
+  $cumulative = $cumulative + time_elapsed
+  puts "*** Loading default test values to database. Time elapsed: #{time_elapsed} ms)"
+  puts "*** Cumulative: #{$cumulative} ms"
 end
 
-After do
-  DatabaseCleaner.clean
+Before('@no-transaction') do
+  puts "*** Warning! Running test without transaction"
+  Cucumber::Rails::Database.javascript_strategy = :truncation
 end
+
+Before('~@no-transaction') do
+  Cucumber::Rails::Database.javascript_strategy = :transaction
+end
+

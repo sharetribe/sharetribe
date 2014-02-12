@@ -1,4 +1,4 @@
-@sphinx
+@sphinx @no-transaction
 Feature: Search
   In order to find needed contents
   As a user
