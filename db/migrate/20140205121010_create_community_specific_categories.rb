@@ -10,6 +10,10 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
 
       puts "\n\n\nUpdating community #{community.domain}\n"
 
+      # puts "Are you sure you want to continue? (y/n)"
+      # response = STDIN.gets.strip
+      # exit if response != 'y' && response != 'Y'
+
       categories = community.categories
       main_categories = categories.select{|c| c.parent_id.nil?}
       subcategories = categories.select{|c| ! c.parent_id.nil?}
@@ -52,8 +56,11 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
 
           transaction_type_class = SHARE_TYPE_MAP[listing.share_type.name]
           listing.update_column(:transaction_type_id, transaction_type_class.find_by_community_id(community.id).id)
+          print_dot
 
         end
+
+        puts ""
 
         if custom_community_categories
           # Keep even empty categories if they are customized
@@ -137,13 +144,15 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
         new_type_class = SHARE_TYPE_MAP[community_category.share_type.name]
 
         if new_trt = new_type_class.find_by_community_id(community.id)
-          puts "WARNING: transaction type #{new_trt.class.name} for community: #{community.domain} already exists"
+          #puts "WARNING: transaction type #{new_trt.class.name} for community: #{community.domain} already exists"
         else 
-          puts "creating transaction type #{new_trt.class.name} for community: #{community.domain}"
-          new_trt = new_type_class.create!(:community_id => community.id, :sort_priority => community_category.sort_priority, :price_field => community_category.price)
+          price_field_enabled = (new_type_class == Request ? false : community_category.price) # no price field for requests now
+          puts "creating transaction type #{new_type_class.name} for community: #{community.domain} price_field(#{price_field_enabled})"
+          new_trt = new_type_class.create!(:community_id => community.id, :sort_priority => community_category.sort_priority, :price_field => price_field_enabled)
+          create_translations_for(new_trt, community, community_category.share_type)
         end
 
-        create_translations_for(new_trt, community, community_category.share_type)
+        
 
         # Link category and transaction type
         CategoryTransactionType.create!(:category_id => new_cat.id, :transaction_type_id => new_trt.id)
@@ -154,6 +163,9 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
     
   end
 
+
+
+
   # Creates translations for new transaciton type
   def create_translations_for(trans_type, community, old_share_type=nil)
 
@@ -163,13 +175,15 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
 
       else 
 
-        # TODO handle how the translation is selected when many share_types are collapsed into one transaction type
-        # E.g. many requests become just one request
-        if old_share_type && old_translation = ShareTypeTranslation.find_by_share_type_id_and_locale(old_share_type.id, locale)
+        # quite many share types are merged to request so in those cases just use the translation for request
+        # so with new requests always use the translation string, not the old name
+        if trans_type.class != Request && old_share_type && old_translation = ShareTypeTranslation.find_by_share_type_id_and_locale(old_share_type.id, locale)
           translated_name = old_translation.name
         else
           translated_name = I18n.t(trans_type.class.name.downcase, :locale => locale, :scope => ["admin", "transaction_types"])
         end
+
+
 
         TransactionTypeTranslation.create(:locale => locale, :transaction_type_id => trans_type.id, 
           :name => translated_name)
@@ -288,7 +302,7 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
     Category.where("community_id IS NOT NULL").each(&:destroy)
     TransactionType.find_each(&:destroy)
 
-    puts "This is too comlicated migration to reverse completely \
+    puts "This is too complicated migration to reverse completely \
     Reversing the migration does delete all new categories (which have community_id) and all transaction types, \
     but it won't reverse the updated listing columns."
     # raise  ActiveRecord::IrreversibleMigration, "This is too comlicated migration to reverse \
