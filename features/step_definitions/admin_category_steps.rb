@@ -74,6 +74,10 @@ When /^I remove category "(.*?)"$/ do |category_name|
   }
 end
 
+When /^I remove category "(.*?)" which needs confirmation$/ do |category_name|
+  find_remove_link_for_category(category_name).click
+end
+
 Then /^the category "(.*?)" should be removed$/ do |category_name|
   steps %Q{
     Then I should not see "#{category_name}" within "#categories-list"
@@ -83,8 +87,7 @@ end
 Then /^I should see warning about the removal of subcategory "(.*?)"$/ do |category_name|
   steps %Q{
     Then I should see "Warning!"
-    Then I should see "the following subcategories will be also deleted"
-    Then I should see "#{category_name}"
+    Then I should see "subcategories in the category. They will be removed."
   }
 end
 
@@ -98,7 +101,7 @@ Given /^"(.*?)" is the only top level category in community "(.*?)"$/ do |catego
   community = Community.find_by_name(community)
   category = Category.find_by_community_and_translation(community, category_name)
   community.main_categories.each do |community_category|
-    if community_category != category then community_category.destroy end
+    if !community_category.eql? category then community_category.destroy end
   end
 end
 
