@@ -9,7 +9,7 @@ Feature: Admin removes a category
       | sub            | Tools             | Työkalut       |
       | sub            | Books             | Kirjat         |
       | main           | Services          | Palvelut       |
-    And there is a listing with title "Sound of Music" and with category "Books" in community "test"
+    And there is a listing with title "Sound of Music" with category "Books" in community "test"
 
   @javascript
   Scenario: Admin removes a subcategory
@@ -20,7 +20,7 @@ Feature: Admin removes a category
   @javascript
   Scenario: Admin removes a top level category
     Given I am on the categories admin page
-    When I remove category "Items"
+    When I remove category "Items" which needs confirmation
     Then I should see warning about the removal of subcategory "Tools"
     When I confirm category removal
     Then the category "Items" should be removed
@@ -34,7 +34,7 @@ Feature: Admin removes a category
   @javascript
   Scenario: Admin removes a subcategory with listings
     Given I am on the categories admin page
-    When I remove category "Books"
+    When I remove category "Books" which needs confirmation
     Then I should be able to select new category for listing "Sound of Music"
     When I select "Services" as a new category
     And I confirm category removal

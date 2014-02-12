@@ -95,11 +95,11 @@ When /^I add a new custom field "(.*?)" with invalid data$/ do |field_name|
   }
 end
 
-Given /^there is a custom field "(.*?)" in community "(.*?)"$/ do |name, community|
+Given /^there is a custom field "(.*?)" in community "(.*?)" for category "(.*?)"$/ do |name, community, category_name|
   current_community = Community.find_by_domain(community)
   @custom_field = FactoryGirl.build(:custom_dropdown_field, :community_id => current_community.id)
   @custom_field.names << CustomFieldName.create(:value => name, :locale => "en")
-  @custom_field.category_custom_fields.build(:category => current_community.categories.first)
+  @custom_field.category_custom_fields.build(:category => find_category_by_name(category_name))
   @custom_field.options << FactoryGirl.build(:custom_field_option)
   @custom_field.options << FactoryGirl.build(:custom_field_option)
   @custom_field.save
@@ -116,15 +116,14 @@ end
 When /^I change custom field "(.*?)" categories$/ do |field_name|
   steps %Q{
     When I follow "edit_custom_field_#{@custom_field.id}"
-    And I toggle category "#{@custom_field.community.categories.first.display_name}"
+    And I toggle category "#{@custom_field.community.categories[0].display_name}"
     And I toggle category "#{@custom_field.community.categories[1].display_name}"
-    And I toggle category "#{@custom_field.community.categories[2].display_name}"
     And I press submit
   }
 end
 
 Then /^correct categories should be stored$/ do
-  @custom_field.categories.should == [@custom_field.community.categories[1], @custom_field.community.categories[2]]
+  @custom_field.categories.should == [@custom_field.community.categories[0]]
 end  
 
 When /^I try to remove all categories$/ do
@@ -233,7 +232,7 @@ When /^I click edit for custom field "(.*?)"$/ do |custom_field|
 end
 
 When /^I click down for option "(.*?)"$/ do |option|
-  page.evaluate_script("$(\"[value='#{option}']\")
+  page.execute_script("$(\"[value='#{option}']\")
     .closest(\".custom-field-option-locales\")
     .find(\".custom-fields-action-down\")
     .click()
@@ -241,7 +240,7 @@ When /^I click down for option "(.*?)"$/ do |option|
 end
 
 When /^I click up for option "(.*?)"$/ do |option|
-  page.evaluate_script("$(\"[value='#{option}']\")
+  page.execute_script("$(\"[value='#{option}']\")
     .closest(\".custom-field-option-locales\")
     .find(\".custom-fields-action-up\")
     .click()

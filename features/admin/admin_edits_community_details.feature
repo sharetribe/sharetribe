@@ -41,3 +41,4 @@ Feature: Admin edits info pages
     When I log out
     And I go to the homepage
     Then I should see "Private homepage info"
+    When community "test" is public

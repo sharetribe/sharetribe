@@ -68,6 +68,7 @@ Feature: Admin edits a category
       | Items    |
       | Books    |
       | Tools    |
+    Then I should see "Successfully saved"
     When I refresh the page
     Then the category order should be following:
       | category |
