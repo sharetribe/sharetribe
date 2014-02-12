@@ -92,7 +92,7 @@ module TestHelpers
   def ensure_sphinx_is_running_and_indexed
     begin 
       Listing.search("").total_pages
-    rescue Mysql2::Error => e
+    rescue Mysql2::ConnectionError, ThinkingSphinx::ConnectionError
       # Sphinx was not running so start it for this session
       ThinkingSphinx::Test.init
       ThinkingSphinx::Test.start_with_autostop
