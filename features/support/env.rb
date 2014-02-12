@@ -74,6 +74,9 @@ end
 ThinkingSphinx::Deltas.suspend!
 
 Before do
+  # Populate db with default data
+  DatabaseCleaner.clean_with(:truncation)
+  load_default_test_data_to_db_before_suite
   load_default_test_data_to_db_before_test
   
   # Clear cache for each run as caching is not planned to work when DB contents are changing and communities are removed
