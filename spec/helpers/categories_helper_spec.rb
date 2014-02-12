@@ -13,7 +13,7 @@ describe CategoriesHelper do
   describe "#load_categories_and_transaction_types_to_db" do
 
     it "loads categorization to db based on given params" do
-      transaction_types = ["Sell", "Give"]
+      transaction_types = {Sell: {en: {name: "Sellings"}}, Give: {en: {name: "Giving away"}}}
       categories = [
         {
         "item" => [
