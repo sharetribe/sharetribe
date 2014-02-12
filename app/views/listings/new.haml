@@ -18,7 +18,7 @@
       - if values.size > 1
         .selected-group{:name => attribute} 
           - values.each do |value|
-            %a.select.selected{:href => "#", :data => {:id => value.id}}
+            %a.select.selected.hidden{:href => "#", :data => {:id => value.id}}
               .link-text= t(".selected_#{attribute}", attribute.to_sym => value.display_name(I18n.locale))
   
   %h2.listing-form-title{:id => "foo"}
@@ -28,7 +28,7 @@
       - if values.size > 1
         .option-group{:name => attribute}
           - values.each do |value|
-            %a.select.option{:href => "#", :data => {:id => value.id}}
+            %a.select.option.hidden{:href => "#", :data => {:id => value.id}}
               .link-text= value.display_name
 
   .form-fields

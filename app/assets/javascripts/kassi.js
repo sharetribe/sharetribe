@@ -54,14 +54,10 @@ function add_validator_methods() {
 
   $.validator.  
     addMethod("max_date", 
-      function(value, element, is_rideshare) {
+      function(value, element) {
         var current_time = new Date();
         var maximum_date = new Date(new Date(current_time).setMonth(current_time.getMonth()+6));
-        if (is_rideshare == "true") {
-          return get_datetime_from_datetime_select() < maximum_date;
-        } else {
-          return get_date_from_date_select() < maximum_date;
-        }
+        return get_date_from_date_select() < maximum_date;
        }
     );  
 
@@ -369,9 +365,14 @@ function update_listing_form_view(locale, attribute_array, listing_form_menu_tit
 // Return true if given menu should be displayed
 function should_show_menu_for(attribute, selected_attributes, attribute_array) {
   if (attribute_selected(attribute, selected_attributes)) {
-    return false
+    return false;
   } else if (attribute == "category") {
     if (attribute_array.length < 2) {
+      // If there is exactly 1 category, it should be marked automatically as selected,
+        // without showing the form.
+      if (attribute_array.length == 1) {
+        selected_attributes["category"] = attribute_array[0]["id"];
+      }
       return false;
     } else {
       return true;
@@ -380,14 +381,14 @@ function should_show_menu_for(attribute, selected_attributes, attribute_array) {
     if (should_show_menu_for("category", selected_attributes, attribute_array)) {
       return false;
     } else {
-      subcategories = get_subcategories_for(selected_attributes["category"], attribute_array);
+      var subcategories = get_subcategories_for(selected_attributes["category"], attribute_array);
       if (subcategories.length < 2) {
         // If there is exactly 1 subcategory, it should be marked automatically as selected,
         // without showing the form.
         if (subcategories.length == 1) {
           selected_attributes["subcategory"] = subcategories[0]["id"];
         }
-        return false
+        return false;
       } else {
         return true;
       }
@@ -405,7 +406,7 @@ function should_show_menu_for(attribute, selected_attributes, attribute_array) {
       }
       // If there is exactly 1 transaction type, it should be marked automatically as selected,
       // without showing the form
-      if (transaction_types.length == 1) {
+      if (transaction_types.length === 1) {
         selected_attributes["transaction_type"] = transaction_types[0]["id"];
       }
       return (transaction_types.length > 1);
@@ -418,40 +419,43 @@ function attribute_selected(attribute, selected_attributes) {
   return (selected_attributes[attribute] != null);
 }
 
-// Return subcategories of given category
+// Return subcategories for given category.
+// Returns empty array if there are no subcategories. 
 function get_subcategories_for(category_id, category_array) {
-  var subcategories = [];
-  $.each(category_array, function(index, category) {
-    if (category["id"] == category_id) {
-      if (category["subcategories"] != undefined) {
-        subcategories = category["subcategories"];
-      }
-    }
-  });
-  return subcategories;
+  return _.chain(category_array)
+    .filter(function(category) {
+      return category["id"] == category_id
+    })
+    .filter(function(category) {
+      return category["subcategories"] != undefined
+    })
+    .map(function(category) {
+      return category["subcategories"];
+    })
+    .flatten()
+    .value();
 }
 
 // Return transaction types of given category (expects
 // that this category does not have subcategories)
 function get_transaction_types_for_category(category_id, category_array) {
-  transaction_types = [];
-  $.each(category_array, function(index, category) {
-    if (category["id"] == category_id) {
-      transaction_types = category["transaction_types"];
-    }
-  });
-  return transaction_types;
+  var category = find_by_id(Number(category_id), category_array);
+  return category["transaction_types"];
 }
 
 // Returns transaction types of given subcategory
 function get_transaction_types_for_subcategory(category_id, subcategory_id, category_array) {
-  transaction_types = [];
-  $.each(category_array, function(index, category) {
-    if (category["id"] == category_id) {
-      transaction_types = get_transaction_types_for_category(subcategory_id, category["subcategories"]);
-    }
+  var category = find_by_id(Number(category_id), category_array);
+  var subcategory = find_by_id(Number(subcategory_id), category["subcategories"]);
+  return subcategory["transaction_types"];
+}
+
+// Returns the object that has the given id
+// from an array of objects
+function find_by_id(id, array) {
+  return _.find(array, function(item) {
+    return item.id === id;
   });
-  return transaction_types;
 }
 
 // Displays the given menu where category or transaction type can be selected
@@ -473,33 +477,25 @@ function display_option_group(group_type, selected_attributes, attribute_array) 
 
 // Check if category has a certain subcategory
 function has_subcategory(category_id, subcategory_id, attribute_array) {
-  has_sub = false;
-  subcategories = get_subcategories_for(category_id, attribute_array);
-  $.each(subcategories, function(index, subcategory) {
-    if (subcategory['id'] == subcategory_id) {
-      has_sub = true;
-    }
+  var subcategories = get_subcategories_for(category_id, attribute_array);
+  return _.any(subcategories, function(subcategory) {
+    return subcategory['id'] == subcategory_id;
   });
-  return has_sub;
 }
 
 // Check if selected category or subcategory has certain transaction type
 function has_transaction_type(selected_attributes, transaction_type_id, attribute_array) {
-  has_tt = false;
   // If subcategory is selected, loop through transaction types of that subcategory
   if (attribute_selected("subcategory", selected_attributes)) {
-    transaction_types = get_transaction_types_for_subcategory(selected_attributes["category"], selected_attributes["subcategory"],attribute_array);
+    var transaction_types = get_transaction_types_for_subcategory(selected_attributes["category"], selected_attributes["subcategory"],attribute_array);
   // If there's no subcategory, it means this top level category has no subcategories.
   // Thus, loop through transaction_types of top level category.
   } else {
-    transaction_types = get_transaction_types_for_category(selected_attributes["category"] ,attribute_array);
+    var transaction_types = get_transaction_types_for_category(selected_attributes["category"] ,attribute_array);
   }
-  $.each(transaction_types, function(index, transaction_type) {
-    if (transaction_type['id'] == transaction_type_id) {
-      has_tt = true;
-    }
+  return _.any(transaction_types, function(transaction_type) {
+    return transaction_type['id'] == transaction_type_id;
   });
-  return has_tt;
 }
 
 // Ajax call to display listing form after categories and 
@@ -513,28 +509,12 @@ function display_listing_form(selected_attributes, locale) {
 }
 
 // Initialize the actual form fields
-function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_rideshare, is_offer, listing_id, price_required, price_message, minimum_price, minimum_price_message) {
+function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_offer, listing_id, price_required, price_message, minimum_price, minimum_price_message) {
   
   $('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true, zIndex: 1000000}); });
   $('input.title_text_field:first').focus();
   
-  $(':radio[name=valid_until_select]').change(function() {
-    if ($(this).val() == "for_now") {
-      $('select.listing_datetime_select').attr('disabled', 'disabled');
-    } else {
-      $('select.listing_datetime_select').removeAttr('disabled');
-    }
-  });
-  
   form_id = (listing_id == "false") ? "#new_listing" : ("#edit_listing_" + listing_id);
-  
-  // Change the origin and destination requirements based on listing_type
-  var rs = null;
-  if (is_rideshare == "true") {
-    rs = true;
-  } else {
-    rs = false;
-  }
   
   // Is price required?
   var pr = null;
@@ -559,11 +539,10 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
     debug: false,
     rules: {
       "listing[title]": {required: true, maxlength: 60},
-      "listing[origin]": {required: rs, address_validator: true},
-      "listing[destination]": {required: rs, address_validator: true},
+      "listing[origin]": {address_validator: true},
       "listing[price]": {required: pr, positive_integer: true, minimum_price_required: minimum_price},
       "listing[listing_images_attributes][0][image]": { accept: "(jpe?g|gif|png)" },
-      "listing[valid_until(1i)]": { min_date: is_rideshare, max_date: is_rideshare }
+      "listing[valid_until(1i)]": { min_date: true, max_date: true }
     },
     messages: {
       "listing[valid_until(1i)]": { min_date: date_message, max_date: date_message },
