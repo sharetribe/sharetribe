@@ -65,11 +65,11 @@ When /^(?:|I )follow "([^"]*)"(?: within "([^"]*)")?$/ do |link, selector|
 end
 
 When /^I remove the focus from "([^"]*)"?$/ do |selector|
-  page.evaluate_script("$('#{selector}').blur();")
+  page.execute_script("$('#{selector}').blur();")
 end
 
 When /^I move the focus to "([^"]*)"?$/ do |selector|
-  page.evaluate_script("$('#{selector}').focus();")
+  page.execute_script("$('#{selector}').focus();")
 end
 
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"(?: within "([^"]*)")?$/ do |field, value, selector|

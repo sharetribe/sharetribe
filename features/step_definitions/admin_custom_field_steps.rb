@@ -116,14 +116,14 @@ end
 When /^I change custom field "(.*?)" categories$/ do |field_name|
   steps %Q{
     When I follow "edit_custom_field_#{@custom_field.id}"
+    And I toggle category "#{@custom_field.community.categories[0].display_name}"
     And I toggle category "#{@custom_field.community.categories[1].display_name}"
-    And I toggle category "#{@custom_field.community.categories[2].display_name}"
     And I press submit
   }
 end
 
 Then /^correct categories should be stored$/ do
-  @custom_field.categories.should == [@custom_field.community.categories[1], @custom_field.community.categories[2]]
+  @custom_field.categories.should == [@custom_field.community.categories[0]]
 end  
 
 When /^I try to remove all categories$/ do
@@ -232,7 +232,7 @@ When /^I click edit for custom field "(.*?)"$/ do |custom_field|
 end
 
 When /^I click down for option "(.*?)"$/ do |option|
-  page.evaluate_script("$(\"[value='#{option}']\")
+  page.execute_script("$(\"[value='#{option}']\")
     .closest(\".custom-field-option-locales\")
     .find(\".custom-fields-action-down\")
     .click()
@@ -240,7 +240,7 @@ When /^I click down for option "(.*?)"$/ do |option|
 end
 
 When /^I click up for option "(.*?)"$/ do |option|
-  page.evaluate_script("$(\"[value='#{option}']\")
+  page.execute_script("$(\"[value='#{option}']\")
     .closest(\".custom-field-option-locales\")
     .find(\".custom-fields-action-up\")
     .click()
