@@ -54,6 +54,13 @@
       FastClick.attach(document.body);
     });
 
+  -# Disable animations on tests
+  - if Rails.env.test?
+    :javascript
+      $(function() {
+        $.transit.enabled = false;
+      });
+
   = content_for :extra_javascript
 
   :javascript
