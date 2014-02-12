@@ -52,14 +52,15 @@ When /^I add a new category "(.*?)" with invalid data$/ do |category_name|
   steps %Q{
     When I follow "+ Create a new category"
     And I fill in "category[translation_attributes][en][name]" with "#{category_name}"
-    And I toggle transaction type "Selling"
-    And I toggle transaction type "Lending"
+    And I deselect all transaction types
     And I press submit
   }
 end
 
-When /^I toggle transaction type "([^"]*)"$/ do |transaction_type_label|
-  find(:css, "label", :text => transaction_type_label).click
+When /^I deselect all transaction types$/ do
+  page.all(:css, ".category-transaction-type-checkbox").each do |checkbox|
+    checkbox.set(false)
+  end
 end
 
 When /^I remove category "(.*?)"$/ do |category_name|
