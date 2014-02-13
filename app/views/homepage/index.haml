@@ -50,9 +50,8 @@
             .toggle.with-borders.hidden#home_toolbar-select-share-type{data: {toggle: '.home-toolbar-share-type-menu'}}
               .toggle-header-container
                 .toggle-header
-                  - transaction_type = @transaction_types.find { |type| type.id == params[:transaction_type].to_i}
-                  - if transaction_type
-                    = transaction_type.display_name(I18n.locale).mb_chars.capitalize.to_s
+                  - if @selected_transaction_type
+                    = @selected_transaction_type.display_name(I18n.locale).mb_chars.capitalize.to_s
                   - else
                     = t("homepage.filters.all_listing_types")
 
@@ -69,9 +68,8 @@
             .toggle.with-borders.hidden{data: {toggle: '#home-toolbar-categories-menu'}}
               .toggle-header-container
                 .toggle-header
-                  - current_category = @categories.find {|category| category.id == params[:category].to_i}
-                  - if current_category
-                    = current_category.display_name.mb_chars.capitalize.to_s
+                  - if @selected_category
+                    = @selected_category.display_name.mb_chars.capitalize.to_s
                   - else
                     = t("homepage.filters.all_categories")
 
@@ -81,8 +79,8 @@
               - @main_categories.each do |category|
                 = link_to category.display_name.mb_chars.capitalize.to_s, params.merge({category: category.id})
                 - if category.children
-                  - @main_categories.each do |child|
-                    - is_selected = child.id == params[:category]
+                  - category.children.each do |child|
+                    - is_selected = @selected_category == child
                     = link_to child.display_name.mb_chars.capitalize.to_s, params.merge({category: child.id}), :class => "toggle-menu-subitem"
         - if @show_custom_fields
           .hidden-tablet  
@@ -101,8 +99,8 @@
                 - if category.children
                   - if show_subcategories
                     - category.children.each do |child|
-                      - is_selected = child.id == params[:category].to_i
-                      = link_to child.display_name.mb_chars.capitalize.to_s, params.merge({category: child.id}), :class => "home-categories-sub #{if is_selected then 'selected' end}", :data => {:"sub-category" =>child.name}
+                      - is_selected = @selected_category == child
+                      = link_to child.display_name.mb_chars.capitalize.to_s, params.merge({category: child.id}), :class => "home-categories-sub #{if is_selected then 'selected' end}", :data => {:"sub-category" =>child.id}
         - if @show_custom_fields
           = render :partial => "custom_filters"
           
