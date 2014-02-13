@@ -156,6 +156,13 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
 
         # Link category and transaction type
         CategoryTransactionType.create!(:category_id => new_cat.id, :transaction_type_id => new_trt.id)
+      else
+        # This com_cat doesn't have share type. Reason usually is that it's a subcategory and should be linked to parent's share types
+
+        CategoryTransactionType.find_all_by_category_id(new_parent_id).each do |parents_ctt|
+          # Link category and transaction type
+          CategoryTransactionType.create!(:category_id => new_cat.id, :transaction_type_id => parents_ctt.transaction_type_id)
+        end
       end
     end
 
@@ -175,9 +182,12 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
 
       else 
 
+        old_default_names = ["offer", "sell", "rent_out", "lend", "offer_to_swap", "give_away", "share_for_free", "request", "buy", "rent", "borrow", "request_to_swap", "receive", "accept_for_free"]
+        
         # quite many share types are merged to request so in those cases just use the translation for request
-        # so with new requests always use the translation string, not the old name
-        if trans_type.class != Request && old_share_type && old_translation = ShareTypeTranslation.find_by_share_type_id_and_locale(old_share_type.id, locale)
+        # Generally: the old translation is only used for custom share_types
+
+        if trans_type.class != Request && old_share_type && ! old_default_names.include?(old_share_type.name)  && old_translation = ShareTypeTranslation.find_by_share_type_id_and_locale(old_share_type.id, locale)
           translated_name = old_translation.name
         else
           translated_name = I18n.t(trans_type.class.name.downcase, :locale => locale, :scope => ["admin", "transaction_types"])
@@ -224,7 +234,7 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
     "offer" => Service,
     "sell" => Sell,
     "rent_out" => Rent,
-    "lend" => Loan,
+    "lend" => Lend,
     "offer_to_swap" => Swap,
     "give_away" => Give,
     "share_for_free" => Service,

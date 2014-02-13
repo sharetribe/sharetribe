@@ -1,0 +1,3 @@
+class Lend < TransactionType
+
+end
