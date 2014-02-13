@@ -1,3 +1,4 @@
+@sphinx @no-transaction
 Feature: Custom field filters
   In order to view only listings that match certain marketplace specific condition
   As a user

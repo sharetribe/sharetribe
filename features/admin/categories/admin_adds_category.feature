@@ -6,7 +6,6 @@ Feature: Admin adds a category
 
   @javascript
   Scenario: Admin adds a top level category and a subcategory
-    Given this test is pending. This should be fixed when transactional cleaning strategy is in use.
     When I add a new category "Buildings"
     Then I should see that there is a top level category "Buildings"
     When I add a new category "Shacks" under category "Buildings"

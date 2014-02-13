@@ -145,7 +145,7 @@ When /^I edit dropdown "(.*?)" options$/ do |field_name|
     And I follow "custom-fields-add-option"
     And I fill in "custom_field[option_attributes][jsnew-2][title_attributes][en]" with "House4"
     And I fill in "custom_field[option_attributes][jsnew-2][title_attributes][fi]" with "Talo4"
-    And I follow "custom-field-option-remove-1"
+    And I follow "custom-field-option-remove-#{@custom_field.options[0].id}"
     And I press submit
   }
 end

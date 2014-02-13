@@ -23,16 +23,16 @@ Feature: Seller creates an invoice with Braintree
   @javascript
   Scenario: User can not accept request without active Braintree account
     Given there are following Braintree accounts:
-      | person            | status |
-      | kassi_testperson1 | pending |
+      | person            | status  | community |
+      | kassi_testperson1 | pending | test      |
     When I follow "Accept request"
     Then I should see "You need to fill in payout details before you can accept the request"
 
   @javascript
   Scenario: User accepts a payment-requiring request and creates an invoice
     Given there are following Braintree accounts:
-      | person            | status |
-      | kassi_testperson1 | active |
+      | person            | status | community |
+      | kassi_testperson1 | active | test      |
     When I follow "Accept request"
     Then I should see "20.90" in the "conversation_payment_attributes_sum" input
     And I should see "3" within "#service-fee"

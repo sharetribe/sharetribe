@@ -13,7 +13,7 @@ Feature: User rejects a transaction
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
-    And I follow "conversation_title_link_1"
+    And I follow "I offer this"
     And I follow "Not this time"
     And I press "Send"
     And I should see "Rejected" within ".conversation-status"

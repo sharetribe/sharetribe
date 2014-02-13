@@ -20,7 +20,7 @@ Feature: User pays with MangoPay after accepted transaction
     And I am logged in as "kassi_testperson2"
     When I follow "inbox-link"
     And I should see "1" within ".inbox-link"
-    And I follow "conversation_title_link_1"
+    And I follow "I want to buy"
     And I follow "Accept"
     And I fill in "conversation_message_attributes_content" with "Ok, then pay!"
     And I press "Send"
