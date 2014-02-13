@@ -23,20 +23,9 @@ class HomepageController < ApplicationController
     
     listings_per_page = 24
 
-    #Load community categories
-    @categories =  Rails.cache.fetch("/community/#{@current_community.id}_#{@current_community.updated_at}/categories") {
-      @current_community.categories
-    } 
-    
-    @main_categories =  Rails.cache.fetch("/community/#{@current_community.id}_#{@current_community.updated_at}/main_categories") {
-      @current_community.main_categories
-    }
-    @transaction_types = Rails.cache.fetch("/community/#{@current_community.id}_#{@current_community.updated_at}/transaction_types") {
-      @current_community.transaction_types
-    }
-    # @listing_types = Rails.cache.fetch("/community/#{@current_community.id}_#{@current_community.updated_at}/listing_types") {
-    #   @current_community.listing_types
-    # }
+    @categories = @current_community.categories
+    @main_categories = @current_community.main_categories
+    @transaction_types = @current_community.transaction_types
 
     # This assumes that we don't never ever have communities with only 1 main share type and
     # only 1 sub share type, as that would make the listing type menu visible and it would look bit silly
