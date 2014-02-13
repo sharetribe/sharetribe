@@ -11,10 +11,6 @@ module HomepageHelper
     end
   end
 
-  def all_categories_selected(current_category_id)
-    current_category_id.nil?
-  end
-
   def with_first_listing_image(listing, &block)
     if listing.listing_images.size > 0 && !listing.listing_images.first.image_processing
       block.call(listing.listing_images.first)
