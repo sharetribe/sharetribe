@@ -5,26 +5,54 @@ include TestHelpers
 require 'cucumber/rails'
 require 'database_cleaner'
 
-DatabaseCleaner.clean_with :truncation
+# Turn off all automatic database cleaning to gain full control of
+# the cleanup process
+Cucumber::Rails::World.use_transactional_fixtures = false
+Cucumber::Rails::Database.autorun_database_cleaner = false
 
-$cumulative = 0
+class ManualDatabaseCleaner
+  @cumulative
 
-Before do
-  beginning_time = Time.now
-  load_default_test_data_to_db_before_suite
-  load_default_test_data_to_db_before_test
-  time_elapsed = (Time.now - beginning_time)*1000
-  $cumulative = $cumulative + time_elapsed
-  puts "*** Loading default test values to database. Time elapsed: #{time_elapsed} ms)"
-  puts "*** Cumulative: #{$cumulative} ms"
+  def initialize
+    @cumulative = 0
+  end
+
+  # Clean db and load initial seed data
+  def clean_db
+    beginning_time = Time.now
+    DatabaseCleaner.clean_with :deletion
+    load_default_test_data_to_db_before_suite
+    load_default_test_data_to_db_before_test
+    time_elapsed = (Time.now - beginning_time)*1000
+    @cumulative += time_elapsed
+    puts "*** Loading test seed data. Time elapsed: #{time_elapsed} ms, cumulative: #{@cumulative} ms"
+  end
 end
 
+def set_strategy(strategy)
+  DatabaseCleaner.strategy = strategy
+  Cucumber::Rails::Database.javascript_strategy = strategy
+end
+
+# Run on startup
+cleaner = ManualDatabaseCleaner.new()
+cleaner.clean_db()
+set_strategy(:transaction)
+
 Before('@no-transaction') do
-  puts "*** Warning! Running test without transaction"
-  Cucumber::Rails::Database.javascript_strategy = :truncation
+  puts "*** Warning! Running test without transaction (this is little slower)"
+  set_strategy(:deletion)
 end
 
 Before('~@no-transaction') do
-  Cucumber::Rails::Database.javascript_strategy = :transaction
+  set_strategy(:transaction)
+  DatabaseCleaner.start
 end
 
+After('@no-transaction') do
+  cleaner.clean_db()
+end
+
+After('~@no-transaction') do
+  DatabaseCleaner.clean
+end

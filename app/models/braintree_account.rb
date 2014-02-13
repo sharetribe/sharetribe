@@ -1,5 +1,6 @@
 class BraintreeAccount < ActiveRecord::Base
   belongs_to :person
+  belongs_to :community
 
   validates_presence_of :person
   validates_presence_of :first_name

@@ -29,7 +29,7 @@ Feature: User checks inbox
     And there is a message "Test message" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
-    And I follow "conversation_title_link_1"
+    And I follow "Test message"
     Then I should see "Test message" within "h2"
 
   @javascript
