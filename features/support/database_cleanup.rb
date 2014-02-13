@@ -10,6 +10,21 @@ require 'database_cleaner'
 Cucumber::Rails::World.use_transactional_fixtures = false
 Cucumber::Rails::Database.autorun_database_cleaner = false
 
+# Using two hacks here:
+# - shared_connection hack shared the database connection
+#   between Cucumber thread and the server thread
+# - ConnectionPool tries its best to allow one thread at the time
+#   to access the database to prevent race conditions
+class ActiveRecord::Base
+  mattr_accessor :shared_connection
+  @@shared_connection = nil
+
+  def self.connection
+    @@shared_connection || ConnectionPool::Wrapper.new(:size => 1) { retrieve_connection }
+  end
+end
+ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
+
 class ManualDatabaseCleaner
   @cumulative
 
