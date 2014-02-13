@@ -1,8 +1,7 @@
 Feature: Admin edits a category
 
   Background: 
-    Given I am in community "test"
-    And I am logged in as "kassi_testperson2"
+    Given I am logged in as "kassi_testperson2"
     And "kassi_testperson2" has admin rights in community "test"
     And community "test" has following transaction types enabled:
       | transaction_type  | en                | fi             |

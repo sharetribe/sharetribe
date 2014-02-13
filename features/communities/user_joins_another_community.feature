@@ -3,6 +3,7 @@ Feature: User joins another community
   As a user
   I want to be able to join more than one Sharetribe community with my user account
   
+  @move_to_subdomain2
   @javascript
   Scenario: User joins another community
     Given there are following users:
@@ -20,6 +21,7 @@ Feature: User joins another community
     Then I should see "You have successfully joined this community"
     And I should see "Post a new listing"
   
+  @move_to_subdomain2
   @javascript
   Scenario: User joins another community that is invitation-only
     Given there are following users:
@@ -43,7 +45,7 @@ Feature: User joins another community
     And I should see "Post a new listing"
     And Invitation with code "GH1JX8" should have 0 usages_left
     
-  
+  @move_to_subdomain2
   @javascript
   Scenario: User joins another community that accepts only certain email addresses
     Given this test is pending because it fails so often. FIXME

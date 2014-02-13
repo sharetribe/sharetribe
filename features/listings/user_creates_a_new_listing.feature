@@ -82,6 +82,7 @@ Feature: User creates a new listing
     And I should see "This date must be between current time and 6 months from now." 
     And I should see "The image file must be either in GIF, JPG or PNG format." 
 
+  @move_to_subdomain2
   @javascript
   Scenario: User creates a listing and it is not visible in communities user joins
     Given there are following users:

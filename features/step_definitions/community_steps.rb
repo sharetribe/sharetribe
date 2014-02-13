@@ -87,6 +87,7 @@ end
 When /^I move to community "([^"]*)"$/ do |community|
   Capybara.default_host = "#{community}.lvh.me"
   Capybara.app_host = "http://#{community}.lvh.me:9887"
+  @current_community = Community.find_by_domain(community)
 end
 
 When /^I arrive to sign up page with the link in the invitation email with code "(.*?)"$/ do |code|
@@ -165,8 +166,4 @@ end
 
 Given /^listing publishing date is shown in community "(.*?)"$/ do |community_domain|
   Community.find_by_domain(community_domain).update_attributes({:show_listing_publishing_date => true})
-end
-
-Given /^I am in community "(.*?)"$/ do |community_domain|
-  @current_community = Community.find_by_domain(community_domain)
 end
