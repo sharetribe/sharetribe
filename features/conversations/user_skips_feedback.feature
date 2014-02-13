@@ -14,7 +14,7 @@ Feature: User skips feedback
     And the offer is confirmed
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
-    And I follow "conversation_title_link_1"
+    And I follow "I offer this"
     And I follow "Skip feedback"
     And I should see "Feedback skipped" within ".conversation-status"
     

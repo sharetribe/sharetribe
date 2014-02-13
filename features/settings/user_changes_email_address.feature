@@ -14,11 +14,11 @@ Feature: User changes email address
       | sharetribe1 | sharetribe@gmail.com    | false              | 2013-11-14 20:02:23 |
       | sharetribe1 | sharetribe@yahoo.com    | false              | nil                 |
     And there are following communities:
-      | community               | allowed_emails |
-      | test_community          | @example.com   |
-      | another_test_community  | @gmail.com     |
-    And "sharetribe1" is a member of community "test_community"
-    And "sharetribe1" is a member of community "another_test_community"
+      | community             | allowed_emails |
+      | testcommunity         | @example.com   |
+      | anothertestcommunity  | @gmail.com     |
+    And "sharetribe1" is a member of community "testcommunity"
+    And "sharetribe1" is a member of community "anothertestcommunity"
     And I am logged in as "sharetribe1"
     And I am on the account settings page
 
