@@ -13,8 +13,8 @@ class Community < ActiveRecord::Base
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy
   
-  has_many :categories
-  has_many :top_level_categories, :class_name => "Category", :conditions => ["parent_id IS NULL"]
+  has_many :categories, :order => "sort_priority"
+  has_many :top_level_categories, :class_name => "Category", :conditions => ["parent_id IS NULL"], :order => "sort_priority"
   has_many :subcategories, :class_name => "Category", :conditions => ["parent_id IS NOT NULL"]
   
   has_many :payments
