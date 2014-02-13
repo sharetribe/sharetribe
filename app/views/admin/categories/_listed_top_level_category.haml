@@ -9,7 +9,7 @@
         = render :partial => "category_action_buttons", :locals => {:category => category}
 
   - unless category.children.empty?
-    = render :partial => "listed_subcategory", :collection => category.children.sort, :as => :subcategory
+    = render :partial => "listed_subcategory", :collection => category.children, :as => :subcategory
 
   -#
     Make divider border between the elements without margins (only paddings)
