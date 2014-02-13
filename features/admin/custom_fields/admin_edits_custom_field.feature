@@ -27,31 +27,26 @@ Feature: Admin edits a custom field
   Scenario: Admin changes custom field name
     When I change custom field "House type" name to "Room type"  
     Then I should see "Room type"
-    Then reset database
   
   @javascript
   Scenario: Admin tries to give custom field invalid name
     When I change custom field "House type" name to "" 
     Then I should see 1 validation errors
-    Then reset database
 
   @javascript
   Scenario: Admin changes categories
     When I change custom field "House type" categories 
     Then correct categories should be stored
-    Then reset database
 
   @javascript
   Scenario: Admin tries to remove all categories
     When I try to remove all categories
     Then I should see 1 validation errors
-    Then reset database
     
   @javascript
   Scenario: Admin edits dropdown options
     When I edit dropdown "House type" options
     Then options should be stored correctly
-    Then reset database
 
   @javascript
   Scenario: Admin edits dropdown option order
@@ -67,4 +62,3 @@ Feature: Admin edits a custom field
       | Backyard       |
       | French balcony |
       | No balcony     |
-    Then reset database

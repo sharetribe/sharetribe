@@ -56,34 +56,5 @@ ThinkingSphinx::Test.init
 ThinkingSphinx::Test.start_with_autostop
 # This makes tests bit slower, but it's better to use Zeus if wanting to keep sphinx running
 
-# Populate db with default data
-DatabaseCleaner.clean_with(:truncation)
-load_default_test_data_to_db_before_suite
-
-begin
-  require 'database_cleaner'
-  require 'database_cleaner/cucumber'
-
-  DatabaseCleaner.strategy = :truncation, {:except => tables_to_keep}
-  Cucumber::Rails::Database.javascript_strategy = :truncation, {:except => tables_to_keep}
-rescue NameError
-  raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
-end
-
 # Disable delta indexing as it is not needed and generates unnecessary delay and output
 ThinkingSphinx::Deltas.suspend!
-
-Before do
-  # Populate db with default data
-  DatabaseCleaner.clean_with(:truncation)
-  load_default_test_data_to_db_before_suite
-  load_default_test_data_to_db_before_test
-  
-  # Clear cache for each run as caching is not planned to work when DB contents are changing and communities are removed
-  Rails.cache.clear
-end
-
-After do
-  DatabaseCleaner.clean
-end
-

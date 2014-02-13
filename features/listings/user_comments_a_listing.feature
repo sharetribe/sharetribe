@@ -66,7 +66,7 @@ Feature: User comments a listing
     Then I should see "You must log in to send a new comment."
     And I should not see "Write a new comment:"
 
-  @javascript
+  @javascript @no-transaction
   Scenario: Users get email from followed listing
     Given there are following users:
       | person            | email          | given_name         | family_name |

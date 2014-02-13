@@ -4,7 +4,7 @@ Feature: User browses listings
   I want to be able to browse offers and requests
 
 
-  @javascript
+  @javascript @sphinx @no-transaction
   Scenario: User browses offers page
     Given there are following users:
       | person | 
@@ -53,7 +53,7 @@ Feature: User browses listings
     And I should not see "axe"
     And I should not see "toolbox"
   
-  @javascript
+  @javascript @sphinx @no-transaction
   Scenario: User browses requests page
     Given there are following users:
       | person | 
@@ -103,7 +103,7 @@ Feature: User browses listings
     And I should not see "axe"
     And I should not see "toolbox"
     
-  @javascript
+  @javascript @sphinx @no-transaction
   Scenario: User browses requests with visibility settings
     Given there are following users:
       | person | 

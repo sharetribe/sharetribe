@@ -88,7 +88,7 @@ Feature: Custom field filters
   	And I should see "Small house"
   	And I should see "Tent"
 
-@javascript
+@javascript @sphinx @no-transaction
 Scenario: User combines custom filters with search and category
 	Given there is item offer with title "country and house music cd" from "kassi_testperson2"
   And the Listing indexes are processed
