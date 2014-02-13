@@ -68,7 +68,7 @@ class Admin::CategoriesController < ApplicationController
   def remove
     @selected_left_navi_link = "listing_categories"
     @category = Category.find(params[:id])
-    @new_category_candidates = @current_community.leaf_categories.reject { |category| @category.id == category.id }
+    @possible_merge_targets = Admin::CategoryService.merge_targets_for(@current_community.categories, @category)
   end
 
   # Remove action

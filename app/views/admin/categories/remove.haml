@@ -42,7 +42,7 @@
         = t('.select_new_category')
 
         %p
-          = select_tag "new_category", options_for_select(@new_category_candidates.collect { |c| [c.display_name(I18n.locale), c.id] })
+          = select_tag "new_category", options_for_select(@possible_merge_targets.collect { |c| [c.display_name(I18n.locale), c.id] })
 
     .inline-button-container
       = button_tag t(".buttons.remove"), :class => "delete-button"
