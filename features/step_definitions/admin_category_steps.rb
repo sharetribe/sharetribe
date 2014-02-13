@@ -22,6 +22,21 @@ module AdminCategorySteps
   def should_not_find_remove_link_for_category(category_name)
     find_category_row(category_name).should have_no_selector(DELETE_LINK_SELECTOR)
   end
+
+  def find_category_by_name(category_name)
+    Category.all.inject("") do |memo, c|
+      memo = c if c.display_name.eql?(category_name) && c.community_id == @current_community.id
+      memo
+    end
+  end
+
+  def find_transaction_type_by_name(transaction_type_name)
+    TransactionType.all.inject("") do |memo, tt|
+      memo = tt if tt.display_name.eql?(transaction_type_name) && tt.community_id == @current_community.id
+      memo
+    end
+  end
+
 end
 
 World(AdminCategorySteps)
@@ -157,4 +172,69 @@ end
 
 When /^I click up for category "(.*?)"$/ do |category|
   find_up_link_for_category(category).click()
+end
+
+When(/^I change category "(.*?)" name to "(.*?)"$/) do |old_name, new_name|
+  category = find_category_by_name(old_name)
+  steps %Q{
+    When I follow "edit_category_#{category.id}"
+    And I fill in "category[translation_attributes][en][name]" with "#{new_name}"
+    And I press submit
+  }
+end
+
+When(/^I change parent of category "(.*?)" to "(.*?)"$/) do |child_name, parent_name|
+  category = find_category_by_name(child_name)
+  steps %Q{
+    When I follow "edit_category_#{category.id}"
+    And I select "#{parent_name}" from "category_parent_id"
+    And I press submit
+  }
+end
+
+When(/^I try to edit category "(.*?)"$/) do |category_name|
+  category = find_category_by_name(category_name)
+  steps %Q{
+    When I follow "edit_category_#{category.id}"
+  }
+end
+
+Given(/^category "(.*?)" should have the following transaction types:$/) do |category_name, transaction_types|
+  category = find_category_by_name(category_name)
+  tt_array = transaction_types.hashes.inject([]) do |memo, hash|
+    memo << hash['transaction_type']
+    memo
+  end
+  category_tt_array = category.transaction_types.collect { |tt| tt.display_name }
+  tt_array.uniq.sort.should == category_tt_array.uniq.sort
+end
+
+When(/^I change transaction types of category "(.*?)" to following:$/) do |category_name, new_transaction_types|
+  category = find_category_by_name(category_name)
+  steps %Q{
+    When I follow "edit_category_#{category.id}"
+    And I deselect all transaction types
+  }
+  new_transaction_types.hashes.each do |hash|
+    steps %Q{
+      And I toggle transaction type "#{hash['transaction_type']}"
+    }
+  end
+  steps %Q{
+    And I press submit
+  }
+end
+
+When /^I toggle transaction type "(.*?)"$/ do |transaction_type_name|
+  transaction_type = find_transaction_type_by_name(transaction_type_name)
+  find(:css, "#transaction_type_checkbox_#{transaction_type.id}").click
+end
+
+When /^I try to remove all transaction types from category "(.*?)"$/ do |category_name|
+  category = find_category_by_name(category_name)
+  steps %Q{
+    When I follow "edit_category_#{category.id}"
+    And I deselect all transaction types
+    And I press submit
+  }
 end

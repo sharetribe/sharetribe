@@ -166,3 +166,7 @@ end
 Given /^listing publishing date is shown in community "(.*?)"$/ do |community_domain|
   Community.find_by_domain(community_domain).update_attributes({:show_listing_publishing_date => true})
 end
+
+Given /^I am in community "(.*?)"$/ do |community_domain|
+  @current_community = Community.find_by_domain(community_domain)
+end
