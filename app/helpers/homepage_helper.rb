@@ -11,8 +11,8 @@ module HomepageHelper
     end
   end
 
-  def all_categories_selected(current_category_id)
-    current_category_id.nil?
+  def all_categories_selected(category_param)
+    category_param.nil? || category_param == "all"
   end
 
   def with_first_listing_image(listing, &block)
