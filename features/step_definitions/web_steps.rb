@@ -68,6 +68,14 @@ When /^I remove the focus"?$/ do
   page.execute_script("$('input').blur();")
 end
 
+Then /^there should be an active ajax request$/ do
+  page.evaluate_script("$.active") > 0
+end
+
+When /^ajax requests are completed$/ do
+  expect { page.evaluate_script("$.active") == 0 }.to become_true
+end
+
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"(?: within "([^"]*)")?$/ do |field, value, selector|
   with_scope(selector) do
     fill_in(field, :with => value)

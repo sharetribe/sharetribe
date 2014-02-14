@@ -37,9 +37,13 @@ Feature: User joins another community
     And I should see "Invitation code"
     When I check "community_membership_consent"
     And I fill in "Invitation code" with "random"
+    Then there should be an active ajax request
+    When ajax requests are completed
     And I remove the focus
     Then I should see "The invitation code is not valid."
     When I fill in "Invitation code" with "GH1JX8"
+    Then there should be an active ajax request
+    When ajax requests are completed
     And I remove the focus
     Then I should not see "The invitation code is not valid."
     When I press "Join community"
