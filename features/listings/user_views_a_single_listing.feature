@@ -52,6 +52,7 @@ Feature: User views a single listing
   Scenario: User tries to view a listing from another community
     Given I am not logged in
     And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
+    And that listing belongs to community "test"
     And I am on the home page
     When I go to the listing page
     Then I should see "This content is not available in this community."
