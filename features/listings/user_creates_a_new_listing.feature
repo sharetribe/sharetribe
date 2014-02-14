@@ -212,4 +212,3 @@ Feature: User creates a new listing
     When I log out
     And I go to the home page
     Then I should not see "Sledgehammer"
-    When community "test" is public

@@ -18,7 +18,9 @@ Feature: Admin edits info pages
     Then I should have editor open
     When I send keys "This is a new line to about text" to editor
     And I click save on the editor
-    And I refresh the page
+    Then I should not have editor open
+    Then I should see "This is a new line to about text"
+    When I refresh the page
     Then I should see "This is a new line to about text"
     
   @javascript
@@ -33,7 +35,9 @@ Feature: Admin edits info pages
     Then I should have editor open
     When I send keys "This is a new line to terms text" to editor
     And I click save on the editor
-    And I refresh the page
+    Then I should not have editor open
+    Then I should see "This is a new line to terms text"
+    When I refresh the page
     Then I should see "This is a new line to terms text"
     
   @javascript
@@ -48,5 +52,7 @@ Feature: Admin edits info pages
     Then I should have editor open
     When I send keys "This is a new line to privacy policy text" to editor
     And I click save on the editor
-    And I refresh the page
+    Then I should not have editor open
+    Then I should see "This is a new line to privacy policy text"
+    When I refresh the page
     Then I should see "This is a new line to privacy policy text"

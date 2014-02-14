@@ -40,13 +40,7 @@ Feature: Transaction process between two users
     When I open the email
     And I follow "Pay now" in the email
     And I press "Continue"
-    And I click Osuuspankki logo
-    And I fill in "id" with "123456"
-    And I fill in "pw" with "7890"
-    And I press "Jatka"
-    And I press "Jatka"
-    And I press "Hyväksy"
-    And wait for 5 seconds
+    And I pay with Osuuspankki
     Then I should see "Payment successful"
     When the system processes jobs
     Then "kassi_testperson2@example.com" should have 2 emails

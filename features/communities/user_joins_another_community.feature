@@ -48,7 +48,6 @@ Feature: User joins another community
   @move_to_subdomain2
   @javascript
   Scenario: User joins another community that accepts only certain email addresses
-    Given this test is pending because it fails so often. FIXME
     Given there are following users:
       | person            | email     | given_name | family_name |
       | kassi_testperson3 | k3@lvh.me | Tester     | Person      |
@@ -102,7 +101,7 @@ Feature: User joins another community
     Then I should see "This email is not allowed for this community or it is already in use."
     When I fill in "person_email" with "other.email@example.com"
     And I press "Change"
-    Then I should see "Check your inbox"
+    Then I should see "Your email is other.email@example.com"
     And "other.email@example.com" should receive an email
     
     # confirm

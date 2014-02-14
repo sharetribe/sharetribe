@@ -51,7 +51,10 @@ end
 
 # Run on startup
 cleaner = ManualDatabaseCleaner.new()
-cleaner.clean_db()
+
+if !defined?(Zeus)
+  cleaner.clean_db()
+end
 set_strategy(:transaction)
 
 Before('@no-transaction') do
