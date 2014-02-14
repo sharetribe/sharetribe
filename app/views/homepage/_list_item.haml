@@ -22,7 +22,7 @@
         - if @current_community.show_category_in_listing_list
           %a.home-share-type-link{:href => share_type_url(listing)}
             = icon_tag(listing.icon_name, ["icon-fix"])
-            = listing.transaction_type.display_name
+            = listing.transaction_type.display_name(I18n.locale)
   
   .home-list-author{:class => (listing.listing_images.size > 0 ? "home-list-author-with-listing-image" : "home-list-author-without-listing-image")}
     .home-list-avatar

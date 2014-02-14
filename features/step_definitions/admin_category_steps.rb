@@ -25,14 +25,14 @@ module AdminCategorySteps
 
   def find_category_by_name(category_name)
     Category.all.inject("") do |memo, c|
-      memo = c if c.display_name.eql?(category_name) && c.community_id == @current_community.id
+      memo = c if c.display_name("en").eql?(category_name) && c.community_id == @current_community.id
       memo
     end
   end
 
   def find_transaction_type_by_name(transaction_type_name)
     TransactionType.all.inject("") do |memo, tt|
-      memo = tt if tt.display_name.eql?(transaction_type_name) && tt.community_id == @current_community.id
+      memo = tt if tt.display_name("en").eql?(transaction_type_name) && tt.community_id == @current_community.id
       memo
     end
   end
@@ -205,7 +205,7 @@ Given(/^category "(.*?)" should have the following transaction types:$/) do |cat
     memo << hash['transaction_type']
     memo
   end
-  category_tt_array = category.transaction_types.collect { |tt| tt.display_name }
+  category_tt_array = category.transaction_types.collect { |tt| tt.display_name("en") }
   tt_array.uniq.sort.should == category_tt_array.uniq.sort
 end
 

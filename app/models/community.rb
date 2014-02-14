@@ -342,23 +342,23 @@ class Community < ActiveRecord::Base
   #     "id" => "id"
   #   }
   # ]
-  def category_tree
+  def category_tree(locale)
     top_level_categories.inject([]) do |category_array, category|
-      category_array << hash_for_category(category)
+      category_array << hash_for_category(category, locale)
     end
   end
 
   # Returns a hash for a single category
-  def hash_for_category(category)
-    category_hash = {"id" => category.id, "label" => category.display_name}
+  def hash_for_category(category, locale)
+    category_hash = {"id" => category.id, "label" => category.display_name(locale)}
     if category.children.empty?
       category_hash["transaction_types"] = category.transaction_types.inject([]) do |transaction_type_array, transaction_type|
-        transaction_type_array << {"id" => transaction_type.id, "label" => transaction_type.display_name}
+        transaction_type_array << {"id" => transaction_type.id, "label" => transaction_type.display_name(locale)}
         transaction_type_array
       end
     else
       category_hash["subcategories"] = category.children.inject([]) do |subcategory_array, subcategory|
-        subcategory_array << hash_for_category(subcategory)
+        subcategory_array << hash_for_category(subcategory, locale)
         subcategory_array
       end
     end

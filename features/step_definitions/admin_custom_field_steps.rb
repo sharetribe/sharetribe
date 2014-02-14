@@ -116,8 +116,8 @@ end
 When /^I change custom field "(.*?)" categories$/ do |field_name|
   steps %Q{
     When I follow "edit_custom_field_#{@custom_field.id}"
-    And I toggle category "#{@custom_field.community.categories[0].display_name}"
-    And I toggle category "#{@custom_field.community.categories[1].display_name}"
+    And I toggle category "#{@custom_field.community.categories[0].display_name("en")}"
+    And I toggle category "#{@custom_field.community.categories[1].display_name("en")}"
     And I press submit
   }
 end
@@ -129,7 +129,7 @@ end
 When /^I try to remove all categories$/ do
   steps %Q{
     When I follow "edit_custom_field_#{@custom_field.id}"
-    And I toggle category "#{@custom_field.categories.first.display_name}"
+    And I toggle category "#{@custom_field.categories.first.display_name("en")}"
     And I press submit
   }
 end

@@ -24,7 +24,7 @@ end
 
 Then /^I should see "(.*?)" as logged in user$/ do |display_name|
   steps %Q{
-    Then I should see "#{display_name}" within ".user-name"
+    Then I should see "#{display_name("en")}" within ".user-name"
   }
 end
 
