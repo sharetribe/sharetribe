@@ -105,6 +105,10 @@ Given /^privacy of that listing is "([^"]*)"$/ do |privacy|
   @listing.update_attribute(:privacy, privacy)
 end
 
+Given(/^that listing belongs to community "(.*?)"$/) do |domain|
+  @listing.communities = [Community.find_by_domain(domain)]
+end
+
 Given /^that listing is visible to members of community "([^"]*)"$/ do |domain|
   @listing.communities << Community.find_by_domain(domain)
 end
