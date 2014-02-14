@@ -1,4 +1,4 @@
 %a.share-type-link{:href => share_type_url(listing)}
   .icon-with-text-container
     = icon_tag(listing.icon_name, ["icon-part"])
-    .text-part= listing.transaction_type.display_name
+    .text-part= listing.transaction_type.display_name(I18n.locale)

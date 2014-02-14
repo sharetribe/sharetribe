@@ -51,7 +51,7 @@ module ListingsHelper
 
   def share_type_url(listing, map=false)
     throw "Uses share_type"
-    root_path(:share_type => listing.transaction_type.display_name, :category => listing.category.name, :map => map)
+    root_path(:share_type => listing.transaction_type.display_name(I18n.locale), :category => listing.category.name, :map => map)
   end
 
   # expects category to be "item", "favor", "rideshare" or "housing"
@@ -61,14 +61,14 @@ module ListingsHelper
       category += "s" if ["item", "favor"].include?(category)
       return t("listings.index.#{category}", :default => category.capitalize)
     else
-      return category.display_name.capitalize
+      return category.display_name(I18n.locale).capitalize
     end
   end
 
   def localized_share_type_label(share_type)
     throw "Uses share_type"
     return nil if share_type.nil?
-    return share_type.display_name.capitalize
+    return share_type.display_name(I18n.locale).capitalize
   end
 
   def localized_listing_type_label(listing_type_string)
