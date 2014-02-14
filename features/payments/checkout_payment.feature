@@ -8,13 +8,12 @@ Feature: User pays after accepted transaction
   
   @javascript
   Scenario: User goes to payment service, but decides to cancel and comes back
-    Given this test is deprecated and you should remove all old organization specific code
     Given there are following users:
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
     And community "test" has payments in use
-    And "kassi_testperson2" is member of organization that has registered as a seller
+    And "kassi_testperson2" has Checkout account
     And there is item offer with title "math book" from "kassi_testperson2" and with share type "sell" and with price "12"
     And there is a message "I want to buy" from "kassi_testperson1" about that listing
     And I am logged in as "kassi_testperson2"
@@ -36,13 +35,7 @@ Feature: User pays after accepted transaction
     When I click "#continue_payment"
     Then I should see "Checkout"
     Then I should see "Testi Oy (123456-7)"
-    When I click Osuuspankki logo
-    And I fill in "id" with "123456"
-    And I fill in "pw" with "7890"
-    And I press "Jatka"
-    And I press "Jatka"
-    And I press "Hyväksy"
-    And wait for 5 seconds
+    When I pay with Osuuspankki
     Then I should see "Payment successful"
     When I log out
     And the system processes jobs
@@ -67,13 +60,12 @@ Feature: User pays after accepted transaction
 
   @javascript
   Scenario: requester cancels a transaction with payment that had already been accepted, but not paid and skips feedback
-    Given this test is deprecated and you should remove all old organization specific code
     Given there are following users:
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
     And community "test" has payments in use
-    And "kassi_testperson2" is member of organization that has registered as a seller
+    And "kassi_testperson2" has Checkout account
     And there is item offer with title "math book" from "kassi_testperson2" and with share type "sell" and with price "12"
     And there is a message "I want to buy" from "kassi_testperson1" about that listing
     And the request is accepted
@@ -88,13 +80,12 @@ Feature: User pays after accepted transaction
     
   @javascript
   Scenario: requester cancels a transaction with payment that had already been accepted, but not paid and gives feedback
-    Given this test is deprecated and you should remove all old organization specific code
     Given there are following users:
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
     And community "test" has payments in use
-    And "kassi_testperson2" is member of organization that has registered as a seller
+    And "kassi_testperson2" has Checkout account
     And there is item offer with title "math book" from "kassi_testperson2" and with share type "sell" and with price "12"
     And there is a message "I want to buy" from "kassi_testperson1" about that listing
     And the request is accepted
@@ -113,13 +104,12 @@ Feature: User pays after accepted transaction
   
   @javascript
   Scenario: requester pays with delayed billing
-    Given this test is deprecated and you should remove all old organization specific code
     Given there are following users:
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
     And community "test" has payments in use
-    And "kassi_testperson2" is member of organization that has registered as a seller
+    And "kassi_testperson2" has Checkout account
     And there is item offer with title "math book" from "kassi_testperson2" and with share type "sell" and with price "12"
     And there is a message "I want to buy" from "kassi_testperson1" about that listing
     And I am logged in as "kassi_testperson2"
@@ -139,22 +129,18 @@ Feature: User pays after accepted transaction
     When I click "#continue_payment"
     Then I should see "Checkout"
     Then I should see "Testi Oy (123456-7)"
-    When I click Tilisiirto logo
-    
-    Then I should see "Testi Pankki"
-    And I follow "tästä takaisin kauppiaan sivustolle"
+    When I pay by bill
     Then I should see "When you have paid, we'll notify the seller and you will get a receipt in email"
     And I should see "Pay"
     
   @javascript
   Scenario: offerer cancels the request
-    Given this test is deprecated and you should remove all old organization specific code
     Given there are following users:
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
     And community "test" has payments in use
-    And "kassi_testperson2" is member of organization that has registered as a seller
+    And "kassi_testperson2" has Checkout account
     And there is item offer with title "math book" from "kassi_testperson2" and with share type "sell" and with price "12"
     And there is a message "I want to buy" from "kassi_testperson1" about that listing
     And I am logged in as "kassi_testperson2"

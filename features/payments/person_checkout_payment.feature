@@ -51,13 +51,7 @@ Feature: User pays after accepted transaction
     When I click "#continue_payment"
     Then I should see "Checkout"
     Then I should see "Testi Oy (123456-7)"
-    When I click Osuuspankki logo
-    And I fill in "id" with "123456"
-    And I fill in "pw" with "7890"
-    And I press "Jatka"
-    And I press "Jatka"
-    And I press "Hyväksy"
-    And wait for 5 seconds
+    When I pay with Osuuspankki
     Then I should see "Payment successful"
     When I log out
     And the system processes jobs
@@ -151,10 +145,7 @@ Feature: User pays after accepted transaction
     When I click "#continue_payment"
     Then I should see "Checkout"
     Then I should see "Testi Oy (123456-7)"
-    When I click Tilisiirto logo
-    
-    Then I should see "Testi Pankki"
-    And I follow "tästä takaisin kauppiaan sivustolle"
+    When I pay by bill
     Then I should see "When you have paid, we'll notify the seller and you will get a receipt in email"
     And I should see "Pay"
     
