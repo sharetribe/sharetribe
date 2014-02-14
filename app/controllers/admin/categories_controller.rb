@@ -20,6 +20,7 @@ class Admin::CategoriesController < ApplicationController
     @category = Category.new(params[:category])
     @category.community = @current_community
     @category.parent_id = nil if params[:category][:parent_id].blank?
+    @category.sort_priority = Admin::SortingService.next_sort_priority(@current_community.categories)
     logger.info "Translations #{@category.translations.inspect}"
     if @category.save
       redirect_to admin_categories_path
@@ -68,7 +69,7 @@ class Admin::CategoriesController < ApplicationController
   def remove
     @selected_left_navi_link = "listing_categories"
     @category = Category.find(params[:id])
-    @new_category_candidates = @current_community.leaf_categories.reject { |category| @category.id == category.id }
+    @possible_merge_targets = Admin::CategoryService.merge_targets_for(@current_community.categories, @category)
   end
 
   # Remove action
