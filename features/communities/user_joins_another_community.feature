@@ -48,7 +48,6 @@ Feature: User joins another community
   @move_to_subdomain2
   @javascript
   Scenario: User joins another community that accepts only certain email addresses
-    Given this test is pending because it fails so often. FIXME
     Given there are following users:
       | person            | email     | given_name | family_name |
       | kassi_testperson3 | k3@lvh.me | Tester     | Person      |
