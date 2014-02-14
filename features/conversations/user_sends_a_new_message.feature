@@ -9,7 +9,7 @@ Feature: User sends a new message
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is item offer with title "Hammer" from "kassi_testperson1" and with share type "lend"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Lending"
     And I am logged in as "kassi_testperson2"
     And I am on the homepage
     When I follow "Hammer"
@@ -37,7 +37,7 @@ Feature: User sends a new message
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is item offer with title "Hammer" from "kassi_testperson1" and with share type "lend"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Lending"
     And I am logged in as "kassi_testperson2"
     And I am on the homepage
     When I follow "Hammer"
@@ -51,7 +51,7 @@ Feature: User sends a new message
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is item offer with title "Hammer" from "kassi_testperson1" and with share type "lend"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Lending"
     And I am logged in as "kassi_testperson2"
     And I am on the homepage
     When I follow "Hammer"

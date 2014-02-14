@@ -9,7 +9,7 @@ Feature: User gives feedback from transaction
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is favor request with title "Massage" from "kassi_testperson1"
+    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And the offer is confirmed
     And I am logged in as "kassi_testperson1"
@@ -37,7 +37,7 @@ Feature: User gives feedback from transaction
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is favor request with title "Massage" from "kassi_testperson1"
+    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And the offer is confirmed
     And I am logged in as "kassi_testperson1"
@@ -53,7 +53,7 @@ Feature: User gives feedback from transaction
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is favor request with title "Massage" from "kassi_testperson1"
+    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And the offer is confirmed
     When I go to the give feedback path of "kassi_testperson1"
@@ -66,7 +66,7 @@ Feature: User gives feedback from transaction
       | kassi_testperson1 |
       | kassi_testperson2 |
       | kassi_testperson3 |
-    And there is favor request with title "Massage" from "kassi_testperson3"
+    And there is a listing with title "Massage" from "kassi_testperson3" with category "Services" and with transaction type "Requesting"
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And the offer is confirmed
     And I am logged in as "kassi_testperson1"

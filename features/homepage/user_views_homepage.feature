@@ -64,11 +64,14 @@ Feature: User views homepage
        | kassi_testperson2 |
     And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
     And privacy of that listing is "private"
+    And that listing belongs to community "test"
     And there is a listing with title "massage" from "kassi_testperson2" with category "Services" and with transaction type "Requesting"
     And visibility of that listing is "all_communities"
+    And that listing belongs to community "test"
     And there is a listing with title "saw" from "kassi_testperson2" with category "Items" and with transaction type "Requesting"
     And visibility of that listing is "all_communities"
     And privacy of that listing is "private"
+    And that listing belongs to community "test"
     And that listing is visible to members of community "test2"
     When I am on the homepage
     Then I should not see "car spare parts"
