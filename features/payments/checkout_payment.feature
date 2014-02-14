@@ -1,20 +1,38 @@
-# This file uses old organization users.
-# DEPRECATED
-
 Feature: User pays after accepted transaction
   In order to pay easily for what I've bought
   As a user
   I want to pay via the platform
-  
+
+  @javascript
+  Scenario: User can not accept transaction before filling in payment details
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+      | kassi_testperson2 |
+    And community "test" has payments in use via Checkout
+    And "kassi_testperson2" does not have Checkout account
+    And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
+    And the price of that listing is "12"
+    And there is a message "I want to buy" from "kassi_testperson1" about that listing
+    And I am logged in as "kassi_testperson2"
+    When I follow "inbox-link"
+    And I should see "1" within ".inbox-link"
+    And I follow "I want to buy"
+    And I follow "Accept request"
+    Then I should see information about missing payment details
+    When I follow "#conversation-payment-settings-link"
+    Then I should be on the payment settings page
+
   @javascript
   Scenario: User goes to payment service, but decides to cancel and comes back
     Given there are following users:
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And community "test" has payments in use
+    And community "test" has payments in use via Checkout
     And "kassi_testperson2" has Checkout account
     And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
+    And the price of that listing is "12"
     And there is a message "I want to buy" from "kassi_testperson1" about that listing
     And I am logged in as "kassi_testperson2"
     When I follow "inbox-link"
@@ -64,9 +82,10 @@ Feature: User pays after accepted transaction
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And community "test" has payments in use
     And "kassi_testperson2" has Checkout account
+    And community "test" has payments in use via Checkout
     And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
+    And the price of that listing is "12"
     And there is a message "I want to buy" from "kassi_testperson1" about that listing
     And the request is accepted
     And I am logged in as "kassi_testperson1"
@@ -77,16 +96,17 @@ Feature: User pays after accepted transaction
     And I press "Continue"
     Then I should see "Canceled"
     And I should see "Sorry I gotta cancel"
-    
+
   @javascript
   Scenario: requester cancels a transaction with payment that had already been accepted, but not paid and gives feedback
     Given there are following users:
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And community "test" has payments in use
     And "kassi_testperson2" has Checkout account
+    And community "test" has payments in use via Checkout
     And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
+    And the price of that listing is "12"
     And there is a message "I want to buy" from "kassi_testperson1" about that listing
     And the request is accepted
     And I am logged in as "kassi_testperson1"
@@ -101,7 +121,7 @@ Feature: User pays after accepted transaction
     And I press "send_testimonial_button"
     Then I should see "Canceled"
     And I should see "Sorry I gotta cancel"
-  
+
   @javascript
   Scenario: requester pays with delayed billing
     Given there are following users:
@@ -111,6 +131,7 @@ Feature: User pays after accepted transaction
     And community "test" has payments in use
     And "kassi_testperson2" has Checkout account
     And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
+    And the price of that listing is "12"
     And there is a message "I want to buy" from "kassi_testperson1" about that listing
     And I am logged in as "kassi_testperson2"
     When I follow "inbox-link"
@@ -132,7 +153,7 @@ Feature: User pays after accepted transaction
     When I pay by bill
     Then I should see "When you have paid, we'll notify the seller and you will get a receipt in email"
     And I should see "Pay"
-    
+
   @javascript
   Scenario: offerer cancels the request
     Given there are following users:
@@ -142,6 +163,7 @@ Feature: User pays after accepted transaction
     And community "test" has payments in use
     And "kassi_testperson2" has Checkout account
     And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
+    And the price of that listing is "12"
     And there is a message "I want to buy" from "kassi_testperson1" about that listing
     And I am logged in as "kassi_testperson2"
     When I follow "inbox-link"
@@ -156,7 +178,3 @@ Feature: User pays after accepted transaction
     When I follow "inbox-link"
     Then I should see "Rejected"
     Then I should see "Sorry I'cant sell it!"
-  
-  
-  
-  

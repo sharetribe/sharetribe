@@ -9,6 +9,10 @@ Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with cate
   @listing = FactoryGirl.create(:listing, opts)
 end
 
+Given /^the price of that listing is "([^"]*)"?$/ do |price|
+  @listing.update_attribute(:price, price) 
+end
+
 Given /^there is rideshare (offer|request) from "([^"]*)" to "([^"]*)" by "([^"]*)"$/ do |type, origin, destination, author|
   pending
   puts "WARNING! Using deprecated step"
