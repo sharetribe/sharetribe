@@ -1,20 +1,16 @@
-Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with category "([^"]*)")?(?: and with transaction type "([^"]*)")?(?: in community "([^"]*)")?$/ do |title, author, category_name, transaction_type, community|
+Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with category "([^"]*)")?(?: and with transaction type "([^"]*)")?$/ do |title, author, category_name, transaction_type|
   opts = Hash.new
   opts[:title] = title
   opts[:category] = find_category_by_name(category_name) if category_name
   opts[:transaction_type] = find_transaction_type_by_name(transaction_type) if transaction_type
   opts[:author] = Person.find_by_username(author) if author
-  community ||= "test"
-  opts[:communities] = [Community.find_by_domain(community)]
-
-  if opts[:communities].empty?
-    raise "No community"
-  end
+  opts[:communities] = [@current_community]
 
   @listing = FactoryGirl.create(:listing, opts)
 end
 
 Given /^there is rideshare (offer|request) from "([^"]*)" to "([^"]*)" by "([^"]*)"$/ do |type, origin, destination, author|
+  pending
   puts "WARNING! Using deprecated step"
   puts "This step maps old deprecated step to new one. You shouldn't use this anymore"
 
@@ -44,6 +40,7 @@ Given /^there is rideshare (offer|request) from "([^"]*)" to "([^"]*)" by "([^"]
 end
 
 Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: from "([^"]*)")?(?: and with share type "([^"]*)")?(?: and with price "([^"]*)")?$/ do |category, type, title, author, share_type, price|
+  pending
   puts "WARNING! Using deprecated step"
   puts "This step maps old deprecated step to new one. You shouldn't use this anymore"
 

@@ -9,7 +9,7 @@ Feature: User edits his own listing
     Given there are following users:
       | person | 
       | kassi_testperson1 |
-    And there is item request with title "Hammer" from "kassi_testperson1" and with share type "buy"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
     And I am logged in as "kassi_testperson2"
     And I follow "Hammer"
     And I click ".user-menu-toggle"
@@ -38,7 +38,7 @@ Feature: User edits his own listing
     Given there are following users:
       | person | 
       | kassi_testperson1 |
-    And there is item request with title "Hammer" from "kassi_testperson1" and with share type "buy"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
     And I am logged in as "kassi_testperson2"
     And I follow "Hammer"
     And I click ".user-menu-toggle"
@@ -59,7 +59,7 @@ Feature: User edits his own listing
     Given there are following users:
       | person | 
       | kassi_testperson1 |
-    And there is item request with title "Hammer" from "kassi_testperson1" and with share type "buy"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
     And I am logged in as "kassi_testperson1"
     When I follow "Hammer"
     And I follow "Edit listing" within "#listing-message-links"
@@ -77,7 +77,7 @@ Feature: User edits his own listing
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is item request with title "Hammer" from "kassi_testperson1" and with share type "buy"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
     And I am logged in as "kassi_testperson2"
     When I go to the edit listing page
     Then I should see "Only listing author can edit a listing"
@@ -88,7 +88,7 @@ Feature: User edits his own listing
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is item request with title "Hammer" from "kassi_testperson1" and with share type "buy"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
     And I am logged in as "kassi_testperson2"
     And "kassi_testperson2" is superadmin
     When I follow "Hammer"
@@ -104,7 +104,7 @@ Feature: User edits his own listing
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is item request with title "Hammer" from "kassi_testperson1" and with share type "buy"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
     And I am logged in as "kassi_testperson2"
     And "kassi_testperson2" has admin rights in community "Test"
     When I follow "Hammer"

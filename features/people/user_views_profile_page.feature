@@ -10,13 +10,13 @@ Feature: User views profile page
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is item offer with title "car spare parts" from "kassi_testperson1" and with share type "sell"
-    And there is favor request with title "massage" from "kassi_testperson1"
-    And there is rideshare offer from "Helsinki" to "Turku" by "kassi_testperson1"
-    And there is housing offer with title "Housing" from "kassi_testperson2" and with share type "sell"
-    And there is item request with title "bike" from "kassi_testperson1" and with share type "rent"
+    And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
+    And there is a listing with title "massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
+    And there is a listing with title "Helsinki - Turku" from "kassi_testperson1" with category "Services" and with transaction type "Selling services"
+    And there is a listing with title "Housing" from "kassi_testperson2" with category "Spaces" and with transaction type "Selling"
+    And there is a listing with title "bike" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
     And that listing is closed
-    And there is favor offer with title "sewing" from "kassi_testperson1"
+    And there is a listing with title "sewing" from "kassi_testperson1" with category "Services" and with transaction type "Selling services"
     And that listing is closed
     And I am logged in as "kassi_testperson1"
     And I should not see "Feedback average:"
@@ -41,11 +41,11 @@ Feature: User views profile page
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is item offer with title "car spare parts" from "kassi_testperson1" and with share type "sell"
-    And there is favor request with title "massage" from "kassi_testperson1"
-    And there is rideshare offer from "Helsinki" to "Turku" by "kassi_testperson1"
-    And there is housing offer with title "Housing" from "kassi_testperson2" and with share type "sell"
-    And there is housing request with title "apartment" from "kassi_testperson1" and with share type "rent"
+    And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
+    And there is a listing with title "massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
+    And there is a listing with title "Helsinki - Turku" from "kassi_testperson1" with category "Services" and with transaction type "Selling services"
+    And there is a listing with title "Housing" from "kassi_testperson2" with category "Spaces" and with transaction type "Selling"
+    And there is a listing with title "apartment" from "kassi_testperson1" with category "Spaces" and with transaction type "Requesting"
     And that listing is closed
     And I am not logged in
     And I am on the home page
@@ -63,10 +63,10 @@ Feature: User views profile page
        | person | 
        | kassi_testperson1 |
        | kassi_testperson2 |
-     And there is item offer with title "car spare parts" from "kassi_testperson1" and with share type "sell"
+     And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
      And privacy of that listing is "private"
-     And there is favor offer with title "massage" from "kassi_testperson1"
-     And there is housing request with title "apartment" from "kassi_testperson1" and with share type "rent"
+     And there is a listing with title "massage" from "kassi_testperson1" with category "Services" and with transaction type "Selling services"
+     And there is a listing with title "apartment" from "kassi_testperson1" with category "Spaces" and with transaction type "Requesting"
      And that listing is closed
      And I am on the home page
      And I should not see "car spare parts"
@@ -92,7 +92,7 @@ Feature: User views profile page
     And I am logged in as "kassi_testperson1"
     When I go to the profile page of "kassi_testperson1"
     Then I should not see "Received feedback:"
-    And there is item request with title "hammer" from "kassi_testperson1" and with share type "borrow"
+    And there is a listing with title "hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And the offer is accepted
     And there is feedback about that event from "kassi_testperson2" with grade "0.75" and with text "Test feedback"
@@ -100,19 +100,19 @@ Feature: User views profile page
     Then I should see "1 received review"
     And I should see "100%" within "#people-testimonials"
     And I should see "Test feedback" within "#people-testimonials"
-    When there is item request with title "saw" from "kassi_testperson1" and with share type "borrow"
+    When there is a listing with title "saw" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
     And there is a message "I offer this" from "kassi_testperson3" about that listing
     And the offer is accepted
     And there is feedback about that event from "kassi_testperson3" with grade "0.25" and with text "Test feedback"
     And I go to the profile page of "kassi_testperson1"
     Then I should see "50%" within "#people-testimonials"
-    When there is item request with title "drill" from "kassi_testperson1" and with share type "borrow"
+    When there is a listing with title "drill" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And the offer is accepted
     And there is feedback about that event from "kassi_testperson2" with grade "0.75" and with text "OK feedback"
     And I go to the profile page of "kassi_testperson1"
     Then I should see "67%" within "#people-testimonials"
-    When there is item request with title "tool" from "kassi_testperson1" and with share type "borrow"
+    When there is a listing with title "tool" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
     And there is a message "I offer this" from "kassi_testperson3" about that listing
     And the offer is accepted
     And there is feedback about that event from "kassi_testperson3" with grade "1" and with text "Excellent feedback"

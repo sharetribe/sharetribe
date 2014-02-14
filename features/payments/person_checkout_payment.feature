@@ -11,7 +11,7 @@ Feature: User pays after accepted transaction
       | kassi_testperson2 |
     And community "test" has payments in use via Checkout
     And "kassi_testperson2" does not have Checkout account
-    And there is item offer with title "math book" from "kassi_testperson2" and with share type "sell" and with price "12"
+    And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
     And there is a message "I want to buy" from "kassi_testperson1" about that listing
     And I am logged in as "kassi_testperson2"
     When I follow "inbox-link"
@@ -30,7 +30,7 @@ Feature: User pays after accepted transaction
       | kassi_testperson2 |
     And community "test" has payments in use via Checkout
     And "kassi_testperson2" has Checkout account
-    And there is item offer with title "math book" from "kassi_testperson2" and with share type "sell" and with price "12"
+    And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
     And there is a message "I want to buy" from "kassi_testperson1" about that listing
     And I am logged in as "kassi_testperson2"
     When I follow "inbox-link"
@@ -82,7 +82,7 @@ Feature: User pays after accepted transaction
       | kassi_testperson2 |
     And "kassi_testperson2" has Checkout account
     And community "test" has payments in use via Checkout
-    And there is item offer with title "math book" from "kassi_testperson2" and with share type "sell" and with price "12"
+    And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
     And there is a message "I want to buy" from "kassi_testperson1" about that listing
     And the request is accepted
     And I am logged in as "kassi_testperson1"
@@ -102,7 +102,7 @@ Feature: User pays after accepted transaction
       | kassi_testperson2 |
     And "kassi_testperson2" has Checkout account
     And community "test" has payments in use via Checkout
-    And there is item offer with title "math book" from "kassi_testperson2" and with share type "sell" and with price "12"
+    And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
     And there is a message "I want to buy" from "kassi_testperson1" about that listing
     And the request is accepted
     And I am logged in as "kassi_testperson1"
@@ -126,7 +126,7 @@ Feature: User pays after accepted transaction
       | kassi_testperson2 |
     And community "test" has payments in use
     And "kassi_testperson2" has Checkout account
-    And there is item offer with title "math book" from "kassi_testperson2" and with share type "sell" and with price "12"
+    And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
     And there is a message "I want to buy" from "kassi_testperson1" about that listing
     And I am logged in as "kassi_testperson2"
     When I follow "inbox-link"
@@ -157,7 +157,7 @@ Feature: User pays after accepted transaction
       | kassi_testperson2 |
     And community "test" has payments in use
     And "kassi_testperson2" has Checkout account
-    And there is item offer with title "math book" from "kassi_testperson2" and with share type "sell" and with price "12"
+    And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
     And there is a message "I want to buy" from "kassi_testperson1" about that listing
     And I am logged in as "kassi_testperson2"
     When I follow "inbox-link"

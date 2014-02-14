@@ -8,7 +8,7 @@ Feature: Transaction process between two users
       | kassi_testperson2 |
     And community "test" has payments in use
     And "kassi_testperson1" has Checkout account
-    And there is item offer with title "Hammer" from "kassi_testperson1" and with share type "sell" and with price "20"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
     And I am logged in as "kassi_testperson2"
 
     # Starting the conversation
@@ -91,7 +91,7 @@ Feature: Transaction process between two users
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is item request with title "Hammer" from "kassi_testperson1" and with share type "borrow"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
     And I am logged in as "kassi_testperson2"
 
     # Starting the conversation
