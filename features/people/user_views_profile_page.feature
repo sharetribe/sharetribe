@@ -131,4 +131,3 @@ Feature: User views profile page
     And community "test" is private
     When I go to the profile page of "kassi_testperson1"
     Then I should see "Sign up"
-    When community "test" is public

@@ -148,5 +148,3 @@ Feature: User views homepage
     When I am on the home page
     Then I should not see "car spare parts"
     And I should see "Sign up"
-    When community "test" is public
-    
