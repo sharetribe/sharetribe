@@ -37,10 +37,12 @@ Feature: User joins another community
     And I should see "Invitation code"
     When I check "community_membership_consent"
     And I fill in "Invitation code" with "random"
-    And I press "Join community"
+    And I remove the focus
     Then I should see "The invitation code is not valid."
     When I fill in "Invitation code" with "GH1JX8"
-    And I press "Join community"
+    And I remove the focus
+    Then I should not see "The invitation code is not valid."
+    When I press "Join community"
     Then I should see "You have successfully joined this community"
     And I should see "Post a new listing"
     And Invitation with code "GH1JX8" should have 0 usages_left
