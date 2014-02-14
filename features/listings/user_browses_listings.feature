@@ -127,27 +127,3 @@ Feature: User browses listings
     Then I should see "car spare parts"
     And I should see "massage"
     And I should not see "apartment"
-
-  @javascript
-  @subdomain2
-  Scenario: User browses requests in a different subdomain
-    Given there are following users:
-      | person | 
-      | kassi_testperson1 |
-      | kassi_testperson2 |
-    And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
-    And privacy of that listing is "private"
-    And there is a listing with title "massage" from "kassi_testperson2" with category "Services" and with transaction type "Requesting"
-    And visibility of that listing is "all_communities"
-    And there is a listing with title "saw" from "kassi_testperson2" with category "Items" and with transaction type "Requesting"
-    And visibility of that listing is "all_communities"
-    And privacy of that listing is "private"
-    And that listing is visible to members of community "test2"
-    When I am on the homepage
-    Then I should not see "car spare parts"
-    And I should not see "massage"
-    And I should not see "saw"
-    When I log in as "kassi_testperson2"
-    Then I should not see "car spare parts"
-    And I should not see "massage"
-    And I should see "saw"
