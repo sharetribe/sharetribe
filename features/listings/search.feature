@@ -6,7 +6,7 @@ Feature: Search
   
   
   Background: 
-    Given there is a listing with title "old sofa for sale" with category "Items" and with transaction type "Selling" in community "test"
+    Given there is a listing with title "old sofa for sale" with category "Items" and with transaction type "Selling"
     And that listing has a description "I'm selling my wonderlful pink sofa!"
     And I am on the home page
     And the Listing indexes are processed

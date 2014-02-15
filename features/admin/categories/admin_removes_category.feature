@@ -9,7 +9,7 @@ Feature: Admin removes a category
       | sub            | Tools             | Työkalut       |
       | sub            | Books             | Kirjat         |
       | main           | Services          | Palvelut       |
-    And there is a listing with title "Sound of Music" with category "Books" in community "test"
+    And there is a listing with title "Sound of Music" with category "Books"
 
   @javascript
   Scenario: Admin removes a subcategory
