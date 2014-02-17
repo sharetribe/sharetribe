@@ -6,6 +6,7 @@ describe Api::ListingsController do
   render_views
   
   before (:each) do
+    pending()
     Rails.cache.clear
   end
   
