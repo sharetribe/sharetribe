@@ -400,18 +400,6 @@ class Community < ActiveRecord::Base
   def leaf_categories
     categories.reject { |c| !c.children.empty? }
   end
-  
-  # Finds all top level share_types (=listing_types) used in this community
-  def listing_types
-    throw "Uses share_types"
-    share_types.select{|s| s.parent_id.nil?}
-  end
-  
-  def community_category(category, share_type)
-    # This should be removed
-    throw "Uses share_type"
-    CommunityCategory.where("category_id = ? AND share_type_id = ? AND (community_id IS NULL OR community_id = ?)", category.id.to_s, share_type.id.to_s, id.to_s).order("category_id DESC").first
-  end
 
   # is it possible to pay for this listing via the payment system
   def payment_possible_for?(listing)
