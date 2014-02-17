@@ -11,8 +11,6 @@ include TestHelpers
 require 'cucumber/rails'
 require 'email_spec/cucumber'
 
-tables_to_keep = %w[categories transaction_types category_transaction_types category_translations transaction_type_translations communities community_categories] 
-
 # Uncomment this if needed to keep the browser open after the test
 # Capybara::Selenium::Driver.class_eval do
 #   def quit

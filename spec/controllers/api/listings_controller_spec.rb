@@ -6,7 +6,6 @@ describe Api::ListingsController do
   render_views
   
   before (:each) do
-    pending("API tests are pending")
     Rails.cache.clear
   end
   
@@ -14,19 +13,26 @@ describe Api::ListingsController do
   before(:each) do
     Listing.all.collect(&:destroy) # for some reason there's a listing before starting. Destroy to be clear.
   
-    @c1 = FactoryGirl.create(:community)
+    @c1 = FactoryGirl.create(:community, :settings => {"locales" => ["en", "fi"]})
     @c2 = FactoryGirl.create(:community)
     
     @p1 = FactoryGirl.create(:person)
     @p1.communities << @c1
     @p1.ensure_authentication_token!
     
-    @l1 = FactoryGirl.create(:listing, :transaction_type => FactoryGirl.create(:transaction_type_request), :title => "bike", :description => "A very nice bike", :created_at => 3.days.ago, :author => @p1, :privacy => "public")
+    @transaction_type_request = FactoryGirl.create(:transaction_type_request)
+    @transaction_type_sell = FactoryGirl.create(:transaction_type_sell)
+    @transaction_type_sell.translations << FactoryGirl.create(:transaction_type_translation, :name => "Myydään", :locale => "fi", :transaction_type => @transaction_type_sell)
+
+    @category_item = find_or_create_category("item")
+    @category_item.translations << FactoryGirl.create(:category_translation, :name => "Tavarat", :locale => "fi", :category => @category_item)
+
+    @l1 = FactoryGirl.create(:listing, :transaction_type => @transaction_type_request, :title => "bike", :description => "A very nice bike", :created_at => 3.days.ago, :author => @p1, :privacy => "public")
     @l1.communities = [@c1]
-    FactoryGirl.create(:listing, :title => "hammer", :created_at => 2.days.ago, :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer", :transaction_type => FactoryGirl.create(:transaction_type_sell), :privacy => "public").communities = [@c1]
-    FactoryGirl.create(:listing, :transaction_type => FactoryGirl.create(:transaction_type_request), :title => "help me", :created_at => 12.days.ago, :privacy => "public").communities = [@c2]
-    FactoryGirl.create(:listing, :transaction_type => FactoryGirl.create(:transaction_type_request), :title => "old junk", :open => false, :description => "This should be closed already, but nice stuff anyway", :privacy => "public").communities = [@c1]
-    @l4 = FactoryGirl.create(:listing, :title => "car", :created_at => 2.months.ago, :description => "I needed a car earlier, but now this listing is no more open", :transaction_type => FactoryGirl.create(:transaction_type_borrow), :privacy => "public")
+    FactoryGirl.create(:listing, :title => "hammer", :category => @category_item, :created_at => 2.days.ago, :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer", :transaction_type => @transaction_type_sell, :privacy => "public").communities = [@c1]
+    FactoryGirl.create(:listing, :transaction_type => @transaction_type_request, :title => "help me", :created_at => 12.days.ago, :privacy => "public").communities = [@c2]
+    FactoryGirl.create(:listing, :transaction_type => @transaction_type_request, :title => "old junk", :open => false, :description => "This should be closed already, but nice stuff anyway", :privacy => "public").communities = [@c1]
+    @l4 = FactoryGirl.create(:listing, :title => "car", :created_at => 2.months.ago, :description => "I needed a car earlier, but now this listing is no more open", :transaction_type => @transaction_type_request, :privacy => "public")
     @l4.communities = [@c1]
     @l4.save!
     @l4.update_attribute(:valid_until, 2.days.ago)
@@ -165,7 +171,7 @@ describe Api::ListingsController do
     end
     
     it "returns pricing parameters if those exist" do
-      l = FactoryGirl.create(:listing, :transaction_type => FactoryGirl.create(:transaction_type_sell), :title => "empty cola bottles", :description => "Cool oldglass bottles", :privacy => "public", :price_cents => 2900, :currency => "EUR", :quantity => "sixpack")
+      l = FactoryGirl.create(:listing, :transaction_type => @transaction_type_sell, :title => "empty cola bottles", :description => "Cool oldglass bottles", :privacy => "public", :price_cents => 2900, :currency => "EUR", :quantity => "sixpack")
       l.communities = [@c1]
       
        get :show, :id => l.id, :format => :json
@@ -354,8 +360,8 @@ describe Api::ListingsController do
       
       doc.at("feed/title").text.should =~ /Listings in sharetribe_testcommunity_\d+ Sharetribe/
       doc.search("feed/entry").count.should == 2
-      doc.search("feed/entry/title")[0].text.should == "Selling: hammer"
-      doc.search("feed/entry/title")[1].text.should == "Buying: bike"
+      doc.search("feed/entry/title")[0].text.should == "Sell: hammer"
+      doc.search("feed/entry/title")[1].text.should == "Request: bike"
       doc.search("feed/entry/published")[0].text.should > doc.search("feed/entry/published")[1].text
       #DateTime.parse(doc.search("feed/entry/published")[1].text).should == @l1.created_at
       doc.search("feed/entry/content")[1].text.should =~ /#{@l1.description}/

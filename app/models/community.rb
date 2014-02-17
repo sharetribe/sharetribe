@@ -407,12 +407,6 @@ class Community < ActiveRecord::Base
     share_types.select{|s| s.parent_id.nil?}
   end
   
-  # finds community specific share_types or default values if no customizations found
-  def share_types
-    throw "Uses share_types"
-    unique_categorizations(:share_type)
-  end
-  
   def community_category(category, share_type)
     # This should be removed
     throw "Uses share_type"
@@ -492,14 +486,6 @@ class Community < ActiveRecord::Base
   end
   
   private
-  
-  # Returns an array of unique categories or share_types used in this community.
-  # def unique_categorizations(categorization_type)
-  #   unless [:category, :share_type].include?(categorization_type)
-  #     throw "unique_categorizations called with wrong type. Only :category and :share_type allowed" 
-  #   end
-  #   return community_categories.collect(&categorization_type).compact.uniq
-  # end
 
   def initialize_settings
     update_attribute(:settings,{"locales"=>[APP_CONFIG.default_locale]}) if self.settings.blank?

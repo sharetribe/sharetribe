@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 module CategoriesHelper
 
   require File.expand_path('../../../test/helper_modules', __FILE__)

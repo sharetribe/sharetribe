@@ -4,4 +4,8 @@ class Lend < Offer
     self.price_field ||= 0
   end
 
+  def api_name
+    "lend"
+  end
+
 end

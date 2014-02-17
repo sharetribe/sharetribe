@@ -65,10 +65,9 @@ module ListingsHelper
     end
   end
 
-  def localized_share_type_label(share_type)
-    throw "Uses share_type"
-    return nil if share_type.nil?
-    return share_type.display_name(I18n.locale).capitalize
+  def localized_transaction_type_label(transaction_type)
+    return nil if transaction_type.nil?
+    return transaction_type.display_name(I18n.locale).capitalize
   end
 
   def localized_listing_type_label(listing_type_string)

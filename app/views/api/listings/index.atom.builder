@@ -32,7 +32,7 @@ atom_feed :language => 'en-US', 'xmlns:georss' => 'http://www.georss.org/georss'
       entry.category :term => listing.category.name, :label => localized_category_label(listing.category)
         
       
-      entry.st :share_type, :term => listing.share_type.name, :label => localized_share_type_label(listing.share_type).capitalize if listing.share_type
+      entry.st :share_type, :term => listing.transaction_type.api_name, :label => localized_transaction_type_label(listing.transaction_type).capitalize if listing.transaction_type
       entry.st :tags do |tags|
         listing.tags.each do |tag|
           tags.st :tag, tag.name

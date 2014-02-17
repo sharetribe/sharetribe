@@ -29,19 +29,20 @@ node do |listing|
     listing.listing_type
   end
   
+  # Deprecated: share_type is renamed to transaction_type.
   node :share_type do |listing|
     if api_version_alpha? 
-      if listing.share_type.name.match(/swap$/)
+      if listing.transaction_type.api_name.match(/swap$/)
         # Change to old string
         "trade"
-      elsif ! listing.share_type.name.match(/^give_away$|^lend$|^rent_out$|^sell$|^share_for_free$|^trade$|^borrow$|^buy$|^rent$|^trade$|^take_for_free$/)
+      elsif ! listing.transaction_type.api_name.match(/^give_away$|^lend$|^rent_out$|^sell$|^share_for_free$|^trade$|^borrow$|^buy$|^rent$|^trade$|^take_for_free$/)
         # If not one of those that the iOS app can translate
         nil
       else
-        listing.share_type.name
+        listing.transaction_type.api_name
       end
     else
-      listing.share_type.name
+      listing.transaction_type.api_name
     end
   end
   

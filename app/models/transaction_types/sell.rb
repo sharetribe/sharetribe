@@ -4,4 +4,8 @@ class Sell < Offer
     self.price_field ||= 1
   end
 
+  def api_name
+    "sell"
+  end
+
 end

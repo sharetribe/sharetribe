@@ -4,4 +4,8 @@ class Give < Offer
     self.price_field ||= 0
   end
 
+  def api_name
+    "give_away"
+  end
+
 end
