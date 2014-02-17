@@ -12,7 +12,9 @@ class Api::CommunitiesController < Api::ApiController
     @community.categories.each do |category|
       unless @classifications[category.id]
         @classifications[category.id] = 
-            {:translated_name => category.display_name(I18n.locale)}
+            {:translated_name => category.display_name(I18n.locale),
+              :price => nil,
+              :payment => nil}
       end
     end
 
@@ -20,7 +22,8 @@ class Api::CommunitiesController < Api::ApiController
       unless @classifications[transaction_type.id]
         @classifications[transaction_type.id] = 
             {:translated_name => transaction_type.display_name(I18n.locale),
-              :price => transaction_type.price_field
+              :price => transaction_type.price_field,
+              :payment => nil
             }
       end
     end
