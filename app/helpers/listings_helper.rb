@@ -49,9 +49,8 @@ module ListingsHelper
     listing.transaction_type.display_name(I18n.locale) + ": #{listing.title}"
   end
 
-  def share_type_url(listing, map=false)
-    throw "Uses share_type"
-    root_path(:share_type => listing.transaction_type.display_name(I18n.locale), :category => listing.category.name, :map => map)
+  def transaction_type_url(listing, view)
+    root_path(:transaction_type => listing.transaction_type.id, :view => view)
   end
 
   # expects category to be "item", "favor", "rideshare" or "housing"

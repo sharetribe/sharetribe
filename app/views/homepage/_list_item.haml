@@ -20,7 +20,7 @@
       = link_to listing do
         = listing.title
         - if @current_community.show_category_in_listing_list
-          %a.home-share-type-link{:href => share_type_url(listing)}
+          %a.home-share-type-link{:href => transaction_type_url(listing, params[:view])}
             = icon_tag(listing.icon_name, ["icon-fix"])
             = listing.transaction_type.display_name(I18n.locale)
   

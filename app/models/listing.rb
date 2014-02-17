@@ -81,32 +81,7 @@ class Listing < ActiveRecord::Base
       where("listings.privacy = 'public' AND listings.id IN (#{id_condition})")
     end
   end
-  
-  def self.requests
-    throw "Uses share types"
-    with_share_type_or_its_children("request")
-  end
-  
-  def self.offers
-    throw "Uses share types"
-    with_share_type_or_its_children("offer")
-  end
-  
-  def self.with_share_type_or_its_children(share_type)
-    throw "Uses share types"
-    share_type = ShareType.find_by_name(share_type) unless share_type.class == ShareType
-    joins(:share_type).where({:share_types => {:id => share_type.with_all_children.collect(&:id)}})
-  end
-  
-  def self.rideshare
-    with_category_or_its_children("rideshare")
-  end
-  
-  def self.with_category_or_its_children(category)
-    category = Category.find_by_name(category) unless category.class == Category
-    joins(:category).where({:categories => {:id => category.with_all_children.collect(&:id)}})
-  end
-  
+
   def self.currently_open(status="open")
     status = "open" if status.blank?
     case status
