@@ -5,7 +5,6 @@ describe Api::ConversationsController do
 
   
    before(:each) do
-      pending("API tests are pending")
       Listing.all.collect(&:destroy) # for some reason there's a listing before starting. Destroy to be clear.
 
       @c1 = FactoryGirl.create(:community)
@@ -26,6 +25,8 @@ describe Api::ConversationsController do
       @con1 = FactoryGirl.create(:conversation, :participants => [@p1, @p2], :last_message_at => 1.day.ago)
       FactoryGirl.create(:message, :conversation => @con1, :sender => @p1, :content => "Let's talk", :created_at => 1.day.ago)
       FactoryGirl.create(:message, :conversation => @con1, :sender => @p2, :content => "Ok! You start.")
+
+      request.host = @c1.domain
 
     end
   
