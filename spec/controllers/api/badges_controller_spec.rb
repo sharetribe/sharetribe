@@ -4,7 +4,6 @@ describe Api::BadgesController do
   render_views
   
   before(:each) do
-    pending("API tests are pending")
     @p1 = FactoryGirl.create(:person)
     @p2 = FactoryGirl.create(:person)
     @t1 = FactoryGirl.create(:badge, :person_id => @p1, :name => "rookie")
