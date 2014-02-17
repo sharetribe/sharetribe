@@ -3,11 +3,6 @@ require 'spec_helper'
 describe Api::TokensController do
   render_views
 
-  before(:each) do
-    pending("API tests are pending")
-  end
-  
-
   describe "show" do
   
     before(:each) do

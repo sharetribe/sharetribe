@@ -4,7 +4,6 @@ describe Api::TestimonialsController do
   render_views
   
   before(:each) do
-    pending("API tests are pending")
     @p1 = FactoryGirl.create(:person)
     @p2 = FactoryGirl.create(:person)
     @c1 = FactoryGirl.create(:conversation)
