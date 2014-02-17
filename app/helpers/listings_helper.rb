@@ -11,11 +11,6 @@ module ListingsHelper
     "new_listing_form_tab_#{@listing.listing_type.eql?(listing_type) ? 'selected' : 'unselected'}"
   end
 
-  # Class is selected if category is currently selected
-  def get_type_select_icon_class(category)
-    "listing_type_select_icon_#{@listing.category.name.eql?(category) ? 'selected' : 'unselected'}_#{category}"
-  end
-
   # Removes extra characters from datetime_select field
   def clear_datetime_select(&block)
     time = "</div><div class='date_select_time_container'><div class='datetime_select_time_label'>#{t('listings.form.departure_time.at')}:</div>"
