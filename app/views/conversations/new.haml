@@ -8,8 +8,7 @@
     %h2
       = @listing.transaction_type.action_button_label(I18n.locale)
       = link_to(@listing.title, @listing)
-  - else
-    %h2= t(".#{transaction_proposal_form_title(@listing)}", :listing => link_to(@listing.title, @listing), :person => author_link(@listing), :default => t(".#{Listing.opposite_type(@listing.transaction_direction)}_message_form_title", :listing => link_to(@listing.title, @listing), :person => author_link(@listing)).html_safe).html_safe   
+
   %p
     = t(".this_message_is_private", :person => @target_person.given_name_or_username)
     - if params[:message_type]

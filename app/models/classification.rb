@@ -25,11 +25,7 @@ module Classification
       name
     end
   end
-  
-  def transaction_button_text
-    translation(I18n.locale).transaction_button_text if translation(I18n.locale)
-  end
-  
+
   # returns the classification object which is highest in the hierarchy starting from self.
   def top_level_parent
     if parent
@@ -64,14 +60,6 @@ module Classification
   
   
   private
-  
-  def name_is_not_taken_by_categories_or_share_types
-    throw "Uses share_type"
-    if (Category.find_by_name(name).present? && Category.find_by_name(name) != self) ||
-        (ShareType.find_by_name(name).present? && ShareType.find_by_name(name) != self)
-      errors.add(:name, "is already in use by a category or share type")
-    end
-  end
   
   def translation(locale)
     translations.where(:locale => locale).first
