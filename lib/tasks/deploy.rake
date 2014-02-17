@@ -69,7 +69,6 @@ def deploy(params)
   if params[:css]
     generate_custom_css
   end
-  update_translations
 end
 
 def set_app(destination)
@@ -118,12 +117,6 @@ def generate_custom_css
   puts 'Generating custom CSS for tribes who use it ...'
   system("heroku run rake sharetribe:generate_customization_stylesheets --app #{@app}")
 end
-
-def update_translations
-  puts 'Updating the translations, which are stored in the DB'
-  system("heroku run rake sharetribe:update_categorization_translations --app #{@app}")
-end
-
 
 ## STAGING
 
@@ -208,16 +201,14 @@ task :deploy_translation_migrations_from_develop => [
   'deploy:update_closed_source_folders',  
   'deploy:push',
   'deploy:migrate',
-  'deploy:restart',
-  'deploy:update_translations_stored_in_db'
+  'deploy:restart'
 ]
 
 task :deploy_translation_without_migrations_from_develop => [
   'deploy:set_translation_app',
   'deploy:set_develop_as_source_branch',
   'deploy:update_closed_source_folders',
-  'deploy:push',
-  'deploy:update_translations_stored_in_db'
+  'deploy:push'
 ]
 
 
@@ -250,14 +241,12 @@ task :deploy_with_migrations => [
   'deploy:push',
   'deploy:migrate',
   'deploy:restart',
-  'deploy:generate_custom_css',
-  'deploy:update_translations_stored_in_db'
+  'deploy:generate_custom_css'
 ]
 
 task :deploy_without_migrations => [
   'deploy:push',
-  'deploy:generate_custom_css',
-  'deploy:update_translations_stored_in_db'
+  'deploy:generate_custom_css'
 ]
 
 
@@ -344,11 +333,6 @@ namespace :deploy do
   task :generate_custom_css => :environment do
     puts 'Generating custom CSS for tribes who use it ...'
     system("heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}")
-  end
-  
-  task :update_translations_stored_in_db do
-    puts 'Updating the translations, which are stored in the DB'
-    system("heroku run rake sharetribe:update_categorization_translations --app #{APP}")
   end
   
   task :tag do
