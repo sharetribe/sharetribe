@@ -74,13 +74,15 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
 
           new_subcategories.each do |cat|
             if Listing.find_by_new_category_id(cat.id).nil?
-              puts "Would delete subcategory #{cat.name} for community #{community.domain}"
+              puts "Will delete subcategory #{cat.name} for community #{community.domain}"
+              cat.destroy
             end
           end
 
           new_main_categories.each do |cat|
             if Listing.find_by_new_category_id(cat.id).nil? && Category.find_by_parent_id(cat.id).nil?
-              puts "Would delete main category #{cat.name} for community #{community.domain}"
+              puts "Will delete main category #{cat.name} for community #{community.domain}"
+              cat.destroy
             end
           end
 
