@@ -29,7 +29,7 @@ atom_feed :language => 'en-US', 'xmlns:georss' => 'http://www.georss.org/georss'
       entry.st :listing_type, :term => listing.listing_type, :label => localized_listing_type_label(listing.listing_type)
 
         # TODO: add scheme link to point to url where that category of that community is shown      
-      entry.category :term => listing.category.name, :label => localized_category_label(listing.category)
+      entry.category :term => listing.category.id, :label => localized_category_label(listing.category)
         
       
       entry.st :share_type, :term => listing.transaction_type.api_name, :label => localized_transaction_type_label(listing.transaction_type).capitalize if listing.transaction_type
