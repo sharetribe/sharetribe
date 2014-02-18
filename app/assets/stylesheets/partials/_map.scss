@@ -53,32 +53,6 @@ $bubbleDetailsMargin: em(5, $googleMapsFontSize);
   @include transition-duration(0.3s);
 }
 
-.bubble-navi-item-icon {
-  margin-top: 2px;
-  width: 16px;
-  height: 16px;
-  display: block;
-  @include border-radius(20px);
-  text-align: center;
-  line-height: 18px;
-  border: 1px solid $background;
-  background-color: $background;
-  color: $body;
-  float: left;
-  cursor: pointer;
-
-  @include user-select(none);
-
-  &.active {
-    background-color: $link;
-  }
-
-  margin-left: 2px;
-  &:first-child {
-    margin-left: 0px;
-  }
-}
-
 .bubble-navi {
   position: absolute;
   top: 0;
@@ -90,7 +64,7 @@ $bubbleDetailsMargin: em(5, $googleMapsFontSize);
   width: 200px;
 }
 
-.bubble-navi-icons-container {
+.bubble-navi-header {
   position: absolute;
   left: 30px;
   right: 30px;
@@ -98,14 +72,7 @@ $bubbleDetailsMargin: em(5, $googleMapsFontSize);
   height: 20px;
   overflow: hidden;
   clear: both;
-}
-
-.bubble-navi-icons {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  @include transition-property(left);
-  @include transition-duration(0.3s);
+  text-align: center;
 }
 
 .bubble-navi-container {
