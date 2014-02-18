@@ -25,23 +25,10 @@ class ActiveRecord::Base
 end
 ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
 
-class ManualDatabaseCleaner
-  @cumulative
-
-  def initialize
-    @cumulative = 0
-  end
-
-  # Clean db and load initial seed data
-  def clean_db
-    beginning_time = Time.now
-    DatabaseCleaner.clean_with :deletion
-    load_default_test_data_to_db_before_suite
-    load_default_test_data_to_db_before_test
-    time_elapsed = (Time.now - beginning_time)*1000
-    @cumulative += time_elapsed
-    puts "*** Loading test seed data. Time elapsed: #{time_elapsed} ms, cumulative: #{@cumulative} ms"
-  end
+def clean_db
+  DatabaseCleaner.clean_with :deletion
+  load_default_test_data_to_db_before_suite
+  load_default_test_data_to_db_before_test
 end
 
 def set_strategy(strategy)
@@ -49,16 +36,12 @@ def set_strategy(strategy)
   Cucumber::Rails::Database.javascript_strategy = strategy
 end
 
-# Run on startup
-cleaner = ManualDatabaseCleaner.new()
-
 if !defined?(Zeus)
-  cleaner.clean_db()
+  clean_db()
 end
 set_strategy(:transaction)
 
 Before('@no-transaction') do
-  puts "*** Warning! Running test without transaction (this is little slower)"
   set_strategy(:deletion)
 end
 
@@ -68,7 +51,7 @@ Before('~@no-transaction') do
 end
 
 After('@no-transaction') do
-  cleaner.clean_db()
+  clean_db()
 end
 
 After('~@no-transaction') do
