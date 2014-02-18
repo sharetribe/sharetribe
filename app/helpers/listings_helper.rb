@@ -51,12 +51,7 @@ module ListingsHelper
   # expects category to be "item", "favor", "rideshare" or "housing"
   def localized_category_label(category)
     return nil if category.nil?
-    if category.class == String
-      category += "s" if ["item", "favor"].include?(category)
-      return t("listings.index.#{category}", :default => category.capitalize)
-    else
-      return category.display_name(I18n.locale).capitalize
-    end
+    return category.display_name(I18n.locale).capitalize
   end
 
   def localized_transaction_type_label(transaction_type)

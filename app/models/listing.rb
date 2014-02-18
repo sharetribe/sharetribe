@@ -44,7 +44,6 @@ class Listing < ActiveRecord::Base
   
   validates_presence_of :author_id
   validates_length_of :title, :in => 2..60, :allow_nil => false
-  validates_length_of :origin, :destination, :in => 2..48, :allow_nil => false, :if => :rideshare?
 
   before_validation do
     # Normalize browser line-breaks.
@@ -134,25 +133,15 @@ class Listing < ActiveRecord::Base
     tag_list.each { |t| t.downcase! }
   end
   
-  def rideshare?
-    category && category.name.eql?("rideshare")
-  end
-  
-  def set_rideshare_title
-    if rideshare?
-      self.title = "#{origin} - #{destination}" 
-    end  
-  end
-  
   # sets the time to midnight (unless rideshare listing, where exact time matters)
   def set_valid_until_time
     if valid_until
-      self.valid_until = valid_until.utc + (23-valid_until.hour).hours + (59-valid_until.min).minutes + (59-valid_until.sec).seconds unless category && category.name.eql?("rideshare")
+      self.valid_until = valid_until.utc + (23-valid_until.hour).hours + (59-valid_until.min).minutes + (59-valid_until.sec).seconds
     end  
   end
   
   def valid_until_is_not_nil
-    if !rideshare? && transaction_type.is_request? && !valid_until
+    if transaction_type.is_request? && !valid_until
       errors.add(:valid_until, "cannot be empty")
     end  
   end
@@ -322,8 +311,7 @@ class Listing < ActiveRecord::Base
   # If listing is an offer, a discussion about the listing
   # should be request, and vice versa
   def discussion_type
-    throw "Uses share type"
-    share_type.is_request? ? "offer" : "request"
+    transaction_type.is_request? ? "offer" : "request"
   end
   
   # This is used to provide clean JSON-strings for map view queries
@@ -331,8 +319,8 @@ class Listing < ActiveRecord::Base
     
     # This is currently optimized for the needs of the map, so if extending, make a separate JSON mode, and keep map data at minimum
     hash = {
-      :listing_type => self.listing_type,
-      :category => self.category.name,
+      :listing_type => self.transaction_type.direction,
+      :category => self.category.id,
       :id => self.id,
       :icon => icon_class(icon_name)
     }
