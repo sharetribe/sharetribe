@@ -54,6 +54,22 @@ ActiveRecord::Schema.define(:version => 20140206103152) do
     t.integer  "community_id"
   end
 
+  create_table "cached_ressi_events", :force => true do |t|
+    t.string   "user_id"
+    t.string   "application_id"
+    t.string   "session_id"
+    t.string   "ip_address"
+    t.string   "action"
+    t.text     "parameters"
+    t.string   "return_value"
+    t.text     "headers"
+    t.string   "semantic_event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "test_group_number"
+    t.integer  "community_id"
+  end
+
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.integer  "parent_id"
@@ -747,6 +763,10 @@ ActiveRecord::Schema.define(:version => 20140206103152) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
 
   create_table "share_type_translations", :force => true do |t|
     t.integer  "share_type_id"
