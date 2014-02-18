@@ -79,6 +79,18 @@ class Category < ActiveRecord::Base
     CategoryCustomField.find_by_category_and_subcategory(self).includes(:custom_field).collect(&:custom_field)
   end
 
+  def with_all_children
+    # first add self
+    child_array = [self] 
+    
+    # Then add children with their children too
+    children.each do |child|
+      child_array << child.with_all_children
+    end
+    
+    return child_array.flatten
+  end
+
   def icon_name
     return icon if ApplicationHelper.icon_specified?(icon)
     return name if ApplicationHelper.icon_specified?(name)
