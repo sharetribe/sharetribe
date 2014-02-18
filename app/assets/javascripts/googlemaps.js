@@ -594,20 +594,10 @@ function addListingMarkers() {
           
           var location;
           location = new google.maps.LatLng(entry["latitude"], entry["longitude"]);
-          
-          // Marker background image based on listing_type
-          var icon_path, icon_color;
-          if (entry["listing_type"] === "request") {
-            icon_path = '/assets/map_icons/map_icon_dark_empty.png';
-            icon_color = "d7d7d7";
-          } else {
-            icon_path = '/assets/map_icons/map_icon_light_empty.png';
-            icon_color = "6a6a6a";
-          }
+
           var marker = new google.maps.Marker({
             position: location,
-            title: entry["title"],
-            icon: icon_path        
+            title: entry["title"]
           });
           
           // Marker icon based on category
@@ -616,9 +606,8 @@ function addListingMarkers() {
                     });
                     label.set('zIndex', 1234);
                     label.bindTo('position', marker, 'position');
-                    label.set('text', "<i class='icon " + entry["icon"] + "'></i>");
-                    label.set('color', icon_color);
-                    //label.bindTo('text', marker, 'position');
+                    label.set('text', "");
+                    label.set('color', "#FFF");
           marker.set("label", label);
           markers.push(marker);
           markersArr.push(marker);
@@ -649,9 +638,7 @@ function addListingMarkers() {
         }
       })();
     }
-    markerCluster = new MarkerClusterer(map, markers, markerContents, infowindow, showingMarker, locale, {
-    imagePath: '/assets/map_icons/group_'+listing_type});
-  
+    markerCluster = new MarkerClusterer(map, markers, markerContents, infowindow, showingMarker, locale, {});
   });
 }
 

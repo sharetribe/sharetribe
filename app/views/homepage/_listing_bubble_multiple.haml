@@ -2,10 +2,12 @@
   .bubble-navi
     %a
       %i.bubble-navi-left.ss-navigateleft
-    .bubble-navi-icons-container
-      .bubble-navi-icons
-        - @listings.each do |listing|
-          %i.bubble-navi-item-icon{:class => icon_class(listing.icon_name)}
+    .bubble-navi-header
+      %span.buble-navi-selected-item
+        = "1"
+      \/
+      %span.buble-navi-total-items
+        = "2"
     %a
       %i.bubble-navi-right.ss-navigateright
   .bubble-multi-content
