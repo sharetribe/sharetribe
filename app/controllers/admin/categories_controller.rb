@@ -12,7 +12,8 @@ class Admin::CategoriesController < ApplicationController
   def new
     @selected_left_navi_link = "listing_categories"
     @category = Category.new
-    @default_transaction_types = @current_community.categories.last.transaction_types
+    last_category = @current_community.categories.last
+    @default_transaction_types = last_category ? last_category.transaction_types : []
   end
 
   def create
