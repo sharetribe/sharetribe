@@ -201,7 +201,7 @@ class Listing < ActiveRecord::Base
     params[:search] ||= params[:q] # Read search query also from q param
     
     if params[:category].present?
-      category = Category.find_by_name(params[:category])
+      category = Category.find_by_id(params[:category])
       if category
         params[:categories] = {:id => category.with_all_children.collect(&:id)} 
         joined_tables << :category
