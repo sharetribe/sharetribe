@@ -29,17 +29,6 @@
 
     .row
       .col-12
-        - if @listing.valid_until && @listing.category.name.eql?("rideshare")
-          / Is there a cleaner way to create 'div' without class or id?
-          %div
-            .icon-with-text-container
-              = icon_tag("rideshare", ["icon-part"])
-              .text-part
-                %strong
-                  = t("listings.form.departure_time.departure_time") + ": " + l(@listing.valid_until, :format => :short)
-
-    .row
-      .col-12
         - if @listing.description && !@listing.description.blank?
           - text_with_line_breaks do
             = @listing.description
@@ -144,7 +133,5 @@
       .row
         .col-12
           #googlemap
-            = render :partial => "googlemap", :locals => { :rideshare => (@listing.category.name == "rideshare"), :listing => @listing}
+            = render :partial => "googlemap", :locals => { :listing => @listing}
             = render :partial => "origin", :locals => { :origin_loc => @listing.origin_loc }
-            - if @listing.category.name == "rideshare"
-              = render :partial => "destination", :locals => { :destination_loc => @listing.destination_loc }

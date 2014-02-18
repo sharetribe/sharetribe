@@ -6,16 +6,6 @@ module ListingsHelper
     "inbox_tab_#{current_tab_name.eql?(tab_name) ? 'selected' : 'unselected'}"
   end
 
-  # Class is selected if listing type is currently selected
-  def get_new_listing_tab_class(listing_type)
-    "new_listing_form_tab_#{@listing.listing_type.eql?(listing_type) ? 'selected' : 'unselected'}"
-  end
-
-  # Class is selected if category is currently selected
-  def get_type_select_icon_class(category)
-    "listing_type_select_icon_#{@listing.category.name.eql?(category) ? 'selected' : 'unselected'}_#{category}"
-  end
-
   # Removes extra characters from datetime_select field
   def clear_datetime_select(&block)
     time = "</div><div class='date_select_time_container'><div class='datetime_select_time_label'>#{t('listings.form.departure_time.at')}:</div>"
@@ -49,20 +39,13 @@ module ListingsHelper
     listing.transaction_type.display_name(I18n.locale) + ": #{listing.title}"
   end
 
-  def share_type_url(listing, map=false)
-    throw "Uses share_type"
-    root_path(:share_type => listing.transaction_type.display_name(I18n.locale), :category => listing.category.name, :map => map)
+  def transaction_type_url(listing, view)
+    root_path(:transaction_type => listing.transaction_type.id, :view => view)
   end
 
-  # expects category to be "item", "favor", "rideshare" or "housing"
   def localized_category_label(category)
     return nil if category.nil?
-    if category.class == String
-      category += "s" if ["item", "favor"].include?(category)
-      return t("listings.index.#{category}", :default => category.capitalize)
-    else
-      return category.display_name(I18n.locale).capitalize
-    end
+    return category.display_name(I18n.locale).capitalize
   end
 
   def localized_transaction_type_label(transaction_type)

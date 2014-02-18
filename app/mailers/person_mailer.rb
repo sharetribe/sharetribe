@@ -40,7 +40,7 @@ class PersonMailer < ActionMailer::Base
 
     mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
-         :subject => t("emails.conversation_status_changed.your_#{Listing.opposite_type(conversation.listing.listing_type)}_was_#{conversation.status}"))
+         :subject => t("emails.conversation_status_changed.your_#{Listing.opposite_type(conversation.listing.direction)}_was_#{conversation.status}"))
   end
   
   def new_message_notification(message, community)

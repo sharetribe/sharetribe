@@ -26,7 +26,7 @@ node do |listing|
   end
   
   node :listing_type do |listing|
-    listing.listing_type
+    listing.direction
   end
   
   # Deprecated: share_type is renamed to transaction_type.
@@ -48,7 +48,7 @@ node do |listing|
   
   node :category do |listing|
     if api_version_alpha?
-      listing.category.top_level_parent.name
+      listing.category.name
     else
       listing.category.id
     end

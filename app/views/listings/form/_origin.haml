@@ -1,10 +1,5 @@
-- if !rideshare
-  = form.label :origin, t(".location"), :class => "input"
-  = form.text_field :origin, :class => "text_field", :onkeyup => "timed_input(this)", :value => (origin_loc ? origin_loc.address : nil)
-- else
-  = form.label :origin, t(".origin") + "*", :class => "input"
-  = form.text_field(:origin, :class => "title_text_field", :maxlength => "48",
-                  :onkeyup => "timed_input_on_route()")
+= form.label :origin, t(".location"), :class => "input"
+= form.text_field :origin, :class => "text_field", :onkeyup => "timed_input(this)", :value => (origin_loc ? origin_loc.address : nil)
 = form.fields_for :origin_loc do |loc|
   = loc.hidden_field :address, :value => origin_loc.address
   = loc.hidden_field :google_address, :value => origin_loc.google_address

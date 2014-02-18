@@ -1,4 +1,0 @@
-= t(".commented", :commenter_name => ( link_to event_feed_event.person1.given_name_or_username, event_feed_event.person1),
-    :listing_type => t(".#{event_feed_event.eventable.listing.listing_type}_partitive"),
-    :listing_title => link_to("#{event_feed_event.eventable.listing.title}", event_feed_event.eventable.listing),
-    :time_ago => time_ago(event_feed_event.created_at)).html_safe

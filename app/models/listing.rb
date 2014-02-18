@@ -28,6 +28,7 @@ class Listing < ActiveRecord::Base
   belongs_to :category  
   belongs_to :transaction_type
 
+  delegate :direction, to: :transaction_type
 
   monetize :price_cents, :allow_nil => true
   
@@ -39,12 +40,11 @@ class Listing < ActiveRecord::Base
   VALID_VISIBILITIES = ["this_community", "all_communities"]
   VALID_PRIVACY_OPTIONS = ["private", "public"]
   
-  before_validation :set_rideshare_title, :set_valid_until_time
+  before_validation :set_valid_until_time
   before_save :downcase_tags, :set_community_visibilities
   
   validates_presence_of :author_id
   validates_length_of :title, :in => 2..60, :allow_nil => false
-  validates_length_of :origin, :destination, :in => 2..48, :allow_nil => false, :if => :rideshare?
 
   before_validation do
     # Normalize browser line-breaks.
@@ -81,32 +81,7 @@ class Listing < ActiveRecord::Base
       where("listings.privacy = 'public' AND listings.id IN (#{id_condition})")
     end
   end
-  
-  def self.requests
-    throw "Uses share types"
-    with_share_type_or_its_children("request")
-  end
-  
-  def self.offers
-    throw "Uses share types"
-    with_share_type_or_its_children("offer")
-  end
-  
-  def self.with_share_type_or_its_children(share_type)
-    throw "Uses share types"
-    share_type = ShareType.find_by_name(share_type) unless share_type.class == ShareType
-    joins(:share_type).where({:share_types => {:id => share_type.with_all_children.collect(&:id)}})
-  end
-  
-  def self.rideshare
-    with_category_or_its_children("rideshare")
-  end
-  
-  def self.with_category_or_its_children(category)
-    category = Category.find_by_name(category) unless category.class == Category
-    joins(:category).where({:categories => {:id => category.with_all_children.collect(&:id)}})
-  end
-  
+
   def self.currently_open(status="open")
     status = "open" if status.blank?
     case status
@@ -159,25 +134,15 @@ class Listing < ActiveRecord::Base
     tag_list.each { |t| t.downcase! }
   end
   
-  def rideshare?
-    category && category.name.eql?("rideshare")
-  end
-  
-  def set_rideshare_title
-    if rideshare?
-      self.title = "#{origin} - #{destination}" 
-    end  
-  end
-  
-  # sets the time to midnight (unless rideshare listing, where exact time matters)
+  # sets the time to midnight
   def set_valid_until_time
     if valid_until
-      self.valid_until = valid_until.utc + (23-valid_until.hour).hours + (59-valid_until.min).minutes + (59-valid_until.sec).seconds unless category && category.name.eql?("rideshare")
+      self.valid_until = valid_until.utc + (23-valid_until.hour).hours + (59-valid_until.min).minutes + (59-valid_until.sec).seconds
     end  
   end
   
   def valid_until_is_not_nil
-    if !rideshare? && transaction_type.is_request? && !valid_until
+    if transaction_type.is_request? && !valid_until
       errors.add(:valid_until, "cannot be empty")
     end  
   end
@@ -302,28 +267,7 @@ class Listing < ActiveRecord::Base
   def self.opposite_type(type)
     type.eql?("offer") ? "request" : "offer"
   end
-  
-  def self.opposite_share_type(type)
-    return "" if type.nil?
-    st = type.class.eql?(String) ? type : type.name
-    case st
-    when "borrow"
-      return "lend"
-    when "lend"
-      return "borrow"
-    when "buy"
-      return "sell"
-    when "sell"
-      return "buy"
-    when "rent_out"
-      return "rent"
-    when "rent"
-      return "rent_out"
-    else
-      return "" 
-    end
-  end
-  
+
   # Returns true if the given person is offerer and false if requester
   def offerer?(person)
     (transaction_type.is_offer? && author.eql?(person)) || (transaction_type.is_request? && !author.eql?(person))
@@ -334,26 +278,10 @@ class Listing < ActiveRecord::Base
     (transaction_type.is_request? && author.eql?(person)) || (transaction_type.is_offer? && !author.eql?(person))
   end
   
-  def selling_or_renting?
-    does_not_have_any_of_share_types?(["request_to_swap", "offer_to_swap", "lend", "give_away"])
-  end
-  
-  def lending_or_giving_away?
-    does_not_have_any_of_share_types?(["sell", "rent_out", "request_to_swap", "offer_to_swap"])
-  end
-  
-  def does_not_have_any_of_share_types?(sts)
-    throw "Uses sharetype"
-    return_value = true
-    sts.each { |st| return_value = false if share_type.eql?(st) }
-    return return_value
-  end
-  
   # If listing is an offer, a discussion about the listing
   # should be request, and vice versa
   def discussion_type
-    throw "Uses share type"
-    share_type.is_request? ? "offer" : "request"
+    transaction_type.is_request? ? "offer" : "request"
   end
   
   # This is used to provide clean JSON-strings for map view queries
@@ -361,8 +289,8 @@ class Listing < ActiveRecord::Base
     
     # This is currently optimized for the needs of the map, so if extending, make a separate JSON mode, and keep map data at minimum
     hash = {
-      :listing_type => self.listing_type,
-      :category => self.category.name,
+      :listing_type => self.transaction_type.direction,
+      :category => self.category.id,
       :id => self.id,
       :icon => icon_class(icon_name)
     }
@@ -401,11 +329,6 @@ class Listing < ActiveRecord::Base
   # The price symbol based on this listing's price or community default, if no price set
   def price_symbol
     price ? price.symbol : MoneyRails.default_currency.symbol
-  end
-  
-  # Is this listing an offer or a request
-  def transaction_direction
-    transaction_type.direction
   end
   
   def price_with_vat(vat)

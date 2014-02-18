@@ -29,7 +29,7 @@ class HomepageController < ApplicationController
 
     # This assumes that we don't never ever have communities with only 1 main share type and
     # only 1 sub share type, as that would make the listing type menu visible and it would look bit silly
-    @listing_type_menu_enabled = @transaction_types.size > 1
+    @transaction_type_menu_enabled = @transaction_types.size > 1
     @show_categories = @current_community.categories.size > 1
     @show_custom_fields = @current_community.custom_fields.size > 0
     @category_menu_enabled = @show_categories || @show_custom_fields
@@ -111,7 +111,7 @@ class HomepageController < ApplicationController
     array_for_search
   end
 
-  # Give array of models (categories, listing_types, etc.) and
+  # Give array of models (categories, transaction_types, etc.) and
   # `param_value` and get back selected model or nil if all selected
   def find_selected_by_param(selectables, param_value)
     if param_value == "all"

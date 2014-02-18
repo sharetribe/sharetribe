@@ -1187,12 +1187,6 @@ en:
         comma_separate: "(comma separate)"
         tags: Tags
       title:
-        favor_you_offer: "Service you offer"
-        favor_you_request: "Service you need"
-        housing_you_offer: "Space you offer"
-        housing_you_request: "Space you need"
-        item_you_offer: "Item you offer"
-        item_you_request: "Item you need"
         listing_title: "Listing title"
       valid_until:
         valid_until: "Expiration date"
@@ -1248,35 +1242,6 @@ en:
       share_for_frees: "Sharing for free"
       accept_for_frees: "Accepting for free"
       trades: Swapping
-    link_labels:
-      offer_this: Offer
-      request_this: Request
-      lend_this: Lend
-      borrow_this: Borrow
-      buy_this: Buy
-      rent_out_this: "Rent out"
-      rent_this: Rent
-      sell_this: Sell
-      link_label_for_favor_offer: "Request this service"
-      link_label_for_favor_request: "Offer this service"
-      link_label_for_housing_offer_sell: "Buy this space"
-      link_label_for_housing_offer_rent_out: "Rent this space"
-      link_label_for_housing_offer_share_for_free: "Request this space"
-      link_label_for_housing_request_accept_for_free: "Offer this space"
-      link_label_for_housing_request_buy: "Offer to sell this space"
-      link_label_for_housing_request_rent: "Offer to rent out this space"
-      link_label_for_item_offer_lend: "Borrow this item"
-      link_label_for_item_offer_rent_out: "Rent this item"
-      link_label_for_item_offer_sell: "Buy this item"
-      link_label_for_item_offer_give_away: "Request this item"
-      link_label_for_item_offer_trade: "Swap this item"
-      link_label_for_item_request_borrow: "Offer to lend this item"
-      link_label_for_item_request_rent: "Offer to rent out this item"
-      link_label_for_item_request_buy: "Offer to sell this item"
-      link_label_for_item_request_receive: "Give this item to requester"
-      link_label_for_item_request_trade: "Offer to swap this item"
-      link_label_for_rideshare_offer: "Request this ride"
-      link_label_for_rideshare_request: "Offer ride"
     new:
       post_a_new_listing: "Post a new listing"
       listing: listing
