@@ -365,7 +365,7 @@ describe Api::ListingsController do
       doc.at("feed/entry/category").attribute("label").value.should == "Tavarat"
       doc.at("feed/entry/listing_type").attribute("term").value.should == "offer"
       doc.at("feed/entry/listing_type").attribute("label").value.should == "Tarjous"
-      doc.at("feed/entry/share_type").attribute("term").value.should == "sell"
+      doc.at("feed/entry/share_type").attribute("term").value.should == "#{@transaction_type_sell.id}"
       doc.at("feed/entry/share_type").attribute("label").value.should == "Myydään"
     end
 
