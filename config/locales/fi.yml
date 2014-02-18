@@ -161,13 +161,13 @@ fi:
       show:
         edit_poll: "Muokkaa kyselyä"
     transaction_types:
-      sell: "Myydään"
+      sell: Myydään
       rent: "Annetaan vuokralle"
-      give: "Annetaan"
+      give: Annetaan
       lend: "Annetaan lainaan"
-      swap: "Vaihdetaan"
+      swap: Vaihdetaan
       service: "Tarjotaan palvelua"
-      request: "Tarvitaan"
+      request: Tarvitaan
   common:
     edit_page: "Muokkaa sivua"
     default_community_slogan: "Lainaa, myy, auta, jaa"
@@ -1333,7 +1333,8 @@ fi:
       total: Yhteensä
       service_charge: Palvelumaksu
       product: "Tuote:"
-      price_for: ~
+      price: "Hinta:"
+      price_for: "Hinta käyttäjälle %{payer_given_name}:"
       continue_to_pay: "Jatka maksamaan"
       invoice: Lasku
       service_fee: "%{service_name} palvelumaksu:"
@@ -1693,6 +1694,7 @@ fi:
     formats:
       short: "%e. %b %Y kello %H:%M"
       shorter: "%e. %b klo %H:%M"
+      short_date: ~
       sms: "%e.%m. klo %H:%M"
   timestamps:
     day_ago: "%{count} päivä sitten"

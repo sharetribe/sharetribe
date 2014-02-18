@@ -122,6 +122,14 @@ fr:
         closed: Fermé
       show:
         edit_poll: "Editer le sondage"
+    transaction_types:
+      sell: Vente
+      rent: Location
+      give: Don
+      lend: Prêt
+      swap: Échange
+      service: "Services payants"
+      request: Demande
   common:
     edit_page: "Modifier la page"
     default_community_slogan: "Votre place de marché"
@@ -1338,6 +1346,7 @@ fr:
       times_viewed: Vu
       processing_uploaded_image: "(Traitement de l'image envoyée...)"
       price_excludes_vat: "(hors TVA)"
+      listing_created_at: "Annonce créée"
     displayed_price:
       price_excludes_vat: "(hors TVA)"
   mapview:
@@ -1454,8 +1463,8 @@ fr:
       username_is_invalid: "Nom d'utilisateur incorrect. Les caractères autorisés sont les lettres, les chiffres et le tiret bas ('_')."
       visible_only_to_you: "visible uniquement à vous et à l'administrateur de la tribu"
       visible_to_everybody: "visible à tout le monde"
-      create_account_with_facebook: "Créez un compte avec Facebook"
-      or_create_new_account_without_facebook: "... ou créez un compte sans utiliser Facebook, ci-dessous."
+      create_account_with_facebook: "Créer un compte avec Facebook"
+      or_create_new_account_without_facebook: "... ou créer un compte sans utiliser Facebook, ci-dessous."
     not_member:
       explanation_text: "Vous faites actuellement parti de la tribu %{community}. Vous avez essayé de voir le profil d'un utilisateur appartenant à une autre tribu. Vous ne pouvez pas accéder à ce profil via la tribu %{community}."
       read_more_about_kassi_communities: "En savoir plus sur les tribus %{service_name}"
@@ -1741,6 +1750,7 @@ fr:
     formats:
       short: "%e. %b %Y heure %H:%M"
       shorter: "%e. %b h %H:%M"
+      short_date: "%e %b %Y"
       sms: "%e.%m. h %H:%M"
   timestamps:
     day_ago: "il y a %{count} jour"

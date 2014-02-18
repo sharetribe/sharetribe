@@ -122,6 +122,8 @@ es:
         closed: Cerrado
       show:
         edit_poll: "Editar encuesta"
+    transaction_types:
+      request: Solicitando
   common:
     edit_page: ~
     default_community_slogan: "Colabora, ayuda o comparte"
@@ -139,7 +141,7 @@ es:
       give_away: regalando
       lend: prestando
       receive: regalando
-      rent: arrendando
+      rent: Alquiler
       rent_out: Alquilando
       sell: Venta
       offer_to_swap: ~
@@ -297,7 +299,7 @@ es:
       paid: "pago exitoso"
       request_accepted: "Solicitud aceptada"
       request_rejected: "Solicitud rechazada"
-      request_confirmed: ~
+      request_confirmed: Completado
       request_canceled: Cancelada
       skip_feedback: "Omitir sugerencia"
       waiting_for_listing_author_to_accept_offer: "Esperando a %{listing_author_name}  para aceptar la oferta"
@@ -1205,7 +1207,7 @@ es:
       lends: Prestando
       receives: "Tómalo gratis!"
       rent_outs: Alquilando
-      rents: "Lo arriendo"
+      rents: "Lo alquilo"
       rideshares: "Traslado compartido"
       sells: Vender
       share_for_frees: "Compartir gratuitamente"
@@ -1213,7 +1215,7 @@ es:
       trades: Trueques
     link_labels:
       offer_this: Oferta
-      request_this: Solicitar
+      request_this: Solicitud
       lend_this: ~
       borrow_this: ~
       buy_this: ~
@@ -1260,7 +1262,7 @@ es:
       selected_give_away: Regalando
       selected_lend: Prestando
       selected_receive: "Tomándolo gratis"
-      selected_rent: Arrendando
+      selected_rent: Alquiler
       selected_rent_out: Alquilando
       selected_sell: Vendiendo
       selected_offer_to_swap: ~

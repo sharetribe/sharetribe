@@ -122,6 +122,14 @@ el:
         closed: Κλειστή
       show:
         edit_poll: Επεξεργασία
+    transaction_types:
+      sell: ~
+      rent: ~
+      give: ~
+      lend: ~
+      swap: ~
+      service: ~
+      request: ~
   common:
     edit_page: "Επεξεργασία σελίδας"
     default_community_slogan: "Δάνεισε, βοήθα, πούλα, μοιράσου"
@@ -1338,6 +1346,7 @@ el:
       times_viewed: Διαβάστηκε
       processing_uploaded_image: "(Γίνεται επεξεργασία της εικόνας...)"
       price_excludes_vat: "(χωρίς ΦΠΑ)"
+      listing_created_at: ~
     displayed_price:
       price_excludes_vat: "(χωρίς ΦΠΑ)"
   mapview:
@@ -1381,6 +1390,7 @@ el:
       total: Σύνολο
       service_charge: "Χρέωση υπηρεσίας"
       product: Προϊόν
+      price: Τιμή
       price_for: ~
       continue_to_pay: "Συνεχίστε στην πληρωμή"
       invoice: Απόδειξη
@@ -1741,6 +1751,7 @@ el:
     formats:
       short: "%e %b %Y στις %H:%M"
       shorter: "%e %b στις %H:%M"
+      short_date: ~
       sms: "%e %b στις %H:%M"
   timestamps:
     day_ago: "πριν από %{count} μέρα"
