@@ -161,6 +161,9 @@ class Listing < ActiveRecord::Base
     params.reject!{ |key,value| (value == "all" || value == ["all"]) && key != "status"} # all means the fliter doesn't need to be included (except with "status")
 
     # If no Share Type specified, use listing_type param if that is specified.
+    # :listing_type and :share_type are deprecated and they should not be used.
+    # However, API may use them still
+    params[:share_type] ||= params[:listing_type]
     params.delete(:listing_type) # In any case listing_type is not a search param used any more
 
     params[:search] ||= params[:q] # Read search query also from q param
