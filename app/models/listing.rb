@@ -39,7 +39,7 @@ class Listing < ActiveRecord::Base
   VALID_VISIBILITIES = ["this_community", "all_communities"]
   VALID_PRIVACY_OPTIONS = ["private", "public"]
   
-  before_validation :set_rideshare_title, :set_valid_until_time
+  before_validation :set_valid_until_time
   before_save :downcase_tags, :set_community_visibilities
   
   validates_presence_of :author_id
@@ -133,7 +133,7 @@ class Listing < ActiveRecord::Base
     tag_list.each { |t| t.downcase! }
   end
   
-  # sets the time to midnight (unless rideshare listing, where exact time matters)
+  # sets the time to midnight
   def set_valid_until_time
     if valid_until
       self.valid_until = valid_until.utc + (23-valid_until.hour).hours + (59-valid_until.min).minutes + (59-valid_until.sec).seconds

@@ -3,13 +3,8 @@
 - content_for :map_js do
   :javascript 
     $(document).ready(function() { 
-      if (!#{rideshare}){
-        var source = "listing_origin";
-        googlemapMarkerInit('listing_map_canvas',"listing_origin_loc_attributes","listing_origin",true, #{tribe_latitude}, #{tribe_longitude});
-      } else {
-        googlemapRouteInit('listing_map_canvas');
-        startRoute(#{tribe_latitude}, #{tribe_longitude});
-      }
+      var source = "listing_origin";
+      googlemapMarkerInit('listing_map_canvas',"listing_origin_loc_attributes","listing_origin",true, #{tribe_latitude}, #{tribe_longitude});
     });
 
 - if run_js_immediately

@@ -372,7 +372,7 @@ class Community < ActiveRecord::Base
   # Example hash:
   # {
   #   "listing_type" => ["offer", "request"],
-  #   "category" => ["item", "favor", "rideshare", "housing"],
+  #   "category" => ["item", "favor", "housing"],
   #   "subcategory" => ["tools", "sports", "music", "books", "games", "furniture_assemble", "walking_dogs"],
   #   "share_type" => ["lend", "sell", "rent_out", "give_away", "share_for_free", "borrow", "buy", "rent", "trade", "receive", "accept_for_free"]
   # }

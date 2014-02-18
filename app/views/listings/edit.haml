@@ -15,8 +15,8 @@
     = render :partial => "listings/form/description", :locals => { :form => form }
     = render :partial => "listings/form/custom_fields", :locals => { :form => form, :listing => @listing }
     = render :partial => "listings/form/valid_until", :locals => { :form => form }
-    = render :partial => "listings/form/origin", :locals => { :form => form, :origin_loc => @listing.origin_loc, :rideshare => false }
-    = render :partial => "listings/form/googlemap", :locals => { :form => form, :rideshare => false, :run_js_immediately => false}
+    = render :partial => "listings/form/origin", :locals => { :form => form, :origin_loc => @listing.origin_loc }
+    = render :partial => "listings/form/googlemap", :locals => { :form => form, :run_js_immediately => false}
     = render :partial => "listings/form/images", :locals => { :form => form }
     - if @listing.closed?
       = form.hidden_field :open, :value => true
