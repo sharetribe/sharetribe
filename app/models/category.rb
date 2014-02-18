@@ -1,9 +1,6 @@
 class Category < ActiveRecord::Base
   attr_accessible :community_id, :parent_id, :translation_attributes, :transaction_type_attributes, :sort_priority
 
-  # Classification module contains methods that are common to Category and ShareType
-  include Classification
-
   has_many :subcategories, :class_name => "Category", :foreign_key => "parent_id", :dependent => :destroy, :order => "sort_priority"
   # children is a more generic alias for sub categories, used in classification.rb
   has_many :children, :class_name => "Category", :foreign_key => "parent_id", :order => "sort_priority"
@@ -88,5 +85,12 @@ class Category < ActiveRecord::Base
       select { |category| category.translations.
         any? { |translation| translation.name == category_name} }.
       first
+  end
+
+  def icon_name
+    return icon if ApplicationHelper.icon_specified?(icon)
+    return name if ApplicationHelper.icon_specified?(name)
+    return parent.icon_name if parent
+    return "other"
   end
 end

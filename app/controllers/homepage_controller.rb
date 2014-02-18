@@ -111,7 +111,7 @@ class HomepageController < ApplicationController
     array_for_search
   end
 
-  # Give array of models (categories, listing_types, etc.) and
+  # Give array of models (categories, transaction_types, etc.) and
   # `param_value` and get back selected model or nil if all selected
   def find_selected_by_param(selectables, param_value)
     if param_value == "all"
