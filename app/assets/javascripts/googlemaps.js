@@ -643,25 +643,6 @@ function addListingMarkers() {
               infowindow.open(map,marker);
               $.get('/' + locale + '/listing_bubble/' + entry["id"], function(data) {
                 $('#map_bubble').html(data);
-                if (entry["category"]=="rideshare") {
-                  var end = new google.maps.LatLng(entry["destination_loc"]["latitude"], entry["destination_loc"]["longitude"]);
-                  var request = {
-                    origin:location, 
-                    destination:end,
-                    travelMode: google.maps.DirectionsTravelMode.DRIVING
-                  };
-                  directionsDisplay.setMap(map);
-                  directionsService.route(request, function(response, status) {
-                    if (status == google.maps.DirectionsStatus.OK) {
-                      directionsDisplay.setDirections(response);
-                    }
-                  });
-                  flagMarker.setOptions({
-                    position: end,
-                    map: map,
-                    icon: '/assets/map_icons/flag_rideshare.png'
-                  });
-                }
               });
             }
           });

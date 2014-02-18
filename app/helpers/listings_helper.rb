@@ -48,7 +48,6 @@ module ListingsHelper
     root_path(:transaction_type => listing.transaction_type.id, :view => view)
   end
 
-  # expects category to be "item", "favor", "rideshare" or "housing"
   def localized_category_label(category)
     return nil if category.nil?
     return category.display_name(I18n.locale).capitalize
