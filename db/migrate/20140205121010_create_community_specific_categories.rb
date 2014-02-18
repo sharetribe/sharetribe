@@ -171,8 +171,10 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
 
         
 
-        # Link category and transaction type
-        CategoryTransactionType.create!(:category_id => new_cat.id, :transaction_type_id => new_trt.id)
+        # Link category and transaction type if needed
+        unless CategoryTransactionType.find_by_category_id_and_transaction_type_id(new_cat.id, new_trt.id)
+          CategoryTransactionType.create!(:category_id => new_cat.id, :transaction_type_id => new_trt.id)
+        end
       else
         # This com_cat doesn't have share type. Reason usually is that it's a subcategory and should be linked to parent's share types
 
