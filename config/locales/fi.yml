@@ -1246,35 +1246,6 @@ fi:
       share_for_frees: "Tarjotaan käyttöön ilmaiseksi"
       accept_for_frees: "Otetaan vastaan ilmaiseksi"
       trades: Vaihdetaan
-    link_labels:
-      offer_this: Tarjoa
-      request_this: Pyydä
-      lend_this: "Tarjoa lainaksi"
-      borrow_this: "Pyydä lainaksi"
-      buy_this: Osta
-      rent_out_this: "Tarjoa vuokralle"
-      rent_this: Vuokraa
-      sell_this: Myy
-      link_label_for_favor_offer: "Pyydä palvelusta"
-      link_label_for_favor_request: "Tarjoa apuasi"
-      link_label_for_housing_offer_sell: Osta
-      link_label_for_housing_offer_rent_out: Vuokraa
-      link_label_for_housing_offer_share_for_free: "Pyydä käyttöoikeutta"
-      link_label_for_housing_request_accept_for_free: "Tarjoa tätä tilaa"
-      link_label_for_housing_request_buy: "Myy pyydetty tila"
-      link_label_for_housing_request_rent: "Tarjoa vuokralle pyydetty tila"
-      link_label_for_item_offer_lend: "Pyydä tämä tavara lainaan"
-      link_label_for_item_offer_rent_out: "Vuokraa tämä tavara"
-      link_label_for_item_offer_sell: "Osta tämä tavara"
-      link_label_for_item_offer_give_away: "Pyydä tavara itsellesi"
-      link_label_for_item_offer_trade: "Vaihda tämä tavara"
-      link_label_for_item_request_borrow: "Tarjoa tämä tavara lainaan"
-      link_label_for_item_request_rent: "Tarjoa tämä tavara vuokralle"
-      link_label_for_item_request_buy: "Tarjoudu myymään tämä tavara"
-      link_label_for_item_request_receive: "Anna pyydetty tavara pyytäjälle"
-      link_label_for_item_request_trade: "Tarjoudu vaihtamaan tämä tavara"
-      link_label_for_rideshare_offer: "Pyydä kyytiä"
-      link_label_for_rideshare_request: "Tarjoa kyytiä"
     new:
       post_a_new_listing: "Lisää uusi ilmoitus"
       listing: ilmoitus
