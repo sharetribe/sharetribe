@@ -261,28 +261,7 @@ class Listing < ActiveRecord::Base
   def self.opposite_type(type)
     type.eql?("offer") ? "request" : "offer"
   end
-  
-  def self.opposite_share_type(type)
-    return "" if type.nil?
-    st = type.class.eql?(String) ? type : type.name
-    case st
-    when "borrow"
-      return "lend"
-    when "lend"
-      return "borrow"
-    when "buy"
-      return "sell"
-    when "sell"
-      return "buy"
-    when "rent_out"
-      return "rent"
-    when "rent"
-      return "rent_out"
-    else
-      return "" 
-    end
-  end
-  
+
   # Returns true if the given person is offerer and false if requester
   def offerer?(person)
     (transaction_type.is_offer? && author.eql?(person)) || (transaction_type.is_request? && !author.eql?(person))
@@ -291,21 +270,6 @@ class Listing < ActiveRecord::Base
   # Returns true if the given person is requester and false if offerer
   def requester?(person)
     (transaction_type.is_request? && author.eql?(person)) || (transaction_type.is_offer? && !author.eql?(person))
-  end
-  
-  def selling_or_renting?
-    does_not_have_any_of_share_types?(["request_to_swap", "offer_to_swap", "lend", "give_away"])
-  end
-  
-  def lending_or_giving_away?
-    does_not_have_any_of_share_types?(["sell", "rent_out", "request_to_swap", "offer_to_swap"])
-  end
-  
-  def does_not_have_any_of_share_types?(sts)
-    throw "Uses sharetype"
-    return_value = true
-    sts.each { |st| return_value = false if share_type.eql?(st) }
-    return return_value
   end
   
   # If listing is an offer, a discussion about the listing
