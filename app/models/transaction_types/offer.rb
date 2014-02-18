@@ -12,6 +12,10 @@ class Offer < TransactionType
     false
   end
 
+  def is_inquiry?
+    false
+  end
+
   def api_name
     "offer"
   end

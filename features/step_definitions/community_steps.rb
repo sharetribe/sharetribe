@@ -153,8 +153,8 @@ Given /^community "(.*?)" has following transaction types enabled:$/ do |communi
  
   current_community.transaction_types << transaction_types.hashes.map do |hash|
     transaction_type = FactoryGirl.create(:transaction_type, :type => hash['transaction_type'], :community_id => current_community.id)
-    transaction_type.translations.create(:name => hash['fi'], :locale => 'fi')
-    transaction_type.translations.create(:name => hash['en'], :locale => 'en')
+    transaction_type.translations.create(:name => hash['fi'], :action_button_label => (hash['button'] || "Action"), :locale => 'fi')
+    transaction_type.translations.create(:name => hash['en'], :action_button_label => (hash['button'] || "Action"), :locale => 'en')
     transaction_type
   end
 end

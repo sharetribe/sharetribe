@@ -71,7 +71,8 @@ class ConversationsController < ApplicationController
         redirect_to session[:return_to_content] || root
       end
     else
-      render :action => :new
+      flash[:error] = "Sending the message failed. Please try again."
+      redirect_to root
     end  
   end
   

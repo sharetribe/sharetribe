@@ -1,7 +1,7 @@
-class FreeConversation < TransactionType
+class Inquiry < TransactionType
 
   def direction
-    "none"
+    "inquiry"
   end
 
   def is_offer?
@@ -10,6 +10,10 @@ class FreeConversation < TransactionType
 
   def is_request?
     false
+  end
+
+  def is_inquiry?
+    true
   end
 
   def api_name

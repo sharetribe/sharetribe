@@ -16,6 +16,10 @@ class Request < TransactionType
     true
   end
 
+  def is_inquiry?
+    false
+  end
+
   def api_name
     "request"
   end
