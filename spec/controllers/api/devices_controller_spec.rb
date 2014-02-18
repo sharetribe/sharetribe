@@ -4,7 +4,6 @@ describe Api::DevicesController do
   render_views
 
   before(:each) do
-    pending("API tests are pending")
     @p1 = FactoryGirl.create(:person, :given_name => "Danny", :family_name => "van Testburg")
     @p1.ensure_authentication_token!
   end

@@ -50,7 +50,7 @@ node do |listing|
     if api_version_alpha?
       listing.category.top_level_parent.name
     else
-      listing.category.name
+      listing.category.id
     end
   end
 end

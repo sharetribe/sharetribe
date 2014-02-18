@@ -2,12 +2,9 @@ require 'spec_helper'
 
 describe Api::PeopleController do
   render_views
-
-  before(:each) do
-    pending("API tests are pending")
-  end
   
   describe "index" do
+
     it "returns correct user based on email" do
       @p1 = FactoryGirl.create(:person, :given_name => "Danny", :family_name => "van Testburg", :phone_number => "123456789", :emails => [ FactoryGirl.create(:email, :address => "danny@example.com") ] )
       get :index, :email => "danny@example.com", :format => :json
@@ -22,6 +19,8 @@ describe Api::PeopleController do
       @p2 = FactoryGirl.create(:person, :given_name => "Dina", :family_name => "van Testburg", :phone_number => "555-123456789")
       c = FactoryGirl.create(:community)
       c.members << [@p1, @p2]
+
+      set_subdomain(c.domain)
       
       get :index, :community_id => c.id, :format => :json
       resp = JSON.parse(response.body)

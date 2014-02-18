@@ -6,7 +6,6 @@ describe Api::ListingsController do
   render_views
   
   before (:each) do
-    pending()
     Rails.cache.clear
   end
   
@@ -21,17 +20,23 @@ describe Api::ListingsController do
     @p1.communities << @c1
     @p1.ensure_authentication_token!
     
-    @transaction_type_request = FactoryGirl.create(:transaction_type_request)
-    @transaction_type_sell = FactoryGirl.create(:transaction_type_sell)
-    @transaction_type_sell.translations << FactoryGirl.create(:transaction_type_translation, :name => "Myydään", :locale => "fi", :transaction_type => @transaction_type_sell)
-
-    @category_item = find_or_create_category("item")
+    @category_item = FactoryGirl.create(:category, :community => @c1)
     @category_item.translations << FactoryGirl.create(:category_translation, :name => "Tavarat", :locale => "fi", :category => @category_item)
+    @category_favor = FactoryGirl.create(:category, :community => @c1)
+    @category_rideshare = FactoryGirl.create(:category, :community => @c1)
+    @category_furniture = FactoryGirl.create(:category, :community => @c1)
+
+    @transaction_type_request = FactoryGirl.create(:transaction_type_request)
+    @transaction_type_sell = FactoryGirl.create(:transaction_type_sell, :categories => [@category_item, @category_furniture], :community => @c1)
+    @transaction_type_sell_c2 = FactoryGirl.create(:transaction_type_sell, :community => @c2)
+    @transaction_type_request_c2 = FactoryGirl.create(:transaction_type_request, :community => @c2)
+    @transaction_type_sell.translations << FactoryGirl.create(:transaction_type_translation, :name => "Myydään", :locale => "fi", :transaction_type => @transaction_type_sell)
+    @transaction_type_service_offer = FactoryGirl.create(:transaction_type_service, :categories => [@category_favor], :community => @c1)
 
     @l1 = FactoryGirl.create(:listing, :transaction_type => @transaction_type_request, :title => "bike", :description => "A very nice bike", :created_at => 3.days.ago, :author => @p1, :privacy => "public")
     @l1.communities = [@c1]
     FactoryGirl.create(:listing, :title => "hammer", :category => @category_item, :created_at => 2.days.ago, :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer", :transaction_type => @transaction_type_sell, :privacy => "public").communities = [@c1]
-    FactoryGirl.create(:listing, :transaction_type => @transaction_type_request, :title => "help me", :created_at => 12.days.ago, :privacy => "public").communities = [@c2]
+    FactoryGirl.create(:listing, :transaction_type => @transaction_type_request_c2, :title => "help me", :created_at => 12.days.ago, :privacy => "public").communities = [@c2]
     FactoryGirl.create(:listing, :transaction_type => @transaction_type_request, :title => "old junk", :open => false, :description => "This should be closed already, but nice stuff anyway", :privacy => "public").communities = [@c1]
     @l4 = FactoryGirl.create(:listing, :title => "car", :created_at => 2.months.ago, :description => "I needed a car earlier, but now this listing is no more open", :transaction_type => @transaction_type_request, :privacy => "public")
     @l4.communities = [@c1]
@@ -61,9 +66,7 @@ describe Api::ListingsController do
       resp["total_pages"].should == 1
     end
   
-    it "supports community_id and type as parameters" do
-
-      pending("this takes too long")
+    it "supports community_id and type as parameters", :'no-transaction' => true do
 
       ensure_sphinx_is_running_and_indexed
 
@@ -82,7 +85,7 @@ describe Api::ListingsController do
 
       get :index, :community_id => @c1.id, :share_type => "request", :format => :json
       resp = JSON.parse(response.body)
-      resp["listings"].count.should == 1
+      resp["listings"].count.should == 2
 
       get :index, :community_id => @c2.id, :share_type => "offer", :format => :json
       resp = JSON.parse(response.body)
@@ -191,8 +194,8 @@ describe Api::ListingsController do
       request.env['Sharetribe-API-Token'] = @p1.authentication_token
       post :create, :title => "new great listing", 
                     :description => "This is what you need!", 
-                    :category => "favor",
-                    :share_type => "offer",
+                    :category => @category_favor.id,
+                    :share_type => @transaction_type_service_offer.id,
                     :visibility => "this_community",
                     :privacy => "public",
                     :community_id => @c1.id,
@@ -207,7 +210,7 @@ describe Api::ListingsController do
       resp["description"].should == "This is what you need!"
       resp["visibility"].should == "this_community"
       resp["privacy"].should == "public"
-      resp["category"].should == "favor"
+      resp["category"].should == @category_favor.id
       resp["listing_type"].should == "offer"
       resp["valid_until"].to_date.should == 2.months.from_now.to_date
       resp["author"]["id"].should == @p1.id
@@ -217,8 +220,8 @@ describe Api::ListingsController do
       listings_count = Listing.count
       request.env['Sharetribe-API-Token'] = @p1.authentication_token
       post :create, :description => "This is what you need!", 
-                    :share_type => "sell",
-                    :category => "item",
+                    :share_type => @transaction_type_sell.id,
+                    :category => @category_item.id,
                     :visibility => "this_community",
                     :community_id => @c1.id,
                     :format => :json
@@ -233,8 +236,8 @@ describe Api::ListingsController do
       request.env['Sharetribe-API-Token'] = @p1.authentication_token
       post :create, :title => "nice looking offer", 
                     :description => "Testing photo upload", 
-                    :category => "item",
-                    :share_type => "sell",
+                    :category => @category_item.id,
+                    :share_type => @transaction_type_sell.id,
                     :visibility => "this_community",
                     :community_id => @c1.id,
                     :image => Rack::Test::UploadedFile.new(Rails.root.join("test/fixtures/Australian_painted_lady.jpg"),"image/jpeg"),
@@ -248,32 +251,12 @@ describe Api::ListingsController do
       
     end
     
-    
-    it "puts listings to correct subcategories if needed" do
-      # old clients might post with top level category even if there are obligatory subcategories available
-      request.env['Sharetribe-API-Token'] = @p1.authentication_token
-      post :create, :title => "nice looking offer, but not pointed to sub cat", 
-                    :description => "Testing if this ends up to other sub category", 
-                    :category => "item",
-                    :share_type => "sell",
-                    :visibility => "all_communities",
-                    :community_id => @c1.id,
-                    :format => :json
-      
-      #puts response.body.inspect              
-      response.status.should == 201
-      resp = JSON.parse(response.body)
-      resp["title"].should == "nice looking offer, but not pointed to sub cat"
-      resp["category"].should == "other"
-      resp["visibility"].should == "all_communities"
-    end
-    
     it "supports posting a price" do
       request.env['Sharetribe-API-Token'] = @p1.authentication_token
       post :create, :title => "nice chair for sale", 
                     :description => "not much sitted", 
-                    :category => "furniture",
-                    :share_type => "sell",
+                    :category => @category_furniture.id,
+                    :share_type => @transaction_type_sell.id,
                     :price_cents => 1800,
                     :currency => "EUR",
                     :quantity => "per piece",
@@ -285,7 +268,7 @@ describe Api::ListingsController do
       response.status.should == 201
       resp = JSON.parse(response.body)
       resp["title"].should == "nice chair for sale"
-      resp["category"].should == "furniture"
+      resp["category"].should == @category_furniture.id
       resp["price_cents"].should == 1800
       resp["currency"].should == "EUR"
       resp["quantity"].should == "per piece"
@@ -298,8 +281,8 @@ describe Api::ListingsController do
         request.env['Sharetribe-API-Token'] = @p1.authentication_token
         post :create, :title => "hammer", 
                       :description => "well located hammer", 
-                      :category => "item",
-                      :share_type => "sell",
+                      :category => @category_item.id,
+                      :share_type => @transaction_type_sell.id,
                       :visibility => "this_community",
                       :community_id => @c1.id,
                       :latitude => "60.2426",
@@ -317,14 +300,16 @@ describe Api::ListingsController do
       end
     
       it "supports setting also destination location for rideshare listings" do
+
+        # We don't support rideshare anymore (17th Feb 2014)
+
         request.env['Sharetribe-API-Token'] = @p1.authentication_token
         post :create, :title => "Ride in Finland", 
                       :description => "Join the road trip", 
-                      :category => "rideshare",
-                      :share_type => "offer",
+                      :category => @category_rideshare.id,
+                      :share_type => @transaction_type_service_offer.id,
                       :visibility => "this_community",
                       :community_id => @c1.id,
-                      :valid_until => 2.days.from_now,
                       :latitude => "62.2426",
                       :longitude => "25.7475",
                       :destination_latitude => "61.2426",
@@ -343,7 +328,6 @@ describe Api::ListingsController do
         Listing.last.destination_loc.longitude.should == 26.7475
         Listing.last.destination.should == "office"
         Listing.last.origin_loc.address.should == "helsinki"
-        Listing.last.valid_until.should be_within(3.seconds).of(2.days.from_now)
       end
       
       it "supports setting locations by address only" do
@@ -377,7 +361,7 @@ describe Api::ListingsController do
       
       doc.at("feed/title").text.should =~ /Ilmoitukset sharetribe_testcommunity_\d+-Sharetribessa/
       doc.at("feed/entry/title").text.should == "Myydään: hammer"
-      doc.at("feed/entry/category").attribute("term").value.should == "item"
+      doc.at("feed/entry/category").attribute("term").value.should == "#{@category_item.id}"
       doc.at("feed/entry/category").attribute("label").value.should == "Tavarat"
       doc.at("feed/entry/listing_type").attribute("term").value.should == "offer"
       doc.at("feed/entry/listing_type").attribute("label").value.should == "Tarjous"

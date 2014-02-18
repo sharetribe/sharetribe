@@ -204,15 +204,25 @@ class Listing < ActiveRecord::Base
       params[:categories] = {:id => params[:category]} 
       joined_tables << :category
     end
-    
+
+    # :share_type is deprecated, but we need to support it for the ATOM API
+    # Share type is overriden by transaction_type if it is present
+    if params[:share_type].present?
+      direction = params[:share_type]
+      params[:transaction_types] = {:id => current_community.transaction_types.select { |transaction_type| transaction_type.direction == direction }.collect(&:id) }
+    end
+
     if params[:transaction_type].present?
       params[:transaction_types] = {:id => params[:transaction_type]}
+    end
+
+    if params[:transaction_type].present? || params[:share_type].present?
       joined_tables << :transaction_type
     end
     
     
     # Two ways of finding, with or without sphinx
-    if params[:search].present? || params[:transaction_type].present? || params[:category].present? || params[:custom_field_options].present?
+    if params[:search].present? || params[:transaction_types].present? || params[:category].present? || params[:custom_field_options].present?
       
       # sort by time by default
       params[:sort] ||= 'created_at DESC'

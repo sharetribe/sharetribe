@@ -5,11 +5,10 @@ describe Api::CommentsController do
  
     
   before(:each) do
-    pending("API tests are pending")
     @c1 = FactoryGirl.create(:community)
     @c2 = FactoryGirl.create(:community)
     @l1 = FactoryGirl.create(:listing, :privacy => "public")
-    @l2 = FactoryGirl.create(:listing, :visibility => "this_community")
+    @l2 = FactoryGirl.create(:listing, :privacy => "private", :visibility => "this_community")
     @l1.communities = [@c1]
     @l2.communities = [@c2]
     @p1 = FactoryGirl.create(:person)

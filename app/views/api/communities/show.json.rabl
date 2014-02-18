@@ -30,5 +30,5 @@ child :location => :location do
 end
 
 node :categories_tree do |community|
-  community.categories_tree
+  community.category_tree(I18n.locale)
 end
