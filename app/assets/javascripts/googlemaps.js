@@ -15,7 +15,6 @@ var helsinki;
 var browserSupportFlag =  new Boolean();
 var transaction_type;
 var listing_category = ["all"];
-var listing_sharetypes = ["all"];
 var listing_tags = [];
 var listing_search;
 var listing_custom_field_options;
@@ -581,7 +580,7 @@ function addListingMarkers() {
   
   var starttime = new Date().getTime();
   var request_path = '/listings/locations_json'
-  $.get(request_path, { transaction_type: transaction_type, 'category[]': listing_category, 'share_type[]': listing_sharetypes, search: listing_search, custom_field_options: listing_custom_field_options}, function(data) {  
+  $.get(request_path, { transaction_type: transaction_type, 'category[]': listing_category, search: listing_search, custom_field_options: listing_custom_field_options}, function(data) {  
 
     var data_arr = data.data;
     for (i in data_arr) {
@@ -661,22 +660,11 @@ function clearMarkers() {
     }
 }
 
-function SetFiltersForMap(type, category, sharetypes, search, custom_field_options) {
+function SetFiltersForMap(type, category, search, custom_field_options) {
   if (type)                 { transaction_type = type;               } else { transaction_type = "all";}
   if (category)             { listing_category = [category];     } else { listing_category = ["all"];}
-  if (sharetypes)           { listing_sharetypes = [sharetypes]; } else { listing_sharetypes = ["all"];}
   if (search)               { listing_search = search            } else { listing_search = "";}
   if (custom_field_options) { listing_custom_field_options = custom_field_options} else { listing_custom_field_options = [];}
   initialize_labels();
-}
-
-
-// Simple callback for passing filter changes to the mapview
-function filtersUpdated(category, sharetypes, tags) {
-    listing_category = category;
-    listing_sharetypes = sharetypes;
-    listing_tags = tags;
-    clearMarkers();
-    addListingMarkers();
 }
 
