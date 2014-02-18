@@ -28,6 +28,7 @@ class Listing < ActiveRecord::Base
   belongs_to :category  
   belongs_to :transaction_type
 
+  delegate :direction, to: :transaction_type
 
   monetize :price_cents, :allow_nil => true
   
@@ -323,11 +324,6 @@ class Listing < ActiveRecord::Base
   # The price symbol based on this listing's price or community default, if no price set
   def price_symbol
     price ? price.symbol : MoneyRails.default_currency.symbol
-  end
-  
-  # Is this listing an offer or a request
-  def transaction_direction
-    transaction_type.direction
   end
   
   def price_with_vat(vat)

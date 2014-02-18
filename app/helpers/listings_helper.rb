@@ -6,11 +6,6 @@ module ListingsHelper
     "inbox_tab_#{current_tab_name.eql?(tab_name) ? 'selected' : 'unselected'}"
   end
 
-  # Class is selected if listing type is currently selected
-  def get_new_listing_tab_class(listing_type)
-    "new_listing_form_tab_#{@listing.listing_type.eql?(listing_type) ? 'selected' : 'unselected'}"
-  end
-
   # Removes extra characters from datetime_select field
   def clear_datetime_select(&block)
     time = "</div><div class='date_select_time_container'><div class='datetime_select_time_label'>#{t('listings.form.departure_time.at')}:</div>"

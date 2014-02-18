@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_send_message_form('#{I18n.locale}', '#{params[:message_type] ? params[:message_type] : Listing.opposite_type(@listing.transaction_direction)}');
+  initialize_send_message_form('#{I18n.locale}', '#{params[:message_type] ? params[:message_type] : Listing.opposite_type(@listing.direction)}');
 
 #new_message_form.centered-section
   - if params[:message_type]

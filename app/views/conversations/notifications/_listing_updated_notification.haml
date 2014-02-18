@@ -2,5 +2,5 @@
 .notification-text
   = link_to notification.notifiable.author.given_name_or_username, notification.notifiable.author
   = t(".has_updated")
-  = link_to t(".#{notification.notifiable.listing_type}_you_follow"), notification.notifiable
+  = link_to t(".#{notification.notifiable.direction}_you_follow"), notification.notifiable
   %small= time_ago(notification.created_at)
