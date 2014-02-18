@@ -201,8 +201,13 @@ class Listing < ActiveRecord::Base
     params[:search] ||= params[:q] # Read search query also from q param
     
     if params[:category].present?
-      params[:categories] = {:id => params[:category]} 
-      joined_tables << :category
+      category = Category.find_by_name(params[:category])
+      if category
+        params[:categories] = {:id => category.with_all_children.collect(&:id)} 
+        joined_tables << :category
+      else
+        # ignore the category attribute if it's not found
+      end
     end
 
     # :share_type is deprecated, but we need to support it for the ATOM API
