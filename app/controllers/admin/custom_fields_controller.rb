@@ -25,8 +25,13 @@ class Admin::CustomFieldsController < ApplicationController
       @custom_field.community = @current_community
       @custom_field.save
     end
-    flash[:error] = "Listing field saving failed"
-    redirect_to admin_custom_fields_path
+
+    if success
+      redirect_to admin_custom_fields_path
+    else
+      flash[:error] = "Listing field saving failed"
+      render :action => :new
+    end
   end
   
   def edit
