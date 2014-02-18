@@ -8,92 +8,107 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
     
     Community.order("members_count ASC").each do |community|
 
-      puts "\n\n\nUpdating community #{community.domain}\n"
+      if community.settings["categories_migrated"]
+        puts "\nSkipping community #{community.domain} (already migrated)\n"
+      else
+        puts "\n\n\nUpdating community #{community.domain}\n"
 
-      # puts "Are you sure you want to continue? (y/n)"
-      # response = STDIN.gets.strip
-      # exit if response != 'y' && response != 'Y'
+        # puts "Are you sure you want to continue? (y/n)"
+        # response = STDIN.gets.strip
+        # exit if response != 'y' && response != 'Y'
 
-      categories = community.categories
-      main_categories = categories.select{|c| c.parent_id.nil?}
-      subcategories = categories.select{|c| ! c.parent_id.nil?}
+        categories = community.categories
+        main_categories = categories.select{|c| c.parent_id.nil?}
+        subcategories = categories.select{|c| ! c.parent_id.nil?}
 
-      custom_community_categories = CommunityCategory.find_by_community_id(community.id)
+        custom_community_categories = CommunityCategory.find_by_community_id(community.id)
 
 
-      if custom_community_categories || community.listings.count > 0      
+        if custom_community_categories || community.listings.count > 0      
 
-        puts "Updating Main Categories"
-        # Loop main categories first, so that parents are done when getting to sub categories
-        main_categories.each do |category|
-          #puts "updating cat: #{category.name}"
-          new_category = create_new_cat_and_trans_if_needed(category, community)          
-        end
-
-        puts "Updating Sub Categories"
-        # Second loop sub categories
-        subcategories.each do |category|
-          #puts "updating cat: #{category.name}"
-          new_category = create_new_cat_and_trans_if_needed(category, community)
-        end
-
-        puts "UPDATING LISTINGS FOR COMMUNITY #{community.domain}\n"
-        # update listings 
-        community.listings.each do |listing|
-          current_category = listing.category
-          if current_category.nil?
-            puts "***ERROR*** Listing(#{listing.id} has a category_id without a category -> Skipping updating that listing."
-            next
-          end
-          target_category = Category.find_by_community_id_and_name(community.id, listing.category.name)
-          
-          if target_category.nil?
-            puts "***ERROR*** Listing(#{listing.id} had a category #{listing.category.name} which hasn't been created for #{community.domain} -> Skipping updating that listing."
-            next
+          puts "Updating Main Categories"
+          # Loop main categories first, so that parents are done when getting to sub categories
+          main_categories.each do |category|
+            #puts "updating cat: #{category.name}"
+            new_category = create_new_cat_and_trans_if_needed(category, community)          
           end
 
-          listing.update_column(:new_category_id, target_category.id )
+          puts "Updating Sub Categories"
+          # Second loop sub categories
+          subcategories.each do |category|
+            #puts "updating cat: #{category.name}"
+            new_category = create_new_cat_and_trans_if_needed(category, community)
+          end
 
-          transaction_type_class = SHARE_TYPE_MAP[listing.share_type.name]
-          listing.update_column(:transaction_type_id, transaction_type_class.find_by_community_id(community.id).id)
-          print_dot
-
-        end
-
-        puts ""
-
-        if custom_community_categories
-          # Keep even empty categories if they are customized
-          print_stat "c"
-        else
-          # Default categories, we'll keep only those which had listings
-          
-          new_categories = Category.find_all_by_community_id(community.id)
-          new_main_categories = new_categories.select{|c| c.parent_id.nil?}
-          new_subcategories   = new_categories.select{|c| ! c.parent_id.nil?}
-
-          new_subcategories.each do |cat|
-            if Listing.find_by_new_category_id(cat.id).nil?
-              puts "Will delete subcategory #{cat.name} for community #{community.domain}"
-              cat.destroy
+          puts "UPDATING LISTINGS FOR COMMUNITY #{community.domain}\n"
+          # update listings 
+          community.listings.each do |listing|
+            current_category = listing.category
+            if current_category.nil?
+              puts "***ERROR*** Listing(#{listing.id} has a category_id without a category -> Skipping updating that listing."
+              next
             end
-          end
-
-          new_main_categories.each do |cat|
-            if Listing.find_by_new_category_id(cat.id).nil? && Category.find_by_parent_id(cat.id).nil?
-              puts "Will delete main category #{cat.name} for community #{community.domain}"
-              cat.destroy
+            target_category = Category.find_by_community_id_and_name(community.id, listing.category.name)
+            
+            if target_category.nil?
+              puts "***ERROR*** Listing(#{listing.id} had a category #{listing.category.name} which hasn't been created for #{community.domain} -> removing that listing from community."
+              listing.communities.delete(community)
+              next
             end
+
+            listing.update_column(:new_category_id, target_category.id )
+
+            transaction_type_class = SHARE_TYPE_MAP[listing.share_type.name]
+            target_transaction_type = transaction_type_class.find_by_community_id(community.id)
+
+            if target_transaction_type.nil?
+              puts "***ERROR*** Listing(#{listing.id} had a transaction_type #{transaction_type_class} which hasn't been created for #{community.domain} -> removing that listing from community."
+              listing.communities.delete(community)
+              next
+            end
+            
+            listing.update_column(:transaction_type_id, target_transaction_type.id)
+            print_dot
+
           end
 
-          print_stat "d"
-        end
+          puts ""
 
-      else # Using default categories and having 0 listings
-        crete_minimum_category_set(community)
-        print_stat "e"
-      end
+          if custom_community_categories
+            # Keep even empty categories if they are customized
+            print_stat "c"
+          else
+            # Default categories, we'll keep only those which had listings
+            
+            new_categories = Category.find_all_by_community_id(community.id)
+            new_main_categories = new_categories.select{|c| c.parent_id.nil?}
+            new_subcategories   = new_categories.select{|c| ! c.parent_id.nil?}
+
+            new_subcategories.each do |cat|
+              if Listing.find_by_new_category_id(cat.id).nil?
+                puts "Will delete subcategory #{cat.name} for community #{community.domain}"
+                cat.destroy
+              end
+            end
+
+            new_main_categories.each do |cat|
+              if Listing.find_by_new_category_id(cat.id).nil? && Category.find_by_parent_id(cat.id).nil?
+                puts "Will delete main category #{cat.name} for community #{community.domain}"
+                cat.destroy
+              end
+            end
+
+            print_stat "d"
+          end
+
+        else # Using default categories and having 0 listings
+          crete_minimum_category_set(community)
+          print_stat "e"
+        end
       
+        community.settings["categories_migrated"] = true
+        community.save!
+      end
     end
 
   end
@@ -311,15 +326,22 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
 
 
   def down
-    Category.where("community_id IS NOT NULL").each(&:destroy)
-    TransactionType.find_each(&:destroy)
-
     puts "This is too complicated migration to reverse completely \
     Reversing the migration does delete all new categories (which have community_id) and all transaction types, \
     but it won't reverse the updated listing columns."
     # raise  ActiveRecord::IrreversibleMigration, "This is too comlicated migration to reverse \
     # Although it generally only adds data, and doesn't delete anything, but listings and custom \
     # fields are linked to new categories and transaction types."
+
+    Category.where("community_id IS NOT NULL").each(&:destroy)
+    TransactionType.find_each(&:destroy)
+    Community.order("members_count ASC").each do |community|
+      community.settings.delete("categories_migrated")
+      community.save
+      print_dot
+    end
+
+
   end
 
 end
