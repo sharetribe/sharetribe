@@ -2,7 +2,7 @@ module HomepageHelper
   def filters_in_use?
     params[:q].present? || 
     (params[:category].present? && params[:category] != "all") || 
-    (params[:share_type].present? && params[:share_type] != "all")
+    (params[:transaction_type].present? && params[:transaction_type] != "all")
   end
 
   def show_subcategory_list(category, current_category_id)

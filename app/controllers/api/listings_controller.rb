@@ -15,7 +15,8 @@ class Api::ListingsController < Api::ApiController
     # Few extra fields for ATOM feed
     if params[:format].to_s == "atom"
       
-      @category_label = (params["category"] ? "(" + localized_category_label(params["category"]) + ")" : "")
+      category = Category.find_by_id(params["category"])
+      @category_label = (category.present? ? "(" + localized_category_label(category) + ")" : "")
       
       if ["request","offer"].include?params['share_type']
         listing_type_label = t("listings.index.#{params['share_type']+"s"}")

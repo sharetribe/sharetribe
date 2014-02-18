@@ -26,7 +26,7 @@ node do |listing|
   end
   
   node :listing_type do |listing|
-    listing.listing_type
+    listing.direction
   end
   
   # Deprecated: share_type is renamed to transaction_type.

@@ -266,11 +266,6 @@ namespace :sharetribe do
     CommunityStylesheetCompiler.compile_all()
   end
   
-  desc "Updates the Category and ShareType translations in DB based on the normal translation files"
-  task :update_categorization_translations => :environment do
-    CategoriesHelper.update_translations
-  end
-  
   desc "Cleans the auth_tokens table in the DB by deleting expired ones"
   task :delete_expired_auth_tokens => :environment do
     AuthToken.delete_expired
