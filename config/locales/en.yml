@@ -164,6 +164,15 @@ en:
         closed: Closed
       show:
         edit_poll: "Edit poll"
+    transaction_types:
+      sell: Selling
+      rent: "Renting out"
+      give: "Giving away"
+      lend: Lending
+      swap: Swapping
+      service: "Selling services"
+      request: Requesting
+      inquiry: Inquiry
   common:
     edit_page: "Edit page"
     default_community_slogan: "Community marketplace"
@@ -654,8 +663,8 @@ en:
       has_updated_listing_you_follow_in_kassi: "%{author} has updated the listing '%{listing}' you are following in %{service_name}."
       view_changes: "View changes"
     community_updates:
-      added_offer: "%{name_link} added an offer:"
-      added_request: "%{name_link} added a request:"
+      added_offer: "%{name_link} added a listing:"
+      added_request: "%{name_link} added a listing:"
       added_listing: "%{name_link} added a listing:"
       update_mail_title: "%{title_link} community update"
       title_link_text: "%{community_name}"
@@ -1262,6 +1271,7 @@ en:
       contact: Contact
       favor_offer: "Service offer"
       favor_request: "Service request"
+      inquiry: "Inquiry"
       item_offer_trade: "Swap offer"
       item_request_trade: "Swap request"
       no_description: "This listing doesn't have description"
@@ -1329,6 +1339,7 @@ en:
       total: Total
       service_charge: "Service charge"
       product: "Product:"
+      price: "Price:"
       price_for: "Price for %{payer_given_name}:"
       continue_to_pay: "Continue to pay"
       invoice: Invoice

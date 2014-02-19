@@ -509,7 +509,7 @@ function display_listing_form(selected_attributes, locale) {
 }
 
 // Initialize the actual form fields
-function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_offer, listing_id, price_required, price_message, minimum_price, minimum_price_message) {
+function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, listing_id, price_required, price_message, minimum_price, minimum_price_message) {
   
   $('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true, zIndex: 1000000}); });
   $('input.title_text_field:first').focus();

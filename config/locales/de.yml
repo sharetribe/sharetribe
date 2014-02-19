@@ -122,6 +122,14 @@ de:
         closed: Beendet
       show:
         edit_poll: "Umfrage bearbeiten"
+    transaction_types:
+      sell: Verkaufen
+      rent: Vermieten
+      give: "Umsonst abzugeben"
+      lend: Verleihen
+      swap: Tauschen
+      service: Verkaufsdienste
+      request: Anfragen
   common:
     edit_page: "Seite bearbeiten"
     default_community_slogan: Community-Marktplatz
@@ -824,7 +832,7 @@ de:
       send_invitation: "Einladung senden"
       add_as_many_emails_as_you_want: "Füge die E-Mail-Adressen der Leute, die du einladen möchtest, in das obere Feld ein. Wenn du mehrere E-Mail-Adressen hinzufügst, unterteile sie mit einem Komma."
       invitation_emails_field_placeholder: "freund1@beispiel.com, freund2@beispiel.com, ..."
-      invitation_message_field_placeholder: "Ich bin dieser tollen Community beigetreten. Das solltest du auch!"
+      invitation_message_field_placeholder: "Ich bin dieser tollen Community beigetreten. Das solltest du auch tun!"
       errors_in_emails: "Überprüfe, ob die eingegebenen E-Mail-Adressen korrekt sind. Wenn du mehrere E-Mail-Adressen eingegeben hast, trenne sie mit einem Komma."
     list_item:
       review: Bewertung
@@ -1338,6 +1346,7 @@ de:
       times_viewed: Gesehen
       processing_uploaded_image: "(Bild wird bearbeitet ...)"
       price_excludes_vat: "(ohne Mehrwertsteuer)"
+      listing_created_at: "Eintrag erfolgreich erstellt"
     displayed_price:
       price_excludes_vat: "(Steuer ausgeschlossen)"
   mapview:
@@ -1381,6 +1390,7 @@ de:
       total: Gesamtbetrag
       service_charge: Servicegebühr
       product: "Produkt:"
+      price: ~
       price_for: "Preis für %{payer_given_name}:"
       continue_to_pay: "Weiter zum Bezahlen"
       invoice: Rechnung
@@ -1744,6 +1754,7 @@ de:
     formats:
       short: "%e %b %Y at %H:%M"
       shorter: "%e %b at %H:%M"
+      short_date: "%T %M %J"
       sms: "%e %b at %H:%M"
   timestamps:
     day_ago: "Vor %{count} Tag"

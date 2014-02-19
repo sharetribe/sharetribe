@@ -31,5 +31,9 @@ module ConversationsHelper
       cancel_person_message_path(:person_id => current_user.id, :id => conversation.id.to_s)
     end 
   end
+
+  def free_conversation?
+    params[:message_type] || (@listing && @listing.transaction_type.is_inquiry?)
+  end
   
 end

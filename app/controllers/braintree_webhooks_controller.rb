@@ -40,7 +40,7 @@ class BraintreeWebhooksController < ApplicationController
 
       def sub_merchant_account_declined(notification, community)
         person_id = notification.merchant_account.id
-        BTLog.warn("Approved submerchant account for person #{person_id}")
+        BTLog.warn("Declined submerchant account for person #{person_id}")
         
         braintree_account = BraintreeAccount.find_by_person_id(person_id)
         braintree_account.update_attributes(:status => "suspended")

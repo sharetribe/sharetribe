@@ -1,11 +1,11 @@
-class Offer < TransactionType
+class Inquiry < TransactionType
 
   def direction
-    "offer"
+    "inquiry"
   end
 
   def is_offer?
-    true
+    false
   end
 
   def is_request?
@@ -13,11 +13,11 @@ class Offer < TransactionType
   end
 
   def is_inquiry?
-    false
+    true
   end
 
   def api_name
-    "offer"
+    "free_conversation"
   end
 
 end

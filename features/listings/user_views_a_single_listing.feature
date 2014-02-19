@@ -16,7 +16,6 @@ Feature: User views a single listing
     And I am on the home page
     When I follow "Massage"
     Then I should see "Massage"
-    And I should see "No reviews received"
     When I am logged in as "kassi_testperson1"
     And I have "2" testimonials with grade "1"
     And I am on the home page

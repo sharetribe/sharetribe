@@ -122,6 +122,14 @@ en-bf:
         closed: ~
       show:
         edit_poll: ~
+    transaction_types:
+      sell: ~
+      rent: ~
+      give: ~
+      lend: ~
+      swap: ~
+      service: ~
+      request: ~
   common:
     edit_page: ~
     default_community_slogan: "Boulder Flood Relief Mutual Aid Network"
@@ -1338,6 +1346,7 @@ en-bf:
       times_viewed: ~
       processing_uploaded_image: ~
       price_excludes_vat: ~
+      listing_created_at: ~
     displayed_price:
       price_excludes_vat: ~
   mapview:
@@ -1381,6 +1390,7 @@ en-bf:
       total: ~
       service_charge: ~
       product: ~
+      price: ~
       price_for: ~
       continue_to_pay: ~
       invoice: ~
@@ -1738,6 +1748,7 @@ en-bf:
     formats:
       short: ~
       shorter: ~
+      short_date: ~
       sms: ~
   timestamps:
     day_ago: ~

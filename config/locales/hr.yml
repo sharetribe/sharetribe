@@ -122,6 +122,14 @@ hr:
         closed: ~
       show:
         edit_poll: ~
+    transaction_types:
+      sell: ~
+      rent: ~
+      give: ~
+      lend: ~
+      swap: ~
+      service: ~
+      request: ~
   common:
     edit_page: ~
     default_community_slogan: ~
@@ -1338,6 +1346,7 @@ hr:
       times_viewed: Pregledano
       processing_uploaded_image: "(Obrada slike...)"
       price_excludes_vat: ~
+      listing_created_at: ~
     displayed_price:
       price_excludes_vat: "(PDV nije uračunat)"
   mapview:
@@ -1381,6 +1390,7 @@ hr:
       total: ~
       service_charge: ~
       product: ~
+      price: ~
       price_for: ~
       continue_to_pay: ~
       invoice: ~
@@ -1738,6 +1748,7 @@ hr:
     formats:
       short: ~
       shorter: ~
+      short_date: ~
       sms: ~
   timestamps:
     day_ago: ~

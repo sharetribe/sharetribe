@@ -14,7 +14,7 @@
                 %td{:valign => "top", :style => "margin-bottom: 0;padding-bottom: 0;"}
                   %p{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal; font-size: 14px; margin-top: 0;margin-bottom:0;padding:0;line-height:14px;"}
                     - name_link = link_to( listing.author.given_name_or_username, person_url(@url_params.merge({:id => listing.author.id})), :style => "color:#d96e21;font-weight:bold;text-decoration:none;")
-                    = t("emails.community_updates.added_#{listing.direction}", 
+                    = t("emails.community_updates.added_listing", 
                         :name_link => name_link, 
                             :default => t("emails.community_updates.added_listing", 
                                 :name_link => name_link)).html_safe
