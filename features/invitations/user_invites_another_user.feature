@@ -21,9 +21,8 @@ Feature: User joins invite only community
     And I should not see "Invite friends"
     When I log in as "kassi_testperson2"
     And I am on invitations page
-    Then I should not see "Invite your friends"
-    # I Should be redirected to front page
     And I should see "Post a new listing"
+    Then I should not see "Invite your friends"
     When users can invite new users to join community "test"
     And I am on invitations page
     Then I should see "Email address(es)"
