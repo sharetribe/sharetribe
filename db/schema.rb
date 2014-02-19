@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140207133412) do
+ActiveRecord::Schema.define(:version => 20140219162023) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -96,6 +96,9 @@ ActiveRecord::Schema.define(:version => 20140207133412) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
+
+  add_index "category_transaction_types", ["category_id"], :name => "index_category_transaction_types_on_category_id"
+  add_index "category_transaction_types", ["transaction_type_id"], :name => "index_category_transaction_types_on_transaction_type_id"
 
   create_table "category_translations", :force => true do |t|
     t.integer  "category_id"
@@ -301,6 +304,7 @@ ActiveRecord::Schema.define(:version => 20140207133412) do
     t.datetime "updated_at",      :null => false
   end
 
+  add_index "custom_field_names", ["custom_field_id", "locale"], :name => "locale_index"
   add_index "custom_field_names", ["custom_field_id"], :name => "index_custom_field_names_on_custom_field_id"
 
   create_table "custom_field_option_selections", :force => true do |t|
@@ -320,6 +324,7 @@ ActiveRecord::Schema.define(:version => 20140207133412) do
     t.datetime "updated_at",             :null => false
   end
 
+  add_index "custom_field_option_titles", ["custom_field_option_id", "locale"], :name => "locale_index"
   add_index "custom_field_option_titles", ["custom_field_option_id"], :name => "index_custom_field_option_titles_on_custom_field_option_id"
 
   create_table "custom_field_options", :force => true do |t|
@@ -503,8 +508,8 @@ ActiveRecord::Schema.define(:version => 20140207133412) do
     t.string   "privacy",             :default => "private"
     t.integer  "comments_count",      :default => 0
     t.string   "subcategory_old"
+    t.integer  "old_category_id"
     t.integer  "category_id"
-    t.integer  "new_category_id"
     t.integer  "share_type_id"
     t.integer  "transaction_type_id"
     t.integer  "organization_id"
@@ -513,8 +518,8 @@ ActiveRecord::Schema.define(:version => 20140207133412) do
     t.string   "quantity"
   end
 
-  add_index "listings", ["category_id"], :name => "index_listings_on_category_id"
   add_index "listings", ["listing_type_old"], :name => "index_listings_on_listing_type"
+  add_index "listings", ["old_category_id"], :name => "index_listings_on_category_id"
   add_index "listings", ["open"], :name => "index_listings_on_open"
   add_index "listings", ["share_type_id"], :name => "index_listings_on_share_type_id"
   add_index "listings", ["visibility"], :name => "index_listings_on_visibility"
@@ -758,7 +763,7 @@ ActiveRecord::Schema.define(:version => 20140207133412) do
   end
 
   create_table "sessions", :force => true do |t|
-    t.string   "session_id"
+    t.string   "session_id", :null => false
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -766,7 +771,6 @@ ActiveRecord::Schema.define(:version => 20140207133412) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
-
 
   create_table "share_type_translations", :force => true do |t|
     t.integer  "share_type_id"
@@ -873,6 +877,9 @@ ActiveRecord::Schema.define(:version => 20140207133412) do
     t.datetime "updated_at",          :null => false
   end
 
+  add_index "transaction_type_translations", ["transaction_type_id", "locale"], :name => "locale_index"
+  add_index "transaction_type_translations", ["transaction_type_id"], :name => "index_transaction_type_translations_on_transaction_type_id"
+
   create_table "transaction_types", :force => true do |t|
     t.string   "type"
     t.integer  "community_id"
@@ -882,5 +889,7 @@ ActiveRecord::Schema.define(:version => 20140207133412) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
   end
+
+  add_index "transaction_types", ["community_id"], :name => "index_transaction_types_on_community_id"
 
 end
