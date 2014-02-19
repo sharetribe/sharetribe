@@ -17,6 +17,7 @@ Feature: User joins invite only community
 
   @javascript
   Scenario: User invites another user successfully
+    When users can not invite new users to join community "test"
     And I am on the homepage
     And I should not see "Invite friends"
     When I log in as "kassi_testperson2"

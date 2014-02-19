@@ -70,8 +70,9 @@ Given /^community "([^"]*)" has payments in use(?: via (\w+))?(?: with seller co
   FactoryGirl.create(:payment_gateway, :community => community, :type => gateway_name)
 end
 
-Given /^users can invite new users to join community "([^"]*)"$/ do |community|
-  Community.find_by_domain(community).update_attribute(:users_can_invite_new_users, true)
+Given /^users (can|can not) invite new users to join community "([^"]*)"$/ do |verb, community|
+  can_invite = verb == "can"
+  Community.find_by_domain(community).update_attribute(:users_can_invite_new_users, can_invite)
 end
 
 Given /^there is an invitation for community "([^"]*)" with code "([^"]*)"(?: with (\d+) usages left)?$/ do |community, code, usages_left|
