@@ -120,17 +120,19 @@ window.ST.createCustomFieldOptionOrder = function(rowSelector) {
   $("#custom-fields-add-option").click(function(e) {
     e.preventDefault();
     var id = "jsnew-" + nextId();
-    var newFieldEl = $(newOptionTmpl({id: id, sortPriority: nextSortPriority()}));
-    $customFieldOptions.append(newFieldEl);
+    var row = $(newOptionTmpl({id: id, sortPriority: nextSortPriority()}));
+    $customFieldOptions.append(row);
     var newField = {
       id: id,
-      element: newFieldEl
+      element: row,
+      up: $(".custom-fields-action-up", row),
+      down: $(".custom-fields-action-down", row)
     };
     ST.newOptionAdded();
     ST.customFieldOptionOrder.add(newField);
 
     // Focus the new one
-    newFieldEl.find("input").first().focus();
+    row.find("input").first().focus();
   });
 
   return {
