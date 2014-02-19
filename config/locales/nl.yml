@@ -140,9 +140,9 @@ nl:
     password: Wachtwoord
     service_name: ~
     share_types:
-      request: Verzoek
+      request: Vraag
       offer: Aanbod
-      borrow: ontlenen
+      borrow: lenen
       buy: kopen
       give_away: weggeven
       lend: uitlenen
@@ -180,7 +180,7 @@ nl:
   conversations:
     accept:
       respond_to_offer: "Antwoord op een aanbod"
-      respond_to_request: "Ga in op een verzoek"
+      respond_to_request: "Ga in op een vraag"
       accept_offer: "Aanvaard het aanbod"
       accept_request: "Aanvaard het verzoek"
       reject_offer: ~
@@ -254,13 +254,13 @@ nl:
       message: Bericht
       rideshare_offer_message_form_title: "Vraag om een rit aan %{person}"
       rideshare_request_message_form_title: "Bied een rit aan %{person}"
-      send_message: ~
+      send_message: "Stuur bericht"
       send: ~
-      this_message_is_private: ~
-      you_will_get_notified_of_acceptance: ~
-      you_will_get_notified: ~
-      title: Titel
-      send_message_to_user: ~
+      this_message_is_private: "Je stuurt nu een privé bericht aan %{person}. %{person} zal een melding ontvangen van dit bericht per e-mail."
+      you_will_get_notified_of_acceptance: "Je ontvangt per mail een bericht als %{person} jouw aanbod accepteert of weigert."
+      you_will_get_notified: "Je ontvangt er bericht per mail als %{person} jou antwoordt."
+      title: Onderwerp
+      send_message_to_user: "Stuur bericht aan %{person}"
     notifications:
       badgenotification:
         see_all_your_badges: "Bekijk al uw badges"
@@ -297,13 +297,13 @@ nl:
       feedback_given: "Feedback gegeven"
       feedback_skipped: "Feedback overgeslagen"
       give_feedback: "Geef feedback"
-      offer_accepted: "Aanbod geaccepteerd"
-      offer_rejected: "Aanbod geweigerd"
+      offer_accepted: Geaccepteerd
+      offer_rejected: Afgewezen
       offer_canceled: ~
       offer_confirmed: ~
       pay: ~
       paid: ~
-      request_accepted: "Verzoek geaccepteerd"
+      request_accepted: "Vraag geaccepteerd"
       request_rejected: "Verzoek afgewezen"
       request_confirmed: ~
       request_canceled: ~
@@ -467,7 +467,7 @@ nl:
     index:
       watch_the_video: "Bekijk de video"
       get_started: "Start nu!"
-      browse_communities_around_you: "Wordt lid van een stam in jouw buurt"
+      browse_communities_around_you: "Wordt lid van een groep in jouw buurt"
       slogan: ~
       create_your_own: "Creëer je eigen"
       sharing_website: "Deelmarktplaats voor lokale gemeenschappen"
@@ -502,7 +502,7 @@ nl:
       an_example: ~
       home: Home
       faq: FAQ
-      browse_tribes: "Browse tribes"
+      browse_tribes: "Zoek groepen"
       pricing: ~
       contact: ~
       university_example_link: ~
@@ -627,7 +627,7 @@ nl:
       title_link_text: ~
       intro_paragraph: ~
       intro_paragraph_link_text: ~
-      post_a_new_listing: ~
+      post_a_new_listing: "Plaats een nieuwe item!"
       reduce_email_footer_text: ~
       settings_link_text: ~
       unsubscribe_link_text: ~
@@ -640,7 +640,7 @@ nl:
       could_you_offer_something: "Kan je iets delen dat anderen wellicht nodig hebben? Of heb je iets nodig dat anderen wellicht hebben?"
       add: "Voeg toe"
       an_offer: "Een aanbod"
-      a_request: "een verzoek"
+      a_request: "een vraag"
       to_kassi: ~
       check_everything_that_others_are: ~
       offering: ~
@@ -698,7 +698,7 @@ nl:
     error_404:
       if_you_believe: ~
       page_can_not_be_found: "Pagina niet gevonden!"
-      page_you_requested_can_not_be_found: "Pagina niet gevonden. Weet je zeker dat je het adres goed hebt geschreven?"
+      page_you_requested_can_not_be_found: "Pagina niet gevonden. Weet je zeker dat je het adres goed hebt gespeld?"
     error_404_title: "Pagina niet gevonden"
     error_500:
       help_us_find_the_problem: ~
@@ -708,7 +708,7 @@ nl:
     error_description: ~
     no_javascript:
       javascript_is_disabled_in_your_browser: ~
-      kassi_does_not_currently_work_without_javascript: "%{service_name} werkt niet goed zonder JavaScript. Schakel JavaScript aan bij de instellingen van je browser en herlaad dan de pagina."
+      kassi_does_not_currently_work_without_javascript: "%{service_name} werkt niet goed zonder JavaScript. Schakel JavaScript in bij de instellingen van je browser en herlaad dan de pagina."
       kassi_does_not_currently_work_without_javascript_dashboard: ~
       contact_us: ~
       send_feedback: ~
@@ -767,24 +767,24 @@ nl:
       examples_of_what_you_could_offer_to_others: "Wat kan jij anderen aanbieden"
       examples_of_what_you_could_request_to_others: "Wat kan jij van anderen vragen"
       favor_offer_list: "computer hulp, kleren maken, bakken, fiets maken"
-      favor_request_list: "Babysit, pianoles, hond uitlaten, grasmaaien"
+      favor_request_list: "Babysitten, pianoles, hond uitlaten, grasmaaien"
       favors_to_offer: "Help: "
       favors_to_request: "Help: "
       item_offer_list: "gereedschap, sport uitrusting, kostumes, camping spullen"
       item_request_list: "Gereedschappen, sport uitrusting, kostumes, camping spullen"
       items_to_offer: "Spullen te leen: "
-      items_to_request: "Spullen om te ontlenen: "
+      items_to_request: "Spullen om te lenen: "
       log_in: "log in!"
       no_offers_visible_unless_logged_in: "Geen item, gunst of rit aanbod is zichtbaar voor niet-ingelogde-gebruikers."
       no_open_offers_currently: "Geen open item, gunst of rit aanbod."
-      no_open_requests_currently: "Geen open item, gunst of rit verzoeken."
-      no_requests_visible_unless_logged_in: "Geen item, gunst of rit verzoek is zichtbaar voor niet-ingelogde gebruikers."
+      no_open_requests_currently: "Momenteel geen vraag of aanbod"
+      no_requests_visible_unless_logged_in: "Vraag en aanbod is niet zichtbaar voor niet-ingelogde gebruikers."
       one_private_offer_exists: "Er is al <b>één aanbod</b>,"
       one_private_request_exists: "Er is al <b>één verzoek</b>,"
       ride_offer: "Breng uw en andere kinderen naar hun hobbies"
       ride_request: "Een rit naar het werk"
       some_private_offers_exist: "Er zijn al <b>%{number_of_listings} aanbiedingen</b>,"
-      some_private_requests_exist: "Er zijn al <b>%{number_of_listings} verzoeken</b>,"
+      some_private_requests_exist: "Er zijn al <b>%{number_of_listings} vragen</b>,"
     custom_filters:
       update_view: ~
     event_feed:
@@ -792,7 +792,7 @@ nl:
     grid_item:
       processing_uploaded_image: ~
     index:
-      no_listings_with_your_search_criteria: "We slaagden er niet in om resultaten te vinde die voldoen aan de door jou opgegeven criteria ( indien je gewoon iets toegevoegd hebt, zou het ongeveer 10 minuten duren voordat nieuwe zaken verschijnen in de zoekfunctie)."
+      no_listings_with_your_search_criteria: "We slaagden er niet in om resultaten te vinden die voldoen aan de door jou opgegeven criteria (indien je iets hebt toegevoegd duurt het ongeveer 10 minuten voordat dit verschijnt in de zoekfunctie)."
       no_listings_notification: "Geen lijsten%{add_listing_link}."
       add_listing_link_text: "Voeg een nieuwe listing toe"
       available_on_the_app_store: "Beschikbaar in de app store"
@@ -803,9 +803,9 @@ nl:
       is: is
       are: zijn
       what_do_you_need: "Wat zoek je?"
-      post_new_listing: "Post een nieuwe item"
+      post_new_listing: "Plaats een nieuwe item"
       are_offering: aanbod
-      add_news_item: "Voeg een artikel toe"
+      add_news_item: "Voeg een item toe"
       inform_others_about_events: "Laatste nieuws en events in de gemeenschap"
       lend_rent_help_carpool: "Verkoop,leen, help, deel ritten"
       loading_more_content: "Meer inhoud aan het laden"
@@ -842,20 +842,20 @@ nl:
       show_more: "Toon meer"
     poll_form:
       poll: Poll
-      comment: Commentaar
+      comment: Reactie
       answer: Antwoord
       results: Resultaten
       poll_answer: Antwoord
       poll_answers: Antwoorden
     profile_info_empty_notification:
-      add_your_info: "Voeg je contact info toe"
-      add_a_profile_picture: "Voeg je profiel foto toe"
-      you_have_not_added_your_info: "Je hebt geen contact informatie toegevoegd. Gelieve dit te doen, zodat anderen gemakkelijk contact kunnen leggen met u. Gelieve ook een profiel afbeelding toe te voegen zodat het gemakkelijker is voor anderen om u te vetrouwen"
+      add_your_info: "Voeg je contact informatie toe"
+      add_a_profile_picture: "Voeg je profielfoto toe"
+      you_have_not_added_your_info: "Je hebt geen contact informatie toegevoegd. Gelieve dit te doen, zodat anderen gemakkelijk contact kunnen leggen met je. Gelieve ook een profiel afbeelding toe te voegen zodat het gemakkelijker is voor anderen om je te vertrouwen."
       add_your_info_link: "Voeg jouw info toe"
     recent_listing:
-      please_offer: Aanbod
-      comment: Commentaar
-      comments: Commentaar
+      please_offer: "Reageer op vraag"
+      comment: Reactie
+      comments: reacties
     filters:
       show: Filter
       search: Zoek
@@ -926,7 +926,7 @@ nl:
       login: "Log in"
       logout: "Log uit"
       notifications: Meldingen
-      requests: "vriend verzoeken"
+      requests: Vriendschapsverzoeken
       settings: Instellingen
       sign_up: Aanmelden
     logged_in_messages_icon:
@@ -939,8 +939,8 @@ nl:
       hi: Hallo
       login: "Log in"
       logout: "Log uit"
-      notifications: Notificaties
-      requests: Vriendverzoeken
+      notifications: Meldingen
+      requests: Vriendschapsverzoeken
       settings: Instellingen
       sign_up: "Meld je aan"
     notifications:
@@ -958,7 +958,7 @@ nl:
       create_new_listing: ~
       create_one_here: "hier één maken"
       email_confirmation_sent_to_new_address: ~
-      email_not_found: "Het email dat je gaf, is niet gevonden in de %{service_name} database."
+      email_not_found: "Het emailadres dat je hebt gegeven, is niet gevonden in de %{service_name} database."
       error_with_session: "Fout in sessie."
       feedback_considered_spam: "Feedback is niet opgeslagen, door de opmaak. Probeer opnieuw of gebruik het feedback forum."
       feedback_not_saved: "Feedback kon niet worden verzonden."
@@ -982,13 +982,13 @@ nl:
       offer_accepted: "Aanbod geaccepteerd"
       offer_confirmed: ~
       offer_closed: "Aanbod gesloten"
-      listing_created_successfully: ~
+      listing_created_successfully: "Je item is geplaatst. %{new_listing_link}"
       offer_rejected: "Aanbod afgewezen"
       offer_canceled: ~
       listing_updated_successfully: ~
       only_kassi_administrators_can_access_this_area: "Alleen %{service_name} administrators hebben toegang tot dit gedeelte"
-      only_listing_author_can_close_a_listing: "Alleen een geregistreerde auteur kan een vermelding sluiten"
-      only_listing_author_can_edit_a_listing: "Alleen een geregistreerde auteur kan een vermelding wijzigen"
+      only_listing_author_can_close_a_listing: "Alleen de auteur van het item kan deze sluiten"
+      only_listing_author_can_edit_a_listing: "Alleen de auteur van het item kan deze sluiten"
       payment_successful: ~
       payment_canceled: ~
       error_in_payment: ~
@@ -1077,16 +1077,16 @@ nl:
       write_comment: "Schrijf een nieuw commentaar:"
       you_cannot_send_a_new_comment_because_listing_is_closed: "Je kan geen nieuwe commentaar geven want de listing is gesloten"
       you_must: "Je moet"
-      subscribe_to_comments: "Verwittig me van nieuwe commentaren en updates"
+      subscribe_to_comments: "Breng me op de hoogte van nieuwe reacties en updates"
     edit:
-      edit_listing: "Edit listing"
+      edit_listing: "Bewerk item"
     edit_links:
       close_listing: "Close listing"
-      edit_listing: "Edit listing"
+      edit_listing: "Bewerk item"
       reopen_listing: "Heropen ;listing"
     follow_links:
-      follow: "Ontvang e-mail over de nieuwe commentaren"
-      unfollow: "Ontvang geen e-mails over nieuwe commentaren"
+      follow: "Ontvang e-mail wanneer er een reactie is geplaatst"
+      unfollow: "Ontvang geen e-mails als er een reactie is geplaatst"
     form:
       custom_field_partials:
         dropdown:
@@ -1097,11 +1097,11 @@ nl:
       departure_time_radio_buttons:
         repeated: ~
       description:
-        detailed_description: "Gedetaileerde beschrijving"
+        detailed_description: "Uitgebreide beschrijving"
       destination:
         destination: Bestemming
       form_content:
-        favor: Gunst
+        favor: Aanbod
         housing: Huisvesting
         item: Item
         offer_something: "Bied iets aan"
@@ -1114,7 +1114,7 @@ nl:
         googlemap_description: Kaart
         googlemap_updatemap: "Update kaart"
       images:
-        image: foto
+        image: Foto
         no_file_selected: "Geen bestand geselecteerd"
         remove_image: "Verwijder foto"
         select_file: "Selecteer bestand"
@@ -1144,7 +1144,7 @@ nl:
         receive: "Gratis ontvangen"
         rent: Huur
         rent_out: Verhuren
-        request_type: "Verzoek type"
+        request_type: "Soort vraag"
         sell: Verkoop
         share_for_free: "Gratis lenen voor gebruik"
         accept_for_free: "Ontvang gratis"
@@ -1157,11 +1157,11 @@ nl:
         favor_you_request: "Dienst die je zoekt"
         housing_you_offer: "Ruimte die je aanbiedt"
         housing_you_request: "Huisvesting vraag"
-        item_you_offer: "Jou item aanbod"
+        item_you_offer: "Jouw aanbod"
         item_you_request: "Jou item vraag"
-        listing_title: "lijst titel"
+        listing_title: "Titel bericht"
       valid_until:
-        valid_until: "Verval datum"
+        valid_until: "Geldig tot"
       valid_until_radio_buttons:
         for_the_time_being: "Voor nu"
       visibility:
@@ -1175,25 +1175,25 @@ nl:
     help_texts:
       help_share_type_title: "Type aanbod of verzoek"
       help_tags_title: Tags
-      help_valid_until_title: "Verval datum"
+      help_valid_until_title: "Geldig tot"
     index:
       all_categories: "Alle categorieën"
       all_offer_types: "Alle aanbod types"
-      all_request_types: "Alle verzoek types"
+      all_request_types: "Alle soorten vragen"
       category: Categorie
       did_not_found_what_you_were_looking_for: "Niet gevonden wat je zocht?"
       favors: Diensten
       housing: Ruimtes
       items: Items
       list_view: "Lijst view"
-      listings: Listings
+      listings: Items
       map_view: "Overzicht op de kaart"
       offer_something: "Vertel het anderen!"
       offer_type: "Aanbod type"
       offers: Aanbod
       request_something: "Vraag iets aan!"
       request_type: "Verzoek type"
-      requests: Verzoeken
+      requests: Vraag
       rideshare: "Rit delen"
       search_verb: Zoek
       you_have_something_others_do_not: "Heb je iets aan te bieden?"
@@ -1216,22 +1216,22 @@ nl:
       trades: Ruilen
     link_labels:
       offer_this: Aanbod
-      request_this: Verzoek
+      request_this: "Reageer op aanbod"
       lend_this: "Leen uit"
       borrow_this: Ontleen
       buy_this: Koop
       rent_out_this: Verhuur
       rent_this: Huur
       sell_this: Verkoop
-      link_label_for_favor_offer: "Vraag een gunst"
+      link_label_for_favor_offer: "Reageer op aanbod"
       link_label_for_favor_request: "Bied je hulp aan"
       link_label_for_housing_offer_sell: "Koop deze ruimte"
       link_label_for_housing_offer_rent_out: "Huur deze ruimte"
-      link_label_for_housing_offer_share_for_free: "Vraag deze ruimte"
+      link_label_for_housing_offer_share_for_free: "Vraag deze ruimte aan"
       link_label_for_housing_request_accept_for_free: "Biedt deze ruimte aan"
-      link_label_for_housing_request_buy: "Aanbod om deze ruimte te verkopen"
-      link_label_for_housing_request_rent: "Aanbod om deze ruimte te huren"
-      link_label_for_item_offer_lend: "Ontleen dit item"
+      link_label_for_housing_request_buy: "Bied aan om deze ruimte te verkopen"
+      link_label_for_housing_request_rent: "Bied aan om deze ruimte te huren"
+      link_label_for_item_offer_lend: "Leen dit item"
       link_label_for_item_offer_rent_out: ~
       link_label_for_item_offer_sell: "Koop dit item"
       link_label_for_item_offer_give_away: "Vraag dit item"
@@ -1244,12 +1244,12 @@ nl:
       link_label_for_rideshare_offer: "vraag om een rit"
       link_label_for_rideshare_request: "Bied een rit aan"
     new:
-      post_a_new_listing: ~
+      post_a_new_listing: "Plaats een nieuwe item"
       listing: Listing
       offer: "Ik heb iets aan te bieden aan anderen"
       request: "Ik zoek iets"
       selected_offer: Aanbod
-      selected_request: Verzoek
+      selected_request: Vraag
       selected_listing_type: ~
       selected_category: "Categorie%{category}"
       selected_subcategory: "Subcatego%{subcategory}rie"
@@ -1314,17 +1314,17 @@ nl:
       select_category: "Selecteer categorie"
     please_comment: Commentaar
     reply_link:
-      listing_closed: "Listing is gesloten"
+      listing_closed: "Item is gesloten"
     show:
-      add_your_phone_number: "Voeg je telefoonnr. toe"
-      add_profile_picture: "Voeg profiel foto toe"
+      add_your_phone_number: "Voeg je telefoonnummer toe"
+      add_profile_picture: "Voeg profielfoto toe"
       comments: Commentaar
-      contact_by_phone: "Contaceer per telefoon"
+      contact_by_phone: "Neem telefonisch contact op:"
       contact: ~
       favor_offer: "Gunst aanbod"
-      favor_request: "Gunst gezocht"
+      favor_request: Vraag
       item_offer_trade: "Ruil aanbod"
-      item_request_trade: "Ruil verzoek"
+      item_request_trade: "Ruil vraag"
       no_description: "Geen beschrijving"
       no_image: ~
       no_reviews: ~
@@ -1333,29 +1333,29 @@ nl:
       open_until: "Open tot %{date}"
       feedback: Feedback
       qr_code: ~
-      request: Verzoek
+      request: Vraag
       rideshare_offer: Ritaanbod
       rideshare_request: "Rit gezocht"
       send_private_message: "Stuur privé boodschap"
       share_types: "Deel types"
       share_types_offer: "Type aanbod"
-      share_types_request: "Type verzoek"
+      share_types_request: "Soort vraag"
       tags: Tags
       time: tijd
       times: keer
       times_viewed: Gezien
       processing_uploaded_image: ~
       price_excludes_vat: ~
-      listing_created_at: ~
+      listing_created_at: "Item geplaatst"
     displayed_price:
       price_excludes_vat: "(exclusief BTW)"
   mapview:
     index:
       all_categories: "Alle categoriën"
       all_offer_types: "Alle aanbod types"
-      all_request_types: "Alle verzoek types"
+      all_request_types: "Alle soorten vragen"
       category: Categorie
-      did_not_found_what_you_were_looking_for: "Heb je gevonden wat je zocht?"
+      did_not_found_what_you_were_looking_for: "Heb je niet gevonden wat je zocht?"
       favors: Diensten
       housing: ~
       items: items
@@ -1364,8 +1364,8 @@ nl:
       offer_something: "Vertel het door!"
       offer_type: "Aanbod type"
       offers: Aanbod
-      request_something: "Verzoek iets anders!"
-      request_type: "Verzoek type"
+      request_something: "Vraag iets anders aan!"
+      request_type: "Soort vraag"
       requests: Vraag
       rideshare: "Ritten delen"
       search_verb: Zoek
@@ -1390,6 +1390,7 @@ nl:
       total: ~
       service_charge: ~
       product: ~
+      price: ~
       price_for: ~
       continue_to_pay: ~
       invoice: ~
@@ -1459,7 +1460,7 @@ nl:
       terms: gebruiksvoorwaarden
       username_is_in_use: "De gebruikersnaam is al in gebruik."
       username_is_invalid: "Gebruikersnaam is ongeldig. Toegestane tekens zijn, nummers en liggend streepje."
-      visible_only_to_you: "alleen zichtbaar voor jou en de community admin"
+      visible_only_to_you: "alleen zichtbaar voor jou en de community beheerder"
       visible_to_everybody: "zichtbaar voor iedereen"
       create_account_with_facebook: ~
       or_create_new_account_without_facebook: ~
@@ -1493,7 +1494,7 @@ nl:
       enthusiast_silver: "Enthousiasteling (zilver)"
       enthusiast_silver_description: "Kassi is een deel van je dagelijkse routine geworden: jij hebt deze service al 30 keer bezocht."
       first_transaction: "Eerste event"
-      first_transaction_description: "Gefeliciteerd met je eerste uitwisseling in Kassi! Een van je verzoeken of aanbiedingen is geaccepteerd en bevestigd."
+      first_transaction_description: "Gefeliciteerd met je eerste uitwisseling in%{service_name}! Een van je vragen of aanbiedingen is geaccepteerd en bevestigd."
       generous_bronze: "Vrijgevig (brons)"
       generous_bronze_description: "Jij hebt al 2 items te leen gesteld of weggegeven. Ga zo door!"
       generous_gold: "Vrijgevig (goud)"
@@ -1515,11 +1516,11 @@ nl:
       lender_silver: "Lener (zilver)"
       lender_silver_description: "Jij hebt veel goederen in je kast die je kunt delen met anderen: 10 items aangeboden aan andere om te lenen!"
       listing_freak_bronze: "Listing freak (brons)"
-      listing_freak_bronze_description: "Jij hebt 5 open aanbiedingen/verzoeken staan in Kassi. Klasse! Heb je nog meer in petto waar anderen hun voordeel uit kunnen halen?"
+      listing_freak_bronze_description: "Jij hebt 5 open vragen/verzoeken staan in %{service_name}. Klasse! Heb je nog meer in petto waar anderen hun voordeel uit kunnen halen?"
       listing_freak_gold: "Listing freak (goud)"
       listing_freak_gold_description: "40 open aanbiedingen en/of verzoeken, magnifiek! Jij bent een van de meest actieve users in Kassi."
       listing_freak_silver: "Listing freak (zilver)"
-      listing_freak_silver_description: "20 open aanbiedingen en/of verzoeken, wat een topper ben je ook! Jij bent echt een hele actieve  cataloger."
+      listing_freak_silver_description: "20 open aanbiedingen en/of verzoeken, geweldig! Jij bent echt een heel actief lid."
       moneymaker_bronze: "Zakenman (brons)"
       moneymaker_bronze_description: "Jij bent nu ook tot inzien gekomen dat Kassi jou portomonnee kan spekken! Je hebt al 2 items succesvol verkocht of verhuurt in Kassi."
       moneymaker_gold: "Zakenman (goud)"
@@ -1527,7 +1528,7 @@ nl:
       moneymaker_silver: "Zakenman (zilver)"
       moneymaker_silver_description: "Kassi geeft je een leuke extraatje naast je inkomen. 6 verkochte of verhuurde items met positieve feedback! Ga zo door!"
       rookie: Rookie
-      rookie_description: "Je hebt een aanbieding of verzoek toegevoegd in Kassi voor de 1e keer. Daar ga je!"
+      rookie_description: "Je hebt een aanbieding of vraag toegevoegd in%{service_name} voor de 1e keer. Daar gaan we!"
       santa: Kerstman
       santa_description: "Ho ho ho en Gelukkig Kerstfeest! Je hebt tenminste één item weggegeven in December."
       taxi_stand_bronze: "Taxi stand (brons)"
@@ -1599,7 +1600,7 @@ nl:
       all_results: "Alle resultaten"
       loading_more_search_results: "Meer zoekresultaten aan het laden"
       offers: Aanbod
-      requests: Verzoeken
+      requests: Vragen
       search: Zoek
       search_results: Zoekresultaten
       search_returned_no_results: "Je zoekopdracht heeft geen resultaten opgeleverd."
@@ -1672,7 +1673,7 @@ nl:
       email_about_accept_reminders: ~
       email_about_confirm_reminders: ~
       email_about_new_badges: "...ik heb een nieuwe badge bereikt"
-      email_about_new_comments_to_own_listing: "...iemand heeft gereageerd op mijn aanbod of verzoek"
+      email_about_new_comments_to_own_listing: "...iemand heeft gereageerd op mijn vraag of aanbod"
       email_about_new_messages: "...iemand stuurt me een bericht"
       email_about_new_received_testimonials: "...iemand geeft me feedback"
       email_about_testimonial_reminders: "...ik ben vergeten feedback te geven op een event"
@@ -1680,8 +1681,8 @@ nl:
       email_weekly_community_updates: ~
       do_not_email_community_updates: ~
       email_newsletters: ~
-      email_when_conversation_accepted: "...iemand accepteert mijn aanbod of verzoek"
-      email_when_conversation_rejected: "...iemand weigert mijn aanbod of verzoek"
+      email_when_conversation_accepted: "...iemand accepteert mijn vraag of aanbod"
+      email_when_conversation_rejected: "...iemand weigert mijn vraag of aanbod"
       email_about_completed_transactions: ~
       email_about_new_payments: ~
       email_about_payment_reminders: ~
