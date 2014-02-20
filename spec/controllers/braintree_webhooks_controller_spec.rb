@@ -10,8 +10,6 @@ describe BraintreeWebhooksController do
 
     # Guard assert
     @community.braintree_in_use?.should be_true
-
-    request.host = "market.custom.org"
   end
 
   describe "#hooks" do
@@ -26,7 +24,7 @@ describe BraintreeWebhooksController do
         )
 
         # Do
-        post :hooks, :bt_signature => signature, :bt_payload => payload
+        post :hooks, :bt_signature => signature, :bt_payload => payload, :community_id => @community.id
       }
     end
 
@@ -40,7 +38,7 @@ describe BraintreeWebhooksController do
         @person.id
       )
 
-      post :hooks, :bt_signature => "#{signature}-invalid", :bt_payload => payload
+      post :hooks, :bt_signature => "#{signature}-invalid", :bt_payload => payload, :community_id => @community.id
 
       response.status.should == 400
     end
