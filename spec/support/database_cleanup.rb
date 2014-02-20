@@ -1,3 +1,6 @@
+require File.expand_path('../../../test/helper_modules', __FILE__)
+include TestHelpers
+
 RSpec.configure do |config|
   clean_db = -> {
     DatabaseCleaner.clean_with(:truncation)
