@@ -1,6 +1,7 @@
+- custom_field_values = listing.custom_field_values
 - if custom_fields && custom_fields.count > 0
   .new_listing_form_field_container
-    - custom_fields.each do |custom_field|
-      - custom_field.with_type do |field_type|
+    - custom_field_values.each do |answer|
+      - answer.with_type do |field_type|
         = label "custom_fields", "#{custom_field.id}".to_sym, "#{custom_field.name(I18n.locale)}#{custom_field.required ? '*' : ''}"
-        = render :partial => "listings/form/custom_field_partials/#{field_type}", :locals => { :custom_field => custom_field, :listing => listing }
+        = render :partial => "listings/form/custom_field_partials/#{field_type}", :locals => { :custom_field => custom_field, :custom_field_value => answer, :listing => listing }
