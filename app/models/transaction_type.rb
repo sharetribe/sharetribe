@@ -11,12 +11,10 @@ class TransactionType < ActiveRecord::Base
   validates_presence_of :community
 
   def display_name(locale)
-    n = translations.find { |translation| translation.locale == locale.to_s } || translations.first # Fallback to first
-    n ? n.name : ""
+    TranslationCache.new(self, :translations).translate(locale, :name)
   end
 
   def action_button_label(locale)
-    n = translations.find { |translation| translation.locale == locale.to_s } || translations.first # Fallback to first
-    n ? n.action_button_label : ""
+    TranslationCache.new(self, :translations).translate(locale, :action_button_label)
   end
 end

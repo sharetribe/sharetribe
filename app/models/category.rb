@@ -35,8 +35,7 @@ class Category < ActiveRecord::Base
   end
 
   def display_name(locale)
-    n = translations.find { |translation| translation.locale == locale.to_s } || translations.first # Fallback to first
-    n ? n.name : ""
+    TranslationCache.new(self, :translations).translate(locale, :name)
   end
 
   def has_own_or_subcategory_listings?
