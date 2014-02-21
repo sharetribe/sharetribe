@@ -70,7 +70,7 @@ When /^Braintree webhook "(.*?)" with id "(.*?)" is triggered$/ do |kind, id|
   )
 
   # Do
-  post "#{Capybara.app_host}/webhooks/braintree", :bt_signature => signature, :bt_payload => payload
+  post "#{Capybara.app_host}/webhooks/braintree", :bt_signature => signature, :bt_payload => payload, :community_id => community.id
 end
 
 Given /^Braintree transaction is mocked$/ do

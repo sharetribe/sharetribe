@@ -11,6 +11,7 @@ module CommunityStylesheetCompiler
   SOURCE_FILE = "application.scss"
   TARGET_DIR = "public/assets"
   VARIABLE_FILE = "default-colors.scss"
+  S3_PATH = "assets/custom"
 
   class << self
 
@@ -40,7 +41,15 @@ module CommunityStylesheetCompiler
 
       StylesheetCompiler.compile(SOURCE_DIR, SOURCE_FILE, target_file_path, VARIABLE_FILE, variable_hash)
 
-      url = sync(target_file_path) || target_file_basename
+      # Save URL without extension for Rails helpers
+
+      url = if ApplicationHelper.use_s3?
+        sync(target_file_path, target_file_basename)
+      else
+        # Save file without extension for Rails helpers
+        target_file_basename
+      end
+
       # If we are at preproduction, only update the preproduction_stylesheet_url in order not
       # to disturb what's happening at production.
       # Normally update the stylesheet_url
@@ -54,21 +63,29 @@ module CommunityStylesheetCompiler
     private
 
     def use_gzip?
+      # Don't use gzip locally
       ApplicationHelper.use_s3?
     end
 
     # If using S3 as storage (e.g. in Heroku) need to move the generated files to S3
-    def sync(target_file_path)
-      if ApplicationHelper.use_s3?
-        AWS.config :access_key_id =>  APP_CONFIG.aws_access_key_id,  :secret_access_key => APP_CONFIG.aws_secret_access_key
-        s3 = AWS::S3.new
-        b = s3.buckets.create(APP_CONFIG.s3_bucket_name)
-        basename = File.basename("#{Rails.root}/#{target_file_path}")
-        o = b.objects["assets/custom/#{basename}"]
-        o.write(:file => "#{Rails.root}/#{target_file_path}", :cache_control => "public, max-age=30000000", :content_type => "text/css", :content_encoding => "gzip")
-        o.acl = :public_read
-        o.public_url.to_s
-      end
+    def sync(file_path, file_basename)
+      AWS.config :access_key_id =>  APP_CONFIG.aws_access_key_id,  :secret_access_key => APP_CONFIG.aws_secret_access_key
+      s3 = AWS::S3.new
+      b = s3.buckets.create(APP_CONFIG.s3_bucket_name)
+      basename = File.basename("#{file_path}")
+      o = b.objects[s3_file_path(file_basename)]
+      o.write(:file => "#{Rails.root}/#{file_path}", :cache_control => "public, max-age=30000000", :content_type => "text/css", :content_encoding => "gzip")
+      o.acl = :public_read
+      o.public_url.to_s
+    end
+
+    # Give source file basename (i.e. filename without extension)
+    # and get back S3 path
+    def s3_file_path(file_basename)
+      # Save file as .css even though it is gzip. This way older
+      # Safaris are able to load the gzipped file.
+      filename = file_basename + ".css"
+      File.join(S3_PATH, filename)
     end
 
     def prepare
