@@ -128,8 +128,9 @@ en:
       give: "Giving away"
       lend: Lending
       swap: Swapping
-      service: "Selling services"
+      service: Offering
       request: Requesting
+      offer_for_free: "Sharing for free"
   common:
     edit_page: "Edit page"
     default_community_slogan: "Community marketplace"
@@ -1124,7 +1125,7 @@ en:
         price: Price
         per: per
         mass: "piece, kg, l, m2, ..."
-        time: "hour, day, week, ..."
+        time: "hour, day, month, ..."
         long_time: "week, month, ..."
         service_fee_will_be_added: "A %{fee}% service fee will be added to the price."
         after_service_fee_you_will_get: "After %{service_name} service fee you will get %{sum_with_currency}"

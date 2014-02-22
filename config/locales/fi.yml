@@ -128,8 +128,9 @@ fi:
       give: Annetaan
       lend: "Annetaan lainaan"
       swap: Vaihdetaan
-      service: "Tarjotaan palvelua"
+      service: Tarjotaan
       request: Tarvitaan
+      offer_for_free: "Tarjotaan käyttöön ilmaiseksi"
   common:
     edit_page: "Muokkaa sivua"
     default_community_slogan: "Lainaa, myy, auta, jaa"
@@ -1124,7 +1125,7 @@ fi:
         price: Hinta
         per: per
         mass: "kpl, kg, l, m2, ..."
-        time: "tunti, päivä, ..."
+        time: "tunti, päivä, kk ..."
         long_time: "vko, kk, ..."
         service_fee_will_be_added: "Hintaan lisätään palvelumaksu %{fee}%."
         after_service_fee_you_will_get: ~
