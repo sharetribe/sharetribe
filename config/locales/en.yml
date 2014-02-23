@@ -1,5 +1,47 @@
 en:
   admin:
+    categories:
+      edit:
+        edit_listing_category: "Edit category '%{category}'"
+      index:
+        listing_categories: "Listing categories"
+        create_a_new_category: "+ Create a new category"
+        remove_category_confirmation: "Are you sure you want to remove category '%{category_name}'?"
+        saving_order: "Saving category order"
+        save_order_successful: "Successfully saved category order"
+        save_order_error: "An error occured while saving category order. Please refresh the page and try again."
+      new:
+        new_listing_category: "New listing category"
+      form:
+        category_name:
+          category_title: "Category title"
+        category_parent:
+          category_parent: "Parent category"
+          no_parent: "No parent"
+        category_transaction_types:
+          transaction_types: "Transaction types"
+          transaction_types_description: "Transaction types determine what kind of transactions are allowed with listings in this category. For example, is it only selling, or are renting and giving away for free also allowed."
+        buttons:
+          save: "Save"
+          cancel: "Cancel"
+      remove:
+        remove_category: "Remove category"
+        remove_category_name: "Remove category '%{category_name}'"
+        warning_remove_effects: "Warning! Removing category '%{category_name}' will have the following effects:"
+        warning_listing_will_be_moved: "There is %{listing_count} listings in the category. It will be moved to a new category."
+        warning_listings_will_be_moved: "There are %{listing_count} listings in the category. They will be moved to a new category."
+        warning_custom_field_will_be_moved: "There is %{custom_field_count} custom field in the category. It will be moved to a new category."
+        warning_custom_fields_will_be_moved: "There are %{custom_field_count} custom field in the category. They will be moved to a new category."
+        warning_subcategory_will_be_removed: "There is %{subcategory_count} subcategory in the category. It will be removed."
+        warning_subcategories_will_be_removed: "There are %{subcategory_count} subcategories in the category. They will be removed."
+        warning_with_subcategories_listing_will_be_moved: "There is %{listing_count} listings in the category and subcategories. It will be moved to a new category."
+        warning_with_subcategories_listings_will_be_moved: "There are %{listing_count} listings in the category and subcategories. They will be moved to a new category."
+        warning_with_subcategories_custom_field_will_be_moved: "There is %{custom_field_count} custom field in the category and subcategories. It will be moved to a new category."
+        warning_with_subcategories_custom_fields_will_be_moved: "There are %{custom_field_count} custom field in the category and subcategories. They will be moved to a new category."
+        select_new_category: "Select a new category where the items listed above will be moved:"
+        buttons:
+          remove: "Remove"
+          cancel: "Cancel"
     communities:
       edit_details:
         community_details: "Community details"
@@ -1312,7 +1354,10 @@ en:
       what_do_you_want_to_do: "What do you want to do?"
       what_can_you_offer: "What can you offer to others?"
       what_do_you_need: "What do you need?"
+      selected_transaction_type: "Listing type: %{transaction_type}"
       select_category: "Select category"
+      select_subcategory: "Select subcategory"
+      select_transaction_type: "Select listing type"
     please_comment: Comment
     reply_link:
       listing_closed: "Listing is closed"
