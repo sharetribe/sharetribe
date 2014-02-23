@@ -51,5 +51,6 @@ class AddNewTransactionTypeShareForFree < ActiveRecord::Migration
   end
 
   def down
+    raise  ActiveRecord::IrreversibleMigration, "Reverse migration not implemented"
   end
 end

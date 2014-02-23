@@ -17,5 +17,6 @@ class RemoveAdditionalTransactionTypes < ActiveRecord::Migration
   end
 
   def down
+    raise  ActiveRecord::IrreversibleMigration, "Reverse migration not implemented"
   end
 end
