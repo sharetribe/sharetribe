@@ -131,6 +131,12 @@ fi:
       service: Tarjotaan
       request: Tarvitaan
       share_for_free: "Tarjotaan käyttöön ilmaiseksi"
+      default_action_button_labels:
+        sell: Osta
+        rent: Vuokraa
+        request: Tarjoa
+        offer: Pyydä
+        inquiry: "Ota yhteyttä"
   common:
     edit_page: "Muokkaa sivua"
     default_community_slogan: "Lainaa, myy, auta, jaa"

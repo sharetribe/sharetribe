@@ -1,5 +1,47 @@
 de:
   admin:
+    categories:
+      edit:
+        edit_listing_category: ~
+      index:
+        listing_categories: ~
+        create_a_new_category: ~
+        remove_category_confirmation: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+      new:
+        new_listing_category: ~
+      form:
+        category_name:
+          category_title: ~
+        category_parent:
+          category_parent: ~
+          no_parent: ~
+        category_transaction_types:
+          transaction_types: ~
+          transaction_types_description: ~
+        buttons:
+          save: ~
+          cancel: ~
+      remove:
+        remove_category: ~
+        remove_category_name: ~
+        warning_remove_effects: ~
+        warning_listing_will_be_moved: ~
+        warning_listings_will_be_moved: ~
+        warning_custom_field_will_be_moved: ~
+        warning_custom_fields_will_be_moved: ~
+        warning_subcategory_will_be_removed: ~
+        warning_subcategories_will_be_removed: ~
+        warning_with_subcategories_listing_will_be_moved: ~
+        warning_with_subcategories_listings_will_be_moved: ~
+        warning_with_subcategories_custom_field_will_be_moved: ~
+        warning_with_subcategories_custom_fields_will_be_moved: ~
+        select_new_category: ~
+        buttons:
+          remove: ~
+          cancel: ~
     communities:
       edit_details:
         community_details: Community-Angaben
@@ -128,8 +170,9 @@ de:
       give: "Umsonst abzugeben"
       lend: Verleihen
       swap: Tauschen
-      service: Verkaufsdienste
+      service: Angebot
       request: Anfragen
+      share_for_free: ~
   common:
     edit_page: "Seite bearbeiten"
     default_community_slogan: Community-Marktplatz
@@ -1124,7 +1167,7 @@ de:
         price: Preis
         per: pro
         mass: "Stück, kg, l, m2"
-        time: "Stunde, Tag, Woche..."
+        time: "Stunde, Tag, Monat,..."
         long_time: "Woche, Monat..."
         service_fee_will_be_added: "Eine Servicegebühr in Höhe von %{fee}% kommt hinzu."
         after_service_fee_you_will_get: "Nach Abzug der %{service_name} Servicegebühr, wirst du %{sum_with_currency} erhalten"
@@ -1311,7 +1354,10 @@ de:
       what_do_you_want_to_do: "Was willst du tun?"
       what_can_you_offer: "Was kannst du anderen anbieten?"
       what_do_you_need: "Wobei brauchst du Hilfe?"
+      selected_transaction_type: ~
       select_category: "Kategorie auswählen"
+      select_subcategory: ~
+      select_transaction_type: ~
     please_comment: Kommentar
     reply_link:
       listing_closed: "Eintrag abgeschlossen"
