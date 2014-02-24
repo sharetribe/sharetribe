@@ -23,17 +23,17 @@
       - if @category.has_subcategories?
         %li
           - count = @category.subcategories.count
-          = t(count == 1 ? '.warning_subcategory_will_be_removed' : '.warning_subcategories_will_be_removed', subcategory_count: count)
+          = t('.warning_subcategory_will_be_removed', count: count)
 
       -if @category.has_own_or_subcategory_listings?
         %li
           - count = @category.own_and_subcategory_listings.count
-          = t(prefix + (count == 1 ? 'listing_will_be_moved' : 'listings_will_be_moved'), listing_count: count)
+          = t(prefix + 'listing_will_be_moved', count: count)
 
       -if @category.has_own_or_subcategory_custom_fields?
         %li
           - count = @category.own_and_subcategory_custom_fields.count
-          = t(prefix + (count == 1 ? 'custom_field_will_be_moved' : 'custom_fields_will_be_moved'), custom_field_count: count)
+          = t(prefix + 'custom_field_will_be_moved', count: count)
 
   = form_tag('destroy_and_move', :method => :delete) do
 
