@@ -3,7 +3,7 @@ class AddNewTransactionTypeShareForFree < ActiveRecord::Migration
     Category.find_all_by_name("housing").each do |category|
       
       # don't react if community id is nil
-      if category.community_id
+      if category.community
 
         listings = Listing.find_all_by_category_id(category.id)
 
