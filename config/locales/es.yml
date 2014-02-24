@@ -1,5 +1,37 @@
 es:
   admin:
+    categories:
+      edit:
+        edit_listing_category: ~
+      index:
+        listing_categories: ~
+        create_a_new_category: ~
+        remove_category_confirmation: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+      new:
+        new_listing_category: ~
+      form:
+        category_name:
+          category_title: ~
+        category_parent:
+          category_parent: ~
+          no_parent: ~
+        category_transaction_types:
+          transaction_types: ~
+          transaction_types_description: ~
+        buttons:
+          save: ~
+          cancel: ~
+      remove:
+        remove_category: ~
+        remove_category_name: ~
+        warning_remove_effects: ~
+        select_new_category: ~
+        buttons:
+          remove: ~
+          cancel: ~
     communities:
       edit_details:
         community_details: "Detalles de la tribu"
@@ -122,6 +154,21 @@ es:
         closed: Cerrado
       show:
         edit_poll: "Editar encuesta"
+    transaction_types:
+      sell: Venta
+      rent: Alquilando
+      give: Regalando
+      lend: Prestando
+      swap: Intercambio
+      service: Oferta
+      request: Solicitando
+      share_for_free: "Compartido gratuitamente"
+      default_action_button_labels:
+        sell: Comprar
+        rent: Arrendar
+        request: Ofrecer
+        offer: Solicitar
+        inquiry: Contactar
   common:
     edit_page: ~
     default_community_slogan: "Colabora, ayuda o comparte"
@@ -139,7 +186,7 @@ es:
       give_away: regalando
       lend: prestando
       receive: regalando
-      rent: arrendando
+      rent: Alquiler
       rent_out: Alquilando
       sell: Venta
       offer_to_swap: ~
@@ -172,9 +219,9 @@ es:
   conversations:
     accept:
       respond_to_offer: "Responder a una oferta"
-      respond_to_request: ~
+      respond_to_request: "Responder a una solicitud"
       accept_offer: "Aceptar la oferta"
-      accept_request: ~
+      accept_request: "Aceptar la solicitud"
       reject_offer: ~
       reject_request: ~
       close_listing: ~
@@ -189,11 +236,11 @@ es:
       cancel_description: ~
       cancel_payed_description: ~
       canceling_payed_transaction: ~
-      confirm: ~
-      cancel: ~
+      confirm: "Marcar transacción completada."
+      cancel: "No se llevó a cabo."
       continue: ~
-      give_feedback_to: ~
-      do_not_give_feedback: ~
+      give_feedback_to: "Dar feedback a %{person_link}"
+      do_not_give_feedback: Omitir
     index:
       loading_more_messages: "Cargando más mensajes"
       message_partitive: mensaje
@@ -201,17 +248,17 @@ es:
       no_received_messages: "No hay mensajes recibidos"
       no_sent_messages: "No hay mensajes enviados"
     conversation:
-      accepted_request: ~
+      accepted_request: "Solicitud aceptada"
       accepted_offer: "Oferta aceptada."
-      rejected_request: ~
+      rejected_request: "Solicitud rechazada."
       rejected_offer: "Oferta rechazada."
-      confirmed_request: ~
+      confirmed_request: "Solicitud aceptada"
       confirmed_offer: "Oferta satisfecha."
       canceled_request: ~
       canceled_offer: "Oferta cancelada."
     message:
       accepted_request: "aceptada la solicitud"
-      accepted_offer: "has aceptado la oferta"
+      accepted_offer: "Oferta aceptada"
       rejected_request: ~
       rejected_offer: "has rechazado la oferta"
       confirmed_request: ~
@@ -247,7 +294,7 @@ es:
       rideshare_offer_message_form_title: "Solicítale un traslado a"
       rideshare_request_message_form_title: "Ofrécele un traslado a"
       send_message: "Enviar mensaje"
-      send: ~
+      send: Enviar
       this_message_is_private: "Este mensaje es privado entre tú y %{person}."
       you_will_get_notified_of_acceptance: "Recibirás una notificación por email cuando %{person} acepte o rechace tu propuesta."
       you_will_get_notified: "Recibirás una notificación por email cuando %{person} te conteste."
@@ -272,11 +319,11 @@ es:
       loading_more_notifications: "Cargando más notificaciones"
       no_notifications: "No hay notificaciones."
       testimonialnotification:
-        give_feedback_to: "Da una sugerencia a %{name}"
-        has_given_you_feedback_on_event: "Has recibido una sugerencia del evento"
-        see_all_the_feedback_you_have_received: "Revisa todas las sugerencias que has recibido"
+        give_feedback_to: "Dar un feedback a %{name}"
+        has_given_you_feedback_on_event: "Has recibido un feedback del evento"
+        see_all_the_feedback_you_have_received: "Revisar todos los feedbacks que has recibido"
     show:
-      in_response_to_listing: ~
+      in_response_to_listing: "sobre listado"
       message_sent_by: "Mensaje enviado por"
       message_sent_to: "Mensaje enviado a"
       send_reply: "Enviar respuesta"
@@ -286,9 +333,9 @@ es:
       last_message_at: "(último mensaje %{time})"
     status:
       cancel_payed_transaction: ~
-      feedback_given: "Sugerencia dada"
-      feedback_skipped: "Sugerencia omitida"
-      give_feedback: "Haz una sugerencia"
+      feedback_given: "feedback dado"
+      feedback_skipped: "Feedback omitido"
+      give_feedback: "Dar un feedback"
       offer_accepted: "Oferta aceptada"
       offer_rejected: "Oferta rechazada"
       offer_canceled: ~
@@ -297,9 +344,9 @@ es:
       paid: "pago exitoso"
       request_accepted: "Solicitud aceptada"
       request_rejected: "Solicitud rechazada"
-      request_confirmed: ~
+      request_confirmed: Completado
       request_canceled: Cancelada
-      skip_feedback: "Omitir sugerencia"
+      skip_feedback: "Omitir feedback"
       waiting_for_listing_author_to_accept_offer: "Esperando a %{listing_author_name}  para aceptar la oferta"
       waiting_for_listing_author_to_accept_request: "Esperando a  %{listing_author_name} para aceptar la oferta"
       waiting_confirmation_from_requester: "Esperando a %{requester_name} para marcar la solicitud como completada"
@@ -309,8 +356,8 @@ es:
       accept_request: "Aceptar solicitud"
       reject_offer: "Rechazar oferta"
       reject_request: "No por el momento"
-      confirm: ~
-      cancel: ~
+      confirm: "Marcar transacción completada."
+      cancel: "No se llevó a cabo."
   braintree_accounts:
     new:
       add_payout_details: ~
@@ -354,7 +401,7 @@ es:
     map_bubble:
       view_tribe: "Ver la tribu"
     email_confirmation_pending:
-      confirmation_pending: "Por favor confirma tu dirección e-mail"
+      confirmation_pending: "Por favor confirmar tu dirección e-mail"
     enter_organization_email:
       enter_your_organization_email: "Ingresa el e-mail de tu %{community_category}"
       only_people_with_verified_email_address_can_join_your_tribe: "Sólo gente con una dirección e-mail verificada de %{community_category} puede acceder a esta tribu."
@@ -506,7 +553,7 @@ es:
   emails:
     accept_reminder:
       remember_to_accept_offer: "Recuerda aceptar o rechazar una oferta"
-      remember_to_accept_request: "Recuerda aceptar o rechazar una solicitud"
+      remember_to_accept_request: "Recuerda aceptar o rechazar una solicitud de %{sender_name}"
       you_can_accept_or_reject_offer_at: "Puedes aceptar o rechazar la oferta de"
       you_can_accept_or_reject_request_at: "Puedes aceptar o rechazar la solicitud de"
       you_have_not_yet_accepted_or_rejected_offer: "Aún no has aceptado o rechazado la oferta '%{title}' que recibiste el %{date}."
@@ -532,15 +579,15 @@ es:
       payment_settings_link: ~
     transaction_confirmed:
       here_is_a_message_from: ~
-      request_marked_as_confirmed: ~
+      request_marked_as_confirmed: "Solicitud completada. Recuerde dar feedback"
       request_marked_as_canceled: ~
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
+      has_marked_request_as_confirmed: "%{other_party_full_name} ha marcado la solicitud de %{request}' como completa. Ahora puedes dar feedback a %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} ha cancelado la solicitud de '%{request}'. Ahora puedes dar feedback a %{other_party_given_name}"
       giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
+      give_feedback_to: "Dar feedback a %{other_party_given_name}"
     confirmation_instructions:
       confirmation_instructions_signature: "Saludos cordiales,<br/>El Equipo de %{service_name}"
-      welcome_to_kassi: "Bienvenido a %{service_name}!"
+      welcome_to_kassi: "Bienvenido (a) a %{service_name}!"
       need_to_confirm: "Antes de empezar a utilizar %{service_name}, deberás confirmar tu dirección de correo electrónico con el siguiente link:"
       confirmation_link_text: "Confirmar mi cuenta"
       or_paste_link: "Como otra alternativa, puedes copiar el siguiente link a la barra de direcciones de tu explorador de web."
@@ -561,7 +608,7 @@ es:
       subject: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha aceptado tu oferta considerando la solicitud %{listing}"
-      has_accepted_your_request: "%{accepter} ha aceptado tu solicitud considerando la oferta %{listing}"
+      has_accepted_your_request: "%{accepter} ha aceptado tu solicitud de la oferta %{listing}"
       has_rejected_your_offer: "%{accepter} ha rechazado tu oferta de la solicitud %{listing}"
       has_rejected_your_request: "%{accepter} ha rechazado tu solicitud de la oferta %{listing}"
       view_thread: ~
@@ -607,9 +654,9 @@ es:
       price: Precio
       service_fee: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name} te ha dado una sugerencia en %{service_name}"
-      you_can_give_feedback_to: "Puedes darle una sugerencia a %{name} en"
-      view_feedback: ~
+      has_given_you_feedback_in_kassi: "%{name} te ha dado un feedback en %{service_name}"
+      you_can_give_feedback_to: "Te falta dar feedback a %{name}."
+      view_feedback: "Ver feedback"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "La lista que sigues ha sido actualizada"
       has_updated_listing_you_follow_in_kassi: ~
@@ -648,11 +695,11 @@ es:
       change_my_password: "Cambiar mi contraseña"
       reset_password_instructions: "<p>Has indicado que has olvidado tu contraseña o tu nombre de usuario en el %{service_name} servicio.</p><p>Tu nombre de usuario es: %{username}</p><p>Si necesitas restablecer tu contraseña, haz click en el siguiente enlace: %{password_reset_link}</p><br/><p>Si no solicitaste esto, por favor ignora este e-mail. Tu contraseña no cambiará hasta que accedas al enlace de más arriba y crees una nueva.</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Las sugerencias son públicas y están a disposición de todos los usuarios. Basándose en los comentarios y sugerencias los usuarios pueden juzgar o saber si %{name} es una persona confiable y si es con quien se desean contactar. Por eso, no olvides ingresar recomendaciones o comentarios en los eventos, ya que así también recuerdas a los demás para que te den sugerencias. Ten en cuenta que es necesario recibir comentarios positivos para obtener medallas."
-      remember_to_give_feedback_to: "Recordatorio: Recuerda hacer una sugerencia a %{name}"
+      feedback_is_public_and_is_shown: "Los feedbacks son públicos y están a disposición de todos los usuarios. Basándose en los comentarios y feedbacks los usuarios pueden juzgar o saber si %{name} es una persona confiable y si es con quien se desean contactar. Por eso, no olvides ingresar recomendaciones o comentarios en los eventos, ya que así también recuerdas a los demás para que te den feedbacks. Ten en cuenta que es necesario recibir comentarios positivos para obtener medallas."
+      remember_to_give_feedback_to: "Recordatorio: Recuerda dar feeedback a %{name}"
       you_have_not_given_feedback_yet: |-
-          Aún no has enviado una sugerencia a %{name} acerca del evento '%{event}'.
-          Recuerda hacer una sugerencia de cómo %{given_name} actuó en el evento.
+          Aún no has enviado feedback a %{name} acerca del evento '%{event}'.
+          Recuerda dar feedback de cómo %{given_name} actuó en el evento.
     welcome_email:
       welcome_email_footer_text: "¿Qué tipo de emails desea recibir de %{service_name}? %{settings_link}"
       settings_link_text: ~
@@ -688,7 +735,7 @@ es:
       price: "Precio debe ser un número entero"
       minimum_price: ~
     testimonials:
-      you_must_explain_not_neutral_feedback: "Si deseas dar una sugerencia no neutral, debes explicar por qué."
+      you_must_explain_not_neutral_feedback: "Si deseas dar un feedback no neutral, debes explicar por qué."
       you_must_select_a_grade: "Recuerda evaluar a los usuarios haciendo click en uno de los íconos de más arriba (pueder ver las explicaciones de cada ícono deslizando el mouse sobre ellos)"
   error_pages:
     back_to_kassi_front_page: "Volver a la página principal de %{service_name}"
@@ -708,7 +755,7 @@ es:
       kassi_does_not_currently_work_without_javascript: "Desafortunadamente en la actualidad %{service_name} no funciona sin javascript. Intenta activar javascript en las preferencias de tu buscador y vuelva a cargar la página. Si deseas utilizar %{service_name} sin javascript, por favor envíanos una sugerencia utilizando el formulario que aparece a continuación."
       kassi_does_not_currently_work_without_javascript_dashboard: "Lamentablemente por ahora %{service_name} no funciona sin javascript. Intenta habilitar javascript desde las preferencias de tu buscador y luego carga esta página nuevamente. Si quisieras usar %{service_name} sin javascript, por favor %{contact_us}."
       contact_us: contáctenos
-      send_feedback: "Enviar sugerencia"
+      send_feedback: "Enviar feedback"
       your_feedback_to_admins: "Envía tu sugerencia al administrador"
     send: Enviar
     your_email_address: "Tu dirección email"
@@ -790,7 +837,7 @@ es:
       processing_uploaded_image: ~
     index:
       no_listings_with_your_search_criteria: "No pudimos encontrar ningún resultado con su criterio de búsqueda."
-      no_listings_notification: ~
+      no_listings_notification: "No hay listados. %{add_listing_link}."
       add_listing_link_text: "Agregar nuevo listado"
       available_on_the_app_store: "Disponible en la App Store"
       private_listing_notification: "Hay %{listing_count} publicaciones abiertas en esta comunidad. %{private_listing_count} de ellas %{be_verb} visibles sólo para los miembros de la comunidad. Si quieres ver esas publicaciones, necesitas %{log_in_link}."
@@ -801,7 +848,7 @@ es:
       are: son
       what_do_you_need: "¿Qué necesitas?"
       post_new_listing: "Nueva publicación"
-      are_offering: Ofertas
+      are_offering: Oferta
       add_news_item: "Añadir un artículo"
       inform_others_about_events: "Últimos eventos y noticias en la comunidad"
       lend_rent_help_carpool: "Vende, regala, ayuda o comparte lo que quieras!"
@@ -817,9 +864,9 @@ es:
       teaser_text: "%{service_name} es un servicio para la comunidad %{community}. Aquí podrás prestar, arrendar, regalar y vender cosas, dar y hacer favores o compartir trayectos de traslado. ¿Puedes prestarle algo a alguien o ayudarlo con algo?"
       tell_it_here: "Dilo aquí!"
       welcome_to_new_kassi: "Bienvenido al nuevo %{service_name}!"
-      no_reviews: "Sin reviews"
+      no_reviews: "Sin feedbacks"
       no_image: ~
-      filter: ~
+      filter: Filtro
       this_is_private_community: ~
     invitation_form:
       invite_your_friends: "Invita a tus amigos a %{service_name}!"
@@ -832,8 +879,8 @@ es:
       invitation_message_field_placeholder: "Me uní a este fantástico servicio. Deberías hacer lo mismo!"
       errors_in_emails: "Revisa que sean emails válidos, separados por una coma."
     list_item:
-      review: review
-      reviews: reviews
+      review: feedback
+      reviews: feedbacks
     news_item:
       show_less: "Mostrar menos"
       show_more: "Mostrar más"
@@ -850,7 +897,7 @@ es:
       you_have_not_added_your_info: "No has añadido tu información de contacto. Por favor hazlo, de modo que para los demás sea más fácil ponerse en contacto contigo. Asimismo, añade una foto de perfil para que te puedan reconocer los otros usuarios."
       add_your_info_link: "Agregar tu información ahora"
     recent_listing:
-      please_offer: Oferta
+      please_offer: Ofertar
       comment: comentario
       comments: comentarios
     filters:
@@ -885,7 +932,7 @@ es:
       feedback: "Sugerencia al equipo de %{service_name}"
       default_feedback: "¿Tuviste algún problema con %{service_name}?¿Tienes alguna sugerencia para mejorar el servicio? ¿Notaste algún contenido sospechoso? ¿O quieres conversar sobre un tema con nosotros? Cuéntanos!"
       feedback_forum: "Forum de sugerencias"
-      feedback_handle: Sugerencia
+      feedback_handle: Feedback
       give_feedback: Contáctenos
       keywords: "%{service_name}, Servicio, favor, artículo, trayecto compartido, autos prestados, hospedaje, alojamiento, ayuda, ayudando, oferta, solicitud, arrendar, comerciar, intercambiar, comprando, vendiendo, comprar, vender, regalando, dar, Kassi, ecológico, comunidad, comunidad online"
       meta_description: "%{service_name} es un servicio que ayuda a los miembros de agrupaciones y otras comunidades a vender y prestarse artículos entre ellos, organizar trayectos de traslado compartidos o a cooperarse mutuamente de múltiples formas."
@@ -958,10 +1005,10 @@ es:
       email_not_found: "No se encontró la dirección de correo en la base de datos de %{service_name}."
       error_with_session: "Error con la sesión."
       feedback_considered_spam: "Sugerencia no enviada debido a su formato. Inténtalo de nuevo o utiliza el foro para sugerencias."
-      feedback_not_saved: "La sugerencia no pudo ser enviada."
+      feedback_not_saved: "El feedback no pudo ser enviado."
       feedback_saved: "Gracias por el feedback! Te contactaremos tan pronto como sea posible."
-      feedback_sent_to: "Comentario enviado a"
-      feedback_skipped: "Sugerencia omitida"
+      feedback_sent_to: "Feedback enviado a %{target_person}"
+      feedback_skipped: "Feedback omitido"
       invitation_cannot_be_sent: "No se pudo enviar la invitación"
       invitation_sent: "Invitación enviada satisfactoriamente"
       inviting_new_users_is_not_allowed_in_this_community: "Invitar a nuevos usuarios no está permitido en ésta comunidad de %{service_name}"
@@ -1053,7 +1100,7 @@ es:
     profile_extras_header:
       back_to_profile_of_person: "Volver al perfil del usuario"
       badges: Medallas
-      testimonials: "Comentario recibido"
+      testimonials: "Feedback recibido"
     settings:
       account: Cuenta
       notifications: Notificaciones
@@ -1142,7 +1189,7 @@ es:
         rent: Alquiler
         rent_out: Alquilando
         request_type: "Tipo de solicitud"
-        sell: Vender
+        sell: Venta
         share_for_free: "Compartir gratuitamente"
         accept_for_free: "Aceptando gratis"
         trade: Intercambio
@@ -1205,7 +1252,7 @@ es:
       lends: Prestando
       receives: "Tómalo gratis!"
       rent_outs: Alquilando
-      rents: "Lo arriendo"
+      rents: "Lo alquilo"
       rideshares: "Traslado compartido"
       sells: Vender
       share_for_frees: "Compartir gratuitamente"
@@ -1246,7 +1293,7 @@ es:
       offer: "Tengo algo para ofrecer a los demás"
       request: "Necesito algo"
       selected_offer: Oferta
-      selected_request: Solicitud
+      selected_request: Solicitar
       selected_listing_type: "Tipo de listado: %{listing_type}"
       selected_category: "Categoría: %{category}"
       selected_subcategory: "Subcategoría: %{subcategory}"
@@ -1260,9 +1307,9 @@ es:
       selected_give_away: Regalando
       selected_lend: Prestando
       selected_receive: "Tomándolo gratis"
-      selected_rent: Arrendando
+      selected_rent: Alquiler
       selected_rent_out: Alquilando
-      selected_sell: Vendiendo
+      selected_sell: Venta
       selected_offer_to_swap: ~
       selected_request_to_swap: ~
       selected_share_for_free: "Compartiendo gratis"
@@ -1308,7 +1355,10 @@ es:
       what_do_you_want_to_do: "¿Qué quieres hacer?"
       what_can_you_offer: "¿Qué puedes ofrecerles a los demás?"
       what_do_you_need: "¿Qué necesitas?"
+      selected_transaction_type: ~
       select_category: "Selecionar una categoría"
+      select_subcategory: ~
+      select_transaction_type: ~
     please_comment: Comentario
     reply_link:
       listing_closed: "Listado cerrado"
@@ -1324,11 +1374,11 @@ es:
       item_request_trade: "Solicitud de trueque"
       no_description: "Sin descripción"
       no_image: "No hay imagen"
-      no_reviews: "No has recibido reviews"
+      no_reviews: "No has recibido feedbacks"
       offer: Oferta
       listing_created: Creado
       open_until: "Abierto hasta %{date}"
-      feedback: "Comentarios:"
+      feedback: Feedback
       qr_code: "Código QR"
       request: Solicitar
       rideshare_offer: "Oferta de traslado compartido"
@@ -1343,6 +1393,7 @@ es:
       times_viewed: Visto
       processing_uploaded_image: ~
       price_excludes_vat: ~
+      listing_created_at: ~
     displayed_price:
       price_excludes_vat: ~
   mapview:
@@ -1386,6 +1437,7 @@ es:
       total: ~
       service_charge: ~
       product: ~
+      price: ~
       price_for: ~
       continue_to_pay: ~
       invoice: ~
@@ -1422,7 +1474,7 @@ es:
       deactivate: Desactivar
     help_texts:
       badges_description_title: Medallas
-      feedback_description_title: Sugerencia
+      feedback_description_title: Feedback
       help_captcha_title: "¿Eres humano?"
       help_invitation_code_title: "Necesitas una invitación para unirte a"
       terms_title: "Términos de uso de %{service_name}"
@@ -1544,7 +1596,7 @@ es:
       as_expected: "Como lo esperado"
       exceeded_expectations: "Mucho mejor de lo esperado"
       grade: "puntaje:"
-      and_gave_following_feedback: "y dio los siguientes comentarios"
+      and_gave_following_feedback: "Feedbacks dados"
       less_than_expected: "Peor de lo esperado"
       slightly_better_than_expected: "Un poco mejor de lo esperado"
       slightly_less_than_expected: "Un poco peor de lo esperado"
@@ -1576,21 +1628,21 @@ es:
       slightly_better_than_expected: "Ha superado las expectativas"
       slightly_less_than_expected: "Peor de lo esperado"
       what_are_these: "¿Qué son estos?"
-      review: "review recibida"
-      reviews: "reviews recibidas"
+      review: "Feedback recibido"
+      reviews: "feedbacks recibidos"
       badge: medalla
       badges: Medallas
       listing: Listado
       listings: ~
       open_listing: "publicación abierta"
       open_listings: "publicaciones abiertas"
-      no_listings: ~
+      no_listings: "No hay listados."
       no_open_listings: "Sin publicaciones abiertas"
-      no_reviews: "Sin reviews"
+      no_reviews: "Sin feedbacks"
       no_badges: "Sin medallas"
       show_all_listings: ~
       show_all_open_listings: "Mostrar todas las publicaciones abiertas"
-      show_all_reviews: "Mostrar todas las reviews"
+      show_all_reviews: "Mostrar todos los feedbacks"
       trustcloud: TrustCloud
   search:
     show:
@@ -1652,36 +1704,36 @@ es:
         address_title: ~
         remove_title: ~
         remove_confirmation: ~
-        receive_notifications_title_desktop: ~
-        receive_notifications_title_mobile: ~
-        receive_notifications_new_title_mobile: ~
+        receive_notifications_title_desktop: "Recibir notificaciones"
+        receive_notifications_title_mobile: "Recibir notificaciones"
+        receive_notifications_new_title_mobile: "Recibir notificaciones"
         add_new_with_plus: "+Agregar nuevo correo electrónico"
         add_new_cancel: ~
-        confirmation_title_mobile: ~
-        confirmation_title_desktop: ~
-        confirmation_resend: ~
+        confirmation_title_mobile: Confirmado
+        confirmation_title_desktop: Confirmado
+        confirmation_resend: Reenviar
         status_confirmed: ~
         status_pending: ~
     notifications:
-      email_from_admins: ~
+      email_from_admins: "Quiero recibir ocacionalmente las actualizaciones de SoyLa cr."
       i_want_to_get_email_notification_when: "Quiero recibir una notificación por correo electrónico cuando..."
       newsletters: Boletines
       community_updates: "Actualizaciones de la comunidad"
       email_about_accept_reminders: "...He olvidado aceptar un evento"
-      email_about_confirm_reminders: ~
+      email_about_confirm_reminders: "...He olvidado marcar una solicitud como completa."
       email_about_new_badges: "...He obtenido una nueva medalla"
       email_about_new_comments_to_own_listing: ".. .alguien comenta en mi oferta o solicitud"
       email_about_new_messages: ".. .alguien me envía un mensaje"
-      email_about_new_received_testimonials: ".. .alguien me da sugerencias"
+      email_about_new_received_testimonials: ".. .alguien me dio un feedback"
       email_about_testimonial_reminders: "...He olvidado hacer una sugerencia o dar información sobre un evento"
       email_daily_community_updates: "Enviarme un email de actualización <b>diariamente</b> si hay nuevas publicaciones"
       email_weekly_community_updates: "Enviarme un email de actualización <b>semanalmente</b> si hay nuevas publicaciones"
       do_not_email_community_updates: "No enviarme emails de actualización"
-      email_newsletters: "Enviarme ocasionalmente %{service_name} newsletter"
+      email_newsletters: "Enviarme ocasionalmente los boletienes de %{service_name}."
       email_when_conversation_accepted: ".. .alguien acepta mi oferta o solicitud"
       email_when_conversation_rejected: ".. .alguien rechaza mi oferta o solicitud"
       email_about_completed_transactions: "...alguien ha marcado mi oferta o demanda como satisfecha"
-      email_about_new_payments: ~
+      email_about_new_payments: "...Recibí un nuevo pago."
       email_about_payment_reminders: ~
       unsubscribe_succesful: "Suscripción cancelada exitosamente"
       unsubscribe_info_text: "Ya no recibirás más emails de este tipo. Revisa tu %{settings_link} para seleccionar otros emails que quieras o no quieras recibir, o vuelve a %{homepage_link}."
@@ -1722,30 +1774,31 @@ es:
       you_need_to_accept_new_terms: "Los términos de uso de %{service_name} han cambiado. Es necesario que aceptes los nuevos términos para poder continuar utilizando %{service_name}."
   testimonials:
     index:
-      all_testimonials: "Todas las sugerencias"
-      feedback_altogether: "Votos en total: "
+      all_testimonials: "Todos los feedbacks"
+      feedback_altogether: "Todos los feedbacks recibidos. "
       loading_more_testimonials: "Cargando más testimonios"
-      no_testimonials: "No hay sugerencias recibidas."
+      no_testimonials: "No se recibió feedback"
     new:
       as_expected: "Lo esperado"
       exceeded_expectations: "Mucho mejor de lo esperado"
-      give_feedback_to: "Da una sugerencia a %{person}"
+      give_feedback_to: "Dar un feedback a %{person}"
       grade: "Evaluación del rendimiento"
       less_than_expected: "Peor de lo esperado"
-      send_feedback: "Enviar sugerencia"
+      send_feedback: "Enviar un feedback"
       slightly_better_than_expected: "Un poco mejor de lo esperado"
       slightly_less_than_expected: "Un poco peor de lo esperado"
-      textual_feedback: "Sugerencia textual"
+      textual_feedback: "Cómo estuvo la transacción realizada"
       this_will_be_shown_in_profile: "El feedback que tú des será visible para los otros usuarios en la página del perfil de %{person}. Esto ayudará a los otros miembros de esta tribu para evaluar si %{person} es una persona confiable."
       positive: Positivo
       negative: Negativo
       default_textual_feedback: "Todo fue sin problemas, muchas gracias!"
     testimonial:
-      about_listing: ~
+      about_listing: "sobre listado"
   time:
     formats:
       short: "%e %b %Y al %H:%M"
       shorter: "%e %b al %H:%M"
+      short_date: ~
       sms: "%e %b al %H:%M"
   timestamps:
     day_ago: "Hace %{count} día atrás"

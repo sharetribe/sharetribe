@@ -1,5 +1,37 @@
 es-ES:
   admin:
+    categories:
+      edit:
+        edit_listing_category: ~
+      index:
+        listing_categories: ~
+        create_a_new_category: ~
+        remove_category_confirmation: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+      new:
+        new_listing_category: ~
+      form:
+        category_name:
+          category_title: ~
+        category_parent:
+          category_parent: ~
+          no_parent: ~
+        category_transaction_types:
+          transaction_types: ~
+          transaction_types_description: ~
+        buttons:
+          save: ~
+          cancel: ~
+      remove:
+        remove_category: ~
+        remove_category_name: ~
+        warning_remove_effects: ~
+        select_new_category: ~
+        buttons:
+          remove: ~
+          cancel: ~
     communities:
       edit_details:
         community_details: "Detalles de la tribu"
@@ -122,6 +154,21 @@ es-ES:
         closed: Cerrado
       show:
         edit_poll: "Editar encuesta"
+    transaction_types:
+      sell: Venta
+      rent: Alquilando
+      give: Regalando
+      lend: Prestando
+      swap: Intercambio
+      service: Oferta
+      request: Solicitando
+      share_for_free: "Compartido gratuitamente"
+      default_action_button_labels:
+        sell: Comprar
+        rent: Arrendar
+        request: Ofrecer
+        offer: Solicitar
+        inquiry: Contactar
   common:
     edit_page: ~
     default_community_slogan: ~
@@ -1308,7 +1355,10 @@ es-ES:
       what_do_you_want_to_do: "¿Qué quieres hacer?"
       what_can_you_offer: "¿Qué puedes ofrecerles a los demás?"
       what_do_you_need: "¿Qué necesitas?"
+      selected_transaction_type: ~
       select_category: ~
+      select_subcategory: ~
+      select_transaction_type: ~
     please_comment: Comentario
     reply_link:
       listing_closed: ~
@@ -1343,6 +1393,7 @@ es-ES:
       times_viewed: Visto
       processing_uploaded_image: ~
       price_excludes_vat: ~
+      listing_created_at: ~
     displayed_price:
       price_excludes_vat: ~
   mapview:
@@ -1386,6 +1437,7 @@ es-ES:
       total: ~
       service_charge: ~
       product: ~
+      price: ~
       price_for: ~
       continue_to_pay: ~
       invoice: ~
@@ -1746,6 +1798,7 @@ es-ES:
     formats:
       short: "%e %b %Y al %H:%M"
       shorter: "%e %b al %H:%M"
+      short_date: ~
       sms: "%e %b al %H:%M"
   timestamps:
     day_ago: "un día atrás"

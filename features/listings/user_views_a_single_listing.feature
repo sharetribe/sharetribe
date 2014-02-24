@@ -65,5 +65,12 @@ Feature: User views a single listing
     When I go to the listing page
     Then I should see "You must log in to view this content"
   
-  
-  
+  @javascript
+  Scenario: User views listing created 
+    Given I am not logged in
+    And there is favor request with title "Massage" from "kassi_testperson1"
+    When I go to the listing page
+    Then I should not see "Listing created"
+    When listing publishing date is shown in community "test"
+    And I go to the listing page
+    Then I should see "Listing created"

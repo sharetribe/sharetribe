@@ -1,5 +1,37 @@
 de:
   admin:
+    categories:
+      edit:
+        edit_listing_category: ~
+      index:
+        listing_categories: ~
+        create_a_new_category: "+ Neue Kategorie erstellen"
+        remove_category_confirmation: ~
+        saving_order: "Kategoriereihenfolge speichern"
+        save_order_successful: ~
+        save_order_error: ~
+      new:
+        new_listing_category: ~
+      form:
+        category_name:
+          category_title: ~
+        category_parent:
+          category_parent: ~
+          no_parent: ~
+        category_transaction_types:
+          transaction_types: ~
+          transaction_types_description: ~
+        buttons:
+          save: Speichern
+          cancel: Abbrechen
+      remove:
+        remove_category: "Kategorie entfernen"
+        remove_category_name: ~
+        warning_remove_effects: ~
+        select_new_category: ~
+        buttons:
+          remove: Entfernen
+          cancel: Abbrechen
     communities:
       edit_details:
         community_details: Community-Angaben
@@ -122,6 +154,21 @@ de:
         closed: Beendet
       show:
         edit_poll: "Umfrage bearbeiten"
+    transaction_types:
+      sell: Verkaufen
+      rent: Vermieten
+      give: "Umsonst abzugeben"
+      lend: Verleihen
+      swap: Tauschen
+      service: Angebot
+      request: Anfragen
+      share_for_free: "Kostenlos teilen"
+      default_action_button_labels:
+        sell: Kaufen
+        rent: Mieten
+        request: Anbieten
+        offer: Anfragen
+        inquiry: Kontakt
   common:
     edit_page: "Seite bearbeiten"
     default_community_slogan: Community-Marktplatz
@@ -824,7 +871,7 @@ de:
       send_invitation: "Einladung senden"
       add_as_many_emails_as_you_want: "Füge die E-Mail-Adressen der Leute, die du einladen möchtest, in das obere Feld ein. Wenn du mehrere E-Mail-Adressen hinzufügst, unterteile sie mit einem Komma."
       invitation_emails_field_placeholder: "freund1@beispiel.com, freund2@beispiel.com, ..."
-      invitation_message_field_placeholder: "Ich bin dieser tollen Community beigetreten. Das solltest du auch!"
+      invitation_message_field_placeholder: "Ich bin dieser tollen Community beigetreten. Das solltest du auch tun!"
       errors_in_emails: "Überprüfe, ob die eingegebenen E-Mail-Adressen korrekt sind. Wenn du mehrere E-Mail-Adressen eingegeben hast, trenne sie mit einem Komma."
     list_item:
       review: Bewertung
@@ -1116,7 +1163,7 @@ de:
         price: Preis
         per: pro
         mass: "Stück, kg, l, m2"
-        time: "Stunde, Tag, Woche..."
+        time: "Stunde, Tag, Monat,..."
         long_time: "Woche, Monat..."
         service_fee_will_be_added: "Eine Servicegebühr in Höhe von %{fee}% kommt hinzu."
         after_service_fee_you_will_get: "Nach Abzug der %{service_name} Servicegebühr, wirst du %{sum_with_currency} erhalten"
@@ -1303,7 +1350,10 @@ de:
       what_do_you_want_to_do: "Was willst du tun?"
       what_can_you_offer: "Was kannst du anderen anbieten?"
       what_do_you_need: "Wobei brauchst du Hilfe?"
+      selected_transaction_type: ~
       select_category: "Kategorie auswählen"
+      select_subcategory: "Unterkategorie auswählen"
+      select_transaction_type: ~
     please_comment: Kommentar
     reply_link:
       listing_closed: "Eintrag abgeschlossen"
@@ -1338,6 +1388,7 @@ de:
       times_viewed: Gesehen
       processing_uploaded_image: "(Bild wird bearbeitet ...)"
       price_excludes_vat: "(ohne Mehrwertsteuer)"
+      listing_created_at: "Eintrag erfolgreich erstellt"
     displayed_price:
       price_excludes_vat: "(Steuer ausgeschlossen)"
   mapview:
@@ -1381,6 +1432,7 @@ de:
       total: Gesamtbetrag
       service_charge: Servicegebühr
       product: "Produkt:"
+      price: "Preis:"
       price_for: "Preis für %{payer_given_name}:"
       continue_to_pay: "Weiter zum Bezahlen"
       invoice: Rechnung
@@ -1744,6 +1796,7 @@ de:
     formats:
       short: "%e %b %Y at %H:%M"
       shorter: "%e %b at %H:%M"
+      short_date: "%T %M %J"
       sms: "%e %b at %H:%M"
   timestamps:
     day_ago: "Vor %{count} Tag"

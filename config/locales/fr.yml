@@ -1,5 +1,42 @@
 fr:
   admin:
+    categories:
+      edit:
+        edit_listing_category: "Modifier la catégorie '%{category}'"
+      index:
+        listing_categories: "Catégories d'annonces"
+        create_a_new_category: "+ Créer une nouvelle catégorie"
+        remove_category_confirmation: "Êtes-vous sûr(e) de vouloir supprimer la catégorie '%{category_name}' ?"
+        saving_order: "Sauvegarde de l'ordre des catégories"
+        save_order_successful: "Ordre des catégories sauvegardé avec succès"
+        save_order_error: "Il y a eu un problème lors de la sauvegarde de l'ordre des catégories. Veuillez actualiser la page et essayer de nouveau."
+      new:
+        new_listing_category: "Nouvelle catégorie d'annonces"
+      form:
+        category_name:
+          category_title: "Nom de la catégorie"
+        category_parent:
+          category_parent: "Catégorie parente"
+          no_parent: "Pas de parente"
+        category_transaction_types:
+          transaction_types: "Types de transaction"
+          transaction_types_description: "Les types de transaction définissent quels genres de transactions sont autorisés pour les annonces dans cette catégorie. Par exemple, est-ce uniquement de la vente ou bien est-ce que louer et donner gratuitement sont également permis."
+        buttons:
+          save: Sauvegarder
+          cancel: Annuler
+      remove:
+        remove_category: "Supprimer la catégorie"
+        remove_category_name: "Supprimer la catégory '%{category_name}'"
+        warning_remove_effects: "Attention ! Supprimer la catégorie '%{category_name}' aura les conséquences suivantes : "
+        warning_listing_will_be_moved: "Il y a %{listing_count} annonce dans cette catégorie. Elle sera déplacée dans une nouvelle catégorie."
+        warning_custom_field_will_be_moved: "Il y a %{custom_field_count} champ personnalisé pour cette catégorie. Il sera déplacé dans une nouvelle catégorie."
+        warning_subcategory_will_be_removed: "Il y a %{subcategory_count} sous-catégorie pour cette catégorie. Elle sera supprimée."
+        warning_with_subcategories_listing_will_be_moved: "Il y a %{listing_count} annonce dans cette catégorie et ses sous-catégories. Elle sera déplacée dans une nouvelle catégorie."
+        warning_with_subcategories_custom_field_will_be_moved: "Il y a %{custom_field_count} champ personnalisé pour cette catégorie et ses sous-catégories. Il sera déplacé dans une nouvelle catégorie."
+        select_new_category: "Choisissez une nouvelle catégorie où les éléments listés ci-dessus seront déplacés : "
+        buttons:
+          remove: Supprimer
+          cancel: Annuler
     communities:
       edit_details:
         community_details: "Détails de la tribu"
@@ -122,6 +159,21 @@ fr:
         closed: Fermé
       show:
         edit_poll: "Editer le sondage"
+    transaction_types:
+      sell: Vente
+      rent: Location
+      give: Don
+      lend: Prêt
+      swap: Échange
+      service: Offre
+      request: Demande
+      share_for_free: "Partage gratuit"
+      default_action_button_labels:
+        sell: Achat
+        rent: Location
+        request: Offer
+        offer: Demande
+        inquiry: Contact
   common:
     edit_page: "Modifier la page"
     default_community_slogan: "Votre place de marché"
@@ -144,7 +196,7 @@ fr:
       sell: "vente "
       offer_to_swap: échange
       request_to_swap: échange
-      share_for_free: "partage gratuit "
+      share_for_free: "partage gratuit"
       accept_for_free: "usage gratuit "
     categories:
       item: Objets
@@ -1116,7 +1168,7 @@ fr:
         price: Prix
         per: par
         mass: "unité, kg, l, m²..."
-        time: "heure, jour, semaine..."
+        time: "heure, jour, mois..."
         long_time: "semaine, mois..."
         service_fee_will_be_added: "Une commission de %{fee}% sera ajoutée au prix."
         after_service_fee_you_will_get: "Après la commission de %{service_name} vous recevrez %{sum_with_currency}"
@@ -1303,7 +1355,10 @@ fr:
       what_do_you_want_to_do: "Que voulez-vous faire ?"
       what_can_you_offer: "Que pouvez-vous proposer aux autres ?"
       what_do_you_need: "De quoi avez-vous besoin ?"
+      selected_transaction_type: "Type d'annonce : %{transaction_type}"
       select_category: "Choisir une catégorie"
+      select_subcategory: "Sélectionner une sous-catégorie"
+      select_transaction_type: "Sélectionner le type d'annonce"
     please_comment: "Faire un commentaire"
     reply_link:
       listing_closed: "L'annonce est close"
@@ -1338,6 +1393,7 @@ fr:
       times_viewed: Vu
       processing_uploaded_image: "(Traitement de l'image envoyée...)"
       price_excludes_vat: "(hors TVA)"
+      listing_created_at: "Annonce créée"
     displayed_price:
       price_excludes_vat: "(hors TVA)"
   mapview:
@@ -1381,6 +1437,7 @@ fr:
       total: Total
       service_charge: Commission
       product: "Produit : "
+      price: "Prix : "
       price_for: "Prix pour %{payer_given_name} : "
       continue_to_pay: "Continuer le paiement"
       invoice: Facture
@@ -1454,8 +1511,8 @@ fr:
       username_is_invalid: "Nom d'utilisateur incorrect. Les caractères autorisés sont les lettres, les chiffres et le tiret bas ('_')."
       visible_only_to_you: "visible uniquement à vous et à l'administrateur de la tribu"
       visible_to_everybody: "visible à tout le monde"
-      create_account_with_facebook: "Créez un compte avec Facebook"
-      or_create_new_account_without_facebook: "... ou créez un compte sans utiliser Facebook, ci-dessous."
+      create_account_with_facebook: "Créer un compte avec Facebook"
+      or_create_new_account_without_facebook: "... ou créer un compte sans utiliser Facebook, ci-dessous."
     not_member:
       explanation_text: "Vous faites actuellement parti de la tribu %{community}. Vous avez essayé de voir le profil d'un utilisateur appartenant à une autre tribu. Vous ne pouvez pas accéder à ce profil via la tribu %{community}."
       read_more_about_kassi_communities: "En savoir plus sur les tribus %{service_name}"
@@ -1741,6 +1798,7 @@ fr:
     formats:
       short: "%e. %b %Y heure %H:%M"
       shorter: "%e. %b h %H:%M"
+      short_date: "%e %b %Y"
       sms: "%e.%m. h %H:%M"
   timestamps:
     day_ago: "il y a %{count} jour"

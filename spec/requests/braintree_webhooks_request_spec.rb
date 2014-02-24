@@ -22,7 +22,7 @@ describe "braintree webhooks" do
 
   describe "#challenge" do
     it "returns 200 for challenge" do
-      get "http://market.custom.org/webhooks/braintree"
+      get "http://market.custom.org/webhooks/braintree", :community_id => @community.id
 
       response.status.should == 200
 
@@ -39,7 +39,7 @@ describe "braintree webhooks" do
       # Guard assert
       @community.braintree_in_use?.should be_false
 
-      get "http://market.custom.org/webhooks/braintree"
+      get "http://market.custom.org/webhooks/braintree", :community_id => @community.id
 
       response.status.should == 400
     end
@@ -65,7 +65,7 @@ describe "braintree webhooks" do
         )
 
         # Do
-        post "http://market.custom.org/webhooks/braintree", :bt_signature => signature, :bt_payload => payload
+        post "http://market.custom.org/webhooks/braintree", :bt_signature => signature, :bt_payload => payload, :community_id => @community.id
 
         # Assert
         BraintreeAccount.find_by_person_id(@person.id).status.should == "active"

@@ -1,3 +1,0 @@
-class Service < TransactionType
-
-end

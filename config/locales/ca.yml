@@ -1,5 +1,37 @@
 ca:
   admin:
+    categories:
+      edit:
+        edit_listing_category: ~
+      index:
+        listing_categories: ~
+        create_a_new_category: ~
+        remove_category_confirmation: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+      new:
+        new_listing_category: ~
+      form:
+        category_name:
+          category_title: ~
+        category_parent:
+          category_parent: ~
+          no_parent: ~
+        category_transaction_types:
+          transaction_types: ~
+          transaction_types_description: ~
+        buttons:
+          save: ~
+          cancel: ~
+      remove:
+        remove_category: ~
+        remove_category_name: ~
+        warning_remove_effects: ~
+        select_new_category: ~
+        buttons:
+          remove: ~
+          cancel: ~
     communities:
       edit_details:
         community_details: ~
@@ -122,6 +154,21 @@ ca:
         closed: Tancat
       show:
         edit_poll: "Edita l'enquesta"
+    transaction_types:
+      sell: ~
+      rent: ~
+      give: ~
+      lend: ~
+      swap: ~
+      service: ~
+      request: ~
+      share_for_free: ~
+      default_action_button_labels:
+        sell: ~
+        rent: ~
+        request: ~
+        offer: ~
+        inquiry: ~
   common:
     edit_page: ~
     default_community_slogan: ~
@@ -1305,7 +1352,10 @@ ca:
       what_do_you_want_to_do: ~
       what_can_you_offer: ~
       what_do_you_need: ~
+      selected_transaction_type: ~
       select_category: ~
+      select_subcategory: ~
+      select_transaction_type: ~
     please_comment: Comentari
     reply_link:
       listing_closed: ~
@@ -1340,6 +1390,7 @@ ca:
       times_viewed: Vist
       processing_uploaded_image: ~
       price_excludes_vat: ~
+      listing_created_at: ~
     displayed_price:
       price_excludes_vat: ~
   mapview:
@@ -1383,6 +1434,7 @@ ca:
       total: ~
       service_charge: ~
       product: ~
+      price: ~
       price_for: ~
       continue_to_pay: ~
       invoice: ~
@@ -1740,6 +1792,7 @@ ca:
     formats:
       short: "%e %b %Y al %H:%M"
       shorter: "%e %b al %H:%M"
+      short_date: ~
       sms: "%e %b al %H:%M"
   timestamps:
     day_ago: "fa un dia"

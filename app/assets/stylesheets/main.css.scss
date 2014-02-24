@@ -3559,7 +3559,7 @@ header.marketplace-header {
   position: relative;
 
   figure.marketplace-cover {
-    background-image: image-url($cover-photo-url);
+    background-image: url(image-path($cover-photo-url));
     height: em($cover-photo-mobile-height);
     @include media(tablet) {
       @include fluid-ratio(em(1920) em($cover-photo-height), em(300) em($cover-photo-height));
@@ -3567,7 +3567,7 @@ header.marketplace-header {
   }
   
   figure.marketplace-cover-small {
-    background-image: image-url($small-cover-photo-url);
+    background-image: url(image-path($small-cover-photo-url));
     height: em($small-cover-photo-mobile-height);
     @include media(tablet) {
       @include fluid-ratio(em(1920) em($small-cover-photo-height), em(300) em($small-cover-photo-height));

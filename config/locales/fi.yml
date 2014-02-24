@@ -1,5 +1,37 @@
 fi:
   admin:
+    categories:
+      edit:
+        edit_listing_category: ~
+      index:
+        listing_categories: ~
+        create_a_new_category: ~
+        remove_category_confirmation: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+      new:
+        new_listing_category: ~
+      form:
+        category_name:
+          category_title: ~
+        category_parent:
+          category_parent: ~
+          no_parent: ~
+        category_transaction_types:
+          transaction_types: ~
+          transaction_types_description: ~
+        buttons:
+          save: ~
+          cancel: ~
+      remove:
+        remove_category: ~
+        remove_category_name: ~
+        warning_remove_effects: ~
+        select_new_category: ~
+        buttons:
+          remove: ~
+          cancel: ~
     communities:
       edit_details:
         community_details: "Yhteisön tiedot"
@@ -123,13 +155,20 @@ fi:
       show:
         edit_poll: "Muokkaa kyselyä"
     transaction_types:
-      sell: "Myydään"
+      sell: Myydään
       rent: "Annetaan vuokralle"
-      give: "Annetaan"
+      give: Annetaan
       lend: "Annetaan lainaan"
-      swap: "Vaihdetaan"
-      service: "Tarjotaan palvelua"
-      request: "Tarvitaan"
+      swap: Vaihdetaan
+      service: Tarjotaan
+      request: Tarvitaan
+      share_for_free: "Tarjotaan käyttöön ilmaiseksi"
+      default_action_button_labels:
+        sell: Osta
+        rent: Vuokraa
+        request: Tarjoa
+        offer: Pyydä
+        inquiry: "Ota yhteyttä"
   common:
     edit_page: "Muokkaa sivua"
     default_community_slogan: "Lainaa, myy, auta, jaa"
@@ -1124,7 +1163,7 @@ fi:
         price: Hinta
         per: per
         mass: "kpl, kg, l, m2, ..."
-        time: "tunti, päivä, ..."
+        time: "tunti, päivä, kk ..."
         long_time: "vko, kk, ..."
         service_fee_will_be_added: "Hintaan lisätään palvelumaksu %{fee}%."
         after_service_fee_you_will_get: ~
@@ -1311,7 +1350,10 @@ fi:
       what_do_you_want_to_do: "Mitä haluat tehdä?"
       what_can_you_offer: "Mitä haluat tarjota muille?"
       what_do_you_need: "Mitä tarvitset?"
+      selected_transaction_type: ~
       select_category: "Valitse ilmoituskategoria"
+      select_subcategory: ~
+      select_transaction_type: ~
     please_comment: Kommentoi
     reply_link:
       listing_closed: "Ilmoitus on suljettu"
@@ -1346,6 +1388,7 @@ fi:
       times_viewed: Katsottu
       processing_uploaded_image: "(Ladatun kuvan käsittely kesken...)"
       price_excludes_vat: "(alv 0)"
+      listing_created_at: "Ilmoitus luotu"
     displayed_price:
       price_excludes_vat: "(alv 0)"
   mapview:
@@ -1389,7 +1432,8 @@ fi:
       total: Yhteensä
       service_charge: Palvelumaksu
       product: "Tuote:"
-      price_for: ~
+      price: "Hinta:"
+      price_for: "Hinta käyttäjälle %{payer_given_name}:"
       continue_to_pay: "Jatka maksamaan"
       invoice: Lasku
       service_fee: "%{service_name} palvelumaksu:"
@@ -1749,6 +1793,7 @@ fi:
     formats:
       short: "%e. %b %Y kello %H:%M"
       shorter: "%e. %b klo %H:%M"
+      short_date: ~
       sms: "%e.%m. klo %H:%M"
   timestamps:
     day_ago: "%{count} päivä sitten"

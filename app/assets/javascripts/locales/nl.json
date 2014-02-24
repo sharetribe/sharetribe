@@ -1,7 +1,7 @@
 {
-  "please_wait": "\"Even wachten...\"",
+  "please_wait": "Even geduld...",
   "validation_messages": {
-    "accept": "Vul alstublieft een waarde in met een geldige extensie.",
+    "accept": "Het bestand moet een GIF, JPG of PNG bestand zijn.",
     "creditcard": "Vul een geldig credit card nummer in alstublieft.",
     "date": "Vul een geldige datum in alstublieft.",
     "dateISO": "Vul een geldige date (ISO) in alstublieft.",
@@ -12,13 +12,13 @@
     "maxlength": "Vul alstublieft niet meer dan {0} tekens in.",
     "min": "Vul een waarde groter of gelijk aan {0} in.",
     "minlength": "Vul alstublieft op zijn minst {0} tekens in.",
-    "number": "Vul een geldig nummer in alstublieft.",
+    "number": "Vul een geldig nummer in.",
     "range": "Vul een waarde tussen {0} en {1} in.",
     "rangelength": "Vul alstublieft een waarde met een lengte tussen {0} en {1} in.",
-    "remote": "Herstel dit veld, alstublieft.",
+    "remote": "Herstel dit veld.",
     "required": "Dit veld is verplicht.",
-    "url": "Vul een geldige URL in alstublieft.",
-    "address_validator": "The location was not found.",
-    "money": "You need to insert a valid monetary value."
+    "url": "Vul een geldige URL in.",
+    "address_validator": "De locatie is niet gevonden.",
+    "money": "Vermeld de juiste valuta."
   }
 }

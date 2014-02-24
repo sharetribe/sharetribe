@@ -1,5 +1,52 @@
 en:
   admin:
+    categories:
+      edit:
+        edit_listing_category: "Edit category '%{category}'"
+      index:
+        listing_categories: "Listing categories"
+        create_a_new_category: "+ Create a new category"
+        remove_category_confirmation: "Are you sure you want to remove category '%{category_name}'?"
+        saving_order: "Saving category order"
+        save_order_successful: "Successfully saved category order"
+        save_order_error: "An error occured while saving category order. Please refresh the page and try again."
+      new:
+        new_listing_category: "New listing category"
+      form:
+        category_name:
+          category_title: "Category title"
+        category_parent:
+          category_parent: "Parent category"
+          no_parent: "No parent"
+        category_transaction_types:
+          transaction_types: "Transaction types"
+          transaction_types_description: "Transaction types determine what kind of transactions are allowed with listings in this category. For example, is it only selling, or are renting and giving away for free also allowed."
+        buttons:
+          save: "Save"
+          cancel: "Cancel"
+      remove:
+        remove_category: "Remove category"
+        remove_category_name: "Remove category '%{category_name}'"
+        warning_remove_effects: "Warning! Removing category '%{category_name}' will have the following effects:"
+        warning_listing_will_be_moved:
+          one: "There is %{count} listing in the category. It will be moved to the selected category."
+          other: "There are %{count} listings in the category. They will be moved to the selected category."
+        warning_custom_field_will_be_moved: 
+          one: "There is %{count} custom field in the category. It will be moved to the selected category."
+          other: "There are %{count} custom field in the category. They will be moved to the selected category."
+        warning_subcategory_will_be_removed: 
+          one: "There is %{count} subcategory in the category. It will be removed."
+          other: "There are %{count} subcategories in the category. They will be removed."
+        warning_with_subcategories_listing_will_be_moved:
+          one: "There is %{count} listing in the category and subcategories. It will be moved to the selected category."
+          other: "There are %{count} listings in the category and subcategories. They will be moved to the selected category."
+        warning_with_subcategories_custom_field_will_be_moved:
+          one: "There is %{count} custom field in the category and subcategories. It will be moved to the selected category."
+          other: "There are %{count} custom field in the category and subcategories. They will be moved to the selected category."
+        select_new_category: "Select a new category where the items listed above will be moved:"
+        buttons:
+          remove: "Remove"
+          cancel: "Cancel"
     communities:
       edit_details:
         community_details: "Community details"
@@ -123,13 +170,20 @@ en:
       show:
         edit_poll: "Edit poll"
     transaction_types:
-      sell: "Selling"
+      sell: Selling
       rent: "Renting out"
       give: "Giving away"
-      lend: "Lending"
-      swap: "Swapping"
-      service: "Selling services"
-      request: "Requesting"
+      lend: Lending
+      swap: Swapping
+      service: Offering
+      request: Requesting
+      share_for_free: "Sharing for free"
+      default_action_button_labels:
+        sell: Buy
+        rent: Rent
+        request: Offer
+        offer: Request
+        inquiry: Contact
   common:
     edit_page: "Edit page"
     default_community_slogan: "Community marketplace"
@@ -1124,7 +1178,7 @@ en:
         price: Price
         per: per
         mass: "piece, kg, l, m2, ..."
-        time: "hour, day, week, ..."
+        time: "hour, day, month, ..."
         long_time: "week, month, ..."
         service_fee_will_be_added: "A %{fee}% service fee will be added to the price."
         after_service_fee_you_will_get: "After %{service_name} service fee you will get %{sum_with_currency}"
@@ -1311,7 +1365,10 @@ en:
       what_do_you_want_to_do: "What do you want to do?"
       what_can_you_offer: "What can you offer to others?"
       what_do_you_need: "What do you need?"
+      selected_transaction_type: "Listing type: %{transaction_type}"
       select_category: "Select category"
+      select_subcategory: "Select subcategory"
+      select_transaction_type: "Select listing type"
     please_comment: Comment
     reply_link:
       listing_closed: "Listing is closed"
@@ -1346,6 +1403,7 @@ en:
       times_viewed: Viewed
       processing_uploaded_image: "(Processing uploaded image...)"
       price_excludes_vat: "(excludes VAT)"
+      listing_created_at: "Listing created"
     displayed_price:
       price_excludes_vat: "(excludes VAT)"
   mapview:
@@ -1389,6 +1447,7 @@ en:
       total: Total
       service_charge: "Service charge"
       product: "Product:"
+      price: "Price:"
       price_for: "Price for %{payer_given_name}:"
       continue_to_pay: "Continue to pay"
       invoice: Invoice
@@ -1749,6 +1808,7 @@ en:
     formats:
       short: "%e %b %Y at %H:%M"
       shorter: "%e %b at %H:%M"
+      short_date: "%e %b %Y"
       sms: "%e %b at %H:%M"
   timestamps:
     day_ago: "%{count} day ago"
