@@ -19,7 +19,7 @@ class Community < ActiveRecord::Base
   
   has_many :payments
   has_many :statistics, :dependent => :destroy
-  has_many :transaction_types, :dependent => :destroy
+  has_many :transaction_types, :dependent => :destroy, :order => "sort_priority"
   
   has_and_belongs_to_many :listings
   
