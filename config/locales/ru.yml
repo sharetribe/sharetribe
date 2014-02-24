@@ -1,5 +1,37 @@
 ru:
   admin:
+    categories:
+      edit:
+        edit_listing_category: ~
+      index:
+        listing_categories: ~
+        create_a_new_category: ~
+        remove_category_confirmation: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+      new:
+        new_listing_category: ~
+      form:
+        category_name:
+          category_title: ~
+        category_parent:
+          category_parent: ~
+          no_parent: ~
+        category_transaction_types:
+          transaction_types: ~
+          transaction_types_description: ~
+        buttons:
+          save: ~
+          cancel: ~
+      remove:
+        remove_category: ~
+        remove_category_name: ~
+        warning_remove_effects: ~
+        select_new_category: ~
+        buttons:
+          remove: ~
+          cancel: ~
     communities:
       edit_details:
         community_details: "Подробности о сообществе"
@@ -130,6 +162,13 @@ ru:
       swap: ~
       service: ~
       request: ~
+      share_for_free: ~
+      default_action_button_labels:
+        sell: ~
+        rent: ~
+        request: ~
+        offer: ~
+        inquiry: ~
   common:
     edit_page: ~
     default_community_slogan: "Сотрудничайте, делитесь и помогайте"
@@ -1311,7 +1350,10 @@ ru:
       what_do_you_want_to_do: "Что вы хотите сделать?"
       what_can_you_offer: "Что вы можете предложить другим?"
       what_do_you_need: "Что вам нужно?"
+      selected_transaction_type: ~
       select_category: ~
+      select_subcategory: ~
+      select_transaction_type: ~
     please_comment: Комментарий
     reply_link:
       listing_closed: ~

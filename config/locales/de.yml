@@ -5,9 +5,9 @@ de:
         edit_listing_category: ~
       index:
         listing_categories: ~
-        create_a_new_category: ~
+        create_a_new_category: "+ Neue Kategorie erstellen"
         remove_category_confirmation: ~
-        saving_order: ~
+        saving_order: "Kategoriereihenfolge speichern"
         save_order_successful: ~
         save_order_error: ~
       new:
@@ -22,26 +22,16 @@ de:
           transaction_types: ~
           transaction_types_description: ~
         buttons:
-          save: ~
-          cancel: ~
+          save: Speichern
+          cancel: Abbrechen
       remove:
-        remove_category: ~
+        remove_category: "Kategorie entfernen"
         remove_category_name: ~
         warning_remove_effects: ~
-        warning_listing_will_be_moved: ~
-        warning_listings_will_be_moved: ~
-        warning_custom_field_will_be_moved: ~
-        warning_custom_fields_will_be_moved: ~
-        warning_subcategory_will_be_removed: ~
-        warning_subcategories_will_be_removed: ~
-        warning_with_subcategories_listing_will_be_moved: ~
-        warning_with_subcategories_listings_will_be_moved: ~
-        warning_with_subcategories_custom_field_will_be_moved: ~
-        warning_with_subcategories_custom_fields_will_be_moved: ~
         select_new_category: ~
         buttons:
-          remove: ~
-          cancel: ~
+          remove: Entfernen
+          cancel: Abbrechen
     communities:
       edit_details:
         community_details: Community-Angaben
@@ -172,7 +162,13 @@ de:
       swap: Tauschen
       service: Angebot
       request: Anfragen
-      share_for_free: ~
+      share_for_free: "Kostenlos teilen"
+      default_action_button_labels:
+        sell: Kaufen
+        rent: Mieten
+        request: Anbieten
+        offer: Anfragen
+        inquiry: Kontakt
   common:
     edit_page: "Seite bearbeiten"
     default_community_slogan: Community-Marktplatz
@@ -1356,7 +1352,7 @@ de:
       what_do_you_need: "Wobei brauchst du Hilfe?"
       selected_transaction_type: ~
       select_category: "Kategorie auswählen"
-      select_subcategory: ~
+      select_subcategory: "Unterkategorie auswählen"
       select_transaction_type: ~
     please_comment: Kommentar
     reply_link:

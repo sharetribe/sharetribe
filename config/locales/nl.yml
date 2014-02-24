@@ -1,5 +1,37 @@
 nl:
   admin:
+    categories:
+      edit:
+        edit_listing_category: ~
+      index:
+        listing_categories: ~
+        create_a_new_category: ~
+        remove_category_confirmation: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+      new:
+        new_listing_category: ~
+      form:
+        category_name:
+          category_title: ~
+        category_parent:
+          category_parent: ~
+          no_parent: ~
+        category_transaction_types:
+          transaction_types: ~
+          transaction_types_description: ~
+        buttons:
+          save: ~
+          cancel: ~
+      remove:
+        remove_category: ~
+        remove_category_name: ~
+        warning_remove_effects: ~
+        select_new_category: ~
+        buttons:
+          remove: ~
+          cancel: ~
     communities:
       edit_details:
         community_details: ~
@@ -14,7 +46,7 @@ nl:
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
         update_information: ~
-        invite_people: ~
+        invite_people: "Nodig anderen uit"
         edit_signup_info: ~
         edit_signup_info_description: ~
         edit_info: ~
@@ -123,13 +155,20 @@ nl:
       show:
         edit_poll: ~
     transaction_types:
-      sell: ~
-      rent: ~
-      give: ~
-      lend: ~
-      swap: ~
-      service: ~
-      request: ~
+      sell: Verkopen
+      rent: Verhuren
+      give: Weggeven
+      lend: Uitlenen
+      swap: Ruilen
+      service: Aanbod
+      request: Vraag
+      share_for_free: ~
+      default_action_button_labels:
+        sell: Koop
+        rent: Huur
+        request: Aanbod
+        offer: Reageer
+        inquiry: Bied
   common:
     edit_page: ~
     default_community_slogan: ~
@@ -382,7 +421,7 @@ nl:
       select_your_plan: ~
       pick_one_of_the_options_below: ~
       create_for_free: ~
-      contact_us: ~
+      contact_us: "Neem contact op"
       free_plan: ~
       max_members: ~
       premium_plan: ~
@@ -497,7 +536,7 @@ nl:
       new_text: ~
       want_to_know_more: ~
       read_our_faq: ~
-      contact_us: ~
+      contact_us: "Neem contact op"
       why_you_really_should_have_a_tribe: ~
       an_example: ~
       home: Home
@@ -710,7 +749,7 @@ nl:
       javascript_is_disabled_in_your_browser: ~
       kassi_does_not_currently_work_without_javascript: "%{service_name} werkt niet goed zonder JavaScript. Schakel JavaScript in bij de instellingen van je browser en herlaad dan de pagina."
       kassi_does_not_currently_work_without_javascript_dashboard: ~
-      contact_us: ~
+      contact_us: "Neem contact op"
       send_feedback: ~
       your_feedback_to_admins: ~
     send: Verstuur
@@ -750,9 +789,9 @@ nl:
     requests: Vraag
     search_kassi: "Zoek %{service_name}"
     create_new_marketplace: ~
-    contact_us: ~
+    contact_us: "Neem contact op"
     profile: ~
-    invite: ~
+    invite: "Nodig uit"
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Daarnaast is er <b>één ander aanbod</b>,"
@@ -875,7 +914,7 @@ nl:
     no_tribe:
       inbox: ~
       settings: ~
-      feedback: ~
+      feedback: "Neem contact op"
     admin:
       admin: "Kassi admin dashboard"
       back_to_kassi: "Terug naar Kassi"
@@ -889,7 +928,7 @@ nl:
       default_feedback: "Geef nieuwe ideeën, rapporteer een fout, geef je mening, of laat gewoon een berichtje achter om gedag te zeggen!"
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
-      give_feedback: "Geef feedback aan kassi"
+      give_feedback: "Neem contact op"
       keywords: "Gunst, item, rit, carpoolen, wonen, behuizing, accomodatie, help, hulp, aanbod, verzoek, huur, ruil, koop, verkoop, kopen, verkopen, geef, geven, weggeven, Kassi, ecologisch, gemeenschap, online gemeenschap"
       meta_description: "Kassi is een service die leden van verenigingen en anderen gemeenschappen helpt om elkaar te helpen met gunsten, verkopen en lenen van spullen, het organiseren van carpoolen en met vele anderen dingen."
       or_check_our: "...of bekijk onze"
@@ -1133,7 +1172,7 @@ nl:
         location: Locatie
         origin: Begin
       send_button:
-        save_listing: "Save listing"
+        save_listing: "Plaats item"
       share_type:
         select: Selecteer
         borrow: Leen
@@ -1311,7 +1350,10 @@ nl:
       what_do_you_want_to_do: "Wat wil je doen?"
       what_can_you_offer: "Wat kan je aabieden aan anderen?"
       what_do_you_need: "Wat heb je nodig?"
+      selected_transaction_type: ~
       select_category: "Selecteer categorie"
+      select_subcategory: ~
+      select_transaction_type: ~
     please_comment: Commentaar
     reply_link:
       listing_closed: "Item is gesloten"
@@ -1327,7 +1369,7 @@ nl:
       item_request_trade: "Ruil vraag"
       no_description: "Geen beschrijving"
       no_image: ~
-      no_reviews: ~
+      no_reviews: "Nog geen feedback ontvangen"
       offer: Aanbod
       listing_created: Gecreërd
       open_until: "Open tot %{date}"
@@ -1415,7 +1457,7 @@ nl:
       you_are_the_only_member: ~
       here_are_the_members: ~
       wanna_see_more_folks: ~
-      invite_people_you_know: ~
+      invite_people_you_know: "Nodig mensen uit die je kent!"
       there_are_x_members: ~
       to_see_the_list_log_in: ~
       log_in_link: ~

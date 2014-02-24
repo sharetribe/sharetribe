@@ -1,5 +1,37 @@
 es:
   admin:
+    categories:
+      edit:
+        edit_listing_category: ~
+      index:
+        listing_categories: ~
+        create_a_new_category: ~
+        remove_category_confirmation: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+      new:
+        new_listing_category: ~
+      form:
+        category_name:
+          category_title: ~
+        category_parent:
+          category_parent: ~
+          no_parent: ~
+        category_transaction_types:
+          transaction_types: ~
+          transaction_types_description: ~
+        buttons:
+          save: ~
+          cancel: ~
+      remove:
+        remove_category: ~
+        remove_category_name: ~
+        warning_remove_effects: ~
+        select_new_category: ~
+        buttons:
+          remove: ~
+          cancel: ~
     communities:
       edit_details:
         community_details: "Detalles de la tribu"
@@ -125,11 +157,18 @@ es:
     transaction_types:
       sell: Venta
       rent: Alquilando
-      give: ~
-      lend: ~
-      swap: ~
-      service: ~
+      give: Regalando
+      lend: Prestando
+      swap: Intercambio
+      service: Oferta
       request: Solicitando
+      share_for_free: "Compartido gratuitamente"
+      default_action_button_labels:
+        sell: Comprar
+        rent: Arrendar
+        request: Ofrecer
+        offer: Solicitar
+        inquiry: Contactar
   common:
     edit_page: ~
     default_community_slogan: "Colabora, ayuda o comparte"
@@ -197,8 +236,8 @@ es:
       cancel_description: ~
       cancel_payed_description: ~
       canceling_payed_transaction: ~
-      confirm: ~
-      cancel: ~
+      confirm: "Marcar transacción completada."
+      cancel: "No se llevó a cabo."
       continue: ~
       give_feedback_to: "Dar feedback a %{person_link}"
       do_not_give_feedback: Omitir
@@ -284,7 +323,7 @@ es:
         has_given_you_feedback_on_event: "Has recibido un feedback del evento"
         see_all_the_feedback_you_have_received: "Revisar todos los feedbacks que has recibido"
     show:
-      in_response_to_listing: ~
+      in_response_to_listing: "sobre listado"
       message_sent_by: "Mensaje enviado por"
       message_sent_to: "Mensaje enviado a"
       send_reply: "Enviar respuesta"
@@ -317,8 +356,8 @@ es:
       accept_request: "Aceptar solicitud"
       reject_offer: "Rechazar oferta"
       reject_request: "No por el momento"
-      confirm: ~
-      cancel: ~
+      confirm: "Marcar transacción completada."
+      cancel: "No se llevó a cabo."
   braintree_accounts:
     new:
       add_payout_details: ~
@@ -858,7 +897,7 @@ es:
       you_have_not_added_your_info: "No has añadido tu información de contacto. Por favor hazlo, de modo que para los demás sea más fácil ponerse en contacto contigo. Asimismo, añade una foto de perfil para que te puedan reconocer los otros usuarios."
       add_your_info_link: "Agregar tu información ahora"
     recent_listing:
-      please_offer: Oferta
+      please_offer: Ofertar
       comment: comentario
       comments: comentarios
     filters:
@@ -1316,7 +1355,10 @@ es:
       what_do_you_want_to_do: "¿Qué quieres hacer?"
       what_can_you_offer: "¿Qué puedes ofrecerles a los demás?"
       what_do_you_need: "¿Qué necesitas?"
+      selected_transaction_type: ~
       select_category: "Selecionar una categoría"
+      select_subcategory: ~
+      select_transaction_type: ~
     please_comment: Comentario
     reply_link:
       listing_closed: "Listado cerrado"
@@ -1751,7 +1793,7 @@ es:
       negative: Negativo
       default_textual_feedback: "Todo fue sin problemas, muchas gracias!"
     testimonial:
-      about_listing: ~
+      about_listing: "sobre listado"
   time:
     formats:
       short: "%e %b %Y al %H:%M"

@@ -28,16 +28,6 @@ sv:
         remove_category: ~
         remove_category_name: ~
         warning_remove_effects: ~
-        warning_listing_will_be_moved: ~
-        warning_listings_will_be_moved: ~
-        warning_custom_field_will_be_moved: ~
-        warning_custom_fields_will_be_moved: ~
-        warning_subcategory_will_be_removed: ~
-        warning_subcategories_will_be_removed: ~
-        warning_with_subcategories_listing_will_be_moved: ~
-        warning_with_subcategories_listings_will_be_moved: ~
-        warning_with_subcategories_custom_field_will_be_moved: ~
-        warning_with_subcategories_custom_fields_will_be_moved: ~
         select_new_category: ~
         buttons:
           remove: ~
@@ -173,6 +163,12 @@ sv:
       service: ~
       request: ~
       share_for_free: ~
+      default_action_button_labels:
+        sell: ~
+        rent: ~
+        request: ~
+        offer: ~
+        inquiry: ~
   common:
     edit_page: ~
     default_community_slogan: ~

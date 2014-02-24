@@ -1,5 +1,37 @@
 fi:
   admin:
+    categories:
+      edit:
+        edit_listing_category: ~
+      index:
+        listing_categories: ~
+        create_a_new_category: ~
+        remove_category_confirmation: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+      new:
+        new_listing_category: ~
+      form:
+        category_name:
+          category_title: ~
+        category_parent:
+          category_parent: ~
+          no_parent: ~
+        category_transaction_types:
+          transaction_types: ~
+          transaction_types_description: ~
+        buttons:
+          save: ~
+          cancel: ~
+      remove:
+        remove_category: ~
+        remove_category_name: ~
+        warning_remove_effects: ~
+        select_new_category: ~
+        buttons:
+          remove: ~
+          cancel: ~
     communities:
       edit_details:
         community_details: "Yhteisön tiedot"
@@ -1318,7 +1350,10 @@ fi:
       what_do_you_want_to_do: "Mitä haluat tehdä?"
       what_can_you_offer: "Mitä haluat tarjota muille?"
       what_do_you_need: "Mitä tarvitset?"
+      selected_transaction_type: ~
       select_category: "Valitse ilmoituskategoria"
+      select_subcategory: ~
+      select_transaction_type: ~
     please_comment: Kommentoi
     reply_link:
       listing_closed: "Ilmoitus on suljettu"
