@@ -30,7 +30,6 @@ describe BraintreeAccountsController do
         :"date_of_birth(1i)" => "1980",
         :"date_of_birth(2i)" => "10",
         :"date_of_birth(3i)" => "09",
-        :ssn => "123-00-1234",
         :routing_number => "101000187",
         :account_number => "43759348798"
       }
@@ -47,7 +46,6 @@ describe BraintreeAccountsController do
       braintree_account.date_of_birth.year.should be_eql(1980)
       braintree_account.date_of_birth.month.should be_eql(10)
       braintree_account.date_of_birth.day.should be_eql(9)
-      braintree_account.ssn.should be_eql("123-00-1234")
       braintree_account.routing_number.should be_eql("101000187")
       braintree_account.account_number.should be_eql("43759348798")
       braintree_account.community_id.should == @community.id

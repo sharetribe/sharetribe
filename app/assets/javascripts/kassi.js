@@ -294,7 +294,6 @@ function initialize_braintree_account_form(locale) {
       "braintree_account[address_locality]": {required: true},
       "braintree_account[address_region]": {required: true},
       "braintree_account[date_of_birth]": {required: true},
-      "braintree_account[ssn]": {required: true, minlength: 4, maxlength: 11},
       "braintree_account[routing_number]": {required: true, minlength: 9, maxlength: 9},
       "braintree_account[account_number]": {required: true},
     },
