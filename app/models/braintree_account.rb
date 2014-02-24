@@ -1,4 +1,6 @@
 class BraintreeAccount < ActiveRecord::Base
+  attr_accessor :account_number # Not persisted, only sent to Braintree
+
   belongs_to :person
   belongs_to :community
 
@@ -13,5 +15,5 @@ class BraintreeAccount < ActiveRecord::Base
   validates_presence_of :address_region
   validates_presence_of :date_of_birth
   validates_presence_of :routing_number
-  validates_presence_of :account_number
+  validates_presence_of :hidden_account_number # Persisted version of account number
 end

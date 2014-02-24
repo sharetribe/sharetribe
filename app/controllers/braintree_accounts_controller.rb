@@ -98,6 +98,7 @@ class BraintreeAccountsController < ApplicationController
     braintree_params = params[:braintree_account]
       .merge(person: @current_user)
       .merge(community_id: @current_community.id)
+      .merge(hidden_account_number: BraintreeService.hide_account_number(params[:braintree_account][:account_number]))
 
     @braintree_account = BraintreeAccount.new(braintree_params)
     if @braintree_account.valid?
