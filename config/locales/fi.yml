@@ -166,7 +166,7 @@ fi:
       give: Annetaan
       lend: "Annetaan lainaan"
       swap: Vaihdetaan
-      service: "Tarjotaan palvelua"
+      service: Tarjotaan
       request: Tarvitaan
       inquiry: Tiedustelu
       share_for_free: "Tarjotaan käyttöön ilmaiseksi"
@@ -1170,7 +1170,7 @@ fi:
         price: Hinta
         per: per
         mass: "kpl, kg, l, m2, ..."
-        time: "tunti, päivä, ..."
+        time: "tunti, päivä, kk ..."
         long_time: "vko, kk, ..."
         service_fee_will_be_added: "Hintaan lisätään palvelumaksu %{fee}%."
         after_service_fee_you_will_get: ~
