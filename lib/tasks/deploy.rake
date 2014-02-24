@@ -69,7 +69,6 @@ def deploy(params)
   if params[:css]
     generate_custom_css
   end
-  update_translations
 end
 
 def set_app(destination)

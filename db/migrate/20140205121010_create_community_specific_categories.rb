@@ -153,7 +153,9 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
     end
 
     # Update sort priority based on first com_cat for this category
-    new_cat.update_attribute(:sort_priority, com_cats_for_this_cat.first.sort_priority)
+    
+    new_cat.update_attribute(:sort_priority, com_cats_for_this_cat.first.sort_priority) if com_cats_for_this_cat.first
+    
 
     com_cats_for_this_cat.each do |community_category|
       if community_category.share_type  # Some com_cats don't have share_type. Skip those as it should be handled already with parent
