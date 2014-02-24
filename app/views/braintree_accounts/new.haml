@@ -45,7 +45,7 @@
     = form.label :account_number, t(".account_number"), :class => "input"
     = form.text_field :account_number, :class => "auto_width", :size => 17
 
-    = render :partial => "layouts/info_text", :locals => { :text => "We don't store your account number. The account number will be encrypted and forwarded to the payment provider." }  
+    = render :partial => "layouts/info_text", :locals => { :text => "We don't store your account number. The account number will be forwarded to the payment provider." }
 
     %br/
 
