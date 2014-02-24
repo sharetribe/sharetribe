@@ -1,5 +1,37 @@
 el:
   admin:
+    categories:
+      edit:
+        edit_listing_category: ~
+      index:
+        listing_categories: ~
+        create_a_new_category: ~
+        remove_category_confirmation: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+      new:
+        new_listing_category: ~
+      form:
+        category_name:
+          category_title: ~
+        category_parent:
+          category_parent: ~
+          no_parent: ~
+        category_transaction_types:
+          transaction_types: ~
+          transaction_types_description: ~
+        buttons:
+          save: ~
+          cancel: ~
+      remove:
+        remove_category: ~
+        remove_category_name: ~
+        warning_remove_effects: ~
+        select_new_category: ~
+        buttons:
+          remove: ~
+          cancel: ~
     communities:
       edit_details:
         community_details: "Βασικά στοιχεία"
@@ -123,13 +155,20 @@ el:
       show:
         edit_poll: Επεξεργασία
     transaction_types:
-      sell: ~
-      rent: ~
-      give: ~
-      lend: ~
-      swap: ~
-      service: ~
-      request: ~
+      sell: πώληση
+      rent: ενοικίαση
+      give: δωρεά
+      lend: δανεισμός
+      swap: ανταλλαγές
+      service: προσφορές
+      request: αιτήματα
+      share_for_free: "δωρεάν παραχώρηση"
+      default_action_button_labels:
+        sell: Αγόρασέ
+        rent: ~
+        request: Πρόσφερε
+        offer: "Ζήτησέ το"
+        inquiry: ~
   common:
     edit_page: "Επεξεργασία σελίδας"
     default_community_slogan: "Δάνεισε, βοήθα, πούλα, μοιράσου"
@@ -1311,7 +1350,10 @@ el:
       what_do_you_want_to_do: "Τι θα θέλατε να καταχωρήσετε;"
       what_can_you_offer: "Τι μπορείτε να προσφέρετε;"
       what_do_you_need: "Τι χρειάζεστε;"
+      selected_transaction_type: ~
       select_category: "Επιλέξτε κατηγορία"
+      select_subcategory: ~
+      select_transaction_type: ~
     please_comment: Σχολίασε
     reply_link:
       listing_closed: "Η καταχώρηση έχει απενεργοποιηθεί."

@@ -1,5 +1,42 @@
 fr:
   admin:
+    categories:
+      edit:
+        edit_listing_category: "Modifier la catégorie '%{category}'"
+      index:
+        listing_categories: "Catégories d'annonces"
+        create_a_new_category: "+ Créer une nouvelle catégorie"
+        remove_category_confirmation: "Êtes-vous sûr(e) de vouloir supprimer la catégorie '%{category_name}' ?"
+        saving_order: "Sauvegarde de l'ordre des catégories"
+        save_order_successful: "Ordre des catégories sauvegardé avec succès"
+        save_order_error: "Il y a eu un problème lors de la sauvegarde de l'ordre des catégories. Veuillez actualiser la page et essayer de nouveau."
+      new:
+        new_listing_category: "Nouvelle catégorie d'annonces"
+      form:
+        category_name:
+          category_title: "Nom de la catégorie"
+        category_parent:
+          category_parent: "Catégorie parente"
+          no_parent: "Pas de parente"
+        category_transaction_types:
+          transaction_types: "Types de transaction"
+          transaction_types_description: "Les types de transaction définissent quels genres de transactions sont autorisés pour les annonces dans cette catégorie. Par exemple, est-ce uniquement de la vente ou bien est-ce que louer et donner gratuitement sont également permis."
+        buttons:
+          save: Sauvegarder
+          cancel: Annuler
+      remove:
+        remove_category: "Supprimer la catégorie"
+        remove_category_name: "Supprimer la catégory '%{category_name}'"
+        warning_remove_effects: "Attention ! Supprimer la catégorie '%{category_name}' aura les conséquences suivantes : "
+        warning_listing_will_be_moved: "Il y a %{listing_count} annonce dans cette catégorie. Elle sera déplacée dans une nouvelle catégorie."
+        warning_custom_field_will_be_moved: "Il y a %{custom_field_count} champ personnalisé pour cette catégorie. Il sera déplacé dans une nouvelle catégorie."
+        warning_subcategory_will_be_removed: "Il y a %{subcategory_count} sous-catégorie pour cette catégorie. Elle sera supprimée."
+        warning_with_subcategories_listing_will_be_moved: "Il y a %{listing_count} annonce dans cette catégorie et ses sous-catégories. Elle sera déplacée dans une nouvelle catégorie."
+        warning_with_subcategories_custom_field_will_be_moved: "Il y a %{custom_field_count} champ personnalisé pour cette catégorie et ses sous-catégories. Il sera déplacé dans une nouvelle catégorie."
+        select_new_category: "Choisissez une nouvelle catégorie où les éléments listés ci-dessus seront déplacés : "
+        buttons:
+          remove: Supprimer
+          cancel: Annuler
     communities:
       edit_details:
         community_details: "Détails de la tribu"
@@ -128,8 +165,15 @@ fr:
       give: Don
       lend: Prêt
       swap: Échange
-      service: "Services payants"
+      service: Offre
       request: Demande
+      share_for_free: "Partage gratuit"
+      default_action_button_labels:
+        sell: Achat
+        rent: Location
+        request: Offer
+        offer: Demande
+        inquiry: Contact
   common:
     edit_page: "Modifier la page"
     default_community_slogan: "Votre place de marché"
@@ -152,7 +196,7 @@ fr:
       sell: "vente "
       offer_to_swap: échange
       request_to_swap: échange
-      share_for_free: "partage gratuit "
+      share_for_free: "partage gratuit"
       accept_for_free: "usage gratuit "
     categories:
       item: Objets
@@ -1124,7 +1168,7 @@ fr:
         price: Prix
         per: par
         mass: "unité, kg, l, m²..."
-        time: "heure, jour, semaine..."
+        time: "heure, jour, mois..."
         long_time: "semaine, mois..."
         service_fee_will_be_added: "Une commission de %{fee}% sera ajoutée au prix."
         after_service_fee_you_will_get: "Après la commission de %{service_name} vous recevrez %{sum_with_currency}"
@@ -1311,7 +1355,10 @@ fr:
       what_do_you_want_to_do: "Que voulez-vous faire ?"
       what_can_you_offer: "Que pouvez-vous proposer aux autres ?"
       what_do_you_need: "De quoi avez-vous besoin ?"
+      selected_transaction_type: "Type d'annonce : %{transaction_type}"
       select_category: "Choisir une catégorie"
+      select_subcategory: "Sélectionner une sous-catégorie"
+      select_transaction_type: "Sélectionner le type d'annonce"
     please_comment: "Faire un commentaire"
     reply_link:
       listing_closed: "L'annonce est close"
