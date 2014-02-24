@@ -35,8 +35,8 @@ en:
           one: "There is %{count} custom field in the category. It will be moved to the selected category."
           other: "There are %{count} custom field in the category. They will be moved to the selected category."
         warning_subcategory_will_be_removed: 
-          one: "There is %{subcategory_count} subcategory in the category. It will be removed."
-          other: "There are %{subcategory_count} subcategories in the category. They will be removed."
+          one: "There is %{count} subcategory in the category. It will be removed."
+          other: "There are %{count} subcategories in the category. They will be removed."
         warning_with_subcategories_listing_will_be_moved:
           one: "There is %{count} listing in the category and subcategories. It will be moved to the selected category."
           other: "There are %{count} listings in the category and subcategories. They will be moved to the selected category."
