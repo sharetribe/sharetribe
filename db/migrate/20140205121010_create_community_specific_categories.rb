@@ -58,8 +58,10 @@ class CreateCommunitySpecificCategories < ActiveRecord::Migration
 
             listing.update_column(:new_category_id, target_category.id )
 
-            transaction_type_class = SHARE_TYPE_MAP[listing.share_type.name]
-            target_transaction_type = transaction_type_class.find_by_community_id(community.id)
+            if listing.share_type
+              transaction_type_class = SHARE_TYPE_MAP[listing.share_type.name]
+              target_transaction_type = transaction_type_class.find_by_community_id(community.id)
+            end
 
             if target_transaction_type.nil?
               puts "***ERROR*** Listing(#{listing.id} had a transaction_type #{transaction_type_class} which hasn't been created for #{community.domain} -> removing that listing from community."
