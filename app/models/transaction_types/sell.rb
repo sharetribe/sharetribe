@@ -1,11 +1,11 @@
-class Swap < Offer
+class Sell < Offer
 
   before_validation(:on => :create) do
-    price_field = 0
+    self.price_field ||= 1
   end
 
   def api_name
-    "offer_to_swap"
+    "sell"
   end
 
 end
