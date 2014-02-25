@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20140225143012) do
     t.date     "date_of_birth"
     t.string   "ssn"
     t.string   "routing_number"
+    t.string   "hidden_account_number"
     t.string   "account_number"
     t.string   "status"
     t.integer  "community_id"

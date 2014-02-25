@@ -47,7 +47,7 @@ describe BraintreeAccountsController do
       braintree_account.date_of_birth.month.should be_eql(10)
       braintree_account.date_of_birth.day.should be_eql(9)
       braintree_account.routing_number.should be_eql("101000187")
-      braintree_account.account_number.should be_eql("43759348798")
+      braintree_account.hidden_account_number.should be_eql("*********98")
       braintree_account.community_id.should == @community.id
     end
 
