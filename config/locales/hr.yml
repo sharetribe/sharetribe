@@ -162,6 +162,7 @@ hr:
       swap: ~
       service: ~
       request: ~
+      inquiry: ~
       share_for_free: ~
       default_action_button_labels:
         sell: ~
@@ -1192,12 +1193,6 @@ hr:
         comma_separate: "(odvojeno zarezom)"
         tags: Tagovi
       title:
-        favor_you_offer: "Usluga koju nudite"
-        favor_you_request: "Usluga koju trebate"
-        housing_you_offer: "Prostor koji nudite"
-        housing_you_request: "Prostor koji trebate"
-        item_you_offer: "Predmet koji nudite"
-        item_you_request: "Predmet koji trebate"
         listing_title: "Naslov oglasa"
       valid_until:
         valid_until: "Datum istijeka"
@@ -1253,103 +1248,11 @@ hr:
       share_for_frees: "Besplatno dijeljenje"
       accept_for_frees: "Prihvaćam besplatno"
       trades: Mijenjanje
-    link_labels:
-      offer_this: Ponuda
-      request_this: Zahtjev
-      lend_this: "Posudi nekome"
-      borrow_this: "Posudi od nekoga"
-      buy_this: Kupi
-      rent_out_this: Iznajmi
-      rent_this: Unajmi
-      sell_this: Prodaj
-      link_label_for_favor_offer: "Zatraži ovu uslugu"
-      link_label_for_favor_request: "Ponudi ovu uslugu"
-      link_label_for_housing_offer_sell: "Kupi ovaj prostor"
-      link_label_for_housing_offer_rent_out: "Iznajmi nekome ovaj prostor"
-      link_label_for_housing_offer_share_for_free: "Zatraži ovaj prostor"
-      link_label_for_housing_request_accept_for_free: "Ponudi ovaj prostor"
-      link_label_for_housing_request_buy: "Ponudi ovaj prostor na prodaju"
-      link_label_for_housing_request_rent: "Ponudi da ćeš iznajmiti ovaj prostor"
-      link_label_for_item_offer_lend: "Posudi ovaj predmet"
-      link_label_for_item_offer_rent_out: "Iznajmi nekome ovaj predmet"
-      link_label_for_item_offer_sell: "Kupi ovaj predmet"
-      link_label_for_item_offer_give_away: "Zatraži ovaj predmet"
-      link_label_for_item_offer_trade: "Zamijeni ovaj predmet"
-      link_label_for_item_request_borrow: "Ponudi da posudiš ovaj predmet (besplatno)"
-      link_label_for_item_request_rent: "Ponudi da iznajmiš ovaj predmet (uz naplatu)"
-      link_label_for_item_request_buy: "Ponudi da prodaš ovaj predmet"
-      link_label_for_item_request_receive: "Daj ovaj predmet tražiocu"
-      link_label_for_item_request_trade: "Ponudi zamjenu ovog predmeta"
-      link_label_for_rideshare_offer: "Zatraži ovu vožnju"
-      link_label_for_rideshare_request: "Ponudi prijevoz"
     new:
       post_a_new_listing: ~
       listing: oglas
-      offer: "Mogu nešto ponuditi ostalima"
-      request: "Trebam nešto"
-      selected_offer: Ponuda
-      selected_request: Zahtjev
-      selected_listing_type: "Vrsta oglasa: %{listing_type}"
       selected_category: "Kategorija: %{category}"
       selected_subcategory: "Podkategorija: %{subcategory}"
-      selected_share_type: "Tip dijeljenja: %{share_type}"
-      selected_item: Predmet
-      selected_favor: Usluga
-      selected_rideshare: Prijevoz
-      selected_housing: Prostor
-      selected_borrow: "Posuđivanje (od nekoga)"
-      selected_buy: Kupnja
-      selected_give_away: Poklanjanje
-      selected_lend: "posuđivanje (nekom)"
-      selected_receive: "Uzeti besplatno"
-      selected_rent: "Iznajmljivati (od nekoga)"
-      selected_rent_out: "Iznajmljivati nekome"
-      selected_sell: Prodaja
-      selected_offer_to_swap: Mijenjanje
-      selected_request_to_swap: Mijenjanje
-      selected_share_for_free: "Besplatno dijeljenje"
-      selected_accept_for_free: "Prihvaćati besplatno"
-      how_do_you_want_to_share_it: "Kako želiš podijeliti?"
-      how_do_you_want_to_get_it: "Kako želiš dobiti?"
-      item: "Predmet - nešto konkretno"
-      favor: "Pomoć - vještina ili usluga"
-      rideshare: "Mjesto u autu"
-      housing: "Prostor - stan, ured ili vrt"
-      borrow: "Želim od nekoga posuditi"
-      buy: "Želim kupiti"
-      give_away: "Dajem besplatno"
-      lend: "Mogu posuditi nekome besplatno"
-      receive: "Mogu prihvatiti besplatno"
-      rent: "Želim iznajmiti od nekoga"
-      rent_out: "Dajem besplatno u najam"
-      sell: Prodajem
-      offer_to_swap: "Želim zamijeniti za nešto drugo"
-      request_to_swap: "Želim zamijeniti za nešto drugo"
-      share_for_free: "Dijelim besplatno"
-      accept_for_free: "Želim koristiti besplatno"
-      what_kind_of_item: "O kakvom predmetu govorimo?"
-      what_kind_of_favor: "O kojem tipu pomoći govorimo?"
-      what_kind_of_rideshare: "O kojem tipu prijevoza govorimo?"
-      what_kind_of_housing: "O kakvom tipu prostora se radi?"
-      which_subcategory: "Što ga od sljedećeg najbolje opisuje?"
-      tools: Alati
-      sports: Sport
-      music: Muzika
-      books: "Knjige i časopisi"
-      games: "Igre i igračke"
-      furniture: Namještaj
-      outdoors: "Kampiranje i sportovi na otvorenom"
-      food: "Hrana i kuhinja"
-      electronics: Elektronika
-      pets: "Kućni ljubimci"
-      film: Filmovi
-      clothes: Odjeća
-      garden: Vrt
-      travel: Putovanja
-      other: Ostalo
-      what_do_you_want_to_do: "Što želite napraviti?"
-      what_can_you_offer: "Što možete ponuditi drugima?"
-      what_do_you_need: "Što trebate?"
       selected_transaction_type: ~
       select_category: "Odaberi kategoriju"
       select_subcategory: ~
@@ -1365,6 +1268,7 @@ hr:
       contact: ~
       favor_offer: "Ponuda usluga"
       favor_request: "Potražnja usluga"
+      inquiry: ~
       item_offer_trade: "Zamijeni ponudu"
       item_request_trade: "Zamijeni zahtjev"
       no_description: "Bez opisa"
