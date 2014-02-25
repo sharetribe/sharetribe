@@ -27,7 +27,8 @@ task :deploy_to, [:destination] do |t, args|
   deploy(
     :destination => args[:destination],
     :migrations => env_to_bool('migrations', true),
-    :css => env_to_bool('css', true)
+    :css => env_to_bool('css', true),
+    :restart => env_to_bool('css', true)
   )
 end
 
@@ -43,12 +44,16 @@ def deploy(params)
   @destination = params[:destination]
   @branch = `git symbolic-ref HEAD`[/refs\/heads\/(.+)$/,1]
   
+  # Restart can be true only if migrations are used
+  params[:restart] = false if params[:migrations] == false
+  
   puts "Deploying from: #{@branch}"
   puts "Deploying to:   #{@destination}"
   puts "Deploy options:"
-  puts "  migrations: #{params[:migrations]}"
   puts "  css:        #{params[:css]}"
-  
+  puts "  migrations: #{params[:migrations]}"
+  puts "    restart:        #{params[:restart]}" if params[:migrations]
+
   if @destination == "production" || @destination == "preproduction"
     puts "YOU ARE GOING TO DEPLOY #{@branch} BRANCH TO #{@destination}"
     puts "MAKE SURE THE DETAILS ARE CORRECT! Are you sure you want to continue? (y/n)"
@@ -64,7 +69,9 @@ def deploy(params)
   deploy_to_server
   if params[:migrations]
     run_migrations
-    restart
+    if params[:restart]
+      restart
+    end
   end
   if params[:css]
     generate_custom_css
