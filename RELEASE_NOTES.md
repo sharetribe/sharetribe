@@ -14,7 +14,7 @@ When updating, always run the following commands to update gem set and database 
 
 4.4.0
 -----
-Major update to data structure:
+Major update to the data structure:
 
 - CommunityCategories removed (a category can belong to only one community)
 - ShareType renamed to TransactionType
