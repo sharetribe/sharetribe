@@ -22,8 +22,8 @@ en:
           transaction_types: "Transaction types"
           transaction_types_description: "Transaction types determine what kind of transactions are allowed with listings in this category. For example, is it only selling, or are renting and giving away for free also allowed."
         buttons:
-          save: "Save"
-          cancel: "Cancel"
+          save: Save
+          cancel: Cancel
       remove:
         remove_category: "Remove category"
         remove_category_name: "Remove category '%{category_name}'"
@@ -31,10 +31,10 @@ en:
         warning_listing_will_be_moved:
           one: "There is %{count} listing in the category. It will be moved to the selected category."
           other: "There are %{count} listings in the category. They will be moved to the selected category."
-        warning_custom_field_will_be_moved: 
+        warning_custom_field_will_be_moved:
           one: "There is %{count} custom field in the category. It will be moved to the selected category."
           other: "There are %{count} custom field in the category. They will be moved to the selected category."
-        warning_subcategory_will_be_removed: 
+        warning_subcategory_will_be_removed:
           one: "There is %{count} subcategory in the category. It will be removed."
           other: "There are %{count} subcategories in the category. They will be removed."
         warning_with_subcategories_listing_will_be_moved:
@@ -45,8 +45,8 @@ en:
           other: "There are %{count} custom field in the category and subcategories. They will be moved to the selected category."
         select_new_category: "Select a new category where the items listed above will be moved:"
         buttons:
-          remove: "Remove"
-          cancel: "Cancel"
+          remove: Remove
+          cancel: Cancel
     communities:
       edit_details:
         community_details: "Community details"
@@ -1283,7 +1283,7 @@ en:
       contact: Contact
       favor_offer: "Service offer"
       favor_request: "Service request"
-      inquiry: "Inquiry"
+      inquiry: Inquiry
       item_offer_trade: "Swap offer"
       item_request_trade: "Swap request"
       no_description: "This listing doesn't have description"

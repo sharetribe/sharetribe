@@ -162,6 +162,7 @@ el:
       swap: ανταλλαγές
       service: προσφορές
       request: αιτήματα
+      inquiry: ~
       share_for_free: "δωρεάν παραχώρηση"
       default_action_button_labels:
         sell: Αγόρασέ
@@ -1192,12 +1193,6 @@ el:
         comma_separate: "(χωρισμένες με κόμμα)"
         tags: Ετικέτες
       title:
-        favor_you_offer: "Υπηρεσία που προσφέρετε"
-        favor_you_request: "Υπηρεσία που χρειάζεστε"
-        housing_you_offer: "Χώρος που προσφέρετε"
-        housing_you_request: "Χώρος που χρειάζεστε"
-        item_you_offer: "Αντικείμενο που προσφέρετε"
-        item_you_request: "Αντικείμενο που χρειάζεστε"
         listing_title: "Τίτλος καταχώρησης"
       valid_until:
         valid_until: "Ημερομηνία λήξης"
@@ -1253,103 +1248,11 @@ el:
       share_for_frees: Δωρεάν
       accept_for_frees: Δωρεάν
       trades: Ανταλλαγές
-    link_labels:
-      offer_this: Προσφορά
-      request_this: Ζητήστε
-      lend_this: Δανείστε
-      borrow_this: Δανειστείτε
-      buy_this: Αγοράστε
-      rent_out_this: Νοικιάστε
-      rent_this: Νοικιάστε
-      sell_this: Πουλήστε
-      link_label_for_favor_offer: "Ζήτησέ το"
-      link_label_for_favor_request: "Πρόσφερε τη βοήθεια σου"
-      link_label_for_housing_offer_sell: "Αγόρασε αυτό το χώρο"
-      link_label_for_housing_offer_rent_out: "Νοίκιασε αυτό το χώρο"
-      link_label_for_housing_offer_share_for_free: "Ζήτα αυτό το χώρο"
-      link_label_for_housing_request_accept_for_free: "Πρόσφερε αυτό το χώρο"
-      link_label_for_housing_request_buy: "Πρόσφερε το δικό σου"
-      link_label_for_housing_request_rent: "Πρόσφερε το δικό σου"
-      link_label_for_item_offer_lend: "Δανείσου το"
-      link_label_for_item_offer_rent_out: "Πρόσφερε το δικό σου"
-      link_label_for_item_offer_sell: "Αγόρασέ το"
-      link_label_for_item_offer_give_away: "Ζήτα το"
-      link_label_for_item_offer_trade: "Κάνε ανταλλαγή"
-      link_label_for_item_request_borrow: "Πρόσφερε το δικό σου"
-      link_label_for_item_request_rent: "Πρόσφερε το δικό σου"
-      link_label_for_item_request_buy: "Πρόσφερε το δικό σου"
-      link_label_for_item_request_receive: "Πρόσφερε το δικό σου"
-      link_label_for_item_request_trade: "Κάνε ανταλλαγή"
-      link_label_for_rideshare_offer: "Κάνε οτοστόπ"
-      link_label_for_rideshare_request: "Πρόσφερε το όχημά σου"
     new:
       post_a_new_listing: "Νέα καταχώρηση"
       listing: καταχώρηση
-      offer: "Έχω κάτι να προσφέρω"
-      request: "Χρειάζομαι κάτι"
-      selected_offer: Προσφορά
-      selected_request: Αίτημα
-      selected_listing_type: "Είδος καταχώρησης: %{listing_type}"
       selected_category: "Κατηγορία: %{category}"
       selected_subcategory: "Υποκατηγορία: %{subcategory}"
-      selected_share_type: "Είδος: %{share_type}"
-      selected_item: Αντικείμενο
-      selected_favor: Υπηρεσία
-      selected_rideshare: Συνεπιβατισμός
-      selected_housing: Χώρος
-      selected_borrow: Δανεισμός
-      selected_buy: Αγορά
-      selected_give_away: Δωρεά
-      selected_lend: Δανεισμός
-      selected_receive: Δωρεάν
-      selected_rent: Ενοικίαση
-      selected_rent_out: Εκμίσθωση
-      selected_sell: Πώληση
-      selected_offer_to_swap: Ανταλλαγή
-      selected_request_to_swap: Ανταλλαγή
-      selected_share_for_free: Δωρεάν
-      selected_accept_for_free: Δωρεάν
-      how_do_you_want_to_share_it: "Πως θα θέλατε να το προσφέρετε;"
-      how_do_you_want_to_get_it: "Πως θα θέλατε να βρείτε αυτό που ψάχνετε;"
-      item: "Ένα αντικείμενο - κάτι χειροπιαστό"
-      favor: "Βοήθεια - μια ικανότητα ή μια υπηρεσία"
-      rideshare: "Συνεπιβατισμός - με αυτοκίνητο ή άλλο μέσο μεταφοράς"
-      housing: "Κάποιο χώρο - ένα διαμέρισμα, ένα γραφείο ή ένα χωράφι"
-      borrow: "Θέλω να το δανειστώ"
-      buy: "Θέλω να το αγοράσω"
-      give_away: "Το χαρίζω"
-      lend: "Το δανείζω"
-      receive: "Θα το ήθελα δωρεάν"
-      rent: "Θέλω να το νοικιάσω"
-      rent_out: "Το νοικιάζω"
-      sell: "Το πουλάω"
-      offer_to_swap: "Θέλω να το ανταλλάξω"
-      request_to_swap: "Θέλω να το ανταλλάξω"
-      share_for_free: "Το μοιράζομαι δωρεάν"
-      accept_for_free: "Θα ήθελα να το χρησιμοποίησω δωρεάν"
-      what_kind_of_item: "Για τι αντικείμενο πρόκειται;"
-      what_kind_of_favor: "Για τι βοήθεια πρόκειται;"
-      what_kind_of_rideshare: "Για τι διαδρομή πρόκειται;"
-      what_kind_of_housing: "Για τι χώρο μιλάμε;"
-      which_subcategory: "Ποιο από αυτά το περιγράφει καλύτερα;"
-      tools: Εργαλεία
-      sports: "Αθλητικός εξοπλισμός"
-      music: Μουσική
-      books: "Βιβλία & περιοδικά"
-      games: Παιχνίδια
-      furniture: Έπιπλα
-      outdoors: "Είδη κάμπινγκ"
-      food: "Είδη κουζίνας & φαγητό"
-      electronics: Ηλεκτρονικά
-      pets: Κατοικίδια
-      film: Ταινίες
-      clothes: "Ρούχα & αξεσουάρ"
-      garden: "Είδη κήπου"
-      travel: "Ταξιδιωτικά είδη"
-      other: "Κάτι άλλο"
-      what_do_you_want_to_do: "Τι θα θέλατε να καταχωρήσετε;"
-      what_can_you_offer: "Τι μπορείτε να προσφέρετε;"
-      what_do_you_need: "Τι χρειάζεστε;"
       selected_transaction_type: ~
       select_category: "Επιλέξτε κατηγορία"
       select_subcategory: ~
@@ -1365,6 +1268,7 @@ el:
       contact: Επικοινωνία
       favor_offer: Yπηρεσία
       favor_request: Υπηρεσία
+      inquiry: ~
       item_offer_trade: Ανταλλαγή
       item_request_trade: Ανταλλαγή
       no_description: "Χωρίς περιγραφή"
