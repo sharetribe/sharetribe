@@ -1,0 +1,18 @@
+@import "mixins/all";
+
+.info-text-container {
+  position: relative;
+  color: $aside;
+  @include small-type;
+  margin-top: lines(0.25);
+}
+
+.info-text-icon {
+  position: absolute;
+  width: lines(0.5);
+  margin-top: 1px; // to align with text
+}
+
+.info-text-content {
+  padding-left: lines(1);
+}

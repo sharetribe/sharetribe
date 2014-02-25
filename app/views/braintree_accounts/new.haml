@@ -41,5 +41,19 @@
     
     = form.label :account_number, t(".account_number"), :class => "input"
     = form.text_field :account_number, :class => "auto_width", :size => 17
-    
+
+    = render :partial => "layouts/info_text", :locals => { :text => "We don't store your account number. The account number will be securely forwarded to the payment provider." }
+
+    %br/
+
     = form.button t(".save"), :class => "send_button"
+
+  %br/
+
+  %p
+    = link_to "https://www.braintreepayments.com/" do
+      = image_tag("payments/braintree-logo-2x.png", height: '32')
+    
+    %br/
+
+    = "Our secure payment provider"
