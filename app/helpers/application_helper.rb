@@ -919,5 +919,9 @@ module ApplicationHelper
   def show_big_cover_photo?
     @homepage && (!@current_user || params[:big_cover_photo])
   end
+
+  def sum_with_currency(sum, currency)
+    humanized_money_with_symbol(Money.new(sum*100, (currency || "EUR")))
+  end
   
 end
