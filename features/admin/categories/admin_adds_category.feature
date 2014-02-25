@@ -2,6 +2,7 @@ Feature: Admin adds a category
 
   Background:
     Given I am logged in as "kassi_testperson1"
+    And admin can edit categories in current community
     And I am on the categories admin page
 
   @javascript
