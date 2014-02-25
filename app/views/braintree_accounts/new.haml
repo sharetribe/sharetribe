@@ -36,9 +36,6 @@
     = form.label :date_of_birth, t(".date_of_birth"), :class => "input"
     = form.date_select :date_of_birth, {:start_year => Time.now.year - 12, :end_year => Time.now.year - 100, :default => 12.years.from_now}
     
-    = form.label :ssn, t(".ssn"), :class => "input"
-    = form.text_field :ssn, :class => "auto_width", :size => 11
-    
     = form.label :routing_number, t(".routing_number"), :class => "input"
     = form.text_field :routing_number, :class => "auto_width", :size => 9
     
