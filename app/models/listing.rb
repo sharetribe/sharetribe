@@ -186,7 +186,8 @@ class Listing < ActiveRecord::Base
     end
 
     if params[:transaction_type].present?
-      params[:transaction_types] = {:id => params[:transaction_type]}
+      # Sphinx expects integer
+      params[:transaction_types] = {:id => params[:transaction_type].to_i}
     end
 
     if params[:transaction_type].present? || params[:share_type].present?
