@@ -9,11 +9,12 @@ Feature: User requests an item in item offer
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is item offer with title "Hammer" from "kassi_testperson1" and with share type "lend"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Lending"
     And I am logged in as "kassi_testperson2"
     And I am on the homepage
     When I follow "Hammer"
     And I follow "Borrow this item"
+    And I fill in "Title" with "Borrowing hammer"
     And I fill in "Message" with "I want to borrow this item"
     And I press "Send message"
     Then I should see "Message sent" within ".flash-notifications"
@@ -26,7 +27,7 @@ Feature: User requests an item in item offer
     And I log in as "kassi_testperson1"
     And I follow "inbox-link"
     Then I should see "Accept"
-    When I follow "conversation_title_link_1"
+    When I follow "Borrowing hammer"
     Then I should see "Accept"
     When the system processes jobs
     Then "kassi_testperson1@example.com" should have 1 email
@@ -51,7 +52,7 @@ Feature: User requests an item in item offer
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is item offer with title "Hammer" from "kassi_testperson1" and with share type "lend"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Lending"
     And I am logged in as "kassi_testperson2"
     And I am on the homepage
     When I follow "Hammer"
@@ -65,7 +66,7 @@ Feature: User requests an item in item offer
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    Given there is item offer with title "Hammer" from "kassi_testperson1" and with share type "lend"
+    Given there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Lending"
     And I am on the homepage
     When I follow "Hammer"
     And I follow "Borrow this item"
@@ -80,7 +81,7 @@ Feature: User requests an item in item offer
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    Given there is item offer with title "Hammer" from "kassi_testperson1" and with share type "lend"
+    Given there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Lending"
     And I am on the homepage
     When I follow "Hammer"
     And I follow "Borrow this item"

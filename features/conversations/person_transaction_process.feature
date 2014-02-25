@@ -8,7 +8,8 @@ Feature: Transaction process between two users
       | kassi_testperson2 |
     And community "test" has payments in use
     And "kassi_testperson1" has Checkout account
-    And there is item offer with title "Hammer" from "kassi_testperson1" and with share type "sell" and with price "20"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
+    And the price of that listing is "20"
     And I am logged in as "kassi_testperson2"
 
     # Starting the conversation
@@ -40,13 +41,7 @@ Feature: Transaction process between two users
     When I open the email
     And I follow "Pay now" in the email
     And I press "Continue"
-    And I click Osuuspankki logo
-    And I fill in "id" with "123456"
-    And I fill in "pw" with "7890"
-    And I press "Jatka"
-    And I press "Jatka"
-    And I press "Hyväksy"
-    And wait for 5 seconds
+    And I pay with Osuuspankki
     Then I should see "Payment successful"
     When the system processes jobs
     Then "kassi_testperson2@example.com" should have 2 emails
@@ -97,12 +92,12 @@ Feature: Transaction process between two users
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is item request with title "Hammer" from "kassi_testperson1" and with share type "borrow"
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
     And I am logged in as "kassi_testperson2"
 
     # Starting the conversation
     When I follow "Hammer"
-    And I follow "Offer to lend this item"
+    And I follow "Offer"
     And I fill in "Message" with "I can lend this item"
     And I press "Send"
     And the system processes jobs

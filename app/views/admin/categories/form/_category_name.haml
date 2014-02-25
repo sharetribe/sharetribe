@@ -1,0 +1,8 @@
+= form.label :name_attributes, t(".category_title")
+- available_locales.each do |locale_name, locale_value|
+  .row
+    - if available_locales.size > 1
+      .col-2
+        = label_tag "category[translation_attributes][#{locale_value}][name]", locale_name + ": ", :class => "new-category-name-locale-label"
+    .col-8
+      = text_field_tag "category[translation_attributes][#{locale_value}][name]", @category.display_name(locale_value), :class => "required"

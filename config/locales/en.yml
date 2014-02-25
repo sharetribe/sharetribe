@@ -109,7 +109,7 @@ en:
         add_option: "+ Add option"
         saving_order: "Saving field order"
         save_order_successful: "Successfully saved field order"
-        save_order_error: "An error occured while saving listing order. Please refresh the page and try again."
+        save_order_error: "An error occured while saving field order. Please refresh the page and try again."
         select_one: "Select field type..."
         continue: Continue
       new:
@@ -177,6 +177,7 @@ en:
       swap: Swapping
       service: Offering
       request: Requesting
+      inquiry: Inquiry
       share_for_free: "Sharing for free"
       default_action_button_labels:
         sell: Buy
@@ -674,8 +675,8 @@ en:
       has_updated_listing_you_follow_in_kassi: "%{author} has updated the listing '%{listing}' you are following in %{service_name}."
       view_changes: "View changes"
     community_updates:
-      added_offer: "%{name_link} added an offer:"
-      added_request: "%{name_link} added a request:"
+      added_offer: "%{name_link} added a listing:"
+      added_request: "%{name_link} added a listing:"
       added_listing: "%{name_link} added a listing:"
       update_mail_title: "%{title_link} community update"
       title_link_text: "%{community_name}"
@@ -1207,12 +1208,6 @@ en:
         comma_separate: "(comma separate)"
         tags: Tags
       title:
-        favor_you_offer: "Service you offer"
-        favor_you_request: "Service you need"
-        housing_you_offer: "Space you offer"
-        housing_you_request: "Space you need"
-        item_you_offer: "Item you offer"
-        item_you_request: "Item you need"
         listing_title: "Listing title"
       valid_until:
         valid_until: "Expiration date"
@@ -1268,103 +1263,11 @@ en:
       share_for_frees: "Sharing for free"
       accept_for_frees: "Accepting for free"
       trades: Swapping
-    link_labels:
-      offer_this: Offer
-      request_this: Request
-      lend_this: Lend
-      borrow_this: Borrow
-      buy_this: Buy
-      rent_out_this: "Rent out"
-      rent_this: Rent
-      sell_this: Sell
-      link_label_for_favor_offer: "Request this service"
-      link_label_for_favor_request: "Offer this service"
-      link_label_for_housing_offer_sell: "Buy this space"
-      link_label_for_housing_offer_rent_out: "Rent this space"
-      link_label_for_housing_offer_share_for_free: "Request this space"
-      link_label_for_housing_request_accept_for_free: "Offer this space"
-      link_label_for_housing_request_buy: "Offer to sell this space"
-      link_label_for_housing_request_rent: "Offer to rent out this space"
-      link_label_for_item_offer_lend: "Borrow this item"
-      link_label_for_item_offer_rent_out: "Rent this item"
-      link_label_for_item_offer_sell: "Buy this item"
-      link_label_for_item_offer_give_away: "Request this item"
-      link_label_for_item_offer_trade: "Swap this item"
-      link_label_for_item_request_borrow: "Offer to lend this item"
-      link_label_for_item_request_rent: "Offer to rent out this item"
-      link_label_for_item_request_buy: "Offer to sell this item"
-      link_label_for_item_request_receive: "Give this item to requester"
-      link_label_for_item_request_trade: "Offer to swap this item"
-      link_label_for_rideshare_offer: "Request this ride"
-      link_label_for_rideshare_request: "Offer ride"
     new:
       post_a_new_listing: "Post a new listing"
       listing: listing
-      offer: "I have something to offer to others"
-      request: "I need something"
-      selected_offer: Offer
-      selected_request: Request
-      selected_listing_type: "Listing type: %{listing_type}"
       selected_category: "Category: %{category}"
       selected_subcategory: "Subcategory: %{subcategory}"
-      selected_share_type: "Share type: %{share_type}"
-      selected_item: Item
-      selected_favor: Service
-      selected_rideshare: Rideshare
-      selected_housing: Space
-      selected_borrow: Borrowing
-      selected_buy: Buying
-      selected_give_away: "Giving away"
-      selected_lend: Lending
-      selected_receive: "Take for free"
-      selected_rent: Renting
-      selected_rent_out: "Renting out"
-      selected_sell: Selling
-      selected_offer_to_swap: Swapping
-      selected_request_to_swap: Swapping
-      selected_share_for_free: "Sharing for free"
-      selected_accept_for_free: "Accepting for free"
-      how_do_you_want_to_share_it: "How do you want to share it?"
-      how_do_you_want_to_get_it: "How do you want to get it?"
-      item: "An item - something tangible"
-      favor: "Help - a skill or a service"
-      rideshare: "A shared ride - in a car or other transport"
-      housing: "A space - an apartment, an office or a garden"
-      borrow: "I want to borrow it"
-      buy: "I want to buy it"
-      give_away: "I'm giving it away for free"
-      lend: "I can lend it for free"
-      receive: "I can accept it for free"
-      rent: "I want to rent it"
-      rent_out: "I'm renting it out for a fee"
-      sell: "I'm selling it"
-      offer_to_swap: "I want to swap it for something else"
-      request_to_swap: "I want to swap it for something else"
-      share_for_free: "I'm sharing it for free"
-      accept_for_free: "I'd like to use it for free"
-      what_kind_of_item: "What kind of an item are we talking about?"
-      what_kind_of_favor: "What kind of help are we talking about?"
-      what_kind_of_rideshare: "What kind of ride are we talking about?"
-      what_kind_of_housing: "What kind of a space are we talking about?"
-      which_subcategory: "Which one of these describes it best?"
-      tools: Tools
-      sports: Sports
-      music: Music
-      books: "Books & magazines"
-      games: "Games & toys"
-      furniture: Furniture
-      outdoors: "Camping & Outdoors"
-      food: "Food & kitchen"
-      electronics: Electronics
-      pets: "Pets & animals"
-      film: "Movies & video"
-      clothes: "Clothes & accessories"
-      garden: Garden
-      travel: Travel
-      other: Other
-      what_do_you_want_to_do: "What do you want to do?"
-      what_can_you_offer: "What can you offer to others?"
-      what_do_you_need: "What do you need?"
       selected_transaction_type: "Listing type: %{transaction_type}"
       select_category: "Select category"
       select_subcategory: "Select subcategory"
@@ -1380,6 +1283,7 @@ en:
       contact: Contact
       favor_offer: "Service offer"
       favor_request: "Service request"
+      inquiry: "Inquiry"
       item_offer_trade: "Swap offer"
       item_request_trade: "Swap request"
       no_description: "This listing doesn't have description"

@@ -11,19 +11,10 @@ Feature: User changes language
     And I click "#global-navi-select-language"
     Then I follow "Suomi" within ".language-menu"
     Then I should see "Lisää uusi ilmoitus!" within "#new-listing-link"
-  
+
   @javascript
   Scenario: User changes language when logged in
     Given I am logged in
     When I click "#global-navi-select-language"
     And I follow "Suomi" within ".language-menu"
     Then I should see "Lisää uusi ilmoitus!" within "#new-listing-link"
-  
-  
-  
-  
-  
-  
-
-    
-  

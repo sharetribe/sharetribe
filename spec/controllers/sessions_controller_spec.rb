@@ -3,7 +3,6 @@ require 'spec_helper'
 
 
 describe SessionsController, "POST create" do
-  fixtures :people, :communities, :community_memberships
 
   it "redirects back to original community's domain" do
     @request.host = "test.lvh.me"

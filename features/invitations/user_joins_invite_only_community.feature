@@ -67,6 +67,7 @@ Feature: User joins invite only community
   @javascript  
   Scenario: User should not see invitation code in the form, if it's not needed
     Given I am not logged in
+    And community "test" does not require invite to join
     And I am on the signup page
     Then I should not see "Invitation code"
     Given community "test" requires invite to join
@@ -79,6 +80,7 @@ Feature: User joins invite only community
       | person | 
       | kassi_testperson1 |
     And I am not logged in
+    And community "test" does not require invite to join
     And there is an invitation for community "test" with code "GH1JX8" with 1 usages left
     And I go to the registration page with invitation code "GH1JX8"
     Then I should not see "Invitation code"

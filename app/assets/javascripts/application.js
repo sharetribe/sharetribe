@@ -24,6 +24,9 @@
 //= require googlemaps
 //= require map_label
 //= require homepage
+//= require order_manager
+//= require ajax_status
 //= require custom_fields
+//= require categories
 //= require payment_math
 //= require_self

@@ -13,8 +13,7 @@ class CustomFieldOption < ActiveRecord::Base
 
 
   def title(locale="en")
-    t = titles.find { |title| title.locale == locale.to_s } || titles.first # Fallback to first
-    t ? t.value : ""
+    TranslationCache.new(self, :titles).translate(locale, :value)
   end
   
   def title_attributes=(attributes)
@@ -26,5 +25,4 @@ class CustomFieldOption < ActiveRecord::Base
       end
     end
   end
-  
 end

@@ -26,6 +26,8 @@ describe Api::ConversationsController do
       FactoryGirl.create(:message, :conversation => @con1, :sender => @p1, :content => "Let's talk", :created_at => 1.day.ago)
       FactoryGirl.create(:message, :conversation => @con1, :sender => @p2, :content => "Ok! You start.")
 
+      request.host = @c1.domain
+
     end
   
   

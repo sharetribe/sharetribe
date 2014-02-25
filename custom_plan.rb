@@ -1,5 +1,8 @@
 require 'zeus/rails'
 
+require File.expand_path('../test/helper_modules', __FILE__)
+include TestHelpers
+
 class CustomPlan < Zeus::Rails
 
   # def my_custom_command
@@ -20,14 +23,12 @@ class CustomPlan < Zeus::Rails
     # And keeping it running makes running new tests much faster
     ThinkingSphinx::Test.start
 
-
-  	# Load the seeds here
-    # As this seemed the only place possible to make Zeus load default categories while Zeus starts 
-    # And not every time cucumber tests are run
-  	load "#{Rails.root}/db/seeds.rb"
- 
+    # Populate db with default data
+    require 'database_cleaner'
+    DatabaseCleaner.clean_with(:truncation)
+    load_default_test_data_to_db_before_suite
+    load_default_test_data_to_db_before_test
   end
-
 end
 
 Zeus.plan = CustomPlan.new

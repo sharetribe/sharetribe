@@ -26,9 +26,9 @@ class Listing < ActiveRecord::Base
   has_and_belongs_to_many :followers, :class_name => "Person", :join_table => "listing_followers"
 
   belongs_to :category  
-  belongs_to :share_type
+  belongs_to :transaction_type
 
-
+  delegate :direction, to: :transaction_type
 
   monetize :price_cents, :allow_nil => true
   
@@ -40,69 +40,11 @@ class Listing < ActiveRecord::Base
   VALID_VISIBILITIES = ["this_community", "all_communities"]
   VALID_PRIVACY_OPTIONS = ["private", "public"]
   
-  LISTING_ICONS = {
-    "offer" => "ss-share",
-    "request" => "ss-tip",
-    "item" => "ss-box",
-    "favor" => "ss-heart",
-    "rideshare" => "ss-car",
-    "housing" => "ss-warehouse",
-    "other" => "ss-file",
-    "tools" => "ss-wrench",
-    "sports" => "ss-tabletennis",
-    "music" => "ss-music",
-    "books" => "ss-book",
-    "games" => "ss-fourdie",
-    "furniture" => "ss-lodging",
-    "outdoors" => "ss-campfire",
-    "food" => "ss-sidedish",
-    "electronics" => "ss-smartphone",
-    "pets" => "ss-tropicalfish",
-    "film" => "ss-moviefolder",
-    "clothes" => "ss-hanger",
-    "garden" => "ss-tree",
-    "travel" => "ss-departure",
-    "give_away" => "ss-gift",
-    "share_for_free" => "ss-gift",
-    "accept_for_free" => "ss-gift",
-    "lend" => "ss-flowertag",
-    "borrow" => "ss-flowertag",
-    "offer_to_swap" => "ss-reload",
-    "request_to_swap" => "ss-reload",
-    "buy" => "ss-moneybag",
-    "sell" => "ss-moneybag",
-    "rent" => "ss-pricetag",
-    "rent_out" => "ss-pricetag",
-    "job" => "ss-briefcase",
-    "announcement" => "ss-newspaper",
-    "news" => "ss-newspaper",
-    "wood_based_materials" => "ss-tree",
-    "plastic_and_rubber" => "ss-disc",
-    "metal" => "ss-handbag",
-    "concrete_and_brick" => "ss-form",
-    "glass_and_porcelain" => "ss-fragile",
-    "textile_and_leather" => "ss-hanger",
-    "soil_materials" => "ss-cloud",
-    "liquid_materials" => "ss-droplet",
-    "manufacturing_error_materials" => "ss-wrench",
-    "misc_material" => "ss-box",
-    "clothing" => "ss-hanger",
-    "accessories" => "ss-handbag",
-    "designers" => "ss-star",
-    "mealsharing" => "ss-sidedish",
-    "activities" => "ss-usergroup",
-    "accommodation" => "ss-lodging",
-    "search_material" => "ss-search",
-    "sell_material" => "ss-moneybag",
-    "give_away_material" => "ss-gift"
-  }
-  
-  before_validation :set_rideshare_title, :set_valid_until_time
+  before_validation :set_valid_until_time
   before_save :downcase_tags, :set_community_visibilities
   
   validates_presence_of :author_id
   validates_length_of :title, :in => 2..60, :allow_nil => false
-  validates_length_of :origin, :destination, :in => 2..48, :allow_nil => false, :if => :rideshare?
 
   before_validation do
     # Normalize browser line-breaks.
@@ -112,18 +54,13 @@ class Listing < ActiveRecord::Base
     self.description = description.gsub("\r\n","\n") if self.description
   end
   validates_length_of :description, :maximum => 5000, :allow_nil => true
-  # TODO: validate with community specific details
-  # validates_inclusion_of :listing_type, :in => VALID_TYPES
-  # validates_inclusion_of :category, :in => VALID_CATEGORIES
-  # validate :given_share_type_is_one_of_valid_share_types
   validates_inclusion_of :visibility, :in => VALID_VISIBILITIES
   validates_presence_of :category
-  validates_presence_of :share_type
+  validates_presence_of :transaction_type
   validates_inclusion_of :valid_until, :allow_nil => :true, :in => DateTime.now..DateTime.now + 7.months
   validates_numericality_of :price_cents, :only_integer => true, :greater_than_or_equal_to => 0, :message => "price must be numeric", :allow_nil => true
   validate :valid_until_is_not_nil
   
-
   def set_community_visibilities
     if current_community_id
       communities.clear
@@ -144,29 +81,7 @@ class Listing < ActiveRecord::Base
       where("listings.privacy = 'public' AND listings.id IN (#{id_condition})")
     end
   end
-  
-  def self.requests
-    with_share_type_or_its_children("request")
-  end
-  
-  def self.offers
-    with_share_type_or_its_children("offer")
-  end
-  
-  def self.with_share_type_or_its_children(share_type)
-    share_type = ShareType.find_by_name(share_type) unless share_type.class == ShareType
-    joins(:share_type).where({:share_types => {:id => share_type.with_all_children.collect(&:id)}})
-  end
-  
-  def self.rideshare
-    with_category_or_its_children("rideshare")
-  end
-  
-  def self.with_category_or_its_children(category)
-    category = Category.find_by_name(category) unless category.class == Category
-    joins(:category).where({:categories => {:id => category.with_all_children.collect(&:id)}})
-  end
-  
+
   def self.currently_open(status="open")
     status = "open" if status.blank?
     case status
@@ -219,25 +134,15 @@ class Listing < ActiveRecord::Base
     tag_list.each { |t| t.downcase! }
   end
   
-  def rideshare?
-    category && category.name.eql?("rideshare")
-  end
-  
-  def set_rideshare_title
-    if rideshare?
-      self.title = "#{origin} - #{destination}" 
-    end  
-  end
-  
-  # sets the time to midnight (unless rideshare listing, where exact time matters)
+  # sets the time to midnight
   def set_valid_until_time
     if valid_until
-      self.valid_until = valid_until.utc + (23-valid_until.hour).hours + (59-valid_until.min).minutes + (59-valid_until.sec).seconds unless category && category.name.eql?("rideshare")
+      self.valid_until = valid_until.utc + (23-valid_until.hour).hours + (59-valid_until.min).minutes + (59-valid_until.sec).seconds
     end  
   end
   
   def valid_until_is_not_nil
-    if !rideshare? && share_type.is_request? && !valid_until
+    if transaction_type.is_request? && !valid_until
       errors.add(:valid_until, "cannot be empty")
     end  
   end
@@ -251,18 +156,20 @@ class Listing < ActiveRecord::Base
     params ||= {}  # Set params to empty hash if it's nil
     joined_tables = []
         
-    params[:include] ||= [:listing_images, :category, :share_type]
+    params[:include] ||= [:listing_images, :category, :transaction_type]
         
     params.reject!{ |key,value| (value == "all" || value == ["all"]) && key != "status"} # all means the fliter doesn't need to be included (except with "status")
 
     # If no Share Type specified, use listing_type param if that is specified.
+    # :listing_type and :share_type are deprecated and they should not be used.
+    # However, API may use them still
     params[:share_type] ||= params[:listing_type]
     params.delete(:listing_type) # In any case listing_type is not a search param used any more
 
     params[:search] ||= params[:q] # Read search query also from q param
     
-    if params[:category]
-      category = Category.find_by_name(params[:category])
+    if params[:category].present?
+      category = Category.find_by_id(params[:category])
       if category
         params[:categories] = {:id => category.with_all_children.collect(&:id)} 
         joined_tables << :category
@@ -270,22 +177,26 @@ class Listing < ActiveRecord::Base
         # ignore the category attribute if it's not found
       end
     end
-    
-    if params[:share_type]   
-      share_type = ShareType.find_by_name(params[:share_type])
-      if share_type
-        params[:share_types] = {:id => share_type.with_all_children.collect(&:id)}
-        joined_tables << :share_type
-      else
-        # Ignore share_type if not found
-        # response.status = :bad_request
-        # render :json => ["Share type '#{params["share_type"]}' not found."] and return
-      end
+
+    # :share_type is deprecated, but we need to support it for the ATOM API
+    # Share type is overriden by transaction_type if it is present
+    if params[:share_type].present?
+      direction = params[:share_type]
+      params[:transaction_types] = {:id => current_community.transaction_types.select { |transaction_type| transaction_type.direction == direction }.collect(&:id) }
+    end
+
+    if params[:transaction_type].present?
+      # Sphinx expects integer
+      params[:transaction_types] = {:id => params[:transaction_type].to_i}
+    end
+
+    if params[:transaction_type].present? || params[:share_type].present?
+      joined_tables << :transaction_type
     end
     
     
     # Two ways of finding, with or without sphinx
-    if params[:search].present? || params[:share_type].present? || params[:category].present? || params[:custom_field_options].present?
+    if params[:search].present? || params[:transaction_types].present? || params[:category].present? || params[:custom_field_options].present?
       
       # sort by time by default
       params[:sort] ||= 'created_at DESC'
@@ -304,7 +215,7 @@ class Listing < ActiveRecord::Base
       with[:community_ids] = current_community.id
 
       with[:category_id] = params[:categories][:id] if params[:categories].present?
-      with[:share_type_id] = params[:share_types][:id] if params[:share_types].present?
+      with[:transaction_type_id] = params[:transaction_types][:id] if params[:transaction_types].present?
       
       params[:custom_field_options] ||= [] # use emtpy table rather than nil to avoid confused sphinx
 
@@ -326,32 +237,21 @@ class Listing < ActiveRecord::Base
     else # No search query or filters used, no sphinx needed
       query = {}
       query[:categories] = params[:categories] if params[:categories]
-      query[:share_types] = params[:share_types] if params[:share_types]
+      # FIX THIS query[:transaction_types] = params[:transaction_types] if params[:transaction_types]
       query[:author_id] = params[:person_id] if params[:person_id]    # this is not yet used with search
       listings = joins(joined_tables).where(query).currently_open(params[:status]).visible_to(current_user, current_community).includes(params[:include]).order("listings.created_at DESC").paginate(:per_page => per_page, :page => page)
     end
     return listings
   end
-  
-  def self.find_category_and_share_type_based_on_string_params(p)
-    p[:category] = Category.find_by_name(p[:subcategory] || p[:category])
-    p[:share_type] = ShareType.find_by_name(p[:share_type])
-    
-    # If there's no specific Share Type defined, use the listing_type param for the "top level share type"
-    if p[:share_type].nil?
-      p[:share_type] = ShareType.find_by_name(p[:listing_type])
-    end
-    
-    p.delete(:listing_type) # Remove old style listing_type from params
-    
-    return p
+
+  def self.find_by_category_and_subcategory(category)
+    Listing.where(:category_id => category.own_and_subcategory_ids)
   end
   
   # Listing type is not anymore stored separately, so we serach it by share_type top level parent
   # And return a string here, as that's what expected in most existing cases (e.g. translation strings)
   def listing_type
-    return nil if share_type.nil?
-    return share_type.top_level_parent.transaction_type || share_type.top_level_parent.name
+    return transaction_type.direction
   end
   
   # Returns true if listing exists and valid_until is set
@@ -360,7 +260,6 @@ class Listing < ActiveRecord::Base
   end
   
   def update_fields(params)
-    params = Listing.find_category_and_share_type_based_on_string_params(params)
     update_attribute(:valid_until, nil) unless params[:valid_until]
     update_attributes(params)
   end
@@ -372,56 +271,21 @@ class Listing < ActiveRecord::Base
   def self.opposite_type(type)
     type.eql?("offer") ? "request" : "offer"
   end
-  
-  def self.opposite_share_type(type)
-    return "" if type.nil?
-    st = type.class.eql?(String) ? type : type.name
-    case st
-    when "borrow"
-      return "lend"
-    when "lend"
-      return "borrow"
-    when "buy"
-      return "sell"
-    when "sell"
-      return "buy"
-    when "rent_out"
-      return "rent"
-    when "rent"
-      return "rent_out"
-    else
-      return "" 
-    end
-  end
-  
+
   # Returns true if the given person is offerer and false if requester
   def offerer?(person)
-    (share_type.is_offer? && author.eql?(person)) || (share_type.is_request? && !author.eql?(person))
+    (transaction_type.is_offer? && author.eql?(person)) || (transaction_type.is_request? && !author.eql?(person))
   end
   
   # Returns true if the given person is requester and false if offerer
   def requester?(person)
-    (share_type.is_request? && author.eql?(person)) || (share_type.is_offer? && !author.eql?(person))
-  end
-  
-  def selling_or_renting?
-    does_not_have_any_of_share_types?(["request_to_swap", "offer_to_swap", "lend", "give_away"])
-  end
-  
-  def lending_or_giving_away?
-    does_not_have_any_of_share_types?(["sell", "rent_out", "request_to_swap", "offer_to_swap"])
-  end
-  
-  def does_not_have_any_of_share_types?(sts)
-    return_value = true
-    sts.each { |st| return_value = false if share_type.eql?(st) }
-    return return_value
+    (transaction_type.is_request? && author.eql?(person)) || (transaction_type.is_offer? && !author.eql?(person))
   end
   
   # If listing is an offer, a discussion about the listing
   # should be request, and vice versa
   def discussion_type
-    share_type.is_request? ? "offer" : "request"
+    transaction_type.is_request? ? "offer" : "request"
   end
   
   # This is used to provide clean JSON-strings for map view queries
@@ -429,8 +293,8 @@ class Listing < ActiveRecord::Base
     
     # This is currently optimized for the needs of the map, so if extending, make a separate JSON mode, and keep map data at minimum
     hash = {
-      :listing_type => self.listing_type,
-      :category => self.category.name,
+      :listing_type => self.transaction_type.direction,
+      :category => self.category.id,
       :id => self.id,
       :icon => icon_class(icon_name)
     }
@@ -471,12 +335,14 @@ class Listing < ActiveRecord::Base
     price ? price.symbol : MoneyRails.default_currency.symbol
   end
   
-  def transaction_type
-    share_type.top_level_parent.transaction_type
-  end
-  
   def price_with_vat(vat)
     price + (price * vat / 100)
+  end
+
+  def self.send_payment_settings_reminder?(listing, current_user, current_community)
+    listing.transaction_type.is_offer? && 
+    current_community.payments_in_use? && 
+    !current_user.can_receive_payments_at?(current_community)
   end
   
 end

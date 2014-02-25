@@ -679,6 +679,16 @@ module ApplicationHelper
       }
     ]
 
+    # Only super admins
+    if @current_user.is_admin?
+      links << {
+        :text => t("admin.categories.index.listing_categories"),
+        :icon_class => icon_class("list"), 
+        :path => admin_categories_path,
+        :name => "listing_categories"
+      }
+    end
+
     if community.custom_fields_allowed
       links << {
         :text => t("admin.custom_fields.index.listing_fields"),

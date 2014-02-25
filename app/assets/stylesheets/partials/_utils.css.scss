@@ -19,3 +19,13 @@
 .clearfix {
   @include clearfix;
 }
+
+/**
+  Use disabled link or icon
+*/
+.disabled {
+  &, &:hover {
+    color: $border;
+    cursor: default;
+  }
+}

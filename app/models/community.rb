@@ -12,11 +12,14 @@ class Community < ActiveRecord::Base
   has_many :event_feed_events, :dependent => :destroy
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy
-  has_many :community_categories # Don't add here :dependent  => :destroy because community_categories method confuses it. Instead use separate hook (delete_specific_community_categories) to get rid of entries in that table when destroying.
-  has_many :categories, :through => :community_categories
-  has_many :share_types, :through => :community_categories
+  
+  has_many :categories, :order => "sort_priority"
+  has_many :top_level_categories, :class_name => "Category", :conditions => ["parent_id IS NULL"], :order => "sort_priority"
+  has_many :subcategories, :class_name => "Category", :conditions => ["parent_id IS NOT NULL"], :order => "sort_priority"
+  
   has_many :payments
   has_many :statistics, :dependent => :destroy
+  has_many :transaction_types, :dependent => :destroy, :order => "sort_priority"
   
   has_and_belongs_to_many :listings
   
@@ -26,7 +29,6 @@ class Community < ActiveRecord::Base
   has_many :custom_dropdown_fields, :class_name => "CustomField", :conditions => ["type = 'Dropdown'"], :dependent => :destroy
   
   after_create :initialize_settings
-  before_destroy :delete_specific_community_categories
   
   monetize :minimum_price_cents, :allow_nil => true
   
@@ -314,71 +316,53 @@ class Community < ActiveRecord::Base
     settings["use_rdf_profile_import"] == true    
   end
   
-  # categories_tree
-  # Returns a hash that represents the categorization tree that is in use at this community
-  # Some assumptions are made here:
-  # - Listing types and share_types are only linked to top level categories in DB
-  # If wanting to do differently, this code needs to be changed and probably the UI code too
-  # Example of a returned tree:
-  #   "offer" => {
-  #     "item" => {
-  #       "subcategory" => ["tools", "sports", "music", "books", "games"],
-  #       "share_type" => ["lend", "sell", "rent_out", "trade", "give_away"]
-  #     },
-  #     "favor" => {
-  #       "subcategory" => ["furniture_assemble", "walking_dogs"]
-  #     }, 
-  #     "rideshare" => {},
-  #     "housing" => {
-  #       "share_type" => ["rent_out", "sell", "share_for_free"]
-  #     }
+  # Returns an array that contains the hierarchy of categories and transaction types
+  # 
+  # An xample of a returned tree:
+  #
+  # [
+  #   { 
+  #     "label" => "item",
+  #     "id" => id,
+  #     "subcategories" => [
+  #       { 
+  #         "label" => "tools",
+  #         "id" => id,
+  #         "transaction_types" => [
+  #           {
+  #             "label" => "sell",
+  #             "id" => id
+  #           }
+  #         ]
+  #       }
+  #     ]
   #   },
-  #   "request" => {
-  #     "rideshare" => {}
+  #   {
+  #     "label" => "services",
+  #     "id" => "id"
   #   }
-  # }
-  def categories_tree
-    tree = {}
-    
-    # store few variables here so that they are fetched only once during the loops
-    this_tribe_community_categories = community_categories
-    this_tribe_categories = categories
-    this_tribe_share_types = share_types
-    
-    listing_types.each do |listing_type| # Listing types are the root level of the tree
-      categories_for_listing_type = {}
-      
-      # pick the categories that are linked for this listing type in this community
-      # "top_level_linked_community_category" means that we assume here that those categories that are linked
-      # to listing types, are top level categories (not sub categories)
-      this_tribe_community_categories.select{|cc| cc.share_type_id == listing_type.id}.each do |top_level_linked_community_category|
-        
-        category_hash = {} # empty by default if no subcategories or share_types
-
-        # Check for existing subcategories for this category
-        this_tribe_categories.select{|cat| cat.parent_id == top_level_linked_community_category.category_id}.each do |subcat|
-          category_hash["subcategory"] ||= []
-          category_hash["subcategory"] << subcat.name
-        end
-        
-        # Check for existing linked share_types for this category
-        this_tribe_share_types.select{|st|  
-                this_tribe_community_categories.select{|comcat| 
-                  comcat.category_id == top_level_linked_community_category.category_id && 
-                  st.id == comcat.share_type_id
-                }.present? &&
-                st.parent_id == top_level_linked_community_category.share_type_id}.each do |sub_share_type|
-          category_hash["share_type"] ||= []
-          category_hash["share_type"] << sub_share_type.name
-        end
-        
-        # Insert this top level category to hash and make it's value contain the sub categories and share types
-        categories_for_listing_type[top_level_linked_community_category.category.name] = category_hash
-      end
-      
-      tree[listing_type.name] = categories_for_listing_type
+  # ]
+  def category_tree(locale)
+    top_level_categories.inject([]) do |category_array, category|
+      category_array << hash_for_category(category, locale)
     end
-    return tree
+  end
+
+  # Returns a hash for a single category
+  def hash_for_category(category, locale)
+    category_hash = {"id" => category.id, "label" => category.display_name(locale)}
+    if category.children.empty?
+      category_hash["transaction_types"] = category.transaction_types.inject([]) do |transaction_type_array, transaction_type|
+        transaction_type_array << {"id" => transaction_type.id, "label" => transaction_type.display_name(locale)}
+        transaction_type_array
+      end
+    else
+      category_hash["subcategories"] = category.children.inject([]) do |subcategory_array, subcategory|
+        subcategory_array << hash_for_category(subcategory, locale)
+        subcategory_array
+      end
+    end
+    category_hash
   end
   
   
@@ -388,64 +372,38 @@ class Community < ActiveRecord::Base
   # Example hash:
   # {
   #   "listing_type" => ["offer", "request"],
-  #   "category" => ["item", "favor", "rideshare", "housing"],
+  #   "category" => ["item", "favor", "housing"],
   #   "subcategory" => ["tools", "sports", "music", "books", "games", "furniture_assemble", "walking_dogs"],
-  #   "share_type" => ["lend", "sell", "rent_out", "give_away", "share_for_free", "borrow", "buy", "rent", "trade", "receive", "accept_for_free"]
+  #   "transaction_type" => ["lend", "sell", "rent_out", "give_away", "share_for_free", "borrow", "buy", "rent", "trade", "receive", "accept_for_free"]
   # }
   def available_categorization_values
     values = {}
-    values["listing_type"] = listing_types.collect(&:name)
-    values["category"] = main_categories.collect(&:name)
-    values["subcategory"] = subcategories.collect(&:name)
-    values["share_type"] = share_types.collect(&:name).reject { |st| values["listing_type"].include?(st) }
+    values["category"] = top_level_categories.collect(&:id)
+    values["subcategory"] = subcategories.collect(&:id)
+    values["transaction_type"] = transaction_types.collect(&:id)
     return values
   end
   
   # same as available_categorization_values but returns the models instead of just values
   def available_categorizations
     values = {}
-    values["listing_type"] = listing_types
-    values["category"] = main_categories
+    values["category"] = top_level_categories
     values["subcategory"] = subcategories
-    values["share_type"] = share_types.reject { |st| listing_types.include?(st) }
+    values["transaction_type"] = transaction_types
     return values
   end
   
-
-  # returns all categories
-  def categories
-    unique_categorizations(:category)
-  end
-  
   def main_categories
-    categories.select{|c| c.parent_id.nil?}
+    top_level_categories
   end
-  
-  def subcategories
-    categories.select{|c| ! c.parent_id.nil?}
-  end
-  
-  # Finds all top level share_types (=listing_types) used in this community
-  def listing_types
-    share_types.select{|s| s.parent_id.nil?}
-  end
-  
-  # finds community specific share_types or default values if no customizations found
-  def share_types
-    unique_categorizations(:share_type)
-  end
-  
-  def community_category(category, share_type)
-    CommunityCategory.where("category_id = ? AND share_type_id = ? AND (community_id IS NULL OR community_id = ?)", category.id.to_s, share_type.id.to_s, id.to_s).order("category_id DESC").first
+
+  def leaf_categories
+    categories.reject { |c| !c.children.empty? }
   end
 
   # is it possible to pay for this listing via the payment system
   def payment_possible_for?(listing)
-    cc = community_category(listing.category.top_level_parent, listing.share_type)
-    # as currently all messages are shown in all communities, there might be case where the
-    # message would have payment possible in it's original community, but in this community the cc
-    # is not found with the above search, so then payment is not possible here. (cc must be present)
-    payments_in_use? && cc.present? && (cc.price || cc.payment)
+    listing.transaction_type.price_field? && payments_in_use?
   end
   
   def payments_in_use?
@@ -457,23 +415,6 @@ class Community < ActiveRecord::Base
     payment_gateway.present? && payment_gateway.requires_payout_registration_before_accept?
   end
 
-
-  def community_categories
-    custom = Rails.cache.fetch("/custom_categories/#{self.id}-#{self.updated_at}") {
-      # order the custom categorizations based on the sort priority (or ids of the CommunityCategory)
-      CommunityCategory.order("sort_priority ASC","id ASC").find_all_by_community_id(id, :include => [:category, :share_type])
-    }
-    if custom.present?
-      # use custom values
-      return custom
-    else
-      # Use defaults
-      return Rails.cache.fetch("/default_categories") {
-        CommunityCategory.find_all_by_community_id(nil, :include => [:category, :share_type])
-      }
-    end
-  end
-  
   def default_currency
     if available_currencies
       available_currencies.gsub(" ","").split(",").first
@@ -499,7 +440,7 @@ class Community < ActiveRecord::Base
       return []
     end
   end
-  
+
   def braintree_in_use?
     payment_gateway.present? && payment_gateway.type == "BraintreePaymentGateway"
   end
@@ -533,24 +474,8 @@ class Community < ActiveRecord::Base
   end
   
   private
-  
-  # Returns an array of unique categories or share_types used in this community.
-  def unique_categorizations(categorization_type)
-    unless [:category, :share_type].include?(categorization_type)
-      throw "unique_categorizations called with wrong type. Only :category and :share_type allowed" 
-    end
-    return community_categories.collect(&categorization_type).compact.uniq
-  end
 
   def initialize_settings
     update_attribute(:settings,{"locales"=>[APP_CONFIG.default_locale]}) if self.settings.blank?
   end
-  
-  # This method deletes the specific community_category entries (but not the default ones)
-  def delete_specific_community_categories
-    CommunityCategory.find_all_by_community_id(id).each do |c|
-      c.destroy
-    end
-  end
-
 end

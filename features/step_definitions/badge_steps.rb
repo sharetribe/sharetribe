@@ -12,53 +12,6 @@ Then /^I should not see badge "(.+)"$/ do |badge|
   assert page.has_no_xpath?("//img[@src='https://s3.amazonaws.com/sharetribe/assets/images/badges/#{badge}.png']")
 end
 
-Given /^I have "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([^"]*)")?(?: as "([^"]*)")?(?: with share type "([^"]*)")?$/ do |amount, grade, category, role, share_type|
-  listing_type = role ? role.chop.chop : "request"
-  category = category || "item"
-  share_type ||= listing_type
-  amount.to_i.times do
-    listing = create_listing(category, share_type)
-    conversation = FactoryGirl.create(:conversation, :status => "confirmed", :listing => listing)
-    conversation.participants << @people["kassi_testperson1"] << @people["kassi_testperson2"]
-    message = Message.create(:sender_id => @people["kassi_testperson1"].id, :content => "Test", :conversation_id => conversation.id)
-    participation = Participation.find_by_person_id_and_conversation_id(@people["kassi_testperson2"].id, conversation.id)
-    @testimonial = Testimonial.create!(:grade => grade.to_i, :text => "Yeah", :author_id => @people["kassi_testperson2"], :receiver_id => @people["kassi_testperson1"], :participation_id => participation.id)
-  end
-end
-
-When /^I get "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([^"]*)")?(?: with share type "([^"]*)")?$/ do |amount, grade, category, share_type|
-  amount.to_i.times do
-    if category
-      if category.eql?("rideshare")
-        steps %Q{ Given there is rideshare offer from "Otaniemi" to "Turkkunen" by "kassi_testperson1" }
-      else
-        if share_type
-          steps %Q{ Given there is #{category} offer with title "test" from "kassi_testperson1" and with share type "#{share_type}" }
-        else
-          steps %Q{ Given there is #{category} offer with title "test" from "kassi_testperson1" }
-        end  
-      end
-    else
-      steps %Q{ Given there is favor offer with title "massage" from "kassi_testperson1" }
-    end
-    steps %Q{
-      And there is a message "I request this" from "kassi_testperson2" about that listing
-      And the request is confirmed
-      And I log out
-      And I log in as "kassi_testperson2"
-      And I follow "inbox-link"
-      And I follow "Give feedback"
-      And I click "##{grade}-grade-link"
-      And I fill in "How did things go?" with "Random text"
-      And I press "send_testimonial_button"
-      And I log out
-      And I log in as "kassi_testperson1"
-      And the system processes jobs
-      And I go to the badges page of "kassi_testperson1"
-    }
-  end
-end
-
 When /^I get the badge "(.+)"$/ do |badge|
   steps %Q{
     And I go to the badges page of "kassi_testperson1"

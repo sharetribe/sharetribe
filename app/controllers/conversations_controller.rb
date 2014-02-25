@@ -71,7 +71,8 @@ class ConversationsController < ApplicationController
         redirect_to session[:return_to_content] || root
       end
     else
-      render :action => :new
+      flash[:error] = "Sending the message failed. Please try again."
+      redirect_to root
     end  
   end
   
@@ -119,7 +120,7 @@ class ConversationsController < ApplicationController
     end
     if @conversation.update_attributes(params[:conversation])
       @conversation.confirm_or_cancel(@current_user, @current_community, params[:give_feedback])
-      flash[:notice] = t("layouts.notifications.#{@conversation.listing.listing_type}_#{@conversation.status}")
+      flash[:notice] = t("layouts.notifications.#{@conversation.listing.direction}_#{@conversation.status}")
       if params[:give_feedback] && params[:give_feedback].eql?("true")
         redirect_to new_person_message_feedback_path(:person_id => @current_user.id, :message_id => @conversation.id)
       else
@@ -166,7 +167,7 @@ class ConversationsController < ApplicationController
     unless @target_person
       @listing = params[:conversation] ? Listing.find(params[:conversation][:listing_id]) : Listing.find(params[:id])
       if @listing.closed?
-        flash[:error] = t("layouts.notifications.you_cannot_reply_to_a_closed_#{@listing.listing_type}")
+        flash[:error] = t("layouts.notifications.you_cannot_reply_to_a_closed_#{@listing.direction}")
         redirect_to (session[:return_to_content] || root)
       end
     end

@@ -2,36 +2,47 @@ fi:
   admin:
     categories:
       edit:
-        edit_listing_category: ~
+        edit_listing_category: "Muokkaa kategoriaa '%{category}'"
       index:
-        listing_categories: ~
-        create_a_new_category: ~
-        remove_category_confirmation: ~
-        saving_order: ~
-        save_order_successful: ~
-        save_order_error: ~
+        listing_categories: "Ilmoituskategoriat"
+        create_a_new_category: "+ Uusi kategoria"
       new:
-        new_listing_category: ~
+        new_listing_category: "Uusi ilmoituskategoria"
       form:
         category_name:
-          category_title: ~
+          category_title: "Kategorian nimi"
         category_parent:
-          category_parent: ~
-          no_parent: ~
+          category_parent: "Yläkategoria"
+          no_parent: "Ei yläkategoriaa"
         category_transaction_types:
-          transaction_types: ~
-          transaction_types_description: ~
+          transaction_types: "Transaktiotyypit"
+          transaction_types_description: "Transaktiotyypit määrittelevät, millaiset transaktiot ovat sallittuja tässä kategoriassa oleville ilmoituksille. Voit esimerkiksi määritellä, että ainoastaan myynti-ilmoitukset ovat sallittuja, tai sitten sallia myös vuokrauksen ja lainaamisen."
         buttons:
-          save: ~
-          cancel: ~
+          save: "Tallenna"
+          cancel: "Peruuta"
       remove:
-        remove_category: ~
-        remove_category_name: ~
-        warning_remove_effects: ~
-        select_new_category: ~
+        remove_category: "Poista kategoria"
+        remove_category_name: "Poista kategoria '%{category_name}'"
+        warning_remove_effects: "Varoitus! Kategorian '%{category_name}' poistamisella on seuraavat vaikutukset:"
+        warning_listing_will_be_moved:
+          one: "Kategorialla on %{count} ilmoitus. Tämä ilmoitus siirretään uuteen kategoriaan."
+          other: "Kategorialla on %{count} ilmoitusta. Nämä ilmoitukset siirtämään uuteen kategoriaan."
+        warning_custom_field_will_be_moved:
+          one: "Kategorialla on %{count} ilmoituskenttä. Tämä ilmoituskenttä siirretään uuteen kategoriaan."
+          other: "Kategorialla on %{count} ilmoituskenttää. Nämä ilmoituskentät siirretään uuteen kategoriaan."
+        warning_subcategory_will_be_removed:
+          one: "Kategorialla on %{count} alakategoria. Tämä alakategoria poistetaan."
+          other: "Kategorialla on %{count} alakategoriaa. Nämä alakategoriat poistetaan."
+        warning_with_subcategories_listing_will_be_moved:
+          one: "Kategorialla ja sen alakategorioilla on %{count} ilmoitus. Tämä ilmoitus siirretään uuteen kategoriaan."
+          other: "Kategorialla ja sen alakategorioilla on %{count} ilmoitusta. Nämä ilmoitukset siirtämään uuteen kategoriaan."
+        warning_with_subcategories_custom_field_will_be_moved:
+          one: "Kategorialla ja sen alakategorioilla on %{count} ilmoituskenttä. Tämä ilmoituskenttä siirretään uuteen kategoriaan."
+          other: "Kategorialla ja sen alakategorioilla on %{count} ilmoituskenttää. Nämä ilmoituskentät siirretään uuteen kategoriaan."
+        select_new_category: "Valitse uusi kategoria, johon yllämainitut elementit siirretään:"
         buttons:
-          remove: ~
-          cancel: ~
+          remove: "Remove"
+          cancel: "Cancel"
     communities:
       edit_details:
         community_details: "Yhteisön tiedot"
@@ -162,6 +173,7 @@ fi:
       swap: Vaihdetaan
       service: Tarjotaan
       request: Tarvitaan
+      inquiry: Tiedustelu
       share_for_free: "Tarjotaan käyttöön ilmaiseksi"
       default_action_button_labels:
         sell: Osta
@@ -992,7 +1004,7 @@ fi:
       comment_cannot_be_empty: "Et voi lähettää tyhjää kommenttia"
       comment_sent: "Kommentti lähetetty"
       confirmation_link_is_wrong_or_used: "Vahvistuslinkki on jo käytetty tai siinä on jokin vika. Yritä kirjautua sisään tai lähetä palautetta jos ongelma ei ratkea."
-      additional_email_confirmed: "Antamasi email osoite on nyt vahvistettu."
+      additional_email_confirmed: "Antamasi sähköpostiosoite on nyt vahvistettu."
       could_not_get_email_from_facebook: "Ei saatu sähköpostiosoitetta Facebookista, eikä uuden tunnuksen luonti onnistu ilman sitä."
       create_new_listing: "Lisää uusi ilmoitus"
       create_one_here: "luoda uuden"
@@ -1192,12 +1204,6 @@ fi:
         comma_separate: "(erota pilkulla)"
         tags: Avainsanat
       title:
-        favor_you_offer: "Palvelus jonka tarjoat"
-        favor_you_request: "Palvelus jonka tarvitset"
-        housing_you_offer: "Tila jonka tarjoat"
-        housing_you_request: "Tila jonka tarvitset"
-        item_you_offer: "Tavara jonka tarjoat"
-        item_you_request: "Tavara jonka tarvitset"
         listing_title: "Ilmoituksen otsikko"
       valid_until:
         valid_until: Voimassa
@@ -1253,107 +1259,15 @@ fi:
       share_for_frees: "Tarjotaan käyttöön ilmaiseksi"
       accept_for_frees: "Otetaan vastaan ilmaiseksi"
       trades: Vaihdetaan
-    link_labels:
-      offer_this: Tarjoa
-      request_this: Pyydä
-      lend_this: "Tarjoa lainaksi"
-      borrow_this: "Pyydä lainaksi"
-      buy_this: Osta
-      rent_out_this: "Tarjoa vuokralle"
-      rent_this: Vuokraa
-      sell_this: Myy
-      link_label_for_favor_offer: "Pyydä palvelusta"
-      link_label_for_favor_request: "Tarjoa apuasi"
-      link_label_for_housing_offer_sell: Osta
-      link_label_for_housing_offer_rent_out: Vuokraa
-      link_label_for_housing_offer_share_for_free: "Pyydä käyttöoikeutta"
-      link_label_for_housing_request_accept_for_free: "Tarjoa tätä tilaa"
-      link_label_for_housing_request_buy: "Myy pyydetty tila"
-      link_label_for_housing_request_rent: "Tarjoa vuokralle pyydetty tila"
-      link_label_for_item_offer_lend: "Pyydä tämä tavara lainaan"
-      link_label_for_item_offer_rent_out: "Vuokraa tämä tavara"
-      link_label_for_item_offer_sell: "Osta tämä tavara"
-      link_label_for_item_offer_give_away: "Pyydä tavara itsellesi"
-      link_label_for_item_offer_trade: "Vaihda tämä tavara"
-      link_label_for_item_request_borrow: "Tarjoa tämä tavara lainaan"
-      link_label_for_item_request_rent: "Tarjoa tämä tavara vuokralle"
-      link_label_for_item_request_buy: "Tarjoudu myymään tämä tavara"
-      link_label_for_item_request_receive: "Anna pyydetty tavara pyytäjälle"
-      link_label_for_item_request_trade: "Tarjoudu vaihtamaan tämä tavara"
-      link_label_for_rideshare_offer: "Pyydä kyytiä"
-      link_label_for_rideshare_request: "Tarjoa kyytiä"
     new:
       post_a_new_listing: "Lisää uusi ilmoitus"
       listing: ilmoitus
-      offer: "Haluan tarjota muille jotain"
-      request: "Tarvitsen jotain"
-      selected_offer: Tarjous
-      selected_request: Pyyntö
-      selected_listing_type: "Ilmoitustyyppi: %{listing_type}"
       selected_category: "Kategoria: %{category}"
       selected_subcategory: "Alakategoria: %{subcategory}"
-      selected_share_type: "Jakamistapa: %{share_type}"
-      selected_item: Tavara
-      selected_favor: Palvelus
-      selected_rideshare: Kimppakyyti
-      selected_housing: Tila
-      selected_borrow: Lainataan
-      selected_buy: Ostetaan
-      selected_give_away: "Annetaan ilmaiseksi"
-      selected_lend: "Annetaan lainaksi"
-      selected_receive: "Otetaan vastaan ilmaiseksi"
-      selected_rent: Vuokrataan
-      selected_rent_out: "Annetaan vuokralle"
-      selected_sell: Myydään
-      selected_offer_to_swap: Vaihdetaan
-      selected_request_to_swap: Vaihdetaan
-      selected_share_for_free: "Annetaan käyttöön ilmaiseksi"
-      selected_accept_for_free: "Otetaan vastaan ilmaiseksi"
-      how_do_you_want_to_share_it: "Millä tavalla haluat jakaa sen?"
-      how_do_you_want_to_get_it: "Millä tavalla haluat saada sen?"
-      item: "Tavara - jotain käsinkosketeltavaa"
-      favor: "Palvelus - osaamista tai aikaa"
-      rideshare: "Kimppakyyti - autolla tai muulla kulkuvälineellä"
-      housing: "Tila - asunto, toimistotila tai puutarha"
-      borrow: "Haluan lainata sen"
-      buy: "Haluan ostaa sen"
-      give_away: "Annan sen pois ilmaiseksi"
-      lend: "Voin lainata sen ilmaiseksi"
-      receive: "Toivoisin saavani sen ilmaiseksi"
-      rent: "Haluan vuokrata sen"
-      rent_out: "Annan sen vuokralle maksua vastaan"
-      sell: "Myyn sen"
-      offer_to_swap: "Haluan vaihtaa sen johonkin muuhun"
-      request_to_swap: "Haluan vaihtaa sen johonkin muuhun"
-      share_for_free: "Tarjoan sen käyttöön ilmaiseksi"
-      accept_for_free: "Toivoisin saavani sen käyttöön ilmaiseksi"
-      what_kind_of_item: "Millaisesta tavarasta on kyse?"
-      what_kind_of_favor: "Millaisesta palveluksesta on kyse?"
-      what_kind_of_rideshare: "Millaisesta kyydistä on kyse?"
-      what_kind_of_housing: "Millaisesta tilasta on kyse?"
-      which_subcategory: "Tarkempi kuvaus"
-      tools: Työkalut
-      sports: Urheilu
-      music: Musiikki
-      books: "Kirjat & lehdet"
-      games: "Pelit & lelut"
-      furniture: Huonekalut
-      outdoors: "Ulkoilu ja retkeily"
-      food: "Ruoka ja ruuanlaitto"
-      electronics: Elektroniikka
-      pets: "Eläimet ja lemmikit"
-      film: "Elokuvat ja tv-sarjat"
-      clothes: "Vaatteet ja asusteet"
-      garden: Puutarha
-      travel: Matkailu
-      other: Muut
-      what_do_you_want_to_do: "Mitä haluat tehdä?"
-      what_can_you_offer: "Mitä haluat tarjota muille?"
-      what_do_you_need: "Mitä tarvitset?"
-      selected_transaction_type: ~
+      selected_transaction_type: "Ilmoitustyyppi: %{transaction_type}"
       select_category: "Valitse ilmoituskategoria"
-      select_subcategory: ~
-      select_transaction_type: ~
+      select_subcategory: "Valitse alakategoria"
+      select_transaction_type: "Valitse ilmoitustyyppi"
     please_comment: Kommentoi
     reply_link:
       listing_closed: "Ilmoitus on suljettu"
@@ -1365,6 +1279,7 @@ fi:
       contact: "Ota yhteyttä"
       favor_offer: Palvelustarjous
       favor_request: Palveluspyyntö
+      inquiry: "Tiedustelu"
       item_offer_trade: "Annetaan vaihtoon"
       item_request_trade: "Halutaan vaihdossa"
       no_description: "Tällä ilmoituksella ei ole kuvausta"

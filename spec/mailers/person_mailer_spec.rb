@@ -15,7 +15,6 @@ def include_all?(arr, needle_arr)
 end
 
 describe PersonMailer do
-  fixtures :people, :communities, :community_memberships
   
   # Include EmailSpec stuff (https://github.com/bmabey/email-spec)
   include(EmailSpec::Helpers)
@@ -221,7 +220,7 @@ describe PersonMailer do
       @p1 = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "update_tester@example.com") ])
       @p1.communities << @c1
       @l1 = FactoryGirl.create(:listing, 
-          :share_type => find_or_create_share_type("request"), 
+          :transaction_type => FactoryGirl.create(:transaction_type_request), 
           :title => "bike", 
           :description => "A very nice bike", 
           :created_at => 3.days.ago, 
@@ -230,13 +229,13 @@ describe PersonMailer do
           :title => "hammer", 
           :created_at => 2.days.ago, 
           :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer", 
-          :share_type => find_or_create_share_type("sell"))
+          :transaction_type => FactoryGirl.create(:transaction_type_sell))
       @l2.communities << @c1
       @l3 = FactoryGirl.create(:listing, 
           :title => "sledgehammer", 
           :created_at => 12.days.ago, 
           :description => "super <b>shiny</b> sledgehammer, borrow it!", 
-          :share_type => find_or_create_share_type("lend")).communities = [@c1]
+          :transaction_type => FactoryGirl.create(:transaction_type_lend)).communities = [@c1]
           
       @email = PersonMailer.community_updates(@p1, @p1.communities.first)
     end
@@ -248,7 +247,7 @@ describe PersonMailer do
     
     it "should contain latest listings" do
       @email.should have_body_text("A very nice bike")
-      @email.should have_body_text("Selling: ")
+      @email.should have_body_text("Sell: ")
       @email.should have_body_text("new hammer")
     end
     
@@ -290,13 +289,13 @@ describe PersonMailer do
       @p2.communities << @c2
       
       @l1 = FactoryGirl.create(:listing, 
-          :share_type => find_or_create_share_type("request"), 
+          :transaction_type => FactoryGirl.create(:transaction_type_request),
           :title => "bike", 
           :description => "A very nice bike", 
           :created_at => 3.hours.ago, 
           :author => @p1).communities = [@c1]
       @l2 = FactoryGirl.create(:listing, 
-          :share_type => find_or_create_share_type("request"), 
+          :transaction_type => FactoryGirl.create(:transaction_type_request),
           :title => "motorbike", 
           :description => "fast!", 
           :created_at => 1.hours.ago, 

@@ -1,18 +1,17 @@
 - content_for :javascript do
-  initialize_send_message_form('#{I18n.locale}', '#{params[:message_type] ? params[:message_type] : Listing.opposite_type(@listing.transaction_type)}');
+  initialize_send_message_form('#{I18n.locale}', '#{free_conversation? ? "free" : Listing.opposite_type(@listing.direction)}');
 
 #new_message_form.centered-section
-  - if params[:message_type]
+  - if free_conversation?
     %h2= t(".send_message_to_user", :person => @target_person.given_name_or_username)
-  - elsif @listing.share_type.transaction_button_text
+  - elsif @listing.transaction_type.action_button_label(I18n.locale)
     %h2
-      = @listing.share_type.transaction_button_text
+      = @listing.transaction_type.action_button_label(I18n.locale)
       = link_to(@listing.title, @listing)
-  - else
-    %h2= t(".#{transaction_proposal_form_title(@listing)}", :listing => link_to(@listing.title, @listing), :person => author_link(@listing), :default => t(".#{Listing.opposite_type(@listing.transaction_type)}_message_form_title", :listing => link_to(@listing.title, @listing), :person => author_link(@listing)).html_safe).html_safe   
+
   %p
     = t(".this_message_is_private", :person => @target_person.given_name_or_username)
-    - if params[:message_type]
+    - if free_conversation?
       = t(".you_will_get_notified", :person => @target_person.given_name_or_username)
     - else
       = t(".you_will_get_notified_of_acceptance", :person => @target_person.given_name_or_username)
@@ -29,8 +28,8 @@
     = hidden_field_tag "conversation[conversation_participants][#{@target_person.id}]", false
     - if @listing
       = form.hidden_field :listing_id, :value => @listing.id
-    - if params[:message_type]
-      = form.hidden_field :status, :value => params[:message_type]
+    - if free_conversation?
+      = form.hidden_field :status, :value => "free"
     - if params[:profile_message]
       = hidden_field_tag "profile_message", params[:profile_message]
       = hidden_field_tag "target_person_id", @target_person.id

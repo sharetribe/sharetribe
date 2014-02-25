@@ -3,9 +3,6 @@
     = form.label :valid_until, t('.valid_until') + "*", :class => "inline"
     = link_to t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_valid_until_link", :class => "label-info"
     .valid-until-dropdown
-      - if @listing.share_type.is_offer? && (@listing.category.name.eql?("favor") || (@listing.share_type && ["lend", "rent_out"].include?(@listing.share_type.name)))
-        = render :partial => "listings/form/valid_until_radio_buttons"
-      - else
-        = date_select(:listing, :valid_until, {:start_year => Time.now.year, :end_year => Time.now.year + 1, :default => 3.months.from_now}, :class => "listing_date_select")
+      = date_select(:listing, :valid_until, {:start_year => Time.now.year, :end_year => Time.now.year + 1, :default => 3.months.from_now}, :class => "listing_date_select")
 
   

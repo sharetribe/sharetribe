@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe Api::TokensController do
   render_views
-  
 
   describe "show" do
   

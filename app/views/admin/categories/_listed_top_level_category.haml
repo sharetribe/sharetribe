@@ -1,0 +1,23 @@
+.top-level-category-container{data: {id: category.id}}
+  .row.top-level-category-row
+    .row.category-row
+      .col-10.listed-category-col
+        .row{:id => "top-level-category-#{category.display_name(I18n.locale).squish.downcase.tr(" ","_")}"}
+          .col-12.listed-category-col
+            = category.display_name(I18n.locale)
+      .col-2.listed-category-col
+        = render :partial => "category_action_buttons", :locals => {:category => category}
+
+  - unless category.children.empty?
+    = render :partial => "listed_subcategory", :collection => category.children, :as => :subcategory
+
+  -#
+    Make divider border between the elements without margins (only paddings)
+
+    This is a little bit hacky-wacky solution, but it seems to work ok. The animation
+    relies on the height of the animated element and it doesn't include the margins
+    in the height. Best result for animation is when element doesn't have top/bottom
+    margins
+
+  .top-level-category-divider-wrapper
+    .top-level-category-divider

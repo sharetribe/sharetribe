@@ -90,6 +90,7 @@ group :development do
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-nav'
+  gem 'zeus'
 end
 
 group :test do
@@ -107,7 +108,9 @@ group :test do
   gem "parallel_tests", :group => :development
   gem 'timecop'
   gem 'rack-test'
-  gem 'spork'
   gem 'database_cleaner'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'connection_pool'
 end
 

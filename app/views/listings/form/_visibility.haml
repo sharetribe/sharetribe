@@ -1,6 +1,1 @@
-- if @current_user.communities.size > 1 && ! @current_community.settings["hide_listing_visibility_selection"]
-  .new_listing_form_field_container
-    = form.label :visibility, t(".visibility") + "*:", :class => "input"
-    = select("listing", "visibility", visibility_array, {:selected => (@listing.visibility || "this_community")}, { :class => "visibility_select" })
-- else
-  = form.hidden_field :visibility, :value => "this_community"
+= form.hidden_field :visibility, :value => "this_community"

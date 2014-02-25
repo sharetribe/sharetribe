@@ -15,7 +15,8 @@ class Api::ListingsController < Api::ApiController
     # Few extra fields for ATOM feed
     if params[:format].to_s == "atom"
       
-      @category_label = (params["category"] ? "(" + localized_category_label(params["category"]) + ")" : "")
+      category = Category.find_by_id(params["category"])
+      @category_label = (category.present? ? "(" + localized_category_label(category) + ")" : "")
       
       if ["request","offer"].include?params['share_type']
         listing_type_label = t("listings.index.#{params['share_type']+"s"}")
@@ -77,8 +78,11 @@ class Api::ListingsController < Api::ApiController
     if params["share_type"].nil?
       params["share_type"] = params["listing_type"]
     end
+
+    # share_type was renamed to transaction_type
+    transaction_type_param = params["share_type"]
     
-    category = Category.find_by_name(params["category"])
+    category = Category.find_by_id(params["category"])
 
     unless category && @current_community.categories.include?(category)
       response.status = 400
@@ -91,10 +95,10 @@ class Api::ListingsController < Api::ApiController
       category = sub_category_for_misc if sub_category_for_misc
     end
     
-    share_type = ShareType.find_by_name(params["share_type"])
-    unless share_type && @current_community.share_types.include?(share_type)
+    transaction_type = TransactionType.find_by_id(transaction_type_param)
+    unless transaction_type && @current_community.transaction_types.include?(transaction_type)
       response.status = 400
-      render :json => ["Given share_type is not available in this community."] and return
+      render :json => ["Given transaction_type is not available in this community."] and return
     end
     
     @listing = Listing.new(params.slice("title", 
@@ -111,7 +115,7 @@ class Api::ListingsController < Api::ApiController
                                         "destination_loc_attributes"
                                         ).merge({"author_id" => current_person.id,
                                                  "category" => category,
-                                                 "share_type" => share_type,
+                                                 "transaction_type" => transaction_type,
                                                  "listing_images_attributes" => {"0" => {"image" => params["image"]} }}))
     
     

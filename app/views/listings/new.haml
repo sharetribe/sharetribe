@@ -1,7 +1,7 @@
 - content_for :extra_javascript do
   :javascript
     $(document).ready(function() {
-      initialize_new_listing_form_selectors("#{I18n.locale}", #{@current_community.categories_tree.to_json}, #{listing_form_menu_titles(@current_community.available_categorization_values).to_json});
+      initialize_new_listing_form_selectors("#{I18n.locale}", #{@current_community.category_tree(I18n.locale).to_json}, #{listing_form_menu_titles(@current_community.available_categorization_values).to_json});
     });
 
 - content_for :extra_javascript do
@@ -18,9 +18,8 @@
       - if values.size > 1
         .selected-group{:name => attribute} 
           - values.each do |value|
-            %a.select.selected{:href => "#", :name => value.name}
-              = icon_tag(value.icon_name, ["link-icon"])
-              .link-text= t(".selected_#{attribute}", attribute.to_sym => t(".selected_#{value.name}", :default => value.display_name))
+            %a.select.selected.hidden{:href => "#", :data => {:id => value.id}}
+              .link-text= t(".selected_#{attribute}", attribute.to_sym => value.display_name(I18n.locale))
   
   %h2.listing-form-title{:id => "foo"}
 
@@ -29,8 +28,7 @@
       - if values.size > 1
         .option-group{:name => attribute}
           - values.each do |value|
-            %a.select.option{:href => "#", :name => value.name}
-              = icon_tag(value.icon_name, ["link-icon"])
-              .link-text= value.description
+            %a.select.option.hidden{:href => "#", :data => {:id => value.id}}
+              .link-text= value.display_name(I18n.locale)
 
   .form-fields

@@ -1,0 +1,52 @@
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t(".remove_category")
+
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section
+  %h2
+    = t('.remove_category_name', category_name: @category.display_name(I18n.locale))
+
+  .category-remove-warning-box
+    %p
+      %span.category-remove-warning-box-icon<>
+        = icon_tag("alert", ["icon-fix"])
+      %span<
+        = t('.warning_remove_effects', category_name: @category.display_name(I18n.locale))
+
+    %ul
+      - prefix = @category.has_subcategories? ? '.warning_with_subcategories_' : '.warning_'
+
+      - if @category.has_subcategories?
+        %li
+          - count = @category.subcategories.count
+          = t('.warning_subcategory_will_be_removed', count: count)
+
+      -if @category.has_own_or_subcategory_listings?
+        %li
+          - count = @category.own_and_subcategory_listings.count
+          = t(prefix + 'listing_will_be_moved', count: count)
+
+      -if @category.has_own_or_subcategory_custom_fields?
+        %li
+          - count = @category.own_and_subcategory_custom_fields.count
+          = t(prefix + 'custom_field_will_be_moved', count: count)
+
+  = form_tag('destroy_and_move', :method => :delete) do
+
+    -if @category.has_own_or_subcategory_listings? || @category.has_own_or_subcategory_custom_fields?
+      %p
+        = t('.select_new_category')
+
+        %p
+          = select_tag "new_category", options_for_select(@possible_merge_targets.collect { |c| [c.display_name(I18n.locale), c.id] })
+
+    .inline-button-container
+      = button_tag t(".buttons.remove"), :class => "delete-button"
+    .inline-button-container
+      %a{:href => admin_categories_path, :class => "cancel-button"}
+        .content
+          = t(".buttons.cancel")

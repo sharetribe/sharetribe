@@ -72,6 +72,8 @@ module NavigationHelpers
       about_infos_path(:locale => "en")
     when /the custom fields admin page/
       admin_custom_fields_path(:locale => "en")
+    when /the categories admin page/
+      admin_categories_path(:locale => "en")
 
     # the following are examples using path_to_pickle
 
