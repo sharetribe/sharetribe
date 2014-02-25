@@ -63,5 +63,26 @@
       .col-12
         = form.button t(".confirm_payment"), :class => "send_button"
 
+    %br/
+
+    .row
+      .col-12
+        %h3
+          = "Security information"
+
+        %p
+          = "We do not store your credit card information."
+
+        %p
+          = "The credit card information will be securely forwarded to the payment provider."
+
+        %p
+          = link_to "https://www.braintreepayments.com/" do
+            = image_tag("payments/braintree-logo-2x.png", height: '32')
+    
+          %br/
+
+          = "Our secure payment provider"
+
   %noscript
     = "For security reasons JavaScript has to be enabled"

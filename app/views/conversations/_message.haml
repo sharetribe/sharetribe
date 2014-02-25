@@ -5,7 +5,7 @@
     = link_to message.sender.name(@current_community), message.sender
   - if message.action
     - if message.action.eql?("pay")
-      %b= t(".paid", :sum => humanized_money_with_symbol(message.conversation.payment.total_sum))
+      %b= t(".paid", :sum => sum_with_currency(message.conversation.payment.total_sum, message.conversation.payment.currency))
     - else
       %b= t(".#{message.action}ed_#{message.conversation.discussion_type}")
   %small= time_ago(message.created_at)

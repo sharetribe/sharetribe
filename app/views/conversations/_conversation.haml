@@ -14,7 +14,7 @@
           .ss-reply.conversation-icon
           - if last_message.content.blank?
             - if last_message.action.eql?("pay")
-              .conversation-text= t("conversations.message.paid", :sum => humanized_money_with_symbol(last_message.conversation.payment.total_sum))
+              .conversation-text= t("conversations.message.paid", :sum => sum_with_currency(last_message.conversation.payment.total_sum, last_message.conversation.payment.currency))
             - else
               .conversation-text= t(".#{last_message.action}ed_#{last_message.conversation.discussion_type}").capitalize
           - else

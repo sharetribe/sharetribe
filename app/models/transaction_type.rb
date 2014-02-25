@@ -1,5 +1,5 @@
 class TransactionType < ActiveRecord::Base
-  attr_accessible :community_id, :price_field, :sort_priority, :type
+  attr_accessible :community_id, :price_field, :sort_priority, :type, :price_quantity_placeholder
 
   belongs_to :community
 

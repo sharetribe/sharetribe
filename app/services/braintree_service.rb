@@ -50,7 +50,6 @@ class BraintreeService
                 :region => braintree_account.address_region
               },
               :date_of_birth => braintree_account.date_of_birth,
-              :ssn => braintree_account.ssn,
               :routing_number => braintree_account.routing_number,
               :account_number => braintree_account.account_number
             },

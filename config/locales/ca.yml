@@ -162,6 +162,7 @@ ca:
       swap: ~
       service: ~
       request: ~
+      inquiry: ~
       share_for_free: ~
       default_action_button_labels:
         sell: ~
@@ -1194,12 +1195,6 @@ ca:
         comma_separate: "(separades per comes)"
         tags: Etiquetes
       title:
-        favor_you_offer: "El que ofereixes"
-        favor_you_request: "El que que necessites"
-        housing_you_offer: "Allotjament que ofereixes"
-        housing_you_request: "Allotjament que necessites"
-        item_you_offer: "Article que ofereixes"
-        item_you_request: "Article que necessites"
         listing_title: ~
       valid_until:
         valid_until: "Data de caducitat"
@@ -1255,103 +1250,11 @@ ca:
       share_for_frees: ~
       accept_for_frees: ~
       trades: Intercanvis
-    link_labels:
-      offer_this: ~
-      request_this: ~
-      lend_this: ~
-      borrow_this: ~
-      buy_this: ~
-      rent_out_this: ~
-      rent_this: ~
-      sell_this: ~
-      link_label_for_favor_offer: Contactar
-      link_label_for_favor_request: Contactar
-      link_label_for_housing_offer_sell: ~
-      link_label_for_housing_offer_rent_out: ~
-      link_label_for_housing_offer_share_for_free: ~
-      link_label_for_housing_request_accept_for_free: ~
-      link_label_for_housing_request_buy: ~
-      link_label_for_housing_request_rent: ~
-      link_label_for_item_offer_lend: ~
-      link_label_for_item_offer_rent_out: ~
-      link_label_for_item_offer_sell: ~
-      link_label_for_item_offer_give_away: ~
-      link_label_for_item_offer_trade: ~
-      link_label_for_item_request_borrow: ~
-      link_label_for_item_request_rent: ~
-      link_label_for_item_request_buy: ~
-      link_label_for_item_request_receive: ~
-      link_label_for_item_request_trade: ~
-      link_label_for_rideshare_offer: Contactar
-      link_label_for_rideshare_request: Contactar
     new:
       post_a_new_listing: ~
       listing: ~
-      offer: ~
-      request: ~
-      selected_offer: ~
-      selected_request: ~
-      selected_listing_type: ~
       selected_category: ~
       selected_subcategory: ~
-      selected_share_type: ~
-      selected_item: ~
-      selected_favor: ~
-      selected_rideshare: ~
-      selected_housing: ~
-      selected_borrow: ~
-      selected_buy: ~
-      selected_give_away: ~
-      selected_lend: ~
-      selected_receive: ~
-      selected_rent: ~
-      selected_rent_out: ~
-      selected_sell: ~
-      selected_offer_to_swap: ~
-      selected_request_to_swap: ~
-      selected_share_for_free: ~
-      selected_accept_for_free: ~
-      how_do_you_want_to_share_it: ~
-      how_do_you_want_to_get_it: ~
-      item: ~
-      favor: ~
-      rideshare: ~
-      housing: ~
-      borrow: ~
-      buy: ~
-      give_away: ~
-      lend: ~
-      receive: ~
-      rent: ~
-      rent_out: ~
-      sell: ~
-      offer_to_swap: ~
-      request_to_swap: ~
-      share_for_free: ~
-      accept_for_free: ~
-      what_kind_of_item: ~
-      what_kind_of_favor: ~
-      what_kind_of_rideshare: ~
-      what_kind_of_housing: ~
-      which_subcategory: ~
-      tools: ~
-      sports: ~
-      music: ~
-      books: ~
-      games: ~
-      furniture: ~
-      outdoors: ~
-      food: ~
-      electronics: ~
-      pets: ~
-      film: ~
-      clothes: ~
-      garden: ~
-      travel: ~
-      other: ~
-      what_do_you_want_to_do: ~
-      what_can_you_offer: ~
-      what_do_you_need: ~
       selected_transaction_type: ~
       select_category: ~
       select_subcategory: ~
@@ -1367,6 +1270,7 @@ ca:
       contact: ~
       favor_offer: "Oferta de serveis"
       favor_request: "Sol·licitud de servei"
+      inquiry: ~
       item_offer_trade: ~
       item_request_trade: ~
       no_description: "Sense descripció"

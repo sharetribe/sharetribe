@@ -4,22 +4,26 @@ fi:
       edit:
         edit_listing_category: "Muokkaa kategoriaa '%{category}'"
       index:
-        listing_categories: "Ilmoituskategoriat"
+        listing_categories: Ilmoituskategoriat
         create_a_new_category: "+ Uusi kategoria"
+        remove_category_confirmation: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
       new:
         new_listing_category: "Uusi ilmoituskategoria"
       form:
         category_name:
           category_title: "Kategorian nimi"
         category_parent:
-          category_parent: "Yläkategoria"
+          category_parent: Yläkategoria
           no_parent: "Ei yläkategoriaa"
         category_transaction_types:
-          transaction_types: "Transaktiotyypit"
+          transaction_types: Transaktiotyypit
           transaction_types_description: "Transaktiotyypit määrittelevät, millaiset transaktiot ovat sallittuja tässä kategoriassa oleville ilmoituksille. Voit esimerkiksi määritellä, että ainoastaan myynti-ilmoitukset ovat sallittuja, tai sitten sallia myös vuokrauksen ja lainaamisen."
         buttons:
-          save: "Tallenna"
-          cancel: "Peruuta"
+          save: Tallenna
+          cancel: Peruuta
       remove:
         remove_category: "Poista kategoria"
         remove_category_name: "Poista kategoria '%{category_name}'"
@@ -41,8 +45,8 @@ fi:
           other: "Kategorialla ja sen alakategorioilla on %{count} ilmoituskenttää. Nämä ilmoituskentät siirretään uuteen kategoriaan."
         select_new_category: "Valitse uusi kategoria, johon yllämainitut elementit siirretään:"
         buttons:
-          remove: "Remove"
-          cancel: "Cancel"
+          remove: Remove
+          cancel: Cancel
     communities:
       edit_details:
         community_details: "Yhteisön tiedot"
@@ -1279,7 +1283,7 @@ fi:
       contact: "Ota yhteyttä"
       favor_offer: Palvelustarjous
       favor_request: Palveluspyyntö
-      inquiry: "Tiedustelu"
+      inquiry: Tiedustelu
       item_offer_trade: "Annetaan vaihtoon"
       item_request_trade: "Halutaan vaihdossa"
       no_description: "Tällä ilmoituksella ei ole kuvausta"
