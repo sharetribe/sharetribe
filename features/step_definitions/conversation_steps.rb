@@ -28,6 +28,11 @@ end
 
 Given /^the (offer|request) is (accepted|rejected|confirmed|canceled)$/ do |listing_type, status|
   @conversation.update_attribute(:status, status)
+
+  if listing_type == "request" && status =="accepted" && @conversation.community.payment_possible_for?(@conversation.listing)
+    # In this case there should be a pending payment done when this got accepted.
+    FactoryGirl.create(:payment, :conversation => @conversation, :recipient => @conversation.listing.author, :status => "pending", :sum => @conversation.listing.price)
+  end
 end
 
 When /^there is feedback about that event from "([^"]*)" with grade "([^"]*)" and with text "([^"]*)"$/ do |feedback_giver, grade, text|
