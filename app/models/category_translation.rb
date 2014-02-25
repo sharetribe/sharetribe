@@ -1,6 +1,6 @@
 class CategoryTranslation < ActiveRecord::Base
   
-  attr_accessible :name, :locale, :description
+  attr_accessible :name, :locale, :description, :category_id
 
   belongs_to :category, touch: true
   
