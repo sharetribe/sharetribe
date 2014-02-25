@@ -12,6 +12,16 @@ When updating, always run the following commands to update gem set and database 
  - check this file for changes between your old version and the one you are updating, and do the necessary manual operations if needed
  - if running on local instance (localhost), you need to precompile assets using "rake assets:precompile" once update is done
 
+4.4.0
+-----
+Major update to data structure:
+
+- CommunityCategories removed (a category can belong to only one community)
+- ShareType renamed to TransactionType
+- Admin user-interface for editing categories
+
+There are migrations for all changes, but the possibility of running to issues when updating from earlier versions is considerable, so please back up your data before updating and if encountering any issues, please contact the core team to get help. (Latest instructions how to contact at: https://github.com/sharetribe/sharetribe)
+
 4.3.1
 -----
 Admin can edit custom fields for listings
