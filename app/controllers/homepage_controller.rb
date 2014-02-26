@@ -51,7 +51,7 @@ class HomepageController < ApplicationController
     
     @filter_params[:search] = params[:q] if params[:q]
     @filter_params[:include] = [:listing_images, :author, :category, :transaction_type]
-    @filter_params[:custom_field_options] = HomepageController.custom_field_options_for_search(params)
+    @filter_params[:custom_dropdown_field_options] = HomepageController.custom_dropdown_field_options_for_search(params)
       
     @listings = Listing.find_with(@filter_params, @current_user, @current_community, listings_per_page, params[:page])
 
@@ -87,7 +87,7 @@ class HomepageController < ApplicationController
   private
   
   # Extract correct type of array from query parameters
-  def self.custom_field_options_for_search(params)
+  def self.custom_dropdown_field_options_for_search(params)
     option_ids = []
     option_hash = {}
     array_for_search = []
@@ -98,8 +98,8 @@ class HomepageController < ApplicationController
       end  
     end
     
-    custom_field_options = CustomFieldOption.find(option_ids)
-    custom_field_options.each do |cfo|
+    custom_dropdown_field_options = CustomFieldOption.find(option_ids)
+    custom_dropdown_field_options.each do |cfo|
       option_hash[cfo.custom_field_id] ||= []
       option_hash[cfo.custom_field_id] << cfo.id
     end

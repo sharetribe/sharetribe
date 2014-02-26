@@ -17,7 +17,7 @@ var transaction_type;
 var listing_category = ["all"];
 var listing_tags = [];
 var listing_search;
-var listing_custom_field_options;
+var listingCustomDropdownFieldOptions;
 var locale;
 var flagMarker;
 var markers = [];
@@ -580,7 +580,7 @@ function addListingMarkers() {
   
   var starttime = new Date().getTime();
   var request_path = '/listings/locations_json'
-  $.get(request_path, { transaction_type: transaction_type, 'category[]': listing_category, search: listing_search, custom_field_options: listing_custom_field_options}, function(data) {  
+  $.get(request_path, { transaction_type: transaction_type, 'category[]': listing_category, search: listing_search, custom_dropdown_field_options: listingCustomDropdownFieldOptions}, function(data) {  
 
     var data_arr = data.data;
     for (i in data_arr) {
@@ -660,11 +660,11 @@ function clearMarkers() {
     }
 }
 
-function SetFiltersForMap(type, category, search, custom_field_options) {
+function SetFiltersForMap(type, category, search, custom_dropdown_field_options) {
   if (type)                 { transaction_type = type;               } else { transaction_type = "all";}
   if (category)             { listing_category = [category];     } else { listing_category = ["all"];}
   if (search)               { listing_search = search            } else { listing_search = "";}
-  if (custom_field_options) { listing_custom_field_options = custom_field_options} else { listing_custom_field_options = [];}
+  if (custom_dropdown_field_options) { listingCustomDropdownFieldOptions = custom_dropdown_field_options} else { listingCustomDropdownFieldOptions = [];}
   initialize_labels();
 }
 
