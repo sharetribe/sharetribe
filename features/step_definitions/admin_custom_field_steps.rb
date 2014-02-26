@@ -81,14 +81,26 @@ When /^I add a new custom field "(.*?)"$/ do |field_name|
   }
 end
 
+When(/^I set numeric field min value to (\d+)$/) do |value|
+  steps %Q{
+    And I fill in "custom_field[min]" with "#{value}"
+  }
+end
+
+When(/^I set numeric field max value to (\d+)$/) do |value|
+  steps %Q{
+    And I fill in "custom_field[max]" with "#{value}"
+  }
+end
+
 When /^I add a new numeric field "(.*?)"$/ do |field_name|
   steps %Q{
-    When I select "Numeric" from "field_type"
+    When I select "Numeric field" from "field_type"
     And I fill in "custom_field[name_attributes][en]" with "#{field_name}"
     And I fill in "custom_field[name_attributes][fi]" with "Pinta-ala"
     And I toggle category "Spaces"
-    And I fill in "custom_field[numeric_min]" with "0"
-    And I fill in "custom_field[numeric_max]" with "9999"
+    And I set numeric field min value to 100
+    And I set numeric field max value to 200
     And I press submit
   }
 end
