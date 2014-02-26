@@ -41,6 +41,7 @@ module Kassi
     
     # Add webfonts folder which can contain icons used like fonts
     config.assets.paths << Rails.root.join("app", "assets", "webfonts")
+    config.assets.paths << Rails.root.join("vendor", "assets", "stylesheets")
     
     # Define here additional Assset Pipeline Manifests to include to precompilation
     config.assets.precompile += ['dashboard.js', 'dashboard.css', 'markerclusterer.js', 'communities/custom-style-*', 'ss-*','old_ie.css', 'html5shiv-printshiv.js', 'mercury.js','jquery-1.7.js']
