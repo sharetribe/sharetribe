@@ -12,6 +12,17 @@ describe Numeric do
 
       numeric.max = 9999
       numeric.should be_valid
+
+      # Must be number
+      numeric.min = "not a number"
+      numeric.should_not be_valid
+
+      # Must be greater (equal is not enough)
+      numeric.min = numeric.max
+      numeric.should_not be_valid
+
+      numeric.max = numeric.min + 1
+      numeric.should be_valid
     end
   end
 end
