@@ -229,6 +229,11 @@ FactoryGirl.define do
     question
     listing
   end
+
+  factory :dropdown_value, class: 'DropdownValue' do
+    question { [ FactoryGirl.build(:custom_dropdown_field) ] }
+    listing
+  end
   
   factory :payment do
     payer
