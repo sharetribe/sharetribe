@@ -20,3 +20,7 @@ Feature: Admin adds a custom field
   Scenario: Admin adds custom field with invalid data
     When I add a new custom field "House type" with invalid data
     Then I should see 3 validation errors
+
+  Scenario: Admin adds numeric field
+    When I add a new numeric field "Area"
+    Then I should see that there is a numeric field "Area"

@@ -81,6 +81,18 @@ When /^I add a new custom field "(.*?)"$/ do |field_name|
   }
 end
 
+When /^I add a new numeric field "(.*?)"$/ do |field_name|
+  steps %Q{
+    When I select "Numeric" from "field_type"
+    And I fill in "custom_field[name_attributes][en]" with "#{field_name}"
+    And I fill in "custom_field[name_attributes][fi]" with "Pinta-ala"
+    And I toggle category "Spaces"
+    And I fill in "custom_field[numeric_min]" with "0"
+    And I fill in "custom_field[numeric_max]" with "9999"
+    And I press submit
+  }
+end
+
 When /^I add a new custom field "(.*?)" with invalid data$/ do |field_name|
   steps %Q{
     When I select "Dropdown" from "field_type" 
