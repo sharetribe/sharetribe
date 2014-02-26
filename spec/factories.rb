@@ -188,7 +188,7 @@ FactoryGirl.define do
   factory :custom_field, aliases: [:question] do
     community
 
-    before(:create) do |custom_field|
+    after(:build) do |custom_field|
       category = FactoryGirl.create(:category)
       custom_field.category_custom_fields << FactoryGirl.create(:category_custom_field, :category => category, :custom_field => custom_field)
       custom_field.names << FactoryGirl.create(:custom_field_name)
@@ -202,6 +202,9 @@ FactoryGirl.define do
     end
 
     factory :custom_text_field, class: 'TextField' do
+    end
+
+    factory :custom_numeric_field, class: 'NumericField' do
     end
     
   end
