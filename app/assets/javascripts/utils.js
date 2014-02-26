@@ -44,11 +44,40 @@ ST.utils = (function(_) {
     return [window.location.pathname, url].join("/").replace("//", "/");
   }
 
+  /**
+    Give attribute value and get back jqueryfied version that
+    can be used as a part of a selector
+
+    Example:
+
+    var jquerified = jquerifyAttributeValue("person[name]") // => "person\[name\]"
+    nameInput = $("[name=" + jquerified + "]");
+  */
+  function jquerifyAttributeValue(attrValue) {
+    return attrValue.replace(/\[/g, "\\[").replace(/\]/g, "\\]");
+  }
+
+  /**
+    Give element `name` attribute value and get back matching elements
+
+    Example:
+    <input name="plaaplaa">
+
+    var plaaplaa = findElementByName("plaaplaa") // => jQuery element
+
+  */
+  function findElementByName(name) {
+    var selector = ["[name=", jquerifyAttributeValue(name), "]"].join("");
+    return $(selector);
+  }
+
   return {
     findNextIndex: findNextIndex,
     findPrevIndex: findPrevIndex,
     swapArrayElements: swapArrayElements,
-    relativeUrl: relativeUrl
+    relativeUrl: relativeUrl,
+    jquerifyAttributeValue: jquerifyAttributeValue,
+    findElementByName: findElementByName
   };
 
 })(_);

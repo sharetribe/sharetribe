@@ -23,5 +23,10 @@ Feature: Admin adds a custom field
 
   @javascript
   Scenario: Admin adds numeric field
-    When I add a new numeric field "Area"
+    When I add a new numeric field "Area" with min value 0 and max value 100
     Then I should see that there is a custom field "Area"
+
+  @javascript
+  Scenario: Admin adds numeric field
+    When I add a new numeric field "Area" with min value 100 and max value 99
+    Then I should see 2 validation errors
