@@ -18,14 +18,14 @@
   .edit-community-details-field
     .edit-community-details-field-title
       = t(".community_name")
-    = render :partial => "info_text", :locals => { :text => t(".edit_community_name_description") }  
+    = render :partial => "layouts/info_text", :locals => { :text => t(".edit_community_name_description") }  
     #name{:data => {:mercury => "full"}}
       = @current_community.name(I18n.locale)
   
   .edit-community-details-field
     .edit-community-details-field-title
       = t(".community_slogan")
-    = render :partial => "info_text", :locals => { :text => t(".edit_community_slogan_description", :see_how_it_looks_like => link_to(t(".see_how_it_looks_like"), "/?big_cover_photo=true", :id => "view_slogan_link")).html_safe }
+    = render :partial => "layouts/info_text", :locals => { :text => t(".edit_community_slogan_description", :see_how_it_looks_like => link_to(t(".see_how_it_looks_like"), "/?big_cover_photo=true", :id => "view_slogan_link")).html_safe }
     #slogan{:data => {:mercury => "full"}}
       - if @community_customization && @community_customization.slogan
         = @community_customization.slogan
@@ -35,7 +35,7 @@
   .edit-community-details-field
     .edit-community-details-field-title
       = t(".community_description")
-    = render :partial => "info_text", :locals => { :text => t(".edit_community_description_description", :see_how_it_looks_like => link_to(t(".see_how_it_looks_like"), "/?big_cover_photo=true")).html_safe }
+    = render :partial => "layouts/info_text", :locals => { :text => t(".edit_community_description_description", :see_how_it_looks_like => link_to(t(".see_how_it_looks_like"), "/?big_cover_photo=true")).html_safe }
     #description{:data => {:mercury => "full"}}
       - if @community_customization && @community_customization.description
         = @community_customization.description
@@ -46,7 +46,7 @@
     .edit-community-details-field
       .edit-community-details-field-title
         = t(".private_community_homepage_content")
-      = render :partial => "info_text", :locals => { :text => t(".edit_private_community_homepage_content_description", :see_how_it_looks_like => link_to(t(".see_how_it_looks_like"), "/?big_cover_photo=true")).html_safe }
+      = render :partial => "layouts/info_text", :locals => { :text => t(".edit_private_community_homepage_content_description", :see_how_it_looks_like => link_to(t(".see_how_it_looks_like"), "/?big_cover_photo=true")).html_safe }
       #private_community_homepage_content{:data => {:mercury => "full"}}
         - if @community_customization && @community_customization.private_community_homepage_content
           = @community_customization.private_community_homepage_content.html_safe
@@ -55,7 +55,7 @@
   .edit-community-details-field
     .edit-community-details-field-title
       = t(".edit_signup_info")
-    = render :partial => "info_text", :locals => { :text => t(".edit_signup_info_description") }
+    = render :partial => "layouts/info_text", :locals => { :text => t(".edit_signup_info_description") }
     
     #signup_info_content{:data => {:mercury => "full"}}
       - if @community_customization && @community_customization.signup_info_content

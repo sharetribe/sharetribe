@@ -2,33 +2,48 @@ de:
   admin:
     categories:
       edit:
-        edit_listing_category: ~
+        edit_listing_category: "Kategorie '%{category}' bearbeiten"
       index:
-        listing_categories: ~
+        listing_categories: Eintragskategorien
         create_a_new_category: "+ Neue Kategorie erstellen"
-        remove_category_confirmation: ~
-        saving_order: "Kategoriereihenfolge speichern"
-        save_order_successful: ~
-        save_order_error: ~
+        remove_category_confirmation: "Bist du sicher, dass du die Kategorie '%{category_name}' entfernen möchtest?"
+        saving_order: "Reihenfolge der Kategorien speichern"
+        save_order_successful: "Reihenfolge der Kategorien erfolgreich gespeichert"
+        save_order_error: "Während des Speicherns der Kategorienreihenfolge ist ein Fehler aufgetreten. Bitte lade die Seite neu und versuche es noch einmal."
       new:
-        new_listing_category: ~
+        new_listing_category: "Neue Eintragskategorie"
       form:
         category_name:
-          category_title: ~
+          category_title: Kategorie-Titel
         category_parent:
-          category_parent: ~
-          no_parent: ~
+          category_parent: Oberkategorie
+          no_parent: "Keine Oberkategorie"
         category_transaction_types:
-          transaction_types: ~
-          transaction_types_description: ~
+          transaction_types: Transaktionsarten
+          transaction_types_description: "Transaktionsarten bestimmen, welche Art von Transaktionen mit Einträgen in dieser Kategorie erlaubt sind. Zum Beispiel ob nur der Verkauf erlaubt ist oder Miete und verschenken ebenfalls."
         buttons:
           save: Speichern
           cancel: Abbrechen
       remove:
         remove_category: "Kategorie entfernen"
-        remove_category_name: ~
-        warning_remove_effects: ~
-        select_new_category: ~
+        remove_category_name: "Kategorie '%{category_name}' entfernen"
+        warning_remove_effects: "Warnung! Das Entfernen der Kategorie '%{category_name}' wird folgende Auswirkungen haben:"
+        warning_listing_will_be_moved:
+          one: "Es gibt %{count} Eintrag in dieser Kategorie. Dieser wird in die ausgewählte Kategorie verschoben."
+          other: "Es gibt %{count} Einträge in dieser Kategorie. Diese werden in die ausgewählte Kategorie verschoben."
+        warning_custom_field_will_be_moved:
+          one: "Es gibt %{count} benutzerdefiniertes Feld in dieser Kategorie. Es wird in die ausgewählte Kategorie verschoben."
+          other: "Es gibt %{count} benutzerdefinierte Felder in dieser Kategorie. Sie werden in die ausgewählte Kategorie verschoben."
+        warning_subcategory_will_be_removed:
+          one: "Es gibt %{count} Subkategorie in der Kategorie. Sie wird entfernt."
+          other: "Es gibt %{count} Subkategorien in der Kategorie. Sie werden entfernt."
+        warning_with_subcategories_listing_will_be_moved:
+          one: "Es gibt %{count} Eintrag in der Kategorie und den Subkategorien. Sie wird in die ausgewählte Kategorie verschoben."
+          other: "Es gibt %{count} Einträge in der Kategorie und den Subkategorien. Sie werden in die ausgewählte Kategorie verschoben."
+        warning_with_subcategories_custom_field_will_be_moved:
+          one: "Es gibt %{count} benutzerdefiniertes Feld in der Kategorie und Subkategorie. Es wird in die ausgewählte Kategorie verschoben."
+          other: "Es gibt %{count} benutzerdefinierte Einstellungsfelder in der Kategorie und Subkategorie. Sie werden in die ausgewählte Kategorie verschoben."
+        select_new_category: "Wähle eine neue Kategorie aus, in die die oberen Einträge verschoben werden:"
         buttons:
           remove: Entfernen
           cancel: Abbrechen
@@ -162,6 +177,7 @@ de:
       swap: Tauschen
       service: Angebot
       request: Anfragen
+      inquiry: Anfrage
       share_for_free: "Kostenlos teilen"
       default_action_button_labels:
         sell: Kaufen
@@ -659,8 +675,8 @@ de:
       has_updated_listing_you_follow_in_kassi: "%{author} hat den Eintrag %{listing} erneuert, dem du in %{service_name} folgst."
       view_changes: "Änderungen anzeigen"
     community_updates:
-      added_offer: "%{name_link} hat ein Angebot hinzugefügt"
-      added_request: "%{name_link} hat eine Anfrage hinzugefügt"
+      added_offer: "%{name_link} hat einen Eintrag hinzugefügt:"
+      added_request: "%{name_link} hat einen Eintrag hinzugefügt:"
       added_listing: "%{name_link} hat einen Eintrag hinzugefügt:"
       update_mail_title: "%{title_link} Community Update"
       title_link_text: "%{community_name}"
@@ -1192,12 +1208,6 @@ de:
         comma_separate: "(Komma getrennt)"
         tags: Tags
       title:
-        favor_you_offer: "Dienstleistung, die du anbietest"
-        favor_you_request: "Dienstleistung, die du brauchst"
-        housing_you_offer: "Dein Raumangebot"
-        housing_you_request: "Dein Raumgesuch"
-        item_you_offer: "Gegenstand, den du anbietest"
-        item_you_request: "Gegenstand, den du brauchst"
         listing_title: "Titel des Eintrags"
       valid_until:
         valid_until: Ablaufdatum
@@ -1253,107 +1263,15 @@ de:
       share_for_frees: "Kostenlose gemeinsame Nutzung"
       accept_for_frees: "Umsonst akzeptieren"
       trades: Tauschen
-    link_labels:
-      offer_this: Angebot
-      request_this: Anfrage
-      lend_this: ausleihen
-      borrow_this: verleihen
-      buy_this: kaufen
-      rent_out_this: vermieten
-      rent_this: mieten
-      sell_this: verkaufen
-      link_label_for_favor_offer: "Diese Dienstleistung anfragen"
-      link_label_for_favor_request: "Diese Dienstleistung anbieten"
-      link_label_for_housing_offer_sell: "Diese Räumlichkeiten kaufen"
-      link_label_for_housing_offer_rent_out: "Diese Räumlichkeiten mieten"
-      link_label_for_housing_offer_share_for_free: "Diese Räumlichkeiten anfragen"
-      link_label_for_housing_request_accept_for_free: "Biete diese Räumlichkeiten an"
-      link_label_for_housing_request_buy: "Diese Räumlichkeiten zum Verkauf anbieten"
-      link_label_for_housing_request_rent: "Diese Räumlichkeiten zur Miete anbieten"
-      link_label_for_item_offer_lend: "Diesen Gegenstand ausleihen"
-      link_label_for_item_offer_rent_out: "Diesen Gegenstand mieten"
-      link_label_for_item_offer_sell: "Diesen Gegenstand kaufen"
-      link_label_for_item_offer_give_away: "Diesen Gegenstand erbitten"
-      link_label_for_item_offer_trade: "Diesen Gegenstand tauschen"
-      link_label_for_item_request_borrow: "Diesen Gegenstand zum ausleihen anbieten"
-      link_label_for_item_request_rent: "Diesen Gegenstand zum mieten anbieten"
-      link_label_for_item_request_buy: "Diesen Gegenstand zum verkaufen anbieten"
-      link_label_for_item_request_receive: "Diesen Gegenstand an den Antragssteller geben"
-      link_label_for_item_request_trade: "Diesen Gegenstand zum Austausch anbieten"
-      link_label_for_rideshare_offer: "Diese Mitfahrgelegenheit anfragen"
-      link_label_for_rideshare_request: "Mitfahrgelegenheit anbieten"
     new:
       post_a_new_listing: "Einen neuen Eintrag veröffentlichen"
       listing: Eintrag
-      offer: "Ich habe etwas anderen anzubieten."
-      request: "Ich brauche etwas"
-      selected_offer: Angebot
-      selected_request: Anfrage
-      selected_listing_type: "Listung: %{listing_type}"
       selected_category: "Kategorie: %{category}"
       selected_subcategory: "Unterkategorie: %{subcategory}"
-      selected_share_type: "Teilungstyp: %{share_type}"
-      selected_item: Element
-      selected_favor: Service
-      selected_rideshare: Mitfahrgelegenheit
-      selected_housing: Räumlichkeit
-      selected_borrow: Ausleihen
-      selected_buy: Kaufen
-      selected_give_away: Abgeben
-      selected_lend: Verleihen
-      selected_receive: "Umsonst nehmen"
-      selected_rent: mieten
-      selected_rent_out: vermieten
-      selected_sell: verkaufen
-      selected_offer_to_swap: tauschen
-      selected_request_to_swap: tauschen
-      selected_share_for_free: "Kostenlos teilen"
-      selected_accept_for_free: "Umsonst akzeptieren"
-      how_do_you_want_to_share_it: "Wie willst du es teilen?"
-      how_do_you_want_to_get_it: "Wie willst du es bekommen?"
-      item: "Ein Gegenstand - etwas greifbares"
-      favor: "Hilfe - Eine Fähigkeit oder ein Service"
-      rideshare: "Eine Mitfahrgelegenheit - in einem Auto oder einem anderen Transportmittel"
-      housing: "Eine Räumlichkeit - ein Apartment, ein Büro oder ein Garten"
-      borrow: "Ich will es ausleihen"
-      buy: "Ich will es kaufen"
-      give_away: "Ich will es umsonst abgeben"
-      lend: "Ich kann es umsonst leihen"
-      receive: "Ich kann es umsonst akzeptieren"
-      rent: "Ich will es vermieten"
-      rent_out: "Ich vermiete es gegen eine Gebühr"
-      sell: "Ich verkaufe es"
-      offer_to_swap: "Ich will es für etwas anderes eintauschen"
-      request_to_swap: "Ich will es für etwas anderes eintauschen"
-      share_for_free: "Ich teile es umsonst"
-      accept_for_free: "Ich würde es gerne umsonst benützen"
-      what_kind_of_item: "Über welches Teil sprechen wir?"
-      what_kind_of_favor: "Über welche Art von Hilfe sprechen wir?"
-      what_kind_of_rideshare: "Über welche Art von Fahrt sprechen wir?"
-      what_kind_of_housing: "Über welche Art von Räumlichkeit sprechen wir?"
-      which_subcategory: "Welches von ihnen beschreibt es am besten?"
-      tools: Wekzeug
-      sports: Sport
-      music: Musik
-      books: "Bücher und Magazine"
-      games: "Spiele und Spielsachen"
-      furniture: Möbel
-      outdoors: "Camping & Outdoor"
-      food: "Esssen & Küche"
-      electronics: Elektronik
-      pets: "Haustiere und Lebewesen"
-      film: "Filme & Videos"
-      clothes: "Kleidung & Accessoires"
-      garden: Garten
-      travel: Reisen
-      other: Anderes
-      what_do_you_want_to_do: "Was willst du tun?"
-      what_can_you_offer: "Was kannst du anderen anbieten?"
-      what_do_you_need: "Wobei brauchst du Hilfe?"
-      selected_transaction_type: ~
+      selected_transaction_type: "Eintragsart: %{transaction_type}"
       select_category: "Kategorie auswählen"
       select_subcategory: "Unterkategorie auswählen"
-      select_transaction_type: ~
+      select_transaction_type: "Eintragsart auswählen"
     please_comment: Kommentar
     reply_link:
       listing_closed: "Eintrag abgeschlossen"
@@ -1365,6 +1283,7 @@ de:
       contact: Kontakt
       favor_offer: Dienstleistungsangebot
       favor_request: Dienstleistungsanfrage
+      inquiry: Anfrage
       item_offer_trade: Tauschangebot
       item_request_trade: Tauschanfrage
       no_description: "Dieser Eintrag hat keine Beschreibung"

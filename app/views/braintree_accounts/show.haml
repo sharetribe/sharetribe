@@ -70,11 +70,6 @@
       = @braintree_account.date_of_birth
 
     %dt.braintree-account-key
-      = t(".ssn")
-    %dd.braintree-account-value
-      = @braintree_account.ssn
-
-    %dt.braintree-account-key
       = t(".routing_number")
     %dd.braintree-account-value
       = @braintree_account.routing_number
@@ -82,4 +77,4 @@
     %dt.braintree-account-key
       = t(".account_number")
     %dd.braintree-account-value
-      = @braintree_account.account_number
+      = @braintree_account.hidden_account_number

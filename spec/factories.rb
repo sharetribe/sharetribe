@@ -248,9 +248,8 @@ FactoryGirl.define do
     address_locality "Chicago"
     address_region "IL"
     date_of_birth "1980-10-09"
-    ssn "123-00-1234"
     routing_number "1234567890"
-    account_number "43759348798"
+    hidden_account_number "*********98"
     status "active"
     community
   end

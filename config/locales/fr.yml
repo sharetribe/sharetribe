@@ -28,11 +28,21 @@ fr:
         remove_category: "Supprimer la catégorie"
         remove_category_name: "Supprimer la catégory '%{category_name}'"
         warning_remove_effects: "Attention ! Supprimer la catégorie '%{category_name}' aura les conséquences suivantes : "
-        warning_listing_will_be_moved: "Il y a %{listing_count} annonce dans cette catégorie. Elle sera déplacée dans une nouvelle catégorie."
-        warning_custom_field_will_be_moved: "Il y a %{custom_field_count} champ personnalisé pour cette catégorie. Il sera déplacé dans une nouvelle catégorie."
-        warning_subcategory_will_be_removed: "Il y a %{subcategory_count} sous-catégorie pour cette catégorie. Elle sera supprimée."
-        warning_with_subcategories_listing_will_be_moved: "Il y a %{listing_count} annonce dans cette catégorie et ses sous-catégories. Elle sera déplacée dans une nouvelle catégorie."
-        warning_with_subcategories_custom_field_will_be_moved: "Il y a %{custom_field_count} champ personnalisé pour cette catégorie et ses sous-catégories. Il sera déplacé dans une nouvelle catégorie."
+        warning_listing_will_be_moved:
+          one: "Il y a %{count} annonce dans cette catégorie. Elle sera déplacée dans la catégorie sélectionnée."
+          other: "Il y a %{count} annonces dans cette catégorie. Elles seront déplacées dans la catégorie sélectionnée."
+        warning_custom_field_will_be_moved:
+          one: "Il y a %{count} champ personnalisé pour cette catégorie. Il sera déplacé dans la catégorie sélectionnée."
+          other: "Il y a %{count} champs personnalisés pour cette catégorie. Ils seront déplacés dans la catégorie sélectionnée."
+        warning_subcategory_will_be_removed:
+          one: "Il y a %{count} sous-catégorie pour cette catégorie. Elle sera supprimée."
+          other: "Il y a %{count} sous-catégories pour cette catégorie. Elles seront supprimées."
+        warning_with_subcategories_listing_will_be_moved:
+          one: "Il y a %{count} annonce dans cette catégorie et ses sous-catégories. Elle sera déplacée dans la catégorie sélectionnée."
+          other: "Il y a %{count} annonces dans cette catégorie et ses sous-catégories. Elles seront déplacées dans la catégorie sélectionnée."
+        warning_with_subcategories_custom_field_will_be_moved:
+          one: "Il y a %{count} champ personnalisé pour cette catégorie et ses sous-catégories. Il sera déplacé dans la catégorie sélectionnée."
+          other: "Il y a %{count} champs personnalisés pour cette catégorie et ses sous-catégories. Ils seront déplacés dans la catégorie sélectionnée."
         select_new_category: "Choisissez une nouvelle catégorie où les éléments listés ci-dessus seront déplacés : "
         buttons:
           remove: Supprimer
@@ -167,6 +177,7 @@ fr:
       swap: Échange
       service: Offre
       request: Demande
+      inquiry: Information
       share_for_free: "Partage gratuit"
       default_action_button_labels:
         sell: Achat
@@ -664,8 +675,8 @@ fr:
       has_updated_listing_you_follow_in_kassi: "%{author} a mis à jour l'annonce '%{listing}' que vous suivez sur %{service_name}."
       view_changes: "Voir les modifications"
     community_updates:
-      added_offer: "%{name_link} a ajouté une offre : "
-      added_request: "%{name_link} a ajouté une demande : "
+      added_offer: "%{name_link} a ajouté une annonce : "
+      added_request: "%{name_link} a ajouté une annonce : "
       added_listing: "%{name_link} a ajouté une annonce : "
       update_mail_title: "Actualités de la tribu %{title_link}"
       title_link_text: "%{community_name}"
@@ -1197,12 +1208,6 @@ fr:
         comma_separate: "(séparés par une virgule)"
         tags: Tags
       title:
-        favor_you_offer: "Service que vous proposez"
-        favor_you_request: "Service dont vous avez besoin"
-        housing_you_offer: "Lieu que vous proposez"
-        housing_you_request: "Lieu dont vous avez besoin"
-        item_you_offer: "Objet que vous proposez"
-        item_you_request: "Objet dont vous avez besoin"
         listing_title: "Titre de l'annonce"
       valid_until:
         valid_until: "Date d'expiration"
@@ -1258,103 +1263,11 @@ fr:
       share_for_frees: "Partage gratuit"
       accept_for_frees: "Usage gratuit"
       trades: Échange
-    link_labels:
-      offer_this: Proposer
-      request_this: Demander
-      lend_this: Prêter
-      borrow_this: Emprunter
-      buy_this: Acheter
-      rent_out_this: Louer
-      rent_this: Louer
-      sell_this: Vendre
-      link_label_for_favor_offer: "Demander ce service"
-      link_label_for_favor_request: "Proposer ce service"
-      link_label_for_housing_offer_sell: "Acheter ce lieu"
-      link_label_for_housing_offer_rent_out: "Louer ce lieu"
-      link_label_for_housing_offer_share_for_free: "Demander ce lieu"
-      link_label_for_housing_request_accept_for_free: "Proposer ce lieu"
-      link_label_for_housing_request_buy: "Proposer de vendre ce lieu"
-      link_label_for_housing_request_rent: "Proposer de louer ce lieu"
-      link_label_for_item_offer_lend: "Emprunter cet objet"
-      link_label_for_item_offer_rent_out: "Louer cet objet"
-      link_label_for_item_offer_sell: "Acheter cet objet"
-      link_label_for_item_offer_give_away: "Demander cet objet"
-      link_label_for_item_offer_trade: "Échanger cet objet"
-      link_label_for_item_request_borrow: "Proposer de prêter cet objet"
-      link_label_for_item_request_rent: "Proposer de louer cet objet"
-      link_label_for_item_request_buy: "Proposer de vendre cet objet"
-      link_label_for_item_request_receive: "Donner cet objet au demandeur"
-      link_label_for_item_request_trade: "Proposer d'échanger cet objet"
-      link_label_for_rideshare_offer: "Demander ce transport"
-      link_label_for_rideshare_request: "Proposer ce transport"
     new:
       post_a_new_listing: "Déposer une annonce"
       listing: annonce
-      offer: "J'ai quelque chose à proposer"
-      request: "J'ai besoin de quelque chose"
-      selected_offer: Offre
-      selected_request: Demande
-      selected_listing_type: "Type d'annonce : %{listing_type}"
       selected_category: "Catégorie : %{category}"
       selected_subcategory: "Sous-catégorie : %{subcategory}"
-      selected_share_type: "Type de partage : %{share_type}"
-      selected_item: Objet
-      selected_favor: Service
-      selected_rideshare: Covoiturage
-      selected_housing: Lieu
-      selected_borrow: Emprunt
-      selected_buy: Achat
-      selected_give_away: Don
-      selected_lend: Prêt
-      selected_receive: "Récupération gratuite"
-      selected_rent: Location
-      selected_rent_out: Location
-      selected_sell: Vente
-      selected_offer_to_swap: Échange
-      selected_request_to_swap: Échange
-      selected_share_for_free: "Partage gratuit"
-      selected_accept_for_free: "Usage gratuit"
-      how_do_you_want_to_share_it: "Comment voulez-vous le partager ?"
-      how_do_you_want_to_get_it: "Comment souhaitez-vous l'obtenir ?"
-      item: "Un objet - quelque chose de concret"
-      favor: "Un service - une compétence ou de l'aide"
-      rideshare: "Un covoiturage - en voiture ou avec un autre moyen"
-      housing: "Un lieu - un appartement, un bureau ou un jardin"
-      borrow: "Je souhaite l'emprunter"
-      buy: "Je souhaite l'acheter"
-      give_away: "Je le donne gratuitement"
-      lend: "Je le prête gratuitement"
-      receive: "Je souhaite l'obtenir gratuitement"
-      rent: "Je souhaite le louer"
-      rent_out: "Je le loue contre un montant"
-      sell: "Je le vends"
-      offer_to_swap: "Je l'échange contre autre chose"
-      request_to_swap: "Je souhaite l'échanger contre autre chose"
-      share_for_free: "Je le partage gratuitement"
-      accept_for_free: "Je souhaite l'obtenir gratuitement"
-      what_kind_of_item: "De quel type d'objet s'agit-il ?"
-      what_kind_of_favor: "De quel type de service s'agit-il ?"
-      what_kind_of_rideshare: "De quel type de covoiturage s'agit-il ?"
-      what_kind_of_housing: "De quel type de lieu s'agit-il ?"
-      which_subcategory: "Lequel de ces choix correspond le mieux ?"
-      tools: Outils
-      sports: Sports
-      music: Musique
-      books: "Livres & magazines"
-      games: "Jeux & jouets"
-      furniture: Mobilier
-      outdoors: "Plein air & extérieur"
-      food: "Nourriture & cuisine"
-      electronics: "Matériel électronique"
-      pets: Animaux
-      film: "Films & vidéos"
-      clothes: "Vêtements & accessoires"
-      garden: Jardin
-      travel: Voyage
-      other: Autre
-      what_do_you_want_to_do: "Que voulez-vous faire ?"
-      what_can_you_offer: "Que pouvez-vous proposer aux autres ?"
-      what_do_you_need: "De quoi avez-vous besoin ?"
       selected_transaction_type: "Type d'annonce : %{transaction_type}"
       select_category: "Choisir une catégorie"
       select_subcategory: "Sélectionner une sous-catégorie"
@@ -1370,6 +1283,7 @@ fr:
       contact: Contacter
       favor_offer: "Offre de service "
       favor_request: "Demande de service "
+      inquiry: Information
       item_offer_trade: "Offre d'échange "
       item_request_trade: "Demande d'échange "
       no_description: "Cette annonce n'a pas de description"

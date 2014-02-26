@@ -162,6 +162,7 @@ ru:
       swap: ~
       service: ~
       request: ~
+      inquiry: ~
       share_for_free: ~
       default_action_button_labels:
         sell: ~
@@ -1192,12 +1193,6 @@ ru:
         comma_separate: "(разделённые запятыми)"
         tags: Метки
       title:
-        favor_you_offer: "Предлагаемая услуга"
-        favor_you_request: "Требуемая услуга"
-        housing_you_offer: "Предлагаемое жильё"
-        housing_you_request: "Требуемое жильё"
-        item_you_offer: "Предлагаемая вещь"
-        item_you_request: "Требуемая вещь"
         listing_title: "Заголовок объявления"
       valid_until:
         valid_until: "Дата окончания"
@@ -1253,103 +1248,11 @@ ru:
       share_for_frees: "Бесплатно поделюсь"
       accept_for_frees: "Приму в дар"
       trades: Обмен
-    link_labels:
-      offer_this: ~
-      request_this: ~
-      lend_this: ~
-      borrow_this: ~
-      buy_this: ~
-      rent_out_this: ~
-      rent_this: ~
-      sell_this: ~
-      link_label_for_favor_offer: "Запросить услугу"
-      link_label_for_favor_request: "Предложить помощь"
-      link_label_for_housing_offer_sell: "Купить помещение"
-      link_label_for_housing_offer_rent_out: "Арендовать помещение"
-      link_label_for_housing_offer_share_for_free: "Запрос на помещение"
-      link_label_for_housing_request_accept_for_free: ~
-      link_label_for_housing_request_buy: "Предложение на продажу этого помещения"
-      link_label_for_housing_request_rent: "Предложение арендовать помещение"
-      link_label_for_item_offer_lend: "Одолжить вещь"
-      link_label_for_item_offer_rent_out: "Взять в аренду"
-      link_label_for_item_offer_sell: Купить
-      link_label_for_item_offer_give_away: Запросить
-      link_label_for_item_offer_trade: Обменяться
-      link_label_for_item_request_borrow: "Предложение одолжить на время"
-      link_label_for_item_request_rent: "Предложение взять в аренду"
-      link_label_for_item_request_buy: "Предложение на продажу этой вещи"
-      link_label_for_item_request_receive: "Отдать запрашивающему"
-      link_label_for_item_request_trade: "Предложение на обмен этой вещи"
-      link_label_for_rideshare_offer: "Запросить поездку"
-      link_label_for_rideshare_request: "Предложить поездку"
     new:
       post_a_new_listing: ~
       listing: ~
-      offer: "Я могу что-то предложить другим людям"
-      request: "Мне что-то нужно"
-      selected_offer: Предложение
-      selected_request: Запрос
-      selected_listing_type: "Тип листинга: %{listing_type}"
       selected_category: "Категория: %{category}"
       selected_subcategory: "Подкатегория: %{subcategory}"
-      selected_share_type: "Тип объявления: %{share_type}"
-      selected_item: ~
-      selected_favor: ~
-      selected_rideshare: "Совместная поездка"
-      selected_housing: ~
-      selected_borrow: ~
-      selected_buy: ~
-      selected_give_away: ~
-      selected_lend: ~
-      selected_receive: ~
-      selected_rent: Аренда
-      selected_rent_out: ~
-      selected_sell: Продажа
-      selected_offer_to_swap: ~
-      selected_request_to_swap: ~
-      selected_share_for_free: ~
-      selected_accept_for_free: "Приму в дар"
-      how_do_you_want_to_share_it: ~
-      how_do_you_want_to_get_it: ~
-      item: "Вещь — что-то осязаемое"
-      favor: "Помощь — услуга или умение"
-      rideshare: "Совместная поездка — на автомобиле или ином транспорте"
-      housing: "Пространство — жильё, офис или огород"
-      borrow: ~
-      buy: "Я хочу купить это"
-      give_away: "Я отдаю это даром"
-      lend: ~
-      receive: "Я принимаю это в дар"
-      rent: ~
-      rent_out: ~
-      sell: "Я продаю это"
-      offer_to_swap: ~
-      request_to_swap: ~
-      share_for_free: "Я делюсь этим бесплатно"
-      accept_for_free: "Я бы хотел использовать это бесплатно"
-      what_kind_of_item: ~
-      what_kind_of_favor: ~
-      what_kind_of_rideshare: ~
-      what_kind_of_housing: ~
-      which_subcategory: ~
-      tools: Инструменты
-      sports: Спорттовары
-      music: Музыка
-      books: "Книги и журналы"
-      games: "Игры и игрушки"
-      furniture: Мебель
-      outdoors: "Товары для отдыха"
-      food: "Кухонная утварь"
-      electronics: Электроника
-      pets: "Домашние животные"
-      film: Фильмы
-      clothes: "Одежда и аксессуары"
-      garden: "Сад и огород"
-      travel: Путешествия
-      other: Прочее
-      what_do_you_want_to_do: "Что вы хотите сделать?"
-      what_can_you_offer: "Что вы можете предложить другим?"
-      what_do_you_need: "Что вам нужно?"
       selected_transaction_type: ~
       select_category: ~
       select_subcategory: ~
@@ -1365,6 +1268,7 @@ ru:
       contact: ~
       favor_offer: "Предложение услуги"
       favor_request: "Запрос услуги"
+      inquiry: ~
       item_offer_trade: "Предложение обмена"
       item_request_trade: "Запрос обмена"
       no_description: "Без описания"

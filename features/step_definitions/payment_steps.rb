@@ -91,7 +91,6 @@ Given /^Braintree merchant creation is mocked$/ do
     braintree_account.date_of_birth.year.should == 1980
     braintree_account.date_of_birth.month.should == 10
     braintree_account.date_of_birth.day.should == 9
-    braintree_account.ssn.should == "123-00-1234"
     braintree_account.routing_number.should == "101000187"
     braintree_account.account_number.should == "43759348798"
     braintree_account.person_id.should == "123abc"
@@ -162,7 +161,6 @@ When /^I fill in Braintree account details$/ do
     And I select "1980" from "braintree_account[date_of_birth(1i)]"
     And I select "October" from "braintree_account[date_of_birth(2i)]"
     And I select "9" from "braintree_account[date_of_birth(3i)]"
-    And I fill in "braintree_account[ssn]" with "123-00-1234"
     And I fill in "braintree_account[routing_number]" with "101000187"
     And I fill in "braintree_account[account_number]" with "43759348798"
   }

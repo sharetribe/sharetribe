@@ -50,7 +50,6 @@ class BraintreeService
                 :region => braintree_account.address_region
               },
               :date_of_birth => braintree_account.date_of_birth,
-              :ssn => braintree_account.ssn,
               :routing_number => braintree_account.routing_number,
               :account_number => braintree_account.account_number
             },
@@ -104,6 +103,11 @@ class BraintreeService
         Braintree::WebhookTesting.sample_notification(kind, id)
       end
     end
-    
+
+    def hide_account_number(account_number, nums_visible=2)
+      stripped_account_number = (account_number || "").strip
+      asterisks = (stripped_account_number.length - 1) - nums_visible
+      (0..asterisks).inject("") { |a, _| a + "*" } + stripped_account_number.last(nums_visible)
+    end
   end
 end
