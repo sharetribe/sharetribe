@@ -46,4 +46,5 @@ class CustomField < ActiveRecord::Base
     # I hope this can be simplified after the transaction_type/share_type refactoring
     CustomFieldValue.find_by_listing_id_and_custom_field_id(listing.id, self.id)
   end
+
 end

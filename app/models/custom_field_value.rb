@@ -1,6 +1,8 @@
 class CustomFieldValue < ActiveRecord::Base
   include SortableByPriority # use `sort_priority()` for sorting
   
+  attr_accessible :type
+
   belongs_to :listing
   belongs_to :question, :class_name => "CustomField", :foreign_key => "custom_field_id"
 

@@ -38,5 +38,9 @@ class Dropdown < CustomField
     end
     options.each { |option| option.destroy unless new_option_ids.include?(option.id) }
   end
+
+  def value_type
+    "DropdownValue"
+  end
   
 end

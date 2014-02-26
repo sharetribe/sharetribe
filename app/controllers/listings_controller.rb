@@ -237,14 +237,15 @@ class ListingsController < ApplicationController
 
   def custom_field_value_factory(custom_field_id, answer_value)
     question = CustomField.find(custom_field_id)
-    answer = CustomFieldValue.new()
+    answer = question.value_type.constantize.new
     answer.question = question
 
-    question.with_type { |question_type|
+    question.with_type do |question_type|
       case question_type
       when :dropdown
         option_id = answer_value.to_i
         answer.custom_field_option_selections = [CustomFieldOptionSelection.new(:custom_field_value => answer, :custom_field_option_id => answer_value)]
+        logger.info "Option selections: #{answer.custom_field_option_selections}"
         answer
       when :text_field
         answer.text_value = answer_value
@@ -252,7 +253,10 @@ class ListingsController < ApplicationController
       else
         throw "Unimplemented custom field answer for question #{question_type}"
       end
-    }
+      answer.save
+      logger.info "Errors: #{answer.errors.full_messages.inspect}"
+    end
+    return answer
   end
 
   def create_field_values(custom_field_params={})
@@ -260,6 +264,8 @@ class ListingsController < ApplicationController
       custom_field_value_factory(custom_field_id, answer_value) unless answer_value.blank?
     end.compact
     
+    logger.info "Mapped values: #{mapped_values.inspect}"
+
     return mapped_values
   end
 

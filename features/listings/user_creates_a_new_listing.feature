@@ -187,6 +187,7 @@ Feature: User creates a new listing
     And I fill in "listing_title" with "My house"
     And I fill in text field "Details" with "Test details"
     And I press "Save listing"
+    And wait for 5 seconds
     And the Listing indexes are processed
     When I go to the home page
     And I fill in "q" with "Test details"

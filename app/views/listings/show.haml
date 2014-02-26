@@ -37,18 +37,7 @@
       .row
         .col-12
           - custom_field_value.with_type do |question_type|
-            / TODO These could be in partials
-            - if question_type == :dropdown
-              - question_name = custom_field_value.question.name(I18n.locale)
-              - answer_title = custom_field_value.selected_options.first.title(I18n.locale)
-              %b= "#{question_name}:" 
-              = answer_title
-            - elsif question_type == :text_field
-              - question_name = custom_field_value.question.name(I18n.locale)
-              %b= "#{question_name}:" 
-              = custom_field_value.text_value
-            - else
-              = "Unimplemented type #{question_type}"
+            = render :partial => "listings/custom_field_partials/#{question_type}", :locals => { :custom_field_value => custom_field_value }
 
     - if @current_community.show_listing_publishing_date?
       .row
