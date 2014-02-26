@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140225143012) do
+ActiveRecord::Schema.define(:version => 20140226074348) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -344,6 +344,7 @@ ActiveRecord::Schema.define(:version => 20140225143012) do
     t.text     "text_value"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "type"
   end
 
   add_index "custom_field_values", ["listing_id"], :name => "index_custom_field_values_on_listing_id"
