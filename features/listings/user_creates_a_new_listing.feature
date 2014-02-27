@@ -207,7 +207,6 @@ Feature: User creates a new listing
     Then I should see validation error
     When I fill in custom numeric field "Area" with "150"
     And I press "Save listing"
-    Then I should be on listing page
     Then I should see "Area: 150"
 
   @javascript

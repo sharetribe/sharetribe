@@ -246,9 +246,11 @@ Given /^there is a custom text field "(.*?)" in community "(.*?)"(?: in category
 end
 
 Given(/^there is a custom numeric field "(.*?)" in that community in category "(.*?)" with min value (\d+) and with max value (\d+)$/) do |name, category_name, min, max|
-  custom_field = FactoryGirl.build(:custom_text_field, {
+  custom_field = FactoryGirl.build(:custom_numeric_field, {
     :community_id => @current_community.id,
-    :names => [CustomFieldName.create(:value => name, :locale => "en")]
+    :names => [CustomFieldName.create(:value => name, :locale => "en")],
+    :min => min,
+    :max => max
   })
   category = find_category_by_name(category_name)
   custom_field.category_custom_fields.build(:category => category)
