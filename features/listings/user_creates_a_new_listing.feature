@@ -193,6 +193,22 @@ Feature: User creates a new listing
     And I press "search-button"
     Then I should see "My house"
 
+  @javascript @sphinx @no-transaction
+  Scenario: User creates a new listing with numeric field
+    Given I am logged in
+    And community "test" has custom fields enabled
+    And there is a custom numeric field "Area" in that community in category "Spaces" with min value 100 and with max value 2000
+    When I follow "new-listing-link"
+    And I follow "Spaces"
+    And I follow "Selling"
+    And I fill in "listing_title" with "My house"
+    And I fill in custom numeric field "Area" with "9999"
+    And I press "Save listing"
+    Then I should see validation error
+    When I fill in custom numeric field "Area" with "150"
+    And I press "Save listing"
+    Then I should see "Area: 150"
+
   @javascript
   Scenario: User creates a new listing in private community
     Given I am logged in

@@ -237,25 +237,30 @@ class ListingsController < ApplicationController
 
   def custom_field_value_factory(custom_field_id, answer_value)
     question = CustomField.find(custom_field_id)
-    answer = question.value_type.constantize.new
-    answer.question = question
 
-    question.with_type do |question_type|
+    answer = question.with_type do |question_type|
       case question_type
       when :dropdown
         option_id = answer_value.to_i
+        answer = DropdownValue.new
         answer.custom_field_option_selections = [CustomFieldOptionSelection.new(:custom_field_value => answer, :custom_field_option_id => answer_value)]
-        logger.info "Option selections: #{answer.custom_field_option_selections}"
         answer
       when :text_field
+        answer = TextFieldValue.new
         answer.text_value = answer_value
+        answer
+      when :numeric
+        answer = NumericFieldValue.new
+        answer.numeric_value = answer_value
         answer
       else
         throw "Unimplemented custom field answer for question #{question_type}"
       end
-      answer.save
-      logger.info "Errors: #{answer.errors.full_messages.inspect}"
     end
+
+    answer.question = question
+    answer.save
+    logger.info "Errors: #{answer.errors.full_messages.inspect}"
     return answer
   end
 

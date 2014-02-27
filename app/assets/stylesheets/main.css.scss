@@ -411,25 +411,6 @@ form {
   
 }
 
-input[type=text], input[type=password], textarea {
-  @include border-radius(em(5));
-  border: 2px solid $border;
-  min-height: 42px;
-  width: 100%;
-  padding: em(4) em(8);
-  
-  @include media(tablet) {
-    margin: 0;
-    padding: em(8) em(11);
-  }  
-}
-
-input.auto_width {
-  width:auto;
-}
-
-
-
 .unwanted_text_field {
   display:none;
 }
