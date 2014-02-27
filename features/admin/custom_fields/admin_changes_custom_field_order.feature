@@ -1,3 +1,4 @@
+@javascript
 Feature: Admin edits a custom field
   
   Background:
@@ -13,7 +14,6 @@ Feature: Admin edits a custom field
     And I am on the custom fields admin page
     Then I should see "House type" before "Balcony type"
 
-  @javascript
   Scenario: Admin edits dropdown options
     When I move custom field "Balcony type" up
     And I refresh the page
