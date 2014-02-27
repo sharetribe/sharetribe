@@ -117,6 +117,7 @@ fi:
       field_types:
         dropdown: Pudotusvalikko
         textfield: Tekstikenttä
+        numericfield: Numerokenttä
     emails:
       new:
         send_email_to_members: "Lähetä sähköpostia jäsenille"

@@ -81,6 +81,30 @@ When /^I add a new custom field "(.*?)"$/ do |field_name|
   }
 end
 
+When(/^I set numeric field min value to (\d+)$/) do |value|
+  steps %Q{
+    And I fill in "custom_field[min]" with "#{value}"
+  }
+end
+
+When(/^I set numeric field max value to (\d+)$/) do |value|
+  steps %Q{
+    And I fill in "custom_field[max]" with "#{value}"
+  }
+end
+
+When /^I add a new numeric field "(.*?)" with min value (\d+) and max value (\d+)$/ do |field_name, min, max|
+  steps %Q{
+    When I select "Numeric field" from "field_type"
+    And I fill in "custom_field[name_attributes][en]" with "#{field_name}"
+    And I fill in "custom_field[name_attributes][fi]" with "Pinta-ala"
+    And I toggle category "Spaces"
+    And I set numeric field min value to #{min}
+    And I set numeric field max value to #{max}
+    And I press submit
+  }
+end
+
 When /^I add a new custom field "(.*?)" with invalid data$/ do |field_name|
   steps %Q{
     When I select "Dropdown" from "field_type" 
@@ -97,11 +121,11 @@ end
 
 Given /^there is a custom field "(.*?)" in community "(.*?)" for category "(.*?)"$/ do |name, community, category_name|
   current_community = Community.find_by_domain(community)
-  @custom_field = FactoryGirl.build(:custom_dropdown_field, :community_id => current_community.id)
-  @custom_field.names << CustomFieldName.create(:value => name, :locale => "en")
-  @custom_field.category_custom_fields.build(:category => find_category_by_name(category_name))
-  @custom_field.options << FactoryGirl.build(:custom_field_option)
-  @custom_field.options << FactoryGirl.build(:custom_field_option)
+  @custom_field = FactoryGirl.build(:custom_dropdown_field, {
+    :community_id => current_community.id,
+    :names => [CustomFieldName.create(:value => name, :locale => "en")],
+    :category_custom_fields => [FactoryGirl.build(:category_custom_field, :category => find_category_by_name(category_name), :custom_field => @custom_field)],
+  })
   @custom_field.save
 end
 
@@ -177,8 +201,10 @@ end
 
 Given /^there is a custom dropdown field "(.*?)" in community "(.*?)"(?: in category "([^"]*)")? with options:$/ do |name, community, category_name, options|
   current_community = Community.find_by_domain(community)
-  custom_field = FactoryGirl.build(:custom_dropdown_field, :community_id => current_community.id)
-  custom_field.names << CustomFieldName.create(:value => name, :locale => "en")
+  custom_field = FactoryGirl.build(:custom_dropdown_field, {
+    :community_id => current_community.id,
+    :names => [CustomFieldName.create(:value => name, :locale => "en")]
+  })
   
   if category_name
     category = find_category_by_name(category_name)
@@ -201,8 +227,10 @@ end
 
 Given /^there is a custom text field "(.*?)" in community "(.*?)"(?: in category "([^"]*)")?$/ do |name, community, category_name|
   current_community = Community.find_by_domain(community)
-  custom_field = FactoryGirl.build(:custom_text_field, :community_id => current_community.id)
-  custom_field.names << CustomFieldName.create(:value => name, :locale => "en")
+  custom_field = FactoryGirl.build(:custom_text_field, {
+    :community_id => current_community.id,
+    :names => [CustomFieldName.create(:value => name, :locale => "en")]
+  })
   
   if category_name
     category = find_category_by_name(category_name)

@@ -56,6 +56,13 @@ function auto_resize_text_areas(class_name) {
 }
 
 function translate_validation_messages(locale) {
+  function formatMinMaxMessage(message) {
+    return function(otherName) {
+      var otherVal = ST.utils.findElementByName(otherName).val();
+      return jQuery.validator.format(message, otherVal);
+    }
+  }
+
   jQuery.getJSON('/assets/locales/' + locale + '.json', function(json) {
     jQuery.extend(jQuery.validator.messages, {
         required: json.validation_messages.required,
@@ -77,6 +84,8 @@ function translate_validation_messages(locale) {
         min: jQuery.validator.format(json.validation_messages.min),
         address_validator: jQuery.validator.format(json.validation_messages.address_validator),
         money: jQuery.validator.format(json.validation_messages.money),
+        min_bound: formatMinMaxMessage(json.validation_messages.min_bound),
+        max_bound: formatMinMaxMessage(json.validation_messages.max_bound)
     });
   });
 }
