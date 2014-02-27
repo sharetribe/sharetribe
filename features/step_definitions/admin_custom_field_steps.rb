@@ -245,6 +245,20 @@ Given /^there is a custom text field "(.*?)" in community "(.*?)"(?: in category
   @custom_fields << custom_field 
 end
 
+Given(/^there is a custom numeric field "(.*?)" in that community in category "(.*?)" with min value (\d+) and with max value (\d+)$/) do |name, category_name, min, max|
+  custom_field = FactoryGirl.build(:custom_text_field, {
+    :community_id => @current_community.id,
+    :names => [CustomFieldName.create(:value => name, :locale => "en")]
+  })
+  category = find_category_by_name(category_name)
+  custom_field.category_custom_fields.build(:category => category)
+
+  custom_field.save!
+
+  @custom_fields ||= []
+  @custom_fields << custom_field 
+end
+
 Then /^the option order for "(.*?)" should be following:$/ do |custom_field, table|
   table.hashes.each_cons(2).map do |two_hashes|
     first, second = two_hashes
@@ -317,6 +331,11 @@ When /^custom field "(.*?)" is not required$/ do |field_name|
 end
 
 When /^(?:|I )fill in text field "([^"]*)" with "([^"]*)"$/ do |field_name, value|
+  field_id = find_custom_field_by_name(field_name).id
+  fill_in("custom_fields_#{field_id}", :with => value)
+end
+
+When /^(?:|I )fill in custom numeric field "([^"]*)" with "([^"]*)"$/ do |field_name, value|
   field_id = find_custom_field_by_name(field_name).id
   fill_in("custom_fields_#{field_id}", :with => value)
 end
