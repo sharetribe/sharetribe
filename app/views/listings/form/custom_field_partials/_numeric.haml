@@ -1,0 +1,4 @@
+= label "custom_fields", "#{custom_field.id}".to_sym, custom_field.name(I18n.locale)
+- answer = custom_field.answer_for(listing)
+- value = answer ? answer.text_value : ""
+= text_field_tag "custom_fields[#{custom_field.id}]", value, :class => (custom_field.required? ? "required" : "")

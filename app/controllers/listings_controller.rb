@@ -250,6 +250,9 @@ class ListingsController < ApplicationController
       when :text_field
         answer.text_value = answer_value
         answer
+      when :numeric
+        answer.numeric_value = answer_value
+        answer
       else
         throw "Unimplemented custom field answer for question #{question_type}"
       end
