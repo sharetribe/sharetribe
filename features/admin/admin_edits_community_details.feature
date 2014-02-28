@@ -30,7 +30,8 @@ Feature: Admin edits info pages
     Then I should see "Custom signup info"
 
   @javascript
-  Scenario: Admin user can edit community details
+  Scenario: Admin user can edit private community homepage content
+    When I go to the admin view of community "test"
     Then I should not see "Private community homepage content"
     When community "test" is private
     And I go to the admin view of community "test"
@@ -44,3 +45,19 @@ Feature: Admin edits info pages
     When I log out
     And I go to the homepage
     Then I should see "Private homepage info"
+
+  @javascript
+  Scenario: Admin user can edit verification to post listings info content
+    When I go to the admin view of community "test"
+    Then I should not see "Info text to non-verified users"
+    When current community requires users to be verified to post listings
+    And I go to the admin view of community "test"
+    Then I should see "Info text to non-verified users"
+    When I follow "Edit information"
+    And I change the contents of "verification_to_post_listings_info_content" to "Verification info"
+    And I click save on the editor
+    Then I should see "Edit information"
+    When I refresh the page
+    Then I should see "Verification info"
+    When I follow "Post a new listing"
+    Then I should see "Verification info"
