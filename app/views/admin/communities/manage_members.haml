@@ -5,5 +5,8 @@
 
 .left-navi-section
   %h2= t(".manage_members", :community_name => @community.name(I18n.locale))
-  
-  
+    
+  .members_count
+    /TODO Change to something more reasonable
+    Members count 
+    %span#admin_members_count= @community.members_count
