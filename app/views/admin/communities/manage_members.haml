@@ -6,7 +6,20 @@
 .left-navi-section
   %h2= t(".manage_members", :community_name => @community.name(I18n.locale))
     
-  .members_count
-    /TODO Change to something more reasonable
-    Members count 
-    %span#admin_members_count= @community.members_count
+  /TODO Change to something more reasonable
+  Members count 
+  %span#admin_members_count= @community.members_count
+  %table#admin_members_list
+    %thead
+      %tr
+        %th= "Name"
+        %th= "Email"
+        %th= "Join date"
+    %tbody
+      - @community.members.order("created_at desc").each do |member|
+        %tr 
+          %td= member.full_name
+          %td= member.confirmed_notification_email_addresses.first
+          %td= member.created_at.to_date.to_s
+
+    

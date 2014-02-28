@@ -122,10 +122,9 @@ Given /^there are following users:$/ do |person_table|
     username = hash['person']
     id = hash['id']
 
-    person_opts = {
-      username: username,
-      id: id
-    }.merge(defaults)
+    person_opts = defaults.merge({
+      username: hash['person'],
+    }).merge(hash.except('person'))
 
     @hash_person, @hash_session = Person.find_by_username(username) || FactoryGirl.create(:person, person_opts)
     @hash_person.save!
