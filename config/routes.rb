@@ -202,6 +202,7 @@ Kassi::Application.routes.draw do
         get :browse
         get :random
         get :locations_json
+        get :verification_required
       end
       resources :images, :controller => :listing_images
       resources :comments

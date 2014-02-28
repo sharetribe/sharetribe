@@ -287,3 +287,8 @@ Then /^I should not be logged in$/ do
   end
 end
 
+When /^"(.*?)" is authorized to post a new listing$/ do |username|
+  person = Person.find_by_username(username)
+  community_membership = CommunityMembership.find_by_person_id_and_community_id(person.id, @current_community.id)
+  community_membership.update_attribute(:can_post_listings, true)
+end
