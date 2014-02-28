@@ -30,6 +30,12 @@ class Admin::CommunitiesController < ApplicationController
     }
   end
   
+  def manage_members
+    @selected_tribe_navi_tab = "admin"
+    @selected_left_navi_link = "manage_members"
+    @community = @current_community
+  end
+
   def test_welcome_email
     PersonMailer.welcome_email(@current_user, @current_community, true).deliver
     flash[:notice] = t("layouts.notifications.test_welcome_email_delivered_to", :email => @current_user.email)
