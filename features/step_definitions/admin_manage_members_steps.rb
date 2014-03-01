@@ -21,3 +21,15 @@ Then(/^the first user should be "(.*?)"$/) do |full_name|
   first_row = all("#admin_members_list tbody tr").first
   first_row.all("td").first.text.should == full_name
 end
+
+Given(/^only verified users can post listings in this community$/) do
+  @current_community.update_attribute(:require_verification_to_post_listings, true)
+end
+
+When(/^I verify user "(.*?)" as a seller$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^I should see that "(.*?)" can post new listings$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end

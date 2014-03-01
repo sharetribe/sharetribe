@@ -9,17 +9,23 @@
   /TODO Change to something more reasonable
   Members count 
   %span#admin_members_count= @community.members_count
-  %table#admin_members_list
-    %thead
-      %tr
-        %th= "Name"
-        %th= "Email"
-        %th= "Join date"
-    %tbody
-      - @members.each do |member|
-        %tr 
-          %td= member.full_name
-          %td= member.confirmed_notification_email_addresses.first
-          %td= member.created_at.to_date.to_s
+
+  %form
+    %table#admin_members_list
+      %thead
+        %tr
+          %th= "Name"
+          %th= "Email"
+          %th= "Join date"
+          - if @current_community.require_verification_to_post_listings
+            %th= "Posting allowed"
+      %tbody
+        - @members.each do |member|
+          %tr 
+            %td= member.full_name
+            %td= member.confirmed_notification_email_addresses.first
+            %td= member.created_at.to_date.to_s
+            - if @current_community.require_verification_to_post_listings
+              %td= check_box_tag 'accept'
 
   = will_paginate @members  

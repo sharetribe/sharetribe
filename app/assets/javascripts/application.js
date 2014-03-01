@@ -26,7 +26,7 @@
 //= require homepage
 //= require order_manager
 //= require ajax_status
-//= require custom_fields
-//= require categories
+//= require admin/custom_fields
+//= require admin/categories
 //= require payment_math
 //= require_self

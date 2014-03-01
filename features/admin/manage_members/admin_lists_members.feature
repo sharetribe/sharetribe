@@ -31,3 +31,11 @@ Feature: Admin lists members
     When I follow "Next"
     Then I should see 3 users
     And the first user should be "matti manager"
+
+  @javascript
+  Scenario: Admin verifies sellers
+    Given only verified users can post listings in this community
+    When I verify user "john doe" as a seller
+    Then I should see that "john doe" can post new listings
+    When I refresh the page
+    Then I should see that "john doe" can post new listings
