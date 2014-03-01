@@ -95,6 +95,7 @@ fi:
         name: "Nimi"
         join_date: "Liittymispäivämäärä"
         posting_allowed: "Hyväksytty ilmoittaja"
+        remove_user: "Poista"
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"

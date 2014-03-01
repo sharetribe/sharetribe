@@ -34,7 +34,10 @@ class Admin::CommunitiesController < ApplicationController
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "manage_members"
     @community = @current_community
-    @members = @current_community.members.paginate(:page => params[:page], :per_page => 50).order("created_at desc")
+    @memberships = CommunityMembership.where(:community_id => @current_community.id)
+                                       .includes(:person)
+                                       .paginate(:page => params[:page], :per_page => 50)
+                                       .order("created_at desc")
   end
 
   def test_welcome_email
