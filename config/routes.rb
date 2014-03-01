@@ -192,7 +192,11 @@ Kassi::Application.routes.draw do
         post :confirm_organization_email
       end
     end
-    resources :community_memberships, :as => :tribe_memberships
+    resources :community_memberships, :as => :tribe_memberships do
+      collection do
+        get :access_denied
+      end
+    end
     resources :listings do
       member do
         post :follow

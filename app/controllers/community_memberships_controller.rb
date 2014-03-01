@@ -27,6 +27,8 @@ class CommunityMembershipsController < ApplicationController
       end
       
       redirect_to confirmation_pending_path and return
+    elsif existing_membership.banned?
+      redirect_to access_denied_tribe_memberships_path and return
     end
     
     @skip_terms_checkbox = true if existing_membership && existing_membership.current_terms_accepted?
@@ -110,5 +112,9 @@ class CommunityMembershipsController < ApplicationController
       flash[:error] = "Unaccepted status."
     end
     redirect_to manage_members_admin_community_path(@current_community)
+  end
+
+  def access_denied
+    
   end
 end
