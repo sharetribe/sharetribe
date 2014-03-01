@@ -1752,7 +1752,7 @@ fi:
     formats:
       short: "%e. %b %Y kello %H:%M"
       shorter: "%e. %b klo %H:%M"
-      short_date: ~
+      short_date: "%d.%m.%Y"
       sms: "%e.%m. klo %H:%M"
   timestamps:
     day_ago: "%{count} päivä sitten"
