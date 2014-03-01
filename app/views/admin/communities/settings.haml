@@ -1,0 +1,60 @@
+- content_for :title_header do
+  %h1= t("layouts.admin.admin")
+
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section
+  = form_for @current_community, :url => update_settings_admin_community_path(@current_community), :method => :put do |form|
+    %h2= t(".settings")
+    .row
+      .col-12
+        %h3= t(".general")
+        .checkbox-container
+          = form.check_box :testimonials_in_use
+          = form.label :testimonials_in_use, t(".users_can_review_each_other_after_transaction"), :class => "settings-checkbox-label"
+
+    .row
+      .col-12
+        %h3= t(".access")
+        .checkbox-container
+          = form.check_box :join_with_invite_only
+          = form.label :join_with_invite_only, t(".join_with_invite_only"), :class => "settings-checkbox-label"
+        .checkbox-container
+          = form.check_box :users_can_invite_new_users
+          = form.label :users_can_invite_new_users, t(".users_can_invite_new_users"), :class => "settings-checkbox-label"
+        .checkbox-container
+          = form.check_box :private
+          = form.label :private, t(".private"), :class => "settings-checkbox-label"
+        .checkbox-container
+          = form.check_box :require_verification_to_post_listings
+          = form.label :require_verification_to_post_listings, t(".require_verification_to_post_listings"), :class => "settings-checkbox-label"
+
+    .row
+      .col-12
+        %h3= t(".listing_preferences")
+        .checkbox-container
+          = form.check_box :show_category_in_listing_list
+          = form.label :show_category_in_listing_list, t(".show_category_in_listing_list"), :class => "settings-checkbox-label"
+        .checkbox-container
+          = form.check_box :show_listing_publishing_date
+          = form.label :show_listing_publishing_date, t(".show_listing_publishing_date"), :class => "settings-checkbox-label"
+        .checkbox-container
+          = form.check_box :hide_expiration_date
+          = form.label :hide_expiration_date, t(".hide_expiration_date"), :class => "settings-checkbox-label"
+        .checkbox-container
+          = form.check_box :listing_comments_in_use
+          = form.label :listing_comments_in_use, t(".listing_comments_in_use"), :class => "settings-checkbox-label"
+
+    .row
+      .col-12
+        %h3= t(".email_preferences")
+        .checkbox-container
+          = form.check_box :automatic_newsletters
+          = form.label :automatic_newsletters, t(".automatic_newsletters"), :class => "settings-checkbox-label"
+        .checkbox-container
+          = form.check_box :email_admins_about_new_members
+          = form.label :email_admins_about_new_members, t(".email_admins_about_new_members"), :class => "settings-checkbox-label"
+
+    .row
+      .col-12
+        = form.button t(".update_settings")
