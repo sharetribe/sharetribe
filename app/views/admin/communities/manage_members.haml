@@ -23,19 +23,21 @@
 .left-navi-section
   %h2= t(".manage_members", :community_name => @community.name(I18n.locale))
     
-  %span#admin_members_count= page_entries_info(@members)
+  %span#admin_members_count= page_entries_info(@memberships)
 
   %form
     %table#admin_members_list
       %thead
         %tr
-          %th= link_to t(".name"), :sort => (params[:sort].eql?("name_desc") ? "name_asc" : "name_desc"), :page => (params[:page] || 1)
-          %th= link_to t(".email"), :sort => (params[:sort].eql?("email_desc") ? "email_asc" : "email_desc"), :page => (params[:page] || 1)
-          %th= link_to t(".join_date"), :sort => (params[:sort].eql?("join_date_desc") ? "join_date_asc" : "join_date_desc"), :page => (params[:page] || 1)
+          %th.arrow-up= sort_link "name" 
+          %th.arrow-down= sort_link "email"
+          %th.arrow-up= sort_link "join_date"
           - if @current_community.require_verification_to_post_listings
-            %th{:style => "text-align: center"}= link_to t(".posting_allowed"), :sort => (params[:sort].eql?("posting_allowed_desc") ? "posting_allowed_asc" : "posting_allowed_desc"), :page => (params[:page] || 1)
+            %th{:style => "text-align: center"}= sort_link "posting_allowed"
+          %th= t(".remove_user")
       %tbody
-        - @members.each do |member|
+        - @memberships.each do |membership|
+          - member = membership.person
           %tr 
             %td.admin-members-full-name
               = link_to member.full_name, member
@@ -43,7 +45,9 @@
               = mail_to member.confirmed_notification_email_addresses.first
             %td= l(member.created_at, :format => :short_date)
             - if @current_community.require_verification_to_post_listings
-              %td{:style => "text-align: center"}= check_box_tag "posting-allowed[#{member.id}]", member.id, member.can_post_listings_at?(@community), :class => "admin-members-can-post-listings"
+              %td{:style => "text-align: center"}= check_box_tag "posting-allowed[#{member.id}]", member.id, membership.can_post_listings, :class => "admin-members-can-post-listings"
+            %td 
+              = link_to(icon_tag("cross"), tribe_membership_path(membership.id, :status => "banned"), method: :put)
 
   #custom-field-ajax-status
     .ajax-notification.ajax-notice.custom-field-ajax-status-message#custom-field-ajax-saving
@@ -59,4 +63,4 @@
 
   .row
     .col-12
-      = will_paginate @members  
+      = will_paginate @memberships

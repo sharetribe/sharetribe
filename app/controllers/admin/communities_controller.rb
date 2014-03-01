@@ -1,4 +1,5 @@
 class Admin::CommunitiesController < ApplicationController
+  helper_method :member_sort_column, :member_sort_direction
   
   include CommunitiesHelper
   
@@ -34,7 +35,10 @@ class Admin::CommunitiesController < ApplicationController
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "manage_members"
     @community = @current_community
-    @members = @current_community.members.includes(:emails).includes(:community_memberships).paginate(:page => params[:page], :per_page => 50).order(member_order(params[:sort]))
+    @memberships = CommunityMembership.where(:community_id => @current_community.id)
+                                       .includes(:person => :emails)
+                                       .paginate(:page => params[:page], :per_page => 50)
+                                       .order("#{member_sort_column} #{member_sort_direction}")
   end
 
   def posting_allowed
@@ -89,27 +93,23 @@ class Admin::CommunitiesController < ApplicationController
   
   private
 
-  def member_order(sort_param)
-    case sort_param
-    when "name_asc"
-      "given_name ASC"
-    when "name_desc"
-      "given_name DESC"
-    when "email_asc"
-      "emails.address ASC"
-    when "email_desc"
-      "emails.address DESC"
-    when "join_date_asc"
-      "created_at ASC"
-    when "join_date_desc"
-      "created_at DESC"
-    when "posting_allowed_asc"
-      "community_memberships.can_post_listings ASC"
-    when "posting_allowed_desc"
-      "community_memberships.can_post_listings DESC"
+  def member_sort_column
+    case params[:sort]
+    when "name"
+      "people.given_name"
+    when "email"
+      "emails.address"
+    when "join_date"
+      "created_at"
+    when "posting_allowed"
+      "can_post_listings"
     else
-      "created_at DESC"
+      "created_at"
     end
+  end
+
+  def member_sort_direction
+    params[:direction] || "desc"
   end
 
 end
