@@ -90,7 +90,7 @@ fi:
         edit_message: "Muokkaa viestiä"
         send_test_message: "Lähetä testiviesti"
       manage_members:
-        manage_members: "Käyttäjähallinta"
+        manage_members: "Käyttäjät"
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
@@ -1731,3 +1731,25 @@ fi:
     days_since:
       one: päivän
       other: "%{count} päivän"
+  will_paginate:
+    models:
+      person:
+        zero:  käyttäjää
+        one:   käyttäjä
+        few:   käyttäjää
+        other: käyttäjää
+    previous_label: "&#8592; Edellinen"
+    next_label: "Seuraava &#8594;"
+    page_gap: "&hellip;"
+    page_entries_info:
+      single_page:
+        zero:  "Ei yhtään %{model}"
+        one:   "Näytetään 1 %{model}"
+        other: "Näytetään kaikki %{count} %{model}"
+      single_page_html:
+        zero:  "Ei yhtään %{model}"
+        one:   "Näytetään <b>1</b> %{model}"
+        other: "Näytetään kaikki <b>%{count}</b> %{model}"
+
+      multi_page: "Näytetään %{from} - %{to} %{model} (kokonaismäärä %{count})."
+      multi_page_html: "Näytetään <b>%{from}&nbsp;-&nbsp;%{to}</b> %{model} (kokonaismäärä <b>%{count}</b>)."
