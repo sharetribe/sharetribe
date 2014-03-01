@@ -41,3 +41,10 @@ Feature: Admin lists members
     Then I should see that "john doe" can post new listings
     When I refresh the page
     Then I should see that "john doe" can post new listings
+
+  @javascript
+  Scenario: Admin removes a user
+    When I remove user "john doe"
+    And  I confirm alert popup
+    Then I should not see "john doe"
+    And "john doe" should be banned from this community

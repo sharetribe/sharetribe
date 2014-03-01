@@ -33,3 +33,12 @@ end
 Then(/^I should see that "(.*?)" can post new listings$/) do |arg1|
   pending # express the regexp above with the code you wish you had
 end
+
+When(/^I remove user "(.*?)"$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^"(.*?)" should be banned from this community$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
