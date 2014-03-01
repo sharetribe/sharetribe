@@ -518,6 +518,10 @@ en:
       for_apartment_building: "apartment building"
       for_other: other
   community_memberships:
+    access_denied:
+      access_denied: "Access denied"
+      you_are_banned_in_this_community: "The admin of this community has prevented you from accessing the site. If you want to contact the admin, you can send %{link_to_contact_page}."
+      contact_page_link: feedback
     new:
       welcome_fb_user: "Welcome to %{service_name}, %{name}!"
       fb_join_accept_terms: "There's one more step to join this community: you need to accept its terms of use."

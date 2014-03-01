@@ -156,6 +156,7 @@ class ApplicationController < ActionController::Base
       
       # Check if banned
       if @current_community && @current_user && @current_user.banned_at?(@current_community)
+        flash.keep
         redirect_to access_denied_tribe_memberships_path and return
       end
 
