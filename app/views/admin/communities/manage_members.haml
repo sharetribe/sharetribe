@@ -23,7 +23,7 @@
 .left-navi-section
   %h2= t(".manage_members", :community_name => @community.name(I18n.locale))
     
-  %span#admin_members_count= page_entries_info(@members)
+  %span#admin_members_count= page_entries_info(@memberships)
 
   %form
     %table#admin_members_list
@@ -59,7 +59,6 @@
     .ajax-notification.ajax-error.custom-field-ajax-status-message#custom-field-ajax-error
       = t(".save_order_error")
 
->>>>>>> admin-ui
   .row
     .col-12
-      = will_paginate @members  
+      = will_paginate @memberships

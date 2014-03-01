@@ -35,7 +35,7 @@ class Admin::CommunitiesController < ApplicationController
     @selected_left_navi_link = "manage_members"
     @community = @current_community
     @memberships = CommunityMembership.where(:community_id => @current_community.id)
-                                       .includes(:person)
+                                       .joins(:person)
                                        .paginate(:page => params[:page], :per_page => 50)
                                        .order("created_at desc")
   end
