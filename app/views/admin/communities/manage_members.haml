@@ -29,11 +29,11 @@
     %table#admin_members_list
       %thead
         %tr
-          %th= t(".name")
-          %th= t(".email")
-          %th= t(".join_date")
+          %th= link_to t(".name"), :sort => (params[:sort].eql?("name_desc") ? "name_asc" : "name_desc"), :page => (params[:page] || 1)
+          %th= link_to t(".email"), :sort => (params[:sort].eql?("email_desc") ? "email_asc" : "email_desc"), :page => (params[:page] || 1)
+          %th= link_to t(".join_date"), :sort => (params[:sort].eql?("join_date_desc") ? "join_date_asc" : "join_date_desc"), :page => (params[:page] || 1)
           - if @current_community.require_verification_to_post_listings
-            %th{:style => "text-align: center"}= t(".posting_allowed")
+            %th{:style => "text-align: center"}= link_to t(".posting_allowed"), :sort => (params[:sort].eql?("posting_allowed_desc") ? "posting_allowed_asc" : "posting_allowed_desc"), :page => (params[:page] || 1)
       %tbody
         - @members.each do |member|
           %tr 

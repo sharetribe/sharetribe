@@ -34,7 +34,7 @@ class Admin::CommunitiesController < ApplicationController
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "manage_members"
     @community = @current_community
-    @members = @current_community.members.paginate(:page => params[:page], :per_page => 50).order("created_at desc")
+    @members = @current_community.members.includes(:emails).includes(:community_memberships).paginate(:page => params[:page], :per_page => 50).order(member_order(params[:sort]))
   end
 
   def posting_allowed
@@ -87,4 +87,29 @@ class Admin::CommunitiesController < ApplicationController
     end
   end
   
+  private
+
+  def member_order(sort_param)
+    case sort_param
+    when "name_asc"
+      "given_name ASC"
+    when "name_desc"
+      "given_name DESC"
+    when "email_asc"
+      "emails.address ASC"
+    when "email_desc"
+      "emails.address DESC"
+    when "join_date_asc"
+      "created_at ASC"
+    when "join_date_desc"
+      "created_at DESC"
+    when "posting_allowed_asc"
+      "community_memberships.can_post_listings ASC"
+    when "posting_allowed_desc"
+      "community_memberships.can_post_listings DESC"
+    else
+      "created_at DESC"
+    end
+  end
+
 end
