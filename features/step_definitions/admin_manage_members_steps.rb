@@ -14,7 +14,7 @@ Then(/^I should see list of users with the following details:$/) do |table|
 end
 
 Given(/^only verified users can post listings in this community$/) do
-  @current_community.update_attribute(require_verification_to_post_listings: true)
+  @current_community.update_attribute(:require_verification_to_post_listings, true)
 end
 
 When(/^I verify user "(.*?)" as a seller$/) do |arg1|
