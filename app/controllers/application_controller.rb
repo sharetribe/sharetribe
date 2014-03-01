@@ -153,6 +153,12 @@ class ApplicationController < ActionController::Base
   # Before filter to direct a logged-in non-member to join tribe form
   def cannot_access_without_joining
     if @current_user && ! (on_dashboard? || @current_community_membership || @current_user.is_admin?)
+      
+      # Check if banned
+      if @current_community && @current_user && @current_user.banned_at?(@current_community)
+        redirect_to access_denied_tribe_memberships_path and return
+      end
+
       session[:invitation_code] = params[:code] if params[:code]
       flash.keep
       redirect_to new_tribe_membership_path 
