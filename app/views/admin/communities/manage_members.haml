@@ -37,7 +37,7 @@
       %tbody
         - @members.each do |member|
           %tr 
-            %td= member.full_name
+            %td.admin-members-full-name= member.full_name
             %td= member.confirmed_notification_email_addresses.first
             %td= member.created_at.to_date.to_s
             - if @current_community.require_verification_to_post_listings

@@ -1,3 +1,19 @@
+module AdminManageMembersSteps
+  POSTING_ALLOWED_CHECKBOX_SELECTOR = ".admin-members-can-post-listings"
+
+  def find_row_for_person(full_name)
+    email_div = find(".admin-members-full-name", :text => "#{full_name}")
+    email_row = email_div.first(:xpath, ".//..")
+  end
+
+  def find_posting_allowed_checkbox_for_person(full_name)
+    find_row_for_person(full_name).find(POSTING_ALLOWED_CHECKBOX_SELECTOR)
+  end
+
+end
+
+World(AdminManageMembersSteps)
+
 Then(/^I should see a range from (\d+) to (\d+) with total user count of (\d+)$/) do |range_start, range_end, total_count|
   steps %Q{
     Then I should see "Displaying users #{range_start} - #{range_end} of #{total_count} in total" within "#admin_members_count"
@@ -26,10 +42,20 @@ Given(/^only verified users can post listings in this community$/) do
   @current_community.update_attribute(:require_verification_to_post_listings, true)
 end
 
-When(/^I verify user "(.*?)" as a seller$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^I should see that "(.*?)" cannot post new listings$/) do |full_name|
+  #binding.pry
+  checkbox = find_posting_allowed_checkbox_for_person(full_name)
+  checkbox['checked'].should be_nil
 end
 
-Then(/^I should see that "(.*?)" can post new listings$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+When(/^I verify user "(.*?)" as a seller$/) do |full_name|
+  find_posting_allowed_checkbox_for_person(full_name).click
+  steps %Q{
+    Then there should be an active ajax request
+    When ajax requests are completed
+  }
+end
+
+Then(/^I should see that "(.*?)" can post new listings$/) do |full_name|
+  find_posting_allowed_checkbox_for_person(full_name)['checked'].should_not be_nil
 end
