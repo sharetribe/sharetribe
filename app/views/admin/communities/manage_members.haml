@@ -34,6 +34,7 @@
           %th= t(".join_date")
           - if @current_community.require_verification_to_post_listings
             %th{:style => "text-align: center"}= t(".posting_allowed")
+          %th= t(".admin")
       %tbody
         - @members.each do |member|
           %tr 
@@ -44,6 +45,7 @@
             %td= l(member.created_at, :format => :short_date)
             - if @current_community.require_verification_to_post_listings
               %td{:style => "text-align: center"}= check_box_tag "posting-allowed[#{member.id}]", member.id, member.can_post_listings_at?(@community), :class => "admin-members-can-post-listings"
+            %td{:style => "text-align: center"}= check_box_tag "is_admin[#{member.id}]", member.id, member.is_admin_of?(@community), :class => "admin-members-is-admin", :disabled => true
 
   #custom-field-ajax-status
     .ajax-notification.ajax-notice.custom-field-ajax-status-message#custom-field-ajax-saving
