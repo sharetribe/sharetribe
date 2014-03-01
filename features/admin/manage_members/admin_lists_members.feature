@@ -21,3 +21,13 @@ Feature: Admin lists members
   @javascript
   Scenario: Admin views member count
     Then I should see member count 3
+
+  @javascript
+  Scenario: Admin views 
+    Given there are 50 users with name prefix "User" "Number"
+    And I go to the manage members admin page
+    Then I should see 50 users
+    And the first user should be "User Number 50"
+    When I follow "Next"
+    Then I should see 3 users
+    And the first user should be "matti manager"

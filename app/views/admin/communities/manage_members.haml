@@ -16,10 +16,10 @@
         %th= "Email"
         %th= "Join date"
     %tbody
-      - @community.members.order("created_at desc").each do |member|
+      - @members.each do |member|
         %tr 
           %td= member.full_name
           %td= member.confirmed_notification_email_addresses.first
           %td= member.created_at.to_date.to_s
 
-    
+  = will_paginate @members  

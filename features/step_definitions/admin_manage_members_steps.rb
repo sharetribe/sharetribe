@@ -12,3 +12,12 @@ Then(/^I should see list of users with the following details:$/) do |table|
     end
   end
 end
+
+Then(/^I should see (\d+) users$/) do |user_count|
+  all("#admin_members_list tbody tr").count.should == user_count.to_i
+end
+
+Then(/^the first user should be "(.*?)"$/) do |full_name|
+  first_row = all("#admin_members_list tbody tr").first
+  first_row.all("td").first.text.should == full_name
+end
