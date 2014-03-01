@@ -39,7 +39,8 @@
           %tr 
             %td.admin-members-full-name
               = link_to member.full_name, member
-            %td= member.confirmed_notification_email_addresses.first
+            %td
+              = mail_to member.confirmed_notification_email_addresses.first
             %td= l(member.created_at, :format => :short_date)
             - if @current_community.require_verification_to_post_listings
               %td{:style => "text-align: center"}= check_box_tag "posting-allowed[#{member.id}]", member.id, member.can_post_listings_at?(@community), :class => "admin-members-can-post-listings"
