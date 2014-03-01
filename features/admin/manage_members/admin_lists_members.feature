@@ -37,6 +37,8 @@ Feature: Admin lists members
   @javascript
   Scenario: Admin verifies sellers
     Given only verified users can post listings in this community
+    And I refresh the page
+    Then I should see that "john doe" cannot post new listings
     When I verify user "john doe" as a seller
     Then I should see that "john doe" can post new listings
     When I refresh the page
