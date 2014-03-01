@@ -20,10 +20,12 @@ Feature: Admin lists members
 
   @javascript
   Scenario: Admin views member count
-    Then I should see member count 3
+    Given there are 50 users with name prefix "User" "Number"
+    And I go to the manage members admin page
+    Then I should see a range from 1 to 50 with total user count of 53
 
   @javascript
-  Scenario: Admin views 
+  Scenario: Admin views multiple users with pagination
     Given there are 50 users with name prefix "User" "Number"
     And I go to the manage members admin page
     Then I should see 50 users

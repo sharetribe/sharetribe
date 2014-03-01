@@ -1,6 +1,6 @@
-Then(/^I should see member count (\d+)$/) do |member_count|
+Then(/^I should see a range from (\d+) to (\d+) with total user count of (\d+)$/) do |range_start, range_end, total_count|
   steps %Q{
-    Then I should see "#{member_count}" within "#admin_members_count"
+    Then I should see "Displaying members #{range_start} - #{range_end} of #{total_count} in total" within "#admin_members_count"
   }
 end
 

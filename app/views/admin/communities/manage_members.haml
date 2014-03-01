@@ -6,9 +6,7 @@
 .left-navi-section
   %h2= t(".manage_members", :community_name => @community.name(I18n.locale))
     
-  /TODO Change to something more reasonable
-  Members count 
-  %span#admin_members_count= @community.members_count
+  %span#admin_members_count= page_entries_info(@members, :model => "members")
 
   %form
     %table#admin_members_list
