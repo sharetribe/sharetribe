@@ -13,8 +13,8 @@
         = form.label :email, new_community_email_label
         = form.text_field :email, :class => :text_field, :maxlenght => "255"
         - # Honey pot: hidden field to detect spammers
-        = form.label :email_repeated, "You should not see this field, if CSS is working. If you see this, please send feedback!", :class => "unwanted_text_field" 
-        = form.text_field :email_repeated, :class => "unwanted_text_field", :id => "error_regristration_unwanted_email2"
+        = form.label :email_second_time_again, "You should not see this field, if CSS is working. If you see this, please send feedback!", :class => "unwanted_text_field" 
+        = form.text_field :email_second_time_again, :class => "unwanted_text_field", :id => "error_regristration_unwanted_email2"
         - if ["university", "company"].include? session[:community_category]
           %p.form
             = t(".you_need_to_confirm", :tribe_type => t("communities.select_tribe_category_form.#{session[:community_category]}").downcase)

@@ -8,9 +8,10 @@ Given /^there are following Braintree accounts:$/ do |bt_accounts|
   # Create new accounts
   bt_accounts.hashes.each do |hash|
     person = Person.find_by_username(hash[:person])
-    @hash_account = FactoryGirl.create(:braintree_account, :person => person)
+    community = Community.find_by_domain(hash[:community])
+    @hash_account = FactoryGirl.create(:braintree_account, :person => person, :community => community)
     
-    attributes_to_update = hash.except('person')
+    attributes_to_update = hash.except('person', 'community')
     @hash_account.update_attributes(attributes_to_update) unless attributes_to_update.empty?
   end
 end
@@ -69,7 +70,7 @@ When /^Braintree webhook "(.*?)" with id "(.*?)" is triggered$/ do |kind, id|
   )
 
   # Do
-  post "#{Capybara.app_host}/webhooks/braintree", :bt_signature => signature, :bt_payload => payload
+  post "#{Capybara.app_host}/webhooks/braintree", :bt_signature => signature, :bt_payload => payload, :community_id => community.id
 end
 
 Given /^Braintree transaction is mocked$/ do
@@ -90,7 +91,6 @@ Given /^Braintree merchant creation is mocked$/ do
     braintree_account.date_of_birth.year.should == 1980
     braintree_account.date_of_birth.month.should == 10
     braintree_account.date_of_birth.day.should == 9
-    braintree_account.ssn.should == "123-00-1234"
     braintree_account.routing_number.should == "101000187"
     braintree_account.account_number.should == "43759348798"
     braintree_account.person_id.should == "123abc"
@@ -133,7 +133,7 @@ end
 
 When /^I browse to Checkout payment settings$/ do
   steps %Q{
-    When I browser to payment settings
+    When I browse to payment settings
     Then I should be on the payment settings page
   }
 end
@@ -161,7 +161,6 @@ When /^I fill in Braintree account details$/ do
     And I select "1980" from "braintree_account[date_of_birth(1i)]"
     And I select "October" from "braintree_account[date_of_birth(2i)]"
     And I select "9" from "braintree_account[date_of_birth(3i)]"
-    And I fill in "braintree_account[ssn]" with "123-00-1234"
     And I fill in "braintree_account[routing_number]" with "101000187"
     And I fill in "braintree_account[account_number]" with "43759348798"
   }

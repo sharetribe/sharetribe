@@ -40,12 +40,6 @@ $custom-field-option-height: lines(1.5); // Used to center label text vertically
   width: 100%;
 }
 
-.custom-field-option-remove {
-  &.disabled {
-    color: $border;
-  }
-}
-
 .custom-field-actions {
   text-align: right;
   line-height: $custom-field-option-height;
@@ -75,6 +69,7 @@ $custom-field-option-height: lines(1.5); // Used to center label text vertically
   }
 }
 
+.category-ajax-status-message,
 .custom-field-ajax-status-message {
   display: none;
 }
@@ -90,4 +85,28 @@ $custom-field-option-height: lines(1.5); // Used to center label text vertically
 .new-custom-field-type-form-column {
   margin-right: lines(0.5);
   display: inline-block;
+}
+
+
+
+// Category classes that inherit from custom field classes are added here
+
+.new-category-name-locale-label {
+  @extend .new-field-name-locale-label;
+}
+
+.add-category-buttons {
+  @extend .add-custom-field-buttons;
+}
+
+.category-transaction-types-checkbox-container {
+  @extend .custom-field-categories-checkbox-container;
+}
+
+.category-transaction-type-checkbox {
+  @extend .custom-field-category-checkbox;
+}
+
+.category-transaction-type-checkbox-label {
+  @extend .custom-field-category-checkbox-label;
 }

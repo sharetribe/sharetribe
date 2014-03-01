@@ -13,9 +13,8 @@ var currentDirections = null;
 var initialLocation;
 var helsinki;
 var browserSupportFlag =  new Boolean();
-var listing_type;
+var transaction_type;
 var listing_category = ["all"];
-var listing_sharetypes = ["all"];
 var listing_tags = [];
 var listing_search;
 var listing_custom_field_options;
@@ -478,8 +477,6 @@ function addCommunityMarkers() {
         }
       })();
     }
-      // markerCluster = new MarkerClusterer(map, markers, markerContents, infowindow, showingMarker, {
-      //   imagePath: '/assets/map_icons/group_'+listing_type});
 
   });
 }
@@ -583,7 +580,7 @@ function addListingMarkers() {
   
   var starttime = new Date().getTime();
   var request_path = '/listings/locations_json'
-  $.get(request_path, { listing_type: listing_type, 'category[]': listing_category, 'share_type[]': listing_sharetypes, search: listing_search, custom_field_options: listing_custom_field_options}, function(data) {  
+  $.get(request_path, { transaction_type: transaction_type, 'category[]': listing_category, search: listing_search, custom_field_options: listing_custom_field_options}, function(data) {  
 
     var data_arr = data.data;
     for (i in data_arr) {
@@ -594,20 +591,10 @@ function addListingMarkers() {
           
           var location;
           location = new google.maps.LatLng(entry["latitude"], entry["longitude"]);
-          
-          // Marker background image based on listing_type
-          var icon_path, icon_color;
-          if (entry["listing_type"] === "request") {
-            icon_path = '/assets/map_icons/map_icon_dark_empty.png';
-            icon_color = "d7d7d7";
-          } else {
-            icon_path = '/assets/map_icons/map_icon_light_empty.png';
-            icon_color = "6a6a6a";
-          }
+
           var marker = new google.maps.Marker({
             position: location,
-            title: entry["title"],
-            icon: icon_path        
+            title: entry["title"]
           });
           
           // Marker icon based on category
@@ -616,9 +603,8 @@ function addListingMarkers() {
                     });
                     label.set('zIndex', 1234);
                     label.bindTo('position', marker, 'position');
-                    label.set('text', "<i class='icon " + entry["icon"] + "'></i>");
-                    label.set('color', icon_color);
-                    //label.bindTo('text', marker, 'position');
+                    label.set('text', "");
+                    label.set('color', "#FFF");
           marker.set("label", label);
           markers.push(marker);
           markersArr.push(marker);
@@ -643,34 +629,13 @@ function addListingMarkers() {
               infowindow.open(map,marker);
               $.get('/' + locale + '/listing_bubble/' + entry["id"], function(data) {
                 $('#map_bubble').html(data);
-                if (entry["category"]=="rideshare") {
-                  var end = new google.maps.LatLng(entry["destination_loc"]["latitude"], entry["destination_loc"]["longitude"]);
-                  var request = {
-                    origin:location, 
-                    destination:end,
-                    travelMode: google.maps.DirectionsTravelMode.DRIVING
-                  };
-                  directionsDisplay.setMap(map);
-                  directionsService.route(request, function(response, status) {
-                    if (status == google.maps.DirectionsStatus.OK) {
-                      directionsDisplay.setDirections(response);
-                    }
-                  });
-                  flagMarker.setOptions({
-                    position: end,
-                    map: map,
-                    icon: '/assets/map_icons/flag_rideshare.png'
-                  });
-                }
               });
             }
           });
         }
       })();
     }
-    markerCluster = new MarkerClusterer(map, markers, markerContents, infowindow, showingMarker, locale, {
-    imagePath: '/assets/map_icons/group_'+listing_type});
-  
+    markerCluster = new MarkerClusterer(map, markers, markerContents, infowindow, showingMarker, locale, {});
   });
 }
 
@@ -695,22 +660,11 @@ function clearMarkers() {
     }
 }
 
-function SetFiltersForMap(type, category, sharetypes, search, custom_field_options) {
-  if (type)                 { listing_type = type;               } else { listing_type = "all";}
+function SetFiltersForMap(type, category, search, custom_field_options) {
+  if (type)                 { transaction_type = type;               } else { transaction_type = "all";}
   if (category)             { listing_category = [category];     } else { listing_category = ["all"];}
-  if (sharetypes)           { listing_sharetypes = [sharetypes]; } else { listing_sharetypes = ["all"];}
   if (search)               { listing_search = search            } else { listing_search = "";}
   if (custom_field_options) { listing_custom_field_options = custom_field_options} else { listing_custom_field_options = [];}
   initialize_labels();
-}
-
-
-// Simple callback for passing filter changes to the mapview
-function filtersUpdated(category, sharetypes, tags) {
-    listing_category = category;
-    listing_sharetypes = sharetypes;
-    listing_tags = tags;
-    clearMarkers();
-    addListingMarkers();
 }
 

@@ -1,0 +1,6 @@
+.row.category-row.sub-category-row{:id => "subcategory-#{subcategory.display_name(I18n.locale).squish.downcase.tr(" ","_")}", :data => {:id => subcategory.id } }
+  .col-10.listed-category-col
+    .subcategory-label
+      = subcategory.display_name(I18n.locale)
+  .col-2.listed-category-col
+    = render :partial => "category_action_buttons", :locals => {:category => subcategory}

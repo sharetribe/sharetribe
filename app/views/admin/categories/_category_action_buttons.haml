@@ -1,0 +1,17 @@
+= link_to edit_admin_category_path(category), :class => "category-action-edit", :id => "edit_category_#{category.id}" do
+  = icon_tag("edit", ["icon-fix"])
+- remove_html_opts = { class: "category-action-remove", id: "remove_category_#{category.id}" }
+
+- if !category.can_destroy?
+  = icon_tag("cross", ["icon-fix disabled"])
+- elsif category.remove_needs_caution?
+  = link_to remove_admin_category_path(category), remove_html_opts do
+    = icon_tag("cross", ["icon-fix"])
+- else
+  = link_to admin_category_path(category), remove_html_opts.merge(:method => :delete, :confirm => t("admin.categories.index.remove_category_confirmation", {category_name: category.display_name(I18n.locale)})) do
+    = icon_tag("cross", ["icon-fix"])
+
+= link_to '#', :class => "category-action-up admin-sort-button", :tabindex => "-1" do
+  = icon_tag("directup", ["icon-fix"])
+= link_to '#', :class => "category-action-down admin-sort-button", :tabindex => "-1" do
+  = icon_tag("directdown", ["icon-fix"])

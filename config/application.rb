@@ -23,7 +23,7 @@ module Kassi
     config.autoload_paths += %W(#{config.root}/lib/rack_middleware)
     
     # Load models from subdirectories too
-    config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**}')]
+    config.autoload_paths += Dir[Rails.root.join('app', 'models', '**/')]
     config.autoload_paths += Dir[Rails.root.join('app', 'services')]
     
     # Enable the asset pipeline  
@@ -142,7 +142,7 @@ module Kassi
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
-    config.filter_parameters += [:password, :password2, :ssn, :account_number, :routing_number, :address_street_address,
+    config.filter_parameters += [:password, :password2, :account_number, :routing_number, :address_street_address,
                                  :"date_of_birth(3i)", :"date_of_birth(2i)", :"date_of_birth(1i)"]
     
     config.time_zone = 'Helsinki'

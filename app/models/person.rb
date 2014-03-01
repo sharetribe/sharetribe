@@ -32,7 +32,7 @@ class Person < ActiveRecord::Base
   attr_accessor :guid, :password2, :form_login,
                 :form_given_name, :form_family_name, :form_password, 
                 :form_password2, :form_email, :consent,
-:email_repeated, :community_category, :organization_website, :organization_address, :send_notifications
+:email_second_time_again, :community_category, :organization_website, :organization_address, :send_notifications
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
@@ -352,11 +352,6 @@ class Person < ActiveRecord::Base
         unfollow(listing) if is_following?(listing)
       end
     end
-  end
-  
-  def create_listing(params)
-    params = Listing.find_category_and_share_type_based_on_string_params(params)
-    listings.create params #.except([:category, :share_type])
   end
   
   def read(conversation)

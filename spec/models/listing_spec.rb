@@ -58,7 +58,7 @@ describe Listing do
   context "with listing type 'offer'" do
   
     before(:each) do
-      @listing.share_type = find_or_create_share_type("lend")
+      @listing.transaction_type = FactoryGirl.create(:transaction_type_give)
     end
     
     it "should be valid when there is no valid until" do
@@ -67,66 +67,4 @@ describe Listing do
     end 
   
   end
-  
-  context "with category 'rideshare'" do
-    
-    before(:each) do
-      @listing.share_type = find_or_create_share_type("offer")
-      @listing.category = find_or_create_category("rideshare") 
-      @listing.origin = "Otaniemi, Espoo"
-      @listing.destination = "Turku"
-    end  
-    
-    it "is valid with valid origin and destination" do
-      @listing.should be_valid
-    end
-    
-    it "is not valid without origin" do
-      @listing.origin = nil
-      @listing.should_not be_valid
-    end
-    
-    it "is not valid without destination" do
-      @listing.destination = nil
-      @listing.should_not be_valid
-    end
-    
-    it "is not valid with a too short origin" do
-      @listing.origin = "a"
-      @listing.should_not be_valid
-    end
-    
-    it "is not valid with a too long origin" do
-      @listing.origin = "a" * 49
-      @listing.should_not be_valid
-    end
-    
-    it "is not valid with a too short destination" do
-      @listing.destination = "a"
-      @listing.should_not be_valid
-    end
-    
-    it "is not valid with a too long destination" do
-      @listing.destination = "a" * 51
-      @listing.should_not be_valid
-    end
-    
-    it "should have a title in the form of [ORIGIN]-[DESTINATION]" do    
-      @listing.title = "test"
-      @listing.should be_valid
-      @listing.title.should == "Otaniemi, Espoo - Turku"
-    end
-    
-    it "should not be valid when valid until is less than current time" do
-      @listing.valid_until = DateTime.now - 1.hour
-      @listing.should_not be_valid
-    end
-    
-    it "should be valid when there is no valid until" do
-      @listing.share_type = find_or_create_share_type("offer")
-      @listing.valid_until = nil
-      @listing.should be_valid
-    end
-  end
-  
 end 

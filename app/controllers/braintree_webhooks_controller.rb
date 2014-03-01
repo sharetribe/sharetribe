@@ -1,7 +1,9 @@
 class BraintreeWebhooksController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
-  skip_filter :check_email_confirmation, :dashboard_only
+  skip_filter :fetch_community, :check_email_confirmation, :dashboard_only
+
+  before_filter :fetch_community_by_params
 
   before_filter do
     unless @current_community.braintree_in_use?
@@ -86,5 +88,16 @@ class BraintreeWebhooksController < ApplicationController
     end
 
     render :nothing => true
+  end
+
+  private
+  
+  # Instead of fetching community by host (http://community.sharetribe.com),
+  # this filter fetched community by `community_id` parameter
+  # (http://sharetribe.com?community_id=id)
+  def fetch_community_by_params
+    fetch_community_by_strategy {
+      Community.find_by_id(params[:community_id])
+    }
   end
 end

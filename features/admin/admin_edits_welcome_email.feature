@@ -13,7 +13,8 @@ Feature: Admin edits welcome
     Then I should have editor open
     When I send keys "This is a new line to welcome email" to editor
     And I click save on the editor
-    And I refresh the page
+    Then I should see "This is a new line to welcome email"
+    When I refresh the page
     Then I should see "This is a new line to welcome email"
     When I follow "Send test message"
     And the system processes jobs

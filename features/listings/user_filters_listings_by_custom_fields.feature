@@ -1,3 +1,4 @@
+@sphinx @no-transaction
 Feature: Custom field filters
   In order to view only listings that match certain marketplace specific condition
   As a user
@@ -5,25 +6,25 @@ Feature: Custom field filters
 
   Background:
     Given community "test" has custom fields enabled
-    And there is a dropdown field "House type" for category "housing" in community "test" with options:
+    And there is a dropdown field "House type" for category "Spaces" in community "test" with options:
       | title |
       | condo |
       | house |
-    And there is a dropdown field "Balcony type" for category "housing" in community "test" with options:
+    And there is a dropdown field "Balcony type" for category "Spaces" in community "test" with options:
       | title  |
       | glazed |
       | open   |
 
-    And there is housing offer with title "Apartment" from "kassi_testperson2"
+    And there is a listing with title "Apartment" from "kassi_testperson2" with category "Spaces" and with transaction type "Selling services"
     And that listing has custom field "House type" with value "condo"
     And that listing has custom field "Balcony type" with value "open"
-    And there is housing offer with title "Country house" from "kassi_testperson2"
+    And there is a listing with title "Country house" from "kassi_testperson2" with category "Spaces" and with transaction type "Selling services"
 		And that listing has custom field "House type" with value "house"
     And that listing has custom field "Balcony type" with value "glazed"
-    And there is housing offer with title "Small house" from "kassi_testperson2"
+    And there is a listing with title "Small house" from "kassi_testperson2" with category "Spaces" and with transaction type "Selling services"
 		And that listing has custom field "House type" with value "house"
     And that listing has custom field "Balcony type" with value "open"
-    And there is housing offer with title "Tent" from "kassi_testperson2"
+    And there is a listing with title "Tent" from "kassi_testperson2" with category "Spaces" and with transaction type "Selling services"
     
     And I am on the home page
     And the Listing indexes are processed
@@ -88,9 +89,9 @@ Feature: Custom field filters
   	And I should see "Small house"
   	And I should see "Tent"
 
-@javascript
+@javascript @sphinx @no-transaction
 Scenario: User combines custom filters with search and category
-	Given there is item offer with title "country and house music cd" from "kassi_testperson2"
+	Given there is a listing with title "country and house music cd" from "kassi_testperson2" with category "Items" and with transaction type "Selling services"
   And the Listing indexes are processed
   
   When I fill in "q" with "country"

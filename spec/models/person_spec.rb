@@ -76,7 +76,11 @@ describe Person do
 
     describe "#create_listing" do
       it "creates a new listing with the submitted attributes" do
-        listing = @test_person.create_listing :title => "Test", :share_type => "sell"
+        listing = FactoryGirl.create(:listing, 
+          :title => "Test",
+          :transaction_type => FactoryGirl.create(:transaction_type_sell),
+          :author => @test_person
+        )
         listing.title.should == "Test"
         @test_person.listings.last.should == listing
       end

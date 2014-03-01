@@ -9,7 +9,7 @@ Feature: User comments a listing
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is favor request with title "Massage" from "kassi_testperson1"
+    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
     And listing comments are in use in community "test"
     And I am logged in as "kassi_testperson2"
     When I follow "Massage"
@@ -46,7 +46,7 @@ Feature: User comments a listing
       | kassi_testperson1 |
       | kassi_testperson2 |
     And listing comments are in use in community "test"
-    And there is favor request with title "Massage" from "kassi_testperson1"
+    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
     And I am logged in as "kassi_testperson2"
     When I follow "Massage"
     And I press "Send comment"
@@ -58,7 +58,7 @@ Feature: User comments a listing
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is favor request with title "Massage" from "kassi_testperson1"
+    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
     And listing comments are in use in community "test"
     And I am not logged in
     And I am on the home page
@@ -72,14 +72,13 @@ Feature: User comments a listing
       | person            | email          | given_name         | family_name |
       | kassi_testperson1 | t1@example.com | John               | MacTest     |
       | kassi_testperson2 | t2@example.com | Anthony            | Debugger    |
-    And there is favor request with title "Walking dogs" from "kassi_testperson1"
+    And there is a listing with title "Walking dogs" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
     And listing comments are in use in community "test"
     And I am logged in as "kassi_testperson2"
     When I follow "Walking dogs"
     Then I should see "Notify me of new comments and updates"
     When I fill in "comment_content" with "Test comment 1"
     And I press "Send comment"
-    And the system processes jobs
     Then I should see "Test comment 1" within "#comments"
     And "t1@example.com" should receive an email with subject "Anthony D has commented on your listing in Sharetribe"
     And "t2@example.com" should have no emails
@@ -92,7 +91,6 @@ Feature: User comments a listing
     And I should see "Test comment 1" within "#comments"
     When I fill in "comment_content" with "Test comment 2"
     And I press "Send comment"
-    And the system processes jobs
     Then I should see "Test comment 2" within "#comments"
     And "t2@example.com" should receive an email with subject "John M has commented on a listing you follow in Sharetribe"
     

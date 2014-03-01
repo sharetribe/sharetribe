@@ -1,13 +1,9 @@
 When /^I click save on the editor$/ do
   find("em", :text => "Save").click
-  # Wait for editor to close
-  steps %Q{
-    Then I should not have editor open
-  }
 end
 
 Then /^I should not have editor open$/ do
-  page.should have_no_selector("#mercury_iframe")
+  expect { !current_path.start_with? "/editor/" }.to become_true
 end
 
 Then /^I should have editor open$/ do

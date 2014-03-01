@@ -70,7 +70,7 @@
             %button
               = "This is button"
 
-    .design-section
+  .design-section
 
     %h3.design-h3
       = "Dropdown menu"
@@ -165,6 +165,111 @@
                 = "This is a subitem"
               %a
                   = "Item 3"
+
+  .design-section
+
+    %h3.design-h3
+      = "Sortable list"
+
+    .design-component
+      .design-example
+        #sortable-row1.sortable-row
+          .design-block
+            .design-sort-title= "Bananas"
+            .design-sort-arrows
+              %a.design-sort-arrow.arrow-up="↑"
+              %a.design-sort-arrow.arrow-down="↓"
+        #sortable-row2.sortable-row
+          .design-block
+            .design-sort-title= "Oranges"
+            .design-sort-arrows
+              %a.design-sort-arrow.arrow-up="↑"
+              %a.design-sort-arrow.arrow-down="↓"
+        #sortable-row3.sortable-row
+          .design-block
+            .design-sort-title= "Apples"
+            .design-sort-arrows
+              %a.design-sort-arrow.arrow-up="↑"
+              %a.design-sort-arrow.arrow-down="↓"
+          #sortable-sub-row1.sortable-sub-row
+            .design-block
+              .design-sort-title.sub= "Red Apple"
+              .design-sort-arrows
+                %a.design-sort-arrow.sub-arrow-up="↑"
+                %a.design-sort-arrow.sub-arrow-down="↓"
+          #sortable-sub-row2.sortable-sub-row
+            .design-block
+              .design-sort-title.sub= "Green Apple"
+              .design-sort-arrows
+                %a.design-sort-arrow.sub-arrow-up="↑"
+                %a.design-sort-arrow.sub-arrow-down="↓"
+
+      - content_for :extra_javascript do
+        :javascript
+          debugger
+          var fieldMap = $(".sortable-row").map(function(id, row) {
+            return { 
+              id: $(row).attr("id"), // Id, that identifies the sortable row
+              element: $(row), // jQuery element of a sortable row
+              up: $(".arrow-up", row),
+              down: $(".arrow-down", row)
+            };
+          }).get();
+
+          orderManager = window.ST.orderManager(fieldMap);
+          orderManager.order.changes().onValue(function(orderStatus) {
+            // Do something with the orderStatus
+          });
+
+          var subFieldMap = $(".sortable-sub-row").map(function(id, row) {
+            return { 
+              id: $(row).attr("id"), // Id, that identifies the sortable row
+              element: $(row), // jQuery element of a sortable row
+              up: $(".sub-arrow-up", row),
+              down: $(".sub-arrow-down", row)
+            };
+          }).get();
+
+          orderManager = window.ST.orderManager(subFieldMap);
+          orderManager.order.changes().onValue(function(orderStatus) {
+            // Do something with the orderStatus
+          });
+
+      .design-code
+        %pre
+          :plain
+            #sortable-row1.sortable-row.design-block
+              .design-sort-title= "Banana"
+              .design-sort-arrows
+                %a.design-sort-arrow.arrow-up="↑"
+                %a.design-sort-arrow.arrow-down="↓"
+            #sortable-row2.sortable-row.design-block
+              .design-sort-title= "Orange"
+              .design-sort-arrows
+                %a.design-sort-arrow.arrow-up="↑"
+                %a.design-sort-arrow.arrow-down="↓"
+            #sortable-row3.sortable-row.design-block
+              .design-sort-title= "Apple"
+              .design-sort-arrows
+                %a.design-sort-arrow.arrow-up="↑"
+                %a.design-sort-arrow.arrow-down="↓"
+
+            - content_for :extra_javascript do
+              :javascript
+                debugger
+                var fieldMap = $(".sortable-row").map(function(id, row) {
+                  return { 
+                    id: $(row).attr("id"),
+                    element: $(row),
+                    up: $(".arrow-up", row),
+                    down: $(".arrow-down", row)
+                  };
+                }).get();
+
+                orderManager = window.ST.orderManager(fieldMap);
+                orderManager.order.changes().onValue(function(orderStatus) {
+                  // Do something with the orderStatus
+                });
 
   %h2.design-h2
     = "Responsive utilities"

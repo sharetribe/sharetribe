@@ -3,9 +3,12 @@ Feature: Admin edits info pages
   As an admin
   I want to be able to edit the community details
 
+  Background:
+    Given "kassi_testperson1" has admin rights in community "test"
+    And I am logged in as "kassi_testperson1"
+
   @javascript
   Scenario: Admin user can edit community details
-    Given I am logged in as "kassi_testperson1"
     When I go to the admin view of community "test"
     And I follow "Edit information"
     And I change the contents of "name" to "Custom name"
@@ -13,7 +16,8 @@ Feature: Admin edits info pages
     And I change the contents of "description" to "This is a custom description"
     And I change the contents of "signup_info_content" to "Custom signup info"
     And I click save on the editor
-    And I refresh the page
+    Then I should see "Edit information"
+    When I refresh the page
     Then I should see "Custom name"
     And I should see "Custom slogan"
     And I should see "This is a custom description"
@@ -27,8 +31,6 @@ Feature: Admin edits info pages
 
   @javascript
   Scenario: Admin user can edit community details
-    Given I am logged in as "kassi_testperson1"
-    When I go to the admin view of community "test"
     Then I should not see "Private community homepage content"
     When community "test" is private
     And I go to the admin view of community "test"
@@ -36,7 +38,8 @@ Feature: Admin edits info pages
     When I follow "Edit information"
     And I change the contents of "private_community_homepage_content" to "Private homepage info"
     And I click save on the editor
-    And I refresh the page
+    Then I should see "Edit information"
+    When I refresh the page
     Then I should see "Private homepage info"
     When I log out
     And I go to the homepage

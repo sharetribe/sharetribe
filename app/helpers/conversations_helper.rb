@@ -4,14 +4,6 @@ module ConversationsHelper
     listing.title
   end
   
-  def transaction_proposal_form_title(listing)
-    if ["item", "favor", "housing", "rideshare"].include?(listing.category.top_level_parent.name)
-      "#{listing.category.top_level_parent.name}_#{listing.listing_type}#{listing.share_type.present? ? '_' + listing.share_type.name : ''}_message_form_title"
-    else
-      "item_#{listing.listing_type}_#{listing.share_type.name}_message_form_title"
-    end
-  end
-  
   def icon_for(status)
     case status
     when "accepted"
@@ -38,6 +30,10 @@ module ConversationsHelper
     when "cancel"  
       cancel_person_message_path(:person_id => current_user.id, :id => conversation.id.to_s)
     end 
+  end
+
+  def free_conversation?
+    params[:message_type] || (@listing && @listing.transaction_type.is_inquiry?)
   end
   
 end

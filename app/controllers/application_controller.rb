@@ -112,15 +112,12 @@ class ApplicationController < ActionController::Base
     return if controller_name.eql?("passwords")
     redirect_to root and return if on_dashboard?
   end
-  
+
   # Before filter to get the current community
-  def fetch_community
-    # store the host of the current request (as sometimes needed in views)
-    @current_host_with_port = request.host_with_port
-    
+  def fetch_community_by_strategy(&block)
     unless on_dashboard?
       # Otherwise pick the domain normally from the request subdomain or custom domain
-      if @current_community = Community.find_by_domain(request.host)
+      if @current_community = block.call
         # Store to thread the service_name used by current community, so that it can be included in all translations
         ApplicationHelper.store_community_service_name_to_thread(service_name)
       else
@@ -128,6 +125,16 @@ class ApplicationController < ActionController::Base
         redirect_to "http://www.#{APP_CONFIG.domain}"
       end
     end
+  end
+  
+  # Before filter to get the current community
+  def fetch_community
+    # store the host of the current request (as sometimes needed in views)
+    @current_host_with_port = request.host_with_port
+
+    fetch_community_by_strategy {
+      Community.find_by_domain(request.host)
+    }
   end
   
   # Before filter to check if current user is the member of this community

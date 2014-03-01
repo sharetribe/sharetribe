@@ -1,5 +1,37 @@
 it:
   admin:
+    categories:
+      edit:
+        edit_listing_category: ~
+      index:
+        listing_categories: ~
+        create_a_new_category: ~
+        remove_category_confirmation: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+      new:
+        new_listing_category: ~
+      form:
+        category_name:
+          category_title: ~
+        category_parent:
+          category_parent: ~
+          no_parent: ~
+        category_transaction_types:
+          transaction_types: ~
+          transaction_types_description: ~
+        buttons:
+          save: ~
+          cancel: ~
+      remove:
+        remove_category: ~
+        remove_category_name: ~
+        warning_remove_effects: ~
+        select_new_category: ~
+        buttons:
+          remove: ~
+          cancel: ~
     communities:
       edit_details:
         community_details: ~
@@ -130,6 +162,14 @@ it:
       swap: ~
       service: ~
       request: ~
+      inquiry: ~
+      share_for_free: ~
+      default_action_button_labels:
+        sell: ~
+        rent: ~
+        request: ~
+        offer: ~
+        inquiry: ~
   common:
     edit_page: ~
     default_community_slogan: "Presta, vendi, aiuta, condividi"
@@ -1155,12 +1195,6 @@ it:
         comma_separate: (virgola)
         tags: Tag
       title:
-        favor_you_offer: "Servizio che offri"
-        favor_you_request: "Servizio che ti occorre"
-        housing_you_offer: "Spazio che offri"
-        housing_you_request: "Spazio che ti occorre"
-        item_you_offer: "Articolo che offri"
-        item_you_request: "Articolo che ti occorre"
         listing_title: ~
       valid_until:
         valid_until: "Data scadenza"
@@ -1216,104 +1250,15 @@ it:
       share_for_frees: ~
       accept_for_frees: ~
       trades: Scambiare
-    link_labels:
-      offer_this: ~
-      request_this: ~
-      lend_this: ~
-      borrow_this: ~
-      buy_this: ~
-      rent_out_this: ~
-      rent_this: ~
-      sell_this: ~
-      link_label_for_favor_offer: "Richiedi questo servizio"
-      link_label_for_favor_request: "Offri questo servizio"
-      link_label_for_housing_offer_sell: ~
-      link_label_for_housing_offer_rent_out: ~
-      link_label_for_housing_offer_share_for_free: ~
-      link_label_for_housing_request_accept_for_free: ~
-      link_label_for_housing_request_buy: ~
-      link_label_for_housing_request_rent: ~
-      link_label_for_item_offer_lend: ~
-      link_label_for_item_offer_rent_out: ~
-      link_label_for_item_offer_sell: ~
-      link_label_for_item_offer_give_away: ~
-      link_label_for_item_offer_trade: ~
-      link_label_for_item_request_borrow: ~
-      link_label_for_item_request_rent: ~
-      link_label_for_item_request_buy: ~
-      link_label_for_item_request_receive: ~
-      link_label_for_item_request_trade: ~
-      link_label_for_rideshare_offer: "Richiedi questo servizio"
-      link_label_for_rideshare_request: "Offri un passaggio"
     new:
       post_a_new_listing: ~
       listing: ~
-      offer: ~
-      request: ~
-      selected_offer: ~
-      selected_request: ~
-      selected_listing_type: ~
       selected_category: ~
       selected_subcategory: ~
-      selected_share_type: ~
-      selected_item: ~
-      selected_favor: Servizio
-      selected_rideshare: ~
-      selected_housing: ~
-      selected_borrow: ~
-      selected_buy: ~
-      selected_give_away: ~
-      selected_lend: ~
-      selected_receive: ~
-      selected_rent: ~
-      selected_rent_out: ~
-      selected_sell: ~
-      selected_offer_to_swap: ~
-      selected_request_to_swap: ~
-      selected_share_for_free: ~
-      selected_accept_for_free: ~
-      how_do_you_want_to_share_it: ~
-      how_do_you_want_to_get_it: ~
-      item: ~
-      favor: ~
-      rideshare: ~
-      housing: ~
-      borrow: ~
-      buy: ~
-      give_away: ~
-      lend: ~
-      receive: ~
-      rent: ~
-      rent_out: ~
-      sell: ~
-      offer_to_swap: ~
-      request_to_swap: ~
-      share_for_free: ~
-      accept_for_free: ~
-      what_kind_of_item: ~
-      what_kind_of_favor: ~
-      what_kind_of_rideshare: ~
-      what_kind_of_housing: ~
-      which_subcategory: ~
-      tools: Strumenti
-      sports: ~
-      music: Musica
-      books: "Libri e riviste"
-      games: ~
-      furniture: ~
-      outdoors: ~
-      food: "Cibo e cucina"
-      electronics: Elettronica
-      pets: ~
-      film: ~
-      clothes: "Abiti e accessori"
-      garden: Giardino
-      travel: Viaggi
-      other: Altro
-      what_do_you_want_to_do: "Cosa vuoi fare?"
-      what_can_you_offer: ~
-      what_do_you_need: "Di cosa hai bisogno?"
+      selected_transaction_type: ~
       select_category: ~
+      select_subcategory: ~
+      select_transaction_type: ~
     please_comment: Commenta
     reply_link:
       listing_closed: ~
@@ -1325,6 +1270,7 @@ it:
       contact: ~
       favor_offer: "Offerta di servizio"
       favor_request: "Richiesta di servizio"
+      inquiry: ~
       item_offer_trade: ~
       item_request_trade: ~
       no_description: "Nessuna descrizione"

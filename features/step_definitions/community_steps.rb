@@ -1,7 +1,9 @@
 Given /^there are following communities:$/ do |communities_table|
   communities_table.hashes.each do |hash|
     domain = hash[:community]
-    @hash_community = FactoryGirl.create(:community, :name => domain, :domain => domain)
+    existing_community = Community.find_by_domain(domain)
+    existing_community.destroy if existing_community
+    @hash_community = FactoryGirl.create(:community, :name => domain, :domain => domain, :settings => {"locales" => ["en", "fi"]})
     
     attributes_to_update = hash.except('community')
     @hash_community.update_attributes(attributes_to_update) unless attributes_to_update.empty?
@@ -50,6 +52,10 @@ Given /^community "([^"]*)" requires invite to join$/ do |community|
   Community.find_by_domain(community).update_attribute(:join_with_invite_only, true)
 end
 
+Given /^community "([^"]*)" does not require invite to join$/ do |community|
+  Community.find_by_domain(community).update_attribute(:join_with_invite_only, false)
+end
+
 Given /^community "([^"]*)" requires users to have an email address of type "(.*?)"$/ do |community, email|
   Community.find_by_domain(community).update_attribute(:allowed_emails, email)
 end
@@ -64,8 +70,9 @@ Given /^community "([^"]*)" has payments in use(?: via (\w+))?(?: with seller co
   FactoryGirl.create(:payment_gateway, :community => community, :type => gateway_name)
 end
 
-Given /^users can invite new users to join community "([^"]*)"$/ do |community|
-  Community.find_by_domain(community).update_attribute(:users_can_invite_new_users, true)
+Given /^users (can|can not) invite new users to join community "([^"]*)"$/ do |verb, community|
+  can_invite = verb == "can"
+  Community.find_by_domain(community).update_attribute(:users_can_invite_new_users, can_invite)
 end
 
 Given /^there is an invitation for community "([^"]*)" with code "([^"]*)"(?: with (\d+) usages left)?$/ do |community, code, usages_left|
@@ -81,6 +88,7 @@ end
 When /^I move to community "([^"]*)"$/ do |community|
   Capybara.default_host = "#{community}.lvh.me"
   Capybara.app_host = "http://#{community}.lvh.me:9887"
+  @current_community = Community.find_by_domain(community)
 end
 
 When /^I arrive to sign up page with the link in the invitation email with code "(.*?)"$/ do |code|
@@ -115,7 +123,43 @@ Given /^community "(.*?)" is private$/ do |community_domain|
   Community.find_by_domain(community_domain).update_attributes({:private => true})
 end
 
+Given /^community "(.*?)" has following category structure:$/ do |community, categories|
+  current_community = Community.find_by_domain(community)
+  old_category_ids = current_community.categories.collect(&:id)
+ 
+  current_community.categories = categories.hashes.map do |hash|
+    category = current_community.categories.create!
+    category.translations.create!(:name => hash['fi'], :locale => 'fi')
+    category.translations.create!(:name => hash['en'], :locale => 'en')
+    category.transaction_types << current_community.transaction_types.first
+    if hash['category_type'].eql?("main")
+      @top_level_category = category
+    else
+      category.update_attribute(:parent_id, @top_level_category.id)
+    end
+    category
+  end
+
+  # Clean old
+  current_community.categories.select do |category|
+    old_category_ids.include? category.id
+  end.each do |category|
+    category.destroy!
+  end
+end
+
+Given /^community "(.*?)" has following transaction types enabled:$/ do |community, transaction_types|
+  current_community = Community.find_by_domain(community)
+  current_community.transaction_types.destroy_all
+ 
+  current_community.transaction_types << transaction_types.hashes.map do |hash|
+    transaction_type = FactoryGirl.create(:transaction_type, :type => hash['transaction_type'], :community_id => current_community.id)
+    transaction_type.translations.create(:name => hash['fi'], :action_button_label => (hash['button'] || "Action"), :locale => 'fi')
+    transaction_type.translations.create(:name => hash['en'], :action_button_label => (hash['button'] || "Action"), :locale => 'en')
+    transaction_type
+  end
+end
+
 Given /^listing publishing date is shown in community "(.*?)"$/ do |community_domain|
   Community.find_by_domain(community_domain).update_attributes({:show_listing_publishing_date => true})
 end
-

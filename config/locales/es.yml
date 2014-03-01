@@ -1,5 +1,37 @@
 es:
   admin:
+    categories:
+      edit:
+        edit_listing_category: ~
+      index:
+        listing_categories: ~
+        create_a_new_category: ~
+        remove_category_confirmation: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+      new:
+        new_listing_category: ~
+      form:
+        category_name:
+          category_title: ~
+        category_parent:
+          category_parent: ~
+          no_parent: ~
+        category_transaction_types:
+          transaction_types: ~
+          transaction_types_description: ~
+        buttons:
+          save: ~
+          cancel: ~
+      remove:
+        remove_category: ~
+        remove_category_name: ~
+        warning_remove_effects: ~
+        select_new_category: ~
+        buttons:
+          remove: ~
+          cancel: ~
     communities:
       edit_details:
         community_details: "Detalles de la tribu"
@@ -125,11 +157,19 @@ es:
     transaction_types:
       sell: Venta
       rent: Alquilando
-      give: ~
-      lend: ~
-      swap: ~
-      service: ~
+      give: Regalando
+      lend: Prestando
+      swap: Intercambio
+      service: Oferta
       request: Solicitando
+      inquiry: ~
+      share_for_free: "Compartido gratuitamente"
+      default_action_button_labels:
+        sell: Comprar
+        rent: Arrendar
+        request: Ofrecer
+        offer: Solicitar
+        inquiry: Contactar
   common:
     edit_page: ~
     default_community_slogan: "Colabora, ayuda o comparte"
@@ -197,8 +237,8 @@ es:
       cancel_description: ~
       cancel_payed_description: ~
       canceling_payed_transaction: ~
-      confirm: ~
-      cancel: ~
+      confirm: "Marcar transacción completada."
+      cancel: "No se llevó a cabo."
       continue: ~
       give_feedback_to: "Dar feedback a %{person_link}"
       do_not_give_feedback: Omitir
@@ -284,7 +324,7 @@ es:
         has_given_you_feedback_on_event: "Has recibido un feedback del evento"
         see_all_the_feedback_you_have_received: "Revisar todos los feedbacks que has recibido"
     show:
-      in_response_to_listing: ~
+      in_response_to_listing: "sobre listado"
       message_sent_by: "Mensaje enviado por"
       message_sent_to: "Mensaje enviado a"
       send_reply: "Enviar respuesta"
@@ -317,8 +357,8 @@ es:
       accept_request: "Aceptar solicitud"
       reject_offer: "Rechazar oferta"
       reject_request: "No por el momento"
-      confirm: ~
-      cancel: ~
+      confirm: "Marcar transacción completada."
+      cancel: "No se llevó a cabo."
   braintree_accounts:
     new:
       add_payout_details: ~
@@ -809,7 +849,7 @@ es:
       are: son
       what_do_you_need: "¿Qué necesitas?"
       post_new_listing: "Nueva publicación"
-      are_offering: Oferta
+      are_offering: Ofertar
       add_news_item: "Añadir un artículo"
       inform_others_about_events: "Últimos eventos y noticias en la comunidad"
       lend_rent_help_carpool: "Vende, regala, ayuda o comparte lo que quieras!"
@@ -990,7 +1030,7 @@ es:
       listing_created_successfully: "Listado creado exitosamente. %{new_listing_link}"
       offer_rejected: "Oferta rechazada"
       offer_canceled: "Oferta cancelada"
-      listing_updated_successfully: ~
+      listing_updated_successfully: "Listado actualizado!"
       only_kassi_administrators_can_access_this_area: "Sólo los administradores de %{service_name} pueden acceder a esta área"
       only_listing_author_can_close_a_listing: "Sólo el creador de una lista puede cerrarla"
       only_listing_author_can_edit_a_listing: "Sólo el creador de una lista puede editarla"
@@ -1158,12 +1198,6 @@ es:
         comma_separate: "(separado por comas)"
         tags: Etiquetas
       title:
-        favor_you_offer: "Servicio que ofreces"
-        favor_you_request: "Servicio que necesitas"
-        housing_you_offer: "Alojamiento o espacio que ofreces"
-        housing_you_request: "Alojamiento o espacio que necesitas"
-        item_you_offer: "Artículo que ofreces"
-        item_you_request: "Artículo que necesitas"
         listing_title: "Título de listado"
       valid_until:
         valid_until: "Fecha de caducidad"
@@ -1219,104 +1253,15 @@ es:
       share_for_frees: "Compartir gratuitamente"
       accept_for_frees: "Aceptando gratis"
       trades: Trueques
-    link_labels:
-      offer_this: Oferta
-      request_this: Solicitar
-      lend_this: ~
-      borrow_this: ~
-      buy_this: ~
-      rent_out_this: ~
-      rent_this: ~
-      sell_this: ~
-      link_label_for_favor_offer: "Solicitar este servicio"
-      link_label_for_favor_request: "Ofrecer este servicio"
-      link_label_for_housing_offer_sell: "Comprar este espacio"
-      link_label_for_housing_offer_rent_out: "Arrendar este espacio"
-      link_label_for_housing_offer_share_for_free: "Solicitar este espacio"
-      link_label_for_housing_request_accept_for_free: "Ofrece este lugar"
-      link_label_for_housing_request_buy: "Ofrece para la venta este espacio"
-      link_label_for_housing_request_rent: "Ofrece para arriendo este espacio"
-      link_label_for_item_offer_lend: "Pide prestado este artículo"
-      link_label_for_item_offer_rent_out: "Arrienda este artículo"
-      link_label_for_item_offer_sell: "Compra este artículo"
-      link_label_for_item_offer_give_away: "Solicita este artículo"
-      link_label_for_item_offer_trade: "Troca este artículo"
-      link_label_for_item_request_borrow: "Ofrece para préstamo este artículo"
-      link_label_for_item_request_rent: "Ofrece para arriendo este artículo"
-      link_label_for_item_request_buy: "Ofrece para la venta este artículo"
-      link_label_for_item_request_receive: "Da este artículo al solicitante"
-      link_label_for_item_request_trade: "Ofrece para trocar este artículo"
-      link_label_for_rideshare_offer: "Solicitar este viaje."
-      link_label_for_rideshare_request: "Ofrecer viaje"
     new:
       post_a_new_listing: "Publica un nuevo listado"
       listing: listado
-      offer: "Tengo algo para ofrecer a los demás"
-      request: "Necesito algo"
-      selected_offer: Oferta
-      selected_request: Solicitar
-      selected_listing_type: "Tipo de listado: %{listing_type}"
       selected_category: "Categoría: %{category}"
       selected_subcategory: "Subcategoría: %{subcategory}"
-      selected_share_type: ~
-      selected_item: Artículo
-      selected_favor: Servicio
-      selected_rideshare: "Viaje compartido"
-      selected_housing: Lugar
-      selected_borrow: "Pidiendo prestado"
-      selected_buy: Comprando
-      selected_give_away: Regalando
-      selected_lend: Prestando
-      selected_receive: "Tomándolo gratis"
-      selected_rent: Alquiler
-      selected_rent_out: Alquilando
-      selected_sell: Venta
-      selected_offer_to_swap: ~
-      selected_request_to_swap: ~
-      selected_share_for_free: "Compartiendo gratis"
-      selected_accept_for_free: "Aceptando gratis"
-      how_do_you_want_to_share_it: "¿Cómo lo quieres compartir?"
-      how_do_you_want_to_get_it: "¿Cómo lo quieres obtener?"
-      item: "Un artículo - algo tangible"
-      favor: "Ayuda - una habilidad o un servicio"
-      rideshare: "Un viaje compartido - en auto o en otro medio"
-      housing: "Un lugar - un apartamento, una oficina o un jardín"
-      borrow: "Quiero pedir prestado"
-      buy: "Quiero comprar"
-      give_away: "Estoy regalándolo"
-      lend: "Puedo prestarlo gratis"
-      receive: "Puedo recibirlo gratis"
-      rent: "Quiero arrendarlo"
-      rent_out: "Quiero alquilarlo por una tarifa"
-      sell: "Estoy vendiéndolo"
-      offer_to_swap: ~
-      request_to_swap: ~
-      share_for_free: "Estoy compartiéndolo gratis"
-      accept_for_free: "Me gustaría usarlo gratis"
-      what_kind_of_item: ~
-      what_kind_of_favor: ~
-      what_kind_of_rideshare: ~
-      what_kind_of_housing: ~
-      which_subcategory: "Cuál de estas lo describe mejor?"
-      tools: Herramientas
-      sports: Deportes
-      music: Música
-      books: "Libros y revistas"
-      games: "Juegos y juguetes"
-      furniture: Muebles
-      outdoors: "Camping y aire libre"
-      food: "Comida y cocina"
-      electronics: Electrónica
-      pets: "Mascotas y animales"
-      film: "Cine y películas"
-      clothes: "Ropa y accesorios"
-      garden: Jardín
-      travel: Viajes
-      other: Otro
-      what_do_you_want_to_do: "¿Qué quieres hacer?"
-      what_can_you_offer: "¿Qué puedes ofrecerles a los demás?"
-      what_do_you_need: "¿Qué necesitas?"
+      selected_transaction_type: ~
       select_category: "Selecionar una categoría"
+      select_subcategory: ~
+      select_transaction_type: ~
     please_comment: Comentario
     reply_link:
       listing_closed: "Listado cerrado"
@@ -1328,6 +1273,7 @@ es:
       contact: Contactar
       favor_offer: "Oferta de servicios"
       favor_request: "Solicitud de servicio"
+      inquiry: ~
       item_offer_trade: "Oferta de trueque"
       item_request_trade: "Solicitud de trueque"
       no_description: "Sin descripción"
@@ -1338,7 +1284,7 @@ es:
       open_until: "Abierto hasta %{date}"
       feedback: Feedback
       qr_code: "Código QR"
-      request: Solicitar
+      request: Solicitud
       rideshare_offer: "Oferta de traslado compartido"
       rideshare_request: "Solicitud de traslado compartido"
       send_private_message: "Enviar mensaje privado"
@@ -1751,7 +1697,7 @@ es:
       negative: Negativo
       default_textual_feedback: "Todo fue sin problemas, muchas gracias!"
     testimonial:
-      about_listing: ~
+      about_listing: "sobre listado"
   time:
     formats:
       short: "%e %b %Y al %H:%M"

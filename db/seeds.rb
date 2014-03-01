@@ -6,5 +6,3 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 #  listing_type = valid_st.keys[SecureRandom.random_number(valid_st.keys.length)]
-
-CategoriesHelper.load_default_categories_to_db

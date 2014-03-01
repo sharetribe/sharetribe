@@ -9,7 +9,8 @@ Feature: Seller creates an invoice with Braintree
       | kassi_testperson1 |
       | kassi_testperson2 |
     And community "test" has payments in use via BraintreePaymentGateway with seller commission 10
-    And there is item offer with title "Power drill" from "kassi_testperson1" and with share type "sell" and with price "20.90"
+    And there is a listing with title "Power drill" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
+    And the price of that listing is "20.90"
     And there is a message "I request this" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
@@ -23,16 +24,16 @@ Feature: Seller creates an invoice with Braintree
   @javascript
   Scenario: User can not accept request without active Braintree account
     Given there are following Braintree accounts:
-      | person            | status |
-      | kassi_testperson1 | pending |
+      | person            | status  | community |
+      | kassi_testperson1 | pending | test      |
     When I follow "Accept request"
     Then I should see "You need to fill in payout details before you can accept the request"
 
   @javascript
   Scenario: User accepts a payment-requiring request and creates an invoice
     Given there are following Braintree accounts:
-      | person            | status |
-      | kassi_testperson1 | active |
+      | person            | status | community |
+      | kassi_testperson1 | active | test      |
     When I follow "Accept request"
     Then I should see "20.90" in the "conversation_payment_attributes_sum" input
     And I should see "3" within "#service-fee"

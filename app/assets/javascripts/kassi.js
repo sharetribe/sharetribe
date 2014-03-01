@@ -54,14 +54,10 @@ function add_validator_methods() {
 
   $.validator.  
     addMethod("max_date", 
-      function(value, element, is_rideshare) {
+      function(value, element) {
         var current_time = new Date();
         var maximum_date = new Date(new Date(current_time).setMonth(current_time.getMonth()+6));
-        if (is_rideshare == "true") {
-          return get_datetime_from_datetime_select() < maximum_date;
-        } else {
-          return get_date_from_date_select() < maximum_date;
-        }
+        return get_date_from_date_select() < maximum_date;
        }
     );  
 
@@ -235,20 +231,6 @@ function initialize_email_members_form() {
   });
 }
 
-function initialize_feedback_tab() {
-  $('.feedback_div').tabSlideOut({
-    tabHandle: '.handle',                     //class of the element that will become your tab
-    pathToTabImage: '/assets/feedback_handles.png',
-    imageHeight: '122px',                     //height of tab image           //Optionally can be set using css
-    imageWidth: '40px',                       //width of tab image            //Optionally can be set using css
-    tabLocation: 'left',                      //side of screen where tab lives, top, right, bottom, or left
-    speed: 300,                               //speed of animation
-    action: 'click',                          //options: 'click' or 'hover', action to trigger animation
-     topPos: '200px',                          //position from the top/ use if tabLocation is left or right
-    fixedPosition: true
-  });
-}
-
 function initialize_login_form(password_forgotten) {
   if (password_forgotten == true) {
     $('#password_forgotten').slideDown('fast');
@@ -294,7 +276,6 @@ function initialize_braintree_account_form(locale) {
       "braintree_account[address_locality]": {required: true},
       "braintree_account[address_region]": {required: true},
       "braintree_account[date_of_birth]": {required: true},
-      "braintree_account[ssn]": {required: true, minlength: 4, maxlength: 11},
       "braintree_account[routing_number]": {required: true, minlength: 9, maxlength: 9},
       "braintree_account[account_number]": {required: true},
     },
@@ -307,13 +288,33 @@ function initialize_braintree_account_form(locale) {
   });
 }
 
+// Initialize the listing type & category selection part of the form
+function initialize_new_listing_form_selectors(locale, attribute_array, listing_form_menu_titles) {
+  var ordered_attributes = ["category", "subcategory", "transaction_type"];
+  var selected_attributes = {"category": null, "subcategory": null, "transaction_type": null};
+  
+  // Reset the view to initial state
+  update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
+  
+  // Listener for attribute menu clicks
+  $('.new-listing-form').find('a.select').click(
+    function() {
+      select_listing_form_menu_link($(this), locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
+    }
+  );
+  
+}
 
-
-function select_listing_form_menu_link(link, locale, attribute_hash, listing_form_menu_titles, ordered_attributes, selected_attributes) {
+// Called when a link is clicked in the listing form attribute menus
+function select_listing_form_menu_link(link, locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes) {
+  
+  // Update selected attributes based on the selection that has been made
   if (link.hasClass('option')) {
-    selected_attributes[link.parent().attr('name')] = link.attr('name');
+    selected_attributes[link.parent().attr('name')] = link.attr('data-id');
   } else {
     selected_attributes[link.parent().attr('name')] = null;
+    // Unselect also all sub-attributes if certain attribute is unselected
+    // (for instance, unselect subcategory if category is unselected).
     index_found = false;
     for (i = 0; i < ordered_attributes.length; i++) {
       if (ordered_attributes[i] == link.parent().attr('name')) {
@@ -324,149 +325,195 @@ function select_listing_form_menu_link(link, locale, attribute_hash, listing_for
       }
     }
   }
-  update_listing_form_view(locale, attribute_hash, listing_form_menu_titles, ordered_attributes, selected_attributes);
+
+  // Update form view based on the selection that has been made
+  update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
 }
 
-// Return true if the menu for the given attribute should be shown in
-// the listing form in this community.
-function menu_applicable(attribute, selected_attributes, attribute_hash) {
-  if (attribute == "listing_type") {
-    var values = attribute_hash;
-  } else if (attribute == "category") {
-    var values = attribute_hash[selected_attributes["listing_type"]];
-  } else if (attribute == "subcategory" || attribute == "share_type") {
-    if ((attribute_hash[selected_attributes["listing_type"]] == undefined) || (attribute_hash[selected_attributes["listing_type"]][selected_attributes["category"]] == undefined)) {
-      values == undefined;
-    } else {
-      var values = attribute_hash[selected_attributes["listing_type"]][selected_attributes["category"]][attribute];
-    }
-  }
-  if (values == undefined) {
-    return false;
-  } else {
-    var value_array = null;
-    if ($.isArray(values) == true) {
-      value_array = values; 
-    } else {
-      value_array = get_keys(values);
-    }
-    if (value_array.length < 1) {
-      return false;
-    } else if (value_array.length == 1) {
-      selected_attributes[attribute] = value_array[0];
-      return false;
-    } else {
-      return true;
-    }
-  }
-}
-
-function get_keys(values) {
-   var keys = [];
-   for(var key in values){
-      keys.push(key);
-   }
-   return keys;
-}
-
-function update_listing_form_view(locale, attribute_hash, listing_form_menu_titles, ordered_attributes, selected_attributes) {
+// Update the state of the new listing form based on current status
+function update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes) {
+  // Hide everything
   $('a.selected').addClass('hidden');
   $('a.option').addClass('hidden');
   $('.form-fields').html("");
   
+  // Display correct selected attributes
   $('.selected-group').each(function() {
     if (selected_attributes[$(this).attr('name')] != null) {
-      $('a.selected[name=' + selected_attributes[$(this).attr('name')] + ']').removeClass('hidden');
+      $('a.selected[data-id=' + selected_attributes[$(this).attr('name')] + ']').removeClass('hidden');
     }
   }); 
   
+  // Display correct attribute menus and their titles
   var title = "";
-  
-  if ((selected_attributes["listing_type"] != null) || !menu_applicable("listing_type", selected_attributes, attribute_hash))  {
-    if ((selected_attributes["category"] != null) || !menu_applicable("category", selected_attributes, attribute_hash)) {
-      if ((selected_attributes["subcategory"] != null) || !menu_applicable("subcategory", selected_attributes, attribute_hash)) {
-        if ((selected_attributes["share_type"]  != null) || !menu_applicable("share_type", selected_attributes, attribute_hash)) {
-          $('.form-fields').removeClass('hidden');
-          var new_listing_path = '/' + locale + '/listings/new';
-          $.get(new_listing_path, selected_attributes, function(data) {
-            $('.form-fields').html(data);
-          });
-        } else {
-          $('.option-group[name=share_type]').children().each(function() {
-            if ($.inArray($(this).attr('name'), attribute_hash[selected_attributes["listing_type"]][selected_attributes["category"]]["share_type"]) > -1) {
-              $(this).removeClass('hidden');
-            }
-          });
-          title = listing_form_menu_titles["share_type"][selected_attributes["listing_type"]];
-        }
-      } else {
-        $('.option-group[name=subcategory]').children().each(function() {
-          if ($.inArray($(this).attr('name'), attribute_hash[selected_attributes["listing_type"]][selected_attributes["category"]]["subcategory"]) > -1) {
-            $(this).removeClass('hidden');
-          }
-        });
-        title = listing_form_menu_titles["subcategory"][selected_attributes["category"]];
-      }
-    } else {
-      $('.option-group[name=category]').children().each(function() {
-        if (attribute_hash[selected_attributes["listing_type"]][$(this).attr('name')] != null) {
-          $(this).removeClass('hidden');
-        }
-      });
-      if (listing_form_menu_titles["category"][selected_attributes["listing_type"]] == undefined) {
-        title = listing_form_menu_titles["category"]["default"];
-      } else {
-        title = listing_form_menu_titles["category"][selected_attributes["listing_type"]];
-      }
-    }
+  if (should_show_menu_for("category", selected_attributes, attribute_array)) {
+    title = listing_form_menu_titles["category"];
+    display_option_group("category", selected_attributes, attribute_array);
+  } else if (should_show_menu_for("subcategory", selected_attributes, attribute_array)) {
+    title = listing_form_menu_titles["subcategory"];
+    display_option_group("subcategory", selected_attributes, attribute_array);
+  } else if (should_show_menu_for("transaction_type", selected_attributes, attribute_array)) {
+    title = listing_form_menu_titles["transaction_type"];
+    display_option_group("transaction_type", selected_attributes, attribute_array);
   } else {
-    title = listing_form_menu_titles["listing_type"];
-    $('.option-group[name=listing_type]').children().each(function() {
-      $(this).removeClass('hidden');
-    });
+    display_listing_form(selected_attributes, locale);
   }
-  
   $('h2.listing-form-title').html(title);
 }
 
-// Initialize the listing type & category selection part of the form
-function initialize_new_listing_form_selectors(locale, attribute_hash, listing_form_menu_titles) {
-  var ordered_attributes = ["listing_type", "category", "subcategory", "share_type"];
-  var selected_attributes = {"listing_type": null, "category": null, "subcategory": null, "share_type": null};
-  
-  update_listing_form_view(locale, attribute_hash, listing_form_menu_titles, ordered_attributes, selected_attributes);
-  
-  $('.new-listing-form').find('a.select').click(
-    function() {
-      select_listing_form_menu_link($(this), locale, attribute_hash, listing_form_menu_titles, ordered_attributes, selected_attributes);
+// Return true if given menu should be displayed
+function should_show_menu_for(attribute, selected_attributes, attribute_array) {
+  if (attribute_selected(attribute, selected_attributes)) {
+    return false;
+  } else if (attribute == "category") {
+    if (attribute_array.length < 2) {
+      // If there is exactly 1 category, it should be marked automatically as selected,
+        // without showing the form.
+      if (attribute_array.length == 1) {
+        selected_attributes["category"] = attribute_array[0]["id"];
+      }
+      return false;
+    } else {
+      return true;
     }
-  );
-  
+  } else if (attribute == "subcategory") {
+    if (should_show_menu_for("category", selected_attributes, attribute_array)) {
+      return false;
+    } else {
+      var subcategories = get_subcategories_for(selected_attributes["category"], attribute_array);
+      if (subcategories.length < 2) {
+        // If there is exactly 1 subcategory, it should be marked automatically as selected,
+        // without showing the form.
+        if (subcategories.length == 1) {
+          selected_attributes["subcategory"] = subcategories[0]["id"];
+        }
+        return false;
+      } else {
+        return true;
+      }
+    }
+  } else if (attribute == "transaction_type") {
+    if (should_show_menu_for("category", selected_attributes, attribute_array)) {
+      return false;
+    } else if (should_show_menu_for("subcategory", selected_attributes, attribute_array)) {
+      return false;
+    } else {
+      if (attribute_selected("subcategory", selected_attributes)) {
+        transaction_types = get_transaction_types_for_subcategory(selected_attributes["category"], selected_attributes["subcategory"], attribute_array);
+      } else {
+        transaction_types = get_transaction_types_for_category(selected_attributes["category"], attribute_array);
+      }
+      // If there is exactly 1 transaction type, it should be marked automatically as selected,
+      // without showing the form
+      if (transaction_types.length === 1) {
+        selected_attributes["transaction_type"] = transaction_types[0]["id"];
+      }
+      return (transaction_types.length > 1);
+    }
+  }
+}
+
+// Returns true if given attribute has been selected
+function attribute_selected(attribute, selected_attributes) {
+  return (selected_attributes[attribute] != null);
+}
+
+// Return subcategories for given category.
+// Returns empty array if there are no subcategories. 
+function get_subcategories_for(category_id, category_array) {
+  return _.chain(category_array)
+    .filter(function(category) {
+      return category["id"] == category_id
+    })
+    .filter(function(category) {
+      return category["subcategories"] != undefined
+    })
+    .map(function(category) {
+      return category["subcategories"];
+    })
+    .flatten()
+    .value();
+}
+
+// Return transaction types of given category (expects
+// that this category does not have subcategories)
+function get_transaction_types_for_category(category_id, category_array) {
+  var category = find_by_id(Number(category_id), category_array);
+  return category["transaction_types"];
+}
+
+// Returns transaction types of given subcategory
+function get_transaction_types_for_subcategory(category_id, subcategory_id, category_array) {
+  var category = find_by_id(Number(category_id), category_array);
+  var subcategory = find_by_id(Number(subcategory_id), category["subcategories"]);
+  return subcategory["transaction_types"];
+}
+
+// Returns the object that has the given id
+// from an array of objects
+function find_by_id(id, array) {
+  return _.find(array, function(item) {
+    return item.id === id;
+  });
+}
+
+// Displays the given menu where category or transaction type can be selected
+function display_option_group(group_type, selected_attributes, attribute_array) {
+  $('.option-group[name=' + group_type + ']').children().each(function() {
+    if (group_type == "category") {
+      $(this).removeClass('hidden');
+    } else if (group_type == "subcategory") {
+      if (has_subcategory(selected_attributes["category"], $(this).attr('data-id'), attribute_array)) {
+        $(this).removeClass('hidden');
+      }
+    } else if (group_type == "transaction_type") {
+      if (has_transaction_type(selected_attributes, $(this).attr('data-id'), attribute_array)) {
+        $(this).removeClass('hidden');
+      }
+    }
+  });
+}
+
+// Check if category has a certain subcategory
+function has_subcategory(category_id, subcategory_id, attribute_array) {
+  var subcategories = get_subcategories_for(category_id, attribute_array);
+  return _.any(subcategories, function(subcategory) {
+    return subcategory['id'] == subcategory_id;
+  });
+}
+
+// Check if selected category or subcategory has certain transaction type
+function has_transaction_type(selected_attributes, transaction_type_id, attribute_array) {
+  // If subcategory is selected, loop through transaction types of that subcategory
+  if (attribute_selected("subcategory", selected_attributes)) {
+    var transaction_types = get_transaction_types_for_subcategory(selected_attributes["category"], selected_attributes["subcategory"],attribute_array);
+  // If there's no subcategory, it means this top level category has no subcategories.
+  // Thus, loop through transaction_types of top level category.
+  } else {
+    var transaction_types = get_transaction_types_for_category(selected_attributes["category"] ,attribute_array);
+  }
+  return _.any(transaction_types, function(transaction_type) {
+    return transaction_type['id'] == transaction_type_id;
+  });
+}
+
+// Ajax call to display listing form after categories and 
+// transaction type have been selected
+function display_listing_form(selected_attributes, locale) {
+  $('.form-fields').removeClass('hidden');
+  var new_listing_path = '/' + locale + '/listings/new';
+  $.get(new_listing_path, selected_attributes, function(data) {
+    $('.form-fields').html(data);
+  });
 }
 
 // Initialize the actual form fields
-function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_rideshare, is_offer, listing_id, price_required, price_message, minimum_price, minimum_price_message) {
+function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, listing_id, price_required, price_message, minimum_price, minimum_price_message) {
   
   $('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true, zIndex: 1000000}); });
   $('input.title_text_field:first').focus();
   
-  $(':radio[name=valid_until_select]').change(function() {
-    if ($(this).val() == "for_now") {
-      $('select.listing_datetime_select').attr('disabled', 'disabled');
-    } else {
-      $('select.listing_datetime_select').removeAttr('disabled');
-    }
-  });
-  
   form_id = (listing_id == "false") ? "#new_listing" : ("#edit_listing_" + listing_id);
-  
-  // Change the origin and destination requirements based on listing_type
-  var rs = null;
-  if (is_rideshare == "true") {
-    rs = true;
-  } else {
-    rs = false;
-  }
   
   // Is price required?
   var pr = null;
@@ -491,11 +538,10 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
     debug: false,
     rules: {
       "listing[title]": {required: true, maxlength: 60},
-      "listing[origin]": {required: rs, address_validator: true},
-      "listing[destination]": {required: rs, address_validator: true},
+      "listing[origin]": {address_validator: true},
       "listing[price]": {required: pr, positive_integer: true, minimum_price_required: minimum_price},
       "listing[listing_images_attributes][0][image]": { accept: "(jpe?g|gif|png)" },
-      "listing[valid_until(1i)]": { min_date: is_rideshare, max_date: is_rideshare }
+      "listing[valid_until(1i)]": { min_date: true, max_date: true }
     },
     messages: {
       "listing[valid_until(1i)]": { min_date: date_message, max_date: date_message },
@@ -1103,6 +1149,35 @@ function initialize_admin_listing_field_form_view(locale, form_id, option_count)
     };
 
   })(option_count, 2, "#options", ".custom-field-option-remove").add;
+}
+
+function initialize_admin_category_form_view(locale, form_id) {
+  translate_validation_messages(locale);
+
+  var $form = $(form_id);
+  var TRANSACTION_TYPE_CHECKBOX_NAME = "category[transaction_type_attributes][][transaction_type_id]";
+
+  var rules = {}
+  rules[TRANSACTION_TYPE_CHECKBOX_NAME] = {
+    required: true
+  };
+
+  $(form_id).validate({
+    rules: rules,
+    errorPlacement: function(error, element) {
+      // Custom placement for checkbox group
+      if (element.attr("name") === TRANSACTION_TYPE_CHECKBOX_NAME) {
+        var container = $("#category-transaction-types-container")
+        error.insertAfter(container);
+      } else {
+        error.insertAfter(element);
+      }
+    },
+    submitHandler: function(form) {
+      disable_and_submit(form_id, form, "false", locale);
+    }
+   });
+
 }
 
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {

@@ -15,7 +15,7 @@
         .icon-with-text-container
           .icon-part{:class => icon_for(conversation.status)}
           .text-part= t(".#{conversation.discussion_type}_#{conversation.status}")
-      - if conversation.requires_payment?(@current_community)
+      - if conversation.requires_payment?(@current_community) && conversation.payment
         - if conversation.listing.offerer?(@current_user)
           .inbox-horizontally-aligned-status
             .icon-with-text-container

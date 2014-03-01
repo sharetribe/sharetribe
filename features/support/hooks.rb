@@ -1,17 +1,8 @@
-start_time = Time.now
-
 Before do
-  ActiveRecord::Fixtures.reset_cache
-  fixtures_folder = File.join(Rails.root  , 'spec', 'fixtures')
-  fixtures = Dir[File.join(fixtures_folder, '*.yml')].map {|f| File.basename(f, '.yml') }
-  ActiveRecord::Fixtures.create_fixtures(fixtures_folder, fixtures)
-  
   Capybara.default_host = 'test.lvh.me'
   Capybara.server_port = 9887
   Capybara.app_host = "http://test.lvh.me:9887"
-  
-  # Clear cache for each run as caching is not planned to work when DB contents are changing and communities are removed
-  Rails.cache.clear
+  @current_community = Community.find_by_domain("test")
 end
 
 Before('@javascript') do
@@ -49,11 +40,7 @@ end
 Before ('@subdomain2') do
   Capybara.default_host = 'test2.lvh.me'
   Capybara.app_host = "http://test2.lvh.me:9887"
-end
-
-After('@subdomain2') do
-  Capybara.default_host = 'test.lvh.me'
-  Capybara.app_host = "http://test.lvh.me:9887"
+  @current_community = Community.find_by_domain("test2")
 end
 
 Before ('@no_subdomain') do
