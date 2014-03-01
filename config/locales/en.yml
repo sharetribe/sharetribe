@@ -70,8 +70,6 @@ en:
         verification_to_post_listings_info_content_description: "This marketplace requires people to be verified manually by admin before they can post listings. Here you can set the default text that is shown to non-verified users when they try to post a new listing."
         verification_to_post_listings_info_content_default: "This marketplace requires people to be verified manually by admin before they can post listings. You have not yet been verified. Please %{contact_admin_link} to be verified."
         contact_admin_link_text: "contact the admin"
-      manage_members:
-        manage_members: "Manage users"
       edit_look_and_feel:
         edit_community_look_and_feel: "Edit community \"%{community_name}\" look and feel"
         community_logo: "Full logo"
@@ -95,6 +93,12 @@ en:
         welcome_email_content_description: "The message below will be sent to every new member when they join. You can customize the message to fit your community. By clicking '%{send_test_message_link}' you can a preview message to your email address, so you can see how it looks in an email client."
         edit_message: "Edit message"
         send_test_message: "Send test message"
+      manage_members:
+        manage_members: "Manage users"
+        email: "Email"
+        name: "Name"
+        join_date: "Join date"
+        posting_allowed: "Posting allowed"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"

@@ -15,11 +15,11 @@
     %table#admin_members_list
       %thead
         %tr
-          %th= "Name"
-          %th= "Email"
-          %th= "Join date"
+          %th= t(".name")
+          %th= t(".email")
+          %th= t(".join_date")
           - if @current_community.require_verification_to_post_listings
-            %th= "Posting allowed"
+            %th= t(".posting_allowed")
       %tbody
         - @members.each do |member|
           %tr 
