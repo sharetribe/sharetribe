@@ -4,11 +4,6 @@ window.ST = window.ST || {};
   Maganage members in admin UI
 */
 window.ST.initializeManageMembers = function() {
-  //$(".admin-members-can-post-listings").asEventStream("click").log("change")
-  // $("#posting-allowed_dgSy4ysQWr44aaUi0sbZZU").click(function() {
-  //   alert('test')
-  // })
-  
   function elementToValueObject(element) {
     var r = {};
     r[$(element).val()] = !! $(element).attr("checked");
@@ -23,7 +18,46 @@ window.ST.initializeManageMembers = function() {
   })
 
 
-  Bacon.combineAsArray(streams).changes().debounce(800).map(function(valuesArray) {
-    
+  var ajaxRequest = Bacon.combineAsArray(streams).changes().debounce(800).skipDuplicates(_.isEqual).map(function(valueObjects) {
+    function isValueTrue(valueObject) {
+      return _.values(valueObject)[0];
+    }
+
+    var allowed = _.filter(valueObjects, isValueTrue);
+    var disallowed = _.reject(valueObjects, isValueTrue);
+
+    return {
+      type: "POST",
+      url: ST.utils.relativeUrl("../posting_allowed"),
+      data: {
+        allowed_to_post: _.keys(ST.utils.objectsMerge(allowed)),
+        disallowed_to_post: _.keys(ST.utils.objectsMerge(disallowed))
+      }
+    };
+  });
+
+  var ajaxResponse = ajaxRequest.ajax();
+
+  var ajaxStatus = window.ST.ajaxStatusIndicator(ajaxRequest, ajaxResponse);
+
+  ajaxStatus.loading.onValue(function() {
+    $(".ajax-update-notification").show();
+    $("#admin-members-saving-posting-allowed").show();
+    $("#admin-members-error-posting-allowed").hide();
+    $("#admin-members-saved-posting-allowed").hide();
+  });
+
+  ajaxStatus.success.onValue(function(v) {
+    $("#admin-members-saving-posting-allowed").hide();
+    $("#admin-members-saved-posting-allowed").show();
+  });
+
+  ajaxStatus.error.onValue(function() {
+    $("#admin-members-saving-posting-allowed").hide();
+    $("#admin-members-error-posting-allowed").show();
+  });
+
+  ajaxStatus.idle.onValue(function() {
+    $(".ajax-update-notification").fadeOut();
   });
 }

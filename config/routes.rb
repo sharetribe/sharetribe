@@ -143,6 +143,7 @@ Kassi::Application.routes.draw do
           get :edit_welcome_email
           get :test_welcome_email
           get :manage_members
+          post :posting_allowed
         end
         resources :emails
       end

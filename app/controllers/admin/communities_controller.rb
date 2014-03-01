@@ -37,6 +37,13 @@ class Admin::CommunitiesController < ApplicationController
     @members = @current_community.members.paginate(:page => params[:page], :per_page => 50).order("created_at desc")
   end
 
+  def posting_allowed
+    CommunityMembership.where(:person_id => params[:allowed_to_post]).update_all("can_post_listings = 1")
+    CommunityMembership.where(:person_id => params[:disallowed_to_post]).update_all("can_post_listings = 0")
+
+    render nothing: true, status: 200
+  end
+
   def test_welcome_email
     PersonMailer.welcome_email(@current_user, @current_community, true).deliver
     flash[:notice] = t("layouts.notifications.test_welcome_email_delivered_to", :email => @current_user.email)

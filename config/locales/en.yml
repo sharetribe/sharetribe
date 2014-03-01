@@ -99,6 +99,9 @@ en:
         name: "Name"
         join_date: "Join date"
         posting_allowed: "Posting allowed"
+        saving_user_status: "Saving..."
+        save_user_status_successful: "Saved"
+        save_user_status_error: "Saving failed. Please refresh the page and try again."
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"

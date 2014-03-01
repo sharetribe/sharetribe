@@ -95,6 +95,9 @@ fi:
         name: "Nimi"
         join_date: "Liittymispäivämäärä"
         posting_allowed: "Hyväksytty ilmoittaja"
+        saving_user_status: "Tallennetaan..."
+        save_user_status_successful: "Tallennus onnistui"
+        save_user_status_error: "Tallennus epäonnistui. Päivitä sivu ja yritä uudelleen."
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
