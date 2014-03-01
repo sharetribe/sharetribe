@@ -28,5 +28,6 @@
 //= require ajax_status
 //= require admin/custom_fields
 //= require admin/categories
+//= require admin/manage_members
 //= require payment_math
 //= require_self

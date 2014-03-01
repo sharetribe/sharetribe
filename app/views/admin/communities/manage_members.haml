@@ -1,3 +1,6 @@
+- content_for :javascript do
+  ST.initializeManageMembers();
+
 - content_for :title_header do
   %h1= t("layouts.admin.admin")
 
@@ -24,6 +27,6 @@
             %td= member.confirmed_notification_email_addresses.first
             %td= member.created_at.to_date.to_s
             - if @current_community.require_verification_to_post_listings
-              %td= check_box_tag 'accept'
+              %td= check_box_tag "posting-allowed[#{member.id}]", "1", member.can_post_listings_at?(@community), :class => "admin-members-can-post-listings"
 
   = will_paginate @members  
