@@ -66,6 +66,10 @@ fi:
         edit_signup_info_description: "Tähän voit lisätä ohjeita siihen, miten palveluun liitytään. Ohjeet näytetään käyttäjille, kun he ovat liittymässä palveluun. Oletuksena ohjekenttä on tyhjä."
         edit_info: "Muokkaa tietoja"
         see_how_it_looks_like: Näytä
+        verification_to_post_listings_info_content: "Ohjeteksti vahvistamattomille käyttäjille"
+        verification_to_post_listings_info_content_description: "Tässä yhteisössä ylläpitäjän on annettava käyttäjille postausoikeudet, jotta nämä voivat postata uusia ilmoituksia. Tästä voit asettaa tekstin, joka näytetään käyttäjille, joille ei ole vielä annettu näitä oikeuksia, kun he yrittävät lisätä uutta ilmoitusta." 
+        verification_to_post_listings_info_content_default: "Sinun pitää saada hyväksyntä ylläpitäjiltä, ennen kuin voit lisätä uuden ilmoituksen. %{contact_admin_link} saadaksesi hyväksynnän."
+        contact_admin_link_text: "Ota yhteyttä ylläpitoon"
       edit_look_and_feel:
         edit_community_look_and_feel: "Muokkaa yhteisön \"%{community_name}\" ulkoasua"
         community_logo: Peruslogo

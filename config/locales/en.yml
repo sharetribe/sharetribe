@@ -95,6 +95,33 @@ en:
         welcome_email_content_description: "The message below will be sent to every new member when they join. You can customize the message to fit your community. By clicking '%{send_test_message_link}' you can a preview message to your email address, so you can see how it looks in an email client."
         edit_message: "Edit message"
         send_test_message: "Send test message"
+      settings:
+        settings: "Settings"
+        general: "General"
+        users_can_review_each_other_after_transaction: "Users can review each other after transaction"
+
+        access: "Access"
+        join_with_invite_only: "Users can only join this community with an invite from another user"
+        users_can_invite_new_users: "All users can invite new users to this community"
+        private: "This community is private (only registered users can see the content)"
+        require_verification_to_post_listings: "Only users verified by admin can post new listings"
+
+
+        listing_preferences: "Listing preferences"
+        show_listing_publishing_date: "Display the publishing date of the listing on the listing page"
+        show_category_in_listing_list: "Display listing category in list view"
+        hide_expiration_date: "Do not require the users to set an expiration date when posting a new listing"
+        listing_comments_in_use: "Allow users to post comments to a listings (viewable to all other users)"
+
+        email_preferences: "Email preferences"
+        automatic_newsletters: "Send automatic daily / weekly newsletters to all users (unless they opt out)"
+        email_admins_about_new_members: "Send admins an email whenever a new user signs up"
+
+        integrations: "Integrations"
+        google_analytics_key: "Google Analytics tracking ID (classic account)"
+        twitter_handle: "Twitter handle (used with tweet button in listing page)"
+
+        update_settings: "Update settings"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
