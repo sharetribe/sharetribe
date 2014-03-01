@@ -91,6 +91,10 @@ fi:
         send_test_message: "Lähetä testiviesti"
       manage_members:
         manage_members: "Käyttäjät"
+        email: "Sähköposti"
+        name: "Nimi"
+        join_date: "Liittymispäivämäärä"
+        posting_allowed: "Hyväksytty ilmoittaja"
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
