@@ -145,6 +145,7 @@ Kassi::Application.routes.draw do
           get :manage_members
           get :settings
           put :update_settings
+          post :posting_allowed
         end
         resources :emails
       end

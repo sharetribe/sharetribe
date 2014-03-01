@@ -69,7 +69,7 @@ When /^I remove the focus"?$/ do
 end
 
 Then /^there should be an active ajax request$/ do
-  page.evaluate_script("$.active") > 0
+  expect { page.evaluate_script("$.active") > 0 }.to become_true
 end
 
 When /^ajax requests are completed$/ do

@@ -122,10 +122,9 @@ Given /^there are following users:$/ do |person_table|
     username = hash['person']
     id = hash['id']
 
-    person_opts = {
-      username: username,
-      id: id
-    }.merge(defaults)
+    person_opts = defaults.merge({
+      username: hash['person'],
+    }).merge(hash.except('person'))
 
     @hash_person, @hash_session = Person.find_by_username(username) || FactoryGirl.create(:person, person_opts)
     @hash_person.save!
@@ -150,6 +149,10 @@ Given /^there are following users:$/ do |person_table|
     end
     @people[username] = @hash_person
   end
+end
+
+Given(/^there are (\d+) users with name prefix "([^"]*)" "([^"]*)"$/) do |user_count, given_name, family_name_prefix|
+  FactoryGirl.create_list(:person, user_count.to_i, :given_name => given_name, :family_name => "#{family_name_prefix} #{user_count}", :communities => [@current_community])
 end
 
 When /^I log out$/ do

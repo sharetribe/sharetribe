@@ -1,0 +1,28 @@
+@import "mixins/all";
+@import "compass/css3/border-radius";
+
+table {
+  width: 100%;
+}
+
+th {
+  text-align: left;
+  padding: lines(0.25);
+}
+
+td {
+  padding: lines(0.25);
+  &:first-child {
+     @include border-left-radius($default-border-radius);
+  }
+  &:last-child {
+     @include border-right-radius($default-border-radius);
+  }
+}
+
+
+
+tbody tr:nth-child(odd) {
+   background-color: $highlight;
+}
+

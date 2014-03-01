@@ -429,6 +429,11 @@ class Person < ActiveRecord::Base
   def member_of?(community)
     community.members.include?(self)
   end
+
+  def can_post_listings_at?(community)
+    self.community_memberships.where(:community_id => community.id).first.can_post_listings
+    #CommunityMembership.find_by_person_id_and_community_id(id, community.id).can_post_listings
+  end
   
   def has_email?(address)
     Email.find_by_address_and_person_id(address, self.id).present?

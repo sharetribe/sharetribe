@@ -70,8 +70,6 @@ en:
         verification_to_post_listings_info_content_description: "This marketplace requires people to be verified manually by admin before they can post listings. Here you can set the default text that is shown to non-verified users when they try to post a new listing."
         verification_to_post_listings_info_content_default: "This marketplace requires people to be verified manually by admin before they can post listings. You have not yet been verified. Please %{contact_admin_link} to be verified."
         contact_admin_link_text: "contact the admin"
-      manage_members:
-        manage_manage: "Manage members"
       edit_look_and_feel:
         edit_community_look_and_feel: "Edit community \"%{community_name}\" look and feel"
         community_logo: "Full logo"
@@ -122,6 +120,15 @@ en:
         twitter_handle: "Twitter handle (used with tweet button in listing page)"
 
         update_settings: "Update settings"
+      manage_members:
+        manage_members: "Manage users"
+        email: "Email"
+        name: "Name"
+        join_date: "Join date"
+        posting_allowed: "Posting allowed"
+        saving_user_status: "Saving..."
+        save_user_status_successful: "Saved"
+        save_user_status_error: "Saving failed. Please refresh the page and try again."
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -1764,3 +1771,25 @@ en:
     days_since:
       one: "%{count} day"
       other: "%{count} days"
+  will_paginate:
+    models:
+      person:
+        zero:  users
+        one:   user
+        few:   users
+        other: users
+    previous_label: "&#8592; Previous"
+    next_label: "Next &#8594;"
+    page_gap: "&hellip;"
+    page_entries_info:
+      single_page:
+        zero:  "No %{model} found"
+        one:   "Displaying 1 %{model}"
+        other: "Displaying all %{count} %{model}"
+      single_page_html:
+        zero:  "No %{model} found"
+        one:   "Displaying <b>1</b> %{model}"
+        other: "Displaying <b>all&nbsp;%{count}</b> %{model}"
+
+      multi_page: "Displaying %{model} %{from} - %{to} of %{count} in total"
+      multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> in total"
