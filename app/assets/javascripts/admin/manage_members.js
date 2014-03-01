@@ -8,6 +8,22 @@ window.ST.initializeManageMembers = function() {
   // $("#posting-allowed_dgSy4ysQWr44aaUi0sbZZU").click(function() {
   //   alert('test')
   // })
+  
+  function elementToValueObject(element) {
+    var r = {};
+    r[$(element).val()] = !! $(element).attr("checked");
+    return r;
+  }
+  
+  var streams = $(".admin-members-can-post-listings").toArray().map(function(domElement) { 
+    return $(domElement).asEventStream("change").map(function(event){
+      return elementToValueObject(event.target);
 
-  $(".admin-members-can-post-listings").asEventStream("click").map(function() { return "you cliekd me"}).log("Now log")
+    }).toProperty(elementToValueObject(domElement))
+  })
+
+
+  Bacon.combineAsArray(streams).changes().debounce(800).map(function(valuesArray) {
+    
+  });
 }
