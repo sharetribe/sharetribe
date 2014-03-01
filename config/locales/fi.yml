@@ -95,6 +95,33 @@ fi:
         send_test_message: "Lähetä testiviesti"
       manage_members:
         manage_members: "Käyttäjähallinta"
+      settings:
+        settings: "Asetukset"
+        general: "Yleiset"
+        users_can_review_each_other_after_transaction: "Käyttäjät voivat antaa palautetta toisilleen"
+
+        access: "Pääsyoikeudet"
+        join_with_invite_only: "Käyttäjät voivat liittyä yhteisöön ainoastaan saatuaan kutsun toiselta käyttäjältä"
+        users_can_invite_new_users: "Käyttäjillä on oikeus kutsua muita käyttäjiä yhteisöön"
+        private: "Yksityinen yhteisö (vain kirjautuneet käyttäjät näkevät sisällön)"
+        require_verification_to_post_listings: "Vain ylläpitäjän erikseen hyväksymät käyttäjät voivat lisätä ilmoituksia"
+
+
+        listing_preferences: "Ilmoitusasetukset"
+        show_listing_publishing_date: "Näytä ilmoituksen julkaisuajankohta ilmoituksen sivulla"
+        show_category_in_listing_list: "Näytä ilmoituskategoria listanäkymässä"
+        hide_expiration_date: "Ilmoituksilla ei ole viimeistä voimassaolopäivää"
+        listing_comments_in_use: "Käyttäjät voivat kommentoida ilmoituksia (kommentit näkyvät muille käyttäjille)"
+
+        email_preferences: "Sähköpostiasetukset"
+        automatic_newsletters: "Lähetä automaattinen uutiskirje kaikille käyttäjille (paitsi jos he lopettavat tilauksen)"
+        email_admins_about_new_members: "Lähetä sähköpostia ylläpitäjälle aina kun uusi käyttäjä liittyy yhteisöön"
+
+        integrations: "Kolmansien osapuolten sovellukset"
+        google_analytics_key: "Google Analytics tracking ID (classic account)"
+        twitter_handle: "Twitter-tili (käytetään ilmoitussivulla olevan twitter-napin yhteydessä)"
+
+        update_settings: "Update settings"
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
