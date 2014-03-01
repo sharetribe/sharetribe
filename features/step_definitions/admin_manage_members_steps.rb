@@ -68,3 +68,15 @@ Then(/^"(.*?)" should be banned from this community$/) do |arg1|
   pending # express the regexp above with the code you wish you had
 end
 
+Given(/^user "(.*?)" is banned in this community$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^I should see a message that I have been banned$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^I should be able to send a message to admin$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
