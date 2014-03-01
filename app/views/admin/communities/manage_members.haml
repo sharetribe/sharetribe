@@ -28,5 +28,6 @@
             %td= member.created_at.to_date.to_s
             - if @current_community.require_verification_to_post_listings
               %td= check_box_tag "posting-allowed[#{member.id}]", "1", member.can_post_listings_at?(@community), :class => "admin-members-can-post-listings"
-
-  = will_paginate @members  
+  .row
+    .col-12
+      = will_paginate @members  

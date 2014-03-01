@@ -1,0 +1,52 @@
+@import "mixins/all";
+
+.pagination {
+  margin-top: lines(0.5);
+  cursor: default;
+
+  /* self-clearing method: */ }
+  .pagination a, .pagination span, .pagination em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px; }
+  .pagination .disabled {
+    margin-top: lines(0.25);
+    color: $border; }
+  .pagination .current {
+    margin-top: lines(0.25);
+    font-style: normal;
+    font-weight: bold;
+    background: $link;
+    @include border-radius($default-border-radius);
+    margin-right: lines(0.25);
+    padding: em(5) em(15);
+    color: white; }
+  .pagination a {
+    margin-top: lines(0.25);
+    padding: em(5) em(15);
+    background: $highlight;
+    display: inline-block;
+    @include border-radius($default-border-radius);
+    margin-right: lines(0.25);
+    text-decoration: none;
+    color: $link; }
+    .pagination a:hover, .pagination a:focus {
+      background: $border;
+      color: $body; 
+    }
+  span.gap {
+    display: inline-block;
+    margin-top: lines(0.25);
+    height: 34px;
+  }
+  .pagination:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html .pagination {
+    height: 1%; }
+  *:first-child + html .pagination {
+    overflow: hidden; }
