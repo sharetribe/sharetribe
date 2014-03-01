@@ -27,17 +27,20 @@
 }
 
 .ajax-notice, .ajax-warning,
-.flash-notice, .flash-warning {
+.flash-notice, .flash-warning,
+.ajax-update-notice {
   background: $highlight;
 }
 
 .ajax-success,
-.flass-success {
+.flass-success,
+.ajax-update-success {
   background: $light-green;
 }
 
 .ajax-error,
-.flash-error {
+.flash-error,
+.ajax-update-error {
   color: $background;
   background: $error-red;
 }

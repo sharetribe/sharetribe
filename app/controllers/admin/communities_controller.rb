@@ -37,10 +37,22 @@ class Admin::CommunitiesController < ApplicationController
     @members = @current_community.members.paginate(:page => params[:page], :per_page => 50).order("created_at desc")
   end
 
+  def posting_allowed
+    CommunityMembership.where(:person_id => params[:allowed_to_post]).update_all("can_post_listings = 1")
+    CommunityMembership.where(:person_id => params[:disallowed_to_post]).update_all("can_post_listings = 0")
+
+    render nothing: true, status: 200
+  end
+
   def test_welcome_email
     PersonMailer.welcome_email(@current_user, @current_community, true).deliver
     flash[:notice] = t("layouts.notifications.test_welcome_email_delivered_to", :email => @current_user.email)
     redirect_to edit_welcome_email_admin_community_path(@current_community)
+  end
+
+  def settings
+    @selected_tribe_navi_tab = "admin"
+    @selected_left_navi_link = "admin_settings"
   end
   
   def update
@@ -61,6 +73,17 @@ class Admin::CommunitiesController < ApplicationController
     else
       flash.now[:error] = t("layouts.notifications.community_update_failed")
       render :action => return_to_action  
+    end
+  end
+
+  def update_settings
+    @community = Community.find(params[:id])
+    if @community.update_attributes(params[:community])
+      flash[:notice] = t("layouts.notifications.community_updated")
+      redirect_to settings_admin_community_path(@current_community)
+    else
+      flash.now[:error] = t("Update failed")
+      render :action => "settings"
     end
   end
   

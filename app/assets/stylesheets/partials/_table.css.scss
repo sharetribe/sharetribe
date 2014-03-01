@@ -7,11 +7,11 @@ table {
 
 th {
   text-align: left;
-  padding: lines(0.25);
+  padding: lines(0.25) lines(0.5);
 }
 
 td {
-  padding: lines(0.25);
+  padding: lines(0.25) lines(0.5);
   &:first-child {
      @include border-left-radius($default-border-radius);
   }

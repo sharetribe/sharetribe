@@ -66,6 +66,10 @@ fi:
         edit_signup_info_description: "Tähän voit lisätä ohjeita siihen, miten palveluun liitytään. Ohjeet näytetään käyttäjille, kun he ovat liittymässä palveluun. Oletuksena ohjekenttä on tyhjä."
         edit_info: "Muokkaa tietoja"
         see_how_it_looks_like: Näytä
+        verification_to_post_listings_info_content: "Ohjeteksti vahvistamattomille käyttäjille"
+        verification_to_post_listings_info_content_description: "Tässä yhteisössä ylläpitäjän on annettava käyttäjille postausoikeudet, jotta nämä voivat postata uusia ilmoituksia. Tästä voit asettaa tekstin, joka näytetään käyttäjille, joille ei ole vielä annettu näitä oikeuksia, kun he yrittävät lisätä uutta ilmoitusta." 
+        verification_to_post_listings_info_content_default: "Sinun pitää saada hyväksyntä ylläpitäjiltä, ennen kuin voit lisätä uuden ilmoituksen. %{contact_admin_link} saadaksesi hyväksynnän."
+        contact_admin_link_text: "Ota yhteyttä ylläpitoon"
       edit_look_and_feel:
         edit_community_look_and_feel: "Muokkaa yhteisön \"%{community_name}\" ulkoasua"
         community_logo: Peruslogo
@@ -89,12 +93,42 @@ fi:
         welcome_email_content_description: "Alla oleva viesti lähetetään automaattisesti kaikille uusille käyttäjille näiden liittyessä. Voit muokata viestin sisältöä vastaamaan yhteisösi kuvausta. Klikkaamalla '%{send_test_message_link}' -linkkiä voit lähettää viestin omaan sähköpostiosoitteeseesi."
         edit_message: "Muokkaa viestiä"
         send_test_message: "Lähetä testiviesti"
+      settings:
+        settings: "Asetukset"
+        general: "Yleiset"
+        users_can_review_each_other_after_transaction: "Käyttäjät voivat antaa palautetta toisilleen"
+
+        access: "Pääsyoikeudet"
+        join_with_invite_only: "Käyttäjät voivat liittyä yhteisöön ainoastaan saatuaan kutsun toiselta käyttäjältä"
+        users_can_invite_new_users: "Käyttäjillä on oikeus kutsua muita käyttäjiä yhteisöön"
+        private: "Yksityinen yhteisö (vain kirjautuneet käyttäjät näkevät sisällön)"
+        require_verification_to_post_listings: "Vain ylläpitäjän erikseen hyväksymät käyttäjät voivat lisätä ilmoituksia"
+
+
+        listing_preferences: "Ilmoitusasetukset"
+        show_listing_publishing_date: "Näytä ilmoituksen julkaisuajankohta ilmoituksen sivulla"
+        show_category_in_listing_list: "Näytä ilmoituskategoria listanäkymässä"
+        hide_expiration_date: "Ilmoituksilla ei ole viimeistä voimassaolopäivää"
+        listing_comments_in_use: "Käyttäjät voivat kommentoida ilmoituksia (kommentit näkyvät muille käyttäjille)"
+
+        email_preferences: "Sähköpostiasetukset"
+        automatic_newsletters: "Lähetä automaattinen uutiskirje kaikille käyttäjille (paitsi jos he lopettavat tilauksen)"
+        email_admins_about_new_members: "Lähetä sähköpostia ylläpitäjälle aina kun uusi käyttäjä liittyy yhteisöön"
+
+        integrations: "Kolmansien osapuolten sovellukset"
+        google_analytics_key: "Google Analytics tracking ID (classic account)"
+        twitter_handle: "Twitter-tili (käytetään ilmoitussivulla olevan twitter-napin yhteydessä)"
+
+        update_settings: "Update settings"
       manage_members:
         manage_members: "Käyttäjät"
         email: "Sähköposti"
         name: "Nimi"
         join_date: "Liittymispäivämäärä"
         posting_allowed: "Hyväksytty ilmoittaja"
+        saving_user_status: "Tallennetaan..."
+        save_user_status_successful: "Tallennus onnistui"
+        save_user_status_error: "Tallennus epäonnistui. Päivitä sivu ja yritä uudelleen."
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
@@ -1718,7 +1752,7 @@ fi:
     formats:
       short: "%e. %b %Y kello %H:%M"
       shorter: "%e. %b klo %H:%M"
-      short_date: ~
+      short_date: "%d.%m.%Y"
       sms: "%e.%m. klo %H:%M"
   timestamps:
     day_ago: "%{count} päivä sitten"
