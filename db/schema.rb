@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140225143012) do
+ActiveRecord::Schema.define(:version => 20140228165024) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -131,27 +131,27 @@ ActiveRecord::Schema.define(:version => 20140225143012) do
     t.datetime "updated_at"
     t.text     "settings"
     t.string   "consent"
-    t.boolean  "email_admins_about_new_members",    :default => false
-    t.boolean  "use_fb_like",                       :default => false
-    t.boolean  "real_name_required",                :default => true
-    t.boolean  "feedback_to_admin",                 :default => false
-    t.boolean  "automatic_newsletters",             :default => true
-    t.boolean  "join_with_invite_only",             :default => false
-    t.boolean  "use_captcha",                       :default => false
+    t.boolean  "email_admins_about_new_members",        :default => false
+    t.boolean  "use_fb_like",                           :default => false
+    t.boolean  "real_name_required",                    :default => true
+    t.boolean  "feedback_to_admin",                     :default => false
+    t.boolean  "automatic_newsletters",                 :default => true
+    t.boolean  "join_with_invite_only",                 :default => false
+    t.boolean  "use_captcha",                           :default => true
     t.text     "allowed_emails"
-    t.boolean  "users_can_invite_new_users",        :default => true
-    t.boolean  "private",                           :default => false
+    t.boolean  "users_can_invite_new_users",            :default => false
+    t.boolean  "news_enabled",                          :default => true
+    t.boolean  "private",                               :default => false
     t.string   "label"
-    t.boolean  "show_date_in_listings_list",        :default => false
-    t.boolean  "news_enabled",                      :default => true
-    t.boolean  "all_users_can_add_news",            :default => true
-    t.boolean  "custom_frontpage_sidebar",          :default => false
-    t.boolean  "event_feed_enabled",                :default => true
+    t.boolean  "all_users_can_add_news",                :default => true
+    t.boolean  "show_date_in_listings_list",            :default => false
+    t.boolean  "custom_frontpage_sidebar",              :default => false
+    t.boolean  "event_feed_enabled",                    :default => true
     t.string   "slogan"
     t.text     "description"
-    t.string   "category",                          :default => "other"
-    t.integer  "members_count",                     :default => 0
-    t.boolean  "polls_enabled",                     :default => false
+    t.string   "category",                              :default => "other"
+    t.integer  "members_count",                         :default => 0
+    t.boolean  "polls_enabled",                         :default => false
     t.string   "plan"
     t.integer  "user_limit"
     t.float    "monthly_price_in_euros"
@@ -170,40 +170,41 @@ ActiveRecord::Schema.define(:version => 20140225143012) do
     t.string   "custom_color1"
     t.string   "custom_color2"
     t.string   "stylesheet_url"
-    t.string   "service_logo_style",                :default => "full-logo"
+    t.string   "service_logo_style",                    :default => "full-logo"
     t.text     "available_currencies"
-    t.boolean  "facebook_connect_enabled",          :default => true
-    t.boolean  "only_public_listings",              :default => true
-    t.string   "custom_email_from_address"
+    t.boolean  "facebook_connect_enabled",              :default => true
     t.integer  "vat"
     t.integer  "commission_from_seller"
+    t.boolean  "only_public_listings",                  :default => true
+    t.string   "custom_email_from_address"
     t.integer  "minimum_price_cents"
-    t.boolean  "badges_in_use",                     :default => false
-    t.boolean  "testimonials_in_use",               :default => true
-    t.boolean  "hide_expiration_date",              :default => false
+    t.boolean  "badges_in_use",                         :default => false
+    t.boolean  "testimonials_in_use",                   :default => true
+    t.boolean  "hide_expiration_date",                  :default => false
     t.string   "facebook_connect_id"
     t.string   "facebook_connect_secret"
     t.string   "google_analytics_key"
     t.string   "favicon_url"
-    t.string   "name_display_type",                 :default => "first_name_with_initial"
+    t.string   "name_display_type",                     :default => "first_name_with_initial"
     t.string   "twitter_handle"
-    t.boolean  "use_community_location_as_default", :default => false
-    t.string   "domain_alias"
-    t.string   "preproduction_stylesheet_url"
-    t.boolean  "show_category_in_listing_list",     :default => false
-    t.string   "default_browse_view",               :default => "grid"
+    t.boolean  "use_community_location_as_default",     :default => false
+    t.boolean  "show_category_in_listing_list",         :default => false
+    t.string   "default_browse_view",                   :default => "grid"
     t.string   "wide_logo_file_name"
     t.string   "wide_logo_content_type"
     t.integer  "wide_logo_file_size"
     t.datetime "wide_logo_updated_at"
-    t.boolean  "logo_change_allowed"
+    t.string   "domain_alias"
+    t.string   "preproduction_stylesheet_url"
     t.boolean  "only_organizations"
-    t.boolean  "terms_change_allowed",              :default => false
-    t.boolean  "privacy_policy_change_allowed",     :default => false
-    t.boolean  "custom_fields_allowed",             :default => false
-    t.boolean  "listing_comments_in_use",           :default => false
-    t.boolean  "show_listing_publishing_date",      :default => false
-    t.boolean  "category_change_allowed",           :default => false
+    t.boolean  "logo_change_allowed"
+    t.boolean  "terms_change_allowed",                  :default => false
+    t.boolean  "privacy_policy_change_allowed",         :default => false
+    t.boolean  "custom_fields_allowed",                 :default => false
+    t.boolean  "listing_comments_in_use",               :default => false
+    t.boolean  "show_listing_publishing_date",          :default => false
+    t.boolean  "category_change_allowed",               :default => false
+    t.boolean  "require_verification_to_post_listings", :default => false
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
@@ -236,8 +237,8 @@ ActiveRecord::Schema.define(:version => 20140225143012) do
     t.string   "name"
     t.string   "slogan"
     t.text     "description"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
     t.text     "blank_slate"
     t.text     "welcome_email_content"
     t.text     "how_to_use_page_content"
@@ -248,6 +249,7 @@ ActiveRecord::Schema.define(:version => 20140225143012) do
     t.string   "storefront_label"
     t.text     "signup_info_content"
     t.text     "private_community_homepage_content"
+    t.text     "verification_to_post_listings_info_content"
   end
 
   add_index "community_customizations", ["community_id"], :name => "index_community_customizations_on_community_id"
@@ -262,6 +264,7 @@ ActiveRecord::Schema.define(:version => 20140225143012) do
     t.integer  "invitation_id"
     t.datetime "last_page_load_date"
     t.string   "status",              :default => "accepted", :null => false
+    t.boolean  "can_post_listings",   :default => false
   end
 
   add_index "community_memberships", ["community_id"], :name => "index_community_memberships_on_community_id"
@@ -342,8 +345,10 @@ ActiveRecord::Schema.define(:version => 20140225143012) do
     t.integer  "custom_field_id"
     t.integer  "listing_id"
     t.text     "text_value"
+    t.float    "numeric_value"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "type"
   end
 
   add_index "custom_field_values", ["listing_id"], :name => "index_custom_field_values_on_listing_id"
@@ -355,6 +360,8 @@ ActiveRecord::Schema.define(:version => 20140225143012) do
     t.datetime "updated_at",                      :null => false
     t.integer  "community_id"
     t.boolean  "required",      :default => true
+    t.float    "min"
+    t.float    "max"
   end
 
   add_index "custom_fields", ["community_id"], :name => "index_custom_fields_on_community_id"
@@ -586,21 +593,6 @@ ActiveRecord::Schema.define(:version => 20140225143012) do
   end
 
   add_index "notifications", ["receiver_id"], :name => "index_notifications_on_receiver_id"
-
-  create_table "old_ressi_events", :force => true do |t|
-    t.string   "user_id"
-    t.string   "application_id"
-    t.string   "session_id"
-    t.string   "ip_address"
-    t.string   "action"
-    t.text     "parameters"
-    t.string   "return_value"
-    t.text     "headers"
-    t.string   "semantic_event_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "test_group_number"
-  end
 
   create_table "organization_memberships", :force => true do |t|
     t.string   "person_id"

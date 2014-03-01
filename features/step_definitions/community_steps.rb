@@ -163,3 +163,8 @@ end
 Given /^listing publishing date is shown in community "(.*?)"$/ do |community_domain|
   Community.find_by_domain(community_domain).update_attributes({:show_listing_publishing_date => true})
 end
+
+Given /^current community requires users to be verified to post listings$/ do
+  @current_community.update_attribute(:require_verification_to_post_listings, true)
+end
+

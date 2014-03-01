@@ -74,6 +74,8 @@ module NavigationHelpers
       admin_custom_fields_path(:locale => "en")
     when /the categories admin page/
       admin_categories_path(:locale => "en")
+    when /the manage members admin page/
+      manage_members_admin_community_path(:id => @current_community.id)
 
     # the following are examples using path_to_pickle
 

@@ -1,0 +1,34 @@
+- content_for :javascript do
+  ST.initializeManageMembers();
+
+- content_for :title_header do
+  %h1= t("layouts.admin.admin")
+
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@community) }
+
+.left-navi-section
+  %h2= t(".manage_members", :community_name => @community.name(I18n.locale))
+    
+  %span#admin_members_count= page_entries_info(@members)
+
+  %form
+    %table#admin_members_list
+      %thead
+        %tr
+          %th= t(".name")
+          %th= t(".email")
+          %th= t(".join_date")
+          - if @current_community.require_verification_to_post_listings
+            %th= t(".posting_allowed")
+      %tbody
+        - @members.each do |member|
+          %tr 
+            %td= member.full_name
+            %td= member.confirmed_notification_email_addresses.first
+            %td= member.created_at.to_date.to_s
+            - if @current_community.require_verification_to_post_listings
+              %td= check_box_tag "posting-allowed[#{member.id}]", member.id, member.can_post_listings_at?(@community), :class => "admin-members-can-post-listings"
+
+  .row
+    .col-12
+      = will_paginate @members  

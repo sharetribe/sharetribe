@@ -142,6 +142,7 @@ Kassi::Application.routes.draw do
           get :edit_look_and_feel
           get :edit_welcome_email
           get :test_welcome_email
+          get :manage_members
         end
         resources :emails
       end
@@ -201,6 +202,7 @@ Kassi::Application.routes.draw do
         get :browse
         get :random
         get :locations_json
+        get :verification_required
       end
       resources :images, :controller => :listing_images
       resources :comments
