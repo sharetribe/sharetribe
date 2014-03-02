@@ -8,6 +8,7 @@ Feature: Admin lists members
       | kassi_testperson2 | jane       | doe         | test2@example.com   | 2012-03-01 00:00:00 +0200 |
     And I am logged in as "manager"
     And "manager" has admin rights in community "test"
+    And "kassi_testperson1" has admin rights in community "test"
     And I am on the manage members admin page
 
   @javascript
@@ -50,3 +51,20 @@ Feature: Admin lists members
     And  I confirm alert popup
     Then I should not see "john doe"
     And "john doe" should be banned from this community
+
+  @javascript
+  Scenario: Admin promotes user to admin
+    Then I should see that "manager" has admin rights in this community
+    Then I should see that "john doe" has admin rights in this community
+    Then I should see that "jane doe" does not have admin rights in this community
+    When I promote "jane doe" to admin
+    Then I should see that "jane doe" has admin rights in this community
+    When I refresh the page
+    Then I should see that "jane doe" has admin rights in this community
+
+  @javascript
+  Scenario: Admin is not able to remove her own admin rights
+    Then I should see that "jane doe" does not have admin rights in this community
+    And I should see that I can remove admin rights of "jane doe"
+    Then I should see that "manager" has admin rights in this community
+    And I should see that I can not remove admin rights of "manager"

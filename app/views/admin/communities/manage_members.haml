@@ -34,16 +34,20 @@
           %th= t(".join_date")
           - if @current_community.require_verification_to_post_listings
             %th{:style => "text-align: center"}= t(".posting_allowed")
+          %th= t(".admin")
           %th= t(".remove_user")
       %tbody
         - @memberships.each do |membership|
           - member = membership.person
           %tr 
-            %td.admin-members-full-name= member.full_name
-            %td= member.confirmed_notification_email_addresses.first
-            %td= membership.created_at.to_date.to_s
+            %td.admin-members-full-name
+              = link_to member.full_name, member
+            %td
+              = mail_to member.confirmed_notification_email_addresses.first
+            %td= l(membership.created_at, :format => :short_date)
             - if @current_community.require_verification_to_post_listings
-              %td{:style => "text-align: center"}= check_box_tag "posting-allowed[#{member.id}]", member.id, member.can_post_listings_at?(@community), :class => "admin-members-can-post-listings"
+              %td{:style => "text-align: center"}= check_box_tag "posting-allowed[#{member.id}]", member.id, membership.can_post_listings, :class => "admin-members-can-post-listings"
+            %td{:style => "text-align: center"}= check_box_tag "is_admin[#{member.id}]", member.id, member.is_admin_of?(@community), :class => "admin-members-is-admin", :disabled => member.eql?(@current_user)
             %td 
               = link_to(icon_tag("cross"), tribe_membership_path(membership.id, :status => "banned"), method: :put)
 
