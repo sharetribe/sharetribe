@@ -73,16 +73,22 @@ Then(/^"(.*?)" should be banned from this community$/) do |arg1|
   pending # express the regexp above with the code you wish you had
 end
 
-Given(/^user "(.*?)" is banned in this community$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Given(/^user "(.*?)" is banned in this community$/) do |username|
+  CommunityMembership.find_by_person_id_and_community_id(Person.find_by_username(username).id, @current_community.id).update_attribute(:status, "banned")
 end
 
 Then(/^I should see a message that I have been banned$/) do
-  pending # express the regexp above with the code you wish you had
+  steps %Q{
+    Then I should see "The admin of this community has prevented you from accessing the site."
+  }
 end
 
 Then(/^I should be able to send a message to admin$/) do
-  pending # express the regexp above with the code you wish you had
+  steps %Q{
+    When I fill in "What would you like to tell us?" with "I sad that I have been banned."
+    And I press "Send feedback"
+    Then I should see "Thanks a lot for your feedback!" within ".flash-notifications"
+  }
 end
 
 Then(/^I should see that "(.*?)" has admin rights in this community$/) do |full_name|
