@@ -16,8 +16,8 @@ Feature: Admin lists members
     Then I should see list of users with the following details:
       | Name          | Email               | Join date  |
       | matti manager | manager@example.com | 1 Mar 2014 |
-      | john doe      | test1@example.com   | 1 Mar 2014 | 
-      | jane doe      | test2@example.com   | 1 Mar 2014 |
+      | john doe      | test1@example.com   | 1 Mar 2013 | 
+      | jane doe      | test2@example.com   | 1 Mar 2012 |
 
   @javascript
   Scenario: Admin views member count
