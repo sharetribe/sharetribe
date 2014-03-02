@@ -27,7 +27,7 @@ class CommunityMembershipsController < ApplicationController
       end
       
       redirect_to confirmation_pending_path and return
-    elsif existing_membership.banned?
+    elsif existing_membership && existing_membership.banned?
       redirect_to access_denied_tribe_memberships_path and return
     end
     

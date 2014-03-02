@@ -436,7 +436,8 @@ class Person < ActiveRecord::Base
   end
 
   def banned_at?(community)
-    self.community_memberships.where(:community_id => community.id).first.banned?
+    memberships = self.community_memberships.find_by_community_id(community.id)
+    !memberships.nil? && memberships.banned?
   end
   
   def has_email?(address)
