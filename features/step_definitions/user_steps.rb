@@ -143,7 +143,7 @@ Given /^there are following users:$/ do |person_table|
                                     :person_id => @hash_person.id,
                                     :consent => Community.first.consent,
                                     :status => "accepted")
-    cm.update_attribute(:created_at, membership_created_at) unless membership_created_at.empty?
+    cm.update_attribute(:created_at, membership_created_at) if membership_created_at && !membership_created_at.empty?
     
     attributes_to_update = hash.except('person','person_id', 'locale', 'membership_created_at')
     @hash_person.update_attributes(attributes_to_update) unless attributes_to_update.empty?
