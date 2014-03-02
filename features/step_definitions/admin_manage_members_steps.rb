@@ -57,8 +57,7 @@ end
 When(/^I verify user "(.*?)" as a seller$/) do |full_name|
   find_posting_allowed_checkbox_for_person(full_name).click
   steps %Q{
-    Then there should be an active ajax request
-    When ajax requests are completed
+    Then I should see "Saved" within ".ajax-update-notification"
   }
 end
 
@@ -77,8 +76,7 @@ end
 When(/^I promote "(.*?)" to admin$/) do |full_name|
   find_admin_checkbox_for_person(full_name).click
   steps %Q{
-    Then there should be an active ajax request
-    When ajax requests are completed
+    Then I should see "Saved" within ".ajax-update-notification"
   }
 end
 
