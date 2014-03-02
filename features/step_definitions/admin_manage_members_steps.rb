@@ -1,5 +1,6 @@
 module AdminManageMembersSteps
   POSTING_ALLOWED_CHECKBOX_SELECTOR = ".admin-members-can-post-listings"
+  IS_ADMIN_CHECKBOX_SELECTOR = ".admin-members-is-admin"
 
   def find_row_for_person(full_name)
     email_div = find(".admin-members-full-name", :text => "#{full_name}")
@@ -9,6 +10,11 @@ module AdminManageMembersSteps
   def find_posting_allowed_checkbox_for_person(full_name)
     find_row_for_person(full_name).find(POSTING_ALLOWED_CHECKBOX_SELECTOR)
   end
+
+  def find_admin_checkbox_for_person(full_name)
+    find_row_for_person(full_name).find(IS_ADMIN_CHECKBOX_SELECTOR)
+  end
+
 
 end
 
@@ -80,3 +86,26 @@ Then(/^I should be able to send a message to admin$/) do
   pending # express the regexp above with the code you wish you had
 end
 
+Then(/^I should see that "(.*?)" has admin rights in this community$/) do |full_name|
+  find_admin_checkbox_for_person(full_name)['checked'].should_not be_nil
+end
+
+Then(/^I should see that "(.*?)" does not have admin rights in this community$/) do |full_name|
+  find_admin_checkbox_for_person(full_name)['checked'].should be_nil
+end
+
+When(/^I promote "(.*?)" to admin$/) do |full_name|
+  find_admin_checkbox_for_person(full_name).click
+  steps %Q{
+    Then there should be an active ajax request
+    When ajax requests are completed
+  }
+end
+
+Then(/^I should see that I can not remove admin rights of "(.*?)"$/) do |full_name|
+  find_admin_checkbox_for_person(full_name)['disabled'].should be_true
+end
+
+Then(/^I should see that I can remove admin rights of "(.*?)"$/) do |full_name|
+  find_admin_checkbox_for_person(full_name)['disabled'].should be_false
+end
