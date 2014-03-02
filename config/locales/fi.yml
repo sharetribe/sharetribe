@@ -131,6 +131,7 @@ fi:
         saving_user_status: "Tallennetaan..."
         save_user_status_successful: "Tallennus onnistui"
         save_user_status_error: "Tallennus epäonnistui. Päivitä sivu ja yritä uudelleen."
+        remove_user_confirmation: "Olet poistamassa käyttäjää yhteisöstä ja estämästä häntä liittymästä uudelleen samalla käyttäjätunnuksella. Oletko varma?"
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"

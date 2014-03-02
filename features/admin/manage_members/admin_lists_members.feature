@@ -71,10 +71,11 @@ Feature: Admin lists members
 
   @javascript
   Scenario: Admin removes a user
+    Given I will confirm all following confirmation dialogs if I am running PhantomJS
     When I remove user "john doe"
-    And  I confirm alert popup
     Then I should not see "john doe"
-    And "john doe" should be banned from this community
+    # Identifying is easier when using username
+    And "kassi_testperson1" should be banned from this community
 
   @javascript
   Scenario: Admin promotes user to admin

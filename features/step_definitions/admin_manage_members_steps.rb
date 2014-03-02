@@ -1,6 +1,7 @@
 module AdminManageMembersSteps
   POSTING_ALLOWED_CHECKBOX_SELECTOR = ".admin-members-can-post-listings"
   IS_ADMIN_CHECKBOX_SELECTOR = ".admin-members-is-admin"
+  REMOVE_USER_CHECKBOX_SELECTOR = ".admin-members-remove-user"
 
   def find_row_for_person(full_name)
     email_div = find(".admin-members-full-name", :text => "#{full_name}")
@@ -15,6 +16,9 @@ module AdminManageMembersSteps
     find_row_for_person(full_name).find(IS_ADMIN_CHECKBOX_SELECTOR)
   end
 
+  def find_remove_link_for_person(full_name)
+    find_row_for_person(full_name).find(REMOVE_USER_CHECKBOX_SELECTOR)
+  end
 
 end
 
@@ -68,12 +72,16 @@ Then(/^I should see that "(.*?)" can post new listings$/) do |full_name|
   find_posting_allowed_checkbox_for_person(full_name)['checked'].should_not be_nil
 end
 
-When(/^I remove user "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+When(/^I remove user "(.*?)"$/) do |full_name|
+  find_remove_link_for_person(full_name).click
+  steps %Q{
+    And I confirm alert popup
+  }
 end
 
-Then(/^"(.*?)" should be banned from this community$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^"(.*?)" should be banned from this community$/) do |username|
+  person = Person.find_by_username(username)
+  CommunityMembership.find_by_person_id_and_community_id(person.id, @current_community.id).status.should == "banned"
 end
 
 Given(/^user "(.*?)" is banned in this community$/) do |username|

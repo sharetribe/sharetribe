@@ -48,8 +48,8 @@
             - if @current_community.require_verification_to_post_listings
               %td{:style => "text-align: center"}= check_box_tag "posting-allowed[#{member.id}]", member.id, membership.can_post_listings, :class => "admin-members-can-post-listings"
             %td{:style => "text-align: center"}= check_box_tag "is_admin[#{member.id}]", member.id, member.is_admin_of?(@community), :class => "admin-members-is-admin", :disabled => member.eql?(@current_user)
-            %td 
-              = link_to(icon_tag("cross"), tribe_membership_path(membership.id, :status => "banned"), method: :put)
+            %td{:style => "text-align: center"}
+              = link_to(icon_tag("cross"), tribe_membership_path(membership.id, :status => "banned"), method: :put, :data => {:confirm => t(".remove_user_confirmation")}, :class => "admin-members-remove-user")
 
   #custom-field-ajax-status
     .ajax-notification.ajax-notice.custom-field-ajax-status-message#custom-field-ajax-saving

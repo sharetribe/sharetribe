@@ -35,7 +35,7 @@ class Admin::CommunitiesController < ApplicationController
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "manage_members"
     @community = @current_community
-    @memberships = CommunityMembership.where(:community_id => @current_community.id)
+    @memberships = CommunityMembership.where(:community_id => @current_community.id, :status => "accepted")
                                        .includes(:person => :emails)
                                        .paginate(:page => params[:page], :per_page => 50)
                                        .order("#{member_sort_column} #{member_sort_direction}")
