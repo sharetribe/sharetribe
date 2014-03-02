@@ -27,10 +27,13 @@ Then(/^I should see a range from (\d+) to (\d+) with total user count of (\d+)$/
 end
 
 Then(/^I should see list of users with the following details:$/) do |table|
-  # table is a Cucumber::Ast::Table
-  all("#admin_members_list tbody tr").each_with_index do |row, i|
-    row.all("td").each_with_index do |cell, j|
-      table.rows[i][j].should== cell.text
+  cells = all("#admin_members_list tbody tr").map do |rows|
+    rows.all("td")
+  end
+
+  table.rows.each_with_index do |row, row_num|
+    row.each_with_index do |cell, column_num|
+      cell.should == cells[row_num][column_num].text
     end
   end
 end
