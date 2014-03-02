@@ -42,7 +42,7 @@ Feature: Admin lists members
       | jane doe      | test1@example.com   | 1 Mar 2012 |                 |             |
       | john doe      | test2@example.com   | 1 Mar 2013 |                 |             |
       | matti manager | manager@example.com | 1 Mar 2014 |                 |             | 
-      
+
   @javascript
   Scenario: Admin views member count
     Given there are 50 users with name prefix "User" "Number"
