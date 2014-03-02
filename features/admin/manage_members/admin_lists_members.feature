@@ -39,9 +39,9 @@ Feature: Admin lists members
     When I follow "Joined"
     Then I should see list of users with the following details:
       | Name          | Email               | Joined     | Posting allowed | Remove User | 
-      | matti manager | manager@example.com | 1 Mar 2014 |                 |             |
+      | jane doe      | test1@example.com   | 1 Mar 2012 |                 |             |
       | john doe      | test2@example.com   | 1 Mar 2013 |                 |             |
-      | jane doe      | test1@example.com   | 1 Mar 2012 |                 |             | 
+      | matti manager | manager@example.com | 1 Mar 2014 |                 |             | 
       
   @javascript
   Scenario: Admin views member count
