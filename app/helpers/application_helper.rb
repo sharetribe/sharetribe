@@ -950,5 +950,12 @@ module ApplicationHelper
       return false
     end
   end
+
+  def sort_link(column)
+    title = t(".#{column}")
+    css_class = params[:sort].eql?(column) ? "sort-arrow-#{member_sort_direction}" : nil
+    direction = (params[:sort].eql?(column) && member_sort_direction.eql?("asc")) ? "desc" : "asc"
+    link_to title, {:sort => column, :direction => direction, :page => (params[:page] || 1)}, {:class => css_class}
+  end
   
 end

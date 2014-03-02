@@ -1,6 +1,6 @@
 class CommunityMembership < ActiveRecord::Base
   
-  VALID_STATUSES = ["accepted", "pending_email_confirmation"]
+  VALID_STATUSES = ["accepted", "pending_email_confirmation", "banned"]
   
   belongs_to :person
   belongs_to :community, :counter_cache => :members_count
@@ -35,6 +35,10 @@ class CommunityMembership < ActiveRecord::Base
   
   def pending?
     not accepted?
+  end
+
+  def banned?
+    status == "banned"
   end
   
   def current_terms_accepted?
