@@ -23,21 +23,14 @@ class Statistic < ActiveRecord::Base
 
     # Listings, Messages and Transactions count
     if community
-      conversations = []
-      community.members.each{ |m| conversations << m.conversations }
-      
-      #select only conversations that are duplicate (i.e. happening between members of this community)
-      conversations.flatten!
-      #conversations = conversations.select{|c| conversations.count(c) == 2}.uniq        
-      
-      #new line to pick uniq quicker
-      conversations = conversations.uniq
+      conversations = community.conversations
 
       listings = community.listings
       messages = []
       conversations.each {|c| messages << c.messages}
+
       messages.flatten!
-      transactions = conversations.select{|c| c.status == "confirmed"}
+      transactions = conversations.select{|c| c.status == "confirmed" || c.status == "paid"}
     else
       conversations = Conversation.all
       listings = Listing.all
@@ -45,20 +38,15 @@ class Statistic < ActiveRecord::Base
       transactions = Conversation.where(:status => "confirmed")
     end
     
-    puts "HOX conv"
-    
     self.conversations_count = conversations.count
     self.new_conversations_last_week = conversations.select{|x| x.created_at > 1.week.ago}.count
     self.new_conversations_last_month = conversations.select{|x| x.created_at > 1.month.ago}.count
-    puts "HOX listings"
     self.listings_count = listings.count
     self.new_listings_last_week = listings.select{|x| x.created_at > 1.week.ago}.count
     self.new_listings_last_month = listings.select{|x| x.created_at > 1.month.ago}.count
-puts "HOX msg"
     self.messages_count = messages.count
-    self.new_messages_last_week = 0# messages.select{|x| x.created_at > 1.week.ago}.count
-    self.new_messages_last_month = 0# messages.select{|x| x.created_at > 1.month.ago}.count
-    puts "HOX trans"
+    self.new_messages_last_week =  messages.select{|x| x.created_at > 1.week.ago}.count
+    self.new_messages_last_month =  messages.select{|x| x.created_at > 1.month.ago}.count
     self.transactions_count = transactions.count
     self.new_transactions_last_week = transactions.select{|x| x.created_at > 1.week.ago}.count
     self.new_transactions_last_month = transactions.select{|x| x.created_at > 1.month.ago}.count
@@ -67,48 +55,7 @@ puts "HOX msg"
  
     
 
-    # #activation
-    # # create content in first 2 weeks (average of recent month)
-    # six_to_two_week_old_users = community ? 
-    #   CommunityMembership.where(:created_at => (6.weeks.ago..2.weeks.ago), :community_id => community.id, :status => "accepted") :
-    #   Person.where(:created_at => (6.weeks.ago..2.weeks.ago))
-    
-    # # NOTE: When calculating community stats six_to_two_week_old_users contains membership objects instead of people.
-    
-    # activated = 0
-    # six_to_two_week_old_users.each do |u|
-    #   creation_date = u.created_at
-    #   u = u.person if u.class == CommunityMembership # Set u to point to the actual user if it now points to the membership object
-    #   if u.present? && u.class == Person && (Message.where(:sender_id => u.id, :created_at => (creation_date..(creation_date + 2.weeks))).present? || Listing.where(:author_id => u.id, :created_at => (creation_date..(creation_date + 2.weeks))).present? || Comment.where(:author_id => u.id, :created_at => (creation_date..(creation_date + 2.weeks))).present?) 
-    #     activated += 1
-    #   end      
-    # end
-    # @active_in_first_two_weeks = activated
-    # @total_users_for_first_two_weeks = six_to_two_week_old_users.count
-    # self.two_week_content_activation_percentage = @total_users_for_first_two_weeks > 0 ? (@active_in_first_two_weeks*1.0 / @total_users_for_first_two_weeks).round(4) : 0
-
-    # # participate in transcation in first month (average of recent month)
-    # one_to_two_month_old_users = community ?
-    #   CommunityMembership.where(:created_at => (2.months.ago..1.month.ago), :community_id => community.id, :status => "accepted") :
-    #   Person.where(:created_at => (2.months.ago..1.month.ago))
-      
-    # # NOTE: When calculating community stats one_to_two_month_old_users contains membership objects instead of people.
-    
-    # activated = 0
-    # one_to_two_month_old_users.each do |u|
-    #   creation_date = u.created_at
-    #   u = u.person if u.class == CommunityMembership # Set u to point to the actual user if it now points to the membership object
-    #   if  u.present? && u.class == Person && u.conversations.where(:status => "confirmed", :created_at => (creation_date..(creation_date + 1.month))).present?
-    #     activated += 1
-    #   end      
-    # end
-    # @transaction_in_first_month = activated
-    # @total_users_for_first_month = one_to_two_month_old_users.count
-    # self.four_week_transaction_activation_percentage = @total_users_for_first_month > 0 ? (@transaction_in_first_month*1.0 / @total_users_for_first_month).round(4) : 0
-
-
     #retention
-    puts "HOX Retention"
 
     #CommunityMembership.where("last_page_load_date > ?", 1.months.ago).select("distinct(person_id)").uniq  #uniq not working as hoped here, so use SQL
     # G1 means users who did at least one page load as logged in
@@ -122,8 +69,6 @@ puts "HOX msg"
     self.wau_g1 = ((@wau_g1*1.0/users_count)).round(4)
     self.dau_g1 = ((@dau_g1*1.0/users_count)).round(4)
     
-    
-    puts "HOX growth"
 
     # Growth
     
@@ -135,15 +80,11 @@ puts "HOX msg"
       self.wau_weekly_growth = (self.wau_g1_count - last_weeks_stats.wau_g1_count)*1.0 / (last_weeks_stats.wau_g1_count > 0 ? last_weeks_stats.wau_g1_count : 1)
     end
 
-    puts "HOX Ref"
-
     #referral
     @inv_sent = Invitation.where("inviter_id is not NULL #{community ? "AND community_id = '#{community.id}'" : ""}").count
     @inv_accepted = Invitation.where("inviter_id is not NULL and usages_left = 0 #{community ? "AND community_id = '#{community.id}'" : ""}").count
     self.invitations_accepted_per_user = @inv_accepted*1.0 / users_count
     self.invitations_sent_per_user = @inv_sent*1.0 / users_count
-
-    puts "HOX rev"
 
     #revenue
     @revenue_sum = 0
@@ -163,12 +104,6 @@ puts "HOX msg"
                         #:mau_g1 => @mau_g1,
                         #:wau_g1 => @wau_g1,
                         :dau_g1 => @dau_g1,
-                        :mau_g2 => @mau_g2,
-                        :wau_g2 => @wau_g2,
-                        :dau_g2 => @dau_g2,
-                        :mau_g3 => @mau_g3,
-                        :wau_g3 => @wau_g3,
-                        :dau_g3 => @dau_g3, 
                         :inv_sent => @inv_sent,
                         :inv_accepted => @inv_accepted,
                         :revenue_sum => @revenue_sum
