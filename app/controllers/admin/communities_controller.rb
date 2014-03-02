@@ -44,6 +44,17 @@ class Admin::CommunitiesController < ApplicationController
     render nothing: true, status: 200
   end
 
+  def promote_admin
+    if removes_itself?(params[:remove_admin], @current_user)
+      render nothing: true, status: 405
+    else
+      CommunityMembership.where(:person_id => params[:add_admin]).update_all("admin = 1")
+      CommunityMembership.where(:person_id => params[:remove_admin]).update_all("admin = 0")
+
+      render nothing: true, status: 200
+    end
+  end
+
   def test_welcome_email
     PersonMailer.welcome_email(@current_user, @current_community, true).deliver
     flash[:notice] = t("layouts.notifications.test_welcome_email_delivered_to", :email => @current_user.email)
@@ -85,6 +96,11 @@ class Admin::CommunitiesController < ApplicationController
       flash.now[:error] = t("Update failed")
       render :action => "settings"
     end
+  end
+
+  def removes_itself?(ids, current_admin_user)
+    ids ||= []
+    ids.include?(current_admin_user.id)
   end
   
 end
