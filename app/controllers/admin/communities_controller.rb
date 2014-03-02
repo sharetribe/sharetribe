@@ -45,7 +45,7 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def promote_admin
-    if removes_itself?(params[:remove_admin], @current_user)
+    if removes_itself?(params[:remove_admin], @current_user, @current_community)
       render nothing: true, status: 405
     else
       CommunityMembership.where(:person_id => params[:add_admin]).update_all("admin = 1")
@@ -98,9 +98,9 @@ class Admin::CommunitiesController < ApplicationController
     end
   end
 
-  def removes_itself?(ids, current_admin_user)
+  def removes_itself?(ids, current_admin_user, community)
     ids ||= []
-    ids.include?(current_admin_user.id)
+    ids.include?(current_admin_user.id) && current_admin_user.is_admin_of?(community)
   end
   
 end
