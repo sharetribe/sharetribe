@@ -13,7 +13,7 @@ However, before you do, here are some basic rules:
 
 ## New features
 
-Before you do any coding, please talk with us. Join the [Sharetribe Development Flowdock](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main) chat and tell us what you are about to do. This helps us to make sure the awesome feature you are about to code is inline with Sharetribe's common goals and the road map. In the end, this early on discussion will help you to get your feature to merged to Sharetribe.
+Before you do any coding, please talk with us. Join the [Sharetribe Development Flowdock](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main) chat and tell us what you are about to do. This helps us to make sure the awesome feature you are about to code is inline with Sharetribe's common goals and the road map. The early on discussion ensures that you get your feature eventually merged to Sharetribe.
 
 After you've discussed with the core team:
 
