@@ -66,6 +66,10 @@ de:
         edit_signup_info_description: "Dies ist ein Infotext, der den Nutzern auf der Anmeldeseite angezeigt wird. Hier kannst du den Nutzern Anleitungen zum Anmelden geben, wie z.B. Informationen darüber, wie sie eine Einladung erhalten können etc.. Standardgemäß gibt es hier keine Anweisungen, aber du kannst sie hinzufügen, wenn du auf den Link unten klickst."
         edit_info: "Angaben bearbeiten"
         see_how_it_looks_like: "Sieh es dir an"
+        verification_to_post_listings_info_content: "Infotext für nicht verifizierte Benutzer"
+        verification_to_post_listings_info_content_description: ~
+        verification_to_post_listings_info_content_default: ~
+        contact_admin_link_text: "Administrator kontaktieren"
       edit_look_and_feel:
         edit_community_look_and_feel: "Bearbeite das \"Look & Feel\" der Community %{community_name}"
         community_logo: Logo
@@ -89,6 +93,37 @@ de:
         welcome_email_content_description: "Die folgende Nachricht wird zur Begrüßung an jedes neue Mitglied gesendet. Du kannst die Nachricht so bearbeiten, dass sie zu deiner Community passt. Indem du auf '%{send_test_message_link}' klickst, kannst du sehen, wie sie in einem E-Mail-Client aussieht."
         edit_message: "Nachricht bearbeiten"
         send_test_message: "Test-Nachricht senden"
+      settings:
+        settings: Einstellungen
+        general: Allgemein
+        users_can_review_each_other_after_transaction: ~
+        access: Zugriff
+        join_with_invite_only: "Benutzer können dieser Community nur mit einer Einladung eines anderen Benutzers beitreten"
+        users_can_invite_new_users: "Alle Benutzer können neue Benutzer zu dieser Community einladen"
+        private: "Diese Community ist privat (nur registrierte Benutzer können den Inhalt sehen)"
+        require_verification_to_post_listings: ~
+        listing_preferences: ~
+        show_listing_publishing_date: ~
+        show_category_in_listing_list: ~
+        hide_expiration_date: "Einträge haben kein Ablaufdatum"
+        listing_comments_in_use: ~
+        email_preferences: ~
+        automatic_newsletters: ~
+        email_admins_about_new_members: ~
+        integrations: Integrationen
+        google_analytics_key: ~
+        twitter_handle: ~
+        update_settings: ~
+      manage_members:
+        manage_members: "Benutzer verwalten"
+        email: E-Mail
+        name: Name
+        join_date: Beitrittsdatum
+        admin: ~
+        posting_allowed: ~
+        saving_user_status: Speichern...
+        save_user_status_successful: Gespeichert
+        save_user_status_error: "Speichern fehlgeschlagen. Bitte erneuere die Seite und versuch es noch einmal."
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
@@ -1310,6 +1345,8 @@ de:
       listing_created_at: "Eintrag erfolgreich erstellt"
     displayed_price:
       price_excludes_vat: "(Steuer ausgeschlossen)"
+    verification_required:
+      verification_required: "Verifizierung erforderlich"
   mapview:
     index:
       all_categories: "Alle Kategorien"
@@ -1732,3 +1769,23 @@ de:
     days_since:
       one: "%{count} Tag"
       other: "%{count} Tage"
+  will_paginate:
+    models:
+      person:
+        zero: Benutzer
+        one: Benutzer
+        other: Benutzer
+    previous_label: ~
+    next_label: ~
+    page_gap: ~
+    page_entries_info:
+      single_page:
+        zero: "Kein %{model} gefunden"
+        one: "%{model} wird angezeigt"
+        other: "%{count} %{model} werden angezeigt"
+      single_page_html:
+        zero: "Kein %{model} gefunden"
+        one: "<b>1</b> %{model} wird angezeigt"
+        other: "<b>all&nbsp;%{count}</b> %{model} werden angezeigt"
+      multi_page: ~
+      multi_page_html: ~

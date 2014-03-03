@@ -67,7 +67,7 @@ fi:
         edit_info: "Muokkaa tietoja"
         see_how_it_looks_like: Näytä
         verification_to_post_listings_info_content: "Ohjeteksti vahvistamattomille käyttäjille"
-        verification_to_post_listings_info_content_description: "Tässä yhteisössä ylläpitäjän on annettava käyttäjille postausoikeudet, jotta nämä voivat postata uusia ilmoituksia. Tästä voit asettaa tekstin, joka näytetään käyttäjille, joille ei ole vielä annettu näitä oikeuksia, kun he yrittävät lisätä uutta ilmoitusta." 
+        verification_to_post_listings_info_content_description: "Tässä yhteisössä ylläpitäjän on annettava käyttäjille postausoikeudet, jotta nämä voivat postata uusia ilmoituksia. Tästä voit asettaa tekstin, joka näytetään käyttäjille, joille ei ole vielä annettu näitä oikeuksia, kun he yrittävät lisätä uutta ilmoitusta."
         verification_to_post_listings_info_content_default: "Sinun pitää saada hyväksyntä ylläpitäjiltä, ennen kuin voit lisätä uuden ilmoituksen. %{contact_admin_link} saadaksesi hyväksynnän."
         contact_admin_link_text: "Ota yhteyttä ylläpitoon"
       edit_look_and_feel:
@@ -94,38 +94,32 @@ fi:
         edit_message: "Muokkaa viestiä"
         send_test_message: "Lähetä testiviesti"
       settings:
-        settings: "Asetukset"
-        general: "Yleiset"
+        settings: Asetukset
+        general: Yleiset
         users_can_review_each_other_after_transaction: "Käyttäjät voivat antaa palautetta toisilleen"
-
-        access: "Pääsyoikeudet"
+        access: Pääsyoikeudet
         join_with_invite_only: "Käyttäjät voivat liittyä yhteisöön ainoastaan saatuaan kutsun toiselta käyttäjältä"
         users_can_invite_new_users: "Käyttäjillä on oikeus kutsua muita käyttäjiä yhteisöön"
         private: "Yksityinen yhteisö (vain kirjautuneet käyttäjät näkevät sisällön)"
         require_verification_to_post_listings: "Vain ylläpitäjän erikseen hyväksymät käyttäjät voivat lisätä ilmoituksia"
-
-
-        listing_preferences: "Ilmoitusasetukset"
+        listing_preferences: Ilmoitusasetukset
         show_listing_publishing_date: "Näytä ilmoituksen julkaisuajankohta ilmoituksen sivulla"
         show_category_in_listing_list: "Näytä ilmoituskategoria listanäkymässä"
         hide_expiration_date: "Ilmoituksilla ei ole viimeistä voimassaolopäivää"
         listing_comments_in_use: "Käyttäjät voivat kommentoida ilmoituksia (kommentit näkyvät muille käyttäjille)"
-
-        email_preferences: "Sähköpostiasetukset"
+        email_preferences: Sähköpostiasetukset
         automatic_newsletters: "Lähetä automaattinen uutiskirje kaikille käyttäjille (paitsi jos he lopettavat tilauksen)"
         email_admins_about_new_members: "Lähetä sähköpostia ylläpitäjälle aina kun uusi käyttäjä liittyy yhteisöön"
-
         integrations: "Kolmansien osapuolten sovellukset"
         google_analytics_key: "Google Analytics tracking ID (classic account)"
         twitter_handle: "Twitter-tili (käytetään ilmoitussivulla olevan twitter-napin yhteydessä)"
-
         update_settings: "Update settings"
       manage_members:
-        manage_members: "Käyttäjät"
-        email: "Sähköposti"
-        name: "Nimi"
-        join_date: "Liittynyt"
-        admin: "Ylläpitäjä"
+        manage_members: Käyttäjät
+        email: Sähköposti
+        name: Nimi
+        join_date: Liittynyt
+        admin: ~
         posting_allowed: "Hyväksytty ilmoittaja"
         remove_user: "Poista"
         saving_user_status: "Tallennetaan..."
@@ -1357,6 +1351,8 @@ fi:
       listing_created_at: "Ilmoitus luotu"
     displayed_price:
       price_excludes_vat: "(alv 0)"
+    verification_required:
+      verification_required: ~
   mapview:
     index:
       all_categories: "Kaikki kategoriat"
@@ -1779,22 +1775,21 @@ fi:
   will_paginate:
     models:
       person:
-        zero:  käyttäjää
-        one:   käyttäjä
-        few:   käyttäjää
+        zero: käyttäjää
+        one: käyttäjä
+        few: käyttäjää
         other: käyttäjää
     previous_label: "&#8592; Edellinen"
     next_label: "Seuraava &#8594;"
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero:  "Ei yhtään %{model}"
-        one:   "Näytetään 1 %{model}"
+        zero: "Ei yhtään %{model}"
+        one: "Näytetään 1 %{model}"
         other: "Näytetään kaikki %{count} %{model}"
       single_page_html:
-        zero:  "Ei yhtään %{model}"
-        one:   "Näytetään <b>1</b> %{model}"
+        zero: "Ei yhtään %{model}"
+        one: "Näytetään <b>1</b> %{model}"
         other: "Näytetään kaikki <b>%{count}</b> %{model}"
-
       multi_page: "Näytetään %{from} - %{to} %{model} (kokonaismäärä %{count})."
       multi_page_html: "Näytetään <b>%{from}&nbsp;-&nbsp;%{to}</b> %{model} (kokonaismäärä <b>%{count}</b>)."

@@ -9,7 +9,7 @@ module WaitSteps
     match do |block|
       begin
         Timeout.timeout(Capybara.default_wait_time) do
-          sleep(0.1) until value = block.call
+          sleep(0.05) until value = block.call
           value
         end
       rescue TimeoutError
