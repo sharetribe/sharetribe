@@ -1,5 +1,6 @@
 module AdminManageMembersSteps
   POSTING_ALLOWED_CHECKBOX_SELECTOR = ".admin-members-can-post-listings"
+  IS_ADMIN_CHECKBOX_SELECTOR = ".admin-members-is-admin"
 
   def find_row_for_person(full_name)
     email_div = find(".admin-members-full-name", :text => "#{full_name}")
@@ -9,6 +10,11 @@ module AdminManageMembersSteps
   def find_posting_allowed_checkbox_for_person(full_name)
     find_row_for_person(full_name).find(POSTING_ALLOWED_CHECKBOX_SELECTOR)
   end
+
+  def find_admin_checkbox_for_person(full_name)
+    find_row_for_person(full_name).find(IS_ADMIN_CHECKBOX_SELECTOR)
+  end
+
 
 end
 
@@ -21,10 +27,13 @@ Then(/^I should see a range from (\d+) to (\d+) with total user count of (\d+)$/
 end
 
 Then(/^I should see list of users with the following details:$/) do |table|
-  # table is a Cucumber::Ast::Table
-  all("#admin_members_list tbody tr").each_with_index do |row, i|
-    row.all("td").each_with_index do |cell, j|
-      table.rows[i][j].should== cell.text
+  cells = all("#admin_members_list tbody tr").map do |rows|
+    rows.all("td")
+  end
+
+  table.rows.each_with_index do |row, row_num|
+    row.each_with_index do |cell, column_num|
+      cell.should == cells[row_num][column_num].text
     end
   end
 end
@@ -51,11 +60,33 @@ end
 When(/^I verify user "(.*?)" as a seller$/) do |full_name|
   find_posting_allowed_checkbox_for_person(full_name).click
   steps %Q{
-    Then there should be an active ajax request
-    When ajax requests are completed
+    Then I should see "Saved" within ".ajax-update-notification"
   }
 end
 
 Then(/^I should see that "(.*?)" can post new listings$/) do |full_name|
   find_posting_allowed_checkbox_for_person(full_name)['checked'].should_not be_nil
+end
+
+Then(/^I should see that "(.*?)" has admin rights in this community$/) do |full_name|
+  find_admin_checkbox_for_person(full_name)['checked'].should_not be_nil
+end
+
+Then(/^I should see that "(.*?)" does not have admin rights in this community$/) do |full_name|
+  find_admin_checkbox_for_person(full_name)['checked'].should be_nil
+end
+
+When(/^I promote "(.*?)" to admin$/) do |full_name|
+  find_admin_checkbox_for_person(full_name).click
+  steps %Q{
+    Then I should see "Saved" within ".ajax-update-notification"
+  }
+end
+
+Then(/^I should see that I can not remove admin rights of "(.*?)"$/) do |full_name|
+  find_admin_checkbox_for_person(full_name)['disabled'].should be_true
+end
+
+Then(/^I should see that I can remove admin rights of "(.*?)"$/) do |full_name|
+  find_admin_checkbox_for_person(full_name)['disabled'].should be_false
 end

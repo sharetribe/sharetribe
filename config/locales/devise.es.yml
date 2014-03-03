@@ -1,7 +1,7 @@
 es:
   errors:
     messages:
-      expired: "Se ha caducado, por favor pide uno nuevo"
+      expired: "Se ha caducado, por favor solicita uno nuevo"
       not_found: "no encontrado"
       already_confirmed: "ya ha sido confirmada"
       not_locked: "no está bloqueada"
@@ -17,7 +17,7 @@ es:
       invalid: "Contraseña o Email incorrecto."
       invalid_token: "Token de autenticación incorrecto."
       timeout: "Tu sesión ha expirado, por favor accede de nuevo para continuar."
-      inactive: "Tu cuenta no ha sido activada."
+      inactive: "Tu cuenta no está activada todavía."
     passwords:
       updated_not_active: "Tu contraseña ha sido cambiada exitosamente."
       send_paranoid_instructions: "Si tu email ya existe en nuestra base de datos, recibirás un enlace para recuperar tu contraseña en tu correo"
@@ -25,7 +25,7 @@ es:
       updated: "Tu contraseña ha sido modificada. Ya has accedido a tu cuenta."
     sessions:
       signed_in: "Te has conectado correctamente."
-      signed_out: "Has salido correctamente."
+      signed_out: "Has cerrado sesión correctamente."
     confirmations:
       send_paranoid_instructions: "Si tu email ya existe en nuestra base de datos, recibirás un email con instrucciones para confirmar tu cuenta en poco minutos."
       send_instructions: "Recibirás un email con instrucciones para confirmar tu cuenta en poco minutos."

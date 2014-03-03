@@ -51,6 +51,10 @@ es:
         edit_signup_info_description: ~
         edit_info: ~
         see_how_it_looks_like: ~
+        verification_to_post_listings_info_content: ~
+        verification_to_post_listings_info_content_description: ~
+        verification_to_post_listings_info_content_default: ~
+        contact_admin_link_text: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Editar apariencia de la comunidad %{community_name}"
         community_logo: Logo
@@ -74,6 +78,37 @@ es:
         welcome_email_content_description: "Este mensaje será enviado a todos los miembros nuevos cuando ellos se unen a la comunidad. Puede modificar el contenido para adaptar a su comunidad. Haciendo click en '%{send_test_message_link}' puede ver cómo queda el mensaje en tu email."
         edit_message: ~
         send_test_message: ~
+      settings:
+        settings: ~
+        general: ~
+        users_can_review_each_other_after_transaction: ~
+        access: ~
+        join_with_invite_only: ~
+        users_can_invite_new_users: ~
+        private: ~
+        require_verification_to_post_listings: ~
+        listing_preferences: ~
+        show_listing_publishing_date: ~
+        show_category_in_listing_list: ~
+        hide_expiration_date: ~
+        listing_comments_in_use: ~
+        email_preferences: ~
+        automatic_newsletters: ~
+        email_admins_about_new_members: ~
+        integrations: ~
+        google_analytics_key: ~
+        twitter_handle: ~
+        update_settings: ~
+      manage_members:
+        manage_members: ~
+        email: ~
+        name: ~
+        join_date: ~
+        admin: ~
+        posting_allowed: ~
+        saving_user_status: ~
+        save_user_status_successful: ~
+        save_user_status_error: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -664,8 +699,8 @@ es:
       view_changes: ~
     community_updates:
       added_offer: "%{name_link} ha añadido una oferta:"
-      added_request: "%{name_link} añadir una solicitud:"
-      added_listing: ~
+      added_request: "%{name_link} ha añadido una solicitud:"
+      added_listing: "%{name_link} ha añadido un listado:"
       update_mail_title: "Actualización de la comunidad %{title_link}"
       title_link_text: "%{community_name}"
       intro_paragraph: "Aquí están algunas actualizaciones que han ocurrido en %{community_link} durante el pasado %{time_since_last_update}."
@@ -1300,6 +1335,8 @@ es:
       listing_created_at: ~
     displayed_price:
       price_excludes_vat: ~
+    verification_required:
+      verification_required: ~
   mapview:
     index:
       all_categories: "Todas las categorías"
@@ -1719,3 +1756,10 @@ es:
     days_since:
       one: "%{count} día"
       other: "%{count} días"
+  will_paginate:
+    previous_label: ~
+    next_label: ~
+    page_gap: ~
+    page_entries_info:
+      multi_page: ~
+      multi_page_html: ~
