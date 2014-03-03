@@ -51,6 +51,16 @@
         - if @community_customization && @community_customization.private_community_homepage_content
           = @community_customization.private_community_homepage_content.html_safe
 
+  - if @current_community.require_verification_to_post_listings?
+    .edit-community-details-field
+      .edit-community-details-field-title
+        = t(".verification_to_post_listings_info_content")
+      = render :partial => "layouts/info_text", :locals => { :text => t(".verification_to_post_listings_info_content_description") }
+      #verification_to_post_listings_info_content{:data => {:mercury => "full"}}
+        - if @community_customization && @community_customization.verification_to_post_listings_info_content
+          = @community_customization.verification_to_post_listings_info_content.html_safe
+        - else
+          = t(".verification_to_post_listings_info_content_default", :contact_admin_link => link_to(t(".contact_admin_link_text"), new_user_feedback_path)).html_safe
 
   .edit-community-details-field
     .edit-community-details-field-title

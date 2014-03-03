@@ -206,7 +206,6 @@
 
       - content_for :extra_javascript do
         :javascript
-          debugger
           var fieldMap = $(".sortable-row").map(function(id, row) {
             return { 
               id: $(row).attr("id"), // Id, that identifies the sortable row
@@ -256,7 +255,6 @@
 
             - content_for :extra_javascript do
               :javascript
-                debugger
                 var fieldMap = $(".sortable-row").map(function(id, row) {
                   return { 
                     id: $(row).attr("id"),
@@ -270,6 +268,34 @@
                 orderManager.order.changes().onValue(function(orderStatus) {
                   // Do something with the orderStatus
                 });
+
+  .design-section
+
+    %h3.design-h3
+      = "Range slider"
+
+    .design-component
+      .design-example
+        #design-range-slider
+          - content_for :extra_javascript do
+            :javascript
+              $("#design-range-slider").noUiSlider({
+                range: [0, 100]
+                ,start: [20, 80]
+                ,connect: true
+              });
+
+      .design-code
+        %pre
+          :plain
+            #design-range-slider
+              - content_for :extra_javascript do
+                :javascript
+                  $("#design-range-slider").noUiSlider({
+                    range: [0, 100]
+                    ,start: [20, 80]
+                    ,connect: true
+                  });
 
   %h2.design-h2
     = "Responsive utilities"
@@ -442,6 +468,45 @@
         %pre
           :plain
             Use an empty image to get the correct aspect ratio
+
+  %h2.design-h2
+    = "Tables"
+
+  .design-section
+    %h3.design-h3
+      = "Simple table layout"
+    .design-component
+      .design-example
+        %table
+          %thead
+            %tr
+              %th= "Name"
+              %th= "Email"
+              %th= "Join date"
+          %tbody
+            %tr 
+              %td= "Essi Example"
+              %td= "essi@example.com"
+              %td= "2013-05-27 21:40:59"
+            %tr 
+              %td= "Jack Example"
+              %td= "jack@example.com"
+              %td= "2013-01-27 21:40:59"
+            %tr 
+              %td= "Simon Example"
+              %td= "simon@example.com"
+              %td= "2012-05-27 21:40:59"
+            %tr 
+              %td= "Jantus Cantus"
+              %td= "jant1234@example.com"
+              %td= "2011-01-27 21:40:59"
+            %tr 
+              %td= "strange guy"
+              %td= "guy@example.com"
+              %td= "2012-05-27 21:40:59"
+
+
+
 
   %h2.design-h2
     = "Images"

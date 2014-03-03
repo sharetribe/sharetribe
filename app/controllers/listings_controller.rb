@@ -23,6 +23,8 @@ class ListingsController < ApplicationController
   before_filter :only => [ :edit, :update ] do |controller|
     controller.ensure_current_user_is_listing_author t("layouts.notifications.only_listing_author_can_edit_a_listing")
   end
+
+  before_filter :is_authorized_to_post, :only => [ :new, :create ]
   
   skip_filter :dashboard_only
   
@@ -200,6 +202,10 @@ class ListingsController < ApplicationController
   def unfollow
     change_follow_status("unfollow")
   end
+
+  def verification_required
+    
+  end
   
   private
   
@@ -272,6 +278,12 @@ class ListingsController < ApplicationController
     logger.info "Mapped values: #{mapped_values.inspect}"
 
     return mapped_values
+  end
+
+  def is_authorized_to_post
+    if @current_community.require_verification_to_post_listings? && !@current_community_membership.can_post_listings?
+      redirect_to verification_required_listings_path 
+    end
   end
 
 end

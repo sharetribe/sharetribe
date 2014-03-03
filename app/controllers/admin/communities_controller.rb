@@ -30,10 +30,40 @@ class Admin::CommunitiesController < ApplicationController
     }
   end
   
+  def manage_members
+    @selected_tribe_navi_tab = "admin"
+    @selected_left_navi_link = "manage_members"
+    @community = @current_community
+    @members = @current_community.members.paginate(:page => params[:page], :per_page => 50).order("created_at desc")
+  end
+
+  def posting_allowed
+    CommunityMembership.where(:person_id => params[:allowed_to_post]).update_all("can_post_listings = 1")
+    CommunityMembership.where(:person_id => params[:disallowed_to_post]).update_all("can_post_listings = 0")
+
+    render nothing: true, status: 200
+  end
+
+  def promote_admin
+    if removes_itself?(params[:remove_admin], @current_user, @current_community)
+      render nothing: true, status: 405
+    else
+      CommunityMembership.where(:person_id => params[:add_admin]).update_all("admin = 1")
+      CommunityMembership.where(:person_id => params[:remove_admin]).update_all("admin = 0")
+
+      render nothing: true, status: 200
+    end
+  end
+
   def test_welcome_email
     PersonMailer.welcome_email(@current_user, @current_community, true).deliver
     flash[:notice] = t("layouts.notifications.test_welcome_email_delivered_to", :email => @current_user.email)
     redirect_to edit_welcome_email_admin_community_path(@current_community)
+  end
+
+  def settings
+    @selected_tribe_navi_tab = "admin"
+    @selected_left_navi_link = "admin_settings"
   end
   
   def update
@@ -55,6 +85,22 @@ class Admin::CommunitiesController < ApplicationController
       flash.now[:error] = t("layouts.notifications.community_update_failed")
       render :action => return_to_action  
     end
+  end
+
+  def update_settings
+    @community = Community.find(params[:id])
+    if @community.update_attributes(params[:community])
+      flash[:notice] = t("layouts.notifications.community_updated")
+      redirect_to settings_admin_community_path(@current_community)
+    else
+      flash.now[:error] = t("Update failed")
+      render :action => "settings"
+    end
+  end
+
+  def removes_itself?(ids, current_admin_user, community)
+    ids ||= []
+    ids.include?(current_admin_user.id) && current_admin_user.is_admin_of?(community)
   end
   
 end

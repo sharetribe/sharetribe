@@ -66,6 +66,10 @@ en:
         edit_signup_info_description: "This is an info text that can be shown to users in the signup page. There you can give the users instructions for signing up, information like where to get an invite, etc. By default there are no instructions."
         edit_info: "Edit information"
         see_how_it_looks_like: "See how it looks like"
+        verification_to_post_listings_info_content: "Info text to non-verified users"
+        verification_to_post_listings_info_content_description: "This marketplace requires people to be verified manually by admin before they can post listings. Here you can set the default text that is shown to non-verified users when they try to post a new listing."
+        verification_to_post_listings_info_content_default: "This marketplace requires people to be verified manually by admin before they can post listings. You have not yet been verified. Please %{contact_admin_link} to be verified."
+        contact_admin_link_text: "contact the admin"
       edit_look_and_feel:
         edit_community_look_and_feel: "Edit community \"%{community_name}\" look and feel"
         community_logo: "Full logo"
@@ -89,6 +93,43 @@ en:
         welcome_email_content_description: "The message below will be sent to every new member when they join. You can customize the message to fit your community. By clicking '%{send_test_message_link}' you can a preview message to your email address, so you can see how it looks in an email client."
         edit_message: "Edit message"
         send_test_message: "Send test message"
+      settings:
+        settings: "Settings"
+        general: "General"
+        users_can_review_each_other_after_transaction: "Users can review each other after transaction"
+
+        access: "Access"
+        join_with_invite_only: "Users can only join this community with an invite from another user"
+        users_can_invite_new_users: "All users can invite new users to this community"
+        private: "This community is private (only registered users can see the content)"
+        require_verification_to_post_listings: "Only users verified by admin can post new listings"
+
+
+        listing_preferences: "Listing preferences"
+        show_listing_publishing_date: "Display publishing date of the listing on the listing page"
+        show_category_in_listing_list: "Display listing category in list view"
+        hide_expiration_date: "Listings do not have an expiration date"
+        listing_comments_in_use: "Allow users to post comments to listings (viewable to all other users)"
+
+        email_preferences: "Email preferences"
+        automatic_newsletters: "Send automatic daily / weekly newsletters to all users (unless they opt out)"
+        email_admins_about_new_members: "Send admins an email whenever a new user signs up"
+
+        integrations: "Integrations"
+        google_analytics_key: "Google Analytics tracking ID (classic account)"
+        twitter_handle: "Twitter handle (used with tweet button in listing page)"
+
+        update_settings: "Update settings"
+      manage_members:
+        manage_members: "Manage users"
+        email: "Email"
+        name: "Name"
+        join_date: "Joined"
+        admin: "Admin"
+        posting_allowed: "Posting allowed"
+        saving_user_status: "Saving..."
+        save_user_status_successful: "Saved"
+        save_user_status_error: "Saving failed. Please refresh the page and try again."
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -1311,6 +1352,8 @@ en:
       listing_created_at: "Listing created"
     displayed_price:
       price_excludes_vat: "(excludes VAT)"
+    verification_required:
+      verification_required: "Verification required"
   mapview:
     index:
       all_categories: "All categories"
@@ -1730,3 +1773,25 @@ en:
     days_since:
       one: "%{count} day"
       other: "%{count} days"
+  will_paginate:
+    models:
+      person:
+        zero:  users
+        one:   user
+        few:   users
+        other: users
+    previous_label: "&#8592; Previous"
+    next_label: "Next &#8594;"
+    page_gap: "&hellip;"
+    page_entries_info:
+      single_page:
+        zero:  "No %{model} found"
+        one:   "Displaying 1 %{model}"
+        other: "Displaying all %{count} %{model}"
+      single_page_html:
+        zero:  "No %{model} found"
+        one:   "Displaying <b>1</b> %{model}"
+        other: "Displaying <b>all&nbsp;%{count}</b> %{model}"
+
+      multi_page: "Displaying %{model} %{from} - %{to} of %{count} in total"
+      multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> in total"

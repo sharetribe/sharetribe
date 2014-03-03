@@ -71,13 +71,27 @@ ST.utils = (function(_) {
     return $(selector);
   }
 
+  /**
+    Give an array of objects and get back one merged object.
+
+    ## Usage:
+
+    objectsMerge([{a: 1, b: 2}, {c: 3}, {d: 4}]) => {a: 1, b: 2, c: 3, d: 4}
+  */
+  function objectsMerge(objects) {
+    return objects.reduce(function(a, b) {
+      return _.merge(a, b);
+    }, {});
+  }
+
   return {
     findNextIndex: findNextIndex,
     findPrevIndex: findPrevIndex,
     swapArrayElements: swapArrayElements,
     relativeUrl: relativeUrl,
     jquerifyAttributeValue: jquerifyAttributeValue,
-    findElementByName: findElementByName
+    findElementByName: findElementByName,
+    objectsMerge: objectsMerge
   };
 
 })(_);

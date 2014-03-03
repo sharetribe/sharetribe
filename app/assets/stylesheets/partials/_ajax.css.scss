@@ -1,0 +1,32 @@
+@import "mixins/all";
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
+
+.ajax-update-notification {
+  position: fixed;
+  top: lines(2);
+  z-index: 99999;
+  left: lines(1);
+  right: lines(1);
+  text-align: center;
+}
+
+.ajax-update-notification-content {
+  max-width: lines(42 - 2); // 2 for padding
+  display: inline-block;
+  @include single-box-shadow(rgba(0, 0, 0, 0.2));
+  @include border-radius($default-border-radius);
+}
+
+.ajax-update-notice,
+.ajax-update-success,
+.ajax-update-error {
+  position: relative;
+  display: none;
+  @include border-radius($default-border-radius);
+  padding: lines(0.5) lines(0.75);
+}
+
+.ajax-update-text {
+  padding-left: lines(0.25);
+}

@@ -51,6 +51,10 @@ cs:
         edit_signup_info_description: ~
         edit_info: ~
         see_how_it_looks_like: ~
+        verification_to_post_listings_info_content: ~
+        verification_to_post_listings_info_content_description: ~
+        verification_to_post_listings_info_content_default: ~
+        contact_admin_link_text: ~
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
@@ -74,6 +78,37 @@ cs:
         welcome_email_content_description: ~
         edit_message: ~
         send_test_message: ~
+      settings:
+        settings: ~
+        general: ~
+        users_can_review_each_other_after_transaction: ~
+        access: ~
+        join_with_invite_only: ~
+        users_can_invite_new_users: ~
+        private: ~
+        require_verification_to_post_listings: ~
+        listing_preferences: ~
+        show_listing_publishing_date: ~
+        show_category_in_listing_list: ~
+        hide_expiration_date: ~
+        listing_comments_in_use: ~
+        email_preferences: ~
+        automatic_newsletters: ~
+        email_admins_about_new_members: ~
+        integrations: ~
+        google_analytics_key: ~
+        twitter_handle: ~
+        update_settings: ~
+      manage_members:
+        manage_members: ~
+        email: ~
+        name: ~
+        join_date: ~
+        admin: ~
+        posting_allowed: ~
+        saving_user_status: ~
+        save_user_status_successful: ~
+        save_user_status_error: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -1295,6 +1330,8 @@ cs:
       listing_created_at: ~
     displayed_price:
       price_excludes_vat: ~
+    verification_required:
+      verification_required: ~
   mapview:
     index:
       all_categories: ~
@@ -1708,3 +1745,10 @@ cs:
     seconds_ago: ~
     year_ago: ~
     years_ago: ~
+  will_paginate:
+    previous_label: ~
+    next_label: ~
+    page_gap: ~
+    page_entries_info:
+      multi_page: ~
+      multi_page_html: ~

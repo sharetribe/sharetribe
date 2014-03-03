@@ -1,3 +1,6 @@
+// Vendor
+//= require jquery.nouislider
+
 //= require ./reset
 //= require ./fonts
 //= require ./main
@@ -14,6 +17,10 @@
 //= require ./partials/_admin
 //= require ./partials/_info-text
 //= require ./partials/_forms
+//= require ./partials/_table
+//= require ./partials/_pagination
+//= require ./partials/_ajax
+//= require ./partials/_jquery.nouislider.customizations
 
 //= require ./views/_home
 //= require ./views/_home-thumbnail-grid
