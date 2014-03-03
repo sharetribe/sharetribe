@@ -12,6 +12,8 @@
                 = check_box_tag "filter_option_#{option.id}", "#{option.id}", params["filter_option_#{option.id}"]
                 %span.custom-filter-checkbox-label-text
                   = option.title(I18n.locale)
+  - @current_community.custom_numeric_fields.each do |numeric_field|
+    Numeric
   - params.except("action", "controller").each do |param, value|
     - unless param.match(/^filter_option/)
       = hidden_field_tag param, value
