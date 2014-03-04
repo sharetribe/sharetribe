@@ -25,7 +25,7 @@
     .row
       .col-12
         .custom-filter-options
-          %div{id: "range-slider-#{id}"}
+          .range-slider{id: "range-slider-#{id}"}
           - content_for :extra_javascript do
             :javascript
               function updateMin(el) {

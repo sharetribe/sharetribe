@@ -7,6 +7,12 @@
 
 @import "mixins/all";
 
+$handle-width: 22px;
+.range-slider {
+  margin-left: $handle-width / 2;
+  margin-right: $handle-width / 2;
+}
+
 /* No shadows, flat design ;) */
 .noUi-background,
 .noUi-connect,
@@ -28,9 +34,9 @@
 }
 
 .noUi-horizontal .noUi-handle {
-  width: 22px;
-  height: 22px;
-  left: -11px;
+  width: $handle-width;
+  height: $handle-width;
+  left: $handle-width / -2;
   top: -6px;
 }
 
