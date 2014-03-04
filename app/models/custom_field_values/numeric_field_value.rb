@@ -2,6 +2,10 @@ class NumericFieldValue < CustomFieldValue
   attr_accessible :numeric_value
   validates_numericality_of :numeric_value
 
+  def display_value
+    question.allow_decimals ? numeric_value : numeric_value.to_i
+  end
+
   # See self._search_many
   # This is just dummy wrapper to log the execution time
   def self.search_many(with_many, ids=[])

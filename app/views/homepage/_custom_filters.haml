@@ -42,10 +42,12 @@
 
               $("#range-slider-#{id}").noUiSlider({
                 range: [#{field.min}, #{field.max}]
+                ,step: #{field.allow_decimals ? 0.01 : 1}
                 ,start: [#{params["numeric_filter_min_" + field.id.to_s] || field.min}, #{params["numeric_filter_max_" + field.id.to_s] || field.max}]
                 ,connect: true
                 ,serialization: {
-                  to: [
+                  resolution: #{field.allow_decimals ? 0.01 : 1}
+                  ,to: [
                     [$("#numeric_filter_min_#{id}"), updateMin($("#custom-filter-min-value-#{id}"))],
                     [$("#numeric_filter_max_#{id}"), updateMax($("#custom-filter-max-value-#{id}"))]
                   ]
