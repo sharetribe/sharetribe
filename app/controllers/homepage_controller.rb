@@ -55,11 +55,12 @@ class HomepageController < ApplicationController
 
     numeric_params = HomepageController.numeric_filter_params(params)
     numeric_search_params = HomepageController.numeric_filter_params_to_ranges(numeric_params)
+    numeric_search_params = HomepageController.filter_unnecessary(numeric_search_params, @current_community.custom_numeric_fields)
 
     numeric_search_needed = !numeric_search_params.empty?
 
     @filter_params[:listing_id] = if numeric_search_needed
-       NumericFieldValue.search_many(numeric_search_params).collect(&:listing_id)
+      NumericFieldValue.search_many(numeric_search_params).collect(&:listing_id)
     end
 
     @listings = if numeric_search_needed && @filter_params[:listing_id].empty?
@@ -109,7 +110,7 @@ class HomepageController < ApplicationController
       key, value = numeric_param
       _, __, boundary, id = key.split("_")
 
-      memo << {id: id, boundary: boundary, value: value}
+      memo << {id: id.to_i, boundary: boundary, value: value}
     end
     
     grouped_params = parsed_params.group_by { |param| param[:id] }
@@ -148,6 +149,14 @@ class HomepageController < ApplicationController
     end
     
     array_for_search
+  end
+
+  # Filter search params if their values equal min/max
+  def self.filter_unnecessary(search_params, numeric_fields)
+    search_params.reject do |search_param|
+      numeric_field = numeric_fields.find(search_param[:custom_field_id])
+      search_param == { custom_field_id: numeric_field.id, numeric_value: (numeric_field.min..numeric_field.max) }
+    end
   end
 
   # Give array of models (categories, transaction_types, etc.) and

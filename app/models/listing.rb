@@ -162,7 +162,6 @@ class Listing < ActiveRecord::Base
   end
   
   def self.find_with(params, current_user=nil, current_community=nil, per_page=100, page=1)
-
     params ||= {}  # Set params to empty hash if it's nil
     joined_tables = []
         

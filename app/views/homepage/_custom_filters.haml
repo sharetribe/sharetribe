@@ -21,7 +21,7 @@
       .col-12
         .custom-filter-title
           = field.name(I18n.locale)
-    - id = (Time.now.to_f * 100000).to_i
+    - id = [field.id, device].join("-")
     .row
       .col-12
         .custom-filter-options

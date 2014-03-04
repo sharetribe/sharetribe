@@ -119,12 +119,25 @@ When /^I add a new custom field "(.*?)" with invalid data$/ do |field_name|
   }
 end
 
+
 Given /^there is a custom field "(.*?)" in community "(.*?)" for category "(.*?)"$/ do |name, community, category_name|
   current_community = Community.find_by_domain(community)
   @custom_field = FactoryGirl.build(:custom_dropdown_field, {
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")],
     :category_custom_fields => [FactoryGirl.build(:category_custom_field, :category => find_category_by_name(category_name), :custom_field => @custom_field)],
+  })
+  @custom_field.save
+end
+
+Given /^there is a numeric field "(.*?)" in community "(.*?)" for category "(.*?)" with min value "(.*?)" and max value "(.*?)"$/ do |name, community, category_name, min, max|
+  current_community = Community.find_by_domain(community)
+  @custom_field = FactoryGirl.build(:custom_numeric_field, {
+    :community_id => current_community.id,
+    :names => [CustomFieldName.create(:value => name, :locale => "en")],
+    :category_custom_fields => [FactoryGirl.build(:category_custom_field, :category => find_category_by_name(category_name), :custom_field => @custom_field)],
+    :min => min.to_i,
+    :max => max.to_i
   })
   @custom_field.save
 end
