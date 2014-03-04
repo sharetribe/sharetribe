@@ -1,0 +1,63 @@
+/** 
+	Sharetribe customizations to noUISlider
+
+	Most of the style definitions for the slider are located under vendor directory (file jquery.nouislider.css)
+	These are Sharetribe specific customizations.
+**/
+
+@import "mixins/all";
+
+/* No shadows, flat design ;) */
+.noUi-background,
+.noUi-connect,
+.noUi-target,
+.noUi-target.noUi-connect,
+.noUi-handle,
+.noUi-active {
+	box-shadow: none;
+}
+
+/* Custom background color */
+.noUi-connect {
+	background: $link;
+}
+
+/* Size */
+.noUi-horizontal {
+	height: 12px;
+}
+
+.noUi-horizontal .noUi-handle {
+	width: 22px;
+	height: 22px;
+	left: -11px;
+	top: -6px;
+}
+
+/* Disable handle stripes */
+.noUi-handle:before,
+.noUi-handle:after {
+	display: none;
+}
+
+/* Set background color, no border */
+.noUi-background {
+	background: $highlight;
+}
+
+.noUi-handle {
+	border: 0px;
+	background: lighten($border, 5%);
+}
+
+/* "Remove" borders, i.e. make the color same as background */
+.noUi-target {
+	border-color: $highlight;
+}
+
+/* Active color */
+.noUi-active {
+	background: lighten($border, 10%);
+}
+
+/* No customization for vertical. It may not work */
