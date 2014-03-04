@@ -12,10 +12,58 @@
                 = check_box_tag "filter_option_#{option.id}", "#{option.id}", params["filter_option_#{option.id}"]
                 %span.custom-filter-checkbox-label-text
                   = option.title(I18n.locale)
-  - @current_community.custom_numeric_fields.each do |numeric_field|
-    Numeric
   - params.except("action", "controller").each do |param, value|
     - unless param.match(/^filter_option/)
       = hidden_field_tag param, value
+
+  - @current_community.custom_numeric_fields.sort.each do |field|
+    .row
+      .col-12
+        .custom-filter-title
+          = field.name(I18n.locale)
+    - id = (Time.now.to_f * 100000).to_i
+    .row
+      .col-12
+        .custom-filter-options
+          %div{id: "range-slider-#{id}"}
+          - content_for :extra_javascript do
+            :javascript
+              function updateMin(el) {
+                return function(val) {
+                  el.html(val);
+                }
+              }
+
+              function updateMax(el) {
+                return function(val) {
+                  el.html(val);
+                }
+              }
+
+              $("#range-slider-#{id}").noUiSlider({
+                range: [#{field.min}, #{field.max}]
+                ,start: [#{params["numeric_filter_min_" + field.id.to_s] || field.min}, #{params["numeric_filter_max_" + field.id.to_s] || field.max}]
+                ,connect: true
+                ,serialization: {
+                  to: [
+                    [$("#numeric_filter_min_#{id}"), updateMin($("#custom-filter-min-value-#{id}"))],
+                    [$("#numeric_filter_max_#{id}"), updateMax($("#custom-filter-max-value-#{id}"))]
+                  ]
+                }
+              });
+    .row
+      .col-12
+        .left
+          %span.custom-filter-min-max-title
+            Min:
+          %span{id: "custom-filter-min-value-#{id}"}
+          %input{type: "hidden", id: "numeric_filter_min_#{id}", name: "numeric_filter_min_#{field.id}", value: params["numeric_filter_min_#{field.id}"]}
+        .right
+          %span.custom-filter-min-max-title
+            Max:
+          %span{id: "custom-filter-max-value-#{id}"}
+          %input{type: "hidden", id: "numeric_filter_max_#{id}", name: "numeric_filter_max_#{field.id}", value: params["numeric_filter_max_#{field.id}"]}
+
+
   %button{type: 'submit'}
     = t(".update_view")

@@ -39,6 +39,13 @@ class Listing < ActiveRecord::Base
   scope :public, :conditions  => "privacy = 'public'"
   scope :private, :conditions  => "privacy = 'private'"
 
+  # Create an "empty" relationship. This is needed in search when we want to stop the search chain (NumericFields)
+  # and just return empty result.
+  #
+  # When moving to Rails 4.0, remove this and use Model.none 
+  # http://stackoverflow.com/questions/4877931/how-to-return-an-empty-activerecord-relation
+  scope :none, where('1 = 0')
+
   VALID_VISIBILITIES = ["this_community", "all_communities"]
   VALID_PRIVACY_OPTIONS = ["private", "public"]
   
@@ -155,6 +162,7 @@ class Listing < ActiveRecord::Base
   end
   
   def self.find_with(params, current_user=nil, current_community=nil, per_page=100, page=1)
+
     params ||= {}  # Set params to empty hash if it's nil
     joined_tables = []
         
@@ -199,7 +207,7 @@ class Listing < ActiveRecord::Base
     
     # Two ways of finding, with or without sphinx
     if params[:search].present? || params[:transaction_types].present? || params[:category].present? || params[:custom_dropdown_field_options].present?
-      
+
       # sort by time by default
       params[:sort] ||= 'created_at DESC'
       
@@ -218,7 +226,8 @@ class Listing < ActiveRecord::Base
 
       with[:category_id] = params[:categories][:id] if params[:categories].present?
       with[:transaction_type_id] = params[:transaction_types][:id] if params[:transaction_types].present?
-      
+      with[:listing_id] = params[:listing_id] if params[:listing_id].present?
+
       params[:custom_dropdown_field_options] ||= [] # use emtpy table rather than nil to avoid confused sphinx
 
       with_all = {:custom_dropdown_field_options => params[:custom_dropdown_field_options]}
@@ -241,6 +250,7 @@ class Listing < ActiveRecord::Base
       query[:categories] = params[:categories] if params[:categories]
       # FIX THIS query[:transaction_types] = params[:transaction_types] if params[:transaction_types]
       query[:author_id] = params[:person_id] if params[:person_id]    # this is not yet used with search
+      query[:id] = params[:listing_id] if params[:listing_id].present?
       listings = joins(joined_tables).where(query).currently_open(params[:status]).visible_to(current_user, current_community).includes(params[:include]).order("listings.created_at DESC").paginate(:per_page => per_page, :page => page)
     end
     return listings
@@ -346,5 +356,4 @@ class Listing < ActiveRecord::Base
     current_community.payments_in_use? && 
     !current_user.can_receive_payments_at?(current_community)
   end
-  
 end
