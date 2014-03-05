@@ -57,7 +57,7 @@ class ListingsController < ApplicationController
     params[:include] = :origin_loc
     params.delete("controller")
     params.delete("action")
-    params["custom_field_options"] = JSON.parse(params["custom_field_options"]) if params["custom_field_options"].present?
+    params["custom_dropdown_field_options"] = JSON.parse(params["custom_dropdown_field_options"]) if params["custom_dropdown_field_options"].present?
     # Limit the amount of listings to get to 500 newest to avoid slowing down the map too much.
     @listings = Listing.find_with(params, @current_user, @current_community, 500)
     render :json => { :data => @listings }
@@ -243,22 +243,31 @@ class ListingsController < ApplicationController
 
   def custom_field_value_factory(custom_field_id, answer_value)
     question = CustomField.find(custom_field_id)
-    answer = CustomFieldValue.new()
-    answer.question = question
 
-    question.with_type { |question_type|
+    answer = question.with_type do |question_type|
       case question_type
       when :dropdown
         option_id = answer_value.to_i
+        answer = DropdownValue.new
         answer.custom_field_option_selections = [CustomFieldOptionSelection.new(:custom_field_value => answer, :custom_field_option_id => answer_value)]
         answer
       when :text_field
+        answer = TextFieldValue.new
         answer.text_value = answer_value
+        answer
+      when :numeric
+        answer = NumericFieldValue.new
+        answer.numeric_value = answer_value
         answer
       else
         throw "Unimplemented custom field answer for question #{question_type}"
       end
-    }
+    end
+
+    answer.question = question
+    answer.save
+    logger.info "Errors: #{answer.errors.full_messages.inspect}"
+    return answer
   end
 
   def create_field_values(custom_field_params={})
@@ -266,6 +275,8 @@ class ListingsController < ApplicationController
       custom_field_value_factory(custom_field_id, answer_value) unless answer_value.blank?
     end.compact
     
+    logger.info "Mapped values: #{mapped_values.inspect}"
+
     return mapped_values
   end
 

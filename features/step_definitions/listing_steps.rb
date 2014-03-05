@@ -17,6 +17,17 @@ Given /^that listing is closed$/ do
   @listing.update_attribute(:open, false)
 end
 
+Given(/^that listing has a numeric answer "(.*?)" for "(.*?)"$/) do |answer, custom_field|
+  numeric_custom_field = find_numeric_custom_field_type_by_name(custom_field)
+  FactoryGirl.create(:custom_numeric_field_value, listing: @listing, numeric_value: answer, question: numeric_custom_field)
+end
+
+When(/^I set search range for "(.*?)" between "(.*?)" and "(.*?)"$/) do |custom_field, min, max|
+  numeric_custom_field = find_numeric_custom_field_type_by_name(custom_field)
+  selector = "#range-slider-#{numeric_custom_field.id}-desktop"
+  page.execute_script("$('#{selector}').val([#{min.to_f}, #{max.to_f}])");
+end
+
 Given /^visibility of that listing is "([^"]*)"$/ do |visibility|
   @listing.update_attribute(:visibility, visibility)
 end
@@ -106,9 +117,8 @@ end
 Given /^there is a dropdown field "(.*?)" for category "(.*?)" in community "(.*?)" with options:$/ do |field_title, category_name, community_domain, opts_table|
   @community = Community.find_by_domain(community_domain)
   @category = Category.find_by_name(category_name)
-  @custom_field = FactoryGirl.build(:custom_dropdown_field, :community => @community)
+  @custom_field = FactoryGirl.build(:custom_dropdown_field, :community => @community, :names => [CustomFieldName.create(:value => field_title, :locale => "en")])
   @custom_field.category_custom_fields << FactoryGirl.build(:category_custom_field, :category => @category, :custom_field => @custom_field)
-  @custom_field.names << CustomFieldName.create(:value => field_title, :locale => "en")
   
   opts_table.hashes.each do |hash|
     title = CustomFieldOptionTitle.create(:value => hash[:title], :locale => "en")
@@ -123,7 +133,7 @@ end
 Given /^that listing has custom field "(.*?)" with value "(.*?)"$/ do |field_title, option_title|
   field = CustomFieldName.find_by_value!(field_title).custom_field
   option = CustomFieldOptionTitle.find_by_value!(option_title).custom_field_option
-  value = FactoryGirl.build(:custom_field_value, :listing => @listing, :question => field)
+  value = FactoryGirl.build(:dropdown_value, :listing => @listing, :question => field)
   selection = CustomFieldOptionSelection.create!(:custom_field_value => value, :custom_field_option => option)
   value.custom_field_option_selections << selection
   value.save!

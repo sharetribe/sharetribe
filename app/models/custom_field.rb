@@ -1,7 +1,16 @@
 class CustomField < ActiveRecord::Base
   include SortableByPriority # use `sort_priority()` for sorting
   
-  attr_accessible :type, :name_attributes, :category_attributes, :option_attributes, :sort_priority, :required
+  attr_accessible(
+    :type,
+    :name_attributes,
+    :category_attributes,
+    :option_attributes,
+    :sort_priority,
+    :required,
+    :min,
+    :max
+  )
   
   has_many :names, :class_name => "CustomFieldName", :dependent => :destroy
 
@@ -14,7 +23,7 @@ class CustomField < ActiveRecord::Base
   
   belongs_to :community
   
-  VALID_TYPES = ["Dropdown", "TextField"]
+  VALID_TYPES = ["Dropdown", "TextField", "NumericField"]
 
   validates_length_of :names, :minimum => 1
   validates_length_of :category_custom_fields, :minimum => 1
@@ -46,4 +55,17 @@ class CustomField < ActiveRecord::Base
     # I hope this can be simplified after the transaction_type/share_type refactoring
     CustomFieldValue.find_by_listing_id_and_custom_field_id(listing.id, self.id)
   end
+
+  def with(expected_type, &block)
+    with_type do |own_type|
+      if own_type == expected_type
+        block.call
+      end
+    end
+  end
+
+  def with_type(&block)
+    throw "Implement this in the subclass"
+  end
+
 end

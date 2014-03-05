@@ -125,6 +125,22 @@ function add_validator_methods() {
       }
     );
 
+  $.validator.
+    addMethod("max_bound",
+      function(value, element, otherName) {
+        var $otherInput = ST.utils.findElementByName(otherName);
+        return Number(value) > Number($otherInput.val());
+      }
+    );
+
+  $.validator.
+    addMethod("min_bound",
+      function(value, element, otherName) {
+        var $otherInput = ST.utils.findElementByName(otherName);
+        return Number(value) < Number($otherInput.val());
+      }
+    );
+
   $.validator.addClassRules("required", {
     required: true
   });
@@ -1087,15 +1103,22 @@ function initialize_admin_listing_field_form_view(locale, form_id, option_count)
 
   var $form = $(form_id);
   var CATEGORY_CHECKBOX_NAME = "custom_field[category_attributes][][category_id]";
-  
-  $(".target").change(function() {
-    alert( "Handler for .change() called." );
-  });
+  var MIN_NAME = "custom_field[min]"
+  var MAX_NAME = "custom_field[max]"
 
   var rules = {}
   rules[CATEGORY_CHECKBOX_NAME] = {
     required: true
   };
+  rules[MIN_NAME] = {
+    number: true,
+    min_bound: MAX_NAME
+  };
+  rules[MAX_NAME] = {
+    number: true,
+    max_bound: MIN_NAME
+  };
+
 
   $(form_id).validate({
     rules: rules,

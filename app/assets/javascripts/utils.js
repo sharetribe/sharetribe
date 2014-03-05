@@ -45,6 +45,33 @@ ST.utils = (function(_) {
   }
 
   /**
+    Give attribute value and get back jqueryfied version that
+    can be used as a part of a selector
+
+    Example:
+
+    var jquerified = jquerifyAttributeValue("person[name]") // => "person\[name\]"
+    nameInput = $("[name=" + jquerified + "]");
+  */
+  function jquerifyAttributeValue(attrValue) {
+    return attrValue.replace(/\[/g, "\\[").replace(/\]/g, "\\]");
+  }
+
+  /**
+    Give element `name` attribute value and get back matching elements
+
+    Example:
+    <input name="plaaplaa">
+
+    var plaaplaa = findElementByName("plaaplaa") // => jQuery element
+
+  */
+  function findElementByName(name) {
+    var selector = ["[name=", jquerifyAttributeValue(name), "]"].join("");
+    return $(selector);
+  }
+
+  /**
     Give an array of objects and get back one merged object.
 
     ## Usage:
@@ -52,16 +79,18 @@ ST.utils = (function(_) {
     objectsMerge([{a: 1, b: 2}, {c: 3}, {d: 4}]) => {a: 1, b: 2, c: 3, d: 4}
   */
   function objectsMerge(objects) {
-      return objects.reduce(function(a, b) {
-        return _.merge(a, b);
-      }, {});
-    }
+    return objects.reduce(function(a, b) {
+      return _.merge(a, b);
+    }, {});
+  }
 
   return {
     findNextIndex: findNextIndex,
     findPrevIndex: findPrevIndex,
     swapArrayElements: swapArrayElements,
     relativeUrl: relativeUrl,
+    jquerifyAttributeValue: jquerifyAttributeValue,
+    findElementByName: findElementByName,
     objectsMerge: objectsMerge
   };
 
