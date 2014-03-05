@@ -9,17 +9,9 @@ class NumericFieldValue < CustomFieldValue
   # See self._search_many
   # This is just dummy wrapper to log the execution time
   def self.search_many(with_many, ids=[])
-    beginning_time = Time.now
-    result = NumericFieldValue._search_many(with_many, ids)
-    end_time = Time.now
-
-    total_time = end_time - beginning_time
-    
-    if (total_time > 0.5)
-      logger.warn "Searching with #{with_many.count} numeric fields took too long: #{(end_time - beginning_time)*1000} milliseconds"
-    end
-
-    result
+    TimingService.log(0.5, "Searching with #{with_many.count} numeric fields took too long") {
+      NumericFieldValue._search_many(with_many, ids)
+    }
   end
 
   private
