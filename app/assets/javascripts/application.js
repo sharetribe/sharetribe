@@ -31,4 +31,5 @@
 //= require admin/manage_members
 //= require payment_math
 //= require jquery.nouislider
+//= require range_filter
 //= require_self
