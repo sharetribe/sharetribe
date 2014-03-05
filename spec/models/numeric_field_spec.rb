@@ -5,6 +5,8 @@ describe Numeric do
     let(:numeric) { FactoryGirl.build(:custom_numeric_field) }
 
     it "should have min and max values" do
+      numeric.min = nil
+      numeric.max = nil
       numeric.should_not be_valid
 
       numeric.min = 0
