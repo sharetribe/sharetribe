@@ -1,6 +1,5 @@
-#This has to be on top!
-# this part is optional, but it gets SimpleCov working when running
-# specs without zeus (as long as zeus is not running)
+#Set up coveralls, this needs to be on top! Zeus check enables using zeus.
+#These don't work well together if used simulatenously.
 def zeus_running?
   File.exists? '.zeus.sock'
 end

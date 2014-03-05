@@ -1,3 +1,14 @@
+#Set up coveralls, this needs to be on top! Zeus check enables using zeus.
+#These don't work well together if used simulatenously.
+def zeus_running?
+  File.exists? '.zeus.sock'
+end
+
+if !zeus_running?
+  require 'coveralls'
+  Coveralls.wear!('rails')
+end
+
 require 'rubygems'
 
 #uncomment the following line to use spork with the debugger
