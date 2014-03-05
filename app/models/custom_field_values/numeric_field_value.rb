@@ -18,7 +18,7 @@ class NumericFieldValue < CustomFieldValue
 
   # Recursive function that does multiple sphinx searches
   #
-  # Give a array of filtering options and get back search results that
+  # Give an array of filtering options and get back search results that
   # matches all the options
   #
   # Usage: 
