@@ -106,9 +106,11 @@ es:
         join_date: ~
         admin: ~
         posting_allowed: ~
+        remove_user: ~
         saving_user_status: ~
         save_user_status_successful: ~
         save_user_status_error: ~
+        remove_user_confirmation: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -527,6 +529,10 @@ es:
       for_apartment_building: condominio
       for_other: otro
   community_memberships:
+    access_denied:
+      access_denied: ~
+      you_are_banned_in_this_community: ~
+      contact_page_link: ~
     new:
       welcome_fb_user: "Bienvenido a %{service_name}, %{name}!"
       fb_join_accept_terms: "Hay un paso más antes de unirte a esta comunidad: necesitas aceptar los términos de uso."

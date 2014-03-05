@@ -4,7 +4,7 @@ de:
       edit:
         edit_listing_category: "Kategorie '%{category}' bearbeiten"
       index:
-        listing_categories: Eintragskategorien
+        listing_categories: "Kategorien der Einträge"
         create_a_new_category: "+ Neue Kategorie erstellen"
         remove_category_confirmation: "Bist du sicher, dass du die Kategorie '%{category_name}' entfernen möchtest?"
         saving_order: "Reihenfolge der Kategorien speichern"
@@ -113,17 +113,19 @@ de:
         integrations: Integrationen
         google_analytics_key: ~
         twitter_handle: ~
-        update_settings: ~
+        update_settings: "Einstellungen erneuern"
       manage_members:
         manage_members: "Benutzer verwalten"
         email: E-Mail
         name: Name
-        join_date: Beitrittsdatum
-        admin: ~
+        join_date: Beigetreten
+        admin: Administrator
         posting_allowed: ~
+        remove_user: "Benutzer entfernen"
         saving_user_status: Speichern...
         save_user_status_successful: Gespeichert
         save_user_status_error: "Speichern fehlgeschlagen. Bitte erneuere die Seite und versuch es noch einmal."
+        remove_user_confirmation: ~
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
@@ -131,7 +133,7 @@ de:
         field_required:
           this_field_is_required: "Dieses Feld ist erforderlich."
       index:
-        listing_fields: Eintragsfelder
+        listing_fields: Filterfelder
         add_new_field: "Neues Feld hinzufügen:"
         remove_field_confirmation: "Willst du das Feld '%{field_name}' wirklich entfernen?"
         cancel: Abbrechen
@@ -139,7 +141,7 @@ de:
         field_title: "Name des Feldes"
         field_type: "Art des Feldes"
         categories: "Kategorien, in denen das Feld angewendet wird"
-        no_custom_listing_fields: "Keine marktplatzspezifischen Eintragsfelder."
+        no_custom_listing_fields: "Keine marktplatzspezifischen Filterfelder"
         dropdown_options: "Auswahloptionen des Dropdown-Menüs"
         add_option: "+ Auswahl hinzufügen"
         saving_order: "Feldreihenfolge speichern"
@@ -539,6 +541,10 @@ de:
       for_apartment_building: Mehrfamilienhaus
       for_other: Andere
   community_memberships:
+    access_denied:
+      access_denied: "Zugriff verweigert"
+      you_are_banned_in_this_community: ~
+      contact_page_link: Feedback
     new:
       welcome_fb_user: "Willkommen %{service_name}, %{name}!"
       fb_join_accept_terms: "Es gibt noch einen weiteren Schritt bevor du der Community beitreten kannst: Du musst den Nutzungsbedingungen zustimmen."

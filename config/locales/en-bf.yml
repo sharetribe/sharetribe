@@ -106,9 +106,11 @@ en-bf:
         join_date: ~
         admin: ~
         posting_allowed: ~
+        remove_user: ~
         saving_user_status: ~
         save_user_status_successful: ~
         save_user_status_error: ~
+        remove_user_confirmation: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -524,6 +526,10 @@ en-bf:
       for_apartment_building: ~
       for_other: ~
   community_memberships:
+    access_denied:
+      access_denied: ~
+      you_are_banned_in_this_community: ~
+      contact_page_link: ~
     new:
       welcome_fb_user: ~
       fb_join_accept_terms: ~

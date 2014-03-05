@@ -119,11 +119,13 @@ fr:
         email: Email
         name: Nom
         join_date: "Date d'inscription"
-        admin: ~
+        admin: Administrateur
         posting_allowed: "Dépôt d'annonce autorisé"
+        remove_user: "Supprimer l'utilisateur"
         saving_user_status: Sauvegarde...
         save_user_status_successful: Sauvegardé
         save_user_status_error: "La sauvegarde a échoué. Veuillez rafraîchir la page et essayer de nouveau."
+        remove_user_confirmation: "Cela supprime l'utilisateur de cette tribu est l'empêche d'accéder de nouveau au site avec ce compte. Etes-vous sûr(e) de vouloir continuer ?"
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
@@ -539,6 +541,10 @@ fr:
       for_apartment_building: "Immeuble, lotissement"
       for_other: autre
   community_memberships:
+    access_denied:
+      access_denied: "Accès refusé"
+      you_are_banned_in_this_community: "L'administrateur de cette tribu vous a interdit de rejoindre ce site. Si vous voulez contacter l'administrateur, vous pouvez lui envoyer un %{link_to_contact_page}"
+      contact_page_link: feedback
     new:
       welcome_fb_user: "Bienvenue sur %{service_name}, %{name} !"
       fb_join_accept_terms: "Il ne reste plus qu'une étape avant de rejoindre cette tribu : vous devez accepter les conditions d'utilisation."

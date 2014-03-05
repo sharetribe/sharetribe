@@ -560,6 +560,14 @@ module ApplicationHelper
         :elative => "Työpoolista",
         :partitive => "Työpoolia"
       }
+    when "Lovebirds" then {
+        :illative =>  "Lovebirdsiin",
+        :genetive =>  "Lovebirdsin",
+        :inessive =>  "Lovebirdsissa",
+        :elative  =>  "Lovebirdsista",
+        :partitive => "Lovebirdsia"
+      }
+      
       else nil
     end
   end
