@@ -1,5 +1,3 @@
-- category = listing.category
-- custom_fields = category.custom_fields.find_all_by_community_id(@current_community.id)
 - if custom_fields && custom_fields.count > 0
   .new_listing_form_field_container
     - custom_fields.sort.each do |custom_field|

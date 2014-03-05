@@ -108,6 +108,9 @@ class ListingsController < ApplicationController
 
     if request.xhr? # AJAX request to get the actual form contents
       @listing.category = Category.find(params[:subcategory].blank? ? params[:category] : params[:subcategory])
+      @custom_field_questions = @listing.category.custom_fields.find_all_by_community_id(@current_community.id)
+      @numeric_field_ids = numeric_field_ids(@custom_field_questions)
+
       @listing.transaction_type = TransactionType.find(params[:transaction_type])
       logger.info "Category: #{@listing.category.inspect}"
       render :partial => "listings/form/form_content" 
@@ -141,6 +144,9 @@ class ListingsController < ApplicationController
 	      @listing.build_origin_loc(:location_type => "origin_loc")
 	  end
     1.times { @listing.listing_images.build } if @listing.listing_images.empty?
+
+    @custom_field_questions = @listing.category.custom_fields.find_all_by_community_id(@current_community.id)
+    @numeric_field_ids = numeric_field_ids(@custom_field_questions)
   end
   
   def update
@@ -257,7 +263,7 @@ class ListingsController < ApplicationController
         answer
       when :numeric
         answer = NumericFieldValue.new
-        answer.numeric_value = answer_value
+        answer.numeric_value = ParamsService.parse_float(answer_value)
         answer
       else
         throw "Unimplemented custom field answer for question #{question_type}"
@@ -286,4 +292,11 @@ class ListingsController < ApplicationController
     end
   end
 
+  def numeric_field_ids(custom_fields)
+    custom_fields.map do |custom_field|
+      custom_field.with(:numeric) do
+        custom_field.id
+      end
+    end.compact
+  end
 end

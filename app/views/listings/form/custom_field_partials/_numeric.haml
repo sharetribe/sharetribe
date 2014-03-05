@@ -1,4 +1,5 @@
 = label "custom_fields", "#{custom_field.id}".to_sym, custom_field.name(I18n.locale)
 - answer = custom_field.answer_for(listing)
 - value = answer ? answer.display_value : ""
-= number_field_tag "custom_fields[#{custom_field.id}]", value, :min => custom_field.min, :max => custom_field.max, :class => (custom_field.required? ? "required" : "")
+/ Don't use HTML5 number input. It's a mess.
+= text_field_tag "custom_fields[#{custom_field.id}]", value, :data => {:min => custom_field.display_min, :max => custom_field.display_max}, :class => "#{custom_field.required? ? 'required' : ''} #{custom_field.allow_decimals? ? 'number-decimals' : 'number-no-decimals'}"
