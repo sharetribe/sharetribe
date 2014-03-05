@@ -1,4 +1,5 @@
 class Admin::CommunitiesController < ApplicationController
+  helper_method :member_sort_column, :member_sort_direction
   
   include CommunitiesHelper
   
@@ -34,7 +35,10 @@ class Admin::CommunitiesController < ApplicationController
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "manage_members"
     @community = @current_community
-    @members = @current_community.members.paginate(:page => params[:page], :per_page => 50).order("created_at desc")
+    @memberships = CommunityMembership.where(:community_id => @current_community.id, :status => "accepted")
+                                       .includes(:person => :emails)
+                                       .paginate(:page => params[:page], :per_page => 50)
+                                       .order("#{member_sort_column} #{member_sort_direction}")
   end
 
   def posting_allowed
@@ -103,4 +107,25 @@ class Admin::CommunitiesController < ApplicationController
     ids.include?(current_admin_user.id) && current_admin_user.is_admin_of?(community)
   end
   
+  private
+
+  def member_sort_column
+    case params[:sort]
+    when "name"
+      "people.given_name"
+    when "email"
+      "emails.address"
+    when "join_date"
+      "created_at"
+    when "posting_allowed"
+      "can_post_listings"
+    else
+      "created_at"
+    end
+  end
+
+  def member_sort_direction
+    params[:direction] || "desc"
+  end
+
 end

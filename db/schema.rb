@@ -135,14 +135,14 @@ ActiveRecord::Schema.define(:version => 20140301074143) do
     t.boolean  "feedback_to_admin",                     :default => false
     t.boolean  "automatic_newsletters",                 :default => true
     t.boolean  "join_with_invite_only",                 :default => false
-    t.boolean  "use_captcha",                           :default => true
+    t.boolean  "use_captcha",                           :default => false
     t.text     "allowed_emails"
-    t.boolean  "users_can_invite_new_users",            :default => false
-    t.boolean  "news_enabled",                          :default => true
+    t.boolean  "users_can_invite_new_users",            :default => true
     t.boolean  "private",                               :default => false
     t.string   "label"
-    t.boolean  "all_users_can_add_news",                :default => true
     t.boolean  "show_date_in_listings_list",            :default => false
+    t.boolean  "news_enabled",                          :default => true
+    t.boolean  "all_users_can_add_news",                :default => true
     t.boolean  "custom_frontpage_sidebar",              :default => false
     t.boolean  "event_feed_enabled",                    :default => true
     t.string   "slogan"
@@ -171,10 +171,10 @@ ActiveRecord::Schema.define(:version => 20140301074143) do
     t.string   "service_logo_style",                    :default => "full-logo"
     t.text     "available_currencies"
     t.boolean  "facebook_connect_enabled",              :default => true
-    t.integer  "vat"
-    t.integer  "commission_from_seller"
     t.boolean  "only_public_listings",                  :default => true
     t.string   "custom_email_from_address"
+    t.integer  "vat"
+    t.integer  "commission_from_seller"
     t.integer  "minimum_price_cents"
     t.boolean  "badges_in_use",                         :default => false
     t.boolean  "testimonials_in_use",                   :default => true
@@ -186,16 +186,16 @@ ActiveRecord::Schema.define(:version => 20140301074143) do
     t.string   "name_display_type",                     :default => "first_name_with_initial"
     t.string   "twitter_handle"
     t.boolean  "use_community_location_as_default",     :default => false
+    t.string   "domain_alias"
+    t.string   "preproduction_stylesheet_url"
     t.boolean  "show_category_in_listing_list",         :default => false
     t.string   "default_browse_view",                   :default => "grid"
     t.string   "wide_logo_file_name"
     t.string   "wide_logo_content_type"
     t.integer  "wide_logo_file_size"
     t.datetime "wide_logo_updated_at"
-    t.string   "domain_alias"
-    t.string   "preproduction_stylesheet_url"
-    t.boolean  "only_organizations"
     t.boolean  "logo_change_allowed"
+    t.boolean  "only_organizations"
     t.boolean  "terms_change_allowed",                  :default => false
     t.boolean  "privacy_policy_change_allowed",         :default => false
     t.boolean  "custom_fields_allowed",                 :default => false
@@ -343,7 +343,6 @@ ActiveRecord::Schema.define(:version => 20140301074143) do
     t.integer  "custom_field_id"
     t.integer  "listing_id"
     t.text     "text_value"
-    t.float    "numeric_value"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "type"
@@ -358,8 +357,6 @@ ActiveRecord::Schema.define(:version => 20140301074143) do
     t.datetime "updated_at",                      :null => false
     t.integer  "community_id"
     t.boolean  "required",      :default => true
-    t.float    "min"
-    t.float    "max"
   end
 
   add_index "custom_fields", ["community_id"], :name => "index_custom_fields_on_community_id"
@@ -591,6 +588,21 @@ ActiveRecord::Schema.define(:version => 20140301074143) do
   end
 
   add_index "notifications", ["receiver_id"], :name => "index_notifications_on_receiver_id"
+
+  create_table "old_ressi_events", :force => true do |t|
+    t.string   "user_id"
+    t.string   "application_id"
+    t.string   "session_id"
+    t.string   "ip_address"
+    t.string   "action"
+    t.text     "parameters"
+    t.string   "return_value"
+    t.text     "headers"
+    t.string   "semantic_event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "test_group_number"
+  end
 
   create_table "organization_memberships", :force => true do |t|
     t.string   "person_id"

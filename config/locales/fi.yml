@@ -121,9 +121,11 @@ fi:
         join_date: Liittynyt
         admin: ~
         posting_allowed: "Hyväksytty ilmoittaja"
-        saving_user_status: Tallennetaan...
+        remove_user: "Poista"
+        saving_user_status: "Tallennetaan..."
         save_user_status_successful: "Tallennus onnistui"
         save_user_status_error: "Tallennus epäonnistui. Päivitä sivu ja yritä uudelleen."
+        remove_user_confirmation: "Olet poistamassa käyttäjää yhteisöstä ja estämästä häntä liittymästä uudelleen samalla käyttäjätunnuksella. Oletko varma?"
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
@@ -540,6 +542,10 @@ fi:
       for_apartment_building: taloyhtiölle
       for_other: taholle
   community_memberships:
+    access_denied:
+      access_denied: "Pääsy estetty"
+      you_are_banned_in_this_community: "Sivuston ylläpitäjä on estänyt pääsysi tälle sivustolle. Jos haluat ottaa yhteyttä ylläpitoon, voit lähettää %{link_to_contact_page}."
+      contact_page_link: palautetta
     new:
       welcome_fb_user: "Tervetuloa %{service_name_illative}, %{name}!"
       fb_join_accept_terms: "Liittyäksesi tähän yhteisöön sinun tulee vielä hyväksyä sen käyttöehdot."

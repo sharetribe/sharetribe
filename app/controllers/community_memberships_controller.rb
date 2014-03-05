@@ -4,6 +4,8 @@ class CommunityMembershipsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_page")
   end
   
+  before_filter :ensure_is_admin, :only => :update
+
   skip_filter :dashboard_only
   skip_filter :single_community_only, :only => :create
   skip_filter :cannot_access_without_joining
@@ -18,13 +20,15 @@ class CommunityMembershipsController < ApplicationController
     elsif existing_membership && existing_membership.pending_email_confirmation?
       # Check if requirements are already filled, but the membership just hasn't been updated yet
       # (This might happen if unexpected error happens during page load and it shouldn't leave people in loop of of
-      # having email confirmed but not the memebership)
+      # having email confirmed but not the membership)
       if @current_user.has_valid_email_for_community?(@current_community)
         @current_community.approve_pending_membership(@current_user)
         redirect_to root and return
       end
       
       redirect_to confirmation_pending_path and return
+    elsif existing_membership && existing_membership.banned?
+      redirect_to access_denied_tribe_memberships_path and return
     end
     
     @skip_terms_checkbox = true if existing_membership && existing_membership.current_terms_accepted?
@@ -100,5 +104,17 @@ class CommunityMembershipsController < ApplicationController
       render :action => :new
     end
   end
-  
+
+  #Limited to updates through admin ui and to statuses
+  def update
+    membership = CommunityMembership.find_by_id(params[:id])
+    unless membership.update_attributes(:status => params[:status]) 
+      flash[:error] = "Unaccepted status."
+    end
+    redirect_to manage_members_admin_community_path(@current_community)
+  end
+
+  def access_denied
+    
+  end
 end

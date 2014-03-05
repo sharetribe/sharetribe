@@ -1,6 +1,7 @@
 module AdminManageMembersSteps
   POSTING_ALLOWED_CHECKBOX_SELECTOR = ".admin-members-can-post-listings"
   IS_ADMIN_CHECKBOX_SELECTOR = ".admin-members-is-admin"
+  REMOVE_USER_CHECKBOX_SELECTOR = ".admin-members-remove-user"
 
   def find_row_for_person(full_name)
     email_div = find(".admin-members-full-name", :text => "#{full_name}")
@@ -15,6 +16,9 @@ module AdminManageMembersSteps
     find_row_for_person(full_name).find(IS_ADMIN_CHECKBOX_SELECTOR)
   end
 
+  def find_remove_link_for_person(full_name)
+    find_row_for_person(full_name).find(REMOVE_USER_CHECKBOX_SELECTOR)
+  end
 
 end
 
@@ -66,6 +70,36 @@ end
 
 Then(/^I should see that "(.*?)" can post new listings$/) do |full_name|
   find_posting_allowed_checkbox_for_person(full_name)['checked'].should_not be_nil
+end
+
+When(/^I remove user "(.*?)"$/) do |full_name|
+  find_remove_link_for_person(full_name).click
+  steps %Q{
+    And I confirm alert popup
+  }
+end
+
+Then(/^"(.*?)" should be banned from this community$/) do |username|
+  person = Person.find_by_username(username)
+  CommunityMembership.find_by_person_id_and_community_id(person.id, @current_community.id).status.should == "banned"
+end
+
+Given(/^user "(.*?)" is banned in this community$/) do |username|
+  CommunityMembership.find_by_person_id_and_community_id(Person.find_by_username(username).id, @current_community.id).update_attribute(:status, "banned")
+end
+
+Then(/^I should see a message that I have been banned$/) do
+  steps %Q{
+    Then I should see "The admin of this community has prevented you from accessing the site."
+  }
+end
+
+Then(/^I should be able to send a message to admin$/) do
+  steps %Q{
+    When I fill in "What would you like to tell us?" with "I sad that I have been banned."
+    And I press "Send feedback"
+    Then I should see "Thanks a lot for your feedback!" within ".flash-notifications"
+  }
 end
 
 Then(/^I should see that "(.*?)" has admin rights in this community$/) do |full_name|

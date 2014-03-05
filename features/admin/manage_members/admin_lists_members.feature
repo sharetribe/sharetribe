@@ -2,22 +2,46 @@ Feature: Admin lists members
   
   Background:
     Given there are following users: 
-      | person            | given_name | family_name | email               | created_at                | 
+      | person            | given_name | family_name | email               | membership_created_at     | 
       | manager           | matti      | manager     | manager@example.com | 2014-03-01 00:12:35 +0200 |
-      | kassi_testperson1 | john       | doe         | test1@example.com   | 2013-03-01 00:12:35 +0200 |
-      | kassi_testperson2 | jane       | doe         | test2@example.com   | 2012-03-01 00:00:00 +0200 |
+      | kassi_testperson1 | john       | doe         | test2@example.com   | 2013-03-01 00:12:35 +0200 |
+      | kassi_testperson2 | jane       | doe         | test1@example.com   | 2012-03-01 00:00:00 +0200 |
     And I am logged in as "manager"
     And "manager" has admin rights in community "test"
     And "kassi_testperson1" has admin rights in community "test"
     And I am on the manage members admin page
 
   @javascript
-  Scenario: Admin views list of members
+  Scenario: Admin views & sorts list of members
     Then I should see list of users with the following details:
-      | Name          | Email               | Join date  |
-      | matti manager | manager@example.com | 1 Mar 2014 |
-      | john doe      | test1@example.com   | 1 Mar 2013 | 
-      | jane doe      | test2@example.com   | 1 Mar 2012 |
+      | Name          | Email               | Joined     | Posting allowed | Remove User | 
+      | matti manager | manager@example.com | 1 Mar 2014 |                 |             |
+      | john doe      | test2@example.com   | 1 Mar 2013 |                 |             |
+      | jane doe      | test1@example.com   | 1 Mar 2012 |                 |             |
+    When I follow "Name"
+    Then I should see list of users with the following details:
+      | Name          | Email               | Joined     | Posting allowed | Remove User |
+      | jane doe      | test1@example.com   | 1 Mar 2012 |                 |             | 
+      | john doe      | test2@example.com   | 1 Mar 2013 |                 |             |
+      | matti manager | manager@example.com | 1 Mar 2014 |                 |             |
+    When I follow "Name"
+    Then I should see list of users with the following details:
+      | Name          | Email               | Joined     | Posting allowed | Remove User |
+      | matti manager | manager@example.com | 1 Mar 2014 |                 |             |
+      | john doe      | test2@example.com   | 1 Mar 2013 |                 |             |
+      | jane doe      | test1@example.com   | 1 Mar 2012 |                 |             | 
+    When I follow "Email"
+    Then I should see list of users with the following details:
+      | Name          | Email               | Joined     | Posting allowed | Remove User |
+      | matti manager | manager@example.com | 1 Mar 2014 |                 |             |
+      | jane doe      | test1@example.com   | 1 Mar 2012 |                 |             |
+      | john doe      | test2@example.com   | 1 Mar 2013 |                 |             |
+    When I follow "Joined"
+    Then I should see list of users with the following details:
+      | Name          | Email               | Joined     | Posting allowed | Remove User | 
+      | jane doe      | test1@example.com   | 1 Mar 2012 |                 |             |
+      | john doe      | test2@example.com   | 1 Mar 2013 |                 |             |
+      | matti manager | manager@example.com | 1 Mar 2014 |                 |             | 
 
   @javascript
   Scenario: Admin views member count
@@ -46,6 +70,14 @@ Feature: Admin lists members
     Then I should see that "john doe" can post new listings
 
   @javascript
+  Scenario: Admin removes a user
+    Given I will confirm all following confirmation dialogs if I am running PhantomJS
+    When I remove user "john doe"
+    Then I should not see "john doe"
+    # Identifying is easier when using username
+    And "kassi_testperson1" should be banned from this community
+
+  @javascript
   Scenario: Admin promotes user to admin
     Then I should see that "manager" has admin rights in this community
     Then I should see that "john doe" has admin rights in this community
@@ -61,4 +93,3 @@ Feature: Admin lists members
     And I should see that I can remove admin rights of "jane doe"
     Then I should see that "manager" has admin rights in this community
     And I should see that I can not remove admin rights of "manager"
-

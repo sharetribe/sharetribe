@@ -70,6 +70,8 @@ module NavigationHelpers
       "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings/account"
     when /the about page$/
       about_infos_path(:locale => "en")
+    when /the feedback page$/
+      new_user_feedback_path(:locale => "en")
     when /the custom fields admin page/
       admin_custom_fields_path(:locale => "en")
     when /the categories admin page/

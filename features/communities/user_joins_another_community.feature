@@ -42,9 +42,9 @@ Feature: User joins another community
     And I remove the focus
     Then I should see "The invitation code is not valid."
     When I fill in "Invitation code" with "GH1JX8"
+    And I remove the focus
     Then there should be an active ajax request
     When ajax requests are completed
-    And I remove the focus
     Then I should not see "The invitation code is not valid."
     When I press "Join community"
     Then I should see "You have successfully joined this community"
