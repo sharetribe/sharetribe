@@ -53,9 +53,10 @@ class HomepageController < ApplicationController
     @filter_params[:include] = [:listing_images, :author, :category, :transaction_type]
     @filter_params[:custom_dropdown_field_options] = HomepageController.custom_dropdown_field_options_for_search(params)
 
-    numeric_params = HomepageController.numeric_filter_params(params)
-    numeric_search_params = HomepageController.numeric_filter_params_to_ranges(numeric_params)
-    numeric_search_params = HomepageController.filter_unnecessary(numeric_search_params, @current_community.custom_numeric_fields)
+    p = HomepageController.numeric_filter_params(params)
+    p = HomepageController.parse_numeric_filter_params(p)
+    p = HomepageController.group_to_ranges(p)
+    numeric_search_params = HomepageController.filter_unnecessary(p, @current_community.custom_numeric_fields)
 
     numeric_search_needed = !numeric_search_params.empty?
 
@@ -100,29 +101,40 @@ class HomepageController < ApplicationController
   
   private
 
+  # Return all params starting with `numeric_filter_`
   def self.numeric_filter_params(all_params)
     all_params.select { |key, value| key.start_with?("numeric_filter_") }
   end
 
-  def self.numeric_filter_params_to_ranges(numeric_params)
-    parsed_params = numeric_params.inject([]) do |memo, numeric_param|
+  def self.parse_numeric_filter_params(numeric_params)
+    numeric_params.inject([]) do |memo, numeric_param|
       # the format is "numeric_filter_min_1"
       key, value = numeric_param
       _, __, boundary, id = key.split("_")
 
       memo << {id: id.to_i, boundary: boundary, value: value}
     end
-    
-    grouped_params = parsed_params.group_by { |param| param[:id] }
+  end
 
-    params = grouped_params.map do |key, values|
-      min = values.find { |value| value[:boundary] == "min" }[:value]
-      max = values.find { |value| value[:boundary] == "max" }[:value]
+  def self.group_to_ranges(parsed_params)
+    parsed_params
+      .group_by { |param| param[:id] }
+      .map do |key, values|
+        min = values.find { |value| value[:boundary] == "min" }[:value]
+        max = values.find { |value| value[:boundary] == "max" }[:value]
 
-      {
-        custom_field_id: key,
-        numeric_value: (min.to_f..max.to_f)
-      }
+        {
+          custom_field_id: key,
+          numeric_value: (min.to_f..max.to_f)
+        }
+      end
+  end
+
+  # Filter search params if their values equal min/max
+  def self.filter_unnecessary(search_params, numeric_fields)
+    search_params.reject do |search_param|
+      numeric_field = numeric_fields.find(search_param[:custom_field_id])
+      search_param == { custom_field_id: numeric_field.id, numeric_value: (numeric_field.min..numeric_field.max) }
     end
   end
   
@@ -149,14 +161,6 @@ class HomepageController < ApplicationController
     end
     
     array_for_search
-  end
-
-  # Filter search params if their values equal min/max
-  def self.filter_unnecessary(search_params, numeric_fields)
-    search_params.reject do |search_param|
-      numeric_field = numeric_fields.find(search_param[:custom_field_id])
-      search_param == { custom_field_id: numeric_field.id, numeric_value: (numeric_field.min..numeric_field.max) }
-    end
   end
 
   # Give array of models (categories, transaction_types, etc.) and
