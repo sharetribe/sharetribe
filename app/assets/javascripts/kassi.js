@@ -140,10 +140,53 @@ function add_validator_methods() {
         return Number(value) < Number($otherInput.val());
       }
     );
+  $.validator.
+    addMethod("number_conditional_decimals",
+      function(value, element, decimalCheckbox) {
+        var $otherInput = ST.utils.findElementByName(decimalCheckbox);
+        var allowDecimals = $otherInput.is(':checked');
+        var numberRegex  = /^\d+?$/;
+        var decimalRegex  = /^\d+((\.|\,)\d+)?$/;
+
+        var regexp = allowDecimals ? decimalRegex : numberRegex;
+
+        return regexp.test(value);
+      }
+    );
 
   $.validator.addClassRules("required", {
     required: true
   });
+
+  $.validator.addClassRules("number-no-decimals", {
+    "number_no_decimals": true
+  });
+
+  $.validator.addClassRules("number-decimals", {
+    "number_decimals": true
+  });
+
+  $.validator.
+    addMethod("number_no_decimals", function(value, element, opts) {
+      var numberRegex  = /^\d+?$/;
+      return numberRegex.test(value)
+    });
+
+  $.validator.
+    addMethod("number_decimals", function(value, element) {
+      var decimalRegex  = /^\d+((\.|\,)\d+)?$/;
+      return decimalRegex.test(value)
+    });
+
+  $.validator.
+    addMethod("number_min", function(value, element, min) {
+      return Number(value.replace(",", ".")) >= min
+    });
+
+  $.validator.
+    addMethod("number_max", function(value, element, max) {
+      return Number(value.replace(",", ".")) <= max
+    });
 }
 
 function report_analytics_event(params_array) {
@@ -524,7 +567,17 @@ function display_listing_form(selected_attributes, locale) {
 }
 
 // Initialize the actual form fields
-function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, listing_id, price_required, price_message, minimum_price, minimum_price_message) {
+function initialize_new_listing_form(fileDefaultText,
+  fileBtnText,
+  locale,
+  share_type_message,
+  date_message,
+  listing_id,
+  price_required,
+  price_message,
+  minimum_price,
+  minimum_price_message,
+  numeric_field_names) {
   
   $('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true, zIndex: 1000000}); });
   $('input.title_text_field:first').focus();
@@ -538,6 +591,16 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
   } else {
     pr = false;
   }
+
+  var numericRules = numeric_field_names.reduce(function(rules, name) {
+    var el = ST.utils.findElementByName(name);
+    var min = el.data("min");
+    var max = el.data("max");
+
+    rules[name] = {number_min: min, number_max: max};
+
+    return rules;
+  }, {});
   
   $(form_id).validate({
     errorPlacement: function(error, element) {
@@ -552,13 +615,13 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
       }
     },
     debug: false,
-    rules: {
+    rules: _.extend(numericRules, {
       "listing[title]": {required: true, maxlength: 60},
       "listing[origin]": {address_validator: true},
       "listing[price]": {required: pr, positive_integer: true, minimum_price_required: minimum_price},
       "listing[listing_images_attributes][0][image]": { accept: "(jpe?g|gif|png)" },
       "listing[valid_until(1i)]": { min_date: true, max_date: true }
-    },
+    }),
     messages: {
       "listing[valid_until(1i)]": { min_date: date_message, max_date: date_message },
       "listing[price]": { positive_integer: price_message, minimum_price_required: minimum_price_message },
@@ -1103,8 +1166,9 @@ function initialize_admin_listing_field_form_view(locale, form_id, option_count)
 
   var $form = $(form_id);
   var CATEGORY_CHECKBOX_NAME = "custom_field[category_attributes][][category_id]";
-  var MIN_NAME = "custom_field[min]"
-  var MAX_NAME = "custom_field[max]"
+  var MIN_NAME = "custom_field[min]";
+  var MAX_NAME = "custom_field[max]";
+  var DECIMAL_CHECKBOX = "custom_field[allow_decimals]";
 
   var rules = {}
   rules[CATEGORY_CHECKBOX_NAME] = {
@@ -1112,13 +1176,14 @@ function initialize_admin_listing_field_form_view(locale, form_id, option_count)
   };
   rules[MIN_NAME] = {
     number: true,
-    min_bound: MAX_NAME
+    min_bound: MAX_NAME,
+    number_conditional_decimals: DECIMAL_CHECKBOX
   };
   rules[MAX_NAME] = {
     number: true,
-    max_bound: MIN_NAME
+    max_bound: MIN_NAME,
+    number_conditional_decimals: DECIMAL_CHECKBOX
   };
-
 
   $(form_id).validate({
     rules: rules,

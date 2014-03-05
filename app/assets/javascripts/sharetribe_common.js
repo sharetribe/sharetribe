@@ -85,7 +85,12 @@ function translate_validation_messages(locale) {
         address_validator: jQuery.validator.format(json.validation_messages.address_validator),
         money: jQuery.validator.format(json.validation_messages.money),
         min_bound: formatMinMaxMessage(json.validation_messages.min_bound),
-        max_bound: formatMinMaxMessage(json.validation_messages.max_bound)
+        max_bound: formatMinMaxMessage(json.validation_messages.max_bound),
+        number_min: jQuery.validator.format(json.validation_messages.min),
+        number_max: jQuery.validator.format(json.validation_messages.max),
+        number_no_decimals: json.validation_messages.number_no_decimals,
+        number_decimals: json.validation_messages.number_decimals,
+        number_conditional_decimals: json.validation_messages.number
     });
   });
 }
