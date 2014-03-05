@@ -149,6 +149,9 @@ fi:
         save_order_error: "Virhe tallennettaessa kenttien järjestystä. Päivitä sivu ja yritä uudelleen."
         select_one: "Valitse kentän tyyppi..."
         continue: Jatka
+        minimum_value: Minimi
+        maximum_value: Maksimi
+        allow_decimals: Salli desimaalit
       new:
         new_listing_field: "Uusi ilmoituskenttä"
       field_types:

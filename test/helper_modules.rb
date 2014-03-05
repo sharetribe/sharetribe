@@ -133,6 +133,20 @@ module TestHelpers
     end.first
   end
 
+  def find_numeric_custom_field_type_by_name(name)
+    NumericField.all.select do |numeric_custom_field|
+      numeric_custom_field.name("en") == name
+    end.first
+  end
+
+  def index_finished?
+    Dir[Rails.root.join(ThinkingSphinx::Test.config.indices_location, '*.{new,tmp}.*')].empty?
+  end
+
+  def wait_until_index_finished
+    sleep 0.25 until index_finished?
+  end
+
   def ensure_sphinx_is_running_and_indexed
     begin 
       Listing.search("").total_pages
@@ -142,9 +156,7 @@ module TestHelpers
       ThinkingSphinx::Test.start_with_autostop
     end
     ThinkingSphinx::Test.index
-    # Wait for Sphinx to finish loading in the new index files.
-    sleep 0.25
-    
+    wait_until_index_finished()
   end
 
   # This is loaded only once before running the whole test set

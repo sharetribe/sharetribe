@@ -236,6 +236,8 @@ FactoryGirl.define do
     end
 
     factory :custom_numeric_field, class: 'NumericField' do
+      min 0
+      max 100
     end
     
   end
@@ -267,6 +269,12 @@ FactoryGirl.define do
   factory :dropdown_value, class: 'DropdownValue' do
     question { [ FactoryGirl.build(:custom_dropdown_field) ] }
     listing
+  end
+
+  factory :custom_numeric_field_value, class: 'NumericFieldValue' do
+    question { [ FactoryGirl.build(:custom_numeric_field) ] }
+    listing
+    numeric_value 0
   end
   
   factory :payment do

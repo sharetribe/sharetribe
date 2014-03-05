@@ -15,5 +15,38 @@
   - params.except("action", "controller").each do |param, value|
     - unless param.match(/^filter_option/)
       = hidden_field_tag param, value
+
+  - @current_community.custom_numeric_fields.sort.each do |field|
+    .row
+      .col-12
+        .custom-filter-title
+          = field.name(I18n.locale)
+    .row
+      .col-12
+        .custom-filter-options
+          - id = ["range-slider", field.id, device].join("-")
+          .range-slider{id: id}
+            - range = [field.min, field.max]
+            - start = [params["numeric_filter_min_" + field.id.to_s] || field.min, params["numeric_filter_max_" + field.id.to_s] || field.max]
+            - labels = ["#custom-filter-min-value-#{id}", "#custom-filter-max-value-#{id}"]
+            - fields = ["#numeric_filter_min_#{id}", "#numeric_filter_max_#{id}"]
+            
+            - content_for :extra_javascript do
+              :javascript
+                window.ST.rangeFilter("##{id}", #{range}, #{start}, #{labels}, #{fields}, #{field.allow_decimals})
+
+    .row
+      .col-12
+        .left
+          %span.custom-filter-min-max-title
+            Min:
+          %span{id: "custom-filter-min-value-#{id}"}
+          %input{type: "hidden", id: "numeric_filter_min_#{id}", name: "numeric_filter_min_#{field.id}", value: params["numeric_filter_min_#{field.id}"]}
+        .right
+          %span.custom-filter-min-max-title
+            Max:
+          %span{id: "custom-filter-max-value-#{id}"}
+          %input{type: "hidden", id: "numeric_filter_max_#{id}", name: "numeric_filter_max_#{field.id}", value: params["numeric_filter_max_#{field.id}"]}
+
   %button{type: 'submit'}
     = t(".update_view")

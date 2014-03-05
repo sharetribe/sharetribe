@@ -17,6 +17,17 @@ Given /^that listing is closed$/ do
   @listing.update_attribute(:open, false)
 end
 
+Given(/^that listing has a numeric answer "(.*?)" for "(.*?)"$/) do |answer, custom_field|
+  numeric_custom_field = find_numeric_custom_field_type_by_name(custom_field)
+  FactoryGirl.create(:custom_numeric_field_value, listing: @listing, numeric_value: answer, question: numeric_custom_field)
+end
+
+When(/^I set search range for "(.*?)" between "(.*?)" and "(.*?)"$/) do |custom_field, min, max|
+  numeric_custom_field = find_numeric_custom_field_type_by_name(custom_field)
+  selector = "#range-slider-#{numeric_custom_field.id}-desktop"
+  page.execute_script("$('#{selector}').val([#{min.to_f}, #{max.to_f}])");
+end
+
 Given /^visibility of that listing is "([^"]*)"$/ do |visibility|
   @listing.update_attribute(:visibility, visibility)
 end

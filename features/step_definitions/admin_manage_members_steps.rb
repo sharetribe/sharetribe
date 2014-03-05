@@ -56,7 +56,6 @@ Given(/^only verified users can post listings in this community$/) do
 end
 
 Then(/^I should see that "(.*?)" cannot post new listings$/) do |full_name|
-  #binding.pry
   checkbox = find_posting_allowed_checkbox_for_person(full_name)
   checkbox['checked'].should be_nil
 end

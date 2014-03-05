@@ -10,6 +10,7 @@ ThinkingSphinx::Index.define :listing, :with => :active_record, :delta => Thinki
   indexes custom_field_values(:text_value), :as => :custom_text_fields
   
   # attributes
+  has id, :as => :listing_id # id didn't work without :as aliasing
   has created_at, updated_at
   has category(:id), :as => :category_id
   has transaction_type(:id), :as => :transaction_type_id 
