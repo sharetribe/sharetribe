@@ -1,5 +1,5 @@
 - if custom_fields && custom_fields.count > 0
   .new_listing_form_field_container
-    - custom_fields.sort.each do |custom_field|
+    - custom_fields.each do |custom_field|
       - custom_field.with_type do |field_type|
         = render :partial => "listings/form/custom_field_partials/#{field_type}", :locals => { :custom_field => custom_field, :listing => listing }

@@ -108,7 +108,7 @@ class ListingsController < ApplicationController
 
     if request.xhr? # AJAX request to get the actual form contents
       @listing.category = Category.find(params[:subcategory].blank? ? params[:category] : params[:subcategory])
-      @custom_field_questions = @listing.category.custom_fields.find_all_by_community_id(@current_community.id)
+      @custom_field_questions = @listing.category.custom_fields
       @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
       @listing.transaction_type = TransactionType.find(params[:transaction_type])

@@ -3,6 +3,18 @@
 
 function add_validator_methods() {
 
+  /**
+    Take string representing number with either dot (.) or comma (,)
+    as decimal separator and get back number
+  */
+  function toNumber(numberStr) {
+    return Number(numberStr.replace(",", "."));
+  }
+
+  function numberVal(el) {
+    return toNumber(el.val());
+  }
+
   // If some element is required, it should be validated even if it's hidden
   $.validator.setDefaults({ ignore: [] });
   
@@ -128,8 +140,9 @@ function add_validator_methods() {
   $.validator.
     addMethod("max_bound",
       function(value, element, otherName) {
+        debugger;
         var $otherInput = ST.utils.findElementByName(otherName);
-        return Number(value) > Number($otherInput.val());
+        return Number(toNumber(value)) > numberVal($otherInput);
       }
     );
 
@@ -137,7 +150,7 @@ function add_validator_methods() {
     addMethod("min_bound",
       function(value, element, otherName) {
         var $otherInput = ST.utils.findElementByName(otherName);
-        return Number(value) < Number($otherInput.val());
+        return Number(toNumber(value)) < numberVal($otherInput);
       }
     );
   $.validator.
@@ -180,12 +193,12 @@ function add_validator_methods() {
 
   $.validator.
     addMethod("number_min", function(value, element, min) {
-      return Number(value.replace(",", ".")) >= min
+      return toNumber(value) >= min
     });
 
   $.validator.
     addMethod("number_max", function(value, element, max) {
-      return Number(value.replace(",", ".")) <= max
+      return toNumber(value) <= max
     });
 }
 
@@ -1175,12 +1188,10 @@ function initialize_admin_listing_field_form_view(locale, form_id, option_count)
     required: true
   };
   rules[MIN_NAME] = {
-    number: true,
     min_bound: MAX_NAME,
     number_conditional_decimals: DECIMAL_CHECKBOX
   };
   rules[MAX_NAME] = {
-    number: true,
     max_bound: MIN_NAME,
     number_conditional_decimals: DECIMAL_CHECKBOX
   };
