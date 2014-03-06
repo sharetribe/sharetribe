@@ -29,7 +29,7 @@
             - range = [field.min, field.max]
             - start = [params["numeric_filter_min_" + field.id.to_s] || field.min, params["numeric_filter_max_" + field.id.to_s] || field.max]
             - labels = ["#custom-filter-min-value-#{id}", "#custom-filter-max-value-#{id}"]
-            - fields = ["#numeric_filter_min_#{id}", "#numeric_filter_max_#{id}"]
+            - fields = ["#nf_min_#{id}", "#nf_max_#{id}"]
             
             - content_for :extra_javascript do
               :javascript
@@ -41,12 +41,12 @@
           %span.custom-filter-min-max-title
             Min:
           %span{id: "custom-filter-min-value-#{id}"}
-          %input{type: "hidden", id: "numeric_filter_min_#{id}", name: "numeric_filter_min_#{field.id}", value: params["numeric_filter_min_#{field.id}"]}
+          %input{type: "hidden", id: "nf_min_#{id}", name: "nf_min_#{field.id}", value: params["nf_min_#{field.id}"]}
         .right
           %span.custom-filter-min-max-title
             Max:
           %span{id: "custom-filter-max-value-#{id}"}
-          %input{type: "hidden", id: "numeric_filter_max_#{id}", name: "numeric_filter_max_#{field.id}", value: params["numeric_filter_max_#{field.id}"]}
+          %input{type: "hidden", id: "nf_max_#{id}", name: "nf_max_#{field.id}", value: params["nf_max_#{field.id}"]}
 
   %button{type: 'submit'}
     = t(".update_view")

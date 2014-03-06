@@ -103,16 +103,17 @@ class HomepageController < ApplicationController
 
   # Return all params starting with `numeric_filter_`
   def self.numeric_filter_params(all_params)
-    all_params.select { |key, value| key.start_with?("numeric_filter_") }
+    all_params.select { |key, value| key.start_with?("nf_") }
   end
 
   def self.parse_numeric_filter_params(numeric_params)
     numeric_params.inject([]) do |memo, numeric_param|
-      # the format is "numeric_filter_min_1"
       key, value = numeric_param
-      _, __, boundary, id = key.split("_")
+      _, boundary, id = key.split("_")
 
-      memo << {id: id.to_i, boundary: boundary, value: value}
+      hash = {id: id.to_i}
+      hash[boundary.to_sym] = value
+      memo << hash
     end
   end
 
@@ -120,12 +121,11 @@ class HomepageController < ApplicationController
     parsed_params
       .group_by { |param| param[:id] }
       .map do |key, values|
-        min = values.find { |value| value[:boundary] == "min" }[:value]
-        max = values.find { |value| value[:boundary] == "max" }[:value]
+        boundaries = values.inject(:merge)
 
         {
           custom_field_id: key,
-          numeric_value: (min.to_f..max.to_f)
+          numeric_value: (boundaries[:min].to_f..boundaries[:max].to_f)
         }
       end
   end
