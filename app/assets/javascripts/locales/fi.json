@@ -19,6 +19,8 @@
     "required": "Tämä on pakollinen kenttä.",
     "url": "Anna oikeanlainen URL-osoite.",
     "address_validator": "Sijaintia ei löytynyt.",
-    "money": "Antamasi arvo ei kelpaa."
+    "money": "Antamasi arvo ei kelpaa.",
+    "min_bound": "Arvon täytyy olla pienempi kuin maksimiarvo ({0})",
+    "max_bound": "Arvon täytyy olla suurempi kuin minimiarvo ({0})"
   }
 }

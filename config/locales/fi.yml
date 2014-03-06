@@ -149,11 +149,15 @@ fi:
         save_order_error: "Virhe tallennettaessa kenttien järjestystä. Päivitä sivu ja yritä uudelleen."
         select_one: "Valitse kentän tyyppi..."
         continue: Jatka
+        minimum_value: Minimi
+        maximum_value: Maksimi
+        allow_decimals: Salli desimaalit
       new:
         new_listing_field: "Uusi ilmoituskenttä"
       field_types:
         dropdown: Pudotusvalikko
         textfield: Tekstikenttä
+        numericfield: Numerokenttä
     emails:
       new:
         send_email_to_members: "Lähetä sähköpostia jäsenille"
@@ -883,6 +887,8 @@ fi:
       some_private_requests_exist: "Palvelussa on jo <b>%{number_of_listings} pyyntöä</b>,"
     custom_filters:
       update_view: "Päivitä näkymä"
+      min: "Minimi:"
+      max: "Maksimi:"
     event_feed:
       latest_events: "Mitä %{service_name_inessive} tapahtuu"
     grid_item:

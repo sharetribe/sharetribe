@@ -57,7 +57,7 @@ class ListingsController < ApplicationController
     params[:include] = :origin_loc
     params.delete("controller")
     params.delete("action")
-    params["custom_field_options"] = JSON.parse(params["custom_field_options"]) if params["custom_field_options"].present?
+    params["custom_dropdown_field_options"] = JSON.parse(params["custom_dropdown_field_options"]) if params["custom_dropdown_field_options"].present?
     # Limit the amount of listings to get to 500 newest to avoid slowing down the map too much.
     @listings = Listing.find_with(params, @current_user, @current_community, 500)
     render :json => { :data => @listings }
@@ -108,6 +108,9 @@ class ListingsController < ApplicationController
 
     if request.xhr? # AJAX request to get the actual form contents
       @listing.category = Category.find(params[:subcategory].blank? ? params[:category] : params[:subcategory])
+      @custom_field_questions = @listing.category.custom_fields
+      @numeric_field_ids = numeric_field_ids(@custom_field_questions)
+
       @listing.transaction_type = TransactionType.find(params[:transaction_type])
       logger.info "Category: #{@listing.category.inspect}"
       render :partial => "listings/form/form_content" 
@@ -122,8 +125,8 @@ class ListingsController < ApplicationController
     end
     @listing = Listing.new(params[:listing])
     @listing.author = @current_user
-    @listing.save
     @listing.custom_field_values = create_field_values(params[:custom_fields]) if params[:custom_fields]
+    @listing.save
 
     if @listing.new_record?
       redirect_to new_listing_path
@@ -141,6 +144,9 @@ class ListingsController < ApplicationController
 	      @listing.build_origin_loc(:location_type => "origin_loc")
 	  end
     1.times { @listing.listing_images.build } if @listing.listing_images.empty?
+
+    @custom_field_questions = @listing.category.custom_fields.find_all_by_community_id(@current_community.id)
+    @numeric_field_ids = numeric_field_ids(@custom_field_questions)
   end
   
   def update
@@ -243,22 +249,31 @@ class ListingsController < ApplicationController
 
   def custom_field_value_factory(custom_field_id, answer_value)
     question = CustomField.find(custom_field_id)
-    answer = CustomFieldValue.new()
-    answer.question = question
 
-    question.with_type { |question_type|
+    answer = question.with_type do |question_type|
       case question_type
       when :dropdown
         option_id = answer_value.to_i
+        answer = DropdownValue.new
         answer.custom_field_option_selections = [CustomFieldOptionSelection.new(:custom_field_value => answer, :custom_field_option_id => answer_value)]
         answer
       when :text_field
+        answer = TextFieldValue.new
         answer.text_value = answer_value
+        answer
+      when :numeric
+        answer = NumericFieldValue.new
+        answer.numeric_value = ParamsService.parse_float(answer_value)
         answer
       else
         throw "Unimplemented custom field answer for question #{question_type}"
       end
-    }
+    end
+
+    answer.question = question
+    answer.save
+    logger.info "Errors: #{answer.errors.full_messages.inspect}"
+    return answer
   end
 
   def create_field_values(custom_field_params={})
@@ -266,6 +281,8 @@ class ListingsController < ApplicationController
       custom_field_value_factory(custom_field_id, answer_value) unless answer_value.blank?
     end.compact
     
+    logger.info "Mapped values: #{mapped_values.inspect}"
+
     return mapped_values
   end
 
@@ -275,4 +292,11 @@ class ListingsController < ApplicationController
     end
   end
 
+  def numeric_field_ids(custom_fields)
+    custom_fields.map do |custom_field|
+      custom_field.with(:numeric) do
+        custom_field.id
+      end
+    end.compact
+  end
 end

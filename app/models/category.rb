@@ -9,7 +9,7 @@ class Category < ActiveRecord::Base
   has_many :translations, :class_name => "CategoryTranslation", :dependent => :destroy
 
   has_many :category_custom_fields, :dependent => :destroy
-  has_many :custom_fields, :through => :category_custom_fields
+  has_many :custom_fields, :through => :category_custom_fields, :order => "sort_priority"
 
   has_many :category_transaction_types, :dependent => :destroy
   has_many :transaction_types, :through => :category_transaction_types

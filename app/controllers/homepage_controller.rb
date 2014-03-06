@@ -51,9 +51,24 @@ class HomepageController < ApplicationController
     
     @filter_params[:search] = params[:q] if params[:q]
     @filter_params[:include] = [:listing_images, :author, :category, :transaction_type]
-    @filter_params[:custom_field_options] = HomepageController.custom_field_options_for_search(params)
-      
-    @listings = Listing.find_with(@filter_params, @current_user, @current_community, listings_per_page, params[:page])
+    @filter_params[:custom_dropdown_field_options] = HomepageController.custom_dropdown_field_options_for_search(params)
+
+    p = HomepageController.numeric_filter_params(params)
+    p = HomepageController.parse_numeric_filter_params(p)
+    p = HomepageController.group_to_ranges(p)
+    numeric_search_params = HomepageController.filter_unnecessary(p, @current_community.custom_numeric_fields)
+
+    numeric_search_needed = !numeric_search_params.empty?
+
+    @filter_params[:listing_id] = if numeric_search_needed
+      NumericFieldValue.search_many(numeric_search_params).collect(&:listing_id)
+    end
+
+    @listings = if numeric_search_needed && @filter_params[:listing_id].empty?
+      Listing.none.paginate(:per_page => listings_per_page, :page => params[:page])
+    else
+      Listing.find_with(@filter_params, @current_user, @current_community, listings_per_page, params[:page])
+    end
 
     @app_store_badge_filename = "/assets/Available_on_the_App_Store_Badge_en_135x40.svg"    
     if File.exists?("app/assets/images/Available_on_the_App_Store_Badge_#{I18n.locale}_135x40.svg")
@@ -85,9 +100,46 @@ class HomepageController < ApplicationController
   end
   
   private
+
+  # Return all params starting with `numeric_filter_`
+  def self.numeric_filter_params(all_params)
+    all_params.select { |key, value| key.start_with?("nf_") }
+  end
+
+  def self.parse_numeric_filter_params(numeric_params)
+    numeric_params.inject([]) do |memo, numeric_param|
+      key, value = numeric_param
+      _, boundary, id = key.split("_")
+
+      hash = {id: id.to_i}
+      hash[boundary.to_sym] = value
+      memo << hash
+    end
+  end
+
+  def self.group_to_ranges(parsed_params)
+    parsed_params
+      .group_by { |param| param[:id] }
+      .map do |key, values|
+        boundaries = values.inject(:merge)
+
+        {
+          custom_field_id: key,
+          numeric_value: (boundaries[:min].to_f..boundaries[:max].to_f)
+        }
+      end
+  end
+
+  # Filter search params if their values equal min/max
+  def self.filter_unnecessary(search_params, numeric_fields)
+    search_params.reject do |search_param|
+      numeric_field = numeric_fields.find(search_param[:custom_field_id])
+      search_param == { custom_field_id: numeric_field.id, numeric_value: (numeric_field.min..numeric_field.max) }
+    end
+  end
   
   # Extract correct type of array from query parameters
-  def self.custom_field_options_for_search(params)
+  def self.custom_dropdown_field_options_for_search(params)
     option_ids = []
     option_hash = {}
     array_for_search = []
@@ -98,8 +150,8 @@ class HomepageController < ApplicationController
       end  
     end
     
-    custom_field_options = CustomFieldOption.find(option_ids)
-    custom_field_options.each do |cfo|
+    custom_dropdown_field_options = CustomFieldOption.find(option_ids)
+    custom_dropdown_field_options.each do |cfo|
       option_hash[cfo.custom_field_id] ||= []
       option_hash[cfo.custom_field_id] << cfo.id
     end

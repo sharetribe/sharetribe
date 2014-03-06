@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140301074143) do
+ActiveRecord::Schema.define(:version => 20140304135448) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -47,10 +47,8 @@ ActiveRecord::Schema.define(:version => 20140301074143) do
     t.string   "address_locality"
     t.string   "address_region"
     t.date     "date_of_birth"
-    t.string   "ssn"
     t.string   "routing_number"
     t.string   "hidden_account_number"
-    t.string   "account_number"
     t.string   "status"
     t.integer  "community_id"
   end
@@ -345,8 +343,11 @@ ActiveRecord::Schema.define(:version => 20140301074143) do
     t.integer  "custom_field_id"
     t.integer  "listing_id"
     t.text     "text_value"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.float    "numeric_value"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.string   "type"
+    t.boolean  "delta",           :default => true, :null => false
   end
 
   add_index "custom_field_values", ["listing_id"], :name => "index_custom_field_values_on_listing_id"
@@ -354,10 +355,13 @@ ActiveRecord::Schema.define(:version => 20140301074143) do
   create_table "custom_fields", :force => true do |t|
     t.string   "type"
     t.integer  "sort_priority"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.integer  "community_id"
-    t.boolean  "required",      :default => true
+    t.boolean  "required",       :default => true
+    t.float    "min"
+    t.float    "max"
+    t.boolean  "allow_decimals", :default => false
   end
 
   add_index "custom_fields", ["community_id"], :name => "index_custom_fields_on_community_id"

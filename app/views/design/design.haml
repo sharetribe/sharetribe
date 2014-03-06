@@ -276,7 +276,7 @@
 
     .design-component
       .design-example
-        #design-range-slider
+        #design-range-slider.range-slider
           - content_for :extra_javascript do
             :javascript
               $("#design-range-slider").noUiSlider({
@@ -288,7 +288,7 @@
       .design-code
         %pre
           :plain
-            #design-range-slider
+            #design-range-slider.range-slider
               - content_for :extra_javascript do
                 :javascript
                   $("#design-range-slider").noUiSlider({

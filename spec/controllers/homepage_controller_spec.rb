@@ -34,7 +34,7 @@ describe HomepageController do
       #category = FactoryGirl.create(:category)
       #@custom_field1.
       
-      array = HomepageController.custom_field_options_for_search({
+      array = HomepageController.custom_dropdown_field_options_for_search({
         "filter_options_#{@custom_field_option1.id}" => @custom_field_option1.id,
         "filter_options_#{@custom_field_option2.id}" => @custom_field_option2.id,
         "filter_options_#{@custom_field_option3.id}" => @custom_field_option3.id,

@@ -21,6 +21,10 @@ class Admin::CustomFieldsController < ApplicationController
   
   def create
     success = if valid_categories?(@current_community, params[:custom_field][:category_attributes])
+      # Hack for comma/dot issue. Consider creating an app-wide comma/dot handling mechanism
+      params[:custom_field][:min] = ParamsService.parse_float(params[:custom_field][:min]) if params[:custom_field][:min].present?
+      params[:custom_field][:max] = ParamsService.parse_float(params[:custom_field][:max]) if params[:custom_field][:max].present?
+
       @custom_field = params[:field_type].constantize.new(params[:custom_field])
       @custom_field.community = @current_community
       @custom_field.save
@@ -43,6 +47,11 @@ class Admin::CustomFieldsController < ApplicationController
   
   def update
     @custom_field = CustomField.find(params[:id])
+    
+    # Hack for comma/dot issue. Consider creating an app-wide comma/dot handling mechanism
+    params[:custom_field][:min] = ParamsService.parse_float(params[:custom_field][:min]) if params[:custom_field][:min].present?
+    params[:custom_field][:max] = ParamsService.parse_float(params[:custom_field][:max]) if params[:custom_field][:max].present?
+    
     @custom_field.update_attributes(params[:custom_field])
     redirect_to admin_custom_fields_path
   end

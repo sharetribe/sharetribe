@@ -1,3 +1,26 @@
+class FactoryGirl::DefinitionProxy
+
+  # has_many is a neat helper that can be used to eliminate quirky before/after books for
+  # creating associations.
+  #
+  # Credits: https://gist.github.com/ybart/8844969
+  #
+  # Usage: ctrl+f "has_many"
+  #
+  def has_many(collection)
+    # after_build is where you add instances to the factory-built collection. 
+    # Typically you'll want to Factory.build() these instances.
+    after (:build) do |instance, evaluator|
+      instance.send(collection) << yield(instance, evaluator) if instance.send(collection).empty?
+    end
+ 
+    # after_create will be called after after_build if the build strategy is Factory.create()
+    after(:create) do |instance|
+      instance.send(collection).each { |i| i.save! }
+    end
+  end
+end
+
 FactoryGirl.define do
   sequence :username do |n|
     "kassi_tester#{n}"
@@ -194,20 +217,27 @@ FactoryGirl.define do
   factory :custom_field, aliases: [:question] do
     community
 
-    before(:create) do |custom_field|
+    has_many :category_custom_fields do |custom_field|
       category = FactoryGirl.create(:category)
-      custom_field.category_custom_fields << FactoryGirl.create(:category_custom_field, :category => category, :custom_field => custom_field)
-      custom_field.names << FactoryGirl.create(:custom_field_name)
+      FactoryGirl.create(:category_custom_field, :category => category, :custom_field => custom_field)
+    end
+
+    has_many :names do |custom_field|
+      FactoryGirl.create(:custom_field_name)
     end
 
     factory :custom_dropdown_field, class: 'Dropdown' do
-      before(:create) do |custom_field|
-        custom_field.options << FactoryGirl.create(:custom_field_option)
-        custom_field.options << FactoryGirl.create(:custom_field_option)
+      has_many :options do |custom_field|
+        [FactoryGirl.create(:custom_field_option), FactoryGirl.create(:custom_field_option)]
       end
     end
 
     factory :custom_text_field, class: 'TextField' do
+    end
+
+    factory :custom_numeric_field, class: 'NumericField' do
+      min 0
+      max 100
     end
     
   end
@@ -234,6 +264,17 @@ FactoryGirl.define do
   factory :custom_field_value do
     question
     listing
+  end
+
+  factory :dropdown_value, class: 'DropdownValue' do
+    question { [ FactoryGirl.build(:custom_dropdown_field) ] }
+    listing
+  end
+
+  factory :custom_numeric_field_value, class: 'NumericFieldValue' do
+    question { [ FactoryGirl.build(:custom_numeric_field) ] }
+    listing
+    numeric_value 0
   end
   
   factory :payment do
