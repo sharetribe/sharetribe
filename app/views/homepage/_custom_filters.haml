@@ -1,50 +1,53 @@
 = form_tag "/", :method => :get do
-  - @current_community.custom_dropdown_fields.sort.each do |field|
-    .row
-      .col-12
-        .custom-filter-title
-          = field.name(I18n.locale)
-        - make_scrollable = field.options.size > 10
-        .custom-filter-options{:class => make_scrollable ? "scrollable" : ""}
-          - field.options.sort.each do |option|
-            .custom-filter-checkbox-container
-              %label.custom-filter-checkbox-label
-                = check_box_tag "filter_option_#{option.id}", "#{option.id}", params["filter_option_#{option.id}"]
-                %span.custom-filter-checkbox-label-text
-                  = option.title(I18n.locale)
+  - @current_community.custom_fields.sort.each do |field|
+    
+    - field.with(:dropdown) do
+      .row
+        .col-12
+          .custom-filter-title
+            = field.name(I18n.locale)
+          - make_scrollable = field.options.size > 10
+          .custom-filter-options{:class => make_scrollable ? "scrollable" : ""}
+            - field.options.sort.each do |option|
+              .custom-filter-checkbox-container
+                %label.custom-filter-checkbox-label
+                  = check_box_tag "filter_option_#{option.id}", "#{option.id}", params["filter_option_#{option.id}"]
+                  %span.custom-filter-checkbox-label-text
+                    = option.title(I18n.locale)
+    
+    - field.with(:numeric) do
+      .row
+        .col-12
+          .custom-filter-title
+            = field.name(I18n.locale)
+      .row
+        .col-12
+          .custom-filter-options
+            - id = ["range-slider", field.id, device].join("-")
+            .range-slider{id: id}
+              - range = [field.min, field.max]
+              - start = [params["nf_min_" + field.id.to_s] || field.min, params["nf_max_" + field.id.to_s] || field.max]
+              - labels = ["#custom-filter-min-value-#{id}", "#custom-filter-max-value-#{id}"]
+              - fields = ["#nf_min_#{id}", "#nf_max_#{id}"]
+              
+              - content_for :extra_javascript do
+                :javascript
+                  window.ST.rangeFilter("##{id}", #{range}, #{start}, #{labels}, #{fields}, #{field.allow_decimals})
+
+      .row
+        .col-12
+          .left
+            %span.custom-filter-min-max-title= t(".min")
+            %span{id: "custom-filter-min-value-#{id}"}
+            %input{type: "hidden", id: "nf_min_#{id}", name: "nf_min_#{field.id}", value: params["nf_min_#{field.id}"]}
+          .right
+            %span.custom-filter-min-max-title= t(".max")
+            %span{id: "custom-filter-max-value-#{id}"}
+            %input{type: "hidden", id: "nf_max_#{id}", name: "nf_max_#{field.id}", value: params["nf_max_#{field.id}"]}
+
   - params.except("action", "controller").each do |param, value|
-    - unless param.match(/^filter_option/)
+    - unless param.match(/^filter_option/) || param.match(/^nf_/)
       = hidden_field_tag param, value
-
-  - @current_community.custom_numeric_fields.sort.each do |field|
-    .row
-      .col-12
-        .custom-filter-title
-          = field.name(I18n.locale)
-    .row
-      .col-12
-        .custom-filter-options
-          - id = ["range-slider", field.id, device].join("-")
-          .range-slider{id: id}
-            - range = [field.min, field.max]
-            - start = [params["nf_min_" + field.id.to_s] || field.min, params["nf_max_" + field.id.to_s] || field.max]
-            - labels = ["#custom-filter-min-value-#{id}", "#custom-filter-max-value-#{id}"]
-            - fields = ["#nf_min_#{id}", "#nf_max_#{id}"]
-            
-            - content_for :extra_javascript do
-              :javascript
-                window.ST.rangeFilter("##{id}", #{range}, #{start}, #{labels}, #{fields}, #{field.allow_decimals})
-
-    .row
-      .col-12
-        .left
-          %span.custom-filter-min-max-title= t(".min")
-          %span{id: "custom-filter-min-value-#{id}"}
-          %input{type: "hidden", id: "nf_min_#{id}", name: "nf_min_#{field.id}", value: params["nf_min_#{field.id}"]}
-        .right
-          %span.custom-filter-min-max-title= t(".max")
-          %span{id: "custom-filter-max-value-#{id}"}
-          %input{type: "hidden", id: "nf_max_#{id}", name: "nf_max_#{field.id}", value: params["nf_max_#{field.id}"]}
 
   %button{type: 'submit'}
     = t(".update_view")
