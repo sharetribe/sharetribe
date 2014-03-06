@@ -34,6 +34,7 @@ module StylesheetCompiler
     def create_sprockets_env(path)
       Sprockets::Environment.new(Rails.root).tap do |env|
         env.append_path path
+        env.append_path Kassi::Application::VENDOR_CSS_PATH
 
         env.context_class.instance_eval do
           # Include these helpers to allow SASS files to use image-url etc. helpers

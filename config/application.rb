@@ -19,6 +19,10 @@ end
 
 module Kassi
   class Application < Rails::Application
+    # This is a little cubersome, but this needs to be shared with the StylesheetCompiler,
+    # and thus class const
+    VENDOR_CSS_PATH = Rails.root.join("vendor", "assets", "stylesheets")
+
     # Load all rack middleware files
     config.autoload_paths += %W(#{config.root}/lib/rack_middleware)
     
@@ -41,7 +45,7 @@ module Kassi
     
     # Add webfonts folder which can contain icons used like fonts
     config.assets.paths << Rails.root.join("app", "assets", "webfonts")
-    config.assets.paths << Rails.root.join("vendor", "assets", "stylesheets")
+    config.assets.paths << VENDOR_CSS_PATH
     
     # Define here additional Assset Pipeline Manifests to include to precompilation
     config.assets.precompile += ['dashboard.js', 'dashboard.css', 'markerclusterer.js', 'communities/custom-style-*', 'ss-*','old_ie.css', 'html5shiv-printshiv.js', 'mercury.js','jquery-1.7.js']
