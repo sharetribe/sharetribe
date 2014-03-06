@@ -140,7 +140,6 @@ function add_validator_methods() {
   $.validator.
     addMethod("max_bound",
       function(value, element, otherName) {
-        debugger;
         var $otherInput = ST.utils.findElementByName(otherName);
         return Number(toNumber(value)) > numberVal($otherInput);
       }
@@ -182,23 +181,25 @@ function add_validator_methods() {
   $.validator.
     addMethod("number_no_decimals", function(value, element, opts) {
       var numberRegex  = /^\d+?$/;
-      return numberRegex.test(value)
+      return value.length === 0 ? true : numberRegex.test(value)
     });
 
   $.validator.
     addMethod("number_decimals", function(value, element) {
       var decimalRegex  = /^\d+((\.|\,)\d+)?$/;
-      return decimalRegex.test(value)
+      return value.length === 0 ? true : decimalRegex.test(value)
     });
 
   $.validator.
     addMethod("number_min", function(value, element, min) {
-      return toNumber(value) >= min
+      debugger;
+      return value.length === 0 ? true : toNumber(value) >= min;
     });
 
   $.validator.
     addMethod("number_max", function(value, element, max) {
-      return toNumber(value) <= max
+      debugger;
+      return value.length === 0 ? true : toNumber(value) <= max;
     });
 }
 
