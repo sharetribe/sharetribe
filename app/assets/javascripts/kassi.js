@@ -140,7 +140,6 @@ function add_validator_methods() {
   $.validator.
     addMethod("max_bound",
       function(value, element, otherName) {
-        debugger;
         var $otherInput = ST.utils.findElementByName(otherName);
         return Number(toNumber(value)) > numberVal($otherInput);
       }
