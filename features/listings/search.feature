@@ -54,12 +54,12 @@ Feature: Search
 
   @javascript
   Scenario: Finding by numeric field (and search term)
-    When I set search range for "Weight (kg)" between "10" and "200"
+    When I set search range for numeric filter "Weight (kg)" between "10" and "200"
     And I press "Update view"
     Then I should see "old sofa for sale"
     Then I should see "light-weigth plastic outdoor sofa"
 
-    When I set search range for "Weight (kg)" between "100" and "200"
+    When I set search range for numeric filter "Weight (kg)" between "100" and "200"
     And I press "Update view"
     Then I should see "old sofa for sale"
     Then I should not see "light-weigth plastic outdoor sofa"
@@ -70,11 +70,11 @@ Feature: Search
 
   @javascript
   Scenario: Finding by price
-    When I set search range for "Price" between "100" and "1000"
+    When I set price range between "100" and "1000"
     And I press "Update view"
     Then I should see "old sofa for sale"
     Then I should not see "light-weigth plastic outdoor sofa"
 
-    When I set search range for "Price" between "500" and "1000"
+    When I set price range between "500" and "1000"
     And I press "Update view"
-    Then I should see "We couldn't find any results that matched your search criteria"
+    Then I should see "No listings"

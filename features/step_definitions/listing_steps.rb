@@ -22,10 +22,23 @@ Given(/^that listing has a numeric answer "(.*?)" for "(.*?)"$/) do |answer, cus
   FactoryGirl.create(:custom_numeric_field_value, listing: @listing, numeric_value: answer, question: numeric_custom_field)
 end
 
-When(/^I set search range for "(.*?)" between "(.*?)" and "(.*?)"$/) do |custom_field, min, max|
+When(/^I set search range for "(.*?)" between "(.*?)" and "(.*?)"$/) do |selector, min, max|
+  page.execute_script("$('#{selector}').val([#{min.to_f}, #{max.to_f}])");
+end
+
+When(/^I set price range between "(.*?)" and "(.*?)"$/) do |min, max|
+  steps %Q{
+    When I set search range for "#range-slider-price-desktop" between "#{min}" and "#{max}"
+  }
+end
+
+When(/^I set search range for numeric filter "(.*?)" between "(.*?)" and "(.*?)"$/) do |custom_field, min, max|
   numeric_custom_field = find_numeric_custom_field_type_by_name(custom_field)
   selector = "#range-slider-#{numeric_custom_field.id}-desktop"
-  page.execute_script("$('#{selector}').val([#{min.to_f}, #{max.to_f}])");
+  
+  steps %Q{
+    When I set search range for "#{selector}" between "#{min}" and "#{max}"
+  }
 end
 
 Given /^visibility of that listing is "([^"]*)"$/ do |visibility|
