@@ -1,0 +1,30 @@
+.row
+  .col-12
+    .custom-filter-title
+      = t("listings.form.price.price")
+.row
+  .col-12
+    .custom-filter-options
+      - id = ["range-slider", "price", device].join("-")
+      .range-slider{id: id}
+        - min = @current_community.price_filter_min / 100
+        - max = @current_community.price_filter_max / 100
+        - range = [min, max]
+        - start = [params["price_min"] || min, params["price_max"] || max]
+        - labels = ["#price-filter-min-value-#{device}", "#price-filter-max-value-#{device}"]
+        - fields = ["#price_min-#{device}", "#price_max-#{device}"]
+        
+        - content_for :extra_javascript do
+          :javascript
+            window.ST.rangeFilter("##{id}", #{range}, #{start}, #{labels}, #{fields}, false)
+
+.row
+  .col-12
+    .left
+      %span.custom-filter-min-max-title= t("homepage.custom_filters.min")
+      %span{id: "price-filter-min-value-#{device}"}
+      %input{type: "hidden", id: "price_min-#{device}", name: "price_min", value: params["price_min"]}
+    .right
+      %span.custom-filter-min-max-title= t("homepage.custom_filters.max")
+      %span{id: "price-filter-max-value-#{device}"}
+      %input{type: "hidden", id: "price_max-#{device}", name: "price_max", value: params["price_max"]}
