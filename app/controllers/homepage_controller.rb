@@ -53,6 +53,16 @@ class HomepageController < ApplicationController
     @filter_params[:include] = [:listing_images, :author, :category, :transaction_type]
     @filter_params[:custom_dropdown_field_options] = HomepageController.custom_dropdown_field_options_for_search(params)
 
+    @filter_params[:price_cents] = if (params[:price_min] && params[:price_max])
+      min = params[:price_min].to_i * 100
+      max = params[:price_max].to_i * 100
+
+      # Search only if range is not from min boundary to max boundary
+      if min != @current_community.price_filter_min || max != @current_community.price_filter_max
+        @filter_params[:price_cents] = (min..max)
+      end
+    end
+
     p = HomepageController.numeric_filter_params(params)
     p = HomepageController.parse_numeric_filter_params(p)
     p = HomepageController.group_to_ranges(p)
