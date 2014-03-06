@@ -125,8 +125,8 @@ class ListingsController < ApplicationController
     end
     @listing = Listing.new(params[:listing])
     @listing.author = @current_user
-    @listing.save
     @listing.custom_field_values = create_field_values(params[:custom_fields]) if params[:custom_fields]
+    @listing.save
 
     if @listing.new_record?
       redirect_to new_listing_path
