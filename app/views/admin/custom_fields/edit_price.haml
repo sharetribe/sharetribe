@@ -3,6 +3,10 @@
     = t("layouts.admin.admin") 
     = "-"
     = t(".edit_price_field")
+
+- content_for :extra_javascript do
+  :javascript
+    $("#edit_community").validate();
   
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@community) }
 
@@ -21,9 +25,9 @@
     .row
       .col-3
         = form.label "community[price_filter_min]", t(".price_min")
-        = text_field_tag "community[price_filter_min]", min, :class => "required"
+        = text_field_tag "community[price_filter_min]", min, :class => "required number-no-decimals"
       .col-3
         = form.label "community[price_filter_max]", t(".price_max")
-        = text_field_tag "community[price_filter_max]", max, :class => "required"
+        = text_field_tag "community[price_filter_max]", max, :class => "required number-no-decimals"
 
     = render :partial => "admin/custom_fields/form/buttons", :locals => { :form => form }
