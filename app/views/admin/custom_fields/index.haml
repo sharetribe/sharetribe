@@ -21,6 +21,26 @@
           = t(".field_title")
         .col-5.custom-fields-list-title
           = t(".field_type")
+      / This is ugly piece of hard-coded copy-paste code.
+      / In the future we'll make also the price to be a custom field
+      .row.custom-field-price-row
+        .col-5
+          %span.custom-fields-mobile-list-title.hidden-tablet
+            = t("admin.custom_fields.index.field_title")
+          = t("listings.form.price.price")
+        .col-5
+          %span.custom-fields-mobile-list-title.hidden-tablet
+            = t("admin.custom_fields.index.field_type")
+          %div
+            = t("listings.form.price.price")
+          %div.custom-fields-details
+        .col-2
+          = link_to edit_price_admin_custom_fields_path, :class => "custom-fields-action-edit" do
+            = icon_tag("edit", ["icon-fix"])
+          = icon_tag("cross", ["icon-fix disabled"])
+          = icon_tag("directup", ["icon-fix disabled"])
+          = icon_tag("directdown", ["icon-fix disabled"])
+
       = render :partial => "listed_custom_field", :collection => @custom_fields.sort, :as => :custom_field
     #custom-field-ajax-status
       .ajax-notification.ajax-notice.custom-field-ajax-status-message#custom-field-ajax-saving

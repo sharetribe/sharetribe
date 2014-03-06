@@ -56,6 +56,27 @@ class Admin::CustomFieldsController < ApplicationController
     redirect_to admin_custom_fields_path
   end
 
+  def edit_price
+    @selected_tribe_navi_tab = "admin"
+    @selected_left_navi_link = "listing_fields"
+    @community = @current_community
+  end
+
+  def update_price
+    # To cents
+    params[:community][:price_filter_min] = (params[:community][:price_filter_min].to_i * 100) if params[:community][:price_filter_min]
+    params[:community][:price_filter_max] = (params[:community][:price_filter_max].to_i * 100) if params[:community][:price_filter_max]
+
+    success = @current_community.update_attributes(params[:community])
+
+    if success
+      redirect_to admin_custom_fields_path
+    else
+      flash[:error] = "Price field editing failed"
+      render :action => :edit_price
+    end
+  end
+
   def destroy
     @custom_field = CustomField.find(params[:id])
 
