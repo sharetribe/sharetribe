@@ -38,13 +38,11 @@
     .row
       .col-12
         .left
-          %span.custom-filter-min-max-title
-            Min:
+          %span.custom-filter-min-max-title= t(".min")
           %span{id: "custom-filter-min-value-#{id}"}
           %input{type: "hidden", id: "nf_min_#{id}", name: "nf_min_#{field.id}", value: params["nf_min_#{field.id}"]}
         .right
-          %span.custom-filter-min-max-title
-            Max:
+          %span.custom-filter-min-max-title= t(".max")
           %span{id: "custom-filter-max-value-#{id}"}
           %input{type: "hidden", id: "nf_max_#{id}", name: "nf_max_#{field.id}", value: params["nf_max_#{field.id}"]}
 

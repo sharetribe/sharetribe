@@ -887,6 +887,8 @@ fi:
       some_private_requests_exist: "Palvelussa on jo <b>%{number_of_listings} pyyntöä</b>,"
     custom_filters:
       update_view: "Päivitä näkymä"
+      min: "Minimi:"
+      max: "Maksimi:"
     event_feed:
       latest_events: "Mitä %{service_name_inessive} tapahtuu"
     grid_item:
