@@ -205,7 +205,7 @@ class Listing < ActiveRecord::Base
     
     
     # Two ways of finding, with or without sphinx
-    if params[:search].present? || params[:transaction_types].present? || params[:category].present? || params[:custom_dropdown_field_options].present?
+    if params[:search].present? || params[:transaction_types].present? || params[:category].present? || params[:custom_dropdown_field_options].present? || params[:price_cents].present?
 
       # sort by time by default
       params[:sort] ||= 'created_at DESC'
@@ -226,6 +226,7 @@ class Listing < ActiveRecord::Base
       with[:category_id] = params[:categories][:id] if params[:categories].present?
       with[:transaction_type_id] = params[:transaction_types][:id] if params[:transaction_types].present?
       with[:listing_id] = params[:listing_id] if params[:listing_id].present?
+      with[:price_cents] = params[:price_cents] if params[:price_cents].present?
 
       params[:custom_dropdown_field_options] ||= [] # use emtpy table rather than nil to avoid confused sphinx
 
