@@ -153,3 +153,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for general contributing guide lines.
 ## Known issues
  
 See http://github.com/sharetribe/sharetribe/issues and please report any issues you find
+
+## Developer docs
+
+[Testing](docs/testing.md)
