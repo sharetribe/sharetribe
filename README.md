@@ -17,7 +17,130 @@ Sharetribe is open source under MIT license. See LICENSE file for details.
 
 ## Installation
 
-See github wiki for Sharetribe project for installation instructions: https://github.com/sharetribe/sharetribe/wiki
+NOTE: If you try installing and encounter problems, please report them for example in [Issues](https://github.com/sharetribe/sharetribe/issues). We try to help you and enhance the documentation.
+
+You can also ask for help in Sharetribe [Development Flowdock](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main)
+
+Below the installation instructions there is space for Operating system-specific tips, so if you have problems, check there, and if you get your problem solved, add instructions to the tips section.
+
+
+* Install
+  * Ruby (we use currently version 1.9.3 and don't guarantee everything working with others. If you need multiple versions of Ruby, [RVM](https://rvm.io//) can help.)
+  * [RubyGems](http://rubygems.org/)
+  * Bundler `gem install bundler`
+  * [Git](http://help.github.com/git-installation-redirect)
+* Get the code (git clone is probably easiest way: `git clone git://github.com/sharetribe/sharetribe.git`)
+* Go to the root folder of Sharetribe
+* Copy the example database configuration file as database.yml, which will be used to read the database information: `cp config/database.example.yml config/database.yml`
+* You need to have a database available for Sharetribe and a DB user account that has access to it. We have only used MySQL, so we give no guarantees of things working with others (e.g. PostgreSQL). (If you are going to do development you should have separate databases for development and testing also).
+  * You can [download MySQL from here](http://dev.mysql.com/downloads/mysql/)
+  * [These commands](https://gist.github.com/804314) can help you in the making of the needed user and databases.
+* Edit details according to your database to `config/database.yml` (if you are not going to develop Sharetribe, it's enough to fill in the production database)
+  * Probably you only need to change the passwords to the same that you used when creating the databases.
+* Copy the example configuration file as `config.yml`, which will be used to read the Sharetribe configuration information: `cp config/config.example.yml config/config.yml`
+* Edit details according to your system configuration to `config/config.yml`.
+* If you are planning to run Sharetribe in production mode on your local machine (without Apache or similar server in front) you'll need to set the value of `serve_static_assets_in_production` to `true` (to make images and CSS files show correctly). Otherwise leave it as it is.
+* Install Sphinx. Version 2.0.6 has been used successfully, but probably also newer and older (>0.9.9) versions will work. See [Sphinx installation instructions](http://pat.github.com/ts/en/installing_sphinx.html) (no need to start it yet. You can try running `searchd` command, but it should fail at this point complaining about missing config)
+* Install [Imagemagick](http://www.imagemagick.org)
+* You may have more success installing the mysql2 gem manually at this point, particularly on Mac OS X
+ `gem install mysql2 -v 0.2.7`
+* run `bundle install` in the project root directory (sharetribe) to install required gems
+* (In the following commands, leave out the `RAILS_ENV=production` part if you want to get Sharetribe running in development mode.) Load the database structure to your database: `rake RAILS_ENV=production db:schema:load`
+* run `rake db:seed` to add some initially needed data to the database (e.g. default categories)
+* run sphinx index `rake RAILS_ENV=production ts:index`
+* start sphinx daemon `rake RAILS_ENV=production ts:start`
+* If you want to run Sharetribe in production mode (i.e. you are not developing the software) you'll need to precompile the assets. This puts the Javascript and CSS files in right places. Use command: `rake assets:precompile`
+* If you want to enable Sharetribe to send email locally (in the development environment), you might want to change the email settings in the config file. There is an example of configuring settings using a gmail account, but you can also use any other SMTP server. If you do not touch the settings, the development version works otherwise normally but might crash in instances where it tries to send email (like when sending a message to another user).
+* Invoke the delayed job worker on your local machine: `rake RAILS_ENV=production jobs:work`. The worker processes tasks that are done in the background, like sending email notifications and assigning badges to people. 
+* Start the server. The simplest way is to use command `rails server` which will start it on Webrick, which is good option for development use.
+  * To start the server in production environment, use command `rails server -e production`
+* Sharetribe server can serve multiple Sharetribe communities (tribes) that are separated by subdomains. You need at least one community to use Sharetribe. To create a community, start the Rails Console: `rails console production` and choose the name and subdomain for your community and insert them in the following command:
+
+```ruby
+Community.create(:name => "your_chosen_name_here", :domain => "your_chosen_subdomain_here")
+```
+
+* go to your selected community address (your\_chosen\_subdomain\_here.yourdomain.com or your\_chosen\_subdomain_here.lvh.me:3000) and register as a user. The first registered user will be automatically made as an admin in that community. 
+
+### Tips for different platforms and OS
+
+#### Windows
+
+* The core team is doing development on macs and running servers on linux, so we don't have experience on running Sharetribe on Windows. It is possible, but with guidance you might have to rely on the community support.
+  * There is a (bit outdated) [separate guide for windows installation](https://github.com/tlsalmin/kassi/wiki/HOW-TO-install-kassi-in-Windows-(for-Development-only)) written by [vbtdung](https://github.com/vbtdung)
+* Note that the installation instructions on this page are written for *nix-based systems so you need to change the commands a little to make them work in windows (e.g. `cp` becomes `copy` in Windows)
+* You may need to add few windows specific gems to Gemfile. Versions prior to 2.3.0 included these, but because they caused trouble running Sharetribe on Heroku, we decided to remove them from the default Gemfile. You can just add these lines to Gemfile and run `bundle install`.
+
+```bash
+gem 'win32console', :platforms => [:mswin, :mingw]
+gem 'win32-process', :platforms => [:mswin, :mingw]
+```
+
+#### Mac Os X
+
+* If you are using MySQL, please note that Mac OS X 10.6 requires a 64-bit version of MySQL.
+* Paths and mysql-libs can cause problems with sphinx. At one computer running OS X we tried all kinds of trick to let sphinx know where the mysql libraries are, but none of them fixed the issue. The final and working method was to copy the missing library file directly to the project directory.. :D
+  * If you use home brew, you can try installing sphinx with this command: `brew install sphinx --mysql`
+* RVM requires both Xcode and Command Line Tools for Xcode to be installed
+  * Install Xcode from App Store
+  * To install Command Line Tools for Xcode, open Xcode and from the application menu, select Xcode > Open Developer Tools > More Developer Tools...
+
+#### Ubuntu (and Linux in general)
+
+* If, during precompile, you face an error like `Could not find a JavaScript runtime. See https://github.com/sstephenson/execjs for a list of available runtimes.`, you have to install nodejs. Execute `sudo apt-get install nodejs` and run precompile again.
+
+* These are the bash commands I used to install Sharetribe on a fresh Ubuntu 12.10 box:
+
+```bash
+- sudo aptitude install ruby1.9.3
+- sudo gem install bundler
+- sudo aptitude install git
+- git clone git://github.com/sharetribe/sharetribe.git
+- cd sharetribe
+- cp config/database.example.yml config/database.yml
+- sudo aptitude install mysql-server-5.5
+- sudo mysql_secure_installation
+- <execute 2 production SQL commands>
+- emacs config/database.yml
+	- edit the pw of "sharetribe_production"
+- cp config/config.example.yml config/config.yml
+- emacs config/config.yml
+	- check all once
+	- don't forget serve_static_assets_in_production = true (if not using Apache?)
+- sudo aptitude install sphinxsearch
+- sudo aptitude install imagemagick
+- sudo aptitude install build-essential mysql-client libmysql-ruby libmysqlclient-dev
+- sudo gem install mysql2 -v 0.2.7
+- sudo aptitude install libxml2-dev libxslt-dev
+- emacs Gemfile.lock
+	- change money-rails (0.8.0) to money-rails (0.8.1)
+- bundle install
+- rake RAILS_ENV=production db:schema:load
+- (note: if you ever want to uninstall all ruby gems)
+	- sudo su
+	- gem list | cut -d" " -f1 | xargs gem uninstall -aIx
+- sudo aptitude install nodejs
+- rake RAILS_ENV=production db:seed
+- rake RAILS_ENV=production thinking_sphinx:index
+- rake RAILS_ENV=production thinking_sphinx:start
+- emacs app/assets/stylesheets/application.scss.erb
+	- prepend this to the <% %> block at the top:
+		require "#{Rails.root}/app/helpers/scss_helper.rb"
+- rake assets:precompile
+- to enable logs in production (Passenger+Apache)
+	- emacs config/application.rb
+	- comment out the lines:
+		if Rails.env.production? || Rails.env.staging? 
+			config.logger = Logger.new(STDOUT)
+			config.logger.level = Logger.const_get(ENV['LOG_LEVEL'] ? ENV['LOG_LEVEL'].upcase : 'INFO')
+		end
+- emacs app/views/layouts/application.haml
+	- delete the last include IE9 javascript imports
+- sudo aptitude install apache2 libapache2-mod-passenger
+- sudo gem install passenger
+- edit the apache site config file
+- rake RAILS_ENV=production jobs:work
+```
 
 ## Updating
 
