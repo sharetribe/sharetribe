@@ -10,23 +10,6 @@ NOTE: The open source community of Sharetribe is just getting started, so some t
 
 You can also ask help at the Sharetribe Developers Flowdock at: https://sharetribe.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main
 
-## Updating
-
-See [RELEASE_NOTES.md](RELEASE_NOTES.md) for information about what has changed and if special tasks are needed to update.
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for general contributing guide lines.
-
-## Known issues
- 
-See http://github.com/sharetribe/sharetribe/issues and please report any issues you find
-
-## Developer docs
-
-* [Testing](docs/testing.md)
-* [SCSS coding guidelines](docs/scss-coding-guidelines.md)
-
 ## Installation
 
 NOTE: If you try installing and encounter problems, please report them for example in [Issues](https://github.com/sharetribe/sharetribe/issues). We try to help you and enhance the documentation.
@@ -153,6 +136,23 @@ gem 'win32-process', :platforms => [:mswin, :mingw]
 - edit the apache site config file
 - rake RAILS_ENV=production jobs:work
 ```
+
+## Updating
+
+See [RELEASE_NOTES.md](RELEASE_NOTES.md) for information about what has changed and if special tasks are needed to update.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for general contributing guide lines.
+
+## Known issues
+ 
+See http://github.com/sharetribe/sharetribe/issues and please report any issues you find
+
+## Developer docs
+
+* [Testing](docs/testing.md)
+* [SCSS coding guidelines](docs/scss-coding-guidelines.md)
 
 ## MIT License
 
