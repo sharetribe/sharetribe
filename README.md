@@ -146,6 +146,10 @@ gem 'win32-process', :platforms => [:mswin, :mingw]
 
 See [RELEASE_NOTES.md](RELEASE_NOTES.md) for information about what has changed and if special tasks are needed to update.
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for general contributing guide lines.
+
 ## Known issues
  
 See http://github.com/sharetribe/sharetribe/issues and please report any issues you find
