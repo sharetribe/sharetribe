@@ -112,5 +112,6 @@ group :test do
   gem 'pry'
   gem 'pry-rails'
   gem 'connection_pool'
+  gem 'coveralls', require: false
 end
 
