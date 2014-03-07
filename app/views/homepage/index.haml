@@ -82,10 +82,11 @@
                   - category.children.each do |child|
                     - is_selected = @selected_category == child
                     = link_to child.display_name(I18n.locale).mb_chars.capitalize.to_s, params.merge({category: child.id}), :class => "toggle-menu-subitem"
-        - if @show_custom_fields
-          .hidden-tablet  
-            = render :partial => "custom_filters", :locals => { device: "mobile" }
-                
+
+        / Filters
+        .hidden-tablet
+          = render :partial => "filters", :locals => { show_price_filter: @current_community.show_price_filter, show_custom_fields: @show_custom_fields, device: "mobile" }
+
   .row
     - if @category_menu_enabled
       .col-3.visible-tablet
@@ -101,8 +102,9 @@
                     - category.children.each do |child|
                       - is_selected = @selected_category == child
                       = link_to child.display_name(I18n.locale).mb_chars.capitalize.to_s, params.merge({category: child.id}), :class => "home-categories-sub #{if is_selected then 'selected' end}", :data => {:"sub-category" =>child.id}
-        - if @show_custom_fields
-          = render :partial => "custom_filters", :locals => { device: "desktop" }
+
+        / Filters
+        = render :partial => "filters", :locals => { show_price_filter: @current_community.show_price_filter, show_custom_fields: @show_custom_fields, device: "desktop" }
           
     - main_container_class = if @category_menu_enabled then "col-9" else "col-12" end
     %div{:class => main_container_class}

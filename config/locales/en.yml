@@ -129,6 +129,11 @@ en:
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
+      edit_price:
+        edit_price_field: "Edit price field"
+        show_price_filter_homepage: "Show price filter on homepage"
+        price_min: "Minimum price"
+        price_max: "Maximum price"
       form:
         field_required:
           this_field_is_required: "This field is required"

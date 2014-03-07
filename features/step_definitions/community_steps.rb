@@ -168,3 +168,9 @@ Given /^current community requires users to be verified to post listings$/ do
   @current_community.update_attribute(:require_verification_to_post_listings, true)
 end
 
+Given(/^this community has price filter enabled with min value (\d+) and max value (\d+)$/) do |min, max|
+  @current_community.show_price_filter = true
+  @current_community.price_filter_min = min.to_i * 100 # Cents
+  @current_community.price_filter_max = max.to_i * 100 # Cents
+  @current_community.save!
+end

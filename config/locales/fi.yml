@@ -129,6 +129,11 @@ fi:
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
+      edit_price:
+        edit_price_field: "Muokkaa hintakenttää"
+        show_price_filter_homepage: "Näytä hintasuodatin etusivulla"
+        price_min: "Minimihinta"
+        price_max: "Maksimihinta"
       form:
         field_required:
           this_field_is_required: "Tämä on pakollinen kenttä"
