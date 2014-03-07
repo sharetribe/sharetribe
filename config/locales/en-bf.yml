@@ -114,6 +114,11 @@ en-bf:
     custom_fields:
       edit:
         edit_listing_field: ~
+      edit_price:
+        edit_price_field: ~
+        show_price_filter_homepage: ~
+        price_min: ~
+        price_max: ~
       form:
         field_required:
           this_field_is_required: ~
@@ -1083,12 +1088,12 @@ en-bf:
       payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: ~
       person_activated: ~
-      person_deactivated: ~
-      person_updated_successfully: ~
-      poll_answered: ~
       poll_could_not_be_answered: ~
+      person_deactivated: ~
       poll_created: ~
+      person_updated_successfully: ~
       poll_creation_failed: ~
+      poll_answered: ~
       poll_update_failed: ~
       poll_updated: ~
       poll_deleted: ~

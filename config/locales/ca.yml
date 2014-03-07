@@ -114,6 +114,11 @@ ca:
     custom_fields:
       edit:
         edit_listing_field: ~
+      edit_price:
+        edit_price_field: ~
+        show_price_filter_homepage: ~
+        price_min: ~
+        price_max: ~
       form:
         field_required:
           this_field_is_required: ~
@@ -299,10 +304,10 @@ ca:
       canceled_request: ~
       canceled_offer: ~
     message:
-      accepted_request: ~
       accepted_offer: ~
       rejected_request: ~
       rejected_offer: ~
+      accepted_request: ~
       confirmed_request: ~
       confirmed_offer: ~
       canceled_request: ~

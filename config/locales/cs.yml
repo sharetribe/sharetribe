@@ -114,6 +114,11 @@ cs:
     custom_fields:
       edit:
         edit_listing_field: ~
+      edit_price:
+        edit_price_field: ~
+        show_price_filter_homepage: ~
+        price_min: ~
+        price_max: ~
       form:
         field_required:
           this_field_is_required: ~
@@ -319,13 +324,13 @@ cs:
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
       item_offer_trade_message_form_title: ~
-      item_offer_rent_out_message_form_title: ~
-      item_request_borrow_message_form_title: ~
-      item_request_buy_message_form_title: ~
       item_request_take_for_free_message_form_title: ~
+      item_offer_rent_out_message_form_title: ~
       item_request_trade_message_form_title: ~
+      item_request_borrow_message_form_title: ~
       item_request_rent_message_form_title: ~
       housing_offer_sell_message_form_title: ~
+      item_request_buy_message_form_title: ~
       housing_offer_rent_out_message_form_title: ~
       housing_offer_share_for_free_message_form_title: ~
       housing_offer_accept_for_free_message_form_title: ~

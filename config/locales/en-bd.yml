@@ -114,6 +114,11 @@ en-bd:
     custom_fields:
       edit:
         edit_listing_field: ~
+      edit_price:
+        edit_price_field: ~
+        show_price_filter_homepage: ~
+        price_min: ~
+        price_max: ~
       form:
         field_required:
           this_field_is_required: ~
@@ -896,12 +901,12 @@ en-bd:
       inform_others_about_events: ~
       lend_rent_help_carpool: ~
       loading_more_content: ~
-      more_events: ~
-      news: ~
-      no_news: ~
       more_news: ~
+      more_events: ~
       or: ~
+      news: ~
       or_see_what_the_others: ~
+      no_news: ~
       recent_events: ~
       requesting: ~
       teaser_text: ~

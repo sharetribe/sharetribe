@@ -114,6 +114,11 @@ en-at:
     custom_fields:
       edit:
         edit_listing_field: ~
+      edit_price:
+        edit_price_field: ~
+        show_price_filter_homepage: ~
+        price_min: ~
+        price_max: ~
       form:
         field_required:
           this_field_is_required: ~
@@ -858,12 +863,12 @@ en-at:
       item_offer_list: ~
       item_request_list: ~
       items_to_offer: ~
-      items_to_request: ~
-      log_in: ~
-      no_offers_visible_unless_logged_in: ~
       no_open_offers_currently: ~
+      items_to_request: ~
       no_open_requests_currently: ~
+      log_in: ~
       no_requests_visible_unless_logged_in: ~
+      no_offers_visible_unless_logged_in: ~
       one_private_offer_exists: ~
       one_private_request_exists: ~
       ride_offer: ~

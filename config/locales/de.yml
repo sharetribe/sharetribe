@@ -129,6 +129,11 @@ de:
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
+      edit_price:
+        edit_price_field: ~
+        show_price_filter_homepage: ~
+        price_min: ~
+        price_max: ~
       form:
         field_required:
           this_field_is_required: "Dieses Feld ist erforderlich."
@@ -617,14 +622,14 @@ de:
       you_have_not_yet_accepted_or_rejected_offer: "Du hast das Angebot %{title}, das du am %{date} erhalten hast, noch nicht akzeptiert oder abgelehnt."
       you_have_not_yet_accepted_or_rejected_request: "Du hast die Anfrage %{title}, die du am %{date} erhalten hast, noch nicht akzeptiert oder abgelehnt."
       show_thread: "Konversation anzeigen"
-    braintree_account_approved:
-      account_ready: "Du kannst nun Zahlungen erhalten"
-      message: "Deine Zahlungsinformationen wurden bestätigt. Du kannst jetzt auf %{service_name} Zahlungen erhalten."
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Du hast noch keine Anfrage bestätigt oder abgelehnt %{request_link}, die du am %{date} von %{other_party_full_name} erhalten hast. Wenn die Anfrage vollständig ist musst du das bestätigen. Danach kannst du Feedback an %{other_party_given_name} geben."
       remember_to_confirm_request: "Denke daran, deine Anfrage zu bestätigen oder abzulehnen"
       if_will_not_happen_you_should_cancel: "Wenn du denkst, dass die Anfrage wegen eines anderen Grundes noch nicht vollständig ist, kannst du %{cancel_it_link}."
       cancel_it_link_text: Abbrechen
+      you_have_not_yet_confirmed_or_canceled_request: "Du hast noch keine Anfrage bestätigt oder abgelehnt %{request_link}, die du am %{date} von %{other_party_full_name} erhalten hast. Wenn die Anfrage vollständig ist musst du das bestätigen. Danach kannst du Feedback an %{other_party_given_name} geben."
+    braintree_account_approved:
+      account_ready: "Du kannst nun Zahlungen erhalten"
+      message: "Deine Zahlungsinformationen wurden bestätigt. Du kannst jetzt auf %{service_name} Zahlungen erhalten."
     payment_reminder:
       remember_to_pay: "Bezahle für %{listing_title}"
       you_have_not_yet_paid: "Du hast noch nicht für %{listing_title} bezahlt, die %{other_party_name} hat dein Angebot akzeptiert."

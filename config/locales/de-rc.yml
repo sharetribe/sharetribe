@@ -114,6 +114,11 @@ de-rc:
     custom_fields:
       edit:
         edit_listing_field: ~
+      edit_price:
+        edit_price_field: ~
+        show_price_filter_homepage: ~
+        price_min: ~
+        price_max: ~
       form:
         field_required:
           this_field_is_required: ~
@@ -756,14 +761,14 @@ de-rc:
       add_request_link_text: ~
       invite_your_friends_invite_only: ~
       invite_your_friends: ~
+      congrats_for_creating_community: ~
       invite_link_text: ~
       member_list_link_text: ~
-      go_explore: ~
-      love_team: ~
-      congrats_for_creating_community: ~
       you_have_just_created_community: ~
+      go_explore: ~
       you_now_have_admin_rights: ~
       edit_community_details_link_text: ~
+      love_team: ~
       add_content: ~
       spread_the_word: ~
       spread_the_word_invite_only: ~
