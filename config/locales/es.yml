@@ -46,7 +46,7 @@ es:
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
         update_information: "Actualizar información"
-        invite_people: ~
+        invite_people: "Invita a más personas a esta comunidad"
         edit_signup_info: ~
         edit_signup_info_description: ~
         edit_info: ~
@@ -134,11 +134,15 @@ es:
         save_order_error: ~
         select_one: ~
         continue: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
       new:
         new_listing_field: ~
       field_types:
         dropdown: ~
         textfield: ~
+        numericfield: ~
     emails:
       new:
         send_email_to_members: ~
@@ -744,28 +748,28 @@ es:
           Recuerda dar feedback de cómo %{given_name} actuó en el evento.
     welcome_email:
       welcome_email_footer_text: "¿Qué tipo de emails desea recibir de %{service_name}? %{settings_link}"
-      settings_link_text: ~
+      settings_link_text: "Revisa tu configuración"
       subject: "Bienvenido a %{community} - Algunos consejos para ayudarte a empezar"
       welcome_some_tips: "Bienvenido a %{community_link}! Algunos consejos para ayudarte a empezar."
       p_s_did_you_know: "P.D. ¿Sabías que puedes crear un mercado como este para cualquier comunidad a la que perteneces, completamente gratis? %{click_here_link} para saber más!"
       click_here_link_text: "Haz clic aquí"
       update_your_profile: ~
-      update_your_profile_link_text: ~
-      add_something_you_could_offer: ~
-      add_offer_link_text: ~
-      is_there_something_you_need: ~
-      add_request_link_text: ~
-      invite_your_friends_invite_only: ~
-      invite_your_friends: ~
-      invite_link_text: ~
-      member_list_link_text: ~
-      go_explore: ~
-      love_team: ~
-      congrats_for_creating_community: ~
-      you_have_just_created_community: ~
-      you_now_have_admin_rights: ~
-      edit_community_details_link_text: ~
-      add_content: ~
+      update_your_profile_link_text: "Actualiza tu perfil aquí"
+      add_something_you_could_offer: "Agrega algo que puedas ofertar a los demás %{service_name}.</strong>¿Podrías ofertar tu taladro eléctrico, tu raqueta de tenis o una olla de fondue?¿Te gusta coser, armar muebles o jugar con computadoras?¿Tienes cosas en tu armario de las que quisieras deshacerte?%{add_offer_link}"
+      add_offer_link_text: "Agrégalos como ofertas en%{service_name}!"
+      is_there_something_you_need: "<strong>¿Hay algo que necesites en este instante?</strong>¿Quizás te gustaría compartir un paseo?¿O pedir prestadas algunas herramientas?¿O necesitas a alguien que saque a pasear a tu perro? Lo primero que debes hacer es buscar%{service_name}: tal vez alguien ya esta ofreciendo lo que necesitas. Si no encuentras lo que estas buscando, puedes%{add_request_link}."
+      add_request_link_text: "Agregar una nueva petición"
+      invite_your_friends_invite_only: "<strong>Corre la voz.</strong>Cuanta más gente haya en%{service_name}, más útil será la comunidad para todos. Esta comunidad%{service_name} es \"solo por invitación\", por lo que la gente necesita la invitación de un miembro para unirse. ¿Conoces personas que puedan estar interesadas en unirse? Dales acceso a %{service_name} mediante%{invite_link}. Sí quieres ver si ya son miembros, %{member_list_link}."
+      invite_your_friends: "<strong>Corre la voz.</strong> Cuanta más gente %{service_name}, más útil será la comunidad para todos. ¿Conoces personas que puedan estar interesadas en unirse? Háblales acerca de%{service_name}mediante%{invite_link} o envíales este vínculo:%{url}. Si quieres ver si ya son miembros, %{member_list_link}."
+      invite_link_text: "Usando nuestro sencillo formulario de invitación"
+      member_list_link_text: "Un vistazo a la lista de miembros"
+      go_explore: "<strong>¡Investiga!</strong> Mira lo que otros ya están ofreciendo y solicitando en%{service_name}. Quizás encuentres algo que necesites. Quizás puedas ayudar a alguien más. ¡¡¡Diviértete!!!"
+      love_team: "Amor,<br /><i>El%{service_name} Equipo</i>"
+      congrats_for_creating_community: "Recién acaba de crear una comunidad%{community} - aquí algunos consejos para ayudarle a empezar"
+      you_have_just_created_community: "Acaba de crear %{community_link}! Aquí algunos consejos para ayudarle a comenzar con la nueva comunidad."
+      you_now_have_admin_rights: "<b>Ahora deberá administrar las normas de esta comunidad.</b> Esto significa que puedes, por ejemplo, editar la información y el aspecto y sentimiento de la comunidad. Esto es probablemente lo primero que quieras hacer. %{edit_community_details_link}. Si deseas transferir tus derechos de administrador a alguien más, por favor contáctanos respondiendo a este correo electrónico."
+      edit_community_details_link_text: "Edite los detalles de la comunidad aquí"
+      add_content: "<strong>Agregue contenido.</strong>La mejor manera de mantener a las cosas rodando es agregar algunos listados. De esta manera, cuando las nuevas personas lleguen, verán rápidamente lo que sucede. ¿Podría prestar su taladro eléctrico, su raqueta de tenis o su olla de fondue?¿Le gustaría coser, armar muebles o jugar con computadoras? ¿Tiene cosas en su armario de las que quiere deshacerse? %{add_offer_link} Si necesita algo, %{add_request_link}."
       spread_the_word: ~
       spread_the_word_invite_only: ~
       have_fun: ~
@@ -873,6 +877,8 @@ es:
       some_private_requests_exist: "Ya existen <b>%{number_of_listings} solicitudes</b>,"
     custom_filters:
       update_view: "Actualizar búsqueda"
+      min: ~
+      max: ~
     event_feed:
       latest_events: "Qué está pasando"
     grid_item:
@@ -912,7 +918,7 @@ es:
       this_is_private_community: ~
     invitation_form:
       invite_your_friends: "Invita a tus amigos a %{service_name}!"
-      invite_your_neighbors: ~
+      invite_your_neighbors: "Invita a tus vecinos a%{service_name}!"
       email: "Dirección de correo electrónico de tu amigo:"
       message: "Un mensaje personal:"
       send_invitation: "Enviar invitación"
@@ -984,7 +990,7 @@ es:
       your_email_address: "Tu dirección email (no obligatorio)"
       connect: Regístrate
       invite_your_friends: "Invita amigos!"
-      invite_your_neighbors: ~
+      invite_your_neighbors: "Invita a tus vecinos!"
       invite_your_friends_description: "Mientras más gente hay en %{service_name}, más útil será."
       invite_your_friends_invite_only_description: ~
       join_without_facebook: "... o alternativamente %{join_without_facebook_link}"

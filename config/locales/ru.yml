@@ -134,11 +134,15 @@ ru:
         save_order_error: ~
         select_one: ~
         continue: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
       new:
         new_listing_field: ~
       field_types:
         dropdown: ~
         textfield: ~
+        numericfield: ~
     emails:
       new:
         send_email_to_members: "Отправить электронное письмо членам сообщества"
@@ -868,6 +872,8 @@ ru:
       some_private_requests_exist: "Уже есть <b>%{number_of_listings} запросов</b>,"
     custom_filters:
       update_view: ~
+      min: ~
+      max: ~
     event_feed:
       latest_events: "Последние действия"
     grid_item:

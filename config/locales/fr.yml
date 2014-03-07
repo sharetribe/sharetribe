@@ -149,11 +149,15 @@ fr:
         save_order_error: "Il y a eu un problème lors de la sauvegarde de l'ordre des champs. Rafraîchissez la page et essayez de nouveau."
         select_one: "Sélectionner le type du champ..."
         continue: Continuer
+        minimum_value: Minimum
+        maximum_value: Maximum
+        allow_decimals: "Autoriser les décimales"
       new:
         new_listing_field: "Nouveau champ d'annonce"
       field_types:
         dropdown: "Liste déroulante"
         textfield: "Champ texte"
+        numericfield: "Champ numérique"
     emails:
       new:
         send_email_to_members: "Envoyer un email aux membres"
@@ -883,6 +887,8 @@ fr:
       some_private_requests_exist: "Il y a déjà <b>%{number_of_listings} demandes</b>,"
     custom_filters:
       update_view: Actualiser
+      min: "Min : "
+      max: "Max : "
     event_feed:
       latest_events: "Que se passe t-il"
     grid_item:

@@ -134,11 +134,15 @@ el:
         save_order_error: ~
         select_one: ~
         continue: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
       new:
         new_listing_field: ~
       field_types:
         dropdown: ~
         textfield: ~
+        numericfield: ~
     emails:
       new:
         send_email_to_members: "Στείλτε ένα μήνυμα ηλεκτρονικού ταχυδρομείου στα μέλη"
@@ -868,6 +872,8 @@ el:
       some_private_requests_exist: "Υπάρχουν ήδη  <b>%{number_of_listings} αιτήματα</b>"
     custom_filters:
       update_view: ~
+      min: ~
+      max: ~
     event_feed:
       latest_events: "Τι νέα;"
     grid_item:
