@@ -8,6 +8,7 @@ ThinkingSphinx::Index.define :listing, :with => :active_record, :delta => Thinki
   indexes description
   indexes category.translations.name, :as => :category
   indexes custom_field_values(:text_value), :as => :custom_text_fields
+  indexes origin
   
   # attributes
   has id, :as => :listing_id # id didn't work without :as aliasing
