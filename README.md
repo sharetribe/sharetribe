@@ -157,3 +157,4 @@ See http://github.com/sharetribe/sharetribe/issues and please report any issues 
 ## Developer docs
 
 [Testing](docs/testing.md)
+[SCSS coding guidelines](docs/scss-coding-guidelines.md)

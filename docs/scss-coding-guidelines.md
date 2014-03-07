@@ -28,7 +28,7 @@ app/assets/stylesheets/
 |
 `-- index.scss                  # File that includes all the other SCSS files
                                 # Use Sprocket `//= require` instead of `@import` to reduce
-                                # compile speed
+                                # compile time
 ```
 
 Rules:
