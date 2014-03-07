@@ -11,7 +11,7 @@ NOTE: The open source community of Sharetribe is just getting started, so some t
 You can also ask help at the Sharetribe Developers Flowdock at: https://sharetribe.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main
 
 
-## Mit License
+## MIT License
 
 Sharetribe is open source under MIT license. See LICENSE file for details.
 
