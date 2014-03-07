@@ -21,7 +21,7 @@ See github wiki for Sharetribe project for installation instructions: https://gi
 
 ## Updating
 
-See RELEASE_NOTES.md for information about what has changed and if special tasks are needed to update.
+See [RELEASE_NOTES.md](RELEASE_NOTES.md) for information about what has changed and if special tasks are needed to update.
 
 ## Known issues
  
