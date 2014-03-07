@@ -6,7 +6,7 @@
 
 - content_for :extra_javascript do
   :javascript
-    $("#edit_community").validate();
+    initialize_admin_edit_price($("#edit_community"), "community[price_filter_min]", "community[price_filter_max]", "#{I18n.locale}");
   
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@community) }
 
