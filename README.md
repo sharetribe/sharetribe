@@ -156,4 +156,4 @@ gem 'win32-process', :platforms => [:mswin, :mingw]
 
 ## MIT License
 
-Sharetribe is open source under MIT license. See LICENSE file for details.
+Sharetribe is open source under MIT license. See [LICENSE](LICENSE.md) file for details.
