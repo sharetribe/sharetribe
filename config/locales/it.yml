@@ -134,11 +134,15 @@ it:
         save_order_error: ~
         select_one: ~
         continue: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
       new:
         new_listing_field: ~
       field_types:
         dropdown: ~
         textfield: ~
+        numericfield: ~
     emails:
       new:
         send_email_to_members: ~
@@ -868,6 +872,8 @@ it:
       some_private_requests_exist: "Ci sono già <b>%{number_of_listings} richieste</b>,"
     custom_filters:
       update_view: ~
+      min: ~
+      max: ~
     event_feed:
       latest_events: ~
     grid_item:

@@ -19,6 +19,10 @@
     "required": "Questo campo è obbligatorio.",
     "url": "Per favore inserisci un URL valido.",
     "address_validator": "La posizione non è stata trovata.",
-    "money": "E' necessario inserire un valore monetario valido."
+    "money": "E' necessario inserire un valore monetario valido.",
+    "min_bound": null,
+    "max_bound": null,
+    "number_no_decimals": null,
+    "number_decimals": null
   }
 }

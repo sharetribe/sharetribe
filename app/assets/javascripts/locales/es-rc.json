@@ -19,6 +19,10 @@
     "required": "Este campo es obligatorio",
     "url": "Por favor ingresa una URL válida.",
     "address_validator": "The location was not found.",
-    "money": "You need to insert a valid monetary value."
+    "money": "You need to insert a valid monetary value.",
+    "min_bound": null,
+    "max_bound": null,
+    "number_no_decimals": null,
+    "number_decimals": null
   }
 }

@@ -1,4 +1,4 @@
-sw:
+da-DK:
   admin:
     categories:
       edit:
@@ -215,22 +215,22 @@ sw:
     edit_page: ~
     default_community_slogan: ~
     default_community_description: ~
-    cancel: Kufuta
-    fields_that_are_mandatory: "Sehemu zilizo na alama ya nyota(*) ni lazima kujazwa"
-    or: au
+    cancel: ~
+    fields_that_are_mandatory: ~
+    or: ~
     password: ~
     service_name: ~
     share_types:
       request: ~
       offer: ~
-      borrow: kuazimwa
-      buy: kununua
-      give_away: kupeana
-      lend: kuazima
-      receive: "kuchukua bila malipo"
-      rent: kukodisha
+      borrow: ~
+      buy: ~
+      give_away: ~
+      lend: ~
+      receive: ~
+      rent: ~
       rent_out: ~
-      sell: kuuza
+      sell: ~
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: ~
@@ -257,7 +257,7 @@ sw:
       other: ~
     username: ~
     username_or_email: ~
-    what_is_this: "Nini hii?"
+    what_is_this: ~
   conversations:
     accept:
       respond_to_offer: ~
@@ -285,8 +285,8 @@ sw:
       do_not_give_feedback: ~
     index:
       loading_more_messages: ~
-      message_partitive: ujumbe
-      messages_partitive: ujumbe
+      message_partitive: ~
+      messages_partitive: ~
       no_received_messages: ~
       no_sent_messages: ~
     conversation:
@@ -313,8 +313,8 @@ sw:
       request_message_form_title: ~
       favor_offer_message_form_title: ~
       favor_request_message_form_title: ~
-      housing_offer_message_form_title: "Jibu kwa"
-      housing_request_message_form_title: "Jibu kwa"
+      housing_offer_message_form_title: ~
+      housing_request_message_form_title: ~
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
@@ -332,7 +332,7 @@ sw:
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
       item_request_message_form_title: ~
-      message: Ujumbe
+      message: ~
       rideshare_offer_message_form_title: ~
       rideshare_request_message_form_title: ~
       send_message: ~
@@ -369,7 +369,7 @@ sw:
       message_sent_by: ~
       message_sent_to: ~
       send_reply: ~
-      write_a_reply: "Andika jibu:"
+      write_a_reply: ~
       conversation_about_listing: ~
       conversation_with_user: ~
       last_message_at: ~
@@ -564,8 +564,8 @@ sw:
       kassi_for_your_university: ~
       kassi_for_your_university_description: ~
       want_kassi_for_your_community: ~
-      email_default_text: "Anwani yako ya barua pepe"
-      send: Tuma!
+      email_default_text: ~
+      send: ~
       or_drop_us_a_line: ~
       thanks_for_contacting_us: ~
       resources: ~
@@ -637,9 +637,9 @@ sw:
       turning_on_confirmations_in_this_community: ~
     common:
       check_your_settings: ~
-      hey: "Sasa %{name},"
-      kassi_team: "Timu ya Kassi"
-      thanks: "Ahsante,"
+      hey: ~
+      kassi_team: ~
+      thanks: ~
       want_to_control_emails: ~
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~

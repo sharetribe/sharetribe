@@ -19,6 +19,10 @@
     "required": "Dieses Feld ist erforderlich.",
     "url": "Bitte eine gültige URL eingeben.",
     "address_validator": "Der Standort wurde nicht gefunden.",
-    "money": "Du musst einen gültigen monetären Wert eintragen."
+    "money": "Du musst einen gültigen monetären Wert eintragen.",
+    "min_bound": "Bitte trage einen Wert ein, der kleiner ist als der Maximalwert ({0})",
+    "max_bound": "Bitte trage einen Wert ein, der größer ist als der Minimalwert ({0})",
+    "number_no_decimals": "Bitte trage eine ganze Zahl ein",
+    "number_decimals": "Bitte trage eine gültige Zahl mit einem Punkt (.) oder Komma (,) als Dezimaltrennzeichen ein"
   }
 }
