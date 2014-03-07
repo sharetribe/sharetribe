@@ -69,6 +69,10 @@ When /^I remove the focus"?$/ do
 end
 
 Then /^there should be an active ajax request$/ do
+  # WARNING! This step is unreliable!
+  # Some ajax requests are faster than the polling interval, thus
+  # this step never sees the ajax request and thinks there never
+  # were any requests
   expect { page.evaluate_script("$.active") > 0 }.to become_true
 end
 
