@@ -28,7 +28,7 @@ window.ST.ajaxStatusIndicator = function(ajaxRequest, ajaxResponse, minLoadingTi
     return Bacon.later(minLoadingTime, true).toProperty(false);
   }).toProperty(false);
 
-  var isTrue = function(value) { return value === true};
+  var isTrue = function(value) { return value === true; };
 
   return {
     loading: ajaxRequest,

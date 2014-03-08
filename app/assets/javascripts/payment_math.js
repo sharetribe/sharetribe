@@ -1,5 +1,5 @@
 // Namespace
-window.ST = window.ST || {}
+window.ST = window.ST || {};
 
 window.ST.paymentMath = (function() {
 
@@ -25,5 +25,5 @@ window.ST.paymentMath = (function() {
     parseFloatFromFieldValue: parseFloatFromFieldValue,
     serviceFee: serviceFee,
     displayMoney: displayMoney
-  }
+  };
 })();
