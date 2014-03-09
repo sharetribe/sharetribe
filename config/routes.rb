@@ -24,26 +24,7 @@ Kassi::Application.routes.draw do
   # Adds locale to every url right after the root path
   scope "(/:locale)" do
     scope :module => "api", :constraints => ApiRequest do
-      resources :tokens, :only => :create
-      resources :listings do
-        resources :comments
-      end
-      resources :communities do
-        member do
-          get :classifications
-        end
-      end
-      resources :people do
-        resources :conversations do
-          member do
-            post :messages, :controller => :conversations, :action => "new_message"
-          end
-        end
-        resources :devices
-        resources :listings
-        resources :feedbacks, :controller => :testimonials
-        resources :badges
-      end
+      resources :listings, :only => :index
       
       match 'api_version' => "api#version_check"
       match '/' => 'dashboard#api'    
