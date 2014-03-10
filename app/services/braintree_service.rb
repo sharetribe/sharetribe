@@ -60,7 +60,7 @@ class BraintreeService
       end
     end
 
-    def transaction_sale(receiver, payment_params, amount, service_fee, community)
+    def transaction_sale(receiver, payment_params, amount, service_fee, hold_in_escrow, community)
       with_braintree_config(community) do
         Braintree::Transaction.create(
           :type => "sale",
@@ -75,10 +75,16 @@ class BraintreeService
           },
           :options => {
             :submit_for_settlement => true,
-            :hold_in_escrow => false
+            :hold_in_escrow => hold_in_escrow
           },
           :service_fee_amount => service_fee.to_s
         )
+      end
+    end
+
+    def release_from_escrow(community, transaction_id)
+      with_braintree_config(community) do
+        Braintree::Transaction.release_from_escrow(transaction_id)
       end
     end
     

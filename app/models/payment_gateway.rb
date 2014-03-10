@@ -68,4 +68,8 @@ class PaymentGateway < ActiveRecord::Base
   def new_payment
     Payment.new
   end
+
+  def hold_in_escrow
+    false
+  end
 end

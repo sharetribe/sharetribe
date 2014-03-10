@@ -63,5 +63,9 @@ class BraintreePaymentGateway < PaymentGateway
   def new_payment
     BraintreePayment.new
   end
+
+  def hold_in_escrow
+    true
+  end
   
 end

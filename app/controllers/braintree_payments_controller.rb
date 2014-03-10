@@ -53,6 +53,7 @@ class BraintreePaymentsController < ApplicationController
         payment_params,
         amount,
         service_fee,
+        @current_community.payment_gateway.hold_in_escrow,
         @current_community
       )
     end
