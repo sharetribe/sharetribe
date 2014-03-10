@@ -6,8 +6,6 @@ Run all the tests suites:
 * run `cucumber features`
 * Start Rails server and open `http://localhost:3000/test/`
 
-To run all the spec tests and the feature tests you need two commands rake spec and cucumber --tags ~@pending
-
 ## Integration testing (Cucumber)
 
 In addition to running all the spec tests with cucumber You can limit or select the tests with tags, for example exclude the tests that are marked as pending cucumber --tags ~@pending Or you can run single file of tests with cucumber features/listings/user_creates_a_new_listing.feature or even use a line number to select only a single test: cucumber features/listings/user_edits_his_own_listing.feature:33
@@ -28,14 +26,14 @@ Run `guard` and start coding. Saving a file triggers the change.
 
 We are using [Mocha](http://visionmedia.github.io/mocha/) test framework for JavaScript unit testing. The tests can be run on browser or from command-line
 
-### Run tests on browser
+### Run Mocha tests on browser
 
 1. Start Rails server
 2. Go to `http://localhost:3000/test/`
 
 When running on development mode, make sure you DO NOT have a file `public/assets/application.js`. If you do, delete it. This way Rails will use asset pipeline instead of precompiled file.
 
-### Run tests from command-line
+### Run Mocha tests from command-line
 
 1. Install node
 2. `npm install`
