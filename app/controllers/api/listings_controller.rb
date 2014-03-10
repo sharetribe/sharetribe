@@ -1,5 +1,6 @@
 class Api::ListingsController < Api::ApiController
   include ListingsHelper
+  before_filter :require_community
   
   def index
     @page = params["page"] || 1
