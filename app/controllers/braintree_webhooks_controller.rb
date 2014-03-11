@@ -61,7 +61,7 @@ class BraintreeWebhooksController < ApplicationController
   # Actions
   def challenge
     begin
-      challenge_response = BraintreeService.webhook_notification_verify(@current_community, params[:bt_challenge])
+      challenge_response = BraintreeApi.webhook_notification_verify(@current_community, params[:bt_challenge])
     rescue Braintree::BraintreeError => bt_e
       BTLog.error("Error while parsing challenge: #{bt_e.inspect}")
       render :nothing => true, :status => 400 and return
@@ -72,7 +72,7 @@ class BraintreeWebhooksController < ApplicationController
 
   def hooks
     begin
-      parsed_response = BraintreeService.webhook_notification_parse(@current_community, params[:bt_signature], params[:bt_payload])
+      parsed_response = BraintreeApi.webhook_notification_parse(@current_community, params[:bt_signature], params[:bt_payload])
     rescue Braintree::BraintreeError => bt_e
       BTLog.error("Error while parsing webhook notification: #{bt_e.inspect}")
       render :nothing => true, :status => 400 and return

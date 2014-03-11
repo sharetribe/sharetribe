@@ -71,7 +71,7 @@ end
 
 When /^Braintree webhook "(.*?)" with id "(.*?)" is triggered$/ do |kind, id|
   community = Community.find_by_name("test") # Hard-coded default test community
-  signature, payload = BraintreeService.webhook_testing_sample_notification(
+  signature, payload = BraintreeApi.webhook_testing_sample_notification(
     community, kind, id
   )
 
@@ -80,12 +80,12 @@ When /^Braintree webhook "(.*?)" with id "(.*?)" is triggered$/ do |kind, id|
 end
 
 Given /^Braintree transaction is mocked$/ do
-  BraintreeService.should_receive(:transaction_sale)
+  BraintreeApi.should_receive(:transaction_sale)
     .and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
 end
 
 Given /^Braintree merchant creation is mocked$/ do
-  BraintreeService.should_receive(:create_merchant_account) do |braintree_account, community|
+  BraintreeApi.should_receive(:create_merchant_account) do |braintree_account, community|
     braintree_account.first_name.should == "Joe"
     braintree_account.last_name.should == "Bloggs"
     braintree_account.email.should == "joe@14ladders.com"
@@ -105,7 +105,7 @@ Given /^Braintree merchant creation is mocked$/ do
 end
 
 Given /^Braintree merchant creation is mocked to return failure$/ do
-  BraintreeService.should_receive(:create_merchant_account)
+  BraintreeApi.should_receive(:create_merchant_account)
     .and_return(Braintree::ErrorResult.new(nil, :errors => { :errors => [] } ))
 end
 

@@ -3,7 +3,7 @@ class CopyAccountNumberToHiddenAccountNumber < ActiveRecord::Migration
   class BraintreeAccount < ActiveRecord::Base
   end
 
-  # Copied from BraintreeService
+  # Copied from BraintreeApi
   def hide_account_number(account_number, nums_visible=2)
     stripped_account_number = account_number.strip
     asterisks = (stripped_account_number.length - 1) - nums_visible

@@ -102,7 +102,7 @@ class BraintreeAccountsController < ApplicationController
 
     @braintree_account = BraintreeAccount.new(braintree_params)
     if @braintree_account.valid?
-      merchant_account_result = BraintreeService.create_merchant_account(@braintree_account, @current_community)
+      merchant_account_result = BraintreeApi.create_merchant_account(@braintree_account, @current_community)
     else
       flash[:error] = @braintree_account.errors.full_messages
       render :new, locals: { form_action: @create_path } and return

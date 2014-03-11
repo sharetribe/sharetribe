@@ -48,7 +48,7 @@ class BraintreePaymentsController < ApplicationController
     payment_params = params[:braintree_payment] || {}
 
     result = with_expection_logging do 
-      BraintreeService.transaction_sale(
+      BraintreeApi.transaction_sale(
         recipient,
         payment_params,
         amount,
