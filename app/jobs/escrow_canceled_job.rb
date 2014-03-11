@@ -13,7 +13,7 @@ class EscrowCanceledJob < Struct.new(:conversation_id, :community_id)
   def perform
     conversation = Conversation.find(conversation_id)
     community = Community.find(community_id)
-    PersonMailer.escrow_canceled(conversation, community)
-    PersonMailer.admin_escrow_canceled(conversation, community)
+    PersonMailer.escrow_canceled(conversation, community).deliver
+    PersonMailer.admin_escrow_canceled(conversation, community).deliver
   end
 end

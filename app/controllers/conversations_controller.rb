@@ -126,7 +126,7 @@ class ConversationsController < ApplicationController
           # TODO Add error flash and success flash
           BraintreeService.release_from_escrow(@current_community, @conversation.payment.braintree_transaction_id)
         else
-          Delayed::Job.enqueue(EscrowCanceledJob.new(id, current_community.id))
+          Delayed::Job.enqueue(EscrowCanceledJob.new(@conversation.id, @current_community.id))
         end
       end
       

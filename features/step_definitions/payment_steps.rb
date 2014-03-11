@@ -54,6 +54,12 @@ Given /^there is an accepted request for "(.*?)" with price "(.*?)" from "(.*?)"
   listing.save!
 end
 
+Given(/^"(.*?)" has paid for that listing$/) do |username|
+  conversation = @listing.conversations.find { |c| c.requester.username == username }
+  conversation.status = "paid"
+  conversation.save!
+end
+
 Then /^"(.*?)" should have required Checkout payment details saved to my account information$/ do |username|
   p = Person.find_by_username(username)
 
@@ -108,6 +114,12 @@ Given /^I want to pay "(.*?)"$/ do |item_title|
   steps %Q{Then I should see "Pay"} # This probably fails if there are many payments waiting
   steps %Q{When I follow "Pay"} # This probably fails if there are many payments waiting
   steps %Q{Then I should see payment details form for Braintree}
+end
+
+When /^I cancel the transaction$/ do
+  steps %Q{Given I am on the messages page}
+  steps %Q{Then I should see "Did not happen"} # This probably fails if there are many payments waiting
+  steps %Q{When I follow "Did not happen"} # This probably fails if there are many payments waiting
 end
 
 Then /^I should see payment details form for Braintree$/ do

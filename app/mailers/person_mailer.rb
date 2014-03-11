@@ -117,7 +117,7 @@ class PersonMailer < ActionMailer::Base
   end
 
   def admin_escrow_canceled(conversation, community)
-    escrow_canceled_to(conversation, community, community.admin_emails)
+    escrow_canceled_to(conversation, community, community.admin_emails.join(","))
   end
   
   def new_testimonial(testimonial, community)
