@@ -12,18 +12,6 @@ class BraintreeWebhooksController < ApplicationController
     end
   end
 
-  module BTLog
-    class << self
-      def warn(msg)
-        Rails.logger.warn "[Braintree] #{msg}"
-      end
-
-      def error(msg)
-        Rails.logger.error "[Braintree] #{msg}"
-      end
-    end
-  end
-
   # This module contains all the handlers per notification kind.
   # Method name MUST match to the notification kind
   module Handlers

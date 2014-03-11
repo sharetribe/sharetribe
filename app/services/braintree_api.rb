@@ -82,6 +82,12 @@ class BraintreeApi
       end
     end
 
+    def find_transaction(community, transaction_id)
+      with_braintree_config(community) do
+        Braintree::Transaction.find(transaction_id)
+      end
+    end
+
     def release_from_escrow(community, transaction_id)
       with_braintree_config(community) do
         Braintree::Transaction.release_from_escrow(transaction_id)

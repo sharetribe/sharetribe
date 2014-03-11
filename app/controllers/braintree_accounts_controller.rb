@@ -109,11 +109,11 @@ class BraintreeAccountsController < ApplicationController
     end
 
     if merchant_account_result.success?
-      log_info("Successfully created Braintree account for person id #{@current_user.id}")
+      BTLog.info("Successfully created Braintree account for person id #{@current_user.id}")
       @braintree_account.status = merchant_account_result.merchant_account.status
       success = @braintree_account.save!
     else
-      log_error("Failed to created Braintree account for person id #{@current_user.id}: #{merchant_account_result.message}")
+      BTLog.error("Failed to created Braintree account for person id #{@current_user.id}: #{merchant_account_result.message}")
 
       success = false
       error_string = "Your payout details could not be saved, because of following errors: "
@@ -169,7 +169,7 @@ class BraintreeAccountsController < ApplicationController
         flash[:error] = "You have payment account for community #{account_community.name(I18n.locale)}. Unfortunately, you can not have payment accounts for multiple communities. You are unable to receive money from transactions in community #{@current_community.name(I18n.locale)}. Please contact administrators."
 
         error_msg = "User #{@current_user.id} tried to create a Braintree payment account for community #{@current_community.name(I18n.locale)} even though she has existing account for #{account_community.name(I18n.locale)}"
-        log_error(error_msg)
+        BTLog.error(error_msg)
         ApplicationHelper.send_error_notification(error_msg, "BraintreePaymentAccountError")
         redirect_to profile_person_settings_path
       end
@@ -186,13 +186,5 @@ class BraintreeAccountsController < ApplicationController
     }
 
     BraintreeAccount.new(person_details)
-  end
-
-  def log_info(msg)
-    logger.info "[Braintree] #{msg}"
-  end
-
-  def log_error(msg)
-    logger.error "[Braintree] #{msg}"
   end
 end

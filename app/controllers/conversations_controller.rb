@@ -127,6 +127,7 @@ class ConversationsController < ApplicationController
           BraintreeService.release_from_escrow(@current_community, @conversation.payment.braintree_transaction_id)
         else
           Delayed::Job.enqueue(EscrowCanceledJob.new(@conversation.id, @current_community.id))
+          BTLog.info("Escrow canceled by user #{@current_user.id}, conversation #{@conversation.id}, community #{@current_community.id}")
         end
       end
       

@@ -12,18 +12,6 @@ class BraintreePaymentsController < ApplicationController
   
   skip_filter :dashboard_only
 
-  module BTLog
-    class << self
-      def warn(msg)
-        Rails.logger.warn "[Braintree] #{msg}"
-      end
-
-      def error(msg)
-        Rails.logger.error "[Braintree] #{msg}"
-      end
-    end
-  end
-
   # This expects that each conversation already has a (pending) payment at this point
   def edit
     @conversation = Conversation.find(params[:message_id])
