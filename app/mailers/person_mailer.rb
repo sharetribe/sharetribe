@@ -196,9 +196,13 @@ class PersonMailer < ActionMailer::Base
     @email_type = "email_about_confirm_reminders"
     set_up_urls(conversation.requester, community, @email_type)
     @conversation = conversation
+    escrow = community.payment_gateway && community.payment_gateway.hold_in_escrow
+    template = escrow ? "confirm_reminder_escrow" : "confirm_reminder"
     mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
-         :subject => t("emails.confirm_reminder.remember_to_confirm_request"))
+         :subject => t("emails.confirm_reminder.remember_to_confirm_request")) do |format|
+      format.html { render template }
+    end
   end
   
   # Remind users to give feedback

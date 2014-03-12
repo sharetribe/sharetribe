@@ -58,6 +58,22 @@ class MailPreview < MailView
     PersonMailer.escrow_canceled(conversation, community)
   end
 
+  def confirm_reminder
+    conversation = Conversation.last
+
+    # Show different template if hold_in_escrow is true
+    conversation.community.payment_gateway = nil
+    PersonMailer.confirm_reminder(conversation, conversation.requester, conversation.community)
+  end
+
+  def confirm_reminder_escrow
+    conversation = Conversation.last
+
+    # Show different template if hold_in_escrow is true
+    conversation.community.payment_gateway = BraintreePaymentGateway.new
+    PersonMailer.confirm_reminder(conversation, conversation.requester, conversation.community)
+  end
+
   def admin_escrow_canceled
     escrow_canceled
   end
