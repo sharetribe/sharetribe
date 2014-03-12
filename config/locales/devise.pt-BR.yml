@@ -1,55 +1,58 @@
 pt-BR:
   errors:
     messages:
-      expired: ~
-      not_found: ~
-      already_confirmed: ~
-      not_locked: ~
+      expired: "expirou, por favor faça uma nova requisição"
+      not_found: "não encontrado"
+      already_confirmed: "já confirmado, por favor tente entrar"
+      not_locked: "não foi bloqueado"
+      not_saved:
+        one: "1 erro impediu %{resource} de ser gravado"
+        other: "%{count} erros impediram %{resource} de ser gravado"
   devise:
     failure:
-      already_authenticated: ~
-      unauthenticated: ~
-      unconfirmed: ~
-      locked: ~
-      invalid: ~
-      invalid_token: ~
-      timeout: ~
-      inactive: ~
+      already_authenticated: "Você já esta registrado."
+      unauthenticated: "Você precisa entrar ou se cadastrar antes de continuar."
+      unconfirmed: "Você deve confirmar a sua conta antes de continuar."
+      locked: "Sua conta está bloqueada."
+      invalid: "E-mail ou senha inválida."
+      invalid_token: "Dados para autenticação inválidos."
+      timeout: "Sua sessão expirou, por favor entre novamente para continuar."
+      inactive: "Sua conta ainda não foi ativada."
     passwords:
-      updated_not_active: ~
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      updated: ~
+      updated_not_active: "Sua senha foi alterada com sucesso."
+      send_paranoid_instructions: "Se seu e-mail existir no nosso banco de dados, você receberá um link para recuperação de senha em seu e-mail."
+      send_instructions: "Em alguns minutos você receberá um email com instruções de como redefinir  sua senha."
+      updated: "Sua senha foi alterada com sucesso. Você está agora conectado."
     sessions:
-      signed_in: ~
-      signed_out: ~
+      signed_in: "Sessão iniciada com sucesso."
+      signed_out: "Sessão encerrada com sucesso."
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      confirmed: ~
+      send_paranoid_instructions: "Se seu e-mail existir no nosso banco de dados, em poucos minutos você receberá um email com instruções sobre como confirmar sua conta."
+      send_instructions: "Você receberá um email com instruções de como confirmar sua conta em alguns minutos."
+      confirmed: "A sua conta foi confirmada com sucesso."
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "Uma mensagem com um link de confirmação foi enviada para seu endereço de e-mail. Por favor, abra o link para ativar sua conta."
+      signed_up_but_inactive: "Você se inscreveu com sucesso. No entanto, não poderá entrar porque sua conta ainda não foi ativada."
+      signed_up_but_locked: "Você se inscreveu com sucesso. No entanto, não poderá entrar porque sua conta está bloqueada."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
-      signed_up: ~
-      updated: ~
-      destroyed: ~
+        inactive: inativo
+        unconfirmed: "não confirmado"
+        locked: bloqueado
+      update_needs_confirmation: "Você atualizou sua conta com êxito, mas precisamos verificar seu novo endereço de e-mail. Por favor verifique o seu e-mail e clique no link para finalizar a confirmação de seu novo endereço de e-mail."
+      signed_up: "Bem-vindo! Inscrição efetuada com sucesso."
+      updated: "Conta atualizada com sucesso."
+      destroyed: "Tchau! Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve."
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_paranoid_instructions: "Se sua conta existir, você receberá um e-mail com instruções sobre como desbloqueá-lo em poucos minutos."
+      send_instructions: "Você receberá um email com instruções sobre como desbloquear a sua conta dentro de alguns minutos."
+      unlocked: "Sua conta foi desbloqueada com sucesso. Faça login para continuar."
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "Autorizado com sucesso para conta %{kind} ."
+      failure: "Não foi possivel autorizar para conta %{kind} por que '%{reason}'"
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: "Instruções de confirmação"
       reset_password_instructions:
-        subject: ~
+        subject: "Instruções para redefinição de senha"
       unlock_instructions:
-        subject: ~
+        subject: "Instruções para desbloqueio"

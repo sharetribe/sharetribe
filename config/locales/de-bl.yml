@@ -195,11 +195,11 @@ de-bl:
       new_option:
         option: ~
         remove_option: ~
+      show:
+        edit_poll: ~
       poll_status:
         open: ~
         closed: ~
-      show:
-        edit_poll: ~
     transaction_types:
       sell: ~
       rent: ~
@@ -641,10 +641,10 @@ de-bl:
       or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
+      check_your_settings: ~
       hey: ~
       kassi_team: ~
       thanks: ~
-      check_your_settings: ~
       want_to_control_emails: ~
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~

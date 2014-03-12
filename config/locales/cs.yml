@@ -195,11 +195,11 @@ cs:
       new_option:
         option: ~
         remove_option: ~
+      show:
+        edit_poll: ~
       poll_status:
         open: ~
         closed: ~
-      show:
-        edit_poll: ~
     transaction_types:
       sell: ~
       rent: ~
@@ -324,13 +324,13 @@ cs:
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
       item_offer_trade_message_form_title: ~
-      item_request_take_for_free_message_form_title: ~
       item_offer_rent_out_message_form_title: ~
-      item_request_trade_message_form_title: ~
       item_request_borrow_message_form_title: ~
+      item_request_buy_message_form_title: ~
+      item_request_take_for_free_message_form_title: ~
+      item_request_trade_message_form_title: ~
       item_request_rent_message_form_title: ~
       housing_offer_sell_message_form_title: ~
-      item_request_buy_message_form_title: ~
       housing_offer_rent_out_message_form_title: ~
       housing_offer_share_for_free_message_form_title: ~
       housing_offer_accept_for_free_message_form_title: ~

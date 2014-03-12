@@ -4,7 +4,7 @@ de:
       edit:
         edit_listing_category: "Kategorie '%{category}' bearbeiten"
       index:
-        listing_categories: "Kategorien der Einträge"
+        listing_categories: Kategorien
         create_a_new_category: "+ Neue Kategorie erstellen"
         remove_category_confirmation: "Bist du sicher, dass du die Kategorie '%{category_name}' entfernen möchtest?"
         saving_order: "Reihenfolge der Kategorien speichern"
@@ -104,7 +104,7 @@ de:
         require_verification_to_post_listings: "Nur von Administratoren verifizierte Benutzer können neue Einträge veröffentlichen"
         listing_preferences: Eintragseinstellungen
         show_listing_publishing_date: "Datum der Veröffentlichung des Eintrags auf der Artikelseite darstellen"
-        show_category_in_listing_list: "Die Kategorien der Einträge in der Übersicht darstellen"
+        show_category_in_listing_list: "Die Kategorien in der Übersicht darstellen"
         hide_expiration_date: "Einträge haben kein Ablaufdatum"
         listing_comments_in_use: "Benutzern erlauben, Einträge zu kommentieren (für alle anderen Benutzer sichtbar)"
         email_preferences: E-Mail-Einstellungen
@@ -130,15 +130,15 @@ de:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
       edit_price:
-        edit_price_field: ~
-        show_price_filter_homepage: ~
-        price_min: ~
-        price_max: ~
+        edit_price_field: "Preisfeld bearbeiten"
+        show_price_filter_homepage: "Preisfilter auf der Homepage anzeigen"
+        price_min: Mindestpreis
+        price_max: Höchstpreis
       form:
         field_required:
           this_field_is_required: "Dieses Feld ist erforderlich."
       index:
-        listing_fields: Filterfelder
+        listing_fields: Filter
         add_new_field: "Neues Feld hinzufügen:"
         remove_field_confirmation: "Willst du das Feld '%{field_name}' wirklich entfernen?"
         cancel: Abbrechen
@@ -146,7 +146,7 @@ de:
         field_title: "Name des Feldes"
         field_type: "Art des Feldes"
         categories: "Kategorien, in denen das Feld angewendet wird"
-        no_custom_listing_fields: "Keine marktplatzspezifischen Filterfelder"
+        no_custom_listing_fields: "Keine marktplatzspezifischen Filter"
         dropdown_options: "Auswahloptionen des Dropdown-Menüs"
         add_option: "+ Auswahl hinzufügen"
         saving_order: "Feldreihenfolge speichern"
@@ -210,11 +210,11 @@ de:
       new_option:
         option: Option
         remove_option: "Option entfernen"
+      show:
+        edit_poll: "Umfrage bearbeiten"
       poll_status:
         open: Offen
         closed: Beendet
-      show:
-        edit_poll: "Umfrage bearbeiten"
     transaction_types:
       sell: Verkaufen
       rent: Vermieten
@@ -622,14 +622,14 @@ de:
       you_have_not_yet_accepted_or_rejected_offer: "Du hast das Angebot %{title}, das du am %{date} erhalten hast, noch nicht akzeptiert oder abgelehnt."
       you_have_not_yet_accepted_or_rejected_request: "Du hast die Anfrage %{title}, die du am %{date} erhalten hast, noch nicht akzeptiert oder abgelehnt."
       show_thread: "Konversation anzeigen"
-    confirm_reminder:
-      remember_to_confirm_request: "Denke daran, deine Anfrage zu bestätigen oder abzulehnen"
-      if_will_not_happen_you_should_cancel: "Wenn du denkst, dass die Anfrage wegen eines anderen Grundes noch nicht vollständig ist, kannst du %{cancel_it_link}."
-      cancel_it_link_text: Abbrechen
-      you_have_not_yet_confirmed_or_canceled_request: "Du hast noch keine Anfrage bestätigt oder abgelehnt %{request_link}, die du am %{date} von %{other_party_full_name} erhalten hast. Wenn die Anfrage vollständig ist musst du das bestätigen. Danach kannst du Feedback an %{other_party_given_name} geben."
     braintree_account_approved:
       account_ready: "Du kannst nun Zahlungen erhalten"
       message: "Deine Zahlungsinformationen wurden bestätigt. Du kannst jetzt auf %{service_name} Zahlungen erhalten."
+    confirm_reminder:
+      you_have_not_yet_confirmed_or_canceled_request: "Du hast noch keine Anfrage bestätigt oder abgelehnt %{request_link}, die du am %{date} von %{other_party_full_name} erhalten hast. Wenn die Anfrage vollständig ist musst du das bestätigen. Danach kannst du Feedback an %{other_party_given_name} geben."
+      remember_to_confirm_request: "Denke daran, deine Anfrage zu bestätigen oder abzulehnen"
+      if_will_not_happen_you_should_cancel: "Wenn du denkst, dass die Anfrage wegen eines anderen Grundes noch nicht vollständig ist, kannst du %{cancel_it_link}."
+      cancel_it_link_text: Abbrechen
     payment_reminder:
       remember_to_pay: "Bezahle für %{listing_title}"
       you_have_not_yet_paid: "Du hast noch nicht für %{listing_title} bezahlt, die %{other_party_name} hat dein Angebot akzeptiert."
@@ -1794,7 +1794,7 @@ de:
         other: Benutzer
     previous_label: "&#8592; Zurück"
     next_label: "Vor &#8594;"
-    page_gap: ~
+    page_gap: "&hellip;"
     page_entries_info:
       single_page:
         zero: "Kein %{model} gefunden"

@@ -195,11 +195,11 @@ ca:
       new_option:
         option: Opció
         remove_option: "Esborra l'opció"
+      show:
+        edit_poll: "Edita l'enquesta"
       poll_status:
         open: Obre
         closed: Tancat
-      show:
-        edit_poll: "Edita l'enquesta"
     transaction_types:
       sell: ~
       rent: ~
@@ -304,10 +304,10 @@ ca:
       canceled_request: ~
       canceled_offer: ~
     message:
+      accepted_request: ~
       accepted_offer: ~
       rejected_request: ~
       rejected_offer: ~
-      accepted_request: ~
       confirmed_request: ~
       confirmed_offer: ~
       canceled_request: ~

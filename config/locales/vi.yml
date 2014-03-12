@@ -114,6 +114,11 @@ vi:
     custom_fields:
       edit:
         edit_listing_field: ~
+      edit_price:
+        edit_price_field: ~
+        show_price_filter_homepage: ~
+        price_min: ~
+        price_max: ~
       form:
         field_required:
           this_field_is_required: ~
@@ -190,11 +195,11 @@ vi:
       new_option:
         option: "Tùy chọn"
         remove_option: "Hủy bỏ tùy chọn"
+      show:
+        edit_poll: "Chỉnh sửa thăm dò ý kiến"
       poll_status:
         open: Mở
         closed: "Đã đóng"
-      show:
-        edit_poll: "Chỉnh sửa thăm dò ý kiến"
     transaction_types:
       sell: ~
       rent: ~
