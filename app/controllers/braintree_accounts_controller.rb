@@ -102,25 +102,31 @@ class BraintreeAccountsController < ApplicationController
 
     @braintree_account = BraintreeAccount.new(braintree_params)
     if @braintree_account.valid?
+      # Save Braintree account before calling the Braintree API
+      # Braintree may trigger the webhook very, very fast (at least in sandbox)
+      # and saving account to DB now ensures that the webhook finds the account
+      @braintree_account.save!
       merchant_account_result = BraintreeApi.create_merchant_account(@braintree_account, @current_community)
     else
       flash[:error] = @braintree_account.errors.full_messages
       render :new, locals: { form_action: @create_path } and return
     end
 
-    if merchant_account_result.success?
+    success = if merchant_account_result.success?
       BTLog.info("Successfully created Braintree account for person id #{@current_user.id}")
-      @braintree_account.status = merchant_account_result.merchant_account.status
-      success = @braintree_account.save!
+      update_status!(@braintree_account, merchant_account_result.merchant_account.status)
     else
       BTLog.error("Failed to created Braintree account for person id #{@current_user.id}: #{merchant_account_result.message}")
 
-      success = false
       error_string = "Your payout details could not be saved, because of following errors: "
       merchant_account_result.errors.each do |e|
         error_string << e.message + " "
       end
       flash[:error] = error_string
+
+      @braintree_account.destroy
+
+      false
     end
 
     if success
@@ -174,6 +180,17 @@ class BraintreeAccountsController < ApplicationController
         redirect_to profile_person_settings_path
       end
     end
+  end
+
+  # Give `braintree_account` and `new_status` candidate. Update the status, unless the status is already
+  # active
+  #
+  # Background: If the webhook has already update the status to "active", we don't want to change it back
+  # to pending. This may happen in sandbox environment, where the webhook is triggered very fast
+  def update_status!(braintree_account, new_status)
+    braintree_account.reload
+    braintree_account.status = new_status if braintree_account.status != "active"
+    braintree_account.save!
   end
 
   def create_new_account_object
