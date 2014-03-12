@@ -123,7 +123,6 @@ class ConversationsController < ApplicationController
 
       if @current_community.payment_gateway && @current_community.payment_gateway.hold_in_escrow
         if @conversation.status == "confirmed"
-          # TODO Add error flash and success flash
           BraintreeService.release_from_escrow(@current_community, @conversation.payment.braintree_transaction_id)
         else
           Delayed::Job.enqueue(EscrowCanceledJob.new(@conversation.id, @current_community.id))
