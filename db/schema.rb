@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140306083247) do
+ActiveRecord::Schema.define(:version => 20140312145533) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -285,8 +285,9 @@ ActiveRecord::Schema.define(:version => 20140306083247) do
     t.integer  "listing_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status",          :default => "pending"
+    t.string   "status",                      :default => "pending"
     t.datetime "last_message_at"
+    t.datetime "automatic_confirmation_time"
     t.integer  "community_id"
   end
 
