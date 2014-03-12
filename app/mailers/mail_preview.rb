@@ -75,6 +75,9 @@ class MailPreview < MailView
   end
 
   def admin_escrow_canceled
-    escrow_canceled
+    conversation = Conversation.last
+    throw "No BraintreePayments in DB, can't show this mail template." if conversation.nil?
+    community = conversation.community
+    PersonMailer.admin_escrow_canceled(conversation, community)
   end
 end

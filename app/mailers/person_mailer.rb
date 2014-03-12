@@ -109,7 +109,9 @@ class PersonMailer < ActionMailer::Base
     set_up_urls(@conversation.offerer, community, @email_type)
     mail(:to => to,
          :from => community_specific_sender(community),
-         :subject => t("emails.escrow_canceled.subject"))
+         :subject => t("emails.escrow_canceled.subject")) do |format|
+      format.html { render "escrow_canceled" }
+    end
   end
 
   def escrow_canceled(conversation, community)
