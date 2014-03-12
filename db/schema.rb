@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140312145533) do
+ActiveRecord::Schema.define(:version => 20140312150455) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -206,6 +206,7 @@ ActiveRecord::Schema.define(:version => 20140312145533) do
     t.boolean  "show_price_filter",                     :default => false
     t.integer  "price_filter_min",                      :default => 0
     t.integer  "price_filter_max",                      :default => 100000
+    t.integer  "automatic_confirmation_after_days"
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
