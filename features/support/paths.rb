@@ -30,6 +30,8 @@ module NavigationHelpers
       new_person_message_feedback_path(:person_id => @people[$1].id, :message_id => @conversation.id.to_s, :locale => "en")
     when /^the conversation path of "(.*)"$/i
       person_message_path(:person_id => @people[$1].id, :id => @conversation.id.to_s, :locale => "en")
+    when /^the conversation page of "(.*)"$/
+      single_conversation_path(:person_id => @logged_in_user.id, :conversation_type => "received", :id => $1,  :locale => "en")
     when /^the messages page$/i
       received_person_messages_path(:person_id => @logged_in_user.id, :locale => "en")
     when /^the profile page of "(.*)"$/i
