@@ -14,7 +14,7 @@ describe BraintreeService do
 
   describe "#release_from_escrow" do
     let(:transaction_mock) { Struct.new(:escrow_status) }
-    let(:community) { Struct.new(:id).new(0) }
+    let(:community) { FactoryGirl.create(:community) }
 
     context 'when escrow status is "held"' do
       before do
@@ -27,28 +27,36 @@ describe BraintreeService do
       end
     end
 
-    context 'when escrow status is "hold_pending"' do
-      before do
+    context 'when escrow status changed from "hold_pending" to "held"' do
+
+      it 'releases from escrow later' do
+        @api_calls = 0
+        BraintreeApi.stub(:release_from_escrow) do
+          @api_calls += 1
+        end
+
+        before_batch = Time.new(2014, 3, 11, 20, 0, 0, 0)
+        Timecop.freeze(before_batch)
+
+        # Hold pending
         BraintreeApi.stub(:find_transaction) { transaction_mock.new("hold_pending") }
-      end
-
-      it 'releases after next settlement batch' do
-        BraintreeService.should_receive(:release_from_escrow_after_next_batch)
         BraintreeService.release_from_escrow(community, "123")
-      end
-    end
+        @api_calls.should == 0
 
-    context 'when there\' release job in queue and escrow status has changed to "held"' do
-      before do
-        BraintreeService.release_from_escrow_after_next_batch(community.id, "123")
-        BraintreeApi.stub(:find_transaction) { transaction_mock.new("held") }
-      end
-
-      it 'should run the job' do
-        BraintreeApi.should_receive(:release_from_escrow)
-        Timecop.travel(15.hours.from_now)
+        # Time passes 24, but still hold bending
+        Timecop.freeze(24.hours.from_now)
         successes, failures = Delayed::Worker.new.work_off
         successes.should == 1
+        failures.should == 0
+        @api_calls.should == 0
+
+        # Time passes another 24, status changed to "held"
+        Timecop.freeze(24.hours.from_now)
+        BraintreeApi.stub(:find_transaction) { transaction_mock.new("held") }
+        successes, failures = Delayed::Worker.new.work_off
+        successes.should == 1
+        failures.should == 0
+        @api_calls.should == 1
       end
     end
   end
