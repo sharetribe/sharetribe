@@ -286,9 +286,9 @@ ActiveRecord::Schema.define(:version => 20140312150455) do
     t.integer  "listing_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status",                      :default => "pending"
+    t.string   "status",                    :default => "pending"
     t.datetime "last_message_at"
-    t.datetime "automatic_confirmation_time"
+    t.datetime "automatic_confirmation_at"
     t.integer  "community_id"
   end
 
