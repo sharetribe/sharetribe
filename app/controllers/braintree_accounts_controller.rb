@@ -102,25 +102,31 @@ class BraintreeAccountsController < ApplicationController
 
     @braintree_account = BraintreeAccount.new(braintree_params)
     if @braintree_account.valid?
-      merchant_account_result = BraintreeService.create_merchant_account(@braintree_account, @current_community)
+      # Save Braintree account before calling the Braintree API
+      # Braintree may trigger the webhook very, very fast (at least in sandbox)
+      # and saving account to DB now ensures that the webhook finds the account
+      @braintree_account.save!
+      merchant_account_result = BraintreeApi.create_merchant_account(@braintree_account, @current_community)
     else
       flash[:error] = @braintree_account.errors.full_messages
       render :new, locals: { form_action: @create_path } and return
     end
 
-    if merchant_account_result.success?
-      log_info("Successfully created Braintree account for person id #{@current_user.id}")
-      @braintree_account.status = merchant_account_result.merchant_account.status
-      success = @braintree_account.save!
+    success = if merchant_account_result.success?
+      BTLog.info("Successfully created Braintree account for person id #{@current_user.id}")
+      update_status!(@braintree_account, merchant_account_result.merchant_account.status)
     else
-      log_error("Failed to created Braintree account for person id #{@current_user.id}: #{merchant_account_result.message}")
+      BTLog.error("Failed to created Braintree account for person id #{@current_user.id}: #{merchant_account_result.message}")
 
-      success = false
       error_string = "Your payout details could not be saved, because of following errors: "
       merchant_account_result.errors.each do |e|
         error_string << e.message + " "
       end
       flash[:error] = error_string
+
+      @braintree_account.destroy
+
+      false
     end
 
     if success
@@ -169,11 +175,22 @@ class BraintreeAccountsController < ApplicationController
         flash[:error] = "You have payment account for community #{account_community.name(I18n.locale)}. Unfortunately, you can not have payment accounts for multiple communities. You are unable to receive money from transactions in community #{@current_community.name(I18n.locale)}. Please contact administrators."
 
         error_msg = "User #{@current_user.id} tried to create a Braintree payment account for community #{@current_community.name(I18n.locale)} even though she has existing account for #{account_community.name(I18n.locale)}"
-        log_error(error_msg)
+        BTLog.error(error_msg)
         ApplicationHelper.send_error_notification(error_msg, "BraintreePaymentAccountError")
         redirect_to profile_person_settings_path
       end
     end
+  end
+
+  # Give `braintree_account` and `new_status` candidate. Update the status, unless the status is already
+  # active
+  #
+  # Background: If the webhook has already update the status to "active", we don't want to change it back
+  # to pending. This may happen in sandbox environment, where the webhook is triggered very fast
+  def update_status!(braintree_account, new_status)
+    braintree_account.reload
+    braintree_account.status = new_status if braintree_account.status != "active"
+    braintree_account.save!
   end
 
   def create_new_account_object
@@ -186,13 +203,5 @@ class BraintreeAccountsController < ApplicationController
     }
 
     BraintreeAccount.new(person_details)
-  end
-
-  def log_info(msg)
-    logger.info "[Braintree] #{msg}"
-  end
-
-  def log_error(msg)
-    logger.error "[Braintree] #{msg}"
   end
 end

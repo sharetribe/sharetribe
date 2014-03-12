@@ -17,7 +17,7 @@ describe BraintreeWebhooksController do
     before(:each) do
       # Helpers for posting the hook
       @post_hook = ->(kind, id){
-        signature, payload = BraintreeService.webhook_testing_sample_notification(
+        signature, payload = BraintreeApi.webhook_testing_sample_notification(
           @community,
           kind,
           id
@@ -32,7 +32,7 @@ describe BraintreeWebhooksController do
       # Prepare
       @person = FactoryGirl.create(:person, :id => "123abc")
 
-      signature, payload = BraintreeService.webhook_testing_sample_notification(
+      signature, payload = BraintreeApi.webhook_testing_sample_notification(
         @community,
         Braintree::WebhookNotification::Kind::SubMerchantAccountApproved,
         @person.id

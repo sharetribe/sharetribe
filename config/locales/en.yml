@@ -627,8 +627,10 @@ en:
       message: "Your payment information has been confirmed and you are now ready to receive payments in %{service_name}."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "You have not yet confirmed or canceled the request %{request_link} you received %{date} from %{other_party_full_name}. If the request has been completed, you should confirm that. After that you can give feedback to %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request_escrow: "You have not yet confirmed or canceled the request %{request_link} you received %{date} from %{other_party_full_name}. We will transfer the money to %{other_party_given_name} only after you have marked the request completed. After marking the request as completed you can give feedback to %{other_party_given_name}."
       remember_to_confirm_request: "Remember to confirm or cancel a request"
       if_will_not_happen_you_should_cancel: "If you think this request will not be completed for one reason or another, you can %{cancel_it_link}."
+      if_will_not_happen_you_should_cancel_escrow: "If you think this request will not be completed for one reason or another, you can %{cancel_it_link}. This will notify the admin who will then contact you for a refund."
       cancel_it_link_text: "cancel it"
     payment_reminder:
       remember_to_pay: "Remember to pay for %{listing_title}"
@@ -648,6 +650,11 @@ en:
       has_marked_request_as_canceled: "%{other_party_full_name} has canceled the request about '%{request}'. You can still give feedback to %{other_party_given_name}."
       giving_feedback_is_good_idea: "Giving feedback is always a good idea. If everything went well, you should let others know that %{other_party_given_name} can be trusted. If there were any problems, it's good to mention those as well."
       give_feedback_to: "Give feedback to %{other_party_given_name}"
+    escrow_canceled:
+      subject: "Payment canceled"
+      has_marked_request_as_canceled: "%{other_party_full_name} has marked the request about '%{request}' canceled. You will not receive money from this transaction."
+      if_this_was_error: "If you think this was an error, %{please_contant_admin_link}."
+      please_contant_admin_link: "please contact the administrator"
     confirmation_instructions:
       confirmation_instructions_signature: "Best regards,<br/>The %{service_name} Team"
       welcome_to_kassi: "Welcome to %{service_name}!"
