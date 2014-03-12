@@ -10,7 +10,7 @@ module CommunityStylesheetCompiler
   SOURCE_DIR = "app/assets/stylesheets"
   SOURCE_FILE = "application.scss"
   TARGET_DIR = "public/assets"
-  VARIABLE_FILE = "default-colors.scss"
+  VARIABLE_FILE = "mixins/default-colors.scss"
   S3_PATH = "assets/custom"
 
   class << self
