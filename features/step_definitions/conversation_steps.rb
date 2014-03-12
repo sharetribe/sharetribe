@@ -50,3 +50,17 @@ When(/^I skip feedback$/) do
     And I press submit
   }
 end
+
+Given /^I'm on the conversation page of that conversation$/ do
+  steps %Q{
+    Given I am on the conversation page of "#{@conversation.id}"
+  }
+end
+
+Then(/^I should see that the conversation is waiting for confirmation$/) do
+  steps %Q{
+    Then I should see "Accepted"
+    Then I should see "Mark completed"
+    Then I should see "Did not happen"
+  }
+end
