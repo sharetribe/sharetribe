@@ -31,9 +31,9 @@ class ConfirmConversation
     release_escrow if @hold_in_escrow
   end
 
-  def activate_automatic_confirmation!(conversation, current_user, current_community)
-    run_at = current_community.automatic_confirmation_after_days.days.from_now
-    Delayed::Job.enqueue(AutomaticConfirmationJob.new(conversation.id, current_user.id, current_community.id), run_at: run_at)
+  def activate_automatic_confirmation!
+    run_at = @community.automatic_confirmation_after_days.days.from_now
+    Delayed::Job.enqueue(AutomaticConfirmationJob.new(@conversation.id, @user.id, @community.id), run_at: run_at)
   end
 
   private

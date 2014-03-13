@@ -27,13 +27,17 @@ Feature: User accepts a transaction
     When "8" days have passed
     And the system processes jobs
     Then "kassi_testperson2@example.com" should have 2 emails
+    Then I should receive an email with subject "Your request was accepted"
+    Then I should receive an email with subject "Remember to confirm or cancel a request"
     When I open the email with subject "Remember to confirm"
     Then I should see "You have not yet confirmed" in the email body
     When "16" days have passed
     And the system processes jobs
     Then "kassi_testperson2@example.com" should have 3 emails
+    Then I should receive an email with subject "Request automatically completed - remember to give feedback"
     When "100" days have passed
     And the system processes jobs
-    Then "kassi_testperson2@example.com" should have 3 emails
+    Then "kassi_testperson2@example.com" should have 4 emails
+    Then I should receive an email with subject "Reminder: remember to give feedback"
     And return to current time
   

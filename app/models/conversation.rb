@@ -125,7 +125,7 @@ class Conversation < ActiveRecord::Base
     update_attribute(:status, "paid")
     messages.create(:sender_id => payer.id, :action => "pay")
 
-    ConfirmConversation.new(self, current_user, current_community).activate_automatic_confirmation!
+    ConfirmConversation.new(self, payer, community).activate_automatic_confirmation!
   end
   
   def has_feedback_from_all_participants?
