@@ -116,15 +116,16 @@ class Conversation < ActiveRecord::Base
     listing.update_attribute(:open, false) if close_listing && close_listing.eql?("true")
     Delayed::Job.enqueue(ConversationAcceptedJob.new(id, current_user.id, current_community.id))
 
-    if status.eql?("accepted")
-      run_at = current_community.automatic_confirmation_after_days.days.from_now
-      Delayed::Job.enqueue(AutomaticConfirmationJob.new(id, current_user.id, current_community.id), run_at: run_at)
+    if status.eql?("accepted") && !current_community.payments_in_use?
+      ConfirmConversation.new(self, current_user, current_community).activate_automatic_confirmation!
     end
   end
   
   def paid_by!(payer)
     update_attribute(:status, "paid")
     messages.create(:sender_id => payer.id, :action => "pay")
+
+    ConfirmConversation.new(self, current_user, current_community).activate_automatic_confirmation!
   end
   
   def has_feedback_from_all_participants?

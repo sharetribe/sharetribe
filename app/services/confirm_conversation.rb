@@ -9,23 +9,31 @@ class ConfirmConversation
     @payment = conversation.payment
   end
 
+  # Listing confirmed by user
   def confirm!(feedback_given)
     update_participation(feedback_given)
     Delayed::Job.enqueue(TransactionConfirmedJob.new(@conversation.id, @community.id))
     release_escrow if @hold_in_escrow
   end
 
+  # Listing canceled by user
   def cancel!(feedback_given)
     update_participation(feedback_given)
     Delayed::Job.enqueue(TransactionCanceledJob.new(@conversation.id, @community.id))
     cancel_escrow if @hold_in_escrow
   end
 
+  # Listing confirmed automatically
   def automatic_confirm!
     @conversation.update_attributes(:status => "confirmed")
     Delayed::Job.enqueue(TransactionAutomaticallyConfirmedJob.new(@conversation.id, @community.id)) # sent to requester
     Delayed::Job.enqueue(TransactionConfirmedJob.new(@conversation.id, @community.id)) # sent to offerer
     release_escrow if @hold_in_escrow
+  end
+
+  def activate_automatic_confirmation!(conversation, current_user, current_community)
+    run_at = current_community.automatic_confirmation_after_days.days.from_now
+    Delayed::Job.enqueue(AutomaticConfirmationJob.new(conversation.id, current_user.id, current_community.id), run_at: run_at)
   end
 
   private
