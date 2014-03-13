@@ -108,6 +108,8 @@ class Conversation < ActiveRecord::Base
   end
   
   def accept_or_reject(current_user, current_community, close_listing)
+    self.update_attributes(automatic_confirmation_after_days: current_community.automatic_confirmation_after_days)
+
     if offerer.eql?(current_user)
       participations.each { |p| p.update_attribute(:is_read, p.person.id.eql?(current_user.id)) }
     end

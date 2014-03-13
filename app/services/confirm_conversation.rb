@@ -22,6 +22,7 @@ class ConfirmConversation
   end
 
   def automatic_confirm!
+    @conversation.update_attributes(:status => "confirmed")
     Delayed::Job.enqueue(TransactionAutomaticallyConfirmedJob.new(@conversation.id, @community.id)) # sent to requester
     Delayed::Job.enqueue(TransactionConfirmedJob.new(@conversation.id, @community.id)) # sent to offerer
     release_escrow if @hold_in_escrow
