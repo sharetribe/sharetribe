@@ -103,6 +103,15 @@ class PersonMailer < ActionMailer::Base
          :subject => t("emails.transaction_confirmed.request_marked_as_#{@conversation.status}"))
   end
 
+  def transaction_automatically_confirmed(conversation, community)
+    @email_type =  "email_about_completed_transactions"
+    @conversation = conversation
+    set_up_urls(@conversation.requester, community, @email_type)
+    mail(:to => @recipient.confirmed_notification_emails_to,
+         :from => community_specific_sender(community),
+         :subject => t("emails.transaction_automatically_confirmed.subject"))
+  end
+
   def escrow_canceled_to(conversation, community, to)
     @email_type =  "email_about_canceled_escrow"
     @conversation = conversation

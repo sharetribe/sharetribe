@@ -112,7 +112,12 @@ class Conversation < ActiveRecord::Base
       participations.each { |p| p.update_attribute(:is_read, p.person.id.eql?(current_user.id)) }
     end
     listing.update_attribute(:open, false) if close_listing && close_listing.eql?("true")
-    Delayed::Job.enqueue(ConversationAcceptedJob.new(id, current_user.id, current_community.id)) 
+    Delayed::Job.enqueue(ConversationAcceptedJob.new(id, current_user.id, current_community.id))
+
+    if status.eql?("accepted")
+      run_at = current_community.automatic_confirmation_after_days.days.from_now
+      Delayed::Job.enqueue(AutomaticConfirmationJob.new(id, current_user.id, current_community.id), run_at: run_at)
+    end
   end
   
   def paid_by!(payer)

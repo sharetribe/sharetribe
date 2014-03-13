@@ -648,6 +648,11 @@ fi:
       has_marked_request_as_canceled: "%{other_party_full_name} on ilmoittanut, että pyyntö '%{request}' ei toteutunut. Voit silti antaa hänelle palautetta."
       giving_feedback_is_good_idea: "Palautteen antaminen kannattaa aina. Jos kaikki meni hyvin, voit palautteen avulla kertoa muille jäsenille, että %{other_party_given_name} on luotettava. Jos vastaan tuli ongelmia, niistä kannattaa myös mainita."
       give_feedback_to: "Anna palautetta käyttäjälle %{other_party_given_name}"
+    transaction_automatically_confirmed:
+      subject: "Pyyntösi on automaattisesti merkitty toteutuneeksi - muistathan antaa palautetta"
+      we_have_marked_request_as_confirmed: "Olemme merkinneet pyynnön '%{request}' toteutuneeksi. Merkitsimme pyynnön toteutuneeksi automaattisesti, koska pyynnön hyväksymisestä on kulunut %{days_passed} päivää."
+      giving_feedback_is_good_idea: "Voit nyt antaa palautetta käyttäjälle %{other_party_given_name}. Palautteen antaminen kannattaa aina. Jos kaikki meni hyvin, voit palautteen avulla kertoa muille jäsenille, että %{other_party_given_name} on luotettava. Jos vastaan tuli ongelmia, niistä kannattaa myös mainita."
+      give_feedback_to: "Anna palautetta käyttäjälle %{other_party_given_name}"
     confirmation_instructions:
       confirmation_instructions_signature: "Terveisin,<br/>%{service_name}-tiimi"
       welcome_to_kassi: "Tervetuloa %{service_name_illative}!"

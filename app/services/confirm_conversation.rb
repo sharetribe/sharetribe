@@ -21,6 +21,12 @@ class ConfirmConversation
     cancel_escrow if @hold_in_escrow
   end
 
+  def automatic_confirm!
+    Delayed::Job.enqueue(TransactionAutomaticallyConfirmedJob.new(@conversation.id, @community.id)) # sent to requester
+    Delayed::Job.enqueue(TransactionConfirmedJob.new(@conversation.id, @community.id)) # sent to offerer
+    release_escrow if @hold_in_escrow
+  end
+
   private
 
   def update_participation(feedback_given)

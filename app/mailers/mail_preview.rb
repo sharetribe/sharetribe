@@ -80,4 +80,18 @@ class MailPreview < MailView
     community = conversation.community
     PersonMailer.admin_escrow_canceled(conversation, community)
   end
+
+  def transaction_confirmed
+    conversation = Conversation.last
+    community = conversation.community
+    conversation.status = "confirmed"
+    PersonMailer.transaction_confirmed(conversation, community)
+  end
+
+  def transaction_automatically_confirmed
+    conversation = Conversation.last
+    community = conversation.community
+    conversation.status = "confirmed"
+    PersonMailer.transaction_automatically_confirmed(conversation, community)
+  end
 end
