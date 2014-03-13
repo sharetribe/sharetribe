@@ -21,4 +21,14 @@ def cancel_escrow(transaction_id)
   end
 end
 
-cancel_escrow("transaction_id_here")
+def transaction_status(transaction_id)
+  txn = Braintree::Transaction.find(transaction_id)
+
+  puts "Found transaction #{transaction_id}"
+  puts "  amount:        #{txn.amount}"
+  puts "  status:        #{txn.status}"
+  puts "  escrow_status: #{txn.escrow_status}"
+end
+
+# transaction_status("1234abcd")
+# cancel_escrow("1234abcd")
