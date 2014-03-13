@@ -119,16 +119,8 @@ class ConversationsController < ApplicationController
       redirect_to person_message_path(:person_id => @current_user.id, :message_id => @conversation.id) and return 
     end
     if @conversation.update_attributes(params[:conversation])
-      @conversation.confirm_or_cancel(@current_user, @current_community, params[:give_feedback])
-
-      if @current_community.payment_gateway && @current_community.payment_gateway.hold_in_escrow
-        if @conversation.status == "confirmed"
-          BraintreeService.release_from_escrow(@current_community, @conversation.payment.braintree_transaction_id)
-        else
-          Delayed::Job.enqueue(EscrowCanceledJob.new(@conversation.id, @current_community.id))
-          BTLog.info("Escrow canceled by user #{@current_user.id}, conversation #{@conversation.id}, community #{@current_community.id}")
-        end
-      end
+      confirmation = ConfirmConversation.new(@conversation, @current_user, @current_community)
+      confirmation.confirm_or_cancel!(params[:give_feedback])
       
       flash[:notice] = t("layouts.notifications.#{@conversation.listing.direction}_#{@conversation.status}")
       if params[:give_feedback] && params[:give_feedback].eql?("true")

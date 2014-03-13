@@ -115,13 +115,6 @@ class Conversation < ActiveRecord::Base
     Delayed::Job.enqueue(ConversationAcceptedJob.new(id, current_user.id, current_community.id)) 
   end
   
-  def confirm_or_cancel(current_user, current_community, feedback_given)
-    participation = participations.find_by_person_id(current_user.id)
-    participation.update_attribute(:is_read, true) if offerer.eql?(current_user)
-    participation.update_attribute(:feedback_skipped, true) unless feedback_given && feedback_given.eql?("true")
-    Delayed::Job.enqueue(TransactionConfirmedJob.new(id, current_community.id))
-  end
-  
   def paid_by!(payer)
     update_attribute(:status, "paid")
     messages.create(:sender_id => payer.id, :action => "pay")
