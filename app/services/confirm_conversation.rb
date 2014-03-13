@@ -9,19 +9,32 @@ class ConfirmConversation
     @payment = conversation.payment
   end
 
-  def confirm_or_cancel!(feedback_given)
+  def confirm!(feedback_given)
+    update_participation(feedback_given)
+    Delayed::Job.enqueue(TransactionConfirmedJob.new(@conversation.id, @community.id))
+    release_escrow if @hold_in_escrow
+  end
+
+  def cancel!(feedback_given)
+    update_participation(feedback_given)
+    Delayed::Job.enqueue(TransactionCanceledJob.new(@conversation.id, @community.id))
+    cancel_escrow if @hold_in_escrow
+  end
+
+  private
+
+  def update_participation(feedback_given)
     @participation.update_attribute(:is_read, true) if @offerer.eql?(@user)
     @participation.update_attribute(:feedback_skipped, true) unless feedback_given && feedback_given.eql?("true")
-
-    Delayed::Job.enqueue(TransactionConfirmedJob.new(@conversation.id, @community.id))
-
-    if @hold_in_escrow
-      if @conversation.status == "confirmed"
-        BraintreeService.release_from_escrow(@community, @payment.braintree_transaction_id)
-      else
-        Delayed::Job.enqueue(EscrowCanceledJob.new(@conversation.id, @community.id))
-        BTLog.info("Escrow canceled by user #{@user.id}, conversation #{@conversation.id}, community #{@community.id}")
-      end
-    end
   end
+
+  def release_escrow
+    BraintreeService.release_from_escrow(@community, @payment.braintree_transaction_id)
+  end
+
+  def cancel_escrow
+    Delayed::Job.enqueue(EscrowCanceledJob.new(@conversation.id, @community.id))
+    BTLog.info("Escrow canceled by user #{@user.id}, conversation #{@conversation.id}, community #{@community.id}")
+  end
+
 end

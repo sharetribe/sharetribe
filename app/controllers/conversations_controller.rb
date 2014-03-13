@@ -111,16 +111,18 @@ class ConversationsController < ApplicationController
   # Handles confirm and cancel forms
   def confirmation
     # Check if can be accepted or canceled
-    unless current_user?(@conversation.requester) && 
-            (
-              (params[:conversation] && params[:conversation][:status] == "canceled") ? 
-              @conversation.can_be_canceled? : @conversation.can_be_confirmed?(@current_community) 
-            )
+    cancel = (params[:conversation] && params[:conversation][:status] == "canceled")
+    unless current_user?(@conversation.requester) && (cancel ? @conversation.can_be_canceled? : @conversation.can_be_confirmed?(@current_community))
       redirect_to person_message_path(:person_id => @current_user.id, :message_id => @conversation.id) and return 
     end
     if @conversation.update_attributes(params[:conversation])
       confirmation = ConfirmConversation.new(@conversation, @current_user, @current_community)
-      confirmation.confirm_or_cancel!(params[:give_feedback])
+      
+      if cancel
+        confirmation.cancel!(params[:give_feedback])
+      else
+        confirmation.confirm!(params[:give_feedback])
+      end
       
       flash[:notice] = t("layouts.notifications.#{@conversation.listing.direction}_#{@conversation.status}")
       if params[:give_feedback] && params[:give_feedback].eql?("true")

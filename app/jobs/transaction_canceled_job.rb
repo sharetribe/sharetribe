@@ -1,4 +1,4 @@
-class TransactionConfirmedJob < Struct.new(:conversation_id, :community_id) 
+class TransactionCanceledJob < Struct.new(:conversation_id, :community_id) 
   
   include DelayedAirbrakeNotification
   
@@ -15,9 +15,6 @@ class TransactionConfirmedJob < Struct.new(:conversation_id, :community_id)
       conversation = Conversation.find(conversation_id)
       community = Community.find(community_id)
       PersonMailer.transaction_confirmed(conversation, community).deliver
-      conversation.participations.each do |participation|
-        Delayed::Job.enqueue(TestimonialReminderJob.new(conversation.id, participation.person.id, community.id, 0), :priority => 0, :run_at => 3.days.from_now)
-      end
     rescue => ex
       puts ex.message
       puts ex.backtrace.join("\n")
