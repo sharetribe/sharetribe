@@ -87,9 +87,6 @@ group :development do
   gem 'rack-livereload'
   gem 'rb-fsevent',       require: false
   gem 'guard-rspec',      require: false
-  gem 'pry'
-  gem 'pry-rails'
-  gem 'pry-nav'
   gem 'zeus'
 end
 
@@ -109,9 +106,13 @@ group :test do
   gem 'timecop'
   gem 'rack-test'
   gem 'database_cleaner'
-  gem 'pry'
-  gem 'pry-rails'
   gem 'connection_pool'
   gem 'coveralls', require: false
+end
+
+group :development, :test do
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-nav'
 end
 
