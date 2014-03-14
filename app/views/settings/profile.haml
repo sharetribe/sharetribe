@@ -18,14 +18,18 @@
     - unless @person.is_organization
       = form.label :given_name, t(".given_name")
       = form.text_field :given_name, :class => "text_field", :maxlength => "30"
-      = form.label :family_name, t(".family_name")
+      .inline-label-container
+        = form.label :family_name, t(".family_name"), :class => "inline"
+        %small
+          - if ["first_name_with_initial", "first_name_only"].include? @current_community.name_display_type
+            = t(".#{@current_community.name_display_type}")
       = form.text_field :family_name, :class => "text_field", :maxlength => "30"
     
     -# Location
     .inline-label-container
       = form.label :street_address, t(".street_address"), :class => "inline"
       %small
-        = t('.visible_to_registered_users')
+        = t('.default_in_listing')
     = form.text_field :street_address, :class => "text_field", :onkeyup => "timed_input(this)"
     %small
       = t(".location_description")

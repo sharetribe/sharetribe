@@ -1714,6 +1714,8 @@ fi:
       city: Kaupunki
       family_name: Sukunimi
       given_name: Etunimi
+      first_name_with_initial: (vain ensimmäinen kirjain näytetään muille käyttäjille)
+      first_name_only: (ei näytetä muille käyttäjille)
       location_description: "Sijainti voi olla joko tarkka katuosoite tai vaikkapa vain postinumero. Täytäthän ainakin postinumerosi. Voit myös valita sijainnin alla olevalta kartalta."
       phone_number: Puhelinnumero
       profile_picture: Profiilikuva
@@ -1724,6 +1726,7 @@ fi:
       these_fields_are_shown_in_your: "Nämä tiedot näytetään kaikille %{service_name_genetive} käyttäjille"
       visible_to_everybody: "näytetään kaikille"
       visible_to_registered_users: "(näytetään kirjautuneille käyttäjille)"
+      default_in_listing: "(käytetään vain oletusarvona uutta ilmoitusta luotaessa)"
       invisible: "(ei näytetä muille käyttäjille)"
     save_information: "Tallenna tiedot"
   tag_cloud:
