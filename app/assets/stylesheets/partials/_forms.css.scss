@@ -20,3 +20,8 @@ textarea {
 input.auto_width {
   width:auto;
 }
+
+// IE8 placeholder polyfill adds .placeholder class which can be
+// used to style the element, which by default has black text.
+// #aaa is the default placeholder color in most browsers.
+.placeholder { color: #aaa; }

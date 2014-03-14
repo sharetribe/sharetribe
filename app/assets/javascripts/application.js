@@ -13,6 +13,7 @@
 //= require jquery.autosize-min
 //= require jquery.lightbox_me
 //= require jquery.transit.min
+//= require jquery.placeholder
 //= require fastclick.min
 //= require infobubble
 //= require sharetribe_common
