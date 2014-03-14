@@ -1,4 +1,3 @@
-= label "custom_fields", "#{custom_field.id}".to_sym, custom_field.name(I18n.locale)
 - selected = custom_field.selected_option_id_for(listing)
 - default = [t(".select_one___"), nil]
 - options = options_for_select([default] + custom_field.options.sort.collect { |opt| [opt.title(I18n.locale), opt.id] }, selected)

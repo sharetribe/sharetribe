@@ -1,4 +1,3 @@
-= label "custom_fields", "#{custom_field.id}".to_sym, custom_field.name(I18n.locale)
 - answer = custom_field.answer_for(listing)
 - value = answer ? answer.display_value : ""
 / Don't use HTML5 number input. It's a mess.
