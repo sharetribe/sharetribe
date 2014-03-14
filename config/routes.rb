@@ -125,6 +125,7 @@ Kassi::Application.routes.draw do
           get :test_welcome_email
           get :manage_members
           get :settings
+          get :integrations
           put :update_settings
           post :posting_allowed
           post :promote_admin

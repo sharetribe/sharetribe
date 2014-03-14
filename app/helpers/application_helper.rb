@@ -55,6 +55,7 @@ module ApplicationHelper
       "check" => "ss-check",
       "invite" => "ss-adduser",
       "loading" => "ss-loading",
+      "connect" => "ss-connection",
       "" => "",
       
       # Default category & share type icons
@@ -696,6 +697,12 @@ module ApplicationHelper
         :icon_class => icon_class("settings"), 
         :path => settings_admin_community_path(community),
         :name => "admin_settings"
+      },
+      {
+        :text => t("admin.communities.integrations.integrations"),
+        :icon_class => icon_class("connect"),
+        :path => integrations_admin_community_path(community),
+        :name => "integrations"
       }
     ]
 

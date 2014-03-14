@@ -41,6 +41,12 @@ class Admin::CommunitiesController < ApplicationController
                                        .order("#{member_sort_column} #{member_sort_direction}")
   end
 
+  def integrations
+    @selected_tribe_navi_tab = "admin"
+    @selected_left_navi_link = "integrations"
+    @community = @current_community
+  end
+
   def posting_allowed
     CommunityMembership.where(:person_id => params[:allowed_to_post]).update_all("can_post_listings = 1")
     CommunityMembership.where(:person_id => params[:disallowed_to_post]).update_all("can_post_listings = 0")
