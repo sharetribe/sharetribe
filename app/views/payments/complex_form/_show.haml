@@ -12,7 +12,7 @@
 
 .payment-row.payment-text-row.bottom-border
   .payment-row-title-text.payment-row-text
-    Mpankin palvelumaksu (8%)
+    = "Palvelumaksu (#{@current_community.service_name})"
 
   .payment-row-sum-text.payment-row-text
     = @payment.commission_without_vat.to_s + @payment.conversation.listing.price_symbol
