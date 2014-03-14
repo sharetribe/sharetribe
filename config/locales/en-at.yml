@@ -195,11 +195,11 @@ en-at:
       new_option:
         option: ~
         remove_option: ~
+      show:
+        edit_poll: ~
       poll_status:
         open: ~
         closed: ~
-      show:
-        edit_poll: ~
     transaction_types:
       sell: ~
       rent: ~
@@ -863,12 +863,12 @@ en-at:
       item_offer_list: ~
       item_request_list: ~
       items_to_offer: ~
-      no_open_offers_currently: ~
       items_to_request: ~
-      no_open_requests_currently: ~
       log_in: ~
-      no_requests_visible_unless_logged_in: ~
       no_offers_visible_unless_logged_in: ~
+      no_open_offers_currently: ~
+      no_open_requests_currently: ~
+      no_requests_visible_unless_logged_in: ~
       one_private_offer_exists: ~
       one_private_request_exists: ~
       ride_offer: ~

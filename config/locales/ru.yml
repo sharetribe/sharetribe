@@ -114,6 +114,11 @@ ru:
     custom_fields:
       edit:
         edit_listing_field: ~
+      edit_price:
+        edit_price_field: ~
+        show_price_filter_homepage: ~
+        price_min: ~
+        price_max: ~
       form:
         field_required:
           this_field_is_required: ~
@@ -190,11 +195,11 @@ ru:
       new_option:
         option: Вариант
         remove_option: "Удалить вариант"
+      show:
+        edit_poll: "Редактировать опрос"
       poll_status:
         open: Открытый
         closed: Закрытый
-      show:
-        edit_poll: "Редактировать опрос"
     transaction_types:
       sell: ~
       rent: ~

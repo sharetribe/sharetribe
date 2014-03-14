@@ -195,11 +195,11 @@ en-bf:
       new_option:
         option: ~
         remove_option: ~
+      show:
+        edit_poll: ~
       poll_status:
         open: ~
         closed: ~
-      show:
-        edit_poll: ~
     transaction_types:
       sell: ~
       rent: ~
@@ -1088,12 +1088,12 @@ en-bf:
       payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: ~
       person_activated: ~
-      poll_could_not_be_answered: ~
       person_deactivated: ~
-      poll_created: ~
       person_updated_successfully: ~
-      poll_creation_failed: ~
       poll_answered: ~
+      poll_could_not_be_answered: ~
+      poll_created: ~
+      poll_creation_failed: ~
       poll_update_failed: ~
       poll_updated: ~
       poll_deleted: ~

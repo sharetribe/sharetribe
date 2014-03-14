@@ -58,7 +58,7 @@ describe "braintree webhooks" do
       end
 
       it "listens for SubMerchantAccountApproved" do
-        signature, payload = BraintreeService.webhook_testing_sample_notification(
+        signature, payload = BraintreeApi.webhook_testing_sample_notification(
           @community,
           Braintree::WebhookNotification::Kind::SubMerchantAccountApproved,
           @person.id

@@ -102,6 +102,25 @@ class PersonMailer < ActionMailer::Base
          :from => community_specific_sender(community),
          :subject => t("emails.transaction_confirmed.request_marked_as_#{@conversation.status}"))
   end
+
+  def escrow_canceled_to(conversation, community, to)
+    @email_type =  "email_about_canceled_escrow"
+    @conversation = conversation
+    set_up_urls(@conversation.offerer, community, @email_type)
+    mail(:to => to,
+         :from => community_specific_sender(community),
+         :subject => t("emails.escrow_canceled.subject")) do |format|
+      format.html { render "escrow_canceled" }
+    end
+  end
+
+  def escrow_canceled(conversation, community)
+    escrow_canceled_to(conversation, community, conversation.offerer.confirmed_notification_emails_to)
+  end
+
+  def admin_escrow_canceled(conversation, community)
+    escrow_canceled_to(conversation, community, community.admin_emails.join(","))
+  end
   
   def new_testimonial(testimonial, community)
     @email_type =  "email_about_new_received_testimonials"
@@ -179,9 +198,13 @@ class PersonMailer < ActionMailer::Base
     @email_type = "email_about_confirm_reminders"
     set_up_urls(conversation.requester, community, @email_type)
     @conversation = conversation
+    escrow = community.payment_gateway && community.payment_gateway.hold_in_escrow
+    template = escrow ? "confirm_reminder_escrow" : "confirm_reminder"
     mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
-         :subject => t("emails.confirm_reminder.remember_to_confirm_request"))
+         :subject => t("emails.confirm_reminder.remember_to_confirm_request")) do |format|
+      format.html { render template }
+    end
   end
   
   # Remind users to give feedback

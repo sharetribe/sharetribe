@@ -195,11 +195,11 @@ en-bd:
       new_option:
         option: ~
         remove_option: ~
+      show:
+        edit_poll: ~
       poll_status:
         open: ~
         closed: ~
-      show:
-        edit_poll: ~
     transaction_types:
       sell: ~
       rent: ~
@@ -901,12 +901,12 @@ en-bd:
       inform_others_about_events: ~
       lend_rent_help_carpool: ~
       loading_more_content: ~
-      more_news: ~
       more_events: ~
-      or: ~
       news: ~
-      or_see_what_the_others: ~
       no_news: ~
+      more_news: ~
+      or: ~
+      or_see_what_the_others: ~
       recent_events: ~
       requesting: ~
       teaser_text: ~

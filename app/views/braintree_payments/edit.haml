@@ -63,6 +63,14 @@
       .col-12
         = form.button t(".confirm_payment"), :class => "send_button"
 
+    .row
+      .col-12
+        %p
+          = "When you confirm the payment we will charge your credit card. We will transfer the money to #{link_to(payment_receiver.name, payment_receiver)} only after you have marked the request completed.".html_safe
+
+        %p
+          = "If there are any issues, you can cancel the request. This will notify the admin who will then contact you for a refund."
+
     %br/
 
     .row

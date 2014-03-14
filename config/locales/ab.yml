@@ -195,27 +195,27 @@ ab:
       new_option:
         option: ~
         remove_option: ~
+      show:
+        edit_poll: ~
       poll_status:
         open: ~
         closed: ~
-      show:
-        edit_poll: ~
     transaction_types:
       sell: ~
       rent: ~
       give: ~
       lend: ~
-      share_for_free: ~
       swap: ~
+      service: ~
+      request: ~
+      inquiry: ~
+      share_for_free: ~
       default_action_button_labels:
         sell: ~
         rent: ~
         request: ~
         offer: ~
         inquiry: ~
-      service: ~
-      request: ~
-      inquiry: ~
   common:
     edit_page: ~
     default_community_slogan: ~
