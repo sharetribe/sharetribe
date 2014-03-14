@@ -19,7 +19,7 @@ window.ST.createCustomFieldOrder = function(rowSelector) {
     };
   }).get();
 
-  orderManager = window.ST.orderManager(fieldMap)
+  var orderManager = window.ST.orderManager(fieldMap);
 
   var ajaxRequest = orderManager.order.changes().debounce(800).map(".order")
     .skipDuplicates(_.isEqual)
@@ -31,7 +31,7 @@ window.ST.createCustomFieldOrder = function(rowSelector) {
     };
   });
 
-  var ajaxResponse = ajaxRequest.ajax()
+  var ajaxResponse = ajaxRequest.ajax();
   var ajaxStatus = window.ST.ajaxStatusIndicator(ajaxRequest, ajaxResponse);
   
   ajaxStatus.loading.onValue(function() {
@@ -40,7 +40,7 @@ window.ST.createCustomFieldOrder = function(rowSelector) {
     $("#custom-field-ajax-success").hide();
   });
 
-  ajaxStatus.success.onValue(function(v) {
+  ajaxStatus.success.onValue(function() {
     $("#custom-field-ajax-saving").hide();
     $("#custom-field-ajax-success").show();
   });
@@ -79,7 +79,7 @@ window.ST.createCustomFieldOptionOrder = function(rowSelector) {
     return _(fieldMap)
       .map("sortPriority")
       .max()
-      .value()
+      .value();
   }
 
   var nextSortPriority = (function(startValue) {
@@ -87,7 +87,7 @@ window.ST.createCustomFieldOptionOrder = function(rowSelector) {
     return function() {
       i += 1;
       return i;
-    }
+    };
   })(highestSortPriority(fieldMap));
 
   var nextId = (function() {
@@ -95,10 +95,10 @@ window.ST.createCustomFieldOptionOrder = function(rowSelector) {
     return function() {
       i += 1;
       return i;
-    }
+    };
   })();
 
-  orderManager = window.ST.orderManager(fieldMap)
+  var orderManager = window.ST.orderManager(fieldMap);
 
   orderManager.order.changes().onValue(function(changedFields) {
     var up = changedFields.up;
@@ -138,5 +138,5 @@ window.ST.createCustomFieldOptionOrder = function(rowSelector) {
   return {
     remove: orderManager.remove,
     add: orderManager.add
-  }
+  };
 };

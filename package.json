@@ -1,0 +1,14 @@
+{
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-qunit": "~0.3.0",
+    "expect.js": "~0.2.0",
+    "grunt-mocha": "~0.4.9",
+    "grunt-contrib-connect": "~0.6.0"
+  }
+}

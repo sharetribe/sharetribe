@@ -16,15 +16,20 @@ window.ST = window.ST || {};
 window.ST.orderManager = function(fieldMap) {
   var utils = ST.utils;
 
-  var moveUp = createSwapFn(_.findIndex, utils.findPrevIndex);
-  var moveDown = createSwapFn(utils.findNextIndex, _.findIndex);
+  function createSwapFn(upIdFinder, downIdFinder) {
+    var byFieldId = _.curry(function(id, field) {
+      return field.id === id;
+    });
 
-  var eventBus = new Bacon.Bus();
+    return function(fieldId) {
+      var upArrayId = upIdFinder(fieldMap, byFieldId(fieldId));
+      var downArrayId = downIdFinder(fieldMap, byFieldId(fieldId));
 
-  /**
-    For each custom field, setup click listeners (streams, using Bacon)
-  */
-  fieldMap.forEach(createUpDownStreams);
+      if (downArrayId >= 0 && upArrayId >= 0) {
+        return swap(downArrayId, upArrayId);
+      }
+    };
+  }
 
   function createUpDownStreams(field) {
     var up = createClickStream(field.up, field.id);
@@ -36,6 +41,16 @@ window.ST.orderManager = function(fieldMap) {
     eventBus.plug(upChange);
     eventBus.plug(downChange);
   }
+
+  var moveUp = createSwapFn(_.findIndex, utils.findPrevIndex);
+  var moveDown = createSwapFn(utils.findNextIndex, _.findIndex);
+
+  var eventBus = new Bacon.Bus();
+
+  /**
+    For each custom field, setup click listeners (streams, using Bacon)
+  */
+  fieldMap.forEach(createUpDownStreams);
 
   function createClickStream(el, id) {
     return el.clickE().doAction(".preventDefault").map(_.constant(id));
@@ -69,21 +84,6 @@ window.ST.orderManager = function(fieldMap) {
     return _.map(fieldMap, 'id');
   }
 
-  function createSwapFn(upIdFinder, downIdFinder) {
-    var byFieldId = _.curry(function(id, field) {
-      return field.id == id;
-    });
-
-    return function(fieldId) {
-      var upArrayId = upIdFinder(fieldMap, byFieldId(fieldId));
-      var downArrayId = downIdFinder(fieldMap, byFieldId(fieldId));
-
-      if (downArrayId >= 0 && upArrayId >= 0) {
-        return swap(downArrayId, upArrayId);
-      }
-    }
-  }
-
   function add(newField) {
     fieldMap.push(newField);
     createUpDownStreams(newField);
@@ -98,4 +98,4 @@ window.ST.orderManager = function(fieldMap) {
     remove: remove,
     order: eventBus.filter(_.isObject).toProperty({order: getOrder()})
   };
-}
+};

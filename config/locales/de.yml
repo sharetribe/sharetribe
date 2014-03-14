@@ -4,7 +4,7 @@ de:
       edit:
         edit_listing_category: "Kategorie '%{category}' bearbeiten"
       index:
-        listing_categories: "Kategorien der Einträge"
+        listing_categories: Kategorien
         create_a_new_category: "+ Neue Kategorie erstellen"
         remove_category_confirmation: "Bist du sicher, dass du die Kategorie '%{category_name}' entfernen möchtest?"
         saving_order: "Reihenfolge der Kategorien speichern"
@@ -67,8 +67,8 @@ de:
         edit_info: "Angaben bearbeiten"
         see_how_it_looks_like: "Sieh es dir an"
         verification_to_post_listings_info_content: "Infotext für nicht verifizierte Benutzer"
-        verification_to_post_listings_info_content_description: ~
-        verification_to_post_listings_info_content_default: ~
+        verification_to_post_listings_info_content_description: "Auf diesem Marktplatz ist es erforderlich, dass man sich vom Administrator verifizieren lässt, bevor man Einträge veröffentlichen darf. Hier kannst du den Standardtext festlegen, der nicht-verifizierten Benutzern angezeigt wird, wenn sie versuchen, einen neuen Eintrag zu erstellen."
+        verification_to_post_listings_info_content_default: "Auf diesem Marktplatz ist es erforderlich, dass man sich vom Administrator verifizieren lässt, bevor man Einträge veröffentlichen darf. Du bist noch nicht verifiziert. Bitte %{contact_admin_link}, um dich verifizieren zu lassen."
         contact_admin_link_text: "Administrator kontaktieren"
       edit_look_and_feel:
         edit_community_look_and_feel: "Bearbeite das \"Look & Feel\" der Community %{community_name}"
@@ -96,22 +96,22 @@ de:
       settings:
         settings: Einstellungen
         general: Allgemein
-        users_can_review_each_other_after_transaction: ~
+        users_can_review_each_other_after_transaction: "Benutzer können sich nach jeder Transaktion gegenseitig bewerten"
         access: Zugriff
-        join_with_invite_only: "Benutzer können dieser Community nur mit einer Einladung eines anderen Benutzers beitreten"
-        users_can_invite_new_users: "Alle Benutzer können neue Benutzer zu dieser Community einladen"
+        join_with_invite_only: "Benutzer können dieser Community nur mit der Einladung eines Mitglieds beitreten"
+        users_can_invite_new_users: "Alle Mitglieder können neue Benutzer zu dieser Community einladen"
         private: "Diese Community ist privat (nur registrierte Benutzer können den Inhalt sehen)"
-        require_verification_to_post_listings: ~
-        listing_preferences: ~
-        show_listing_publishing_date: ~
-        show_category_in_listing_list: ~
+        require_verification_to_post_listings: "Nur von Administratoren verifizierte Benutzer können neue Einträge veröffentlichen"
+        listing_preferences: Eintragseinstellungen
+        show_listing_publishing_date: "Datum der Veröffentlichung des Eintrags auf der Artikelseite darstellen"
+        show_category_in_listing_list: "Die Kategorien in der Übersicht darstellen"
         hide_expiration_date: "Einträge haben kein Ablaufdatum"
-        listing_comments_in_use: ~
-        email_preferences: ~
-        automatic_newsletters: ~
-        email_admins_about_new_members: ~
+        listing_comments_in_use: "Benutzern erlauben, Einträge zu kommentieren (für alle anderen Benutzer sichtbar)"
+        email_preferences: E-Mail-Einstellungen
+        automatic_newsletters: "Automatisch tägliche / wöchentliche Newsletter an alle Benutzer versenden (es sei denn, sie melden sich ab)"
+        email_admins_about_new_members: "Den Administratoren eine E-Mail schicken, wenn sich ein neuer Benutzer anmeldet"
         integrations: Integrationen
-        google_analytics_key: ~
+        google_analytics_key: "Google Analytics Tracking ID (klassisches Konto)"
         twitter_handle: ~
         update_settings: "Einstellungen erneuern"
       manage_members:
@@ -120,20 +120,25 @@ de:
         name: Name
         join_date: Beigetreten
         admin: Administrator
-        posting_allowed: ~
+        posting_allowed: "Veröffentlichen von Einträgen erlaubt"
         remove_user: "Benutzer entfernen"
         saving_user_status: Speichern...
         save_user_status_successful: Gespeichert
         save_user_status_error: "Speichern fehlgeschlagen. Bitte erneuere die Seite und versuch es noch einmal."
-        remove_user_confirmation: ~
+        remove_user_confirmation: "Dies entfernt den Benutzer von der Community und wird einen erneuten Zugriff mit diesem Account auf die Seite verhindern. Bist du sicher, dass du fortfahren möchtest?"
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
+      edit_price:
+        edit_price_field: "Preisfeld bearbeiten"
+        show_price_filter_homepage: "Preisfilter auf der Homepage anzeigen"
+        price_min: Mindestpreis
+        price_max: Höchstpreis
       form:
         field_required:
           this_field_is_required: "Dieses Feld ist erforderlich."
       index:
-        listing_fields: Filterfelder
+        listing_fields: Filter
         add_new_field: "Neues Feld hinzufügen:"
         remove_field_confirmation: "Willst du das Feld '%{field_name}' wirklich entfernen?"
         cancel: Abbrechen
@@ -141,7 +146,7 @@ de:
         field_title: "Name des Feldes"
         field_type: "Art des Feldes"
         categories: "Kategorien, in denen das Feld angewendet wird"
-        no_custom_listing_fields: "Keine marktplatzspezifischen Filterfelder"
+        no_custom_listing_fields: "Keine marktplatzspezifischen Filter"
         dropdown_options: "Auswahloptionen des Dropdown-Menüs"
         add_option: "+ Auswahl hinzufügen"
         saving_order: "Feldreihenfolge speichern"
@@ -149,11 +154,15 @@ de:
         save_order_error: "Während des Speicherns der Feldreihenfolge ist ein Fehler aufgetreten. Bitte lade die Seite neu und versuche es noch einmal."
         select_one: "Art des Feldes auswählen..."
         continue: Weiter
+        minimum_value: Minimum
+        maximum_value: Maximum
+        allow_decimals: "Dezimalzahlen erlauben"
       new:
         new_listing_field: "Neues Eintragsfeld"
       field_types:
         dropdown: Dropdown-Menü
         textfield: Textfeld
+        numericfield: "Numerisches Feld"
     emails:
       new:
         send_email_to_members: "Sende eine E-Mail an alle Mitglieder"
@@ -201,11 +210,11 @@ de:
       new_option:
         option: Option
         remove_option: "Option entfernen"
+      show:
+        edit_poll: "Umfrage bearbeiten"
       poll_status:
         open: Offen
         closed: Beendet
-      show:
-        edit_poll: "Umfrage bearbeiten"
     transaction_types:
       sell: Verkaufen
       rent: Vermieten
@@ -543,7 +552,7 @@ de:
   community_memberships:
     access_denied:
       access_denied: "Zugriff verweigert"
-      you_are_banned_in_this_community: ~
+      you_are_banned_in_this_community: "Der Administrator dieser Community hat verhindert, dass du auf die Seite zugreifen kannst. Wenn du den Administrator kontaktieren möchtest, kannst du %{link_to_contact_page} senden."
       contact_page_link: Feedback
     new:
       welcome_fb_user: "Willkommen %{service_name}, %{name}!"
@@ -883,6 +892,8 @@ de:
       some_private_requests_exist: "Es gibt bereits <b>%{number_of_listings} Anfragen</b>,"
     custom_filters:
       update_view: "Darstellung aktualisieren"
+      min: "Min:"
+      max: "Max:"
     event_feed:
       latest_events: "Was ist los"
     grid_item:
@@ -1758,7 +1769,7 @@ de:
     formats:
       short: "%e %b %Y at %H:%M"
       shorter: "%e %b at %H:%M"
-      short_date: "%T %M %J"
+      short_date: "%e %b %Y"
       sms: "%e %b at %H:%M"
   timestamps:
     day_ago: "Vor %{count} Tag"
@@ -1781,9 +1792,9 @@ de:
         zero: Benutzer
         one: Benutzer
         other: Benutzer
-    previous_label: ~
-    next_label: ~
-    page_gap: ~
+    previous_label: "&#8592; Zurück"
+    next_label: "Vor &#8594;"
+    page_gap: "&hellip;"
     page_entries_info:
       single_page:
         zero: "Kein %{model} gefunden"
@@ -1793,5 +1804,5 @@ de:
         zero: "Kein %{model} gefunden"
         one: "<b>1</b> %{model} wird angezeigt"
         other: "<b>all&nbsp;%{count}</b> %{model} werden angezeigt"
-      multi_page: ~
-      multi_page_html: ~
+      multi_page: "%{model} %{from} wird dargestellt - %{to} von %{count} gesamt"
+      multi_page_html: "%{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> von <b>%{count}</b> gesamt wird dargestellt"

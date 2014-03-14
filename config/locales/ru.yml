@@ -114,6 +114,11 @@ ru:
     custom_fields:
       edit:
         edit_listing_field: ~
+      edit_price:
+        edit_price_field: ~
+        show_price_filter_homepage: ~
+        price_min: ~
+        price_max: ~
       form:
         field_required:
           this_field_is_required: ~
@@ -134,11 +139,15 @@ ru:
         save_order_error: ~
         select_one: ~
         continue: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
       new:
         new_listing_field: ~
       field_types:
         dropdown: ~
         textfield: ~
+        numericfield: ~
     emails:
       new:
         send_email_to_members: "Отправить электронное письмо членам сообщества"
@@ -186,11 +195,11 @@ ru:
       new_option:
         option: Вариант
         remove_option: "Удалить вариант"
+      show:
+        edit_poll: "Редактировать опрос"
       poll_status:
         open: Открытый
         closed: Закрытый
-      show:
-        edit_poll: "Редактировать опрос"
     transaction_types:
       sell: ~
       rent: ~
@@ -868,6 +877,8 @@ ru:
       some_private_requests_exist: "Уже есть <b>%{number_of_listings} запросов</b>,"
     custom_filters:
       update_view: ~
+      min: ~
+      max: ~
     event_feed:
       latest_events: "Последние действия"
     grid_item:

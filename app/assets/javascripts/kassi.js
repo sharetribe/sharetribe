@@ -231,6 +231,20 @@ function initialize_network_defaults(required_message, email_message) {
   enableSamePageScroll();
 }
 
+function initialize_admin_edit_price($form, min_name, max_name, locale) {
+  translate_validation_messages(locale);
+
+  rules = {};
+  rules[min_name] = {
+    min_bound: max_name
+  };
+  rules[max_name] = {
+    max_bound: min_name
+  };
+
+  $form.validate({rules: rules})
+}
+
 function initialize_contact_request_form(required_message, email_message) {
   var validation = {
     rules: {

@@ -94,47 +94,46 @@ en:
         edit_message: "Edit message"
         send_test_message: "Send test message"
       settings:
-        settings: "Settings"
-        general: "General"
+        settings: Settings
+        general: General
         users_can_review_each_other_after_transaction: "Users can review each other after transaction"
-
-        access: "Access"
+        access: Access
         join_with_invite_only: "Users can only join this community with an invite from another user"
         users_can_invite_new_users: "All users can invite new users to this community"
         private: "This community is private (only registered users can see the content)"
         require_verification_to_post_listings: "Only users verified by admin can post new listings"
-
-
         listing_preferences: "Listing preferences"
         show_listing_publishing_date: "Display publishing date of the listing on the listing page"
-        show_category_in_listing_list: "Display listing category in list view"
+        show_category_in_listing_list: "Display listing type in list view"
         hide_expiration_date: "Listings do not have an expiration date"
         listing_comments_in_use: "Allow users to post comments to listings (viewable to all other users)"
-
         email_preferences: "Email preferences"
         automatic_newsletters: "Send automatic daily / weekly newsletters to all users (unless they opt out)"
         email_admins_about_new_members: "Send admins an email whenever a new user signs up"
-
-        integrations: "Integrations"
+        integrations: Integrations
         google_analytics_key: "Google Analytics tracking ID (classic account)"
         twitter_handle: "Twitter handle (used with tweet button in listing page)"
-
         update_settings: "Update settings"
       manage_members:
         manage_members: "Manage users"
-        email: "Email"
-        name: "Name"
-        join_date: "Joined"
-        admin: "Admin"
+        email: Email
+        name: Name
+        join_date: Joined
+        admin: Admin
         posting_allowed: "Posting allowed"
         remove_user: "Remove user"
-        saving_user_status: "Saving..."
-        save_user_status_successful: "Saved"
+        saving_user_status: Saving...
+        save_user_status_successful: Saved
         save_user_status_error: "Saving failed. Please refresh the page and try again."
         remove_user_confirmation: "This removes the user from the community and prevents them from accessing the site again with this account. Are you sure you want to proceed?"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
+      edit_price:
+        edit_price_field: "Edit price field"
+        show_price_filter_homepage: "Show price filter on homepage"
+        price_min: "Minimum price"
+        price_max: "Maximum price"
       form:
         field_required:
           this_field_is_required: "This field is required"
@@ -155,8 +154,8 @@ en:
         save_order_error: "An error occured while saving field order. Please refresh the page and try again."
         select_one: "Select field type..."
         continue: Continue
-        minimum_value: "Minimum"
-        maximum_value: "Maximum"
+        minimum_value: Minimum
+        maximum_value: Maximum
         allow_decimals: "Allow decimals"
       new:
         new_listing_field: "New listing field"
@@ -211,11 +210,11 @@ en:
       new_option:
         option: Option
         remove_option: "Remove option"
+      show:
+        edit_poll: "Edit poll"
       poll_status:
         open: Open
         closed: Closed
-      show:
-        edit_poll: "Edit poll"
     transaction_types:
       sell: Selling
       rent: "Renting out"
@@ -628,8 +627,10 @@ en:
       message: "Your payment information has been confirmed and you are now ready to receive payments in %{service_name}."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "You have not yet confirmed or canceled the request %{request_link} you received %{date} from %{other_party_full_name}. If the request has been completed, you should confirm that. After that you can give feedback to %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request_escrow: "You have not yet confirmed or canceled the request %{request_link} you received %{date} from %{other_party_full_name}. We will transfer the money to %{other_party_given_name} only after you have marked the request completed. After marking the request as completed you can give feedback to %{other_party_given_name}."
       remember_to_confirm_request: "Remember to confirm or cancel a request"
       if_will_not_happen_you_should_cancel: "If you think this request will not be completed for one reason or another, you can %{cancel_it_link}."
+      if_will_not_happen_you_should_cancel_escrow: "If you think this request will not be completed for one reason or another, you can %{cancel_it_link}. This will notify the admin who will then contact you for a refund."
       cancel_it_link_text: "cancel it"
     payment_reminder:
       remember_to_pay: "Remember to pay for %{listing_title}"
@@ -649,6 +650,11 @@ en:
       has_marked_request_as_canceled: "%{other_party_full_name} has canceled the request about '%{request}'. You can still give feedback to %{other_party_given_name}."
       giving_feedback_is_good_idea: "Giving feedback is always a good idea. If everything went well, you should let others know that %{other_party_given_name} can be trusted. If there were any problems, it's good to mention those as well."
       give_feedback_to: "Give feedback to %{other_party_given_name}"
+    escrow_canceled:
+      subject: "Payment canceled"
+      has_marked_request_as_canceled: "%{other_party_full_name} has marked the request about '%{request}' canceled. You will not receive money from this transaction."
+      if_this_was_error: "If you think this was an error, %{please_contant_admin_link}."
+      please_contant_admin_link: "please contact the administrator"
     confirmation_instructions:
       confirmation_instructions_signature: "Best regards,<br/>The %{service_name} Team"
       welcome_to_kassi: "Welcome to %{service_name}!"
@@ -1787,22 +1793,21 @@ en:
   will_paginate:
     models:
       person:
-        zero:  users
-        one:   user
-        few:   users
+        zero: users
+        one: user
+        few: users
         other: users
     previous_label: "&#8592; Previous"
     next_label: "Next &#8594;"
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero:  "No %{model} found"
-        one:   "Displaying 1 %{model}"
+        zero: "No %{model} found"
+        one: "Displaying 1 %{model}"
         other: "Displaying all %{count} %{model}"
       single_page_html:
-        zero:  "No %{model} found"
-        one:   "Displaying <b>1</b> %{model}"
+        zero: "No %{model} found"
+        one: "Displaying <b>1</b> %{model}"
         other: "Displaying <b>all&nbsp;%{count}</b> %{model}"
-
       multi_page: "Displaying %{model} %{from} - %{to} of %{count} in total"
       multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> in total"

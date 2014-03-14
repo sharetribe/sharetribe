@@ -114,6 +114,11 @@ es-ES:
     custom_fields:
       edit:
         edit_listing_field: ~
+      edit_price:
+        edit_price_field: ~
+        show_price_filter_homepage: ~
+        price_min: ~
+        price_max: ~
       form:
         field_required:
           this_field_is_required: ~
@@ -134,11 +139,15 @@ es-ES:
         save_order_error: ~
         select_one: ~
         continue: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
       new:
         new_listing_field: ~
       field_types:
         dropdown: ~
         textfield: ~
+        numericfield: ~
     emails:
       new:
         send_email_to_members: ~
@@ -186,11 +195,11 @@ es-ES:
       new_option:
         option: Opción
         remove_option: "Quitar la opción"
+      show:
+        edit_poll: "Editar encuesta"
       poll_status:
         open: Abrir
         closed: Cerrado
-      show:
-        edit_poll: "Editar encuesta"
     transaction_types:
       sell: Venta
       rent: Alquilando
@@ -873,6 +882,8 @@ es-ES:
       some_private_requests_exist: "Ya existen <b>%{number_of_listings} solicitudes</b>,"
     custom_filters:
       update_view: ~
+      min: ~
+      max: ~
     event_feed:
       latest_events: "Qué está pasando"
     grid_item:

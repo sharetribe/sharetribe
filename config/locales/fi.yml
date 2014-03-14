@@ -129,6 +129,11 @@ fi:
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
+      edit_price:
+        edit_price_field: "Muokkaa hintakenttää"
+        show_price_filter_homepage: "Näytä hintasuodatin etusivulla"
+        price_min: Minimihinta
+        price_max: Maksimihinta
       form:
         field_required:
           this_field_is_required: "Tämä on pakollinen kenttä"
@@ -151,7 +156,7 @@ fi:
         continue: Jatka
         minimum_value: Minimi
         maximum_value: Maksimi
-        allow_decimals: Salli desimaalit
+        allow_decimals: "Salli desimaalit"
       new:
         new_listing_field: "Uusi ilmoituskenttä"
       field_types:
@@ -205,11 +210,11 @@ fi:
       new_option:
         option: Vastausvaihtoehto
         remove_option: "Poista vastausvaihtoehto"
+      show:
+        edit_poll: "Muokkaa kyselyä"
       poll_status:
         open: Avoinna
         closed: Suljettu
-      show:
-        edit_poll: "Muokkaa kyselyä"
     transaction_types:
       sell: Myydään
       rent: "Annetaan vuokralle"

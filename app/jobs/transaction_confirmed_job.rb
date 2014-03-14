@@ -19,7 +19,6 @@ class TransactionConfirmedJob < Struct.new(:conversation_id, :community_id)
         conversation.participations.each do |participation|
           Delayed::Job.enqueue(TestimonialReminderJob.new(conversation.id, participation.person.id, community.id, 0), :priority => 0, :run_at => 3.days.from_now)
         end
-        EventFeedEvent.create(:person1_id => conversation.offerer.id, :person2_id => conversation.requester.id, :eventable_id => conversation.id, :eventable_type => "Conversation", :community_id => community_id, :category => "accept", :members_only => !conversation.listing.privacy.eql?("public"))
       end
     rescue => ex
       puts ex.message

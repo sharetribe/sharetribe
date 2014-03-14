@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140304135448) do
+ActiveRecord::Schema.define(:version => 20140306083247) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -203,6 +203,9 @@ ActiveRecord::Schema.define(:version => 20140304135448) do
     t.boolean  "show_listing_publishing_date",          :default => false
     t.boolean  "category_change_allowed",               :default => false
     t.boolean  "require_verification_to_post_listings", :default => false
+    t.boolean  "show_price_filter",                     :default => false
+    t.integer  "price_filter_min",                      :default => 0
+    t.integer  "price_filter_max",                      :default => 100000
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"

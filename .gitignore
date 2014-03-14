@@ -28,7 +28,6 @@ public/system/wide_logos/
 .project
 /Gemfile
 /Gemfile.lock
-/.gitignore
 cg.sh
 public/assets/
 app/assets/webfonts/
@@ -40,4 +39,5 @@ log/*.pid
 log/.DS_Store
 log/*.age
 log/*.db
-
+node_modules
+coverage/

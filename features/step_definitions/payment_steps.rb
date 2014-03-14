@@ -54,6 +54,12 @@ Given /^there is an accepted request for "(.*?)" with price "(.*?)" from "(.*?)"
   listing.save!
 end
 
+Given(/^"(.*?)" has paid for that listing$/) do |username|
+  conversation = @listing.conversations.find { |c| c.requester.username == username }
+  conversation.status = "paid"
+  conversation.save!
+end
+
 Then /^"(.*?)" should have required Checkout payment details saved to my account information$/ do |username|
   p = Person.find_by_username(username)
 
@@ -65,7 +71,7 @@ end
 
 When /^Braintree webhook "(.*?)" with id "(.*?)" is triggered$/ do |kind, id|
   community = Community.find_by_name("test") # Hard-coded default test community
-  signature, payload = BraintreeService.webhook_testing_sample_notification(
+  signature, payload = BraintreeApi.webhook_testing_sample_notification(
     community, kind, id
   )
 
@@ -74,12 +80,12 @@ When /^Braintree webhook "(.*?)" with id "(.*?)" is triggered$/ do |kind, id|
 end
 
 Given /^Braintree transaction is mocked$/ do
-  BraintreeService.should_receive(:transaction_sale)
+  BraintreeApi.should_receive(:transaction_sale)
     .and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
 end
 
 Given /^Braintree merchant creation is mocked$/ do
-  BraintreeService.should_receive(:create_merchant_account) do |braintree_account, community|
+  BraintreeApi.should_receive(:create_merchant_account) do |braintree_account, community|
     braintree_account.first_name.should == "Joe"
     braintree_account.last_name.should == "Bloggs"
     braintree_account.email.should == "joe@14ladders.com"
@@ -99,7 +105,7 @@ Given /^Braintree merchant creation is mocked$/ do
 end
 
 Given /^Braintree merchant creation is mocked to return failure$/ do
-  BraintreeService.should_receive(:create_merchant_account)
+  BraintreeApi.should_receive(:create_merchant_account)
     .and_return(Braintree::ErrorResult.new(nil, :errors => { :errors => [] } ))
 end
 
@@ -108,6 +114,12 @@ Given /^I want to pay "(.*?)"$/ do |item_title|
   steps %Q{Then I should see "Pay"} # This probably fails if there are many payments waiting
   steps %Q{When I follow "Pay"} # This probably fails if there are many payments waiting
   steps %Q{Then I should see payment details form for Braintree}
+end
+
+When /^I cancel the transaction$/ do
+  steps %Q{Given I am on the messages page}
+  steps %Q{Then I should see "Did not happen"} # This probably fails if there are many payments waiting
+  steps %Q{When I follow "Did not happen"} # This probably fails if there are many payments waiting
 end
 
 Then /^I should see payment details form for Braintree$/ do

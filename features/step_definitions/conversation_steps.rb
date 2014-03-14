@@ -43,3 +43,10 @@ end
 Then /^I should see information about missing payment details$/ do
   find("#conversation-payment-details-missing").should be_visible
 end
+
+When(/^I skip feedback$/) do
+  steps %Q{
+    When I click "#do_not_give_feedback"
+    And I press submit
+  }
+end
