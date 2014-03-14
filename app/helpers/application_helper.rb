@@ -908,16 +908,6 @@ module ApplicationHelper
 
   def with_stylesheet_url(community, &block)
     stylesheet_url = if community.has_customizations?
-      unless community.has_custom_stylesheet?
-        Rails.logger.warn "Compiling stylesheet for #{community.name} on request..."
-
-        start_time = Time.now
-        CommunityStylesheetCompiler.compile(community)
-        end_time = Time.now
-
-        Rails.logger.warn "Finished compiling stylesheet for #{community.name}. Time elapsed #{(end_time - start_time)*1000} ms"
-      end
-
       community.custom_stylesheet_url
     else
       'application'
