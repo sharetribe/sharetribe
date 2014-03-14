@@ -1,6 +1,6 @@
 .conversation-price.accept-price{:class => (@action.eql?("accept") ? "" : "hidden")}
   %h3 Laskutus
-  %p Painaessasi "lähetä" alla oleva lasku lähetetään ostajalle. Ostaja voi maksaa laskun suoraan materiaalipankin järjestelmän kautta. 
+  %p Painaessasi "lähetä" alla oleva lasku lähetetään ostajalle. Ostaja voi maksaa laskun suoraan järjestelmän kautta.
   = fields_for "conversation[payment_attributes]", @payment do |payment_form|
     = payment_form.hidden_field :community_id, :value => @current_community.id
     - @payment.initialize_rows(@current_community)
@@ -19,7 +19,7 @@
       
     .payment-row.payment-text-row.bottom-border
       .payment-row-title-text.payment-row-text
-        Mpankin palvelumaksu
+        Palvelumaksu
         (#{@current_community.commission_from_seller}%)
         
       #service-fee-sum.payment-row-sum-text.payment-row-text
