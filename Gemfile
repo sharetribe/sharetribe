@@ -45,7 +45,7 @@ gem 'thinking-sphinx', '~> 3.1.0',
   :git    => 'git://github.com/pat/thinking-sphinx.git',
   :branch => 'develop',
   :ref    => 'c82ccdbe12'
-gem 'flying-sphinx', "~>1.0.0"
+gem 'flying-sphinx', "~>1.1.0"
 gem "ts-delayed-delta"
 gem 'recaptcha'
 gem 'delayed_job', "~>3.0.5"
