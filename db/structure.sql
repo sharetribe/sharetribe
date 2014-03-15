@@ -40,7 +40,7 @@ CREATE TABLE `braintree_accounts` (
   `status` varchar(255) DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `cached_ressi_events` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -72,7 +72,7 @@ CREATE TABLE `categories` (
   PRIMARY KEY (`id`),
   KEY `index_categories_on_name` (`name`),
   KEY `index_categories_on_parent_id` (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `category_custom_fields` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -81,7 +81,7 @@ CREATE TABLE `category_custom_fields` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `category_transaction_types` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -92,7 +92,7 @@ CREATE TABLE `category_transaction_types` (
   PRIMARY KEY (`id`),
   KEY `index_category_transaction_types_on_category_id` (`category_id`),
   KEY `index_category_transaction_types_on_transaction_type_id` (`transaction_type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `category_translations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -105,7 +105,7 @@ CREATE TABLE `category_translations` (
   PRIMARY KEY (`id`),
   KEY `category_id_with_locale` (`category_id`,`locale`),
   KEY `index_category_translations_on_category_id` (`category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -166,6 +166,7 @@ CREATE TABLE `communities` (
   `custom_color1` varchar(255) DEFAULT NULL,
   `custom_color2` varchar(255) DEFAULT NULL,
   `stylesheet_url` varchar(255) DEFAULT NULL,
+  `stylesheet_needs_recompile` tinyint(1) DEFAULT '0',
   `service_logo_style` varchar(255) DEFAULT 'full-logo',
   `available_currencies` text,
   `facebook_connect_enabled` tinyint(1) DEFAULT '1',
@@ -204,9 +205,10 @@ CREATE TABLE `communities` (
   `show_price_filter` tinyint(1) DEFAULT '0',
   `price_filter_min` int(11) DEFAULT '0',
   `price_filter_max` int(11) DEFAULT '100000',
+  `automatic_confirmation_after_days` int(11) DEFAULT '14',
   PRIMARY KEY (`id`),
   KEY `index_communities_on_domain` (`domain`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `communities_listings` (
   `community_id` int(11) DEFAULT NULL,
@@ -269,7 +271,7 @@ CREATE TABLE `community_memberships` (
   PRIMARY KEY (`id`),
   KEY `index_community_memberships_on_community_id` (`community_id`),
   KEY `memberships` (`person_id`,`community_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `contact_requests` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -290,6 +292,7 @@ CREATE TABLE `conversations` (
   `updated_at` datetime DEFAULT NULL,
   `status` varchar(255) DEFAULT 'pending',
   `last_message_at` datetime DEFAULT NULL,
+  `automatic_confirmation_after_days` int(11) DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -318,7 +321,7 @@ CREATE TABLE `custom_field_names` (
   PRIMARY KEY (`id`),
   KEY `locale_index` (`custom_field_id`,`locale`),
   KEY `index_custom_field_names_on_custom_field_id` (`custom_field_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `custom_field_option_selections` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -328,7 +331,7 @@ CREATE TABLE `custom_field_option_selections` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_selected_options_on_custom_field_value_id` (`custom_field_value_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `custom_field_option_titles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -340,7 +343,7 @@ CREATE TABLE `custom_field_option_titles` (
   PRIMARY KEY (`id`),
   KEY `locale_index` (`custom_field_option_id`,`locale`),
   KEY `index_custom_field_option_titles_on_custom_field_option_id` (`custom_field_option_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `custom_field_options` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -350,7 +353,7 @@ CREATE TABLE `custom_field_options` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_custom_field_options_on_custom_field_id` (`custom_field_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `custom_field_values` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -364,7 +367,7 @@ CREATE TABLE `custom_field_values` (
   `delta` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `index_custom_field_values_on_listing_id` (`listing_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `custom_fields` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -379,7 +382,7 @@ CREATE TABLE `custom_fields` (
   `allow_decimals` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_custom_fields_on_community_id` (`community_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `delayed_jobs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -396,7 +399,7 @@ CREATE TABLE `delayed_jobs` (
   `queue` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `delayed_jobs_priority` (`priority`,`run_at`)
-) ENGINE=InnoDB AUTO_INCREMENT=2860 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `devices` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -421,7 +424,7 @@ CREATE TABLE `emails` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_emails_on_address` (`address`),
   KEY `index_emails_on_person_id` (`person_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `event_feed_events` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -436,7 +439,7 @@ CREATE TABLE `event_feed_events` (
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_event_feed_events_on_community_id` (`community_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `feedbacks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -559,7 +562,7 @@ CREATE TABLE `listings` (
   KEY `index_listings_on_open` (`open`),
   KEY `index_listings_on_share_type_id` (`share_type_id`),
   KEY `index_listings_on_visibility` (`visibility`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `locations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -577,7 +580,7 @@ CREATE TABLE `locations` (
   KEY `index_locations_on_community_id` (`community_id`),
   KEY `index_locations_on_listing_id` (`listing_id`),
   KEY `index_locations_on_person_id` (`person_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `mercury_images` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -701,7 +704,7 @@ CREATE TABLE `payment_gateways` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `payment_rows` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -835,7 +838,7 @@ CREATE TABLE `sessions` (
   PRIMARY KEY (`id`),
   KEY `index_sessions_on_session_id` (`session_id`),
   KEY `index_sessions_on_updated_at` (`updated_at`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `share_type_translations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -964,7 +967,7 @@ CREATE TABLE `transaction_types` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_transaction_types_on_community_id` (`community_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
@@ -1779,3 +1782,9 @@ INSERT INTO schema_migrations (version) VALUES ('20140303131213');
 INSERT INTO schema_migrations (version) VALUES ('20140304135448');
 
 INSERT INTO schema_migrations (version) VALUES ('20140306083247');
+
+INSERT INTO schema_migrations (version) VALUES ('20140312145533');
+
+INSERT INTO schema_migrations (version) VALUES ('20140312150455');
+
+INSERT INTO schema_migrations (version) VALUES ('20140314132659');
