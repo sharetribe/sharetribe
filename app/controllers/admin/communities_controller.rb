@@ -99,13 +99,10 @@ class Admin::CommunitiesController < ApplicationController
 
   def update_settings
     @community = Community.find(params[:id])
-    if @community.update_attributes(params[:community])
-      flash[:notice] = t("layouts.notifications.community_updated")
-      redirect_to settings_admin_community_path(@current_community)
-    else
-      flash.now[:error] = t("Update failed")
-      render :settings
-    end
+    update(@community,
+            params[:community],
+            settings_admin_community_path(@community),
+            :settings)
   end
 
   def removes_itself?(ids, current_admin_user, community)
