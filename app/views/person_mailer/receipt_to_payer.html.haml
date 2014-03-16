@@ -30,7 +30,7 @@
               = row.sum_with_vat.to_s + row.sum_symbol
         %tr
           %td
-            Mpankin palvelumaksu
+            = "Palvelumaksu (#{@current_community.service_name})"
           %td
             = @payment.commission_without_vat.to_s + @payment.rows.first.sum_symbol
           %td
