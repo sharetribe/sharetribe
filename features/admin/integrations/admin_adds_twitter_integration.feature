@@ -15,6 +15,7 @@ Feature: Admin adds twitter integration
     And I am on the integrations admin page
 
   Scenario: Admin adds a twitter handle
-  When I add "mycommunity" to Twitter handle field
+  When I add "mycommunity" to the Twitter handle field
+  And I press submit
   And I refresh the page
   Then I should see "mycommunity" in the Twitter handle field

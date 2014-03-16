@@ -126,6 +126,7 @@ Kassi::Application.routes.draw do
           get :manage_members
           get :settings
           get :integrations
+          put :integrations, to: 'communities#update_community_integrations'
           put :update_settings
           post :posting_allowed
           post :promote_admin

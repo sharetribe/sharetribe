@@ -97,6 +97,17 @@ class Admin::CommunitiesController < ApplicationController
     end
   end
 
+  def update_community_integrations
+    @community = Community.find(params[:id])
+    if @community.update_attributes(params[:community])
+      flash[:notice] = t("layouts.notifications.community_updated")
+      redirect_to integrations_admin_community_path(@community)
+    else
+      flash.now[:error] = t("layouts.notifications.community_update_failed")
+      render :integrations  
+    end
+  end
+
   def update_settings
     @community = Community.find(params[:id])
     if @community.update_attributes(params[:community])

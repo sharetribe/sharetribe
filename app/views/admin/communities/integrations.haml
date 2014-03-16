@@ -5,8 +5,9 @@
 
 .left-navi-section
   %h2= t(".integrations", :community_name => @community.name(I18n.locale))
-  = form_for @community, :url => admin_community_path(@community), :method => :put do |form|
+  = form_for @community, :url => integrations_admin_community_path(@community), :method => :put do |form|
+    = hidden_field_tag :community_settings_page, "integrations"
     = form.label :twitter_handle, t(".twitter_handle"), :class => "input"
-    = form.text_field :twitter_handle, :maxlength => "6", :class => "text_field"
-
+    = form.text_field :twitter_handle, :maxlength => "15", :class => "text_field"
+    = form.button t("admin.communities.integrations.save")
 
