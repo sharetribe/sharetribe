@@ -76,18 +76,6 @@ class Admin::CommunitiesController < ApplicationController
     @selected_left_navi_link = "admin_settings"
   end
   
-  def update
-    @community = Community.find(params[:id])
-   
-    if @community.update_attributes(params[:community])
-      flash[:notice] = t("layouts.notifications.community_updated")
-      redirect_to edit_details_admin_community_path(@community)
-    else
-      flash.now[:error] = t("layouts.notifications.community_update_failed")
-      render :edit_details
-    end
-  end
-
   def update_look_and_feel 
     @community = Community.find(params[:id])
      
@@ -122,7 +110,7 @@ class Admin::CommunitiesController < ApplicationController
       redirect_to settings_admin_community_path(@current_community)
     else
       flash.now[:error] = t("Update failed")
-      render :action => "settings"
+      render :settings
     end
   end
 
