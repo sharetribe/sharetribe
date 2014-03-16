@@ -77,30 +77,24 @@ class Admin::CommunitiesController < ApplicationController
   end
   
   def update_look_and_feel 
-    @community = Community.find(params[:id])
-     
     params[:community][:custom_color1] = nil if params[:community][:custom_color1] == ""
     params[:community][:custom_color2] = nil if params[:community][:custom_color2] == ""
 
-    if @community.update_attributes(params[:community])
-      flash[:notice] = t("layouts.notifications.community_updated")
+    @community = Community.find(params[:id])
+    update(@community,
+           params[:community],
+           edit_look_and_feel_admin_community_path(@community),
+           :edit_look_and_feel) { 
       CommunityStylesheetCompiler.compile(@community) if regenerate_css?(params, @community)
-      redirect_to edit_look_and_feel_admin_community_path(@community)
-    else
-      flash.now[:error] = t("layouts.notifications.community_update_failed")
-      render :edit_look_and_feel
-    end
+    }
   end
 
   def update_integrations
     @community = Community.find(params[:id])
-    if @community.update_attributes(params[:community])
-      flash[:notice] = t("layouts.notifications.community_updated")
-      redirect_to integrations_admin_community_path(@community)
-    else
-      flash.now[:error] = t("layouts.notifications.community_update_failed")
-      render :integrations
-    end
+    update(@community,
+            params[:community],
+            integrations_admin_community_path(@community),
+            :integrations)
   end
 
   def update_settings
@@ -145,6 +139,17 @@ class Admin::CommunitiesController < ApplicationController
     params[:community][:custom_color2] != community.custom_color2 || 
     params[:community][:cover_photo] ||
     params[:community][:small_cover_photo]
+  end
+
+  def update(community, params, path, action, &block)
+    if community.update_attributes(params)
+      flash[:notice] = t("layouts.notifications.community_updated")
+      yield block if block #on success, call optional block
+      redirect_to path
+    else
+      flash.now[:error] = t("layouts.notifications.community_update_failed")
+      render action
+    end
   end
 
 end
