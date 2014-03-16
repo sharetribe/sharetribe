@@ -77,34 +77,41 @@ class Admin::CommunitiesController < ApplicationController
   end
   
   def update
-    return_to_action =  (params[:community_settings_page] == "look_and_feel" ? :edit_look_and_feel : :edit_details)
-    
     @community = Community.find(params[:id])
-    need_to_regenerate_css = params[:community][:custom_color1] != @community.custom_color1 || params[:community][:custom_color2] != @community.custom_color2 || params[:community][:cover_photo] || params[:community][:small_cover_photo]
-    
-    params[:community][:custom_color1] = nil if params[:community][:custom_color1] == ""
-    params[:community][:custom_color2] = nil if params[:community][:custom_color2] == ""
-    
+   
     if @community.update_attributes(params[:community])
       flash[:notice] = t("layouts.notifications.community_updated")
-      CommunityStylesheetCompiler.compile(@community) if need_to_regenerate_css
-      redirect_to (return_to_action == :edit_look_and_feel ? 
-                   edit_look_and_feel_admin_community_path(@community) : 
-                   edit_details_admin_community_path(@community))  
+      redirect_to edit_details_admin_community_path(@community)
     else
       flash.now[:error] = t("layouts.notifications.community_update_failed")
-      render :action => return_to_action  
+      render :edit_details
     end
   end
 
-  def update_community_integrations
+  def update_look_and_feel 
+    @community = Community.find(params[:id])
+     
+    params[:community][:custom_color1] = nil if params[:community][:custom_color1] == ""
+    params[:community][:custom_color2] = nil if params[:community][:custom_color2] == ""
+
+    if @community.update_attributes(params[:community])
+      flash[:notice] = t("layouts.notifications.community_updated")
+      CommunityStylesheetCompiler.compile(@community) if regenerate_css?(params, @community)
+      redirect_to edit_look_and_feel_admin_community_path(@community)
+    else
+      flash.now[:error] = t("layouts.notifications.community_update_failed")
+      render :edit_look_and_feel
+    end
+  end
+
+  def update_integrations
     @community = Community.find(params[:id])
     if @community.update_attributes(params[:community])
       flash[:notice] = t("layouts.notifications.community_updated")
       redirect_to integrations_admin_community_path(@community)
     else
       flash.now[:error] = t("layouts.notifications.community_update_failed")
-      render :integrations  
+      render :integrations
     end
   end
 
@@ -143,6 +150,13 @@ class Admin::CommunitiesController < ApplicationController
 
   def member_sort_direction
     params[:direction] || "desc"
+  end
+
+  def regenerate_css?(params, community)
+    params[:community][:custom_color1] != community.custom_color1 ||
+    params[:community][:custom_color2] != community.custom_color2 || 
+    params[:community][:cover_photo] ||
+    params[:community][:small_cover_photo]
   end
 
 end
