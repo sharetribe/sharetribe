@@ -1,8 +1,15 @@
+#
+# This file is named env.rb* for two reasons:
+#
+# 1) When cucumber option --dry-run is used, all the files that starts env.* are ignored and we don't need (or want) 
+#    this file to be loaded in dry mode. More: http://www.verious.com/tutorial/cucumbers-env-rb-dry-run-problems/
+# 2) When cucumber option --dry-run is NOT used, we want this file to be loaded AFTER env.rb, so that Cucumber::Rails
+#    is already defined
+
 require 'rubygems'
 require File.expand_path('../../../test/helper_modules', __FILE__)
 include TestHelpers
 
-require 'cucumber/rails'
 require 'database_cleaner'
 
 # Turn off all automatic database cleaning to gain full control of
