@@ -1,4 +1,3 @@
-- answer = custom_field.answer_for(listing)
-- value = answer ? answer.display_value : ""
+- value = custom_field_value ? custom_field_value.display_value : ""
 / Don't use HTML5 number input. It's a mess.
 = text_field_tag "custom_fields[#{custom_field.id}]", value, :data => {:min => custom_field.display_min, :max => custom_field.display_max}, :class => "#{custom_field.required? ? 'required' : ''} #{custom_field.allow_decimals? ? 'number-decimals' : 'number-no-decimals'}"

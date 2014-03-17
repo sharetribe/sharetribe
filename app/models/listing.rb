@@ -341,6 +341,10 @@ class Listing < ActiveRecord::Base
     price + (price * vat / 100)
   end
 
+  def answer_for(custom_field)
+    custom_field_values.find { |value| value.custom_field_id == custom_field.id }
+  end
+
   def self.send_payment_settings_reminder?(listing, current_user, current_community)
     listing.transaction_type.is_offer? &&
     current_community.payments_in_use? &&
