@@ -13,5 +13,11 @@
       .col-6 
         =form.text_field :twitter_handle, :maxlength => "15", :class => "text_field"
     .row
+      .col-6
+        = form.label :google_analytics_key, t(".google_analytics_key"), :class => "input"
+        = render :partial => "layouts/info_text", :locals => { :text => t(".google_analytics_key_info_text") } 
+      .col-6 
+        =form.text_field :google_analytics_key, :maxlength => "15", :class => "text_field"
+    .row
       = form.button t("admin.communities.integrations.save")
 

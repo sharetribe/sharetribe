@@ -21,7 +21,7 @@ Feature: Admin manages integration details
   Then I should see "mycommunity" in the Twitter handle field
 
   Scenario: Admin adds a google analytics key
-  When I add "mycommunity" to the Google analytics key field
+  When I add "UA-12345-12" to the Google analytics key field
   And I press submit
   And I refresh the page
-  Then I should see "mycommunity" in the Google analytics key field
+  Then I should see "UA-12345-12" in the Google analytics key field
