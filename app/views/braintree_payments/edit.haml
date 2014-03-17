@@ -66,10 +66,10 @@
     .row
       .col-12
         %p
-          = "When you confirm the payment we will charge your credit card. We will transfer the money to #{link_to(payment_receiver.name, payment_receiver)} when a) you have marked the request completed or b) #{@current_community.automatic_confirmation_after_days} days have passed since you confirmed the payment.".html_safe
+          = "When you confirm the payment we will charge your credit card. We will transfer the money to #{link_to(payment_receiver.name, payment_receiver)} when a) you have marked the request completed or b) #{@conversation.automatic_confirmation_after_days} days have passed since you confirmed the payment.".html_safe
 
         %p
-          = "If there are any issues, you have #{@current_community.automatic_confirmation_after_days} days to cancel the request. This will notify the admin who will then contact you for a refund."
+          = "If there are any issues, you have #{@conversation.automatic_confirmation_after_days} days to cancel the request. This will notify the admin who will then contact you for a refund."
 
     %br/
 

@@ -36,10 +36,10 @@ class ConfirmConversation
   end
 
   def activate_automatic_confirmation!
-    automatic_confirmation_at = @community.automatic_confirmation_after_days.days.from_now
-    
-    automatic_confirmation_job!(automatic_confirmation_at)
-    confirmation_reminder_job!(automatic_confirmation_at)
+    automatic_confirmation_at = @conversation.automatic_confirmation_after_days.days.from_now
+
+    automatic_confirmation_job!(automatic_confirmation_at.days.from_now)
+    confirmation_reminder_job!(automatic_confirmation_at.days.from_now)
   end
 
   private

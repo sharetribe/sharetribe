@@ -31,6 +31,6 @@
 %tr
   %td{:align => "left"} 
     %font{body_font}
-      The money will be transferred to #{@payment.payer.name(@community)} when a) you have marked the request completed or b) #{@community.automatic_confirmation_after_days} days have passed since you paid.
+      The money will be transferred to #{@payment.payer.name(@community)} when a) you have marked the request completed or b) #{@payment.conversation.automatic_confirmation_after_days} days have passed since you paid.
 
 = render :partial => "action_button", :locals => { :text => t("emails.conversation_status_changed.view_thread"), :url => conversation_url}
