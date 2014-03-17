@@ -862,37 +862,6 @@ module ApplicationHelper
   def author_link(listing)
     link_to(listing.author.name(@current_community), listing.author, {:title => listing.author.name(@current_community)})
   end
-  
-  # Send a reminder email related to a transaction
-  def self.transaction_reminder(conversation, intervals, number_of_reminders_sent, reminder_type, recipient, community)
-    
-    # Check if a reminder should be sent or rescheduled
-    send_reminder = false
-    run_at = nil
-    intervals.each_with_index do |interval, index|
-      if number_of_reminders_sent == index
-        if conversation.messages.last.created_at < interval.days.ago
-          run_at = intervals[index + 1].days.from_now unless interval == intervals.last
-          send_reminder = true
-        else
-          run_at = interval.days.from_now - (Time.now - conversation.messages.last.created_at)
-        end
-      end
-    end
-    number_of_reminders_sent += 1 if send_reminder
-    
-    # Send reminder if needed
-    if send_reminder
-      if recipient.should_receive?("email_about_#{reminder_type}_reminders")
-        PersonMailer.send("#{reminder_type}_reminder", conversation, recipient, community).deliver
-      end
-    end
-    
-    # Schedule next reminder if needed
-    if run_at
-      Delayed::Job.enqueue(Object.const_get("#{reminder_type.capitalize}ReminderJob").new(conversation.id, recipient.id, community.id, number_of_reminders_sent), :priority => 0, :run_at => run_at)
-    end
-  end
 
   def with_available_locales(&block)
     if available_locales.size > 1

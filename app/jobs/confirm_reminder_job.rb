@@ -14,7 +14,7 @@ class ConfirmReminderJob < Struct.new(:conversation_id, :recipient_id, :communit
     conversation = Conversation.find(conversation_id)
     community = Community.find(community_id)
     if conversation.status.eql?("accepted") || conversation.status.eql?("paid")
-      ApplicationHelper.transaction_reminder conversation, [7,14], number_of_reminders_sent, "confirm", conversation.requester, community
+      PersonMailer.send("confirm_reminder", conversation, conversation.requester, community).deliver
     end
   end
   

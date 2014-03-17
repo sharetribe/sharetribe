@@ -14,7 +14,7 @@ class PaymentReminderJob < Struct.new(:conversation_id, :recipient_id, :communit
     conversation = Conversation.find(conversation_id)
     community = Community.find(community_id)
     if conversation.payment.status.eql?("pending")
-      ApplicationHelper.transaction_reminder conversation, [3,7], number_of_reminders_sent, "payment", conversation.payment.payer, community
+      PersonMailer.send("payment_reminder", conversation, conversation.payment.payer, community).deliver
     end
   end
   

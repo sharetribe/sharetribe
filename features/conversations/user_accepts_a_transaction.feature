@@ -37,7 +37,6 @@ Feature: User accepts a transaction
     Then I should receive an email with subject "Request automatically completed - remember to give feedback"
     When "100" days have passed
     And the system processes jobs
-    Then "kassi_testperson2@example.com" should have 4 emails
-    Then I should receive an email with subject "Reminder: remember to give feedback"
+    Then "kassi_testperson2@example.com" should have 5 emails
+    Then I should receive 2 emails with subject "Reminder: remember to give feedback"
     And return to current time
-  

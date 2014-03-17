@@ -16,7 +16,9 @@ class TransactionConfirmedJob < Struct.new(:conversation_id, :community_id)
       community = Community.find(community_id)
       PersonMailer.transaction_confirmed(conversation, community).deliver
       conversation.participations.each do |participation|
-        Delayed::Job.enqueue(TestimonialReminderJob.new(conversation.id, participation.person.id, community.id, 0), :priority => 0, :run_at => 3.days.from_now)
+        [3, 10].each do |send_interval|
+          Delayed::Job.enqueue(TestimonialReminderJob.new(conversation.id, participation.person.id, community.id, 0), :priority => 0, :run_at => send_interval.days.from_now)
+        end
       end
     rescue => ex
       puts ex.message
