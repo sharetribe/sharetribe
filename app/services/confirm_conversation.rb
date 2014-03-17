@@ -1,9 +1,13 @@
 class ConfirmConversation
+  # How many days before transaction is automatically confirmed should we send a reminder?
+  REMIND_DAYS_BEFORE_CLOSING = 2
+
   def initialize(conversation, user, community)
     @conversation = conversation
     @user = user
     @participation = conversation.participations.find_by_person_id(user.id)
     @offerer = conversation.offerer
+    @requester = conversation.requester
     @community = community
     @hold_in_escrow = community.payment_gateway && community.payment_gateway.hold_in_escrow
     @payment = conversation.payment
@@ -32,11 +36,26 @@ class ConfirmConversation
   end
 
   def activate_automatic_confirmation!
-    run_at = @community.automatic_confirmation_after_days.days.from_now
-    Delayed::Job.enqueue(AutomaticConfirmationJob.new(@conversation.id, @user.id, @community.id), run_at: run_at)
+    automatic_confirmation_at = @community.automatic_confirmation_after_days.days.from_now
+    
+    automatic_confirmation_job!(automatic_confirmation_at)
+    confirmation_reminder_job!(automatic_confirmation_at)
   end
 
   private
+
+  def automatic_confirmation_job!(automatic_confirmation_at)
+    Delayed::Job.enqueue(AutomaticConfirmationJob.new(@conversation.id, @user.id, @community.id), run_at: automatic_confirmation_at)
+  end
+
+  def confirmation_reminder_job!(automatic_confirmation_at)
+    reminder_email_at           = automatic_confirmation_at - REMIND_DAYS_BEFORE_CLOSING.days
+    activate_reminder           = @community.testimonials_in_use && @community.automatic_confirmation_after_days > REMIND_DAYS_BEFORE_CLOSING
+    
+    if activate_reminder
+      Delayed::Job.enqueue(ConfirmReminderJob.new(@conversation.id, @requester.id, @community.id, 0), :priority => 0, :run_at => reminder_email_at)
+    end
+  end
 
   def update_participation(feedback_given)
     @participation.update_attribute(:is_read, true) if @offerer.eql?(@user)
@@ -51,5 +70,4 @@ class ConfirmConversation
     Delayed::Job.enqueue(EscrowCanceledJob.new(@conversation.id, @community.id))
     BTLog.info("Escrow canceled by user #{@user.id}, conversation #{@conversation.id}, community #{@community.id}")
   end
-
 end

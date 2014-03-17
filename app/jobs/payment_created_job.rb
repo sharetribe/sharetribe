@@ -1,4 +1,7 @@
 class PaymentCreatedJob < Struct.new(:payment_id, :community_id)
+
+  # How many days before automatic confirmation a reminder should be sent
+  REMIND_DAYS_BEFORE_CLOSING = 2
   
   include DelayedAirbrakeNotification
   
@@ -20,8 +23,6 @@ class PaymentCreatedJob < Struct.new(:payment_id, :community_id)
         payment_mail_creator.new_payment.deliver
       end
       payment_mail_creator.receipt_to_payer.deliver
-      
-      Delayed::Job.enqueue(ConfirmReminderJob.new(payment.conversation.id, payment.payer.id, community_id, 0), :priority => 0, :run_at => 1.week.from_now) if community.testimonials_in_use
     rescue => ex
       puts ex.message
       puts ex.backtrace.join("\n")
