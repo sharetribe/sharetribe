@@ -16,6 +16,9 @@
     %font{body_font}
       = t("emails.confirm_reminder.if_will_not_happen_you_should_cancel", :cancel_it_link => link_to(t("emails.confirm_reminder.cancel_it_link_text"), cancel_url, :style => body_link_style)).html_safe
 
-
+%tr
+  %td{:align => "left", :style => "padding-bottom: 25px;"} 
+    %font{body_font}
+      = t("emails.confirm_reminder.automatic_confirmation", :days_to_automatic_confirmation => @community.automatic_confirmation_after_days).html_safe
 
 

@@ -27,6 +27,10 @@
               =t("emails.receipt_to_payer.total")
           %td
             %b= sum_with_currency(@payment.total_sum, @payment.currency)
-            
-            
+
+%tr
+  %td{:align => "left"} 
+    %font{body_font}
+      The money will be transferred to #{@payment.payer.name(@community)} when a) you have marked the request completed or b) #{@community.automatic_confirmation_after_days} days have passed since you paid.
+
 = render :partial => "action_button", :locals => { :text => t("emails.conversation_status_changed.view_thread"), :url => conversation_url}

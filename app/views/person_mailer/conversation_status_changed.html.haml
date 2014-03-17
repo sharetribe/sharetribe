@@ -22,3 +22,8 @@
   = render :partial => "quote", :locals => { :quote => @conversation.last_message.content }
 
 = render :partial => "action_button", :locals => { :text => action_text, :url => action_url}
+
+- if @conversation.can_be_confirmed?(@community) && !@recipient.should_pay?(@conversation, @community)
+  %td{:align => "left", :style => "padding-bottom: 25px;"} 
+    %font{body_font}
+      = t("emails.conversation_status_changed.remember_to_confirm", :days_to_automatic_confirmation => @community.automatic_confirmation_after_days)

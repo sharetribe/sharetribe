@@ -60,6 +60,7 @@ class MailPreview < MailView
 
   def confirm_reminder
     conversation = Conversation.last
+    conversation.requester.locale = "fi"
 
     # Show different template if hold_in_escrow is true
     conversation.community.payment_gateway = nil
@@ -93,5 +94,16 @@ class MailPreview < MailView
     community = conversation.community
     conversation.status = "confirmed"
     PersonMailer.transaction_automatically_confirmed(conversation, community)
+  end
+
+  def conversation_status_changed
+    conversation = Conversation.last
+    community = conversation.community
+    # community.payment_gateway = nil
+    community.payment_gateway = BraintreePaymentGateway.new
+    conversation.status = "accepted"
+    conversation.other_party(conversation.listing.author).locale = "fi"
+
+    PersonMailer.conversation_status_changed(conversation, community)
   end
 end

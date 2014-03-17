@@ -630,6 +630,7 @@ fi:
       remember_to_confirm_request: "Muista merkitä pyyntö toteutuneeksi tai toteutumattomaksi"
       if_will_not_happen_you_should_cancel: "Jos pyyntö syystä tai toisesta jää toteutumatta, voit %{cancel_it_link}."
       cancel_it_link_text: "peruuttaa sen"
+      automatic_confirmation: "Jos et merkkaa pyyntöä toteutuneeksi tai peruuta sitä %{days_to_automatic_confirmation} päivän kuluttua sen hyväksymisestä, merkkaamme sen automaattisesti toteutuneeksi."
     payment_reminder:
       remember_to_pay: "Maksumuistutus: %{listing_title}"
       you_have_not_yet_paid: "Et ole vielä suorittanut maksua liittyen ilmoitukseen %{listing_title}. Muista maksaa sovittu summa käyttäjälle %{other_party_name}."
@@ -686,6 +687,7 @@ fi:
       your_request_was_rejected: "Pyyntösi hylättiin"
       you_can_now_pay_to: "Voit nyt maksaa käyttäjän %{payment_receiver} pyytämän maksun."
       pay_now: "Maksa nyt"
+      remember_to_confirm: "Muista merkitä pyyntö toteutuneeksi, kun olet saanut haluamasi. Jos vastapuoli ei pysty täyttämään lupaustaan, sinulla on %{days_to_automatic_confirmation} päivää aikaa peruuttaa pyyntö, ennen kuin se merkitään toteutuneeksi automaattisesti."
     invitation_to_kassi:
       hi: Hei!
       you_have_been_invited_to_kassi: "%{inviter} on kutsunut sinut %{community} -yhteisöön."
