@@ -9,7 +9,7 @@
     .row
       .col-6
         = form.label :twitter_handle, t(".twitter_handle"), :class => "input"
-        = render :partial => "layouts/info_text", :locals => { :text => t(".edit_community_name_description") } 
+        = render :partial => "layouts/info_text", :locals => { :text => t(".twitter_handle_info_text") } 
       .col-6 
         =form.text_field :twitter_handle, :maxlength => "15", :class => "text_field"
     .row
