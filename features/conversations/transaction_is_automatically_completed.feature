@@ -23,28 +23,20 @@ Feature: Automatic transaction completition
 
   @javascript
   Scenario: Transaction is automatically closed
-    When "7" days have passed
-    Then the requester of that listing should receive an email about unconfirmed listing
-    When "4" days have passed
+    When "12" days have passed
     Then the requester of that listing should receive an email about unconfirmed listing
     When "2" days have passed
-    Then the requester of that listing should receive an email about unconfirmed listing
-    When "1" days have passed
     Then the requester of that listing should receive an email about automatically confirmed listing
-    Then the offerer of that listing should receive an email about automatically confirmed listing
+    Then the offerer of that listing should receive an email confirmed listing
     When I refresh the page
-    Then I should see that the conversation was automatically confirmed
+    Then I should see that the conversation is confirmed
 
   @javascript
   Scenario: Transaction with escrow is automatically closed
-    When "7" days have passed
-    Then the buyer of that listing should receive an email about unconfirmed listing
-    When "4" days have passed
+    When "12" days have passed
     Then the buyer of that listing should receive an email about unconfirmed listing
     When "2" days have passed
-    Then the buyer of that listing should receive an email about unconfirmed listing
-    When "1" days have passed
     Then the buyer of that listing should receive an email about automatically confirmed listing
-    Then the seller of that listing should receive an email about automatically confirmed listing
+    Then the offerer of that listing should receive an email confirmed listing
     When I refresh the page
-    Then I should see that the conversation was automatically confirmed
+    Then I should see that the conversation is confirmed
