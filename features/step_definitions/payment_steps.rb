@@ -52,6 +52,8 @@ Given /^there is an accepted request for "(.*?)" with price "(.*?)" from "(.*?)"
 
   community.save!
   listing.save!
+
+  @conversation = conversation
 end
 
 Given(/^"(.*?)" has paid for that listing$/) do |username|
