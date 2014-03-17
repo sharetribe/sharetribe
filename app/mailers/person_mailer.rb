@@ -203,10 +203,11 @@ class PersonMailer < ActionMailer::Base
   end
   
   # Remind users of conversations that have not been accepted or rejected
-  def confirm_reminder(conversation, recipient, community)
+  def confirm_reminder(conversation, recipient, community, days_to_cancel)
     @email_type = "email_about_confirm_reminders"
     set_up_urls(conversation.requester, community, @email_type)
     @conversation = conversation
+    @days_to_cancel = days_to_cancel
     escrow = community.payment_gateway && community.payment_gateway.hold_in_escrow
     template = escrow ? "confirm_reminder_escrow" : "confirm_reminder"
     mail(:to => @recipient.confirmed_notification_emails_to,

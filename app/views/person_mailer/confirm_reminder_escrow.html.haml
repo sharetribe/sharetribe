@@ -14,9 +14,4 @@
 %tr
   %td{:align => "left", :style => "padding-bottom: 25px;"} 
     %font{body_font}
-      = t("emails.confirm_reminder.if_will_not_happen_you_should_cancel_escrow", :cancel_it_link => link_to(t("emails.confirm_reminder.cancel_it_link_text"), cancel_url, :style => body_link_style)).html_safe
-
-
-
-
-
+      = t("emails.confirm_reminder.if_will_not_happen_you_should_cancel_escrow_automatic_confirmation", :cancel_it_link => link_to(t("emails.confirm_reminder.cancel_it_link_text"), cancel_url, :style => body_link_style), :days_to_cancel => @days_to_cancel).html_safe

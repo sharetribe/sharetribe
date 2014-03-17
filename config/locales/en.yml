@@ -631,6 +631,7 @@ en:
       remember_to_confirm_request: "Remember to confirm or cancel a request"
       if_will_not_happen_you_should_cancel: "If you think this request will not be completed for one reason or another, you can %{cancel_it_link}."
       if_will_not_happen_you_should_cancel_escrow: "If you think this request will not be completed for one reason or another, you can %{cancel_it_link}. This will notify the admin who will then contact you for a refund."
+      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "If you think this request will not be completed for one reason or another, you have %{days_to_cancel} days to %{cancel_it_link}. This will notify the admin who will then contact you for a refund."
       cancel_it_link_text: "cancel it"
       automatic_confirmation: "If you don't confirm or cancel the request within %{days_to_automatic_confirmation} days after the request was accepted, we will mark it automatically as completed."
     payment_reminder:
