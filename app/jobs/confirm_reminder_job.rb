@@ -1,4 +1,4 @@
-class ConfirmReminderJob < Struct.new(:conversation_id, :recipient_id, :community_id, :number_of_reminders_sent)
+class ConfirmReminderJob < Struct.new(:conversation_id, :recipient_id, :community_id, :days_to_cancel)
   
   include DelayedAirbrakeNotification
   

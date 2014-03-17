@@ -1,4 +1,4 @@
-class TestimonialReminderJob < Struct.new(:conversation_id, :recipient_id, :community_id, :number_of_reminders_sent) 
+class TestimonialReminderJob < Struct.new(:conversation_id, :recipient_id, :community_id) 
   
   include DelayedAirbrakeNotification
   
