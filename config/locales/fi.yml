@@ -114,6 +114,7 @@ fi:
         google_analytics_key: "Google Analytics tracking ID (classic account)"
         twitter_handle: "Twitter-tili (käytetään ilmoitussivulla olevan twitter-napin yhteydessä)"
         update_settings: "Update settings"
+        automatically_confirmed: "Ilmoitus merkitään toteutuneeksi automaattisesti kun hyväksymisestä (tai maksusta) on kulunut %{days_dropdown} päivää."
       manage_members:
         manage_members: Käyttäjät
         email: Sähköposti

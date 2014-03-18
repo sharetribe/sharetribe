@@ -44,6 +44,11 @@
         .checkbox-container
           = form.check_box :listing_comments_in_use
           = form.label :listing_comments_in_use, t(".listing_comments_in_use"), :class => "settings-checkbox-label"
+        
+        .checkbox-container
+          .settings-checkbox-label.label
+            - day_dropdown = form.select :automatic_confirmation_after_days, (1..100), {}, :class => "inline-select"
+            = t(".automatically_confirmed", :days_dropdown => day_dropdown).html_safe
 
     .row
       .col-12
