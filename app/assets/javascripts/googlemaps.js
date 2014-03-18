@@ -635,6 +635,17 @@ function addListingMarkers() {
         }
       })();
     }
+
+    var latitudes = _(data_arr).pluck("latitude").filter().map(Number).value();
+    var longitudes = _(data_arr).pluck("longitude").filter().map(Number).value();
+
+    if(latitudes.length && longitudes.length) {
+      map.fitBounds(new google.maps.LatLngBounds(
+        new google.maps.LatLng(_.min(latitudes), _.min(longitudes)),
+        new google.maps.LatLng(_.max(latitudes), _.max(longitudes))
+      ));
+    }
+
     markerCluster = new MarkerClusterer(map, markers, markerContents, infowindow, showingMarker, locale, {});
   });
 }
