@@ -13,7 +13,7 @@ Feature: User pays accepted request
     And there is a listing with title "math book" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
     And the price of that listing is "12"
     And there is an accepted request for "math book" with price "101" from "kassi_testperson2"
-    And that coversation will be automatically confirmed after 14 days
+    And that conversation will be automatically confirmed after 14 days
 
   @javascript
   Scenario: User pays accepted request
