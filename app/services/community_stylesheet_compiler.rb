@@ -16,14 +16,14 @@ module CommunityStylesheetCompiler
   class << self
 
     def compile_all
-      puts "Reset all custom CSS urls"
-      Community.stylesheet_needs_recompile!
-
-      with_customizations_prioritized = Community.with_customizations.order("members_count DESC")
-
-      puts "Genarete custom CSS for #{with_customizations_prioritized.count} communities"
-      with_customizations_prioritized.each do |community|
+      prepare_compile_all do |community|
         Delayed::Job.enqueue(CompileCustomStylesheetJob.new(community.id))
+      end
+    end
+
+    def compile_all_immediately
+      prepare_compile_all do |community|
+        CommunityStylesheetCompiler.compile(community)
       end
     end
 
@@ -63,6 +63,16 @@ module CommunityStylesheetCompiler
     end
 
     private
+
+    def prepare_compile_all(&block)
+      puts "Reset all custom CSS urls"
+      Community.stylesheet_needs_recompile!
+
+      with_customizations_prioritized = Community.with_customizations.order("members_count DESC")
+
+      puts "Genarete custom CSS for #{with_customizations_prioritized.count} communities"
+      with_customizations_prioritized.each &block
+    end
 
     def use_gzip?
       # Don't use gzip locally
