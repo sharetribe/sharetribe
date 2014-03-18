@@ -1,7 +1,4 @@
 class PaymentCreatedJob < Struct.new(:payment_id, :community_id)
-
-  # How many days before automatic confirmation a reminder should be sent
-  REMIND_DAYS_BEFORE_CLOSING = 2
   
   include DelayedAirbrakeNotification
   

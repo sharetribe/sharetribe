@@ -31,10 +31,6 @@ Given /^"(.*?)" is a member of community "(.*?)"$/ do |username, community_name|
   membership.save!
 end
 
-Given(/^transaction in this community are automatically completed after (\d+) days$/) do |days|
-  @current_community.update_attribute(:automatic_confirmation_after_days, days)
-end
-
 Then /^Most recently created user should be member of "([^"]*)" community with(?: status "(.*?)" and)? its latest consent accepted(?: with invitation code "([^"]*)")?$/ do |community_domain, status, invitation_code|
     # Person.last seemed to return unreliable results for some reason
     # (kassi_testperson1 instead of the actual newest person, so changed
