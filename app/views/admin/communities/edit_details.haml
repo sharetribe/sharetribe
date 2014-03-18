@@ -41,6 +41,16 @@
         = @community_customization.description
       - else
         = @current_community.description
+
+  .edit-community-details-field
+    .edit-community-details-field-title
+      = t(".community_search_placeholder")
+    = render :partial => "layouts/info_text", :locals => { :text => t(".edit_community_search_placeholder_description", :see_how_it_looks_like => link_to(t(".see_how_it_looks_like"), "/?big_cover_photo=true")).html_safe }
+    #search_placeholder{:data => {:mercury => "full"}}
+      - if @community_customization && @community_customization.search_placeholder
+        = @community_customization.search_placeholder
+      - else
+        = t("homepage.index.what_do_you_need")
   
   - if @current_community.private?
     .edit-community-details-field

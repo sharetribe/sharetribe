@@ -252,6 +252,7 @@ CREATE TABLE `community_customizations` (
   `signup_info_content` text,
   `private_community_homepage_content` text,
   `verification_to_post_listings_info_content` text,
+  `search_placeholder` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_community_customizations_on_community_id` (`community_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1788,3 +1789,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140312145533');
 INSERT INTO schema_migrations (version) VALUES ('20140312150455');
 
 INSERT INTO schema_migrations (version) VALUES ('20140314132659');
+
+INSERT INTO schema_migrations (version) VALUES ('20140318131351');
