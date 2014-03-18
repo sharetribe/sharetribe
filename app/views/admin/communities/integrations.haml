@@ -13,7 +13,7 @@
         = render :partial => "layouts/info_text", :locals => { :text => t(".twitter_handle_info_text") } 
       .col-6
         .twitter
-          = form.text_field :twitter_handle, :maxlength => "15", :class => "text_field", :placeholder => "username"
+          = form.text_field :twitter_handle, :maxlength => "15", :class => "text_field", :placeholder => t(".twitter_handle_placeholder")
     .row
       = form.label :google_analytics_key, t(".google_analytics_key"), :class => "input"
       .row
