@@ -141,7 +141,7 @@ class Admin::CommunitiesController < ApplicationController
   def update(community, params, path, action, &block)
     if community.update_attributes(params)
       flash[:notice] = t("layouts.notifications.community_updated")
-      yield block if block #on success, call optional block
+      yield if block_given? #on success, call optional block
       redirect_to path
     else
       flash.now[:error] = t("layouts.notifications.community_update_failed")
