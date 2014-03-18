@@ -626,7 +626,7 @@ fi:
       account_ready: "Voit nyt vastaanottaa maksuja"
       message: "Maksutietosi on nyt tarkistettu ja hyväksytty. Voit tästä lähetien vastaanottaa maksuja yhteisössä %{service_name}"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Et ole vielä merkinnyt käyttäjältä %{other_party_full_name} %{date} saamaasi pyyntöä '%{request_link}' toteutuneeksi tai toteutumattomaksi. Jos pyyntö on toteutettu, sinun kannattaa ilmoittaa siitä, jotta voit antaa palautetta tapahtuneesta käyttäjälle %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Et ole vielä merkinnyt pyyntöä '%{request_link}' toteutuneeksi tai toteutumattomaksi. Jos pyyntö on toteutettu, sinun kannattaa ilmoittaa siitä, jotta voit antaa palautetta tapahtuneesta käyttäjälle %{other_party_given_name}."
       remember_to_confirm_request: "Muista merkitä pyyntö toteutuneeksi tai toteutumattomaksi"
       if_will_not_happen_you_should_cancel: "Jos pyyntö syystä tai toisesta jää toteutumatta, voit %{cancel_it_link}."
       cancel_it_link_text: "peruuttaa sen"

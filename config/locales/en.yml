@@ -626,8 +626,8 @@ en:
       account_ready: "You are ready to receive payments"
       message: "Your payment information has been confirmed and you are now ready to receive payments in %{service_name}."
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "You have not yet confirmed or canceled the request %{request_link} you received %{date} from %{other_party_full_name}. If the request has been completed, you should confirm that. After that you can give feedback to %{other_party_given_name}."
-      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "You have not yet confirmed or canceled the request %{request_link} you received %{date} from %{other_party_full_name}. We will transfer the money to %{other_party_given_name} only when a) you have marked the request completed or b) %{days_to_automatic_confirmation} days have passed since you paid. After marking the request as completed you can give feedback to %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "You have not yet confirmed or canceled the request %{request_link}. If the request has been completed, you should confirm that. After that you can give feedback to %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "You have not yet confirmed or canceled the request %{request_link}. We will transfer the money to %{other_party_given_name} only when a) you have marked the request completed or b) %{days_to_automatic_confirmation} days have passed since you paid. After marking the request as completed you can give feedback to %{other_party_given_name}."
       remember_to_confirm_request: "Remember to confirm or cancel a request"
       if_will_not_happen_you_should_cancel: "If you think this request will not be completed for one reason or another, you can %{cancel_it_link}."
       if_will_not_happen_you_should_cancel_escrow: "If you think this request will not be completed for one reason or another, you can %{cancel_it_link}. This will notify the admin who will then contact you for a refund."
