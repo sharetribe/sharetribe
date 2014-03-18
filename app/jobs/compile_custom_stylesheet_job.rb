@@ -8,7 +8,7 @@ class CompileCustomStylesheetJob < Struct.new(:community_id)
   
   def perform
     community = Community.find(community_id)
-    unless community.has_custom_stylesheet?
+    if community.stylesheet_needs_recompile?
       CommunityStylesheetCompiler.compile(community)
     end
   end

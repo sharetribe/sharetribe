@@ -17,7 +17,7 @@ module CommunityStylesheetCompiler
 
     def compile_all
       puts "Reset all custom CSS urls"
-      Community.reset_custom_stylesheets!
+      Community.stylesheet_needs_recompile!
 
       with_customizations_prioritized = Community.with_customizations.order("members_count DESC")
 
@@ -54,10 +54,12 @@ module CommunityStylesheetCompiler
       # to disturb what's happening at production.
       # Normally update the stylesheet_url
       if APP_CONFIG.preproduction
-        community.update_attribute(:preproduction_stylesheet_url, url)        
+        community.update_attribute(:preproduction_stylesheet_url, url)
       else
         community.update_attribute(:stylesheet_url, url)
       end
+
+      community.update_attribute(:stylesheet_needs_recompile, false)
     end
 
     private
