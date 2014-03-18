@@ -1,4 +1,4 @@
-class TestimonialReminderJob < Struct.new(:conversation_id, :recipient_id, :community_id, :number_of_reminders_sent) 
+class TestimonialReminderJob < Struct.new(:conversation_id, :recipient_id, :community_id) 
   
   include DelayedAirbrakeNotification
   
@@ -13,11 +13,11 @@ class TestimonialReminderJob < Struct.new(:conversation_id, :recipient_id, :comm
   def perform
     conversation = Conversation.find(conversation_id)
     community = Community.find(community_id)
-    if conversation.status.eql?("confirmed") && !conversation.has_feedback_from_all_participants?
+    if !conversation.has_feedback_from_all_participants?
       participation = Participation.find_by_person_id_and_conversation_id(recipient_id, conversation_id)
       if participation.feedback_can_be_given?
         participation.update_attribute(:is_read, false)
-        ApplicationHelper.transaction_reminder conversation, [3,7], number_of_reminders_sent, "testimonial", participation.person, community
+        PersonMailer.send("testimonial_reminder", conversation, participation.person, community).deliver
       end
     end
   end

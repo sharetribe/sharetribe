@@ -1,4 +1,4 @@
-class ConfirmReminderJob < Struct.new(:conversation_id, :recipient_id, :community_id, :days_to_cancel)
+class TransactionAutomaticallyConfirmedJob < Struct.new(:conversation_id, :community_id) 
   
   include DelayedAirbrakeNotification
   
@@ -11,10 +11,13 @@ class ConfirmReminderJob < Struct.new(:conversation_id, :recipient_id, :communit
   end
   
   def perform
-    conversation = Conversation.find(conversation_id)
-    community = Community.find(community_id)
-    if conversation.status.eql?("accepted") || conversation.status.eql?("paid")
-      PersonMailer.send("confirm_reminder", conversation, conversation.requester, community, days_to_cancel).deliver
+    begin
+      conversation = Conversation.find(conversation_id)
+      community = Community.find(community_id)
+      PersonMailer.transaction_automatically_confirmed(conversation, community).deliver
+    rescue => ex
+      puts ex.message
+      puts ex.backtrace.join("\n")
     end
   end
   
