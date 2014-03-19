@@ -419,11 +419,8 @@ function initialize_communities_map() {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-  
-  
-  //map.setCenter(initialLocation);
+
   google.maps.event.addDomListener(window, 'load', addCommunityMarkers);
-  //google.maps.event.addListenerOnce(map, 'tilesloaded', addListingMarkers);
 }
 
 function addCommunityMarkers() {
@@ -513,8 +510,7 @@ function initialize_listing_map(community_location_lat, community_location_lon, 
   };
   map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
   var prefer_param_loc = (use_community_location_as_default === 'true');
-  setMapCenter(community_location_lat, community_location_lon, prefer_param_loc);
-  google.maps.event.addListenerOnce(map, 'tilesloaded', addListingMarkers);
+  addListingMarkers(community_location_lat, community_location_lon, prefer_param_loc);
 }
 
 function setMapCenter(communityLat, communityLng, preferCommunityLocation) {
@@ -522,10 +518,11 @@ function setMapCenter(communityLat, communityLng, preferCommunityLocation) {
   var useCommunityLocation = hasCommunityLocation && preferCommunityLocation;
 
   function defaultLocation() {
-    var lat = hasCommunityLocation ? communityLat : 0;
-    var lng = hasCommunityLocation ? communityLng : 0;
-
-    map.setCenter(new google.maps.LatLng(lat, lng));
+    if(hasCommunityLocation) {
+      map.setCenter(new google.maps.LatLng(communityLat, communityLng));
+    } else {
+      map.setCenter(new google.maps.LatLng(0, 0));
+    }
   }
 
   function geoLocation(position) {
@@ -535,13 +532,13 @@ function setMapCenter(communityLat, communityLng, preferCommunityLocation) {
   if(useCommunityLocation) {
     map.setCenter(new google.maps.LatLng(communityLat, communityLng));
   } else if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(geoLocation, defaultCenter);
+    navigator.geolocation.getCurrentPosition(geoLocation, defaultLocation);
   } else {
-    defaultCenter();
+    defaultLocation();
   }
 }
 
-function addListingMarkers() {
+function addListingMarkers(community_location_lat, community_location_lon, prefer_param_loc) {
   // Test requesting location data
   // Now the request_path needs to also have a query string with the wanted parameters
   
