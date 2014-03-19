@@ -261,9 +261,14 @@ namespace :sharetribe do
     Location.new(:latitude =>  lat, :longitude =>  lon, :location_type  => location_type, :address => address, :google_address => "#{lat},#{lon}")
   end
   
-  desc "Generates customized CSS stylesheets for all communities that have customizations"
+  desc "Generates customized CSS stylesheets in the background"
   task :generate_customization_stylesheets => :environment do
     CommunityStylesheetCompiler.compile_all()
+  end
+
+  desc "Generates customized CSS stylesheets immediately"
+  task :generate_customization_stylesheets_immediately => :environment do
+    CommunityStylesheetCompiler.compile_all_immediately()
   end
   
   desc "Updates the Category and ShareType translations in DB based on the normal translation files"
