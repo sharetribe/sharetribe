@@ -98,9 +98,9 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable,community_loc
   
   map = new google.maps.Map(document.getElementById(canvas), myOptions);
   if (latitude.value != "") {
-    setMapCenter(latitude.value, longitude.value, false, true);
+    setMapCenter(latitude.value, alue, false, true);
   } else {
-    setMapCenter(community_location_lat, community_location_lon, false, false);
+    setMapCenter(community_location_lat, community_location_lon, false);
   }
   geocoder = new google.maps.Geocoder();
   
@@ -295,7 +295,7 @@ function startRoute(latitude, longitude) {
   } else {
     removeRoute();
     if (foo == '' && bar == '') {
-      setMapCenter(latitude, longitude, false, true);
+      setMapCenter(latitude, longitude, true);
       map.setZoom(12);
     }
   }
@@ -513,63 +513,33 @@ function initialize_listing_map(community_location_lat, community_location_lon, 
   };
   map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
   var prefer_param_loc = (use_community_location_as_default === 'true');
-  setMapCenter(community_location_lat, community_location_lon, true, prefer_param_loc);
+  setMapCenter(community_location_lat, community_location_lon, prefer_param_loc);
   google.maps.event.addListenerOnce(map, 'tilesloaded', addListingMarkers);
 }
 
-function setMapCenter(community_location_lat, community_location_lon, show_alerts, prefer_param_loc) {
-  
-  // Try first parameter location, then browser geolocation, then default position
-  if (prefer_param_loc == true) {
-    if (community_location_lat != null && community_location_lon != '') {
-      map.setCenter(new google.maps.LatLng(community_location_lat,community_location_lon));
-    // Browser doesn't support Geolocation, we need to use the default location.
-    } else if (navigator.geolocation) {  
-      navigator.geolocation.getCurrentPosition(
-        function(position) {
-          map.setCenter(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
-        }, 
-        function() {
-          setDefaultMapCenter(map, show_alerts);
-        }
-      );
-    }
-  
-  // Try first browser geolocation, then parameter location, then default position
-  } else {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition( 
-        function(position) {
-          map.setCenter(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
-        }, 
-        function() {
-          setParamMapCenter(map, community_location_lat, community_location_lon, show_alerts);
-        }
-      );
-    } else {
-      setParamMapCenter(map, community_location_lat, community_location_lon, show_alerts);
-    }
-  }
-  
-}
+function setMapCenter(communityLat, communityLng, preferCommunityLocation) {
+  var hasCommunityLocation = communityLat && communityLng;
+  var useCommunityLocation = hasCommunityLocation && preferCommunityLocation;
 
-function setParamMapCenter(map, lat, lon, show_alerts) {
-  if (lat != null && lon != '') {
-    map.setCenter(new google.maps.LatLng(lat,lon));
+  function defaultLocation() {
+    var lat = hasCommunityLocation ? communityLat : 0;
+    var lng = hasCommunityLocation ? communityLng : 0;
+
+    map.setCenter(new google.maps.LatLng(lat, lng));
+  }
+
+  function geoLocation(position) {
+    map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+  }
+
+  if(useCommunityLocation) {
+    map.setCenter(new google.maps.LatLng(communityLat, communityLng));
+  } else if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(geoLocation, defaultCenter);
   } else {
-    setDefaultMapCenter(map, show_alerts);
+    defaultCenter();
   }
 }
-
-function setDefaultMapCenter(map, show_alerts) {
-  // Set default location to Helsinki
-  var defaultPosition = new google.maps.LatLng(60.17, 24.94);
-  if (show_alerts == true)
-    alert("Your browser doesn't support geolocation. We've placed you in Helsinki, Finland.");
-  map.setCenter(defaultPosition);
-}
-
-
 
 function addListingMarkers() {
   // Test requesting location data
