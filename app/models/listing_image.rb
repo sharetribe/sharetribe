@@ -73,4 +73,8 @@ class ListingImage < ActiveRecord::Base
     width.to_f / height.to_f > aspect_ratio.to_f
   end
 
+  def image_url=(url)
+    self.image = URI.parse(url)
+  end
+
 end

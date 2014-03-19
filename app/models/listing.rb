@@ -10,7 +10,7 @@ class Listing < ActiveRecord::Base
   acts_as_taggable_on :tags
   
   has_many :listing_images, :dependent => :destroy
-  accepts_nested_attributes_for :listing_images, :reject_if => lambda { |t| t['image'].blank? }
+  accepts_nested_attributes_for :listing_images, :reject_if => lambda { |t| t['image_url'].blank? && t['image'].blank? }
   
   has_many :conversations
   has_many :notifications, :as => :notifiable, :dependent => :destroy
