@@ -43,6 +43,8 @@ es-ES:
         edit_community_slogan_description: ~
         community_description: "Descripción:"
         edit_community_description_description: ~
+        community_search_placeholder: ~
+        edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
         update_information: "Actualizar información"
@@ -99,6 +101,7 @@ es-ES:
         google_analytics_key: ~
         twitter_handle: ~
         update_settings: ~
+        automatically_confirmed: ~
       manage_members:
         manage_members: ~
         email: ~
@@ -615,9 +618,13 @@ es-ES:
       message: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
+      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
       remember_to_confirm_request: ~
       if_will_not_happen_you_should_cancel: ~
+      if_will_not_happen_you_should_cancel_escrow: ~
+      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
       cancel_it_link_text: ~
+      automatic_confirmation: ~
     payment_reminder:
       remember_to_pay: ~
       you_have_not_yet_paid: ~
@@ -636,6 +643,16 @@ es-ES:
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: ~
       give_feedback_to: ~
+    transaction_automatically_confirmed:
+      subject: ~
+      we_have_marked_request_as_confirmed: ~
+      giving_feedback_is_good_idea: ~
+      give_feedback_to: ~
+    escrow_canceled:
+      subject: ~
+      has_marked_request_as_canceled: ~
+      if_this_was_error: ~
+      please_contant_admin_link: ~
     confirmation_instructions:
       confirmation_instructions_signature: "Saludos cordiales,<br/>El Equipo de %{service_name}"
       welcome_to_kassi: "Bienvenido a %{service_name}!"
@@ -669,6 +686,7 @@ es-ES:
       your_request_was_rejected: "Tu solicitud fue rechazada"
       you_can_now_pay_to: ~
       pay_now: ~
+      remember_to_confirm: ~
     invitation_to_kassi:
       hi: Hola!
       you_have_been_invited_to_kassi: "%{inviter} te ha invitado a utilizar el servicio web de %{community}"
@@ -1704,6 +1722,8 @@ es-ES:
       city: "Ciudad:"
       family_name: "Apellido:"
       given_name: "Nombre:"
+      first_name_with_initial: ~
+      first_name_only: ~
       location_description: ~
       phone_number: "Número de teléfono:"
       profile_picture: ~
@@ -1714,6 +1734,8 @@ es-ES:
       these_fields_are_shown_in_your: "Esta información se encuentra disponible para todos los usuarios de %{service_name}"
       visible_to_everybody: "visible para todo el mundo"
       visible_to_registered_users: "visible a los usuarios que han iniciado sesión"
+      default_in_listing: ~
+      invisible: ~
     save_information: "Guardar Información"
   tag_cloud:
     tag_used:

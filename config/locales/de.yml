@@ -58,6 +58,8 @@ de:
         edit_community_slogan_description: "Dies wird den Nutzern auf der Startseite der Community angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
         community_description: "Community Beschreibung"
         edit_community_description_description: "Dies wird den Nutzern auf der Startseite der Community angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
+        community_search_placeholder: ~
+        edit_community_search_placeholder_description: ~
         private_community_homepage_content: "Privater Inhalt der Community Startseite"
         edit_private_community_homepage_content_description: "Dieser Content ist nur bei privaten Communities sichtbar. User, die nicht eingeloggt sind, sehen den Text auf der Startseite. Beschreibe hier deine Community und wie man ihr beitreten kann. Du kannst hier außerdem Bilder, Videos und HTML-Content hinzufügen. %{see_how_it_looks_like}."
         update_information: Erneuern
@@ -114,6 +116,7 @@ de:
         google_analytics_key: "Google Analytics Tracking ID (klassisches Konto)"
         twitter_handle: ~
         update_settings: "Einstellungen erneuern"
+        automatically_confirmed: ~
       manage_members:
         manage_members: "Benutzer verwalten"
         email: E-Mail
@@ -627,9 +630,13 @@ de:
       message: "Deine Zahlungsinformationen wurden bestätigt. Du kannst jetzt auf %{service_name} Zahlungen erhalten."
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Du hast noch keine Anfrage bestätigt oder abgelehnt %{request_link}, die du am %{date} von %{other_party_full_name} erhalten hast. Wenn die Anfrage vollständig ist musst du das bestätigen. Danach kannst du Feedback an %{other_party_given_name} geben."
+      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
       remember_to_confirm_request: "Denke daran, deine Anfrage zu bestätigen oder abzulehnen"
       if_will_not_happen_you_should_cancel: "Wenn du denkst, dass die Anfrage wegen eines anderen Grundes noch nicht vollständig ist, kannst du %{cancel_it_link}."
+      if_will_not_happen_you_should_cancel_escrow: ~
+      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
       cancel_it_link_text: Abbrechen
+      automatic_confirmation: ~
     payment_reminder:
       remember_to_pay: "Bezahle für %{listing_title}"
       you_have_not_yet_paid: "Du hast noch nicht für %{listing_title} bezahlt, die %{other_party_name} hat dein Angebot akzeptiert."
@@ -648,6 +655,16 @@ de:
       has_marked_request_as_canceled: "%{other_party_full_name} hat deine Anfrage des %{request} abgelehnt. Du kannst trotzdem der %{other_party_given_name} Feedback geben."
       giving_feedback_is_good_idea: "Feedback zu geben, ist immer eine gute Idee. Wenn alles gut war, solltest du es andere wissen lassen, dass %{other_party_given_name} vertraut werden kann. Wenn es Probleme gab, dann ist es gut, dies auch zu erwähnen."
       give_feedback_to: "Gib %{other_party_given_name} ein Feedback"
+    transaction_automatically_confirmed:
+      subject: ~
+      we_have_marked_request_as_confirmed: ~
+      giving_feedback_is_good_idea: ~
+      give_feedback_to: ~
+    escrow_canceled:
+      subject: "Zahlungsprozess abgebrochen"
+      has_marked_request_as_canceled: ~
+      if_this_was_error: "Wenn du denkst, dass dies ein Fehler war, %{please_contant_admin_link}."
+      please_contant_admin_link: "Bitte kontaktiere den Administrator"
     confirmation_instructions:
       confirmation_instructions_signature: "Liebe Grüße, <br/> das %{service_name} Team"
       welcome_to_kassi: "Willkommen bei %{service_name},"
@@ -681,6 +698,7 @@ de:
       your_request_was_rejected: "Deine Anfrage wurde abgelehnt"
       you_can_now_pay_to: "Du kannst jetzt den betreffenden Betrag an %{payment_receiver} zahlen."
       pay_now: "Jetzt bezahlen"
+      remember_to_confirm: ~
     invitation_to_kassi:
       hi: Hallo!
       you_have_been_invited_to_kassi: "%{inviter} hat dich dazu eingeladen den %{community} Webdienst zu benutzen."
@@ -1717,6 +1735,8 @@ de:
       city: Stadt
       family_name: Nachname
       given_name: Vorname
+      first_name_with_initial: "(anderen Benutzern wird nur der erste Buchstabe angezeigt)"
+      first_name_only: "(wird anderen Benutzern nicht angezeigt)"
       location_description: "Du kannst entweder deinen exakten Standort oder nur deine Postleitzahl angeben. Bitte füge mindestens deine Postleitzahl hinzu. Du kannst auch einen Standort aus der Karte auswählen."
       phone_number: Telefonnummer
       profile_picture: Profilbild
@@ -1727,6 +1747,8 @@ de:
       these_fields_are_shown_in_your: "Diese Informationen sind für alle %{service_name} Mitglieder sichtbar"
       visible_to_everybody: "für jeden sichtbar"
       visible_to_registered_users: "(sichtbar für angemeldete Benutzer)"
+      default_in_listing: "(wird nur beim Erstellen eines neuen Eintrags als Standardeinstellung benutzt)"
+      invisible: "(wird anderen Benutzern nicht angezeigt)"
     save_information: "Informationen speichern"
   tag_cloud:
     tag_used:

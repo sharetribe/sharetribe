@@ -58,10 +58,12 @@ fr:
         edit_community_slogan_description: "Ceci est affiché sur la page d'accueil de votre tribu aux utilisateurs qui ne sont pas connectés. %{see_how_it_looks_like}."
         community_description: "Description de la tribu"
         edit_community_description_description: "Ceci est affiché sur la page d'accueil de votre tribu aux utilisateurs qui ne sont pas connectés. %{see_how_it_looks_like}."
+        community_search_placeholder: ~
+        edit_community_search_placeholder_description: ~
         private_community_homepage_content: "Page d'accueil d'une tribu privée"
         edit_private_community_homepage_content_description: "Ce contenu n'est visible qu'aux utilisateurs non connectés, sur la page d'accueil de tribus privées. Vous pouvez décrire ici votre tribu et comment la rejoindre. Vous pouvez aussi ajouter des images, des vidéos et du contenu HTML. %{see_how_it_looks_like}."
         update_information: "Mettre les informations à jour"
-        invite_people: "Invitez des gens dans cette tribu"
+        invite_people: "Inviter des gens dans cette tribu"
         edit_signup_info: "Informations lors de l'inscription"
         edit_signup_info_description: "Ce texte peut être affiché aux utilisateurs sur la page d'inscription. Vous pouvez y donner des instructions à propos de l'inscription, des conseils pour obtenir une invitation, etc. Par défaut, il n'y a pas d'instructions."
         edit_info: "Modifier les informations"
@@ -114,6 +116,7 @@ fr:
         google_analytics_key: "Google Analytics tracking ID (compte classique)"
         twitter_handle: "Nom Twitter (utilisé dans le bouton \"Tweeter\" sur les pages des annonces)"
         update_settings: "Mettre à jour les paramètres"
+        automatically_confirmed: "Les annonces sont automatiquement marquées comme réalisées %{days_dropdown} jour(s) après qu'elles aient été acceptées (ou payées)"
       manage_members:
         manage_members: "Gérer les utilisateurs"
         email: Email
@@ -138,7 +141,7 @@ fr:
         field_required:
           this_field_is_required: "Ce champ est obligatoire"
       index:
-        listing_fields: "Champs pour annonces"
+        listing_fields: "Champs d'annonces"
         add_new_field: "Ajouter un nouveau champ : "
         remove_field_confirmation: "Voulez-vous vraiment supprimer le champ '%{field_name}' ?"
         cancel: Annuler
@@ -626,10 +629,14 @@ fr:
       account_ready: "Vous êtes prêt à recevoir des paiements"
       message: "Vos informations de paiement ont été confirmées et vous êtes maintenant prêt à recevoir des paiements sur %{service_name}."
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Vous n'avez pas encore confirmé ou annulé la demande %{request_link} que vous avez reçue %{date} de %{other_party_full_name}. Si la demande a été satisfaite, vous devriez la marquer comme réalisée. Vous pourrez ensuite donner un avis sur %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Vous n'avez pas encore confirmé ou annulé la demande %{request_link}. Si la demande a été réalisée, vous devriez la marquer comme terminée. Vous pourrez ensuite donner un avis sur %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "Vous n'avez pas encore confirmé ou annulé la demande %{request_link}. Nous ne transférerons l'argent à %{other_party_given_name} que lorsque a) vous aurez marqué la demande comme réalisée ou b) %{days_to_automatic_confirmation} jours se seront écoulés après votre paiement. Après avoir marqué la demande comme réalisée vous pourrez donner un avis sur %{other_party_given_name}."
       remember_to_confirm_request: "Rappel de confirmation ou d'annulation d'une demande"
       if_will_not_happen_you_should_cancel: "Si vous pensez que cette demande ne sera pas réalisée pour une raison ou une autre, vous pouvez %{cancel_it_link}."
+      if_will_not_happen_you_should_cancel_escrow: "Si vous pensez que cette demande ne sera pas terminée pour une raison ou une autre, vous pouvez %{cancel_it_link}. Cela préviendra l'administrateur qui vous contactera pour le remboursement."
+      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "Si vous pensez que cette demande ne sera pas terminée pour une raison ou une autre, vous avez %{days_to_cancel} jour pour %{cancel_it_link}. Cela préviendra l'administrateur qui vous contactera pour le remboursement."
       cancel_it_link_text: l'annuler
+      automatic_confirmation: "Si vous ne confirmez ou n'annulez pas la demande sous %{days_to_automatic_confirmation} jours après que la demande ait été acceptée, nous la signalerons automatiquement comme terminée."
     payment_reminder:
       remember_to_pay: "Rappel de paiement pour %{listing_title}"
       you_have_not_yet_paid: "Vous n'avez pas encore payé pour %{listing_title} que %{other_party_name} a accepté de vous proposer."
@@ -648,6 +655,16 @@ fr:
       has_marked_request_as_canceled: "%{other_party_full_name} a annulé la demande à propos de '%{request}'. Vous pouvez malgré tout donner un avis sur %{other_party_given_name}."
       giving_feedback_is_good_idea: "Donner un avis est toujours une bonne idée. Si tout s'est bien passé, vous devriez signaler aux autres que %{other_party_given_name} est quelqu'un de confiance. S'il y a eu un problème, c'est aussi une bonne chose de le mentionner."
       give_feedback_to: "Donner un avis sur %{other_party_given_name}"
+    transaction_automatically_confirmed:
+      subject: "Demande automatiquement signalée comme terminée - n'oubliez pas de donner un avis"
+      we_have_marked_request_as_confirmed: "Nous avons signalé la demande à propos de '%{request}' comme terminée. La demande a été terminée automatiquement car %{days_passed} se sont écoulés depuis que la demande a été acceptée."
+      giving_feedback_is_good_idea: "Vous pouvez donner un avis sur %{other_party_given_name}. Donner un avis est toujours une bonne idée. Si tout s'est bien passé, vous devriez signaler aux autres que %{other_party_given_name} est quelqu'un de confiance. S'il y a eu un problème, c'est aussi une bonne chose de le mentionner."
+      give_feedback_to: "Donner un avis sur %{other_party_given_name}"
+    escrow_canceled:
+      subject: "Paiement annulé"
+      has_marked_request_as_canceled: "%{other_party_full_name} a signalé la demande à propos de '%{request}' comme annulée. Vous ne recevez pas d'argent de cette transaction."
+      if_this_was_error: "Si vous pensez que c'était une erreur, %{please_contant_admin_link}."
+      please_contant_admin_link: "veuillez contacter l'administrateur"
     confirmation_instructions:
       confirmation_instructions_signature: "Cordialement, <br/> L'équipe de %{service_name}"
       welcome_to_kassi: "Bienvenue sur %{service_name} !"
@@ -681,6 +698,7 @@ fr:
       your_request_was_rejected: "Votre demande a été rejetée"
       you_can_now_pay_to: "Vous pouvez maintenant payer le montant demandé à %{payment_receiver}."
       pay_now: "Payer maintenant"
+      remember_to_confirm: "Quand la demande est réalisée, n'oubliez pas de la signaler comme terminée. Si la demande n'est pas réalisée vous avez %{days_to_automatic_confirmation} pour l'annuler. Autrement, elle sera automatiquement signalée comme terminée."
     invitation_to_kassi:
       hi: "Bonjour !"
       you_have_been_invited_to_kassi: "%{inviter} vous a invité à rejoindre la tribu %{community}."
@@ -1714,6 +1732,8 @@ fr:
       city: Ville
       family_name: Nom
       given_name: Prénom
+      first_name_with_initial: "(uniquement la première lettre visible par les autres utilisateurs)"
+      first_name_only: "(non visible par les autres utilisateurs)"
       location_description: "Entrez votre position exacte ou, au moins, votre code postal. Vous pouvez également choisir un emplacement depuis la carte."
       phone_number: "Numéro de téléphone"
       profile_picture: "Photo de profil"
@@ -1724,6 +1744,8 @@ fr:
       these_fields_are_shown_in_your: "Cette information sera visible par tous les utilisateurs de %{service_name}"
       visible_to_everybody: "visible à tout le monde"
       visible_to_registered_users: "(visible par les utilisateurs connectés)"
+      default_in_listing: "(utilisé par défaut lors de la création d'une nouvelle annonce)"
+      invisible: "(non visible par les autres utilisateurs)"
     save_information: "Sauvegarder les informations"
   tag_cloud:
     tag_used:
