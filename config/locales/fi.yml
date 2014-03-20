@@ -1069,6 +1069,8 @@ fi:
       settings: Asetukset
       sign_up: "Luo uusi tunnus"
     notifications:
+      listing_could_not_be_saved: "Ilmoituksen tallentaminen ei onnistunut. Yritä uudelleen. Jos ongelma toistuu, %{contact_admin_link}."
+      contact_admin_link_text: "ota yhteyttä ylläpitoon"
       test_welcome_email_delivered_to: "Testisähköposti lähetettiin osoitteeseen %{email}."
       something_went_wrong: "Jotain meni vikaan"
       community_updated: "Yhteisön tiedot päivitetty."

@@ -45,6 +45,13 @@
   background: $error-red;
 }
 
+.flash-error-link {
+  color: darken($background, 20%);
+  &:hover {
+    color: darken($background, 30%);
+  }
+}
+
 .narrow-notification {
   @include media(tablet) {
     margin-right: lines(16);

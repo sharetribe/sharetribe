@@ -1069,6 +1069,8 @@ en:
       settings: Settings
       sign_up: "Sign up"
     notifications:
+      listing_could_not_be_saved: "Listing could not be saved. Please try again. If the problem persists, please %{contact_admin_link}."
+      contact_admin_link_text: "contact the admin"
       test_welcome_email_delivered_to: "A test email was sent to %{email}."
       something_went_wrong: "Something went wrong"
       community_updated: "Tribe details updated."
