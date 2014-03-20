@@ -1,6 +1,7 @@
 class ListingImage < ActiveRecord::Base
 
   belongs_to :listing
+  belongs_to :author, :class_name => "Person"
   
   has_attached_file :image, :styles => {
         :small_3x2 => "240x160#",
@@ -49,6 +50,10 @@ class ListingImage < ActiveRecord::Base
     self.height = geometry.height.to_i
   end
 
+  def authorized?(user)
+    author == user || (listing && listing.author == user)
+  end
+
   def correct_size?(aspect_ratio)
     ListingImage.correct_size? self.width, self.height, aspect_ratio
   end
@@ -72,9 +77,4 @@ class ListingImage < ActiveRecord::Base
   def self.too_wide?(width, height, aspect_ratio)
     width.to_f / height.to_f > aspect_ratio.to_f
   end
-
-  def image_url=(url)
-    self.image = URI.parse(url)
-  end
-
 end

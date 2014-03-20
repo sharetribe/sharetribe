@@ -192,3 +192,86 @@ $listing-author-avatar-height: 108;
   margin-top: 0;
   width: 100%;
 }
+
+.listing-images {
+  margin-top: lines(0.5);
+  margin-bottom: lines(1);
+  @include clearfix;
+}
+
+.fileupload-thumbnail {
+  $available-space: lines(19) - (2 * lines(0.5)) - lines(3); // centered section, 19 lines minus 0.5 padding, lines(3) for padding
+  $width: ($available-space / 3);
+  width: $width; 
+  height: $width;
+  border-radius: 2 * $default-border-radius;
+}
+
+.fileupload-preview {
+  @extend .fileupload-thumbnail;
+  position: relative;
+
+  &:hover > .fileupload-preview-remove-image {
+    display: block;
+  }
+}
+
+.fileupload-preview-image {
+  @extend .fileupload-thumbnail;
+}
+
+.fileupload-preview-remove-image {
+  // Position
+  $width: lines(1.5);
+  display: none;
+  position: absolute;
+  width: $width;
+  height: $width;
+  right: 0;
+  top: 0;
+
+  // Center
+  line-height: $width;
+  text-align: center;
+
+  // Borders and background
+  border-top-right-radius: 2 * $default-border-radius;
+  border-bottom-left-radius: 2 * $default-border-radius;
+  background-color: rgb(66, 66, 66); // Old browser fallback
+  background-color: rgba(0, 0, 0, 0.5);
+
+  // Color
+  color: darken($background, 20%);
+
+  &:hover {
+    cursor: pointer;
+    color: $background;
+  }
+}
+
+.upload-image-placeholder {
+  @extend .fileupload-thumbnail;
+
+  float: left;
+
+  // Colors
+  border: #EEE dashed em(3);
+  color: darken(#EEE, 33%);
+  background-color: #FAFAFA;
+
+  // Center multiline text
+  @include vertical-centering-table-container;
+
+  &:hover {
+    border-color: darken(#EEE, 10%);
+  }
+}
+
+.fileupload-centered-text {
+  @include vertical-centering-table-content;
+  padding: lines(0.5);
+}
+
+.fileupload-small-text {
+  @include small-type;
+}

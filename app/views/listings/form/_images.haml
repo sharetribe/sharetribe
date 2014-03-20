@@ -1,13 +1,46 @@
-.listing-images
-  = form.fields_for :listing_images do |builder|
-    = builder.label :image, t('.image'), :class => "input"
-    - if builder.object.new_record?
-      = builder.file_field(:image, :class => "file_field")
-    - else
-      %div{:id => "listing_image_#{@listing.listing_images.first.id.to_s}"}
-        = image_tag @listing.listing_images.first.image.url(:thumb)
-        .remove_image_link
-          = link_to t(".remove_image"), listing_image_path(@listing, @listing.listing_images.first), :method => :delete, :remote => true
-      %div{:id => "listing_image_#{@listing.listing_images.first.id.to_s}_file_field", :style => "display: none;"}
-        = builder.file_field(:image, :class => "file_field", :disabled => true)
-        
+= form.label :image, t('.image'), :class => "input"
+%input#listing-image-id{type: "hidden", name: "listing_image[id]"}
+.listing-images#image-uploader-container
+
+  %script{type: "text/template", class: "template", id: "new-image-tmpl"}
+    #fileupload.fileinput-button.upload-image-placeholder
+      .fileupload-centered-text
+        .fileupload-text
+          = t(".select_file")
+        .fileupload-small-text
+      %input#fileupload{type: "file", name: "listing_image[image]"}
+    %img#listing-image-upload-status
+
+  %script{type: "text/template", class: "template", id: "thumbnail-image-tmpl"}
+    .fileupload-preview
+      %img.fileupload-preview-image{src: "${thumbnailUrl}"}
+      .fileupload-preview-remove-image
+        = icon_tag("cross", ["icon-fix"])
+
+= js_t ["listings.form.images.processing", "listings.form.images.this_may_take_a_while", "listings.form.images.percentage_loaded", "listings.form.images.uploading_failed"], run_js_immediately
+
+- content_for :image_uploader_js do
+  :javascript
+    $(function() {
+      var container = $("#image-uploader-container");
+      var upload = $("#new-image-tmpl");
+      var thumbnail = $("#thumbnail-image-tmpl");
+      var createFromFilePath = '#{@listing.new_record? ? create_from_file_listing_images_path : add_from_file_listing_listing_images_path(@listing.id)}';
+
+      var listings = #{ @listing.listing_images.map do |listing_image|
+        {
+          id: @listing.listing_images.first.id,
+          thumbnailUrl: @listing.listing_images.first.image.url(:thumb),
+          removeUrl: listing_image_path(@listing.listing_images.first)
+        }
+        end.to_json
+      }
+
+      ST.imageUploader(listings, container, upload, thumbnail, createFromFilePath);
+    });
+
+- if run_js_immediately
+  = yield :image_uploader_js
+- else
+  - content_for :extra_javascript do
+    = yield :image_uploader_js

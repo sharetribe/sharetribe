@@ -14,6 +14,8 @@
 //= require jquery.lightbox_me
 //= require jquery.transit.min
 //= require jquery.placeholder
+//= require jquery.ui.widget
+//= require jquery.fileupload
 //= require fastclick.min
 //= require infobubble
 //= require sharetribe_common
@@ -34,4 +36,5 @@
 //= require jquery.nouislider
 //= require range_filter
 //= require translations
+//= require image_uploader
 //= require_self

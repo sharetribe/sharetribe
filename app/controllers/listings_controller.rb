@@ -104,8 +104,6 @@ class ListingsController < ApplicationController
       @listing.build_origin_loc(:location_type => "origin_loc")
     end
 
-    1.times { @listing.listing_images.build }
-
     if request.xhr? # AJAX request to get the actual form contents
       @listing.category = Category.find(params[:subcategory].blank? ? params[:category] : params[:subcategory])
       @custom_field_questions = @listing.category.custom_fields
@@ -123,9 +121,15 @@ class ListingsController < ApplicationController
     if params[:listing][:origin_loc_attributes][:address].empty? || params[:listing][:origin_loc_attributes][:address].blank?
       params[:listing].delete("origin_loc_attributes")
     end
+
     @listing = Listing.new(params[:listing])
+    
     @listing.author = @current_user
     @listing.custom_field_values = create_field_values(params[:custom_fields]) if params[:custom_fields]
+
+    listing_image = ListingImage.find_by_id_and_author_id(params[:listing_image][:id], @current_user.id)
+    @listing.listing_images << listing_image if listing_image
+
     @listing.save
 
     if @listing.new_record?
@@ -143,7 +147,6 @@ class ListingsController < ApplicationController
 	  if !@listing.origin_loc
 	      @listing.build_origin_loc(:location_type => "origin_loc")
 	  end
-    1.times { @listing.listing_images.build } if @listing.listing_images.empty?
 
     @custom_field_questions = @listing.category.custom_fields.find_all_by_community_id(@current_community.id)
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
