@@ -68,7 +68,6 @@ class Listing < ActiveRecord::Base
   validates_presence_of :transaction_type
   validates_inclusion_of :valid_until, :allow_nil => :true, :in => DateTime.now..DateTime.now + 7.months
   validates_numericality_of :price_cents, :only_integer => true, :greater_than_or_equal_to => 0, :message => "price must be numeric", :allow_nil => true
-  validate :valid_until_is_not_nil
   
   def set_community_visibilities
     if current_community_id
@@ -147,12 +146,6 @@ class Listing < ActiveRecord::Base
   def set_valid_until_time
     if valid_until
       self.valid_until = valid_until.utc + (23-valid_until.hour).hours + (59-valid_until.min).minutes + (59-valid_until.sec).seconds
-    end  
-  end
-  
-  def valid_until_is_not_nil
-    if transaction_type.is_request? && !valid_until
-      errors.add(:valid_until, "cannot be empty")
     end  
   end
   

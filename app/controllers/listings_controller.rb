@@ -167,7 +167,6 @@ class ListingsController < ApplicationController
     else
       Rails.logger.error "Errors in editing listing: #{@listing.errors.full_messages.inspect}"
       flash[:error] = t("layouts.notifications.listing_could_not_be_saved", :contact_admin_link => view_context.link_to(t("layouts.notifications.contact_admin_link_text"), new_user_feedback_path, :class => "flash-error-link")).html_safe
-      "Listing could not be saved. Please try again."
       redirect_to edit_listing_path(@listing)
     end    
   end
