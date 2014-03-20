@@ -60,7 +60,7 @@ pt-BR:
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
-        community_logo_icon: ~
+        community_logo_icon: "logo de ícones"
         community_cover_photo: ~
         small_community_cover_photo: ~
         community_custom_color1: ~
@@ -685,7 +685,7 @@ pt-BR:
       pay_now: "Pagar agora"
       remember_to_confirm: ~
     invitation_to_kassi:
-      hi: ~
+      hi: Oi!
       you_have_been_invited_to_kassi: ~
       here_is_a_message_from: ~
       join_now: "Ingressar agora"
@@ -930,9 +930,9 @@ pt-BR:
       teaser_text: "%{service_name} é um serviço para comunidade %{community}. Aqui você pode emprestar, alugar, dar, vender coisas, ajudar ou compartilhar caronas. Você poderia dar algo aos outros ou ajudá-los?"
       tell_it_here: "Conte isso aqui!"
       welcome_to_new_kassi: "Bem vindo ao novo %{service_name}!"
-      no_reviews: ~
+      no_reviews: "nenhum comentário"
       no_image: "Sem imagem"
-      filter: ~
+      filter: Filtro
       this_is_private_community: ~
     invitation_form:
       invite_your_friends: ~
@@ -1154,7 +1154,7 @@ pt-BR:
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
       you_need_to_confirm_your_account_first: ~
-      you_must_fill_all_the_fields: ~
+      you_must_fill_all_the_fields: "Você deve preencher todos os campos"
       you_unfollowed_listing: ~
       joining_community_failed: ~
       can_not_login_with_private_user: ~
@@ -1225,13 +1225,13 @@ pt-BR:
         googlemap_updatemap: ~
       images:
         image: Imagem
-        no_file_selected: ~
+        no_file_selected: "Nenhum arquivo selecionado"
         remove_image: "Remover imagem"
         select_file: "Selecione arquivo"
       location:
         location: Local
       price:
-        price: ~
+        price: Preço
         per: ~
         mass: ~
         time: ~
@@ -1406,9 +1406,9 @@ pt-BR:
       commission_will_be_added: ~
     form:
       total: Total
-      service_charge: ~
+      service_charge: "taxa de serviço"
       product: "Produto:"
-      price: ~
+      price: "Preço:"
       price_for: ~
       continue_to_pay: "Continuar para pagamento"
       invoice: Fatura
@@ -1606,7 +1606,7 @@ pt-BR:
       open_listings: "abrir listagens"
       no_listings: ~
       no_open_listings: "lista fechada"
-      no_reviews: ~
+      no_reviews: "nenhum comentário"
       no_badges: ~
       show_all_listings: ~
       show_all_open_listings: "Listar todas listas abertas"

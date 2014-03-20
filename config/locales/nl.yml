@@ -4,7 +4,7 @@ nl:
       edit:
         edit_listing_category: ~
       index:
-        listing_categories: ~
+        listing_categories: "Lijst categorieën"
         create_a_new_category: ~
         remove_category_confirmation: ~
         saving_order: ~
@@ -34,31 +34,31 @@ nl:
           cancel: ~
     communities:
       edit_details:
-        community_details: ~
-        community_look_and_feel: ~
-        edit_community: ~
-        community_name: ~
-        edit_community_name_description: ~
-        community_slogan: ~
-        edit_community_slogan_description: ~
-        community_description: ~
-        edit_community_description_description: ~
-        community_search_placeholder: ~
-        edit_community_search_placeholder_description: ~
+        community_details: "Details gemeenschap"
+        community_look_and_feel: "Look & feel van gemeenschap"
+        edit_community: "Bewerk details gemeenschap %{community_name}"
+        community_name: "Naam gemeenschap"
+        edit_community_name_description: "De naam van uw gemeenschap. Deze wordt getoond aan gebruikers in emails en op diverse andere plaatsen."
+        community_slogan: "Slogan gemeenschap"
+        edit_community_slogan_description: "Deze wordt getoond op de homepage van de gemeenschap aan gebruikers die niet zijn ingelogd. %{see_how_it_looks_like}"
+        community_description: "Beschrijving gemeenschap"
+        edit_community_description_description: "Deze wordt getoond op de homepage van de gemeenschap aan gebruikers die niet zijn ingelogd. %{see_how_it_looks_like}"
+        community_search_placeholder: "Zoek hulptekst"
+        edit_community_search_placeholder_description: "Dit wordt getoond op de homepage van de gemeenschap als een tijdelijke tekst in het zoekvenster. %{see_how_it_looks_like}"
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
         update_information: ~
         invite_people: "Nodig anderen uit"
-        edit_signup_info: ~
-        edit_signup_info_description: ~
-        edit_info: ~
-        see_how_it_looks_like: ~
-        verification_to_post_listings_info_content: ~
+        edit_signup_info: "Registreer info"
+        edit_signup_info_description: "Dit is een info tekst die kan worden getoond in de registratiepagina. Hier kan je gebruikers instructies geven over hoe te registreren, waar een uitnodiging te krijgen, enz. Standaard worden er geen instructies getoond."
+        edit_info: "Bewerk informatie"
+        see_how_it_looks_like: "Bekijk hoe het er uit ziet"
+        verification_to_post_listings_info_content: "Info tekst voor niet-geverifiëerde gebruikers"
         verification_to_post_listings_info_content_description: "Deze marktplaats vereist dat mensen manueel worden geverifieerd door een administrator vooraleer ze items kunnen plaatsen. Hier kan je de default tekst instellen die wordt getoond aan niet-geverifieerde gebruikers wanneer zij een nieuw item proberen plaatsen."
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: ~
       edit_look_and_feel:
-        edit_community_look_and_feel: ~
+        edit_community_look_and_feel: "Bewerk look & feel gemeenschap %{community_name}"
         community_logo: ~
         community_logo_icon: ~
         community_cover_photo: ~
@@ -76,10 +76,10 @@ nl:
         custom_color2_instructions_text: ~
         invalid_color_code: ~
       edit_welcome_email:
-        welcome_email_content: ~
-        welcome_email_content_description: ~
-        edit_message: ~
-        send_test_message: ~
+        welcome_email_content: "Inhoud welkomstmail"
+        welcome_email_content_description: "Onderstaande boodschap wordt verstuurd naar iedereen die zich aanmeldt. Je kan de boodschap aanpassen aan je gemeenschap. Door te klikken op %{send_test_message_link}, kan je een preview sturen naar je email adress, om te bekijken hoe deze er uit ziet in een email programma."
+        edit_message: "Bewerk boodschap"
+        send_test_message: "Verstuur testmail"
       settings:
         settings: ~
         general: ~
@@ -103,7 +103,7 @@ nl:
         update_settings: ~
         automatically_confirmed: ~
       manage_members:
-        manage_members: ~
+        manage_members: "Beheer gebruikers"
         email: ~
         name: ~
         join_date: ~
@@ -126,14 +126,14 @@ nl:
         field_required:
           this_field_is_required: ~
       index:
-        listing_fields: ~
+        listing_fields: "Lijst velden"
         add_new_field: ~
         remove_field_confirmation: ~
         cancel: ~
         save: ~
         field_title: ~
         field_type: ~
-        categories: ~
+        categories: "Lijst categorieën waar het veld is gebruikt"
         no_custom_listing_fields: ~
         dropdown_options: ~
         add_option: ~
@@ -153,14 +153,14 @@ nl:
         numericfield: ~
     emails:
       new:
-        send_email_to_members: ~
-        send_email_to_members_title: ~
-        email_subject: ~
-        email_content: ~
-        email_content_placeholder: ~
+        send_email_to_members: "Stuur email aan gebruikers"
+        send_email_to_members_title: "Stuur email aan alle gebruikers van deze gemeenschap"
+        email_subject: "Onderwerp email"
+        email_content: "Inhoud email"
+        email_content_placeholder: "Wat wil je aan je leden zeggen?"
         email_language: ~
         any_language: ~
-        send_email: ~
+        send_email: "Verstuur email"
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
     news_items:
@@ -221,8 +221,8 @@ nl:
         inquiry: Contact
   common:
     edit_page: ~
-    default_community_slogan: ~
-    default_community_description: ~
+    default_community_slogan: "Gemeenschappelijke marktplaats"
+    default_community_description: "Dit is een plaats om producten en diensten te verkopen, verhuren of uit te wisselen met andere leden van de gemeenschap"
     cancel: Annuleer
     fields_that_are_mandatory: "Velden die gemarkeerd zijn met (*) zijn verplicht."
     or: of
@@ -563,7 +563,7 @@ nl:
       browse_communities_around_you: "Wordt lid van een groep in jouw buurt"
       slogan: ~
       create_your_own: "Creëer je eigen"
-      sharing_website: "Deelmarktplaats voor lokale gemeenschappen"
+      sharing_website: "Gemeenschappelijke marktplaats"
       main_description: ~
       kassi_for_your_company: "Voor je bedrijf"
       kassi_for_your_company_description: ~
@@ -786,7 +786,7 @@ nl:
       congrats_for_creating_community: ~
       you_have_just_created_community: ~
       you_now_have_admin_rights: ~
-      edit_community_details_link_text: ~
+      edit_community_details_link_text: "Bewerk details gemeenschap"
       add_content: ~
       spread_the_word: ~
       spread_the_word_invite_only: ~
@@ -859,7 +859,7 @@ nl:
     search_kassi: "Zoek %{service_name}"
     create_new_marketplace: ~
     contact_us: "Neem contact op"
-    profile: ~
+    profile: Profiel
     invite: "Nodig uit"
   homepage:
     additional_private_listings_slate:
@@ -940,9 +940,9 @@ nl:
       email: "Email adres"
       message: "een persoonlijk bericht"
       send_invitation: "Verstuur uitnodiging"
-      add_as_many_emails_as_you_want: ~
+      add_as_many_emails_as_you_want: "Voeg hier onder emailadressen toe van de mensen die je wil uitnodigen. Als je meerdere adressen wil toevoegen, scheid deze dan met een komma."
       invitation_emails_field_placeholder: "vriend1@voorbeeld.com, vriend2@voorbeeld.com"
-      invitation_message_field_placeholder: "Ik werd lid van deze ongelofelijke gemeenschap. Doe het ook!"
+      invitation_message_field_placeholder: "Ik werd lid van deze ongelooflijke gemeenschap. Doe het ook!"
       errors_in_emails: "Check of de e-mail adressen die je toegevoegd hebt geldig zijn. indien je meerdere adressen hebt toegevoegd, verzeker je ervan dat ze zijn gescheiden door comma's"
     list_item:
       review: ~
@@ -979,7 +979,7 @@ nl:
   infos:
     about:
       default_about_text_title: ~
-      default_about_text: ~
+      default_about_text: "Deze marktplaats wordt ondersteund door het Sharetribe platform. Met Sharetribe kan je eenvoudig je eigen marktplaats creëren. Het is gratis en duurt maar een minuut. %{click_here_link} om hier meer over te weten!"
       click_here_link_text: ~
   layouts:
     no_tribe:
@@ -1005,14 +1005,14 @@ nl:
       or_check_our: "...of bekijk onze"
       send_feedback_to_admin: "Verstuur feedback"
       to_see_what_others_have_suggested: "om te zien wat voor ideeën andere gebruikers hebben en om op die ideeën te stemmen."
-      your_email_address: "Je emailadres (niet verplicht)"
+      your_email_address: "Je emailadres"
       connect: ~
       invite_your_friends: ~
       invite_your_neighbors: ~
       invite_your_friends_description: ~
       invite_your_friends_invite_only_description: ~
       join_without_facebook: ~
-      join_without_facebook_link: ~
+      join_without_facebook_link: "log in zonder Facebook te gebruiken"
     conversations:
       messages: Berichten
       notifications: Notificaties
@@ -1140,7 +1140,7 @@ nl:
       you_have_already_given_feedback_about_this_event: "Je heb al feedback gegeven over dit evenement"
       you_are_now_member: ~
       you_are_already_member: ~
-      you_must_log_in_to_create_new_listing: ~
+      you_must_log_in_to_create_new_listing: "Je moet ingelogd zijn op %{service_name} om een nieuw item te kunnen plaatsen. Als je geen account hebt, kan je er %{sign_up_link}"
       additional_email_confirmed_dashboard: ~
       you_must_log_in_to_give_feedback: "Je moet inloggen om feedback te geven"
       you_must_log_in_to_invite_new_users: ~
@@ -1421,7 +1421,7 @@ nl:
       seller_registration_needed:
         seller_registration_needed: ~
         seller_registration_instructions: ~
-        settings_page_link: ~
+        settings_page_link: Profiel
     braintree:
       terms:
         braintree_terms_also_included: ~
@@ -1480,8 +1480,8 @@ nl:
       username_is_invalid: "Gebruikersnaam is ongeldig. Toegestane tekens zijn, nummers en liggend streepje."
       visible_only_to_you: "alleen zichtbaar voor jou en de community beheerder"
       visible_to_everybody: "zichtbaar voor iedereen"
-      create_account_with_facebook: ~
-      or_create_new_account_without_facebook: ~
+      create_account_with_facebook: "Maak een account met Facebook"
+      or_create_new_account_without_facebook: "... of maak hieronder een account aan zonder Facebook."
     not_member:
       explanation_text: "Je bent momenteel in de %{community} gemeenschap. Je hebt geprobeerd om het profiel te zien van een gebruiker uit een andere gemeenschap. Dit wordt op dit moment niet ondersteunt, dus je kunt alleen toegang tot dit profiel krijgen door de %{community} gemeenschap."
       read_more_about_kassi_communities: "Lees meer over de gemeenschappen"
@@ -1510,7 +1510,7 @@ nl:
       enthusiast_gold: "Enthousiasteling (goud)"
       enthusiast_gold_description: "Jij kan maar niet wegblijven van %{service_name}: jij hebt de website al op 100 verschillende dagen bezocht!"
       enthusiast_silver: "Enthousiasteling (zilver)"
-      enthusiast_silver_description: "%{service_name}is een deel van je dagelijkse routine geworden: jij hebt deze service al 30 keer bezocht."
+      enthusiast_silver_description: "%{service_name} is een deel van je dagelijkse routine geworden: jij hebt deze service al 30 keer bezocht."
       first_transaction: "Eerste event"
       first_transaction_description: "Gefeliciteerd met je eerste uitwisseling in%{service_name}! Een van je vragen of aanbiedingen is geaccepteerd en bevestigd."
       generous_bronze: "Vrijgevig (brons)"
@@ -1636,8 +1636,8 @@ nl:
       account_creation_link_text: ~
       cancle_facebook_connect: ~
       facebook_cancel_link_text: ~
-      log_in_with_your_facebook_account: ~
-      or_sign_up_with_your_username: ~
+      log_in_with_your_facebook_account: "Log in met Facebook"
+      or_sign_up_with_your_username: "... of met je gebruikersnaam of emailadres:"
       we_will_not_post_without_asking_you: ~
     password_forgotten:
       email: Email

@@ -58,8 +58,8 @@ fr:
         edit_community_slogan_description: "Ceci est affiché sur la page d'accueil de votre tribu aux utilisateurs qui ne sont pas connectés. %{see_how_it_looks_like}."
         community_description: "Description de la tribu"
         edit_community_description_description: "Ceci est affiché sur la page d'accueil de votre tribu aux utilisateurs qui ne sont pas connectés. %{see_how_it_looks_like}."
-        community_search_placeholder: ~
-        edit_community_search_placeholder_description: ~
+        community_search_placeholder: "Texte d'aide à la recherche"
+        edit_community_search_placeholder_description: "Ceci est affiché sur la page d'accueil de la tribu, dans la barre de recherche. %{see_how_it_looks_like}."
         private_community_homepage_content: "Page d'accueil d'une tribu privée"
         edit_private_community_homepage_content_description: "Ce contenu n'est visible qu'aux utilisateurs non connectés, sur la page d'accueil de tribus privées. Vous pouvez décrire ici votre tribu et comment la rejoindre. Vous pouvez aussi ajouter des images, des vidéos et du contenu HTML. %{see_how_it_looks_like}."
         update_information: "Mettre les informations à jour"
