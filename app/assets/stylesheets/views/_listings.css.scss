@@ -262,7 +262,7 @@ $listing-author-avatar-height: 108;
   // Center multiline text
   @include vertical-centering-table-container;
 
-  &:hover {
+  &:hover, &.hover {
     border-color: darken(#EEE, 10%);
   }
 }

@@ -30,6 +30,7 @@ window.ST.imageUploader = function(listings, containerSelector, uploadSelector, 
       $('#fileupload').fileupload({
         dataType: 'json',
         url: createFromFilePath,
+        dropZone: $('#fileupload'),
         progress: function(e, data) {
           if(data.total === data.loaded) {
             processing();
@@ -50,6 +51,10 @@ window.ST.imageUploader = function(listings, containerSelector, uploadSelector, 
           $(".fileupload-text", $container).text(ST.t("listings.form.images.uploading_failed"));
           $(".fileupload-small-text", $container).empty();
         }
+      }).on('dragenter', function() {
+        $(this).addClass('hover')
+      }).on('dragleave', function() {
+        $(this).removeClass('hover')
       });
     });
   }
