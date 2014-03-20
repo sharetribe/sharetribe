@@ -33,4 +33,5 @@
 //= require payment_math
 //= require jquery.nouislider
 //= require range_filter
+//= require translations
 //= require_self
