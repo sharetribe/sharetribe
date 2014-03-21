@@ -292,8 +292,10 @@ class ListingsController < ApplicationController
   end
 
   def is_authorized_to_post
-    if @current_community.require_verification_to_post_listings? && !@current_community_membership.can_post_listings?
-      redirect_to verification_required_listings_path 
+    if @current_community.require_verification_to_post_listings? 
+      unless @current_user.has_admin_rights_in?(@current_community) || @current_community_membership.can_post_listings?
+        redirect_to verification_required_listings_path 
+      end
     end
   end
 
