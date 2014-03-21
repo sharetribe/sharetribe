@@ -199,8 +199,8 @@ $listing-author-avatar-height: 108;
   @include clearfix;
 }
 
-.fileupload-thumbnail {
-  $available-space: lines(19) - (2 * lines(0.5)) - lines(3); // centered section, 19 lines minus 0.5 padding, lines(3) for padding
+@mixin fileupload-thumbnail($additional-padding: 0) {
+  $available-space: lines(19) - (2 * lines(0.5)) - lines(3) - (2 * $additional-padding); // centered section, 19 lines minus 0.5 padding, lines(3) for padding
   $width: ($available-space / 3);
   width: $width; 
   height: $width;
@@ -208,7 +208,7 @@ $listing-author-avatar-height: 108;
 }
 
 .fileupload-preview {
-  @extend .fileupload-thumbnail;
+  @include fileupload-thumbnail;
   position: relative;
 
   &:hover > .fileupload-preview-remove-image {
@@ -217,7 +217,7 @@ $listing-author-avatar-height: 108;
 }
 
 .fileupload-preview-image {
-  @extend .fileupload-thumbnail;
+  @include fileupload-thumbnail;
 }
 
 .fileupload-preview-remove-image {
@@ -251,20 +251,35 @@ $listing-author-avatar-height: 108;
     cursor: pointer;
     color: $background;
   }
+} 
+
+.fileupload-removing {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include fileupload-thumbnail;
+
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.fileupload-text-container {
+  @include fileupload-thumbnail(lines(0.25));
+
+  color: darken(#EEE, 33%);
+
+  // Center multiline text
+  @include vertical-centering-table-container;
 }
 
 .upload-image-placeholder {
-  @extend .fileupload-thumbnail;
+  @include fileupload-thumbnail;
 
   float: left;
 
   // Colors
   border: #EEE dashed em(3);
-  color: darken(#EEE, 33%);
   background-color: #FAFAFA;
-
-  // Center multiline text
-  @include vertical-centering-table-container;
 
   &:hover, &.hover {
     border-color: darken(#EEE, 10%);
@@ -273,7 +288,6 @@ $listing-author-avatar-height: 108;
 
 .fileupload-centered-text {
   @include vertical-centering-table-content;
-  padding: lines(0.5);
 }
 
 .fileupload-small-text {

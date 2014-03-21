@@ -65,11 +65,14 @@ window.ST.imageUploader = function(listings, containerSelector, uploadSelector, 
     $('.fileupload-preview-remove-image', $thumbnail).click(function(e) {
       e.preventDefault();
 
+      $(".fileupload-removing").show();
+
       $.ajax({
         url: listing.removeUrl,
         type: 'DELETE',
         success: function() {
           $container.empty();
+          $(".fileupload-removing").hide();
           renderUploader();
         },
       });

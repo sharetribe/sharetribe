@@ -4,16 +4,21 @@
 
   %script{type: "text/template", class: "template", id: "new-image-tmpl"}
     #fileupload.fileinput-button.upload-image-placeholder
-      .fileupload-centered-text
-        .fileupload-text
-          = t(".select_file")
-        .fileupload-small-text
+      .fileupload-text-container
+        .fileupload-centered-text
+          .fileupload-text
+            = t(".select_file")
+          .fileupload-small-text
       %input#fileupload{type: "file", name: "listing_image[image]"}
     %img#listing-image-upload-status
 
   %script{type: "text/template", class: "template", id: "thumbnail-image-tmpl"}
     .fileupload-preview
       %img.fileupload-preview-image{src: "${thumbnailUrl}"}
+      .fileupload-removing
+        .fileupload-text-container
+          .fileupload-centered-text
+            = t(".removing")
       .fileupload-preview-remove-image
         = icon_tag("cross", ["icon-fix"])
 
