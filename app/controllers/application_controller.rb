@@ -235,7 +235,6 @@ class ApplicationController < ActionController::Base
         e.test_group_number = @current_user ? @current_user.test_group_number : nil
         e.community_id      = @current_community ? @current_community.id : nil
         begin
-          binding.pry
           if (params["file"] || params["image"] || (params["listing_image"] && params["listing_image"]["image"] ||
               params["person"] && params["person"]["image"]) || (params["community"] && (params["community"]["cover_photo"] || params["community"]["logo"])) || (params["organization"] && params["organization"]["logo"]) )
             # This case breaks image upload (reason unknown) if we use to_json, so we'll have to skip it 
