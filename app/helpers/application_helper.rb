@@ -924,5 +924,15 @@ module ApplicationHelper
     direction = (params[:sort].eql?(column) && member_sort_direction.eql?("asc")) ? "desc" : "asc"
     link_to title, {:sort => column, :direction => direction, :page => (params[:page] || 1)}, {:class => css_class}
   end
-  
+
+  # Give an array of translation keys you need in JavaScript. The keys will be loaded and ready to be used in JS
+  # with `ST.t` function
+  def js_t(keys, run_js_immediately=false)
+    js = javascript_tag("ST.loadTranslations(#{JSTranslations.load(keys).to_json})")
+    if run_js_immediately
+      js
+    else
+      content_for :extra_javascript do js end
+    end
+  end
 end
