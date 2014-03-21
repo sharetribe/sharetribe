@@ -192,13 +192,11 @@ function add_validator_methods() {
 
   $.validator.
     addMethod("number_min", function(value, element, min) {
-      debugger;
       return value.length === 0 ? true : toNumber(value) >= min;
     });
 
   $.validator.
     addMethod("number_max", function(value, element, max) {
-      debugger;
       return value.length === 0 ? true : toNumber(value) <= max;
     });
 }
