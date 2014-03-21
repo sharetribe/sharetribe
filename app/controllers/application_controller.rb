@@ -222,35 +222,37 @@ class ApplicationController < ActionController::Base
   end
 
   def log_to_ressi
+    TimingService.log(0.01, "log_to_ressi takes too long") {
+      # These are the fields that are currently stored in Ressi, so no need to store others
+      relevant_header_fields = ["HTTP_USER_AGENT","REQUEST_URI", "HTTP_REFERER"]
 
-    # These are the fields that are currently stored in Ressi, so no need to store others
-    relevant_header_fields = ["HTTP_USER_AGENT","REQUEST_URI", "HTTP_REFERER"]
-
-    CachedRessiEvent.create do |e|
-      e.user_id           = @current_user ? @current_user.id : nil
-      e.application_id    = "acm-TkziGr3z9Tab_ZvnhG"
-      e.session_id        = request.session_options ? request.session_options[:id] : nil
-      e.ip_address        = request.remote_ip
-      e.action            = "#{self.class}\##{action_name}"
-      e.test_group_number = @current_user ? @current_user.test_group_number : nil
-      e.community_id      = @current_community ? @current_community.id : nil
-      begin
-        if (params["file"] || params["image"] || (params["listing"] && params["listing"]["listing_images_attributes"] ||
-            params["person"] && params["person"]["image"]) || (params["community"] && (params["community"]["cover_photo"] || params["community"]["logo"])) || (params["organization"] && params["organization"]["logo"]) )
-          # This case breaks image upload (reason unknown) if we use to_json, so we'll have to skip it 
-          e.parameters    = params.inspect.gsub('=>', ':')
-        else  #normal case
-          e.parameters    = request.filtered_parameters.to_json
+      CachedRessiEvent.create do |e|
+        e.user_id           = @current_user ? @current_user.id : nil
+        e.application_id    = "acm-TkziGr3z9Tab_ZvnhG"
+        e.session_id        = request.session_options ? request.session_options[:id] : nil
+        e.ip_address        = request.remote_ip
+        e.action            = "#{self.class}\##{action_name}"
+        e.test_group_number = @current_user ? @current_user.test_group_number : nil
+        e.community_id      = @current_community ? @current_community.id : nil
+        begin
+          binding.pry
+          if (params["file"] || params["image"] || (params["listing_image"] && params["listing_image"]["image"] ||
+              params["person"] && params["person"]["image"]) || (params["community"] && (params["community"]["cover_photo"] || params["community"]["logo"])) || (params["organization"] && params["organization"]["logo"]) )
+            # This case breaks image upload (reason unknown) if we use to_json, so we'll have to skip it 
+            e.parameters    = params.inspect.gsub('=>', ':')
+          else  #normal case
+            e.parameters    = request.filtered_parameters.to_json
+          end
+        rescue JSON::GeneratorError => error
+          e.parameters      = ["There was error in genarating the JSON from the parameters."].to_json
         end
-      rescue JSON::GeneratorError => error
-        e.parameters      = ["There was error in genarating the JSON from the parameters."].to_json
+        e.return_value      = @_response.status
+        e.semantic_event_id = RestHelper.event_id
+        e.headers           = request.headers.reject do |key, value|
+          !relevant_header_fields.include?(key)
+        end.to_json
       end
-      e.return_value      = @_response.status
-      e.semantic_event_id = RestHelper.event_id
-      e.headers           = request.headers.reject do |key, value|
-        !relevant_header_fields.include?(key)
-      end.to_json
-    end
+    }
   end
 
   def ensure_is_admin
