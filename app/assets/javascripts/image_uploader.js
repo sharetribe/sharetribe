@@ -35,7 +35,7 @@ window.ST.imageUploader = function(listings, containerSelector, uploadSelector, 
           if(data.total === data.loaded) {
             processing();
           } else {
-            var percentage = Math.round((data.total / data.loaded) * 100);
+            var percentage = Math.round((data.loaded / data.total) * 100);
             $(".fileupload-text", $container).text(ST.t("listings.form.images.percentage_loaded", {percentage: percentage}));
             $(".fileupload-small-text", $container).empty();
           }

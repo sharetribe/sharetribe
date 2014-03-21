@@ -223,12 +223,16 @@ $listing-author-avatar-height: 108;
 .fileupload-preview-remove-image {
   // Position
   $width: lines(1.5);
-  display: none;
   position: absolute;
   width: $width;
   height: $width;
   right: 0;
   top: 0;
+
+  // Hide only if no touch device
+  .no-touch & {
+    display: none;
+  }
 
   // Center
   line-height: $width;
