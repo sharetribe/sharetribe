@@ -523,6 +523,7 @@ CREATE TABLE `listing_images` (
   `image_processing` tinyint(1) DEFAULT NULL,
   `width` int(11) DEFAULT NULL,
   `height` int(11) DEFAULT NULL,
+  `author_id` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_listing_images_on_listing_id` (`listing_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1789,3 +1790,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140312150455');
 INSERT INTO schema_migrations (version) VALUES ('20140314132659');
 
 INSERT INTO schema_migrations (version) VALUES ('20140318131351');
+
+INSERT INTO schema_migrations (version) VALUES ('20140319182117');

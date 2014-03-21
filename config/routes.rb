@@ -195,8 +195,22 @@ Kassi::Application.routes.draw do
         get :locations_json
         get :verification_required
       end
-      resources :images, :controller => :listing_images
       resources :comments
+      resources :listing_images do
+        collection do
+          put :add_from_file
+        end
+      end
+    end
+
+    resources :listing_images do
+      member do
+        get :processed_images
+      end
+      collection do
+        post :create_from_file
+        post :create_from_url
+      end
     end
 
     resources :infos do

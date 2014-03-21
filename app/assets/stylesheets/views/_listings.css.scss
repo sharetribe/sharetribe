@@ -192,3 +192,104 @@ $listing-author-avatar-height: 108;
   margin-top: 0;
   width: 100%;
 }
+
+.listing-images {
+  margin-top: lines(0.5);
+  margin-bottom: lines(1);
+  @include clearfix;
+}
+
+@mixin fileupload-thumbnail($additional-padding: 0) {
+  $available-space: lines(19) - (2 * lines(0.5)) - lines(3) - (2 * $additional-padding); // centered section, 19 lines minus 0.5 padding, lines(3) for padding
+  $width: ($available-space / 3);
+  width: $width; 
+  height: $width;
+  border-radius: 2 * $default-border-radius;
+}
+
+.fileupload-preview {
+  @include fileupload-thumbnail;
+  position: relative;
+
+  &:hover > .fileupload-preview-remove-image {
+    display: block;
+  }
+}
+
+.fileupload-preview-image {
+  @include fileupload-thumbnail;
+}
+
+.fileupload-preview-remove-image {
+  // Position
+  $width: lines(1.5);
+  position: absolute;
+  width: $width;
+  height: $width;
+  right: 0;
+  top: 0;
+
+  // Hide only if no touch device
+  .no-touch & {
+    display: none;
+  }
+
+  // Center
+  line-height: $width;
+  text-align: center;
+
+  // Borders and background
+  border-top-right-radius: 2 * $default-border-radius;
+  border-bottom-left-radius: 2 * $default-border-radius;
+  background-color: rgb(66, 66, 66); // Old browser fallback
+  background-color: rgba(0, 0, 0, 0.5);
+
+  // Color
+  color: darken($background, 20%);
+
+  &:hover {
+    cursor: pointer;
+    color: $background;
+  }
+} 
+
+.fileupload-removing {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include fileupload-thumbnail;
+
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.fileupload-text-container {
+  @include fileupload-thumbnail(lines(0.25));
+
+  color: darken(#EEE, 33%);
+
+  // Center multiline text
+  @include vertical-centering-table-container;
+}
+
+.upload-image-placeholder {
+  @include fileupload-thumbnail;
+
+  float: left;
+
+  // Colors
+  border: #EEE dashed em(3);
+  background-color: #FAFAFA;
+
+  &:hover, &.hover {
+    border-color: darken(#EEE, 10%);
+  }
+}
+
+.fileupload-centered-text {
+  @include vertical-centering-table-content;
+}
+
+.fileupload-small-text {
+  @include small-type;
+}
