@@ -64,18 +64,6 @@ class ListingImagesController < ApplicationController
     end
   end
 
-  # def create_from_url
-  #   image_url = params[:listing_image][:image_url]
-  #   listing_id = params[:listing_image][:listing_id]
-  #   listing_image = ListingImage.new(image: image_url, author: @current_user)
-
-  #   if listing_image.save
-  #     render json: {listing_image_id: listing_image.id, filename: listing_image.image_file_name}, status: 201
-  #   else
-  #     render json: {:errors => listing_image.errors.full_messages}, status: 400
-  #   end
-  # end
-
   def fetch_image
     @listing_image = ListingImage.find_by_id(params[:id])
   end
