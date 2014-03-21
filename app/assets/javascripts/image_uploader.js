@@ -21,7 +21,7 @@ window.ST.imageUploader = function(listings, containerSelector, uploadSelector, 
             updatePreview(result, delay + 500);
           }, delay + 500);
         } else {
-          renderThumbnail({thumbnailUrl: images_result.thumb, removeUrl: result.removeUrl})
+          renderThumbnail({thumbnailUrl: images_result.thumb, removeUrl: result.removeUrl});
         }
       });
     }
@@ -47,14 +47,14 @@ window.ST.imageUploader = function(listings, containerSelector, uploadSelector, 
 
           updatePreview(result, 2000);
         },
-        fail: function(e, data) {
+        fail: function() {
           $(".fileupload-text", $container).text(ST.t("listings.form.images.uploading_failed"));
           $(".fileupload-small-text", $container).empty();
         }
       }).on('dragenter', function() {
-        $(this).addClass('hover')
+        $(this).addClass('hover');
       }).on('dragleave', function() {
-        $(this).removeClass('hover')
+        $(this).removeClass('hover');
       });
     });
   }
@@ -68,7 +68,7 @@ window.ST.imageUploader = function(listings, containerSelector, uploadSelector, 
       $.ajax({
         url: listing.removeUrl,
         type: 'DELETE',
-        success: function(result) {
+        success: function() {
           $container.empty();
           renderUploader();
         },
@@ -78,9 +78,9 @@ window.ST.imageUploader = function(listings, containerSelector, uploadSelector, 
     $container.html($thumbnail);
   }
 
-  if(listings.length == 0) {
+  if(listings.length === 0) {
     renderUploader();
   } else {
     listings.forEach(renderThumbnail);
   }
-}
+};
