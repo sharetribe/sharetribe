@@ -17,14 +17,14 @@
   %meta{ :property => "og:title", :content => "#{@current_community.full_name(locale)} - #{community_slogan}"}
   %meta{ :property => "og:site_name", :content =>"#{@current_community.full_name(locale)}"}
   %meta{ :property => "og:description", :content => community_description(false)}
-
-/[if lt IE 9]
-  = javascript_include_tag "html5shiv-printshiv"
   
 / CSS
 - with_stylesheet_url(@current_community) do |stylesheet_url|
   = stylesheet_link_tag stylesheet_url
-  
+
+/ Modernizr, in the head tag, right after stylesheets, for best performance:
+= javascript_include_tag "modernizr.min"
+
 = csrf_meta_tag
 
 %link{:rel => "image_src", :href => "https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png"}
