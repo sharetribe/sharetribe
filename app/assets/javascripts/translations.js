@@ -28,10 +28,10 @@ window.ST = window.ST || {};
     }
 
     return _.template(store[key], opts || {});
-  }
+  };
 
   exports.loadTranslations = function(translations) {
     _.extend(store, translations);
-  }
+  };
 
 })(window.ST);
