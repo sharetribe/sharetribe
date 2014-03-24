@@ -59,8 +59,10 @@ Feature: Admin edits info pages
     Then I should see "Edit information"
     When I refresh the page
     Then I should see "Verification info"
+
+    When I am logged in as "kassi_testperson2"
     When I follow "Post a new listing"
     Then I should see "Verification info"
-    When "kassi_testperson1" is authorized to post a new listing
+    When "kassi_testperson2" is authorized to post a new listing
     And I follow "Post a new listing"
     Then I should see "Select category"
