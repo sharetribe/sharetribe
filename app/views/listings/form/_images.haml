@@ -32,7 +32,6 @@
 - content_for :image_uploader_js do
   :javascript
     $(function() {
-      debugger;
       var opts = {
         s3: #{s3options},
         saveFromFile: "#{@listing.new_record? ? create_from_file_listing_images_path : add_from_file_listing_listing_images_path(@listing.id)}",

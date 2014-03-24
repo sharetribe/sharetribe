@@ -23,14 +23,12 @@ class ListingImagesController < ApplicationController
   # New listing image while creating a new listing
   # Create image from uploaded file
   def create_from_file
-    binding.pry
     create_image(params[:listing_image], nil)
   end
 
   # New listing image while creating a new listing
   # Create image from given url
   def create_from_url
-    binding.pry
     url = params[:image_url]
 
     if !url.present?
@@ -43,21 +41,19 @@ class ListingImagesController < ApplicationController
   # Add new listing image to existing listing
   # Create image from given url
   def add_from_url
-    binding.pry
     url = params[:image_url]
 
     if !url.present?
       render json: {:errors => "No image URL provided"}, status: 400
     end
 
-    add_image({}, url)
+    add_image(params[:listing_id], {}, url)
   end
 
   # Add new listing image to existing listing
   # Create image from uploaded file
   def add_from_file
-    binding.pry
-    add_image(params[:listing_image], nil)
+    add_image(params[:listing_id], params[:listing_image], nil)
   end
 
   # Return image status and thumbnail url
@@ -84,9 +80,7 @@ class ListingImagesController < ApplicationController
     new_image(listing_image_params, url)
   end
 
-  def add_image(params, url)
-    listing_id = params[:listing_id]
-
+  def add_image(listing_id, params, url)
     if listing_id
       ListingImage.destroy_all(listing_id: listing_id)
     end
@@ -103,9 +97,12 @@ class ListingImagesController < ApplicationController
   def new_image(params, url)
     listing_image = ListingImage.new(params)
 
+    listing_image.image_downloaded = if url.present? then false else true end
+
     if listing_image.save
-      after_save_safg(listing_image, url)
-      binding.pry
+      unless listing_image.image_downloaded
+        listing_image.download_from_url(url)
+      end
       render json: {
         id: listing_image.id, 
         removeUrl: listing_image_path(listing_image),
@@ -113,16 +110,6 @@ class ListingImagesController < ApplicationController
       }, status: 202
     else
       render json: {:errors => listing_image.errors.full_messages}, status: 400
-    end
-  end
-
-  # After image saved to database
-  def after_save_safg(listing_image, url)
-    if url
-      listing_image.download_from_url(url)
-      listing_image.update_attribute(:image_downloaded, false)
-    else
-      listing_image.update_attribute(:image_downloaded, true)
     end
   end
 
@@ -136,5 +123,9 @@ class ListingImagesController < ApplicationController
 
   def listing_image_authorized?
     @listing_image.authorized?(@current_user)
+  end
+
+  def listing_authorized?
+    @listing.author == @current_user
   end
 end
