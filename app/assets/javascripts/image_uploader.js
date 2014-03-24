@@ -1,10 +1,14 @@
 window.ST = window.ST || {};
 
-window.ST.imageUploader = function(listings, containerSelector, uploadSelector, thumbnailSelector, createFromFilePath) {
-  var $container = $(containerSelector);
+window.ST.imageUploader = function(listings, opts) {
+  var $container = $("#image-uploader-container");
+  var $upload = $("#new-image-tmpl");
+  var $thumbnail = $("#thumbnail-image-tmpl");
+  var directUploadToS3 = !!opts.s3
 
   function renderUploader() {
-    var uploadTmpl = _.template($(uploadSelector).html());
+    var fileInputName = directUploadToS3 ? "file" : "listing_image[image]"
+    var uploadTmpl = _.template($upload.html(), {fileInputName: fileInputName});
 
     $container.html(uploadTmpl);
 
@@ -26,31 +30,70 @@ window.ST.imageUploader = function(listings, containerSelector, uploadSelector, 
       });
     }
 
+    function onProgress(e, data) {
+      if(data.total === data.loaded) {
+        processing();
+      } else {
+        var percentage = Math.round((data.loaded / data.total) * 100);
+        $(".fileupload-text", $container).text(ST.t("listings.form.images.percentage_loaded", {percentage: percentage}));
+        $(".fileupload-small-text", $container).empty();
+      }
+    }
+
+    function s3uploadDone(data) {
+      var key = data.formData.key;
+      var filename = data.files[0].name;
+      var s3ImageUrl = opts.s3.uploadPath + key.replace("${filename}", filename)
+      
+      $.ajax({
+        type: "PUT",
+        url: opts.saveFromUrl,
+        data: {
+          image_url: s3ImageUrl
+        },
+        success: function(result) {
+          listingImageSavingDone(result)
+        },
+        fail: imageUploadingFailed
+      });
+    }
+
+    function listingImageSavingDone(result) {
+      $("#listing-image-id").val(result.id);
+
+      _.delay(function() {
+        updatePreview(result, 2000);
+      }, 2000);
+    }
+
+    function imageUploadingFailed() {
+      $(".fileupload-text", $container).text(ST.t("listings.form.images.uploading_failed"));
+      $(".fileupload-small-text", $container).empty();
+    }
+
+    function imageUploadingDone(e, data) {
+      if(directUploadToS3) {
+        s3uploadDone(data);
+      } else {
+        listingImageSavingDone(data.result);
+      }
+    }
+
     $(function() {
       $('#fileupload').fileupload({
         dataType: 'json',
-        url: createFromFilePath,
+        url: directUploadToS3 ? opts.s3.uploadPath : opts.saveFromFile,
         dropZone: $('#fileupload'),
-        progress: function(e, data) {
-          if(data.total === data.loaded) {
-            processing();
-          } else {
-            var percentage = Math.round((data.loaded / data.total) * 100);
-            $(".fileupload-text", $container).text(ST.t("listings.form.images.percentage_loaded", {percentage: percentage}));
-            $(".fileupload-small-text", $container).empty();
+        progress: onProgress,
+        submit: function(e, data) {
+          if(directUploadToS3) {
+            data.formData = _.extend(opts.s3.options, {
+              "Content-Type": data.files[0].type
+            });
           }
         },
-        done: function (e, data) {
-          var result = data.result;
-          $('#listing-image-upload-status').text(result.filename);
-          $("#listing-image-id").val(result.id);
-
-          updatePreview(result, 2000);
-        },
-        fail: function() {
-          $(".fileupload-text", $container).text(ST.t("listings.form.images.uploading_failed"));
-          $(".fileupload-small-text", $container).empty();
-        }
+        done: imageUploadingDone,
+        fail: imageUploadingFailed
       }).on('dragenter', function() {
         $(this).addClass('hover');
       }).on('dragleave', function() {
@@ -60,9 +103,9 @@ window.ST.imageUploader = function(listings, containerSelector, uploadSelector, 
   }
 
   function renderThumbnail(listing) {
-    var $thumbnail = $(_.template($(thumbnailSelector).html(), {thumbnailUrl: listing.thumbnailUrl}));
+    var $thumbnailElement = $(_.template($thumbnail.html(), {thumbnailUrl: listing.thumbnailUrl}));
 
-    $('.fileupload-preview-remove-image', $thumbnail).click(function(e) {
+    $('.fileupload-preview-remove-image', $thumbnailElement).click(function(e) {
       e.preventDefault();
 
       $(".fileupload-removing").show();
@@ -78,7 +121,7 @@ window.ST.imageUploader = function(listings, containerSelector, uploadSelector, 
       });
     });
 
-    $container.html($thumbnail);
+    $container.html($thumbnailElement);
   }
 
   if(listings.length === 0) {

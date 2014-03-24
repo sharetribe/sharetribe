@@ -182,10 +182,6 @@ default: &default_settings
   merchant_api_user_id: 
   merchant_api_password:
   merchant_registration_mode:
-    
-  # Processing uploaded images can be done in a background process, and that is recommended for
-  # environments where long processing times can cause timeouts (e.g. Heroku)
-  delayed_image_processing: false
   
   # Logger type
   # the "normal" value is good by default. If you are using Heroku + Unicorn, you'll need to set this to "stdout"
@@ -268,6 +264,3 @@ test:
 
   # never create merchant accounts in tests
   merchant_registration_mode: stub
-
-  # Keep tests simpler with immediate image processing
-  delayed_image_processing: false

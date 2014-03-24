@@ -199,17 +199,18 @@ Kassi::Application.routes.draw do
       resources :listing_images do
         collection do
           put :add_from_file
+          put :add_from_url
         end
       end
     end
 
     resources :listing_images do
       member do
-        get :processed_images
+        get :image_status
       end
       collection do
         post :create_from_file
-        post :create_from_url
+        put :create_from_url
       end
     end
 

@@ -9,8 +9,7 @@
           .fileupload-text
             = t(".select_file")
           .fileupload-small-text
-      %input#fileupload{type: "file", name: "listing_image[image]"}
-    %img#listing-image-upload-status
+      %input#fileupload{type: "file", name: "${fileInputName}"}
 
   %script{type: "text/template", class: "template", id: "thumbnail-image-tmpl"}
     .fileupload-preview
@@ -24,13 +23,21 @@
 
 = js_t ["listings.form.images.processing", "listings.form.images.this_may_take_a_while", "listings.form.images.percentage_loaded", "listings.form.images.uploading_failed"], run_js_immediately
 
+- if ApplicationHelper.use_s3?
+  - s3uploader = S3Uploader.new
+  - s3options = { uploadPath: s3uploader.url, options: s3uploader.fields}.to_json
+- else
+  - s3options = nil.to_json
+
 - content_for :image_uploader_js do
   :javascript
     $(function() {
-      var container = $("#image-uploader-container");
-      var upload = $("#new-image-tmpl");
-      var thumbnail = $("#thumbnail-image-tmpl");
-      var createFromFilePath = '#{@listing.new_record? ? create_from_file_listing_images_path : add_from_file_listing_listing_images_path(@listing.id)}';
+      debugger;
+      var opts = {
+        s3: #{s3options},
+        saveFromFile: "#{@listing.new_record? ? create_from_file_listing_images_path : add_from_file_listing_listing_images_path(@listing.id)}",
+        saveFromUrl: "#{@listing.new_record? ? create_from_url_listing_images_path : add_from_url_listing_listing_images_path(@listing.id)}"
+      }
 
       var listings = #{ @listing.listing_images.map do |listing_image|
         {
@@ -41,7 +48,7 @@
         end.to_json
       }
 
-      ST.imageUploader(listings, container, upload, thumbnail, createFromFilePath);
+      ST.imageUploader(listings, opts);
     });
 
 - if run_js_immediately
