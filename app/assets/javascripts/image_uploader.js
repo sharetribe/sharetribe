@@ -4,10 +4,10 @@ window.ST.imageUploader = function(listings, opts) {
   var $container = $("#image-uploader-container");
   var $upload = $("#new-image-tmpl");
   var $thumbnail = $("#thumbnail-image-tmpl");
-  var directUploadToS3 = !!opts.s3
+  var directUploadToS3 = !!opts.s3;
 
   function renderUploader() {
-    var fileInputName = directUploadToS3 ? "file" : "listing_image[image]"
+    var fileInputName = directUploadToS3 ? "file" : "listing_image[image]";
     var uploadTmpl = _.template($upload.html(), {fileInputName: fileInputName});
 
     $container.html(uploadTmpl);
@@ -43,7 +43,7 @@ window.ST.imageUploader = function(listings, opts) {
     function s3uploadDone(data) {
       var key = data.formData.key;
       var filename = data.files[0].name;
-      var s3ImageUrl = opts.s3.uploadPath + key.replace("${filename}", filename)
+      var s3ImageUrl = opts.s3.uploadPath + key.replace("${filename}", filename);
       
       $.ajax({
         type: "PUT",
@@ -52,7 +52,7 @@ window.ST.imageUploader = function(listings, opts) {
           image_url: s3ImageUrl
         },
         success: function(result) {
-          listingImageSavingDone(result)
+          listingImageSavingDone(result);
         },
         fail: imageUploadingFailed
       });
