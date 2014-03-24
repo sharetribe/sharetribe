@@ -6,7 +6,6 @@ class S3Uploader
     @bucket = APP_CONFIG.s3_bucket_name
     @acl = "public-read"
     @expiration = 10.hours.from_now
-    @max_file_size = 8.megabytes
   end
 
   def fields
@@ -43,7 +42,7 @@ class S3Uploader
       conditions: [
         ["starts-with", "$key", ""],
         ["starts-with", "$Content-Type", ""],
-        ["content-length-range", 0, @max_file_size],
+        ["content-length-range", 0, APP_CONFIG.max_image_filesize],
         {bucket: @bucket},
         {acl: @acl}
       ]

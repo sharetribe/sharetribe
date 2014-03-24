@@ -15,7 +15,11 @@
 //= require jquery.transit.min
 //= require jquery.placeholder
 //= require jquery.ui.widget
+//= require load-image.min.js
+//= require canvas-to-blob.min.js
 //= require jquery.fileupload
+//= require jquery.fileupload-process
+//= require jquery.fileupload-image
 //= require fastclick.min
 //= require infobubble
 //= require sharetribe_common

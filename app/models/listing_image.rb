@@ -7,18 +7,18 @@ class ListingImage < ActiveRecord::Base
         :small_3x2 => "240x160#",
         :medium => "360x270#",
         :thumb => "120x120#",
-        :original => "1600x1600>",
+        :original => "#{APP_CONFIG.original_image_width}x#{APP_CONFIG.original_image_height}>",
         :big => "800x800>",
         :email => "150x100#"}
 
   before_save :extract_dimensions
 
   process_in_background :image, :processing_image_url => "/assets/listing_image/processing.png"
-  validates_attachment_size :image, :less_than => 8.megabytes# , :unless => Proc.new {|model| model.image.nil? }
+  validates_attachment_size :image, :less_than => APP_CONFIG.max_image_filesize, :unless => Proc.new {|model| model.image.nil? }
   validates_attachment_content_type :image,
                                     #the two last types are sent by IE.
-                                    :content_type => ["image/jpeg", "image/png", "image/gif", "image/pjpeg", "image/x-png"]# ,
-                                    # :unless => Proc.new {|model| model.image.nil? }
+                                    :content_type => ["image/jpeg", "image/png", "image/gif", "image/pjpeg", "image/x-png"],
+                                    :unless => Proc.new {|model| model.image.nil? }
 
   # Retrieves dimensions for image assets
   # @note Do this after resize operations to account for auto-orientation.
