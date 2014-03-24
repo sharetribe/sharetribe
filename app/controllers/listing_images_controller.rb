@@ -101,7 +101,7 @@ class ListingImagesController < ApplicationController
 
     if listing_image.save
       unless listing_image.image_downloaded
-        listing_image.download_from_url(url)
+        listing_image.delay.download_from_url(url)
       end
       render json: {
         id: listing_image.id, 

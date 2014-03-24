@@ -61,9 +61,7 @@ window.ST.imageUploader = function(listings, opts) {
     function listingImageSavingDone(result) {
       $("#listing-image-id").val(result.id);
 
-      _.delay(function() {
-        updatePreview(result, 2000);
-      }, 2000);
+      updatePreview(result, 2000);
     }
 
     function imageUploadingFailed() {

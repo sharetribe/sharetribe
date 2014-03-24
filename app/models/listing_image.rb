@@ -77,12 +77,6 @@ class ListingImage < ActiveRecord::Base
   end
 
   def download_from_url(url)
-    self.delay._download_from_url(url)
-  end
-
-  private
-
-  def _download_from_url(url)
     self.image = URI.parse(url)
     self.update_attribute(:image_downloaded, true)
   end
