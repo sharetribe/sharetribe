@@ -1054,6 +1054,8 @@ ru:
       settings: Настройки
       sign_up: Регистрация
     notifications:
+      listing_could_not_be_saved: ~
+      contact_admin_link_text: ~
       test_welcome_email_delivered_to: ~
       something_went_wrong: ~
       community_updated: "Информация о сообществе обновлена."
@@ -1228,6 +1230,11 @@ ru:
         no_file_selected: "Файл не выбран"
         remove_image: "Удалить изображение"
         select_file: "Выбрать файл"
+        removing: ~
+        processing: ~
+        this_may_take_a_while: ~
+        percentage_loaded: ~
+        uploading_failed: ~
       location:
         location: Местоположение
       price:

@@ -75,6 +75,7 @@ module Kassi
           ["Svenska", "sv"],
           ["Italiano", "it"],
           ["Hrvatski", "hr"],
+          ["Português do Brasil", "pt-BR"],
           
           # Customization languages
           ["English", "en-rc"],

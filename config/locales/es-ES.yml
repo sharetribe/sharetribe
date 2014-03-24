@@ -1059,6 +1059,8 @@ es-ES:
       settings: Opciones
       sign_up: Registrarse
     notifications:
+      listing_could_not_be_saved: ~
+      contact_admin_link_text: ~
       test_welcome_email_delivered_to: ~
       something_went_wrong: ~
       community_updated: "Información de la tribu actualizada."
@@ -1233,6 +1235,11 @@ es-ES:
         no_file_selected: "No hay archivos seleccionados"
         remove_image: "Quitar imagen"
         select_file: "Eligir Archivo"
+        removing: ~
+        processing: ~
+        this_may_take_a_while: ~
+        percentage_loaded: ~
+        uploading_failed: ~
       location:
         location: Lugar
       price:

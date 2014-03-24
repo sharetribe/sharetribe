@@ -1054,6 +1054,8 @@ el:
       settings: Ρυθμίσεις
       sign_up: Εγγραφή
     notifications:
+      listing_could_not_be_saved: ~
+      contact_admin_link_text: ~
       test_welcome_email_delivered_to: "Ένα δοκιμαστικό μήνυμα στάλθηκε στο %{email}."
       something_went_wrong: "Κάτι πήγε στραβά"
       community_updated: "Οι πληροφορίες του tribe ενημερώθηκαν."
@@ -1228,6 +1230,11 @@ el:
         no_file_selected: "Δεν έχει επιλεγεί αρχείο"
         remove_image: "Κατάργηση εικόνας"
         select_file: "Επιλέξτε αρχείο"
+        removing: ~
+        processing: ~
+        this_may_take_a_while: ~
+        percentage_loaded: ~
+        uploading_failed: ~
       location:
         location: Τοποθεσία
       price:

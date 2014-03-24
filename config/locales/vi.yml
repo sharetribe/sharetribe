@@ -1054,6 +1054,8 @@ vi:
       settings: "Cài đặt"
       sign_up: "Đăng kí"
     notifications:
+      listing_could_not_be_saved: ~
+      contact_admin_link_text: ~
       test_welcome_email_delivered_to: ~
       something_went_wrong: ~
       community_updated: ~
@@ -1228,6 +1230,11 @@ vi:
         no_file_selected: "Không có tập tin được chọn"
         remove_image: "Loại bỏ ảnh"
         select_file: "Chọ tập tin"
+        removing: ~
+        processing: ~
+        this_may_take_a_while: ~
+        percentage_loaded: ~
+        uploading_failed: ~
       location:
         location: "Địa điểm"
       price:

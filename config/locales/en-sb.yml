@@ -1210,6 +1210,8 @@ en-sb:
       settings: ~
       sign_up: ~
     notifications:
+      listing_could_not_be_saved: ~
+      contact_admin_link_text: ~
       test_welcome_email_delivered_to: ~
       something_went_wrong: ~
       community_updated: ~
@@ -1384,6 +1386,11 @@ en-sb:
         no_file_selected: ~
         remove_image: ~
         select_file: ~
+        removing: ~
+        processing: ~
+        this_may_take_a_while: ~
+        percentage_loaded: ~
+        uploading_failed: ~
       location:
         location: ~
       price:

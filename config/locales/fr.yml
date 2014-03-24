@@ -1069,6 +1069,8 @@ fr:
       settings: Paramètres
       sign_up: S'inscrire
     notifications:
+      listing_could_not_be_saved: "L'annonce n'as pas pu être sauvegardée. Veuillez essayer de nouveau. Si le problème persiste, veuillez %{contact_admin_link}."
+      contact_admin_link_text: "contacter l'administrateur"
       test_welcome_email_delivered_to: "Un email de test a été envoyé à %{email}."
       something_went_wrong: "Quelque chose s'est mal passé."
       community_updated: "La mise à jour des informations de la tribu a réussi."
@@ -1243,6 +1245,11 @@ fr:
         no_file_selected: "Aucun fichier sélectionné"
         remove_image: "Supprimer l'image"
         select_file: "Choisir une image"
+        removing: Suppression...
+        processing: Traitement...
+        this_may_take_a_while: "(cela peut prendre un moment)"
+        percentage_loaded: "%{percentage} %"
+        uploading_failed: "Erreur lors de l'envoi d'image"
       location:
         location: Localisation
       price:

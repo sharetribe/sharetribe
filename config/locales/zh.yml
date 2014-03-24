@@ -1054,6 +1054,8 @@ zh:
       settings: 设置
       sign_up: 注册
     notifications:
+      listing_could_not_be_saved: ~
+      contact_admin_link_text: ~
       test_welcome_email_delivered_to: ~
       something_went_wrong: ~
       community_updated: ~
@@ -1228,6 +1230,11 @@ zh:
         no_file_selected: 未选择文件
         remove_image: 移除图片
         select_file: 选择文件
+        removing: ~
+        processing: ~
+        this_may_take_a_while: ~
+        percentage_loaded: ~
+        uploading_failed: ~
       location:
         location: 地点
       price:

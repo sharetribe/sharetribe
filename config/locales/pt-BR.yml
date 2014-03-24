@@ -165,44 +165,44 @@ pt-BR:
         email_sent: "E-mail enviado."
     news_items:
       index:
-        news_items: ~
+        news_items: "Artigos recentes"
         create_news_item: "Criar um artigo"
-        no_news: ~
+        no_news: "Nenhuma notícia"
         loading_more_news: "Carregar mais notícias"
       new:
         new_news_item: "Criar um artigo"
-        edit_news_item: ~
+        edit_news_item: "Editar item"
         index_news_item: "Criar um artigo"
         title: "Título:"
         content: "Conteúdo:"
-        save_news_item: ~
+        save_news_item: "Salvar item"
       news_item:
-        edit_news_item: ~
-        delete_news_item: ~
+        edit_news_item: Editar
+        delete_news_item: Apagar
     polls:
       index:
         polls: ~
         create_poll: "Criar uma enquete"
         no_polls: "Sem enquetes"
       edit_poll_links:
-        close_poll: ~
-        open_poll: ~
-        edit_poll: ~
-        delete_poll: ~
+        close_poll: Fechar
+        open_poll: Abrir
+        edit_poll: Editar
+        delete_poll: Apagar
       new:
-        add_option: ~
+        add_option: "Adicionar opção"
         new_poll: "Criar uma enquete"
         edit_poll: ~
-        title: ~
+        title: "Título:"
         save_poll: ~
       new_option:
-        option: ~
+        option: Opção
         remove_option: "Remover opção"
       show:
         edit_poll: ~
       poll_status:
-        open: ~
-        closed: ~
+        open: Abrir
+        closed: Fechado
     transaction_types:
       sell: Vendendo
       rent: ~
@@ -461,7 +461,7 @@ pt-BR:
     done:
       done: ~
       tribe_created_successfully: ~
-      go_to_your_tribe: ~
+      go_to_your_tribe: "Vá para a sua tribo"
       we_will_contact_you_about_invoicing: ~
     index:
       find_your_local_tribe: ~
@@ -471,10 +471,10 @@ pt-BR:
       select_your_plan: "Selecione seu plano"
       pick_one_of_the_options_below: ~
       create_for_free: "Crie de graça"
-      contact_us: ~
-      free_plan: ~
+      contact_us: Contacte-nos
+      free_plan: "Plano gratuito"
       max_members: ~
-      premium_plan: ~
+      premium_plan: "Plano premium"
       care_free_user_support: ~
       create_your_tribe: "Crie sua tribo"
       professional_plan: ~
@@ -500,19 +500,19 @@ pt-BR:
     new_tribe_form:
       create_a_tribe_in_a_minute: ~
       welcome_now_create_your_tribe: ~
-      name_of_your_tribe: ~
-      web_address_of_your_tribe: ~
+      name_of_your_tribe: "Nome da sua tribo"
+      web_address_of_your_tribe: "Endereço da Web da sua tribo"
       slogan_of_your_tribe: ~
-      describe_your_tribe: ~
+      describe_your_tribe: "Slogan da sua tribo"
       create_your_tribe: "Crie sua tribo!"
       domain_invalid: ~
       domain_taken: ~
-      address: ~
-      select_main_language_of_your_tribe: ~
+      address: "Localização da sua tribo"
+      select_main_language_of_your_tribe: "Selecione o idioma principal da sua tribo"
       language: Idioma
       restrict_tribe_to_invited_people: ~
     signup_form:
-      create_an_account: ~
+      create_an_account: "Crie uma conta para si mesmo"
       to_create_a_tribe_you_must_first_create_sharetribe_account: ~
       log_in_with_your_existing_account: ~
       your_email: "Seu endereço de email"
@@ -584,9 +584,9 @@ pt-BR:
       blog: ~
       code: "Código fonte"
       issue_tracker: ~
-      product_of: ~
-      language: ~
-      new: ~
+      product_of: "Sharetribe é um produto de"
+      language: "Idioma:"
+      new: NOVO!
       new_text: ~
       want_to_know_more: ~
       read_our_faq: ~
@@ -653,7 +653,7 @@ pt-BR:
     confirmation_instructions:
       confirmation_instructions_signature: ~
       welcome_to_kassi: ~
-      need_to_confirm: ~
+      need_to_confirm: "Você precisa confirmar o seu endereço de e-mail."
       confirmation_link_text: ~
       or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
@@ -687,7 +687,7 @@ pt-BR:
     invitation_to_kassi:
       hi: Oi!
       you_have_been_invited_to_kassi: ~
-      here_is_a_message_from: ~
+      here_is_a_message_from: "Aqui está uma mensagem pessoal de %{inviter}"
       join_now: "Ingressar agora"
       invitation_code: ~
     new_badge:
@@ -743,16 +743,16 @@ pt-BR:
       weekly_news_from_kassi: ~
       hi: "Ola %{name},"
       update_on_what_is_happening: ~
-      newest_offers: ~
-      newest_requests: ~
+      newest_offers: "O que as pessoas oferecem atualmente aos outros"
+      newest_requests: "O que as pessoas precisam atualmente"
       could_you_offer_something: ~
-      add: ~
+      add: Adicionar
       an_offer: "uma oferta"
       a_request: ~
       to_kassi: ~
-      check_everything_that_others_are: ~
+      check_everything_that_others_are: "verifique tudo o que os outros são"
       offering: ofertando
-      requesting: ~
+      requesting: solicitando
       text_version_text: ~
       occasional_newsletter_title: ~
     reply_to_contact_request:
@@ -846,7 +846,7 @@ pt-BR:
       logged_in_to_kassi: ~
     comment:
       commented: ~
-      offer_partitive: ~
+      offer_partitive: oferta
       request_partitive: requisição
   header:
     about: Sobre
@@ -916,13 +916,13 @@ pt-BR:
       post_new_listing: ~
       are_offering: oferta
       add_news_item: "Adicionar um artigo"
-      inform_others_about_events: ~
+      inform_others_about_events: "Últimas notícias e eventos da comunidade."
       lend_rent_help_carpool: "Venda, empreste, ajude, compartilhe caronas"
       loading_more_content: "Carregando mais conteúdo"
       more_events: "Mais eventos..."
       news: Notícia
-      no_news: ~
-      more_news: ~
+      no_news: "Nenhuma notícia"
+      more_news: "Mais notícias"
       or: e
       or_see_what_the_others: "...ou veja o que os outros"
       recent_events: "Eventos recentes"
@@ -935,11 +935,11 @@ pt-BR:
       filter: Filtro
       this_is_private_community: ~
     invitation_form:
-      invite_your_friends: ~
+      invite_your_friends: "Convide seus amigos para %{service_name}!"
       invite_your_neighbors: ~
       email: ~
-      message: ~
-      send_invitation: ~
+      message: "Uma mensagem pessoal"
+      send_invitation: "Enviar convite"
       add_as_many_emails_as_you_want: ~
       invitation_emails_field_placeholder: ~
       invitation_message_field_placeholder: ~
@@ -948,20 +948,20 @@ pt-BR:
       review: ~
       reviews: resenhas
     news_item:
-      show_less: ~
+      show_less: "Mostrar menos"
       show_more: ~
     poll_form:
       poll: ~
       comment: "Comentário:"
-      answer: ~
-      results: ~
-      poll_answer: ~
+      answer: Atender
+      results: Resultados
+      poll_answer: Atender
       poll_answers: respostas
     profile_info_empty_notification:
-      add_your_info: ~
-      add_a_profile_picture: ~
+      add_your_info: "Adicione sua informação de contato"
+      add_a_profile_picture: "Adicionar uma imagem no perfil"
       you_have_not_added_your_info: ~
-      add_your_info_link: ~
+      add_your_info_link: "Adicione sua informação agora"
     recent_listing:
       please_offer: Oferta
       comment: Comentar
@@ -1026,7 +1026,7 @@ pt-BR:
       about: Sobre
       how_to_use: Ajuda
       info_about_kassi: "Informações sobre %{service_name}"
-      news: ~
+      news: Notícia
       register_details: Privacidade
       terms: "Termos de uso"
     logged_in:
@@ -1054,11 +1054,13 @@ pt-BR:
       settings: Configurações
       sign_up: Registrar
     notifications:
+      listing_could_not_be_saved: ~
+      contact_admin_link_text: ~
       test_welcome_email_delivered_to: "Um e-mail de teste foi enviado para %{email}"
       something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
-      account_creation_succesful_you_still_need_to_confirm_your_email: ~
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Conta criada com sucesso. Em seguida, você precisa confirmar seu endereço de e-mail."
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       comment_cannot_be_empty: "Comentários não podem ser em branco"
       comment_sent: "Comentário enviado"
@@ -1067,7 +1069,7 @@ pt-BR:
       could_not_get_email_from_facebook: ~
       create_new_listing: ~
       create_one_here: "crie um aqui"
-      email_confirmation_sent_to_new_address: ~
+      email_confirmation_sent_to_new_address: "E-mail de confirmação é agora enviado para o novo endereço."
       email_not_found: "O email que você forneceu não existe no banco de dados do %{service_name}."
       error_with_session: "Erro na sessão."
       feedback_considered_spam: "Feedback não gravado, devido a sua formatação. Tente novamente ou use o fórum de feedback."
@@ -1075,15 +1077,15 @@ pt-BR:
       feedback_saved: "Muito obrigado pelo seu feedback! Nós retornaremos mais breve possível."
       feedback_sent_to: "Feedback enviado para %{target_person}."
       feedback_skipped: "Feedback pulado."
-      invitation_cannot_be_sent: ~
-      invitation_sent: ~
+      invitation_cannot_be_sent: "Convite não pôde ser enviado"
+      invitation_sent: "Convite enviado com sucesso"
       inviting_new_users_is_not_allowed_in_this_community: ~
       login_again: "Por favor, entre novamente."
       login_failed: "Falha no login. Por favor, digite as credenciais corretas."
       account_creation_successful: ~
       account_deleted: ~
       login_successful: "Bem vindo, %{person_name}"
-      logout_successful: ~
+      logout_successful: "Agora você foi desconectado de %{service_name}. Vejo vocês em breve!"
       news_item_created: ~
       news_item_creation_failed: "Criação de artigo falhou"
       news_item_update_failed: "Atualização de artigo falhou"
@@ -1096,9 +1098,9 @@ pt-BR:
       offer_rejected: "Oferta rejeitada"
       offer_canceled: "Oferta cancelada"
       listing_updated_successfully: ~
-      only_kassi_administrators_can_access_this_area: ~
-      only_listing_author_can_close_a_listing: ~
-      only_listing_author_can_edit_a_listing: ~
+      only_kassi_administrators_can_access_this_area: "Só %{service_name} administradores podem aceder a esta área"
+      only_listing_author_can_close_a_listing: "Listando autor só pode fechar uma lista"
+      only_listing_author_can_edit_a_listing: "Só listando autor pode editar uma listagem"
       payment_successful: ~
       payment_canceled: "Pagamento cancelado"
       error_in_payment: ~
@@ -1125,19 +1127,19 @@ pt-BR:
       request_rejected: "Pedido rejeitado"
       request_canceled: ~
       message_sent: "Mensagem enviada"
-      this_content_is_not_available_in_this_community: ~
-      unknown_error: ~
-      update_error: ~
+      this_content_is_not_available_in_this_community: "Este conteúdo não está disponível nesta comunidade."
+      unknown_error: "Erro desconhecido. Por favor use o link Fale conosco para enviar detalhes sobre o que aconteceu."
+      update_error: "Ocorreu um erro ao tentar atualizar as suas informações, por favor, tente novamente"
       welcome_message: ~
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Você não está autorizado a fazer comentários sobre este evento"
       you_are_not_authorized_to_do_this: "Você não está autorizado a fazer isso"
       you_are_not_authorized_to_view_this_content: "Você não está autorizado a visualizar este conteúdo"
       send_instructions: ~
-      you_cannot_reply_to_a_closed_offer: ~
-      you_cannot_reply_to_a_closed_request: ~
+      you_cannot_reply_to_a_closed_offer: "Você não pode responder a uma oferta fechada"
+      you_cannot_reply_to_a_closed_request: "Você não pode responder a um pedido fechado"
       you_cannot_send_message_to_yourself: ~
       you_followed_listing: ~
-      you_have_already_given_feedback_about_this_event: ~
+      you_have_already_given_feedback_about_this_event: "Você já deixou sua opinião sobre este evento"
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_listing: ~
@@ -1145,15 +1147,15 @@ pt-BR:
       you_must_log_in_to_give_feedback: "Você deve logar para escrever um feedback"
       you_must_log_in_to_invite_new_users: ~
       you_must_log_in_to_send_a_comment: "Você deve logar para enviar um novo comentário"
-      you_must_log_in_to_send_a_message: ~
+      you_must_log_in_to_send_a_message: "Você deve fazer login em %{service_name} para enviar uma mensagem para outro usuário."
       you_must_log_in_to_view_this_content: "Você deve logar para visualizar este conteúdo"
-      you_must_log_in_to_view_this_page: ~
-      you_must_log_in_to_view_your_inbox: ~
-      you_must_log_in_to_view_your_settings: ~
+      you_must_log_in_to_view_this_page: "Você deve fazer login para ver esta página"
+      you_must_log_in_to_view_your_inbox: "Você deve fazer login em %{service_name} para ver sua caixa de entrada."
+      you_must_log_in_to_view_your_settings: "Você deve fazer login em %{service_name} para exibir suas configurações."
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
-      you_need_to_confirm_your_account_first: ~
+      you_need_to_confirm_your_account_first: "Você precisa confirmar o seu e-mail."
       you_must_fill_all_the_fields: "Você deve preencher todos os campos"
       you_unfollowed_listing: ~
       joining_community_failed: ~
@@ -1195,8 +1197,8 @@ pt-BR:
       edit_listing: "Editar listagem"
       reopen_listing: "Reabrir listagem"
     follow_links:
-      follow: ~
-      unfollow: ~
+      follow: "Obter e-mails sobre novos comentários"
+      unfollow: "Não receber e-mails sobre novos comentários"
     form:
       custom_field_partials:
         dropdown:
@@ -1228,6 +1230,11 @@ pt-BR:
         no_file_selected: "Nenhum arquivo selecionado"
         remove_image: "Remover imagem"
         select_file: "Selecione arquivo"
+        removing: ~
+        processing: ~
+        this_may_take_a_while: ~
+        percentage_loaded: ~
+        uploading_failed: ~
       location:
         location: Local
       price:
@@ -1245,7 +1252,7 @@ pt-BR:
       send_button:
         save_listing: "Gravar listagem"
       share_type:
-        select: ~
+        select: Selecionar
         borrow: ~
         buy: Comprando
         give_away: ~
@@ -1270,14 +1277,14 @@ pt-BR:
         for_the_time_being: ~
       visibility:
         all_communities: ~
-        this_community: ~
-        visibility: ~
+        this_community: "Somente os membros desta tribo"
+        visibility: Visibilidade
       privacy:
         privacy: Privacidade
         private: ~
         public: ~
     help_texts:
-      help_share_type_title: ~
+      help_share_type_title: "Tipo da oferta ou solicitação"
       help_tags_title: Tags
       help_valid_until_title: "Data expiração"
     index:
@@ -1333,7 +1340,7 @@ pt-BR:
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
-      comments: ~
+      comments: "Discussão pública"
       contact_by_phone: ~
       contact: Contato
       favor_offer: "Oferecer serviço"
@@ -1341,7 +1348,7 @@ pt-BR:
       inquiry: Inquérito
       item_offer_trade: ~
       item_request_trade: "Trocar requisição"
-      no_description: ~
+      no_description: "Este anúncio não tem descrição"
       no_image: "Sem imagem"
       no_reviews: ~
       offer: Oferta
@@ -1357,7 +1364,7 @@ pt-BR:
       share_types_offer: "Tipo de oferta"
       share_types_request: "Tipo de solicitação"
       tags: Tags
-      time: ~
+      time: hora
       times: ~
       times_viewed: Visualizado
       processing_uploaded_image: ~
@@ -1387,7 +1394,7 @@ pt-BR:
       requests: Solicitações
       rideshare: ~
       search_verb: Buscar
-      you_have_something_others_do_not: ~
+      you_have_something_others_do_not: "Tem algo a oferecer?"
     please_comment: Comentar
   news_items:
     index:
@@ -1395,7 +1402,7 @@ pt-BR:
     news_item:
       delete_news_item: "Remover artigo"
   okl:
-    member_id: ~
+    member_id: "ID de Membro"
     member_id_or_email: ~
   payments:
     new:
@@ -1442,12 +1449,12 @@ pt-BR:
       you_do_not_yet_have_this_badge: ~
     edit_links:
       activate: Ativar
-      deactivate: ~
+      deactivate: Desativar
     help_texts:
       badges_description_title: ~
       feedback_description_title: Reposta
       help_captcha_title: "Você é um humano?"
-      help_invitation_code_title: ~
+      help_invitation_code_title: "Você precisa de um convite para se juntar a"
       terms_title: "%{service_name} termos de uso"
       trustcloud_description_title: ~
       trustcloud_description_text: ~
@@ -1466,31 +1473,31 @@ pt-BR:
       email_not_allowed: ~
       enter_captcha: "Eu sou humano:"
       family_name: ~
-      given_name: ~
+      given_name: "Primeiro Nome"
       i_accept_the: "Eu aceito o"
-      invalid_invitation_code: ~
+      invalid_invitation_code: "O código de convite não é válido."
       invitation_code: ~
       not_required: ", não necessaria"
       password_again: "Confirme a senha"
       show_my_name_to_others: ~
-      sign_up: ~
-      terms: ~
-      username_is_in_use: ~
-      username_is_invalid: ~
-      visible_only_to_you: ~
-      visible_to_everybody: ~
+      sign_up: "Criar em %{service_name} uma nova conta"
+      terms: "termos de uso"
+      username_is_in_use: "Este nome de usuário já está em uso."
+      username_is_invalid: "Nome de usuário é inválido. Os caracteres permitidos são letras, números e sublinhado."
+      visible_only_to_you: "visível apenas para você e para o administrador comunidade"
+      visible_to_everybody: "visível para todos"
       create_account_with_facebook: "Criar uma conta no Facebook"
       or_create_new_account_without_facebook: ~
     not_member:
-      explanation_text: ~
-      read_more_about_kassi_communities: ~
-      this_user_does_not_belong_to_this_community: ~
+      explanation_text: "Você está atualmente em %{community} comunidade. Você tentou ver o perfil de um usuário que pertence a outra comunidade Sharetribe. Você não pode acessar este perfil através de %{community} comunidade."
+      read_more_about_kassi_communities: "Leia mais sobre comunidades Sharetribe"
+      this_user_does_not_belong_to_this_community: "Este usuário não pertence a %{community} comunidade"
     profile_badge:
-      active_member_bronze: ~
+      active_member_bronze: "Membro ativo (bronze)"
       active_member_bronze_description: ~
-      active_member_gold: ~
+      active_member_gold: "Membro ativo (ouro)"
       active_member_gold_description: ~
-      active_member_silver: ~
+      active_member_silver: "Membro ativo (prata)"
       active_member_silver_description: ~
       chauffer_bronze: ~
       chauffer_bronze_description: ~
@@ -1504,26 +1511,26 @@ pt-BR:
       commentator_gold_description: ~
       commentator_silver: ~
       commentator_silver_description: ~
-      enthusiast_bronze: ~
+      enthusiast_bronze: "Entusiasta (bronze)"
       enthusiast_bronze_description: ~
-      enthusiast_gold: ~
+      enthusiast_gold: "Entusiasta (ouro)"
       enthusiast_gold_description: ~
-      enthusiast_silver: ~
-      enthusiast_silver_description: ~
-      first_transaction: ~
+      enthusiast_silver: "Entusiasta (prata)"
+      enthusiast_silver_description: "%{service_name} é uma parte de sua rotina diária: você já tem 30 visitas no serviço."
+      first_transaction: "Primeiro evento"
       first_transaction_description: ~
       generous_bronze: ~
       generous_bronze_description: ~
       generous_gold: ~
       generous_gold_description: ~
       generous_silver: ~
-      generous_silver_description: ~
+      generous_silver_description: "Você gostaria de compartilhar seus itens com os outros. 6 itens emprestados ou doados, ótimo!"
       helper_bronze: ~
       helper_bronze_description: ~
       helper_gold: ~
       helper_gold_description: ~
       helper_silver: ~
-      helper_silver_description: ~
+      helper_silver_description: "Você gosta de passar seu tempo ajudando os outros: 6 Serviços feito!"
       jack_of_all_trades: ~
       jack_of_all_trades_description: ~
       lender_bronze: ~
@@ -1548,11 +1555,11 @@ pt-BR:
       rookie_description: ~
       santa: ~
       santa_description: ~
-      taxi_stand_bronze: ~
+      taxi_stand_bronze: "Ponto de táxi (bronze)"
       taxi_stand_bronze_description: ~
-      taxi_stand_gold: ~
+      taxi_stand_gold: "Ponto de táxi (ouro)"
       taxi_stand_gold_description: ~
-      taxi_stand_silver: ~
+      taxi_stand_silver: "Ponto de táxi (prata)"
       taxi_stand_silver_description: ~
       volunteer_bronze: ~
       volunteer_bronze_description: ~
@@ -1562,40 +1569,40 @@ pt-BR:
       volunteer_silver_description: ~
     profile_feedback:
       as_expected: "Como esperado"
-      exceeded_expectations: ~
+      exceeded_expectations: "Muito melhor do que o esperado"
       grade: ~
       and_gave_following_feedback: ~
-      less_than_expected: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
+      less_than_expected: "Pior do que o esperado"
+      slightly_better_than_expected: "Ligeiramente melhor do que o esperado"
+      slightly_less_than_expected: "Um pouco pior do que o esperado"
     profile_listings:
       show_also_closed: ~
       show_only_open: "Exibir apenas abertos"
       no_image: "Sem imagem"
     show:
       contact: ~
-      about_me: ~
-      add_description: ~
-      add_location: ~
-      add_phone_number: ~
-      address: ~
+      about_me: "Sobre mim:"
+      add_description: "Diga algo sobre si mesmo"
+      add_location: "Adicionar local"
+      add_phone_number: "Adicionar número de telefone"
+      address: "Localização:"
       as_expected: "Como esperado"
-      edit_profile_info: ~
-      exceeded_expectations: ~
+      edit_profile_info: "Editar o perfil"
+      exceeded_expectations: "Excedeu as expectativas"
       positive: positivo
-      hide_description: ~
-      joined_this_community: ~
-      was_last_seen: ~
-      was_invited_by: ~
-      less_than_expected: ~
+      hide_description: "mostrar menos"
+      joined_this_community: "Cadastrado %{time_ago}"
+      was_last_seen: "Visto pela última vez %{time_ago}"
+      was_invited_by: "Convidado por %{inviter_name}"
+      less_than_expected: "Pior do que o esperado"
       phone_number: "Telefone:"
       show_all_badges: ~
-      show_all_feedback: ~
-      show_all_testimonials: ~
-      show_full_description: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      what_are_these: ~
+      show_all_feedback: "Mostrar todos os comentários"
+      show_all_testimonials: "Mostrar todos os comentários"
+      show_full_description: "mostrar mais"
+      slightly_better_than_expected: "Excedeu as expectativas"
+      slightly_less_than_expected: "Pior do que o esperado"
+      what_are_these: "O que é isso?"
       review: ~
       reviews: ~
       badge: ~
@@ -1615,19 +1622,19 @@ pt-BR:
   search:
     show:
       all_results: "Todos resultados"
-      loading_more_search_results: ~
-      offers: ~
+      loading_more_search_results: "Carregando mais resultados de pesquisa"
+      offers: ofertas
       requests: Solicitações
-      search: ~
+      search: Pesquisa
       search_results: "Procurar resultados"
-      search_returned_no_results: ~
-      search_verb: ~
+      search_returned_no_results: "Sua busca não retornou resultados."
+      search_verb: Pesquisa
   sessions:
     new:
-      create_new_account: ~
-      i_forgot_my_password: ~
+      create_new_account: "Criar uma nova conta"
+      i_forgot_my_password: "Nome de usuário ou senha esquecida"
       login: Login
-      login_to_kassi: ~
+      login_to_kassi: "Entrar em %{service_name}"
       connect_your_facebook_to_kassi: ~
       facebook_account: ~
       log_in_to_link_account: ~
@@ -1639,35 +1646,35 @@ pt-BR:
       or_sign_up_with_your_username: ~
       we_will_not_post_without_asking_you: ~
     password_forgotten:
-      email: ~
-      password_recovery_instructions: ~
-      request_new_password: ~
+      email: Email
+      password_recovery_instructions: "Digite o seu endereço de e-mail e receberá o seu nome de usuário e instruções sobre como alterar sua senha."
+      request_new_password: "Pedir uma nova senha"
       change_your_password: "Alterar sua senha"
     confirmation_pending:
       welcome_to_kassi: ~
-      check_your_email: ~
+      check_your_email: "Verifique sua caixa de entrada"
       get_started: ~
       getting_started_instructions: ~
-      resend_confirmation_instructions: ~
+      resend_confirmation_instructions: "Reenviar instruções de confirmação"
       your_current_email_is: ~
-      change_email: ~
+      change_email: Trocar
       confirm_your_email: ~
       account_confirmation_instructions: ~
       account_confirmation_instructions_dashboard: ~
   settings:
     account:
-      change: ~
-      confirm_new_password: ~
+      change: Mudança
+      confirm_new_password: "Confirmar nova senha"
       delete_account: "Deletar conta"
       delete_account_button: "Excluir permanentemente minha conta"
       delete_account_confirmation_popup: ~
       email_addresses: "Endereço de email"
       instructions_to_delete_account: ~
       contact_admin: "entre em contato com os administradores"
-      new_email: ~
-      new_password: ~
-      save: ~
-      these_fields_are_shown_only_to_you: ~
+      new_email: "Novo endereço de email"
+      new_password: "Nova senha"
+      save: Salvar
+      these_fields_are_shown_only_to_you: "Seu nome de usuário é mostrado no seu perfil a menos que você tenha dado o seu nome. Outras informações só é mostrado a você."
       email:
         address_title: Endereço
         remove_title: ~
@@ -1684,22 +1691,22 @@ pt-BR:
         status_pending: Pendente
     notifications:
       email_from_admins: ~
-      i_want_to_get_email_notification_when: ~
+      i_want_to_get_email_notification_when: "Eu quero receber uma notificação por email quando ..."
       newsletters: Noticias
       community_updates: ~
-      email_about_accept_reminders: ~
+      email_about_accept_reminders: "...Esqueci a aceitar uma oferta ou um pedido"
       email_about_confirm_reminders: ~
       email_about_new_badges: ~
-      email_about_new_comments_to_own_listing: ~
-      email_about_new_messages: ~
-      email_about_new_received_testimonials: ~
-      email_about_testimonial_reminders: ~
+      email_about_new_comments_to_own_listing: "...alguém comentar a minha oferta ou solicitação"
+      email_about_new_messages: "...alguém me enviar uma mensagem"
+      email_about_new_received_testimonials: "...alguém me enviar feedback"
+      email_about_testimonial_reminders: "...Eu esquecer de enviar feedback sobre um evento"
       email_daily_community_updates: ~
       email_weekly_community_updates: ~
       do_not_email_community_updates: ~
       email_newsletters: ~
-      email_when_conversation_accepted: ~
-      email_when_conversation_rejected: ~
+      email_when_conversation_accepted: "...alguém aceitar a minha oferta ou solicitação"
+      email_when_conversation_rejected: "...alguém rejeitar a minha oferta ou solicitação"
       email_about_completed_transactions: ~
       email_about_new_payments: ~
       email_about_payment_reminders: ~
@@ -1710,56 +1717,56 @@ pt-BR:
       unsubscribe_unsuccesful: ~
       unsuccessful_unsubscribe_info_text: ~
     profile:
-      about_you: ~
-      city: ~
-      family_name: ~
-      given_name: ~
+      about_you: "Sobre você"
+      city: Cidade
+      family_name: "Nome da família"
+      given_name: "Primeiro Nome"
       first_name_with_initial: ~
       first_name_only: ~
       location_description: ~
-      phone_number: ~
+      phone_number: "Número de telefone"
       profile_picture: "Foto do perfil"
       postal_code: CEP
-      profile_page: ~
+      profile_page: "em sua página de perfil"
       profilemap: "Ver mapa"
       street_address: Local
-      these_fields_are_shown_in_your: ~
-      visible_to_everybody: ~
-      visible_to_registered_users: ~
+      these_fields_are_shown_in_your: "Esta informação fica visível para todos %{service_name} usuários"
+      visible_to_everybody: "visível para todos"
+      visible_to_registered_users: "(visível para os usuários que tenham logado)"
       default_in_listing: ~
       invisible: ~
-    save_information: ~
+    save_information: "Salve as informações"
   tag_cloud:
     tag_used:
       with_tag: "Com marcação"
       without_tag: ~
   terms:
     show:
-      accept_terms: ~
-      here: ~
-      i_accept_new_terms: ~
-      i_accept_terms: ~
-      terms: ~
-      terms_have_changed: ~
-      you_can_view_the_new_terms: ~
+      accept_terms: "Aceitando %{service_name} termos de uso"
+      here: "clicando aqui"
+      i_accept_new_terms: "Eu aceito os termos novos"
+      i_accept_terms: "Eu aceito os termos"
+      terms: "%{service_name} termos de uso"
+      terms_have_changed: "Termos de uso mudaram"
+      you_can_view_the_new_terms: "Você pode ver os novos termos"
       you_need_to_accept: ~
       you_need_to_accept_new_terms: ~
   testimonials:
     index:
-      all_testimonials: ~
+      all_testimonials: "Todos os comentários"
       feedback_altogether: ~
-      loading_more_testimonials: ~
+      loading_more_testimonials: "Carregando mais depoimentos"
       no_testimonials: ~
     new:
       as_expected: "Como esperado"
-      exceeded_expectations: ~
+      exceeded_expectations: "Muito melhor do que o esperado"
       give_feedback_to: ~
-      grade: ~
-      less_than_expected: ~
+      grade: "Qual é o seu sentimento em geral?"
+      less_than_expected: "Pior do que o esperado"
       send_feedback: "Enviar feedback"
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      textual_feedback: ~
+      slightly_better_than_expected: "Ligeiramente melhor do que o esperado"
+      slightly_less_than_expected: "Um pouco pior do que o esperado"
+      textual_feedback: "Como é que as coisas vão?"
       this_will_be_shown_in_profile: ~
       positive: Positivo
       negative: Negativo
@@ -1773,17 +1780,17 @@ pt-BR:
       short_date: ~
       sms: "%e %b as %H:%M"
   timestamps:
-    day_ago: ~
-    days_ago: ~
-    hour_ago: ~
-    hours_ago: ~
-    minute_ago: ~
-    minutes_ago: ~
-    month_ago: ~
-    months_ago: ~
-    seconds_ago: ~
-    year_ago: ~
-    years_ago: ~
+    day_ago: "%{count} dia atrás"
+    days_ago: "%{count} dias atrás"
+    hour_ago: "%{count} hora atrás"
+    hours_ago: "%{count} horas atrás"
+    minute_ago: "%{count} minuto atrás"
+    minutes_ago: "%{count} minutos atrás"
+    month_ago: "%{count} mês atrás"
+    months_ago: "%{count} meses atrás"
+    seconds_ago: "%{count} segundos atrás"
+    year_ago: "%{count} ano atrás"
+    years_ago: "%{count} anos atrás"
   will_paginate:
     previous_label: ~
     next_label: ~

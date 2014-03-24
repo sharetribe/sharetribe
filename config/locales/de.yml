@@ -107,7 +107,7 @@ de:
         listing_preferences: Eintragseinstellungen
         show_listing_publishing_date: "Datum der Veröffentlichung des Eintrags auf der Artikelseite darstellen"
         show_category_in_listing_list: "Die Art der Kategorien in der Übersicht darstellen"
-        hide_expiration_date: "Einträge haben kein Ablaufdatum"
+        hide_expiration_date: "Einträge müssen kein Ablaufdatum haben"
         listing_comments_in_use: "Benutzern erlauben, Einträge zu kommentieren (für alle anderen Benutzer sichtbar)"
         email_preferences: E-Mail-Einstellungen
         automatic_newsletters: "Automatisch tägliche / wöchentliche Newsletter an alle Benutzer versenden (es sei denn, sie melden sich ab)"
@@ -633,7 +633,7 @@ de:
       you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
       remember_to_confirm_request: "Denke daran, deine Anfrage zu bestätigen oder abzulehnen"
       if_will_not_happen_you_should_cancel: "Wenn du denkst, dass die Anfrage wegen eines anderen Grundes noch nicht vollständig ist, kannst du %{cancel_it_link}."
-      if_will_not_happen_you_should_cancel_escrow: ~
+      if_will_not_happen_you_should_cancel_escrow: "Wenn du denkst, dass diese Anfrage aus dem ein oder anderen Grund nicht abgeschlossen wird, kannst du %{cancel_it_link}. Dies wird den Administrator informieren, der dich dann wegen eines Refunds kontaktieren wird."
       if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
       cancel_it_link_text: Abbrechen
       automatic_confirmation: ~
@@ -662,7 +662,7 @@ de:
       give_feedback_to: "Bewertung abgeben für %{other_party_given_name}"
     escrow_canceled:
       subject: "Zahlungsprozess abgebrochen"
-      has_marked_request_as_canceled: ~
+      has_marked_request_as_canceled: "%{other_party_full_name} hat die Anfrage '%{request}' als abgebrochen markiert. Du wirst von dieser Transaktion kein Geld erhalten."
       if_this_was_error: "Wenn du denkst, dass dies ein Fehler war, %{please_contant_admin_link}."
       please_contant_admin_link: "Bitte kontaktiere den Administrator"
     confirmation_instructions:
@@ -1069,6 +1069,8 @@ de:
       settings: Einstellungen
       sign_up: Registrieren
     notifications:
+      listing_could_not_be_saved: "Der Eintrag konnte nicht gespeichert werden. Bitte versuche es noch einmal. Wenn das Problem fortbesteht, %{contact_admin_link}."
+      contact_admin_link_text: "Administrator kontaktieren"
       test_welcome_email_delivered_to: "Eine Test-Mail wurde gesendet an %{email}."
       something_went_wrong: "Da ist etwas schief gelaufen"
       community_updated: "Die Informationen wurden aktualisiert."
@@ -1243,6 +1245,11 @@ de:
         no_file_selected: "Keine Datei ausgewählt"
         remove_image: "Bild entfernen"
         select_file: "Datei wählen"
+        removing: Entfernen...
+        processing: "Wird bearbeitet..."
+        this_may_take_a_while: "(dies kann eine Weile dauern)"
+        percentage_loaded: "%{percentage}%"
+        uploading_failed: "Bild hochladen fehlgeschlagen"
       location:
         location: Standort
       price:

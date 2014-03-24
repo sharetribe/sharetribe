@@ -728,15 +728,15 @@ nl:
       has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
-      added_offer: ~
-      added_request: ~
-      added_listing: ~
-      update_mail_title: ~
+      added_offer: "%{name_link} heeft een item toegevoegd:"
+      added_request: "%{name_link} heeft een item toegevoegd:"
+      added_listing: "%{name_link} heeft een item toegevoegd:"
+      update_mail_title: "%{title_link} update"
       title_link_text: ~
-      intro_paragraph: ~
+      intro_paragraph: "Hieronder een paar dingen die afgelopen %{time_since_last_update} gebeurd zijn bij %{community_link}"
       intro_paragraph_link_text: ~
       post_a_new_listing: "Plaats een nieuw item!"
-      reduce_email_footer_text: ~
+      reduce_email_footer_text: "Te veel mail? %{settings_link} of %{unsubscribe_link}"
       settings_link_text: ~
       unsubscribe_link_text: ~
     newsletter:
@@ -1054,6 +1054,8 @@ nl:
       settings: Instellingen
       sign_up: "Meld je aan"
     notifications:
+      listing_could_not_be_saved: ~
+      contact_admin_link_text: ~
       test_welcome_email_delivered_to: ~
       something_went_wrong: ~
       community_updated: ~
@@ -1228,6 +1230,11 @@ nl:
         no_file_selected: "Geen bestand geselecteerd"
         remove_image: "Verwijder foto"
         select_file: "Selecteer bestand"
+        removing: ~
+        processing: ~
+        this_may_take_a_while: ~
+        percentage_loaded: ~
+        uploading_failed: ~
       location:
         location: Locatie
       price:
@@ -1687,7 +1694,7 @@ nl:
       email_from_admins: ~
       i_want_to_get_email_notification_when: "Ik wil graag een email bevestiging krijgen als..."
       newsletters: Nieuwsbrieven
-      community_updates: ~
+      community_updates: "Community updates"
       email_about_accept_reminders: ~
       email_about_confirm_reminders: ~
       email_about_new_badges: "...ik heb een nieuwe badge bereikt"
