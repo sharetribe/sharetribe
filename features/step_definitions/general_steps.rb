@@ -32,18 +32,21 @@ Then /^(?:|I )should not see selector "([^"]*)"?$/ do |selector|
   }.should raise_error(Capybara::ElementNotFound)
 end
 
+When /^(?:|I )attach a valid listing image file to "([^"]*)"(?: within "([^"]*)")?$/ do |field, selector|
+  @latest_uploaded_image = 'Australian_painted_lady.jpg'
+  attach_image(@latest_uploaded_image, field, selector)
+  steps %Q{
+    Then I should see "Processing..."
+    And the system processes jobs
+  }
+end
+
 When /^(?:|I )attach a valid image file to "([^"]*)"(?: within "([^"]*)")?$/ do |field, selector|
-  # Show file input which is hidden by jQuery file upload plugin
-  script = "$('input[type=file]').css('opacity', '1').css('position', 'relative')"
-  page.execute_script(script);
   @latest_uploaded_image = 'Australian_painted_lady.jpg'
   attach_image(@latest_uploaded_image, field, selector)
 end
 
 When /^(?:|I )attach an image with invalid extension to "([^"]*)"(?: within "([^"]*)")?$/ do |field, selector|
-  # Show file input which is hidden by jQuery file upload plugin
-  script = "$('input[type=file]').css('opacity', '1').css('position', 'relative')"
-  page.execute_script(script);
   attach_image('i_am_not_image.txt', field, selector)
 end
 
@@ -58,6 +61,6 @@ end
 def attach_image(filename, field, selector)
   path = File.join(Rails.root, 'spec', 'fixtures', filename)
   with_scope(selector) do
-    attach_file(field, path)
+    attach_file(field, path, visible: false)
   end
 end

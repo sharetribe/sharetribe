@@ -16,8 +16,7 @@ class ListingImage < ActiveRecord::Base
   process_in_background :image, :processing_image_url => "/assets/listing_image/processing.png"
   validates_attachment_size :image, :less_than => APP_CONFIG.max_image_filesize, :unless => Proc.new {|model| model.image.nil? }
   validates_attachment_content_type :image,
-                                    #the two last types are sent by IE.
-                                    :content_type => ["image/jpeg", "image/png", "image/gif", "image/pjpeg", "image/x-png"],
+                                    :content_type => ["image/jpeg", "image/png", "image/gif", "image/pjpeg", "image/x-png"], # the two last types are sent by IE.
                                     :unless => Proc.new {|model| model.image.nil? }
 
   # Retrieves dimensions for image assets

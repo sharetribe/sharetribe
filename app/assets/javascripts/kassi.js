@@ -628,11 +628,9 @@ function initialize_new_listing_form(fileDefaultText,
     return rules;
   }, {});
   
-  $(form_id).validate({
+  ST.listingForm = $(form_id).validate({
     errorPlacement: function(error, element) {
-      if (element.attr("name") == "listing[listing_images_attributes][0][image]")  {
-        error.appendTo(element.parent());
-      } else if (element.attr("name") == "listing[valid_until(1i)]") {
+      if (element.attr("name") == "listing[valid_until(1i)]") {
         error.appendTo(element.parent());
       } else if (element.attr("name") == "listing[price]") {
         error.appendTo(element.parent());
@@ -645,7 +643,6 @@ function initialize_new_listing_form(fileDefaultText,
       "listing[title]": {required: true, maxlength: 60},
       "listing[origin]": {address_validator: true},
       "listing[price]": {required: pr, positive_integer: true, minimum_price_required: minimum_price},
-      "listing[listing_images_attributes][0][image]": { accept: "(jpe?g|gif|png)" },
       "listing[valid_until(1i)]": { min_date: true, max_date: true }
     }),
     messages: {

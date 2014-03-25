@@ -49,7 +49,7 @@ class S3Uploader
       expiration: @expiration.utc.iso8601,
       conditions: [
         ["starts-with", "$key", ""],
-        ["starts-with", "$Content-Type", ""],
+        ["starts-with", "$Content-Type", "image/"],
         ["content-length-range", 0, APP_CONFIG.max_image_filesize],
         {bucket: @bucket},
         {acl: @acl}

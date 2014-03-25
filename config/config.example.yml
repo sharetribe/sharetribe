@@ -204,6 +204,9 @@ default: &default_settings
   original_image_width: 1600
   original_image_height: 1600
 
+  # the two last types are sent by IE.
+  accepted_image_filetypes: ["image/jpeg", "image/png", "image/gif", "image/pjpeg", "image/x-png"]
+
 production: &production_settings
   <<: *default_settings
 

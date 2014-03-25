@@ -13,8 +13,24 @@ window.ST.imageUploader = function(listings, opts) {
     $container.html(uploadTmpl);
 
     function processing() {
-      $(".fileupload-text", $container).text(ST.t("listings.form.images.processing"));
-      $(".fileupload-small-text", $container).text(ST.t("listings.form.images.this_may_take_a_while"));
+      showMessage(ST.t("listings.form.images.processing"), ST.t("listings.form.images.this_may_take_a_while"))
+    }
+
+    function showMessage(normal, small) {
+      $normalEl = $(".fileupload-text", $container);
+      $smallEl = $(".fileupload-small-text", $container);
+
+      if(normal) {
+        $normalEl.text(normal);
+      } else {
+        $normalEl.empty();
+      }
+
+      if(small) {
+        $smallEl.text(small);
+      } else {
+        $smallEl.empty();
+      }
     }
 
     function updatePreview(result, delay) {
@@ -31,13 +47,8 @@ window.ST.imageUploader = function(listings, opts) {
     }
 
     function onProgress(e, data) {
-      if(data.total === data.loaded) {
-        processing();
-      } else {
-        var percentage = Math.round((data.loaded / data.total) * 100);
-        $(".fileupload-text", $container).text(ST.t("listings.form.images.percentage_loaded", {percentage: percentage}));
-        $(".fileupload-small-text", $container).empty();
-      }
+      var percentage = Math.round((data.loaded / data.total) * 100);
+      showMessage(ST.t("listings.form.images.percentage_loaded", {percentage: percentage}))
     }
 
     function s3uploadDone(data) {
@@ -65,8 +76,7 @@ window.ST.imageUploader = function(listings, opts) {
     }
 
     function imageUploadingFailed() {
-      $(".fileupload-text", $container).text(ST.t("listings.form.images.uploading_failed"));
-      $(".fileupload-small-text", $container).empty();
+      showMessage(ST.t("listings.form.images.uploading_failed"));
     }
 
     function imageUploadingDone(e, data) {
@@ -83,9 +93,30 @@ window.ST.imageUploader = function(listings, opts) {
         url: directUploadToS3 ? opts.s3.uploadPath : opts.saveFromFile,
         dropZone: $('#fileupload'),
         progress: onProgress,
+        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
         imageMaxWidth: opts.originalImageWidth,
         imageMaxHeight: opts.originalImageHeight,
         loadImageMaxFileSize: opts.maxImageFilesize,
+        messages: {
+          acceptFileTypes: "acceptFileTypes",
+          maxFileSize: "maxFileSize",
+        },
+        processfail: function (e, data) {
+          var firstError = _(data.files).pluck('error').first();
+
+          var error = "";
+
+          // This is kind of a hack now, we should start moving these validation messages
+          // to en.yml and use ST.t for all translated strings
+          if(firstError === "acceptFileTypes") {
+            error = jQuery.validator.messages.accept
+          }
+          if(firstError === "maxFileSize") {
+            error = ST.t("listings.form.images.file_too_large")
+          }
+
+          showMessage(null, error);
+        },
         // Enable image resizing, except for Android and Opera,
         // which actually support image resizing, but fail to
         // send Blob objects via XHR requests:

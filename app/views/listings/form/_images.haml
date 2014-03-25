@@ -21,7 +21,7 @@
       .fileupload-preview-remove-image
         = icon_tag("cross", ["icon-fix"])
 
-= js_t ["listings.form.images.processing", "listings.form.images.this_may_take_a_while", "listings.form.images.percentage_loaded", "listings.form.images.uploading_failed"], run_js_immediately
+= js_t ["listings.form.images.processing", "listings.form.images.this_may_take_a_while", "listings.form.images.percentage_loaded", "listings.form.images.uploading_failed", "listings.form.images.file_too_large"], run_js_immediately
 
 - if ApplicationHelper.use_s3?
   - s3uploader = S3Uploader.new

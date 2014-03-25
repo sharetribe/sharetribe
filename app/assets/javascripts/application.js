@@ -19,7 +19,12 @@
 //= require canvas-to-blob.min.js
 //= require jquery.fileupload
 //= require jquery.fileupload-process
+//= require jquery.fileupload-validate
 //= require jquery.fileupload-image
+
+// Allow IE8-9 to post cross domain XHR (required for image upload)
+//= require jquery.xdr-transport
+
 //= require fastclick.min
 //= require infobubble
 //= require sharetribe_common
