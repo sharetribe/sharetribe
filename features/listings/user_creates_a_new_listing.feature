@@ -4,23 +4,6 @@ Feature: User creates a new listing
   I want to be able to offer and request an item, a favor, a transport or housing
   
   @javascript
-  @no-transaction
-  Scenario: Creating a new item request with image successfully
-    # @no-transaction needed because delayed_paperclip after_save callbacks
-    Given I am logged in
-    And I am on the home page
-    When I follow "new-listing-link"
-    And I follow "Items"
-    And I follow "Tools" within "#option-groups"
-    And I follow "Requesting"
-    And I fill in "listing_title" with "Sledgehammer"
-    And I fill in "listing_description" with "My description"
-    And I attach a valid listing image file to "listing_image[image]"
-    And I press "Save listing"
-    Then I should see "Sledgehammer" within "#listing-title"
-    And I should see the image I just uploaded
-  
-  @javascript
   Scenario: Creating a new item request without image successfully
     Given I am logged in
     And I am on the home page
