@@ -5,6 +5,7 @@ Feature: User edits his own listing
 
   @javascript
   @no-transaction
+  @phantomjs_skip
   Scenario: User edits an item request with image
     # @no-transaction needed because delayed_paperclip after_save callbacks
     Given there are following users:
