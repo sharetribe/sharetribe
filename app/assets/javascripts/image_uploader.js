@@ -13,12 +13,12 @@ window.ST.imageUploader = function(listings, opts) {
     $container.html(uploadTmpl);
 
     function processing() {
-      showMessage(ST.t("listings.form.images.processing"), ST.t("listings.form.images.this_may_take_a_while"))
+      showMessage(ST.t("listings.form.images.processing"), ST.t("listings.form.images.this_may_take_a_while"));
     }
 
     function showMessage(normal, small) {
-      $normalEl = $(".fileupload-text", $container);
-      $smallEl = $(".fileupload-small-text", $container);
+      var $normalEl = $(".fileupload-text", $container);
+      var $smallEl = $(".fileupload-small-text", $container);
 
       if(normal) {
         $normalEl.text(normal);
@@ -48,7 +48,7 @@ window.ST.imageUploader = function(listings, opts) {
 
     function onProgress(e, data) {
       var percentage = Math.round((data.loaded / data.total) * 100);
-      showMessage(ST.t("listings.form.images.percentage_loaded", {percentage: percentage}))
+      showMessage(ST.t("listings.form.images.percentage_loaded", {percentage: percentage}));
     }
 
     function s3uploadDone(data) {
@@ -109,10 +109,10 @@ window.ST.imageUploader = function(listings, opts) {
           // This is kind of a hack now, we should start moving these validation messages
           // to en.yml and use ST.t for all translated strings
           if(firstError === "acceptFileTypes") {
-            error = jQuery.validator.messages.accept
+            error = jQuery.validator.messages.accept;
           }
           if(firstError === "maxFileSize") {
-            error = ST.t("listings.form.images.file_too_large")
+            error = ST.t("listings.form.images.file_too_large");
           }
 
           showMessage(null, error);
