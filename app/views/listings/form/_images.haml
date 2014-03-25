@@ -23,7 +23,7 @@
 
 = js_t ["listings.form.images.processing", "listings.form.images.this_may_take_a_while", "listings.form.images.percentage_loaded", "listings.form.images.uploading_failed", "listings.form.images.file_too_large"], run_js_immediately
 
-- if ApplicationHelper.use_s3?
+- if ApplicationHelper.use_upload_s3?
   - s3uploader = S3Uploader.new
   - s3options = { uploadPath: s3uploader.url, options: s3uploader.fields}.to_json
 - else
@@ -38,7 +38,7 @@
         saveFromUrl: "#{@listing.new_record? ? create_from_url_listing_images_path : add_from_url_listing_listing_images_path(@listing.id)}",
         maxImageFilesize: #{APP_CONFIG.max_image_filesize},
         originalImageWidth: #{APP_CONFIG.original_image_width},
-        originalImageHeight: #{APP_CONFIG.original_image_width}
+        originalImageHeight: #{APP_CONFIG.original_image_height}
       }
 
       var listings = #{ @listing.listing_images.map do |listing_image|

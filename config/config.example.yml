@@ -26,9 +26,16 @@ default: &default_settings
   # You can use Amazong S3 to store listing and profile images
   # If you leave following empty, the images will be stored in local file system
   # NOTE: in Heroku you can't store files in local system, so S3 should be used
-  s3_bucket_name: 
-  aws_access_key_id: 
-  aws_secret_access_key: 
+  
+  # Default bucket
+  s3_bucket_name:
+
+  # Bucket for files users upload directly to S3. You can add an expiration policy to these files.
+  s3_upload_bucket_name:
+
+  # AWS keys
+  aws_access_key_id:
+  aws_secret_access_key:
 
   # Braintree credentials to be used in tests. In production, each
   # community have their own credentials.
