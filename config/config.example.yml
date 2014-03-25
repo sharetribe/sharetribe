@@ -195,17 +195,14 @@ default: &default_settings
   # If there's a tax related to payment service charge (e.g. VAT) mark the percentage here
   service_fee_tax_percentage: 24
 
-  # Max filesize for uploaded image
-  max_image_filesize: 100.megabytes
+  # Max filesize for uploaded image (bytes)
+  max_image_filesize: 104857600
 
   # width/height for "original" sized image, i.e. the largest image we store.
   # Please note, this does NOT mean that user can not upload images larger than
   # 1600x1600.
   original_image_width: 1600
   original_image_height: 1600
-
-  # the two last types are sent by IE.
-  accepted_image_filetypes: ["image/jpeg", "image/png", "image/gif", "image/pjpeg", "image/x-png"]
 
 production: &production_settings
   <<: *default_settings
