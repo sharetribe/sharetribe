@@ -98,24 +98,12 @@ window.ST.imageUploader = function(listings, opts) {
         imageMaxHeight: opts.originalImageHeight,
         loadImageMaxFileSize: opts.maxImageFilesize,
         messages: {
-          acceptFileTypes: "acceptFileTypes",
-          maxFileSize: "maxFileSize",
+          acceptFileTypes: ST.t("listings.form.images.accepted_formats"),
+          maxFileSize: ST.t("listings.form.images.file_too_large"),
         },
         processfail: function (e, data) {
           var firstError = _(data.files).pluck('error').first();
-
-          var error = "";
-
-          // This is kind of a hack now, we should start moving these validation messages
-          // to en.yml and use ST.t for all translated strings
-          if(firstError === "acceptFileTypes") {
-            error = jQuery.validator.messages.accept;
-          }
-          if(firstError === "maxFileSize") {
-            error = ST.t("listings.form.images.file_too_large");
-          }
-
-          showMessage(null, error);
+          showMessage(null, firstError);
         },
         // Enable image resizing, except for Android and Opera,
         // which actually support image resizing, but fail to
