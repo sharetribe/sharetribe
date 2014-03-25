@@ -36,7 +36,9 @@
         s3: #{s3options},
         saveFromFile: "#{@listing.new_record? ? create_from_file_listing_images_path : add_from_file_listing_listing_images_path(@listing.id)}",
         saveFromUrl: "#{@listing.new_record? ? create_from_url_listing_images_path : add_from_url_listing_listing_images_path(@listing.id)}",
-        maxImageFilesize: #{APP_CONFIG.max_image_filesize}
+        maxImageFilesize: #{APP_CONFIG.max_image_filesize},
+        originalImageWidth: #{APP_CONFIG.original_image_width},
+        originalImageHeight: #{APP_CONFIG.original_image_width}
       }
 
       var listings = #{ @listing.listing_images.map do |listing_image|

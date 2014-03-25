@@ -83,8 +83,8 @@ window.ST.imageUploader = function(listings, opts) {
         url: directUploadToS3 ? opts.s3.uploadPath : opts.saveFromFile,
         dropZone: $('#fileupload'),
         progress: onProgress,
-        imageMaxWidth: 1600,
-        imageMaxHeight: 1600,
+        imageMaxWidth: opts.originalImageWidth,
+        imageMaxHeight: opts.originalImageHeight,
         loadImageMaxFileSize: opts.maxImageFilesize,
         // Enable image resizing, except for Android and Opera,
         // which actually support image resizing, but fail to
