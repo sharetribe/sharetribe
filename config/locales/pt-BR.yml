@@ -205,14 +205,14 @@ pt-BR:
         closed: Fechado
     transaction_types:
       sell: Vendendo
-      rent: ~
-      give: ~
-      lend: Emprestando
-      swap: ~
+      rent: Alugando
+      give: Doar
+      lend: Empréstimo
+      swap: Troca
       service: ~
-      request: ~
+      request: Solicitando
       inquiry: Inquérito
-      share_for_free: ~
+      share_for_free: Gratuito
       default_action_button_labels:
         sell: ~
         rent: ~
@@ -222,7 +222,7 @@ pt-BR:
   common:
     edit_page: "Editar página"
     default_community_slogan: ~
-    default_community_description: ~
+    default_community_description: "Este é um lugar para vender, alugar, trocar e partilhar bens e serviços com os outros membros da comunidade."
     cancel: Cancelar
     fields_that_are_mandatory: "Campos marcados com asterisco (*) são obrigatórios."
     or: ou
@@ -236,15 +236,15 @@ pt-BR:
       give_away: doar
       lend: empréstimo
       receive: "pegar de graça"
-      rent: alugar
+      rent: aluguel
       rent_out: alugando
       sell: vendendo
       offer_to_swap: troca
       request_to_swap: troca
-      share_for_free: ~
+      share_for_free: gratuito
       accept_for_free: ~
     categories:
-      item: ~
+      item: Itens
       favor: Serviços
       rideshare: ~
       housing: ~
@@ -264,7 +264,7 @@ pt-BR:
       travel: ~
       other: ~
     username: Usuário
-    username_or_email: ~
+    username_or_email: "E-mail ou nome de usuário"
     what_is_this: "O que é isso?"
   conversations:
     accept:
@@ -471,7 +471,7 @@ pt-BR:
       select_your_plan: "Selecione seu plano"
       pick_one_of_the_options_below: ~
       create_for_free: "Crie de graça"
-      contact_us: Contacte-nos
+      contact_us: Contato
       free_plan: "Plano gratuito"
       max_members: ~
       premium_plan: "Plano premium"
@@ -521,7 +521,7 @@ pt-BR:
       you_need_to_confirm: ~
       pick_username: "Escolha um usuário"
       your_given_name: "Seu nome de batismo"
-      your_family_name: ~
+      your_family_name: "Seu sobrenome"
       your_password: ~
       confirm_your_password: ~
       email_in_use_message: ~
@@ -578,7 +578,7 @@ pt-BR:
       thanks_for_contacting_us: ~
       resources: ~
       connect: CONECTAR
-      about: ~
+      about: "SOBRE SHARETRIBE"
       developers: "PARA DESENVOLVEDORES"
       api: ~
       blog: ~
@@ -735,7 +735,7 @@ pt-BR:
       title_link_text: ~
       intro_paragraph: ~
       intro_paragraph_link_text: ~
-      post_a_new_listing: ~
+      post_a_new_listing: "Postar uma nova lista!"
       reduce_email_footer_text: ~
       settings_link_text: ~
       unsubscribe_link_text: ~
@@ -818,7 +818,7 @@ pt-BR:
       javascript_is_disabled_in_your_browser: "Javascript está desabilitado no seu navegador"
       kassi_does_not_currently_work_without_javascript: "%{service_name} não funciona corretamente sem javascript. Tente habilitar o javascript nas configurações de seu navegador e recarregar a pagina novamente."
       kassi_does_not_currently_work_without_javascript_dashboard: ~
-      contact_us: ~
+      contact_us: Contato
       send_feedback: "Enviar feedback"
       your_feedback_to_admins: "Seu feedback para os administradores"
     send: Enviar
@@ -850,7 +850,7 @@ pt-BR:
       request_partitive: requisição
   header:
     about: Sobre
-    home: Casa
+    home: Home
     members: ~
     new_listing: ~
     mobile_version: "Versão para celular"
@@ -858,7 +858,7 @@ pt-BR:
     requests: Solicitações
     search_kassi: "Procurar %{service_name}"
     create_new_marketplace: ~
-    contact_us: ~
+    contact_us: Contato
     profile: Perfil
     invite: ~
   homepage:
@@ -912,8 +912,8 @@ pt-BR:
       private_listing_notification_log_in: Login
       is: ~
       are: ~
-      what_do_you_need: ~
-      post_new_listing: ~
+      what_do_you_need: "O que você está procurando?"
+      post_new_listing: "Postar uma nova lista!"
       are_offering: oferta
       add_news_item: "Adicionar um artigo"
       inform_others_about_events: "Últimas notícias e eventos da comunidade."
@@ -974,18 +974,18 @@ pt-BR:
       map_button: ~
       grid_button: ~
       list_button: ~
-      all_listing_types: ~
+      all_listing_types: "Listar todos tipos"
       all_categories: "Todas categorias"
   infos:
     about:
       default_about_text_title: ~
-      default_about_text: ~
+      default_about_text: "Este mercado é alimentado por plataforma Sharetribe. Com Sharetribe você pode facilmente criar o seu próprio site mercado. É gratuito e leva apenas um minuto. %{click_here_link} para saber mais!"
       click_here_link_text: ~
   layouts:
     no_tribe:
       inbox: ~
       settings: Configurações
-      feedback: ~
+      feedback: Contato
     admin:
       admin: "Painel de administração do %{service_name}"
       back_to_kassi: "Volte para %{service_name}"
@@ -999,7 +999,7 @@ pt-BR:
       default_feedback: ~
       feedback_forum: "fórum de respostas"
       feedback_handle: Reposta
-      give_feedback: Contate-nos
+      give_feedback: Contato
       keywords: ~
       meta_description: "Sharetribe é um serviço que permite você criar facilmente um mercado online e permitir sua comunidade vender, emprestar, trocar e compartilhar coisas e serviços."
       or_check_our: "...ou verifique nosso"
@@ -1255,17 +1255,17 @@ pt-BR:
         select: Selecionar
         borrow: ~
         buy: Comprando
-        give_away: ~
-        lend: ~
+        give_away: Doar
+        lend: Empréstimo
         offer_type: "Tipo de oferta"
         receive: "Aceitar gratuitamente"
-        rent: Alugar
-        rent_out: ~
+        rent: Aluguel
+        rent_out: Alugando
         request_type: "Tipo de solicitação"
         sell: Vendendo
-        share_for_free: ~
+        share_for_free: Gratuito
         accept_for_free: "Aceitar gratuitamente"
-        trade: ~
+        trade: Troca
       tag_list:
         comma_separate: ~
         tags: Tags
@@ -1313,20 +1313,20 @@ pt-BR:
       borrows: ~
       buys: Comprar
       favors: Serviços
-      give_aways: ~
+      give_aways: Doar
       housings: Espaços
       items: Itens
       lends: Empréstimo
       receives: ~
-      rent_outs: ~
-      rents: Alugando
+      rent_outs: Alugando
+      rents: Aluguel
       rideshares: ~
       sells: Vendendo
-      share_for_frees: ~
+      share_for_frees: Gratuito
       accept_for_frees: "Aceitar gratuitamente"
-      trades: ~
+      trades: Troca
     new:
-      post_a_new_listing: ~
+      post_a_new_listing: "Postar uma nova lista!"
       listing: listando
       selected_category: "Categoria: %{category}"
       selected_subcategory: ~
@@ -1472,7 +1472,7 @@ pt-BR:
       email_is_in_use_or_not_allowed: ~
       email_not_allowed: ~
       enter_captcha: "Eu sou humano:"
-      family_name: ~
+      family_name: Sobrenome
       given_name: "Primeiro Nome"
       i_accept_the: "Eu aceito o"
       invalid_invitation_code: "O código de convite não é válido."
@@ -1643,7 +1643,7 @@ pt-BR:
       cancle_facebook_connect: ~
       facebook_cancel_link_text: ~
       log_in_with_your_facebook_account: "Entrar com o Facebook"
-      or_sign_up_with_your_username: ~
+      or_sign_up_with_your_username: "...ou com seu nome de usuário ou e-mail"
       we_will_not_post_without_asking_you: ~
     password_forgotten:
       email: Email
@@ -1719,7 +1719,7 @@ pt-BR:
     profile:
       about_you: "Sobre você"
       city: Cidade
-      family_name: "Nome da família"
+      family_name: Sobrenome
       given_name: "Primeiro Nome"
       first_name_with_initial: ~
       first_name_only: ~
