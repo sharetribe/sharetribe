@@ -28,8 +28,16 @@ class S3Uploader
     Time.now.utc.strftime("%Y%m%dT%H%MZ")
   end
 
+  def year
+    Time.now.year
+  end
+
+  def month
+    Time.now.month
+  end
+
   def key
-    "uploads/listing-images/#{url_friendly_time}-#{SecureRandom.hex}/${filename}"
+    "uploads/listing-images/#{year}/#{month}/#{url_friendly_time}-#{SecureRandom.hex}/${filename}"
   end
 
   def policy
