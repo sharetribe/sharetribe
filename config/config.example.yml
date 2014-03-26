@@ -26,9 +26,16 @@ default: &default_settings
   # You can use Amazong S3 to store listing and profile images
   # If you leave following empty, the images will be stored in local file system
   # NOTE: in Heroku you can't store files in local system, so S3 should be used
-  s3_bucket_name: 
-  aws_access_key_id: 
-  aws_secret_access_key: 
+  
+  # Default bucket
+  s3_bucket_name:
+
+  # Bucket for files users upload directly to S3. You can add an expiration policy to these files.
+  s3_upload_bucket_name:
+
+  # AWS keys
+  aws_access_key_id:
+  aws_secret_access_key:
 
   # Braintree credentials to be used in tests. In production, each
   # community have their own credentials.
@@ -182,10 +189,6 @@ default: &default_settings
   merchant_api_user_id: 
   merchant_api_password:
   merchant_registration_mode:
-    
-  # Processing uploaded images can be done in a background process, and that is recommended for
-  # environments where long processing times can cause timeouts (e.g. Heroku)
-  delayed_image_processing: false
   
   # Logger type
   # the "normal" value is good by default. If you are using Heroku + Unicorn, you'll need to set this to "stdout"
@@ -198,6 +201,15 @@ default: &default_settings
   
   # If there's a tax related to payment service charge (e.g. VAT) mark the percentage here
   service_fee_tax_percentage: 24
+
+  # Max filesize for uploaded image (bytes)
+  max_image_filesize: 104857600
+
+  # width/height for "original" sized image, i.e. the largest image we store.
+  # Please note, this does NOT mean that user can not upload images larger than
+  # 1600x1600.
+  original_image_width: 1600
+  original_image_height: 1600
 
 production: &production_settings
   <<: *default_settings
@@ -268,6 +280,3 @@ test:
 
   # never create merchant accounts in tests
   merchant_registration_mode: stub
-
-  # Keep tests simpler with immediate image processing
-  delayed_image_processing: false

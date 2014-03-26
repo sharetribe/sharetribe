@@ -521,6 +521,7 @@ CREATE TABLE `listing_images` (
   `image_file_size` int(11) DEFAULT NULL,
   `image_updated_at` datetime DEFAULT NULL,
   `image_processing` tinyint(1) DEFAULT NULL,
+  `image_downloaded` tinyint(1) DEFAULT '0',
   `width` int(11) DEFAULT NULL,
   `height` int(11) DEFAULT NULL,
   `author_id` varchar(255) DEFAULT NULL,
@@ -1752,6 +1753,8 @@ INSERT INTO schema_migrations (version) VALUES ('20140226121423');
 
 INSERT INTO schema_migrations (version) VALUES ('20140227102627');
 
+INSERT INTO schema_migrations (version) VALUES ('20140227145229');
+
 INSERT INTO schema_migrations (version) VALUES ('20140228164206');
 
 INSERT INTO schema_migrations (version) VALUES ('20140228164428');
@@ -1775,3 +1778,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140314132659');
 INSERT INTO schema_migrations (version) VALUES ('20140318131351');
 
 INSERT INTO schema_migrations (version) VALUES ('20140319182117');
+
+INSERT INTO schema_migrations (version) VALUES ('20140324073247');

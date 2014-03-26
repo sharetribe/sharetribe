@@ -324,3 +324,7 @@ end
 When /^I refresh the page$/ do
   visit(current_path)
 end
+
+When /^I hover "([^"]*)"$/ do |selector|
+  find(selector).hover
+end

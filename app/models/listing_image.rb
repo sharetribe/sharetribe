@@ -7,20 +7,17 @@ class ListingImage < ActiveRecord::Base
         :small_3x2 => "240x160#",
         :medium => "360x270#",
         :thumb => "120x120#",
-        :original => "1600x1600>",
+        :original => "#{APP_CONFIG.original_image_width}x#{APP_CONFIG.original_image_height}>",
         :big => "800x800>",
         :email => "150x100#"}
 
   before_save :extract_dimensions
 
-  if APP_CONFIG.delayed_image_processing
-    process_in_background :image, :processing_image_url => "/assets/listing_image/processing.png"
-  end
-  validates_attachment_presence :image
-  validates_attachment_size :image, :less_than => 8.megabytes
+  process_in_background :image, :processing_image_url => "/assets/listing_image/processing.png"
+  validates_attachment_size :image, :less_than => APP_CONFIG.max_image_filesize.to_i, :unless => Proc.new {|model| model.image.nil? }
   validates_attachment_content_type :image,
-                                    :content_type => ["image/jpeg", "image/png", "image/gif", "image/pjpeg", "image/x-png"]
-                                    #the two last types are sent by IE.
+                                    :content_type => ["image/jpeg", "image/png", "image/gif", "image/pjpeg", "image/x-png"], # the two last types are sent by IE.
+                                    :unless => Proc.new {|model| model.image.nil? }
 
   # Retrieves dimensions for image assets
   # @note Do this after resize operations to account for auto-orientation.
@@ -76,5 +73,10 @@ class ListingImage < ActiveRecord::Base
 
   def self.too_wide?(width, height, aspect_ratio)
     width.to_f / height.to_f > aspect_ratio.to_f
+  end
+
+  def download_from_url(url)
+    self.image = URI.parse(url)
+    self.update_attribute(:image_downloaded, true)
   end
 end
