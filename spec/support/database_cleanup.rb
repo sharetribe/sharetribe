@@ -14,7 +14,9 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
 
   config.before(:suite) do
-    clean_db.call
+    if !defined?(Zeus)
+      clean_db.call
+    end
   end
 
   config.before(:each) do
