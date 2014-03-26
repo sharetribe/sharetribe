@@ -28,7 +28,7 @@
 //= require fastclick.min
 //= require infobubble
 //= require sharetribe_common
-//= require Bacon.min
+//= require Bacon
 //= require Bacon.jquery.min
 //= require lodash.min
 //= require utils

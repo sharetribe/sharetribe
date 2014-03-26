@@ -212,8 +212,8 @@ Kassi::Application.routes.draw do
         get :image_status
       end
       collection do
-        post :create_from_file
-        put :create_from_url
+        post :add_from_file
+        put :add_from_url
       end
     end
 

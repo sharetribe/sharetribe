@@ -84,6 +84,36 @@ ST.utils = (function(_) {
     }, {});
   }
 
+  function not(fn) {
+    return function() {
+      return !fn.apply(null, arguments);
+    }
+  }
+
+  function baconStreamFromAjaxPolling(ajaxOpts, predicate) {
+    return Bacon.fromBinder(function(sink) {
+      function poll() {
+        var ajax = Bacon.once(ajaxOpts).ajax()
+
+        ajax.filter(predicate).onValue(function(statusResult) {
+          sink([new Bacon.Next(statusResult), new Bacon.End()]);
+        });
+        
+        ajax.filter(not(predicate)).onValue(function() {
+          _.delay(poll, 1000);
+        });
+
+        ajax.onError(function(e) {
+          sink([new Bacon.Error(e), new Bacon.End()]);
+        })
+      }
+
+      poll();
+
+      return _.identity; // No-op unsubscripbe function
+    });
+  }
+
   return {
     findNextIndex: findNextIndex,
     findPrevIndex: findPrevIndex,
@@ -91,7 +121,8 @@ ST.utils = (function(_) {
     relativeUrl: relativeUrl,
     jquerifyAttributeValue: jquerifyAttributeValue,
     findElementByName: findElementByName,
-    objectsMerge: objectsMerge
+    objectsMerge: objectsMerge,
+    baconStreamFromAjaxPolling: baconStreamFromAjaxPolling
   };
 
 })(_);

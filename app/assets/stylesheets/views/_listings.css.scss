@@ -193,24 +193,28 @@ $listing-author-avatar-height: 108;
   width: 100%;
 }
 
+$listing-image-cellpadding: lines(0.5);
+
 .listing-images {
   margin-top: lines(0.5);
   margin-bottom: lines(1);
   @include clearfix;
+
+  margin-right: $listing-image-cellpadding * -1;
 }
 
-@mixin fileupload-thumbnail($additional-padding: 0) {
-  $available-space: lines(19) - (2 * lines(0.5)) - lines(3) - (2 * $additional-padding); // centered section, 19 lines minus 0.5 padding, lines(3) for padding
+@mixin fileupload-thumbnail($border: 0) {
+  $available-space: lines(19) - (2 * lines(0.5)) - (2 * $listing-image-cellpadding); // centered section, 19 lines minus 0.5 padding
   $width: ($available-space / 3);
   width: $width;
   height: $width;
   border-radius: 2 * $default-border-radius;
+
+  // Colors
+  border: #EEE dashed em($border);
 }
 
-.fileupload-preview {
-  @include fileupload-thumbnail;
-  position: relative;
-
+.fileupload-remove-hover {
   &:hover > .fileupload-preview-remove-image {
     display: block;
   }
@@ -264,7 +268,8 @@ $listing-author-avatar-height: 108;
 }
 
 .fileupload-text-container {
-  @include fileupload-thumbnail(lines(0.25));
+  @include fileupload-thumbnail(3);
+  outline: 1px solid red;
 
   color: darken(#EEE, 33%);
 
@@ -274,16 +279,16 @@ $listing-author-avatar-height: 108;
 
 .upload-image-placeholder {
   @include fileupload-thumbnail;
-
   float: left;
-
-  // Colors
-  border: #EEE dashed em(3);
   background-color: #FAFAFA;
 
   &:hover, &.hover {
     border-color: darken(#EEE, 10%);
   }
+
+  
+  margin-right: $listing-image-cellpadding;
+  margin-bottom: $listing-image-cellpadding;
 }
 
 .fileupload-centered-text {

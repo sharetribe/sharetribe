@@ -129,10 +129,12 @@ class ListingsController < ApplicationController
     @listing.author = @current_user
     @listing.custom_field_values = create_field_values(params[:custom_fields]) if params[:custom_fields]
 
-    listing_image = ListingImage.find_by_id_and_author_id(params[:listing_image][:id], @current_user.id)
-    @listing.listing_images << listing_image if listing_image
-
-    @listing.save
+    if @listing.save
+      listing_image_ids = params[:listing_images].collect { |h| h[:id] }.select { |id| id.present? }
+      ListingImage.where(id: listing_image_ids, author_id: @current_user.id).update_all(listing_id: @listing.id)
+    else
+      redirect_to new_listing_path
+    end
 
     if @listing.new_record?
       redirect_to new_listing_path
