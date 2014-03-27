@@ -29,7 +29,7 @@ class ListingImagesController < ApplicationController
   # New listing image while creating a new listing
   # Create image from given url
   def create_from_url
-    url = params[:image_url]
+    url = escape_s3_url(params[:path], params[:filename])
 
     if !url.present?
       render json: {:errors => "No image URL provided"}, status: 400
@@ -41,7 +41,7 @@ class ListingImagesController < ApplicationController
   # Add new listing image to existing listing
   # Create image from given url
   def add_from_url
-    url = params[:image_url]
+    url = escape_s3_url(params[:path], params[:filename])
 
     if !url.present?
       render json: {:errors => "No image URL provided"}, status: 400
@@ -70,6 +70,13 @@ class ListingImagesController < ApplicationController
   end
 
   private
+
+  # Given path which includes placeholder `${filename}` and
+  # the `filename` and get back working URL
+  def escape_s3_url(path, filename)
+    escaped_filename = AWS::Core::UriEscape.escape(filename)
+    path.sub("${filename}", escaped_filename)
+  end
 
   # Create new listing
   def create_image(params, url)
