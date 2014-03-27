@@ -717,7 +717,7 @@ pt-BR:
       you_have_made_new_payment: ~
       product: Produto
       total: Total
-      price: ~
+      price: Preço
       service_fee: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} te deu um feedback em %{service_name}"
@@ -850,7 +850,7 @@ pt-BR:
       request_partitive: requisição
   header:
     about: Sobre
-    home: Home
+    home: Inicio
     members: ~
     new_listing: ~
     mobile_version: "Versão para celular"
@@ -1235,6 +1235,7 @@ pt-BR:
         this_may_take_a_while: ~
         percentage_loaded: ~
         uploading_failed: ~
+        file_too_large: ~
         accepted_formats: "O formato do arquivo de imagem deve ser GIF, JPG ou PNG."
       location:
         location: Local
@@ -1271,7 +1272,7 @@ pt-BR:
         comma_separate: ~
         tags: Tags
       title:
-        listing_title: ~
+        listing_title: Título
       valid_until:
         valid_until: "Data expiração"
       valid_until_radio_buttons:
