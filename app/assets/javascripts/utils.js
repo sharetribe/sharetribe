@@ -33,7 +33,7 @@ ST.utils = (function(_) {
     Create relative URLs.
 
     ## Usage:
-    
+
     If you're in 'http://market.sharetribe.com/admin/categories/' then
 
     ```

@@ -2,7 +2,7 @@
   %p
     %a{:id => "edit_link", :href => "/editor" + request.path, :data => { :save_url => mercury_update_path }}
       .icon-with-text-container
-        = icon_tag("edit", ["icon-part"]) 
+        = icon_tag("edit", ["icon-part"])
         .text-part= t("common.edit_page")
 %div{:id => content_type, :data => {:mercury => "full"}}
   = yield

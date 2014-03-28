@@ -21,6 +21,5 @@
     = form_tag accept_terms_path do
       .form_field_container
         = submit_tag(t('.i_accept_terms'), :class => "send_button_terms")
-        
 
 = render :partial => "people/help_texts", :locals => { :field => "terms" }

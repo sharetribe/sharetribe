@@ -30,12 +30,12 @@ $.validator.
 addMethod("address_validator",
   function(value, element, param) {
     var check = null;
-  
+
     // Added to allow empty locations
     if (value == "") {
       return true;
     }
-  
+
     var pref = element.id.split("_");
     var elem_prefix ="";
     if (pref[0].match("person"))
@@ -62,7 +62,7 @@ function timed_input(param) {
   timer=setTimeout(
     function() {
       update_map(param);
-    }, 
+    },
     1500
   );
 }
@@ -81,21 +81,21 @@ function timed_input_on_route(){
 function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable,community_location_lat,community_location_lon,address) {
   prefix = n_prefix;
   textfield = n_textfield;
-  
+
   if (draggable == undefined)
     draggable = false;
-    
+
   var latitude = document.getElementById(prefix+ "_latitude");
   var longitude = document.getElementById(prefix+ "_longitude");
   var visible = true;
-  
+
   var myOptions = {
     'zoom': 12,
     'streetViewControl': false,
     'mapTypeControl': false,
     'mapTypeId': google.maps.MapTypeId.ROADMAP
   }
-  
+
   map = new google.maps.Map(document.getElementById(canvas), myOptions);
   if (latitude.value != "") {
     setMapCenter(latitude.value, longitude.value, true);
@@ -103,14 +103,14 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable,community_loc
     setMapCenter(community_location_lat, community_location_lon, false);
   }
   geocoder = new google.maps.Geocoder();
-  
+
   if (latitude.value != ""){
     markerPosition = new google.maps.LatLng(latitude.value,longitude.value);
   } else {
     markerPosition = defaultCenter;
     visible = false;
   }
-  
+
   marker = new google.maps.Marker({
     'map': map,
     'draggable': draggable,
@@ -119,7 +119,7 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable,community_loc
   });
 
   infowindow = new google.maps.InfoWindow();
-  
+
   if (address != undefined) {
     google.maps.event.addListener(marker, 'click', function() {
       infowindow.close();
@@ -129,28 +129,28 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable,community_loc
   }
 
   if (draggable){
-    google.maps.event.addListener(map, "click", 
+    google.maps.event.addListener(map, "click",
       function(event) {
         marker.setPosition(event.latLng);
         marker.setVisible(true);
         geocoder.geocode({"latLng":event.latLng},update_source);
       }
     );
-  
-    google.maps.event.addListener(marker, "dragend", 
+
+    google.maps.event.addListener(marker, "dragend",
       function() {
         geocoder.geocode({"latLng":marker.getPosition()},update_source);
       }
     );
   }
-  
+
   if(!visible)
     marker.setVisible(false);
 }
 
 function update_map(field) {
   if (geocoder) {
-    geocoder.geocode({'address':field.value}, 
+    geocoder.geocode({'address':field.value},
       function(response,info) {
         if (info == google.maps.GeocoderStatus.OK){
           marker.setVisible(true);
@@ -240,15 +240,13 @@ function update_model_location(place,_prefix){
   manually_validate(_prefix);
 }
 
-
-
 // Rideshare
 function googlemapRouteInit(canvas) {
 
   geocoder = new google.maps.Geocoder();
   directionsService = new google.maps.DirectionsService();
   defaultCenter = new google.maps.LatLng(60.17, 24.94);
-  
+
   var myOptions = {
     'mapTypeId': google.maps.MapTypeId.ROADMAP,
     'disableDefaultUI': false,
@@ -270,7 +268,7 @@ function googlemapRouteInit(canvas) {
     'markerOptions': markerOptions
   });
 
-  google.maps.event.addListener(directionsDisplay, 'directions_changed', 
+  google.maps.event.addListener(directionsDisplay, 'directions_changed',
     function() {
       if (currentDirections) {
         //updateTextBoxes();
@@ -280,7 +278,6 @@ function googlemapRouteInit(canvas) {
     }
   );
 }
-
 
 // Use this one for "new" and "edit"
 function startRoute(latitude, longitude) {
@@ -303,40 +300,39 @@ function startRoute(latitude, longitude) {
 
 function wrongLocationRoute(field){
   document.getElementById(field).value = "Address not found";
-  document.getElementById(field+"_loc_attributes_address").value = null; 
-  document.getElementById(field+"_loc_attributes_google_address").value = null; 
+  document.getElementById(field+"_loc_attributes_address").value = null;
+  document.getElementById(field+"_loc_attributes_google_address").value = null;
   document.getElementById(field+"_loc_attributes_latitude").value = null;
   document.getElementById(field+"_loc_attributes_longitude").value = null;
 }
 
 function wipeFieldsRoute(field) {
-  document.getElementById(field+"_loc_attributes_address").value = null; 
-  document.getElementById(field+"_loc_attributes_google_address").value = null; 
+  document.getElementById(field+"_loc_attributes_address").value = null;
+  document.getElementById(field+"_loc_attributes_google_address").value = null;
   document.getElementById(field+"_loc_attributes_latitude").value = null;
   document.getElementById(field+"_loc_attributes_longitude").value = null;
 }
 
 function removeRoute() {
-  directionsDisplay.setMap(null);  
+  directionsDisplay.setMap(null);
 }
-
 
 // Use this one for "show"
 function showRoute(orig, dest) {
   var start = orig;
   var end = dest;
-    
+
   var request = {
     origin:start,
     destination:end,
     travelMode: google.maps.DirectionsTravelMode.DRIVING,
     unitSystem: google.maps.DirectionsUnitSystem.METRIC
   };
-  
+
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
-    } 
+    }
   });
 }
 
@@ -350,7 +346,7 @@ function route_not_found(orig, dest) {
         update_model_location(response, "listing_origin_loc_attributes");
       }
     });
-  } else { 
+  } else {
     nil_locations("listing_origin_loc_attributes");
   }
   if (dest) {
@@ -372,7 +368,7 @@ function route_not_found(orig, dest) {
 function calcRoute(orig, dest) {
   var start = orig;
   var end = dest;
-  
+
   if(!orig.match(dest)){
 
     var request = {
@@ -381,7 +377,7 @@ function calcRoute(orig, dest) {
       travelMode: google.maps.DirectionsTravelMode.DRIVING,
       unitSystem: google.maps.DirectionsUnitSystem.METRIC
     };
-    
+
     directionsService.route(request, function(response, status) {
       if (status == google.maps.DirectionsStatus.OK) {
          directionsDisplay.setDirections(response);
@@ -399,7 +395,7 @@ function calcRoute(orig, dest) {
 function updateEditTextBoxes() {
   var foo = directionsDisplay.getDirections().routes[0].legs[0].start_address;
   var bar = directionsDisplay.getDirections().routes[0].legs[0].end_address;
-  document.getElementById("listing_origin_loc_attributes_google_address").value = foo; 
+  document.getElementById("listing_origin_loc_attributes_google_address").value = foo;
   document.getElementById("listing_destination_loc_attributes_google_address").value = bar;
   document.getElementById("listing_origin_loc_attributes_latitude").value = directionsDisplay.getDirections().routes[0].legs[0].start_location.lat();
   document.getElementById("listing_origin_loc_attributes_longitude").value = directionsDisplay.getDirections().routes[0].legs[0].start_location.lng();
@@ -426,15 +422,15 @@ function initialize_communities_map() {
 function addCommunityMarkers() {
   // Test requesting location data
   // Now the request_path needs to also have a query string with the wanted parameters
-  
+
   markerContents = [];
   markers = [];
-  
+
   var request_path = '/en/tribes'
-  $.getJSON(request_path, {dataType: "json"}, function(data) {  
+  $.getJSON(request_path, {dataType: "json"}, function(data) {
     var data_arr = data.data;
     //alert(data_arr);
-      
+
     for (i in data_arr) {
       (function() {
         var entry = data_arr[i];
@@ -450,7 +446,6 @@ function addCommunityMarkers() {
           });
           markers.push(marker);
           markersArr.push(marker);
-
 
           var ind = i;
           google.maps.event.addListener(marker, 'click', function() {
@@ -498,7 +493,7 @@ function initialize_listing_map(community_location_lat, community_location_lon, 
   } else {
     infowindow.setMinHeight(150);
     infowindow.setMinWidth(225);
-  } 
+  }
   directionsService = new google.maps.DirectionsService();
   directionsDisplay = new google.maps.DirectionsRenderer();
   directionsDisplay.setOptions( { suppressMarkers: true } );
@@ -541,13 +536,13 @@ function setMapCenter(communityLat, communityLng, preferCommunityLocation) {
 function addListingMarkers(community_location_lat, community_location_lon, prefer_param_loc) {
   // Test requesting location data
   // Now the request_path needs to also have a query string with the wanted parameters
-  
+
   markerContents = [];
   markers = [];
-  
+
   var starttime = new Date().getTime();
   var request_path = '/listings/locations_json'
-  $.get(request_path, { transaction_type: transaction_type, 'category[]': listing_category, search: listing_search, custom_dropdown_field_options: listingCustomDropdownFieldOptions}, function(data) {  
+  $.get(request_path, { transaction_type: transaction_type, 'category[]': listing_category, search: listing_search, custom_dropdown_field_options: listingCustomDropdownFieldOptions}, function(data) {
 
     var data_arr = data.data;
     for (i in data_arr) {
@@ -555,7 +550,7 @@ function addListingMarkers(community_location_lat, community_location_lon, prefe
         var entry = data_arr[i];
         markerContents[i] = entry["id"];
         if (entry["latitude"]) {
-          
+
           var location;
           location = new google.maps.LatLng(entry["latitude"], entry["longitude"]);
 
@@ -563,7 +558,7 @@ function addListingMarkers(community_location_lat, community_location_lon, prefe
             position: location,
             title: entry["title"]
           });
-          
+
           // Marker icon based on category
           var label = new Label({
                          map: map
@@ -645,4 +640,3 @@ function SetFiltersForMap(type, category, search, custom_dropdown_field_options)
   if (custom_dropdown_field_options) { listingCustomDropdownFieldOptions = custom_dropdown_field_options} else { listingCustomDropdownFieldOptions = [];}
   initialize_labels();
 }
-

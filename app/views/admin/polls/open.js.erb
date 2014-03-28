@@ -5,7 +5,7 @@ $("#poll_<%= @poll.id.to_s %>_status").html("<%= escape_javascript(render(:parti
 $("#poll_<%= @poll.id.to_s %>_close_link").html("<%= escape_javascript(render(:partial => 'admin/polls/edit_poll_links', :locals => {:poll => @poll })) %>");
 
 <% if @previously_active_poll %>
-  
+
   /* Update the status of another poll that was closed if that is the case  */
   $("#poll_<%= @previously_active_poll.id.to_s %>_status").html("<%= escape_javascript(render(:partial => 'admin/polls/poll_status', :locals => {:poll => @previously_active_poll })) %>");
 

@@ -1,20 +1,20 @@
 function add_validator_methods() {
   $.validator.
-    addMethod( "valid_domain", 
+    addMethod( "valid_domain",
       function(value, element, param) {
         return value.match(new RegExp("(^[A-Za-z0-9_]*$)"));
       }
     );
-    
+
   $.validator.
-    addMethod( "valid_username", 
+    addMethod( "valid_username",
       function(value, element, param) {
         return value.match(new RegExp("(^[A-Za-z0-9_]*$)"));
       }
     );
-    
+
   $.validator.
-    addMethod( "valid_email_ending_required", 
+    addMethod( "valid_email_ending_required",
       function(value, element, valid_email_ending_required) {
         if (valid_email_ending_required == "true") {
           var email_ending = value.split('@')[1];
@@ -34,13 +34,13 @@ function initialize_defaults() {
   $('.js_wrapper').addClass('js_enabled');
 }
 
-function initialize_dashboard(email_default_text) { 
+function initialize_dashboard(email_default_text) {
   $('#contact_request_email').watermark(email_default_text, {className: 'default_text'});
 }
 
 function initialize_login_form() {
-  $('#password_forgotten_link').click(function() { 
-    $('#password_forgotten').slideToggle('fast'); 
+  $('#password_forgotten_link').click(function() {
+    $('#password_forgotten').slideToggle('fast');
     $('input.request_password').focus();
   });
   $('#login_form input.text_field:first').focus();
@@ -110,7 +110,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
         error.appendTo(element.parent().parent().parent().parent().parent().parent().parent().parent().parent());
       } else {
         error.insertAfter(element);
-      }  
+      }
     },
     rules: {
       "person[username]": {required: true, minlength: 3, maxlength: 20, valid_username: true, remote: "/people/check_username_availability"},
@@ -127,9 +127,9 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
     },
     onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls
     submitHandler: function(form) {
-      disable_and_submit(form_id, form, "false", locale);  
+      disable_and_submit(form_id, form, "false", locale);
     }
-  });  
+  });
 }
 
 function initialize_enter_organization_email_form(locale, default_text,email_in_use_message, invalid_email_ending_message, valid_email_ending_required, community_category) {
@@ -148,7 +148,7 @@ function initialize_enter_organization_email_form(locale, default_text,email_in_
     },
     onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls
     submitHandler: function(form) {
-      disable_and_submit(form_id, form, "false", locale);  
+      disable_and_submit(form_id, form, "false", locale);
     }
   });
 }

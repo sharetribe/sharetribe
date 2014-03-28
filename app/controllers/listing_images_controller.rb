@@ -1,5 +1,5 @@
 class ListingImagesController < ApplicationController
-  
+
   # Skip auth token check as current jQuery doesn't provide it automatically
   skip_before_filter :verify_authenticity_token, :only => [:destroy]
 
@@ -10,7 +10,7 @@ class ListingImagesController < ApplicationController
   before_filter :"listing_authorized?", :only => [:add_from_file]
 
   skip_filter :dashboard_only
-  
+
   def destroy
     @listing_image_id = @listing_image.id.to_s
     if @listing_image.destroy
@@ -111,7 +111,7 @@ class ListingImagesController < ApplicationController
         listing_image.delay.download_from_url(url)
       end
       render json: {
-        id: listing_image.id, 
+        id: listing_image.id,
         removeUrl: listing_image_path(listing_image),
         processedPollingUrl: image_status_listing_image_path(listing_image)
       }, status: 202

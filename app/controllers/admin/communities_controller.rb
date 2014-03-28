@@ -1,24 +1,24 @@
 class Admin::CommunitiesController < ApplicationController
   helper_method :member_sort_column, :member_sort_direction
-  
+
   include CommunitiesHelper
-  
+
   before_filter :ensure_is_admin
-  
+
   skip_filter :dashboard_only
-  
+
   def edit_details
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "tribe_details"
     @community = @current_community
   end
-  
+
   def edit_look_and_feel
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "tribe_look_and_feel"
     @community = @current_community
   end
-  
+
   def edit_welcome_email
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "welcome_email"
@@ -30,7 +30,7 @@ class Admin::CommunitiesController < ApplicationController
       :locale => @current_user.locale
     }
   end
-  
+
   def manage_members
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "manage_members"
@@ -69,25 +69,25 @@ class Admin::CommunitiesController < ApplicationController
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "admin_settings"
   end
-  
+
   def update
     return_to_action =  (params[:community_settings_page] == "look_and_feel" ? :edit_look_and_feel : :edit_details)
-    
+
     @community = Community.find(params[:id])
     need_to_regenerate_css = params[:community][:custom_color1] != @community.custom_color1 || params[:community][:custom_color2] != @community.custom_color2 || params[:community][:cover_photo] || params[:community][:small_cover_photo]
-    
+
     params[:community][:custom_color1] = nil if params[:community][:custom_color1] == ""
     params[:community][:custom_color2] = nil if params[:community][:custom_color2] == ""
-    
+
     if @community.update_attributes(params[:community])
       flash[:notice] = t("layouts.notifications.community_updated")
       CommunityStylesheetCompiler.compile(@community) if need_to_regenerate_css
-      redirect_to (return_to_action == :edit_look_and_feel ? 
-                   edit_look_and_feel_admin_community_path(@community) : 
-                   edit_details_admin_community_path(@community))  
+      redirect_to (return_to_action == :edit_look_and_feel ?
+                   edit_look_and_feel_admin_community_path(@community) :
+                   edit_details_admin_community_path(@community))
     else
       flash.now[:error] = t("layouts.notifications.community_update_failed")
-      render :action => return_to_action  
+      render :action => return_to_action
     end
   end
 
@@ -106,7 +106,7 @@ class Admin::CommunitiesController < ApplicationController
     ids ||= []
     ids.include?(current_admin_user.id) && current_admin_user.is_admin_of?(community)
   end
-  
+
   private
 
   def member_sort_column

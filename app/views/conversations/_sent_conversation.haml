@@ -9,7 +9,7 @@
     %br/
     %span= time_ago(last_message.created_at)
   .conversation_center
-    %h3= link_to conversation.title, single_conversation_path(:conversation_type => action_name, :id => conversation.id)  
+    %h3= link_to conversation.title, single_conversation_path(:conversation_type => action_name, :id => conversation.id)
     %span= link_to(truncate(last_message.content, :length => 60, :omission => "..."), single_conversation_path(:conversation_type => action_name, :id => conversation.id))
   .conversation_right
     %div{:id => "conversation_#{conversation.id.to_s}_status"}

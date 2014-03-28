@@ -1,7 +1,7 @@
 - url = person_url(@url_params.merge({:id => @recipient.id})) + "#badges"
 
 %tr
-  %td{:align => "left", :style => "padding:0 0 15px 0"} 
+  %td{:align => "left", :style => "padding:0 0 15px 0"}
     %font{body_font}
       = t("emails.new_badge.you_have_achieved_a_badge", :badge_name => @badge_name)
 
@@ -17,10 +17,3 @@
               = "\"" + t("people.profile_badge.#{@badge.name}_description") + "\""
 
 = render :partial => "action_button", :locals => { :text => t("emails.new_badge.you_can_view_all_your_badges_in"), :url => url}
-
-
-
-
-              
-
-

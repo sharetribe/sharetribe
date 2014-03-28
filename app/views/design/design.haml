@@ -207,7 +207,7 @@
       - content_for :extra_javascript do
         :javascript
           var fieldMap = $(".sortable-row").map(function(id, row) {
-            return { 
+            return {
               id: $(row).attr("id"), // Id, that identifies the sortable row
               element: $(row), // jQuery element of a sortable row
               up: $(".arrow-up", row),
@@ -221,7 +221,7 @@
           });
 
           var subFieldMap = $(".sortable-sub-row").map(function(id, row) {
-            return { 
+            return {
               id: $(row).attr("id"), // Id, that identifies the sortable row
               element: $(row), // jQuery element of a sortable row
               up: $(".sub-arrow-up", row),
@@ -256,7 +256,7 @@
             - content_for :extra_javascript do
               :javascript
                 var fieldMap = $(".sortable-row").map(function(id, row) {
-                  return { 
+                  return {
                     id: $(row).attr("id"),
                     element: $(row),
                     up: $(".arrow-up", row),
@@ -484,29 +484,26 @@
               %th= "Email"
               %th= "Join date"
           %tbody
-            %tr 
+            %tr
               %td= "Essi Example"
               %td= "essi@example.com"
               %td= "2013-05-27 21:40:59"
-            %tr 
+            %tr
               %td= "Jack Example"
               %td= "jack@example.com"
               %td= "2013-01-27 21:40:59"
-            %tr 
+            %tr
               %td= "Simon Example"
               %td= "simon@example.com"
               %td= "2012-05-27 21:40:59"
-            %tr 
+            %tr
               %td= "Jantus Cantus"
               %td= "jant1234@example.com"
               %td= "2011-01-27 21:40:59"
-            %tr 
+            %tr
               %td= "strange guy"
               %td= "guy@example.com"
               %td= "2012-05-27 21:40:59"
-
-
-
 
   %h2.design-h2
     = "Images"

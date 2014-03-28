@@ -6,7 +6,7 @@
 
 %head
   = render :partial => "layouts/kissmetrics"
-  
+
   %meta{charset: "utf-8" }
   :css
     @import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700);
@@ -14,18 +14,15 @@
   %meta{ :property => "og:type", :content =>"website"}
   %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
   = yield :head
-  
+
   - if @current_community
     = render :partial => "layouts/marketplace_head"
   - else
     = render :partial => "layouts/network_head"
-  
-  
-  
-  
+
   -# A tag for google webmaster site verification
   %meta{ name: "google-site-verification", content: "JUqB3tYmezYEJNAkw8MUdmIocAGztY85eaoNKBD5j0Q"}
-  
+
   - if on_dashboard?
     <!-- Google Tag Manager -->
     <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-M8T5JR"
@@ -36,5 +33,3 @@
     '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-M8T5JR');</script>
     <!-- End Google Tag Manager -->
-    
-  

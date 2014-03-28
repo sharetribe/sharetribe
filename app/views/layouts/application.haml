@@ -3,10 +3,10 @@
 %body
 
   = render :partial => "layouts/noscript"
-  
+
   -# load Facebook SDK for the whole page
   = render :partial => "layouts/facebook_sdk"
- 
+
   = render :partial => 'layouts/global-header'
 
   %section.marketplace-lander
@@ -15,22 +15,20 @@
         %figure.marketplace-cover.fluidratio
       .wrapper
         .lander-content.marketplace-lander-content
-          = yield :title_header 
+          = yield :title_header
     - with_small_cover_photo do
       .coverimage
         %figure.marketplace-cover-small.fluidratio
       .coverimage-fade{:class => yield(:coverfade_class)}
-        %figure.marketplace-cover-small-fade.fluidratio 
+        %figure.marketplace-cover-small-fade.fluidratio
       .title-container
         .title-header-wrapper
           .marketplace-title-header
             = yield :title_header
-            
-      
 
   %article.page-content
     .wrapper
-      = render :partial => "layouts/notifications"         
+      = render :partial => "layouts/notifications"
       = yield
 
   = render :partial => "layouts/google_analytics_script"

@@ -10,7 +10,7 @@ $profile-pic-gutter-mobile: lines(0.5);
     @include border-radius($default-border-radius);
     width: 100%;
   }
-  
+
   @include media(tablet) {
     display: block;
   }
@@ -33,7 +33,7 @@ $profile-pic-gutter-mobile: lines(0.5);
 
 .profile-action-button-desktop {
   display: none;
-  
+
   @include media(tablet) {
     display: block;
   }
@@ -45,7 +45,7 @@ $profile-pic-gutter-mobile: lines(0.5);
   margin-top: lines(0.65);
   margin-bottom: lines(0.5);
   border-bottom: 1px solid $border;
-  
+
   @include media(tablet) {
     display: none;
   }
@@ -61,16 +61,16 @@ $profile-pic-gutter-mobile: lines(0.5);
   position: absolute;
   top: 0;
   left: lines(0.5);
-  
+
   > img {
     @include border-radius($default-border-radius);
     width: 100%;
   }
-  
+
   @include media(tablet) {
     display: none;
   }
-  
+
 }
 
 .people-fluid-thumbnail-grid-container {

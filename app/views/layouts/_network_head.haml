@@ -2,12 +2,12 @@
   Create a marketplace website
 
 %meta{ :name => "keywords", :content => "Marketplace, Create a marketplace, How to create a marketplace, Create a marketplace website, Online marketplace, Create an online marketplace, Peer-to-peer marketplace" }
-%meta{ :property => "og:title", :content => "#{service_name}"} 
-%meta{ :property => "og:url", :content =>"#{request.protocol}#{request.host}#{request.fullpath}"} 
+%meta{ :property => "og:title", :content => "#{service_name}"}
+%meta{ :property => "og:url", :content =>"#{request.protocol}#{request.host}#{request.fullpath}"}
 %meta{ :property => "og:image", :content => "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"}
 %meta{ :property => "og:site_name", :content =>"#{service_name}"}
 %meta{ :property => "og:description", :content => t("layouts.application.meta_description")}
-%meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" } 
+%meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" }
 %meta{ :name => "description", :content => t("layouts.application.meta_description") }
 %meta{ :name => "keywords", :content => t("layouts.application.keywords") }
 
@@ -17,7 +17,7 @@
 
 / Modernizr, in the head tag, right after stylesheets, for best performance:
 = javascript_include_tag "modernizr.min"
-  
+
 = csrf_meta_tag
 
 %link{:rel => "image_src", :href => "https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png"}

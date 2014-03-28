@@ -12,16 +12,16 @@
     .avatar
       = small_avatar_thumb @other_party
     .avatar-text
-      = render :partial => "conversation_with", :locals => { :conversation => @conversation, :other_party => @other_party }  
+      = render :partial => "conversation_with", :locals => { :conversation => @conversation, :other_party => @other_party }
 
   #messages
     = render :partial => "message", :collection => @conversation.messages
-  
+
   - if @conversation.listing && !@conversation.status.eql?("free")
     .conversation-status-lower
       .conversation-status-container{:id => "conversation_#{@conversation.id.to_s}_status"}
         = render :partial => "status", :locals => { :conversation => @conversation }
-  
+
   #reply_form
     = form_for Message.new, :url => person_message_messages_path(:person_id => @current_user.id, :message_id => @conversation.id.to_s) do |f|
       = f.label :content, t(".write_a_reply")

@@ -42,6 +42,6 @@ $home-thumbnail-grid-author: $home-thumbnail-grid-avatar + ($home-thumbnail-grid
 
   // Vertical centering
   line-height: $home-thumbnail-grid-avatar;
-  
+
   @include ellipsis;
 }

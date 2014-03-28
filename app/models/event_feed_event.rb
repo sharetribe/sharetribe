@@ -7,7 +7,7 @@ class EventFeedEvent < ActiveRecord::Base
   belongs_to :eventable, :polymorphic => true
 
   validates_presence_of :community_id, :category
-  
+
   scope :non_members_only, :conditions => { :members_only => false }
 
 end

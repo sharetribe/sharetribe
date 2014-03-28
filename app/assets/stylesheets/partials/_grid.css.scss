@@ -47,7 +47,7 @@
 
 /* Left hand side bar that is 2/3 of total width */
 .left-column-2-3 {
-  
+
   @include media(tablet) {
     padding-right: lines(0.5);
     margin-bottom: lines(1);
@@ -78,7 +78,7 @@
   @include media(tablet) {
     padding-left: lines(0.5);
     width: lines($right-column-1-3);
-    
+
     position: absolute;
     top: 0;
     right: 0;

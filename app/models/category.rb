@@ -13,14 +13,14 @@ class Category < ActiveRecord::Base
 
   has_many :category_transaction_types, :dependent => :destroy
   has_many :transaction_types, :through => :category_transaction_types
-  
+
   belongs_to :community
 
   before_destroy :can_destroy?
 
   def translation_attributes=(attributes)
     build_attrs = attributes.map { |locale, values| { locale: locale, values: values } }
-    build_attrs.each do |translation| 
+    build_attrs.each do |translation|
       if existing_translation = translations.find_by_locale(translation[:locale])
         existing_translation.update_attributes(translation[:values])
       else
@@ -80,13 +80,13 @@ class Category < ActiveRecord::Base
 
   def with_all_children
     # first add self
-    child_array = [self] 
-    
+    child_array = [self]
+
     # Then add children with their children too
     children.each do |child|
       child_array << child.with_all_children
     end
-    
+
     return child_array.flatten
   end
 

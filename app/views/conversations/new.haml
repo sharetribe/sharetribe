@@ -18,12 +18,12 @@
   = form_for @conversation, :url => person_messages_path(:person_id => @current_user.id) do |form|
     = form.label :title, t('.title')
     = form.text_field :title, :class => "text_field", :maxlength => "120", :value => (params[:message_type] ? "" : get_message_title(@listing))
-      
+
     = fields_for "conversation[message_attributes]", Message.new do |message_form|
       = message_form.label :content, t('.message')
       = message_form.text_area :content, :class => "text_area"
       = message_form.hidden_field :sender_id, :value => @current_user.id
-      
+
     = hidden_field_tag "conversation[conversation_participants][#{@current_user.id}]", true
     = hidden_field_tag "conversation[conversation_participants][#{@target_person.id}]", false
     - if @listing
@@ -39,6 +39,3 @@
       = hidden_field_tag "target_person_id", @target_person.id
     = form.hidden_field :community_id, :value => @current_community.id
     = form.button t(".send_message"), :class => "send_button"
-
-  
-

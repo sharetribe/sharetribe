@@ -2,7 +2,7 @@
 - give_url = new_person_message_feedback_url(@url_params.merge({:person_id => @recipient.id, :message_id => @testimonial.participation.conversation.id}))
 
 %tr
-  %td{:align => "left"} 
+  %td{:align => "left"}
     %font{body_font}
       = t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => @testimonial.author.name(@current_community)) + "."
 
@@ -10,10 +10,9 @@
 
 - if @testimonial.receiver.can_give_feedback_on?(@testimonial.participation.conversation)
   %tr
-    %td{:align => "left"} 
+    %td{:align => "left"}
       %font{body_font}
         = t("emails.new_testimonial.you_can_give_feedback_to", :name => @testimonial.author.given_name_or_username)
         = t("emails.transaction_confirmed.giving_feedback_is_good_idea", :other_party_given_name => @testimonial.author.given_name_or_username)
 
   = render :partial => "action_button", :locals => { :text => t("emails.transaction_confirmed.give_feedback_to", :other_party_given_name => @testimonial.author.given_name_or_username), :url => give_url}
-

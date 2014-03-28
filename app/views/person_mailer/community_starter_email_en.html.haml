@@ -1,5 +1,5 @@
 %tr
-  %td{:align => "left", :style => "padding-top: 15px; padding-bottom: 20px;"} 
+  %td{:align => "left", :style => "padding-top: 15px; padding-bottom: 20px;"}
     %font{body_font}
       %p
         Hello #{@recipient.given_name_or_username},
@@ -11,7 +11,7 @@
         First of all, the previous membership limit is now completely removed. All the current features of Sharetribe are and will be completely free for your community, so now is a good time to invite more people to the community to make it thrive! You can invite people you know by using our redesigned #{link_to('invitation form', new_invitation_url(@url_params))}.
 
       %p
-        There is also finally a decent #{link_to('admin side', edit_details_admin_community_url(@url_params.merge(:id => @community.id)))} in Sharetribe. You can now do things like modify the look & feel of the community (logo, cover photo, colors, texts) and send messages to all the members. You can also see how many members there are in the tribe from the new #{link_to('members page', people_url(@url_params))}. 
+        There is also finally a decent #{link_to('admin side', edit_details_admin_community_url(@url_params.merge(:id => @community.id)))} in Sharetribe. You can now do things like modify the look & feel of the community (logo, cover photo, colors, texts) and send messages to all the members. You can also see how many members there are in the tribe from the new #{link_to('members page', people_url(@url_params))}.
 
       %p
         Sharetribe now works great on all mobile devices. Just point your mobile browser to the same address as normally and the site will responsively show the view that is optimized for smaller screens. If you have an iPhone, you can #{link_to("download the Sharetribe app", 'https://itunes.apple.com/us/app/sharetribe/id545640772?mt=8')} from the App Store for even easier access.

@@ -1,10 +1,10 @@
 A new member has joined #{@community.name(@person.locale)} #{service_name}.
 
 %div{:style => "margin: 15px 0; padding: 10px; background-color: #d1c9b4;"}
-  %b Name: 
+  %b Name:
   = @person.name(@community)
   %br/
-  %b Email: 
+  %b Email:
   = @email
-  
+
 This is an automatic message sent from #{service_name}.

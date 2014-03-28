@@ -1,10 +1,10 @@
 /* Display a notice */
 $("#conversation_notice").html('<div class="conversation_notice"><%= t("layouts.notifications.#{flash[:message_notice]}") %></div');
- 
+
 /* Add the new message to the bottom of the message list */
 $("#messages").append("<%= escape_javascript(render(:partial => 'conversations/message', :collection => [@message])) %>");
 $("#message<%= @message.id.to_s %>").effect("highlight", {}, 3000);
- 
+
 /* Reset the message form */
 $("#new_message")[0].reset();
 

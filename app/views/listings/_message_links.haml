@@ -2,29 +2,29 @@
   .listing-view-admin-links
     .listing-view-admin-link
       .icon-with-text-container
-        = icon_tag("lock", ["icon-part"]) 
+        = icon_tag("lock", ["icon-part"])
         .text-part= t("listings.reply_link.listing_closed")
     - if current_user?(@listing.author) || (@current_user && @current_user.has_admin_rights_in?(@current_community) && !@current_user.member_of?(@current_community))
       .listing-view-admin-link
         %a.action-link{href: edit_listing_path(@listing)}
           .icon-with-text-container
-            = icon_tag("unlock", ["icon-part"]) 
+            = icon_tag("unlock", ["icon-part"])
             .text-part= t("listings.edit_links.reopen_listing")
-- else    
-  
+- else
+
   - unless current_user?(@listing.author)
     - link_path = (@listing.direction.eql?("request") && @current_community.payments_in_use?) ? reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free") : reply_to_listing_path(:id => @listing.id.to_s)
     = link_to link_path, :class => "book-button" do
       .content
-        = @listing.transaction_type.action_button_label(I18n.locale) 
-  
+        = @listing.transaction_type.action_button_label(I18n.locale)
+
   - if current_user?(@listing.author) || (@current_user && @current_user.has_admin_rights_in?(@current_community))
     .listing-view-admin-links
       .listing-view-admin-link
         %a.icon-with-text-container{href: edit_listing_path(@listing)}
-          = icon_tag("edit", ["icon-part"]) 
+          = icon_tag("edit", ["icon-part"])
           .text-part= t("listings.edit_links.edit_listing")
       .listing-view-admin-link
         %a.icon-with-text-container{href: close_person_listing_path(@current_user, @listing), data: { method: "put", remote: "true"}}
-          = icon_tag("lock", ["icon-part"]) 
+          = icon_tag("lock", ["icon-part"])
           .text-part= t("listings.edit_links.close_listing")

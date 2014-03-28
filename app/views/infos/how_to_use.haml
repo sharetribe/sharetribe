@@ -7,4 +7,3 @@
   = render :layout => "layouts/mercury_editable_page", :locals => { :content_type => "how_to_use_page_content", :editing_allowed => true } do
     - if @community_customization && !@community_customization.how_to_use_page_content.blank?
       = @community_customization.how_to_use_page_content.html_safe
-    

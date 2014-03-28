@@ -1,7 +1,7 @@
 function initialize_confirmation_pending_form(locale, email_in_use_message) {
-  $('#mistyped_email_link').click(function() { 
+  $('#mistyped_email_link').click(function() {
     $('#password_forgotten').slideToggle('fast');
-    $("html, body").animate({ scrollTop: $(document).height() }, 1000); 
+    $("html, body").animate({ scrollTop: $(document).height() }, 1000);
     $('input.email').focus();
   });
   var form_id = "#change_mistyped_email_form";
@@ -17,7 +17,7 @@ function initialize_confirmation_pending_form(locale, email_in_use_message) {
      },
      onkeyup: false, //Only do validations when form focus changes to avoid exessive calls
      submitHandler: function(form) {
-       disable_and_submit(form_id, form, "false", locale);  
+       disable_and_submit(form_id, form, "false", locale);
      }
   });
 }

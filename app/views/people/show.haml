@@ -7,13 +7,13 @@
 
 .row
   .col-8
-  
+
     .row
       .people-image-mobile
         = huge_avatar_thumb(@person)
       .profile-action-button-mobile
         = render :partial => "profile_action_button"
-      
+
     .row
       - if @person.description && !@person.description.blank?
         - text_with_line_breaks do

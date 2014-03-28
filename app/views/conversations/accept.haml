@@ -7,21 +7,21 @@
 .conversation-status-form{:class => (@current_community.vat ? "centered-section-wide" : "centered-section")}
   %h2= t(".respond_to_#{@conversation.discussion_type}")
   = form_for @conversation, :url => acceptance_person_message_path(:person_id => @current_user.id, :id => @conversation.id), :html => { :method => "put" } do |form|
-    
+
     .conversation-action
-      - ["accept", "reject"].each do |action| 
+      - ["accept", "reject"].each do |action|
         %label{:for => "action-#{action}", :class => "radio hidden"}
           = radio_button_tag "conversation[status]", action, @action.eql?(action), :id => "action-#{action}"
         %a.conversation-action.hidden{:id => "#{action}", :name => "#{action}-link", :class => (@action.eql?(action) ? action : "")}
           .link-icon{:class => icon_for("#{action}ed")}
           .link-text{:id => "#{action}-action-link"}= t(".#{action}_#{@conversation.discussion_type}")
-    
+
     - if @payout_registration_missing
       .hidden-accept-form.visible-when-accept{:class => (@action.eql?("accept") ? "" : "hidden")}
         %br
         %p#conversation-payment-details-missing
           = t(".you_need_to_fill_payout_details_before_accepting", :payment_settings_link => link_to(t(".payment_settings_link"), @current_community.payment_gateway.settings_path(@current_user, I18n.locale), :id => "#conversation-payment-settings-link")).html_safe
-    
+
     %div{:class => (@payout_registration_missing ? "hidden-accept-form visible-when-reject #{@action.eql?("accept") ? "hidden" : ""}" : "")}
       - if @current_community.payment_possible_for?(@conversation.listing)
         = render :partial => @current_community.payment_gateway.form_template_dir + "/form"
@@ -31,6 +31,6 @@
         = message_form.text_area :content, :class => "text_area", :placeholder => t(".optional_message")
         = message_form.hidden_field :sender_id, :value => @current_user.id
         = message_form.hidden_field :action, :value => @action
-    
+
       = form.hidden_field :status, :value => "#{@action}ed"
       = form.button t("conversations.new.send"), :class => "send_button", :id => "send_testimonial_button"

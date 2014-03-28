@@ -1,7 +1,6 @@
 - content_for :javascript do
   initialize_give_feedback_form("#{I18n.locale}","#{t('error_messages.testimonials.you_must_select_a_grade')}","#{t('error_messages.testimonials.you_must_explain_not_neutral_feedback')}");
 
-
 .centered-section.testimonial-form
   %h2= t(".give_feedback_to", :person => @conversation.other_party(@current_user).name)
   %p= t(".this_will_be_shown_in_profile", :person => @conversation.other_party(@current_user).given_name_or_username)
@@ -11,7 +10,7 @@
     = form.text_area :text, :placeholder => t(".default_textual_feedback")
     = form.label :grade, t(".grade")
     .feedback-grade
-      - Testimonial::GRADES.each do |grade| 
+      - Testimonial::GRADES.each do |grade|
         %label{:for => "grade-#{grade[1][:form_value]}", :class => "radio hidden"}
           = radio_button_tag "testimonial[grade]", grade[1][:db_value], grade[1][:default], :id => "grade-#{grade[1][:form_value]}"
         %a.grade.hidden{:id => grade[0], :name => "grade-#{grade[1][:form_value]}"}

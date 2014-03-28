@@ -7,7 +7,7 @@
 @import "mixins/all";
 
 /**
-  This file is deprecated: Put your SCSS to views/ and partials/ 
+  This file is deprecated: Put your SCSS to views/ and partials/
   and include them in application.scss.erb
 */
 
@@ -18,7 +18,7 @@
 /**
   Enable fast click:
 
-  For IE10, you can use -ms-touch-action: none to disable double-tap-to-zoom on certain elements 
+  For IE10, you can use -ms-touch-action: none to disable double-tap-to-zoom on certain elements
   (like links and buttons) as described in this MSDN blog post.
 */
 a, input, button {
@@ -34,7 +34,7 @@ a, input, button {
 body {
   @include source-sans-pro;
   @include normal-type;
-  
+
   @include media(tiny-mobile) {
     // Zooms out on tiny screens
     font-size: em(13);
@@ -65,45 +65,45 @@ h1, h2, h3, h4, h5, h6 {
 .page-content {
   padding-bottom: lines(3);
   padding-top: lines(0.5);
-  
+
   h1 {
     margin: lines(0) 0 lines(0.5);
     font-weight: 700;
-    
+
     @include media(small-tablet) {
       @include large-type;
       margin-top: lines(0.25, 26);
       margin-bottom: lines(0.5, 26);
     }
   }
-  
+
   h2 {
     margin: lines(0) 0 lines(0.5);
     @include normal-type;
     font-weight: 500;
-    
+
     @include media(small-tablet) {
       @include big-type;
       font-weight: 500;
       text-transform: none;
     }
   }
-  
+
   p {
     margin-bottom: lines(0.5);
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     hyphens: auto;
   }
-  
+
   br {
     height: lines(0.5);
   }
-  
+
   @include media(tablet) {
     padding-top: lines(1);
   }
-  
+
 }
 
 /*
@@ -119,7 +119,7 @@ h1, h2, h3, h4, h5, h6 {
   $v-shadow: round(sin($angle) * $distance);
   $css-spread: $size * $spread/100;
   $blur: ($size - $css-spread);
- 
+
   @include text-shadow($h-shadow $v-shadow $blur $color);
 }
 
@@ -170,7 +170,7 @@ ul {
   .fb-text {
     padding: em(0) em(10) em(7) em(30);
   }
-  
+
   @include media(tablet) {
     .fb-icon {
       @include large-type;
@@ -181,12 +181,12 @@ ul {
       padding: em(1) em(10) em(7) em(35);
     }
   }
-  
+
 }
 
 .centered-section, .centered-section-wide, .centered-section-narrow, .left-navi-section {
   margin-top: lines(0.25);
-  
+
   textarea {
     height: lines(5);
   }
@@ -209,63 +209,62 @@ ul {
   padding: lines(0.5);
   margin-left: auto;
   margin-right: auto;
-  
+
   form {
     padding-bottom: lines(2);
   }
-  
+
   a.fb-connect {
     @include facebook-connect-button;
     padding: em(10) 2% em(6) 2%;
     width: 100%;
     margin-bottom: lines(0.5);
   }
-  
+
   .jsmap {
     display: block;
     width: 100%;
     height: lines(8);
     margin-top: lines(0.5);
   }
-  
+
   select.full-width {
     display: block;
     width: 100%;
     margin-top: em(5);
   }
-  
+
   @include media(desktop) {
     padding: 0 lines(0.5);
   }
-  
+
 }
 
 // Used for views with left hand navigation
 .left-navi-section {
   padding: lines(0.5) 0;
-  
+
   @include media(tablet) {
     padding: 0 lines(0.5);
     margin-left: lines(10.5);
   }
-  
+
   @include media(desktop) {
     padding: 0;
   }
-  
+
   small {
     display: inline;
   }
-  
+
   .map {
     display: block;
     width: 100%;
     height: lines(8);
     margin-top: lines(0.5);
   }
-  
-}
 
+}
 
 // Left hand navigation menu
 .left-navi {
@@ -274,7 +273,7 @@ ul {
   // Add negative margin, which pulls the container up the amount of highlight padding.
   // This ensures the texts are aligned.
   margin-top: -1 * $selected-highlight-padding;
-  
+
   @include media(tablet) {
     display: block;
     position: absolute;
@@ -300,7 +299,7 @@ ul {
     .left-navi-link-text {
       padding: 0 lines(1) 0 lines(1);
     }
-    
+
     .left-navi-link-icon {
       position: absolute;
       top: em(8);
@@ -313,7 +312,7 @@ ul {
   color: $body;
   padding: em(10) lines(1.5) em(10) lines(0.5);
   border-bottom: 1px dotted $border;
-  
+
   .icon-dropdown {
     position: absolute;
     right: lines(1);
@@ -327,13 +326,12 @@ ul {
 .avatar {
   position: relative;
   width: lines(1);
-  
+
   img {
     width: 100%;
     @include border-radius(em(5));
   }
 }
-
 
 .icon {
   @include big-type;
@@ -371,15 +369,15 @@ ul {
 }
 
 form {
-  
+
   .checkbox-container {
     position: relative;
-  
+
     input[type=checkbox] {
       position: absolute;
       top: lines(0.5) + em(3);
     }
-    
+
     input[type=radio] {
       position: absolute;
       top: lines(0.5)
@@ -393,22 +391,21 @@ form {
       margin-bottom: em(3);
       font-weight: 600;
     }
-    
+
     label.radio {
       margin-top: lines(0.5) - em(5);
     }
-    
+
     a {
       display: inline-block;
     }
-    
+
   }
-  
+
   .select-tag-dropdown {
     margin-bottom: lines(0.5);
   }
-  
-  
+
 }
 
 .unwanted_text_field {
@@ -493,7 +490,7 @@ label.error {
     position: absolute;
     left: em(18); top: em(-16);
   }
-  
+
 }
 
 .unread {
@@ -510,7 +507,7 @@ label.error {
 // Creates some bottom padding for absolute-positioned views
 .bottom-margin {
   display: none;
-  
+
   @include media(tablet) {
     display: block;
     position: absolute;
@@ -526,13 +523,11 @@ label.error {
   @include share-type-link;
 }
 
-
 /*
   ------------------------
   Global Sharetribe header
   ------------------------
 */
-
 
 // Positions new message badges
 .badge {
@@ -544,44 +539,44 @@ label.error {
   left: 13px; // Magic number, this just looks good
   color: $background;
   display: none;
-  
+
   &.big-badge {
     @include badge(26px);
     top: -12px; // Magic number, this just looks good
     left: 11px; // Magic number, this just looks good
   }
-  
+
   &.huge-badge {
     @include badge(32px);
     top: -14px; // Magic number, this just looks good
     left: 9px; // Magic number, this just looks good
   }
-  
+
   @include media(mid-desktop) {
     display: block;
   }
-  
+
 }
 
 .mobile-badge {
   @include small-type;
-  @include badge(20px);  
+  @include badge(20px);
   margin-left: lines(0.25);
   margin-top: 8px;
   display: inline-block;
   background: $link;
   color: $background;
-  
+
   &.big-badge {
     @include badge(26px);
     margin-top: 5px;
   }
-  
+
   &.huge-badge {
     margin-top: 2px;
     @include badge(32px);
   }
-  
+
   @include media(mid-desktop) {
     display: none;
   }
@@ -600,17 +595,15 @@ label.error {
   ------------
 */
 
+.tribe-actions {
 
-
-.tribe-actions { 
-  
   background: $link;
-  
+
   // Hide texts in narrow viewports
   .hidden {
     display: none;
   }
-  
+
   // Left-aligned links
   a {
     display: block;
@@ -620,26 +613,26 @@ label.error {
     height: em(24);
     overflow: hidden;
     color: $background;
-    &:hover { 
+    &:hover {
       background: darken($link, 5%);
     }
   }
-  
+
   a.selected-navi-link {
     color: $body;
     background: $background;
   }
-  
-  a.first-child { 
-    margin-left: lines(0); 
+
+  a.first-child {
+    margin-left: lines(0);
   }
-  
+
   .about-toggle.toggled {
     background: $emphasis;
   }
-  
+
   @include media(tablet) {
-    
+
     // Tribe intro and search are always shown in wide viewports
     // so these toggles get hidden
     .about-toggle {
@@ -649,19 +642,19 @@ label.error {
     .search-toggle {
       display: none;
     }
-    
+
     a {
       padding: em(8) em(15) em(12) em(15);
     }
-    
-    a.first-child { 
-      margin-left: lines(10.5); 
+
+    a.first-child {
+      margin-left: lines(10.5);
     }
-    
+
   }
-  
+
   @include media(desktop) {
-    
+
     // Show texts only in really wide viewports
     .hidden {
       display: inline-block;
@@ -669,8 +662,6 @@ label.error {
   }
 
 }
-
-
 
 /*
   --------------------------------------
@@ -683,7 +674,7 @@ label.error {
   position: absolute;
   bottom: em(-4);
   left: em(2);
-  
+
   @include source-sans-pro;
   @include mega-type;
   z-index: 0;
@@ -720,25 +711,25 @@ label.error {
   background: $background;
   padding: lines(1);
   @include border-radius(em(5));
-  
+
   h2 {
     margin-bottom: lines(0.25);
   }
-  
+
   h3, h4 {
     margin-top: lines(0.5);
     margin-bottom: lines(0.25);
   }
-  
+
   p {
     margin-bottom: lines(0.5);
     @include small-type;
   }
-  
+
   .consent {
     margin-top: lines(2);
   }
-  
+
   @include media(tablet) {
     h2 {
       @include big-type;
@@ -751,17 +742,17 @@ label.error {
 
 .badge-lightbox {
   max-width: lines(28);
-  
+
   .badge-lightbox-content {
     min-height: lines(5);
   }
-  
+
   small {
     margin-top: lines(0.5);
     font-style: italic;
     color: $aside;
   }
-  
+
   .badge-image {
     float: right;
     width: lines(5);
@@ -770,7 +761,7 @@ label.error {
       width: 100%;
     }
   }
-  
+
   @include media(tablet) {
     .badge-lightbox-content {
       min-height: lines(10);
@@ -844,7 +835,6 @@ a.lightbox-x {
   }
 }
 
-
 /*
   ----------
   Homepage
@@ -871,7 +861,7 @@ a.lightbox-x {
 
 .feed-actions {
   background: $background;
-  
+
   .request-link {
     display: block;
     float: left;
@@ -879,70 +869,70 @@ a.lightbox-x {
     color: $link;
     &:hover { color: darken($link, 15%); }
   }
-  
+
   @include media(tablet) {
-    
+
     .request-link {
       @include big-button($link);
       padding: em(8) em(8) em(10) em(8);
-      width: 100%; 
+      width: 100%;
       margin: 0 0 lines(0.5) 0;
       &:hover { color: $background; }
     }
-    
+
   }
-  
+
 }
 
 .feed-filters {
   background: $emphasis;
   padding: lines(0.5);
   position: relative;
-  
+
   .filter-title {
     display: none;
   }
-  
+
   .feed-filter-dropdowns {
     margin-top: lines(0.25);
   }
-  
+
   @include media(tablet) {
     background: $background;
     padding: 0;
-    
+
     .filter-title {
       margin-bottom: lines(0.25);
       display: block;
     }
-    
+
     .feed-filter-dropdowns {
       margin-top: 0;
       select {
         margin-bottom: lines(0.25);
       }
     }
-    
-    select, option { 
+
+    select, option {
       //-webkit-appearance: none;
       width: lines(11.4);
     }
-    
+
   }
-  
+
 }
 
 .feed-map-link {
   position: relative;
-  
+
   a.map-link, .hidden-text {
     display: none;
   }
-  
+
   @include media(tablet) {
     background: transparent;
     padding: 0;
-    
+
     a.map-link {
       display: inline;
       cursor: pointer;
@@ -950,70 +940,67 @@ a.lightbox-x {
       top: lines(0); right: 0;
       padding-top: em(9);
       color: $body;
-      &:hover { color: $link; }   
+      &:hover { color: $link; }
       margin-right: lines(0.5);
     }
-    
+
   }
-  
+
   @include media(desktop) {
-    
+
     // Show texts only in really wide viewports
-    
+
     .hidden-text {
       margin-right: 0;
       display: inline-block;
     }
   }
-  
-}
 
+}
 
 .feed-navigation {
   background: $emphasis;
-  
+
   @include media(tablet) {
     // Turns into a sidebar
     float: left;
     width: lines(11.5);
-    
+
     .toggle {
       display: none;
     }
-    
+
     .toggle-menu {
       display: block;
     }
   }
-  
+
 }
 
-
-  
 .feed {
-  
+
   .map {
     display: block;
     width: 100%;
     height: lines(12.5);
   }
-  
+
   @include media(tablet) {
     margin-left: lines(13.5);
     .map {
       height: lines(18);
     }
   }
-  
+
 }
 
 .homepage-feed {
-  
+
   @include media(tablet) {
     // Makes space for search
     padding-top: lines(3);
   }
-  
+
 }
 
 .feed-item {
@@ -1021,26 +1008,26 @@ a.lightbox-x {
   padding: lines(0.5) lines(0.5) lines(0.5) lines(0.5);
   border: 1px dotted $border;
   border-width: 1px 0 0;
-  
+
   h2 {
     line-height: em(21);
     margin: 0;
   }
-  
+
   small {
     margin-top: lines(0.25, 13);
   }
-  
+
   .feed-content {
     margin: em(-3) lines(3.25) 0 lines(2);
     padding: 0;
     max-width: lines(20);
-    .author { 
+    .author {
       @include small-type;
       margin-bottom: lines(0.25);
     }
   }
-  
+
   .feed-author-avatar {
     position: absolute;
     width: lines(1.5);
@@ -1051,12 +1038,12 @@ a.lightbox-x {
       height: lines(1.5);
     }
   }
-  
+
   .feed-listing-icon {
     display: inline-block;
     margin-right: lines(1);
   }
-  
+
   // Used only if there is an image for the listing
   .content-with-image {
     min-height: lines(3);
@@ -1067,29 +1054,29 @@ a.lightbox-x {
   .profile-content-with-image {
     min-height: lines(2.5);
   }
-  
+
   @include media(tablet) {
     padding: lines(1) lines(0);
-    
+
     .feed-content {
       margin: em(-3) lines(6) 0 lines(2.25);
     }
-    
+
     .feed-excerpt {
       color: $aside;
       font-style: italic;
-      
+
       a {
         color: $aside;
         &:hover { color: darken($aside, 10%); }
       }
     }
-    
+
     small {
       @include normal-type;
       margin-top: lines(0.25);
     }
-    
+
     // Used only if there is an image for the listing
     .content-with-image {
       min-height: lines(5);
@@ -1108,7 +1095,7 @@ a.lightbox-x {
   right: lines(0.5); top: lines(0.5);
   width: lines(3);
   height: lines(3);
-  
+
   img {
     @include border-radius(em(5));
     width: lines(3);
@@ -1128,13 +1115,13 @@ a.lightbox-x {
 }
 
 .view-item {
-  
+
   .item-description {
     @include media(tablet) {
       padding-right: lines(16); // Makes horizontal space for image
       min-height: lines(10); // Makes sure there's always enough vertical space for the image
     }
-    
+
     p, li {
       @include small-type;
       @include media(small-tablet) {
@@ -1142,21 +1129,21 @@ a.lightbox-x {
       }
     }
   }
-  
+
   .button {
     margin: 0 0 lines(0.5) 0;
     width: 100%;
     display: block;
-    
+
     @include media(tablet) {
       @include big-button($link);
       margin: 0;
       position: absolute;
       right: 0; top: 0;
-      width: lines(11) - em(2); 
+      width: lines(11) - em(2);
     }
   }
-  
+
   .listing-icons {
     padding-top: lines(0.5);
     a {
@@ -1164,12 +1151,11 @@ a.lightbox-x {
       &:hover { color: $link; }
     }
   }
-  
+
   .listing-departure-time {
     padding: lines(0.25) 0 lines(0.5) 0;
   }
-  
-  
+
   .item-image {
     position: relative;
     float: right;
@@ -1181,7 +1167,7 @@ a.lightbox-x {
       max-width: 100%;
       @include border-radius(em(5));
     }
-    
+
     @include media(tablet) {
       float: none;
       margin: 0;
@@ -1196,13 +1182,13 @@ a.lightbox-x {
       }
     }
   }
-  
+
   .jsmap {
     display: block;
     width: 100%;
     height: lines(8);
     top: 0;
-    
+
     @include media(tablet) {
       position: absolute;
       right: lines(0); top: lines(17);
@@ -1210,24 +1196,24 @@ a.lightbox-x {
       height: lines(10);
     }
   }
-  
+
   .upper-map {
     @include media(tablet) {
       top: lines(4);
     }
   }
-  
+
   .listing-author {
     position: relative;
     padding-top: lines(1);
     min-height: lines(5);
-    
+
     h3 {
       margin: 0;
       padding: 0;
       display: inline;
     }
-    
+
     .listing-author-image {
       padding: em(5) em(5) em(2) em(5);
       background: $background;
@@ -1243,34 +1229,34 @@ a.lightbox-x {
         width: 100%;
       }
     }
-    
+
     .listing-author-description {
       padding-left: lines(3.25);
-      
+
       .icon-with-text, .text-with-icon {
-        
+
       }
-      
+
       .icon-with-text {
         margin-top: 0;
         @include small-type;
       }
-      
+
       .text-with-icon {
         margin-top: em(4);
         @include small-type;
       }
 
     }
-    
+
     @include media(tablet) {
       padding-top: lines(1.25);
-      
+
       .listing-author-image {
         width: lines(4.5);
         padding: em(5) em(5) em(2) em(5);
       }
-      
+
       .listing-author-description {
         padding-left: lines(6);
         .icon-with-text {
@@ -1283,38 +1269,38 @@ a.lightbox-x {
           @include normal-type;
         }
       }
-      
+
     }
-    
+
   }
 
   .social {
     position: relative;
     padding-top: lines(0.5);
-    
+
     .fb-like-container {
       position: absolute;
     }
-    
+
     .tweet-button-container {
       padding-left: lines(8.5);
     }
 
   }
-  
+
   .discussion {
-  
+
     h2 {
       margin-top: 0;
       margin-bottom: lines(0.25);
       display: inline-block;
     }
-    
+
     .follow-links {
       display: inline-block;
       margin-left: lines(0.5);
     }
-    
+
     .comment {
       position: relative;
       border-top: 1px dotted $border;
@@ -1327,65 +1313,65 @@ a.lightbox-x {
           @include border-radius(em(5));
         }
       }
-      
+
       h3, small {
         display: inline;
       }
-      
+
       small {
         color: $aside;
       }
-        
+
       .comment-content, .comment-icon {
         @include small-type;
         @include media(small-tablet) {
           @include normal-type;
         }
       }
-      
+
       .comment-icons {
         padding-top: lines(0.25);
         padding-bottom: lines(0.25);
       }
-      
+
       .comment-icon {
         display: inline-block;
         margin-right: lines(0.5);
       }
-      
+
     }
-    
+
     .comment-form {
       border-top: 1px dotted $border;
       padding-top: lines(0.5);
       position: relative;
-      
+
       textarea {
         width: 95%;
         height: lines(4);
       }
 
     }
-    
+
     @include media(tablet) {
       padding-top: lines(1.5);
-      
+
       h2 {
         @include big-type;
       }
-      
+
       .comment {
         padding: lines(0.5) lines(1) lines(0.25) lines(2.5);
-        
+
         .avatar {
           width: lines(2);
         }
-        
+
         h3 {
           margin: 0;
         }
       }
-      
+
       .comment-form {
         textarea {
           width: 100%;
@@ -1401,43 +1387,43 @@ a.lightbox-x {
 }
 
 .view-profile {
-  
+
   .profile-description {
-    
+
     .profile-details {
       min-height: lines(5);
     }
-    
+
     p, li {
       @include small-type;
       @include media(small-tablet) {
         @include normal-type;
       }
     }
-    
+
     @include media(tablet) {
       padding-right: lines(14); // Makes horizontal space for image
-      
+
       .profile-details {
         min-height: 0;
       }
-    }    
+    }
   }
-  
+
   .button {
     margin: 0 0 lines(0.5) 0;
     width: 100%;
     display: block;
-    
+
     @include media(tablet) {
       @include big-button($link);
       margin: 0;
       position: absolute;
       right: 0; top: 0;
-      width: lines(8.5) + em(5); 
+      width: lines(8.5) + em(5);
     }
   }
-  
+
   .profile-image {
     position: relative;
     float: right;
@@ -1451,7 +1437,7 @@ a.lightbox-x {
       height: lines(4.5);
       @include border-radius(em(5));
     }
-    
+
     @include media(tablet) {
       float: none;
       margin: 0;
@@ -1466,17 +1452,17 @@ a.lightbox-x {
       }
     }
   }
-  
+
   .profile-icons {
     padding-top: lines(0.5);
   }
-  
+
   .jsmap {
     display: block;
     width: 100%;
     height: lines(8);
     margin-top: lines(0.5);
-    
+
     @include media(tablet) {
       margin-top: 0;
       margin-bottom: lines(2);
@@ -1486,18 +1472,18 @@ a.lightbox-x {
       height: lines(10);
     }
   }
-  
+
   .trustcloud {
     display: block;
     width: 100%;
     height: lines(8);
     margin-top: lines(0.5);
-    
+
     small {
       display: inline;
       margin-left: lines(0.5);
     }
-    
+
     @include media(tablet) {
       margin-top: 0;
       margin-bottom: lines(2);
@@ -1507,25 +1493,25 @@ a.lightbox-x {
       height: lines(10);
     }
   }
-  
+
   .trustcard-upper {
     @include media(tablet) {
       right: lines(0); top: lines(17.5);
     }
   }
-  
+
   .trustcard-lower {
     @include media(tablet) {
       right: lines(0); top: lines(28.5);
     }
   }
-  
+
   .action-link {
     display: block;
     width: 100%;
     margin-right: lines(0.5);
     cursor: pointer;
-    
+
     @include media(tablet) {
       position: absolute;
       right: 0; top: lines(17.5);
@@ -1533,9 +1519,9 @@ a.lightbox-x {
       text-align: left;
       padding-bottom: lines(0.25);
     }
-    
+
   }
-  
+
   .add-profile-picture-link {
     display: none;
     @include media(tablet) {
@@ -1552,11 +1538,11 @@ a.lightbox-x {
       @include border-bottom-radius(em(5));
       &:hover {
         color: $background;
-        background: darken($link, 10%); 
+        background: darken($link, 10%);
       }
     }
   }
-  
+
   .profile-listings, .profile-testimonials, .profile-badges, .profile-organizations {
 
     h2 {
@@ -1567,22 +1553,21 @@ a.lightbox-x {
       }
       display: inline-block;
     }
-    
+
     .show-closed-link {
       display: inline-block;
       @include small-type;
       margin-left: lines(0.5);
     }
-      
-    
+
     .load-more-link {
       border-top: 1px dotted $border;
       text-align: center;
       padding: lines(0.5);
     }
-    
+
     @include media(tablet) {
-      margin-top: lines(2); 
+      margin-top: lines(2);
       padding-right: lines(14);
       h2 {
         @include big-type;
@@ -1592,12 +1577,12 @@ a.lightbox-x {
       }
     }
   }
-  
+
   .profile-listings, .profile-organizations {
-    
+
     .feed-item {
       padding: lines(0.5) lines(0);
-      
+
       .feed-content {
         margin: 0 lines(4.25) 0 0;
         max-width: 100%;
@@ -1609,28 +1594,28 @@ a.lightbox-x {
           display: inline-block;
         }
       }
-      
+
       h2 {
         margin-bottom: 0;
         @include normal-type;
         font-weight: 600;
       }
-      
+
       .edit-profile-listing-links {
         display: inline-block;
         padding-top: em(5);
       }
-      
+
       @include media(tablet) {
         padding: lines(0.5) lines(0);
-        
+
         .feed-content {
           margin: 0 lines(5) 0 0;
         }
       }
-      
+
     }
-    
+
     .feed-image {
       right: lines(0);
 
@@ -1644,29 +1629,27 @@ a.lightbox-x {
         }
       }
     }
-    
-    
-    
+
   }
-  
+
   .profile-testimonials {
-    
+
     h2 {
       display: inline-block;
     }
-    
-    .small-text { 
-      display: inline-block; 
+
+    .small-text {
+      display: inline-block;
       vertical-align: top;
       @include normal-type;
     }
-    
+
     .testimonial {
       @include small-type;
       position: relative;
       border-top: 1px dotted $border;
       padding: lines(0.25) 0 lines(0.25) lines(1.5);
-      
+
       .avatar {
         position: absolute;
         left: 0; top: lines(0.5);
@@ -1674,38 +1657,38 @@ a.lightbox-x {
           @include border-radius(em(5));
         }
       }
-      
+
       h3, small {
         display: inline;
       }
-      
+
       .testimonial-description {
         position: relative;
-        min-height: lines(1.5);   
+        min-height: lines(1.5);
       }
-      
+
       .testimonial-text {
         color: $aside;
         font-style: italic;
         padding-left: lines(1.5);
         padding-bottom: lines(0.25);
       }
-      
+
       .testimonial-icon {
         position: absolute;
         @include large-type;
       }
-      
+
       .positive {
         color: $green;
       }
-      
+
       .negative {
         color: $red;
       }
-      
+
     }
-    
+
     @include media(tablet) {
       padding-right: lines(14);
 
@@ -1723,21 +1706,21 @@ a.lightbox-x {
       }
 
     }
-    
+
   }
-  
+
   .profile-badges {
-    
+
     .badge-list {
       border-top: 1px dotted $border;
       padding-top: lines(0.5);
     }
-    
+
     h2 {
       margin-bottom: 0;
       padding-bottom: lines(0.25);
     }
-    
+
     .profile-badge {
       display: inline-block;
       margin-right: lines(0.5);
@@ -1745,20 +1728,20 @@ a.lightbox-x {
         width: lines(3);
       }
     }
-    
-    @include media(tablet) { 
-      
+
+    @include media(tablet) {
+
       .profile-badge {
         img {
           width: auto;
         }
-        
+
       }
-      
+
     }
-    
+
   }
-  
+
 }
 
 /*
@@ -1768,7 +1751,7 @@ a.lightbox-x {
 */
 
 .login-form {
-  
+
   .facebook-account-info {
     color: $body;
     position: relative;
@@ -1788,14 +1771,12 @@ a.lightbox-x {
       padding: em(6) 0 em(10) 0;
     }
   }
-  
+
 }
 
 #password_forgotten {
   display: none;
 }
-
-
 
 /*
   ----------------
@@ -1803,8 +1784,7 @@ a.lightbox-x {
   ----------------
 */
 
-
-/* 
+/*
   ----------------
   New message form
   ----------------
@@ -1814,7 +1794,7 @@ a.lightbox-x {
   font-weight: 600;
 }
 
-/* 
+/*
   ----------------
   New feedback form
   ----------------
@@ -1827,18 +1807,18 @@ a.lightbox-x {
   }
 }
 
-/* 
+/*
   ----------------
   New listing form
   ----------------
 */
 
 .new-listing-form, .edit-listing-form {
-  
+
   h2 {
     margin-top: lines(0.5);
   }
-  
+
   a.select {
     position: relative;
     display: block;
@@ -1853,24 +1833,24 @@ a.lightbox-x {
       padding: em(6) 0 em(8) 0;
     }
   }
-  
+
   a.selected {
     background: $highlight;
     position: relative;
   }
-  
+
   select.listing_datetime_select {
     margin-left: lines(0.25);
   }
-  
+
   .selected-group, .option-group {
-    
+
     .hidden {
       display: none;
     }
-    
+
   }
-  
+
 }
 
 .price-title-field {
@@ -1903,11 +1883,11 @@ a.lightbox-x {
 */
 
 .inbox-feed {
-  
+
   p {
     padding: lines(0.25) lines(0.5) 0 lines(0.5);
   }
-  
+
   .inbox-feed-item {
     padding: lines(0.75) 0 lines(0.5) 0;
     .feed-author-avatar {
@@ -1935,25 +1915,25 @@ a.lightbox-x {
     .status-links {
       padding-bottom: lines(0.5);
     }
-    
+
   }
-  
+
   span.header-info {
     display: inline-block;
     vertical-align: top;
     padding-top: em(21);
     margin-left: lines(0.25);
   }
-  
+
   @include media(tablet) {
     p {
       padding: 0;
     }
     .inbox-feed-item {
-      
+
     }
   }
-  
+
 }
 
 .conversation-status-lower {
@@ -1971,49 +1951,49 @@ a.lightbox-x {
 }
 
 .conversation-status {
-  
+
   .status-links {
     display: inline-block;
     padding-top: lines(0.25);
   }
-  
+
   .inbox-horizontally-aligned-status {
     display: inline-block;
     vertical-align: top;
     padding-top: 25px;
   }
-  
+
   .inbox-horizontally-aligned-link {
     display: inline-block;
   }
-  
+
   .status-link {
     @include button($link);
     margin-right: lines(0.5);
   }
-  
+
   .accept, .confirm {
     color: $green;
     background: lighten($green, 40%);
     border-color: $green;
-    &:hover { 
+    &:hover {
       color: lighten($green, 10%);
-      background: lighten($green, 50%); 
+      background: lighten($green, 50%);
       border-color: lighten($green, 10%);
     }
   }
-  
+
   .reject, .cancel {
     color: $red;
     background: lighten($red, 40%);
     border-color: $red;
-    &:hover { 
+    &:hover {
       color: lighten($red, 10%);
-      background: lighten($red, 50%); 
+      background: lighten($red, 50%);
       border-color: lighten($red, 10%);
     }
   }
-  
+
 }
 
 /*
@@ -2023,16 +2003,16 @@ a.lightbox-x {
 */
 
 .inbox-notifications {
-  
+
   .notification {
     position: relative;
     border-top: 1px dotted $border;
     min-height: lines(2);
     padding: lines(0.5) 0;
   }
-  
+
   .notification-text {
-    padding: em(5) lines(0.5) em(10) lines(2); 
+    padding: em(5) lines(0.5) em(10) lines(2);
   }
 
   .notification-icon {
@@ -2040,13 +2020,13 @@ a.lightbox-x {
     top: em(19);
     left: em(17);
   }
-  
+
   small {
     margin-top: lines(0.25);
     display: block;
     color: $aside;
   }
-  
+
 }
 
 /*
@@ -2056,35 +2036,35 @@ a.lightbox-x {
 */
 
 .conversation {
-  
+
   .conversation-status {
 
     .status-links {
       padding-top: lines(0);
       padding-bottom: lines(0.5);
     }
-    
+
   }
-  
+
   .avatar-container {
     position: relative;
   }
-  
+
   .avatar {
     position: absolute;
     top: em(6);
   }
-  
+
   .avatar-text {
     padding-left: lines(1.5);
     min-height: lines(1);
     padding: em(4) 0 lines(0.75) lines(1.5);
   }
-  
+
   h2 {
     margin-bottom: lines(0.25);
   }
-  
+
   .message {
     position: relative;
     border-top: 1px dotted $border;
@@ -2137,36 +2117,35 @@ a.lightbox-x {
     }
 
   }
-  
+
   @include media(tablet) {
 
     h2 {
       @include big-type;
     }
-    
+
     .message {
       padding: lines(0.5) lines(1) lines(0.25) lines(2.5);
-      
+
       .avatar {
         width: lines(2);
       }
-      
+
       h3 {
         margin: 0;
       }
     }
-    
+
     .message-form {
       textarea {
         width: 100%;
         height: lines(6);
       }
     }
-    
-  }
-  
-}
 
+  }
+
+}
 
 /*
   ------------------------
@@ -2175,16 +2154,16 @@ a.lightbox-x {
 */
 
 .conversation-status-form {
-  
+
   .conversation-action-description {
     padding: lines(0.25) 0;
   }
-  
+
 }
 
 /*
   ----------------
-  About 
+  About
   ----------------
 */
 
@@ -2224,7 +2203,7 @@ a.lightbox-x {
       padding: em(6) 0 em(10) 0;
     }
   }
-  
+
   a.hidden, div.hidden {
     display: none;
   }
@@ -2240,142 +2219,140 @@ a.lightbox-x {
     background: lighten($red, 40%);
     &:hover { background: lighten($red, 40%); }
   }
-  
+
   span.currency-symbol {
     display: none;
   }
-  
+
   .payment-row-headings {
     display: none;
   }
-  
+
   .payment-row {
     padding: lines(0.125) lines(0.5) lines(0.5) lines(0.5);
   }
-  
+
   .grey {
     background: $highlight;
     @include border-radius(em(5));
   }
-  
+
   .conversation-price {
     margin-top: lines(0.75);
     margin-bottom: lines(0.25);
   }
-  
+
   @include media(tablet) {
-    
+
     .payment-row-headings {
       display: block;
       margin-bottom: lines(0.375);
       padding-bottom: lines(0.25);
     }
-    
+
     .bottom-border {
       border-bottom: 1px solid $body;
     }
-    
+
     .payment-row {
       margin-bottom: lines(0.5);
       padding: lines(0.5) lines(0.5) lines(0.5) lines(0.5);
     }
-    
+
     .payment-row-heading {
       display: inline-block;
       font-weight: bold;
     }
-    
+
     .payment-row-title-heading {
       width: lines(10);
       margin-left: lines(0.5);
     }
-    
+
     .payment-row-sum-heading {
       width: lines(4);
       margin-left: lines(0.5);
     }
-    
+
     .payment-row-vat-heading {
       width: lines(2);
       margin-left: lines(0.5) + em(12);
     }
-    
+
     .payment-row-total-heading {
       text-align: center;
       width: lines(4.5);
       margin-left: lines(0.5) + em(15);
     }
-    
+
     .payment-row-label {
       display: none;
     }
-    
+
     .payment-row-field {
       display: inline-block;
     }
-    
+
     .payment-row-title-field {
       width: lines(10);
     }
-    
+
     .payment-row-sum-field {
       width: lines(4);
       margin-left: lines(0.5);
     }
-    
+
     span.currency-symbol {
       display: inline;
     }
-    
+
     .payment-row-vat-field {
       width: lines(2);
       margin-left: lines(0.5);
     }
-    
+
     .total-label {
       display: inline-block;
       text-align: center;
       width: lines(4);
       margin-left: lines(0.5);
     }
-    
+
     .payment-row-title-text {
       width: lines(10);
       margin-left: lines(0.5);
     }
-    
+
     .payment-row-sum-text {
       width: lines(4);
       margin-left: lines(0.5);
     }
-    
+
     .payment-row-vat-text {
       width: lines(2);
       margin-left: lines(0.5) + em(12);
     }
-    
+
     .payment-row-total-text {
       text-align: center;
       width: lines(4);
       margin-left: lines(0.5);
     }
-    
+
     .payment-text-row {
       padding: lines(0) lines(0.5) lines(0.5) lines(0.5);
     }
-    
+
     .payment-row-text {
       display: inline-block;
     }
-    
+
     .payment-sum-row {
       font-weight: bold;
     }
-    
+
   }
-  
-  
-  
+
 }
 
 /*
@@ -2389,26 +2366,26 @@ a.lightbox-x {
   h1 {
     margin-top: lines(0.5);
   }
-  
+
   @include media(tablet) {
     text-align: center;
     padding: 0;
-    
+
     h1 {
       margin-top: 0;
     }
-    
+
     p {
       margin: 0 auto lines(2) auto;
       max-width: lines(22);
     }
-    
+
   }
 }
 
 .members {
   padding: 0 lines(0.5);
-  
+
   @include media(tablet) {
     padding: lines(0);
   }
@@ -2417,29 +2394,29 @@ a.lightbox-x {
 .member {
   position: relative;
   border-top: 1px dotted $border;
-  
+
   h3 {
     margin-top: lines(0.25);
     margin-bottom: lines(0.25);
   }
-  
+
   img {
     width: 100%;
     @include border-radius(em(5));
   }
-  
+
   .member-image {
     position: absolute;
     top: em(10);
     width: lines(3);
   }
-  
+
   .member-details {
     padding-left: lines(3.5);
     padding-bottom: lines(0.5);
     min-height: lines(3);
   }
-  
+
   @include media(tablet) {
     @include box-shadow(rgba(0,0,0,0.2) 0 0 em(8));
     @include border-radius(em(5));
@@ -2450,24 +2427,24 @@ a.lightbox-x {
     margin-right: lines(1);
     margin-bottom: lines(1);
     border-top: 0;
-    
+
     .member-image {
       position: static;
       top: auto;
       width: 100%;
     }
-    
+
     .member-details {
       padding: 0;
-      min-height: auto; 
+      min-height: auto;
     }
-    
+
     &:nth-child(5n+5) {
       margin-right: 0;
     }
-    
+
   }
-  
+
 }
 
 // Fix to make the paginated member list to be displayed correctly.
@@ -2504,11 +2481,11 @@ a.lightbox-x {
 */
 
 .payment-form {
-  
+
   small {
     margin-top: lines(0.5);
   }
-  
+
   .payment-form-label {
     font-weight: bold;
     display: inline-block;
@@ -2518,9 +2495,8 @@ a.lightbox-x {
   .send-button {
     padding-top: lines(0.25);
   }
-  
-}
 
+}
 
 /*
   --------------------------
@@ -2536,7 +2512,7 @@ $network-green: #00a26c;
 @mixin action-button($color) {
   @include border-radius(em(5));
   @include normal-type;
-  
+
   color: $background;
   background: $color;
   border: 3px solid darken($color, 15%);
@@ -2545,13 +2521,13 @@ $network-green: #00a26c;
   width: 100%;
   vertical-align: top;
   padding: em(8) em(13) em(11) em(13);
-  
-  &:hover { 
+
+  &:hover {
     background: darken($color, 5%);
     color: $background;
-    border-color: darken($color, 20%); 
+    border-color: darken($color, 20%);
   };
-  
+
   @include media(tablet) {
     @include big-type;
     padding: em(11) em(16) em(14) em(16);
@@ -2600,7 +2576,7 @@ figure.fluidratio {
   left: lines(0.5);
   right: lines(0.5);
   text-align: center;
-  
+
   @include media(tablet) {
     left: 0;
     right: 0;
@@ -2638,46 +2614,46 @@ header.global-header {
   background: $background;
   height: lines(2.5);
   width: 100%;
-  
+
   a, .toggle-menu-title {
     font-weight: 600;
   }
-  
+
   .top-menu {
     a {
       color: $background;
-      &:hover { 
+      &:hover {
         background: $network-red;
-        color: $background; 
+        color: $background;
       }
     }
   }
-  
+
   .left-side {
     padding-top: lines(0.5);
   }
-  
+
 }
 
 header.network-header {
   border-bottom: em(3) solid $network-red;
-  
+
   .wrapper {
     @include wrapper;
     padding: 0 lines(0.5);
   }
-  
+
   a {
     color: $network-red;
-    &:hover { 
+    &:hover {
       color: darken($network-red, 20%);
     };
   }
-  
+
   .right-side {
     display: none;
     padding: 0 lines(0.5);
-    
+
     @include media(tablet) {
       display: block;
       position: absolute;
@@ -2688,7 +2664,7 @@ header.network-header {
       font-weight: 600;
     }
   }
-  
+
   .right-side-mobile {
     @include big-type;
     padding: 0 lines(0.5);
@@ -2696,22 +2672,21 @@ header.network-header {
     position: absolute;
     right: 0;
     top: em(14);
-    
+
     @include media(tablet) {
       display: none;
     }
   }
-  
+
   a.global-navi {
     margin: 0 lines(0.25);
   }
-  
+
   a.global-navi-right {
     margin-left: lines(0.25);
   }
-  
-}
 
+}
 
 ul.network-navi {
   list-style-type: none;
@@ -2725,37 +2700,37 @@ footer {
   color: $network-red;
   font-weight: 600;
   padding: lines(1) 0 lines(1) 0;
-  
+
   a {
     font-weight: 600;
     color: $network-red;
-    &:hover { 
+    &:hover {
       color: darken($network-red, 20%);
     };
   }
-  
+
   a.footer-navi {
     margin: 0 lines(0.25);
   }
-  
+
   a.footer-navi-left {
     margin-right: lines(0.25);
   }
-  
+
   .left-side {
     text-align: center;
     margin-bottom: lines(1);
-    
+
     @include media(tablet) {
       text-align: left;
       margin: 0;
     }
   }
-  
+
   .right-side {
     text-align: center;
     padding-bottom: lines(1);
-    
+
     @include media(tablet) {
       padding: 0;
       position: absolute;
@@ -2764,20 +2739,20 @@ footer {
       text-align: right;
     }
   }
-  
+
   .company-name {
     display: inline-block;
     color: $body;
     font-weight: 400;
     margin-right: lines(0.25);
   }
-  
+
   a.social-icon-circle {
     background-color: $network-red;
     border-radius: 14px; /* one half of ( (border * 2) + height + padding ) */
     color: white;
     $vpadding: 6px;
-    height: 20px + (2 * $vpadding); 
+    height: 20px + (2 * $vpadding);
     min-width: 14px + (2 * $vpadding);
     padding: $vpadding 8px;
     text-align: center;
@@ -2785,11 +2760,11 @@ footer {
     &:hover { background-color: darken($network-red, 20%); }
     margin-left: lines(0.25);
   }
-  
+
 }
 
 section.lander, section.create-now {
-  
+
   figure.network-cover {
     background-image: url("https://s3.amazonaws.com/sharetribe/cover_photos/network/bg_photo_shadow.jpg");
     height: em(600);
@@ -2797,11 +2772,11 @@ section.lander, section.create-now {
       @include fluid-ratio(em(1920) em(822), em(300) em(822));
     }
   }
-  
+
   .network-lander-content {
     top: lines(-20.5);
   }
-  
+
   h1 {
     position: relative;
     z-index: 1;
@@ -2814,7 +2789,7 @@ section.lander, section.create-now {
       padding: 0 lines(1);
     }
   }
-  
+
   p.lander-description {
     margin-top: lines(1);
     color: $background;
@@ -2822,18 +2797,18 @@ section.lander, section.create-now {
     font-weight: 500;
     @include text-shadow(2px, 2px, 3px, rgba(black, 0.5));
   }
-  
+
   .contact-form-container {
     h3 {
       @include big-type;
       margin-bottom: lines(0.5);
     }
   }
-  
+
   .contact-form {
     margin-top: lines(2.5);
   }
-  
+
   .lander-contact-form {
     top: lines(-23);
   }
@@ -2842,7 +2817,7 @@ section.lander, section.create-now {
     vertical-align: top;
     display: inline;
   }
-  
+
   .contact-request-completed-notification {
     background: rgba($background, 0.75);
     padding: lines(1) lines(2) lines(0.5) lines(2);
@@ -2853,13 +2828,13 @@ section.lander, section.create-now {
       color: $body;
     }
     margin: lines(2) 0 lines(2) 0;
-    
+
     @include media(tablet) {
       width: auto;
       margin: lines(8) 0 lines(2) 0;
     }
   }
-  
+
   .complete-contact-request-form {
     background: rgba($background, 0.75);
     padding: lines(0.5) lines(0.75);
@@ -2879,9 +2854,9 @@ section.lander, section.create-now {
     label, input, select, button {
       @include small-type;
     }
-    
+
     margin: lines(1) 0 lines(2) 0;
-    
+
     @include media(tablet) {
       padding: lines(1.25) lines(1.5);
       max-width: lines(16);
@@ -2893,18 +2868,18 @@ section.lander, section.create-now {
       }
     }
   }
-  
+
   input[type=text] {
     @include normal-type;
     padding: 0;
     border: 0;
     margin: 0;
     vertical-align: top;
-    padding: em(11) em(11) em(11) em(11); 
+    padding: em(11) em(11) em(11) em(11);
     border: 3px solid $body;
     width: 100%;
   }
-  
+
   button.action-button {
     @include cover-photo-button($network-red);
     border: 3px solid darken($network-red, 25%);
@@ -2914,7 +2889,7 @@ section.lander, section.create-now {
       height: 64px;
     }
   }
-  
+
   button.small-action-button {
     @include cover-photo-button($network-red);
     height: 42px;
@@ -2925,42 +2900,42 @@ section.lander, section.create-now {
       padding: em(6) em(20) em(9) em(20);
     }
   }
-  
+
   @include media(tablet) {
-    
+
     .network-lander-content {
       top: lines(-27);
     }
-    
+
     .lander-contact-form {
       top: lines(-30);
     }
-    
+
     h1 {
       @include mega-type;
       line-height: em(15);
     }
-    
+
     p.lander-description {
       @include large-type;
     }
-    
+
     input[type=text] {
       padding: em(11) em(14) em(11) em(14);
       @include big-type;
       width: lines(10);
     }
-    
+
     .contact-form-text-field {
       width: lines(10);
     }
-    
+
     label.error {
       width: lines(21);
       margin: lines(0.5) auto;
       padding: em(10) em(15) em(15) em(15);
     }
-    
+
     .complete-contact-request-form {
       label.error {
         width: 100%;
@@ -2972,80 +2947,79 @@ section.lander, section.create-now {
         width: 100%;
       }
     }
-    
+
   }
-  
+
 }
 
 section.lander {
-  
+
   h2 {
     color: $background;
     @include normal-type;
     @include photoshop-text-shadow(120, 0px, 12, 10px, rgba(black, 0.5));
   }
-  
+
   @include media(tablet) {
     h2 {
       @include large-type;
     }
   }
-  
+
 }
 
 section.create-now {
-  
+
   h2 {
     @include normal-type;
   }
-  
+
   @include media(tablet) {
     h2 {
       @include large-type;
     }
   }
 }
-
 
 section.about, section.how-it-works, section.create-now {
   padding: lines(3) 0 lines(3) 0;
   color: $body;
-  
+
   h2 {
     @include normal-type;
     font-weight: 600;
     color: $body;
   }
-  
+
   .view-demo {
-    
+
     .action-button {
       @include cover-photo-button($network-green);
       height: 64px;
-      border-color: darken($network-green, 15%); 
+      border-color: darken($network-green, 15%);
 
-      &:hover { 
+      &:hover {
         background: darken($network-green, 5%);
-        border-color: darken($network-green, 25%); 
+        border-color: darken($network-green, 25%);
       };
-      
+
       @include media(tablet) {
         padding: em(11) em(20) em(14) em(20);
       }
     }
-    
+
     @include media(tablet) {
       margin: lines(4) 0 0 0;
     }
   }
-  
+
   @include media(tablet) {
     padding: lines(5) 0 lines(7) 0;
     h2 {
       @include large-type;
     }
   }
-  
+
 }
 
 section.about, section.create-now {
@@ -3060,8 +3034,8 @@ section.about {
     @include wrapper;
     background: $light_grey;
   }
-  
-  .about-content { 
+
+  .about-content {
     width: 100%;
     text-align: center;
   }
@@ -3094,53 +3068,53 @@ section.about {
     color: $aside;
     @include small-type;
   }
-  
+
   @include media(tablet) {
-    
+
     .about-columns {
       margin-top: lines(3);
     }
-    
+
     .about-column {
       display: inline-block;
       margin: 0 0 0 lines(2);
       padding-bottom: 0;
     }
-    
+
     .about-column-left {
       margin-left: 0;
     }
-    
+
     .about-column-title-icon {
       font-size: em(33);
     }
-    
+
     .about-column-title-text {
       @include huge-type;
       font-weight: 400;
     }
-    
+
     .about-column-content p {
       @include normal-type;
     }
-    
+
   }
-  
+
 }
 
 section.how-it-works {
-  
+
   .how-it-works-content {
     width: 100%;
     text-align: center;
   }
-  
+
   .video-container {
     margin-top: lines(3);
     position: relative;
     padding-bottom: 56.25%;
     padding-top: em(30);
-    height: 0; 
+    height: 0;
     overflow: hidden;
   }
 
@@ -3153,30 +3127,30 @@ section.how-it-works {
     width: 100%;
     height: 100%;
   }
-  
+
 }
 
 section.create-now {
-  
+
   .wrapper {
     @include wrapper;
     background: $light_grey;
   }
-  
+
   .create-now-content {
     width: 100%;
     text-align: center;
   }
-  
+
   .create-now-form {
     margin-top: lines(1.5);
     padding: 0 lines(0.5);
-    
+
     @include media(tablet) {
       padding: 0;
     }
   }
-  
+
 }
 
 .top-menu-toggle {
@@ -3189,23 +3163,19 @@ section.create-now {
   padding: em(14) lines(0.5);
   cursor: pointer;
   text-align: right;
-  
+
   @include media(tablet) {
     display: none;
   }
 }
-  
 
-
-
-/* 
+/*
   ----------------------
   New marketplace layout
   ----------------------
 */
 
-
-/* 
+/*
   Top navibar
 */
 
@@ -3222,24 +3192,24 @@ header.marketplace-header {
     &:hover { color: $link; }
     cursor: pointer;
     z-index: 10;
-    
+
     @include media(mid-desktop) {
       display: none;
     }
   }
-  
+
   .mobile-menu {
     position: absolute;
     left: 0;
     top: lines(2.5);
     width: 100%;
   }
-  
+
   a.logo-side {
     width: lines(2.5);
     z-index: 4;
     color: $body;
-    &:hover { 
+    &:hover {
       color: $body;
       background: $highlight;
     }
@@ -3257,14 +3227,14 @@ header.marketplace-header {
       &:hover { background: $background; }
     }
   }
-  
+
   a.logo-side-logged {
     text-align: center;
     @include media(mid-desktop) {
       text-align: left;
     }
   }
-  
+
   a.logo-side-unlogged {
     padding-left: lines(0.5);
     padding-right: lines(0.5);
@@ -3273,25 +3243,25 @@ header.marketplace-header {
       padding-right: 0;
     }
   }
-  
+
   img.marketplace-header-logo {
     height: em(40);
     display: none;
-    
+
     @include media(mid-desktop) {
       display: inline-block;
     }
   }
-  
+
   img.marketplace-header-logo-mobile {
     height: em(40);
     display: inline-block;
-    
+
     @include media(mid-desktop) {
       display: none;
     }
   }
-  
+
   .marketplace-name {
     text-transform: uppercase;
     vertical-align: top;
@@ -3304,18 +3274,18 @@ header.marketplace-header {
       padding-top: em(5);
     }
   }
-  
+
   .marketplace-name-logged {
     display: none;
     @include media(mid-desktop) {
       display: inline-block;
     }
   }
-  
+
   .marketplace-name-unlogged {
     display: inline-block;
   }
-  
+
   .right-side {
     position: relative;
     display: inline-block;
@@ -3331,7 +3301,7 @@ header.marketplace-header {
       text-align: right;
     }
   }
-  
+
   a.global-navi {
     vertical-align: top;
     display: none;
@@ -3339,12 +3309,12 @@ header.marketplace-header {
     padding-top: em(17);
     color: $light-body;
     &:hover { color: $link; }
-    
+
     @include media(mid-desktop) {
       display: inline-block;
     }
   }
-  
+
   a.login-link {
     display: inline-block;
     position: absolute;
@@ -3354,7 +3324,7 @@ header.marketplace-header {
       position: static;
     }
   }
-  
+
   a.global-navi-left {
     &:after {
       color: $light-body;
@@ -3366,11 +3336,11 @@ header.marketplace-header {
   .messages-badge {
     position: relative;
   }
-  
+
   a.inbox-link {
     padding-top: em(19);
   }
-  
+
   .language-menu-toggle {
     position: relative;
     vertical-align: top;
@@ -3394,19 +3364,19 @@ header.marketplace-header {
       padding-top: em(5);
       content: "|";
     };
-    
+
     .language-name {
       display: inline-block;
       vertical-align: top;
       padding: em(5) 0 0 em(4);
     }
-    
+
     @include media(mid-desktop) {
       display: inline-block;
     }
-    
+
   }
-  
+
   .language-menu {
     @include media(tablet) {
       position: absolute;
@@ -3416,7 +3386,7 @@ header.marketplace-header {
       z-index: 10;
     }
   }
-  
+
   .user-menu-toggle {
     // Backup for IE
     width: 100%;
@@ -3454,28 +3424,28 @@ header.marketplace-header {
       top: em(20);
       right: lines(0.5);
     }
-    
+
     .badge {
       display: none;
     }
-    
+
     @include media(mid-desktop) {
       border: 0;
       padding-left: lines(0.25);
       margin-left: 0;
       width: auto;
-      
+
       .icon-dropdown {
         position: static;
         vertical-align: top;
         padding: em(8) 0 0 em(3);
         display: inline-block;
       }
-    
+
     }
 
   }
-  
+
   .user-menu {
     position: absolute;
     left: 0;
@@ -3491,8 +3461,7 @@ header.marketplace-header {
       }
     }
   }
-  
-  
+
   .new-listing-link {
     display: none;
     vertical-align: top;
@@ -3511,20 +3480,19 @@ header.marketplace-header {
         width: auto;
       }
     }
-    
+
     @include media(mid-desktop) {
       display: inline-block;
     }
-    
+
     @include media(desktop) {
       padding-right: 0;
     }
   }
-  
+
 }
 
-
-/* 
+/*
   Lander
 */
 
@@ -3538,7 +3506,7 @@ header.marketplace-header {
       @include fluid-ratio(em(1920) em($cover-photo-height), em(300) em($cover-photo-height));
     }
   }
-  
+
   figure.marketplace-cover-small {
     background-image: url(image-path($small-cover-photo-url));
     height: em($small-cover-photo-mobile-height);
@@ -3546,7 +3514,7 @@ header.marketplace-header {
       @include fluid-ratio(em(1920) em($small-cover-photo-height), em(300) em($small-cover-photo-height));
     }
   }
-  
+
   .coverimage-fade {
     position: absolute;
     top: lines(0);
@@ -3560,17 +3528,17 @@ header.marketplace-header {
       background: rgba($highlight, 0.625);
     }
   }
-  
+
   figure.marketplace-cover-small-fade {
     height: em($small-cover-photo-mobile-height, 16);
     @include media(tablet) {
       @include fluid-ratio(em(1920) em($small-cover-photo-height), em($small-cover-photo-height) em($small-cover-photo-height));
     }
   }
-  
+
   .marketplace-lander-content {
     top: lines($lander-content-top-mobile);
-    
+
     h1 {
       position: relative;
       padding: 0;
@@ -3600,22 +3568,22 @@ header.marketplace-header {
     width: 100%;
     height: 100%;
   }
-  
+
   .marketplace-title-header {
     width: 100%;
     height: 100%;
     padding: 0;
 
     display: table;
-    
+
     h1 {
       color: $light-body;
       @include normal-type;
       font-weight: bold;
       line-height: lines(0.8);
 
-      display: table-cell; 
-      vertical-align: middle; 
+      display: table-cell;
+      vertical-align: middle;
       text-align: center;
 
       @include media(large-mobile) {
@@ -3639,17 +3607,17 @@ header.marketplace-header {
       margin-top: lines(1);
     }
   }
-  
+
   input[type=text] {
     @include normal-type;
     padding: 0;
     border: 0;
     margin: 0;
     vertical-align: top;
-    padding: em(11) em(11) em(11) em(11); 
+    padding: em(11) em(11) em(11) em(11);
     width: 100%;
   }
-  
+
   button.action-button {
     @include cover-photo-button($link);
     border: 0;
@@ -3657,19 +3625,19 @@ header.marketplace-header {
       margin: 0 0 0 lines(0.5);
     }
   }
-  
+
   .search-form {
     margin-top: lines(1);
     @include media(tablet) {
       margin-top: lines(2.5);
     }
   }
-  
+
   .search-form-input {
     vertical-align: top;
     display: inline;
   }
-  
+
   .browse-view-search-form {
     width: 100%;
     padding-top: lines(0.5);
@@ -3684,7 +3652,7 @@ header.marketplace-header {
       line-height: 40px;
       height: 42px;
     }
-    
+
     button.action-button {
       display: inline;
       vertical-align: top;
@@ -3702,40 +3670,40 @@ header.marketplace-header {
       padding: lines(1) 0;
     }
   }
-  
+
   @include media(tablet) {
-    
+
     .marketplace-lander-content {
       top: lines($lander-content-top);
-      
+
       h1 {
         @include huge-type;
         line-height: em(13);
       }
     }
-    
+
     p {
       @include large-type;
       margin: lines(0.5) auto;
       max-width: lines(15);
     }
-    
+
     input[type=text] {
       @include big-type;
       padding: em(11) em(14) em(11) em(14);
       width: lines(15);
     }
-    
+
     button.action-button {
       width: lines(4);
       padding: em(14) em(16) em(11) em(16);
       @include big-type;
     }
-    
+
     .search-form-text-field {
       width: lines(10);
     }
-    
+
     .browse-view-search-form {
       $search-bar-height: 48px;
 
@@ -3745,7 +3713,7 @@ header.marketplace-header {
         line-height: $search-bar-height;
         height: $search-bar-height;
       }
-      
+
       button.action-button {
         margin-left: 1%;
         width: 22%;
@@ -3754,7 +3722,7 @@ header.marketplace-header {
       }
 
     }
-    
+
   }
 
   @include media(desktop) {

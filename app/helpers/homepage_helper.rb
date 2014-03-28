@@ -1,7 +1,7 @@
 module HomepageHelper
   def filters_in_use?
-    params[:q].present? || 
-    (params[:category].present? && params[:category] != "all") || 
+    params[:q].present? ||
+    (params[:category].present? && params[:category] != "all") ||
     (params[:transaction_type].present? && params[:transaction_type] != "all")
   end
 

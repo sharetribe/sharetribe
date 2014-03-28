@@ -15,26 +15,25 @@
         Hinta yhteensä
     - @payment.rows.each_with_index do |row, index|
       = render :partial => "payments/complex_form/payment_row", :locals => { :row => row, :index => index, :values => ((index == 0) ? {:title => @conversation.listing.title, :sum => @conversation.listing.price} : {:title => "", :sum => 0})}
-        
-      
+
     .payment-row.payment-text-row.bottom-border
       .payment-row-title-text.payment-row-text
         Palvelumaksu (#{@current_community.service_name})
-        
+
       #service-fee-sum.payment-row-sum-text.payment-row-text
-        
+
       #service-fee-vat.payment-row-vat-text.payment-row-text
         = @current_community.vat if @current_community.vat
         = "%"
-        
+
       #service-fee-total.payment-row-total-text.payment-row-text
 
     .payment-row.payment-text-row.payment-sum-row
       .payment-row-title-text.payment-row-text
         Yhteensä
-        
+
       .payment-row-sum-text.payment-row-text
-        
+
       .payment-row-vat-text.payment-row-text
-        
+
       #total.payment-row-total-text.payment-row-text

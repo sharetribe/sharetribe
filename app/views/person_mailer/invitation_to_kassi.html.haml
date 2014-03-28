@@ -1,25 +1,25 @@
 - url = sign_up_url(@url_params.merge({:locale => @invitation.inviter.locale, :code => @invitation.code}))
 
 %tr
-  %td{:align => "left", :style => "padding-top: 20px;"} 
+  %td{:align => "left", :style => "padding-top: 20px;"}
     %font{body_font}
       = t("emails.invitation_to_kassi.hi")
 
 %tr
-  %td{:align => "left", :style => "padding-top: 15px;"} 
+  %td{:align => "left", :style => "padding-top: 15px;"}
     %font{body_font}
       = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name(@current_community), :community => @invitation.community.full_name_with_separator(@invitation.inviter.locale))
       - if @invitation.message && !@invitation.message.blank?
         = t("emails.invitation_to_kassi.here_is_a_message_from", :inviter => @invitation.inviter.given_name_or_username)
 
 - if @invitation.message && !@invitation.message.blank?
-  = render :partial => "quote", :locals => { :quote => @invitation.message }          
+  = render :partial => "quote", :locals => { :quote => @invitation.message }
 
 = render :partial => "action_button", :locals => { :text => t("emails.invitation_to_kassi.join_now"), :url => url}
 
 -if @invitation_code_required
   %tr
-    %td{:align => "left", :style => "padding-bottom: 15px;"} 
+    %td{:align => "left", :style => "padding-bottom: 15px;"}
       %font{body_font}
         %b
           = t("emails.invitation_to_kassi.invitation_code", :code => @invitation.code)

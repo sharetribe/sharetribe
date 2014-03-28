@@ -7,7 +7,7 @@
     Alv
   .payment-row-heading.payment-row-total-heading
     Hinta yhteensä
-     
+
 = render :partial => "payments/complex_form/payment_row_static", :collection => @payment.rows, :as => :row
 
 .payment-row.payment-text-row.bottom-border
@@ -26,20 +26,20 @@
 .payment-row.payment-text-row.payment-sum-row
   .payment-row-title-text.payment-row-text
     Yhteensä
-    
+
   .payment-row-sum-text.payment-row-text
-    
+
   .payment-row-vat-text.payment-row-text
-    
+
   .payment-row-total-text.payment-row-text
     = @payment.total_sum.to_s + @payment.conversation.listing.price_symbol
-  
+
 = form_tag(@payment_data[:payment_url], :method => "post", :id => "payment_form") do
   .payment-form-field-container
-  
+
     -# Include payment data as hidden fields. The MAC takes care people can't modify values before POST
     - @payment_data[:hidden_fields].each do |key, value|
       = hidden_field_tag key, value
-      
+
   .send-button
     = button_tag t("payments.new.continue"), :id => "continue_payment"

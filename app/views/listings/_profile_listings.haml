@@ -8,5 +8,5 @@
     #load-more-listings
       - if current_user?(@person) && params[:show_closed]
         = link_to t("people.show.show_all_listings"), "#"
-      - else 
+      - else
         = link_to t("people.show.show_all_open_listings"), "#"

@@ -9,18 +9,18 @@
 
 - content_for :title_header do
   %h1= t("listings.new.post_a_new_listing")
-  
+
 - available_categorizations = @current_community.available_categorizations
 #new_listing_form.new-listing-form.centered-section
 
   #selected-groups
     - available_categorizations.each do |attribute, values|
       - if values.size > 1
-        .selected-group{:name => attribute} 
+        .selected-group{:name => attribute}
           - values.each do |value|
             %a.select.selected.hidden{:href => "#", :data => {:id => value.id}}
               .link-text= t(".selected_#{attribute}", attribute.to_sym => value.display_name(I18n.locale))
-  
+
   %h2.listing-form-title{:id => "foo"}
 
   #option-groups

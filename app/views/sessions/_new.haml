@@ -12,18 +12,18 @@
       = t('.you_can_also_create_new_account', :accont_creation_link => link_to(t(".account_creation_link_text"), create_facebook_based_people_path, :method => :post)).html_safe
       <br />
       = t(".cancle_facebook_connect", :cancel_link => link_to(t(".facebook_cancel_link_text"), cancel_person_registration_path)).html_safe
-  
+
   %h2
     = t('.login_to_kassi')
   - if facebook_connect_in_use?
     .facebook_login_container
       .facebook_login_label
         = t(".log_in_with_your_facebook_account")
-      
+
       -# <fb:login-button show-faces="false" width="200" max-rows="1"></fb:login-button>
       -# <div class="fb-login-button" data-show-faces="false" data-width="100" data-max-rows="1" api-key="208630779265610"></div>
       -# <div class="fb-login-button">Login with Facebook</div>
-      -# <div class="fb-like" data-send="true" data-layout="button_count" data-width="200" data-show-faces="false"></div>  
+      -# <div class="fb-like" data-send="true" data-layout="button_count" data-width="200" data-show-faces="false"></div>
       = link_to(image_tag("icons/facebook-login.png", {:alt => "Facebook Connect", :class => "facebook_login"}), person_omniauth_authorize_path(@current_community ? @current_community.facebook_login_method(@current_host_with_port) : :facebook))
     .normal_login_label
       = t(".or_sign_up_with_your_username")
@@ -31,11 +31,11 @@
     .form_field_container
       %label{:for => "login"}
         = username_or_email_label + ":"
-      = text_field_tag "person[login]", nil, :value => session[:form_login], :class => :text_field 
-    .form_field_container  
+      = text_field_tag "person[login]", nil, :value => session[:form_login], :class => :text_field
+    .form_field_container
       %label{:for => "password"}
         = t('common.password') + ":"
-      = password_field_tag "person[password]", nil, :class => :text_field  
+      = password_field_tag "person[password]", nil, :class => :text_field
     .form_field_container
       - if @current_community
         = hidden_field_tag :community, @current_community.domain
@@ -49,6 +49,3 @@
           = link_to t('.i_forgot_my_password'), "#", :id => "password_forgotten_link", :class => "green_part_link"
   #password_forgotten
     = render :partial => "sessions/password_forgotten"
-
-
-  

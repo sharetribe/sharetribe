@@ -8,20 +8,20 @@
 
 .left-navi-section
   %h2= t(".edit_community", :community_name => @community.name(I18n.locale))
-  
+
   .edit-community-details-edit-link
     %a{:id => "edit_link", :href => "/editor" + request.path, :data => { :save_url => mercury_update_path }}
       .icon-with-text-container
-        = icon_tag("edit", ["icon-part"]) 
+        = icon_tag("edit", ["icon-part"])
         .text-part= t(".edit_info")
-  
+
   .edit-community-details-field
     .edit-community-details-field-title
       = t(".community_name")
-    = render :partial => "layouts/info_text", :locals => { :text => t(".edit_community_name_description") }  
+    = render :partial => "layouts/info_text", :locals => { :text => t(".edit_community_name_description") }
     #name{:data => {:mercury => "full"}}
       = @current_community.name(I18n.locale)
-  
+
   .edit-community-details-field
     .edit-community-details-field-title
       = t(".community_slogan")
@@ -31,7 +31,7 @@
         = @community_customization.slogan
       - else
         = @current_community.slogan
-  
+
   .edit-community-details-field
     .edit-community-details-field-title
       = t(".community_description")
@@ -51,7 +51,7 @@
         = @community_customization.search_placeholder
       - else
         = t("homepage.index.what_do_you_need")
-  
+
   - if @current_community.private?
     .edit-community-details-field
       .edit-community-details-field-title
@@ -76,11 +76,10 @@
     .edit-community-details-field-title
       = t(".edit_signup_info")
     = render :partial => "layouts/info_text", :locals => { :text => t(".edit_signup_info_description") }
-    
+
     #signup_info_content{:data => {:mercury => "full"}}
       - if @community_customization && @community_customization.signup_info_content
         = @community_customization.signup_info_content.html_safe
       - else
         &nbsp;
 = render :partial => "people/help_texts", :collection => ["invite_only_help_text"], :as => :field
-

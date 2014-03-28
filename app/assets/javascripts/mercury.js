@@ -193,7 +193,6 @@ window.Mercury = {
         }
       },
 
-
     // ## Region Options
     //
     // You can customize some aspects of how regions are found, identified, and saved.
@@ -221,7 +220,6 @@ window.Mercury = {
       // determineType: function(region){},
       },
 
-
     // ## Snippet Options / Preview
     //
     // When a user drags a snippet onto the page they'll be prompted to enter options for the given snippet.  The server
@@ -242,7 +240,6 @@ window.Mercury = {
       optionsUrl: '/mercury/snippets/:name/options.html',
       previewUrl: '/mercury/snippets/:name/preview.html'
       },
-
 
     // ## Image Uploading
     //
@@ -277,7 +274,6 @@ window.Mercury = {
       handler: false
       },
 
-
     // ## Localization / I18n
     //
     // Include the .locale files you want to support when loading Mercury.  The files are always named by the language,
@@ -296,7 +292,6 @@ window.Mercury = {
       preferredLocale: 'swedish_chef-BORK'
       },
 
-
     // ## Behaviors
     //
     // Behaviors are used to change the default behaviors of a given region type when a given button is clicked.  For
@@ -314,7 +309,6 @@ window.Mercury = {
       //foreColor: function(selection, options) { selection.wrap('<span style="color:' + options.value.toHex() + '">', true) },
       htmlEditor: function() { Mercury.modal('/mercury/modals/htmleditor.html', { title: 'HTML Editor', fullHeight: true, handler: 'htmlEditor' }); }
       },
-
 
     // ## Global Behaviors
     //
@@ -337,7 +331,6 @@ window.Mercury = {
       barrelRoll: function() { $('body').css({webkitTransform: 'rotate(360deg)'}) }
       },
 
-
     // ## Ajax and CSRF Headers
     //
     // Some server frameworks require that you provide a specific header for Ajax requests.  The values for these CSRF
@@ -347,13 +340,11 @@ window.Mercury = {
     csrfSelector: 'meta[name="csrf-token"]',
     csrfHeader: 'X-CSRF-Token',
 
-
     // ## Editor URLs
     //
     // When loading a given page, you may want to tweak this regex.  It's to allow the url to differ from the page
     // you're editing, and the url at which you access it.
     editorUrlRegEx: /([http|https]:\/\/.[^\/]*)\/editor\/?(.*)/i,
-
 
     // ## Hijacking Links & Forms
     //
@@ -365,7 +356,6 @@ window.Mercury = {
     // open a lightbox style window, and you don't want the targets of these to be set to _parent.  You can add classes
     // to this array, and they will be ignored when the hijacking is applied.
     nonHijackableClasses: [],
-
 
     // ## Pasting & Sanitizing
     //
@@ -420,7 +410,6 @@ window.Mercury = {
         img:    ['src', 'title', 'alt']
         }
       },
-
 
     // ## Injected Styles
     //

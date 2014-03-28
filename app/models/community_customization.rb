@@ -1,5 +1,5 @@
 class CommunityCustomization < ActiveRecord::Base
-  
+
   attr_accessible :community_id,
     :description,
     :locale,
@@ -16,7 +16,7 @@ class CommunityCustomization < ActiveRecord::Base
     :private_community_homepage_content,
     :verification_to_post_listings_info_content,
     :search_placeholder
-  
+
   has_one :community
-  
+
 end

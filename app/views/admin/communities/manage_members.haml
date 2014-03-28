@@ -22,14 +22,14 @@
 
 .left-navi-section
   %h2= t(".manage_members", :community_name => @community.name(I18n.locale))
-    
+
   %span#admin_members_count= page_entries_info(@memberships, :model => "Person")
 
   %form
     %table#admin_members_list
       %thead
         %tr
-          %th.arrow-up= sort_link "name" 
+          %th.arrow-up= sort_link "name"
           %th.arrow-down= sort_link "email"
           %th.arrow-up= sort_link "join_date"
           - if @current_community.require_verification_to_post_listings
@@ -39,7 +39,7 @@
       %tbody
         - @memberships.each do |membership|
           - member = membership.person
-          %tr 
+          %tr
             %td.admin-members-full-name
               = link_to member.full_name, member
             %td

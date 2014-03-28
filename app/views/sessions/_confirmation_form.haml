@@ -1,6 +1,6 @@
 - content_for :javascript do
   initialize_confirmation_pending_form("#{I18n.locale}","#{email_not_accepted_message}");
-    
+
 - email_to_confirm = @current_user.latest_pending_email_address(@current_community)
 
 %p
@@ -26,4 +26,3 @@
         = link_to t('sessions.confirmation_pending.change_email'), "#", :id => "mistyped_email_link", :class => "green_part_link"
       #password_forgotten
         = render :partial => "sessions/change_mistyped_email", :locals => {:email_to_confirm => email_to_confirm}
-      
