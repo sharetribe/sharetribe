@@ -122,6 +122,8 @@ class ListingsController < ApplicationController
       params[:listing].delete("origin_loc_attributes")
     end
 
+    params[:listing] = normalize_price_param(params[:listing]);
+
     @listing = Listing.new(params[:listing])
 
     @listing.author = @current_user
@@ -161,6 +163,8 @@ class ListingsController < ApplicationController
     end
 
     @listing.custom_field_values = create_field_values(params[:custom_fields]) if params[:custom_fields]
+
+    params[:listing] = normalize_price_param(params[:listing]);
 
     if @listing.update_fields(params[:listing])
       @listing.location.update_attributes(params[:location]) if @listing.location
@@ -305,5 +309,13 @@ class ListingsController < ApplicationController
         custom_field.id
       end
     end.compact
+  end
+
+  def normalize_price_param(listing_params)
+    if listing_params[:price] then
+      listing_params.except(:price).merge(price_cents: Util::MoneyUtil.parse_money_to_cents(listing_params[:price]))
+    else
+      listing_params
+    end
   end
 end

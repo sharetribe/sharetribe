@@ -134,7 +134,7 @@ Feature: User creates a new listing
   @javascript
   Scenario: User creates a new listing with price
     Given I am logged in
-    When I create a new listing "Sledgehammer" with price
+    When I create a new listing "Sledgehammer" with price "20.5"
     Then I should see "Sledgehammer" within "#listing-title"
   
   @javascript

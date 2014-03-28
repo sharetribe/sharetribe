@@ -26,4 +26,4 @@
       = listing.title
     - if listing.price
       .fluid-thumbnail-grid-image-price{:class => "#{modifier_class}"}
-        = money_without_cents_and_with_symbol(listing.price).upcase
+        = humanized_money_with_symbol(listing.price).upcase
