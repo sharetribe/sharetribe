@@ -90,10 +90,10 @@ class Checkout < PaymentGateway
   def register_payout_details(person)
 
     url = "https://rpcapi.checkout.fi/reseller/createMerchant"
-    user = APP_CONFIG.merchant_api_user_id
-    password = APP_CONFIG.merchant_api_password
+    user = checkout_user_id
+    password = checkout_password
 
-    if APP_CONFIG.merchant_registration_mode == "production"
+    if checkout_environment == "production"
       type = 0 # Creates real merchant accounts
     else
       type = 2 # Creates test accounts
@@ -112,7 +112,7 @@ class Checkout < PaymentGateway
       "kkhinta" => "0",
     }
 
-    if APP_CONFIG.merchant_registration_mode == "production" || APP_CONFIG.merchant_registration_mode == "test"
+    if checkout_environment == "production" || checkout_environment == "test"
       response = RestClient::Request.execute(:method => :post, :url => url, :user => user, :password => password, :payload => api_params)
     else
       # Stub response to avoid unnecessary accounts being created (unless config is set to make real accounts)
