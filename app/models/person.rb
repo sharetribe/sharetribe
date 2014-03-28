@@ -275,7 +275,9 @@ class Person < ActiveRecord::Base
   
   def store_picture_from_facebook()
     if self.facebook_id
-      self.picture_from_url "http://graph.facebook.com/#{self.facebook_id}/picture?type=large"
+      resp = RestClient.get("http://graph.facebook.com/#{self.facebook_id}/picture?type=large&redirect=false")
+      url = JSON.parse(resp)["data"]["url"]
+      self.picture_from_url(url)
     end
   end
   
