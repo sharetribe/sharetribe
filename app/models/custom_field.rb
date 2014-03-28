@@ -49,13 +49,6 @@ class CustomField < ActiveRecord::Base
     TranslationCache.new(self, :names).translate(locale, :value)
   end
 
-  def answer_for(listing)
-    # This seems somewhat ugly. A model shouldn't know this much about other modules.
-    # In addition, this triggers database query from view layer, which is ugly.
-    # I hope this can be simplified after the transaction_type/share_type refactoring
-    CustomFieldValue.find_by_listing_id_and_custom_field_id(listing.id, self.id)
-  end
-
   def with(expected_type, &block)
     with_type do |own_type|
       if own_type == expected_type
