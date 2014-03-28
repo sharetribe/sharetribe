@@ -12,6 +12,7 @@ Feature: Admin manages integration details
       | kassi_testperson2 | jane       | doe         | test1@example.com   | 2012-03-01 00:00:00 +0200 |
     And I am logged in as "manager"
     And "manager" has admin rights in community "test"
+    And current community has basic plan
     And I am on the integrations admin page
 
   Scenario: Admin adds a twitter handle
