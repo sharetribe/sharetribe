@@ -132,11 +132,11 @@ en:
       integrations:
         integrations: "Integrations"
         twitter_handle: "Twitter handle"
-        twitter_handle_info_text: "Enter the Twitter account username for your marketplace here. It will be mentioned when people use the tweet button on listing pages."
+        twitter_handle_info_text: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page."
         twitter_handle_placeholder: "username"
         invalid_twitter_handle: "Twitter handle should contain only at maximum 15 alphanumeric (letters A-Z and numbers 0-9) characters."
         google_analytics_key: "Google Analytics tracking ID (classic account)"
-        google_analytics_key_info_text: "Enter the Google Analytics tracking ID for your marketplace here. The account needs to be of classic form in order for the analytics to work."
+        google_analytics_key_info_text: "Tracking ID of your Google Analytics account. You need to have a 'classic' account."
         save: "Save settings"
     custom_fields:
       edit:
