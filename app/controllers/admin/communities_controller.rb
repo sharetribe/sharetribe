@@ -1,24 +1,24 @@
 class Admin::CommunitiesController < ApplicationController
   helper_method :member_sort_column, :member_sort_direction
-  
+
   include CommunitiesHelper
-  
+
   before_filter :ensure_is_admin
-  
+
   skip_filter :dashboard_only
-  
+
   def edit_details
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "tribe_details"
     @community = @current_community
   end
-  
+
   def edit_look_and_feel
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "tribe_look_and_feel"
     @community = @current_community
   end
-  
+
   def edit_welcome_email
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "welcome_email"
@@ -30,7 +30,7 @@ class Admin::CommunitiesController < ApplicationController
       :locale => @current_user.locale
     }
   end
-  
+
   def manage_members
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "manage_members"
@@ -75,8 +75,8 @@ class Admin::CommunitiesController < ApplicationController
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "admin_settings"
   end
-  
-  def update_look_and_feel 
+
+  def update_look_and_feel
     params[:community][:custom_color1] = nil if params[:community][:custom_color1] == ""
     params[:community][:custom_color2] = nil if params[:community][:custom_color2] == ""
 
@@ -112,7 +112,7 @@ class Admin::CommunitiesController < ApplicationController
     ids ||= []
     ids.include?(current_admin_user.id) && current_admin_user.is_admin_of?(community)
   end
-  
+
   private
 
   def member_sort_column
@@ -136,7 +136,7 @@ class Admin::CommunitiesController < ApplicationController
 
   def regenerate_css?(params, community)
     params[:community][:custom_color1] != community.custom_color1 ||
-    params[:community][:custom_color2] != community.custom_color2 || 
+    params[:community][:custom_color2] != community.custom_color2 ||
     params[:community][:cover_photo] ||
     params[:community][:small_cover_photo]
   end
