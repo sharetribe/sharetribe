@@ -346,7 +346,7 @@ class PersonMailer < ActionMailer::Base
     @email = email
     mail(:to => @community.admin_emails,
          :from => community_specific_sender(@community),
-         :subject => "New member in #{@community.full_name}")
+         :subject => "New member in #{@community.full_name(@person.locale)}")
   end
 
   def email_confirmation(email, host, com=nil)
