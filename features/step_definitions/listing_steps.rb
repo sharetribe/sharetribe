@@ -79,7 +79,9 @@ When /^I save the listing$/ do
   }
 end
 
-When /^I create a new listing "([^"]*)" with price$/ do |title|
+When /^I create a new listing "(.*?)" with price(?: "([^"]*)")?$/ do |title, price|
+  price ||= "20"
+  
   steps %Q{
     Given I am on the home page
     When I follow "new-listing-link"
@@ -89,8 +91,8 @@ When /^I create a new listing "([^"]*)" with price$/ do |title|
     And I fill in "listing_title" with "#{title}"
     And I fill in "listing_price" with "dsfsdf"
     And I press "Save listing"
-    Then I should see "Price must be a whole number."
-    When I fill in "listing_price" with "20"
+    Then I should see "You need to insert a valid monetary value."
+    When I fill in "listing_price" with "#{price}"
     And I save the listing
   }
 end

@@ -13,7 +13,7 @@
         = author_link(listing)
       .bubble-price{:title => price_as_text(listing) }
         - if listing.price
-          = money_without_cents_and_with_symbol(listing.price).upcase
+          = humanized_money_with_symbol(listing.price).upcase
           - unless listing.quantity.blank?
             %span.bubble-price-quantity
               = "/ #{listing.quantity}"

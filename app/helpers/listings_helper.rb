@@ -75,7 +75,7 @@ module ListingsHelper
   end
 
   def price_as_text(listing)
-    money_without_cents_and_with_symbol(listing.price).upcase +
+    humanized_money_with_symbol(listing.price).upcase +
     unless listing.quantity.blank? then " / #{listing.quantity}" else "" end +
     if @current_community.vat then " " + t("listings.displayed_price.price_excludes_vat") else "" end
   end

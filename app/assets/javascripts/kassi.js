@@ -642,12 +642,12 @@ function initialize_new_listing_form(fileDefaultText,
     rules: _.extend(numericRules, {
       "listing[title]": {required: true, maxlength: 60},
       "listing[origin]": {address_validator: true},
-      "listing[price]": {required: pr, positive_integer: true, minimum_price_required: minimum_price},
+      "listing[price]": {required: pr, money: true, minimum_price_required: minimum_price},
       "listing[valid_until(1i)]": { min_date: true, max_date: true }
     }),
     messages: {
       "listing[valid_until(1i)]": { min_date: date_message, max_date: date_message },
-      "listing[price]": { positive_integer: price_message, minimum_price_required: minimum_price_message },
+      "listing[price]": { minimum_price_required: minimum_price_message },
     },
     // Run validations only when submitting the form.
     onkeyup: false,

@@ -9,7 +9,7 @@
     - if listing.price
       .home-list-price
         .home-list-price-value
-          = money_without_cents_and_with_symbol(listing.price).upcase
+          = humanized_money_with_symbol(listing.price).upcase
         - if !listing.quantity.blank?
           - price_text = if !listing.quantity.blank? then t("listings.form.price.per") + " " + listing.quantity  else "" end
           .home-list-price-quantity{:title => price_text}
@@ -38,4 +38,4 @@
 
   - if listing.price
     .home-list-price-mobile{:class => (listing.listing_images.size > 0 ? "home-list-price-mobile-with-listing-image" : "home-list-price-mobile-without-listing-image")}
-      = money_without_cents_and_with_symbol(listing.price).upcase
+      = humanized_money_with_symbol(listing.price).upcase
