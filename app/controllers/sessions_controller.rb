@@ -1,17 +1,17 @@
 require 'rest_client'
 
 class SessionsController < ApplicationController
-  
+
   skip_filter :check_email_confirmation
   skip_filter :dashboard_only
   skip_filter :single_community_only, :only => [ :create, :request_new_password ]
   skip_filter :cannot_access_without_joining, :only => [ :destroy, :confirmation_pending ]
-  
+
   # For security purposes, Devise just authenticates an user
   # from the params hash if we explicitly allow it to. That's
   # why we need to call the before filter below.
   before_filter :allow_params_authentication!, :only => :create
-   
+
   def new
     @selected_tribe_navi_tab = "members"
     @facebook_merge = session["devise.facebook_data"].present?
@@ -20,18 +20,17 @@ class SessionsController < ApplicationController
       @facebook_name = "#{session["devise.facebook_data"]["given_name"]} #{session["devise.facebook_data"]["family_name"]}"
     end
   end
- 
+
   def create
-    
+
     session[:form_login] = params[:person][:login]
-    
 
     # Start a session with Devise
-    
-    # In case of failure, set the message already here and 
+
+    # In case of failure, set the message already here and
     # clear it afterwards, if authentication worked.
     flash.now[:error] = t("layouts.notifications.login_failed")
-    
+
     # Since the authentication happens in the rack layer,
     # we need to tell Devise to call the action "sessions#new"
     # in case something goes bad.
@@ -42,43 +41,38 @@ class SessionsController < ApplicationController
     end
     flash[:error] = nil
     @current_user = person
-    
+
     # Store Facebook ID and picture if connecting with FB
     if session["devise.facebook_data"]
-      @current_user.update_attribute(:facebook_id, session["devise.facebook_data"]["id"]) 
+      @current_user.update_attribute(:facebook_id, session["devise.facebook_data"]["id"])
       # FIXME: Currently this doesn't work for very unknown reason. Paper clip seems to be processing, but no pic
       if @current_user.image_file_size.nil?
         @current_user.store_picture_from_facebook
       end
     end
-    
+
     sign_in @current_user
 
-  
-
     session[:form_login] = nil
-    
+
     if @current_user
       @current_user.update_attribute(:active, true) unless @current_user.active?
     end
-     
+
     unless @current_user && (!@current_user.communities.include?(@current_community) || @current_community.consent.eql?(@current_user.consent(@current_community)) || @current_user.is_admin?)
       # Either the user has succesfully logged in, but is not found in Sharetribe DB
       # or the user is a member of this community but the terms of use have changed.
 
       sign_out @current_user
       session[:temp_cookie] = "pending acceptance of new terms"
-      session[:temp_person_id] =  @current_user.id  
+      session[:temp_person_id] =  @current_user.id
       session[:temp_community_id] = @current_community.id
       session[:consent_changed] = true if @current_user
       redirect_to terms_path and return
     end
 
     session[:person_id] = current_person.id
-    
-    
-    
-    
+
     if not @current_community
       redirect_to new_tribe_path
     elsif @current_user.communities.include?(@current_community) || @current_user.is_admin?
@@ -104,11 +98,11 @@ class SessionsController < ApplicationController
     flash[:notice] = t("layouts.notifications.logout_successful")
     redirect_to root
   end
-  
+
   def index
     redirect_to login_path
   end
-  
+
   def request_new_password
     if person = Person.find_by_email(params[:email])
       person.reset_password_token_if_needed
@@ -118,30 +112,29 @@ class SessionsController < ApplicationController
       flash[:error] = t("layouts.notifications.email_not_found")
     end
 
-    
     if on_dashboard?
       redirect_to dashboard_login_path
     else
       redirect_to login_path
     end
   end
-  
+
   def facebook
     @person = Person.find_for_facebook_oauth(request.env["omniauth.auth"], @current_user)
 
     I18n.locale = exctract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']
-    
+
     if @person
       flash[:notice] = t("devise.omniauth_callbacks.success", :kind => "Facebook")
       sign_in_and_redirect @person, :event => :authentication
     else
       data = request.env["omniauth.auth"].extra.raw_info
-      
+
       if data.email.blank?
         flash[:error] = t("layouts.notifications.could_not_get_email_from_facebook")
         redirect_to sign_up_path and return
       end
-      
+
       facebook_data = {"email" => data.email,
                        "given_name" => data.first_name,
                        "family_name" => data.last_name,
@@ -152,24 +145,24 @@ class SessionsController < ApplicationController
       redirect_to :action => :create_facebook_based, :controller => :people
     end
   end
-  
+
   # Make method alias for each community which has custom FB login
   Community.all_with_custom_fb_login.each do |community|
     alias_method "facebook_app_#{community.facebook_connect_id}".to_sym, :facebook
   end
-  
+
   # Callback from Omniauth failures
-  def failure    
+  def failure
     I18n.locale = exctract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']
     error_message = params[:error_reason] || "login error"
     kind = env["omniauth.error.strategy"].name.to_s || "Facebook"
     flash[:error] = t("devise.omniauth_callbacks.failure",:kind => kind.humanize, :reason => error_message.humanize)
     redirect_to root
   end
-  
+
   # This is used if user has not confirmed her email address
   def confirmation_pending
-    
+
   end
-  
+
 end

@@ -24,7 +24,7 @@
           - if ["first_name_with_initial", "first_name_only"].include? @current_community.name_display_type
             = t(".#{@current_community.name_display_type}")
       = form.text_field :family_name, :class => "text_field", :maxlength => "30"
-    
+
     -# Location
     .inline-label-container
       = form.label :street_address, t(".street_address"), :class => "inline"
@@ -40,18 +40,18 @@
           $(document).ready(function(){
             googlemapMarkerInit("settings_map_canvas","person_location","person_street_address", true, #{tribe_latitude}, #{tribe_longitude});
             });
-    
+
     -# Phone number
     .inline-label-container
       = form.label :phone_number, t(".phone_number"), :class => "inline"
       %small
         = t('.invisible')
     = form.text_field :phone_number, :class => "text_field", :maxlength => "25"
-    
+
     -# Profile picture
     = form.label :image, t(".profile_picture")
     = form.file_field :image, :size => 30, :id => "avatar_file"
-    
+
     -# About text
     = form.label :description, t(".about_you"), :class => "input"
     = form.text_area :description, :class => "update_profile_description_text_area"

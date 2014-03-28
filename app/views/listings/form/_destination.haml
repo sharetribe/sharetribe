@@ -1,5 +1,5 @@
 = form.label :destination, t(".destination") + "*", :class => "input"
-= form.text_field(:destination, :class => "title_text_field", 
+= form.text_field(:destination, :class => "title_text_field",
                   :onkeyup => "timed_input_on_route()")
 = form.fields_for :destination_loc do |loc|
   = loc.hidden_field :address, :value => destination_loc.address
@@ -7,4 +7,3 @@
   = loc.hidden_field :latitude, :value => destination_loc.latitude
   = loc.hidden_field :longitude, :value => destination_loc.longitude
   = loc.hidden_field :location_type, :value => destination_loc.location_type
-  

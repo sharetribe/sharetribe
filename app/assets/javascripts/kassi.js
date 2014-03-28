@@ -867,8 +867,6 @@ function style_grade_selectors() {
   });
 }
 
-
-
 function initialize_signup_form(locale, username_in_use_message, invalid_username_message, email_in_use_message, captcha_message, invalid_invitation_code_message, name_required, invitation_required) {
   $('#help_invitation_code_link').click(function(link) {
     //link.preventDefault();
@@ -928,7 +926,6 @@ function initialize_payment_gateway_terms_lightbox(gateway_name) {
     $('#' + gateway_name + '_terms').lightbox_me({ centered: true, zIndex: 1000001 });
   });
 }
-
 
 function initialize_update_profile_info_form(locale, person_id, name_required) {
   auto_resize_text_areas("update_profile_description_text_area");
@@ -1130,7 +1127,6 @@ function initialize_invitation_form(locale, email_error_message) {
     }
   });
 }
-
 
 function initialize_private_community_defaults(locale, feedback_default_text) {
   add_validator_methods();
@@ -1371,7 +1367,6 @@ function set_textarea_maxlength() {
       $.data(this, 'keycode', event.keyCode || event.which);
     });
 }
-
 
 function get_date_from_date_select() {
   year = $('#listing_valid_until_1i').val();

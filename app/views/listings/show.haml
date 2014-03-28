@@ -62,7 +62,7 @@
     - unless (@listing.closed? && !current_user?(@listing.author)) || !@current_community.listing_comments_in_use
       .view-item
         #comments.discussion.overflow-allowed
-          %h2 
+          %h2
             = icon_tag("chat_bubble", ["icon-with_text"])
             .text-with-icon
               = t(".comments")
@@ -103,7 +103,6 @@
                 %a#listing-contact{href: reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free"), :class => "listing-author-contact-button"}
                   .content
                     = t(".contact")
-
 
     .row-with-divider.listing-author-activity
       .col-12

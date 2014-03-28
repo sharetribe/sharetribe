@@ -20,7 +20,7 @@
 
 .centered-section.payment-form
   - payment_receiver = @conversation.other_party(@current_user)
-  %p 
+  %p
     = t(".payment_receiver")
 
     = "#{link_to payment_receiver.name, payment_receiver}".html_safe
@@ -32,10 +32,10 @@
     = "#{t("payments.form.price")}"
     = humanized_money_with_symbol(@braintree_payment.sum)
 
-  = form_for @braintree_payment, 
-    :url => person_message_braintree_payment_path(@current_user.id, 
-      @conversation.id, 
-      @braintree_payment.id), 
+  = form_for @braintree_payment,
+    :url => person_message_braintree_payment_path(@current_user.id,
+      @conversation.id,
+      @braintree_payment.id),
       :html => { :id => "braintree-payment-form", :class => "hidden" } do |form|
 
     .row
@@ -58,7 +58,7 @@
         = select_tag :credit_card_expiration_month, options_for_select(credit_card_expiration_month_options), :data => { :'encrypted-name' => "braintree_payment[credit_card_expiration_month]" }
         = " / "
         = select_tag :credit_card_expiration_month, options_for_select(credit_card_expiration_year_options), :data => { :'encrypted-name' => "braintree_payment[credit_card_expiration_year]" }
-    
+
     .row
       .col-12
         = form.button t(".confirm_payment"), :class => "send_button"
@@ -87,7 +87,7 @@
         %p
           = link_to "https://www.braintreepayments.com/" do
             = image_tag("payments/braintree-logo-2x.png", height: '32')
-    
+
           %br/
 
           = "Our secure payment provider"

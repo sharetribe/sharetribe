@@ -5,9 +5,5 @@
     = link_to comment.author.name(@current_community), comment.author
   %small= time_ago(comment.created_at)
   .comment-content
-    - text_with_line_breaks do  
+    - text_with_line_breaks do
       = comment.content
-        
-          
-          
-    

@@ -1,6 +1,6 @@
 - content_for :javascript do
   initialize_braintree_account_form("#{I18n.locale}");
-  
+
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user, @current_community) }
 
 .left-navi-section.settings-section
@@ -11,34 +11,34 @@
 
     = form.label :first_name, t(".first_name"), :class => "input"
     = form.text_field :first_name, :class => "auto_width", :size => 30
-    
+
     = form.label :last_name, t(".last_name"), :class => "input"
     = form.text_field :last_name, :class => "auto_width", :size => 30
-    
+
     = form.label :email, t(".email"), :class => "input"
     = form.text_field :email, :class => "auto_width", :size => 30
-    
+
     = form.label :phone, t(".phone"), :class => "input"
     = form.text_field :phone, :class => "auto_width", :size => 30
-    
+
     = form.label :address_street_address, t(".address_street_address"), :class => "input"
     = form.text_field :address_street_address, :class => "auto_width", :size => 30
-    
+
     = form.label :address_postal_code, t(".address_postal_code"), :class => "input"
     = form.text_field :address_postal_code, :class => "auto_width", :size => 6
-    
+
     = form.label :address_locality, t(".address_locality"), :class => "input"
     = form.text_field :address_locality, :class => "auto_width", :size => 20
-    
+
     = form.label :address_region, t(".address_region"), :class => "input"
     = form.select :address_region, @list_of_states
-    
+
     = form.label :date_of_birth, t(".date_of_birth"), :class => "input"
     = form.date_select :date_of_birth, {:start_year => Time.now.year - 12, :end_year => Time.now.year - 100, :default => 12.years.from_now}
-    
+
     = form.label :routing_number, t(".routing_number"), :class => "input"
     = form.text_field :routing_number, :class => "auto_width", :size => 9
-    
+
     = form.label :account_number, t(".account_number"), :class => "input"
     = form.text_field :account_number, :class => "auto_width", :size => 17
 
@@ -53,7 +53,7 @@
   %p
     = link_to "https://www.braintreepayments.com/" do
       = image_tag("payments/braintree-logo-2x.png", height: '32')
-    
+
     %br/
 
     = "Our secure payment provider"

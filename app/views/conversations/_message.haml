@@ -10,5 +10,5 @@
       %b= t(".#{message.action}ed_#{message.conversation.discussion_type}")
   %small= time_ago(message.created_at)
   .message-content
-    - text_with_line_breaks do  
+    - text_with_line_breaks do
       = message.content

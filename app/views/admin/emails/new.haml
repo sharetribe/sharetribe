@@ -3,7 +3,7 @@
 
 - content_for :title_header do
   %h1= t("layouts.admin.admin")
-  
+
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 
 .new-member-email-form.left-navi-section
@@ -16,10 +16,9 @@
     - if available_locales.size > 1
       = label_tag "email_language", t(".email_language")
       = render :partial => "layouts/permanent_notification", :locals => { :text => t(".message_will_be_sent_only_to_people_with_this_language") }
-      .select-tag-dropdown 
+      .select-tag-dropdown
         - options = [[t(".any_language"), "any"]] | available_locales
         = select_tag "email[locale]", options_for_select(options, "any")
     - else
       = form.hidden_field :locale, :value => "any"
     = button_tag t(".send_email"), :class => "send_button"
-

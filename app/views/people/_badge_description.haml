@@ -3,7 +3,7 @@
   .lightbox-content.badge-lightbox-content
     %a{:href => "#", :class => "close lightbox-x", :id => "close_x"}
       .ss-delete
-    
+
     .badge-image
       = image_tag "https://s3.amazonaws.com/sharetribe/assets/images/badges/#{badge_name}_large.png", :alt => t("people.profile_badge.#{badge_name}"), :title => t("people.profile_badge.#{badge_name}")
     %h2= t("people.profile_badge.#{badge_name}")
@@ -14,6 +14,3 @@
         = time_ago(badge.created_at)
       - else
         = t(".you_do_not_yet_have_this_badge")
-      
-    
-  

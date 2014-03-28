@@ -1,5 +1,5 @@
 - if @listing.closed?
-  = t(".you_cannot_send_a_new_comment_because_listing_is_closed")  
+  = t(".you_cannot_send_a_new_comment_because_listing_is_closed")
 - elsif logged_in?
   .comment-form
     = form_for Comment.new, :url => listing_comments_path(:listing_id => @listing.id.to_s) do |f|

@@ -31,7 +31,7 @@ class BraintreeWebhooksController < ApplicationController
       def sub_merchant_account_declined(notification, community)
         person_id = notification.merchant_account.id
         BTLog.warn("Declined submerchant account for person #{person_id}")
-        
+
         braintree_account = BraintreeAccount.find_by_person_id(person_id)
         braintree_account.update_attributes(:status => "suspended")
       end
@@ -79,7 +79,7 @@ class BraintreeWebhooksController < ApplicationController
   end
 
   private
-  
+
   # Instead of fetching community by host (http://community.sharetribe.com),
   # this filter fetched community by `community_id` parameter
   # (http://sharetribe.com?community_id=id)

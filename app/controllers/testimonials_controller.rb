@@ -1,17 +1,17 @@
 class TestimonialsController < ApplicationController
-  
+
   before_filter :except => :index do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_give_feedback")
   end
-  
+
   before_filter :ensure_authorized_to_give_feedback, :except => :index
   before_filter :ensure_feedback_not_given, :except => :index
   before_filter :person_belongs_to_current_community, :only => :index
-  
+
   skip_filter :dashboard_only
   # Skip auth token check as current jQuery doesn't provide it automatically
   skip_before_filter :verify_authenticity_token, :only => [:skip]
-  
+
   def index
     if request.xhr?
       @testimonials = @person.received_testimonials.paginate(:per_page => params[:per_page], :page => params[:page])
@@ -21,7 +21,7 @@ class TestimonialsController < ApplicationController
       redirect_to person_path(@person)
     end
   end
-  
+
   def new
     @testimonial = Testimonial.new
   end
@@ -34,22 +34,22 @@ class TestimonialsController < ApplicationController
       redirect_to (session[:return_to_inbox_content] || person_message_path(:person_id => @current_user.id, :id => @conversation.id))
     else
       render :action => new
-    end    
+    end
   end
-  
+
   def skip
     @participation.update_attribute(:feedback_skipped, true)
     respond_to do |format|
-      format.html { 
+      format.html {
         flash[:notice] = t("layouts.notifications.feedback_skipped")
-        redirect_to single_conversation_path(:conversation_type => "received", :person_id => @current_user.id, :id => @conversation.id) 
+        redirect_to single_conversation_path(:conversation_type => "received", :person_id => @current_user.id, :id => @conversation.id)
       }
       format.js { render :layout => false }
     end
   end
-  
+
   private
-  
+
   def ensure_authorized_to_give_feedback
     @conversation = Conversation.find(params[:message_id])
     @participation = Participation.find_by_person_id_and_conversation_id(@current_user, @conversation)
@@ -58,12 +58,12 @@ class TestimonialsController < ApplicationController
       redirect_to root and return
     end
   end
-  
+
   def ensure_feedback_not_given
-    unless @participation.feedback_can_be_given? 
+    unless @participation.feedback_can_be_given?
       flash[:error] = t("layouts.notifications.you_have_already_given_feedback_about_this_event")
       redirect_to root and return
-    end  
+    end
   end
 
 end

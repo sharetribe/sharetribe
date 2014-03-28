@@ -27,16 +27,14 @@
         = t('.fb_join_accept_terms')
       - else
         = t('.you_can_join')
-        
 
   - unless @current_user.communities.size < 1
     %p
       = t(".if_want_to_view_content")
       = link_to(t(".log_out"), logout_path) + "."
-      
-      
+
   = form_for @community_membership, :url => { :controller => "community_memberships", :action => "create" } do |form|
-  
+
     - if @current_community.join_with_invite_only?
       - if session[:invitation_code]
         = hidden_field_tag "invitation_code", session[:invitation_code]
@@ -48,8 +46,8 @@
     - if @current_community.allowed_emails? && ! @current_user.has_valid_email_for_community?(@current_community)
       = form.label :email, t('people.new.email'), :class => "before_description"
       = form.text_field :email, :class => :text_field, :maxlenght => "255"
-    
-    - unless @skip_terms_checkbox 
+
+    - unless @skip_terms_checkbox
       .outer-checkbox-container
         .checkbox-container
           %input{:type => "checkbox", :id => "community_membership_consent", :name => "community_membership[consent]"}

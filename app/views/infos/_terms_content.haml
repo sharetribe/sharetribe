@@ -1,5 +1,5 @@
 - if @current_community.payment_gateway && @current_community.payment_gateway.has_additional_terms_of_use
-  = render :partial => "payments/gateway_additional_terms", 
+  = render :partial => "payments/gateway_additional_terms",
            :locals => {:gateway_name => @current_community.payment_gateway.name.downcase}
 
 = render :layout => "layouts/mercury_editable_page", :locals => { :content_type => "terms_page_content", :editing_allowed => @current_community.terms_change_allowed? } do

@@ -202,7 +202,7 @@ $listing-author-avatar-height: 108;
 @mixin fileupload-thumbnail($additional-padding: 0) {
   $available-space: lines(19) - (2 * lines(0.5)) - lines(3) - (2 * $additional-padding); // centered section, 19 lines minus 0.5 padding, lines(3) for padding
   $width: ($available-space / 3);
-  width: $width; 
+  width: $width;
   height: $width;
   border-radius: 2 * $default-border-radius;
 }
@@ -251,7 +251,7 @@ $listing-author-avatar-height: 108;
     cursor: pointer;
     color: $background;
   }
-} 
+}
 
 .fileupload-removing {
   display: none;

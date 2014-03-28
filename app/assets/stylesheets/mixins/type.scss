@@ -4,18 +4,18 @@
   pixels to ems & baselines to ems
   --------------------------------------------
   Usage:
-  - em(6, 26) converts 6px to ems assuming the 
+  - em(6, 26) converts 6px to ems assuming the
     font-size of the element is 26px. If the
-    element's font-size is the same as the 
-    base font-size, you can omit the 2nd 
+    element's font-size is the same as the
+    base font-size, you can omit the 2nd
     argument: em(6)
-  - lines(0.5, 26) is a shorthand for 
-    em(($line-height/2), 26), so em(12, 26) 
+  - lines(0.5, 26) is a shorthand for
+    em(($line-height/2), 26), so em(12, 26)
     in Sharetribe's case.
   --------------------------------------------
   Examples:
     p {
-      font-size: 
+      font-size:
       line-height: lines(1);
       margin-bottom: lines(0.5);
     }
@@ -31,7 +31,7 @@ $font-size: 16;
 $line-height: 24;
 
 @function em($pixels, $context-font-size: $font-size) {
-  @return ($pixels / $context-font-size) * 1em; 
+  @return ($pixels / $context-font-size) * 1em;
 }
 
 @function lines($lines, $context-font-size: $font-size,  $context-line-height: $line-height) {
@@ -45,7 +45,6 @@ $line-height: 24;
 @function lines-to($lines, $new-context-font-size, $old-context-font-size: $font-size) {
   @return ems-to($lines, $new-context-font-size, $old-context-font-size);
 }
-
 
 /*
   --------------------------------------------------
@@ -70,7 +69,7 @@ $line-height: 24;
 /*
   ----------------------------------------------------------
   Type presets
-  mostly calculated using a modular scale based on 
+  mostly calculated using a modular scale based on
   the golden ratio: 1:1.618
   http://modularscale.com/scale/?px1=16&px2=&ra1=1.618&ra2=0
   ----------------------------------------------------------

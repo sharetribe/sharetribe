@@ -1,7 +1,7 @@
 .googlemap
   .jsmap.listing-map{:id => "map_canvas"}
   - content_for :extra_javascript do
-    :javascript 
-      $(document).ready(function() { 
+    :javascript
+      $(document).ready(function() {
         googlemapMarkerInit('map_canvas', "origin_loc", undefined, undefined, #{tribe_latitude}, #{tribe_longitude}, "#{listing.location.address}");
       });

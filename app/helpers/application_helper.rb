@@ -1,11 +1,11 @@
 # encoding: utf-8
 module ApplicationHelper
-  
+
   ICON_PACK = APP_CONFIG.icon_pack || "font-awesome"
-  
+
   ICONS = {
     "ss-pika" => {
-      
+
       # Default UI icons
       "map" => "ss-maplocation",
       "thumbnails" => "ss-thumbnails",
@@ -57,7 +57,7 @@ module ApplicationHelper
       "loading" => "ss-loading",
       "connect" => "ss-connection",
       "" => "",
-      
+
       # Default category & share type icons
       "offer" => "ss-share",
       "request" => "ss-tip",
@@ -91,7 +91,7 @@ module ApplicationHelper
       "sell" => "ss-moneybag",
       "rent" => "ss-pricetag",
       "rent_out" => "ss-pricetag",
-      
+
       # Custom category & share type icons
       "job" => "ss-briefcase",
       "announcement" => "ss-newspaper",
@@ -147,15 +147,15 @@ module ApplicationHelper
       "map" => "icon-map-marker",
       "thumbnails" => "icon-th",
       "new_listing" => "icon-plus-sign-alt",
-      
+
       "search"  => "icon-search",
       "list" => "icon-reorder",
-      
+
       "home" => "icon-home",
       "community" =>"icon-group",
       "help" => "icon-question-sign",
       "admin" => "icon-wrench",
-      
+
       "directup" => "icon-sort-up",
       "directdown" => "icon-sort-down",
       "dropdown" => "icon-caret-down",
@@ -168,14 +168,13 @@ module ApplicationHelper
       "settings" => " icon-cog",
       "facebook" => "icon-facebook",
       "invite" => "icon-users",
-      
-      
+
       "information" => "icon-info-sign",
       "alert" => "icon-warning-sign",
       "how_to_use" => "icon-book",
       "privacy" => "icon-lock",
       "terms" => "icon-file-alt",
-      
+
       "offer" => "icon-share",
       "request" => "icon-lightbulb",
       "item" => "icon-briefcase",
@@ -209,7 +208,7 @@ module ApplicationHelper
       "rent" => "icon-money",
       "rent_out" => "icon-money",
       "job" => "icon-briefcase",
-      
+
       "testimonial" => "icon-star",
       "like" => "icon-thumbs-up",
       "dislike" => "icon-thumbs-down",
@@ -224,37 +223,37 @@ module ApplicationHelper
       "unlock" => "icon-unlock",
       "edit" => "icon-edit",
       "profile" => "ss-user"
-    }    
+    }
   }
-  
+
   def icon_tag(icon_name, additional_classes=[])
     classes_string = [icon_class(icon_name)].concat(additional_classes).join(" ")
     return "<i class=\"#{classes_string}\"></i>".html_safe
   end
-  
+
   def icon_class(icon_name)
     icon = ICONS[ICON_PACK][icon_name]
     if icon.nil?
       icon = (ICON_PACK == "font-awesome" ? "icon-circle-blank" : "ss-record")
-    end    
+    end
     return icon
   end
-  
+
   def self.icon_specified?(icon_name)
     ICONS[ICON_PACK][icon_name].present?
   end
-  
+
   # Removes whitespaces from HAML expressions
   # if you add two elements on two lines; the white space creates a space between the elements (in some browsers)
   def one_line_for_html_safe_content(&block)
     haml_concat capture_haml(&block).gsub("\n", '').html_safe
   end
-  
+
   # Returns a human friendly format of the time stamp
   # Origin: http://snippets.dzone.com/posts/show/6229
   def time_ago(from_time, to_time = Time.now)
     return "" if from_time.nil?
-    
+
     from_time = from_time.to_time if from_time.respond_to?(:to_time)
     to_time = to_time.to_time if to_time.respond_to?(:to_time)
     distance_in_minutes = (((to_time - from_time).abs)/60).round
@@ -272,27 +271,27 @@ module ApplicationHelper
       distance_in_days = (distance_in_minutes/1440.0).round
       case distance_in_days
         when 0..30    then time = t('timestamps.days_ago', :count => distance_in_days)
-        when 31..50   then time = t('timestamps.month_ago', :count => 1)  
+        when 31..50   then time = t('timestamps.month_ago', :count => 1)
         when 51..364  then time = t('timestamps.months_ago', :count => (distance_in_days.to_f / 30.0).round)
         else               time = t('timestamps.years_ago', :count => (distance_in_days.to_f / 365.24).round)
       end
     end
-    
+
     return time
   end
-  
+
   def time_difference_in_days(from_time, to_time = Time.now)
     return nil if from_time.nil?
     from_time = from_time.to_time if from_time.respond_to?(:to_time)
     to_time = to_time.to_time if to_time.respond_to?(:to_time)
     distance_in_minutes = ((((to_time - from_time).abs)/60)/1440.0).round
   end
-  
+
   # used to escape strings to URL friendly format
   def self.escape_for_url(str)
      URI.escape(str, Regexp.new("[^-_!~*()a-zA-Z\\d]"))
   end
-  
+
   def self.shorten_url(url)
     if APP_CONFIG.bitly_username && APP_CONFIG.bitly_key
       begin
@@ -305,26 +304,26 @@ module ApplicationHelper
       return url
     end
   end
-  
+
   # Changes line breaks to <br>-tags and transforms URLs to links
   def text_with_line_breaks_html_safe(&block)
     haml_concat add_p_tags(capture_haml(&block)).html_safe
   end
-  
+
   # Changes line breaks to <br>-tags and transforms URLs to links
   def text_with_line_breaks(&block)
     haml_concat add_links_and_br_tags(capture_haml(&block)).html_safe
   end
-  
+
   # Changes line breaks to <br>-tags and transforms URLs to links
   def text_with_line_breaks_for_email(&block)
     haml_concat add_links_and_br_tags_for_email(capture_haml(&block)).html_safe
   end
-  
+
   def small_avatar_thumb(person, avatar_html_options={})
     avatar_thumb(:thumb, person, avatar_html_options)
   end
-  
+
   def medium_avatar_thumb(person, avatar_html_options={})
     avatar_thumb(:small, person, avatar_html_options)
   end
@@ -333,7 +332,7 @@ module ApplicationHelper
     return "" if person.nil?
     link_to((image_tag person.image.url(size), avatar_html_options), person)
   end
-  
+
   def large_avatar_thumb(person)
     image_tag person.image.url(:medium), :alt => person.name(@current_community)
   end
@@ -351,17 +350,17 @@ module ApplicationHelper
       :loaderMsg  => loader_message,
       :div1       => target_id
     }
-    
+
     content_for :extra_javascript do
       javascript_tag("$('#{target_id}').pageless(#{opts.to_json});")
     end
   end
-  
+
   # Class is selected if conversation type is currently selected
   def get_profile_extras_tab_class(tab_name)
     "inbox_tab_#{controller_name.eql?(tab_name) ? 'selected' : 'unselected'}"
   end
-  
+
   def available_locales
     if @current_community
       # use the ordered list from community settings, but replace the short locales with ["English", "en"] like arrays from APP_CONFIG
@@ -370,7 +369,7 @@ module ApplicationHelper
       return Kassi::Application.config.AVAILABLE_LOCALES
     end
   end
-  
+
   def get_full_locale_name(locale)
     Kassi::Application.config.AVAILABLE_LOCALES.each do |l|
       if l[1].to_s == locale.to_s
@@ -379,7 +378,7 @@ module ApplicationHelper
     end
     return locale # return the short string if no match found for longer name
   end
-  
+
   def self.send_error_notification(message, error_class="Special Error", parameters={})
     if APP_CONFIG.use_airbrake
       Airbrake.notify(
@@ -391,7 +390,7 @@ module ApplicationHelper
     end
     Rails.logger.error "#{error_class}: #{message}"
   end
-  
+
   # Checks if HTTP_REFERER or HTTP_ORIGIN exists and returns only the domain part with protocol
   # This was first used to return user to original community from login domain.
   # Now the domain is included in the params, so this is used only in error cases to redirect back
@@ -400,32 +399,32 @@ module ApplicationHelper
     return request.headers["HTTP_REFERER"][/(^[^\/]*(\/\/)?[^\/]+)/,1] if request.headers["HTTP_REFERER"]
     return ""
   end
-  
+
   # If we are not in a single community defined by a subdomain,
   # we are on dashboard
   def on_dashboard?
     ["", "www","dashboardtranslate"].include?(request.subdomain) && APP_CONFIG.domain.include?(request.domain)
   end
-  
+
   def facebook_like(recommend=false)
     "<div class=\"fb-like\" data-send=\"true\" data-layout=\"button_count\" data-width=\"200\" data-show-faces=\"false\" #{recommend ? 'data-action="recommend"' : ''}></div>".html_safe
   end
-  
+
   def self.random_sting(length=6)
     chars = ("a".."z").to_a + ("0".."9").to_a
     random_string = ""
     1.upto(length) { |i| random_string << chars[rand(chars.size-1)] }
     return random_string
   end
-  
+
   def username_label
     (@current_community && @current_community.label.eql?("okl")) ? t("okl.member_id") : t("common.username")
   end
-  
+
   def username_or_email_label
     (@current_community && @current_community.label.eql?("okl")) ? t("okl.member_id_or_email") : t("common.username_or_email")
   end
-  
+
   def service_name(form=nil)
     if @current_community
       service_name = @current_community.service_name
@@ -437,14 +436,14 @@ module ApplicationHelper
     end
     return service_name
   end
-  
+
   def service_name_illative
     ApplicationHelper.service_name_other_forms
   end
-  
+
   def email_not_accepted_message
     if @current_community && @current_community.allowed_emails.present?
-      t("people.new.email_is_in_use_or_not_allowed") 
+      t("people.new.email_is_in_use_or_not_allowed")
     else
       t("people.new.email_is_in_use")
     end
@@ -453,7 +452,7 @@ module ApplicationHelper
   def self.store_community_service_name_to_thread(name)
     Thread.current[:current_community_service_name] = name
   end
-  
+
   # Class methods to access the service_name stored in the thread to work with I18N and DelayedJob etc async stuff.
   # If called without host information, set's the server default
   def self.store_community_service_name_to_thread_from_host(host=nil)
@@ -464,31 +463,31 @@ module ApplicationHelper
     end
     store_community_service_name_to_thread_from_community(community)
   end
-  
+
   def self.store_community_service_name_to_thread_from_community_id(community_id=nil)
     community = nil
     if community_id.present?
       community = Community.find_by_id(community_id)
-      
+
     end
     store_community_service_name_to_thread_from_community(community)
   end
-  
+
   def self.store_community_service_name_to_thread_from_community(community=nil)
     ser_name = APP_CONFIG.global_service_name || "Sharetribe"
-    
+
     # if community has it's own setting, dig it out here
     if community && community.settings && community.settings["service_name"].present?
       ser_name = community.settings["service_name"]
     end
-    
+
     store_community_service_name_to_thread(ser_name)
   end
-    
+
   def self.fetch_community_service_name_from_thread
     Thread.current[:current_community_service_name] || APP_CONFIG.global_service_name || "Sharetribe"
   end
-  
+
   def self.service_name_other_forms(name)
     forms_hash = case name
       when "Sharetribe" then {
@@ -532,7 +531,7 @@ module ApplicationHelper
         :inessive => "Larun torilla",
         :elative => "Larun torilta",
         :partitive => "Larun toria"
-        } 
+        }
       when "Massainfo" then {
         :illative => "Massainfoon",
         :genetive => "Massainfon",
@@ -568,51 +567,50 @@ module ApplicationHelper
         :elative  =>  "Lovebirdsista",
         :partitive => "Lovebirdsia"
       }
-      
+
       else nil
     end
   end
 
-  
   # returns the locale part from url.
   # e.g. from "kassi.eu/es/listings" returns es
   def exctract_locale_from_url(url)
     url[/^([^\/]*\/\/)?[^\/]+\/(\w{2})(\/.*)?/,2]
   end
-  
-  # Helper method for javascript. Return "undefined" 
+
+  # Helper method for javascript. Return "undefined"
   # if tribe has no location.
   def tribe_latitude
     @current_community.location ? @current_community.location.latitude : "undefined"
   end
-  
-  # Helper method for javascript. Return "undefined" 
+
+  # Helper method for javascript. Return "undefined"
   # if tribe has no location.
   def tribe_longitude
     @current_community.location ? @current_community.location.longitude : "undefined"
   end
-  
+
   def community_email_restricted?
     ["university", "company"].include? session[:community_category]
   end
-  
+
   def add_p_tags(text)
     text.gsub(/\n/, "</p><p>")
   end
-  
+
   # general method for making urls as links and line breaks as <br /> tags
   def add_links_and_br_tags(text)
     pattern = /[\.)]*$/
     text = text.gsub(/https?:\/\/\S+/) { |link_url| link_to(truncate(link_url.gsub(pattern,""), :length => 50, :omission => "..."), link_url.gsub(pattern,"")) + link_url.match(pattern)[0]}.gsub(/\n/, "</p><p>")
     "<p>#{text}</p>"
   end
-  
+
   # general method for making urls as links and line breaks as <br /> tags
   def add_links_and_br_tags_for_email(text)
     pattern = /[\.)]*$/
     text.gsub(/https?:\/\/\S+/) { |link_url| link_to(truncate(link_url.gsub(pattern,""), :length => 50, :omission => "..."), link_url.gsub(pattern,""), :style => "color:#d25427;text-decoration:none;") + link_url.match(pattern)[0]}.gsub(/\n/, "<br />")
   end
-  
+
   def atom_feed_url(params={})
     url = "#{request.protocol}#{request.host_with_port}/listings.atom?locale=#{I18n.locale}"
     params.each do |key, value|
@@ -620,81 +618,81 @@ module ApplicationHelper
     end
     return url
   end
-  
+
   # About view left hand navigation content
   def about_links
     links = [
-      { 
+      {
         :text => t('layouts.infos.about'),
-        :icon_class => icon_class("information"), 
+        :icon_class => icon_class("information"),
         :path => about_infos_path,
         :name => "about"
       }
     ]
     if @community_customization && !@community_customization.how_to_use_page_content.blank?
-      links << { 
+      links << {
         :text => t('layouts.infos.how_to_use'),
-        :icon_class => icon_class("how_to_use"), 
+        :icon_class => icon_class("how_to_use"),
         :path => how_to_use_infos_path,
         :name => "how_to_use"
       }
     end
-    links << { 
+    links << {
       :text => t('layouts.infos.register_details'),
-      :icon_class => icon_class("privacy"), 
+      :icon_class => icon_class("privacy"),
       :path => privacy_infos_path,
       :name => "privacy"
     }
-    links << { 
+    links << {
       :text => t('layouts.infos.terms'),
-      :icon_class => icon_class("terms"), 
+      :icon_class => icon_class("terms"),
       :path => terms_infos_path,
       :name => "terms"
     }
   end
-  
+
   # Admin view left hand navigation content
   def admin_links_for(community)
     links = [
-      { 
+      {
         :text => t("admin.communities.edit_details.community_details"),
-        :icon_class => "ss-page", 
+        :icon_class => "ss-page",
         :path => edit_details_admin_community_path(community),
         :name => "tribe_details"
       },
       {
         :text => t("admin.communities.edit_details.community_look_and_feel"),
-        :icon_class => "ss-paintroller", 
+        :icon_class => "ss-paintroller",
         :path => edit_look_and_feel_admin_community_path(community),
         :name => "tribe_look_and_feel"
       },
       {
         :text => t("admin.emails.new.send_email_to_members"),
-        :icon_class => icon_class("mail"), 
+        :icon_class => icon_class("mail"),
         :path => new_admin_community_email_path(:community_id => @current_community.id),
         :name => "email_members"
       },
       {
         :text => t("admin.communities.edit_details.invite_people"),
-        :icon_class => "ss-adduser", 
+        :icon_class => "ss-adduser",
         :path => new_invitation_path,
         :name => "invite_people"
       },
       {
         :text => t("admin.communities.edit_welcome_email.welcome_email_content"),
-        :icon_class => icon_class("edit"), 
+        :icon_class => icon_class("edit"),
         :path => edit_welcome_email_admin_community_path(community),
         :name => "welcome_email"
       },
       {
         :text => t("admin.communities.manage_members.manage_members"),
-        :icon_class => icon_class("community"), 
+        :icon_class => icon_class("community"),
         :path => manage_members_admin_community_path(community),
         :name => "manage_members"
       },
       {
         :text => t("admin.communities.settings.settings"),
-        :icon_class => icon_class("settings"), 
+        :icon_class => icon_class("settings"),
         :path => settings_admin_community_path(community),
         :name => "admin_settings"
       },
@@ -710,7 +708,7 @@ module ApplicationHelper
     if category_editing_allowed?
       links << {
         :text => t("admin.categories.index.listing_categories"),
-        :icon_class => icon_class("list"), 
+        :icon_class => icon_class("list"),
         :path => admin_categories_path,
         :name => "listing_categories"
       }
@@ -719,7 +717,7 @@ module ApplicationHelper
     if community.custom_fields_allowed
       links << {
         :text => t("admin.custom_fields.index.listing_fields"),
-        :icon_class => icon_class("list"), 
+        :icon_class => icon_class("list"),
         :path => admin_custom_fields_path,
         :name => "listing_fields"
       }
@@ -727,46 +725,46 @@ module ApplicationHelper
 
     links
   end
-  
+
   # Inbox view left hand navigation content
   def inbox_links_for(person)
     [
-      { 
+      {
         :text => t("layouts.conversations.messages"),
-        :icon_class => icon_class("mail"), 
+        :icon_class => icon_class("mail"),
         :path => received_person_messages_path(:person_id => person.id.to_s),
         :name => "messages"
       },
       {
         :text => t("layouts.conversations.notifications"),
-        :icon_class => icon_class("notifications"), 
+        :icon_class => icon_class("notifications"),
         :path => notifications_person_messages_path(:person_id => person.id.to_s),
         :name => "notifications"
-      } 
+      }
     ]
   end
-  
+
   # Settings view left hand navigation content
   def settings_links_for(person, community=nil)
     links = [
       {
         :id => "settings-tab-profile",
         :text => t("layouts.settings.profile"),
-        :icon_class => icon_class("profile"),  
+        :icon_class => icon_class("profile"),
         :path => profile_person_settings_path(:person_id => person.id.to_s),
         :name => "profile"
       },
       {
         :id => "settings-tab-account",
         :text => t("layouts.settings.account"),
-        :icon_class => icon_class("account_settings"), 
+        :icon_class => icon_class("account_settings"),
         :path => account_person_settings_path(:person_id => person.id.to_s) ,
         :name => "account"
       },
       {
         :id => "settings-tab-notifications",
         :text => t("layouts.settings.notifications"),
-        :icon_class => icon_class("notification_settings"), 
+        :icon_class => icon_class("notification_settings"),
         :path => notifications_person_settings_path(:person_id => person.id.to_s),
         :name => "notifications"
       }
@@ -775,18 +773,18 @@ module ApplicationHelper
       links << {
         :id => "settings-tab-payments",
         :text => t("layouts.settings.payments"),
-        :icon_class => icon_class("payments"), 
+        :icon_class => icon_class("payments"),
         :path => @current_community.payment_gateway.settings_path(person, params[:locale]),
         :name => "payments"
       }
-      
+
     end
-    
+
     return links
   end
-  
+
   def dashboard_link(args)
-    locale_part = "" 
+    locale_part = ""
     selected_locale = args[:locale].to_s
     if selected_locale.present? && selected_locale != "en"
       Kassi::Application.config.AVAILABLE_DASHBOARD_LOCALES.each do |name, loc|
@@ -795,12 +793,12 @@ module ApplicationHelper
     end
     return "#{default_protocol}www.#{APP_CONFIG.domain}#{locale_part}#{args[:ref] ? "?ref=#{args[:ref]}" : ""}"
   end
-  
+
   # returns either "http://" or "https://" based on configuration settings
   def default_protocol
     APP_CONFIG.always_use_ssl ? "https://" : "http://"
   end
-  
+
   # Return the right notification "badge" size depending
   # on the number of new notifications
   def get_badge_class(count)
@@ -813,7 +811,7 @@ module ApplicationHelper
       "huge-badge"
     end
   end
-  
+
   def self.use_s3?
     APP_CONFIG.s3_bucket_name && ApplicationHelper.has_aws_keys?
   end
@@ -825,14 +823,14 @@ module ApplicationHelper
   def self.has_aws_keys?
     APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key
   end
-  
+
   def facebook_connect_in_use?
     APP_CONFIG.fb_connect_id && ! @facebook_merge && @current_community && @current_community.facebook_connect_enabled?
   end
-  
+
   def community_slogan
     if @community_customization  && !@community_customization.slogan.blank?
-      @community_customization.slogan 
+      @community_customization.slogan
     else
       if @current_community.slogan && !@current_community.slogan.blank?
         @current_community.slogan
@@ -841,7 +839,7 @@ module ApplicationHelper
       end
     end
   end
-  
+
   def community_description(truncate=true)
     if @community_customization && !@community_customization.description.blank?
       truncate ? truncate(@community_customization.description, :length => 140, :omission => "...").html_safe : @community_customization.description.html_safe
@@ -853,26 +851,25 @@ module ApplicationHelper
       end
     end
   end
-  
-  
+
   def email_link_style
     "color:#d96e21; text-decoration: none;"
   end
 
   def community_blank_slate
-    @community_customization && !@community_customization.blank_slate.blank? ? @community_customization.blank_slate : t(".no_listings_notification", :add_listing_link => link_to(t(".add_listing_link_text"), new_listing_path)).html_safe 
+    @community_customization && !@community_customization.blank_slate.blank? ? @community_customization.blank_slate : t(".no_listings_notification", :add_listing_link => link_to(t(".add_listing_link_text"), new_listing_path)).html_safe
   end
-  
+
   def fb_image
     if @listing && action_name.eql?("show") && !@listing.listing_images.empty?
       @listing.listing_images.first.image.url(:medium)
     elsif @current_community.logo?
-      @current_community.logo.url(:original) 
+      @current_community.logo.url(:original)
     else
       "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"
     end
   end
-  
+
   # Return a link to the listing author
   def author_link(listing)
     link_to(listing.author.name(@current_community), listing.author, {:title => listing.author.name(@current_community)})
@@ -899,17 +896,17 @@ module ApplicationHelper
 
     block.call(stylesheet_url)
   end
-  
+
   # Render block only if big cover photo should be shown
   def with_big_cover_photo(&block)
     block.call if show_big_cover_photo?
   end
-  
+
   # Render block only if small cover photo should be shown
   def with_small_cover_photo(&block)
     block.call unless show_big_cover_photo?
   end
-  
+
   def show_big_cover_photo?
     @homepage && (!@current_user || params[:big_cover_photo])
   end

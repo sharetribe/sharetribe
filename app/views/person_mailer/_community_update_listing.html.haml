@@ -14,9 +14,9 @@
                 %td{:valign => "top", :style => "margin-bottom: 0;padding-bottom: 0;"}
                   %p{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal; font-size: 14px; margin-top: 0;margin-bottom:0;padding:0;line-height:14px;"}
                     - name_link = link_to( listing.author.given_name_or_username, person_url(@url_params.merge({:id => listing.author.id})), :style => "color:#d96e21;font-weight:bold;text-decoration:none;")
-                    = t("emails.community_updates.added_listing", 
-                        :name_link => name_link, 
-                            :default => t("emails.community_updates.added_listing", 
+                    = t("emails.community_updates.added_listing",
+                        :name_link => name_link,
+                            :default => t("emails.community_updates.added_listing",
                                 :name_link => name_link)).html_safe
                   %h2{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal; font-size: 22px; margin-bottom: 8px; margin-top: 2px; padding:0;text-justify: none;line-height:26px;"}
                     = link_to listed_listing_title(listing), listing_url(@url_params.merge({:id => listing.id})), :style => "color:#d96e21;text-decoration:none !important;", :target => "_blank"
@@ -26,6 +26,3 @@
             %p{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;font-weight:100px; color:#898989;font-style: italic;line-height:22px;margin-top:0;margin-bottom:8px;"}
               - text_with_line_breaks_for_email do
                 = truncate_html(listing.description, :length => 200, :omission => "...")
-            
-
-            

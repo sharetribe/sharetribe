@@ -5,7 +5,7 @@
     #create_news_item_link
       = link_to t(".edit_poll"), edit_admin_poll_path(@poll, :type => "polls")
   .clear
-  
+
 .grid_18
   #polls_admin_view_list
     #polls_admin_view_answer_percentages
@@ -18,7 +18,6 @@
             = "#{option.percentage}%"
             = "(#{pluralize(option.answers.size.to_s, t('homepage.poll_form.poll_answer'), t('homepage.poll_form.poll_answers'))})"
 
-  
     - if @poll.answers.size > 0
       = render :partial => "poll_answer", :collection => @poll.answers, :as => :answer, :spacer_template => "listings/listing_spacer"
     - else

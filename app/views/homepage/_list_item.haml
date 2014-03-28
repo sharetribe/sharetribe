@@ -14,7 +14,7 @@
           - price_text = if !listing.quantity.blank? then t("listings.form.price.per") + " " + listing.quantity  else "" end
           .home-list-price-quantity{:title => price_text}
             = price_text
-  
+
   %div{:class => (listing.listing_images.size > 0 ? "home-list-details-with-image" : "")}
     %h2.home-list-title
       = link_to listing do
@@ -23,7 +23,7 @@
           %a.home-share-type-link{:href => transaction_type_url(listing, params[:view])}
             = icon_tag(listing.icon_name, ["icon-fix"])
             = listing.transaction_type.display_name(I18n.locale)
-  
+
   .home-list-author{:class => (listing.listing_images.size > 0 ? "home-list-author-with-listing-image" : "home-list-author-without-listing-image")}
     .home-list-avatar
       = small_avatar_thumb(listing.author)

@@ -5,4 +5,3 @@
 - else
   = form.label :privacy, t(".privacy") + "*", :class => "input"
   = select("listing", "privacy", privacy_array, {:selected => (@listing.privacy || "public")}, { :class => "full-width" })
-  

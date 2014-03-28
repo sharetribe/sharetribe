@@ -1,18 +1,18 @@
 class CommunitiesController < ApplicationController
-  
+
   include CommunitiesHelper
-  
+
   layout 'dashboard'
-  
+
   skip_filter :single_community_only
-  
+
   # Is this DEPRECATED?
   before_filter :only => [ :set_organization_email ] do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_content")
   end
-  
+
   respond_to :html, :json
-  
+
   def index
     redirect_to root and return
     @communities = Community.joins(:location).select("communities.id, name, settings, domain, members_count, latitude, longitude")
@@ -40,9 +40,9 @@ class CommunitiesController < ApplicationController
     session[:community_category] = params[:category] if params[:category]
     session[:pricing_plan] = params[:pricing_plan] if params[:pricing_plan]
     session[:community_locale] = params[:community_locale] if params[:community_locale]
-    
+
     session[:confirmed_email] = session[:unconfirmed_email] if session[:unconfirmed_email] && @current_user && @current_user.has_confirmed_email?(session[:unconfirmed_email])
-    
+
     respond_to do |format|
       format.html
       format.js {render :layout => false}
@@ -63,36 +63,36 @@ class CommunitiesController < ApplicationController
     @community.use_captcha = false
     @community.save
     @community.community_memberships.first.update_attribute(:admin, true) #make creator an admin
-    
+
     location.community = @community
     location.save
     clear_session_variables
     PersonMailer.welcome_email(@current_user, @community).deliver
     render :action => :new
   end
-  
+
   def check_domain_availability
     redirect_to root and return
     respond_to do |format|
       format.json { render :json => Community.domain_available?(params[:community][:domain]) }
     end
   end
-  
+
   # Is this DEPRECATED?
   def set_organization_email
     redirect_to root and return
     session[:allowed_email] = "@#{params[:email].split('@')[1]}"
     if @current_user.has_confirmed_email?(params[:email])
       session[:confirmed_email] = params[:email]
-      session[:unconfirmed_email] = params[:email] 
-      # FIXME: this is bit unlogically stored also to unconfirmed as the new.haml 
-      # for community creation expects that step to be taken first. So having confirmed 
-      # already is kind of rarer case, so setting both will make the logic based on the 
+      session[:unconfirmed_email] = params[:email]
+      # FIXME: this is bit unlogically stored also to unconfirmed as the new.haml
+      # for community creation expects that step to be taken first. So having confirmed
+      # already is kind of rarer case, so setting both will make the logic based on the
       # default case work in this case too.
     else
-      # no confirmed allowed email found. 
+      # no confirmed allowed email found.
       # Check if there is unconfirmed or should we add one.
-      
+
       if @current_user.email == params[:email] # check primary email
         @current_user.send_confirmation_instructions(request.host_with_port)
       else
@@ -101,7 +101,7 @@ class CommunitiesController < ApplicationController
         else
           e = Email.create(:person => @current_user, :address => params[:email])
         end
-    
+
         # Send confirmation for additional email
         Email.send_confirmation(e, request.host_with_port)
       end
@@ -109,5 +109,5 @@ class CommunitiesController < ApplicationController
     end
     redirect_to new_tribe_path
   end
-  
+
 end

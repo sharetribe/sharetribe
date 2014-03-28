@@ -1,4 +1,4 @@
 - if @person.active?
   = link_to t(".deactivate"), deactivate_person_path(@person), :class => "deactivate_person", :method => :put, :remote => true
-- else   
+- else
   = link_to t(".activate"), activate_person_path(@person), :class => "activate_person", :method => :put, :remote => true

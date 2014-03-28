@@ -3,13 +3,13 @@
   Media query mixin
   --------------------------
   Usage:
-  
+
   @include media(tablet) {
     .foo {color: red;}
   }
-  
+
   or
-  
+
   .foo {
     @include media(tablet) {
       color: red;

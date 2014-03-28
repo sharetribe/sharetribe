@@ -3,7 +3,7 @@
 
 - content_for :title_header do
   %h1= t("layouts.admin.admin")
-  
+
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@community) }
 
 #new_news_item_form.left-navi-section
@@ -13,11 +13,11 @@
       = form.label :wide_logo, t(".community_logo"), :class => "input"
       %p= t(".logo_instructions_text_with_dimensions", :width => 168, :height => 40)
       = form.file_field(:wide_logo, :class => "file_field")
-    
+
       = form.label :logo, t(".community_logo_icon"), :class => "input"
       %p= t(".logo_icon_instructions_text_with_dimensions", :width => 300, :height => 300)
       = form.file_field(:logo, :class => "file_field")
-    
+
     = form.label :cover_photo, t(".community_cover_photo"), :class => "input"
     %p
       = t(".cover_photo_visibility")
@@ -35,15 +35,15 @@
     %p
       %br/
       = t(".main_content_width", :main_width => 1008)
-    
+
     = form.label :custom_color1, t(".community_custom_color1"), :class => "input"
     %p= t(".custom_color1_instructions_text").html_safe
     = form.text_field :custom_color1, :maxlength => "6", :class => "text_field"
-    
+
     = form.label :custom_color2, t(".community_custom_color2"), :class => "input"
     %p= t(".custom_color2_instructions_text").html_safe
     = form.text_field :custom_color2, :maxlength => "6", :class => "text_field"
-    
+
     = form.button t("admin.communities.edit_details.update_information"), :id => "edit_community_button", :class => "send_button"
 
 = render :partial => "people/help_texts", :collection => ["invite_only_help_text"], :as => :field

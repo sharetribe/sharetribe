@@ -1,9 +1,9 @@
 %header.global-header.marketplace-header{:class => (params[:view].eql?("map") ? "visible-tablet" : "")}
   .global-header-wrapper
-  
+
     .mobile-menu-toggle.toggle.hidden{data: {toggle: '.mobile-menu'}}
       = icon_tag("rows", ["icon"])
-      
+
     %nav.mobile-menu.toggle-menu.hidden
       = link_to t("header.home"), "/"
       = link_to t("header.about"), about_infos_path
@@ -14,8 +14,7 @@
           = t(".select_language")
         - locales.each do |locale|
           %a{href: change_locale_path(:locale => "#{locale[1]}", :redirect_uri => "#{@return_to}"), :class => "toggle-menu-subitem"} #{locale[0]}
-      
-  
+
     %a.logo-side{:href => "/", :class => (@current_user ? "logo-side-logged" : "logo-side-unlogged")}
       = image_tag @current_community.wide_logo.url(:header), :class => "marketplace-header-logo"
       = image_tag @current_community.logo.url(:header_icon), :class => "marketplace-header-logo-mobile"
@@ -23,7 +22,7 @@
     .right-side
       - show_contact_us = !@current_user
       = link_to t("header.home").mb_chars.downcase.to_s, "/", :class => "global-navi global-navi-left", :id => "global-navi-home"
-      
+
       - about_class = show_contact_us ? "global-navi-left" : available_locales.size > 1 ? "" : "global-navi-left"
       - contact_us_class = available_locales.size > 1 ? "" : "global-navi-left"
       = link_to t("header.about").mb_chars.downcase.to_s, about_infos_path, :class => "global-navi #{about_class}", :id => "global-navi-about"
@@ -35,7 +34,7 @@
           .language-name
             = get_full_locale_name(I18n.locale).mb_chars.downcase.to_s
           = icon_tag("dropdown", ["icon-dropdown"])
-          
+
           .language-menu.toggle-menu.hidden
             = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array
 
@@ -44,7 +43,7 @@
           = icon_tag("mail", ["icon"])
           - if Conversation.unread_count(@current_user.id.to_s) > 0
             .messages-badge
-              .badge{:class => get_badge_class(Conversation.unread_count(@current_user.id.to_s))} 
+              .badge{:class => get_badge_class(Conversation.unread_count(@current_user.id.to_s))}
                 = Conversation.unread_count(@current_user.id.to_s)
         .user-menu-toggle.toggle.hidden{data: {toggle: '.user-menu'}}
           = image_tag @current_user.image.url(:thumb), alt: '', class: 'user-avatar'
@@ -54,7 +53,7 @@
             .mobile-badge{:class => get_badge_class(Conversation.unread_count(@current_user.id.to_s))}
               = Conversation.unread_count(@current_user.id.to_s)
           = icon_tag("dropdown", ["icon-dropdown"])
-        
+
           %nav.user-menu.toggle-menu.hidden
             %a.profile-menu-button{href: person_path(@current_user)}
               = icon_tag("user", ["icon-with-text"])
@@ -89,11 +88,9 @@
               = icon_tag("logout", ["icon-with-text"])
               .text-with-icon
                 = t("layouts.logged_in.logout")
-            
-          
-        
+
       - else
         = link_to t("layouts.logged_in.login").mb_chars.downcase.to_s, login_path, :class => "global-navi login-link", :id => "login-link"
-      
+
       .new-listing-link
         = link_to t("homepage.index.post_new_listing"), new_listing_path, :class => "action-button", :id => "new-listing-link"

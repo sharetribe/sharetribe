@@ -3,7 +3,7 @@ window.ST = window.ST || {};
 /**
   Use translations in JavaScript
 
-  Usage: 
+  Usage:
 
   ### Load the translations you need:
 

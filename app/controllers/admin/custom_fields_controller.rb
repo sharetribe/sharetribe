@@ -1,24 +1,24 @@
 class Admin::CustomFieldsController < ApplicationController
-  
+
   before_filter :ensure_is_admin
   before_filter :custom_fields_allowed
   before_filter :field_type_is_valid, :only => [:new, :create]
-  
+
   skip_filter :dashboard_only
-  
+
   def index
     @selected_left_navi_link = "listing_fields"
     @community = @current_community
     @custom_fields = @current_community.custom_fields
   end
-  
+
   def new
     @selected_left_navi_link = "listing_fields"
     @community = @current_community
     @custom_field = params[:field_type].constantize.new
     @custom_field.options = [CustomFieldOption.new, CustomFieldOption.new]
   end
-  
+
   def create
     success = if valid_categories?(@current_community, params[:custom_field][:category_attributes])
       # Hack for comma/dot issue. Consider creating an app-wide comma/dot handling mechanism
@@ -37,21 +37,21 @@ class Admin::CustomFieldsController < ApplicationController
       render :action => :new
     end
   end
-  
+
   def edit
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "listing_fields"
     @community = @current_community
     @custom_field = CustomField.find(params[:id])
   end
-  
+
   def update
     @custom_field = CustomField.find(params[:id])
-    
+
     # Hack for comma/dot issue. Consider creating an app-wide comma/dot handling mechanism
     params[:custom_field][:min] = ParamsService.parse_float(params[:custom_field][:min]) if params[:custom_field][:min].present?
     params[:custom_field][:max] = ParamsService.parse_float(params[:custom_field][:max]) if params[:custom_field][:max].present?
-    
+
     @custom_field.update_attributes(params[:custom_field])
     redirect_to admin_custom_fields_path
   end
@@ -125,9 +125,9 @@ class Admin::CustomFieldsController < ApplicationController
   def custom_field_belongs_to_community?(custom_field, community)
     community.custom_fields.include?(custom_field)
   end
-  
+
   private
-  
+
   def field_type_is_valid
     redirect_to admin_custom_fields_path unless CustomField::VALID_TYPES.include?(params[:field_type])
   end

@@ -1,5 +1,5 @@
 = radio_button_tag "valid_until_select", "for_now", !@listing.temporary?, :id => "for_now_radio_button"
 = label_tag "for_now_radio_button", t('.for_the_time_being'), :class => "radiobutton"
-.date_select_container  
+.date_select_container
   = radio_button_tag("valid_until_select", "date", @listing.temporary?)
   = date_select(:listing, :valid_until, {:start_year => Time.now.year, :end_year => Time.now.year + 1, :default => 3.months.from_now}, :class => "listing_datetime_select", :disabled => !@listing.temporary?)

@@ -5,7 +5,7 @@
   %h1= t('sessions.password_forgotten.change_your_password')
 
 .centered-section
-  = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|  
+  = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
     = devise_error_messages!
     = f.hidden_field :reset_password_token
     = f.label :password, t('settings.account.new_password') + ":"
@@ -13,4 +13,3 @@
     = f.label :password_confirmation, t('settings.account.confirm_new_password') + ":"
     = f.password_field :password_confirmation, :class => :text_field, :maxlength => "255"
     = f.button t('settings.account.save'), :class => "send_button"
-

@@ -34,9 +34,9 @@ class Badge < ActiveRecord::Base
       levels.each_with_index do |level, index|
         if condition_value == level
           receiver.give_badge("#{badge_name}_#{LEVELS[index]}", community)
-        end  
-      end 
-    end 
+        end
+      end
+    end
   end
 
 end

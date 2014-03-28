@@ -2,16 +2,16 @@
 - contact_url = new_user_feedback_url(@url_params)
 
 %tr
-  %td{:align => "left"} 
+  %td{:align => "left"}
     %font{body_font}
       = t("emails.escrow_canceled.has_marked_request_as_canceled", :other_party_full_name => @conversation.other_party(@recipient).name, :request => @conversation.listing.title)
 
 %tr
-  %td{:align => "left", :style => "padding-top: 15px;"} 
+  %td{:align => "left", :style => "padding-top: 15px;"}
     %font{body_font}
       = t("emails.escrow_canceled.if_this_was_error", :please_contant_admin_link => link_to(t("emails.escrow_canceled.please_contant_admin_link"), contact_url, :style => body_link_style)).html_safe
 
 %tr
-  %td{:align => "left", :style => "padding-top: 15px; padding-bottom: 25px;"} 
+  %td{:align => "left", :style => "padding-top: 15px; padding-bottom: 25px;"}
     %font{body_font}
       = link_to t("emails.accept_reminder.show_thread"), conversation_url, :style => body_link_style

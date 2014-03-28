@@ -1,12 +1,11 @@
 class Statistic < ActiveRecord::Base
   belongs_to :community
-  
+
   def initialize(params = {}, options = {})
     super(params, options)
 
     #throw "Doesn't yet support counting statistics for a community" if community
 
-    
     # Users count
     if community
       self.users_count = community.members.count
@@ -18,8 +17,6 @@ class Statistic < ActiveRecord::Base
       self.new_users_last_week = Person.where(:created_at => (1.week.ago..Time.now)).count
       self.new_users_last_month = Person.where(:created_at => (1.month.ago..Time.now)).count
     end
-
-    
 
     # Listings, Messages and Transactions count
     if community
@@ -37,7 +34,7 @@ class Statistic < ActiveRecord::Base
       messages = Message.all
       transactions = Conversation.where(:status => "confirmed")
     end
-    
+
     self.conversations_count = conversations.count
     self.new_conversations_last_week = conversations.select{|x| x.created_at > 1.week.ago}.count
     self.new_conversations_last_month = conversations.select{|x| x.created_at > 1.month.ago}.count
@@ -50,10 +47,6 @@ class Statistic < ActiveRecord::Base
     self.transactions_count = transactions.count
     self.new_transactions_last_week = transactions.select{|x| x.created_at > 1.week.ago}.count
     self.new_transactions_last_month = transactions.select{|x| x.created_at > 1.month.ago}.count
-    
-    
- 
-    
 
     #retention
 
@@ -68,13 +61,12 @@ class Statistic < ActiveRecord::Base
     self.mau_g1 = ((@mau_g1*1.0/users_count)).round(4)
     self.wau_g1 = ((@wau_g1*1.0/users_count)).round(4)
     self.dau_g1 = ((@dau_g1*1.0/users_count)).round(4)
-    
 
     # Growth
-    
+
     # find a statistic 7 days ago
     last_weeks_stats = Statistic.where(:community_id => (community ? community.id : nil), :created_at => 7.4.days.ago..6.6.days.ago).first
-    
+
     if last_weeks_stats
       self.user_count_weekly_growth = (self.users_count - last_weeks_stats.users_count)*1.0 /  last_weeks_stats.users_count
       self.wau_weekly_growth = (self.wau_g1_count - last_weeks_stats.wau_g1_count)*1.0 / (last_weeks_stats.wau_g1_count > 0 ? last_weeks_stats.wau_g1_count : 1)
@@ -96,9 +88,9 @@ class Statistic < ActiveRecord::Base
       end
     end
     self.revenue_per_mau_g1 = @mau_g1 > 0 ? (@revenue_sum/@mau_g1*100).round/100 : 0
-    
-    self.extra_data = { :active_in_first_two_weeks => @active_in_first_two_weeks, 
-                        :total_users_for_first_two_weeks => @total_users_for_first_two_weeks, 
+
+    self.extra_data = { :active_in_first_two_weeks => @active_in_first_two_weeks,
+                        :total_users_for_first_two_weeks => @total_users_for_first_two_weeks,
                         :transaction_in_first_month => @transaction_in_first_month,
                         :total_users_for_first_month => @total_users_for_first_month,
                         #:mau_g1 => @mau_g1,
@@ -109,9 +101,8 @@ class Statistic < ActiveRecord::Base
                         :revenue_sum => @revenue_sum
                         }.to_json
 
-    
   end
-  
+
   def count_active_users_g2(time_frame, community=nil)
     if community
       # This might include activity of people acting in other communities, but not a too big problem for the accuracy
@@ -125,7 +116,7 @@ class Statistic < ActiveRecord::Base
       m = Message.where("created_at > '#{time_frame.to_formatted_s(:db)}'")
       t = Conversation.where("updated_at > '#{time_frame.to_formatted_s(:db)}' AND status = 'confirmed'")
     end
-    
+
     return [c.collect(&:author_id), l.collect(&:author_id), m.collect(&:sender_id), t.collect(&:participants).flatten.collect(&:id)].flatten.uniq.count
   end
 end

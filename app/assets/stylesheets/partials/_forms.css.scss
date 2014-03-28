@@ -10,11 +10,11 @@ textarea {
   min-height: 42px;
   width: 100%;
   padding: em(4) em(8);
-  
+
   @include media(tablet) {
     margin: 0;
     padding: em(8) em(11);
-  }  
+  }
 }
 
 input.auto_width {

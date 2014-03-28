@@ -1,7 +1,7 @@
 - listing_link = listing_url(@url_params.merge({:id => @listing.id}))
 
 %tr
-  %td{:align => "left"} 
+  %td{:align => "left"}
     %font{body_font}
       = t("emails.payment_settings_reminder.you_have_added_listing_with_payment", :listing_link => link_to(@listing.title, listing_link, :style => body_link_style)).html_safe
 

@@ -21,23 +21,22 @@ class EmailService
     end
   end
 
-
   # Give user's `all_emails` and list of list of `allowed_emails` and the
-  # `email` that will be removed. Return hash with true/false and a 
+  # `email` that will be removed. Return hash with true/false and a
   # reason
   def self.can_delete_email(all_emails, email, allowed_emails=[])
     if all_emails.count < 2 then
       return {result: false, reason: :only_one}
-    
+
     elsif self.is_only_confirmed?(all_emails, email)
       return {result: false, reason: :only_confirmed}
 
     elsif self.is_only_notification_email?(all_emails, email)
       return {result: false, reason: :only_notification}
-    
+
     elsif self.is_only_allowed_email?(all_emails, allowed_emails, email)
       return {result: false, reason: :only_allowed}
-    
+
     else
       return {result: true}
     end
@@ -60,7 +59,7 @@ class EmailService
         ok_emails.first.id
       else
         confirmed_ok_emails = ok_emails.select { |ok_email| ok_email.confirmed_at }
-        if confirmed_ok_emails.count == 1 
+        if confirmed_ok_emails.count == 1
           ok_emails.first.id
         end
       end
@@ -91,7 +90,7 @@ class EmailService
   def self.is_only_notification_email?(all_emails, email)
     notification_emails = self.notification_emails(all_emails)
     confirmed_notification_emails = self.confirmed_notification_emails(all_emails)
-    
+
     # True if
     # - email is the only notification email
     # - email is the only CONFIRMED notification email
@@ -100,7 +99,7 @@ class EmailService
 
   def self.email_address_allowed?(address, allowed_emails)
     return true unless allowed_emails.present?
-    
+
     allowed = false
     allowed_array = allowed_emails.split(",")
     allowed_array.each do |allowed_domain_or_address|

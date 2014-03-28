@@ -2,14 +2,14 @@ class Admin::CategoriesController < ApplicationController
 
   before_filter :ensure_is_admin
   before_filter :ensure_category_editing_allowed
-  
+
   skip_filter :dashboard_only
 
   def index
     @selected_left_navi_link = "listing_categories"
     @categories = @current_community.top_level_categories.includes(:children)
   end
-  
+
   def new
     @selected_left_navi_link = "listing_categories"
     @category = Category.new

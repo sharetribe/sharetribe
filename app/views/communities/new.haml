@@ -13,7 +13,7 @@
               - if session[:confirmed_email]
                 = render :partial => "new_tribe_form_wrapper"
               - else
-                = render :partial => "email_confirmation_pending" 
+                = render :partial => "email_confirmation_pending"
             - else
               = render :partial => "enter_organization_email"
           - else

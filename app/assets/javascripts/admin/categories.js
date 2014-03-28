@@ -3,7 +3,7 @@
 */
 window.ST.initializeCategoriesOrder = function() {
   var fieldMap = $(".top-level-category-container").map(function(id, row) {
-    return { 
+    return {
       id: $(row).data("id"),
       element: $(row),
       up: $(row).find(".top-level-category-row").find(".category-action-up"),
@@ -15,7 +15,7 @@ window.ST.initializeCategoriesOrder = function() {
 
   var subLevelChanges = $(".top-level-category-container").get().map(function(topLevelContainer) {
     var subFieldMap = $(".sub-category-row", topLevelContainer).map(function(id, row) {
-      return { 
+      return {
         id: $(row).data("id"),
         element: $(row),
         up: $(".category-action-up", row),
@@ -47,7 +47,7 @@ window.ST.initializeCategoriesOrder = function() {
 
   var ajaxResponse = ajaxRequest.ajax();
   var ajaxStatus = window.ST.ajaxStatusIndicator(ajaxRequest, ajaxResponse);
-  
+
   ajaxStatus.loading.onValue(function() {
     $("#category-ajax-saving").show();
     $("#category-ajax-error").hide();

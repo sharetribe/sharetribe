@@ -9,14 +9,14 @@
   - additional_text = ""
 
 %tr
-  %td{:align => "left"} 
+  %td{:align => "left"}
     %font{body_font}
       = t("emails.conversation_status_changed.has_#{@conversation.status}_your_#{Listing.opposite_type(@conversation.listing.direction)}", :accepter => @conversation.listing.author.name(@current_community), :listing => @conversation.title)
       = additional_text
 
 - unless @conversation.last_message.content.blank?
   %tr
-    %td{:align => "left", :style => "padding-top: 15px;"} 
+    %td{:align => "left", :style => "padding-top: 15px;"}
       %font{body_font}
         = t("emails.transaction_confirmed.here_is_a_message_from", :other_party_given_name => @conversation.other_party(@recipient).given_name_or_username)
   = render :partial => "quote", :locals => { :quote => @conversation.last_message.content }
@@ -24,6 +24,6 @@
 = render :partial => "action_button", :locals => { :text => action_text, :url => action_url}
 
 - if @conversation.can_be_confirmed?(@community) && !@recipient.should_pay?(@conversation, @community)
-  %td{:align => "left", :style => "padding-bottom: 25px;"} 
+  %td{:align => "left", :style => "padding-bottom: 25px;"}
     %font{body_font}
       = t("emails.conversation_status_changed.remember_to_confirm", :days_to_automatic_confirmation => @conversation.automatic_confirmation_after_days)

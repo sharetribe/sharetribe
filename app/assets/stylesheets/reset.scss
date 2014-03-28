@@ -13,9 +13,8 @@ article, aside, figure, footer, header, hgroup, menu, nav, section,
 summary, hgroup {
   margin: 0;
   padding: 0;
-  border: 0; 
+  border: 0;
 }
-
 
 /*
   ----------------------------------------
@@ -26,7 +25,6 @@ summary, hgroup {
 h1, h2, h3, h4, h5, h6, small {
   font-size: 1em;
 }
-
 
 /*
   -----------------------------------------------------
@@ -45,7 +43,6 @@ body {
   min-height: 100%;
   font-size: 100%;
   position: relative; }
-
 
 article,
 aside,
@@ -76,7 +73,6 @@ svg:not(:root) {
     overflow: hidden;
 }
 
-
 [hidden] {
     display: none;
 }
@@ -84,7 +80,6 @@ svg:not(:root) {
 abbr[title] {
     border-bottom: 1px dotted;
 }
-
 
 dfn {
   font-style: italic;
@@ -98,14 +93,12 @@ mark {
 b, strong {
   font-weight: bold; }
 
-
 pre {
   white-space: pre; }
 
 pre, code, kbd, samp {
   font-family: monospace, monospace;
   font-size: 1em; }
-  
 
 q {
   quotes: "\201C" "\201D" "\2018" "\2019";
@@ -122,7 +115,6 @@ sup {
 
 sub {
   bottom: -0.25em; }
-
 
 input, textarea, button, select {
   margin: 0;
@@ -172,7 +164,6 @@ input::-moz-focus-inner {
 
 textarea {
   overflow: auto; }
-
 
 table {
   border-collapse: collapse;

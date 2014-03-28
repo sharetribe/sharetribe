@@ -37,11 +37,11 @@ $fluid-thumbnail-grid-margin-mobile: lines(0.5);
   $mid-desktop-rows: 3,
   $desktop-rows: 3
   ) {
-  
+
   .#{$prefix}-fluid-thumbnail-grid {
     @include clearfix;
     margin-right: -1 * $fluid-thumbnail-grid-margin-mobile;
-    
+
     @include media(tablet) {
       margin-right: -1 * $fluid-thumbnail-grid-margin;
     }

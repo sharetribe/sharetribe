@@ -43,19 +43,19 @@ class BraintreePaymentGateway < PaymentGateway
   def seller_pays_commission?
     true
   end
-  
+
   def has_additional_terms_of_use
     true
   end
-  
+
   def name
     "braintree"
   end
-  
+
   def form_template_dir
     "payments/simple_form"
   end
-  
+
   def invoice_form_type
     "simple"
   end
@@ -67,5 +67,5 @@ class BraintreePaymentGateway < PaymentGateway
   def hold_in_escrow
     true
   end
-  
+
 end

@@ -21,7 +21,7 @@ class NumericFieldValue < CustomFieldValue
   # Give an array of filtering options and get back search results that
   # matches all the options
   #
-  # Usage: 
+  # Usage:
   # with_many = [{
   #   custom_field_id: board_length.id,
   #   numeric_value: (0..50)
@@ -29,7 +29,7 @@ class NumericFieldValue < CustomFieldValue
   #   custom_field_id: board_width.id,
   #   numeric_value: (0..20)
   # }]
-  # 
+  #
   # NumericFieldValue.search_many(with_many) => search result
   #
   def self._search_many(with_many, ids=[])
@@ -40,7 +40,7 @@ class NumericFieldValue < CustomFieldValue
     else
       first_with, *rest_withs = *with_many # http://devblog.avdi.org/2010/01/31/first-and-rest-in-ruby/
       new_ids = NumericFieldValue._search_many(rest_withs, ids).collect(&:listing_id)
-      
+
       if new_ids.empty?
         # Stop searching, if nothing found
         new_ids

@@ -7,7 +7,7 @@
   color: $body;
   background: $highlight;
   border-color: $border;
-  &:hover { 
+  &:hover {
     color: $background;
     background: $aside;
     border-color: darken($aside, 10%);
@@ -106,10 +106,10 @@
   border: 0;
   display: table;
   line-height: lines(1);
-  
+
   .content {
-    display: table-cell; 
-    vertical-align: middle; 
+    display: table-cell;
+    vertical-align: middle;
     text-align: center;
   }
 
@@ -132,11 +132,10 @@
   padding-bottom: 3px;
 }
 
-
 @mixin grey-button {
   @include button($highlight);
   color: $light-body;
-  
+
   &:hover { color: $light-body; }
   &:active { color: $light-body; }
 }
@@ -145,7 +144,7 @@
 @mixin cover-photo-button($color) {
   @include border-radius(em(5));
   @include normal-type;
-  
+
   color: $background;
   background: $color;
   text-align: center;
@@ -153,12 +152,12 @@
   width: 100%;
   vertical-align: top;
   padding: em(8) em(13) em(11) em(13);
-  
-  &:hover { 
+
+  &:hover {
     background: darken($color, 5%);
     color: $background;
   };
-  
+
   @include media(tablet) {
     @include big-type;
     height: 58px;

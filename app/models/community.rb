@@ -112,6 +112,7 @@ class Community < ActiveRecord::Base
                                                       "image/gif",
                                                       "image/pjpeg",
                                                       "image/x-png"]
+
   validates_format_of :twitter_handle, with: /^[A-Za-z0-9_]{1,15}$/, allow_nil: true
 
   attr_accessor :terms
@@ -368,7 +369,10 @@ class Community < ActiveRecord::Base
     category_hash
   end
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
   # available_categorization_values
   # Returns a hash of lists of values for different categorization aspects in use in this community
   # Used to simplify UI building

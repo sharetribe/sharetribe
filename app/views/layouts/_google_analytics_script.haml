@@ -7,15 +7,15 @@
   _gaq.push(
   ['_addIgnoredOrganic', 'sharetribe'],
   ['_addIgnoredOrganic', 'sharetribe.com'],
-  ['_addIgnoredOrganic', 'www.sharetribe.com'], 
-  ['_addIgnoredOrganic', 'kassi'], 
-  ['_addIgnoredOrganic', 'share tribe'], 
+  ['_addIgnoredOrganic', 'www.sharetribe.com'],
+  ['_addIgnoredOrganic', 'kassi'],
+  ['_addIgnoredOrganic', 'share tribe'],
   ['_addIgnoredOrganic', 'kassi.eu'],
   ['_setAllowLinker', true],
   ['_trackPageview'],
   ['_trackPageLoadTime']
   );
-  
+
   - if @current_community && @current_community.google_analytics_key
     = "_gaq.push(['b._setAccount', '#{@current_community.google_analytics_key}']);"
     = "_gaq.push(['b._setDomainName', '.#{request.domain}']);"

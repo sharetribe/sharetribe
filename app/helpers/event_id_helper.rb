@@ -1,8 +1,8 @@
 module EventIdHelper
-  
+
   # USE NOTATION #(params[:key]) in here to insert param values in the string
   # ONLY #(params[:]) are changed in here
-  
+
   EVENTS_HASH = {
     "people"  => {
       "show" => "show_profile_page_of_#(params[:id])",
@@ -28,15 +28,15 @@ module EventIdHelper
     },
     "sessions" => {
       "forgot_password" => "forgot_password",
-      
+
     }
   }
-  
+
   def self.generate_event_id(params)
-    
+
     ## THE EVENT_HASH is stored as a constant and the replacements are done only if needed.
     ## not sure if that really is faster than just doing all the replacements anyway, but maybe a little.. :)
-    
+
     if EVENTS_HASH[params[:controller]] && EVENTS_HASH[params[:controller]][params[:action]]
       event_string = EVENTS_HASH[params[:controller]][params[:action]]
       regexp_to_match = /#\(params\[:([^\]]+)\]\)/
@@ -49,7 +49,7 @@ module EventIdHelper
       event_string = "unlabeled_event"
       if (params[:controller] && params[:action])
         event_string = "#{params[:controller]}::#{params[:action]}"
-        
+
       end
     end
     return event_string

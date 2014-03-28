@@ -3,13 +3,13 @@ class BraintreePaymentsController < ApplicationController
   before_filter :fetch_conversation
   before_filter :ensure_not_paid_already
   before_filter :payment_can_be_conducted
-  
+
   before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_inbox")
   end
 
   before_filter :ensure_recipient_does_not_have_account_for_another_community
-  
+
   skip_filter :dashboard_only
 
   # This expects that each conversation already has a (pending) payment at this point
@@ -35,7 +35,7 @@ class BraintreePaymentsController < ApplicationController
 
     payment_params = params[:braintree_payment] || {}
 
-    result = with_expection_logging do 
+    result = with_expection_logging do
       BraintreeApi.transaction_sale(
         recipient,
         payment_params,
@@ -97,7 +97,7 @@ class BraintreePaymentsController < ApplicationController
       redirect_to single_conversation_path(:conversation_type => :received, :id => @conversation.id) and return
     end
   end
-  
+
   def payment_can_be_conducted
     redirect_to person_message_path(@current_user, @conversation) unless @conversation.requires_payment?(@current_community)
   end

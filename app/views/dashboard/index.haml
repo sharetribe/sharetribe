@@ -3,8 +3,6 @@
     initialize_update_contact_request_form("You need to select a country.","You need to select the marketplace type.","Please let us know what plan interests you the most.");
   - else
     initialize_contact_request_form("Oops! You forgot to give your email address.","It seems the email you gave is not valid, please double check.");
-  
-    
 
 %section.lander
   .coverimage
@@ -18,18 +16,18 @@
         %h1 Create a marketplace.
         %p.lander-description
           Let your community sell, rent, swap and
-          %br/ 
+          %br/
           share goods and services online.
         = render :partial => "contact_request_form", :locals => { :prefix => "top" }
 
 %section.about{:id => "about"}
   .wrapper
     .about-content
-      %h2 
+      %h2
         Build your online marketplace business.
         %br/
         You don't need a developer.
-      
+
       .about-columns
         .about-column.about-column-left
           .about-column-title
@@ -42,19 +40,19 @@
               marketplace is set up automatically.
               %br/
               You don't need to install anything.
-              
+
         .about-column
           .about-column-title
             .ss-wrench.about-column-title-icon
             .about-column-title-text CUSTOMIZE
           .about-column-content
             %p
-              Add your logo and branding and select 
+              Add your logo and branding and select
               %br/
-              product types. No coding or    
+              product types. No coding or
               %br/
               design skills needed.
-              
+
         .about-column
           .about-column-title
             .ss-moneybag.about-column-title-icon
@@ -63,10 +61,10 @@
             %p
               Allow your users to pay through the
               %br/
-              platfom and take a fee from 
+              platfom and take a fee from
               %br/
               each transaction.
-      
+
       / .view-demo
       /   = link_to "View demo", "http://demo.sharetribe.com", :class => "action-button"
 

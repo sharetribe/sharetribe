@@ -5,30 +5,30 @@
         %h3 Thanks for contacting! We'll be in touch soon.
     - else
       .complete-contact-request-form
-        %h3 Thanks for your interest! 
+        %h3 Thanks for your interest!
         %p We'd love to hear a bit more about your plans.
         = form_for @contact_request, :html => { :id => "new_contact_request_#{prefix}" } do |form|
-        
+
           -# Country
           = form.label :country, "Where do you come from?"
           = localized_country_select :contact_request, :country, CountryManager.countries, {:include_blank => 'Please choose your country'}
-          
+
           -# Marketplace type
           = form.label :plan_type, "What kind of marketplace do you need?"
           = form.select :marketplace_type, ["Physical product marketplace (selling products)", "Digital product marketplace (selling files)", "Rental marketplace (renting products/spaces)", "Service marketplace", "Classified ads marketplace", "Auction marketplace", "Job board", "Gift economy marketplace (sharing for free)", "Time bank", "Ridesharing marketplace", "Other"], {:include_blank => "Please select marketplace type"}
-          
+
           -# Plan type
           = form.label :plan_type, "What kind of plan are you interested in?"
           .radiobuttons-container
             .radiobutton-container
               = form.radio_button :plan_type, "free"
               = form.label :plan_type, "Free plan (basic features, ability to upgrade later)", :class => "radiobutton"
-            .radiobutton-container  
+            .radiobutton-container
               = form.radio_button :plan_type, "premium"
               = form.label :plan_type, "Premium plan (white label solution, monetization)", :class => "radiobutton"
 
           = form.button "Send", :class => "small-action-button"
-          
+
   - else
     .contact-form
       = form_for @contact_request, :html => { :id => "new_contact_request_#{prefix}" } do |form|
@@ -36,4 +36,3 @@
           = form.text_field :email, :placeholder => "Your email", :id => "contact_request_email_#{prefix}"
         .contact-form-input
           = form.button "Get started!", :class => "action-button"
-    
