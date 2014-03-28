@@ -46,6 +46,10 @@
     %p= t(".custom_color2_instructions_text").html_safe
     = form.text_field :custom_color2, :maxlength => "6", :class => "text_field"
 
+    = form.label :default_browse_view, t(".default_browse_view")
+    %p= t(".default_browse_view_instructions_text").html_safe
+    = form.select :default_browse_view, [[t(".grid"), "grid"], [t(".list"), "list"], [t(".map"), "map"]]
+
     = form.button t("admin.communities.edit_details.update_information"), :id => "edit_community_button", :class => "send_button"
 
 = render :partial => "people/help_texts", :collection => ["invite_only_help_text"], :as => :field

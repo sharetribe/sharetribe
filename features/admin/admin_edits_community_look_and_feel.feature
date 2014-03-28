@@ -17,14 +17,14 @@ Feature: Admin edits community look-and-feel
   @javascript
   Scenario: Admin can choose the default listing view to list
     Given community "test" has default browse view "grid"
-    And I change the default browse view to "list"
-    And I navigate to the homepage
-    Then I should see the browse view selected as "list"
+    When I change the default browse view to "List"
+    And I go to the homepage
+    Then I should see the browse view selected as "List"
 
   @javascript
   Scenario: Admin can choose the default listing view to list
     Given community "test" has default browse view "grid"
-    And I change the default browse view to "map"
-    And I navigate to the homepage
-    Then I should see the browse view selected as "map"
+    When I change the default browse view to "Map"
+    And I go to the homepage
+    Then I should see the browse view selected as "Map"
 

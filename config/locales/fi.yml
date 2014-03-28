@@ -89,6 +89,11 @@ fi:
         main_content_width: "Valitessasi kansikuvia, huomaathan että sivuston sisällön leveys on korkeintaa %{main_width} pikseliä. Muistathan katsoa myös miltä kansikuvasi näyttää pienemmillä näytöillä."
         custom_color1_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset värin hex-koodin. Sen selville saamisessa auttaa esimerkiksi <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
         custom_color2_instructions_text: "Tästä voit vaihtaa käyttöliittymän toisen värin."
+        default_browse_view: "Oletusarvo listausten näyttämiselle"
+        default_browse_view_instructions_text: "Tätä arvoa käytetään oletuksena etusivun listauksen näyttötavalle."
+        grid: "Ruudukko"
+        list: "Lista"
+        map: "Kartta"
         invalid_color_code: "Värikoodin tulisi sisältää 6 merkkiä, ja vain numeroita tai kirjaimia A-F, esimerkiksi: D96E21"
       edit_welcome_email:
         welcome_email_content: "Tervetulosähköpostin sisältö"

@@ -2,15 +2,15 @@ Given(/^community "(.*?)" has default browse view "(.*?)"$/) do |community, brow
   Community.find_by_domain(community).update_attributes(default_browse_view: browse_view)
 end
 
-Given(/^I change the default browse view to "(.*?)"$/) do |browse_view|
-  pending # express the regexp above with the code you wish you had
-end
+When(/^I change the default browse view to "(.*?)"$/) do |browse_view|
+  select browse_view, :from => "community_default_browse_view"
 
-Given(/^I navigate to the homepage$/) do
-  pending # express the regexp above with the code you wish you had
+  steps %Q{
+    And I press submit
+  }
 end
 
 Then(/^I should see the browse view selected as "(.*?)"$/) do |browse_view|
-  pending # express the regexp above with the code you wish you had
+  find(".home-toolbar-button-group .selected").should have_content(browse_view)
 end
 
