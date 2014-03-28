@@ -369,10 +369,6 @@ class Community < ActiveRecord::Base
     category_hash
   end
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
   # available_categorization_values
   # Returns a hash of lists of values for different categorization aspects in use in this community
   # Used to simplify UI building
