@@ -58,6 +58,8 @@ en:
         edit_community_slogan_description: "This is shown on the home page of the community for the users who are not logged in. %{see_how_it_looks_like}."
         community_description: "Community description"
         edit_community_description_description: "This is shown on the home page of the community for the users who are not logged in. %{see_how_it_looks_like}."
+        community_search_placeholder: "Search help text"
+        edit_community_search_placeholder_description: "This is shown on the home page of the community as a placeholder text in the search bar. %{see_how_it_looks_like}."
         private_community_homepage_content: "Private community homepage content"
         edit_private_community_homepage_content_description: "This content is shown to unlogged users on the home page of private communities. Here you can describe your community and the process to join it. You can also add images, videos and HTML content here. %{see_how_it_looks_like}."
         update_information: "Update information"
@@ -105,7 +107,7 @@ en:
         listing_preferences: "Listing preferences"
         show_listing_publishing_date: "Display publishing date of the listing on the listing page"
         show_category_in_listing_list: "Display listing type in list view"
-        hide_expiration_date: "Listings do not have an expiration date"
+        hide_expiration_date: "Do not require listings to have an expiration date"
         listing_comments_in_use: "Allow users to post comments to listings (viewable to all other users)"
         email_preferences: "Email preferences"
         automatic_newsletters: "Send automatic daily / weekly newsletters to all users (unless they opt out)"
@@ -114,6 +116,7 @@ en:
         google_analytics_key: "Google Analytics tracking ID (classic account)"
         twitter_handle: "Twitter handle (used with tweet button in listing page)"
         update_settings: "Update settings"
+        automatically_confirmed: "Listing is automatically confirmed %{days_dropdown} days after acceptance (or payment)"
       manage_members:
         manage_members: "Manage users"
         email: Email
@@ -635,12 +638,14 @@ en:
       account_ready: "You are ready to receive payments"
       message: "Your payment information has been confirmed and you are now ready to receive payments in %{service_name}."
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "You have not yet confirmed or canceled the request %{request_link} you received %{date} from %{other_party_full_name}. If the request has been completed, you should confirm that. After that you can give feedback to %{other_party_given_name}."
-      you_have_not_yet_confirmed_or_canceled_request_escrow: "You have not yet confirmed or canceled the request %{request_link} you received %{date} from %{other_party_full_name}. We will transfer the money to %{other_party_given_name} only after you have marked the request completed. After marking the request as completed you can give feedback to %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "You have not yet confirmed or canceled the request %{request_link}. If the request has been completed, you should confirm that. After that you can give feedback to %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: "You have not yet confirmed or canceled the request %{request_link}. We will transfer the money to %{other_party_given_name} only when a) you have marked the request completed or b) %{days_to_automatic_confirmation} days have passed since you paid. After marking the request as completed you can give feedback to %{other_party_given_name}."
       remember_to_confirm_request: "Remember to confirm or cancel a request"
       if_will_not_happen_you_should_cancel: "If you think this request will not be completed for one reason or another, you can %{cancel_it_link}."
       if_will_not_happen_you_should_cancel_escrow: "If you think this request will not be completed for one reason or another, you can %{cancel_it_link}. This will notify the admin who will then contact you for a refund."
+      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: "If you think this request will not be completed for one reason or another, you have %{days_to_cancel} days to %{cancel_it_link}. This will notify the admin who will then contact you for a refund."
       cancel_it_link_text: "cancel it"
+      automatic_confirmation: "If you don't confirm or cancel the request within %{days_to_automatic_confirmation} days after the request was accepted, we will mark it automatically as completed."
     payment_reminder:
       remember_to_pay: "Remember to pay for %{listing_title}"
       you_have_not_yet_paid: "You have not yet paid for %{listing_title} that %{other_party_name} has accepted to offer you."
@@ -658,6 +663,11 @@ en:
       has_marked_request_as_confirmed: "%{other_party_full_name} has marked the request about '%{request}' completed. You can now give feedback to %{other_party_given_name}."
       has_marked_request_as_canceled: "%{other_party_full_name} has canceled the request about '%{request}'. You can still give feedback to %{other_party_given_name}."
       giving_feedback_is_good_idea: "Giving feedback is always a good idea. If everything went well, you should let others know that %{other_party_given_name} can be trusted. If there were any problems, it's good to mention those as well."
+      give_feedback_to: "Give feedback to %{other_party_given_name}"
+    transaction_automatically_confirmed:
+      subject: "Request automatically completed - remember to give feedback"
+      we_have_marked_request_as_confirmed: "We have marked the request about '%{request}' completed. The request was automatically completed because %{days_passed} days have passed since the request was accepted."
+      giving_feedback_is_good_idea: "You can now give feedback to %{other_party_given_name}. Giving feedback is always a good idea. If everything went well, you should let others know that %{other_party_given_name} can be trusted. If there were any problems, it's good to mention those as well."
       give_feedback_to: "Give feedback to %{other_party_given_name}"
     escrow_canceled:
       subject: "Payment canceled"
@@ -697,6 +707,7 @@ en:
       your_request_was_rejected: "Your request was rejected"
       you_can_now_pay_to: "You can now pay the requested amount to %{payment_receiver}."
       pay_now: "Pay now"
+      remember_to_confirm: "When the request is fulfilled, remember to mark it as completed. If the request is not fulfilled your have %{days_to_automatic_confirmation} days to cancel it. Otherwise it will be automatically marked as completed."
     invitation_to_kassi:
       hi: Hi!
       you_have_been_invited_to_kassi: "%{inviter} has invited you to the %{community} community."
@@ -1037,7 +1048,7 @@ en:
       select_language: "Select language"
     infos:
       about: About
-      how_to_use: Help
+      how_to_use: "How it works"
       info_about_kassi: "Information about %{service_name}"
       news: News
       register_details: Privacy
@@ -1067,6 +1078,8 @@ en:
       settings: Settings
       sign_up: "Sign up"
     notifications:
+      listing_could_not_be_saved: "Listing could not be saved. Please try again. If the problem persists, please %{contact_admin_link}."
+      contact_admin_link_text: "contact the admin"
       test_welcome_email_delivered_to: "A test email was sent to %{email}."
       something_went_wrong: "Something went wrong"
       community_updated: "Tribe details updated."
@@ -1241,6 +1254,13 @@ en:
         no_file_selected: "No file selected"
         remove_image: "Remove image"
         select_file: "Select file"
+        removing: Removing...
+        processing: Processing...
+        this_may_take_a_while: "(this may take a while)"
+        percentage_loaded: "%{percentage}%"
+        uploading_failed: "Image uploading failed"
+        file_too_large: "File is too large"
+        accepted_formats: "The image file must be either in GIF, JPG or PNG format."
       location:
         location: Location
       price:
@@ -1730,7 +1750,7 @@ en:
       city: City
       family_name: "Family name"
       given_name: "Given name"
-      first_name_with_initial: (only first letter shown to other users)
+      first_name_with_initial: "(only first letter shown to other users)"
       first_name_only: "(not shown to other users)"
       location_description: "You can give either your exact location or, for example, only your zip code. Please add at least your zip code. You can also select a location from the map below."
       phone_number: "Phone number"

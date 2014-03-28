@@ -43,6 +43,8 @@ es-rc:
         edit_community_slogan_description: ~
         community_description: ~
         edit_community_description_description: ~
+        community_search_placeholder: ~
+        edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
         update_information: ~
@@ -99,6 +101,7 @@ es-rc:
         google_analytics_key: ~
         twitter_handle: ~
         update_settings: ~
+        automatically_confirmed: ~
       manage_members:
         manage_members: ~
         email: ~
@@ -612,9 +615,13 @@ es-rc:
       message: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
+      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
       remember_to_confirm_request: ~
       if_will_not_happen_you_should_cancel: ~
+      if_will_not_happen_you_should_cancel_escrow: ~
+      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
       cancel_it_link_text: ~
+      automatic_confirmation: ~
     payment_reminder:
       remember_to_pay: ~
       you_have_not_yet_paid: ~
@@ -633,6 +640,16 @@ es-rc:
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: ~
       give_feedback_to: ~
+    transaction_automatically_confirmed:
+      subject: ~
+      we_have_marked_request_as_confirmed: ~
+      giving_feedback_is_good_idea: ~
+      give_feedback_to: ~
+    escrow_canceled:
+      subject: ~
+      has_marked_request_as_canceled: ~
+      if_this_was_error: ~
+      please_contant_admin_link: ~
     confirmation_instructions:
       confirmation_instructions_signature: ~
       welcome_to_kassi: ~
@@ -666,6 +683,7 @@ es-rc:
       your_request_was_rejected: ~
       you_can_now_pay_to: ~
       pay_now: ~
+      remember_to_confirm: ~
     invitation_to_kassi:
       hi: ~
       you_have_been_invited_to_kassi: ~
@@ -1068,6 +1086,8 @@ es-rc:
       settings: ~
       sign_up: ~
     notifications:
+      listing_could_not_be_saved: ~
+      contact_admin_link_text: ~
       test_welcome_email_delivered_to: ~
       something_went_wrong: ~
       community_updated: ~
@@ -1242,6 +1262,13 @@ es-rc:
         no_file_selected: "Selecciona un archivo"
         remove_image: ~
         select_file: ~
+        removing: ~
+        processing: ~
+        this_may_take_a_while: ~
+        percentage_loaded: ~
+        uploading_failed: ~
+        file_too_large: ~
+        accepted_formats: "El archivo de imagen debe estar en formato GIF, JPG o PNG."
       location:
         location: Ubicación
       price:
@@ -1728,6 +1755,8 @@ es-rc:
       city: ~
       family_name: ~
       given_name: ~
+      first_name_with_initial: ~
+      first_name_only: ~
       location_description: ~
       phone_number: ~
       profile_picture: ~
@@ -1738,6 +1767,8 @@ es-rc:
       these_fields_are_shown_in_your: ~
       visible_to_everybody: ~
       visible_to_registered_users: ~
+      default_in_listing: ~
+      invisible: ~
     save_information: ~
   tag_cloud:
     tag_used:

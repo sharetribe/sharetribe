@@ -108,23 +108,24 @@ class Conversation < ActiveRecord::Base
   end
   
   def accept_or_reject(current_user, current_community, close_listing)
+    self.update_attributes(automatic_confirmation_after_days: current_community.automatic_confirmation_after_days)
+
     if offerer.eql?(current_user)
       participations.each { |p| p.update_attribute(:is_read, p.person.id.eql?(current_user.id)) }
     end
     listing.update_attribute(:open, false) if close_listing && close_listing.eql?("true")
-    Delayed::Job.enqueue(ConversationAcceptedJob.new(id, current_user.id, current_community.id)) 
-  end
-  
-  def confirm_or_cancel(current_user, current_community, feedback_given)
-    participation = participations.find_by_person_id(current_user.id)
-    participation.update_attribute(:is_read, true) if offerer.eql?(current_user)
-    participation.update_attribute(:feedback_skipped, true) unless feedback_given && feedback_given.eql?("true")
-    Delayed::Job.enqueue(TransactionConfirmedJob.new(id, current_community.id))
+    Delayed::Job.enqueue(ConversationAcceptedJob.new(id, current_user.id, current_community.id))
+
+    if status.eql?("accepted") && !current_community.payments_in_use?
+      ConfirmConversation.new(self, current_user, current_community).activate_automatic_confirmation!
+    end
   end
   
   def paid_by!(payer)
     update_attribute(:status, "paid")
     messages.create(:sender_id => payer.id, :action => "pay")
+
+    ConfirmConversation.new(self, payer, community).activate_automatic_confirmation!
   end
   
   def has_feedback_from_all_participants?

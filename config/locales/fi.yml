@@ -58,6 +58,8 @@ fi:
         edit_community_slogan_description: "Näytetään etusivulla kirjautumattomille käyttäjille. %{see_how_it_looks_like}."
         community_description: "Yhteisön kuvaus"
         edit_community_description_description: "Näytetään etusivulla kirjautumattomille käyttäjille. %{see_how_it_looks_like}."
+        community_search_placeholder: "Haun ohjeteksti"
+        edit_community_search_placeholder_description: "Näytetään etusivulla hakupalkin ohjetekstinä. %{see_how_it_looks_like}."
         private_community_homepage_content: "Suljetun yhteisön etusivun sisältö"
         edit_private_community_homepage_content_description: "Tämä sisältö näytetään kirjautumattomille käyttäjille suljettujen yhteisöjen etusivulla. Tässä voit kertoa tarkemmin yhteisön tarkoituksesta sekä siitä, miten yhteisöön voi liittyä. Voit lisätä kuvaukseen halutessasi myös kuvia, videoita tai HTML-muotoista sisältöä. %{see_how_it_looks_like}."
         update_information: "Päivitä tiedot"
@@ -105,7 +107,7 @@ fi:
         listing_preferences: Ilmoitusasetukset
         show_listing_publishing_date: "Näytä ilmoituksen julkaisuajankohta ilmoituksen sivulla"
         show_category_in_listing_list: "Näytä ilmoituskategoria listanäkymässä"
-        hide_expiration_date: "Ilmoituksilla ei ole viimeistä voimassaolopäivää"
+        hide_expiration_date: "Älä vaadi viimeisen voimassaolopäivän valintaa ilmoituksen lisäyksen yhteydessä"
         listing_comments_in_use: "Käyttäjät voivat kommentoida ilmoituksia (kommentit näkyvät muille käyttäjille)"
         email_preferences: Sähköpostiasetukset
         automatic_newsletters: "Lähetä automaattinen uutiskirje kaikille käyttäjille (paitsi jos he lopettavat tilauksen)"
@@ -114,6 +116,7 @@ fi:
         google_analytics_key: "Google Analytics tracking ID (classic account)"
         twitter_handle: "Twitter-tili (käytetään ilmoitussivulla olevan twitter-napin yhteydessä)"
         update_settings: "Update settings"
+        automatically_confirmed: "Ilmoitus merkitään toteutuneeksi automaattisesti kun hyväksymisestä (tai maksusta) on kulunut %{days_dropdown} päivää."
       manage_members:
         manage_members: Käyttäjät
         email: Sähköposti
@@ -635,10 +638,14 @@ fi:
       account_ready: "Voit nyt vastaanottaa maksuja"
       message: "Maksutietosi on nyt tarkistettu ja hyväksytty. Voit tästä lähetien vastaanottaa maksuja yhteisössä %{service_name}"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Et ole vielä merkinnyt käyttäjältä %{other_party_full_name} %{date} saamaasi pyyntöä '%{request_link}' toteutuneeksi tai toteutumattomaksi. Jos pyyntö on toteutettu, sinun kannattaa ilmoittaa siitä, jotta voit antaa palautetta tapahtuneesta käyttäjälle %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Et ole vielä merkinnyt pyyntöä '%{request_link}' toteutuneeksi tai toteutumattomaksi. Jos pyyntö on toteutettu, sinun kannattaa ilmoittaa siitä, jotta voit antaa palautetta tapahtuneesta käyttäjälle %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
       remember_to_confirm_request: "Muista merkitä pyyntö toteutuneeksi tai toteutumattomaksi"
       if_will_not_happen_you_should_cancel: "Jos pyyntö syystä tai toisesta jää toteutumatta, voit %{cancel_it_link}."
+      if_will_not_happen_you_should_cancel_escrow: ~
+      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
       cancel_it_link_text: "peruuttaa sen"
+      automatic_confirmation: "Jos et merkkaa pyyntöä toteutuneeksi tai peruuta sitä %{days_to_automatic_confirmation} päivän kuluttua sen hyväksymisestä, merkkaamme sen automaattisesti toteutuneeksi."
     payment_reminder:
       remember_to_pay: "Maksumuistutus: %{listing_title}"
       you_have_not_yet_paid: "Et ole vielä suorittanut maksua liittyen ilmoitukseen %{listing_title}. Muista maksaa sovittu summa käyttäjälle %{other_party_name}."
@@ -657,6 +664,16 @@ fi:
       has_marked_request_as_canceled: "%{other_party_full_name} on ilmoittanut, että pyyntö '%{request}' ei toteutunut. Voit silti antaa hänelle palautetta."
       giving_feedback_is_good_idea: "Palautteen antaminen kannattaa aina. Jos kaikki meni hyvin, voit palautteen avulla kertoa muille jäsenille, että %{other_party_given_name} on luotettava. Jos vastaan tuli ongelmia, niistä kannattaa myös mainita."
       give_feedback_to: "Anna palautetta käyttäjälle %{other_party_given_name}"
+    transaction_automatically_confirmed:
+      subject: "Pyyntösi on automaattisesti merkitty toteutuneeksi - muistathan antaa palautetta"
+      we_have_marked_request_as_confirmed: "Olemme merkinneet pyynnön '%{request}' toteutuneeksi. Merkitsimme pyynnön toteutuneeksi automaattisesti, koska pyynnön hyväksymisestä on kulunut %{days_passed} päivää."
+      giving_feedback_is_good_idea: "Voit nyt antaa palautetta käyttäjälle %{other_party_given_name}. Palautteen antaminen kannattaa aina. Jos kaikki meni hyvin, voit palautteen avulla kertoa muille jäsenille, että %{other_party_given_name} on luotettava. Jos vastaan tuli ongelmia, niistä kannattaa myös mainita."
+      give_feedback_to: "Anna palautetta käyttäjälle %{other_party_given_name}"
+    escrow_canceled:
+      subject: ~
+      has_marked_request_as_canceled: ~
+      if_this_was_error: ~
+      please_contant_admin_link: ~
     confirmation_instructions:
       confirmation_instructions_signature: "Terveisin,<br/>%{service_name}-tiimi"
       welcome_to_kassi: "Tervetuloa %{service_name_illative}!"
@@ -690,6 +707,7 @@ fi:
       your_request_was_rejected: "Pyyntösi hylättiin"
       you_can_now_pay_to: "Voit nyt maksaa käyttäjän %{payment_receiver} pyytämän maksun."
       pay_now: "Maksa nyt"
+      remember_to_confirm: "Muista merkitä pyyntö toteutuneeksi, kun olet saanut haluamasi. Jos vastapuoli ei pysty täyttämään lupaustaan, sinulla on %{days_to_automatic_confirmation} päivää aikaa peruuttaa pyyntö, ennen kuin se merkitään toteutuneeksi automaattisesti."
     invitation_to_kassi:
       hi: Hei!
       you_have_been_invited_to_kassi: "%{inviter} on kutsunut sinut %{community} -yhteisöön."
@@ -1060,6 +1078,8 @@ fi:
       settings: Asetukset
       sign_up: "Luo uusi tunnus"
     notifications:
+      listing_could_not_be_saved: "Ilmoituksen tallentaminen ei onnistunut. Yritä uudelleen. Jos ongelma toistuu, %{contact_admin_link}."
+      contact_admin_link_text: "ota yhteyttä ylläpitoon"
       test_welcome_email_delivered_to: "Testisähköposti lähetettiin osoitteeseen %{email}."
       something_went_wrong: "Jotain meni vikaan"
       community_updated: "Yhteisön tiedot päivitetty."
@@ -1234,6 +1254,12 @@ fi:
         no_file_selected: "Ei tiedostoa valittuna"
         remove_image: "Poista kuva"
         select_file: "Valitse tiedosto"
+        removing: Poistetaan...
+        processing: Prosessoidaan...
+        this_may_take_a_while: "(tämä saattaa kestää hetken)"
+        percentage_loaded: "%{percentage}%"
+        uploading_failed: "Kuvan lataus epäonnistui"
+        accepted_formats: "Kuvatiedosto on vääräntyyppinen. Sallitut tiedostomuodot: JPG, PNG ja GIF."
       location:
         location: Sijainti
       price:
@@ -1271,7 +1297,7 @@ fi:
       title:
         listing_title: "Ilmoituksen otsikko"
       valid_until:
-        valid_until: Voimassa
+        valid_until: "Ilmoitus voimassa"
       valid_until_radio_buttons:
         for_the_time_being: Toistaiseksi
       visibility:
@@ -1285,7 +1311,7 @@ fi:
     help_texts:
       help_share_type_title: "Tarjous- tai pyyntötapa"
       help_tags_title: Avaisanat
-      help_valid_until_title: "Viimeinen voimassaolopäivä"
+      help_valid_until_title: "Ilmoituksen viimeinen voimassaolopäivä"
     index:
       all_categories: "Kaikki kategoriat"
       all_offer_types: "Kaikki tarjoustavat"
@@ -1723,8 +1749,8 @@ fi:
       city: Kaupunki
       family_name: Sukunimi
       given_name: Etunimi
-      first_name_with_initial: (vain ensimmäinen kirjain näytetään muille käyttäjille)
-      first_name_only: (ei näytetä muille käyttäjille)
+      first_name_with_initial: "(vain ensimmäinen kirjain näytetään muille käyttäjille)"
+      first_name_only: "(ei näytetä muille käyttäjille)"
       location_description: "Sijainti voi olla joko tarkka katuosoite tai vaikkapa vain postinumero. Täytäthän ainakin postinumerosi. Voit myös valita sijainnin alla olevalta kartalta."
       phone_number: Puhelinnumero
       profile_picture: Profiilikuva

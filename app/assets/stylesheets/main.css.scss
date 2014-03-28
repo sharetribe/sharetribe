@@ -420,12 +420,16 @@ form {
   margin-bottom: em(1);
 }
 
-label {
+.label {
   width: 100%;
   display: block;
   margin-top: lines(0.5);
   margin-bottom: em(3);
   font-weight: 600;
+}
+
+label {
+  @extend .label;
 }
 
 label.inline {

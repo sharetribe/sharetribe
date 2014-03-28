@@ -1,0 +1,19 @@
+- conversation_url = person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @conversation.id.to_s}))
+- url = new_person_message_feedback_url(@url_params.merge({:person_id => @recipient.id, :message_id => @conversation.id.to_s}))
+
+%tr
+  %td{:align => "left"} 
+    %font{body_font}
+      = t("emails.transaction_automatically_confirmed.we_have_marked_request_as_confirmed", :request => @conversation.listing.title, :days_passed => @conversation.automatic_confirmation_after_days)
+
+%tr
+  %td{:align => "left", :style => "padding-top: 15px;"} 
+    %font{body_font}
+      = t("emails.transaction_automatically_confirmed.giving_feedback_is_good_idea", :other_party_given_name => @conversation.other_party(@recipient).given_name_or_username)
+
+= render :partial => "action_button", :locals => { :text => t("emails.transaction_automatically_confirmed.give_feedback_to", :other_party_given_name => @conversation.other_party(@recipient).given_name_or_username), :url => url}
+
+%tr
+  %td{:align => "left", :style => "padding-bottom: 25px;"} 
+    %font{body_font}
+      = link_to t("emails.accept_reminder.show_thread"), conversation_url, :style => body_link_style

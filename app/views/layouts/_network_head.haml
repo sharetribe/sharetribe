@@ -11,12 +11,12 @@
 %meta{ :name => "description", :content => t("layouts.application.meta_description") }
 %meta{ :name => "keywords", :content => t("layouts.application.keywords") }
 
-/[if lt IE 9]
-  = javascript_include_tag "html5shiv-printshiv"
-  
 / CSS
 = stylesheet_link_tag '//fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600,700&subset=latin,latin-ext'
 = stylesheet_link_tag 'application'
+
+/ Modernizr, in the head tag, right after stylesheets, for best performance:
+= javascript_include_tag "modernizr.min"
   
 = csrf_meta_tag
 

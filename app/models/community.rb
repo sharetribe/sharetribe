@@ -298,8 +298,8 @@ class Community < ActiveRecord::Base
     Person.joins(:community_memberships).where("community_memberships.admin = '1'").group("people.id")
   end
 
-  def self.reset_custom_stylesheets!
-    Community.with_customizations.update_all(:stylesheet_url => nil)
+  def self.stylesheet_needs_recompile!
+    Community.with_customizations.update_all(:stylesheet_needs_recompile => true)
   end
 
   # approves a membership pending email if one is found

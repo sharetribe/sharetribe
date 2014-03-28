@@ -60,10 +60,11 @@ class MailPreview < MailView
 
   def confirm_reminder
     conversation = Conversation.last
+    conversation.requester.locale = "fi"
 
     # Show different template if hold_in_escrow is true
     conversation.community.payment_gateway = nil
-    PersonMailer.confirm_reminder(conversation, conversation.requester, conversation.community)
+    PersonMailer.confirm_reminder(conversation, conversation.requester, conversation.community, 4)
   end
 
   def confirm_reminder_escrow
@@ -71,7 +72,7 @@ class MailPreview < MailView
 
     # Show different template if hold_in_escrow is true
     conversation.community.payment_gateway = BraintreePaymentGateway.new
-    PersonMailer.confirm_reminder(conversation, conversation.requester, conversation.community)
+    PersonMailer.confirm_reminder(conversation, conversation.requester, conversation.community, 5)
   end
 
   def admin_escrow_canceled
@@ -79,5 +80,30 @@ class MailPreview < MailView
     throw "No BraintreePayments in DB, can't show this mail template." if conversation.nil?
     community = conversation.community
     PersonMailer.admin_escrow_canceled(conversation, community)
+  end
+
+  def transaction_confirmed
+    conversation = Conversation.last
+    community = conversation.community
+    conversation.status = "confirmed"
+    PersonMailer.transaction_confirmed(conversation, community)
+  end
+
+  def transaction_automatically_confirmed
+    conversation = Conversation.last
+    community = conversation.community
+    conversation.status = "confirmed"
+    PersonMailer.transaction_automatically_confirmed(conversation, community)
+  end
+
+  def conversation_status_changed
+    conversation = Conversation.last
+    community = conversation.community
+    # community.payment_gateway = nil
+    community.payment_gateway = BraintreePaymentGateway.new
+    conversation.status = "accepted"
+    conversation.other_party(conversation.listing.author).locale = "fi"
+
+    PersonMailer.conversation_status_changed(conversation, community)
   end
 end

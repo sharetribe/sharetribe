@@ -43,6 +43,8 @@ el:
         edit_community_slogan_description: ~
         community_description: Περιγραφή
         edit_community_description_description: ~
+        community_search_placeholder: ~
+        edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
         update_information: "Ενημέρωση στοιχείων"
@@ -99,6 +101,7 @@ el:
         google_analytics_key: ~
         twitter_handle: ~
         update_settings: ~
+        automatically_confirmed: ~
       manage_members:
         manage_members: ~
         email: ~
@@ -612,9 +615,13 @@ el:
       message: "Τα στοιχεία πληρωμών σας έχουν επιβεβαιωθεί και πλέον είστε έτοιμοι να λάβετε πληρωμές στο %{service_name}"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Δεν έχετε ακόμα επιβεβαιώσει ή ακυρώσει το αίτημα %{request_link} που λάβατε στις %{date} από το χρήστη %{other_party_full_name}. Αν το αίτημα έχει ολοκληρωθεί θα πρέπει να το επιβεβαιώσετε έτσι ώστε να μπορέσετε να κάνετε κριτική για το χρήστη %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request_escrow_automatic_confirmation: ~
       remember_to_confirm_request: "Θυμηθείτε να επιβεβαιώσετε ή να ακυρώσετε ένα αίτημα"
       if_will_not_happen_you_should_cancel: "Αν πιστεύετε ότι αυτό το αίτημα για οποιοδήποτε λόγο δεν θα ολοκληρωθεί, μπορείτε να %{cancel_it_link}."
+      if_will_not_happen_you_should_cancel_escrow: ~
+      if_will_not_happen_you_should_cancel_escrow_automatic_confirmation: ~
       cancel_it_link_text: "το ακυρώσετε"
+      automatic_confirmation: ~
     payment_reminder:
       remember_to_pay: "Θυμηθείτε να πληρώσετε για το %{listing_title}"
       you_have_not_yet_paid: "Δεν έχετε ακόμα πληρώσει το %{listing_title} το οποίο δέχτηκε να σας προσφέρει ο/η %{other_party_name}."
@@ -633,6 +640,16 @@ el:
       has_marked_request_as_canceled: "Ο/η %{other_party_full_name} ακύρωσε το αίτημά σας για \"%{request}\". Μπορείτε ωστόσο να κάνετε κριτική για τον/την %{other_party_given_name}."
       giving_feedback_is_good_idea: "Είναι πάντα καλή ιδέα να κάνετε κριτική. Αν όλα πήγαν καλά δείχνετε και στα υπόλοιπα μέλη ότι ο/η %{other_party_given_name} είναι έμπιστος/η. Ακόμα κι αν υπήρχαν προβλήματα, καλό είναι να τα αναφέρετε κι αυτά."
       give_feedback_to: "Κάντε κριτική στον/στην %{other_party_given_name}"
+    transaction_automatically_confirmed:
+      subject: ~
+      we_have_marked_request_as_confirmed: ~
+      giving_feedback_is_good_idea: ~
+      give_feedback_to: ~
+    escrow_canceled:
+      subject: ~
+      has_marked_request_as_canceled: ~
+      if_this_was_error: ~
+      please_contant_admin_link: ~
     confirmation_instructions:
       confirmation_instructions_signature: "Χαιρετισμούς,<br>Η Ομάδα του %{service_name}"
       welcome_to_kassi: "Καλωσήρθες στο %{service_name}!"
@@ -666,6 +683,7 @@ el:
       your_request_was_rejected: "Το αίτημά σας απορρίφθηκε"
       you_can_now_pay_to: "Μπορείτε τώρα να πληρώσετε το ποσό στον/στην %{payment_receiver}."
       pay_now: "Πληρώστε τώρα"
+      remember_to_confirm: ~
     invitation_to_kassi:
       hi: Γεια!
       you_have_been_invited_to_kassi: "Ο/Η %{inviter} σας προσκάλεσε στην κοινότητα του %{community}."
@@ -1036,6 +1054,8 @@ el:
       settings: Ρυθμίσεις
       sign_up: Εγγραφή
     notifications:
+      listing_could_not_be_saved: ~
+      contact_admin_link_text: ~
       test_welcome_email_delivered_to: "Ένα δοκιμαστικό μήνυμα στάλθηκε στο %{email}."
       something_went_wrong: "Κάτι πήγε στραβά"
       community_updated: "Οι πληροφορίες του tribe ενημερώθηκαν."
@@ -1210,6 +1230,12 @@ el:
         no_file_selected: "Δεν έχει επιλεγεί αρχείο"
         remove_image: "Κατάργηση εικόνας"
         select_file: "Επιλέξτε αρχείο"
+        removing: ~
+        processing: ~
+        this_may_take_a_while: ~
+        percentage_loaded: ~
+        uploading_failed: ~
+        accepted_formats: "Το αρχείο εικόνας πρέπει να είναι σε μορφή GIF, JPEG ή PNG."
       location:
         location: Τοποθεσία
       price:
@@ -1699,6 +1725,8 @@ el:
       city: Πόλη
       family_name: Επώνυμο
       given_name: Όνομα
+      first_name_with_initial: ~
+      first_name_only: ~
       location_description: "Μπορείτε να συμπληρώσετε είτε την ακριβή τοποθεσία σας είτε μόνο τον ταχυδρομικό σας κωδικό. Παρακαλούμε να συμπληρώσετε τουλάχιστον τον ταχυδρομικό σας κωδικό. Εναλλακτικά, μπορείτε να διαλέξετε την τοποθεσία σας από τον χάρτη."
       phone_number: Τηλέφωνο
       profile_picture: "Εικόνα προφίλ"
@@ -1709,6 +1737,8 @@ el:
       these_fields_are_shown_in_your: "Αυτές οι πληροφορίες είναι ορατές σε όλους τους χρήστες του %{service_name}"
       visible_to_everybody: "ορατό σε όλους"
       visible_to_registered_users: "(ορατό σε συνδεδεμένους χρήστες)"
+      default_in_listing: ~
+      invisible: ~
     save_information: Αποθήκευση
   tag_cloud:
     tag_used:

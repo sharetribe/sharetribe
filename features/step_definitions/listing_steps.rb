@@ -156,3 +156,16 @@ Given /^listing comments are in use in community "(.*?)"$/ do |community_domain|
   community = Community.find_by_domain(community_domain)
   community.update_attribute(:listing_comments_in_use, true)
 end
+
+When(/^I remove the image$/) do
+
+  # Hovering didn't work without first clicking the element. Not sure why, but I expect that it has something to do
+  # with window focus
+  steps %Q{
+    And I click ".fileupload-preview"
+    When I hover ".fileupload-preview"
+    And I click ".fileupload-preview-remove-image"
+    Then I should see "Select file"
+  }
+end
+

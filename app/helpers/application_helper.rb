@@ -815,7 +815,15 @@ module ApplicationHelper
   end
   
   def self.use_s3?
-    APP_CONFIG.s3_bucket_name && APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key
+    APP_CONFIG.s3_bucket_name && ApplicationHelper.has_aws_keys?
+  end
+
+  def self.use_upload_s3?
+    APP_CONFIG.s3_upload_bucket_name && ApplicationHelper.has_aws_keys?
+  end
+
+  def self.has_aws_keys?
+    APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key
   end
   
   def facebook_connect_in_use?
@@ -869,37 +877,6 @@ module ApplicationHelper
   def author_link(listing)
     link_to(listing.author.name(@current_community), listing.author, {:title => listing.author.name(@current_community)})
   end
-  
-  # Send a reminder email related to a transaction
-  def self.transaction_reminder(conversation, intervals, number_of_reminders_sent, reminder_type, recipient, community)
-    
-    # Check if a reminder should be sent or rescheduled
-    send_reminder = false
-    run_at = nil
-    intervals.each_with_index do |interval, index|
-      if number_of_reminders_sent == index
-        if conversation.messages.last.created_at < interval.days.ago
-          run_at = intervals[index + 1].days.from_now unless interval == intervals.last
-          send_reminder = true
-        else
-          run_at = interval.days.from_now - (Time.now - conversation.messages.last.created_at)
-        end
-      end
-    end
-    number_of_reminders_sent += 1 if send_reminder
-    
-    # Send reminder if needed
-    if send_reminder
-      if recipient.should_receive?("email_about_#{reminder_type}_reminders")
-        PersonMailer.send("#{reminder_type}_reminder", conversation, recipient, community).deliver
-      end
-    end
-    
-    # Schedule next reminder if needed
-    if run_at
-      Delayed::Job.enqueue(Object.const_get("#{reminder_type.capitalize}ReminderJob").new(conversation.id, recipient.id, community.id, number_of_reminders_sent), :priority => 0, :run_at => run_at)
-    end
-  end
 
   def with_available_locales(&block)
     if available_locales.size > 1
@@ -915,16 +892,6 @@ module ApplicationHelper
 
   def with_stylesheet_url(community, &block)
     stylesheet_url = if community.has_customizations?
-      unless community.has_custom_stylesheet?
-        Rails.logger.warn "Compiling stylesheet for #{community.name} on request..."
-
-        start_time = Time.now
-        CommunityStylesheetCompiler.compile(community)
-        end_time = Time.now
-
-        Rails.logger.warn "Finished compiling stylesheet for #{community.name}. Time elapsed #{(end_time - start_time)*1000} ms"
-      end
-
       community.custom_stylesheet_url
     else
       'application'
@@ -972,5 +939,15 @@ module ApplicationHelper
     direction = (params[:sort].eql?(column) && member_sort_direction.eql?("asc")) ? "desc" : "asc"
     link_to title, {:sort => column, :direction => direction, :page => (params[:page] || 1)}, {:class => css_class}
   end
-  
+
+  # Give an array of translation keys you need in JavaScript. The keys will be loaded and ready to be used in JS
+  # with `ST.t` function
+  def js_t(keys, run_js_immediately=false)
+    js = javascript_tag("ST.loadTranslations(#{JSTranslations.load(keys).to_json})")
+    if run_js_immediately
+      js
+    else
+      content_for :extra_javascript do js end
+    end
+  end
 end

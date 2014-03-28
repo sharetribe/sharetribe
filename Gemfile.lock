@@ -59,6 +59,8 @@ GEM
       nokogiri (< 1.6.0)
       uuidtools (~> 2.1)
     bcrypt-ruby (3.1.2)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     braintree (2.26.0)
       builder (>= 2.0.0)
     builder (3.0.4)
@@ -110,6 +112,7 @@ GEM
       rails (>= 3.0.0)
     dalli (2.6.4)
     database_cleaner (0.9.1)
+    debug_inspector (0.0.2)
     delayed_job (3.0.5)
       activesupport (~> 3.0)
     delayed_job_active_record (0.3.3)
@@ -286,6 +289,9 @@ GEM
       pry (~> 0.9.10)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
+    pry-stack_explorer (0.4.9.1)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
     pusher-client (0.4.0)
       websocket (~> 1.0.0)
     rabl (0.7.9)
@@ -471,6 +477,7 @@ DEPENDENCIES
   pry
   pry-nav
   pry-rails
+  pry-stack_explorer
   rabl
   rack-livereload
   rack-test

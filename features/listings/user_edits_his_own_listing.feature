@@ -3,9 +3,11 @@ Feature: User edits his own listing
   As the creator of the listing
   I want to be able to edit the listing
 
-  @phantomjs_skip
   @javascript
+  @no-transaction
+  @phantomjs_skip
   Scenario: User edits an item request with image
+    # @no-transaction needed because delayed_paperclip after_save callbacks
     Given there are following users:
       | person | 
       | kassi_testperson1 |
@@ -21,15 +23,14 @@ Feature: User edits his own listing
     And the "description" field should contain "test"
     And I fill in "listing_title" with "Sledgehammer"
     And I fill in "listing_description" with "My description"
-    And I attach a valid image file to "listing_listing_images_attributes_0_image"
-    And I press "Save listing"
+    And I attach a valid listing image file to "listing_image[image]"
+    When I press "Save listing"
     And the system processes jobs
     Then I should see "Sledgehammer" within "#listing-title"
     And I should see the image I just uploaded
     When I follow "Edit listing"
     Then I should see the image I just uploaded
-    And I follow "Remove image"
-    And wait for 5 seconds
+    When I remove the image
     And I press "Save listing"
     Then I should not see the image I just uploaded
 

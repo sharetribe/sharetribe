@@ -1,6 +1,6 @@
 = form_tag({ :action => :index, :controller => :homepage}, :method => "get", :id => "homepage-filters") do
   .search-form-input.search-form-text-field
-    = text_field_tag "q", params[:q], :placeholder => t("homepage.index.what_do_you_need")
+    = text_field_tag "q", params[:q], :placeholder => (@community_customization && @community_customization.search_placeholder) || t("homepage.index.what_do_you_need")
     - params.except("action", "controller", "q", "view", "utf8").each do |param, value|
       = hidden_field_tag param, value
     = hidden_field_tag "view", @view_type

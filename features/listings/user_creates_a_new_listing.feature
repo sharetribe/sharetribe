@@ -3,9 +3,10 @@ Feature: User creates a new listing
   As a person who does not have the required item, skill, or transport, or has them and wants offer them to others
   I want to be able to offer and request an item, a favor, a transport or housing
   
-  @phantomjs_skip
   @javascript
+  @no-transaction
   Scenario: Creating a new item request with image successfully
+    # @no-transaction needed because delayed_paperclip after_save callbacks
     Given I am logged in
     And I am on the home page
     When I follow "new-listing-link"
@@ -14,7 +15,7 @@ Feature: User creates a new listing
     And I follow "Requesting"
     And I fill in "listing_title" with "Sledgehammer"
     And I fill in "listing_description" with "My description"
-    And I attach a valid image file to "listing_listing_images_attributes_0_image"
+    And I attach a valid listing image file to "listing_image[image]"
     And I press "Save listing"
     Then I should see "Sledgehammer" within "#listing-title"
     And I should see the image I just uploaded
@@ -64,7 +65,6 @@ Feature: User creates a new listing
     When I follow "new-listing-link"
     And I should see "Log in to Sharetribe" within "h1"
 
-  @phantomjs_skip
   @javascript
   Scenario: Trying to create a new item request with insufficient information
     Given I am logged in
@@ -73,10 +73,10 @@ Feature: User creates a new listing
     And I follow "Items"
     And I follow "Books"
     And I follow "Requesting"
-    And I attach an image with invalid extension to "listing_listing_images_attributes_0_image"
     And I select "31" from "listing_valid_until_3i"
     And I select "December" from "listing_valid_until_2i"
     And I select "2014" from "listing_valid_until_1i"
+    And I attach an image with invalid extension to "listing_image[image]"
     And I press "Save listing"
     Then I should see "This field is required." 
     And I should see "This date must be between current time and 6 months from now." 
