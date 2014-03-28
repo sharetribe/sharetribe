@@ -11,7 +11,7 @@ window.ST.createCustomFieldOrder = function(rowSelector) {
     Fetch all custom field rows and save them to a variable
   */
   var fieldMap = $(rowSelector).map(function(id, row) {
-    return { 
+    return {
       id: $(row).data("field-id"),
       element: $(row),
       up: $(".custom-fields-action-up", row),
@@ -33,7 +33,7 @@ window.ST.createCustomFieldOrder = function(rowSelector) {
 
   var ajaxResponse = ajaxRequest.ajax();
   var ajaxStatus = window.ST.ajaxStatusIndicator(ajaxRequest, ajaxResponse);
-  
+
   ajaxStatus.loading.onValue(function() {
     $("#custom-field-ajax-saving").show();
     $("#custom-field-ajax-error").hide();
@@ -66,7 +66,7 @@ window.ST.createCustomFieldOptionOrder = function(rowSelector) {
     Fetch all custom field rows and save them to a variable
   */
   var fieldMap = $(rowSelector).map(function(id, row) {
-    return { 
+    return {
       id: $(row).data("field-id"),
       element: $(row),
       sortPriority: Number($(row).find(".custom-field-hidden-sort-priority").val()),

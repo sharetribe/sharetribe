@@ -22,4 +22,3 @@
     .feed-image
       - unless listing.listing_images.first.image_processing
         = link_to image_tag(listing.listing_images.first.image.url(:thumb), :alt => listed_listing_title(listing)), listing
-

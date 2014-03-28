@@ -7,12 +7,12 @@
 */
 
 .toggle-menu-feed-filters {
-  
+
   &.hidden {
     // Added and removed via JS, to toggle visibility
     display: none;
   }
-  
+
   @include media(tablet) {
     // Makes sure they're never obscured by other elements
     z-index: 9999;
@@ -44,7 +44,7 @@
       padding: lines(0.5);
       padding-right: lines(0.5);
     }
-    
+
     &.login-form {
       padding: 0;
       &:hover {
@@ -61,7 +61,7 @@
     &:hover {
       background: $link;
       color: $background;
-      
+
       &:after {
         color: $background;
       }
@@ -72,12 +72,12 @@
     @extend .toggle-menu-item;
     background-color: lighten($light-body, 5%);
   }
-  
+
   p.login-form {
     color: $background;
     margin: lines(0.25) 0 lines(0.5) 0;
   }
-  
+
   .feedback {
     textarea {
       @include small-type;
@@ -87,26 +87,26 @@
       padding: lines(0.25, 13);
     }
   }
-  
+
   &.hidden {
     // Added and removed via JS, to toggle visibility
     display: none;
   }
-  
+
   .badge {
     position: absolute;
     right: em(9, 13); top: em(14, 13); bottom: auto;
     z-index: 900;
-    
+
     &.huge-badge {
       top: em(10, 13); right: em(9, 13); bottom: auto;
     }
   }
-  
+
   @include media(tablet) {
     position: absolute;
   }
-  
+
 }
 
 .toggle {
@@ -117,12 +117,12 @@
     display: inline-block;
     width: auto;
   }
-  
+
   &.toggled {
     background: $light-body;
     color: $background !important;
     border-color: $light-body;
-    
+
     @include media(tablet) {
       width: auto;
       border-bottom-color: $light-body !important;
@@ -145,7 +145,6 @@
         // No need to do this in mobile, since were not absolutely positioned there.
         padding: $toggle-border-width;
       }
-
 
     }
 

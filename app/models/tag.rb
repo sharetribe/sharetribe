@@ -13,7 +13,7 @@ class Tag < ActiveRecord::Base
     query << " limit #{options[:limit]}" if options[:limit] != nil
     tags = Tag.find_by_sql(query)
   end
-  
+
   def self.ids(tags)
     Tag.select('id').where(['name IN (?)', tags])
   end

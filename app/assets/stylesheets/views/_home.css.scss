@@ -21,7 +21,7 @@
 .home-toolbar-button-group {
   @include button-group;
   margin-bottom: lines(0.5);
-  
+
   // Leave room for filters button on the left side
   width: 100%;
 
@@ -96,7 +96,7 @@
 
 .home-map > .map {
   height: lines(10.5); // Magical number, this just looks good on iPhone
-  
+
   @include media(tablet) {
     height: 30em;
   }
@@ -108,7 +108,7 @@
   margin-bottom: lines(0.5);
   border-bottom: 1px solid $border;
   height: lines(3.5);
-  
+
   @include media(tablet) {
     padding-bottom: lines(1);
     margin-bottom: lines(1);
@@ -132,7 +132,7 @@ $home-list-image-padding-mobile: lines(0.5);
   height: $image-height;
   width: $image-width;
   display: none;
-  
+
   @include media(tablet) {
     display: block;
   }
@@ -143,7 +143,7 @@ $home-list-image-padding-mobile: lines(0.5);
   width: $home-list-image-size-mobile;
   height: $home-list-image-size-mobile;
   display: block;
-  
+
   @include media(tablet) {
     display: none;
   }
@@ -167,7 +167,7 @@ $home-list-image-padding-mobile: lines(0.5);
 
 .home-list-details-with-image {
   margin-left: $home-list-image-size-mobile + $home-list-image-padding-mobile;
-  
+
   @include media(tablet) {
     margin-left: $image-width + $image-padding;
   }
@@ -194,7 +194,7 @@ h2.home-list-title {
   @include media(desktop) {
     padding-bottom: (ems-to($home-list-avatar-size, $big-type) + (2 * ems-to($home-list-avatar-padding, $big-type)) - em(3));
   }
-  
+
 }
 
 .home-share-type-link {
@@ -228,20 +228,20 @@ h2.home-list-title {
     display: block;
     width: 100%;
   }
-  
+
   display: none;
-  
+
   @include media(large-mobile) {
     display: block;
   }
-  
+
 }
 
 .home-list-author {
   vertical-align: top;
   position: absolute;
   bottom: lines(0.5);
-  
+
   @include media(tablet) {
     bottom: lines(1);
   }
@@ -249,11 +249,11 @@ h2.home-list-title {
 
 .home-list-author-with-listing-image {
   left: 0;
-  
+
   @include media(large-mobile) {
     left: $home-list-image-size-mobile + $home-list-image-padding-mobile;
   }
-  
+
   @include media(tablet) {
     left: $image-width + $image-padding;
   }
@@ -269,9 +269,9 @@ h2.home-list-title {
   height: 40px;
   line-height: 22px;
   max-width: lines(10);
-  
+
   display: none;
-  
+
   @include media(large-mobile) {
     display: block;
   }
@@ -301,7 +301,7 @@ h2.home-list-title {
 
 .home-list-price-mobile-with-listing-image {
   left: lines(3.5, 24);
-  
+
   @include media(large-mobile) {
     left: auto;
   }

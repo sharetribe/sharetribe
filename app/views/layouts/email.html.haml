@@ -14,7 +14,7 @@
                 %td{:align => "left", :style => "padding-top: 20px; padding-bottom: 10px;"}
                   %font{body_font}
                     = t("emails.common.hey", :name => @recipient.given_name_or_username)
-                
+
             = yield
 
             - skip_unsubscribe_footer ||= false
@@ -26,4 +26,3 @@
                     - if @email_type
                       = t("emails.common.or")
                       = link_to(t("emails.common.unsubscribe_from_these_emails"), unsubscribe_person_settings_url(@url_params.merge({:person_id => @recipient.id, :email_type => @email_type})), :style => body_link_style) + "."
-            

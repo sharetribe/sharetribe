@@ -3,7 +3,7 @@ class NumericField < CustomField
 
   validates_numericality_of :min
   validates_numericality_of :max, greater_than: :min
-  
+
   def display_min
     allow_decimals ? min : min.to_i
   end

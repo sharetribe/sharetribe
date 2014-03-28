@@ -6,7 +6,7 @@
   #tag_cloud
     .left_panel_section
       .left_panel_title
-        %h3= "Tag Cloud"      
+        %h3= "Tag Cloud"
       - result.each do |k, v|
         = link_to k, '#', :class => v, :name => "tags_"+k
 

@@ -1,11 +1,10 @@
 = render :partial => "header"
 
 - number_of_faq_questions = 12
-- faq_links = { :new_tribe_link => link_to(t(".new_tribe_link"), new_tribe_path), 
+- faq_links = { :new_tribe_link => link_to(t(".new_tribe_link"), new_tribe_path),
                 :tribes_map_link => link_to(t(".tribes_map_link"), tribes_path),
                 :translations_link => link_to(t(".translations_link"), "https://webtranslateit.com/en/projects/2056-Kassi/project_locales"),
-                :github_link => link_to(t(".github_link"), "https://github.com/sharetribe/sharetribe") } 
-                
+                :github_link => link_to(t(".github_link"), "https://github.com/sharetribe/sharetribe") }
 
 #faq
   .container_12
@@ -21,8 +20,5 @@
           .faq_answer
             %p.faq
               = t(".a#{i}", faq_links).html_safe
-      
-      
-
 
 = render :partial => "dashboard/footer"

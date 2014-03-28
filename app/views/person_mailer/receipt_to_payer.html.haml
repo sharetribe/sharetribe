@@ -1,7 +1,7 @@
 - conversation_url = person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @payment.conversation.id.to_s}))
 
 %tr
-  %td{:align => "left"} 
+  %td{:align => "left"}
     %font{body_font}
       = t("emails.receipt_to_payer.you_have_made_new_payment", :listing_title => @payment.conversation.listing.title, :payment_sum => sum_with_currency(@payment.total_sum, @payment.currency), :recipient_full_name => @payment.recipient.name(@community), :recipient_given_name => @payment.recipient.given_name_or_username).html_safe
 
@@ -44,6 +44,5 @@
           %td
           %td
             %b= @payment.total_sum.to_s + @payment.rows.first.sum_symbol
-            
-            
+
 = render :partial => "action_button", :locals => { :text => t("emails.conversation_status_changed.view_thread"), :url => conversation_url}

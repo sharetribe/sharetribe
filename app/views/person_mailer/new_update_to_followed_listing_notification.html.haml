@@ -1,8 +1,8 @@
 - url = listing_url(@url_params.merge({:id => @listing.id}))
 
 %tr
-  %td{:align => "left"} 
+  %td{:align => "left"}
     %font{body_font}
       = t("emails.new_update_to_listing.has_updated_listing_you_follow_in_kassi", :author => @listing.author.name(@community), :listing => @listing.title)
-      
+
 = render :partial => "action_button", :locals => { :text => t("emails.new_update_to_listing.view_changes"), :url => url}

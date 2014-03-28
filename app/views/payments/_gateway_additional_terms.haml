@@ -2,7 +2,7 @@
   initialize_payment_gateway_terms_lightbox("#{gateway_name}");
 %b
   = t("payments.#{gateway_name}.terms.#{gateway_name}_terms_also_included", :terms_link_text => link_to(t("payments.#{gateway_name}.terms.terms_link_text"), "#", :tabindex => "-1", :id => "#{gateway_name}_terms_link")).html_safe
-  
+
 = render :partial => "payments/terms_lightbox", :locals => {:gateway_name => gateway_name}
 %br
 %br

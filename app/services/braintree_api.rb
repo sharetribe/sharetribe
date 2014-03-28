@@ -6,20 +6,20 @@ class BraintreeApi
   class << self
 
     @@mutex = Mutex.new
-    
+
     def configure_for(community)
       Braintree::Configuration.environment = community.payment_gateway.braintree_environment.to_sym
       Braintree::Configuration.merchant_id = community.payment_gateway.braintree_merchant_id
       Braintree::Configuration.public_key = community.payment_gateway.braintree_public_key
       Braintree::Configuration.private_key = community.payment_gateway.braintree_private_key
     end
-    
+
     def reset_configurations
       Braintree::Configuration.merchant_id = nil
       Braintree::Configuration.public_key = nil
       Braintree::Configuration.private_key = nil
     end
-    
+
     # This method should be used for all actions that require setting correct
     # Merchant details for the Braintree gem
     def with_braintree_config(community, &block)
@@ -33,7 +33,6 @@ class BraintreeApi
         return return_value
       }
     end
-
 
     def create_merchant_account(braintree_account, community)
       with_braintree_config(community) do
@@ -93,11 +92,11 @@ class BraintreeApi
         Braintree::Transaction.release_from_escrow(transaction_id)
       end
     end
-    
+
     def master_merchant_id(community)
       community.payment_gateway.braintree_master_merchant_id
     end
-    
+
     def webhook_notification_verify(community, challenge)
       with_braintree_config(community) do
         Braintree::WebhookNotification.verify(challenge)

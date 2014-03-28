@@ -3,7 +3,7 @@
 /*
   This line has now ss-pika as default in order to get it loaded in Heroku.
   If you want to run in Heroku with font-awesome, you'll need to change this
-  (e.g. by replacing the whole line with font-awesome.min import) 
+  (e.g. by replacing the whole line with font-awesome.min import)
 */
 
 <%= (APP_CONFIG.icon_pack == "font-awesome" ? "@import 'font-awesome.min';" : "@import 'ss-social';\n@import 'ss-pika';").html_safe %>

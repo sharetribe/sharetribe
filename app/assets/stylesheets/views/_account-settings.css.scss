@@ -8,7 +8,7 @@
 
 .account-settings {
   padding-top: lines(0.25);
-  
+
   #account_email_form, #account_password_form {
     display: none;
   }
@@ -19,7 +19,7 @@
     border: 2px solid $border;
     margin-bottom: lines(1);
     min-height: 42px;
-    
+
     .account-settings-text {
       margin-left: lines(1.5);
       padding: em(5) 0 em(10) 0;
@@ -30,11 +30,11 @@
       top: em(7);
       left: em(10);
     }
-    
+
     .account-settings-email-form {
       padding: 0 lines(0.5) lines(0.5) lines(0.5);
     }
-    
+
     .account-settings-email-row {
       @include border-radius($default-border-radius);
       width: 100%;
@@ -45,37 +45,36 @@
         line-height: (lines(1.5) - em(2)); // Magic number to vertically center text
       }
     }
-    
+
     .account-settings-email-form-row {
       padding-top: lines(0.5);
       height: auto;
       line-height: auto;
       width: 100%;
     }
-    
+
     .account-settings-email-row-highlight {
       background: $highlight;
     }
-    
+
     .account-settings-email-row-address {
       padding-left: lines(0.5);
-      
-      
+
       @include media(desktop) {
         @include ellipsis;
         width: lines(6);
         float: left;
       }
-      
+
       @include media(desktop) {
         width: lines(12);
       }
     }
-    
+
     .account-settings-email-form-row-address {
       padding-left: 0;
     }
-    
+
     .account-settings-email-row-send-notification {
       padding-left: lines(0.5);
       @include media(desktop) {
@@ -84,21 +83,21 @@
         text-align: center;
       }
     }
-    
+
     .account-settings-email-row-confirmed {
       padding-left: lines(0.5);
       small {
         margin-left: lines(0.25);
       }
-      
+
       @include media(desktop) {
         float: right;
         width: lines(7);
         text-align: center;
       }
-      
+
     }
-    
+
     .account-settings-email-row-delete {
       padding-left: lines(0.5);
       @include media(desktop) {
@@ -113,32 +112,32 @@
         color: $border;
       }
     }
-    
+
     .account-settings-hidden-email-form {
       display: none;
     }
-    
+
     .settings-email-mobile-label-container {
       width: 100%;
       overflow: hidden;
     }
-    
+
     .settings-email-mobile-label {
       float: left;
       @include media(desktop) {
         float: none;
       }
     }
-    
+
     .settings-email-mobile-label-right {
       padding-left: lines(0.25);
       @include media(desktop) {
         padding: 0;
       }
     }
-    
+
   }
-  
+
   .email-form {
     margin-top: lines(0.5);
     padding: 0 lines(0.5);
@@ -146,44 +145,44 @@
 
   .password-form {
     padding: 0 lines(0.5);
-    
+
     input[type=password] {
       margin-top: lines(0.5);
     }
-    
+
   }
-  
+
   p {
     padding: 0 lines(0.5) lines(0.25) lines(0.5);
   }
-  
+
   p.global-settings {
     padding: 0 0 lines(0.25) 0;
   }
-  
+
   @include media(tablet) {
-    
+
     a.change-link {
       margin-left: lines(0.5);
     }
-      
+
   }
-  
+
   #delete_account_button {
     margin-left: lines(0.5);
   }
-  
+
 }
 
 .notification-settings {
   h2 {
     margin-bottom: 0;
   }
-  
+
   h2.lower {
     margin-top: lines(1);
   }
-  
+
   .checkbox-container {
     label {
       font-weight: 500;

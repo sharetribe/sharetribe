@@ -1,6 +1,6 @@
 - if @current_community.transaction_types.size > 1
   = form.label :transaction_type_attributes, t(".transaction_types")
-  = render :partial => "layouts/info_text", :locals => { :text => t(".transaction_types_description") } 
+  = render :partial => "layouts/info_text", :locals => { :text => t(".transaction_types_description") }
   .row
     .col-12
       #category-transaction-types-container.clearfix

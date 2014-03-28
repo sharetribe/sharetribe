@@ -8,7 +8,6 @@ $invoice-row-symbol-width: 30px; // Enough to fit any currency symbol
 $invoice-row-gutter: 16px; // Just enough to fit on 320px screen with 2 columns
 $invoice-row-text-column-padding: 8px; // Padding for rows that contain text to align them with the form field
 
-
 .invoice-title {
   margin-bottom: lines(0.5);
 }
@@ -17,7 +16,6 @@ $invoice-row-text-column-padding: 8px; // Padding for rows that contain text to 
   overflow: hidden;
   min-height: lines(2);
 }
-
 
 .invoice-row-left {
   font-weight: 600;

@@ -1,4 +1,3 @@
-
 -if @confirmation_token
   - link = confirmation_url(:confirmation_token => @confirmation_token, :host => @host, :locale => I18n.locale)
 - else
@@ -8,34 +7,34 @@
     - link = confirmation_url(:confirmation_token => @resource.confirmation_token, :locale => I18n.locale)
 
 %tr
-  %td{:align => "left", :style => "padding-bottom: 15px;"} 
+  %td{:align => "left", :style => "padding-bottom: 15px;"}
     %font{body_font}
       = t("emails.common.hey", :name => @resource.given_name_or_username)
 
--# This part can be enabled if need to send mails in some communities where staring to use mail confirmation now 
+-# This part can be enabled if need to send mails in some communities where staring to use mail confirmation now
 -# %p
 -#   = t("emails.confirmation_instructions.turning_on_confirmations_in_this_community")
 
 %tr
-  %td{:align => "left"} 
+  %td{:align => "left"}
     %font{body_font}
       = t("emails.confirmation_instructions.need_to_confirm")
 
 = render :partial => "person_mailer/action_button", :locals => { :text => t("emails.confirmation_instructions.confirmation_link_text"), :url => link }
 
 %tr
-  %td{:align => "left", :style => "padding-bottom: 15px;"} 
+  %td{:align => "left", :style => "padding-bottom: 15px;"}
     %font{body_font}
       = t("emails.confirmation_instructions.or_paste_link")
 
 %tr
-  %td{:align => "left", :style => "padding-bottom: 15px;"} 
+  %td{:align => "left", :style => "padding-bottom: 15px;"}
     %font{body_font}
       = link
 
 %tr
-  %td{:align => "left", :style => "padding-bottom: 25px;"} 
+  %td{:align => "left", :style => "padding-bottom: 25px;"}
     %font{body_font}
       = t("emails.common.thanks")
-      %br/ 
+      %br/
       = t("emails.common.kassi_team")

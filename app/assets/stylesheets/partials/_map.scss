@@ -166,7 +166,7 @@ $bubbleDetailsMargin: em(5, $googleMapsFontSize);
 
 .bubble-details .bubble-price {
   @include details-item-position(right, left);
-  
+
   line-height: em(30, 14);
   font-size: 14px;
   padding-right: em(10, 16);
@@ -183,7 +183,7 @@ $bubbleDetailsMargin: em(5, $googleMapsFontSize);
 
   > a {
     line-height: em(30, 11);
-    
+
     // Add ellipsis (...) for too long name
     @extend .bubble-details-text-overflow;
   }

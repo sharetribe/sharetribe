@@ -3,23 +3,21 @@
 
 - content_for :title_header do
   %h1= t("layouts.no_tribe.settings")
-  
+
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user, @current_community) }
 
 #person_settings_form.left-navi-section.settings-section.notification-settings
   = form_for @person do |form|
-  
+
     %h2= t(".community_updates")
     = render :partial => "community_updates_radiobutton", :collection => [["email_daily_community_updates", 1], ["email_weekly_community_updates", 7], ["do_not_email_community_updates", 100000]], :as => :options
-    
+
     %h2.lower= t(".newsletters")
     = render :partial => "notification_checkbox", :collection => Person::EMAIL_NEWSLETTER_TYPES, :as => :notification_type
-    
+
     %h2.lower= t(".i_want_to_get_email_notification_when")
     = render :partial => "notification_checkbox", :collection => Person::EMAIL_NOTIFICATION_TYPES, :as => :notification_type
-    
-    = form.hidden_field "preferences[temp]", :value => "temp"
-    
-    = form.button t("settings.save_information"), :class => "send_button_notifications"
 
-      
+    = form.hidden_field "preferences[temp]", :value => "temp"
+
+    = form.button t("settings.save_information"), :class => "send_button_notifications"

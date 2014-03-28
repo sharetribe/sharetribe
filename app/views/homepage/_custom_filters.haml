@@ -1,5 +1,5 @@
 - @current_community.custom_fields.sort.each do |field|
-  
+
   - field.with(:dropdown) do
     .row
       .col-12
@@ -13,7 +13,7 @@
                 = check_box_tag "filter_option_#{option.id}", "#{option.id}", params["filter_option_#{option.id}"]
                 %span.custom-filter-checkbox-label-text
                   = option.title(I18n.locale)
-  
+
   - field.with(:numeric) do
     .row
       .col-12
@@ -28,7 +28,7 @@
             - start = [params["nf_min_" + field.id.to_s] || field.min, params["nf_max_" + field.id.to_s] || field.max]
             - labels = ["#custom-filter-min-value-#{id}", "#custom-filter-max-value-#{id}"]
             - fields = ["#nf_min_#{id}", "#nf_max_#{id}"]
-            
+
             - content_for :extra_javascript do
               :javascript
                 window.ST.rangeFilter("##{id}", #{range}, #{start}, #{labels}, #{fields}, #{field.allow_decimals})

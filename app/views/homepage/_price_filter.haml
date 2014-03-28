@@ -13,7 +13,7 @@
         - start = [params["price_min"] || min, params["price_max"] || max]
         - labels = ["#price-filter-min-value-#{device}", "#price-filter-max-value-#{device}"]
         - fields = ["#price_min-#{device}", "#price_max-#{device}"]
-        
+
         - content_for :extra_javascript do
           :javascript
             window.ST.rangeFilter("##{id}", #{range}, #{start}, #{labels}, #{fields}, false)

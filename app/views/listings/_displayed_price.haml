@@ -1,6 +1,6 @@
 - if listing.price
   .icon-with-text-container
-    = icon_tag("pricetag", ["icon-part"])  
+    = icon_tag("pricetag", ["icon-part"])
     .text-part
       = money_without_cents_and_with_symbol(listing.price).upcase
       - unless listing.quantity.blank?

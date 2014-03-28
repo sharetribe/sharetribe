@@ -15,7 +15,7 @@
           = hidden_field_tag "custom_field[option_attributes][#{option_id}][sort_priority]", sort_priority, :class => "custom-field-hidden-sort-priority"
       .col-4.custom-field-actions
         - link_class = "custom-field-option-#{(show_locales ? "with" : "without")}-locale-remove"
-        
+
         = link_to "#", :class => "custom-field-option-remove #{link_class}", :tabindex => "-1", :id => "custom-field-option-remove-#{option_id}" do
           = icon_tag("cross", ["icon-fix"])
         = link_to '#', :class => "custom-fields-action-up admin-sort-button", :tabindex => "-1" do

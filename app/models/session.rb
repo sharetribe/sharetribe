@@ -1,3 +1,3 @@
 class Session
-  
+
 end

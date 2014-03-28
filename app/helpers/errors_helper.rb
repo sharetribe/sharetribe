@@ -1,5 +1,5 @@
 module ErrorsHelper
-  
+
   # If an attempt to create a new person results to errors,
   # this method can be used to set the errors from the
   # exception to the errors of the person.
@@ -11,5 +11,5 @@ module ErrorsHelper
       end
     end
   end
-  
+
 end

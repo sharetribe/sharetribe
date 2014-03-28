@@ -8,7 +8,7 @@ class BadgesController < ApplicationController
   def index
     redirect_to @person
   end
-  
+
   def show
     @show_badge_status = true
     @badge = Badge.find_by_person_id_and_name(@person.id, params[:id])
@@ -17,5 +17,5 @@ class BadgesController < ApplicationController
       format.js { render :layout => false }
     end
   end
-   
+
 end

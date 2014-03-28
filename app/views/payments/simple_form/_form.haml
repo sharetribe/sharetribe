@@ -3,7 +3,7 @@
   = fields_for "conversation[payment_attributes]", @payment do |payment_form|
     = payment_form.hidden_field :community_id, :value => @current_community.id
     = payment_form.hidden_field :currency, :value => @conversation.listing.currency
-    
+
     .invoice-row
       .invoice-row-left.invoice-row-text-column
         = t("payments.form.product")

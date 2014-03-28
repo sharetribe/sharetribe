@@ -18,9 +18,9 @@ class HomepageController < ApplicationController
     ## Support old /?map=true URL END
 
     @homepage = true
-    
+
     @view_type = HomepageController.selected_view_type(params[:view], @current_community.default_browse_view, APP_DEFAULT_VIEW_TYPE, VIEW_TYPES)
-    
+
     listings_per_page = 24
 
     @categories = @current_community.categories
@@ -48,7 +48,7 @@ class HomepageController < ApplicationController
     unless @current_user
       @private_listing_count = Listing.currently_open.private_to_community(@current_community).count
     end
-    
+
     @filter_params[:search] = params[:q] if params[:q]
     @filter_params[:include] = [:listing_images, :author, :category, :transaction_type]
     @filter_params[:custom_dropdown_field_options] = HomepageController.custom_dropdown_field_options_for_search(params)
@@ -80,11 +80,11 @@ class HomepageController < ApplicationController
       Listing.find_with(@filter_params, @current_user, @current_community, listings_per_page, params[:page])
     end
 
-    @app_store_badge_filename = "/assets/Available_on_the_App_Store_Badge_en_135x40.svg"    
+    @app_store_badge_filename = "/assets/Available_on_the_App_Store_Badge_en_135x40.svg"
     if File.exists?("app/assets/images/Available_on_the_App_Store_Badge_#{I18n.locale}_135x40.svg")
        @app_store_badge_filename = "/assets/Available_on_the_App_Store_Badge_#{I18n.locale}_135x40.svg"
     end
-    
+
     if request.xhr? # checks if AJAX request
       if @view_type == "grid" then
         render :partial => "grid_item", :collection => @listings, :as => :listing
@@ -95,7 +95,7 @@ class HomepageController < ApplicationController
       if @current_community.news_enabled?
         @news_items = @current_community.news_items.order("created_at DESC").limit(2)
         @news_item_count = @current_community.news_items.count
-      end  
+      end
     end
   end
 
@@ -108,7 +108,7 @@ class HomepageController < ApplicationController
       app_default
     end
   end
-  
+
   private
 
   # Return all params starting with `numeric_filter_`
@@ -147,29 +147,29 @@ class HomepageController < ApplicationController
       search_param == { custom_field_id: numeric_field.id, numeric_value: (numeric_field.min..numeric_field.max) }
     end
   end
-  
+
   # Extract correct type of array from query parameters
   def self.custom_dropdown_field_options_for_search(params)
     option_ids = []
     option_hash = {}
     array_for_search = []
-    
+
     params.each do |key, value|
       if key.to_s.match(/^filter_option/)
         option_ids << value
-      end  
+      end
     end
-    
+
     custom_dropdown_field_options = CustomFieldOption.find(option_ids)
     custom_dropdown_field_options.each do |cfo|
       option_hash[cfo.custom_field_id] ||= []
       option_hash[cfo.custom_field_id] << cfo.id
     end
-    
+
     option_hash.each do |key, value|
       array_for_search << value
     end
-    
+
     array_for_search
   end
 
@@ -182,5 +182,5 @@ class HomepageController < ApplicationController
       selectables.find { |selectable| selectable.id == param_value.to_i}
     end
   end
-  
+
 end

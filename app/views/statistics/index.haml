@@ -6,7 +6,7 @@
     %h2
       Community:
       = @current_community.name(I18n.locale)
-    
+
     - if @community_stats
       = render :partial => "statistics",  :locals => { :stats => @community_stats }
     - else

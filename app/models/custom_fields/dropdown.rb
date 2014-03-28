@@ -5,7 +5,7 @@ class Dropdown < CustomField
   # Dropdown < OptionField < CustomField
   # Checkbox < OptionField < CustomField
   has_many :options, :class_name => "CustomFieldOption", :dependent => :destroy, :foreign_key => 'custom_field_id'
-  
+
   validates_length_of :options, :minimum => 2
 
   def with_type(&block)
@@ -24,7 +24,7 @@ class Dropdown < CustomField
   def option_attributes=(attributes)
     new_option_ids = []
     # FIXME: Without this options.each loop Rails seems to sometimes confuse which option
-    # has which titles, which causes weird bugs. An example: if user first adds 2 new options 
+    # has which titles, which causes weird bugs. An example: if user first adds 2 new options
     # and then removes the second one of the existing options, the titles of the last one of the new
     # options will be deleted.
     options.each { |o| o }

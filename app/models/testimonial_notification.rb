@@ -1,7 +1,7 @@
 class TestimonialNotification < Notification
-  
+
   belongs_to :testimonial
-  
+
   validates_presence_of :testimonial_id
   validate :person_does_not_already_have_this_notification
 

@@ -1,12 +1,12 @@
 .payment-row.payment-text-row
   .payment-row-title-text.payment-row-text
     = row.title
-    
+
   .payment-row-sum-text.payment-row-text
     = row.sum.to_s + row.sum_symbol
-    
+
   .payment-row-vat-text.payment-row-text
     = row.vat.to_s + "%"
-    
+
   .payment-row-total-text.payment-row-text
     = row.sum_with_vat.to_s + row.sum_symbol

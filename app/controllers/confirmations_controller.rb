@@ -1,13 +1,13 @@
 class ConfirmationsController < Devise::ConfirmationsController
-  
+
   skip_filter :check_email_confirmation, :cannot_access_without_joining
   skip_filter :dashboard_only
   skip_filter :single_community_only
-  
+
   # This is directly copied from Devise::ConfirmationsController
   # to be able to handle better the situations of resending confirmation and
   # confirmation attemt with wrong token.
-  
+
   # POST /resource/confirmation
   def create
     email_param_present = params[:person] && params[:person][:email]
@@ -30,7 +30,7 @@ class ConfirmationsController < Devise::ConfirmationsController
         redirect_to :controller => "sessions", :action => "confirmation_pending" and return
       end
     end
-    
+
     # Resend confirmation
     if email_param_present
       email = Email.find_by_address(params[:person][:email])
@@ -38,37 +38,37 @@ class ConfirmationsController < Devise::ConfirmationsController
       flash[:notice] = t("sessions.confirmation_pending.check_your_email")
       redirect_to :controller => "sessions", :action => "confirmation_pending" and return
     end
-    
+
   end
-  
+
   # GET /resource/confirmation?confirmation_token=abcdef
   def show
     if params[:confirmation_token]
       #sometimes tests catch extra ' char with link, so remove it if there
-      params[:confirmation_token] = params[:confirmation_token].chomp("'") 
+      params[:confirmation_token] = params[:confirmation_token].chomp("'")
     end
-    
+
     #check if this confirmation code matches to additional emails
     if e = Email.find_by_confirmation_token(params[:confirmation_token])
       person = e.person
       e.confirmed_at = Time.now
       e.confirmation_token = nil
       e.save
-      
+
       # Accept pending community membership if needed
       if @current_community.approve_pending_membership(person, e.address)
         # If the pending membership was accepted now, it's time to send the welcome email, unless creating admin acocunt
         PersonMailer.welcome_email(person, @current_community).deliver unless person.has_admin_rights_in?(@current_community)
       end
       flash[:notice] = t("layouts.notifications.additional_email_confirmed")
-      
+
       if @current_user
         redirect_to root and return
       else
         redirect_to login_path and return
       end
     end
-    
+
     flash[:error] = t("layouts.notifications.confirmation_link_is_wrong_or_used")
     if @current_user
       if on_dashboard?
@@ -80,5 +80,5 @@ class ConfirmationsController < Devise::ConfirmationsController
       redirect_to :root
     end
   end
-  
+
 end

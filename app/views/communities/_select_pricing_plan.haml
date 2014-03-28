@@ -19,7 +19,7 @@
     %ul
       %li= t(".euros_per_month_premium", :price => (session[:community_category].nil? || ["university","company"].include?(session[:community_category]) ? "150" : "75")) + (session[:community_category] ? "" : "*")
       %li= t(".care_free_user_support")
-      %li= t(".max_members", :number => 500)   
+      %li= t(".max_members", :number => 500)
       %br/
     = link_to t(".create_your_tribe"), new_tribe_path(:pricing_plan => "premium"), :id => "premium_plan_link", :class => "pricing_plan_selection"
 .grid_4.omega
@@ -35,4 +35,3 @@
 .grid_12.alpha.omega
   - unless session[:community_category]
     %h2.new_tribe_bottom= "*" + t(".discounts_available_for_non_profits")
-      

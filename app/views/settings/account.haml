@@ -3,7 +3,7 @@
 
 - content_for :title_header do
   %h1= t("layouts.no_tribe.settings")
-  
+
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user, @current_community) }
 
 #person_settings_form.left-navi-section.settings-section.account-settings
@@ -14,7 +14,7 @@
       %b
         = username_label + ":"
       = @person.username
-  
+
   -# Email
   .account-settings-row
     = form_for @person, :html => {:id => 'email_form'} do |form|
@@ -26,19 +26,19 @@
       .account-settings-email-form
         .account-settings-email-row.visible-desktop
           .account-settings-email-row-address
-            %b 
+            %b
               = t(".email.address_title")
           .account-settings-email-row-delete
             &nbsp;
           .account-settings-email-row-send-notification
-            %b 
+            %b
               = t(".email.receive_notifications_title_desktop")
           .account-settings-email-row-confirmed
-            %b 
+            %b
               = t(".email.confirmation_title_desktop")
         .account-settings-email-content-rows#account-settings-email-content-rows
           - @person.emails.each_with_index do |email, index|
-            - unless email.new_record? 
+            - unless email.new_record?
               .account-settings-email-row{:class => ((index % 2 == 0) ? "account-settings-email-row-highlight" : "")}
                 .account-settings-email-row-address
                   = email.address
@@ -62,11 +62,11 @@
                   .settings-email-mobile-label-container
                     .settings-email-mobile-label
                       = check_box_tag "person[send_notifications][]", email.id, email.send_notifications?, :class => "account-settings-email-row-send-notification-checkbox"
-                    .hidden-desktop.settings-email-mobile-label.settings-email-mobile-label-right 
+                    .hidden-desktop.settings-email-mobile-label.settings-email-mobile-label-right
                       = t(".email.receive_notifications_title_mobile")
                 .account-settings-email-row-confirmed
                   .hidden-desktop.settings-email-mobile-label
-                    %b 
+                    %b
                       = t(".email.confirmation_title_mobile")
                   .settings-email-mobile-label.settings-email-mobile-label-right
                     - if email.confirmed_at
@@ -75,7 +75,7 @@
                     - else
                       = t(".email.status_pending")
                       %small= link_to(t(".email.confirmation_resend"), send_confirmation_person_email_path(@current_user, email), :method => :post, :class => "account-settings-email-row-resend-link")
-                      
+
         .account-settings-email-row.account-new-email-link
           = link_to t(".email.add_new_with_plus"), "#", id: "account-new-email"
         .account-settings-hidden-email-form
@@ -92,15 +92,13 @@
                 .settings-email-mobile-label= email_form.check_box :send_notifications, :disabled => "disabled"
                 .hidden-desktop.settings-email-mobile-label.settings-email-mobile-label-right
                   = t(".email.receive_notifications_new_title_mobile")
-                  
+
               .account-settings-email-row-confirmed
                 &nbsp;
-        
+
         = form.button t(".save"), :class => "send_button_account", :id => "email_submit"
     #account_email_form.email-form
-      
-        
-  
+
   -# Password
   .account-settings-row
     .ss-lock.account-settings-icon
@@ -114,7 +112,7 @@
         = form.password_field :password, :class => :text_field_account, :maxlength => "255", :placeholder => t(".new_password")
         = form.password_field :password2, :class => :text_field_account, :maxlength => "255", :placeholder => t(".confirm_new_password")
         = form.button t(".save"), :class => "send_button_account", :id => "password_submit"
-  
+
   -# Account removal
   .account-settings-row
     .ss-deleteuser.account-settings-icon
@@ -125,4 +123,3 @@
       = t(".instructions_to_delete_account", :contact_admin_link => link_to(t(".contact_admin"), new_user_feedback_path)).html_safe
     = form_tag url_for(:controller => :people, :action => :destroy, :id => @current_user.id), :method => :delete do
       = button_tag t('.delete_account_button'), :id => "delete_account_button", :data => {:confirm => t('.delete_account_confirmation_popup')}
-    

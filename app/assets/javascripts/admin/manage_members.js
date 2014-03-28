@@ -11,7 +11,7 @@ window.ST.initializeManageMembers = function() {
   }
 
   function createCheckboxAjaxRequest(selector, url, allowedKey, disallowedKey) {
-    var streams = $(selector).toArray().map(function(domElement) { 
+    var streams = $(selector).toArray().map(function(domElement) {
       return $(domElement).asEventStream("change").map(function(event){
         return elementToValueObject(event.target);
       }).toProperty(elementToValueObject(domElement));

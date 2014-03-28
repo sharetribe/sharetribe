@@ -1,5 +1,5 @@
 - content_for :title_header do
   %h1= t(".access_denied")
 
-#new-message-form.centered-section    
+#new-message-form.centered-section
   = t(".you_are_banned_in_this_community", :link_to_contact_page => link_to(t(".contact_page_link"), new_user_feedback_path )).html_safe

@@ -32,20 +32,20 @@ class ApplicationController < ActionController::Base
     if locale.blank? && @current_community
       locale = @current_community.default_locale
     end
-    
+
     if ENV['RAILS_ENV'] == 'test'
       I18n.locale = locale
     else
       I18n.locale = available_locales.collect { |l| l[1] }.include?(locale) ? locale : APP_CONFIG.default_locale
     end
-    
+
     # A hack to get the path where the user is
     # redirected after the locale is changed
     new_path = request.fullpath.clone
     new_path.slice!("/#{params[:locale]}")
     new_path.slice!(0,1) if new_path =~ /^\//
     @return_to = new_path
-    
+
     if @current_community
       @community_customization = @current_community.community_customizations.find_by_locale(I18n.locale)
     end
@@ -81,7 +81,7 @@ class ApplicationController < ActionController::Base
       @person = Person.find(params[:person_id] || params[:id])
       return if current_user?(@person)
     end
-    
+
     # This is reached only if not authorized
     flash[:error] = error_message
     redirect_to root and return
@@ -100,13 +100,13 @@ class ApplicationController < ActionController::Base
   def save_current_path
     session[:return_to_content] = request.fullpath
   end
-  
+
   # Before filter for actions that are only allowed on dashboard
   def dashboard_only
     return if controller_name.eql?("passwords")
     redirect_to root and return unless on_dashboard?
   end
-  
+
   # Before filter for actions that are only allowed on a single community
   def single_community_only
     return if controller_name.eql?("passwords")
@@ -126,7 +126,7 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-  
+
   # Before filter to get the current community
   def fetch_community
     # store the host of the current request (as sometimes needed in views)
@@ -136,7 +136,7 @@ class ApplicationController < ActionController::Base
       Community.find_by_domain(request.host)
     }
   end
-  
+
   # Before filter to check if current user is the member of this community
   # and if so, find the membership
   def fetch_community_membership
@@ -149,11 +149,11 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-  
+
   # Before filter to direct a logged-in non-member to join tribe form
   def cannot_access_without_joining
     if @current_user && ! (on_dashboard? || @current_community_membership || @current_user.is_admin?)
-      
+
       # Check if banned
       if @current_community && @current_user && @current_user.banned_at?(@current_community)
         flash.keep
@@ -162,14 +162,14 @@ class ApplicationController < ActionController::Base
 
       session[:invitation_code] = params[:code] if params[:code]
       flash.keep
-      redirect_to new_tribe_membership_path 
+      redirect_to new_tribe_membership_path
     end
   end
 
   def can_access_only_organizations_communities
     if (@current_community && @current_community.only_organizations) &&
       (@current_user && !@current_user.is_organization)
-      
+
       sign_out @current_user
       flash[:warning] = t("layouts.notifications.can_not_login_with_private_user")
       redirect_to login_path
@@ -237,7 +237,7 @@ class ApplicationController < ActionController::Base
         begin
           if (params["file"] || params["image"] || (params["listing_image"] && params["listing_image"]["image"] ||
               params["person"] && params["person"]["image"]) || (params["community"] && (params["community"]["cover_photo"] || params["community"]["logo"])) || (params["organization"] && params["organization"]["logo"]) )
-            # This case breaks image upload (reason unknown) if we use to_json, so we'll have to skip it 
+            # This case breaks image upload (reason unknown) if we use to_json, so we'll have to skip it
             e.parameters    = params.inspect.gsub('=>', ':')
           else  #normal case
             e.parameters    = request.filtered_parameters.to_json
@@ -260,7 +260,7 @@ class ApplicationController < ActionController::Base
       redirect_to root and return
     end
   end
-  
+
   # Does a push to Google Analytics on next page load
   # the reason to go via session is that the actions that cause events
   # often do a redirect.
@@ -268,7 +268,7 @@ class ApplicationController < ActionController::Base
   def report_analytics_event(params_array)
     session[:analytics_event] = params_array
   end
-  
+
   # if session has analytics event
   # report that and clean session
   def push_reported_analytics_event_to_js
@@ -281,7 +281,7 @@ class ApplicationController < ActionController::Base
   def fetch_translations
     WebTranslateIt.fetch_translations
   end
-  
+
   def check_auth_token
     if params[:auth]
       unless person_signed_in?  #if cookie and session already set up, ignore auth token
@@ -291,7 +291,7 @@ class ApplicationController < ActionController::Base
             # Token is valid, sign the person in
             sign_in(t.person)
             @current_user = t.person
-            t.times_used = t.times_used + 1 
+            t.times_used = t.times_used + 1
           else
             session[:expired_auth_token] = t.token #this can be used to allow unsubscribes even with old token
             #flash.now[:warning] = "auth_token_expired"
@@ -299,9 +299,9 @@ class ApplicationController < ActionController::Base
           t.save
         else
           #flash.now[:warning] = "auth_token_not_found"
-        end      
+        end
       end
-      
+
       #if url had auth param, remove it.
       path_without_auth_token = request.fullpath.gsub(/auth=[^\&]*(\&?)/,"")
       #if ending now with only a ? remove that too
@@ -309,14 +309,14 @@ class ApplicationController < ActionController::Base
       redirect_to path_without_auth_token
     end
   end
-  
+
   def force_ssl
     # If defined in the config, always redirect to https (unless already using https or coming through Sharetribe proxy)
     if APP_CONFIG.always_use_ssl
       redirect_to("https://#{request.host_with_port}#{request.fullpath}") unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy")) || request.fullpath == "/robots.txt"
     end
   end
-  
+
   def show_maintenance_page
     if APP_CONFIG.show_maintenance_page
       render :file => "public/errors/maintenance.html", :layout => false and return

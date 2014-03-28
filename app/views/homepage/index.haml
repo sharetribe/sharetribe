@@ -10,7 +10,7 @@
     %p= community_description.html_safe
     .search-form
       - if @current_community.private?
-        %a.inline-big-button{href: sign_up_path} 
+        %a.inline-big-button{href: sign_up_path}
           .content
             = t("layouts.application.connect")
       - else
@@ -18,7 +18,6 @@
   - with_small_cover_photo do
     .browse-view-search-form
       = render :partial => "search_bar"
-  
 
 - if @current_community.private? && show_big_cover_photo?
   - if @community_customization && @community_customization.private_community_homepage_content
@@ -27,7 +26,7 @@
     = t(".this_is_private_community")
 
 - else
-    
+
   .home-toolbar
 
     - if @transaction_type_menu_enabled || @category_menu_enabled
@@ -105,7 +104,7 @@
 
         / Filters
         = render :partial => "filters", :locals => { show_price_filter: @current_community.show_price_filter, show_custom_fields: @show_custom_fields, device: "desktop" }
-          
+
     - main_container_class = if @category_menu_enabled then "col-9" else "col-12" end
     %div{:class => main_container_class}
       - if @listings.total_entries > 0
@@ -130,4 +129,3 @@
             = t(".no_listings_with_your_search_criteria")
           - else
             = t(".no_listings_notification", :add_listing_link => link_to(t(".add_listing_link_text"), new_listing_path)).html_safe
-  

@@ -7,9 +7,8 @@
 .payment-row.payment-text-row
   .payment-row-title-text.payment-row-text
     = @payment.rows.first.title
-    
+
   .payment-row-total-text.payment-row-text
     = @payment.total_sum.to_s + @payment.rows.first.sum_symbol
-  
-  
+
 = link_to t("payments.form.continue_to_pay"), @payment_data[:payment_url]

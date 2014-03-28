@@ -11,11 +11,10 @@ class CustomFieldOption < ActiveRecord::Base
 
   validates_length_of :titles, :minimum => 1
 
-
   def title(locale="en")
     TranslationCache.new(self, :titles).translate(locale, :value)
   end
-  
+
   def title_attributes=(attributes)
     attributes.each do |locale, value|
       if title = titles.find_by_locale(locale)

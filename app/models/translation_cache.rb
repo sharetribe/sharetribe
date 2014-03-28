@@ -1,7 +1,7 @@
 # Simplifies access to translations that are stored in database. Implements also caching.
 #
 # Usage:
-# 
+#
 # If you have a `model` which has association to `model.translations` and you'd like to
 # translate the `action_button_value` to `fr`, do this:
 #

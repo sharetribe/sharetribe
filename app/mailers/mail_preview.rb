@@ -3,15 +3,15 @@
 class MailPreview < MailView
 
   #FactoryGirl.find_definitions
-  # Using factory girl here was problematic as we didn't want to store anything to DB and 
-  # some factories (person) was set up so that simple build without storing anything was not easy. 
-  
+  # Using factory girl here was problematic as we didn't want to store anything to DB and
+  # some factories (person) was set up so that simple build without storing anything was not easy.
+
   def new_payment
     # instead of mock data, show last suitable payment
     payment = CheckoutPayment.last
     throw "No CheckoutPayments in DB, can't show this mail template." if payment.nil?
     community = payment.community
-    
+
     PersonMailer.new_payment(payment, community)
   end
 
@@ -22,7 +22,7 @@ class MailPreview < MailView
     payment_gateway.define_singleton_method(:settings_url) { |*args| "http://marketplace.example.com/payment_settings_url" }
     community = Struct.new(:full_domain, :name, :full_name, :custom_email_from_address, :payment_gateway).new('http://marketplace.example.com', 'Example Marketplace', 'Example Marketplace', 'marketplace@example.com', payment_gateway)
     community.define_singleton_method(:payments_in_use?) { true }
-    
+
     PersonMailer.payment_settings_reminder(listing, recipient, community)
   end
 

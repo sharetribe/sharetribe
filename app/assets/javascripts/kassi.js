@@ -17,7 +17,7 @@ function add_validator_methods() {
 
   // If some element is required, it should be validated even if it's hidden
   $.validator.setDefaults({ ignore: [] });
-  
+
   $.validator.
     addMethod("accept",
       function(value, element, param) {
@@ -26,12 +26,12 @@ function add_validator_methods() {
     );
 
   $.validator.
-    addMethod( "valid_username", 
+    addMethod( "valid_username",
       function(value, element, param) {
         return value.match(new RegExp("(^[A-Za-z0-9_]*$)"));
       }
     );
-  
+
   $.validator.
     addMethod("regex",
       function(value, element, regexp) {
@@ -46,15 +46,15 @@ function add_validator_methods() {
         var re = new RegExp(/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,6})+)$/i);
         for (var i = 0; i < emails.length; i++) {
           if (!re.test($.trim(emails[i]))) {
-            return false; 
-          } 
+            return false;
+          }
         }
         return true;
       }
   );
 
-  $.validator.  
-    addMethod("min_date", 
+  $.validator.
+    addMethod("min_date",
       function(value, element, is_rideshare) {
         if (is_rideshare == "true") {
           return get_datetime_from_datetime_select() > new Date();
@@ -64,18 +64,18 @@ function add_validator_methods() {
        }
     );
 
-  $.validator.  
-    addMethod("max_date", 
+  $.validator.
+    addMethod("max_date",
       function(value, element) {
         var current_time = new Date();
         var maximum_date = new Date(new Date(current_time).setMonth(current_time.getMonth()+6));
         return get_date_from_date_select() < maximum_date;
        }
-    );  
+    );
 
   $.validator.
-    addMethod( "captcha", 
-      function(value, element, param) {    
+    addMethod( "captcha",
+      function(value, element, param) {
         challengeField = $("input#recaptcha_challenge_field").val();
         responseField = $("input#recaptcha_response_field").val();
 
@@ -95,23 +95,23 @@ function add_validator_methods() {
       }
     );
 
-  $.validator.  
-    addMethod("required_when_not_neutral_feedback", 
+  $.validator.
+    addMethod("required_when_not_neutral_feedback",
       function(value, element, param) {
         if (value == "") {
-          var radioButtonArray = new Array("1", "2", "4", "5"); 
+          var radioButtonArray = new Array("1", "2", "4", "5");
           for (var i = 0; i < radioButtonArray.length; i++) {
             if ($('#grade-' + radioButtonArray[i]).is(':checked')) {
               return false;
             }
           }
         }
-        return true; 
+        return true;
        }
     );
-  
+
   $.validator.
-    addMethod( "positive_integer", 
+    addMethod( "positive_integer",
       function(value, element, param) {
         var n = ~~Number(value);
         return String(n) === value && n >= 0;
@@ -119,18 +119,18 @@ function add_validator_methods() {
     );
 
   $.validator.
-    addMethod( "minimum_price_required", 
+    addMethod( "minimum_price_required",
       function(value, element, minimum_price) {
         if (minimum_price == "") {
           return true
         } else {
-          return minimum_price <= ST.paymentMath.parseFloatFromFieldValue(value)*100; 
+          return minimum_price <= ST.paymentMath.parseFloatFromFieldValue(value)*100;
         }
       }
     );
-    
+
   $.validator.
-    addMethod( "money", 
+    addMethod( "money",
       function(value, element, minimum_price) {
         var regex  = /^\d+((\.|\,)\d{0,2})?$/;
         return regex.test(value);
@@ -220,12 +220,12 @@ function initialize_defaults(locale) {
   $('.ajax-notification').click(function() {
     $('.ajax-notification').fadeOut('slow');
   });
-  $('#login-toggle-button').click(function() { 
+  $('#login-toggle-button').click(function() {
     $('#upper_person_login').focus();
   });
 }
 
-function initialize_network_defaults(required_message, email_message) {  
+function initialize_network_defaults(required_message, email_message) {
   enableSamePageScroll();
 }
 
@@ -322,7 +322,7 @@ function initialize_login_form(password_forgotten) {
     $("html, body").animate({ scrollTop: $(document).height() }, 1000);
     $('input.request_password').focus();
   }
-  $('#password_forgotten_link').click(function() { 
+  $('#password_forgotten_link').click(function() {
     $('#password_forgotten').slideToggle('fast');
     $("html, body").animate({ scrollTop: $(document).height() }, 1000);
     $('input.request_password').focus();
@@ -343,7 +343,7 @@ function initialize_payments_form(locale) {
     },
     onkeyup: false, //Only do validations when form focus changes
     submitHandler: function(form) {
-      disable_and_submit(form_id, form, "false", locale);  
+      disable_and_submit(form_id, form, "false", locale);
     }
   });
 }
@@ -354,7 +354,7 @@ function initialize_braintree_account_form(locale) {
     rules: {
       "braintree_account[first_name]": {required: true},
       "braintree_account[last_name]": {required: true},
-      "braintree_account[email]": {required: true, email: true},      
+      "braintree_account[email]": {required: true, email: true},
       "braintree_account[phone]": {required: true},
       "braintree_account[address_street_address]": {required: true},
       "braintree_account[address_postal_code]": {required: true, minlength: 2, maxlength: 6},
@@ -368,7 +368,7 @@ function initialize_braintree_account_form(locale) {
     },
     onkeyup: false, //Only do validations when form focus changes
     submitHandler: function(form) {
-      disable_and_submit(form_id, form, "false", locale);  
+      disable_and_submit(form_id, form, "false", locale);
     }
   });
 }
@@ -377,22 +377,22 @@ function initialize_braintree_account_form(locale) {
 function initialize_new_listing_form_selectors(locale, attribute_array, listing_form_menu_titles) {
   var ordered_attributes = ["category", "subcategory", "transaction_type"];
   var selected_attributes = {"category": null, "subcategory": null, "transaction_type": null};
-  
+
   // Reset the view to initial state
   update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
-  
+
   // Listener for attribute menu clicks
   $('.new-listing-form').find('a.select').click(
     function() {
       select_listing_form_menu_link($(this), locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
     }
   );
-  
+
 }
 
 // Called when a link is clicked in the listing form attribute menus
 function select_listing_form_menu_link(link, locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes) {
-  
+
   // Update selected attributes based on the selection that has been made
   if (link.hasClass('option')) {
     selected_attributes[link.parent().attr('name')] = link.attr('data-id');
@@ -421,14 +421,14 @@ function update_listing_form_view(locale, attribute_array, listing_form_menu_tit
   $('a.selected').addClass('hidden');
   $('a.option').addClass('hidden');
   $('.form-fields').html("");
-  
+
   // Display correct selected attributes
   $('.selected-group').each(function() {
     if (selected_attributes[$(this).attr('name')] != null) {
       $('a.selected[data-id=' + selected_attributes[$(this).attr('name')] + ']').removeClass('hidden');
     }
-  }); 
-  
+  });
+
   // Display correct attribute menus and their titles
   var title = "";
   if (should_show_menu_for("category", selected_attributes, attribute_array)) {
@@ -504,7 +504,7 @@ function attribute_selected(attribute, selected_attributes) {
 }
 
 // Return subcategories for given category.
-// Returns empty array if there are no subcategories. 
+// Returns empty array if there are no subcategories.
 function get_subcategories_for(category_id, category_array) {
   return _.chain(category_array)
     .filter(function(category) {
@@ -582,7 +582,7 @@ function has_transaction_type(selected_attributes, transaction_type_id, attribut
   });
 }
 
-// Ajax call to display listing form after categories and 
+// Ajax call to display listing form after categories and
 // transaction type have been selected
 function display_listing_form(selected_attributes, locale) {
   $('.form-fields').removeClass('hidden');
@@ -604,12 +604,12 @@ function initialize_new_listing_form(fileDefaultText,
   minimum_price,
   minimum_price_message,
   numeric_field_names) {
-  
+
   $('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true, zIndex: 1000000}); });
   $('input.title_text_field:first').focus();
-  
+
   form_id = (listing_id == "false") ? "#new_listing" : ("#edit_listing_" + listing_id);
-  
+
   // Is price required?
   var pr = null;
   if (price_required == "true") {
@@ -627,7 +627,7 @@ function initialize_new_listing_form(fileDefaultText,
 
     return rules;
   }, {});
-  
+
   ST.listingForm = $(form_id).validate({
     errorPlacement: function(error, element) {
       if (element.attr("name") == "listing[valid_until(1i)]") {
@@ -659,12 +659,12 @@ function initialize_new_listing_form(fileDefaultText,
       report_analytics_event(["listing", "created"]);
     }
   });
-  
+
   set_textarea_maxlength();
   auto_resize_text_areas("listing_description_textarea");
 }
 
-function initialize_send_message_form(locale, message_type) {  
+function initialize_send_message_form(locale, message_type) {
   auto_resize_text_areas("text_area");
   $('textarea').focus();
   var form_id = "#new_conversation";
@@ -677,7 +677,7 @@ function initialize_send_message_form(locale, message_type) {
       disable_and_submit(form_id, form, "false", locale);
       report_analytics_event(["message", "sent", message_type]);
     }
-  });  
+  });
 }
 
 function initialize_reply_form(locale) {
@@ -685,7 +685,7 @@ function initialize_reply_form(locale) {
   $('textarea').focus();
   prepare_ajax_form(
     "#new_message",
-    locale, 
+    locale,
     {"message[content]": {required: true, minlength: 1}}
   );
 }
@@ -696,10 +696,10 @@ function initialize_listing_view(locale) {
   $('textarea').focus();
   prepare_ajax_form(
     "#new_comment",
-    locale, 
+    locale,
     {"comment[content]": {required: true, minlength: 1}}
   );
-  
+
   $('#send_comment_button').click(function() {
     report_analytics_event(["listing", "commented"]);
   });
@@ -708,7 +708,7 @@ function initialize_listing_view(locale) {
 function initialize_accept_transaction_form(commission_percentage, service_fee_vat, form_type, form_id, minimum_price, minimum_price_message) {
 	auto_resize_text_areas("text_area");
 	style_action_selectors();
-	
+
 	if (commission_percentage != null) {
 	  if (form_type === "simple") {
 	    $(".trigger-focusout").keyup(function(value) {
@@ -728,7 +728,7 @@ function initialize_accept_transaction_form(commission_percentage, service_fee_v
 	      update_complex_form_price_fields(commission_percentage, service_fee_vat);
 	    });
 	  }
-	  
+
   }
 }
 
@@ -736,7 +736,7 @@ function updateSellerGetsValue(priceInputSelector, youWillGetSelector, currencyS
   $display = $(youWillGetSelector);
   $input = $(priceInputSelector);
   $currency = $(currencySelector);
-  
+
   function updateYouWillGet() {
     var sum = ST.paymentMath.parseFloatFromFieldValue($input.val());
     var serviceFee = ST.paymentMath.serviceFee(sum, commissionPercentage);
@@ -745,7 +745,7 @@ function updateSellerGetsValue(priceInputSelector, youWillGetSelector, currencyS
 
     $display.text([ST.paymentMath.displayMoney(sellerGets), currency].join(" "));
   }
-  
+
   $input.keyup(updateYouWillGet);
   $currency.change(updateYouWillGet);
 
@@ -769,16 +769,16 @@ function update_complex_form_price_fields(commission_percentage, service_fee_vat
 
     var vat = parseInt($(".payment-row-vat-field.row" + i).val());
     if (! vat > 0) { vat = 0;}
-    
+
     row_sum = sum + (sum * vat / 100);
     $(".total-label.row" + i).text(row_sum.toFixed(2) + '\u20AC');
     total_sum += sum;
     total_sum_with_vat += row_sum;
   }
-  
+
   var service_fee_sum = total_sum*commission_percentage/100;
   $("#service-fee-sum").text(service_fee_sum.toFixed(2) + '\u20AC');
-  
+
   service_fee_sum_with_vat = service_fee_sum + (service_fee_sum * service_fee_vat / 100);
   $("#service-fee-total").text(service_fee_sum_with_vat.toFixed(2) + '\u20AC');
   $("#total").text((total_sum_with_vat + service_fee_sum_with_vat).toFixed(2) + '\u20AC');
@@ -798,27 +798,27 @@ function style_action_selectors() {
           function() {
             var action = $(this).attr('id');
             $(this).siblings().removeClass('accept').removeClass('reject').removeClass('confirm').removeClass('cancel');
-            
+
             // Show or hide description text
             $(".confirm-description").addClass('hidden');
             $(".cancel-description").addClass('hidden');
             $("." + action + "-description").removeClass('hidden');
-            
+
             // Show or hide price field
             $(".conversation-price").addClass('hidden');
             $("." + action +  "-price").removeClass('hidden');
-            
+
             // Show or hide payout details missing information
             $(".hidden-accept-form").addClass('hidden');
             $(".visible-when-" + action).removeClass('hidden');
-            
+
             $(this).addClass(action);
             $(".conversation-action").find('input:radio[id=' + $(this).attr('name') + ']').attr('checked', true);
             $("#conversation_message_attributes_action").val(action);
             $("#conversation_status").val(action + 'ed');
           }
         );
-      }  
+      }
     );
   });
 }
@@ -835,11 +835,11 @@ function initialize_give_feedback_form(locale, grade_error_message, text_error_m
       }  else {
         error.insertAfter(element);
       }
-    },  
+    },
     rules: {
       "testimonial[grade]": {required: true},
       "testimonial[text]": {required: true}
-    }, 
+    },
     messages: {
       "testimonial[grade]": { required: grade_error_message }
     },
@@ -862,21 +862,19 @@ function style_grade_selectors() {
             $(".feedback-grade").find('input:radio[id=' + $(this).attr('name') + ']').attr('checked', true);
           }
         );
-      }  
+      }
     );
   });
 }
 
-
-
 function initialize_signup_form(locale, username_in_use_message, invalid_username_message, email_in_use_message, captcha_message, invalid_invitation_code_message, name_required, invitation_required) {
   $('#help_invitation_code_link').click(function(link) {
     //link.preventDefault();
-    $('#help_invitation_code').lightbox_me({centered: true, zIndex: 1000000 }); 
+    $('#help_invitation_code').lightbox_me({centered: true, zIndex: 1000000 });
   });
   $('#terms_link').click(function(link) {
     link.preventDefault();
-    $('#terms').lightbox_me({ centered: true, zIndex: 1000000 }); 
+    $('#terms').lightbox_me({ centered: true, zIndex: 1000000 });
   });
   var form_id = "#new_person";
   //name_required = (name_required == 1) ? true : false
@@ -888,7 +886,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
         error.appendTo(element.parent().parent().parent().parent().parent().parent().parent().parent().parent());
       } else {
         error.insertAfter(element);
-      }  
+      }
     },
     rules: {
       "person[username]": {required: true, minlength: 3, maxlength: 20, valid_username: true, remote: "/people/check_username_availability"},
@@ -912,23 +910,22 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
       disable_and_submit(form_id, form, "false", locale);
       report_analytics_event(['user', "signed up", "normal form"]);
     }
-  });  
+  });
 }
 
 function initialize_terms_form() {
   $('#terms_link').click(function(link) {
     link.preventDefault();
-    $('#terms').lightbox_me({ centered: true, zIndex: 1000000 }); 
+    $('#terms').lightbox_me({ centered: true, zIndex: 1000000 });
   });
 }
 
 function initialize_payment_gateway_terms_lightbox(gateway_name) {
   $('#' + gateway_name + '_terms_link').click(function(link) {
     link.preventDefault();
-    $('#' + gateway_name + '_terms').lightbox_me({ centered: true, zIndex: 1000001 }); 
+    $('#' + gateway_name + '_terms').lightbox_me({ centered: true, zIndex: 1000001 });
   });
 }
-
 
 function initialize_update_profile_info_form(locale, person_id, name_required) {
   auto_resize_text_areas("update_profile_description_text_area");
@@ -949,7 +946,7 @@ function initialize_update_profile_info_form(locale, person_id, name_required) {
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
     }
-  });  
+  });
 }
 
 function initialize_update_notification_settings_form(locale, person_id) {
@@ -958,7 +955,7 @@ function initialize_update_notification_settings_form(locale, person_id) {
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
     }
-  });  
+  });
 }
 
 function initialize_update_account_info_form(locale, change_text, cancel_text, email_in_use_message, one_email_must_receive_notifications_message) {
@@ -1021,7 +1018,7 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
     submitHandler: function(form) {
       disable_and_submit(password_form_id, form, "false", locale);
     }
-  });  
+  });
 }
 
 function initialize_reset_password_form() {
@@ -1037,11 +1034,11 @@ function initialize_reset_password_form() {
     submitHandler: function(form) {
       disable_and_submit(password_form_id, form, "false", locale);
     }
-  });  
+  });
 }
 
 function initialize_profile_view(badges, profile_id, show_closed) {
-  $('#load-more-listings').click(function() { 
+  $('#load-more-listings').click(function() {
     request_path = profile_id + "/listings";
     if (show_closed == true) {
       request_path += "?show_closed=true";
@@ -1051,24 +1048,23 @@ function initialize_profile_view(badges, profile_id, show_closed) {
     });
     return false;
   });
-  
-  $('#load-more-testimonials').click(function() { 
+
+  $('#load-more-testimonials').click(function() {
     request_path = profile_id + "/testimonials";
     $.get(request_path, {per_page: 200, page: 1}, function(data) {
       $('#profile-testimonials-list').html(data);
     });
     return false;
   });
-  
-  
+
   // The code below is not used in early 3.0 version, but part of it will probably be used again soon, so kept here.
-  $('#description_preview_link').click(function() { 
+  $('#description_preview_link').click(function() {
     $('#profile_description_preview').hide();
-    $('#profile_description_full').show(); 
+    $('#profile_description_full').show();
   });
-  $('#description_full_link').click(function() { 
+  $('#description_full_link').click(function() {
     $('#profile_description_preview').show();
-    $('#profile_description_full').hide(); 
+    $('#profile_description_full').hide();
   });
   $('#badges_description_link').click(function() { $('#badges_description').lightbox_me({centered: true}); });
   $('#trustcloud_description_link').click(function() { $('#trustcloud_description').lightbox_me({centered: true}); });
@@ -1084,9 +1080,9 @@ function initialize_homepage_news_items(news_item_ids) {
   for (var i = 0; i < news_item_ids.length; i++) {
     $('#news_item_' + news_item_ids[i] + '_content').click(function(news_item) {
       $('#' + news_item.currentTarget.id + '_div_preview').hide();
-      $('#' + news_item.currentTarget.id + '_div_full').show(); 
+      $('#' + news_item.currentTarget.id + '_div_full').show();
     });
-    $('#news_item_' + news_item_ids[i] + '_content_div').click(function(news_item) { 
+    $('#news_item_' + news_item_ids[i] + '_content_div').click(function(news_item) {
       $('#' + news_item.currentTarget.id + '_preview').show();
       $('#' + news_item.currentTarget.id + '_full').hide();
     });
@@ -1131,7 +1127,6 @@ function initialize_invitation_form(locale, email_error_message) {
   });
 }
 
-
 function initialize_private_community_defaults(locale, feedback_default_text) {
   add_validator_methods();
   translate_validation_messages(locale);
@@ -1142,8 +1137,8 @@ function initialize_private_community_defaults(locale, feedback_default_text) {
 }
 
 function initialize_private_community_homepage(username_or_email_default_text, password_default_text) {
-  $('#password_forgotten_link').click(function() { 
-    $('#password_forgotten').slideToggle('fast'); 
+  $('#password_forgotten_link').click(function() {
+    $('#password_forgotten').slideToggle('fast');
     $('input.request_password').focus();
   });
   $('#person_login').watermark(username_or_email_default_text, {className: 'default_text'});
@@ -1291,11 +1286,11 @@ function initialize_admin_category_form_view(locale, form_id) {
 
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {
   $('#help_invitation_code_link').click(function(link) {
-    $('#help_invitation_code').lightbox_me({centered: true, zIndex: 1000000 }); 
+    $('#help_invitation_code').lightbox_me({centered: true, zIndex: 1000000 });
   });
   $('#terms_link').click(function(link) {
     link.preventDefault();
-    $('#terms').lightbox_me({ centered: true, zIndex: 1000000 }); 
+    $('#terms').lightbox_me({ centered: true, zIndex: 1000000 });
   });
   $('#new_community_membership').validate({
     errorPlacement: function(error, element) {
@@ -1314,7 +1309,7 @@ function initialize_new_community_membership_form(email_invalid_message, invitat
       "community_membership[email]": { remote: email_invalid_message },
       "invitation_code": { remote: invalid_invitation_code_message }
     },
-  });    
+  });
 }
 
 function initialize_braintree_payment_form(locale, beforeSubmit) {
@@ -1347,14 +1342,13 @@ function set_textarea_maxlength() {
       if (maxlength && maxlength > 0) {
         return ( self.val().length < maxlength
                  || $.inArray(code, ignore) !== -1 );
- 
+
       }
     })
     .live('keydown', function(event) {
       $.data(this, 'keycode', event.keyCode || event.which);
     });
 }
-
 
 function get_date_from_date_select() {
   year = $('#listing_valid_until_1i').val();
@@ -1382,7 +1376,7 @@ function get_datetime_from_datetime_select() {
 //   var top = (screen.height/2)-(height/2);
 //   return window.open(url, name, "menubar=no,toolbar=no,status=no,width="+width+",height="+height+",toolbar=no,left="+left+",top="+top);
 // }
-// 
+//
 // $("a.popup").click(function(e) {
 //   alert("HOE");
 //   popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
@@ -1400,11 +1394,11 @@ function closeAllToggleMenus() {
 }
 
 function toggleDropdown(event_target) {
-  
+
   //Gets the target toggleable menu from the link's data-attribute
   var target = event_target.attr('data-toggle');
   var logo_class = event_target.attr('data-logo_class');
-  
+
   if ($(target).hasClass('hidden')) {
     // Opens the target toggle menu
     closeAllToggleMenus();
@@ -1426,20 +1420,20 @@ function toggleDropdown(event_target) {
       event_target.removeClass(logo_class);
     }
   }
-  
+
 }
 
 $(function(){
-  
+
   $('.toggle').click( function(event){
     event.stopPropagation();
     toggleDropdown($(this));
   });
-  
+
   $('.toggle-menu').click( function(event){
     event.stopPropagation();
   });
-  
+
   $('.toggle-menu-feed-filters').click( function(event){
     event.stopPropagation();
   });
@@ -1448,7 +1442,7 @@ $(function(){
   $(document).click( function(){
     closeAllToggleMenus();
   });
-  
+
 });
 
 function enableSamePageScroll() {
@@ -1460,7 +1454,7 @@ function enableSamePageScroll() {
   }
   var locationPath = filterPath(location.pathname);
   var scrollElem = scrollableElement('html', 'body');
- 
+
   $('a[href*=#]').each(function() {
     var thisPath = filterPath(this.pathname) || locationPath;
     if (  locationPath == thisPath
@@ -1478,7 +1472,7 @@ function enableSamePageScroll() {
       }
     }
   });
- 
+
   // use the first element that is "scrollable"
   function scrollableElement(els) {
     for (var i = 0, argLength = arguments.length; i <argLength; i++) {

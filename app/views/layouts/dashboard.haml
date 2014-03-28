@@ -1,7 +1,7 @@
 = render :partial => 'layouts/head'
 
 %body
-  
+
   %header.global-header.network-header
     .wrapper
       .left-side
@@ -14,16 +14,15 @@
           %li= link_to "contact", "mailto:info@sharetribe.com", :class => "global-navi-right"
       .top-menu-toggle.toggle.hidden-tablet{data: {toggle: '.top-menu'}}
         .ss-rows
-    
-    
+
     %nav.top-menu.toggle-menu.hidden
       = link_to "about", "#about"
       = link_to "how it works", "#how-it-works"
       = link_to "blog", "http://blog.sharetribe.com/"
       = link_to "contact", "mailto:info@sharetribe.com"
-    
+
   = yield
-  
+
   %footer
     .wrapper
       .left-side

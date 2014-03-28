@@ -1,5 +1,5 @@
 module SettingsHelper
-  
+
   # Class is selected if conversation type is currently selected
   def get_settings_tab_class(tab_name)
     current_tab_name = (action_name.eql?("show")) ? "profile" : action_name
@@ -30,7 +30,7 @@ module SettingsHelper
       # Checkout
 
       block.call([
-        t("organizations.form.merhcant_registration_done"), 
+        t("organizations.form.merhcant_registration_done"),
         t("organizations.form.merhcant_registration_done_instructions").html_safe],
         :id => "payment-help-checkout-exists")
     else
@@ -77,6 +77,6 @@ module SettingsHelper
 
   def with_submit_button(community, person, &block)
     block.call unless registered_checkout?(community, person)
-  end  
-  
+  end
+
 end

@@ -3,7 +3,7 @@
 .grid_6.omega
   #create_news_item_link
     = link_to t(".create_news_item"), new_admin_news_item_path(:type => "news")
-.clear  
+.clear
 
 #news_items_admin_view_list
   - if @news_items.size > 0

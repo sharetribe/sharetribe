@@ -54,7 +54,7 @@ window.ST.imageUploader = function(listings, opts) {
     function s3uploadDone(data) {
       var path = opts.s3.uploadPath + data.formData.key;
       var filename = data.files[0].name;
-      
+
       $.ajax({
         type: "PUT",
         url: opts.saveFromUrl,

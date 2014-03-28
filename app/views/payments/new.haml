@@ -1,7 +1,7 @@
 .centered-section-wide.payment-form
   - payment_receiver = @conversation.other_party(@current_user)
   %h2= t(".new_payment")
-  %p 
+  %p
     = t(".payment_receiver")
 
     = "#{link_to payment_receiver.name, payment_receiver}".html_safe

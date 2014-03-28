@@ -22,18 +22,15 @@
     %br/
   - if facebook_connect_in_use?
     = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".log_in_with_your_facebook_account") }
-    %p= t(".or_sign_up_with_your_username")  
-      
+    %p= t(".or_sign_up_with_your_username")
 
-  
-  
   = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do
     %label{:for => "login"}
       = username_or_email_label + ":"
     = text_field_tag "person[login]", nil, :value => session[:form_login], :class => :text_field, :id => :main_person_login, :autofocus => true
     %label{:for => "password"}
       = t('common.password') + ":"
-    = password_field_tag "person[password]", nil, :class => :text_field, :id => :main_person_password 
+    = password_field_tag "person[password]", nil, :class => :text_field, :id => :main_person_password
     - if @current_community
       = hidden_field_tag :community, @current_community.domain
     = button_tag(t('.login'), :class => "send_button", :id => :main_log_in_button)
@@ -43,8 +40,6 @@
         %br/
       - if @current_community # TODO: remove this temporary disabling of pwd forgotten, when recovery works in Dashboard too
         = link_to t('.i_forgot_my_password'), "#", :id => "password_forgotten_link", :class => "green_part_link"
-  
+
 #password_forgotten
   = render :partial => "sessions/password_forgotten"
-
-

@@ -8,14 +8,14 @@
   %p= t(".welcome_email_content_description", :send_test_message_link => t(".send_test_message"))
   %a{:id => "edit_link", :href => "/editor" + request.path, :data => { :save_url => mercury_update_path }}
     .icon-with-text-container
-      = icon_tag("edit", ["icon-part"]) 
+      = icon_tag("edit", ["icon-part"])
       .text-part= t(".edit_message")
-  
+
   %a{:href => test_welcome_email_admin_community_path(@community)}
     .icon-with-text-container
-      = icon_tag("mail", ["icon-part"]) 
+      = icon_tag("mail", ["icon-part"])
       .text-part= t(".send_test_message")
-  %p ***  
+  %p ***
   #welcome_email_content{:data => {:mercury => "full"}}
     - if @community_customization && @community_customization.welcome_email_content
       = @community_customization.welcome_email_content.html_safe
