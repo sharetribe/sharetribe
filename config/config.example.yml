@@ -1,23 +1,23 @@
 default: &default_settings
-  
+
   # Fill here the domain where you will be running Sharetribe.
   # If you are running on localhost, you can write here "lvh.me:3000" (which redirects to localhost port 3000)
   # The community subdomains will be added to this top domain.
   # NOTE: Do not include http(s) here, or subdomains, just the top level domain, like "sharetribe.com" for example
   domain: "lvh.me:3000"
-  
+
   # If you want to make logins work across different subdomains you should put here the domain where you are running Sharetribe.
   # practically in most cases the same value as in "domain:"
-  # The session cookies will apply for the whole domain. If this is not needed you can leave this empty. 
+  # The session cookies will apply for the whole domain. If this is not needed you can leave this empty.
   # If you use domain aliases e.g. sharetribe.eu & sharetribe.cl, leave this empty.
   # NOTE: Do not include http(s) here, or subdomains, just the top level domain, like "sharetribe.com" for example
   session_domain:
-  
+
   # Login url. This can be a separate address for loggin in. For example
   # a subdomain with https. It's recommended to use https here, so passwords
   # are submited in encrypted form. e.g. "https://login.sharetribe.com"
   # If this is empty, will use the same domain for login
-  login_domain: 
+  login_domain:
 
   # Sharetribe can allow accessing data from external applications by RESTful API
   # You can enable the API by setting this value true
@@ -26,7 +26,7 @@ default: &default_settings
   # You can use Amazong S3 to store listing and profile images
   # If you leave following empty, the images will be stored in local file system
   # NOTE: in Heroku you can't store files in local system, so S3 should be used
-  
+
   # Default bucket
   s3_bucket_name:
 
@@ -60,21 +60,21 @@ default: &default_settings
   # if locales are listed in the community specific settings in db. The first in that list is used as default for that community.
   # This setting here is the server wide default, and it's used if no community specific setting is found.
   default_locale: en
-  
+
   # Facebook Connect
   # If you want to use Facebook connect, enter the credentials here
   fb_connect_id:
   fb_connect_secret:
-  
+
   # reCAPTChA is used to avoid bots registering accounts
   # You need to register your domain at https://www.google.com/recaptcha
   # to get the keys
   use_recaptcha: false
   recaptcha_public_key: 'enter_your_own_key_here'
-  recaptcha_private_key: 'enter_your_own_key_here'  
+  recaptcha_private_key: 'enter_your_own_key_here'
 
   # You can use Airbrake to track errors if you want.
-  # You need to register an account and get an API key from airbrake.io 
+  # You need to register an account and get an API key from airbrake.io
   use_airbrake: false
   airbrake_api_key: 'your_own_api_key_here'
 
@@ -85,10 +85,10 @@ default: &default_settings
   ressi_url: "http://cos.alpha.sizl.org/ressi"
   ressi_timeout: 5
   ressi_upload_hour: 1
-  
+
   # Mail delivery method for mails sent by Sharetribe
   # possible values for delivery method are: sendmail, smtp or postmark
-  # The default is sendmail, it uses the system sendmail command and 
+  # The default is sendmail, it uses the system sendmail command and
   # doesn't require other configuration if sendmail command works
   # If using SMTP or postmark, uncomment corresponding lines and enter your information.
   # the SMPT lines below contain example of using Gmail, but you can use any SMTP
@@ -106,21 +106,21 @@ default: &default_settings
 
   # This will be the from field in the mails sent from Sharetribe
   sharetribe_mail_from_address: "your-team@example.com"
-  
+
   # The address where the notifications of feedbacks from Sharetribe UI are sent
   feedback_mailer_recipients:  'admins@example.com'
-  
+
   # Google Analytics can be used to track traffic on the site
   # If set to true you need to obtain your own API key for analytics
   # and enter it below
   use_google_analytics: false
   google_analytics_key: "enter_your_key_here"
-  
+
   # KISS metrics can be used to track many events on the site
   use_kissmetrics: false
   kissmetrics_url: '//doug1izaerwt3.cloudfront.net/INSERT_YOUR_API_KEY_HERE.1.js'
-  
-  # Funneld can be used to track social media activity on the site. 
+
+  # Funneld can be used to track social media activity on the site.
   use_funneld: false
   funneld_key: "enter_your_key_here"
 
@@ -133,72 +133,64 @@ default: &default_settings
   # CAS is a centralized authentication system, it is completely optional
   # If not needed leave to false
   use_CAS: false
-  
+
   # Bit.ly url shortener
   # At some places urls can be made shorter if you add your bit.ly login and apikey here:
   # if you leave these empty, urls will be kept long
-  bitly_username: 
-  bitly_key: 
-  
+  bitly_username:
+  bitly_key:
+
   # If you want to force Sharetribe to show mobile view even when accessed with normal desktop browser, set this to true
   # Useful only for mobile development
   force_mobile_ui: false
-  
+
   # If you want to fetch the newest translate files from Web Translate It on every page load, set this to true
   # This makes sense only in a server dedicated to translation testing.
   # To make this work you also need config/translation.yml with wti credentials.
   update_translations_on_every_page_load: false
-  
+
   # If you have migrated from using ASI to use standalone Sharetribe,
   # You should set this to true to use ASI based password encryption
-  use_asi_encryptor: 
+  use_asi_encryptor:
 
 
   # If you need for some reason change the session key used in cookies, you can do it here.
   # Normally no need to touch this.
   session_key: _sharetribe_session
-  
+
   # Global Service name
   # If you want to call this service with different name on this server, you can specify it here
   # This can also be set community specific in community.settings["service_name"]
   global_service_name: Sharetribe
-  
+
   # Icon set
-  # By default Sharetribe uses the Font Awesome Icon Pack 
+  # By default Sharetribe uses the Font Awesome Icon Pack
   # http://fortawesome.github.io/Font-Awesome/
   # If you want to use another icon set than "font-awesome", you can specify it here
   # Currently only othe option is "ss-pika" (a proprietary icon set)
   icon_pack: "font-awesome"
-  
+
   # The default consent (terms of use) all the communities will use.
   # It's just a string that tells the version of the consent.
   consent: "SHARETRIBE1.0"
-  
+
   # If you need to turn off the service for a while (so that people can't modify data)
   # you can show the maintenance page on every pageload by turning on the following
   show_maintenance_page: false
-  
+
   # If you want to run this server in a preproduction mode set this to true
   # I preproduction mode, e.g. alternative url is used for custom CSS files
   preproduction: false
-  
-  # If an integration to a merchant registration API is needed, fill the details here
-  # The mode needs to be "production" for real accounts and "test" for test accounts
-  # Other values result the API call being omitted and stub response used
-  # If you don't know what this means, just leave empty
-  merchant_api_user_id: 
-  merchant_api_password:
-  merchant_registration_mode:
-  
+
   # Logger type
   # the "normal" value is good by default. If you are using Heroku + Unicorn, you'll need to set this to "stdout"
   logger_type: "normal"
-  
+
   # Below it is possible to specify different settings for different
-  # environments. If you are not developing or testing Sharetribe, you 
+  # environments. If you are not developing or testing Sharetribe, you
   # don't need to change those
   # ----------------------------------------------------------------
-  
+
   # If there's a tax related to payment service charge (e.g. VAT) mark the percentage here
   service_fee_tax_percentage: 24
 
@@ -224,23 +216,23 @@ staging:
 
 development:
   <<: *default_settings
-  
+
   # Usually it's easier to run development without SSL
   always_use_ssl: false
-  
+
 test:
   <<: *default_settings
   # The locale should be "en" for test environment
   # even if you change it for others
   default_locale: en
-  
+
   # captcha is expected to be off when running tests
   use_recaptcha: false
-  
+
 
   # The tests currently work only with ASI encryptor
   use_asi_encryptor: true
-  
+
   # The domain should be set to lvh.me:9887 (which redirects to localhost)
   # to be able to run the tests with subdomains.
   domain: lvh.me:9887
@@ -251,32 +243,30 @@ test:
   #127.0.0.1       test.lvh.me
   #127.0.0.1       test2.lvh.me
 
-  
-  
-    
+
+
+
   # The login domain should be empty for tests
   # Note above, if running tests disconnected from the internet
-  login_domain: 
+  login_domain:
   #"http://login.lvh.me:9887"
-  
+
   # Facebook Connect dummy credentials for tests
   fb_connect_id: "123456789012345"
   fb_connect_secret: "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456"
-  
+
   # normally no point of submiting events from tests to Kissmetrics
   use_kissmetrics: false
-  
+
   # Keep api available always for tests to be run
   api_enabled: true
 
-  # don't use S3 in tests. (this is the default to avoid 
+  # don't use S3 in tests. (this is the default to avoid
   # anyone losing money for paying for the hosting of test images)
-  s3_bucket_name: 
-  aws_access_key_id: 
+  s3_bucket_name:
+  aws_access_key_id:
   aws_secret_access_key:
-    
+
   # easier to run tests without SSL
   always_use_ssl: false
 
-  # never create merchant accounts in tests
-  merchant_registration_mode: stub
