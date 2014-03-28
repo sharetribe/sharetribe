@@ -1039,7 +1039,7 @@ fr:
       select_language: "Choisir la langue"
     infos:
       about: "A propos"
-      how_to_use: Aide
+      how_to_use: "Comment ça marche"
       info_about_kassi: "Informations à propos de %{service_name}"
       news: Actualités
       register_details: "Vie privée"
@@ -1250,7 +1250,8 @@ fr:
         this_may_take_a_while: "(cela peut prendre un moment)"
         percentage_loaded: "%{percentage} %"
         uploading_failed: "Erreur lors de l'envoi d'image"
-        accepted_formats: "L'image doit être dans un fomat GIF, JPG ou PNG."
+        file_too_large: "Le fichier est trop volumineux"
+        accepted_formats: "L'image doit être au fomat GIF, JPG ou PNG."
       location:
         location: Localisation
       price:
