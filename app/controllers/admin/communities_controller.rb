@@ -84,13 +84,16 @@ class Admin::CommunitiesController < ApplicationController
     update(@community,
            params[:community],
            edit_look_and_feel_admin_community_path(@community),
-           :edit_look_and_feel) { 
+           :edit_look_and_feel) {
       CommunityStylesheetCompiler.compile(@community) if regenerate_css?(params, @community)
     }
   end
 
   def update_integrations
     @community = Community.find(params[:id])
+    params[:community][:twitter_handle] = nil if params[:community][:twitter_handle] == ""
+    params[:community][:google_analytics_key] = nil if params[:community][:twitter_handle] == ""
+
     update(@community,
             params[:community],
             integrations_admin_community_path(@community),

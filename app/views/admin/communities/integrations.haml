@@ -1,3 +1,6 @@
+- content_for :javascript do
+  initialize_admin_integrations_form("#{I18n.locale}", "#{@community.id}", "#{t('.invalid_twitter_handle')}");
+
 - content_for :title_header do
   %h1= t("layouts.admin.admin")
 
@@ -10,10 +13,14 @@
       = form.label :twitter_handle, t(".twitter_handle"), :class => "input"
     .row
       .col-6
-        = render :partial => "layouts/info_text", :locals => { :text => t(".twitter_handle_info_text") } 
+        = render :partial => "layouts/info_text", :locals => { :text => t(".twitter_handle_info_text") }
       .col-6
-        .twitter
-          = form.text_field :twitter_handle, :maxlength => "15", :class => "text_field", :placeholder => t(".twitter_handle_placeholder")
+        = form.text_field :twitter_handle, :maxlength => "15", :class => "text_field", :placeholder => t(".twitter_handle_placeholder")
+        -if @community.errors.any?
+          %ul
+            -@community.errors.full_messages.each do |msg|
+              %li=msg
+
     .row
       = form.label :google_analytics_key, t(".google_analytics_key"), :class => "input"
       .row

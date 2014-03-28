@@ -108,13 +108,14 @@ class Community < ActiveRecord::Base
 
   validates_attachment_content_type :small_cover_photo,
                                     :content_type => ["image/jpeg",
-                                                      "image/png", 
-                                                      "image/gif", 
-                                                      "image/pjpeg", 
+                                                      "image/png",
+                                                      "image/gif",
+                                                      "image/pjpeg",
                                                       "image/x-png"]
-  
+  validates_format_of :twitter_handle, with: /^[A-Za-z0-9_]{1,15}$/, allow_nil: true
+
   attr_accessor :terms
-  
+
   def name(locale=nil)
     if locale
       cc = community_customizations.find_by_locale(locale)
