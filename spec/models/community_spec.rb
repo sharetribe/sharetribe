@@ -33,5 +33,16 @@ describe Community do
     @community.domain = "´?€"
     @community.should_not be_valid
   end
+
+  it "validates twitter handle" do
+    @community.twitter_handle = "abcdefghijkl"
+    @community.should be_valid
+    @community.twitter_handle = "abcdefghijklmnopqr"
+    @community.should_not be_valid
+    @community.twitter_handle = "@abcd"
+    @community.should_not be_valid
+    @community.twitter_handle = "AbCd1"
+    @community.should be_valid
+  end
   
 end

@@ -121,10 +121,13 @@ Kassi::Application.routes.draw do
         member do
           get :edit_details
           get :edit_look_and_feel
+          put :edit_look_and_feel, to: 'communities#update_look_and_feel'
           get :edit_welcome_email
           get :test_welcome_email
           get :manage_members
           get :settings
+          get :integrations
+          put :integrations, to: 'communities#update_integrations'
           put :update_settings
           post :posting_allowed
           post :promote_admin
