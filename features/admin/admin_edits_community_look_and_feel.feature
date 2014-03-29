@@ -15,14 +15,14 @@ Feature: Admin edits community look-and-feel
     And I am on the edit look-and-feel page
 
   @javascript
-  Scenario: Admin can choose the default listing view to list
+  Scenario: Admin can change the default listing view to list
     Given community "test" has default browse view "grid"
     When I change the default browse view to "List"
     And I go to the homepage
     Then I should see the browse view selected as "List"
 
   @javascript
-  Scenario: Admin can choose the default listing view to list
+  Scenario: Admin can change the default listing view to map
     Given community "test" has default browse view "grid"
     When I change the default browse view to "Map"
     And I go to the homepage
