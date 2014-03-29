@@ -1,5 +1,5 @@
 Feature: Admin edits community look-and-feel
-  In order to give my marketplace distinct look
+  In order to give diversify my marketplace from my competitors
   As an admin
   I want to be able to modify look-and-feel
 
@@ -34,3 +34,24 @@ Feature: Admin edits community look-and-feel
     When I change the default browse view to "Grid"
     And I go to the homepage
     Then I should see the browse view selected as "Grid"
+
+  @javascript
+  Scenario: Admin can change the name display type to full name (First Last)
+    Given community "test" has name display type "first_name_with_initial"
+    When I change the name display type to "Full name"
+    And I refresh the page
+    Then I should see my name displayed as "matti manager"
+
+  @javascript
+  Scenario: Admin can change the name display type to first name with initial (First L)
+    Given community "test" has name display type "first_name_only"
+    When I change the name display type to "Given name with initial"
+    And I refresh the page
+    Then I should see my name displayed as "matti m"
+
+  @javascript
+  Scenario: Admin can change the name display type to given name only (First)
+    Given community "test" has name display type "first_name_with_initial"
+    When I change the name display type to "Given name only"
+    And I refresh the page
+    Then I should see my name displayed as "matti"
