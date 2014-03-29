@@ -28,3 +28,9 @@ Feature: Admin edits community look-and-feel
     And I go to the homepage
     Then I should see the browse view selected as "Map"
 
+  @javascript
+  Scenario: Admin can change the default listing view to grid
+    Given community "test" has default browse view "map"
+    When I change the default browse view to "Grid"
+    And I go to the homepage
+    Then I should see the browse view selected as "Grid"
