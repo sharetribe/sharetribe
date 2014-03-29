@@ -134,6 +134,15 @@ en:
         save_user_status_successful: Saved
         save_user_status_error: "Saving failed. Please refresh the page and try again."
         remove_user_confirmation: "This removes the user from the community and prevents them from accessing the site again with this account. Are you sure you want to proceed?"
+      integrations:
+        integrations: "Integrations"
+        twitter_handle: "Twitter handle"
+        twitter_handle_info_text: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page."
+        twitter_handle_placeholder: "username"
+        invalid_twitter_handle: "Twitter handle should contain only at maximum 15 alphanumeric (letters A-Z and numbers 0-9) characters."
+        google_analytics_key: "Google Analytics tracking ID (classic account)"
+        google_analytics_key_info_text: "Tracking ID of your Google Analytics account. You need to have a 'classic' account."
+        save: "Save settings"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"

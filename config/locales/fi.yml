@@ -134,6 +134,15 @@ fi:
         save_user_status_successful: "Tallennus onnistui"
         save_user_status_error: "Tallennus epäonnistui. Päivitä sivu ja yritä uudelleen."
         remove_user_confirmation: "Olet poistamassa käyttäjää yhteisöstä ja estämästä häntä liittymästä uudelleen samalla käyttäjätunnuksella. Oletko varma?"
+      integrations:
+        integrations: "Integraatiot"
+        twitter_handle: "Twitter-tili"
+        twitter_handle_info_text: "Lisää markkinapaikkasi Twitter-tilin tunnus tähän. Se näytetään kun käyttäjät twiittaavat ilmoituksistaan käyttäen ilmoitussivun twiittaa-nappia."
+        twitter_handle_placeholder: "tunnus"
+        invalid_twitter_handle: "Twitter-tilin tunnus voi olla enintään 15 merkkiä pitkä sekä sisältää vain kirjaimia (A-Z) ja numeroita (0-9)."
+        google_analytics_key: "Google Analytics tracking ID ('classic'-tili)"
+        google_analytics_key_info_text: "Google Analytics -tilisi tracking ID. Sinulla tulee olla 'classic'-tyyppinen tili."
+        save: "Tallenna muutokset"
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"

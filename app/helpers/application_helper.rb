@@ -55,6 +55,7 @@ module ApplicationHelper
       "check" => "ss-check",
       "invite" => "ss-adduser",
       "loading" => "ss-loading",
+      "connect" => "ss-connection",
       "" => "",
 
       # Default category & share type icons
@@ -697,7 +698,16 @@ module ApplicationHelper
       }
     ]
 
-    # Only super admins
+    if community.integrations_in_use?
+      links << {
+        :text => t("admin.communities.integrations.integrations"),
+        :icon_class => icon_class("connect"),
+        :path => integrations_admin_community_path(community),
+        :name => "integrations"
+      }
+    end
+
+
     if category_editing_allowed?
       links << {
         :text => t("admin.categories.index.listing_categories"),
