@@ -13,6 +13,14 @@
   position: relative;
   @include block-with-aspect-ratio(3/2);
   background-color: $highlight;
+
+  &:hover > .listing-image-navi {
+    display: block;
+  }
+
+  & > .listing-image-navi {
+    display: none;
+  }
 }
 
 // The content for 3/2 aspect ratio container
@@ -49,6 +57,35 @@
     // uses all vertical size available.
     vertical-align: top;
   }
+}
+
+.listing-image-navi-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100%;
+  text-align: left;
+  @include vertical-centering-container;
+}
+
+.listing-image-navi-arrow-container {
+  @include vertical-centering-content;
+  padding: lines(1);
+}
+
+.listing-image-navi-arrow {
+  @include big-type;
+}
+
+.listing-image-navi-right {
+  text-align: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 75%;
+  height: 100%;
+  @include vertical-centering-container;
 }
 
 .listing-image {
@@ -286,7 +323,7 @@ $listing-image-cellpadding: lines(0.5);
     border-color: darken(#EEE, 10%);
   }
 
-  
+
   margin-right: $listing-image-cellpadding;
   margin-bottom: $listing-image-cellpadding;
 }

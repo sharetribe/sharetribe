@@ -12,12 +12,19 @@
   .col-8
     .row
       .col-12
-        - with_image_frame(@listing) do |reason, listing_image|
+        - with_image_frame(@listing, @current_image) do |reason, listing_image|
           .listing-image-frame
             - if reason == :image_ok
               #listing-image-link.listing-image-frame-content
                 .listing-image-vertical-centering{:class => aspect_ratio_class(listing_image) }
                   = image_tag listing_image.image.url(:big), :alt => listed_listing_title(@listing), :class => "listing-image #{aspect_ratio_class(listing_image)}"
+              - if @prev_image_id && @next_image_id
+                = link_to params.merge(image: @prev_image_id), class: "listing-image-navi listing-image-navi-left" do
+                  .listing-image-navi-arrow-container
+                    = icon_tag("directleft", ["icon-fix", "listing-image-navi-arrow"])
+                = link_to params.merge(image: @next_image_id), class: "listing-image-navi listing-image-navi-right" do
+                  .listing-image-navi-arrow-container
+                    = icon_tag("directright", ["icon-fix", "listing-image-navi-arrow"])
             - else
               .listing-image-frame-content
                 .listing-image-vertical-centering

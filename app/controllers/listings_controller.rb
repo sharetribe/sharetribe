@@ -89,6 +89,18 @@ class ListingsController < ApplicationController
     unless current_user?(@listing.author)
       @listing.increment!(:times_viewed)
     end
+
+    @current_image = if params[:image]
+      @listing.image_by_id(params[:image])
+    else
+      @listing.listing_images.first
+    end
+
+    @prev_image_id, @next_image_id = if @current_image
+      @listing.prev_and_next_image_ids_by_id(@current_image.id)
+    else
+      [nil, nil]
+    end
   end
 
   def new
