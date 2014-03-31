@@ -94,6 +94,11 @@ en:
         grid: "Grid"
         list: "List"
         map: "Map"
+        name_display_type: "Name display type"
+        name_display_type_instructions_text: "Name display type sets how the given and family names are shown in the marketplace."
+        full_name: "Full name (First Last)"
+        first_name_with_initial: "Given name and initial (First L)"
+        first_name_only: First name only (First)
         invalid_color_code: "Color code should contain 6 numbers or letters A-F, for example D96E21"
       edit_welcome_email:
         welcome_email_content: "Welcome email content"

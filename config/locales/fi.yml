@@ -94,6 +94,11 @@ fi:
         grid: "Ruudukko"
         list: "Lista"
         map: "Kartta"
+        name_display_type: "Nimen näyttötapa"
+        name_display_type_instructions_text: "Nimen näyttötapa valitsee kuinka käyttäjien nimet näytetään markkinapaikalla."
+        full_name: "Koko nimi (Etunimi Sukunimi)"
+        first_name_with_initial: "Etunimi ja ensimmäinen kirjain (Etunimi S)"
+        first_name_only: Vain etunimi (Etunimi)
         invalid_color_code: "Värikoodin tulisi sisältää 6 merkkiä, ja vain numeroita tai kirjaimia A-F, esimerkiksi: D96E21"
       edit_welcome_email:
         welcome_email_content: "Tervetulosähköpostin sisältö"
