@@ -8,11 +8,8 @@
   text-align: center;
 }
 
-// Image frame with 3/2 aspect ratio
-.listing-image-frame {
+.listing-image-carousel {
   position: relative;
-  @include block-with-aspect-ratio(3/2);
-  background-color: $highlight;
 
   &:hover > .listing-image-navi {
     display: block;
@@ -21,6 +18,17 @@
   & > .listing-image-navi {
     display: none;
   }
+
+  @include block-with-aspect-ratio(3/2);
+}
+
+// Image frame with 3/2 aspect ratio
+.listing-image-frame {
+  @include block-with-aspect-ratio(3/2);
+  background-color: $highlight;
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 
 // The content for 3/2 aspect ratio container

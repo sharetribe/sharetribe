@@ -8,31 +8,34 @@
   %h1
     %span#listing-title.listing-title= @listing.title
 
+- content_for :extra_javascript do
+  :javascript
+    debugger;
+    var listingImages = #{@listing.listing_images.map { |image| ListingImageJSAdapter.new(image) }.to_json }
+    var currentImage = #{params[:image].present? ? params[:image].to_i : @listing.listing_images.first.id};
+    ST.imageCarousel(listingImages, currentImage);
+
+%script{type: "text/template", class: "template", id: "image-frame-template"}
+  .listing-image-frame
+    #listing-image-link.listing-image-frame-content
+      .listing-image-vertical-centering{:class => "${aspectRatioClass}" }
+        %img{:src => "${url}", :alt => @listing.title, :class => "listing-image ${aspectRatioClass}"}
+
 .row
   .col-8
     .row
       .col-12
         - with_image_frame(@listing, @current_image) do |reason, listing_image|
-          .listing-image-frame
-            - if reason == :image_ok
-              #listing-image-link.listing-image-frame-content
-                .listing-image-vertical-centering{:class => aspect_ratio_class(listing_image) }
-                  = image_tag listing_image.image.url(:big), :alt => listed_listing_title(@listing), :class => "listing-image #{aspect_ratio_class(listing_image)}"
-              - if @prev_image_id && @next_image_id
-                = link_to params.merge(image: @prev_image_id), class: "listing-image-navi listing-image-navi-left" do
-                  .listing-image-navi-arrow-container
-                    = icon_tag("directleft", ["icon-fix", "listing-image-navi-arrow"])
-                = link_to params.merge(image: @next_image_id), class: "listing-image-navi listing-image-navi-right" do
-                  .listing-image-navi-arrow-container
-                    = icon_tag("directright", ["icon-fix", "listing-image-navi-arrow"])
-            - else
-              .listing-image-frame-content
-                .listing-image-vertical-centering
-                  .listing-no-image
-                    - if reason == :image_processing
-                      = t("listings.show.processing_uploaded_image")
-                    - else
-                      = t(".no_description")
+          .listing-image-carousel
+            #listing-image-frame
+
+            - if @prev_image_id && @next_image_id
+              = link_to params.merge(image: @prev_image_id), class: "listing-image-navi listing-image-navi-left", id: "listing-image-navi-left" do
+                .listing-image-navi-arrow-container
+                  = icon_tag("directleft", ["icon-fix", "listing-image-navi-arrow"])
+              = link_to params.merge(image: @next_image_id), class: "listing-image-navi listing-image-navi-right", id: "listing-image-navi-right" do
+                .listing-image-navi-arrow-container
+                  = icon_tag("directright", ["icon-fix", "listing-image-navi-arrow"])
 
     .row
       .col-12

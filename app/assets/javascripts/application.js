@@ -46,4 +46,5 @@
 //= require range_filter
 //= require translations
 //= require image_uploader
+//= require image_carousel
 //= require_self
