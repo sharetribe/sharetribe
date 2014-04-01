@@ -82,11 +82,12 @@ class Admin::CommunitiesController < ApplicationController
     params[:community][:custom_color2] = nil if params[:community][:custom_color2] == ""
 
     @community = Community.find(params[:id])
+    needs_stylesheet_recompile = regenerate_css?(params, @community)
     update(@community,
            params[:community],
            edit_look_and_feel_admin_community_path(@community),
            :edit_look_and_feel) {
-      CommunityStylesheetCompiler.compile(@community) if regenerate_css?(params, @community)
+      CommunityStylesheetCompiler.compile(@community) if needs_stylesheet_recompile
     }
   end
 
