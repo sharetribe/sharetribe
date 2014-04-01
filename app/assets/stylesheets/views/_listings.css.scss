@@ -10,6 +10,7 @@
 
 .listing-image-carousel {
   position: relative;
+  overflow: hidden;
 
   &:hover > .listing-image-navi {
     display: block;
@@ -342,4 +343,39 @@ $listing-image-cellpadding: lines(0.5);
 
 .fileupload-small-text {
   @include small-type;
+}
+
+.listing-image-thumbnails-overflow {
+  width: 100%;
+  overflow: hidden;
+  height: 64px;
+}
+
+.listing-image-thumbnail-container {
+  position: relative;
+  float: left;
+
+  &:hover > .fade,
+  &.selected > .fade {
+    display: none;
+  }
+
+  & > .fade {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px; bottom: 0px;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.listing-image-thumbnail {
+  width: 60px;
+  height: 60px;
+  border: 2px solid transparent;
+  border-radius: $default-border-radius;
+
+  .selected > & {
+    border: 2px solid $link;
+  }
 }

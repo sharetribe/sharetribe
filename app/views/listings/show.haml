@@ -10,7 +10,6 @@
 
 - content_for :extra_javascript do
   :javascript
-    debugger;
     var listingImages = #{@listing.listing_images.map { |image| ListingImageJSAdapter.new(image) }.to_json }
     var currentImage = #{params[:image].present? ? params[:image].to_i : @listing.listing_images.first.id};
     ST.imageCarousel(listingImages, currentImage);
@@ -20,6 +19,11 @@
     #listing-image-link.listing-image-frame-content
       .listing-image-vertical-centering{:class => "${aspectRatioClass}" }
         %img{:src => "${url}", :alt => @listing.title, :class => "listing-image ${aspectRatioClass}"}
+
+%script{type: "text/template", class: "template", id: "image-thumbnail-template"}
+  .listing-image-thumbnail-container
+    %img.listing-image-thumbnail{src: "${url}"}
+    .fade
 
 .row
   .col-8
@@ -36,6 +40,8 @@
               = link_to params.merge(image: @next_image_id), class: "listing-image-navi listing-image-navi-right", id: "listing-image-navi-right" do
                 .listing-image-navi-arrow-container
                   = icon_tag("directright", ["icon-fix", "listing-image-navi-arrow"])
+          #listing-image-thumbnails-mask.listing-image-thumbnails-overflow
+            #listing-image-thumbnails
 
     .row
       .col-12
