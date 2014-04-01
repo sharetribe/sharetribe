@@ -1,27 +1,29 @@
 = form.label :image, t('.image'), :class => "input"
-%input#listing-image-id{type: "hidden", name: "listing_image[id]"}
-.listing-images#image-uploader-container
 
-  %script{type: "text/template", class: "template", id: "new-image-tmpl"}
-    #fileupload.fileinput-button.upload-image-placeholder
+%script{type: "text/template", class: "template", id: "new-image-tmpl"}
+  #fileupload.fileinput-button.upload-image-placeholder
+    .fileupload-text-container
+      .fileupload-centered-text
+        .fileupload-text
+          = t(".select_file")
+        .fileupload-small-text
+    %input#fileupload{type: "file", name: "${fileInputName}"}
+
+%script{type: "text/template", class: "template", id: "thumbnail-image-tmpl"}
+  .fileupload-preview
+    %img.fileupload-preview-image{src: "${thumbnailUrl}"}
+    .fileupload-removing
       .fileupload-text-container
         .fileupload-centered-text
-          .fileupload-text
-            = t(".select_file")
-          .fileupload-small-text
-      %input#fileupload{type: "file", name: "${fileInputName}"}
+          = t(".removing")
+    .fileupload-preview-remove-image
+      = icon_tag("cross", ["icon-fix"])
 
-  %script{type: "text/template", class: "template", id: "thumbnail-image-tmpl"}
-    .fileupload-preview
-      %img.fileupload-preview-image{src: "${thumbnailUrl}"}
-      .fileupload-removing
-        .fileupload-text-container
-          .fileupload-centered-text
-            = t(".removing")
-      .fileupload-preview-remove-image
-        = icon_tag("cross", ["icon-fix"])
+%input#listing-image-id{type: "hidden", name: "listing_image[id]"}
 
-= js_t ["listings.form.images.processing", "listings.form.images.this_may_take_a_while", "listings.form.images.percentage_loaded", "listings.form.images.uploading_failed", "listings.form.images.file_too_large", "listings.form.images.accepted_formats"], run_js_immediately
+.listing-images#image-uploader-container
+
+= js_t ["listings.form.images.processing", "listings.form.images.this_may_take_a_while", "listings.form.images.percentage_loaded", "listings.form.images.uploading_failed", "listings.form.images.file_too_large", "listings.form.images.accepted_formats", "listings.form.images.loading_image"], run_js_immediately
 
 - if ApplicationHelper.use_upload_s3?
   - s3uploader = S3Uploader.new
