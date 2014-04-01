@@ -80,6 +80,7 @@ window.ST.imageUploader = function(listings, opts) {
     }
 
     function imageUploadingDone(e, data) {
+      data.result = JSON.parse(data.result);
       if(directUploadToS3) {
         s3uploadDone(data);
       } else {
@@ -89,7 +90,7 @@ window.ST.imageUploader = function(listings, opts) {
 
     $(function() {
       $('#fileupload').fileupload({
-        dataType: 'json',
+        dataType: 'text', // Browsers without XHR fileupload support do not support other dataTypes than text
         url: directUploadToS3 ? opts.s3.uploadPath : opts.saveFromFile,
         dropZone: $('#fileupload'),
         progress: onProgress,
@@ -118,6 +119,8 @@ window.ST.imageUploader = function(listings, opts) {
         },
         done: imageUploadingDone,
         fail: imageUploadingFailed
+      }).on('fileuploadadd', function() {
+        showMessage(ST.t("listings.form.images.loading_image"));
       }).on('dragenter', function() {
         $(this).addClass('hover');
       }).on('dragleave', function() {

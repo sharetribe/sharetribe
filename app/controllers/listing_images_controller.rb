@@ -114,7 +114,9 @@ class ListingImagesController < ApplicationController
         id: listing_image.id,
         removeUrl: listing_image_path(listing_image),
         processedPollingUrl: image_status_listing_image_path(listing_image)
-      }, status: 202
+      },
+      :content_type => 'text/plain', # Browsers without XHR fileupload support do not support other dataTypes than text
+      status: 202
     else
       render json: {:errors => listing_image.errors.full_messages}, status: 400
     end
