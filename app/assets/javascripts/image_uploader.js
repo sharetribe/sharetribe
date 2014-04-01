@@ -70,6 +70,7 @@ window.ST.imageUploader = function(listings, opts) {
     }
 
     function listingImageSavingDone(result) {
+      result = JSON.parse(result);
       $("#listing-image-id").val(result.id);
 
       updatePreview(result, 2000);
@@ -80,7 +81,6 @@ window.ST.imageUploader = function(listings, opts) {
     }
 
     function imageUploadingDone(e, data) {
-      data.result = JSON.parse(data.result);
       if(directUploadToS3) {
         s3uploadDone(data);
       } else {
