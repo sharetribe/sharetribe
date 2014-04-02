@@ -1057,6 +1057,7 @@ function initialize_profile_view(badges, profile_id, show_closed) {
     return false;
   });
 
+
   // The code below is not used in early 3.0 version, but part of it will probably be used again soon, so kept here.
   $('#description_preview_link').click(function() {
     $('#profile_description_preview').hide();
@@ -1178,6 +1179,23 @@ function initialize_admin_edit_tribe_look_and_feel_form(locale, community_id, in
      }
    });
 }
+
+function initialize_admin_integrations_form(locale, community_id, invalid_twitter_handle_message) {
+  translate_validation_messages(locale);
+  var form_id = "#edit_community_" + community_id;
+  $(form_id).validate({
+     rules: {
+       "community[twitter_handle]": {required: false, minlength: 1, maxlength: 15, regex: "^([A-Za-z0-9_]+)?$"}
+     },
+     messages: {
+      "community[twitter_handle]": { regex: invalid_twitter_handle_message }
+    },
+     submitHandler: function(form) {
+       disable_and_submit(form_id, form, "false", locale);
+     }
+   });
+}
+
 
 function initialize_admin_listing_field_form_view(locale, form_id, option_count) {
   translate_validation_messages(locale);

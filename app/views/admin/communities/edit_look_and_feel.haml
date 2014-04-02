@@ -8,9 +8,7 @@
 
 #new_news_item_form.left-navi-section
   %h2= t(".edit_community_look_and_feel", :community_name => @community.name(I18n.locale))
-  = form_for @community, :url => admin_community_path(@community), :method => :put do |form|
-    = hidden_field_tag :community_settings_page, "look_and_feel"
-
+  = form_for @community, :url => edit_look_and_feel_admin_community_path(@community), :method => :put do |form|
     - if @current_community.logo_change_allowed || @current_user.is_admin? # global admin
       = form.label :wide_logo, t(".community_logo"), :class => "input"
       %p= t(".logo_instructions_text_with_dimensions", :width => 168, :height => 40)

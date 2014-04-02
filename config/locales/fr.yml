@@ -129,6 +129,15 @@ fr:
         save_user_status_successful: Sauvegardé
         save_user_status_error: "La sauvegarde a échoué. Veuillez rafraîchir la page et essayer de nouveau."
         remove_user_confirmation: "Cela supprime l'utilisateur de cette tribu est l'empêche d'accéder de nouveau au site avec ce compte. Etes-vous sûr(e) de vouloir continuer ?"
+      integrations:
+        integrations: Intégrations
+        twitter_handle: "Nom Twitter"
+        twitter_handle_info_text: "Le nom du compte Twitter de votre place de marché (si vous en avez un). Il sera mentionné quand les utilisateurs utilisent le partage Twitter présent sur les pages d'annonces."
+        twitter_handle_placeholder: nomducompte
+        invalid_twitter_handle: "Le nom Twitter doit être au maximum de 15 caractères alpha-numériques (lettres de A à Z et chiffres de 0 à 9)."
+        google_analytics_key: "Code de suivi Google Analytics (compte classique)"
+        google_analytics_key_info_text: "Code de suivi de votre compte Google Analytics. Vous devez y créer un compte \"classique\"."
+        save: "Sauvegarder les réglages"
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
@@ -1039,7 +1048,7 @@ fr:
       select_language: "Choisir la langue"
     infos:
       about: "A propos"
-      how_to_use: Aide
+      how_to_use: "Comment ça marche"
       info_about_kassi: "Informations à propos de %{service_name}"
       news: Actualités
       register_details: "Vie privée"
@@ -1247,10 +1256,12 @@ fr:
         select_file: "Choisir une image"
         removing: Suppression...
         processing: Traitement...
+        loading_image: Chargement...
         this_may_take_a_while: "(cela peut prendre un moment)"
         percentage_loaded: "%{percentage} %"
         uploading_failed: "Erreur lors de l'envoi d'image"
-        accepted_formats: "L'image doit être dans un fomat GIF, JPG ou PNG."
+        file_too_large: "Le fichier est trop volumineux"
+        accepted_formats: "L'image doit être au fomat GIF, JPG ou PNG."
       location:
         location: Localisation
       price:

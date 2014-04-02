@@ -23,7 +23,7 @@
 //= require jquery.fileupload-image
 
 // Allow IE8-9 to post cross domain XHR (required for image upload)
-//= require jquery.xdr-transport
+//= require jquery.iframe-transport.js
 
 //= require fastclick.min
 //= require infobubble

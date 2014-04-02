@@ -41,6 +41,13 @@ class Admin::CommunitiesController < ApplicationController
                                        .order("#{member_sort_column} #{member_sort_direction}")
   end
 
+  def integrations
+    redirect_to edit_details_admin_community_path(@current_community) unless @current_community.integrations_in_use?
+    @selected_tribe_navi_tab = "admin"
+    @selected_left_navi_link = "integrations"
+    @community = @current_community
+  end
+
   def posting_allowed
     CommunityMembership.where(:person_id => params[:allowed_to_post]).update_all("can_post_listings = 1")
     CommunityMembership.where(:person_id => params[:disallowed_to_post]).update_all("can_post_listings = 0")
@@ -70,36 +77,37 @@ class Admin::CommunitiesController < ApplicationController
     @selected_left_navi_link = "admin_settings"
   end
 
-  def update
-    return_to_action =  (params[:community_settings_page] == "look_and_feel" ? :edit_look_and_feel : :edit_details)
-
-    @community = Community.find(params[:id])
-    need_to_regenerate_css = params[:community][:custom_color1] != @community.custom_color1 || params[:community][:custom_color2] != @community.custom_color2 || params[:community][:cover_photo] || params[:community][:small_cover_photo]
-
+  def update_look_and_feel
     params[:community][:custom_color1] = nil if params[:community][:custom_color1] == ""
     params[:community][:custom_color2] = nil if params[:community][:custom_color2] == ""
 
-    if @community.update_attributes(params[:community])
-      flash[:notice] = t("layouts.notifications.community_updated")
-      CommunityStylesheetCompiler.compile(@community) if need_to_regenerate_css
-      redirect_to (return_to_action == :edit_look_and_feel ?
-                   edit_look_and_feel_admin_community_path(@community) :
-                   edit_details_admin_community_path(@community))
-    else
-      flash.now[:error] = t("layouts.notifications.community_update_failed")
-      render :action => return_to_action
-    end
+    @community = Community.find(params[:id])
+    needs_stylesheet_recompile = regenerate_css?(params, @community)
+    update(@community,
+           params[:community],
+           edit_look_and_feel_admin_community_path(@community),
+           :edit_look_and_feel) {
+      CommunityStylesheetCompiler.compile(@community) if needs_stylesheet_recompile
+    }
+  end
+
+  def update_integrations
+    @community = Community.find(params[:id])
+    params[:community][:twitter_handle] = nil if params[:community][:twitter_handle] == ""
+    params[:community][:google_analytics_key] = nil if params[:community][:twitter_handle] == ""
+
+    update(@community,
+            params[:community],
+            integrations_admin_community_path(@community),
+            :integrations)
   end
 
   def update_settings
     @community = Community.find(params[:id])
-    if @community.update_attributes(params[:community])
-      flash[:notice] = t("layouts.notifications.community_updated")
-      redirect_to settings_admin_community_path(@current_community)
-    else
-      flash.now[:error] = t("Update failed")
-      render :action => "settings"
-    end
+    update(@community,
+            params[:community],
+            settings_admin_community_path(@community),
+            :settings)
   end
 
   def removes_itself?(ids, current_admin_user, community)
@@ -128,4 +136,21 @@ class Admin::CommunitiesController < ApplicationController
     params[:direction] || "desc"
   end
 
+  def regenerate_css?(params, community)
+    params[:community][:custom_color1] != community.custom_color1 ||
+    params[:community][:custom_color2] != community.custom_color2 ||
+    params[:community][:cover_photo] ||
+    params[:community][:small_cover_photo]
+  end
+
+  def update(community, params, path, action, &block)
+    if community.update_attributes(params)
+      flash[:notice] = t("layouts.notifications.community_updated")
+      yield if block_given? #on success, call optional block
+      redirect_to path
+    else
+      flash.now[:error] = t("layouts.notifications.community_update_failed")
+      render action
+    end
+  end
 end

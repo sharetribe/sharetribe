@@ -129,6 +129,15 @@ de:
         save_user_status_successful: Gespeichert
         save_user_status_error: "Speichern fehlgeschlagen. Bitte erneuere die Seite und versuch es noch einmal."
         remove_user_confirmation: "Dies entfernt den Benutzer von der Community und wird einen erneuten Zugriff mit diesem Account auf die Seite verhindern. Bist du sicher, dass du fortfahren möchtest?"
+      integrations:
+        integrations: ~
+        twitter_handle: ~
+        twitter_handle_info_text: ~
+        twitter_handle_placeholder: ~
+        invalid_twitter_handle: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
+        save: ~
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
@@ -1247,6 +1256,7 @@ de:
         select_file: "Datei wählen"
         removing: Entfernen...
         processing: "Wird bearbeitet..."
+        loading_image: ~
         this_may_take_a_while: "(dies kann eine Weile dauern)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Bild hochladen fehlgeschlagen"
