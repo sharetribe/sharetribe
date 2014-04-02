@@ -1,5 +1,145 @@
 window.ST = window.ST || {};
 
+ST.thumbnailStripe = function(container, opts) {
+  opts = opts || {};
+  var elements = [];
+  var current;
+  var thumbnailContainer = $("<div />");
+  var containerMoved = 0;
+  var visibleWidth = container.width();
+  var thumbnailContainerWidth;
+  var modAdded = 0;
+
+  var selectedClass = opts.selectedClass || "selected";
+  var thumbnailWidth = opts.thumbnailWidth || 60;
+
+  var modWidth = (thumbnailWidth - (visibleWidth % thumbnailWidth)) / 2;
+
+  container.empty();
+  container.append(thumbnailContainer);
+
+  function next() {
+    var newIdx = (current + 1) % elements.length;
+    var goingRight = newIdx > current;
+    var goingAround = newIdx === 0;
+
+    if(goingRight && !isPosVisible(newIdx)) {
+      moveRight();
+    }
+
+    if(goingAround) {
+      moveBackLeft();
+    }
+
+    activate(newIdx);
+  }
+
+  function prev() {
+    var newIdx = (current - 1) >= 0 ? (current - 1) : elements.length - 1;
+    var goingLeft = newIdx < current;
+    var goingAround = newIdx == elements.length - 1;
+
+    if(goingLeft && !isPosVisible(newIdx)) {
+      moveLeft();
+    }
+
+    if(goingAround) {
+      moveBackRight();
+    }
+
+    activate(newIdx);
+  }
+
+  function show(newIdx) {
+    var goingRight = newIdx > current;
+    var goingLeft = newIdx < current;
+
+    if(goingRight && !isPosVisible(newIdx)) {
+      moveRight();
+    }
+
+    if(goingLeft && !isPosVisible(newIdx)) {
+      moveLeft();
+    }
+
+    activate(newIdx);
+  }
+
+  function activate(idx) {
+    var old = current;
+    current = idx;
+
+    if(old != null) {
+      elements[old].removeClass(selectedClass);
+    }
+
+    elements[current].addClass(selectedClass);
+  }
+
+  function isPosVisible(idx) {
+    var thumbStart = idx * thumbnailWidth;
+    var thumbEnd = thumbStart + thumbnailWidth;
+    var start = (containerMoved * thumbnailWidth) + (modAdded * modWidth);
+    var end = start + visibleWidth;
+    return start <= thumbStart && thumbEnd <= end;
+  }
+
+  function moveRight() {
+    var firstMove = containerMoved == 0;
+    var lastMove = current + 1 === elements.length - 1;
+
+    if(lastMove) {
+      modAdded = 2;
+      thumbnailContainer.transition({ x: (-1 * (containerMoved * thumbnailWidth + modWidth + modWidth)) });
+    } else {
+      containerMoved++;
+      modAdded = 1;
+      thumbnailContainer.transition({ x: (-1 * (containerMoved * thumbnailWidth + modWidth)) });
+    }
+  }
+
+  function moveLeft() {
+    var firstMove = current - 1 === elements.length - 2;
+    var lastMove = current - 1 === 0;
+
+    if(lastMove) {
+      modAdded = 0;
+      thumbnailContainer.transition({ x: (-1 * (containerMoved * thumbnailWidth)) });
+    } else {
+      containerMoved--;
+      modAdded = 1;
+      thumbnailContainer.transition({ x: (-1 * (containerMoved * thumbnailWidth + modWidth)) });
+    }
+  }
+
+  function moveBackLeft() {
+    modAdded = 0;
+    containerMoved = 0;
+    thumbnailContainer.transition({ x: 0 });
+  }
+
+  function moveBackRight() {
+    modAdded = 2;
+    var maxMovements = (elements.length - Math.floor(visibleWidth / thumbnailWidth)) - 1;
+    containerMoved = Math.max(maxMovements, 0);
+    thumbnailContainer.transition({ x: (-1 * (containerMoved * thumbnailWidth + modWidth + modWidth)) });
+  }
+
+  function add(el) {
+    elements.push(el);
+    thumbnailContainer.append(el);
+    thumbnailContainerWidth = elements.length * thumbnailWidth;
+    thumbnailContainer.width(thumbnailContainerWidth);
+  }
+
+  return {
+    next: next,
+    prev: prev,
+    show: show,
+    add: add
+  }
+}
+
 ST.imageCarousel = function(images, currentImageId) {
   var tmpl = _.template($("#image-frame-template").html());
   var thumbnailTmpl = _.template($("#image-thumbnail-template").html());

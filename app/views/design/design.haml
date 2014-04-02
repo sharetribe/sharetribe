@@ -560,3 +560,43 @@
       .design-code
         %pre
           :plain
+
+  %h2.design-h2
+    = "Components"
+
+  .design-section
+    %h3.design-h3
+      = "Thumbnail stripe"
+    .design-component
+      .design-example
+        %a#design-thumbnail-stripe-prev{href: "#"}="Prev"
+        %a#design-thumbnail-stripe-next{href: "#"}="Next"
+        #design-thumbnail-stripe.thumbnail-stripe
+
+    - content_for :extra_javascript do
+      :javascript
+        var stripe = ST.thumbnailStripe($("#design-thumbnail-stripe"));
+        $("#design-thumbnail-stripe-next").click(function(e) {
+          e.preventDefault();
+          stripe.next();
+        });
+
+        $("#design-thumbnail-stripe-prev").click(function(e) {
+          e.preventDefault();
+          stripe.prev();
+        });
+
+        _.range(0, 10).forEach(function(i) {
+          var el = $("<div class='thumbnail-stripe-item'>" + i + "</div>");
+          el.click(function() {
+            stripe.show(i);
+          })
+          stripe.add(el);
+        });
+
+        stripe.show(10);
+
+
+      .design-code
+        %pre
+          :plain

@@ -206,3 +206,26 @@
   }
   float: left;
 }
+
+.thumbnail-stripe {
+  width: 310px;
+  overflow: hidden;
+  height: 60px;
+  outline: 1px solid red;
+}
+
+.thumbnail-stripe-container {
+  width: 10 * 60px;
+}
+
+.thumbnail-stripe-item {
+  width: 60px;
+  height: 60px;
+  background-color: $highlight;
+  border: 4px solid $border;
+  float: left;
+
+  &.selected {
+    border-color: darken(#CAEBCC, 20%);
+  }
+}
