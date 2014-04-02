@@ -23,7 +23,7 @@ class ListingImage < ActiveRecord::Base
   # @note Do this after resize operations to account for auto-orientation.
   # https://github.com/thoughtbot/paperclip/wiki/Extracting-image-dimensions
   def extract_dimensions
-    return unless image?
+    return unless image_downloaded?
     tempfile = image.queued_for_write[:original]
 
     # Silently return, if there's no `width` and `height`
@@ -78,5 +78,9 @@ class ListingImage < ActiveRecord::Base
   def download_from_url(url)
     self.image = URI.parse(url)
     self.update_attribute(:image_downloaded, true)
+  end
+
+  def image_ready?
+    image_downloaded && !image_processing
   end
 end
