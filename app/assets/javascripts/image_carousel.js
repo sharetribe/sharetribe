@@ -1,29 +1,37 @@
 window.ST = window.ST || {};
 
-ST.thumbnailStripe = function(container, opts) {
+ST.thumbnailStripe = function(container, elements, opts) {
+  // Options
   opts = opts || {};
-  var elements = [];
-  var current;
-  var thumbnailContainer = $("<div />");
-  var containerMoved = 0;
-  var visibleWidth = container.width();
-  var thumbnailContainerWidth;
-  var modAdded = 0;
-
   var selectedClass = opts.selectedClass || "selected";
   var thumbnailWidth = opts.thumbnailWidth || 60;
 
+  // Element initialization
+  container.empty();
+  var visibleWidth = container.width();
+  var thumbnailContainer = $("<div />");
+  container.append(thumbnailContainer);
+  var thumbnailContainerWidth;
+
+  _.each(elements, function(el) {
+    thumbnailContainer.append(el);
+  });
+
+  thumbnailContainerWidth = elements.length * thumbnailWidth;
+  thumbnailContainer.width(thumbnailContainerWidth);
+
   var modWidth = (thumbnailWidth - (visibleWidth % thumbnailWidth)) / 2;
 
-  container.empty();
-  container.append(thumbnailContainer);
+  // State
+  var current;
+  var containerMoved = 0;
+  var modAdded = 0;
 
   function next() {
     var newIdx = (current + 1) % elements.length;
-    var goingRight = newIdx > current;
     var goingAround = newIdx === 0;
 
-    if(goingRight && !isPosVisible(newIdx)) {
+    if(goingRight(newIdx) && !isPosVisible(newIdx)) {
       moveRight();
     }
 
@@ -36,10 +44,9 @@ ST.thumbnailStripe = function(container, opts) {
 
   function prev() {
     var newIdx = (current - 1) >= 0 ? (current - 1) : elements.length - 1;
-    var goingLeft = newIdx < current;
     var goingAround = newIdx == elements.length - 1;
 
-    if(goingLeft && !isPosVisible(newIdx)) {
+    if(goingLeft(newIdx) && !isPosVisible(newIdx)) {
       moveLeft();
     }
 
@@ -51,14 +58,12 @@ ST.thumbnailStripe = function(container, opts) {
   }
 
   function show(newIdx) {
-    var goingRight = newIdx > current;
-    var goingLeft = newIdx < current;
 
-    if(goingRight && !isPosVisible(newIdx)) {
+    if(goingRight(newIdx) && !isPosVisible(newIdx)) {
       moveRight();
     }
 
-    if(goingLeft && !isPosVisible(newIdx)) {
+    if(goingLeft(newIdx) && !isPosVisible(newIdx)) {
       moveLeft();
     }
 
@@ -84,17 +89,49 @@ ST.thumbnailStripe = function(container, opts) {
     return start <= thumbStart && thumbEnd <= end;
   }
 
+  function goingLeft(newIdx) {
+    return newIdx < current;
+  }
+
+  function goingRight(newIdx) {
+    return newIdx > current;
+  }
+
+  function goingBackRight() {
+
+  }
+
+  function goingBackLeft() {
+
+  }
+
+  function firstMoveLeft(currentIdx, newIdx) {
+
+  }
+
+  function lastMoveLeft(currentIdx, newIdx) {
+
+  }
+
+  function firstMoveRight(currentIdx, newIdx) {
+
+  }
+
+  function firstMoveRight(currentIdx, newIdx) {
+
+  }
+
   function moveRight() {
     var firstMove = containerMoved == 0;
     var lastMove = current + 1 === elements.length - 1;
 
     if(lastMove) {
       modAdded = 2;
-      thumbnailContainer.transition({ x: (-1 * (containerMoved * thumbnailWidth + modWidth + modWidth)) });
+      move(containerMoved, 2);
     } else {
       containerMoved++;
       modAdded = 1;
-      thumbnailContainer.transition({ x: (-1 * (containerMoved * thumbnailWidth + modWidth)) });
+      move(containerMoved, 1);
     }
   }
 
@@ -104,39 +141,35 @@ ST.thumbnailStripe = function(container, opts) {
 
     if(lastMove) {
       modAdded = 0;
-      thumbnailContainer.transition({ x: (-1 * (containerMoved * thumbnailWidth)) });
+      move(containerMoved, 0);
     } else {
       containerMoved--;
       modAdded = 1;
-      thumbnailContainer.transition({ x: (-1 * (containerMoved * thumbnailWidth + modWidth)) });
+      move(containerMoved, 1);
     }
   }
 
   function moveBackLeft() {
     modAdded = 0;
     containerMoved = 0;
-    thumbnailContainer.transition({ x: 0 });
+    move(0, 0);
   }
 
   function moveBackRight() {
     modAdded = 2;
     var maxMovements = (elements.length - Math.floor(visibleWidth / thumbnailWidth)) - 1;
     containerMoved = Math.max(maxMovements, 0);
-    thumbnailContainer.transition({ x: (-1 * (containerMoved * thumbnailWidth + modWidth + modWidth)) });
+    move(containerMoved, 2)
   }
 
-  function add(el) {
-    elements.push(el);
-    thumbnailContainer.append(el);
-    thumbnailContainerWidth = elements.length * thumbnailWidth;
-    thumbnailContainer.width(thumbnailContainerWidth);
+  function move(wholeMoves, partialMoves) {
+    thumbnailContainer.transition({ x: (-1 * ((wholeMoves * thumbnailWidth) + (partialMoves * modWidth)) ) });
   }
 
   return {
     next: next,
     prev: prev,
     show: show,
-    add: add
   }
 }
 

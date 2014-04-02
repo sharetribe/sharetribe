@@ -575,7 +575,8 @@
 
     - content_for :extra_javascript do
       :javascript
-        var stripe = ST.thumbnailStripe($("#design-thumbnail-stripe"));
+        var stripe;
+
         $("#design-thumbnail-stripe-next").click(function(e) {
           e.preventDefault();
           stripe.next();
@@ -586,15 +587,17 @@
           stripe.prev();
         });
 
-        _.range(0, 10).forEach(function(i) {
+        var elements = _.range(0, 10).map(function(i) {
           var el = $("<div class='thumbnail-stripe-item'>" + i + "</div>");
           el.click(function() {
             stripe.show(i);
           })
-          stripe.add(el);
+          return el;
         });
 
-        stripe.show(10);
+        var stripe = ST.thumbnailStripe($("#design-thumbnail-stripe"), elements);
+
+        stripe.show(0);
 
 
       .design-code
