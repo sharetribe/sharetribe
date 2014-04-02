@@ -14,7 +14,8 @@ class S3Uploader
       :acl => @acl,
       :policy => policy,
       :signature => signature,
-      "AWSAccessKeyId" => @aws_access_key_id
+      "AWSAccessKeyId" => @aws_access_key_id,
+      :success_action_status => 200
     }
   end
 
@@ -50,6 +51,7 @@ class S3Uploader
       conditions: [
         ["starts-with", "$key", ""],
         ["starts-with", "$Content-Type", "image/"],
+        ["starts-with", "$success_action_status", ""],
         ["content-length-range", 0, APP_CONFIG.max_image_filesize],
         {bucket: @bucket},
         {acl: @acl}

@@ -84,6 +84,27 @@ ST.utils = (function(_) {
     }, {});
   }
 
+  /**
+    Give filename and get back extension
+  */
+  function fileExtension(filename) {
+    return _.last(filename.split("."));
+  }
+
+  /**
+    Give filename and get back content type
+  */
+  function contentTypeByFilename(filename) {
+    var map = {
+      "jpg": "image/jpeg",
+      "jpeg": "image/jpeg",
+      "png": "image/png",
+      "gif": "image/gif",
+    };
+
+    return map[fileExtension(filename)];
+  }
+
   return {
     findNextIndex: findNextIndex,
     findPrevIndex: findPrevIndex,
@@ -91,7 +112,8 @@ ST.utils = (function(_) {
     relativeUrl: relativeUrl,
     jquerifyAttributeValue: jquerifyAttributeValue,
     findElementByName: findElementByName,
-    objectsMerge: objectsMerge
+    objectsMerge: objectsMerge,
+    contentTypeByFilename: contentTypeByFilename
   };
 
 })(_);
