@@ -26,7 +26,7 @@
 // Image frame with 3/2 aspect ratio
 .listing-image-frame {
   @include block-with-aspect-ratio(3/2);
-  background-color: $highlight;
+  background-color: $body;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -38,7 +38,7 @@
 .listing-image-frame-content {
   // With Firefox, there's 1px flickering. That's why
   // the frame looks better if it has 1px border
-  $border-margin: 1px;
+  $border-margin: 0px;
   position: absolute;
   top: $border-margin;
   bottom: $border-margin;
@@ -345,10 +345,11 @@ $listing-image-cellpadding: lines(0.5);
   @include small-type;
 }
 
-.listing-image-thumbnails-overflow {
+.listing-image-thumbnail-stripe {
   width: 100%;
   overflow: hidden;
   height: 64px;
+  margin-top: 2px;
 }
 
 .listing-image-thumbnail-container {
@@ -365,17 +366,18 @@ $listing-image-cellpadding: lines(0.5);
     top: 0px;
     left: 0px;
     right: 0px; bottom: 0px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.6);
   }
 }
 
 .listing-image-thumbnail {
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   border: 2px solid transparent;
   border-radius: $default-border-radius;
+  cursor: pointer;
 
   .selected > & {
-    border: 2px solid $link;
+    border: 2px solid transparent;
   }
 }

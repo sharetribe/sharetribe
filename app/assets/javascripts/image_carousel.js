@@ -20,7 +20,8 @@ ST.thumbnailStripe = function(container, elements, opts) {
   thumbnailContainerWidth = elements.length * thumbnailWidth;
   thumbnailContainer.width(thumbnailContainerWidth);
 
-  var modWidth = (thumbnailWidth - (visibleWidth % thumbnailWidth)) / 2;
+  var maxMovement = Math.max((elements.length - Math.floor(visibleWidth / thumbnailWidth)) - 2, 0);
+  var modWidth = thumbnailWidth - ((visibleWidth % thumbnailWidth) / 2);
 
   // State
   var current = 0;
@@ -94,28 +95,30 @@ ST.thumbnailStripe = function(container, elements, opts) {
   }
 
   function moveRight(newIdx) {
-    var firstMove = containerMoved == 0;
+    var firstMove = containerMoved == 0 && modAdded == 0;
     var lastMove = newIdx === elements.length - 1;
 
     if(lastMove) {
       modAdded = 2;
+    } else if(firstMove) {
+      modAdded = 1;
     } else {
       containerMoved++;
-      modAdded = 1;
     }
 
     move(containerMoved, modAdded);
   }
 
   function moveLeft(newIdx) {
-    var firstMove = newIdx === elements.length - 2;
+    var firstMove = containerMoved == maxMovement && modAdded == 2;
     var lastMove = newIdx === 0;
 
     if(lastMove) {
       modAdded = 0;
+    } else if(firstMove) {
+      modAdded = 1;
     } else {
       containerMoved--;
-      modAdded = 1;
     }
 
     move(containerMoved, modAdded);
@@ -130,8 +133,7 @@ ST.thumbnailStripe = function(container, elements, opts) {
 
   function moveBackRight() {
     modAdded = 2;
-    var maxMovements = (elements.length - Math.floor(visibleWidth / thumbnailWidth)) - 1;
-    containerMoved = Math.max(maxMovements, 0);
+    containerMoved = maxMovement;
 
     move(containerMoved, modAdded);
   }
@@ -143,7 +145,7 @@ ST.thumbnailStripe = function(container, elements, opts) {
   return {
     next: next,
     prev: prev,
-    show: show,
+    show: show
   }
 }
 
@@ -163,25 +165,63 @@ ST.imageCarousel = function(images, currentImageId) {
     return $(tmpl({url: image.images.big, aspectRatioClass: image.aspectRatio }));
   });
 
-  var thumbnails = _.map(images, function(image) {
-    return $(thumbnailTmpl({url: image.images.thumb }));
+  var stripe;
+
+  var promiseQueue = (function() {
+    var q = [];
+
+    function run(callback) {
+      q.push(callback);
+
+      if(q.length === 1) {
+        purgeQueue();
+      }
+    }
+
+    function purgeQueue() {
+      var next = q.shift();
+      if(next) {
+        next().done(purgeQueue);
+      }
+    }
+
+    return {
+      run: run
+    }
+  })();
+
+  var thumbnails = _.map(images, function(image, idx) {
+    var thumbnailElement = $(thumbnailTmpl({url: image.images.thumb }));
+    thumbnailElement.click(function() {
+      stripe.show(idx);
+
+      var goingRight = idx > currentIdx;
+      var goingLeft = idx < currentIdx;
+
+      var oldElement = elements[currentIdx];
+      currentIdx = idx;
+      var newElement = elements[currentIdx];
+
+      if(goingRight) {
+        swipeLeft(newElement, oldElement);
+      }
+      if(goingLeft) {
+        swipeRight(newElement, oldElement);
+      }
+    });
+    return thumbnailElement;
   });
+
+  stripe = ST.thumbnailStripe($("#thumbnail-stripe"), thumbnails, {thumbnailWidth: 64});
+
+  stripe.show(0);
 
   _.each(elements, function(el) {
     el.hide();
     container.append(el);
   });
 
-  _.each(thumbnails, function(el) {
-    thumbnailContainer.append(el);
-  })
-
   elements[currentIdx].show();
-  thumbnails[currentIdx].addClass("selected");
-
-  var thumbnailWidth = thumbnails[0].width();
-
-  thumbnailContainer.width(thumbnailWidth * thumbnails.length);
 
   function prevId(currId, length) {
     if (currId === 0) {
@@ -195,62 +235,60 @@ ST.imageCarousel = function(images, currentImageId) {
     return (currId + 1) % length;
   }
 
-  leftLink.asEventStream("click").doAction(".preventDefault").onValue(function() {
-    var visibleWidth = thumbnailOverflow.width();
+  var swipeDelay = 400;
 
-    thumbnails[currentIdx].removeClass("selected");
+  leftLink.asEventStream("click").doAction(".preventDefault").debounceImmediate(swipeDelay).onValue(function() {
     var oldElement = elements[currentIdx];
-
     currentIdx = prevId(currentIdx, elements.length);
-
-    var thumbnailPos = thumbnailWidth * currentIdx;
-
-    if((visibleWidth - thumbnailPos) < thumbnailWidth) {
-      thumbnailsMoved--;
-      thumbnailContainer.transition({ x: (-1 * thumbnailsMoved * thumbnailWidth) });
-    }
-
-    thumbnails[currentIdx].addClass("selected");
     var newElement = elements[currentIdx];
 
+    promiseQueue.run(function() {
+      return swipeRight(newElement, oldElement);
+    });
+
+    stripe.prev();
+  });
+
+  function swipeRight(newElement, oldElement) {
     newElement.transition({ x: -1 * newElement.width() }, 0);
     newElement.show();
-    var newDone = newElement.transition({ x: 0 }).promise();
-    var oldDone = oldElement.transition({ x: newElement.width() }).promise();
 
-    $.when(newDone, oldDone).done(function() {
+    var oldDone = oldElement.transition({ x: oldElement.width() }, swipeDelay).promise();
+    var newDone = newElement.transition({ x: 0 }, swipeDelay).promise();
+
+    var bothDone = $.when(newDone, oldDone)
+    bothDone.done(function() {
       oldElement.hide();
     });
-  });
+
+    return bothDone;
+  }
+
+  function swipeLeft(newElement, oldElement) {
+    newElement.transition({ x: newElement.width() }, 0);
+    newElement.show();
+    var oldDone = oldElement.transition({ x: -1 * oldElement.width() }, swipeDelay).promise();
+    var newDone = newElement.transition({ x: 0 }, swipeDelay).promise();
+
+    var bothDone = $.when(newDone, oldDone)
+    bothDone.done(function() {
+      oldElement.hide();
+    });
+
+    return bothDone;
+  }
 
   thumbnailsMoved = 0;
 
-  rightLink.asEventStream("click").doAction(".preventDefault").onValue(function() {
-    var visibleWidth = thumbnailOverflow.width();
-
-    thumbnails[currentIdx].removeClass("selected");
+  rightLink.asEventStream("click").doAction(".preventDefault").debounceImmediate(swipeDelay).onValue(function() {
     var oldElement = elements[currentIdx];
-
     currentIdx = nextId(currentIdx, elements.length);
-
-    var thumbnailPos = thumbnailWidth * currentIdx;
-
-    if((visibleWidth - thumbnailPos) < thumbnailWidth) {
-      thumbnailsMoved++;
-      thumbnailContainer.transition({ x: (-1 * thumbnailsMoved * thumbnailWidth) });
-    }
-
-    thumbnails[currentIdx].addClass("selected");
     var newElement = elements[currentIdx];
 
-    newElement.transition({ x: newElement.width() }, 0);
-    newElement.show();
-    var newDone = newElement.transition({ x: 0 }).promise();
-    var oldDone = oldElement.transition({ x: -1 * newElement.width() }).promise();
-
-    $.when(newDone, oldDone).done(function() {
-      oldElement.hide();
+    promiseQueue.run(function() {
+      return swipeLeft(newElement, oldElement);
     });
 
+    stripe.next();
   });
 }
