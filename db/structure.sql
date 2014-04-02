@@ -705,6 +705,9 @@ CREATE TABLE `payment_gateways` (
   `braintree_public_key` varchar(255) DEFAULT NULL,
   `braintree_private_key` varchar(255) DEFAULT NULL,
   `braintree_client_side_encryption_key` text,
+  `checkout_environment` varchar(255) DEFAULT NULL,
+  `checkout_user_id` varchar(255) DEFAULT NULL,
+  `checkout_password` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -1771,8 +1774,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140226121423');
 
 INSERT INTO schema_migrations (version) VALUES ('20140227102627');
 
-INSERT INTO schema_migrations (version) VALUES ('20140227145229');
-
 INSERT INTO schema_migrations (version) VALUES ('20140228164206');
 
 INSERT INTO schema_migrations (version) VALUES ('20140228164428');
@@ -1798,6 +1799,8 @@ INSERT INTO schema_migrations (version) VALUES ('20140318131351');
 INSERT INTO schema_migrations (version) VALUES ('20140319182117');
 
 INSERT INTO schema_migrations (version) VALUES ('20140324073247');
+
+INSERT INTO schema_migrations (version) VALUES ('20140328124957');
 
 INSERT INTO schema_migrations (version) VALUES ('20140328133415');
 
