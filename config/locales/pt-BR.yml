@@ -36,7 +36,7 @@ pt-BR:
       edit_details:
         community_details: ~
         community_look_and_feel: ~
-        edit_community: ~
+        edit_community: "Editar detalhes da comunidade %{community_name}"
         community_name: "Nome da comunidade"
         edit_community_name_description: ~
         community_slogan: ~
@@ -48,9 +48,9 @@ pt-BR:
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
         update_information: ~
-        invite_people: ~
+        invite_people: "Convide as pessoas para esta comunidade"
         edit_signup_info: ~
-        edit_signup_info_description: ~
+        edit_signup_info_description: "Este é um texto de informação que pode ser mostrado para os usuários na página de inscrição. Lá você pode dar aos usuários instruções para se inscrever, informações como onde conseguir um convite, etc. Por padrão não há instruções."
         edit_info: ~
         see_how_it_looks_like: ~
         verification_to_post_listings_info_content: ~
@@ -81,12 +81,12 @@ pt-BR:
         edit_message: "Editar mensagem"
         send_test_message: "Enviar mensagem de teste"
       settings:
-        settings: ~
+        settings: Opções
         general: Geral
         users_can_review_each_other_after_transaction: ~
-        access: ~
-        join_with_invite_only: ~
-        users_can_invite_new_users: ~
+        access: Acesso
+        join_with_invite_only: "Os usuários só podem participar desta comunidade com um convite de outro usuário"
+        users_can_invite_new_users: "Todos os usuários podem convidar novos usuários a esta comunidade"
         private: ~
         require_verification_to_post_listings: ~
         listing_preferences: ~
@@ -114,6 +114,15 @@ pt-BR:
         save_user_status_successful: ~
         save_user_status_error: ~
         remove_user_confirmation: ~
+      integrations:
+        integrations: ~
+        twitter_handle: ~
+        twitter_handle_info_text: ~
+        twitter_handle_placeholder: ~
+        invalid_twitter_handle: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
+        save: "Salvar configurações"
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -279,7 +288,7 @@ pt-BR:
       optional_message: ~
       price_to_pay: ~
       you_need_to_fill_payout_details_before_accepting: ~
-      payment_settings_link: ~
+      payment_settings_link: "configurações de pagamento"
       minimum_price_error_message: ~
     confirm:
       confirm_description: ~
@@ -510,7 +519,7 @@ pt-BR:
       address: "Localização da sua tribo"
       select_main_language_of_your_tribe: "Selecione o idioma principal da sua tribo"
       language: Idioma
-      restrict_tribe_to_invited_people: ~
+      restrict_tribe_to_invited_people: "As pessoas precisam de um convite para participar desta comunidade"
     signup_form:
       create_an_account: "Crie uma conta para si mesmo"
       to_create_a_tribe_you_must_first_create_sharetribe_account: ~
@@ -550,7 +559,7 @@ pt-BR:
       you_can_join: ~
       you_can_join_email_confirmation: ~
       you_can_join_email_confirmation_multiple_addresses: ~
-      you_can_join_with_invite_only: ~
+      you_can_join_with_invite_only: "Você tem que ter um convite de outro membro para participar desta comunidade. Se você tem um código de convite, você pode participar desta comunidade, digitando o código no campo abaixo, aceitando os termos de uso dessa comunidade e clicando em \"Aderir à comunidade 'abaixo."
       if_want_to_view_content: ~
       log_out: sair
       join_community_button: "Ingressar a comunidade"
@@ -628,10 +637,10 @@ pt-BR:
       if_will_not_happen_you_should_cancel: ~
       cancel_it_link_text: ~
     payment_settings_reminder:
-      remember_to_add_payment_details: ~
+      remember_to_add_payment_details: "Lembre-se de adicionar os detalhes de pagamento para receber pagamentos"
       you_have_added_listing_with_payment: ~
       please_go_to_payment_settings: ~
-      payment_settings_link: ~
+      payment_settings_link: "configurações de pagamento"
     transaction_confirmed:
       here_is_a_message_from: ~
       request_marked_as_confirmed: ~
@@ -664,7 +673,7 @@ pt-BR:
       thanks: "Obrigado,"
       want_to_control_emails: "Quer controlar quais emails receber de %{service_name}?"
       dont_want_to_receive_these_emails: ~
-      edit_your_email_settings_here: ~
+      edit_your_email_settings_here: "Edite suas configurações de e-mail aqui"
       message_not_displaying_correctly: ~
       view_it_in_your_browser: ~
       or: ~
@@ -737,7 +746,7 @@ pt-BR:
       intro_paragraph_link_text: ~
       post_a_new_listing: "Postar uma nova lista!"
       reduce_email_footer_text: ~
-      settings_link_text: ~
+      settings_link_text: "Edite suas configurações de e-mail aqui"
       unsubscribe_link_text: ~
     newsletter:
       weekly_news_from_kassi: ~
@@ -766,10 +775,10 @@ pt-BR:
       you_have_not_given_feedback_yet: "Você ainda não deu feedback para %{name} sobre o evento %{event}. Lembre de dar um feedback de como %{given_name} foi no evento"
     welcome_email:
       welcome_email_footer_text: ~
-      settings_link_text: ~
+      settings_link_text: "Verifique suas configurações"
       subject: ~
       welcome_some_tips: ~
-      p_s_did_you_know: ~
+      p_s_did_you_know: "P.S. Sabia que você pode criar um mercado como este por qualquer comunidade a que pertence, de graça? %{click_here_link} para saber mais!"
       click_here_link_text: ~
       update_your_profile: ~
       update_your_profile_link_text: ~
@@ -779,14 +788,14 @@ pt-BR:
       add_request_link_text: ~
       invite_your_friends_invite_only: ~
       invite_your_friends: ~
-      invite_link_text: ~
+      invite_link_text: "usando o nosso formulário de convidar fácil"
       member_list_link_text: ~
       go_explore: ~
       love_team: ~
       congrats_for_creating_community: ~
       you_have_just_created_community: ~
       you_now_have_admin_rights: ~
-      edit_community_details_link_text: ~
+      edit_community_details_link_text: "Editar detalhes comunidade aqui"
       add_content: ~
       spread_the_word: ~
       spread_the_word_invite_only: ~
@@ -860,7 +869,7 @@ pt-BR:
     create_new_marketplace: ~
     contact_us: Contato
     profile: Perfil
-    invite: ~
+    invite: Convidar
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Além disso  existe <b>uma outra oferta</b>,"
@@ -900,7 +909,7 @@ pt-BR:
     event_feed:
       latest_events: "O que está acontecendo"
     grid_item:
-      processing_uploaded_image: ~
+      processing_uploaded_image: "(Processando imagem carregada...)"
     index:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: ~
@@ -937,12 +946,12 @@ pt-BR:
     invitation_form:
       invite_your_friends: "Convide seus amigos para %{service_name}!"
       invite_your_neighbors: ~
-      email: ~
+      email: "Endereço de email(s)"
       message: "Uma mensagem pessoal"
       send_invitation: "Enviar convite"
       add_as_many_emails_as_you_want: ~
-      invitation_emails_field_placeholder: ~
-      invitation_message_field_placeholder: ~
+      invitation_emails_field_placeholder: "convidado1@exemplo.com.br, convidado2@exemplo.com.br, ......"
+      invitation_message_field_placeholder: "Entrei para esta comunidade incrível. Você deve também!"
       errors_in_emails: ~
     list_item:
       review: ~
@@ -996,7 +1005,7 @@ pt-BR:
       join_this_community: "Ingressar a comunidade"
       read_more: ~
       feedback: "O que você gostaria de nos contar?"
-      default_feedback: ~
+      default_feedback: "Você encontrou um problema com %{service_name}? Tem alguma sugestão para melhorar o serviço? Notei algum conteúdo suspeito? Ou apenas tem algo que você quer discutir com a gente? Deixe-nos saber!"
       feedback_forum: "fórum de respostas"
       feedback_handle: Reposta
       give_feedback: Contato
@@ -1007,10 +1016,10 @@ pt-BR:
       to_see_what_others_have_suggested: "para ver o que outros usuários sugeriram, e votar para novas idéias."
       your_email_address: "Seu endereço de email (não obrigatório)"
       connect: Registar
-      invite_your_friends: ~
-      invite_your_neighbors: ~
+      invite_your_friends: "Convide amigos!"
+      invite_your_neighbors: "Convidar os vizinhos!"
       invite_your_friends_description: ~
-      invite_your_friends_invite_only_description: ~
+      invite_your_friends_invite_only_description: "As pessoas não podem participar desta comunidade, a menos que eles são convidados."
       join_without_facebook: ~
       join_without_facebook_link: ~
     conversations:
@@ -1193,7 +1202,7 @@ pt-BR:
     edit:
       edit_listing: "Editar listagem"
     edit_links:
-      close_listing: ~
+      close_listing: "Fechar lista"
       edit_listing: "Editar listagem"
       reopen_listing: "Reabrir listagem"
     follow_links:
@@ -1232,6 +1241,7 @@ pt-BR:
         select_file: "Selecione arquivo"
         removing: ~
         processing: ~
+        loading_image: ~
         this_may_take_a_while: ~
         percentage_loaded: ~
         uploading_failed: ~
@@ -1369,7 +1379,7 @@ pt-BR:
       time: hora
       times: ~
       times_viewed: Visualizado
-      processing_uploaded_image: ~
+      processing_uploaded_image: "(Processando imagem carregada...)"
       price_excludes_vat: ~
       listing_created_at: "Listagem criada"
     displayed_price:
@@ -1442,7 +1452,7 @@ pt-BR:
       you_are_the_only_member: ~
       here_are_the_members: ~
       wanna_see_more_folks: ~
-      invite_people_you_know: ~
+      invite_people_you_know: "Convide as pessoas que você conhece!"
       there_are_x_members: ~
       to_see_the_list_log_in: ~
       log_in_link: Login
@@ -1460,7 +1470,7 @@ pt-BR:
       terms_title: "%{service_name} termos de uso"
       trustcloud_description_title: ~
       trustcloud_description_text: ~
-      invite_only_help_text: ~
+      invite_only_help_text: "Selecione esta opção se você quiser que os novos membros podem participar se forem convidados por um membro existente da tribo."
       invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: ~
@@ -1671,7 +1681,7 @@ pt-BR:
       delete_account_button: "Excluir permanentemente minha conta"
       delete_account_confirmation_popup: ~
       email_addresses: "Endereço de email"
-      instructions_to_delete_account: ~
+      instructions_to_delete_account: "Se você excluir sua conta todos os dados relacionados a ele serão removidos: os seus dados de perfil, listas, comentários, mensagens, feedbacks etc."
       contact_admin: "entre em contato com os administradores"
       new_email: "Novo endereço de email"
       new_password: "Nova senha"
@@ -1679,53 +1689,53 @@ pt-BR:
       these_fields_are_shown_only_to_you: "Seu nome de usuário é mostrado no seu perfil a menos que você tenha dado o seu nome. Outras informações só é mostrado a você."
       email:
         address_title: Endereço
-        remove_title: ~
-        remove_confirmation: ~
-        receive_notifications_title_desktop: ~
-        receive_notifications_title_mobile: ~
-        receive_notifications_new_title_mobile: ~
-        add_new_with_plus: ~
-        add_new_cancel: ~
+        remove_title: Remover
+        remove_confirmation: "Você tem certeza que deseja remover este endereço de e-mail?"
+        receive_notifications_title_desktop: "Receber notificações"
+        receive_notifications_title_mobile: "Receber notificações"
+        receive_notifications_new_title_mobile: "Receber notificações"
+        add_new_with_plus: "+ Adicionar um novo endereço de e-mail"
+        add_new_cancel: Cancelar
         confirmation_title_mobile: "Confirmação:"
         confirmation_title_desktop: Confirmação
-        confirmation_resend: ~
-        status_confirmed: ~
+        confirmation_resend: Reenviar
+        status_confirmed: Confirmado
         status_pending: Pendente
     notifications:
-      email_from_admins: ~
+      email_from_admins: "Estou disposto a receber atualizações ocasionais de administrador(es) desta comunidade"
       i_want_to_get_email_notification_when: "Eu quero receber uma notificação por email quando ..."
       newsletters: Noticias
-      community_updates: ~
-      email_about_accept_reminders: "...Esqueci a aceitar uma oferta ou um pedido"
-      email_about_confirm_reminders: ~
-      email_about_new_badges: ~
+      community_updates: "Atualizações da comunidade"
+      email_about_accept_reminders: "...esqueci de aceitar uma oferta ou um pedido"
+      email_about_confirm_reminders: "...Eu esqueci de confirmar um pedido como concluído"
+      email_about_new_badges: "...eu consegui um novo emblema"
       email_about_new_comments_to_own_listing: "...alguém comentar a minha oferta ou solicitação"
       email_about_new_messages: "...alguém me enviar uma mensagem"
       email_about_new_received_testimonials: "...alguém me enviar feedback"
-      email_about_testimonial_reminders: "...Eu esquecer de enviar feedback sobre um evento"
-      email_daily_community_updates: ~
-      email_weekly_community_updates: ~
-      do_not_email_community_updates: ~
-      email_newsletters: ~
+      email_about_testimonial_reminders: "...eu esquecer de enviar feedback sobre um evento"
+      email_daily_community_updates: "Envie-me um e-mail <b>diária</b> se houver novos anúncios"
+      email_weekly_community_updates: "Envie-me um e-mail <b>semanal</b> se houver novos anúncios"
+      do_not_email_community_updates: "Não me mande e-mails"
+      email_newsletters: "Envie-me %{service_name} boletins"
       email_when_conversation_accepted: "...alguém aceitar a minha oferta ou solicitação"
       email_when_conversation_rejected: "...alguém rejeitar a minha oferta ou solicitação"
-      email_about_completed_transactions: ~
-      email_about_new_payments: ~
-      email_about_payment_reminders: ~
-      unsubscribe_succesful: ~
+      email_about_completed_transactions: "...alguém marca a minha oferta ou solicitação como concluída"
+      email_about_new_payments: "...Eu receber um novo pagamentor"
+      email_about_payment_reminders: "...Eu esqueci de pagar"
+      unsubscribe_succesful: "Subscrição bem sucedida"
       unsubscribe_info_text: ~
       settings_link: configurações
-      homepage_link: ~
-      unsubscribe_unsuccesful: ~
+      homepage_link: "home page"
+      unsubscribe_unsuccesful: "Erro no cancelamento da inscrição"
       unsuccessful_unsubscribe_info_text: ~
     profile:
       about_you: "Sobre você"
       city: Cidade
       family_name: Sobrenome
       given_name: "Primeiro Nome"
-      first_name_with_initial: ~
+      first_name_with_initial: "(apenas a primeira letra mostrada para outros usuários)"
       first_name_only: ~
-      location_description: ~
+      location_description: "Você pode dar ou a sua localização exata ou, por exemplo, apenas o seu código postal. Por favor, adicione pelo menos o seu código postal. Você também pode selecionar um local no mapa abaixo."
       phone_number: "Número de telefone"
       profile_picture: "Foto do perfil"
       postal_code: CEP
@@ -1735,7 +1745,7 @@ pt-BR:
       these_fields_are_shown_in_your: "Esta informação fica visível para todos %{service_name} usuários"
       visible_to_everybody: "visível para todos"
       visible_to_registered_users: "(visível para os usuários que tenham logado)"
-      default_in_listing: ~
+      default_in_listing: "(usado apenas como um padrão ao criar uma nova listagem)"
       invisible: ~
     save_information: "Salve as informações"
   tag_cloud:

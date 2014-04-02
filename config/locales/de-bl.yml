@@ -114,6 +114,15 @@ de-bl:
         save_user_status_successful: ~
         save_user_status_error: ~
         remove_user_confirmation: ~
+      integrations:
+        integrations: ~
+        twitter_handle: ~
+        twitter_handle_info_text: ~
+        twitter_handle_placeholder: ~
+        invalid_twitter_handle: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
+        save: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -1232,6 +1241,7 @@ de-bl:
         select_file: ~
         removing: ~
         processing: ~
+        loading_image: ~
         this_may_take_a_while: ~
         percentage_loaded: ~
         uploading_failed: ~
