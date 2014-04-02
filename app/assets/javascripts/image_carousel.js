@@ -23,19 +23,21 @@ ST.thumbnailStripe = function(container, elements, opts) {
   var modWidth = (thumbnailWidth - (visibleWidth % thumbnailWidth)) / 2;
 
   // State
-  var current;
+  var current = 0;
   var containerMoved = 0;
   var modAdded = 0;
 
+  var nextIndex = _.partial(ST.utils.nextIndex, elements.length);
+  var prevIndex = _.partial(ST.utils.prevIndex, elements.length);
+
   function next() {
-    var newIdx = (current + 1) % elements.length;
-    var goingAround = newIdx === 0;
+    var newIdx = nextIndex(current);
 
-    if(goingRight(newIdx) && !isPosVisible(newIdx)) {
-      moveRight();
-    }
-
-    if(goingAround) {
+    if(goingRight(newIdx)) {
+      if(!isPosVisible(newIdx)) {
+        moveRight(newIdx);
+      }
+    } else {
       moveBackLeft();
     }
 
@@ -43,14 +45,13 @@ ST.thumbnailStripe = function(container, elements, opts) {
   }
 
   function prev() {
-    var newIdx = (current - 1) >= 0 ? (current - 1) : elements.length - 1;
-    var goingAround = newIdx == elements.length - 1;
+    var newIdx = prevIndex(current);
 
-    if(goingLeft(newIdx) && !isPosVisible(newIdx)) {
-      moveLeft();
-    }
-
-    if(goingAround) {
+    if(goingLeft(newIdx)) {
+      if(!isPosVisible(newIdx)) {
+        moveLeft(newIdx);
+      }
+    } else {
       moveBackRight();
     }
 
@@ -58,13 +59,12 @@ ST.thumbnailStripe = function(container, elements, opts) {
   }
 
   function show(newIdx) {
-
     if(goingRight(newIdx) && !isPosVisible(newIdx)) {
-      moveRight();
+      moveRight(newIdx);
     }
 
     if(goingLeft(newIdx) && !isPosVisible(newIdx)) {
-      moveLeft();
+      moveLeft(newIdx);
     }
 
     activate(newIdx);
@@ -73,11 +73,7 @@ ST.thumbnailStripe = function(container, elements, opts) {
   function activate(idx) {
     var old = current;
     current = idx;
-
-    if(old != null) {
-      elements[old].removeClass(selectedClass);
-    }
-
+    elements[old].removeClass(selectedClass);
     elements[current].addClass(selectedClass);
   }
 
@@ -97,69 +93,47 @@ ST.thumbnailStripe = function(container, elements, opts) {
     return newIdx > current;
   }
 
-  function goingBackRight() {
-
-  }
-
-  function goingBackLeft() {
-
-  }
-
-  function firstMoveLeft(currentIdx, newIdx) {
-
-  }
-
-  function lastMoveLeft(currentIdx, newIdx) {
-
-  }
-
-  function firstMoveRight(currentIdx, newIdx) {
-
-  }
-
-  function firstMoveRight(currentIdx, newIdx) {
-
-  }
-
-  function moveRight() {
+  function moveRight(newIdx) {
     var firstMove = containerMoved == 0;
-    var lastMove = current + 1 === elements.length - 1;
+    var lastMove = newIdx === elements.length - 1;
 
     if(lastMove) {
       modAdded = 2;
-      move(containerMoved, 2);
     } else {
       containerMoved++;
       modAdded = 1;
-      move(containerMoved, 1);
     }
+
+    move(containerMoved, modAdded);
   }
 
-  function moveLeft() {
-    var firstMove = current - 1 === elements.length - 2;
-    var lastMove = current - 1 === 0;
+  function moveLeft(newIdx) {
+    var firstMove = newIdx === elements.length - 2;
+    var lastMove = newIdx === 0;
 
     if(lastMove) {
       modAdded = 0;
-      move(containerMoved, 0);
     } else {
       containerMoved--;
       modAdded = 1;
-      move(containerMoved, 1);
     }
+
+    move(containerMoved, modAdded);
   }
 
   function moveBackLeft() {
     modAdded = 0;
     containerMoved = 0;
-    move(0, 0);
+
+    move(containerMoved, modAdded);
   }
 
   function moveBackRight() {
     modAdded = 2;
     var maxMovements = (elements.length - Math.floor(visibleWidth / thumbnailWidth)) - 1;
     containerMoved = Math.max(maxMovements, 0);
-    move(containerMoved, 2)
+
+    move(containerMoved, modAdded);
   }
 
   function move(wholeMoves, partialMoves) {
