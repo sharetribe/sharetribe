@@ -125,9 +125,15 @@ window.ST.imageUploader = function(listings, opts) {
         // send Blob objects via XHR requests:
         disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator && navigator.userAgent),
         submit: function(e, data) {
-          data.formData = _.extend(opts.s3.options, {
+          var extraFormData = {
             "Content-Type": ST.utils.contentTypeByFilename(data.files[0].name)
-          });
+          };
+
+          if(directUploadToS3) {
+            extraFormData = _.extend(extraFormData, opts.s3.options);
+          }
+
+          data.formData = extraFormData;
         },
         done: imageUploadingDone,
         fail: imageUploadingFailed

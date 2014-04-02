@@ -100,7 +100,7 @@ ST.utils = (function(_) {
       "jpeg": "image/jpeg",
       "png": "image/png",
       "gif": "image/gif",
-    }
+    };
 
     return map[fileExtension(filename)];
   }
