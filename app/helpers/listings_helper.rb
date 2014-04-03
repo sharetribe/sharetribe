@@ -85,7 +85,6 @@ module ListingsHelper
   end
 
   def with_image_frame(listing, &block)
-    binding.pry
     if self.has_images?(listing) then
       images = listing.listing_images
       if !listing.listing_images.all? { |image| image.image_ready? } then
