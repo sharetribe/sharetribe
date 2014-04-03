@@ -131,10 +131,10 @@ ST.utils = (function(_) {
   }
 
   /**
-    Give filename and get back extension
+    Give filename and get back lower-case extension
   */
   function fileExtension(filename) {
-    return _.last(filename.split("."));
+    return _.last(filename.split(".")).toLowerCase();
   }
 
   /**
