@@ -12,7 +12,7 @@
   :javascript
     var listingImages = #{@listing.listing_images.map { |image| ListingImageJSAdapter.new(image) }.to_json }
     var currentImage = #{params[:image].present? ? params[:image].to_i : @listing.listing_images.first.id};
-    ST.imageCarousel(listingImages, currentImage);
+    ST.listingImages(listingImages, currentImage);
 
 %script{type: "text/template", class: "template", id: "image-frame-template"}
   .listing-image-frame
@@ -36,10 +36,12 @@
             - if @prev_image_id && @next_image_id
               = link_to params.merge(image: @prev_image_id), class: "listing-image-navi listing-image-navi-left", id: "listing-image-navi-left" do
                 .listing-image-navi-arrow-container
-                  = icon_tag("directleft", ["icon-fix", "listing-image-navi-arrow"])
+                  .listing-image-arrow-icon-container
+                    = icon_tag("directleft", ["navigate-icon-fix", "listing-image-navi-arrow"])
               = link_to params.merge(image: @next_image_id), class: "listing-image-navi listing-image-navi-right", id: "listing-image-navi-right" do
                 .listing-image-navi-arrow-container
-                  = icon_tag("directright", ["icon-fix", "listing-image-navi-arrow"])
+                  .listing-image-arrow-icon-container
+                    = icon_tag("directright", ["navigate-icon-fix", "listing-image-navi-arrow"])
           #thumbnail-stripe.listing-image-thumbnail-stripe
 
     .row

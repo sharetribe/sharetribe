@@ -47,4 +47,6 @@
 //= require translations
 //= require image_uploader
 //= require image_carousel
+//= require thumbnail_stripe
+//= require listing_images
 //= require_self

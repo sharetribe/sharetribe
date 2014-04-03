@@ -68,19 +68,22 @@
   }
 }
 
-.listing-image-navi-left {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 25%;
-  height: 100%;
-  text-align: left;
-  @include vertical-centering-container;
-}
-
 .listing-image-navi-arrow-container {
   @include vertical-centering-content;
-  padding: lines(1);
+}
+
+.navigate-icon-fix {
+  position: relative;
+  top: 4px;
+}
+
+.listing-image-arrow-icon-container {
+  position: relative;
+  padding: lines(0.75) lines(0.5);
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  @include border-radius($default-border-radius);
+  display: inline-block;
 }
 
 .listing-image-navi-arrow {
@@ -95,6 +98,26 @@
   width: 75%;
   height: 100%;
   @include vertical-centering-container;
+
+  &:hover .listing-image-arrow-icon-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 1);
+  }
+}
+
+.listing-image-navi-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100%;
+  text-align: left;
+  @include vertical-centering-container;
+
+  &:hover .listing-image-arrow-icon-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 1);
+  }
 }
 
 .listing-image {
@@ -350,6 +373,7 @@ $listing-image-cellpadding: lines(0.5);
   overflow: hidden;
   height: 64px;
   margin-top: 2px;
+  position: relative;
 }
 
 .listing-image-thumbnail-container {
@@ -373,11 +397,7 @@ $listing-image-cellpadding: lines(0.5);
 .listing-image-thumbnail {
   width: 64px;
   height: 64px;
-  border: 2px solid transparent;
+  padding: 2px;
   border-radius: $default-border-radius;
   cursor: pointer;
-
-  .selected > & {
-    border: 2px solid transparent;
-  }
 }

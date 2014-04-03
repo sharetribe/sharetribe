@@ -212,6 +212,7 @@
   overflow: hidden;
   height: 60px;
   outline: 1px solid red;
+  position: relative;
 }
 
 .thumbnail-stripe-container {
@@ -222,10 +223,10 @@
   width: 60px;
   height: 60px;
   background-color: $highlight;
-  border: 4px solid $border;
+  border: 6px solid white;
   float: left;
 
   &.selected {
-    border-color: darken(#CAEBCC, 20%);
+    background-color: darken(#CAEBCC, 20%);
   }
 }
