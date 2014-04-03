@@ -22,20 +22,6 @@ Feature: Admin edits community look-and-feel
     Then I should see the browse view selected as "List"
 
   @javascript
-  Scenario: Admin can change the default listing view to map
-    Given community "test" has default browse view "grid"
-    When I change the default browse view to "Map"
-    And I go to the homepage
-    Then I should see the browse view selected as "Map"
-
-  @javascript
-  Scenario: Admin can change the default listing view to grid
-    Given community "test" has default browse view "map"
-    When I change the default browse view to "Grid"
-    And I go to the homepage
-    Then I should see the browse view selected as "Grid"
-
-  @javascript
   Scenario: Admin can change the name display type to full name (First Last)
     Given community "test" has name display type "first_name_with_initial"
     When I change the name display type to "Full name"

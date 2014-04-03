@@ -51,8 +51,22 @@ window.ST.imageUploader = function(listings, opts) {
       showMessage(ST.t("listings.form.images.percentage_loaded", {percentage: percentage}));
     }
 
+    /**
+      In IE, formData is an array of objects containing name and value
+      In browsers, formData is a plain object
+    */
+    function valueFromFormData(formData, key) {
+      if (_.isArray(formData)) {
+        return _.find(formData, function(nameValue) {
+          return nameValue.name === key;
+        }).value;
+      } else {
+        return formData[key];
+      }
+    }
+
     function s3uploadDone(data) {
-      var path = opts.s3.uploadPath + data.formData.key;
+      var path = opts.s3.uploadPath + valueFromFormData(data.formData, "key");
       var filename = data.files[0].name;
 
       $.ajax({
@@ -70,6 +84,7 @@ window.ST.imageUploader = function(listings, opts) {
     }
 
     function listingImageSavingDone(result) {
+      result = JSON.parse(result);
       $("#listing-image-id").val(result.id);
 
       updatePreview(result, 2000);
@@ -89,7 +104,7 @@ window.ST.imageUploader = function(listings, opts) {
 
     $(function() {
       $('#fileupload').fileupload({
-        dataType: 'json',
+        dataType: 'text', // Browsers without XHR fileupload support do not support other dataTypes than text
         url: directUploadToS3 ? opts.s3.uploadPath : opts.saveFromFile,
         dropZone: $('#fileupload'),
         progress: onProgress,
@@ -110,14 +125,20 @@ window.ST.imageUploader = function(listings, opts) {
         // send Blob objects via XHR requests:
         disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator && navigator.userAgent),
         submit: function(e, data) {
+          var extraFormData = {
+            "Content-Type": ST.utils.contentTypeByFilename(data.files[0].name)
+          };
+
           if(directUploadToS3) {
-            data.formData = _.extend(opts.s3.options, {
-              "Content-Type": data.files[0].type
-            });
+            extraFormData = _.extend(extraFormData, opts.s3.options);
           }
+
+          data.formData = extraFormData;
         },
         done: imageUploadingDone,
         fail: imageUploadingFailed
+      }).on('fileuploadadd', function() {
+        showMessage(ST.t("listings.form.images.loading_image"));
       }).on('dragenter', function() {
         $(this).addClass('hover');
       }).on('dragleave', function() {
