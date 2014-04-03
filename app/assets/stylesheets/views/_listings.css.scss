@@ -8,11 +8,18 @@
   text-align: center;
 }
 
+.listing-image-text-container {
+  position: relative;
+  @include block-with-aspect-ratio(3/2);
+}
+
 // Image frame with 3/2 aspect ratio
 .listing-image-frame {
   @include block-with-aspect-ratio(3/2);
   background-color: $body;
-  position: relative;
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 
 // The content for 3/2 aspect ratio container

@@ -9,9 +9,10 @@
     %span#listing-title.listing-title= @listing.title
 
 %script{type: "text/template", class: "template", id: "image-frame-template"}
-  #listing-image-link.listing-image-frame-content
-    .listing-image-vertical-centering{:class => "${aspectRatioClass}" }
-      %img{:src => "${url}", :alt => @listing.title, :class => "listing-image ${aspectRatioClass}"}
+  .listing-image-frame
+    #listing-image-link.listing-image-frame-content
+      .listing-image-vertical-centering{:class => "${aspectRatioClass}" }
+        %img{:src => "${url}", :alt => @listing.title, :class => "listing-image ${aspectRatioClass}"}
 
 %script{type: "text/template", class: "template", id: "image-thumbnail-template"}
   .listing-image-thumbnail-container
@@ -24,19 +25,18 @@
       .col-12
         - with_image_frame(@listing) do |reason, listing_images|
           - if reason == :images_ok
-            .listing-image-frame
-              .listing-image-carousel
-                #listing-image-frame
+            .listing-image-carousel
+              #listing-image-frame
 
-                - if @prev_image_id && @next_image_id
-                  = link_to params.merge(image: @prev_image_id), class: "listing-image-navi listing-image-navi-left", id: "listing-image-navi-left" do
-                    .listing-image-navi-arrow-container
-                      .listing-image-arrow-icon-container.left
-                        = icon_tag("directleft", ["navigate-icon-fix", "listing-image-navi-arrow"])
-                  = link_to params.merge(image: @next_image_id), class: "listing-image-navi listing-image-navi-right", id: "listing-image-navi-right" do
-                    .listing-image-navi-arrow-container
-                      .listing-image-arrow-icon-container.right
-                        = icon_tag("directright", ["navigate-icon-fix", "listing-image-navi-arrow"])
+              - if @prev_image_id && @next_image_id
+                = link_to params.merge(image: @prev_image_id), class: "listing-image-navi listing-image-navi-left", id: "listing-image-navi-left" do
+                  .listing-image-navi-arrow-container
+                    .listing-image-arrow-icon-container.left
+                      = icon_tag("directleft", ["navigate-icon-fix", "listing-image-navi-arrow"])
+                = link_to params.merge(image: @next_image_id), class: "listing-image-navi listing-image-navi-right", id: "listing-image-navi-right" do
+                  .listing-image-navi-arrow-container
+                    .listing-image-arrow-icon-container.right
+                      = icon_tag("directright", ["navigate-icon-fix", "listing-image-navi-arrow"])
             #thumbnail-stripe.listing-image-thumbnail-stripe
 
             - content_for :extra_javascript do
@@ -45,14 +45,15 @@
                 var currentImage = #{params[:image].present? ? params[:image].to_i : listing_images.first.id};
                 ST.listingImages(listingImages, currentImage);
           - else
-            .listing-image-frame
-              .listing-image-frame-content
-                .listing-image-vertical-centering
-                  .listing-no-image
-                    - if reason == :images_processing
-                      = t("listings.show.processing_uploaded_image")
-                    - else
-                      = t(".no_description")
+            .listing-image-text-container
+              .listing-image-frame
+                .listing-image-frame-content
+                  .listing-image-vertical-centering
+                    .listing-no-image
+                      - if reason == :images_processing
+                        = t("listings.show.processing_uploaded_image")
+                      - else
+                        = t(".no_description")
 
     .row
       .col-12

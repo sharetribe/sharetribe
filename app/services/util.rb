@@ -15,6 +15,10 @@ module Util
   end
 
   module CamelizeHash
+    def to_hash
+      Util::HashUtils.camelize_keys(instance_hash(self))
+    end
+
     module_function
 
     def instance_hash(instance)
@@ -22,10 +26,6 @@ module Util
         hash[var.to_s.delete("@")] = instance.instance_variable_get(var)
         hash
       end
-    end
-
-    def to_hash
-      Util::HashUtils.camelize_keys(instance_hash(self))
     end
   end
 
