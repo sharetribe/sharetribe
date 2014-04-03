@@ -51,7 +51,7 @@ class S3Uploader
       conditions: [
         ["starts-with", "$key", ""],
         ["starts-with", "$Content-Type", "image/"],
-        ["starts-with", "$success_action_status", ""],
+        ["starts-with", "$success_action_status", "200"],
         ["content-length-range", 0, APP_CONFIG.max_image_filesize],
         {bucket: @bucket},
         {acl: @acl}

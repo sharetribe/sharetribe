@@ -1,4 +1,5 @@
 class ListingImageJSAdapter < JSAdapter
+  include Util::CamelizeHash
 
   ASPECT_RATIO = 3/2.to_f
 

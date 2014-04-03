@@ -6,11 +6,26 @@ module Util
       h.delete_if { |k, v| v.nil? }
     end
 
-    def camelize_keys(h)
+    def camelize_keys(h, deep=true)
       h.inject({}) { |memo, (k, v)|
-        memo[k.to_s.camelize(:lower).to_sym] = v.is_a?(Hash) ? camelize_keys(v) : v
+        memo[k.to_s.camelize(:lower).to_sym] = deep && v.is_a?(Hash) ? camelize_keys(v) : v
         memo
       }
+    end
+  end
+
+  module CamelizeHash
+    module_function
+
+    def instance_hash(instance)
+      instance.instance_variables.inject({}) do |hash, var|
+        hash[var.to_s.delete("@")] = instance.instance_variable_get(var)
+        hash
+      end
+    end
+
+    def to_hash
+      Util::HashUtils.camelize_keys(instance_hash(self))
     end
   end
 

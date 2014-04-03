@@ -22,7 +22,8 @@ $listing-image-cellpadding: lines(0.5);
 }
 
 .fileupload-remove-hover {
-  &:hover > .fileupload-preview-remove-image {
+  &:hover > .fileupload-preview-remove-image,
+  .touch & .fileupload-preview-remove-image {
     display: block;
   }
 }
@@ -40,10 +41,7 @@ $listing-image-cellpadding: lines(0.5);
   right: 0;
   top: 0;
 
-  // Hide only if no touch device
-  .no-touch & {
-    display: none;
-  }
+  display: none;
 
   // Center
   line-height: $width;

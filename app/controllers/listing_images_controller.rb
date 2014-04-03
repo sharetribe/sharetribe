@@ -25,7 +25,7 @@ class ListingImagesController < ApplicationController
     url = escape_s3_url(params[:path], params[:filename])
 
     if !url.present?
-      render json: {:errors => "No image URL provided"}, status: 400
+      render json: {:errors => "No image URL provided"}, status: 400, content_type: 'text/plain'
     end
 
     add_image(params[:listing_id], {}, url)

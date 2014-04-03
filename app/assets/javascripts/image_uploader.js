@@ -137,7 +137,7 @@ window.ST.imageUploadElementManager = function($container) {
 
 window.ST.imageUploader = function(listings, opts) {
   var elementManager = ST.imageUploadElementManager($("#image-uploader-container"));
-  var directUploadToS3 = !!opts.s3;
+  var directUploadToS3 = !!opts.s3Fields && !!opts.s3UploadPath;
 
   var extraPlaceholders = 2;
 
@@ -212,10 +212,10 @@ window.ST.imageUploader = function(listings, opts) {
 
   function renderS3Uploader() {
     var s3Options = {
-      url: opts.s3.uploadPath,
+      url: opts.s3UploadPath,
       paramName: "file",
       submit: function(e, data) {
-        data.formData = _.extend(opts.s3.options, { "Content-Type": ST.utils.contentTypeByFilename(data.files[0].name) } );
+        data.formData = _.extend(opts.s3Fields, { "Content-Type": ST.utils.contentTypeByFilename(data.files[0].name) } );
       }
     };
 
@@ -323,7 +323,7 @@ window.ST.imageUploader = function(listings, opts) {
       return Bacon.once(s3ImageOptions(_.first(values))).ajax();
     });
 
-    var fileSaved = Bacon.mergeAll(fileSavedLocal, fileSavedS3);
+    var fileSaved = Bacon.mergeAll(fileSavedLocal, fileSavedS3).map(JSON.parse);
 
     function imageUploadingFailed() {
       $element.showMessage(ST.t("listings.form.images.uploading_failed"));
@@ -332,7 +332,6 @@ window.ST.imageUploader = function(listings, opts) {
     fileSaved.onError(imageUploadingFailed);
 
     fileSaved.onValue(function(result) {
-      result = JSON.parse(result);
       $element.showMessage(ST.t("listings.form.images.processing"), ST.t("listings.form.images.this_may_take_a_while"));
       $element.setListingId(result.id);
     });
@@ -360,7 +359,7 @@ window.ST.imageUploader = function(listings, opts) {
     }
 
     function s3ImageOptions(data) {
-      var path = opts.s3.uploadPath + valueFromFormData(data.formData, "key");
+      var path = opts.s3UploadPath + valueFromFormData(data.formData, "key");
       var filename = data.files[0].name;
 
       return {
