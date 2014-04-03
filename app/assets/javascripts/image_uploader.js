@@ -141,6 +141,36 @@ window.ST.imageUploader = function(listings, opts) {
 
   var extraPlaceholders = 2;
 
+  var renderS3Uploader = (function() {
+    var i = 0;
+    return function() {
+      var s3Options = {
+        url: opts.s3UploadPath,
+        paramName: "file",
+        submit: function(e, data) {
+          data.formData = _.extend({}, opts.s3Fields, {
+            "Content-Type": ST.utils.contentTypeByFilename(data.files[0].name),
+            key: opts.s3Fields.key.replace("${index}", i++)
+          });
+        }
+      };
+
+      return renderUpload(s3Options);
+    };
+  })();
+
+  function renderLocalUploader() {
+    var localOptions = {
+      paramName: "listing_image[image]",
+      url: opts.saveFromFile,
+      submit: function(e, data) {
+        data.formData = { "Content-Type": ST.utils.contentTypeByFilename(data.files[0].name) };
+      }
+    };
+
+    return renderUpload(localOptions);
+  }
+
   var extraPlaceholdersNeeded = listings.length < extraPlaceholders ? extraPlaceholders - listings.length : 0;
   var imageSelected = _().range(extraPlaceholdersNeeded + 1).map(function() {
     return directUploadToS3 ? renderS3Uploader() : renderLocalUploader();
@@ -209,30 +239,6 @@ window.ST.imageUploader = function(listings, opts) {
   imageSelected.filter(maybeNeedsRemovePlaceholder).onValue(function() {
     elementManager.removeEmpty();
   });
-
-  function renderS3Uploader() {
-    var s3Options = {
-      url: opts.s3UploadPath,
-      paramName: "file",
-      submit: function(e, data) {
-        data.formData = _.extend(opts.s3Fields, { "Content-Type": ST.utils.contentTypeByFilename(data.files[0].name) } );
-      }
-    };
-
-    return renderUpload(s3Options);
-  }
-
-  function renderLocalUploader() {
-    var localOptions = {
-      paramName: "listing_image[image]",
-      url: opts.saveFromFile,
-      submit: function(e, data) {
-        data.formData = { "Content-Type": ST.utils.contentTypeByFilename(data.files[0].name) };
-      }
-    };
-
-    return renderUpload(localOptions);
-  }
 
   function renderUpload(additionalOptions) {
     var $element = window.ST.renderImagePlaceholder("empty");
