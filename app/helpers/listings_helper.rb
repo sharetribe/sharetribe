@@ -85,12 +85,13 @@ module ListingsHelper
   end
 
   def with_image_frame(listing, &block)
+    binding.pry
     if self.has_images?(listing) then
-      first_image = listing.listing_images.first
-      if !first_image.image_ready? then
-        block.call(:image_processing, nil)
+      images = listing.listing_images
+      if !listing.listing_images.all? { |image| image.image_ready? } then
+        block.call(:images_processing, nil)
       else
-        block.call(:image_ok, current_image)
+        block.call(:images_ok, images)
       end
     elsif listing.description.blank? then
       block.call(:no_description, nil)
