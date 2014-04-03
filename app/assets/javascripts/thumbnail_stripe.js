@@ -13,7 +13,6 @@ ST.thumbnailStripe = function(images, opts) {
 
   // Element initialization
   container.empty();
-  var visibleWidth = container.width();
   var thumbnailContainer = $("<div />");
   thumbnailContainer.css("position", "absolute");
   thumbnailContainer.css("left", ["-", paddingAdjustment, "px"].join(""));
@@ -42,9 +41,6 @@ ST.thumbnailStripe = function(images, opts) {
   thumbnailContainerWidth = elements.length * thumbnailWidth + 2 * paddingAdjustment;
   thumbnailContainer.width(thumbnailContainerWidth);
 
-  var maxMovement = Math.max((elements.length - Math.floor(visibleWidth / thumbnailWidth)) - 2, 0);
-  var modWidth = thumbnailWidth - ((visibleWidth % thumbnailWidth) / 2) - paddingAdjustment;
-
   // State
   var initialIdx = 0;
   var containerMoved = 0;
@@ -57,6 +53,18 @@ ST.thumbnailStripe = function(images, opts) {
   var prevBus = new Bacon.Bus();
 
   elements[initialIdx].addClass(selectedClass);
+
+  function visibleWidth() {
+    return container.width();
+  }
+
+  function maxMovement() {
+    return Math.max((elements.length - Math.floor(visibleWidth() / thumbnailWidth)) - 2, 0);
+  }
+
+  function modWidth() {
+    return thumbnailWidth - ((visibleWidth() % thumbnailWidth) / 2) - paddingAdjustment;
+  }
 
   function show(oldValue, newValue) {
     var oldIdx = oldValue.value;
@@ -91,8 +99,8 @@ ST.thumbnailStripe = function(images, opts) {
   function isPosVisible(idx) {
     var thumbStart = idx * thumbnailWidth;
     var thumbEnd = thumbStart + thumbnailWidth;
-    var start = (containerMoved * thumbnailWidth) + (modAdded * modWidth);
-    var end = start + visibleWidth;
+    var start = (containerMoved * thumbnailWidth) + (modAdded * modWidth());
+    var end = start + visibleWidth();
     return start <= thumbStart && thumbEnd <= end;
   }
 
@@ -112,7 +120,7 @@ ST.thumbnailStripe = function(images, opts) {
   }
 
   function moveLeft(newIdx) {
-    var firstMove = containerMoved == maxMovement && modAdded == 2;
+    var firstMove = containerMoved == maxMovement() && modAdded == 2;
     var lastMove = newIdx === 0;
 
     if(lastMove) {
@@ -135,13 +143,13 @@ ST.thumbnailStripe = function(images, opts) {
 
   function moveBackRight() {
     modAdded = 2;
-    containerMoved = maxMovement;
+    containerMoved = maxMovement();
 
     move(containerMoved, modAdded);
   }
 
   function move(wholeMoves, partialMoves) {
-    thumbnailContainer.transition({ x: (-1 * ((wholeMoves * thumbnailWidth) + (partialMoves * modWidth)) ) });
+    thumbnailContainer.transition({ x: (-1 * ((wholeMoves * thumbnailWidth) + (partialMoves * modWidth())) ) });
   }
 
   // Prev/Next events
