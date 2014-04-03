@@ -1,0 +1,35 @@
+@import "mixins/all";
+
+.listing-image-thumbnail-stripe {
+  width: 100%;
+  overflow: hidden;
+  height: 64px;
+  margin-top: 2px;
+  position: relative;
+}
+
+.listing-image-thumbnail-container {
+  position: relative;
+  float: left;
+
+  &:hover > .fade,
+  &.selected > .fade {
+    display: none;
+  }
+
+  & > .fade {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px; bottom: 0px;
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.listing-image-thumbnail {
+  width: 64px;
+  height: 64px;
+  padding: 2px;
+  border-radius: $default-border-radius;
+  cursor: pointer;
+}

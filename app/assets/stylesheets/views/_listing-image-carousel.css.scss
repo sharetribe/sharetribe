@@ -1,0 +1,76 @@
+@import "mixins/all";
+@import "compass/css3/border-radius";
+
+.listing-image-carousel {
+  position: relative;
+  overflow: hidden;
+
+  &:hover > .listing-image-navi {
+    display: block;
+  }
+
+  & > .listing-image-navi {
+    display: none;
+  }
+
+  @include block-with-aspect-ratio(3/2);
+}
+
+.listing-image-navi-arrow-container {
+  @include vertical-centering-content;
+}
+
+.navigate-icon-fix {
+  position: relative;
+  top: 4px;
+}
+
+.listing-image-arrow-icon-container {
+  position: relative;
+  padding: lines(0.75) lines(0.5);
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  display: inline-block;
+
+  &.left {
+    @include border-right-radius($default-border-radius);
+  }
+
+  &.right {
+    @include border-left-radius($default-border-radius);
+  }
+}
+
+.listing-image-navi-arrow {
+  @include big-type;
+}
+
+.listing-image-navi-right {
+  text-align: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 75%;
+  height: 100%;
+  @include vertical-centering-container;
+
+  &:hover .listing-image-arrow-icon-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 1);
+  }
+}
+
+.listing-image-navi-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100%;
+  text-align: left;
+  @include vertical-centering-container;
+
+  &:hover .listing-image-arrow-icon-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 1);
+  }
+}

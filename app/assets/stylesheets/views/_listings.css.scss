@@ -8,21 +8,6 @@
   text-align: center;
 }
 
-.listing-image-carousel {
-  position: relative;
-  overflow: hidden;
-
-  &:hover > .listing-image-navi {
-    display: block;
-  }
-
-  & > .listing-image-navi {
-    display: none;
-  }
-
-  @include block-with-aspect-ratio(3/2);
-}
-
 // Image frame with 3/2 aspect ratio
 .listing-image-frame {
   @include block-with-aspect-ratio(3/2);
@@ -36,14 +21,11 @@
 // - This works also as a container for vertically
 //   centered image
 .listing-image-frame-content {
-  // With Firefox, there's 1px flickering. That's why
-  // the frame looks better if it has 1px border
-  $border-margin: 0px;
   position: absolute;
-  top: $border-margin;
-  bottom: $border-margin;
-  left: $border-margin;
-  right: $border-margin;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
   overflow: hidden;
   @include vertical-centering-container;
@@ -65,58 +47,6 @@
     // vertical-align may cause 1px flickering, if the image
     // uses all vertical size available.
     vertical-align: top;
-  }
-}
-
-.listing-image-navi-arrow-container {
-  @include vertical-centering-content;
-}
-
-.navigate-icon-fix {
-  position: relative;
-  top: 4px;
-}
-
-.listing-image-arrow-icon-container {
-  position: relative;
-  padding: lines(0.75) lines(0.5);
-  background-color: rgba(0, 0, 0, 0.1);
-  color: rgba(255, 255, 255, 0.5);
-  @include border-radius($default-border-radius);
-  display: inline-block;
-}
-
-.listing-image-navi-arrow {
-  @include big-type;
-}
-
-.listing-image-navi-right {
-  text-align: right;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 75%;
-  height: 100%;
-  @include vertical-centering-container;
-
-  &:hover .listing-image-arrow-icon-container {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: rgba(255, 255, 255, 1);
-  }
-}
-
-.listing-image-navi-left {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 25%;
-  height: 100%;
-  text-align: left;
-  @include vertical-centering-container;
-
-  &:hover .listing-image-arrow-icon-container {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: rgba(255, 255, 255, 1);
   }
 }
 
@@ -260,144 +190,4 @@ $listing-author-avatar-height: 108;
   @include big-button($link);
   margin-top: 0;
   width: 100%;
-}
-
-$listing-image-cellpadding: lines(0.5);
-
-.listing-images {
-  margin-top: lines(0.5);
-  margin-bottom: lines(1);
-  @include clearfix;
-
-  margin-right: $listing-image-cellpadding * -1;
-}
-
-@mixin fileupload-thumbnail($border: 0) {
-  $available-space: lines(19) - (2 * lines(0.5)) - (2 * $listing-image-cellpadding); // centered section, 19 lines minus 0.5 padding
-  $width: ($available-space / 3);
-  width: $width;
-  height: $width;
-  border-radius: 2 * $default-border-radius;
-
-  // Colors
-  border: #EEE dashed em($border);
-}
-
-.fileupload-remove-hover {
-  &:hover > .fileupload-preview-remove-image {
-    display: block;
-  }
-}
-
-.fileupload-preview-image {
-  @include fileupload-thumbnail;
-}
-
-.fileupload-preview-remove-image {
-  // Position
-  $width: lines(1.5);
-  position: absolute;
-  width: $width;
-  height: $width;
-  right: 0;
-  top: 0;
-
-  // Hide only if no touch device
-  .no-touch & {
-    display: none;
-  }
-
-  // Center
-  line-height: $width;
-  text-align: center;
-
-  // Borders and background
-  border-top-right-radius: 2 * $default-border-radius;
-  border-bottom-left-radius: 2 * $default-border-radius;
-  background-color: rgb(66, 66, 66); // Old browser fallback
-  background-color: rgba(0, 0, 0, 0.5);
-
-  // Color
-  color: darken($background, 20%);
-
-  &:hover {
-    cursor: pointer;
-    color: $background;
-  }
-}
-
-.fileupload-removing {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  @include fileupload-thumbnail;
-
-  background-color: rgba(255, 255, 255, 0.8);
-}
-
-.fileupload-text-container {
-  @include fileupload-thumbnail(3);
-  outline: 1px solid red;
-
-  color: darken(#EEE, 33%);
-
-  // Center multiline text
-  @include vertical-centering-table-container;
-}
-
-.upload-image-placeholder {
-  @include fileupload-thumbnail;
-  float: left;
-  background-color: #FAFAFA;
-
-  &:hover, &.hover {
-    border-color: darken(#EEE, 10%);
-  }
-
-
-  margin-right: $listing-image-cellpadding;
-  margin-bottom: $listing-image-cellpadding;
-}
-
-.fileupload-centered-text {
-  @include vertical-centering-table-content;
-}
-
-.fileupload-small-text {
-  @include small-type;
-}
-
-.listing-image-thumbnail-stripe {
-  width: 100%;
-  overflow: hidden;
-  height: 64px;
-  margin-top: 2px;
-  position: relative;
-}
-
-.listing-image-thumbnail-container {
-  position: relative;
-  float: left;
-
-  &:hover > .fade,
-  &.selected > .fade {
-    display: none;
-  }
-
-  & > .fade {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px; bottom: 0px;
-    background-color: rgba(255, 255, 255, 0.6);
-  }
-}
-
-.listing-image-thumbnail {
-  width: 64px;
-  height: 64px;
-  padding: 2px;
-  border-radius: $default-border-radius;
-  cursor: pointer;
 }
