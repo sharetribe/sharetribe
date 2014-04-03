@@ -1,6 +1,9 @@
 window.ST = window.ST || {};
 
-ST.thumbnailStripe = function(container, elements, opts) {
+ST.thumbnailStripe = function(images, opts) {
+  var container = $("#thumbnail-stripe");
+  var thumbnailTmpl = _.template($("#image-thumbnail-template").html());
+
   // Options
   opts = opts || {};
   var selectedClass = opts.selectedClass || "selected";
@@ -17,9 +20,25 @@ ST.thumbnailStripe = function(container, elements, opts) {
   container.append(thumbnailContainer);
   var thumbnailContainerWidth;
 
+  var thumbnailClickS = [];
+
+  var elements = _.map(images, function(image, idx) {
+    var thumbnailElement = $(thumbnailTmpl({url: image.images.thumb }));
+    thumbnailClickS.push(thumbnailElement.asEventStream("click").map(function() { return idx; }));
+    return thumbnailElement;
+  });
+
+  var clickS = Bacon.mergeAll.apply(null, thumbnailClickS);
+
+  clickS.onValue(show);
+
   _.each(elements, function(el) {
     thumbnailContainer.append(el);
   });
+
+  if(elements.length < 2) {
+    container.hide();
+  }
 
   thumbnailContainerWidth = elements.length * thumbnailWidth + 2 * paddingAdjustment;
   thumbnailContainer.width(thumbnailContainerWidth);
@@ -28,58 +47,46 @@ ST.thumbnailStripe = function(container, elements, opts) {
   var modWidth = thumbnailWidth - ((visibleWidth % thumbnailWidth) / 2) - paddingAdjustment;
 
   // State
-  var current = 0;
+  var initialIdx = 0;
   var containerMoved = 0;
   var modAdded = 0;
 
-  var nextIndex = _.partial(ST.utils.nextIndex, elements.length);
-  var prevIndex = _.partial(ST.utils.prevIndex, elements.length);
+  var nextId = _.partial(ST.utils.nextIndex, elements.length);
+  var prevId = _.partial(ST.utils.prevIndex, elements.length);
 
-  function next() {
-    var newIdx = nextIndex(current);
+  var nextBus = new Bacon.Bus();
+  var prevBus = new Bacon.Bus();
 
-    if(goingRight(newIdx)) {
-      if(!isPosVisible(newIdx)) {
-        moveRight(newIdx);
+  elements[initialIdx].addClass(selectedClass);
+
+  function show(oldValue, newValue) {
+    var oldIdx = oldValue.value;
+    var newIdx = newValue.value;
+    var goingLeft = oldIdx > newIdx;
+    var goingRight = oldIdx < newIdx;
+    var goingLeftAround = newValue.direction === "prev" && goingRight;
+    var goingRightAround = newValue.direction === "next" && goingLeft;
+
+    // Move
+    if(!isPosVisible(newIdx)) {
+      if(goingRight) {
+        if(goingLeftAround) {
+          moveBackRight();
+        } else {
+          moveRight(newIdx);
+        }
+      } else {
+        if(goingRightAround) {
+          moveBackLeft();
+        } else {
+          moveLeft(newIdx);
+        }
       }
-    } else {
-      moveBackLeft();
     }
 
-    activate(newIdx);
-  }
-
-  function prev() {
-    var newIdx = prevIndex(current);
-
-    if(goingLeft(newIdx)) {
-      if(!isPosVisible(newIdx)) {
-        moveLeft(newIdx);
-      }
-    } else {
-      moveBackRight();
-    }
-
-    activate(newIdx);
-  }
-
-  function show(newIdx) {
-    if(goingRight(newIdx) && !isPosVisible(newIdx)) {
-      moveRight(newIdx);
-    }
-
-    if(goingLeft(newIdx) && !isPosVisible(newIdx)) {
-      moveLeft(newIdx);
-    }
-
-    activate(newIdx);
-  }
-
-  function activate(idx) {
-    var old = current;
-    current = idx;
-    elements[old].removeClass(selectedClass);
-    elements[current].addClass(selectedClass);
+    // Highlight
+    elements[oldIdx].removeClass(selectedClass);
+    elements[newIdx].addClass(selectedClass);
   }
 
   function isPosVisible(idx) {
@@ -88,14 +95,6 @@ ST.thumbnailStripe = function(container, elements, opts) {
     var start = (containerMoved * thumbnailWidth) + (modAdded * modWidth);
     var end = start + visibleWidth;
     return start <= thumbStart && thumbEnd <= end;
-  }
-
-  function goingLeft(newIdx) {
-    return newIdx < current;
-  }
-
-  function goingRight(newIdx) {
-    return newIdx > current;
   }
 
   function moveRight(newIdx) {
@@ -146,9 +145,24 @@ ST.thumbnailStripe = function(container, elements, opts) {
     thumbnailContainer.transition({ x: (-1 * ((wholeMoves * thumbnailWidth) + (partialMoves * modWidth)) ) });
   }
 
+  // Prev/Next events
+  var prevIdxStream = prevBus.map(function() { return {value: null, fn: prevId, direction: "prev"}; });
+  var nextIdxStream = nextBus.map(function() { return {value: null, fn: nextId, direction: "next"}; });
+
+  var idxStream = prevIdxStream.merge(nextIdxStream).scan({value: initialIdx}, function(a, b) {
+    var newIdx = b.value != null ? b.value : b.fn(a.value)
+    return {direction: b.direction, value: newIdx};
+  }).slidingWindow(2, 2);
+
+  idxStream.onValues(show);
+
   return {
-    next: next,
-    prev: prev,
-    show: show
+    next: function(nextStream) {
+      nextBus.plug(nextStream);
+    },
+    prev: function(prevStream) {
+      prevBus.plug(prevStream);
+    },
+    show: clickS
   }
 }

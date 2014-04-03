@@ -1,42 +1,19 @@
 window.ST = window.ST || {};
 
 window.ST.listingImages = function(images, currentImageId) {
-  var thumbnailTmpl = _.template($("#image-thumbnail-template").html());
-
-  var carousel, stripe;
 
   function createStripe() {
-    var _stripe;
-
-    var thumbnails = _.map(images, function(image, idx) {
-      var thumbnailElement = $(thumbnailTmpl({url: image.images.thumb }));
-      thumbnailElement.click(function() {
-        _stripe.show(idx);
-        carousel.show(idx);
-      });
-      return thumbnailElement;
-    });
-
-    _stripe = ST.thumbnailStripe($("#thumbnail-stripe"), thumbnails, {thumbnailWidth: 64, paddingAdjustment: 2});
-
-    _stripe.show(0);
-
-    return _stripe;
+    return ST.thumbnailStripe(images, {thumbnailWidth: 64, paddingAdjustment: 2});;
   }
 
   function createCarousel() {
-    var _carousel = ST.imageCarousel(images, currentImageId);
-    _carousel.next.onValue(function() {
-      stripe.next()}
-    );
-    _carousel.prev.onValue(function() {
-      stripe.prev();
-    });
-
-    return _carousel;
+    return ST.imageCarousel(images);
   }
 
-  carousel = createCarousel();
-  stripe = createStripe();
+  var carousel = createCarousel();
+  var stripe = createStripe();
 
+  stripe.next(carousel.next);
+  stripe.prev(carousel.prev);
+  carousel.show(stripe.show);
 }

@@ -1,6 +1,7 @@
 window.ST = window.ST || {};
 
-ST.imageCarousel = function(images, currentImageId) {
+ST.imageCarousel = function(images) {
+  // Elements
   var tmpl = _.template($("#image-frame-template").html());
   var leftLink = $("#listing-image-navi-left");
   var rightLink = $("#listing-image-navi-right");
@@ -8,9 +9,7 @@ ST.imageCarousel = function(images, currentImageId) {
   var thumbnailContainer = $("#listing-image-thumbnails");
   var thumbnailOverflow = $("#listing-image-thumbnails-mask");
 
-  var imageIds = _(images).map(function(image) { return image.id }).value();
-  var currentIdx = _.indexOf(imageIds, currentImageId);
-
+  // Initialize thumbnail elements
   var elements = _.map(images, function(image) {
     return $(tmpl({url: image.images.big, aspectRatioClass: image.aspectRatio }));
   });
@@ -20,27 +19,23 @@ ST.imageCarousel = function(images, currentImageId) {
     container.append(el);
   });
 
-  elements[currentIdx].show();
-
-  function prevId(currId, length) {
-    if (currId === 0) {
-      return length - 1;
-    } else {
-      return currId - 1
-    }
-  }
-
-  function nextId(currId, length) {
-    return (currId + 1) % length;
-  }
-
+  // Options
+  var initialIdx = 0;
   var swipeDelay = 400;
 
-  function swipeRight(newElement, oldElement) {
-    newElement.transition({ x: -1 * newElement.width() }, 0);
+  elements[initialIdx].show();
+
+  var prevId = _.partial(ST.utils.prevIndex, elements.length);
+  var nextId = _.partial(ST.utils.nextIndex, elements.length);
+
+  function swipe(direction, newElement, oldElement) {
+    var newStartDir = direction == "right" ? -1 : 1;
+    var oldMoveDir = direction == "right" ? 1 : -1;
+
+    newElement.transition({ x: newStartDir * newElement.width() }, 0);
     newElement.show();
 
-    var oldDone = oldElement.transition({ x: oldElement.width() }, swipeDelay).promise();
+    var oldDone = oldElement.transition({ x: oldMoveDir * oldElement.width() }, swipeDelay).promise();
     var newDone = newElement.transition({ x: 0 }, swipeDelay).promise();
 
     var bothDone = $.when(newDone, oldDone)
@@ -51,62 +46,49 @@ ST.imageCarousel = function(images, currentImageId) {
     return bothDone;
   }
 
-  function swipeLeft(newElement, oldElement) {
-    newElement.transition({ x: newElement.width() }, 0);
-    newElement.show();
-    var oldDone = oldElement.transition({ x: -1 * oldElement.width() }, swipeDelay).promise();
-    var newDone = newElement.transition({ x: 0 }, swipeDelay).promise();
+  // function show(idx) {
+  function show(oldIdx, newIdx) {
+    var goingRight = newIdx > oldIdx;
+    var goingLeft = newIdx < oldIdx;
 
-    var bothDone = $.when(newDone, oldDone)
-    bothDone.done(function() {
-      oldElement.hide();
-    });
+    var oldElement = elements[oldIdx];
+    var newElement = elements[newIdx];
 
-    return bothDone;
-  }
-
-  function show(idx) {
-    var goingRight = idx > currentIdx;
-    var goingLeft = idx < currentIdx;
-
-    var oldElement = elements[currentIdx];
-    currentIdx = idx;
-    var newElement = elements[currentIdx];
-
+    // Notice, if going right, the swipe effect goes to from left
     if(goingRight) {
-      swipeLeft(newElement, oldElement);
+      swipe("left", newElement, oldElement);
     }
     if(goingLeft) {
-      swipeRight(newElement, oldElement);
+      swipe("right", newElement, oldElement);
     }
   }
 
   // Prev/Next events
-
   var prev = leftLink.asEventStream("click").doAction(".preventDefault").debounceImmediate(swipeDelay);
   var next = rightLink.asEventStream("click").doAction(".preventDefault").debounceImmediate(swipeDelay);
 
-  prev.onValue(function() {
-    var oldElement = elements[currentIdx];
-    currentIdx = prevId(currentIdx, elements.length);
-    var newElement = elements[currentIdx];
+  var prevIdxStream = prev.map(function() { return {value: null, fn: prevId} });
+  var nextIdxStream = next.map(function() { return {value: null, fn: nextId} });
 
-    swipeRight(newElement, oldElement);
-  });
+  var idxStreamBus = new Bacon.Bus();
+  idxStreamBus.plug(prevIdxStream);
+  idxStreamBus.plug(nextIdxStream);
 
-  next.onValue(function() {
-    var oldElement = elements[currentIdx];
-    currentIdx = nextId(currentIdx, elements.length);
-    var newElement = elements[currentIdx];
+  var idxStream = idxStreamBus.scan(initialIdx, function(a, b) {
+    if (b.value) {
+      return b.value;
+    } else {
+      return b.fn(a);
+    }
+  }).slidingWindow(2, 2);
 
-    swipeLeft(newElement, oldElement);
-  });
-
-  // Returns
+  idxStream.onValues(show);
 
   return {
     prev: prev,
     next: next,
-    show: show
+    show: function(showStream) {
+      idxStreamBus.plug(showStream.map(function(idx) { return {value: idx}; }));
+    }
   }
 }
