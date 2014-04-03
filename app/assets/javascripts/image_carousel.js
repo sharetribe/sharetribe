@@ -6,8 +6,6 @@ ST.imageCarousel = function(images) {
   var leftLink = $("#listing-image-navi-left");
   var rightLink = $("#listing-image-navi-right");
   var container = $("#listing-image-frame");
-  var thumbnailContainer = $("#listing-image-thumbnails");
-  var thumbnailOverflow = $("#listing-image-thumbnails-mask");
 
   // Initialize thumbnail elements
   var elements = _.map(images, function(image) {
@@ -29,8 +27,8 @@ ST.imageCarousel = function(images) {
   var nextId = _.partial(ST.utils.nextIndex, elements.length);
 
   function swipe(direction, newElement, oldElement) {
-    var newStartDir = direction == "right" ? -1 : 1;
-    var oldMoveDir = direction == "right" ? 1 : -1;
+    var newStartDir = direction === "right" ? -1 : 1;
+    var oldMoveDir = direction === "right" ? 1 : -1;
 
     newElement.transition({ x: newStartDir * newElement.width() }, 0);
     newElement.show();
@@ -38,7 +36,7 @@ ST.imageCarousel = function(images) {
     var oldDone = oldElement.transition({ x: oldMoveDir * oldElement.width() }, swipeDelay).promise();
     var newDone = newElement.transition({ x: 0 }, swipeDelay).promise();
 
-    var bothDone = $.when(newDone, oldDone)
+    var bothDone = $.when(newDone, oldDone);
     bothDone.done(function() {
       oldElement.hide();
     });
@@ -73,8 +71,8 @@ ST.imageCarousel = function(images) {
   prevBus.plug(prev);
   nextBus.plug(next);
 
-  var prevIdxStream = prevBus.debounceImmediate(swipeDelay).map(function() { return {value: null, fn: prevId} });
-  var nextIdxStream = nextBus.debounceImmediate(swipeDelay).map(function() { return {value: null, fn: nextId} });
+  var prevIdxStream = prevBus.debounceImmediate(swipeDelay).map(function() { return {value: null, fn: prevId}; });
+  var nextIdxStream = nextBus.debounceImmediate(swipeDelay).map(function() { return {value: null, fn: nextId}; });
 
   var idxStreamBus = new Bacon.Bus();
   idxStreamBus.plug(prevIdxStream);
@@ -103,5 +101,5 @@ ST.imageCarousel = function(images) {
     show: function(showStream) {
       idxStreamBus.plug(showStream.map(function(idx) { return {value: idx}; }));
     }
-  }
-}
+  };
+};

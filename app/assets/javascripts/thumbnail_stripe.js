@@ -105,7 +105,7 @@ ST.thumbnailStripe = function(images, opts) {
   }
 
   function moveRight(newIdx) {
-    var firstMove = containerMoved == 0 && modAdded == 0;
+    var firstMove = containerMoved === 0 && modAdded === 0;
     var lastMove = newIdx === elements.length - 1;
 
     if(lastMove) {
@@ -120,7 +120,7 @@ ST.thumbnailStripe = function(images, opts) {
   }
 
   function moveLeft(newIdx) {
-    var firstMove = containerMoved == maxMovement() && modAdded == 2;
+    var firstMove = containerMoved === maxMovement() && modAdded === 2;
     var lastMove = newIdx === 0;
 
     if(lastMove) {
@@ -158,7 +158,7 @@ ST.thumbnailStripe = function(images, opts) {
   var showIdxStream = clickS.map(function(newIdx) { return {value: newIdx }; });
 
   var idxStream = prevIdxStream.merge(nextIdxStream).merge(showIdxStream).scan({value: initialIdx}, function(a, b) {
-    var newIdx = b.value != null ? b.value : b.fn(a.value)
+    var newIdx = b.value != null ? b.value : b.fn(a.value);
     return {direction: b.direction, value: newIdx};
   }).skipDuplicates(_.isEqual).slidingWindow(2, 2);
 
@@ -172,5 +172,5 @@ ST.thumbnailStripe = function(images, opts) {
       prevBus.plug(prevStream.debounceImmediate(swipeDelay));
     },
     show: clickS
-  }
-}
+  };
+};

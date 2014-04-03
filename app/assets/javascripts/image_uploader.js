@@ -31,11 +31,6 @@ window.ST.renderImagePlaceholder = function(type) {
     showTexts();
   }
 
-  function listingImageSavingDone(result) {
-    $("#listing-image-id", $element).val(result.id);
-    showTexts();
-  }
-
   function hideTexts() {
     texts.css('display', 'none');
   }
@@ -75,8 +70,8 @@ window.ST.renderImagePlaceholder = function(type) {
     hideRemove: hideRemove,
     setListingId: setListingId,
     type: type
-  }
-}
+  };
+};
 
 window.ST.imageUploadElementManager = function($container) {
   var empties = [];
@@ -122,7 +117,7 @@ window.ST.imageUploadElementManager = function($container) {
   }
 
   function addEmpty(element) {
-    $container.append(element)
+    $container.append(element);
     empties.push(element);
   }
 
@@ -137,7 +132,7 @@ window.ST.imageUploadElementManager = function($container) {
     removeEmpty: removeEmpty,
     removeUploading: removeUploading,
     removePreview: removePreview
-  }
+  };
 };
 
 window.ST.imageUploader = function(listings, opts) {
@@ -147,7 +142,7 @@ window.ST.imageUploader = function(listings, opts) {
   var extraPlaceholders = 2;
 
   var extraPlaceholdersNeeded = listings.length < extraPlaceholders ? extraPlaceholders - listings.length : 0;
-  var imageSelected = _().range(extraPlaceholdersNeeded + 1).map(function(listing) {
+  var imageSelected = _().range(extraPlaceholdersNeeded + 1).map(function() {
     return directUploadToS3 ? renderS3Uploader() : renderLocalUploader();
   }).each(function(rendered) {
     elementManager.addEmpty(rendered.element.container);
@@ -181,11 +176,11 @@ window.ST.imageUploader = function(listings, opts) {
 
   var newPreviewRendered = imageUploaded.map(function(listing) {
     return renderPreview(listing);
-  })
+  });
 
   newPreviewRendered.onValue(function(rendered) {
     elementManager.addPreview(rendered.element.container);
-  })
+  });
 
   var newPreviewRemoved = newPreviewRendered.flatMap(function(rendered) {
     return rendered.stream;
@@ -196,16 +191,15 @@ window.ST.imageUploader = function(listings, opts) {
   function value(v) {
     return function() {
       return v;
-    }
+    };
   }
 
-  function add(x, y) { return x + y }
-  function toBoolean(x) { return !!x; }
+  function add(x, y) { return x + y; }
 
   var count = imageSelected.map(value(1)).merge(imageRemoved.map(value(-1))).scan(listings.length, add);
 
-  var maybeNeedsAddPlaceholder = count.map(function(c) { return c < extraPlaceholders });
-  var maybeNeedsRemovePlaceholder = count.map(function(c) { return c <= extraPlaceholders });
+  var maybeNeedsAddPlaceholder = count.map(function(c) { return c < extraPlaceholders; });
+  var maybeNeedsRemovePlaceholder = count.map(function(c) { return c <= extraPlaceholders; });
 
   imageRemoved.filter(maybeNeedsAddPlaceholder).onValue(function() {
     var rendered = directUploadToS3 ? renderS3Uploader() : renderLocalUploader();
@@ -240,9 +234,8 @@ window.ST.imageUploader = function(listings, opts) {
     return renderUpload(localOptions);
   }
 
-
   function renderUpload(additionalOptions) {
-    $element = window.ST.renderImagePlaceholder("empty");
+    var $element = window.ST.renderImagePlaceholder("empty");
 
     $element.showMessage(ST.t("listings.form.images.select_file"));
     $element.fileupload.show();
@@ -263,7 +256,7 @@ window.ST.imageUploader = function(listings, opts) {
       // which actually support image resizing, but fail to
       // send Blob objects via XHR requests:
       disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator && navigator.userAgent)
-    }
+    };
 
     var fileuploadOptions = _.extend(fileuploadDefaultOptions, additionalOptions);
 
@@ -273,7 +266,7 @@ window.ST.imageUploader = function(listings, opts) {
       $(this).removeClass('hover');
     });
 
-    var fileAdded = $element.fileupload.asEventStream('fileuploadadd', function(e, data) { return data });
+    var fileAdded = $element.fileupload.asEventStream('fileuploadadd', function(e, data) { return data; });
     return {element: $element, stream: fileAdded};
   }
 
@@ -301,7 +294,7 @@ window.ST.imageUploader = function(listings, opts) {
 
       }).onValue(function(percentageLoaded) {
         $element.showMessage(percentageLoaded);
-      })
+      });
 
       return Bacon.fromBinder(function(sink) {
         submit.done(function(result) {
@@ -310,16 +303,16 @@ window.ST.imageUploader = function(listings, opts) {
           sink(new Bacon.Error());
         }).always(function() {
           sink(new Bacon.End());
-        })
+        });
 
         return function() {
            // unsub functionality here, this one's a no-op
-        }
+        };
       });
     });
 
-    fileSubmittedS3 = fileSubmitted.filter(function() { return directUploadToS3 });
-    fileSubmittedLocal = fileSubmitted.filter(function() { return !directUploadToS3 });
+    var fileSubmittedS3 = fileSubmitted.filter(function() { return directUploadToS3; });
+    var fileSubmittedLocal = fileSubmitted.filter(function() { return !directUploadToS3; });
 
     // File is saved at the same time it's submitted to local server
     var fileSavedLocal = fileSubmittedLocal.map(function(values) {
@@ -332,13 +325,17 @@ window.ST.imageUploader = function(listings, opts) {
 
     var fileSaved = Bacon.mergeAll(fileSavedLocal, fileSavedS3);
 
+    function imageUploadingFailed() {
+      $element.showMessage(ST.t("listings.form.images.uploading_failed"));
+    }
+
     fileSaved.onError(imageUploadingFailed);
 
     fileSaved.onValue(function(result) {
       result = JSON.parse(result);
       $element.showMessage(ST.t("listings.form.images.processing"), ST.t("listings.form.images.this_may_take_a_while"));
       $element.setListingId(result.id);
-    })
+    });
 
     var filePostprocessed = fileSaved.flatMap(function(result) {
       return ST.utils.baconStreamFromAjaxPolling({url: result.urls.status}, function(pollingResult) {
@@ -376,11 +373,7 @@ window.ST.imageUploader = function(listings, opts) {
       };
     }
 
-    function imageUploadingFailed() {
-      $element.showMessage(ST.t("listings.form.images.uploading_failed"));
-    }
-
-    filePostprocessed.onValue(function(result) {
+    filePostprocessed.onValue(function() {
       elementManager.removeUploading($element.container);
     });
 
@@ -389,9 +382,9 @@ window.ST.imageUploader = function(listings, opts) {
 
   function renderPreview(listing) {
     var $element = window.ST.renderImagePlaceholder("preview");
-    $element.setListingId(listing.id)
+    $element.setListingId(listing.id);
 
-    $element.showPreview(listing.images.thumb)
+    $element.showPreview(listing.images.thumb);
     $element.showRemove();
 
     $element.container.addClass("fileupload-preview");
@@ -407,7 +400,7 @@ window.ST.imageUploader = function(listings, opts) {
       return {
         url: listing.urls.remove,
         type: 'DELETE'
-      }
+      };
     });
 
     var ajaxResponse = ajaxRequest.ajax();
@@ -418,4 +411,4 @@ window.ST.imageUploader = function(listings, opts) {
 
     return {element: $element, stream: ajaxResponse};
   }
-}
+};

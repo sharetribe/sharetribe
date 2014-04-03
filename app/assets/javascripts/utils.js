@@ -103,13 +103,13 @@ ST.utils = (function(_) {
   function not(fn) {
     return function() {
       return !fn.apply(null, arguments);
-    }
+    };
   }
 
   function baconStreamFromAjaxPolling(ajaxOpts, predicate) {
     return Bacon.fromBinder(function(sink) {
       function poll() {
-        var ajax = Bacon.once(ajaxOpts).ajax()
+        var ajax = Bacon.once(ajaxOpts).ajax();
 
         ajax.filter(predicate).onValue(function(statusResult) {
           sink([new Bacon.Next(statusResult), new Bacon.End()]);
@@ -121,7 +121,7 @@ ST.utils = (function(_) {
 
         ajax.onError(function(e) {
           sink([new Bacon.Error(e), new Bacon.End()]);
-        })
+        });
       }
 
       poll();

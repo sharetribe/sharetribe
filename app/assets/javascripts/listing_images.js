@@ -1,9 +1,9 @@
 window.ST = window.ST || {};
 
-window.ST.listingImages = function(images, currentImageId) {
+window.ST.listingImages = function(images) {
 
   function createStripe() {
-    return ST.thumbnailStripe(images, {thumbnailWidth: 64, paddingAdjustment: 2});;
+    return ST.thumbnailStripe(images, {thumbnailWidth: 64, paddingAdjustment: 2});
   }
 
   function createCarousel() {
@@ -27,11 +27,11 @@ window.ST.listingImages = function(images, currentImageId) {
   var keyboardRight = keyCodeStream.filter(equals(RIGHT));
 
   stripe.next(carousel.nextClicked);
-  stripe.next(keyboardRight)
+  stripe.next(keyboardRight);
   stripe.prev(carousel.prevClicked);
   stripe.prev(keyboardLeft);
 
   carousel.next(keyboardRight);
   carousel.prev(keyboardLeft);
   carousel.show(stripe.show);
-}
+};
