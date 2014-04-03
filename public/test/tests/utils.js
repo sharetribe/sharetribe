@@ -26,4 +26,13 @@ describe('ST.utils', function () {
     expect(f(1, length)).to.eql(0);
     expect(f(0, length)).to.eql(2);
   });
+
+  it('#contentTypeByFilename', function() {
+    var f = ST.utils.contentTypeByFilename;
+
+    expect(f("image.jpg")).to.eql("image/jpeg");
+    expect(f("image.gif")).to.eql("image/gif");
+    expect(f("image")).to.eql(undefined);
+    expect(f("image.gif.png.jpg")).to.eql("image/jpeg");
+  });
 });

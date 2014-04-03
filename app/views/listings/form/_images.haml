@@ -13,7 +13,7 @@
         = icon_tag("cross", ["icon-fix"])
       %input.listing-image-id{type: "hidden", name: "listing_images[][id]"}
 
-= js_t ["listings.form.images.processing", "listings.form.images.this_may_take_a_while", "listings.form.images.percentage_loaded", "listings.form.images.uploading_failed", "listings.form.images.file_too_large", "listings.form.images.accepted_formats", "listings.form.images.select_file", "listings.form.images.removing"], run_js_immediately
+= js_t ["listings.form.images.processing", "listings.form.images.this_may_take_a_while", "listings.form.images.percentage_loaded", "listings.form.images.uploading_failed", "listings.form.images.file_too_large", "listings.form.images.accepted_formats", "listings.form.images.loading_image", "listings.form.images.select_file", "listings.form.images.removing"], run_js_immediately
 
 - content_for :image_uploader_js do
   :javascript

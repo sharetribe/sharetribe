@@ -221,7 +221,7 @@ window.ST.imageUploader = function(listings, opts) {
       url: opts.s3.uploadPath,
       paramName: "file",
       submit: function(e, data) {
-        data.formData = _.extend(opts.s3.options, { "Content-Type": data.files[0].type} );
+        data.formData = _.extend(opts.s3.options, { "Content-Type": ST.utils.contentTypeByFilename(data.files[0].name) } );
       }
     };
 
@@ -231,7 +231,10 @@ window.ST.imageUploader = function(listings, opts) {
   function renderLocalUploader() {
     var localOptions = {
       paramName: "listing_image[image]",
-      url: opts.saveFromFile
+      url: opts.saveFromFile,
+      submit: function(e, data) {
+        data.formData = { "Content-Type": ST.utils.contentTypeByFilename(data.files[0].name) };
+      }
     };
 
     return renderUpload(localOptions);
@@ -245,7 +248,7 @@ window.ST.imageUploader = function(listings, opts) {
     $element.fileupload.show();
 
     var fileuploadDefaultOptions = {
-      dataType: 'json',
+      dataType: 'text', // Browsers without XHR fileupload support do not support other dataTypes than text
       dropZone: $element.container,
       acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
       imageMaxWidth: opts.originalImageWidth,
@@ -332,6 +335,7 @@ window.ST.imageUploader = function(listings, opts) {
     fileSaved.onError(imageUploadingFailed);
 
     fileSaved.onValue(function(result) {
+      result = JSON.parse(result);
       $element.showMessage(ST.t("listings.form.images.processing"), ST.t("listings.form.images.this_may_take_a_while"));
       $element.setListingId(result.id);
     })
@@ -344,8 +348,22 @@ window.ST.imageUploader = function(listings, opts) {
 
     filePreprocessed.onError(imageUploadingFailed);
 
+    /**
+      In IE, formData is an array of objects containing name and value
+      In browsers, formData is a plain object
+    */
+    function valueFromFormData(formData, key) {
+      if (_.isArray(formData)) {
+        return _.find(formData, function(nameValue) {
+          return nameValue.name === key;
+        }).value;
+      } else {
+        return formData[key];
+      }
+    }
+
     function s3ImageOptions(data) {
-      var path = opts.s3.uploadPath + data.formData.key;
+      var path = opts.s3.uploadPath + valueFromFormData(data.formData, "key");
       var filename = data.files[0].name;
 
       return {

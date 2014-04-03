@@ -80,9 +80,9 @@ class ListingImagesController < ApplicationController
       unless listing_image.image_downloaded
         listing_image.delay.download_from_url(url)
       end
-      render json: ListingImageJSAdapter.new(listing_image).to_json, status: 202
+      render json: ListingImageJSAdapter.new(listing_image).to_json, status: 202, content_type: 'text/plain' # Browsers without XHR fileupload support do not support other dataTypes than text
     else
-      render json: {:errors => listing_image.errors.full_messages}, status: 400
+      render json: {:errors => listing_image.errors.full_messages}, status: 400, content_type: 'text/plain'
     end
   end
 

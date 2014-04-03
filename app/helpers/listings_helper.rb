@@ -80,15 +80,14 @@ module ListingsHelper
     if @current_community.vat then " " + t("listings.displayed_price.price_excludes_vat") else "" end
   end
 
-  def is_image_processing?(listing)
-    with_first_listing_image(listing) do |first_image|
-      first_image.image_processing
-    end
+  def has_images?(listing)
+    !listing.listing_images.empty?
   end
 
-  def with_image_frame(listing, current_image, &block)
-    if current_image then
-      if current_image.image_processing then
+  def with_image_frame(listing, &block)
+    if self.has_images?(listing) then
+      first_image = listing.listing_images.first
+      if !first_image.image_ready? then
         block.call(:image_processing, nil)
       else
         block.call(:image_ok, current_image)

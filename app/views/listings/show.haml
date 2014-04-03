@@ -29,7 +29,7 @@
   .col-8
     .row
       .col-12
-        - with_image_frame(@listing, @current_image) do |reason, listing_image|
+        - with_image_frame(@listing) do |reason, listing_image|
           .listing-image-carousel
             #listing-image-frame
 
@@ -73,8 +73,10 @@
             .listing-fb-like-button
               = facebook_like(current_user?(@listing.author))
             .listing-tweet-button
-              = link_to("", "https://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => (@current_community.twitter_handle || "Sharetribe"))
-              %script{:type => "text/javascript", :src => "https://platform.twitter.com/widgets.js"}
+              = link_to("", "https://twitter.com/share", :class => "twitter-share-button", "data" => {count: "horizontal", via: (@current_community.twitter_handle || "Sharetribe"), text: @listing.title })
+              - content_for :extra_javascript do
+                :javascript
+                  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 
     - unless (@listing.closed? && !current_user?(@listing.author)) || !@current_community.listing_comments_in_use
       .view-item
