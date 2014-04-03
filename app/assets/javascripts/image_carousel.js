@@ -21,7 +21,7 @@ ST.imageCarousel = function(images) {
 
   // Options
   var initialIdx = 0;
-  var swipeDelay = 400;
+  var swipeDelay = 300;
 
   elements[initialIdx].show();
 
@@ -64,11 +64,17 @@ ST.imageCarousel = function(images) {
   }
 
   // Prev/Next events
-  var prev = leftLink.asEventStream("click").doAction(".preventDefault").debounceImmediate(swipeDelay);
-  var next = rightLink.asEventStream("click").doAction(".preventDefault").debounceImmediate(swipeDelay);
+  var prevBus = new Bacon.Bus();
+  var nextBus = new Bacon.Bus();
 
-  var prevIdxStream = prev.map(function() { return {value: null, fn: prevId} });
-  var nextIdxStream = next.map(function() { return {value: null, fn: nextId} });
+  var prev = leftLink.asEventStream("click").doAction(".preventDefault");
+  var next = rightLink.asEventStream("click").doAction(".preventDefault");
+
+  prevBus.plug(prev);
+  nextBus.plug(next);
+
+  var prevIdxStream = prevBus.debounceImmediate(swipeDelay).map(function() { return {value: null, fn: prevId} });
+  var nextIdxStream = nextBus.debounceImmediate(swipeDelay).map(function() { return {value: null, fn: nextId} });
 
   var idxStreamBus = new Bacon.Bus();
   idxStreamBus.plug(prevIdxStream);
@@ -85,8 +91,15 @@ ST.imageCarousel = function(images) {
   idxStream.onValues(show);
 
   return {
-    prev: prev,
-    next: next,
+    prevClicked: prev,
+    nextClicked: next,
+
+    next: function(nextStream) {
+      nextBus.plug(nextStream);
+    },
+    prev: function(prevStream) {
+      prevBus.plug(prevStream);
+    },
     show: function(showStream) {
       idxStreamBus.plug(showStream.map(function(idx) { return {value: idx}; }));
     }

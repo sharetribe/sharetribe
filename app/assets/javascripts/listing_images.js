@@ -13,7 +13,25 @@ window.ST.listingImages = function(images, currentImageId) {
   var carousel = createCarousel();
   var stripe = createStripe();
 
-  stripe.next(carousel.next);
-  stripe.prev(carousel.prev);
+  var LEFT = 37;
+  var RIGHT = 39;
+
+  var equals = _.curry(_.isEqual, 2);
+
+  function keyCode(e) {
+    return e.keyCode || e.which;
+  }
+
+  var keyCodeStream = $(document).asEventStream("keyup").map(keyCode);
+  var keyboardLeft = keyCodeStream.filter(equals(LEFT));
+  var keyboardRight = keyCodeStream.filter(equals(RIGHT));
+
+  stripe.next(carousel.nextClicked);
+  stripe.next(keyboardRight)
+  stripe.prev(carousel.prevClicked);
+  stripe.prev(keyboardLeft);
+
+  carousel.next(keyboardRight);
+  carousel.prev(keyboardLeft);
   carousel.show(stripe.show);
 }

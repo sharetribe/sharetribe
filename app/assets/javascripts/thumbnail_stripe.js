@@ -9,7 +9,7 @@ ST.thumbnailStripe = function(images, opts) {
   var selectedClass = opts.selectedClass || "selected";
   var thumbnailWidth = opts.thumbnailWidth || 60;
   var paddingAdjustment = opts.paddingAdjustment || 0;
-  var swipeDelay = 400;
+  var swipeDelay = 300;
 
   // Element initialization
   container.empty();
@@ -158,10 +158,10 @@ ST.thumbnailStripe = function(images, opts) {
 
   return {
     next: function(nextStream) {
-      nextBus.plug(nextStream);
+      nextBus.plug(nextStream.debounceImmediate(swipeDelay));
     },
     prev: function(prevStream) {
-      prevBus.plug(prevStream);
+      prevBus.plug(prevStream.debounceImmediate(swipeDelay));
     },
     show: clickS
   }
