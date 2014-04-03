@@ -9,6 +9,7 @@ ST.thumbnailStripe = function(images, opts) {
   var selectedClass = opts.selectedClass || "selected";
   var thumbnailWidth = opts.thumbnailWidth || 60;
   var paddingAdjustment = opts.paddingAdjustment || 0;
+  var swipeDelay = 400;
 
   // Element initialization
   container.empty();
@@ -28,9 +29,7 @@ ST.thumbnailStripe = function(images, opts) {
     return thumbnailElement;
   });
 
-  var clickS = Bacon.mergeAll.apply(null, thumbnailClickS);
-
-  clickS.onValue(show);
+  var clickS = Bacon.mergeAll.apply(null, thumbnailClickS).debounceImmediate(swipeDelay);
 
   _.each(elements, function(el) {
     thumbnailContainer.append(el);
@@ -148,11 +147,12 @@ ST.thumbnailStripe = function(images, opts) {
   // Prev/Next events
   var prevIdxStream = prevBus.map(function() { return {value: null, fn: prevId, direction: "prev"}; });
   var nextIdxStream = nextBus.map(function() { return {value: null, fn: nextId, direction: "next"}; });
+  var showIdxStream = clickS.map(function(newIdx) { return {value: newIdx }; });
 
-  var idxStream = prevIdxStream.merge(nextIdxStream).scan({value: initialIdx}, function(a, b) {
+  var idxStream = prevIdxStream.merge(nextIdxStream).merge(showIdxStream).scan({value: initialIdx}, function(a, b) {
     var newIdx = b.value != null ? b.value : b.fn(a.value)
     return {direction: b.direction, value: newIdx};
-  }).slidingWindow(2, 2);
+  }).skipDuplicates(_.isEqual).slidingWindow(2, 2);
 
   idxStream.onValues(show);
 

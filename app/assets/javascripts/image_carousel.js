@@ -75,12 +75,12 @@ ST.imageCarousel = function(images) {
   idxStreamBus.plug(nextIdxStream);
 
   var idxStream = idxStreamBus.scan(initialIdx, function(a, b) {
-    if (b.value) {
+    if (_.isNumber(b.value)) {
       return b.value;
     } else {
       return b.fn(a);
     }
-  }).slidingWindow(2, 2);
+  }).skipDuplicates(_.isEqual).slidingWindow(2, 2);
 
   idxStream.onValues(show);
 
