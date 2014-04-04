@@ -793,7 +793,7 @@ en:
       settings_link_text: "Check your settings"
       subject: "Welcome to %{community} - here are some tips to get you started"
       welcome_some_tips: "Welcome to %{community_link}! Here are some tips to get you started."
-      p_s_did_you_know: "P.S. Did you know you can create a marketplace like this for any community you belong to, for free? %{click_here_link} to find out more!"
+      p_s_did_you_know: "P.S. Did you know you can create a marketplace like this for any community or purpose you want? %{click_here_link} to find out more!"
       click_here_link_text: "Click here"
       update_your_profile: "<strong>Update your profile.</strong> Adding your real name and profile picture and telling something about yourself will make you appear more trustworthy. Adding your contact details will make things easier for you, since you don't have to add them separately each time you create a new listing."
       update_your_profile_link_text: "Update your profile here"
@@ -1683,8 +1683,6 @@ en:
     confirmation_pending:
       welcome_to_kassi: "Welcome to %{service_name}!"
       check_your_email: "Check your inbox"
-      get_started: "Get started with %{service_name}"
-      getting_started_instructions: "When you have confirmed your account, it's a good idea to add a picture to your profile and fill in other details. You can also continue straight in to action by adding an offer about something you could possibly lend, rent, sell or do for others. Or if you need a specific item or help with something, post a request."
       resend_confirmation_instructions: "Resend confirmation instructions"
       your_current_email_is: "Your email is %{email}."
       change_email: Change

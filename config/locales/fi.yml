@@ -793,7 +793,7 @@ fi:
       settings_link_text: "Tarkista sähköpostiasetuksesi"
       subject: "Tervetuloa yhteisöön %{community} - tässä muutama vinkki alkuun pääsemiseksi"
       welcome_some_tips: "Tervetuloa yhteisöön %{community_link}! Tässä muutama vinkki, joilla pääset alkuun."
-      p_s_did_you_know: "P.S. Tiesitkö, että voit perustaa tällaisen verkkotorin ilmaiseksi mille tahansa paikalliselle yhteisölle johon kuulut? %{click_here_link} jos haluat tietää lisää!"
+      p_s_did_you_know: "P.S. Tiesitkö, että voit perustaa tällaisen verkkotorin mihin tahansa tarkoitukseen? %{click_here_link} jos haluat tietää lisää!"
       click_here_link_text: "Klikkaa tästä"
       update_your_profile: "<strong>Päivitä käyttäjäprofiilisi.</strong> Jos lisäät oikean nimesi ja kuvasi ja kerrot jotain itsestäsi, vaikutat luotettavammalta muiden käyttäjien silmissä. Jos lisäät profiiliisi myös yhteystietosi, sinun ei tarvitse lisätä niitä erikseen jokaiseen ilmoitukseen."
       update_your_profile_link_text: "Päivitä käyttäjäprofiilisi tästä"
@@ -1683,8 +1683,6 @@ fi:
     confirmation_pending:
       welcome_to_kassi: "Tervetuloa %{service_name_illative}!"
       check_your_email: "Tarkista sähköpostilaatikkosi (tarvittaessa myös roskapostikansio)"
-      get_started: "Alkuun pääseminen"
-      getting_started_instructions: "Kun olet varmistanut tunnuksesi, on hyvä lisätä kuva ja haluamasi tiedot <a href=\"%{profile_url}\">profiiliisi</a>, tai voit myös jatkaa suoraan lisäämällä %{service_name_illative} <a href=\"/fi/listings/new/offer\">tarjouksen</a> jostain, mitä voisit mahdollisesti lainata, vuokrata, myydä tai tehdä yhteisön jäsenille. Tai jos tarvitset jotain tiettyä tavaraa tai apua, jätä siitä <a href=\"/fi/listings/new/request\">pyyntö</a>."
       resend_confirmation_instructions: "Lähetä uusi varmistusähköposti"
       your_current_email_is: "Nykyinen osoitteesi: <strong>%{email}</strong>"
       change_email: Vaihda?
