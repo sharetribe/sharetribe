@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe CustomField do
-  # These tests are testing FactoryGirl, not production code, thus, 
+  # These tests are testing FactoryGirl, not production code, thus,
   # these tests can be safely removed if needed
   describe "factory" do
     describe "build" do

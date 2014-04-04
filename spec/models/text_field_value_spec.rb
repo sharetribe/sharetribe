@@ -7,7 +7,7 @@ describe TextFieldValue do
       @value.should_not be_valid
 
       @value3 = TextFieldValue.new
-      @value3.text_value = "Test" 
+      @value3.text_value = "Test"
       @value3.should be_valid
     end
   end

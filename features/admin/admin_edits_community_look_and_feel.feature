@@ -1,3 +1,4 @@
+@javascript
 Feature: Admin edits community look-and-feel
   In order to give diversify my marketplace from my competitors
   As an admin
@@ -14,7 +15,6 @@ Feature: Admin edits community look-and-feel
     And "kassi_testperson1" has admin rights in community "test"
     And I am on the edit look-and-feel page
 
-  @javascript
   Scenario: Admin can change the default listing view to list
     Given community "test" has default browse view "grid"
     When I change the default browse view to "List"
@@ -28,16 +28,8 @@ Feature: Admin edits community look-and-feel
     And I refresh the page
     Then I should see my name displayed as "matti manager"
 
-  @javascript
-  Scenario: Admin can change the name display type to first name with initial (First L)
-    Given community "test" has name display type "first_name_only"
-    When I change the name display type to "Given name with initial (First L)"
-    And I refresh the page
-    Then I should see my name displayed as "matti m"
-
-  @javascript
-  Scenario: Admin can change the name display type to given name only (First)
-    Given community "test" has name display type "first_name_with_initial"
-    When I change the name display type to "Given name only (First)"
-    And I refresh the page
-    Then I should see my name displayed as "matti"
+  Scenario: Admin changes main color
+    Then I should see that to background color of Post a new listing button is "00A26C"
+    And I set the main color to "FF0099"
+    And I press submit
+    Then I should see that to background color of Post a new listing button is "FF0099"

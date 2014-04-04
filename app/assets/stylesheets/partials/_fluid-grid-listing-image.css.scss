@@ -32,6 +32,17 @@
   width: 100%;
 }
 
-.fluid-thumbnail-grid-image-price {
+.fluid-thumbnail-grid-image-price-container {
   @include listing-price;
+  font-size: 12px; // Quantity placeholder font-size, so that the ellipsis looks nice
+  max-width: 75%;
+  @include ellipsis;
+}
+
+.fluid-thumbnail-grid-image-price {
+  font-size: 18px; // Bigger size for the price
+}
+
+.fluid-thumbnail-grid-image-type {
+  font-size: 16px;
 }

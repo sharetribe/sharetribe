@@ -306,12 +306,10 @@ describe PersonMailer do
       @p4 = FactoryGirl.create(:person)
       @p4.communities << @c1
 
-
       @p1.update_attribute(:community_updates_last_sent_at, 8.hours.ago)
       @p2.update_attribute(:community_updates_last_sent_at, 14.days.ago)
       @p3.update_attribute(:community_updates_last_sent_at, 3.days.ago)
       @p4.update_attribute(:community_updates_last_sent_at, 9.days.ago)
-
 
       @p1.update_attribute(:min_days_between_community_updates, 1)
       @p2.update_attribute(:min_days_between_community_updates, 1)
@@ -353,8 +351,6 @@ describe PersonMailer do
 
   end
 
-
-
   describe "#deliver_open_content_messages" do
 
     it "sends the mail to everyone on the list" do
@@ -366,7 +362,6 @@ describe PersonMailer do
 
       people = [@test_person, @test_person2]
       PersonMailer.deliver_open_content_messages(people, "News", message)
-
 
       ActionMailer::Base.deliveries.size.should == 2
 
@@ -404,7 +399,6 @@ describe PersonMailer do
       ActionMailer::Base.deliveries[0].body.include?("Check it out").should be_true
       ActionMailer::Base.deliveries[1].body.include?("uutta tulossa").should be_true
       ActionMailer::Base.deliveries[2].body.include?("new stuff").should be_true
-
 
     end
 

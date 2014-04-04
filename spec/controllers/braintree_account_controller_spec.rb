@@ -5,7 +5,7 @@ describe BraintreeAccountsController do
     before(:each) do
       @community = FactoryGirl.create(:community)
       FactoryGirl.create(:payment_gateway, :community => @community, :type => "BraintreePaymentGateway")
-      
+
       @request.host = "#{@community.domain}.lvh.me"
       @person = FactoryGirl.create(:person)
       @community.members << @person
@@ -54,7 +54,7 @@ describe BraintreeAccountsController do
     it "should not create braintree account with missing information" do
       # Mock BraintreeApi
       BraintreeApi.should_not_receive(:create_merchant_account)
-      
+
       post :create, :braintree_account => {:person_id => @person.id, :first_name => "Joe", :last_name => "Bloggs"}
       BraintreeAccount.find_by_person_id(@person.id).should be_nil
     end
