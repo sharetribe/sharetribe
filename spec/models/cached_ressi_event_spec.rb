@@ -17,7 +17,6 @@ describe CachedRessiEvent do
      :test_group_number => 2,
      :headers => {"foo" => "bar"}.to_json }
 
-
    it "should be created without errors" do
      event = CachedRessiEvent.new(@OPTIONS)
      event.save!

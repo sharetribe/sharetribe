@@ -32,7 +32,7 @@ describe Category do
 
   it "removes subcategories if parent is removed" do
     @category2 = FactoryGirl.create(:category, :community => @community)
-    
+
     Category.find_by_id(@category.id).should_not be_nil
     Category.find_by_id(@subcategory.id).should_not be_nil
 
