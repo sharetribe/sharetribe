@@ -27,6 +27,10 @@
     - if listing.price
       .fluid-thumbnail-grid-image-price{:class => "#{modifier_class}"}
         = humanized_money_with_symbol(listing.price).upcase
+        - if !listing.quantity.blank?
+          - price_text = t("listings.form.price.per") + " " + listing.quantity
+          %span.fluid-thumbnail-grid-image-quantity{:title => price_text}
+            = price_text
     - else
       .fluid-thumbnail-grid-image-type{:class => "#{modifier_class}"}
         = listing.transaction_type.display_name(I18n.locale)
