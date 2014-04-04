@@ -15,7 +15,7 @@ module NavigationHelpers
     when /the private community sign in page/
       '/en/homepage/sign_in'
     when /the english private community sign in page/
-      '/en/homepage/sign_in'  
+      '/en/homepage/sign_in'
     when /the requests page/
       '/en/requests'
     when /the offers page/
@@ -23,9 +23,9 @@ module NavigationHelpers
     when /the login page/
       login_path(:locale => "en")
     when /the new listing page/
-      new_listing_path(:locale => "en") 
+      new_listing_path(:locale => "en")
     when /the edit listing page/
-      edit_listing_path(:id => @listing.id, :locale => "en") 
+      edit_listing_path(:id => @listing.id, :locale => "en")
     when /^the give feedback path of "(.*)"$/i
       new_person_message_feedback_path(:person_id => @people[$1].id, :message_id => @conversation.id.to_s, :locale => "en")
     when /^the conversation path of "(.*)"$/i
@@ -96,7 +96,6 @@ module NavigationHelpers
 
     when /^#{capture_model}(?:'s)? (.+?) page$/                     # eg. the forum's posts page
       path_to_pickle $1, :extra => $2                               #  or the forum's edit page
-    
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

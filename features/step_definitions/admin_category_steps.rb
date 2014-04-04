@@ -82,9 +82,9 @@ When /^I remove category "(.*?)"$/ do |category_name|
   steps %Q{
     Given I will confirm all following confirmation dialogs if I am running PhantomJS
   }
-  
+
   find_remove_link_for_category(category_name).click
-  
+
   steps %Q{
     And I confirm alert popup
   }
@@ -239,6 +239,6 @@ When /^I try to remove all transaction types from category "(.*?)"$/ do |categor
   }
 end
 
-Given /^admin can edit categories in current community$/ do 
+Given /^admin can edit categories in current community$/ do
   @current_community.update_attribute(:category_change_allowed, true)
 end

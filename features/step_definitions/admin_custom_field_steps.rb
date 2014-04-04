@@ -20,14 +20,14 @@ module AdminCustomFieldSteps
   def find_up_link_for_custom_field(title)
     find_row_for_custom_field(title).find(UP_SELECTOR)
   end
-  
+
   def find_custom_field_by_name(field_name)
     @custom_fields.inject("") do |memo, f|
       memo = f if f.name.eql?(field_name)
       memo
     end
   end
-  
+
 end
 
 World(AdminCustomFieldSteps)
@@ -107,7 +107,7 @@ end
 
 When /^I add a new custom field "(.*?)" with invalid data$/ do |field_name|
   steps %Q{
-    When I select "Dropdown" from "field_type" 
+    When I select "Dropdown" from "field_type"
     And I fill in "custom_field[name_attributes][en]" with "#{field_name}"
     And I fill in "custom_field[option_attributes][new-1][title_attributes][en]" with "Room"
     And I fill in "custom_field[option_attributes][new-1][title_attributes][fi]" with "Huone"
@@ -118,7 +118,6 @@ When /^I add a new custom field "(.*?)" with invalid data$/ do |field_name|
     And I press submit
   }
 end
-
 
 Given /^there is a custom field "(.*?)" in community "(.*?)" for category "(.*?)"$/ do |name, community, category_name|
   current_community = Community.find_by_domain(community)
@@ -161,7 +160,7 @@ end
 
 Then /^correct categories should be stored$/ do
   @custom_field.categories.should == [@custom_field.community.categories[0]]
-end  
+end
 
 When /^I try to remove all categories$/ do
   steps %Q{
@@ -218,7 +217,7 @@ Given /^there is a custom dropdown field "(.*?)" in community "(.*?)"(?: in cate
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")]
   })
-  
+
   if category_name
     category = find_category_by_name(category_name)
     custom_field.category_custom_fields.build(:category => category)
@@ -233,9 +232,9 @@ Given /^there is a custom dropdown field "(.*?)" in community "(.*?)"(?: in cate
   end
 
   custom_field.save!
-  
+
   @custom_fields ||= []
-  @custom_fields << custom_field 
+  @custom_fields << custom_field
 end
 
 Given /^there is a custom text field "(.*?)" in community "(.*?)"(?: in category "([^"]*)")?$/ do |name, community, category_name|
@@ -244,7 +243,7 @@ Given /^there is a custom text field "(.*?)" in community "(.*?)"(?: in category
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")]
   })
-  
+
   if category_name
     category = find_category_by_name(category_name)
     custom_field.category_custom_fields.build(:category => category)
@@ -253,9 +252,9 @@ Given /^there is a custom text field "(.*?)" in community "(.*?)"(?: in category
   end
 
   custom_field.save!
-  
+
   @custom_fields ||= []
-  @custom_fields << custom_field 
+  @custom_fields << custom_field
 end
 
 Given(/^there is a custom numeric field "(.*?)" in that community in category "(.*?)" with min value (\d+) and with max value (\d+)$/) do |name, category_name, min, max|
@@ -271,7 +270,7 @@ Given(/^there is a custom numeric field "(.*?)" in that community in category "(
   custom_field.save!
 
   @custom_fields ||= []
-  @custom_fields << custom_field 
+  @custom_fields << custom_field
 end
 
 Then /^the option order for "(.*?)" should be following:$/ do |custom_field, table|
