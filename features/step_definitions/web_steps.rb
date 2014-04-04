@@ -327,3 +327,8 @@ end
 When /^I hover "([^"]*)"$/ do |selector|
   find(selector).hover
 end
+
+Then(/^"([^"]*)" should have CSS property "([^"]*)" with value "([^"]*)"$/) do |selector, property, value|
+  actual_value = page.evaluate_script("$('#{selector}').css('#{property}')");
+  actual_value.should be_eql(value)
+end
