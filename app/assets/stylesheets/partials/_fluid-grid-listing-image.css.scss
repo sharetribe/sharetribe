@@ -34,4 +34,10 @@
 
 .fluid-thumbnail-grid-image-price {
   @include listing-price;
+  font-size: 18px;
+}
+
+.fluid-thumbnail-grid-image-type {
+  @include listing-price;
+  font-size: 16px;
 }

@@ -27,3 +27,6 @@
     - if listing.price
       .fluid-thumbnail-grid-image-price{:class => "#{modifier_class}"}
         = humanized_money_with_symbol(listing.price).upcase
+    - else
+      .fluid-thumbnail-grid-image-type{:class => "#{modifier_class}"}
+        = listing.transaction_type.display_name(I18n.locale)
