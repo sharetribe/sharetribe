@@ -31,7 +31,7 @@ describe Admin::CustomFieldsController do
       @another_community = FactoryGirl.create(:community, :custom_fields_allowed => true)
 
       @request.host = "#{@community.domain}.lvh.me"
-      
+
       @person = create_admin_for(@community)
       sign_in_for_spec(@person)
     end
@@ -53,14 +53,14 @@ describe Admin::CustomFieldsController do
 
       community_custom_field_count = @community.custom_fields.count
       another_custom_field_count = @another_community.custom_fields.count
-      
+
       delete :destroy, id: @custom_field.id
 
       community = Community.find(@community.id)
       another_community = Community.find(@another_community.id)
       community.custom_fields.count.should eql(community_custom_field_count)
       another_community.custom_fields.count.should eql(another_custom_field_count)
-      
+
       custom_field = CustomField.find_by_id(@custom_field.id)
       custom_field.should_not be_nil
     end

@@ -1,13 +1,13 @@
 module UserSteps
   # Updates model's ID and associated IDs
-  # 
+  #
   # Reasoning: Setting custom model for FactoryGirl is cubersome, since id
   # is protected attribute and it's created on validation phase automatically.
   # Thus this helper function
   def force_override_model_id(id, model_instance, model_class, associated_model_classes=[])
     old_id = model_instance.id
     model_class.update_all({:id => id}, {:id => old_id})
-    
+
     # Associates
     foreign_key = "#{model_class.name.downcase}_id".to_sym
     associated_model_classes.each do |associated_model_class|
@@ -24,7 +24,7 @@ World(UserSteps)
 Given /^there is a logged in user "(.*?)"$/ do |username|
   steps %Q{
     Given there are following users:
-      | person | 
+      | person |
       | #{username} |
     And I am logged in as "#{username}"
   }
@@ -81,11 +81,11 @@ Given /^user "(.*?)" has additional email "(.*?)"$/ do |username, email|
   Email.create(:person => Person.find_by_username(username), :address => email, :confirmed_at => Time.now)
 end
 
-Given /^there will be and error in my Facebook login$/ do 
+Given /^there will be and error in my Facebook login$/ do
   OmniAuth.config.mock_auth[:facebook] = :access_denied
 end
 
-Given /^there will be no email returned in my Facebook login$/ do 
+Given /^there will be no email returned in my Facebook login$/ do
   OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new( {
       :provider => 'facebook',
       :uid => '597015435',
@@ -109,11 +109,10 @@ Given /^"(.*?)" has payout details filled$/ do |username|
   person.save!
 end
 
-
 Given /^there are following users:$/ do |person_table|
   @people = {}
   person_table.hashes.each do |hash|
-    defaults = { 
+    defaults = {
       password: "testi",
       given_name: "Test",
       family_name: "Person"
@@ -144,11 +143,11 @@ Given /^there are following users:$/ do |person_table|
                                     :consent => Community.first.consent,
                                     :status => "accepted")
     cm.update_attribute(:created_at, membership_created_at) if membership_created_at && !membership_created_at.empty?
-    
+
     attributes_to_update = hash.except('person','person_id', 'locale', 'membership_created_at')
     @hash_person.update_attributes(attributes_to_update) unless attributes_to_update.empty?
     @hash_person.set_default_preferences
-    if hash['locale'] 
+    if hash['locale']
       @hash_person.locale = hash['locale']
       @hash_person.save
     end
@@ -260,7 +259,7 @@ end
 Then /^user "(.*?)" should have email "(.*?)"$/ do |username, email|
   p = Person.find_by_username(username)
   e = Email.find_by_person_id_and_address(p.id, email)
-  
+
   e.should_not be_nil
 end
 

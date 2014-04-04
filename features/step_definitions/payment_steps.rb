@@ -10,7 +10,7 @@ Given /^there are following Braintree accounts:$/ do |bt_accounts|
     person = Person.find_by_username(hash[:person])
     community = Community.find_by_domain(hash[:community])
     @hash_account = FactoryGirl.create(:braintree_account, :person => person, :community => community)
-    
+
     attributes_to_update = hash.except('person', 'community')
     @hash_account.update_attributes(attributes_to_update) unless attributes_to_update.empty?
   end

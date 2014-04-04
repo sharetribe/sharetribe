@@ -22,7 +22,7 @@ Then /^I (should|should not) see (big|small) (happy|semihappy|content|semiunhapp
     page.should_not have_css(image_class)
   else
     page.should have_css(image_class)
-  end  
+  end
 end
 
 Given /^I have "([^"]*)" testimonials? with grade "([^"]*)"$/ do |amount, grade|
