@@ -24,20 +24,20 @@ Feature: Admin edits community look-and-feel
   @javascript
   Scenario: Admin can change the name display type to full name (First Last)
     Given community "test" has name display type "first_name_with_initial"
-    When I change the name display type to "Full name"
+    When I change the name display type to "Full name (First Last)"
     And I refresh the page
     Then I should see my name displayed as "matti manager"
 
   @javascript
   Scenario: Admin can change the name display type to first name with initial (First L)
     Given community "test" has name display type "first_name_only"
-    When I change the name display type to "Given name with initial"
+    When I change the name display type to "Given name with initial (First L)"
     And I refresh the page
     Then I should see my name displayed as "matti m"
 
   @javascript
   Scenario: Admin can change the name display type to given name only (First)
     Given community "test" has name display type "first_name_with_initial"
-    When I change the name display type to "Given name only"
+    When I change the name display type to "Given name only (First)"
     And I refresh the page
     Then I should see my name displayed as "matti"

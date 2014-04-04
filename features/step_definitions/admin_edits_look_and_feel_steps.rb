@@ -25,7 +25,7 @@ When(/^I change the name display type to "(.*?)"$/) do |name_display_type|
 end
 
 Then(/^I should see my name displayed as "(.*?)"$/) do |name|
-  find(".users-name").should have_content(name)
+  find(".user-name").should have_content(name)
 end
 
 When(/^I select "(.*?)" from dropdown "(.*?)"$/) do |option, dropdown|
