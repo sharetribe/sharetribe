@@ -28,6 +28,3 @@ Then(/^I should see my name displayed as "(.*?)"$/) do |name|
   find(".user-name").should have_content(name)
 end
 
-When(/^I select "(.*?)" from dropdown "(.*?)"$/) do |option, dropdown|
-  select option, :from => dropdown
-end
