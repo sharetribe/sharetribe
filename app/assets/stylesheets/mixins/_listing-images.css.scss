@@ -15,7 +15,6 @@ $listing-image-aspect-ratio: 3/2;
 @mixin listing-price {
   color: $body;
   font-weight: 600;
-  font-size: 18px;
   min-width: em(50);
   text-align: center;
 
