@@ -89,6 +89,11 @@ en:
         main_content_width: "When choosing cover photos please note that the page main content is %{main_width} pixels wide at most. Remember to also check how your cover photo looks on the smaller screens."
         custom_color1_instructions_text: "You can change the main color of the user interface of this community by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> can help you choose the color and copy the code here."
         custom_color2_instructions_text: "You can change the second color of the user interface of this community by entering a hex color value."
+        default_browse_view: "Default browse view"
+        default_browse_view_instructions_text: "Default browse view is used on the homepage to set how the listings are displayed by default."
+        grid: "Grid"
+        list: "List"
+        map: "Map"
         invalid_color_code: "Color code should contain 6 numbers or letters A-F, for example D96E21"
       edit_welcome_email:
         welcome_email_content: "Welcome email content"

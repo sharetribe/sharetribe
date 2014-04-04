@@ -48,8 +48,6 @@ module NavigationHelpers
       "/en/signup?code=#{$1}"
     when /^the admin view of community "(.*)"$/i
       edit_details_admin_community_path(:id => Community.find_by_domain($1).id, :locale => "en")
-    when /^the look and feel admin view of community "(.*)"$/i
-      edit_look_and_feel_admin_community_path(:id => Community.find_by_domain($1).id, :locale => "en")
     when /the infos page/
       about_infos_path(:locale => "en")
     when /the terms page/
@@ -82,6 +80,8 @@ module NavigationHelpers
       admin_categories_path(:locale => "en")
     when /the manage members admin page/
       manage_members_admin_community_path(:id => @current_community.id)
+    when /the edit look-and-feel page/
+      edit_look_and_feel_admin_community_path(:id => @current_community.id)
     when /the integrations admin page/
       integrations_admin_community_path(:id => @current_community.id)
 
