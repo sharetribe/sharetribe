@@ -70,7 +70,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    childprocess (0.3.9)
+    childprocess (0.5.2)
       ffi (~> 1.0, >= 1.0.11)
     chunky_png (1.2.6)
     climate_control (0.0.3)
@@ -367,10 +367,10 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    selenium-webdriver (2.37.0)
-      childprocess (>= 0.2.5)
+    selenium-webdriver (2.41.0)
+      childprocess (>= 0.5.0)
       multi_json (~> 1.0)
-      rubyzip (~> 1.0.0)
+      rubyzip (~> 1.0)
       websocket (~> 1.0.4)
     simplecov (0.8.2)
       docile (~> 1.1.0)
@@ -493,7 +493,7 @@ DEPENDENCIES
   russian
   sass (~> 3.2.9)
   sass-rails
-  selenium-webdriver
+  selenium-webdriver (~> 2.41.0)
   spreadsheet
   thinking-sphinx (~> 3.1.0)!
   timecop
