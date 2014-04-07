@@ -83,12 +83,22 @@ de:
         logo_instructions_text_with_dimensions: "Die Größe des Logos sollte %{width}x%{height}px betragen."
         logo_icon_instructions_text_with_dimensions: "Die Größe des Icon-Logos sollte %{width}x%{height}px betragen."
         cover_photo_visibility: "Das Titelbild wird nicht angemeldeten Benutzern auf der Startseite angezeigt."
-        cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt."
+        cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Das kleine Titelfoto wird nicht angemeldeten Benutzern auf allen Seiten angezeigt, außer auf der Startseite."
         small_cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt."
         main_content_width: "Wenn du ein Titelfoto aussuchst, beachte bitte, dass die Breite des Inhalts auf der Startseite bestensfalls %{main_width} Pixel beträgt. Überprüfe außerdem, wie dein Titelfoto auf kleineren Bildschirmen aussieht."
         custom_color1_instructions_text: "Du kannst die Hauptfarbe der Community ändern, indem du einen neuen Farbwert eingibst. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> kann dir helfen die Farbe auszuwählen. Kopiere den Code hier ein."
         custom_color2_instructions_text: "Du kannst die zweite Farbe dieser Benutzeroberfläche ändern, indem du einen Hex-Farbwert eingibst."
+        default_browse_view: Standard-Browser-Ansicht
+        default_browse_view_instructions_text: ~
+        grid: Gitter
+        list: Liste
+        map: Karte
+        name_display_type: "Art der Namensdarstellung"
+        name_display_type_instructions_text: "Entscheide, wie der Name jedes Benutzers auf der Seite angezeigt werden soll."
+        full_name: "Ganzer Name (Vorname zuletzt)"
+        first_name_with_initial: "Vorname mit Initial (erster Buchstabe)"
+        first_name_only: "Nur der Vorname"
         invalid_color_code: "Der Farben Code sollte 6 Ziffern oder Buchstaben A-F haben, zum Beispiel D96E21"
       edit_welcome_email:
         welcome_email_content: "Inhalt der Begrüßungsmail"
@@ -133,11 +143,11 @@ de:
         integrations: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
-        twitter_handle_placeholder: ~
+        twitter_handle_placeholder: Benutzername
         invalid_twitter_handle: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
-        save: ~
+        save: "Einstellungen speichern"
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
@@ -544,8 +554,8 @@ de:
       your_company_email: "Die E-Mail-Adresse deines Unternehmens"
       you_need_to_confirm: "Um einen Stamm für deinen %{tribe_type} zu erstellen, musst du deine %{tribe_type} E-Mail-Adresse bestätigen."
       pick_username: "Wähle einen Benutzernamen"
-      your_given_name: "Bitte gib deinen Namen ein"
-      your_family_name: "Bitte gib deinen Nachnamen ein"
+      your_given_name: "Bitte gib deinen Vornamen ein"
+      your_family_name: "Dein Nachname"
       your_password: "Wähle ein Passwort"
       confirm_your_password: "Bestätige dein Passwort"
       email_in_use_message: "Es existiert bereits ein Konto in %{service_name} mit dieser E-Mail-Adresse. Wenn du bereits ein Konto hast, so melde dich mit dem Link oben an."
@@ -1048,7 +1058,7 @@ de:
       select_language: "Sprache auswählen"
     infos:
       about: Info
-      how_to_use: Hilfe
+      how_to_use: "Wie es funktioniert"
       info_about_kassi: "Informationen über %{service_name}"
       news: News
       register_details: Privatsphäre
@@ -1256,11 +1266,11 @@ de:
         select_file: "Datei wählen"
         removing: Entfernen...
         processing: "Wird bearbeitet..."
-        loading_image: ~
+        loading_image: Lädt...
         this_may_take_a_while: "(dies kann eine Weile dauern)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Bild hochladen fehlgeschlagen"
-        file_too_large: ~
+        file_too_large: "Die Datei ist zu groß."
         accepted_formats: "Die Bilddatei muss entweder im GIF-, JPG- oder PNG-Format vorliegen."
       location:
         location: Standort

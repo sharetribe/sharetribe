@@ -74,6 +74,16 @@ el:
         main_content_width: ~
         custom_color1_instructions_text: "Μπορείτε να αλλάξετε το κυρίως χρώμα του περιβάλλοντος αυτής της κοινότητας εισάγοντας ένα χρώμα σε δεκαεξαδική μορφή. Στο <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> μπορείτε να βρείτε το χρώμα που θέλετε και να αντιγράψετε τον κατάλληλο κωδικό εδώ."
         custom_color2_instructions_text: "Μπορείτε να αλλάξετε το δεύτερο χρώμα του περιβάλλοντος αυτής της κοινότητας εισάγοντας ένα χρώμα σε δεκαεξαδική (HEX) τιμή."
+        default_browse_view: ~
+        default_browse_view_instructions_text: ~
+        grid: ~
+        list: ~
+        map: ~
+        name_display_type: ~
+        name_display_type_instructions_text: ~
+        full_name: ~
+        first_name_with_initial: ~
+        first_name_only: ~
         invalid_color_code: "Ο κωδικός του χρώματος πρέπει να αποτελείται από 6 χαρακτήρες, αριθμούς ή γράμματα από A-F, για παράδειγμα D96E21."
       edit_welcome_email:
         welcome_email_content: "Περιεχόμενο μηνύματος καλωσορίσματος"
