@@ -20,6 +20,8 @@ end
 
 class Selenium::WebDriver::PhantomJS::Service
   def create_process(args)
+    puts "Starting monkey-patched PhantomJS Selenium Webdriver"
+
     Struct.new("ChildProcessFake") do
       def start() end
       def exited?() true end
