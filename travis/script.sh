@@ -9,7 +9,8 @@ then
 	exit
 elif [ "$SUITE" = "cucumber" ]
 then
-	PHANTOMJS=true NO_WEBDRIVER_MONKEY_PATCH=true bundle exec cucumber -ptravis 2>&1
+	phantomjs --webdriver=8910 &
+	PHANTOMJS=true bundle exec cucumber -ptravis 2>&1
 	exit
 elif [ "$SUITE" = "mocha" ]
 then
