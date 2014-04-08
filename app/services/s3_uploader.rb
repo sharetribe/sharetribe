@@ -62,7 +62,7 @@ class S3Uploader
   def signature
     Base64.encode64(
       OpenSSL::HMAC.digest(
-        OpenSSL::Digest::Digest.new('sha1'),
+        OpenSSL::Digest.new('sha1'),
         @aws_secret_access_key, policy
       )
     ).gsub("\n", "")
