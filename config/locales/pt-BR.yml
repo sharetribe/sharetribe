@@ -566,9 +566,9 @@ pt-BR:
       fb_join_accept_terms: ~
       join_community: "Ingressar na comunidade %{community}"
       you_are_not_a_member_of_this_community: ~
-      you_can_join: ~
-      you_can_join_email_confirmation: ~
-      you_can_join_email_confirmation_multiple_addresses: ~
+      you_can_join: "Você pode participar desta comunidade, aceitando os termos de uso e clique em 'Participar da comunidade' abaixo."
+      you_can_join_email_confirmation: "Para participar desta comunidade, você precisa ter um endereço de email válido, que termina com %{email_ending}. Você pode participar através do preenchimento de seu endereço de e-mail, aceitando os termos de uso dessa comunidade e clicando em \"Aderir à comunidade 'abaixo, e confirmar seu e-mail."
+      you_can_join_email_confirmation_multiple_addresses: "Esta comunidade tem restrições de e-mail. Você só pode entrar se você tiver um endereço de e-mail de uma organização que o administrador deste site tem efetuado permissão. Você pode participar através do preenchimento de seu endereço de e-mail, aceitando os termos de uso dessa comunidade e clicando em 'Aderir à comunidade' abaixo."
       you_can_join_with_invite_only: "Você tem que ter um convite de outro membro para participar desta comunidade. Se você tem um código de convite, você pode participar desta comunidade, digitando o código no campo abaixo, aceitando os termos de uso dessa comunidade e clicando em \"Aderir à comunidade 'abaixo."
       if_want_to_view_content: ~
       log_out: sair
@@ -580,21 +580,21 @@ pt-BR:
       watch_the_video: ~
       get_started: ~
       browse_communities_around_you: ~
-      slogan: ~
+      slogan: "Compartilhe com sua comunidade."
       create_your_own: "Crie seu próprio"
-      sharing_website: ~
-      main_description: ~
+      sharing_website: "mercado comunidade"
+      main_description: "Configurar um espaço onde os membros de sua comunidade pode compartilhar bens, serviços, passeios e espaços em um ambiente local confiável. É grátis e leva apenas um minuto para fazer!"
       kassi_for_your_company: "...PARA SUA EMPRESA"
-      kassi_for_your_company_description: ~
+      kassi_for_your_company_description: "Quer ajudar seus funcionários a se conectar uns com os outros? Quer cortar suas emissões e tornar-se uma empresa mais verde? Quer economizar custos em viagens, estacionamento e mobiliário de uso? Sharetribe é a solução para você."
       kassi_for_your_city: "...PARA SUA CIDADE"
-      kassi_for_your_city_description: ~
+      kassi_for_your_city_description: "Quer transformar os bairros de sua cidade para comunidades rurais onde as pessoas partilham uns com os outros? Quer capacitar seus cidadãos para melhorar suas vidas? Sharetribe irá ajudá-lo a conseguir isso."
       kassi_for_your_university: "...PARA SUA UNIVERSIDADE"
-      kassi_for_your_university_description: ~
-      want_kassi_for_your_community: ~
+      kassi_for_your_university_description: "Quer criar um ambiente de campus animada onde as pessoas conhecem e confiam uns nos outros? Quer ajudar seus alunos e funcionários economizar seu tempo, dinheiro e meio ambiente? Experimente Sharetribe e perceba a mudança!"
+      want_kassi_for_your_community: "Quer %{service_name} para sua comunidade?"
       email_default_text: "Seu endereço de email"
       send: Enviar!
       or_drop_us_a_line: ~
-      thanks_for_contacting_us: ~
+      thanks_for_contacting_us: "Obrigado por entrar em contato conosco! Vamos enviar-lhe mais informações sobre como criar %{service_name} comunidade em breve."
       resources: ~
       connect: CONECTAR
       about: "SOBRE SHARETRIBE"
@@ -1080,7 +1080,7 @@ pt-BR:
       community_updated: ~
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: "Conta criada com sucesso. Em seguida, você precisa confirmar seu endereço de e-mail."
-      community_joined_succesfully_you_still_need_to_confirm_your_email: ~
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Conta criada com sucesso. Em seguida, você precisa confirmar seu endereço de e-mail."
       comment_cannot_be_empty: "Comentários não podem ser em branco"
       comment_sent: "Comentário enviado"
       confirmation_link_is_wrong_or_used: ~
@@ -1137,7 +1137,7 @@ pt-BR:
       poll_updated: ~
       poll_deleted: ~
       read_more: "Leia mais!"
-      registration_considered_spam: ~
+      registration_considered_spam: "Registro não funcionou, por favor, envie um feedback a partir do menu de cabeçalho e mencionar \"erro email2\"."
       reply_cannot_be_empty: "Você não pode enviar uma mensagem vazia"
       reply_sent: "Resposta enviada com sucesso!"
       request_accepted: "Pedido aceito"
@@ -1157,10 +1157,10 @@ pt-BR:
       you_cannot_reply_to_a_closed_offer: "Você não pode responder a uma oferta fechada"
       you_cannot_reply_to_a_closed_request: "Você não pode responder a um pedido fechado"
       you_cannot_send_message_to_yourself: ~
-      you_followed_listing: ~
+      you_followed_listing: "Começaste a seguir este anúncio"
       you_have_already_given_feedback_about_this_event: "Você já deixou sua opinião sobre este evento"
-      you_are_now_member: ~
-      you_are_already_member: ~
+      you_are_now_member: "Você entrou com sucesso esta comunidade. Bem-vindo!"
+      you_are_already_member: "Você já é membro desta %{service_name} comunidade. Bem-vindo de volta!"
       you_must_log_in_to_create_new_listing: ~
       additional_email_confirmed_dashboard: ~
       you_must_log_in_to_give_feedback: "Você deve logar para escrever um feedback"
@@ -1171,13 +1171,13 @@ pt-BR:
       you_must_log_in_to_view_this_page: "Você deve fazer login para ver esta página"
       you_must_log_in_to_view_your_inbox: "Você deve fazer login em %{service_name} para ver sua caixa de entrada."
       you_must_log_in_to_view_your_settings: "Você deve fazer login em %{service_name} para exibir suas configurações."
-      you_must_log_in_to_add_news_item: ~
+      you_must_log_in_to_add_news_item: "Você deve fazer login em %{service_name} para adicionar um novo artigo."
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
       you_need_to_confirm_your_account_first: "Você precisa confirmar o seu e-mail."
       you_must_fill_all_the_fields: "Você deve preencher todos os campos"
       you_unfollowed_listing: ~
-      joining_community_failed: ~
+      joining_community_failed: "Entrar nesta comunidade falhou"
       can_not_login_with_private_user: ~
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: ~
@@ -1420,7 +1420,7 @@ pt-BR:
     please_comment: Comentar
   news_items:
     index:
-      news_from_community: ~
+      news_from_community: "Últimas notícias de %{community} comunidade"
     news_item:
       delete_news_item: "Remover artigo"
   okl:
@@ -1486,7 +1486,7 @@ pt-BR:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
     new:
-      captcha_incorrect: ~
+      captcha_incorrect: "verificação reCAPTCHA falhou. Por favor, escreva as palavras que a imagem na caixa abaixo."
       captcha_was_wrong: "Texto da imagem estava incorreta."
       create_new_account: "Criar conta"
       email: "Endereço de email"
@@ -1556,7 +1556,7 @@ pt-BR:
       jack_of_all_trades: ~
       jack_of_all_trades_description: ~
       lender_bronze: ~
-      lender_bronze_description: ~
+      lender_bronze_description: "Você listou três itens que você poderia emprestar no seu perfil, ótimo!"
       lender_gold: ~
       lender_gold_description: ~
       lender_silver: ~
