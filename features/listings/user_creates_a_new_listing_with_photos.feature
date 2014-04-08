@@ -1,3 +1,4 @@
+@skip_phantomjs
 Feature: User creates a new listing with photos
 
   Background:
@@ -13,7 +14,7 @@ Feature: User creates a new listing with photos
   @no-transaction
   Scenario: Creating a new item request with image successfully
     # @no-transaction needed because delayed_paperclip after_save callbacks
-    And I attach a valid listing image file to "listing_image[image]"
+    And I attach a valid listing image
     And I press "Save listing"
     Then I should see "Sledgehammer" within "#listing-title"
     And I should see the image I just uploaded
@@ -21,14 +22,17 @@ Feature: User creates a new listing with photos
   @javascript
   @no-transaction
   Scenario: Creating a new item request with image successfully
-    Given this scenario is currently skipped
     # @no-transaction needed because delayed_paperclip after_save callbacks
-    And I add a listing image "file1.jpg"
-    And I add a listing image "file2.jpg"
-    And I add a listing image "file3.jpg"
+    And I attach a listing image "ds1-1.jpg"
+    And I attach a listing image "ds1-2.jpg"
+    And I attach a listing image "ds1-3.jpg"
     And I press "Save listing"
-    Then I should see listing image "file1.jpg"
-    When click for the next image
-    Then I should see listing image "file2.jpg"
-    When click for the next image
-    Then I should see listing image "file3.jpg"
+    Then I should see listing image "ds1-1.jpg"
+    When I click for the next image
+    Then I should see listing image "ds1-2.jpg"
+    When I click for the next image
+    Then I should see listing image "ds1-3.jpg"
+    When I click for the next image
+    Then I should see listing image "ds1-1.jpg"
+    When I click for the previous image
+    Then I should see listing image "ds1-3.jpg"

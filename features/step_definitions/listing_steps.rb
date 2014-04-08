@@ -10,7 +10,7 @@ Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with cate
 end
 
 Given /^the price of that listing is "([^"]*)"?$/ do |price|
-  @listing.update_attribute(:price, price) 
+  @listing.update_attribute(:price, price)
 end
 
 Given /^that listing is closed$/ do
@@ -35,7 +35,7 @@ end
 When(/^I set search range for numeric filter "(.*?)" between "(.*?)" and "(.*?)"$/) do |custom_field, min, max|
   numeric_custom_field = find_numeric_custom_field_type_by_name(custom_field)
   selector = "#range-slider-#{numeric_custom_field.id}-desktop"
-  
+
   steps %Q{
     When I set search range for "#{selector}" between "#{min}" and "#{max}"
   }
@@ -169,5 +169,17 @@ When(/^I remove the image$/) do
     And I click ".fileupload-preview-remove-image"
     Then I should see "Select file"
   }
+end
+
+When(/^I click for the next image$/) do
+  # Selenium can not interact with hidden elements
+  page.execute_script("$('#listing-image-navi-right').show()");
+  find("#listing-image-navi-right", visible: false).click
+end
+
+When(/^I click for the previous image$/) do
+  # Selenium can not interact with hidden elements
+  page.execute_script("$('#listing-image-navi-right').show()");
+  find("#listing-image-navi-left", visible: false).click
 end
 

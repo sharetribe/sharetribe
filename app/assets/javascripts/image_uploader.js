@@ -3,12 +3,12 @@ window.ST = window.ST || {};
 /**
   Returns a new element for image uploading/preview
 */
-window.ST.renderImagePlaceholder = function(type) {
+window.ST.renderImagePlaceholder = function() {
   var template = $("#new-image-tmpl").html();
   var element = $(template);
   var previewImage = $("img", element).hide();
   var removeLink = $('.fileupload-preview-remove-image', element);
-  var fileupload = $('.fileupload', element).hide();
+  var fileupload = $('.fileupload', element);
   var texts = $('.fileupload-text-container', element);
   var textsOriginalDisplay = texts.css('display');
   var normalText = $(".fileupload-text", element);
@@ -68,8 +68,7 @@ window.ST.renderImagePlaceholder = function(type) {
     removeLink: removeLink,
     showRemove: showRemove,
     hideRemove: hideRemove,
-    setListingId: setListingId,
-    type: type
+    setListingId: setListingId
   };
 };
 
@@ -277,7 +276,8 @@ window.ST.imageUploader = function(listings, opts) {
   }
 
   function renderUploading(data) {
-    var $element = window.ST.renderImagePlaceholder("uploading");
+    var $element = window.ST.renderImagePlaceholder();
+    $element.fileupload.remove();
 
     $element.container.addClass("fileupload-uploading");
 
@@ -386,7 +386,9 @@ window.ST.imageUploader = function(listings, opts) {
   }
 
   function renderPreview(listing) {
-    var $element = window.ST.renderImagePlaceholder("preview");
+    var $element = window.ST.renderImagePlaceholder();
+    $element.fileupload.remove();
+
     $element.setListingId(listing.id);
 
     $element.showPreview(listing.images.thumb);
