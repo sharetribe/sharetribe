@@ -201,7 +201,7 @@ Kassi::Application.routes.draw do
       resources :comments
       resources :listing_images do
         collection do
-          put :add_from_file
+          post :add_from_file
           put :add_from_url
         end
       end
