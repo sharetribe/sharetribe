@@ -52,8 +52,8 @@ When /^(?:|I )attach a valid image file to "([^"]*)"(?: within "([^"]*)")?$/ do 
   attach_image(@latest_uploaded_image, field, selector)
 end
 
-When /^(?:|I )attach an image with invalid extension to "([^"]*)"(?: within "([^"]*)")?$/ do |field, selector|
-  attach_image('i_am_not_image.txt', field, selector)
+When /^(?:|I )attach an image with invalid extension$/ do |field, selector|
+  steps %Q{ When I attach a listing image "i_am_not_image.txt" }
 end
 
 Then(/^I should see listing image "(.*?)"$/) do |file|

@@ -49,6 +49,7 @@ Feature: User creates a new listing
     And I should see "Log in to Sharetribe" within "h1"
 
   @javascript
+  @skip_phantomjs
   Scenario: Trying to create a new item request with insufficient information
     Given I am logged in
     And I am on the home page
