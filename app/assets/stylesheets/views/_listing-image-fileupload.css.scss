@@ -18,7 +18,7 @@ $listing-image-cellpadding: lines(0.5);
   border-radius: 2 * $default-border-radius;
 
   // Colors
-  border: #EEE dashed em($border);
+  border: darken(#EEE, 5%) dashed em($border);
 }
 
 .fileupload-remove-hover {
@@ -87,8 +87,8 @@ $listing-image-cellpadding: lines(0.5);
   float: left;
   background-color: #FAFAFA;
 
-  &:hover, &.hover {
-    border-color: darken(#EEE, 10%);
+  &:hover .fileupload-text-container, &.hover .fileupload-text-container {
+    border-color: darken(#EEE, 20%);
   }
 
 
