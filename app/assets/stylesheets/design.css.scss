@@ -206,3 +206,27 @@
   }
   float: left;
 }
+
+.thumbnail-stripe {
+  width: 310px;
+  overflow: hidden;
+  height: 60px;
+  outline: 1px solid red;
+  position: relative;
+}
+
+.thumbnail-stripe-container {
+  width: 10 * 60px;
+}
+
+.thumbnail-stripe-item {
+  width: 60px;
+  height: 60px;
+  background-color: $highlight;
+  border: 6px solid white;
+  float: left;
+
+  &.selected {
+    background-color: darken(#CAEBCC, 20%);
+  }
+}

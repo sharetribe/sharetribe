@@ -2,7 +2,7 @@
 rerun = File.file?('rerun.txt') ? IO.read('rerun.txt') : ""
 rerun_opts = rerun.to_s.strip.empty? ? "--format #{ENV['CUCUMBER_FORMAT'] || 'progress'} features" : "--format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} #{rerun}"
 std_opts = "-rfeatures --format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} --strict --tags ~@wip"
-skip_phantomjs = ENV['PHANTOMJS'] ? "--tags ~@phantomjs_skip" : ""
+skip_phantomjs = ENV['PHANTOMJS'] ? "--tags ~@skip_phantomjs" : ""
 %>
 default: <%= skip_phantomjs %>  <%= std_opts %> features
 wip: --tags @wip:3 --wip features

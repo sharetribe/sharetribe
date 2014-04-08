@@ -1,58 +1,27 @@
 = form.label :image, t('.image'), :class => "input"
 
-%script{type: "text/template", class: "template", id: "new-image-tmpl"}
-  #fileupload.fileinput-button.upload-image-placeholder
-    .fileupload-text-container
-      .fileupload-centered-text
-        .fileupload-text
-          = t(".select_file")
-        .fileupload-small-text
-    %input#fileupload{type: "file", name: "${fileInputName}"}
-
-%script{type: "text/template", class: "template", id: "thumbnail-image-tmpl"}
-  .fileupload-preview
-    %img.fileupload-preview-image{src: "${thumbnailUrl}"}
-    .fileupload-removing
+.listing-images#image-uploader-container
+  %script{type: "text/template", class: "template", id: "new-image-tmpl"}
+    #fileupload.fileinput-button.upload-image-placeholder
       .fileupload-text-container
         .fileupload-centered-text
-          = t(".removing")
-    .fileupload-preview-remove-image
-      = icon_tag("cross", ["icon-fix"])
+          .fileupload-text
+          .fileupload-small-text
+      %input.fileupload{type: "file", multiple: "multiple"}
+      %img.fileupload-preview-image
+      .fileupload-preview-remove-image
+        = icon_tag("cross", ["icon-fix"])
+      %input.listing-image-id{type: "hidden", name: "listing_images[][id]"}
 
-%input#listing-image-id{type: "hidden", name: "listing_image[id]"}
-
-.listing-images#image-uploader-container
-
-= js_t ["listings.form.images.processing", "listings.form.images.this_may_take_a_while", "listings.form.images.percentage_loaded", "listings.form.images.uploading_failed", "listings.form.images.file_too_large", "listings.form.images.accepted_formats", "listings.form.images.loading_image"], run_js_immediately
-
-- if ApplicationHelper.use_upload_s3?
-  - s3uploader = S3Uploader.new
-  - s3options = { uploadPath: s3uploader.url, options: s3uploader.fields}.to_json
-- else
-  - s3options = nil.to_json
+= js_t ["listings.form.images.processing", "listings.form.images.this_may_take_a_while", "listings.form.images.percentage_loaded", "listings.form.images.uploading_failed", "listings.form.images.file_too_large", "listings.form.images.accepted_formats", "listings.form.images.loading_image", "listings.form.images.select_file", "listings.form.images.removing"], run_js_immediately
 
 - content_for :image_uploader_js do
   :javascript
     $(function() {
-      var opts = {
-        s3: #{s3options},
-        saveFromFile: "#{@listing.new_record? ? create_from_file_listing_images_path : add_from_file_listing_listing_images_path(@listing.id)}",
-        saveFromUrl: "#{@listing.new_record? ? create_from_url_listing_images_path : add_from_url_listing_listing_images_path(@listing.id)}",
-        maxImageFilesize: #{APP_CONFIG.max_image_filesize},
-        originalImageWidth: #{APP_CONFIG.original_image_width},
-        originalImageHeight: #{APP_CONFIG.original_image_height}
-      }
+      var opts = #{ListingImageS3OptionsJSAdapter.new(@listing).to_json}
+      var listingsImages = #{ @listing.listing_images.map { |image| ListingImageJSAdapter.new(image) }.to_json }
 
-      var listings = #{ @listing.listing_images.map do |listing_image|
-        {
-          id: @listing.listing_images.first.id,
-          thumbnailUrl: @listing.listing_images.first.image.url(:thumb),
-          removeUrl: listing_image_path(@listing.listing_images.first)
-        }
-        end.to_json
-      }
-
-      ST.imageUploader(listings, opts);
+      ST.imageUploader(listingsImages, opts);
     });
 
 - if run_js_immediately

@@ -168,3 +168,15 @@ When(/^I remove the image$/) do
     Then I should see "Select file"
   }
 end
+
+When(/^I click for the next image$/) do
+  # Selenium can not interact with hidden elements
+  page.execute_script("$('#listing-image-navi-right').show()");
+  find("#listing-image-navi-right", visible: false).click
+end
+
+When(/^I click for the previous image$/) do
+  # Selenium can not interact with hidden elements
+  page.execute_script("$('#listing-image-navi-right').show()");
+  find("#listing-image-navi-left", visible: false).click
+end
