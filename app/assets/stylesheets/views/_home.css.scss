@@ -284,9 +284,17 @@ h2.home-list-title {
 .home-list-price-mobile {
   position: absolute;
   font-size: 24px;
+
+  & > .smaller {
+    font-size: 18px;
+  }
+
   bottom: lines(0.25, 24);
   @include media(large-mobile) {
     font-size: 36px;
+    & > .smaller {
+      font-size: 24px;
+    }
     right: 0;
     padding-top: 10px;
     bottom: lines(0.5, 36);
@@ -319,6 +327,12 @@ h2.home-list-title {
 
 .home-list-price-value {
   font-size: em(44);
+  line-height: 1;
+  font-weight: 400;
+}
+
+.home-list-transaction-type-value {
+  font-size: em(32);
   line-height: 1;
   font-weight: 400;
 }

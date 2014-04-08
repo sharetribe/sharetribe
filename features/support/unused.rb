@@ -10,9 +10,9 @@
 # or...
 #
 #   cucumber -d -f Unused
- 
+
 require 'cucumber/formatter/stepdefs'
- 
+
 class Unused < Cucumber::Formatter::Stepdefs
   def print_summary(features)
     add_unused_stepdefs

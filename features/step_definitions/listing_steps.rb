@@ -81,7 +81,7 @@ end
 
 When /^I create a new listing "(.*?)" with price(?: "([^"]*)")?$/ do |title, price|
   price ||= "20"
-  
+
   steps %Q{
     Given I am on the home page
     When I follow "new-listing-link"
@@ -128,13 +128,12 @@ When /^I choose to view only transaction type "(.*?)"$/ do |transaction_type|
   }
 end
 
-
 Given /^there is a dropdown field "(.*?)" for category "(.*?)" in community "(.*?)" with options:$/ do |field_title, category_name, community_domain, opts_table|
   @community = Community.find_by_domain(community_domain)
   @category = Category.find_by_name(category_name)
   @custom_field = FactoryGirl.build(:custom_dropdown_field, :community => @community, :names => [CustomFieldName.create(:value => field_title, :locale => "en")])
   @custom_field.category_custom_fields << FactoryGirl.build(:category_custom_field, :category => @category, :custom_field => @custom_field)
-  
+
   opts_table.hashes.each do |hash|
     title = CustomFieldOptionTitle.create(:value => hash[:title], :locale => "en")
     option = FactoryGirl.build(:custom_field_option, :titles => [title])
@@ -143,7 +142,6 @@ Given /^there is a dropdown field "(.*?)" for category "(.*?)" in community "(.*
 
   @custom_field.save!
 end
-
 
 Given /^that listing has custom field "(.*?)" with value "(.*?)"$/ do |field_title, option_title|
   field = CustomFieldName.find_by_value!(field_title).custom_field
@@ -182,4 +180,3 @@ When(/^I click for the previous image$/) do
   page.execute_script("$('#listing-image-navi-right').show()");
   find("#listing-image-navi-left", visible: false).click
 end
-

@@ -4,7 +4,7 @@ Given /^there are following communities:$/ do |communities_table|
     existing_community = Community.find_by_domain(domain)
     existing_community.destroy if existing_community
     @hash_community = FactoryGirl.create(:community, :name => domain, :domain => domain, :settings => {"locales" => ["en", "fi"]})
-    
+
     attributes_to_update = hash.except('community')
     @hash_community.update_attributes(attributes_to_update) unless attributes_to_update.empty?
   end
@@ -14,8 +14,8 @@ Given /^the test community has following available locales:$/ do |locale_table|
   @locales = []
   locale_table.hashes.each do |hash|
     @locales << hash['locale']
-  end  
-  
+  end
+
   #here is expected that the first community is the test community where the subdomain is pointing by default
   Community.first.update_attributes({:settings => { "locales" => @locales }})
 end
@@ -36,7 +36,7 @@ Then /^Most recently created user should be member of "([^"]*)" community with(?
     # (kassi_testperson1 instead of the actual newest person, so changed
     # to look for the latest CommunityMembership)
     status ||= "accepted"
-    
+
     community = Community.find_by_domain(community_domain)
     CommunityMembership.last.community.should == community
     CommunityMembership.last.consent.should == community.consent
@@ -63,10 +63,10 @@ end
 Given /^community "([^"]*)" has payments in use(?: via (\w+))?(?: with seller commission (\w+))?$/ do |community_domain, gateway_name, commission|
   gateway_name ||= "Checkout"
   commission ||= "8"
-  
+
   community = Community.find_by_domain(community_domain)
   community.update_attributes(:vat => "24", :commission_from_seller => commission.to_i)
-  
+
   FactoryGirl.create(:payment_gateway, :community => community, :type => gateway_name)
 end
 
@@ -126,7 +126,7 @@ end
 Given /^community "(.*?)" has following category structure:$/ do |community, categories|
   current_community = Community.find_by_domain(community)
   old_category_ids = current_community.categories.collect(&:id)
- 
+
   current_community.categories = categories.hashes.map do |hash|
     category = current_community.categories.create!
     category.translations.create!(:name => hash['fi'], :locale => 'fi')
@@ -151,7 +151,7 @@ end
 Given /^community "(.*?)" has following transaction types enabled:$/ do |community, transaction_types|
   current_community = Community.find_by_domain(community)
   current_community.transaction_types.destroy_all
- 
+
   current_community.transaction_types << transaction_types.hashes.map do |hash|
     transaction_type = FactoryGirl.create(:transaction_type, :type => hash['transaction_type'], :community_id => current_community.id)
     transaction_type.translations.create(:name => hash['fi'], :action_button_label => (hash['button'] || "Action"), :locale => 'fi')
@@ -176,7 +176,7 @@ Given(/^this community has price filter enabled with min value (\d+) and max val
 end
 
 Given /^current community has (free|starter|basic|growth|scale) plan$/ do |plan|
-  case plan 
+  case plan
   when "free"
     plan_level = 0
   when "starter"

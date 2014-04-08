@@ -31,11 +31,11 @@ When /^I have "([^"]*)" (item|favor|rideshare) (offer|request) listings(?: with 
 end
 
 Then /^I create a new (item|favor|rideshare) (offer|request) listing(?: with share type "([^"]*)")?$/ do |category, listing_type, share_type|
-  steps %Q{ 
-    When I go to the home page 
+  steps %Q{
+    When I go to the home page
     And I follow "Post a new listing"
   }
-  
+
   case listing_type
   when "offer"
     form_listing_type = "I have something"
@@ -49,36 +49,36 @@ Then /^I create a new (item|favor|rideshare) (offer|request) listing(?: with sha
   when "favor"
     form_category = "Help"
   when "rideshare"
-    form_category = "A shared ride"   
+    form_category = "A shared ride"
   end
-  
-  steps %Q{ 
+
+  steps %Q{
     And I follow "#{form_listing_type}"
     And I follow "#{form_category}"
   }
-  
+
   if category.eql? "item"
-    steps %Q{ 
+    steps %Q{
       And I follow "Tools"
     }
   end
-  
+
   if share_type
-    steps %Q{ 
+    steps %Q{
       And I follow "#{share_type}"
     }
   elsif ["item", "housing"].include? category
     steps %Q{ And I follow "I'm selling it" } if listing_type.eql?("offer")
     steps %Q{ And I follow "I want to buy it" } if listing_type.eql?("request")
   end
-  
-  steps %Q{ 
+
+  steps %Q{
     And wait for 2 seconds
   }
-  
+
   if category.eql?("rideshare")
     steps %Q{
-      And I fill in "listing_origin" with "Helsinki" 
+      And I fill in "listing_origin" with "Helsinki"
       And I fill in "listing_destination" with "Tampere"
       And wait for 2 seconds
     }
@@ -91,7 +91,7 @@ Then /^I create a new (item|favor|rideshare) (offer|request) listing(?: with sha
     And the system processes jobs
     And I go to the badges page of "kassi_testperson1"
   }
-  
+
 end
 
 When /^I have visited Sharetribe on "(.+)" different days$/ do |amount|
@@ -103,7 +103,7 @@ end
 When /^I have commented that listing "(.+)" times$/ do |amount|
   amount.to_i.times do
     FactoryGirl.create(:comment, :author => @people["kassi_testperson1"])
-  end  
+  end
 end
 
 When /^I comment that listing$/ do
@@ -115,9 +115,9 @@ When /^I comment that listing$/ do
     And the system processes jobs
     And wait for 2 seconds
     And I go to the badges page of "kassi_testperson1"
-  } 
+  }
 end
 
 When /^I belong to test group "(.+)"$/ do |group_number|
   @people["kassi_testperson1"].update_attribute(:test_group_number, group_number)
-end  
+end

@@ -28,7 +28,7 @@ Before('@badge') do
   #   puts "COMMUNITIES: #{Community.all.count}"
   steps %Q{
     Given there are following users:
-       | person | 
+       | person |
        | kassi_testperson1 |
        | kassi_testperson2 |
     And I am logged in as "kassi_testperson1"

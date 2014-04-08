@@ -8,12 +8,12 @@ class FactoryGirl::DefinitionProxy
   # Usage: ctrl+f "has_many"
   #
   def has_many(collection)
-    # after_build is where you add instances to the factory-built collection. 
+    # after_build is where you add instances to the factory-built collection.
     # Typically you'll want to Factory.build() these instances.
     after (:build) do |instance, evaluator|
       instance.send(collection) << yield(instance, evaluator) if instance.send(collection).empty?
     end
- 
+
     # after_create will be called after after_build if the build strategy is Factory.create()
     after(:create) do |instance|
       instance.send(collection).each { |i| i.save! }
@@ -31,13 +31,12 @@ FactoryGirl.define do
   end
 
   sequence :domain do |n|
-    "sharetribe_testcommunity_#{n}" 
+    "sharetribe_testcommunity_#{n}"
   end
 
   sequence :category_name do |n|
-    "item_#{n}" 
+    "item_#{n}"
   end
-
 
   factory :person, aliases: [:author, :receiver, :recipient, :payer, :sender] do
     is_admin 0
@@ -53,7 +52,7 @@ FactoryGirl.define do
     after(:create) do |person|
       FactoryGirl.create_list(:email, 1, person: person)
     end
-  end  
+  end
 
   factory :listing do
     title "Sledgehammer"
@@ -156,7 +155,7 @@ FactoryGirl.define do
     title "A new event in our community"
     content "More information about this amazing event."
     author { |author| author.association(:person) }
-  end  
+  end
 
   factory :device do
     device_type "iPhone"
@@ -173,14 +172,14 @@ FactoryGirl.define do
     address "helsinki"
     google_address "Helsinki, Finland"
   end
-  
+
   factory :email do
     person
     address { generate(:email_address) }
     confirmed_at Time.now
     send_notifications true
   end
-  
+
   factory :category do
     icon "item"
     association :community
@@ -202,7 +201,7 @@ FactoryGirl.define do
 
   factory :transaction_type do
     association :community
-    
+
     ['Sell', 'Give', 'Lend', 'Request', 'Service'].each do |type|
       factory_name = "transaction_type_#{type.downcase}"
       factory factory_name.to_sym, class: type do
@@ -239,7 +238,7 @@ FactoryGirl.define do
       min 0
       max 100
     end
-    
+
   end
 
   factory :category_custom_field do
@@ -250,12 +249,12 @@ FactoryGirl.define do
   factory :custom_field_option do
     titles { [ FactoryGirl.create(:custom_field_option_title) ] }
   end
-  
+
   factory :custom_field_option_title do
     value "Test option"
     locale "en"
   end
-  
+
   factory :custom_field_name do
     value "Test field"
     locale "en"
@@ -276,7 +275,7 @@ FactoryGirl.define do
     listing
     numeric_value 0
   end
-  
+
   factory :payment do
     payer
     recipient

@@ -65,7 +65,7 @@ describe Admin::CategoryService do
       end
 
       # Create following category structure:
-      # 
+      #
       # Category A
       # - Subcategory A1
       # Category B

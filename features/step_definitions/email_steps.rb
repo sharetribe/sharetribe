@@ -30,11 +30,11 @@ Given /^there are following emails:$/ do |emails_table|
     person.emails.each { |email| email.destroy }
   end
 
-  # Create new emails 
+  # Create new emails
   emails_table.hashes.each do |hash|
     person = Person.find_by_username(hash[:person])
     @hash_email = FactoryGirl.create(:email, :person => person)
-    
+
     attributes_to_update = hash.except('person')
     @hash_email.update_attributes(attributes_to_update) unless attributes_to_update.empty?
     @hash_email

@@ -1,16 +1,16 @@
 require 'spec_helper'
 
 describe Invitation do
-  
+
   describe "#create" do
     it "generates a code automatically" do
       i = Invitation.create
       i.code.should_not be_nil
       i.code.length.should == 6
     end
-    
+
   end
-  
+
   describe "#use" do
     it "reduces usages left by one" do
       i = FactoryGirl.create(:invitation)
@@ -28,7 +28,7 @@ describe Invitation do
       i.use_once!
       i.usages_left.should == 2
       i.should be_usable
-      
+
     end
   end
 end

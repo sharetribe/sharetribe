@@ -6,14 +6,17 @@
     - if listing.listing_images.size > 0
       = image_tag listing.listing_images.first.image.url(:thumb), {:alt => listed_listing_title(listing), :class => "home-list-image"}
   .home-list-details-right
-    - if listing.price
-      .home-list-price
+    .home-list-price
+      - if listing.price
         .home-list-price-value
           = humanized_money_with_symbol(listing.price).upcase
         - if !listing.quantity.blank?
           - price_text = if !listing.quantity.blank? then t("listings.form.price.per") + " " + listing.quantity  else "" end
           .home-list-price-quantity{:title => price_text}
             = price_text
+      - else
+        .home-list-transaction-type-value
+          = listing.transaction_type.display_name(I18n.locale)
 
   %div{:class => (listing.listing_images.size > 0 ? "home-list-details-with-image" : "")}
     %h2.home-list-title
@@ -36,6 +39,9 @@
             = icon_tag("testimonial")
             = pluralize(listing.author.received_testimonials.size, t(".review"), t(".reviews"))
 
-  - if listing.price
-    .home-list-price-mobile{:class => (listing.listing_images.size > 0 ? "home-list-price-mobile-with-listing-image" : "home-list-price-mobile-without-listing-image")}
+  .home-list-price-mobile{:class => (listing.listing_images.size > 0 ? "home-list-price-mobile-with-listing-image" : "home-list-price-mobile-without-listing-image")}
+    - if listing.price
       = humanized_money_with_symbol(listing.price).upcase
+    - else
+      %span.smaller
+        = listing.transaction_type.display_name(I18n.locale)
