@@ -7,8 +7,8 @@ describe Comment do
   end
 
   it "is valid with valid attributes" do
-    @comment.should be_valid  
-  end  
+    @comment.should be_valid
+  end
 
   it "is not valid without content" do
     @comment.content = nil
@@ -16,7 +16,7 @@ describe Comment do
     @comment.content = ""
     @comment.should_not be_valid
   end
-  
+
   it "is not valid with too long content" do
     @comment.content = "a" * 5001
     @comment.should_not be_valid

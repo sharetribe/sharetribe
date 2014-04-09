@@ -74,6 +74,16 @@ es-ES:
         main_content_width: ~
         custom_color1_instructions_text: "Puedes cambiar el color principal de la interfaz de usuario de esta comunidad ingresando un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> puede ayudarte a elegir el color y copiar el código aquí."
         custom_color2_instructions_text: ~
+        default_browse_view: ~
+        default_browse_view_instructions_text: ~
+        grid: ~
+        list: ~
+        map: ~
+        name_display_type: ~
+        name_display_type_instructions_text: ~
+        full_name: ~
+        first_name_with_initial: ~
+        first_name_only: ~
         invalid_color_code: "El código de color debe contener 6 caracteres, números o letras de la A a la F, por ejemplo D96E21"
       edit_welcome_email:
         welcome_email_content: ~
@@ -114,6 +124,15 @@ es-ES:
         save_user_status_successful: ~
         save_user_status_error: ~
         remove_user_confirmation: ~
+      integrations:
+        integrations: ~
+        twitter_handle: ~
+        twitter_handle_info_text: ~
+        twitter_handle_placeholder: ~
+        invalid_twitter_handle: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
+        save: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -1237,6 +1256,7 @@ es-ES:
         select_file: "Eligir Archivo"
         removing: ~
         processing: ~
+        loading_image: ~
         this_may_take_a_while: ~
         percentage_loaded: ~
         uploading_failed: ~

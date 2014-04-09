@@ -1,9 +1,57 @@
 module Util
-  module Hash
-    class << self
-      def compact(h)
-        h.delete_if { |k, v| v.nil? }
+  module HashUtils
+    module_function
+
+    def compact(h)
+      h.delete_if { |k, v| v.nil? }
+    end
+
+    def camelize_keys(h, deep=true)
+      h.inject({}) { |memo, (k, v)|
+        memo[k.to_s.camelize(:lower).to_sym] = deep && v.is_a?(Hash) ? camelize_keys(v) : v
+        memo
+      }
+    end
+  end
+
+  module CamelizeHash
+    def to_hash
+      Util::HashUtils.camelize_keys(instance_hash(self))
+    end
+
+    module_function
+
+    def instance_hash(instance)
+      instance.instance_variables.inject({}) do |hash, var|
+        hash[var.to_s.delete("@")] = instance.instance_variable_get(var)
+        hash
       end
+    end
+  end
+
+  module ArrayUtils
+    module_function
+
+    def next_and_prev(arr, curr)
+      if arr.length <= 1
+        [nil, nil]
+      elsif arr.length == 2
+        first, last = arr
+        curr == first ? [last, last] : [first, first]
+      else
+        prev, mid, nexxt = each_cons_repeat(arr, 3).find { |(prev, mid, nexxt)| mid == curr  }
+        [prev, nexxt]
+      end
+    end
+
+    # Same as `each_cons` but repeats from the start
+    #
+    # Example:
+    # [1, 2, 3, 4].each_cons(3) => [1, 2, 3], [2, 3, 4]
+    #
+    # [1, 2, 3, 4].each_cons_repeat(3) => [1, 2, 3], [2, 3, 4], [3, 4, 1], [4, 1, 2]
+    def each_cons_repeat(arr, cons)
+      (arr + arr.take(cons - 1)).each_cons(cons)
     end
   end
 

@@ -20,6 +20,22 @@ ST.utils = (function(_) {
     }
   }
 
+  /**
+    Give `current` index and array `length` and get back
+    next index or first index
+  */
+  function nextIndex(length, current) {
+    return (current + 1) % length;
+  }
+
+  /**
+    Give `current` index and array `length` and get back
+    prev index or last index
+  */
+  function prevIndex(length, current) {
+    return current === 0 ? length - 1 : current - 1;
+  }
+
   function swapArrayElements(arr, idx1, idx2, deep) {
     deep = deep || false;
 
@@ -84,14 +100,69 @@ ST.utils = (function(_) {
     }, {});
   }
 
+  function not(fn) {
+    return function() {
+      return !fn.apply(null, arguments);
+    };
+  }
+
+  function baconStreamFromAjaxPolling(ajaxOpts, predicate) {
+    return Bacon.fromBinder(function(sink) {
+      function poll() {
+        var ajax = Bacon.once(ajaxOpts).ajax();
+
+        ajax.filter(predicate).onValue(function(statusResult) {
+          sink([new Bacon.Next(statusResult), new Bacon.End()]);
+        });
+
+        ajax.filter(not(predicate)).onValue(function() {
+          _.delay(poll, 1000);
+        });
+
+        ajax.onError(function(e) {
+          sink([new Bacon.Error(e), new Bacon.End()]);
+        });
+      }
+
+      poll();
+
+      return _.identity; // No-op unsubscripbe function
+    });
+  }
+
+  /**
+    Give filename and get back lower-case extension
+  */
+  function fileExtension(filename) {
+    return _.last(filename.split(".")).toLowerCase();
+  }
+
+  /**
+    Give filename and get back content type
+  */
+  function contentTypeByFilename(filename) {
+    var map = {
+      "jpg": "image/jpeg",
+      "jpeg": "image/jpeg",
+      "png": "image/png",
+      "gif": "image/gif",
+    };
+
+    return map[fileExtension(filename)];
+  }
+
   return {
     findNextIndex: findNextIndex,
     findPrevIndex: findPrevIndex,
+    nextIndex: nextIndex,
+    prevIndex: prevIndex,
     swapArrayElements: swapArrayElements,
     relativeUrl: relativeUrl,
     jquerifyAttributeValue: jquerifyAttributeValue,
     findElementByName: findElementByName,
-    objectsMerge: objectsMerge
+    objectsMerge: objectsMerge,
+    baconStreamFromAjaxPolling: baconStreamFromAjaxPolling,
+    contentTypeByFilename: contentTypeByFilename
   };
 
 })(_);

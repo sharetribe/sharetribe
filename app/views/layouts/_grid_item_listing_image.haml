@@ -24,6 +24,15 @@
         = t(".processing_uploaded_image")
         %br/
       = listing.title
-    - if listing.price
-      .fluid-thumbnail-grid-image-price{:class => "#{modifier_class}"}
-        = humanized_money_with_symbol(listing.price).upcase
+
+    .fluid-thumbnail-grid-image-price-container{:class => "#{modifier_class}"}
+      - if listing.price
+        %span.fluid-thumbnail-grid-image-price
+          = humanized_money_with_symbol(listing.price).upcase
+        - if !listing.quantity.blank?
+          - price_text = " / " + listing.quantity
+          %span.fluid-thumbnail-grid-image-quantity{:title => price_text}
+            = price_text
+      - else
+        %span.fluid-thumbnail-grid-image-type{:class => "#{modifier_class}"}
+          = listing.transaction_type.display_name(I18n.locale)

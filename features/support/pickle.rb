@@ -23,4 +23,3 @@ require 'pickle/world'
 #   config.map 'I', 'myself', 'me', 'my', :to => 'user: "me"'
 # end
 require 'pickle/path/world'
-

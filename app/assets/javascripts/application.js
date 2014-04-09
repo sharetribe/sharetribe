@@ -23,12 +23,12 @@
 //= require jquery.fileupload-image
 
 // Allow IE8-9 to post cross domain XHR (required for image upload)
-//= require jquery.xdr-transport
+//= require jquery.iframe-transport.js
 
 //= require fastclick.min
 //= require infobubble
 //= require sharetribe_common
-//= require Bacon.min
+//= require Bacon
 //= require Bacon.jquery.min
 //= require lodash.min
 //= require utils
@@ -46,4 +46,7 @@
 //= require range_filter
 //= require translations
 //= require image_uploader
+//= require image_carousel
+//= require thumbnail_stripe
+//= require listing_images
 //= require_self

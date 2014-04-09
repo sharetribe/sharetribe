@@ -4,22 +4,21 @@ require 'spec_helper'
 
 describe Api::ListingsController do
   render_views
-  
+
   before (:each) do
     Rails.cache.clear
   end
-  
-    
+
   before(:each) do
     Listing.all.collect(&:destroy) # for some reason there's a listing before starting. Destroy to be clear.
-  
+
     @c1 = FactoryGirl.create(:community, :settings => {"locales" => ["en", "fi"]})
     @c2 = FactoryGirl.create(:community)
-    
+
     @p1 = FactoryGirl.create(:person)
     @p1.communities << @c1
     @p1.ensure_authentication_token!
-    
+
     @category_item = FactoryGirl.create(:category, :community => @c1)
     @category_item.translations << FactoryGirl.create(:category_translation, :name => "Tavarat", :locale => "fi", :category => @category_item)
     @category_favor = FactoryGirl.create(:category, :community => @c1)
@@ -45,14 +44,14 @@ describe Api::ListingsController do
 
     set_subdomain("api")
   end
-  
-  describe "ATOM feed" do    
+
+  describe "ATOM feed" do
     it "lists the most recent listings in order" do
       get :index, :community_id => @c1.id, :format => :atom
       response.status.should == 200
       doc = Nokogiri::XML::Document.parse(response.body)
       doc.at('feed/logo').text.should == "https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png"
-      
+
       doc.at("feed/title").text.should =~ /Listings in sharetribe_testcommunity_\d+ Sharetribe/
       doc.search("feed/entry").count.should == 2
       doc.search("feed/entry/title")[0].text.should == "Sell: hammer"
@@ -61,14 +60,13 @@ describe Api::ListingsController do
       #DateTime.parse(doc.search("feed/entry/published")[1].text).should == @l1.created_at
       doc.search("feed/entry/content")[1].text.should =~ /#{@l1.description}/
     end
-    
-    
+
     it "supports localization" do
       get :index, :community_id => @c1.id, :format => :atom, :locale => "fi"
       response.status.should == 200
       doc = Nokogiri::XML::Document.parse(response.body)
       doc.remove_namespaces!
-      
+
       doc.at("feed/title").text.should =~ /Ilmoitukset sharetribe_testcommunity_\d+-Sharetribessa/
       doc.at("feed/entry/title").text.should == "Myydään: hammer"
       doc.at("feed/entry/category").attribute("term").value.should == "#{@category_item.id}"
@@ -88,7 +86,7 @@ describe Api::ListingsController do
     #   doc.search("feed/entry").count.should == 1
     #   doc.at("feed/entry/title").text.should == "Buying: bike"
     # end
-    
+
     it "escapes html tags, but adds links" do
       get :index, :community_id => @c1.id, :format => :atom
       response.status.should == 200
@@ -104,6 +102,6 @@ describe Api::ListingsController do
     #   doc.search("feed/entry").count.should == 1
     #   doc.at("feed/entry/title").text.should == "Selling: hammer"
     # end
-  
+
   end
 end

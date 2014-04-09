@@ -7,13 +7,13 @@ gem 'rails', '3.2.17'
 # To use debugger
 # gem 'ruby-debug'
 
-# Gems used only for assets and not required  
-# in production environments by default.  
-group :assets do  
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
   gem 'coffee-rails', "~> 3.2.2"
   gem 'uglifier'
   gem 'asset_sync'
-end  
+end
 
 gem 'sass-rails'
 gem 'compass-rails'
@@ -94,8 +94,8 @@ group :test do
   gem "rspec-rails"
   gem 'capybara'
   gem 'cucumber-rails', :require => false
-  gem 'cucumber' 
-  gem 'selenium-webdriver'
+  gem 'cucumber'
+  gem 'selenium-webdriver', "~>2.41.0"
   gem 'launchy'
   gem 'ruby-prof'
   gem 'factory_girl_rails'

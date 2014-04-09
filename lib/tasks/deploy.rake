@@ -42,7 +42,11 @@ end
 def deploy(params)
   @destination = params[:destination]
   @branch = `git symbolic-ref HEAD`[/refs\/heads\/(.+)$/,1]
-  
+
+  if `git status --porcelain`.present?
+    raise "You have unstaged or uncommitted changes! Please only deploy from a clean working directory!"
+  end
+
   puts "Deploying from: #{@branch}"
   puts "Deploying to:   #{@destination}"
   puts "Deploy options:"
@@ -58,7 +62,7 @@ def deploy(params)
     #update_error_page_translations
     Rake::Task["i18n:write_error_pages"].invoke
   end
-  
+
   set_app(@destination)
   prepare_closed_source_branch
   deploy_to_server
@@ -125,7 +129,7 @@ task :deploy_staging_migrations_from_master => [
   'deploy:set_master_as_source_branch',
   'i18n:write_error_pages',
   'deploy:update_closed_source_folders',
-  'deploy_with_migrations' 
+  'deploy_with_migrations'
 ]
 
 task :deploy_staging_migrations_from_develop => [
@@ -133,7 +137,7 @@ task :deploy_staging_migrations_from_develop => [
   'deploy:set_develop_as_source_branch',
   'i18n:write_error_pages',
   'deploy:update_closed_source_folders',
-  'deploy_with_migrations' 
+  'deploy_with_migrations'
 ]
 
 task :deploy_staging_without_migrations_from_develop => [
@@ -196,9 +200,9 @@ task :deploy_preproduction_migrations_from_develop => [
 ## TRANSLATION
 
 task :deploy_translation_migrations_from_develop => [
-  'deploy:set_translation_app', 
-  'deploy:set_develop_as_source_branch', 
-  'deploy:update_closed_source_folders',  
+  'deploy:set_translation_app',
+  'deploy:set_develop_as_source_branch',
+  'deploy:update_closed_source_folders',
   'deploy:push',
   'deploy:migrate',
   'deploy:restart'
@@ -220,7 +224,7 @@ task :deploy_testing_migrations => [
   'deploy:prepare_custom_branch_for_deploy',
   'deploy_with_migrations'
 ]
-  
+
 task :deploy_testing_without_migrations => [
   'deploy:set_testing_app',
   'i18n:write_error_pages',
@@ -270,24 +274,24 @@ namespace :deploy do
   task :set_production_app do
     APP = PRODUCTION_APP
   end
-  
+
   task :set_preproduction_app do
     APP = PREPRODUCTION_APP
   end
-  
+
   task :set_translation_app do
     APP = TRANSLATION_APP
   end
-  
+
   task :set_develop_as_source_branch do
     BRANCH = "develop"
   end
-  
+
   task :set_master_as_source_branch do
     BRANCH = "master"
   end
 
-  
+
   task :update_closed_source_folders do
     puts 'Copying closed source contents...'
     puts `mkdir ../tmp-sharetribe` unless File.exists?("../tmp-sharetribe")
@@ -309,7 +313,7 @@ namespace :deploy do
       puts "ERROR: Checkout for closed_source branch didn't work. Maybe you have uncommitted changes?"
     end
   end
-  
+
   task :push do
     puts 'Deploying site to Heroku ...'
     if APP == PRODUCTION_APP
@@ -319,39 +323,39 @@ namespace :deploy do
     elsif APP == TESTING_APP
       puts `git push testing closed_source:master --force`
     elsif APP == PREPRODUCTION_APP
-      puts `git push preproduction closed_source:master --force`  
+      puts `git push preproduction closed_source:master --force`
     else
       puts `git push staging closed_source:master --force`
     end
   end
-  
+
   task :restart do
     puts 'Restarting app servers ...'
     system("heroku restart --app #{APP}")
   end
-  
+
   task :generate_custom_css => :environment do
     puts 'Generating custom CSS for tribes who use it ...'
     system("heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}")
   end
-  
+
   task :tag do
     release_name = "#{APP}_release-#{Time.now.utc.strftime("%Y%m%d%H%M%S")}"
     puts "Tagging release as '#{release_name}'"
     puts `git tag -a #{release_name} -m 'Tagged release'`
     system("git push --tags git@heroku.com:#{APP}.git")
   end
-  
+
   task :migrate do
     puts 'Running database migrations ...'
     system("heroku run rake db:migrate --app #{APP}")
   end
-  
+
   task :off do
     puts 'Putting the app into maintenance mode ...'
     puts `heroku maintenance:on --app #{APP}`
   end
-  
+
   task :on do
     puts 'Taking the app out of maintenance mode ...'
     puts `heroku maintenance:off --app #{APP}`
@@ -364,26 +368,26 @@ namespace :deploy do
     previous_release = releases[-2] if releases.length >= 2
     if previous_release
       puts "Rolling back to '#{previous_release}' ..."
-      
+
       puts "Checking out '#{previous_release}' in a new branch on local git repo ..."
       puts `git checkout #{previous_release}`
       puts `git checkout -b #{previous_release}`
-      
+
       puts "Removing tagged version '#{previous_release}' (now transformed in branch) ..."
       puts `git tag -d #{previous_release}`
       puts `git push git@heroku.com:#{APP}.git :refs/tags/#{previous_release}`
-      
+
       puts "Pushing '#{previous_release}' to Heroku master ..."
       puts `git push git@heroku.com:#{APP}.git +#{previous_release}:master --force`
-      
+
       puts "Deleting rollbacked release '#{current_release}' ..."
       puts `git tag -d #{current_release}`
       puts `git push git@heroku.com:#{APP}.git :refs/tags/#{current_release}`
-      
+
       puts "Retagging release '#{previous_release}' in case to repeat this process (other rollbacks)..."
       puts `git tag -a #{previous_release} -m 'Tagged release'`
       puts `git push --tags git@heroku.com:#{APP}.git`
-      
+
       puts "Turning local repo checked out on master ..."
       puts `git checkout master`
       puts 'All done!'

@@ -17,7 +17,7 @@ then
 	exit
 elif [ "$SUITE" = "mocha" ]
 then
-	rake assets:precompile
+	bundle exec rake assets:precompile
 	exit
 elif [ "$SUITE" = "jshint" ]
 then

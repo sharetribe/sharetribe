@@ -6,7 +6,6 @@ class ListingImagesController < ApplicationController
   before_filter :fetch_image, :only => [:destroy]
   before_filter :"listing_image_authorized?", :only => [:destroy]
 
-  before_filter :fetch_listing, :only => [:add_from_file]
   before_filter :"listing_authorized?", :only => [:add_from_file]
 
   skip_filter :dashboard_only
@@ -20,31 +19,13 @@ class ListingImagesController < ApplicationController
     end
   end
 
-  # New listing image while creating a new listing
-  # Create image from uploaded file
-  def create_from_file
-    create_image(params[:listing_image], nil)
-  end
-
-  # New listing image while creating a new listing
-  # Create image from given url
-  def create_from_url
-    url = escape_s3_url(params[:path], params[:filename])
-
-    if !url.present?
-      render json: {:errors => "No image URL provided"}, status: 400
-    end
-
-    create_image({}, url)
-  end
-
   # Add new listing image to existing listing
   # Create image from given url
   def add_from_url
     url = escape_s3_url(params[:path], params[:filename])
 
     if !url.present?
-      render json: {:errors => "No image URL provided"}, status: 400
+      render json: {:errors => "No image URL provided"}, status: 400, content_type: 'text/plain'
     end
 
     add_image(params[:listing_id], {}, url)
@@ -62,10 +43,8 @@ class ListingImagesController < ApplicationController
 
     if !listing_image
       render nothing: true, status: 404
-    elsif !listing_image.image_downloaded || listing_image.image_processing
-      render json: {processing: true}, status: 200
     else
-      render json: {processing: false, thumb: listing_image.image.url(:thumb)}, status: 200
+      render json: ListingImageJSAdapter.new(listing_image).to_json, status: 200
     end
   end
 
@@ -78,19 +57,10 @@ class ListingImagesController < ApplicationController
     path.sub("${filename}", escaped_filename)
   end
 
-  # Create new listing
-  def create_image(params, url)
-    listing_image_params = params.merge(
-      author: @current_user
-    )
-
-    new_image(listing_image_params, url)
-  end
-
   def add_image(listing_id, params, url)
-    if listing_id
-      ListingImage.destroy_all(listing_id: listing_id)
-    end
+    # if listing_id
+    #   ListingImage.destroy_all(listing_id: listing_id)
+    # end
 
     listing_image_params = params.merge(
       author: @current_user,
@@ -110,13 +80,9 @@ class ListingImagesController < ApplicationController
       unless listing_image.image_downloaded
         listing_image.delay.download_from_url(url)
       end
-      render json: {
-        id: listing_image.id,
-        removeUrl: listing_image_path(listing_image),
-        processedPollingUrl: image_status_listing_image_path(listing_image)
-      }, status: 202
+      render json: ListingImageJSAdapter.new(listing_image).to_json, status: 202, content_type: 'text/plain' # Browsers without XHR fileupload support do not support other dataTypes than text
     else
-      render json: {:errors => listing_image.errors.full_messages}, status: 400
+      render json: {:errors => listing_image.errors.full_messages}, status: 400, content_type: 'text/plain'
     end
   end
 
@@ -124,15 +90,16 @@ class ListingImagesController < ApplicationController
     @listing_image = ListingImage.find_by_id(params[:id])
   end
 
-  def fetch_listing
-    @listing = Listing.find_by_id(params[:listing_id])
-  end
-
   def listing_image_authorized?
     @listing_image.authorized?(@current_user)
   end
 
   def listing_authorized?
-    @listing.author == @current_user
+    listing = Listing.find_by_id(params[:listing_id])
+    if listing.nil?
+      true
+    else
+      listing.author == @current_user
+    end
   end
 end

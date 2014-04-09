@@ -54,6 +54,13 @@ class Community < ActiveRecord::Base
   validates_inclusion_of :category, :in => VALID_CATEGORIES
   validates_format_of :custom_color1, :with => /^[A-F0-9_-]{6}$/i, :allow_nil => true
   validates_format_of :custom_color2, :with => /^[A-F0-9_-]{6}$/i, :allow_nil => true
+
+  VALID_BROWSE_TYPES = %{grid map list}
+  validates_inclusion_of :default_browse_view, :in => VALID_BROWSE_TYPES
+
+  VALID_NAME_DISPLAY_TYPES = %{first_name_only first_name_with_initial}
+  validates_inclusion_of :default_browse_view, :in => VALID_BROWSE_TYPES, :allow_nil => true, :allow_blank => true
+
   # The settings hash contains some community specific settings:
   # locales: which locales are in use, the first one is the default
 
@@ -484,7 +491,7 @@ class Community < ActiveRecord::Base
   end
 
   def integrations_in_use?
-    plan_level >= BASIC_PLAN 
+    plan_level >= BASIC_PLAN
   end
 
   private

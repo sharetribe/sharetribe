@@ -1,13 +1,11 @@
 require 'spec_helper'
 
 describe Person do
-  
- 
+
    before(:all) do
       #These will be created only once for the whole example group
       @test_person = FactoryGirl.build(:person)
     end
-  
 
     it "should be valid" do
       @test_person.class.should == Person
@@ -23,8 +21,8 @@ describe Person do
     describe "#create" do
       it "should create a person in Sharetribe DB" do
         username = generate_random_username
-        p = Person.create!({:username => username, 
-          :password => "testi", 
+        p = Person.create!({:username => username,
+          :password => "testi",
           :email => "#{username}@example.com",
           "given_name" => "Tero",
           "family_name" => "Turari"})
@@ -37,8 +35,8 @@ describe Person do
         lambda {
           p = nil
           lambda {
-            p = Person.create!({:username => username, 
-              :password => "testi", 
+            p = Person.create!({:username => username,
+              :password => "testi",
               :emails => [Email.new(:address => "invalid-email")],
               "given_name" => "Tero",
               "family_name" => "Turari"})
@@ -54,7 +52,7 @@ describe Person do
           lambda {
             p = Person.create!({:username => username,
               :company_id => "1234-5",
-              :password => "testi", 
+              :password => "testi",
               :email => "info@company.com",
               "given_name" => "Tero",
               "family_name" => "Turari"})
@@ -66,8 +64,8 @@ describe Person do
 
     describe "#update_attributes" do
       it "should update the attributes" do
-        @test_person.update_attributes({'given_name' => "Totti", 
-          'family_name' => "Tester", 
+        @test_person.update_attributes({'given_name' => "Totti",
+          'family_name' => "Tester",
           'phone_number' => "050-55555555"})
         @test_person.family_name.should == "Tester"
         @test_person.phone_number.should == "050-55555555"
@@ -76,7 +74,7 @@ describe Person do
 
     describe "#create_listing" do
       it "creates a new listing with the submitted attributes" do
-        listing = FactoryGirl.create(:listing, 
+        listing = FactoryGirl.create(:listing,
           :title => "Test",
           :transaction_type => FactoryGirl.create(:transaction_type_sell),
           :author => @test_person
@@ -126,7 +124,7 @@ describe Person do
         end
 
       end
-      
+
       describe "devise valid_password?" do
         it "Test that the hashing works. (makes more sense to test this if ASI digest is used)" do
           FactoryGirl.build(:person).valid_password?('testi').should be_true
@@ -143,36 +141,36 @@ describe Person do
         conv_id = conv.id
         Conversation.find_by_id(conv_id).should_not be_nil
         @test_person.conversations.should include(conv)
-        
+
         tes = FactoryGirl.create(:testimonial, :author => @test_person)
         tes_id = tes.id
         Testimonial.find_by_id(tes_id).should_not be_nil
         @test_person.authored_testimonials.should include(tes)
-        
+
         @test_person.destroy
-                
+
         # check that related stuff was removed too
         Conversation.find_by_id(conv_id).should be_nil
         Testimonial.find_by_id(tes_id).should be_nil
-        
+
       end
     end
-    
+
     describe "#latest_pending_email_address" do
-      
+
       before (:each) do
         @p = FactoryGirl.create(:person)
       end
-      
+
       it "should return nil if none pending" do
         @p.latest_pending_email_address().should be_nil
       end
-      
+
       it "should return main email if that's pending" do
         @p.emails.each { |email| email.update_attribute(:confirmed_at, nil) }
         @p.latest_pending_email_address().should =~ /kassi_tester\d+@example.com/
       end
-      
+
       it "should pick the right email to return" do
         c = FactoryGirl.create(:community, :allowed_emails => "@example.com, @ex.ample, @something.else")
         e = FactoryGirl.create(:email, :address => "jack@aalto.fi", :confirmed_at => nil, :person => @p)
@@ -182,6 +180,5 @@ describe Person do
         @p.latest_pending_email_address(c).should == "jack@example.com"
       end
     end
-
 
 end

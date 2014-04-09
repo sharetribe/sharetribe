@@ -14,7 +14,8 @@ class S3Uploader
       :acl => @acl,
       :policy => policy,
       :signature => signature,
-      "AWSAccessKeyId" => @aws_access_key_id
+      "AWSAccessKeyId" => @aws_access_key_id,
+      :success_action_status => 200
     }
   end
 
@@ -37,7 +38,7 @@ class S3Uploader
   end
 
   def key
-    "uploads/listing-images/#{year}/#{month}/#{url_friendly_time}-#{SecureRandom.hex}/${filename}"
+    "uploads/listing-images/#{year}/#{month}/#{url_friendly_time}-#{SecureRandom.hex}/${index}/${filename}"
   end
 
   def policy
@@ -48,8 +49,9 @@ class S3Uploader
     {
       expiration: @expiration.utc.iso8601,
       conditions: [
-        ["starts-with", "$key", ""],
+        ["starts-with", "$key", "uploads/listing-images/"],
         ["starts-with", "$Content-Type", "image/"],
+        ["starts-with", "$success_action_status", "200"],
         ["content-length-range", 0, APP_CONFIG.max_image_filesize],
         {bucket: @bucket},
         {acl: @acl}

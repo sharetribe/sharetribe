@@ -74,6 +74,16 @@ fr-rc:
         main_content_width: ~
         custom_color1_instructions_text: ~
         custom_color2_instructions_text: ~
+        default_browse_view: ~
+        default_browse_view_instructions_text: ~
+        grid: ~
+        list: ~
+        map: ~
+        name_display_type: ~
+        name_display_type_instructions_text: ~
+        full_name: ~
+        first_name_with_initial: ~
+        first_name_only: ~
         invalid_color_code: ~
       edit_welcome_email:
         welcome_email_content: ~
@@ -114,6 +124,15 @@ fr-rc:
         save_user_status_successful: ~
         save_user_status_error: ~
         remove_user_confirmation: ~
+      integrations:
+        integrations: ~
+        twitter_handle: ~
+        twitter_handle_info_text: ~
+        twitter_handle_placeholder: ~
+        invalid_twitter_handle: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
+        save: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -1232,6 +1251,7 @@ fr-rc:
         select_file: ~
         removing: ~
         processing: ~
+        loading_image: ~
         this_may_take_a_while: ~
         percentage_loaded: ~
         uploading_failed: ~

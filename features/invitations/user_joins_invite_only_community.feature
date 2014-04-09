@@ -2,11 +2,11 @@ Feature: User joins invite only community
   In order to maintain trust in closed community
   As a community administrator
   I want that new users can join only if they have valid invite code
-  
+
   @javascript
   Scenario: User has valid invite code
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
     And community "test" requires invite to join
     And I am not logged in
@@ -17,8 +17,8 @@ Feature: User joins invite only community
     Then there should be an active ajax request
     When ajax requests are completed
     And I fill in "person[username]" with random username
-    And I fill in "Given name" with "Testmanno"
-    And I fill in "Family name" with "Namez"
+    And I fill in "First name" with "Testmanno"
+    And I fill in "Last name" with "Namez"
     And I fill in "person_password1" with "test"
     And I fill in "Confirm password" with "test"
     And I fill in "Email address" with random email
@@ -32,25 +32,25 @@ Feature: User joins invite only community
   @javascript
   Scenario: User tries to register without valid invite code
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
     And community "test" requires invite to join
     And I am not logged in
     And I am on the signup page
     And I fill in "person[username]" with random username
-    And I fill in "Given name" with "Testmanno"
-    And I fill in "Family name" with "Namez"
+    And I fill in "First name" with "Testmanno"
+    And I fill in "Last name" with "Namez"
     And I fill in "person_password1" with "test"
     And I fill in "Confirm password" with "test"
     And I fill in "Email address" with random email
     And I check "person_terms"
     And I press "Create account"
     Then I should see "This field is required."
-    
-  @javascript  
+
+  @javascript
   Scenario: User tries to register with expired invite
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
     And community "test" requires invite to join
     And I am not logged in
@@ -58,16 +58,16 @@ Feature: User joins invite only community
     And there is an invitation for community "test" with code "GH1JX8" with 0 usages left
     When I fill in "Invitation code" with "gh1jx8"
     And I fill in "person[username]" with random username
-    And I fill in "Given name" with "Testmanno"
-    And I fill in "Family name" with "Namez"
+    And I fill in "First name" with "Testmanno"
+    And I fill in "Last name" with "Namez"
     And I fill in "person_password1" with "test"
     And I fill in "Confirm password" with "test"
     And I fill in "Email address" with random email
     And I check "person_terms"
     And I press "Create account"
     Then I should see "The invitation code is not valid."
-  
-  @javascript  
+
+  @javascript
   Scenario: User should not see invitation code in the form, if it's not needed
     Given I am not logged in
     And community "test" does not require invite to join
@@ -76,11 +76,11 @@ Feature: User joins invite only community
     Given community "test" requires invite to join
     And I am on the signup page
     Then I should see "Invitation code"
-  
-  @javascript  
+
+  @javascript
   Scenario: User joins a community where invitation code is not necessary with an invitation code
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
     And I am not logged in
     And community "test" does not require invite to join
@@ -88,8 +88,8 @@ Feature: User joins invite only community
     And I go to the registration page with invitation code "GH1JX8"
     Then I should not see "Invitation code"
     When I fill in "person[username]" with random username
-    And I fill in "Given name" with "Testmanno2"
-    And I fill in "Family name" with "Namez"
+    And I fill in "First name" with "Testmanno2"
+    And I fill in "Last name" with "Namez"
     And I fill in "person_password1" with "test"
     And I fill in "Confirm password" with "test"
     And I fill in "Email address" with random email

@@ -61,7 +61,7 @@ Then(/^#{capture_model} should not be #{capture_model}(?:'s)? (\w+)$/) do |targe
 end
 
 # COMMENTED OUT AS NOT NEEDED AND CAUSED "regular expression too big" RegexpError
-# assert model.predicate? 
+# assert model.predicate?
 # Then(/^#{capture_model} should (?:be|have) (?:an? )?#{capture_predicate}$/) do |name, predicate|
 #   if model!(name).respond_to?("has_#{predicate.gsub(' ', '_')}")
 #     model!(name).should send("have_#{predicate.gsub(' ', '_')}")
@@ -84,7 +84,7 @@ end
 Then(/^#{capture_model}'s (\w+) (should(?: not)?) be #{capture_value}$/) do |name, attribute, expectation, expected|
   actual_value  = model(name).send(attribute)
   expectation   = expectation.gsub(' ', '_')
-  
+
   case expected
   when 'nil', 'true', 'false'
     actual_value.send(expectation, send("be_#{expected}"))

@@ -74,6 +74,16 @@ ru:
         main_content_width: ~
         custom_color1_instructions_text: "Вы можете изменить основной цвет интерфейса этого сообщества, введя его шестнадцатеричное значение. Сайт <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> поможет выбрать и скопировать подходящий цвет."
         custom_color2_instructions_text: ~
+        default_browse_view: ~
+        default_browse_view_instructions_text: ~
+        grid: ~
+        list: ~
+        map: ~
+        name_display_type: ~
+        name_display_type_instructions_text: ~
+        full_name: ~
+        first_name_with_initial: ~
+        first_name_only: ~
         invalid_color_code: "Код цвета должен содержать 6 цифр или букв от A до F, например D96E21"
       edit_welcome_email:
         welcome_email_content: ~
@@ -114,6 +124,15 @@ ru:
         save_user_status_successful: ~
         save_user_status_error: ~
         remove_user_confirmation: ~
+      integrations:
+        integrations: ~
+        twitter_handle: ~
+        twitter_handle_info_text: ~
+        twitter_handle_placeholder: ~
+        invalid_twitter_handle: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
+        save: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -1232,6 +1251,7 @@ ru:
         select_file: "Выбрать файл"
         removing: ~
         processing: ~
+        loading_image: ~
         this_may_take_a_while: ~
         percentage_loaded: ~
         uploading_failed: ~
