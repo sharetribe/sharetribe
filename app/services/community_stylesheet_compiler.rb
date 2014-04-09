@@ -123,7 +123,7 @@ module CommunityStylesheetCompiler
         "small-cover-photo-url" => to_string(community.small_cover_photo.url(:hd_header))
       }
 
-      Util::Hash.compact(hash)
+      Util::HashUtils.compact(hash)
     end
 
     def create_new_filename(domain)

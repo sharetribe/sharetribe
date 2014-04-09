@@ -25,7 +25,7 @@ Feature: User updates profile information
     And the "Location" field should contain "Broadway"
     And I should not see my username
 
-  @phantomjs_skip
+  @skip_phantomjs
   @javascript
   Scenario: Updating profile avatar
     When I attach a valid image file to "avatar_file"

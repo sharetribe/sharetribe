@@ -91,14 +91,14 @@ en:
         custom_color2_instructions_text: "You can change the second color of the user interface of this community by entering a hex color value."
         default_browse_view: "Default browse view"
         default_browse_view_instructions_text: "Default browse view is used on the homepage to set how the listings are displayed by default."
-        grid: "Grid"
-        list: "List"
-        map: "Map"
+        grid: Grid
+        list: List
+        map: Map
         name_display_type: "Name display type"
         name_display_type_instructions_text: "Choose how the name of each user is shown on the site."
         full_name: "Full name (First Last)"
         first_name_with_initial: "First name with initial (First L)"
-        first_name_only: First name only (First)
+        first_name_only: "First name only (First)"
         invalid_color_code: "Color code should contain 6 numbers or letters A-F, for example D96E21"
       edit_welcome_email:
         welcome_email_content: "Welcome email content"
@@ -140,10 +140,10 @@ en:
         save_user_status_error: "Saving failed. Please refresh the page and try again."
         remove_user_confirmation: "This removes the user from the community and prevents them from accessing the site again with this account. Are you sure you want to proceed?"
       integrations:
-        integrations: "Integrations"
+        integrations: Integrations
         twitter_handle: "Twitter handle"
         twitter_handle_info_text: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page."
-        twitter_handle_placeholder: "username"
+        twitter_handle_placeholder: username
         invalid_twitter_handle: "Twitter handle should contain only at maximum 15 alphanumeric (letters A-Z and numbers 0-9) characters."
         google_analytics_key: "Google Analytics tracking ID (classic account)"
         google_analytics_key_info_text: "Tracking ID of your Google Analytics account. You need to have a 'classic' account."

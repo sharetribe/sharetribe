@@ -324,6 +324,15 @@ class Listing < ActiveRecord::Base
     end
   end
 
+  def image_by_id(id)
+    listing_images.find_by_id(id)
+  end
+
+  def prev_and_next_image_ids_by_id(id)
+    listing_image_ids = listing_images.collect(&:id)
+    Util::ArrayUtils.next_and_prev(listing_image_ids, id);
+  end
+
   def has_image?
     !listing_images.empty?
   end
