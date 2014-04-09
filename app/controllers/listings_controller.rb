@@ -145,7 +145,7 @@ class ListingsController < ApplicationController
       listing_image_ids = params[:listing_images].collect { |h| h[:id] }.select { |id| id.present? }
       ListingImage.where(id: listing_image_ids, author_id: @current_user.id).update_all(listing_id: @listing.id)
     else
-      redirect_to new_listing_path
+      redirect_to new_listing_path and return
     end
 
     if @listing.new_record?
