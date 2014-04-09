@@ -35,8 +35,8 @@ class ListingImage < ActiveRecord::Base
 
   def crop_big
     geometry = Paperclip::Geometry.from_file(Paperclip.io_adapters.for(image.queued_for_write[:original]))
-    max_landscape_crop_percentage = 0.2
-    ListingImage.construct_big_style({:width => geometry.width.round, :height => geometry.height.round}, max_landscape_crop_percentage)
+    max_crop_percentage = 0.2
+    ListingImage.construct_big_style({:width => geometry.width.round, :height => geometry.height.round}, {:width => 660, :height => 440}, max_crop_percentage)
   end
 
   # Retrieves dimensions for image assets
