@@ -135,6 +135,8 @@ class ListingsController < ApplicationController
     @listing.save
 
     if @listing.new_record?
+      Rails.logger.error "Errors in creating listing: #{@listing.errors.full_messages.inspect}"
+      flash[:error] = t("layouts.notifications.listing_could_not_be_saved", :contact_admin_link => view_context.link_to(t("layouts.notifications.contact_admin_link_text"), new_user_feedback_path, :class => "flash-error-link")).html_safe
       redirect_to new_listing_path
     else
       flash[:notice] = t("layouts.notifications.listing_created_successfully", :new_listing_link => view_context.link_to(t("layouts.notifications.create_new_listing"), new_listing_path)).html_safe
