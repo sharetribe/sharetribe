@@ -123,33 +123,15 @@ class ListingImage < ActiveRecord::Base
       }
   end
 
-  def self.scale_to_direction_by(source, target, direction, by)
-    scale = direction == :up ? source[by] < target[by] : source[by] > target[by]
-
-    if scale
-      scale_by(source, target, by)
-    else
-      source
-    end
-  end
-
-  def self.scale_to_direction_cover(dimensions, area_to_cover, direction)
-    scaled_width = scale_to_direction_by(dimensions, area_to_cover, direction, :width)
-    scaled_width_height = scale_to_direction_by(scaled_width, area_to_cover, direction, :height)
-    return scaled_width_height
-  end
-
-  def self.scale_direction(dimensions, area_to_cover)
-    if dimensions[:width] > area_to_cover[:width] && dimensions[:height] > area_to_cover[:height]
-      :down
-    else
-      :up
-    end
-  end
-
   def self.scale_to_cover(dimensions, area_to_cover)
-    direction = self.scale_direction(dimensions, area_to_cover)
-    self.scale_to_direction_cover(dimensions, area_to_cover, direction)
+    scaled_width = self.scale_by(dimensions, area_to_cover, :width)
+    scaled_width_height = if scaled_width[:height] < area_to_cover[:height]
+      self.scale_by(scaled_width, area_to_cover, :height)
+    else
+      scaled_width
+    end
+
+    return scaled_width_height
   end
 
   def self.construct_big_style(dimensions, desired_dimensions, max_crop_difference)

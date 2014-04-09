@@ -65,8 +65,10 @@ describe ListingImage do
 
     test(150, 400, 600.0, 1600.0)
     test(300, 400, 600.0, 800.0)
-    test(600, 400, 600, 400)
-    test(1200, 400, 1200, 400)
+    test(600, 400, 600.0, 400.0)
+    test(1200, 400, 1200.0, 400.0)
+
+    test(2448, 3264, 600.0, 800.0)
   end
 
   it "returns image styles, crops landscape big images if needed" do
