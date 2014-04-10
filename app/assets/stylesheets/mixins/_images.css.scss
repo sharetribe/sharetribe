@@ -3,7 +3,7 @@
 */
 @mixin block-with-aspect-ratio($aspect-ratio) {
   width: 100%;
-  padding-bottom: percentage(floor(100 / $aspect-ratio) / 100);
+  padding-bottom: percentage(1 / $aspect-ratio);
 }
 
 /**

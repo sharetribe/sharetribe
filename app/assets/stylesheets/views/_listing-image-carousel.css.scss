@@ -76,3 +76,73 @@
   text-align: left;
   width: 25%;
 }
+
+.listing-no-image {
+  @include large-type;
+  color: $border;
+  text-align: center;
+}
+
+.listing-image-text-container {
+  position: relative;
+  @include block-with-aspect-ratio(3/2);
+}
+
+// Image frame with 3/2 aspect ratio
+.listing-image-frame {
+  @include block-with-aspect-ratio(3/2);
+  background-color: $body;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+// The content for 3/2 aspect ratio container
+// - This works also as a container for vertically
+//   centered image
+.listing-image-frame-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+
+  // In Google Chrome, there was a 1px empty space on top of the image. This is probably due to the 3/2 padding,
+  // which results in not a whole number 66.6666667%. -1px from top seems to fix it and not cause problems in other
+  // browsers.
+  margin: -1px;
+
+  overflow: hidden;
+  @include vertical-centering-container;
+}
+
+.listing-image-vertical-centering {
+  @include vertical-centering-content;
+
+  // Default to landscape (too wide)
+
+  &.too-narrow {
+    // vertical-align may cause 1px flickering, if the image
+    // uses all vertical size available.
+    height: 100%;
+    vertical-align: inherit;
+  }
+
+  &.correct-ratio {
+    // vertical-align may cause 1px flickering, if the image
+    // uses all vertical size available.
+    vertical-align: top;
+  }
+}
+
+.listing-image {
+
+  // Default to landscape
+  &, &.too-wide {
+    @include image-too-wide;
+  }
+
+  &.too-narrow {
+    @include image-too-narrow;
+  }
+}
