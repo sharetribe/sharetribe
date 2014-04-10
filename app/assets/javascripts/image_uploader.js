@@ -110,6 +110,16 @@ window.ST.imageUploadElementManager = function($container) {
     uploadings.push(element);
   }
 
+  function changeStateToProcessing(uploadingElement, processingElement) {
+    function swap(ref, replacement, input) {
+      return (ref === input) ? replacement : input;
+    }
+
+    uploadings = _.map(uploadings, _.partial(swap, uploadingElement, processingElement));
+    uploadingElement.after(processingElement);
+    uploadingElement.remove();
+  }
+
   function removeUploading(element) {
     element.remove();
     uploadings = _.without(uploadings, element);
@@ -130,7 +140,8 @@ window.ST.imageUploadElementManager = function($container) {
     addPreview: addPreview,
     removeEmpty: removeEmpty,
     removeUploading: removeUploading,
-    removePreview: removePreview
+    removePreview: removePreview,
+    changeStateToProcessing: changeStateToProcessing
   };
 };
 
@@ -185,15 +196,38 @@ window.ST.imageUploader = function(listings, opts) {
     return renderUploading(data);
   });
 
+  var processingRendered = uploadingRendered.flatMap(function(rendered) {
+    var processingRenderedResult = rendered.stream.map(renderProcessing);
+
+    processingRenderedResult.onValue(function(renderResult) {
+      elementManager.changeStateToProcessing(rendered.element.container, renderResult.element.container);
+    });
+
+    return processingRenderedResult
+  });
+
   uploadingRendered.onValue(function(rendered) {
     elementManager.addUploading(rendered.element.container);
   });
 
-  var imageUploaded = uploadingRendered.flatMap(function(rendered) {
+  var newImageProcessingDone = processingRendered.flatMap(function(rendered) {
     return rendered.stream;
   });
 
-  var previewRemoved = _(listings).map(function(listing) {
+  var processingListings = _.filter(listings, function(listing) { return !listing.ready; });
+  var readyListings = _.filter(listings, function(listing) { return listing.ready; });
+
+  var processingDone = _(processingListings).map(function(listing) {
+    return renderProcessing(listing);
+  }).each(function(rendered) {
+    elementManager.addUploading(rendered.element.container);
+  }).map(function(rendered) {
+    return rendered.stream;
+  }).reduce(function(a, b) {
+    return a.merge(b);
+  });
+
+  var previewRemoved = _(readyListings).map(function(listing) {
     return renderPreview(listing);
   }).each(function(rendered) {
     elementManager.addPreview(rendered.element.container);
@@ -202,6 +236,8 @@ window.ST.imageUploader = function(listings, opts) {
   }).reduce(function(a, b) {
     return a.merge(b);
   });
+
+  var imageUploaded = processingDone ? newImageProcessingDone.merge(processingDone) : newImageProcessingDone;
 
   var newPreviewRendered = imageUploaded.map(function(listing) {
     return renderPreview(listing);
@@ -325,31 +361,6 @@ window.ST.imageUploader = function(listings, opts) {
       return _.last(values);
     });
 
-    var fileSavedS3 = fileSubmittedS3.flatMap(function(values) {
-      return Bacon.once(s3ImageOptions(_.first(values))).ajax();
-    });
-
-    var fileSaved = Bacon.mergeAll(fileSavedLocal, fileSavedS3).map(JSON.parse);
-
-    function imageUploadingFailed() {
-      $element.showMessage(ST.t("listings.form.images.uploading_failed"));
-    }
-
-    fileSaved.onError(imageUploadingFailed);
-
-    fileSaved.onValue(function(result) {
-      $element.showMessage(ST.t("listings.form.images.processing"), ST.t("listings.form.images.this_may_take_a_while"));
-      $element.setListingId(result.id);
-    });
-
-    var filePostprocessed = fileSaved.flatMap(function(result) {
-      return ST.utils.baconStreamFromAjaxPolling({url: result.urls.status}, function(pollingResult) {
-        return !pollingResult.processing && pollingResult.downloaded;
-      });
-    });
-
-    filePreprocessed.onError(imageUploadingFailed);
-
     /**
       In IE, formData is an array of objects containing name and value
       In browsers, formData is a plain object
@@ -377,6 +388,36 @@ window.ST.imageUploader = function(listings, opts) {
         }
       };
     }
+
+    var fileSavedS3 = fileSubmittedS3.flatMap(function(values) {
+      return Bacon.once(s3ImageOptions(_.first(values))).ajax();
+    });
+
+    var fileSaved = Bacon.mergeAll(fileSavedLocal, fileSavedS3).map(JSON.parse);
+
+    function imageUploadingFailed() {
+      $element.showMessage(ST.t("listings.form.images.uploading_failed"));
+    }
+
+    fileSaved.onError(imageUploadingFailed);
+
+    filePreprocessed.onError(imageUploadingFailed);
+
+    return {element: $element, stream: fileSaved};
+  }
+
+  function renderProcessing(listing) {
+    var $element = window.ST.renderImagePlaceholder();
+    $element.fileupload.remove();
+
+    $element.container.addClass("fileupload-uploading");
+
+    $element.showMessage(ST.t("listings.form.images.processing"), ST.t("listings.form.images.this_may_take_a_while"));
+    $element.setListingId(listing.id);
+
+    var filePostprocessed = ST.utils.baconStreamFromAjaxPolling({url: listing.urls.status}, function(pollingResult) {
+      return pollingResult.ready;
+    });
 
     filePostprocessed.onValue(function() {
       elementManager.removeUploading($element.container);
