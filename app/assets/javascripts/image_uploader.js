@@ -203,7 +203,7 @@ window.ST.imageUploader = function(listings, opts) {
       elementManager.changeStateToProcessing(rendered.element.container, renderResult.element.container);
     });
 
-    return processingRenderedResult
+    return processingRenderedResult;
   });
 
   uploadingRendered.onValue(function(rendered) {
