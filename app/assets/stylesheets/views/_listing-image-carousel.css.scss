@@ -45,13 +45,11 @@
   @include big-type;
 }
 
-.listing-image-navi-right {
-  text-align: right;
+.listing-image-navi-clickarea {
   position: absolute;
   top: 0;
-  right: 0;
-  width: 75%;
   height: 100%;
+
   @include vertical-centering-container;
 
   // Remove tap highlight in Mobile Safari
@@ -61,22 +59,20 @@
     background-color: rgba(0, 0, 0, 0.3);
     color: rgba(255, 255, 255, 1);
   }
+
+  @include clickable-area-ie
+}
+
+.listing-image-navi-right {
+  @extend .listing-image-navi-clickarea;
+  right: 0;
+  text-align: right;
+  width: 75%;
 }
 
 .listing-image-navi-left {
-  position: absolute;
-  top: 0;
+  @extend .listing-image-navi-clickarea;
   left: 0;
-  width: 25%;
-  height: 100%;
   text-align: left;
-  @include vertical-centering-container;
-
-  // Remove tap highlight in Mobile Safari
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-
-  &:hover .listing-image-arrow-icon-container {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: rgba(255, 255, 255, 1);
-  }
+  width: 25%;
 }
