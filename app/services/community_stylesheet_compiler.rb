@@ -17,7 +17,7 @@ module CommunityStylesheetCompiler
 
     def compile_all
       prepare_compile_all do |community|
-        Delayed::Job.enqueue(CompileCustomStylesheetJob.new(community.id))
+        Delayed::Job.enqueue(CompileCustomStylesheetJob.new(community.id), priority: 10)
       end
     end
 
