@@ -1,11 +1,18 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => about_links }
 
+- content_for :title, t('layouts.infos.about')
+
 - content_for :title_header do
   %h1= t("layouts.infos.info_about_kassi")
 
 .left-navi-section.about-section
   = render :layout => "layouts/mercury_editable_page", :locals => { :content_type => "about_page_content", :editing_allowed => true } do
     - if @community_customization && @community_customization.about_page_content
-      = @community_customization.about_page_content.html_safe
+      - content = @community_customization.about_page_content.html_safe
     - else
-      = render :partial => "default_about_page"
+      - content = render :partial => "default_about_page"
+
+    - content_for :meta_description, Util::StringUtils.first_words(strip_tags(content.html_safe))
+    - content_for :keywords, Util::StringUtils.keywords(strip_tags(content.html_safe))
+
+    - content
