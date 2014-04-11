@@ -42,11 +42,11 @@ default: &default_settings
   # Ask for shared Braintree credentials if you don't want to create
   # new Braintree account
   braintree_environment: sandbox
-  braintree_test_merchant_id: xxx
-  braintree_test_master_merchant_id: xxx
-  braintree_test_public_key: xxx
-  braintree_test_private_key: xxx
-  braintree_client_side_encryption_key: xxx
+  braintree_test_merchant_id: xxxxxxxxxxxxxxxx
+  braintree_test_master_merchant_id: xxxxxxxxxxxxxxxx
+  braintree_test_public_key: xxxxxxxxxxxxxxxx
+  braintree_test_private_key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  braintree_client_side_encryption_key: xxxxxxxxxxxxxxxx
 
   # If you want to force all use to be SSL secured (https://) you can set this to true
   # Note that you can set this value separately to each enironment below (e.g. if your developing)
