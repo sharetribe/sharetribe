@@ -3,7 +3,7 @@ Sharetribe Release Notes
 
 This file contains description of changes in each Sharetribe release. It's good to read before updating from earlier versions of Sharetribe, as there might be major changes that the updater should notice, especially when first two numbers in the version numbering are increased.
 
-General update instructions 
+General update instructions
 ---------------------------
 
 When updating, always run the following commands to update gem set and database structure:
@@ -11,6 +11,13 @@ When updating, always run the following commands to update gem set and database 
  - rake RAILS_ENV=production db:migrate
  - check this file for changes between your old version and the one you are updating, and do the necessary manual operations if needed
  - if running on local instance (localhost), you need to precompile assets using "rake assets:precompile" once update is done
+
+4.4.2
+-----
+
+Multiple listing images
+
+This version includes a migration which reprocesses all listing images. This may potentially take quite a while.
 
 4.4.1
 -----
@@ -65,7 +72,7 @@ Much simpler system for creating organization accounts. The migrations that move
 
 3.1.2
 -----
-- better map bubbles 
+- better map bubbles
 - bug fixes
 
 3.1.1
@@ -84,7 +91,7 @@ There was a bit too long gap between the releases, but if you get trouble with t
 -----
 
  Small improvements and bug fixes. Most important for installations of open source versions is that the earlier version complained about missing ss-pika font pack files, but those dependencies are now better handled.
- 
+
 3.0.2
 -----
 
@@ -151,7 +158,7 @@ Update Rails version to 3.2, enable asset pipeline and update many gems to lates
  - Updated Rails version to 3.2.9
  - Updated many gems to latest versions
  - Enabled Asset Pipeline and changed the directory structure for assets
- 
+
 
 
 2.3.10
@@ -197,7 +204,7 @@ Demo script and bug fixes
 ### Changes ###
 
  - Demo script that can populate the database based on spreadsheet file. Now done for English and French. More languages can be added by following the same logic.
- - Fix S3 image links to be https to avoid browser warnings 
+ - Fix S3 image links to be https to avoid browser warnings
 
 2.3.2
 -----
@@ -219,7 +226,7 @@ This release updated used Ruby version to 1.9.3. and added support for running S
  - You need to update your Ruby version to 1.9.3. Installing RVM can help manage multiple Ruby versions if needed.
  - database.yml must be updated manually. Change "adapter: mysql" to "adapter: mysql2", see database.example.yml for example
  - config.yml needs to be updated with new additions. See config.example.yml for example. E.g. you should add part for staging, even if there's no need to configure it specially.
- 
+
 
 ### Changes ###
 
@@ -230,7 +237,7 @@ This release updated used Ruby version to 1.9.3. and added support for running S
  - Some URL redirection functionality is moved to ApplicationController (earlier had to be done on web server side, which is not possible with Heroku)
  - Lot of gem updates, e.g. mysql to mysql2 which requires updating database.yml
  - Added a staging environment (optional to use)
- 
+
 
 
 2.2.8

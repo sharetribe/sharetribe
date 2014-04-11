@@ -7,19 +7,35 @@
 @mixin vertical-centering-container {
   // Set font-size to 0 to remove the small gap between
   // inline-block elements
-  font-size: 0;
+  //
+  // Android pre Jellybean has an ugly bug, which prevents font-size 0 technique from
+  // removing the spaces between inline-blocks.
+  .no-androidprejellybean & {
+    font-size: 0;
+  }
 
   &:before {
     content: '';
     display: inline-block;
     height: 100%;
     vertical-align: middle;
+
+    // Android pre Jellybean has an ugly bug, which prevents font-size 0 technique from
+    // removing the spaces between inline-blocks.
+    .androidprejellybean & {
+      margin-right: -0.25em;
+    }
   }
 }
 
 @mixin vertical-centering-content {
   // Reset font-size
-  font-size: #{$font-size}px;
+  //
+  // Android pre Jellybean has an ugly bug, which prevents font-size 0 technique from
+  // removing the spaces between inline-blocks.
+  .no-androidprejellybean & {
+    font-size: #{$font-size}px;
+  }
 
   display: inline-block;
   vertical-align: middle;
