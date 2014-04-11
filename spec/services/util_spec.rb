@@ -39,3 +39,25 @@ describe Util::HashUtils do
     Util::HashUtils.camelize_keys(test_data).should eql(expected)
   end
 end
+
+describe Util::StringUtils do
+  it "#first_words" do
+    Util::StringUtils.first_words("Take the first five words of this sentence.", 5).should eql "Take the first five words"
+  end
+
+  it "#strip_punctuation" do
+    Util::StringUtils.strip_punctuation("yes!").should eql "yes"
+  end
+
+  it "#strip_small_words" do
+    Util::StringUtils.strip_small_words("this is a test", 0).should eql "this is a test"
+    Util::StringUtils.strip_small_words("this is a test", 1).should eql "this is test"
+    Util::StringUtils.strip_small_words("this is a test", 2).should eql "this test"
+    Util::StringUtils.strip_small_words("this is a test", 4).should eql ""
+    Util::StringUtils.strip_small_words("the best thing it is!", 2).should eql "the best thing"
+  end
+
+  it "#keywords" do
+    Util::StringUtils.keywords("This marketplace is a place! where I can sell and buy stuff", 5).should eql "this, marketplace, place, where, can"
+  end
+end
