@@ -22,7 +22,7 @@
     .row
       .col-12
         .custom-filter-options
-          - id = ["range-slider", field.id, device].join("-")
+          - id = ["range-slider", field.id].join("-")
           .range-slider{id: id}
             - range = [field.min, field.max]
             - start = [params["nf_min_" + field.id.to_s] || field.min, params["nf_max_" + field.id.to_s] || field.max]

@@ -86,7 +86,7 @@
         .hidden-tablet
           - # Filters will be relocated to #desktop-filters when in desktop
           #filters
-            = render :partial => "filters", :locals => { show_price_filter: @current_community.show_price_filter, show_custom_fields: @show_custom_fields, device: "mobile" }
+            = render :partial => "filters", :locals => { show_price_filter: @current_community.show_price_filter, show_custom_fields: @show_custom_fields }
 
   .row
     - if @category_menu_enabled

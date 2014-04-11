@@ -1,9 +1,9 @@
 - if show_price_filter || show_custom_fields
   - if show_price_filter
-    = render :partial => "price_filter", :locals => { device: "#{device}" }
+    = render :partial => "price_filter"
 
   - if show_custom_fields
-    = render :partial => "custom_filters", :locals => { device: "#{device}" }
+    = render :partial => "custom_filters"
 
   %button{type: 'submit'}
     = t("homepage.custom_filters.update_view")
