@@ -70,7 +70,12 @@ class Community < ActiveRecord::Base
                     :styles => {
                       :header => "192x192#",
                       :header_icon => "40x40#",
+                      :apple_touch => "152x152#",
                       :original => "600x600>"
+                    },
+                    :convert_options => {
+                      # iOS makes logo background black if there's an alpha channel
+                      :apple_touch => "-flatten -background white"
                     },
                     :default_url => "/assets/logos/mobile/default.png"
 
