@@ -9,12 +9,6 @@
   - else
     = t("sessions.confirmation_pending.account_confirmation_instructions_dashboard").html_safe
 
-- if @current_community && @current_user.communities.count == 0
-  %b
-    = t("sessions.confirmation_pending.get_started")
-  %p
-    = t("sessions.confirmation_pending.getting_started_instructions", :profile_url => profile_person_settings_path(:person_id => @current_user.id)).html_safe
-
 %p
   = form_for(Person, :as => "person", :url => confirmation_path(:locale => I18n.locale), :html => { :method => :post, :id => "change_mistyped_email_form"} ) do |form|
     .form_field_container
