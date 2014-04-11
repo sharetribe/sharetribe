@@ -37,7 +37,7 @@ When /^(?:|I )attach a listing image "([^"]*)"$/ do |file|
   path = File.join(Rails.root, 'spec', 'fixtures', @latest_uploaded_image)
   first("[type=file]", visible: false).set(path)
   steps %Q{
-    Then I should see "100"
+    Then I should see "Processing..."
     And the system processes jobs
     Then I should see the image I just uploaded
   }
