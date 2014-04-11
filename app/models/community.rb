@@ -75,7 +75,9 @@ class Community < ActiveRecord::Base
                     },
                     :convert_options => {
                       # iOS makes logo background black if there's an alpha channel
-                      :apple_touch => "-flatten -background white"
+                      # And the options has to be in correct order! First background, then flatten. Otherwise it will
+                      # not work.
+                      :apple_touch => "-background white -flatten"
                     },
                     :default_url => "/assets/logos/mobile/default.png"
 
