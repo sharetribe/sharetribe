@@ -4,58 +4,56 @@
   - title_service_name = service_name
 
 - if content_for?(:title)
-  %title
-    = "#{content_for(:title)} - #{title_service_name}"
-  %meta{ :property => "og:title", :content => "#{content_for(:title)} - #{title_service_name}"}
-  %meta{ :name => "twitter:title", :content => "#{content_for(:title)} - #{title_service_name}"}
+  - title = "#{content_for(:title)} - #{title_service_name}"
 - else
-  %title
-    = "#{title_service_name} - #{community_slogan}"
-  %meta{ :property => "og:title", :content => "#{title_service_name} - #{community_slogan}"}
-  %meta{ :name => "twitter:title", :content => "#{title_service_name} - #{community_slogan}"}
+  - title = "#{title_service_name} - #{community_slogan}"
 
 - if content_for?(:keywords)
-  %meta{ :name => "keywords", :content => content_for(:keywords) }
+  - keywords = content_for(:keywords)
 - else
-  %meta{ :name => "keywords", :content => Util::StringUtils.keywords(community_slogan) }
+  - keywords = Util::StringUtils.keywords(community_slogan)
+
+- if content_for?(:meta_author)
+  - meta_author = content_for(:meta_author)
+- else
+  - meta_author = @current_community.name
 
 - full_url = "#{@current_community.full_url}#{request.fullpath}"
 
+- if content_for?(:meta_description)
+  - meta_description = "#{@current_community.name} - #{content_for(:meta_description)}"
+- else
+  - meta_description = "#{@current_community.name} - #{community_slogan}"
+
+- if content_for?(:meta_image)
+  - meta_image = content_for(:meta_image)
+- else
+  - if @current_community.logo?
+    - meta_image = @current_community.logo.url(:original)
+  - else
+    - meta_image = "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"
+
+%title
+  = title
+%meta{ :property => "og:title", :content => title}
+%meta{ :name => "twitter:title", :content => title}
+%meta{ :name => "author", :content=> meta_author }
+%meta{ :name => "keywords", :content => keywords }
 %meta{ :property => "og:url", :content => full_url}
 %meta{ :property => "og:locale", :content => "#{I18n.locale}" }
 %meta{ :name => "identifier-url", :content => "#{@current_community.full_domain(with_protocol: true)}"}
 %meta{ :name => "copyright", :content => "#{@current_community.name}"}
-- if @current_community.twitter_handle.present?
-  %meta{ :name => "twitter:site", :content => "@#{@current_community.twitter_handle}"}
 %meta{ :name => "twitter:url", :content => full_url}
 %meta{ :property => "og:site_name", :content =>"#{@current_community.full_name(locale)}"}
-
-- if content_for?(:meta_author)
-  %meta{ :name => "author", :content=> "#{content_for(:meta_author)}"}
-- else
-  %meta{ :name => "author", :content=> "#{@current_community.name}"}
-
-- if content_for?(:meta_description)
-  %meta{ :name => "description", :content => "#{@current_community.name} - #{content_for(:meta_description)}"}
-  %meta{ :property => "og:description", :content => "#{@current_community.name} - #{content_for(:meta_description)}"}
-  %meta{ :name => "twitter:description", :content => "#{@current_community.name} - #{content_for(:meta_description)}"}
-- else
-  %meta{ :name => "description", :content=> "#{@current_community.name} - #{community_slogan}"}
-  %meta{ :property => "og:description", :content => "#{@current_community.name} - #{community_slogan}"}
-  %meta{ :name => "twitter:description", :content => "#{@current_community.name} - #{community_slogan}"}
-
-- if content_for?(:meta_image)
-  %meta{ :property => "og:image", :content => "#{content_for(:meta_image)}"}
-  %meta{ :name => "twitter:image", :content => "#{content_for(:meta_image)}"}
-- else
-  - if @current_community.logo?
-    %meta{ :property => "og:image", :content => "#{@current_community.logo.url(:original)}"}
-    %meta{ :name => "twitter:image", :content => "#{@current_community.logo.url(:original)}"}
-  - else
-    %meta{ :property => "og:image", :content => "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"}
-    %meta{ :name => "twitter:image", :content => "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"}
-
+%meta{ :name => "description", :content => meta_description}
+%meta{ :property => "og:description", :content => meta_description}
+%meta{ :name => "twitter:description", :content => meta_description}
+%meta{ :property => "og:image", :content => meta_image}
+%meta{ :name => "twitter:image", :content => meta_image}
 %link{:rel => "canonical", :href => full_url}
+
+- if @current_community.twitter_handle.present?
+  %meta{ :name => "twitter:site", :content => "@#{@current_community.twitter_handle}"}
 
 - if @current_community.facebook_connect_id
   %meta{ :property => "fb:app_id", :content => "#{@current_community.facebook_connect_id}" }
