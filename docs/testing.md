@@ -1,5 +1,15 @@
 # Testing
 
+## Preparations
+
+Before you run the tests for the first time you need to load the test database with the empty structure:
+
+`rake test:prepare`
+
+This is useful command also in reseting the test DB to empty and clean state.
+
+## Running tests
+
 Run all the tests suites:
 
 * run `rspec spec`
