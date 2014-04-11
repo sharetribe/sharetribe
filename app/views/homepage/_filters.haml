@@ -1,14 +1,9 @@
 - if show_price_filter || show_custom_fields
-  = form_tag "/", :method => :get do
-    - if show_price_filter
-      = render :partial => "price_filter", :locals => { device: "#{device}" }
+  - if show_price_filter
+    = render :partial => "price_filter", :locals => { device: "#{device}" }
 
-    - if show_custom_fields
-      = render :partial => "custom_filters", :locals => { device: "#{device}" }
+  - if show_custom_fields
+    = render :partial => "custom_filters", :locals => { device: "#{device}" }
 
-    - params.except("action", "controller").each do |param, value|
-      - unless param.match(/^filter_option/) || param.match(/^nf_/) || param.match(/^price_/)
-        = hidden_field_tag param, value
-
-    %button{type: 'submit'}
-      = t("homepage.custom_filters.update_view")
+  %button{type: 'submit'}
+    = t("homepage.custom_filters.update_view")
