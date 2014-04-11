@@ -1,7 +1,15 @@
 require 'will_paginate/array'
 
 class ApplicationController < ActionController::Base
+  module DefaultURLOptions
+    # Adds locale to all links
+    def default_url_options
+      { :locale => I18n.locale }
+    end
+  end
+
   include ApplicationHelper
+  include DefaultURLOptions
   protect_from_forgery
   layout 'application'
 
@@ -49,11 +57,6 @@ class ApplicationController < ActionController::Base
     if @current_community
       @community_customization = @current_community.community_customizations.find_by_locale(I18n.locale)
     end
-  end
-
-  # Adds locale to all links
-  def default_url_options(options={})
-    { :locale => I18n.locale }
   end
 
   #Creates a URL for root path (i18n breaks root_path helper)
@@ -236,7 +239,10 @@ class ApplicationController < ActionController::Base
         e.community_id      = @current_community ? @current_community.id : nil
         begin
           if (params["file"] || params["image"] || (params["listing_image"] && params["listing_image"]["image"] ||
-              params["person"] && params["person"]["image"]) || (params["community"] && (params["community"]["cover_photo"] || params["community"]["logo"])) || (params["organization"] && params["organization"]["logo"]) )
+              params["person"] && params["person"]["image"]) ||
+             (params["community"] &&
+                (params["community"]["cover_photo"] || params["community"]["small_cover_photo"] ||
+                 params["community"]["wide_logo"] || params["community"]["logo"])))
             # This case breaks image upload (reason unknown) if we use to_json, so we'll have to skip it
             e.parameters    = params.inspect.gsub('=>', ':')
           else  #normal case

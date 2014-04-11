@@ -3,15 +3,15 @@
 require 'spec_helper'
 
 describe Community do
-  
+
   before(:each) do
     @community = FactoryGirl.build(:community)
   end
-  
+
   it "is valid with valid attributes" do
     @community.should be_valid
-  end  
-  
+  end
+
   it "is not valid without proper name" do
     @community.name = nil
     @community.should_not be_valid
@@ -20,7 +20,7 @@ describe Community do
     @community.name = "a" * 51
     @community.should_not be_valid
   end
-  
+
   it "is not valid without proper domain" do
     @community.domain = "test_community-9"
     @community.should be_valid
@@ -44,5 +44,5 @@ describe Community do
     @community.twitter_handle = "AbCd1"
     @community.should be_valid
   end
-  
+
 end

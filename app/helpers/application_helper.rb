@@ -19,6 +19,8 @@ module ApplicationHelper
       "admin" => "ss-wrench",
       "directup" => "ss-directup",
       "directdown" => "ss-dropdown",
+      "directright" => "ss-navigateright",
+      "directleft" => "ss-navigateleft",
       "dropdown" => "ss-dropdown",
       "mail" => "ss-mail",
       "notifications" => "ss-earth",
@@ -159,6 +161,8 @@ module ApplicationHelper
       "directup" => "icon-sort-up",
       "directdown" => "icon-sort-down",
       "dropdown" => "icon-caret-down",
+      "directleft" => "icon-caret-left",
+      "directright" => "icon-caret-right",
       "mail" => "icon-envelope",
       "notifications" => "icon-globe",
       "login" => "icon-signin",
@@ -861,16 +865,6 @@ module ApplicationHelper
 
   def community_blank_slate
     @community_customization && !@community_customization.blank_slate.blank? ? @community_customization.blank_slate : t(".no_listings_notification", :add_listing_link => link_to(t(".add_listing_link_text"), new_listing_path)).html_safe
-  end
-
-  def fb_image
-    if @listing && action_name.eql?("show") && !@listing.listing_images.empty?
-      @listing.listing_images.first.image.url(:medium)
-    elsif @current_community.logo?
-      @current_community.logo.url(:original)
-    else
-      "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"
-    end
   end
 
   # Return a link to the listing author

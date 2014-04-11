@@ -5,7 +5,7 @@ describe Location do
     it "should store correct lat long coordinates" do
       l = Location.new(:address => "Otaniementie 19, Espoo, Finland")
       l.should be_valid
-      
+
       l.latitude.should be_nil
       l.longitude.should be_nil
       l.search_and_fill_latlng

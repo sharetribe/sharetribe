@@ -48,3 +48,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/**
+  Include this mixin to make area without content clickable in IE.
+
+  See more: http://stackoverflow.com/questions/6914822/absolute-positioned-anchor-tag-with-no-text-not-clickable-in-ie
+*/
+@mixin clickable-area-ie {
+  background-image: url(data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)
+}

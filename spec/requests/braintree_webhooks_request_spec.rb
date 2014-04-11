@@ -6,7 +6,7 @@ require 'spec_helper'
 # Do not test all the edge cases here! Test them in controller spec. Here
 # you should only test that the routing works properly and external HTTP calls
 # to braintree webhook URL is working ok.
-# 
+#
 
 describe "braintree webhooks" do
   before(:each) do

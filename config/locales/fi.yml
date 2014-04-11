@@ -75,20 +75,30 @@ fi:
       edit_look_and_feel:
         edit_community_look_and_feel: "Muokkaa yhteisön \"%{community_name}\" ulkoasua"
         community_logo: Peruslogo
-        community_logo_icon: Ikonilogo
+        community_logo_icon: Mobiililogo
         community_cover_photo: Kansikuva
         small_community_cover_photo: "Matala kansikuva"
         community_custom_color1: Pääväri
         community_custom_color2: "Toinen väri"
         logo_instructions_text_with_dimensions: "Peruslogon koon tulee olla %{width}x%{height} pikseliä."
-        logo_icon_instructions_text_with_dimensions: "Ikonilogon koon tulee olla %{width}x%{height} pikseliä."
+        logo_icon_instructions_text_with_dimensions: "Mobiililogon koon tulee olla %{width}x%{height} pikseliä."
         cover_photo_visibility: "Kansikuva näytetään etusivulla kirjautumattomille käyttäjille."
-        cover_photo_instructions_text_with_dimensions: "Kuva muutetaan %{width}x%{height} pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
+        cover_photo_instructions_text_with_dimensions: "Kuva muutetaan %{width}x%{height} pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Matala kansikuva näytetään kaikilla sivuilla paitsi etusivulla kirjautumattomille käyttäjille."
         small_cover_photo_instructions_text_with_dimensions: "Kuva muutetaan %{width}x%{height} pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
         main_content_width: "Valitessasi kansikuvia, huomaathan että sivuston sisällön leveys on korkeintaa %{main_width} pikseliä. Muistathan katsoa myös miltä kansikuvasi näyttää pienemmillä näytöillä."
         custom_color1_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset värin hex-koodin. Sen selville saamisessa auttaa esimerkiksi <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
         custom_color2_instructions_text: "Tästä voit vaihtaa käyttöliittymän toisen värin."
+        default_browse_view: "Oletusarvo listausten näyttämiselle"
+        default_browse_view_instructions_text: "Tätä arvoa käytetään oletuksena etusivun listauksen näyttötavalle."
+        grid: Ruudukko
+        list: Lista
+        map: Kartta
+        name_display_type: "Nimen näyttötapa"
+        name_display_type_instructions_text: "Valitse kuinka käyttäjien nimet näytetään sivustolla."
+        full_name: "Koko nimi (Etunimi Sukunimi)"
+        first_name_with_initial: "Etunimi ja ensimmäinen kirjain (Etunimi S)"
+        first_name_only: "Vain etunimi (Etunimi)"
         invalid_color_code: "Värikoodin tulisi sisältää 6 merkkiä, ja vain numeroita tai kirjaimia A-F, esimerkiksi: D96E21"
       edit_welcome_email:
         welcome_email_content: "Tervetulosähköpostin sisältö"

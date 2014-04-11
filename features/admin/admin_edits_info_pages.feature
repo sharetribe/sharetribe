@@ -2,7 +2,7 @@ Feature: Admin edits info pages
   In order to give my users information specific to my community
   As an admin
   I want to be able to edit the info pages
-  
+
   @javascript
   Scenario: Normal user can not edit about page
     Given I am logged in as "kassi_testperson2"
@@ -22,7 +22,7 @@ Feature: Admin edits info pages
     Then I should see "This is a new line to about text"
     When I refresh the page
     Then I should see "This is a new line to about text"
-    
+
   @javascript
   Scenario: Admin user can edit terms page
     Given I am logged in as "kassi_testperson1"
@@ -39,7 +39,7 @@ Feature: Admin edits info pages
     Then I should see "This is a new line to terms text"
     When I refresh the page
     Then I should see "This is a new line to terms text"
-    
+
   @javascript
   Scenario: Admin user can edit privacy policy page
     Given I am logged in as "kassi_testperson1"

@@ -15,9 +15,9 @@ module CommunityStylesheetCompiler
 
   class << self
 
-    def compile_all
+    def compile_all(delayed_opts={})
       prepare_compile_all do |community|
-        Delayed::Job.enqueue(CompileCustomStylesheetJob.new(community.id))
+        Delayed::Job.enqueue(CompileCustomStylesheetJob.new(community.id), delayed_opts)
       end
     end
 
@@ -123,7 +123,7 @@ module CommunityStylesheetCompiler
         "small-cover-photo-url" => to_string(community.small_cover_photo.url(:hd_header))
       }
 
-      Util::Hash.compact(hash)
+      Util::HashUtils.compact(hash)
     end
 
     def create_new_filename(domain)

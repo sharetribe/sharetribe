@@ -18,7 +18,7 @@ prefork = lambda {
 # Loading more in this block will cause your tests to run faster. However,
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
-  
+
   # A script to test if spec_helper is loaded multiple times (which would slow down the tests)
   if $LOADED_FEATURES.grep(/spec\/spec_helper\.rb/).any?
     begin

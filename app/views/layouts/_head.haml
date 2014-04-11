@@ -5,15 +5,19 @@
 <!--[if (gt IE 8)|!(IE)]><!--> <html lang="#{I18n.locale}" class="no-js"> <!--<![endif]-->
 
 %head
-  = render :partial => "layouts/kissmetrics"
+  %meta{charset: "utf-8"}
 
-  %meta{charset: "utf-8" }
+  = render :partial => "layouts/kissmetrics"
   :css
     @import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700);
   %meta{content: "width=device-width, initial-scale=1.0, user-scalable=no", name: "viewport"}
   %meta{ :property => "og:type", :content =>"website"}
   %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
-  = yield :head
+  %meta{:"http-equiv" => "content-language", content: "#{I18n.locale}"}
+  %meta{name: "twitter:card", content: "summary"}
+
+  / Additional meta tags for SEO, etc.
+  = content_for :head
 
   - if @current_community
     = render :partial => "layouts/marketplace_head"

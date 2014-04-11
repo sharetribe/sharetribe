@@ -54,6 +54,13 @@ class Community < ActiveRecord::Base
   validates_inclusion_of :category, :in => VALID_CATEGORIES
   validates_format_of :custom_color1, :with => /^[A-F0-9_-]{6}$/i, :allow_nil => true
   validates_format_of :custom_color2, :with => /^[A-F0-9_-]{6}$/i, :allow_nil => true
+
+  VALID_BROWSE_TYPES = %{grid map list}
+  validates_inclusion_of :default_browse_view, :in => VALID_BROWSE_TYPES
+
+  VALID_NAME_DISPLAY_TYPES = %{first_name_only first_name_with_initial}
+  validates_inclusion_of :default_browse_view, :in => VALID_BROWSE_TYPES, :allow_nil => true, :allow_blank => true
+
   # The settings hash contains some community specific settings:
   # locales: which locales are in use, the first one is the default
 
@@ -63,7 +70,14 @@ class Community < ActiveRecord::Base
                     :styles => {
                       :header => "192x192#",
                       :header_icon => "40x40#",
+                      :apple_touch => "152x152#",
                       :original => "600x600>"
+                    },
+                    :convert_options => {
+                      # iOS makes logo background black if there's an alpha channel
+                      # And the options has to be in correct order! First background, then flatten. Otherwise it will
+                      # not work.
+                      :apple_touch => "-background white -flatten"
                     },
                     :default_url => "/assets/logos/mobile/default.png"
 
@@ -484,7 +498,7 @@ class Community < ActiveRecord::Base
   end
 
   def integrations_in_use?
-    plan_level >= BASIC_PLAN 
+    plan_level >= BASIC_PLAN
   end
 
   private

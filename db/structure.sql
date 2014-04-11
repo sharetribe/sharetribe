@@ -976,6 +976,8 @@ CREATE TABLE `transaction_types` (
   KEY `index_transaction_types_on_community_id` (`community_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO schema_migrations (version) VALUES ('');
+
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -1774,6 +1776,8 @@ INSERT INTO schema_migrations (version) VALUES ('20140226121423');
 
 INSERT INTO schema_migrations (version) VALUES ('20140227102627');
 
+INSERT INTO schema_migrations (version) VALUES ('20140227145229');
+
 INSERT INTO schema_migrations (version) VALUES ('20140228164206');
 
 INSERT INTO schema_migrations (version) VALUES ('20140228164428');
@@ -1805,3 +1809,7 @@ INSERT INTO schema_migrations (version) VALUES ('20140328124957');
 INSERT INTO schema_migrations (version) VALUES ('20140328133415');
 
 INSERT INTO schema_migrations (version) VALUES ('20140402070713');
+
+INSERT INTO schema_migrations (version) VALUES ('20140402070714');
+
+INSERT INTO schema_migrations (version) VALUES ('20140411121926');

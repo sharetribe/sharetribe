@@ -1,0 +1,148 @@
+@import "mixins/all";
+@import "compass/css3/border-radius";
+
+.listing-image-carousel {
+  position: relative;
+  overflow: hidden;
+
+  &:hover > .listing-image-navi {
+    display: block;
+  }
+
+  & > .listing-image-navi {
+    display: none;
+  }
+
+  @include block-with-aspect-ratio(3/2);
+}
+
+.listing-image-navi-arrow-container {
+  @include vertical-centering-content;
+}
+
+.navigate-icon-fix {
+  position: relative;
+  top: 4px;
+}
+
+.listing-image-arrow-icon-container {
+  position: relative;
+  padding: lines(0.75) lines(0.5);
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  display: inline-block;
+
+  &.left {
+    @include border-right-radius($default-border-radius);
+  }
+
+  &.right {
+    @include border-left-radius($default-border-radius);
+  }
+}
+
+.listing-image-navi-arrow {
+  @include big-type;
+}
+
+.listing-image-navi-clickarea {
+  position: absolute;
+  top: 0;
+  height: 100%;
+
+  @include vertical-centering-container;
+
+  // Remove tap highlight in Mobile Safari
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+  &:hover .listing-image-arrow-icon-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 1);
+  }
+
+  @include clickable-area-ie
+}
+
+.listing-image-navi-right {
+  @extend .listing-image-navi-clickarea;
+  right: 0;
+  text-align: right;
+  width: 75%;
+}
+
+.listing-image-navi-left {
+  @extend .listing-image-navi-clickarea;
+  left: 0;
+  text-align: left;
+  width: 25%;
+}
+
+.listing-no-image {
+  @include large-type;
+  color: $border;
+  text-align: center;
+}
+
+.listing-image-text-container {
+  position: relative;
+  @include block-with-aspect-ratio(3/2);
+}
+
+// Image frame with 3/2 aspect ratio
+.listing-image-frame {
+  @include block-with-aspect-ratio(3/2);
+  background-color: $body;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+// The content for 3/2 aspect ratio container
+// - This works also as a container for vertically
+//   centered image
+.listing-image-frame-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+
+  // In Google Chrome, there was a 1px empty space on top of the image. This is probably due to the 3/2 padding,
+  // which results in not a whole number 66.6666667%. -1px from top seems to fix it and not cause problems in other
+  // browsers.
+  margin: -1px;
+
+  overflow: hidden;
+  @include vertical-centering-container;
+}
+
+.listing-image-vertical-centering {
+  @include vertical-centering-content;
+
+  // Default to landscape (too wide)
+
+  &.too-narrow {
+    // vertical-align may cause 1px flickering, if the image
+    // uses all vertical size available.
+    height: 100%;
+    vertical-align: inherit;
+  }
+
+  &.correct-ratio {
+    // vertical-align may cause 1px flickering, if the image
+    // uses all vertical size available.
+    vertical-align: top;
+  }
+}
+
+.listing-image {
+
+  // Default to landscape
+  &, &.too-wide {
+    @include image-too-wide;
+  }
+
+  &.too-narrow {
+    @include image-too-narrow;
+  }
+}

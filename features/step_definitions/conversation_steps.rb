@@ -2,20 +2,20 @@ Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |mes
   # Hard-coded to the first community. Change this if needed
   community = @listing.communities.first
 
-  @conversation = Conversation.create!(:listing_id => @listing.id, 
+  @conversation = Conversation.create!(:listing_id => @listing.id,
                                       :title => message,
-                                      :status => "pending", 
+                                      :status => "pending",
                                       :conversation_participants => { @listing.author.id => "false", @people[sender].id => "true"},
                                       :message_attributes => { :content => message, :sender_id => @people[sender].id },
                                       :community => community
-                                      ) 
+                                      )
 end
 
 Given /^there is a reply "([^"]*)" to that message by "([^"]*)"$/ do |content, sender|
-  @message = Message.create!(:conversation_id => @conversation.id, 
-                            :sender_id => @people[sender].id, 
+  @message = Message.create!(:conversation_id => @conversation.id,
+                            :sender_id => @people[sender].id,
                             :content => content
-                           )                                   
+                           )
 end
 
 When /^I try to go to inbox of "([^"]*)"$/ do |person|
@@ -23,7 +23,7 @@ When /^I try to go to inbox of "([^"]*)"$/ do |person|
 end
 
 Then /^the status of the conversation should be "([^"]*)"$/ do |status|
-  @conversation.status.should == status 
+  @conversation.status.should == status
 end
 
 Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do |listing_type, status|
@@ -42,15 +42,13 @@ Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do 
   end
 end
 
-
-
 Given(/^that conversation will be automatically confirmed after (\d+) days$/) do |automatic_confirmation_after_days|
   @conversation.update_attribute(:automatic_confirmation_after_days, automatic_confirmation_after_days)
 
   conversation = @conversation
   user = @conversation.offerer
   community = @conversation.community
-  
+
   ConfirmConversation.new(conversation, user, community).activate_automatic_confirmation!
 end
 

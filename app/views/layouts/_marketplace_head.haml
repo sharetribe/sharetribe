@@ -1,22 +1,62 @@
-%title
-  #{service_name}
-  - if @listing && action_name.eql?("show")
-    = "- #{listed_listing_title(@listing)}"
-  - elsif service_name.casecmp(@current_community.name(I18n.locale)) != 0
-    = "- #{@current_community.name(I18n.locale)}"
-
-%meta{ :name => "keywords", :content => t(".keywords") }
-%meta{ :property => "og:url", :content =>"#{@current_community.full_url}#{request.fullpath}"}
-%meta{ :property => "og:image", :content => fb_image}
-
-- if @listing && action_name.eql?("show")
-  %meta{ :property => "og:title", :content => "#{@listing.title} - #{@current_community.full_name(locale)}"}
-  %meta{ :property => "og:site_name", :content =>"#{@current_community.full_name(locale)}: "}
-  %meta{ :property => "og:description", :content => @listing.description}
+- if service_name.casecmp(@current_community.name(I18n.locale)) != 0
+  - title_service_name = "#{service_name} - #{@current_community.name(I18n.locale)}"
 - else
-  %meta{ :property => "og:title", :content => "#{@current_community.full_name(locale)} - #{community_slogan}"}
-  %meta{ :property => "og:site_name", :content =>"#{@current_community.full_name(locale)}"}
-  %meta{ :property => "og:description", :content => community_description(false)}
+  - title_service_name = service_name
+
+- if content_for?(:title)
+  - title = "#{content_for(:title)} - #{title_service_name}"
+- else
+  - title = "#{title_service_name} - #{community_slogan}"
+
+- if content_for?(:keywords)
+  - keywords = content_for(:keywords)
+- else
+  - keywords = Util::StringUtils.keywords(community_slogan)
+
+- if content_for?(:meta_author)
+  - meta_author = content_for(:meta_author)
+- else
+  - meta_author = @current_community.name
+
+- full_url = "#{@current_community.full_url}#{request.fullpath}"
+
+- if content_for?(:meta_description)
+  - meta_description = "#{@current_community.name} - #{content_for(:meta_description)}"
+- else
+  - meta_description = "#{@current_community.name} - #{community_slogan}"
+
+- if content_for?(:meta_image)
+  - meta_image = content_for(:meta_image)
+- else
+  - if @current_community.logo?
+    - meta_image = @current_community.logo.url(:original)
+  - else
+    - meta_image = "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"
+
+%title
+  = title
+%meta{ :property => "og:title", :content => title}
+%meta{ :name => "twitter:title", :content => title}
+%meta{ :name => "author", :content=> meta_author }
+%meta{ :name => "keywords", :content => keywords }
+%meta{ :property => "og:url", :content => full_url}
+%meta{ :property => "og:locale", :content => "#{I18n.locale}" }
+%meta{ :name => "identifier-url", :content => "#{@current_community.full_domain(with_protocol: true)}"}
+%meta{ :name => "copyright", :content => "#{@current_community.name}"}
+%meta{ :name => "twitter:url", :content => full_url}
+%meta{ :property => "og:site_name", :content =>"#{@current_community.full_name(locale)}"}
+%meta{ :name => "description", :content => meta_description}
+%meta{ :property => "og:description", :content => meta_description}
+%meta{ :name => "twitter:description", :content => meta_description}
+%meta{ :property => "og:image", :content => meta_image}
+%meta{ :name => "twitter:image", :content => meta_image}
+%link{:rel => "canonical", :href => full_url}
+
+- if @current_community.twitter_handle.present?
+  %meta{ :name => "twitter:site", :content => "@#{@current_community.twitter_handle}"}
+
+- if @current_community.facebook_connect_id
+  %meta{ :property => "fb:app_id", :content => "#{@current_community.facebook_connect_id}" }
 
 / CSS
 - with_stylesheet_url(@current_community) do |stylesheet_url|
@@ -25,16 +65,24 @@
 / Modernizr, in the head tag, right after stylesheets, for best performance:
 = javascript_include_tag "modernizr.min"
 
+/ Android pre Jellybean has an ugly bug, which prevents font-size 0 technique from
+/ removing the spaces between inline-blocks. Remove this piece of code when pre Jellybean becomes unsupported
+:javascript
+  Modernizr.addTest('androidPreJellybean', function(){
+    var ua = navigator.userAgent;
+    if( ua.indexOf("Android") >= 0 ) {
+      var androidversion = parseFloat(ua.slice(ua.indexOf("Android")+8));
+      return androidversion < 4.1
+    }
+  });
+
 = csrf_meta_tag
 
 %link{:rel => "image_src", :href => "https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png"}
 
 %link{:rel => "shortcut icon", :href => @current_community.favicon_url || "https://s3.amazonaws.com/sharetribe/assets/images/favicon.ico"}
 
-%link{:rel => "apple-touch-icon-precomposed",:href => @current_community.settings["apple-touch-icon-precomposed"] || "https://s3.amazonaws.com/sharetribe/assets/images/icon_57.png"}
-%link{:rel => "apple-touch-icon-precomposed", :sizes => "72x72",:href => @current_community.settings["apple-touch-icon-precomposed-72"] || "https://s3.amazonaws.com/sharetribe/assets/images/icon_72.png"}
-%link{:rel => "apple-touch-icon-precomposed", :sizes => "114x114",:href => @current_community.settings["apple-touch-icon-precomposed-114"] || "https://s3.amazonaws.com/sharetribe/assets/images/icon_114.png"}
-%link{:rel => "apple-touch-icon-precomposed", :sizes => "144x144",:href => @current_community.settings["apple-touch-icon-precomposed-144"] || "https://s3.amazonaws.com/sharetribe/assets/images/icon_144.png"}
+%link{:rel => "apple-touch-icon-precomposed",:href => @current_community.logo.url(:apple_touch) || "https://s3.amazonaws.com/sharetribe/assets/images/icon_144.png"}
 
 = auto_discovery_link_tag(:atom, atom_feed_url )
 

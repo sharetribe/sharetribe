@@ -89,6 +89,18 @@ class ListingsController < ApplicationController
     unless current_user?(@listing.author)
       @listing.increment!(:times_viewed)
     end
+
+    @current_image = if params[:image]
+      @listing.image_by_id(params[:image])
+    else
+      @listing.listing_images.first
+    end
+
+    @prev_image_id, @next_image_id = if @current_image
+      @listing.prev_and_next_image_ids_by_id(@current_image.id)
+    else
+      [nil, nil]
+    end
   end
 
   def new
@@ -129,12 +141,16 @@ class ListingsController < ApplicationController
     @listing.author = @current_user
     @listing.custom_field_values = create_field_values(params[:custom_fields]) if params[:custom_fields]
 
-    listing_image = ListingImage.find_by_id_and_author_id(params[:listing_image][:id], @current_user.id)
-    @listing.listing_images << listing_image if listing_image
-
-    @listing.save
+    if @listing.save
+      listing_image_ids = params[:listing_images].collect { |h| h[:id] }.select { |id| id.present? }
+      ListingImage.where(id: listing_image_ids, author_id: @current_user.id).update_all(listing_id: @listing.id)
+    else
+      redirect_to new_listing_path and return
+    end
 
     if @listing.new_record?
+      Rails.logger.error "Errors in creating listing: #{@listing.errors.full_messages.inspect}"
+      flash[:error] = t("layouts.notifications.listing_could_not_be_saved", :contact_admin_link => view_context.link_to(t("layouts.notifications.contact_admin_link_text"), new_user_feedback_path, :class => "flash-error-link")).html_safe
       redirect_to new_listing_path
     else
       flash[:notice] = t("layouts.notifications.listing_created_successfully", :new_listing_link => view_context.link_to(t("layouts.notifications.create_new_listing"), new_listing_path)).html_safe

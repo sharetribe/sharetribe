@@ -86,25 +86,14 @@ module ListingsHelper
 
   def with_image_frame(listing, &block)
     if self.has_images?(listing) then
-      first_image = listing.listing_images.first
-      if !first_image.image_ready? then
-        block.call(:image_processing, nil)
+      images = listing.listing_images
+      if !listing.listing_images.all? { |image| image.image_ready? } then
+        block.call(:images_processing, nil)
       else
-        block.call(:image_ok, first_image)
+        block.call(:images_ok, images)
       end
     elsif listing.description.blank? then
       block.call(:no_description, nil)
-    end
-  end
-
-  def aspect_ratio_class(image)
-    aspect_ratio = 3/2.to_f
-    if image.correct_size? aspect_ratio
-      "correct-ratio"
-    elsif image.too_narrow? aspect_ratio
-      "too-narrow"
-    else
-      "too-wide"
     end
   end
 

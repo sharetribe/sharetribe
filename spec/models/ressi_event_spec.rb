@@ -1,9 +1,9 @@
-# encoding: UTF-8 
+# encoding: UTF-8
 
 require 'spec_helper'
 
 describe RessiEvent do
-  
+
   it "should get logged to Ressi when created" do
     # These tests require that the Ressi server is running at APP_CONFIG.ressi_url
     if APP_CONFIG.ressi_url && APP_CONFIG.log_to_ressi

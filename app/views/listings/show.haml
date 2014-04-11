@@ -4,28 +4,62 @@
 - content_for :extra_javascript do
   = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
 
+- content_for :title, @listing.title
+- content_for :meta_author, @listing.author.name
+- content_for :meta_description, Util::StringUtils.first_words(@listing.description, 15)
+- content_for :meta_image, @listing.listing_images.first.image.url(:medium) if !@listing.listing_images.empty?
+- content_for :keywords, Util::StringUtils.keywords(@listing.title)
+
 - content_for :title_header do
   %h1
     %span#listing-title.listing-title= @listing.title
+
+%script{type: "text/template", class: "template", id: "image-frame-template"}
+  .listing-image-frame
+    #listing-image-link.listing-image-frame-content
+      .listing-image-vertical-centering{:class => "${aspectRatioClass}" }
+        %img{:src => "${url}", :alt => @listing.title, :class => "listing-image ${aspectRatioClass}"}
+
+%script{type: "text/template", class: "template", id: "image-thumbnail-template"}
+  .listing-image-thumbnail-container
+    %img.listing-image-thumbnail{src: "${url}"}
+    .fade
 
 .row
   .col-8
     .row
       .col-12
-        - with_image_frame(@listing) do |reason, listing_image|
-          .listing-image-frame
-            - if reason == :image_ok
-              #listing-image-link.listing-image-frame-content
-                .listing-image-vertical-centering{:class => aspect_ratio_class(listing_image) }
-                  = image_tag listing_image.image.url(:big), :alt => listed_listing_title(@listing), :class => "listing-image #{aspect_ratio_class(listing_image)}"
-            - else
-              .listing-image-frame-content
-                .listing-image-vertical-centering
-                  .listing-no-image
-                    - if reason == :image_processing
-                      = t("listings.show.processing_uploaded_image")
-                    - else
-                      = t(".no_description")
+        - with_image_frame(@listing) do |reason, listing_images|
+          - if reason == :images_ok
+            .listing-image-carousel
+              #listing-image-frame
+
+              - if @prev_image_id && @next_image_id
+                = link_to params.merge(image: @prev_image_id), class: "listing-image-navi listing-image-navi-left", id: "listing-image-navi-left" do
+                  .listing-image-navi-arrow-container
+                    .listing-image-arrow-icon-container.left
+                      = icon_tag("directleft", ["navigate-icon-fix", "listing-image-navi-arrow"])
+                = link_to params.merge(image: @next_image_id), class: "listing-image-navi listing-image-navi-right", id: "listing-image-navi-right" do
+                  .listing-image-navi-arrow-container
+                    .listing-image-arrow-icon-container.right
+                      = icon_tag("directright", ["navigate-icon-fix", "listing-image-navi-arrow"])
+            #thumbnail-stripe.listing-image-thumbnail-stripe
+
+            - content_for :extra_javascript do
+              :javascript
+                var listingImages = #{listing_images.map { |image| ListingImageJSAdapter.new(image) }.to_json }
+                var currentImage = #{params[:image].present? ? params[:image].to_i : listing_images.first.id};
+                ST.listingImages(listingImages, currentImage);
+          - else
+            .listing-image-text-container
+              .listing-image-frame
+                .listing-image-frame-content
+                  .listing-image-vertical-centering
+                    .listing-no-image
+                      - if reason == :images_processing
+                        = t("listings.show.processing_uploaded_image")
+                      - else
+                        = t(".no_description")
 
     .row
       .col-12
