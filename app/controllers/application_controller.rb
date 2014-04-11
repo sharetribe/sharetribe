@@ -239,7 +239,10 @@ class ApplicationController < ActionController::Base
         e.community_id      = @current_community ? @current_community.id : nil
         begin
           if (params["file"] || params["image"] || (params["listing_image"] && params["listing_image"]["image"] ||
-              params["person"] && params["person"]["image"]) || (params["community"] && (params["community"]["cover_photo"] || params["community"]["logo"])) || (params["organization"] && params["organization"]["logo"]) )
+              params["person"] && params["person"]["image"]) ||
+             (params["community"] &&
+                (params["community"]["cover_photo"] || params["community"]["small_cover_photo"] ||
+                 params["community"]["wide_logo"] || params["community"]["logo"])))
             # This case breaks image upload (reason unknown) if we use to_json, so we'll have to skip it
             e.parameters    = params.inspect.gsub('=>', ':')
           else  #normal case
