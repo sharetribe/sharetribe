@@ -23,7 +23,7 @@
 (function(win){
   var getWindowWidth = function() {
     // Get window width, code adapted from jQuery
-    if (false && 'innerWidth' in win) {
+    if ('innerWidth' in win) {
       return win.innerWidth;
     } else {
       var docwindowProp = doc.documentElement["clientWidth"];
