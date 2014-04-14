@@ -22,19 +22,4 @@ describe CachedRessiEvent do
      event.save!
      CachedRessiEvent.count.should > 0
    end
-
-   it "should be uploaded to ressi wtihout errors" do
-     if APP_CONFIG.log_to_ressi
-       begin
-         event = CachedRessiEvent.new(@OPTIONS)
-         event.save!
-         event.upload
-       rescue Errno::ECONNREFUSED => e
-         # No need to output this
-         # puts "No connection to RESSI (optional) at #{APP_CONFIG.ressi_url}"
-       rescue NoMethodError => e
-         puts "Ressi event error (#{e.class}) #{APP_CONFIG.ressi_url}, #{e.message}. This can happen if Ressi server is not available. You don't need to worry about this, unless specifically testing Ressi now."
-       end
-     end
-   end
 end

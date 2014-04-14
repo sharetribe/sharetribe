@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/sharetribe/sharetribe.svg?branch=master)](https://travis-ci.org/sharetribe/sharetribe) [![Dependency Status](https://gemnasium.com/sharetribe/sharetribe.png)](https://gemnasium.com/sharetribe/sharetribe) [![Code Climate](https://codeclimate.com/github/sharetribe/sharetribe.png)](https://codeclimate.com/github/sharetribe/sharetribe) [![Coverage Status](https://coveralls.io/repos/sharetribe/sharetribe/badge.png)](https://coveralls.io/r/sharetribe/sharetribe)
 
-Sharetribe is a peer-to-peer marketplace platform built with Ruby on Rails. 
+Sharetribe is a peer-to-peer marketplace platform built with Ruby on Rails.
 
 See www.sharetribe.com for more info and links to example communities
 
@@ -17,7 +17,7 @@ Below the installation instructions there is space for Operating system-specific
 
 
 * Before you get started, you need to have or install the following:
-  * Ruby (we use currently version 1.9.3 and don't guarantee everything working with others. If you need multiple versions of Ruby, [RVM](https://rvm.io//) can help.)
+  * Ruby (we use currently version 2.1.1 and don't guarantee everything working with others. If you need multiple versions of Ruby, [RVM](https://rvm.io//) can help.)
   * [RubyGems](http://rubygems.org/)
   * Bundler `gem install bundler`
   * [Git](http://help.github.com/git-installation-redirect)
@@ -40,7 +40,7 @@ Below the installation instructions there is space for Operating system-specific
 * start sphinx daemon `rake RAILS_ENV=production ts:start`
 * If you want to run Sharetribe in production mode (i.e. you are not developing the software) you'll need to precompile the assets. This puts the Javascript and CSS files in right places. Use command: `rake assets:precompile`
 * If you want to enable Sharetribe to send email locally (in the development environment), you might want to change the email settings in the config file. There is an example of configuring settings using a gmail account, but you can also use any other SMTP server. If you do not touch the settings, the development version works otherwise normally but might crash in instances where it tries to send email (like when sending a message to another user).
-* Invoke the delayed job worker on your local machine: `rake RAILS_ENV=production jobs:work`. The worker processes tasks that are done in the background, like processing images and sending email notifications. 
+* Invoke the delayed job worker on your local machine: `rake RAILS_ENV=production jobs:work`. The worker processes tasks that are done in the background, like processing images and sending email notifications.
 * Start the server. The simplest way is to use command `rails server` which will start it on Webrick, which is good option for development use.
   * To start the server in production environment, use command `rails server -e production`
 * Sharetribe server can serve multiple Sharetribe marketplaces (tribes) that are separated by subdomains. You need at least one community to use Sharetribe. To create a community and add some default transaction type and category there, start the Rails Console: `rails console production` and choose the name and subdomain for your community and insert them in the following commands:
@@ -57,14 +57,14 @@ tt_trans = TransactionTypeTranslation.create(:transaction_type_id => tt.id,
  :name => "Sell",
  :action_button_label => "Buy");
 ca = c.categories.create;
-ca_trans = CategoryTranslation.create(:category_id => ca.id, 
- :locale => "en", 
+ca_trans = CategoryTranslation.create(:category_id => ca.id,
+ :locale => "en",
   :name => "Items");
 CategoryTransactionType.create(:category_id => ca.id, :transaction_type_id => tt.id)
 
 ```
 
-* go to your selected community address (your\_chosen\_subdomain\_here.yourdomain.com or your\_chosen\_subdomain_here.lvh.me:3000) and register as a user. The first registered user will be automatically made as an admin in that community. 
+* go to your selected community address (your\_chosen\_subdomain\_here.yourdomain.com or your\_chosen\_subdomain_here.lvh.me:3000) and register as a user. The first registered user will be automatically made as an admin in that community.
 
 ### Tips for different platforms and OS
 
@@ -94,7 +94,7 @@ gem 'win32-process', :platforms => [:mswin, :mingw]
 * These are the bash commands I used to install Sharetribe on a fresh Ubuntu 12.10 box:
 
 ```bash
-- sudo aptitude install ruby1.9.3
+- sudo aptitude install ruby2.1.1
 - sudo gem install bundler
 - sudo aptitude install git
 - git clone git://github.com/sharetribe/sharetribe.git
@@ -132,7 +132,7 @@ gem 'win32-process', :platforms => [:mswin, :mingw]
 - to enable logs in production (Passenger+Apache)
 	- emacs config/application.rb
 	- comment out the lines:
-		if Rails.env.production? || Rails.env.staging? 
+		if Rails.env.production? || Rails.env.staging?
 			config.logger = Logger.new(STDOUT)
 			config.logger.level = Logger.const_get(ENV['LOG_LEVEL'] ? ENV['LOG_LEVEL'].upcase : 'INFO')
 		end
@@ -153,7 +153,7 @@ See [RELEASE_NOTES.md](RELEASE_NOTES.md) for information about what has changed 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for general contributing guide lines.
 
 ## Known issues
- 
+
 See http://github.com/sharetribe/sharetribe/issues and please report any issues you find
 
 ## Developer docs
