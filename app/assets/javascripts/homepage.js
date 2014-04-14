@@ -10,5 +10,8 @@ $(function() {
   $showFiltersButton.click(function() {
     $showFiltersButton.toggleClass("selected");
     $filtersContainer.toggleClass("home-toolbar-filters-mobile-hidden");
-  })
+  });
+
+  // Relocate filters
+  relocate(768, $("#filters"), $("#desktop-filters").get(0));
 });

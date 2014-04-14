@@ -9,27 +9,43 @@
 
   = render :partial => 'layouts/global-header'
 
-  %section.marketplace-lander
-    - with_big_cover_photo do
-      .coverimage
-        %figure.marketplace-cover.fluidratio
-      .wrapper
-        .lander-content.marketplace-lander-content
-          = yield :title_header
-    - with_small_cover_photo do
-      .coverimage
-        %figure.marketplace-cover-small.fluidratio
-      .coverimage-fade{:class => yield(:coverfade_class)}
-        %figure.marketplace-cover-small-fade.fluidratio
-      .title-container
-        .title-header-wrapper
-          .marketplace-title-header
+  - content_for(:page_content) do
+    %section.marketplace-lander
+      - with_big_cover_photo do
+        .coverimage
+          %figure.marketplace-cover.fluidratio
+        .wrapper
+          .lander-content.marketplace-lander-content
             = yield :title_header
+      - with_small_cover_photo do
+        .coverimage
+          %figure.marketplace-cover-small.fluidratio
+        .coverimage-fade{:class => yield(:coverfade_class)}
+          %figure.marketplace-cover-small-fade.fluidratio
+        .title-container
+          .title-header-wrapper
+            .marketplace-title-header
+              = yield :title_header
 
-  %article.page-content
-    .wrapper
-      = render :partial => "layouts/notifications"
-      = yield
+    %article.page-content
+      .wrapper
+        = render :partial => "layouts/notifications"
+        = yield
+
+  -#
+    This is not pretty, but works.
+    On homepage, we want to wrap the whole page content (search bar and the "real" content) to a form, so that
+    pressing send from either search bar of filter list will send all the form fields
+
+  - if params[:controller] == "homepage" && params[:action] == "index"
+    = form_tag({ :action => :index, :controller => :homepage}, :method => "get", :id => "homepage-filters") do
+      - params.except("action", "controller", "q", "view", "utf8").each do |param, value|
+        - unless param.match(/^filter_option/) || param.match(/^nf_/) || param.match(/^price_/)
+          = hidden_field_tag param, value
+      = hidden_field_tag "view", @view_type
+      = content_for(:page_content)
+  - else
+    = content_for(:page_content)
 
   = render :partial => "layouts/google_analytics_script"
 
@@ -64,3 +80,5 @@
 
   :javascript
     $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
+
+

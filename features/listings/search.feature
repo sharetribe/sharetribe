@@ -3,17 +3,17 @@ Feature: Search
   In order to find needed contents
   As a user
   I want to search listings by typing a keyword to search box and hitting enter
-  
-  
+
+
   Background:
     Given there is a numeric field "Weight (kg)" in community "test" for category "Items" with min value "0" and max value "200"
     And this community has price filter enabled with min value 0 and max value 1000
-    
+
     And there is a listing with title "old sofa for sale" with category "Items" and with transaction type "Selling"
     And that listing has a description "I'm selling my wonderlful pink sofa!"
     And that listing has a numeric answer "100" for "Weight (kg)"
     And the price of that listing is "200"
-    
+
     And there is a listing with title "light-weigth plastic outdoor sofa" with category "Items" and with transaction type "Selling"
     And that listing has a description "Very light weight sofa for outdoor use"
     And that listing has a numeric answer "20" for "Weight (kg)"
@@ -23,12 +23,15 @@ Feature: Search
 
     And I am on the home page
 
+    # Reset previous searches
+    When I fill in "q" with ""
+
   @javascript
   Scenario: basic search
     When I fill in "q" with "sofa"
     And I press "search-button"
     Then I should see "old sofa for sale"
-    
+
   @javascript
   Scenario: should exclude non-matching results
     When I fill in "q" with "chair"
@@ -77,4 +80,4 @@ Feature: Search
 
     When I set price range between "500" and "1000"
     And I press "Update view"
-    Then I should see "No listings"
+    Then I should see "We couldn't find any results that matched your search criteria"

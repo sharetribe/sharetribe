@@ -26,6 +26,12 @@
 //= require jquery.iframe-transport.js
 
 //= require fastclick.min
+
+// Responsive helpers
+// https://github.com/edenspiekermann/minwidth-relocate
+//= require relocate
+//= require minwidth
+
 //= require infobubble
 //= require sharetribe_common
 //= require Bacon

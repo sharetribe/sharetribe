@@ -84,7 +84,9 @@
 
         / Filters
         .hidden-tablet
-          = render :partial => "filters", :locals => { show_price_filter: @current_community.show_price_filter, show_custom_fields: @show_custom_fields, device: "mobile" }
+          - # Filters will be relocated to #desktop-filters when in desktop
+          #filters
+            = render :partial => "filters", :locals => { show_price_filter: @current_community.show_price_filter, show_custom_fields: @show_custom_fields }
 
   .row
     - if @category_menu_enabled
@@ -102,8 +104,8 @@
                       - is_selected = @selected_category == child
                       = link_to child.display_name(I18n.locale).mb_chars.capitalize.to_s, params.merge({category: child.id}), :class => "home-categories-sub #{if is_selected then 'selected' end}", :data => {:"sub-category" =>child.id}
 
-        / Filters
-        = render :partial => "filters", :locals => { show_price_filter: @current_community.show_price_filter, show_custom_fields: @show_custom_fields, device: "desktop" }
+        #desktop-filters
+          - # Filters will be relocated here when in desktop
 
     - main_container_class = if @category_menu_enabled then "col-9" else "col-12" end
     %div{:class => main_container_class}
