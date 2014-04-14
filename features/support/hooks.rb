@@ -65,6 +65,7 @@ end
 
 After do |scenario|
   if(scenario.failed?)
+    Dir.mkdir 'tmp/screenshots'
     save_screenshot("tmp/screenshots/#{scenario.name}.png")
   end
 end
