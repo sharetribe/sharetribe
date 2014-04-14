@@ -81,3 +81,7 @@ Feature: Search
     When I set price range between "500" and "1000"
     And I press "Update view"
     Then I should see "We couldn't find any results that matched your search criteria"
+
+  @javascript
+  Scenario: Finding by checkbox field
+    Given this field is not implemented

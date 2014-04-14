@@ -2,7 +2,7 @@ Feature: User creates a new listing
   In order to perform a certain task using an item, a skill, or a transport, or to help others
   As a person who does not have the required item, skill, or transport, or has them and wants offer them to others
   I want to be able to offer and request an item, a favor, a transport or housing
-  
+
   @javascript
   Scenario: Creating a new item request without image successfully
     Given I am logged in
@@ -28,7 +28,7 @@ Feature: User creates a new listing
     And I fill in "listing_description" with "My description"
     And I press "Save listing"
     Then I should see "My offer" within "#listing-title"
-  
+
   @javascript
   Scenario: Creating a new service request successfully
     Given I am logged in
@@ -40,8 +40,8 @@ Feature: User creates a new listing
     And I fill in "listing_description" with "My description"
     And I press "Save listing"
     Then I should see "Massage" within "#listing-title"
-  
-  @javascript  
+
+  @javascript
   Scenario: Trying to create a new request without being logged in
     Given I am not logged in
     And I am on the home page
@@ -62,15 +62,15 @@ Feature: User creates a new listing
     And I select "2014" from "listing_valid_until_1i"
     And I attach an image with invalid extension to "listing_image[image]"
     And I press "Save listing"
-    Then I should see "This field is required." 
-    And I should see "This date must be between current time and 6 months from now." 
-    And I should see "The image file must be either in GIF, JPG or PNG format." 
+    Then I should see "This field is required."
+    And I should see "This date must be between current time and 6 months from now."
+    And I should see "The image file must be either in GIF, JPG or PNG format."
 
   @move_to_subdomain2
   @javascript
   Scenario: User creates a listing and it is not visible in communities user joins
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson3 |
     And there is a listing with title "Hammer" from "kassi_testperson3" with category "Items" and with transaction type "Requesting"
     And visibility of that listing is "all_communities"
@@ -120,7 +120,7 @@ Feature: User creates a new listing
     Given I am logged in
     When I create a new listing "Sledgehammer" with price "20.5"
     Then I should see "Sledgehammer" within "#listing-title"
-  
+
   @javascript
   Scenario: User creates a new listing with custom dropdown fields
     Given I am logged in
@@ -144,7 +144,7 @@ Feature: User creates a new listing
     And I follow "Selling"
     Then I should see "House type"
     And I should see "Balcony type"
-    And I should not see "Service type"  
+    And I should not see "Service type"
     When I fill in "listing_title" with "My house"
     And I press "Save listing"
     Then I should see 2 validation errors
@@ -159,7 +159,7 @@ Feature: User creates a new listing
     When I select "Big house" from dropdown "House type"
     And I press "Save listing"
     Then I should see "House type: Big house"
-    
+
   @javascript @sphinx @no-transaction
   Scenario: User creates a new listing with custom text field
     Given I am logged in
@@ -192,6 +192,31 @@ Feature: User creates a new listing
     When I fill in custom numeric field "Area" with "150"
     And I press "Save listing"
     Then I should see "Area: 150"
+
+  @javascript @sphinx @no-transaction
+  Scenario: User creates a new listing with checkbox field
+    Given I am logged in
+    And community "test" has custom fields enabled
+    And there is a custom numeric field "Amenities" in that community in category "Spaces" with options:
+      | option            |
+      | Internet          |
+      | Wireless Internet |
+      | Air Conditioning  |
+      | Pool              |
+      | Sauna             |
+      | Hot Tub           |
+    When I follow "new-listing-link"
+    And I follow "Spaces"
+    And I follow "Selling"
+    And I fill in "listing_title" with "My house"
+    And I press "Save listing"
+    Then I should see validation error
+    When I select "Wireless Internet"
+    And I select "Sauna"
+    And I select "Pool"
+    And I select "Hot Tub"
+    And I press "Save listing"
+    Then I should see "Wireless Internet, Sauna, Pool, Hot Tub"
 
   @javascript
   Scenario: User creates a new listing in private community

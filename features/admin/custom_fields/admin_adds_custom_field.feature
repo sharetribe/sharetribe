@@ -1,5 +1,5 @@
 Feature: Admin adds a custom field
-  
+
   Background:
     Given I am logged in as "kassi_testperson2"
     And "kassi_testperson2" has admin rights in community "test"
@@ -27,6 +27,16 @@ Feature: Admin adds a custom field
     Then I should see that there is a custom field "Area"
 
   @javascript
-  Scenario: Admin adds numeric field
+  Scenario: Admin adds numeric field with invalid data
     When I add a new numeric field "Area" with min value 100 and max value 99
     Then I should see 2 validation errors
+
+  @javascript
+  Scenario: Admin adds checkbox field
+    When I add a new checkbox field Amenities
+    Then I should see that there is a custom field "Amenities"
+
+  @javascript
+  Scenario: Admin adds checkbox field with invalid data
+    When I add a new checkbox field "Amenities" with invalid data
+    Then I should see 3 validation errors

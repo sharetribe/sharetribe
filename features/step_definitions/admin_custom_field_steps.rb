@@ -119,6 +119,21 @@ When /^I add a new custom field "(.*?)" with invalid data$/ do |field_name|
   }
 end
 
+When /^I add a new checkbox field Amenities$/ do
+  steps %Q{
+    When I select "Checkbox" from "field_type"
+    And I fill in "custom_field[name_attributes][en]" with "Amenities"
+    And I fill in "custom_field[option_attributes][new-1][title_attributes][en]" with "Wireless Internet"
+    And I fill in "custom_field[option_attributes][new-1][title_attributes][fi]" with "Langaton Internet"
+    And I fill in "custom_field[option_attributes][new-2][title_attributes][en]" with "Sauna"
+    And I fill in "custom_field[option_attributes][new-2][title_attributes][fi]" with "Sauna"
+    And I follow "custom-fields-add-option"
+    And I fill in "custom_field[option_attributes][jsnew-1][title_attributes][en]" with "Hot Tub"
+    And I fill in "custom_field[option_attributes][jsnew-1][title_attributes][fi]" with "Poreamme"
+    And I press submit
+  }
+end
+
 Given /^there is a custom field "(.*?)" in community "(.*?)" for category "(.*?)"$/ do |name, community, category_name|
   current_community = Community.find_by_domain(community)
   @custom_field = FactoryGirl.build(:custom_dropdown_field, {
