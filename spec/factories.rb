@@ -239,6 +239,12 @@ FactoryGirl.define do
       max 100
     end
 
+    factory :custom_checkbox_field, class: 'CheckboxField' do
+      has_many :options do |custom_field|
+        [FactoryGirl.create(:custom_field_option), FactoryGirl.create(:custom_field_option)]
+      end
+    end
+
   end
 
   factory :category_custom_field do

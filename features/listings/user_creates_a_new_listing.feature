@@ -197,8 +197,8 @@ Feature: User creates a new listing
   Scenario: User creates a new listing with checkbox field
     Given I am logged in
     And community "test" has custom fields enabled
-    And there is a custom numeric field "Amenities" in that community in category "Spaces" with options:
-      | option            |
+    And there is a custom checkbox field "Amenities" in that community in category "Spaces" with options:
+      | title             |
       | Internet          |
       | Wireless Internet |
       | Air Conditioning  |
@@ -209,14 +209,12 @@ Feature: User creates a new listing
     And I follow "Spaces"
     And I follow "Selling"
     And I fill in "listing_title" with "My house"
+    When I check "Wireless Internet"
+    And I check "Pool"
+    And I check "Sauna"
+    And I check "Hot Tub"
     And I press "Save listing"
-    Then I should see validation error
-    When I select "Wireless Internet"
-    And I select "Sauna"
-    And I select "Pool"
-    And I select "Hot Tub"
-    And I press "Save listing"
-    Then I should see "Wireless Internet, Sauna, Pool, Hot Tub"
+    Then I should see "Wireless Internet, Pool, Sauna, Hot Tub"
 
   @javascript
   Scenario: User creates a new listing in private community
