@@ -148,8 +148,6 @@ task :deploy_staging_without_migrations_from_develop => [
   'deploy_without_migrations'
 ]
 
-
-
 ## PRODUCTION
 
 # this one deploy's the closed_source branch but doesn't update it
@@ -178,7 +176,6 @@ task :deploy_production_without_migrations_from_closed_source => [
   'deploy_without_migrations'
 ]
 
-
 ## PRE PRODUCTION
 
 # this one deploy's the closed_source branch but doesn't update it
@@ -193,9 +190,6 @@ task :deploy_preproduction_migrations_from_develop => [
   'deploy:update_closed_source_folders',
   'deploy_with_migrations'
 ]
-
-
-
 
 ## TRANSLATION
 
@@ -215,7 +209,6 @@ task :deploy_translation_without_migrations_from_develop => [
   'deploy:push'
 ]
 
-
 ## TESTING
 
 task :deploy_testing_migrations => [
@@ -232,14 +225,10 @@ task :deploy_testing_without_migrations => [
   'deploy_without_migrations'
 ]
 
-
-
 task :deploy_test_servers => [
   'deploy_staging_migrations',
   'deploy_translation_migrations'
 ]
-
-
 
 task :deploy_with_migrations => [
   'deploy:push',
@@ -252,9 +241,6 @@ task :deploy_without_migrations => [
   'deploy:push',
   'deploy:generate_custom_css'
 ]
-
-
-
 
 namespace :deploy do
   PRODUCTION_APP = 'sharetribe-production'
@@ -290,7 +276,6 @@ namespace :deploy do
   task :set_master_as_source_branch do
     BRANCH = "master"
   end
-
 
   task :update_closed_source_folders do
     puts 'Copying closed source contents...'

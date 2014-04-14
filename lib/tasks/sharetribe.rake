@@ -21,7 +21,6 @@ namespace :sharetribe do
       require 'spreadsheet'
       locale = args[:locale]
 
-
       spreadsheet = load_spreadsheet(locale)
       puts "Aborting" and return if spreadsheet.nil?
 
@@ -71,7 +70,6 @@ namespace :sharetribe do
       load_demo_content(c, spreadsheet)
       puts "Reloaded #{locale} demo contet to community at subdomain: #{community_domain}"
     end
-
 
     def load_spreadsheet(locale)
       demo_data_path = "lib/demos/demo_data.#{locale}.xls"
@@ -172,7 +170,6 @@ namespace :sharetribe do
         end
       end
 
-
       participations_sheet = spreadsheet.worksheet "Participations"
       participations_array = [nil]
       participations_sheet.each 1 do |row|
@@ -244,7 +241,6 @@ namespace :sharetribe do
       return community
     end
   end
-
 
   namespace :community_updates do
     desc "Sends the community updates email to everyone who should receive it now"

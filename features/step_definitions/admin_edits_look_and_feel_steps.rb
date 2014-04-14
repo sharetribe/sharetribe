@@ -27,4 +27,3 @@ end
 Then(/^I should see my name displayed as "(.*?)"$/) do |name|
   find(".user-name").should have_content(name)
 end
-
