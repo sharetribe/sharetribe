@@ -9,7 +9,6 @@
  */
 
 relocate = function(width, elements, destinationElement, desktopFirst) {
-  debugger;
   // ensure that we use an array-like argument, NodeList and HTMLCollection work as well
   if (elements.nodeName) elements = [elements];
   var placeHolders = [],
