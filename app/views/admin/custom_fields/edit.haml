@@ -25,4 +25,7 @@
     - @custom_field.with(:dropdown) do
       = render :partial => "admin/custom_fields/form/field_options", :locals => { :form => form }
 
+    - @custom_field.with(:checkbox) do
+      = render :partial => "admin/custom_fields/form/field_options", :locals => { :form => form }
+
     = render :partial => "admin/custom_fields/form/buttons", :locals => { :form => form }

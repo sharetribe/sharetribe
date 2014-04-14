@@ -290,6 +290,10 @@ class ListingsController < ApplicationController
         answer = NumericFieldValue.new
         answer.numeric_value = ParamsService.parse_float(answer_value)
         answer
+      when :checkbox
+        answer = CheckboxFieldValue.new
+        answer.custom_field_option_selections = answer_value.map { |value| CustomFieldOptionSelection.new(:custom_field_value => answer, :custom_field_option_id => value) }
+        answer
       else
         throw "Unimplemented custom field answer for question #{question_type}"
       end

@@ -1,0 +1,4 @@
+- question_name = custom_field_value.question.name(I18n.locale)
+- answer_title = custom_field_value.selected_options.map { |selected_option| selected_option.title(I18n.locale) }.join(", ")
+%b= "#{question_name}:"
+= answer_title
