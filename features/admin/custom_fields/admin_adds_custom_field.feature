@@ -38,5 +38,5 @@ Feature: Admin adds a custom field
 
   @javascript
   Scenario: Admin adds checkbox field with invalid data
-    When I add a new checkbox field "Amenities" with invalid data
-    Then I should see 3 validation errors
+    When I add a new checkbox field Amenities with invalid data
+    Then I should see 2 validation errors
