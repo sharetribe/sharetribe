@@ -1,4 +1,16 @@
 /**
+  This is a Sharetribe modified version of minwidth.js function: https://github.com/edenspiekermann/minwidth-relocate/
+
+  ### Why modified version?
+
+  The original version didn't include scrollbars to the width, thus being inconsistent with
+  CSS media queries.
+
+  In this version `getWindowWidth` uses window.innerWidth, which is not supported in IE < 9
+
+*/
+
+/**
  * Use minwidth() to bind callbacks to changes of
  * the window width or a minimum width at page load.
  *
@@ -11,10 +23,14 @@
 (function(win){
   var getWindowWidth = function() {
     // Get window width, code adapted from jQuery
-    var docwindowProp = doc.documentElement["clientWidth"];
-    return doc.compatMode === "CSS1Compat" && docwindowProp
-           || doc.body && doc.body["clientWidth"]
-           || docwindowProp;
+    if (false && 'innerWidth' in win) {
+      return win.innerWidth;
+    } else {
+      var docwindowProp = doc.documentElement["clientWidth"];
+      return doc.compatMode === "CSS1Compat" && docwindowProp
+             || doc.body && doc.body["clientWidth"]
+             || docwindowProp;
+    }
   }
 
   var doc = win.document,
