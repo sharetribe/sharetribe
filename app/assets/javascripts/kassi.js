@@ -1197,7 +1197,7 @@ function initialize_admin_integrations_form(locale, community_id, invalid_twitte
 }
 
 
-function initialize_admin_listing_field_form_view(locale, form_id, option_count) {
+function initialize_admin_listing_field_form_view(locale, form_id, option_count, min_count) {
   translate_validation_messages(locale);
 
   var $form = $(form_id);
@@ -1270,7 +1270,7 @@ function initialize_admin_listing_field_form_view(locale, form_id, option_count)
       }
     };
 
-  })(option_count, 2, "#options", ".custom-field-option-remove").add;
+  })(option_count, min_count, "#options", ".custom-field-option-remove").add;
 }
 
 function initialize_admin_category_form_view(locale, form_id) {

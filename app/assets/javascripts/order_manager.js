@@ -16,10 +16,11 @@ window.ST = window.ST || {};
 window.ST.orderManager = function(fieldMap) {
   var utils = ST.utils;
 
+  var byFieldId = _.curry(function(id, field) {
+    return field.id === id;
+  });
+
   function createSwapFn(upIdFinder, downIdFinder) {
-    var byFieldId = _.curry(function(id, field) {
-      return field.id === id;
-    });
 
     return function(fieldId) {
       var upArrayId = upIdFinder(fieldMap, byFieldId(fieldId));
@@ -90,7 +91,7 @@ window.ST.orderManager = function(fieldMap) {
   }
 
   function remove(fieldId) {
-    delete fieldMap[fieldId];
+    fieldMap = _.reject(fieldMap, byFieldId(fieldId));
   }
 
   return {

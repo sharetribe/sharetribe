@@ -126,11 +126,12 @@ When /^I add a new checkbox field Amenities$/ do
     And I fill in "custom_field[name_attributes][fi]" with "Mukavuudet"
     And I fill in "custom_field[option_attributes][new-1][title_attributes][en]" with "Wireless Internet"
     And I fill in "custom_field[option_attributes][new-1][title_attributes][fi]" with "Langaton Internet"
-    And I fill in "custom_field[option_attributes][new-2][title_attributes][en]" with "Sauna"
-    And I fill in "custom_field[option_attributes][new-2][title_attributes][fi]" with "Sauna"
     And I follow "custom-fields-add-option"
-    And I fill in "custom_field[option_attributes][jsnew-1][title_attributes][en]" with "Hot Tub"
-    And I fill in "custom_field[option_attributes][jsnew-1][title_attributes][fi]" with "Poreamme"
+    And I fill in "custom_field[option_attributes][jsnew-1][title_attributes][en]" with "Sauna"
+    And I fill in "custom_field[option_attributes][jsnew-1][title_attributes][fi]" with "Sauna"
+    And I follow "custom-fields-add-option"
+    And I fill in "custom_field[option_attributes][jsnew-2][title_attributes][en]" with "Hot Tub"
+    And I fill in "custom_field[option_attributes][jsnew-2][title_attributes][fi]" with "Poreamme"
     And I toggle category "Spaces"
     And I press submit
   }
@@ -142,11 +143,12 @@ When /^I add a new checkbox field Amenities with invalid data$/ do
     And I fill in "custom_field[name_attributes][en]" with "Amenities"
     And I fill in "custom_field[option_attributes][new-1][title_attributes][en]" with "Wireless Internet"
     And I fill in "custom_field[option_attributes][new-1][title_attributes][fi]" with "Langaton Internet"
-    And I fill in "custom_field[option_attributes][new-2][title_attributes][en]" with "Sauna"
-    And I fill in "custom_field[option_attributes][new-2][title_attributes][fi]" with "Sauna"
     And I follow "custom-fields-add-option"
-    And I fill in "custom_field[option_attributes][jsnew-1][title_attributes][en]" with "Hot Tub"
-    And I fill in "custom_field[option_attributes][jsnew-1][title_attributes][fi]" with "Poreamme"
+    And I fill in "custom_field[option_attributes][jsnew-1][title_attributes][en]" with "Sauna"
+    And I fill in "custom_field[option_attributes][jsnew-1][title_attributes][fi]" with "Sauna"
+    And I follow "custom-fields-add-option"
+    And I fill in "custom_field[option_attributes][jsnew-2][title_attributes][en]" with "Hot Tub"
+    And I fill in "custom_field[option_attributes][jsnew-2][title_attributes][fi]" with "Poreamme"
     And I press submit
   }
 end
