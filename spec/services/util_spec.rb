@@ -38,6 +38,11 @@ describe Util::HashUtils do
 
     Util::HashUtils.camelize_keys(test_data).should eql(expected)
   end
+
+  it "#select_by_key_regexp" do
+    h = { :first_key => 1, :second_key => 2, :first_first_key => 11 }
+    Util::HashUtils.select_by_key_regexp(h, /^first_/).should eql({ :first_key => 1, :first_first_key => 11 })
+  end
 end
 
 describe Util::StringUtils do

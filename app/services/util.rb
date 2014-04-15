@@ -12,6 +12,11 @@ module Util
         memo
       }
     end
+
+    # Give hash `h` and `regexp` which will be matched against key
+    def select_by_key_regexp(h, regexp)
+      h.select { |key, value| key.to_s.match(regexp) }
+    end
   end
 
   module CamelizeHash
