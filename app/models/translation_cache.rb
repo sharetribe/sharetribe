@@ -22,8 +22,20 @@ class TranslationCache
 
   private
 
+  # Fetch from cache, but only if model has ID
+  # A model may not have ID if it's newly created but not saved to DB
+  def fetch_cache(cache_key, &block)
+    if @model.id
+      Rails.cache.fetch(cache_key) do
+        block.call
+      end
+    else
+      block.call
+    end
+  end
+
   def translations
-    Rails.cache.fetch(cache_key) do
+    fetch_cache(cache_key) do
       @model.send(@translation_attr_sym)
     end
   end
