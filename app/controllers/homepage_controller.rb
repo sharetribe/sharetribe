@@ -196,7 +196,7 @@ class HomepageController < ApplicationController
       array_for_search << value
     end
 
-    array_for_search.first
+    array_for_search.flatten
   end
 
   # Give array of models (categories, transaction_types, etc.) and
