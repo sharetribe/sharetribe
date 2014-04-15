@@ -16,7 +16,7 @@ class Listing < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :custom_field_values, :dependent => :destroy
   has_many :custom_dropdown_field_values, :class_name => "DropdownFieldValue"
-  #has_many :custom_dropdown_field_values, :class_name => "DropdownValue", :conditions => ["type = 'DropdownValue'"]
+  has_many :custom_checkbox_field_values, :class_name => "CheckboxFieldValue"
 
   has_one :location, :dependent => :destroy
   has_one :origin_loc, :class_name => "Location", :conditions => ['location_type = ?', 'origin_loc'], :dependent => :destroy
@@ -196,7 +196,7 @@ class Listing < ActiveRecord::Base
     end
 
     # Two ways of finding, with or without sphinx
-    if params[:search].present? || params[:transaction_types].present? || params[:category].present? || params[:custom_dropdown_field_options].present? || params[:price_cents].present?
+    if params[:search].present? || params[:transaction_types].present? || params[:category].present? || params[:custom_dropdown_field_options].present?  || params[:custom_checkbox_field_options].present? || params[:price_cents].present?
 
       # sort by time by default
       params[:sort] ||= 'created_at DESC'
@@ -222,6 +222,10 @@ class Listing < ActiveRecord::Base
       params[:custom_dropdown_field_options] ||= [] # use emtpy table rather than nil to avoid confused sphinx
 
       with_all = {:custom_dropdown_field_options => params[:custom_dropdown_field_options]}
+
+      params[:custom_checkbox_field_options] ||= [] # use emtpy table rather than nil to avoid confused sphinx
+
+      with_all[:custom_checkbox_field_options] = params[:custom_checkbox_field_options]
 
       params[:search] ||= "" #at this point use empty string as Riddle::Query.escape fails with nil
 

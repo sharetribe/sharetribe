@@ -7,16 +7,26 @@ Feature: Search
 
   Background:
     Given there is a numeric field "Weight (kg)" in community "test" for category "Items" with min value "0" and max value "200"
+    And there is a custom checkbox field "Amenities" in that community in category "Items" with options:
+      | title             |
+      | Outdoors          |
+      | Indoors           |
+      | 2 people          |
+      | 3 people          |
     And this community has price filter enabled with min value 0 and max value 1000
 
     And there is a listing with title "old sofa for sale" with category "Items" and with transaction type "Selling"
     And that listing has a description "I'm selling my wonderlful pink sofa!"
     And that listing has a numeric answer "100" for "Weight (kg)"
+    And that listing has a checkbox answer "3 people" for "Amenities"
+    And that listing has a checkbox answer "Indoors" for "Amenities"
     And the price of that listing is "200"
 
     And there is a listing with title "light-weigth plastic outdoor sofa" with category "Items" and with transaction type "Selling"
     And that listing has a description "Very light weight sofa for outdoor use"
     And that listing has a numeric answer "20" for "Weight (kg)"
+    And that listing has a checkbox answer "3 people" for "Amenities"
+    And that listing has a checkbox answer "Outdoors" for "Amenities"
 
     And the Listing indexes are processed
     And the CustomFieldValue indexes are processed
@@ -25,6 +35,8 @@ Feature: Search
 
     # Reset previous searches
     When I fill in "q" with ""
+    And I set price range between "0" and "1000"
+    And I set search range for numeric filter "Weight (kg)" between "0" and "200"
 
   @javascript
   Scenario: basic search
@@ -84,4 +96,17 @@ Feature: Search
 
   @javascript
   Scenario: Finding by checkbox field
-    Given this field is not implemented
+    When I check "3 people"
+    And I press "Update view"
+    Then I should see "old sofa for sale"
+    Then I should see "light-weigth plastic outdoor sofa"
+
+    When I check "Outdoors"
+    And I press "Update view"
+    Then I should not see "old sofa for sale"
+    Then I should see "light-weigth plastic outdoor sofa"
+
+    When I check "Indoors"
+    And I press "Update view"
+    Then I should not see "old sofa for sale"
+    Then I should not see "light-weigth plastic outdoor sofa"

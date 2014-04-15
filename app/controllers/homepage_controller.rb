@@ -52,6 +52,7 @@ class HomepageController < ApplicationController
     @filter_params[:search] = params[:q] if params[:q]
     @filter_params[:include] = [:listing_images, :author, :category, :transaction_type]
     @filter_params[:custom_dropdown_field_options] = HomepageController.custom_dropdown_field_options_for_search(params)
+    @filter_params[:custom_checkbox_field_options] = HomepageController.custom_checkbox_field_options_for_search(params)
 
     @filter_params[:price_cents] = if (params[:price_min] && params[:price_max])
       min = params[:price_min].to_i * 100
@@ -171,6 +172,31 @@ class HomepageController < ApplicationController
     end
 
     array_for_search
+  end
+
+  # Extract correct type of array from query parameters
+  def self.custom_checkbox_field_options_for_search(params)
+    option_ids = []
+    option_hash = {}
+    array_for_search = []
+
+    params.each do |key, value|
+      if key.to_s.match(/^checkbox_filter_option/)
+        option_ids << value
+      end
+    end
+
+    custom_dropdown_field_options = CustomFieldOption.find(option_ids)
+    custom_dropdown_field_options.each do |cfo|
+      option_hash[cfo.custom_field_id] ||= []
+      option_hash[cfo.custom_field_id] << cfo.id
+    end
+
+    option_hash.each do |key, value|
+      array_for_search << value
+    end
+
+    array_for_search.first
   end
 
   # Give array of models (categories, transaction_types, etc.) and

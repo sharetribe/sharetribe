@@ -157,6 +157,15 @@ Given(/^there is a custom checkbox field "(.*?)" in that community in category "
   @custom_field.save!
 end
 
+Given(/^that listing has a checkbox answer "(.*?)" for "(.*?)"$/) do |option_title, field_title|
+  field = CustomFieldName.find_by_value!(field_title).custom_field
+  option = CustomFieldOptionTitle.find_by_value!(option_title).custom_field_option
+  value = FactoryGirl.build(:checkbox_field_value, :listing => @listing, :question => field)
+  selection = CustomFieldOptionSelection.create!(:custom_field_value => value, :custom_field_option => option)
+  value.custom_field_option_selections << selection
+  value.save!
+end
+
 Given /^that listing has custom field "(.*?)" with value "(.*?)"$/ do |field_title, option_title|
   field = CustomFieldName.find_by_value!(field_title).custom_field
   option = CustomFieldOptionTitle.find_by_value!(option_title).custom_field_option

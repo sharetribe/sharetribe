@@ -276,6 +276,11 @@ FactoryGirl.define do
     listing
   end
 
+  factory :checkbox_field_value, class: 'CheckboxFieldValue' do
+    question { [ FactoryGirl.build(:custom_checkbox_field) ] }
+    listing
+  end
+
   factory :custom_numeric_field_value, class: 'NumericFieldValue' do
     question { [ FactoryGirl.build(:custom_numeric_field) ] }
     listing
