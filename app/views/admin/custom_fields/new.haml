@@ -16,7 +16,7 @@
 
       = render :partial => "admin/custom_fields/form/field_name", :locals => { :form => form }
 
-      = render :partial => "admin/custom_fields/form/field_required", :locals => { :form => form }
+      = render :partial => "admin/custom_fields/form/field_required", :locals => { :form => form, :custom_field => @custom_field }
 
       - @custom_field.with(:numeric) do
         = render :partial => "admin/custom_fields/form/field_min_max", :locals => { :form => form, :min => 0, :max => 9999 }

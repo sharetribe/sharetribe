@@ -2,4 +2,8 @@
   .col-12
     .checkbox-container
       = form.check_box :required
-      = form.label :required, t(".this_field_is_required")
+      - custom_field.with_type do |type|
+        - if type == :checkbox
+          = form.label :required, t(".this_field_is_required_checkbox")
+        - else
+          = form.label :required, t(".this_field_is_required")

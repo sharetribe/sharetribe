@@ -159,6 +159,7 @@ fi:
       form:
         field_required:
           this_field_is_required: "Tämä on pakollinen kenttä"
+          this_field_is_required_checkbox: "Tämä on pakollinen kenttä (Käyttäjän pitää valita ainakin yksi vaihtoehdoista)"
       index:
         listing_fields: Ilmoituskentät
         add_new_field: "Lisää uusi kenttä:"

@@ -634,6 +634,9 @@ function initialize_new_listing_form(fileDefaultText,
         error.appendTo(element.parent());
       } else if (element.attr("name") == "listing[price]") {
         error.appendTo(element.parent());
+      } else if ($(element).hasClass("custom_field_checkbox")) {
+        var container = $(element).closest(".checkbox-group-container");
+        error.appendTo(container);
       } else {
         error.insertAfter(element);
       }
