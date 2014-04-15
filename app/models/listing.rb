@@ -15,7 +15,7 @@ class Listing < ActiveRecord::Base
   has_many :notifications, :as => :notifiable, :dependent => :destroy
   has_many :comments, :dependent => :destroy
   has_many :custom_field_values, :dependent => :destroy
-  has_many :custom_dropdown_field_values, :class_name => "DropdownValue"
+  has_many :custom_dropdown_field_values, :class_name => "DropdownFieldValue"
   #has_many :custom_dropdown_field_values, :class_name => "DropdownValue", :conditions => ["type = 'DropdownValue'"]
 
   has_one :location, :dependent => :destroy

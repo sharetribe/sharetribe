@@ -225,7 +225,7 @@ FactoryGirl.define do
       FactoryGirl.create(:custom_field_name)
     end
 
-    factory :custom_dropdown_field, class: 'Dropdown' do
+    factory :custom_dropdown_field, class: 'DropdownField' do
       has_many :options do |custom_field|
         [FactoryGirl.create(:custom_field_option), FactoryGirl.create(:custom_field_option)]
       end
@@ -265,7 +265,7 @@ FactoryGirl.define do
     listing
   end
 
-  factory :dropdown_value, class: 'DropdownValue' do
+  factory :dropdown_field_value, class: 'DropdownFieldValue' do
     question { [ FactoryGirl.build(:custom_dropdown_field) ] }
     listing
   end
