@@ -1,9 +1,9 @@
 .home-list-item
-  = link_to listing, :class => "home-list-image-container-desktop" do
-    - if listing.listing_images.size > 0
+  - if listing.listing_images.size > 0
+    = link_to listing, :class => "home-list-image-container-desktop" do
       = image_tag listing.listing_images.first.image.url(:small_3x2), {:alt => listed_listing_title(listing), :class => "home-list-image"}
-  = link_to listing, :class => "home-list-image-container-mobile" do
-    - if listing.listing_images.size > 0
+  - if listing.listing_images.size > 0
+    = link_to listing, :class => "home-list-image-container-mobile" do
       = image_tag listing.listing_images.first.image.url(:thumb), {:alt => listed_listing_title(listing), :class => "home-list-image"}
   .home-list-details-right
     .home-list-price
