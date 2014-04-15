@@ -168,6 +168,7 @@ it:
         new_listing_field: ~
       field_types:
         dropdown: ~
+        dropdownfield: "Elenco a discesa"
         textfield: ~
         numericfield: ~
     emails:
@@ -1677,8 +1678,6 @@ it:
     confirmation_pending:
       welcome_to_kassi: "Benvenuto a %{service_name}!"
       check_your_email: ~
-      get_started: ~
-      getting_started_instructions: ~
       resend_confirmation_instructions: ~
       your_current_email_is: "La tua email è %{email}."
       change_email: ~

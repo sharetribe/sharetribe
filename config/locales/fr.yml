@@ -183,6 +183,7 @@ fr:
         new_listing_field: "Nouveau champ d'annonce"
       field_types:
         dropdown: "Liste déroulante"
+        dropdownfield: Déroulant
         textfield: "Champ texte"
         numericfield: "Champ numérique"
     emails:
@@ -803,7 +804,7 @@ fr:
       settings_link_text: "Vérifiez vos paramètres"
       subject: "Bienvenue dans la tribu %{community} - voici quelques astuces pour bien commencer"
       welcome_some_tips: "Bienvenue dans la tribu %{community_link} ! Voici quelques astuces pour bien commencer."
-      p_s_did_you_know: "PS : saviez-vous que vous pouvez créer une place de marché comme celle ci pour toutes les communautés auxquelles vous appartenez, gratuitement ? %{click_here_link} pour en savoir plus !"
+      p_s_did_you_know: "PS : saviez-vous que vous pouvez créer une place de marché comme celle ci pour toutes les communautés ou projet que vous avez ? %{click_here_link} pour en savoir plus !"
       click_here_link_text: "Cliquez ici"
       update_your_profile: "<strong>Mettez à jour votre profil.</strong> Ajouter votre vrai nom, mettre votre photo et dire quelques mots à propos de vous permettra aux autres de vous faire plus facilement confiance. Ajouter vos informations de contact vous rendra la vie plus facile car vous n'aurez pas à le faire manuellement à chaque fois que vous déposez une annonce."
       update_your_profile_link_text: "Mettez à jour votre profil en cliquant ici"
@@ -1693,8 +1694,6 @@ fr:
     confirmation_pending:
       welcome_to_kassi: "Bienvenue sur %{service_name} !"
       check_your_email: "Voir vos messages"
-      get_started: "Débuter avec %{service_name}"
-      getting_started_instructions: "Lorsque vous avez confirmé votre inscription, il est conseillé d'ajouter une photo à votre <a href=\"%{profile_url}\">profil</a> et de remplir d'autres informations. Vous pouvez également poursuivre directement vers une transaction en ajoutant une <a href=\"/en/listings/new/offer\">offre</a> concernant quelque chose que vous pourriez prêter, louer ou vendre, ou un service que vous pourriez proposer. Sinon, si vous avez besoin d'un certain objet ou d'aide avec quelque chose, vous pouvez envoyer une  <a href=\"/en/listings/new/request\">demande</a>."
       resend_confirmation_instructions: "Renvoyer les instructions de confirmation"
       your_current_email_is: "Votre email est : %{email}."
       change_email: Modifier

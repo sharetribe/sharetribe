@@ -168,6 +168,7 @@ ca:
         new_listing_field: ~
       field_types:
         dropdown: ~
+        dropdownfield: ~
         textfield: ~
         numericfield: ~
     emails:
@@ -1677,8 +1678,6 @@ ca:
     confirmation_pending:
       welcome_to_kassi: "Benvingut a Kassi!"
       check_your_email: "Revisa la safata d'entrada"
-      get_started: "Comença amb Kassi"
-      getting_started_instructions: "Quan hagis confirmat el teu compte és una bona idea afegir una imatge al teu  <a href=\"%{profile_url}\">perfil</a> i omplir la resta de dades, o pots anar directe a l'acció afegint una <a href=\"/en/listings/new/offer\">oferta</a> sobre alguna cosa que pots prestar, llogar, vendre o fer per la resta. Si necessites un article específic, o ajuda amb alguna cosa, publica una <a href=\"/en/listings/new/request\">sol·licitud</a>."
       resend_confirmation_instructions: "Reenviament de les instruccions de confirmació"
       your_current_email_is: ~
       change_email: ~

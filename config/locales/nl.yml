@@ -168,6 +168,7 @@ nl:
         new_listing_field: ~
       field_types:
         dropdown: ~
+        dropdownfield: Drop-down
         textfield: ~
         numericfield: ~
     emails:
@@ -1676,8 +1677,6 @@ nl:
     confirmation_pending:
       welcome_to_kassi: "Welkom bij %{service_name}"
       check_your_email: ~
-      get_started: ~
-      getting_started_instructions: ~
       resend_confirmation_instructions: ~
       your_current_email_is: ~
       change_email: ~
@@ -1814,6 +1813,9 @@ nl:
     seconds_ago: "%{count} secondes geleden"
     year_ago: "%{count} jaar geleden"
     years_ago: "%{count} jaren geleden"
+    days_since:
+      one: "%{count} dag"
+      other: "%{count} dagen"
   will_paginate:
     previous_label: ~
     next_label: ~

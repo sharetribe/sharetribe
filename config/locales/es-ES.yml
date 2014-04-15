@@ -168,6 +168,7 @@ es-ES:
         new_listing_field: ~
       field_types:
         dropdown: ~
+        dropdownfield: ~
         textfield: ~
         numericfield: ~
     emails:
@@ -1683,8 +1684,6 @@ es-ES:
     confirmation_pending:
       welcome_to_kassi: "Bienvenido a %{service_name}!"
       check_your_email: "Revise su bandeja de entrada"
-      get_started: "Comenzar con %{service_name}"
-      getting_started_instructions: ~
       resend_confirmation_instructions: "Reenvío de instrucciones de confirmación"
       your_current_email_is: "Tu e-mail es %{email}."
       change_email: Cambiar

@@ -168,6 +168,7 @@ pt-BR:
         new_listing_field: ~
       field_types:
         dropdown: "Lista de opções"
+        dropdownfield: "Lista de opções"
         textfield: ~
         numericfield: "Campo numerico"
     emails:
@@ -1675,8 +1676,6 @@ pt-BR:
     confirmation_pending:
       welcome_to_kassi: ~
       check_your_email: "Verifique sua caixa de entrada"
-      get_started: ~
-      getting_started_instructions: ~
       resend_confirmation_instructions: "Reenviar instruções de confirmação"
       your_current_email_is: ~
       change_email: Trocar

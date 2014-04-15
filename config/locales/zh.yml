@@ -168,6 +168,7 @@ zh:
         new_listing_field: ~
       field_types:
         dropdown: ~
+        dropdownfield: ~
         textfield: ~
         numericfield: ~
     emails:
@@ -1675,8 +1676,6 @@ zh:
     confirmation_pending:
       welcome_to_kassi: 欢迎来到Kassi！
       check_your_email: 查看您的收件箱
-      get_started: 开始使用Kassi
-      getting_started_instructions: ~
       resend_confirmation_instructions: 再次发送确认信
       your_current_email_is: "你的的电子邮箱是%{email}。"
       change_email: 改变

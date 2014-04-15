@@ -168,6 +168,7 @@ ro:
         new_listing_field: ~
       field_types:
         dropdown: ~
+        dropdownfield: ~
         textfield: ~
         numericfield: ~
     emails:
@@ -1675,8 +1676,6 @@ ro:
     confirmation_pending:
       welcome_to_kassi: "Bine ați venit la Kassi!"
       check_your_email: ~
-      get_started: ~
-      getting_started_instructions: "După ce ați confirmat contul, este o idee bună sa adăugați o fotografie la <a href=\"%{profile_url}\"> profilul dumnveavoastră</a> și să completați alte detalii, sau puteți continua direct spre portal adăugând o <a href=\"/en/listings/new/offer\"> ofertă </a> despre ceva ce puteți împrumuta, închiria, vinde sau face pentru ceilalți. Sau dacă aveți nevoie de un lucru ori de ajutor, scrieți o<a href=\"/en/listings/new/request\"> cerere </a>."
       resend_confirmation_instructions: "Retrimite instrucțiunile de confirmare"
       your_current_email_is: ~
       change_email: ~

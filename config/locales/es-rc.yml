@@ -168,6 +168,7 @@ es-rc:
         new_listing_field: ~
       field_types:
         dropdown: ~
+        dropdownfield: ~
         textfield: ~
         numericfield: ~
     emails:
@@ -1707,8 +1708,6 @@ es-rc:
     confirmation_pending:
       welcome_to_kassi: ~
       check_your_email: ~
-      get_started: ~
-      getting_started_instructions: "Cuando hayas confirmado tu cuenta, puedes agregar una imagen a tu <a href=\"%{profile_url}\">perfil</a> y completar todos los datos. O directamente  <a href=\"es-rc/listings/new?ref=tribe_navi\">subir tus camisetas</a> para empezar a intercambiarlas, venderlas o solo mostrar tu colección."
       resend_confirmation_instructions: ~
       your_current_email_is: ~
       change_email: ~

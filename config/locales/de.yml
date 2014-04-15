@@ -183,6 +183,7 @@ de:
         new_listing_field: "Neues Eintragsfeld"
       field_types:
         dropdown: Dropdown-Menü
+        dropdownfield: Aufklappmenü
         textfield: Textfeld
         numericfield: "Numerisches Feld"
     emails:
@@ -1696,8 +1697,6 @@ de:
     confirmation_pending:
       welcome_to_kassi: "Willkommen bei %{service_name},"
       check_your_email: "Posteingang überprüfen"
-      get_started: "Erste Schritte mit %{service_name}"
-      getting_started_instructions: "Wenn du dein Konto bestätigt hast, empfiehlt es sich, ein Bild und andere Informationen zu deinem Profil hinzuzufügen. Natürlich kannst du auch sofort anfangen, Angebote zu erstellen, wenn du etwas zu verleihen oder zu verkaufen hast, oder wenn du etwas für jemand anderes tun kannst. Und wenn du etwas Bestimmtes brauchst, dann füge eine Anfrage hinzu."
       resend_confirmation_instructions: "Anweisungen zum Bestätigen erneut senden"
       your_current_email_is: "Deine E-Mail-Adresse ist %{email}."
       change_email: Ändern

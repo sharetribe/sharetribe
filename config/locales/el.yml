@@ -168,6 +168,7 @@ el:
         new_listing_field: ~
       field_types:
         dropdown: ~
+        dropdownfield: ~
         textfield: ~
         numericfield: ~
     emails:
@@ -1678,8 +1679,6 @@ el:
     confirmation_pending:
       welcome_to_kassi: "Καλωσήρθες στο %{service_name}!"
       check_your_email: "Δες τα εισερχόμενα στο ηλεκτρονικό ταχυδρομείο σου."
-      get_started: "Ξεκίνα να χρησιμοποιείς το %{service_name}"
-      getting_started_instructions: "Όταν θα έχεις επιβεβαιώσει το λογαριασμό σου, είναι καλή ιδέα να βάλεις μια φωτογραφία στο <a href=\"%{profile_url}\">προφίλ</a> σου και να συμπληρώσεις και άλλες πληροφορίες για σένα, ή μπορείς κατευθείαν να προσθέσεις μια <a href=\"/en/listings/new/offer\">προσφορά</a> σχετικά με κάτι που θα μπορούσες να δανείσεις, να πουλήσεις, να ενοικιάσεις ή να κάνεις για κάποιον άλλο. Ή, αν χρειάζεσαι κάτι συγκεκριμένο μπορείς να καταχωρήσεις ένα <a href=\"/en/listings/new/request\">αίτημα</a>."
       resend_confirmation_instructions: "Στείλε ξανά τις οδηγίες επιβεβαίωσης."
       your_current_email_is: "Η διεύθυνση email σας είναι %{email}."
       change_email: Αλλαγή

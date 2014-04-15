@@ -168,6 +168,7 @@ en-bd:
         new_listing_field: ~
       field_types:
         dropdown: ~
+        dropdownfield: DropDown
         textfield: ~
         numericfield: ~
     emails:
@@ -1678,11 +1679,6 @@ en-bd:
     confirmation_pending:
       welcome_to_kassi: ~
       check_your_email: ~
-      get_started: ~
-      getting_started_instructions: |-
-          Upon confirmation of your account, it's a good idea to add a picture to your <a href="%{profile_url}">profil</a> and to add your preferred email address to receive notifications, as well as a short bio.
-          You can also continue straight in to action by adding an housing ad you would like to share, in Paris, London, Singapore, Shanghai, you name it! Sharing is Finding, right?
-          Finally, we encourage you to spread the word and send an invite to your fellow classmate via our "Invite" button in the drop-down menu under your profile, or to post the link on Facebook.
       resend_confirmation_instructions: ~
       your_current_email_is: ~
       change_email: ~

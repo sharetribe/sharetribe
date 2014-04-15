@@ -168,6 +168,7 @@ vi:
         new_listing_field: ~
       field_types:
         dropdown: ~
+        dropdownfield: ~
         textfield: ~
         numericfield: ~
     emails:
@@ -1676,8 +1677,6 @@ vi:
     confirmation_pending:
       welcome_to_kassi: "Chào mừng đến với %{service_name}!"
       check_your_email: "Kiểm tra hộp thư đến của bạn"
-      get_started: "Bắt đầu với %{service_name}"
-      getting_started_instructions: "Khi bạn đã xác nhận tài khoản của bạn, một ý tưởng tốt để thêm ảnh vào tiểu sử của bạn và điền vào các chi tiết khác. Bạn cũng có thể cũng tiếp tục thao tác trực tiếp bằng cách thêm một hỗ trợ về một cái gì đó bạn có thể cho vay, cho thuê, bán hoặc làm cho người khác. Hoặc nếu bạn cần một thứ gì đó cụ thể hoặc giúp đỡ một thứ gì đó, hãy gửi yêu cầu."
       resend_confirmation_instructions: "Gửi lại chỉ dẫn xác nhận"
       your_current_email_is: "Email của bạn là %{email}."
       change_email: "thay đổi"

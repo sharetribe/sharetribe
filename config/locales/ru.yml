@@ -168,6 +168,7 @@ ru:
         new_listing_field: ~
       field_types:
         dropdown: ~
+        dropdownfield: Опустить
         textfield: ~
         numericfield: ~
     emails:
@@ -1678,8 +1679,6 @@ ru:
     confirmation_pending:
       welcome_to_kassi: "Добро пожаловать в %{service_name}!"
       check_your_email: "Проверьте ваш почтовый ящик"
-      get_started: "Начало работы с %{service_name}"
-      getting_started_instructions: "После подтверждения вашей учетной записи, хорошей идеей будет добавление картинки для вашего <a href=\"%{profile_url}\">профиля</a> и заполнения полей с информацией о вас, либо вы можете перейти прямо к действию, добавив <a href=\"/ru/listings/new/offer\">предложение</a> о чем-то, что вы могли бы сдать напрокат, продать или сделать для других. Или, если вы сами в чём-то конкретно нуждаетесь, разместите <a href=\"/ru/listings/new/request\">запрос</a> ."
       resend_confirmation_instructions: "Повторно выслать инструкции для подтверждения"
       your_current_email_is: "Ваша электронная почта: %{email} ."
       change_email: Изменить

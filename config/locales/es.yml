@@ -168,6 +168,7 @@ es:
         new_listing_field: ~
       field_types:
         dropdown: ~
+        dropdownfield: ~
         textfield: ~
         numericfield: ~
     emails:
@@ -1365,7 +1366,7 @@ es:
       selected_transaction_type: ~
       select_category: "Selecionar una categoría"
       select_subcategory: ~
-      select_transaction_type: ~
+      select_transaction_type: "seleccionar tipo de listado"
     please_comment: Comentario
     reply_link:
       listing_closed: "Listado cerrado"
@@ -1688,8 +1689,6 @@ es:
     confirmation_pending:
       welcome_to_kassi: "Bienvenido (a) a %{service_name}!"
       check_your_email: "Revisa tu bandeja de entrada"
-      get_started: "Comience con %{service_name}"
-      getting_started_instructions: "Cuando hayas confirmado tu cuenta, es una buena idea añadir una imagen a tu <a href=\"%{profile_url}\">perfil</a> y rellenar es resto de los datos, o puedes ir directo a la acción añadiendo un <a href=\"/en/listings/new/offer\">offer</a> sobre algo que puedas prestar, arrendar, vender o hacer por los demás. Si necesitas un artículo en específico o ayuda con el algo, publica en <a href=\"/en/listings/new/request\">request</a>."
       resend_confirmation_instructions: "Reenvío de instrucciones de confirmación"
       your_current_email_is: "Tu e-mail es %{email}."
       change_email: Cambiar
