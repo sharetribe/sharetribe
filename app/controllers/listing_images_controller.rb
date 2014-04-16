@@ -39,7 +39,7 @@ class ListingImagesController < ApplicationController
 
   # Return image status and thumbnail url
   def image_status
-    listing_image = ListingImage.find_by_id_and_author_id(params[:id], @current_user.id)
+    listing_image = ListingImage.find_by_id(params[:id])
 
     if !listing_image
       render nothing: true, status: 404
