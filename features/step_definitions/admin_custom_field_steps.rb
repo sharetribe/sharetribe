@@ -95,7 +95,7 @@ end
 
 When /^I add a new numeric field "(.*?)" with min value (\d+) and max value (\d+)$/ do |field_name, min, max|
   steps %Q{
-    When I select "Numeric field" from "field_type"
+    When I select "Number" from "field_type"
     And I fill in "custom_field[name_attributes][en]" with "#{field_name}"
     And I fill in "custom_field[name_attributes][fi]" with "Pinta-ala"
     And I toggle category "Spaces"
