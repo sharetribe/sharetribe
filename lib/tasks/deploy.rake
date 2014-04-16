@@ -102,6 +102,10 @@ def prepare_closed_source_branch
   end
 end
 
+def heroku(cmd)
+  Bundler.with_clean_env { system("heroku #{cmd}") }
+end
+
 def deploy_to_server
   system("git push #{@destination} closed_source:master --force")
 
@@ -109,17 +113,17 @@ end
 
 def run_migrations
   puts 'Running database migrations ...'
-  system("heroku run rake db:migrate --app #{@app}")
+  heroku("run rake db:migrate --app #{@app}")
 end
 
 def restart
   puts 'Restarting app servers ...'
-  system("heroku restart --app #{@app}")
+  heroku("restart --app #{@app}")
 end
 
 def generate_custom_css
   puts 'Generating custom CSS for tribes who use it ...'
-  system("heroku run rake sharetribe:generate_customization_stylesheets --app #{@app}")
+  heroku("run rake sharetribe:generate_customization_stylesheets --app #{@app}")
 end
 
 ## STAGING
@@ -316,12 +320,12 @@ namespace :deploy do
 
   task :restart do
     puts 'Restarting app servers ...'
-    system("heroku restart --app #{APP}")
+    heroku("restart --app #{APP}")
   end
 
   task :generate_custom_css => :environment do
     puts 'Generating custom CSS for tribes who use it ...'
-    system("heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}")
+    heroku("run rake sharetribe:generate_customization_stylesheets --app #{APP}")
   end
 
   task :tag do
@@ -333,7 +337,7 @@ namespace :deploy do
 
   task :migrate do
     puts 'Running database migrations ...'
-    system("heroku run rake db:migrate --app #{APP}")
+    heroku("run rake db:migrate --app #{APP}")
   end
 
   task :off do
