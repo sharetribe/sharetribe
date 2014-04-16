@@ -183,10 +183,10 @@ fi:
       new:
         new_listing_field: "Uusi ilmoituskenttä"
       field_types:
+        text: "Teksti"
+        number: "Numero"
         dropdown: Pudotusvalikko
-        textfield: Tekstikenttä
-        numericfield: Numerokenttä
-        checkboxfield: Valintaruutukenttä
+        checkbox_group: "Ryhmä valintaruutuja"
     emails:
       new:
         send_email_to_members: "Lähetä sähköpostia jäsenille"
