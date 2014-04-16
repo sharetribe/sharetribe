@@ -636,7 +636,7 @@ function initialize_new_listing_form(fileDefaultText,
         error.appendTo(element.parent());
       } else if ($(element).hasClass("custom_field_checkbox")) {
         var container = $(element).closest(".checkbox-group-container");
-        error.appendTo(container);
+        error.insertAfter(container);
       } else {
         error.insertAfter(element);
       }
