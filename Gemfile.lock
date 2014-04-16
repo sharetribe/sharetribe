@@ -154,7 +154,7 @@ GEM
     fb-channel-file (0.0.2)
       rails (>= 3.0)
     ffi (1.9.3)
-    flying-sphinx (1.1.0)
+    flying-sphinx (1.2.0)
       faraday (>= 0.9)
       multi_json (>= 1.3.0)
       pusher-client (~> 0.3)
@@ -399,7 +399,7 @@ GEM
       polyglot (>= 0.3.1)
     trollop (2.0)
     truncate_html (0.9.1)
-    ts-delayed-delta (2.0.0)
+    ts-delayed-delta (2.0.1)
       delayed_job
       thinking-sphinx
     tzinfo (0.3.39)
@@ -453,7 +453,7 @@ DEPENDENCIES
   email_spec
   factory_girl_rails
   fb-channel-file
-  flying-sphinx (~> 1.1.0)
+  flying-sphinx (~> 1.2.0)
   guard-livereload
   guard-rspec
   haml
@@ -499,7 +499,7 @@ DEPENDENCIES
   thinking-sphinx (~> 3.1.0)!
   timecop
   truncate_html
-  ts-delayed-delta
+  ts-delayed-delta (~> 2.0.1)
   uglifier
   unicorn (~> 4.6.3)
   web_translate_it
