@@ -102,6 +102,7 @@ def prepare_closed_source_branch
   end
 end
 
+# Fixes error: Your Ruby version is 1.9.3, but your Gemfile specified 2.1.1
 def heroku(cmd)
   Bundler.with_clean_env { system("heroku #{cmd}") }
 end
