@@ -214,7 +214,12 @@ Feature: User creates a new listing
     And I check "Sauna"
     And I check "Hot Tub"
     And I press "Save listing"
-    Then I should see "Wireless Internet, Pool, Sauna, Hot Tub"
+    Then I should see that the listing has "Wireless Internet"
+    Then I should see that the listing has "Pool"
+    Then I should see that the listing has "Sauna"
+    Then I should see that the listing has "Hot Tub"
+    Then I should see that the listing does not have "Internet"
+    Then I should see that the listing does not have "Air Conditioning"
 
   @javascript
   Scenario: User creates a new listing in private community

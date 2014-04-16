@@ -203,3 +203,11 @@ When(/^I click for the previous image$/) do
   page.execute_script("$('#listing-image-navi-right').show()");
   find("#listing-image-navi-left", visible: false).click
 end
+
+Then(/^I should see that the listing has "(.*?)"$/) do |option_title|
+  find(".checkbox-option.selected", :text => option_title)
+end
+
+Then(/^I should see that the listing does not have "(.*?)"$/) do |option_title|
+  find(".checkbox-option.not-selected", :text => option_title)
+end
