@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Dropdown do
+describe DropdownField do
   describe "validations" do
     before(:each) do
       # Create valid Dropdown entity

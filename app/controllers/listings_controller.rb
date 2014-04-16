@@ -279,10 +279,10 @@ class ListingsController < ApplicationController
       case question_type
       when :dropdown
         option_id = answer_value.to_i
-        answer = DropdownValue.new
+        answer = DropdownFieldValue.new
         answer.custom_field_option_selections = [CustomFieldOptionSelection.new(:custom_field_value => answer, :custom_field_option_id => answer_value)]
         answer
-      when :text_field
+      when :text
         answer = TextFieldValue.new
         answer.text_value = answer_value
         answer

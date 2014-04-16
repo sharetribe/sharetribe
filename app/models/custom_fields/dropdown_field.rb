@@ -1,4 +1,4 @@
-class Dropdown < OptionField
+class DropdownField < OptionField
   validates_length_of :options, :minimum => 2
 
   def with_type(&block)
