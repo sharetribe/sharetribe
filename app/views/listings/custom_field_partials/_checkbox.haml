@@ -1,4 +1,16 @@
-- question_name = custom_field_value.question.name(I18n.locale)
+- question = custom_field_value.question
+- question_name = question.name(I18n.locale)
 - answer_title = custom_field_value.selected_options.map { |selected_option| selected_option.title(I18n.locale) }.join(", ")
 %b= "#{question_name}:"
-= answer_title
+
+.row
+  - Util::ArrayUtils.each_slice_columns(question.options.sort, 3) do |column|
+    .col-4
+      - column.each do |option|
+        - selected = custom_field_value.selected_options.include?(option)
+        .checkbox-option{class: selected ? 'selected' : 'not-selected'}
+          %span.checkbox-option-checkmark
+            - if selected
+              = icon_tag("check", ["icon-fix"])
+          %span
+            = option.title(I18n.locale)

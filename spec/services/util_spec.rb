@@ -66,3 +66,17 @@ describe Util::StringUtils do
     Util::StringUtils.keywords("This marketplace is a place! where I can sell and buy stuff", 5).should eql "this, marketplace, place, where, can"
   end
 end
+
+describe Util::ArrayUtils do
+  include Util::ArrayUtils
+
+  it "#each_slice_columns" do
+    each_slice_columns([1], 3).to_a.should eql([[1]])
+    each_slice_columns([1, 2], 3).to_a.should eql([[1], [2]])
+    each_slice_columns([1, 2, 3], 3).to_a.should eql([[1], [2], [3]])
+    each_slice_columns([1, 2, 3, 4], 3).to_a.should eql([[1, 2], [3], [4]])
+    each_slice_columns([1, 2, 3, 4, 5], 3).to_a.should eql([[1, 2], [3, 4], [5]])
+    each_slice_columns([1, 2, 3, 4, 5, 6], 3).to_a.should eql([[1, 2], [3, 4], [5, 6]])
+    each_slice_columns([1, 2, 3, 4, 5, 6, 7], 3).to_a.should eql([[1, 2, 3], [4, 5], [6, 7]])
+  end
+end

@@ -131,3 +131,18 @@ $listing-author-avatar-height: 108;
   margin-top: 0;
   width: 100%;
 }
+
+.checkbox-option {
+  &.selected {
+
+  }
+  &.not-selected {
+    color: $border;
+  }
+}
+
+.checkbox-option-checkmark {
+  display: inline-block;
+  width: 20px;
+  color: $link;
+}
