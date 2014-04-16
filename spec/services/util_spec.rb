@@ -38,6 +38,11 @@ describe Util::HashUtils do
 
     Util::HashUtils.camelize_keys(test_data).should eql(expected)
   end
+
+  it "#select_by_key_regexp" do
+    h = { :first_key => 1, :second_key => 2, :first_first_key => 11 }
+    Util::HashUtils.select_by_key_regexp(h, /^first_/).should eql({ :first_key => 1, :first_first_key => 11 })
+  end
 end
 
 describe Util::StringUtils do
@@ -59,5 +64,19 @@ describe Util::StringUtils do
 
   it "#keywords" do
     Util::StringUtils.keywords("This marketplace is a place! where I can sell and buy stuff", 5).should eql "this, marketplace, place, where, can"
+  end
+end
+
+describe Util::ArrayUtils do
+  include Util::ArrayUtils
+
+  it "#each_slice_columns" do
+    each_slice_columns([1], 3).to_a.should eql([[1]])
+    each_slice_columns([1, 2], 3).to_a.should eql([[1], [2]])
+    each_slice_columns([1, 2, 3], 3).to_a.should eql([[1], [2], [3]])
+    each_slice_columns([1, 2, 3, 4], 3).to_a.should eql([[1, 2], [3], [4]])
+    each_slice_columns([1, 2, 3, 4, 5], 3).to_a.should eql([[1, 2], [3, 4], [5]])
+    each_slice_columns([1, 2, 3, 4, 5, 6], 3).to_a.should eql([[1, 2], [3, 4], [5, 6]])
+    each_slice_columns([1, 2, 3, 4, 5, 6, 7], 3).to_a.should eql([[1, 2, 3], [4, 5], [6, 7]])
   end
 end

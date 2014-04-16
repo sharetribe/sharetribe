@@ -143,6 +143,29 @@ Given /^there is a dropdown field "(.*?)" for category "(.*?)" in community "(.*
   @custom_field.save!
 end
 
+Given(/^there is a custom checkbox field "(.*?)" in that community in category "(.*?)" with options:$/) do |field_title, category_name, opts_table|
+  @category = find_category_by_name(category_name)
+  @custom_field = FactoryGirl.build(:custom_checkbox_field, :community => @current_community, :names => [CustomFieldName.create(:value => field_title, :locale => "en")])
+  @custom_field.category_custom_fields << FactoryGirl.build(:category_custom_field, :category => @category, :custom_field => @custom_field)
+
+  opts_table.hashes.each do |hash|
+    title = CustomFieldOptionTitle.create(:value => hash[:title], :locale => "en")
+    option = FactoryGirl.build(:custom_field_option, :titles => [title])
+    @custom_field.options << option
+  end
+
+  @custom_field.save!
+end
+
+Given(/^that listing has a checkbox answer "(.*?)" for "(.*?)"$/) do |option_title, field_title|
+  field = CustomFieldName.find_by_value!(field_title).custom_field
+  option = CustomFieldOptionTitle.find_by_value!(option_title).custom_field_option
+  value = FactoryGirl.build(:checkbox_field_value, :listing => @listing, :question => field)
+  selection = CustomFieldOptionSelection.create!(:custom_field_value => value, :custom_field_option => option)
+  value.custom_field_option_selections << selection
+  value.save!
+end
+
 Given /^that listing has custom field "(.*?)" with value "(.*?)"$/ do |field_title, option_title|
   field = CustomFieldName.find_by_value!(field_title).custom_field
   option = CustomFieldOptionTitle.find_by_value!(option_title).custom_field_option
@@ -179,4 +202,12 @@ When(/^I click for the previous image$/) do
   # Selenium can not interact with hidden elements
   page.execute_script("$('#listing-image-navi-right').show()");
   find("#listing-image-navi-left", visible: false).click
+end
+
+Then(/^I should see that the listing has "(.*?)"$/) do |option_title|
+  find(".checkbox-option.selected", :text => option_title)
+end
+
+Then(/^I should see that the listing does not have "(.*?)"$/) do |option_title|
+  find(".checkbox-option.not-selected", :text => option_title)
 end

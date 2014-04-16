@@ -239,6 +239,12 @@ FactoryGirl.define do
       max 100
     end
 
+    factory :custom_checkbox_field, class: 'CheckboxField' do
+      has_many :options do |custom_field|
+        [FactoryGirl.create(:custom_field_option), FactoryGirl.create(:custom_field_option)]
+      end
+    end
+
   end
 
   factory :category_custom_field do
@@ -267,6 +273,11 @@ FactoryGirl.define do
 
   factory :dropdown_field_value, class: 'DropdownFieldValue' do
     question { [ FactoryGirl.build(:custom_dropdown_field) ] }
+    listing
+  end
+
+  factory :checkbox_field_value, class: 'CheckboxFieldValue' do
+    question { [ FactoryGirl.build(:custom_checkbox_field) ] }
     listing
   end
 

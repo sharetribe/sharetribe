@@ -13,7 +13,6 @@ $bottom-gutter: lines(0.5);
   @for $i from 1 through $cols {
     .#{$prefix}-#{$i} {
       width: 100%;
-      margin-bottom: $bottom-gutter;
 
       @include media(tablet) {
         width: $col-width * $i;
@@ -37,6 +36,7 @@ $bottom-gutter: lines(0.5);
 
 .row {
   @include pie-clearfix;
+  margin-bottom: $bottom-gutter;
 }
 
 .row-with-divider {

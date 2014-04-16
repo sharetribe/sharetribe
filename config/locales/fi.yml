@@ -159,6 +159,7 @@ fi:
       form:
         field_required:
           this_field_is_required: "Tämä on pakollinen kenttä"
+          this_field_is_required_checkbox: "Tämä on pakollinen kenttä (Käyttäjän pitää valita ainakin yksi vaihtoehdoista)"
       index:
         listing_fields: Ilmoituskentät
         add_new_field: "Lisää uusi kenttä:"
@@ -169,7 +170,7 @@ fi:
         field_type: "Kentän tyyppi"
         categories: "Ilmoituskategoriat joihin kenttä liittyy"
         no_custom_listing_fields: "Yhteisöllä ei ole yhtään yhteisökohtaista listauskenttää."
-        dropdown_options: "Pudotusvalikon vastausvaihtoehdot"
+        options: "Vastausvaihtoehdot"
         add_option: "+ Lisää vastausvaihtoehto"
         saving_order: "Tallennetaan kenttien järjestystä"
         save_order_successful: "Kenttien järjestyksen tallennus onnistui"
@@ -182,9 +183,10 @@ fi:
       new:
         new_listing_field: "Uusi ilmoituskenttä"
       field_types:
+        text: "Teksti"
+        number: "Numero"
         dropdown: Pudotusvalikko
-        textfield: Tekstikenttä
-        numericfield: Numerokenttä
+        checkbox_group: "Ryhmä valintaruutuja"
     emails:
       new:
         send_email_to_members: "Lähetä sähköpostia jäsenille"

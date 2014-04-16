@@ -16,17 +16,28 @@ class Admin::CustomFieldsController < ApplicationController
     @selected_left_navi_link = "listing_fields"
     @community = @current_community
     @custom_field = params[:field_type].constantize.new
-    @custom_field.options = [CustomFieldOption.new, CustomFieldOption.new]
+
+    if params[:field_type] == "CheckboxField"
+      @min_option_count = 1
+      @custom_field.options = [CustomFieldOption.new]
+    else
+      @min_option_count = 2
+      @custom_field.options = [CustomFieldOption.new, CustomFieldOption.new]
+    end
   end
 
   def create
-    success = if valid_categories?(@current_community, params[:custom_field][:category_attributes])
-      # Hack for comma/dot issue. Consider creating an app-wide comma/dot handling mechanism
-      params[:custom_field][:min] = ParamsService.parse_float(params[:custom_field][:min]) if params[:custom_field][:min].present?
-      params[:custom_field][:max] = ParamsService.parse_float(params[:custom_field][:max]) if params[:custom_field][:max].present?
+    @selected_left_navi_link = "listing_fields"
+    @community = @current_community
 
-      @custom_field = params[:field_type].constantize.new(params[:custom_field])
-      @custom_field.community = @current_community
+    # Hack for comma/dot issue. Consider creating an app-wide comma/dot handling mechanism
+    params[:custom_field][:min] = ParamsService.parse_float(params[:custom_field][:min]) if params[:custom_field][:min].present?
+    params[:custom_field][:max] = ParamsService.parse_float(params[:custom_field][:max]) if params[:custom_field][:max].present?
+
+    @custom_field = params[:field_type].constantize.new(params[:custom_field])
+    @custom_field.community = @current_community
+
+    success = if valid_categories?(@current_community, params[:custom_field][:category_attributes])
       @custom_field.save
     end
 
@@ -34,7 +45,7 @@ class Admin::CustomFieldsController < ApplicationController
       redirect_to admin_custom_fields_path
     else
       flash[:error] = "Listing field saving failed"
-      render :action => :new
+      render :new
     end
   end
 
@@ -42,6 +53,13 @@ class Admin::CustomFieldsController < ApplicationController
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "listing_fields"
     @community = @current_community
+
+    if params[:field_type] == "CheckboxField"
+      @min_option_count = 1
+    else
+      @min_option_count = 2
+    end
+
     @custom_field = CustomField.find(params[:id])
   end
 

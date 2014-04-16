@@ -23,7 +23,7 @@ class CustomField < ActiveRecord::Base
 
   belongs_to :community
 
-  VALID_TYPES = ["DropdownField", "TextField", "NumericField"]
+  VALID_TYPES = ["TextField", "NumericField", "DropdownField", "CheckboxField"]
 
   validates_length_of :names, :minimum => 1
   validates_length_of :category_custom_fields, :minimum => 1

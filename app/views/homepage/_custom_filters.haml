@@ -1,18 +1,20 @@
 - @current_community.custom_fields.sort.each do |field|
 
-  - field.with(:dropdown) do
-    .row
-      .col-12
-        .custom-filter-title
-          = field.name(I18n.locale)
-        - make_scrollable = field.options.size > 10
-        .custom-filter-options{:class => make_scrollable ? "scrollable" : ""}
-          - field.options.sort.each do |option|
-            .custom-filter-checkbox-container
-              %label.custom-filter-checkbox-label
-                = check_box_tag "filter_option_#{option.id}", "#{option.id}", params["filter_option_#{option.id}"]
-                %span.custom-filter-checkbox-label-text
-                  = option.title(I18n.locale)
+  - field.with_type do |type|
+    - if [:dropdown, :checkbox].include?(type)
+      .row
+        .col-12
+          .custom-filter-title
+            = field.name(I18n.locale)
+          - make_scrollable = field.options.size > 10
+          .custom-filter-options{:class => make_scrollable ? "scrollable" : ""}
+            - field.options.sort.each do |option|
+              .custom-filter-checkbox-container
+                %label.custom-filter-checkbox-label
+                  - param_name = type == :dropdown ? "filter_option_#{option.id}" : "checkbox_filter_option_#{option.id}"
+                  = check_box_tag param_name, "#{option.id}", params[param_name]
+                  %span.custom-filter-checkbox-label-text
+                    = option.title(I18n.locale)
 
   - field.with(:numeric) do
     .row

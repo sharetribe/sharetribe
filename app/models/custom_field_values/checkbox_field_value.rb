@@ -1,0 +1,2 @@
+class CheckboxFieldValue < OptionFieldValue
+end

@@ -139,7 +139,7 @@ class ListingsController < ApplicationController
     @listing = Listing.new(params[:listing])
 
     @listing.author = @current_user
-    @listing.custom_field_values = create_field_values(params[:custom_fields]) if params[:custom_fields]
+    @listing.custom_field_values = create_field_values(params[:custom_fields])
 
     if @listing.save
       listing_image_ids = params[:listing_images].collect { |h| h[:id] }.select { |id| id.present? }
@@ -178,7 +178,7 @@ class ListingsController < ApplicationController
       end
     end
 
-    @listing.custom_field_values = create_field_values(params[:custom_fields]) if params[:custom_fields]
+    @listing.custom_field_values = create_field_values(params[:custom_fields])
 
     params[:listing] = normalize_price_param(params[:listing]);
 
@@ -290,6 +290,10 @@ class ListingsController < ApplicationController
         answer = NumericFieldValue.new
         answer.numeric_value = ParamsService.parse_float(answer_value)
         answer
+      when :checkbox
+        answer = CheckboxFieldValue.new
+        answer.custom_field_option_selections = answer_value.map { |value| CustomFieldOptionSelection.new(:custom_field_value => answer, :custom_field_option_id => value) }
+        answer
       else
         throw "Unimplemented custom field answer for question #{question_type}"
       end
@@ -301,7 +305,9 @@ class ListingsController < ApplicationController
     return answer
   end
 
-  def create_field_values(custom_field_params={})
+  def create_field_values(custom_field_params)
+    custom_field_params ||= {}
+
     mapped_values = custom_field_params.map do |custom_field_id, answer_value|
       custom_field_value_factory(custom_field_id, answer_value) unless answer_value.blank?
     end.compact

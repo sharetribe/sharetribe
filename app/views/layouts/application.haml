@@ -40,7 +40,7 @@
   - if params[:controller] == "homepage" && params[:action] == "index"
     = form_tag({ :action => :index, :controller => :homepage}, :method => "get", :id => "homepage-filters") do
       - params.except("action", "controller", "q", "view", "utf8").each do |param, value|
-        - unless param.match(/^filter_option/) || param.match(/^nf_/) || param.match(/^price_/)
+        - unless param.match(/^filter_option/) || param.match(/^checkbox_filter_option/) || param.match(/^nf_/) || param.match(/^price_/)
           = hidden_field_tag param, value
       = hidden_field_tag "view", @view_type
       = content_for(:page_content)
