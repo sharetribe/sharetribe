@@ -1,6 +1,8 @@
-.checkbox-group-container
-  - custom_field.options.sort.each do |opt|
-    .checkbox-container
-      - selected = custom_field_value ? custom_field_value.selected_options.include?(opt) : false
-      = check_box_tag "custom_fields[#{custom_field.id}][]", opt.id, selected, {id: "custom_fields_#{custom_field.id}_#{opt.id}", :class => "custom_field_checkbox #{custom_field.required? ? 'required' : ''}"}
-      = label_tag "custom_fields_#{custom_field.id}_#{opt.id}", "#{opt.title(I18n.locale)}", :class => "settings-checkbox-label"
+.row.checkbox-group-container
+  - Util::ArrayUtils.each_slice_columns(custom_field.options.sort, 2) do |column|
+    .col-6
+      - column.each do |opt|
+        .checkbox-container
+          - selected = custom_field_value ? custom_field_value.selected_options.include?(opt) : false
+          = check_box_tag "custom_fields[#{custom_field.id}][]", opt.id, selected, {id: "custom_fields_#{custom_field.id}_#{opt.id}", :class => "custom_field_checkbox #{custom_field.required? ? 'required' : ''}"}
+          = label_tag "custom_fields_#{custom_field.id}_#{opt.id}", "#{opt.title(I18n.locale)}", {class: "light"}

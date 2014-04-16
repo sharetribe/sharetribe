@@ -31,3 +31,9 @@ input.auto_width {
 // used to style the element, which by default has black text.
 // #aaa is the default placeholder color in most browsers.
 .placeholder { color: #aaa; }
+
+.checkbox-container {
+  & > .light {
+    font-weight: 500;
+  }
+}
