@@ -39,6 +39,12 @@
 
     .row
       .col-12
+        = form.label :favicon, t(".favicon"), :class => "input"
+        = render :partial => "layouts/info_text", :locals => { :text => t(".favicon_info_text") }
+        = form.file_field(:favicon, :class => "file_field")
+
+    .row
+      .col-12
         = form.label :custom_color1, t(".community_custom_color1"), :class => "input"
         = render :partial => "layouts/info_text", :locals => { :text => t(".custom_color1_instructions_text").html_safe }
         = form.text_field :custom_color1, :maxlength => "6", :class => "text_field"
