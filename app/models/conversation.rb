@@ -106,18 +106,26 @@ class Conversation < ActiveRecord::Base
     participants.reject { |p| p.id == sender.id }
   end
 
-  def accept_or_reject(current_user, current_community, close_listing)
+  def accepted(current_user, current_community)
     self.update_attributes(automatic_confirmation_after_days: current_community.automatic_confirmation_after_days)
 
     if offerer.eql?(current_user)
       participations.each { |p| p.update_attribute(:is_read, p.person.id.eql?(current_user.id)) }
     end
-    listing.update_attribute(:open, false) if close_listing && close_listing.eql?("true")
     Delayed::Job.enqueue(ConversationAcceptedJob.new(id, current_user.id, current_community.id))
 
     if status.eql?("accepted") && !current_community.payments_in_use?
       ConfirmConversation.new(self, current_user, current_community).activate_automatic_confirmation!
     end
+  end
+
+  def rejected(current_user, current_community)
+    self.update_attributes(automatic_confirmation_after_days: current_community.automatic_confirmation_after_days)
+
+    if offerer.eql?(current_user)
+      participations.each { |p| p.update_attribute(:is_read, p.person.id.eql?(current_user.id)) }
+    end
+    Delayed::Job.enqueue(ConversationAcceptedJob.new(id, current_user.id, current_community.id))
   end
 
   def paid_by!(payer)
