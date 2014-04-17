@@ -106,26 +106,34 @@ class Conversation < ActiveRecord::Base
     participants.reject { |p| p.id == sender.id }
   end
 
-  def accepted(current_user, current_community)
-    self.update_attributes(automatic_confirmation_after_days: current_community.automatic_confirmation_after_days)
-
+  def update_is_read(current_user)
+    # TODO
+    # What does this actually do? What happens if requester.eql? current_user?
     if offerer.eql?(current_user)
       participations.each { |p| p.update_attribute(:is_read, p.person.id.eql?(current_user.id)) }
     end
-    Delayed::Job.enqueue(ConversationAcceptedJob.new(id, current_user.id, current_community.id))
+  end
 
-    if status.eql?("accepted") && !current_community.payments_in_use?
+  def accepted(current_user, current_community)
+    # Copy automatic_confirmation from community settings
+    self.update_attributes(automatic_confirmation_after_days: current_community.automatic_confirmation_after_days)
+    update_is_read(current_user)
+    Delayed::Job.enqueue(ConversationStatusChangedJob.new(id, current_user.id, current_community.id))
+
+    if waiting_payment?(current_community)
+      [3, 10].each do |send_interval|
+        Delayed::Job.enqueue(PaymentReminderJob.new(id, payment.payer.id, current_community.id), :priority => 0, :run_at => send_interval.days.from_now)
+      end
+    end
+
+    if !current_community.payments_in_use?
       ConfirmConversation.new(self, current_user, current_community).activate_automatic_confirmation!
     end
   end
 
   def rejected(current_user, current_community)
-    self.update_attributes(automatic_confirmation_after_days: current_community.automatic_confirmation_after_days)
-
-    if offerer.eql?(current_user)
-      participations.each { |p| p.update_attribute(:is_read, p.person.id.eql?(current_user.id)) }
-    end
-    Delayed::Job.enqueue(ConversationAcceptedJob.new(id, current_user.id, current_community.id))
+    update_is_read(current_user)
+    Delayed::Job.enqueue(ConversationStatusChangedJob.new(id, current_user.id, current_community.id))
   end
 
   def paid_by!(payer)

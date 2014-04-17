@@ -1,7 +1,4 @@
-# deprecated!
-# Remove this!
-# Don't use this!
-class ConversationAcceptedJob < Struct.new(:conversation_id, :current_user_id, :community_id)
+class ConversationStatusChangedJob < Struct.new(:conversation_id, :current_user_id, :community_id)
 
   include DelayedAirbrakeNotification
 
@@ -19,11 +16,6 @@ class ConversationAcceptedJob < Struct.new(:conversation_id, :current_user_id, :
     current_user = Person.find(current_user_id)
     if conversation.other_party(current_user).should_receive?("email_when_conversation_#{conversation.status}")
       PersonMailer.conversation_status_changed(conversation, community).deliver
-    end
-    if conversation.status.eql?("accepted") && conversation.waiting_payment?(community)
-      [3, 10].each do |send_interval|
-        Delayed::Job.enqueue(PaymentReminderJob.new(conversation.id, conversation.payment.payer.id, community.id), :priority => 0, :run_at => send_interval.days.from_now)
-      end
     end
   end
 
