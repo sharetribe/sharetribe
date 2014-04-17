@@ -4,9 +4,6 @@
 
   = render :partial => "layouts/noscript"
 
-  -# load Facebook SDK for the whole page
-  = render :partial => "layouts/facebook_sdk"
-
   = render :partial => 'layouts/global-header'
 
   - content_for(:page_content) do
@@ -56,6 +53,9 @@
 
   -#
     Most of the JavaScript should be for performance reasons at the end of the body
+
+  -# load Facebook SDK for the whole page
+  = render :partial => "layouts/facebook_sdk"
 
   = javascript_include_tag 'application'
 

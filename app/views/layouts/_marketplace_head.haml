@@ -86,8 +86,5 @@
 
 = auto_discovery_link_tag(:atom, atom_feed_url )
 
--# load Facebook SDK for the whole page
-= render :partial => "layouts/facebook_sdk"
-
 - if @community_customization && @community_customization.custom_head_script
   = @community_customization.custom_head_script.html_safe
