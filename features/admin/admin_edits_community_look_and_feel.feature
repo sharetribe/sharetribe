@@ -21,7 +21,6 @@ Feature: Admin edits community look-and-feel
     And I go to the homepage
     Then I should see the browse view selected as "List"
 
-  @javascript
   Scenario: Admin can change the name display type to full name (First Last)
     Given community "test" has name display type "first_name_with_initial"
     When I change the name display type to "Full name (First Last)"
@@ -29,7 +28,13 @@ Feature: Admin edits community look-and-feel
     Then I should see my name displayed as "matti manager"
 
   Scenario: Admin changes main color
-    Then I should see that to background color of Post a new listing button is "00A26C"
+    Then I should see that the background color of Post a new listing button is "00A26C"
     And I set the main color to "FF0099"
     And I press submit
-    Then I should see that to background color of Post a new listing button is "FF0099"
+    Then I should see that the background color of Post a new listing button is "FF0099"
+
+  Scenario: Admin uploads a favicon
+    Then I should see that the Favicon is "No file chosen"
+    And I upload a new favicon
+    And I press submit
+    Then I should see that the favicon is the file I uploaded
