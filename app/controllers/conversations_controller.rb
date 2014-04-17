@@ -92,17 +92,8 @@ class ConversationsController < ApplicationController
   # Handles accept and reject forms
   def acceptance
     if @conversation.update_attributes(params[:conversation])
-      if @conversation.status == "accepted"
-        close_listing = params[:close_listing]
-        listing.update_attribute(:open, false) if close_listing && close_listing.eql?("true")
-        @conversation.accepted(@current_user, @current_community)
-      end
-
-      if @conversation.status == "rejected"
-        close_listing = params[:close_listing]
-        listing.update_attribute(:open, false) if close_listing && close_listing.eql?("true")
-        @conversation.rejected(@current_user, @current_community)
-      end
+      close_listing = params[:close_listing]
+      listing.update_attribute(:open, false) if close_listing && close_listing.eql?("true")
 
       flash[:notice] = t("layouts.notifications.#{@conversation.discussion_type}_#{@conversation.status}")
       redirect_to person_message_path(:person_id => @current_user.id, :id => @conversation.id)

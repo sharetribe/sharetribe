@@ -54,16 +54,6 @@ Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do 
   end
 end
 
-Given(/^that conversation will be automatically confirmed after (\d+) days$/) do |automatic_confirmation_after_days|
-  @conversation.update_attribute(:automatic_confirmation_after_days, automatic_confirmation_after_days)
-
-  conversation = @conversation
-  user = @conversation.offerer
-  community = @conversation.community
-
-  ConfirmConversation.new(conversation, user, community).activate_automatic_confirmation!
-end
-
 When /^there is feedback about that event from "([^"]*)" with grade "([^"]*)" and with text "([^"]*)"$/ do |feedback_giver, grade, text|
   participation = @conversation.participations.find_by_person_id(@people[feedback_giver].id)
   Testimonial.create!(:grade => grade, :author_id => @people[feedback_giver].id, :text => text, :participation_id => participation.id, :receiver_id => @conversation.other_party(@people[feedback_giver]).id)
