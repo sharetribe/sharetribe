@@ -48,3 +48,15 @@ end
 Then(/^I should see my name displayed as "(.*?)"$/) do |name|
   find(".user-name").should have_content(name)
 end
+
+Then(/^I should see that the Favicon is "(.*?)"$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^I upload a new favicon$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^I should see that the favicon is the file I uploaded$/) do
+  pending # express the regexp above with the code you wish you had
+end
