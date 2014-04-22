@@ -1,2 +1,2 @@
-- value = custom_field_value ? custom_field_value.date_value : ""
-= date_select "custom_fields[#{custom_field.id}]", value, {:start_year => Time.now.year, :end_year => Time.now.year + 2, :default => Time.now}, :class => (custom_field.required? ? "required" : "")
+- value = custom_field_value ? custom_field_value.date_value : Time.now
+= date_select "custom_fields[#{custom_field.id}]","",{:default => value}, :class => (custom_field.required? ? "required" : "")
