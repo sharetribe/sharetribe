@@ -290,6 +290,12 @@ class ListingsController < ApplicationController
         answer = NumericFieldValue.new
         answer.numeric_value = ParamsService.parse_float(answer_value)
         answer
+      when :date_field
+        answer = DateFieldValue.new
+        answer.date_value = DateTime.new(answer_value["(1i)"].to_i,
+                                         answer_value["(2i)"].to_i,
+                                         answer_value["(3i)"].to_i)
+        answer
       else
         throw "Unimplemented custom field answer for question #{question_type}"
       end

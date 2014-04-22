@@ -239,6 +239,9 @@ FactoryGirl.define do
       max 100
     end
 
+    factory :custom_date_field, class: 'DateField' do
+    end
+
   end
 
   factory :category_custom_field do
