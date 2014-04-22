@@ -8,6 +8,8 @@ class Conversation < ActiveRecord::Base
   has_many :participants, :through => :participations, :source => :person
   belongs_to :community
 
+  has_many :transaction_transitions
+
   has_one :payment
 
   VALID_STATUSES = ["pending", "accepted", "rejected", "paid", "free", "confirmed", "canceled"]

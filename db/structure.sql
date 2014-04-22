@@ -950,6 +950,19 @@ CREATE TABLE `testimonials` (
   KEY `index_testimonials_on_receiver_id` (`receiver_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `transaction_transitions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `to_state` varchar(255) DEFAULT NULL,
+  `metadata` text,
+  `sort_key` int(11) DEFAULT NULL,
+  `conversation_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `index_transaction_transitions_on_sort_key_and_conversation_id` (`sort_key`,`conversation_id`),
+  KEY `index_transaction_transitions_on_conversation_id` (`conversation_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `transaction_type_translations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `transaction_type_id` int(11) DEFAULT NULL,
@@ -1817,3 +1830,7 @@ INSERT INTO schema_migrations (version) VALUES ('20140411121926');
 INSERT INTO schema_migrations (version) VALUES ('20140415092507');
 
 INSERT INTO schema_migrations (version) VALUES ('20140415093234');
+
+INSERT INTO schema_migrations (version) VALUES ('20140417084647');
+
+INSERT INTO schema_migrations (version) VALUES ('20140417085905');
