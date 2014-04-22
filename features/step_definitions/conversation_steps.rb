@@ -27,7 +27,19 @@ Then /^the status of the conversation should be "([^"]*)"$/ do |status|
 end
 
 Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do |listing_type, status|
-  @conversation.update_attribute(:status, status)
+  # TODO Change status step by step
+  if @conversation.status == "pending" && status == "confirmed"
+    @conversation.update_attribute(:status, "accepted")
+    @conversation.update_attribute(:status, "confirmed")
+  elsif @conversation.status == "pending" && status == "paid"
+    @conversation.update_attribute(:status, "accepted")
+    @conversation.update_attribute(:status, "paid")
+  elsif @conversation.status == "not_started" && status == "accepted"
+    @conversation.update_attribute(:status, "pending")
+    @conversation.update_attribute(:status, "accepted")
+  else
+    @conversation.update_attribute(:status, status)
+  end
 
   if listing_type == "request" && @conversation.community.payment_possible_for?(@conversation.listing)
     if status == "accepted"

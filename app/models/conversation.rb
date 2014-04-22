@@ -1,3 +1,25 @@
+class TransactionProcessStateMachine
+  include Statesman::Machine
+
+  state :not_started, initial: true
+  state :free
+  state :pending
+  state :accepted
+  state :rejected
+  state :paid
+  state :confirmed
+  state :canceled
+
+  transition from: :not_started,               to: [:free, :pending]
+  transition from: :pending,                   to: [:accepted, :rejected]
+  transition from: :accepted,                  to: [:paid, :confirmed, :canceled]
+  transition from: :paid,                      to: [:confirmed, :canceled]
+
+  guard_transition(from: :accepted, to: :confirmed) do |conversation|
+    !conversation.community.payments_in_use?
+  end
+end
+
 class Conversation < ActiveRecord::Base
 
   belongs_to :listing
@@ -17,12 +39,29 @@ class Conversation < ActiveRecord::Base
   validates_length_of :title, :in => 1..120, :allow_nil => false
   validates_inclusion_of :status, :in => VALID_STATUSES
 
+  # Delegate methods to state machine
+  delegate :can_transition_to?, :transition_to!, :transition_to, :current_state,
+           to: :state_machine
+
+  def state_machine
+    @state_machine ||= TransactionProcessStateMachine.new(self, transition_class: TransactionTransition)
+  end
+
+  def status=(new_status)
+    transition_to! new_status.to_sym
+  end
+
+  def status
+    current_state
+  end
+
   def self.unread_count(person_id)
-    Conversation.scoped.
-    joins(:participations).
-    joins(:listing).
-    where("(participations.is_read = '0' OR (conversations.status = 'pending' AND listings.author_id = '#{person_id}')) AND participations.person_id = '#{person_id}'").
-    count
+    user = Person.find_by_id(person_id)
+    new_value = user.participations.select do |particiation|
+      author_not_responded = particiation.conversation.status == "pending" && particiation.conversation.listing.author == user
+
+      !particiation.is_read || author_not_responded
+    end.count
   end
 
   # Creates a new message to the conversation

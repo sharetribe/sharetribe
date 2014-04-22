@@ -61,6 +61,8 @@ class ConversationsController < ApplicationController
   end
 
   def create
+    params[:conversation][:status] ||= "pending"
+
     @conversation = Conversation.new(params[:conversation])
     if @conversation.save
       flash[:notice] = t("layouts.notifications.message_sent")
