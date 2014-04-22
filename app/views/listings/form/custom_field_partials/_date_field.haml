@@ -1,2 +1,3 @@
 - value = custom_field_value ? custom_field_value.date_value : Time.now
 = date_select "custom_fields[#{custom_field.id}]","",{:default => value}, :class => (custom_field.required? ? "required" : "")
+
