@@ -91,7 +91,13 @@ class ConversationsController < ApplicationController
 
   # Handles accept and reject forms
   def acceptance
-    if @conversation.update_attributes(params[:conversation])
+    status = params[:conversation][:status]
+
+    # Update first everything else than the status, so that the payment is in correct
+    # state before the status change callback is called
+    if @conversation.update_attributes(params[:conversation].except(:status))
+      @conversation.status = status
+
       close_listing = params[:close_listing]
       listing.update_attribute(:open, false) if close_listing && close_listing.eql?("true")
 
@@ -116,7 +122,7 @@ class ConversationsController < ApplicationController
   def confirmation
     # Check if can be accepted or canceled
     cancel = (params[:conversation] && params[:conversation][:status] == "canceled")
-    unless current_user?(@conversation.requester) && (cancel ? @conversation.can_be_canceled? : @conversation.can_be_confirmed?(@current_community))
+    unless current_user?(@conversation.requester) && (cancel ? @conversation.can_be_canceled? : @conversation.can_be_confirmed?)
       redirect_to person_message_path(:person_id => @current_user.id, :message_id => @conversation.id) and return
     end
     if @conversation.update_attributes(params[:conversation])

@@ -5,7 +5,7 @@ Feature: Seller creates an invoice with Braintree
 
   Background:
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
     And community "test" has payments in use via BraintreePaymentGateway with seller commission 10
@@ -51,7 +51,7 @@ Feature: Seller creates an invoice with Braintree
     Then I should see "18" within "#service-fee"
     And I should see "160.30" within "#payment-to-seller"
     And I press "Send"
-    Then I should see "Accepted" 
+    Then I should see "Accepted"
     And I should see "to pay" within ".conversation-status"
     When the system processes jobs
     Then "kassi_testperson2@example.com" should have 1 email

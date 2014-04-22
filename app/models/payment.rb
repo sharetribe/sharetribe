@@ -75,7 +75,7 @@ class Payment < ActiveRecord::Base
 
   def paid!
     update_attribute(:status, "paid")
-    conversation.paid_by!(payer)
+    conversation.status = "paid"
     Delayed::Job.enqueue(PaymentCreatedJob.new(id, community.id))
   end
 

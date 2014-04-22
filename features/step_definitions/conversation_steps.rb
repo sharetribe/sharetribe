@@ -27,30 +27,35 @@ Then /^the status of the conversation should be "([^"]*)"$/ do |status|
 end
 
 Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do |listing_type, status|
+  if listing_type == "request" && @conversation.community.payment_possible_for?(@conversation.listing)
+    if status == "accepted" || status == "paid"
+      # In this case there should be a pending payment done when this got accepted.
+      type = if @conversation.community.payment_gateway.type == "BraintreePaymentGateway"
+        :braintree_payment
+      else
+        :payment
+      end
+
+      recipient = @conversation.listing.author
+      @conversation.payment = FactoryGirl.create(type, :conversation => @conversation, :recipient => recipient, :status => "pending", :sum => @conversation.listing.price)
+    end
+  end
+
   # TODO Change status step by step
   if @conversation.status == "pending" && status == "confirmed"
     @conversation.update_attribute(:status, "accepted")
+    @conversation.payment.update_attribute(:status, "paid") if @conversation.payment
+    @conversation.update_attribute(:status, "paid") if @conversation.payment
     @conversation.update_attribute(:status, "confirmed")
   elsif @conversation.status == "pending" && status == "paid"
     @conversation.update_attribute(:status, "accepted")
-    @conversation.update_attribute(:status, "paid")
+    @conversation.payment.update_attribute(:status, "paid") if @conversation.payment
+    @conversation.update_attribute(:status, "paid") if @conversation.payment
   elsif @conversation.status == "not_started" && status == "accepted"
     @conversation.update_attribute(:status, "pending")
     @conversation.update_attribute(:status, "accepted")
   else
     @conversation.update_attribute(:status, status)
-  end
-
-  if listing_type == "request" && @conversation.community.payment_possible_for?(@conversation.listing)
-    if status == "accepted"
-      # In this case there should be a pending payment done when this got accepted.
-      FactoryGirl.create(:payment, :conversation => @conversation, :recipient => @conversation.listing.author, :status => "pending", :sum => @conversation.listing.price)
-    end
-
-    if status == "paid"
-      # In this case there should be a pending payment done when this got accepted.
-      FactoryGirl.create(:payment, :conversation => @conversation, :recipient => @conversation.listing.author, :status => "paid", :sum => @conversation.listing.price)
-    end
   end
 end
 

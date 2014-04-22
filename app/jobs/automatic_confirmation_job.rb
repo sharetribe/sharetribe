@@ -15,7 +15,7 @@ class AutomaticConfirmationJob < Struct.new(:conversation_id, :current_user_id, 
     conversation = Conversation.find(conversation_id)
     user = Person.find(current_user_id)
 
-    if conversation.can_be_confirmed?(community)
+    if conversation.can_be_confirmed?
       confirmation = ConfirmConversation.new(conversation, user, community)
       confirmation.automatic_confirm!
     end

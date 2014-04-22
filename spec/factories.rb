@@ -287,6 +287,13 @@ FactoryGirl.define do
     numeric_value 0
   end
 
+  factory :braintree_payment, class: 'BraintreePayment' do
+    payer
+    recipient
+    status "pending"
+    type "BraintreePayment"
+  end
+
   factory :payment do
     payer
     recipient

@@ -16,7 +16,7 @@ class TransactionProcessStateMachine
   transition from: :paid,                      to: [:confirmed, :canceled]
 
   guard_transition(from: :accepted, to: :confirmed) do |conversation|
-    !conversation.community.payments_in_use?
+    !conversation.requires_payment?(conversation.community)
   end
 
   after_transition(to: :accepted) do |conversation|
@@ -28,13 +28,19 @@ class TransactionProcessStateMachine
     conversation.update_is_read(accepter)
     Delayed::Job.enqueue(ConversationStatusChangedJob.new(conversation.id, accepter.id, current_community.id))
 
-    if conversation.waiting_payment?(current_community)
+    if conversation.requires_payment?(current_community)
       [3, 10].each do |send_interval|
         Delayed::Job.enqueue(PaymentReminderJob.new(conversation.id, conversation.payment.payer.id, current_community.id), :priority => 0, :run_at => send_interval.days.from_now)
       end
+    else
+      ConfirmConversation.new(conversation, accepter, current_community).activate_automatic_confirmation!
     end
+  end
 
-    ConfirmConversation.new(conversation, accepter, current_community).activate_automatic_confirmation!
+  after_transition(to: :paid) do |conversation|
+    payer = conversation.payment.payer
+    conversation.messages.create(:sender_id => payer.id, :action => "pay")
+    ConfirmConversation.new(conversation, payer, conversation.community).activate_automatic_confirmation!
   end
 
   after_transition(to: :rejected) do |conversation|
@@ -181,13 +187,6 @@ class Conversation < ActiveRecord::Base
     end
   end
 
-  def paid_by!(payer)
-    update_attribute(:status, "paid")
-    messages.create(:sender_id => payer.id, :action => "pay")
-
-    ConfirmConversation.new(self, payer, community).activate_automatic_confirmation!
-  end
-
   def has_feedback_from_all_participants?
     participations.each { |p| return false if p.feedback_can_be_given? }
     return true
@@ -214,13 +213,13 @@ class Conversation < ActiveRecord::Base
   end
 
   # Return true if the transaction is in a state that it can be confirmed
-  def can_be_confirmed?(community)
-    (!requires_payment?(community) && status.eql?("accepted")) || (requires_payment?(community) && status.eql?("paid"))
+  def can_be_confirmed?
+    can_transition_to?(:confirmed)
   end
 
   # Return true if the transaction is in a state that it can be canceled
   def can_be_canceled?
-    status.eql?("accepted") || status.eql?("paid")
+    can_transition_to?(:canceled)
   end
 
 end

@@ -26,16 +26,6 @@ Given /^there is an accepted request for "(.*?)" with price "(.*?)" from "(.*?)"
   message.content = "Please pay"
   message.action = "accept"
 
-  conversation = Conversation.new()
-  conversation.messages << message
-  conversation.participants << listing.author
-  conversation.participants << requester
-  conversation.status = "accepted"
-  conversation.title = "Conversation title"
-  conversation.community_id = community.id
-  conversation.listing_id = listing.id
-  conversation.save!
-
   payment = Payment.new()
   payment.payer = requester
   payment.recipient = listing.author
@@ -45,7 +35,18 @@ Given /^there is an accepted request for "(.*?)" with price "(.*?)" from "(.*?)"
   payment.sum_cents = price.to_i * 100
   payment.currency = "EUR"
 
+  conversation = Conversation.new()
+  conversation.messages << message
+  conversation.participants << listing.author
+  conversation.participants << requester
+  conversation.title = "Conversation title"
+  conversation.community_id = community.id
+  conversation.listing_id = listing.id
+  conversation.status = "pending"
   conversation.payment = payment
+  conversation.save!
+  conversation.status = "accepted"
+
   community.payments << payment
 
   listing.conversations << conversation
