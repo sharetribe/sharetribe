@@ -24,16 +24,4 @@ describe Conversation do
     @conversation.title = "a" * 121
     @conversation.should_not be_valid
   end
-
-  it "should only be valid if status is one of the valid statuses" do
-    @conversation.status = nil
-    @conversation.should_not be_valid
-    @conversation.status = "test"
-    @conversation.should_not be_valid
-    Conversation::VALID_STATUSES.each do |status|
-      @conversation.status = status
-      @conversation.should be_valid
-    end
-  end
-
 end

@@ -71,6 +71,7 @@ FactoryGirl.define do
   factory :conversation do
     title "Item offer: Sledgehammer"
     listing
+    community
   end
 
   factory :message do
