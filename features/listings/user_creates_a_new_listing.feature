@@ -162,64 +162,77 @@ Feature: User creates a new listing
 
   @javascript @sphinx @no-transaction
   Scenario: User creates a new listing with custom text field
-    Given I am logged in
-    And community "test" has custom fields enabled
-    And there is a custom text field "Details" in community "test" in category "Spaces"
-    When I follow "new-listing-link"
-    And I follow "Spaces"
-    And I follow "Selling"
-    And I fill in "listing_title" with "My house"
-    And I fill in text field "Details" with "Test details"
-    And I press "Save listing"
-    And the Listing indexes are processed
-    When I go to the home page
-    And I fill in "q" with "Test details"
-    And I press "search-button"
-    Then I should see "My house"
+  Given I am logged in
+  And community "test" has custom fields enabled
+  And there is a custom text field "Details" in community "test" in category "Spaces"
+  When I follow "new-listing-link"
+  And I follow "Spaces"
+  And I follow "Selling"
+  And I fill in "listing_title" with "My house"
+  And I fill in text field "Details" with "Test details"
+  And I press "Save listing"
+  And the Listing indexes are processed
+  When I go to the home page
+  And I fill in "q" with "Test details"
+  And I press "search-button"
+  Then I should see "My house"
 
   @javascript @sphinx @no-transaction
   Scenario: User creates a new listing with numeric field
-    Given I am logged in
-    And community "test" has custom fields enabled
-    And there is a custom numeric field "Area" in that community in category "Spaces" with min value 100 and with max value 2000
-    When I follow "new-listing-link"
-    And I follow "Spaces"
-    And I follow "Selling"
-    And I fill in "listing_title" with "My house"
-    And I fill in custom numeric field "Area" with "9999"
-    And I press "Save listing"
-    Then I should see validation error
-    When I fill in custom numeric field "Area" with "150"
-    And I press "Save listing"
-    Then I should see "Area: 150"
+  Given I am logged in
+  And community "test" has custom fields enabled
+  And there is a custom numeric field "Area" in that community in category "Spaces" with min value 100 and with max value 2000
+  When I follow "new-listing-link"
+  And I follow "Spaces"
+  And I follow "Selling"
+  And I fill in "listing_title" with "My house"
+  And I fill in custom numeric field "Area" with "9999"
+  And I press "Save listing"
+  Then I should see validation error
+  When I fill in custom numeric field "Area" with "150"
+  And I press "Save listing"
+  Then I should see "Area: 150"
+
+  @javascript @sphinx @no-transaction
+  Scenario: User creates a new listing with date field
+  Given I am logged in
+  And community "test" has custom fields enabled
+  And there is a custom date field "building_date_test" in that community in category "Spaces"
+  When I follow "new-listing-link"
+  And I follow "Spaces"
+  And I follow "Selling"
+  And I fill in "listing_title" with "My house"
+  And I fill select custom date "building_date_test" with day="19", month="April" and year="2014"
+  And I press "Save listing"
+  Then I should see "building_date_test: 19 Apr 2014"
 
   @javascript @sphinx @no-transaction
   Scenario: User creates a new listing with checkbox field
-    Given I am logged in
-    And community "test" has custom fields enabled
-    And there is a custom checkbox field "Amenities" in that community in category "Spaces" with options:
-      | title             |
-      | Internet          |
-      | Wireless Internet |
-      | Air Conditioning  |
-      | Pool              |
-      | Sauna             |
-      | Hot Tub           |
-    When I follow "new-listing-link"
-    And I follow "Spaces"
-    And I follow "Selling"
-    And I fill in "listing_title" with "My house"
-    When I check "Wireless Internet"
-    And I check "Pool"
-    And I check "Sauna"
-    And I check "Hot Tub"
-    And I press "Save listing"
-    Then I should see that the listing has "Wireless Internet"
-    Then I should see that the listing has "Pool"
-    Then I should see that the listing has "Sauna"
-    Then I should see that the listing has "Hot Tub"
-    Then I should see that the listing does not have "Internet"
-    Then I should see that the listing does not have "Air Conditioning"
+  Given I am logged in
+  And community "test" has custom fields enabled
+  And there is a custom checkbox field "Amenities" in that community in category "Spaces" with options:
+    | title             |
+    | Internet          |
+    | Wireless Internet |
+    | Air Conditioning  |
+    | Pool              |
+    | Sauna             |
+    | Hot Tub           |
+  When I follow "new-listing-link"
+  And I follow "Spaces"
+  And I follow "Selling"
+  And I fill in "listing_title" with "My house"
+  When I check "Wireless Internet"
+  And I check "Pool"
+  And I check "Sauna"
+  And I check "Hot Tub"
+  And I press "Save listing"
+  Then I should see that the listing has "Wireless Internet"
+  Then I should see that the listing has "Pool"
+  Then I should see that the listing has "Sauna"
+  Then I should see that the listing has "Hot Tub"
+  Then I should see that the listing does not have "Internet"
+  Then I should see that the listing does not have "Air Conditioning"
 
   @javascript
   Scenario: User creates a new listing in private community

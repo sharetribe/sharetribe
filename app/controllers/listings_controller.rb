@@ -294,6 +294,12 @@ class ListingsController < ApplicationController
         answer = CheckboxFieldValue.new
         answer.custom_field_option_selections = answer_value.map { |value| CustomFieldOptionSelection.new(:custom_field_value => answer, :custom_field_option_id => value) }
         answer
+      when :date_field
+        answer = DateFieldValue.new
+        answer.date_value = DateTime.new(answer_value["(1i)"].to_i,
+                                         answer_value["(2i)"].to_i,
+                                         answer_value["(3i)"].to_i)
+        answer
       else
         throw "Unimplemented custom field answer for question #{question_type}"
       end
