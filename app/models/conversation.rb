@@ -69,7 +69,6 @@ class Conversation < ActiveRecord::Base
   VALID_STATUSES = ["pending", "accepted", "rejected", "paid", "free", "confirmed", "canceled"]
 
   validates_length_of :title, :in => 1..120, :allow_nil => false
-  validates_inclusion_of :status, :in => VALID_STATUSES
 
   # Delegate methods to state machine
   delegate :can_transition_to?, :transition_to!, :transition_to, :current_state,

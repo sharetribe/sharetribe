@@ -954,7 +954,7 @@ CREATE TABLE `transaction_transitions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `to_state` varchar(255) DEFAULT NULL,
   `metadata` text,
-  `sort_key` int(11) DEFAULT NULL,
+  `sort_key` int(11) DEFAULT '0',
   `conversation_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -1834,3 +1834,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140415093234');
 INSERT INTO schema_migrations (version) VALUES ('20140417084647');
 
 INSERT INTO schema_migrations (version) VALUES ('20140417085905');
+
+INSERT INTO schema_migrations (version) VALUES ('20140422120515');

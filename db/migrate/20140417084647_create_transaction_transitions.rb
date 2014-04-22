@@ -3,7 +3,7 @@ class CreateTransactionTransitions < ActiveRecord::Migration
     create_table :transaction_transitions do |t|
       t.string :to_state
       t.text :metadata
-      t.integer :sort_key
+      t.integer :sort_key, default: 0
       t.integer :conversation_id
     end
 
