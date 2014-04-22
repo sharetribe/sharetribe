@@ -5,7 +5,7 @@ ruby '1.9.3'
 gem 'rails', '3.2.17'
 
 # To use debugger
-# gem 'ruby-debug'
+#gem 'ruby-debug'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -88,6 +88,7 @@ group :development do
   gem 'rb-fsevent',       require: false
   gem 'guard-rspec',      require: false
   gem 'zeus'
+  gem 'meta_request'
 end
 
 group :test do

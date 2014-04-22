@@ -30,3 +30,8 @@ Feature: Admin adds a custom field
   Scenario: Admin adds numeric field
     When I add a new numeric field "Area" with min value 100 and max value 99
     Then I should see 2 validation errors
+
+  @javascript
+  Scenario: Admin adds date field
+    When I add a new date field "Begin date"
+    Then I should see that there is a custom field "Begin date"
