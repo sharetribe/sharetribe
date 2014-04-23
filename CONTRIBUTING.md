@@ -8,7 +8,7 @@ However, before you do, here are some basic guidelines:
 
 1. Fix the issue in a branch of your own fork of Sharetribe
 2. Rebase (or merge) your branch to include the latest changes from `master`
-3. Open a Rull Request from your fork to `master`
+3. Open a Pull Request from your fork to `master`
 4. Make sure all the tests pass
 
 ## New features

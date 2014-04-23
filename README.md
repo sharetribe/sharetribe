@@ -6,11 +6,11 @@ Sharetribe is a peer-to-peer marketplace platform built with Ruby on Rails.
 
 See www.sharetribe.com for more info and links to example communities
 
-NOTE: The open source community of Sharetribe is still young and some things like installation may not yet be the smoothest you've encountered. However, we're eager to welcome new people to use the open source Sharetribe, and if you decide to install it yourself, feel free to ask for support at the [Sharetribe Developers Flowdock](https://sharetribe.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main)
+NOTE: The open source community of Sharetribe is still young and some things like installation may not yet be the smoothest you've encountered. However, we're eager to welcome new people to use the open source Sharetribe, and if you decide to install it yourself, feel free to ask for support at the [Sharetribe Developers Flowdock](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main)
 
 ## Installation
 
-NOTE: If you try installing and encounter problems, please report them for example in [Issues](https://github.com/sharetribe/sharetribe/issues) or at [Flowdock](https://sharetribe.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main). We try to help you and enhance the documentation.
+NOTE: If you try installing and encounter problems, please report them for example in [Issues](https://github.com/sharetribe/sharetribe/issues) or at [Flowdock](https://www.flowdock.com/invitations/4f606b0784e5758bfdb25c30515df47cff28f7d5-main). We try to help you and enhance the documentation.
 
 
 Below the installation instructions there is space for Operating system-specific tips, so if you have problems, check there, and if you get your problem solved, add instructions to the tips section.
