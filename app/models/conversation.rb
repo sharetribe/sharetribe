@@ -8,19 +8,37 @@ class Conversation < ActiveRecord::Base
   has_many :participants, :through => :participations, :source => :person
   belongs_to :community
 
+  has_many :transaction_transitions
+
   has_one :payment
 
   VALID_STATUSES = ["pending", "accepted", "rejected", "paid", "free", "confirmed", "canceled"]
 
   validates_length_of :title, :in => 1..120, :allow_nil => false
-  validates_inclusion_of :status, :in => VALID_STATUSES
+
+  # Delegate methods to state machine
+  delegate :can_transition_to?, :transition_to!, :transition_to, :current_state,
+           to: :state_machine
+
+  def state_machine
+    @state_machine ||= TransactionProcess.new(self, transition_class: TransactionTransition)
+  end
+
+  def status=(new_status)
+    transition_to! new_status.to_sym
+  end
+
+  def status
+    current_state
+  end
 
   def self.unread_count(person_id)
-    Conversation.scoped.
-    joins(:participations).
-    joins(:listing).
-    where("(participations.is_read = '0' OR (conversations.status = 'pending' AND listings.author_id = '#{person_id}')) AND participations.person_id = '#{person_id}'").
-    count
+    user = Person.find_by_id(person_id)
+    new_value = user.participations.select do |particiation|
+      author_not_responded = particiation.conversation.status == "pending" && particiation.conversation.listing.author == user
+
+      !particiation.is_read || author_not_responded
+    end.count
   end
 
   # Creates a new message to the conversation
@@ -106,25 +124,12 @@ class Conversation < ActiveRecord::Base
     participants.reject { |p| p.id == sender.id }
   end
 
-  def accept_or_reject(current_user, current_community, close_listing)
-    self.update_attributes(automatic_confirmation_after_days: current_community.automatic_confirmation_after_days)
-
+  def update_is_read(current_user)
+    # TODO
+    # What does this actually do? What happens if requester.eql? current_user?
     if offerer.eql?(current_user)
       participations.each { |p| p.update_attribute(:is_read, p.person.id.eql?(current_user.id)) }
     end
-    listing.update_attribute(:open, false) if close_listing && close_listing.eql?("true")
-    Delayed::Job.enqueue(ConversationAcceptedJob.new(id, current_user.id, current_community.id))
-
-    if status.eql?("accepted") && !current_community.payments_in_use?
-      ConfirmConversation.new(self, current_user, current_community).activate_automatic_confirmation!
-    end
-  end
-
-  def paid_by!(payer)
-    update_attribute(:status, "paid")
-    messages.create(:sender_id => payer.id, :action => "pay")
-
-    ConfirmConversation.new(self, payer, community).activate_automatic_confirmation!
   end
 
   def has_feedback_from_all_participants?
@@ -153,13 +158,13 @@ class Conversation < ActiveRecord::Base
   end
 
   # Return true if the transaction is in a state that it can be confirmed
-  def can_be_confirmed?(community)
-    (!requires_payment?(community) && status.eql?("accepted")) || (requires_payment?(community) && status.eql?("paid"))
+  def can_be_confirmed?
+    can_transition_to?(:confirmed)
   end
 
   # Return true if the transaction is in a state that it can be canceled
   def can_be_canceled?
-    status.eql?("accepted") || status.eql?("paid")
+    can_transition_to?(:canceled)
   end
 
 end

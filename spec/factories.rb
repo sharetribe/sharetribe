@@ -71,7 +71,7 @@ FactoryGirl.define do
   factory :conversation do
     title "Item offer: Sledgehammer"
     listing
-    status "pending"
+    community
   end
 
   factory :message do
@@ -285,6 +285,17 @@ FactoryGirl.define do
     question { [ FactoryGirl.build(:custom_numeric_field) ] }
     listing
     numeric_value 0
+  end
+
+  factory :transaction_transition do
+    to_state "not_started"
+  end
+
+  factory :braintree_payment, class: 'BraintreePayment' do
+    payer
+    recipient
+    status "pending"
+    type "BraintreePayment"
   end
 
   factory :payment do

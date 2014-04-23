@@ -4,8 +4,6 @@ class Participation < ActiveRecord::Base
   belongs_to :person
   has_one :testimonial
 
-  scope :unread, :include => :conversation, :conditions => "is_read = '0' OR conversations.status = 'pending'"
-
   def has_feedback?
     !testimonial.blank?
   end

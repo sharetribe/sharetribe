@@ -7,7 +7,7 @@
 .centered-section.conversation-status-form
   = form_for @conversation, :url => confirmation_person_message_path(:person_id => @current_user.id, :id => @conversation.id), :html => { :method => "put" } do |form|
 
-    - if @conversation.can_be_confirmed?(@current_community)
+    - if @conversation.can_be_confirmed?
 
       .conversation-action
         - ["confirm", "cancel"].each do |action|

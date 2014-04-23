@@ -63,25 +63,38 @@ describe PersonMailer do
     assert_equal "Remember to add your payment details to receive payments", email.subject
   end
 
-  it "should send email about an accepted and rejected offer or request" do
-    @conversation = FactoryGirl.create(:conversation)
-    @conversation.participants = [@conversation.listing.author, @test_person2]
-    @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
+  describe "status changed" do
 
-    @conversation.update_attribute(:status, "accepted")
-    message = FactoryGirl.create(:message)
-    @conversation.messages << message
-    @conversation.messages.inspect
-    email = PersonMailer.conversation_status_changed(@conversation, @community).deliver
-    assert !ActionMailer::Base.deliveries.empty?
-    assert_equal @test_person2.confirmed_notification_email_addresses, email.to
-    assert_equal "Your request was accepted", email.subject
+    before(:each) do
+      @conversation = FactoryGirl.create(:conversation)
+      @conversation.participants = [@conversation.listing.author, @test_person2]
+      @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
 
-    @conversation.update_attribute(:status, "rejected")
-    email = PersonMailer.conversation_status_changed(@conversation, @community).deliver
-    assert !ActionMailer::Base.deliveries.empty?
-    assert_equal @test_person2.confirmed_notification_email_addresses, email.to
-    assert_equal "Your request was rejected", email.subject
+      message = FactoryGirl.create(:message)
+      @conversation.messages << message
+      @conversation.messages.inspect
+    end
+
+    it "should send email about an accepted offer or request" do
+      @conversation.transaction_transitions = [FactoryGirl.create(:transaction_transition, to_state: "accepted")]
+      @conversation.save!
+      @conversation.reload
+      email = PersonMailer.conversation_status_changed(@conversation, @community).deliver
+      assert !ActionMailer::Base.deliveries.empty?
+      assert_equal @test_person2.confirmed_notification_email_addresses, email.to
+      assert_equal "Your request was accepted", email.subject
+    end
+
+    it "should send email about a rejected offer or request" do
+      @conversation.transaction_transitions = [FactoryGirl.create(:transaction_transition, to_state: "rejected")]
+      @conversation.save!
+      @conversation.reload
+      email = PersonMailer.conversation_status_changed(@conversation, @community).deliver
+      assert !ActionMailer::Base.deliveries.empty?
+      assert_equal @test_person2.confirmed_notification_email_addresses, email.to
+      assert_equal "Your request was rejected", email.subject
+    end
+
   end
 
   it "should send email about approved Braintree account" do
@@ -110,6 +123,7 @@ describe PersonMailer do
     @conversation = FactoryGirl.create(:conversation)
     @conversation.participants << @test_person
     @conversation.participants << @test_person2
+    @conversation.update_attribute(:status, "pending")
     @conversation.update_attribute(:status, "accepted")
     @participation = Participation.find_by_person_id_and_conversation_id(@test_person.id, @conversation.id)
     @testimonial = Testimonial.new(:grade => 0.75, :text => "Yeah", :author => @test_person, :receiver => @test_person2, :participation_id => @participation.id)
@@ -126,6 +140,7 @@ describe PersonMailer do
     @conversation = FactoryGirl.create(:conversation)
     @conversation.participants << @test_person
     @conversation.participants << @test_person2
+    @conversation.update_attribute(:status, "pending")
     @conversation.update_attribute(:status, "accepted")
     @participation = Participation.find_by_person_id_and_conversation_id(@test_person2.id, @conversation.id)
     email = PersonMailer.testimonial_reminder(@conversation, @test_person2, @community).deliver

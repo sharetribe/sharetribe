@@ -11,8 +11,7 @@ Feature: Automatic transaction completition
     And there is a listing with title "Snowboard" from "jeremy"
     And there is a message "I'd like to buy this" from "paula" about that listing
     And the request is accepted
-    And that conversation will be automatically confirmed after 14 days
-    
+
     Given I am logged in as "jeremy"
     # Using "I'm" because I don't want to hit the "I am on" step
     And I'm on the conversation page of that conversation

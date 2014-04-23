@@ -1,3 +1,6 @@
+# deprecated!
+# Remove this!
+# Don't use this!
 class ConversationAcceptedJob < Struct.new(:conversation_id, :current_user_id, :community_id)
 
   include DelayedAirbrakeNotification

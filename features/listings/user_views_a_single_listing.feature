@@ -5,7 +5,7 @@ Feature: User views a single listing
 
   Background:
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
     And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
@@ -39,7 +39,7 @@ Feature: User views a single listing
     Then I should see "Feedback"
     And I should see "100%"
     And I should see "(2/2)"
-  
+
   @javascript
   @skip_phantomjs
   Scenario: User sees the avatar in listing page
@@ -51,7 +51,7 @@ Feature: User views a single listing
     And I go to the home page
     And I follow "Massage"
     Then I should not see "Add profile picture"
-  
+
   @javascript
   Scenario: User tries to view a listing restricted viewable to community members without logging in
     Given I am not logged in
@@ -59,7 +59,7 @@ Feature: User views a single listing
     And I am on the home page
     When I go to the listing page
     Then I should see "You must log in to view this content"
-  
+
   @subdomain2
   @javascript
   Scenario: User tries to view a listing from another community
@@ -68,7 +68,7 @@ Feature: User views a single listing
     And I am on the home page
     When I go to the listing page
     Then I should see "This content is not available in this community."
-  
+
   @javascript
   Scenario: User belongs to multiple communities, adds listing in one and sees it in another
     Given I am not logged in
@@ -76,9 +76,9 @@ Feature: User views a single listing
     And I am on the home page
     When I go to the listing page
     Then I should see "You must log in to view this content"
-  
+
   @javascript
-  Scenario: User views listing created 
+  Scenario: User views listing created
     Given I am not logged in
     When I go to the listing page
     Then I should not see "Listing created"

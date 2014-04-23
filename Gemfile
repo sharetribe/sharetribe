@@ -73,6 +73,7 @@ gem 'localized_country_select', '>= 0.9.3'
 gem 'mangopay'
 gem 'braintree'
 gem "mail_view", "~> 1.0.3"
+gem 'statesman', '~> 0.5.0'
 
 #ouisharelabs
 gem 'rdf-turtle'
