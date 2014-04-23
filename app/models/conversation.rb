@@ -8,7 +8,7 @@ class Conversation < ActiveRecord::Base
   has_many :participants, :through => :participations, :source => :person
   belongs_to :community
 
-  has_many :transaction_transitions
+  has_many :transaction_transitions, :dependent => :destroy
 
   has_one :payment
 
