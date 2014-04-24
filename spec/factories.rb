@@ -245,6 +245,9 @@ FactoryGirl.define do
       end
     end
 
+    factory :custom_date_field, class: 'DateField' do
+    end
+
   end
 
   factory :category_custom_field do

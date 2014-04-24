@@ -40,3 +40,8 @@ Feature: Admin adds a custom field
   Scenario: Admin adds checkbox field with invalid data
     When I add a new checkbox field Amenities with invalid data
     Then I should see 2 validation errors
+
+  @javascript
+  Scenario: Admin adds date field
+    When I add a new date field "Begin date"
+    Then I should see that there is a custom field "Begin date"
