@@ -144,6 +144,7 @@ cs:
       form:
         field_required:
           this_field_is_required: ~
+          this_field_is_required_checkbox: ~
       index:
         listing_fields: ~
         add_new_field: ~
@@ -154,7 +155,7 @@ cs:
         field_type: ~
         categories: ~
         no_custom_listing_fields: ~
-        dropdown_options: ~
+        options: ~
         add_option: ~
         saving_order: ~
         save_order_successful: ~
@@ -167,9 +168,10 @@ cs:
       new:
         new_listing_field: ~
       field_types:
+        text: ~
+        number: ~
         dropdown: ~
-        textfield: ~
-        numericfield: ~
+        checkbox_group: ~
     emails:
       new:
         send_email_to_members: ~

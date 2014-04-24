@@ -86,7 +86,7 @@ de:
         cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Das kleine Titelfoto wird nicht angemeldeten Benutzern auf allen Seiten angezeigt, außer auf der Startseite."
         small_cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt."
-        main_content_width: "Wenn du ein Titelfoto aussuchst, beachte bitte, dass die Breite des Inhalts auf der Startseite bestensfalls %{main_width} Pixel beträgt. Überprüfe außerdem, wie dein Titelfoto auf kleineren Bildschirmen aussieht."
+        main_content_width: "Wenn du ein Titelfoto aussuchst, beachte bitte, dass die Breite des Inhalts auf der Startseite höchstens %{main_width} Pixel beträgt. Überprüfe außerdem, wie dein Titelfoto auf kleineren Bildschirmen aussieht (z.B wenn du einen schmaleren Browser benutzt)."
         custom_color1_instructions_text: "Du kannst die Hauptfarbe der Community ändern, indem du einen neuen Farbwert eingibst. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> kann dir helfen die Farbe auszuwählen. Kopiere den Code hier ein."
         custom_color2_instructions_text: "Du kannst die zweite Farbe dieser Benutzeroberfläche ändern, indem du einen Hex-Farbwert eingibst."
         default_browse_view: Standard-Browser-Ansicht
@@ -140,7 +140,7 @@ de:
         save_user_status_error: "Speichern fehlgeschlagen. Bitte erneuere die Seite und versuch es noch einmal."
         remove_user_confirmation: "Dies entfernt den Benutzer von der Community und wird einen erneuten Zugriff mit diesem Account auf die Seite verhindern. Bist du sicher, dass du fortfahren möchtest?"
       integrations:
-        integrations: ~
+        integrations: Integrationen
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_placeholder: Benutzername
@@ -159,6 +159,7 @@ de:
       form:
         field_required:
           this_field_is_required: "Dieses Feld ist erforderlich."
+          this_field_is_required_checkbox: ~
       index:
         listing_fields: Filter
         add_new_field: "Neues Feld hinzufügen:"
@@ -169,7 +170,7 @@ de:
         field_type: "Art des Feldes"
         categories: "Kategorien, in denen das Feld angewendet wird"
         no_custom_listing_fields: "Keine marktplatzspezifischen Filter"
-        dropdown_options: "Auswahloptionen des Dropdown-Menüs"
+        options: Optionen
         add_option: "+ Auswahl hinzufügen"
         saving_order: "Feldreihenfolge speichern"
         save_order_successful: "Reihenfolge der Felder erfolgreich gespeichert"
@@ -182,9 +183,10 @@ de:
       new:
         new_listing_field: "Neues Eintragsfeld"
       field_types:
+        text: Text
+        number: Anzahl
         dropdown: Dropdown-Menü
-        textfield: Textfeld
-        numericfield: "Numerisches Feld"
+        checkbox_group: ~
     emails:
       new:
         send_email_to_members: "Sende eine E-Mail an alle Mitglieder"

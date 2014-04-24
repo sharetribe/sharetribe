@@ -144,6 +144,7 @@ es:
       form:
         field_required:
           this_field_is_required: ~
+          this_field_is_required_checkbox: ~
       index:
         listing_fields: ~
         add_new_field: ~
@@ -154,7 +155,7 @@ es:
         field_type: ~
         categories: ~
         no_custom_listing_fields: ~
-        dropdown_options: ~
+        options: ~
         add_option: ~
         saving_order: ~
         save_order_successful: ~
@@ -167,9 +168,10 @@ es:
       new:
         new_listing_field: ~
       field_types:
+        text: ~
+        number: ~
         dropdown: ~
-        textfield: ~
-        numericfield: ~
+        checkbox_group: ~
     emails:
       new:
         send_email_to_members: "Envia un mensaje a los miembros"
@@ -241,7 +243,7 @@ es:
   common:
     edit_page: ~
     default_community_slogan: "Colabora, ayuda o comparte"
-    default_community_description: "%{service_name} es un lugar donde los integrantes de tu comunidad pueden compartir productos, servicios, traslados y espacios. Puedes contarle a los demás lo que podrías ofrecerles y obtener ayuda cuando lo necesites."
+    default_community_description: "%{service_name} es un lugar donde los integrantes de tu comunidad pueden compartir productos y servicios. "
     cancel: Cancelar
     fields_that_are_mandatory: "Los campos marcados con (*) son obligatorios."
     or: o
@@ -1258,7 +1260,7 @@ es:
         image: Imagen
         no_file_selected: "No hay archivos seleccionados"
         remove_image: "Quitar imagen"
-        select_file: "Eligir Archivo"
+        select_file: "Elegir Archivo"
         removing: ~
         processing: ~
         loading_image: ~

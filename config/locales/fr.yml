@@ -159,6 +159,7 @@ fr:
       form:
         field_required:
           this_field_is_required: "Ce champ est obligatoire"
+          this_field_is_required_checkbox: "Ce champ est obligatoire (l'utilisateur doit sélectionner au moins un choix)"
       index:
         listing_fields: "Champs d'annonces"
         add_new_field: "Ajouter un nouveau champ : "
@@ -169,7 +170,7 @@ fr:
         field_type: "Type de champ"
         categories: "Catégories d'annonces pour lequel le champ est utilisé"
         no_custom_listing_fields: "Aucun champ d'annonce propre à votre place de marché."
-        dropdown_options: "Liste déroulante d'options"
+        options: Choix
         add_option: "+ Ajouter une option"
         saving_order: "Sauvegarder l'ordre des champs"
         save_order_successful: "Sauvegarde de l'ordre des champs réussie"
@@ -182,9 +183,10 @@ fr:
       new:
         new_listing_field: "Nouveau champ d'annonce"
       field_types:
+        text: Texte
+        number: Nombre
         dropdown: "Liste déroulante"
-        textfield: "Champ texte"
-        numericfield: "Champ numérique"
+        checkbox_group: "Cases à cocher"
     emails:
       new:
         send_email_to_members: "Envoyer un email aux membres"
