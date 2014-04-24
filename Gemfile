@@ -89,7 +89,6 @@ group :development do
   gem 'rb-fsevent',       require: false
   gem 'guard-rspec',      require: false
   gem 'zeus'
-  gem 'meta_request'
 end
 
 group :test do

@@ -315,12 +315,20 @@ class ListingsController < ApplicationController
     custom_field_params ||= {}
 
     mapped_values = custom_field_params.map do |custom_field_id, answer_value|
-      custom_field_value_factory(custom_field_id, answer_value) unless answer_value.blank?
+      custom_field_value_factory(custom_field_id, answer_value) unless is_answer_value_blank(answer_value)
     end.compact
 
     logger.info "Mapped values: #{mapped_values.inspect}"
 
     return mapped_values
+  end
+
+  def is_answer_value_blank(value)
+    if value.kind_of?(Hash)
+      value["(3i)"].blank? || value["(2i)"].blank? || value["(1i)"].blank?  # DateFieldValue check
+    else
+      value.blank?
+    end
   end
 
   def is_authorized_to_post
