@@ -12,10 +12,10 @@ class TransactionProcess
 
   transition from: :not_started,               to: [:free, :pending]
   transition from: :pending,                   to: [:accepted, :rejected]
-  transition from: :accepted,                  to: [:paid, :confirmed, :canceled]
+  transition from: :accepted,                  to: [:paid, :canceled]
   transition from: :paid,                      to: [:confirmed, :canceled]
 
-  guard_transition(from: :accepted, to: :confirmed) do |conversation|
+  guard_transition(to: :pending) do |conversation|
     !conversation.requires_payment?(conversation.community)
   end
 
