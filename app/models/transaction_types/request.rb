@@ -20,8 +20,4 @@ class Request < TransactionType
     false
   end
 
-  def api_name
-    "request"
-  end
-
 end
