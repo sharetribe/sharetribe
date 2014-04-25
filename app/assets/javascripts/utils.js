@@ -151,6 +151,18 @@ ST.utils = (function(_) {
     return map[fileExtension(filename)];
   }
 
+  function filenameToURLSafe(filename) {
+    var parts = filename.split(".");
+    var extension = _.last(parts).toLowerCase();
+    var body = _.initial(parts).join(".");
+
+    return [stringToURLSafe(body), extension].join(".");
+  }
+
+  function stringToURLSafe(s) {
+    return s.replace(/[^a-z0-9\-]/gi, '_').toLowerCase();
+  }
+
   return {
     findNextIndex: findNextIndex,
     findPrevIndex: findPrevIndex,
@@ -162,7 +174,9 @@ ST.utils = (function(_) {
     findElementByName: findElementByName,
     objectsMerge: objectsMerge,
     baconStreamFromAjaxPolling: baconStreamFromAjaxPolling,
-    contentTypeByFilename: contentTypeByFilename
+    contentTypeByFilename: contentTypeByFilename,
+    stringToURLSafe: stringToURLSafe,
+    filenameToURLSafe: filenameToURLSafe
   };
 
 })(_);

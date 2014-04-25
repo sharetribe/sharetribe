@@ -36,4 +36,18 @@ describe('ST.utils', function () {
     expect(f("image")).to.eql(undefined);
     expect(f("image.gif.png.jpg")).to.eql("image/jpeg");
   });
+
+  it("#stringToURLSafe", function() {
+    var f = ST.utils.stringToURLSafe;
+
+    expect(f("this_is_my_image")).to.eql("this_is_my_image");
+    expect(f("This is John's super-cool image")).to.eql("this_is_john_s_super-cool_image");
+  });
+
+  it("#filenameToURLSafe", function() {
+    var f = ST.utils.filenameToURLSafe;
+
+    expect(f("this_is_my_image.jpg")).to.eql("this_is_my_image.jpg");
+    expect(f("This is John's super-cool...image.JPG")).to.eql("this_is_john_s_super-cool___image.jpg");
+  });
 });
