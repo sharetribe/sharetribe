@@ -103,7 +103,7 @@ class Checkout < PaymentGateway
       "company" => person.name,
       "vat_id"  => person.company_id,
       "name"    => person.name,
-      "email"   => person.email,
+      "email"   => person.confirmed_notification_email_to,
       "gsm"     => person.phone_number,
       "type"    => type,
       "info"    => "Materiaalipankki",
