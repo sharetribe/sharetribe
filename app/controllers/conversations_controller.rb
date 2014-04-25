@@ -127,12 +127,7 @@ class ConversationsController < ApplicationController
     end
     if @conversation.update_attributes(params[:conversation])
       confirmation = ConfirmConversation.new(@conversation, @current_user, @current_community)
-
-      if cancel
-        confirmation.cancel!(params[:give_feedback])
-      else
-        confirmation.confirm!(params[:give_feedback])
-      end
+      confirmation.update_participation(params[:give_feedback])
 
       flash[:notice] = t("layouts.notifications.#{@conversation.listing.direction}_#{@conversation.status}")
       if params[:give_feedback] && params[:give_feedback].eql?("true")

@@ -115,8 +115,6 @@ describe PersonMailer do
     @conversation = FactoryGirl.create(:conversation)
     @conversation.participants << @test_person
     @conversation.participants << @test_person2
-    @conversation.update_attribute(:status, "pending")
-    @conversation.update_attribute(:status, "accepted")
     @participation = Participation.find_by_person_id_and_conversation_id(@test_person.id, @conversation.id)
     @testimonial = Testimonial.new(:grade => 0.75, :text => "Yeah", :author => @test_person, :receiver => @test_person2, :participation_id => @participation.id)
     email = PersonMailer.new_testimonial(@testimonial, @community).deliver
@@ -132,8 +130,6 @@ describe PersonMailer do
     @conversation = FactoryGirl.create(:conversation)
     @conversation.participants << @test_person
     @conversation.participants << @test_person2
-    @conversation.update_attribute(:status, "pending")
-    @conversation.update_attribute(:status, "accepted")
     @participation = Participation.find_by_person_id_and_conversation_id(@test_person2.id, @conversation.id)
     email = PersonMailer.testimonial_reminder(@conversation, @test_person2, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
@@ -147,7 +143,6 @@ describe PersonMailer do
     @conversation = FactoryGirl.create(:conversation, :listing => @listing)
     @conversation.participants << @test_person
     @conversation.participants << @test_person2
-    @conversation.update_attribute(:status, "pending")
 
     email = PersonMailer.accept_reminder(@conversation, "this_can_be_anything", @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
