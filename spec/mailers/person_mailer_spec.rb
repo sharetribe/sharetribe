@@ -110,14 +110,6 @@ describe PersonMailer do
     email.body.include?("Your payment information has been confirmed and you are now ready").should be_true
   end
 
-  it "should send email about a new badge" do
-    @badge = FactoryGirl.create(:badge)
-    email = PersonMailer.new_badge(@badge, @community).deliver
-    assert !ActionMailer::Base.deliveries.empty?
-    assert_equal @badge.person.confirmed_notification_email_addresses, email.to unless @badge.person.email.nil?
-    assert_equal "You have achieved a badge 'Rookie' in Sharetribe!", email.subject
-  end
-
   it "should send email about a new testimonial" do
     @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
     @conversation = FactoryGirl.create(:conversation)

@@ -91,7 +91,7 @@ class Mangopay < PaymentGateway
   def register_to_mangopay(person)
     response = MangoPay::User.create({
         'Tag' => person.id,
-        'Email' => person.email,
+        'Email' => person.confirmed_notification_email_to,
         'FistName' => person.given_name,
         'LastName' => person.family_name,
         'CanRegisterMeanOfPayment' => false
