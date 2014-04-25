@@ -4,8 +4,4 @@ class Rent < Offer
     self.price_field ||= 1
   end
 
-  def api_name
-    "rent_out"
-  end
-
 end
