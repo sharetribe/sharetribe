@@ -331,7 +331,7 @@ Given(/^there is a custom date field "(.*?)" in that community in category "(.*?
   @custom_fields << custom_field
 end
 
-Given(/^I fill select custom date "(.*?)" with day="(.*?)", month="(.*?)" and year="(.*?)"$/) do |name,day,month,year|
+When /^I fill select custom date "(.*?)" with day="(.*?)", month="(.*?)" and year="(.*?)"$/ do |name,day,month,year|
   select_id_day="custom_fields_"+CustomFieldName.find_by_value(name).custom_field.id.to_s+"__3i"
   select_id_month="custom_fields_"+CustomFieldName.find_by_value(name).custom_field.id.to_s+"__2i"
   select_id_year="custom_fields_"+CustomFieldName.find_by_value(name).custom_field.id.to_s+"__1i"

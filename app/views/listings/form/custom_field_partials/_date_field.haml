@@ -1,2 +1,2 @@
-- value = custom_field_value ? custom_field_value.date_value : Time.now
-= date_select "custom_fields[#{custom_field.id}]",nil,{:default => value, :prompt => (custom_field.required? || custom_field_value ? false : true)}, :class => (custom_field.required? ? "required" : "")
+- value = custom_field_value ? custom_field_value.date_value : nil
+= select_date(value, {:prefix => "custom_fields[#{custom_field.id}]", :field_name => "", :include_position => true, :prompt => !custom_field.required?}, {:class => (custom_field.required? ? "required" : "")})
