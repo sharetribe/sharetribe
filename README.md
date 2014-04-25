@@ -25,8 +25,12 @@ Below the installation instructions there is space for Operating system-specific
 * Go to the root folder of Sharetribe
 * Copy the example database configuration file as database.yml, which will be used to read the database information: `cp config/database.example.yml config/database.yml`
 * You need to have a database available for Sharetribe and a DB user account that has access to it. We have only used MySQL, so we give no guarantees of things working with others (e.g. PostgreSQL). (If you are going to do development you should have separate databases for development and testing also).
-  * You can [download MySQL from here](http://dev.mysql.com/downloads/mysql/)
-  * [These commands](https://gist.github.com/804314) can help you in the making of the needed user and databases.
+  * If you are new to MySQL:
+  * You can install MySQL Community Server two ways:
+      1. If you are on a Mac, use homebrew: `$ brew install mysql` (*highly* recommended)
+      2. Download a [MySQL installer from here](http://dev.mysql.com/downloads/mysql/)
+    * If you are using Mac OS X, consider installing `MySQL.prefPane` as a server startup/shutdown tool. It is packaged with the MySQL downloadable installer, but can be easily installed as a stand-alone.
+  * [These commands](https://gist.github.com/804314) can help you in creating a user and databases.
 * Edit details according to your database to `config/database.yml` (if you are not going to develop Sharetribe, it's enough to fill in the production database)
   * Probably you only need to change the passwords to the same that you used when creating the databases.
 * Copy the example configuration file as `config.yml`, which will be used to read the Sharetribe configuration information: `cp config/config.example.yml config/config.yml`
