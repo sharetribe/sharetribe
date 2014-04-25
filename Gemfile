@@ -38,15 +38,9 @@ gem "will_paginate"
 gem 'dalli'
 gem "memcachier"
 gem 'kgio', "~>2.8.0"
-#gem 'thinking-sphinx', "3.0.4", :require => 'thinking_sphinx' # 3.1.0 has problem with UTF-8 chars in query
-# And 3.0.6 had problems with requiring app/log which didn't exists for some reason
-# And 3.0.4 had problems with delayed delta, so using a patched 3.1.0 after all
-gem 'thinking-sphinx', '~> 3.1.0',
-  :git    => 'git://github.com/pat/thinking-sphinx.git',
-  :branch => 'develop',
-  :ref    => 'c82ccdbe12'
+gem 'thinking-sphinx', '~> 3.1.1'
 gem 'flying-sphinx', "~>1.2.0"
-gem "ts-delayed-delta", "~>2.0.1"
+gem "ts-delayed-delta", "~>2.0.2"
 gem 'recaptcha'
 gem 'delayed_job', "~>3.0.5"
 gem 'delayed_job_active_record'
