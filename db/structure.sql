@@ -68,7 +68,6 @@ CREATE TABLE `categories` (
   `updated_at` datetime NOT NULL,
   `community_id` int(11) DEFAULT NULL,
   `sort_priority` int(11) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_categories_on_parent_id` (`parent_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -206,10 +205,6 @@ CREATE TABLE `communities` (
   `price_filter_max` int(11) DEFAULT '100000',
   `automatic_confirmation_after_days` int(11) DEFAULT '14',
   `plan_level` int(11) DEFAULT '0',
-  `favicon_file_name` varchar(255) DEFAULT NULL,
-  `favicon_content_type` varchar(255) DEFAULT NULL,
-  `favicon_file_size` int(11) DEFAULT NULL,
-  `favicon_updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_communities_on_domain` (`domain`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -280,10 +275,10 @@ CREATE TABLE `conversations` (
   `listing_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
+  `status` varchar(255) DEFAULT 'pending',
   `last_message_at` datetime DEFAULT NULL,
   `automatic_confirmation_after_days` int(11) DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
-  `status` varchar(255) DEFAULT 'pending',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -351,7 +346,6 @@ CREATE TABLE `custom_field_values` (
   `listing_id` int(11) DEFAULT NULL,
   `text_value` text,
   `numeric_value` float DEFAULT NULL,
-  `date_value` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `type` varchar(255) DEFAULT NULL,
@@ -1797,8 +1791,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140417084647');
 
 INSERT INTO schema_migrations (version) VALUES ('20140417085905');
 
-INSERT INTO schema_migrations (version) VALUES ('20140417162548');
-
 INSERT INTO schema_migrations (version) VALUES ('20140417235732');
 
 INSERT INTO schema_migrations (version) VALUES ('20140422120515');
@@ -1807,4 +1799,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140425080207');
 
 INSERT INTO schema_migrations (version) VALUES ('20140425080603');
 
-INSERT INTO schema_migrations (version) VALUES ('20140428132517');
+INSERT INTO schema_migrations (version) VALUES ('20140425080731');
+
+INSERT INTO schema_migrations (version) VALUES ('20140425081001');
