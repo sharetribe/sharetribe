@@ -40,7 +40,9 @@ gem "memcachier"
 gem 'kgio', "~>2.8.0"
 gem 'thinking-sphinx', '~> 3.1.1'
 gem 'flying-sphinx', "~>1.2.0"
-gem "ts-delayed-delta", "~>2.0.2"
+gem 'ts-delayed-delta', "~>2.0.2",
+  :git    => 'git://github.com/sharetribe/ts-delayed-delta.git',
+  :branch => 'previous-failed-job'
 gem 'recaptcha'
 gem 'delayed_job', "~>3.0.5"
 gem 'delayed_job_active_record'
