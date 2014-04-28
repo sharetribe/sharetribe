@@ -187,6 +187,7 @@ en:
         number: Number
         dropdown: Dropdown
         checkbox_group: "Checkbox group"
+        datefield: "Date"
     emails:
       new:
         send_email_to_members: "Send an email to members"
@@ -1709,9 +1710,9 @@ en:
       delete_account_button: "Permanently delete my account"
       delete_account_confirmation_popup: "Are you sure you really want to delete your user account and permanently lose all data related to it? Account deletion can not be reversed."
       email_addresses: "Email addresses"
+      new_email: "New email address"
       instructions_to_delete_account: "If you delete your account all the data related to it will be removed: your profile details, listings, comments, messages, feedbacks etc."
       contact_admin: "please contact the administrators"
-      new_email: "New email address"
       new_password: "New password"
       save: Save
       these_fields_are_shown_only_to_you: "Username is shown in your profile unless you have given your name. Other information is only shown to you."

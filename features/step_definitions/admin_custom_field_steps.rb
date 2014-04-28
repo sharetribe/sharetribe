@@ -105,6 +105,16 @@ When /^I add a new numeric field "(.*?)" with min value (\d+) and max value (\d+
   }
 end
 
+When /^I add a new date field "(.*?)"$/ do |field_name|
+  steps %Q{
+    When I select "Date" from "field_type"
+    And I fill in "custom_field[name_attributes][en]" with "#{field_name}"
+    And I fill in "custom_field[name_attributes][fi]" with "aika"
+    And I toggle category "Spaces"
+    And I press submit
+  }
+end
+
 When /^I add a new custom field "(.*?)" with invalid data$/ do |field_name|
   steps %Q{
     When I select "Dropdown" from "field_type"
@@ -305,6 +315,31 @@ Given(/^there is a custom numeric field "(.*?)" in that community in category "(
 
   @custom_fields ||= []
   @custom_fields << custom_field
+end
+
+Given(/^there is a custom date field "(.*?)" in that community in category "(.*?)"$/) do |name, category_name|
+  custom_field = FactoryGirl.build(:custom_date_field, {
+      :community_id => @current_community.id,
+      :names => [CustomFieldName.create(:value => name, :locale => "en")]
+  })
+  category = find_category_by_name(category_name)
+  custom_field.category_custom_fields.build(:category => category)
+
+  custom_field.save!
+
+  @custom_fields ||= []
+  @custom_fields << custom_field
+end
+
+When /^I fill select custom date "(.*?)" with day="(.*?)", month="(.*?)" and year="(.*?)"$/ do |name,day,month,year|
+  select_id_day="custom_fields_"+CustomFieldName.find_by_value(name).custom_field.id.to_s+"__3i"
+  select_id_month="custom_fields_"+CustomFieldName.find_by_value(name).custom_field.id.to_s+"__2i"
+  select_id_year="custom_fields_"+CustomFieldName.find_by_value(name).custom_field.id.to_s+"__1i"
+  steps %Q{
+    And I select "#{day}" from "#{select_id_day}"
+    And I select "#{month}" from "#{select_id_month}"
+    And I select "#{year}" from "#{select_id_year}"
+  }
 end
 
 Then /^the option order for "(.*?)" should be following:$/ do |custom_field, table|

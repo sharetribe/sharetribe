@@ -294,6 +294,12 @@ class ListingsController < ApplicationController
         answer = CheckboxFieldValue.new
         answer.custom_field_option_selections = answer_value.map { |value| CustomFieldOptionSelection.new(:custom_field_value => answer, :custom_field_option_id => value) }
         answer
+      when :date_field
+        answer = DateFieldValue.new
+        answer.date_value = DateTime.new(answer_value["(1i)"].to_i,
+                                         answer_value["(2i)"].to_i,
+                                         answer_value["(3i)"].to_i)
+        answer
       else
         throw "Unimplemented custom field answer for question #{question_type}"
       end
@@ -309,12 +315,20 @@ class ListingsController < ApplicationController
     custom_field_params ||= {}
 
     mapped_values = custom_field_params.map do |custom_field_id, answer_value|
-      custom_field_value_factory(custom_field_id, answer_value) unless answer_value.blank?
+      custom_field_value_factory(custom_field_id, answer_value) unless is_answer_value_blank(answer_value)
     end.compact
 
     logger.info "Mapped values: #{mapped_values.inspect}"
 
     return mapped_values
+  end
+
+  def is_answer_value_blank(value)
+    if value.kind_of?(Hash)
+      value["(3i)"].blank? || value["(2i)"].blank? || value["(1i)"].blank?  # DateFieldValue check
+    else
+      value.blank?
+    end
   end
 
   def is_authorized_to_post

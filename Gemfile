@@ -5,7 +5,7 @@ ruby '2.1.1'
 gem 'rails', '3.2.17'
 
 # To use debugger
-# gem 'ruby-debug'
+#gem 'ruby-debug'
 
 # Gems used only for assets and not required
 # in production environments by default.

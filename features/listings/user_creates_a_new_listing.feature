@@ -193,6 +193,19 @@ Feature: User creates a new listing
     And I press "Save listing"
     Then I should see "Area: 150"
 
+@javascript @sphinx @no-transaction
+Scenario: User creates a new listing with date field
+  Given I am logged in
+  And community "test" has custom fields enabled
+  And there is a custom date field "building_date_test" in that community in category "Spaces"
+  When I follow "new-listing-link"
+  And I follow "Spaces"
+  And I follow "Selling"
+  And I fill in "listing_title" with "My house"
+  And I fill select custom date "building_date_test" with day="19", month="April" and year="2014"
+  And I press "Save listing"
+  Then I should see "building_date_test: 19 Apr 2014"
+
   @javascript @sphinx @no-transaction
   Scenario: User creates a new listing with checkbox field
     Given I am logged in
