@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/pat/ts-delayed-delta.git
+  revision: 839284f2f28b3f4caf3a3bf5ccde9a6d222c7f4d
+  ref: 839284f2f28b3f4caf3a3bf5ccde9a6d222c7f4d
+  branch: master
+  specs:
+    ts-delayed-delta (2.0.2)
+      delayed_job
+      thinking-sphinx (>= 1.5.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -393,9 +403,6 @@ GEM
       polyglot (>= 0.3.1)
     trollop (2.0)
     truncate_html (0.9.1)
-    ts-delayed-delta (2.0.2)
-      delayed_job
-      thinking-sphinx (>= 1.5.0)
     tzinfo (0.3.39)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
@@ -494,7 +501,7 @@ DEPENDENCIES
   thinking-sphinx (~> 3.1.1)
   timecop
   truncate_html
-  ts-delayed-delta (~> 2.0.2)
+  ts-delayed-delta (~> 2.0.2)!
   uglifier
   unicorn (~> 4.6.3)
   web_translate_it
