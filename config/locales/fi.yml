@@ -187,7 +187,7 @@ fi:
         number: Numero
         dropdown: Pudotusvalikko
         checkbox_group: "Ryhmä valintaruutuja"
-        datefield: Päivämäärä
+        date: Päivämäärä
     emails:
       new:
         send_email_to_members: "Lähetä sähköpostia jäsenille"
@@ -1710,9 +1710,9 @@ fi:
       delete_account_button: "Poista tilini pysyvästi"
       delete_account_confirmation_popup: "Oletko aivan varma, että haluat pysyvästi poistaa käyttäjätilisi ja kaikki siihen liittyvät tiedot? Poistoa ei voi peruuttaa."
       email_addresses: Sähköpostiosoitteet
+      new_email: "Uusi sähköpostiosoite"
       instructions_to_delete_account: "Jos poistat käyttäjätilisi, samalla poistetaan kaikki profiilin tiedot, ilmoitukset, viestit, palautteet ym "
       contact_admin: "otathan yhteyttä ylläpitoon"
-      new_email: "Uusi sähköpostiosoite"
       new_password: "Uusi salasana"
       save: Tallenna
       these_fields_are_shown_only_to_you: "Käyttäjätunnus näytetään profiilissasi, jos et ole syöttänyt nimeäsi. Muut tiedot näytetään vain sinulle."

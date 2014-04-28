@@ -172,7 +172,7 @@ nl:
         number: ~
         dropdown: ~
         checkbox_group: ~
-        datefield: ~
+        date: ~
     emails:
       new:
         send_email_to_members: "Stuur email aan gebruikers"
@@ -1693,9 +1693,9 @@ nl:
       delete_account_button: ~
       delete_account_confirmation_popup: ~
       email_addresses: ~
+      new_email: "Nieuw email adres"
       instructions_to_delete_account: ~
       contact_admin: ~
-      new_email: "Nieuw email adres"
       new_password: "Nieuw wachtwoord"
       save: Opslaan
       these_fields_are_shown_only_to_you: "Gebruikersnaam is zichtbaar in je profiel tenzij je je naam hebt opgegeven. Overige informatie is alleen zichtbaar voor jou."

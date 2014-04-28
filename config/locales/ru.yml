@@ -172,7 +172,7 @@ ru:
         number: ~
         dropdown: ~
         checkbox_group: ~
-        datefield: ~
+        date: ~
     emails:
       new:
         send_email_to_members: "Отправить электронное письмо членам сообщества"
@@ -1695,9 +1695,9 @@ ru:
       delete_account_button: ~
       delete_account_confirmation_popup: ~
       email_addresses: ~
+      new_email: "Новый адрес электронной почты"
       instructions_to_delete_account: "Если вы хотите удалить свою учётную запись, используйте форму связи слева."
       contact_admin: "свяжитесь с администратором"
-      new_email: "Новый адрес электронной почты"
       new_password: "Новый пароль"
       save: Сохранить
       these_fields_are_shown_only_to_you: "Если вы не сообщили ваше реальное имя, в вашем профиле будет отображаться выбранное вами имя пользователя. Остальная информация будет доступна только вам."

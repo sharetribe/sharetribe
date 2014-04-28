@@ -187,7 +187,7 @@ fr:
         number: Nombre
         dropdown: "Liste déroulante"
         checkbox_group: "Cases à cocher"
-        datefield: "Date"
+        date: ~
     emails:
       new:
         send_email_to_members: "Envoyer un email aux membres"
@@ -1710,9 +1710,9 @@ fr:
       delete_account_button: "Supprimer définitivement mon compte"
       delete_account_confirmation_popup: "Etes-vous bien sûr(e) de vouloir supprimer votre compte et de perdre toutes ses données ? La suppression d'un compte est irréversible."
       email_addresses: "Adresses email"
+      new_email: "Nouvelle adresse email"
       instructions_to_delete_account: "Si vous supprimez votre compte, toutes ses données seront perdues : les informations de votre profil, les annonces, les commentaires, les messages, les avis etc..."
       contact_admin: "merci de contacter les administrateurs"
-      new_email: "Nouvelle adresse email"
       new_password: "Votre nouveau mot de passe"
       save: Sauvegarder
       these_fields_are_shown_only_to_you: "Le nom d'utilisateur apparaît dans votre profil sauf si vous avez communiqué votre nom. Il n'y a que vous qui voyez les autres informations."
