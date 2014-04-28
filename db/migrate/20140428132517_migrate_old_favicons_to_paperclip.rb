@@ -15,9 +15,4 @@ class MigrateOldFaviconsToPaperclip < ActiveRecord::Migration
      end
      puts ""
   end
-
-  def self.down
-    raise  ActiveRecord::IrreversibleMigration, "Deletion of the paperclip favicon files is not implemented.\
-       If you wish to rollback, you can quite safely remove this IrreversibleMigration."
-  end
 end
