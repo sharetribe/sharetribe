@@ -78,6 +78,8 @@ fi:
         community_logo_icon: Mobiililogo
         community_cover_photo: Kansikuva
         small_community_cover_photo: "Matala kansikuva"
+        favicon: "Favicon"
+        favicon_info_text: "Ladattu kuva korvaa oletuksena käytettävän Sharetriben logon. Faviconin koon tulee olla 32x32 pikseliä. Ladattu kuva muunnetaan tähän kokoon."
         community_custom_color1: Pääväri
         community_custom_color2: "Toinen väri"
         logo_instructions_text_with_dimensions: "Peruslogon koon tulee olla %{width}x%{height} pikseliä."
