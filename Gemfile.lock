@@ -1,7 +1,8 @@
 GIT
-  remote: git://github.com/sharetribe/ts-delayed-delta.git
-  revision: 7944fe53e0555bfaf29c7600f010f4fabd45e891
-  branch: previous-failed-job
+  remote: git://github.com/pat/ts-delayed-delta.git
+  revision: 839284f2f28b3f4caf3a3bf5ccde9a6d222c7f4d
+  ref: 839284f2f28b3f4caf3a3bf5ccde9a6d222c7f4d
+  branch: master
   specs:
     ts-delayed-delta (2.0.2)
       delayed_job
