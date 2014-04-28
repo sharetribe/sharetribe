@@ -49,14 +49,22 @@ Then(/^I should see my name displayed as "(.*?)"$/) do |name|
   find(".user-name").should have_content(name)
 end
 
-Then(/^I should see that the Favicon is "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^I should see that the favicon is "(.*?)"$/) do |filename|
+  page.should have_xpath("/html/head/link[contains(@href, #{filename})]", :visible => false)
 end
 
 Then(/^I upload a new favicon$/) do
-  pending # express the regexp above with the code you wish you had
+  attach_image("favicontest.ico", "community[favicon]", ".edit_community")
 end
 
 Then(/^I should see that the favicon is the file I uploaded$/) do
-  pending # express the regexp above with the code you wish you had
+   steps %Q{
+     Then I should see that the favicon is "favicontest.ico"
+   }
+end
+
+Then(/^I should see that the favicon is the default$/) do
+  steps %Q{
+    Then I should see that the favicon is "favicon.ico"
+  }
 end

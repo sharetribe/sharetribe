@@ -134,6 +134,24 @@ class Community < ActiveRecord::Base
                                                       "image/pjpeg",
                                                       "image/x-png"]
 
+  has_attached_file :favicon,
+                    :styles => {
+                      :favicon => "32x32#"
+                    },
+                    :default_style => :favicon,
+                    :convert_options => {
+                      :favicon => "-depth 32",
+                      :favicon => "-strip"
+                    },
+                    :default_url => "/assets/favicon.ico"
+
+  validates_attachment_content_type :favicon,
+                                    :content_type => ["image/jpeg",
+                                                      "image/png",
+                                                      "image/gif",
+                                                      "image/x-icon",
+                                                      "image/vnd.microsoft.icon"]
+
   validates_format_of :twitter_handle, with: /^[A-Za-z0-9_]{1,15}$/, allow_nil: true
 
   attr_accessor :terms
