@@ -42,8 +42,6 @@ $bottom-gutter: lines(0.5);
 .row-with-divider {
   @extend .row;
   border-bottom: 1px solid $border;
-
-  margin-bottom: lines(1);
 }
 
 /**
