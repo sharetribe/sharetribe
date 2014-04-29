@@ -472,11 +472,7 @@ class Community < ActiveRecord::Base
   end
 
   def facebook_login_method(host=nil)
-    if facebook_connect_id && (!host || full_domain.match(host))
-      return "facebook_app_#{facebook_connect_id}".to_sym
-    else
-      return :facebook
-    end
+    return :facebook
   end
 
   def self.all_with_custom_fb_login
