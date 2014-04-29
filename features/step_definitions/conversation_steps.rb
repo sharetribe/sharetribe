@@ -1,14 +1,23 @@
 Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
-  # Hard-coded to the first community. Change this if needed
-  community = @listing.communities.first
-
   @conversation = Conversation.create!(:listing_id => @listing.id,
                                       :title => message,
-                                      :status => "pending",
                                       :conversation_participants => { @listing.author.id => "false", @people[sender].id => "true"},
                                       :message_attributes => { :content => message, :sender_id => @people[sender].id },
-                                      :community => community
+                                      :community => @current_community
                                       )
+
+  @conversation.status = "free"
+end
+
+Given /^there is a pending request "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
+  @conversation = Conversation.create!(:listing_id => @listing.id,
+                                      :title => message,
+                                      :conversation_participants => { @listing.author.id => "false", @people[sender].id => "true"},
+                                      :message_attributes => { :content => message, :sender_id => @people[sender].id },
+                                      :community => @current_community
+                                      )
+
+  @conversation.status = "pending"
 end
 
 Given /^there is a reply "([^"]*)" to that message by "([^"]*)"$/ do |content, sender|
@@ -37,7 +46,10 @@ Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do 
       end
 
       recipient = @conversation.listing.author
-      @conversation.payment = FactoryGirl.create(type, :conversation => @conversation, :recipient => recipient, :status => "pending", :sum => @conversation.listing.price)
+
+      if @conversation.payment == nil
+        @conversation.payment = FactoryGirl.create(type, :conversation => @conversation, :recipient => recipient, :status => "pending", :sum => @conversation.listing.price)
+      end
     end
   end
 

@@ -8,9 +8,12 @@ Feature: Automatic transaction completition
       | person |
       | paula  |
       | jeremy |
+    And the community has payments in use via BraintreePaymentGateway
+    And Braintree escrow release is mocked
     And there is a listing with title "Snowboard" from "jeremy"
-    And there is a message "I'd like to buy this" from "paula" about that listing
-    And the request is accepted
+    And the price of that listing is "20"
+    And there is a pending request "I'd like to buy this" from "paula" about that listing
+    And the request is paid
 
     Given I am logged in as "jeremy"
     # Using "I'm" because I don't want to hit the "I am on" step

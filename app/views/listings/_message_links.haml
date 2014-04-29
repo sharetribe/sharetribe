@@ -13,7 +13,9 @@
 - else
 
   - unless current_user?(@listing.author)
-    - link_path = (@listing.direction.eql?("request") && @current_community.payments_in_use?) ? reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free") : reply_to_listing_path(:id => @listing.id.to_s)
+
+    - link_path = @current_community.payment_possible_for?(@listing) ? reply_to_listing_path(:id => @listing.id.to_s) : reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free")
+
     = link_to link_path, :class => "book-button" do
       .content
         = @listing.transaction_type.action_button_label(I18n.locale)

@@ -434,6 +434,12 @@ class Community < ActiveRecord::Base
     payment_gateway.present?
   end
 
+  # Testimonials can be used only if payments are used and `testimonials_in_use` value
+  # is true. `testimonials_in_use` doesn't have any effect, if there are no payments
+  def testimonials_in_use
+    read_attribute(:testimonials_in_use) && payments_in_use?
+  end
+
   # Does this community require that people have registered payout method before accepting requests
   def requires_payout_registration?
     payment_gateway.present? && payment_gateway.requires_payout_registration_before_accept?

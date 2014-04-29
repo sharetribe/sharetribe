@@ -1,13 +1,13 @@
 Feature: User views profile page
   In order to find information about a user
   As a user
-  I want to 
+  I want to
 
   # FIXME: when closing listing can be viewed on user profile, uncomment rest of the test
   @javascript
   Scenario: User views his own profile page
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
     And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
@@ -34,11 +34,11 @@ Feature: User views profile page
     # And I should see "sewing"
     # And I follow "Show only open"
     # And I should not see "sewing"
-  
+
   @javascript
   Scenario: User views somebody else's profile page
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
     And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
@@ -56,11 +56,11 @@ Feature: User views profile page
     And I should not see "Housing"
     And I should not see "apartment"
     And I should see "massage"
-  
+
   @javascript
   Scenario: User views a profile page with listings with visibility settings
      Given there are following users:
-       | person | 
+       | person |
        | kassi_testperson1 |
        | kassi_testperson2 |
      And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
@@ -81,41 +81,52 @@ Feature: User views profile page
      And I should not see "apartment"
      When I follow "Show also closed"
      Then I should see "apartment"
-     
+
   @javascript
   Scenario: User views feedback in a profile page
     Given there are following users:
-       | person | 
+       | person |
        | kassi_testperson1 |
        | kassi_testperson2 |
        | kassi_testperson3 |
+    And the community has payments in use via BraintreePaymentGateway
     And I am logged in as "kassi_testperson1"
+
     When I go to the profile page of "kassi_testperson1"
     Then I should not see "Received feedback:"
-    And there is a listing with title "hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
-    And there is a message "I offer this" from "kassi_testperson2" about that listing
-    And the offer is accepted
+    And there is a listing with title "hammer" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
+    And the price of that listing is "20"
+    And there is a pending request "I offer this" from "kassi_testperson2" about that listing
+    And the request is accepted
     And there is feedback about that event from "kassi_testperson2" with grade "0.75" and with text "Test feedback"
     And I go to the profile page of "kassi_testperson1"
     Then I should see "1 received review"
     And I should see "100%" within "#people-testimonials"
     And I should see "Test feedback" within "#people-testimonials"
-    When there is a listing with title "saw" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
-    And there is a message "I offer this" from "kassi_testperson3" about that listing
-    And the offer is accepted
+
+    When there is a listing with title "saw" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
+    And the price of that listing is "20"
+    And there is a pending request "I offer this" from "kassi_testperson3" about that listing
+    And the price of that listing is "20"
+    And the request is accepted
     And there is feedback about that event from "kassi_testperson3" with grade "0.25" and with text "Test feedback"
     And I go to the profile page of "kassi_testperson1"
     Then I should see "50%" within "#people-testimonials"
-    When there is a listing with title "drill" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
-    And there is a message "I offer this" from "kassi_testperson2" about that listing
-    And the offer is accepted
+
+    When there is a listing with title "drill" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
+    And the price of that listing is "20"
+    And there is a pending request "I offer this" from "kassi_testperson2" about that listing
+    And the request is accepted
     And there is feedback about that event from "kassi_testperson2" with grade "0.75" and with text "OK feedback"
     And I go to the profile page of "kassi_testperson1"
     Then I should see "67%" within "#people-testimonials"
-    When there is a listing with title "tool" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
-    And there is a message "I offer this" from "kassi_testperson3" about that listing
-    And the offer is accepted
+
+    When there is a listing with title "tool" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
+    And the price of that listing is "20"
+    And there is a pending request "I offer this" from "kassi_testperson3" about that listing
+    And the request is accepted
     And there is feedback about that event from "kassi_testperson3" with grade "1" and with text "Excellent feedback"
+
     When I go to the profile page of "kassi_testperson1"
     Then I should see "75%" within "#people-testimonials"
     And I should see "Excellent feedback" within "#profile-testimonials-list"
@@ -126,7 +137,7 @@ Feature: User views profile page
   @javascript
   Scenario: Unlogged user tries to view profile page in a private community
     Given there are following users:
-       | person | 
+       | person |
        | kassi_testperson1 |
     And community "test" is private
     When I go to the profile page of "kassi_testperson1"

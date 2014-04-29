@@ -20,6 +20,8 @@ class Conversation < ActiveRecord::Base
   delegate :can_transition_to?, :transition_to!, :transition_to, :current_state,
            to: :state_machine
 
+  delegate :author, to: :listing
+
   def state_machine
     @state_machine ||= TransactionProcess.new(self, transition_class: TransactionTransition)
   end
@@ -138,11 +140,22 @@ class Conversation < ActiveRecord::Base
   end
 
   def offerer
-    participants.each { |p| return p if listing.offerer?(p) }
+    participants.find { |p| listing.offerer?(p) }
   end
 
   def requester
-    participants.each { |p| return p if listing.requester?(p) }
+    participants.find { |p| listing.requester?(p) }
+  end
+
+  # Please note!
+  #
+  # This method only works for conversations that have listings i.e. it doesn't work for private messages started
+  # from profile.
+  #
+  # In the future, would be smart to mark to the DB which party was the starter. This way we could define the starter
+  # even if the conversation is not related to a listing.
+  def starter
+    other_party(author)
   end
 
   # If payment through Sharetribe is required to

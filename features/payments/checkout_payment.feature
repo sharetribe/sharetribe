@@ -6,14 +6,14 @@ Feature: User pays after accepted transaction
   @javascript
   Scenario: User can not accept transaction before filling in payment details
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
     And community "test" has payments in use via Checkout
     And "kassi_testperson2" does not have Checkout account
     And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
     And the price of that listing is "12"
-    And there is a message "I want to buy" from "kassi_testperson1" about that listing
+    And there is a pending request "I want to buy" from "kassi_testperson1" about that listing
     And I am logged in as "kassi_testperson2"
     When I follow "inbox-link"
     And I should see "1" within ".inbox-link"
@@ -26,14 +26,14 @@ Feature: User pays after accepted transaction
   @javascript
   Scenario: User goes to payment service, but decides to cancel and comes back
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
     And community "test" has payments in use via Checkout
     And "kassi_testperson2" has Checkout account
     And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
     And the price of that listing is "12"
-    And there is a message "I want to buy" from "kassi_testperson1" about that listing
+    And there is a pending request "I want to buy" from "kassi_testperson1" about that listing
     And I am logged in as "kassi_testperson2"
     When I follow "inbox-link"
     And I should see "1" within ".inbox-link"
@@ -82,14 +82,14 @@ Feature: User pays after accepted transaction
   @javascript
   Scenario: requester cancels a transaction with payment that had already been accepted, but not paid and skips feedback
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
     And "kassi_testperson2" has Checkout account
     And community "test" has payments in use via Checkout
     And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
     And the price of that listing is "12"
-    And there is a message "I want to buy" from "kassi_testperson1" about that listing
+    And there is a pending request "I want to buy" from "kassi_testperson1" about that listing
     And the request is accepted
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
@@ -103,14 +103,14 @@ Feature: User pays after accepted transaction
   @javascript
   Scenario: requester cancels a transaction with payment that had already been accepted, but not paid and gives feedback
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
     And "kassi_testperson2" has Checkout account
     And community "test" has payments in use via Checkout
     And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
     And the price of that listing is "12"
-    And there is a message "I want to buy" from "kassi_testperson1" about that listing
+    And there is a pending request "I want to buy" from "kassi_testperson1" about that listing
     And the request is accepted
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
@@ -128,14 +128,14 @@ Feature: User pays after accepted transaction
   @javascript
   Scenario: requester pays with delayed billing
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
     And community "test" has payments in use
     And "kassi_testperson2" has Checkout account
     And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
     And the price of that listing is "12"
-    And there is a message "I want to buy" from "kassi_testperson1" about that listing
+    And there is a pending request "I want to buy" from "kassi_testperson1" about that listing
     And I am logged in as "kassi_testperson2"
     When I follow "inbox-link"
     And I should see "1" within ".inbox-link"
@@ -160,14 +160,14 @@ Feature: User pays after accepted transaction
   @javascript
   Scenario: offerer cancels the request
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
     And community "test" has payments in use
     And "kassi_testperson2" has Checkout account
     And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
     And the price of that listing is "12"
-    And there is a message "I want to buy" from "kassi_testperson1" about that listing
+    And there is a pending request "I want to buy" from "kassi_testperson1" about that listing
     And I am logged in as "kassi_testperson2"
     When I follow "inbox-link"
     And I should see "1" within ".inbox-link"
