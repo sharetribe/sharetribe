@@ -61,11 +61,6 @@ default: &default_settings
   # This setting here is the server wide default, and it's used if no community specific setting is found.
   default_locale: en
 
-  # Facebook Connect
-  # If you want to use Facebook connect, enter the credentials here
-  fb_connect_id:
-  fb_connect_secret:
-
   # reCAPTChA is used to avoid bots registering accounts
   # You need to register your domain at https://www.google.com/recaptcha
   # to get the keys
