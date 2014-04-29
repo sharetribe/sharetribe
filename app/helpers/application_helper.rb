@@ -557,12 +557,20 @@ module ApplicationHelper
         :elative => "Autopaikkapörssistä",
         :partitive => "Autopaikkapörssiä"
       }
+      # Deprecated, renamed to Työtorni
       when "Työpooli" then {
         :illative => "Työpooliin",
         :genetive => "Työpoolin",
         :inessive => "Työpoolissa",
         :elative => "Työpoolista",
         :partitive => "Työpoolia"
+      }
+      when "Työtorni" then {
+        :illative => "Työtorniin",
+        :genetive => "Työtornin",
+        :inessive => "Työtornissa",
+        :elative => "Työtornista",
+        :partitive => "Työtornia"
       }
     when "Lovebirds" then {
         :illative =>  "Lovebirdsiin",
