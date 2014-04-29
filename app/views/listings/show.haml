@@ -140,13 +140,13 @@
                   .content
                     = t(".contact")
 
-    .row-with-divider.listing-author-activity
-      .col-12
-        - if @listing.author.received_positive_testimonials.size > 0
+    - if @current_community.testimonials_in_use && @listing.author.received_testimonials.size > 0
+      .row-with-divider.listing-author-activity
+        .col-12
           %i.listing-author-activity-icon{:class => icon_class("testimonial")}
           .listing-author-activity-item
             .listing-author-activity-value
-              - if @listing.author.received_positive_testimonials.size > 0
+              - if @listing.author.received_testimonials.size > 0
                 = @listing.author.feedback_positive_percentage.to_s + "%"
                 = t("people.show.positive")
                 = "(#{@listing.author.received_positive_testimonials.size}/#{@listing.author.received_testimonials.size})"
