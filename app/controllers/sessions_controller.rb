@@ -148,8 +148,8 @@ class SessionsController < ApplicationController
 
   #Facebook setup phase hook, that is used to dynamically set up a omniauth strategy for facebook on customer basis
   def facebook_setup
-    request.env["omniauth.strategy"].options[:client_id] = @current_community.facebook_connect_id
-    request.env["omniauth.strategy"].options[:client_secret] = @current_community.facebook_connect_secret
+    request.env["omniauth.strategy"].options[:client_id] = @current_community.facebook_connect_id || APP_CONFIG.fb_connect_id
+    request.env["omniauth.strategy"].options[:client_secret] = @current_community.facebook_connect_secret || APP_CONFIG.fb_connect_secret
     request.env["omniauth.strategy"].options[:iframe] = true
     request.env["omniauth.strategy"].options[:scope] = "offline_access,email"
 

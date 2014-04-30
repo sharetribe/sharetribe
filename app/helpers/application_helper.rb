@@ -840,7 +840,7 @@ module ApplicationHelper
   end
 
   def facebook_connect_in_use?
-   !@facebook_merge && @current_community && @current_community.facebook_connect_enabled?
+   APP_CONFIG.fb_connect_id && !@facebook_merge && @current_community && @current_community.facebook_connect_enabled?
   end
 
   def community_slogan
