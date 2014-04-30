@@ -149,6 +149,10 @@ fi:
         invalid_twitter_handle: "Twitter-tilin tunnus voi olla enintään 15 merkkiä pitkä sekä sisältää vain kirjaimia (A-Z) ja numeroita (0-9)."
         google_analytics_key: "Google Analytics tracking ID ('classic'-tili)"
         google_analytics_key_info_text: "Google Analytics -tilisi tracking ID. Sinulla tulee olla 'classic'-tyyppinen tili."
+        facebook_connect_id: "Facebook - sovellustunnus"
+        facebook_connect_id_info_text: "Luo oma sovellus Facobookin kehittäjäsivustolla ja lisää luodun sovelluksen tunnus tähän."
+        facebook_connect_secret: "Facebook - salainen avain"
+        facebook_connect_secret_info_text: "Luo oma sovellus Facobookin kehittäjäsivustolla ja lisää luodun sovelluksen salainen avain tähän."
         save: "Tallenna muutokset"
     custom_fields:
       edit:

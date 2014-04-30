@@ -3,10 +3,10 @@ Feature: Admin manages integration details
   In order to promote my marketplace, get analytics and easier log in
   As an admin
   I want to integrate my service to different apps
-  
+
   Background:
-    Given there are following users: 
-      | person            | given_name | family_name | email               | membership_created_at     | 
+    Given there are following users:
+      | person            | given_name | family_name | email               | membership_created_at     |
       | manager           | matti      | manager     | manager@example.com | 2014-03-01 00:12:35 +0200 |
       | kassi_testperson1 | john       | doe         | test2@example.com   | 2013-03-01 00:12:35 +0200 |
       | kassi_testperson2 | jane       | doe         | test1@example.com   | 2012-03-01 00:00:00 +0200 |
@@ -26,3 +26,11 @@ Feature: Admin manages integration details
   And I press submit
   And I refresh the page
   Then I should see "UA-12345-12" in the Google analytics key field
+
+  Scenario: Admin adds facebook credentials
+  When I fill in "Facebook client id" with "597013691"
+  And I fill in "Facebook client secret" with "abcd597013691aeu123"
+  And I press submit
+  And I refresh the page
+  Then I should see "597013691" in the Facebook client id field
+  And I should see "abcd597013691aeu123" in the Facebook client secret field
