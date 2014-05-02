@@ -58,6 +58,7 @@ GEM
     asset_sync (1.0.0)
       activemodel
       fog
+    ast (2.0.0)
     aws-sdk (1.15.0)
       json (~> 1.4)
       nokogiri (< 1.6.0)
@@ -275,6 +276,9 @@ GEM
     parallel (0.6.2)
     parallel_tests (0.9.3)
       parallel
+    parser (2.1.9)
+      ast (>= 1.1, < 3.0)
+      slop (~> 3.4, >= 3.4.5)
     pickle (0.4.11)
       cucumber (>= 0.8)
       rake
@@ -286,6 +290,7 @@ GEM
       actionmailer
       postmark (>= 0.9.0)
       rake
+    powerpack (0.0.9)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -328,6 +333,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
+    rainbow (2.0.0)
     raindrops (0.12.0)
     rake (10.2.2)
     rb-fsevent (0.9.3)
@@ -361,9 +367,16 @@ GEM
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
       rspec-mocks (~> 2.12.0)
+    rubocop (0.21.0)
+      json (>= 1.7.7, < 2)
+      parser (~> 2.1.9)
+      powerpack (~> 0.0.6)
+      rainbow (>= 1.99.1, < 3.0)
+      ruby-progressbar (~> 1.4)
     ruby-hmac (0.4.0)
     ruby-ole (1.2.11.6)
     ruby-prof (0.14.2)
+    ruby-progressbar (1.4.2)
     rubyzip (1.1.3)
     russian (0.6.0)
       i18n (>= 0.5.0)
@@ -500,6 +513,7 @@ DEPENDENCIES
   recaptcha
   rest-client (>= 1.6.0)
   rspec-rails
+  rubocop
   ruby-prof
   russian
   sass (~> 3.2.9)
