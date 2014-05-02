@@ -33,7 +33,6 @@ class Superadmin::CommunitiesController < ApplicationController
 
       redirect_to :superadmin_communities
     else
-      binding.pry
       flash[:error] = "Error: #{@community.errors.messages}"
       redirect_to new_superadmin_community_path
     end
