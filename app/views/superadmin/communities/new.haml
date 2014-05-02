@@ -21,7 +21,7 @@
         = form.select :available_currencies, options_for_select(Money::Currency.table.map { |k, v| [k.upcase, v] })
     .row
       .col-12
-        = label_tag :transaction_type, "Name", :class => "input"
+        = label_tag :transaction_type, "Transaction type", :class => "input"
         = select_tag :transaction_type, options_for_select([["Give", "Give"], ["Inquiry", "Inquiry"], ["Lend", "Lend"], ["Rent", "Rent"], ["Sell", "Sell"], ["Service", "Service"], ["Share for free", "ShareForFree"], ["Swap", "Swap"]])
     .row
       .col-12
