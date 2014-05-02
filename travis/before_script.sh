@@ -9,6 +9,10 @@ then
 	mysql -e 'create database sharetribe_test;'
 	mysql sharetribe_test < db/structure.sql
 	exit
+elif [ "$SUITE" = "rubocop" ]
+then
+	exit
+else
 elif [ "$SUITE" = "cucumber" ]
 then
 	cp config/database.example.yml config/database.yml

@@ -5,6 +5,7 @@ rvm:
 env:
   matrix:
   - SUITE="rspec"
+  - SUITE="rubocop"
   - SUITE="cucumber"
   - SUITE="mocha"
   - SUITE="jshint"
