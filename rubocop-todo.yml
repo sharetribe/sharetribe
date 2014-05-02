@@ -242,6 +242,10 @@ LineEndConcatenation:
 LineLength:
   Max: 4230
 
+# Offense count: 1
+Eval:
+  Enabled: false
+
 # Offense count: 24
 # Cop supports --auto-correct.
 MethodCallParentheses:
@@ -256,7 +260,7 @@ MethodDefParentheses:
 # Offense count: 199
 # Configuration parameters: CountComments.
 MethodLength:
-  Max: 102
+  Max: 110
 
 # Offense count: 1
 # Configuration parameters: EnforcedStyle, SupportedStyles.

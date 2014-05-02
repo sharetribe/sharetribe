@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # This is mainly intended to be copy pasted to console to create and print out the wanted invitations to csv format
 # After which they can be imported e.g. to OpenOffice spreadsheet and printed out to deal to people
 
