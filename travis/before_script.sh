@@ -12,7 +12,6 @@ then
 elif [ "$SUITE" = "rubocop" ]
 then
 	exit
-else
 elif [ "$SUITE" = "cucumber" ]
 then
 	cp config/database.example.yml config/database.yml
