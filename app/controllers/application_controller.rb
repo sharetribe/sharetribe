@@ -267,6 +267,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ensure_is_superadmin
+    unless Maybe(@current_user).is_admin?.get_or_else(false)
+      flash[:error] = t("layouts.notifications.only_kassi_administrators_can_access_this_area")
+      redirect_to root and return
+    end
+  end
+
   # Does a push to Google Analytics on next page load
   # the reason to go via session is that the actions that cause events
   # often do a redirect.
