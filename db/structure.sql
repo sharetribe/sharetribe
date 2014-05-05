@@ -179,7 +179,6 @@ CREATE TABLE `communities` (
   `facebook_connect_id` varchar(255) DEFAULT NULL,
   `facebook_connect_secret` varchar(255) DEFAULT NULL,
   `google_analytics_key` varchar(255) DEFAULT NULL,
-  `favicon_url` varchar(255) DEFAULT NULL,
   `name_display_type` varchar(255) DEFAULT 'first_name_with_initial',
   `twitter_handle` varchar(255) DEFAULT NULL,
   `use_community_location_as_default` tinyint(1) DEFAULT '0',
@@ -205,6 +204,10 @@ CREATE TABLE `communities` (
   `price_filter_max` int(11) DEFAULT '100000',
   `automatic_confirmation_after_days` int(11) DEFAULT '14',
   `plan_level` int(11) DEFAULT '0',
+  `favicon_file_name` varchar(255) DEFAULT NULL,
+  `favicon_content_type` varchar(255) DEFAULT NULL,
+  `favicon_file_size` int(11) DEFAULT NULL,
+  `favicon_updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_communities_on_domain` (`domain`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1791,6 +1794,8 @@ INSERT INTO schema_migrations (version) VALUES ('20140417084647');
 
 INSERT INTO schema_migrations (version) VALUES ('20140417085905');
 
+INSERT INTO schema_migrations (version) VALUES ('20140417162548');
+
 INSERT INTO schema_migrations (version) VALUES ('20140417235732');
 
 INSERT INTO schema_migrations (version) VALUES ('20140422120515');
@@ -1804,3 +1809,7 @@ INSERT INTO schema_migrations (version) VALUES ('20140425080731');
 INSERT INTO schema_migrations (version) VALUES ('20140425081001');
 
 INSERT INTO schema_migrations (version) VALUES ('20140425111235');
+
+INSERT INTO schema_migrations (version) VALUES ('20140428132517');
+
+INSERT INTO schema_migrations (version) VALUES ('20140428134415');
