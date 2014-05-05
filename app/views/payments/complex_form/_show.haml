@@ -31,7 +31,7 @@
 
   .payment-row-vat-text.payment-row-text
 
-  .payment-row-total-text.payment-row-text
+  #total.payment-row-total-text.payment-row-text
     = @payment.total_sum.to_s + @payment.conversation.listing.price_symbol
 
 = form_tag(@payment_data[:payment_url], :method => "post", :id => "payment_form") do
