@@ -40,10 +40,6 @@ class BraintreePaymentGateway < PaymentGateway
     end
   end
 
-  def seller_pays_commission?
-    true
-  end
-
   def has_additional_terms_of_use
     true
   end

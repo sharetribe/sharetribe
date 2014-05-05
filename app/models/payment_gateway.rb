@@ -38,10 +38,6 @@ class PaymentGateway < ActiveRecord::Base
     false
   end
 
-  def seller_pays_commission?
-    false
-  end
-
   # by default return the class name, but this can be overridden
   # in child classes if name is not exaxtly the class name
   def name
