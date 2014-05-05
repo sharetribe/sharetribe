@@ -130,7 +130,7 @@ end
 
 Given /^there is a dropdown field "(.*?)" for category "(.*?)" in community "(.*?)" with options:$/ do |field_title, category_name, community_domain, opts_table|
   @community = Community.find_by_domain(community_domain)
-  @category = Category.find_by_name(category_name)
+  @category = find_category_by_name(category_name)
   @custom_field = FactoryGirl.build(:custom_dropdown_field, :community => @community, :names => [CustomFieldName.create(:value => field_title, :locale => "en")])
   @custom_field.category_custom_fields << FactoryGirl.build(:category_custom_field, :category => @category, :custom_field => @custom_field)
 
