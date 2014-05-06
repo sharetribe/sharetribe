@@ -783,8 +783,8 @@ function update_complex_form_price_fields(commission_percentage, service_fee_vat
   $("#service-fee-sum").text(service_fee_sum.toFixed(2) + '\u20AC');
 
   service_fee_sum_with_vat = service_fee_sum + (service_fee_sum * service_fee_vat / 100);
-  $("#service-fee-total").text(service_fee_sum_with_vat.toFixed(2) + '\u20AC');
-  $("#total").text((total_sum_with_vat + service_fee_sum_with_vat).toFixed(2) + '\u20AC');
+  $("#service-fee-total").text("-" + service_fee_sum_with_vat.toFixed(2) + '\u20AC');
+  $("#total").text((total_sum_with_vat - service_fee_sum_with_vat).toFixed(2) + '\u20AC');
 }
 
 function initialize_confirm_transaction_form() {

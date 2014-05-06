@@ -11,17 +11,6 @@
 = render :partial => "payments/complex_form/payment_row_static", :collection => @payment.rows, :as => :row
 
 .payment-row.payment-text-row.bottom-border
-  .payment-row-title-text.payment-row-text
-    = "Palvelumaksu (#{@current_community.service_name})"
-
-  .payment-row-sum-text.payment-row-text
-    = @payment.commission_without_vat.to_s + @payment.conversation.listing.price_symbol
-
-  .payment-row-vat-text.payment-row-text
-    = @current_community.vat.to_s + "%"
-
-  .payment-row-total-text.payment-row-text
-    = @payment.total_commission
 
 .payment-row.payment-text-row.payment-sum-row
   .payment-row-title-text.payment-row-text
