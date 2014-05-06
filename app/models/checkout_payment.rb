@@ -33,4 +33,15 @@ class CheckoutPayment < Payment
     sum_without_commission
   end
 
+  # Commission excluding VAT
+  def commission_without_vat
+    throw "Comission percentage has to be set" unless community.commission_from_seller
+    sum_without_vat_and_commission * community.commission_from_seller/100
+  end
+
+  # Commission including VAT
+  def total_commission
+    sum_with_percentage(commission_without_vat, APP_CONFIG.service_fee_tax_percentage.to_i)
+  end
+
 end
