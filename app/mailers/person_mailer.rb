@@ -315,6 +315,17 @@ class PersonMailer < ActionMailer::Base
          :reply_to => @feedback.email)
   end
 
+  # Used to send notification to admins when somebody
+  # wants to contact them through the form in the network page
+  def contact_request_notification(contact_request)
+    @contact_request = contact_request
+    subject = "New contact request by #{@contact_request.email}"
+    recipient = APP_CONFIG.contact_request_mailer_recipients || APP_CONFIG.feedback_mailer_recipients
+    mail(:to => recipient, :subject => subject) do |format|
+      format.html {render :layout => false }
+    end
+  end
+
   # Automatic reply to people who try to contact us via Dashboard
   def reply_to_contact_request(contact_request)
     @contact_request = contact_request
