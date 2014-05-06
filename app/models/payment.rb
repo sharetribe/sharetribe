@@ -42,10 +42,6 @@ class Payment < ActiveRecord::Base
     # Notification here?
   end
 
-  def community_commission_percentage
-    Maybe(community.commission_from_seller).getOrElse(0)
-  end
-
   def total_commission_percentage
     community_commission_percentage + gateway_commission_percentage
   end

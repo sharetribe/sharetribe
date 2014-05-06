@@ -735,16 +735,19 @@ function initialize_accept_transaction_form(commission_percentage, service_fee_v
   }
 }
 
-function updateSellerGetsValue(priceInputSelector, youWillGetSelector, currencySelector, commissionPercentage) {
+function updateSellerGetsValue(priceInputSelector, youWillGetSelector, currencySelector, communityCommissionPercentage, gatewayCommissionPercentage, gatewayCommissionFixed) {
   $display = $(youWillGetSelector);
   $input = $(priceInputSelector);
   $currency = $(currencySelector);
 
   function updateYouWillGet() {
     var sum = ST.paymentMath.parseFloatFromFieldValue($input.val());
-    var serviceFee = ST.paymentMath.serviceFee(sum, commissionPercentage);
-    var sellerGets = sum - serviceFee;
+    var serviceFee = ST.paymentMath.serviceFee(sum, communityCommissionPercentage);
+    var gatewayFee = ST.paymentMath.round(sum * gatewayCommissionPercentage / 100, 2) + gatewayCommissionFixed;
+    var sellerGets = sum - serviceFee - gatewayFee;
     var currency = $currency.val();
+
+    sellerGets = sellerGets < 0 ? 0 : sellerGets;
 
     $display.text([ST.paymentMath.displayMoney(sellerGets), currency].join(" "));
   }

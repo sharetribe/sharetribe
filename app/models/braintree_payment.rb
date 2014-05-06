@@ -16,12 +16,4 @@ class BraintreePayment < Payment
   def total_sum
     sum_cents.to_f / 100
   end
-
-  def gateway_commission_percentage
-    0
-  end
-
-  def gateway_commission_fixed
-    0
-  end
 end

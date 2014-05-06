@@ -64,4 +64,14 @@ class BraintreePaymentGateway < PaymentGateway
     true
   end
 
+  def gateway_commission_percentage
+    # Braintree does have a fee, but it's invoiced separately
+    0
+  end
+
+  def gateway_commission_fixed
+    # Braintree does have a fee, but it's invoiced separately
+    0
+  end
+
 end

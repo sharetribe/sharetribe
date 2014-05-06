@@ -63,4 +63,8 @@ class PaymentGateway < ActiveRecord::Base
   def hold_in_escrow
     false
   end
+
+  def community_commission_percentage
+    Maybe(community).commission_from_seller.get_or_else(0)
+  end
 end

@@ -17,6 +17,16 @@ window.ST.paymentMath = (function() {
     return Math.ceil(sum * commissionPercentage / 100);
   }
 
+  /**
+    round(100/3*2, 2) -> 66.67
+  */
+  function round(num, decimals) {
+    decimals = decimals || 0;
+    var factor = Math.pow(10, decimals);
+
+    return Math.round(num * factor) / factor;
+  }
+
   function displayMoney(sum) {
     return typeof sum === "number" && !isNaN(sum) ? sum.toFixed(2) : "-";
   }
@@ -24,6 +34,7 @@ window.ST.paymentMath = (function() {
   return {
     parseFloatFromFieldValue: parseFloatFromFieldValue,
     serviceFee: serviceFee,
-    displayMoney: displayMoney
+    displayMoney: displayMoney,
+    round: round
   };
 })();

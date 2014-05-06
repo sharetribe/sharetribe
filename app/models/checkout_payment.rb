@@ -43,5 +43,4 @@ class CheckoutPayment < Payment
   def total_commission
     sum_with_percentage(commission_without_vat, APP_CONFIG.service_fee_tax_percentage.to_i)
   end
-
 end

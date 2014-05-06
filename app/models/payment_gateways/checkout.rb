@@ -138,4 +138,12 @@ class Checkout < PaymentGateway
   def new_payment
     CheckoutPayment.new
   end
+
+  def gateway_commission_percentage
+    3
+  end
+
+  def gateway_commission_fixed
+    0.5
+  end
 end
