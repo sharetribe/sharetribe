@@ -41,4 +41,17 @@ class Payment < ActiveRecord::Base
     update_attribute(:status, "disbursed")
     # Notification here?
   end
+
+  def community_commission_percentage
+    Maybe(community.commission_from_seller).getOrElse(0)
+  end
+
+  def total_commission_percentage
+    community_commission_percentage + gateway_commission_percentage
+  end
+
+  def total_commission_fixed
+    # Currently no marketplace specific fixed part
+    gateway_commission_fixed
+  end
 end
