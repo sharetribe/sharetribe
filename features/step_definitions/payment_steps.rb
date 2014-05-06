@@ -41,12 +41,11 @@ Given /^there is an accepted request for "(.*?)" with price "(.*?)" from "(.*?)"
   message.content = "Please pay"
   message.action = "accept"
 
-  payment = Payment.new()
+  payment = community.payment_gateway.new_payment
   payment.payer = requester
   payment.recipient = listing.author
   payment.community_id = community.id
   payment.status = "pending"
-  payment.type = "BraintreePayment" # hard-coded, change if needed
   payment.sum_cents = price.to_i * 100
   payment.currency = "EUR"
 
