@@ -297,7 +297,7 @@ FactoryGirl.define do
     type "BraintreePayment"
   end
 
-  factory :payment do
+  factory :checkout_payment, class: 'CheckoutPayment' do
     payer
     recipient
     status "pending"
