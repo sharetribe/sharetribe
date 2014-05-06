@@ -320,7 +320,8 @@ class PersonMailer < ActionMailer::Base
   def contact_request_notification(contact_request)
     @contact_request = contact_request
     subject = "New contact request by #{@contact_request.email}"
-    mail(:to => APP_CONFIG.feedback_mailer_recipients, :subject => subject) do |format|
+    recipient = APP_CONFIG.contact_request_mailer_recipients || APP_CONFIG.feedback_mailer_recipients
+    mail(:to => recipient, :subject => subject) do |format|
       format.html {render :layout => false }
     end
   end
