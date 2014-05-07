@@ -17,6 +17,9 @@ class Payment < ActiveRecord::Base
   validate :validate_sum
   validate :one_conversation_cannot_have_multiple_payments
 
+  delegate :commission_from_seller, to: :community
+  delegate :gateway_commission_percentage, :gateway_commission_fixed, to: :payment_gateway
+
   # There can be only one payment related to a certain conversation
   def one_conversation_cannot_have_multiple_payments
     payments = Payment.where(:conversation_id => conversation.id)
@@ -43,11 +46,24 @@ class Payment < ActiveRecord::Base
   end
 
   def total_commission_percentage
-    community_commission_percentage + gateway_commission_percentage
+    (commission_from_seller + gateway_commission_percentage).to_f / 100.to_f
   end
 
   def total_commission_fixed
     # Currently no marketplace specific fixed part
     gateway_commission_fixed
+  end
+
+  def total_commission
+    total_sum * total_commission_percentage + total_commission_fixed
+  end
+
+  def seller_gets
+    total_sum - total_commission
+  end
+
+  def total_commission_without_vat
+    vat = Maybe(community).vat.get_or_else(0).to_f / 100.to_f
+    total_commission / (1 + vat)
   end
 end

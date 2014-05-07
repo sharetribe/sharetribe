@@ -57,7 +57,9 @@ class BraintreePaymentGateway < PaymentGateway
   end
 
   def new_payment
-    BraintreePayment.new
+    payment = BraintreePayment.new
+    payment.payment_gateway = self
+    payment
   end
 
   def hold_in_escrow
@@ -71,7 +73,7 @@ class BraintreePaymentGateway < PaymentGateway
 
   def gateway_commission_fixed
     # Braintree does have a fee, but it's invoiced separately
-    0
+    Money.new(0, "USD")
   end
 
 end

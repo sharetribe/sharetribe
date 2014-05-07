@@ -136,7 +136,9 @@ class Checkout < PaymentGateway
   end
 
   def new_payment
-    CheckoutPayment.new
+    payment = CheckoutPayment.new
+    payment.payment_gateway = self
+    payment
   end
 
   def gateway_commission_percentage
@@ -144,6 +146,6 @@ class Checkout < PaymentGateway
   end
 
   def gateway_commission_fixed
-    0.5
+    Money.new(35, "EUR")
   end
 end

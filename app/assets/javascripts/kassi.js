@@ -708,7 +708,7 @@ function initialize_listing_view(locale) {
   });
 }
 
-function initialize_accept_transaction_form(commission_percentage, service_fee_vat, form_type, form_id, minimum_price, minimum_price_message) {
+function initialize_accept_transaction_form(commission_percentage, gatewayCommissionPercentage, gatewayCommissionFixed, service_fee_vat, form_type, form_id, minimum_price, minimum_price_message) {
 	auto_resize_text_areas("text_area");
 	style_action_selectors();
 
@@ -726,10 +726,12 @@ function initialize_accept_transaction_form(commission_percentage, service_fee_v
         },
 	    });
 	  } else {
-	    update_complex_form_price_fields(commission_percentage, service_fee_vat);
-	    $(".trigger-focusout").focusout(function(value) {
-	      update_complex_form_price_fields(commission_percentage, service_fee_vat);
-	    });
+      function update() {
+        update_complex_form_price_fields(commission_percentage, gatewayCommissionPercentage, gatewayCommissionFixed, service_fee_vat);
+      }
+
+	    $(".trigger-focusout").focusout(update);
+      update();
 	  }
 
   }
@@ -767,10 +769,8 @@ function update_simple_form_price_fields(commission_percentage) {
   $("#payment-to-seller").text(ST.paymentMath.displayMoney(seller_sum));
 }
 
-function update_complex_form_price_fields(commissionPercentage, serviceFeeVat) {
+function update_complex_form_price_fields(commissionPercentage, gatewayCommissionPercentage, gatewasCommissionFixed, serviceFeeVat) {
   var euro = '\u20AC'
-  var total_sum = 0;
-  var total_sum_with_vat = 0;
 
   var rows = $(".field-row").toArray().map(function(row) {
     var row = $(row);
@@ -793,9 +793,8 @@ function update_complex_form_price_fields(commissionPercentage, serviceFeeVat) {
     return total + rowObj.sumWithVat;
   }, 0);
 
-  debugger;
   var serviceFee = total * commissionPercentage / 100;
-  var gatewayFee = (total * 3 / 100) + 0.3;
+  var gatewayFee = (total * gatewayCommissionPercentage / 100) + gatewasCommissionFixed;
   var totalFee = serviceFee + gatewayFee;
   var totalFeeWithoutVat = totalFee / (1 + serviceFeeVat / 100);
   var youWillGet = total - totalFee;

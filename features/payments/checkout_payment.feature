@@ -34,8 +34,10 @@ Feature: User pays after accepted transaction
     And I follow "I want to buy"
     And I follow "Accept request"
     Then I should see "Palvelumaksu (Sharetribe)"
-    And I should see "-1.19€"
-    And I should see "13.69€" within "#total"
+    # (12 * 1.24 * 0.08) + (12 * 1.24 * 0.03) + 0.35 = 1.9868
+    And I should see "1.99€" within "#service-fee-total"
+    # (12 * 1.24) - 1.99 = 12.89
+    And I should see "12.89€" within "#total"
     And I fill in "conversation_message_attributes_content" with "Ok, then pay!"
     And I press "Send"
     Then I should see "Accepted"

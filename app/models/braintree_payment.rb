@@ -4,11 +4,6 @@ class BraintreePayment < Payment
 
   monetize :sum_cents, :allow_nil => true
 
-  # Payment excluding VAT and commission
-  def sum_without_vat_and_commission
-    sum
-  end
-
   def sum_exists?
     !!sum_cents
   end
