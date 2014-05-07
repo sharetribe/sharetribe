@@ -1286,6 +1286,7 @@ en:
         time: "hour, day, month, ..."
         long_time: "week, month, ..."
         after_service_fee_you_will_get: "After %{service_name} service fee you will get %{sum_with_currency}"
+        after_service_fee_you_will_get_vat: "After %{service_name} service fee you will get approx. %{sum_with_currency} (VAT 0%)"
         price_excludes_vat: "The price doesn't include VAT."
       origin:
         location: Location

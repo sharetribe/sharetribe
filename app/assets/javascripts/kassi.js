@@ -767,27 +767,47 @@ function update_simple_form_price_fields(commission_percentage) {
   $("#payment-to-seller").text(ST.paymentMath.displayMoney(seller_sum));
 }
 
-function update_complex_form_price_fields(commission_percentage, service_fee_vat) {
+function update_complex_form_price_fields(commissionPercentage, serviceFeeVat) {
+  var euro = '\u20AC'
   var total_sum = 0;
   var total_sum_with_vat = 0;
-  for (var i = 0; i < $(".field-row").length; i++) {
-    var sum = parseInt($(".payment-row-sum-field.row" + i).val());
 
-    var vat = parseInt($(".payment-row-vat-field.row" + i).val());
-    if (! vat > 0) { vat = 0;}
+  var rows = $(".field-row").toArray().map(function(row) {
+    var row = $(row);
+    var sumEl = row.find(".payment-row-sum-field");
+    var vatEl = row.find(".payment-row-vat-field");
+    var totalEl = row.find(".total-label");
+    var sum = parseInt(sumEl.val());
+    var vat = parseInt(vatEl.val());
 
-    row_sum = sum + (sum * vat / 100);
-    $(".total-label.row" + i).text(row_sum.toFixed(2) + '\u20AC');
-    total_sum += sum;
-    total_sum_with_vat += row_sum;
-  }
+    vat = Math.min(Math.max(vat, 0), 100);
+    var sumWithVat = sum + (sum * vat / 100);
 
-  var service_fee_sum = total_sum*commission_percentage/100;
-  $("#service-fee-sum").text(service_fee_sum.toFixed(2) + '\u20AC');
+    return {
+      totalEl: totalEl,
+      sumWithVat: sumWithVat
+    };
+  });
 
-  service_fee_sum_with_vat = service_fee_sum + (service_fee_sum * service_fee_vat / 100);
-  $("#service-fee-total").text("-" + service_fee_sum_with_vat.toFixed(2) + '\u20AC');
-  $("#total").text((total_sum_with_vat - service_fee_sum_with_vat).toFixed(2) + '\u20AC');
+  var total = rows.reduce(function(total, rowObj) {
+    return total + rowObj.sumWithVat;
+  }, 0);
+
+  debugger;
+  var serviceFee = total * commissionPercentage / 100;
+  var gatewayFee = (total * 3 / 100) + 0.3;
+  var totalFee = serviceFee + gatewayFee;
+  var totalFeeWithoutVat = totalFee / (1 + serviceFeeVat / 100);
+  var youWillGet = total - totalFee;
+
+  rows.forEach(function(rowObj) {
+    rowObj.totalEl.text(rowObj.sumWithVat.toFixed(2) + euro);
+  });
+
+  $("#service-fee-sum").text(totalFeeWithoutVat.toFixed(2) + euro);
+  $("#service-fee-total").text(totalFee.toFixed(2) + euro);
+
+  $("#total").text(youWillGet.toFixed(2) + euro);
 }
 
 function initialize_confirm_transaction_form() {

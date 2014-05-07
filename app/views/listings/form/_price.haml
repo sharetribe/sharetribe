@@ -30,4 +30,7 @@
           - content_for :extra_javascript do
             = yield :seller_commission_js
 
-        = t(".after_service_fee_you_will_get", :sum_with_currency => '<span id="you-will-get"></span>').html_safe
+        - if @current_community.vat
+          = t(".after_service_fee_you_will_get_vat", :sum_with_currency => '<span id="you-will-get"></span>').html_safe
+        - else
+          = t(".after_service_fee_you_will_get", :sum_with_currency => '<span id="you-will-get"></span>').html_safe

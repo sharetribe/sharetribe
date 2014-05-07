@@ -23,7 +23,7 @@
       #service-fee-sum.payment-row-sum-text.payment-row-text
 
       #service-fee-vat.payment-row-vat-text.payment-row-text
-        = @current_community.vat if @current_community.vat
+        = APP_CONFIG.service_fee_tax_percentage if @current_community.vat
         = "%"
 
       #service-fee-total.payment-row-total-text.payment-row-text
