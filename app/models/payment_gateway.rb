@@ -2,7 +2,7 @@ class PaymentGateway < ActiveRecord::Base
   include Rails.application.routes.url_helpers
 
   belongs_to :community
-  has_many :payment
+  has_many :payments
 
   # methods that must be defined in subclasses, but are not defined here as
   # this model is never directly used, only via subclasses

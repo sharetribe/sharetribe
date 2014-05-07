@@ -10,7 +10,7 @@ class Conversation < ActiveRecord::Base
 
   has_many :transaction_transitions, :dependent => :destroy
 
-  has_one :payments
+  has_one :payment
 
   VALID_STATUSES = ["pending", "accepted", "rejected", "paid", "free", "confirmed", "canceled"]
 
