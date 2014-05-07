@@ -722,6 +722,7 @@ CREATE TABLE `payments` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `community_id` int(11) DEFAULT NULL,
+  `payment_gateway_id` int(11) DEFAULT NULL,
   `sum_cents` int(11) DEFAULT NULL,
   `currency` varchar(255) DEFAULT NULL,
   `type` varchar(255) DEFAULT 'CheckoutPayment',
@@ -1821,3 +1822,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140507105154');
 INSERT INTO schema_migrations (version) VALUES ('20140509115747');
 
 INSERT INTO schema_migrations (version) VALUES ('20140512062911');
+
+INSERT INTO schema_migrations (version) VALUES ('20140507105154');
+

@@ -11,6 +11,7 @@ class Payment < ActiveRecord::Base
   belongs_to :recipient, :class_name => "Person"
 
   belongs_to :community
+  belongs_to :payment_gateway
 
   validates_inclusion_of :status, :in => VALID_STATUSES
   validate :validate_sum
