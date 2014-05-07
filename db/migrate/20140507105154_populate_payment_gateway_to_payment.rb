@@ -6,7 +6,7 @@ class PopulatePaymentGatewayToPayment < ActiveRecord::Migration
   def up
     Payment.find_each do |payment|
       begin
-        payment.update_attribute(payment_gateway_id: payment.community.payment_gateway_id)
+        payment.update_attribute(:payment_gateway_id, payment.community.payment_gateway.id)
         print_dot
       rescue
         puts "failed. payment: #{Maybe(payment).id.get_or_else("nil payment")}, payment_gateway: #{Maybe(payment).community.payment_gateway.get_or_else("no gateway")}"
