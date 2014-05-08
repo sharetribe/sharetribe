@@ -35,7 +35,6 @@ Below the installation instructions there is space for Operating system-specific
   * Probably you only need to change the passwords to the same that you used when creating the databases.
 * Copy the example configuration file as `config.yml`, which will be used to read the Sharetribe configuration information: `cp config/config.example.yml config/config.yml`
 * Edit details according to your system configuration to `config/config.yml`.
-* If you are planning to run Sharetribe in production mode on your local machine (without Apache or similar server in front) you'll need to set the value of `serve_static_assets_in_production` to `true` (to make images and CSS files show correctly). Otherwise leave it as it is.
 * Install Sphinx. Version 2.1.4 has been used successfully, but probably also bit newer and older versions will work. See [Sphinx installation instructions](http://pat.github.com/ts/en/installing_sphinx.html) (no need to start it yet. You can try running `searchd` command, but it should fail at this point complaining about missing config)
 * Install [Imagemagick](http://www.imagemagick.org)
 * run `bundle install` in the project root directory (sharetribe) to install required gems
@@ -69,6 +68,10 @@ CategoryTransactionType.create(:category_id => ca.id, :transaction_type_id => tt
 ```
 
 * go to your selected community address (your\_chosen\_subdomain\_here.yourdomain.com or your\_chosen\_subdomain_here.lvh.me:3000) and register as a user. The first registered user will be automatically made as an admin in that community.
+
+### Advanced settings
+
+* It's not recommended to server static assets from Rails server in production. Instead, you should serve assets from Amazon S3 or use Apache/Nginx server in from. In this case, you'll need to set the value of `serve_static_assets_in_production` to `false`
 
 ### Tips for different platforms and OS
 
@@ -112,7 +115,6 @@ gem 'win32-process', :platforms => [:mswin, :mingw]
 - cp config/config.example.yml config/config.yml
 - emacs config/config.yml
 	- check all once
-	- don't forget serve_static_assets_in_production = true (if not using Apache?)
 - sudo aptitude install sphinxsearch
 - sudo aptitude install imagemagick
 - sudo aptitude install build-essential mysql-client libmysql-ruby libmysqlclient-dev
