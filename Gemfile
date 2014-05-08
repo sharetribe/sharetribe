@@ -91,7 +91,7 @@ group :development do
   gem 'rack-livereload'
   gem 'rb-fsevent',       require: false
   gem 'guard-rspec',      require: false
-  gem 'zeus'
+  gem 'zeus', '0.15.1'
 end
 
 group :test do
