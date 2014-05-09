@@ -268,7 +268,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_is_superadmin
-    unless Maybe(@current_user).is_admin?.get_or_else(false)
+    unless Maybe(@current_user).is_admin?.or_else(false)
       flash[:error] = t("layouts.notifications.only_kassi_administrators_can_access_this_area")
       redirect_to root and return
     end

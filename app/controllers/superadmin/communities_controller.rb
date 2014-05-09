@@ -19,7 +19,7 @@ class Superadmin::CommunitiesController < ApplicationController
       category_change_allowed: 1
     }
 
-    language = p["language"].get_or_else("en")
+    language = p["language"].or_else("en")
     community_params = defaults.merge(p["community"].merge(settings: {"locales" => [language]}).get)
 
     @community = Community.create(community_params)
@@ -39,7 +39,7 @@ class Superadmin::CommunitiesController < ApplicationController
   end
 
   def create_transaction_type!(p, language, community)
-    transaction_type = p["transaction_type"].get_or_else("Sell").constantize.new()
+    transaction_type = p["transaction_type"].or_else("Sell").constantize.new()
     transaction_type.community = community
     transaction_type.save!
     community.transaction_types << transaction_type
@@ -59,7 +59,7 @@ class Superadmin::CommunitiesController < ApplicationController
 
     category_translations = CategoryTranslation.create(:category_id => category.id,
       :locale => language,
-      :name => p[:category].get_or_else("Default"));
+      :name => p[:category].or_else("Default"));
 
     CategoryTransactionType.create(:category_id => category.id, :transaction_type_id => transaction_type.id)
 

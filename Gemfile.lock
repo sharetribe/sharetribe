@@ -8,14 +8,6 @@ GIT
       delayed_job
       thinking-sphinx (>= 1.5.0)
 
-GIT
-  remote: git://github.com/rap1ds/ruby-possibly
-  revision: 8080a913653a1c0efe566dbf8f8973b6cf0f882c
-  ref: 8080a913653a1c0efe566dbf8f8973b6cf0f882c
-  branch: master
-  specs:
-    possibly (0.0.0)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -279,6 +271,7 @@ GEM
       cucumber (>= 0.8)
       rake
     polyglot (0.3.4)
+    possibly (0.0.1)
     postmark (0.9.15)
       json
       rake
@@ -483,7 +476,7 @@ DEPENDENCIES
   paperclip
   parallel_tests
   pickle
-  possibly!
+  possibly (~> 0.0.1)
   postmark-rails
   pry
   pry-nav
