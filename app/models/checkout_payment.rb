@@ -22,4 +22,10 @@ class CheckoutPayment < Payment
   def total_sum
     rows.collect(&:sum_with_vat).sum
   end
+
+  # Build default payment sum by listing
+  # Note: Consider removing this :(
+  def default_sum(listing, vat=0)
+    rows.build(title: listing.title, currency: listing.currency, sum: listing.price, vat: vat)
+  end
 end

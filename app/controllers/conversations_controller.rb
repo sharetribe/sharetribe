@@ -83,7 +83,7 @@ class ConversationsController < ApplicationController
     @action = "accept"
     @payment = @current_community.payment_gateway.new_payment
     @payment.community = @current_community
-    @payment.sum = @conversation.listing.price
+    @payment.default_sum(@conversation.listing, Maybe(@current_community).vat.or_else(0))
   end
 
   def reject

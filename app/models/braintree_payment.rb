@@ -15,4 +15,10 @@ class BraintreePayment < Payment
   def total_sum
     sum
   end
+
+  # Build default payment sum by listing
+  # Note: Consider removing this :(
+  def default_sum(listing, vat=0)
+    self.sum = listing.price
+  end
 end
