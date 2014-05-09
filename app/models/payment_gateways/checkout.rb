@@ -144,6 +144,6 @@ class Checkout < PaymentGateway
   end
 
   def no_fixed_commission
-    Money(0, "EUR")
+    Money.new(0, "EUR")
   end
 end

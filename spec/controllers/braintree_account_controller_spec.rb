@@ -4,7 +4,7 @@ describe BraintreeAccountsController do
   describe "#create" do
     before(:each) do
       @community = FactoryGirl.create(:community)
-      FactoryGirl.create(:payment_gateway, :community => @community, :type => "BraintreePaymentGateway")
+      FactoryGirl.create(:braintree_payment_gateway, :community => @community)
 
       @request.host = "#{@community.domain}.lvh.me"
       @person = FactoryGirl.create(:person)

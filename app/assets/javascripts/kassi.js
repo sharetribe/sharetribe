@@ -759,7 +759,7 @@ function updateSellerGetsValue(priceInputSelector, youWillGetSelector, currencyS
 
 function update_simple_form_price_fields(commission_percentage) {
   var sum = ST.paymentMath.parseFloatFromFieldValue($(".invoice-sum-field").val());
-  var service_fee_sum = ST.paymentMath.serviceFee(sum, commission_percentage);
+  var service_fee_sum = ST.paymentMath.totalCommission(sum, commission_percentage, 0, 0);
   var seller_sum = sum - service_fee_sum;
   $("#service-fee").text(ST.paymentMath.displayMoney(service_fee_sum));
   $("#payment-to-seller").text(ST.paymentMath.displayMoney(seller_sum));

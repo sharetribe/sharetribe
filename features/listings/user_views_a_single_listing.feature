@@ -27,11 +27,11 @@ Feature: User views a single listing
 
   @only_without_asi
   Scenario: User views a listing with price
-    And the price of that listing is "20.55"
+    And the price of that listing is 20.55 USD
     And I am on the home page
     When I follow "Massage"
     Then I should see "Massage"
-    And I should see "€20.55"
+    And I should see "$20.55"
     When I am logged in as "kassi_testperson1"
     And I have "2" testimonials with grade "1"
     And I am on the home page

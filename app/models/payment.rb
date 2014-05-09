@@ -51,7 +51,7 @@ class Payment < ActiveRecord::Base
 
   def total_commission_fixed
     # Currently no marketplace specific fixed part
-    Maybe(gateway_commission_fixed).or_else(no_fixed_commission)
+    gateway_commission_fixed || no_fixed_commission
   end
 
   def total_commission

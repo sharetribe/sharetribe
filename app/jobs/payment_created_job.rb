@@ -11,19 +11,14 @@ class PaymentCreatedJob < Struct.new(:payment_id, :community_id)
   end
 
   def perform
-    begin
-      payment = Payment.find(payment_id)
-      community = Community.find(community_id)
-      payment_mail_creator = PaymentMailCreator.new(payment, community)
+    payment = Payment.find(payment_id)
+    community = Community.find(community_id)
+    payment_mail_creator = PaymentMailCreator.new(payment, community)
 
-      if payment.recipient.should_receive?("email_about_new_payments")
-        payment_mail_creator.new_payment.deliver
-      end
-      payment_mail_creator.receipt_to_payer.deliver
-    rescue => ex
-      puts ex.message
-      puts ex.backtrace.join("\n")
+    if payment.recipient.should_receive?("email_about_new_payments")
+      payment_mail_creator.new_payment.deliver
     end
+    payment_mail_creator.receipt_to_payer.deliver
   end
 
 end

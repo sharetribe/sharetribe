@@ -19,10 +19,10 @@ window.ST.paymentMath = (function() {
 
   function totalCommission(totalSum, communityCommissionPercentage, gatewayCommissionPercentage, gatewayCommissionFixed) {
     var communityCommission = totalSum * communityCommissionPercentage / 100;
-    var gatewayCommission = totalSum * gatewayCommissionPercentage / 100
-    var totalCommission = communityCommission + gatewayCommission + gatewayCommissionFixed;
+    var gatewayCommission = totalSum * gatewayCommissionPercentage / 100;
+    var commission = communityCommission + gatewayCommission + gatewayCommissionFixed;
 
-    return Math.ceil(totalCommission);
+    return Math.ceil(commission);
   }
 
   return {

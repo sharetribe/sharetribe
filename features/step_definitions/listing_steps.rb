@@ -9,8 +9,8 @@ Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with cate
   @listing = FactoryGirl.create(:listing, opts)
 end
 
-Given /^the price of that listing is "([^"]*)"?$/ do |price|
-  @listing.update_attribute(:price, price)
+Given /^the price of that listing is (\d+)\.(\d+) (EUR|USD)$/ do |price, price_decimal, currency|
+  @listing.update_attribute(:price, Money.new(price.to_i * 100 + price_decimal.to_i, currency))
 end
 
 Given /^that listing is closed$/ do

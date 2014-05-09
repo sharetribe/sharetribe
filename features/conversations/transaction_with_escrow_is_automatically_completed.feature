@@ -12,7 +12,7 @@ Feature: Automatic transaction with escrow completition
     Given community "test" has payments in use via BraintreePaymentGateway
     And Braintree escrow release is mocked
     And there is a listing with title "Snowboard" from "jeremy"
-    And the price of that listing is "12"
+    And the price of that listing is 12.00 USD
     And there is a pending request "I'd like to buy this" from "paula" about that listing
     And the request is paid
 

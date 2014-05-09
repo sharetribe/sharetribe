@@ -10,7 +10,7 @@ Feature: User pays after accepted transaction
       | kassi_testperson2 |
     And community "test" has payments in use via Checkout
     And there is a listing with title "math book" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
-    And the price of that listing is "12"
+    And the price of that listing is 12.00 EUR
     And there is a pending request "I want to buy" from "kassi_testperson1" about that listing
     And "kassi_testperson2" has Checkout account
 
@@ -35,9 +35,9 @@ Feature: User pays after accepted transaction
     And I follow "Accept request"
     Then I should see "Palvelumaksu (Sharetribe)"
     # (12 * 1.24 * 0.08) + (12 * 1.24 * 0.03) + 0.35 = 1.9868
-    And I should see "1.99€" within "#service-fee-total"
-    # (12 * 1.24) - 1.99 = 12.89
-    And I should see "12.89€" within "#total"
+    And I should see "2.00€" within "#service-fee-total"
+    # (12 * 1.24) - 2.00 = 12.88
+    And I should see "12.88€" within "#total"
     And I fill in "conversation_message_attributes_content" with "Ok, then pay!"
     And I press "Send"
     Then I should see "Accepted"
