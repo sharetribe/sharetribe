@@ -69,6 +69,7 @@ CategoryTransactionType.create(:category_id => ca.id, :transaction_type_id => tt
 
 ### Advanced settings
 
+* Default configurations are in `config/config.default.yml`. If you need to change these configs, it's recommended to create a file `config/config.yml`. The configurations in user-specific configuration file will override the default configurations. You can also set configurations to environment variables.
 * It's not recommended to server static assets from Rails server in production. Instead, you should serve assets from Amazon S3 or use Apache/Nginx server in from. In this case, you'll need to set the value of `serve_static_assets_in_production` to `false`
 
 ### Tips for different platforms and OS
