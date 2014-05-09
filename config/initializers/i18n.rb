@@ -43,16 +43,16 @@ end
 I18n.module_eval do
 
   class << self
-    
+
     # The method is quite strictly the original, only modifcation of "options" is added few lines below.
     def translate(*args)
-            
+
       options  = args.last.is_a?(Hash) ? args.pop : {}
       key      = args.shift
       backend  = config.backend
       locale   = options.delete(:locale) || config.locale
       handling = options.delete(:throw) && :throw || options.delete(:raise) && :raise # TODO deprecate :raise
-      
+
       # insert here the variables
       service_name = ApplicationHelper.fetch_community_service_name_from_thread
       service_name_other_forms = ApplicationHelper.service_name_other_forms(service_name)

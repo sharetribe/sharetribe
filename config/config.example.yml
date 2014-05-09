@@ -103,7 +103,6 @@ default: &default_settings
 
   # postmark_api_key:
 
-
   # This will be the from field in the mails sent from Sharetribe
   sharetribe_mail_from_address: "your-team@example.com"
 
@@ -152,7 +151,6 @@ default: &default_settings
   # If you have migrated from using ASI to use standalone Sharetribe,
   # You should set this to true to use ASI based password encryption
   use_asi_encryptor:
-
 
   # If you need for some reason change the session key used in cookies, you can do it here.
   # Normally no need to touch this.
@@ -229,7 +227,6 @@ test:
   # captcha is expected to be off when running tests
   use_recaptcha: false
 
-
   # The tests currently work only with ASI encryptor
   use_asi_encryptor: true
 
@@ -242,9 +239,6 @@ test:
   #127.0.0.1       login.lvh.me
   #127.0.0.1       test.lvh.me
   #127.0.0.1       test2.lvh.me
-
-
-
 
   # The login domain should be empty for tests
   # Note above, if running tests disconnected from the internet
@@ -269,4 +263,3 @@ test:
 
   # easier to run tests without SSL
   always_use_ssl: false
-
