@@ -1,4 +1,7 @@
 class Community < ActiveRecord::Base
+  DEFAULT_WIDE_LOGO_URL = "/assets/logos/full/default.png"
+  DEFAULT_LOGO_URL = "/assets/logos/mobile/default.png"
+
   require 'compass'
   require 'sass/plugin'
 
@@ -79,7 +82,7 @@ class Community < ActiveRecord::Base
                       # not work.
                       :apple_touch => "-background white -flatten"
                     },
-                    :default_url => "/assets/logos/mobile/default.png"
+                    :default_url => DEFAULT_LOGO_URL
 
   validates_attachment_content_type :logo,
                                     :content_type => ["image/jpeg",
@@ -93,7 +96,7 @@ class Community < ActiveRecord::Base
                       :header => "168x40#",
                       :original => "600x600>"
                     },
-                    :default_url => "/assets/logos/full/default.png"
+                    :default_url => DEFAULT_WIDE_LOGO_URL
 
   validates_attachment_content_type :wide_logo,
                                     :content_type => ["image/jpeg",

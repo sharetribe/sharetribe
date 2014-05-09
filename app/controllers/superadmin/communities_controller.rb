@@ -1,6 +1,11 @@
 class Superadmin::CommunitiesController < ApplicationController
+  before_filter do |controller|
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_content")
+  end
   before_filter :ensure_is_superadmin
   skip_filter :dashboard_only
+  skip_filter :single_community_only
+  skip_filter :fetch_community
 
   def new
     @new_community = Community.new
