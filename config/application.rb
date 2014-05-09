@@ -48,7 +48,7 @@ module Kassi
     config.assets.precompile += ['markerclusterer.js', 'communities/custom-style-*', 'ss-*', 'modernizr.min.js', 'mercury.js','jquery-1.7.js']
 
     # Read the config from the config.yml
-    APP_CONFIG = load_app_config
+    APP_CONFIG = ConfigLoader.load_app_config
 
     # enable custom domain cookies rack middleware
     config.middleware.use "CustomDomainCookie", APP_CONFIG.domain
@@ -92,7 +92,6 @@ module Kassi
           ["English", "en-qr"],
           ["English", "en-at"],
           ["French", "fr-at"],
-
     ]
 
     # This is the list o locales avaible for the dashboard and newly created tribes in UI

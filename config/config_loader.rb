@@ -1,23 +1,36 @@
 require 'yaml'
 require 'ostruct'
-def load_app_config
-  if File.exists?("#{Rails.root}/config/config.yml")
 
-    conf_hash = YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env]
+module ConfigLoader
+  DEFAULT_CONFIGS = "/config/config.defaults.yml"
+  USER_CONFIGS = "/config/config.yml"
 
-  else
+  module_function
 
-    #If there's no config file, this is probably Heroku installation or running tests in CI
-    if Rails.env.test?
-      # use example file for Continuous integrations tests
-      conf_hash = YAML.load_file("#{Rails.root}/config/config.example.yml")["test"]
-    else
-      conf_hash = {} # empty hash where Heroku env variables can be merged
-    end
+  # Load configurations in order:
+  # - default
+  # - user
+  # - env
+  #
+  # User configs override default configs and env configs override both user and default configs
+  def load_app_config
+    default_configs = read_yaml_file(DEFAULT_CONFIGS)
+    user_configs = read_yaml_file(USER_CONFIGS)
+    environment_configs = Maybe(ENV).or_else({})
+
+    # Order: default, user, env
+    config_order = [default_configs, user_configs, environment_configs]
+
+    configs = config_order.inject { |a, b| a.merge(b) }
+    OpenStruct.new(configs.symbolize_keys)
   end
 
-  conf = OpenStruct.new(conf_hash.merge(ENV).symbolize_keys)
-  # FIXME Temporary cludge to make Heroku work
-  #conf.available_locales = [["English", "en"], ["Suomi", "fi"]] if conf.available_locales.nil?
-  return conf
+  def read_yaml_file(file)
+    abs_path = "#{Rails.root}/#{file}"
+    file_content = if File.exists?(abs_path)
+      YAML.load_file(abs_path)[Rails.env]
+    end
+
+    Maybe(file_content).or_else({})
+  end
 end

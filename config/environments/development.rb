@@ -1,5 +1,5 @@
 Kassi::Application.configure do
-  APP_CONFIG ||= load_app_config
+  APP_CONFIG ||= ConfigLoader.load_app_config
 
   # Settings specified here will take precedence over those in config/environment.rb
 
