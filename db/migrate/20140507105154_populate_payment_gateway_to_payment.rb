@@ -9,7 +9,7 @@ class PopulatePaymentGatewayToPayment < ActiveRecord::Migration
         payment.update_attribute(:payment_gateway_id, payment.community.payment_gateway.id)
         print_dot
       rescue
-        puts "failed. payment: #{Maybe(payment).id.get_or_else("nil payment")}, payment_gateway: #{Maybe(payment).community.payment_gateway.get_or_else("no gateway")}"
+        puts "failed. payment: #{Maybe(payment).id.or_else("nil payment")}, payment_gateway: #{Maybe(payment).community.payment_gateway.or_else("no gateway")}"
       end
     end
   end

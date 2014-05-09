@@ -63,7 +63,7 @@ class Payment < ActiveRecord::Base
   end
 
   def total_commission_without_vat
-    vat = Maybe(community).vat.get_or_else(0).to_f / 100.to_f
+    vat = Maybe(community).vat.or_else(0).to_f / 100.to_f
     total_commission / (1 + vat)
   end
 end

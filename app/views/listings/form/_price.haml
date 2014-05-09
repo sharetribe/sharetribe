@@ -22,7 +22,13 @@
         - content_for :seller_commission_js do
           :javascript
             $(function() {
-              updateSellerGetsValue("#listing_price", "#you-will-get", "#listing_currency", #{gateway.community_commission_percentage}, #{gateway.gateway_commission_percentage}, #{gateway.gateway_commission_fixed});
+              updateSellerGetsValue(
+                "#listing_price",
+                "#you-will-get",
+                "#listing_currency",
+                #{gateway.community_commission_percentage},
+                #{gateway.gateway_commission_percentage},
+                #{Maybe(gateway).gateway_commission_fixed.amount.or_else(0)});
             });
         - if run_js_immediately
           = yield :seller_commission_js

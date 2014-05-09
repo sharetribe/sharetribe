@@ -66,6 +66,6 @@ class PaymentGateway < ActiveRecord::Base
   end
 
   def community_commission_percentage
-    Maybe(community).commission_from_seller.get_or_else(0)
+    Maybe(community).commission_from_seller.or_else(0)
   end
 end
