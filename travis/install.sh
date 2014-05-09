@@ -7,6 +7,10 @@ if [ "$SUITE" = "rspec" ]
 then
 	bundle install --without development --path=~/.bundle
 	exit
+elif [ "$SUITE" = "rubocop" ]
+then
+  bundle install --without development --path=~/.bundle
+  exit
 elif [ "$SUITE" = "cucumber" ]
 then
 	bundle install --without development --path=~/.bundle

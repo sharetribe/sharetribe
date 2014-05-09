@@ -83,6 +83,10 @@ group :staging, :production do
   gem 'newrelic_rpm', "~>3.6.2.96"
 end
 
+group :development, :test do
+  gem 'rubocop',          require: false
+end
+
 group :development do
   gem 'guard-livereload', require: false
   gem 'rack-livereload'
