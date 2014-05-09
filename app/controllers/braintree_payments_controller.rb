@@ -29,7 +29,7 @@ class BraintreePaymentsController < ApplicationController
     price = @braintree_payment.sum_cents
 
     amount = price.to_f / 100  # Braintree want's whole dollars
-    service_fee = PaymentMath.service_fee(price, commission).to_f / 100
+    service_fee = payment.total_commission.cents.to_f / 100
 
     BTLog.warn("Sending sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
 

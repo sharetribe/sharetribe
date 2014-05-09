@@ -138,6 +138,8 @@ class Checkout < PaymentGateway
   def new_payment
     payment = CheckoutPayment.new
     payment.payment_gateway = self
+    payment.community = community
+    payment.currency = "EUR"
     payment
   end
 

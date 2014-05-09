@@ -46,7 +46,7 @@ class Payment < ActiveRecord::Base
   end
 
   def total_commission_percentage
-    (commission_from_seller + gateway_commission_percentage).to_f / 100.to_f
+    (Maybe(commission_from_seller).or_else(0) + Maybe(gateway_commission_percentage).or_else(0)).to_f / 100.to_f
   end
 
   def total_commission_fixed

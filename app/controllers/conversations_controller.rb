@@ -81,6 +81,9 @@ class ConversationsController < ApplicationController
   def accept
     prepare_accept_or_reject_form
     @action = "accept"
+    @payment = @current_community.payment_gateway.new_payment
+    @payment.community = @current_community
+    @payment.sum = @conversation.listing.price
   end
 
   def reject

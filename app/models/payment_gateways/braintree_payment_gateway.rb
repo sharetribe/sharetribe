@@ -59,6 +59,8 @@ class BraintreePaymentGateway < PaymentGateway
   def new_payment
     payment = BraintreePayment.new
     payment.payment_gateway = self
+    payment.community = community
+    payment.currency = "USD"
     payment
   end
 

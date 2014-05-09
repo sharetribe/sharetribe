@@ -3,7 +3,7 @@ require 'spec_helper'
 describe BraintreeWebhooksController do
   before(:each) do
     @community = FactoryGirl.create(:community, :domain => "market.custom.org")
-    FactoryGirl.create(:payment_gateway, :community => @community, :type => "BraintreePaymentGateway")
+    FactoryGirl.create(:braintree_payment_gateway, :community => @community, :type => "BraintreePaymentGateway")
 
     # Refresh from DB
     @community.reload
