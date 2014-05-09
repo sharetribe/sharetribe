@@ -134,4 +134,8 @@ class Checkout < PaymentGateway
   def has_registered?(person)
     person.checkout_merchant_id.present? && person.checkout_merchant_key.present?
   end
+
+  def new_payment
+    CheckoutPayment.new
+  end
 end

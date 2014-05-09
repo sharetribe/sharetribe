@@ -64,10 +64,6 @@ class PaymentGateway < ActiveRecord::Base
     payments_person_settings_url(other_params.merge(:person_id => person.id.to_s, :locale => locale))
   end
 
-  def new_payment
-    Payment.new
-  end
-
   def hold_in_escrow
     false
   end
