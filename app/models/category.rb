@@ -92,7 +92,6 @@ class Category < ActiveRecord::Base
 
   def icon_name
     return icon if ApplicationHelper.icon_specified?(icon)
-    return name if ApplicationHelper.icon_specified?(name)
     return parent.icon_name if parent
     return "other"
   end

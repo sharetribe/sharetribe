@@ -34,10 +34,6 @@ FactoryGirl.define do
     "sharetribe_testcommunity_#{n}"
   end
 
-  sequence :category_name do |n|
-    "item_#{n}"
-  end
-
   factory :person, aliases: [:author, :receiver, :recipient, :payer, :sender] do
     is_admin 0
     locale "en"

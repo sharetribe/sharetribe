@@ -78,6 +78,8 @@ fr:
         community_logo_icon: "Logo sur mobile"
         community_cover_photo: "Photo de couverture"
         small_community_cover_photo: "Photo de couverture réduite"
+        favicon: Favicon
+        favicon_info_text: "Le favicon remplacera celui par défaut dans Sharetribe. Les dimensions doivent être de 32x32 pixels et l'image téléchargée sera redimensionnée à ces dimensions."
         community_custom_color1: "Couleur principale"
         community_custom_color2: "Couleur secondaire"
         logo_instructions_text_with_dimensions: "Le logo large doit avoir des dimensions de %{width}x%{height} pixels. Il sera affiché sur les grands écrans."
@@ -1042,7 +1044,7 @@ fr:
       or_check_our: "... ou consultez notre"
       send_feedback_to_admin: "Envoyer votre commentaire"
       to_see_what_others_have_suggested: "pour voir ce que les autres ont suggéré et votez pour vos fonctionnalités préférées."
-      your_email_address: "Votre adresse email (non obligatoire)"
+      your_email_address: "Votre adresse email (pour vous joindre)"
       connect: S'inscrire
       invite_your_friends: "Invitez des amis !"
       invite_your_neighbors: "Invitez vos voisins !"

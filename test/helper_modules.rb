@@ -123,7 +123,7 @@ module TestHelpers
   end
 
   def find_or_create_category(category_name)
-    Category.find_by_name(category_name) || FactoryGirl.create(:category, :name => category_name)
+    find_category_by_name(category_name) || FactoryGirl.create(:category)
   end
 
   def find_category_by_name(category_name)
