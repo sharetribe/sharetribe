@@ -20,6 +20,6 @@ class CheckoutPayment < Payment
 
   # Total payment that will be charged from the payer's account
   def total_sum
-    rows.inject(Money.new(0, rows.first.currency)) { |total, row| total += row.sum_with_vat }
+    rows.collect(&:sum_with_vat).sum
   end
 end

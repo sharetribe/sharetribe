@@ -310,6 +310,10 @@ FactoryGirl.define do
     end
   end
 
+  factory :payment_row do
+    currency "EUR"
+  end
+
   factory :braintree_account do
     person
     first_name "Joe"
