@@ -64,18 +64,11 @@ class BraintreePaymentGateway < PaymentGateway
     payment
   end
 
+  def no_fixed_commission
+    Money(0, "USD")
+  end
+
   def hold_in_escrow
     true
   end
-
-  def gateway_commission_percentage
-    # Braintree does have a fee, but it's invoiced separately
-    0
-  end
-
-  def gateway_commission_fixed
-    # Braintree does have a fee, but it's invoiced separately
-    Money.new(0, "USD")
-  end
-
 end

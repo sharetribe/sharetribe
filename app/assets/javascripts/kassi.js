@@ -744,13 +744,9 @@ function updateSellerGetsValue(priceInputSelector, youWillGetSelector, currencyS
 
   function updateYouWillGet() {
     var sum = ST.paymentMath.parseFloatFromFieldValue($input.val());
-    var serviceFee = ST.paymentMath.serviceFee(sum, communityCommissionPercentage);
-    var gatewayFee = ST.paymentMath.round(sum * gatewayCommissionPercentage / 100, 2) + gatewayCommissionFixed;
-    var sellerGets = sum - serviceFee - gatewayFee;
+    var sellerGets = sum - ST.paymentMath.totalCommission(sum, communityCommissionPercentage, gatewayCommissionPercentage, gatewayCommissionFixed);
     var currency = $currency.val();
-
     sellerGets = sellerGets < 0 ? 0 : sellerGets;
-
     $display.text([ST.paymentMath.displayMoney(sellerGets), currency].join(" "));
   }
 
@@ -777,8 +773,8 @@ function update_complex_form_price_fields(commissionPercentage, gatewayCommissio
     var sumEl = row.find(".payment-row-sum-field");
     var vatEl = row.find(".payment-row-vat-field");
     var totalEl = row.find(".total-label");
-    var sum = parseInt(sumEl.val());
-    var vat = parseInt(vatEl.val());
+    var sum = ST.paymentMath.parseFloatFromFieldValue(sumEl.val());
+    var vat = ST.paymentMath.parseFloatFromFieldValue(vatEl.val());
 
     vat = Math.min(Math.max(vat, 0), 100);
     var sumWithVat = sum + (sum * vat / 100);
@@ -793,9 +789,7 @@ function update_complex_form_price_fields(commissionPercentage, gatewayCommissio
     return total + rowObj.sumWithVat;
   }, 0);
 
-  var serviceFee = total * commissionPercentage / 100;
-  var gatewayFee = (total * gatewayCommissionPercentage / 100) + gatewasCommissionFixed;
-  var totalFee = serviceFee + gatewayFee;
+  var totalFee = ST.paymentMath.totalCommission(total, commissionPercentage, gatewayCommissionPercentage, gatewasCommissionFixed);
   var totalFeeWithoutVat = totalFee / (1 + serviceFeeVat / 100);
   var youWillGet = total - totalFee;
 

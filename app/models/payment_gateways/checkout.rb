@@ -143,11 +143,7 @@ class Checkout < PaymentGateway
     payment
   end
 
-  def gateway_commission_percentage
-    3
-  end
-
-  def gateway_commission_fixed
-    Money.new(35, "EUR")
+  def no_fixed_commission
+    Money(0, "EUR")
   end
 end

@@ -27,7 +27,7 @@
                 "#you-will-get",
                 "#listing_currency",
                 #{gateway.community_commission_percentage},
-                #{gateway.gateway_commission_percentage},
+                #{Maybe(gateway).gateway_commission_percentage.or_else(0)},
                 #{Maybe(gateway).gateway_commission_fixed.amount.or_else(0)});
             });
         - if run_js_immediately

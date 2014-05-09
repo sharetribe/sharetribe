@@ -18,7 +18,7 @@ class Payment < ActiveRecord::Base
   validate :one_conversation_cannot_have_multiple_payments
 
   delegate :commission_from_seller, to: :community
-  delegate :gateway_commission_percentage, :gateway_commission_fixed, to: :payment_gateway
+  delegate :gateway_commission_percentage, :gateway_commission_fixed, :no_fixed_commission, to: :payment_gateway
 
   # There can be only one payment related to a certain conversation
   def one_conversation_cannot_have_multiple_payments
@@ -51,7 +51,7 @@ class Payment < ActiveRecord::Base
 
   def total_commission_fixed
     # Currently no marketplace specific fixed part
-    gateway_commission_fixed
+    Maybe(gateway_commission_fixed).or_else(no_fixed_commission)
   end
 
   def total_commission
