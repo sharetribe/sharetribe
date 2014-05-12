@@ -233,7 +233,7 @@ CREATE TABLE `community_customizations` (
   `how_to_use_page_content` text,
   `custom_head_script` text,
   `about_page_content` text,
-  `terms_page_content` text,
+  `terms_page_content` mediumtext,
   `privacy_page_content` text,
   `storefront_label` varchar(255) DEFAULT NULL,
   `signup_info_content` text,
@@ -1813,3 +1813,11 @@ INSERT INTO schema_migrations (version) VALUES ('20140425111235');
 INSERT INTO schema_migrations (version) VALUES ('20140428132517');
 
 INSERT INTO schema_migrations (version) VALUES ('20140428134415');
+
+INSERT INTO schema_migrations (version) VALUES ('20140507104933');
+
+INSERT INTO schema_migrations (version) VALUES ('20140507105154');
+
+INSERT INTO schema_migrations (version) VALUES ('20140509115747');
+
+INSERT INTO schema_migrations (version) VALUES ('20140512062911');
