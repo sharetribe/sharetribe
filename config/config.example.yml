@@ -206,7 +206,7 @@ production: &production_settings
 
   # Set this to true if you want the rails server to serve static assets in production mode (images, JS etc.)
   # normally it is better to leave this for the web server (apache) to do.
-  serve_static_assets_in_production: false
+  serve_static_assets_in_production: true
 
 staging:
   <<: *production_settings
