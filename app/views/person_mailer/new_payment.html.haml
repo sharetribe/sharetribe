@@ -30,7 +30,7 @@
               = row.sum_with_vat.to_s + row.sum_symbol
         %tr
           %td
-            = "Palvelumaksu (#{@current_community.service_name})"
+            = "Palvelumaksu (#{@payment.community.service_name})"
           %td
             = @payment.total_commission_without_vat.to_s + @payment.rows.first.sum_symbol
           %td
