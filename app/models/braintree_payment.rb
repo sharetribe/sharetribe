@@ -8,10 +8,6 @@ class BraintreePayment < Payment
     !!sum_cents
   end
 
-  def total_commission
-    Money.new(PaymentMath.ceil_cents(super.cents), "USD")
-  end
-
   def total_sum
     sum
   end
