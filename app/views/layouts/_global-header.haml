@@ -16,8 +16,8 @@
           %a{href: change_locale_path(:locale => "#{locale[1]}", :redirect_uri => "#{@return_to}"), :class => "toggle-menu-subitem"} #{locale[0]}
 
     %a.logo-side{:href => "/", :class => (@current_user ? "logo-side-logged" : "logo-side-unlogged")}
-      = image_tag @current_community.wide_logo.url(:header), :class => "marketplace-header-logo"
-      = image_tag @current_community.logo.url(:header_icon), :class => "marketplace-header-logo-mobile"
+      = image_tag Maybe(@current_community).wide_logo.url(:header).or_else(Community::DEFAULT_WIDE_LOGO_URL), :class => "marketplace-header-logo"
+      = image_tag Maybe(@current_community).logo.url(:header_icon).or_else(Community::DEFAULT_LOGO_URL), :class => "marketplace-header-logo-mobile"
 
     .right-side
       - show_contact_us = !@current_user
@@ -38,7 +38,7 @@
           .language-menu.toggle-menu.hidden
             = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array
 
-      - if @current_user
+      - if @current_user && @current_community
         %a{:href => received_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.messages"), :id => "inbox-link", :class => "global-navi inbox-link"}
           = icon_tag("mail", ["icon"])
           - if Conversation.unread_count(@current_user.id.to_s) > 0

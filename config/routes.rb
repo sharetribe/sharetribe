@@ -40,6 +40,11 @@ Kassi::Application.routes.draw do
       put "/people/password" => "devise/passwords#update"
       match "/people/sign_up" => redirect("/%{locale}/login")
 
+      namespace :superadmin do
+        resources :communities do
+        end
+      end
+
       resources :people do
         collection do
           get :check_username_availability
@@ -113,11 +118,6 @@ Kassi::Application.routes.draw do
       match "/signup" => "people#new", :as => :sign_up
       match "/people/:id/:type" => "people#show", :as => :person_listings
 
-    end
-
-    namespace :superadmin do
-      resources :communities do
-      end
     end
 
     namespace :admin do
