@@ -1,0 +1,215 @@
+@import "mixins/all";
+
+/* Height of the whole header bar */
+$headerHeight: lines(2.5);
+
+/* Height of an element (i.e. button) in the header bar */
+$elementHeight: em(40);
+
+/* Element padding, i.e. empty space on the top and below of the element */
+$elementPadding: ($headerHeight - $elementHeight) / 2;
+
+/* Line heights, add -3px finetuning, text looks better */
+$buttonLineHeight: $elementHeight - em(3);
+$textLineHeight: $headerHeight - em(3);
+
+/* Default spacing between header bar elements */
+$elementSpacing: lines(0.5);
+
+.header {
+  height: $headerHeight;
+  width: 100%;
+}
+
+.header-left {
+  float: left;
+}
+
+.header-right {
+  float: right;
+}
+
+/* Buttons may need padding, text links don't */
+.header-padding {
+  margin-left: $elementSpacing;
+}
+
+/* Vertically centered block element in header bar */
+@mixin header-block {
+  display: block;
+  margin-top: $elementPadding;
+  margin-bottom: $elementPadding;
+  height: $elementHeight;
+}
+
+.header-logo {
+  display: block;
+  @include header-block;
+}
+
+.header-text-link {
+  height: $headerHeight;
+  line-height: $textLineHeight;
+  padding-right: $elementSpacing;
+  padding-left: $elementSpacing;
+  display: inline-block;
+}
+
+@mixin header-menu-button($bgcolor) {
+  @include button($bgcolor);
+  @include header-block;
+  padding-left: em(20);
+  padding-right: em(20);
+  line-height: $buttonLineHeight;
+}
+
+.new-listing-link {
+  @include header-menu-button($link2);
+}
+
+.header-menu-container {
+  display: block;
+  padding-top: $elementPadding;
+  padding-bottom: $elementPadding;
+  height: $headerHeight;
+}
+
+.header-menu-toggle-container {
+  @include button($highlight);
+  @include button-group-button-padding;
+  height: $elementHeight;
+  line-height: $buttonLineHeight;
+  margin: 0;
+  padding-bottom: 0;
+  padding-top: 0;
+  color: $body;
+
+  .toggled & {
+    color: $background;
+    background-color: $light-body;
+  }
+}
+
+.header-user-avatar {
+  @include border-radius($default-border-radius);
+  @include header-block;
+}
+
+.header-user-toggle {
+  padding-left: $elementSpacing;
+  display: block;
+  @include clearfix;
+}
+
+.header-toggle-menu {
+  min-width: 200px;
+}
+
+.header-hover {
+  &:hover {
+    background-color: $highlight;
+  }
+
+  &.toggled {
+    background-color: $light-body;
+  }
+}
+
+.header-inbox-link {
+  color: $body;
+
+  position: relative;
+}
+
+.header-inbox {
+  @include big-type;
+
+  // Icon fix
+  position: relative;
+  top: em(4);
+}
+
+.badge {
+  position: absolute;
+  top: em(30); // Magic, just looks good
+  left: em(23); // Magic, just looks good
+  background: $link;
+  color: $background;
+  @include badge(20px);
+
+  &.big-badge {
+    @include badge(26px);
+    top: em(28); // Magic, just looks good
+    left: em(18); // Magic, just looks good
+  }
+
+  &.huge-badge {
+    @include badge(32px);
+    top: em(27); // Magic, just looks good
+    left: em(13); // Magic, just looks good
+  }
+}
+
+// .messages-badge {
+//   position: relative;
+// }
+
+// // Positions new message badges
+// .badge {
+//   @include small-type;
+//   @include badge(20px);
+//   background: $link;
+//   position: absolute;
+//   top: -10px; // Magic number, this just looks good
+//   left: 13px; // Magic number, this just looks good
+//   color: $background;
+//   display: none;
+
+//   &.big-badge {
+//     @include badge(26px);
+//     top: -12px; // Magic number, this just looks good
+//     left: 11px; // Magic number, this just looks good
+//   }
+
+//   &.huge-badge {
+//     @include badge(32px);
+//     top: -14px; // Magic number, this just looks good
+//     left: 9px; // Magic number, this just looks good
+//   }
+
+//   @include media(mid-desktop) {
+//     display: block;
+//   }
+
+// }
+
+// .mobile-badge {
+//   @include small-type;
+//   @include badge(20px);
+//   margin-left: lines(0.25);
+//   margin-top: 8px;
+//   display: inline-block;
+//   background: $link;
+//   color: $background;
+
+//   &.big-badge {
+//     @include badge(26px);
+//     margin-top: 5px;
+//   }
+
+//   &.huge-badge {
+//     margin-top: 2px;
+//     @include badge(32px);
+//   }
+
+//   @include media(mid-desktop) {
+//     display: none;
+//   }
+// }
+
+// .mobile-badge-menu {
+//   @extend .mobile-badge;
+//   margin-top: 0;
+//   background: $background;
+//   color: $light-body;
+// }
