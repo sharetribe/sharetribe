@@ -36,6 +36,7 @@ module ApplicationHelper
       "privacy" => "ss-lockfile",
       "terms" => "ss-textfile",
       "testimonial" => "ss-star",
+      "star" => "ss-star",
       "like" => "ss-like",
       "dislike" => "ss-dislike",
       "calendar" => "ss-calendar",
@@ -214,6 +215,7 @@ module ApplicationHelper
       "job" => "icon-briefcase",
 
       "testimonial" => "icon-star",
+      "star" => "icon-star",
       "like" => "icon-thumbs-up",
       "dislike" => "icon-thumbs-down",
       "calendar" => "icon-calendar",

@@ -1,10 +1,14 @@
+- is_author = current_user?(@listing.author)
+- is_marketplace_admin = Maybe(@current_user).has_admin_rights_in?(@current_community).or_else(false)
+- is_authorized = is_author || is_marketplace_admin
+
 - if @listing.closed?
   .listing-view-admin-links
     .listing-view-admin-link
       .icon-with-text-container
         = icon_tag("lock", ["icon-part"])
         .text-part= t("listings.reply_link.listing_closed")
-    - if current_user?(@listing.author) || (@current_user && @current_user.has_admin_rights_in?(@current_community) && !@current_user.member_of?(@current_community))
+    - if is_authorized
       .listing-view-admin-link
         %a.action-link{href: edit_listing_path(@listing)}
           .icon-with-text-container
@@ -12,7 +16,7 @@
             .text-part= t("listings.edit_links.reopen_listing")
 - else
 
-  - unless current_user?(@listing.author)
+  - unless is_authorized
 
     - link_path = @current_community.payment_possible_for?(@listing) ? reply_to_listing_path(:id => @listing.id.to_s) : reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free")
 
@@ -20,7 +24,7 @@
       .content
         = @listing.transaction_type.action_button_label(I18n.locale)
 
-  - if current_user?(@listing.author) || (@current_user && @current_user.has_admin_rights_in?(@current_community))
+  - if is_authorized
     .listing-view-admin-links
       .listing-view-admin-link
         %a.icon-with-text-container{href: edit_listing_path(@listing)}
@@ -30,3 +34,11 @@
         %a.icon-with-text-container{href: close_person_listing_path(@current_user, @listing), data: { method: "put", remote: "true"}}
           = icon_tag("lock", ["icon-part"])
           .text-part= t("listings.edit_links.close_listing")
+
+      - if is_marketplace_admin
+        .listing-view-admin-link
+          = link_to move_to_top_person_listing_path(@current_user, @listing), data: { method: "put" } do
+            .icon-with-text-container
+              = icon_tag("star", ["icon-part"])
+              .text-part= t("listings.edit_links.move_to_top")
+
