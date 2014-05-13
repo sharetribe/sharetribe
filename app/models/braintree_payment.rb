@@ -5,7 +5,7 @@ class BraintreePayment < Payment
   monetize :sum_cents, :allow_nil => true
 
   def sum_exists?
-    !!sum_cents
+    !sum_cents.nil?
   end
 
   def total_sum

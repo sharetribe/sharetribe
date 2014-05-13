@@ -6,7 +6,7 @@ if defined?(AssetSync)
     fog_directory         = app_config.FOG_DIRECTORY.or_else(false)
     fog_provider          = app_config.FOG_PROVIDER.or_else(false)
 
-    enabled = !!(aws_access_key_id && aws_secret_access_key && fog_provider && fog_directory)
+    enabled = !(aws_access_key_id && aws_secret_access_key && fog_provider && fog_directory).nil?
 
     puts "AssetSync enabled: #{enabled}"
     config.run_on_precompile = enabled

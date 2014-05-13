@@ -49,13 +49,7 @@ Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do 
 
       if @conversation.payment == nil
         payment = FactoryGirl.build(type, :conversation => @conversation, :recipient => recipient, :status => "pending")
-
-        if type == :braintree_payment
-          payment.sum = @conversation.listing.price if type == :braintree_payment
-        else
-          payment.rows << PaymentRow.new(:title => "old bikes", :vat => 24, :currency => "EUR", :sum => @conversation.listing.price)
-        end
-
+        payment.default_sum(@conversation.listing, 24)
         payment.save!
 
         @conversation.payment = payment
