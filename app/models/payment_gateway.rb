@@ -2,6 +2,9 @@ class PaymentGateway < ActiveRecord::Base
   include Rails.application.routes.url_helpers
 
   belongs_to :community
+  has_many :payments
+
+  monetize :gateway_commission_fixed_cents, :allow_nil => true
 
   # methods that must be defined in subclasses, but are not defined here as
   # this model is never directly used, only via subclasses
@@ -38,10 +41,6 @@ class PaymentGateway < ActiveRecord::Base
     false
   end
 
-  def seller_pays_commission?
-    false
-  end
-
   # by default return the class name, but this can be overridden
   # in child classes if name is not exaxtly the class name
   def name
@@ -64,11 +63,11 @@ class PaymentGateway < ActiveRecord::Base
     payments_person_settings_url(other_params.merge(:person_id => person.id.to_s, :locale => locale))
   end
 
-  def new_payment
-    Payment.new
-  end
-
   def hold_in_escrow
     false
+  end
+
+  def community_commission_percentage
+    Maybe(community).commission_from_seller.or_else(0)
   end
 end

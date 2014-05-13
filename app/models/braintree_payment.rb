@@ -1,7 +1,20 @@
 class BraintreePayment < Payment
   attr_accessor :credit_card_number, :credit_card_expiration_date, :cardholder_name, :cvv
+  attr_accessible :braintree_transaction_id
+
+  monetize :sum_cents, :allow_nil => true
+
+  def sum_exists?
+    !sum_cents.nil?
+  end
 
   def total_sum
-    sum_cents.to_f / 100
+    sum
+  end
+
+  # Build default payment sum by listing
+  # Note: Consider removing this :(
+  def default_sum(listing, vat=0)
+    self.sum = listing.price
   end
 end

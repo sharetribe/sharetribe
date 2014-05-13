@@ -30,15 +30,6 @@
               = row.sum_with_vat.to_s + row.sum_symbol
         %tr
           %td
-            = "Palvelumaksu (#{@current_community.service_name})"
-          %td
-            = @payment.commission_without_vat.to_s + @payment.rows.first.sum_symbol
-          %td
-            = "#{APP_CONFIG.service_fee_tax_percentage}%"
-          %td
-            = @payment.total_commission.to_s + @payment.rows.first.sum_symbol
-        %tr
-          %td
             %b Yhteensä
           %td
           %td

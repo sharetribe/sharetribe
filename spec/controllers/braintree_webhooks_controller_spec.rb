@@ -3,7 +3,7 @@ require 'spec_helper'
 describe BraintreeWebhooksController do
   before(:each) do
     @community = FactoryGirl.create(:community, :domain => "market.custom.org")
-    FactoryGirl.create(:payment_gateway, :community => @community, :type => "BraintreePaymentGateway")
+    FactoryGirl.create(:braintree_payment_gateway, :community => @community, :type => "BraintreePaymentGateway")
 
     # Refresh from DB
     @community.reload
@@ -69,7 +69,7 @@ describe BraintreeWebhooksController do
       before(:each) do
         # Prepare
         @conversation = FactoryGirl.create(:conversation)
-        @payment = FactoryGirl.create(:payment, :status => "paid", :braintree_transaction_id => "123abc", :type => "BraintreePayment", :conversation => @conversation, :sum_cents => 1000, :currency => "EUR")
+        @payment = FactoryGirl.create(:braintree_payment, :status => "paid", :braintree_transaction_id => "123abc", :type => "BraintreePayment", :conversation => @conversation, :sum_cents => 1000, :currency => "EUR")
         Payment.find_by_braintree_transaction_id("123abc").status.should == "paid"
       end
 

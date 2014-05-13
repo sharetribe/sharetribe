@@ -11,7 +11,7 @@ Feature: User requests an item in item offer
       | kassi_testperson2 |
     And community "test" has payments in use via BraintreePaymentGateway
     And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Renting"
-    And the price of that listing is "20"
+    And the price of that listing is 20.00 USD
     And I am logged in as "kassi_testperson2"
     And I am on the homepage
     When I follow "Hammer"

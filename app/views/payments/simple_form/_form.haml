@@ -15,7 +15,7 @@
         - payer = @conversation.other_party(@current_user)
         = t("payments.form.price_for", :payer_given_name => link_to(payer.given_name_or_username, payer)).html_safe
       .invoice-row-symbol
-        = @conversation.listing.price_symbol
+        = @payment.total_sum.symbol
       .invoice-row-right
         = payment_form.text_field :sum, :value => @conversation.listing.price, :class => "invoice-sum-field trigger-focusout"
 
@@ -23,14 +23,14 @@
       .invoice-row-left.invoice-row-text-column
         = t("payments.form.service_fee")
       .invoice-row-symbol
-        = @conversation.listing.price_symbol
+        = @payment.total_sum.symbol
       #service-fee.invoice-row-right.invoice-row-text-column
-        = @current_community.service_fee_for(@conversation.listing)
+        = @payment.total_commission
 
     .invoice-row
       .invoice-row-left.invoice-row-text-column
         = t("payments.form.you_will_get")
       .invoice-row-symbol
-        = @conversation.listing.price_symbol
+        = @payment.total_sum.symbol
       #payment-to-seller.invoice-row-right.invoice-row-text-column
-        = @current_community.price_seller_gets_for(@conversation.listing)
+        = @payment.seller_gets

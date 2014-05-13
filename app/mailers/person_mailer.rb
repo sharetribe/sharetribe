@@ -67,8 +67,8 @@ class PersonMailer < ActionMailer::Base
     @email_type =  "email_about_new_payments"
     @payment = payment
 
-    @service_fee = PaymentMath.service_fee(@payment.sum_cents, community.commission_from_seller).to_f / 100
-    @you_get = PaymentMath::SellerCommission.seller_gets(@payment.sum_cents, community.commission_from_seller).to_f / 100
+    @service_fee = payment.total_commission.cents.to_f / 100
+    @you_get = payment.seller_gets.cents.to_f / 100
 
     set_up_urls(@payment.recipient, community, @email_type)
     mail(:to => @recipient.confirmed_notification_emails_to,

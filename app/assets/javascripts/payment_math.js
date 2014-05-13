@@ -13,17 +13,21 @@ window.ST.paymentMath = (function() {
     return parseFloat(value.replace(',', '.'));
   }
 
-  function serviceFee(sum, commissionPercentage) {
-    return Math.ceil(sum * commissionPercentage / 100);
-  }
-
   function displayMoney(sum) {
     return typeof sum === "number" && !isNaN(sum) ? sum.toFixed(2) : "-";
   }
 
+  function totalCommission(totalSum, communityCommissionPercentage, gatewayCommissionPercentage, gatewayCommissionFixed) {
+    var communityCommission = totalSum * communityCommissionPercentage / 100;
+    var gatewayCommission = totalSum * gatewayCommissionPercentage / 100;
+    var commission = communityCommission + gatewayCommission + gatewayCommissionFixed;
+
+    return Math.ceil(commission);
+  }
+
   return {
     parseFloatFromFieldValue: parseFloatFromFieldValue,
-    serviceFee: serviceFee,
-    displayMoney: displayMoney
+    displayMoney: displayMoney,
+    totalCommission: totalCommission
   };
 })();

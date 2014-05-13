@@ -7,7 +7,11 @@ module CommunitySteps
     community = Community.find_by_domain(community_domain)
     community.update_attributes(:vat => "24", :commission_from_seller => commission.to_i)
 
-    FactoryGirl.create(:payment_gateway, :community => community, :type => gateway_name)
+    if gateway_name == "Checkout"
+      FactoryGirl.create(:checkout_payment_gateway, :community => community, :type => gateway_name)
+    else
+      FactoryGirl.create(:braintree_payment_gateway, :community => community, :type => gateway_name)
+    end
   end
 end
 

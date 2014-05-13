@@ -104,7 +104,7 @@ class ListingsController < ApplicationController
   end
 
   def new
-    @seller_commission = @current_community.payment_gateway.seller_pays_commission? if @current_community.payments_in_use?
+    @seller_commission_in_use = @current_community.commission_from_seller && @current_community.payments_in_use?
     @selected_tribe_navi_tab = "new_listing"
     @listing = Listing.new
 
@@ -160,11 +160,11 @@ class ListingsController < ApplicationController
   end
 
   def edit
-    @seller_commission = @current_community.payment_gateway.seller_pays_commission? if @current_community.payments_in_use?
+    @seller_commission_in_use = @current_community.commission_from_seller && @current_community.payments_in_use?
     @selected_tribe_navi_tab = "home"
-	  if !@listing.origin_loc
-	      @listing.build_origin_loc(:location_type => "origin_loc")
-	  end
+    if !@listing.origin_loc
+        @listing.build_origin_loc(:location_type => "origin_loc")
+    end
 
     @custom_field_questions = @listing.category.custom_fields.find_all_by_community_id(@current_community.id)
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
