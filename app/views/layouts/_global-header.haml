@@ -61,9 +61,9 @@
           = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array
 
     - unless @current_user
-      .header-right.visible-desktop
+      .header-right.visible-tablet
         = link_to "Sign up", sign_up_path, class: "header-text-link header-hover"
-      .header-right.visible-desktop
+      .header-right
         = link_to "Log in", login_path, class: "header-text-link header-hover"
 
     .header-left
@@ -94,10 +94,10 @@
           = t("layouts.logged_in.admin")
 
       .hidden-desktop
-        .toggle-menu-title
-          = t(".select_language")
-
         - with_available_locales do |locales|
+          .toggle-menu-title
+            = t(".select_language")
+
           = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array
 
     -#
