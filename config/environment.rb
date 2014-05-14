@@ -4,7 +4,7 @@
 require File.expand_path('../application', __FILE__)
 require File.expand_path('../config_loader', __FILE__)
 
-APP_CONFIG = load_app_config
+APP_CONFIG = ConfigLoader.load_app_config
 
 # Initialize the rails application
 Kassi::Application.initialize!

@@ -1,7 +1,7 @@
 namespace :i18n do
   # Load Config
   require File.expand_path('../../../config/config_loader', __FILE__)
-  APP_CONFIG = load_app_config
+  APP_CONFIG = ConfigLoader.load_app_config
 
   def write_error_page(status, locale = nil)
     dest_filename = [status.to_s, locale, "html"].compact.join(".")

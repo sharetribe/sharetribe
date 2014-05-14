@@ -33,8 +33,6 @@ Below the installation instructions there is space for Operating system-specific
   * [These commands](https://gist.github.com/804314) can help you in creating a user and databases.
 * Edit details according to your database to `config/database.yml` (if you are not going to develop Sharetribe, it's enough to fill in the production database)
   * Probably you only need to change the passwords to the same that you used when creating the databases.
-* Copy the example configuration file as `config.yml`, which will be used to read the Sharetribe configuration information: `cp config/config.example.yml config/config.yml`
-* Edit details according to your system configuration to `config/config.yml`.
 * Install Sphinx. Version 2.1.4 has been used successfully, but probably also bit newer and older versions will work. See [Sphinx installation instructions](http://pat.github.com/ts/en/installing_sphinx.html) (no need to start it yet. You can try running `searchd` command, but it should fail at this point complaining about missing config)
 * Install [Imagemagick](http://www.imagemagick.org)
 * run `bundle install` in the project root directory (sharetribe) to install required gems
@@ -71,6 +69,7 @@ CategoryTransactionType.create(:category_id => ca.id, :transaction_type_id => tt
 
 ### Advanced settings
 
+* Default configurations are in `config/config.default.yml`. If you need to change these configs, it's recommended to create a file `config/config.yml`. The configurations in user-specific configuration file will override the default configurations. You can also set configurations to environment variables.
 * It's not recommended to server static assets from Rails server in production. Instead, you should serve assets from Amazon S3 or use Apache/Nginx server in from. In this case, you'll need to set the value of `serve_static_assets_in_production` to `false`
 
 ### Tips for different platforms and OS
