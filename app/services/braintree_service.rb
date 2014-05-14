@@ -41,7 +41,7 @@ class BraintreeService
     end
 
     def release_from_escrow_after_next_batch(community_id, transaction_id)
-      self.delay(:run_at => next_escrow_release_time).release_from_escrow_by_community_id(community_id, transaction_id)
+      self.delay(:run_at => next_escrow_release_time, :priority => 6).release_from_escrow_by_community_id(community_id, transaction_id)
     end
 
     # Give a date and get back time of the given date when batch is run

@@ -36,7 +36,7 @@ class TransactionProcess
     # 2) Migrate all conversations that don't have payments: pending -> free
     if conversation.requires_payment?(current_community)
       [3, 10].each do |send_interval|
-        Delayed::Job.enqueue(PaymentReminderJob.new(conversation.id, conversation.payment.payer.id, current_community.id), :priority => 0, :run_at => send_interval.days.from_now)
+        Delayed::Job.enqueue(PaymentReminderJob.new(conversation.id, conversation.payment.payer.id, current_community.id), :priority => 10, :run_at => send_interval.days.from_now)
       end
     else
       ConfirmConversation.new(conversation, accepter, current_community).activate_automatic_confirmation!
