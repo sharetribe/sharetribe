@@ -2,8 +2,57 @@ class Superadmin::CommunitiesController < ApplicationController
   before_filter :ensure_is_superadmin
   skip_filter :dashboard_only
 
+  TRANSACTION_TYPES = {
+    "Give" => {
+      label: "Give",
+      translation_key: "admin.transaction_types.give",
+      action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer"
+    },
+    "Inquiry" => {
+      label: "Inquiry",
+      translation_key: "admin.transaction_types.inquiry",
+      action_button_translation_key: "admin.transaction_types.default_action_button_labels.inquiry"
+    },
+    "Lend" => {
+      label: "Lend",
+      translation_key: "admin.transaction_types.lend",
+      action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer"
+    },
+    "Rent" => {
+      label: "Rent",
+      translation_key: "admin.transaction_types.rent",
+      action_button_translation_key: "admin.transaction_types.default_action_button_labels.rent"
+    },
+    "Request" => {
+      label: "Request",
+      translation_key: "admin.transaction_types.request",
+      action_button_translation_key: "admin.transaction_types.default_action_button_labels.request"
+    },
+    "Sell" => {
+      label: "Sell",
+      translation_key: "admin.transaction_types.sell",
+      action_button_translation_key: "admin.transaction_types.default_action_button_labels.sell"
+    },
+    "Service" => {
+      label: "Service",
+      translation_key: "admin.transaction_types.service",
+      action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer"
+    },
+    "ShareForFree" => {
+      label: "Share for free",
+      translation_key: "admin.transaction_types.share_for_free",
+      action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer"
+    },
+    "Swap" => {
+      label: "Swap",
+      translation_key: "admin.transaction_types.swap",
+      action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer"
+    }
+  }
+
   def new
     @new_community = Community.new
+    @transaction_types = TRANSACTION_TYPES.map { |type, settings| [settings[:label], type] }
   end
 
   def create
@@ -39,7 +88,10 @@ class Superadmin::CommunitiesController < ApplicationController
   end
 
   def create_transaction_type!(p, language, community)
-    transaction_type = p["transaction_type"].or_else("Sell").constantize.new()
+    type = p["transaction_type"].or_else("Sell")
+    transaction_type_description = TRANSACTION_TYPES[type]
+
+    transaction_type = type.constantize.new
     transaction_type.community = community
     transaction_type.save!
     community.transaction_types << transaction_type
@@ -47,8 +99,8 @@ class Superadmin::CommunitiesController < ApplicationController
     transaction_type_translation = TransactionTypeTranslation.create({
       transaction_type_id: transaction_type.id,
       locale: language,
-      name: t("admin.transaction_types.sell"),
-      action_button_label: t("admin.transaction_types.default_action_button_labels.sell")
+      name: t(transaction_type_description[:translation_key], :locale => language.to_sym),
+      action_button_label: t(transaction_type_description[:action_button_translation_key], :locale => language.to_sym)
     });
 
     transaction_type
