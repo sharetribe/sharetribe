@@ -8,7 +8,11 @@ class AddNewLogoStyleAppleTouch < ActiveRecord::Migration
     progress = ProgressReporter.new(communities_with_logos.count, 20)
 
     communities_with_logos.each do |community|
-      community.logo.reprocess_without_delay!
+      begin
+        community.logo.reprocess_without_delay!
+      rescue Errno::ENOENT => e
+        puts "Didn't find the logo file for this community, skipping."
+      end
       progress.next
     end
   end

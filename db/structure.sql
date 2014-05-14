@@ -218,6 +218,12 @@ CREATE TABLE `communities_listings` (
   KEY `communities_listings` (`listing_id`,`community_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `communities_payment_gateways` (
+  `community_id` int(11) DEFAULT NULL,
+  `payment_gateway_id` int(11) DEFAULT NULL,
+  KEY `index_communities_payment_gateways_on_community_id` (`community_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `community_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `community_id` int(11) DEFAULT NULL,
@@ -988,8 +994,6 @@ CREATE TABLE `transaction_types` (
   PRIMARY KEY (`id`),
   KEY `index_transaction_types_on_community_id` (`community_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO schema_migrations (version) VALUES ('');
 
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
@@ -1788,8 +1792,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140226074751');
 INSERT INTO schema_migrations (version) VALUES ('20140226121423');
 
 INSERT INTO schema_migrations (version) VALUES ('20140227102627');
-
-INSERT INTO schema_migrations (version) VALUES ('20140227145229');
 
 INSERT INTO schema_migrations (version) VALUES ('20140228164206');
 
