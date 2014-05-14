@@ -21,6 +21,10 @@ $elementSpacing: lines(0.5);
   width: 100%;
 }
 
+.header-wrapper {
+  @include wrapper(0);
+}
+
 .header-left {
   float: left;
 }
@@ -42,6 +46,24 @@ $elementSpacing: lines(0.5);
   height: $elementHeight;
 }
 
+.header-hover {
+  &:hover {
+    background-color: $highlight;
+  }
+
+  &.toggled {
+    background-color: $light-body;
+  }
+}
+
+.header-logo-container {
+  margin-left: $elementSpacing;
+
+  @include media(tablet) {
+    margin-left: 0;
+  }
+}
+
 .header-logo {
   display: block;
   @include header-block;
@@ -52,7 +74,16 @@ $elementSpacing: lines(0.5);
   line-height: $textLineHeight;
   padding-right: $elementSpacing;
   padding-left: $elementSpacing;
-  display: inline-block;
+  display: block;
+  color: $body;
+
+  &:hover {
+    color: $body;
+  }
+
+  .toggled & {
+    color: $background;
+  }
 }
 
 @mixin header-menu-button($bgcolor) {
@@ -69,8 +100,7 @@ $elementSpacing: lines(0.5);
 
 .header-menu-container {
   display: block;
-  padding-top: $elementPadding;
-  padding-bottom: $elementPadding;
+  padding: $elementPadding $elementSpacing;
   height: $headerHeight;
 }
 
@@ -90,6 +120,14 @@ $elementSpacing: lines(0.5);
   }
 }
 
+.header-menu-icon {
+  @include icon-fix-more;
+
+  @include media(tablet) {
+    padding-right: em(4);
+  }
+}
+
 .header-user-avatar {
   @include border-radius($default-border-radius);
   @include header-block;
@@ -101,18 +139,21 @@ $elementSpacing: lines(0.5);
   @include clearfix;
 }
 
-.header-toggle-menu {
-  min-width: 200px;
+@mixin header-toggle-menu {
+  min-width: em(200);
+  position: absolute;
 }
 
-.header-hover {
-  &:hover {
-    background-color: $highlight;
-  }
+.header-toggle-menu-language {
+  @include header-toggle-menu;
+}
 
-  &.toggled {
-    background-color: $light-body;
-  }
+.header-toggle-menu-user {
+  @include header-toggle-menu;
+}
+
+.header-toggle-menu-menu {
+  @include header-toggle-menu;
 }
 
 .header-inbox-link {
@@ -148,6 +189,14 @@ $elementSpacing: lines(0.5);
     top: em(27); // Magic, just looks good
     left: em(13); // Magic, just looks good
   }
+}
+
+.mobile-badge {
+  display: inline-block;
+  color: $light-body;
+  background-color: $background;
+  @include badge(20px);
+  margin-left: lines(0.5);
 }
 
 // .messages-badge {

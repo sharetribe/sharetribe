@@ -8,6 +8,13 @@
   }
 }
 
+.visible-tablet-inline {
+  @extend .visible-tablet;
+  @include media(tablet) {
+    display: inline;
+  }
+}
+
 .hidden-tablet {
   @include media(tablet) {
     display: none;
@@ -19,6 +26,13 @@
 
   @include media(desktop) {
     display: block;
+  }
+}
+
+.visible-desktop-inline {
+  @extend .visible-tablet;
+  @include media(tablet) {
+    display: inline;
   }
 }
 

@@ -1,56 +1,42 @@
 -# Hide header in map view if mobile
 - community = Maybe(@current_community)
 %header.header{:class => (params[:view].eql?("map") ? "visible-tablet" : "")}
-  .wrapper
-    .header-left
-      = link_to "/", :class => "header-logo" do
-        = image_tag community.wide_logo.url(:header).or_else(Community::DEFAULT_WIDE_LOGO)
-    .header-right.header-padding
+  .header-wrapper
+    .header-right.header-padding.visible-tablet
       = link_to t("homepage.index.post_new_listing"), new_listing_path, :class => "new-listing-link", :id => "new-listing-link"
-    - Maybe(@current_user).each do |current_user|
-      .header-right.header-padding
-        .header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu'}}
-          .header-menu-toggle-container.toggle-header-container
-            = icon_tag("rows", ["icon-with-text"])
-            Menu
 
-        #header-menu-toggle-menu.toggle-menu.header-toggle-menu.hidden
+    .header-right.visible-tablet
+      #header-menu-desktop-anchor.header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu'}}
 
-          = link_to about_infos_path do
-            = icon_tag("information", ["icon-with-text"])
-            = t("header.about")
-
-          = link_to new_user_feedback_path do
-            = icon_tag("feedback", ["icon-with-text"])
-            = t("header.contact_us")
-
-          - with_invite_link do
-            = link_to new_invitation_path do
-              = icon_tag("invite", ["icon-with-text"])
-              = t("header.invite")
-
-          - if logged_in? && @current_user.has_admin_rights_in?(@current_community)
-            = link_to edit_details_admin_community_path(@current_community) do
-              = icon_tag("admin", ["icon-with-text"])
-              = t("layouts.logged_in.admin")
-
-    - if @current_user
+    - Maybe(@current_user).each do |user|
+      - unread_count = Conversation.unread_count(user.id.to_s)
 
       .header-right
-        .header-user-toggle.header-hover.toggle{data: {toggle: '#header-user-toggle-menu'}}
-          .left
-            = image_tag @current_user.image.url(:thumb), alt: '', class: 'header-user-avatar'
-          .left
-            %span.header-text-link
-              = @current_user.name(@current_community)
-              = icon_tag("dropdown", ["icon-dropdown"])
-        #header-user-toggle-menu.toggle-menu.header-toggle-menu.hidden
+        #header-user-desktop-anchor.header-user-toggle.header-hover.toggle{data: {toggle: '#header-user-toggle-menu', 'toggle-anchor-position' => 'left'}}
+        .header-user-toggle.header-hover.toggle{data: {toggle: '#header-user-toggle-menu', 'toggle-anchor-position' => 'right'}}
+          #header-user-mobile-anchor
+            .left
+              = image_tag user.image.url(:thumb), alt: '', class: 'header-user-avatar'
+            .left
+              %span.header-text-link
+                %span.visible-tablet-inline
+                  = user.name(@current_community)
+                = icon_tag("dropdown", ["icon-dropdown"])
 
-          = link_to person_path(@current_user) do
+        #header-user-toggle-menu.toggle-menu.header-toggle-menu-user.hidden
+
+          = link_to received_person_messages_path(:person_id => @current_user.id.to_s) do
+            = icon_tag("mail", ["icon-with-text"])
+            = t("layouts.conversations.messages")
+            - if unread_count > 0
+              .mobile-badge{:class => get_badge_class(unread_count)}
+                = unread_count
+
+          = link_to person_path(user) do
             = icon_tag("user", ["icon-with-text"])
             = t("header.profile")
 
-          = link_to person_settings_path(@current_user) do
+          = link_to person_settings_path(user) do
             = icon_tag("settings", ["icon-with-text"])
             = t("layouts.logged_in.settings")
 
@@ -58,28 +44,61 @@
             = icon_tag("logout", ["icon-with-text"])
             = t("layouts.logged_in.logout")
 
-      .header-right
-        = link_to received_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.messages"), :id => "inbox-link", :class => "header-text-link header-hover header-inbox-link" do
+      .header-right.visible-tablet
+        = link_to received_person_messages_path(:person_id => user.id.to_s), title: t("layouts.conversations.messages"), :id => "inbox-link", :class => "header-text-link header-hover header-inbox-link" do
           = icon_tag("mail", ["header-inbox"])
-          - unread_count = Conversation.unread_count(@current_user.id.to_s)
           - if unread_count > 0
             .badge{:class => get_badge_class(unread_count)}
               = unread_count
 
     - with_available_locales do |locales|
-      .header-right
+      .header-right.visible-desktop
         .toggle.header-hover{data: {toggle: '#header-locales-toggle-menu'}}
           %span.header-text-link
-            = "English"
+            = get_full_locale_name(I18n.locale).mb_chars.downcase.to_s
             = icon_tag("dropdown", ["icon-dropdown"])
-        #header-locales-toggle-menu.toggle-menu.header-toggle-menu.hidden
+        #header-locales-toggle-menu.toggle-menu.header-toggle-menu-language.hidden
           = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array
 
     - unless @current_user
-      .header-right
-        = link_to "Sign up", sign_up_path, class: "header-text-link"
-      .header-right
-        = link_to "Log in", login_path, class: "header-text-link"
+      .header-right.visible-desktop
+        = link_to "Sign up", sign_up_path, class: "header-text-link header-hover"
+      .header-right.visible-desktop
+        = link_to "Log in", login_path, class: "header-text-link header-hover"
+
+    .header-left
+      .header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu'}}
+        #header-menu-mobile-anchor.header-menu-toggle-container.toggle-header-container
+          = icon_tag("rows", ["header-menu-icon"])
+          %span.visible-tablet-inline
+            Menu
+
+    #header-menu-toggle-menu.toggle-menu.header-toggle-menu-menu.hidden
+
+      = link_to about_infos_path do
+        = icon_tag("information", ["icon-with-text"])
+        = t("header.about")
+
+      = link_to new_user_feedback_path do
+        = icon_tag("feedback", ["icon-with-text"])
+        = t("header.contact_us")
+
+      - with_invite_link do
+        = link_to new_invitation_path do
+          = icon_tag("invite", ["icon-with-text"])
+          = t("header.invite")
+
+      - if @current_user && @current_community && @current_user.has_admin_rights_in?(@current_community)
+        = link_to edit_details_admin_community_path(@current_community) do
+          = icon_tag("admin", ["icon-with-text"])
+          = t("layouts.logged_in.admin")
+
+    -#
+      If necessary, the buttons will overlap with the logo. Buttons should be on top, that's
+      keep the logo here after buttons
+    .header-left.header-logo-container
+      = link_to "/", :class => "header-logo" do
+        = image_tag community.wide_logo.url(:header).or_else(Community::DEFAULT_WIDE_LOGO)
 
 -#
   %header.global-header.marketplace-header
