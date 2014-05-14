@@ -3402,6 +3402,11 @@ header.marketplace-header {
   Lander
 */
 
+.lander-content-container,
+.network-header-content-container {
+  position: relative;
+}
+
 .marketplace-lander {
   position: relative;
 

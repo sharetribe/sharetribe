@@ -12,8 +12,9 @@
         .coverimage
           %figure.marketplace-cover.fluidratio
         .wrapper
-          .lander-content.marketplace-lander-content
-            = yield :title_header
+          .lander-content-container
+            .lander-content.marketplace-lander-content
+              = yield :title_header
       - with_small_cover_photo do
         .coverimage
           %figure.marketplace-cover-small.fluidratio
