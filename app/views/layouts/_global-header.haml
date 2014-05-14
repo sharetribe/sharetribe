@@ -93,6 +93,13 @@
           = icon_tag("admin", ["icon-with-text"])
           = t("layouts.logged_in.admin")
 
+      .hidden-desktop
+        .toggle-menu-title
+          = t(".select_language")
+
+        - with_available_locales do |locales|
+          = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array
+
     -#
       If necessary, the buttons will overlap with the logo. Buttons should be on top, that's
       keep the logo here after buttons
