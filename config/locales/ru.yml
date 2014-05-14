@@ -63,6 +63,8 @@ ru:
         community_logo_icon: ~
         community_cover_photo: Обложка
         small_community_cover_photo: ~
+        favicon: ~
+        favicon_info_text: ~
         community_custom_color1: "Основной цвет"
         community_custom_color2: ~
         logo_instructions_text_with_dimensions: ~
@@ -172,6 +174,7 @@ ru:
         number: ~
         dropdown: ~
         checkbox_group: ~
+        date: ~
     emails:
       new:
         send_email_to_members: "Отправить электронное письмо членам сообщества"
@@ -1694,9 +1697,9 @@ ru:
       delete_account_button: ~
       delete_account_confirmation_popup: ~
       email_addresses: ~
+      new_email: "Новый адрес электронной почты"
       instructions_to_delete_account: "Если вы хотите удалить свою учётную запись, используйте форму связи слева."
       contact_admin: "свяжитесь с администратором"
-      new_email: "Новый адрес электронной почты"
       new_password: "Новый пароль"
       save: Сохранить
       these_fields_are_shown_only_to_you: "Если вы не сообщили ваше реальное имя, в вашем профиле будет отображаться выбранное вами имя пользователя. Остальная информация будет доступна только вам."

@@ -7,6 +7,10 @@ if [ "$SUITE" = "rspec" ]
 then
 	bundle exec rake spec 2>&1
 	exit
+elif [ "$SUITE" = "rubocop" ]
+then
+	bundle exec rubocop -R 2>&1
+	exit
 elif [ "$SUITE" = "cucumber" ]
 then
 	phantomjs --webdriver=8910 &

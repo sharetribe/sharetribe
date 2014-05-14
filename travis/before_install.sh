@@ -9,6 +9,12 @@ then
 	gem install bundler bundle_cache
 	bundle_cache_install
 	exit
+elif [ "$SUITE" = "rubocop" ]
+then
+	"echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+	gem install bundler bundle_cache
+	bundle_cache_install
+	exit
 elif [ "$SUITE" = "cucumber" ]
 then
 	"echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"

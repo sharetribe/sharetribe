@@ -12,7 +12,7 @@ Kassi::Application.configure do
 
   # Specifies the header that your server uses for sending files
   config.action_dispatch.x_sendfile_header = "X-Sendfile"
-  
+
   # Set how to handle deprecation warnings
   config.active_support.deprecation = :notify
 
@@ -37,22 +37,22 @@ Kassi::Application.configure do
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
-  
+
   # Compress JavaScript and CSS
   #
   # Notice: To GZIP assets on production (with S3) you also need to setup
-  # ENV['ASSET_SYNC_GZIP_COMPRESSION'] = true. It will replace the 
+  # ENV['ASSET_SYNC_GZIP_COMPRESSION'] = true. It will replace the
   # uncompressed file with the compressed one
-  config.assets.compress = true  
+  config.assets.compress = true
 
-  # Don't fallback to assets pipeline  
-  config.assets.compile = false  
+  # Don't fallback to assets pipeline
+  config.assets.compile = false
 
-  # Generate digests for assets URLs  
+  # Generate digests for assets URLs
   config.assets.digest = true
-  
+
   # settings for asset-sync gem
-  config.action_controller.asset_host = "#{APP_CONFIG.FOG_DIRECTORY}.s3.amazonaws.com"
+  config.action_controller.asset_host = "#{APP_CONFIG.FOG_DIRECTORY}.s3.amazonaws.com" if APP_CONFIG.FOG_DIRECTORY
   config.assets.prefix = "/assets"
 
   # Disable delivery errors, bad email addresses will be ignored
@@ -64,11 +64,11 @@ Kassi::Application.configure do
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
   # config.i18n.fallbacks = true #fallbacks defined in intitializers/i18n.rb
-  
+
   config.action_mailer.raise_delivery_errors = true
-  
+
   mail_delivery_method = (APP_CONFIG.mail_delivery_method.present? ? APP_CONFIG.mail_delivery_method.to_sym : :sendmail)
-  
+
   config.action_mailer.delivery_method = mail_delivery_method
   if mail_delivery_method == :postmark
     config.action_mailer.postmark_settings = { :api_key => APP_CONFIG.postmark_api_key }
@@ -80,17 +80,15 @@ Kassi::Application.configure do
       :user_name            => APP_CONFIG.smtp_email_user_name,
       :password             => APP_CONFIG.smtp_email_password,
       :authentication       => 'plain',
-      :enable_starttls_auto => true  
+      :enable_starttls_auto => true
     }
   end
-  
+
   # Sendmail is used for some mails (e.g. Newsletter) so configure it even when postmark is the main method
   ActionMailer::Base.sendmail_settings = {
     :location       => '/usr/sbin/sendmail',
     :arguments      => '-i -t'
-  }  
-  
-    
-    
+  }
+
   ActionMailer::Base.perform_deliveries = true # the "deliver_*" methods are available
 end

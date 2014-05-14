@@ -1,0 +1,32 @@
+- content_for(:title_header) do
+  %h1="Create a new Marketplace"
+
+.centered-section
+  = form_for @new_community, url: superadmin_communities_path do |form|
+    .row
+      .col-12
+        = form.label :name, "Name", :class => "input"
+        = form.text_field :name, :class => "text_field", :placeholder => "Marketplace name"
+    .row
+      .col-12
+        = form.label :domain, "Domain (domain.#{APP_CONFIG.domain})", :class => "input"
+        = form.text_field :domain, :class => "text_field", :placeholder => "marketplacedomain"
+    .row
+      .col-12
+        = label_tag :language, "Language", :class => "input"
+        = select_tag :language, options_for_select(Kassi::Application.config.AVAILABLE_LOCALES.map { |(locale, code)| ["#{locale} (#{code})", code] })
+    .row
+      .col-12
+        = form.label :available_currencies, "Currency", :class => "input"
+        = form.select :available_currencies, options_for_select(Money::Currency.table.map { |k, v| [k.upcase, v] })
+    .row
+      .col-12
+        = label_tag :transaction_type, "Transaction type", :class => "input"
+        = select_tag :transaction_type, options_for_select(@transaction_types)
+    .row
+      .col-12
+        = label_tag :category, "Category", :class => "input"
+        = text_field_tag :category, nil, :class => "text_field", :placeholder => "Category title"
+    .row
+      .col-12
+        = form.button "Create community"

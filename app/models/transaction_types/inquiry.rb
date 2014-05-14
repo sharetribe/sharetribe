@@ -16,8 +16,4 @@ class Inquiry < TransactionType
     true
   end
 
-  def api_name
-    "free_conversation"
-  end
-
 end

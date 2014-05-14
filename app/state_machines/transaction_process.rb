@@ -12,11 +12,11 @@ class TransactionProcess
 
   transition from: :not_started,               to: [:free, :pending]
   transition from: :pending,                   to: [:accepted, :rejected]
-  transition from: :accepted,                  to: [:paid, :confirmed, :canceled]
+  transition from: :accepted,                  to: [:paid, :canceled]
   transition from: :paid,                      to: [:confirmed, :canceled]
 
-  guard_transition(from: :accepted, to: :confirmed) do |conversation|
-    !conversation.requires_payment?(conversation.community)
+  guard_transition(to: :pending) do |conversation|
+    conversation.requires_payment?(conversation.community)
   end
 
   after_transition(to: :accepted) do |conversation|
@@ -28,9 +28,15 @@ class TransactionProcess
     conversation.update_is_read(accepter)
     Delayed::Job.enqueue(ConversationStatusChangedJob.new(conversation.id, accepter.id, current_community.id))
 
+    # Deprecated, non-payment requests are not coming here anymore
+    #
+    # Suggestion how to remove this:
+    # 1) Keep it here for a while, since there might be old conversations that have pending or accepted
+    # status even though they do not have payments
+    # 2) Migrate all conversations that don't have payments: pending -> free
     if conversation.requires_payment?(current_community)
       [3, 10].each do |send_interval|
-        Delayed::Job.enqueue(PaymentReminderJob.new(conversation.id, conversation.payment.payer.id, current_community.id), :priority => 0, :run_at => send_interval.days.from_now)
+        Delayed::Job.enqueue(PaymentReminderJob.new(conversation.id, conversation.payment.payer.id, current_community.id), :priority => 10, :run_at => send_interval.days.from_now)
       end
     else
       ConfirmConversation.new(conversation, accepter, current_community).activate_automatic_confirmation!
@@ -49,5 +55,15 @@ class TransactionProcess
 
     conversation.update_is_read(rejecter)
     Delayed::Job.enqueue(ConversationStatusChangedJob.new(conversation.id, rejecter.id, current_community.id))
+  end
+
+  after_transition(to: :confirmed) do |conversation|
+    confirmation = ConfirmConversation.new(conversation, conversation.starter, conversation.community)
+    confirmation.confirm!
+  end
+
+  after_transition(to: :canceled) do |conversation|
+    confirmation = ConfirmConversation.new(conversation, conversation.starter, conversation.community)
+    confirmation.cancel!
   end
 end

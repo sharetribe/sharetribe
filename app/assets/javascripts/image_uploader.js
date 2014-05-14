@@ -158,7 +158,7 @@ window.ST.imageUploader = function(listings, opts) {
         url: opts.s3UploadPath,
         paramName: "file",
         submit: function(e, data) {
-          var filename = ST.utils.filenameToURLSafe(data.files[0].name)
+          var filename = ST.utils.filenameToURLSafe(data.files[0].name);
           data.formData = _.extend({}, opts.s3Fields, {
             "Content-Type": ST.utils.contentTypeByFilename(data.files[0].name),
             key: opts.s3Fields.key.replace("${index}", i++).replace("${filename}", filename)

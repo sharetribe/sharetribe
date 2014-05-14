@@ -78,6 +78,8 @@ de:
         community_logo_icon: "Icon Logo"
         community_cover_photo: Titelbild
         small_community_cover_photo: "Kleines Titelbild"
+        favicon: ~
+        favicon_info_text: ~
         community_custom_color1: Hauptfarbe
         community_custom_color2: "Zweite Farbe"
         logo_instructions_text_with_dimensions: "Die Größe des Logos sollte %{width}x%{height}px betragen."
@@ -187,6 +189,7 @@ de:
         number: Anzahl
         dropdown: Dropdown-Menü
         checkbox_group: ~
+        date: ~
     emails:
       new:
         send_email_to_members: "Sende eine E-Mail an alle Mitglieder"
@@ -1712,9 +1715,9 @@ de:
       delete_account_button: "Mein Konto endgültig löschen"
       delete_account_confirmation_popup: "Bist du sicher, dass du dein Benutzerkonto und alle damit verbundenen Daten endgültig löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden."
       email_addresses: E-Mail-Adressen
+      new_email: "Neue E-Mail-Adresse"
       instructions_to_delete_account: "Wenn du dein Konto löscht, werden auch alle damit verbundenen Daten entfernt: deine Profil-Details, Einträge, Kommentare, Nachrichten, Feedbacks etc."
       contact_admin: "Bitte kontaktiere die Administratoren"
-      new_email: "Neue E-Mail-Adresse"
       new_password: "Neues Passwort"
       save: Speichern
       these_fields_are_shown_only_to_you: "Dein Benutzername wird dir in deinem Profil angezeigt, es sei denn, du hast deinen Namen angegeben. Andere Informationen sind nur für dich sichtbar."

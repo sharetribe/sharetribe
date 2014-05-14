@@ -62,7 +62,6 @@ CREATE TABLE `cached_ressi_events` (
 
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
   `parent_id` int(11) DEFAULT NULL,
   `icon` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
@@ -70,7 +69,6 @@ CREATE TABLE `categories` (
   `community_id` int(11) DEFAULT NULL,
   `sort_priority` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `index_categories_on_name` (`name`),
   KEY `index_categories_on_parent_id` (`parent_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -181,7 +179,6 @@ CREATE TABLE `communities` (
   `facebook_connect_id` varchar(255) DEFAULT NULL,
   `facebook_connect_secret` varchar(255) DEFAULT NULL,
   `google_analytics_key` varchar(255) DEFAULT NULL,
-  `favicon_url` varchar(255) DEFAULT NULL,
   `name_display_type` varchar(255) DEFAULT 'first_name_with_initial',
   `twitter_handle` varchar(255) DEFAULT NULL,
   `use_community_location_as_default` tinyint(1) DEFAULT '0',
@@ -207,6 +204,10 @@ CREATE TABLE `communities` (
   `price_filter_max` int(11) DEFAULT '100000',
   `automatic_confirmation_after_days` int(11) DEFAULT '14',
   `plan_level` int(11) DEFAULT '0',
+  `favicon_file_name` varchar(255) DEFAULT NULL,
+  `favicon_content_type` varchar(255) DEFAULT NULL,
+  `favicon_file_size` int(11) DEFAULT NULL,
+  `favicon_updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_communities_on_domain` (`domain`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -216,27 +217,6 @@ CREATE TABLE `communities_listings` (
   `listing_id` int(11) DEFAULT NULL,
   KEY `index_communities_listings_on_community_id` (`community_id`),
   KEY `communities_listings` (`listing_id`,`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `communities_payment_gateways` (
-  `community_id` int(11) DEFAULT NULL,
-  `payment_gateway_id` int(11) DEFAULT NULL,
-  KEY `index_communities_payment_gateways_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `community_categories` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `community_id` int(11) DEFAULT NULL,
-  `category_id` int(11) DEFAULT NULL,
-  `share_type_id` int(11) DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  `price` tinyint(1) DEFAULT '0',
-  `price_quantity_placeholder` varchar(255) DEFAULT NULL,
-  `payment` tinyint(1) DEFAULT '0',
-  `sort_priority` int(11) DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `community_categories` (`community_id`,`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `community_customizations` (
@@ -253,7 +233,7 @@ CREATE TABLE `community_customizations` (
   `how_to_use_page_content` text,
   `custom_head_script` text,
   `about_page_content` text,
-  `terms_page_content` text,
+  `terms_page_content` mediumtext,
   `privacy_page_content` text,
   `storefront_label` varchar(255) DEFAULT NULL,
   `signup_info_content` text,
@@ -298,7 +278,6 @@ CREATE TABLE `conversations` (
   `listing_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `status` varchar(255) DEFAULT 'pending',
   `last_message_at` datetime DEFAULT NULL,
   `automatic_confirmation_after_days` int(11) DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
@@ -369,6 +348,7 @@ CREATE TABLE `custom_field_values` (
   `listing_id` int(11) DEFAULT NULL,
   `text_value` text,
   `numeric_value` float DEFAULT NULL,
+  `date_value` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `type` varchar(255) DEFAULT NULL,
@@ -716,6 +696,9 @@ CREATE TABLE `payment_gateways` (
   `checkout_password` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
+  `gateway_commission_percentage` int(11) DEFAULT NULL,
+  `gateway_commission_fixed_cents` int(11) DEFAULT NULL,
+  `gateway_commission_fixed_currency` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -742,6 +725,7 @@ CREATE TABLE `payments` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `community_id` int(11) DEFAULT NULL,
+  `payment_gateway_id` int(11) DEFAULT NULL,
   `sum_cents` int(11) DEFAULT NULL,
   `currency` varchar(255) DEFAULT NULL,
   `type` varchar(255) DEFAULT 'CheckoutPayment',
@@ -851,33 +835,6 @@ CREATE TABLE `sessions` (
   PRIMARY KEY (`id`),
   KEY `index_sessions_on_session_id` (`session_id`),
   KEY `index_sessions_on_updated_at` (`updated_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `share_type_translations` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `share_type_id` int(11) DEFAULT NULL,
-  `locale` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `transaction_button_text` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `share_type_id_with_locale` (`share_type_id`,`locale`),
-  KEY `index_share_type_translations_on_share_type_id` (`share_type_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `share_types` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `parent_id` int(11) DEFAULT NULL,
-  `icon` varchar(255) DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  `transaction_type` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `index_share_types_on_name` (`name`),
-  KEY `index_share_types_on_parent_id` (`parent_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `statistics` (
@@ -1837,4 +1794,31 @@ INSERT INTO schema_migrations (version) VALUES ('20140417084647');
 
 INSERT INTO schema_migrations (version) VALUES ('20140417085905');
 
+INSERT INTO schema_migrations (version) VALUES ('20140417162548');
+
+INSERT INTO schema_migrations (version) VALUES ('20140417235732');
+
 INSERT INTO schema_migrations (version) VALUES ('20140422120515');
+
+INSERT INTO schema_migrations (version) VALUES ('20140425080207');
+
+INSERT INTO schema_migrations (version) VALUES ('20140425080603');
+
+INSERT INTO schema_migrations (version) VALUES ('20140425080731');
+
+INSERT INTO schema_migrations (version) VALUES ('20140425081001');
+
+INSERT INTO schema_migrations (version) VALUES ('20140425111235');
+
+INSERT INTO schema_migrations (version) VALUES ('20140428132517');
+
+INSERT INTO schema_migrations (version) VALUES ('20140428134415');
+
+INSERT INTO schema_migrations (version) VALUES ('20140507104933');
+
+INSERT INTO schema_migrations (version) VALUES ('20140507105154');
+
+INSERT INTO schema_migrations (version) VALUES ('20140509115747');
+
+INSERT INTO schema_migrations (version) VALUES ('20140512062911');
+

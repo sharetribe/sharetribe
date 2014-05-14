@@ -206,8 +206,7 @@ Devise.setup do |config|
   rescue ActiveRecord::StatementInvalid => e
     # in some environments (e.g. Travis CI) database might not be fully set up when this is run and in that case just skip additional methods.
   end
-  
-  
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

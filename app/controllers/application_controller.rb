@@ -238,16 +238,9 @@ class ApplicationController < ActionController::Base
         e.test_group_number = @current_user ? @current_user.test_group_number : nil
         e.community_id      = @current_community ? @current_community.id : nil
         begin
-          if (params["file"] || params["image"] || (params["listing_image"] && params["listing_image"]["image"] ||
-              params["person"] && params["person"]["image"]) ||
-             (params["community"] &&
-                (params["community"]["cover_photo"] || params["community"]["small_cover_photo"] ||
-                 params["community"]["wide_logo"] || params["community"]["logo"])))
-            # This case breaks image upload (reason unknown) if we use to_json, so we'll have to skip it
-            e.parameters    = params.inspect.gsub('=>', ':')
-          else  #normal case
-            e.parameters    = request.filtered_parameters.to_json
-          end
+          # All kinds of stuff comes in, uploaded files etc. That's why it's better to wrap this into begin-rescue
+          # if something goes wrong in stringifing params
+          e.parameters    = Util::HashUtils.deep_map(request.filtered_parameters) { |k, v| v.to_s.truncate(255) }.to_json
         rescue JSON::GeneratorError => error
           e.parameters      = ["There was error in genarating the JSON from the parameters."].to_json
         end
@@ -262,6 +255,13 @@ class ApplicationController < ActionController::Base
 
   def ensure_is_admin
     unless @current_user && @current_community && @current_user.has_admin_rights_in?(@current_community)
+      flash[:error] = t("layouts.notifications.only_kassi_administrators_can_access_this_area")
+      redirect_to root and return
+    end
+  end
+
+  def ensure_is_superadmin
+    unless Maybe(@current_user).is_admin?.or_else(false)
       flash[:error] = t("layouts.notifications.only_kassi_administrators_can_access_this_area")
       redirect_to root and return
     end

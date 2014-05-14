@@ -13,7 +13,7 @@ Kassi::Application.configure do
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
-  
+
   config.log_level = :debug
 
   # Raise exceptions instead of rendering exception templates
@@ -27,9 +27,9 @@ Kassi::Application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :cache
   config.action_mailer.cache_settings = { :location => "#{Rails.root}/tmp/cache/action_mailer_cache_delivery#{ENV['TEST_ENV_NUMBER']}.cache" }
-    
-  config.active_support.deprecation = :stderr  
-  
+
+  config.active_support.deprecation = :stderr
+
   # As instructed by Devise, to make local mails work
   config.action_mailer.default_url_options = { :host => 'test.lvh.me:9887' }
 
@@ -44,19 +44,19 @@ Kassi::Application.configure do
       require "#{Rails.root}/lib/selenium_webdriver_phantomjs_monkey_patch"
     end
   end
-  
+
   Capybara.default_wait_time = 10
   Capybara.ignore_hidden_elements = true
-  
+
   ENV['RAILS_ASSET_ID'] = ""
-  
-  # Configure static asset server for tests with Cache-Control for performance  
-  config.serve_static_assets = true  
-  config.static_cache_control = "public, max-age=3600"  
-  
+
+  # Configure static asset server for tests with Cache-Control for performance
+  config.serve_static_assets = true
+  config.static_cache_control = "public, max-age=3600"
+
   # Raise exception on mass assignment protection for Active Record models
   config.active_record.mass_assignment_sanitizer = :strict
-  
+
   config.cache_store = :memory_store, { :namespace => "sharetribe-test"}
-  
+
 end

@@ -78,6 +78,8 @@ fr:
         community_logo_icon: "Logo sur mobile"
         community_cover_photo: "Photo de couverture"
         small_community_cover_photo: "Photo de couverture réduite"
+        favicon: Favicon
+        favicon_info_text: "Le favicon remplacera celui par défaut dans Sharetribe. Les dimensions doivent être de 32x32 pixels et l'image téléchargée sera redimensionnée à ces dimensions."
         community_custom_color1: "Couleur principale"
         community_custom_color2: "Couleur secondaire"
         logo_instructions_text_with_dimensions: "Le logo large doit avoir des dimensions de %{width}x%{height} pixels. Il sera affiché sur les grands écrans."
@@ -187,6 +189,7 @@ fr:
         number: Nombre
         dropdown: "Liste déroulante"
         checkbox_group: "Cases à cocher"
+        date: Date
     emails:
       new:
         send_email_to_members: "Envoyer un email aux membres"
@@ -1041,7 +1044,7 @@ fr:
       or_check_our: "... ou consultez notre"
       send_feedback_to_admin: "Envoyer votre commentaire"
       to_see_what_others_have_suggested: "pour voir ce que les autres ont suggéré et votez pour vos fonctionnalités préférées."
-      your_email_address: "Votre adresse email (non obligatoire)"
+      your_email_address: "Votre adresse email (pour vous joindre)"
       connect: S'inscrire
       invite_your_friends: "Invitez des amis !"
       invite_your_neighbors: "Invitez vos voisins !"
@@ -1709,9 +1712,9 @@ fr:
       delete_account_button: "Supprimer définitivement mon compte"
       delete_account_confirmation_popup: "Etes-vous bien sûr(e) de vouloir supprimer votre compte et de perdre toutes ses données ? La suppression d'un compte est irréversible."
       email_addresses: "Adresses email"
+      new_email: "Nouvelle adresse email"
       instructions_to_delete_account: "Si vous supprimez votre compte, toutes ses données seront perdues : les informations de votre profil, les annonces, les commentaires, les messages, les avis etc..."
       contact_admin: "merci de contacter les administrateurs"
-      new_email: "Nouvelle adresse email"
       new_password: "Votre nouveau mot de passe"
       save: Sauvegarder
       these_fields_are_shown_only_to_you: "Le nom d'utilisateur apparaît dans votre profil sauf si vous avez communiqué votre nom. Il n'y a que vous qui voyez les autres informations."

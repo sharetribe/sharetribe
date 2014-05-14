@@ -16,8 +16,4 @@ class Offer < TransactionType
     false
   end
 
-  def api_name
-    "offer"
-  end
-
 end

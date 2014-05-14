@@ -1,10 +1,12 @@
+# encoding: utf-8
+
 en_subject = "Help us make Sharetribe better"
 en_message = <<MESSAGE
-I’m writing to you because you have recently started a new Sharetribe for your community. Great to have you on board! 
+I’m writing to you because you have recently started a new Sharetribe for your community. Great to have you on board!
 
-We at Sharetribe are working constantly to make the service better for all kinds of communities around the world. To do that, we’d like to get your feedback. 
+We at Sharetribe are working constantly to make the service better for all kinds of communities around the world. To do that, we’d like to get your feedback.
 
-If you have 15-30 minutes at some day, I would much like to chat with you on Skype or Google Hangout. It would be really helpful to get a chance to talk to you and hear about your wishes and expectations towards Sharetribe. It doesn’t matter if you haven’t invited any of your friends to the community yet or if you just created it for test purposes, I’d love to have a chat anyway. 
+If you have 15-30 minutes at some day, I would much like to chat with you on Skype or Google Hangout. It would be really helpful to get a chance to talk to you and hear about your wishes and expectations towards Sharetribe. It doesn’t matter if you haven’t invited any of your friends to the community yet or if you just created it for test purposes, I’d love to have a chat anyway.
 
 If you would be able to chat, please reply to this email.
 
@@ -23,7 +25,7 @@ Olet vastikään perustanut Sharetriben omalle yhteisöllesi. Hienoa!
 
 Me Sharetribessa työskentelemme jatkuvasti sen eteen, että palvelu vastaisi mahdollisimman hyvin erilaisten yhteisöjen tarpeita. Haluaisimmekin nyt kuulla palautettasi palvelusta.
 
-Jos sinulla on 15-30 minuuttia aikaa lähipäivinä, haluaisin mieluusti jutella kanssasi. Jos asut tai liikut silloin tällöin pääkaupunkiseudulla, voimme tavata livenä (tarjoan kahvit). Muussa tapauksessa voimme jutella esimerkiksi puhelimitse tai Skypen/Google Hangoutin välityksellä. Ei haittaa, vaikka perustamassasi yhteisössäsi ei ole vielä yhtään jäsentä tai jos olet perustanut sen vain testimielessä - palaute on silti tervetullutta! 
+Jos sinulla on 15-30 minuuttia aikaa lähipäivinä, haluaisin mieluusti jutella kanssasi. Jos asut tai liikut silloin tällöin pääkaupunkiseudulla, voimme tavata livenä (tarjoan kahvit). Muussa tapauksessa voimme jutella esimerkiksi puhelimitse tai Skypen/Google Hangoutin välityksellä. Ei haittaa, vaikka perustamassasi yhteisössäsi ei ole vielä yhtään jäsentä tai jos olet perustanut sen vain testimielessä - palaute on silti tervetullutta!
 
 Jos siis lyhyt keskustelutuokio sopii, kerrothan siitä vastaamalla tähän viestiin.
 
@@ -38,8 +40,8 @@ MESSAGE
 
 mail_content = {
   "en"=>{
-    "body"=> en_message, 
-    "subject"=> en_subject}, 
+    "body"=> en_message,
+    "subject"=> en_subject},
   "fi"=>{
     "body"=> fi_message,
     "subject"=> fi_subject}

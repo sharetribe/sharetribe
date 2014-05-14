@@ -10,8 +10,8 @@ Feature: Seller creates an invoice with Braintree
       | kassi_testperson2 |
     And community "test" has payments in use via BraintreePaymentGateway with seller commission 10
     And there is a listing with title "Power drill" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
-    And the price of that listing is "20.90"
-    And there is a message "I request this" from "kassi_testperson2" about that listing
+    And the price of that listing is 20.90 USD
+    And there is a pending request "I request this" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
     Then I should see "1" within ".inbox-link"

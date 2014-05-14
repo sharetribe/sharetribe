@@ -20,7 +20,7 @@ Feature: Search
     And that listing has a numeric answer "100" for "Weight (kg)"
     And that listing has a checkbox answer "3 people" for "Amenities"
     And that listing has a checkbox answer "Indoors" for "Amenities"
-    And the price of that listing is "200"
+    And the price of that listing is 200.00 USD
 
     And there is a listing with title "light-weigth plastic outdoor sofa" with category "Items" and with transaction type "Selling"
     And that listing has a description "Very light weight sofa for outdoor use"

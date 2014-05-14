@@ -78,6 +78,8 @@ en:
         community_logo_icon: "Mobile logo"
         community_cover_photo: "Cover photo"
         small_community_cover_photo: "Small cover photo"
+        favicon: "Favicon"
+        favicon_info_text: "Favicon will replace the default Sharetribe logo. The dimensions should be 32x32 pixels and the uploaded image will be resized to these dimensions."
         community_custom_color1: "Main color"
         community_custom_color2: "Second color"
         logo_instructions_text_with_dimensions: "Desktop logo size should be %{width}x%{height}px. It will be shown to users with bigger screens."
@@ -187,6 +189,7 @@ en:
         number: Number
         dropdown: Dropdown
         checkbox_group: "Checkbox group"
+        date: Date
     emails:
       new:
         send_email_to_members: "Send an email to members"
@@ -1041,7 +1044,7 @@ en:
       or_check_our: "...or check our"
       send_feedback_to_admin: "Send feedback"
       to_see_what_others_have_suggested: "to see what other users have suggested, and vote for the ideas there."
-      your_email_address: "Your email address (not required)"
+      your_email_address: "Your email address (to contact you)"
       connect: "Sign up"
       invite_your_friends: "Invite friends!"
       invite_your_neighbors: "Invite neighbors!"
@@ -1232,6 +1235,7 @@ en:
       close_listing: "Close listing"
       edit_listing: "Edit listing"
       reopen_listing: "Reopen listing"
+      move_to_top: "Move to top of homepage"
     follow_links:
       follow: "Get emails about new comments"
       unfollow: "Don't get emails about new comments"
@@ -1282,8 +1286,8 @@ en:
         mass: "piece, kg, l, m2, ..."
         time: "hour, day, month, ..."
         long_time: "week, month, ..."
-        service_fee_will_be_added: "A %{fee}% service fee will be added to the price."
         after_service_fee_you_will_get: "After %{service_name} service fee you will get %{sum_with_currency}"
+        after_service_fee_you_will_get_vat: "After %{service_name} service fee you will get approx. %{sum_with_currency} (VAT 0%)"
         price_excludes_vat: "The price doesn't include VAT."
       origin:
         location: Location
@@ -1709,9 +1713,9 @@ en:
       delete_account_button: "Permanently delete my account"
       delete_account_confirmation_popup: "Are you sure you really want to delete your user account and permanently lose all data related to it? Account deletion can not be reversed."
       email_addresses: "Email addresses"
+      new_email: "New email address"
       instructions_to_delete_account: "If you delete your account all the data related to it will be removed: your profile details, listings, comments, messages, feedbacks etc."
       contact_admin: "please contact the administrators"
-      new_email: "New email address"
       new_password: "New password"
       save: Save
       these_fields_are_shown_only_to_you: "Username is shown in your profile unless you have given your name. Other information is only shown to you."

@@ -78,6 +78,8 @@ fi:
         community_logo_icon: Mobiililogo
         community_cover_photo: Kansikuva
         small_community_cover_photo: "Matala kansikuva"
+        favicon: Favicon
+        favicon_info_text: "Ladattu kuva korvaa oletuksena käytettävän Sharetriben logon. Faviconin koon tulee olla 32x32 pikseliä. Ladattu kuva muunnetaan tähän kokoon."
         community_custom_color1: Pääväri
         community_custom_color2: "Toinen väri"
         logo_instructions_text_with_dimensions: "Peruslogon koon tulee olla %{width}x%{height} pikseliä."
@@ -187,6 +189,7 @@ fi:
         number: Numero
         dropdown: Pudotusvalikko
         checkbox_group: "Ryhmä valintaruutuja"
+        date: Päivämäärä
     emails:
       new:
         send_email_to_members: "Lähetä sähköpostia jäsenille"
@@ -1283,7 +1286,8 @@ fi:
         time: "tunti, päivä, kk ..."
         long_time: "vko, kk, ..."
         service_fee_will_be_added: "Hintaan lisätään palvelumaksu %{fee}%."
-        after_service_fee_you_will_get: ~
+        after_service_fee_you_will_get: "%{service_name} palvelumaksun jälkeen sinä saat %{sum_with_currency}"
+        after_service_fee_you_will_get_vat: "%{service_name} palvelumaksun jälkeen sinä saat noin %{sum_with_currency} (ALV 0%)"
         price_excludes_vat: "Merkitse tähän alv 0 -hinta."
       origin:
         location: Sijainti
@@ -1709,9 +1713,9 @@ fi:
       delete_account_button: "Poista tilini pysyvästi"
       delete_account_confirmation_popup: "Oletko aivan varma, että haluat pysyvästi poistaa käyttäjätilisi ja kaikki siihen liittyvät tiedot? Poistoa ei voi peruuttaa."
       email_addresses: Sähköpostiosoitteet
+      new_email: "Uusi sähköpostiosoite"
       instructions_to_delete_account: "Jos poistat käyttäjätilisi, samalla poistetaan kaikki profiilin tiedot, ilmoitukset, viestit, palautteet ym "
       contact_admin: "otathan yhteyttä ylläpitoon"
-      new_email: "Uusi sähköpostiosoite"
       new_password: "Uusi salasana"
       save: Tallenna
       these_fields_are_shown_only_to_you: "Käyttäjätunnus näytetään profiilissasi, jos et ole syöttänyt nimeäsi. Muut tiedot näytetään vain sinulle."

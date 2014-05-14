@@ -134,6 +134,24 @@ class Community < ActiveRecord::Base
                                                       "image/pjpeg",
                                                       "image/x-png"]
 
+  has_attached_file :favicon,
+                    :styles => {
+                      :favicon => "32x32#"
+                    },
+                    :default_style => :favicon,
+                    :convert_options => {
+                      :favicon => "-depth 32",
+                      :favicon => "-strip"
+                    },
+                    :default_url => "/assets/favicon.ico"
+
+  validates_attachment_content_type :favicon,
+                                    :content_type => ["image/jpeg",
+                                                      "image/png",
+                                                      "image/gif",
+                                                      "image/x-icon",
+                                                      "image/vnd.microsoft.icon"]
+
   validates_format_of :twitter_handle, with: /^[A-Za-z0-9_]{1,15}$/, allow_nil: true
 
   attr_accessor :terms
@@ -434,6 +452,12 @@ class Community < ActiveRecord::Base
     payment_gateway.present?
   end
 
+  # Testimonials can be used only if payments are used and `testimonials_in_use` value
+  # is true. `testimonials_in_use` doesn't have any effect, if there are no payments
+  def testimonials_in_use
+    read_attribute(:testimonials_in_use) && payments_in_use?
+  end
+
   # Does this community require that people have registered payout method before accepting requests
   def requires_payout_registration?
     payment_gateway.present? && payment_gateway.requires_payout_registration_before_accept?
@@ -471,20 +495,6 @@ class Community < ActiveRecord::Base
 
   def mangopay_in_use?
     payment_gateway.present? && payment_gateway.type == "Mangopay"
-  end
-
-  # Returns the total service fee for a certain listing
-  # in the current community (including gateway fee, platform
-  # fee and marketplace fee)
-  def service_fee_for(listing)
-    service_fee = PaymentMath.service_fee(listing.price_cents, commission_from_seller)
-    Money.new(service_fee, listing.currency)
-  end
-
-  # Price that the seller gets after the service fee is deducted
-  def price_seller_gets_for(listing)
-    seller_gets = PaymentMath::SellerCommission.seller_gets(listing.price_cents, commission_from_seller)
-    Money.new(seller_gets, listing.currency)
   end
 
   # Return either minimum price defined by this community or the absolute

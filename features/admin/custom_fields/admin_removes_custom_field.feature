@@ -1,7 +1,7 @@
 Feature: Admin removes custom field from category
-  
+
   Background:
-    Given there is a dropdown field "House type" for category "housing" in community "test" with options:
+    Given there is a dropdown field "House type" for category "Spaces" in community "test" with options:
       | title |
       | condo |
       | house |
@@ -12,7 +12,7 @@ Feature: Admin removes custom field from category
     And I am on the custom fields admin page
     Then I should see that there is a custom field "House type"
     And I should see that there is a custom field "Additional details"
-    
+
   @javascript
   Scenario: Admin removes custom fields from category
     When I remove custom field "House type"

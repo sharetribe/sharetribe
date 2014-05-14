@@ -25,13 +25,13 @@ Kassi::Application.routes.draw do
   scope "(/:locale)" do
     scope :module => "api", :constraints => ApiRequest do
       resources :listings, :only => :index
-      
+
       match 'api_version' => "api#version_check"
-      match '/' => 'dashboard#api'    
+      match '/' => 'dashboard#api'
     end
-    
-    devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people", :omniauth_callbacks => "sessions"}, :path_names => { :sign_in => 'login'} 
-    devise_scope :person do  
+
+    devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people", :omniauth_callbacks => "sessions"}, :path_names => { :sign_in => 'login'}
+    devise_scope :person do
       # these matches need to be before the general resources to have more priority
       get "/people/confirmation" => "confirmations#show", :as => :confirmation
       put "/people/confirmation" => "confirmations#create"
@@ -39,7 +39,7 @@ Kassi::Application.routes.draw do
       post "/people/password" => "devise/passwords#create"
       put "/people/password" => "devise/passwords#update"
       match "/people/sign_up" => redirect("/%{locale}/login")
-           
+
       resources :people do
         collection do
           get :check_username_availability
@@ -59,9 +59,10 @@ Kassi::Application.routes.draw do
         resources :listings do
           member do
             put :close
-          end  
-        end  
-        resources :messages, :controller => :conversations do 
+            put :move_to_top
+          end
+        end
+        resources :messages, :controller => :conversations do
           collection do
             get :received
             get :sent
@@ -79,7 +80,7 @@ Kassi::Application.routes.draw do
           resources :feedbacks, :controller => :testimonials do
             collection do
               put :skip
-            end  
+            end
           end
           resources :payments do
             member do
@@ -87,7 +88,7 @@ Kassi::Application.routes.draw do
             end
           end
           resources :braintree_payments
-          
+
         end
         resource :settings do
           member do
@@ -108,11 +109,16 @@ Kassi::Application.routes.draw do
           end
         end
       end
-      
+
       # List few specific routes here for Devise to understand those
-      match "/signup" => "people#new", :as => :sign_up    
-      match "/people/:id/:type" => "people#show", :as => :person_listings    
-      
+      match "/signup" => "people#new", :as => :sign_up
+      match "/people/:id/:type" => "people#show", :as => :person_listings
+
+    end
+
+    namespace :superadmin do
+      resources :communities do
+      end
     end
 
     namespace :admin do
@@ -162,7 +168,7 @@ Kassi::Application.routes.draw do
         end
       end
     end
-    
+
     resources :contact_requests
     resources :invitations
     resources :user_feedbacks, :controller => :feedbacks
@@ -174,7 +180,7 @@ Kassi::Application.routes.draw do
       end
     end
     resources :tribes, :controller => :communities do
-      collection do 
+      collection do
         get :check_domain_availability
         get :change_form_language
         post :set_organization_email
@@ -224,19 +230,19 @@ Kassi::Application.routes.draw do
         get :terms
         get :privacy
         get :news
-      end  
+      end
     end
     resource :terms do
       member do
         post :accept
-      end  
-    end    
+      end
+    end
     resources :sessions do
       collection do
         post :request_new_password
         post :change_mistyped_email
       end
-    end  
+    end
     resources :consent
     resource :sms do
       get :message_arrived
@@ -244,7 +250,7 @@ Kassi::Application.routes.draw do
     resources :news_items
     resources :statistics
   end
-  
+
   # Some non-RESTful mappings
 
   get '/webhooks/braintree' => 'braintree_webhooks#challenge'
@@ -290,11 +296,11 @@ Kassi::Application.routes.draw do
   constraints(CommunityDomain) do
     match '/:locale/' => 'homepage#index'
     match '/' => 'homepage#index'
-  end  
-  
+  end
+
   # Below are the routes that are matched if didn't match inside subdomain constraints
   match '/:locale' => 'dashboard#index'
-  
+
   root :to => 'dashboard#index'
-  
+
 end

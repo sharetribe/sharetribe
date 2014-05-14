@@ -12,8 +12,9 @@ Feature: User cancels escrow payment
     And "kassi_testperson1" does not have admin rights in community "test"
     And "manager" has admin rights in community "test"
     And there is a listing with title "math book" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
-    And the price of that listing is "12"
-    And there is an accepted request for "math book" with price "101" from "kassi_testperson2"
+    And the price of that listing is 101.00 USD
+    And there is a pending request "math book" from "kassi_testperson2" about that listing
+    And the request is accepted
     And "kassi_testperson2" has paid for that listing
 
   @javascript

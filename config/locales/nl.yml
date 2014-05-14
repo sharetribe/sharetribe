@@ -63,6 +63,8 @@ nl:
         community_logo_icon: ~
         community_cover_photo: ~
         small_community_cover_photo: ~
+        favicon: ~
+        favicon_info_text: ~
         community_custom_color1: ~
         community_custom_color2: ~
         logo_instructions_text_with_dimensions: ~
@@ -172,6 +174,7 @@ nl:
         number: ~
         dropdown: ~
         checkbox_group: ~
+        date: ~
     emails:
       new:
         send_email_to_members: "Stuur email aan gebruikers"
@@ -385,8 +388,8 @@ nl:
         request_you_follow: ~
       comment_to_own_listing_notification:
         has_commented: ~
-        your_offer: ~
-        your_request: ~
+        your_offer: "jouw aanbod"
+        your_request: "jouw vraag"
       loading_more_notifications: "Meer notificaties laden..."
       no_notifications: "Geen notificaties"
       testimonialnotification:
@@ -716,7 +719,7 @@ nl:
       you_have_achieved_a_badge: "Je hebt de badge '%{badge_name}' verdiend in %{service_name}!"
     new_comment:
       has_commented_your_listing_in_kassi: ~
-      view_comment: ~
+      view_comment: "Toon reactie"
       you_have_a_new_comment: "%{author} heeft een reactie gegeven over uw vermelding in%{service_name}"
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
@@ -867,8 +870,8 @@ nl:
       logged_in_to_kassi: ~
     comment:
       commented: ~
-      offer_partitive: ~
-      request_partitive: ~
+      offer_partitive: aanbod
+      request_partitive: vraag
   header:
     about: Over
     home: Home
@@ -1203,11 +1206,11 @@ nl:
       wrote: Schreef
       send_private_message: "Verstuur privé bericht naar %{person}"
     comment_form:
-      ask_a_question: ~
+      ask_a_question: "Plaats een reactie als je meer wil weten over dit item. Andere gebruikers kunnen je reactie zien."
       log_in: "log in"
-      send_comment: "Verzend commentaar"
-      to_send_a_comment: "om een nieuw commentaar te verzenden."
-      write_comment: "Schrijf een nieuw commentaar:"
+      send_comment: "Verzend reactie"
+      to_send_a_comment: "om nieuwe reactie te verzenden."
+      write_comment: "Schrijf een nieuwe reactie:"
       you_cannot_send_a_new_comment_because_listing_is_closed: "Je kan geen nieuwe commentaar geven want het item is gesloten"
       you_must: "Je moet"
       subscribe_to_comments: "Breng me op de hoogte van nieuwe reacties en updates"
@@ -1358,13 +1361,13 @@ nl:
       select_category: "Selecteer categorie"
       select_subcategory: ~
       select_transaction_type: ~
-    please_comment: Commentaar
+    please_comment: Reactie
     reply_link:
       listing_closed: "Item is gesloten"
     show:
       add_your_phone_number: "Voeg je telefoonnummer toe"
       add_profile_picture: "Voeg profielfoto toe"
-      comments: Commentaar
+      comments: Reacties
       contact_by_phone: "Neem telefonisch contact op:"
       contact: ~
       favor_offer: "Gunst aanbod"
@@ -1674,7 +1677,7 @@ nl:
       email: Email
       password_recovery_instructions: "Geef je email adres en je ontvangt instructies hoe je je wachtwoord kunt veranderen."
       request_new_password: "Nieuw wachtwoord aanvragen"
-      change_your_password: ~
+      change_your_password: "Wijzig je wachtwoord"
     confirmation_pending:
       welcome_to_kassi: "Welkom bij %{service_name}"
       check_your_email: ~
@@ -1688,13 +1691,13 @@ nl:
     account:
       change: Wijzig
       confirm_new_password: "Bevestig nieuw wachtwoord"
-      delete_account: ~
+      delete_account: "Verwijder account"
       delete_account_button: ~
       delete_account_confirmation_popup: ~
       email_addresses: ~
-      instructions_to_delete_account: ~
-      contact_admin: ~
       new_email: "Nieuw email adres"
+      instructions_to_delete_account: "Als je je account verwijderd, zal al jouw data verwijderd worden: je profielgegevens, geplaatste items, commentaar, berichten, feedback, enz."
+      contact_admin: ~
       new_password: "Nieuw wachtwoord"
       save: Opslaan
       these_fields_are_shown_only_to_you: "Gebruikersnaam is zichtbaar in je profiel tenzij je je naam hebt opgegeven. Overige informatie is alleen zichtbaar voor jou."
@@ -1718,21 +1721,21 @@ nl:
       newsletters: Nieuwsbrieven
       community_updates: "Community updates"
       email_about_accept_reminders: ~
-      email_about_confirm_reminders: ~
+      email_about_confirm_reminders: "ik vergeten ben om te reageren op een vraag"
       email_about_new_badges: "...ik heb een nieuwe badge bereikt"
       email_about_new_comments_to_own_listing: "...iemand heeft gereageerd op mijn vraag of aanbod"
       email_about_new_messages: "...iemand stuurt me een bericht"
       email_about_new_received_testimonials: "...iemand geeft me feedback"
       email_about_testimonial_reminders: "...ik ben vergeten feedback te geven op een event"
-      email_daily_community_updates: ~
-      email_weekly_community_updates: ~
-      do_not_email_community_updates: ~
-      email_newsletters: ~
+      email_daily_community_updates: "Stuur mij een <b>dagelijkse<b> update als er nieuwe items geplaatst worden"
+      email_weekly_community_updates: "Stuur mij een <b>wekelijkse<b> update als er nieuwe items geplaatst worden"
+      do_not_email_community_updates: "Ik ontvang liever geen updates"
+      email_newsletters: "Stuur me af en toe een nieuwsbrief van %{service_name}"
       email_when_conversation_accepted: "...iemand accepteert mijn vraag of aanbod"
       email_when_conversation_rejected: "...iemand weigert mijn vraag of aanbod"
-      email_about_completed_transactions: ~
+      email_about_completed_transactions: "...iemand mijn vraag markeert als voltooid"
       email_about_new_payments: ~
-      email_about_payment_reminders: ~
+      email_about_payment_reminders: "ik vergeten ben om te betalen"
       unsubscribe_succesful: ~
       unsubscribe_info_text: ~
       settings_link: ~

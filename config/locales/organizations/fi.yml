@@ -59,9 +59,8 @@ fi:
     show:
       presented_organizations: "Edustetut organisaatiot"
       add_new_organization: "Lisää uusi organisaatio, jota edustat"
-  activerecord: 
+  activerecord:
     attributes:
       organization:
         company_id: "Y-tunnus"
         name: "Organisaation nimi"
-    

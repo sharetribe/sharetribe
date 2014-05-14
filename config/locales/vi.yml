@@ -63,6 +63,8 @@ vi:
         community_logo_icon: ~
         community_cover_photo: ~
         small_community_cover_photo: ~
+        favicon: ~
+        favicon_info_text: ~
         community_custom_color1: ~
         community_custom_color2: ~
         logo_instructions_text_with_dimensions: ~
@@ -172,6 +174,7 @@ vi:
         number: ~
         dropdown: ~
         checkbox_group: ~
+        date: ~
     emails:
       new:
         send_email_to_members: ~
@@ -1692,9 +1695,9 @@ vi:
       delete_account_button: ~
       delete_account_confirmation_popup: ~
       email_addresses: ~
+      new_email: "Địa chỉ email mới"
       instructions_to_delete_account: "Nếu bạn muốn xóa tài khoản của bạn, liên hệ với chúng tôi bằng cách sử dụng nút phản hồi bên trái."
       contact_admin: ~
-      new_email: "Địa chỉ email mới"
       new_password: "Mật khẩu mới"
       save: Lưu
       these_fields_are_shown_only_to_you: "Tên người dùng được hiển thị trong tiểu sử của bạn trừ khi bạn đưa ra tên của bạn. Các thông tin khác chỉ hiện thị đối với bạn."

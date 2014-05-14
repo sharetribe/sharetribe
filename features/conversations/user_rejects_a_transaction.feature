@@ -3,42 +3,44 @@ Feature: User rejects a transaction
   As an author of a listing describing an offer or a request
   I want to be able to reject the conversation
 
-  @javascript
-  Scenario: User rejects an offer without message and closes the listing
+  Background:
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
-    And there is a message "I offer this" from "kassi_testperson2" about that listing
-    And I am logged in as "kassi_testperson1"
+    And the community has payments in use via BraintreePaymentGateway
+    And "kassi_testperson2" has an active Braintree account
+    And there is a listing with title "Skateboard" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
+    And the price of that listing is 20.00 USD
+    And there is a pending request "I'd like to buy a skate" from "kassi_testperson1" about that listing
+
+  @javascript
+  Scenario: User rejects a request without message
+    And I am logged in as "kassi_testperson2"
     When I follow "inbox-link"
-    And I follow "I offer this"
+    And I follow "I'd like to buy a skate"
     And I follow "Not this time"
     And I press "Send"
     And I should see "Rejected" within ".conversation-status"
-    When I follow "Massage"
+    When I follow "Skateboard"
     Then I should see "Close listing"
     When the system processes jobs
-    Then "kassi_testperson2@example.com" should receive an email
+    Then "kassi_testperson1@example.com" should receive an email
     When I open the email
-    Then I should see "has rejected your offer" in the email body
-  
+    Then I should see "has rejected your request" in the email body
+
   @javascript
-  Scenario: User rejects a request with message and does not close the listing
-    Given there are following users:
-      | person | 
-      | kassi_testperson1 |
-      | kassi_testperson2 |
-    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Selling services"
-    And there is a message "I request this" from "kassi_testperson2" about that listing
-    And I am logged in as "kassi_testperson1"
+  Scenario: User rejects a request with message
+    And I am logged in as "kassi_testperson2"
     When I follow "inbox-link"
+    And I follow "I'd like to buy a skate"
     And I follow "Not this time"
     And I fill in "conversation_message_attributes_content" with "Sorry, not this time."
     And I press "Send"
     And I should see "Rejected" within ".conversation-status"
-    And I should see "Sorry, not this time."
-    When I follow "Massage"
-    Then I should not see "Listing is closed"
-    And I should see "Close listing"
+    When I follow "Skateboard"
+    Then I should see "Close listing"
+    When the system processes jobs
+    Then "kassi_testperson1@example.com" should receive an email
+    When I open the email
+    Then I should see "has rejected your request" in the email body

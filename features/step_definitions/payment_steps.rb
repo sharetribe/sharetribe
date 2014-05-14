@@ -4,57 +4,41 @@ CC_NAME = "[name='braintree_payment[cardholder_name]']"
 CC_NUMBER = "[name='braintree_payment[credit_card_number]']"
 CC_CVV = "[name='braintree_payment[cvv]']"
 
+module PaymentSteps
+
+  def create_braintree_account(person, community, opts={})
+    account = FactoryGirl.create(:braintree_account, :person => person, :community => community)
+    account.update_attributes(opts) unless opts.empty?
+    account
+  end
+
+end
+
+World(PaymentSteps)
+
 Given /^there are following Braintree accounts:$/ do |bt_accounts|
   # Create new accounts
   bt_accounts.hashes.each do |hash|
     person = Person.find_by_username(hash[:person])
     community = Community.find_by_domain(hash[:community])
-    @hash_account = FactoryGirl.create(:braintree_account, :person => person, :community => community)
-
     attributes_to_update = hash.except('person', 'community')
-    @hash_account.update_attributes(attributes_to_update) unless attributes_to_update.empty?
+    @account = create_braintree_account(person, community, attributes_to_update)
   end
 end
 
-Given /^there is an accepted request for "(.*?)" with price "(.*?)" from "(.*?)"$/ do |item_title, price, requester_username|
-  community = Community.find_by_name("test") # Default testing community
-  listing = Listing.find_by_title(item_title)
-  requester = Person.find_by_username(requester_username)
+Given(/^"(.*?)" has an (active) Braintree account$/) do |username, status|
+  person = Person.find_by_username(username)
+  @account = create_braintree_account(person, @current_community)
+end
 
-  message = Message.new()
-  message.sender = listing.author
-  message.content = "Please pay"
-  message.action = "accept"
+Given /^there is a payment for that request from "(.*?)" with price "(.*?)"$/ do |payer_username, price|
+  listing = @conversation.listing
+  payer = Person.find_by_username(payer_username)
+  @payment = FactoryGirl.create(:braintree_payment, payer: payer, recipient: listing.author, community: @current_community, sum_cents: price.to_i * 100, conversation: @conversation)
+end
 
-  payment = Payment.new()
-  payment.payer = requester
-  payment.recipient = listing.author
-  payment.community_id = community.id
-  payment.status = "pending"
-  payment.type = "BraintreePayment" # hard-coded, change if needed
-  payment.sum_cents = price.to_i * 100
-  payment.currency = "EUR"
-
-  conversation = Conversation.new()
-  conversation.messages << message
-  conversation.participants << listing.author
-  conversation.participants << requester
-  conversation.title = "Conversation title"
-  conversation.community_id = community.id
-  conversation.listing_id = listing.id
-  conversation.status = "pending"
-  conversation.payment = payment
-  conversation.save!
-  conversation.status = "accepted"
-
-  community.payments << payment
-
-  listing.conversations << conversation
-
-  community.save!
-  listing.save!
-
-  @conversation = conversation
+Given /^that payment is (pending|paid)$/ do |status|
+  @conversation.payment.update_attribute(:status, status)
 end
 
 Given(/^"(.*?)" has paid for that listing$/) do |username|
@@ -85,6 +69,10 @@ end
 Given /^Braintree transaction is mocked$/ do
   BraintreeApi.should_receive(:transaction_sale)
     .and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
+end
+
+Given /^Braintree escrow release is mocked$/ do
+  BraintreeService.should_receive(:release_from_escrow).at_least(1).times.and_return(true)
 end
 
 Given /^Braintree merchant creation is mocked$/ do

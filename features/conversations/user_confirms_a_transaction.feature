@@ -2,19 +2,26 @@ Feature: User confirms a transaction
   In order to be able to give feedback to the other party
   As a user
   I want to be able to confirm a transaction as happened
-  
-  @javascript
-  Scenario: User confirms and gives feedback
+
+  Background:
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
-    And there is a message "I offer this" from "kassi_testperson2" about that listing
-    And the offer is accepted
+    And the community has payments in use via BraintreePaymentGateway
+    And Braintree escrow release is mocked
+    And "kassi_testperson2" has an active Braintree account
+    And there is a listing with title "Skateboard" from "kassi_testperson2" with category "Items" and with transaction type "Selling"
+    And the price of that listing is 20.00 USD
+    And there is a pending request "I'd like to buy a skate" from "kassi_testperson1" about that listing
+    And there is a payment for that request from "kassi_testperson1" with price "20"
+    And the request is paid
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
     And I follow "Mark completed"
+
+  @javascript
+  Scenario: User confirms and gives feedback
     And I click "#cancel-action-link"
     And I click "#confirm-action-link"
     And I press "Continue"
@@ -23,7 +30,7 @@ Feature: User confirms a transaction
     And "kassi_testperson2@example.com" should receive an email
     And I log out
     When I open the email
-    And I should see "has marked the request about 'Massage' completed" in the email body
+    And I should see "has marked the request about 'Skateboard' completed" in the email body
     And I should see "Give feedback" in the email body
     When "4" days have passed
     And the system processes jobs
@@ -39,27 +46,9 @@ Feature: User confirms a transaction
     And the system processes jobs
     Then "kassi_testperson2@example.com" should have 3 emails
     And return to current time
-    
+
   @javascript
   Scenario: User confirms a transaction and does not give feedback
-    Given there are following users:
-      | person | 
-      | kassi_testperson1 |
-      | kassi_testperson2 |
-    And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
-    And there is a message "I offer this" from "kassi_testperson2" about that listing
-    And the offer is accepted
-    And I am logged in as "kassi_testperson1"
-    When I follow "inbox-link"
-    And I follow "Mark completed"
     And I choose "Skip feedback"
     And I press "Continue"
     Then I should see "Feedback skipped"
-  
-  
-  
-  
-  
-  
-  
-  

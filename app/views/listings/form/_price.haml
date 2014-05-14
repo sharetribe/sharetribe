@@ -17,20 +17,26 @@
       = form.text_field :quantity, :class => "quantity-field", :placeholder => t(".#{@listing.transaction_type.price_quantity_placeholder}")
     %small
       = t(".price_excludes_vat", :vat => @current_community.vat) if @current_community.vat
-      - if @current_community.commission_from_seller
-        - if seller_commission
-          - content_for :seller_commission_js do
-            :javascript
-              $(function() {
-                updateSellerGetsValue("#listing_price", "#you-will-get", "#listing_currency", #{@current_community.commission_from_seller});
-              });
-          - if run_js_immediately
-            = yield :seller_commission_js
-          - else
-            - content_for :extra_javascript do
-              = yield :seller_commission_js
-
-          = t(".after_service_fee_you_will_get", :sum_with_currency => '<span id="you-will-get"></span>').html_safe
-
+      - if seller_commission_in_use
+        - gateway = @current_community.payment_gateway
+        - content_for :seller_commission_js do
+          :javascript
+            $(function() {
+              updateSellerGetsValue(
+                "#listing_price",
+                "#you-will-get",
+                "#listing_currency",
+                #{gateway.community_commission_percentage},
+                #{Maybe(gateway).gateway_commission_percentage.or_else(0)},
+                #{Maybe(gateway).gateway_commission_fixed.amount.or_else(0)});
+            });
+        - if run_js_immediately
+          = yield :seller_commission_js
         - else
-          = t(".service_fee_will_be_added", :fee => @current_community.commission_from_seller)
+          - content_for :extra_javascript do
+            = yield :seller_commission_js
+
+        - if @current_community.vat
+          = t(".after_service_fee_you_will_get_vat", :sum_with_currency => '<span id="you-will-get"></span>').html_safe
+        - else
+          = t(".after_service_fee_you_will_get", :sum_with_currency => '<span id="you-will-get"></span>').html_safe

@@ -1,3 +1,22 @@
+module CommunitySteps
+
+  def use_payment_gateway(community_domain, gateway_name, commission)
+    gateway_name ||= "Checkout"
+    commission ||= "8"
+
+    community = Community.find_by_domain(community_domain)
+    community.update_attributes(:vat => "24", :commission_from_seller => commission.to_i)
+
+    if gateway_name == "Checkout"
+      FactoryGirl.create(:checkout_payment_gateway, :community => community, :type => gateway_name)
+    else
+      FactoryGirl.create(:braintree_payment_gateway, :community => community, :type => gateway_name)
+    end
+  end
+end
+
+World(CommunitySteps)
+
 Given /^there are following communities:$/ do |communities_table|
   communities_table.hashes.each do |hash|
     domain = hash[:community]
@@ -60,14 +79,12 @@ Given /^community "([^"]*)" requires users to have an email address of type "(.*
   Community.find_by_domain(community).update_attribute(:allowed_emails, email)
 end
 
+Given /^the community has payments in use(?: via (\w+))?(?: with seller commission (\w+))?$/ do |gateway_name, commission|
+  use_payment_gateway(@current_community.domain, gateway_name, commission)
+end
+
 Given /^community "([^"]*)" has payments in use(?: via (\w+))?(?: with seller commission (\w+))?$/ do |community_domain, gateway_name, commission|
-  gateway_name ||= "Checkout"
-  commission ||= "8"
-
-  community = Community.find_by_domain(community_domain)
-  community.update_attributes(:vat => "24", :commission_from_seller => commission.to_i)
-
-  FactoryGirl.create(:payment_gateway, :community => community, :type => gateway_name)
+  use_payment_gateway(community_domain, gateway_name, commission)
 end
 
 Given /^users (can|can not) invite new users to join community "([^"]*)"$/ do |verb, community|

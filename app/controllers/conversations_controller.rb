@@ -127,12 +127,7 @@ class ConversationsController < ApplicationController
     end
     if @conversation.update_attributes(params[:conversation])
       confirmation = ConfirmConversation.new(@conversation, @current_user, @current_community)
-
-      if cancel
-        confirmation.cancel!(params[:give_feedback])
-      else
-        confirmation.confirm!(params[:give_feedback])
-      end
+      confirmation.update_participation(params[:give_feedback])
 
       flash[:notice] = t("layouts.notifications.#{@conversation.listing.direction}_#{@conversation.status}")
       if params[:give_feedback] && params[:give_feedback].eql?("true")
@@ -213,6 +208,8 @@ class ConversationsController < ApplicationController
   def prepare_accept_or_reject_form
     if @current_community.payments_in_use?
       @payment = @current_community.payment_gateway.new_payment
+      @payment.community = @current_community
+      @payment.default_sum(@conversation.listing, Maybe(@current_community).vat.or_else(0))
     end
 
     if @current_community.requires_payout_registration? && @current_community.payment_possible_for?(@conversation.listing) && ! @current_user.can_receive_payments_at?(@current_community)

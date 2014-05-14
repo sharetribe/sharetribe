@@ -63,6 +63,8 @@ es:
         community_logo_icon: ~
         community_cover_photo: "Foto de portada"
         small_community_cover_photo: ~
+        favicon: ~
+        favicon_info_text: ~
         community_custom_color1: "Color principal"
         community_custom_color2: ~
         logo_instructions_text_with_dimensions: ~
@@ -172,6 +174,7 @@ es:
         number: ~
         dropdown: ~
         checkbox_group: ~
+        date: ~
     emails:
       new:
         send_email_to_members: "Envia un mensaje a los miembros"
@@ -1701,12 +1704,12 @@ es:
       change: Cambiar
       confirm_new_password: "Confirmar nueva contraseña"
       delete_account: "Borrar cuenta"
-      delete_account_button: "Eliminar mi cuenta."
+      delete_account_button: "Eliminar mi cuenta"
       delete_account_confirmation_popup: ~
       email_addresses: ~
+      new_email: "Nieva Dirección de Correo Electrónico"
       instructions_to_delete_account: "Si quieres eliminar tu cuenta, contáctanos usando el botón de feedback a la izquierda"
       contact_admin: "por favor contacta a los administradores"
-      new_email: "Nieva Dirección de Correo Electrónico"
       new_password: "Nueva contraseña"
       save: Guardar
       these_fields_are_shown_only_to_you: "El nombre del usuario se muestra en tu perfil a menos que hayas dado tu nombre. Cualquier otra información sólo está disponible para ti."

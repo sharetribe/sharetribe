@@ -36,6 +36,7 @@ module ApplicationHelper
       "privacy" => "ss-lockfile",
       "terms" => "ss-textfile",
       "testimonial" => "ss-star",
+      "star" => "ss-star",
       "like" => "ss-like",
       "dislike" => "ss-dislike",
       "calendar" => "ss-calendar",
@@ -214,6 +215,7 @@ module ApplicationHelper
       "job" => "icon-briefcase",
 
       "testimonial" => "icon-star",
+      "star" => "icon-star",
       "like" => "icon-thumbs-up",
       "dislike" => "icon-thumbs-down",
       "calendar" => "icon-calendar",
@@ -557,12 +559,20 @@ module ApplicationHelper
         :elative => "Autopaikkapörssistä",
         :partitive => "Autopaikkapörssiä"
       }
+      # Deprecated, renamed to Työtorni
       when "Työpooli" then {
         :illative => "Työpooliin",
         :genetive => "Työpoolin",
         :inessive => "Työpoolissa",
         :elative => "Työpoolista",
         :partitive => "Työpoolia"
+      }
+      when "Työtorni" then {
+        :illative => "Työtorniin",
+        :genetive => "Työtornin",
+        :inessive => "Työtornissa",
+        :elative => "Työtornista",
+        :partitive => "Työtornia"
       }
     when "Lovebirds" then {
         :illative =>  "Lovebirdsiin",

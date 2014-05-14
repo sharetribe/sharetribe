@@ -2,18 +2,20 @@ Feature: User requests an item in item offer
   In order to borrow an item from another person
   As a person who needs that item
   I want to be able to send a message to the person who offers the item
-  
+
   @javascript
-  Scenario: Borrowing an item from the listing page
+  Scenario: Renting an item from the listing page (with payments)
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Lending"
+    And community "test" has payments in use via BraintreePaymentGateway
+    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Renting"
+    And the price of that listing is 20.00 USD
     And I am logged in as "kassi_testperson2"
     And I am on the homepage
     When I follow "Hammer"
-    And I follow "Borrow this item"
+    And I follow "Rent this item"
     And I fill in "Title" with "Borrowing hammer"
     And I fill in "Message" with "I want to borrow this item"
     And I press "Send message"
@@ -45,11 +47,11 @@ Feature: User requests an item in item offer
     And the system processes jobs
     Then "kassi_testperson1@example.com" should have 3 emails
     And return to current time
-  
+
   @javascript
   Scenario: Borrowing an item with invalid information
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
     And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Lending"
@@ -59,11 +61,11 @@ Feature: User requests an item in item offer
     And I follow "Borrow this item"
     And I press "Send message"
     Then I should see "This field is required."
-  
-  @javascript  
+
+  @javascript
   Scenario: Requesting an item without logging in and then logging in
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
     Given there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Lending"
@@ -74,11 +76,11 @@ Feature: User requests an item in item offer
     And I should see "Log in to Sharetribe" within "h1"
     When I log in as "kassi_testperson2"
     Then I should see "This message is private"
-  
-  @javascript  
+
+  @javascript
   Scenario: Trying to request an item without logging in and then logging in as the item owner
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
     Given there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Lending"
