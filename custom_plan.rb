@@ -23,7 +23,7 @@ class CustomPlan < Zeus::Rails
 
     # Ensure sphinx directories exist for the test environment
     ThinkingSphinx::Test.init
-    
+
     # Stop Sphinx if it was already running
     ThinkingSphinx::Test.stop
 
@@ -31,6 +31,13 @@ class CustomPlan < Zeus::Rails
     # With Zeus we don't care if it stays running afterwards. It's anyway restarted next time Zeus starts
     # And keeping it running makes running new tests much faster
     ThinkingSphinx::Test.start
+  end
+
+  def cucumber(argv=ARGV)
+    cucumber_main = Cucumber::Cli::Main.new(argv.dup)
+    had_failures = cucumber_main.execute!(@cucumber_runtime)
+    exit_code = had_failures ? 1 : 0
+    exit exit_code
   end
 end
 
