@@ -307,22 +307,6 @@ ul {
   }
 }
 
-.left-navi-dropdown {
-  &:hover { background: $highlight; }
-  color: $body;
-  padding: em(10) lines(1.5) em(10) lines(0.5);
-  border-bottom: 1px dotted $border;
-
-  .icon-dropdown {
-    position: absolute;
-    right: lines(1);
-    top: em(12);
-  }
-  @include media(tablet) {
-    display: none;
-  }
-}
-
 .avatar {
   position: relative;
   width: lines(1);
@@ -3352,13 +3336,6 @@ header.marketplace-header {
       text-align: left;
     }
 
-    .icon-dropdown {
-      display: block;
-      position: absolute;
-      top: em(20);
-      right: lines(0.5);
-    }
-
     .badge {
       display: none;
     }
@@ -3368,14 +3345,6 @@ header.marketplace-header {
       padding-left: lines(0.25);
       margin-left: 0;
       width: auto;
-
-      .icon-dropdown {
-        position: static;
-        vertical-align: top;
-        padding: em(8) 0 0 em(3);
-        display: inline-block;
-      }
-
     }
 
   }
