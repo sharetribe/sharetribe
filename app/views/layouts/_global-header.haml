@@ -66,7 +66,7 @@
       .header-right
         = link_to "Log in", login_path, class: "header-text-link header-hover"
 
-    .header-left
+    .header-left.hidden-tablet
       .header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu'}}
         #header-menu-mobile-anchor.header-menu-toggle-container.toggle-header-container
           = icon_tag("rows", ["header-menu-icon"])
