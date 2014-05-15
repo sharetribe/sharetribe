@@ -43,7 +43,7 @@ Feature: User views a single listing
   @skip_phantomjs
   Scenario: User sees the avatar in listing page
     Given I am logged in as "kassi_testperson1"
-    When I click ".user-menu-toggle"
+    When I open user menu
     When I follow "Settings"
     And I attach a valid image file to "avatar_file"
     And I press "Save information"

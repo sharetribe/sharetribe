@@ -3,7 +3,7 @@ Feature: Inquiry
   @javascript
   Scenario: Two people engage in inquiry conversation
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
     And community "test" has following transaction types enabled:
@@ -22,6 +22,6 @@ Feature: Inquiry
     And I press "Send message"
     And I log out
     And I log in as "kassi_testperson1"
-    And I follow "inbox-link"
+    And I follow inbox link
     Then I should see "Test message"
     And I should not see "Accept"

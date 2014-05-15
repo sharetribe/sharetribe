@@ -22,12 +22,6 @@ Then /^there should be an organization account "(.*?)"$/ do |org_username|
   o.is_organization.should be_true
 end
 
-Then /^I should see "(.*?)" as logged in user$/ do |display_name|
-  steps %Q{
-    Then I should see "#{display_name}" within ".user-name"
-  }
-end
-
 Then /^I should see flash error$/ do
   find(".flash-error").should be_visible
 end

@@ -45,10 +45,6 @@ When(/^I change the name display type to "(.*?)"$/) do |name_display_type|
   }
 end
 
-Then(/^I should see my name displayed as "(.*?)"$/) do |name|
-  find(".user-name").should have_content(name)
-end
-
 Then(/^I should see that the favicon is "(.*?)"$/) do |filename|
   page.should have_xpath("/html/head/link[contains(@href, #{filename})]", :visible => false)
 end

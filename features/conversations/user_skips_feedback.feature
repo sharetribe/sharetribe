@@ -21,7 +21,7 @@ Feature: User skips feedback
 
   @javascript
   Scenario: Skipping feedback from the conversation page
-    When I follow "inbox-link"
+    When I follow inbox link
     And I follow "I'd like to buy a skate"
     And I follow "Skip feedback"
     And I should see "Feedback skipped" within ".conversation-status"
@@ -29,6 +29,6 @@ Feature: User skips feedback
   @javascript
   Scenario: Skipping feedback from the received conversations page
     And I am logged in as "kassi_testperson1"
-    When I follow "inbox-link"
+    When I follow inbox link
     And I follow "Skip feedback"
     And I should see "Feedback skipped" within ".conversation-status"

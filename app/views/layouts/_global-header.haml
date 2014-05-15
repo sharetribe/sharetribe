@@ -19,7 +19,7 @@
               = image_tag user.image.url(:thumb), alt: '', class: 'header-user-avatar'
             .left
               %span.header-text-link
-                %span.visible-tablet-inline
+                %span#header-user-display-name.visible-tablet-inline
                   = user.name(@current_community)
                 = icon_tag("dropdown", ["icon-dropdown"])
 
@@ -53,7 +53,7 @@
 
     - with_available_locales do |locales|
       .header-right.visible-desktop
-        .toggle.header-hover{data: {toggle: '#header-locales-toggle-menu', 'toggle-position' => 'absolute'}}
+        #header-locales-menu.toggle.header-hover{data: {toggle: '#header-locales-toggle-menu', 'toggle-position' => 'absolute'}}
           %span.header-text-link
             = get_full_locale_name(I18n.locale).mb_chars.downcase.to_s
             = icon_tag("dropdown", ["icon-dropdown"])
@@ -65,7 +65,7 @@
         = link_to sign_up_path, class: "header-text-link header-hover" do
           = t("header.signup")
       .header-right
-        = link_to login_path, class: "header-text-link header-hover" do
+        = link_to login_path, class: "header-text-link header-hover", id: "header-login-link" do
           = t("header.login")
 
     .header-left.hidden-tablet
@@ -106,7 +106,7 @@
       If necessary, the buttons will overlap with the logo. Buttons should be on top, that's
       keep the logo here after buttons
     .header-left.header-logo-container
-      = link_to "/", :class => "header-logo" do
+      = link_to "/", :class => "header-logo", :id => "header-logo" do
         %i.header-wide-logo.visible-tablet
           -# Logo is here, it's a CSS background
         %i.header-square-logo.hidden-tablet

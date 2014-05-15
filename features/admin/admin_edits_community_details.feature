@@ -25,7 +25,7 @@ Feature: Admin edits info pages
     Then I should see "Custom slogan"
     And I should see "This is a custom description"
     When I log out
-    And I follow "log in"
+    And I follow "Log in"
     And I follow "Create a new account"
     Then I should see "Custom signup info"
 

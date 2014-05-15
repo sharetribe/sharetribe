@@ -17,7 +17,7 @@ Feature: User confirms a transaction
     And there is a payment for that request from "kassi_testperson1" with price "20"
     And the request is paid
     And I am logged in as "kassi_testperson1"
-    When I follow "inbox-link"
+    When I follow inbox link
     And I follow "Mark completed"
 
   @javascript

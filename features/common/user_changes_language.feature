@@ -7,14 +7,14 @@ Feature: User changes language
   Scenario: User changes language without logging in
     Given I am on the home page
     When I follow "new-listing-link"
-    And I follow "global-navi-home" 
-    And I click "#global-navi-select-language"
-    Then I follow "Suomi" within ".language-menu"
+    And I click the community logo
+    And I open language menu
+    And I select "Suomi" from the language menu
     Then I should see "Lisää uusi ilmoitus!" within "#new-listing-link"
 
   @javascript
   Scenario: User changes language when logged in
     Given I am logged in
-    When I click "#global-navi-select-language"
-    And I follow "Suomi" within ".language-menu"
+    And I open language menu
+    And I select "Suomi" from the language menu
     Then I should see "Lisää uusi ilmoitus!" within "#new-listing-link"

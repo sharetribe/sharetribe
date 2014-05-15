@@ -19,7 +19,7 @@ Feature: Transaction process between two users
     And I press "Send"
     And the system processes jobs
     And "kassi_testperson1@example.com" should receive an email
-    When I follow "inbox-link"
+    When I follow inbox link
     Then I should see "to accept the request"
     And I log out
 
@@ -52,7 +52,7 @@ Feature: Transaction process between two users
 
     # Confirming as done
     When I log in as "kassi_testperson2"
-    And I follow "inbox-link"
+    And I follow inbox link
     And I follow "View conversation" in the email
     And I follow "Mark completed"
     And I choose "Skip feedback"
