@@ -154,6 +154,11 @@ class Community < ActiveRecord::Base
 
   validates_format_of :twitter_handle, with: /^[A-Za-z0-9_]{1,15}$/, allow_nil: true
 
+  validates :facebook_connect_id, numericality: { only_integer: true }, allow_nil: true
+  validates :facebook_connect_id, length: {maximum: 16}, allow_nil: true
+
+  validates_format_of :facebook_connect_secret, with: /^[a-f0-9]{32}$/, allow_nil: true
+
   attr_accessor :terms
 
   def name(locale=nil)
@@ -468,14 +473,6 @@ class Community < ActiveRecord::Base
       available_currencies.gsub(" ","").split(",").first
     else
       MoneyRails.default_currency
-    end
-  end
-
-  def facebook_login_method(host=nil)
-    if facebook_connect_id && (!host || full_domain.match(host))
-      return "facebook_app_#{facebook_connect_id}".to_sym
-    else
-      return :facebook
     end
   end
 

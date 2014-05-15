@@ -198,14 +198,10 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   require "omniauth-facebook"
-  config.omniauth :facebook, APP_CONFIG.fb_connect_id, APP_CONFIG.fb_connect_secret, :iframe => true, :scope => 'offline_access,email'
-  begin
-    Community.all_with_custom_fb_login.each do |community|
-      config.omniauth "facebook_app_#{community.facebook_connect_id}".to_sym, community.facebook_connect_id, community.facebook_connect_secret, :iframe => true, :scope => 'offline_access,email'
-    end
-  rescue ActiveRecord::StatementInvalid => e
-    # in some environments (e.g. Travis CI) database might not be fully set up when this is run and in that case just skip additional methods.
-  end
+
+  # This will configure a setup phase hook, that will use SessionsController#facebook_setup as callback
+  # It allows dynamic configuring on community basis
+  config.omniauth :facebook, :setup => true
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

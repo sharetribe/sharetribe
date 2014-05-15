@@ -146,9 +146,14 @@ class SessionsController < ApplicationController
     end
   end
 
-  # Make method alias for each community which has custom FB login
-  Community.all_with_custom_fb_login.each do |community|
-    alias_method "facebook_app_#{community.facebook_connect_id}".to_sym, :facebook
+  #Facebook setup phase hook, that is used to dynamically set up a omniauth strategy for facebook on customer basis
+  def facebook_setup
+    request.env["omniauth.strategy"].options[:client_id] = @current_community.facebook_connect_id || APP_CONFIG.fb_connect_id
+    request.env["omniauth.strategy"].options[:client_secret] = @current_community.facebook_connect_secret || APP_CONFIG.fb_connect_secret
+    request.env["omniauth.strategy"].options[:iframe] = true
+    request.env["omniauth.strategy"].options[:scope] = "offline_access,email"
+
+    render :text => "Setup complete.", :status => 404 #This notifies the ominauth to continue
   end
 
   # Callback from Omniauth failures

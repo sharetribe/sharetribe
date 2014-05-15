@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_admin_integrations_form("#{I18n.locale}", "#{@community.id}", "#{t('.invalid_twitter_handle')}");
+  initialize_admin_integrations_form("#{I18n.locale}", "#{@community.id}", "#{t('.invalid_twitter_handle')}", "#{t('.invalid_facebook_connect_id')}", "#{t('.invalid_facebook_connect_secret')}" );
 
 - content_for :title_header do
   %h1= t("layouts.admin.admin")
@@ -23,11 +23,23 @@
 
     .row
       = form.label :google_analytics_key, t(".google_analytics_key"), :class => "input"
-      .row
-        .col-6
-          = render :partial => "layouts/info_text", :locals => { :text => t(".google_analytics_key_info_text")}
-        .col-6
-          =form.text_field :google_analytics_key, :maxlength => "15", :class => "text_field", :placeholder => "UA-12345-12"
+    .row
+      .col-6
+        = render :partial => "layouts/info_text", :locals => { :text => t(".google_analytics_key_info_text")}
+      .col-6
+        =form.text_field :google_analytics_key, :maxlength => "15", :class => "text_field", :placeholder => "UA-12345-12"
+
+    .row
+      %h3= t('.facebook_connect')
+      = render :partial => "layouts/info_text", :locals => { :text => t(".facebook_connect_info_text").html_safe}
+    .row
+      .col-6
+        = form.label :facebook_connect_id, t(".facebook_connect_id"), :class => "input"
+        = form.text_field :facebook_connect_id, :maxlength => "16", :class => "text_field", :placeholder => "1234567890123456"
+      .col-6
+        = form.label :facebook_connect_secret, t(".facebook_connect_secret"), :class => "input"
+        = form.text_field :facebook_connect_secret, :maxlength => "32", :class => "text_field", :placeholder => "#{Digest::MD5.hexdigest('1')}"
+
     .row
       = form.button t("admin.communities.integrations.save")
 

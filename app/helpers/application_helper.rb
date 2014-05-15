@@ -842,7 +842,11 @@ module ApplicationHelper
   end
 
   def facebook_connect_in_use?
-    APP_CONFIG.fb_connect_id && ! @facebook_merge && @current_community && @current_community.facebook_connect_enabled?
+    community = Maybe(@current_community)
+
+    (APP_CONFIG.fb_connect_id || community.facebook_connect_id.or_else(false)) &&
+     !@facebook_merge &&
+     community.facebook_connect_enabled?.or_else(false)
   end
 
   def community_slogan
