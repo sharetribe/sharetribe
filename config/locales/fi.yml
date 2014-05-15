@@ -152,7 +152,9 @@ fi:
         facebook_connect: "Facebook"
         facebook_connect_info_text: Luo omalle kauppapaikallesi sovellus  <a href='https://developers.facebook.com/'>Facebookin kehittäjäsivustolla</a> ja lisää luodun sovelluksen tunnukset tähän. Tämä mahdollistaa sivustolle kirjautumisen Facebookin kautta.
         facebook_connect_id: "Facebook - sovellustunnus"
+        invalid_facebook_connect_id: "Sovellustunnus voi sisältää vain numeroita."
         facebook_connect_secret: "Facebook - salainen avain"
+        invalid_facebook_connect_secret: "Salainen avain muodostuu voi sisältää vain kirjaimia väliltä a-f ja numeroita väliltä 0-9."
         save: "Tallenna muutokset"
     custom_fields:
       edit:

@@ -152,7 +152,9 @@ en:
         facebook_connect: Facebook
         facebook_connect_info_text: "In order to enable Facebook login, create an application for your marketplace in the <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Add the generated id and secret key of the application here."
         facebook_connect_id: "Facebook client id"
+        invalid_facebook_connect_id: "Client id should contain only numbers."
         facebook_connect_secret: "Facebook client secret"
+        invalid_facebook_connect_secret: "Client secret should contain only numbers and letters from a to f."
         save: "Save settings"
     custom_fields:
       edit:

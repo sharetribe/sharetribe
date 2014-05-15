@@ -93,8 +93,12 @@ class Admin::CommunitiesController < ApplicationController
 
   def update_integrations
     @community = Community.find(params[:id])
-    params[:community][:twitter_handle] = nil if params[:community][:twitter_handle] == ""
-    params[:community][:google_analytics_key] = nil if params[:community][:twitter_handle] == ""
+    [:twitter_handle,
+     :google_analytics_key,
+     :facebook_connect_id,
+     :facebook_connect_secret].each do |param|
+      params[:community][param] = nil if params[:community][param] == ""
+    end
 
     update(@community,
             params[:community],

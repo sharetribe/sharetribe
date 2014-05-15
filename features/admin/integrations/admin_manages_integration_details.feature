@@ -28,9 +28,9 @@ Feature: Admin manages integration details
   Then I should see "UA-12345-12" in the Google analytics key field
 
   Scenario: Admin adds facebook credentials
-  When I fill in "Facebook client id" with "597013691"
-  And I fill in "Facebook client secret" with "abcd597013691aeu123"
+  When I fill in "Facebook client id" with "1234567890123456"
+  And I fill in "Facebook client secret" with "c4ca4238a0b923820dcc509a6f75849b"
   And I press submit
   And I refresh the page
-  Then I should see "597013691" in the Facebook client id field
-  And I should see "abcd597013691aeu123" in the Facebook client secret field
+  Then I should see "1234567890123456" in the Facebook client id field
+  And I should see "c4ca4238a0b923820dcc509a6f75849b" in the Facebook client secret field

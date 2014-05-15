@@ -1199,15 +1199,19 @@ function initialize_admin_edit_tribe_look_and_feel_form(locale, community_id, in
    });
 }
 
-function initialize_admin_integrations_form(locale, community_id, invalid_twitter_handle_message) {
+function initialize_admin_integrations_form(locale, community_id, invalid_twitter_handle_message, invalid_facebook_connect_id_message, invalid_facebook_connect_secret_message) {
   translate_validation_messages(locale);
   var form_id = "#edit_community_" + community_id;
   $(form_id).validate({
      rules: {
-       "community[twitter_handle]": {required: false, minlength: 1, maxlength: 15, regex: "^([A-Za-z0-9_]+)?$"}
+       "community[twitter_handle]": {required: false, minlength: 1, maxlength: 15, regex: "^([A-Za-z0-9_]+)?$"},
+       "community[facebook_connect_id]": {required: false, minlength: 16, maxlength: 16, regex: "^([0-9]+)?$"},
+       "community[facebook_connect_secret]": {required: false, minlength: 32, maxlength: 32, regex: "^([a-f0-9]+)?$"}
      },
      messages: {
-      "community[twitter_handle]": { regex: invalid_twitter_handle_message }
+      "community[twitter_handle]": { regex: invalid_twitter_handle_message },
+      "community[facebook_connect_id]": {regex: invalid_facebook_connect_id_message },
+      "community[facebook_connect_secret]": {regex: invalid_facebook_connect_secret_message }
     },
      submitHandler: function(form) {
        disable_and_submit(form_id, form, "false", locale);

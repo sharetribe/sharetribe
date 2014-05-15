@@ -154,6 +154,11 @@ class Community < ActiveRecord::Base
 
   validates_format_of :twitter_handle, with: /^[A-Za-z0-9_]{1,15}$/, allow_nil: true
 
+  validates :facebook_connect_id, numericality: { only_integer: true }, allow_nil: true
+  validates :facebook_connect_id, length: {is: 16}, allow_nil: true
+
+  validates_format_of :facebook_connect_secret, with: /^[a-f0-9]{32}$/, allow_nil: true
+
   attr_accessor :terms
 
   def name(locale=nil)
