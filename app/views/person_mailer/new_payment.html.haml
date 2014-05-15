@@ -3,7 +3,7 @@
 %tr
   %td{:align => "left"}
     %font{body_font}
-      = t("emails.new_payment.you_have_received_new_payment", :listing_title => @payment.conversation.listing.title, :payment_sum => sum_with_currency(@payment.sum_without_commission, @payment.currency), :payer_full_name => @payment.payer.name, :payer_given_name => @payment.payer.given_name_or_username).html_safe
+      = t("emails.new_payment.you_have_received_new_payment", :listing_title => @payment.conversation.listing.title, :payment_sum => sum_with_currency(@payment.total_sum, @payment.currency), :payer_full_name => @payment.payer.name, :payer_given_name => @payment.payer.given_name_or_username).html_safe
 
 %tr
   %td{:align => "left", :style => "padding: 10px 0;"}
@@ -30,10 +30,19 @@
               = row.sum_with_vat.to_s + row.sum_symbol
         %tr
           %td
-            %b Yhteensä
+            = "Palvelumaksu (#{@payment.community.service_name})"
+          %td
+            = @payment.total_commission_without_vat.to_s + @payment.rows.first.sum_symbol
+          %td
+            = "#{APP_CONFIG.service_fee_tax_percentage}%"
+          %td
+            = @payment.total_commission.to_s + @payment.rows.first.sum_symbol
+        %tr
+          %td
+            %b Saat yhteensä
           %td
           %td
           %td
-            %b= @payment.sum_without_commission.to_s + @payment.rows.first.sum_symbol
+            %b= @payment.seller_gets.to_s + @payment.rows.first.sum_symbol
 
 = render :partial => "action_button", :locals => { :text => t("emails.conversation_status_changed.view_thread"), :url => conversation_url}

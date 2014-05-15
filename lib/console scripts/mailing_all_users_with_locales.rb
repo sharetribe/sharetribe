@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 en_subject = "Kassi service is going to get a new name"
 en_message = <<MESSAGE
 Kassi has been growing fast and new communities have been opened around the world, in city neighborhoods, university campuses, companies etc. Besides Finland, where it all started, the service is used already in  countries like Greece, Chile and the United States. With the expansion it has become clear that there's a need to renew our brand. The name Kassi was originally thought to be used only in a Finnish university campus, and it doesn't describe very well what we are doing.
@@ -84,8 +86,8 @@ MESSAGE
 
 mail_content = {
   "en"=>{
-    "body"=> en_message, 
-    "subject"=> en_subject}, 
+    "body"=> en_message,
+    "subject"=> en_subject},
   "es"=>{
     "body"=> es_message,
     "subject"=> es_subject},
@@ -94,8 +96,8 @@ mail_content = {
     "subject"=> fi_subject},
   "el"=>{
     "body"=> el_message,
-    "subject"=> el_subject}    
- } 
+    "subject"=> el_subject}
+ }
 
 
 # PersonMailer.open_content_message(recipient, "any string as subject comes from content hash", mail_content, "en").deliver

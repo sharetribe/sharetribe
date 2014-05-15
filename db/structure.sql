@@ -233,7 +233,7 @@ CREATE TABLE `community_customizations` (
   `how_to_use_page_content` text,
   `custom_head_script` text,
   `about_page_content` text,
-  `terms_page_content` text,
+  `terms_page_content` mediumtext,
   `privacy_page_content` text,
   `storefront_label` varchar(255) DEFAULT NULL,
   `signup_info_content` text,
@@ -696,6 +696,9 @@ CREATE TABLE `payment_gateways` (
   `checkout_password` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
+  `gateway_commission_percentage` int(11) DEFAULT NULL,
+  `gateway_commission_fixed_cents` int(11) DEFAULT NULL,
+  `gateway_commission_fixed_currency` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -722,6 +725,7 @@ CREATE TABLE `payments` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `community_id` int(11) DEFAULT NULL,
+  `payment_gateway_id` int(11) DEFAULT NULL,
   `sum_cents` int(11) DEFAULT NULL,
   `currency` varchar(255) DEFAULT NULL,
   `type` varchar(255) DEFAULT 'CheckoutPayment',
@@ -947,8 +951,6 @@ CREATE TABLE `transaction_types` (
   PRIMARY KEY (`id`),
   KEY `index_transaction_types_on_community_id` (`community_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO schema_migrations (version) VALUES ('');
 
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
@@ -1748,8 +1750,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140226121423');
 
 INSERT INTO schema_migrations (version) VALUES ('20140227102627');
 
-INSERT INTO schema_migrations (version) VALUES ('20140227145229');
-
 INSERT INTO schema_migrations (version) VALUES ('20140228164206');
 
 INSERT INTO schema_migrations (version) VALUES ('20140228164428');
@@ -1813,3 +1813,12 @@ INSERT INTO schema_migrations (version) VALUES ('20140425111235');
 INSERT INTO schema_migrations (version) VALUES ('20140428132517');
 
 INSERT INTO schema_migrations (version) VALUES ('20140428134415');
+
+INSERT INTO schema_migrations (version) VALUES ('20140507104933');
+
+INSERT INTO schema_migrations (version) VALUES ('20140507105154');
+
+INSERT INTO schema_migrations (version) VALUES ('20140509115747');
+
+INSERT INTO schema_migrations (version) VALUES ('20140512062911');
+

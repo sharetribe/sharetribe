@@ -493,20 +493,6 @@ class Community < ActiveRecord::Base
     payment_gateway.present? && payment_gateway.type == "Mangopay"
   end
 
-  # Returns the total service fee for a certain listing
-  # in the current community (including gateway fee, platform
-  # fee and marketplace fee)
-  def service_fee_for(listing)
-    service_fee = PaymentMath.service_fee(listing.price_cents, commission_from_seller)
-    Money.new(service_fee, listing.currency)
-  end
-
-  # Price that the seller gets after the service fee is deducted
-  def price_seller_gets_for(listing)
-    seller_gets = PaymentMath::SellerCommission.seller_gets(listing.price_cents, commission_from_seller)
-    Money.new(seller_gets, listing.currency)
-  end
-
   # Return either minimum price defined by this community or the absolute
   # platform default minimum price.
   def absolute_minimum_price(currency)

@@ -24,6 +24,8 @@ class ListingsController < ApplicationController
     controller.ensure_current_user_is_listing_author t("layouts.notifications.only_listing_author_can_edit_a_listing")
   end
 
+  before_filter :ensure_is_admin, :only => [ :move_to_top ]
+
   before_filter :is_authorized_to_post, :only => [ :new, :create ]
 
   skip_filter :dashboard_only
@@ -104,7 +106,7 @@ class ListingsController < ApplicationController
   end
 
   def new
-    @seller_commission = @current_community.payment_gateway.seller_pays_commission? if @current_community.payments_in_use?
+    @seller_commission_in_use = @current_community.commission_from_seller && @current_community.payments_in_use?
     @selected_tribe_navi_tab = "new_listing"
     @listing = Listing.new
 
@@ -160,11 +162,11 @@ class ListingsController < ApplicationController
   end
 
   def edit
-    @seller_commission = @current_community.payment_gateway.seller_pays_commission? if @current_community.payments_in_use?
+    @seller_commission_in_use = @current_community.commission_from_seller && @current_community.payments_in_use?
     @selected_tribe_navi_tab = "home"
-	  if !@listing.origin_loc
-	      @listing.build_origin_loc(:location_type => "origin_loc")
-	  end
+    if !@listing.origin_loc
+        @listing.build_origin_loc(:location_type => "origin_loc")
+    end
 
     @custom_field_questions = @listing.category.custom_fields.find_all_by_community_id(@current_community.id)
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
@@ -203,6 +205,19 @@ class ListingsController < ApplicationController
       format.js {
         render :layout => false
       }
+    end
+  end
+
+  def move_to_top
+    @listing = Listing.find(params[:id])
+
+    # Listings are sorted by `created_at`, so change it to now.
+    if @listing.update_attribute(:created_at, Time.now)
+      redirect_to homepage_index_path
+    else
+      flash[:warning] = "An error occured while trying to move the listing to the top of the homepage"
+      Rails.logger.error "An error occured while trying to move the listing (id=#{Maybe(@listing).id.or_else('No id available')}) to the top of the homepage"
+      redirect_to @listing
     end
   end
 

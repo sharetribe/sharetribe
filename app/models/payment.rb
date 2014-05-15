@@ -4,21 +4,21 @@ class Payment < ActiveRecord::Base
 
   VALID_STATUSES = ["paid", "pending", "disbursed"]
 
-  attr_accessible :conversation_id, :payer_id, :recipient_id, :braintree_transaction_id
+  attr_accessible :conversation_id, :payer_id, :recipient_id
 
   belongs_to :conversation
   belongs_to :payer, :class_name => "Person"
   belongs_to :recipient, :class_name => "Person"
 
   belongs_to :community
-
-  has_many :rows, :class_name => "PaymentRow"
-
-  monetize :sum_cents, :allow_nil => true
+  belongs_to :payment_gateway
 
   validates_inclusion_of :status, :in => VALID_STATUSES
-  validate :sum_exists
+  validate :validate_sum
   validate :one_conversation_cannot_have_multiple_payments
+
+  delegate :commission_from_seller, to: :community
+  delegate :gateway_commission_percentage, :gateway_commission_fixed, :no_fixed_commission, to: :payment_gateway
 
   # There can be only one payment related to a certain conversation
   def one_conversation_cannot_have_multiple_payments
@@ -28,49 +28,10 @@ class Payment < ActiveRecord::Base
     end
   end
 
-  # Payment must have either sum or at least one row
-  def sum_exists
-    if rows.empty? && !sum_cents
+  def validate_sum
+    unless sum_exists?
       errors.add(:base, "Payment is not valid without sum")
     end
-  end
-
-  def initialize_rows(community)
-    if community.vat
-      self.rows = [PaymentRow.new, PaymentRow.new, PaymentRow.new]
-    else
-      self.rows = [PaymentRow.new]
-    end
-  end
-
-  # Payment excluding VAT and commission
-  def sum_without_vat_and_commission
-    rows.empty? ? sum : rows.inject(Money.new(0, rows.first.currency)) { |total, row| total += row.sum }
-  end
-
-  # Commission excluding VAT
-  def commission_without_vat
-    throw "Comission percentage has to be set" unless community.commission_from_seller
-    sum_without_vat_and_commission*community.commission_from_seller/100
-  end
-
-  # Commission including VAT
-  def total_commission
-    sum_with_percentage(commission_without_vat, APP_CONFIG.service_fee_tax_percentage.to_i)
-  end
-
-  # Total payment with VAT but without commission
-  def sum_without_commission
-    rows.inject(Money.new(0, rows.first.currency)) { |total, row| total += row.sum_with_vat }
-  end
-
-  # Total payment that will be charged from the payer's account
-  def total_sum
-    sum_without_commission + total_commission
-  end
-
-  def summary_string
-    rows.collect(&:title).join(", ")
   end
 
   def paid!
@@ -82,5 +43,28 @@ class Payment < ActiveRecord::Base
   def disbursed!
     update_attribute(:status, "disbursed")
     # Notification here?
+  end
+
+  def total_commission_percentage
+    (Maybe(commission_from_seller).or_else(0) + Maybe(gateway_commission_percentage).or_else(0)).to_f / 100.to_f
+  end
+
+  def total_commission_fixed
+    # Currently no marketplace specific fixed part
+    gateway_commission_fixed || no_fixed_commission
+  end
+
+  def total_commission
+    commission = total_sum * total_commission_percentage + total_commission_fixed
+    Money.new(PaymentMath.ceil_cents(commission.cents), commission.currency)
+  end
+
+  def seller_gets
+    total_sum - total_commission
+  end
+
+  def total_commission_without_vat
+    vat = Maybe(community).vat.or_else(0).to_f / 100.to_f
+    total_commission / (1 + vat)
   end
 end

@@ -17,9 +17,9 @@ test: &test
     database: sharetribe_test
     encoding: utf8
     username: root
-    password: 
+    password:
     host: localhost
-    
+
 staging:
     adapter: mysql2
     database: sharetribe_staging
@@ -36,7 +36,6 @@ production:
     password: secret
     host: localhost
 #    socket: /var/run/mysqld/mysqld.sock
-
 
 cucumber:
   <<: *test

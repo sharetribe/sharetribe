@@ -1,23 +1,25 @@
+# encoding: utf-8
+
 class MigrateListingsForKassi2 < ActiveRecord::Migration
   def self.up
     unclear_cases_count = 0
     unknown_categories_count = 0
     valid_listings_count = 0
     invalid_listings_count = 0
-    
 
-    
+
+
     say "***** THIS MIGRATION REQUIRES MANUAL WORK ALSO, PLEASE PAY ATTENTION! ******"
-    
+
     say "Going through all the listings with listing_type.nil?"
     say "Those attributes that can not be set automatically are listed to 'value_other'.", true
     say ""
     say "It is HIGHLY RECOMMENDED to change the 'set_property :delta => true' to false in listing.rb before running this migration, since delta indexing makes it really slow if there are lot of listings."
     say "Just remember to turn it back on afterwards!", true
-    
+
     Listing.all.each do |listing|
       listing_updated_at = listing.updated_at
-      if listing.listing_type.nil? 
+      if listing.listing_type.nil?
         case listing.category
   # Offers
         when "sell"
@@ -39,7 +41,7 @@ class MigrateListingsForKassi2 < ActiveRecord::Migration
           listing.listing_type = "offer"
           listing.category = "housing"
           listing.share_type_attributes = ["rent_out"]
-  # Requests               
+  # Requests
         when "buy"
           listing.listing_type = "request"
           listing.category = "item"
@@ -93,9 +95,9 @@ class MigrateListingsForKassi2 < ActiveRecord::Migration
           say "ENCOUNTERED AN UNKNOWN CATEGORY: (#{listing.id}) #{listing.title} (with category: #{listing.category})"
           listing.value_other = "CHECK ALL FIELDS!"
         end
-        
+
         # These are common to every listing that was modified
- 
+
         # set 'open' based on 'status'
         if listing.status == "open"
           listing.open = 1
@@ -104,20 +106,20 @@ class MigrateListingsForKassi2 < ActiveRecord::Migration
         else
           say  "ENCOUNTERED A LISTING WITH UNKNOWN STATUS:(#{listing.id}) #{listing.title} (with status: #{listing.status})"
         end
-        
+
         # set valid_until based on good_thru
         if listing.good_thru && listing.valid_until.nil?
           listing.valid_until = listing.good_thru
           listing.set_valid_until_time
         end
-        
+
         # set description based on content
         if !listing.content.nil? && listing.description.nil?
           listing.description = listing.content
         end
-        
 
-        
+
+
         if listing.valid?
           valid_listings_count += 1
         else
@@ -125,14 +127,14 @@ class MigrateListingsForKassi2 < ActiveRecord::Migration
         end
         # save without validations, because automatic modifications may have left some listings incomplete
         listing.save(:validate => false)
-        
+
         # set original updated_at date
         listing.update_attribute("updated_at", listing_updated_at)
         print "."
         STDOUT.flush
       end
     end
-    
+
     say ""
     say "Finished automatic modifications to listings. Modified #{valid_listings_count + invalid_listings_count} listings out of #{Listing.count}."
     say "#{valid_listings_count} of the modified are now valid. #{invalid_listings_count} are invalid and need manual checking."

@@ -1290,7 +1290,8 @@ fi:
         time: "tunti, päivä, kk ..."
         long_time: "vko, kk, ..."
         service_fee_will_be_added: "Hintaan lisätään palvelumaksu %{fee}%."
-        after_service_fee_you_will_get: ~
+        after_service_fee_you_will_get: "%{service_name} palvelumaksun jälkeen sinä saat %{sum_with_currency}"
+        after_service_fee_you_will_get_vat: "%{service_name} palvelumaksun jälkeen sinä saat noin %{sum_with_currency} (ALV 0%)"
         price_excludes_vat: "Merkitse tähän alv 0 -hinta."
       origin:
         location: Sijainti

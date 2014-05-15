@@ -42,13 +42,17 @@ Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do 
       type = if @conversation.community.payment_gateway.type == "BraintreePaymentGateway"
         :braintree_payment
       else
-        :payment
+        :checkout_payment
       end
 
       recipient = @conversation.listing.author
 
       if @conversation.payment == nil
-        @conversation.payment = FactoryGirl.create(type, :conversation => @conversation, :recipient => recipient, :status => "pending", :sum => @conversation.listing.price)
+        payment = FactoryGirl.build(type, :conversation => @conversation, :recipient => recipient, :status => "pending")
+        payment.default_sum(@conversation.listing, 24)
+        payment.save!
+
+        @conversation.payment = payment
       end
     end
   end

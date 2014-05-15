@@ -39,6 +39,34 @@ describe Util::HashUtils do
     Util::HashUtils.camelize_keys(test_data).should eql(expected)
   end
 
+  it "#deep_map" do
+    test_data = {
+      foo: {
+        bar: {
+          one: 1,
+          two: 2
+        },
+        three: 3
+      },
+      four: 4
+    }
+
+    expected = {
+      foo: {
+        bar: {
+          one: 1,
+          two: 4
+        },
+        three: 9
+      },
+      four: 16
+    }
+
+    actual = Util::HashUtils.deep_map(test_data) { |k, v| v * v }
+
+    actual.should eql(expected)
+  end
+
   it "#select_by_key_regexp" do
     h = { :first_key => 1, :second_key => 2, :first_first_key => 11 }
     Util::HashUtils.select_by_key_regexp(h, /^first_/).should eql({ :first_key => 1, :first_first_key => 11 })

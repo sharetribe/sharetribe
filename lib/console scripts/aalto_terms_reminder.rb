@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 en_subject = "IMPORTANT: (3nd reminder) Remember to accept Sharetribe’s new terms of use by THIS SUNDAY, or your account will be deleted!"
 en_message = <<MESSAGE
 This is the third (and last) reminder about the topic. If you already spotted this notice, but you don't want your data to be preserved, you don't need to do anything.
@@ -39,8 +41,8 @@ MESSAGE
 
 mail_content = {
   "en"=>{
-    "body"=> en_message, 
-    "subject"=> en_subject}, 
+    "body"=> en_message,
+    "subject"=> en_subject},
   "fi"=>{
     "body"=> fi_message,
     "subject"=> fi_subject}

@@ -31,47 +31,6 @@ Given(/^"(.*?)" has an (active) Braintree account$/) do |username, status|
   @account = create_braintree_account(person, @current_community)
 end
 
-Given /^there is an accepted request for "(.*?)" with price "(.*?)" from "(.*?)"$/ do |item_title, price, requester_username|
-  community = Community.find_by_name("test") # Default testing community
-  listing = Listing.find_by_title(item_title)
-  requester = Person.find_by_username(requester_username)
-
-  message = Message.new()
-  message.sender = listing.author
-  message.content = "Please pay"
-  message.action = "accept"
-
-  payment = Payment.new()
-  payment.payer = requester
-  payment.recipient = listing.author
-  payment.community_id = community.id
-  payment.status = "pending"
-  payment.type = "BraintreePayment" # hard-coded, change if needed
-  payment.sum_cents = price.to_i * 100
-  payment.currency = "EUR"
-
-  conversation = Conversation.new()
-  conversation.messages << message
-  conversation.participants << listing.author
-  conversation.participants << requester
-  conversation.title = "Conversation title"
-  conversation.community_id = community.id
-  conversation.listing_id = listing.id
-  conversation.status = "pending"
-  conversation.payment = payment
-  conversation.save!
-  conversation.status = "accepted"
-
-  community.payments << payment
-
-  listing.conversations << conversation
-
-  community.save!
-  listing.save!
-
-  @conversation = conversation
-end
-
 Given /^there is a payment for that request from "(.*?)" with price "(.*?)"$/ do |payer_username, price|
   listing = @conversation.listing
   payer = Person.find_by_username(payer_username)

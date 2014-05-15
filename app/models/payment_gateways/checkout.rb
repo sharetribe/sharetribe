@@ -134,4 +134,16 @@ class Checkout < PaymentGateway
   def has_registered?(person)
     person.checkout_merchant_id.present? && person.checkout_merchant_key.present?
   end
+
+  def new_payment
+    payment = CheckoutPayment.new
+    payment.payment_gateway = self
+    payment.community = community
+    payment.currency = "EUR"
+    payment
+  end
+
+  def no_fixed_commission
+    Money.new(0, "EUR")
+  end
 end

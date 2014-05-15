@@ -22,7 +22,7 @@ class ConversationAcceptedJob < Struct.new(:conversation_id, :current_user_id, :
     end
     if conversation.status.eql?("accepted") && conversation.waiting_payment?(community)
       [3, 10].each do |send_interval|
-        Delayed::Job.enqueue(PaymentReminderJob.new(conversation.id, conversation.payment.payer.id, community.id), :priority => 0, :run_at => send_interval.days.from_now)
+        Delayed::Job.enqueue(PaymentReminderJob.new(conversation.id, conversation.payment.payer.id, community.id), :priority => 10, :run_at => send_interval.days.from_now)
       end
     end
   end

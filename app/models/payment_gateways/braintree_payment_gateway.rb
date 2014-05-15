@@ -40,10 +40,6 @@ class BraintreePaymentGateway < PaymentGateway
     end
   end
 
-  def seller_pays_commission?
-    true
-  end
-
   def has_additional_terms_of_use
     true
   end
@@ -61,11 +57,18 @@ class BraintreePaymentGateway < PaymentGateway
   end
 
   def new_payment
-    BraintreePayment.new
+    payment = BraintreePayment.new
+    payment.payment_gateway = self
+    payment.community = community
+    payment.currency = "USD"
+    payment
+  end
+
+  def no_fixed_commission
+    Money.new(0, "USD")
   end
 
   def hold_in_escrow
     true
   end
-
 end

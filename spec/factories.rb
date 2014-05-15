@@ -290,18 +290,28 @@ FactoryGirl.define do
     to_state "not_started"
   end
 
-  factory :braintree_payment, class: 'BraintreePayment' do
-    payer
-    recipient
-    status "pending"
-    type "BraintreePayment"
+  factory :payment do
+    community
+
+    factory :braintree_payment, class: 'BraintreePayment' do
+      payer
+      recipient
+      status "pending"
+      payment_gateway { FactoryGirl.build(:braintree_payment_gateway) }
+      currency "USD"
+    end
+
+    factory :checkout_payment, class: 'CheckoutPayment' do
+      payer
+      recipient
+      status "pending"
+      payment_gateway { FactoryGirl.build(:checkout_payment_gateway) }
+      currency "EUR"
+    end
   end
 
-  factory :payment do
-    payer
-    recipient
-    status "pending"
-    type "Checkout"
+  factory :payment_row do
+    currency "EUR"
   end
 
   factory :braintree_account do
@@ -322,12 +332,17 @@ FactoryGirl.define do
   end
 
   factory :payment_gateway do
-    type "Checkout"
-    braintree_merchant_id { APP_CONFIG.braintree_test_merchant_id }
-    braintree_master_merchant_id { APP_CONFIG.braintree_test_master_merchant_id }
-    braintree_public_key { APP_CONFIG.braintree_test_public_key }
-    braintree_private_key { APP_CONFIG.braintree_test_private_key }
-    braintree_client_side_encryption_key { APP_CONFIG.braintree_client_side_encryption_key }
-    braintree_environment { APP_CONFIG.braintree_environment }
+    factory :braintree_payment_gateway, class: 'BraintreePaymentGateway' do
+      braintree_merchant_id { APP_CONFIG.braintree_test_merchant_id }
+      braintree_master_merchant_id { APP_CONFIG.braintree_test_master_merchant_id }
+      braintree_public_key { APP_CONFIG.braintree_test_public_key }
+      braintree_private_key { APP_CONFIG.braintree_test_private_key }
+      braintree_client_side_encryption_key { APP_CONFIG.braintree_client_side_encryption_key }
+      braintree_environment { APP_CONFIG.braintree_environment }
+    end
+
+    factory :checkout_payment_gateway, class: 'Checkout' do
+
+    end
   end
 end

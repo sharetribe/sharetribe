@@ -9,7 +9,7 @@ Feature: Transaction process between two users
     And community "test" has payments in use
     And "kassi_testperson1" has Checkout account
     And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Selling"
-    And the price of that listing is "20"
+    And the price of that listing is 20.00 EUR
     And I am logged in as "kassi_testperson2"
 
     # Starting the conversation

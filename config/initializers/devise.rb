@@ -198,6 +198,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   require "omniauth-facebook"
+
   # This will configure a setup phase hook, that will use SessionsController#facebook_setup as callback
   # It allows dynamic configuring on community basis
   config.omniauth :facebook, :setup => true
