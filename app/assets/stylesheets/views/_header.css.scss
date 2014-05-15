@@ -1,4 +1,5 @@
 @import "mixins/all";
+@import "compass/css3/background-size";
 
 /* Height of the whole header bar */
 $headerHeight: lines(2.5);
@@ -53,14 +54,6 @@ $elementSpacing: lines(0.5);
 
   &.toggled {
     background-color: $light-body;
-  }
-}
-
-.header-logo-container {
-  margin-left: $elementSpacing;
-
-  @include media(tablet) {
-    margin-left: 0;
   }
 }
 
@@ -197,6 +190,40 @@ $elementSpacing: lines(0.5);
   background-color: $background;
   @include badge(20px);
   margin-left: lines(0.5);
+}
+
+.header-wide-logo {
+  background-image: url(image-path($wide-logo-lowres-url));
+
+  @include highres {
+    background-image: url(image-path($wide-logo-highres-url));
+  }
+
+  width: em(168);
+  height: em(40);
+
+  // Highres image
+  background-repeat: no-repeat;
+  @include background-size(em(168) auto);
+
+  display: inline-block;
+}
+
+.header-square-logo {
+  background-image: url(image-path($square-logo-lowres-url));
+
+  @include highres {
+    background-image: url(image-path($square-logo-highres-url));
+  }
+
+  width: em(40);
+  height: em(40);
+
+  // Highres image
+  background-repeat: no-repeat;
+  @include background-size(em(40) auto);
+
+  display: inline-block;
 }
 
 // .messages-badge {

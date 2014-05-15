@@ -120,7 +120,11 @@ module CommunityStylesheetCompiler
         "link"                  => to_color(color1),
         "link2"                 => to_color(color2),
         "cover-photo-url"       => to_string(community.cover_photo.url(:hd_header)),
-        "small-cover-photo-url" => to_string(community.small_cover_photo.url(:hd_header))
+        "small-cover-photo-url" => to_string(community.small_cover_photo.url(:hd_header)),
+        "wide-logo-lowres-url"  => to_string(community.wide_logo.url(:header)),
+        "wide-logo-highres-url" => to_string(community.wide_logo.url(:header_highres)),
+        "square-logo-lowres-url"  => to_string(community.logo.url(:header_icon)),
+        "square-logo-highres-url" => to_string(community.logo.url(:header_icon_highres))
       }
 
       Util::HashUtils.compact(hash)

@@ -44,3 +44,15 @@
     @media (min-width: em(1008)) { @content; }
   }
 }
+
+/**
+  http://css-tricks.com/snippets/css/retina-display-media-query/
+*/
+@mixin highres {
+  /* 1.5 dpr */
+  @media
+  (-webkit-min-device-pixel-ratio: 1.5),
+  (min-resolution: 144dpi){
+    @content;
+  }
+}

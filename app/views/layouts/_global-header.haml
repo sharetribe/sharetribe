@@ -107,7 +107,10 @@
       keep the logo here after buttons
     .header-left.header-logo-container
       = link_to "/", :class => "header-logo" do
-        = image_tag community.wide_logo.url(:header).or_else(Community::DEFAULT_WIDE_LOGO)
+        %i.header-wide-logo.visible-tablet
+          -# Logo is here, it's a CSS background
+        %i.header-square-logo.hidden-tablet
+          -# Logo is here, it's a CSS background
 
 -#
   %header.global-header.marketplace-header

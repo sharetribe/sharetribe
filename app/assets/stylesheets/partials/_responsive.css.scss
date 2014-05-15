@@ -1,23 +1,23 @@
 @import "mixins/all";
 
 .visible-tablet {
-  display: none;
+  display: none !important;
 
   @include media(tablet) {
-    display: block;
+    display: block !important;
   }
 }
 
 .visible-tablet-inline {
   @extend .visible-tablet;
   @include media(tablet) {
-    display: inline;
+    display: inline !important;
   }
 }
 
 .hidden-tablet {
   @include media(tablet) {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -38,6 +38,6 @@
 
 .hidden-desktop {
   @include media(desktop) {
-    display: none;
+    display: none !important;
   }
 }
