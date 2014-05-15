@@ -24,7 +24,7 @@
       -# <div class="fb-login-button" data-show-faces="false" data-width="100" data-max-rows="1" api-key="208630779265610"></div>
       -# <div class="fb-login-button">Login with Facebook</div>
       -# <div class="fb-like" data-send="true" data-layout="button_count" data-width="200" data-show-faces="false"></div>
-      = link_to(image_tag("icons/facebook-login.png", {:alt => "Facebook Connect", :class => "facebook_login"}), person_omniauth_authorize_path(@current_community ? @current_community.facebook_login_method(@current_host_with_port) : :facebook))
+      = link_to(image_tag("icons/facebook-login.png", {:alt => "Facebook Connect", :class => "facebook_login"}), person_omniauth_authorize_path(:facebook))
     .normal_login_label
       = t(".or_sign_up_with_your_username")
   = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do

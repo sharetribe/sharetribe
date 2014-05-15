@@ -1,3 +1,3 @@
-%a#fb-login.fb-connect{:href => person_omniauth_authorize_path(@current_community ? @current_community.facebook_login_method(@current_host_with_port) : :facebook)}
+%a#fb-login.fb-connect{:href => person_omniauth_authorize_path(:facebook)}
   = icon_tag("facebook", ["fb-icon"])
   .fb-text= button_text

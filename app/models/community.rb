@@ -471,10 +471,6 @@ class Community < ActiveRecord::Base
     end
   end
 
-  def facebook_login_method(host=nil)
-    return :facebook
-  end
-
   def self.all_with_custom_fb_login
     begin
       where("facebook_connect_id IS NOT NULL")
