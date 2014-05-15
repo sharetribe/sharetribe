@@ -1205,7 +1205,7 @@ function initialize_admin_integrations_form(locale, community_id, invalid_twitte
   $(form_id).validate({
      rules: {
        "community[twitter_handle]": {required: false, minlength: 1, maxlength: 15, regex: "^([A-Za-z0-9_]+)?$"},
-       "community[facebook_connect_id]": {required: false, minlength: 16, maxlength: 16, regex: "^([0-9]+)?$"},
+       "community[facebook_connect_id]": {required: false, minlength: 1, maxlength: 16, regex: "^([0-9]+)?$"},
        "community[facebook_connect_secret]": {required: false, minlength: 32, maxlength: 32, regex: "^([a-f0-9]+)?$"}
      },
      messages: {
