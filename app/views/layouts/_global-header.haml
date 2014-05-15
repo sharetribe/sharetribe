@@ -62,16 +62,18 @@
 
     - unless @current_user
       .header-right.visible-tablet
-        = link_to "Sign up", sign_up_path, class: "header-text-link header-hover"
+        = link_to sign_up_path, class: "header-text-link header-hover" do
+          = t("header.signup")
       .header-right
-        = link_to "Log in", login_path, class: "header-text-link header-hover"
+        = link_to login_path, class: "header-text-link header-hover" do
+          = t("header.login")
 
     .header-left.hidden-tablet
       .header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu', 'toggle-position' => 'absolute'}}
         #header-menu-mobile-anchor.header-menu-toggle-container.toggle-header-container
           = icon_tag("rows", ["header-menu-icon"])
           %span.visible-tablet-inline
-            Menu
+            = t("header.menu")
 
     #header-menu-toggle-menu.toggle-menu.header-toggle-menu-menu.hidden
 
