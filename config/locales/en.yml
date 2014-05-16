@@ -129,6 +129,9 @@ en:
         twitter_handle: "Twitter handle (used with tweet button in listing page)"
         update_settings: "Update settings"
         automatically_confirmed: "Listing is automatically confirmed %{days_dropdown} days after acceptance (or payment)"
+        automatic_newsletter_frequency: "Send automatic newsletter: %{frequency_dropdown}"
+        newsletter_daily: "Daily"
+        newsletter_weekly: "Weekly"
       manage_members:
         manage_members: "Manage users"
         email: Email

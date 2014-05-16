@@ -545,6 +545,13 @@ class Person < ActiveRecord::Base
     false
   end
 
+  # A person inherits some default settings from the community in which she is joining
+  def inherit_settings_from(current_community)
+    # Mark as organization user if signed up through market place which is only for orgs
+    self.is_organization = current_community.only_organizations
+    self.min_days_between_community_updates = current_community.default_min_days_between_community_updates
+  end
+
   # Merge this person with the data from the person given as parameter
   # This person is saved and THE PERSON GIVEN IN PARAMETER IS DESTROYED
   # This should be called only from console, as it requires command line choises
