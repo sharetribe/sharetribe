@@ -407,6 +407,8 @@ class PersonMailer < ActionMailer::Base
       return
     end
 
+    @show_transaction_type_label = community.transaction_types.length > 1
+
     @title_link_text = t("emails.community_updates.title_link_text",
           :community_name => @community.full_name(@recipient.locale))
     subject = t("emails.community_updates.update_mail_title", :title_link => @title_link_text)

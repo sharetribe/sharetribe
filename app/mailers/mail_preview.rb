@@ -106,4 +106,10 @@ class MailPreview < MailView
 
     PersonMailer.conversation_status_changed(conversation, community)
   end
+
+  def community_updates
+    community = Community.last
+    recipient = community.members.last
+    PersonMailer.community_updates(recipient, community)
+  end
 end
