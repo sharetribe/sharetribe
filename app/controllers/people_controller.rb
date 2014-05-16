@@ -93,36 +93,8 @@ class PeopleController < Devise::RegistrationsController
       redirect_to error_redirect_path and return
     end
 
-    @person = Person.new
-    if APP_CONFIG.use_recaptcha && @current_community && @current_community.use_captcha && !verify_recaptcha_unless_already_accepted(:model => @person, :message => t('people.new.captcha_incorrect'))
+    @person, email = new_person(params, @current_community)
 
-      # This should not actually ever happen if all the checks work at Sharetribe's end.
-      # Anyway if Captha responses with error, show message to user
-      # Also notify admins that this kind of error happened.
-      # TODO: if this ever happens, should change the message to something else than "unknown error"
-      flash[:error] = t("layouts.notifications.unknown_error")
-      ApplicationHelper.send_error_notification("New user Sign up failed because Captha check failed, when it shouldn't.", "Captcha error")
-      redirect_to error_redirect_path and return
-    end
-
-    params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
-    params[:person][:test_group_number] = 1 + rand(4)
-
-    email = Email.new(:person => @person, :address => params[:person][:email].downcase, :send_notifications => true)
-    params["person"].delete(:email)
-
-    @person = build_devise_resource_from_person(@person)
-
-    @person.emails << email
-
-    # Mark as organization user if signed up through market place which is only for orgs
-    @person.is_organization = @current_community.only_organizations
-
-    if @person.save!
-      sign_in(resource_name, resource)
-    end
-
-    @person.set_default_preferences
     # Make person a member of the current community
     if @current_community
       membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent)
@@ -404,6 +376,41 @@ class PeopleController < Devise::RegistrationsController
   end
 
   private
+
+  # Create a new person by params and current community
+  def new_person(params, current_community)
+    person = Person.new
+    if APP_CONFIG.use_recaptcha && current_community && current_community.use_captcha && !verify_recaptcha_unless_already_accepted(:model => person, :message => t('people.new.captcha_incorrect'))
+
+      # This should not actually ever happen if all the checks work at Sharetribe's end.
+      # Anyway if Captha responses with error, show message to user
+      # Also notify admins that this kind of error happened.
+      # TODO: if this ever happens, should change the message to something else than "unknown error"
+      flash[:error] = t("layouts.notifications.unknown_error")
+      ApplicationHelper.send_error_notification("New user Sign up failed because Captha check failed, when it shouldn't.", "Captcha error")
+      redirect_to error_redirect_path and return false
+    end
+
+    params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
+    params[:person][:test_group_number] = 1 + rand(4)
+
+    email = Email.new(:person => person, :address => params[:person][:email].downcase, :send_notifications => true)
+    params["person"].delete(:email)
+
+    person = build_devise_resource_from_person(person)
+
+    person.emails << email
+
+    person.inherit_settings_from(current_community)
+
+    if person.save!
+      sign_in(resource_name, resource)
+    end
+
+    person.set_default_preferences
+
+    [person, email]
+  end
 
   def email_availability(email, own_email_allowed)
     available = own_email_allowed ? Email.email_available_for_user?(@current_user, email) : Email.email_available?(email)

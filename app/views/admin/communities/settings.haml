@@ -59,6 +59,10 @@
           = form.check_box :automatic_newsletters
           = form.label :automatic_newsletters, t(".automatic_newsletters"), :class => "settings-checkbox-label"
         .checkbox-container
+          .settings-checkbox-label.label
+            - frequence_dropdown = form.select :default_min_days_between_community_updates, [[t(".newsletter_daily"), 1], [t(".newsletter_weekly"), 7]], {}, :class => "inline-select"
+            = t(".automatic_newsletter_frequency", :frequency_dropdown => frequence_dropdown).html_safe
+        .checkbox-container
           = form.check_box :email_admins_about_new_members
           = form.label :email_admins_about_new_members, t(".email_admins_about_new_members"), :class => "settings-checkbox-label"
 

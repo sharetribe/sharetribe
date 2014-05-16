@@ -181,4 +181,17 @@ describe Person do
       end
     end
 
+  describe "inherits_settings_from" do
+    let(:person) { FactoryGirl.build(:person) }
+    let(:community) { FactoryGirl.build(:community, :only_organizations => true, :default_min_days_between_community_updates => 30) }
+
+    it "inherits_settings_from" do
+      person.inherit_settings_from(community)
+
+      person.is_organization.should be_true
+      person.min_days_between_community_updates.should eql(30)
+    end
+
+  end
+
 end
