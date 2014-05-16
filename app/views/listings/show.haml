@@ -4,7 +4,7 @@
 - content_for :extra_javascript do
   = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
 
-- content_for :title, @listing.title
+- content_for :title, raw(@listing.title)
 - content_for :meta_author, @listing.author.name
 - content_for :meta_description, Util::StringUtils.first_words(@listing.description, 15)
 - content_for :meta_image, @listing.listing_images.first.image.url(:medium) if !@listing.listing_images.empty?
