@@ -548,7 +548,6 @@ function addListingMarkers(community_location_lat, community_location_lon, prefe
     for (i in data_arr) {
       (function() {
         var entry = data_arr[i];
-        markerContents[i] = entry["id"];
         if (entry["latitude"]) {
 
           var location;
@@ -569,6 +568,7 @@ function addListingMarkers(community_location_lat, community_location_lon, prefe
                     label.set('color', "#FFF");
           marker.set("label", label);
           markers.push(marker);
+          markerContents.push(entry["id"]);
           markersArr.push(marker);
           var ind = i;
 
