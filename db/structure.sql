@@ -208,6 +208,7 @@ CREATE TABLE `communities` (
   `favicon_content_type` varchar(255) DEFAULT NULL,
   `favicon_file_size` int(11) DEFAULT NULL,
   `favicon_updated_at` datetime DEFAULT NULL,
+  `default_min_days_between_community_updates` int(11) DEFAULT '7',
   PRIMARY KEY (`id`),
   KEY `index_communities_on_domain` (`domain`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1749,6 +1750,8 @@ INSERT INTO schema_migrations (version) VALUES ('20140226074751');
 INSERT INTO schema_migrations (version) VALUES ('20140226121423');
 
 INSERT INTO schema_migrations (version) VALUES ('20140227102627');
+
+INSERT INTO schema_migrations (version) VALUES ('20140227145229');
 
 INSERT INTO schema_migrations (version) VALUES ('20140228164206');
 

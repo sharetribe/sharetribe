@@ -249,7 +249,6 @@ describe PersonMailer do
 
     it "should contain latest listings" do
       @email.should have_body_text("A very nice bike")
-      @email.should have_body_text("Sell: ")
       @email.should have_body_text("new hammer")
     end
 
