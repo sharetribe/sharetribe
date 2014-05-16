@@ -78,7 +78,7 @@ de:
         community_logo_icon: "Icon Logo"
         community_cover_photo: Titelbild
         small_community_cover_photo: "Kleines Titelbild"
-        favicon: ~
+        favicon: Favicon
         favicon_info_text: ~
         community_custom_color1: Hauptfarbe
         community_custom_color2: "Zweite Farbe"
@@ -149,6 +149,12 @@ de:
         invalid_twitter_handle: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
+        facebook_connect: Facebook
+        facebook_connect_info_text: ~
+        facebook_connect_id: ~
+        invalid_facebook_connect_id: ~
+        facebook_connect_secret: ~
+        invalid_facebook_connect_secret: ~
         save: "Einstellungen speichern"
     custom_fields:
       edit:
@@ -189,7 +195,7 @@ de:
         number: Anzahl
         dropdown: Dropdown-Menü
         checkbox_group: ~
-        date: ~
+        date: Datum
     emails:
       new:
         send_email_to_members: "Sende eine E-Mail an alle Mitglieder"
@@ -1044,7 +1050,7 @@ de:
       or_check_our: "...oder überprüfe unser"
       send_feedback_to_admin: "Feedback senden"
       to_see_what_others_have_suggested: "um zu sehen, was andere Benutzer vorgeschlagen haben und um die für die Ideen zu stimmen."
-      your_email_address: "Deine E-Mail-Adresse (nicht erforderlich)"
+      your_email_address: "Deine E-Mail-Adresse (um dich zu kontaktieren)"
       connect: "Jetzt anmelden"
       invite_your_friends: "Freunde einladen"
       invite_your_neighbors: "Lade Nachbarn ein!"
@@ -1235,6 +1241,7 @@ de:
       close_listing: "Eintrag beenden"
       edit_listing: "Eintrag bearbeiten"
       reopen_listing: "Eintrag wieder aktivieren"
+      move_to_top: ~
     follow_links:
       follow: "Erhalte E-Mails bei neuen Kommentaren"
       unfollow: "Diesem Eintrag nicht mehr folgen"
@@ -1285,8 +1292,8 @@ de:
         mass: "Stück, kg, l, m2"
         time: "Stunde, Tag, Monat,..."
         long_time: "Woche, Monat..."
-        service_fee_will_be_added: "Eine Servicegebühr in Höhe von %{fee}% kommt hinzu."
         after_service_fee_you_will_get: "Nach Abzug der %{service_name} Servicegebühr, wirst du %{sum_with_currency} erhalten"
+        after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "Dieser Preis beinhaltet keine Steuer."
       origin:
         location: Standort

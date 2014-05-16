@@ -134,6 +134,12 @@ el:
         invalid_twitter_handle: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
+        facebook_connect: ~
+        facebook_connect_info_text: ~
+        facebook_connect_id: ~
+        invalid_facebook_connect_id: ~
+        facebook_connect_secret: ~
+        invalid_facebook_connect_secret: ~
         save: ~
     custom_fields:
       edit:
@@ -1220,6 +1226,7 @@ el:
       close_listing: "Απενεργοποίηση καταχώρησης"
       edit_listing: "Επεξεργασία καταχώρησης"
       reopen_listing: "Ενεργοποίηση ξανά της καταχώρησης"
+      move_to_top: ~
     follow_links:
       follow: "Να ειδοποιούμαι για νέα σχόλια"
       unfollow: "Παύση ειδοποιήσεων για νέα σχόλια"
@@ -1270,8 +1277,8 @@ el:
         mass: "κομμάτι, κιλό, λίτρο, τετραγωνικό μέτρο"
         time: "ώρα, ημέρα, εβδομάδα, ..."
         long_time: "εβδομάδα, μήνα, ..."
-        service_fee_will_be_added: "Στην τιμή θα προστεθεί προμήθεια %{fee}% για την υπηρεσία."
         after_service_fee_you_will_get: ~
+        after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "Η τιμή δεν συμπεριλαμβάνει το ΦΠΑ."
       origin:
         location: Τοποθεσία

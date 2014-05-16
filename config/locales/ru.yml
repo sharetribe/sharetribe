@@ -134,6 +134,12 @@ ru:
         invalid_twitter_handle: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
+        facebook_connect: ~
+        facebook_connect_info_text: ~
+        facebook_connect_id: ~
+        invalid_facebook_connect_id: ~
+        facebook_connect_secret: ~
+        invalid_facebook_connect_secret: ~
         save: ~
     custom_fields:
       edit:
@@ -1220,6 +1226,7 @@ ru:
       close_listing: "Закрыть объявление"
       edit_listing: "Редактировать объявление"
       reopen_listing: "Повторно открыть объявление"
+      move_to_top: ~
     follow_links:
       follow: "Следить за этим листингом"
       unfollow: "Не следить за этим листингом"
@@ -1270,8 +1277,8 @@ ru:
         mass: "шт, кг, л, м2, ..."
         time: "час, день, неделю, ..."
         long_time: "неделю, месяц, ..."
-        service_fee_will_be_added: ~
         after_service_fee_you_will_get: ~
+        after_service_fee_you_will_get_vat: ~
         price_excludes_vat: ~
       origin:
         location: Местоположение

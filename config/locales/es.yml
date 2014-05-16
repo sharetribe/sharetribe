@@ -134,6 +134,12 @@ es:
         invalid_twitter_handle: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
+        facebook_connect: ~
+        facebook_connect_info_text: ~
+        facebook_connect_id: ~
+        invalid_facebook_connect_id: ~
+        facebook_connect_secret: ~
+        invalid_facebook_connect_secret: ~
         save: ~
     custom_fields:
       edit:
@@ -1230,6 +1236,7 @@ es:
       close_listing: "Cerrar listado"
       edit_listing: "Editar listado"
       reopen_listing: "rehabilitar listado"
+      move_to_top: ~
     follow_links:
       follow: "Seguir este anuncio"
       unfollow: "Dejar de seguir este anuncio"
@@ -1280,8 +1287,8 @@ es:
         mass: "unidad, kg, l, m2"
         time: "hora, día, semana, ..."
         long_time: "semana, mes, ..."
-        service_fee_will_be_added: ~
         after_service_fee_you_will_get: ~
+        after_service_fee_you_will_get_vat: ~
         price_excludes_vat: ~
       origin:
         location: Lugar

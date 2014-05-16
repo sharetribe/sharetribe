@@ -78,7 +78,7 @@ en:
         community_logo_icon: "Mobile logo"
         community_cover_photo: "Cover photo"
         small_community_cover_photo: "Small cover photo"
-        favicon: "Favicon"
+        favicon: Favicon
         favicon_info_text: "Favicon will replace the default Sharetribe logo. The dimensions should be 32x32 pixels and the uploaded image will be resized to these dimensions."
         community_custom_color1: "Main color"
         community_custom_color2: "Second color"
@@ -136,11 +136,11 @@ en:
         join_date: Joined
         admin: Admin
         posting_allowed: "Posting allowed"
-        ban_user: "Ban user"
+        remove_user: "Remove user"
         saving_user_status: Saving...
         save_user_status_successful: Saved
         save_user_status_error: "Saving failed. Please refresh the page and try again."
-        ban_user_confirmation: "This removes the user from the community and prevents them from accessing the site again with this account. Are you sure you want to proceed?"
+        remove_user_confirmation: "This removes the user from the community and prevents them from accessing the site again with this account. Are you sure you want to proceed?"
       integrations:
         integrations: Integrations
         twitter_handle: "Twitter handle"

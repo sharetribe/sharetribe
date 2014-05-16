@@ -134,6 +134,12 @@ en-at:
         invalid_twitter_handle: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
+        facebook_connect: ~
+        facebook_connect_info_text: ~
+        facebook_connect_id: ~
+        invalid_facebook_connect_id: ~
+        facebook_connect_secret: ~
+        invalid_facebook_connect_secret: ~
         save: ~
     custom_fields:
       edit:
@@ -1220,6 +1226,7 @@ en-at:
       close_listing: ~
       edit_listing: ~
       reopen_listing: ~
+      move_to_top: ~
     follow_links:
       follow: ~
       unfollow: ~
@@ -1270,8 +1277,8 @@ en-at:
         mass: ~
         time: ~
         long_time: ~
-        service_fee_will_be_added: ~
         after_service_fee_you_will_get: ~
+        after_service_fee_you_will_get_vat: ~
         price_excludes_vat: ~
       origin:
         location: ~

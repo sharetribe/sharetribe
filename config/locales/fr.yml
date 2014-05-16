@@ -149,6 +149,12 @@ fr:
         invalid_twitter_handle: "Le nom Twitter doit être au maximum de 15 caractères alpha-numériques (lettres de A à Z et chiffres de 0 à 9)."
         google_analytics_key: "Code de suivi Google Analytics (compte classique)"
         google_analytics_key_info_text: "Code de suivi de votre compte Google Analytics. Vous devez y créer un compte \"classique\"."
+        facebook_connect: ~
+        facebook_connect_info_text: ~
+        facebook_connect_id: ~
+        invalid_facebook_connect_id: ~
+        facebook_connect_secret: ~
+        invalid_facebook_connect_secret: ~
         save: "Sauvegarder les réglages"
     custom_fields:
       edit:
@@ -1235,6 +1241,7 @@ fr:
       close_listing: "Clore l'annonce"
       edit_listing: "Editer l'annonce"
       reopen_listing: "Ré-ouvrir l'annonce"
+      move_to_top: "Remonter en haut de la liste"
     follow_links:
       follow: "Recevoir les nouveaux commentaires par email."
       unfollow: "Ne pas recevoir les nouveaux commentaires par email."
@@ -1285,8 +1292,8 @@ fr:
         mass: "unité, kg, l, m²..."
         time: "heure, jour, mois..."
         long_time: "semaine, mois..."
-        service_fee_will_be_added: "Une commission de %{fee}% sera ajoutée au prix."
         after_service_fee_you_will_get: "Après la commission de %{service_name} vous recevrez %{sum_with_currency}"
+        after_service_fee_you_will_get_vat: "Après les frais de %{service_name} vous recevrez environ %{sum_with_currency} (TVA 0%)"
         price_excludes_vat: "Ce prix n'inclut pas la TVA."
       origin:
         location: Lieu

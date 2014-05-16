@@ -134,6 +134,12 @@ nl:
         invalid_twitter_handle: ~
         google_analytics_key: ~
         google_analytics_key_info_text: ~
+        facebook_connect: ~
+        facebook_connect_info_text: ~
+        facebook_connect_id: ~
+        invalid_facebook_connect_id: ~
+        facebook_connect_secret: ~
+        invalid_facebook_connect_secret: ~
         save: ~
     custom_fields:
       edit:
@@ -1220,6 +1226,7 @@ nl:
       close_listing: "Sluit item"
       edit_listing: "Bewerk item"
       reopen_listing: "Heropen item"
+      move_to_top: ~
     follow_links:
       follow: "Ontvang e-mail wanneer er een reactie is geplaatst"
       unfollow: "Ontvang geen e-mails als er een reactie is geplaatst"
@@ -1270,8 +1277,8 @@ nl:
         mass: "stuk, kg, l, m2"
         time: "uur, dag, week"
         long_time: "week, maand"
-        service_fee_will_be_added: "Een%{fee}diensten fee zal bij de prijs geteld worden"
         after_service_fee_you_will_get: ~
+        after_service_fee_you_will_get_vat: ~
         price_excludes_vat: "De prijs is exclusief BTW"
       origin:
         location: Locatie
@@ -1309,7 +1316,7 @@ nl:
       privacy:
         privacy: Privacy
         private: Privé
-        public: Publiek
+        public: "Openbaar (ook zichtbaar voor niet ingelogde gebruikers)"
     help_texts:
       help_share_type_title: "Type aanbod of verzoek"
       help_tags_title: Tags
