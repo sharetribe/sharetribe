@@ -132,6 +132,8 @@ Kassi::Application.routes.draw do
           get :test_welcome_email
           get :manage_members
           get :settings
+          get :payment_gateways
+          put :payment_gateways, to: 'communities#update_payment_gateways'
           get :integrations
           put :integrations, to: 'communities#update_integrations'
           get :menu_links

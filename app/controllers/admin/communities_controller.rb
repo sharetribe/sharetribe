@@ -61,7 +61,15 @@ class Admin::CommunitiesController < ApplicationController
             Maybe(params)[:menu_links].or_else({menu_link_attributes: {}}),
             menu_links_admin_community_path(@community),
             :menu_links)
+  end
 
+  def payment_gateways
+    redirect_to edit_details_admin_community_path(@current_community) unless @current_community.braintree_in_use?
+    @selected_tribe_navi_tab = "admin"
+    @selected_left_navi_link = "payment_gateways"
+    @community = @current_community
+
+    render :braintree_payment_gateway
   end
 
   def posting_allowed
