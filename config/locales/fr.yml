@@ -149,12 +149,12 @@ fr:
         invalid_twitter_handle: "Le nom Twitter doit être au maximum de 15 caractères alpha-numériques (lettres de A à Z et chiffres de 0 à 9)."
         google_analytics_key: "Code de suivi Google Analytics (compte classique)"
         google_analytics_key_info_text: "Code de suivi de votre compte Google Analytics. Vous devez y créer un compte \"classique\"."
-        facebook_connect: ~
-        facebook_connect_info_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
+        facebook_connect: Facebook
+        facebook_connect_info_text: "Pour activer la connexion avec Facebook, vous devez créer une application pour votre place de marché sur <a href='https://developers.facebook.com/'>le site Facebook developers</a>. Ajoutez ensuite l'id et la clé secrète générées, ici."
+        facebook_connect_id: "ID client Facebook"
+        invalid_facebook_connect_id: "L'id client ne doit contenir que des chiffres."
+        facebook_connect_secret: "Clé secrète Facebook"
+        invalid_facebook_connect_secret: "La clé secrète ne doit contenir que des nombres et des lettres de a à f."
         save: "Sauvegarder les réglages"
     custom_fields:
       edit:
