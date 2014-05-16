@@ -136,11 +136,11 @@ fi:
         join_date: Liittynyt
         admin: ~
         posting_allowed: "Hyväksytty ilmoittaja"
-        remove_user: Poista
+        ban_user: Poista
         saving_user_status: Tallennetaan...
         save_user_status_successful: "Tallennus onnistui"
         save_user_status_error: "Tallennus epäonnistui. Päivitä sivu ja yritä uudelleen."
-        remove_user_confirmation: "Olet poistamassa käyttäjää yhteisöstä ja estämästä häntä liittymästä uudelleen samalla käyttäjätunnuksella. Oletko varma?"
+        ban_user_confirmation: "Olet poistamassa käyttäjää yhteisöstä ja estämästä häntä liittymästä uudelleen samalla käyttäjätunnuksella. Oletko varma?"
       integrations:
         integrations: Integraatiot
         twitter_handle: Twitter-tili
