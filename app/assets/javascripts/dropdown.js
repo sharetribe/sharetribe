@@ -12,14 +12,13 @@ $(function() {
     var anchorElement = $(el.attr('data-toggle-anchor-element') || el);
     var anchorPosition = el.attr('data-toggle-anchor-position') || "left";
     var togglePosition = el.attr('data-toggle-position') || "relative";
-    var toggleFn = open;
 
     function absolutePosition() {
       var anchorOffset = anchorElement.offset();
       var top = anchorOffset.top + anchorElement.outerHeight();
       var left = anchorOffset.left;
 
-      if(anchorPosition == "right") {
+      if(anchorPosition === "right") {
         var right = left - ($menu.outerWidth() - anchorElement.outerWidth());
         $menu.css("left", right);
       } else {
@@ -33,7 +32,7 @@ $(function() {
       // Opens the menu toggle menu
       closeAll();
 
-      if (togglePosition == "absolute") {
+      if (togglePosition === "absolute") {
         absolutePosition();
       }
 
@@ -48,6 +47,8 @@ $(function() {
       el.removeClass('toggled');
       toggleFn = open;
     }
+
+    var toggleFn = open;
 
     el.click(function(event) {
       event.stopPropagation();
