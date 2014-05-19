@@ -1,5 +1,9 @@
 #header-menu-toggle-menu.toggle-menu.header-toggle-menu-menu.hidden
 
+  = link_to new_listing_path, :class => "hidden-tablet" do
+    = icon_tag("new_listing", ["icon-with-text"])
+    = t("homepage.index.post_new_listing")
+
   = link_to about_infos_path do
     = icon_tag("information", ["icon-with-text"])
     = t("header.about")
@@ -27,6 +31,6 @@
   .hidden-desktop
     - with_available_locales do |locales|
       .toggle-menu-title
-        = t(".select_language")
+        = t("layouts.global-header.select_language")
 
       = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array
