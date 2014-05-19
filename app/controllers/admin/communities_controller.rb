@@ -68,7 +68,7 @@ class Admin::CommunitiesController < ApplicationController
 
   def test_welcome_email
     PersonMailer.welcome_email(@current_user, @current_community, true).deliver
-    flash[:notice] = t("layouts.notifications.test_welcome_email_delivered_to", :email => @current_user.email)
+    flash[:notice] = t("layouts.notifications.test_welcome_email_delivered_to", :email => @current_user.confirmed_notification_email_to)
     redirect_to edit_welcome_email_admin_community_path(@current_community)
   end
 
