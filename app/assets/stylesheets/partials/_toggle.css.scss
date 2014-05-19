@@ -1,28 +1,5 @@
 @import "mixins/all";
 
-/*
-  ------------
-  Toggle menus
-  ------------
-*/
-
-.toggle-menu-feed-filters {
-
-  &.hidden {
-    // Added and removed via JS, to toggle visibility
-    display: none;
-  }
-
-  @include media(tablet) {
-    // Makes sure they're never obscured by other elements
-    z-index: 9999;
-    &.hidden {
-      // Added and removed via JS, to toggle visibility
-      display: block;
-    }
-  }
-}
-
 .toggle-menu {
   background: $light-body;
   border-color: $light-body !important;
