@@ -22,26 +22,7 @@
                   = user.name(@current_community)
                 = icon_tag("dropdown", ["icon-dropdown"])
 
-        #header-user-toggle-menu.toggle-menu.header-toggle-menu-user.hidden
-
-          = link_to received_person_messages_path(:person_id => @current_user.id.to_s) do
-            = icon_tag("mail", ["icon-with-text"])
-            = t("layouts.conversations.messages")
-            - if unread_count > 0
-              .mobile-badge{:class => get_badge_class(unread_count)}
-                = unread_count
-
-          = link_to person_path(user) do
-            = icon_tag("user", ["icon-with-text"])
-            = t("header.profile")
-
-          = link_to person_settings_path(user) do
-            = icon_tag("settings", ["icon-with-text"])
-            = t("layouts.logged_in.settings")
-
-          = link_to logout_path do
-            = icon_tag("logout", ["icon-with-text"])
-            = t("layouts.logged_in.logout")
+        = render :partial => "layouts/header_user_menu", locals: {unread_count: unread_count, user: user}
 
       .header-right.visible-tablet
         = link_to received_person_messages_path(:person_id => user.id.to_s), title: t("layouts.conversations.messages"), :id => "inbox-link", :class => "header-text-link header-hover header-inbox-link" do
@@ -74,32 +55,7 @@
           %span.visible-tablet-inline
             = t("header.menu")
 
-    #header-menu-toggle-menu.toggle-menu.header-toggle-menu-menu.hidden
-
-      = link_to about_infos_path do
-        = icon_tag("information", ["icon-with-text"])
-        = t("header.about")
-
-      = link_to new_user_feedback_path do
-        = icon_tag("feedback", ["icon-with-text"])
-        = t("header.contact_us")
-
-      - with_invite_link do
-        = link_to new_invitation_path do
-          = icon_tag("invite", ["icon-with-text"])
-          = t("header.invite")
-
-      - if @current_user && @current_community && @current_user.has_admin_rights_in?(@current_community)
-        = link_to edit_details_admin_community_path(@current_community) do
-          = icon_tag("admin", ["icon-with-text"])
-          = t("layouts.logged_in.admin")
-
-      .hidden-desktop
-        - with_available_locales do |locales|
-          .toggle-menu-title
-            = t(".select_language")
-
-          = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array
+    = render :partial => "layouts/header_menu"
 
     -#
       If necessary, the buttons will overlap with the logo. Buttons should be on top, that's

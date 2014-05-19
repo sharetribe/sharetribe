@@ -1,0 +1,21 @@
+
+#header-user-toggle-menu.toggle-menu.header-toggle-menu-user.hidden
+
+  = link_to received_person_messages_path(:person_id => @current_user.id.to_s) do
+    = icon_tag("mail", ["icon-with-text"])
+    = t("layouts.conversations.messages")
+    - if unread_count > 0
+      .mobile-badge{:class => get_badge_class(unread_count)}
+        = unread_count
+
+  = link_to person_path(user) do
+    = icon_tag("user", ["icon-with-text"])
+    = t("header.profile")
+
+  = link_to person_settings_path(user) do
+    = icon_tag("settings", ["icon-with-text"])
+    = t("layouts.logged_in.settings")
+
+  = link_to logout_path do
+    = icon_tag("logout", ["icon-with-text"])
+    = t("layouts.logged_in.logout")

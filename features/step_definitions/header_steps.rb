@@ -6,6 +6,12 @@ When(/^I open language menu$/) do
   find("#header-locales-menu").click
 end
 
+Then(/^I should see "(.*)" on the menu$/) do |language|
+  steps %Q{
+    Then I should see "#{language}" within "#header-menu-toggle-menu"
+  }
+end
+
 Then(/^I should see "(.*)" on the language menu$/) do |language|
   steps %Q{
     Then I should see "#{language}" within "#header-locales-toggle-menu"
@@ -89,4 +95,9 @@ Then(/^I should not be logged in$/) do
   else
     assert page.has_css?("#header-login-link")
   end
+end
+
+Given(/^there is a menu link "(.*?)" to "(.*?)"$/) do |title, url|
+  # TODO title and url
+  @current_community.menu_links << FactoryGirl.create(:menu_link)
 end

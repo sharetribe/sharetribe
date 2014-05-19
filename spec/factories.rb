@@ -345,4 +345,7 @@ FactoryGirl.define do
 
     end
   end
+
+  factory :menu_link do
+  end
 end
