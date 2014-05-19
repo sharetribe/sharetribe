@@ -48,6 +48,7 @@
 //= require admin/categories
 //= require admin/manage_members
 //= require payment_math
+//= require dropdown
 //= require jquery.nouislider
 //= require range_filter
 //= require translations
