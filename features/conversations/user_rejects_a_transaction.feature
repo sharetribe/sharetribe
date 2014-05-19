@@ -17,7 +17,7 @@ Feature: User rejects a transaction
   @javascript
   Scenario: User rejects a request without message
     And I am logged in as "kassi_testperson2"
-    When I follow "inbox-link"
+    When I follow inbox link
     And I follow "I'd like to buy a skate"
     And I follow "Not this time"
     And I press "Send"
@@ -32,7 +32,7 @@ Feature: User rejects a transaction
   @javascript
   Scenario: User rejects a request with message
     And I am logged in as "kassi_testperson2"
-    When I follow "inbox-link"
+    When I follow inbox link
     And I follow "I'd like to buy a skate"
     And I follow "Not this time"
     And I fill in "conversation_message_attributes_content" with "Sorry, not this time."

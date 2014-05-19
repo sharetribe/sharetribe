@@ -307,22 +307,6 @@ ul {
   }
 }
 
-.left-navi-dropdown {
-  &:hover { background: $highlight; }
-  color: $body;
-  padding: em(10) lines(1.5) em(10) lines(0.5);
-  border-bottom: 1px dotted $border;
-
-  .icon-dropdown {
-    position: absolute;
-    right: lines(1);
-    top: em(12);
-  }
-  @include media(tablet) {
-    display: none;
-  }
-}
-
 .avatar {
   position: relative;
   width: lines(1);
@@ -521,72 +505,6 @@ label.error {
 // Share type label
 .share-type-link {
   @include share-type-link;
-}
-
-/*
-  ------------------------
-  Global Sharetribe header
-  ------------------------
-*/
-
-// Positions new message badges
-.badge {
-  @include small-type;
-  @include badge(20px);
-  background: $link;
-  position: absolute;
-  top: -10px; // Magic number, this just looks good
-  left: 13px; // Magic number, this just looks good
-  color: $background;
-  display: none;
-
-  &.big-badge {
-    @include badge(26px);
-    top: -12px; // Magic number, this just looks good
-    left: 11px; // Magic number, this just looks good
-  }
-
-  &.huge-badge {
-    @include badge(32px);
-    top: -14px; // Magic number, this just looks good
-    left: 9px; // Magic number, this just looks good
-  }
-
-  @include media(mid-desktop) {
-    display: block;
-  }
-
-}
-
-.mobile-badge {
-  @include small-type;
-  @include badge(20px);
-  margin-left: lines(0.25);
-  margin-top: 8px;
-  display: inline-block;
-  background: $link;
-  color: $background;
-
-  &.big-badge {
-    @include badge(26px);
-    margin-top: 5px;
-  }
-
-  &.huge-badge {
-    margin-top: 2px;
-    @include badge(32px);
-  }
-
-  @include media(mid-desktop) {
-    display: none;
-  }
-}
-
-.mobile-badge-menu {
-  @extend .mobile-badge;
-  margin-top: 0;
-  background: $background;
-  color: $light-body;
 }
 
 /*
@@ -3418,13 +3336,6 @@ header.marketplace-header {
       text-align: left;
     }
 
-    .icon-dropdown {
-      display: block;
-      position: absolute;
-      top: em(20);
-      right: lines(0.5);
-    }
-
     .badge {
       display: none;
     }
@@ -3434,14 +3345,6 @@ header.marketplace-header {
       padding-left: lines(0.25);
       margin-left: 0;
       width: auto;
-
-      .icon-dropdown {
-        position: static;
-        vertical-align: top;
-        padding: em(8) 0 0 em(3);
-        display: inline-block;
-      }
-
     }
 
   }
@@ -3462,39 +3365,16 @@ header.marketplace-header {
     }
   }
 
-  .new-listing-link {
-    display: none;
-    vertical-align: top;
-    padding: em(10) 0 0 0;
-    a {
-      @include button($link2);
-      margin: 0;
-      margin-left: lines(0.25);
-      font-weight: 400;
-      @include media(tablet) {
-        @include normal-type;
-        font-weight: 400;
-        height: 40px;
-        line-height: 37px;
-        padding: 0 em(20);
-        width: auto;
-      }
-    }
-
-    @include media(mid-desktop) {
-      display: inline-block;
-    }
-
-    @include media(desktop) {
-      padding-right: 0;
-    }
-  }
-
 }
 
 /*
   Lander
 */
+
+.lander-content-container,
+.network-header-content-container {
+  position: relative;
+}
 
 .marketplace-lander {
   position: relative;

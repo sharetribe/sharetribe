@@ -159,11 +159,6 @@ Given(/^there are (\d+) users with name prefix "([^"]*)" "([^"]*)"$/) do |user_c
   FactoryGirl.create_list(:person, user_count.to_i, :given_name => given_name, :family_name => "#{family_name_prefix} #{user_count}", :communities => [@current_community])
 end
 
-When /^I log out$/ do
-  find(".user-menu-toggle").click
-  click_link "Log out"
-end
-
 # Filling in with random strings
 When /^(?:|I )fill in "([^"]*)" with random (username|email)(?: within "([^"]*)")?$/ do |field, value, selector|
   @values ||= {}
@@ -281,22 +276,6 @@ Then /^user "(.*?)" should have (confirmed|unconfirmed) email "(.*?)"$/ do |user
 
   if conf == "confirmed"
     e.confirmed_at.should_not be_nil
-  end
-end
-
-Then /^I should be logged in$/ do
-  if page.respond_to? :should
-    page.should have_no_css("#login-link")
-  else
-    assert page.has_no_css?("#login-link")
-  end
-end
-
-Then /^I should not be logged in$/ do
-  if page.respond_to? :should
-    page.should have_css("#login-link")
-  else
-    assert page.has_css?("#login-link")
   end
 end
 

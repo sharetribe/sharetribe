@@ -13,7 +13,7 @@
       .row
         .col-12
           = form.label :wide_logo, t(".community_logo"), :class => "input"
-          = render :partial => "layouts/info_text", :locals => { :text =>t(".logo_instructions_text_with_dimensions", :width => 168, :height => 40)}
+          = render :partial => "layouts/info_text", :locals => { :text =>t(".logo_instructions_text_with_dimensions", :width => 336, :height => 80)}
           = form.file_field(:wide_logo, :class => "file_field")
 
       .row

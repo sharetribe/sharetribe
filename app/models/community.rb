@@ -66,10 +66,14 @@ class Community < ActiveRecord::Base
 
   serialize :settings, Hash
 
+  DEFAULT_LOGO = "/assets/logos/mobile/default.png"
+  DEFAULT_WIDE_LOGO = "/assets/logos/full/default.png"
+
   has_attached_file :logo,
                     :styles => {
                       :header => "192x192#",
                       :header_icon => "40x40#",
+                      :header_icon_highres => "80x80#",
                       :apple_touch => "152x152#",
                       :original => "600x600>"
                     },
@@ -79,7 +83,7 @@ class Community < ActiveRecord::Base
                       # not work.
                       :apple_touch => "-background white -flatten"
                     },
-                    :default_url => "/assets/logos/mobile/default.png"
+                    :default_url => DEFAULT_LOGO
 
   validates_attachment_content_type :logo,
                                     :content_type => ["image/jpeg",
@@ -91,9 +95,10 @@ class Community < ActiveRecord::Base
   has_attached_file :wide_logo,
                     :styles => {
                       :header => "168x40#",
+                      :header_highres => "336x80#",
                       :original => "600x600>"
                     },
-                    :default_url => "/assets/logos/full/default.png"
+                    :default_url => DEFAULT_WIDE_LOGO
 
   validates_attachment_content_type :wide_logo,
                                     :content_type => ["image/jpeg",
@@ -222,7 +227,7 @@ class Community < ActiveRecord::Base
   end
 
   def has_customizations?
-    custom_color1 || custom_color2 || cover_photo.present? || small_cover_photo.present?
+    custom_color1 || custom_color2 || cover_photo.present? || small_cover_photo.present? || wide_logo.present? || logo.present?
   end
 
   def has_custom_stylesheet?

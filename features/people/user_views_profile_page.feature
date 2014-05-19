@@ -20,7 +20,7 @@ Feature: User views profile page
     And that listing is closed
     And I am logged in as "kassi_testperson1"
     And I should not see "Feedback average:"
-    When I click ".user-menu-toggle"
+    When I open user menu
     When I follow "Profile"
     Then I should see "car spare parts"
     And I should see "Helsinki - Turku"

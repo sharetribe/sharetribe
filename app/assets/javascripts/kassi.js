@@ -1438,6 +1438,9 @@ function toggleDropdown(event_target) {
 
   //Gets the target toggleable menu from the link's data-attribute
   var target = event_target.attr('data-toggle');
+  var anchorElement = event_target.attr('data-toggle-anchor-element') || event_target;
+  var anchorPosition = event_target.attr('data-toggle-anchor-position') || "left";
+  var togglePosition = event_target.attr('data-toggle-position') || "relative";
   var logo_class = event_target.attr('data-logo_class');
 
   if ($(target).hasClass('hidden')) {
@@ -1451,6 +1454,20 @@ function toggleDropdown(event_target) {
       }
     } else {
       event_target.addClass('toggled');
+
+      if (togglePosition == "absolute") {
+        var anchorOffset = anchorElement.offset();
+        var top = anchorOffset.top + anchorElement.outerHeight();
+        var left = anchorOffset.left;
+        var right = left - ($(target).outerWidth() - anchorElement.outerWidth());
+        $(target).css("top", top);
+
+        if(anchorPosition == "right") {
+          $(target).css("left", right);
+        } else {
+          $(target).css("left", left);
+        }
+      }
     }
   } else {
     // Closes the target toggle menu

@@ -18,8 +18,8 @@ Feature: User pays after accepted transaction
   Scenario: User can not accept transaction before filling in payment details
     And "kassi_testperson2" does not have Checkout account
     And I am logged in as "kassi_testperson2"
-    When I follow "inbox-link"
-    And I should see "1" within ".inbox-link"
+    When I follow inbox link
+    Then I should see that there is 1 new message
     And I follow "I want to buy"
     And I follow "Accept request"
     Then I should see information about missing payment details
@@ -29,8 +29,8 @@ Feature: User pays after accepted transaction
   @javascript
   Scenario: User pays
     And I am logged in as "kassi_testperson2"
-    When I follow "inbox-link"
-    And I should see "1" within ".inbox-link"
+    When I follow inbox link
+    Then I should see that there is 1 new message
     And I follow "I want to buy"
     And I follow "Accept request"
     Then I should see "Palvelumaksu (Sharetribe)"
@@ -42,8 +42,8 @@ Feature: User pays after accepted transaction
     And I press "Send"
     Then I should see "Accepted"
     When I am logged in as "kassi_testperson1"
-    And I follow "inbox-link"
-    Then I should see "1" within ".inbox-link"
+    And I follow inbox link
+    Then I should see that there is 1 new message
     When I follow "I want to buy"
     Then I should see "Pay"
     When I follow "Pay"
@@ -83,7 +83,7 @@ Feature: User pays after accepted transaction
   Scenario: requester cancels a transaction with payment that had already been accepted, but not paid and skips feedback
     And the request is accepted
     And I am logged in as "kassi_testperson1"
-    When I follow "inbox-link"
+    When I follow inbox link
     And I follow "Cancel"
     And I fill in "Message" with "Sorry I gotta cancel"
     And I choose "Skip feedback"
@@ -95,7 +95,7 @@ Feature: User pays after accepted transaction
   Scenario: requester cancels a transaction with payment that had already been accepted, but not paid and gives feedback
     And the request is accepted
     And I am logged in as "kassi_testperson1"
-    When I follow "inbox-link"
+    When I follow inbox link
     And I follow "Cancel"
     And I fill in "Message" with "Sorry I gotta cancel"
     And I choose "Give feedback"
@@ -110,15 +110,15 @@ Feature: User pays after accepted transaction
   @javascript
   Scenario: requester pays with delayed billing
     And I am logged in as "kassi_testperson2"
-    When I follow "inbox-link"
-    And I should see "1" within ".inbox-link"
+    When I follow inbox link
+    Then I should see that there is 1 new message
     And I follow "I want to buy"
     And I follow "Accept request"
     And I fill in "conversation_message_attributes_content" with "Ok, then pay!"
     And I press "Send"
     Then I should see "Accepted"
     When I am logged in as "kassi_testperson1"
-    When I follow "inbox-link"
+    When I follow inbox link
     Then I should see "Pay"
     When I follow "Pay"
     Then I should see "New payment"
@@ -133,8 +133,8 @@ Feature: User pays after accepted transaction
   @javascript
   Scenario: offerer cancels the request
     And I am logged in as "kassi_testperson2"
-    When I follow "inbox-link"
-    And I should see "1" within ".inbox-link"
+    When I follow inbox link
+    Then I should see that there is 1 new message
     And I follow "I want to buy"
     And I follow "Not this time"
     And I fill in "conversation_message_attributes_content" with "Sorry I'cant sell it!"
@@ -142,6 +142,6 @@ Feature: User pays after accepted transaction
     Then I should see "Request rejected"
 
     When I am logged in as "kassi_testperson1"
-    When I follow "inbox-link"
+    When I follow inbox link
     Then I should see "Rejected"
     Then I should see "Sorry I'cant sell it!"

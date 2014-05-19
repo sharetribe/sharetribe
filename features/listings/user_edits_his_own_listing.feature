@@ -9,13 +9,12 @@ Feature: User edits his own listing
   Scenario: User edits an item request with image
     # @no-transaction needed because delayed_paperclip after_save callbacks
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
     And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
     And I am logged in as "kassi_testperson2"
     And I follow "Hammer"
-    And I click ".user-menu-toggle"
-    And I follow "Log out"
+    When I log out
     And I log in as "kassi_testperson1"
     When I follow "Hammer"
     And I follow "Edit listing"
@@ -37,13 +36,12 @@ Feature: User edits his own listing
   @javascript
   Scenario: User edits an item request without image
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
     And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
     And I am logged in as "kassi_testperson2"
     And I follow "Hammer"
-    And I click ".user-menu-toggle"
-    And I follow "Log out"
+    When I log out
     And I log in as "kassi_testperson1"
     When I follow "Hammer"
     And I follow "Edit listing"
@@ -54,11 +52,11 @@ Feature: User edits his own listing
     And I press "Save listing"
     And the system processes jobs
     Then I should see "Sledgehammer" within "#listing-title"
-  
+
   @javascript
   Scenario: Trying to update an item request with invalid information
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
     And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
     And I am logged in as "kassi_testperson1"
@@ -69,13 +67,13 @@ Feature: User edits his own listing
     And I select "December" from "listing_valid_until_2i"
     And I select "2014" from "listing_valid_until_1i"
     And I press "Save listing"
-    Then I should see "This field is required." 
-    And I should see "This date must be between current time and 6 months from now."  
+    Then I should see "This field is required."
+    And I should see "This date must be between current time and 6 months from now."
 
   @javascript
   Scenario: Trying to update somebody else's listing
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
     And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
@@ -86,7 +84,7 @@ Feature: User edits his own listing
   @javascript
   Scenario: Trying to update somebody else's listing as an admin
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
     And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
@@ -98,11 +96,11 @@ Feature: User edits his own listing
     And I press "Save listing"
     Then I should see "Sledgehammer" within "#listing-title"
     And I should see "Listing updated successfully"
-    
+
   @javascript
   Scenario: Trying to update somebody else's listing as an admin of the current community
     Given there are following users:
-      | person | 
+      | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
     And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"

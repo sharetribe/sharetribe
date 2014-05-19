@@ -21,7 +21,7 @@ Feature: User gives feedback from transaction
   @javascript
   Scenario: Give feedback successfully
     And I am logged in as "kassi_testperson1"
-    When I follow "inbox-link"
+    When I follow inbox link
     And I follow "Give feedback"
     And I click "#positive-grade-link"
     And I fill in "How did things go?" with "Everything was great!"
@@ -42,7 +42,7 @@ Feature: User gives feedback from transaction
   @javascript
   Scenario: Try to give feedback without required information
     And I am logged in as "kassi_testperson1"
-    When I follow "inbox-link"
+    When I follow inbox link
     And I follow "Give feedback"
     And I press "send_testimonial_button"
     Then I should see "Remember to tell whether your experience was positive or negative."

@@ -30,11 +30,15 @@ $grid-1-4-width: lines(10.75) - ($grid-1-4-padding * 2);
   float: left;
 }
 
-@mixin wrapper {
+@mixin wrapper($mobilePadding: lines(0.5)) {
   background: $background;
-  position: relative;
   margin: 0 auto;
-  padding-left: lines(0.5);
-  padding-right: lines(0.5);
   max-width: lines(42);
+  padding-left: $mobilePadding;
+  padding-right: $mobilePadding;
+
+  @include media(tablet) {
+    padding-left: lines(0.5);
+    padding-right: lines(0.5);
+  }
 }

@@ -8,17 +8,18 @@
   .coverimage
     %figure.network-cover.fluidratio
   .wrapper
-    - if session[:contact_request_sent] || session[:contact_request_completed]
-      .lander-content.lander-contact-form
-        = render :partial => "contact_request_form", :locals => { :prefix => "top" }
-    - else
-      .lander-content.network-lander-content
-        %h1 Create a marketplace.
-        %p.lander-description
-          Let your community sell, rent, swap and
-          %br/
-          share goods and services online.
-        = render :partial => "contact_request_form", :locals => { :prefix => "top" }
+    .lander-content-container
+      - if session[:contact_request_sent] || session[:contact_request_completed]
+        .lander-content.lander-contact-form
+          = render :partial => "contact_request_form", :locals => { :prefix => "top" }
+      - else
+        .lander-content.network-lander-content
+          %h1 Create a marketplace.
+          %p.lander-description
+            Let your community sell, rent, swap and
+            %br/
+            share goods and services online.
+          = render :partial => "contact_request_form", :locals => { :prefix => "top" }
 
 %section.about{:id => "about"}
   .wrapper

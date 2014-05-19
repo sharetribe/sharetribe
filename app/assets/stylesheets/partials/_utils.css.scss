@@ -6,10 +6,17 @@
 }
 
 /**
-  Use icon-fix to correctly vertical align SS-pika icons
+  Use icon-fix to correctly vertical align SS-pika icons (2px)
 */
 .icon-fix {
   @include icon-fix;
+}
+
+/**
+  Use icon-fix to correctly vertical align SS-pika icons (3px)
+*/
+.icon-fix-more {
+  @include icon-fix-more;
 }
 
 .hidden {

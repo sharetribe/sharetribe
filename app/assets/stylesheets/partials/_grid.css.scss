@@ -94,13 +94,3 @@
 .wrapper {
   @include wrapper;
 }
-
-.global-header-wrapper {
-  @extend .wrapper;
-  padding-left: 0;
-  padding-right: 0;
-  @include media(mid-desktop) {
-    padding-left: lines(0.5);
-    padding-right: lines(0.5);
-  }
-}

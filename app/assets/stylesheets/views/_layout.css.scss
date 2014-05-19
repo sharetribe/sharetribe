@@ -1,0 +1,12 @@
+@import "mixins/all";
+
+/*
+  Styles used in global layout
+*/
+
+.left-navi-dropdown {
+  &:hover { background: $highlight; }
+  color: $body;
+  padding: em(10) lines(0.5);
+  border-bottom: 1px dotted $border;
+}

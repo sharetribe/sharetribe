@@ -21,13 +21,12 @@ Feature: User requests an item in item offer
     And I press "Send message"
     Then I should see "Message sent" within ".flash-notifications"
     And I should see "Hammer" within "#listing-title"
-    When I follow "inbox-link"
+    When I follow inbox link
     Then I should see "I want to borrow this item"
     And I should see "to accept the request"
-    When I click ".user-menu-toggle"
-    When I follow "Log out"
+    When I log out
     And I log in as "kassi_testperson1"
-    And I follow "inbox-link"
+    And I follow inbox link
     Then I should see "Accept"
     When I follow "Borrowing hammer"
     Then I should see "Accept"

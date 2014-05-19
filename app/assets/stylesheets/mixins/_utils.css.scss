@@ -28,6 +28,10 @@
   Some icons, e.g. dropdown icon needs to be a bit lower
 */
 @mixin dropdown-icon-fix {
+ @include icon-fix-more;
+}
+
+@mixin icon-fix-more {
   position: relative;
   top: 3px;
 }
