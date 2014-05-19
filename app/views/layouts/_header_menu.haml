@@ -1,0 +1,32 @@
+#header-menu-toggle-menu.toggle-menu.header-toggle-menu-menu.hidden
+
+  = link_to about_infos_path do
+    = icon_tag("information", ["icon-with-text"])
+    = t("header.about")
+
+  = link_to new_user_feedback_path do
+    = icon_tag("feedback", ["icon-with-text"])
+    = t("header.contact_us")
+
+  - with_invite_link do
+    = link_to new_invitation_path do
+      = icon_tag("invite", ["icon-with-text"])
+      = t("header.invite")
+
+  - Maybe(@current_community).menu_links.each do |menu_links|
+    - menu_links.each do |menu_link|
+      = link_to menu_link.url(I18n.locale) do
+        = icon_tag("redirect", ["icon-with-text"])
+        = menu_link.title(I18n.locale)
+
+  - if @current_user && @current_community && @current_user.has_admin_rights_in?(@current_community)
+    = link_to edit_details_admin_community_path(@current_community) do
+      = icon_tag("admin", ["icon-with-text"])
+      = t("layouts.logged_in.admin")
+
+  .hidden-desktop
+    - with_available_locales do |locales|
+      .toggle-menu-title
+        = t(".select_language")
+
+      = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array

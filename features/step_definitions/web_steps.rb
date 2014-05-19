@@ -260,12 +260,17 @@ Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should not be checked$/ do |
   end
 end
 
-Then /^(?:|I )should be on (.+)$/ do |page_name|
-  current_path = URI.parse(current_url).path
-  if current_path.respond_to? :should
-    current_path.should == path_to(page_name)
+Then /^(?:|I )should be on (URL)? (.+)$/ do |match_url, page|
+  match_url = match_url == "URL"
+
+  if match_url
+    url = URI.parse(current_url)
+    url.to_s.should == page
+  elsif current_path.respond_to? :should
+    current_path = URI.parse(current_url).path
+    current_path.should == path_to(page)
   else
-    assert_equal path_to(page_name), current_path
+    assert_equal path_to(page), current_path
   end
 end
 
