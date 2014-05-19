@@ -10,3 +10,7 @@
   padding: em(10) lines(0.5);
   border-bottom: 1px dotted $border;
 }
+
+.wrapper {
+  @include wrapper;
+}
