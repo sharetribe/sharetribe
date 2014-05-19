@@ -573,6 +573,17 @@ CREATE TABLE `locations` (
   KEY `index_locations_on_person_id` (`person_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `menu_link_translations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `menu_link_id` int(11) DEFAULT NULL,
+  `locale` varchar(255) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `menu_links` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `community_id` int(11) DEFAULT NULL,
@@ -1838,3 +1849,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140516095154');
 INSERT INTO schema_migrations (version) VALUES ('20140519102507');
 
 INSERT INTO schema_migrations (version) VALUES ('20140519123344');
+
+INSERT INTO schema_migrations (version) VALUES ('20140519132638');

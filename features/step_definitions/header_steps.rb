@@ -98,6 +98,8 @@ Then(/^I should not be logged in$/) do
 end
 
 Given(/^there is a menu link "(.*?)" to "(.*?)"$/) do |title, url|
-  # TODO title and url
-  @current_community.menu_links << FactoryGirl.create(:menu_link)
+  link = FactoryGirl.build(:menu_link, community: @current_community)
+  link.translations << FactoryGirl.build(:menu_link_translation, title: title, url: url, menu_link: link)
+  link.save!
+  @current_community.menu_links << link
 end

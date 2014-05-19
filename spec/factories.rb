@@ -347,5 +347,12 @@ FactoryGirl.define do
   end
 
   factory :menu_link do
+    community
+  end
+
+  factory :menu_link_translation do
+    title "Blog"
+    url "http://blog.sharetribe.com"
+    locale "en"
   end
 end

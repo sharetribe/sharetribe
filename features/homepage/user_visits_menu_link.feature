@@ -1,6 +1,5 @@
 @javascript
 Feature: User visits menu link
-
   Background:
     Given there is a menu link "Blog" to "http://blog.sharetribe.com/"
     And I am on the homepage
