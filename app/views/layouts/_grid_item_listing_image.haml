@@ -12,12 +12,6 @@
     - with_first_listing_image(listing) do |first_image|
       = image_tag first_image.image.url(:small_3x2), {:alt => listed_listing_title(listing), :class => "#{modifier_class} fluid-thumbnail-grid-image-image"}
 
-    - with_first_listing_image_processing(listing) do
-      = image_tag "empty_3x2.gif", {:class => "#{modifier_class} fluid-thumbnail-grid-image-image"}
-
-    - without_listing_image(listing) do
-      = image_tag "empty_3x2.gif", {:class => "#{modifier_class} fluid-thumbnail-grid-image-image"}
-
     .fluid-thumbnail-grid-image-overlay{:class => "#{modifier_class}"}
     .fluid-thumbnail-grid-image-title{:class => "#{modifier_class}"}
       - with_first_listing_image_processing(listing) do

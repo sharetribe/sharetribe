@@ -14,6 +14,11 @@ $bottom-gutter: lines(0.5);
     .#{$prefix}-#{$i} {
       width: 100%;
 
+      // Set min-height 1px, so that the element will be rendered, even though it's empty.
+      // This reduces load time flickering.
+      // (There might be some cleaner way to do this.)
+      min-height: 1px;
+
       @include media(tablet) {
         width: $col-width * $i;
         float: left;

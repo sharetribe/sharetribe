@@ -11,6 +11,8 @@
   &:hover {
     color: $highlight;
   }
+
+  @include block-with-aspect-ratio(3/2);
 }
 
 .fluid-thumbnail-grid-image-title {
@@ -28,7 +30,9 @@
 
 .fluid-thumbnail-grid-image-image {
   @include border-top-radius($default-border-radius);
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
 }
 
