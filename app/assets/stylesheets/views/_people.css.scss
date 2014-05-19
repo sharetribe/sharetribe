@@ -60,7 +60,7 @@ $profile-pic-gutter-mobile: lines(0.5);
   width: $profile-pic-size-mobile;
   position: absolute;
   top: 0;
-  left: lines(0.5);
+  left: 0;
 
   > img {
     @include border-radius($default-border-radius);
