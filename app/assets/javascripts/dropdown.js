@@ -1,78 +1,75 @@
-function closeAllToggleMenus() {
-  $('.toggle-menu').addClass('hidden');
-  $('.toggle-menu-feed-filters').addClass('hidden');
-  $('.toggle').removeClass('toggled');
-  $('.toggle').removeClass('toggled-logo');
-  $('.toggle').removeClass('toggled-full-logo');
-  $('.toggle').removeClass('toggled-icon-logo');
-  $('.toggle').removeClass('toggled-no-logo');
-}
+$(function() {
+  var toggles = [];
 
-function toggleDropdown(event_target) {
-
-  //Gets the target toggleable menu from the link's data-attribute
-  var target = event_target.attr('data-toggle');
-  var anchorElement = event_target.attr('data-toggle-anchor-element') || event_target;
-  var anchorPosition = event_target.attr('data-toggle-anchor-position') || "left";
-  var togglePosition = event_target.attr('data-toggle-position') || "relative";
-  var logo_class = event_target.attr('data-logo_class');
-
-  if ($(target).hasClass('hidden')) {
-    // Opens the target toggle menu
-    closeAllToggleMenus();
-    $(target).removeClass('hidden');
-    if(event_target.hasClass('select-tribe')) {
-      event_target.addClass('toggled-logo');
-      if (logo_class != undefined) {
-        event_target.addClass(logo_class);
-      }
-    } else {
-      event_target.addClass('toggled');
-
-      if (togglePosition == "absolute") {
-        var anchorOffset = anchorElement.offset();
-        var top = anchorOffset.top + anchorElement.outerHeight();
-        var left = anchorOffset.left;
-        var right = left - ($(target).outerWidth() - anchorElement.outerWidth());
-        $(target).css("top", top);
-
-        if(anchorPosition == "right") {
-          $(target).css("left", right);
-        } else {
-          $(target).css("left", left);
-        }
-      }
-    }
-  } else {
-    // Closes the target toggle menu
-    $(target).addClass('hidden');
-    event_target.removeClass('toggled');
-    event_target.removeClass('toggled-logo');
-    if (logo_class != undefined) {
-      event_target.removeClass(logo_class);
-    }
+  function closeAll() {
+    toggles.forEach(function(toggle) {
+      toggle.close();
+    });
   }
 
-}
+  function toggleMenu(el) {
+    var $menu = $(el.attr('data-toggle'));
+    var anchorElement = $(el.attr('data-toggle-anchor-element') || el);
+    var anchorPosition = el.attr('data-toggle-anchor-position') || "left";
+    var togglePosition = el.attr('data-toggle-position') || "relative";
+    var toggleFn = open;
 
-$(function(){
+    function absolutePosition() {
+      var anchorOffset = anchorElement.offset();
+      var top = anchorOffset.top + anchorElement.outerHeight();
+      var left = anchorOffset.left;
 
-  $('.toggle').click( function(event){
-    event.stopPropagation();
-    toggleDropdown($(this));
-  });
+      if(anchorPosition == "right") {
+        var right = left - ($menu.outerWidth() - anchorElement.outerWidth());
+        $menu.css("left", right);
+      } else {
+        $menu.css("left", left);
+      }
 
-  $('.toggle-menu').click( function(event){
-    event.stopPropagation();
-  });
+      $menu.css("top", top);
+    }
 
-  $('.toggle-menu-feed-filters').click( function(event){
-    event.stopPropagation();
+    function open() {
+      // Opens the menu toggle menu
+      closeAll();
+
+      if (togglePosition == "absolute") {
+        absolutePosition();
+      }
+
+      $menu.removeClass('hidden');
+      el.addClass('toggled');
+      toggleFn = close;
+    }
+
+    function close() {
+      // Closes the target toggle menu
+      $menu.addClass('hidden');
+      el.removeClass('toggled');
+      toggleFn = open;
+    }
+
+    el.click(function(event) {
+      event.stopPropagation();
+      toggleFn();
+    });
+
+    $menu.click(function(event){
+      event.stopPropagation();
+    });
+
+    return {
+      close: close
+    };
+  }
+
+  // Initialize menu
+  toggles = _.toArray($('.toggle')).map(function(el) {
+    return toggleMenu($(el));
   });
 
   // All dropdowns are collapsed when clicking outside dropdown area
   $(document).click( function(){
-    closeAllToggleMenus();
+    closeAll();
   });
-
 });
