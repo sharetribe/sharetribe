@@ -108,23 +108,25 @@ module CommunityStylesheetCompiler
       val.present? ? "##{val}" : nil
     end
 
-    def to_string(val)
-      val.present? ? "\"#{val}\"" : nil
+    def image_to_string(image, style)
+      url = image.url(style)
+      image.present? ? "\"#{url}\"" : nil
     end
 
     def create_variable_hash(community)
       color1 = community.custom_color1
       color2 = community.custom_color2 || community.custom_color1
 
+
       hash = {
-        "link"                  => to_color(color1),
-        "link2"                 => to_color(color2),
-        "cover-photo-url"       => to_string(community.cover_photo.url(:hd_header)),
-        "small-cover-photo-url" => to_string(community.small_cover_photo.url(:hd_header)),
-        "wide-logo-lowres-url"  => to_string(community.wide_logo.url(:header)),
-        "wide-logo-highres-url" => to_string(community.wide_logo.url(:header_highres)),
-        "square-logo-lowres-url"  => to_string(community.logo.url(:header_icon)),
-        "square-logo-highres-url" => to_string(community.logo.url(:header_icon_highres))
+        "link"                    => to_color(color1),
+        "link2"                   => to_color(color2),
+        "cover-photo-url"         => image_to_string(community.cover_photo, :hd_header),
+        "small-cover-photo-url"   => image_to_string(community.small_cover_photo, :hd_header),
+        "wide-logo-lowres-url"    => image_to_string(community.wide_logo, :header),
+        "wide-logo-highres-url"   => image_to_string(community.wide_logo, :header_highres),
+        "square-logo-lowres-url"  => image_to_string(community.logo, :header_icon),
+        "square-logo-highres-url" => image_to_string(community.logo, :header_icon_highres)
       }
 
       Util::HashUtils.compact(hash)

@@ -144,7 +144,9 @@ class Admin::CommunitiesController < ApplicationController
     params[:community][:custom_color1] != community.custom_color1 ||
     params[:community][:custom_color2] != community.custom_color2 ||
     params[:community][:cover_photo] ||
-    params[:community][:small_cover_photo]
+    params[:community][:small_cover_photo] ||
+    params[:community][:wide_logo] ||
+    params[:community][:logo]
   end
 
   def update(community, params, path, action, &block)
