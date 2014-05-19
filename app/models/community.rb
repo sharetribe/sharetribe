@@ -12,7 +12,7 @@ class Community < ActiveRecord::Base
   has_many :event_feed_events, :dependent => :destroy
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy
-  has_many :menu_links, :dependent => :destroy
+  has_many :menu_links, :dependent => :destroy, :order => "sort_priority"
 
   has_many :categories, :order => "sort_priority"
   has_many :top_level_categories, :class_name => "Category", :conditions => ["parent_id IS NULL"], :order => "sort_priority"
