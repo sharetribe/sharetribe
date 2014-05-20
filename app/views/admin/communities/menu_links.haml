@@ -9,7 +9,7 @@
 .left-navi-section
   %h2= t(".menu_links", :community_name => @community.name(I18n.locale))
 
-  = form_for @community, :url => menu_links_admin_community_path(@community), :method => :put do |form|
+  = form_for @community, :url => menu_links_admin_community_path(@community), :method => :put, html: {id: "menu-links-form"} do |form|
 
     #menu-links-table
       .row.menu-link-container-padding

@@ -106,4 +106,6 @@ window.ST.createMenuLinksOrder = function(rowSelector) {
     }
   }
 
+  $("#menu-links-form").validate();
+
 };

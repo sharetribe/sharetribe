@@ -178,6 +178,11 @@ function add_validator_methods() {
     "number_decimals": true
   });
 
+  $.validator.addClassRules("url", {
+    url: true
+  });
+
+
   $.validator.
     addMethod("number_no_decimals", function(value, element, opts) {
       var numberRegex  = /^\d+?$/;

@@ -7,9 +7,9 @@
         .col-2
           = locale_name
         .col-5
-          = text_field_tag "menu_links[menu_link_attributes][#{menu_link_id}][translation_attributes][#{locale_value}][title]", menu_link.title(locale_value)
+          = text_field_tag "menu_links[menu_link_attributes][#{menu_link_id}][translation_attributes][#{locale_value}][title]", menu_link.title(locale_value), :class => "required"
         .col-5
-          = text_field_tag "menu_links[menu_link_attributes][#{menu_link_id}][translation_attributes][#{locale_value}][url]", menu_link.url(locale_value)
+          = text_field_tag "menu_links[menu_link_attributes][#{menu_link_id}][translation_attributes][#{locale_value}][url]", menu_link.url(locale_value), :class => "required url"
   .col-2.menu-links-actions
     - link_class = "menu-link-#{(show_locales ? "with" : "without")}-locale-remove"
 
