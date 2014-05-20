@@ -49,10 +49,14 @@ window.ST.createMenuLinksOrder = function(rowSelector) {
   fieldMap.forEach(initializeRemoveLink);
 
   function highestSortPriority(fieldMap) {
-    return _(fieldMap)
-      .map("sortPriority")
-      .max()
-      .value();
+    if(fieldMap.length) {
+      return _(fieldMap)
+        .map("sortPriority")
+        .max()
+        .value();
+    } else {
+      return 0;
+    }
   }
 
   var nextSortPriority = (function(startValue) {
