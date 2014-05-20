@@ -26,8 +26,8 @@ window.ST.createMenuLinksOrder = function(rowSelector) {
     var up = changedFields.up;
     var down = changedFields.down;
 
-    var upHidden = up.element.find(".menu-links-hidden-sort-priority");
-    var downHidden = down.element.find(".menu-links-hidden-sort-priority");
+    var upHidden = up.element.find(".menu-link-hidden-sort-priority");
+    var downHidden = down.element.find(".menu-link-hidden-sort-priority");
 
     var newUpValue = downHidden.val();
     var newDownValue = upHidden.val();

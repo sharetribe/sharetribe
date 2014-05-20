@@ -4,6 +4,8 @@
 - content_for :title_header do
   %h1= t("layouts.admin.admin")
 
+- show_locales = available_locales.size > 1
+
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@community) }
 
 .left-navi-section
@@ -12,28 +14,29 @@
   = form_for @community, :url => menu_links_admin_community_path(@community), :method => :put, html: {id: "menu-links-form"} do |form|
 
     #menu-links-table
-      .row.menu-link-container-padding
+      .row.menu-link-container-padding.visible-tablet
         .col-10
-          .col-2
+          - if show_locales
+            .col-2
+              = label_tag do
+                = t("admin.communities.menu_links.language")
+          %div{:class => show_locales ? "col-5" : "col-6"}
             = label_tag do
-              = "Language"
-          .col-5
+              = t("admin.communities.menu_links.title")
+          %div{:class => show_locales ? "col-5" : "col-6"}
             = label_tag do
-              = "Title"
-          .col-5
-            = label_tag do
-              = "URL"
+              = t("admin.communities.menu_links.url")
 
       .row#menu-links
         %script{type: "text/template", class: "template", id: "new-menu-link-tmpl"}
-          = render :partial => "new_menu_link", :locals => { :menu_link => MenuLink.new, :menu_link_id => "${id}" }
+          = render :partial => "new_menu_link", :locals => { :menu_link => MenuLink.new, :menu_link_id => "${id}", :sort_priority => "${sortPriority}", :show_locales => show_locales }
 
         - @community.menu_links.each do |menu_link|
-          = render :partial => "new_menu_link", :locals => { :menu_link => menu_link, :menu_link_id => menu_link.id }
+          = render :partial => "new_menu_link", :locals => { :menu_link => menu_link, :menu_link_id => menu_link.id, :sort_priority => menu_link.sort_priority, :show_locales => show_locales }
 
     .row#menu-links-empty
       .col-12
-        You don't have any additional menu links
+        = t("admin.communities.menu_links.empty")
 
     .row
       .col-12

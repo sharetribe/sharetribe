@@ -163,6 +163,12 @@ en:
         menu_links: "Menu links"
         save: "Save"
         add_menu_link: "Add new link to menu"
+        title_placeholder: "Link title"
+        url_placeholder: "http://example.com/en"
+        title: "Title"
+        language: "Language"
+        url: "URL"
+        empty: "You don't have any additional menu links"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"

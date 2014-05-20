@@ -1,15 +1,18 @@
 .row.without-margin.menu-link-container{:data => {:"field-id" => "#{menu_link_id}"}}
-  - show_locales = available_locales.size > 1
-
   .col-10
     - available_locales.each do |locale_name, locale_value|
       .row
-        .col-2
-          = locale_name
-        .col-5
-          = text_field_tag "menu_links[menu_link_attributes][#{menu_link_id}][translation_attributes][#{locale_value}][title]", menu_link.title(locale_value), :class => "required"
-        .col-5
-          = text_field_tag "menu_links[menu_link_attributes][#{menu_link_id}][translation_attributes][#{locale_value}][url]", menu_link.url(locale_value), :class => "required url"
+        - if show_locales
+          .col-2
+            = locale_name
+        %div{:class => show_locales ? "col-5" : "col-6"}
+          %span.hidden-tablet
+            = t("admin.communities.menu_links.title")
+          = text_field_tag "menu_links[menu_link_attributes][#{menu_link_id}][translation_attributes][#{locale_value}][title]", menu_link.title(locale_value), :class => "required", :placeholder => t("admin.communities.menu_links.title_placeholder", :locale => locale_value)
+        %div{:class => show_locales ? "col-5" : "col-6"}
+          %span.hidden-tablet
+            = t("admin.communities.menu_links.url")
+          = text_field_tag "menu_links[menu_link_attributes][#{menu_link_id}][translation_attributes][#{locale_value}][url]", menu_link.url(locale_value), :class => "required url", :placeholder => t("admin.communities.menu_links.url_placeholder", :locale => locale_value)
   .col-2.menu-links-actions
     - link_class = "menu-link-#{(show_locales ? "with" : "without")}-locale-remove"
 
@@ -20,4 +23,4 @@
     = link_to '#', :class => "menu-link-action-down admin-sort-button", :tabindex => "-1" do
       = icon_tag("directdown", ["icon-fix"])
 
-  = hidden_field_tag "menu_links[menu_link_attributes][#{menu_link_id}][sort_priority]", menu_link.sort_priority, :class => "menu-links-hidden-sort-priority"
+  = hidden_field_tag "menu_links[menu_link_attributes][#{menu_link_id}][sort_priority]", sort_priority, :class => "menu-link-hidden-sort-priority"

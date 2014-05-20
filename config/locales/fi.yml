@@ -159,6 +159,16 @@ fi:
         facebook_connect_secret: "Facebook - salainen avain"
         invalid_facebook_connect_secret: "Salainen avain muodostuu voi sisältää vain kirjaimia väliltä a-f ja numeroita väliltä 0-9."
         save: "Tallenna muutokset"
+      menu_links:
+        menu_links: "Valikkolinkit"
+        save: "Tallenna"
+        add_menu_link: "Lisää uusi linkki valikkoon"
+        title_placeholder: "Linkin otsikko"
+        url_placeholder: "http://example.com/fi"
+        title: "Otsikko"
+        language: "Kieli"
+        url: "Osoite (URL)"
+        empty: "Sinulla ei ole lisälinkkejä valikossa"
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
