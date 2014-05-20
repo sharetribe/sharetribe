@@ -276,6 +276,22 @@ class Community < ActiveRecord::Base
     community_memberships.build(attributes).update_attribute("admin", true)
   end
 
+  def menu_link_attributes=(attributes)
+    ids = []
+
+    attributes.each do |id, value|
+      if menu_link = menu_links.find_by_id(id)
+        menu_link.update_attributes(value)
+        ids << menu_link.id
+      else
+        menu_links.build(value)
+      end
+    end
+
+    links_to_destroy = menu_links.reject { |menu_link| menu_link.id.nil? || ids.include?(menu_link.id) }
+    links_to_destroy.each { |link| link.destroy }
+  end
+
   def self.domain_available?(domain)
     ! (RESERVED_SUBDOMAINS.include?(domain) || find_by_domain(domain).present?)
   end

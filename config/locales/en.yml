@@ -159,6 +159,10 @@ en:
         facebook_connect_secret: "Facebook client secret"
         invalid_facebook_connect_secret: "Client secret should contain only numbers and letters from a to f."
         save: "Save settings"
+      menu_links:
+        menu_links: "Menu links"
+        save: "Save"
+        add_menu_link: "Add new link to menu"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"

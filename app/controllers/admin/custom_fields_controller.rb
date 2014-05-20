@@ -71,6 +71,7 @@ class Admin::CustomFieldsController < ApplicationController
     params[:custom_field][:max] = ParamsService.parse_float(params[:custom_field][:max]) if params[:custom_field][:max].present?
 
     @custom_field.update_attributes(params[:custom_field])
+
     redirect_to admin_custom_fields_path
   end
 

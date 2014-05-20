@@ -1219,7 +1219,6 @@ function initialize_admin_integrations_form(locale, community_id, invalid_twitte
    });
 }
 
-
 function initialize_admin_listing_field_form_view(locale, form_id, option_count, min_count) {
   translate_validation_messages(locale);
 

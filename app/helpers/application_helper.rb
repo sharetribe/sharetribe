@@ -723,6 +723,13 @@ module ApplicationHelper
       }
     end
 
+    links << {
+      :text => t("admin.communities.menu_links.menu_links"),
+      :icon_class => icon_class("redirect"),
+      :path => menu_links_admin_community_path(community),
+      :name => "menu_links"
+    }
+
 
     if category_editing_allowed?
       links << {

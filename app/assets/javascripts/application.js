@@ -47,6 +47,7 @@
 //= require admin/custom_fields
 //= require admin/categories
 //= require admin/manage_members
+//= require admin/menu_links
 //= require payment_math
 //= require dropdown
 //= require jquery.nouislider

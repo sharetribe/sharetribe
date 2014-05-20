@@ -1,0 +1,18 @@
+@import "mixins/all";
+
+.menu-link-container-padding {
+  padding: lines(0.5);
+  padding-bottom: 0;
+}
+
+.menu-link-container {
+  @extend .menu-link-container-padding;
+
+  &:nth-of-type(odd) {
+    background: $highlight;
+  }
+}
+
+.menu-links-actions {
+  text-align: right;
+}
