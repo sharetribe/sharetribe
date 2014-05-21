@@ -19,7 +19,7 @@
 
   - Maybe(@current_community).menu_links.each do |menu_links|
     - menu_links.each do |menu_link|
-      = link_to menu_link.url(I18n.locale) do
+      = link_to menu_link.url(I18n.locale), :target => "_blank" do
         = icon_tag("redirect", ["icon-with-text"])
         = menu_link.title(I18n.locale)
 
