@@ -1,3 +1,22 @@
+module HeaderSteps
+  REMOVE_SELECTOR    = ".menu-link-remove"
+  UP_SELECTOR        = ".menu-link-action-up"
+  MENU_ROW_CLASS     = "menu-link-container"
+
+  def find_row_for_menu_link(title)
+    find(:xpath, "//div[contains(@class, '#{MENU_ROW_CLASS}')][descendant::input[@value='#{title}']]")
+  end
+
+  def find_remove_link_for_menu_link(title)
+    find_row_for_menu_link(title).find(REMOVE_SELECTOR)
+  end
+
+  def find_up_link_for_menu_link(title)
+    find_row_for_menu_link(title).find(UP_SELECTOR)
+  end
+end
+World(HeaderSteps)
+
 When(/^I click the community logo$/) do
   find("#header-logo").click
 end
@@ -6,9 +25,9 @@ When(/^I open language menu$/) do
   find("#header-locales-menu").click
 end
 
-Then(/^I should see "(.*)" on the menu$/) do |language|
+Then(/^I should (not see|see) "(.*)" on the menu$/) do |action, language|
   steps %Q{
-    Then I should see "#{language}" within "#header-menu-toggle-menu"
+    Then I should #{action} "#{language}" within "#header-menu-toggle-menu"
   }
 end
 
@@ -102,4 +121,21 @@ Given(/^there is a menu link "(.*?)" to "(.*?)"$/) do |title, url|
   link.translations << FactoryGirl.build(:menu_link_translation, title: title, url: url, menu_link: link)
   link.save!
   @current_community.menu_links << link
+end
+
+Given(/^there is a menu link$/) do
+  @menu_link = FactoryGirl.create(:menu_link, community: @current_community)
+  @current_community.menu_links << @menu_link
+end
+
+Given(/^the title is "(.*?)" and the URL is "(.*?)" with locale "(.*?)" for that menu link$/) do |title, url, locale|
+  @menu_link.translations << FactoryGirl.create(:menu_link_translation, title: title, url: url, locale: locale)
+end
+
+When(/^I remove menu link with title "(.*?)"$/) do |title|
+  find_remove_link_for_menu_link(title).click
+end
+
+When(/^I click up for menu link "(.*?)"$/) do |title|
+  find_up_link_for_menu_link(title).click
 end

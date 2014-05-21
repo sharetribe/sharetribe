@@ -279,12 +279,12 @@ class Community < ActiveRecord::Base
   def menu_link_attributes=(attributes)
     ids = []
 
-    attributes.each do |id, value|
+    attributes.each_with_index do |(id, value), i|
       if menu_link = menu_links.find_by_id(id)
-        menu_link.update_attributes(value)
+        menu_link.update_attributes(value.merge(sort_priority: i))
         ids << menu_link.id
       else
-        menu_links.build(value)
+        menu_links.build(value.merge(sort_priority: i))
       end
     end
 

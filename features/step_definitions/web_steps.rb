@@ -37,6 +37,21 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
+module FindHelpers
+  def find_field_with_value(value)
+    matches = all(:xpath, "//input[@value=\"#{value}\"]")
+
+    exact_match = if matches.length == 0
+      throw "Couldn't find field with value '#{value}'"
+    elsif matches.length > 1
+      throw "Ambiguous match, found #{matches.length} fields with value '#{value}'"
+    else
+      matches.first
+    end
+  end
+end
+World(FindHelpers)
+
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end
@@ -329,4 +344,8 @@ end
 Then(/^"([^"]*)" should have CSS property "([^"]*)" with value "([^"]*)"$/) do |selector, property, value|
   actual_value = page.evaluate_script("$('#{selector}').css('#{property}')");
   actual_value.should be_eql(value)
+end
+
+When(/^I change field "([^"]*)" to "([^"]*)"$/) do |from, to|
+  find_field_with_value(from).set(to)
 end

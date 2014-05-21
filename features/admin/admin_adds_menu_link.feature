@@ -16,8 +16,5 @@ Feature: Admin adds menu link
     Then I should see "Tribe details updated"
     When I open the menu
     Then I should see "Sharetribe Blog" on the menu
-
-  # Implement the following tests if needed
-  # Scenario: Admin edits menu link
-  # Scenario: Admin edits menu link order
-  # Scenario: Admin removes menu link
+    When I follow "Sharetribe Blog"
+    Then I should be on URL http://blog.sharetribe.com/
