@@ -11,7 +11,6 @@ window.ST.createMenuLinksOrder = function(rowSelector) {
     return {
       id: $(row).data("field-id"),
       element: $(row),
-      sortPriority: Number($(row).find(".menu-link-hidden-sort-priority").val()),
       up: $(".menu-link-action-up", row),
       down: $(".menu-link-action-down", row)
     };
@@ -25,15 +24,6 @@ window.ST.createMenuLinksOrder = function(rowSelector) {
   orderManager.order.changes().onValue(function(changedFields) {
     var up = changedFields.up;
     var down = changedFields.down;
-
-    var upHidden = up.element.find(".menu-link-hidden-sort-priority");
-    var downHidden = down.element.find(".menu-link-hidden-sort-priority");
-
-    var newUpValue = downHidden.val();
-    var newDownValue = upHidden.val();
-
-    upHidden.val(newUpValue);
-    downHidden.val(newDownValue);
   });
 
   function initializeRemoveLink(obj) {
@@ -48,37 +38,10 @@ window.ST.createMenuLinksOrder = function(rowSelector) {
   // Initialize remove links
   fieldMap.forEach(initializeRemoveLink);
 
-  function highestSortPriority(fieldMap) {
-    if(fieldMap.length) {
-      return _(fieldMap)
-        .map("sortPriority")
-        .max()
-        .value();
-    } else {
-      return 0;
-    }
-  }
-
-  var nextSortPriority = (function(startValue) {
-    var i = startValue;
-    return function() {
-      i += 1;
-      return i;
-    };
-  })(highestSortPriority(fieldMap));
-
-  var nextId = (function() {
-    var i = 0;
-    return function() {
-      i += 1;
-      return i;
-    };
-  })();
-
   $("#menu-links-add").click(function(e) {
     e.preventDefault();
     var id = "jsnew-" + nextId();
-    var row = $(newMenuLinkTmpl({id: id, sortPriority: nextSortPriority()}));
+    var row = $(newMenuLinkTmpl({id: id}));
     $menuLinks.append(row);
     var newField = {
       id: id,
