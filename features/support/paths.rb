@@ -4,7 +4,7 @@ module NavigationHelpers
   #   When /^I go to (.+)$/ do |page_name|
   #
   # step definition in web_steps.rb
-  #
+  # rubocop:disable CyclomaticComplexity
   def path_to(page_name)
     case page_name
 
@@ -118,6 +118,7 @@ module NavigationHelpers
       end
     end
   end
+  # rubocop:enable CyclomaticComplexity
 end
 
 World(NavigationHelpers)
