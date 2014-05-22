@@ -17,6 +17,15 @@ module HeaderSteps
 end
 World(HeaderSteps)
 
+Given(/^there is a menu link$/) do
+  @menu_link = FactoryGirl.create(:menu_link, community: @current_community)
+  @current_community.menu_links << @menu_link
+end
+
+Given(/^the title is "(.*?)" and the URL is "(.*?)" with locale "(.*?)" for that menu link$/) do |title, url, locale|
+  @menu_link.translations << FactoryGirl.create(:menu_link_translation, title: title, url: url, locale: locale)
+end
+
 When(/^I click the community logo$/) do
   find("#header-logo").click
 end
@@ -114,28 +123,4 @@ Then(/^I should not be logged in$/) do
   else
     assert page.has_css?("#header-login-link")
   end
-end
-
-Given(/^there is a menu link "(.*?)" to "(.*?)"$/) do |title, url|
-  link = FactoryGirl.build(:menu_link, community: @current_community)
-  link.translations << FactoryGirl.build(:menu_link_translation, title: title, url: url, menu_link: link)
-  link.save!
-  @current_community.menu_links << link
-end
-
-Given(/^there is a menu link$/) do
-  @menu_link = FactoryGirl.create(:menu_link, community: @current_community)
-  @current_community.menu_links << @menu_link
-end
-
-Given(/^the title is "(.*?)" and the URL is "(.*?)" with locale "(.*?)" for that menu link$/) do |title, url, locale|
-  @menu_link.translations << FactoryGirl.create(:menu_link_translation, title: title, url: url, locale: locale)
-end
-
-When(/^I remove menu link with title "(.*?)"$/) do |title|
-  find_remove_link_for_menu_link(title).click
-end
-
-When(/^I click up for menu link "(.*?)"$/) do |title|
-  find_up_link_for_menu_link(title).click
 end
