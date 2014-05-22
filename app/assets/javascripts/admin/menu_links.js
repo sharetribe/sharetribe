@@ -1,7 +1,7 @@
 window.ST = window.ST || {};
 
 window.ST.createMenuLinksOrder = function(rowSelector) {
-  $menuLinks = $("#menu-links");
+  var $menuLinks = $("#menu-links");
   var newMenuLinkTmpl = _.template($("#new-menu-link-tmpl").html());
 
   /**
@@ -17,14 +17,23 @@ window.ST.createMenuLinksOrder = function(rowSelector) {
   }).get();
 
   var fieldCount = fieldMap.length;
+
+  function updateTableVisibility() {
+    var $menuLinksTable = $("#menu-links-table");
+    var $menuLinksEmpty = $("#menu-links-empty");
+
+    if(fieldCount > 0) {
+      $menuLinksTable.show();
+      $menuLinksEmpty.hide();
+    } else {
+      $menuLinksTable.hide();
+      $menuLinksEmpty.show();
+    }
+  }
+
   updateTableVisibility();
 
   var orderManager = window.ST.orderManager(fieldMap);
-
-  orderManager.order.changes().onValue(function(changedFields) {
-    var up = changedFields.up;
-    var down = changedFields.down;
-  });
 
   function initializeRemoveLink(obj) {
     $(".menu-link-remove", obj.element).click(function() {
@@ -40,7 +49,7 @@ window.ST.createMenuLinksOrder = function(rowSelector) {
 
   $("#menu-links-add").click(function(e) {
     e.preventDefault();
-    var id = "jsnew-" + nextId();
+    var id = _.uniqueId("jsnew-");
     var row = $(newMenuLinkTmpl({id: id}));
     $menuLinks.append(row);
     var newField = {
@@ -59,19 +68,6 @@ window.ST.createMenuLinksOrder = function(rowSelector) {
     fieldCount++;
     updateTableVisibility();
   });
-
-  function updateTableVisibility() {
-    var $menuLinksTable = $("#menu-links-table");
-    var $menuLinksEmpty = $("#menu-links-empty");
-
-    if(fieldCount > 0) {
-      $menuLinksTable.show();
-      $menuLinksEmpty.hide();
-    } else {
-      $menuLinksTable.hide();
-      $menuLinksEmpty.show();
-    }
-  }
 
   $("#menu-links-form").validate();
 
