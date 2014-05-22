@@ -248,7 +248,18 @@ class Community < ActiveRecord::Base
   end
 
   def self.with_customizations
-    where("custom_color1 IS NOT NULL OR cover_photo_file_name IS NOT NULL OR small_cover_photo_file_name IS NOT NULL")
+    customization_columns = [
+      "custom_color1",
+      "custom_color2",
+      "cover_photo_file_name",
+      "small_cover_photo_file_name",
+      "wide_logo_file_name",
+      "logo_file_name"
+    ]
+
+    sql = customization_columns.join(" IS NOT NULL OR ")
+
+    where(sql)
   end
 
   def active_poll
