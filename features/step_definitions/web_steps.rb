@@ -275,7 +275,7 @@ Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should not be checked$/ do |
   end
 end
 
-Then /^(?:|I )should be on (URL)? (.+)$/ do |match_url, page|
+Then /^(?:|I )should be on (URL )?(.+)$/ do |match_url, page|
   match_url = match_url == "URL"
 
   if match_url
