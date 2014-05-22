@@ -60,6 +60,10 @@ window.ST.orderManager = function(fieldMap) {
 
   var eventBus = new Bacon.Bus();
 
+  eventBus.onValue(function(change) {
+    swapDomElements(change.down.element, change.up.element);
+  });
+
   /**
     For each custom field, setup click listeners (streams, using Bacon)
   */
@@ -87,7 +91,6 @@ window.ST.orderManager = function(fieldMap) {
     var downEl = downField.element;
     var upEl = upField.element;
 
-    swapDomElements(downEl, upEl);
     fieldMap = utils.swapArrayElements(fieldMap, downId, upId);
 
     return Bacon.once({down: downField, up: upField, order: getOrder()});
