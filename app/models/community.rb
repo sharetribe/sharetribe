@@ -257,7 +257,7 @@ class Community < ActiveRecord::Base
       "logo_file_name"
     ]
 
-    sql = customization_columns.join(" IS NOT NULL OR ")
+    sql = customization_columns.map { |column_name| column_name + " IS NOT NULL" }.join(" OR ")
 
     where(sql)
   end
