@@ -12,7 +12,7 @@ class Community < ActiveRecord::Base
   has_many :event_feed_events, :dependent => :destroy
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy
-  has_many :menu_links, :dependent => :destroy
+  has_many :menu_links, :dependent => :destroy, :order => "sort_priority"
 
   has_many :categories, :order => "sort_priority"
   has_many :top_level_categories, :class_name => "Category", :conditions => ["parent_id IS NULL"], :order => "sort_priority"
@@ -274,6 +274,22 @@ class Community < ActiveRecord::Base
   # Makes the creator of the community a member and an admin
   def admin_attributes=(attributes)
     community_memberships.build(attributes).update_attribute("admin", true)
+  end
+
+  def menu_link_attributes=(attributes)
+    ids = []
+
+    attributes.each_with_index do |(id, value), i|
+      if menu_link = menu_links.find_by_id(id)
+        menu_link.update_attributes(value.merge(sort_priority: i))
+        ids << menu_link.id
+      else
+        menu_links.build(value.merge(sort_priority: i))
+      end
+    end
+
+    links_to_destroy = menu_links.reject { |menu_link| menu_link.id.nil? || ids.include?(menu_link.id) }
+    links_to_destroy.each { |link| link.destroy }
   end
 
   def self.domain_available?(domain)

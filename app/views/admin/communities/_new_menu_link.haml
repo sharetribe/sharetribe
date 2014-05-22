@@ -1,0 +1,24 @@
+.row.without-margin.menu-link-container{:data => {:"field-id" => "#{menu_link_id}"}}
+  .col-10
+    - available_locales.each do |locale_name, locale_value|
+      .row
+        - if show_locales
+          .col-2
+            = locale_name
+        %div{:class => show_locales ? "col-5" : "col-6"}
+          %span.hidden-tablet
+            = t("admin.communities.menu_links.title")
+          = text_field_tag "menu_links[menu_link_attributes][#{menu_link_id}][translation_attributes][#{locale_value}][title]", menu_link.title(locale_value), :class => "required", :placeholder => t("admin.communities.menu_links.title_placeholder", :locale => locale_value), id: "menu-link-title-#{menu_link_id}-#{locale_value}"
+        %div{:class => show_locales ? "col-5" : "col-6"}
+          %span.hidden-tablet
+            = t("admin.communities.menu_links.url")
+          = text_field_tag "menu_links[menu_link_attributes][#{menu_link_id}][translation_attributes][#{locale_value}][url]", menu_link.url(locale_value), :class => "required url", :placeholder => t("admin.communities.menu_links.url_placeholder", :locale => locale_value), id: "menu-link-url-#{menu_link_id}-#{locale_value}"
+  .col-2.menu-links-actions
+    - link_class = "menu-link-#{(show_locales ? "with" : "without")}-locale-remove"
+
+    = link_to "#", :class => "menu-link-remove #{link_class}", :tabindex => "-1", :id => "menu-link-remove-#{menu_link_id}" do
+      = icon_tag("cross", ["icon-fix"])
+    = link_to '#', :class => "menu-link-action-up admin-sort-button", :tabindex => "-1" do
+      = icon_tag("directup", ["icon-fix"])
+    = link_to '#', :class => "menu-link-action-down admin-sort-button", :tabindex => "-1" do
+      = icon_tag("directdown", ["icon-fix"])

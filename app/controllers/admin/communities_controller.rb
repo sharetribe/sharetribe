@@ -48,6 +48,22 @@ class Admin::CommunitiesController < ApplicationController
     @community = @current_community
   end
 
+  def menu_links
+    @selected_tribe_navi_tab = "admin"
+    @selected_left_navi_link = "menu_links"
+    @community = @current_community
+  end
+
+  def update_menu_links
+    @community = @current_community
+
+    update(@community,
+            Maybe(params)[:menu_links].or_else({menu_link_attributes: {}}),
+            menu_links_admin_community_path(@community),
+            :menu_links)
+
+  end
+
   def posting_allowed
     CommunityMembership.where(:person_id => params[:allowed_to_post]).update_all("can_post_listings = 1")
     CommunityMembership.where(:person_id => params[:disallowed_to_post]).update_all("can_post_listings = 0")

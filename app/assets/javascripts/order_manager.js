@@ -12,6 +12,18 @@ window.ST = window.ST || {};
     up: {id: <option.id>, element: <DOM element> }, // Field that went up
     order: [<option.id>, <option.id>, <option.id> , ...] // Current order
   }
+
+  Params:
+
+  fieldMap: [
+    {
+      id: model id,
+      element: jQuery element,
+      up: Up arrow jQuery element,
+      down: Down arrow jQuery element
+    },
+    ...
+  ]
 */
 window.ST.orderManager = function(fieldMap) {
   var utils = ST.utils;
@@ -48,6 +60,10 @@ window.ST.orderManager = function(fieldMap) {
 
   var eventBus = new Bacon.Bus();
 
+  eventBus.onValue(function(change) {
+    swapDomElements(change.down.element, change.up.element);
+  });
+
   /**
     For each custom field, setup click listeners (streams, using Bacon)
   */
@@ -75,7 +91,6 @@ window.ST.orderManager = function(fieldMap) {
     var downEl = downField.element;
     var upEl = upField.element;
 
-    swapDomElements(downEl, upEl);
     fieldMap = utils.swapArrayElements(fieldMap, downId, upId);
 
     return Bacon.once({down: downField, up: upField, order: getOrder()});

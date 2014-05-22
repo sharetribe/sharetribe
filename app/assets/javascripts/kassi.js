@@ -178,6 +178,11 @@ function add_validator_methods() {
     "number_decimals": true
   });
 
+  $.validator.addClassRules("url", {
+    url: true
+  });
+
+
   $.validator.
     addMethod("number_no_decimals", function(value, element, opts) {
       var numberRegex  = /^\d+?$/;
@@ -1218,7 +1223,6 @@ function initialize_admin_integrations_form(locale, community_id, invalid_twitte
      }
    });
 }
-
 
 function initialize_admin_listing_field_form_view(locale, form_id, option_count, min_count) {
   translate_validation_messages(locale);

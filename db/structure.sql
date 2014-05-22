@@ -589,6 +589,7 @@ CREATE TABLE `menu_links` (
   `community_id` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
+  `sort_priority` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1851,3 +1852,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140519102507');
 INSERT INTO schema_migrations (version) VALUES ('20140519123344');
 
 INSERT INTO schema_migrations (version) VALUES ('20140519132638');
+
+INSERT INTO schema_migrations (version) VALUES ('20140519164823');

@@ -42,6 +42,10 @@ $bottom-gutter: lines(0.5);
 .row {
   @include pie-clearfix;
   margin-bottom: $bottom-gutter;
+
+  &.without-margin {
+    margin-bottom: 0;
+  }
 }
 
 .row-with-divider {

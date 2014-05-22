@@ -4,7 +4,7 @@ module NavigationHelpers
   #   When /^I go to (.+)$/ do |page_name|
   #
   # step definition in web_steps.rb
-  #
+  # rubocop:disable CyclomaticComplexity
   def path_to(page_name)
     case page_name
 
@@ -84,6 +84,8 @@ module NavigationHelpers
       edit_look_and_feel_admin_community_path(:id => @current_community.id)
     when /the integrations admin page/
       integrations_admin_community_path(:id => @current_community.id)
+    when /the menu links admin page/
+      menu_links_admin_community_path(:id => @current_community.id)
 
     # the following are examples using path_to_pickle
 
@@ -116,6 +118,7 @@ module NavigationHelpers
       end
     end
   end
+  # rubocop:enable CyclomaticComplexity
 end
 
 World(NavigationHelpers)
