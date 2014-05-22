@@ -16,5 +16,3 @@ Feature: Admin adds menu link
     Then I should see "Tribe details updated"
     When I open the menu
     Then I should see "Sharetribe Blog" on the menu
-    When I follow "Sharetribe Blog"
-    Then I should be on URL http://blog.sharetribe.com/
