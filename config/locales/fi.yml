@@ -123,15 +123,15 @@ fi:
         listing_comments_in_use: "Käyttäjät voivat kommentoida ilmoituksia (kommentit näkyvät muille käyttäjille)"
         email_preferences: Sähköpostiasetukset
         automatic_newsletters: "Lähetä automaattinen uutiskirje kaikille käyttäjille (paitsi jos he lopettavat tilauksen)"
-        automatic_newsletter_frequency: "Lähetä automaattinen uutiskirje: %{frequency_dropdown}"
         email_admins_about_new_members: "Lähetä sähköpostia ylläpitäjälle aina kun uusi käyttäjä liittyy yhteisöön"
         integrations: "Kolmansien osapuolten sovellukset"
         google_analytics_key: "Google Analytics tracking ID (classic account)"
         twitter_handle: "Twitter-tili (käytetään ilmoitussivulla olevan twitter-napin yhteydessä)"
         update_settings: "Update settings"
         automatically_confirmed: "Ilmoitus merkitään toteutuneeksi automaattisesti kun hyväksymisestä (tai maksusta) on kulunut %{days_dropdown} päivää."
-        newsletter_daily: "Päivittäin"
-        newsletter_weekly: "Viikoittain"
+        automatic_newsletter_frequency: "Lähetä automaattinen uutiskirje: %{frequency_dropdown}"
+        newsletter_daily: Päivittäin
+        newsletter_weekly: Viikoittain
       manage_members:
         manage_members: Käyttäjät
         email: Sähköposti
@@ -458,20 +458,20 @@ fi:
       cancel: "Ei toteutunut"
   braintree_accounts:
     new:
-      add_payout_details: ~
+      add_payout_details: ""
       first_name: ~
-      last_name: ~
-      email: ~
-      phone: ~
-      address_street_address: ~
-      address_postal_code: ~
-      address_locality: ~
-      address_region: ~
-      date_of_birth: ~
-      ssn: ~
-      routing_number: ~
-      account_number: ~
-      save: ~
+      last_name: ""
+      email: ""
+      phone: ""
+      address_street_address: ""
+      address_postal_code: ""
+      address_locality: ""
+      address_region: ""
+      date_of_birth: ""
+      ssn: ""
+      routing_number: ""
+      account_number: ""
+      save: ""
     show:
       payout_details: ~
       first_name: ~
@@ -490,10 +490,10 @@ fi:
     edit:
       new_credit_card_payment: ~
       payment_receiver: ~
-      cardholder_name: ~
-      credit_card_number: ~
-      cvv: ~
-      credit_card_expiration_date: ~
+      cardholder_name: ""
+      credit_card_number: ""
+      cvv: ""
+      credit_card_expiration_date: ""
       confirm_payment: ~
   communities:
     map_bubble:
@@ -908,8 +908,8 @@ fi:
     create_new_marketplace: "Luo uusi verkkotori"
     contact_us: "Ota yhteyttä"
     profile: "Oma profiili"
-    invite: Kutsu uusia jäseniä
-    login: Kirjaudu sisään
+    invite: "Kutsu uusia jäseniä"
+    login: "Kirjaudu sisään"
     signup: Rekisteröidy
     menu: Valikko
   homepage:

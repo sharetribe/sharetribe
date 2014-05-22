@@ -129,6 +129,9 @@ de:
         twitter_handle: ~
         update_settings: "Einstellungen erneuern"
         automatically_confirmed: ~
+        automatic_newsletter_frequency: ~
+        newsletter_daily: ~
+        newsletter_weekly: ~
       manage_members:
         manage_members: "Benutzer verwalten"
         email: E-Mail
@@ -136,11 +139,11 @@ de:
         join_date: Beigetreten
         admin: Administrator
         posting_allowed: "Veröffentlichen von Einträgen erlaubt"
-        remove_user: "Benutzer entfernen"
+        ban_user: ~
         saving_user_status: Speichern...
         save_user_status_successful: Gespeichert
         save_user_status_error: "Speichern fehlgeschlagen. Bitte erneuere die Seite und versuch es noch einmal."
-        remove_user_confirmation: "Dies entfernt den Benutzer von der Community und wird einen erneuten Zugriff mit diesem Account auf die Seite verhindern. Bist du sicher, dass du fortfahren möchtest?"
+        ban_user_confirmation: ~
       integrations:
         integrations: Integrationen
         twitter_handle: ~
@@ -906,6 +909,9 @@ de:
     contact_us: Kontakt
     profile: Profil
     invite: Einladung
+    login: ~
+    signup: ~
+    menu: ~
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Zusätzlich gibt es ein <b>anderes Angebot</b>,"

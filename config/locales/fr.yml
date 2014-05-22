@@ -129,6 +129,9 @@ fr:
         twitter_handle: "Nom Twitter (utilisé dans le bouton \"Tweeter\" sur les pages des annonces)"
         update_settings: "Mettre à jour les paramètres"
         automatically_confirmed: "Les annonces sont automatiquement marquées comme réalisées %{days_dropdown} jour(s) après qu'elles aient été acceptées (ou payées)"
+        automatic_newsletter_frequency: "Fréquence d'envoi de la newsletter : %{frequency_dropdown}"
+        newsletter_daily: Quotidienne
+        newsletter_weekly: Hebdomadaire
       manage_members:
         manage_members: "Gérer les utilisateurs"
         email: Email
@@ -136,11 +139,11 @@ fr:
         join_date: "Date d'inscription"
         admin: Administrateur
         posting_allowed: "Dépôt d'annonce autorisé"
-        remove_user: "Supprimer l'utilisateur"
+        ban_user: "Bannir l'utilisateur"
         saving_user_status: Sauvegarde...
         save_user_status_successful: Sauvegardé
         save_user_status_error: "La sauvegarde a échoué. Veuillez rafraîchir la page et essayer de nouveau."
-        remove_user_confirmation: "Cela supprime l'utilisateur de cette tribu est l'empêche d'accéder de nouveau au site avec ce compte. Etes-vous sûr(e) de vouloir continuer ?"
+        ban_user_confirmation: "Ceci supprime l'utilisateur de cette tribu et l'empêche d’y accéder de nouveau avec ce compte. Êtes-vous sûr de vouloir faire cela ?"
       integrations:
         integrations: Intégrations
         twitter_handle: "Nom Twitter"
@@ -905,7 +908,10 @@ fr:
     create_new_marketplace: "Créer une nouvelle tribu"
     contact_us: "Nous contacter"
     profile: Profil
-    invite: Inviter
+    invite: "Inviter des nouveaux membres"
+    login: "Se connecter"
+    signup: S'inscrire
+    menu: Menu
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Il y a aussi <b>une autre offre</b>,"

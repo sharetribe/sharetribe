@@ -34,62 +34,62 @@ pt-BR:
           cancel: ~
     communities:
       edit_details:
-        community_details: ~
+        community_details: "Detalhes da comunidade"
         community_look_and_feel: ~
         edit_community: "Editar detalhes da comunidade %{community_name}"
         community_name: "Nome da comunidade"
-        edit_community_name_description: ~
-        community_slogan: ~
-        edit_community_slogan_description: ~
-        community_description: ~
-        edit_community_description_description: ~
-        community_search_placeholder: ~
-        edit_community_search_placeholder_description: ~
+        edit_community_name_description: "O nome da sua comunidade. Será mostrado a usuários e em vários outros locais."
+        community_slogan: "Slogan da comunidade"
+        edit_community_slogan_description: "Será mostrado na página inicial da comunidade para os usuários que não estão conectados. %{see_how_it_looks_like}"
+        community_description: "Descrição da comunidade"
+        edit_community_description_description: "Será mostrado na página inicial da comunidade para os usuários que não estão conectados. %{see_how_it_looks_like}"
+        community_search_placeholder: "Auxílio na busca de texto"
+        edit_community_search_placeholder_description: "Será mostrado na página inicial da comunidade como um texto de espaço reservado na barra de pesquisa. %{see_how_it_looks_like}"
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
         update_information: ~
         invite_people: "Convide as pessoas para esta comunidade"
-        edit_signup_info: ~
+        edit_signup_info: "Informações da conta"
         edit_signup_info_description: "Este é um texto de informação que pode ser mostrado para os usuários na página de inscrição. Lá você pode dar aos usuários instruções para se inscrever, informações como onde conseguir um convite, etc. Por padrão não há instruções."
-        edit_info: ~
+        edit_info: "Editar informações"
         see_how_it_looks_like: ~
         verification_to_post_listings_info_content: ~
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: ~
       edit_look_and_feel:
-        edit_community_look_and_feel: ~
+        edit_community_look_and_feel: "Editar comunidade %{community_name} visual."
         community_logo: ~
         community_logo_icon: "logo de ícones"
-        community_cover_photo: ~
-        small_community_cover_photo: ~
-        favicon: ~
-        favicon_info_text: ~
-        community_custom_color1: ~
-        community_custom_color2: "Segunda cor"
+        community_cover_photo: "Foto da capa"
+        small_community_cover_photo: "Foto da capa pequena"
+        favicon: Favicon
+        favicon_info_text: "Favicon irá substituir o logotipo Sharetribe padrão. As dimensões devem ser 32x32 pixels e a imagem carregada será redimensionado para essas dimensões."
+        community_custom_color1: "Cor Principal"
+        community_custom_color2: "Cor secundaria"
         logo_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions: ~
-        cover_photo_visibility: ~
-        cover_photo_instructions_text_with_dimensions: ~
-        small_cover_photo_visibility: ~
-        small_cover_photo_instructions_text_with_dimensions: ~
-        main_content_width: ~
-        custom_color1_instructions_text: ~
-        custom_color2_instructions_text: ~
-        default_browse_view: ~
-        default_browse_view_instructions_text: ~
-        grid: ~
+        cover_photo_visibility: "Foto da capa apresentada na página inicial para usuários não registrados."
+        cover_photo_instructions_text_with_dimensions: "A foto será redimensionada para %{width} x %{height} pixel e imagens mais altas serão cortadas no meio. %{see_how_it_looks_like}"
+        small_cover_photo_visibility: "Foto pequena da capa mostrado para usuários não registrados."
+        small_cover_photo_instructions_text_with_dimensions: "A foto será redimensionada para %{width} x %{height} pixel e imagens mais altas serão cortadas no meio."
+        main_content_width: "Ao escolher fotos de capa, por favor, note que o conteúdo principal da página é %{main_width} pixels de largura, no máximo. Lembre-se de verificar também como a sua foto da capa parece nas telas menores (por exemplo, usando uma janela do navegador mais estreita)."
+        custom_color1_instructions_text: "Você pode mudar a cor principal da interface de usuário desta comunidade, inserindo um valor de cor hex. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\"> ColorPicker.com </ a> pode ajudar você a escolher a cor e copie o código aqui."
+        custom_color2_instructions_text: "Você pode alterar a segunda cor da interface do usuário dessa comunidade, inserindo um valor de cor hex."
+        default_browse_view: "Visualização navegação padrão"
+        default_browse_view_instructions_text: "Visualização de navegação padrão é usado na página inicial para definir a forma como as listas são exibidas por padrão."
+        grid: Grid
         list: ~
         map: ~
-        name_display_type: ~
-        name_display_type_instructions_text: ~
-        full_name: ~
-        first_name_with_initial: ~
-        first_name_only: ~
+        name_display_type: "Tipo de exibição do nome usuário."
+        name_display_type_instructions_text: "Escolha como o nome de cada usuário será mostrado no site"
+        full_name: "Nome completo (Primeiro Último)"
+        first_name_with_initial: "Primeiro nome com a inicial (Primeiro L)"
+        first_name_only: "Primeiro nome (Somente)"
         invalid_color_code: ~
       edit_welcome_email:
         welcome_email_content: "Conteúdo do e-mail de boas-vindas"
-        welcome_email_content_description: ~
+        welcome_email_content_description: "A mensagem abaixo será enviada para cada novo membro quando eles se registrarem. Você pode personalizar a mensagem. Clicando em '%{send_test_message_link}' você pode ter uma pré-visualização para o seu endereço de e-mail, para que você possa ver como fica em um cliente de e-mail."
         edit_message: "Editar mensagem"
         send_test_message: "Enviar mensagem de teste"
       settings:
@@ -99,33 +99,36 @@ pt-BR:
         access: Acesso
         join_with_invite_only: "Os usuários só podem participar desta comunidade com um convite de outro usuário"
         users_can_invite_new_users: "Todos os usuários podem convidar novos usuários a esta comunidade"
-        private: ~
-        require_verification_to_post_listings: ~
-        listing_preferences: ~
-        show_listing_publishing_date: ~
-        show_category_in_listing_list: ~
-        hide_expiration_date: ~
-        listing_comments_in_use: ~
-        email_preferences: ~
-        automatic_newsletters: ~
-        email_admins_about_new_members: ~
-        integrations: ~
-        google_analytics_key: ~
+        private: "Esta comunidade é privada (apenas usuários registrados podem ver o conteúdo)"
+        require_verification_to_post_listings: "Somente usuários verificados por administrador pode postar novos anúncios"
+        listing_preferences: "Listagem preferências"
+        show_listing_publishing_date: "Data de publicação de exibição da lista na página de listagem"
+        show_category_in_listing_list: "Mostrar lista tipo na exibição de lista"
+        hide_expiration_date: "Não requer uma data de expiração"
+        listing_comments_in_use: "Permitir aos usuários postar comentários para listagens (visível a todos os outros usuários)"
+        email_preferences: "Preferências de E-mail"
+        automatic_newsletters: "Enviar automáticamente boletins diários / semanais para todos os usuários (a menos que optar por sair)"
+        email_admins_about_new_members: "Envie um e-mail sempre para adminstrador quando um novo usuário se cadastrar"
+        integrations: Integrações
+        google_analytics_key: "Google Analytics tracking ID (classic account)"
         twitter_handle: ~
         update_settings: "Configurações de atualização"
         automatically_confirmed: ~
+        automatic_newsletter_frequency: ~
+        newsletter_daily: Diaramente
+        newsletter_weekly: Semanal
       manage_members:
         manage_members: "Gerenciar usuários"
-        email: ~
-        name: ~
-        join_date: ~
+        email: E-mail
+        name: Nome
+        join_date: Cadastrado
         admin: Administrador
         posting_allowed: "Envio permitido"
-        remove_user: "Remover usuário"
+        ban_user: "Banir usuário"
         saving_user_status: Gravando...
-        save_user_status_successful: ~
-        save_user_status_error: ~
-        remove_user_confirmation: ~
+        save_user_status_successful: Salvo
+        save_user_status_error: "Erro ao gravar. Por favor, atualize a página e tente novamente"
+        ban_user_confirmation: "Deseja remove o usuário da comunidade e os impedir de acessar o site novamente com esta conta. Tem certeza de que deseja continuar?"
       integrations:
         integrations: ~
         twitter_handle: ~
@@ -183,8 +186,8 @@ pt-BR:
         date: ~
     emails:
       new:
-        send_email_to_members: ~
-        send_email_to_members_title: ~
+        send_email_to_members: "Envie um e-mail aos membros"
+        send_email_to_members_title: "Enviar um e-mail para todos os membros desta comunidade"
         email_subject: "Assunto do e-mail"
         email_content: "Conteúdo do e-mail"
         email_content_placeholder: "O que você gostaria de dizer aos membros?"
@@ -795,7 +798,7 @@ pt-BR:
       remember_to_give_feedback_to: "Lembrete: Lembre de dar feedback para %{name}"
       you_have_not_given_feedback_yet: "Você ainda não deu feedback para %{name} sobre o evento %{event}. Lembre de dar um feedback de como %{given_name} foi no evento"
     welcome_email:
-      welcome_email_footer_text: ~
+      welcome_email_footer_text: "Que tipo de e-mails que você quer receber de %{service_name} %{settings_link}"
       settings_link_text: "Verifique suas configurações"
       subject: ~
       welcome_some_tips: ~
@@ -816,7 +819,7 @@ pt-BR:
       congrats_for_creating_community: ~
       you_have_just_created_community: ~
       you_now_have_admin_rights: ~
-      edit_community_details_link_text: "Editar detalhes comunidade aqui"
+      edit_community_details_link_text: "Editar detalhes da comunidade aqui"
       add_content: ~
       spread_the_word: ~
       spread_the_word_invite_only: ~
@@ -891,6 +894,9 @@ pt-BR:
     contact_us: Contato
     profile: Perfil
     invite: Convidar
+    login: ~
+    signup: ~
+    menu: ~
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Além disso  existe <b>uma outra oferta</b>,"
@@ -970,7 +976,7 @@ pt-BR:
       email: "Endereço de email(s)"
       message: "Uma mensagem pessoal"
       send_invitation: "Enviar convite"
-      add_as_many_emails_as_you_want: ~
+      add_as_many_emails_as_you_want: "Adicione os endereços de e-mail das pessoas que você está convidando para o campo abaixo. Se você adicionar vários endereços de e-mail, separe-os com vírgula."
       invitation_emails_field_placeholder: "convidado1@exemplo.com.br, convidado2@exemplo.com.br, ......"
       invitation_message_field_placeholder: "Entrei para esta comunidade incrível. Você deve também!"
       errors_in_emails: ~
@@ -998,12 +1004,12 @@ pt-BR:
       comments: comentários
     filters:
       show: "Filtro:"
-      search: ~
+      search: Buscar
       map: "Exibir mapa"
-      list: ~
-      map_button: ~
-      grid_button: ~
-      list_button: ~
+      list: "Mostrar lista"
+      map_button: Mapa
+      grid_button: Grid
+      list_button: Lista
       all_listing_types: "Listar todos tipos"
       all_categories: "Todas categorias"
   infos:
@@ -1226,7 +1232,7 @@ pt-BR:
       close_listing: "Fechar lista"
       edit_listing: "Editar listagem"
       reopen_listing: "Reabrir listagem"
-      move_to_top: ~
+      move_to_top: "Mover para o início da página inicial"
     follow_links:
       follow: "Obter e-mails sobre novos comentários"
       unfollow: "Não receber e-mails sobre novos comentários"
@@ -1253,9 +1259,9 @@ pt-BR:
         i_want_to_offer: ~
         i_want_to_request: ~
       googlemap:
-        googlemap_copy: ~
-        googlemap_description: ~
-        googlemap_updatemap: ~
+        googlemap_copy: "Pontos final deste Mapa"
+        googlemap_description: "Ver mapa"
+        googlemap_updatemap: "Atualizar mapa"
       images:
         image: Imagem
         no_file_selected: "Nenhum arquivo selecionado"
@@ -1266,7 +1272,7 @@ pt-BR:
         loading_image: ~
         this_may_take_a_while: ~
         percentage_loaded: ~
-        uploading_failed: ~
+        uploading_failed: "Upload da imagem falhou"
         file_too_large: ~
         accepted_formats: "O formato do arquivo de imagem deve ser GIF, JPG ou PNG."
       location:
@@ -1275,8 +1281,8 @@ pt-BR:
         price: Preço
         per: ~
         mass: ~
-        time: ~
-        long_time: ~
+        time: "hora, dia, mês, ..."
+        long_time: "semana, mês, ..."
         after_service_fee_you_will_get: ~
         after_service_fee_you_will_get_vat: ~
         price_excludes_vat: ~
@@ -1384,7 +1390,7 @@ pt-BR:
       item_request_trade: "Trocar requisição"
       no_description: "Este anúncio não tem descrição"
       no_image: "Sem imagem"
-      no_reviews: ~
+      no_reviews: "Nenhum comentário recebido"
       offer: Oferta
       listing_created: Criado
       open_until: ~
@@ -1393,13 +1399,13 @@ pt-BR:
       request: Requisição
       rideshare_offer: ~
       rideshare_request: ~
-      send_private_message: ~
+      send_private_message: "Enviar mensagem privada"
       share_types: ~
       share_types_offer: "Tipo de oferta"
       share_types_request: "Tipo de solicitação"
       tags: Tags
       time: hora
-      times: ~
+      times: vezes
       times_viewed: Visualizado
       processing_uploaded_image: "(Processando imagem carregada...)"
       price_excludes_vat: ~

@@ -114,6 +114,9 @@ hr:
         twitter_handle: ~
         update_settings: ~
         automatically_confirmed: ~
+        automatic_newsletter_frequency: ~
+        newsletter_daily: ~
+        newsletter_weekly: ~
       manage_members:
         manage_members: ~
         email: ~
@@ -121,11 +124,11 @@ hr:
         join_date: ~
         admin: ~
         posting_allowed: ~
-        remove_user: ~
+        ban_user: ~
         saving_user_status: ~
         save_user_status_successful: ~
         save_user_status_error: ~
-        remove_user_confirmation: ~
+        ban_user_confirmation: ~
       integrations:
         integrations: ~
         twitter_handle: ~
@@ -891,6 +894,9 @@ hr:
     contact_us: "Kontaktiraj nas"
     profile: Profil
     invite: ~
+    login: ~
+    signup: ~
+    menu: ~
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Dodatno  postoji <b>još jedna ponuda</b>,"
