@@ -527,6 +527,10 @@ class Community < ActiveRecord::Base
     payment_gateway.present? && payment_gateway.type == "Mangopay"
   end
 
+  def price_in_use?
+    transaction_types.any? { |tt| tt.price_field }
+  end
+
   # Return either minimum price defined by this community or the absolute
   # platform default minimum price.
   def absolute_minimum_price(currency)
