@@ -110,6 +110,6 @@ class MailPreview < MailView
   def community_updates
     community = Community.last
     recipient = community.members.last
-    PersonMailer.community_updates(recipient, community)
+    CommunityMailer.community_updates(recipient, community)
   end
 end

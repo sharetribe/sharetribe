@@ -6,28 +6,18 @@ include ListingsHelper
 include TruncateHtmlHelper
 
 class PersonMailer < ActionMailer::Base
+  include Util::MailUtils
 
   # Enable use of method to_date.
   require 'active_support/core_ext'
 
   require "truncate_html"
 
-  DEFAULT_TIME_FOR_COMMUNITY_UPDATES = 7.days
-
   default :from => APP_CONFIG.sharetribe_mail_from_address
 
   layout 'email'
 
   add_template_helper(EmailTemplateHelper)
-
-  def community_specific_sender(com=nil)
-    community = com || @current_community
-    if community && community.custom_email_from_address
-      community.custom_email_from_address
-    else
-      APP_CONFIG.sharetribe_mail_from_address
-    end
-  end
 
   def conversation_status_changed(conversation, community)
     @email_type =  (conversation.status == "accepted" ? "email_when_conversation_accepted" : "email_when_conversation_rejected")
@@ -375,59 +365,6 @@ class PersonMailer < ActionMailer::Base
      end
   end
 
-  def community_updates(recipient, community)
-    @community = community
-    @recipient = recipient
-
-    unless @recipient.member_of?(@community)
-      logger.info "Trying to send community updates to a person who is not member of the given community. Skipping."
-      return
-    end
-
-    set_locale @recipient.locale
-    I18n.locale = @recipient.locale  #This was added so that listing share_types get correct translation
-
-    @time_since_last_update = t("timestamps.days_since",
-        :count => time_difference_in_days(@recipient.community_updates_last_sent_at ||
-        DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago))
-    @auth_token = @recipient.new_email_auth_token
-    @url_params = {}
-    @url_params[:host] = "#{@community.full_domain}"
-    @url_params[:locale] = @recipient.locale
-    @url_params[:ref] = "weeklymail"
-    @url_params[:auth] = @auth_token
-    @url_params.freeze # to avoid accidental modifications later
-
-    latest = @recipient.community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago
-
-    @listings = @community.listings.currently_open.where("created_at > ?", latest).order("created_at DESC").visible_to(@recipient, @community).limit(10)
-
-    if @listings.size < 1
-      logger.info "There are no new listings in community #{@community.name(@recipient.locale)} since that last update for #{@recipient.id}"
-      return
-    end
-
-    @show_transaction_type_label = community.transaction_types.length > 1
-
-    @title_link_text = t("emails.community_updates.title_link_text",
-          :community_name => @community.full_name(@recipient.locale))
-    subject = t("emails.community_updates.update_mail_title", :title_link => @title_link_text)
-
-    if APP_CONFIG.mail_delivery_method == "postmark"
-      # Postmark doesn't support bulk emails, so use Sendmail for this
-      delivery_method = :sendmail
-    else
-      delivery_method = APP_CONFIG.mail_delivery_method.to_sym unless Rails.env.test?
-    end
-
-    mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => subject,
-         :delivery_method => delivery_method) do |format|
-      format.html { render :layout => false }
-    end
-  end
-
   # This is used by console script that creates a list of user accounts and sends an email to all
   # Currently only in spanish, as not yet needed in other languages
   def automatic_account_created(recipient, password)
@@ -488,28 +425,6 @@ class PersonMailer < ActionMailer::Base
 
     mail(:to => @recipient.confirmed_notification_emails_to, :subject => @subject) do |format|
       format.text { render :layout => false }
-    end
-  end
-
-  # This task is expected to be run with daily or hourly scheduling
-  # It looks through all users and send email to those who want it now
-  def deliver_community_updates
-    Person.find_each do |person|
-      if person.should_receive_community_updates_now?
-        person.communities.select { |c| c.automatic_newsletters }.each do |community|
-          if community.has_new_listings_since?(person.community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago)
-            begin
-              PersonMailer.community_updates(person, community).deliver
-            rescue => e
-              # Catch the exception and continue sending emails
-            puts "Error sending mail to #{person.confirmed_notification_emails} community updates: #{e.message}"
-            ApplicationHelper.send_error_notification("Error sending mail to #{person.confirmed_notification_emails} community updates: #{e.message}", e.class)
-            end
-          end
-        end
-        # After sending updates for all communities that had something new, update the time of last sent updates to Time.now.
-        person.update_attribute(:community_updates_last_sent_at, Time.now)
-      end
     end
   end
 
@@ -581,6 +496,14 @@ class PersonMailer < ActionMailer::Base
         ApplicationHelper.send_error_notification("Error sending email to all community starters: #{e.message}", e.class)
       end
     end
+  end
+
+  # Deprecated
+  # Moved to CommunityMailer
+  # This method is here only to make sure no updates get missed while changing the
+  # mail cron job to use the new method. Can be safely removed after May 2014
+  def self.deliver_community_updates
+    CommunityMailer.deliver_community_updates
   end
 
   private
