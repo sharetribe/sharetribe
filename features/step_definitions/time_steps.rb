@@ -10,7 +10,7 @@ end
 # Use When 30 days have passed (int, not string)
 When /^"([^"]*)" days have passed$/ do |number_of_days|
   steps %Q{
-    When #{number_of_days} have passed
+    When #{number_of_days} days have passed
   }
 end
 
