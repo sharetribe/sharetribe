@@ -36,6 +36,7 @@ Given /^I am logged in(?: as "([^"]*)")?$/ do |person|
   login_as(person, :scope => :person)
   visit root_path(:locale => :en)
   @logged_in_user = person
+  @current_user = person
 end
 
 Given /^I am logged in as organization(?: "([^"]*)")?$/ do |org_username|
@@ -283,4 +284,10 @@ When /^"(.*?)" is authorized to post a new listing$/ do |username|
   person = Person.find_by_username(username)
   community_membership = CommunityMembership.find_by_person_id_and_community_id(person.id, @current_community.id)
   community_membership.update_attribute(:can_post_listings, true)
+end
+
+Given(/^I have just received community updates email$/) do
+  # Some tests expect that this really happened in the past, so -1 sec
+  last_sent = DateTime.now() - 1.second
+  @current_user.update_attribute(:community_updates_last_sent_at, last_sent)
 end
