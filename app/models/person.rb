@@ -89,7 +89,6 @@ class Person < ActiveRecord::Base
     # "email_when_new_listing_from_friend"
   ]
   EMAIL_NEWSLETTER_TYPES = [
-    "email_newsletters",
     "email_from_admins"
   ]
 
