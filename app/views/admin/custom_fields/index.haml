@@ -10,8 +10,16 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@community) }
 
 .left-navi-section
-  - show_price_filter = Maybe(@current_community).price_in_use?.or_else(false)
-  - show_custom_fields = !@custom_fields.empty?
+
+  .row
+    .col-12
+    %h3
+      = t(".listing_fields")
+
+    = render :partial => "layouts/info_text", :locals => { :text => t(".listing_fields_help")}
+
+    - show_price_filter = Maybe(@current_community).price_in_use?.or_else(false)
+    - show_custom_fields = !@custom_fields.empty?
 
   #custom-fields-list
     .row.visible-tablet
@@ -20,7 +28,7 @@
       .col-5.custom-fields-list-title
         = t(".field_type")
 
-    .row.custom-field-price-row
+    .row
       .col-5
         %span.custom-fields-mobile-list-title.hidden-tablet
           = t("admin.custom_fields.index.field_title")
@@ -37,7 +45,7 @@
         = icon_tag("directup", ["icon-fix disabled"])
         = icon_tag("directdown", ["icon-fix disabled"])
 
-    .row.custom-field-price-row
+    .row
       .col-5
         %span.custom-fields-mobile-list-title.hidden-tablet
           = t("admin.custom_fields.index.field_title")
@@ -79,7 +87,7 @@
       = render :partial => "listed_custom_field", :collection => @custom_fields.sort, :as => :custom_field
 
     - unless @current_community.hide_expiration_date
-      .row.custom-field-price-row
+      .row
         .col-5
           %span.custom-fields-mobile-list-title.hidden-tablet
             = t("admin.custom_fields.index.field_title")
@@ -96,7 +104,7 @@
           = icon_tag("directup", ["icon-fix disabled"])
           = icon_tag("directdown", ["icon-fix disabled"])
 
-    .row.custom-field-price-row
+    .row
       .col-5
         %span.custom-fields-mobile-list-title.hidden-tablet
           = t("admin.custom_fields.index.field_title")
@@ -113,7 +121,7 @@
         = icon_tag("directup", ["icon-fix disabled"])
         = icon_tag("directdown", ["icon-fix disabled"])
 
-    .row.custom-field-price-row
+    .row
       .col-5
         %span.custom-fields-mobile-list-title.hidden-tablet
           = t("admin.custom_fields.index.field_title")
