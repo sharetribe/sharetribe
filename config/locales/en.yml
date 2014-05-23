@@ -798,21 +798,10 @@ en:
       settings_link_text: "Edit your email settings here"
       unsubscribe_link_text: unsubscribe
     newsletter:
-      weekly_news_from_kassi: "Weekly news from %{community} %{service_name}"
       hi: "Hi %{name},"
-      update_on_what_is_happening: "Take a peek on what's happening in %{community} %{service_name} right now."
       newest_offers: "What people currently offer to others"
       newest_requests: "What people currently need"
-      could_you_offer_something: "Could you share something that others might need? Or do you need something that others might have?"
-      add: Add
-      an_offer: "an offer"
-      a_request: "a request"
-      to_kassi: "to %{service_name}"
-      check_everything_that_others_are: "check everything that the others are"
-      offering: offering
-      requesting: requesting
       text_version_text: "Could you share something that others might need? Or do you need something that others might have? Add an offer or a request or check everything that the others are offering or requesting at %{url}"
-      occasional_newsletter_title: "Sharetribe newsletter"
     reply_to_contact_request:
       thank_you_for_your_interest: "Thank you for your interest in %{service_name}!"
     reset_password_instructions:

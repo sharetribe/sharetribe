@@ -511,23 +511,6 @@ class PersonMailer < ActionMailer::Base
     end
   end
 
-  def self.deliver_old_style_community_updates
-    Community.find_each do |community|
-      if community.created_at < 1.week.ago && community.listings.size > 5 && community.automatic_newsletters
-        community.members.each do |member|
-          if member.should_receive?("community_updates")
-            begin
-              PersonMailer.old_style_community_updates(member, community).deliver
-            rescue => e
-              # Catch the exception and continue sending the news letter
-              ApplicationHelper.send_error_notification("Error sending mail for weekly community updates: #{e.message}", e.class)
-            end
-          end
-        end
-      end
-    end
-  end
-
   # This task is expected to be run with daily or hourly scheduling
   # It looks through all users and send email to those who want it now
   def deliver_community_updates
