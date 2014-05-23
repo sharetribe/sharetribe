@@ -10,38 +10,41 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@community) }
 
 .left-navi-section
-  - if @custom_fields.empty?
-    .row
-      .col-12
-        = t(".no_custom_listing_fields")
-  - else
+  - show_price_filter = Maybe(@current_community).price_in_use?.or_else(false)
+  - show_custom_fields = !@custom_fields.empty?
+
+  - if show_price_filter || show_custom_fields
     #custom-fields-list
       .row.visible-tablet
         .col-5.custom-fields-list-title
           = t(".field_title")
         .col-5.custom-fields-list-title
           = t(".field_type")
-      / This is ugly piece of hard-coded copy-paste code.
-      / In the future we'll make also the price to be a custom field
-      .row.custom-field-price-row
-        .col-5
-          %span.custom-fields-mobile-list-title.hidden-tablet
-            = t("admin.custom_fields.index.field_title")
-          = t("listings.form.price.price")
-        .col-5
-          %span.custom-fields-mobile-list-title.hidden-tablet
-            = t("admin.custom_fields.index.field_type")
-          %div
-            = t("listings.form.price.price")
-          %div.custom-fields-details
-        .col-2
-          = link_to edit_price_admin_custom_fields_path, :class => "custom-fields-action-edit" do
-            = icon_tag("edit", ["icon-fix"])
-          = icon_tag("cross", ["icon-fix disabled"])
-          = icon_tag("directup", ["icon-fix disabled"])
-          = icon_tag("directdown", ["icon-fix disabled"])
 
-      = render :partial => "listed_custom_field", :collection => @custom_fields.sort, :as => :custom_field
+      - if show_price_filter
+        / This is ugly piece of hard-coded copy-paste code.
+        / In the future we'll make also the price to be a custom field
+        .row.custom-field-price-row
+          .col-5
+            %span.custom-fields-mobile-list-title.hidden-tablet
+              = t("admin.custom_fields.index.field_title")
+            = t("listings.form.price.price")
+          .col-5
+            %span.custom-fields-mobile-list-title.hidden-tablet
+              = t("admin.custom_fields.index.field_type")
+            %div
+              = t("listings.form.price.price")
+            %div.custom-fields-details
+          .col-2
+            = link_to edit_price_admin_custom_fields_path, :class => "custom-fields-action-edit" do
+              = icon_tag("edit", ["icon-fix"])
+            = icon_tag("cross", ["icon-fix disabled"])
+            = icon_tag("directup", ["icon-fix disabled"])
+            = icon_tag("directdown", ["icon-fix disabled"])
+
+      - if show_custom_fields
+        = render :partial => "listed_custom_field", :collection => @custom_fields.sort, :as => :custom_field
+
     #custom-field-ajax-status
       .ajax-notification.ajax-notice.custom-field-ajax-status-message#custom-field-ajax-saving
         .ajax-icon{:class => icon_class("loading")}
@@ -53,6 +56,12 @@
           = t(".save_order_successful")
       .ajax-notification.ajax-error.custom-field-ajax-status-message#custom-field-ajax-error
         = t(".save_order_error")
+
+  - else
+    .row
+      .col-12
+        = t(".no_custom_listing_fields")
+
   .row.new-custom-field-type-form
     = form_tag new_admin_custom_field_path, :method => :get do |form|
       .new-custom-field-type-form-column
