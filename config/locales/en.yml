@@ -130,8 +130,8 @@ en:
         update_settings: "Update settings"
         automatically_confirmed: "Listing is automatically confirmed %{days_dropdown} days after acceptance (or payment)"
         automatic_newsletter_frequency: "Send automatic newsletter: %{frequency_dropdown}"
-        newsletter_daily: "Daily"
-        newsletter_weekly: "Weekly"
+        newsletter_daily: Daily
+        newsletter_weekly: Weekly
       manage_members:
         manage_members: "Manage users"
         email: Email
@@ -161,13 +161,13 @@ en:
         save: "Save settings"
       menu_links:
         menu_links: "Menu links"
-        save: "Save"
+        save: Save
         add_menu_link: "Add a new link to menu"
         title_placeholder: "Link title"
         url_placeholder: "http://example.com/en"
-        title: "Title"
-        language: "Language"
-        url: "URL"
+        title: Title
+        language: Language
+        url: URL
         empty: "You don't have any additional menu links"
     custom_fields:
       edit:
@@ -918,9 +918,9 @@ en:
     create_new_marketplace: "Create a new marketplace"
     contact_us: "Contact us"
     profile: Profile
-    invite: Invite new members
-    login: Log in
-    signup: Sign up
+    invite: "Invite new members"
+    login: "Log in"
+    signup: "Sign up"
     menu: Menu
   homepage:
     additional_private_listings_slate:

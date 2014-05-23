@@ -160,13 +160,13 @@ fi:
         invalid_facebook_connect_secret: "Salainen avain muodostuu voi sisältää vain kirjaimia väliltä a-f ja numeroita väliltä 0-9."
         save: "Tallenna muutokset"
       menu_links:
-        menu_links: "Valikkolinkit"
-        save: "Tallenna"
+        menu_links: Valikkolinkit
+        save: Tallenna
         add_menu_link: "Lisää uusi linkki valikkoon"
         title_placeholder: "Linkin otsikko"
         url_placeholder: "http://example.com/fi"
-        title: "Otsikko"
-        language: "Kieli"
+        title: Otsikko
+        language: Kieli
         url: "Osoite (URL)"
         empty: "Sinulla ei ole lisälinkkejä valikossa"
     custom_fields:
@@ -468,20 +468,20 @@ fi:
       cancel: "Ei toteutunut"
   braintree_accounts:
     new:
-      add_payout_details: ""
+      add_payout_details: ~
       first_name: ~
-      last_name: ""
-      email: ""
-      phone: ""
-      address_street_address: ""
-      address_postal_code: ""
-      address_locality: ""
-      address_region: ""
-      date_of_birth: ""
-      ssn: ""
-      routing_number: ""
-      account_number: ""
-      save: ""
+      last_name: ~
+      email: ~
+      phone: ~
+      address_street_address: ~
+      address_postal_code: ~
+      address_locality: ~
+      address_region: ~
+      date_of_birth: ~
+      ssn: ~
+      routing_number: ~
+      account_number: ~
+      save: ~
     show:
       payout_details: ~
       first_name: ~
@@ -500,10 +500,10 @@ fi:
     edit:
       new_credit_card_payment: ~
       payment_receiver: ~
-      cardholder_name: ""
-      credit_card_number: ""
-      cvv: ""
-      credit_card_expiration_date: ""
+      cardholder_name: ~
+      credit_card_number: ~
+      cvv: ~
+      credit_card_expiration_date: ~
       confirm_payment: ~
   communities:
     map_bubble:

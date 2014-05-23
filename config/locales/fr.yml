@@ -159,6 +159,16 @@ fr:
         facebook_connect_secret: "Clé secrète Facebook"
         invalid_facebook_connect_secret: "La clé secrète ne doit contenir que des nombres et des lettres de a à f."
         save: "Sauvegarder les réglages"
+      menu_links:
+        menu_links: "Liens du menu"
+        save: Sauvegarder
+        add_menu_link: "Ajouter un nouveau lien au menu"
+        title_placeholder: "Titre du lien"
+        url_placeholder: "http://example.fr/fr"
+        title: Titre
+        language: Langue
+        url: URL
+        empty: "Vous n'avez pas encore ajouté de liens au menu"
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"

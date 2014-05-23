@@ -144,6 +144,16 @@ pt-BR:
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
         save: "Salvar configurações"
+      menu_links:
+        menu_links: ~
+        save: ~
+        add_menu_link: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        title: ~
+        language: ~
+        url: ~
+        empty: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -247,14 +257,14 @@ pt-BR:
       inquiry: Inquérito
       share_for_free: Gratuito
       default_action_button_labels:
-        sell: ~
+        sell: Comprar
         rent: ~
         request: ~
         offer: Requisição
         inquiry: Contato
   common:
     edit_page: "Editar página"
-    default_community_slogan: ~
+    default_community_slogan: "Mercado comunitário"
     default_community_description: "Este é um lugar para vender, alugar, trocar e partilhar bens e serviços com os outros membros da comunidade."
     cancel: Cancelar
     fields_that_are_mandatory: "Campos marcados com asterisco (*) são obrigatórios."
@@ -547,7 +557,7 @@ pt-BR:
     signup_form:
       create_an_account: "Crie uma conta para si mesmo"
       to_create_a_tribe_you_must_first_create_sharetribe_account: ~
-      log_in_with_your_existing_account: ~
+      log_in_with_your_existing_account: "efetue login em sua conta existente"
       your_email: "Seu endereço de email"
       your_university_email: ~
       your_company_email: ~
@@ -557,9 +567,9 @@ pt-BR:
       your_family_name: "Seu sobrenome"
       your_password: ~
       confirm_your_password: ~
-      email_in_use_message: ~
+      email_in_use_message: "Já existe uma conta em %{service_name} com este endereço de e-mail. Se você já tiver uma conta, você pode fazer login usando o link acima."
       invalid_email_ending_message: ~
-      log_in_here: ~
+      log_in_here: "login aqui"
       existing_community_with_this_email: ~
       here: ~
       for_company: empresa
@@ -596,7 +606,7 @@ pt-BR:
       browse_communities_around_you: ~
       slogan: "Compartilhe com sua comunidade."
       create_your_own: "Crie seu próprio"
-      sharing_website: "mercado comunidade"
+      sharing_website: "mercado comunitário"
       main_description: "Configurar um espaço onde os membros de sua comunidade pode compartilhar bens, serviços, passeios e espaços em um ambiente local confiável. É grátis e leva apenas um minuto para fazer!"
       kassi_for_your_company: "...PARA SUA EMPRESA"
       kassi_for_your_company_description: "Quer ajudar seus funcionários a se conectar uns com os outros? Quer cortar suas emissões e tornar-se uma empresa mais verde? Quer economizar custos em viagens, estacionamento e mobiliário de uso? Sharetribe é a solução para você."
@@ -884,19 +894,19 @@ pt-BR:
   header:
     about: Sobre
     home: Inicio
-    members: ~
-    new_listing: ~
+    members: Comunidade
+    new_listing: "Postar uma nova lista!"
     mobile_version: "Versão para celular"
     offers: Ofertas
     requests: Solicitações
     search_kassi: "Procurar %{service_name}"
-    create_new_marketplace: ~
+    create_new_marketplace: "Criar um novo mercado"
     contact_us: Contato
     profile: Perfil
     invite: Convidar
-    login: ~
-    signup: ~
-    menu: ~
+    login: Entrar
+    signup: Registrar
+    menu: Menu
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Além disso  existe <b>uma outra oferta</b>,"
@@ -918,7 +928,7 @@ pt-BR:
       item_request_list: "ferramentas, equipamentos esportivos, roupas, equipamentos de camping"
       items_to_offer: "Itens para emprestar: "
       items_to_request: "Itens para pegar emprestado: "
-      log_in: Entrar!
+      log_in: login!
       no_offers_visible_unless_logged_in: "Nenhuma oferta de itens, serviços ou caronas compartilhadas visíveis para usuários não logados."
       no_open_offers_currently: "Nenhum item, serviço ou carona compartilhada anunciado."
       no_open_requests_currently: "Nenhum pedido de item, serviço ou carona compartilhada."
@@ -945,7 +955,7 @@ pt-BR:
       private_listing_notification: ~
       open_listing: ~
       open_listings: ~
-      private_listing_notification_log_in: Login
+      private_listing_notification_log_in: entrar
       is: ~
       are: ~
       what_do_you_need: "O que você está procurando?"
@@ -1019,7 +1029,7 @@ pt-BR:
       click_here_link_text: ~
   layouts:
     no_tribe:
-      inbox: ~
+      inbox: "caixa de entrada"
       settings: Configurações
       feedback: Contato
     admin:
@@ -1069,7 +1079,7 @@ pt-BR:
       admin: Administrador
       go_to_your_profile_page: Perfil
       hi: Ola
-      login: Entrar
+      login: Login
       logout: Sair
       notifications: Notificações
       requests: "Solicitações de amizades"
@@ -1116,7 +1126,7 @@ pt-BR:
       invitation_cannot_be_sent: "Convite não pôde ser enviado"
       invitation_sent: "Convite enviado com sucesso"
       inviting_new_users_is_not_allowed_in_this_community: ~
-      login_again: "Por favor, entre novamente."
+      login_again: "Por favor, tente logar novamente"
       login_failed: "Falha no login. Por favor, digite as credenciais corretas."
       account_creation_successful: ~
       account_deleted: ~
@@ -1178,10 +1188,10 @@ pt-BR:
       you_have_already_given_feedback_about_this_event: "Você já deixou sua opinião sobre este evento"
       you_are_now_member: "Você entrou com sucesso esta comunidade. Bem-vindo!"
       you_are_already_member: "Você já é membro desta %{service_name} comunidade. Bem-vindo de volta!"
-      you_must_log_in_to_create_new_listing: ~
+      you_must_log_in_to_create_new_listing: "Você deve fazer login para %{service_name} para criar uma nova listagem. Se você não tem uma conta, você pode %{sign_up_link}"
       additional_email_confirmed_dashboard: ~
       you_must_log_in_to_give_feedback: "Você deve logar para escrever um feedback"
-      you_must_log_in_to_invite_new_users: ~
+      you_must_log_in_to_invite_new_users: "Você deve fazer login para convidar novos usuários a %{service_name}"
       you_must_log_in_to_send_a_comment: "Você deve logar para enviar um novo comentário"
       you_must_log_in_to_send_a_message: "Você deve fazer login em %{service_name} para enviar uma mensagem para outro usuário."
       you_must_log_in_to_view_this_content: "Você deve logar para visualizar este conteúdo"
@@ -1189,13 +1199,13 @@ pt-BR:
       you_must_log_in_to_view_your_inbox: "Você deve fazer login em %{service_name} para ver sua caixa de entrada."
       you_must_log_in_to_view_your_settings: "Você deve fazer login em %{service_name} para exibir suas configurações."
       you_must_log_in_to_add_news_item: "Você deve fazer login em %{service_name} para adicionar um novo artigo."
-      you_must_log_in_to_change_profile_settings: ~
-      you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_change_profile_settings: "Você deve fazer login em %{service_name} para mudar as configurações de perfil"
+      you_must_log_in_to_change_payment_settings: "Você deve fazer login em %{service_name} para alterar as configurações de pagamento"
       you_need_to_confirm_your_account_first: "Você precisa confirmar o seu e-mail."
       you_must_fill_all_the_fields: "Você deve preencher todos os campos"
       you_unfollowed_listing: ~
       joining_community_failed: "Entrar nesta comunidade falhou"
-      can_not_login_with_private_user: ~
+      can_not_login_with_private_user: "Você não pode entrar nessa comunidade com a sua conta pessoal. Entrar com empresarial ou criar uma nova conta."
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: ~
       email_deleted: ~
@@ -1219,7 +1229,7 @@ pt-BR:
       send_private_message: ~
     comment_form:
       ask_a_question: ~
-      log_in: entrar
+      log_in: login
       send_comment: "Enviar um comentário"
       to_send_a_comment: "para enviar um novo comentário."
       write_comment: "Escrever um novo comentário:"
@@ -1483,7 +1493,7 @@ pt-BR:
       invite_people_you_know: "Convide as pessoas que você conhece!"
       there_are_x_members: ~
       to_see_the_list_log_in: ~
-      log_in_link: Login
+      log_in_link: entrar
     badge_description:
       badge_achieved_at: ~
       you_do_not_yet_have_this_badge: ~
@@ -1616,7 +1626,7 @@ pt-BR:
       slightly_better_than_expected: "Ligeiramente melhor do que o esperado"
       slightly_less_than_expected: "Um pouco pior do que o esperado"
     profile_listings:
-      show_also_closed: ~
+      show_also_closed: "Mostrar também fechados"
       show_only_open: "Exibir apenas abertos"
       no_image: "Sem imagem"
     show:
@@ -1674,15 +1684,15 @@ pt-BR:
       create_new_account: "Criar uma nova conta"
       i_forgot_my_password: "Nome de usuário ou senha esquecida"
       login: Login
-      login_to_kassi: "Entrar em %{service_name}"
+      login_to_kassi: "Logar em %{service_name}"
       connect_your_facebook_to_kassi: ~
       facebook_account: ~
-      log_in_to_link_account: ~
+      log_in_to_link_account: "Se você já tem uma conta %{service_name}, faça o login para vinculá-lo com a sua conta do Facebook."
       you_can_also_create_new_account: ~
       account_creation_link_text: ~
       cancle_facebook_connect: ~
       facebook_cancel_link_text: ~
-      log_in_with_your_facebook_account: "Entrar com o Facebook"
+      log_in_with_your_facebook_account: "Logar com o Facebook"
       or_sign_up_with_your_username: "...ou com seu nome de usuário ou e-mail"
       we_will_not_post_without_asking_you: ~
     password_forgotten:
@@ -1753,7 +1763,7 @@ pt-BR:
       settings_link: configurações
       homepage_link: "home page"
       unsubscribe_unsuccesful: "Erro no cancelamento da inscrição"
-      unsuccessful_unsubscribe_info_text: ~
+      unsuccessful_unsubscribe_info_text: "A razão talvez que o link de cancelamento em que você clicou é antigo. Contacte-nos através do botão de feedback à esquerda para nós podermos cancelar você, ou então fazer login para alterar as suas configurações de e-mail."
     profile:
       about_you: "Sobre você"
       city: Cidade

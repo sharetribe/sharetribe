@@ -144,6 +144,16 @@ nl:
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
         save: ~
+      menu_links:
+        menu_links: ~
+        save: ~
+        add_menu_link: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        title: ~
+        language: ~
+        url: ~
+        empty: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -895,7 +905,7 @@ nl:
     profile: Profiel
     invite: "Nodig uit"
     login: ~
-    signup: ~
+    signup: "Meld je aan"
     menu: ~
   homepage:
     additional_private_listings_slate:
@@ -1042,7 +1052,7 @@ nl:
       send_feedback_to_admin: "Verstuur feedback"
       to_see_what_others_have_suggested: "om te zien wat voor ideeën andere gebruikers hebben en om op die ideeën te stemmen."
       your_email_address: "Je emailadres"
-      connect: ~
+      connect: Aanmelden
       invite_your_friends: ~
       invite_your_neighbors: ~
       invite_your_friends_description: ~
