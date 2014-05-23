@@ -88,9 +88,6 @@ window.ST.orderManager = function(fieldMap) {
     var downField = fieldMap[downId];
     var upField = fieldMap[upId];
 
-    var downEl = downField.element;
-    var upEl = upField.element;
-
     fieldMap = utils.swapArrayElements(fieldMap, downId, upId);
 
     return Bacon.once({down: downField, up: upField, order: getOrder()});
