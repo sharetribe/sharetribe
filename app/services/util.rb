@@ -129,4 +129,16 @@ module Util
       strip_punctuation(first_words(strip_small_words(str, min_letter_count), word_count)).downcase.split(" ").join(", ")
     end
   end
+
+  module MailUtils
+    module_function
+
+    def community_specific_sender(community)
+      if community && community.custom_email_from_address
+        community.custom_email_from_address
+      else
+        APP_CONFIG.sharetribe_mail_from_address
+      end
+    end
+  end
 end
