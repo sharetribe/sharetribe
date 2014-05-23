@@ -45,23 +45,6 @@
         = icon_tag("directup", ["icon-fix disabled"])
         = icon_tag("directdown", ["icon-fix disabled"])
 
-    .row
-      .col-5
-        %span.custom-fields-mobile-list-title.hidden-tablet
-          = t("admin.custom_fields.index.field_title")
-        = t("listings.form.description.detailed_description")
-      .col-5
-        %span.custom-fields-mobile-list-title.hidden-tablet
-          = t("admin.custom_fields.index.field_type")
-        %div
-          = t("admin.custom_fields.field_types.text")
-        %div.custom-fields-details
-      .col-2
-        = icon_tag("edit", ["icon-fix disabled"])
-        = icon_tag("cross", ["icon-fix disabled"])
-        = icon_tag("directup", ["icon-fix disabled"])
-        = icon_tag("directdown", ["icon-fix disabled"])
-
     - if show_price_filter
       / This is ugly piece of hard-coded copy-paste code.
       / In the future we'll make also the price to be a custom field
@@ -82,6 +65,23 @@
           = icon_tag("cross", ["icon-fix disabled"])
           = icon_tag("directup", ["icon-fix disabled"])
           = icon_tag("directdown", ["icon-fix disabled"])
+
+    .row
+      .col-5
+        %span.custom-fields-mobile-list-title.hidden-tablet
+          = t("admin.custom_fields.index.field_title")
+        = t("listings.form.description.detailed_description")
+      .col-5
+        %span.custom-fields-mobile-list-title.hidden-tablet
+          = t("admin.custom_fields.index.field_type")
+        %div
+          = t("admin.custom_fields.field_types.text")
+        %div.custom-fields-details
+      .col-2
+        = icon_tag("edit", ["icon-fix disabled"])
+        = icon_tag("cross", ["icon-fix disabled"])
+        = icon_tag("directup", ["icon-fix disabled"])
+        = icon_tag("directdown", ["icon-fix disabled"])
 
     - if show_custom_fields
       = render :partial => "listed_custom_field", :collection => @custom_fields.sort, :as => :custom_field
