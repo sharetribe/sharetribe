@@ -496,7 +496,7 @@ class PersonMailer < ActionMailer::Base
   def deliver_community_updates
     Person.find_each do |person|
       if person.should_receive_community_updates_now?
-        person.communities.each do |community|
+        person.communities.select { |c| c.automatic_newsletters }.each do |community|
           if community.has_new_listings_since?(person.community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago)
             begin
               PersonMailer.community_updates(person, community).deliver

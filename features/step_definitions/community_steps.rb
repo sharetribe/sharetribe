@@ -207,3 +207,11 @@ Given /^current community has (free|starter|basic|growth|scale) plan$/ do |plan|
   end
   @current_community.update_attribute(:plan_level, plan_level)
 end
+
+When /^community updates get delivered$/ do
+  PersonMailer.deliver_community_updates
+end
+
+Given(/^this community does not send automatic newsletters$/) do
+  @current_community.update_attribute(:automatic_newsletters, false)
+end
