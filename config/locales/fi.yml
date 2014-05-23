@@ -798,21 +798,10 @@ fi:
       settings_link_text: "Säädä sähköpostit harvemmaksi"
       unsubscribe_link_text: "peruuta tämän sähköpostin tulo kokonaan"
     newsletter:
-      weekly_news_from_kassi: "Viikon tapahtumat %{community}-%{service_name_inessive}"
       hi: "Hei %{name},"
-      update_on_what_is_happening: "Tässä yhteenveto siitä, mitä %{community}-%{service_name_inessive} tapahtuu juuri nyt."
       newest_offers: "Muun muassa näitä tarjotaan:"
       newest_requests: "Muun muassa näitä tarvitaan"
-      could_you_offer_something: "Voisitko tarjota muille jotain? Tai tarvitsetko jotain, mitä joku muu voisi tarjota?"
-      add: Lisää
-      an_offer: tarjous
-      a_request: pyyntö
-      to_kassi: "%{service_name_illative}"
-      check_everything_that_others_are: "katso mitä muut"
-      offering: tarjoavat
-      requesting: pyytävät
       text_version_text: "Voisitko tarjota muille jotain? Tai tarvitsetko jotain, mitä joku muu voisi tarjota? Lisää tarjous tai pyyntö tai katso mitä muut tarjoavat tai pyytävät osoitteessa %{url}"
-      occasional_newsletter_title: "Sharetribe uutiskirje"
     reply_to_contact_request:
       thank_you_for_your_interest: "Kiitos kiinnostuksestasi %{service_name_partitive} kohtaan!"
     reset_password_instructions:
