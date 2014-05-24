@@ -215,3 +215,7 @@ end
 Given(/^this community does not send automatic newsletters$/) do
   @current_community.update_attribute(:automatic_newsletters, false)
 end
+
+Given(/^community emails are sent from "(.*?)"$/) do |email|
+  @current_community.update_attribute(:custom_email_from_address, email)
+end
