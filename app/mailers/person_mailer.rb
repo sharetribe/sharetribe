@@ -465,7 +465,6 @@ class PersonMailer < ActionMailer::Base
     else
       subject = t("emails.welcome_email.subject", :community => @current_community.full_name(@recipient.locale), :person => person.given_name_or_username)
     end
-    binding.pry
     mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => subject) do |format|
