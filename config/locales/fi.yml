@@ -183,6 +183,7 @@ fi:
           this_field_is_required_checkbox: "Tämä on pakollinen kenttä (Käyttäjän pitää valita ainakin yksi vaihtoehdoista)"
       index:
         listing_fields: Ilmoituskentät
+        listing_fields_help: "Voit muokata kenttiä, jotka käyttäjän pitää täyttää listausta luodessa. Osa kentistä on ennaltamäärättyjä eikä niitä voi muokata."
         add_new_field: "Lisää uusi kenttä:"
         remove_field_confirmation: "Oletko varma että haluat poistaa kentän '%{field_name}'?"
         cancel: Peruuta
