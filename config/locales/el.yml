@@ -783,21 +783,10 @@ el:
       settings_link_text: "Επεξεργαστείτε τις ρυθμίσεις ηλεκτρονικού ταχυδρομείου"
       unsubscribe_link_text: "διαγραφτείτε από τη λίστα ενημερώσεων"
     newsletter:
-      weekly_news_from_kassi: "Εβδομαδιαία ενημέρωση από την κοινότητα %{service_name} \"%{community}\""
       hi: "Γεια σου %{name},"
-      update_on_what_is_happening: "Ρίξε μια ματιά στο τι συμβαίνει στην κοινότητα \"%{community}\" αυτή τη στιγμή."
       newest_offers: "Τι προσφέρουν κάποιοι στο %{service_name}"
       newest_requests: "Τι χρειάζονται κάποιοι στο %{service_name}"
-      could_you_offer_something: "Μπορείς να προσφέρεις κάτι που ίσως χρειάζεται κάποιος; Ή μήπως χρειάζεσαι κάτι που μπορεί να το έχει κάποιος άλλος;"
-      add: Πρόσθεσε
-      an_offer: "μία προσφορά"
-      a_request: "ένα αίτημα"
-      to_kassi: "στο %{service_name}"
-      check_everything_that_others_are: "δες οι υπόλοιποι τι"
-      offering: προσφέρουν
-      requesting: χρειάζονται
       text_version_text: "Μήπως έχεις κάτι που μπορείς να προσφέρεις; Ή μήπως χρειάζεσαι κάτι που μπορεί να το έχει κάποιος άλλος; Βάλε μια προσφορά ή ένα αίτημα στο ή δες τι προσφέρουν ή τι χρειάζονται άλλα άτομα στο %{url}"
-      occasional_newsletter_title: "Νέα του Sharetribe"
     reply_to_contact_request:
       thank_you_for_your_interest: "Σας ευχαριστούμε για το ενδιαφέρον σας στο %{service_name}!"
     reset_password_instructions:
@@ -1755,7 +1744,6 @@ el:
       email_daily_community_updates: "Να λαμβάνω ένα ενημερωτικό email <b>καθημερινά</b> αν υπάρχουν νέες καταχωρήσεις"
       email_weekly_community_updates: "Να λαμβάνω ένα ενημερωτικό email <b>μια φορά την εβδομάδα</b> αν υπάρχουν νέες καταχωρήσεις"
       do_not_email_community_updates: "Δε θέλω να λαμβάνω ενημερωτικά email"
-      email_newsletters: "Να μου στέλνετε περιστασιακά τα νέα του %{service_name}"
       email_when_conversation_accepted: "... κάποιος δέχεται την προσφορά ή το αίτημά μου"
       email_when_conversation_rejected: "... κάποιος απορρίπτει την προσφορά ή το αίτημά μου"
       email_about_completed_transactions: "... κάποιος δηλώνει ότι η προσφορά ή το αίτημά μου ολοκληρώθηκε"

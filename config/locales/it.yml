@@ -783,21 +783,10 @@ it:
       settings_link_text: ~
       unsubscribe_link_text: ~
     newsletter:
-      weekly_news_from_kassi: ~
       hi: "Ciao %{name},"
-      update_on_what_is_happening: ~
       newest_offers: ~
       newest_requests: ~
-      could_you_offer_something: ~
-      add: ~
-      an_offer: ~
-      a_request: ~
-      to_kassi: ~
-      check_everything_that_others_are: ~
-      offering: ~
-      requesting: ~
       text_version_text: ~
-      occasional_newsletter_title: ~
     reply_to_contact_request:
       thank_you_for_your_interest: "Grazie per il tuo interesse in %{service_name}!"
     reset_password_instructions:
@@ -1754,7 +1743,6 @@ it:
       email_daily_community_updates: ~
       email_weekly_community_updates: ~
       do_not_email_community_updates: ~
-      email_newsletters: ~
       email_when_conversation_accepted: "...qualcuno accetta la mia offerta o richiesta"
       email_when_conversation_rejected: "...qualcuno rifiuta la mia offerta o richiesta"
       email_about_completed_transactions: ~

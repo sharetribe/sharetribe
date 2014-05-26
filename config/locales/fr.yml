@@ -798,21 +798,10 @@ fr:
       settings_link_text: "Gérez vos paramètres d'email"
       unsubscribe_link_text: désabonnez-vous
     newsletter:
-      weekly_news_from_kassi: "Cette semaine dans la tribu %{service_name} %{community}"
       hi: "Bonjour %{name},"
-      update_on_what_is_happening: "Jetez un oeil à ce qu'il se passe dans la tribu %{community} sur %{service_name} en ce moment."
       newest_offers: "Ce que les membres proposent aux autres en ce moment"
       newest_requests: "Ce dont les membres ont besoin en ce moment"
-      could_you_offer_something: "Pourriez-vous partager quelque chose dont les autres ont besoin ? Ou avez-vous besoin de quelque chose que les autres pourraient avoir ?"
-      add: Ajoutez
-      an_offer: "une offre"
-      a_request: "une demande"
-      to_kassi: "à %{service_name}"
-      check_everything_that_others_are: "regardez ce que les autres"
-      offering: offrent
-      requesting: demandent
       text_version_text: "Et si vous partagiez quelque chose dont les autres ont besoin ? Ou peut être avez-vous besoin de quelque chose que d'autres pourraient avoir ? Ajoutez une offre ou une demande ou jetez un oeil aux offres et demandes des autres membres sur %{url}"
-      occasional_newsletter_title: "Sharetribe newsletter"
     reply_to_contact_request:
       thank_you_for_your_interest: "Nous vous remercions pour l'intérêt que vous portez à %{service_name} !"
     reset_password_instructions:
@@ -1770,7 +1759,6 @@ fr:
       email_daily_community_updates: "Envoyez moi un email <b>chaque jour</b> s'il y a des nouvelles annonces"
       email_weekly_community_updates: "Envoyez moi un email <b>chaque semaine</b> s'il y a des nouvelles annonces"
       do_not_email_community_updates: "Ne m'envoyez pas d'emails de mise à jour"
-      email_newsletters: "Envoyez-moi la newsletter de %{service_name} (occasionnelle)"
       email_when_conversation_accepted: "...quelqu'un accepte une de mes offres ou de mes demandes"
       email_when_conversation_rejected: "...quelqu'un rejette une de mes offres ou de mes demandes"
       email_about_completed_transactions: "...quelqu'un marque mon offre ou ma demande comme réalisée"

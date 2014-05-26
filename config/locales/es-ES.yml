@@ -786,21 +786,10 @@ es-ES:
       settings_link_text: "Edita tu configuración de email aquí"
       unsubscribe_link_text: "cancelar suscripción"
     newsletter:
-      weekly_news_from_kassi: "Noticias semanales de %{community} %{service_name}"
       hi: "Hola %{name},"
-      update_on_what_is_happening: ~
       newest_offers: "Lo que la gente actualmente ofrece a los demás"
       newest_requests: "Lo que las personas actualmente necesitan"
-      could_you_offer_something: "¿Puedes compartir algo que los demás puedan necesitar? ó ¿Necesitas algo que otros podrían tener?"
-      add: Añadir
-      an_offer: "una oferta"
-      a_request: "una solicitud"
-      to_kassi: "a %{service_name}"
-      check_everything_that_others_are: "Chequee las evaluaciones de los demás"
-      offering: ofreciendo
-      requesting: solicitando
       text_version_text: "¿Tienes algo para compartir que los demás podrían necesitar? ¿O necesitas algo que los otros podrían tener? Añade una oferta o solicitud o revisa todo lo que otros están ofreciendo o están pidiendo en %{url}"
-      occasional_newsletter_title: "Newsletter de Sharetribe"
     reply_to_contact_request:
       thank_you_for_your_interest: "Gracias por tu interés en %{service_name}!"
     reset_password_instructions:
@@ -1760,7 +1749,6 @@ es-ES:
       email_daily_community_updates: "Enviarme un email de actualización <b>diariamente</b> si hay nuevas publicaciones"
       email_weekly_community_updates: "Enviarme un email de actualización <b>semanalmente</b> si hay nuevas publicaciones"
       do_not_email_community_updates: "No enviarme emails de actualización"
-      email_newsletters: ~
       email_when_conversation_accepted: ".. .alguien acepta mi oferta o solicitud"
       email_when_conversation_rejected: ".. .alguien rechaza mi oferta o solicitud"
       email_about_completed_transactions: ~

@@ -783,21 +783,10 @@ ca:
       settings_link_text: ~
       unsubscribe_link_text: ~
     newsletter:
-      weekly_news_from_kassi: "Notícies setmanals de %{community} Kassi"
       hi: "Hola %{name},"
-      update_on_what_is_happening: "Fes una ullada al que està succeint a %{community} ara mateix"
       newest_offers: "Que ofereix la gent?"
       newest_requests: "Que necessita la gent?"
-      could_you_offer_something: "Pots compartir alguna cosa amb els altres? Necessites alguna cosa que algú podria tenir?"
-      add: Afegir
-      an_offer: "una oferta"
-      a_request: "una sol·licitud"
-      to_kassi: "a Kassi"
-      check_everything_that_others_are: "Comprova les avaluacions de la resta"
-      offering: oferint
-      requesting: sol·licitant
       text_version_text: "Tens alguna cosa que la resta puguin necessitar? O necessites alguna cosa que altra gent pugui tenir? Afegeix una oferta o sol·licitud, o revisa tot allò que s'ofereix a %{url}"
-      occasional_newsletter_title: ~
     reply_to_contact_request:
       thank_you_for_your_interest: "Gràcies pel teu interès amb %{service_name}!"
     reset_password_instructions:
@@ -1754,7 +1743,6 @@ ca:
       email_daily_community_updates: ~
       email_weekly_community_updates: ~
       do_not_email_community_updates: ~
-      email_newsletters: ~
       email_when_conversation_accepted: "...algú ha acceptat la meva oferta o sol·licitud"
       email_when_conversation_rejected: "...algú ha rebutjat la meva oferta o sol·licitud"
       email_about_completed_transactions: ~

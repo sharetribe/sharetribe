@@ -783,21 +783,10 @@ ru:
       settings_link_text: "Отредактируй настройки получения писем"
       unsubscribe_link_text: отпишись
     newsletter:
-      weekly_news_from_kassi: "Еженедельный дайджест новостей сообщества %{service_name} «%{community}»"
       hi: "Привет %{name},"
-      update_on_what_is_happening: "Ознакомьтесь с последними предложениями и запросами в сообществе %{service_name} %{community} прямо сейчас."
       newest_offers: "Последние предложения"
       newest_requests: "Последние запросы"
-      could_you_offer_something: "У вас есть что-нибудь, что может пригодиться другим? Или вам нужно что-либо, что может быть у других?"
-      add: Добавьте
-      an_offer: предложение
-      a_request: запрос
-      to_kassi: "в %{service_name}"
-      check_everything_that_others_are: "посмотрите, что другие пользователи"
-      offering: предлагают
-      requesting: запрашивают
       text_version_text: "У вас есть что-нибудь, что может кому-то пригодиться? А может быть вам нужно то, что может быть у других? Оставьте запрос, предложение или просто взгляните на то, что предлагают и запрашивают другие — %{url}"
-      occasional_newsletter_title: "Рассылка Sharetribe"
     reply_to_contact_request:
       thank_you_for_your_interest: "Спасибо за ваш интерес к Kassi!"
     reset_password_instructions:
@@ -1755,7 +1744,6 @@ ru:
       email_daily_community_updates: "Оповещать <b>ежедневно</b> при наличии новых сообщений"
       email_weekly_community_updates: "Оповещать <b>еженедельно</b> при наличии новых сообщений"
       do_not_email_community_updates: "Не посылать обновления"
-      email_newsletters: "Отправляйте мне иногда рассылку новостей %{service_name}"
       email_when_conversation_accepted: "...кто-нибудь принял мой запрос или предложение"
       email_when_conversation_rejected: "...кто-нибудь отверг мой запрос или предложение"
       email_about_completed_transactions: ~

@@ -798,21 +798,10 @@ de:
       settings_link_text: "Bearbeite hier deine E-Mail-Grundeinstellungen."
       unsubscribe_link_text: "bestelle die E-Mails ab."
     newsletter:
-      weekly_news_from_kassi: "Wöchentliche Nachrichten von %{community}%{service_name}"
       hi: "Hallo %{name}"
-      update_on_what_is_happening: "Wirf einen Blick auf die Geschehnisse in %{community}  %{service_name}."
       newest_offers: "Was Leute derzeit anderen anbieten"
       newest_requests: "Was Leute derzeit benötigen"
-      could_you_offer_something: "Könntest du etwas teilen, das andere möglicherweise brauchen? Oder benötigst du etwas, das andere vielleicht haben?"
-      add: Hinzufügen
-      an_offer: "Ein Angebot"
-      a_request: "eine Anfrage"
-      to_kassi: "zu %{service_name}"
-      check_everything_that_others_are: "Sieh dir an, was andere sind"
-      offering: anbieten
-      requesting: anfragen
       text_version_text: "Könntest du etwas teilen, das andere möglicherweise brauchen? Oder benötigst du etwas, das andere vielleicht haben? Füge ein Angebot oder eine Anfrage hinzu oder sieh nach, was andere anbieten oder benötigen bei %{url}"
-      occasional_newsletter_title: "Sharetribe Newsletter"
     reply_to_contact_request:
       thank_you_for_your_interest: "Danke für dein Interesse an %{service_name}!"
     reset_password_instructions:
@@ -1773,7 +1762,6 @@ de:
       email_daily_community_updates: "Schickt mir täglich Neuigkeiten per E-Mail, sofern es neue Einträge gibt"
       email_weekly_community_updates: "Schickt mir wöchentlich Neuigkeiten per E-Mail, sofern es neue Einträge gibt"
       do_not_email_community_updates: "Schickt mir keine Neuigkeiten per E-Mail"
-      email_newsletters: "Schickt mir gelegentlich einen %{service_name} Newsletter"
       email_when_conversation_accepted: "...jemand mein Angebot oder meine Anfrage akzeptiert"
       email_when_conversation_rejected: "...jemand mein Angebot oder meine Anfrage ablehnt"
       email_about_completed_transactions: "...jemand mein Angebot oder meine Anfrage als erledigt markiert"

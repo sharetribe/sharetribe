@@ -783,21 +783,10 @@ pt-BR:
       settings_link_text: "Edite suas configurações de e-mail aqui"
       unsubscribe_link_text: ~
     newsletter:
-      weekly_news_from_kassi: ~
       hi: "Ola %{name},"
-      update_on_what_is_happening: ~
       newest_offers: "O que as pessoas oferecem atualmente aos outros"
       newest_requests: "O que as pessoas precisam atualmente"
-      could_you_offer_something: ~
-      add: Adicionar
-      an_offer: "uma oferta"
-      a_request: ~
-      to_kassi: ~
-      check_everything_that_others_are: "verifique tudo o que os outros são"
-      offering: ofertando
-      requesting: solicitando
       text_version_text: ~
-      occasional_newsletter_title: ~
     reply_to_contact_request:
       thank_you_for_your_interest: "Obrigado pelo seu interesse no %{service_name}!"
     reset_password_instructions:
@@ -1752,7 +1741,6 @@ pt-BR:
       email_daily_community_updates: "Envie-me um e-mail <b>diária</b> se houver novos anúncios"
       email_weekly_community_updates: "Envie-me um e-mail <b>semanal</b> se houver novos anúncios"
       do_not_email_community_updates: "Não me mande e-mails"
-      email_newsletters: "Envie-me %{service_name} boletins"
       email_when_conversation_accepted: "...alguém aceitar a minha oferta ou solicitação"
       email_when_conversation_rejected: "...alguém rejeitar a minha oferta ou solicitação"
       email_about_completed_transactions: "...alguém marca a minha oferta ou solicitação como concluída"

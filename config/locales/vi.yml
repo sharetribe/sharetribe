@@ -783,21 +783,10 @@ vi:
       settings_link_text: "Chỉnh sửa các thiết lập email của bạn ở đây"
       unsubscribe_link_text: ~
     newsletter:
-      weekly_news_from_kassi: "Tin tức hàng tuần từ %{community} %{service_name}"
       hi: "Chào %{name},"
-      update_on_what_is_happening: "Để ý một tý vào những gì đang xảy ra tại %{community} %{service_name} ngay bây giờ."
       newest_offers: "Hiện tại người nào hỗ trợ những người khác"
       newest_requests: "Hiện tại người nào cần"
-      could_you_offer_something: "Bạn có thể chia sẻ thứ gì đó người khác cần không? Hoặc bạn cần thứ gì đó mà người khác có không?"
-      add: Thêm
-      an_offer: "một hỗ trợ"
-      a_request: "một yêu cầu"
-      to_kassi: "đến %{service_name}"
-      check_everything_that_others_are: "kiểm tra mọi thứ mà những người khác"
-      offering: "hỗ trợ"
-      requesting: "yêu cầu"
       text_version_text: "Bạn có thể chia sẻ thứ gì đó người khác cần không? Hoặc bạn cần thứ gì đó mà người khác có không? Thêm một đề nghị hoặc một yêu cầu hoặc kiểm tra mọi thứ mà những người khác đang hỗ trợ hoặc yêu cầu tại %{url}"
-      occasional_newsletter_title: "Tin tức từ Sharetribe"
     reply_to_contact_request:
       thank_you_for_your_interest: "Cảm ơn bạn đã quan tâm đến %{service_name}!"
     reset_password_instructions:
@@ -1753,7 +1742,6 @@ vi:
       email_daily_community_updates: "Gửi tôi email cập nhật <b> hàng ngày</b> nếu có danh sách mới"
       email_weekly_community_updates: "Gửi tôi một email cập nhật <b>hàng tuần</b> nêu có danh sách mới"
       do_not_email_community_updates: "Không gửi email cập nhật mới cho tôi"
-      email_newsletters: "Gửi tôi tin tức thường xuyên %{service_name}"
       email_when_conversation_accepted: ".. .người nào đó chấp nhận sự hỗ trợ hoặc yêu cầu của tôi"
       email_when_conversation_rejected: ".. .người nào đó từ chối sự hỗ trợ hoặc yêu cầu của tôi"
       email_about_completed_transactions: ~

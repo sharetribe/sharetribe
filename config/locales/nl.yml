@@ -783,21 +783,10 @@ nl:
       settings_link_text: ~
       unsubscribe_link_text: ~
     newsletter:
-      weekly_news_from_kassi: "Wekelijks nieuws van %{community}%{service_name}"
       hi: "Hoi %{name}"
-      update_on_what_is_happening: ~
       newest_offers: "Wat mensen op dit moment aanbieden aan anderen"
       newest_requests: "Wat mensen op dit moment nodig hebben"
-      could_you_offer_something: "Kan je iets delen dat anderen wellicht nodig hebben? Of heb je iets nodig dat anderen wellicht hebben?"
-      add: "Voeg toe"
-      an_offer: "Een aanbod"
-      a_request: "een vraag"
-      to_kassi: "aan %{service_name}"
-      check_everything_that_others_are: ~
-      offering: ~
-      requesting: ~
       text_version_text: ~
-      occasional_newsletter_title: ~
     reply_to_contact_request:
       thank_you_for_your_interest: "Bedankt voor je interesse in %{service_name}!"
     reset_password_instructions:
@@ -1753,7 +1742,6 @@ nl:
       email_daily_community_updates: "Stuur mij een <b>dagelijkse<b> update als er nieuwe items geplaatst worden"
       email_weekly_community_updates: "Stuur mij een <b>wekelijkse<b> update als er nieuwe items geplaatst worden"
       do_not_email_community_updates: "Ik ontvang liever geen updates"
-      email_newsletters: "Stuur me af en toe een nieuwsbrief van %{service_name}"
       email_when_conversation_accepted: "...iemand accepteert mijn vraag of aanbod"
       email_when_conversation_rejected: "...iemand weigert mijn vraag of aanbod"
       email_about_completed_transactions: "...iemand mijn vraag markeert als voltooid"
