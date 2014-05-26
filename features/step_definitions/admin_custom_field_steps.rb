@@ -45,8 +45,7 @@ Then /^I should see that there is no custom field "(.*?)"$/ do |field_name|
 end
 
 Then /^I should see that I do not have any custom fields$/ do
-  predefined_fields = ["Price"]
-  (all(".custom-field-title").collect(&:text) - predefined_fields).should be_empty
+  all(".custom-field-title").should be_empty
 end
 
 When /^I remove custom field "(.*?)"$/ do |title|
