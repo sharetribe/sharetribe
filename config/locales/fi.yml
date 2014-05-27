@@ -177,6 +177,9 @@ fi:
         show_price_filter_homepage: "Näytä hintasuodatin etusivulla"
         price_min: Minimihinta
         price_max: Maksimihinta
+      edit_location:
+        edit_location_field: "Muokkaa sijaintikenttää"
+        this_field_is_required: "Tämä kenttä on pakollinen"
       form:
         field_required:
           this_field_is_required: "Tämä on pakollinen kenttä"
