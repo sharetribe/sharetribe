@@ -146,8 +146,10 @@ Kassi::Application.routes.draw do
         collection do
           get :add_option
           get :edit_price
+          get :edit_location
           post :order
           put :update_price
+          put :update_location
         end
       end
       resources :categories do

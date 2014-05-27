@@ -81,6 +81,12 @@ class Admin::CustomFieldsController < ApplicationController
     @community = @current_community
   end
 
+  def edit_location
+    @selected_tribe_navi_tab = "admin"
+    @selected_left_navi_link = "listing_fields"
+    @community = @current_community
+  end
+
   def update_price
     # To cents
     params[:community][:price_filter_min] = (params[:community][:price_filter_min].to_i * 100) if params[:community][:price_filter_min]
@@ -93,6 +99,17 @@ class Admin::CustomFieldsController < ApplicationController
     else
       flash[:error] = "Price field editing failed"
       render :action => :edit_price
+    end
+  end
+
+  def update_location
+    success = @current_community.update_attributes(params[:community])
+
+    if success
+      redirect_to admin_custom_fields_path
+    else
+      flash[:error] = "Location field editing failed"
+      render :action => :edit_location
     end
   end
 

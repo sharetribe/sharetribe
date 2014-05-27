@@ -1,5 +1,9 @@
-= form.label :origin, t(".location"), :class => "input"
-= form.text_field :origin, :class => "text_field", :onkeyup => "timed_input(this)", :value => (origin_loc ? origin_loc.address : nil)
+- required = Maybe(@current_community).listing_location_required.or_else { false }
+- title = t(".location") + (required ? "*" : "")
+- required_class = (required ? "required" : "")
+
+= form.label :origin, title, :class => "input"
+= form.text_field :origin, :class => "text_field #{required_class}", :onkeyup => "timed_input(this)", :value => (origin_loc ? origin_loc.address : nil)
 = form.fields_for :origin_loc do |loc|
   = loc.hidden_field :address, :value => origin_loc.address
   = loc.hidden_field :google_address, :value => origin_loc.google_address

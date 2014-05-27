@@ -116,7 +116,8 @@
           = t("listings.form.location.location")
         %div.custom-fields-details
       .col-2
-        = icon_tag("edit", ["icon-fix disabled"])
+        = link_to edit_location_admin_custom_fields_path, :class => "custom-fields-action-edit" do
+          = icon_tag("edit", ["icon-fix"])
         = icon_tag("cross", ["icon-fix disabled"])
         = icon_tag("directup", ["icon-fix disabled"])
         = icon_tag("directdown", ["icon-fix disabled"])
