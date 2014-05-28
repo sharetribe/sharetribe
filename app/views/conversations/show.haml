@@ -7,20 +7,23 @@
       = t("layouts.no_tribe.inbox")
     | #{@conversation.title}
 
-.centered-section-wide.conversation
+.centered-section-wide
   - Maybe(@conversation).listing.each do |listing|
-    .row
-      .col-12
-        %h2= listing.title
-    .row
-      .col-12
-        %p
-          Requested by
-          = link_to @conversation.starter.name, @conversation.starter
-        %p
-          Sum:
-          = humanized_money_with_symbol(@conversation.payment.sum)
+    .message-avatar-padding
+      .row
+        .col-12
+          %h2
+            = link_to listing.title, listing
 
+          %p
+            Requested by
+            = link_to @conversation.starter.name, @conversation.starter
+          %p.message-sum
+            Sum:
+            = humanized_money_with_symbol(@conversation.payment.total_sum)
+
+          - unless @conversation.status.eql?("free")
+            = render :partial => "status", :locals => { :conversation => @conversation }
 
   / .avatar-container
   /   .avatar
@@ -28,18 +31,18 @@
   /   .avatar-text
   /     = render :partial => "conversation_with", :locals => { :conversation => @conversation, :other_party => @other_party }
 
-  #messages
-    = render :partial => "message", :collection => @conversation.messages
-
-  - if @conversation.listing && !@conversation.status.eql?("free")
-    .conversation-status-lower
-      .conversation-status-container{:id => "conversation_#{@conversation.id.to_s}_status"}
-        = render :partial => "status", :locals => { :conversation => @conversation }
-
-  #reply_form
+  #reply_form.message-avatar-padding.message-reply-form
     = form_for Message.new, :url => person_message_messages_path(:person_id => @current_user.id, :message_id => @conversation.id.to_s) do |f|
       = f.label :content, t(".write_a_reply")
       = f.text_area :content, :class => "reply_form_text_area"
       = f.hidden_field :conversation_id, :value => @conversation.id.to_s
       = f.hidden_field :sender_id, :value => @current_user.id
       = f.button t(".send_reply")
+
+  #messages
+    = render :partial => "message", :collection => @conversation.messages
+
+  / - if @conversation.listing && !@conversation.status.eql?("free")
+  /   .conversation-status-lower
+  /     .conversation-status-container{:id => "conversation_#{@conversation.id.to_s}_status"}
+  /       = render :partial => "status", :locals => { :conversation => @conversation }

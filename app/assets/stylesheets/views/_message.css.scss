@@ -2,6 +2,23 @@
 
 $avatar-size: em(48);
 
+.message-avatar-padding {
+  @include media(large-mobile) {
+    margin-left: $avatar-size + lines(0.5);
+    margin-right: $avatar-size + lines(0.5);
+  }
+}
+
+.message-sum {
+  @include big-type;
+}
+
+.message-reply-form {
+  form {
+    padding-bottom: lines(1);
+  }
+}
+
 .message-avatar {
   width: $avatar-size;
   height: $avatar-size;
@@ -11,13 +28,79 @@ $avatar-size: em(48);
   position: relative;
 }
 
-.message-avatar-left {
+.message-avatar {
+  @include border-radius($default-border-radius);
   position: absolute;
   top: 0;
+}
+
+.message-avatar-left {
+  @extend .message-avatar;
   left: 0;
 }
 
-.message-content-right {
-  min-height: $avatar-size;
+.message-avatar-right  {
+  @extend .message-avatar;
+  right: 0;
+}
+
+.message-content-container-left {
   padding-left: $avatar-size + lines(0.5);
+  @include media(large-mobile) {
+    padding-right: $avatar-size + lines(0.5);
+  }
+}
+
+.message-content-container-right {
+  padding-right: $avatar-size + lines(0.5);
+  @include media(large-mobile) {
+    padding-left: $avatar-size + lines(0.5);
+  }
+}
+
+.message-bubble {
+  position: relative;
+  min-height: $avatar-size;
+  padding: lines(0.25) lines(0.5);
+  @include border-radius($default-border-radius);
+
+  &:after {
+    top: ($avatar-size / 2);
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-width: lines(0.25);
+  }
+}
+
+.message-time-ago {
+  @include small-type;
+  margin-bottom: lines(0.25);
+}
+
+.message-bubble-arrow-to-left {
+  @extend .message-bubble;
+  background: $highlight;
+  text-align: left;
+
+  &:after {
+    right: 100%;
+    border-right-color: $highlight;
+    margin-top: lines(-0.25);
+  }
+}
+
+.message-bubble-arrow-to-right {
+  @extend .message-bubble;
+  background: $highlight;
+  text-align: right;
+
+  &:after {
+    left: 100%;
+    border-left-color: $highlight;
+    margin-top: lines(-0.25);
+  }
 }

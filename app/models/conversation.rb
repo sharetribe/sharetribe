@@ -2,7 +2,7 @@ class Conversation < ActiveRecord::Base
 
   belongs_to :listing
 
-  has_many :messages, :dependent => :destroy
+  has_many :messages, :dependent => :destroy, :order => "id DESC"
 
   has_many :participations, :dependent => :destroy
   has_many :participants, :through => :participations, :source => :person
