@@ -420,28 +420,6 @@ fi:
       you_will_get_notified: "Saat sähköpostiisi tiedon, kun %{person} vastaa sinulle."
       title: Otsikko
       send_message_to_user: "Lähetä viesti käyttäjälle %{person}"
-    notifications:
-      badgenotification:
-        see_all_your_badges: "Katso kaikki ansiomerkkisi"
-        you_have_earned_badge: "Olet ansainnut ansiomerkin"
-      comment_to_followed_listing_notification:
-        has_commented: "%{author} kommentoi"
-        offer_you_follow: "seuraamaasi tarjousta"
-        request_you_follow: "seuraamaasi pyyntöä"
-      listing_updated_notification:
-        has_updated: "on päivittänyt"
-        offer_you_follow: "seuraamasi tarjouksen"
-        request_you_follow: "seuraamasi pyynnön"
-      comment_to_own_listing_notification:
-        has_commented: "%{author} kommentoi"
-        your_offer: tarjoustasi
-        your_request: pyyntöäsi
-      loading_more_notifications: "Ladataan lisää tiedotteita"
-      no_notifications: "Ei tiedotteita."
-      testimonialnotification:
-        give_feedback_to: "Anna palautetta käyttäjälle %{name}"
-        has_given_you_feedback_on_event: "on antanut sinulle palautetta tapahtumasta"
-        see_all_the_feedback_you_have_received: "katso kaikki saamasi palautteet"
     show:
       in_response_to_listing: "liittyen ilmoitukseen"
       message_sent_by: "Viestin lähetti"

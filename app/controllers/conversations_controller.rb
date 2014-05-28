@@ -38,14 +38,6 @@ class ConversationsController < ApplicationController
     request.xhr? ? (render :partial => "additional_messages") : (render :action => :index)
   end
 
-  def notifications
-    @selected_left_navi_link = "notifications"
-    @notifications = @current_user.notifications.paginate(:per_page => 20, :page => params[:page])
-    @unread_notifications = @current_user.notifications.unread.all
-    @current_user.mark_all_notifications_as_read
-    render :partial => "additional_notifications" if request.xhr?
-  end
-
   def show
     @selected_left_navi_link = "messages"
     @current_user.read(@conversation) unless @conversation.read_by?(@current_user)
