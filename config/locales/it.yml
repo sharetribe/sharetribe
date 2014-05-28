@@ -154,6 +154,14 @@ it:
         language: ~
         url: ~
         empty: ~
+      braintree_payment_gateway:
+        braintree_payment_gateway: ~
+        environment: ~
+        private_key: ~
+        public_key: ~
+        client_side_encryption_key: ~
+        merchant_id: ~
+        master_merchant_id: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -162,12 +170,16 @@ it:
         show_price_filter_homepage: ~
         price_min: ~
         price_max: ~
+      edit_location:
+        edit_location_field: ~
+        this_field_is_required: ~
       form:
         field_required:
           this_field_is_required: ~
           this_field_is_required_checkbox: ~
       index:
         listing_fields: ~
+        listing_fields_help: ~
         add_new_field: ~
         remove_field_confirmation: ~
         cancel: ~

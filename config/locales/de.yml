@@ -169,6 +169,14 @@ de:
         language: ~
         url: ~
         empty: ~
+      braintree_payment_gateway:
+        braintree_payment_gateway: ~
+        environment: ~
+        private_key: ~
+        public_key: ~
+        client_side_encryption_key: ~
+        merchant_id: ~
+        master_merchant_id: ~
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
@@ -177,12 +185,16 @@ de:
         show_price_filter_homepage: "Preisfilter auf der Homepage anzeigen"
         price_min: Mindestpreis
         price_max: Höchstpreis
+      edit_location:
+        edit_location_field: ~
+        this_field_is_required: ~
       form:
         field_required:
           this_field_is_required: "Dieses Feld ist erforderlich."
           this_field_is_required_checkbox: ~
       index:
         listing_fields: Filter
+        listing_fields_help: ~
         add_new_field: "Neues Feld hinzufügen:"
         remove_field_confirmation: "Willst du das Feld '%{field_name}' wirklich entfernen?"
         cancel: Abbrechen

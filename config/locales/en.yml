@@ -170,8 +170,8 @@ en:
         url: URL
         empty: "You don't have any additional menu links"
       braintree_payment_gateway:
-        braintree_payment_gateway: Braintree Payment API keys
-        environment: "Environment"
+        braintree_payment_gateway: "Braintree Payment API keys"
+        environment: Environment
         private_key: "Private Key"
         public_key: "Public Key"
         client_side_encryption_key: "Client-Side Encryption (CSE) Key"
@@ -194,7 +194,7 @@ en:
           this_field_is_required_checkbox: "This field is required (User has to select at least one option)"
       index:
         listing_fields: "Listing fields"
-        listing_fields_help: "Here you can edit the fields user has to fill in when she creates a new listing. Please note that some fields are predefined and can not be edited."
+        listing_fields_help: "Here you can edit the fields that users have to fill in when they create a new listing. Please note that some fields are predefined and can not be edited."
         add_new_field: "Add new field:"
         remove_field_confirmation: "Are you sure you want to remove field '%{field_name}'?"
         cancel: Cancel

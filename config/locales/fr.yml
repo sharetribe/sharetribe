@@ -169,20 +169,32 @@ fr:
         language: Langue
         url: URL
         empty: "Vous n'avez pas encore ajouté de liens au menu"
+      braintree_payment_gateway:
+        braintree_payment_gateway: ~
+        environment: ~
+        private_key: ~
+        public_key: ~
+        client_side_encryption_key: ~
+        merchant_id: ~
+        master_merchant_id: ~
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
       edit_price:
-        edit_price_field: "Modifier le champ prix"
+        edit_price_field: "Modifier le champ d'annonce 'Prix'"
         show_price_filter_homepage: "Afficher le filtre de prix sur la page d'accueil"
         price_min: "Prix minimum"
         price_max: "Prix maximum"
+      edit_location:
+        edit_location_field: "Modifier le champ d'annonce 'Lieu'"
+        this_field_is_required: "Ce champ est obligatoire"
       form:
         field_required:
           this_field_is_required: "Ce champ est obligatoire"
           this_field_is_required_checkbox: "Ce champ est obligatoire (l'utilisateur doit sélectionner au moins un choix)"
       index:
         listing_fields: "Champs d'annonces"
+        listing_fields_help: "Vous pouvez ici modifier les champs qu'un utilisateur doit compléter lors de la création d'une annonce. Notez que certains champs sont prédéfinis et ne peuvent être modifiés."
         add_new_field: "Ajouter un nouveau champ : "
         remove_field_confirmation: "Voulez-vous vraiment supprimer le champ '%{field_name}' ?"
         cancel: Annuler
@@ -1290,7 +1302,7 @@ fr:
         file_too_large: "Le fichier est trop volumineux"
         accepted_formats: "L'image doit être au fomat GIF, JPG ou PNG."
       location:
-        location: Localisation
+        location: Lieu
       price:
         price: Prix
         per: par
