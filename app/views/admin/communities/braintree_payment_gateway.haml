@@ -8,7 +8,18 @@
 
 .left-navi-section
   %h2= t(".braintree_payment_gateway", :community_name => @community.name(I18n.locale))
-  = form_for @community.payment_gateway, :url => payment_gateways_admin_community_path(@community), :method => :put do |form|
+
+  - if @payment_gateway.configured?
+    .row
+      .col-12
+        %p
+          Webhook:
+          - hook_url = "#{request.protocol}webhooks.#{APP_CONFIG.domain}/webhooks/braintree?community_id=#{@current_community.id}"
+          = link_to hook_url, hook_url
+        %p
+          If configurations are correctly set the webhook URL should return randomly generated string with numbers and letters.
+
+  = form_for @payment_gateway, :url => payment_gateways_admin_community_path(@community), :method => (@payment_gateway.new_record? ? :post : :put) do |form|
     .row
       .col-12
       = form.label :braintree_environment, t(".environment"), :class => "input"

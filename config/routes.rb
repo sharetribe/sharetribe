@@ -133,7 +133,8 @@ Kassi::Application.routes.draw do
           get :manage_members
           get :settings
           get :payment_gateways
-          put :payment_gateways, to: 'communities#update_payment_gateways'
+          put :payment_gateways, to: 'communities#update_payment_gateway'
+          post :payment_gateways, to: 'communities#create_payment_gateway'
           get :integrations
           put :integrations, to: 'communities#update_integrations'
           get :menu_links

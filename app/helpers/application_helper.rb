@@ -723,9 +723,9 @@ module ApplicationHelper
       :name => "menu_links"
     }
 
-    if community.braintree_in_use?
+    if Maybe(@current_user).is_admin?.or_else { false }
       links << {
-        :text => t("admin.communities.payment_gateways.payment_gateways"),
+        :text => t("admin.communities.braintree_payment_gateway.braintree_payment_gateway"),
         :icon_class => icon_class("payments"),
         :path => payment_gateways_admin_community_path(community),
         :name => "payment_gateways"
