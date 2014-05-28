@@ -1,0 +1,23 @@
+@import "mixins/all";
+
+$avatar-size: em(48);
+
+.message-avatar {
+  width: $avatar-size;
+  height: $avatar-size;
+}
+
+.message-container {
+  position: relative;
+}
+
+.message-avatar-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.message-content-right {
+  min-height: $avatar-size;
+  padding-left: $avatar-size + lines(0.5);
+}

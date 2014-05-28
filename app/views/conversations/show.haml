@@ -8,11 +8,25 @@
     | #{@conversation.title}
 
 .centered-section-wide.conversation
-  .avatar-container
-    .avatar
-      = small_avatar_thumb @other_party
-    .avatar-text
-      = render :partial => "conversation_with", :locals => { :conversation => @conversation, :other_party => @other_party }
+  - Maybe(@conversation).listing.each do |listing|
+    .row
+      .col-12
+        %h2= listing.title
+    .row
+      .col-12
+        %p
+          Requested by
+          = link_to @conversation.starter.name, @conversation.starter
+        %p
+          Sum:
+          = humanized_money_with_symbol(@conversation.payment.sum)
+
+
+  / .avatar-container
+  /   .avatar
+  /     = small_avatar_thumb @other_party
+  /   .avatar-text
+  /     = render :partial => "conversation_with", :locals => { :conversation => @conversation, :other_party => @other_party }
 
   #messages
     = render :partial => "message", :collection => @conversation.messages
