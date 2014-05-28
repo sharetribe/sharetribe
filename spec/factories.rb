@@ -342,7 +342,7 @@ FactoryGirl.define do
     end
 
     factory :checkout_payment_gateway, class: 'Checkout' do
-
+      checkout_environment "stub"
     end
   end
 
