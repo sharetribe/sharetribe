@@ -146,4 +146,16 @@ class Checkout < PaymentGateway
   def no_fixed_commission
     Money.new(0, "EUR")
   end
+
+  def configured?
+    if checkout_environment == "stub"
+      true
+    else
+      [
+        checkout_environment,
+        checkout_user_id,
+        checkout_password
+      ].all? { |x| x.present? }
+    end
+  end
 end

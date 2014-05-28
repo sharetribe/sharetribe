@@ -723,6 +723,14 @@ module ApplicationHelper
       :name => "menu_links"
     }
 
+    if Maybe(@current_user).is_admin?.or_else { false }
+      links << {
+        :text => t("admin.communities.braintree_payment_gateway.braintree_payment_gateway"),
+        :icon_class => icon_class("payments"),
+        :path => payment_gateways_admin_community_path(community),
+        :name => "payment_gateways"
+      }
+    end
 
     if category_editing_allowed?
       links << {

@@ -169,6 +169,14 @@ en:
         language: Language
         url: URL
         empty: "You don't have any additional menu links"
+      braintree_payment_gateway:
+        braintree_payment_gateway: Braintree Payment API keys
+        environment: "Environment"
+        private_key: "Private Key"
+        public_key: "Public Key"
+        client_side_encryption_key: "Client-Side Encryption (CSE) Key"
+        merchant_id: "Merchant ID"
+        master_merchant_id: "Master Merchant ID"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"

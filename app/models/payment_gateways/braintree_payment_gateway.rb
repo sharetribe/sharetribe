@@ -71,4 +71,15 @@ class BraintreePaymentGateway < PaymentGateway
   def hold_in_escrow
     true
   end
+
+  def configured?
+    [
+      braintree_environment,
+      braintree_merchant_id,
+      braintree_master_merchant_id,
+      braintree_public_key,
+      braintree_private_key,
+      braintree_client_side_encryption_key
+    ].all? { |x| x.present? }
+  end
 end
