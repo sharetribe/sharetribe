@@ -318,10 +318,8 @@ class Listing < ActiveRecord::Base
     followers.each do |follower|
       unless follower.id == current_user.id
         if update
-          Notification.create(:notifiable_id => self.id, :notifiable_type => "Listing", :receiver_id => follower.id, :description => "updated")
           PersonMailer.new_update_to_followed_listing_notification(self, follower, community).deliver
         else
-          Notification.create(:notifiable_id => comments.last.id, :notifiable_type => "Comment", :receiver_id => follower.id, :description => "to_followed_listing")
           PersonMailer.new_comment_to_followed_listing_notification(comments.last, follower, community).deliver
         end
       end

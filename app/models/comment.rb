@@ -13,7 +13,6 @@ class Comment < ActiveRecord::Base
   # Creates notifications related to this comment and sends notification emails
   def send_notifications(community)
     if !listing.author.id.eql?(author.id)
-      Notification.create(:notifiable_id => id, :notifiable_type => "Comment", :receiver_id => listing.author.id, :description => "to_own_listing")
       if listing.author.should_receive?("email_about_new_comments_to_own_listing")
         PersonMailer.new_comment_to_own_listing_notification(self, community).deliver
       end
