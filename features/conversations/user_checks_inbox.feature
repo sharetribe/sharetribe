@@ -17,9 +17,6 @@ Feature: User checks inbox
     And I am logged in as "kassi_testperson1"
     When I follow inbox link
     Then I should see "Massage" within ".inbox-feed"
-    And I should see "Messages" within ".selected"
-    And I should see "Notifications" within ".left-navi"
-    And I should not see "Notifications" within ".selected"
     And I should see "Test message" within ".inbox-feed"
 
   Scenario: Viewing a single conversation

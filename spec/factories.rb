@@ -109,14 +109,6 @@ FactoryGirl.define do
     name "rookie"
   end
 
-  factory :notification do
-    receiver
-    is_read 0
-    notifiable_type "Listing"
-    notifiable_id "1"
-    description "to_own_listing"
-  end
-
   factory :community do
     name { generate(:domain) }
     domain

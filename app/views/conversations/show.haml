@@ -1,8 +1,6 @@
 - content_for :javascript do
   initialize_reply_form('#{I18n.locale}');
 
-= render :partial => "layouts/left_hand_navigation", :locals => { :links => inbox_links_for(@current_user) }
-
 - content_for :title_header do
   %h1= t("layouts.no_tribe.inbox")
 
