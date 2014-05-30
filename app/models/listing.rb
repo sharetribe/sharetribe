@@ -12,7 +12,6 @@ class Listing < ActiveRecord::Base
   has_many :listing_images, :dependent => :destroy
 
   has_many :conversations
-  has_many :notifications, :as => :notifiable, :dependent => :destroy
   has_many :comments, :dependent => :destroy
   has_many :custom_field_values, :dependent => :destroy
   has_many :custom_dropdown_field_values, :class_name => "DropdownFieldValue"
