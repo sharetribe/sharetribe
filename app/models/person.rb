@@ -51,7 +51,6 @@ class Person < ActiveRecord::Base
   has_many :received_positive_testimonials, :class_name => "Testimonial", :foreign_key => "receiver_id", :conditions => "grade IN (0.5,0.75,1)", :order => "id DESC"
   has_many :received_negative_testimonials, :class_name => "Testimonial", :foreign_key => "receiver_id", :conditions => "grade IN (0.0,0.25)", :order => "id DESC"
   has_many :messages, :foreign_key => "sender_id"
-  has_many :badges, :dependent => :destroy
   has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id", :dependent => :destroy
   has_many :community_memberships, :dependent => :destroy
   has_many :communities, :through => :community_memberships, :conditions => ['status = ?', 'accepted']
@@ -73,7 +72,6 @@ class Person < ActiveRecord::Base
     "email_about_new_comments_to_own_listing",
     "email_when_conversation_accepted",
     "email_when_conversation_rejected",
-    "email_about_new_badges",
     "email_about_new_received_testimonials",
     "email_about_accept_reminders",
     "email_about_confirm_reminders",
@@ -355,19 +353,6 @@ class Person < ActiveRecord::Base
     conversation.participations.where(["person_id LIKE ?", self.id]).first.update_attribute(:is_read, true)
   end
 
-  def give_badge(badge_name, community)
-    unless has_badge?(badge_name) || ! community.badges_in_use
-      badge = Badge.create(:person_id => id, :name => badge_name)
-      if should_receive?("email_about_new_badges")
-        PersonMailer.new_badge(badge, community).deliver
-      end
-    end
-  end
-
-  def has_badge?(badge)
-    ! badges.find_by_name(badge).nil?
-  end
-
   def grade_amounts
     grade_amounts = []
     Testimonial::GRADES.each_with_index do |grade, index|
@@ -379,17 +364,6 @@ class Person < ActiveRecord::Base
   def can_give_feedback_on?(conversation)
     participation = Participation.find_by_person_id_and_conversation_id(id, conversation.id)
     participation.feedback_can_be_given?
-  end
-
-  # This methods can be used to control whether certain badges
-  # are shown to this person. Currently everybody sees all badges.
-  def badges_visible_to?(person)
-    return true
-    # if person
-    #   self.eql?(person) ? true : [2,4].include?(person.test_group_number)
-    # else
-    #   false
-    # end
   end
 
   def consent(community)
@@ -589,7 +563,6 @@ class Person < ActiveRecord::Base
       source_person.authored_testimonials.each  { |asset| asset.author = self ; asset.save(:validate => false) }
       source_person.received_testimonials.each  { |asset| asset.receiver = self ; asset.save(:validate => false) }
       source_person.messages.each  { |asset| asset.sender = self ; asset.save(:validate => false) }
-      source_person.badges.each { |asset| asset.person = self ; asset.save(:validate => false) }
       source_person.authored_comments.each  { |asset| asset.author = self ; asset.save(:validate => false) }
       source_person.community_memberships.each  { |asset| asset.person = self ; asset.save(:validate => false)}
       source_person.invitations.each { |asset| asset.inviter = self ; asset.save(:validate => false) }
@@ -623,8 +596,7 @@ class Person < ActiveRecord::Base
           source_person.received_testimonials.count == 0 &&
           source_person.community_memberships.count == 0 &&
           source_person.participations.count == 0 &&
-          source_person.messages.count == 0 &&
-          source_person.badges.count == 0
+          source_person.messages.count == 0
           )
 
         source_person.destroy
@@ -800,8 +772,5 @@ class Person < ActiveRecord::Base
     puts "comm_memb:\t#{p1.community_memberships.count}\t#{p2.community_memberships.count}"
     puts "participations:\t#{p1.participations.count}\t#{p2.participations.count}"
     puts "messages:\t#{p1.messages.count}\t#{p2.messages.count}"
-    puts "badges:\t#{p1.badges.count}\t#{p2.badges.count}"
-
   end
-
 end

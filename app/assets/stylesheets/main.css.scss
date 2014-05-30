@@ -658,38 +658,6 @@ label.error {
   }
 }
 
-.badge-lightbox {
-  max-width: lines(28);
-
-  .badge-lightbox-content {
-    min-height: lines(5);
-  }
-
-  small {
-    margin-top: lines(0.5);
-    font-style: italic;
-    color: $aside;
-  }
-
-  .badge-image {
-    float: right;
-    width: lines(5);
-    margin-left: lines(0.5);
-    img {
-      width: 100%;
-    }
-  }
-
-  @include media(tablet) {
-    .badge-lightbox-content {
-      min-height: lines(10);
-    }
-    .badge-image {
-      width: lines(8);
-    }
-  }
-}
-
 .image-lightbox {
   max-width: em(800);
 }
@@ -1461,7 +1429,7 @@ a.lightbox-x {
     }
   }
 
-  .profile-listings, .profile-testimonials, .profile-badges, .profile-organizations {
+  .profile-listings, .profile-testimonials, .profile-organizations {
 
     h2 {
       margin-top: 0;
@@ -1626,40 +1594,6 @@ a.lightbox-x {
     }
 
   }
-
-  .profile-badges {
-
-    .badge-list {
-      border-top: 1px dotted $border;
-      padding-top: lines(0.5);
-    }
-
-    h2 {
-      margin-bottom: 0;
-      padding-bottom: lines(0.25);
-    }
-
-    .profile-badge {
-      display: inline-block;
-      margin-right: lines(0.5);
-      img {
-        width: lines(3);
-      }
-    }
-
-    @include media(tablet) {
-
-      .profile-badge {
-        img {
-          width: auto;
-        }
-
-      }
-
-    }
-
-  }
-
 }
 
 /*

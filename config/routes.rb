@@ -99,7 +99,6 @@ Kassi::Application.routes.draw do
           end
         end
         resources :invitations # This could be removed, but now saved for a while to keep links in old emails working
-        resources :badges
         resources :testimonials
         resources :poll_answers
         resources :emails do
@@ -271,7 +270,6 @@ Kassi::Application.routes.draw do
   match '/okl' => 'dashboard#okl'
   match '/omakotiliitto' => 'dashboard#okl'
   match '/:locale/admin' => 'admin/news_items#index', :as => :admin
-  match '/badges/:style/:id.:format' => "badges#image"
   match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
   match "/:locale/offers" => "listings#offers", :as => :offers
   match "/:locale/requests" => "listings#requests", :as => :requests

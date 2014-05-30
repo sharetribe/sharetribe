@@ -7,6 +7,6 @@ skip_phantomjs = ENV['PHANTOMJS'] ? "--tags ~@skip_phantomjs" : ""
 default: <%= skip_phantomjs %>  <%= std_opts %> features
 wip: --tags @wip:3 --wip features
 rerun: <%= rerun_opts %> --format rerun --out rerun.txt --strict --tags ~@wip
-travis: -rfeatures --tags ~@badge --tags ~@pending --tags ~@fix_for_new_design <%= skip_phantomjs %> --format progress features
-temp: -rfeatures --strict --tags ~@wip --tags ~@badge --tags ~@pending --tags ~@fix_for_new_design --format progress features
+travis: -rfeatures --tags --tags ~@pending --tags ~@fix_for_new_design <%= skip_phantomjs %> --format progress features
+temp: -rfeatures --strict --tags ~@wip --tags --tags ~@pending --tags ~@fix_for_new_design --format progress features
 parallel: -rfeatures --tags ~@wip --format progress features
