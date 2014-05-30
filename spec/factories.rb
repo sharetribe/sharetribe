@@ -104,11 +104,6 @@ FactoryGirl.define do
     is_handled 0
   end
 
-  factory :badge do
-    person
-    name "rookie"
-  end
-
   factory :community do
     name { generate(:domain) }
     domain

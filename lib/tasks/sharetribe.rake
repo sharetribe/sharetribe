@@ -207,17 +207,6 @@ namespace :sharetribe do
               )
         end
       end
-
-      badges_sheet = spreadsheet.worksheet "Badges"
-      badges_sheet.each 1 do |row|
-         if row[0].present?
-           Badge.create(
-                  :name => row[0],
-                  :person  => people_array[row[1]]
-           )
-
-         end
-      end
     end
 
     def create_demo_auth_token_for(p, token)

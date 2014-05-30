@@ -38,8 +38,6 @@ module NavigationHelpers
       person_path(:id => @people[$1].id, :locale => "en")
     when /^my profile page$/i
       person_path(:id => @logged_in_user.id, :locale => "en")
-    when /^the badges page of "(.*)"$/i
-      person_badges_path(:person_id => @people[$1].id, :locale => "en")
     when /^the testimonials page of "(.*)"$/i
       person_testimonials_path(:person_id => @people[$1].id, :locale => "en")
     when /the listing page/

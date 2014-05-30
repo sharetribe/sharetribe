@@ -23,20 +23,6 @@ After('@javascript') do
   end
 end
 
-Before('@badge') do
-  # FactoryGirl.create(:community, :domain => "test3")
-  #   puts "COMMUNITIES: #{Community.all.count}"
-  steps %Q{
-    Given there are following users:
-       | person |
-       | kassi_testperson1 |
-       | kassi_testperson2 |
-    And I am logged in as "kassi_testperson1"
-    And I belong to test group "4"
-    When I go to the profile page of "kassi_testperson1"
-  }
-end
-
 Before ('@subdomain2') do
   Capybara.default_host = 'test2.lvh.me'
   Capybara.app_host = "http://test2.lvh.me:9887"
