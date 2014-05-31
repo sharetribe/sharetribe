@@ -430,7 +430,7 @@ function update_listing_form_view(locale, attribute_array, listing_form_menu_tit
   // Display correct selected attributes
   $('.selected-group').each(function() {
     if (selected_attributes[$(this).attr('name')] != null) {
-      $('a.selected[data-id=' + selected_attributes[$(this).attr('name')] + ']').removeClass('hidden');
+      $(this).find('a.selected[data-id=' + selected_attributes[$(this).attr('name')] + ']').removeClass('hidden');
     }
   });
 
