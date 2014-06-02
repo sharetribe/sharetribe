@@ -16,7 +16,7 @@
             .text-part= t("listings.edit_links.reopen_listing")
 - else
 
-  - unless is_authorized
+  - unless is_author
 
     - link_path = @current_community.payment_possible_for?(@listing) ? reply_to_listing_path(:id => @listing.id.to_s) : reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free")
 
