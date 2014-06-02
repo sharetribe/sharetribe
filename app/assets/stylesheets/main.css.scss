@@ -1916,39 +1916,6 @@ a.lightbox-x {
 
 /*
   -------------------
-  Inbox notifications
-  -------------------
-*/
-
-.inbox-notifications {
-
-  .notification {
-    position: relative;
-    border-top: 1px dotted $border;
-    min-height: lines(2);
-    padding: lines(0.5) 0;
-  }
-
-  .notification-text {
-    padding: em(5) lines(0.5) em(10) lines(2);
-  }
-
-  .notification-icon {
-    position: absolute;
-    top: em(19);
-    left: em(17);
-  }
-
-  small {
-    margin-top: lines(0.25);
-    display: block;
-    color: $aside;
-  }
-
-}
-
-/*
-  -------------------
   Single conversation
   -------------------
 */

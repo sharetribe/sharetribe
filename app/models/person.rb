@@ -52,7 +52,6 @@ class Person < ActiveRecord::Base
   has_many :received_negative_testimonials, :class_name => "Testimonial", :foreign_key => "receiver_id", :conditions => "grade IN (0.0,0.25)", :order => "id DESC"
   has_many :messages, :foreign_key => "sender_id"
   has_many :badges, :dependent => :destroy
-  has_many :notifications, :foreign_key => "receiver_id", :order => "id DESC", :dependent => :destroy
   has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id", :dependent => :destroy
   has_many :community_memberships, :dependent => :destroy
   has_many :communities, :through => :community_memberships, :conditions => ['status = ?', 'accepted']
@@ -359,7 +358,6 @@ class Person < ActiveRecord::Base
   def give_badge(badge_name, community)
     unless has_badge?(badge_name) || ! community.badges_in_use
       badge = Badge.create(:person_id => id, :name => badge_name)
-      Notification.create(:notifiable_id => badge.id, :notifiable_type => "Badge", :receiver_id => id)
       if should_receive?("email_about_new_badges")
         PersonMailer.new_badge(badge, community).deliver
       end
@@ -368,10 +366,6 @@ class Person < ActiveRecord::Base
 
   def has_badge?(badge)
     ! badges.find_by_name(badge).nil?
-  end
-
-  def mark_all_notifications_as_read
-    Notification.update_all("is_read = 1", ["is_read = 0 AND receiver_id = ?", id])
   end
 
   def grade_amounts
@@ -596,7 +590,6 @@ class Person < ActiveRecord::Base
       source_person.received_testimonials.each  { |asset| asset.receiver = self ; asset.save(:validate => false) }
       source_person.messages.each  { |asset| asset.sender = self ; asset.save(:validate => false) }
       source_person.badges.each { |asset| asset.person = self ; asset.save(:validate => false) }
-      source_person.notifications.each  { |asset| asset.receiver = self ; asset.save(:validate => false) }
       source_person.authored_comments.each  { |asset| asset.author = self ; asset.save(:validate => false) }
       source_person.community_memberships.each  { |asset| asset.person = self ; asset.save(:validate => false)}
       source_person.invitations.each { |asset| asset.inviter = self ; asset.save(:validate => false) }

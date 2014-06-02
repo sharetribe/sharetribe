@@ -420,28 +420,6 @@ en:
       you_will_get_notified: "You will get an email notification when %{person} answers you."
       title: Title
       send_message_to_user: "Send message to %{person}"
-    notifications:
-      badgenotification:
-        see_all_your_badges: "See all your badges"
-        you_have_earned_badge: "You have earned the badge"
-      comment_to_followed_listing_notification:
-        has_commented: "%{author} has commented on"
-        offer_you_follow: "an offer you follow"
-        request_you_follow: "a request you follow"
-      listing_updated_notification:
-        has_updated: "has updated"
-        offer_you_follow: "an offer you follow"
-        request_you_follow: "a request you follow"
-      comment_to_own_listing_notification:
-        has_commented: "%{author} has commented on"
-        your_offer: "your offer"
-        your_request: "your request"
-      loading_more_notifications: "Loading more notifications"
-      no_notifications: "No notifications."
-      testimonialnotification:
-        give_feedback_to: "Give feedback to %{name}"
-        has_given_you_feedback_on_event: "has given you feedback on event"
-        see_all_the_feedback_you_have_received: "see all the feedback you have received"
     show:
       in_response_to_listing: "about listing"
       message_sent_by: "Message sent by"

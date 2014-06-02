@@ -753,24 +753,6 @@ module ApplicationHelper
     links
   end
 
-  # Inbox view left hand navigation content
-  def inbox_links_for(person)
-    [
-      {
-        :text => t("layouts.conversations.messages"),
-        :icon_class => icon_class("mail"),
-        :path => received_person_messages_path(:person_id => person.id.to_s),
-        :name => "messages"
-      },
-      {
-        :text => t("layouts.conversations.notifications"),
-        :icon_class => icon_class("notifications"),
-        :path => notifications_person_messages_path(:person_id => person.id.to_s),
-        :name => "notifications"
-      }
-    ]
-  end
-
   # Settings view left hand navigation content
   def settings_links_for(person, community=nil)
     links = [
