@@ -25,7 +25,7 @@ Feature: User checks inbox
     And I am logged in as "kassi_testperson1"
     When I follow inbox link
     And I follow "Test message"
-    Then I should see "Test message" within "h2"
+    Then I should see "Test message" within "h1"
 
   Scenario: Viewing received messages when there are multiple messages from different senders
     And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
