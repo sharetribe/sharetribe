@@ -628,22 +628,6 @@ CREATE TABLE `news_items` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `notifications` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `receiver_id` varchar(255) DEFAULT NULL,
-  `type` varchar(255) DEFAULT NULL,
-  `is_read` tinyint(1) DEFAULT '0',
-  `badge_id` int(11) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `testimonial_id` int(11) DEFAULT NULL,
-  `notifiable_id` int(11) DEFAULT NULL,
-  `notifiable_type` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `index_notifications_on_receiver_id` (`receiver_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 CREATE TABLE `old_ressi_events` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` varchar(255) DEFAULT NULL,
@@ -1859,3 +1843,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140519164823');
 INSERT INTO schema_migrations (version) VALUES ('20140523082452');
 
 INSERT INTO schema_migrations (version) VALUES ('20140526064017');
+
+INSERT INTO schema_migrations (version) VALUES ('20140530105841');
