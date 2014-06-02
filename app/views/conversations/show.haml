@@ -2,10 +2,12 @@
   initialize_reply_form('#{I18n.locale}');
 
 - content_for :title_header do
-  %h1= t("layouts.no_tribe.inbox")
+  %h1
+    = link_to received_person_messages_path(:person_id => @current_user.id) do
+      = t("layouts.no_tribe.inbox")
+    | #{@conversation.title}
 
-.left-navi-section.conversation
-  %h2= @conversation.title
+.centered-section-wide.conversation
   .avatar-container
     .avatar
       = small_avatar_thumb @other_party
