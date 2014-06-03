@@ -193,15 +193,15 @@ ul {
 }
 
 .centered-section-narrow {
-  max-width: $centered-section-narrow-width;
+  max-width: lines(15);
 }
 
 .centered-section {
-  max-width: $centered-section-width;
+  max-width: lines(19);
 }
 
 .centered-section-wide {
-  max-width: $centered-section-wide-width;
+  max-width: lines(25);
 }
 
 // User for simple centered views, mostly with forms
@@ -1853,20 +1853,6 @@ a.lightbox-x {
   }
 
 }
-
-// .conversation-status-lower {
-//   padding-top: lines(0.75);
-//   border-top: 1px dotted $border;
-//   border-bottom: 1px dotted $border;
-// }
-
-// .conversation-status-container {
-//   padding-bottom: lines(0.5);
-// }
-
-// .listed-conversation-status-padding {
-//   padding-top: lines(0.25);
-// }
 
 .conversation-status {
 

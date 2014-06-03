@@ -607,8 +607,6 @@ module ApplicationHelper
     text.gsub(/\n/, "</p><p>")
   end
 
-
-
   # general method for making urls as links and line breaks as <br /> tags
   def add_links_and_br_tags(text)
     pattern = /[\.)]*$/
