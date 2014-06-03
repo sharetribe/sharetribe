@@ -1,6 +1,9 @@
 @import "mixins/all";
 
 $avatar-size: em(48);
+$message-time-height: lines(1);
+$message-time-margin: lines(0.25);
+
 
 .message-avatar-padding {
   @include media(large-mobile) {
@@ -28,10 +31,13 @@ $avatar-size: em(48);
   position: relative;
 }
 
-.message-avatar {
+.message-avatar-image {
   @include border-radius($default-border-radius);
+}
+
+.message-avatar {
   position: absolute;
-  top: 0;
+  top: $message-time-height + $message-time-margin;
 }
 
 .message-avatar-left {
@@ -77,14 +83,23 @@ $avatar-size: em(48);
 }
 
 .message-time-ago {
-  @include small-type;
-  margin-bottom: lines(0.25);
+  margin-bottom: $message-time-margin;
+  height: $message-time-height;
+}
+
+.message-time-ago-left {
+  @extend .message-time-ago;
+  text-align: left;
+}
+
+.message-time-ago-right {
+  @extend .message-time-ago;
+  text-align: right;
 }
 
 .message-bubble-arrow-to-left {
   @extend .message-bubble;
   background: $highlight;
-  text-align: left;
 
   &:after {
     right: 100%;
@@ -96,7 +111,6 @@ $avatar-size: em(48);
 .message-bubble-arrow-to-right {
   @extend .message-bubble;
   background: $highlight;
-  text-align: right;
 
   &:after {
     left: 100%;

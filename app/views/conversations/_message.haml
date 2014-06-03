@@ -19,11 +19,11 @@
 .row.message-row
   .col-12.message-container
     %div{class: "message-avatar-#{avatar_side}"}
-      = small_avatar_thumb(message.sender, :class => "message-avatar")
+      = small_avatar_thumb(message.sender, :class => "message-avatar-image")
     %div{class: "message-content-container-#{avatar_side}"}
+      %div{class: "message-time-ago-#{avatar_side}"}
+        = link_to message.sender.name, message.sender
+        = time_ago(message.created_at)
       %div{class: "message-bubble-arrow-to-#{avatar_side}"}
-        .message-time-ago
-          = link_to message.sender.name, message.sender
-          = time_ago(message.created_at)
         %div
           = message.content
