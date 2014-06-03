@@ -20,7 +20,7 @@
             = link_to @conversation.starter.name, @conversation.starter
           %p.message-sum
             Sum:
-            = humanized_money_with_symbol(@conversation.payment.total_sum)
+            = humanized_money_with_symbol(listing.price)
 
           - unless @conversation.status.eql?("free")
             = render :partial => "status", :locals => { :conversation => @conversation }
