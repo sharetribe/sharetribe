@@ -67,8 +67,15 @@ $message-time-margin: lines(0.25);
 .message-bubble {
   position: relative;
   min-height: $avatar-size;
-  padding: lines(0.25) lines(0.5);
   @include border-radius($default-border-radius);
+
+  // No bottom padding, it comes from the <p> tag
+  padding: lines(0.5) lines(0.5) lines(0) lines(0.5);
+
+  p {
+    margin-bottom: 0;
+    padding-bottom: lines(0.5);
+  }
 
   &:after {
     top: ($avatar-size / 2);
@@ -80,6 +87,8 @@ $message-time-margin: lines(0.25);
     pointer-events: none;
     border-width: lines(0.25);
   }
+
+  background: $highlight;
 }
 
 .message-time-ago {
@@ -99,22 +108,66 @@ $message-time-margin: lines(0.25);
 
 .message-bubble-arrow-to-left {
   @extend .message-bubble;
-  background: $highlight;
 
   &:after {
     right: 100%;
     border-right-color: $highlight;
     margin-top: lines(-0.25);
   }
+
+  &.message-action-positive {
+    color: $green;
+    background: lighten($green, 40%);
+
+    &:after {
+      border-right-color: lighten($green, 40%);
+    }
+  }
+
+  &.message-action-negative {
+    color: $red;
+    background: lighten($red, 40%);
+
+    &:after {
+      border-right-color: lighten($red, 40%);
+    }
+  }
 }
 
 .message-bubble-arrow-to-right {
   @extend .message-bubble;
-  background: $highlight;
 
   &:after {
     left: 100%;
     border-left-color: $highlight;
     margin-top: lines(-0.25);
   }
+
+  &.message-action-positive {
+    color: $green;
+    background: lighten($green, 40%);
+
+    &:after {
+      border-left-color: lighten($green, 40%);
+    }
+  }
+
+  &.message-action-negative {
+    color: $red;
+    background: lighten($red, 40%);
+
+    &:after {
+      border-left-color: lighten($red, 40%);
+    }
+  }
+}
+
+.message-action-positive {
+  color: $green;
+  background: lighten($green, 40%);
+}
+
+.message-action-negative {
+  color: $red;
+  background: lighten($red, 40%);
 }

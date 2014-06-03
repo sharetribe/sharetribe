@@ -21,4 +21,12 @@ class Message < ActiveRecord::Base
     end
   end
 
+  def positive_action?
+    ["accept", "confirm", "pay"].include? action
+  end
+
+  def negative_action?
+    ["reject", "cancel"].include? action
+  end
+
 end
