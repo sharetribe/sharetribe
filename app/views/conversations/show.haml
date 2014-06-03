@@ -25,7 +25,8 @@
               = humanized_money_with_symbol(price)
 
           - unless @conversation.status.eql?("free")
-            = render :partial => "status", :locals => { :conversation => @conversation }
+            %div{:id => "conversation_#{@conversation.id.to_s}_status"}
+              = render :partial => "status", :locals => { :conversation => @conversation }
 
   #reply_form.message-avatar-padding.message-reply-form
     = form_for Message.new, :url => person_message_messages_path(:person_id => @current_user.id, :message_id => @conversation.id.to_s) do |f|

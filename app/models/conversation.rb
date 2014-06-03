@@ -78,13 +78,9 @@ class Conversation < ActiveRecord::Base
     end
   end
 
-  # Returns last received or sent message
-  def last_message(user=nil, received = true, count = -1)
-    if user.nil? # no matter which way, just return the last one
-      return messages.last
-    else
-      (messages[count].present? && messages[count].sender.eql?(user) == received) ? last_message(user, received, (count-1)) : messages[count]
-    end
+  # Returns last received or sent message (which is the first one in the list of messages, because the order)
+  def last_message
+    return messages.first
   end
 
   def other_party(person)
