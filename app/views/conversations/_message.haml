@@ -1,14 +1,31 @@
-.message{:id => "message#{message.id.to_s}"}
-  .avatar
-    = small_avatar_thumb(message.sender)
-  %h3
-    = link_to message.sender.name(@current_community), message.sender
-  - if message.action
-    - if message.action.eql?("pay")
-      %b= t(".paid", :sum => sum_with_currency(message.conversation.payment.total_sum, message.conversation.payment.currency))
-    - else
-      %b= t(".#{message.action}ed_#{message.conversation.discussion_type}")
-  %small= time_ago(message.created_at)
-  .message-content
-    - text_with_line_breaks do
-      = message.content
+- me = message.sender == @current_user
+- avatar_side = me ? "left" : "right"
+- action_class = message.positive_action? ? "positive" : (message.negative_action? ? "negative" : "")
+- contents = []
+
+- if message.action.present?
+  - contents << capture do
+    %div{class: "message-bubble-arrow-to-#{avatar_side} message-action-#{action_class}"}
+      %div
+        - if message.action.eql?("pay")
+          %b= t(".paid", :sum => sum_with_currency(message.conversation.payment.total_sum, message.conversation.payment.currency))
+        - else
+          %b= t(".#{message.action}ed_#{message.conversation.discussion_type}")
+
+- if message.content.present?
+  - contents << capture do
+    %div{class: "message-bubble-arrow-to-#{avatar_side}"}
+      %div
+        - text_with_line_breaks do
+          = message.content
+
+- contents.each do |content|
+  .row.message-row
+    .col-12.message-container
+      %div{class: "message-avatar-#{avatar_side}"}
+        = small_avatar_thumb(message.sender, :class => "message-avatar-image")
+      %div{class: "message-content-container-#{avatar_side}"}
+        %div{class: "message-time-ago-#{avatar_side}"}
+          = link_to message.sender.name, message.sender
+          = time_ago(message.created_at)
+        = content

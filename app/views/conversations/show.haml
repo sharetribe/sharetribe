@@ -7,25 +7,43 @@
       = t("layouts.no_tribe.inbox")
     | #{@conversation.title}
 
-.centered-section-wide.conversation
-  .avatar-container
-    .avatar
-      = small_avatar_thumb @other_party
-    .avatar-text
-      = render :partial => "conversation_with", :locals => { :conversation => @conversation, :other_party => @other_party }
+.centered-section-wide
+  .message-avatar-padding
+    .row
+      .col-12
+        %h2
+          = Maybe(@conversation.listing).map { |listing| link_to listing.title, listing }.or_else { @conversation.title }
 
-  #messages
-    = render :partial => "message", :collection => @conversation.messages
+        %p
+          - if @conversation.status.eql?("free")
+            - other_party = @conversation.other_party(@current_user)
+            = t(".conversation_with_user", person: link_to(other_party.name, other_party)).html_safe
+          - else
+            = t(".requested_by", requester_name: link_to(@conversation.starter.name, @conversation.starter)).html_safe
 
-  - if @conversation.listing && !@conversation.status.eql?("free")
-    .conversation-status-lower
-      .conversation-status-container{:id => "conversation_#{@conversation.id.to_s}_status"}
-        = render :partial => "status", :locals => { :conversation => @conversation }
+        - Maybe(@conversation).listing.each do |listing|
 
-  #reply_form
+          - Maybe(listing).price.each do |price|
+            %p.message-sum
+              = t(".sum", sum: humanized_money_with_symbol(price))
+
+          - if @conversation.status.eql?("free")
+            - unless listing.author == @current_user
+              = link_to reply_to_listing_path(:id => listing.id.to_s), :class => "message-book-button" do
+                .content
+                  = listing.transaction_type.action_button_label(I18n.locale)
+
+          - else
+            %div{:id => "conversation_#{@conversation.id.to_s}_status"}
+              = render :partial => "status", :locals => { :conversation => @conversation }
+
+  #reply_form.message-avatar-padding.message-reply-form
     = form_for Message.new, :url => person_message_messages_path(:person_id => @current_user.id, :message_id => @conversation.id.to_s) do |f|
       = f.label :content, t(".write_a_reply")
       = f.text_area :content, :class => "reply_form_text_area"
       = f.hidden_field :conversation_id, :value => @conversation.id.to_s
       = f.hidden_field :sender_id, :value => @current_user.id
       = f.button t(".send_reply")
+
+  #messages
+    = render :partial => "message", :collection => @conversation.messages.reverse

@@ -429,6 +429,8 @@ en:
       conversation_about_listing: "With %{person} about %{listing}"
       conversation_with_user: "With %{person}"
       last_message_at: "(latest message %{time})"
+      requested_by: "Requested by %{requester_name}"
+      sum: "Sum: %{sum}"
     status:
       cancel_payed_transaction: Cancel
       feedback_given: "Feedback given"

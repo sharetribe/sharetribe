@@ -1854,25 +1854,10 @@ a.lightbox-x {
 
 }
 
-.conversation-status-lower {
-  padding-top: lines(0.75);
-  border-top: 1px dotted $border;
-  border-bottom: 1px dotted $border;
-}
-
-.conversation-status-container {
-  padding-bottom: lines(0.5);
-}
-
-.listed-conversation-status-padding {
-  padding-top: lines(0.25);
-}
-
 .conversation-status {
 
   .status-links {
     display: inline-block;
-    padding-top: lines(0.25);
   }
 
   .inbox-horizontally-aligned-status {
@@ -1910,124 +1895,6 @@ a.lightbox-x {
       background: lighten($red, 50%);
       border-color: lighten($red, 10%);
     }
-  }
-
-}
-
-/*
-  -------------------
-  Single conversation
-  -------------------
-*/
-
-.conversation {
-
-  .conversation-status {
-
-    .status-links {
-      padding-top: lines(0);
-      padding-bottom: lines(0.5);
-    }
-
-  }
-
-  .avatar-container {
-    position: relative;
-  }
-
-  .avatar {
-    position: absolute;
-    top: em(6);
-  }
-
-  .avatar-text {
-    padding-left: lines(1.5);
-    min-height: lines(1);
-    padding: em(4) 0 lines(0.75) lines(1.5);
-  }
-
-  h2 {
-    margin-bottom: lines(0.25);
-  }
-
-  .message {
-    position: relative;
-    border-top: 1px dotted $border;
-    padding: lines(0.25) lines(1) lines(0.25) lines(1.5);
-    min-height: lines(3);
-
-    .avatar {
-      position: absolute;
-      left: 0; top: lines(0.5);
-      img {
-        @include border-radius(em(5));
-      }
-    }
-
-    h3, small {
-      display: inline;
-    }
-
-    small {
-      color: $aside;
-    }
-
-    .message-content, .message-icon {
-      @include small-type;
-      @include media(small-tablet) {
-        @include normal-type;
-      }
-    }
-
-    .message-icons {
-      padding-top: lines(0.25);
-      padding-bottom: lines(0.25);
-    }
-
-    .message-icon {
-      display: inline-block;
-      margin-right: lines(0.5);
-    }
-
-  }
-
-  .message-form {
-    border-top: 1px dotted $border;
-    padding-top: lines(0.5);
-    position: relative;
-
-    textarea {
-      width: 95%;
-      height: lines(4);
-    }
-
-  }
-
-  @include media(tablet) {
-
-    h2 {
-      @include big-type;
-    }
-
-    .message {
-      padding: lines(0.5) lines(1) lines(0.25) lines(2.5);
-
-      .avatar {
-        width: lines(2);
-      }
-
-      h3 {
-        margin: 0;
-      }
-    }
-
-    .message-form {
-      textarea {
-        width: 100%;
-        height: lines(6);
-      }
-    }
-
   }
 
 }

@@ -79,12 +79,8 @@ class Conversation < ActiveRecord::Base
   end
 
   # Returns last received or sent message
-  def last_message(user=nil, received = true, count = -1)
-    if user.nil? # no matter which way, just return the last one
-      return messages.last
-    else
-      (messages[count].present? && messages[count].sender.eql?(user) == received) ? last_message(user, received, (count-1)) : messages[count]
-    end
+  def last_message
+    return messages.last
   end
 
   def other_party(person)
@@ -148,15 +144,8 @@ class Conversation < ActiveRecord::Base
     participants.find { |p| listing.requester?(p) }
   end
 
-  # Please note!
-  #
-  # This method only works for conversations that have listings i.e. it doesn't work for private messages started
-  # from profile.
-  #
-  # In the future, would be smart to mark to the DB which party was the starter. This way we could define the starter
-  # even if the conversation is not related to a listing.
   def starter
-    other_party(author)
+    messages.first.sender
   end
 
   # If payment through Sharetribe is required to

@@ -107,4 +107,24 @@ describe Util::ArrayUtils do
     each_slice_columns([1, 2, 3, 4, 5, 6], 3).to_a.should eql([[1, 2], [3, 4], [5, 6]])
     each_slice_columns([1, 2, 3, 4, 5, 6, 7], 3).to_a.should eql([[1, 2, 3], [4, 5], [6, 7]])
   end
+
+  it "#trim" do
+    trim([1, 2, 3]).should eql([1, 2, 3])
+
+    # Trim from begining
+    trim([nil, 1, 2, 3]).should eql([1, 2, 3])
+    trim([nil, nil, 1, 2, 3]).should eql([1, 2, 3])
+
+    # Trim from end
+    trim([1, 2, 3, nil]).should eql([1, 2, 3])
+    trim([1, 2, 3, nil, nil]).should eql([1, 2, 3])
+
+    # Trim from both
+    trim([nil, 1, 2, 3, nil]).should eql([1, 2, 3])
+    trim([nil, nil, 1, 2, 3, nil, nil]).should eql([1, 2, 3])
+
+    # Don't trim from the middle
+    trim([1, nil, 2, nil, 3]).should eql([1, nil, 2, nil, 3])
+    trim([nil, 1, nil, 2, nil, 3, nil]).should eql([1, nil, 2, nil, 3])
+  end
 end

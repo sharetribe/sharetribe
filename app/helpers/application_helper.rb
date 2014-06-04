@@ -610,8 +610,9 @@ module ApplicationHelper
   # general method for making urls as links and line breaks as <br /> tags
   def add_links_and_br_tags(text)
     pattern = /[\.)]*$/
-    text = text.gsub(/https?:\/\/\S+/) { |link_url| link_to(truncate(link_url.gsub(pattern,""), :length => 50, :omission => "..."), link_url.gsub(pattern,"")) + link_url.match(pattern)[0]}.gsub(/\n/, "</p><p>")
-    "<p>#{text}</p>"
+    text = text.gsub(/https?:\/\/\S+/) { |link_url| link_to(truncate(link_url.gsub(pattern,""), :length => 50, :omission => "..."), link_url.gsub(pattern,"")) + link_url.match(pattern)[0]}
+    lines = Util::ArrayUtils.trim(text.split(/\n/))
+    lines.map { |line| "<p>#{line}</p>" }.join
   end
 
   # general method for making urls as links and line breaks as <br /> tags

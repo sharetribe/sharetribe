@@ -93,6 +93,10 @@ module Util
         result.each
       end
     end
+
+    def trim(xs)
+      xs.drop_while { |x| x.blank? }.reverse.drop_while { |x| x.blank? }.reverse
+    end
   end
 
   module MoneyUtil

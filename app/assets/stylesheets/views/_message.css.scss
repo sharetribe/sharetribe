@@ -1,0 +1,177 @@
+@import "mixins/all";
+
+$avatar-size: em(48);
+$message-time-height: lines(1);
+$message-time-margin: lines(0.25);
+
+
+.message-avatar-padding {
+  @include media(large-mobile) {
+    margin-left: $avatar-size + lines(0.5);
+    margin-right: $avatar-size + lines(0.5);
+  }
+}
+
+.message-sum {
+  @include big-type;
+}
+
+.message-reply-form {
+  form {
+    padding-bottom: lines(1);
+  }
+}
+
+.message-avatar {
+  width: $avatar-size;
+  height: $avatar-size;
+}
+
+.message-container {
+  position: relative;
+}
+
+.message-avatar-image {
+  @include border-radius($default-border-radius);
+}
+
+.message-avatar {
+  position: absolute;
+  top: $message-time-height + $message-time-margin;
+}
+
+.message-avatar-left {
+  @extend .message-avatar;
+  left: 0;
+}
+
+.message-avatar-right  {
+  @extend .message-avatar;
+  right: 0;
+}
+
+.message-content-container-left {
+  padding-left: $avatar-size + lines(0.5);
+  @include media(large-mobile) {
+    padding-right: $avatar-size + lines(0.5);
+  }
+}
+
+.message-content-container-right {
+  padding-right: $avatar-size + lines(0.5);
+  @include media(large-mobile) {
+    padding-left: $avatar-size + lines(0.5);
+  }
+}
+
+.message-bubble {
+  position: relative;
+  min-height: $avatar-size;
+  @include border-radius($default-border-radius);
+
+  // No bottom padding, it comes from the <p> tag
+  padding: lines(0.5) lines(0.5) lines(0) lines(0.5);
+
+  p {
+    margin-bottom: 0;
+    padding-bottom: lines(0.5);
+  }
+
+  &:after {
+    top: ($avatar-size / 2);
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-width: lines(0.25);
+  }
+
+  background: $highlight;
+}
+
+.message-time-ago {
+  margin-bottom: $message-time-margin;
+  height: $message-time-height;
+}
+
+.message-time-ago-left {
+  @extend .message-time-ago;
+  text-align: left;
+}
+
+.message-time-ago-right {
+  @extend .message-time-ago;
+  text-align: right;
+}
+
+.message-bubble-arrow-to-left {
+  @extend .message-bubble;
+
+  &:after {
+    right: 100%;
+    border-right-color: $highlight;
+    margin-top: lines(-0.25);
+  }
+
+  &.message-action-positive {
+    color: $green;
+    background: lighten($green, 40%);
+
+    &:after {
+      border-right-color: lighten($green, 40%);
+    }
+  }
+
+  &.message-action-negative {
+    color: $red;
+    background: lighten($red, 40%);
+
+    &:after {
+      border-right-color: lighten($red, 40%);
+    }
+  }
+}
+
+.message-bubble-arrow-to-right {
+  @extend .message-bubble;
+
+  &:after {
+    left: 100%;
+    border-left-color: $highlight;
+    margin-top: lines(-0.25);
+  }
+
+  &.message-action-positive {
+    color: $green;
+    background: lighten($green, 40%);
+
+    &:after {
+      border-left-color: lighten($green, 40%);
+    }
+  }
+
+  &.message-action-negative {
+    color: $red;
+    background: lighten($red, 40%);
+
+    &:after {
+      border-left-color: lighten($red, 40%);
+    }
+  }
+}
+
+.message-action-positive {
+  color: $green;
+  background: lighten($green, 40%);
+}
+
+.message-action-negative {
+  color: $red;
+  background: lighten($red, 40%);
+}
+
+.message-book-button {
+  @include button($link);
+}
