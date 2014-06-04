@@ -87,6 +87,8 @@ vi:
         first_name_with_initial: ~
         first_name_only: ~
         invalid_color_code: ~
+        custom_head_script: ~
+        custom_head_script_instructions_text: ~
       edit_welcome_email:
         welcome_email_content: ~
         welcome_email_content_description: ~
@@ -405,28 +407,6 @@ vi:
       you_will_get_notified: "Bạn sẽ nhận được thông báo qua email khi %{person} trả lời bạn."
       title: "Tiêu đề"
       send_message_to_user: "Gửi tin nhắn đến %{person}"
-    notifications:
-      badgenotification:
-        see_all_your_badges: "Xem tất cả các huy hiệu của bạn"
-        you_have_earned_badge: "Bạn đã giành được huy hiệu"
-      comment_to_followed_listing_notification:
-        has_commented: "%{author} đã nhận xét"
-        offer_you_follow: "hỗ trợ bạn sau đây"
-        request_you_follow: "yêu cầu bạn sau đây"
-      listing_updated_notification:
-        has_updated: "đã cập nhật"
-        offer_you_follow: "hỗ trợ bạn sau đây"
-        request_you_follow: "yêu cầu bạn sau đây"
-      comment_to_own_listing_notification:
-        has_commented: "%{author} đã nhận xét"
-        your_offer: "bạn hỗ trợ"
-        your_request: "bạn yêu cầu"
-      loading_more_notifications: "Nạp thêm thông báo"
-      no_notifications: "Không có thông báo"
-      testimonialnotification:
-        give_feedback_to: "Cho phản hồi đến %{name}"
-        has_given_you_feedback_on_event: "cho bạn thông tin phản hồi về sự kiện"
-        see_all_the_feedback_you_have_received: "xem tất cả phản hồi bạn đã nhận được"
     show:
       in_response_to_listing: ~
       message_sent_by: ~
@@ -436,6 +416,8 @@ vi:
       conversation_about_listing: "Cuộc trò chuyện với %{person} về %{listing}."
       conversation_with_user: "Cuộc trò chuyện với %{person}."
       last_message_at: ~
+      requested_by: ~
+      sum: ~
     status:
       cancel_payed_transaction: ~
       feedback_given: "Phản hồi được cho"
@@ -745,9 +727,6 @@ vi:
       here_is_a_message_from: "Đây là tin nhắn cá nhân từ %{inviter}:"
       join_now: ~
       invitation_code: ~
-    new_badge:
-      you_can_view_all_your_badges_in: "Bạn có thể xem tất cả các huy hiệu của bạn tại"
-      you_have_achieved_a_badge: "Bạn đã đạt được một huy hiệu '%{badge_name}' tại %{service_name}!"
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
@@ -1212,10 +1191,6 @@ vi:
       email_deleted: ~
       payment_details_add_successful: ~
       payment_details_add_error: ~
-    profile_extras_header:
-      back_to_profile_of_person: "Quay về hồ sơ của người dùng"
-      badges: "Huy hiệu"
-      testimonials: "Đã nhận thông tin phản hồi"
     settings:
       account: "Tài khoản"
       notifications: "Các ghi chú"
@@ -1495,14 +1470,10 @@ vi:
       there_are_x_members: ~
       to_see_the_list_log_in: ~
       log_in_link: ~
-    badge_description:
-      badge_achieved_at: "Huy hiệu đạt được "
-      you_do_not_yet_have_this_badge: "Huy hiệu chưa đạt được được."
     edit_links:
       activate: "Kích hoạt"
       deactivate: "Vô hiệu hóa"
     help_texts:
-      badges_description_title: "Các huy hiệu"
       feedback_description_title: "Thông tin phản hồi"
       help_captcha_title: "Bạn là người?"
       help_invitation_code_title: "Bạn cần một lời mời để tham gia"
@@ -1544,81 +1515,6 @@ vi:
       explanation_text: "Hiện tại bạn đang ở trong cộng đồng %{community}. Bạn thử xem thông tin người dùng của cộng đồng khác. Hiện tại %{service_name} không hỗ trợ cho đa cộng đồng, do đó bạn không thể truy cập hồ sơ này thông qua cộng đồng %{community}. Chúng tôi đang thực hiện tính năng cho phép một chọn lựa thuộc về nhiều hơn một cộng đồng cùng một lúc. Tính năng này sẽ được thêm dịch vụ sau này."
       read_more_about_kassi_communities: "Tìm hiểu thêm về cộng đồng %{service_name}"
       this_user_does_not_belong_to_this_community: "Người dùng này không thuộc về cộng đồng %{community}"
-    profile_badge:
-      active_member_bronze: "Thành viên tích cực (đồng)"
-      active_member_bronze_description: "Đây là trao đổi thứ ba bạn tham gia vào  %{service_name} ! Sự bắt đầu rất ấn tượng, giữ cho nó tiếp tục!"
-      active_member_gold: "Thành viên tích cực (vàng)"
-      active_member_gold_description: "Thay đổi thứ 25 tại %{service_name}, vô cùng ấn tượng! Bạn là một VIP trong %{service_name}. Những người như bạn sẽ giữ quá trình tiếp tục tiến triển. Cảm ơn nhiều!"
-      active_member_silver: "Thành viên tích cực (bạc)"
-      active_member_silver_description: "Chúc mừng lần thay đổi thứ 10 của bạn tại %{service_name}! Nhiều thay đổi đang diễn ra trong dịch vụ cảm ơn bạn. Thật tuyệt!"
-      chauffer_bronze: "Người tài xế (đồng)"
-      chauffer_bronze_description: "Bạn đã hỗ trợ hai cuốc xe cho người khác, công việc tốt!"
-      chauffer_gold: "Người tài xết (vàng)"
-      chauffer_gold_description: "15 cuốc xe được hỗ trợ! Bạn thích tổng hơp xe bất cứ khi nào bàn có thể. Đó là cách để tiếp tục, Đấng tạo hóa nói cảm ơn bạn!"
-      chauffer_silver: "Người tài xế (bạc)"
-      chauffer_silver_description: "6 cuốc xe được hỗ trợ, xuất sắc! Bạn thích có công ty trong khi lái xe."
-      commentator_bronze: "Người bình luận (đồng)"
-      commentator_bronze_description: "Bạn thích thảo luận với những người khác. Bạn đã để lại ba bình luận cho các danh sách trong %{service_name}."
-      commentator_gold: "Người bình luận (vàng)"
-      commentator_gold_description: "30 bình luận! Bạn cảm giác như ở nhà tại cồng đồng %{service_name}. Bạn háo hức gặp những người mới và thảo luận với họ."
-      commentator_silver: "Người bình luận (bạc)"
-      commentator_silver_description: "10 bình luận! Bạn tham dự năng động trong các cuộc trò chuyện với những người %{service_name} khác"
-      enthusiast_bronze: "Người nhiệt tình (đồng)"
-      enthusiast_bronze_description: "Bạn đang ở %{service_name} trong năm ngày khác nhau. Có vẻ dường như bạn đang muốn trở thành một thành viên thường xuyên."
-      enthusiast_gold: "Người nhiệt tình (vàng)"
-      enthusiast_gold_description: "Bạn không thể tránh %{service_name}: Bạn đã viếng thăm website hàng trăm ngày khác nhau."
-      enthusiast_silver: "Người nhiệt tình (bạc)"
-      enthusiast_silver_description: "%{service_name} là một phần trong lỗ trình hằng ngày của bạn: bạn vừa có 30 lần viếng thăm dịch vụ."
-      first_transaction: "Sự kiện đầu tiên"
-      first_transaction_description: "Chúc mừng lần thay đổi đầu tiên của bạn tại %{service_name}! Một trong những yêu cầu hoặc hỗ trợ của bạn đã được chấp nhận và xác nhận như đã làm."
-      generous_bronze: "Rộng lượng (đồng)"
-      generous_bronze_description: "Bạn cho mượn hoặc cho đi hai thứ. Tốt cho bạn!"
-      generous_gold: "Rộng lượng (vàng)"
-      generous_gold_description: "Những gì của bản cũng là của các người khác. Bạn đã cho mượn hoặc cho đi 15 thứ, thật tuyệt!"
-      generous_silver: "Rộng lượng (bạc)"
-      generous_silver_description: "Bạn thích chia sẻ những thứ của bạn với người khác. 6 thứ đã cho mượn hoặc cho đi, thật tuyệt!"
-      helper_bronze: "Người giúp đỡ (đồng)"
-      helper_bronze_description: "Bạn đã cung cấp giúp đỡ của bạn đối với người khác hai lần, tuyệt vời!"
-      helper_gold: "Người giúp đỡ (vàng)"
-      helper_gold_description: "Bạn luôn luôn là một tình nguyện viên khi một người nào đó cần giúp đỡ. 15 dịch vụ đã thực hiện, tuyệt vời!"
-      helper_silver: "Người giúp đỡ (bạc)"
-      helper_silver_description: "Bạn thích dùng thời gian của bạn giúp đỡ những người khác: 6 dịch vụ đã thực hiện!"
-      jack_of_all_trades: ~
-      jack_of_all_trades_description: "Bạn thật đa tài! Bạn đang tham gia vào trao đổi tài nguyên với các vai trò khác nhau. Thực hiện và tập trung cả tám loại hình: người hỗ trợ sản phẩm, người hỗ trợ dịch vụ, người hỗ trợ cuốc xe, người hỗ trợ không gian, người yêu cầu sản phẩm, người yêu cầu dịch vụ, người yêu cầu cuốc xe và người yêu cầu không gian."
-      lender_bronze: "Người cho vay (đồng)"
-      lender_bronze_description: "Bạn đã liệt kê ba mục bạn có thể cho vay trong hồ sơ của bạn, tuyệt vời!"
-      lender_gold: "Người cho vay (vàng)"
-      lender_gold_description: "Bạn cho người bạn chiếc áo. Bạn có danh sach 25 món mà bạn có thể cho mượn, khủng khiếp!"
-      lender_silver: "Người cho vay (bạc)"
-      lender_silver_description: "Có nhiều hàng hóa trong phòng của bạn mà bạn có thể chia sẻ với những người khác: 10 món đã cho những người khác mượn!"
-      listing_freak_bronze: "Liệt kê người quan tâm (đồng)"
-      listing_freak_bronze_description: "Bạn có năm hỗ trợ/yêu cầu mở được liệt kê tại %{service_name}. Tuyệt vời, Có gì trong kho hoặc bộ dụng cụ của bạn đem lại lợi ích cho những người khác không?"
-      listing_freak_gold: "Liệt kê người quan tâm (vàng)"
-      listing_freak_gold_description: "40 yêu hỗ trợ và/hoặc cầu mở, tuyệt vời! Bạn là một trong những người xuất bản nội dung năng động nhất tại %{service_name}."
-      listing_freak_silver: "Liệt kê người quan tâm (bạc)"
-      listing_freak_silver_description: "20 hỗ trợ và/hoặc yêu cầu mở, tuyệt vời! Bạn thật sự là một người liệt kê năng động."
-      moneymaker_bronze: "Thương vụ đem lại lợi ích lớn (đồng)"
-      moneymaker_bronze_description: "Bạn nhận ra rằng %{service_name} cũng có thể được sử dụng để kiếm tiền! Bạn đã bán hoặc thuê thành công hai thứ tại %{service_name}."
-      moneymaker_gold: "Moneymaker (vàng)"
-      moneymaker_gold_description: "15 món đã bán hay thuê có phản hồi tích cực! %{service_name} là một vụ kinh doanh tuyệt vời cho bạn và những người mua hoặc thuê từ bạn!"
-      moneymaker_silver: "Moneymaker (bạc)"
-      moneymaker_silver_description: "%{service_name} cung cấp cho một bổ sung thú vị vào thu nhập của bạn. Sáu món đã bán hoặc thuê có phản hồi tích cực."
-      rookie: "Tân binh"
-      rookie_description: "Bạn thêm hỗ trợ hoặc yêu cầu vào %{service_name} lần đầu tiên. Chúng ta đi!"
-      santa: "Ông già Nô-en"
-      santa_description: "Ho ho ho và Chúc mừng giáng sinh! Bạn đã bỏ đi ít nhất một mặt hàng vào tháng Mười hai."
-      taxi_stand_bronze: "Nơi taxi đứng (đồng)"
-      taxi_stand_bronze_description: "Bạn đã chia sẻ ba cuốc xe đến %{service_name}."
-      taxi_stand_gold: "Nơi taxi đứng (vàng)"
-      taxi_stand_gold_description: "Bạn luôn luôn ở trong dịch vụ, sẵn sàng để hỗ trợ một cuốc xe cho những người khác. Hộ trợ 25 cuốc xe, tuyệt vời!"
-      taxi_stand_silver: "Nơi taxi đứng (bạc)"
-      taxi_stand_silver_description: "10 cuốc xe chia sẻ đã được thêm, tuyệt vời! Người ta biết ai để hỏi khi họ cần một cuốc xe."
-      volunteer_bronze: "Tình nguyện viên (đồng)"
-      volunteer_bronze_description: "Bạn muốn đưa các kỹ năng sử dụng của bạn bằng cách giúp những người khác. Bạn có ba hỗ trợ dịch vụ mở tại %{service_name} ."
-      volunteer_gold: "Tình nguyện viên (vàng)"
-      volunteer_gold_description: "Bạn biết rằng không gì tốt hơn việc giúp đỡ người khác. Bạn có 25 dịch vụ hỗ trợ mở trong hồ sơ của bạn, tuyệt vời!"
-      volunteer_silver: "Tình nguyện viên (bạc)"
-      volunteer_silver_description: "Bạn có rất nhiều để cung cấp cho những người khác: bạn đã liệt kê 10 dịch vụ mà bạn có thể làm tại %{service_name} !"
     profile_feedback:
       as_expected: "Như mong đợi"
       exceeded_expectations: "Tốt hơn nhiều so với dự kiến"
@@ -1648,7 +1544,6 @@ vi:
       was_invited_by: "...đã được mời bởi %{inviter_name}"
       less_than_expected: "Tệ hơn so với dự kiến"
       phone_number: "Số điện thoại:"
-      show_all_badges: "Hiển thị tất cả các huy hiệu"
       show_all_feedback: "Hiển thị tất cả các thông tin phản hồi"
       show_all_testimonials: "Hiển thị tất cả các thông tin phản hồi"
       show_full_description: "Hiển thị thêm"
@@ -1657,8 +1552,6 @@ vi:
       what_are_these: "Đây là gì?"
       review: ~
       reviews: ~
-      badge: ~
-      badges: "Các huy hiệu"
       listing: ~
       listings: ~
       open_listing: ~
@@ -1666,7 +1559,6 @@ vi:
       no_listings: ~
       no_open_listings: ~
       no_reviews: ~
-      no_badges: ~
       show_all_listings: ~
       show_all_open_listings: ~
       show_all_reviews: ~
@@ -1746,7 +1638,6 @@ vi:
       community_updates: "Các cập nhật cộng đồng"
       email_about_accept_reminders: "...tôi đã quên để chấp nhận một sự kiện"
       email_about_confirm_reminders: ~
-      email_about_new_badges: "...tôi đã đạt được một huy hiệu mới"
       email_about_new_comments_to_own_listing: ".. .người nào đó bình luận về sự hỗ trợ hoặc yêu cầu của tôi"
       email_about_new_messages: ".. .người nào đó gửi cho tôi một tin nhắn"
       email_about_new_received_testimonials: ".. .người nào đó cho tôi thông tin phản hồi"

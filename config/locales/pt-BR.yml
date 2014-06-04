@@ -87,6 +87,8 @@ pt-BR:
         first_name_with_initial: "Primeiro nome com a inicial (Primeiro L)"
         first_name_only: "Primeiro nome (Somente)"
         invalid_color_code: ~
+        custom_head_script: ~
+        custom_head_script_instructions_text: ~
       edit_welcome_email:
         welcome_email_content: "Conteúdo do e-mail de boas-vindas"
         welcome_email_content_description: "A mensagem abaixo será enviada para cada novo membro quando eles se registrarem. Você pode personalizar a mensagem. Clicando em '%{send_test_message_link}' você pode ter uma pré-visualização para o seu endereço de e-mail, para que você possa ver como fica em um cliente de e-mail."
@@ -405,28 +407,6 @@ pt-BR:
       you_will_get_notified: ~
       title: Titulo
       send_message_to_user: ~
-    notifications:
-      badgenotification:
-        see_all_your_badges: "Ver todos seus emblemas"
-        you_have_earned_badge: "Você ganhou o emblema"
-      comment_to_followed_listing_notification:
-        has_commented: ~
-        offer_you_follow: ~
-        request_you_follow: ~
-      listing_updated_notification:
-        has_updated: "foi atualizado"
-        offer_you_follow: ~
-        request_you_follow: ~
-      comment_to_own_listing_notification:
-        has_commented: ~
-        your_offer: ~
-        your_request: ~
-      loading_more_notifications: "Carregando mais notificações"
-      no_notifications: "Sem notificações."
-      testimonialnotification:
-        give_feedback_to: "Dar feedback para %{name}"
-        has_given_you_feedback_on_event: "te deu feedback no evento"
-        see_all_the_feedback_you_have_received: "veja todos feedbacks que você recebeu"
     show:
       in_response_to_listing: ~
       message_sent_by: "Mensagem enviada por"
@@ -436,6 +416,8 @@ pt-BR:
       conversation_about_listing: ~
       conversation_with_user: "Com %{person}"
       last_message_at: ~
+      requested_by: ~
+      sum: ~
     status:
       cancel_payed_transaction: ~
       feedback_given: "Feedback enviado"
@@ -745,9 +727,6 @@ pt-BR:
       here_is_a_message_from: "Aqui está uma mensagem pessoal de %{inviter}"
       join_now: "Ingressar agora"
       invitation_code: ~
-    new_badge:
-      you_can_view_all_your_badges_in: "Ver todos seus emblemas"
-      you_have_achieved_a_badge: "Você recebeu um emblema '%{badge_name}' no '%{service_name}'!"
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: "Ver comentário"
@@ -840,8 +819,8 @@ pt-BR:
       departure_time: "Hora de partida deve estar entre a hora atual e um ano a frente a contar de agora."
       share_type: "Você precisa selecionar um."
       valid_until: "Essa data deve estar entre a data atual e seis meses a contar de hoje."
-      price: ~
-      minimum_price: ~
+      price: "Preço deve ser um número inteiro."
+      minimum_price: "Preço mínimo é %{minimum_price} %{currency}"
     testimonials:
       you_must_explain_not_neutral_feedback: "Se você quiser dar um feedback não neutro, você deverá explicar porque."
       you_must_select_a_grade: "Lembre de dizer se sua experiencia foi positiva ou negativa."
@@ -1101,20 +1080,20 @@ pt-BR:
       settings: Configurações
       sign_up: Registrar
     notifications:
-      listing_could_not_be_saved: ~
-      contact_admin_link_text: ~
+      listing_could_not_be_saved: "Listagem não pôde ser salva. Por favor, tente novamente. Se o problema persistir, por favor, %{contact_admin_link}"
+      contact_admin_link_text: "entre em contato com o administrador"
       test_welcome_email_delivered_to: "Um e-mail de teste foi enviado para %{email}"
-      something_went_wrong: ~
-      community_updated: ~
-      community_update_failed: ~
+      something_went_wrong: "Algo deu errado"
+      community_updated: "Detalhes da Tribo atualizado."
+      community_update_failed: "Detalhes da Tribo falhou atualização"
       account_creation_succesful_you_still_need_to_confirm_your_email: "Conta criada com sucesso. Em seguida, você precisa confirmar seu endereço de e-mail."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Conta criada com sucesso. Em seguida, você precisa confirmar seu endereço de e-mail."
       comment_cannot_be_empty: "Comentários não podem ser em branco"
       comment_sent: "Comentário enviado"
-      confirmation_link_is_wrong_or_used: ~
-      additional_email_confirmed: ~
-      could_not_get_email_from_facebook: ~
-      create_new_listing: ~
+      confirmation_link_is_wrong_or_used: "O link de confirmação já está sendo usado ou não quebrado. Tente fazer o login, ou enviar feedback se o problema persiste."
+      additional_email_confirmed: "O e-mail que você entrou agora está confirmado."
+      could_not_get_email_from_facebook: "Não foi possível obter endereço de e-mail do Facebook e não pode criar uma conta sem e-mail."
+      create_new_listing: "Criar uma outra lista"
       create_one_here: "crie um aqui"
       email_confirmation_sent_to_new_address: "E-mail de confirmação é agora enviado para o novo endereço."
       email_not_found: "O email que você forneceu não existe no banco de dados do %{service_name}."
@@ -1126,71 +1105,71 @@ pt-BR:
       feedback_skipped: "Feedback pulado."
       invitation_cannot_be_sent: "Convite não pôde ser enviado"
       invitation_sent: "Convite enviado com sucesso"
-      inviting_new_users_is_not_allowed_in_this_community: ~
+      inviting_new_users_is_not_allowed_in_this_community: "Convidar novos usuários não é permitido neste %{service_name} comunidade"
       login_again: "Por favor, tente logar novamente"
       login_failed: "Falha no login. Por favor, digite as credenciais corretas."
-      account_creation_successful: ~
-      account_deleted: ~
+      account_creation_successful: "Bem-vindo ao %{service_name}, %{person_name}"
+      account_deleted: "Sua conta já está deletada."
       login_successful: "Bem vindo, %{person_name}"
       logout_successful: "Agora você foi desconectado de %{service_name}. Vejo vocês em breve!"
-      news_item_created: ~
+      news_item_created: "Artigo criado"
       news_item_creation_failed: "Criação de artigo falhou"
       news_item_update_failed: "Atualização de artigo falhou"
-      news_item_updated: ~
-      news_item_deleted: ~
+      news_item_updated: "Artigo atualizado"
+      news_item_deleted: "Artigo removido"
       offer_accepted: "Oferta aceita"
       offer_confirmed: "Oferta confirmada"
       offer_closed: "Oferta encerrada"
-      listing_created_successfully: ~
+      listing_created_successfully: "Anúncio criado com sucesso. %{new_listing_link}"
       offer_rejected: "Oferta rejeitada"
       offer_canceled: "Oferta cancelada"
-      listing_updated_successfully: ~
+      listing_updated_successfully: "Listagem atualizada com sucesso"
       only_kassi_administrators_can_access_this_area: "Só %{service_name} administradores podem aceder a esta área"
       only_listing_author_can_close_a_listing: "Listando autor só pode fechar uma lista"
       only_listing_author_can_edit_a_listing: "Só listando autor pode editar uma listagem"
-      payment_successful: ~
+      payment_successful: "Pagamento efetuado com sucesso"
       payment_canceled: "Pagamento cancelado"
-      error_in_payment: ~
-      cannot_receive_payment: ~
-      payment_waiting_for_later_accomplishment: ~
+      error_in_payment: "Erro no pagamento. Se você não completar o pagamento, no entanto, tente novamente. Se você fez, por favor, envie-nos um feedback."
+      cannot_receive_payment: "A outra parte não pode receber o pagamento devido algum erro. Entre em contato com os administradores para esclarecer a situação"
+      payment_waiting_for_later_accomplishment: "Quando você pagou, vamos notificar o vendedor e você receberá um recibo no e-mail"
       password_recovery_sent: "Enviado para seu e-mail instruções para mudança de senha."
       person_activated: "Usuário ativado"
-      person_deactivated: ~
+      person_deactivated: "Usuário desativado"
       person_updated_successfully: "Informações atualizadas"
       poll_answered: "Enquete respondida"
-      poll_could_not_be_answered: ~
-      poll_created: ~
+      poll_could_not_be_answered: "Enquete não pode ser respondida"
+      poll_created: "Enquete criada"
       poll_creation_failed: "Criação de enquete falhou"
       poll_update_failed: "Atualização de enquete falhou"
-      poll_updated: ~
-      poll_deleted: ~
+      poll_updated: "Enquete atualizada"
+      poll_deleted: "Enquete removida"
       read_more: "Leia mais!"
       registration_considered_spam: "Registro não funcionou, por favor, envie um feedback a partir do menu de cabeçalho e mencionar \"erro email2\"."
       reply_cannot_be_empty: "Você não pode enviar uma mensagem vazia"
       reply_sent: "Resposta enviada com sucesso!"
       request_accepted: "Pedido aceito"
-      request_confirmed: ~
+      request_confirmed: "Pedido concluído"
       request_closed: "Requisição fechada"
       request_rejected: "Pedido rejeitado"
-      request_canceled: ~
+      request_canceled: "Pedido cancelado"
       message_sent: "Mensagem enviada"
       this_content_is_not_available_in_this_community: "Este conteúdo não está disponível nesta comunidade."
       unknown_error: "Erro desconhecido. Por favor use o link Fale conosco para enviar detalhes sobre o que aconteceu."
       update_error: "Ocorreu um erro ao tentar atualizar as suas informações, por favor, tente novamente"
-      welcome_message: ~
+      welcome_message: "Bem-vindo a %{service_name}! %{service_name} é um serviço que ajuda os membros da comunidade %{community} para vender e emprestar itens para o outro e ajudar uns aos outros de muitas outras maneiras."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Você não está autorizado a fazer comentários sobre este evento"
       you_are_not_authorized_to_do_this: "Você não está autorizado a fazer isso"
       you_are_not_authorized_to_view_this_content: "Você não está autorizado a visualizar este conteúdo"
-      send_instructions: ~
+      send_instructions: "Você receberá um e-mail com instruções sobre como redefinir sua senha em alguns minutos."
       you_cannot_reply_to_a_closed_offer: "Você não pode responder a uma oferta fechada"
       you_cannot_reply_to_a_closed_request: "Você não pode responder a um pedido fechado"
-      you_cannot_send_message_to_yourself: ~
+      you_cannot_send_message_to_yourself: "Você não pode enviar uma mensagem para si mesmo"
       you_followed_listing: "Começaste a seguir este anúncio"
       you_have_already_given_feedback_about_this_event: "Você já deixou sua opinião sobre este evento"
       you_are_now_member: "Você entrou com sucesso esta comunidade. Bem-vindo!"
       you_are_already_member: "Você já é membro desta %{service_name} comunidade. Bem-vindo de volta!"
       you_must_log_in_to_create_new_listing: "Você deve fazer login para %{service_name} para criar uma nova listagem. Se você não tem uma conta, você pode %{sign_up_link}"
-      additional_email_confirmed_dashboard: ~
+      additional_email_confirmed_dashboard: "Seu e-mail está confirmado."
       you_must_log_in_to_give_feedback: "Você deve logar para escrever um feedback"
       you_must_log_in_to_invite_new_users: "Você deve fazer login para convidar novos usuários a %{service_name}"
       you_must_log_in_to_send_a_comment: "Você deve logar para enviar um novo comentário"
@@ -1204,18 +1183,14 @@ pt-BR:
       you_must_log_in_to_change_payment_settings: "Você deve fazer login em %{service_name} para alterar as configurações de pagamento"
       you_need_to_confirm_your_account_first: "Você precisa confirmar o seu e-mail."
       you_must_fill_all_the_fields: "Você deve preencher todos os campos"
-      you_unfollowed_listing: ~
+      you_unfollowed_listing: "Você já não estão seguindo este anúncio"
       joining_community_failed: "Entrar nesta comunidade falhou"
       can_not_login_with_private_user: "Você não pode entrar nessa comunidade com a sua conta pessoal. Entrar com empresarial ou criar uma nova conta."
-      can_not_delete_email: ~
-      user_does_not_have_email_to_delete: ~
-      email_deleted: ~
-      payment_details_add_successful: ~
-      payment_details_add_error: ~
-    profile_extras_header:
-      back_to_profile_of_person: "Voltar para o perfil de usuário"
-      badges: Emblemas
-      testimonials: "Feedback recebido"
+      can_not_delete_email: "Você não pode remover o endereço de email"
+      user_does_not_have_email_to_delete: "Você não tem o endereço de e-mail que você está tentando remover"
+      email_deleted: "E-mail removido"
+      payment_details_add_successful: "Detalhes de pagamento adicionado com sucesso"
+      payment_details_add_error: "Não foi possível adicionar detalhes de pagamento"
     settings:
       account: Conta
       notifications: Notificações
@@ -1495,14 +1470,10 @@ pt-BR:
       there_are_x_members: ~
       to_see_the_list_log_in: ~
       log_in_link: entrar
-    badge_description:
-      badge_achieved_at: ~
-      you_do_not_yet_have_this_badge: ~
     edit_links:
       activate: Ativar
       deactivate: Desativar
     help_texts:
-      badges_description_title: ~
       feedback_description_title: Reposta
       help_captcha_title: "Você é um humano?"
       help_invitation_code_title: "Você precisa de um convite para se juntar a"
@@ -1543,81 +1514,6 @@ pt-BR:
       explanation_text: "Você está atualmente em %{community} comunidade. Você tentou ver o perfil de um usuário que pertence a outra comunidade Sharetribe. Você não pode acessar este perfil através de %{community} comunidade."
       read_more_about_kassi_communities: "Leia mais sobre comunidades Sharetribe"
       this_user_does_not_belong_to_this_community: "Este usuário não pertence a %{community} comunidade"
-    profile_badge:
-      active_member_bronze: "Membro ativo (bronze)"
-      active_member_bronze_description: ~
-      active_member_gold: "Membro ativo (ouro)"
-      active_member_gold_description: ~
-      active_member_silver: "Membro ativo (prata)"
-      active_member_silver_description: ~
-      chauffer_bronze: ~
-      chauffer_bronze_description: ~
-      chauffer_gold: ~
-      chauffer_gold_description: ~
-      chauffer_silver: ~
-      chauffer_silver_description: ~
-      commentator_bronze: ~
-      commentator_bronze_description: ~
-      commentator_gold: ~
-      commentator_gold_description: ~
-      commentator_silver: ~
-      commentator_silver_description: ~
-      enthusiast_bronze: "Entusiasta (bronze)"
-      enthusiast_bronze_description: ~
-      enthusiast_gold: "Entusiasta (ouro)"
-      enthusiast_gold_description: ~
-      enthusiast_silver: "Entusiasta (prata)"
-      enthusiast_silver_description: "%{service_name} é uma parte de sua rotina diária: você já tem 30 visitas no serviço."
-      first_transaction: "Primeiro evento"
-      first_transaction_description: ~
-      generous_bronze: ~
-      generous_bronze_description: ~
-      generous_gold: ~
-      generous_gold_description: ~
-      generous_silver: ~
-      generous_silver_description: "Você gostaria de compartilhar seus itens com os outros. 6 itens emprestados ou doados, ótimo!"
-      helper_bronze: ~
-      helper_bronze_description: ~
-      helper_gold: ~
-      helper_gold_description: ~
-      helper_silver: ~
-      helper_silver_description: "Você gosta de passar seu tempo ajudando os outros: 6 Serviços feito!"
-      jack_of_all_trades: ~
-      jack_of_all_trades_description: ~
-      lender_bronze: ~
-      lender_bronze_description: "Você listou três itens que você poderia emprestar no seu perfil, ótimo!"
-      lender_gold: ~
-      lender_gold_description: ~
-      lender_silver: ~
-      lender_silver_description: ~
-      listing_freak_bronze: ~
-      listing_freak_bronze_description: ~
-      listing_freak_gold: ~
-      listing_freak_gold_description: ~
-      listing_freak_silver: ~
-      listing_freak_silver_description: ~
-      moneymaker_bronze: ~
-      moneymaker_bronze_description: ~
-      moneymaker_gold: ~
-      moneymaker_gold_description: ~
-      moneymaker_silver: ~
-      moneymaker_silver_description: ~
-      rookie: ~
-      rookie_description: ~
-      santa: ~
-      santa_description: ~
-      taxi_stand_bronze: "Ponto de táxi (bronze)"
-      taxi_stand_bronze_description: ~
-      taxi_stand_gold: "Ponto de táxi (ouro)"
-      taxi_stand_gold_description: ~
-      taxi_stand_silver: "Ponto de táxi (prata)"
-      taxi_stand_silver_description: ~
-      volunteer_bronze: ~
-      volunteer_bronze_description: ~
-      volunteer_gold: ~
-      volunteer_gold_description: ~
-      volunteer_silver: ~
-      volunteer_silver_description: ~
     profile_feedback:
       as_expected: "Como esperado"
       exceeded_expectations: "Muito melhor do que o esperado"
@@ -1631,7 +1527,7 @@ pt-BR:
       show_only_open: "Exibir apenas abertos"
       no_image: "Sem imagem"
     show:
-      contact: ~
+      contact: "Contate %{person}"
       about_me: "Sobre mim:"
       add_description: "Diga algo sobre si mesmo"
       add_location: "Adicionar local"
@@ -1647,29 +1543,25 @@ pt-BR:
       was_invited_by: "Convidado por %{inviter_name}"
       less_than_expected: "Pior do que o esperado"
       phone_number: "Telefone:"
-      show_all_badges: ~
       show_all_feedback: "Mostrar todos os comentários"
       show_all_testimonials: "Mostrar todos os comentários"
       show_full_description: "mostrar mais"
       slightly_better_than_expected: "Excedeu as expectativas"
       slightly_less_than_expected: "Pior do que o esperado"
       what_are_these: "O que é isso?"
-      review: ~
-      reviews: ~
-      badge: ~
-      badges: ~
+      review: "comentario recebido"
+      reviews: "comentários recebidos"
       listing: listando
       listings: listagens
       open_listing: "lista aberta"
       open_listings: "abrir listagens"
-      no_listings: ~
+      no_listings: "Sem listagem"
       no_open_listings: "lista fechada"
       no_reviews: "nenhum comentário"
-      no_badges: ~
-      show_all_listings: ~
+      show_all_listings: "Mostrar todas as listas"
       show_all_open_listings: "Listar todas listas abertas"
       show_all_reviews: "Mostrar todas as opiniões"
-      trustcloud: ~
+      trustcloud: "Cartão confiança"
   search:
     show:
       all_results: "Todos resultados"
@@ -1745,7 +1637,6 @@ pt-BR:
       community_updates: "Atualizações da comunidade"
       email_about_accept_reminders: "...esqueci de aceitar uma oferta ou um pedido"
       email_about_confirm_reminders: "...Eu esqueci de confirmar um pedido como concluído"
-      email_about_new_badges: "...eu consegui um novo emblema"
       email_about_new_comments_to_own_listing: "...alguém comentar a minha oferta ou solicitação"
       email_about_new_messages: "...alguém me enviar uma mensagem"
       email_about_new_received_testimonials: "...alguém me enviar feedback"

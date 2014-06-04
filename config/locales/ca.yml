@@ -87,6 +87,8 @@ ca:
         first_name_with_initial: ~
         first_name_only: ~
         invalid_color_code: ~
+        custom_head_script: ~
+        custom_head_script_instructions_text: ~
       edit_welcome_email:
         welcome_email_content: ~
         welcome_email_content_description: ~
@@ -405,28 +407,6 @@ ca:
       you_will_get_notified: ~
       title: Títol
       send_message_to_user: ~
-    notifications:
-      badgenotification:
-        see_all_your_badges: "Comprova les teves medalles"
-        you_have_earned_badge: "Has guanyat una medalla"
-      comment_to_followed_listing_notification:
-        has_commented: "%{author} ha comentat"
-        offer_you_follow: "una oferta que segueixes"
-        request_you_follow: "una sol·licitud que segueixes"
-      listing_updated_notification:
-        has_updated: "S'ha actualitzat"
-        offer_you_follow: "Una oferta que segueixes"
-        request_you_follow: "Una sol·licitud que segueixes"
-      comment_to_own_listing_notification:
-        has_commented: "%{author} ha comentat"
-        your_offer: "La seva oferta"
-        your_request: "La seva sol·licitud"
-      loading_more_notifications: "Carregant més notificacions"
-      no_notifications: "Cap notificació."
-      testimonialnotification:
-        give_feedback_to: "Dóna un suggeriment a %{name}"
-        has_given_you_feedback_on_event: "Heu rebut un suggeriment de l'esdeveniment"
-        see_all_the_feedback_you_have_received: "Revisa totes les suggerències rebudes"
     show:
       in_response_to_listing: ~
       message_sent_by: ~
@@ -436,6 +416,8 @@ ca:
       conversation_about_listing: ~
       conversation_with_user: ~
       last_message_at: ~
+      requested_by: ~
+      sum: ~
     status:
       cancel_payed_transaction: ~
       feedback_given: "Suggerència enviada"
@@ -745,9 +727,6 @@ ca:
       here_is_a_message_from: "Tens un missatge personal de %{inviter}:"
       join_now: ~
       invitation_code: ~
-    new_badge:
-      you_can_view_all_your_badges_in: "Pots veure les teves medalles a"
-      you_have_achieved_a_badge: "Has rebut una medalla '%{badge_name}' dins de %{service_name}!"
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
@@ -1214,10 +1193,6 @@ ca:
       email_deleted: ~
       payment_details_add_successful: ~
       payment_details_add_error: ~
-    profile_extras_header:
-      back_to_profile_of_person: "Torna al perfil d'usuari"
-      badges: Medalles
-      testimonials: "Comentari rebut"
     settings:
       account: Compte
       notifications: Notificacions
@@ -1497,14 +1472,10 @@ ca:
       there_are_x_members: ~
       to_see_the_list_log_in: ~
       log_in_link: ~
-    badge_description:
-      badge_achieved_at: "Has aconseguit una medalla "
-      you_do_not_yet_have_this_badge: "Encara no has guanyat la medalla"
     edit_links:
       activate: Activar
       deactivate: Desactivar
     help_texts:
-      badges_description_title: Medalles
       feedback_description_title: Suggeriment
       help_captcha_title: "Ets una persona?"
       help_invitation_code_title: "Necessites una invitació per unir-te a"
@@ -1545,81 +1516,6 @@ ca:
       explanation_text: "Actualment pertanys a la comunitat %{community}. Has intentat veure el perfil d'un usuari que pertany a una altra comunitat. De moment Kassi no permet que puguis ingressar en diverses comunitats simultàniament. Estem treballant en una opció que permeti accedir a més d'una comunitat al mateix temps. Aviat estarà disponible!"
       read_more_about_kassi_communities: "Llegir més sobre les comunitats Kassi"
       this_user_does_not_belong_to_this_community: "L'usuari no pertany a la comunitat %{community}"
-    profile_badge:
-      active_member_bronze: "Membre actiu (bronze)"
-      active_member_bronze_description: "Aquest és el tercer intercanvi que realitzes! Espectacular inici! Continua així!"
-      active_member_gold: "Membre actiu (or)"
-      active_member_gold_description: "25 intercanvis! Simplement genial! Ja ets un membre VIP. Persones com tu fan que el servei funcioni de manera excel·lent. Moltes gràcies!"
-      active_member_silver: "Membre actiu (plata)"
-      active_member_silver_description: "Felicitats pel teu desé intercanvi! Amb tu aquesta comunitat millora! Genial!"
-      chauffer_bronze: "Xòfer (bronze)"
-      chauffer_bronze_description: "Ja has ofert dos trajectes a dos persones. Ben fet!"
-      chauffer_gold: "Xòfer (or)"
-      chauffer_gold_description: "Ja has ofert 15 trajectes! Has preferit compartir els teus viatges i així disminuir la contaminació! El Planeta Terra t'ho agraeix!"
-      chauffer_silver: "Xòfer (plata)"
-      chauffer_silver_description: "6 trajectes oferts! Segur que has gaudit de bona companyia mentre conduïes!"
-      commentator_bronze: "Xerraire (bronze)"
-      commentator_bronze_description: "T'agrada conversar amb els altres usuaris. Has deixat tres comentaris en els llistats."
-      commentator_gold: "Xerraire (or)"
-      commentator_gold_description: "30 comentaris! Aquest és el teu espai! Et sents com a casa en aquesta comunitat! Molt bé!"
-      commentator_silver: "Xerraire (plata)"
-      commentator_silver_description: "10 comentaris! Participes activament en les converses amb altres usuaris."
-      enthusiast_bronze: "Entusiasta (bronze)"
-      enthusiast_bronze_description: "Has visitat aquesta comunitat 5 dies. Aviat et convertiràs en un membre regular!"
-      enthusiast_gold: "Entusiasta (or)"
-      enthusiast_gold_description: "No pots mantenir-te lluny d'aquesta comunitat. L'has visitat un centenar de vegades! Gràcies!"
-      enthusiast_silver: "Entusiasta (plata)"
-      enthusiast_silver_description: "Kassi forma part de la teva rutina diària; ja ens has visitat 30 cops!"
-      first_transaction: "Primer intercanvi"
-      first_transaction_description: "Felicitats pel teu primer intercanvi! Una de les teves sol·licituds o ofertes ha estat acceptada i conformada com un tracte dut a terme."
-      generous_bronze: "Generós (bronze)"
-      generous_bronze_description: "Has prestat o regalat dos dels teus productes. Aquesta és l'actitud!"
-      generous_gold: "Generós (or)"
-      generous_gold_description: "Lo teu és ajudar als altres! Has prestat o regalat 15 articles, és fenomenal!"
-      generous_silver: "Generós (plata)"
-      generous_silver_description: "T'agrada compartir amb els demés! Ja has prestat o regalat 6 artícles."
-      helper_bronze: "Bon samarità (bronze)"
-      helper_bronze_description: "Has ofert ajuda, dos vegades, a altres persones, genial!"
-      helper_gold: "Bon samarità (or)"
-      helper_gold_description: "Sempre estàs disponible quan algú necessita ajuda! Ja has fet 15 favors! Extraordinari!"
-      helper_silver: "Bon samarità (plata)"
-      helper_silver_description: "Dediques part del teu temps a ajudar a la resta: 6 favors realitzats!"
-      jack_of_all_trades: "Cul inquiet"
-      jack_of_all_trades_description: "Ets un cul inquiet! Has participat mitjançant diferents rols: oferint articles, serveis, trajectes compartits, allotjament o sol·licitant-ho."
-      lender_bronze: "Col·laborador (bronze)"
-      lender_bronze_description: "Has llistat tres articles que podries compartir! Molt bé!"
-      lender_gold: "Col·laborador (or)"
-      lender_gold_description: "Ho deixaries tot! Has llistat vint-i-cinc articles que podries prestar! Impresionant!"
-      lender_silver: "Col·laborador (plata)"
-      lender_silver_description: "Hi ha moltes coses al teu armari que comparteixes amb la resta. 10 articles ofereixes!"
-      listing_freak_bronze: "Addicte als anuncis (bronze)"
-      listing_freak_bronze_description: "Tens cinc ofertes i/o sol·licituds obertes. Perfecte!"
-      listing_freak_gold: "Addicte als anuncis (or)"
-      listing_freak_gold_description: "Tens quaranta ofertes i/o sol·licituds obertes. Magnífic! Ets un dels productors de contingut més actius!"
-      listing_freak_silver: "Addicte als anuncis (plata)"
-      listing_freak_silver_description: "Tens vint ofertes i/o sol·licituds obertes! Espectacular! Ets realment un participant actiu!"
-      moneymaker_bronze: "Comerciant (bronze)"
-      moneymaker_bronze_description: "T'has adonat de que, amb Kassi, també pots fer diners. Has venut o llogat dos articles!"
-      moneymaker_gold: "Comerciant (or)"
-      moneymaker_gold_description: "Quinze articles venuts o llogats! Excel·lent negoci!"
-      moneymaker_silver: "Comerciant (plata)"
-      moneymaker_silver_description: "Estàs aportant una bona quantitat als teus ingresos! Ja són sis els articles venuts o llogats!"
-      rookie: Novell
-      rookie_description: "Has afegit una oferta o sol·licitud per primer cop. Som-hi!"
-      santa: "Tió de Nadal"
-      santa_description: "Has regalat almenys un article en desembre! No seràs pas el Tió de Nadal?"
-      taxi_stand_bronze: "Taxista (bronze)"
-      taxi_stand_bronze_description: "Has afegit tres ofertes de viatge compartit."
-      taxi_stand_gold: "Taxista (or)"
-      taxi_stand_gold_description: "Sempre estàs disponible, llest per a oferir un viatge! Ja en van vint-i-cinc! Extraordinari!"
-      taxi_stand_silver: "Taxista (plata)"
-      taxi_stand_silver_description: "Deu ofertes de viatge compartit afegides! Molt bé!"
-      volunteer_bronze: "Voluntari (bronze)"
-      volunteer_bronze_description: "T'agrada oferir les teves habilitats als demés. Tens tres ofertes de servei obertes!"
-      volunteer_gold: "Voluntari (or)"
-      volunteer_gold_description: "Tu saps, més que ningú, com ajudar a la resta. Tens vint-i-cinc ofertes de servei obertes."
-      volunteer_silver: "Voluntari (plata)"
-      volunteer_silver_description: "T'agrada ajudar als demés! Has llistat 10 serveis que podries fer!"
     profile_feedback:
       as_expected: L'esperat
       exceeded_expectations: "Molt més de l'esperat"
@@ -1649,7 +1545,6 @@ ca:
       was_invited_by: "...va ser convidat per"
       less_than_expected: "Pitjor de l'esperat"
       phone_number: "Número de telèfon"
-      show_all_badges: "Mostra totes les medalles"
       show_all_feedback: "Mostra tots els comentaris"
       show_all_testimonials: "Mostra tots els comentaris"
       show_full_description: "Veure més"
@@ -1658,8 +1553,6 @@ ca:
       what_are_these: "Què són aquests?"
       review: ~
       reviews: ~
-      badge: ~
-      badges: Medalles
       listing: ~
       listings: ~
       open_listing: ~
@@ -1667,7 +1560,6 @@ ca:
       no_listings: ~
       no_open_listings: ~
       no_reviews: ~
-      no_badges: ~
       show_all_listings: ~
       show_all_open_listings: ~
       show_all_reviews: ~
@@ -1747,7 +1639,6 @@ ca:
       community_updates: ~
       email_about_accept_reminders: "...he oblidat acceptar un esdeveniment"
       email_about_confirm_reminders: ~
-      email_about_new_badges: "...he obtingut una nova medalla"
       email_about_new_comments_to_own_listing: "...algú ha comentat la meva oferta o sol·licitud"
       email_about_new_messages: "...algú m'envia un missatge"
       email_about_new_received_testimonials: "...algú em dóna suggeriments"

@@ -87,6 +87,8 @@ nl:
         first_name_with_initial: ~
         first_name_only: ~
         invalid_color_code: ~
+        custom_head_script: ~
+        custom_head_script_instructions_text: ~
       edit_welcome_email:
         welcome_email_content: "Inhoud welkomstmail"
         welcome_email_content_description: "Onderstaande boodschap wordt verstuurd naar iedereen die zich aanmeldt. Je kan de boodschap aanpassen aan je gemeenschap. Door te klikken op %{send_test_message_link}, kan je een preview sturen naar je email adress, om te bekijken hoe deze er uit ziet in een email programma."
@@ -405,28 +407,6 @@ nl:
       you_will_get_notified: "Je ontvangt er bericht per mail als %{person} jou antwoordt."
       title: Onderwerp
       send_message_to_user: "Stuur bericht aan %{person}"
-    notifications:
-      badgenotification:
-        see_all_your_badges: "Bekijk al uw badges"
-        you_have_earned_badge: "Je hebt een badge verdient"
-      comment_to_followed_listing_notification:
-        has_commented: ~
-        offer_you_follow: ~
-        request_you_follow: ~
-      listing_updated_notification:
-        has_updated: ~
-        offer_you_follow: ~
-        request_you_follow: ~
-      comment_to_own_listing_notification:
-        has_commented: ~
-        your_offer: "jouw aanbod"
-        your_request: "jouw vraag"
-      loading_more_notifications: "Meer notificaties laden..."
-      no_notifications: "Geen notificaties"
-      testimonialnotification:
-        give_feedback_to: "Vraag feedback aan %{name}"
-        has_given_you_feedback_on_event: "heeft je feedback gegeven over"
-        see_all_the_feedback_you_have_received: "Bekijk al de feedback die je hebt ontvangen"
     show:
       in_response_to_listing: ~
       message_sent_by: ~
@@ -436,6 +416,8 @@ nl:
       conversation_about_listing: ~
       conversation_with_user: ~
       last_message_at: ~
+      requested_by: ~
+      sum: ~
     status:
       cancel_payed_transaction: ~
       feedback_given: "Feedback gegeven"
@@ -745,9 +727,6 @@ nl:
       here_is_a_message_from: "Hier is een persoonlijke bericht van %{inviter}"
       join_now: "Word nu lid"
       invitation_code: ~
-    new_badge:
-      you_can_view_all_your_badges_in: "Bekijk al je badges"
-      you_have_achieved_a_badge: "Je hebt de badge '%{badge_name}' verdiend in %{service_name}!"
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: "Toon reactie"
@@ -1212,10 +1191,6 @@ nl:
       email_deleted: ~
       payment_details_add_successful: ~
       payment_details_add_error: ~
-    profile_extras_header:
-      back_to_profile_of_person: "Terug naar de gebruikers profiel"
-      badges: Badges
-      testimonials: "Ontvangen feedback"
     settings:
       account: Account
       notifications: Notificaties
@@ -1495,14 +1470,10 @@ nl:
       there_are_x_members: ~
       to_see_the_list_log_in: ~
       log_in_link: ~
-    badge_description:
-      badge_achieved_at: "Badge behaald "
-      you_do_not_yet_have_this_badge: "Badge is nog niet behaald."
     edit_links:
       activate: Activeer
       deactivate: Deactiveer
     help_texts:
-      badges_description_title: Badges
       feedback_description_title: Feedback
       help_captcha_title: "Ben je mens?"
       help_invitation_code_title: "Je hebt een uitnodiging nodig om deel te nemen"
@@ -1544,81 +1515,6 @@ nl:
       explanation_text: "Je bent momenteel in de %{community} gemeenschap. Je hebt geprobeerd om het profiel te zien van een gebruiker uit een andere gemeenschap. Dit wordt op dit moment niet ondersteunt, dus je kunt alleen toegang tot dit profiel krijgen door de %{community} gemeenschap."
       read_more_about_kassi_communities: "Lees meer over de gemeenschappen"
       this_user_does_not_belong_to_this_community: "Deze gebruiker is niet lid van de %{community} gemeenschap"
-    profile_badge:
-      active_member_bronze: "Actief lid (brons)"
-      active_member_bronze_description: "Dit was de 3e uitwisseling waaraan jij hebt deelgenomen in %{service_name}! Geweldige start, ga zo door!"
-      active_member_gold: "Actief lid (goud)"
-      active_member_gold_description: "25e uitwisseling in%{service_name}, dit is geweldig! Jij bent een VIP in%{service_name}. Het zijn mensen zoals jij die de website draaiende houden. Hartstikke bedankt!"
-      active_member_silver: "Actief lid (zilver)"
-      active_member_silver_description: "Gefeliciteerd met je 10e uitwisseling in%{service_name}! Er is veel gebeurd in deze community dankzij jou. Fantastisch!"
-      chauffer_bronze: "Chauffeur (brons)"
-      chauffer_bronze_description: "Jij hebt 2 liften aangeboden voor andere gebruikers, mooi werk!"
-      chauffer_gold: "Chauffeur (goud)"
-      chauffer_gold_description: "15 aangeboden liften! Jij verkiest car pooling als het mogelijk is. Dat is een super instelling, moeder natuur bedankt je van harte!"
-      chauffer_silver: "Chauffeur (zilver)"
-      chauffer_silver_description: "6 aangeboden liften, fantastisch! Jij houdt wel van goed gezelschap tijdens het rijden."
-      commentator_bronze: "Mensen-mens (brons)"
-      commentator_bronze_description: "Jij discusseert graag met andere gebruikers. Je hebt al 3 berichten achtergelaten in %{service_name}."
-      commentator_gold: "Mensen-mens (goud)"
-      commentator_gold_description: "30 berichten! Jij voelt je thuis in de%{service_name} gemeenschap. Jij staat te trappelen om nieuwe mensen te ontmoeten en met hen te discussiëren."
-      commentator_silver: "Mensen-mens (zilver)"
-      commentator_silver_description: "10 berichten! Jij neemt actief deel aan gesprekken en discussies met andere %{service_name} gebruikers!"
-      enthusiast_bronze: "Enthousiasteling (brons)"
-      enthusiast_bronze_description: "Jij hebt %{service_name} al op 5 verschillende dagen bezocht. Het ziet er naar uit dat je een vaste bezoeker wordt."
-      enthusiast_gold: "Enthousiasteling (goud)"
-      enthusiast_gold_description: "Jij kan maar niet wegblijven van %{service_name}: jij hebt de website al op 100 verschillende dagen bezocht!"
-      enthusiast_silver: "Enthousiasteling (zilver)"
-      enthusiast_silver_description: "%{service_name} is een deel van je dagelijkse routine geworden: jij hebt deze service al 30 keer bezocht."
-      first_transaction: "Eerste event"
-      first_transaction_description: "Gefeliciteerd met je eerste uitwisseling in%{service_name}! Een van je vragen of aanbiedingen is geaccepteerd en bevestigd."
-      generous_bronze: "Vrijgevig (brons)"
-      generous_bronze_description: "Jij hebt al 2 items te leen gesteld of weggegeven. Ga zo door!"
-      generous_gold: "Vrijgevig (goud)"
-      generous_gold_description: "Wat van jou is is van iedereen. Jij hebt al 15 items te leen gesteld of weggegeven, super!"
-      generous_silver: "Vrijgevig (zilver)"
-      generous_silver_description: "Jij houdt ervan om je items te delen met anderen. 6 items te leen gesteld of weggegeven, klasse hoor!"
-      helper_bronze: "Helper (brons)"
-      helper_bronze_description: "Je hebt al 2 keer aangeboden om andere mensen te helpen met je talenten, wat goed!"
-      helper_gold: "Helper (goud)"
-      helper_gold_description: "Jij bied je altijd vrijwillig aan als iemand help nodig heeft. Al 15 gunsten gedaan, je bent een topper!"
-      helper_silver: "Helper (zilver)"
-      helper_silver_description: "Jij besteedt graag je tijd aan het helpen van anderen: 6 gunsten gedaan!"
-      jack_of_all_trades: "Baas van alle handel"
-      jack_of_all_trades_description: "Jij bent nou de definitie van een waar multitalent! Jij hebt al deelgenomen in hulpmiddelen uitwisselingen in 5 verschillende rollen. Ga zo door en verwezenlijk alle rollen: item aanbieder, gunst aanbieder, lift aanbieder, huisvesting aanbieder, item vrager, gunst vrager, lift vrager en huisvesting vrager."
-      lender_bronze: "Lener (brons)"
-      lender_bronze_description: "Je hebt 3 items aangeboden in je profiel die anderen kunnen lenen, super!"
-      lender_gold: "Lener (goud)"
-      lender_gold_description: "Jij zou je medemens nog het shirt dat je aanhebt geven. Je hebt al 25 items te leen gesteld, te gek!"
-      lender_silver: "Lener (zilver)"
-      lender_silver_description: "Jij hebt veel goederen in je kast die je kunt delen met anderen: 10 items aangeboden aan andere om te lenen!"
-      listing_freak_bronze: "Listing freak (brons)"
-      listing_freak_bronze_description: "Jij hebt 5 open vragen/verzoeken staan in %{service_name}. Klasse! Heb je nog meer in petto waar anderen hun voordeel uit kunnen halen?"
-      listing_freak_gold: "Listing freak (goud)"
-      listing_freak_gold_description: "40 open aanbiedingen en/of verzoeken, magnifiek! Jij bent een van de meest actieve users in%{service_name}."
-      listing_freak_silver: "Listing freak (zilver)"
-      listing_freak_silver_description: "20 open aanbiedingen en/of verzoeken, geweldig! Jij bent echt een heel actief lid."
-      moneymaker_bronze: "Zakenman (brons)"
-      moneymaker_bronze_description: "Jij bent nu ook tot inzien gekomen dat %{service_name} jou portemonnaie kan spekken! Je hebt al 2 items succesvol verkocht of verhuurt in%{service_name}."
-      moneymaker_gold: "Zakenman (goud)"
-      moneymaker_gold_description: "15 verkochte of verhuurde items met positieve feedback!%{service_name} is een perfecte handel voor zowel jou en de mensen die van je kopen of huren!"
-      moneymaker_silver: "Zakenman (zilver)"
-      moneymaker_silver_description: "%{service_name} geeft je een leuke extraatje naast je inkomen. 6 verkochte of verhuurde items met positieve feedback! Ga zo door!"
-      rookie: Rookie
-      rookie_description: "Je hebt een aanbieding of vraag toegevoegd in%{service_name} voor de 1e keer. Daar gaan we!"
-      santa: Kerstman
-      santa_description: "Ho ho ho en Gelukkig Kerstfeest! Je hebt tenminste één item weggegeven in December."
-      taxi_stand_bronze: "Taxi stand (brons)"
-      taxi_stand_bronze_description: "Je hebt 3 aangeboden liften toegevoegd aan%{service_name}."
-      taxi_stand_gold: "Taxi stand (goud)"
-      taxi_stand_gold_description: "Jij staat altijd klaar voor anderen, klaar om ze een lift te geven. 25 aangeboden liften, fantastisch!"
-      taxi_stand_silver: "Taxi stand (zilver)"
-      taxi_stand_silver_description: "10 aangeboden liften toegevoegd, wat goed zeg! Mensen weten wie ze moeten vragen als ze een lift nodig hebben!"
-      volunteer_bronze: "Vrijwilliger (brons)"
-      volunteer_bronze_description: "Jij gebruikt graag je talenten om andere mensen te helpen. Je hebt al 3 open gunsten aangeboden in %{service_name}."
-      volunteer_gold: "Vrijwilliger (goud)"
-      volunteer_gold_description: "Jij kan niet anders dan andere mensen helpen. Je hebt 25 open gunsten aangeboden in je profiel, geweldig!"
-      volunteer_silver: "Vrijwilliger (zilver)"
-      volunteer_silver_description: "Jij hebt veel te geven aan anderen: je hebt al 10 gunsten aangeboden in%{service_name}!"
     profile_feedback:
       as_expected: "Zoals verwacht"
       exceeded_expectations: "Veel beter dan verwacht"
@@ -1648,7 +1544,6 @@ nl:
       was_invited_by: ~
       less_than_expected: "Minder dan verwacht"
       phone_number: "Telefoon nummer:"
-      show_all_badges: "Laat alle badges zien"
       show_all_feedback: "Laat alle feedback zien"
       show_all_testimonials: "Laat alle feedback zien"
       show_full_description: "Laat meer zien"
@@ -1657,8 +1552,6 @@ nl:
       what_are_these: "Wat zijn dit?"
       review: ~
       reviews: ~
-      badge: ~
-      badges: Badges
       listing: ~
       listings: ~
       open_listing: ~
@@ -1666,7 +1559,6 @@ nl:
       no_listings: ~
       no_open_listings: ~
       no_reviews: ~
-      no_badges: ~
       show_all_listings: ~
       show_all_open_listings: ~
       show_all_reviews: ~
@@ -1746,7 +1638,6 @@ nl:
       community_updates: "Community updates"
       email_about_accept_reminders: ~
       email_about_confirm_reminders: "ik vergeten ben om te reageren op een vraag"
-      email_about_new_badges: "...ik heb een nieuwe badge bereikt"
       email_about_new_comments_to_own_listing: "...iemand heeft gereageerd op mijn vraag of aanbod"
       email_about_new_messages: "...iemand stuurt me een bericht"
       email_about_new_received_testimonials: "...iemand geeft me feedback"

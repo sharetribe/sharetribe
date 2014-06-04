@@ -87,6 +87,8 @@ ru:
         first_name_with_initial: ~
         first_name_only: ~
         invalid_color_code: "Код цвета должен содержать 6 цифр или букв от A до F, например D96E21"
+        custom_head_script: ~
+        custom_head_script_instructions_text: ~
       edit_welcome_email:
         welcome_email_content: ~
         welcome_email_content_description: ~
@@ -405,28 +407,6 @@ ru:
       you_will_get_notified: "Вы получите уведомление по электронной почте когда %{person} ответит вам."
       title: Заголовок
       send_message_to_user: "Отправить сообщение %{person}"
-    notifications:
-      badgenotification:
-        see_all_your_badges: "Посмотреть все значки"
-        you_have_earned_badge: "Вы заработали значок"
-      comment_to_followed_listing_notification:
-        has_commented: "%{author} прокомментировал"
-        offer_you_follow: "предложение, за которым вы следите"
-        request_you_follow: "запрос, за которым вы следите"
-      listing_updated_notification:
-        has_updated: обновлено
-        offer_you_follow: "предложение, за которым вы следите"
-        request_you_follow: "запрос, за которым вы следите"
-      comment_to_own_listing_notification:
-        has_commented: "%{author} прокомментировал"
-        your_offer: "ваше предложение"
-        your_request: "ваш запрос"
-      loading_more_notifications: "Загрузка оповещений"
-      no_notifications: "Нет оповещений."
-      testimonialnotification:
-        give_feedback_to: "Оставить отзыв о %{name}"
-        has_given_you_feedback_on_event: "оставил отзыв о событии"
-        see_all_the_feedback_you_have_received: "просмотреть все отзывы, полученные вами"
     show:
       in_response_to_listing: ~
       message_sent_by: "Сообщение отправлено"
@@ -436,6 +416,8 @@ ru:
       conversation_about_listing: "Диалог с %{person} о %{listing}."
       conversation_with_user: "Диалог с %{person}."
       last_message_at: "(последнее сообщение: %{time})"
+      requested_by: ~
+      sum: ~
     status:
       cancel_payed_transaction: Отменить
       feedback_given: "Отзыв отправлен"
@@ -745,9 +727,6 @@ ru:
       here_is_a_message_from: "Для вас есть личное сообщение от %{inviter}:"
       join_now: ~
       invitation_code: "Пригласительный код: %{code}"
-    new_badge:
-      you_can_view_all_your_badges_in: "Вы можете просмотреть свои значки здесь —"
-      you_have_achieved_a_badge: "Вы получили значок «%{badge_name}» в Kassi!"
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: "Просмотреть комментарий"
@@ -1212,10 +1191,6 @@ ru:
       email_deleted: ~
       payment_details_add_successful: ~
       payment_details_add_error: ~
-    profile_extras_header:
-      back_to_profile_of_person: "Назад к профилю пользователя"
-      badges: Значки
-      testimonials: Отзывы
     settings:
       account: "Учётная запись"
       notifications: Оповещения
@@ -1495,14 +1470,10 @@ ru:
       there_are_x_members: "Количество участников сообщества %{community_name}: %{count} чел."
       to_see_the_list_log_in: "Чтобы увидеть полный список участников, необходимо %{log_in_link}."
       log_in_link: авторизоваться
-    badge_description:
-      badge_achieved_at: "Значок заработан "
-      you_do_not_yet_have_this_badge: "Значок пока не заработан."
     edit_links:
       activate: Активировать
       deactivate: Отключить
     help_texts:
-      badges_description_title: Значки
       feedback_description_title: Отзывы
       help_captcha_title: "Вы человек?"
       help_invitation_code_title: "Для того, чтобы присоединиться требуется приглашение"
@@ -1546,81 +1517,6 @@ ru:
       explanation_text: "В настоящее время вы являетесь членом сообщества %{community}. Вы хотите просмотреть профиль пользователя, который принадлежит к другому сообществу. Kassi временно не поддерживает возможность одновременной принадлежности одного и того же пользователя к разным сообществам, таким образом, вы не можете просмотреть этот профиль, находясь в сообществе %{community}. Такая возможность будет добавлена чуть позже, мы работаем над этим."
       read_more_about_kassi_communities: "Узнайте больше о сообществах Kassi"
       this_user_does_not_belong_to_this_community: "Этот пользователь не принадлежит к сообществу %{community}"
-    profile_badge:
-      active_member_bronze: "Активный пользователь (бронза)"
-      active_member_bronze_description: "Это было третье событие на Kassi, в котором вы участвовали! Отличный старт, не останавливайтесь на этом!"
-      active_member_gold: "Активный пользователь (золото)"
-      active_member_gold_description: "25 событие на Kassi, великолепно! Вы очень важная персона на этом сервисе. Благодаря таким как вы сервис продолжает развиваться. Огромное спасибо!"
-      active_member_silver: "Активный пользователь (серебро)"
-      active_member_silver_description: "Поздравляем с десятым событием на Kassi! Благодаря вам многое у нас меняется в лучшую сторону!"
-      chauffer_bronze: "Шофёр (бронза)"
-      chauffer_bronze_description: "Два предложения поездок, отлично!"
-      chauffer_gold: "Шофёр (золото)"
-      chauffer_gold_description: "15 предложений поездок! Вы предпочитаете совместно использовать автомобиль тогда, когда это только возможно. Так и надо, Природа скажет вам спасибо!"
-      chauffer_silver: "Шофёр (серебро)"
-      chauffer_silver_description: "6 предложений поездок, супер! Судя по всему, вам нравится ездить в компании."
-      commentator_bronze: "Комментатор (бронза)"
-      commentator_bronze_description: "Вам нравится общаться с другими пользователями. Вы оставили три комментария в Kassi."
-      commentator_gold: "Комментатор (золото)"
-      commentator_gold_description: "30 комментариев! В сообществе Kassi вы как дома. Вам нравится знакомиться с новыми людьми и общаться с ними."
-      commentator_silver: "Комментатор (серебро)"
-      commentator_silver_description: "10 комментариев! Вы активный участник обсуждений с другими пользователями Kassi."
-      enthusiast_bronze: "Энтузиаст (бронза)"
-      enthusiast_bronze_description: "Вы заходили на Kassi в течении пяти дней. Судя по всему для вас это становится привычкой."
-      enthusiast_gold: "Энтузиаст (золото)"
-      enthusiast_gold_description: "Вы не можете без %{service_name}: вы посещали сайт в течении ста дней!"
-      enthusiast_silver: "Энтузиаст (серебро)"
-      enthusiast_silver_description: "Kassi является частью вашей повседневной активности: вы совершили 30 визитов на сервис."
-      first_transaction: "Первое событие"
-      first_transaction_description: "Примите поздравления с вашим первым событием на Kassi! Один из ваших запросов или предложений был принят и подтверждён, как выполненный."
-      generous_bronze: "Меценат (бронза)"
-      generous_bronze_description: "Вы отдали насовсем/на время две вещи. Очень хорошо!"
-      generous_gold: "Щедрый (золото)"
-      generous_gold_description: "То, что принадлежит вам, принадлежит всем. Вы дали напрокат или отдали 15 вещей, великолепно!"
-      generous_silver: "Щедрый (серебро)"
-      generous_silver_description: "Вам нравится делиться вещами с другими. Уже 6 вещей отданы напрокат или насовсем!"
-      helper_bronze: "Помощник (бронза)"
-      helper_bronze_description: "Вы предлагали свою помощь другим два раза, отлично!"
-      helper_gold: "Помощник (золото)"
-      helper_gold_description: "Вы всегда готовы прийти на помощь. 15 оказанных услуг, великолепно!"
-      helper_silver: "Помощник (серебро)"
-      helper_silver_description: "Вам нравится помогать остальным: оказано 6 услуг!"
-      jack_of_all_trades: "И швец и жнец"
-      jack_of_all_trades_description: "У вас исключительно много талантов! Вы действовали уже в пяти разных ролях. Продолжайте и освойте все восемь возможных: предлагающий вещи, предлагающий услуги, предлагающий поездки, предлагающий жильё, запрашивающий вещи, запрашивающий услуги, запрашивающий поездки и запрашивающий жильё."
-      lender_bronze: "Lender (бронза)"
-      lender_bronze_description: "Вы разместили три вещи, которые можете дать напрокат, отлично!"
-      lender_gold: "Lender (золото)"
-      lender_gold_description: "Вы способны отдать приятелю свою последнюю рубашку. 25 предложений вещей на прокат, невероятно!"
-      lender_silver: "Lender (серебро)"
-      lender_silver_description: "В вашем шкафу множество вещей, которыми вы делитесь с остальными: 10 предложений вещей на прокат!"
-      listing_freak_bronze: "Фанат листингов (бронза)"
-      listing_freak_bronze_description: "У вас пять активных предложений/запросов на %{service_name}. Круто! Но может есть ещё что-нибудь в шкафу или в наборе умений, что может пригодиться другим?"
-      listing_freak_gold: "Фанат листингов (золото)"
-      listing_freak_gold_description: "40 предложений и/или запросов, невероятно! Вы один из самых активных пользователей сайта."
-      listing_freak_silver: "Фанат листингов (серебро)"
-      listing_freak_silver_description: "20 предложений и/или запросов, отлично! Вы по-настоящему активный пользователь."
-      moneymaker_bronze: "Торговец (бронза)"
-      moneymaker_bronze_description: "Вы поняли, что %{service_name} можно использовать и для заработка! Успешно продано или отдано в аренду две вещи."
-      moneymaker_gold: "Торговец (золото)"
-      moneymaker_gold_description: "15 проданных или отданных в аренду вещей, и все с положительными отзывами! %{service_name} отличная бизнес-площадка для вас и людей, берущих в аренду или покупающих у вас вещи!"
-      moneymaker_silver: "Торговец (серебро)"
-      moneymaker_silver_description: "%{service_name} даёт неплохую добавку к вашим доходам. Шесть проданных или отданных в аренду вещей и шесть положительных отзывов."
-      rookie: Новобранец
-      rookie_description: "Вы добавили свое первое предложение или запрос в %{service_name}. Поехали!"
-      santa: "Дед Мороз"
-      santa_description: "Счастливого Нового Года! Вы отдали как минимум одну вещь в декабре."
-      taxi_stand_bronze: "Таксист (бронза)"
-      taxi_stand_bronze_description: "Вы добавили три предложения поездки в %{service_name}."
-      taxi_stand_gold: "Таксист (золото)"
-      taxi_stand_gold_description: "Вы всегда готовы предложить помощь с подвозкой для других. 25 предложений поездок, превосходно!"
-      taxi_stand_silver: "Таксист (серебро)"
-      taxi_stand_silver_description: "10 предложений поездок, отлично! Люди знают, к кому обратиться, если им требуется подвозка."
-      volunteer_bronze: "Волонтёр (бронза)"
-      volunteer_bronze_description: "Вам нравится когда ваши умения и навыки помогают другим. У вас три активных предложения услуг в %{service_name}."
-      volunteer_gold: "Волонтёр (золото)"
-      volunteer_gold_description: "Вы не знаете лучшего занятия, чем помощь другим людям. У вас 25 активных предложений услуг, невероятно!"
-      volunteer_silver: "Волонтёр (серебро)"
-      volunteer_silver_description: "Вы можете многим помочь другим: у вас 10 предложений услуг в %{service_name}!"
     profile_feedback:
       as_expected: "Как ожидалось"
       exceeded_expectations: "Намного лучше, чем ожидалось"
@@ -1650,7 +1546,6 @@ ru:
       was_invited_by: "...был приглашён %{inviter_name}"
       less_than_expected: "Хуже чем ожидалось"
       phone_number: "Телефон:"
-      show_all_badges: "Показать все значки"
       show_all_feedback: "Показать все отзывы"
       show_all_testimonials: "Показать все отзывы"
       show_full_description: Больше
@@ -1659,8 +1554,6 @@ ru:
       what_are_these: "Что это?"
       review: "получен отзыв"
       reviews: "получены отзывы"
-      badge: значок
-      badges: Значки
       listing: ~
       listings: ~
       open_listing: "открытое объявление"
@@ -1668,7 +1561,6 @@ ru:
       no_listings: ~
       no_open_listings: "Нет открытых листингов"
       no_reviews: "Нет обзоров"
-      no_badges: "Нет значков"
       show_all_listings: ~
       show_all_open_listings: "Показать все открытые листинги"
       show_all_reviews: "Показать все обзоры"
@@ -1748,7 +1640,6 @@ ru:
       community_updates: "Новости сообщества"
       email_about_accept_reminders: "...я забыл принять решение по событию"
       email_about_confirm_reminders: ~
-      email_about_new_badges: "...я получил новый значок"
       email_about_new_comments_to_own_listing: "...кто-либо оставил комментарий на мой запрос или предложение"
       email_about_new_messages: "...кто-нибудь отправил мне сообщение"
       email_about_new_received_testimonials: "...кто-либо оставил отзыв обо мне"

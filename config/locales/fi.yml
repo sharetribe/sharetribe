@@ -102,7 +102,7 @@ fi:
         first_name_with_initial: "Etunimi ja ensimmäinen kirjain (Etunimi S)"
         first_name_only: "Vain etunimi (Etunimi)"
         invalid_color_code: "Värikoodin tulisi sisältää 6 merkkiä, ja vain numeroita tai kirjaimia A-F, esimerkiksi: D96E21"
-        custom_head_script: "Head-skripti"
+        custom_head_script: Head-skripti
         custom_head_script_instructions_text: "Tämä skripti lisätään joka sivun <head>-tagin sisään. Voit käyttää sitä lisätäksesi omaa CSS-, JavaScript- tai HTML-koodia. Huomaa, että Sharetriben kehittyessä skripti saattaa lakata toimimasta."
       edit_welcome_email:
         welcome_email_content: "Tervetulosähköpostin sisältö"
@@ -1489,7 +1489,6 @@ fi:
       activate: Aktivoi
       deactivate: "Muuta epäaktiiviseksi"
     help_texts:
-      badges_description_title: Ansiomerkit
       feedback_description_title: Palaute
       help_captcha_title: "Olethan ihminen"
       help_invitation_code_title: "Tarvitset kutsun liittyäksesi"
@@ -1562,7 +1561,6 @@ fi:
       was_invited_by: "Liittyi yhteisöön käyttäjän %{inviter_name} kutsumana"
       less_than_expected: "Ei vastannut odotuksia"
       phone_number: "Puhelinnumero:"
-      show_all_badges: "Näytä kaikki ansiomerkit"
       show_all_feedback: "Näytä kaikki palautteet"
       show_all_testimonials: "Näytä kaikki palautteet"
       show_full_description: "Näytä koko teksti"
@@ -1571,8 +1569,6 @@ fi:
       what_are_these: "Mitä nämä ovat?"
       review: "saatu palaute"
       reviews: "saatua palautetta"
-      badge: ansiomerkki
-      badges: ansiomerkkiä
       listing: ilmoitus
       listings: ilmoitusta
       open_listing: "avoin ilmoitus"
@@ -1580,7 +1576,6 @@ fi:
       no_listings: "Ei ilmoituksia"
       no_open_listings: "Ei avoimia ilmoituksia"
       no_reviews: "Ei palautteita"
-      no_badges: "Ei ansiomerkkejä"
       show_all_listings: "Näytä kaikki ilmoitukset"
       show_all_open_listings: "Näytä kaikki avoimet ilmoitukset"
       show_all_reviews: "Näytä kaikki palautteet"

@@ -87,6 +87,8 @@ fr-at:
         first_name_with_initial: ~
         first_name_only: ~
         invalid_color_code: ~
+        custom_head_script: ~
+        custom_head_script_instructions_text: ~
       edit_welcome_email:
         welcome_email_content: ~
         welcome_email_content_description: ~
@@ -405,28 +407,6 @@ fr-at:
       you_will_get_notified: ~
       title: ~
       send_message_to_user: ~
-    notifications:
-      badgenotification:
-        see_all_your_badges: ~
-        you_have_earned_badge: ~
-      comment_to_followed_listing_notification:
-        has_commented: ~
-        offer_you_follow: ~
-        request_you_follow: ~
-      listing_updated_notification:
-        has_updated: ~
-        offer_you_follow: ~
-        request_you_follow: ~
-      comment_to_own_listing_notification:
-        has_commented: ~
-        your_offer: ~
-        your_request: ~
-      loading_more_notifications: ~
-      no_notifications: ~
-      testimonialnotification:
-        give_feedback_to: ~
-        has_given_you_feedback_on_event: ~
-        see_all_the_feedback_you_have_received: ~
     show:
       in_response_to_listing: ~
       message_sent_by: ~
@@ -436,6 +416,8 @@ fr-at:
       conversation_about_listing: ~
       conversation_with_user: ~
       last_message_at: ~
+      requested_by: ~
+      sum: ~
     status:
       cancel_payed_transaction: ~
       feedback_given: ~
@@ -745,9 +727,6 @@ fr-at:
       here_is_a_message_from: ~
       join_now: ~
       invitation_code: ~
-    new_badge:
-      you_can_view_all_your_badges_in: ~
-      you_have_achieved_a_badge: ~
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
@@ -1212,10 +1191,6 @@ fr-at:
       email_deleted: ~
       payment_details_add_successful: ~
       payment_details_add_error: ~
-    profile_extras_header:
-      back_to_profile_of_person: ~
-      badges: ~
-      testimonials: ~
     settings:
       account: ~
       notifications: ~
@@ -1495,14 +1470,10 @@ fr-at:
       there_are_x_members: ~
       to_see_the_list_log_in: ~
       log_in_link: ~
-    badge_description:
-      badge_achieved_at: ~
-      you_do_not_yet_have_this_badge: ~
     edit_links:
       activate: ~
       deactivate: ~
     help_texts:
-      badges_description_title: ~
       feedback_description_title: ~
       help_captcha_title: ~
       help_invitation_code_title: ~
@@ -1543,81 +1514,6 @@ fr-at:
       explanation_text: ~
       read_more_about_kassi_communities: ~
       this_user_does_not_belong_to_this_community: ~
-    profile_badge:
-      active_member_bronze: ~
-      active_member_bronze_description: ~
-      active_member_gold: ~
-      active_member_gold_description: ~
-      active_member_silver: ~
-      active_member_silver_description: ~
-      chauffer_bronze: ~
-      chauffer_bronze_description: ~
-      chauffer_gold: ~
-      chauffer_gold_description: ~
-      chauffer_silver: ~
-      chauffer_silver_description: ~
-      commentator_bronze: ~
-      commentator_bronze_description: ~
-      commentator_gold: ~
-      commentator_gold_description: ~
-      commentator_silver: ~
-      commentator_silver_description: ~
-      enthusiast_bronze: ~
-      enthusiast_bronze_description: ~
-      enthusiast_gold: ~
-      enthusiast_gold_description: ~
-      enthusiast_silver: ~
-      enthusiast_silver_description: ~
-      first_transaction: ~
-      first_transaction_description: ~
-      generous_bronze: ~
-      generous_bronze_description: ~
-      generous_gold: ~
-      generous_gold_description: ~
-      generous_silver: ~
-      generous_silver_description: ~
-      helper_bronze: ~
-      helper_bronze_description: ~
-      helper_gold: ~
-      helper_gold_description: ~
-      helper_silver: ~
-      helper_silver_description: ~
-      jack_of_all_trades: ~
-      jack_of_all_trades_description: ~
-      lender_bronze: ~
-      lender_bronze_description: ~
-      lender_gold: ~
-      lender_gold_description: ~
-      lender_silver: ~
-      lender_silver_description: ~
-      listing_freak_bronze: ~
-      listing_freak_bronze_description: ~
-      listing_freak_gold: ~
-      listing_freak_gold_description: ~
-      listing_freak_silver: ~
-      listing_freak_silver_description: ~
-      moneymaker_bronze: ~
-      moneymaker_bronze_description: ~
-      moneymaker_gold: ~
-      moneymaker_gold_description: ~
-      moneymaker_silver: ~
-      moneymaker_silver_description: ~
-      rookie: ~
-      rookie_description: ~
-      santa: ~
-      santa_description: ~
-      taxi_stand_bronze: ~
-      taxi_stand_bronze_description: ~
-      taxi_stand_gold: ~
-      taxi_stand_gold_description: ~
-      taxi_stand_silver: ~
-      taxi_stand_silver_description: ~
-      volunteer_bronze: ~
-      volunteer_bronze_description: ~
-      volunteer_gold: ~
-      volunteer_gold_description: ~
-      volunteer_silver: ~
-      volunteer_silver_description: ~
     profile_feedback:
       as_expected: ~
       exceeded_expectations: ~
@@ -1647,7 +1543,6 @@ fr-at:
       was_invited_by: ~
       less_than_expected: ~
       phone_number: ~
-      show_all_badges: ~
       show_all_feedback: ~
       show_all_testimonials: ~
       show_full_description: ~
@@ -1656,8 +1551,6 @@ fr-at:
       what_are_these: ~
       review: ~
       reviews: ~
-      badge: ~
-      badges: ~
       listing: ~
       listings: ~
       open_listing: ~
@@ -1665,7 +1558,6 @@ fr-at:
       no_listings: ~
       no_open_listings: ~
       no_reviews: ~
-      no_badges: ~
       show_all_listings: ~
       show_all_open_listings: ~
       show_all_reviews: ~
@@ -1745,7 +1637,6 @@ fr-at:
       community_updates: ~
       email_about_accept_reminders: ~
       email_about_confirm_reminders: ~
-      email_about_new_badges: ~
       email_about_new_comments_to_own_listing: ~
       email_about_new_messages: ~
       email_about_new_received_testimonials: ~
