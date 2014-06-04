@@ -429,6 +429,8 @@ fi:
       conversation_about_listing: "Keskustelu käyttäjän %{person} kanssa liittyen ilmoitukseen %{listing}"
       conversation_with_user: "Keskustelu käyttäjän %{person} kanssa"
       last_message_at: "(uusin viesti %{time})"
+      requested_by: "Pyyntö käyttäjältä %{requester_name}"
+      sum: "Hinta: %{sum}"
     status:
       cancel_payed_transaction: Peruuta
       feedback_given: "Palaute annettu"
