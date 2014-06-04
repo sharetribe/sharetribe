@@ -1,3 +1,0 @@
-/* Render badge partial to a div */
-$("#single_badge").html("<%= escape_javascript(render(:partial => 'people/badge_description', :locals => { :badge => (@badge || params[:id]) })) %>");
-$('#<%= params[:id] %>_description_link_target').lightbox_me({centered: true});

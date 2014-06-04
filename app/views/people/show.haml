@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_profile_view(#{array_or_string_for_javascript(@person.badges.order("id DESC").collect(&:name))}, "#{@person.id}", #{params[:show_closed] || false});
+  initialize_profile_view("#{@person.id}", #{params[:show_closed] || false});
 
 - content_for :title_header do
   %h1
