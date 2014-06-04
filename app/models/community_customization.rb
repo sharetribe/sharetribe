@@ -17,6 +17,6 @@ class CommunityCustomization < ActiveRecord::Base
     :verification_to_post_listings_info_content,
     :search_placeholder
 
-  has_one :community
+  belongs_to :community
 
 end

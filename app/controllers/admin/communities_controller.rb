@@ -124,8 +124,11 @@ class Admin::CommunitiesController < ApplicationController
   def update_look_and_feel
     params[:community][:custom_color1] = nil if params[:community][:custom_color1] == ""
     params[:community][:custom_color2] = nil if params[:community][:custom_color2] == ""
-
+    
     @community = Community.find(params[:id])
+    
+    params[:community].delete(:custom_head_script) unless @community.custom_head_script_in_use?
+    
     needs_stylesheet_recompile = regenerate_css?(params, @community)
     update(@community,
            params[:community],

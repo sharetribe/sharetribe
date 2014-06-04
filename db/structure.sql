@@ -210,6 +210,7 @@ CREATE TABLE `communities` (
   `favicon_updated_at` datetime DEFAULT NULL,
   `default_min_days_between_community_updates` int(11) DEFAULT '7',
   `listing_location_required` tinyint(1) DEFAULT '0',
+  `custom_head_script` text,
   PRIMARY KEY (`id`),
   KEY `index_communities_on_domain` (`domain`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -233,7 +234,6 @@ CREATE TABLE `community_customizations` (
   `blank_slate` text,
   `welcome_email_content` text,
   `how_to_use_page_content` text,
-  `custom_head_script` text,
   `about_page_content` text,
   `terms_page_content` mediumtext,
   `privacy_page_content` text,
@@ -1845,3 +1845,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140523082452');
 INSERT INTO schema_migrations (version) VALUES ('20140526064017');
 
 INSERT INTO schema_migrations (version) VALUES ('20140530105841');
+
+INSERT INTO schema_migrations (version) VALUES ('20140604075725');
