@@ -103,7 +103,7 @@ fr:
         first_name_only: "Prénom seulement (Prénom)"
         invalid_color_code: "Le code de la couleur doit être une suite de 6 chiffres ou lettres (de A à F), par exemple D96E21"
         custom_head_script: "Script personnalisé"
-        custom_head_script_instructions_text: ~
+        custom_head_script_instructions_text: "Ce script est inséré dans le tag <head> de chaque page et peut être utilisé pour insérer du contenu CSS, JavaScript ou HTML personnalisé. Notez que des futures évolutions de Sharetribe pourrait rendre votre script incompatible."
       edit_welcome_email:
         welcome_email_content: "Contenu du message de bienvenue"
         welcome_email_content_description: "Le message ci-dessous sera envoyé à chaque nouveau membre de la tribu, quand il la rejoindra. Vous pouvez le modifier pour l'adapter à vos envies. En cliquant sur \"%{send_test_message_link}\" vous pouvez pré-visualiser le message en l'envoyant à votre adresse personnelle pour voir à quoi cela ressemblera exactement."
