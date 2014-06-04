@@ -12,6 +12,11 @@ When updating, always run the following commands to update gem set and database 
  - check this file for changes between your old version and the one you are updating, and do the necessary manual operations if needed
  - if running on local instance (localhost), you need to precompile assets using "rake assets:precompile" once update is done
 
+4.5.2
+-----
+
+Renewed conversation view UI
+
 4.5.1
 -----
 
