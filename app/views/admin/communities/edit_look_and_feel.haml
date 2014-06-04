@@ -69,6 +69,12 @@
 
     .row
       .col-12
+        = form.label :custom_head_script, t(".custom_head_script")
+        = render :partial => "layouts/info_text", :locals => { :text => t(".custom_head_script_instructions_text") }
+        = form.text_area :custom_head_script, class: "text_area_code"
+          
+    .row
+      .col-12
         = form.button t("admin.communities.edit_details.update_information"), :id => "edit_community_button", :class => "send_button"
 
 = render :partial => "people/help_texts", :collection => ["invite_only_help_text"], :as => :field
