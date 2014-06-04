@@ -37,4 +37,4 @@
       = f.button t(".send_reply")
 
   #messages
-    = render :partial => "message", :collection => @conversation.messages
+    = render :partial => "message", :collection => @conversation.messages.reverse

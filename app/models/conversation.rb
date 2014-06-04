@@ -2,7 +2,7 @@ class Conversation < ActiveRecord::Base
 
   belongs_to :listing
 
-  has_many :messages, :dependent => :destroy, :order => "id DESC"
+  has_many :messages, :dependent => :destroy
 
   has_many :participations, :dependent => :destroy
   has_many :participants, :through => :participations, :source => :person
@@ -78,9 +78,9 @@ class Conversation < ActiveRecord::Base
     end
   end
 
-  # Returns last received or sent message (which is the first one in the list of messages, because the order)
+  # Returns last received or sent message
   def last_message
-    return messages.first
+    return messages.last
   end
 
   def other_party(person)
@@ -111,9 +111,9 @@ class Conversation < ActiveRecord::Base
 
   # Send email notification to message receivers and returns the receivers
   def send_email_to_participants(community)
-    recipients(last_message.sender).each do |recipient|
+    recipients(message.last.sender).each do |recipient|
       if recipient.should_receive?("email_about_new_messages")
-        PersonMailer.new_message_notification(last_message, community).deliver
+        PersonMailer.new_message_notification(message.last, community).deliver
       end
     end
   end
