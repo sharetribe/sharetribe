@@ -111,9 +111,9 @@ class Conversation < ActiveRecord::Base
 
   # Send email notification to message receivers and returns the receivers
   def send_email_to_participants(community)
-    recipients(message.last.sender).each do |recipient|
+    recipients(messages.last.sender).each do |recipient|
       if recipient.should_receive?("email_about_new_messages")
-        PersonMailer.new_message_notification(message.last, community).deliver
+        PersonMailer.new_message_notification(messages.last, community).deliver
       end
     end
   end
@@ -144,15 +144,8 @@ class Conversation < ActiveRecord::Base
     participants.find { |p| listing.requester?(p) }
   end
 
-  # Please note!
-  #
-  # This method only works for conversations that have listings i.e. it doesn't work for private messages started
-  # from profile.
-  #
-  # In the future, would be smart to mark to the DB which party was the starter. This way we could define the starter
-  # even if the conversation is not related to a listing.
   def starter
-    other_party(author)
+    messages.first.sender
   end
 
   # If payment through Sharetribe is required to

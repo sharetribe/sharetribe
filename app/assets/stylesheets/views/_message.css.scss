@@ -171,3 +171,7 @@ $message-time-margin: lines(0.25);
   color: $red;
   background: lighten($red, 40%);
 }
+
+.message-book-button {
+  @include button($link);
+}
