@@ -72,7 +72,7 @@
         .col-12
           = form.label :custom_head_script, t(".custom_head_script")
           = render :partial => "layouts/info_text", :locals => { :text => t(".custom_head_script_instructions_text") }
-          = form.text_area :custom_head_script, class: "text_area_code"
+          = form.text_area :custom_head_script, class: "text_area_code", placeholder: "<script src=\"http://example.com/analytics.js\"></script>"
 
     .row
       .col-12
