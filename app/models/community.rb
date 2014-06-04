@@ -544,6 +544,10 @@ class Community < ActiveRecord::Base
   def integrations_in_use?
     plan_level >= BASIC_PLAN
   end
+  
+  def custom_head_script_in_use?
+    plan_level >= BASIC_PLAN
+  end
 
   private
 
