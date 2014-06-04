@@ -7,7 +7,6 @@
   - contents << capture do
     %div{class: "message-bubble-arrow-to-#{avatar_side} message-action-#{action_class}"}
       %div
-        = link_to message.sender.name(@current_community), message.sender
         - if message.action.eql?("pay")
           %b= t(".paid", :sum => sum_with_currency(message.conversation.payment.total_sum, message.conversation.payment.currency))
         - else
