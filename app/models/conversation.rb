@@ -111,9 +111,9 @@ class Conversation < ActiveRecord::Base
 
   # Send email notification to message receivers and returns the receivers
   def send_email_to_participants(community)
-    recipients(messages.last.sender).each do |recipient|
+    recipients(last_message.sender).each do |recipient|
       if recipient.should_receive?("email_about_new_messages")
-        PersonMailer.new_message_notification(messages.last, community).deliver
+        PersonMailer.new_message_notification(last_message, community).deliver
       end
     end
   end
