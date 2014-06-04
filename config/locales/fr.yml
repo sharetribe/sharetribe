@@ -102,7 +102,7 @@ fr:
         first_name_with_initial: "Prénom et initiale du nom (Prénom N)"
         first_name_only: "Prénom seulement (Prénom)"
         invalid_color_code: "Le code de la couleur doit être une suite de 6 chiffres ou lettres (de A à F), par exemple D96E21"
-        custom_head_script: ~
+        custom_head_script: "Script personnalisé"
         custom_head_script_instructions_text: ~
       edit_welcome_email:
         welcome_email_content: "Contenu du message de bienvenue"
@@ -431,8 +431,8 @@ fr:
       conversation_about_listing: "Discussion avec %{person} à propos de %{listing}"
       conversation_with_user: "Discussion avec %{person}"
       last_message_at: "(dernier message %{time})"
-      requested_by: ~
-      sum: ~
+      requested_by: "Demandé par %{requester_name}"
+      sum: "Total : %{sum}"
     status:
       cancel_payed_transaction: Annuler
       feedback_given: "Avis donné"
