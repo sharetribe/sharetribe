@@ -14,8 +14,6 @@ class Conversation < ActiveRecord::Base
 
   VALID_STATUSES = ["pending", "accepted", "rejected", "paid", "free", "confirmed", "canceled"]
 
-  validates_length_of :title, :in => 1..120, :allow_nil => false
-
   # Delegate methods to state machine
   delegate :can_transition_to?, :transition_to!, :transition_to, :current_state,
            to: :state_machine
@@ -168,6 +166,10 @@ class Conversation < ActiveRecord::Base
   # Return true if the transaction is in a state that it can be canceled
   def can_be_canceled?
     can_transition_to?(:canceled)
+  end
+
+  def title
+    Maybe(listing).title.or_else { nil }
   end
 
 end

@@ -16,13 +16,6 @@
     - else
       = t(".you_will_get_notified_of_acceptance", :person => @target_person.given_name_or_username)
   = form_for @conversation, :url => person_messages_path(:person_id => @current_user.id) do |form|
-    = form.label :title, t('.title')
-    - if @listing
-      - title = get_message_title(@listing)
-    - else
-      - title = ""
-
-    = form.text_field :title, :class => "text_field", :maxlength => "120", :value => title
 
     = fields_for "conversation[message_attributes]", Message.new do |message_form|
       = message_form.label :content, t('.message')
