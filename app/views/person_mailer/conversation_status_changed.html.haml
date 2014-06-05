@@ -11,7 +11,7 @@
 %tr
   %td{:align => "left"}
     %font{body_font}
-      = t("emails.conversation_status_changed.has_#{@conversation.status}_your_#{Listing.opposite_type(@conversation.listing.direction)}", :accepter => @conversation.listing.author.name(@current_community), :listing => @conversation.title)
+      = t("emails.conversation_status_changed.has_#{@conversation.status}_your_#{Listing.opposite_type(@conversation.listing.direction)}", :accepter => @conversation.listing.author.name(@current_community), :listing => conversation_title(@conversation, @recipient))
       = additional_text
 
 - unless @conversation.last_message.content.blank?

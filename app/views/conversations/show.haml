@@ -5,14 +5,14 @@
   %h1
     = link_to received_person_messages_path(:person_id => @current_user.id) do
       = t("layouts.no_tribe.inbox")
-    | #{@conversation.title}
+    | #{conversation_title(@conversation, @current_user)}
 
 .centered-section-wide
   .message-avatar-padding
     .row
       .col-12
         %h2
-          = Maybe(@conversation.listing).map { |listing| link_to listing.title, listing }.or_else { @conversation.title }
+          = conversation_title(@conversation, @current_user)
 
         %p
           - if @conversation.status.eql?("free")

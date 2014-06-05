@@ -8,26 +8,23 @@
       .author
         = render :partial => "conversation_with", :locals => { :conversation => conversation, :other_party => other_party }
         = t("conversations.show.last_message_at", :time => time_ago(conversation.last_message_at))
-      - title = conversation.title ? conversation.title : t(".message_from", person: other_party.name)
-      %h2= link_to title, single_conversation_path(:conversation_type => action_name, :id => conversation.id), :id => "conversation_title_link_#{conversation.id.to_s}"
-      %small.feed-excerpt
-        - if last_message.sender.eql?(@current_user)
-          .ss-reply.conversation-icon
+      %h3
+        = link_to single_conversation_path(:conversation_type => action_name, :id => conversation.id) do
           - if last_message.content.blank?
             - if last_message.action.eql?("pay")
-              .conversation-text= t("conversations.message.paid", :sum => sum_with_currency(last_message.conversation.payment.total_sum, last_message.conversation.payment.currency))
-            - else
-              .conversation-text= t(".#{last_message.action}ed_#{last_message.conversation.discussion_type}").capitalize
-          - else
-            .conversation-text= link_to("\"#{truncate(last_message.content, :length => 100, :omission => "...")}\"", single_conversation_path(:conversation_type => action_name, :id => conversation.id))
-        - else
-          - if last_message.content.blank?
-            - if last_message.action.eql?("pay")
+              - if last_message.sender.eql?(@current_user)
+                = icon_tag("reply", ["icon-fix"])
               = t("conversations.message.paid", :sum => humanized_money_with_symbol(last_message.conversation.payment.total_sum))
             - else
+              - if last_message.sender.eql?(@current_user)
+                = icon_tag("reply", ["icon-fix"])
               = t(".#{last_message.action}ed_#{last_message.conversation.discussion_type}").capitalize
           - else
-            = link_to("\"#{truncate(last_message.content, :length => 100, :omission => "...")}\"", single_conversation_path(:conversation_type => action_name, :id => conversation.id))
+            - if last_message.sender.eql?(@current_user)
+              = icon_tag("reply", ["icon-fix"])
+            = "\"#{truncate(last_message.content, :length => 100, :omission => "...")}\""
+      %small.feed-excerpt
+
       - unless conversation.status.eql?("free")
         %small
           .listed-conversation-status-padding{:id => "conversation_#{conversation.id.to_s}_status"}
