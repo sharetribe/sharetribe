@@ -431,6 +431,7 @@ en:
       write_a_reply: "Write a reply:"
       conversation_about_listing: "With %{person} about %{listing}"
       conversation_with_user: "With %{person}"
+      conversation_with: "Conversation with %{person}"
       last_message_at: "(latest message %{time})"
       requested_by: "Requested by %{requester_name}"
       sum: "Sum: %{sum}"
@@ -750,7 +751,6 @@ en:
       listing_you_follow_has_a_new_comment: "%{author} has commented on a listing you follow in %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} has commented on the listing '%{listing}' you are following in %{service_name}."
     new_message:
-      conversation_title: "Message thread title: %{title}"
       view_message: "View message"
       has_sent_you_a_message_in_kassi: "%{sender} has sent you a message in %{service_name}."
       you_have_a_new_message: "A new message in %{service_name} from %{sender_name}"

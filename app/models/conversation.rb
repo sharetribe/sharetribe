@@ -19,6 +19,7 @@ class Conversation < ActiveRecord::Base
            to: :state_machine
 
   delegate :author, to: :listing
+  deletage :title, to: :listing, prefix: true
 
   def state_machine
     @state_machine ||= TransactionProcess.new(self, transition_class: TransactionTransition)
@@ -166,10 +167,6 @@ class Conversation < ActiveRecord::Base
   # Return true if the transaction is in a state that it can be canceled
   def can_be_canceled?
     can_transition_to?(:canceled)
-  end
-
-  def title
-    Maybe(listing).title.or_else { nil }
   end
 
 end

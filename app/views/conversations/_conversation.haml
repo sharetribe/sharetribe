@@ -23,7 +23,6 @@
             - if last_message.sender.eql?(@current_user)
               = icon_tag("reply", ["icon-fix"])
             = "\"#{truncate(last_message.content, :length => 100, :omission => "...")}\""
-      %small.feed-excerpt
 
       - unless conversation.status.eql?("free")
         %small
