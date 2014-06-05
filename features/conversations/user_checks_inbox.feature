@@ -13,14 +13,15 @@ Feature: User checks inbox
 
   Scenario: Viewing messages
     And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
-    And there is a message from "kassi_testperson2" about that listing
+    And there is a message "Test message" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow inbox link
     Then I should see "Massage" within ".inbox-feed"
+    And I should see "Test message" within ".inbox-feed"
 
   Scenario: Viewing a single conversation
     And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"
-    And there is a message from "kassi_testperson2" about that listing
+    And there is a message "Test message" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow inbox link
     And I follow "Massage"
