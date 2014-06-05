@@ -19,7 +19,7 @@ class Conversation < ActiveRecord::Base
            to: :state_machine
 
   delegate :author, to: :listing
-  deletage :title, to: :listing, prefix: true
+  delegate :title, to: :listing, prefix: true
 
   def state_machine
     @state_machine ||= TransactionProcess.new(self, transition_class: TransactionTransition)
