@@ -383,6 +383,13 @@ en:
       canceled_request: "Request canceled."
       canceled_offer: "Offer canceled."
       message_from: "Message from %{person}"
+    conversation_list_status:
+      waiting_for_your_response: Waiting for your response
+      completed: Completed
+      canceled: Canceled
+      rejected: Rejected
+      waiting_for_payment_from: "Waiting for payment from %{person}"
+      waiting_for_confirmation_from: "Waiting for confirmation from %{person}"
     message:
       accepted_request: "accepted the request"
       accepted_offer: "accepted the offer"
