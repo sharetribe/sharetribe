@@ -378,6 +378,7 @@ fi:
       confirmed_offer: "Tarjous toteutettu."
       canceled_request: "Pyyntö peruutettu."
       canceled_offer: "Tarjous peruutettu."
+      message_from: "Viesti käyttäjältä %{person}"
     message:
       accepted_request: "hyväksyi pyynnön"
       accepted_offer: "hyväksyi tarjouksen"
@@ -430,6 +431,7 @@ fi:
       write_a_reply: "Kirjoita vastaus:"
       conversation_about_listing: "Keskustelu käyttäjän %{person} kanssa liittyen ilmoitukseen %{listing}"
       conversation_with_user: "Keskustelu käyttäjän %{person} kanssa"
+      conversation_with: "Keskustelu käyttäjän %{person} kanssa"
       last_message_at: "(uusin viesti %{time})"
       requested_by: "Pyyntö käyttäjältä %{requester_name}"
       sum: "Hinta: %{sum}"

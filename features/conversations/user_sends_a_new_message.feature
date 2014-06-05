@@ -14,20 +14,18 @@ Feature: User sends a new message
     And I am on the homepage
     When I follow "Hammer"
     And I follow "listing-contact"
-    And I fill in "Title" with "Question about the hammer"
     And I fill in "Message" with "What kind of hammer is this?"
     And I press "Send message"
     Then I should see "Message sent" within ".flash-notifications"
     And I should see "Hammer" within "#listing-title"
     When I follow inbox link
-    Then I should see "Question about the hammer"
     And I should see "What kind of hammer is this?"
     And I should not see "Awaiting confirmation from listing author"
     When I log out
     And I log in as "kassi_testperson1"
     And I follow inbox link
     Then I should not see "Accept"
-    When I follow "Question about the hammer"
+    When I follow "What kind of hammer is this?"
     Then I should not see "Accept"
 
   @javascript
@@ -66,16 +64,14 @@ Feature: User sends a new message
     And I am logged in as "kassi_testperson2"
     And I am on the profile page of "kassi_testperson1"
     When I follow "Contact Kassi"
-    And I fill in "Title" with "Random title"
     And I fill in "Message" with "Random message"
     And I press "Send message"
     And I follow inbox link
-    Then I should see "Random title"
-    And I should see "Random message"
+    Then I should see "Random message"
     And I should not see "Awaiting confirmation from listing author"
     When I log out
     And I log in as "kassi_testperson1"
     And I follow inbox link
     Then I should not see "Accept"
-    When I follow "Random title"
+    When I follow "Random message"
     Then I should not see "Accept"

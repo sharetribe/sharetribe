@@ -44,7 +44,7 @@ Feature: User pays after accepted transaction
     When I am logged in as "kassi_testperson1"
     And I follow inbox link
     Then I should see that there is 1 new message
-    When I follow "I want to buy"
+    When I follow "Ok, then pay!"
     Then I should see "Pay"
     When I follow "Pay"
     Then I should see "New payment"

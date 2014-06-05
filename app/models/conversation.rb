@@ -14,13 +14,12 @@ class Conversation < ActiveRecord::Base
 
   VALID_STATUSES = ["pending", "accepted", "rejected", "paid", "free", "confirmed", "canceled"]
 
-  validates_length_of :title, :in => 1..120, :allow_nil => false
-
   # Delegate methods to state machine
   delegate :can_transition_to?, :transition_to!, :transition_to, :current_state,
            to: :state_machine
 
   delegate :author, to: :listing
+  delegate :title, to: :listing, prefix: true
 
   def state_machine
     @state_machine ||= TransactionProcess.new(self, transition_class: TransactionTransition)

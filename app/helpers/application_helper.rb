@@ -60,6 +60,7 @@ module ApplicationHelper
       "invite" => "ss-adduser",
       "loading" => "ss-loading",
       "connect" => "ss-connection",
+      "reply" => "ss-reply",
       "" => "",
 
       # Default category & share type icons
@@ -230,7 +231,7 @@ module ApplicationHelper
       "lock" => "icon-lock",
       "unlock" => "icon-unlock",
       "edit" => "icon-edit",
-      "profile" => "ss-user"
+      "reply" => "icon-reply"
     }
   }
 
