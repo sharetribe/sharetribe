@@ -16,7 +16,6 @@ Feature: User requests an item in item offer
     And I am on the homepage
     When I follow "Hammer"
     And I follow "Rent this item"
-    And I fill in "Title" with "Borrowing hammer"
     And I fill in "Message" with "I want to borrow this item"
     And I press "Send message"
     Then I should see "Message sent" within ".flash-notifications"
@@ -28,7 +27,7 @@ Feature: User requests an item in item offer
     And I log in as "kassi_testperson1"
     And I follow inbox link
     Then I should see "Accept"
-    When I follow "Borrowing hammer"
+    When I follow "I want to borrow this item"
     Then I should see "Accept"
     When the system processes jobs
     Then "kassi_testperson1@example.com" should have 1 email

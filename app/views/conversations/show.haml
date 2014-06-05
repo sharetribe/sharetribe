@@ -2,21 +2,21 @@
   initialize_reply_form('#{I18n.locale}');
 
 - other_party = @conversation.other_party(@current_user)
-- title = Maybe(@conversation).listing.title.or_else { t(".conversation_with", person: link_to(other_party.name, other_party)).html_safe }
+- title = Maybe(@conversation).listing.title
 
 - content_for :title_header do
   %h1
     = link_to received_person_messages_path(:person_id => @current_user.id) do
       = t("layouts.no_tribe.inbox")
     |
-    = title
+    = title.or_else { t(".conversation_with", person: link_to(other_party.name, other_party)).html_safe }
 
 .centered-section-wide
   .message-avatar-padding
     .row
       .col-12
         %h2
-          = title
+          = title.map { |title| link_to title, @conversation.listing }.or_else { t(".conversation_with", person: link_to(other_party.name, other_party)).html_safe }
 
         %p
           - if @conversation.status.eql?("free")

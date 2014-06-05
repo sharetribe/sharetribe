@@ -22,7 +22,7 @@ Feature: User skips feedback
   @javascript
   Scenario: Skipping feedback from the conversation page
     When I follow inbox link
-    And I follow "I'd like to buy a skate"
+    And I follow "paid $20"
     And I follow "Skip feedback"
     And I should see "Feedback skipped" within ".conversation-status"
 
