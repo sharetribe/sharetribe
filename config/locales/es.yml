@@ -87,6 +87,8 @@ es:
         first_name_with_initial: ~
         first_name_only: ~
         invalid_color_code: "El código de color debe contener 6 caracteres, números o letras de la A a la F, por ejemplo D96E21"
+        custom_head_script: ~
+        custom_head_script_instructions_text: ~
       edit_welcome_email:
         welcome_email_content: ~
         welcome_email_content_description: "Este mensaje será enviado a todos los miembros nuevos cuando ellos se unen a la comunidad. Puede modificar el contenido para adaptar a su comunidad. Haciendo click en '%{send_test_message_link}' puede ver cómo queda el mensaje en tu email."
@@ -405,28 +407,6 @@ es:
       you_will_get_notified: "Recibirás una notificación por email cuando %{person} te conteste."
       title: Título
       send_message_to_user: "Enviar mensaje a %{person}"
-    notifications:
-      badgenotification:
-        see_all_your_badges: "Revisa todas tus medallas"
-        you_have_earned_badge: "Has ganado una medalla!"
-      comment_to_followed_listing_notification:
-        has_commented: "%{author} ha comentado"
-        offer_you_follow: "una oferta que sigues"
-        request_you_follow: "una solicitud que sigues"
-      listing_updated_notification:
-        has_updated: "Se ha actualizado"
-        offer_you_follow: "Una oferta que sigues"
-        request_you_follow: "una solicitud que sigues"
-      comment_to_own_listing_notification:
-        has_commented: "%{author} ha comentado"
-        your_offer: "Su oferta"
-        your_request: "Su solicitud"
-      loading_more_notifications: "Cargando más notificaciones"
-      no_notifications: "No hay notificaciones."
-      testimonialnotification:
-        give_feedback_to: "Dar un feedback a %{name}"
-        has_given_you_feedback_on_event: "Has recibido un feedback del evento"
-        see_all_the_feedback_you_have_received: "Revisar todos los feedbacks que has recibido"
     show:
       in_response_to_listing: "sobre listado"
       message_sent_by: "Mensaje enviado por"
@@ -436,6 +416,8 @@ es:
       conversation_about_listing: "Conversación con %{person} sobre %{listing}."
       conversation_with_user: "Conversación con %{person}."
       last_message_at: "(último mensaje %{time})"
+      requested_by: ~
+      sum: ~
     status:
       cancel_payed_transaction: Cancelar
       feedback_given: "feedback dado"
@@ -753,9 +735,6 @@ es:
       here_is_a_message_from: "Tienes un mensaje personal de %{inviter}:"
       join_now: "Inscríbete ahora"
       invitation_code: "Código de invitación: %{code}"
-    new_badge:
-      you_can_view_all_your_badges_in: "Pueder ver todas tus medallas en"
-      you_have_achieved_a_badge: "Has recibido una medalla '%{badge_name}' en %{service_name}!"
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: "Ver comentario"
@@ -1222,10 +1201,6 @@ es:
       email_deleted: ~
       payment_details_add_successful: ~
       payment_details_add_error: ~
-    profile_extras_header:
-      back_to_profile_of_person: "Volver al perfil del usuario"
-      badges: Medallas
-      testimonials: "Feedback recibido"
     settings:
       account: Cuenta
       notifications: Notificaciones
@@ -1505,14 +1480,10 @@ es:
       there_are_x_members: "Hay %{count} miembros en la comunidad %{community_name}."
       to_see_the_list_log_in: "Para ver la lista completa de todos los miembros necesitas %{log_in_link}."
       log_in_link: "inicia sesión"
-    badge_description:
-      badge_achieved_at: "Medalla obtenida "
-      you_do_not_yet_have_this_badge: "La medalla todavía no ha sido ganada."
     edit_links:
       activate: Activar
       deactivate: Desactivar
     help_texts:
-      badges_description_title: Medallas
       feedback_description_title: Feedback
       help_captcha_title: "¿Eres humano?"
       help_invitation_code_title: "Necesitas una invitación para unirte a"
@@ -1556,81 +1527,6 @@ es:
       explanation_text: "Actualmente perteneces a la comunidad %{community}. Intentaste ver el perfil de un usuario que pertenece a otra comunidad Sharetribe. No puedes acceder a ese perfil a través de la comunidad %{community}."
       read_more_about_kassi_communities: "Lee más sobre las comunidades de %{service_name}"
       this_user_does_not_belong_to_this_community: "El usuario no pertenece a la comunidad %{community}"
-    profile_badge:
-      active_member_bronze: "Miembro activo (bronce)"
-      active_member_bronze_description: "Este fue el tercer intercambio con el que participas en %{service_name}! Espectacular comienzo, continúa así!"
-      active_member_gold: "Miembro activo (oro)"
-      active_member_gold_description: "25º intercambio en %{service_name}, genial! Ya eres un miembro VIP de %{service_name}. Personas como tú hacen que la rueda gire. Muchas gracias!"
-      active_member_silver: "Miembro activo (plata)"
-      active_member_silver_description: "Felicitaciones en tu décimo intercambio en %{service_name}! Muchas cosas están pasando en Sharetribe gracias a ti. Fantástico!"
-      chauffer_bronze: "Chofer (bronce)"
-      chauffer_bronze_description: "Has ofrecido dos traslados a otros usuarios Bien hecho!"
-      chauffer_gold: "Chofer (oro)"
-      chauffer_gold_description: "Ya van 15 traslados ofrecidos! Tú preferiste compartir tus viajes y así disminuir la contaminación. Todos te agradecemos!"
-      chauffer_silver: "Chofer (plata)"
-      chauffer_silver_description: "6 traslados ofrecidos! Seguro disfrutarás de buena compañía mientras manejas."
-      commentator_bronze: "Comentarista (bronce)"
-      commentator_bronze_description: "Te gusta conversar con los demás usuarios. Has dejado tres comentarios en los listados de %{service_name}."
-      commentator_gold: "Comentarista (oro)"
-      commentator_gold_description: "30 comentarios! Te sientes como en casa en la comunidad %{service_name}. Te interesa conocer gente nueva y hacer buenos contactos!"
-      commentator_silver: "Comentarista (plata)"
-      commentator_silver_description: "10 comentarios! Eres un participante activo de las conversaciones con otros usuarios de %{service_name}."
-      enthusiast_bronze: "Entusiasta (bronce)"
-      enthusiast_bronze_description: "Has visitado %{service_name} en 5 días diferentes. Estás en camino de convertirte en un miembro regular."
-      enthusiast_gold: "Entusiasta (oro)"
-      enthusiast_gold_description: "No puedes mantenerte alejado de %{service_name}: has visitado el sitio en cien días distintos!"
-      enthusiast_silver: "Entusiasta (plata)"
-      enthusiast_silver_description: "%{service_name} forma parte de tu rutina diaria: ya tienes 30 visitas en el servicio."
-      first_transaction: "Primer evento"
-      first_transaction_description: "Felicitaciones por tu primer intercambio en %{service_name}! Una de tus solicitudes u ofertas ha sido aceptada y confirmada como un trato hecho."
-      generous_bronze: "Generoso (bronce)"
-      generous_bronze_description: "Has prestado o regalado dos de tus productos. Bien!"
-      generous_gold: "Generoso (oro)"
-      generous_gold_description: "Lo que es tuyo también es de los demás! Has prestado o regalado 15 artículos, fantástico!"
-      generous_silver: "Generoso (plata)"
-      generous_silver_description: "Te gusta compartir con los demás! Ya has prestado o regalado 6 artículos. Bien!"
-      helper_bronze: "Ayudante (bronce)"
-      helper_bronze_description: "Usted ha ofrecido su ayuda a los demás en dos oportunidades, genial!"
-      helper_gold: "Ayudante (oro)"
-      helper_gold_description: "Siempre estás disponible cuando alguien necesita ayuda! Ya son 15 los favores realizados. Superlativo!"
-      helper_silver: "Ayudante (plata)"
-      helper_silver_description: "Dedicas parte de tu tiempo ayudando a los demás: 6 favores realizados!"
-      jack_of_all_trades: "Un fenómeno para hacer intercambios!"
-      jack_of_all_trades_description: "Eres un verdadero multitalentoso! Has participado intercambiando recursos en cinco roles diferentes. Continúa y completa los 8: ofrece o solicita artículos, servicios, viajes y lugares."
-      lender_bronze: "Colaborador (bronce)"
-      lender_bronze_description: "Has listado tres artículos que podrías compartir en tu perfil Bien!"
-      lender_gold: "Colaborador (oro)"
-      lender_gold_description: "Hasta te sacarías la polera por ayudar al prójimo. Has listado 25 artículos que podrías prestar. Impresionante!"
-      lender_silver: "Colaborador (plata)"
-      lender_silver_description: "Hay muchas cosas en tu armario que podrías compartir con los demás: 10 artículos solicitados por otros!"
-      listing_freak_bronze: "Anuncio friki (bronce)"
-      listing_freak_bronze_description: "Tienes 5 ofertas/solicitudes abiertas listadas en %{service_name} Perfecto! ¿Todavía tienes algo en tu armario o en tu lista de habilidades que pueda beneficiar a otros?"
-      listing_freak_gold: "Anuncio friki (oro)"
-      listing_freak_gold_description: "Tienes 40 ofertas/solicitudes abiertas. Magnífico! Eres uno de los generadores de contenido más activos en %{service_name}."
-      listing_freak_silver: "Anuncio friki (plata)"
-      listing_freak_silver_description: "Tienes 20 ofertas/solicitudes abiertas. Espectacular! Realmente eres un participante enérgico."
-      moneymaker_bronze: "Comerciante (bronce)"
-      moneymaker_bronze_description: "Con %{service_name} también puedes ganar dinero! Has vendido o rentado exitosamente dos artículos en %{service_name}."
-      moneymaker_gold: "Comerciante (oro)"
-      moneymaker_gold_description: "15 artículos vendidos o arrendados con feedback positivo! %{service_name} es un excelente negocio tanto para ti como para la gente que te compra o arrienda."
-      moneymaker_silver: "Comerciante (plata)"
-      moneymaker_silver_description: "%{service_name} aporta con una bonita cantidad a tus ingresos. 6 artículos vendidos o arrendados con feedback positivo!"
-      rookie: Novato
-      rookie_description: "Has añadido una oferta o solicitud en %{service_name} por primera vez. Aquí vamos!"
-      santa: Santa
-      santa_description: "Ho Ho Ho! Feliz Navidad! Has regalado al menos un artículo en diciembre."
-      taxi_stand_bronze: "Parada de taxis (bronce)"
-      taxi_stand_bronze_description: "Has añadido tres ofertas de viaje compartido en %{service_name}."
-      taxi_stand_gold: "Parada de taxis (oro)"
-      taxi_stand_gold_description: "Tú siempre estás disponible, listo para ofrecer un viaje a los demás. Ya van 25! Extraordinario!"
-      taxi_stand_silver: "Parada de taxis (plata)"
-      taxi_stand_silver_description: "10 ofertas de transporte compartido añadidas. Bien! La gente ya sabe con quién contactarse si necesita un traslado."
-      volunteer_bronze: "Voluntario (bronce)"
-      volunteer_bronze_description: "Gustas de poner tus habilidades al servicio de los demás. Tienes tres ofertas de servicio abiertas en %{service_name}."
-      volunteer_gold: "Voluntario (oro)"
-      volunteer_gold_description: "Tú sabes más que nadie sobre cómo ayudar a los demás. Tienes 25 ofertas de servicio abiertas en tu perfil. Fenómeno!"
-      volunteer_silver: "Voluntario (plata)"
-      volunteer_silver_description: "Tienes mucho para dar a los demás: has publicado 10 servicios que podrías hacer en %{service_name}!"
     profile_feedback:
       as_expected: "Como lo esperado"
       exceeded_expectations: "Mucho mejor de lo esperado"
@@ -1660,7 +1556,6 @@ es:
       was_invited_by: "...fue invitado por"
       less_than_expected: "Peor de lo esperado"
       phone_number: "Número de teléfono:"
-      show_all_badges: "Mostrar todas las medallas"
       show_all_feedback: "Mostrar todos los comentarios"
       show_all_testimonials: "Mostrar todos los comentarios"
       show_full_description: "Ver más"
@@ -1669,8 +1564,6 @@ es:
       what_are_these: "¿Qué son estos?"
       review: "Feedback recibido"
       reviews: "feedbacks recibidos"
-      badge: medalla
-      badges: Medallas
       listing: Listado
       listings: ~
       open_listing: "publicación abierta"
@@ -1678,7 +1571,6 @@ es:
       no_listings: "No hay listados."
       no_open_listings: "Sin publicaciones abiertas"
       no_reviews: "Sin feedbacks"
-      no_badges: "Sin medallas"
       show_all_listings: ~
       show_all_open_listings: "Mostrar todas las publicaciones abiertas"
       show_all_reviews: "Mostrar todos los feedbacks"
@@ -1758,7 +1650,6 @@ es:
       community_updates: "Actualizaciones de la comunidad"
       email_about_accept_reminders: "...He olvidado aceptar un evento"
       email_about_confirm_reminders: "...He olvidado marcar una solicitud como completa."
-      email_about_new_badges: "...He obtenido una nueva medalla"
       email_about_new_comments_to_own_listing: ".. .alguien comenta en mi oferta o solicitud"
       email_about_new_messages: ".. .alguien me envía un mensaje"
       email_about_new_received_testimonials: ".. .alguien me dio un feedback"

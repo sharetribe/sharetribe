@@ -1,6 +1,0 @@
-.ss-medal.notification-icon
-.notification-text
-  = t(".you_have_earned_badge")
-  = t("people.profile_badge.#{notification.notifiable.name}") + "!"
-  = link_to t(".see_all_your_badges"), person_badges_path(:person_id => @current_user.id)
-  %small= time_ago(notification.created_at)

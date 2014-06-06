@@ -1,31 +1,51 @@
 - content_for :javascript do
   initialize_reply_form('#{I18n.locale}');
 
-= render :partial => "layouts/left_hand_navigation", :locals => { :links => inbox_links_for(@current_user) }
+- other_party = @conversation.other_party(@current_user)
+- title = Maybe(@conversation).listing.title
 
 - content_for :title_header do
-  %h1= t("layouts.no_tribe.inbox")
+  %h1
+    = link_to received_person_messages_path(:person_id => @current_user.id) do
+      = t("layouts.no_tribe.inbox")
+    |
+    = title.or_else { t(".conversation_with", person: link_to(other_party.name, other_party)).html_safe }
 
-.left-navi-section.conversation
-  %h2= @conversation.title
-  .avatar-container
-    .avatar
-      = small_avatar_thumb @other_party
-    .avatar-text
-      = render :partial => "conversation_with", :locals => { :conversation => @conversation, :other_party => @other_party }
+.centered-section-wide
+  .message-avatar-padding
+    .row
+      .col-12
+        %h2
+          = title.map { |title| link_to title, @conversation.listing }.or_else { t(".conversation_with", person: link_to(other_party.name, other_party)).html_safe }
 
-  #messages
-    = render :partial => "message", :collection => @conversation.messages
+        %p
+          - if @conversation.status.eql?("free")
+          - else
+            = t(".requested_by", requester_name: link_to(@conversation.starter.name, @conversation.starter)).html_safe
 
-  - if @conversation.listing && !@conversation.status.eql?("free")
-    .conversation-status-lower
-      .conversation-status-container{:id => "conversation_#{@conversation.id.to_s}_status"}
-        = render :partial => "status", :locals => { :conversation => @conversation }
+        - Maybe(@conversation).listing.each do |listing|
 
-  #reply_form
+          - Maybe(listing).price.each do |price|
+            %p.message-sum
+              = t(".sum", sum: humanized_money_with_symbol(price))
+
+          - if @conversation.status.eql?("free")
+            - unless listing.author == @current_user
+              = link_to reply_to_listing_path(:id => listing.id.to_s), :class => "message-book-button" do
+                .content
+                  = listing.transaction_type.action_button_label(I18n.locale)
+
+          - else
+            %div{:id => "conversation_#{@conversation.id.to_s}_status"}
+              = render :partial => "status", :locals => { :conversation => @conversation }
+
+  #reply_form.message-avatar-padding.message-reply-form
     = form_for Message.new, :url => person_message_messages_path(:person_id => @current_user.id, :message_id => @conversation.id.to_s) do |f|
       = f.label :content, t(".write_a_reply")
       = f.text_area :content, :class => "reply_form_text_area"
       = f.hidden_field :conversation_id, :value => @conversation.id.to_s
       = f.hidden_field :sender_id, :value => @current_user.id
       = f.button t(".send_reply")
+
+  #messages
+    = render :partial => "message", :collection => @conversation.messages.reverse

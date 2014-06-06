@@ -210,6 +210,7 @@ CREATE TABLE `communities` (
   `favicon_updated_at` datetime DEFAULT NULL,
   `default_min_days_between_community_updates` int(11) DEFAULT '7',
   `listing_location_required` tinyint(1) DEFAULT '0',
+  `custom_head_script` text,
   PRIMARY KEY (`id`),
   KEY `index_communities_on_domain` (`domain`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -233,7 +234,6 @@ CREATE TABLE `community_customizations` (
   `blank_slate` text,
   `welcome_email_content` text,
   `how_to_use_page_content` text,
-  `custom_head_script` text,
   `about_page_content` text,
   `terms_page_content` mediumtext,
   `privacy_page_content` text,
@@ -626,22 +626,6 @@ CREATE TABLE `news_items` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `notifications` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `receiver_id` varchar(255) DEFAULT NULL,
-  `type` varchar(255) DEFAULT NULL,
-  `is_read` tinyint(1) DEFAULT '0',
-  `badge_id` int(11) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `testimonial_id` int(11) DEFAULT NULL,
-  `notifiable_id` int(11) DEFAULT NULL,
-  `notifiable_type` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `index_notifications_on_receiver_id` (`receiver_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `old_ressi_events` (

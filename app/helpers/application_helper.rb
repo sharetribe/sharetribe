@@ -60,6 +60,7 @@ module ApplicationHelper
       "invite" => "ss-adduser",
       "loading" => "ss-loading",
       "connect" => "ss-connection",
+      "reply" => "ss-reply",
       "" => "",
 
       # Default category & share type icons
@@ -230,7 +231,7 @@ module ApplicationHelper
       "lock" => "icon-lock",
       "unlock" => "icon-unlock",
       "edit" => "icon-edit",
-      "profile" => "ss-user"
+      "reply" => "icon-reply"
     }
   }
 
@@ -610,8 +611,9 @@ module ApplicationHelper
   # general method for making urls as links and line breaks as <br /> tags
   def add_links_and_br_tags(text)
     pattern = /[\.)]*$/
-    text = text.gsub(/https?:\/\/\S+/) { |link_url| link_to(truncate(link_url.gsub(pattern,""), :length => 50, :omission => "..."), link_url.gsub(pattern,"")) + link_url.match(pattern)[0]}.gsub(/\n/, "</p><p>")
-    "<p>#{text}</p>"
+    text = text.gsub(/https?:\/\/\S+/) { |link_url| link_to(truncate(link_url.gsub(pattern,""), :length => 50, :omission => "..."), link_url.gsub(pattern,"")) + link_url.match(pattern)[0]}
+    lines = Util::ArrayUtils.trim(text.split(/\n/))
+    lines.map { |line| "<p>#{line}</p>" }.join
   end
 
   # general method for making urls as links and line breaks as <br /> tags
@@ -751,24 +753,6 @@ module ApplicationHelper
     end
 
     links
-  end
-
-  # Inbox view left hand navigation content
-  def inbox_links_for(person)
-    [
-      {
-        :text => t("layouts.conversations.messages"),
-        :icon_class => icon_class("mail"),
-        :path => received_person_messages_path(:person_id => person.id.to_s),
-        :name => "messages"
-      },
-      {
-        :text => t("layouts.conversations.notifications"),
-        :icon_class => icon_class("notifications"),
-        :path => notifications_person_messages_path(:person_id => person.id.to_s),
-        :name => "notifications"
-      }
-    ]
   end
 
   # Settings view left hand navigation content

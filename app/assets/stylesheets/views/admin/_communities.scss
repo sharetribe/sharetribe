@@ -41,3 +41,9 @@
     content: "▼";
   }
 }
+
+textarea.text_area_code {
+  font-size: 15px;
+  font-family: "Lucida Console", Monaco, monospace;
+  height: lines(7);
+}

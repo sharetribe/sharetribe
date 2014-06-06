@@ -130,16 +130,6 @@ class PersonMailer < ActionMailer::Base
          :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => @testimonial.author.name(community)))
   end
 
-  def new_badge(badge, community)
-    @email_type = "email_about_new_badges"
-    set_up_urls(badge.person, community, @email_type)
-    @badge = badge
-    @badge_name = t("people.profile_badge.#{@badge.name}")
-    mail(:to => @recipient.confirmed_notification_emails_to,
-         :from => community_specific_sender(community),
-         :subject => t("emails.new_badge.you_have_achieved_a_badge", :badge_name => @badge_name))
-  end
-
   # Remind users of conversations that have not been accepted or rejected
   # NOTE: the not_really_a_recipient is at the same spot in params
   # to keep the call structure similar for reminder mails

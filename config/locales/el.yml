@@ -87,6 +87,8 @@ el:
         first_name_with_initial: ~
         first_name_only: ~
         invalid_color_code: "Ο κωδικός του χρώματος πρέπει να αποτελείται από 6 χαρακτήρες, αριθμούς ή γράμματα από A-F, για παράδειγμα D96E21."
+        custom_head_script: ~
+        custom_head_script_instructions_text: ~
       edit_welcome_email:
         welcome_email_content: "Περιεχόμενο μηνύματος καλωσορίσματος"
         welcome_email_content_description: "Αυτό είναι το μήνυμα ηλεκτρονικού ταχυδρομείου που στέλνεται σε κάθε νέο μέλος όταν εγγράφεται. Μπορείτε να το τροποποιήσετε για να ταιριάζει στην κοινότητα. Αν θέλετε να δείτε πως φαίνεται στους χρήστες, πατήστε \"%{send_test_message_link}\" για να σταλεί ένα μήνυμα στη δική σας διεύθυνση."
@@ -405,28 +407,6 @@ el:
       you_will_get_notified: "Θα λάβετε μια ειδοποίηση με email όταν ο/η %{person} σας απαντήσει."
       title: Τίτλος
       send_message_to_user: "Αποστολή μηνύματος στον/στην %{person}"
-    notifications:
-      badgenotification:
-        see_all_your_badges: "Δείτε όλες τις κονκάρδες σας"
-        you_have_earned_badge: "Κέρδισες την κονκάρδα"
-      comment_to_followed_listing_notification:
-        has_commented: "ο/η %{author} σχολίασε"
-        offer_you_follow: "μία προσφορά που παρακολουθείς"
-        request_you_follow: "ένα αίτημα που παρακολουθείς"
-      listing_updated_notification:
-        has_updated: "έχει ενημερώσει"
-        offer_you_follow: "μία προσφορά που παρακολουθείς"
-        request_you_follow: "ένα αίτημα που παρακολουθείς"
-      comment_to_own_listing_notification:
-        has_commented: "ο/η %{author} σχολίασε"
-        your_offer: "την προσφορά σου"
-        your_request: "το αίτημά σου"
-      loading_more_notifications: "Εμφάνιση περισσότερων ειδοποιήσεων"
-      no_notifications: "Καμία ειδοποίηση."
-      testimonialnotification:
-        give_feedback_to: "Κάνε κριτική για τον/την %{name}"
-        has_given_you_feedback_on_event: "σχολίασε για σένα σχετικά με το"
-        see_all_the_feedback_you_have_received: "Δες όλα τα σχόλια που έχουν αφήσει άλλοι για σένα"
     show:
       in_response_to_listing: "σχετικά με την καταχώρηση"
       message_sent_by: "Μήνυμα από το χρήστη"
@@ -436,6 +416,8 @@ el:
       conversation_about_listing: "Με τον/την %{person} σχετικά με την καταχώρηση \"%{listing}\""
       conversation_with_user: "Με τον/την %{person}"
       last_message_at: "(τελευταίο μήνυμα %{time})"
+      requested_by: ~
+      sum: ~
     status:
       cancel_payed_transaction: Άκυρο
       feedback_given: "Δόθηκε κριτική"
@@ -745,9 +727,6 @@ el:
       here_is_a_message_from: "Ο %{inviter} σου στέλνει ένα προσωπικό μήνυμα:"
       join_now: "Γίνετε μέλος"
       invitation_code: "Κωδικός πρόσκλησης: %{code}"
-    new_badge:
-      you_can_view_all_your_badges_in: "Δείτε όλες τις κονκάρδες σας"
-      you_have_achieved_a_badge: "Κέρδισες την κονκάρδα '%{badge_name}' στο %{service_name}!"
     new_comment:
       has_commented_your_listing_in_kassi: "Ο/η %{author} σχολίασε την καταχώρησή σας \"%{listing}\"."
       view_comment: "Δείτε το σχόλιο"
@@ -1212,10 +1191,6 @@ el:
       email_deleted: "Η διεύθυνση email αφαιρέθηκε"
       payment_details_add_successful: "Οι πληροφορίες των πληρωμών εισήχθησαν επιτυχώς"
       payment_details_add_error: "Αποτυχία εισαγωγής στοιχείων πληρωμών"
-    profile_extras_header:
-      back_to_profile_of_person: "Επιστροφή στο προφίλ του χρήστη"
-      badges: Κονκάρδες
-      testimonials: Κριτική
     settings:
       account: Λογαριασμός
       notifications: Ειδοποιήσεις
@@ -1495,14 +1470,10 @@ el:
       there_are_x_members: "Υπάρχουν %{count} μέλη στην κοινότητα \"%{community_name}\"."
       to_see_the_list_log_in: "Για να δείτε την πλήρη λίστα των μελών πρέπει να %{log_in_link}."
       log_in_link: συνδεθείτε
-    badge_description:
-      badge_achieved_at: "Η κονκάρδα κερδίθηκε στις "
-      you_do_not_yet_have_this_badge: "Δεν έχεις κερδίσει αυτή την κονκάρδα ακόμη"
     edit_links:
       activate: Ενεργοποίηση
       deactivate: Απενεργοποίηση
     help_texts:
-      badges_description_title: Κονκάρδες
       feedback_description_title: Κριτική
       help_captcha_title: "Είσαι όντως άνθρωπος;"
       help_invitation_code_title: "Χρειάζεσαι πρόσκληση για να συμμετέχεις."
@@ -1546,81 +1517,6 @@ el:
       explanation_text: "Είσαι στην κοινότητα \"%{community}\". Προσπάθησες να δεις το προφίλ ενός χρήστη που ανήκει σε μια άλλη κοινότητα. Δεν μπορείς να δεις αυτό το προφίλ μέσω της κοινότητας \"%{community}\"."
       read_more_about_kassi_communities: "Διαβάστε περισσότερα για τις κοινότητες Sharetribe"
       this_user_does_not_belong_to_this_community: "Αυτός ο χρήστης δεν συμμετέχει στην κοινότητα \"%{community}\""
-    profile_badge:
-      active_member_bronze: "Ενεργό μέλος (χάλκινο)"
-      active_member_bronze_description: "Αυτή ήταν η τρίτη συναλλαγή στην οποία συμμετείχες στο %{service_name}! Φοβερό ξεκίνημα, συνέχισε έτσι!"
-      active_member_gold: "Ενεργό μέλος (χρυσό)"
-      active_member_gold_description: "Φανταστικό! Έχεις κάνει 25 συναλλαγές στο %{service_name}! Είσαι VIP εδώ. Γίνονται πολλά χάρη σε άτομα σαν και σένα. Ευχαριστούμε πολύ!"
-      active_member_silver: "Ενεργό μέλος (ασημένιο)"
-      active_member_silver_description: "Συγχαρητήρια για την 10η συναλλαγή σου στο %{service_name}! Συμβαίνουν πολλά χάρη σε σένα. Τέλεια!"
-      chauffer_bronze: "Σωφέρ (χάλκινο)"
-      chauffer_bronze_description: "Έχεις συνταξιδέψει δύο φορές με άλλους χρήστες. Μπράβο σου!"
-      chauffer_gold: "Σωφέρ (χρυσό)"
-      chauffer_gold_description: "Έχεις προσφέρει το όχημά σου 15 φορές! Προτιμάς να συνταξιδεύεις όσο είναι δυνατό. Πολύ καλά κάνεις, η μητέρα φύση σε ευχαριστεί!"
-      chauffer_silver: "Σωφέρ (ασημένιο)"
-      chauffer_silver_description: "Έχεις συνταξιδέψει με άλλους σε 6 διαδρομές. Μπράβο σου! Σου αρέσει να έχεις παρέα όταν οδηγείς."
-      commentator_bronze: "Σχολιαστής (χάλκινο)"
-      commentator_bronze_description: "Σου αρέσει να κουβεντιάζεις με άλλους. Έχεις σχολιάσει τρεις φορές σε καταχωρήσεις στο %{service_name}."
-      commentator_gold: "Σχολιαστής (χρυσό)"
-      commentator_gold_description: "30 σχόλια! Νιώθεις σαν στο σπίτι σου εδώ. Είσαι διατεθιμένος να γνωρίσεις άλλους και να κουβεντιάσετε."
-      commentator_silver: "Σχολιαστής (ασημένιο)"
-      commentator_silver_description: "10 σχόλια στο %{service_name}! Συμμετέχεις ενεργά σε συζητήσεις με άλλους χρήστες."
-      enthusiast_bronze: "Ενθουσιασμένος (χάλκινο)"
-      enthusiast_bronze_description: "Συνδέθηκες στο %{service_name} πέντε διαφορετικές ημέρες. Φαίνεται ότι πάει να γίνει το στέκι σου!"
-      enthusiast_gold: "Ενθουσιασμένος (χρυσό)"
-      enthusiast_gold_description: "Δεν μπορείς να κρατηθείς μακριά από το %{service_name}: το έχεις επισκεφτεί 100 διαφορετικές μέρες!"
-      enthusiast_silver: "Ενθουσιασμένος (ασημένιο)"
-      enthusiast_silver_description: "Το %{service_name} είναι στην καθημερινότητά σου: ήδη το έχεις επισκεφτεί 30 φορές!"
-      first_transaction: "Πρώτη συναλλαγή"
-      first_transaction_description: "Συγχαρητήρια για την πρώτη σου συναλλαγή στο %{service_name}! Ένα αίτημα ή μία προσφορά σου έγινε δεκτή και έχει ολοκληρωθεί."
-      generous_bronze: "Γενναιόδωρος/η (χάλκινο)"
-      generous_bronze_description: "Έχεις δανείσει ή χαρίσει δύο πράγματά σου. Μπράβο!"
-      generous_gold: "Γενναιόδωρος/η (χρυσό)"
-      generous_gold_description: "Ότι είναι δικό σου ανήκει και στους άλλους. Μπράβο! Έχεις δανείσει ή χαρίσει 15 πράγματά σου."
-      generous_silver: "Γενναιόδωρος/η (ασημένιο)"
-      generous_silver_description: "Σου αρέσει να μοιράζεσαι. Τέλεια! Έχεις δανείσει ή χαρίσει 6 πραγματά σου."
-      helper_bronze: "Δεξί Χέρι (χάλκινο)"
-      helper_bronze_description: "Έχεις προσφέρει τη βοήθειά σου δύο φορές. Τέλεια!"
-      helper_gold: "Δεξί Χέρι (χρυσό)"
-      helper_gold_description: "Πάντα προσφέρεσαι όταν κάποιος χρειάζεται βοήθεια. Έχεις κάνει 15 χάρες. Μπράβο σου!"
-      helper_silver: "Δεξί Χέρι (ασημένιο)"
-      helper_silver_description: "Σου αρέσει να βοηθάς τους άλλους: έχεις κάνει 6 χάρες!"
-      jack_of_all_trades: Πολυτάλαντος
-      jack_of_all_trades_description: "Είσαι πραγματικά πολυτάλαντος! Συμμετέχεις στο %{service_name} με πέντε διαφορετικούς ρόλους. Συνέχισε έτσι και θα εκπληρώσεις και τους οκτώ ρόλους που υπάρχουν: να προσφέρεις αντικείμενα, να προσφέρεις βοήθεια, να προσφέρεις το όχημά σου, να προσφέρεις διαμονή, να ζητάς αντικείμενα, να ζητάς βοήθεια, να κάνεις οτοστόπ και να ζητάς διαμονή."
-      lender_bronze: "Δανειστής (χάλκινο)"
-      lender_bronze_description: "Έχεις καταχωρήσει τρία πράγματα που μπορείς να δανείσεις. Μπράβο!"
-      lender_gold: "Δανειστής (χρυσό)"
-      lender_gold_description: "Θα δάνειζες σε κάποιον ακόμα και τη μπλούζα που φοράς. Έχεις καταχωρήσει 25 αντικείμενα για δανεισμό. Τέλεια!"
-      lender_silver: "Δανειστής (ασημένιο)"
-      lender_silver_description: "Έχεις πολλά πράγματα που θα μπορούσες να μοιραστείς: έχεις προσφέρει για δανεισμό 10 αντικείμενα!"
-      listing_freak_bronze: "Τρελός με τις καταχωρήσεις (χάλκινο)"
-      listing_freak_bronze_description: "Έχεις πέντε ενεργές προσφορές/αιτήματα καταχωρημένα στο %{service_name}. Μπράβο! Μήπως έχεις στη ντουλάπα σου τίποτα ακόμα που θα μπορούσε να είναι χρήσιμο σε κάποιον;"
-      listing_freak_gold: "Τρελός με τις καταχωρήσεις (χρυσό)"
-      listing_freak_gold_description: "Τέλεια! Έχεις 40 ενεργές καταχωρήσεις στο %{service_name}, προσφορές και αιτήματα. Είσαι ένα από τα πιο ενεργά μέλη!"
-      listing_freak_silver: "Τρελός με τις καταχωρήσεις (ασημένιο)"
-      listing_freak_silver_description: "Έχεις 20 ενεργές προσφορές και/ή αιτήματα. Μπράβο σου, είσαι πραγματικά δραστήριος στην κοινότητα!"
-      moneymaker_bronze: "Εισοδηματίας (χάλκινο)"
-      moneymaker_bronze_description: "Κατάλαβες ότι το %{service_name} μπορεί να χρησιμοποιηθεί και για να βγάλεις χρήματα! Μπράβο, έχεις πουλήσει ή ενοικιάσει 2 πράγματα στο %{service_name}."
-      moneymaker_gold: "Εισοδηματίας (χρυσό)"
-      moneymaker_gold_description: "Έχεις πουλήσει ή ενοικιάσει 15 αντικείμενα για τα οποία έλαβες θετική κριτική! Το %{service_name} είναι μια εξαιρετική επιχείρηση για σένα και τους ανθρώπους που αγοράζουν ή νοικιάζουν από σένα!"
-      moneymaker_silver: "Εισοδηματίας (ασημένιο)"
-      moneymaker_silver_description: "Το %{service_name} συμβάλλει στο εισόδημά σου. Έχεις πουλήσει ή ενοικιάσει έξι αντικείμενα και έλαβες θετική κριτική γι' αυτά!"
-      rookie: Αρχάριος
-      rookie_description: "Καταχώρησες στο %{service_name} την πρώτη σου προσφορά ή αίτημα. Καλή αρχή!"
-      santa: "Άγιος Βασίλης"
-      santa_description: "\"Άγιος Βασίλης έρχεται...\" Έχεις προσφέρει τουλάχιστον ένα αντικείμενο μέσα στο Δεκέμβριο."
-      taxi_stand_bronze: "Πιάτσα ταξί (χάλκινο)"
-      taxi_stand_bronze_description: "Μπράβο, έχεις προσφέρει το όχημά σου στο %{service_name} για τρεις διαφορετικές διαδρομές."
-      taxi_stand_gold: "Πιάτσα ταξί (χρυσό)"
-      taxi_stand_gold_description: "Είσαι πανέτοιμος, πάντα πρόθυμος να συνταξιδέψεις με άλλους. Έχεις προσφέρει 25 διαδρομές στο %{service_name}. Τέλεια!"
-      taxi_stand_silver: "Πιάτσα ταξί (ασημένιο)"
-      taxi_stand_silver_description: "Καταχώρησες 10 διαδρομές στο %{service_name}. Μπράβο! Όλοι ξέρουν σε ποιον να απευθυνθούν όταν θέλουν να πεταχτούν κάπου."
-      volunteer_bronze: "Εθελοντής (χάλκινο)"
-      volunteer_bronze_description: "Σου αρέσει να χρησιμοποιείς τις ικανότητές σου για να βοηθάς άλλους. Έχεις στο %{service_name} τρεις ενεργές προσφορές για βοήθεια."
-      volunteer_gold: "Εθελοντής (χρυσό)"
-      volunteer_gold_description: "Είσαι εξαιρετικός στο να βοηθάς τους άλλους. Έχεις στο προφίλ σου 25 ενεργές προσφορές για βοήθεια. Μπράβο!"
-      volunteer_silver: "Εθελοντής (ασημένιο)"
-      volunteer_silver_description: "Μπορείτε να προσφέρετε πολλά: έχετε καταχωρήσει 10 υπηρεσίες που θα μπορούσατε να κάνετε στο %{service_name}!"
     profile_feedback:
       as_expected: "Όπως το περίμενα"
       exceeded_expectations: "Πολύ καλύτερα από ότι περίμενα"
@@ -1650,7 +1546,6 @@ el:
       was_invited_by: "Προσκλήθηκε από τον/την %{inviter_name}"
       less_than_expected: "Χειρότερα από το αναμενόμενο"
       phone_number: "Τηλέφωνο:"
-      show_all_badges: "Εμφάνιση όλων των κονκάρδων"
       show_all_feedback: "Εμφάνιση όλων των σχολίων"
       show_all_testimonials: "Εμφάνιση όλων των σχολίων"
       show_full_description: Περισσότερα...
@@ -1659,8 +1554,6 @@ el:
       what_are_these: "Τι είναι αυτά;"
       review: "έλαβε κριτική"
       reviews: "ληφθείσες κριτικές"
-      badge: κονκάρδα
-      badges: Κονκάρδες
       listing: καταχώρηση
       listings: καταχωρήσεις
       open_listing: "ενεργή καταχώρηση"
@@ -1668,7 +1561,6 @@ el:
       no_listings: "Καμία καταχώρηση"
       no_open_listings: "Καμία ενεργή καταχώρηση"
       no_reviews: "Καμία κριτική"
-      no_badges: "Καμία κονκάρδα"
       show_all_listings: "Εμφάνιση όλων των καταχωρήσεων"
       show_all_open_listings: "Εμφάνισε όλες τις ενεργές καταχωρήσεις"
       show_all_reviews: "Εμφάνισε όλες τις κριτικές"
@@ -1748,7 +1640,6 @@ el:
       community_updates: "Νέα της κοινότητας"
       email_about_accept_reminders: "... έχω ξεχάσει να αποδεχτώ μία προσφορά ή αίτημα"
       email_about_confirm_reminders: "... έχω ξεχάσει να επιβεβαιώσω μια ολοκληρωμένη καταχώρηση"
-      email_about_new_badges: "... λαμβάνω μια καινούρια κονκάρδα"
       email_about_new_comments_to_own_listing: "... κάποιος σχολιάζει την προσφορά ή το αίτημά μου"
       email_about_new_messages: "... κάποιος μου στέλνει μήνυμα"
       email_about_new_received_testimonials: "... κάποιος αφήνει ένα σχόλιο για μένα"

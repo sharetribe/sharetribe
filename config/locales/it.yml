@@ -87,6 +87,8 @@ it:
         first_name_with_initial: ~
         first_name_only: ~
         invalid_color_code: "Il codice del colore deve contenere 6 numeri o lettere A-F, per esempio D96E21"
+        custom_head_script: ~
+        custom_head_script_instructions_text: ~
       edit_welcome_email:
         welcome_email_content: ~
         welcome_email_content_description: ~
@@ -405,28 +407,6 @@ it:
       you_will_get_notified: ~
       title: Titolo
       send_message_to_user: ~
-    notifications:
-      badgenotification:
-        see_all_your_badges: "Vedi i tuoi badge"
-        you_have_earned_badge: "Hai guadagnato il badge"
-      comment_to_followed_listing_notification:
-        has_commented: ~
-        offer_you_follow: ~
-        request_you_follow: ~
-      listing_updated_notification:
-        has_updated: ~
-        offer_you_follow: ~
-        request_you_follow: ~
-      comment_to_own_listing_notification:
-        has_commented: ~
-        your_offer: ~
-        your_request: ~
-      loading_more_notifications: "Caricamento altre notifiche"
-      no_notifications: "Nessuna notifica."
-      testimonialnotification:
-        give_feedback_to: "Rilascia feedback a %{name}"
-        has_given_you_feedback_on_event: "ti ha rilasciato un feedback per l'evento"
-        see_all_the_feedback_you_have_received: "Mostra tutti i feedback che hai ricevuto"
     show:
       in_response_to_listing: ~
       message_sent_by: ~
@@ -436,6 +416,8 @@ it:
       conversation_about_listing: ~
       conversation_with_user: ~
       last_message_at: "(ultimo messaggio %{time})"
+      requested_by: ~
+      sum: ~
     status:
       cancel_payed_transaction: ~
       feedback_given: "Feedback rilasciato"
@@ -745,9 +727,6 @@ it:
       here_is_a_message_from: ~
       join_now: ~
       invitation_code: ~
-    new_badge:
-      you_can_view_all_your_badges_in: "Guarda tutti i tuoi badge"
-      you_have_achieved_a_badge: "Hai ottenuto un badge %{badge_name} in %{service_name}!"
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
@@ -1214,10 +1193,6 @@ it:
       email_deleted: ~
       payment_details_add_successful: ~
       payment_details_add_error: ~
-    profile_extras_header:
-      back_to_profile_of_person: "Torma indietro al profilo utente."
-      badges: Badge
-      testimonials: "Feedback ricevuti"
     settings:
       account: Account
       notifications: Notifiche
@@ -1497,14 +1472,10 @@ it:
       there_are_x_members: ~
       to_see_the_list_log_in: ~
       log_in_link: ~
-    badge_description:
-      badge_achieved_at: "Badge raggiunto "
-      you_do_not_yet_have_this_badge: "Badge non ancora raggiunto"
     edit_links:
       activate: ~
       deactivate: ~
     help_texts:
-      badges_description_title: Badge
       feedback_description_title: Feedback
       help_captcha_title: "Sei umano?"
       help_invitation_code_title: ~
@@ -1545,81 +1516,6 @@ it:
       explanation_text: "Sei all'interno della comunità %{community}. Hai provato a visionare il profilo che appartiene ad un'altra comunità di Sharetribe. Non puoi accedere al profilo attraverso la comunità %{community}."
       read_more_about_kassi_communities: "Leggi altre informazioni sulle comunità Sharetribe"
       this_user_does_not_belong_to_this_community: "Questo utente non appartiene alla comunità %{community}"
-    profile_badge:
-      active_member_bronze: "Membro attivo (bronzo)"
-      active_member_bronze_description: "Questo è stato il terzo scambio a cui hai partecipato nel %{service_name}! Incredibile partenza, continua così!dibil"
-      active_member_gold: "Membro attivo (oro)"
-      active_member_gold_description: "25esimo scambio nel %{service_name}, incredibile! Nel %{service_name} sei un VIP. È gente come te tiene la macchina in funzione. Grazie mille!"
-      active_member_silver: "Membro attivo (argento)"
-      active_member_silver_description: "Congratulazioni per il tuo 10m o scambio nel %{service_name}! Grazie a te nel servizio c'è molto movimento. Grande!"
-      chauffer_bronze: "Autista (bronzo)"
-      chauffer_bronze_description: "Hai offerto due passaggio ad altri utenti, bel lavoro!"
-      chauffer_gold: "Autista (oro)"
-      chauffer_gold_description: "15 passaggi offerti! Quando possibile preferisci offrire passaggi. Questo è il modo giusto, madre natura ti ringrazia!"
-      chauffer_silver: "Autista (argento)"
-      chauffer_silver_description: "6 passaggi offerti! Ti piace avere compagnia quando guidi."
-      commentator_bronze: "Commentatore (bronzo)"
-      commentator_bronze_description: "Ti piace confrontarti con altri utenti. Hai lasciato 3 commenti nelle liste nel %{service_name}."
-      commentator_gold: "Commentatore (oro)"
-      commentator_gold_description: "30 commenti! Ti senti a casa nella comunità del %{service_name}. Sei desideroso di conoscere nuove persone e confrontarti con loro."
-      commentator_silver: "Commentatore (argento)"
-      commentator_silver_description: "10 commenti! Partecipi attivamente alle conversazioni con gli altri utenti del %{service_name}."
-      enthusiast_bronze: "Entusiasta (bronzo)"
-      enthusiast_bronze_description: "Sei stato all'interno del %{service_name} in cinque giorni differenti. Sembra che sei sulla via giusta di diventare un utente regolare."
-      enthusiast_gold: "Entusiasta (oro)"
-      enthusiast_gold_description: "Non sui stare lontano dal %{service_name}: hai visitato il sito in 100 giorni differenti!"
-      enthusiast_silver: "Entusiasta (argento)"
-      enthusiast_silver_description: "%{service_name} fa parte della tua routine giornaliera: hai già 30 visite al servizio."
-      first_transaction: "Primo evento"
-      first_transaction_description: "Congratulazione per il tuo primo scambio nel %{service_name}! Una della tue richieste o offerte è stata accettata e confermata come avvenuta."
-      generous_bronze: "Generoso (bronzo)"
-      generous_bronze_description: "Hai prestato o regalato due dei tuoi oggetti. Buon per te1"
-      generous_gold: "Generoso (oro)"
-      generous_gold_description: "Quello che è tuo è di tutti. Hai prestato o regalato 15 oggetti, incredibile!"
-      generous_silver: "Generoso (argento)"
-      generous_silver_description: "Ti piace condividere i tuoi beni con gli altri. 6 oggetti prestati o regalati, grande!"
-      helper_bronze: "Aiutante (bronzo)"
-      helper_bronze_description: "Hai offerto il tuo aiuto agli altri per due volte, grande!"
-      helper_gold: "Aiutante (oro)"
-      helper_gold_description: "Ti offri sempre volontario quando qualcuno ha bisogno d'aiuto. 15 servizi completati, superbo!"
-      helper_silver: "Aiutante (argento)"
-      helper_silver_description: "Ti piace prestare il tuo tempo aiutando gli altri: 6 servizi completati!"
-      jack_of_all_trades: Tuttofare
-      jack_of_all_trades_description: "Sei veramente un multitalento! Hai scambiato tue risorse con 5 ruoli differenti. Coprili tutti gli 8 ruoli: offerente di beni, offerente di servizi, offerente di passaggi, offerente si spazi, richiedente di beni, richiedente di servizi, richiedente di passaggi e richiedente di spazi."
-      lender_bronze: "Prestatore (bronzo)"
-      lender_bronze_description: "Hai elencato nel tuo profilo tre beni che potresti prestare, grande!"
-      lender_gold: "Prestatore (oro)"
-      lender_gold_description: "Offreresti la tua camicia ai tuoi compagni. Hai listato 25 beni che potresti prestare, incredibile!"
-      lender_silver: "Prestatore (argento)"
-      lender_silver_description: "Ci sono tanti oggetti nel tuo stanzino che potresti condividere con gli altri: 10 beni offerti agli altri da prendere in prestito!"
-      listing_freak_bronze: "Fenomeno della lista (bronzo)"
-      listing_freak_bronze_description: "Hai cinque offerte/richieste aperte listate nel %{service_name}. Grande! Hao ancora qualcosa nel ripostiglio o tra le tue competenze che potrebbe essere utile ad altri?"
-      listing_freak_gold: "Fenomeno della lista (oro)"
-      listing_freak_gold_description: "40 offerte e/o richieste aperte, magnifico! Sei uno dei produttori di contenuti più attivo nel %{service_name}."
-      listing_freak_silver: "Fenomeno della lista (argento)"
-      listing_freak_silver_description: "20 offerte e/o richieste aperte, eccellente! Sei veramente un catalogatore attivo."
-      moneymaker_bronze: "Macchina da soldi (bronzo)"
-      moneymaker_bronze_description: "Hai realizzato che %{service_name} può essere usato per guadagnare! Hai venduto o noleggiato 2 oggetti con successo in %{service_name}."
-      moneymaker_gold: "Macchina da soldi (oro)"
-      moneymaker_gold_description: "15 beni venduti o noleggiati con feedback positivi! %{service_name} è un business eccellente per te e per coloro che comprano o noleggiato da te!"
-      moneymaker_silver: "Macchina da soldi (argento)"
-      moneymaker_silver_description: "%{service_name} offre un entrata addizionale al tuo reddito. Sei beni venduti o noleggiati con feedback positivo."
-      rookie: Recluta
-      rookie_description: "Hai aggiunto un'offerta o una richiesta nel %{service_name} per la prima volta. Vai così!"
-      santa: "Babbo Natale"
-      santa_description: "Oh oh oh e Buon Natale! Hai regalato almeno un bene a Dicembre."
-      taxi_stand_bronze: "Stazione taxi (bronzo)"
-      taxi_stand_bronze_description: "Hai aggiunto tre offerte di passaggi al %{service_name}"
-      taxi_stand_gold: "Stazione taxi (oro)"
-      taxi_stand_gold_description: "Sei sempre in servizio, pronto ad offrire passaggi. 25 passaggi offerti, eccellente!"
-      taxi_stand_silver: "Stazione taxi (argento)"
-      taxi_stand_silver_description: "10 offerte di passaggio aggiunte, grande! La gente sa a chi rivolgersi per un passaggio."
-      volunteer_bronze: "Volontario (bronzo)"
-      volunteer_bronze_description: "Ti piace mettere al servizio degli altri le tue competenze. Hai tre offerte di servizio in %{service_name}."
-      volunteer_gold: "Volontario (oro)"
-      volunteer_gold_description: "Sai che non c'è niente di meglio che aiutare gli altri. Hai 25 offerte di servizio nel tuo profilo, favoloso!"
-      volunteer_silver: "Volontario (argento)"
-      volunteer_silver_description: "Hai molto da offrire agli altri: hai listato 10 servizi che potresti dare in %{service_name}!"
     profile_feedback:
       as_expected: "Come previsto"
       exceeded_expectations: "Molto meglio del previsto"
@@ -1649,7 +1545,6 @@ it:
       was_invited_by: "Invitato da %{inviter_name}"
       less_than_expected: "Peggio del previsto"
       phone_number: "Numero di telefono:"
-      show_all_badges: "Mostra tutti i badge"
       show_all_feedback: "Mostra tutti i feedback"
       show_all_testimonials: "Mostra tutti i feedback"
       show_full_description: "Mostra di più"
@@ -1658,8 +1553,6 @@ it:
       what_are_these: "Cosa sono?"
       review: ~
       reviews: ~
-      badge: ~
-      badges: badge
       listing: ~
       listings: ~
       open_listing: ~
@@ -1667,7 +1560,6 @@ it:
       no_listings: ~
       no_open_listings: ~
       no_reviews: ~
-      no_badges: ~
       show_all_listings: ~
       show_all_open_listings: ~
       show_all_reviews: ~
@@ -1747,7 +1639,6 @@ it:
       community_updates: ~
       email_about_accept_reminders: "...Ho dimenticato di accettare un'offerta o una richiesta"
       email_about_confirm_reminders: ~
-      email_about_new_badges: "...ho raggiunto un nuovo badge"
       email_about_new_comments_to_own_listing: "...qualcuno commente la mia offerta o richiesta"
       email_about_new_messages: "...qualcuno mi invia un messaggio"
       email_about_new_received_testimonials: "...qualcuno mi offre feedback"

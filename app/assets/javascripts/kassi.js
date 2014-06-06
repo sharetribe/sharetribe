@@ -430,7 +430,7 @@ function update_listing_form_view(locale, attribute_array, listing_form_menu_tit
   // Display correct selected attributes
   $('.selected-group').each(function() {
     if (selected_attributes[$(this).attr('name')] != null) {
-      $('a.selected[data-id=' + selected_attributes[$(this).attr('name')] + ']').removeClass('hidden');
+      $(this).find('a.selected[data-id=' + selected_attributes[$(this).attr('name')] + ']').removeClass('hidden');
     }
   });
 
@@ -1061,7 +1061,7 @@ function initialize_reset_password_form() {
   });
 }
 
-function initialize_profile_view(badges, profile_id, show_closed) {
+function initialize_profile_view(profile_id, show_closed) {
   $('#load-more-listings').click(function() {
     request_path = profile_id + "/listings";
     if (show_closed == true) {
@@ -1091,14 +1091,7 @@ function initialize_profile_view(badges, profile_id, show_closed) {
     $('#profile_description_preview').show();
     $('#profile_description_full').hide();
   });
-  $('#badges_description_link').click(function() { $('#badges_description').lightbox_me({centered: true}); });
   $('#trustcloud_description_link').click(function() { $('#trustcloud_description').lightbox_me({centered: true}); });
-  for (var i = 0; i < badges.length; i++) {
-    $('#' + badges[i] + '_description_link').click(function(badge) {
-      badge.preventDefault();
-      $('#' + badge.currentTarget.id + '_target').lightbox_me({centered: true});
-    });
-  }
 }
 
 function initialize_homepage_news_items(news_item_ids) {

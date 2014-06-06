@@ -17,7 +17,6 @@ Feature: Inquiry
     When I follow "Test message"
     Then I should not see "Contact"
     When I follow "Inquire"
-    And I fill in "Title" with "Test title"
     And I fill in "Message" with "Test content"
     And I press "Send message"
     And I log out

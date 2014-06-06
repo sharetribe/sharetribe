@@ -1,5 +1,0 @@
-.ss-chat.notification-icon
-.notification-text
-  = t(".has_commented", :author => (link_to notification.notifiable.author.given_name_or_username, notification.notifiable.author)).html_safe
-  = link_to t(".your_#{notification.notifiable.listing.direction}"), listing_path(notification.notifiable.listing) + "#comment#{notification.notifiable.id.to_s}"
-  %small= time_ago(notification.created_at)

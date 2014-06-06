@@ -87,6 +87,8 @@ zh:
         first_name_with_initial: ~
         first_name_only: ~
         invalid_color_code: ~
+        custom_head_script: ~
+        custom_head_script_instructions_text: ~
       edit_welcome_email:
         welcome_email_content: ~
         welcome_email_content_description: ~
@@ -405,28 +407,6 @@ zh:
       you_will_get_notified: ~
       title: 名称
       send_message_to_user: 发送信息到
-    notifications:
-      badgenotification:
-        see_all_your_badges: 查看所有的徽章
-        you_have_earned_badge: 您已获得该徽章
-      comment_to_followed_listing_notification:
-        has_commented: "%{author} 已评论"
-        offer_you_follow: ~
-        request_you_follow: ~
-      listing_updated_notification:
-        has_updated: "已经更新\n"
-        offer_you_follow: ~
-        request_you_follow: ~
-      comment_to_own_listing_notification:
-        has_commented: "%{author} 已评论"
-        your_offer: ~
-        your_request: "您的请求\n"
-      loading_more_notifications: 载入更多提醒
-      no_notifications: 没有提醒
-      testimonialnotification:
-        give_feedback_to: "评价%{name}"
-        has_given_you_feedback_on_event: 基于事件...的评价
-        see_all_the_feedback_you_have_received: 查看您获得的所有评价
     show:
       in_response_to_listing: ~
       message_sent_by: ~
@@ -436,6 +416,8 @@ zh:
       conversation_about_listing: ~
       conversation_with_user: ~
       last_message_at: ~
+      requested_by: ~
+      sum: ~
     status:
       cancel_payed_transaction: ~
       feedback_given: 已发送反馈
@@ -745,9 +727,6 @@ zh:
       here_is_a_message_from: "这是一条来自%{inviter}的私人信息："
       join_now: ~
       invitation_code: ~
-    new_badge:
-      you_can_view_all_your_badges_in: 浏览您的所有的徽章
-      you_have_achieved_a_badge: "您在Kassi赢取了新的徽章'%{badge_name}' ！"
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
@@ -1212,10 +1191,6 @@ zh:
       email_deleted: ~
       payment_details_add_successful: ~
       payment_details_add_error: ~
-    profile_extras_header:
-      back_to_profile_of_person: 回到用户个人资料
-      badges: 徽章
-      testimonials: 收到的评价
     settings:
       account: 帐号
       notifications: 通知
@@ -1495,14 +1470,10 @@ zh:
       there_are_x_members: ~
       to_see_the_list_log_in: ~
       log_in_link: ~
-    badge_description:
-      badge_achieved_at: "已获得的徽章 "
-      you_do_not_yet_have_this_badge: 徽章尚未获得。
     edit_links:
       activate: 激活
       deactivate: 停用
     help_texts:
-      badges_description_title: 徽章
       feedback_description_title: 反馈
       help_captcha_title: 你是人类么？
       help_invitation_code_title: 您需要被邀请才能加入
@@ -1543,81 +1514,6 @@ zh:
       explanation_text: "您现在属于%{community} 社区。您试图查看另一个社区的用户资料。Kassi现在并不支持多重社区身份，所以您可以通过%{community} 社区查看这个用户的资料。我们正在努力实现多重社区身份，以后的更新将会完善这个功能。"
       read_more_about_kassi_communities: 阅读更多关于Kassi社区
       this_user_does_not_belong_to_this_community: "此用户不属于%{community} 社区"
-    profile_badge:
-      active_member_bronze: 活跃用户（铜牌）
-      active_member_bronze_description: 恭喜您！您已经完成了三个交换事件。再接再厉！
-      active_member_gold: 活跃用户（金牌）
-      active_member_gold_description: 在Kassi里的第25次交换，太棒了！您现在是Kassi里的VIP。人们喜欢你因为你让活动继续下去。多谢！
-      active_member_silver: 活跃用户（银牌）
-      active_member_silver_description: 恭喜您！您已经完成了十个交换事件。感谢您为大家作出的贡献！您太给力了！
-      chauffer_bronze: 司机（铜牌）
-      chauffer_bronze_description: 您为其他用户提供了两次顺风车，好样的！
-      chauffer_gold: 司机（金牌）
-      chauffer_gold_description: 十五次顺风车！只要可能您就拼车。好样的，大自然母亲感谢您！
-      chauffer_silver: 司机（银牌）
-      chauffer_silver_description: 六次顺风车，好耶！您很享受开车的时候身边有个伴儿
-      commentator_bronze: 评论员（铜牌）
-      commentator_bronze_description: 您喜欢和别的用户进行讨论。您已经Kassi里的列表发表了3次评论。
-      commentator_gold: 评论员（金牌）
-      commentator_gold_description: 30个评论！您在Kassi社区如鱼得水。您渴望遇见陌生人并与之讨论。
-      commentator_silver: 评论员（银牌）
-      commentator_silver_description: 10条评论！您在Kassi用户间的讨论里很活跃
-      enthusiast_bronze: 铜质热心勋章
-      enthusiast_bronze_description: 您已经累计登陆5天。您已经开始习惯来这里了。
-      enthusiast_gold: 金质热心勋章
-      enthusiast_gold_description: 您已经离不开Kassi了，您已经累计在线100天。
-      enthusiast_silver: 银质热心勋章
-      enthusiast_silver_description: Kassi已经成为您日常生活的一部分，您已经累计登陆30次了
-      first_transaction: 第一次事件
-      first_transaction_description: 恭喜您！您完成了第一个交易。
-      generous_bronze: 铜质慷慨勋章
-      generous_bronze_description: 你已经借出或者给予您的物品。真不赖啊！
-      generous_gold: 金质慷慨勋章
-      generous_gold_description: 您为人人。您已经借出或者给予15件物品了。很给力！
-      generous_silver: 银质慷慨勋章
-      generous_silver_description: 您乐于助人。已经借出或者给予6件物品了。
-      helper_bronze: 铜质雷锋勋章
-      helper_bronze_description: 您已经帮助别人两次了，真棒！
-      helper_gold: 金质雷锋勋章
-      helper_gold_description: 有求必应！您已经帮助别人15次了，超级给力！
-      helper_silver: 银质雷锋勋章
-      helper_silver_description: 把有限的时间投入到无限的为人民服务中去。。。您已经帮助别人6次了。
-      jack_of_all_trades: 全能冠军
-      jack_of_all_trades_description: 多项全能！您已经在交易中扮演过5种角色。看看能不能凑齐8种：提供物品，提供帮助，提供顺风车，提供住房，需求物品，需求帮助，需求顺风车，需求住房。
-      lender_bronze: 铜质共产勋章
-      lender_bronze_description: 您已经借出过3项物品。太好了！
-      lender_gold: 金质共产奖章
-      lender_gold_description: 您只差和别人穿一条裤子了。您已经借出过25项物品。服了！
-      lender_silver: 银质共产奖章
-      lender_silver_description: 您家大业大啊！您已经借出过10件物品。
-      listing_freak_bronze: 刷屏狂人（铜牌）
-      listing_freak_bronze_description: 您目前有5个开放的交易/请求。真棒！您柜子里或技能栏里还有能帮助他人的东西么？
-      listing_freak_gold: 刷屏狂人（金牌）
-      listing_freak_gold_description: 40个开放交易/请求，太神了！你是Kassi最活跃的用户之一。
-      listing_freak_silver: 刷屏狂人（银牌）
-      listing_freak_silver_description: 20个开放交易/请求，干得好！您真是一个活跃的用户。
-      moneymaker_bronze: 印钞机（铜牌）
-      moneymaker_bronze_description: Kassi也是赚钱的好地方！您刚刚成功的出售或出租了两件物品。
-      moneymaker_gold: 印钞机（金牌）
-      moneymaker_gold_description: 成功出售或出租了15样物品！Kassi为您和您的顾客创造了完美的平台。
-      moneymaker_silver: 印钞机（银牌）
-      moneymaker_silver_description: Kassi给你带来一份不错的额外收入。已出售或出租物品成功6次。
-      rookie: 新手
-      rookie_description: 您第一次在Kassi进行买卖。
-      santa: 圣诞老人
-      santa_description: 圣诞快乐。您已成功在12月出售或出租一项商品
-      taxi_stand_bronze: 出租车站（铜牌）
-      taxi_stand_bronze_description: 您提供了三次拼车。
-      taxi_stand_gold: 出租车站（金牌）
-      taxi_stand_gold_description: 随叫随到。提供了25次拼车，真棒！
-      taxi_stand_silver: 出租车站（银牌）
-      taxi_stand_silver_description: 提供10次拼车，好耶！人们需要搭车的时候知道该找谁。
-      volunteer_bronze: 志愿者（铜牌）
-      volunteer_bronze_description: 您喜欢发挥特长帮助别人。您已提供了3次帮助。
-      volunteer_gold: 志愿者（金牌）
-      volunteer_gold_description: "您知道没有什么比帮助别人更好的了。 您已经提供了25次帮助。太棒了！"
-      volunteer_silver: 志愿者（银牌）
-      volunteer_silver_description: 您能帮到别人很多。您已经提供了10次帮助。
     profile_feedback:
       as_expected: 符合期望
       exceeded_expectations: 比期望的好很多
@@ -1647,7 +1543,6 @@ zh:
       was_invited_by: "被邀请 %{time_ago}"
       less_than_expected: 比期望的差
       phone_number: 电话号码：
-      show_all_badges: 显示所有徽章
       show_all_feedback: 显示所有评价
       show_all_testimonials: 显示所有评价
       show_full_description: 显示更多
@@ -1656,8 +1551,6 @@ zh:
       what_are_these: 这些是什么？
       review: ~
       reviews: ~
-      badge: ~
-      badges: 徽章
       listing: ~
       listings: ~
       open_listing: ~
@@ -1665,7 +1558,6 @@ zh:
       no_listings: ~
       no_open_listings: ~
       no_reviews: ~
-      no_badges: ~
       show_all_listings: ~
       show_all_open_listings: ~
       show_all_reviews: ~
@@ -1745,7 +1637,6 @@ zh:
       community_updates: ~
       email_about_accept_reminders: …我忘记确认一个活动
       email_about_confirm_reminders: ~
-      email_about_new_badges: …我获得一个新徽章
       email_about_new_comments_to_own_listing: …有人评论了您的商品或请求
       email_about_new_messages: …有人发给我一条消息
       email_about_new_received_testimonials: …有人给我了一条评价

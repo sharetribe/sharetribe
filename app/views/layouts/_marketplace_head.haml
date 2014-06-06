@@ -86,5 +86,4 @@
 
 = auto_discovery_link_tag(:atom, atom_feed_url )
 
-- if @community_customization && @community_customization.custom_head_script
-  = @community_customization.custom_head_script.html_safe
+= @current_community.custom_head_script.try(:html_safe)

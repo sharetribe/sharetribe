@@ -1,7 +1,0 @@
-- if notification.notifiable.present?
-  .notification{:class => (@unread_notifications.include?(notification) ? "unread" : "")}
-    = render :partial => "conversations/notifications/#{notification.notifiable_type.downcase}#{notification.description? ? '_' + notification.description + '_' : '' }notification", :locals => { :notification => notification }
-- else
-  - # This is definitely not the best place to clean up broken notifications, but there's also no point in crawling them separately
-  - # so if the notifiable object is gone, destory this notification
-  - notification.destroy
