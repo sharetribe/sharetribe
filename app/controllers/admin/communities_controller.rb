@@ -214,15 +214,11 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def update(model, params, path, action, &block)
-    Rails.logger.debug "update"
     if model.update_attributes(params)
-      Rails.logger.debug "success"
       flash[:notice] = t("layouts.notifications.community_updated")
       yield if block_given? #on success, call optional block
       redirect_to path
     else
-      Rails.logger.debug "Failed"
-      Rails.logger.debug model.errors.full_messages
       flash.now[:error] = t("layouts.notifications.community_update_failed")
       render action
     end
