@@ -142,7 +142,6 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def update_integrations
-    @community = Community.find(params[:id])
     [:twitter_handle,
      :google_analytics_key,
      :facebook_connect_id,
@@ -150,9 +149,9 @@ class Admin::CommunitiesController < ApplicationController
       params[:community][param] = nil if params[:community][param] == ""
     end
 
-    update(@community,
+    update(@current_community,
             params[:community],
-            integrations_admin_community_path(@community),
+            integrations_admin_community_path(@current_community),
             :integrations)
   end
 
