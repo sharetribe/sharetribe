@@ -157,10 +157,9 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def update_settings
-    @community = Community.find(params[:id])
-    update(@community,
+    update(@current_community,
             params[:community],
-            settings_admin_community_path(@community),
+            settings_admin_community_path(@current_community),
             :settings)
   end
 

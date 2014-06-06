@@ -1,14 +1,20 @@
 require 'spec_helper'
 
 describe Admin::CommunitiesController do
-  describe "#update_look_and_feel" do
-    
-    before(:each) do
-      @community = FactoryGirl.create(:community)
-      @request.host = "#{@community.domain}.lvh.me"
-      sign_in_for_spec(create_admin_for(@community))
+  
+  before(:each) do
+    @community = FactoryGirl.create(:community)
+    @request.host = "#{@community.domain}.lvh.me"
+    sign_in_for_spec(create_admin_for(@community))
+  end
+
+  describe "#update_settings" do
+    it "should not allow changes to a different community" do
+      attempt_to_update_different_community(:update_settings, private: true)
     end
-    
+  end
+  
+  describe "#update_look_and_feel" do        
     it "should allow changing custom_color1" do
       stanford_cardinal = "8C1515"
       put :update_look_and_feel, id: @community.id, community: { custom_color1: stanford_cardinal }
@@ -17,10 +23,7 @@ describe Admin::CommunitiesController do
     end
     
     it "should not allow changes to a different community" do
-      different_community = FactoryGirl.create(:community)
-      put :update_look_and_feel, id: different_community.id, community: { custom_color1: "8C1515" }
-      different_community.reload
-      different_community.custom_color1.should be_nil
+      attempt_to_update_different_community(:update_look_and_feel, custom_color1: "8C1515")
     end
     
     it "should not allow changing the plan level" do
@@ -51,5 +54,12 @@ describe Admin::CommunitiesController do
         }.to raise_error ActionController::UnpermittedParameters
       end
     end
+  end
+  
+  def attempt_to_update_different_community(action, params)
+    different_community = FactoryGirl.create(:community)
+    put action, id: different_community.id, community: params
+    different_community.reload
+    params.each { |key, value| different_community.send(key).should_not eql(value) }
   end
 end
