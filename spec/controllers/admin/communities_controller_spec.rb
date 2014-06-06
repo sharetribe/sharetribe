@@ -9,27 +9,30 @@ describe Admin::CommunitiesController do
   end
   
   describe "#update_integrations" do
+    it "should allow changing twitter_handle" do
+      update_community_with(:update_integrations, twitter_handle: "sharetribe")
+    end
     it "should not allow changes to a different community" do
-      attempt_to_update_different_community(:update_integrations, twitter_handle: "sharetribe")
+      attempt_to_update_different_community_with(:update_integrations, twitter_handle: "sharetribe")
     end
   end
 
   describe "#update_settings" do
+    it "should allow changing 'private'" do
+      update_community_with(:update_settings, private: true)
+    end
     it "should not allow changes to a different community" do
-      attempt_to_update_different_community(:update_settings, private: true)
+      attempt_to_update_different_community_with(:update_settings, private: true)
     end
   end
   
   describe "#update_look_and_feel" do        
     it "should allow changing custom_color1" do
-      stanford_cardinal = "8C1515"
-      put :update_look_and_feel, id: @community.id, community: { custom_color1: stanford_cardinal }
-      @community.reload
-      @community.custom_color1.should eql(stanford_cardinal)
+      update_community_with(:update_look_and_feel, custom_color1: "8C1515")
     end
     
     it "should not allow changes to a different community" do
-      attempt_to_update_different_community(:update_look_and_feel, custom_color1: "8C1515")
+      attempt_to_update_different_community_with(:update_look_and_feel, custom_color1: "8C1515")
     end
     
     it "should not allow changing the plan level" do
@@ -62,10 +65,16 @@ describe Admin::CommunitiesController do
     end
   end
   
-  def attempt_to_update_different_community(action, params)
+  def attempt_to_update_different_community_with(action, params)
     different_community = FactoryGirl.create(:community)
     put action, id: different_community.id, community: params
     different_community.reload
     params.each { |key, value| different_community.send(key).should_not eql(value) }
+  end
+  
+  def update_community_with(action, params)
+    put action, id: @community.id, community: params
+    @community.reload
+    params.each { |key, value| @community.send(key).should eql(value) }
   end
 end
