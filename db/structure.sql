@@ -163,7 +163,6 @@ CREATE TABLE `communities` (
   `vat` int(11) DEFAULT NULL,
   `commission_from_seller` int(11) DEFAULT NULL,
   `minimum_price_cents` int(11) DEFAULT NULL,
-  `badges_in_use` tinyint(1) DEFAULT '0',
   `testimonials_in_use` tinyint(1) DEFAULT '1',
   `hide_expiration_date` tinyint(1) DEFAULT '0',
   `facebook_connect_id` varchar(255) DEFAULT NULL,
@@ -1841,3 +1840,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140530115044');
 INSERT INTO schema_migrations (version) VALUES ('20140530115433');
 
 INSERT INTO schema_migrations (version) VALUES ('20140604075725');
+
+INSERT INTO schema_migrations (version) VALUES ('20140604135743');
