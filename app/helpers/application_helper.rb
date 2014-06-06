@@ -892,9 +892,14 @@ module ApplicationHelper
     end
   end
 
+  def is_uri?(s)
+    s.match /^https?:\/\//
+  end
+
   def with_stylesheet_url(community, &block)
     stylesheet_url = if community.has_customizations?
-      community.custom_stylesheet_url
+      stylesheet = community.custom_stylesheet_url
+      is_uri?(stylesheet)  ? stylesheet : "/assets/#{stylesheet}"
     else
       'application'
     end
