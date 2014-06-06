@@ -19,7 +19,7 @@
     .row
       .col-12
         = form.label :slogan, t("admin.communities.edit_details.community_slogan"), class:"input"
-        = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_details.edit_community_description_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true")).html_safe }
+        = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_details.edit_community_description_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true", :id => "view_slogan_link")).html_safe }
         = form.text_field :slogan, class:"text_field"
 
     .row
