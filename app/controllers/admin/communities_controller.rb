@@ -127,7 +127,12 @@ class Admin::CommunitiesController < ApplicationController
     
     @community = Community.find(params[:id])
     
-    params[:community].delete(:custom_head_script) unless @community.custom_head_script_in_use?
+    permitted_params = [ 
+      :cover_photo, :small_cover_photo, :favicon, :custom_color1,
+      :custom_color2, :default_browse_view, :name_display_type
+    ]
+    permitted_params << :custom_head_script if @community.custom_head_script_in_use?
+    params.require(:community).permit(*permitted_params)
     
     needs_stylesheet_recompile = regenerate_css?(params, @community)
     update(@community,
@@ -197,11 +202,15 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def update(model, params, path, action, &block)
+    Rails.logger.debug "update"
     if model.update_attributes(params)
+      Rails.logger.debug "success"
       flash[:notice] = t("layouts.notifications.community_updated")
       yield if block_given? #on success, call optional block
       redirect_to path
     else
+      Rails.logger.debug "Failed"
+      Rails.logger.debug model.errors.full_messages
       flash.now[:error] = t("layouts.notifications.community_update_failed")
       render action
     end

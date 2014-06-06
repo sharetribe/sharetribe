@@ -2,19 +2,6 @@ require 'spec_helper'
 
 describe Admin::CustomFieldsController do
   describe "#destroy" do
-    def create_admin_for(community)
-      person = FactoryGirl.create(:person)
-      members_count = community.community_memberships.count
-      admins_length = community.admins.length
-      community.members << person
-      membership = CommunityMembership.find_by_community_id_and_person_id(community.id, person.id)
-      membership.admin = true
-      membership.save
-      community.members.count.should eql(members_count + 1)
-      community.admins.length.should eql(admins_length + 1)
-      return person
-    end
-
     def create_custom_field_for(community)
       custom_field_count = community.custom_fields.count
       community.custom_fields.count.should eql(0)

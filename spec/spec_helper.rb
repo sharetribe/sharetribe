@@ -103,3 +103,15 @@ if defined?(Zeus)
 else
   each_run.call
 end
+
+def create_admin_for(community)
+  person = FactoryGirl.create(:person)
+  members_count = community.community_memberships.count
+  admins_length = community.admins.length
+  membership = CommunityMembership.create(community: community, person: person) do |membership|
+    membership.admin = true
+  end
+  community.members.count.should eql(members_count + 1)
+  community.admins.length.should eql(admins_length + 1)
+  return person
+end
