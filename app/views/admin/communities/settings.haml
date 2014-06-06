@@ -49,11 +49,11 @@
 
         
 
-    - if @current_community.paymens_in_use?
+    - if @current_community.payments_in_use?
       .row
         .col-12
-          %h3= t(".payment_preferences")
-            .checkbox-container
+          %h3= t(".transaction_preferences")
+          .checkbox-container
             .settings-checkbox-label.label
               - day_dropdown = form.select :automatic_confirmation_after_days, (1..100), {}, :class => "inline-select"
               = t(".automatically_confirmed", :days_dropdown => day_dropdown).html_safe
