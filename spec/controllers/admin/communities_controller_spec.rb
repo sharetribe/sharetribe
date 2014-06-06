@@ -16,6 +16,13 @@ describe Admin::CommunitiesController do
       @community.custom_color1.should eql(stanford_cardinal)
     end
     
+    it "should not allow changes to a different community" do
+      different_community = FactoryGirl.create(:community)
+      put :update_look_and_feel, id: different_community.id, community: { custom_color1: "8C1515" }
+      different_community.reload
+      different_community.custom_color1.should be_nil
+    end
+    
     it "should not allow changing the plan level" do
       expect { 
         put :update_look_and_feel, id: @community.id, community: { plan_level: "7" }

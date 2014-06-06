@@ -125,21 +125,19 @@ class Admin::CommunitiesController < ApplicationController
     params[:community][:custom_color1] = nil if params[:community][:custom_color1] == ""
     params[:community][:custom_color2] = nil if params[:community][:custom_color2] == ""
     
-    @community = Community.find(params[:id])
-    
     permitted_params = [ 
       :cover_photo, :small_cover_photo, :favicon, :custom_color1,
       :custom_color2, :default_browse_view, :name_display_type
     ]
-    permitted_params << :custom_head_script if @community.custom_head_script_in_use?
+    permitted_params << :custom_head_script if @current_community.custom_head_script_in_use?
     params.require(:community).permit(*permitted_params)
     
-    needs_stylesheet_recompile = regenerate_css?(params, @community)
-    update(@community,
+    needs_stylesheet_recompile = regenerate_css?(params, @current_community)
+    update(@current_community,
            params[:community],
-           edit_look_and_feel_admin_community_path(@community),
+           edit_look_and_feel_admin_community_path(@current_community),
            :edit_look_and_feel) {
-      CommunityStylesheetCompiler.compile(@community) if needs_stylesheet_recompile
+      CommunityStylesheetCompiler.compile(@current_community) if needs_stylesheet_recompile
     }
   end
 
