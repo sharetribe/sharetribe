@@ -11,16 +11,6 @@ CREATE TABLE `auth_tokens` (
   UNIQUE KEY `index_auth_tokens_on_token` (`token`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `badges` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `person_id` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `index_badges_on_person_id` (`person_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 CREATE TABLE `braintree_accounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `created_at` datetime NOT NULL,
@@ -173,7 +163,6 @@ CREATE TABLE `communities` (
   `vat` int(11) DEFAULT NULL,
   `commission_from_seller` int(11) DEFAULT NULL,
   `minimum_price_cents` int(11) DEFAULT NULL,
-  `badges_in_use` tinyint(1) DEFAULT '0',
   `testimonials_in_use` tinyint(1) DEFAULT '1',
   `hide_expiration_date` tinyint(1) DEFAULT '0',
   `facebook_connect_id` varchar(255) DEFAULT NULL,
@@ -1846,4 +1835,10 @@ INSERT INTO schema_migrations (version) VALUES ('20140526064017');
 
 INSERT INTO schema_migrations (version) VALUES ('20140530105841');
 
+INSERT INTO schema_migrations (version) VALUES ('20140530115044');
+
+INSERT INTO schema_migrations (version) VALUES ('20140530115433');
+
 INSERT INTO schema_migrations (version) VALUES ('20140604075725');
+
+INSERT INTO schema_migrations (version) VALUES ('20140604135743');
