@@ -12,8 +12,13 @@ describe Admin::CommunitiesController do
     it "should allow changing twitter_handle" do
       update_community_with(:update_integrations, twitter_handle: "sharetribe")
     end
+    
     it "should not allow changes to a different community" do
       attempt_to_update_different_community_with(:update_integrations, twitter_handle: "sharetribe")
+    end
+    
+    it "should not allow changing the plan level" do
+      attempt_to_change_plan_level_with(:update_integrations)
     end
   end
 
@@ -21,9 +26,37 @@ describe Admin::CommunitiesController do
     it "should allow changing 'private'" do
       update_community_with(:update_settings, private: true)
     end
+    
     it "should not allow changes to a different community" do
       attempt_to_update_different_community_with(:update_settings, private: true)
     end
+    
+    it "should not allow changing the plan level" do
+      attempt_to_change_plan_level_with(:update_settings)
+    end
+    
+    context "when there is a payment gateway" do
+      before { Community.any_instance.stub(:payment_gateway).and_return(true) }
+      
+      it "should allow changing testimonials_in_use" do
+        update_community_with(:update_settings, testimonials_in_use: true)
+      end
+      
+      after { Community.any_instance.unstub(:payment_gateway) }
+    end
+    
+    context "there is no payment gateway" do
+      before { Community.any_instance.stub(:payment_gateway).and_return(false) }
+      
+      it "should not allow changing testimonials_in_use" do
+        expect {
+          put :update_settings, id: @community.id, community: { testimonials_in_use: true }
+        }.to raise_error ActionController::UnpermittedParameters
+      end
+      
+      after { Community.any_instance.unstub(:payment_gateway) }
+    end
+
   end
   
   describe "#update_look_and_feel" do        
@@ -36,9 +69,7 @@ describe Admin::CommunitiesController do
     end
     
     it "should not allow changing the plan level" do
-      expect { 
-        put :update_look_and_feel, id: @community.id, community: { plan_level: "7" }
-      }.to raise_error ActionController::UnpermittedParameters 
+      attempt_to_change_plan_level_with(:update_look_and_feel)
     end
     
     context "when custom head scripts are allowed" do
@@ -51,17 +82,21 @@ describe Admin::CommunitiesController do
         @community.reload
         @community.custom_head_script.should eql(script)
       end
+      
+      after { Community.any_instance.unstub(:custom_head_script_in_use?) }
     end
     
     context "when custom head scripts are not allowed" do
       
       before { Community.any_instance.stub(:custom_head_script_in_use?).and_return(false) }
       
-      it "should allow changing custom_head_script" do
+      it "should not allow changing custom_head_script" do
         expect {
           put :update_look_and_feel, id: @community.id, community: { custom_head_script: "foo" }
         }.to raise_error ActionController::UnpermittedParameters
       end
+      
+      after { Community.any_instance.unstub(:custom_head_script_in_use?) }
     end
   end
   
@@ -75,6 +110,12 @@ describe Admin::CommunitiesController do
   def update_community_with(action, params)
     put action, id: @community.id, community: params
     @community.reload
-    params.each { |key, value| @community.send(key).should eql(value) }
+    params.each { |key, value| @community.send(:[], key).should eql(value) }
+  end
+  
+  def attempt_to_change_plan_level_with(action)
+    expect { 
+      put action, id: @community.id, community: { plan_level: "7" }
+    }.to raise_error ActionController::UnpermittedParameters 
   end
 end

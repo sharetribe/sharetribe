@@ -148,6 +148,10 @@ class Admin::CommunitiesController < ApplicationController
      :facebook_connect_secret].each do |param|
       params[:community][param] = nil if params[:community][param] == ""
     end
+    
+    params.require(:community).permit(
+      :twitter_handle, :google_analytics_key, :facebook_connect_id, :facebook_connect_secret
+    )
 
     update(@current_community,
             params[:community],
@@ -156,6 +160,18 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def update_settings
+    permitted_params = [
+      :join_with_invite_only, :users_can_invite_new_users, :private,
+      :require_verification_to_post_listings,
+      :show_category_in_listing_list, :show_listing_publishing_date,
+      :hide_expiration_date, :listing_comments_in_use,
+      :automatic_confirmation_after_days, :automatic_newsletters,
+      :default_min_days_between_community_updates,
+      :email_admins_about_new_members
+    ]
+    permitted_params << :testimonials_in_use if @current_community.payment_gateway
+    params.require(:community).permit(*permitted_params)
+    
     update(@current_community,
             params[:community],
             settings_admin_community_path(@current_community),
