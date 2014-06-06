@@ -72,6 +72,7 @@ en:
         verification_to_post_listings_info_content_description: "This marketplace requires people to be verified manually by admin before they can post listings. Here you can set the default text that is shown to non-verified users when they try to post a new listing."
         verification_to_post_listings_info_content_default: "This marketplace requires people to be verified manually by admin before they can post listings. You have not yet been verified. Please %{contact_admin_link} to be verified."
         contact_admin_link_text: "contact the admin"
+        save: "Save settings"
       edit_look_and_feel:
         edit_community_look_and_feel: "Edit community \"%{community_name}\" look and feel"
         community_logo: "Desktop logo"
@@ -104,6 +105,8 @@ en:
         invalid_color_code: "Color code should contain 6 numbers or letters A-F, for example D96E21"
         custom_head_script: "Custom script"
         custom_head_script_instructions_text: "This script is injected inside the <head> tag of every page and can be used to insert custom CSS, JavaScript or HTML. Please note that future changes to Sharetribe may render your script incompatible."
+      edit_text_instructions:
+        edit_text_instructions: Text instructions
       edit_welcome_email:
         welcome_email_content: "Welcome email content"
         welcome_email_content_description: "The message below will be sent to every new member when they join. You can customize the message to fit your community. By clicking '%{send_test_message_link}' you can a preview message to your email address, so you can see how it looks in an email client."

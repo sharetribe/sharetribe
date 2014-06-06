@@ -1,0 +1,48 @@
+- content_for :javascript do
+  initialize_admin_edit_tribe_form("#{I18n.locale}","#{@community.id}");
+
+- content_for :title_header do
+  %h1= t("layouts.admin.admin")
+
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@community) }
+
+.left-navi-section
+  %h2= t(".edit_text_instructions", :community_name => @community.name(I18n.locale))
+
+  .edit-community-details-edit-link
+    %a{:id => "edit_link", :href => "/editor" + request.path, :data => { :save_url => mercury_update_path }}
+      .icon-with-text-container
+        = icon_tag("edit", ["icon-part"])
+        .text-part= t("admin.communities.edit_details.edit_info")
+
+  - if @current_community.private?
+    .edit-community-details-field
+      .edit-community-details-field-title
+        = t("admin.communities.edit_details.private_community_homepage_content")
+      = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_details.edit_private_community_homepage_content_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true")).html_safe }
+      #private_community_homepage_content{:data => {:mercury => "full"}}
+        - if @community_customization && @community_customization.private_community_homepage_content
+          = @community_customization.private_community_homepage_content.html_safe
+
+  - if @current_community.require_verification_to_post_listings?
+    .edit-community-details-field
+      .edit-community-details-field-title
+        = t("admin.communities.edit_details.verification_to_post_listings_info_content")
+      = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_details.verification_to_post_listings_info_content_description") }
+      #verification_to_post_listings_info_content{:data => {:mercury => "full"}}
+        - if @community_customization && @community_customization.verification_to_post_listings_info_content
+          = @community_customization.verification_to_post_listings_info_content.html_safe
+        - else
+          = t("admin.communities.edit_details.verification_to_post_listings_info_content_default", :contact_admin_link => link_to(t("admin.communities.edit_details.contact_admin_link_text"), new_user_feedback_path)).html_safe
+
+  .edit-community-details-field
+    .edit-community-details-field-title
+      = t("admin.communities.edit_details.edit_signup_info")
+    = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_details.edit_signup_info_description") }
+
+    #signup_info_content{:data => {:mercury => "full"}}
+      - if @community_customization && @community_customization.signup_info_content
+        = @community_customization.signup_info_content.html_safe
+      - else
+        &nbsp;
+= render :partial => "people/help_texts", :collection => ["invite_only_help_text"], :as => :field

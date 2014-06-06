@@ -1,0 +1,41 @@
+- content_for :javascript do
+  /* Is this needed ? initialize_admin_edit_tribe_form("#{I18n.locale}","#{@community.id}"); */
+
+- content_for :title_header do
+  %h1= t("layouts.admin.admin")
+
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section
+  %h2= t("admin.communities.edit_details.edit_community", :community_name => @current_community.name(I18n.locale))
+  = form_for @community_customization, :url => update_details_admin_community_path(@current_community), :method => :put do |form|
+
+    .row
+      .col-12
+        = form.label :name, t("admin.communities.edit_details.community_name"), :class => "input"
+        = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_details.edit_community_name_description") }
+        = form.text_field :name, class:"text_field"
+
+    .row
+      .col-12
+        = form.label :slogan, t("admin.communities.edit_details.community_slogan"), class:"input"
+        = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_details.edit_community_description_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true")).html_safe }
+        = form.text_field :slogan, class:"text_field"
+
+    .row
+      .col-12
+        = form.label :description, t("admin.communities.edit_details.community_description"), class:"input"
+        = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_details.edit_community_description_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true")).html_safe }
+        = form.text_field :description, class:"text_field"
+
+    .row
+      .col-12
+        = form.label :search_placeholder, t("admin.communities.edit_details.community_search_placeholder"), class:"input"
+        = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_details.edit_community_search_placeholder_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/")).html_safe }
+        = form.text_field :search_placeholder, class:"text_field"
+
+    .row
+      .col-12
+        = form.button t("admin.communities.edit_details.save")
+
+= render :partial => "people/help_texts", :collection => ["invite_only_help_text"], :as => :field
