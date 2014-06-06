@@ -8,20 +8,17 @@ class Admin::CommunitiesController < ApplicationController
 
   skip_filter :dashboard_only
 
-  def edit_details
-    @selected_tribe_navi_tab = "admin"
-    @selected_left_navi_link = "tribe_details"
-    @community = @current_community
-  end
-
   def edit_look_and_feel
-    @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "tribe_look_and_feel"
     @community = @current_community
   end
 
+  def edit_text_instructions
+    @selected_left_navi_link = "text_instructions"
+    @community = @current_community
+  end
+
   def edit_welcome_email
-    @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "welcome_email"
     @community = @current_community
     @recipient = @current_user
@@ -33,7 +30,6 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def manage_members
-    @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "manage_members"
     @community = @current_community
     @memberships = CommunityMembership.where(:community_id => @current_community.id, :status => "accepted")
@@ -44,13 +40,11 @@ class Admin::CommunitiesController < ApplicationController
 
   def integrations
     redirect_to edit_details_admin_community_path(@current_community) unless @current_community.integrations_in_use?
-    @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "integrations"
     @community = @current_community
   end
 
   def menu_links
-    @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "menu_links"
     @community = @current_community
   end
@@ -69,7 +63,6 @@ class Admin::CommunitiesController < ApplicationController
     # Redirect if payment gateway in use but it's not braintree
     redirect_to edit_details_admin_community_path(@current_community) if @current_community.payment_gateway && !@current_community.braintree_in_use?
 
-    @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "payment_gateways"
     @community = @current_community
     @payment_gateway = Maybe(@current_community).payment_gateway.or_else { BraintreePaymentGateway.new }
@@ -117,29 +110,30 @@ class Admin::CommunitiesController < ApplicationController
   end
 
   def settings
-    @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "admin_settings"
   end
 
   def update_look_and_feel
     params[:community][:custom_color1] = nil if params[:community][:custom_color1] == ""
     params[:community][:custom_color2] = nil if params[:community][:custom_color2] == ""
-    
-    @community = Community.find(params[:id])
-    
-    params[:community].delete(:custom_head_script) unless @community.custom_head_script_in_use?
-    
-    needs_stylesheet_recompile = regenerate_css?(params, @community)
-    update(@community,
+
+    permitted_params = [
+      :cover_photo, :small_cover_photo, :favicon, :custom_color1,
+      :custom_color2, :default_browse_view, :name_display_type
+    ]
+    permitted_params << :custom_head_script if @current_community.custom_head_script_in_use?
+    params.require(:community).permit(*permitted_params)
+
+    needs_stylesheet_recompile = regenerate_css?(params, @current_community)
+    update(@current_community,
            params[:community],
-           edit_look_and_feel_admin_community_path(@community),
+           edit_look_and_feel_admin_community_path(@current_community),
            :edit_look_and_feel) {
-      CommunityStylesheetCompiler.compile(@community) if needs_stylesheet_recompile
+      CommunityStylesheetCompiler.compile(@current_community) if needs_stylesheet_recompile
     }
   end
 
   def update_integrations
-    @community = Community.find(params[:id])
     [:twitter_handle,
      :google_analytics_key,
      :facebook_connect_id,
@@ -147,17 +141,32 @@ class Admin::CommunitiesController < ApplicationController
       params[:community][param] = nil if params[:community][param] == ""
     end
 
-    update(@community,
+    params.require(:community).permit(
+      :twitter_handle, :google_analytics_key, :facebook_connect_id, :facebook_connect_secret
+    )
+
+    update(@current_community,
             params[:community],
-            integrations_admin_community_path(@community),
+            integrations_admin_community_path(@current_community),
             :integrations)
   end
 
   def update_settings
-    @community = Community.find(params[:id])
-    update(@community,
+    permitted_params = [
+      :join_with_invite_only, :users_can_invite_new_users, :private,
+      :require_verification_to_post_listings,
+      :show_category_in_listing_list, :show_listing_publishing_date,
+      :hide_expiration_date, :listing_comments_in_use,
+      :automatic_confirmation_after_days, :automatic_newsletters,
+      :default_min_days_between_community_updates,
+      :email_admins_about_new_members
+    ]
+    permitted_params << :testimonials_in_use if @current_community.payment_gateway
+    params.require(:community).permit(*permitted_params)
+
+    update(@current_community,
             params[:community],
-            settings_admin_community_path(@community),
+            settings_admin_community_path(@current_community),
             :settings)
   end
 

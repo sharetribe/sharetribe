@@ -668,13 +668,13 @@ module ApplicationHelper
       {
         :text => t("admin.communities.edit_details.community_details"),
         :icon_class => "ss-page",
-        :path => edit_details_admin_community_path(community),
+        :path => edit_details_admin_community_path(@current_community),
         :name => "tribe_details"
       },
       {
         :text => t("admin.communities.edit_details.community_look_and_feel"),
         :icon_class => "ss-paintroller",
-        :path => edit_look_and_feel_admin_community_path(community),
+        :path => edit_look_and_feel_admin_community_path(@current_community),
         :name => "tribe_look_and_feel"
       },
       {
@@ -690,30 +690,36 @@ module ApplicationHelper
         :name => "invite_people"
       },
       {
+        :text => t("admin.communities.edit_text_instructions.edit_text_instructions"),
+        :icon_class => icon_class("edit"),
+        :path => edit_text_instructions_admin_community_path(@current_community),
+        :name => "text_instructions"
+      },
+      {
         :text => t("admin.communities.edit_welcome_email.welcome_email_content"),
         :icon_class => icon_class("edit"),
-        :path => edit_welcome_email_admin_community_path(community),
+        :path => edit_welcome_email_admin_community_path(@current_community),
         :name => "welcome_email"
       },
       {
         :text => t("admin.communities.manage_members.manage_members"),
         :icon_class => icon_class("community"),
-        :path => manage_members_admin_community_path(community),
+        :path => manage_members_admin_community_path(@current_community),
         :name => "manage_members"
       },
       {
         :text => t("admin.communities.settings.settings"),
         :icon_class => icon_class("settings"),
-        :path => settings_admin_community_path(community),
+        :path => settings_admin_community_path(@current_community),
         :name => "admin_settings"
       }
     ]
 
-    if community.integrations_in_use?
+    if @current_community.integrations_in_use?
       links << {
         :text => t("admin.communities.integrations.integrations"),
         :icon_class => icon_class("connect"),
-        :path => integrations_admin_community_path(community),
+        :path => integrations_admin_community_path(@current_community),
         :name => "integrations"
       }
     end
@@ -721,7 +727,7 @@ module ApplicationHelper
     links << {
       :text => t("admin.communities.menu_links.menu_links"),
       :icon_class => icon_class("redirect"),
-      :path => menu_links_admin_community_path(community),
+      :path => menu_links_admin_community_path(@current_community),
       :name => "menu_links"
     }
 
@@ -729,7 +735,7 @@ module ApplicationHelper
       links << {
         :text => t("admin.communities.braintree_payment_gateway.braintree_payment_gateway"),
         :icon_class => icon_class("payments"),
-        :path => payment_gateways_admin_community_path(community),
+        :path => payment_gateways_admin_community_path(@current_community),
         :name => "payment_gateways"
       }
     end
@@ -743,7 +749,7 @@ module ApplicationHelper
       }
     end
 
-    if community.custom_fields_allowed
+    if @current_community.custom_fields_allowed
       links << {
         :text => t("admin.custom_fields.index.listing_fields"),
         :icon_class => icon_class("list"),
@@ -892,9 +898,14 @@ module ApplicationHelper
     end
   end
 
+  def is_uri?(s)
+    s.match /^https?:\/\//
+  end
+
   def with_stylesheet_url(community, &block)
     stylesheet_url = if community.has_customizations?
-      community.custom_stylesheet_url
+      stylesheet = community.custom_stylesheet_url
+      is_uri?(stylesheet)  ? stylesheet : "/assets/#{stylesheet}"
     else
       'application'
     end

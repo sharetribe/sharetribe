@@ -123,10 +123,12 @@ Kassi::Application.routes.draw do
       resources :news_items
       resources :communities do
         member do
-          get :edit_details
+          get :edit_details, to: 'community_customizations#edit_details'
+          put :update_details, to: 'community_customizations#update_details'
           get :edit_look_and_feel
           put :edit_look_and_feel, to: 'communities#update_look_and_feel'
           get :edit_welcome_email
+          get :edit_text_instructions
           get :test_welcome_email
           get :manage_members
           get :settings
