@@ -84,6 +84,8 @@ Feature: User pays after accepted transaction
     And the request is accepted
     And I am logged in as "kassi_testperson1"
     When I follow inbox link
+    Then I should see "Waiting for you to pay"
+    When I follow "I want to buy"
     And I follow "Cancel"
     And I fill in "Message" with "Sorry I gotta cancel"
     And I choose "Skip feedback"
@@ -96,6 +98,8 @@ Feature: User pays after accepted transaction
     And the request is accepted
     And I am logged in as "kassi_testperson1"
     When I follow inbox link
+    Then I should see "Waiting for you to pay"
+    When I follow "I want to buy"
     And I follow "Cancel"
     And I fill in "Message" with "Sorry I gotta cancel"
     And I choose "Give feedback"
@@ -119,6 +123,8 @@ Feature: User pays after accepted transaction
     Then I should see "Accepted"
     When I am logged in as "kassi_testperson1"
     When I follow inbox link
+    Then I should see "Waiting for you to pay"
+    When I follow "Ok, then pay!"
     Then I should see "Pay"
     When I follow "Pay"
     Then I should see "New payment"

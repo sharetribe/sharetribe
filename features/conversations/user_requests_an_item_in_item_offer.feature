@@ -26,7 +26,7 @@ Feature: User requests an item in item offer
     When I log out
     And I log in as "kassi_testperson1"
     And I follow inbox link
-    Then I should see "Accept"
+    Then I should see "Waiting for you to accept the request"
     When I follow "I want to borrow this item"
     Then I should see "Accept"
     When the system processes jobs

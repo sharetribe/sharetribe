@@ -18,6 +18,8 @@ Feature: User confirms a transaction
     And the request is paid
     And I am logged in as "kassi_testperson1"
     When I follow inbox link
+    Then I should see "Waiting for you to mark the request completed"
+    When I follow "paid $20"
     And I follow "Mark completed"
 
   @javascript
