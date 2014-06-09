@@ -35,4 +35,71 @@ module ConversationsHelper
   def free_conversation?
     params[:message_type] || (@listing && @listing.transaction_type.is_inquiry?)
   end
+
+  # Give `status`, `is_author` and `other_party` and get back icon and text for current status
+  def conversation_icon_and_status(status, is_author, other_party)
+    icon_waiting_you = icon_tag("alert", ["icon-fix", "waiting-you"])
+    icon_waiting_other = icon_tag("clock", ["icon-fix", "waiting-other"])
+
+    status_hash = {
+      pending: {
+        author: {
+          icon: icon_waiting_you,
+          text: t("conversations.status.waiting_for_you_to_accept_request")
+        },
+        starter: {
+          icon: icon_waiting_other,
+          text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party.name)
+        }
+      },
+
+      accepted: {
+        author: {
+          icon: icon_waiting_other,
+          text: t("conversations.status.waiting_payment_from_requester", requester_name: other_party.name)
+        },
+        starter: {
+          icon: icon_waiting_you,
+          text: t("conversations.status.waiting_payment_from_you")
+        }
+      },
+
+      rejected: {
+        both: {
+          icon: icon_tag("cross", ["icon-fix", "rejected"]),
+          text: t("conversations.status.request_rejected")
+        }
+      },
+
+      paid: {
+        author: {
+          icon: icon_waiting_other,
+          text: t("conversations.status.waiting_confirmation_from_requester", requester_name: other_party.name)
+        },
+        starter: {
+          icon: icon_waiting_you,
+          text: t("conversations.status.waiting_confirmation_from_you")
+        }
+      },
+
+      confirmed: {
+        both: {
+          icon: icon_tag("check", ["icon-fix", "confirmed"]),
+          text: t("conversations.status.request_confirmed")
+        }
+      },
+
+      canceled: {
+        both: {
+          icon: icon_tag("cross", ["icon-fix", "canceled"]),
+          text: t("conversations.status.request_canceled")
+        }
+      }
+    }
+
+    Maybe(status_hash)[status.to_sym]
+      .map { |s| Maybe(is_author ? s[:author] : s[:starter]).or_else { s[:both] } }
+      .values
+      .get
+  end
 end

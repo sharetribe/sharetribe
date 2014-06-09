@@ -56,28 +56,24 @@
   top: 0;
   left: 0;
 
-  &.pending {
+  & > .waiting-you {
     color: $yellow;
   }
 
-  &.confirmed {
+  & > .waiting-other {
+    color: $aside;
+  }
+
+  & > .confirmed {
     color: $green;
   }
 
-  &.canceled {
+  & > .canceled {
     color: $red;
   }
 
-  &.rejected {
+  & > .rejected {
     color: $red;
-  }
-
-  &.accepted {
-    color: $aside;
-  }
-
-  &.paid {
-    color: $aside;
   }
 }
 

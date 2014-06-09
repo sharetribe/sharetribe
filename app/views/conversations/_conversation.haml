@@ -32,7 +32,14 @@
           Free message
     .col-3
       - Maybe(conversation).status.reject { |s| s == "free" }.each do |status|
-        = render partial: "conversation_list_status", locals: { status: status, other_party: other_party }
+        - is_author = conversation.author == @current_user
+        - icon, status = conversation_icon_and_status(status, is_author, other_party)
+
+        .conversation-list-status-container
+          .conversation-list-status-icon
+            = icon
+          .conversation-list-status
+            = status
 
 / - other_party = conversation.other_party(@current_user)
 / - unless other_party.nil?
