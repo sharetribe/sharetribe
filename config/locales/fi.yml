@@ -383,6 +383,8 @@ fi:
       canceled_request: "Pyyntö peruutettu."
       canceled_offer: "Tarjous peruutettu."
       message_from: "Viesti käyttäjältä %{person}"
+      about_listing: "Liittyen listaukseen %{listing_title}"
+      free_message: "Vapaa viesti"
     message:
       accepted_request: "hyväksyi pyynnön"
       accepted_offer: "hyväksyi tarjouksen"

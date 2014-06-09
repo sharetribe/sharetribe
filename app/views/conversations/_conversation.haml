@@ -26,10 +26,9 @@
           %span.conversation-title-link-text= "#{last_message.content}"
       .conversation-context
         - if conversation.listing
-          = "About listing"
-          = link_to conversation.listing.title, conversation.listing
+          = t(".about_listing", listing_title: link_to(conversation.listing.title, conversation.listing)).html_safe
         - else
-          Free message
+          = t(".free_message")
     - if @current_community.payments_in_use?
       .col-3
         - Maybe(conversation).status.reject { |s| s == "free" }.each do |status|
