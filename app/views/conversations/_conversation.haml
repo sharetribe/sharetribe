@@ -9,7 +9,7 @@
             = link_to other_party.name, other_party
           .conversation-last-message-at
             = time_ago(conversation.last_message_at)
-    .col-6
+    %div{class: @current_community.payments_in_use? ? "col-6" : "col-9"}
       = link_to single_conversation_path(:conversation_type => action_name, :id => conversation.id), class: "conversation-title-link" do
         - if last_message.content.blank?
           - if last_message.action.eql?("pay")
@@ -30,16 +30,17 @@
           = link_to conversation.listing.title, conversation.listing
         - else
           Free message
-    .col-3
-      - Maybe(conversation).status.reject { |s| s == "free" }.each do |status|
-        - is_author = conversation.author == @current_user
-        - icon, status = conversation_icon_and_status(status, is_author, other_party)
+    - if @current_community.payments_in_use?
+      .col-3
+        - Maybe(conversation).status.reject { |s| s == "free" }.each do |status|
+          - is_author = conversation.author == @current_user
+          - icon, status = conversation_icon_and_status(status, is_author, other_party)
 
-        .conversation-list-status-container
-          .conversation-list-status-icon
-            = icon
-          .conversation-list-status
-            = status
+          .conversation-list-status-container
+            .conversation-list-status-icon
+              = icon
+            .conversation-list-status
+              = status
 
 / - other_party = conversation.other_party(@current_user)
 / - unless other_party.nil?

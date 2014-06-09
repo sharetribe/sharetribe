@@ -42,3 +42,17 @@ $grid-1-4-width: lines(10.75) - ($grid-1-4-padding * 2);
     padding-right: lines(0.5);
   }
 }
+
+/**
+  Undo the mobile margin set by .wrapper
+  This is cubersome, because the .wrapper is in the main layout and not per page
+*/
+@mixin undo-mobile-wrapper-margin($mobilePadding: lines(0.5)) {
+  margin-left: -1 * $mobilePadding;
+  margin-right: -1 * $mobilePadding;
+
+  @include media(tablet) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

@@ -14,3 +14,7 @@
 .wrapper {
   @include wrapper;
 }
+
+.undo-mobile-wrapper-margin {
+  @include undo-mobile-wrapper-margin;
+}
