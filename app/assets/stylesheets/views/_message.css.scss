@@ -12,7 +12,7 @@ $message-time-margin: lines(0.25);
   }
 }
 
-.message-sum {
+.message-sum, .message-price {
   @include big-type;
 }
 
@@ -174,4 +174,8 @@ $message-time-margin: lines(0.25);
 
 .message-book-button {
   @include button($link);
+}
+
+.message-sum-vat {
+  @include small-type
 }
