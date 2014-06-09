@@ -38,8 +38,8 @@ module ConversationsHelper
 
   # Give `status`, `is_author` and `other_party` and get back icon and text for current status
   def conversation_icon_and_status(status, is_author, other_party, waiting_feedback)
-    icon_waiting_you = icon_tag("alert", ["icon-fix", "waiting-you"])
-    icon_waiting_other = icon_tag("clock", ["icon-fix", "waiting-other"])
+    icon_waiting_you = icon_tag("alert", ["icon-fix-rel", "waiting-you"])
+    icon_waiting_other = icon_tag("clock", ["icon-fix-rel", "waiting-other"])
 
     # Split "confirmed" status into "waiting_feedback" and "completed"
     status = if waiting_feedback
@@ -73,7 +73,7 @@ module ConversationsHelper
 
       rejected: {
         both: {
-          icon: icon_tag("cross", ["icon-fix", "rejected"]),
+          icon: icon_tag("cross", ["icon-fix-rel", "rejected"]),
           text: t("conversations.status.request_rejected")
         }
       },
@@ -98,14 +98,14 @@ module ConversationsHelper
 
       completed: {
         both: {
-          icon: icon_tag("check", ["icon-fix", "confirmed"]),
+          icon: icon_tag("check", ["icon-fix-rel", "confirmed"]),
           text: t("conversations.status.request_confirmed")
         }
       },
 
       canceled: {
         both: {
-          icon: icon_tag("cross", ["icon-fix", "canceled"]),
+          icon: icon_tag("cross", ["icon-fix-rel", "canceled"]),
           text: t("conversations.status.request_canceled")
         }
       }
