@@ -438,7 +438,9 @@ fi:
       conversation_with: "Keskustelu käyttäjän %{person} kanssa"
       last_message_at: "(uusin viesti %{time})"
       requested_by: "Pyyntö käyttäjältä %{requester_name}"
-      sum: "Hinta: %{sum}"
+      price: "Hinta: %{price}"
+      sum: "Loppusumma: %{sum}"
+      price_excludes_vat: "(alv 0)"
     status:
       cancel_payed_transaction: Peruuta
       feedback_given: "Palaute annettu"
@@ -1462,7 +1464,7 @@ fi:
       total: Yhteensä
       service_charge: Palvelumaksu
       product: "Tuote:"
-      price: "Hinta:"
+      price: "Loppusumma:"
       price_for: "Hinta käyttäjälle %{payer_given_name}:"
       continue_to_pay: "Jatka maksamaan"
       invoice: Lasku

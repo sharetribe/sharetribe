@@ -100,7 +100,7 @@ module ListingsHelper
   def with_quantity_and_vat_text(community, listing, &block)
     buffer = []
     unless listing.quantity.blank?
-      buffer.push("/ #{@listing.quantity}")
+      buffer.push("/ #{listing.quantity}")
     end
 
     if community.vat

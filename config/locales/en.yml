@@ -438,7 +438,9 @@ en:
       conversation_with: "Conversation with %{person}"
       last_message_at: "(latest message %{time})"
       requested_by: "Requested by %{requester_name}"
+      price: "Price: %{price}"
       sum: "Sum: %{sum}"
+      price_excludes_vat: "(excludes VAT)"
     status:
       cancel_payed_transaction: Cancel
       feedback_given: "Feedback given"
@@ -1459,7 +1461,7 @@ en:
       total: Total
       service_charge: "Service charge"
       product: "Product:"
-      price: "Price:"
+      price: "Sum:"
       price_for: "Price for %{payer_given_name}:"
       continue_to_pay: "Continue to pay"
       invoice: Invoice
