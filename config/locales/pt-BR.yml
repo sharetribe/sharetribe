@@ -35,7 +35,7 @@ pt-BR:
     communities:
       edit_details:
         community_details: "Detalhes da comunidade"
-        community_look_and_feel: ~
+        community_look_and_feel: "Editar visual."
         edit_community: "Editar detalhes da comunidade %{community_name}"
         community_name: "Nome da comunidade"
         edit_community_name_description: "O nome da sua comunidade. Será mostrado a usuários e em vários outros locais."
@@ -45,21 +45,22 @@ pt-BR:
         edit_community_description_description: "Será mostrado na página inicial da comunidade para os usuários que não estão conectados. %{see_how_it_looks_like}"
         community_search_placeholder: "Auxílio na busca de texto"
         edit_community_search_placeholder_description: "Será mostrado na página inicial da comunidade como um texto de espaço reservado na barra de pesquisa. %{see_how_it_looks_like}"
-        private_community_homepage_content: ~
-        edit_private_community_homepage_content_description: ~
-        update_information: ~
+        private_community_homepage_content: "Conteúdo página inicial da comunidade privada"
+        edit_private_community_homepage_content_description: "Este conteúdo é mostrado para usuários não registrados na home page das comunidades privadas. Aqui você pode descrever a sua comunidade eo processo para se juntar a ele. Você também pode adicionar imagens, vídeos e conteúdo HTML aqui. %{see_how_it_looks_like}"
+        update_information: "Atualizar informações"
         invite_people: "Convide as pessoas para esta comunidade"
         edit_signup_info: "Informações da conta"
         edit_signup_info_description: "Este é um texto de informação que pode ser mostrado para os usuários na página de inscrição. Lá você pode dar aos usuários instruções para se inscrever, informações como onde conseguir um convite, etc. Por padrão não há instruções."
         edit_info: "Editar informações"
-        see_how_it_looks_like: ~
-        verification_to_post_listings_info_content: ~
-        verification_to_post_listings_info_content_description: ~
-        verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: ~
+        see_how_it_looks_like: "Veja como fica"
+        verification_to_post_listings_info_content: "Informações de texto para usuários não verificados"
+        verification_to_post_listings_info_content_description: "Este mercado exige que as pessoas sejam verificadas manualmente por administrador antes de postar listagens. Aqui você pode definir o texto padrão que é mostrado para os usuários não-verificados quando tentar postar uma nova listagem."
+        verification_to_post_listings_info_content_default: "Este mercado exige que as pessoas sejam verificadas manualmente por administrador antes de postar listagens. Você ainda não foi verificado. Por favor, %{contact_admin_link} de ser verificado."
+        contact_admin_link_text: "entre em contato com o administrador"
+        save: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Editar comunidade %{community_name} visual."
-        community_logo: ~
+        community_logo: "Logo principal"
         community_logo_icon: "logo de ícones"
         community_cover_photo: "Foto da capa"
         small_community_cover_photo: "Foto da capa pequena"
@@ -79,16 +80,18 @@ pt-BR:
         default_browse_view: "Visualização navegação padrão"
         default_browse_view_instructions_text: "Visualização de navegação padrão é usado na página inicial para definir a forma como as listas são exibidas por padrão."
         grid: Grid
-        list: ~
-        map: ~
+        list: Lista
+        map: Mapa
         name_display_type: "Tipo de exibição do nome usuário."
         name_display_type_instructions_text: "Escolha como o nome de cada usuário será mostrado no site"
         full_name: "Nome completo (Primeiro Último)"
         first_name_with_initial: "Primeiro nome com a inicial (Primeiro L)"
         first_name_only: "Primeiro nome (Somente)"
-        invalid_color_code: ~
-        custom_head_script: ~
-        custom_head_script_instructions_text: ~
+        invalid_color_code: "O código de cor deve conter 6 números ou letras AF, por exemplo D96E21"
+        custom_head_script: "Script personalizado"
+        custom_head_script_instructions_text: "Este script é injetado dentro da tag <head> de cada página e pode ser usado para inserir CSS personalizado, JavaScript ou HTML. Por favor note que futuras mudanças Sharetribe pode tornar seu script incompatível."
+      edit_text_instructions:
+        edit_text_instructions: ~
       edit_welcome_email:
         welcome_email_content: "Conteúdo do e-mail de boas-vindas"
         welcome_email_content_description: "A mensagem abaixo será enviada para cada novo membro quando eles se registrarem. Você pode personalizar a mensagem. Clicando em '%{send_test_message_link}' você pode ter uma pré-visualização para o seu endereço de e-mail, para que você possa ver como fica em um cliente de e-mail."
@@ -97,13 +100,14 @@ pt-BR:
       settings:
         settings: Opções
         general: Geral
-        users_can_review_each_other_after_transaction: ~
+        users_can_review_each_other_after_transaction: "Os usuários podem revisar o outro depois de operação"
         access: Acesso
         join_with_invite_only: "Os usuários só podem participar desta comunidade com um convite de outro usuário"
         users_can_invite_new_users: "Todos os usuários podem convidar novos usuários a esta comunidade"
         private: "Esta comunidade é privada (apenas usuários registrados podem ver o conteúdo)"
         require_verification_to_post_listings: "Somente usuários verificados por administrador pode postar novos anúncios"
         listing_preferences: "Listagem preferências"
+        transaction_preferences: ~
         show_listing_publishing_date: "Data de publicação de exibição da lista na página de listagem"
         show_category_in_listing_list: "Mostrar lista tipo na exibição de lista"
         hide_expiration_date: "Não requer uma data de expiração"
@@ -113,10 +117,10 @@ pt-BR:
         email_admins_about_new_members: "Envie um e-mail sempre para adminstrador quando um novo usuário se cadastrar"
         integrations: Integrações
         google_analytics_key: "Google Analytics tracking ID (classic account)"
-        twitter_handle: ~
+        twitter_handle: "Twitter handle (usado com botão Tweet em página de listagem)"
         update_settings: "Configurações de atualização"
-        automatically_confirmed: ~
-        automatic_newsletter_frequency: ~
+        automatically_confirmed: "Listagem é automaticamente confirmada %{days_dropdown} dias após a aceitação (ou pagamento)"
+        automatic_newsletter_frequency: "Enviar boletim automático: %{frequency_dropdown}"
         newsletter_daily: Diaramente
         newsletter_weekly: Semanal
       manage_members:
@@ -132,35 +136,35 @@ pt-BR:
         save_user_status_error: "Erro ao gravar. Por favor, atualize a página e tente novamente"
         ban_user_confirmation: "Deseja remove o usuário da comunidade e os impedir de acessar o site novamente com esta conta. Tem certeza de que deseja continuar?"
       integrations:
-        integrations: ~
+        integrations: Integrações
         twitter_handle: ~
         twitter_handle_info_text: ~
-        twitter_handle_placeholder: ~
+        twitter_handle_placeholder: usuário
         invalid_twitter_handle: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
-        facebook_connect: ~
+        google_analytics_key: "Google Analytics tracking ID (conta classic)"
+        google_analytics_key_info_text: "ID de rastreamento de sua conta do Google Analytics. Você precisa ter uma conta de \"clássico\"."
+        facebook_connect: Facebook
         facebook_connect_info_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
+        facebook_connect_id: "Facebook ID Cliente"
+        invalid_facebook_connect_id: "ID de cliente deve conter apenas números."
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
         save: "Salvar configurações"
       menu_links:
-        menu_links: ~
-        save: ~
-        add_menu_link: ~
-        title_placeholder: ~
-        url_placeholder: ~
-        title: ~
-        language: ~
-        url: ~
-        empty: ~
+        menu_links: "Menu links"
+        save: Gravar
+        add_menu_link: "Adicionar um novo link ao menu"
+        title_placeholder: "Título do Link"
+        url_placeholder: "http://examplo.com/pt-br"
+        title: Título
+        language: Idioma
+        url: URL
+        empty: "Você não tem quaisquer ligações de menu adicionais"
       braintree_payment_gateway:
         braintree_payment_gateway: ~
-        environment: ~
-        private_key: ~
-        public_key: ~
+        environment: Ambiente
+        private_key: "Chave privada"
+        public_key: "Chave Pública"
         client_side_encryption_key: ~
         merchant_id: ~
         master_merchant_id: ~
@@ -325,29 +329,29 @@ pt-BR:
     what_is_this: "O que é isso?"
   conversations:
     accept:
-      respond_to_offer: ~
-      respond_to_request: ~
-      accept_offer: ~
-      accept_request: ~
+      respond_to_offer: "Responder a uma oferta"
+      respond_to_request: "Responder a um pedido"
+      accept_offer: "Aceitar a oferta"
+      accept_request: "Aceitar o pedido"
       reject_offer: "Não agora"
       reject_request: "Não agora"
-      close_listing: ~
-      update_later: ~
-      optional_message: ~
-      price_to_pay: ~
-      you_need_to_fill_payout_details_before_accepting: ~
+      close_listing: "Fechar a lista %{listing_title_link}"
+      update_later: "Deixar a lista aberta"
+      optional_message: "Mensagem opcional"
+      price_to_pay: "Preço total a ser pago"
+      you_need_to_fill_payout_details_before_accepting: "Você precisa preencher os detalhes de pagamento antes de aceitar o pedido e receber o pagamento. Vá para %{payment_settings_link}para preencher os detalhes."
       payment_settings_link: "configurações de pagamento"
-      minimum_price_error_message: ~
+      minimum_price_error_message: "O preço não pode ser inferior %{amount}"
     confirm:
-      confirm_description: ~
-      cancel_description: ~
-      cancel_payed_description: ~
-      canceling_payed_transaction: ~
+      confirm_description: "Se o seu pedido foi aceito, você deve confirmá-lo como concluído. Então você pode dar um feedback para a outra parte."
+      cancel_description: "Se o seu pedido não foi efetuado, você pode marcá-lo como \"não efeutado\". Você ainda pode dar um feedback para a outra parte e descrever o que aconteceu."
+      cancel_payed_description: "Se o seu pedido foi aceito, mas você está tendo dúvidas, você ainda pode cancelar o pedido antes do pagamento."
+      canceling_payed_transaction: "Cancelar transação"
       confirm: "marca concluida"
       cancel: "Não aconteceu"
       continue: Continua
-      give_feedback_to: ~
-      do_not_give_feedback: ~
+      give_feedback_to: "Dar feedback a %{person_link}"
+      do_not_give_feedback: "Skip feedback"
     index:
       loading_more_messages: "Carregando mais mensagens"
       message_partitive: mensagem
@@ -355,71 +359,77 @@ pt-BR:
       no_received_messages: "Nenhuma mensagem recebida"
       no_sent_messages: "Nenhuma mensagem enviada"
     conversation:
-      accepted_request: ~
+      accepted_request: "Pedido aceito."
       accepted_offer: "Oferta aceita."
-      rejected_request: ~
+      rejected_request: "Pedido rejeitado."
       rejected_offer: "Oferta rejeitada."
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
+      confirmed_request: "Pedido concluído."
+      confirmed_offer: "Oferta concluída."
+      canceled_request: "Pedido cancelado."
       canceled_offer: "Oferta cancelada."
+      message_from: ~
+      about_listing: ~
+      free_message: ~
     message:
-      accepted_request: ~
-      accepted_offer: ~
-      rejected_request: ~
-      rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
-      paid: ~
+      accepted_request: "aceitou o pedido"
+      accepted_offer: "aceitou a oferta"
+      rejected_request: "rejeitou o pedido"
+      rejected_offer: "rejeitou a oferta"
+      confirmed_request: "marcou o pedido como concluído"
+      confirmed_offer: "marcou a oferta como concluída"
+      canceled_request: "cancelou o pedido"
+      canceled_offer: "cancelou a oferta"
+      paid: "pago %{sum}"
     new:
-      offer_message_form_title: ~
-      request_message_form_title: ~
+      offer_message_form_title: "Oferta %{listing} para %{person}"
+      request_message_form_title: "Pedido %{listing} de %{person}"
       favor_offer_message_form_title: "Peça ajuda para %{person}"
       favor_request_message_form_title: "Oferecer ajuda para %{person}"
       housing_offer_message_form_title: "Oferecer espaço para %{person}"
       housing_request_message_form_title: "Solicitar espaço de%{person}"
-      item_offer_lend_message_form_title: ~
-      item_offer_sell_message_form_title: ~
-      item_offer_give_away_message_form_title: ~
-      item_offer_trade_message_form_title: ~
-      item_offer_rent_out_message_form_title: ~
-      item_request_borrow_message_form_title: ~
-      item_request_buy_message_form_title: ~
-      item_request_take_for_free_message_form_title: ~
-      item_request_trade_message_form_title: ~
-      item_request_rent_message_form_title: ~
-      housing_offer_sell_message_form_title: ~
-      housing_offer_rent_out_message_form_title: ~
-      housing_offer_share_for_free_message_form_title: ~
-      housing_offer_accept_for_free_message_form_title: ~
-      housing_request_buy_message_form_title: ~
-      housing_request_rent_message_form_title: ~
+      item_offer_lend_message_form_title: "Emprestar %{listing} de %{person}"
+      item_offer_sell_message_form_title: "Comprar %{listing} de %{person}"
+      item_offer_give_away_message_form_title: "Obter %{listing} de %{person}"
+      item_offer_trade_message_form_title: "Trocar %{listing} com %{person}"
+      item_offer_rent_out_message_form_title: "Alugar %{listing} de %{person}"
+      item_request_borrow_message_form_title: "Emprestar %{listing} para %{person}"
+      item_request_buy_message_form_title: "Vendet %{listing} para %{person}"
+      item_request_take_for_free_message_form_title: "Doar %{listing} para %{person}"
+      item_request_trade_message_form_title: "Trocar %{listing} com %{person}"
+      item_request_rent_message_form_title: "Alugar %{listing} para %{person}"
+      housing_offer_sell_message_form_title: "Comprar %{listing} de %{person}"
+      housing_offer_rent_out_message_form_title: "Alugar %{listing} de %{person}"
+      housing_offer_share_for_free_message_form_title: "Pedido %{listing} de %{person}"
+      housing_offer_accept_for_free_message_form_title: "Ofertar %{listing} para %{person}"
+      housing_request_buy_message_form_title: "Comprar %{listing} de %{person}"
+      housing_request_rent_message_form_title: "Alugar %{listing} para %{person}"
       item_request_message_form_title: "Oferecer item para %{person}"
       message: Mensagem
       rideshare_offer_message_form_title: "Pedir carona para %{person}"
       rideshare_request_message_form_title: "Oferecer carona para %{person}"
       send_message: "Enviar mensagem"
-      send: ~
-      this_message_is_private: ~
-      you_will_get_notified_of_acceptance: ~
-      you_will_get_notified: ~
+      send: Enviar
+      this_message_is_private: "Esta mensagem é particular entre você e %{person}. %{person} será notificado sobre esta mensagem por e-mail."
+      you_will_get_notified_of_acceptance: "Você receberá uma notificação por e-mail quando %{person} aceitar ou rejeitar a sua proposta."
+      you_will_get_notified: "Você receberá uma notificação por e-mail quando %{person} responder você."
       title: Titulo
-      send_message_to_user: ~
+      send_message_to_user: "Enviar mensagem para %{person}"
     show:
-      in_response_to_listing: ~
+      in_response_to_listing: "sobre como listar"
       message_sent_by: "Mensagem enviada por"
       message_sent_to: "Mensagem enviada para"
       send_reply: "Enviar resposta"
       write_a_reply: "Escreva uma resposta:"
-      conversation_about_listing: ~
+      conversation_about_listing: "Com %{listing} sobre %{person}"
       conversation_with_user: "Com %{person}"
-      last_message_at: ~
-      requested_by: ~
-      sum: ~
+      conversation_with: ~
+      last_message_at: "(última mensagem %{time})"
+      requested_by: "Solicitado por %{requester_name}"
+      price: ~
+      sum: "Soma: %{sum}"
+      price_excludes_vat: ~
     status:
-      cancel_payed_transaction: ~
+      cancel_payed_transaction: Cancelar
       feedback_given: "Feedback enviado"
       feedback_skipped: "Feedback descartado"
       give_feedback: "Dar feedback"
@@ -427,17 +437,21 @@ pt-BR:
       offer_rejected: Rejeitado
       offer_canceled: Cancelado
       offer_confirmed: Concluído
-      pay: ~
-      paid: ~
+      pay: Pagar
+      paid: "Pagamento efetuado com sucesso"
       request_accepted: Aceito
       request_rejected: Rejeitado
       request_confirmed: Concluído
       request_canceled: Cancelado
       skip_feedback: "Pular feedback"
-      waiting_for_listing_author_to_accept_offer: ~
-      waiting_for_listing_author_to_accept_request: ~
-      waiting_confirmation_from_requester: ~
-      waiting_payment_from_requester: ~
+      waiting_for_listing_author_to_accept_offer: "Aguardando %{listing_author_name} aceitar a oferta"
+      waiting_for_listing_author_to_accept_request: "Aguandando %{listing_author_name} aceitar o pedido"
+      waiting_for_you_to_accept_request: ~
+      waiting_confirmation_from_requester: "Aguardando %{requester_name} para marcar o pedido como concluído"
+      waiting_confirmation_from_you: ~
+      waiting_payment_from_requester: "Aguardando %{requester_name} para pagar"
+      waiting_payment_from_you: ~
+      waiting_feedback_from_you: ~
     status_link:
       accept_offer: "Aceitar oferta"
       accept_request: "Aceitar requisição"
@@ -734,7 +748,6 @@ pt-BR:
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
-      conversation_title: ~
       view_message: "Ver mensagem"
       has_sent_you_a_message_in_kassi: "%{sender} te enviou uma mensagem em %{service_name}."
       you_have_a_new_message: "Uma nova mensagem em %{service_name} de %{sender_name}"
@@ -1396,8 +1409,6 @@ pt-BR:
       processing_uploaded_image: "(Processando imagem carregada...)"
       price_excludes_vat: ~
       listing_created_at: "Listagem criada"
-    displayed_price:
-      price_excludes_vat: "(excluindo VAT)"
     verification_required:
       verification_required: ~
   mapview:
@@ -1597,11 +1608,11 @@ pt-BR:
       welcome_to_kassi: ~
       check_your_email: "Verifique sua caixa de entrada"
       resend_confirmation_instructions: "Reenviar instruções de confirmação"
-      your_current_email_is: ~
+      your_current_email_is: "Seu e-mail é %{email}"
       change_email: Trocar
       confirm_your_email: ~
-      account_confirmation_instructions: ~
-      account_confirmation_instructions_dashboard: ~
+      account_confirmation_instructions: "Você receberá um e-mail com um link que você precisa clicar para confirmar o endereço de email que você digitou. Após a confirmação de e-mail você pode participar desta comunidade."
+      account_confirmation_instructions_dashboard: "Você receberá um e-mail com um link que você precisa clicar para confirmar o endereço de email que você digitou."
   settings:
     account:
       change: Mudança

@@ -57,6 +57,7 @@ el:
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: ~
+        save: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Αλλαγή της εμφάνισης της κοινότητας \"%{community_name}\""
         community_logo: Λογότυπο
@@ -89,6 +90,8 @@ el:
         invalid_color_code: "Ο κωδικός του χρώματος πρέπει να αποτελείται από 6 χαρακτήρες, αριθμούς ή γράμματα από A-F, για παράδειγμα D96E21."
         custom_head_script: ~
         custom_head_script_instructions_text: ~
+      edit_text_instructions:
+        edit_text_instructions: ~
       edit_welcome_email:
         welcome_email_content: "Περιεχόμενο μηνύματος καλωσορίσματος"
         welcome_email_content_description: "Αυτό είναι το μήνυμα ηλεκτρονικού ταχυδρομείου που στέλνεται σε κάθε νέο μέλος όταν εγγράφεται. Μπορείτε να το τροποποιήσετε για να ταιριάζει στην κοινότητα. Αν θέλετε να δείτε πως φαίνεται στους χρήστες, πατήστε \"%{send_test_message_link}\" για να σταλεί ένα μήνυμα στη δική σας διεύθυνση."
@@ -104,6 +107,7 @@ el:
         private: ~
         require_verification_to_post_listings: ~
         listing_preferences: ~
+        transaction_preferences: ~
         show_listing_publishing_date: ~
         show_category_in_listing_list: ~
         hide_expiration_date: ~
@@ -363,6 +367,9 @@ el:
       confirmed_offer: "Η προσφορά ολοκληρώθηκε."
       canceled_request: "Το αίτημα ακυρώθηκε."
       canceled_offer: "Η προσφορά ακυρώθηκε."
+      message_from: ~
+      about_listing: ~
+      free_message: ~
     message:
       accepted_request: "δέχτηκε το αίτημα"
       accepted_offer: "δέχτηκε την προσφορά"
@@ -415,9 +422,12 @@ el:
       write_a_reply: "Απάντησε:"
       conversation_about_listing: "Με τον/την %{person} σχετικά με την καταχώρηση \"%{listing}\""
       conversation_with_user: "Με τον/την %{person}"
+      conversation_with: ~
       last_message_at: "(τελευταίο μήνυμα %{time})"
       requested_by: ~
+      price: ~
       sum: ~
+      price_excludes_vat: ~
     status:
       cancel_payed_transaction: Άκυρο
       feedback_given: "Δόθηκε κριτική"
@@ -436,8 +446,12 @@ el:
       skip_feedback: "Παράλειψε την κριτική"
       waiting_for_listing_author_to_accept_offer: "Αναμονή αποδοχής της προσφοράς από τον/την %{listing_author_name}"
       waiting_for_listing_author_to_accept_request: "Αναμονή αποδοχής του αιτήματος από τον/την %{listing_author_name}"
+      waiting_for_you_to_accept_request: ~
       waiting_confirmation_from_requester: "Αναμονή να δηλωθεί ως ολοκληρωμένο από τον/την %{requester_name}"
+      waiting_confirmation_from_you: ~
       waiting_payment_from_requester: "Αναμονή πληρωμής από τον/την %{requester_name}"
+      waiting_payment_from_you: ~
+      waiting_feedback_from_you: ~
     status_link:
       accept_offer: "Αποδοχή προσφοράς"
       accept_request: "Αποδοχή αιτήματος"
@@ -734,7 +748,6 @@ el:
       listing_you_follow_has_a_new_comment: "Ο/Η %{author} σχολίασε σε μία καταχώρηση που παρακολουθείς στο %{service_name}"
       has_commented_listing_you_follow_in_kassi: "Ο/η %{author} σχολίασε στην καταχώρηση \"%{listing}\" την οποία παρακολουθείτε στο %{service_name}."
     new_message:
-      conversation_title: "Συνομιλία: %{title}"
       view_message: "Δείτε το μήνυμα"
       has_sent_you_a_message_in_kassi: "Ο/Η %{sender} σας έστειλε ένα μήνυμα στο %{service_name}."
       you_have_a_new_message: "Έχετε ένα νέο μήνυμα στο %{service_name} από τον/την %{sender_name}"
@@ -1396,8 +1409,6 @@ el:
       processing_uploaded_image: "(Γίνεται επεξεργασία της εικόνας...)"
       price_excludes_vat: "(χωρίς ΦΠΑ)"
       listing_created_at: ~
-    displayed_price:
-      price_excludes_vat: "(χωρίς ΦΠΑ)"
     verification_required:
       verification_required: ~
   mapview:

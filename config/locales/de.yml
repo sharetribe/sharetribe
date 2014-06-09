@@ -72,6 +72,7 @@ de:
         verification_to_post_listings_info_content_description: "Auf diesem Marktplatz ist es erforderlich, dass man sich vom Administrator verifizieren lässt, bevor man Einträge veröffentlichen darf. Hier kannst du den Standardtext festlegen, der nicht-verifizierten Benutzern angezeigt wird, wenn sie versuchen, einen neuen Eintrag zu erstellen."
         verification_to_post_listings_info_content_default: "Auf diesem Marktplatz ist es erforderlich, dass man sich vom Administrator verifizieren lässt, bevor man Einträge veröffentlichen darf. Du bist noch nicht verifiziert. Bitte %{contact_admin_link}, um dich verifizieren zu lassen."
         contact_admin_link_text: "Administrator kontaktieren"
+        save: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Bearbeite das \"Look & Feel\" der Community %{community_name}"
         community_logo: Logo
@@ -104,6 +105,8 @@ de:
         invalid_color_code: "Der Farben Code sollte 6 Ziffern oder Buchstaben A-F haben, zum Beispiel D96E21"
         custom_head_script: ~
         custom_head_script_instructions_text: ~
+      edit_text_instructions:
+        edit_text_instructions: ~
       edit_welcome_email:
         welcome_email_content: "Inhalt der Begrüßungsmail"
         welcome_email_content_description: "Die folgende Nachricht wird zur Begrüßung an jedes neue Mitglied gesendet. Du kannst die Nachricht so bearbeiten, dass sie zu deiner Community passt. Indem du auf '%{send_test_message_link}' klickst, kannst du sehen, wie sie in einem E-Mail-Client aussieht."
@@ -119,6 +122,7 @@ de:
         private: "Diese Community ist privat (nur registrierte Benutzer können den Inhalt sehen)"
         require_verification_to_post_listings: "Nur von Administratoren verifizierte Benutzer können neue Einträge veröffentlichen"
         listing_preferences: Eintragseinstellungen
+        transaction_preferences: ~
         show_listing_publishing_date: "Datum der Veröffentlichung des Eintrags auf der Artikelseite darstellen"
         show_category_in_listing_list: "Die Art der Kategorien in der Übersicht darstellen"
         hide_expiration_date: "Einträge müssen kein Ablaufdatum haben"
@@ -378,6 +382,9 @@ de:
       confirmed_offer: "Angebot abgeschlossen"
       canceled_request: "Anfrage abgebrochen"
       canceled_offer: "Angebot abgebrochen"
+      message_from: ~
+      about_listing: ~
+      free_message: ~
     message:
       accepted_request: "Anfrage akzeptieren"
       accepted_offer: "Angebot akzeptieren"
@@ -430,9 +437,12 @@ de:
       write_a_reply: "Schreibe eine Antwort:"
       conversation_about_listing: "Mit %{person} ein Gespräch geführt über %{listing}"
       conversation_with_user: "Gespräch mit  %{person}"
+      conversation_with: ~
       last_message_at: "(letzte Nachricht %{time})"
       requested_by: ~
+      price: ~
       sum: ~
+      price_excludes_vat: ~
     status:
       cancel_payed_transaction: Abbruch
       feedback_given: "gegebenes Feedback"
@@ -451,8 +461,12 @@ de:
       skip_feedback: "Feedback überspringen"
       waiting_for_listing_author_to_accept_offer: "Warte bis %{listing_author_name} das Angebt annimmt"
       waiting_for_listing_author_to_accept_request: "Warte bis %{listing_author_name} die Anfrage annimmt"
+      waiting_for_you_to_accept_request: ~
       waiting_confirmation_from_requester: "Warte bis %{requester_name} die Anfrage als erledigt markiert"
+      waiting_confirmation_from_you: ~
       waiting_payment_from_requester: "Warte bis %{requester_name} bezahlt"
+      waiting_payment_from_you: ~
+      waiting_feedback_from_you: ~
     status_link:
       accept_offer: "Angebot annehmen"
       accept_request: "Anfrage annehmen"
@@ -749,7 +763,6 @@ de:
       listing_you_follow_has_a_new_comment: "%{author} hat auf einen Eintrag geantwortet, dem du in %{service_name} folgst"
       has_commented_listing_you_follow_in_kassi: "%{author} hat den Eintrag %{listing} kommentiert, dem du in %{service_name} folgst."
     new_message:
-      conversation_title: "Nachrichtentitel: %{title}"
       view_message: "Nachricht ansehen"
       has_sent_you_a_message_in_kassi: "%{sender} hat dir eine Nachricht auf %{service_name} gesendet."
       you_have_a_new_message: "Du hast eine neue Nachricht von %{sender_name} auf %{service_name}"
@@ -1411,8 +1424,6 @@ de:
       processing_uploaded_image: "(Bild wird bearbeitet ...)"
       price_excludes_vat: "(ohne Mehrwertsteuer)"
       listing_created_at: "Eintrag erfolgreich erstellt"
-    displayed_price:
-      price_excludes_vat: "(Steuer ausgeschlossen)"
     verification_required:
       verification_required: "Verifizierung erforderlich"
   mapview:

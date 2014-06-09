@@ -106,7 +106,7 @@ fi:
         custom_head_script: Head-skripti
         custom_head_script_instructions_text: "Tämä skripti lisätään joka sivun <head>-tagin sisään. Voit käyttää sitä lisätäksesi omaa CSS-, JavaScript- tai HTML-koodia. Huomaa, että Sharetriben kehittyessä skripti saattaa lakata toimimasta."
       edit_text_instructions:
-        edit_text_instructions: Muokkaa ohjetekstejä
+        edit_text_instructions: "Muokkaa ohjetekstejä"
       edit_welcome_email:
         welcome_email_content: "Tervetulosähköpostin sisältö"
         welcome_email_content_description: "Alla oleva viesti lähetetään automaattisesti kaikille uusille käyttäjille näiden liittyessä. Voit muokata viestin sisältöä vastaamaan yhteisösi kuvausta. Klikkaamalla '%{send_test_message_link}' -linkkiä voit lähettää viestin omaan sähköpostiosoitteeseesi."
@@ -383,8 +383,8 @@ fi:
       canceled_request: "Pyyntö peruutettu."
       canceled_offer: "Tarjous peruutettu."
       message_from: "Viesti käyttäjältä %{person}"
-      about_listing: "Liittyen listaukseen %{listing_title}"
-      free_message: "Vapaa viesti"
+      about_listing: ~
+      free_message: ~
     message:
       accepted_request: "hyväksyi pyynnön"
       accepted_offer: "hyväksyi tarjouksen"
@@ -763,7 +763,6 @@ fi:
       listing_you_follow_has_a_new_comment: "%{author} on kommentoinut seuraamaasi ilmoitusta %{service_name_inessive}"
       has_commented_listing_you_follow_in_kassi: "%{author} on kommentoinut seuraamaasi ilmoitusta '%{listing}'."
     new_message:
-      conversation_title: "Viestiketjun otsikko: %{title}"
       view_message: "Näytä viesti"
       has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin %{service_name_inessive}."
       you_have_a_new_message: "Viesti %{service_name_inessive} käyttäjältä %{sender_name}"
@@ -1425,8 +1424,6 @@ fi:
       processing_uploaded_image: "(Ladatun kuvan käsittely kesken...)"
       price_excludes_vat: "(alv 0)"
       listing_created_at: "Ilmoitus luotu"
-    displayed_price:
-      price_excludes_vat: "(alv 0)"
     verification_required:
       verification_required: ~
   mapview:

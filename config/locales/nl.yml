@@ -57,6 +57,7 @@ nl:
         verification_to_post_listings_info_content_description: "Deze marktplaats vereist dat mensen manueel worden geverifieerd door een administrator vooraleer ze items kunnen plaatsen. Hier kan je de default tekst instellen die wordt getoond aan niet-geverifieerde gebruikers wanneer zij een nieuw item proberen plaatsen."
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: ~
+        save: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Bewerk look & feel gemeenschap %{community_name}"
         community_logo: ~
@@ -89,6 +90,8 @@ nl:
         invalid_color_code: ~
         custom_head_script: ~
         custom_head_script_instructions_text: ~
+      edit_text_instructions:
+        edit_text_instructions: ~
       edit_welcome_email:
         welcome_email_content: "Inhoud welkomstmail"
         welcome_email_content_description: "Onderstaande boodschap wordt verstuurd naar iedereen die zich aanmeldt. Je kan de boodschap aanpassen aan je gemeenschap. Door te klikken op %{send_test_message_link}, kan je een preview sturen naar je email adress, om te bekijken hoe deze er uit ziet in een email programma."
@@ -104,6 +107,7 @@ nl:
         private: ~
         require_verification_to_post_listings: ~
         listing_preferences: ~
+        transaction_preferences: ~
         show_listing_publishing_date: ~
         show_category_in_listing_list: ~
         hide_expiration_date: ~
@@ -363,6 +367,9 @@ nl:
       confirmed_offer: ~
       canceled_request: ~
       canceled_offer: ~
+      message_from: ~
+      about_listing: ~
+      free_message: ~
     message:
       accepted_request: ~
       accepted_offer: ~
@@ -415,9 +422,12 @@ nl:
       write_a_reply: "Beantwoord bericht:"
       conversation_about_listing: ~
       conversation_with_user: ~
+      conversation_with: ~
       last_message_at: ~
       requested_by: ~
+      price: ~
       sum: ~
+      price_excludes_vat: ~
     status:
       cancel_payed_transaction: ~
       feedback_given: "Feedback gegeven"
@@ -436,8 +446,12 @@ nl:
       skip_feedback: "Sla feedback over"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
+      waiting_for_you_to_accept_request: ~
       waiting_confirmation_from_requester: ~
+      waiting_confirmation_from_you: ~
       waiting_payment_from_requester: ~
+      waiting_payment_from_you: ~
+      waiting_feedback_from_you: ~
     status_link:
       accept_offer: "Accepteer aanbod"
       accept_request: "Accepteer verzoek"
@@ -734,7 +748,6 @@ nl:
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
-      conversation_title: ~
       view_message: ~
       has_sent_you_a_message_in_kassi: "%{sender} heeft u een bericht gestuurd in %{service_name}"
       you_have_a_new_message: "Je hebt een nieuw bericht in %{service_name} van %{sender_name}"
@@ -1396,8 +1409,6 @@ nl:
       processing_uploaded_image: ~
       price_excludes_vat: ~
       listing_created_at: "Item geplaatst"
-    displayed_price:
-      price_excludes_vat: "(exclusief BTW)"
     verification_required:
       verification_required: ~
   mapview:

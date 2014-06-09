@@ -57,6 +57,7 @@ es:
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: ~
+        save: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Editar apariencia de la comunidad %{community_name}"
         community_logo: Logo
@@ -89,6 +90,8 @@ es:
         invalid_color_code: "El código de color debe contener 6 caracteres, números o letras de la A a la F, por ejemplo D96E21"
         custom_head_script: ~
         custom_head_script_instructions_text: ~
+      edit_text_instructions:
+        edit_text_instructions: ~
       edit_welcome_email:
         welcome_email_content: ~
         welcome_email_content_description: "Este mensaje será enviado a todos los miembros nuevos cuando ellos se unen a la comunidad. Puede modificar el contenido para adaptar a su comunidad. Haciendo click en '%{send_test_message_link}' puede ver cómo queda el mensaje en tu email."
@@ -104,6 +107,7 @@ es:
         private: ~
         require_verification_to_post_listings: ~
         listing_preferences: ~
+        transaction_preferences: ~
         show_listing_publishing_date: ~
         show_category_in_listing_list: ~
         hide_expiration_date: ~
@@ -363,6 +367,9 @@ es:
       confirmed_offer: "Oferta satisfecha."
       canceled_request: "Solicitud cancelada"
       canceled_offer: "Oferta cancelada."
+      message_from: ~
+      about_listing: ~
+      free_message: ~
     message:
       accepted_request: "aceptada la solicitud"
       accepted_offer: "Oferta aceptada"
@@ -415,9 +422,12 @@ es:
       write_a_reply: "Escribe una respuesta:"
       conversation_about_listing: "Conversación con %{person} sobre %{listing}."
       conversation_with_user: "Conversación con %{person}."
+      conversation_with: ~
       last_message_at: "(último mensaje %{time})"
       requested_by: ~
+      price: ~
       sum: ~
+      price_excludes_vat: ~
     status:
       cancel_payed_transaction: Cancelar
       feedback_given: "feedback dado"
@@ -436,8 +446,12 @@ es:
       skip_feedback: "Omitir feedback"
       waiting_for_listing_author_to_accept_offer: "Esperando a %{listing_author_name}  para aceptar la oferta"
       waiting_for_listing_author_to_accept_request: "Esperando a  %{listing_author_name} para aceptar la oferta"
+      waiting_for_you_to_accept_request: ~
       waiting_confirmation_from_requester: "Esperando a %{requester_name} para marcar la solicitud como completada"
+      waiting_confirmation_from_you: ~
       waiting_payment_from_requester: "Esperando a %{requester_name} para que haga el pago"
+      waiting_payment_from_you: ~
+      waiting_feedback_from_you: ~
     status_link:
       accept_offer: "Aceptar oferta"
       accept_request: "Aceptar solicitud"
@@ -742,7 +756,6 @@ es:
       listing_you_follow_has_a_new_comment: "%{author} ha comentado un anuncio que sigues en %{service_name}"
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
-      conversation_title: "Título del hilo del mensaje: %{title}"
       view_message: "Ver mensaje"
       has_sent_you_a_message_in_kassi: "%{sender} te ha enviado un mensaje en %{service_name}:"
       you_have_a_new_message: "Tienes un nuevo mensaje en %{service_name} de %{sender_name}"
@@ -936,7 +949,7 @@ es:
     event_feed:
       latest_events: "Qué está pasando"
     grid_item:
-      processing_uploaded_image: ~
+      processing_uploaded_image: "(Procesando imagen...)"
     index:
       no_listings_with_your_search_criteria: "No pudimos encontrar ningún resultado con su criterio de búsqueda."
       no_listings_notification: "No hay listados. %{add_listing_link}."
@@ -1228,7 +1241,7 @@ es:
       close_listing: "Cerrar listado"
       edit_listing: "Editar listado"
       reopen_listing: "rehabilitar listado"
-      move_to_top: ~
+      move_to_top: "Ir a la página de inicio"
     follow_links:
       follow: "Seguir este anuncio"
       unfollow: "Dejar de seguir este anuncio"
@@ -1264,9 +1277,9 @@ es:
         remove_image: "Quitar imagen"
         select_file: "Elegir Archivo"
         removing: ~
-        processing: ~
+        processing: Procesando...
         loading_image: ~
-        this_may_take_a_while: ~
+        this_may_take_a_while: "(esto podría tomar un tiempo)"
         percentage_loaded: ~
         uploading_failed: ~
         file_too_large: ~
@@ -1403,11 +1416,9 @@ es:
       time: hora
       times: veces
       times_viewed: Visto
-      processing_uploaded_image: ~
+      processing_uploaded_image: "(Procesando imagen...)"
       price_excludes_vat: ~
       listing_created_at: ~
-    displayed_price:
-      price_excludes_vat: ~
     verification_required:
       verification_required: ~
   mapview:
