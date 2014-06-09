@@ -122,6 +122,7 @@ en:
         private: "This community is private (only registered users can see the content)"
         require_verification_to_post_listings: "Only users verified by admin can post new listings"
         listing_preferences: "Listing preferences"
+        transaction_preferences: "Transaction preferences"
         show_listing_publishing_date: "Display publishing date of the listing on the listing page"
         show_category_in_listing_list: "Display listing type in list view"
         hide_expiration_date: "Do not require listings to have an expiration date"
@@ -133,7 +134,7 @@ en:
         google_analytics_key: "Google Analytics tracking ID (classic account)"
         twitter_handle: "Twitter handle (used with tweet button in listing page)"
         update_settings: "Update settings"
-        automatically_confirmed: "Listing is automatically confirmed %{days_dropdown} days after acceptance (or payment)"
+        automatically_confirmed: "Transaction will be automatically marked as completed %{days_dropdown} days after the payment has been made. If escrow system is in use, the money will be released to the provider at this point."
         automatic_newsletter_frequency: "Send automatic newsletter: %{frequency_dropdown}"
         newsletter_daily: Daily
         newsletter_weekly: Weekly

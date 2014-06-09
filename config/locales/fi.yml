@@ -122,6 +122,7 @@ fi:
         private: "Yksityinen yhteisö (vain kirjautuneet käyttäjät näkevät sisällön)"
         require_verification_to_post_listings: "Vain ylläpitäjän erikseen hyväksymät käyttäjät voivat lisätä ilmoituksia"
         listing_preferences: Ilmoitusasetukset
+        transaction_preferences: "Transaktioprosessin asetukset"
         show_listing_publishing_date: "Näytä ilmoituksen julkaisuajankohta ilmoituksen sivulla"
         show_category_in_listing_list: "Näytä ilmoituskategoria listanäkymässä"
         hide_expiration_date: "Älä vaadi viimeisen voimassaolopäivän valintaa ilmoituksen lisäyksen yhteydessä"
@@ -133,7 +134,7 @@ fi:
         google_analytics_key: "Google Analytics tracking ID (classic account)"
         twitter_handle: "Twitter-tili (käytetään ilmoitussivulla olevan twitter-napin yhteydessä)"
         update_settings: "Update settings"
-        automatically_confirmed: "Ilmoitus merkitään toteutuneeksi automaattisesti kun hyväksymisestä (tai maksusta) on kulunut %{days_dropdown} päivää."
+        automatically_confirmed: "Transaktio merkitään toteutuneeksi automaattisesti, kun maksusta on kulunut %{days_dropdown} päivää. Jos käytössä on escrow-järjestelmä, rahat tilitetään tässä vaiheessa maksun saajalle."
         automatic_newsletter_frequency: "Lähetä automaattinen uutiskirje: %{frequency_dropdown}"
         newsletter_daily: Päivittäin
         newsletter_weekly: Viikoittain
