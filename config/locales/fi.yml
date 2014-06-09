@@ -459,8 +459,12 @@ fi:
       skip_feedback: "Ohita palaute"
       waiting_for_listing_author_to_accept_offer: "Odottaa että %{listing_author_name} hyväksyy tarjouksen"
       waiting_for_listing_author_to_accept_request: "Odottaa että %{listing_author_name} hyväksyy pyynnön"
+      waiting_for_you_to_accept_request: "Odottaa että hyväksyt pyynnön"
       waiting_confirmation_from_requester: "Odottaa että %{requester_name} merkitsee pyynnön toteutetuksi"
+      waiting_confirmation_from_you: "Odottaa että merkitset pyynnön toteutetuksi"
       waiting_payment_from_requester: "Odottaa että %{requester_name} suorittaa maksun"
+      waiting_payment_from_you: "Odottaa että suoritat maksun"
+      waiting_feedback_from_you: "Odottaa että annat palautetta"
     status_link:
       accept_offer: "Hyväksy tarjous"
       accept_request: "Hyväksy pyyntö"

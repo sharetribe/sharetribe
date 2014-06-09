@@ -34,7 +34,8 @@
       .col-3
         - Maybe(conversation).status.reject { |s| s == "free" }.each do |status|
           - is_author = conversation.author == @current_user
-          - icon, status = conversation_icon_and_status(status, is_author, other_party)
+          - waiting_feedback = conversation.waiting_feedback_from?(@current_user)
+          - icon, status = conversation_icon_and_status(status, is_author, other_party, waiting_feedback)
 
           .conversation-list-status-container
             .conversation-list-status-icon

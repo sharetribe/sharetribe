@@ -37,9 +37,16 @@ module ConversationsHelper
   end
 
   # Give `status`, `is_author` and `other_party` and get back icon and text for current status
-  def conversation_icon_and_status(status, is_author, other_party)
+  def conversation_icon_and_status(status, is_author, other_party, waiting_feedback)
     icon_waiting_you = icon_tag("alert", ["icon-fix", "waiting-you"])
     icon_waiting_other = icon_tag("clock", ["icon-fix", "waiting-other"])
+
+    # Split "confirmed" status into "waiting_feedback" and "completed"
+    status = if waiting_feedback
+      "waiting_feedback"
+    else
+      "completed"
+    end if status == "confirmed"
 
     status_hash = {
       pending: {
@@ -82,7 +89,14 @@ module ConversationsHelper
         }
       },
 
-      confirmed: {
+      waiting_feedback: {
+        both: {
+          icon: icon_waiting_you,
+          text: t("conversations.status.waiting_feedback_from_you")
+        }
+      },
+
+      completed: {
         both: {
           icon: icon_tag("check", ["icon-fix", "confirmed"]),
           text: t("conversations.status.request_confirmed")
