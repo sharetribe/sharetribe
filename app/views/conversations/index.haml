@@ -1,7 +1,7 @@
 - content_for :title_header do
   %h1= t("layouts.no_tribe.inbox")
 
-#conversations.inbox-feed.centered-section-wide
+.undo-mobile-wrapper-margin#conversations
   - if @conversations && !@conversations.empty?
     = render :partial => @conversations
     = will_paginate(@conversations)

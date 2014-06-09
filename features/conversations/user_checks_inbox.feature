@@ -16,8 +16,8 @@ Feature: User checks inbox
     And there is a message "Test message" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow inbox link
-    Then I should see "Massage" within ".inbox-feed"
-    And I should see "Test message" within ".inbox-feed"
+    Then I should see "Massage" within "#conversations"
+    And I should see "Test message" within "#conversations"
 
   Scenario: Viewing a single conversation
     And there is a listing with title "Massage" from "kassi_testperson1" with category "Services" and with transaction type "Requesting"

@@ -101,16 +101,24 @@ Given /^Braintree merchant creation is mocked to return failure$/ do
 end
 
 Given /^I want to pay "(.*?)"$/ do |item_title|
-  steps %Q{Given I am on the messages page}
-  steps %Q{Then I should see "Pay"} # This probably fails if there are many payments waiting
-  steps %Q{When I follow "Pay"} # This probably fails if there are many payments waiting
-  steps %Q{Then I should see payment details form for Braintree}
+  # This probably fails if there are many payments waiting
+  steps %Q{
+    Given I am on the messages page
+    Then I should see "Waiting for you to pay"
+    When I click ".conversation-title-link"
+    And I follow "Pay"
+    Then I should see payment details form for Braintree
+  }
 end
 
 When /^I cancel the transaction$/ do
-  steps %Q{Given I am on the messages page}
-  steps %Q{Then I should see "Did not happen"} # This probably fails if there are many payments waiting
-  steps %Q{When I follow "Did not happen"} # This probably fails if there are many payments waiting
+  # This probably fails if there are many payments waiting
+  steps %Q{
+    Given I am on the messages page
+    Then I should see "Waiting for you to mark the request completed"
+    When I click ".conversation-title-link"
+    And I follow "Did not happen"
+  }
 end
 
 Then /^I should see payment details form for Braintree$/ do

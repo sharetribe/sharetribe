@@ -1,30 +1,44 @@
-- other_party = conversation.other_party(@current_user)
-- unless other_party.nil?
+- Maybe(conversation).other_party(@current_user).each do |other_party|
   - last_message = conversation.last_message
-  .feed-item.inbox-feed-item{:class => (conversation.read_by?(@current_user) ? "" : "unread"), :id => "conversation_#{conversation.id.to_s}"}
-    .feed-author-avatar
-      = small_avatar_thumb other_party
-    .feed-content
-      .author
-        = render :partial => "conversation_with", :locals => { :conversation => conversation, :other_party => other_party }
-        = t("conversations.show.last_message_at", :time => time_ago(conversation.last_message_at))
-      %h3
-        = link_to single_conversation_path(:conversation_type => action_name, :id => conversation.id) do
-          - if last_message.content.blank?
-            - if last_message.action.eql?("pay")
-              - if last_message.sender.eql?(@current_user)
-                = icon_tag("reply", ["icon-fix"])
-              = t("conversations.message.paid", :sum => humanized_money_with_symbol(last_message.conversation.payment.total_sum))
-            - else
-              - if last_message.sender.eql?(@current_user)
-                = icon_tag("reply", ["icon-fix"])
-              = t(".#{last_message.action}ed_#{last_message.conversation.discussion_type}").capitalize
+  .row-with-divider.without-margin.conversation-row{:class => (conversation.read_by?(@current_user) ? "" : "unread")}
+    .col-3
+      .conversation-details-container
+        = small_avatar_thumb other_party, :class => "conversation-avatar"
+        .conversation-details
+          .conversation-other-party-name
+            = link_to other_party.name, other_party
+          .conversation-last-message-at
+            = time_ago(conversation.last_message_at)
+    %div{class: @current_community.payments_in_use? ? "col-6" : "col-9"}
+      = link_to single_conversation_path(:conversation_type => action_name, :id => conversation.id), class: "conversation-title-link" do
+        - if last_message.content.blank?
+          - if last_message.action.eql?("pay")
+            - if last_message.sender.eql?(@current_user)
+              = icon_tag("reply", ["icon-fix"])
+            = t("conversations.message.paid", :sum => humanized_money_with_symbol(last_message.conversation.payment.total_sum))
           - else
             - if last_message.sender.eql?(@current_user)
               = icon_tag("reply", ["icon-fix"])
-            = "\"#{truncate(last_message.content, :length => 100, :omission => "...")}\""
+            = t("conversations.message.#{last_message.action}ed_#{last_message.conversation.discussion_type}").capitalize
+        - else
+          - if last_message.sender.eql?(@current_user)
+            = icon_tag("reply", ["icon-fix"])
+          %span.conversation-title-link-text= "#{last_message.content}"
+      .conversation-context
+        - if conversation.listing
+          = "About listing"
+          = link_to conversation.listing.title, conversation.listing
+        - else
+          Free message
+    - if @current_community.payments_in_use?
+      .col-3
+        - Maybe(conversation).status.reject { |s| s == "free" }.each do |status|
+          - is_author = conversation.author == @current_user
+          - waiting_feedback = conversation.waiting_feedback_from?(@current_user)
+          - icon, status = conversation_icon_and_status(status, is_author, other_party, waiting_feedback)
 
-      - unless conversation.status.eql?("free")
-        %small
-          .listed-conversation-status-padding{:id => "conversation_#{conversation.id.to_s}_status"}
-            = render :partial => "status", :locals => { :conversation => conversation }
+          .conversation-list-status-container
+            .conversation-list-status-icon
+              = icon
+            .conversation-list-status
+              = status

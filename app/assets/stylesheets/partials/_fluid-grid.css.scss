@@ -13,6 +13,11 @@ $bottom-gutter: lines(0.5);
   @for $i from 1 through $cols {
     .#{$prefix}-#{$i} {
       width: 100%;
+      margin-bottom: lines(0.5);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
 
       // Set min-height 1px, so that the element will be rendered, even though it's empty.
       // This reduces load time flickering.
@@ -24,6 +29,7 @@ $bottom-gutter: lines(0.5);
         float: left;
         padding-left: $gutter;
         padding-right: $gutter;
+        margin-bottom: 0;
       }
     }
   }

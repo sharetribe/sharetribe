@@ -15,10 +15,12 @@ Feature: Seller creates an invoice with Braintree
     And I am logged in as "kassi_testperson1"
     When I follow inbox link
     Then I should see that there is 1 new message
+    And I should see "Waiting for you to accept the request"
 
   @javascript
   Scenario: User can not accept request without Braintree account
-    When I follow "Accept request"
+    When I follow "I request this"
+    And I follow "Accept request"
     Then I should see "You need to fill in payout details before you can accept the request"
 
   @javascript
@@ -26,7 +28,8 @@ Feature: Seller creates an invoice with Braintree
     Given there are following Braintree accounts:
       | person            | status  | community |
       | kassi_testperson1 | pending | test      |
-    When I follow "Accept request"
+    When I follow "I request this"
+    And I follow "Accept request"
     Then I should see "You need to fill in payout details before you can accept the request"
 
   @javascript
@@ -34,7 +37,8 @@ Feature: Seller creates an invoice with Braintree
     Given there are following Braintree accounts:
       | person            | status | community |
       | kassi_testperson1 | active | test      |
-    When I follow "Accept request"
+    When I follow "I request this"
+    And I follow "Accept request"
     Then I should see "20.90" in the "conversation_payment_attributes_sum" input
     And I should see "3" within "#service-fee"
     And I should see "17.90" within "#payment-to-seller"

@@ -12,6 +12,10 @@
   @include icon-fix;
 }
 
+.icon-fix-rel {
+  @include icon-fix-rel;
+}
+
 /**
   Use icon-fix to correctly vertical align SS-pika icons (3px)
 */

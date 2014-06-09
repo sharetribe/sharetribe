@@ -459,8 +459,12 @@ en:
       skip_feedback: "Skip feedback"
       waiting_for_listing_author_to_accept_offer: "Waiting for %{listing_author_name} to accept the offer"
       waiting_for_listing_author_to_accept_request: "Waiting for %{listing_author_name} to accept the request"
-      waiting_confirmation_from_requester: "Waiting for %{requester_name} to mark the request as completed"
+      waiting_for_you_to_accept_request: "Waiting for you to accept the request"
+      waiting_confirmation_from_requester: "Waiting for %{requester_name} to mark the request completed"
+      waiting_confirmation_from_you: "Waiting for you to mark the request completed"
       waiting_payment_from_requester: "Waiting for %{requester_name} to pay"
+      waiting_payment_from_you: "Waiting for you to pay"
+      waiting_feedback_from_you: "Waiting for you to give feedback"
     status_link:
       accept_offer: "Accept offer"
       accept_request: "Accept request"
