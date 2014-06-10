@@ -666,6 +666,7 @@ CREATE TABLE `participations` (
   `person_id` varchar(255) DEFAULT NULL,
   `conversation_id` int(11) DEFAULT NULL,
   `is_read` tinyint(1) DEFAULT '0',
+  `is_starter` tinyint(1) DEFAULT '0',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `last_sent_at` datetime DEFAULT NULL,
@@ -1745,6 +1746,8 @@ INSERT INTO schema_migrations (version) VALUES ('20140226121423');
 
 INSERT INTO schema_migrations (version) VALUES ('20140227102627');
 
+INSERT INTO schema_migrations (version) VALUES ('20140227145229');
+
 INSERT INTO schema_migrations (version) VALUES ('20140228164206');
 
 INSERT INTO schema_migrations (version) VALUES ('20140228164428');
@@ -1840,3 +1843,7 @@ INSERT INTO schema_migrations (version) VALUES ('20140530115433');
 INSERT INTO schema_migrations (version) VALUES ('20140604075725');
 
 INSERT INTO schema_migrations (version) VALUES ('20140604135743');
+
+INSERT INTO schema_migrations (version) VALUES ('20140610115132');
+
+INSERT INTO schema_migrations (version) VALUES ('20140610115217');
