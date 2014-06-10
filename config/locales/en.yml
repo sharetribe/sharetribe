@@ -62,7 +62,7 @@ en:
         edit_community_search_placeholder_description: "This is shown on the home page of the community as a placeholder text in the search bar. %{see_how_it_looks_like}."
         private_community_homepage_content: "Private community homepage content"
         edit_private_community_homepage_content_description: "This content is shown to unlogged users on the home page of private communities. Here you can describe your community and the process to join it. You can also add images, videos and HTML content here. %{see_how_it_looks_like}."
-        update_information: "Update information"
+        update_information: "Save settings"
         invite_people: "Invite people to this community"
         edit_signup_info: "Signup info"
         edit_signup_info_description: "This is an info text that can be shown to users in the signup page. There you can give the users instructions for signing up, information like where to get an invite, etc. By default there are no instructions."
@@ -133,7 +133,7 @@ en:
         integrations: Integrations
         google_analytics_key: "Google Analytics tracking ID (classic account)"
         twitter_handle: "Twitter handle (used with tweet button in listing page)"
-        update_settings: "Update settings"
+        update_settings: "Save settings"
         automatically_confirmed: "Transaction will be automatically marked as completed %{days_dropdown} days after the payment has been made. If escrow system is in use, the money will be released to the provider at this point."
         automatic_newsletter_frequency: "Send automatic newsletter: %{frequency_dropdown}"
         newsletter_daily: Daily
@@ -167,7 +167,7 @@ en:
         save: "Save settings"
       menu_links:
         menu_links: "Menu links"
-        save: Save
+        save: "Save settings"
         add_menu_link: "Add a new link to menu"
         title_placeholder: "Link title"
         url_placeholder: "http://example.com/en"
