@@ -1,0 +1,83 @@
+@import "mixins/all";
+
+.conversation-details-container {
+  position: relative;
+}
+
+.conversation-row {
+  padding: lines(0.5);
+  position: relative;
+}
+
+.conversation-details {
+  padding-left: em(48) + lines(0.5);
+}
+
+.conversation-avatar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: em(48);
+  height: em(48);
+  @include border-radius($default-border-radius);
+}
+
+.conversation-title-link {
+  font-weight: bold;
+  display: block;
+  @include ellipsis;
+}
+
+.conversation-title-link-text {
+  &:before, &:after {
+    content: "\"";
+  }
+}
+
+.conversation-context {
+  @include small-type;
+  line-height: lines(1, $small-type)
+}
+
+.conversation-list-status-container {
+  position: relative;
+  @include vertical-centering-table-container;
+}
+
+.conversation-list-status-icon {
+  height: 48px;
+  width: em(40, $large-type);
+  @include large-type;
+  line-height: 48px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  & > .waiting-you {
+    color: $yellow;
+  }
+
+  & > .waiting-other {
+    color: $aside;
+  }
+
+  & > .confirmed {
+    color: $green;
+  }
+
+  & > .canceled {
+    color: $red;
+  }
+
+  & > .rejected {
+    color: $red;
+  }
+}
+
+.conversation-list-status {
+  padding-left: em(40);
+  height: 48px;
+  @include vertical-centering-table-content;
+
+}

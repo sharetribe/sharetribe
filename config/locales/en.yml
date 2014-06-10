@@ -106,7 +106,7 @@ en:
         custom_head_script: "Custom script"
         custom_head_script_instructions_text: "This script is injected inside the <head> tag of every page and can be used to insert custom CSS, JavaScript or HTML. Please note that future changes to Sharetribe may render your script incompatible."
       edit_text_instructions:
-        edit_text_instructions: Text instructions
+        edit_text_instructions: "Text instructions"
       edit_welcome_email:
         welcome_email_content: "Welcome email content"
         welcome_email_content_description: "The message below will be sent to every new member when they join. You can customize the message to fit your community. By clicking '%{send_test_message_link}' you can a preview message to your email address, so you can see how it looks in an email client."
@@ -383,6 +383,8 @@ en:
       canceled_request: "Request canceled."
       canceled_offer: "Offer canceled."
       message_from: "Message from %{person}"
+      about_listing: "About listing %{listing_title}"
+      free_message: "Free message"
     message:
       accepted_request: "accepted the request"
       accepted_offer: "accepted the offer"
@@ -438,7 +440,9 @@ en:
       conversation_with: "Conversation with %{person}"
       last_message_at: "(latest message %{time})"
       requested_by: "Requested by %{requester_name}"
+      price: "Price: %{price}"
       sum: "Sum: %{sum}"
+      price_excludes_vat: "(excludes VAT)"
     status:
       cancel_payed_transaction: Cancel
       feedback_given: "Feedback given"
@@ -457,8 +461,12 @@ en:
       skip_feedback: "Skip feedback"
       waiting_for_listing_author_to_accept_offer: "Waiting for %{listing_author_name} to accept the offer"
       waiting_for_listing_author_to_accept_request: "Waiting for %{listing_author_name} to accept the request"
-      waiting_confirmation_from_requester: "Waiting for %{requester_name} to mark the request as completed"
+      waiting_for_you_to_accept_request: "Waiting for you to accept the request"
+      waiting_confirmation_from_requester: "Waiting for %{requester_name} to mark the request completed"
+      waiting_confirmation_from_you: "Waiting for you to mark the request completed"
       waiting_payment_from_requester: "Waiting for %{requester_name} to pay"
+      waiting_payment_from_you: "Waiting for you to pay"
+      waiting_feedback_from_you: "Waiting for you to give feedback"
     status_link:
       accept_offer: "Accept offer"
       accept_request: "Accept request"
@@ -1459,7 +1467,7 @@ en:
       total: Total
       service_charge: "Service charge"
       product: "Product:"
-      price: "Price:"
+      price: "Sum:"
       price_for: "Price for %{payer_given_name}:"
       continue_to_pay: "Continue to pay"
       invoice: Invoice

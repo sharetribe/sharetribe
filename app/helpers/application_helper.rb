@@ -42,7 +42,7 @@ module ApplicationHelper
       "dislike" => "ss-dislike",
       "calendar" => "ss-calendar",
       "phone" => "ss-phone",
-      "clock" => "ss-alarmclock",
+      "clock" => "ss-clock",
       "eye" => "ss-view",
       "cross" => "ss-delete",
       "chat_bubble" => "ss-chat",

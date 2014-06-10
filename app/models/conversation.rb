@@ -108,6 +108,10 @@ class Conversation < ActiveRecord::Base
     participations.find_by_person_id(person.id).feedback_skipped?
   end
 
+  def waiting_feedback_from?(person)
+    !(has_feedback_from?(person) || feedback_skipped_by?(person))
+  end
+
   # Send email notification to message receivers and returns the receivers
   def send_email_to_participants(community)
     recipients(messages.last.sender).each do |recipient|

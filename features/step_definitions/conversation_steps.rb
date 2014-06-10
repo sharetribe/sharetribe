@@ -100,7 +100,7 @@ Then(/^I should see that the conversation is waiting for confirmation$/) do
   steps %Q{
     Then I should see "Accepted"
     Then I should see "Waiting for"
-    Then I should see "to mark the request as completed"
+    Then I should see "to mark the request completed"
   }
 end
 

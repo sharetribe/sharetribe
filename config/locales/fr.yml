@@ -72,6 +72,7 @@ fr:
         verification_to_post_listings_info_content_description: "Cette place de marché nécessite que les utilisateurs soient validés par un administrateur avant qu'ils ne puissent poster une annonce. Ici, vous pouvez définir le texte qui est affiché aux utilisateurs non encore validés lorsqu'ils essaient de poster une nouvelle annonce."
         verification_to_post_listings_info_content_default: "Cette place de marché nécessite que les utilisateurs soient validés par un administrateur avant qu'ils ne puissent poster une annonce. Vous n'avez pas encore été validé. Veuillez %{contact_admin_link} pour lui demander."
         contact_admin_link_text: "contacter l'administrateur"
+        save: "Sauvegarder les réglages"
       edit_look_and_feel:
         edit_community_look_and_feel: "Modifier la présentation et l'aspect de la tribu \"%{community_name}\""
         community_logo: "Logo large"
@@ -104,6 +105,8 @@ fr:
         invalid_color_code: "Le code de la couleur doit être une suite de 6 chiffres ou lettres (de A à F), par exemple D96E21"
         custom_head_script: "Script personnalisé"
         custom_head_script_instructions_text: "Ce script est inséré dans le tag <head> de chaque page et peut être utilisé pour insérer du contenu CSS, JavaScript ou HTML personnalisé. Notez que des futures évolutions de Sharetribe pourrait rendre votre script incompatible."
+      edit_text_instructions:
+        edit_text_instructions: "Instructions textuelles"
       edit_welcome_email:
         welcome_email_content: "Contenu du message de bienvenue"
         welcome_email_content_description: "Le message ci-dessous sera envoyé à chaque nouveau membre de la tribu, quand il la rejoindra. Vous pouvez le modifier pour l'adapter à vos envies. En cliquant sur \"%{send_test_message_link}\" vous pouvez pré-visualiser le message en l'envoyant à votre adresse personnelle pour voir à quoi cela ressemblera exactement."
@@ -119,6 +122,7 @@ fr:
         private: "Cette tribu est privée (seuls les utilisateurs connectés peuvent en voir le contenu)"
         require_verification_to_post_listings: "Seuls les utilisateurs validés par un administrateur peuvent poster de nouvelles annonces"
         listing_preferences: "Réglages d'annonces"
+        transaction_preferences: "Paramètres de transactions"
         show_listing_publishing_date: "Afficher la date de publication de l'annonce sur la page de l'annonce"
         show_category_in_listing_list: "Afficher les types de transaction dans la vue liste"
         hide_expiration_date: "Ne pas demander de date d'expiration pour les annonces"
@@ -130,7 +134,7 @@ fr:
         google_analytics_key: "Google Analytics tracking ID (compte classique)"
         twitter_handle: "Nom Twitter (utilisé dans le bouton \"Tweeter\" sur les pages des annonces)"
         update_settings: "Mettre à jour les paramètres"
-        automatically_confirmed: "Les annonces sont automatiquement marquées comme réalisées %{days_dropdown} jour(s) après qu'elles aient été acceptées (ou payées)"
+        automatically_confirmed: "Les annonces seront automatiquement marquées comme réalisées %{days_dropdown} jours après le paiement. Si le système de dépôt est utilisé, l'argent sera transmis au vendeur à ce moment."
         automatic_newsletter_frequency: "Fréquence d'envoi de la newsletter : %{frequency_dropdown}"
         newsletter_daily: Quotidienne
         newsletter_weekly: Hebdomadaire
@@ -378,6 +382,9 @@ fr:
       confirmed_offer: "Offre réalisée."
       canceled_request: "Demande annulée."
       canceled_offer: "Offre annulée."
+      message_from: "Message de %{person}"
+      about_listing: ~
+      free_message: ~
     message:
       accepted_request: "a accepté la demande"
       accepted_offer: "a accepté l'offre"
@@ -430,9 +437,12 @@ fr:
       write_a_reply: "Écrire une réponse :"
       conversation_about_listing: "Discussion avec %{person} à propos de %{listing}"
       conversation_with_user: "Discussion avec %{person}"
+      conversation_with: "Conversation avec %{person}"
       last_message_at: "(dernier message %{time})"
       requested_by: "Demandé par %{requester_name}"
+      price: "Prix : %{price}"
       sum: "Total : %{sum}"
+      price_excludes_vat: "(hors TVA)"
     status:
       cancel_payed_transaction: Annuler
       feedback_given: "Avis donné"
@@ -451,8 +461,12 @@ fr:
       skip_feedback: "Ne pas donner d'avis"
       waiting_for_listing_author_to_accept_offer: "En attente d'acceptation de l'offre par %{listing_author_name}"
       waiting_for_listing_author_to_accept_request: "En attente d'acceptation de la demande par %{listing_author_name}"
+      waiting_for_you_to_accept_request: ~
       waiting_confirmation_from_requester: "En attente de la confirmation par %{requester_name} de la réalisation"
+      waiting_confirmation_from_you: ~
       waiting_payment_from_requester: "En attente du paiement par %{requester_name}"
+      waiting_payment_from_you: ~
+      waiting_feedback_from_you: ~
     status_link:
       accept_offer: "Accepter l'offre"
       accept_request: "Accepter demande"
@@ -749,7 +763,6 @@ fr:
       listing_you_follow_has_a_new_comment: "%{author} a commenté une annonce que vous suivez dans %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} a commenté l'annonce '%{listing}' que vous suivez sur %{service_name}."
     new_message:
-      conversation_title: "Titre du fil de messages : %{title}"
       view_message: "Voir le message"
       has_sent_you_a_message_in_kassi: "%{sender} vous a envoyé un message sur %{service_name}."
       you_have_a_new_message: "Vous avez un nouveau message sur %{service_name} de la part de %{sender_name}"
@@ -1411,8 +1424,6 @@ fr:
       processing_uploaded_image: "(Traitement de l'image envoyée...)"
       price_excludes_vat: "(hors TVA)"
       listing_created_at: "Annonce créée"
-    displayed_price:
-      price_excludes_vat: "(hors TVA)"
     verification_required:
       verification_required: "Vérification nécessaire"
   mapview:
@@ -1456,7 +1467,7 @@ fr:
       total: Total
       service_charge: Commission
       product: "Produit : "
-      price: "Prix : "
+      price: "Total : "
       price_for: "Prix pour %{payer_given_name} : "
       continue_to_pay: "Continuer le paiement"
       invoice: Facture

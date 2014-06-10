@@ -18,10 +18,20 @@
 
 /**
   Use icon-fix to correctly vertical align SS-pika icons
+
+  Deprecated: Use icon-fix-rel
 */
 @mixin icon-fix {
   position: relative;
   top: 2px;
+}
+
+/**
+  Icon fix relative to the font-size
+*/
+@mixin icon-fix-rel {
+  position: relative;
+  top: em(2);
 }
 
 /**

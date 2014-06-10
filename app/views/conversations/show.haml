@@ -24,10 +24,22 @@
             = t(".requested_by", requester_name: link_to(@conversation.starter.name, @conversation.starter)).html_safe
 
         - Maybe(@conversation).listing.each do |listing|
+          - price = Maybe(listing).price.or_else(nil)
+          - sum = Maybe(@conversation).payment.total_sum.or_else(nil)
 
-          - Maybe(listing).price.each do |price|
+          - if sum
+            %p.message-price
+              = t(".sum", sum: humanized_money_with_symbol(sum))
+          - elsif price
             %p.message-sum
-              = t(".sum", sum: humanized_money_with_symbol(price))
+              = t(".price", price: humanized_money_with_symbol(price))
+
+              - if listing.quantity.present?
+                = "/ #{listing.quantity}"
+
+              - if @current_community.vat
+                %span.message-sum-vat
+                  = t(".price_excludes_vat")
 
           - if @conversation.status.eql?("free")
             - unless listing.author == @current_user

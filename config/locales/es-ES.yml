@@ -57,6 +57,7 @@ es-ES:
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: ~
+        save: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Editar apariencia de la comunidad %{community_name}"
         community_logo: Logo
@@ -89,6 +90,8 @@ es-ES:
         invalid_color_code: "El código de color debe contener 6 caracteres, números o letras de la A a la F, por ejemplo D96E21"
         custom_head_script: ~
         custom_head_script_instructions_text: ~
+      edit_text_instructions:
+        edit_text_instructions: ~
       edit_welcome_email:
         welcome_email_content: ~
         welcome_email_content_description: ~
@@ -104,6 +107,7 @@ es-ES:
         private: ~
         require_verification_to_post_listings: ~
         listing_preferences: ~
+        transaction_preferences: ~
         show_listing_publishing_date: ~
         show_category_in_listing_list: ~
         hide_expiration_date: ~
@@ -363,6 +367,9 @@ es-ES:
       confirmed_offer: ~
       canceled_request: ~
       canceled_offer: ~
+      message_from: ~
+      about_listing: ~
+      free_message: ~
     message:
       accepted_request: ~
       accepted_offer: ~
@@ -415,9 +422,12 @@ es-ES:
       write_a_reply: "Escribe una respuesta:"
       conversation_about_listing: ~
       conversation_with_user: ~
+      conversation_with: ~
       last_message_at: "(último mensaje %{time})"
       requested_by: ~
+      price: ~
       sum: ~
+      price_excludes_vat: ~
     status:
       cancel_payed_transaction: ~
       feedback_given: "Sugerencia dada"
@@ -436,8 +446,12 @@ es-ES:
       skip_feedback: "Omitir sugerencia"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: "Esperando que %{listing_author_name} acepte el pedido"
+      waiting_for_you_to_accept_request: ~
       waiting_confirmation_from_requester: ~
+      waiting_confirmation_from_you: ~
       waiting_payment_from_requester: ~
+      waiting_payment_from_you: ~
+      waiting_feedback_from_you: ~
     status_link:
       accept_offer: "Aceptar oferta"
       accept_request: "Aceptar solicitud"
@@ -737,7 +751,6 @@ es-ES:
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
-      conversation_title: "Título del hilo del mensaje: %{title}"
       view_message: "Ver mensaje"
       has_sent_you_a_message_in_kassi: "%{sender} te ha enviado un mensaje en %{service_name}:"
       you_have_a_new_message: "Tienes un nuevo mensaje en %{service_name}"
@@ -1401,8 +1414,6 @@ es-ES:
       processing_uploaded_image: ~
       price_excludes_vat: ~
       listing_created_at: ~
-    displayed_price:
-      price_excludes_vat: ~
     verification_required:
       verification_required: ~
   mapview:
