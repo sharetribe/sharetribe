@@ -275,7 +275,7 @@ GEM
       cucumber (>= 0.8)
       rake
     polyglot (0.3.4)
-    possibly (0.0.2)
+    possibly (0.1.1)
     postmark (0.9.15)
       json
       rake
@@ -493,7 +493,7 @@ DEPENDENCIES
   paperclip
   parallel_tests
   pickle
-  possibly (~> 0.0.1)
+  possibly (~> 0.1.1)
   postmark-rails
   pry
   pry-nav
