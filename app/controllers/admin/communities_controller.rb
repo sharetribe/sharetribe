@@ -113,6 +113,11 @@ class Admin::CommunitiesController < ApplicationController
     @selected_left_navi_link = "admin_settings"
   end
 
+  def transactions
+    @community = @current_community
+    @conversations = Conversation.where(:community_id => @current_community.id)
+  end
+
   def update_look_and_feel
     params[:community][:custom_color1] = nil if params[:community][:custom_color1] == ""
     params[:community][:custom_color2] = nil if params[:community][:custom_color2] == ""

@@ -142,6 +142,7 @@ Kassi::Application.routes.draw do
           put :update_settings
           post :posting_allowed
           post :promote_admin
+          get :transactions
         end
         resources :emails
       end

@@ -1,0 +1,28 @@
+- content_for :title_header do
+  %h1= t("layouts.admin.admin")
+
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@community) }
+
+.left-navi-section
+  %h2= t("admin.communities.transactions.transactions", :community_name => @community.name(I18n.locale))
+
+  %table#admin_transactions
+    %thead
+      %tr
+        %th=t("admin.communities.transactions.title")
+        %th=t("admin.communities.transactions.initiated_by")
+        %th=t("admin.communities.transactions.listing_author")
+        %th=t("admin.communities.transactions.started")
+        %th=t("admin.communities.transactions.last_activity")
+        %th=t("admin.communities.transactions.amount")
+        %th=t("admin.communities.transactions.status")
+    %tbody
+      - @conversations.each do |conversation|
+        %tr
+          %td=conversation.listing.title
+          %td=conversation.starter.full_name
+          %td=conversation.listing.author.full_name
+          %td=l(conversation.created_at, :format => :shorter)
+          %td=l(conversation.last_message_at, :format => :shorter)
+          %td=price_as_text(conversation.listing)
+          %td=conversation.status

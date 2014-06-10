@@ -712,6 +712,12 @@ module ApplicationHelper
         :icon_class => icon_class("settings"),
         :path => settings_admin_community_path(@current_community),
         :name => "admin_settings"
+      },
+      {
+        :text => t("admin.communities.transactions.transactions"),
+        :icon_class => icon_class("information"),
+        :path => transactions_admin_community_path(@current_community),
+        :name => "transactions"
       }
     ]
 
