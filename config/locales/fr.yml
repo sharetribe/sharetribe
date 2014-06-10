@@ -383,8 +383,8 @@ fr:
       canceled_request: "Demande annulée."
       canceled_offer: "Offre annulée."
       message_from: "Message de %{person}"
-      about_listing: ~
-      free_message: ~
+      about_listing: "A propos de l'annonce %{listing_title}"
+      free_message: "Message libre"
     message:
       accepted_request: "a accepté la demande"
       accepted_offer: "a accepté l'offre"
@@ -461,12 +461,12 @@ fr:
       skip_feedback: "Ne pas donner d'avis"
       waiting_for_listing_author_to_accept_offer: "En attente d'acceptation de l'offre par %{listing_author_name}"
       waiting_for_listing_author_to_accept_request: "En attente d'acceptation de la demande par %{listing_author_name}"
-      waiting_for_you_to_accept_request: ~
-      waiting_confirmation_from_requester: "En attente de la confirmation par %{requester_name} de la réalisation"
-      waiting_confirmation_from_you: ~
+      waiting_for_you_to_accept_request: "En attente de votre acceptation de la demande"
+      waiting_confirmation_from_requester: "En attente de %{requester_name} de la réalisation de la demande"
+      waiting_confirmation_from_you: "En attente de votre réalisation de la demande"
       waiting_payment_from_requester: "En attente du paiement par %{requester_name}"
-      waiting_payment_from_you: ~
-      waiting_feedback_from_you: ~
+      waiting_payment_from_you: "En attente de votre paiement"
+      waiting_feedback_from_you: "En attente de votre avis"
     status_link:
       accept_offer: "Accepter l'offre"
       accept_request: "Accepter demande"
@@ -1052,7 +1052,7 @@ fr:
       feedback: "Vos commentaires pour l'équipe de %{service_name}"
       default_feedback: "Vous avez rencontré un problème sur %{service_name} ? Vous souhaitez proposer une nouvelle fonctionnalité ? Vous avez remarqué une annonce suspecte ? Ou vous voulez juste discuter avec nous ? Dites le nous !"
       feedback_forum: "forum de discussion"
-      feedback_handle: Commentaires
+      feedback_handle: Commentaire
       give_feedback: "Nous contacter"
       keywords: "%{service_name}, service, article, objet, transport, covoiturage, logement, hébergement, aide, aide, offre, demande, location, affaires, échange, achat, vente, acheter, vendre, don, donner, Kassi, écologique, communauté, communauté en , tribu"
       meta_description: "Sharetribe est un service qui vous permet de créer facilement une place de marché en ligne et permet à votre communauté ou tribu de vendre, louer, échanger et partager des biens et services."
@@ -1500,7 +1500,7 @@ fr:
       activate: Activer
       deactivate: Désactiver
     help_texts:
-      feedback_description_title: Commentaires
+      feedback_description_title: Avis
       help_captcha_title: "Etes-vous humain ?"
       help_invitation_code_title: "Il vous faut une invitation pour participer"
       terms_title: "Conditions d'utilisation de %{service_name}"
@@ -1510,7 +1510,7 @@ fr:
       invite_only_help_text_title: "Tribu sur invitation"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Cet utilisateur n'est plus actif sur %{service_name}"
-      inactive_description: "Cet utilisateur a arrêté d'utiliser %{service_name}. Vous ne pouvez plus le contacter, l'évaluer ni lui faire des commentaires."
+      inactive_description: "Cet utilisateur a arrêté d'utiliser %{service_name}. Vous ne pouvez plus le contacter, l'évaluer ni commenter ses annonces."
     new:
       captcha_incorrect: "Vérification reCAPTCHA échouée. Veuillez saisir les mots de l'image dans la case dessous."
       captcha_was_wrong: "Texte Captcha incorrecte."
@@ -1573,7 +1573,7 @@ fr:
       less_than_expected: "Ne correspondait pas à mes attentes"
       phone_number: "Numéro de téléphone : "
       show_all_feedback: "Montrer tous les avis"
-      show_all_testimonials: "Montrer tous les commentaires"
+      show_all_testimonials: "Montrer tous les avis"
       show_full_description: "Voir la suite..."
       slightly_better_than_expected: "Dépassait mes attentes"
       slightly_less_than_expected: "Ne correspondait pas à mes attentes"
@@ -1640,7 +1640,7 @@ fr:
       delete_account_confirmation_popup: "Etes-vous bien sûr(e) de vouloir supprimer votre compte et de perdre toutes ses données ? La suppression d'un compte est irréversible."
       email_addresses: "Adresses email"
       new_email: "Nouvelle adresse email"
-      instructions_to_delete_account: "Si vous supprimez votre compte, toutes ses données seront perdues : les informations de votre profil, les annonces, les commentaires, les messages, les avis etc..."
+      instructions_to_delete_account: "Si vous supprimez votre compte, toutes ses données seront perdues : vos informations de profil, vos annonces, vos commentaires, vos avis, vos messages, vos avis etc."
       contact_admin: "merci de contacter les administrateurs"
       new_password: "Votre nouveau mot de passe"
       save: Sauvegarder
@@ -1721,8 +1721,8 @@ fr:
       you_need_to_accept_new_terms: "Les conditions d'utilisation de %{service_name} ont changé. Vous devez accepter les nouvelles conditions afin de continuer à utiliser %{service_name}. L'objectif des nouvelles conditions est de rendre possible l'existence du service une fois le projet de recherche terminé."
   testimonials:
     index:
-      all_testimonials: "Tous les commentaires"
-      feedback_altogether: "Evaluations globalement : "
+      all_testimonials: "Tous les avis"
+      feedback_altogether: "Tous les avis : "
       loading_more_testimonials: "Chargement de plus de commentaires"
       no_testimonials: "Pas d'avis reçu."
     new:

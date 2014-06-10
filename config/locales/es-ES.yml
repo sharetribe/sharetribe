@@ -383,9 +383,9 @@ es-ES:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: "Pide ayuda de"
+      favor_offer_message_form_title: "Pide ayuda de %{person}"
       favor_request_message_form_title: "Ofrécele ayuda a %{person}"
-      housing_offer_message_form_title: "Responder a"
+      housing_offer_message_form_title: "Oferta de espacio a %{person}"
       housing_request_message_form_title: "Responder a"
       item_offer_lend_message_form_title: "Pedir prestado %{listing} a %{person}"
       item_offer_sell_message_form_title: "Comprar %{listing} a %{person}"
@@ -433,8 +433,8 @@ es-ES:
       feedback_given: "Sugerencia dada"
       feedback_skipped: "Sugerencia omitida"
       give_feedback: "Haz una sugerencia"
-      offer_accepted: "Oferta aceptada"
-      offer_rejected: "Oferta rechazada"
+      offer_accepted: aceptada
+      offer_rejected: rechazada
       offer_canceled: ~
       offer_confirmed: ~
       pay: ~
