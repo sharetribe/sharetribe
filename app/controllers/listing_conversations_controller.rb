@@ -12,17 +12,34 @@ class ListingConversationsController < ApplicationController
   skip_filter :dashboard_only
 
   def new
+    use_contact_view = @listing.status_after_reply == "free"
     @listing_conversation = new_conversation
+
+    if use_contact_view
+      render :contact, locals: {contact: false}
+    else
+      render :new_with_payment
+    end
   end
 
   def contact
     @listing_conversation = new_conversation
+    render :contact, locals: {contact: true}
   end
 
   def create
     status = @listing.status_after_reply
+    save_conversation(params[:listing_conversation], status)
+  end
 
-    @listing_conversation = new_conversation(params[:listing_conversation])
+  def create_contact
+    save_conversation(params[:listing_conversation], "free")
+  end
+
+  private
+
+  def save_conversation(params, status)
+    @listing_conversation = new_conversation(params)
 
     if @listing_conversation.save
       @listing_conversation.status = status
@@ -34,8 +51,6 @@ class ListingConversationsController < ApplicationController
       redirect_to root
     end
   end
-
-  private
 
   def ensure_listing_author_is_not_current_user
     if @listing.author == @current_user
@@ -64,7 +79,7 @@ class ListingConversationsController < ApplicationController
   end
 
   def new_conversation(conversation_params = {})
-    conversation = ListingConversation.new(conversation_params.merge(community: @current_community))
+    conversation = ListingConversation.new(conversation_params.merge(community: @current_community, listing: @listing))
     conversation.build_starter_participation(@current_user)
     conversation.build_participation(@listing.author)
     conversation

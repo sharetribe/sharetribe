@@ -8,10 +8,7 @@
     = link_to received_person_messages_path(:person_id => @current_user.id) do
       = t("layouts.no_tribe.inbox")
     |
-    - @conversation.with(:listing_conversation) do
-      = @conversation.listing.title
-    - @conversation.with(:conversation) do
-      = t(".conversation_with", person: link_to(other_party.name, other_party)).html_safe
+    = t(".conversation_with", person: link_to(other_party.name, other_party)).html_safe
 
 .centered-section-wide
   .message-avatar-padding
@@ -20,42 +17,27 @@
         %h2
           - @conversation.with(:listing_conversation) do
             = link_to @conversation.listing.title, @conversation.listing
-          - @conversation.with(:conversation) do
-            = t(".conversation_with", person: link_to(other_party.name, other_party)).html_safe
 
-        %p
-          - @conversation.with(:listing_conversation) do
-            - unless @conversation.status.eql?("free")
-              = t(".requested_by", requester_name: link_to(@conversation.starter.name, @conversation.starter)).html_safe
+        - @conversation.with(:listing_conversation) do
+          = render partial: "conversations/details", locals: { listing_conversation: @conversation, listing: @conversation.listing }
 
         - @conversation.with(:listing_conversation) do
           - listing = @conversation.listing
-          - price = Maybe(listing).price.or_else(nil)
-          - sum = Maybe(@conversation).payment.total_sum.or_else(nil)
 
-          - if sum
-            %p.message-price
-              = t(".sum", sum: humanized_money_with_symbol(sum))
-          - elsif price
-            %p.message-sum
-              = t(".price", price: humanized_money_with_symbol(price))
+          - if @conversation.status.eql?("free") && @current_community.payments_in_use?
+            -# Show Call to Action button for free conversations
 
-              - if listing.quantity.present?
-                = "/ #{listing.quantity}"
-
-              - if @current_community.vat
-                %span.message-sum-vat
-                  = t(".price_excludes_vat")
-
-          - if @conversation.status.eql?("free")
             - unless listing.author == @current_user
               = link_to reply_to_listing_path(:listing_id => listing.id.to_s), :class => "message-book-button" do
                 .content
                   = listing.transaction_type.action_button_label(I18n.locale)
 
           - else
+            -# Show current status for others
+
             %div{:id => "conversation_#{@conversation.id.to_s}_status"}
               = render :partial => "status", :locals => { :conversation => @conversation }
+
 
   #reply_form.message-avatar-padding.message-reply-form
     = form_for Message.new, :url => person_message_messages_path(:person_id => @current_user.id, :message_id => @conversation.id.to_s) do |f|

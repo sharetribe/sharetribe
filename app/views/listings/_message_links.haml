@@ -18,7 +18,7 @@
 
   - unless is_author
 
-    - link_path = @current_community.payment_possible_for?(@listing) ? reply_to_listing_path(:listing_id => @listing.id.to_s) : reply_to_listing_path(:listing_id => @listing.id.to_s, :message_type => "free")
+    - link_path = @current_community.payment_possible_for?(@listing) ? reply_to_listing_path(:listing_id => @listing.id.to_s) : reply_to_listing_path(:listing_id => @listing.id.to_s)
 
     = link_to link_path, :class => "book-button" do
       .content

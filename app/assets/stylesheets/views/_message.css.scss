@@ -176,6 +176,6 @@ $message-time-margin: lines(0.25);
   @include button($link);
 }
 
-.message-sum-vat {
+.message-price-vat {
   @include small-type
 }

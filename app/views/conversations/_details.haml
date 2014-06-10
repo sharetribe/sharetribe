@@ -1,0 +1,18 @@
+- Maybe(listing).map do |listing|
+  %p
+    - price = Maybe(listing).price.or_else(nil)
+    - sum = Maybe(listing_conversation).payment.total_sum.or_else(nil)
+
+    - if sum
+      %p.message-sum
+        = t("conversations.show.sum", sum: humanized_money_with_symbol(sum))
+    - elsif price
+      %p.message-price
+        = t("conversations.show.price", price: humanized_money_with_symbol(listing.price))
+
+        - if listing.quantity.present?
+          = "/ #{listing.quantity}"
+
+        - if @current_community.vat
+          %span.message-price-vat
+            = t("conversations.show.price_excludes_vat")
