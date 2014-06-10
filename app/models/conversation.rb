@@ -149,7 +149,7 @@ class Conversation < ActiveRecord::Base
   end
 
   def starter
-    messages.first.sender
+    participations.find { |p| p.is_starter? }.person
   end
 
   # If payment through Sharetribe is required to
