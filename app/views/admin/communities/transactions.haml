@@ -24,11 +24,12 @@
       - @conversations.each do |conversation|
         %tr
           %td=truncate(conversation.first_message.content, length: 15)
-          %td=conversation.listing.title
+          %td=link_to(conversation.listing.title, conversation.listing)
           %td=conversation.status
           %td=price_as_text(conversation.listing)
           %td=l(conversation.created_at, format: :short)
           %td=l(conversation.last_message_at, format: :short)
-          %td=conversation.starter.full_name
-          %td=conversation.other_party(conversation.starter).full_name
+          %td=link_to(conversation.starter.full_name, conversation.starter)
+          -other_party=conversation.other_party(conversation.starter)
+          %td=link_to(other_party.full_name, other_party)
 
