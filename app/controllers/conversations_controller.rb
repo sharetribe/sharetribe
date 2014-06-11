@@ -40,7 +40,7 @@ class ConversationsController < ApplicationController
 
   def show
     @selected_left_navi_link = "messages"
-    @current_user.read(@conversation) unless @conversation.read_by?(@current_user)
+    @current_user.read(@conversation) unless @current_user.has_admin_rights_in?(@current_community) || @conversation.read_by?(@current_user)
     @other_party = @conversation.other_party(@current_user)
   end
 
@@ -143,7 +143,7 @@ class ConversationsController < ApplicationController
 
   def ensure_authorized_to_view_message
     @conversation = Conversation.find(params[:id])
-    unless @conversation.participants.include?(@current_user)
+    unless @conversation.participants.include?(@current_user) || @current_user.has_admin_rights_in?(@current_community)
       flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
       redirect_to root and return
     end

@@ -9,27 +9,28 @@
   %table#admin_transactions
     %thead
       %tr
-        %th=t("admin.communities.transactions.conversation")
-        %th=t("admin.communities.transactions.listing")
-        %th=t("admin.communities.transactions.status")
-        %th=t("admin.communities.transactions.sum")
-        %th=t("admin.communities.transactions.started")
-        %th=t("admin.communities.transactions.last_activity")
-        %th=t("admin.communities.transactions.initiated_by")
-        %th=t("admin.communities.transactions.other_party")
-
-
+        %th.arrow-up=sort_link("conversation")
+        %th.arrow-up=sort_link("listing")
+        %th.arrow-up=sort_link("status")
+        %th.arrow-up=sort_link("sum")
+        %th.arrow-up=sort_link("started")
+        %th.arrow-up=sort_link("last_activity")
+        %th.arrow-up=sort_link("initiated_by")
+        %th.arrow-up=sort_link("other_party")
 
     %tbody
       - @conversations.each do |conversation|
         %tr
-          %td=truncate(conversation.first_message.content, length: 15)
+          -truncated_message = truncate(conversation.first_message.content, length: 15)
+          -path_to_conversation = single_conversation_path(conversation.starter.id, conversation.listing.transaction_type.id, conversation.id)
+          %td=link_to(truncated_message, path_to_conversation)
           %td=link_to(conversation.listing.title, conversation.listing)
           %td=conversation.status
           %td=price_as_text(conversation.listing)
           %td=l(conversation.created_at, format: :short)
           %td=l(conversation.last_message_at, format: :short)
           %td=link_to(conversation.starter.full_name, conversation.starter)
+
           -other_party=conversation.other_party(conversation.starter)
           %td=link_to(other_party.full_name, other_party)
 
