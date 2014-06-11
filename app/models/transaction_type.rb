@@ -17,4 +17,8 @@ class TransactionType < ActiveRecord::Base
   def action_button_label(locale)
     TranslationCache.new(self, :translations).translate(locale, :action_button_label)
   end
+
+  def status_after_reply
+    "free"
+  end
 end

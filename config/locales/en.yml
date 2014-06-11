@@ -429,6 +429,7 @@ en:
       you_will_get_notified: "You will get an email notification when %{person} answers you."
       title: Title
       send_message_to_user: "Send message to %{person}"
+      about_listing: "About listing %{listing_title}"
     show:
       in_response_to_listing: "about listing"
       message_sent_by: "Message sent by"
@@ -1151,6 +1152,8 @@ en:
       you_must_log_in_to_add_news_item: "You must log in to %{service_name} to add a new article."
       you_must_log_in_to_change_profile_settings: "You must log in to %{service_name} to change profile settings"
       you_must_log_in_to_change_payment_settings: "You must log in to %{service_name} to change payment settings"
+      you_must_log_in_to_accept_or_reject: "You must log in to accept or reject the transaction"
+      you_must_log_in_to_confirm_or_cancel: "You must log in to cancel or confirm the transaction"
       you_need_to_confirm_your_account_first: "You need to confirm your email."
       you_must_fill_all_the_fields: "You must fill all the fields"
       you_unfollowed_listing: "You are no longer following this listing"

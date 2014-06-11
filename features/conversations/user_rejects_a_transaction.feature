@@ -35,7 +35,7 @@ Feature: User rejects a transaction
     When I follow inbox link
     And I follow "I'd like to buy a skate"
     And I follow "Not this time"
-    And I fill in "conversation_message_attributes_content" with "Sorry, not this time."
+    And I fill in "listing_conversation_message_attributes_content" with "Sorry, not this time."
     And I press "Send"
     And I should see "Rejected" within ".conversation-status"
     When I follow "Skateboard"

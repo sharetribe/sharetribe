@@ -60,19 +60,20 @@ Kassi::Application.routes.draw do
             put :close
             put :move_to_top
           end
+          resources :listing_conversations
         end
+        resources :person_messages
         resources :messages, :controller => :conversations do
           collection do
             get :received
-            get :sent
           end
           member do
-            get :accept
-            get :reject
-            get :confirm
-            get :cancel
-            put :acceptance
-            put :confirmation
+            get :accept, to: 'accept_conversations#accept'
+            get :reject, to: 'accept_conversations#reject'
+            put :acceptance, to: 'accept_conversations#acceptance'
+            get :confirm, to: 'confirm_conversations#confirm'
+            get :cancel, to: 'confirm_conversations#cancel'
+            put :confirmation, to: 'confirm_conversations#confirmation'
           end
           resources :messages
           resources :feedbacks, :controller => :testimonials do
@@ -274,7 +275,8 @@ Kassi::Application.routes.draw do
   match "/:locale/offers" => "listings#offers", :as => :offers
   match "/:locale/requests" => "listings#requests", :as => :requests
   match "/:locale/people/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
-  match "/:locale/listings/:id/reply" => "conversations#new", :as => :reply_to_listing
+  match "/:locale/listings/:listing_id/reply" => "listing_conversations#new", :as => :reply_to_listing
+  match "/:locale/listings/:listing_id/contact" => "listing_conversations#contact", :as => :contact_to_listing
   match "/:locale/listings/new/:type/:category" => "listings#new", :as => :new_request_category
   match "/:locale/listings/new/:type" => "listings#new", :as => :new_request
   match "/listings/new/:type" => "listings#new", :as => :new_request_without_locale # needed for some emails, where locale part is already set

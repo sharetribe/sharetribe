@@ -38,7 +38,7 @@ Feature: User pays after accepted transaction
     And I should see "2.00€" within "#service-fee-total"
     # (12 * 1.24) - 2.00 = 12.88
     And I should see "12.88€" within "#total"
-    And I fill in "conversation_message_attributes_content" with "Ok, then pay!"
+    And I fill in "listing_conversation_message_attributes_content" with "Ok, then pay!"
     And I press "Send"
     Then I should see "Accepted"
     When I am logged in as "kassi_testperson1"
@@ -118,7 +118,7 @@ Feature: User pays after accepted transaction
     Then I should see that there is 1 new message
     And I follow "I want to buy"
     And I follow "Accept request"
-    And I fill in "conversation_message_attributes_content" with "Ok, then pay!"
+    And I fill in "listing_conversation_message_attributes_content" with "Ok, then pay!"
     And I press "Send"
     Then I should see "Accepted"
     When I am logged in as "kassi_testperson1"
@@ -143,7 +143,7 @@ Feature: User pays after accepted transaction
     Then I should see that there is 1 new message
     And I follow "I want to buy"
     And I follow "Not this time"
-    And I fill in "conversation_message_attributes_content" with "Sorry I'cant sell it!"
+    And I fill in "listing_conversation_message_attributes_content" with "Sorry I'cant sell it!"
     And I press "Send"
     Then I should see "Request rejected"
 

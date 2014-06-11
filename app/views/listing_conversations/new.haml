@@ -1,0 +1,21 @@
+- content_for :javascript do
+  initialize_send_message_form('#{I18n.locale}', '#{Listing.opposite_type(@listing.direction)}');
+
+#new_message_form.centered-section
+  %h2
+    = @listing.transaction_type.action_button_label(I18n.locale)
+    = link_to(@listing.title, @listing)
+
+  %p
+    = t("conversations.new.this_message_is_private", :person => @listing.author.given_name_or_username)
+    = t("conversations.new.you_will_get_notified_of_acceptance", :person => @listing.author.given_name_or_username)
+  = form_for @listing_conversation, :url => person_listing_listing_conversations_path(:person_id => @current_user.id, :listing_id => @listing.id) do |form|
+
+    = fields_for "listing_conversation[message_attributes]", Message.new do |message_form|
+      = message_form.label :content, t("conversations.new.message")
+      = message_form.text_area :content, :class => "text_area"
+      = message_form.hidden_field :sender_id, :value => @current_user.id
+
+    = form.hidden_field :listing_id, :value => @listing.id
+    = form.hidden_field :community_id, :value => @current_community.id
+    = form.button t("conversations.new.send_message"), :class => "send_button"
