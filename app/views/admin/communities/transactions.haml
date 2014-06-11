@@ -22,8 +22,7 @@
       - @conversations.each do |conversation|
         %tr
           -truncated_message = truncate(conversation.first_message.content, length: 15)
-          -path_to_conversation = single_conversation_path(conversation.starter.id, conversation.listing.transaction_type.id, conversation.id)
-          %td=link_to(truncated_message, path_to_conversation)
+          %td=truncated_message
           %td=link_to(conversation.listing.title, conversation.listing)
           %td=conversation.status
           %td=price_as_text(conversation.listing)
