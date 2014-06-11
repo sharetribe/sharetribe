@@ -1,6 +1,6 @@
 When(/^I add "(.*?)" to the Twitter handle field$/) do |arg1|
   steps %Q{
-    When I fill in "Twitter handle" with "#{arg1}"
+    When I fill in "community_twitter_handle" with "#{arg1}"
   }
 end
 
@@ -10,7 +10,7 @@ end
 
 When(/^I add "(.*?)" to the Google analytics key field$/) do |arg1|
   steps %Q{
-    When I fill in "Google Analytics tracking ID (classic account)" with "#{arg1}"
+    When I fill in "community_google_analytics_key" with "#{arg1}"
   }
 end
 

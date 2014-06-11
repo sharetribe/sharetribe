@@ -10,7 +10,7 @@
   %h2= t(".integrations", :community_name => @community.name(I18n.locale))
   = form_for @community, :url => integrations_admin_community_path(@community), :method => :put do |form|
     .row
-      = form.label :twitter_handle, t(".twitter_handle"), :class => "input"
+      %h3= t(".twitter_handle")
     .row
       .col-6
         = render :partial => "layouts/info_text", :locals => { :text => t(".twitter_handle_info_text") }
@@ -22,7 +22,7 @@
               %li=msg
 
     .row
-      = form.label :google_analytics_key, t(".google_analytics_key"), :class => "input"
+      %h3= t(".google_analytics_key")
     .row
       .col-6
         = render :partial => "layouts/info_text", :locals => { :text => t(".google_analytics_key_info_text")}
