@@ -1,9 +1,0 @@
-.grid_12.alpha.omega
-  %h1.new_tribe= t(".what_kind_of_tribe_do_you_want_to_create")
-  %h2.new_tribe= t(".first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below")
-.clear
-.grid_8.prefix_2.suffix_2.alpha.omega
-  #community_categories
-    - Community::VALID_CATEGORIES.each do |category|
-      .community_category
-        = link_to t(".#{category}"), new_tribe_path(:category => category), :id => "select_#{category}_community", :class => "community_category_link"

@@ -58,7 +58,6 @@ class CommunitiesController < ApplicationController
     @community = Community.new(params[:community])
     @community.settings = {"locales"=>["#{params[:community_locale]}"]}
     @community.join_with_invite_only = params[:community][:join_with_invite_only].present?
-    @community.plan = session[:pricing_plan]
     @community.users_can_invite_new_users = true
     @community.use_captcha = false
     @community.save
@@ -69,13 +68,6 @@ class CommunitiesController < ApplicationController
     clear_session_variables
     PersonMailer.welcome_email(@current_user, @community).deliver
     render :action => :new
-  end
-
-  def check_domain_availability
-    redirect_to root and return
-    respond_to do |format|
-      format.json { render :json => Community.domain_available?(params[:community][:domain]) }
-    end
   end
 
   # Is this DEPRECATED?

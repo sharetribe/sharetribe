@@ -313,9 +313,6 @@ class PeopleController < Devise::RegistrationsController
 
   # this checks only that email is not already in use
   def check_email_availability_for_new_tribe
-    email = params[:person] ? params[:person][:email] : params[:email]
-    if Email.email_available_for_user?(@current_user, email)
-      existing_communities = Community.find_by_allowed_email(email)
       if existing_communities.size > 0 && Community.email_restricted?(params[:community_category])
         available = restricted_tribe_already_exists_error_message(existing_communities.first)
       else

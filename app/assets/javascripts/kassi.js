@@ -1154,16 +1154,6 @@ function initialize_private_community_defaults(locale, feedback_default_text) {
   $('.wrapper').addClass('js_enabled');
 }
 
-function initialize_private_community_homepage(username_or_email_default_text, password_default_text) {
-  $('#password_forgotten_link').click(function() {
-    $('#password_forgotten').slideToggle('fast');
-    $('input.request_password').focus();
-  });
-  $('#person_login').watermark(username_or_email_default_text, {className: 'default_text'});
-  $('#person_password').watermark(password_default_text, {className: 'default_text'});
-  $('.wrapper').addClass('js_enabled');
-}
-
 function initialize_admin_edit_tribe_form(locale, community_id) {
   auto_resize_text_areas("new_tribe_text_area");
   translate_validation_messages(locale);

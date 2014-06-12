@@ -44,7 +44,6 @@ Kassi::Application.routes.draw do
         collection do
           get :check_username_availability
           get :check_email_availability
-          get :check_email_availability_for_new_tribe
           get :check_email_availability_and_validity
           get :check_invitation_code
           get :not_member
@@ -188,7 +187,6 @@ Kassi::Application.routes.draw do
     end
     resources :tribes, :controller => :communities do
       collection do
-        get :check_domain_availability
         get :change_form_language
         post :set_organization_email
         post :confirm_organization_email
