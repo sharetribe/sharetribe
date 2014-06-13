@@ -271,11 +271,6 @@ class Community < ActiveRecord::Base
     PersonMailer.deliver_open_content_messages(members.all, subject, mail_content, default_locale, verbose)
   end
 
-  # Makes the creator of the community a member and an admin
-  def admin_attributes=(attributes)
-    community_memberships.build(attributes).update_attribute("admin", true)
-  end
-
   def menu_link_attributes=(attributes)
     ids = []
 
