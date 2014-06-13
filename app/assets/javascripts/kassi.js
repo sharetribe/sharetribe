@@ -268,24 +268,18 @@ function initialize_contact_request_form(required_message, email_message) {
   $("#new_contact_request_bottom").validate(validation);
 }
 
-function initialize_update_contact_request_form(country_message, marketplace_type_message, plan_type_message) {
+function initialize_update_contact_request_form(country_message, marketplace_type_message) {
   var validation = {
     rules: {
       "contact_request[country]": {required: true},
-      "contact_request[marketplace_type]": {required: true},
-      "contact_request[plan_type]": {required: true}
+      "contact_request[marketplace_type]": {required: true}
     },
     messages: {
       "contact_request[country]": {required: country_message},
-      "contact_request[marketplace_type]": {required: marketplace_type_message},
-      "contact_request[plan_type]": {required: plan_type_message}
+      "contact_request[marketplace_type]": {required: marketplace_type_message}
     },
     errorPlacement: function(error, element) {
-      if (element.attr("name") == "contact_request[plan_type]")  {
-        error.appendTo(element.parent().parent());
-      } else {
-        error.insertAfter(element);
-      }
+      error.insertAfter(element);
     },
     onkeyup: false,
     onclick: false,

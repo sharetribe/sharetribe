@@ -1,6 +1,6 @@
 - content_for :javascript do
   - if session[:contact_request_sent]
-    initialize_update_contact_request_form("You need to select a country.","You need to select the marketplace type.","Please let us know what plan interests you the most.");
+    initialize_update_contact_request_form("You need to select a country.","You need to select the marketplace type.");
   - else
     initialize_contact_request_form("Oops! You forgot to give your email address.","It seems the email you gave is not valid, please double check.");
 
