@@ -518,17 +518,6 @@ en:
       view_tribe: "View tribe"
     email_confirmation_pending:
       confirmation_pending: "Please confirm your email address"
-    enter_organization_email:
-      enter_your_organization_email: "Enter your %{community_category} email"
-      only_people_with_verified_email_address_can_join_your_tribe: "Only people with a verified %{community_category} email address can join this tribe."
-      continue: Continue
-      tribe_exists: "Tribe exists!"
-      this_tribe_exists_already: "This tribe exists already! Do you want to join it?"
-    done:
-      done: Done!
-      tribe_created_successfully: "You have successfully created your tribe."
-      go_to_your_tribe: "Go to your tribe"
-      we_will_contact_you_about_invoicing: "We will contact you later by email about invoicing."
     index:
       find_your_local_tribe: "Find your local tribe"
       or_start_your_own: "...or %{start_your_own_tribe_link}"
@@ -620,53 +609,6 @@ en:
       if_want_to_view_content: "If you want to view the content in this community without joining it you need to"
       log_out: "log out"
       join_community_button: "Join community"
-  dashboard:
-    api:
-      coming_soon: "Coming soon!"
-    index:
-      watch_the_video: "Watch the video"
-      get_started: "GET STARTED NOW!"
-      browse_communities_around_you: "join a tribe near you"
-      slogan: "Share with your community."
-      create_your_own: "Create your own"
-      sharing_website: "community marketplace"
-      main_description: "Set up a space where the members of your community can share goods, services, rides and spaces in a trusted local environment. It's free and only takes a minute to do!"
-      kassi_for_your_company: "...FOR YOUR COMPANY"
-      kassi_for_your_company_description: "Want to help your employees connect with each other? Want to cut your emissions and become a greener enterprise? Want to save costs in travel, parking and furniture use? Sharetribe is the solution for you."
-      kassi_for_your_city: "...FOR YOUR CITY"
-      kassi_for_your_city_description: "Want to transform the neighborhoods of your city to village communities where people share with each other? Want to empower your citizens to improve their lives? Sharetribe will help you achieve that."
-      kassi_for_your_university: "...FOR YOUR UNIVERSITY"
-      kassi_for_your_university_description: "Want to create a lively campus environment where people know and trust each other? Want to help your students and staff save their time, money, and the environment? Try out Sharetribe and perceive the change!"
-      want_kassi_for_your_community: "Want %{service_name} for your community?"
-      email_default_text: "Your email address"
-      send: Send!
-      or_drop_us_a_line: "...or drop us a line:"
-      thanks_for_contacting_us: "Thanks for contacting us! We'll send you more info about how to create a %{service_name} community soon."
-      resources: RESOURCES
-      connect: CONNECT
-      about: "ABOUT SHARETRIBE"
-      developers: "FOR DEVELOPERS"
-      api: API
-      blog: Blog
-      code: "Source code"
-      issue_tracker: "Issue tracker"
-      product_of: "Sharetribe is a product of"
-      language: "Language:"
-      new: NEW!
-      new_text: "%{service_name} now available for <a href=\"http://www.sharetribe.com/en/wdc\">neighborhoods in Helsinki and Lahti</a> and for <a href=\"http://www.kassi.eu/en/okl\">members of Suomen Omakotiliitto</a>!"
-      want_to_know_more: "Want to know more? %{read_our_faq_link} or %{contact_us_link}."
-      read_our_faq: "Read our <br />FAQ"
-      contact_us: "contact us directly"
-      why_you_really_should_have_a_tribe: "Why you really should have a tribe"
-      an_example: "An example:"
-      home: Home
-      faq: FAQ
-      browse_tribes: "Browse tribes"
-      pricing: Pricing
-      contact: Contact
-      university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Sharetribe of Aalto University</a>"
-      company_example_link: "<a href=\"https://if.sharetribe.com/en\">Sharetribe of IF</a>"
-      city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe of Kallio, Helsinki</a>"
   emails:
     accept_reminder:
       remember_to_accept_offer: "Remember to accept or reject an offer from %{sender_name}"

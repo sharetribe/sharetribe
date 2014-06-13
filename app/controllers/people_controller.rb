@@ -18,7 +18,7 @@ class PeopleController < Devise::RegistrationsController
 
   skip_filter :check_email_confirmation, :only => [ :update]
   skip_filter :dashboard_only
-  skip_filter :single_community_only, :only => [ :create, :update, :check_username_availability, :check_email_availability, :check_email_availability_and_validity, :check_email_availability_for_new_tribe]
+  skip_filter :single_community_only, :only => [ :create, :update, :check_username_availability, :check_email_availability, :check_email_availability_and_validity]
   skip_filter :cannot_access_without_joining, :only => [ :check_email_availability_and_validity, :check_invitation_code ]
 
   # Skip auth token check as current jQuery doesn't provide it automatically
@@ -309,25 +309,6 @@ class PeopleController < Devise::RegistrationsController
   def check_email_availability
     email = params[:person] && params[:person][:email_attributes] && params[:person][:email_attributes][:address]
     email_availability(email, false)
-  end
-
-  # this checks only that email is not already in use
-  def check_email_availability_for_new_tribe
-    email = params[:person] ? params[:person][:email] : params[:email]
-    if Email.email_available_for_user?(@current_user, email)
-      existing_communities = Community.find_by_allowed_email(email)
-      if existing_communities.size > 0 && Community.email_restricted?(params[:community_category])
-        available = restricted_tribe_already_exists_error_message(existing_communities.first)
-      else
-        available = true
-      end
-    else
-      available = t("communities.signup_form.email_in_use_message")
-    end
-
-    respond_to do |format|
-      format.json { render :json => available.to_json }
-    end
   end
 
   def check_invitation_code
