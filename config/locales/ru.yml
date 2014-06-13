@@ -503,17 +503,6 @@ ru:
       view_tribe: "Просмотреть сообщество"
     email_confirmation_pending:
       confirmation_pending: "Подтвердите свой адрес электронной почты"
-    enter_organization_email:
-      enter_your_organization_email: "Введите вашу электронную почту %{community_category}"
-      only_people_with_verified_email_address_can_join_your_tribe: "В это сообщество могут вступать только люди с проверенным адресом электронной почты категории «%{community_category}»."
-      continue: Продолжить
-      tribe_exists: "Сообщество существует!"
-      this_tribe_exists_already: "Это сообщество уже существует! Вы хотите присоединиться к нему?"
-    done:
-      done: Готово!
-      tribe_created_successfully: "Вы успешно создали своё сообщество."
-      go_to_your_tribe: "Перейти в сообщество"
-      we_will_contact_you_about_invoicing: "Мы свяжемся с вами позже по вопросу выставления счёта."
     index:
       find_your_local_tribe: "Найти сообщество поблизости"
       or_start_your_own: "...или %{start_your_own_tribe_link}"
@@ -605,53 +594,6 @@ ru:
       if_want_to_view_content: "Если вы хотите просмотреть это сообщество без присоединения к нему необходимо"
       log_out: выйти
       join_community_button: Присоединиться
-  dashboard:
-    api:
-      coming_soon: Скоро!
-    index:
-      watch_the_video: "Посмотрите видео"
-      get_started: "НАЧНИТЕ СЕЙЧАС!"
-      browse_communities_around_you: "присоединяйтесь к сообществу рядом с вами"
-      slogan: "Виртуальный рынок вашего сообщества."
-      create_your_own: "Создайте своё"
-      sharing_website: СООБЩЕСТВО
-      main_description: "Создайте место, где члены сообщества смогут обмениваться товарами, услугами и поездками в обстановке полного доверия!"
-      kassi_for_your_company: "…ДЛЯ ВАШЕЙ КОМПАНИИ"
-      kassi_for_your_company_description: "Хотите, чтобы ваша компания стала ещё более социальной и объединённой? Хотите помочь своим работникам узнать друг друга? Хотите сократить выбросы и стать более экологичным предприятием? Sharetribe — это предложение для вас."
-      kassi_for_your_city: "…ДЛЯ ВАШЕГО ГОРОДА"
-      kassi_for_your_city_description: "Хотите, чтобы в вашем населенном пункте установились добрососедские отношения между жителями и люди помогали друг другу? Хотите, чтобы уровень жизни населения улучшался? Kassi поможет вам достичь этого."
-      kassi_for_your_university: "…ДЛЯ ВАШЕГО УНИВЕРСИТЕТА"
-      kassi_for_your_university_description: "Хотите создать активное студенческое сообщество, в котором люди знают и доверяют друг другу? Хотите помочь студентам и преподавателям сохранить их время, деньги и помочь окружающей среде? Попробуйте Sharetribe и ощутите перемены!"
-      want_kassi_for_your_community: "Хотите использовать %{service_name} в своём сообществе?"
-      email_default_text: "Электронная почта"
-      send: Отправить!
-      or_drop_us_a_line: "...или напишите нам пару строк:"
-      thanks_for_contacting_us: "Спасибо за то что связались с нами! Скоро вы получите информацию о том, как создать своё сообщество %{service_name}."
-      resources: РЕСУРСЫ
-      connect: СВЯЗЬ
-      about: "О ПРОЕКТЕ SHARETRIBE"
-      developers: "ДЛЯ РАЗРАБОТЧИКОВ"
-      api: API
-      blog: Блог
-      code: "Исходный код"
-      issue_tracker: Баг-трекер
-      product_of: "Sharetribe — продукт"
-      language: "Язык:"
-      new: Новость!
-      new_text: "%{service_name} теперь доступен для <a href=\"http://www.sharetribe.com/en/wdc\">кварталов в Хельсинки и Лахти</a> и для <a href=\"http://www.sharetribe.com/en/okl\">членов Suomen Omakotiliitto</a>!"
-      want_to_know_more: "Хотите узнать больше? %{read_our_faq_link} или %{contact_us_link}."
-      read_our_faq: "Прочтите <br />FAQ"
-      contact_us: "свяжитесь с нами напрямую"
-      why_you_really_should_have_a_tribe: "Зачем вам сообщество"
-      an_example: "Пример:"
-      home: Главная
-      faq: FAQ
-      browse_tribes: "Просмотреть сообщества"
-      pricing: Цены
-      contact: Связь
-      university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Sharetribe в университете Аальто</a>"
-      company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/en\">Sharetribe в HTC Keilaniemi</a>"
-      city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe в Каллио, Хельсинки</a>"
   emails:
     accept_reminder:
       remember_to_accept_offer: "Напоминание о необходимости принять решение по предложению"

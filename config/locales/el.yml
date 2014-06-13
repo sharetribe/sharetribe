@@ -503,17 +503,6 @@ el:
       view_tribe: "Εμφάνιση του sharetribe"
     email_confirmation_pending:
       confirmation_pending: "Παρακαλούμε, επιβεβαιώστε τη διεύθυνση email σας"
-    enter_organization_email:
-      enter_your_organization_email: "Γράψτε την ηλεκτρονική διεύθυνση της κοινότητάς σας"
-      only_people_with_verified_email_address_can_join_your_tribe: "Μόνο άτομα με επιβεβαιωμένη ηλεκτρονική διεύθυνση αυτής της κοινότητας μπορούν να συμμετέχουν σε αυτό το sharetribe."
-      continue: Συνέχεια
-      tribe_exists: "Υπάρχει ήδη!"
-      this_tribe_exists_already: "Αυτό το sharetribe υπάρχει ήδη! Μηπως θα θέλατε να συμμετέχετε σε αυτό;"
-    done:
-      done: Έτοιμο!
-      tribe_created_successfully: "Το sharetribe σας είναι έτοιμο."
-      go_to_your_tribe: "Επισκεφτείτε το sharetribe σας"
-      we_will_contact_you_about_invoicing: "Θα επικοινωνήσουμε εμείς μαζί σας αργότερα σχετικά με τη χρέωση της υπηρεσίας."
     index:
       find_your_local_tribe: "Βρείτε ένα sharetribe κοντά σας"
       or_start_your_own: "... ή %{start_your_own_tribe_link}."
@@ -605,53 +594,6 @@ el:
       if_want_to_view_content: "Αν θες να δεις το περιεχόμενο αυτής της κοινότητας χωρίς να συμμετέχεις σε αυτή, πρέπει να"
       log_out: αποσυνδεθείς
       join_community_button: "Εγγραφή στην κοινότητα"
-  dashboard:
-    api:
-      coming_soon: Σύντομα!
-    index:
-      watch_the_video: "Δείτε το βίντεο"
-      get_started: "ΞΕΚΙΝΗΣΤΕ ΕΔΩ!"
-      browse_communities_around_you: "βρείτε ένα sharetribe κοντά σε σας"
-      slogan: "Μοιραζόμαστε πόρους στην κοινότητά μας."
-      create_your_own: "Δημιουργήστε ένα"
-      sharing_website: SHARETRIBE
-      main_description: "Δημιουργήστε μια ιστοσελίδα όπου τα μέλη της κοινότητάς σας μπορούν με ασφάλεια να μοιράζονται αντικείμενα και υπηρεσίες. Είναι δωρεάν και γίνεται μέσα σε 1 λεπτό!"
-      kassi_for_your_company: "... ΣΤΗΝ ΕΤΑΙΡΙΑ"
-      kassi_for_your_company_description: "Δημιουργείστε καλύτερες κοινωνικές σχέσεις στο χώρο εργασίας σας: Χρησιμοποιώντας το %{service_name} στην εταιρία σας βοηθάτε τους εργαζόμενους να γνωριστούν μεταξύ τους, να κάνουν κοινές δράσεις και ταυτόχρονα μειώνετε τις εκπομπές CO₂ και γίνεστε μια πιο πράσινη επιχείρηση!"
-      kassi_for_your_city: "... ΣΤΗ ΓΕΙΤΟΝΙΑ ΣΑΣ"
-      kassi_for_your_city_description: "Μετασχηματίστε τις γειτονιές σας σε κοινότητες όπου οι άνθρωποι γνωρίζονται μεταξύ τους και βοηθούν ο ένας τον άλλο. Με το %{service_name} μπορείτε να δώσετε τη δυνατότητα στους πολίτες να βελτιώσουν τη ζωή τους!"
-      kassi_for_your_university: "... ΣΤΟ ΠΑΝΕΠΙΣΤΗΜΙΟ"
-      kassi_for_your_university_description: "Θέλετε μια δραστήρια πανεπιστημιούπολη όπου οι άνθρωποι γνωρίζονται και εμπιστεύονται ο ένας τον άλλο; Βοηθήστε τους φοιτητές και το προσωπικό του πανεπιστημίου να κερδίζουν χρόνο, χρήμα και να κάνουν καλό στο περιβάλλον. Δοκιμάστε το %{service_name}!"
-      want_kassi_for_your_community: "Θα θέλατε το %{service_name} στην κοινότητά σας;"
-      email_default_text: "Ηλεκτρονική διεύθυνση"
-      send: Αποστολή!
-      or_drop_us_a_line: "... ή επικοινωνήστε μαζί μας:"
-      thanks_for_contacting_us: "Ευχαριστούμε για το ενδιαφέρον! Θα επικοινωνήσουμε μαζί σας σύντομα!"
-      resources: ΠΕΡΙΣΣΟΤΕΡΑ
-      connect: ΔΙΚΤΥΩΣΗ
-      about: "ΣΧΕΤΙΚΑ ΜΕ ΤΟ SHARETRIBE"
-      developers: "ΓΙΑ ΠΡΟΓΡΑΜΜΑΤΙΣΤΕΣ"
-      api: API
-      blog: Blog
-      code: Κώδικας
-      issue_tracker: "Issue tracker"
-      product_of: "Το %{service_name} είναι ένα προϊόν της"
-      language: "Γλώσσα:"
-      new: ΝΕΟ!
-      new_text: "Τo %{service_name} είναι τώρα διαθέσιμο για την <a href=\"http://upatras.sharetribe.com/el\">κοινότητα του Πανεπιστημίου Πατρών</a>"
-      want_to_know_more: "Θέλετε να μάθετε περισσότερα; %{read_our_faq_link}."
-      read_our_faq: "Διαβάστε τις συχνές ερωτήσεις"
-      contact_us: "επικοινωνήστε μαζί μας"
-      why_you_really_should_have_a_tribe: "Γιατί να χρησιμοποιείτε το Sharetribe"
-      an_example: "Ένα παράδειγμα:"
-      home: Αρχή
-      faq: FAQ
-      browse_tribes: "Βρες sharetribes"
-      pricing: Τιμές
-      contact: Επικοινωνία
-      university_example_link: "<a href=\"http://UPatras.sharetribe.com\">Το Sharetribe στο Πανεπιστήμιο Πατρών</a>"
-      company_example_link: "<a href=\"https://if.sharetribe.com/en\">Το Sharetribe στο IF</a>"
-      city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">To Sharetribe στη γειτονιά Kallio του Ελσίνκι</a>"
   emails:
     accept_reminder:
       remember_to_accept_offer: "Θυμηθείτε να αποδεχτείτε ή να απορρίψετε μία προσφορά από το χρήστη %{sender_name}"

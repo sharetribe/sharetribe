@@ -62,7 +62,7 @@ fi:
         edit_community_search_placeholder_description: "Näytetään etusivulla hakupalkin ohjetekstinä. %{see_how_it_looks_like}."
         private_community_homepage_content: "Suljetun yhteisön etusivun sisältö"
         edit_private_community_homepage_content_description: "Tämä sisältö näytetään kirjautumattomille käyttäjille suljettujen yhteisöjen etusivulla. Tässä voit kertoa tarkemmin yhteisön tarkoituksesta sekä siitä, miten yhteisöön voi liittyä. Voit lisätä kuvaukseen halutessasi myös kuvia, videoita tai HTML-muotoista sisältöä. %{see_how_it_looks_like}."
-        update_information: "Tallenna"
+        update_information: Tallenna
         invite_people: "Kutsu ihmisiä yhteisöön"
         edit_signup_info: Liittymisohjeet
         edit_signup_info_description: "Tähän voit lisätä ohjeita siihen, miten palveluun liitytään. Ohjeet näytetään käyttäjille, kun he ovat liittymässä palveluun. Oletuksena ohjekenttä on tyhjä."
@@ -72,7 +72,7 @@ fi:
         verification_to_post_listings_info_content_description: "Tässä yhteisössä ylläpitäjän on annettava käyttäjille postausoikeudet, jotta nämä voivat postata uusia ilmoituksia. Tästä voit asettaa tekstin, joka näytetään käyttäjille, joille ei ole vielä annettu näitä oikeuksia, kun he yrittävät lisätä uutta ilmoitusta."
         verification_to_post_listings_info_content_default: "Sinun pitää saada hyväksyntä ylläpitäjiltä, ennen kuin voit lisätä uuden ilmoituksen. %{contact_admin_link} saadaksesi hyväksynnän."
         contact_admin_link_text: "Ota yhteyttä ylläpitoon"
-        save: "Tallenna"
+        save: Tallenna
       edit_look_and_feel:
         edit_community_look_and_feel: "Muokkaa yhteisön \"%{community_name}\" ulkoasua"
         community_logo: Peruslogo
@@ -133,7 +133,7 @@ fi:
         integrations: "Kolmansien osapuolten sovellukset"
         google_analytics_key: "Google Analytics tracking ID (classic account)"
         twitter_handle: "Twitter-tili (käytetään ilmoitussivulla olevan twitter-napin yhteydessä)"
-        update_settings: "Tallenna"
+        update_settings: Tallenna
         automatically_confirmed: "Transaktio merkitään toteutuneeksi automaattisesti, kun maksusta on kulunut %{days_dropdown} päivää. Jos käytössä on escrow-järjestelmä, rahat tilitetään tässä vaiheessa maksun saajalle."
         automatic_newsletter_frequency: "Lähetä automaattinen uutiskirje: %{frequency_dropdown}"
         newsletter_daily: Päivittäin
@@ -164,7 +164,7 @@ fi:
         invalid_facebook_connect_id: "Sovellustunnus voi sisältää vain numeroita."
         facebook_connect_secret: "Facebook - salainen avain"
         invalid_facebook_connect_secret: "Salainen avain muodostuu voi sisältää vain kirjaimia väliltä a-f ja numeroita väliltä 0-9."
-        save: "Tallenna"
+        save: Tallenna
       menu_links:
         menu_links: Valikkolinkit
         save: Tallenna
@@ -518,17 +518,6 @@ fi:
       view_tribe: "Näytä yhteisö"
     email_confirmation_pending:
       confirmation_pending: "Ole hyvä ja vahvista sähköpostiosoitteesi"
-    enter_organization_email:
-      enter_your_organization_email: "Kirjoita %{community_category}sähköpostisi"
-      only_people_with_verified_email_address_can_join_your_tribe: "Vain ihmiset, joilla on varmistettu %{community_category}sähköposti, voivat liittyä tähän yhteisöön."
-      continue: Jatka
-      tribe_exists: "Yhteisö on jo olemassa!"
-      this_tribe_exists_already: "Yhteisö on jo olemassa! Haluatko liittyä siihen?"
-    done:
-      done: Valmis!
-      tribe_created_successfully: "Olet onnistuneesti luonut uuden yhteisön."
-      go_to_your_tribe: "Siirry yhteisön sivulle"
-      we_will_contact_you_about_invoicing: "Otamme myöhemmin yhteyttä laskutukseen liittyen."
     index:
       find_your_local_tribe: "Löydä paikallinen yhteisösi"
       or_start_your_own: "...tai %{start_your_own_tribe_link}"
@@ -620,53 +609,6 @@ fi:
       if_want_to_view_content: "Jos haluat nähdä mitä yhteisössä tapahtuu liittymättä siihen sinun täytyy"
       log_out: "kirjautua ulos"
       join_community_button: Liity
-  dashboard:
-    api:
-      coming_soon: "Tulossa pian!"
-    index:
-      watch_the_video: "Katso video (englanninkielinen)"
-      get_started: "ALOITA TÄSTÄ!"
-      browse_communities_around_you: "liity lähellä olevaan yhteisöön"
-      slogan: "Yhteisösi markkinapaikka verkossa."
-      create_your_own: "Luo yhteisöllesi"
-      sharing_website: "oma verkkotori"
-      main_description: "%{service_name} on yhteisösi oma kanava, jonka avulla ihmiset voivat jakaa <br />tavaroita, palveluita ja kyytejä paikallisessa luotetussa ympäristössä."
-      kassi_for_your_company: "...YRITYKSESSÄSI"
-      kassi_for_your_company_description: "Haluatko tehdä yrityksestäsi yhteisöllisemmän? Haluatko auttaa työntekijöitäsi kohtaamaan toisensa ja vaihtamaan hiljaista tietoa? Haluatko vähentää yrityksesi päästöjä? %{service_name} on ratkaisu sinulle."
-      kassi_for_your_city: "...KAUPUNGISSASI"
-      kassi_for_your_city_description: "Haluatko tehdä kaupunginosistasi kukoistavia kyläyhteisöjä, joissa ihmiset tuntevat naapurinsa ja auttavat toisiaan tarpeen tullen? Haluatko auttaa ihmisiä parantamaan elinolosuhteitaan itse? %{service_name_genetive} avulla saavutat kaiken tämän."
-      kassi_for_your_university: "...KORKEAKOULUSSASI"
-      kassi_for_your_university_description: "Haluatko luoda eloisan kampusympäristön, jossa ihmiset tuntevat toisensa ja luottavat toisiinsa? Haluatko auttaa opiskelijoita ja henkilökuntaa säästämään aikaa, rahaa ja luontoa? Kokeile %{service_name_partitive} ja huomaa muutos!"
-      want_kassi_for_your_community: "Haluatko %{service_name_genetive} yhteisösi käyttöön?"
-      email_default_text: Sähköpostiosoitteesi
-      send: Lähetä!
-      or_drop_us_a_line: "...tai ota yhteyttä:"
-      thanks_for_contacting_us: "Kiitos yhteydenotosta! Lähetämme sinulle mahdollisimman pian tietoa siitä, kuinka voit luoda oman %{service_name}-yhteisön."
-      resources: RESURSSIT
-      connect: YHTEYS
-      about: TIETOA
-      developers: KEHITTÄJILLE
-      api: API
-      blog: Blogi
-      code: Lähdekoodi
-      issue_tracker: Tehtävänhallinta
-      product_of: "%{service_name_partitive} tekee"
-      language: "Kieli:"
-      new: UUTTA!
-      new_text: "%{service_name} käytössä muutamissa <a href=\"http://www.sharetribe.com/fi/wdc\">Helsingin ja Lahden kaupunginosissa</a> sekä <a href=\"http://www.sharetribe.com/fi/okl\">Suomen Omakotiliiton jäsenyhdistyksissä</a>!"
-      want_to_know_more: "Haluatko tietää lisää? %{read_our_faq_link} tai %{contact_us_link}."
-      read_our_faq: "Lue usein kysytyt kysymykset"
-      contact_us: "ota yhteyttä"
-      why_you_really_should_have_a_tribe: "Miksi sinäkin tarvitset yhteisön jossa jakaa"
-      an_example: "Esimerkki:"
-      home: Etusivu
-      faq: Tietoa
-      browse_tribes: "Selaa yhteisöjä"
-      pricing: Hinnat
-      contact: "Ota yhteyttä"
-      university_example_link: "<a href=\"http://aalto.sharetribe.com/fi\">Aalto-yliopiston Sharetribe </a>"
-      company_example_link: "<a href=\"https://if.sharetribe.com/fi\">IF-vakuutusyhtiön Sharetribe </a>"
-      city_example_link: "<a href=\"http://kallio.sharetribe.com/fi\">Kallion Sharetribe (Helsinki)</a>"
   emails:
     accept_reminder:
       remember_to_accept_offer: "Muistutus: hyväksy/hylkää käyttäjän %{sender_name} tarjous"

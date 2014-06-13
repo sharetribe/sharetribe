@@ -503,17 +503,6 @@ es-ES:
       view_tribe: "Ver la tribu"
     email_confirmation_pending:
       confirmation_pending: "Por favor confirma tu dirección e-mail"
-    enter_organization_email:
-      enter_your_organization_email: "Ingresa el e-mail de tu %{community_category}"
-      only_people_with_verified_email_address_can_join_your_tribe: "Sólo gente con una dirección e-mail verificada de %{community_category} puede acceder a esta tribu."
-      continue: Continua
-      tribe_exists: "La tribu vive!"
-      this_tribe_exists_already: "Esa tribu ya está en funcionamiento. ¿Quieres unirte a ella?"
-    done:
-      done: Hecho!
-      tribe_created_successfully: "Has creado correctamente tu tribu."
-      go_to_your_tribe: "Ve a tu tribu"
-      we_will_contact_you_about_invoicing: "Te contactaremos prontamente por e-mail sobre la facturación correspondiente."
     index:
       find_your_local_tribe: "Encuentra tu tribu"
       or_start_your_own: "...o %{start_your_own_tribe_link}"
@@ -608,53 +597,6 @@ es-ES:
       if_want_to_view_content: "Si quieres ver el contenido de esta comunidad sin unirte a ella, necesitas"
       log_out: "cerrar sesión"
       join_community_button: "Unirse a la comunidad"
-  dashboard:
-    api:
-      coming_soon: Próximamente!
-    index:
-      watch_the_video: ~
-      get_started: "COMIENZA AHORA!"
-      browse_communities_around_you: "únete a una tribu cercana"
-      slogan: "Un mercado en línea para su comunidad."
-      create_your_own: "Crea el tuyo"
-      sharing_website: "SITIO WEB PARA COMPARTIR"
-      main_description: "Configurar un espacio donde los miembros de tu comunidad puedan compartir bienes, servicios y traslados o paseos en un entorno local de confianza."
-      kassi_for_your_company: "%{service_name} para tu empresa"
-      kassi_for_your_company_description: "¿Quieres que tu compañía esté socialmente más conectada? ¿Quieres ayudar a tus trabajadores a que compartan entre ellos? ¿Quieres reducir las emisiones contaminantes y transformarte en una empresa sustentable? %{service_name} es la solución para ti."
-      kassi_for_your_city: "%{service_name} en tu ciudad"
-      kassi_for_your_city_description: "¿Quieres transformar tu barrio o comunidad en un lugar donde las personas se conozcan y puedan ponerse en contacto entre ellas cada vez que lo necesiten? ¿Quieres ayudar a las personas a mejorar sus vidas? %{service_name} te ayudará a lograr esto."
-      kassi_for_your_university: "%{service_name} para tu universidad"
-      kassi_for_your_university_description: "¿Quieres un ambiente más ameno en tu campus, donde todos se conozcan y compartan entre sí? ¿Quieres ayudar a tus compañeros a ahorrar tiempo, dinero y contribuir con el medioambiente? Prueba Sharetribe y nota el cambio!"
-      want_kassi_for_your_community: "¿Quieres ocupar %{service_name} en tu comunidad?"
-      email_default_text: "Tu dirección email"
-      send: Enviar!
-      or_drop_us_a_line: "...o escríbenos una línea:"
-      thanks_for_contacting_us: "Gracias por contactarnos! Pronto te diremos qué hacer para crear una comunidad en %{service_name}."
-      resources: Recursos
-      connect: Conectar
-      about: "SOBRE SHARETRIBE"
-      developers: "PARA PROGRAMADORES"
-      api: IPA
-      blog: Blog
-      code: Código
-      issue_tracker: "Rastreador de problemas"
-      product_of: "%{service_name} es un producto de"
-      language: "Idioma:"
-      new: NUEVO!
-      new_text: "Actualmente %{service_name} está disponible para <a href=\"http://www.kassi.eu/en/wdc\">vecindarios en Helsinki y Lahti</a> y para <a href=\"http://www.kassi.eu/en/okl\">miembros de Suomen Omakotiliitto</a>!"
-      want_to_know_more: "¿Quieres saber más? %{read_our_faq_link} o %{contact_us_link}."
-      read_our_faq: ~
-      contact_us: "contáctanos directamente"
-      why_you_really_should_have_a_tribe: "Porqué deberías tener una tribu"
-      an_example: ~
-      home: Inicio
-      faq: FAQ
-      browse_tribes: "Buscar tribus"
-      pricing: Precios
-      contact: Contacto
-      university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Sharetribe para la Universidad Aalto</a>"
-      company_example_link: ~
-      city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe para Kallio, Helsinki</a>"
   emails:
     accept_reminder:
       remember_to_accept_offer: "Recuerda aceptar o rechazar una oferta"

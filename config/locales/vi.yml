@@ -503,17 +503,6 @@ vi:
       view_tribe: "Xem cộng đồng"
     email_confirmation_pending:
       confirmation_pending: "Xin vui lòng xác nhận địa chỉ email của bạn"
-    enter_organization_email:
-      enter_your_organization_email: "Nhập email %{community_category} của bạn"
-      only_people_with_verified_email_address_can_join_your_tribe: "Chỉ những người có xác nhận địa chỉ email %{community_category} mới có thể tham gia cộng đồng này."
-      continue: "Tiếp tục"
-      tribe_exists: "Cộng đồng tồn tại!"
-      this_tribe_exists_already: "Cộng đồng này đã tồn tại! Bạn có muốn tham gia nó?"
-    done:
-      done: "Đã thực hiện!"
-      tribe_created_successfully: "Bạn đã tạo thành công cộng đồng của bạn."
-      go_to_your_tribe: "Đi đến cộng đồng của bạn"
-      we_will_contact_you_about_invoicing: "Chúng tôi sẽ liên hệ với bạn sau này bằng email về hoá đơn."
     index:
       find_your_local_tribe: "Tìm thấy cộng đồng địa phương của bạn"
       or_start_your_own: "...hoặc %{start_your_own_tribe_link}"
@@ -605,53 +594,6 @@ vi:
       if_want_to_view_content: "Nếu bạn muốn để xem nội dung trong cộng đồng này mà không gia nhập, bạn cần phải"
       log_out: "đăng xuất"
       join_community_button: "Tham gia cộng đồng"
-  dashboard:
-    api:
-      coming_soon: "Đến sớm!"
-    index:
-      watch_the_video: ~
-      get_started: "BẮT ĐẦU BÂY GIỜ!"
-      browse_communities_around_you: "tham gia cộng đồng gần bạn"
-      slogan: "Chia sẻ với cộng đồng của bạn."
-      create_your_own: "Tạo cho riêng bạn"
-      sharing_website: "CHIA SẺ TRANG WEB"
-      main_description: "Thiết lập một không gian mà các thành viên của cộng đồng của bạn có thể chia sẻ hàng hoá, dịch vụ, cuốc xe và không gian trong một môi trường địa phương tin cậy. Miễn phí và chỉ mất vài phút để làm!"
-      kassi_for_your_company: "...CHO CÔNG TY CỦA BẠN"
-      kassi_for_your_company_description: "Bạn có muốn giúp nhân viên của bạn kết nối với nhau? Bạn muốn cắt giảm phát thải của bạn và trở thành một doanh nghiệp xanh? Bạn muốn tiết kiệm chi phí du lịch, đậu xe và đồ nội thất sử dụng? Sharetribe là giải pháp cho bạn."
-      kassi_for_your_city: "... CHO THÀNH PHỐ CỦA BẠN"
-      kassi_for_your_city_description: "Bạn muốn chuyển đổi các khu dân cư của thành phố cho cộng đồng ngôi làng nơi mọi người chia sẻ với nhau? Bạn có muốn trao quyền cho công dân của bạn để cải thiện cuộc sống của họ? Sharetribe sẽ giúp bạn đạt điều đó."
-      kassi_for_your_university: "...CHO TRƯỜNG ĐẠI HỌC CỦA BẠN"
-      kassi_for_your_university_description: "Bạn muốn tạo ra một môi trường trong khuôn viên trường sôi động, nơi mọi người biết và tin cậy lẫn nhau? Muốn giúp các sinh viên và nhân viên của bạn tiết kiệm thời gian, tiền bạc, và môi trường của họ? Hãy thử Sharetribe và cảm nhận sự thay đổi!"
-      want_kassi_for_your_community: "Muốn %{service_name} cho cộng đồng của bạn?"
-      email_default_text: "Địa chỉ email của bạn"
-      send: Gửi!
-      or_drop_us_a_line: "...hoặc cho chúng tôi xuống một dòng:"
-      thanks_for_contacting_us: "Cảm ơn bạn đã liên hệ với chúng tôi! Chúng tôi sẽ gửi cho bạn thêm thông tin về làm thế nào để tạo một cộng đồng %{service_name} sớm."
-      resources: "TÀI NGUYÊN"
-      connect: "KẾT NỐI"
-      about: "VỀ SHARETRIBE"
-      developers: "CHO NHÀ PHÁT TRIỂN"
-      api: API
-      blog: Blog
-      code: "Mã nguồn"
-      issue_tracker: "Vấn đề theo dõi"
-      product_of: "Sharetribe là một sản phẩm của"
-      language: "Ngôn ngữ:"
-      new: MỚI!
-      new_text: "%{service_name} bây giờ có sẵn cho những hàng xóm <a href=\"http://www.sharetribe.com/en/wdc\"> ở Helsinki và Lahti</a> và cho các thành viên <a href=\"http://www.kassi.eu/en/okl\"> của Suomen Omakotiliitto</a>!"
-      want_to_know_more: "Bạn muốn biết thêm chi tiết? %{read_our_faq_link} or %{contact_us_link}."
-      read_our_faq: "Đọc câu hỏi và trả lời thường gặp (FAQ) của chúng tôi"
-      contact_us: "liên hệ trực tiếp với chúng tôi"
-      why_you_really_should_have_a_tribe: "Tại sao bạn thực sự cần phải có một cộng đồng"
-      an_example: "Một ví dụ:"
-      home: "Trang chủ"
-      faq: FAQ
-      browse_tribes: "Duyệt các cộng đồng"
-      pricing: "Giá cả"
-      contact: "Liên hệ"
-      university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Sharetribe của đại học Aalto</a>"
-      company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/en\">Sharetribe của HTC Keilaniemi</a>"
-      city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe Kallio, Helsinki</a>"
   emails:
     accept_reminder:
       remember_to_accept_offer: "Hãy nhớ chấp nhận hoặc từ chối hỗ trợ"

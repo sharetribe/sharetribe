@@ -503,17 +503,6 @@ ca:
       view_tribe: ~
     email_confirmation_pending:
       confirmation_pending: ~
-    enter_organization_email:
-      enter_your_organization_email: ~
-      only_people_with_verified_email_address_can_join_your_tribe: ~
-      continue: ~
-      tribe_exists: ~
-      this_tribe_exists_already: ~
-    done:
-      done: ~
-      tribe_created_successfully: ~
-      go_to_your_tribe: ~
-      we_will_contact_you_about_invoicing: ~
     index:
       find_your_local_tribe: ~
       or_start_your_own: ~
@@ -605,53 +594,6 @@ ca:
       if_want_to_view_content: ~
       log_out: ~
       join_community_button: ~
-  dashboard:
-    api:
-      coming_soon: ~
-    index:
-      watch_the_video: ~
-      get_started: ~
-      browse_communities_around_you: ~
-      slogan: "Un mercat en línia per a la seva comunitat."
-      create_your_own: "Crea el seu espai"
-      sharing_website: "LLOC WEB PER A COMPARTIR"
-      main_description: "Crea un espai on els membres de la teva comunitat puguin compartir béns, serveis o trajectes amb cotxe en un entorn local de confiança."
-      kassi_for_your_company: "Kassi per a la teva empresa"
-      kassi_for_your_company_description: "Vols que la teva companyia estigui més connectada socialment? Vols ajudar als teus treballadors a que comparteixin entre ells? Vols reduir les emissions contaminants i fer més sostenible la teva empresa? Kassi és la solució!"
-      kassi_for_your_city: "Kassi a la teva ciutat"
-      kassi_for_your_city_description: "Vols transformar el teu barri o comunitat en un lloc on la gent es coneixi entre si i puguin comunicar-se entre ells cada vegada que ho necessiten? Vols ajudar a la gent a millorar les seves vides? Kassi t'ajudarà a aconseguir-ho."
-      kassi_for_your_university: "Kassi per a la teva Universitat"
-      kassi_for_your_university_description: "Vols un ambient més amè al Campus; on tots es coneguin i comparteixin entre si? Vols ajudar als teus companys a estalviar temps, diners i contribuir amb el medi ambient? Prova Kassi i nota el canvi! Un bon exemple:"
-      want_kassi_for_your_community: "Vols un Kassi per a la teva comunitat?"
-      email_default_text: "Correu electrònic"
-      send: Envia!
-      or_drop_us_a_line: "...o escriu-nos a:"
-      thanks_for_contacting_us: "Gràcies per contactar amb nosaltres! Aviat us enviarem més informació sobre com crear una comunitat Kassi."
-      resources: Recursos
-      connect: Connecta
-      about: ~
-      developers: ~
-      api: ~
-      blog: Bloc
-      code: Codi
-      issue_tracker: "Rastrejador de problemes"
-      product_of: "Kassi és un producte de"
-      language: "Llengua:"
-      new: NOU!
-      new_text: ~
-      want_to_know_more: ~
-      read_our_faq: ~
-      contact_us: ~
-      why_you_really_should_have_a_tribe: ~
-      an_example: ~
-      home: ~
-      faq: ~
-      browse_tribes: ~
-      pricing: ~
-      contact: ~
-      university_example_link: ~
-      company_example_link: ~
-      city_example_link: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: "Recorda acceptar o rebutjar una oferta"

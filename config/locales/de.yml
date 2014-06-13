@@ -518,17 +518,6 @@ de:
       view_tribe: "Stamm anzeigen"
     email_confirmation_pending:
       confirmation_pending: "Bitte bestätige deine E-Mail-Adresse"
-    enter_organization_email:
-      enter_your_organization_email: "Bitte gib deine %{community_category} E-Mail-Adresse ein"
-      only_people_with_verified_email_address_can_join_your_tribe: "Nur Leute mit einer verifizierten %{community_category} E-Mail-Adresse können diesen Stamm beitreten."
-      continue: Fortfahren
-      tribe_exists: "Stamm ist vorhanden!"
-      this_tribe_exists_already: "Dieser Stamm ist bereits vorhanden! Willst du beitreten?"
-    done:
-      done: Fertig!
-      tribe_created_successfully: "Du hast deinen Stamm erfolgreich erstellt."
-      go_to_your_tribe: "Zu deinem Stamm gehen"
-      we_will_contact_you_about_invoicing: "Wir kontaktieren dich später per E-Mail wegen der Rechnungserstellung."
     index:
       find_your_local_tribe: "Finde einen Stamm in deiner Nähe"
       or_start_your_own: "...oder %{start_your_own_tribe_link}"
@@ -620,53 +609,6 @@ de:
       if_want_to_view_content: "Wenn du den Inhalt dieser Community ansehen möchtest, ohne beitreten zu wollen, musst du dich"
       log_out: abmelden
       join_community_button: "Community beitreten"
-  dashboard:
-    api:
-      coming_soon: "In Kürze!"
-    index:
-      watch_the_video: "Video ansehen"
-      get_started: "STARTE JETZT!"
-      browse_communities_around_you: "Tritt einem Stamm in deiner Nähe bei"
-      slogan: "Mit deiner Community teilen."
-      create_your_own: "Gründe deinen eigenen Stamm"
-      sharing_website: "Community Marktplatz"
-      main_description: "Richte einen Ort ein, um Waren, Dienstleistungen, Mitfahrgelegenheiten und Räumlichkeiten in einer vertraulichen und lokalen Umgebung teilen zu können. Es ist kostenlos und dauert nur eine Minute!"
-      kassi_for_your_company: "...FÜR DEIN UNTERNEHMEN"
-      kassi_for_your_company_description: "Möchtest du, dass sich deine Mitarbeiter miteinander verbinden? Willst du deine Emissionen senken und ein Grünes Unternehmen werden? Möchtest du die Kosten für Reisen, Parkgebühren und Möbel reduzieren? Dann ist Sharetribe die richtige Lösung für dich."
-      kassi_for_your_city: "...FÜR DEINE STADT"
-      kassi_for_your_city_description: "Möchtest du die Nachbarschaft deiner Stadt in eine Dorfgemeinschaft verwandeln, wo Menschen alles miteinander teilen können? Möchtest du deine Mitmenschen befähigen, ihr Leben zu verbessern? Sharetribe hilft dir dabei."
-      kassi_for_your_university: "...FÜR DEINE UNIVERSITÄT"
-      kassi_for_your_university_description: "Möchtest du ein lebendiges Campus-Umfeld schaffen, wo Leute sich kennen und vertrauen? Willst du Studenten und Mitarbeitern dabei helfen, Zeit und Geld zu sparen, und nebenbei auch noch etwas für die Umwelt zu tun? Probiere Sharetribe aus, und du wirst die Veränderung mit eigenen Augen erleben."
-      want_kassi_for_your_community: "Willst du %{service_name} für deine Community?"
-      email_default_text: "Deine E-Mail-Adresse"
-      send: Senden!
-      or_drop_us_a_line: "... ...oder schreib uns:"
-      thanks_for_contacting_us: "Vielen Dank für die Kontaktaufnahme mit uns! Wir schicken dir bald weitere Informationen zum Erstellen einer %{service_name} Community."
-      resources: RESSOURCEN
-      connect: VERBINDEN
-      about: "ÜBER SHARETRIBE"
-      developers: "FÜR ENTWICKLER"
-      api: API
-      blog: Blog
-      code: Quelltext
-      issue_tracker: Eintragsverfolgung
-      product_of: "Sharetribe ist ein Produkt der"
-      language: "Sprache:"
-      new: NEU!
-      new_text: "%{service_name} ist nun verfügbar für <a href=\"http://www.sharetribe.com/en/wdc\">Nachbarschaften in Helsinki und Lahti</a> und für <a href=\"http://www.kassi.eu/en/okl\">Mitglieder aus Suomen Omakotiliitto</a>!"
-      want_to_know_more: "Willst du mehr wissen? %{read_our_faq_link} oder %{contact_us_link}"
-      read_our_faq: "Lies unsere FAQ"
-      contact_us: "Kontaktiere uns direkt"
-      why_you_really_should_have_a_tribe: "Warum du unbedingt einen Stamm haben solltest"
-      an_example: "Ein Beispiel:"
-      home: Startseite
-      faq: FAQ
-      browse_tribes: "Stämme durchstöbern"
-      pricing: Preise
-      contact: Kontakt
-      university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Sharetribe of Aalto University</a>"
-      company_example_link: "Sharetribe of IF"
-      city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe von Kallio, Helsinki</a>"
   emails:
     accept_reminder:
       remember_to_accept_offer: "Denke daran, das Angebot von %{sender_name} anzunehmen oder es abzulehnen"

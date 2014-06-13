@@ -503,17 +503,6 @@ it:
       view_tribe: ~
     email_confirmation_pending:
       confirmation_pending: ~
-    enter_organization_email:
-      enter_your_organization_email: ~
-      only_people_with_verified_email_address_can_join_your_tribe: ~
-      continue: Continua
-      tribe_exists: ~
-      this_tribe_exists_already: ~
-    done:
-      done: Fatto!
-      tribe_created_successfully: ~
-      go_to_your_tribe: ~
-      we_will_contact_you_about_invoicing: ~
     index:
       find_your_local_tribe: ~
       or_start_your_own: ~
@@ -605,53 +594,6 @@ it:
       if_want_to_view_content: ~
       log_out: ~
       join_community_button: ~
-  dashboard:
-    api:
-      coming_soon: ~
-    index:
-      watch_the_video: ~
-      get_started: "INIZIA ADESSO!"
-      browse_communities_around_you: ~
-      slogan: ~
-      create_your_own: ~
-      sharing_website: ~
-      main_description: ~
-      kassi_for_your_company: "...PER LA TUA AZIENDA"
-      kassi_for_your_company_description: ~
-      kassi_for_your_city: "...PER LA TUA CITTÀ"
-      kassi_for_your_city_description: ~
-      kassi_for_your_university: "...PER LA TUA UNIVERSITÀ"
-      kassi_for_your_university_description: ~
-      want_kassi_for_your_community: ~
-      email_default_text: "Il tuo indirizzo email"
-      send: Invia!
-      or_drop_us_a_line: ~
-      thanks_for_contacting_us: ~
-      resources: RISORSE
-      connect: ~
-      about: ~
-      developers: "PER GLI SVILUPPATORI"
-      api: API
-      blog: Blog
-      code: "Codice sorgente"
-      issue_tracker: ~
-      product_of: ~
-      language: "Lingua:"
-      new: ~
-      new_text: ~
-      want_to_know_more: ~
-      read_our_faq: "Leggi le nostre FAQ"
-      contact_us: "contattaci direttamente"
-      why_you_really_should_have_a_tribe: ~
-      an_example: "Un esempio:"
-      home: ~
-      faq: ~
-      browse_tribes: ~
-      pricing: ~
-      contact: ~
-      university_example_link: ~
-      company_example_link: ~
-      city_example_link: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: "Ricorda di accettare o rifiutare un'offerta da %{sender_name}"
