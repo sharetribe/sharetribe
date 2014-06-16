@@ -7,10 +7,8 @@
 .signup-form.centered-section
 
   - if @community_customization && @community_customization.signup_info_content
-    = @community_customization.signup_info_content.html_safe
-    %br/
-    %br/
-    %br/
+    %p
+      = @community_customization.signup_info_content.html_safe
   - elsif @current_community.allowed_emails
     %p
       = t('.email_restriction_instructions',
@@ -21,7 +19,6 @@
   - unless !facebook_connect_in_use? || params[:no_fb]
     = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".create_account_with_facebook") }
 
-    / %p= t(".or_create_new_account_without_facebook")
     .signup-horizontal-line
       .signup-horizontal-line-text=t(".OR")
 

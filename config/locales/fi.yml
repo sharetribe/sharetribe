@@ -1479,8 +1479,9 @@ fi:
       username_is_invalid: "Käyttäjätunnus ei kelpaa. Sallitut merkit ovat kirjaimet a-z, numerot ja alaviiva."
       visible_only_to_you: "näkyy vain sinulle ja ylläpidolle"
       visible_to_everybody: "näkyy kaikille"
-      create_account_with_facebook: "Luo uusi tunnus Facebookin avulla"
-      or_create_new_account_without_facebook: "...tai luo tunnus ilman Facebookia täyttämällä alla olevat kentät."
+      create_account_with_facebook: "Rekisteröidy Facebook-tunnuksesi avulla"
+      OR: "TAI"
+      signup_with_email: "Rekisteröidy sähköpostiosoitteellasi"
     not_member:
       explanation_text: "Olet tällä hetkellä yhteisössä %{community}. Yritit mennä sellaisen %{service_name_genetive} käyttäjän profiiliin, joka on jonkin toisen yhteisön jäsen. %{service_name} ei vielä toistaiseksi tue käyttäjien kuulumista kerrallaan useampaan kuin yhteen yhteisöön, joten et voi nähdä tämän käyttäjän profiilia %{service_name}-yhteisön %{community} kautta. Mahdollisuus kuulua useampaan kuin yhteen yhteisöön lisätään palveluun myöhemmin."
       read_more_about_kassi_communities: "Lue lisää %{service_name_genetive} yhteisöistä"
