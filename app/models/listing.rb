@@ -59,7 +59,7 @@ class Listing < ActiveRecord::Base
 
   before_create :set_sort_date_to_now
   def set_sort_date_to_now
-    self.sort_date = Time.now
+    self.sort_date ||= Time.now
   end
 
   before_validation do
