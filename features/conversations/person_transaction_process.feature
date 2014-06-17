@@ -28,7 +28,7 @@ Feature: Transaction process between two users
     And I follow "View message" in the email
     Then I should see "1" within "#inbox-link"
     When I follow "Accept request"
-    And I fill in "conversation_message_attributes_content" with "Ok, that works!"
+    And I fill in "listing_conversation_message_attributes_content" with "Ok, that works!"
     And I press "Send"
     Then I should see "Accepted"
     And I should see "to pay"

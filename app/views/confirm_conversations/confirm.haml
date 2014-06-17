@@ -5,24 +5,24 @@
   %h1= t("layouts.no_tribe.inbox")
 
 .centered-section.conversation-status-form
-  = form_for @conversation, :url => confirmation_person_message_path(:person_id => @current_user.id, :id => @conversation.id), :html => { :method => "put" } do |form|
+  = form_for @listing_conversation, :url => confirmation_person_message_path(:person_id => @current_user.id, :id => @listing_conversation.id), :html => { :method => "put" } do |form|
 
-    - if @conversation.can_be_confirmed?
+    - if @listing_conversation.can_be_confirmed?
 
       .conversation-action
         - ["confirm", "cancel"].each do |action|
           %label{:for => "action-#{action}", :class => "radio hidden"}
-            = radio_button_tag "conversation[status]", action, @action.eql?(action), :id => "action-#{action}"
+            = radio_button_tag "listing_conversation[status]", action, @action.eql?(action), :id => "action-#{action}"
           %a.conversation-action.hidden{:id => "#{action}", :name => "#{action}-link", :class => (@action.eql?(action) ? action : "")}
             .link-icon{:class => icon_for("#{action}ed")}
-            .link-text{:id => "#{action}-action-link"}= t(".#{action}")
+            .link-text{:id => "#{action}-action-link"}= t("conversations.confirm.#{action}")
 
       .conversation-action-description
         - ["confirm", "cancel"].each do |action|
           %div{:class => "#{action}-description #{@action.eql?(action) ? '' : 'hidden'}"}
-            = t(".#{action}_description")
+            = t("conversations.confirm.#{action}_description")
 
-      = fields_for "conversation[message_attributes]", Message.new do |message_form|
+      = fields_for "listing_conversation[message_attributes]", Message.new do |message_form|
         = message_form.hidden_field :sender_id, :value => @current_user.id
         = message_form.hidden_field :action, :value => @action
 
@@ -30,12 +30,12 @@
 
     - else
 
-      %h2= t(".canceling_payed_transaction")
+      %h2= t("conversations.confirm.canceling_payed_transaction")
 
       .conversation-action-description
-        = t(".cancel_payed_description")
+        = t("conversations.confirm.cancel_payed_description")
 
-      = fields_for "conversation[message_attributes]", Message.new do |message_form|
+      = fields_for "listing_conversation[message_attributes]", Message.new do |message_form|
         = message_form.label :content, t("conversations.new.message"), :class => "input"
         = message_form.text_area :content, :class => "text_area", :placeholder => t("conversations.accept.optional_message")
         = message_form.hidden_field :sender_id, :value => @current_user.id
@@ -48,10 +48,10 @@
 
         .checkbox-container
           = radio_button_tag "give_feedback", true, true, :id => "do_give_feedback"
-          = label_tag "do_give_feedback", t(".give_feedback_to", :person_link => link_to(@conversation.other_party(@current_user).name, @conversation.other_party(@current_user))).html_safe, :class => "radio"
+          = label_tag "do_give_feedback", t("conversations.confirm.give_feedback_to", :person_link => link_to(@listing_conversation.other_party(@current_user).name, @listing_conversation.other_party(@current_user))).html_safe, :class => "radio"
 
         .checkbox-container
           = radio_button_tag "give_feedback", false, false, :id => "do_not_give_feedback"
-          = label_tag "do_not_give_feedback", t(".do_not_give_feedback"), :class => "radio"
+          = label_tag "do_not_give_feedback", t("conversations.confirm.do_not_give_feedback"), :class => "radio"
 
-    = form.button t(".continue"), :class => "send_button", :id => "send_testimonial_button"
+    = form.button t("conversations.confirm.continue"), :class => "send_button", :id => "send_testimonial_button"

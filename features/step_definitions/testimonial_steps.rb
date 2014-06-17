@@ -29,7 +29,7 @@ Given /^I have "([^"]*)" testimonials? with grade "([^"]*)"$/ do |amount, grade|
   amount.to_i.times do
     listing = FactoryGirl.create(:listing)
     transaction_transitions = [FactoryGirl.build(:transaction_transition, :to_state => "confirmed")]
-    conversation = FactoryGirl.build(:conversation, :transaction_transitions => transaction_transitions, :listing => listing)
+    conversation = FactoryGirl.build(:listing_conversation, :transaction_transitions => transaction_transitions, :listing => listing)
     conversation.save!
     conversation.participants << @people["kassi_testperson1"] << @people["kassi_testperson2"]
     message = Message.create(:sender_id => @people["kassi_testperson1"].id, :content => "Test", :conversation_id => conversation.id)

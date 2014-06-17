@@ -1,23 +1,23 @@
 .conversation-price.accept-price{:class => (@action.eql?("accept") ? "" : "hidden")}
   %h3.invoice-title= t("payments.form.invoice")
-  = fields_for "conversation[payment_attributes]", @payment do |payment_form|
+  = fields_for "listing_conversation[payment_attributes]", @payment do |payment_form|
     = payment_form.hidden_field :community_id, :value => @current_community.id
-    = payment_form.hidden_field :currency, :value => @conversation.listing.currency
+    = payment_form.hidden_field :currency, :value => @listing_conversation.listing.currency
 
     .invoice-row
       .invoice-row-left.invoice-row-text-column
         = t("payments.form.product")
       .invoice-row-right.invoice-row-text-column
-        = link_to @conversation.listing.title, @conversation.listing
+        = link_to @listing_conversation.listing.title, @listing_conversation.listing
 
     .invoice-row
       .invoice-row-left.invoice-row-text-column
-        - payer = @conversation.other_party(@current_user)
+        - payer = @listing_conversation.other_party(@current_user)
         = t("payments.form.price_for", :payer_given_name => link_to(payer.given_name_or_username, payer)).html_safe
       .invoice-row-symbol
         = @payment.total_sum.symbol
       .invoice-row-right
-        = payment_form.text_field :sum, :value => @conversation.listing.price, :class => "invoice-sum-field trigger-focusout"
+        = payment_form.text_field :sum, :value => @listing_conversation.listing.price, :class => "invoice-sum-field trigger-focusout"
 
     .invoice-row
       .invoice-row-left.invoice-row-text-column

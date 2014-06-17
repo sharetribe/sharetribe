@@ -29,6 +29,7 @@ class Listing < ActiveRecord::Base
   belongs_to :transaction_type
 
   delegate :direction, to: :transaction_type
+  delegate :status_after_reply, to: :transaction_type
 
   monetize :price_cents, :allow_nil => true
 

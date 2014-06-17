@@ -1,15 +1,13 @@
 Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
-  @conversation = Conversation.create!(:listing_id => @listing.id,
+  @conversation = ListingConversation.create!(:listing_id => @listing.id,
                                       :conversation_participants => { @listing.author.id => "false", @people[sender].id => "true"},
                                       :message_attributes => { :content => message, :sender_id => @people[sender].id },
                                       :community => @current_community
                                       )
-
-  @conversation.status = "free"
 end
 
 Given /^there is a pending request "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
-  @conversation = Conversation.create!(:listing_id => @listing.id,
+  @conversation = ListingConversation.create!(:listing_id => @listing.id,
                                       :title => message,
                                       :conversation_participants => { @listing.author.id => "false", @people[sender].id => "true"},
                                       :message_attributes => { :content => message, :sender_id => @people[sender].id },

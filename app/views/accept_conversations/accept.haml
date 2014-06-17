@@ -1,0 +1,37 @@
+- payment_gateway = Maybe(@current_community).payment_gateway
+- content_for :javascript do
+  initialize_accept_transaction_form(#{@current_community.commission_from_seller || "null"}, #{payment_gateway.gateway_commission_percentage.or_else("null")}, #{payment_gateway.gateway_commission_fixed.amount.or_else("null")}, #{APP_CONFIG.service_fee_tax_percentage || "0"}, '#{@current_community.invoice_form_type_for(@listing_conversation.listing)}', '#edit_listing_conversation_#{@listing_conversation.id.to_s}', #{@current_community.absolute_minimum_price(@listing_conversation.listing.currency).cents}, "#{t('conversations.accept.minimum_price_error_message', :amount => humanized_money_with_symbol(@current_community.absolute_minimum_price(@listing_conversation.listing.currency)))}");
+
+- content_for :title_header do
+  %h1= t("layouts.no_tribe.inbox")
+
+.conversation-status-form{:class => (@current_community.vat ? "centered-section-wide" : "centered-section")}
+  %h2= t("conversations.accept.respond_to_#{@listing_conversation.discussion_type}")
+  = form_for @listing_conversation, :url => acceptance_person_message_path(:person_id => @current_user.id, :id => @listing_conversation.id), :html => { :method => "put" } do |form|
+
+    .conversation-action
+      - ["accept", "reject"].each do |action|
+        %label{:for => "action-#{action}", :class => "radio hidden"}
+          = radio_button_tag "listing_conversation[status]", action, @action.eql?(action), :id => "action-#{action}"
+        %a.conversation-action.hidden{:id => "#{action}", :name => "#{action}-link", :class => (@action.eql?(action) ? action : "")}
+          .link-icon{:class => icon_for("#{action}ed")}
+          .link-text{:id => "#{action}-action-link"}= t("conversations.accept.#{action}_#{@listing_conversation.discussion_type}")
+
+    - if @payout_registration_missing
+      .hidden-accept-form.visible-when-accept{:class => (@action.eql?("accept") ? "" : "hidden")}
+        %br
+        %p#conversation-payment-details-missing
+          = t("conversations.accept.you_need_to_fill_payout_details_before_accepting", :payment_settings_link => link_to(t("conversations.accept.payment_settings_link"), @current_community.payment_gateway.settings_path(@current_user, I18n.locale), :id => "#conversation-payment-settings-link")).html_safe
+
+    %div{:class => (@payout_registration_missing ? "hidden-accept-form visible-when-reject #{@action.eql?("accept") ? "hidden" : ""}" : "")}
+      - if @current_community.payment_possible_for?(@listing_conversation.listing)
+        = render :partial => @current_community.payment_gateway.form_template_dir + "/form"
+
+      = fields_for "listing_conversation[message_attributes]", Message.new do |message_form|
+        = message_form.label :content, t("conversations.new.message"), :class => "input"
+        = message_form.text_area :content, :class => "text_area", :placeholder => t("conversations.accept.optional_message")
+        = message_form.hidden_field :sender_id, :value => @current_user.id
+        = message_form.hidden_field :action, :value => @action
+
+      = form.hidden_field :status, :value => "#{@action}ed"
+      = form.button t("conversations.new.send"), :class => "send_button", :id => "send_testimonial_button"

@@ -27,7 +27,7 @@ class ConfirmConversation
 
   def update_participation(feedback_given)
     @participation.update_attribute(:is_read, true) if @offerer.eql?(@user)
-    @participation.update_attribute(:feedback_skipped, true) unless feedback_given && feedback_given.eql?("true")
+    @participation.update_attribute(:feedback_skipped, true) unless feedback_given
   end
 
   # Listing confirmed automatically

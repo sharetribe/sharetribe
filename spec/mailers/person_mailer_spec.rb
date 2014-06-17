@@ -60,7 +60,7 @@ describe PersonMailer do
   describe "status changed" do
 
     before(:each) do
-      @conversation = FactoryGirl.create(:conversation)
+      @conversation = FactoryGirl.create(:listing_conversation)
       @conversation.participants = [@conversation.listing.author, @test_person2]
       @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
 
@@ -121,7 +121,7 @@ describe PersonMailer do
     @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
     @test_person.save
     Person.find(@test_person.id).update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
-    @conversation = FactoryGirl.create(:conversation)
+    @conversation = FactoryGirl.create(:listing_conversation)
     @conversation.participants << @test_person
     @conversation.participants << @test_person2
     @participation = Participation.find_by_person_id_and_conversation_id(@test_person2.id, @conversation.id)
@@ -134,7 +134,7 @@ describe PersonMailer do
   it "should remind to accept or reject" do
     @test_person2.update_attributes({ "given_name" => "Jack", "family_name" => "Dexter" })
     @listing = FactoryGirl.create(:listing, :author => @test_person)
-    @conversation = FactoryGirl.create(:conversation, :listing => @listing)
+    @conversation = FactoryGirl.create(:listing_conversation, :listing => @listing)
     @conversation.participants << @test_person
     @conversation.participants << @test_person2
 

@@ -3,6 +3,6 @@
     .content
       = t("people.show.edit_profile_info")
 - else
-  %a.profile-contact-link{href: new_person_message_path(:person_id => @person.id, :message_type => "free", :profile_message => true)}
+  %a.profile-contact-link{href: new_person_person_message_path(:person_id => @person.id)}
     .content
       = t("people.show.contact", :person => @person.given_name_or_username)
