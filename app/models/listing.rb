@@ -1,6 +1,9 @@
 # encoding: utf-8
 class Listing < ActiveRecord::Base
 
+  # http://pat.github.io/thinking-sphinx/advanced_config.html
+  SPHINX_MAX_MATCHES = 1000
+
   include ApplicationHelper
   include ActionView::Helpers::TranslationHelper
   include Rails.application.routes.url_helpers
@@ -196,7 +199,7 @@ class Listing < ActiveRecord::Base
     end
 
     # Two ways of finding, with or without sphinx
-    if params[:search].present? || params[:transaction_types].present? || params[:category].present? || params[:custom_dropdown_field_options].present?  || params[:custom_checkbox_field_options].present? || params[:price_cents].present?
+    if search_with_sphinx?(params)
 
       # sort by time by default
       params[:sort] ||= 'created_at DESC'
@@ -229,15 +232,22 @@ class Listing < ActiveRecord::Base
 
       params[:search] ||= "" #at this point use empty string as Riddle::Query.escape fails with nil
 
-      listings = Listing.search(Riddle::Query.escape(params[:search]),
-                                :include => params[:include],
-                                :page => page,
-                                :per_page => per_page,
-                                :star => true,
-                                :with => with,
-                                :with_all => with_all,
-                                :order => params[:sort]
-                                )
+      page = page ? page.to_i : 1
+
+      listings = if search_out_of_bounds?(per_page, page)
+        Listing.none.paginate(:per_page => per_page, :page => page)
+      else
+        Listing.search(
+          Riddle::Query.escape(params[:search]),
+          :include => params[:include],
+          :page => page,
+          :per_page => per_page,
+          :star => true,
+          :with => with,
+          :with_all => with_all,
+          :order => params[:sort]
+        )
+      end
 
     else # No search query or filters used, no sphinx needed
       query = {}
@@ -248,6 +258,15 @@ class Listing < ActiveRecord::Base
       listings = joins(joined_tables).where(query).currently_open(params[:status]).visible_to(current_user, current_community).includes(params[:include]).order("listings.created_at DESC").paginate(:per_page => per_page, :page => page)
     end
     return listings
+  end
+
+  def self.search_out_of_bounds?(per_page, page)
+    pages = (SPHINX_MAX_MATCHES.to_f / per_page.to_f)
+    page > pages.ceil
+  end
+
+  def self.search_with_sphinx?(params)
+    params[:search].present? || params[:transaction_types].present? || params[:category].present? || params[:custom_dropdown_field_options].present?  || params[:custom_checkbox_field_options].present? || params[:price_cents].present?
   end
 
   def self.find_by_category_and_subcategory(category)
