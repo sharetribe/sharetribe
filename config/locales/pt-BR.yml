@@ -367,9 +367,9 @@ pt-BR:
       confirmed_offer: "Oferta concluída."
       canceled_request: "Pedido cancelado."
       canceled_offer: "Oferta cancelada."
-      message_from: ~
-      about_listing: ~
-      free_message: ~
+      message_from: "Mensagem de %{person}"
+      about_listing: "Sobre como listar %{listing_title}"
+      free_message: "Mensagem livre"
     message:
       accepted_request: "aceitou o pedido"
       accepted_offer: "aceitou a oferta"
@@ -422,12 +422,12 @@ pt-BR:
       write_a_reply: "Escreva uma resposta:"
       conversation_about_listing: "Com %{listing} sobre %{person}"
       conversation_with_user: "Com %{person}"
-      conversation_with: ~
+      conversation_with: "Conversa com %{person}"
       last_message_at: "(última mensagem %{time})"
       requested_by: "Solicitado por %{requester_name}"
-      price: ~
+      price: "Preço: %{price}"
       sum: "Soma: %{sum}"
-      price_excludes_vat: ~
+      price_excludes_vat: "(exclui VAT)"
     status:
       cancel_payed_transaction: Cancelar
       feedback_given: "Feedback enviado"
@@ -446,12 +446,12 @@ pt-BR:
       skip_feedback: "Pular feedback"
       waiting_for_listing_author_to_accept_offer: "Aguardando %{listing_author_name} aceitar a oferta"
       waiting_for_listing_author_to_accept_request: "Aguandando %{listing_author_name} aceitar o pedido"
-      waiting_for_you_to_accept_request: ~
+      waiting_for_you_to_accept_request: "Esperando por você para aceitar o pedido"
       waiting_confirmation_from_requester: "Aguardando %{requester_name} para marcar o pedido como concluído"
-      waiting_confirmation_from_you: ~
+      waiting_confirmation_from_you: "Esperando você marcar se a solicitação foi concluída"
       waiting_payment_from_requester: "Aguardando %{requester_name} para pagar"
-      waiting_payment_from_you: ~
-      waiting_feedback_from_you: ~
+      waiting_payment_from_you: "Esperando você pagar"
+      waiting_feedback_from_you: "Esperando você dar feedback"
     status_link:
       accept_offer: "Aceitar oferta"
       accept_request: "Aceitar requisição"
@@ -959,9 +959,9 @@ pt-BR:
       all_categories: "Todas categorias"
   infos:
     about:
-      default_about_text_title: ~
+      default_about_text_title: "O que é Sharetribe?"
       default_about_text: "Este mercado é alimentado por plataforma Sharetribe. Com Sharetribe você pode facilmente criar o seu próprio site mercado. É gratuito e leva apenas um minuto. %{click_here_link} para saber mais!"
-      click_here_link_text: ~
+      click_here_link_text: "Clique aqui"
   layouts:
     no_tribe:
       inbox: "caixa de entrada"
@@ -1159,20 +1159,20 @@ pt-BR:
       wrote: ~
       send_private_message: ~
     comment_form:
-      ask_a_question: ~
+      ask_a_question: "Comente sobre a lista ou peça mais detalhes. Todos os outros usuários serão capazes de ver o seu comentário."
       log_in: login
       send_comment: "Enviar um comentário"
       to_send_a_comment: "para enviar um novo comentário."
       write_comment: "Escrever um novo comentário:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: ~
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Você não pode enviar novos comentários pois este anúncio está fechado."
       you_must: "Você deve"
-      subscribe_to_comments: ~
+      subscribe_to_comments: "Notifique-me de novos comentários e atualizações"
     edit:
       edit_listing: "Editar listagem"
     edit_links:
-      close_listing: "Fechar lista"
-      edit_listing: "Editar listagem"
-      reopen_listing: "Reabrir listagem"
+      close_listing: Fechar
+      edit_listing: Editar
+      reopen_listing: Reabrir
       move_to_top: "Mover para o início da página inicial"
     follow_links:
       follow: "Obter e-mails sobre novos comentários"
@@ -1208,13 +1208,13 @@ pt-BR:
         no_file_selected: "Nenhum arquivo selecionado"
         remove_image: "Remover imagem"
         select_file: "Selecione arquivo"
-        removing: ~
-        processing: ~
-        loading_image: ~
-        this_may_take_a_while: ~
-        percentage_loaded: ~
+        removing: Removendo...
+        processing: Processando...
+        loading_image: "Carregando ..."
+        this_may_take_a_while: "(pode demorar um pouco)"
+        percentage_loaded: "%{percentage}%"
         uploading_failed: "Upload da imagem falhou"
-        file_too_large: ~
+        file_too_large: "O arquivo é muito grande"
         accepted_formats: "O formato do arquivo de imagem deve ser GIF, JPG ou PNG."
       location:
         location: Local
@@ -1462,7 +1462,8 @@ pt-BR:
       visible_only_to_you: "visível apenas para você e para o administrador comunidade"
       visible_to_everybody: "visível para todos"
       create_account_with_facebook: "Criar uma conta no Facebook"
-      or_create_new_account_without_facebook: ~
+      OR: ~
+      signup_with_email: ~
     not_member:
       explanation_text: "Você está atualmente em %{community} comunidade. Você tentou ver o perfil de um usuário que pertence a outra comunidade Sharetribe. Você não pode acessar este perfil através de %{community} comunidade."
       read_more_about_kassi_communities: "Leia mais sobre comunidades Sharetribe"
@@ -1614,7 +1615,7 @@ pt-BR:
       family_name: Sobrenome
       given_name: "Primeiro Nome"
       first_name_with_initial: "(apenas a primeira letra mostrada para outros usuários)"
-      first_name_only: ~
+      first_name_only: "(não será mostrado a outros usuários)"
       location_description: "Você pode dar ou a sua localização exata ou, por exemplo, apenas o seu código postal. Por favor, adicione pelo menos o seu código postal. Você também pode selecionar um local no mapa abaixo."
       phone_number: "Número de telefone"
       profile_picture: "Foto do perfil"
@@ -1626,7 +1627,7 @@ pt-BR:
       visible_to_everybody: "visível para todos"
       visible_to_registered_users: "(visível para os usuários que tenham logado)"
       default_in_listing: "(usado apenas como um padrão ao criar uma nova listagem)"
-      invisible: ~
+      invisible: "(não será mostrado a outros usuários)"
     save_information: "Salve as informações"
   tag_cloud:
     tag_used:
@@ -1664,7 +1665,7 @@ pt-BR:
       negative: Negativo
       default_textual_feedback: ~
     testimonial:
-      about_listing: ~
+      about_listing: "sobre como listar"
   time:
     formats:
       short: ~

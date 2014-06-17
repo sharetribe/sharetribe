@@ -1463,7 +1463,8 @@ vi:
       visible_only_to_you: "chỉ hiện thị đối với bạn và cộng đồng quản trị"
       visible_to_everybody: "hiển thị đối với mọi người"
       create_account_with_facebook: ~
-      or_create_new_account_without_facebook: ~
+      OR: ~
+      signup_with_email: ~
     not_member:
       explanation_text: "Hiện tại bạn đang ở trong cộng đồng %{community}. Bạn thử xem thông tin người dùng của cộng đồng khác. Hiện tại %{service_name} không hỗ trợ cho đa cộng đồng, do đó bạn không thể truy cập hồ sơ này thông qua cộng đồng %{community}. Chúng tôi đang thực hiện tính năng cho phép một chọn lựa thuộc về nhiều hơn một cộng đồng cùng một lúc. Tính năng này sẽ được thêm dịch vụ sau này."
       read_more_about_kassi_communities: "Tìm hiểu thêm về cộng đồng %{service_name}"

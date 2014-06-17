@@ -1470,7 +1470,8 @@ es-ES:
       visible_only_to_you: "visible solamente a usted y al administrador de la comunidad"
       visible_to_everybody: "Visible para todos"
       create_account_with_facebook: "Crea una cuenta con Facebook"
-      or_create_new_account_without_facebook: "... o crea una cuenta sin utilizar Facebook más abajo."
+      OR: ~
+      signup_with_email: ~
     not_member:
       explanation_text: "Actualmente perteneces a la comunidad %{community}. Intentaste ver el perfil de un usuario que pertenece a otra comunidad Sharetribe. No puedes acceder a ese perfil a través de la comunidad %{community}."
       read_more_about_kassi_communities: "Lee más sobre las comunidades de %{service_name}"

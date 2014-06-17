@@ -1462,7 +1462,8 @@ zh:
       visible_only_to_you: 只有您和社区管理员可见
       visible_to_everybody: 所有人可见
       create_account_with_facebook: ~
-      or_create_new_account_without_facebook: ~
+      OR: ~
+      signup_with_email: ~
     not_member:
       explanation_text: "您现在属于%{community} 社区。您试图查看另一个社区的用户资料。Kassi现在并不支持多重社区身份，所以您可以通过%{community} 社区查看这个用户的资料。我们正在努力实现多重社区身份，以后的更新将会完善这个功能。"
       read_more_about_kassi_communities: 阅读更多关于Kassi社区

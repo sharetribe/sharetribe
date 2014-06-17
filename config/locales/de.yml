@@ -1483,7 +1483,8 @@ de:
       visible_only_to_you: "nur für dich und den Admin der Community sichtbar"
       visible_to_everybody: "für jeden sichtbar"
       create_account_with_facebook: "Lege ein Account mit Facebook an"
-      or_create_new_account_without_facebook: "... oder lege unten einen Account an ohne Facebook User zu sein"
+      OR: ~
+      signup_with_email: ~
     not_member:
       explanation_text: "Du befindest dich derzeit in der %{community} Community. Du hast versucht, das Profil eines Benutzers aus einer anderen Community anzuzeigen. Du kannst dieses Profil nicht durch deine %{community} Community einsehen."
       read_more_about_kassi_communities: "Lies mehr über Sharetribe-Communities"

@@ -1464,7 +1464,8 @@ ca:
       visible_only_to_you: "visible només per a tu i l'administrador de la comunitat"
       visible_to_everybody: "Visible per a tothom"
       create_account_with_facebook: ~
-      or_create_new_account_without_facebook: ~
+      OR: ~
+      signup_with_email: ~
     not_member:
       explanation_text: "Actualment pertanys a la comunitat %{community}. Has intentat veure el perfil d'un usuari que pertany a una altra comunitat. De moment Kassi no permet que puguis ingressar en diverses comunitats simultàniament. Estem treballant en una opció que permeti accedir a més d'una comunitat al mateix temps. Aviat estarà disponible!"
       read_more_about_kassi_communities: "Llegir més sobre les comunitats Kassi"
