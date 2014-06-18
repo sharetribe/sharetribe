@@ -116,6 +116,7 @@ class Admin::CommunitiesController < ApplicationController
   def transactions
     @community = @current_community
     @conversations = Conversation.where(:community_id => @current_community.id)
+                                 .paginate(:page => params[:page], :per_page => 50)
   end
 
   def update_look_and_feel

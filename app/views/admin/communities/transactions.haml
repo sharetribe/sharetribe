@@ -9,20 +9,19 @@
   %table#admin_transactions
     %thead
       %tr
-        %th.arrow-up=sort_link("conversation")
-        %th.arrow-up=sort_link("listing")
-        %th.arrow-up=sort_link("status")
-        %th.arrow-up=sort_link("sum")
-        %th.arrow-up=sort_link("started")
-        %th.arrow-up=sort_link("last_activity")
-        %th.arrow-up=sort_link("initiated_by")
-        %th.arrow-up=sort_link("other_party")
+        %th=t("admin.communities.transactions.conversation")
+        %th=t("admin.communities.transactions.listing")
+        %th=t("admin.communities.transactions.status")
+        %th=t("admin.communities.transactions.sum")
+        %th=t("admin.communities.transactions.started")
+        %th=t("admin.communities.transactions.last_activity")
+        %th=t("admin.communities.transactions.initiated_by")
+        %th=t("admin.communities.transactions.other_party")
 
     %tbody
       - @conversations.each do |conversation|
         %tr
-          -truncated_message = truncate(conversation.first_message.content, length: 15)
-          %td=truncated_message
+          %td=truncate(conversation.first_message.content, length: 15)
           %td=link_to(conversation.listing.title, conversation.listing)
           %td=conversation.status
           %td=price_as_text(conversation.listing)
