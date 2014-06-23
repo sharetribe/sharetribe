@@ -4,14 +4,16 @@ class TransactionProcess
   state :not_started, initial: true
   state :free
   state :pending
+  state :preauthorized
   state :accepted
   state :rejected
   state :paid
   state :confirmed
   state :canceled
 
-  transition from: :not_started,               to: [:free, :pending]
+  transition from: :not_started,               to: [:free, :pending, :preauthorized]
   transition from: :pending,                   to: [:accepted, :rejected]
+  transition from: :preauthorized,             to: [:paid, :rejected]
   transition from: :accepted,                  to: [:paid, :canceled]
   transition from: :paid,                      to: [:confirmed, :canceled]
 
@@ -65,5 +67,13 @@ class TransactionProcess
   after_transition(to: :canceled) do |conversation|
     confirmation = ConfirmConversation.new(conversation, conversation.starter, conversation.community)
     confirmation.cancel!
+  end
+
+  before_transition(from: :preauthorized, to: :rejected) do |conversation|
+    throw "IMPLEMENT: Release credit card authorization"
+  end
+
+  before_transition(from: :preauthorized, to: :paid) do |conversation|
+    throw "IMPLEMENT: Submit to settlement"
   end
 end
