@@ -17,7 +17,7 @@ Feature: User requests an item in item offer
     When I follow "Hammer"
     And I follow "Rent this item"
     And I fill in "Message" with "I want to borrow this item"
-    And I press "Send message"
+    And I press "Rent this item"
     Then I should see "Message sent" within ".flash-notifications"
     And I should see "Hammer" within "#listing-title"
     When I follow inbox link
@@ -73,7 +73,6 @@ Feature: User requests an item in item offer
     Then I should see "You must log in to Sharetribe to send a message to another user." within ".flash-notifications"
     And I should see "Log in to Sharetribe" within "h1"
     When I log in as "kassi_testperson2"
-    Then I should see "This message is private"
 
   @javascript
   Scenario: Trying to request an item without logging in and then logging in as the item owner
