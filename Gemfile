@@ -18,7 +18,7 @@ end
 gem 'sass-rails'
 gem 'compass-rails'
 
-gem 'jquery-rails'
+gem 'jquery-rails', '2.1.4'
 
 # Bundle the extra gems:
 

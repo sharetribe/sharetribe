@@ -476,7 +476,7 @@ DEPENDENCIES
   guard-livereload
   guard-rspec
   haml
-  jquery-rails
+  jquery-rails (= 2.1.4)
   json (~> 1.8.0)
   kgio (~> 2.8.0)
   launchy
