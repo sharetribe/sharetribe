@@ -420,6 +420,7 @@ en:
       housing_request_rent_message_form_title: "Rent out %{listing} to %{person}"
       item_request_message_form_title: "Offer an item to %{person}"
       message: Message
+      message_to: "Message to %{author_name}"
       rideshare_offer_message_form_title: "Ask for a ride from %{person}"
       rideshare_request_message_form_title: "Offer a ride to %{person}"
       send_message: "Send message"
@@ -430,6 +431,7 @@ en:
       title: Title
       send_message_to_user: "Send message to %{person}"
       about_listing: "About listing %{listing_title}"
+      author_has_to_accept_request: "%{author_name} needs to accept the request before you can pay"
     show:
       in_response_to_listing: "about listing"
       message_sent_by: "Message sent by"
@@ -440,7 +442,6 @@ en:
       conversation_with_user: "With %{person}"
       conversation_with: "Conversation with %{person}"
       last_message_at: "(latest message %{time})"
-      requested_by: "Requested by %{requester_name}"
       price: "Price: %{price}"
       sum: "Sum: %{sum}"
       price_excludes_vat: "(excludes VAT)"

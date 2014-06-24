@@ -60,7 +60,11 @@ Kassi::Application.routes.draw do
             put :close
             put :move_to_top
           end
-          resources :listing_conversations
+          resources :listing_conversations do
+            collection do
+              post :create_contact
+            end
+          end
         end
         resources :person_messages
         resources :messages, :controller => :conversations do

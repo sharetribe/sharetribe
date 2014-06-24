@@ -4,10 +4,6 @@
 #new_message_form.centered-section
   %h2= t("conversations.new.send_message_to_user", :person => @recipient.given_name_or_username)
 
-  %p
-    = t("conversations.new.this_message_is_private", :person => @recipient.given_name_or_username)
-    = t("conversations.new.you_will_get_notified", :person => @recipient.given_name_or_username)
-
   = form_for @conversation, :url => person_person_messages_path(:person => @recipient) do |form|
     = fields_for "conversation[message_attributes]", Message.new do |message_form|
       = message_form.label :content, t('conversations.new.message')
