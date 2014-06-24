@@ -24,23 +24,36 @@ class ListingConversation < Conversation
   end
 
   def payment_attributes=(attributes)
-    payment ||= community.payment_gateway.new_payment
-    payment.payment_gateway ||= community.payment_gateway
-    payment.conversation = self
-    payment.status = "pending"
-    payment.payer = requester
-    payment.recipient = offerer
-    payment.community_id = attributes[:community_id]
-    # Simple payment form
+    initialize_payment!
+
     if attributes[:sum]
-      payment.sum_cents = Money.parse(attributes[:sum]).cents
-      payment.currency = attributes[:currency]
-    # Complex (multi-row) payment form
+      # Simple payment form
+      initialize_braintree_payment!(attributes[:sum], attributes[:currency])
     else
-      attributes[:payment_rows].each { |row| payment.rows.build(row.merge(:currency => "EUR")) unless row["title"].blank? }
+      # Complex (multi-row) payment form
+      initialize_checkout_payment!(attributes[:payment_rows])
     end
 
     payment.save!
+  end
+
+  def initialize_payment!
+    binding.pry
+    self.payment ||= community.payment_gateway.new_payment
+    self.payment.payment_gateway ||= community.payment_gateway
+    self.payment.conversation = self
+    self.payment.status = "pending"
+    self.payment.payer = starter
+    self.payment.recipient = author
+    self.payment.community = community
+  end
+
+  def initialize_braintree_payment!(sum, currency)
+    payment.sum = Money.new(attributes[:sum], attributes[:currency])
+  end
+
+  def initialize_checkout_payment!(rows)
+    rows.each { |row| payment.rows.build(row.merge(:currency => "EUR")) unless row["title"].blank? }
   end
 
   def should_notify?(user)
@@ -80,6 +93,14 @@ class ListingConversation < Conversation
 
   def requester
     participants.find { |p| listing.requester?(p) }
+  end
+
+  def payer
+    starter
+  end
+
+  def payment_receiver
+    author
   end
 
   # If payment through Sharetribe is required to

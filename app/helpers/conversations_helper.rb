@@ -48,8 +48,21 @@ module ConversationsHelper
       "completed"
     end if status == "confirmed"
 
+    binding.pry
+
     status_hash = {
       pending: {
+        author: {
+          icon: icon_waiting_you,
+          text: t("conversations.status.waiting_for_you_to_accept_request")
+        },
+        starter: {
+          icon: icon_waiting_other,
+          text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party.name)
+        }
+      },
+
+      preauthorized: {
         author: {
           icon: icon_waiting_you,
           text: t("conversations.status.waiting_for_you_to_accept_request")

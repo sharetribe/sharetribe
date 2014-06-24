@@ -943,6 +943,7 @@ CREATE TABLE `transaction_types` (
   `community_id` int(11) DEFAULT NULL,
   `sort_priority` int(11) DEFAULT NULL,
   `price_field` tinyint(1) DEFAULT NULL,
+  `preauthorize_payment` tinyint(1) DEFAULT '0',
   `price_quantity_placeholder` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -1859,3 +1860,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140613132734');
 INSERT INTO schema_migrations (version) VALUES ('20140701135724');
 
 INSERT INTO schema_migrations (version) VALUES ('20140701140655');
+
+INSERT INTO schema_migrations (version) VALUES ('20140623112935');

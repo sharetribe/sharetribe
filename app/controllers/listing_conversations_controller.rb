@@ -22,33 +22,115 @@ class ListingConversationsController < ApplicationController
     end
   end
 
+  def preauthorize
+    @braintree_client_side_encryption_key = @current_community.payment_gateway.braintree_client_side_encryption_key
+
+    @listing_conversation = new_conversation
+    @listing_conversation.initialize_payment!
+    @listing_conversation.payment.sum = @listing_conversation.listing.price
+    @payment = @listing_conversation.payment
+  end
+
+  def preauthorized
+    conversation_params = params[:listing_conversation]
+    conversation_params[:message_attributes][:action] = "pay"
+
+    @listing_conversation = new_conversation(conversation_params)
+    binding.pry
+    @listing_conversation.initialize_payment!
+    binding.pry
+    @listing_conversation.payment.sum = @listing_conversation.listing.price
+    binding.pry
+    @payment = @listing_conversation.payment
+    binding.pry
+
+    @listing_conversation.save!
+
+    pay(@current_user, @listing_conversation, @payment)
+  end
+
+  def pay(payer, listing_conversation, payment)
+    binding.pry
+    recipient = payment.recipient
+    price = payment.sum_cents
+
+    amount = price.to_f / 100  # Braintree want's whole dollars
+    service_fee = payment.total_commission.cents.to_f / 100
+
+    payment_params = params[:braintree_payment] || {}
+
+    result = with_expection_logging do
+      BTLog.warn("Sending sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
+
+      BraintreeApi.transaction_sale(
+        recipient,
+        payment_params,
+        amount,
+        service_fee,
+        @current_community.payment_gateway.hold_in_escrow,
+        @current_community
+      )
+    end
+
+    if result.success?
+      transaction_id = result.transaction.id
+      BTLog.warn("Successful sale transaction #{transaction_id} from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
+      payment.paid!
+      listing_conversation.status = "preauthorized"
+      payment.braintree_transaction_id = transaction_id
+      payment.save
+      redirect_to person_message_path(:id => listing_conversation.id)
+    else
+      BTLog.error("Unsuccessful sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}: #{result.message}")
+      flash[:error] = result.message
+      redirect_to :preauthorize
+    end
+  end
+
   def contact
     @listing_conversation = new_conversation
     render :contact, locals: {contact: true}
   end
 
   def create
-    status = @listing.status_after_reply
-    save_conversation(params[:listing_conversation], status)
-  end
+    conversation = save_conversation(params[:listing_conversation])
 
-  def create_contact
-    save_conversation(params[:listing_conversation], "free")
-  end
+    if conversation
+      conversation.status = @listing.status_after_reply
 
-  private
-
-  def save_conversation(params, status)
-    @listing_conversation = new_conversation(params)
-
-    if @listing_conversation.save
-      @listing_conversation.status = status
       flash[:notice] = t("layouts.notifications.message_sent")
       Delayed::Job.enqueue(MessageSentJob.new(@listing_conversation.messages.last.id, @current_community.id))
       redirect_to session[:return_to_content] || root
     else
       flash[:error] = "Sending the message failed. Please try again."
       redirect_to root
+    end
+  end
+
+  def create_contact
+    conversation = save_conversation(params[:listing_conversation])
+
+    if conversation
+      conversation.status = "free"
+
+      flash[:notice] = t("layouts.notifications.message_sent")
+      Delayed::Job.enqueue(MessageSentJob.new(@listing_conversation.messages.last.id, @current_community.id))
+      redirect_to session[:return_to_content] || root
+    else
+      flash[:error] = "Sending the message failed. Please try again."
+      redirect_to root
+    end
+  end
+
+  private
+
+  def save_conversation(params)
+    binding.pry
+    @listing_conversation = new_conversation(params)
+    if @listing_conversation.save
+      @listing_conversation
+    else
+      nil
     end
   end
 
@@ -83,5 +165,16 @@ class ListingConversationsController < ApplicationController
     conversation.build_starter_participation(@current_user)
     conversation.build_participation(@listing.author)
     conversation
+  end
+
+  #FIXME
+
+  def with_expection_logging(&block)
+    begin
+      block.call
+    rescue Exception => e
+      BTLog.error("Expection #{e}")
+      raise e
+    end
   end
 end

@@ -1,0 +1,121 @@
+- content_for :extra_javascript do
+  = javascript_include_tag "https://js.braintreegateway.com/v1/braintree.js"
+
+- content_for :extra_javascript do
+  :javascript
+
+    $(document).ready(function() {
+      debugger;
+      var braintreePaymentForm = $("#braintree-payment-form");
+      initialize_braintree_payment_form("#{I18n.locale}", function beforeSubmit(next) {
+        debugger;
+        var braintree = Braintree.create("#{@braintree_client_side_encryption_key}");
+        braintree.encryptForm(braintreePaymentForm);
+        next();
+      });
+
+      braintreePaymentForm.show();
+    });
+
+- listing = @listing_conversation.listing
+
+- content_for :javascript do
+  initialize_send_message_form('#{I18n.locale}', '#{Listing.opposite_type(listing.direction)}');
+
+- action_button_label = listing.transaction_type.action_button_label(I18n.locale)
+
+- content_for :title_header do
+  %h1
+    = action_button_label
+    = link_to(listing.title, listing)
+
+#new_message_form.centered-section
+
+  = render partial: "conversations/details", locals: { listing_conversation: @listing_conversation, listing: listing }
+
+  - payment_receiver = @listing_conversation.payer
+  %p
+    = t(".payment_receiver")
+
+    = "#{link_to payment_receiver.name, payment_receiver}".html_safe
+
+  %p
+    = "#{t("payments.form.product")}"
+    = link_to "#{@listing_conversation.listing.title}", @listing_conversation.listing
+  %p
+    = "#{t("payments.form.price")}"
+    = humanized_money_with_symbol(@listing_conversation.payment)
+
+  = form_for @listing_conversation,
+    :url => preauthorized_person_listing_listing_conversations_path(@current_user.id,
+      @listing_conversation.listing.id),
+      :method => "post",
+      :html => { :id => "braintree-payment-form", :class => "hidden" } do |form|
+
+    = fields_for :braintree_payment do |payment_form|
+      .row
+        .col-12
+          = payment_form.label :cardholder_name, t(".cardholder_name", :class => "input")
+          = payment_form.text_field :cardholder_name, :class => :text_field, :data => { :'encrypted-name' => "braintree_payment[cardholder_name]" }
+
+      .row
+        .col-9
+          = payment_form.label :credit_card_number, t(".credit_card_number", :class => "input")
+          = payment_form.text_field :credit_card_number, :class => :text_field, :data => { :'encrypted-name' => "braintree_payment[credit_card_number]"}
+
+        .col-3
+          = payment_form.label :cvv, t(".cvv", :class => "input")
+          = payment_form.text_field :cvv, :class => :text_field, :maxlength => 4, :data => { :'encrypted-name' => "braintree_payment[cvv]"}
+
+      .row
+        .col-12
+          = payment_form.label :credit_card_expiration_month, t(".credit_card_expiration_date", :class => "input")
+          = select_tag :credit_card_expiration_month, options_for_select(credit_card_expiration_month_options), :data => { :'encrypted-name' => "braintree_payment[credit_card_expiration_month]" }
+          = " / "
+          = select_tag :credit_card_expiration_month, options_for_select(credit_card_expiration_year_options), :data => { :'encrypted-name' => "braintree_payment[credit_card_expiration_year]" }
+
+    = fields_for "listing_conversation[message_attributes]", Message.new do |message_form|
+      .row
+        .col-12
+          = message_form.label :content, t("conversations.new.message_to", author_name: link_to(listing.author.name, listing.author)).html_safe
+          = message_form.text_area :content, :class => "text_area"
+          = message_form.hidden_field :sender_id, :value => @current_user.id
+
+    .row
+      .col-12
+        = form.button t(".confirm_payment"), :class => "send_button"
+
+    .row
+      .col-12
+        - automatic_confirmation = @current_community.automatic_confirmation_after_days
+        %p
+          = "You will be charged only if #{link_to(payment_receiver.name, payment_receiver)} accepts the transaction. #{link_to(payment_receiver.name, payment_receiver)} needs to accept the transaction within 5 days.".html_safe
+        %p
+          = "We will transfer the money to #{link_to(payment_receiver.name, payment_receiver)} when a) you have marked the request completed or b) #{automatic_confirmation} days have passed since Juho accepted the transaction.".html_safe
+
+        %p
+          = "If there are any issues, you have #{automatic_confirmation} days to cancel the request. This will notify the admin who will then contact you for a refund."
+
+    %br/
+
+    .row
+      .col-12
+        %h3
+          = "Security information"
+
+        %p
+          = "We do not store your credit card information."
+
+        %p
+          = "The credit card information will be securely forwarded to the payment provider."
+
+        %p
+          = link_to "https://www.braintreepayments.com/" do
+            = image_tag("payments/braintree-logo-2x.png", height: '32')
+
+          %br/
+
+          = "Our secure payment provider"
+
+  %noscript
+    = "For security reasons JavaScript has to be enabled"
