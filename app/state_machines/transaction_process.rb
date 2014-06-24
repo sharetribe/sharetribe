@@ -45,7 +45,8 @@ class TransactionProcess
     end
   end
 
-  after_transition(to: :paid) do |conversation|
+  after_transition(from: :accepted, to: :paid) do |conversation|
+    binding.pry
     payer = conversation.payment.payer
     conversation.messages.create(:sender_id => payer.id, :action => "pay")
     ConfirmConversation.new(conversation, payer, conversation.community).activate_automatic_confirmation!
@@ -74,6 +75,17 @@ class TransactionProcess
   end
 
   before_transition(from: :preauthorized, to: :paid) do |conversation|
-    throw "IMPLEMENT: Submit to settlement"
+    binding.pry
+    transaction_id = conversation.payment.braintree_transaction_id
+
+    result = BraintreeApi.submit_to_settlement(conversation.community, transaction_id)
+
+    if result
+      BTLog.info("Submitted authorized payment #{transaction_id} to settlement")
+    else
+      BTLog.error("Could not submit authorized payment #{transaction_id} to settlement")
+    end
+
+    # TODO Automatically close
   end
 end

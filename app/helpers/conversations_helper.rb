@@ -28,7 +28,11 @@ module ConversationsHelper
     when "reject"
       reject_person_message_path(:person_id => @current_user.id, :id => conversation.id.to_s)
     when "cancel"
-      cancel_person_message_path(:person_id => current_user.id, :id => conversation.id.to_s)
+      cancel_person_message_path(:person_id => @current_user.id, :id => conversation.id.to_s)
+    when "accept_preauthorized"
+      accept_preauthorized_person_message_path(:person_id => current_user.id, :id => conversation.id.to_s)
+    when "reject_preauthorized"
+      reject_preauthorized_person_message_path(:person_id => @current_user.id, :id => conversation.id.to_s)
     end
   end
 
@@ -47,8 +51,6 @@ module ConversationsHelper
     else
       "completed"
     end if status == "confirmed"
-
-    binding.pry
 
     status_hash = {
       pending: {

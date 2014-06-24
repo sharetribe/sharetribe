@@ -36,13 +36,9 @@ class ListingConversationsController < ApplicationController
     conversation_params[:message_attributes][:action] = "pay"
 
     @listing_conversation = new_conversation(conversation_params)
-    binding.pry
     @listing_conversation.initialize_payment!
-    binding.pry
     @listing_conversation.payment.sum = @listing_conversation.listing.price
-    binding.pry
     @payment = @listing_conversation.payment
-    binding.pry
 
     @listing_conversation.save!
 
@@ -50,7 +46,6 @@ class ListingConversationsController < ApplicationController
   end
 
   def pay(payer, listing_conversation, payment)
-    binding.pry
     recipient = payment.recipient
     price = payment.sum_cents
 
@@ -125,7 +120,6 @@ class ListingConversationsController < ApplicationController
   private
 
   def save_conversation(params)
-    binding.pry
     @listing_conversation = new_conversation(params)
     if @listing_conversation.save
       @listing_conversation

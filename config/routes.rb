@@ -80,6 +80,9 @@ Kassi::Application.routes.draw do
             get :confirm, to: 'confirm_conversations#confirm'
             get :cancel, to: 'confirm_conversations#cancel'
             put :confirmation, to: 'confirm_conversations#confirmation'
+            get :accept_preauthorized, to: 'accept_preauthorized_conversations#accept'
+            get :reject_preauthorized, to: 'accept_preauthorized_conversations#reject'
+            put :acceptance_preauthorized, to: 'accept_preauthorized_conversations#acceptance'
           end
           resources :messages
           resources :feedbacks, :controller => :testimonials do
