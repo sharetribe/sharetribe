@@ -225,6 +225,13 @@ Then /^I should be see that the payment was successful$/ do
   }
 end
 
+Then /^I should see that I successfully paid (\d+)$/ do |amount|
+  steps %Q{
+    Then I should see "paid"
+    Then I should see "#{amount}"
+  }
+end
+
 Then /^"(.*?)" should receive email about payment$/ do |receiver|
   email = Person.find_by_username(receiver).confirmed_notification_emails.first.address
   steps %Q{
