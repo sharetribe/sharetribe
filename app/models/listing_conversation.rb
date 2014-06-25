@@ -38,7 +38,6 @@ class ListingConversation < Conversation
   end
 
   def initialize_payment!
-    binding.pry
     self.payment ||= community.payment_gateway.new_payment
     self.payment.payment_gateway ||= community.payment_gateway
     self.payment.conversation = self

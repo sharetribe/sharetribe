@@ -46,7 +46,6 @@ class TransactionProcess
   end
 
   after_transition(from: :accepted, to: :paid) do |conversation|
-    binding.pry
     payer = conversation.payment.payer
     conversation.messages.create(:sender_id => payer.id, :action => "pay")
     ConfirmConversation.new(conversation, payer, conversation.community).activate_automatic_confirmation!
@@ -71,11 +70,20 @@ class TransactionProcess
   end
 
   before_transition(from: :preauthorized, to: :rejected) do |conversation|
-    throw "IMPLEMENT: Release credit card authorization"
+    transaction_id = conversation.payment.braintree_transaction_id
+
+    result = BraintreeApi.void_transaction(conversation.community, transaction_id)
+
+    if result
+      BTLog.info("Voided transaction #{transaction_id}")
+    else
+      BTLog.error("Could not void transaction #{transaction_id}")
+    end
+
+    # RELEASE AUTO CLOSE
   end
 
   before_transition(from: :preauthorized, to: :paid) do |conversation|
-    binding.pry
     transaction_id = conversation.payment.braintree_transaction_id
 
     result = BraintreeApi.submit_to_settlement(conversation.community, transaction_id)

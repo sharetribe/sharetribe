@@ -35,16 +35,16 @@
 
   - payment_receiver = @listing_conversation.payer
   %p
-    = t(".payment_receiver")
+    = t("braintree_payments.edit.payment_receiver")
 
     = "#{link_to payment_receiver.name, payment_receiver}".html_safe
 
   %p
     = "#{t("payments.form.product")}"
     = link_to "#{@listing_conversation.listing.title}", @listing_conversation.listing
-  %p
-    = "#{t("payments.form.price")}"
-    = humanized_money_with_symbol(@listing_conversation.payment)
+  / %p
+  /   = "#{t("payments.form.price")}"
+  /   = humanized_money_with_symbol(@listing_conversation.payment)
 
   = form_for @listing_conversation,
     :url => preauthorized_person_listing_listing_conversations_path(@current_user.id,
@@ -55,21 +55,21 @@
     = fields_for :braintree_payment do |payment_form|
       .row
         .col-12
-          = payment_form.label :cardholder_name, t(".cardholder_name", :class => "input")
+          = payment_form.label :cardholder_name, t("braintree_payments.edit.cardholder_name", :class => "input")
           = payment_form.text_field :cardholder_name, :class => :text_field, :data => { :'encrypted-name' => "braintree_payment[cardholder_name]" }
 
       .row
         .col-9
-          = payment_form.label :credit_card_number, t(".credit_card_number", :class => "input")
+          = payment_form.label :credit_card_number, t("braintree_payments.edit.credit_card_number", :class => "input")
           = payment_form.text_field :credit_card_number, :class => :text_field, :data => { :'encrypted-name' => "braintree_payment[credit_card_number]"}
 
         .col-3
-          = payment_form.label :cvv, t(".cvv", :class => "input")
+          = payment_form.label :cvv, t("braintree_payments.edit.cvv", :class => "input")
           = payment_form.text_field :cvv, :class => :text_field, :maxlength => 4, :data => { :'encrypted-name' => "braintree_payment[cvv]"}
 
       .row
         .col-12
-          = payment_form.label :credit_card_expiration_month, t(".credit_card_expiration_date", :class => "input")
+          = payment_form.label :credit_card_expiration_month, t("braintree_payments.edit.credit_card_expiration_date", :class => "input")
           = select_tag :credit_card_expiration_month, options_for_select(credit_card_expiration_month_options), :data => { :'encrypted-name' => "braintree_payment[credit_card_expiration_month]" }
           = " / "
           = select_tag :credit_card_expiration_month, options_for_select(credit_card_expiration_year_options), :data => { :'encrypted-name' => "braintree_payment[credit_card_expiration_year]" }
@@ -83,7 +83,7 @@
 
     .row
       .col-12
-        = form.button t(".confirm_payment"), :class => "send_button"
+        = form.button t("braintree_payments.edit.confirm_payment"), :class => "send_button"
 
     .row
       .col-12

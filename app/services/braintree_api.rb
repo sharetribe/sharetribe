@@ -99,6 +99,12 @@ class BraintreeApi
       end
     end
 
+    def void_transaction(community, transaction_id)
+      with_braintree_config(community) do
+        Braintree::Transaction.void(transaction_id)
+      end
+    end
+
     def master_merchant_id(community)
       # TODO Move this method, it has nothing to do with the Braintree API
       community.payment_gateway.braintree_master_merchant_id

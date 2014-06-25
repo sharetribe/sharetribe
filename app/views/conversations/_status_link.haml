@@ -5,5 +5,7 @@
       .text-with-icon
         - if ["accept", "reject"].include?(status)
           = t(".#{status}_#{conversation.discussion_type}")
+        - elsif ["accept_preauthorized", "reject_preauthorized"].include?(status)
+          = t(".#{status}_#{conversation.discussion_type}")
         - else
           = t(".#{status}")

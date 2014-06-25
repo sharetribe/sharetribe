@@ -15,19 +15,16 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def accept
-    @action = "paid"
-    binding.pry
+    @action = "accept"
   end
 
   def reject
-    @action = "rejected"
+    @action = "reject"
     render :accept
-    binding.pry
   end
 
 # Handles accept and reject forms
   def acceptance
-    binding.pry
     if @listing_conversation.update_attributes(params[:listing_conversation])
       flash[:notice] = t("layouts.notifications.#{@listing_conversation.discussion_type}_#{@listing_conversation.status}")
       redirect_to person_message_path(:person_id => @current_user.id, :id => @listing_conversation.id)
@@ -51,7 +48,6 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def fetch_conversation
-    binding.pry
     @listing_conversation = ListingConversation.find(params[:id])
   end
 end

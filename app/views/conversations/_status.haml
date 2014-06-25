@@ -60,6 +60,11 @@
             - ["confirm", "cancel"].each do |status|
               = render :partial => "status_link", :locals => { :conversation => conversation, :status => status }
     - elsif conversation.status.eql?("preauthorized")
+      .inbox-horizontally-aligned-status
+        .icon-with-text-container
+          .icon-part{:class => icon_for(conversation.status)}
+          .text-part= t(".#{conversation.status}")
+
       - # FIXME This is copy paste from accept
       - if current_user?(conversation.listing.author)
         .status-links

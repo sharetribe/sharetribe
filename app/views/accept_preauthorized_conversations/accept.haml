@@ -1,24 +1,34 @@
 - content_for :title_header do
   %h1= t("layouts.no_tribe.inbox")
 
+- content_for :javascript do
+  style_action_selectors();
+
 .conversation-status-form{:class => (@current_community.vat ? "centered-section-wide" : "centered-section")}
   %h2= t("conversations.accept.respond_to_#{@listing_conversation.discussion_type}")
 
   %p
-    Sum: 123
+    = "Sum: #{humanized_money_with_symbol(@listing_conversation.payment.total_sum)}"
   %p
-    You will get: 23
+    = "Service fee: #{humanized_money_with_symbol(@listing_conversation.payment.total_commission)}"
+  %p
+    %strong
+      = "You will get: #{humanized_money_with_symbol(@listing_conversation.payment.seller_gets)}"
 
-  - binding.pry
   = form_for @listing_conversation, :url => acceptance_preauthorized_person_message_path(:person_id => @current_user.id, :id => @listing_conversation.id), :html => { :method => "put" } do |form|
 
     .conversation-action
-      - ["paid", "reject"].each do |action|
-        %label{:for => "action-#{action}", :class => "radio hidden"}
-          = radio_button_tag "listing_conversation[status]", action, @action.eql?(action), :id => "action-#{action}"
-        %a.conversation-action{:id => "#{action}", :name => "#{action}-link", :class => (@action.eql?(action) ? action : "")}
-          .link-icon{:class => icon_for("#{action}ed")}
-          .link-text{:id => "#{action}-action-link"}= t("conversations.accept.#{action}_#{@listing_conversation.discussion_type}")
+      %label{:for => "action-accept", :class => "radio hidden"}
+        = radio_button_tag "listing_conversation[status]", "paid", @action.eql?("accept"), :id => "action-accept"
+      %a.conversation-action{:id => "accept", :name => "accept-link", :class => (@action.eql?("accept") ? "accept" : "")}
+        .link-icon{:class => icon_for("accepted")}
+        .link-text{:id => "accept-action-link"}= t("conversations.accept.accept_#{@listing_conversation.discussion_type}")
+
+      %label{:for => "action-reject", :class => "radio hidden"}
+        = radio_button_tag "listing_conversation[status]", "rejected", @action.eql?("reject"), :id => "action-reject"
+      %a.conversation-action{:id => "reject", :name => "reject-link", :class => (@action.eql?("reject") ? "reject" : "")}
+        .link-icon{:class => icon_for("rejected")}
+        .link-text{:id => "reject-action-link"}= t("conversations.accept.reject_#{@listing_conversation.discussion_type}")
 
     %div
       = fields_for "listing_conversation[message_attributes]", Message.new do |message_form|
@@ -27,4 +37,4 @@
         = message_form.hidden_field :sender_id, :value => @current_user.id
         = message_form.hidden_field :action, :value => @action
 
-      = form.button t("conversations.new.send"), :class => "send_button", :id => "send_testimonial_button"
+      = form.button t("conversations.accept.approve"), :class => "send_button", :id => "send_testimonial_button"

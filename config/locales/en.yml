@@ -357,6 +357,7 @@ en:
       you_need_to_fill_payout_details_before_accepting: "You need to fill in payout details before you can accept the request and receive the payment. Go to %{payment_settings_link} to fill in the details."
       payment_settings_link: "payment settings"
       minimum_price_error_message: "The price cannot be lower than %{amount}."
+      approve: "Approve"
     confirm:
       confirm_description: "If your request has been fulfilled you should confirm it as done. Then you can give feedback to the other party."
       cancel_description: "If your request was not fulfilled, you can mark it as 'not happened'. You can still give feedback to the other party and describe what happened."
@@ -455,6 +456,7 @@ en:
       offer_canceled: Canceled
       offer_confirmed: Completed
       pay: Pay
+      preauthorized: "Payment successful"
       paid: "Payment successful"
       request_accepted: Accepted
       request_rejected: Rejected
@@ -474,6 +476,10 @@ en:
       accept_request: "Accept request"
       reject_offer: "Not this time"
       reject_request: "Not this time"
+      accept_preauthorized_offer: "Accept offer"
+      accept_preauthorized_request: "Accept request"
+      reject_preauthorized_offer: "Not this time"
+      reject_preauthorized_request: "Not this time"
       confirm: "Mark completed"
       cancel: "Did not happen"
   braintree_accounts:

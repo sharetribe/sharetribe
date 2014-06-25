@@ -16,6 +16,8 @@ module ConversationsHelper
       "ss-delete"
     when "paid"
       "ss-check"
+    when "preauthorized"
+      "ss-check"
     end
   end
 
