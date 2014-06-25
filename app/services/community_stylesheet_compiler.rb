@@ -11,7 +11,8 @@ module CommunityStylesheetCompiler
   SOURCE_FILE = "application.scss"
   TARGET_DIR = "public/assets"
   VARIABLE_FILE = "mixins/default-colors.scss"
-  S3_PATH = "assets/custom"
+  # Custom stylesheet has to be in the same directory as other assets, such as font-awesome.
+  S3_PATH = "assets"
 
   class << self
 
@@ -83,7 +84,10 @@ module CommunityStylesheetCompiler
     def sync(file_path, file_basename)
       AWS.config :access_key_id =>  APP_CONFIG.aws_access_key_id,  :secret_access_key => APP_CONFIG.aws_secret_access_key
       s3 = AWS::S3.new
-      b = s3.buckets.create(APP_CONFIG.s3_bucket_name)
+      # First check if the specified bucket exists, otherwise create it. This is needed to support EU buckets.
+      # (EU buckets error if you try to create an existing one. US buckets won't.)
+      bucket_from_config = s3.buckets[APP_CONFIG.s3_bucket_name]
+      b = bucket_from_config.exists? ? bucket_from_config : s3.buckets.create(APP_CONFIG.s3_bucket_name)
       basename = File.basename("#{file_path}")
       o = b.objects[s3_file_path(file_basename)]
       o.write(:file => "#{Rails.root}/#{file_path}", :cache_control => "public, max-age=30000000", :content_type => "text/css", :content_encoding => "gzip")
