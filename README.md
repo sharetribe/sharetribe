@@ -166,6 +166,7 @@ See http://github.com/sharetribe/sharetribe/issues and please report any issues 
 * [Testing](docs/testing.md)
 * [SCSS coding guidelines](docs/scss-coding-guidelines.md)
 * [Delayed job priorities](docs/delayed-job-priorities.md)
+* [Cucumber testing Do's and Don'ts](docs/cucumber-do-dont.md)
 
 ## MIT License
 
