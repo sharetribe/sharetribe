@@ -11,8 +11,7 @@ module CommunityStylesheetCompiler
   SOURCE_FILE = "application.scss"
   TARGET_DIR = "public/assets"
   VARIABLE_FILE = "mixins/default-colors.scss"
-  # Custom stylesheet has to be in the same directory as other assets, such as font-awesome.
-  S3_PATH = "assets"
+  S3_PATH = "assets/custom"
 
   class << self
 
