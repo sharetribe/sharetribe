@@ -162,3 +162,38 @@ When(/^I open message "(.*?)"$/) do |title|
     When I follow "#{title}" within "h2"
   }
 end
+
+Then(/^I should see that the request is waiting for seller acceptance$/) do
+  page.should have_content(/Waiting for (.*) to accept the request/)
+end
+
+def visit_conversation_of_listing(listing)
+  conversation = Conversation.find_by_listing_id(listing.id)
+  visit(single_conversation_path(:person_id => @current_user.id, :conversation_type => "received", :id => conversation.id, :locale => "en"))
+end
+
+def visit_conversation_of_current_listing
+  visit_conversation_of_listing(@listing)
+end
+
+When(/^I accepts the request for that listing$/) do
+  visit_conversation_of_current_listing
+  click_link "Accept request"
+  click_button "Approve"
+end
+
+Then(/^I should see that the request is waiting for buyer confirmation$/) do
+  page.should have_content(/Waiting for (.*) to mark the request completed/)
+end
+
+When(/^I confirm the request for that listing$/) do
+  visit_conversation_of_current_listing
+  click_link "Mark completed"
+  choose("Skip feedback")
+  click_button "Continue"
+end
+
+Then(/^I should see that the request was confirmed$/) do
+  page.should have_content(/Completed/)
+end
+
