@@ -163,7 +163,7 @@ module Kassi
     if (APP_CONFIG.s3_bucket_name && APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key)
       paperclip_options.merge!({
         :path => "images/:class/:attachment/:id/:style/:filename",
-        :url => "/system/:class/:attachment/:id/:style/:filename",
+        :url => ":s3_domain_url",
         :storage => :s3,
         :s3_protocol => 'https',
         :s3_credentials => {
