@@ -197,3 +197,13 @@ Then(/^I should see that the request was confirmed$/) do
   page.should have_content(/Completed/)
 end
 
+When(/^the seller does not accept the request within (\d+) days$/) do |days|
+  Timecop.travel(DateTime.now + days.to_i)
+  process_jobs
+  visit(current_path)
+end
+
+Then(/^I should see that the request was rejected$/) do
+  page.should have_content(/Rejected/)
+end
+

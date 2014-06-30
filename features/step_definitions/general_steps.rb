@@ -5,7 +5,7 @@ Given /^I use subdomain "([^"]*)"$/ do |subdomain|
 end
 
 When 'the system processes jobs' do
-  Delayed::Worker.new(:quiet => true).work_off
+  process_jobs
 end
 
 When /^I print "(.+)"$/ do |text|

@@ -80,6 +80,10 @@ Given /^Braintree escrow release is mocked$/ do
   BraintreeService.should_receive(:release_from_escrow).at_least(1).times.and_return(true)
 end
 
+Given /^Braintree void transaction is mocked$/ do
+  BraintreeApi.should_receive(:void_transaction).at_least(1).times.and_return(true)
+end
+
 Given /^Braintree merchant creation is mocked$/ do
   BraintreeApi.should_receive(:create_merchant_account) do |braintree_account, community|
     braintree_account.first_name.should == "Joe"
