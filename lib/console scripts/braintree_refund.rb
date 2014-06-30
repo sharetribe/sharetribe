@@ -12,7 +12,7 @@ Braintree::Configuration.private_key = "zzzzzzzzzz"
 
 def cancel_escrow(transaction_id)
   result = Braintree::Transaction.refund(transaction_id)
- 
+
   if result.success?
     puts "Successfully refunded from escrow"
   else
@@ -30,5 +30,21 @@ def transaction_status(transaction_id)
   puts "  escrow_status: #{txn.escrow_status}"
 end
 
+def find_merchant(merchant_id)
+  merchant = Braintree::MerchantAccount.find(merchant_id)
+
+  puts "Found merchant #{merchant_id}"
+  puts "Info: #{merchant.inspect}"
+  puts "Individual details:"
+  print_attrs(merchant.individual_details, %w(first_name last_name date_of_birth email phone ssn_last_4))
+end
+
+def print_attrs(obj, attrs)
+  attrs.each do |attr|
+    puts "  #{attr}: #{obj.send(attr.to_sym)}"
+  end
+end
+
 # transaction_status("1234abcd")
 # cancel_escrow("1234abcd")
+# find_merchant("1234abcd")
