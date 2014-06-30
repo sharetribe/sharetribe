@@ -48,6 +48,7 @@ class AcceptConversationsController < ApplicationController
   def prepare_accept_or_reject_form
     @payment = @current_community.payment_gateway.new_payment
     @payment.community = @current_community
+    @payment.default_sum(@listing_conversation.listing, Maybe(@current_community).vat.or_else(0))
 
     if @current_community.requires_payout_registration? && @current_community.payment_possible_for?(@listing_conversation.listing) && !@current_user.can_receive_payments_at?(@current_community)
       @payout_registration_missing = true

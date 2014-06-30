@@ -24,34 +24,35 @@ class ListingConversation < Conversation
   end
 
   def payment_attributes=(attributes)
-    initialize_payment!
+    payment = initialize_payment
 
     if attributes[:sum]
       # Simple payment form
-      initialize_braintree_payment!(attributes[:sum], attributes[:currency])
+      initialize_braintree_payment!(payment, attributes[:sum], attributes[:currency])
     else
       # Complex (multi-row) payment form
-      initialize_checkout_payment!(attributes[:payment_rows])
+      initialize_checkout_payment!(payment, attributes[:payment_rows])
     end
 
     payment.save!
   end
 
-  def initialize_payment!
-    self.payment ||= community.payment_gateway.new_payment
-    self.payment.payment_gateway ||= community.payment_gateway
-    self.payment.conversation = self
-    self.payment.status = "pending"
-    self.payment.payer = starter
-    self.payment.recipient = author
-    self.payment.community = community
+  def initialize_payment
+    payment ||= community.payment_gateway.new_payment
+    payment.payment_gateway ||= community.payment_gateway
+    payment.conversation = self
+    payment.status = "pending"
+    payment.payer = starter
+    payment.recipient = author
+    payment.community = community
+    payment
   end
 
-  def initialize_braintree_payment!(sum, currency)
+  def initialize_braintree_payment!(payment, sum, currency)
     payment.sum = Money.new(attributes[:sum], attributes[:currency])
   end
 
-  def initialize_checkout_payment!(rows)
+  def initialize_checkout_payment!(payment, rows)
     rows.each { |row| payment.rows.build(row.merge(:currency => "EUR")) unless row["title"].blank? }
   end
 

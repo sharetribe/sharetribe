@@ -51,6 +51,11 @@ class TransactionProcess
     ConfirmConversation.new(conversation, payer, conversation.community).activate_automatic_confirmation!
   end
 
+  after_transition(to: :paid) do |conversation|
+    payment = conversation.payment
+    Delayed::Job.enqueue(PaymentCreatedJob.new(payment.id, payment.community.id))
+  end
+
   after_transition(to: :rejected) do |conversation|
     rejecter = conversation.listing.author
     current_community = conversation.community
@@ -82,8 +87,12 @@ class TransactionProcess
   end
 
   after_transition(to: :preauthorized) do |conversation|
-    preauthorization_expiration = 5.days.from_now
-    Delayed::Job.enqueue(AutomaticallyRejectPreauthorizedTransactionJob.new(conversation.id), run_at: preauthorization_expiration, priority: 7)
+    expire_at = conversation.payment.preauthorization_expiration_days.days.from_now
+    reminder_days_before = 1
+
+    Delayed::Job.enqueue(TransactionPreauthorizedJob.new(conversation.id), :priority => 10)
+    Delayed::Job.enqueue(TransactionPreauthorizedReminderJob.new(conversation.id), :priority => 10, :run_at => expire_at - reminder_days_before.day)
+    Delayed::Job.enqueue(AutomaticallyRejectPreauthorizedTransactionJob.new(conversation.id), priority: 7, run_at: expire_at)
   end
 
   before_transition(from: :preauthorized, to: :paid) do |conversation|

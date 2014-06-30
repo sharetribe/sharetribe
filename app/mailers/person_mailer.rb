@@ -14,7 +14,6 @@ class PersonMailer < ActionMailer::Base
   require "truncate_html"
 
   default :from => APP_CONFIG.sharetribe_mail_from_address
-
   layout 'email'
 
   add_template_helper(EmailTemplateHelper)
@@ -495,20 +494,4 @@ class PersonMailer < ActionMailer::Base
   def self.deliver_community_updates
     CommunityMailer.deliver_community_updates
   end
-
-  private
-
-  def set_up_urls(recipient, community, ref="email")
-    @community = community
-    @url_params = {}
-    @url_params[:host] = community.full_domain
-    @url_params[:ref] = ref
-    if recipient
-      @recipient = recipient
-      @url_params[:auth] = @recipient.new_email_auth_token
-      @url_params[:locale] = @recipient.locale
-      set_locale @recipient.locale
-    end
-  end
-
 end

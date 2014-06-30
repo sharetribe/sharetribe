@@ -26,9 +26,8 @@ class ListingConversationsController < ApplicationController
     @braintree_client_side_encryption_key = @current_community.payment_gateway.braintree_client_side_encryption_key
 
     @listing_conversation = new_conversation
-    @listing_conversation.initialize_payment!
-    @listing_conversation.payment.sum = @listing_conversation.listing.price
-    @payment = @listing_conversation.payment
+    @payment = @listing_conversation.initialize_payment
+    @payment.sum = @listing_conversation.listing.price
   end
 
   def preauthorized
@@ -36,9 +35,8 @@ class ListingConversationsController < ApplicationController
     conversation_params[:message_attributes][:action] = "pay"
 
     @listing_conversation = new_conversation(conversation_params)
-    @listing_conversation.initialize_payment!
-    @listing_conversation.payment.sum = @listing_conversation.listing.price
-    @payment = @listing_conversation.payment
+    @payment = @listing_conversation.initialize_payment
+    @payment.sum = @listing_conversation.listing.price
 
     @listing_conversation.save!
 
