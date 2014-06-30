@@ -56,7 +56,7 @@ describe Listing do
   end
 
   describe "#visible_to?" do
-    let(:community) { FactoryGirl.create(:community) }
+    let(:community) { FactoryGirl.create(:community, private: true) }
     let(:community2) { FactoryGirl.create(:community) }
     let(:person) { FactoryGirl.create(:person, communities: [community, community2]) }
     let(:listing) { FactoryGirl.create(:listing, communities: [community]) }

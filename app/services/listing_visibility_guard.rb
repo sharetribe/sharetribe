@@ -39,7 +39,7 @@ class ListingVisibilityGuard
   end
 
   def user_member_of_community?
-    !@user.communities.include?(@community)
+    @user.communities.include?(@community)
   end
 
   def public_listing?
