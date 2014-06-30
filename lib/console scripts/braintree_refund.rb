@@ -39,6 +39,20 @@ def find_merchant(merchant_id)
   print_attrs(merchant.individual_details, %w(first_name last_name date_of_birth email phone ssn_last_4))
 end
 
+#
+# Example: update_individual_details("1234abcd", {last_name: "Last name", date_of_birth: "1990-01-01"})
+#
+def update_individual_details(merchant_id, details)
+  result = Braintree::MerchantAccount.update(merchant_id, individual: details)
+
+  if result.success?
+    puts "Successfully updated merchant account individual details"
+  else
+    puts "Failed to update merchant account individual details"
+    result.errors.each { |e| puts e.inspect }
+  end
+end
+
 def print_attrs(obj, attrs)
   attrs.each do |attr|
     puts "  #{attr}: #{obj.send(attr.to_sym)}"
@@ -48,3 +62,5 @@ end
 # transaction_status("1234abcd")
 # cancel_escrow("1234abcd")
 # find_merchant("1234abcd")
+
+update_individual_details("1234abcd", {last_name: "Last name", date_of_birth: "1990-01-01"})
