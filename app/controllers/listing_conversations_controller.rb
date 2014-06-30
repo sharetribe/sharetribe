@@ -43,10 +43,6 @@ class ListingConversationsController < ApplicationController
     @listing_conversation.save!
 
     pay(@current_user, @listing_conversation, @payment)
-
-    preauthorization_expiration = 5.days.from_now
-
-    Delayed::Job.enqueue(AutomaticallyRejectPreauthorizedTransactionJob.new(@listing_conversation.id), run_at: preauthorization_expiration, priority: 7)
   end
 
   def pay(payer, listing_conversation, payment)

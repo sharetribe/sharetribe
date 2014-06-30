@@ -79,8 +79,11 @@ class TransactionProcess
     else
       BTLog.error("Could not void transaction #{transaction_id}")
     end
+  end
 
-    # RELEASE AUTO CLOSE
+  after_transition(to: :preauthorized) do |conversation|
+    preauthorization_expiration = 5.days.from_now
+    Delayed::Job.enqueue(AutomaticallyRejectPreauthorizedTransactionJob.new(conversation.id), run_at: preauthorization_expiration, priority: 7)
   end
 
   before_transition(from: :preauthorized, to: :paid) do |conversation|
@@ -93,7 +96,5 @@ class TransactionProcess
     else
       BTLog.error("Could not submit authorized payment #{transaction_id} to settlement")
     end
-
-    # TODO Automatically close
   end
 end
