@@ -11,13 +11,17 @@ class ListingVisibilityGuard
   end
 
   def visible?
+     authorized_to_view? && open?
+  end
+
+  def authorized_to_view?
     return false unless listing_belongs_to_community?
 
     if user_logged_in? && user_member_of_community?
       true
     else
       public_listing? && public_community?
-    end && open?
+    end
   end
 
   private
