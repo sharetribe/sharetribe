@@ -692,7 +692,11 @@ class Person < ActiveRecord::Base
       throw "can_receive_payments_at? was checked in a community which has no payment gateways"
     end
   end
-
+  
+  def follows?(person)
+    followed_people.include?(person)
+  end
+  
   private
 
   # This method constructs a key to be used in caching.
