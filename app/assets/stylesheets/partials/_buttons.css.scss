@@ -1,0 +1,21 @@
+@import "mixins/all";
+
+.button-hoverable {
+  div.hover-content {
+    display: none;
+  }
+}
+
+.button-hoverable:hover {
+  div.default-content {
+    display: none;
+  }
+  div.hover-content {
+    display: table-cell;
+  }
+}
+
+.follow-button {
+  @include grey-button;
+  width: 100%;
+}
