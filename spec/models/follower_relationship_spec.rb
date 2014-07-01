@@ -21,7 +21,7 @@ describe FollowerRelationship do
   end
   
   it "should not include the follower in the person's followed people list" do
-    @person.followed_people.should_not include @folloer
+    @person.followed_people.should_not include @follower
   end
   
   it "should not allow a duplicate follower relationship" do
