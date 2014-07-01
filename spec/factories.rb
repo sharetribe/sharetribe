@@ -34,7 +34,7 @@ FactoryGirl.define do
     "sharetribe_testcommunity_#{n}"
   end
 
-  factory :person, aliases: [:author, :receiver, :recipient, :payer, :sender] do
+  factory :person, aliases: [:author, :receiver, :recipient, :payer, :sender, :follower] do
     is_admin 0
     locale "en"
     test_group_number 4
@@ -344,5 +344,10 @@ FactoryGirl.define do
     title "Blog"
     url "http://blog.sharetribe.com"
     locale "en"
+  end
+  
+  factory :follower_relationship do
+    person
+    follower
   end
 end

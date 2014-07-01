@@ -63,7 +63,11 @@ class Person < ActiveRecord::Base
   # events where this person was the target of the action
   has_many :targeted_event_feed_events, :class_name => "EventFeedEvent", :foreign_key => "person2_id", :dependent => :destroy
   has_many :auth_tokens, :dependent => :destroy
-
+  has_many :follower_relationships
+  has_many :followers, :through => :follower_relationships, :foreign_key => "person_id"
+  has_many :inverse_follower_relationships, :class_name => "FollowerRelationship", :foreign_key => "follower_id"
+  has_many :followed_people, :through => :inverse_follower_relationships, :source => "person"
+  
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
 
   DEFAULT_TIME_FOR_COMMUNITY_UPDATES = 7.days
