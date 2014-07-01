@@ -42,3 +42,8 @@
               = icon_tag("star", ["icon-part"])
               .text-part= t("listings.edit_links.move_to_top")
 
+        .listing-view-admin-link
+          = link_to show_in_weekly_email_person_listing_path(@current_user, @listing), data: { method: "put" } do
+            .icon-with-text-container
+              = icon_tag("mail", ["icon-part"])
+              .text-part= t("listings.edit_links.show_in_weekly_email")
