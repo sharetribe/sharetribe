@@ -697,6 +697,10 @@ class Person < ActiveRecord::Base
     followed_people.include?(person)
   end
   
+  def self.members_of(community)
+    joins(:communities).where("communities.id" => community.id)
+  end
+  
   private
 
   # This method constructs a key to be used in caching.
