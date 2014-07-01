@@ -96,7 +96,6 @@ Kassi::Application.routes.draw do
             end
           end
           resources :braintree_payments
-
         end
         resource :settings do
           member do
@@ -115,6 +114,7 @@ Kassi::Application.routes.draw do
             post :send_confirmation
           end
         end
+        resources :followers
       end
 
       # List few specific routes here for Devise to understand those
