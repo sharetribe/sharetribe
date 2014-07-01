@@ -209,10 +209,10 @@ class ListingsController < ApplicationController
   end
 
   def move_to_top
-    @listing = Listing.find(params[:id])
+    @listing = @current_community.listings.find(params[:id])
 
-    # Listings are sorted by `created_at`, so change it to now.
-    if @listing.update_attribute(:created_at, Time.now)
+    # Listings are sorted by `sort_date`, so change it to now.
+    if @listing.update_attribute(:sort_date, Time.now)
       redirect_to homepage_index_path
     else
       flash[:warning] = "An error occured while trying to move the listing to the top of the homepage"

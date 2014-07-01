@@ -518,6 +518,7 @@ CREATE TABLE `listings` (
   `weekly_email_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `last_modified` datetime DEFAULT NULL,
+  `sort_date` datetime DEFAULT NULL,
   `visibility` varchar(255) DEFAULT 'this_community',
   `listing_type_old` varchar(255) DEFAULT NULL,
   `description` text,
@@ -1858,3 +1859,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140612084036');
 INSERT INTO schema_migrations (version) VALUES ('20140701135724');
 
 INSERT INTO schema_migrations (version) VALUES ('20140701140655');
+
+INSERT INTO schema_migrations (version) VALUES ('20140613132734');
