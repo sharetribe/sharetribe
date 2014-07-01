@@ -434,6 +434,18 @@ CREATE TABLE `feedbacks` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `follower_relationships` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `person_id` varchar(255) NOT NULL,
+  `follower_id` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `index_follower_relationships_on_person_id_and_follower_id` (`person_id`,`follower_id`),
+  KEY `index_follower_relationships_on_person_id` (`person_id`),
+  KEY `index_follower_relationships_on_follower_id` (`follower_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `groups` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `created_at` datetime DEFAULT NULL,
@@ -1852,3 +1864,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140610115217');
 INSERT INTO schema_migrations (version) VALUES ('20140611094552');
 
 INSERT INTO schema_migrations (version) VALUES ('20140611094703');
+
+INSERT INTO schema_migrations (version) VALUES ('20140701081453');
