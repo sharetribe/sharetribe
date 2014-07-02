@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# encoding: utf-8
 
 include ApplicationHelper
 include PeopleHelper
@@ -230,6 +230,17 @@ class PersonMailer < ActionMailer::Base
     mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.new_update_to_listing.listing_you_follow_has_been_updated"))
+  end
+  
+  def new_listing_by_followed_person(listing, recipient, community)
+    set_up_urls(recipient, community)
+    @listing = listing
+    @no_recipient_name = true
+    mail(:to => @recipient.confirmed_notification_emails_to,
+         :from => community_specific_sender(community),
+         :subject => t("emails.new_listing_by_followed_person.subject", 
+                       :author_name => listing.author.name(community),
+                       :community => community.full_name_with_separator(recipient.locale)))
   end
 
   def invitation_to_kassi(invitation)
@@ -486,7 +497,7 @@ class PersonMailer < ActionMailer::Base
       end
     end
   end
-
+  
   # Deprecated
   # Moved to CommunityMailer
   # This method is here only to make sure no updates get missed while changing the

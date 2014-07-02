@@ -1,0 +1,7 @@
+- url = listing_url(@url_params.merge({:id => @listing.id}))
+
+%tr
+  %td
+    = render :partial => "community_mailer/community_update_listing", :locals => { :listing => @listing }
+  
+= render :partial => "action_button", :locals => { :text => t("emails.new_listing_by_followed_person.view_listing"), :url => url}

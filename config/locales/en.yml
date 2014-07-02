@@ -802,6 +802,10 @@ en:
       spread_the_word: "<strong>Spread the word. </strong> To get new members to the community, you need to tell about it to the people you know. Some ideas: 1) Post information about %{service_name} to a mailing list. 2) Share this link via Facebook, Twitter or other social media service: %{url}. 3) Send email invites %{invite_link}. 4) Tell people face to face when you meet them."
       spread_the_word_invite_only: "<strong>Spread the word. </strong> You have chosen to make this community invite only. It means that people need an invite from another member in order to join. Thus, to get some new members to the community, you need to invite them. You can do so by %{invite_link}."
       have_fun: "Have fun using %{service_name}. May your community live long and prosper!"
+    new_listing_by_followed_person:
+      subject: "%{author_name} has posted a new listing in %{community}"
+      has_posted_a_new_listing: "%{author_name} has posted a new listing:"
+      view_listing: "View listing"
   error_messages:
     listings:
       departure_time: "Departure time must be between current time and one year from now."
