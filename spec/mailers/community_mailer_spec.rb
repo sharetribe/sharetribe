@@ -18,13 +18,6 @@ describe "CommunityMailer" do
       @c1 = FactoryGirl.create(:community)
       @p1 = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "update_tester@example.com") ])
       @p1.communities << @c1
-      @l1 = FactoryGirl.create(:listing,
-          :transaction_type => FactoryGirl.create(:transaction_type_request),
-          :title => "bike",
-          :description => "A very nice bike",
-          :created_at => 3.days.ago,
-          :updates_email_at => 3.days.ago,
-          :author => @p1).communities = [@c1]
       @l2 = FactoryGirl.create(:listing,
           :title => "hammer",
           :created_at => 2.days.ago,
@@ -32,37 +25,17 @@ describe "CommunityMailer" do
           :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer",
           :transaction_type => FactoryGirl.create(:transaction_type_sell))
       @l2.communities << @c1
-      @l3 = FactoryGirl.create(:listing,
-          :title => "sledgehammer",
-          :created_at => 12.days.ago,
-          :updates_email_at => 12.days.ago,
-          :description => "super <b>shiny</b> sledgehammer, borrow it!",
-          :transaction_type => FactoryGirl.create(:transaction_type_lend)).communities = [@c1]
-
-      @l4 = FactoryGirl.create(:listing,
-          :title => "skateboard",
-          :created_at => 13.days.ago,
-          :updates_email_at => 3.days.ago,
-          :description => "super <b>dirty</b> skateboard!",
-          :transaction_type => FactoryGirl.create(:transaction_type_lend)).communities = [@c1]
 
       @email = CommunityMailer.community_updates(
         @p1,
         @p1.communities.first,
-        @p1.communities.first.get_new_listings_to_update_email(@p1)
+        [@l2]
       )
     end
 
     it "should have correct address and subject" do
       @email.should deliver_to("update_tester@example.com")
       @email.should have_subject("Sharetribe #{@c1.name} community update")
-    end
-
-    it "should contain latest and picked listings" do
-      @email.should have_body_text("A very nice bike")
-      @email.should have_body_text("new hammer")
-      @email.should have_body_text("skateboard")
-      @email.should_not have_body_text("sledgehammer")
     end
 
     it "should have correct links" do
