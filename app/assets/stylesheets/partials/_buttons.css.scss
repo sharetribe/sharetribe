@@ -1,16 +1,16 @@
 @import "mixins/all";
 
 .button-hoverable {
-  div.hover-content {
+  .content.hover-content {
     display: none;
   }
 }
 
 .button-hoverable:hover {
-  div.default-content {
+  .content.default-content {
     display: none;
   }
-  div.hover-content {
+  .content.hover-content {
     display: table-cell;
   }
 }
