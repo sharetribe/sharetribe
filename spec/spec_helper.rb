@@ -1,3 +1,5 @@
+require 'spec_utils'
+
 #Set up coveralls, this needs to be on top! Zeus check enables using zeus.
 #These don't work well together if used simulatenously.
 def zeus_running?
@@ -62,6 +64,8 @@ prefork = lambda {
     # config.mock_with :flexmock
     # config.mock_with :rr
     config.mock_with :rspec
+    config.include Devise::TestHelpers, :type => :controller
+    config.include SpecUtils
   end
 
   def uploaded_file(filename, content_type)
@@ -77,9 +81,6 @@ prefork = lambda {
     return t
   end
 
-  RSpec.configure do |config|
-    config.include Devise::TestHelpers, :type => :controller
-  end
 }
 
 each_run = lambda {
