@@ -23,26 +23,26 @@ describe "CommunityMailer" do
           :title => "bike",
           :description => "A very nice bike",
           :created_at => 3.days.ago,
-          :weekly_email_at => 3.days.ago,
+          :updates_email_at => 3.days.ago,
           :author => @p1).communities = [@c1]
       @l2 = FactoryGirl.create(:listing,
           :title => "hammer",
           :created_at => 2.days.ago,
-          :weekly_email_at => 2.days.ago,
+          :updates_email_at => 2.days.ago,
           :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer",
           :transaction_type => FactoryGirl.create(:transaction_type_sell))
       @l2.communities << @c1
       @l3 = FactoryGirl.create(:listing,
           :title => "sledgehammer",
           :created_at => 12.days.ago,
-          :weekly_email_at => 12.days.ago,
+          :updates_email_at => 12.days.ago,
           :description => "super <b>shiny</b> sledgehammer, borrow it!",
           :transaction_type => FactoryGirl.create(:transaction_type_lend)).communities = [@c1]
 
       @l4 = FactoryGirl.create(:listing,
           :title => "skateboard",
           :created_at => 13.days.ago,
-          :weekly_email_at => 3.days.ago,
+          :updates_email_at => 3.days.ago,
           :description => "super <b>dirty</b> skateboard!",
           :transaction_type => FactoryGirl.create(:transaction_type_lend)).communities = [@c1]
 

@@ -1,8 +1,8 @@
 window.ST = window.ST || {};
 
 window.ST.listing = function() {
-  $('#add-to-weekly-email').on('click', function() {
-    var text = $(this).find('#add-to-weekly-email-text');
+  $('#add-to-updates-email').on('click', function() {
+    var text = $(this).find('#add-to-updates-email-text');
     var actionLoading = text.data('action-loading');
     var actionSuccess = text.data('action-success');
     var actionError = text.data('action-error');

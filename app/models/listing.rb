@@ -62,9 +62,9 @@ class Listing < ActiveRecord::Base
     self.sort_date ||= Time.now
   end
 
-  before_create :set_weekly_email_at_to_now
-  def set_weekly_email_at_to_now
-    self.weekly_email_at ||= Time.now
+  before_create :set_updates_email_at_to_now
+  def set_updates_email_at_to_now
+    self.updates_email_at ||= Time.now
   end
 
   before_validation do

@@ -1,6 +1,6 @@
 class CopyCreatedAtToWeeklyEmailAt < ActiveRecord::Migration
   def up
-	Listing.update_all("weekly_email_at = created_at")
+    Listing.update_all("updates_email_at = created_at")
   end
 
   def down

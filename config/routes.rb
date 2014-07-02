@@ -59,7 +59,7 @@ Kassi::Application.routes.draw do
           member do
             put :close
             put :move_to_top
-            put :show_in_weekly_email
+            put :show_in_updates_email
           end
           resources :listing_conversations do
             collection do

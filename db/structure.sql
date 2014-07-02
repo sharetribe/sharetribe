@@ -515,7 +515,7 @@ CREATE TABLE `listings` (
   `times_viewed` int(11) DEFAULT '0',
   `language` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
-  `weekly_email_at` datetime DEFAULT NULL,
+  `updates_email_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `last_modified` datetime DEFAULT NULL,
   `sort_date` datetime DEFAULT NULL,
