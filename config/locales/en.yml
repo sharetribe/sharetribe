@@ -1194,6 +1194,9 @@ en:
       reopen_listing: "Reopen listing"
       move_to_top: "Move to top of homepage"
       show_in_weekly_email: "Show in next community update email"
+      show_in_weekly_email_loading: "Loading..."
+      show_in_weekly_email_error: "Couldn't reach server. Try again after page refresh."
+      show_in_weekly_email_success: "This listing will be shown in the next automatic community update email sent to the members."
     follow_links:
       follow: "Get emails about new comments"
       unfollow: "Don't get emails about new comments"

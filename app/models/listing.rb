@@ -62,6 +62,11 @@ class Listing < ActiveRecord::Base
     self.sort_date ||= Time.now
   end
 
+  before_create :set_weekly_email_at_to_now
+  def set_weekly_email_at_to_now
+    self.weekly_email_at ||= Time.now
+  end
+
   before_validation do
     # Normalize browser line-breaks.
     # Reason: Some browsers send line-break as \r\n which counts for 2 characters making the

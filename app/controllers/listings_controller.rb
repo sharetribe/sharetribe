@@ -226,11 +226,10 @@ class ListingsController < ApplicationController
 
     # Listings are sorted by `created_at`, so change it to now.
     if @listing.update_attribute(:weekly_email_at, Time.now)
-      redirect_to homepage_index_path
+      render :nothing => true, :status => 200
     else
-      flash[:warning] = "An error occured while trying to move the listing to the top of the homepage"
       Rails.logger.error "An error occured while trying to move the listing (id=#{Maybe(@listing).id.or_else('No id available')}) to the top of the homepage"
-      redirect_to @listing
+      render :nothing => true, :status => 500
     end
   end
 

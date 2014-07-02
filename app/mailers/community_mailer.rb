@@ -50,7 +50,7 @@ class CommunityMailer < ActionMailer::Base
 
     latest = @recipient.community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago
 
-    @listings = @community.listings.currently_open.where("created_at > ?", latest).order("created_at DESC").visible_to(@recipient, @community).limit(10)
+    @listings = @community.listings.currently_open.where("weekly_email_at > ?", latest).order("weekly_email_at DESC").visible_to(@recipient, @community).limit(10)
 
     if @listings.size < 1
       logger.info "There are no new listings in community #{@community.name(@recipient.locale)} since that last update for #{@recipient.id}"
