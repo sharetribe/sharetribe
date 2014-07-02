@@ -46,7 +46,11 @@ describe "CommunityMailer" do
           :description => "super <b>dirty</b> skateboard!",
           :transaction_type => FactoryGirl.create(:transaction_type_lend)).communities = [@c1]
 
-      @email = CommunityMailer.community_updates(@p1, @p1.communities.first)
+      @email = CommunityMailer.community_updates(
+        @p1,
+        @p1.communities.first,
+        @p1.communities.first.get_new_listings_to_update_email(@p1)
+      )
     end
 
     it "should have correct address and subject" do
@@ -69,13 +73,6 @@ describe "CommunityMailer" do
       token = @p1.auth_tokens.last.token
       @email.should have_body_text("?auth=#{token}")
     end
-
-    it "should not send, if no new listings" do
-      @p1.update_attribute(:community_updates_last_sent_at, 1.day.ago)
-      other_email = CommunityMailer.community_updates(@p1, @p1.communities.first)
-      other_email.class.should == ActionMailer::Base::NullMail
-    end
-
   end
 
   describe "#deliver_community_updates" do
