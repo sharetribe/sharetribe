@@ -802,6 +802,11 @@ fi:
       spread_the_word: "<strong>Levitä sanaa. </strong> Jotta saisit yhteisöön vipinää, sinun kannattaa kutsua sinne tuntemiasi ihmisiä. Muutamia ideoita: 1) Lähetä tietoa palvelusta sähköpostilistoille. 2) Jaa tämä linkki Facebookissa, Twitterissä tai muussa sosiaalisen median palvelussa: %{url}. 3) Lähetä kutsuja sähköpostitse %{invite_link}. 4) Kerro palvelusta ihmisille kasvokkain tavatassesi heitä."
       spread_the_word_invite_only: "<strong>Levitä sanaa. </strong> Olet valinnut yhteisön asetukset siten, että siihen voi liittyä ainoastaan, jos saa kutsun toiselta jäseneltä. Saadaksesi yhteisöön lisää jäseniä sinun pitää siis lähettää kutsuja tuntemillesi ihmisille. Voit lähettää kutsuja %{invite_link}."
       have_fun: "Pidä hauskaa %{service_name_genetive} parissa. Toivottavasti yhteisösi alkaa kukoistaa!"
+    new_listing_by_followed_person:
+      subject: "%{author_name} lisäsi ilmoituksen yhteisöön %{community}"
+      has_posted_a_new_listing: "%{author_name} on lisännyt uuden ilmoituksen:"
+      you_are_receiving_this_because: "Sait tämän viestin, koska seuraat käyttäjää %{author_name}."
+      view_listing: "Näytä ilmoitus"
   error_messages:
     listings:
       departure_time: "Lähtöaika ei voi olla aikaisempi kuin nykyhetki eikä yli vuoden päässä nykyhetkestä."
