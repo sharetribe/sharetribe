@@ -236,10 +236,13 @@ class PersonMailer < ActionMailer::Base
     set_up_urls(recipient, community)
     @listing = listing
     @no_recipient_name = true
+    @author_name = listing.author.name(community)
+    @listing_url = listing_url(@url_params.merge({:id => @listing.id}))
+    @translate_scope = [ :emails, :new_listing_by_followed_person ]
     mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.new_listing_by_followed_person.subject", 
-                       :author_name => listing.author.name(community),
+                       :author_name => @author_name,
                        :community => community.full_name_with_separator(recipient.locale)))
   end
 
