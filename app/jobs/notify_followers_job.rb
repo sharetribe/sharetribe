@@ -1,5 +1,7 @@
 class NotifyFollowersJob < Struct.new(:listing_id, :community_id)
   
+  DELAY = 30.minutes
+  
   include DelayedAirbrakeNotification
 
   # This before hook should be included in all Jobs to make sure that the service_name is
@@ -12,8 +14,8 @@ class NotifyFollowersJob < Struct.new(:listing_id, :community_id)
   
   def perform
     return if !listing || listing.closed? || !author
-    author.followers.members_of(community).each do |follower|
-      # notify
+    author.followers.members_of(community).map do |follower|
+      PersonMailer.new_listing_by_followed_person(listing, follower, community).deliver
     end
   end
   
@@ -24,11 +26,11 @@ class NotifyFollowersJob < Struct.new(:listing_id, :community_id)
   end
   
   def author
-    listing.author
+    @author ||= listing.author
   end
   
   def community
-    listing.community
+    @community ||= Community.find_by_id(community_id)
   end
 
 end
