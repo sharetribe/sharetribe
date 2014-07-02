@@ -112,4 +112,11 @@ class MailPreview < MailView
     recipient = community.members.last
     CommunityMailer.community_updates(recipient, community)
   end
+  
+  def new_listing_by_followed_person
+    listing = Listing.last
+    recipient = Person.last
+    community = listing.communities.last
+    PersonMailer.new_listing_by_followed_person(listing, recipient, community)
+  end
 end
