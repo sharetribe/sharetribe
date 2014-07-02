@@ -211,3 +211,18 @@ end
 Then(/^I should see that the listing does not have "(.*?)"$/) do |option_title|
   find(".checkbox-option.not-selected", :text => option_title)
 end
+
+# Move to more generic place if needed
+def select_date_from_date_selector(date, date_selector_base_id)
+  day = date.day
+  month = I18n.t("date.month_names")[date.month]
+  year = date.year
+
+  select(day, :from => "#{date_selector_base_id}_3i")
+  select(month, :from => "#{date_selector_base_id}_2i")
+  select(year, :from => "#{date_selector_base_id}_1i")
+end
+
+When(/^I set the expiration date to (\d+) months from now$/) do |months|
+  select_date_from_date_selector(months.to_i.months.from_now, "listing_valid_until")
+end
