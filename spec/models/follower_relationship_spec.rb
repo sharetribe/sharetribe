@@ -36,4 +36,12 @@ describe FollowerRelationship do
     }
     FollowerRelationship.new(inverse_attributes).should be_valid
   end
+  
+  it "should not allow a person to follow themselves" do
+    self_attributes = {  
+      :person_id => @follower_relationship.person_id,
+      :follower_id => @follower_relationship.person_id
+    }
+    FollowerRelationship.new(self_attributes).should_not be_valid
+  end
 end
