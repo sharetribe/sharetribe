@@ -358,6 +358,7 @@ class Community < ActiveRecord::Base
      selected_listings
       .concat(new_listings)
       .sort_by { |listing| listing.updates_email_at}
+      .reverse
   end
 
   def self.find_by_allowed_email(email)

@@ -70,6 +70,7 @@ describe Community do
       listings_to_email.should include(@l1, @l2, @l4)
       listings_to_email.should_not include(@l3)
     end
+
     it "should prioritize picked listings" do
       @l5 = get_listing(13,3)
       @l6 = get_listing(13,3)
@@ -84,6 +85,29 @@ describe Community do
 
       listings_to_email.should include(@l1, @l4, @l5, @l6, @l7, @l8, @l9, @l10, @l11, @l12)
       listings_to_email.should_not include(@l2, @l3)
+    end
+    it "should order listings using updates_email_at" do
+      @l5 = get_listing(13,3)
+      @l6 = get_listing(13,4)
+      @l7 = get_listing(13,5)
+      @l8 = get_listing(13,6)
+      @l9 = get_listing(13,6)
+      @l10 = get_listing(13,6)
+      @l11 = get_listing(13,6)
+      @l12 = get_listing(13,6)
+
+      listings_to_email = @community.get_new_listings_to_update_email(@p1)
+
+      correct_order = true
+
+      listings_to_email.each_cons(2) do |consecutive_listings|
+        first, last = consecutive_listings
+        if first.updates_email_at < last.updates_email_at
+          correct_order = false
+        end
+      end
+
+      correct_order.should be_true
     end
 
     it "should include just picked listings" do
