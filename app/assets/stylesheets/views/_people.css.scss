@@ -83,3 +83,9 @@ $profile-pic-gutter-mobile: lines(0.5);
     @include border-radius($default-border-radius);
   }
 }
+
+#profile-followed-people-list {
+  .fluid-thumbnail-grid-image-image-container {
+    padding-bottom: 100%;
+  }
+}
