@@ -11,8 +11,8 @@
     .row.relative
       .people-image-mobile
         = huge_avatar_thumb(@person)
-      .profile-action-button-mobile
-        = render :partial => "profile_action_button"
+      .profile-action-buttons-mobile
+        = render :partial => "profile_action_buttons"
 
     .row
       - if @person.description && !@person.description.blank?
@@ -69,7 +69,5 @@
         = huge_avatar_thumb(@person)
 
     .row
-      .profile-action-button-desktop
-        = render :partial => "profile_action_button"
-        - if @current_community.follow_in_use?
-          = render :partial => "follow_button", :locals => { :person => @person, :on_current_user => :hide }
+      .profile-action-buttons-desktop
+        = render :partial => "profile_action_buttons"

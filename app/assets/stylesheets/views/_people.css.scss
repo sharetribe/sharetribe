@@ -31,7 +31,7 @@ $profile-pic-gutter-mobile: lines(0.5);
   margin-left: lines(0.5);
 }
 
-.profile-action-button-desktop {
+.profile-action-buttons-desktop {
   display: none;
 
   @include media(tablet) {
@@ -39,7 +39,7 @@ $profile-pic-gutter-mobile: lines(0.5);
   }
 }
 
-.profile-action-button-mobile {
+.profile-action-buttons-mobile {
   padding-left: $profile-pic-size-mobile + $profile-pic-gutter-mobile;
   padding-bottom: lines(0.75);
   margin-top: lines(0.65);
