@@ -15,7 +15,8 @@
           = t(".they_follow_singular", :count => followed_people.count)
         - else
           = t(".they_follow_plural", :count => followed_people.count)
-
+    - else
+      = t(".no_followed_people")      
 .people-fluid-thumbnail-grid-container
   .people-fluid-thumbnail-grid#profile-followed-people-list
     = render :partial => "people/followed_person", :collection => displayed_people, :as => :person
