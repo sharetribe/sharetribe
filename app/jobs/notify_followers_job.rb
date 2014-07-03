@@ -15,7 +15,9 @@ class NotifyFollowersJob < Struct.new(:listing_id, :community_id)
   def perform
     return if !listing || listing.closed? || !author
     author.followers.members_of(community).map do |follower|
-      PersonMailer.new_listing_by_followed_person(listing, follower, community).deliver
+      if follower.preferences["email_about_new_listings_by_followed_people"]
+        PersonMailer.new_listing_by_followed_person(listing, follower, community).deliver
+      end
     end
   end
   

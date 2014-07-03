@@ -84,7 +84,8 @@ class Person < ActiveRecord::Base
     "email_about_testimonial_reminders",
     "email_about_completed_transactions",
     "email_about_new_payments",
-    "email_about_payment_reminders"
+    "email_about_payment_reminders",
+    "email_about_new_listings_by_followed_people"
 
     # These should not yet be shown in UI, although they might be stored in DB
     # "email_when_new_friend_request",
