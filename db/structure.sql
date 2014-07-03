@@ -136,7 +136,6 @@ CREATE TABLE `communities` (
   `category` varchar(255) DEFAULT 'other',
   `members_count` int(11) DEFAULT '0',
   `polls_enabled` tinyint(1) DEFAULT '0',
-  `plan` varchar(255) DEFAULT NULL,
   `user_limit` int(11) DEFAULT NULL,
   `monthly_price_in_euros` float DEFAULT NULL,
   `logo_file_name` varchar(255) DEFAULT NULL,
@@ -516,8 +515,10 @@ CREATE TABLE `listings` (
   `times_viewed` int(11) DEFAULT '0',
   `language` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
+  `updates_email_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `last_modified` datetime DEFAULT NULL,
+  `sort_date` datetime DEFAULT NULL,
   `visibility` varchar(255) DEFAULT 'this_community',
   `listing_type_old` varchar(255) DEFAULT NULL,
   `description` text,
@@ -1852,3 +1853,11 @@ INSERT INTO schema_migrations (version) VALUES ('20140610115217');
 INSERT INTO schema_migrations (version) VALUES ('20140611094552');
 
 INSERT INTO schema_migrations (version) VALUES ('20140611094703');
+
+INSERT INTO schema_migrations (version) VALUES ('20140612084036');
+
+INSERT INTO schema_migrations (version) VALUES ('20140613132734');
+
+INSERT INTO schema_migrations (version) VALUES ('20140701135724');
+
+INSERT INTO schema_migrations (version) VALUES ('20140701140655');

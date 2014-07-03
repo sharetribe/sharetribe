@@ -18,25 +18,19 @@ describe "CommunityMailer" do
       @c1 = FactoryGirl.create(:community)
       @p1 = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "update_tester@example.com") ])
       @p1.communities << @c1
-      @l1 = FactoryGirl.create(:listing,
-          :transaction_type => FactoryGirl.create(:transaction_type_request),
-          :title => "bike",
-          :description => "A very nice bike",
-          :created_at => 3.days.ago,
-          :author => @p1).communities = [@c1]
       @l2 = FactoryGirl.create(:listing,
           :title => "hammer",
           :created_at => 2.days.ago,
+          :updates_email_at => 2.days.ago,
           :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer",
           :transaction_type => FactoryGirl.create(:transaction_type_sell))
       @l2.communities << @c1
-      @l3 = FactoryGirl.create(:listing,
-          :title => "sledgehammer",
-          :created_at => 12.days.ago,
-          :description => "super <b>shiny</b> sledgehammer, borrow it!",
-          :transaction_type => FactoryGirl.create(:transaction_type_lend)).communities = [@c1]
 
-      @email = CommunityMailer.community_updates(@p1, @p1.communities.first)
+      @email = CommunityMailer.community_updates(
+        @p1,
+        @p1.communities.first,
+        [@l2]
+      )
     end
 
     it "should have correct address and subject" do
@@ -44,31 +38,14 @@ describe "CommunityMailer" do
       @email.should have_subject("Sharetribe #{@c1.name} community update")
     end
 
-    it "should contain latest listings" do
-      @email.should have_body_text("A very nice bike")
-      @email.should have_body_text("new hammer")
-    end
-
     it "should have correct links" do
       @email.should have_body_text(/.*<a href=\"http\:\/\/#{@c1.domain}\.#{APP_CONFIG.domain}\/#{@p1.locale}\/listings\/#{@l2.id}\?auth\=#{@p1.auth_tokens.last.token}\&amp;ref=weeklymail.*/)
-    end
-
-    it "should pick only new listings" do
-      @email.should_not have_body_text("sledgehammer")
-
     end
 
     it "should include valid auth_token in links" do
       token = @p1.auth_tokens.last.token
       @email.should have_body_text("?auth=#{token}")
     end
-
-    it "should not send, if no new listings" do
-      @p1.update_attribute(:community_updates_last_sent_at, 1.day.ago)
-      other_email = CommunityMailer.community_updates(@p1, @p1.communities.first)
-      other_email.class.should == ActionMailer::Base::NullMail
-    end
-
   end
 
   describe "#deliver_community_updates" do

@@ -24,7 +24,7 @@ class ListingsController < ApplicationController
     controller.ensure_current_user_is_listing_author t("layouts.notifications.only_listing_author_can_edit_a_listing")
   end
 
-  before_filter :ensure_is_admin, :only => [ :move_to_top ]
+  before_filter :ensure_is_admin, :only => [ :move_to_top, :show_in_updates_email ]
 
   before_filter :is_authorized_to_post, :only => [ :new, :create ]
 
@@ -209,15 +209,27 @@ class ListingsController < ApplicationController
   end
 
   def move_to_top
-    @listing = Listing.find(params[:id])
+    @listing = @current_community.listings.find(params[:id])
 
-    # Listings are sorted by `created_at`, so change it to now.
-    if @listing.update_attribute(:created_at, Time.now)
+    # Listings are sorted by `sort_date`, so change it to now.
+    if @listing.update_attribute(:sort_date, Time.now)
       redirect_to homepage_index_path
     else
       flash[:warning] = "An error occured while trying to move the listing to the top of the homepage"
       Rails.logger.error "An error occured while trying to move the listing (id=#{Maybe(@listing).id.or_else('No id available')}) to the top of the homepage"
       redirect_to @listing
+    end
+  end
+
+  def show_in_updates_email
+    @listing = @current_community.listings.find(params[:id])
+
+    # Listings are sorted by `created_at`, so change it to now.
+    if @listing.update_attribute(:updates_email_at, Time.now)
+      render :nothing => true, :status => 200
+    else
+      Rails.logger.error "An error occured while trying to move the listing (id=#{Maybe(@listing).id.or_else('No id available')}) to the top of the homepage"
+      render :nothing => true, :status => 500
     end
   end
 
