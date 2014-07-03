@@ -71,3 +71,8 @@
     .row
       .profile-action-buttons-desktop
         = render :partial => "profile_action_buttons"
+- content_for :extra_javascript do
+  :javascript
+    window.ST.initializeFollowButtons();
+        
+        

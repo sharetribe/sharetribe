@@ -1,22 +1,20 @@
-$(document).ready(
-    function() {
-        $("body").on(
-            "ajax:complete", function(event, xhr) {
-                var target = $(event.target);
-                if (target.hasClass("follow-button")) {
-                    var new_button_container = $(xhr.responseText);
 
-                    // Work around "Unfollow" showing up too soon
-                    $(".button-hoverable", new_button_container).addClass("button-disable-hover");
-                    new_button_container.on(
-                        "mouseleave", function() { 
-                            $(".button-disable-hover", new_button_container).removeClass("button-disable-hover"); 
-                        }
-                    );
+window.ST.onFollowButtonAjaxComplete = function(event, xhr) {
+  var target = $(event.target);
+  var newButtonContainer = $(xhr.responseText);
 
-                    target.parents(".follow-button-container:first").replaceWith(new_button_container);
-                }
-            }
-        );
+  // Work around "Unfollow" showing up too soon
+  $(".button-hoverable", newButtonContainer).addClass("button-disable-hover");
+  newButtonContainer.on(
+    "mouseleave", function() { 
+      $(".button-disable-hover", newButtonContainer).removeClass("button-disable-hover"); 
     }
-);
+  );
+
+  target.parents(".follow-button-container:first").replaceWith(newButtonContainer);
+  $(".follow-button", newButtonContainer).on("ajax:complete", window.ST.onFollowButtonAjaxComplete);
+};
+
+window.ST.initializeFollowButtons = function() {
+  $(".follow-button").on("ajax:complete", window.ST.onFollowButtonAjaxComplete);
+};
