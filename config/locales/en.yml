@@ -1547,6 +1547,16 @@ en:
       show_all_open_listings: "Show all open listings"
       show_all_reviews: "Show all reviews"
       trustcloud: TrustCard
+    followed_people:
+      you_follow_plural: "You follow %{count} people"
+      you_follow_singular: "You follow %{count} person"
+      they_follow_plural: "%{count} followed people"
+      they_follow_singular: "%{count} followed person"
+      show_all_followed_people: "Show all followed people"
+    follow_button:
+      following: Following
+      follow: Follow
+      unfollow: Unfollow
   search:
     show:
       all_results: "All results"

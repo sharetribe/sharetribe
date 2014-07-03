@@ -1539,6 +1539,16 @@ fi:
       show_all_open_listings: "Näytä kaikki avoimet ilmoitukset"
       show_all_reviews: "Näytä kaikki palautteet"
       trustcloud: TrustCard
+    followed_people:
+      you_follow_plural: "%{count} seurattua käyttäjää"
+      you_follow_singular: "%{count} seurattu käyttäjä"
+      they_follow_plural: "%{count} seurattua käyttäjää"
+      they_follow_singular: "%{count} seurattu käyttäjä"
+      show_all_followed_people: "Näytä kaikki seuratut käyttäjät"
+    follow_button:
+      following: Seurattu
+      follow: Seuraa
+      unfollow: Lakkaa seuraamasta
   search:
     show:
       all_results: Kaikista
