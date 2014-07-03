@@ -339,9 +339,9 @@ module ApplicationHelper
     image_tag person.image.url(:medium), :alt => person.name(@current_community)
   end
 
-  def huge_avatar_thumb(person)
+  def huge_avatar_thumb(person, options={})
     # FIXME! Need a new picture size: :large
-    image_tag person.image.url(:medium), :alt => person.name(@current_community)
+    image_tag person.image.url(:medium), options.merge(:alt => person.name(@current_community))
   end
 
   def pageless(total_pages, target_id, url=nil, loader_message='Loading more results')
