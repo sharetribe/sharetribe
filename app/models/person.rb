@@ -695,7 +695,11 @@ class Person < ActiveRecord::Base
   end
   
   def follows?(person)
-    followed_people.include?(person)
+    followed_people_by_id.include?(person.id)
+  end
+  
+  def followed_people_by_id
+    @followed_people_by_id ||= followed_people.group_by(&:id)
   end
   
   def self.members_of(community)
