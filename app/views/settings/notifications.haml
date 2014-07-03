@@ -16,8 +16,8 @@
     = render :partial => "notification_checkbox", :collection => Person::EMAIL_NEWSLETTER_TYPES, :as => :notification_type
 
     %h2.lower= t(".i_want_to_get_email_notification_when")
-    = render :partial => "notification_checkbox", :collection => Person::EMAIL_NOTIFICATION_TYPES, :as => :notification_type
-
+    = render :partial => "notification_checkbox", :collection => @current_community.email_notification_types, :as => :notification_type
+    
     = form.hidden_field "preferences[temp]", :value => "temp"
 
     = form.button t("settings.save_information"), :class => "send_button_notifications"
