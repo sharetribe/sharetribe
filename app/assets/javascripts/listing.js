@@ -19,4 +19,4 @@ window.ST.listing = function() {
       text.html(actionError);
     });
   });
-}
+};
