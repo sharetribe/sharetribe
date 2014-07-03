@@ -1,18 +1,14 @@
-- on_current_user ||= :edit_profile
+.follow-button-container
+  - if @current_user.follows?(person)
+    = link_to person_follower_path(person, @current_user), :method => "delete", :remote => true, :class => "follow-button unfollow button-hoverable" do
+      .content.hover-content
+        = t(".unfollow")
+      .content.default-content
+        = t(".following")
+  - else
+    = link_to [ person, :followers ], :method => "post", :remote => true, :class => "follow-button" do
+      .content
+        = t(".follow")
 
-- if @current_user != person
-  .follow-button-container
-    - if @current_user.follows?(person)
-      = link_to person_follower_path(person, @current_user), :method => "delete", :remote => true, :class => "follow-button unfollow button-hoverable" do
-        .content.hover-content
-          = t(".unfollow")
-        .content.default-content
-          = t(".following")
-    - else
-      = link_to [ person, :followers ], :method => "post", :remote => true, :class => "follow-button" do
-        .content
-          = t(".follow")
-- elsif on_current_user == :edit_profile
-  = render :partial => "people/edit_profile_button"
 
       
