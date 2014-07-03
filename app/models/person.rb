@@ -166,7 +166,7 @@ class Person < ActiveRecord::Base
     end
   end
 
-  def last_community_update_at
+  def last_community_updates_at
     community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago
   end
 
