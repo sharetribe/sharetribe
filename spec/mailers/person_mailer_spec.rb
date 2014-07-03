@@ -297,5 +297,21 @@ describe PersonMailer do
     end
 
   end
-
+  
+  describe "#new_listing_by_followed_person" do
+    
+    before do
+      @listing = FactoryGirl.create(:listing)
+      @recipient = FactoryGirl.create(:person)
+      @community = @listing.communities.last
+    end
+    
+    it "should notify of a new listing" do
+      email = PersonMailer.new_listing_by_followed_person(@listing, @recipient, @community).deliver
+      assert !ActionMailer::Base.deliveries.empty?
+      assert_equal @recipient.confirmed_notification_email_addresses, email.to
+    end
+    
+  end
+    
 end
