@@ -7,13 +7,21 @@ class FollowersController < ApplicationController
   end
   
   def create
-    Person.find(params[:person_id]).followers << @current_user
-    redirect_to :back
+    @person = Person.find(params[:person_id])
+    @person.followers << @current_user
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { render :partial => "people/follow_button", :locals => { :person => @person } }
+    end
   end
   
   def destroy
-    Person.find(params[:person_id]).followers.delete(@current_user)
-    redirect_to :back
+    @person = Person.find(params[:person_id])
+    @person.followers.delete(@current_user)
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { render :partial => "people/follow_button", :locals => { :person => @person } }
+    end
   end
   
 end

@@ -57,4 +57,5 @@
 //= require image_carousel
 //= require thumbnail_stripe
 //= require listing_images
+//= require follow
 //= require_self
