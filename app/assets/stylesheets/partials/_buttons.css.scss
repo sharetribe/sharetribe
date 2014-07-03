@@ -18,4 +18,10 @@
 .follow-button {
   @include grey-button;
   width: 100%;
+
+  &.unfollow:hover {
+    background: $red;
+    color: white;
+  }
+  
 }
