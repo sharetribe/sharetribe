@@ -1067,6 +1067,12 @@ function initialize_profile_view(profile_id, show_closed) {
     return false;
   });
 
+  $('#load-more-followed-people').on(
+      "ajax:complete", function(element, xhr) {
+          $("#profile-followed-people-list").html(xhr.responseText);
+          $(this).hide();
+      });
+
   $('#load-more-testimonials').click(function() {
     request_path = profile_id + "/testimonials";
     $.get(request_path, {per_page: 200, page: 1}, function(data) {
