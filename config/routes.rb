@@ -115,6 +115,7 @@ Kassi::Application.routes.draw do
           end
         end
         resources :followers
+        resources :followed_people
       end
 
       # List few specific routes here for Devise to understand those

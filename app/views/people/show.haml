@@ -47,6 +47,8 @@
       - limit = 6
       = render :partial => 'listings/profile_listings', :locals => {:person => @person, :limit => limit}
 
+    = render :partial => "followed_people", :locals => { :person => @person, :limit => 6 }
+      
     - if @current_community.testimonials_in_use
       #people-testimonials.listing-main
         .row
@@ -68,3 +70,4 @@
     .row
       .profile-action-button-desktop
         = render :partial => "profile_action_button"
+        = render :partial => "follow_button", :locals => { :person => @person, :on_current_user => :hide }
