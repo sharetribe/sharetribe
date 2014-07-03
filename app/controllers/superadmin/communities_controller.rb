@@ -26,8 +26,8 @@ class Superadmin::CommunitiesController < ApplicationController
     @community = Community.create(community_params)
     if @community.save
 
+      create_category!(p, language, @community)
       transaction_type = create_transaction_type!(p, @community)
-      create_category!(p, language, transaction_type, @community)
 
       link = view_context.link_to "#{@community.domain}.#{APP_CONFIG.domain}", "//#{@community.domain}.#{APP_CONFIG.domain}"
       flash[:notice] = "Successfully created new community '#{@community.name}' (#{link})".html_safe
@@ -44,7 +44,7 @@ class Superadmin::CommunitiesController < ApplicationController
     TransactionTypeCreator.create(community, type)
   end
 
-  def create_category!(p, language, transaction_type, community)
+  def create_category!(p, language, community)
     category = community.categories.create;
 
     category_translations = CategoryTranslation.create(:category_id => category.id,
