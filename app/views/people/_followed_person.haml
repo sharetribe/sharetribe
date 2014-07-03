@@ -2,7 +2,7 @@
 .people-fluid-thumbnail-grid-item
   = link_to person, :class => "#{modifier_class} fluid-thumbnail-grid-image-item-link" do
     .fluid-thumbnail-grid-image-image-container{:class => "#{modifier_class}"}
-      = huge_avatar_thumb(person, :class => "#{modifier_class} fluid-thumbnail-grid-image-image")
+      = large_avatar_thumb(person, :class => "#{modifier_class} fluid-thumbnail-grid-image-image")
       .fluid-thumbnail-grid-image-overlay{:class => "#{modifier_class}"}
       .fluid-thumbnail-grid-image-title{:class => "#{modifier_class}"}
         = person.name(@current_community)
