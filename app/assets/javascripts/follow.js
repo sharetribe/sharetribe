@@ -9,12 +9,10 @@ $(document).ready(
                     // Work around "Unfollow" showing up too soon
                     $(".button-hoverable", new_button_container).addClass("button-disable-hover");
                     new_button_container.on(
-                        "mouseout", function() { 
-                            setTimeout(
-                                function() { 
-                                    $(".button-disable-hover", new_button_container).removeClass("button-disable-hover"); 
-                                }, 500); 
-                        });
+                        "mouseleave", function() { 
+                            $(".button-disable-hover", new_button_container).removeClass("button-disable-hover"); 
+                        }
+                    );
 
                     target.parents(".follow-button-container:first").replaceWith(new_button_container);
                 }
