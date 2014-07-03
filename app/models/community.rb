@@ -563,7 +563,15 @@ class Community < ActiveRecord::Base
   def custom_head_script_in_use?
     plan_level >= BASIC_PLAN
   end
-
+  
+  def email_notification_types
+    valid_types = Person::EMAIL_NOTIFICATION_TYPES.dup
+    if !follow_in_use?
+      valid_types.delete "email_about_new_listings_by_followed_people"
+    end
+    valid_types
+  end
+  
   private
 
   def initialize_settings
