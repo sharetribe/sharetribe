@@ -7,7 +7,7 @@ class FollowersController < ApplicationController
   end
   
   def create
-    @person = Person.find(params[:person_id])
+    @person = @current_community.members.find(params[:person_id])
     @person.followers << @current_user
     respond_to do |format|
       format.html { redirect_to :back }
@@ -16,7 +16,7 @@ class FollowersController < ApplicationController
   end
   
   def destroy
-    @person = Person.find(params[:person_id])
+    @person = @current_community.members.find(params[:person_id])
     @person.followers.delete(@current_user)
     respond_to do |format|
       format.html { redirect_to :back }
