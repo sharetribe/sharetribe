@@ -366,14 +366,8 @@ class Listing < ActiveRecord::Base
     custom_field_values.find { |value| value.custom_field_id == custom_field.id }
   end
 
-  # Is payment possible for this listing if the community
-  # has a payment gateway set up?
-  def payment_possible?
-    transaction_type.price_field?
-  end
-
-  def payment_possible_at?(community)
-    payment_possible? && community.payments_in_use?
+  def payment_required_at?(community)
+    transaction_type.price_field? && community.payments_in_use?
   end
 
   def self.send_payment_settings_reminder?(listing, current_user, current_community)

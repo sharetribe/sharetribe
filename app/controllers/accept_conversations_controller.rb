@@ -50,7 +50,7 @@ class AcceptConversationsController < ApplicationController
     @payment.community = @current_community
     @payment.default_sum(@listing_conversation.listing, Maybe(@current_community).vat.or_else(0))
 
-    @payout_registration_missing = PaymentRegistrationGuard.new(@current_community, @current_user, @listing).requires_registration?
+    @payout_registration_missing = PaymentRegistrationGuard.new(@current_community, @current_user, @listing).requires_registration_before_accepting?
   end
 
   def ensure_is_author

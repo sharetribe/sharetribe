@@ -1354,6 +1354,8 @@ en:
       select_category: "Select category"
       select_subcategory: "Select subcategory"
       select_transaction_type: "Select listing type"
+      you_need_to_fill_payout_details_before_accepting: "You need to fill in payout details before you can post a listing. Go to %{payment_settings_link} to fill in the details."
+      payment_settings_link: "payment settings"
     please_comment: Comment
     reply_link:
       listing_closed: "Listing is closed"
