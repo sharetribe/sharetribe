@@ -1,4 +1,3 @@
-
 window.ST.onFollowButtonAjaxComplete = function(event, xhr) {
   var target = $(event.target);
   var newButtonContainer = $(xhr.responseText);
