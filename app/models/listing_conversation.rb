@@ -107,7 +107,7 @@ class ListingConversation < Conversation
   # complete the transaction, return true, whether the payment
   # has been conducted yet or not.
   def requires_payment?(community)
-    listing && community.payment_possible_for?(listing)
+    listing.payment_required_at?(community)
   end
 
   # Return true if the next required action is the payment

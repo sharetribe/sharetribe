@@ -511,11 +511,6 @@ class Community < ActiveRecord::Base
     read_attribute(:testimonials_in_use) && payments_in_use?
   end
 
-  # Does this community require that people have registered payout method before accepting requests
-  def requires_payout_registration?
-    payment_gateway.present? && payment_gateway.requires_payout_registration_before_accept?
-  end
-
   def default_currency
     if available_currencies
       available_currencies.gsub(" ","").split(",").first
@@ -553,7 +548,7 @@ class Community < ActiveRecord::Base
   end
 
   def invoice_form_type_for(listing)
-    payment_possible_for?(listing) ? payment_gateway.invoice_form_type : "no_form"
+    payment_possible_for?(listing) && payments_in_use? ? payment_gateway.invoice_form_type : "no_form"
   end
 
   def integrations_in_use?

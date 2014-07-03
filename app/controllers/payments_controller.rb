@@ -16,7 +16,7 @@ class PaymentsController < ApplicationController
 
     @payment_gateway = @current_community.payment_gateway
 
-    if @payment_gateway.can_receive_payments_for?(@payment.recipient)
+    if @payment_gateway.can_receive_payments?(@payment.recipient)
       @payment_data = @payment_gateway.payment_data(@payment,
                 :return_url => done_person_message_payment_url(:id => @payment.id),
                 :cancel_url => new_person_message_payment_url,

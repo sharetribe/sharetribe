@@ -33,7 +33,7 @@ Then /^the status of the conversation should be "([^"]*)"$/ do |status|
 end
 
 Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do |listing_type, status|
-  if listing_type == "request" && @conversation.community.payment_possible_for?(@conversation.listing)
+  if listing_type == "request" && @conversation.listing.payment_required_at?(@conversation.community)
     if status == "accepted" || status == "paid"
       # In this case there should be a pending payment done when this got accepted.
       type = if @conversation.community.payment_gateway.type == "BraintreePaymentGateway"

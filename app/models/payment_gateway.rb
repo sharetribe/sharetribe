@@ -15,10 +15,6 @@ class PaymentGateway < ActiveRecord::Base
   # def payment_data(payment, options={})
   # initializes the payment and returns the data that is needed by the template.
 
-  def requires_payout_registration_before_accept?
-    true
-  end
-
   # this is called after the payment is paid.
   # some gateways might have actions related to this hook, e.g. instant payout
   def handle_paid_payment(payment)

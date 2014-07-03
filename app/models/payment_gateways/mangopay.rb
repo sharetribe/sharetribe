@@ -67,7 +67,7 @@ class Mangopay < PaymentGateway
 
   end
 
-  def can_receive_payments_for?(person, listing=nil)
+  def can_receive_payments?(person)
     unless person.mangopay_id
       #if no MangoPay id yet, try to create if enough data available
       return false unless register_to_mangopay(person)
