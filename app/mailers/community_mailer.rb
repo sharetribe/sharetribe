@@ -38,7 +38,7 @@ class CommunityMailer < ActionMailer::Base
     I18n.locale = @recipient.locale  #This was added so that listing share_types get correct translation
 
     @time_since_last_update = t("timestamps.days_since",
-        :count => time_difference_in_days(@recipient.last_community_update_at))
+        :count => time_difference_in_days(@recipient.last_community_updates_at))
     @auth_token = @recipient.new_email_auth_token
     @url_params = {}
     @url_params[:host] = "#{@community.full_domain}"
