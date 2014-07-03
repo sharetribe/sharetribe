@@ -222,7 +222,7 @@ class ListingsController < ApplicationController
   end
 
   def show_in_updates_email
-    @listing = Listing.find(params[:id])
+    @listing = @current_community.listings.find(params[:id])
 
     # Listings are sorted by `created_at`, so change it to now.
     if @listing.update_attribute(:updates_email_at, Time.now)
