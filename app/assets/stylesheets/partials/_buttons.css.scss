@@ -6,7 +6,7 @@
   }
 }
 
-.button-hoverable:hover {
+.button-hoverable:hover:not(.button-disable-hover) {
   .content.default-content {
     display: none;
   }
@@ -19,7 +19,7 @@
   @include grey-button;
   width: 100%;
 
-  &.unfollow:hover {
+  &.unfollow:hover:not(.button-disable-hover) {
     background: $red;
     color: white;
   }
