@@ -500,7 +500,7 @@ class PersonMailer < ActionMailer::Base
       end
     end
   end
-  
+
   # Deprecated
   # Moved to CommunityMailer
   # This method is here only to make sure no updates get missed while changing the
