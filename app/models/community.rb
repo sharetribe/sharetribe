@@ -333,7 +333,7 @@ class Community < ActiveRecord::Base
   end
 
   def get_new_listings_to_update_email(person)
-    latest = person.last_community_update_at
+    latest = person.last_community_updates_at
 
     selected_listings = listings
       .currently_open
