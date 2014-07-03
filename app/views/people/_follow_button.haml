@@ -1,3 +1,5 @@
+- on_current_user ||= :edit_profile
+
 - if @current_user != person
   - if @current_user.follows?(person)
     = link_to person_follower_path(person, @current_user), :method => "delete", :class => "follow-button unfollow button-hoverable" do
@@ -9,5 +11,7 @@
     = link_to [ person, :followers ], :method => "post", :class => "follow-button" do
       .content
         = t(".follow")
+- elsif on_current_user == :edit_profile
+  = render :partial => "people/edit_profile_button"
 
       
