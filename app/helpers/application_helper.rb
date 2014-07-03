@@ -335,13 +335,13 @@ module ApplicationHelper
     link_to((image_tag person.image.url(size), avatar_html_options), person)
   end
 
-  def large_avatar_thumb(person)
-    image_tag person.image.url(:medium), :alt => person.name(@current_community)
+  def large_avatar_thumb(person, options={})
+    image_tag person.image.url(:medium), { :alt => person.name(@current_community) }.merge(options)
   end
 
   def huge_avatar_thumb(person, options={})
     # FIXME! Need a new picture size: :large
-    image_tag person.image.url(:medium), options.merge(:alt => person.name(@current_community))
+    image_tag person.image.url(:medium), { :alt => person.name(@current_community) }.merge(options)
   end
 
   def pageless(total_pages, target_id, url=nil, loader_message='Loading more results')
