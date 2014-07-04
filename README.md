@@ -149,6 +149,8 @@ gem 'win32-process', :platforms => [:mswin, :mingw]
 - rake RAILS_ENV=production jobs:work
 ```
 
+See [New guide for deployment using capistrano from scratch to VPS](docs/vps-deployment.md)
+
 ## Updating
 
 See [RELEASE_NOTES.md](RELEASE_NOTES.md) for information about what has changed and if special tasks are needed to update.
