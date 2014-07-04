@@ -122,7 +122,7 @@ el:
         automatically_confirmed: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
-        newsletter_weekly: ~
+        newsletter_updates: ~
       manage_members:
         manage_members: ~
         email: ~
@@ -405,6 +405,7 @@ el:
       housing_request_rent_message_form_title: "Νοίκιασε το %{listing} στον/στην %{person}"
       item_request_message_form_title: "Πρόσφερε ένα αντικείμενο στον/στην"
       message: Μήνυμα
+      message_to: ~
       rideshare_offer_message_form_title: "Κάνε οτοστόπ στον/στην"
       rideshare_request_message_form_title: "Ταξίδεψε μαζί με τον/την"
       send_message: Αποστολή
@@ -414,6 +415,8 @@ el:
       you_will_get_notified: "Θα λάβετε μια ειδοποίηση με email όταν ο/η %{person} σας απαντήσει."
       title: Τίτλος
       send_message_to_user: "Αποστολή μηνύματος στον/στην %{person}"
+      about_listing: ~
+      author_has_to_accept_request: ~
     show:
       in_response_to_listing: "σχετικά με την καταχώρηση"
       message_sent_by: "Μήνυμα από το χρήστη"
@@ -424,7 +427,6 @@ el:
       conversation_with_user: "Με τον/την %{person}"
       conversation_with: ~
       last_message_at: "(τελευταίο μήνυμα %{time})"
-      requested_by: ~
       price: ~
       sum: ~
       price_excludes_vat: ~
@@ -1136,6 +1138,8 @@ el:
       you_must_log_in_to_add_news_item: "Πρέπει να συνδεθείτε στο %{service_name} για να προσθέσετε ένα άρθρο."
       you_must_log_in_to_change_profile_settings: "Πρέπει να συνδεθείτε στο %{service_name} για να αλλάξετε τις ρυθμίσεις του προφίλ"
       you_must_log_in_to_change_payment_settings: "Πρέπει να συνδεθείτε στο %{service_name} για να αλλάξετε τις ρυθμίσεις των πληρωμών"
+      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Πρέπει να επιβεβαιώσετε την διεύθυνση ηλεκτρονικού ταχυδρομείου σας."
       you_must_fill_all_the_fields: "Πρέπει να συμπληρώσετε όλα τα πεδία"
       you_unfollowed_listing: "Δεν παρακολουθείς πλέον αυτή την καταχώρηση"
@@ -1174,6 +1178,10 @@ el:
       edit_listing: "Επεξεργασία καταχώρησης"
       reopen_listing: "Ενεργοποίηση ξανά της καταχώρησης"
       move_to_top: ~
+      show_in_updates_email: ~
+      show_in_updates_email_loading: ~
+      show_in_updates_email_error: ~
+      show_in_updates_email_success: ~
     follow_links:
       follow: "Να ειδοποιούμαι για νέα σχόλια"
       unfollow: "Παύση ειδοποιήσεων για νέα σχόλια"
@@ -1465,7 +1473,8 @@ el:
       visible_only_to_you: "ορατή μόνο σε σας και το διαχειριστή της κοινότητας"
       visible_to_everybody: "ορατό σε όλους"
       create_account_with_facebook: "Συνδεθείτε μέσω Facebook"
-      or_create_new_account_without_facebook: "... ή δημιουργήστε λογαριασμό χωρίς το Facebook."
+      OR: ~
+      signup_with_email: ~
     not_member:
       explanation_text: "Είσαι στην κοινότητα \"%{community}\". Προσπάθησες να δεις το προφίλ ενός χρήστη που ανήκει σε μια άλλη κοινότητα. Δεν μπορείς να δεις αυτό το προφίλ μέσω της κοινότητας \"%{community}\"."
       read_more_about_kassi_communities: "Διαβάστε περισσότερα για τις κοινότητες Sharetribe"
@@ -1598,7 +1607,7 @@ el:
       email_about_new_received_testimonials: "... κάποιος αφήνει ένα σχόλιο για μένα"
       email_about_testimonial_reminders: "... έχω ξεχάσει να κάνω κριτική για κάποιο συμβάν"
       email_daily_community_updates: "Να λαμβάνω ένα ενημερωτικό email <b>καθημερινά</b> αν υπάρχουν νέες καταχωρήσεις"
-      email_weekly_community_updates: "Να λαμβάνω ένα ενημερωτικό email <b>μια φορά την εβδομάδα</b> αν υπάρχουν νέες καταχωρήσεις"
+      email_updates_community_updates: ~
       do_not_email_community_updates: "Δε θέλω να λαμβάνω ενημερωτικά email"
       email_when_conversation_accepted: "... κάποιος δέχεται την προσφορά ή το αίτημά μου"
       email_when_conversation_rejected: "... κάποιος απορρίπτει την προσφορά ή το αίτημά μου"

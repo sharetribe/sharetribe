@@ -57,6 +57,16 @@ class Listing < ActiveRecord::Base
   validates_presence_of :author_id
   validates_length_of :title, :in => 2..60, :allow_nil => false
 
+  before_create :set_sort_date_to_now
+  def set_sort_date_to_now
+    self.sort_date ||= Time.now
+  end
+
+  before_create :set_updates_email_at_to_now
+  def set_updates_email_at_to_now
+    self.updates_email_at ||= Time.now
+  end
+
   before_validation do
     # Normalize browser line-breaks.
     # Reason: Some browsers send line-break as \r\n which counts for 2 characters making the
@@ -183,7 +193,7 @@ class Listing < ActiveRecord::Base
     if search_with_sphinx?(params)
 
       # sort by time by default
-      params[:sort] ||= 'created_at DESC'
+      params[:sort] ||= 'sort_date DESC'
 
       with = {}
       # Currently forced to only open at listing_index.rb
@@ -236,7 +246,7 @@ class Listing < ActiveRecord::Base
       # FIX THIS query[:transaction_types] = params[:transaction_types] if params[:transaction_types]
       query[:author_id] = params[:person_id] if params[:person_id]    # this is not yet used with search
       query[:id] = params[:listing_id] if params[:listing_id].present?
-      listings = joins(joined_tables).where(query).currently_open(params[:status]).visible_to(current_user, current_community).includes(params[:include]).order("listings.created_at DESC").paginate(:per_page => per_page, :page => page)
+      listings = joins(joined_tables).where(query).currently_open(params[:status]).visible_to(current_user, current_community).includes(params[:include]).order("listings.sort_date DESC").paginate(:per_page => per_page, :page => page)
     end
     return listings
   end

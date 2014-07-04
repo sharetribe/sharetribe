@@ -122,7 +122,7 @@ nl:
         automatically_confirmed: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
-        newsletter_weekly: ~
+        newsletter_updates: ~
       manage_members:
         manage_members: "Beheer gebruikers"
         email: ~
@@ -405,6 +405,7 @@ nl:
       housing_request_rent_message_form_title: ~
       item_request_message_form_title: "Bied een item aan %{person}"
       message: Bericht
+      message_to: ~
       rideshare_offer_message_form_title: "Vraag een rit van %{person}"
       rideshare_request_message_form_title: "Bied een rit aan %{person}"
       send_message: "Stuur bericht"
@@ -414,6 +415,8 @@ nl:
       you_will_get_notified: "Je ontvangt er bericht per mail als %{person} jou antwoordt."
       title: Onderwerp
       send_message_to_user: "Stuur bericht aan %{person}"
+      about_listing: ~
+      author_has_to_accept_request: ~
     show:
       in_response_to_listing: ~
       message_sent_by: ~
@@ -424,7 +427,6 @@ nl:
       conversation_with_user: ~
       conversation_with: ~
       last_message_at: ~
-      requested_by: ~
       price: ~
       sum: ~
       price_excludes_vat: ~
@@ -583,7 +585,7 @@ nl:
       you_are_banned_in_this_community: ~
       contact_page_link: ~
     new:
-      welcome_fb_user: ~
+      welcome_fb_user: "Welkom bij %{service_name}, %{name}!"
       fb_join_accept_terms: ~
       join_community: ~
       you_are_not_a_member_of_this_community: ~
@@ -745,8 +747,8 @@ nl:
     welcome_email:
       welcome_email_footer_text: ~
       settings_link_text: ~
-      subject: ~
-      welcome_some_tips: ~
+      subject: "Welkom bij  %{community} - hier zijn enkele tips om je slag"
+      welcome_some_tips: "Welkom bij %{community_link}!  hier zijn enkele tips om je slag"
       p_s_did_you_know: ~
       click_here_link_text: ~
       update_your_profile: ~
@@ -754,7 +756,7 @@ nl:
       add_something_you_could_offer: ~
       add_offer_link_text: ~
       is_there_something_you_need: ~
-      add_request_link_text: ~
+      add_request_link_text: "post een nieuw verzoek"
       invite_your_friends_invite_only: ~
       invite_your_friends: ~
       invite_link_text: ~
@@ -1037,7 +1039,7 @@ nl:
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
-      test_welcome_email_delivered_to: ~
+      test_welcome_email_delivered_to: "Een test e-mail is verzonden naar %{email}."
       something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
@@ -1063,7 +1065,7 @@ nl:
       inviting_new_users_is_not_allowed_in_this_community: ~
       login_again: "Log opnieuw in alsjeblieft."
       login_failed: "Login mislukt. Vul de goede gegevens in."
-      account_creation_successful: ~
+      account_creation_successful: "Welkom bij %{service_name}, %{person_name}!"
       account_deleted: ~
       login_successful: "Welkom %{person_name}!"
       logout_successful: "Je bent nu uitgelogd bij %{service_name}. Tot binnenkort!"
@@ -1121,7 +1123,7 @@ nl:
       you_cannot_send_message_to_yourself: ~
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: "Je heb al feedback gegeven over dit evenement"
-      you_are_now_member: ~
+      you_are_now_member: "Je hebt met succes aangesloten bij deze community. Welkom!"
       you_are_already_member: ~
       you_must_log_in_to_create_new_listing: "Je moet ingelogd zijn op %{service_name} om een nieuw item te kunnen plaatsen. Als je geen account hebt, kan je er %{sign_up_link}"
       additional_email_confirmed_dashboard: ~
@@ -1136,6 +1138,8 @@ nl:
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Bevestig je e-mailadres."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: ~
@@ -1174,6 +1178,10 @@ nl:
       edit_listing: "Bewerk item"
       reopen_listing: "Heropen item"
       move_to_top: ~
+      show_in_updates_email: ~
+      show_in_updates_email_loading: ~
+      show_in_updates_email_error: ~
+      show_in_updates_email_success: ~
     follow_links:
       follow: "Ontvang e-mail wanneer er een reactie is geplaatst"
       unfollow: "Ontvang geen e-mails als er een reactie is geplaatst"
@@ -1236,7 +1244,7 @@ nl:
         select: Selecteer
         borrow: Leen
         buy: Koop
-        give_away: "Geef weg"
+        give_away: Weggeven
         lend: Uitlenen
         offer_type: "Aanbod type"
         receive: "Gratis ontvangen"
@@ -1463,7 +1471,8 @@ nl:
       visible_only_to_you: "alleen zichtbaar voor jou en de community beheerder"
       visible_to_everybody: "zichtbaar voor iedereen"
       create_account_with_facebook: "Maak een account met Facebook"
-      or_create_new_account_without_facebook: "... of maak hieronder een account aan zonder Facebook."
+      OR: ~
+      signup_with_email: ~
     not_member:
       explanation_text: "Je bent momenteel in de %{community} gemeenschap. Je hebt geprobeerd om het profiel te zien van een gebruiker uit een andere gemeenschap. Dit wordt op dit moment niet ondersteunt, dus je kunt alleen toegang tot dit profiel krijgen door de %{community} gemeenschap."
       read_more_about_kassi_communities: "Lees meer over de gemeenschappen"
@@ -1596,7 +1605,7 @@ nl:
       email_about_new_received_testimonials: "...iemand geeft me feedback"
       email_about_testimonial_reminders: "...ik ben vergeten feedback te geven op een event"
       email_daily_community_updates: "Stuur mij een <b>dagelijkse<b> update als er nieuwe items geplaatst worden"
-      email_weekly_community_updates: "Stuur mij een <b>wekelijkse<b> update als er nieuwe items geplaatst worden"
+      email_updates_community_updates: ~
       do_not_email_community_updates: "Ik ontvang liever geen updates"
       email_when_conversation_accepted: "...iemand accepteert mijn vraag of aanbod"
       email_when_conversation_rejected: "...iemand weigert mijn vraag of aanbod"

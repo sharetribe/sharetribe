@@ -20,6 +20,7 @@ ThinkingSphinx::Index.define :listing, :with => :active_record, :delta => Thinki
   has id, :as => :listing_id # id didn't work without :as aliasing
   has price_cents
   has created_at, updated_at
+  has sort_date
   has category(:id), :as => :category_id
   has transaction_type(:id), :as => :transaction_type_id
   has "privacy = 'public'", :as => :visible_to_everybody, :type => :boolean

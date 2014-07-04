@@ -66,6 +66,8 @@ class Person < ActiveRecord::Base
 
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
 
+  DEFAULT_TIME_FOR_COMMUNITY_UPDATES = 7.days
+
   # These are the email notifications, excluding newsletters settings
   EMAIL_NOTIFICATION_TYPES = [
     "email_about_new_messages",
@@ -162,6 +164,10 @@ class Person < ActiveRecord::Base
         errors.add(:email, "This looks like a non-organization email address. Remember to use the email of your organization.")
       end
     end
+  end
+
+  def last_community_updates_at
+    community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago
   end
 
   def self.username_available?(username)

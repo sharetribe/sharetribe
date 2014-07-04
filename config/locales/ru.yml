@@ -122,7 +122,7 @@ ru:
         automatically_confirmed: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
-        newsletter_weekly: ~
+        newsletter_updates: ~
       manage_members:
         manage_members: ~
         email: ~
@@ -405,6 +405,7 @@ ru:
       housing_request_rent_message_form_title: "Дать в аренду %{listing} %{person}"
       item_request_message_form_title: "Предложить вещь"
       message: Сообщение
+      message_to: ~
       rideshare_offer_message_form_title: "Запросить поездку от"
       rideshare_request_message_form_title: "Предложить поездку"
       send_message: "Отправить сообщение"
@@ -414,6 +415,8 @@ ru:
       you_will_get_notified: "Вы получите уведомление по электронной почте когда %{person} ответит вам."
       title: Заголовок
       send_message_to_user: "Отправить сообщение %{person}"
+      about_listing: ~
+      author_has_to_accept_request: ~
     show:
       in_response_to_listing: ~
       message_sent_by: "Сообщение отправлено"
@@ -424,7 +427,6 @@ ru:
       conversation_with_user: "Диалог с %{person}."
       conversation_with: ~
       last_message_at: "(последнее сообщение: %{time})"
-      requested_by: ~
       price: ~
       sum: ~
       price_excludes_vat: ~
@@ -1136,6 +1138,8 @@ ru:
       you_must_log_in_to_add_news_item: "Вы должны авторизоваться в %{service_name}, чтобы добавить новую статью."
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Сначала вы должны подтвердить свою учётную запись."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Вы больше не следите за этим листингом"
@@ -1174,6 +1178,10 @@ ru:
       edit_listing: "Редактировать объявление"
       reopen_listing: "Повторно открыть объявление"
       move_to_top: ~
+      show_in_updates_email: ~
+      show_in_updates_email_loading: ~
+      show_in_updates_email_error: ~
+      show_in_updates_email_success: ~
     follow_links:
       follow: "Следить за этим листингом"
       unfollow: "Не следить за этим листингом"
@@ -1465,7 +1473,8 @@ ru:
       visible_only_to_you: "видимо только вам"
       visible_to_everybody: "видимо для всех"
       create_account_with_facebook: "Создать учётную запись с помощью Facebook"
-      or_create_new_account_without_facebook: "…или создать учётную запись с помощью обычной формы."
+      OR: ~
+      signup_with_email: ~
     not_member:
       explanation_text: "В настоящее время вы являетесь членом сообщества %{community}. Вы хотите просмотреть профиль пользователя, который принадлежит к другому сообществу. Kassi временно не поддерживает возможность одновременной принадлежности одного и того же пользователя к разным сообществам, таким образом, вы не можете просмотреть этот профиль, находясь в сообществе %{community}. Такая возможность будет добавлена чуть позже, мы работаем над этим."
       read_more_about_kassi_communities: "Узнайте больше о сообществах Kassi"
@@ -1598,7 +1607,7 @@ ru:
       email_about_new_received_testimonials: "...кто-либо оставил отзыв обо мне"
       email_about_testimonial_reminders: "...если я забыл оставить отзыв о событии"
       email_daily_community_updates: "Оповещать <b>ежедневно</b> при наличии новых сообщений"
-      email_weekly_community_updates: "Оповещать <b>еженедельно</b> при наличии новых сообщений"
+      email_updates_community_updates: ~
       do_not_email_community_updates: "Не посылать обновления"
       email_when_conversation_accepted: "...кто-нибудь принял мой запрос или предложение"
       email_when_conversation_rejected: "...кто-нибудь отверг мой запрос или предложение"

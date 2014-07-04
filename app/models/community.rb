@@ -332,6 +332,35 @@ class Community < ActiveRecord::Base
     return listings.where("created_at > ?", time).present?
   end
 
+  def get_new_listings_to_update_email(person)
+    latest = person.last_community_updates_at
+
+    selected_listings = listings
+      .currently_open
+      .where("updates_email_at > ? AND updates_email_at > created_at", latest)
+      .visible_to(person, self)
+      .order("updates_email_at DESC")
+      .to_a
+
+    additional_listings = 10 - selected_listings.length
+    new_listings =
+      if additional_listings > 0
+        listings
+          .currently_open
+          .where("updates_email_at > ? AND updates_email_at = created_at", latest)
+          .visible_to(person, self)
+          .limit(additional_listings)
+          .to_a
+      else
+        []
+      end
+
+     selected_listings
+      .concat(new_listings)
+      .sort_by { |listing| listing.updates_email_at}
+      .reverse
+  end
+
   def self.find_by_allowed_email(email)
     email_ending = "@#{email.split('@')[1]}"
     where("allowed_emails LIKE '%#{email_ending}%'")

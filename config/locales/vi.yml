@@ -122,7 +122,7 @@ vi:
         automatically_confirmed: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
-        newsletter_weekly: ~
+        newsletter_updates: ~
       manage_members:
         manage_members: ~
         email: ~
@@ -405,6 +405,7 @@ vi:
       housing_request_rent_message_form_title: "Cho %{person} thuê %{listing}"
       item_request_message_form_title: "Hỗ trợ một món đồ để"
       message: "Tin nhắn"
+      message_to: ~
       rideshare_offer_message_form_title: "Yêu cầu quá giang từ"
       rideshare_request_message_form_title: "Hỗ trợ cuốc xe đến"
       send_message: "Gửi thông điệp"
@@ -414,6 +415,8 @@ vi:
       you_will_get_notified: "Bạn sẽ nhận được thông báo qua email khi %{person} trả lời bạn."
       title: "Tiêu đề"
       send_message_to_user: "Gửi tin nhắn đến %{person}"
+      about_listing: ~
+      author_has_to_accept_request: ~
     show:
       in_response_to_listing: ~
       message_sent_by: ~
@@ -424,7 +427,6 @@ vi:
       conversation_with_user: "Cuộc trò chuyện với %{person}."
       conversation_with: ~
       last_message_at: ~
-      requested_by: ~
       price: ~
       sum: ~
       price_excludes_vat: ~
@@ -1136,6 +1138,8 @@ vi:
       you_must_log_in_to_add_news_item: "Bạn phải đăng nhập vào %{service_name} mới thêm được bài viết mới."
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Bạn cần phải xác nhận email của bạn lần trước tiên."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Bạn đang không còn được đề cập trong danh sách này"
@@ -1174,6 +1178,10 @@ vi:
       edit_listing: ~
       reopen_listing: ~
       move_to_top: ~
+      show_in_updates_email: ~
+      show_in_updates_email_loading: ~
+      show_in_updates_email_error: ~
+      show_in_updates_email_success: ~
     follow_links:
       follow: "Thực hiện theo các danh sách này"
       unfollow: "Ngừng theo danh sách này"
@@ -1597,7 +1605,7 @@ vi:
       email_about_new_received_testimonials: ".. .người nào đó cho tôi thông tin phản hồi"
       email_about_testimonial_reminders: "...Tôi đã quên để đưa ra thông tin phản hồi về một sự kiện"
       email_daily_community_updates: "Gửi tôi email cập nhật <b> hàng ngày</b> nếu có danh sách mới"
-      email_weekly_community_updates: "Gửi tôi một email cập nhật <b>hàng tuần</b> nêu có danh sách mới"
+      email_updates_community_updates: ~
       do_not_email_community_updates: "Không gửi email cập nhật mới cho tôi"
       email_when_conversation_accepted: ".. .người nào đó chấp nhận sự hỗ trợ hoặc yêu cầu của tôi"
       email_when_conversation_rejected: ".. .người nào đó từ chối sự hỗ trợ hoặc yêu cầu của tôi"

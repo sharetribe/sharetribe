@@ -515,8 +515,10 @@ CREATE TABLE `listings` (
   `times_viewed` int(11) DEFAULT '0',
   `language` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
+  `updates_email_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `last_modified` datetime DEFAULT NULL,
+  `sort_date` datetime DEFAULT NULL,
   `visibility` varchar(255) DEFAULT 'this_community',
   `listing_type_old` varchar(255) DEFAULT NULL,
   `description` text,
@@ -1850,4 +1852,14 @@ INSERT INTO schema_migrations (version) VALUES ('20140611094552');
 
 INSERT INTO schema_migrations (version) VALUES ('20140611094703');
 
+<<<<<<< HEAD
 INSERT INTO schema_migrations (version) VALUES ('20140612084036');
+=======
+INSERT INTO schema_migrations (version) VALUES ('20140612084036');
+
+INSERT INTO schema_migrations (version) VALUES ('20140613132734');
+
+INSERT INTO schema_migrations (version) VALUES ('20140701135724');
+
+INSERT INTO schema_migrations (version) VALUES ('20140701140655');
+>>>>>>> 19fc8f1848cc69082ff55a71ed54fda77db463a9

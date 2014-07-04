@@ -104,7 +104,7 @@ fr:
         first_name_only: "Prénom seulement (Prénom)"
         invalid_color_code: "Le code de la couleur doit être une suite de 6 chiffres ou lettres (de A à F), par exemple D96E21"
         custom_head_script: "Script personnalisé"
-        custom_head_script_instructions_text: "Ce script est inséré dans le tag <head> de chaque page et peut être utilisé pour insérer du contenu CSS, JavaScript ou HTML personnalisé. Notez que des futures évolutions de Sharetribe pourrait rendre votre script incompatible."
+        custom_head_script_instructions_text: "Ce script est inséré dans le tag <head> de chaque page et peut être utilisé pour insérer du contenu CSS, JavaScript ou HTML personnalisé. Notez que des futures évolutions de Sharetribe pourraient rendre votre script incompatible."
       edit_text_instructions:
         edit_text_instructions: "Instructions textuelles"
       edit_welcome_email:
@@ -137,7 +137,7 @@ fr:
         automatically_confirmed: "Les annonces seront automatiquement marquées comme réalisées %{days_dropdown} jours après le paiement. Si le système de dépôt est utilisé, l'argent sera transmis au vendeur à ce moment."
         automatic_newsletter_frequency: "Fréquence d'envoi de la newsletter : %{frequency_dropdown}"
         newsletter_daily: Quotidienne
-        newsletter_weekly: Hebdomadaire
+        newsletter_updates: Hebdomadaire
       manage_members:
         manage_members: "Gérer les utilisateurs"
         email: Email
@@ -420,6 +420,7 @@ fr:
       housing_request_rent_message_form_title: "Louer %{listing} à %{person}"
       item_request_message_form_title: "Proposer un objet à %{person}"
       message: Message
+      message_to: "Message à %{author_name}"
       rideshare_offer_message_form_title: "Demander un covoiturage à %{person}"
       rideshare_request_message_form_title: "Proposer un covoiturage à %{person}"
       send_message: "Envoyer le message"
@@ -429,6 +430,8 @@ fr:
       you_will_get_notified: "Vous recevrez une notification par email lorsque %{person} vous répondra."
       title: Titre
       send_message_to_user: "Envoyer un message à %{person}"
+      about_listing: "A propos de l'annonce %{listing_title}"
+      author_has_to_accept_request: "%{author_name} doit accepter la requête avant que vous ne puissiez payer"
     show:
       in_response_to_listing: "à propos de l'annonce"
       message_sent_by: "Message envoyé par"
@@ -439,7 +442,6 @@ fr:
       conversation_with_user: "Discussion avec %{person}"
       conversation_with: "Conversation avec %{person}"
       last_message_at: "(dernier message %{time})"
-      requested_by: "Demandé par %{requester_name}"
       price: "Prix : %{price}"
       sum: "Total : %{sum}"
       price_excludes_vat: "(hors TVA)"
@@ -449,13 +451,13 @@ fr:
       feedback_skipped: "Pas d'avis donné"
       give_feedback: "Donner un avis"
       offer_accepted: Acceptée
-      offer_rejected: Rejetée
+      offer_rejected: Refusée
       offer_canceled: Annulée
       offer_confirmed: Terminée
       pay: Payer
       paid: "Paiement réussi"
       request_accepted: Acceptée
-      request_rejected: Rejetée
+      request_rejected: Refusée
       request_confirmed: Terminée
       request_canceled: Annulée
       skip_feedback: "Ne pas donner d'avis"
@@ -611,10 +613,10 @@ fr:
       join_community_button: "Rejoindre la tribu"
   emails:
     accept_reminder:
-      remember_to_accept_offer: "N'oubliez pas d'accepter ou de rejeter l'offre de %{sender_name}"
-      remember_to_accept_request: "N'oubliez pas d'accepter ou de rejeter la demande de %{sender_name}"
-      you_can_accept_or_reject_offer_at: "Vous pouvez accepter ou rejeter l'offre à"
-      you_can_accept_or_reject_request_at: "Vous pouvez accepter ou rejeter la demande à"
+      remember_to_accept_offer: "N'oubliez pas d'accepter ou de refuser l'offre de %{sender_name}"
+      remember_to_accept_request: "N'oubliez pas d'accepter ou de refuser la demande de %{sender_name}"
+      you_can_accept_or_reject_offer_at: "Vous pouvez accepter ou refuser l'offre à"
+      you_can_accept_or_reject_request_at: "Vous pouvez accepter ou refuser la demande à"
       you_have_not_yet_accepted_or_rejected_offer: "Vous n'avez pas encore accepté ou refusé l'offre %{title} reçue %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Vous n'avez pas encore accepté ou refusé la demande %{title} reçue %{date}."
       show_thread: "Voir la conversation"
@@ -686,9 +688,9 @@ fr:
       has_rejected_your_request: "%{accepter} a refusé votre demande %{listing}."
       view_thread: "Voir la conversation"
       your_offer_was_accepted: "Votre offre a été accepté"
-      your_offer_was_rejected: "Votre offre a été rejetée"
+      your_offer_was_rejected: "Votre offre a été refusée"
       your_request_was_accepted: "Votre demande a été acceptée"
-      your_request_was_rejected: "Votre demande a été rejetée"
+      your_request_was_rejected: "Votre demande a été refusée"
       you_can_now_pay_to: "Vous pouvez maintenant payer le montant demandé à %{payment_receiver}."
       pay_now: "Payer maintenant"
       remember_to_confirm: "Quand la demande est réalisée, n'oubliez pas de la signaler comme terminée. Si la demande n'est pas réalisée vous avez %{days_to_automatic_confirmation} pour l'annuler. Autrement, elle sera automatiquement signalée comme terminée."
@@ -914,7 +916,7 @@ fr:
       add_news_item: "Ajouter un article"
       inform_others_about_events: "Dernières actualités et évènements dans la tribu."
       lend_rent_help_carpool: "Vendre, prêter, aider, faire du covoiturage"
-      loading_more_content: "En cours de chargement"
+      loading_more_content: "Chargement de plus de contenu"
       more_events: "Plus d'événements ..."
       news: Actualités
       no_news: "Pas d'actualités"
@@ -1091,7 +1093,7 @@ fr:
       offer_confirmed: "Offre confirmée"
       offer_closed: "Offre fermée"
       listing_created_successfully: "Annonce créée avec succès. %{new_listing_link}."
-      offer_rejected: "Offre rejetée"
+      offer_rejected: "Offre refusée"
       offer_canceled: "Offre annulée"
       listing_updated_successfully: "Annonce mise à jour avec succés"
       only_kassi_administrators_can_access_this_area: "Seuls les administrateurs de %{service_name} peuvent accéder à ces pages"
@@ -1120,7 +1122,7 @@ fr:
       request_accepted: "Demande acceptée"
       request_confirmed: "Demande réalisée"
       request_closed: "Demande fermée"
-      request_rejected: "Demande rejetée"
+      request_rejected: "Demande refusée"
       request_canceled: "Demande annulée"
       message_sent: "Message envoyé"
       this_content_is_not_available_in_this_community: "Ce contenu n'est pas accessible dans cette tribu."
@@ -1151,6 +1153,8 @@ fr:
       you_must_log_in_to_add_news_item: "Vous devez vous connecter à %{service_name} pour ajouter un nouvel article."
       you_must_log_in_to_change_profile_settings: "Vous devez vous connecter à %{service_name} pour modifier les paramètres de profil."
       you_must_log_in_to_change_payment_settings: "Vous devez être connecté à %{service_name} pour modifier les paramètres de paiement"
+      you_must_log_in_to_accept_or_reject: "Vous devez vous connecter pour accepter ou refuser la transaction"
+      you_must_log_in_to_confirm_or_cancel: "Vous devez vous connecter pour annuler ou confirmer la transaction"
       you_need_to_confirm_your_account_first: "Vous devez d'abord confirmer votre email."
       you_must_fill_all_the_fields: "Vous devez compléter tous les champs"
       you_unfollowed_listing: "Vous ne suivez plus cette annonce"
@@ -1188,7 +1192,11 @@ fr:
       close_listing: "Clore l'annonce"
       edit_listing: "Editer l'annonce"
       reopen_listing: "Ré-ouvrir l'annonce"
-      move_to_top: "Remonter en haut de la liste"
+      move_to_top: "Remonter en tête de liste"
+      show_in_updates_email: "Afficher dans la prochaine newsletter"
+      show_in_updates_email_loading: Chargement...
+      show_in_updates_email_error: "Impossible de se connecter au serveur. Veuillez essayer de nouveau après avoir rafraîchi la page."
+      show_in_updates_email_success: "Cette annonce sera diffusée dans la prochaine newsletter, automatiquement envoyée au membre de la tribu"
     follow_links:
       follow: "Recevoir les nouveaux commentaires par email."
       unfollow: "Ne pas recevoir les nouveaux commentaires par email."
@@ -1479,8 +1487,9 @@ fr:
       username_is_invalid: "Nom d'utilisateur incorrect. Les caractères autorisés sont les lettres, les chiffres et le tiret bas ('_')."
       visible_only_to_you: "visible uniquement à vous et à l'administrateur de la tribu"
       visible_to_everybody: "visible à tout le monde"
-      create_account_with_facebook: "Créer un compte avec Facebook"
-      or_create_new_account_without_facebook: "... ou créer un compte sans utiliser Facebook, ci-dessous."
+      create_account_with_facebook: "S'inscrire avec Facebook"
+      OR: OU
+      signup_with_email: "S'inscrire avec un email"
     not_member:
       explanation_text: "Vous faites actuellement parti de la tribu %{community}. Vous avez essayé de voir le profil d'un utilisateur appartenant à une autre tribu. Vous ne pouvez pas accéder à ce profil via la tribu %{community}."
       read_more_about_kassi_communities: "En savoir plus sur les tribus %{service_name}"
@@ -1613,10 +1622,10 @@ fr:
       email_about_new_received_testimonials: "...quelqu'un me donne un avis"
       email_about_testimonial_reminders: "...j'ai oublié de donner mon avis sur un événement"
       email_daily_community_updates: "Envoyez moi un email <b>chaque jour</b> s'il y a des nouvelles annonces"
-      email_weekly_community_updates: "Envoyez moi un email <b>chaque semaine</b> s'il y a des nouvelles annonces"
+      email_updates_community_updates: "Envoyez moi un email <b>chaque semaine</b> s'il y a des nouvelles annonces"
       do_not_email_community_updates: "Ne m'envoyez pas d'emails de mise à jour"
       email_when_conversation_accepted: "...quelqu'un accepte une de mes offres ou de mes demandes"
-      email_when_conversation_rejected: "...quelqu'un rejette une de mes offres ou de mes demandes"
+      email_when_conversation_rejected: "...quelqu'un refuse une de mes offres ou de mes demandes"
       email_about_completed_transactions: "...quelqu'un marque mon offre ou ma demande comme réalisée"
       email_about_new_payments: "...je reçois un nouveau paiement"
       email_about_payment_reminders: "...j'ai oublié de payer"

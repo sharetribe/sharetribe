@@ -122,7 +122,7 @@ pt-BR:
         automatically_confirmed: "Listagem é automaticamente confirmada %{days_dropdown} dias após a aceitação (ou pagamento)"
         automatic_newsletter_frequency: "Enviar boletim automático: %{frequency_dropdown}"
         newsletter_daily: Diaramente
-        newsletter_weekly: Semanal
+        newsletter_updates: ~
       manage_members:
         manage_members: "Gerenciar usuários"
         email: E-mail
@@ -405,6 +405,7 @@ pt-BR:
       housing_request_rent_message_form_title: "Alugar %{listing} para %{person}"
       item_request_message_form_title: "Oferecer item para %{person}"
       message: Mensagem
+      message_to: ~
       rideshare_offer_message_form_title: "Pedir carona para %{person}"
       rideshare_request_message_form_title: "Oferecer carona para %{person}"
       send_message: "Enviar mensagem"
@@ -414,6 +415,8 @@ pt-BR:
       you_will_get_notified: "Você receberá uma notificação por e-mail quando %{person} responder você."
       title: Titulo
       send_message_to_user: "Enviar mensagem para %{person}"
+      about_listing: ~
+      author_has_to_accept_request: ~
     show:
       in_response_to_listing: "sobre como listar"
       message_sent_by: "Mensagem enviada por"
@@ -424,7 +427,6 @@ pt-BR:
       conversation_with_user: "Com %{person}"
       conversation_with: "Conversa com %{person}"
       last_message_at: "(última mensagem %{time})"
-      requested_by: "Solicitado por %{requester_name}"
       price: "Preço: %{price}"
       sum: "Soma: %{sum}"
       price_excludes_vat: "(exclui VAT)"
@@ -1136,6 +1138,8 @@ pt-BR:
       you_must_log_in_to_add_news_item: "Você deve fazer login em %{service_name} para adicionar um novo artigo."
       you_must_log_in_to_change_profile_settings: "Você deve fazer login em %{service_name} para mudar as configurações de perfil"
       you_must_log_in_to_change_payment_settings: "Você deve fazer login em %{service_name} para alterar as configurações de pagamento"
+      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Você precisa confirmar o seu e-mail."
       you_must_fill_all_the_fields: "Você deve preencher todos os campos"
       you_unfollowed_listing: "Você já não estão seguindo este anúncio"
@@ -1174,6 +1178,10 @@ pt-BR:
       edit_listing: Editar
       reopen_listing: Reabrir
       move_to_top: "Mover para o início da página inicial"
+      show_in_updates_email: ~
+      show_in_updates_email_loading: ~
+      show_in_updates_email_error: ~
+      show_in_updates_email_success: ~
     follow_links:
       follow: "Obter e-mails sobre novos comentários"
       unfollow: "Não receber e-mails sobre novos comentários"
@@ -1596,7 +1604,7 @@ pt-BR:
       email_about_new_received_testimonials: "...alguém me enviar feedback"
       email_about_testimonial_reminders: "...eu esquecer de enviar feedback sobre um evento"
       email_daily_community_updates: "Envie-me um e-mail <b>diária</b> se houver novos anúncios"
-      email_weekly_community_updates: "Envie-me um e-mail <b>semanal</b> se houver novos anúncios"
+      email_updates_community_updates: ~
       do_not_email_community_updates: "Não me mande e-mails"
       email_when_conversation_accepted: "...alguém aceitar a minha oferta ou solicitação"
       email_when_conversation_rejected: "...alguém rejeitar a minha oferta ou solicitação"

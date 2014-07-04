@@ -155,7 +155,7 @@ See [RELEASE_NOTES.md](RELEASE_NOTES.md) for information about what has changed 
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for general contributing guide lines.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for general contributing guidelines.
 
 ## Known issues
 

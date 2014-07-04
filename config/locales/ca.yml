@@ -122,7 +122,7 @@ ca:
         automatically_confirmed: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
-        newsletter_weekly: ~
+        newsletter_updates: ~
       manage_members:
         manage_members: ~
         email: ~
@@ -405,6 +405,7 @@ ca:
       housing_request_rent_message_form_title: ~
       item_request_message_form_title: "Oferir un article a %{person}"
       message: Missatge
+      message_to: ~
       rideshare_offer_message_form_title: "Sol·licitar un viatge a %{person}"
       rideshare_request_message_form_title: "Oferir un viatge a %{person}"
       send_message: ~
@@ -414,6 +415,8 @@ ca:
       you_will_get_notified: ~
       title: Títol
       send_message_to_user: ~
+      about_listing: ~
+      author_has_to_accept_request: ~
     show:
       in_response_to_listing: ~
       message_sent_by: ~
@@ -424,7 +427,6 @@ ca:
       conversation_with_user: ~
       conversation_with: ~
       last_message_at: ~
-      requested_by: ~
       price: ~
       sum: ~
       price_excludes_vat: ~
@@ -1138,6 +1140,8 @@ ca:
       you_must_log_in_to_add_news_item: "Has d'iniciar sesió per afegir un nou article"
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Hauràs de confirmar el teu compte abans."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Ja no segueixes aquest anunci"
@@ -1176,6 +1180,10 @@ ca:
       edit_listing: ~
       reopen_listing: ~
       move_to_top: ~
+      show_in_updates_email: ~
+      show_in_updates_email_loading: ~
+      show_in_updates_email_error: ~
+      show_in_updates_email_success: ~
     follow_links:
       follow: "Segueix aquest anunci"
       unfollow: "Deixa de segur aquest anunci"
@@ -1598,7 +1606,7 @@ ca:
       email_about_new_received_testimonials: "...algú em dóna suggeriments"
       email_about_testimonial_reminders: "...he oblidat fer un suggeriment o donar informació sobre un esdeveniment"
       email_daily_community_updates: ~
-      email_weekly_community_updates: ~
+      email_updates_community_updates: ~
       do_not_email_community_updates: ~
       email_when_conversation_accepted: "...algú ha acceptat la meva oferta o sol·licitud"
       email_when_conversation_rejected: "...algú ha rebutjat la meva oferta o sol·licitud"

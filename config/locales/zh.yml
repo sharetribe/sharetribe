@@ -122,7 +122,7 @@ zh:
         automatically_confirmed: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
-        newsletter_weekly: ~
+        newsletter_updates: ~
       manage_members:
         manage_members: ~
         email: ~
@@ -405,6 +405,7 @@ zh:
       housing_request_rent_message_form_title: ~
       item_request_message_form_title: 向...提供一个物品
       message: 消息
+      message_to: ~
       rideshare_offer_message_form_title: 想要搭顺风车
       rideshare_request_message_form_title: 提供顺风车
       send_message: 发送信息
@@ -414,6 +415,8 @@ zh:
       you_will_get_notified: ~
       title: 名称
       send_message_to_user: 发送信息到
+      about_listing: ~
+      author_has_to_accept_request: ~
     show:
       in_response_to_listing: ~
       message_sent_by: ~
@@ -424,7 +427,6 @@ zh:
       conversation_with_user: ~
       conversation_with: ~
       last_message_at: ~
-      requested_by: ~
       price: ~
       sum: ~
       price_excludes_vat: ~
@@ -1136,6 +1138,8 @@ zh:
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: 您需要先确认账户
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: 您不再关注此列表
@@ -1174,6 +1178,10 @@ zh:
       edit_listing: ~
       reopen_listing: ~
       move_to_top: ~
+      show_in_updates_email: ~
+      show_in_updates_email_loading: ~
+      show_in_updates_email_error: ~
+      show_in_updates_email_success: ~
     follow_links:
       follow: 关注此列表
       unfollow: 不再关注此列表
@@ -1596,7 +1604,7 @@ zh:
       email_about_new_received_testimonials: …有人给我了一条评价
       email_about_testimonial_reminders: …我忘记评价一个活动
       email_daily_community_updates: ~
-      email_weekly_community_updates: ~
+      email_updates_community_updates: ~
       do_not_email_community_updates: 不要给我发送更新的电子邮件
       email_when_conversation_accepted: …有人接受了您的商品或请求
       email_when_conversation_rejected: …有人拒绝了您的商品或请求

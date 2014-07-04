@@ -137,7 +137,7 @@ de:
         automatically_confirmed: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
-        newsletter_weekly: ~
+        newsletter_updates: ~
       manage_members:
         manage_members: "Benutzer verwalten"
         email: E-Mail
@@ -420,6 +420,7 @@ de:
       housing_request_rent_message_form_title: "%{listing} an %{person} vermieten"
       item_request_message_form_title: "Biete %{person} einen Gegenstand an"
       message: Nachricht
+      message_to: ~
       rideshare_offer_message_form_title: "%{person} um eine Mitfahrgelegenheit bitten"
       rideshare_request_message_form_title: "%{person} eine Mitfahrgelegenheit anbieten"
       send_message: "Nachricht senden"
@@ -429,6 +430,8 @@ de:
       you_will_get_notified: "Du erhältst eine E-Mail-Benachrichtigung, wenn %{person} dir antwortet."
       title: Titel
       send_message_to_user: "Nachricht an %{person} senden"
+      about_listing: ~
+      author_has_to_accept_request: ~
     show:
       in_response_to_listing: "über die Einträge"
       message_sent_by: "Nachricht gesendet von"
@@ -439,7 +442,6 @@ de:
       conversation_with_user: "Gespräch mit  %{person}"
       conversation_with: ~
       last_message_at: "(letzte Nachricht %{time})"
-      requested_by: ~
       price: ~
       sum: ~
       price_excludes_vat: ~
@@ -1151,6 +1153,8 @@ de:
       you_must_log_in_to_add_news_item: "Du musst dich bei %{service_name} anmelden, um einen neuen Artikel hinzuzufügen."
       you_must_log_in_to_change_profile_settings: "Du musst dich bei %{service_name} anmelden, wenn du deine Profil-Einstellungen ändern möchtest"
       you_must_log_in_to_change_payment_settings: "Du musst dich bei %{service_name} einloggen, um deine Zahlungseinstellungen zu ändern"
+      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Du musst zuerst deine E-Mail bestätigen."
       you_must_fill_all_the_fields: "Du musst alle Felder ausfüllen"
       you_unfollowed_listing: "Du folgst diesem Eintrag nicht länger"
@@ -1189,6 +1193,10 @@ de:
       edit_listing: "Eintrag bearbeiten"
       reopen_listing: "Eintrag wieder aktivieren"
       move_to_top: ~
+      show_in_updates_email: ~
+      show_in_updates_email_loading: ~
+      show_in_updates_email_error: ~
+      show_in_updates_email_success: ~
     follow_links:
       follow: "Erhalte E-Mails bei neuen Kommentaren"
       unfollow: "Diesem Eintrag nicht mehr folgen"
@@ -1617,7 +1625,7 @@ de:
       email_about_new_received_testimonials: "...mir jemand ein Feedback gibt"
       email_about_testimonial_reminders: "...ich vergessen habe, jemandem zu einer Transaktion ein Feedback zu geben"
       email_daily_community_updates: "Schickt mir täglich Neuigkeiten per E-Mail, sofern es neue Einträge gibt"
-      email_weekly_community_updates: "Schickt mir wöchentlich Neuigkeiten per E-Mail, sofern es neue Einträge gibt"
+      email_updates_community_updates: ~
       do_not_email_community_updates: "Schickt mir keine Neuigkeiten per E-Mail"
       email_when_conversation_accepted: "...jemand mein Angebot oder meine Anfrage akzeptiert"
       email_when_conversation_rejected: "...jemand mein Angebot oder meine Anfrage ablehnt"
