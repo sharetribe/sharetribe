@@ -33,7 +33,7 @@
 
   = render partial: "conversations/details", locals: { listing_conversation: @listing_conversation, listing: listing }
 
-  - payment_receiver = @listing_conversation.payer
+  - payment_receiver = @listing_conversation.author
   %p
     = t("braintree_payments.edit.payment_receiver")
 
@@ -91,7 +91,7 @@
         %p
           = "You will be charged only if #{link_to(payment_receiver.name, payment_receiver)} accepts the transaction. #{link_to(payment_receiver.name, payment_receiver)} needs to accept the transaction within 5 days.".html_safe
         %p
-          = "We will transfer the money to #{link_to(payment_receiver.name, payment_receiver)} when a) you have marked the request completed or b) #{automatic_confirmation} days have passed since Juho accepted the transaction.".html_safe
+          = "We will transfer the money to #{link_to(payment_receiver.name, payment_receiver)} when a) you have marked the request completed or b) #{automatic_confirmation} days have passed since #{link_to(payment_receiver.name, payment_receiver)} accepted the transaction.".html_safe
 
         %p
           = "If there are any issues, you have #{automatic_confirmation} days to cancel the request. This will notify the admin who will then contact you for a refund."
