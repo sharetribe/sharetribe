@@ -136,7 +136,6 @@ CREATE TABLE `communities` (
   `category` varchar(255) DEFAULT 'other',
   `members_count` int(11) DEFAULT '0',
   `polls_enabled` tinyint(1) DEFAULT '0',
-  `plan` varchar(255) DEFAULT NULL,
   `user_limit` int(11) DEFAULT NULL,
   `monthly_price_in_euros` float DEFAULT NULL,
   `logo_file_name` varchar(255) DEFAULT NULL,
@@ -1747,8 +1746,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140226121423');
 
 INSERT INTO schema_migrations (version) VALUES ('20140227102627');
 
-INSERT INTO schema_migrations (version) VALUES ('20140227145229');
-
 INSERT INTO schema_migrations (version) VALUES ('20140228164206');
 
 INSERT INTO schema_migrations (version) VALUES ('20140228164428');
@@ -1852,3 +1849,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140610115217');
 INSERT INTO schema_migrations (version) VALUES ('20140611094552');
 
 INSERT INTO schema_migrations (version) VALUES ('20140611094703');
+
+INSERT INTO schema_migrations (version) VALUES ('20140612084036');
