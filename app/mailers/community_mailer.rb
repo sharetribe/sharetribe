@@ -1,5 +1,13 @@
+include ApplicationHelper
+include PeopleHelper
+include ListingsHelper
+include TruncateHtmlHelper
+
 class CommunityMailer < ActionMailer::Base
+
   include Util::MailUtils
+
+  require "truncate_html"
 
   # This task is expected to be run with daily or hourly scheduling
   # It looks through all users and send email to those who want it now
