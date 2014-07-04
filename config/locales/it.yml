@@ -122,7 +122,7 @@ it:
         automatically_confirmed: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
-        newsletter_weekly: ~
+        newsletter_updates: ~
       manage_members:
         manage_members: ~
         email: ~
@@ -405,6 +405,7 @@ it:
       housing_request_rent_message_form_title: ~
       item_request_message_form_title: "Offri un articolo a %{person}"
       message: Messaggio
+      message_to: ~
       rideshare_offer_message_form_title: "Chiedi un passaggio a %{person}"
       rideshare_request_message_form_title: "Offri un passaggio a %{person}"
       send_message: ~
@@ -414,6 +415,8 @@ it:
       you_will_get_notified: ~
       title: Titolo
       send_message_to_user: ~
+      about_listing: ~
+      author_has_to_accept_request: ~
     show:
       in_response_to_listing: ~
       message_sent_by: ~
@@ -424,7 +427,6 @@ it:
       conversation_with_user: ~
       conversation_with: ~
       last_message_at: "(ultimo messaggio %{time})"
-      requested_by: ~
       price: ~
       sum: ~
       price_excludes_vat: ~
@@ -1138,6 +1140,8 @@ it:
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Devi prima confermare la tua email."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: ~
@@ -1176,6 +1180,10 @@ it:
       edit_listing: ~
       reopen_listing: ~
       move_to_top: ~
+      show_in_updates_email: ~
+      show_in_updates_email_loading: ~
+      show_in_updates_email_error: ~
+      show_in_updates_email_success: ~
     follow_links:
       follow: ~
       unfollow: ~
@@ -1598,7 +1606,7 @@ it:
       email_about_new_received_testimonials: "...qualcuno mi offre feedback"
       email_about_testimonial_reminders: "...ho dimenticato di offrire feedback su un evento"
       email_daily_community_updates: ~
-      email_weekly_community_updates: ~
+      email_updates_community_updates: ~
       do_not_email_community_updates: ~
       email_when_conversation_accepted: "...qualcuno accetta la mia offerta o richiesta"
       email_when_conversation_rejected: "...qualcuno rifiuta la mia offerta o richiesta"

@@ -1194,7 +1194,7 @@ en:
       reopen_listing: "Reopen listing"
       move_to_top: "Move to top of homepage"
       show_in_updates_email: "Show in next community update email"
-      show_in_updates_email_loading: "Loading..."
+      show_in_updates_email_loading: Loading...
       show_in_updates_email_error: "Couldn't reach server. Try again after page refresh."
       show_in_updates_email_success: "This listing will be shown in the next automatic community update email sent to the members."
     follow_links:
@@ -1488,7 +1488,7 @@ en:
       visible_only_to_you: "visible only to you and community admin"
       visible_to_everybody: "visible to everybody"
       create_account_with_facebook: "Sign up with Facebook"
-      OR: "OR"
+      OR: OR
       signup_with_email: "Sign up with email"
     not_member:
       explanation_text: "You are currently in %{community} community. You tried to view the profile of a user that belongs to another Sharetribe community. You cannot access this profile through %{community} community."

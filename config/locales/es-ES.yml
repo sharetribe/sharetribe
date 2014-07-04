@@ -122,7 +122,7 @@ es-ES:
         automatically_confirmed: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
-        newsletter_weekly: ~
+        newsletter_updates: ~
       manage_members:
         manage_members: ~
         email: ~
@@ -281,7 +281,7 @@ es-ES:
         offer: Solicitar
         inquiry: Contactar
   common:
-    edit_page: ~
+    edit_page: "Editar la página"
     default_community_slogan: ~
     default_community_description: ~
     cancel: Cancelar
@@ -405,6 +405,7 @@ es-ES:
       housing_request_rent_message_form_title: "Arrendar %{listing} a %{person}"
       item_request_message_form_title: "Ofrécele un artículo a"
       message: Mensaje
+      message_to: ~
       rideshare_offer_message_form_title: "Solicitale un traslado a"
       rideshare_request_message_form_title: "Ofrécele un traslado a"
       send_message: "Enviar mensaje"
@@ -414,6 +415,8 @@ es-ES:
       you_will_get_notified: "Recibirás una notificación por email cuando %{person} te conteste."
       title: Título
       send_message_to_user: "Enviar mensaje a %{person}"
+      about_listing: ~
+      author_has_to_accept_request: ~
     show:
       in_response_to_listing: "acerca de"
       message_sent_by: "Mensaje enviado por"
@@ -424,7 +427,6 @@ es-ES:
       conversation_with_user: ~
       conversation_with: ~
       last_message_at: "(último mensaje %{time})"
-      requested_by: ~
       price: ~
       sum: ~
       price_excludes_vat: ~
@@ -843,7 +845,7 @@ es-ES:
     create_new_marketplace: "Crear un nuevo mercado"
     contact_us: Contáctanos
     profile: Perfil
-    invite: ~
+    invite: "Invitar a nuevos miembros"
     login: Conectarse
     signup: Registrarse
     menu: ~
@@ -1141,6 +1143,8 @@ es-ES:
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Deberás confirmar tu cuenta primero."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Ya no estás siguiendo este anuncio"
@@ -1179,6 +1183,10 @@ es-ES:
       edit_listing: ~
       reopen_listing: ~
       move_to_top: ~
+      show_in_updates_email: ~
+      show_in_updates_email_loading: ~
+      show_in_updates_email_error: ~
+      show_in_updates_email_success: ~
     follow_links:
       follow: "Seguir este anuncio"
       unfollow: "Dejar de seguir este anuncio"
@@ -1604,7 +1612,7 @@ es-ES:
       email_about_new_received_testimonials: ".. .alguien me da sugerencias"
       email_about_testimonial_reminders: "...He olvidado hacer una sugerencia o dar información sobre un evento"
       email_daily_community_updates: "Enviarme un email de actualización <b>diariamente</b> si hay nuevas publicaciones"
-      email_weekly_community_updates: "Enviarme un email de actualización <b>semanalmente</b> si hay nuevas publicaciones"
+      email_updates_community_updates: ~
       do_not_email_community_updates: "No enviarme emails de actualización"
       email_when_conversation_accepted: ".. .alguien acepta mi oferta o solicitud"
       email_when_conversation_rejected: ".. .alguien rechaza mi oferta o solicitud"
