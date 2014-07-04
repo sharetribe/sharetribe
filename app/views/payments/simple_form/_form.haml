@@ -12,7 +12,7 @@
 
     .invoice-row
       .invoice-row-left.invoice-row-text-column
-        - payer = @listing_conversation.other_party(@current_user)
+        - payer = @listing_conversation.starter
         = t("payments.form.price_for", :payer_given_name => link_to(payer.given_name_or_username, payer)).html_safe
       .invoice-row-symbol
         = @payment.total_sum.symbol

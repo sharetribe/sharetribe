@@ -18,7 +18,11 @@ class Offer < TransactionType
 
   def status_after_reply
     if price_field? && community.payments_in_use?
-      "pending"
+      if preauthorize_payment?
+        "preauthorize"
+      else
+        "pending"
+      end
     else
       "free"
     end

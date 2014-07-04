@@ -135,6 +135,21 @@ module Util
   end
 
   module MailUtils
+
+    # Refactoring needed. This is an ugly method that sets
+    def set_up_urls(recipient, community, ref="email")
+      @community = community
+      @url_params = {}
+      @url_params[:host] = community.full_domain
+      @url_params[:ref] = ref
+      if recipient
+        @recipient = recipient
+        @url_params[:auth] = @recipient.new_email_auth_token
+        @url_params[:locale] = @recipient.locale
+        set_locale @recipient.locale
+      end
+    end
+
     module_function
 
     def community_specific_sender(community)

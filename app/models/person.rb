@@ -683,7 +683,7 @@ class Person < ActiveRecord::Base
   # Has the person filled in all the information needed to receive payments in this community?
   def can_receive_payments_at?(community)
     if community.payment_gateway
-      return community.payment_gateway.can_receive_payments_for?(self)
+      return community.payment_gateway.can_receive_payments?(self)
     else
       throw "can_receive_payments_at? was checked in a community which has no payment gateways"
     end

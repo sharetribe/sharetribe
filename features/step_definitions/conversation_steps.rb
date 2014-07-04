@@ -33,7 +33,7 @@ Then /^the status of the conversation should be "([^"]*)"$/ do |status|
 end
 
 Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do |listing_type, status|
-  if listing_type == "request" && @conversation.community.payment_possible_for?(@conversation.listing)
+  if listing_type == "request" && @conversation.listing.payment_required_at?(@conversation.community)
     if status == "accepted" || status == "paid"
       # In this case there should be a pending payment done when this got accepted.
       type = if @conversation.community.payment_gateway.type == "BraintreePaymentGateway"
@@ -162,3 +162,48 @@ When(/^I open message "(.*?)"$/) do |title|
     When I follow "#{title}" within "h2"
   }
 end
+
+Then(/^I should see that the request is waiting for seller acceptance$/) do
+  page.should have_content(/Waiting for (.*) to accept the request/)
+end
+
+def visit_conversation_of_listing(listing)
+  conversation = Conversation.find_by_listing_id(listing.id)
+  visit(single_conversation_path(:person_id => @current_user.id, :conversation_type => "received", :id => conversation.id, :locale => "en"))
+end
+
+def visit_conversation_of_current_listing
+  visit_conversation_of_listing(@listing)
+end
+
+When(/^I accepts the request for that listing$/) do
+  visit_conversation_of_current_listing
+  click_link "Accept request"
+  click_button "Approve"
+end
+
+Then(/^I should see that the request is waiting for buyer confirmation$/) do
+  page.should have_content(/Waiting for (.*) to mark the request completed/)
+end
+
+When(/^I confirm the request for that listing$/) do
+  visit_conversation_of_current_listing
+  click_link "Mark completed"
+  choose("Skip feedback")
+  click_button "Continue"
+end
+
+Then(/^I should see that the request was confirmed$/) do
+  page.should have_content(/Completed/)
+end
+
+When(/^the seller does not accept the request within (\d+) days$/) do |days|
+  Timecop.travel(DateTime.now + days.to_i)
+  process_jobs
+  visit(current_path)
+end
+
+Then(/^I should see that the request was rejected$/) do
+  page.should have_content(/Rejected/)
+end
+

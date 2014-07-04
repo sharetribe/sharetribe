@@ -357,6 +357,7 @@ en:
       you_need_to_fill_payout_details_before_accepting: "You need to fill in payout details before you can accept the request and receive the payment. Go to %{payment_settings_link} to fill in the details."
       payment_settings_link: "payment settings"
       minimum_price_error_message: "The price cannot be lower than %{amount}."
+      approve: "Approve"
     confirm:
       confirm_description: "If your request has been fulfilled you should confirm it as done. Then you can give feedback to the other party."
       cancel_description: "If your request was not fulfilled, you can mark it as 'not happened'. You can still give feedback to the other party and describe what happened."
@@ -455,6 +456,7 @@ en:
       offer_canceled: Canceled
       offer_confirmed: Completed
       pay: Pay
+      preauthorized: "Payment successful"
       paid: "Payment successful"
       request_accepted: Accepted
       request_rejected: Rejected
@@ -474,6 +476,10 @@ en:
       accept_request: "Accept request"
       reject_offer: "Not this time"
       reject_request: "Not this time"
+      accept_preauthorized_offer: "Accept offer"
+      accept_preauthorized_request: "Accept request"
+      reject_preauthorized_offer: "Not this time"
+      reject_preauthorized_request: "Not this time"
       confirm: "Mark completed"
       cancel: "Did not happen"
   braintree_accounts:
@@ -759,6 +765,16 @@ en:
       feedback_is_public_and_is_shown: "Feedback is public and is shown to all the other users. Based on the feedback the other users can judge, whether %{name} is a trustworthy person and somebody they want to interact with. Thus, it's good to always remember to give feedback on events, and also remind the other party to give feedback to you. You also need positive feedback in order to achieve most of the badges."
       remember_to_give_feedback_to: "Reminder: remember to give feedback to %{name}"
       you_have_not_given_feedback_yet: "You have not yet given feedback to %{name} about event '%{event}'. Remember to give feedback on how %{given_name} performed in the event."
+    transaction_preauthorized:
+      subject: "%{requester} has requested and paid for %{listing_title}"
+      transaction_requested_by_user: '%{requester} has requested and paid for "%{listing_title}"'
+      you_have_days_to_accept: "You need to accept or reject the request within %{payment_expires_in_days} days. If you don't accept within this timeframe, the request will be automatically rejected and you will not get paid."
+      click_here_to_reply: Click here to reply to the request
+    transaction_preauthorized_reminder:
+      subject: "Remember to accept the request from %{requester} about listing %{listing_title}"
+      remember_to_accept: "Remember to accept the request from %{requester} about listing %{listing_title}. %{requester} has already paid for the listing. You have to accept the request in order to receive the payment."
+      one_day_left: "If you don't accept the request within one day the listing will be automatically rejected and you will not get paid."
+      click_here_to_reply: Click here to reply to the request
     welcome_email:
       welcome_email_footer_text: "What kind of emails do you want to receive from %{service_name}? %{settings_link}"
       settings_link_text: "Check your settings"
@@ -1338,6 +1354,8 @@ en:
       select_category: "Select category"
       select_subcategory: "Select subcategory"
       select_transaction_type: "Select listing type"
+      you_need_to_fill_payout_details_before_accepting: "You need to fill in payout details before you can post a listing. Go to %{payment_settings_link} to fill in the details."
+      payment_settings_link: "payment settings"
     please_comment: Comment
     reply_link:
       listing_closed: "Listing is closed"

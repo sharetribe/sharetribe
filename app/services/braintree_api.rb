@@ -87,13 +87,26 @@ class BraintreeApi
       end
     end
 
+    def submit_to_settlement(community, transaction_id)
+      with_braintree_config(community) do
+        Braintree::Transaction.submit_for_settlement(transaction_id)
+      end
+    end
+
     def release_from_escrow(community, transaction_id)
       with_braintree_config(community) do
         Braintree::Transaction.release_from_escrow(transaction_id)
       end
     end
 
+    def void_transaction(community, transaction_id)
+      with_braintree_config(community) do
+        Braintree::Transaction.void(transaction_id)
+      end
+    end
+
     def master_merchant_id(community)
+      # TODO Move this method, it has nothing to do with the Braintree API
       community.payment_gateway.braintree_master_merchant_id
     end
 

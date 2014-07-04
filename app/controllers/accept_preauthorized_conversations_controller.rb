@@ -1,4 +1,4 @@
-class AcceptConversationsController < ApplicationController
+class AcceptPreauthorizedConversationsController < ApplicationController
 
   before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_accept_or_reject")
@@ -15,26 +15,17 @@ class AcceptConversationsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def accept
-    prepare_accept_or_reject_form
     @action = "accept"
   end
 
   def reject
-    prepare_accept_or_reject_form
     @action = "reject"
     render :accept
   end
 
-  # Handles accept and reject forms
+# Handles accept and reject forms
   def acceptance
-    # Update first everything else than the status, so that the payment is in correct
-    # state before the status change callback is called
-    if @listing_conversation.update_attributes(params[:listing_conversation].except(:status))
-      @listing_conversation.status = params[:listing_conversation][:status]
-
-      close_listing = params[:close_listing]
-      listing.update_attribute(:open, false) if close_listing && close_listing.eql?("true")
-
+    if @listing_conversation.update_attributes(params[:listing_conversation])
       flash[:notice] = t("layouts.notifications.#{@listing_conversation.discussion_type}_#{@listing_conversation.status}")
       redirect_to person_message_path(:person_id => @current_user.id, :id => @listing_conversation.id)
     else
@@ -44,14 +35,6 @@ class AcceptConversationsController < ApplicationController
   end
 
   private
-
-  def prepare_accept_or_reject_form
-    @payment = @current_community.payment_gateway.new_payment
-    @payment.community = @current_community
-    @payment.default_sum(@listing_conversation.listing, Maybe(@current_community).vat.or_else(0))
-
-    @payout_registration_missing = PaymentRegistrationGuard.new(@current_community, @current_user, @listing).requires_registration_before_accepting?
-  end
 
   def ensure_is_author
     unless @listing.author == @current_user

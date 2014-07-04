@@ -30,11 +30,11 @@ class BraintreePaymentsController < ApplicationController
     amount = price.to_f / 100  # Braintree want's whole dollars
     service_fee = @braintree_payment.total_commission.cents.to_f / 100
 
-    BTLog.warn("Sending sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
-
     payment_params = params[:braintree_payment] || {}
 
     result = with_expection_logging do
+      BTLog.warn("Sending sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
+
       BraintreeApi.transaction_sale(
         recipient,
         payment_params,
@@ -49,6 +49,7 @@ class BraintreePaymentsController < ApplicationController
       transaction_id = result.transaction.id
       BTLog.warn("Successful sale transaction #{transaction_id} from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
       @braintree_payment.paid!
+      @conversation.status = "paid"
       @braintree_payment.braintree_transaction_id = transaction_id
       @braintree_payment.save
       redirect_to person_message_path(:id => params[:message_id])

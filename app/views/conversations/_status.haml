@@ -59,6 +59,22 @@
           .status-links
             - ["confirm", "cancel"].each do |status|
               = render :partial => "status_link", :locals => { :conversation => conversation, :status => status }
+    - elsif conversation.status.eql?("preauthorized")
+      .inbox-horizontally-aligned-status
+        .icon-with-text-container
+          .icon-part{:class => icon_for(conversation.status)}
+          .text-part= t(".#{conversation.status}")
+
+      - # FIXME This is copy paste from accept
+      - if current_user?(conversation.listing.author)
+        .status-links
+          - ["accept_preauthorized", "reject_preauthorized"].each do |status|
+            = render :partial => "status_link", :locals => { :conversation => conversation, :status => status }
+      - else
+        .inbox-horizontally-aligned-status
+          .icon-with-text-container
+            .ss-clock.icon-part
+            .text-part= t(".waiting_for_listing_author_to_accept_#{conversation.discussion_type}", :listing_author_name => conversation.other_party(@current_user).given_name_or_username)
     - elsif conversation.status
       .inbox-horizontally-aligned-status
         .icon-with-text-container

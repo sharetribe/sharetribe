@@ -119,13 +119,18 @@ class ListingsController < ApplicationController
     end
 
     if request.xhr? # AJAX request to get the actual form contents
-      @listing.category = Category.find(params[:subcategory].blank? ? params[:category] : params[:subcategory])
+      @listing.category = @current_community.categories.find(params[:subcategory].blank? ? params[:category] : params[:subcategory])
       @custom_field_questions = @listing.category.custom_fields
       @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
-      @listing.transaction_type = TransactionType.find(params[:transaction_type])
+      @listing.transaction_type = @current_community.transaction_types.find(params[:transaction_type])
       logger.info "Category: #{@listing.category.inspect}"
-      render :partial => "listings/form/form_content"
+
+      if PaymentRegistrationGuard.new(@current_community, @current_user, @listing).requires_registration_before_posting?
+        render :partial => "listings/payout_registration_before_posting"
+      else
+        render :partial => "listings/form/form_content"
+      end
     else
       render
     end
