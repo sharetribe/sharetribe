@@ -56,7 +56,7 @@ end
 
 ### Don't deploy yet still few things to do:
 
-1. Default configurations are in `config/config.default.yml`. If you need to change these configs, it's recommended to create a file `config/config.yml` and provide your domain name and smtp settings at minimum. * . The configurations in user-specific configuration file will override the default configurations. You can also set configurations to environment variables.
+1. Default configurations are in `config/config.default.yml`. If you need to change these configs, it's recommended to create a file `config/config.yml` and provide your domain name and smtp settings at minimum. The configurations in user-specific configuration file will override the default configurations. You can also set configurations to environment variables.
 
 1. add `set :rails_env, "production" #added for delayed job` in config/deploy/production.rb
 
