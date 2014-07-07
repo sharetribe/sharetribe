@@ -71,8 +71,17 @@ Given /^Braintree transaction is mocked$/ do
     .and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
 end
 
+Given /^Braintree submit to settlement is mocked$/ do
+  BraintreeApi.should_receive(:submit_to_settlement)
+    .and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
+end
+
 Given /^Braintree escrow release is mocked$/ do
   BraintreeService.should_receive(:release_from_escrow).at_least(1).times.and_return(true)
+end
+
+Given /^Braintree void transaction is mocked$/ do
+  BraintreeApi.should_receive(:void_transaction).at_least(1).times.and_return(true)
 end
 
 Given /^Braintree merchant creation is mocked$/ do
@@ -132,6 +141,9 @@ When /^I fill in my payment details for Braintree$/ do
   find("#{CC_NAME}").set("Joe Bloggs")
   find("#{CC_NUMBER}").set("5105105105105100")
   find("#{CC_CVV}").set("123")
+  steps %Q{
+    And I press submit
+  }
 end
 
 When /^I browse to payment settings$/ do
@@ -222,6 +234,13 @@ Then /^I should be see that the payment was successful$/ do
   steps %Q{
     Then I should see "paid"
     Then I should see "101"
+  }
+end
+
+Then /^I should see that I successfully paid (\d+)$/ do |amount|
+  steps %Q{
+    Then I should see "paid"
+    Then I should see "#{amount}"
   }
 end
 

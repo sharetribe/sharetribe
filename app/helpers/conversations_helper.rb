@@ -16,6 +16,8 @@ module ConversationsHelper
       "ss-delete"
     when "paid"
       "ss-check"
+    when "preauthorized"
+      "ss-check"
     end
   end
 
@@ -28,7 +30,11 @@ module ConversationsHelper
     when "reject"
       reject_person_message_path(:person_id => @current_user.id, :id => conversation.id.to_s)
     when "cancel"
-      cancel_person_message_path(:person_id => current_user.id, :id => conversation.id.to_s)
+      cancel_person_message_path(:person_id => @current_user.id, :id => conversation.id.to_s)
+    when "accept_preauthorized"
+      accept_preauthorized_person_message_path(:person_id => current_user.id, :id => conversation.id.to_s)
+    when "reject_preauthorized"
+      reject_preauthorized_person_message_path(:person_id => @current_user.id, :id => conversation.id.to_s)
     end
   end
 
@@ -50,6 +56,17 @@ module ConversationsHelper
 
     status_hash = {
       pending: {
+        author: {
+          icon: icon_waiting_you,
+          text: t("conversations.status.waiting_for_you_to_accept_request")
+        },
+        starter: {
+          icon: icon_waiting_other,
+          text: t("conversations.status.waiting_for_listing_author_to_accept_request", listing_author_name: other_party.name)
+        }
+      },
+
+      preauthorized: {
         author: {
           icon: icon_waiting_you,
           text: t("conversations.status.waiting_for_you_to_accept_request")

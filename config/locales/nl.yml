@@ -122,7 +122,7 @@ nl:
         automatically_confirmed: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
-        newsletter_updates: ~
+        newsletter_weekly: ~
       manage_members:
         manage_members: "Beheer gebruikers"
         email: ~
@@ -342,6 +342,7 @@ nl:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
+      approve: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -440,6 +441,7 @@ nl:
       offer_canceled: ~
       offer_confirmed: ~
       pay: ~
+      preauthorized: ~
       paid: ~
       request_accepted: "Vraag geaccepteerd"
       request_rejected: "Verzoek afgewezen"
@@ -459,6 +461,10 @@ nl:
       accept_request: "Accepteer verzoek"
       reject_offer: "Deze keer niet"
       reject_request: "Deze keer niet"
+      accept_preauthorized_offer: ~
+      accept_preauthorized_request: ~
+      reject_preauthorized_offer: ~
+      reject_preauthorized_request: ~
       confirm: ~
       cancel: ~
   braintree_accounts:
@@ -744,6 +750,16 @@ nl:
       feedback_is_public_and_is_shown: "Feedback is openbaar en zichtbaar voor alle andere gebruikers. Met de feedback kunnen gebruikers beslissen of %{name} betrouwbaar is en of het iemand is met wie ze in zee willen gaan. Het is dus goed om altijd feedback te geven aan evenementen en herinner anderen er aan om jou feedback te geven. Je hebt positieve feedback nodig om de meeste badges te verdienen."
       remember_to_give_feedback_to: "Herinnering: vergeet niet om feedback te geven aan %{name}"
       you_have_not_given_feedback_yet: "Je hebt nog geen feedback gegeven aan %{name} over '%{event}'. Vergeet niet feedback te geven over hoe %{given_name} gepresteerd heeft in het evenement."
+    transaction_preauthorized:
+      subject: ~
+      transaction_requested_by_user: ~
+      you_have_days_to_accept: ~
+      click_here_to_reply: ~
+    transaction_preauthorized_reminder:
+      subject: ~
+      remember_to_accept: ~
+      one_day_left: ~
+      click_here_to_reply: ~
     welcome_email:
       welcome_email_footer_text: ~
       settings_link_text: ~
@@ -1323,6 +1339,8 @@ nl:
       select_category: "Selecteer categorie"
       select_subcategory: ~
       select_transaction_type: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
     please_comment: Reactie
     reply_link:
       listing_closed: "Item is gesloten"
@@ -1605,7 +1623,7 @@ nl:
       email_about_new_received_testimonials: "...iemand geeft me feedback"
       email_about_testimonial_reminders: "...ik ben vergeten feedback te geven op een event"
       email_daily_community_updates: "Stuur mij een <b>dagelijkse<b> update als er nieuwe items geplaatst worden"
-      email_updates_community_updates: ~
+      email_weekly_community_updates: "Stuur mij een <b>wekelijkse<b> update als er nieuwe items geplaatst worden"
       do_not_email_community_updates: "Ik ontvang liever geen updates"
       email_when_conversation_accepted: "...iemand accepteert mijn vraag of aanbod"
       email_when_conversation_rejected: "...iemand weigert mijn vraag of aanbod"

@@ -1,0 +1,17 @@
+- reply_url = person_message_url(@url_params.merge({:person_id => @conversation.author.id, :id => @conversation.id.to_s}))
+
+%tr
+  %td{:align => "left", :style => "padding-top: 25px; padding-bottom: 25px;"}
+    %font{body_font}
+      = t("emails.transaction_preauthorized.transaction_requested_by_user", :listing_title => @conversation.listing.title, :requester => @conversation.starter.name)
+
+%tr
+  %td{:align => "left", :style => "padding-bottom: 25px;"}
+    %font{body_font}
+      = t("emails.transaction_preauthorized.you_have_days_to_accept", :payment_expires_in_days => @conversation.payment.preauthorization_expiration_days)
+
+%tr
+  %td{:align => "left", :style => "padding-bottom: 25px;"}
+    %font{body_font}
+      = link_to reply_url do
+        = t("emails.transaction_preauthorized.click_here_to_reply")

@@ -24,23 +24,36 @@ class ListingConversation < Conversation
   end
 
   def payment_attributes=(attributes)
+    payment = initialize_payment
+
+    if attributes[:sum]
+      # Simple payment form
+      initialize_braintree_payment!(payment, attributes[:sum], attributes[:currency])
+    else
+      # Complex (multi-row) payment form
+      initialize_checkout_payment!(payment, attributes[:payment_rows])
+    end
+
+    payment.save!
+  end
+
+  def initialize_payment
     payment ||= community.payment_gateway.new_payment
     payment.payment_gateway ||= community.payment_gateway
     payment.conversation = self
     payment.status = "pending"
-    payment.payer = requester
-    payment.recipient = offerer
-    payment.community_id = attributes[:community_id]
-    # Simple payment form
-    if attributes[:sum]
-      payment.sum_cents = Money.parse(attributes[:sum]).cents
-      payment.currency = attributes[:currency]
-    # Complex (multi-row) payment form
-    else
-      attributes[:payment_rows].each { |row| payment.rows.build(row.merge(:currency => "EUR")) unless row["title"].blank? }
-    end
+    payment.payer = starter
+    payment.recipient = author
+    payment.community = community
+    payment
+  end
 
-    payment.save!
+  def initialize_braintree_payment!(payment, sum, currency)
+    payment.sum = Money.new(attributes[:sum], attributes[:currency])
+  end
+
+  def initialize_checkout_payment!(payment, rows)
+    rows.each { |row| payment.rows.build(row.merge(:currency => "EUR")) unless row["title"].blank? }
   end
 
   def should_notify?(user)
@@ -82,11 +95,19 @@ class ListingConversation < Conversation
     participants.find { |p| listing.requester?(p) }
   end
 
+  def payer
+    starter
+  end
+
+  def payment_receiver
+    author
+  end
+
   # If payment through Sharetribe is required to
   # complete the transaction, return true, whether the payment
   # has been conducted yet or not.
   def requires_payment?(community)
-    listing && community.payment_possible_for?(listing)
+    listing.payment_required_at?(community)
   end
 
   # Return true if the next required action is the payment

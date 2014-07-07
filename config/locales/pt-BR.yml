@@ -5,7 +5,7 @@ pt-BR:
         edit_listing_category: ~
       index:
         listing_categories: ~
-        create_a_new_category: ~
+        create_a_new_category: "+ Criar uma nova categoria"
         remove_category_confirmation: ~
         saving_order: ~
         save_order_successful: ~
@@ -22,8 +22,8 @@ pt-BR:
           transaction_types: ~
           transaction_types_description: ~
         buttons:
-          save: ~
-          cancel: ~
+          save: Salvar
+          cancel: Anular
       remove:
         remove_category: "Remover categoria"
         remove_category_name: ~
@@ -122,7 +122,7 @@ pt-BR:
         automatically_confirmed: "Listagem é automaticamente confirmada %{days_dropdown} dias após a aceitação (ou pagamento)"
         automatic_newsletter_frequency: "Enviar boletim automático: %{frequency_dropdown}"
         newsletter_daily: Diaramente
-        newsletter_updates: ~
+        newsletter_weekly: Semanal
       manage_members:
         manage_members: "Gerenciar usuários"
         email: E-mail
@@ -178,7 +178,7 @@ pt-BR:
         price_max: "Preço máximo"
       edit_location:
         edit_location_field: ~
-        this_field_is_required: ~
+        this_field_is_required: "Esse campo é obrigatório"
       form:
         field_required:
           this_field_is_required: ~
@@ -188,13 +188,13 @@ pt-BR:
         listing_fields_help: ~
         add_new_field: "Adicionar novo campo:"
         remove_field_confirmation: ~
-        cancel: ~
-        save: ~
+        cancel: anular
+        save: Salvar
         field_title: ~
         field_type: ~
         categories: ~
         no_custom_listing_fields: ~
-        options: ~
+        options: Opção
         add_option: "+ Adicionar opção"
         saving_order: ~
         save_order_successful: ~
@@ -207,11 +207,11 @@ pt-BR:
       new:
         new_listing_field: ~
       field_types:
-        text: ~
+        text: Texto
         number: ~
         dropdown: "Lista de opções"
         checkbox_group: ~
-        date: ~
+        date: Data
     emails:
       new:
         send_email_to_members: "Envie um e-mail aos membros"
@@ -242,7 +242,7 @@ pt-BR:
         delete_news_item: Apagar
     polls:
       index:
-        polls: ~
+        polls: Sondagens
         create_poll: "Criar uma enquete"
         no_polls: "Sem enquetes"
       edit_poll_links:
@@ -270,14 +270,14 @@ pt-BR:
       give: Doar
       lend: Empréstimo
       swap: Troca
-      service: ~
+      service: Oferta
       request: Solicitando
       inquiry: Inquérito
       share_for_free: Gratuito
       default_action_button_labels:
         sell: Comprar
-        rent: ~
-        request: ~
+        rent: Alugar
+        request: Propor
         offer: Requisição
         inquiry: Contato
   common:
@@ -291,7 +291,7 @@ pt-BR:
     service_name: ~
     share_types:
       request: requisição
-      offer: ~
+      offer: oferta
       borrow: emprestimo
       buy: compra
       give_away: doar
@@ -307,23 +307,23 @@ pt-BR:
     categories:
       item: Itens
       favor: Serviços
-      rideshare: ~
+      rideshare: Carona
       housing: ~
       tools: ~
-      sports: ~
+      sports: esporte
       music: ~
-      books: ~
+      books: "livros e revistas"
       games: "Jogos e Brinquedos"
       furniture: ~
       outdoors: ~
       food: "Comida e cozinha"
-      electronics: ~
+      electronics: "material eletrônico"
       pets: "Animais de estimação"
-      film: ~
+      film: "filmes e vídeos"
       clothes: ~
-      garden: ~
-      travel: ~
-      other: ~
+      garden: Jardim
+      travel: Viagem
+      other: Outro
     username: Usuário
     username_or_email: "E-mail ou nome de usuário"
     what_is_this: "O que é isso?"
@@ -342,6 +342,7 @@ pt-BR:
       you_need_to_fill_payout_details_before_accepting: "Você precisa preencher os detalhes de pagamento antes de aceitar o pedido e receber o pagamento. Vá para %{payment_settings_link}para preencher os detalhes."
       payment_settings_link: "configurações de pagamento"
       minimum_price_error_message: "O preço não pode ser inferior %{amount}"
+      approve: Aprovar
     confirm:
       confirm_description: "Se o seu pedido foi aceito, você deve confirmá-lo como concluído. Então você pode dar um feedback para a outra parte."
       cancel_description: "Se o seu pedido não foi efetuado, você pode marcá-lo como \"não efeutado\". Você ainda pode dar um feedback para a outra parte e descrever o que aconteceu."
@@ -440,6 +441,7 @@ pt-BR:
       offer_canceled: Cancelado
       offer_confirmed: Concluído
       pay: Pagar
+      preauthorized: "Pagamento efetuado com sucesso"
       paid: "Pagamento efetuado com sucesso"
       request_accepted: Aceito
       request_rejected: Rejeitado
@@ -459,34 +461,38 @@ pt-BR:
       accept_request: "Aceitar requisição"
       reject_offer: "Não agora"
       reject_request: "Não agora"
+      accept_preauthorized_offer: "Aceitar oferta"
+      accept_preauthorized_request: "Aceitar o pedido"
+      reject_preauthorized_offer: ~
+      reject_preauthorized_request: ~
       confirm: "marca completada"
       cancel: "Não aconteceu"
   braintree_accounts:
     new:
       add_payout_details: ~
-      first_name: ~
-      last_name: ~
+      first_name: Nome
+      last_name: Sobrenome
       email: "Endereço de email"
       phone: Telefone
       address_street_address: Rua
       address_postal_code: CEP
-      address_locality: ~
-      address_region: ~
+      address_locality: Cidade
+      address_region: Estado
       date_of_birth: "Data de nascimento"
       ssn: ~
       routing_number: ~
       account_number: "Número da Conta"
-      save: ~
+      save: Salvar
     show:
       payout_details: ~
-      first_name: ~
-      last_name: ~
+      first_name: Nome
+      last_name: Sobrenome
       email: "Endereço de email"
       phone: Telefone
       address_street_address: Rua
       address_postal_code: CEP
-      address_locality: ~
-      address_region: ~
+      address_locality: Cidade
+      address_region: Estado
       date_of_birth: "Data de nascimento"
       ssn: ~
       routing_number: ~
@@ -502,16 +508,16 @@ pt-BR:
       confirm_payment: "Confirmar pagamento"
   communities:
     map_bubble:
-      view_tribe: ~
+      view_tribe: "Ver a tribo"
     email_confirmation_pending:
-      confirmation_pending: ~
+      confirmation_pending: "Obrigado por confirmar o seu email"
     index:
-      find_your_local_tribe: ~
+      find_your_local_tribe: "Encontrar uma tribo perto de você"
       or_start_your_own: ~
       start_your_own_tribe_link: ~
     select_pricing_plan:
       select_your_plan: "Selecione seu plano"
-      pick_one_of_the_options_below: ~
+      pick_one_of_the_options_below: "Selecionar uma das opções abaixo."
       create_for_free: "Crie de graça"
       contact_us: Contato
       free_plan: "Plano gratuito"
@@ -520,7 +526,7 @@ pt-BR:
       care_free_user_support: ~
       create_your_tribe: "Crie sua tribo"
       professional_plan: ~
-      unlimited_members: ~
+      unlimited_members: "Número ilimitado de membros"
       intranet_integration: ~
       no_charge: "De graça"
       euros_per_month_premium: ~
@@ -529,26 +535,26 @@ pt-BR:
       we_help_you_get_started: ~
       discounts_available_for_non_profits: ~
     select_tribe_category_form:
-      what_kind_of_tribe_do_you_want_to_create: ~
-      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: ~
+      what_kind_of_tribe_do_you_want_to_create: "Qual tipo de tribo você deseja criar ?"
+      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Para começar, diga qual tipo de comunidade você representa."
       company: Empresa
-      university: ~
-      town: ~
+      university: Universidade
+      town: Cidade
       congregation: ~
       association: Associação
       neighborhood: Vizinhança
       apartment_building: ~
-      other: ~
+      other: Outro
     new_tribe_form:
       create_a_tribe_in_a_minute: ~
       welcome_now_create_your_tribe: ~
       name_of_your_tribe: "Nome da sua tribo"
       web_address_of_your_tribe: "Endereço da Web da sua tribo"
-      slogan_of_your_tribe: ~
+      slogan_of_your_tribe: "Slogan da sua tribo"
       describe_your_tribe: "Slogan da sua tribo"
       create_your_tribe: "Crie sua tribo!"
       domain_invalid: ~
-      domain_taken: ~
+      domain_taken: "Essa tribo já existe. Você deve escolher um outro nome."
       address: "Localização da sua tribo"
       select_main_language_of_your_tribe: "Selecione o idioma principal da sua tribo"
       language: Idioma
@@ -564,21 +570,21 @@ pt-BR:
       pick_username: "Escolha um usuário"
       your_given_name: "Seu nome de batismo"
       your_family_name: "Seu sobrenome"
-      your_password: ~
-      confirm_your_password: ~
+      your_password: "Escolha uma senha"
+      confirm_your_password: "Confirme sua senha"
       email_in_use_message: "Já existe uma conta em %{service_name} com este endereço de e-mail. Se você já tiver uma conta, você pode fazer login usando o link acima."
       invalid_email_ending_message: ~
       log_in_here: "login aqui"
       existing_community_with_this_email: ~
-      here: ~
+      here: aqui
       for_company: empresa
-      for_university: ~
-      for_town: ~
+      for_university: universidade
+      for_town: cidade
       for_congregation: congregação
       for_association: ~
       for_neighborhood: vizinhança
       for_apartment_building: ~
-      for_other: ~
+      for_other: outro
   community_memberships:
     access_denied:
       access_denied: "Acesso negado"
@@ -604,7 +610,7 @@ pt-BR:
       you_can_accept_or_reject_request_at: "Você pode aceitar ou rejeitar a requisição de"
       you_have_not_yet_accepted_or_rejected_offer: "Você ainda não aceitou nem rejeitou a oferta %{title} que recebeu em %{date}"
       you_have_not_yet_accepted_or_rejected_request: "Você ainda não aceitou nem rejeitou a requisição %{title} que recebeu em %{date}"
-      show_thread: ~
+      show_thread: "Ver a conversa"
     braintree_account_approved:
       account_ready: ~
       message: ~
@@ -630,7 +636,7 @@ pt-BR:
     transaction_confirmed:
       here_is_a_message_from: ~
       request_marked_as_confirmed: ~
-      request_marked_as_canceled: ~
+      request_marked_as_canceled: "Pedido anulado"
       has_marked_request_as_confirmed: ~
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: ~
@@ -647,9 +653,9 @@ pt-BR:
       please_contant_admin_link: "entre em contato com o administrador"
     confirmation_instructions:
       confirmation_instructions_signature: ~
-      welcome_to_kassi: ~
+      welcome_to_kassi: "Bem-vindo à %{service_name} !"
       need_to_confirm: "Você precisa confirmar o seu endereço de e-mail."
-      confirmation_link_text: ~
+      confirmation_link_text: "Confirmar meu email"
       or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
@@ -662,7 +668,7 @@ pt-BR:
       edit_your_email_settings_here: "Edite suas configurações de e-mail aqui"
       message_not_displaying_correctly: ~
       view_it_in_your_browser: ~
-      or: ~
+      or: ou
       unsubscribe_from_these_emails: ~
     community_starter_email:
       subject: ~
@@ -671,7 +677,7 @@ pt-BR:
       has_accepted_your_request: "%{accepter} aceitou sua requisição %{listing}"
       has_rejected_your_offer: "%{accepter} rejeitou sua oferta %{listing}"
       has_rejected_your_request: "%{accepter} rejeitou sua requisição %{listing}"
-      view_thread: ~
+      view_thread: "Ver a conversa"
       your_offer_was_accepted: "Sua oferta foi aceita"
       your_offer_was_rejected: "Sua oferta foi rejeitada"
       your_request_was_accepted: "Sua requisição foi aceita"
@@ -704,12 +710,12 @@ pt-BR:
       service_fee: ~
       you_will_get: "Você terá:"
     receipt_to_payer:
-      receipt_of_payment: ~
+      receipt_of_payment: "Recibo do pagamento"
       you_have_made_new_payment: ~
       product: Produto
       total: Total
       price: Preço
-      service_fee: ~
+      service_fee: "Despesas de serviço"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} te deu um feedback em %{service_name}"
       you_can_give_feedback_to: "Você ainda não deu um feedback para %{name}"
@@ -744,13 +750,23 @@ pt-BR:
       feedback_is_public_and_is_shown: "O feedback é publico e é exibido a todos outros usuários. Baseado no feedback os outros usuários podem julgar o quanto %{name} é uma pessoa confiavel e qualquer um que ele queira interagir. Por isso é sempre bom lembrar de dar feedback nos eventos, e também lembrar os outros para te darem o feedback. Você precisa de feedbacks positivos para ganhar mais emblemas."
       remember_to_give_feedback_to: "Lembrete: Lembre de dar feedback para %{name}"
       you_have_not_given_feedback_yet: "Você ainda não deu feedback para %{name} sobre o evento %{event}. Lembre de dar um feedback de como %{given_name} foi no evento"
+    transaction_preauthorized:
+      subject: ~
+      transaction_requested_by_user: ~
+      you_have_days_to_accept: ~
+      click_here_to_reply: "Clique aqui para responder ao pedido"
+    transaction_preauthorized_reminder:
+      subject: ~
+      remember_to_accept: ~
+      one_day_left: ~
+      click_here_to_reply: "Clique aqui para responder ao pedido"
     welcome_email:
       welcome_email_footer_text: "Que tipo de e-mails que você quer receber de %{service_name} %{settings_link}"
       settings_link_text: "Verifique suas configurações"
       subject: ~
       welcome_some_tips: ~
       p_s_did_you_know: "P.S. Sabia que você pode criar um mercado como este por qualquer comunidade a que pertence, de graça? %{click_here_link} para saber mais!"
-      click_here_link_text: ~
+      click_here_link_text: "Clique aqui"
       update_your_profile: ~
       update_your_profile_link_text: ~
       add_something_you_could_offer: ~
@@ -760,7 +776,7 @@ pt-BR:
       invite_your_friends_invite_only: ~
       invite_your_friends: ~
       invite_link_text: "usando o nosso formulário de convidar fácil"
-      member_list_link_text: ~
+      member_list_link_text: "Olhe a lista de membros"
       go_explore: ~
       love_team: ~
       congrats_for_creating_community: ~
@@ -877,7 +893,7 @@ pt-BR:
       some_private_offers_exist: "Existem <b>%{number_of_listings} ofertas</b>,"
       some_private_requests_exist: "Existem <b>%{number_of_listings} requisições</b>"
     custom_filters:
-      update_view: ~
+      update_view: Atualizar
       min: "Mínimo:"
       max: "Maximo:"
     event_feed:
@@ -893,7 +909,7 @@ pt-BR:
       open_listing: ~
       open_listings: ~
       private_listing_notification_log_in: entrar
-      is: ~
+      is: é
       are: ~
       what_do_you_need: "O que você está procurando?"
       post_new_listing: "Postar uma nova lista!"
@@ -934,7 +950,7 @@ pt-BR:
       show_less: "Mostrar menos"
       show_more: ~
     poll_form:
-      poll: ~
+      poll: "Sondagem :"
       comment: "Comentário:"
       answer: Atender
       results: Resultados
@@ -974,10 +990,10 @@ pt-BR:
       back_to_kassi: "Volte para %{service_name}"
       tribe_info: ~
       news_items: "Novos artigos"
-      polls: ~
+      polls: Sondagens
     application:
       join_this_community: "Ingressar a comunidade"
-      read_more: ~
+      read_more: "Ler o seguinte"
       feedback: "O que você gostaria de nos contar?"
       default_feedback: "Você encontrou um problema com %{service_name}? Tem alguma sugestão para melhorar o serviço? Notei algum conteúdo suspeito? Ou apenas tem algo que você quer discutir com a gente? Deixe-nos saber!"
       feedback_forum: "fórum de respostas"
@@ -1158,10 +1174,10 @@ pt-BR:
       payments: Pagamentos
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: ~
+      listing_not_visible: "Você não possui a permissão para consultar esse anúncio."
     comment:
-      wrote: ~
-      send_private_message: ~
+      wrote: escreveu
+      send_private_message: "Enviar uma mensagem a %{person}"
     comment_form:
       ask_a_question: "Comente sobre a lista ou peça mais detalhes. Todos os outros usuários serão capazes de ver o seu comentário."
       log_in: login
@@ -1179,7 +1195,7 @@ pt-BR:
       reopen_listing: Reabrir
       move_to_top: "Mover para o início da página inicial"
       show_in_updates_email: ~
-      show_in_updates_email_loading: ~
+      show_in_updates_email_loading: Carregando...
       show_in_updates_email_error: ~
       show_in_updates_email_success: ~
     follow_links:
@@ -1199,14 +1215,14 @@ pt-BR:
       destination:
         destination: Destino
       form_content:
-        favor: ~
-        housing: ~
-        item: ~
-        offer_something: ~
-        request_something: ~
+        favor: Serviço
+        housing: lugar
+        item: objeto
+        offer_something: "Propor algo"
+        request_something: "Perguntar algo"
         rideshare: "uma carona"
-        i_want_to_offer: ~
-        i_want_to_request: ~
+        i_want_to_offer: "Eu desejo propor ..."
+        i_want_to_request: "Eu preciso de ..."
       googlemap:
         googlemap_copy: "Pontos final deste Mapa"
         googlemap_description: "Ver mapa"
@@ -1242,7 +1258,7 @@ pt-BR:
         save_listing: "Gravar listagem"
       share_type:
         select: Selecionar
-        borrow: ~
+        borrow: Empréstimo
         buy: Comprando
         give_away: Doar
         lend: Empréstimo
@@ -1256,14 +1272,14 @@ pt-BR:
         accept_for_free: "Aceitar gratuitamente"
         trade: Troca
       tag_list:
-        comma_separate: ~
+        comma_separate: "(separados por uma vírgula)"
         tags: Tags
       title:
         listing_title: Título
       valid_until:
         valid_until: "Data expiração"
       valid_until_radio_buttons:
-        for_the_time_being: ~
+        for_the_time_being: "Sem data de expiração"
       visibility:
         all_communities: ~
         this_community: "Somente os membros desta tribo"
@@ -1291,25 +1307,25 @@ pt-BR:
       offer_something: "Deixe os outros saberem!"
       offer_type: "Tipo de oferta"
       offers: Ofertas
-      request_something: ~
+      request_something: "Pergunte algo!"
       request_type: "Tipo de solicitação"
       requests: Solicitações
-      rideshare: ~
+      rideshare: Carona
       search_verb: Buscar
       you_have_something_others_do_not: "Tem algo a oferecer?"
       feed_title: ~
     left_panel_link:
-      borrows: ~
+      borrows: Empréstimo
       buys: Comprar
       favors: Serviços
       give_aways: Doar
       housings: Espaços
       items: Itens
       lends: Empréstimo
-      receives: ~
+      receives: "Aceitar gratuitamente"
       rent_outs: Alugando
       rents: Aluguel
-      rideshares: ~
+      rideshares: Carona
       sells: Vendendo
       share_for_frees: Gratuito
       accept_for_frees: "Aceitar gratuitamente"
@@ -1323,11 +1339,13 @@ pt-BR:
       select_category: "Selecione uma categoria"
       select_subcategory: ~
       select_transaction_type: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: "configurações de pagamento"
     please_comment: Comentar
     reply_link:
       listing_closed: ~
     show:
-      add_your_phone_number: ~
+      add_your_phone_number: "Adicionar um número de telefone"
       add_profile_picture: ~
       comments: "Discussão pública"
       contact_by_phone: ~
@@ -1346,10 +1364,10 @@ pt-BR:
       feedback: Reposta
       qr_code: "QR Code"
       request: Requisição
-      rideshare_offer: ~
-      rideshare_request: ~
+      rideshare_offer: "Oferecer carona"
+      rideshare_request: "Pedir carona"
       send_private_message: "Enviar mensagem privada"
-      share_types: ~
+      share_types: "Tipos de partilha"
       share_types_offer: "Tipo de oferta"
       share_types_request: "Tipo de solicitação"
       tags: Tags
@@ -1360,7 +1378,7 @@ pt-BR:
       price_excludes_vat: ~
       listing_created_at: "Listagem criada"
     verification_required:
-      verification_required: ~
+      verification_required: "Verificação necessária"
   mapview:
     index:
       all_categories: "Todas categorias"
@@ -1376,10 +1394,10 @@ pt-BR:
       offer_something: "Deixe os outros saberem!"
       offer_type: "Tipo de oferta"
       offers: Ofertas
-      request_something: ~
+      request_something: "Perguntar algo !"
       request_type: "Tipo de solicitação"
       requests: Solicitações
-      rideshare: ~
+      rideshare: Carona
       search_verb: Buscar
       you_have_something_others_do_not: "Tem algo a oferecer?"
     please_comment: Comentar
@@ -1423,7 +1441,7 @@ pt-BR:
   people:
     index:
       loading_more_members: ~
-      meet_the_people: ~
+      meet_the_people: "Descobrir outros membros"
       you_are_the_only_member: ~
       here_are_the_members: ~
       wanna_see_more_folks: ~
@@ -1470,8 +1488,8 @@ pt-BR:
       visible_only_to_you: "visível apenas para você e para o administrador comunidade"
       visible_to_everybody: "visível para todos"
       create_account_with_facebook: "Criar uma conta no Facebook"
-      OR: ~
-      signup_with_email: ~
+      OR: OU
+      signup_with_email: Registe-se
     not_member:
       explanation_text: "Você está atualmente em %{community} comunidade. Você tentou ver o perfil de um usuário que pertence a outra comunidade Sharetribe. Você não pode acessar este perfil através de %{community} comunidade."
       read_more_about_kassi_communities: "Leia mais sobre comunidades Sharetribe"
@@ -1479,8 +1497,8 @@ pt-BR:
     profile_feedback:
       as_expected: "Como esperado"
       exceeded_expectations: "Muito melhor do que o esperado"
-      grade: ~
-      and_gave_following_feedback: ~
+      grade: "nota :"
+      and_gave_following_feedback: "deu a opinião seguinte"
       less_than_expected: "Pior do que o esperado"
       slightly_better_than_expected: "Ligeiramente melhor do que o esperado"
       slightly_less_than_expected: "Um pouco pior do que o esperado"
@@ -1544,9 +1562,9 @@ pt-BR:
       facebook_account: ~
       log_in_to_link_account: "Se você já tem uma conta %{service_name}, faça o login para vinculá-lo com a sua conta do Facebook."
       you_can_also_create_new_account: ~
-      account_creation_link_text: ~
+      account_creation_link_text: "clique aqui"
       cancle_facebook_connect: ~
-      facebook_cancel_link_text: ~
+      facebook_cancel_link_text: anular
       log_in_with_your_facebook_account: "Logar com o Facebook"
       or_sign_up_with_your_username: "...ou com seu nome de usuário ou e-mail"
       we_will_not_post_without_asking_you: ~
@@ -1561,7 +1579,7 @@ pt-BR:
       resend_confirmation_instructions: "Reenviar instruções de confirmação"
       your_current_email_is: "Seu e-mail é %{email}"
       change_email: Trocar
-      confirm_your_email: ~
+      confirm_your_email: "Confirme o seu email"
       account_confirmation_instructions: "Você receberá um e-mail com um link que você precisa clicar para confirmar o endereço de email que você digitou. Após a confirmação de e-mail você pode participar desta comunidade."
       account_confirmation_instructions_dashboard: "Você receberá um e-mail com um link que você precisa clicar para confirmar o endereço de email que você digitou."
   settings:
@@ -1604,7 +1622,7 @@ pt-BR:
       email_about_new_received_testimonials: "...alguém me enviar feedback"
       email_about_testimonial_reminders: "...eu esquecer de enviar feedback sobre um evento"
       email_daily_community_updates: "Envie-me um e-mail <b>diária</b> se houver novos anúncios"
-      email_updates_community_updates: ~
+      email_weekly_community_updates: "Envie-me um e-mail <b>semanal</b> se houver novos anúncios"
       do_not_email_community_updates: "Não me mande e-mails"
       email_when_conversation_accepted: "...alguém aceitar a minha oferta ou solicitação"
       email_when_conversation_rejected: "...alguém rejeitar a minha oferta ou solicitação"
@@ -1657,11 +1675,11 @@ pt-BR:
       all_testimonials: "Todos os comentários"
       feedback_altogether: ~
       loading_more_testimonials: "Carregando mais depoimentos"
-      no_testimonials: ~
+      no_testimonials: "Nenhuma opinião recebida"
     new:
       as_expected: "Como esperado"
       exceeded_expectations: "Muito melhor do que o esperado"
-      give_feedback_to: ~
+      give_feedback_to: "Dar uma opinião sobre %{person}"
       grade: "Qual é o seu sentimento em geral?"
       less_than_expected: "Pior do que o esperado"
       send_feedback: "Enviar feedback"
@@ -1676,7 +1694,7 @@ pt-BR:
       about_listing: "sobre como listar"
   time:
     formats:
-      short: ~
+      short: "%e. %b %Y hora %H:%M"
       shorter: "%e %b as %H:%M"
       short_date: ~
       sms: "%e %b as %H:%M"
@@ -1692,6 +1710,9 @@ pt-BR:
     seconds_ago: "%{count} segundos atrás"
     year_ago: "%{count} ano atrás"
     years_ago: "%{count} anos atrás"
+    days_since:
+      one: ontem
+      other: "%{count} dias"
   will_paginate:
     previous_label: ~
     next_label: ~
@@ -1699,3 +1720,7 @@ pt-BR:
     page_entries_info:
       multi_page: ~
       multi_page_html: ~
+      single_page_html:
+        zero: "Nenhum(a) %{model} encontrado(a)"
+        one: "Visualização do <b>1</b> %{model}"
+        other: "Visualização dos b>%{count}</b> %{model}"

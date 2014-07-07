@@ -64,6 +64,7 @@ Kassi::Application.routes.draw do
           resources :listing_conversations do
             collection do
               post :create_contact
+              post :preauthorized
             end
           end
         end
@@ -79,6 +80,9 @@ Kassi::Application.routes.draw do
             get :confirm, to: 'confirm_conversations#confirm'
             get :cancel, to: 'confirm_conversations#cancel'
             put :confirmation, to: 'confirm_conversations#confirmation'
+            get :accept_preauthorized, to: 'accept_preauthorized_conversations#accept'
+            get :reject_preauthorized, to: 'accept_preauthorized_conversations#reject'
+            put :acceptance_preauthorized, to: 'accept_preauthorized_conversations#acceptance'
           end
           resources :messages
           resources :feedbacks, :controller => :testimonials do
@@ -280,6 +284,7 @@ Kassi::Application.routes.draw do
   match "/:locale/offers" => "listings#offers", :as => :offers
   match "/:locale/requests" => "listings#requests", :as => :requests
   match "/:locale/people/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
+  match "/:locale/listings/:listing_id/preauthorize" => "listing_conversations#preauthorize", :as => :preauthorize_payment
   match "/:locale/listings/:listing_id/reply" => "listing_conversations#new", :as => :reply_to_listing
   match "/:locale/listings/:listing_id/contact" => "listing_conversations#contact", :as => :contact_to_listing
   match "/:locale/listings/new/:type/:category" => "listings#new", :as => :new_request_category

@@ -366,6 +366,10 @@ class Listing < ActiveRecord::Base
     custom_field_values.find { |value| value.custom_field_id == custom_field.id }
   end
 
+  def payment_required_at?(community)
+    transaction_type.price_field? && community.payments_in_use?
+  end
+
   def self.send_payment_settings_reminder?(listing, current_user, current_community)
     listing.transaction_type.is_offer? &&
     current_community.payments_in_use? &&

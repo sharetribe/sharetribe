@@ -122,7 +122,7 @@ es:
         automatically_confirmed: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
-        newsletter_updates: ~
+        newsletter_weekly: ~
       manage_members:
         manage_members: ~
         email: ~
@@ -342,6 +342,7 @@ es:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
+      approve: ~
     confirm:
       confirm_description: "Si tu pedido ha sido completado debes confirmar que esta hecho. Entonces puedes dar tu opinion a la otra parte."
       cancel_description: "Si tu pedido no ha sido completado, puedes marcar en \"no ha sucedido\". Aun puedes dar tu opinion a la otra parte y contar que sucedio."
@@ -440,6 +441,7 @@ es:
       offer_canceled: Cancelado
       offer_confirmed: Completado
       pay: Pagar
+      preauthorized: ~
       paid: "pago exitoso"
       request_accepted: "Solicitud aceptada"
       request_rejected: "Solicitud rechazada"
@@ -459,6 +461,10 @@ es:
       accept_request: "Aceptar solicitud"
       reject_offer: "Rechazar oferta"
       reject_request: "No por el momento"
+      accept_preauthorized_offer: ~
+      accept_preauthorized_request: ~
+      reject_preauthorized_offer: ~
+      reject_preauthorized_request: ~
       confirm: "Marcar transacción completada."
       cancel: "No se llevó a cabo."
   braintree_accounts:
@@ -754,6 +760,16 @@ es:
       you_have_not_given_feedback_yet: |-
           Aún no has enviado feedback a %{name} acerca del evento '%{event}'.
           Recuerda dar feedback de cómo %{given_name} actuó en el evento.
+    transaction_preauthorized:
+      subject: ~
+      transaction_requested_by_user: ~
+      you_have_days_to_accept: ~
+      click_here_to_reply: ~
+    transaction_preauthorized_reminder:
+      subject: ~
+      remember_to_accept: ~
+      one_day_left: ~
+      click_here_to_reply: ~
     welcome_email:
       welcome_email_footer_text: "¿Qué tipo de emails desea recibir de %{service_name}? %{settings_link}"
       settings_link_text: "Revisa tu configuración"
@@ -1333,6 +1349,8 @@ es:
       select_category: "Selecionar una categoría"
       select_subcategory: ~
       select_transaction_type: "seleccionar tipo de listado"
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
     please_comment: Comentario
     reply_link:
       listing_closed: "Listado cerrado"
@@ -1617,7 +1635,7 @@ es:
       email_about_new_received_testimonials: ".. .alguien me dio un feedback"
       email_about_testimonial_reminders: "...He olvidado hacer una sugerencia o dar información sobre un evento"
       email_daily_community_updates: "Enviarme un email de actualización <b>diariamente</b> si hay nuevas publicaciones"
-      email_updates_community_updates: ~
+      email_weekly_community_updates: "Enviarme un email de actualización <b>semanalmente</b> si hay nuevas publicaciones"
       do_not_email_community_updates: "No enviarme emails de actualización"
       email_when_conversation_accepted: ".. .alguien acepta mi oferta o solicitud"
       email_when_conversation_rejected: ".. .alguien rechaza mi oferta o solicitud"

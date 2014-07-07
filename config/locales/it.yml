@@ -122,7 +122,7 @@ it:
         automatically_confirmed: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
-        newsletter_updates: ~
+        newsletter_weekly: ~
       manage_members:
         manage_members: ~
         email: ~
@@ -342,6 +342,7 @@ it:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
+      approve: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -440,6 +441,7 @@ it:
       offer_canceled: ~
       offer_confirmed: ~
       pay: ~
+      preauthorized: ~
       paid: ~
       request_accepted: "Richiesta accettata"
       request_rejected: "Richiesta rifiutata"
@@ -459,6 +461,10 @@ it:
       accept_request: "Accetta richiesta"
       reject_offer: "Non questa volta"
       reject_request: "Non questa volta"
+      accept_preauthorized_offer: ~
+      accept_preauthorized_request: ~
+      reject_preauthorized_offer: ~
+      reject_preauthorized_request: ~
       confirm: ~
       cancel: ~
   braintree_accounts:
@@ -744,6 +750,16 @@ it:
       feedback_is_public_and_is_shown: "Il feedback è pubblico e è mostrato a tutti gli altri utenti. In base al feedback, gli altri utenti possono giudicare se %{name} è una persona fidata e qualcuno con cui voler interagire. Quindi è bene ricordarsi sempre di lasciare feedback dopo ogni evento e anche ricordare all'altra parte di lasciarti un feedback. Inoltre hai bisogno di feedback positivi per ottenere altri badge."
       remember_to_give_feedback_to: "Promemoria: ricordati di lasciare feedback a %{name}"
       you_have_not_given_feedback_yet: "NOn hai ancora lasciato feedback a %{name} per l'evento %{event}. Ricordati di lasciare il feedback su come %{given_name} ha condotto l'evento."
+    transaction_preauthorized:
+      subject: ~
+      transaction_requested_by_user: ~
+      you_have_days_to_accept: ~
+      click_here_to_reply: ~
+    transaction_preauthorized_reminder:
+      subject: ~
+      remember_to_accept: ~
+      one_day_left: ~
+      click_here_to_reply: ~
     welcome_email:
       welcome_email_footer_text: ~
       settings_link_text: "Controlla le tue impostazioni"
@@ -1325,6 +1341,8 @@ it:
       select_category: ~
       select_subcategory: ~
       select_transaction_type: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
     please_comment: Commenta
     reply_link:
       listing_closed: ~
@@ -1606,7 +1624,7 @@ it:
       email_about_new_received_testimonials: "...qualcuno mi offre feedback"
       email_about_testimonial_reminders: "...ho dimenticato di offrire feedback su un evento"
       email_daily_community_updates: ~
-      email_updates_community_updates: ~
+      email_weekly_community_updates: ~
       do_not_email_community_updates: ~
       email_when_conversation_accepted: "...qualcuno accetta la mia offerta o richiesta"
       email_when_conversation_rejected: "...qualcuno rifiuta la mia offerta o richiesta"

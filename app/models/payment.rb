@@ -36,8 +36,6 @@ class Payment < ActiveRecord::Base
 
   def paid!
     update_attribute(:status, "paid")
-    conversation.status = "paid"
-    Delayed::Job.enqueue(PaymentCreatedJob.new(id, community.id))
   end
 
   def disbursed!
@@ -66,5 +64,11 @@ class Payment < ActiveRecord::Base
   def total_commission_without_vat
     vat = Maybe(community).vat.or_else(0).to_f / 100.to_f
     total_commission / (1 + vat)
+  end
+
+  # How many days until the preauthorized payment is automatically
+  # rejected
+  def preauthorization_expiration_days
+    5
   end
 end

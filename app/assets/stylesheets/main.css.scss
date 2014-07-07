@@ -1470,7 +1470,7 @@ a.lightbox-x {
     margin-right: lines(0.5);
   }
 
-  .accept, .confirm {
+  .accept, .confirm, .accept_preauthorized {
     color: $green;
     background: lighten($green, 40%);
     border-color: $green;
@@ -1481,7 +1481,7 @@ a.lightbox-x {
     }
   }
 
-  .reject, .cancel {
+  .reject, .cancel, .reject_preauthorized {
     color: $red;
     background: lighten($red, 40%);
     border-color: $red;

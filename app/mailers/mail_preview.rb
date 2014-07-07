@@ -113,4 +113,18 @@ class MailPreview < MailView
     listings = community.listings
     CommunityMailer.community_updates(recipient, community, listings)
   end
+
+  def transaction_preauthorized
+    conversation = ListingConversation.find do |conversation|
+      conversation.status == "preauthorized" && conversation.listing.transaction_type.preauthorize_payment?
+    end
+    TransactionMailer.transaction_preauthorized(conversation)
+  end
+
+    def transaction_preauthorized_reminder
+    conversation = ListingConversation.find do |conversation|
+      conversation.status == "preauthorized" && conversation.listing.transaction_type.preauthorize_payment?
+    end
+    TransactionMailer.transaction_preauthorized_reminder(conversation)
+  end
 end

@@ -4,14 +4,16 @@ class TransactionProcess
   state :not_started, initial: true
   state :free
   state :pending
+  state :preauthorized
   state :accepted
   state :rejected
   state :paid
   state :confirmed
   state :canceled
 
-  transition from: :not_started,               to: [:free, :pending]
+  transition from: :not_started,               to: [:free, :pending, :preauthorized]
   transition from: :pending,                   to: [:accepted, :rejected]
+  transition from: :preauthorized,             to: [:paid, :rejected]
   transition from: :accepted,                  to: [:paid, :canceled]
   transition from: :paid,                      to: [:confirmed, :canceled]
 
@@ -43,10 +45,15 @@ class TransactionProcess
     end
   end
 
-  after_transition(to: :paid) do |conversation|
+  after_transition(from: :accepted, to: :paid) do |conversation|
     payer = conversation.payment.payer
     conversation.messages.create(:sender_id => payer.id, :action => "pay")
     ConfirmConversation.new(conversation, payer, conversation.community).activate_automatic_confirmation!
+  end
+
+  after_transition(to: :paid) do |conversation|
+    payment = conversation.payment
+    Delayed::Job.enqueue(PaymentCreatedJob.new(payment.id, payment.community.id))
   end
 
   after_transition(to: :rejected) do |conversation|
@@ -65,5 +72,38 @@ class TransactionProcess
   after_transition(to: :canceled) do |conversation|
     confirmation = ConfirmConversation.new(conversation, conversation.starter, conversation.community)
     confirmation.cancel!
+  end
+
+  before_transition(from: :preauthorized, to: :rejected) do |conversation|
+    transaction_id = conversation.payment.braintree_transaction_id
+
+    result = BraintreeApi.void_transaction(conversation.community, transaction_id)
+
+    if result
+      BTLog.info("Voided transaction #{transaction_id}")
+    else
+      BTLog.error("Could not void transaction #{transaction_id}")
+    end
+  end
+
+  after_transition(to: :preauthorized) do |conversation|
+    expire_at = conversation.payment.preauthorization_expiration_days.days.from_now
+    reminder_days_before = 1
+
+    Delayed::Job.enqueue(TransactionPreauthorizedJob.new(conversation.id), :priority => 10)
+    Delayed::Job.enqueue(TransactionPreauthorizedReminderJob.new(conversation.id), :priority => 10, :run_at => expire_at - reminder_days_before.day)
+    Delayed::Job.enqueue(AutomaticallyRejectPreauthorizedTransactionJob.new(conversation.id), priority: 7, run_at: expire_at)
+  end
+
+  before_transition(from: :preauthorized, to: :paid) do |conversation|
+    transaction_id = conversation.payment.braintree_transaction_id
+
+    result = BraintreeApi.submit_to_settlement(conversation.community, transaction_id)
+
+    if result
+      BTLog.info("Submitted authorized payment #{transaction_id} to settlement")
+    else
+      BTLog.error("Could not submit authorized payment #{transaction_id} to settlement")
+    end
   end
 end

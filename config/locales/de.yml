@@ -137,7 +137,7 @@ de:
         automatically_confirmed: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
-        newsletter_updates: ~
+        newsletter_weekly: ~
       manage_members:
         manage_members: "Benutzer verwalten"
         email: E-Mail
@@ -357,6 +357,7 @@ de:
       you_need_to_fill_payout_details_before_accepting: "Du musst deine Auszahlungsinformationen eintragen, bevor du die Anfrage akzeptieren und die Zahlung erhalten kannst. Gehe zu %{payment_settings_link} und fülle die Details aus."
       payment_settings_link: Zahlungseinstellungen
       minimum_price_error_message: "Der Preis kann nicht niedriger sein als %{amount}."
+      approve: ~
     confirm:
       confirm_description: "Deine Anfrage wurde aufgenommen, du solltest sie bestätigen nachdem du fertig bist. Dann kannst du dem anderen Feedback geben."
       cancel_description: "Wenn deine Anfrage nicht erfüllt wurde, dann markiere sie als \"noch nicht erledigt\". Du kannst dem anderen trotzdem Feedback geben und beschreiben, was passiert ist."
@@ -455,6 +456,7 @@ de:
       offer_canceled: abgelehnt
       offer_confirmed: fertig
       pay: Zahlen
+      preauthorized: ~
       paid: "erfolgreiche Bezahlung"
       request_accepted: "Anfrage akzeptiert"
       request_rejected: "Anfrage abgelehnt"
@@ -474,6 +476,10 @@ de:
       accept_request: "Anfrage annehmen"
       reject_offer: "Vielleicht später"
       reject_request: "Vielleicht später"
+      accept_preauthorized_offer: ~
+      accept_preauthorized_request: ~
+      reject_preauthorized_offer: ~
+      reject_preauthorized_request: ~
       confirm: erledigt
       cancel: "nicht erfolgt"
   braintree_accounts:
@@ -759,6 +765,16 @@ de:
       feedback_is_public_and_is_shown: "Feedback ist öffentlich und wird allen anderen Nutzern angezeigt. Basierend auf den Feedbacks können andere Nutzer beurteilen, ob %{name} eine vertrauenswürdige Person ist, mit der sie interagieren würden. Daher ist es immer gut, Feedbacks zu Transaktionen zu hinterlassen und die andere Partei daran zu erinnern, ein Feedback zurückzugeben. Außerdem benötigst du positives Feedback, um Abzeichen erlangen zu können."
       remember_to_give_feedback_to: "Zur Erinnerung: Denke daran, %{name} ein Feedback zu geben"
       you_have_not_given_feedback_yet: "Du hast %{name} noch kein Feedback zur Transaktion '%{event}' gegeben. Denke daran, ein Feedback darüber zu hinterlassen, wie %{given_name} die Transaktion durchgeführt hat."
+    transaction_preauthorized:
+      subject: ~
+      transaction_requested_by_user: ~
+      you_have_days_to_accept: ~
+      click_here_to_reply: ~
+    transaction_preauthorized_reminder:
+      subject: ~
+      remember_to_accept: ~
+      one_day_left: ~
+      click_here_to_reply: ~
     welcome_email:
       welcome_email_footer_text: "Welche Art von E-Mails willst du empfangen von %{service_name}? %{settings_link}"
       settings_link_text: "Überprüfe deine Einstellungen"
@@ -1338,6 +1354,8 @@ de:
       select_category: "Kategorie auswählen"
       select_subcategory: "Unterkategorie auswählen"
       select_transaction_type: "Eintragsart auswählen"
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
     please_comment: Kommentar
     reply_link:
       listing_closed: "Eintrag abgeschlossen"
@@ -1625,7 +1643,7 @@ de:
       email_about_new_received_testimonials: "...mir jemand ein Feedback gibt"
       email_about_testimonial_reminders: "...ich vergessen habe, jemandem zu einer Transaktion ein Feedback zu geben"
       email_daily_community_updates: "Schickt mir täglich Neuigkeiten per E-Mail, sofern es neue Einträge gibt"
-      email_updates_community_updates: ~
+      email_weekly_community_updates: "Schickt mir wöchentlich Neuigkeiten per E-Mail, sofern es neue Einträge gibt"
       do_not_email_community_updates: "Schickt mir keine Neuigkeiten per E-Mail"
       email_when_conversation_accepted: "...jemand mein Angebot oder meine Anfrage akzeptiert"
       email_when_conversation_rejected: "...jemand mein Angebot oder meine Anfrage ablehnt"
