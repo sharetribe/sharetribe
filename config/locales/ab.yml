@@ -122,7 +122,7 @@ ab:
         automatically_confirmed: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
-        newsletter_updates: ~
+        newsletter_weekly: ~
       manage_members:
         manage_members: ~
         email: ~
@@ -342,6 +342,7 @@ ab:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
+      approve: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -440,6 +441,7 @@ ab:
       offer_canceled: ~
       offer_confirmed: ~
       pay: ~
+      preauthorized: ~
       paid: ~
       request_accepted: ~
       request_rejected: ~
@@ -459,6 +461,10 @@ ab:
       accept_request: ~
       reject_offer: ~
       reject_request: ~
+      accept_preauthorized_offer: ~
+      accept_preauthorized_request: ~
+      reject_preauthorized_offer: ~
+      reject_preauthorized_request: ~
       confirm: ~
       cancel: ~
   braintree_accounts:
@@ -744,6 +750,16 @@ ab:
       feedback_is_public_and_is_shown: ~
       remember_to_give_feedback_to: ~
       you_have_not_given_feedback_yet: ~
+    transaction_preauthorized:
+      subject: ~
+      transaction_requested_by_user: ~
+      you_have_days_to_accept: ~
+      click_here_to_reply: ~
+    transaction_preauthorized_reminder:
+      subject: ~
+      remember_to_accept: ~
+      one_day_left: ~
+      click_here_to_reply: ~
     welcome_email:
       welcome_email_footer_text: ~
       settings_link_text: ~
@@ -1323,6 +1339,8 @@ ab:
       select_category: ~
       select_subcategory: ~
       select_transaction_type: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
     please_comment: ~
     reply_link:
       listing_closed: ~
@@ -1604,7 +1622,7 @@ ab:
       email_about_new_received_testimonials: ~
       email_about_testimonial_reminders: ~
       email_daily_community_updates: ~
-      email_updates_community_updates: ~
+      email_weekly_community_updates: ~
       do_not_email_community_updates: ~
       email_when_conversation_accepted: ~
       email_when_conversation_rejected: ~

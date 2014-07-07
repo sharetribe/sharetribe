@@ -137,7 +137,7 @@ fr:
         automatically_confirmed: "Les annonces seront automatiquement marquées comme réalisées %{days_dropdown} jours après le paiement. Si le système de dépôt est utilisé, l'argent sera transmis au vendeur à ce moment."
         automatic_newsletter_frequency: "Fréquence d'envoi de la newsletter : %{frequency_dropdown}"
         newsletter_daily: Quotidienne
-        newsletter_updates: Hebdomadaire
+        newsletter_weekly: Hebdomadaire
       manage_members:
         manage_members: "Gérer les utilisateurs"
         email: Email
@@ -357,6 +357,7 @@ fr:
       you_need_to_fill_payout_details_before_accepting: "Vous devez compléter les détails de paiements avant de pouvoir accepter la demande et recevoir le paiement. Allez aux %{payment_settings_link} pour compléter les détails."
       payment_settings_link: "paramètres de paiement"
       minimum_price_error_message: "Le prix ne peut pas être plus bas que %{amount}."
+      approve: Approuver
     confirm:
       confirm_description: "Si votre demande a été satisfaite, vous pouvez la marquer comme réalisée. Vous pourrez alors donner un avis sur l'autre personne."
       cancel_description: "Si votre demande n'a pas été satisfaite, vous pouvez la marquer comme \"non réalisée\". Vous pourrez toujours donner un avis sur l'autre personne et décrire ce qu'il s'est passé."
@@ -455,6 +456,7 @@ fr:
       offer_canceled: Annulée
       offer_confirmed: Terminée
       pay: Payer
+      preauthorized: "Paiement réussi"
       paid: "Paiement réussi"
       request_accepted: Acceptée
       request_rejected: Refusée
@@ -474,6 +476,10 @@ fr:
       accept_request: "Accepter demande"
       reject_offer: "Pas cette fois"
       reject_request: "Pas cette fois"
+      accept_preauthorized_offer: "Accepter l'offre"
+      accept_preauthorized_request: "Accepter la demande"
+      reject_preauthorized_offer: "Pas cette fois"
+      reject_preauthorized_request: "Pas cette fois"
       confirm: Réalisée
       cancel: "Non réalisée"
   braintree_accounts:
@@ -759,6 +765,16 @@ fr:
       feedback_is_public_and_is_shown: "Les avis sont publics et visibles à tous les autres utilisateurs. En fonction des avis reçus, les autres utilisateurs peuvent décider de faire ou pas confiance à %{name} et d'engager des transactions avec cette personne. Il est donc important de toujours donner un avis à la fin de chaque transaction et de rappeler aux autres participants de vous en donner un. C'est également grâce aux avis positifs que vous obtiendrez la plupart des badges."
       remember_to_give_feedback_to: "Rappel : n'oubliez pas de donner un avis sur %{name}"
       you_have_not_given_feedback_yet: "Vous n'avez pas encore donné d'avis sur %{name} suite à l'annonce '%{event}'. N'oubliez pas de donner un avis sur la façon dont %{given_name} a agi lors de la transaction."
+    transaction_preauthorized:
+      subject: "%{requester} a demandé et payé pour %{listing_title}"
+      transaction_requested_by_user: "%{requester} a demandé et payé pour \"%{listing_title}\""
+      you_have_days_to_accept: "Vous devez accepter ou refuser la demande sous %{payment_expires_in_days} jours. Si vous n'acceptez pas durant ce délai, la demande sera automatiquement refusée et vous ne recevrez pas le paiement."
+      click_here_to_reply: "Cliquez ici pour répondre à la demande"
+    transaction_preauthorized_reminder:
+      subject: "N'oubliez pas d'accepter la demande de %{requester} à propos de l'annonce %{listing_title}"
+      remember_to_accept: "N'oubliez pas d'accepter la demande de %{requester} à propos de l'annonce %{listing_title}. %{requester} a déjà payé pour cette annonce. Vous devez accepter la demande pour recevoir le paiement."
+      one_day_left: "Si vous n'acceptez pas la demande sous une journée l'annonce sera automatiquement refusée et vous ne recevrez pas le paiement."
+      click_here_to_reply: "Cliquez ici pour répondre à la demande"
     welcome_email:
       welcome_email_footer_text: "Quels types d'emails souhaitez vous recevoir de la part de %{service_name} ? %{settings_link}"
       settings_link_text: "Vérifiez vos paramètres"
@@ -1338,6 +1354,8 @@ fr:
       select_category: "Choisir une catégorie"
       select_subcategory: "Sélectionner une sous-catégorie"
       select_transaction_type: "Sélectionner le type d'annonce"
+      you_need_to_fill_payout_details_before_accepting: "Vous devez compléter les détails de paiements avant de pouvoir déposer une annonce. Allez aux %{payment_settings_link} pour compléter les détails."
+      payment_settings_link: "paramètres de paiement"
     please_comment: "Faire un commentaire"
     reply_link:
       listing_closed: "L'annonce est close"
@@ -1622,7 +1640,7 @@ fr:
       email_about_new_received_testimonials: "...quelqu'un me donne un avis"
       email_about_testimonial_reminders: "...j'ai oublié de donner mon avis sur un événement"
       email_daily_community_updates: "Envoyez moi un email <b>chaque jour</b> s'il y a des nouvelles annonces"
-      email_updates_community_updates: "Envoyez moi un email <b>chaque semaine</b> s'il y a des nouvelles annonces"
+      email_weekly_community_updates: "Envoyez moi un email <b>chaque semaine</b> s'il y a des nouvelles annonces"
       do_not_email_community_updates: "Ne m'envoyez pas d'emails de mise à jour"
       email_when_conversation_accepted: "...quelqu'un accepte une de mes offres ou de mes demandes"
       email_when_conversation_rejected: "...quelqu'un refuse une de mes offres ou de mes demandes"
