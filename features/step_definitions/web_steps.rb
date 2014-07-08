@@ -78,6 +78,10 @@ When /^(?:|I )follow "([^"]*)"(?: within "([^"]*)")?$/ do |link, selector|
   end
 end
 
+When(/^I follow the first "(.*?)"$/) do |link|
+  first(:link, link).click
+end
+
 When /^I remove the focus"?$/ do
   page.execute_script("$('input').blur();")
 end

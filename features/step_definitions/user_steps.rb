@@ -291,3 +291,19 @@ Given(/^I have just received community updates email$/) do
   last_sent = DateTime.now() - 1.second
   @current_user.update_attribute(:community_updates_last_sent_at, last_sent)
 end
+
+Given(/^"(.*?)" follows "(.*?)"$/) do |follower, person|
+  person = Person.find_by_username(person)
+  follower = Person.find_by_username(follower)
+  person.followers << follower unless follower.follows? person
+end
+
+Given(/^"(.*?)" follows everyone$/) do |person|
+  person = Person.find_by_username(person)
+  person.followed_people = Person.all - [ person ]
+end
+
+Then(/^I should see (\d+) user profile links$/) do |count|
+  expect(page).to have_selector("#profile-followed-people-list .people-fluid-thumbnail-grid-item", :count => count)
+end
+
