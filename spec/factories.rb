@@ -131,6 +131,8 @@ FactoryGirl.define do
 
   factory :contact_request do
     email "test@example.com"
+    country "AO"
+    marketplace_type "Service marketplace"
   end
 
   factory :invitation do
@@ -345,4 +347,14 @@ FactoryGirl.define do
     url "http://blog.sharetribe.com"
     locale "en"
   end
+
+  factory :country_manager do
+    given_name "Country Manager Given Name"
+    family_name "Country Manager Family Name"
+    email "global@manager.com"
+    country "global"
+    subject_line "This subject will see requester"
+    email_content "This email will get the requester"
+  end
+
 end

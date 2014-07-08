@@ -298,4 +298,29 @@ describe PersonMailer do
 
   end
 
+  it "should send email to requestor when contacting via dashboard" do
+    contact_request = FactoryGirl.create(:contact_request)
+    country_manager = FactoryGirl.create(:country_manager)
+    
+    email = PersonMailer.reply_to_contact_request(contact_request).deliver
+
+    assert !ActionMailer::Base.deliveries.empty?
+    
+    assert email.to.include?(contact_request.email) 
+    assert email.body.include?(country_manager.email_content)
+    assert_equal country_manager.subject_line, email.subject
+  end
+
+  it "should send notification email to admins when requester contacting via dashboard" do
+    contact_request = FactoryGirl.create(:contact_request)
+
+    email = PersonMailer.contact_request_notification(contact_request).deliver
+
+    assert !ActionMailer::Base.deliveries.empty?
+    
+    assert email.to.include?(APP_CONFIG.contact_request_mailer_recipients || APP_CONFIG.feedback_mailer_recipients)
+    assert email.body.include?("New contact request:")
+    assert_equal "New contact request by #{contact_request.email}", email.subject
+  end
+
 end
