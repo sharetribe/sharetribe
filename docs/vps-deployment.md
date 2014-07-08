@@ -133,4 +133,32 @@ cap production thinking_sphinx:index
 ````
  and see more with `cap -T`
 
+As you see from rails console we already created market place (Community) manually. And now you propably want to know what will happened when someone else want to create his own - when someone request it from home page using form? In order to do this we have to have country manager and now we will create just one - global
+
+We can create by seed:
+
+````
+ssh deploy@server
+cd sharetribe/current
+RAILS_ENV=production bundle exec rake db:seed
+````
+
+Or using console
+
+````
+ssh deploy@server
+cd sharetribe/current
+RAILS_ENV=production bundle exec rails console
+
+CountryManager.create({given_name:"Country Manager Given Name",family_name: "Country Manager Family Name", email: "country@manager.com", country: "global",subject_line: "This subject will see requester", email_content:"This email will get the requester"}, :without_protection => true)
+````
+
+Now when someone will request new market place 2 emails will be send:
+
+1. from country manager email to requester email
+2. from your-team@example.com to admins@example.com with details of request - you propably wanna change this email adresses in `config.yml`
+
+and from now on it's up to you how you handle this request
+
+
 **I really would like to hear your experience with this guide, please do share how to improve and if i miss something**
