@@ -11,7 +11,9 @@ Then /^I should have editor open$/ do
 end
 
 When(/^I send keys "(.*?)" to editor$/) do |keys|
-  find("#mercury_iframe", :visible => false).native.send_keys "#{keys}"
+  page.driver.within_frame('mercury_iframe') do
+    find("[data-mercury]", :visible => false).native.send_keys "#{keys}"
+  end
 end
 
 # This method should be used when there are multiple Mercury-editable
