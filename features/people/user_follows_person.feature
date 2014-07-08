@@ -40,6 +40,13 @@ Feature: User follows another user
     And I refresh the page
     Then I should see "You follow 10 people"
 
-
-
+  @javascript
+  Scenario: Follower receives notification of new listing
+    Given "kassi_testperson2" follows "kassi_testperson1"
+    When I create a new listing "Jewelry" with price "899"
+    And the system moves all future jobs to immediate
+    And the system processes jobs
+    Then "kassi_testperson2@example.com" should receive an email
+    When I open the email
+    Then I should see "Jewelry" in the email body
 
