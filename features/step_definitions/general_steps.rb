@@ -8,6 +8,10 @@ When 'the system processes jobs' do
   process_jobs
 end
 
+When 'the system moves all future jobs to immediate' do
+  Delayed::Job.update_all(run_at: Time.now)
+end
+
 When /^I print "(.+)"$/ do |text|
   puts text
 end

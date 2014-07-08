@@ -11,8 +11,8 @@
     .row.relative
       .people-image-mobile
         = huge_avatar_thumb(@person)
-      .profile-action-button-mobile
-        = render :partial => "profile_action_button"
+      .profile-action-buttons-mobile
+        = render :partial => "profile_action_buttons"
 
     .row
       - if @person.description && !@person.description.blank?
@@ -47,6 +47,9 @@
       - limit = 6
       = render :partial => 'listings/profile_listings', :locals => {:person => @person, :limit => limit}
 
+    - if @current_community.follow_in_use?
+      = render :partial => "followed_people", :locals => { :person => @person, :limit => 6 }
+      
     - if @current_community.testimonials_in_use
       #people-testimonials.listing-main
         .row
@@ -66,5 +69,11 @@
         = huge_avatar_thumb(@person)
 
     .row
-      .profile-action-button-desktop
-        = render :partial => "profile_action_button"
+      .profile-action-buttons-desktop
+        = render :partial => "profile_action_buttons"
+
+- content_for :extra_javascript do
+  :javascript
+    window.ST.initializeFollowButtons();
+        
+        
