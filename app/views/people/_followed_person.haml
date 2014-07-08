@@ -5,8 +5,9 @@
       .fluid-thumbnail-grid-image-overlay
       .fluid-thumbnail-grid-image-title
         = person.name(@current_community)
-  - if @current_user == person
-    = render :partial => "people/edit_profile_button"
-  - else
-    = render :partial => "people/follow_button", :locals => { :person => person }
+  - if @current_user
+    - if @current_user == person
+      = render :partial => "people/edit_profile_button"
+    - else
+      = render :partial => "people/follow_button", :locals => { :person => person }
 

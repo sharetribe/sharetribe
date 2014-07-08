@@ -5,5 +5,5 @@
     .content
       = t("people.show.contact", :person => @person.given_name_or_username)
       
-- if @current_community.follow_in_use? && @current_user != @person
+- if @current_community.follow_in_use? && @current_user && !current_user?(@person)
   = render :partial => "follow_button", :locals => { :person => @person }
