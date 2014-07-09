@@ -199,6 +199,7 @@ CREATE TABLE `communities` (
   `default_min_days_between_community_updates` int(11) DEFAULT '7',
   `listing_location_required` tinyint(1) DEFAULT '0',
   `custom_head_script` text,
+  `follow_in_use` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `index_communities_on_domain` (`domain`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -431,6 +432,18 @@ CREATE TABLE `feedbacks` (
   `email` varchar(255) DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `follower_relationships` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `person_id` varchar(255) NOT NULL,
+  `follower_id` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `index_follower_relationships_on_person_id_and_follower_id` (`person_id`,`follower_id`),
+  KEY `index_follower_relationships_on_person_id` (`person_id`),
+  KEY `index_follower_relationships_on_follower_id` (`follower_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `groups` (
@@ -1861,6 +1874,12 @@ INSERT INTO schema_migrations (version) VALUES ('20140613132734');
 
 INSERT INTO schema_migrations (version) VALUES ('20140623112935');
 
+INSERT INTO schema_migrations (version) VALUES ('20140701081453');
+
 INSERT INTO schema_migrations (version) VALUES ('20140701135724');
 
 INSERT INTO schema_migrations (version) VALUES ('20140701140655');
+
+INSERT INTO schema_migrations (version) VALUES ('20140703074142');
+
+INSERT INTO schema_migrations (version) VALUES ('20140703075424');

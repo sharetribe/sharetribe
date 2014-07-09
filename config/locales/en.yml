@@ -802,6 +802,11 @@ en:
       spread_the_word: "<strong>Spread the word. </strong> To get new members to the community, you need to tell about it to the people you know. Some ideas: 1) Post information about %{service_name} to a mailing list. 2) Share this link via Facebook, Twitter or other social media service: %{url}. 3) Send email invites %{invite_link}. 4) Tell people face to face when you meet them."
       spread_the_word_invite_only: "<strong>Spread the word. </strong> You have chosen to make this community invite only. It means that people need an invite from another member in order to join. Thus, to get some new members to the community, you need to invite them. You can do so by %{invite_link}."
       have_fun: "Have fun using %{service_name}. May your community live long and prosper!"
+    new_listing_by_followed_person:
+      subject: "%{author_name} has posted a new listing in %{community}"
+      has_posted_a_new_listing: "%{author_name} has posted a new listing:"
+      you_are_receiving_this_because: "You received this notification because you follow %{author_name}."
+      view_listing: "View listing"
   error_messages:
     listings:
       departure_time: "Departure time must be between current time and one year from now."
@@ -1560,6 +1565,17 @@ en:
       show_all_open_listings: "Show all open listings"
       show_all_reviews: "Show all reviews"
       trustcloud: TrustCard
+    followed_people:
+      you_follow_plural: "You follow %{count} people"
+      you_follow_singular: "You follow %{count} person"
+      they_follow_plural: "%{count} followed people"
+      they_follow_singular: "%{count} followed person"
+      show_all_followed_people: "Show all followed people"
+      no_followed_people: "No followed people"
+    follow_button:
+      following: Following
+      follow: Follow
+      unfollow: Unfollow
   search:
     show:
       all_results: "All results"
@@ -1647,6 +1663,7 @@ en:
       email_about_completed_transactions: "...someone marks my offer or request as completed"
       email_about_new_payments: "...I receive a new payment"
       email_about_payment_reminders: "...I have forgotten to pay"
+      email_about_new_listings_by_followed_people: "...somebody I follow posts a new listing"
       unsubscribe_succesful: "Unsubscribe succesful"
       unsubscribe_info_text: "You will no longer receive these emails. Check your %{settings_link} to choose what kind of emails you want to receive from %{service_name}, or return to the %{homepage_link}."
       settings_link: settings

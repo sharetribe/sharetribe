@@ -301,12 +301,12 @@ describe PersonMailer do
   it "should send email to requestor when contacting via dashboard" do
     contact_request = FactoryGirl.create(:contact_request)
     country_manager = FactoryGirl.create(:country_manager)
-    
+
     email = PersonMailer.reply_to_contact_request(contact_request).deliver
 
     assert !ActionMailer::Base.deliveries.empty?
-    
-    assert email.to.include?(contact_request.email) 
+
+    assert email.to.include?(contact_request.email)
     assert email.body.include?(country_manager.email_content)
     assert_equal country_manager.subject_line, email.subject
   end
@@ -317,10 +317,26 @@ describe PersonMailer do
     email = PersonMailer.contact_request_notification(contact_request).deliver
 
     assert !ActionMailer::Base.deliveries.empty?
-    
+
     assert email.to.include?(APP_CONFIG.contact_request_mailer_recipients || APP_CONFIG.feedback_mailer_recipients)
     assert email.body.include?("New contact request:")
     assert_equal "New contact request by #{contact_request.email}", email.subject
+  end
+
+  describe "#new_listing_by_followed_person" do
+
+    before do
+      @listing = FactoryGirl.create(:listing)
+      @recipient = FactoryGirl.create(:person)
+      @community = @listing.communities.last
+    end
+
+    it "should notify of a new listing" do
+      email = PersonMailer.new_listing_by_followed_person(@listing, @recipient, @community).deliver
+      assert !ActionMailer::Base.deliveries.empty?
+      assert_equal @recipient.confirmed_notification_email_addresses, email.to
+    end
+
   end
 
 end

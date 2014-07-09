@@ -63,7 +63,11 @@ class Person < ActiveRecord::Base
   # events where this person was the target of the action
   has_many :targeted_event_feed_events, :class_name => "EventFeedEvent", :foreign_key => "person2_id", :dependent => :destroy
   has_many :auth_tokens, :dependent => :destroy
-
+  has_many :follower_relationships
+  has_many :followers, :through => :follower_relationships, :foreign_key => "person_id"
+  has_many :inverse_follower_relationships, :class_name => "FollowerRelationship", :foreign_key => "follower_id"
+  has_many :followed_people, :through => :inverse_follower_relationships, :source => "person"
+  
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
 
   DEFAULT_TIME_FOR_COMMUNITY_UPDATES = 7.days
@@ -80,7 +84,8 @@ class Person < ActiveRecord::Base
     "email_about_testimonial_reminders",
     "email_about_completed_transactions",
     "email_about_new_payments",
-    "email_about_payment_reminders"
+    "email_about_payment_reminders",
+    "email_about_new_listings_by_followed_people"
 
     # These should not yet be shown in UI, although they might be stored in DB
     # "email_when_new_friend_request",
@@ -688,7 +693,19 @@ class Person < ActiveRecord::Base
       throw "can_receive_payments_at? was checked in a community which has no payment gateways"
     end
   end
-
+  
+  def follows?(person)
+    followed_people_by_id.include?(person.id)
+  end
+  
+  def followed_people_by_id
+    @followed_people_by_id ||= followed_people.group_by(&:id)
+  end
+  
+  def self.members_of(community)
+    joins(:communities).where("communities.id" => community.id)
+  end
+  
   private
 
   # This method constructs a key to be used in caching.

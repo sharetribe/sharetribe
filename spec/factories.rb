@@ -34,7 +34,7 @@ FactoryGirl.define do
     "sharetribe_testcommunity_#{n}"
   end
 
-  factory :person, aliases: [:author, :receiver, :recipient, :payer, :sender] do
+  factory :person, aliases: [:author, :receiver, :recipient, :payer, :sender, :follower] do
     is_admin 0
     locale "en"
     test_group_number 4
@@ -357,4 +357,8 @@ FactoryGirl.define do
     email_content "This email will get the requester"
   end
 
+  factory :follower_relationship do
+    person
+    follower
+  end
 end

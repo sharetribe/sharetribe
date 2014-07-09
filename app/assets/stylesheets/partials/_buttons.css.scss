@@ -1,0 +1,27 @@
+@import "mixins/all";
+
+.button-hoverable {
+  .content.hover-content {
+    display: none;
+  }
+}
+
+.button-hoverable:hover:not(.button-disable-hover) {
+  .content.default-content {
+    display: none;
+  }
+  .content.hover-content {
+    display: table-cell;
+  }
+}
+
+.follow-button {
+  @include grey-button;
+  width: 100%;
+
+  &.unfollow:hover:not(.button-disable-hover) {
+    background: $red;
+    color: white;
+  }
+  
+}
