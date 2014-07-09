@@ -2,13 +2,13 @@ pt-BR:
   admin:
     categories:
       edit:
-        edit_listing_category: ~
+        edit_listing_category: "Editar categoria '%{category}'"
       index:
-        listing_categories: ~
+        listing_categories: "Lista de Categorias"
         create_a_new_category: "+ Criar uma nova categoria"
         remove_category_confirmation: ~
-        saving_order: ~
-        save_order_successful: ~
+        saving_order: "Salvar ordem das categorias"
+        save_order_successful: "Ordem das categorias salva com sucesso"
         save_order_error: ~
       new:
         new_listing_category: ~
@@ -19,7 +19,7 @@ pt-BR:
           category_parent: "Categoria principal"
           no_parent: ~
         category_transaction_types:
-          transaction_types: ~
+          transaction_types: "Tipos de transação"
           transaction_types_description: ~
         buttons:
           save: Salvar
@@ -181,7 +181,7 @@ pt-BR:
         this_field_is_required: "Esse campo é obrigatório"
       form:
         field_required:
-          this_field_is_required: ~
+          this_field_is_required: "Esse campo é obrigatório"
           this_field_is_required_checkbox: ~
       index:
         listing_fields: "Listar campos"
@@ -484,7 +484,7 @@ pt-BR:
       account_number: "Número da Conta"
       save: Salvar
     show:
-      payout_details: ~
+      payout_details: "Detalhes do pagamento"
       first_name: Nome
       last_name: Sobrenome
       email: "Endereço de email"
@@ -499,10 +499,10 @@ pt-BR:
       account_number: "Número da Conta"
   braintree_payments:
     edit:
-      new_credit_card_payment: ~
+      new_credit_card_payment: "Novo cartão de crédito"
       payment_receiver: ~
-      cardholder_name: ~
-      credit_card_number: ~
+      cardholder_name: "Nome et sobrenome do dono da carta bancária"
+      credit_card_number: "Número da carta bancária"
       cvv: ~
       credit_card_expiration_date: ~
       confirm_payment: "Confirmar pagamento"
@@ -612,7 +612,7 @@ pt-BR:
       you_have_not_yet_accepted_or_rejected_request: "Você ainda não aceitou nem rejeitou a requisição %{title} que recebeu em %{date}"
       show_thread: "Ver a conversa"
     braintree_account_approved:
-      account_ready: ~
+      account_ready: "Você já pode receber pagamentos"
       message: ~
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
@@ -634,13 +634,13 @@ pt-BR:
       please_go_to_payment_settings: ~
       payment_settings_link: "configurações de pagamento"
     transaction_confirmed:
-      here_is_a_message_from: ~
+      here_is_a_message_from: "Veja a mensagem de %{other_party_given_name} :"
       request_marked_as_confirmed: "Pedido realizado - deixe um comentário "
       request_marked_as_canceled: "Pedido anulado"
       has_marked_request_as_confirmed: ~
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
+      give_feedback_to: "Dar uma opinião sobre %{other_party_given_name}"
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
@@ -690,28 +690,28 @@ pt-BR:
       you_have_been_invited_to_kassi: "%{inviter} convidou você a fazer parte da tribo %{community}."
       here_is_a_message_from: "Aqui está uma mensagem pessoal de %{inviter}"
       join_now: "Ingressar agora"
-      invitation_code: ~
+      invitation_code: "Código do convite : %{code}"
     new_comment:
-      has_commented_your_listing_in_kassi: ~
+      has_commented_your_listing_in_kassi: "%{author} comentou seu anúncio '%{listing}'."
       view_comment: "Ver comentário"
       you_have_a_new_comment: "%{author} comentou sua lista em %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} comentou um anúncio que você segue no %{service_name}"
-      has_commented_listing_you_follow_in_kassi: ~
+      has_commented_listing_you_follow_in_kassi: "%{author} comentou o anúncio '%{listing}' que você segue no %{service_name}."
     new_message:
       view_message: "Ver mensagem"
       has_sent_you_a_message_in_kassi: "%{sender} te enviou uma mensagem em %{service_name}."
       you_have_a_new_message: "Uma nova mensagem em %{service_name} de %{sender_name}"
     new_payment:
-      new_payment: ~
-      you_have_received_new_payment: ~
+      new_payment: "Você recebeu um novo pagamento"
+      you_have_received_new_payment: "Você foi pago <b>%{payment_sum}</b> por <b>%{listing_title}</b> pelo %{payer_full_name}. Veja o recibo."
     braintree_new_payment:
       product: "Produto:"
-      price_payer_paid: ~
-      service_fee: ~
+      price_payer_paid: "Preço pago pelo %{payer_full_name} :"
+      service_fee: "Comissão de %{service_name} :"
       you_will_get: "Você terá:"
     receipt_to_payer:
       receipt_of_payment: "Recibo do pagamento"
-      you_have_made_new_payment: ~
+      you_have_made_new_payment: "Você pagou <b>%{payment_sum}</b> por <b>%{listing_title}</b> à %{recipient_full_name}. Veja o recibo."
       product: Produto
       total: Total
       price: Preço
@@ -719,7 +719,7 @@ pt-BR:
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} te deu um feedback em %{service_name}"
       you_can_give_feedback_to: "Você ainda não deu um feedback para %{name}"
-      view_feedback: ~
+      view_feedback: "Ver opinião"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Um anúncio que você segue foi atualizado"
       has_updated_listing_you_follow_in_kassi: ~
@@ -727,7 +727,7 @@ pt-BR:
     community_updates:
       added_offer: "%{name_link} adicionou um anúncio :"
       added_request: "%{name_link} adicionou um anúncio :\n"
-      added_listing: ~
+      added_listing: "%{name_link} adicionou um anúncio :"
       update_mail_title: "Atualidades da tribo %{title_link}"
       title_link_text: "%{community_name}"
       intro_paragraph: ~
@@ -901,7 +901,7 @@ pt-BR:
     grid_item:
       processing_uploaded_image: "(Processando imagem carregada...)"
     index:
-      no_listings_with_your_search_criteria: ~
+      no_listings_with_your_search_criteria: "Nós não encontramos nenhum resultado que corresponde à sua pesquisa."
       no_listings_notification: "Nenhum anúncio. %{add_listing_link}."
       add_listing_link_text: "Adicionar nova lista"
       available_on_the_app_store: "Disponível na App Store"
@@ -944,7 +944,7 @@ pt-BR:
       invitation_message_field_placeholder: "Entrei para esta comunidade incrível. Você deve também!"
       errors_in_emails: ~
     list_item:
-      review: ~
+      review: opinião
       reviews: resenhas
     news_item:
       show_less: "Mostrar menos"
@@ -1244,8 +1244,8 @@ pt-BR:
         location: Local
       price:
         price: Preço
-        per: ~
-        mass: ~
+        per: Pelo
+        mass: "unidade, kg, l, m²..."
         time: "hora, dia, mês, ..."
         long_time: "semana, mês, ..."
         after_service_fee_you_will_get: ~
@@ -1375,7 +1375,7 @@ pt-BR:
       times: vezes
       times_viewed: Visualizado
       processing_uploaded_image: "(Processando imagem carregada...)"
-      price_excludes_vat: ~
+      price_excludes_vat: "(exclui VAT)"
       listing_created_at: "Listagem criada"
     verification_required:
       verification_required: "Verificação necessária"
@@ -1411,20 +1411,20 @@ pt-BR:
     member_id_or_email: "Nome de usuário ou email"
   payments:
     new:
-      new_payment: ~
+      new_payment: "Novo pagamento"
       continue: Continua
-      payment_receiver: ~
+      payment_receiver: "Destinatário do pagamento :"
       sum: "Soma do pagamento:"
-      commission_will_be_added: ~
+      commission_will_be_added: "Serão adicionados 10% de despesas de serviço."
     form:
       total: Total
       service_charge: "taxa de serviço"
       product: "Produto:"
       price: "Total :"
-      price_for: ~
+      price_for: "Preço por %{payer_given_name} :"
       continue_to_pay: "Continuar para pagamento"
       invoice: Fatura
-      service_fee: ~
+      service_fee: "comissão de %{service_name} :"
       you_will_get: "Você terá:"
     mangopay:
       terms:
