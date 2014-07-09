@@ -297,7 +297,6 @@ Kassi::Application.routes.draw do
   match "/:locale/requests/map/" => "listings#requests_on_map", :as => :requests_on_map
   match "/:locale/listing_bubble/:id" => "listings#listing_bubble", :as => :listing_bubble
   match "/:locale/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
-  match '/:locale/:page_type' => 'dashboard#campaign'
 
   match '/:locale/people/:person_id/settings/payments/braintree/new' => 'braintree_accounts#new', :as => :new_braintree_settings_payment
   match '/:locale/people/:person_id/settings/payments/braintree/show' => 'braintree_accounts#show', :as => :show_braintree_settings_payment
