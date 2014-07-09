@@ -277,7 +277,6 @@ Kassi::Application.routes.draw do
   match '/:locale/faq' => "dashboard#faq", :as => :faq
   match '/:locale/pricing' => "dashboard#pricing", :as => :pricing
   match '/:locale/dashboard_login' => "dashboard#login", :as => :dashboard_login
-  match '/wdc' => 'dashboard#wdc'
   match '/okl' => 'dashboard#okl'
   match '/omakotiliitto' => 'dashboard#okl'
   match '/:locale/admin' => 'admin/news_items#index', :as => :admin
