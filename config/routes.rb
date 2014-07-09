@@ -273,7 +273,6 @@ Kassi::Application.routes.draw do
   post '/webhooks/braintree' => 'braintree_webhooks#hooks'
 
   match '/:locale/mercury_update' => "mercury_update#update", :as => :mercury_update, :method => :put
-  match '/:locale/faq' => "dashboard#faq", :as => :faq
   match '/:locale/pricing' => "dashboard#pricing", :as => :pricing
   match '/:locale/dashboard_login' => "dashboard#login", :as => :dashboard_login
   match '/:locale/admin' => 'admin/news_items#index', :as => :admin
