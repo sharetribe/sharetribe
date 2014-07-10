@@ -49,7 +49,6 @@ Kassi::Application.routes.draw do
     match "/listings/new/:type/:category" => "listings#new", :as => :new_request_category
     match "/listings/new/:type" => "listings#new", :as => :new_request
     match "/logout" => "sessions#destroy", :as => :logout, :method => :delete
-    match "/signup" => "people#new", :as => :sign_up
     match "/signup/check_captcha" => "people#check_captcha", :as => :check_captcha
     match "/confirmation_pending" => "sessions#confirmation_pending", :as => :confirmation_pending
     match "/login" => "sessions#new", :as => :login
