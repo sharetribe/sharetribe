@@ -1,4 +1,4 @@
-- conversation_url = person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @conversation.id.to_s}))
+- conversation_url = person_message_url(@recipient, @url_params.merge({:id => @conversation.id.to_s}))
 - contact_url = new_user_feedback_url(@url_params)
 
 %tr

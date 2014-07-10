@@ -1,10 +1,10 @@
-- conversation_url = person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @conversation.id.to_s}))
+- conversation_url = person_message_url(@recipient, @url_params.merge({:id => @conversation.id.to_s}))
 - if @recipient.should_pay?(@conversation, @community)
   - action_url = @payment_url
   - action_text = t("emails.conversation_status_changed.pay_now")
   - additional_text = t("emails.conversation_status_changed.you_can_now_pay_to", :payment_receiver => @conversation.other_party(@recipient).given_name_or_username)
 - else
-  - action_url = person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @conversation.id}))
+  - action_url = person_message_url(@recipient, @url_params.merge({:id => @conversation.id}))
   - action_text = t("emails.conversation_status_changed.view_thread")
   - additional_text = ""
 
