@@ -129,7 +129,6 @@ Kassi::Application.routes.draw do
     end
 
     namespace :admin do
-      resources :news_items
       resources :communities do
         member do
           get :edit_details, to: 'community_customizations#edit_details'
@@ -255,7 +254,6 @@ Kassi::Application.routes.draw do
     resource :sms do
       get :message_arrived
     end
-    resources :news_items
     resources :statistics
   end
 
@@ -266,7 +264,6 @@ Kassi::Application.routes.draw do
 
   match '/:locale/mercury_update' => "mercury_update#update", :as => :mercury_update, :method => :put
   match '/:locale/dashboard_login' => "dashboard#login", :as => :dashboard_login
-  match '/:locale/admin' => 'admin/news_items#index', :as => :admin
   match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
   match "/:locale/people/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
   match "/:locale/listings/:listing_id/preauthorize" => "listing_conversations#preauthorize", :as => :preauthorize_payment
