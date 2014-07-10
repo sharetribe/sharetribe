@@ -21,7 +21,41 @@ Kassi::Application.routes.draw do
     mount MailPreview => 'mail_view'
   end
   
+  # Some non-RESTful mappings
+  
+  get '/webhooks/braintree' => 'braintree_webhooks#challenge'
+  post '/webhooks/braintree' => 'braintree_webhooks#hooks'
+
+  match '/:locale/mercury_update' => "mercury_update#update", :as => :mercury_update, :method => :put
+  match '/:locale/dashboard_login' => "dashboard#login", :as => :dashboard_login
+  match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
+  match "/:locale/people/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
+  match "/:locale/listings/:listing_id/preauthorize" => "listing_conversations#preauthorize", :as => :preauthorize_payment
+  match "/:locale/listings/:listing_id/reply" => "listing_conversations#new", :as => :reply_to_listing
+  match "/:locale/listings/:listing_id/contact" => "listing_conversations#contact", :as => :contact_to_listing
+  match "/:locale/listings/new/:type/:category" => "listings#new", :as => :new_request_category
+  match "/:locale/listings/new/:type" => "listings#new", :as => :new_request
+  match "/listings/new/:type" => "listings#new", :as => :new_request_without_locale # needed for some emails, where locale part is already set
+  match "/:locale/logout" => "sessions#destroy", :as => :logout, :method => :delete
+  match "/:locale/signup" => "people#new", :as => :sign_up
+  match "/:locale/signup/check_captcha" => "people#check_captcha", :as => :check_captcha
+  match "/:locale/confirmation_pending" => "sessions#confirmation_pending", :as => :confirmation_pending
+  match "/:locale/login" => "sessions#new", :as => :login
+  match "/change_locale" => "i18n#change_locale", :as => :change_locale
+  match "/:locale/listing_bubble/:id" => "listings#listing_bubble", :as => :listing_bubble
+  match "/:locale/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
+
+  match '/:locale/people/:person_id/settings/payments/braintree/new' => 'braintree_accounts#new', :as => :new_braintree_settings_payment
+  match '/:locale/people/:person_id/settings/payments/braintree/show' => 'braintree_accounts#show', :as => :show_braintree_settings_payment
+  match '/:locale/people/:person_id/settings/payments/braintree/create' => 'braintree_accounts#create', :as => :create_braintree_settings_payment
+    
   LOCALE_MATCHER = Regexp.new(Rails.application.config.AVAILABLE_LOCALES.map(&:last).join("|"))
+
+  # Inside this constraits are the routes that are used when request has subdomain other than www
+  constraints(CommunityDomain) do
+    match '/:locale/' => 'homepage#index', :constraints => { :locale => LOCALE_MATCHER }
+    match '/' => 'homepage#index'
+  end
   
   # Adds locale to every url right after the root path
   scope "(/:locale)", :constraints => { :locale => LOCALE_MATCHER } do
@@ -250,40 +284,6 @@ Kassi::Application.routes.draw do
     end # devise scope person
 
   end # scope locale
-
-  # Some non-RESTful mappings
-
-  get '/webhooks/braintree' => 'braintree_webhooks#challenge'
-  post '/webhooks/braintree' => 'braintree_webhooks#hooks'
-
-  match '/:locale/mercury_update' => "mercury_update#update", :as => :mercury_update, :method => :put
-  match '/:locale/dashboard_login' => "dashboard#login", :as => :dashboard_login
-  match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
-  match "/:locale/people/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
-  match "/:locale/listings/:listing_id/preauthorize" => "listing_conversations#preauthorize", :as => :preauthorize_payment
-  match "/:locale/listings/:listing_id/reply" => "listing_conversations#new", :as => :reply_to_listing
-  match "/:locale/listings/:listing_id/contact" => "listing_conversations#contact", :as => :contact_to_listing
-  match "/:locale/listings/new/:type/:category" => "listings#new", :as => :new_request_category
-  match "/:locale/listings/new/:type" => "listings#new", :as => :new_request
-  match "/listings/new/:type" => "listings#new", :as => :new_request_without_locale # needed for some emails, where locale part is already set
-  match "/:locale/logout" => "sessions#destroy", :as => :logout, :method => :delete
-  match "/:locale/signup" => "people#new", :as => :sign_up
-  match "/:locale/signup/check_captcha" => "people#check_captcha", :as => :check_captcha
-  match "/:locale/confirmation_pending" => "sessions#confirmation_pending", :as => :confirmation_pending
-  match "/:locale/login" => "sessions#new", :as => :login
-  match "/change_locale" => "i18n#change_locale", :as => :change_locale
-  match "/:locale/listing_bubble/:id" => "listings#listing_bubble", :as => :listing_bubble
-  match "/:locale/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
-
-  match '/:locale/people/:person_id/settings/payments/braintree/new' => 'braintree_accounts#new', :as => :new_braintree_settings_payment
-  match '/:locale/people/:person_id/settings/payments/braintree/show' => 'braintree_accounts#show', :as => :show_braintree_settings_payment
-  match '/:locale/people/:person_id/settings/payments/braintree/create' => 'braintree_accounts#create', :as => :create_braintree_settings_payment
-
-  # Inside this constraits are the routes that are used when request has subdomain other than www
-  constraints(CommunityDomain) do
-    match '/:locale/' => 'homepage#index'
-    match '/' => 'homepage#index'
-  end
 
   # Below are the routes that are matched if didn't match inside subdomain constraints
   match '/:locale' => 'dashboard#index'
