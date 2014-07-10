@@ -5,7 +5,7 @@
 
 - content_for :title_header do
   %h1
-    = link_to received_person_messages_path(:person_id => @current_user.id) do
+    = link_to received_person_messages_path(@current_user) do
       = t("layouts.no_tribe.inbox")
     |
     = t(".conversation_with", person: link_to(other_party.name, other_party)).html_safe
@@ -40,7 +40,7 @@
 
 
   #reply_form.message-avatar-padding.message-reply-form
-    = form_for Message.new, :url => person_message_messages_path(:person_id => @current_user.id, :message_id => @conversation.id.to_s) do |f|
+    = form_for Message.new, :url => person_message_messages_path(@current_user, :message_id => @conversation.id.to_s) do |f|
       = f.label :content, t(".write_a_reply")
       = f.text_area :content, :class => "reply_form_text_area"
       = f.hidden_field :conversation_id, :value => @conversation.id.to_s
