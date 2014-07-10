@@ -1055,12 +1055,9 @@ function initialize_reset_password_form() {
   });
 }
 
-function initialize_profile_view(profile_id, show_closed) {
-  $('#load-more-listings').click(function() {
-    request_path = profile_id + "/listings";
-    if (show_closed == true) {
-      request_path += "?show_closed=true";
-    }
+function initialize_profile_view(profile_id) {
+  $('#load-more-listings a').on("click", function() {
+    var request_path = $(this).data().url;
     $.get(request_path, function(data) {
       $('#profile-listings-list').html(data);
     });
