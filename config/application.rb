@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# encoding: utf-8
 
 require File.expand_path('../boot', __FILE__)
 
@@ -190,6 +190,30 @@ module Kassi
       Devise::Mailer.layout "email" # email.haml or email.erb
       Devise::Mailer.helper :email_template
     end
+    
+    config.middleware.insert_before(Rack::Lock, Rack::Rewrite) do
+      
+      person_exists = Proc.new { |rack_env|
+        path_parts = rack_env["PATH_INFO"].split("/") # indexing starts at 1
+        people_index = path_parts.index "people"
+        next false if !people_index || people_index > 2 # support /people and /:locale/people
+        person_id = path_parts[people_index + 1]
+        next false unless person_id
+        if people_index == 2
+          next false unless path_parts[1].in? Rails.application.config.AVAILABLE_LOCALES.map(&:last)
+        end
+        Person.where(:id => person_id).exists?
+      }
+      
+      r301 %r{\/([^/]+)/people/([^/]+)(.*)}, Proc.new { |match, _| 
+        p = Person.find_by_id(match[2])
+        "/#{match[1]}/#{p.username}#{match[3]}" 
+      }, :if => person_exists
 
+      r301 %r{\/people/([^/]+)(.*)}, Proc.new { |match, _| 
+        p = Person.find_by_id(match[1])
+        "/#{p.username}#{match[2]}" 
+      }, :if => person_exists
+    end
   end
 end
