@@ -768,21 +768,21 @@ module ApplicationHelper
         :id => "settings-tab-profile",
         :text => t("layouts.settings.profile"),
         :icon_class => icon_class("profile"),
-        :path => profile_person_settings_path(:person_id => person.id.to_s),
+        :path => profile_person_settings_path(person),
         :name => "profile"
       },
       {
         :id => "settings-tab-account",
         :text => t("layouts.settings.account"),
         :icon_class => icon_class("account_settings"),
-        :path => account_person_settings_path(:person_id => person.id.to_s) ,
+        :path => account_person_settings_path(person) ,
         :name => "account"
       },
       {
         :id => "settings-tab-notifications",
         :text => t("layouts.settings.notifications"),
         :icon_class => icon_class("notification_settings"),
-        :path => notifications_person_settings_path(:person_id => person.id.to_s),
+        :path => notifications_person_settings_path(person),
         :name => "notifications"
       }
     ]
