@@ -216,6 +216,9 @@ Kassi::Application.routes.draw do
           get :create_facebook_based
           get :fetch_rdf_profile
         end
+      end
+      
+      resources :people, :path => "" do
         member do
           put :activate
           put :deactivate
