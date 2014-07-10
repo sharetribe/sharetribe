@@ -49,7 +49,8 @@ class ListingConversation < Conversation
   end
 
   def initialize_braintree_payment!(payment, sum, currency)
-    payment.sum = Money.new(attributes[:sum], attributes[:currency])
+    sum_in_cents = sum.to_f*100
+    payment.sum = Money.new(sum_in_cents, currency)
   end
 
   def initialize_checkout_payment!(payment, rows)
