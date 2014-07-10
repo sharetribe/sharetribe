@@ -31,99 +31,7 @@ Kassi::Application.routes.draw do
       match 'api_version' => "api#version_check"
       match '/' => 'dashboard#api'
     end
-
-    devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people", :omniauth_callbacks => "sessions"}, :path_names => { :sign_in => 'login'}
-    devise_scope :person do
-      # these matches need to be before the general resources to have more priority
-      get "/people/confirmation" => "confirmations#show", :as => :confirmation
-      put "/people/confirmation" => "confirmations#create"
-      match "/people/password/edit" => "devise/passwords#edit"
-      post "/people/password" => "devise/passwords#create"
-      put "/people/password" => "devise/passwords#update"
-      match "/people/sign_up" => redirect("/%{locale}/login")
-
-      resources :people do
-        collection do
-          get :check_username_availability
-          get :check_email_availability
-          get :check_email_availability_and_validity
-          get :check_invitation_code
-          get :not_member
-          get :cancel
-          get :create_facebook_based
-          get :fetch_rdf_profile
-        end
-        member do
-          put :activate
-          put :deactivate
-        end
-        resources :listings do
-          member do
-            put :close
-            put :move_to_top
-            put :show_in_updates_email
-          end
-          resources :listing_conversations do
-            collection do
-              post :create_contact
-              post :preauthorized
-            end
-          end
-        end
-        resources :person_messages
-        resources :messages, :controller => :conversations do
-          collection do
-            get :received
-          end
-          member do
-            get :accept, to: 'accept_conversations#accept'
-            get :reject, to: 'accept_conversations#reject'
-            put :acceptance, to: 'accept_conversations#acceptance'
-            get :confirm, to: 'confirm_conversations#confirm'
-            get :cancel, to: 'confirm_conversations#cancel'
-            put :confirmation, to: 'confirm_conversations#confirmation'
-            get :accept_preauthorized, to: 'accept_preauthorized_conversations#accept'
-            get :reject_preauthorized, to: 'accept_preauthorized_conversations#reject'
-            put :acceptance_preauthorized, to: 'accept_preauthorized_conversations#acceptance'
-          end
-          resources :messages
-          resources :feedbacks, :controller => :testimonials do
-            collection do
-              put :skip
-            end
-          end
-          resources :payments do
-            member do
-              get :done
-            end
-          end
-          resources :braintree_payments
-        end
-        resource :settings do
-          member do
-            get :profile
-            get :account
-            get :notifications
-            get :payments
-            get :unsubscribe
-          end
-        end
-        resources :testimonials
-        resources :emails do
-          member do
-            post :send_confirmation
-          end
-        end
-        resources :followers
-        resources :followed_people
-      end # people
-
-      # List few specific routes here for Devise to understand those
-      match "/signup" => "people#new", :as => :sign_up
-      match "/people/:id/:type" => "people#show", :as => :person_listings
-      match '/auth/:provider/setup' => 'sessions#facebook_setup' #needed for devise setup phase hook to work
-    end # devise scope person
-
+    
     namespace :superadmin do
       resources :communities do
       end
@@ -246,6 +154,100 @@ Kassi::Application.routes.draw do
       get :message_arrived
     end
     resources :statistics
+    
+    devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people", :omniauth_callbacks => "sessions"}, :path_names => { :sign_in => 'login'}
+    devise_scope :person do
+      # these matches need to be before the general resources to have more priority
+      get "/people/confirmation" => "confirmations#show", :as => :confirmation
+      put "/people/confirmation" => "confirmations#create"
+      match "/people/password/edit" => "devise/passwords#edit"
+      post "/people/password" => "devise/passwords#create"
+      put "/people/password" => "devise/passwords#update"
+      match "/people/sign_up" => redirect("/%{locale}/login")
+
+      resources :people do
+        collection do
+          get :check_username_availability
+          get :check_email_availability
+          get :check_email_availability_and_validity
+          get :check_invitation_code
+          get :not_member
+          get :cancel
+          get :create_facebook_based
+          get :fetch_rdf_profile
+        end
+        member do
+          put :activate
+          put :deactivate
+        end
+        resources :listings do
+          member do
+            put :close
+            put :move_to_top
+            put :show_in_updates_email
+          end
+          resources :listing_conversations do
+            collection do
+              post :create_contact
+              post :preauthorized
+            end
+          end
+        end
+        resources :person_messages
+        resources :messages, :controller => :conversations do
+          collection do
+            get :received
+          end
+          member do
+            get :accept, to: 'accept_conversations#accept'
+            get :reject, to: 'accept_conversations#reject'
+            put :acceptance, to: 'accept_conversations#acceptance'
+            get :confirm, to: 'confirm_conversations#confirm'
+            get :cancel, to: 'confirm_conversations#cancel'
+            put :confirmation, to: 'confirm_conversations#confirmation'
+            get :accept_preauthorized, to: 'accept_preauthorized_conversations#accept'
+            get :reject_preauthorized, to: 'accept_preauthorized_conversations#reject'
+            put :acceptance_preauthorized, to: 'accept_preauthorized_conversations#acceptance'
+          end
+          resources :messages
+          resources :feedbacks, :controller => :testimonials do
+            collection do
+              put :skip
+            end
+          end
+          resources :payments do
+            member do
+              get :done
+            end
+          end
+          resources :braintree_payments
+        end
+        resource :settings do
+          member do
+            get :profile
+            get :account
+            get :notifications
+            get :payments
+            get :unsubscribe
+          end
+        end
+        resources :testimonials
+        resources :emails do
+          member do
+            post :send_confirmation
+          end
+        end
+        resources :followers
+        resources :followed_people
+      end # people
+
+      # List few specific routes here for Devise to understand those
+      match "/signup" => "people#new", :as => :sign_up
+      match "/people/:id/:type" => "people#show", :as => :person_listings
+      match '/auth/:provider/setup' => 'sessions#facebook_setup' #needed for devise setup phase hook to work
+      
+    end # devise scope person
+
   end # scope locale
 
   # Some non-RESTful mappings
