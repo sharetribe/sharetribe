@@ -246,7 +246,7 @@ Kassi::Application.routes.draw do
       get :message_arrived
     end
     resources :statistics
-  end
+  end # scope locale
 
   # Some non-RESTful mappings
 
