@@ -195,13 +195,6 @@ Kassi::Application.routes.draw do
         post :join
       end
     end
-    resources :tribes, :controller => :communities do
-      collection do
-        get :change_form_language
-        post :set_organization_email
-        post :confirm_organization_email
-      end
-    end
     resources :community_memberships, :as => :tribe_memberships do
       collection do
         get :access_denied
