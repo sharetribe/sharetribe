@@ -267,7 +267,6 @@ Kassi::Application.routes.draw do
   match "/:locale/confirmation_pending" => "sessions#confirmation_pending", :as => :confirmation_pending
   match "/:locale/login" => "sessions#new", :as => :login
   match "/change_locale" => "i18n#change_locale", :as => :change_locale
-  match '/:locale/tag_cloud' => "tag_cloud#index", :as => :tag_cloud
   match "/:locale/listing_bubble/:id" => "listings#listing_bubble", :as => :listing_bubble
   match "/:locale/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
 
