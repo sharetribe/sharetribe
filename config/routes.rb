@@ -261,7 +261,6 @@ Kassi::Application.routes.draw do
   match "/:locale/listings/new/:type/:category" => "listings#new", :as => :new_request_category
   match "/:locale/listings/new/:type" => "listings#new", :as => :new_request
   match "/listings/new/:type" => "listings#new", :as => :new_request_without_locale # needed for some emails, where locale part is already set
-  match "/:locale/search" => "search#show", :as => :search
   match "/:locale/logout" => "sessions#destroy", :as => :logout, :method => :delete
   match "/:locale/signup" => "people#new", :as => :sign_up
   match "/:locale/signup/check_captcha" => "people#check_captcha", :as => :check_captcha
