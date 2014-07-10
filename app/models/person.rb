@@ -69,7 +69,15 @@ class Person < ActiveRecord::Base
   has_many :followed_people, :through => :inverse_follower_relationships, :source => "person"
   
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
-
+  
+  def to_param
+    username
+  end
+  
+  def self.find(username)
+    super(self.find_by_username(username).try(:id) || username)
+  end
+  
   DEFAULT_TIME_FOR_COMMUNITY_UPDATES = 7.days
 
   # These are the email notifications, excluding newsletters settings
