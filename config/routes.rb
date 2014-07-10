@@ -20,9 +20,11 @@ Kassi::Application.routes.draw do
   if Rails.env.development?
     mount MailPreview => 'mail_view'
   end
-
+  
+  LOCALE_MATCHER = Regexp.new(Rails.application.config.AVAILABLE_LOCALES.map(&:last).join("|"))
+  
   # Adds locale to every url right after the root path
-  scope "(/:locale)" do
+  scope "(/:locale)", :constraints => { :locale => LOCALE_MATCHER } do
     scope :module => "api", :constraints => ApiRequest do
       resources :listings, :only => :index
 
