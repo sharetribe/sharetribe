@@ -44,19 +44,19 @@ class PaymentGateway < ActiveRecord::Base
   end
 
   def new_payment_path(person, message, locale)
-    new_person_message_payment_path(:person_id => person.id.to_s, :message_id => message.id.to_s, :locale => locale)
+    new_person_message_payment_path(person, message, :locale => locale)
   end
 
-    def new_payment_url(person, message, locale, other_params={})
-    new_person_message_payment_url(other_params.merge(:person_id => person.id.to_s, :message_id => message.id.to_s, :locale => locale))
+  def new_payment_url(person, message, locale, other_params={})
+    new_person_message_payment_url(person, message, other_params.merge(:locale => locale))
   end
 
   def settings_path(person, locale)
-    payments_person_settings_path(:person_id => person.id.to_s, :locale => locale)
+    payments_person_settings_path(person, :locale => locale)
   end
 
   def settings_url(person, locale, other_params={})
-    payments_person_settings_url(other_params.merge(:person_id => person.id.to_s, :locale => locale))
+    payments_person_settings_url(person, other_params.merge(:locale => locale))
   end
 
   def hold_in_escrow
