@@ -279,8 +279,6 @@ Kassi::Application.routes.draw do
         resources :followed_people
       end # people
       
-      match "/people/:id/:type" => "people#show", :as => :person_listings
-    
     end # devise scope person
 
   end # scope locale
