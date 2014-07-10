@@ -1,6 +1,0 @@
-.form_field_container{:id => "poll_option_#{index}"}
-  = fields_for "poll[poll_options][]", PollOption.new do |option_form|
-    = option_form.label :label, t('.option') + ":", :class => "input"
-    = option_form.text_field :label, :class => "option_field", :value => (option ? option.label : "")
-    .remove_option_link
-      = link_to t(".remove_option"), remove_option_admin_polls_path(:option => index), :remote => true, :tabindex => "-1"

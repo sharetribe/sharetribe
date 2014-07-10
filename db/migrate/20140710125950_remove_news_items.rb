@@ -8,7 +8,7 @@ class RemoveNewsItems < ActiveRecord::Migration
     add_column :communities, :news_enabled, :boolean, :default => true
     create_table :news_items do |t|
       t.string :title
-      t.string :content
+      t.text :content
       t.integer :community_id
       t.string :author_id
 

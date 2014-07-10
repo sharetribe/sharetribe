@@ -55,8 +55,6 @@ class Person < ActiveRecord::Base
   has_many :community_memberships, :dependent => :destroy
   has_many :communities, :through => :community_memberships, :conditions => ['status = ?', 'accepted']
   has_many :invitations, :foreign_key => "inviter_id", :dependent => :destroy
-  has_many :poll_answers, :class_name => "PollAnswer", :foreign_key => "answerer_id", :dependent => :destroy
-  has_many :answered_polls, :through => :poll_answers, :source => :poll
   has_many :devices, :dependent => :destroy
   #event where this person did something
   has_many :done_event_feed_events, :class_name => "EventFeedEvent", :foreign_key => "person1_id", :dependent => :destroy
@@ -585,15 +583,12 @@ class Person < ActiveRecord::Base
       source_person.authored_comments.each  { |asset| asset.author = self ; asset.save(:validate => false) }
       source_person.community_memberships.each  { |asset| asset.person = self ; asset.save(:validate => false)}
       source_person.invitations.each { |asset| asset.inviter = self ; asset.save(:validate => false) }
-      source_person.poll_answers.each { |asset| asset.answerer = self ; asset.save(:validate => false) }
       source_person.invitations.each { |asset| asset.inviter = self ; asset.save(:validate => false) }
       source_person.devices.each { |asset| asset.person = self ; asset.save(:validate => false) }
       source_person.done_event_feed_events.each { |asset| asset.person1 = self ; asset.save(:validate => false) }
       source_person.targeted_event_feed_events.each { |asset| asset.person2 = self ; asset.save(:validate => false) }
       source_person.followed_listings.each { |asset| self.followed_listings << asset}
-      Poll.find_all_by_author_id(source_person.id).each { |asset| asset.author = self ; asset.save(:validate => false) }
       Feedback.find_all_by_author_id(source_person.id).each { |asset| asset.author = self ; asset.save(:validate => false) }
-      NewsItem.find_all_by_author_id(source_person.id).each { |asset| asset.author = self ; asset.save(:validate => false) }
 
       # Location. Pick from source_person only if primary account doesn't have
       if self.location.nil? && source_person.location.present?

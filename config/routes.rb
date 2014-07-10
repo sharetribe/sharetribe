@@ -107,7 +107,6 @@ Kassi::Application.routes.draw do
           end
         end
         resources :testimonials
-        resources :poll_answers
         resources :emails do
           member do
             post :send_confirmation
@@ -170,16 +169,6 @@ Kassi::Application.routes.draw do
         end
         collection do
           post :order
-        end
-      end
-      resources :polls do
-        collection do
-          get :add_option
-          get :remove_option
-        end
-        member do
-          put :open
-          put :close
         end
       end
     end
