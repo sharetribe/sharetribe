@@ -46,10 +46,6 @@ class ListingsController < ApplicationController
     redirect_to root
   end
 
-  def requests
-    redirect_to root
-  end
-
   def offers
     redirect_to root
   end

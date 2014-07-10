@@ -269,7 +269,6 @@ Kassi::Application.routes.draw do
   match '/:locale/admin' => 'admin/news_items#index', :as => :admin
   match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
   match "/:locale/offers" => "listings#offers", :as => :offers
-  match "/:locale/requests" => "listings#requests", :as => :requests
   match "/:locale/people/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
   match "/:locale/listings/:listing_id/preauthorize" => "listing_conversations#preauthorize", :as => :preauthorize_payment
   match "/:locale/listings/:listing_id/reply" => "listing_conversations#new", :as => :reply_to_listing
