@@ -127,7 +127,6 @@ CREATE TABLE `communities` (
   `private` tinyint(1) DEFAULT '0',
   `label` varchar(255) DEFAULT NULL,
   `show_date_in_listings_list` tinyint(1) DEFAULT '0',
-  `news_enabled` tinyint(1) DEFAULT '1',
   `all_users_can_add_news` tinyint(1) DEFAULT '1',
   `custom_frontpage_sidebar` tinyint(1) DEFAULT '0',
   `event_feed_enabled` tinyint(1) DEFAULT '1',
@@ -619,17 +618,6 @@ CREATE TABLE `messages` (
   `action` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_messages_on_conversation_id` (`conversation_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `news_items` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) DEFAULT NULL,
-  `content` text,
-  `community_id` int(11) DEFAULT NULL,
-  `author_id` varchar(255) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `old_ressi_events` (
@@ -1883,3 +1871,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140701140655');
 INSERT INTO schema_migrations (version) VALUES ('20140703074142');
 
 INSERT INTO schema_migrations (version) VALUES ('20140703075424');
+
+INSERT INTO schema_migrations (version) VALUES ('20140710125950');

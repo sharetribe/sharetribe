@@ -7,7 +7,6 @@ class Community < ActiveRecord::Base
   has_many :community_memberships, :dependent => :destroy
   has_many :members, :through => :community_memberships, :conditions => ['community_memberships.status = ?', 'accepted'], :source => :person
   has_many :invitations, :dependent => :destroy
-  has_many :news_items, :dependent => :destroy
   has_many :polls, :dependent => :destroy
   has_many :event_feed_events, :dependent => :destroy
   has_one :location, :dependent => :destroy
