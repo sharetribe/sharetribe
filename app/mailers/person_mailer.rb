@@ -326,7 +326,7 @@ class PersonMailer < ActionMailer::Base
     #@country_manager ||= CountryManager.find_by_country("global")
     set_locale @country_manager.locale
     email_from = "#{@country_manager.given_name} #{@country_manager.family_name} <#{@country_manager.email}>"
-    mail(:to => @contact_request.email, :subject => @country_manager.subject_line, :from => email_from) do |format|
+    mail(:to => @contact_request.email, :subject => "#{@country_manager.subject_line}, #{@contact_request.email.split('@')[0]}", :from => email_from) do |format|
       format.html { render :layout => false }
     end
   end
