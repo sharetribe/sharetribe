@@ -164,6 +164,10 @@ Kassi::Application.routes.draw do
       post "/people/password" => "devise/passwords#create"
       put "/people/password" => "devise/passwords#update"
       match "/people/sign_up" => redirect("/%{locale}/login")
+      
+      # List few specific routes here for Devise to understand those
+      match "/signup" => "people#new", :as => :sign_up
+      match '/auth/:provider/setup' => 'sessions#facebook_setup' #needed for devise setup phase hook to work
 
       resources :people do
         collection do
@@ -240,12 +244,9 @@ Kassi::Application.routes.draw do
         resources :followers
         resources :followed_people
       end # people
-
-      # List few specific routes here for Devise to understand those
-      match "/signup" => "people#new", :as => :sign_up
-      match "/people/:id/:type" => "people#show", :as => :person_listings
-      match '/auth/:provider/setup' => 'sessions#facebook_setup' #needed for devise setup phase hook to work
       
+      match "/people/:id/:type" => "people#show", :as => :person_listings
+    
     end # devise scope person
 
   end # scope locale
