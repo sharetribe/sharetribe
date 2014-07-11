@@ -35,9 +35,9 @@ module NavigationHelpers
     when /^the messages page$/i
       received_person_messages_path(:person_id => @logged_in_user.id, :locale => "en")
     when /^the profile page of "(.*)"$/i
-      person_path(:id => @people[$1].id, :locale => "en")
+      person_path(@people[$1], :locale => "en")
     when /^my profile page$/i
-      person_path(:id => @logged_in_user.id, :locale => "en")
+      person_path( @logged_in_user, :locale => "en")
     when /^the testimonials page of "(.*)"$/i
       person_testimonials_path(:person_id => @people[$1].id, :locale => "en")
     when /the listing page/
