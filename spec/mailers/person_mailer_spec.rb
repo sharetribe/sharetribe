@@ -298,7 +298,7 @@ describe PersonMailer do
 
   end
 
-  it "should send email to requestor when contacting via dashboard" do
+  it "should send email to requester when contacting via dashboard" do
     contact_request = FactoryGirl.create(:contact_request)
     country_manager = FactoryGirl.create(:country_manager)
 
@@ -308,7 +308,7 @@ describe PersonMailer do
 
     assert email.to.include?(contact_request.email)
     assert email.body.include?(country_manager.email_content)
-    assert_equal country_manager.subject_line, email.subject
+    assert_equal "#{country_manager.subject_line}, #{contact_request.email.split('@')[0]}", email.subject
   end
 
   it "should send notification email to admins when requester contacting via dashboard" do
