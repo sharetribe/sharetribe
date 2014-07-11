@@ -117,7 +117,7 @@ class Person < ActiveRecord::Base
   validates_format_of :username,
                        :with => /^[A-Z0-9_]*$/i
   
-  USERNAME_BLACKLIST = %w(admin auth change_locale channel community_memberships consent contact_requests design editor homepage infos invitations listing_bubble listing_bubble_multiple listing_images listings mercury people robots sessions signup sms statistics superadmin terms user_feedbacks webhooks)
+  USERNAME_BLACKLIST = YAML.load_file("#{Rails.root}/config/username_blacklist.yml")
   
   validates :username, :exclusion => USERNAME_BLACKLIST
   validate :community_email_type_is_correct
