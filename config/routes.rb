@@ -39,7 +39,6 @@ Kassi::Application.routes.draw do
   
   # Below are the routes that are matched if didn't match inside subdomain constraints
   match '(/:locale)' => 'dashboard#index', :constraints => { :locale => locale_matcher }
-  root :to => 'dashboard#index'
 
   # Adds locale to every url right after the root path
   scope "(/:locale)", :constraints => { :locale => locale_matcher } do
