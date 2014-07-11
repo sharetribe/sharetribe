@@ -42,7 +42,6 @@ Kassi::Application.routes.draw do
     
     match '/mercury_update' => "mercury_update#update", :as => :mercury_update, :method => :put
     match '/dashboard_login' => "dashboard#login", :as => :dashboard_login
-    match "/people/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
     match "/listings/:listing_id/preauthorize" => "listing_conversations#preauthorize", :as => :preauthorize_payment
     match "/listings/:listing_id/reply" => "listing_conversations#new", :as => :reply_to_listing
     match "/listings/:listing_id/contact" => "listing_conversations#contact", :as => :contact_to_listing
@@ -285,6 +284,8 @@ Kassi::Application.routes.draw do
       end # people
       
     end # devise scope person
+    
+    match "/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
 
   end # scope locale
 
