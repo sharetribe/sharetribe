@@ -16,7 +16,7 @@
                             = t("emails.community_updates.update_mail_title", :title_link => link_to(@title_link_text, root_url(@url_params), :style => "color:#d96e21;font-weight:normal;text-decoration:none;")).html_safe
                         %div{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;line-height:22px; padding: 10px 0;text-align:left;"}
                           %p
-                            = t("emails.newsletter.hi", :name => link_to(@recipient.given_name_or_username, person_url(@url_params.merge({:id => @recipient.id})), :style => "color:#d96e21;text-decoration:none;")).html_safe
+                            = t("emails.newsletter.hi", :name => link_to(@recipient.given_name_or_username, person_url(@recipient, @url_params), :style => "color:#d96e21;text-decoration:none;")).html_safe
                           %p
                             = t("emails.community_updates.intro_paragraph", :community_link => link_to(t("emails.community_updates.intro_paragraph_link_text", :community_name => @community.full_name(I18n.locale)), root_url(@url_params), :style => "color:#d96e21;text-decoration:none;"), :time_since_last_update => @time_since_last_update).html_safe
                       %td{:width => "5%"}
