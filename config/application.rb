@@ -193,15 +193,23 @@ module Kassi
     
     config.middleware.insert_before(Rack::Lock, Rack::Rewrite) do
       
+      legal_locale_codes = Rails.application.config.AVAILABLE_LOCALES.map(&:last)
+      
       person_exists = Proc.new { |rack_env|
-        path_parts = rack_env["PATH_INFO"].split("/") # indexing starts at 1
+        path_parts = rack_env["PATH_INFO"].split("/").reject(&:blank?)
+        
         people_index = path_parts.index "people"
-        next false if !people_index || people_index > 2 # support /people and /:locale/people
+        
+        next false if !people_index || people_index > 1 # support /people and /:locale/people
+        
         person_id = path_parts[people_index + 1]
+        
         next false unless person_id
-        if people_index == 2
-          next false unless path_parts[1].in? Rails.application.config.AVAILABLE_LOCALES.map(&:last)
+        
+        if people_index == 1
+          next false unless path_parts[0].in? legal_locale_codes
         end
+        
         Person.where(:id => person_id).exists?
       }
       
