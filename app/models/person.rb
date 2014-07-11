@@ -116,7 +116,10 @@ class Person < ActiveRecord::Base
 
   validates_format_of :username,
                        :with => /^[A-Z0-9_]*$/i
-
+  
+  USERNAME_BLACKLIST = %w(admin auth change_locale channel community_memberships consent contact_requests design editor homepage infos invitations listing_bubble listing_bubble_multiple listing_images listings mercury people robots sessions signup sms statistics superadmin terms user_feedbacks webhooks)
+  
+  validates :username, :exclusion => USERNAME_BLACKLIST
   validate :community_email_type_is_correct
 
   has_attached_file :image, :styles => {
@@ -182,11 +185,7 @@ class Person < ActiveRecord::Base
   end
 
   def self.username_available?(username)
-     if Person.find_by_username(username).present?
-       return false
-     else
-       return true
-     end
+     !Person.find_by_username(username).present? && !username.in?(USERNAME_BLACKLIST)
    end
 
   def name_or_username(community=nil)
