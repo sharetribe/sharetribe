@@ -29,16 +29,16 @@ Kassi::Application.routes.draw do
   match "/listings/new/:type" => "listings#new", :as => :new_request_without_locale # needed for some emails, where locale part is already set
   match "/change_locale" => "i18n#change_locale", :as => :change_locale
     
-  LOCALE_MATCHER = Regexp.new(Rails.application.config.AVAILABLE_LOCALES.map(&:last).join("|"))
+  locale_matcher = Regexp.new(Rails.application.config.AVAILABLE_LOCALES.map(&:last).join("|"))
 
   # Inside this constraits are the routes that are used when request has subdomain other than www
   constraints(CommunityDomain) do
-    match '/:locale/' => 'homepage#index', :constraints => { :locale => LOCALE_MATCHER }
+    match '/:locale/' => 'homepage#index', :constraints => { :locale => locale_matcher }
     match '/' => 'homepage#index'
   end
-  
+       
   # Adds locale to every url right after the root path
-  scope "(/:locale)", :constraints => { :locale => LOCALE_MATCHER } do
+  scope "(/:locale)", :constraints => { :locale => locale_matcher } do
     
     match '/mercury_update' => "mercury_update#update", :as => :mercury_update, :method => :put
     match '/dashboard_login' => "dashboard#login", :as => :dashboard_login
