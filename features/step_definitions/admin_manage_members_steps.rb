@@ -47,7 +47,7 @@ Then(/^I should see list of users with the following details:$/) do |table|
 end
 
 Then(/^I should see (\d+) users$/) do |user_count|
-  all("#admin_members_list tbody tr").count.should == user_count.to_i
+  expect(page).to have_selector("#admin_members_list tbody tr", :count => user_count)
 end
 
 Then(/^the first user should be "(.*?)"$/) do |full_name|
