@@ -24,13 +24,13 @@ Kassi::Application.routes.draw do
   # Some non-RESTful mappings
   get '/webhooks/braintree' => 'braintree_webhooks#challenge'
   post '/webhooks/braintree' => 'braintree_webhooks#hooks'
-
-  match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
+      
+  match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")  
   match "/listings/new/:type" => "listings#new", :as => :new_request_without_locale # needed for some emails, where locale part is already set
   match "/change_locale" => "i18n#change_locale", :as => :change_locale
-    
+  
   locale_matcher = Regexp.new(Rails.application.config.AVAILABLE_LOCALES.map(&:last).join("|"))
-
+  
   # Inside this constraits are the routes that are used when request has subdomain other than www
   constraints(CommunityDomain) do
     match '/:locale/' => 'homepage#index', :constraints => { :locale => locale_matcher }
@@ -292,5 +292,17 @@ Kassi::Application.routes.draw do
     match "/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
 
   end # scope locale
-
+  
+  id_to_username = Proc.new do |params, req|
+    username = Person.find(params[:person_id]).try(:username)
+    locale = params[:locale] + "/" if params[:locale]
+    if username
+      "/#{locale}#{username}#{params[:path]}"
+    else
+      "/404"
+    end    
+  end
+  
+  match "(/:locale)/people/:person_id(*path)" => redirect(id_to_username), :constraints => { :locale => locale_matcher, :person_id => /[a-zA-Z0-9_-]{20,}/ }
+  
 end

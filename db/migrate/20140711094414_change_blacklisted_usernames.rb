@@ -24,7 +24,7 @@ class ChangeBlacklistedUsernames < ActiveRecord::Migration
   
   def find_available_replacement(username)
     counter = 1
-    while true
+    loop do
       replacement = "#{username}#{counter}"
       return replacement unless username_exists?(replacement)
       counter += 1
