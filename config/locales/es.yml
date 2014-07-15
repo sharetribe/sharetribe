@@ -797,6 +797,11 @@ es:
       spread_the_word: ~
       spread_the_word_invite_only: ~
       have_fun: "Diviertete usando %{service_name}. Haz que tu comunidad sea grande y prospera!"
+    new_listing_by_followed_person:
+      subject: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
   error_messages:
     listings:
       departure_time: "La hora de salida debe estar entre la fecha actual y un año a partir de ahora."
@@ -1555,6 +1560,17 @@ es:
       show_all_open_listings: "Mostrar todas las publicaciones abiertas"
       show_all_reviews: "Mostrar todos los feedbacks"
       trustcloud: TrustCloud
+    followed_people:
+      you_follow_plural: ~
+      you_follow_singular: ~
+      they_follow_plural: ~
+      they_follow_singular: ~
+      show_all_followed_people: ~
+      no_followed_people: ~
+    follow_button:
+      following: ~
+      follow: ~
+      unfollow: ~
   search:
     show:
       all_results: "Todos los resultados"
@@ -1642,6 +1658,7 @@ es:
       email_about_completed_transactions: "...alguien ha marcado mi oferta o demanda como satisfecha"
       email_about_new_payments: "...Recibí un nuevo pago."
       email_about_payment_reminders: "Me olvidé de pagar"
+      email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: "Suscripción cancelada exitosamente"
       unsubscribe_info_text: "Ya no recibirás más emails de este tipo. Revisa tu %{settings_link} para seleccionar otros emails que quieras o no quieras recibir, o vuelve a %{homepage_link}."
       settings_link: opciones

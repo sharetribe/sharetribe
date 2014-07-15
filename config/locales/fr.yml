@@ -684,7 +684,7 @@ fr:
       message_not_displaying_correctly: "Cet email ne s'affiche pas correctement ?"
       view_it_in_your_browser: "Voir dans votre navigateur."
       or: ou
-      unsubscribe_from_these_emails: "désabonnez-vous de ces d'emails"
+      unsubscribe_from_these_emails: "désabonnez-vous de ces emails"
     community_starter_email:
       subject: "Découvrez le nouveau Sharetribe - fin de la limite en nombre de membres, présentation et aspect des tribus modifiables et bien d'autres choses"
     conversation_status_changed:
@@ -802,6 +802,11 @@ fr:
       spread_the_word: "<strong>Passez le mot.</strong> Pour avoir de nouveaux membres dans la tribu, vous devez en parler aux gens que vous connaissez. Voici quelques idées : 1) Parlez de %{service_name} sur une mailing list. 2) Partagez le lien suivant via Facebook, Twitter ou d'autres réseaux sociaux : %{url}. 3) Envoyez des emails d'invitation %{invite_link}. 4) Parlez en autour de vous quand vous rencontrez des gens, faites marcher le bouche à oreille."
       spread_the_word_invite_only: "<strong>Passez le mot.</strong> Vous avez décidé de rendre cette tribu \"sur invitation uniquement\". Les gens doivent donc avoir une invitation d'un autre membre pour la rejoindre. Ainsi, pour avoir de nouveaux membres dans la tribu, vous devez les inviter. Vous pouvez le faire %{invite_link}."
       have_fun: "Amusez vous et profitez de %{service_name}. Puisse votre tribu vivre et prospérer pour longtemps !"
+    new_listing_by_followed_person:
+      subject: "%{author_name} a publié une nouvelle annonce dans %{community}"
+      has_posted_a_new_listing: "%{author_name} a publié une nouvelle annonce : "
+      you_are_receiving_this_because: "Vous recevez cette notification car vous suivez %{author_name}."
+      view_listing: "Voir l'annonce"
   error_messages:
     listings:
       departure_time: "L'heure de départ doit être comprise entre l'heure actuelle et dans un an."
@@ -1560,6 +1565,17 @@ fr:
       show_all_open_listings: "Voir toutes les annonces en ligne"
       show_all_reviews: "Vois tous les avis"
       trustcloud: TrustCard
+    followed_people:
+      you_follow_plural: "Vous suivez %{count} personnes"
+      you_follow_singular: "Vous suivez %{count} personne"
+      they_follow_plural: "%{count} personnes suivies"
+      they_follow_singular: "%{count} personne suivie"
+      show_all_followed_people: "Afficher toutes les personnes suivies"
+      no_followed_people: "Aucune personne suivie"
+    follow_button:
+      following: Suivi(e)
+      follow: Suivre
+      unfollow: "Ne plus suivre"
   search:
     show:
       all_results: "Tous les résultats"
@@ -1647,6 +1663,7 @@ fr:
       email_about_completed_transactions: "...quelqu'un marque mon offre ou ma demande comme réalisée"
       email_about_new_payments: "...je reçois un nouveau paiement"
       email_about_payment_reminders: "...j'ai oublié de payer"
+      email_about_new_listings_by_followed_people: "...quelqu'un que je suis publie une nouvelle annonce"
       unsubscribe_succesful: "Désinscription réussie"
       unsubscribe_info_text: "Vous ne recevrez plus ces emails. Gérez vos %{settings_link} pour choisir quels emails vous voulez recevoir ou non, ou retourner sur la %{homepage_link}."
       settings_link: paramètres
@@ -1658,7 +1675,7 @@ fr:
       city: Ville
       family_name: Nom
       given_name: Prénom
-      first_name_with_initial: "(uniquement la première lettre visible par les autres utilisateurs)"
+      first_name_with_initial: "(seule la première lettre est visible par les autres utilisateurs)"
       first_name_only: "(non visible par les autres utilisateurs)"
       location_description: "Entrez votre position exacte ou, au moins, votre code postal. Vous pouvez également choisir un emplacement depuis la carte."
       phone_number: "Numéro de téléphone"
@@ -1670,7 +1687,7 @@ fr:
       these_fields_are_shown_in_your: "Cette information sera visible par tous les utilisateurs de %{service_name}"
       visible_to_everybody: "visible à tout le monde"
       visible_to_registered_users: "(visible par les utilisateurs connectés)"
-      default_in_listing: "(utilisé par défaut lors de la création d'une nouvelle annonce)"
+      default_in_listing: "(utilisée par défaut lors de la création d'une nouvelle annonce)"
       invisible: "(non visible par les autres utilisateurs)"
     save_information: "Sauvegarder les informations"
   tag_cloud:

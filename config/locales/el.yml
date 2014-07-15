@@ -787,6 +787,11 @@ el:
       spread_the_word: "<strong>Διαδώστε το.</strong> Για να έρθουν νέα μέλη στην κοινότητα, πρέπει να την διαδώσετε στους γνωστούς σας. Για παράδειγμα: 1) δημοσιεύστε για το %{service_name} σε μια mailing list. 2) Μοιραστείτε τον παρακάτω σύνδεσμο στο Faceboοκ, το Twitter ή σε άλλα κοινωνικά δίκτυα: %{url}. 3) Στείλτε προσκλήσεις χρησιμοποιώντας %{invite_link}. 4) Μην ξεχνάτε να τους ενημερώνετε κι από κοντά όταν τους βλέπετε!"
       spread_the_word_invite_only: "<strong>Διαδώστε το.</strong> Σε αυτή την κοινότητα μπορεί να γραφτεί κάποιος μόνο αν προσκληθεί από κάποιο άλλο μέλος. Συνεπώς, για να έχετε καινούρια μέλη πρέπει να τα προσκαλέσετε. Μπορείτε να το κάνετε αυτό από %{invite_link}."
       have_fun: "Ευχόμαστε να απολάυσετε τη χρήση του %{service_name}. Μακάρι η κοινότητά σας να προκόψει!"
+    new_listing_by_followed_person:
+      subject: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
   error_messages:
     listings:
       departure_time: "Η ώρα αναχώρησης πρέπει να είναι μεταξύ της τρέχουσας ώρας και ενός χρόνου από τώρα."
@@ -1545,6 +1550,17 @@ el:
       show_all_open_listings: "Εμφάνισε όλες τις ενεργές καταχωρήσεις"
       show_all_reviews: "Εμφάνισε όλες τις κριτικές"
       trustcloud: TrustCard
+    followed_people:
+      you_follow_plural: ~
+      you_follow_singular: ~
+      they_follow_plural: ~
+      they_follow_singular: ~
+      show_all_followed_people: ~
+      no_followed_people: ~
+    follow_button:
+      following: ~
+      follow: ~
+      unfollow: ~
   search:
     show:
       all_results: "Όλα τα αποτελέσματα"
@@ -1632,6 +1648,7 @@ el:
       email_about_completed_transactions: "... κάποιος δηλώνει ότι η προσφορά ή το αίτημά μου ολοκληρώθηκε"
       email_about_new_payments: "... λαμβάνω μια πληρωμή"
       email_about_payment_reminders: "... έχω ξεχάσει να πληρώσω"
+      email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: "Διαγραφήκατε από τη λίστα ενημερώσεων"
       unsubscribe_info_text: "Δεν θα ξαναλάβετε τέτοιο email. Ελέξτε τις %{settings_link} σας για να επιλέξετε ποια email θέλετε να λαμβάνετε ή επιστρέψτε στην %{homepage_link}."
       settings_link: ρυθμίσεις

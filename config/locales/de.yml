@@ -62,7 +62,7 @@ de:
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: "Privater Inhalt der Community Startseite"
         edit_private_community_homepage_content_description: "Dieser Content ist nur bei privaten Communities sichtbar. User, die nicht eingeloggt sind, sehen den Text auf der Startseite. Beschreibe hier deine Community und wie man ihr beitreten kann. Du kannst hier außerdem Bilder, Videos und HTML-Content hinzufügen. %{see_how_it_looks_like}."
-        update_information: Erneuern
+        update_information: "Einstellungen speichern"
         invite_people: "Lade Leute zu dieser Community ein"
         edit_signup_info: Anmeldedaten
         edit_signup_info_description: "Dies ist ein Infotext, der den Nutzern auf der Anmeldeseite angezeigt wird. Hier kannst du den Nutzern Anleitungen zum Anmelden geben, wie z.B. Informationen darüber, wie sie eine Einladung erhalten können etc.. Standardgemäß gibt es hier keine Anweisungen, aber du kannst sie hinzufügen, wenn du auf den Link unten klickst."
@@ -72,7 +72,7 @@ de:
         verification_to_post_listings_info_content_description: "Auf diesem Marktplatz ist es erforderlich, dass man sich vom Administrator verifizieren lässt, bevor man Einträge veröffentlichen darf. Hier kannst du den Standardtext festlegen, der nicht-verifizierten Benutzern angezeigt wird, wenn sie versuchen, einen neuen Eintrag zu erstellen."
         verification_to_post_listings_info_content_default: "Auf diesem Marktplatz ist es erforderlich, dass man sich vom Administrator verifizieren lässt, bevor man Einträge veröffentlichen darf. Du bist noch nicht verifiziert. Bitte %{contact_admin_link}, um dich verifizieren zu lassen."
         contact_admin_link_text: "Administrator kontaktieren"
-        save: ~
+        save: "Einstellungen speichern"
       edit_look_and_feel:
         edit_community_look_and_feel: "Bearbeite das \"Look & Feel\" der Community %{community_name}"
         community_logo: Logo
@@ -133,11 +133,11 @@ de:
         integrations: Integrationen
         google_analytics_key: "Google Analytics Tracking ID (klassisches Konto)"
         twitter_handle: ~
-        update_settings: "Einstellungen erneuern"
+        update_settings: "Einstellungen speichern"
         automatically_confirmed: ~
         automatic_newsletter_frequency: ~
-        newsletter_daily: ~
-        newsletter_weekly: ~
+        newsletter_daily: Täglich
+        newsletter_weekly: Wöchentlich
       manage_members:
         manage_members: "Benutzer verwalten"
         email: E-Mail
@@ -167,17 +167,17 @@ de:
         save: "Einstellungen speichern"
       menu_links:
         menu_links: ~
-        save: ~
+        save: "Einstellungen speichern"
         add_menu_link: ~
         title_placeholder: ~
         url_placeholder: ~
         title: ~
-        language: ~
-        url: ~
+        language: Sprache
+        url: URL
         empty: ~
       braintree_payment_gateway:
         braintree_payment_gateway: ~
-        environment: ~
+        environment: Umgebung
         private_key: ~
         public_key: ~
         client_side_encryption_key: ~
@@ -193,7 +193,7 @@ de:
         price_max: Höchstpreis
       edit_location:
         edit_location_field: ~
-        this_field_is_required: ~
+        this_field_is_required: "Dieses Feld ist erforderlich"
       form:
         field_required:
           this_field_is_required: "Dieses Feld ist erforderlich."
@@ -456,7 +456,7 @@ de:
       offer_canceled: abgelehnt
       offer_confirmed: fertig
       pay: Zahlen
-      preauthorized: ~
+      preauthorized: "Zahlung erfolgreich"
       paid: "erfolgreiche Bezahlung"
       request_accepted: "Anfrage akzeptiert"
       request_rejected: "Anfrage abgelehnt"
@@ -476,10 +476,10 @@ de:
       accept_request: "Anfrage annehmen"
       reject_offer: "Vielleicht später"
       reject_request: "Vielleicht später"
-      accept_preauthorized_offer: ~
-      accept_preauthorized_request: ~
-      reject_preauthorized_offer: ~
-      reject_preauthorized_request: ~
+      accept_preauthorized_offer: "Angebot akzeptieren"
+      accept_preauthorized_request: "Anfrage akzeptieren"
+      reject_preauthorized_offer: "Nicht dieses Mal"
+      reject_preauthorized_request: "Nicht dieses Mal"
       confirm: erledigt
       cancel: "nicht erfolgt"
   braintree_accounts:
@@ -802,6 +802,11 @@ de:
       spread_the_word: "<strong>Weitersagen!</strong> Um neue Mitglieder in die Community zu bekommen, solltest du deinen Freunden davon erzählen. Einige Ideen: 1) Informiere sie über %{service_name} mittels einer Rundmail. 2) Teile diesen Link via Facebook, Twitter und anderen Kanälen: %{url}. 3) Sende E-Mail-Einladungen: %{invite_link}. 4) Erzähle von der Community, wenn du Leute triffst."
       spread_the_word_invite_only: "<strong>Weitersagen!</strong> Du hast beschlossen, nur Leute mit Einladung in diese Community aufzunehmen. Das bedeutet, dass potenzielle Nutzer die Einladung eines aktiven Mitglieds benötigen, um beitreten zu können. Um also neue Mitglieder für deine Community zu bekommen, musst du sie einladen. Schicke ihnen dafür diesen Link: %{invite_link}."
       have_fun: "Viel Spaß mit %{service_name}. Möge deine Community lange aufrecht erhalten bleiben und erfolgreich sein."
+    new_listing_by_followed_person:
+      subject: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: "Eintrag ansehen"
   error_messages:
     listings:
       departure_time: "Die Abfahrtzeit muss zwischen der aktuellen Zeit und einem Jahr liegen."
@@ -871,10 +876,10 @@ de:
     create_new_marketplace: "Entwerfe einen neuen Marktplatz"
     contact_us: Kontakt
     profile: Profil
-    invite: Einladung
+    invite: "Neue Mitglieder einladen"
     login: ~
     signup: ~
-    menu: ~
+    menu: Menü
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Zusätzlich gibt es ein <b>anderes Angebot</b>,"
@@ -1210,7 +1215,7 @@ de:
       reopen_listing: "Eintrag wieder aktivieren"
       move_to_top: ~
       show_in_updates_email: ~
-      show_in_updates_email_loading: ~
+      show_in_updates_email_loading: Lädt...
       show_in_updates_email_error: ~
       show_in_updates_email_success: ~
     follow_links:
@@ -1355,7 +1360,7 @@ de:
       select_subcategory: "Unterkategorie auswählen"
       select_transaction_type: "Eintragsart auswählen"
       you_need_to_fill_payout_details_before_accepting: ~
-      payment_settings_link: ~
+      payment_settings_link: Zahlungseinstellungen
     please_comment: Kommentar
     reply_link:
       listing_closed: "Eintrag abgeschlossen"
@@ -1435,7 +1440,7 @@ de:
       total: Gesamtbetrag
       service_charge: Servicegebühr
       product: "Produkt:"
-      price: "Preis:"
+      price: "Summe:"
       price_for: "Preis für %{payer_given_name}:"
       continue_to_pay: "Weiter zum Bezahlen"
       invoice: Rechnung
@@ -1563,6 +1568,17 @@ de:
       show_all_open_listings: "Zeige alle offenen Einträge an"
       show_all_reviews: "Alle Bewertungen anzeigen"
       trustcloud: TrustCloud
+    followed_people:
+      you_follow_plural: ~
+      you_follow_singular: ~
+      they_follow_plural: ~
+      they_follow_singular: ~
+      show_all_followed_people: ~
+      no_followed_people: ~
+    follow_button:
+      following: ~
+      follow: Folgen
+      unfollow: "Nicht mehr folgen"
   search:
     show:
       all_results: "Alle Ergebnisse"
@@ -1650,6 +1666,7 @@ de:
       email_about_completed_transactions: "...jemand mein Angebot oder meine Anfrage als erledigt markiert"
       email_about_new_payments: "...ich eine neue Zahlung erhalte"
       email_about_payment_reminders: "...ich vergessen habe zu zahlen"
+      email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: "Abbestellen erfolgreich"
       unsubscribe_info_text: "Du wirst keine dieser E-Mails mehr erhalten. Überprüfe deine %{settings_link} und wähle die E-Mails aus, die du empfangen möchtest von %{service_name} oder gehe zurück zu der %{homepage_link}."
       settings_link: Einstellungen

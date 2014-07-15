@@ -787,6 +787,11 @@ nl:
       spread_the_word: ~
       spread_the_word_invite_only: ~
       have_fun: ~
+    new_listing_by_followed_person:
+      subject: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
   error_messages:
     listings:
       departure_time: "Vertrektijd moet plaatsvinden in het komende jaar."
@@ -902,7 +907,7 @@ nl:
       processing_uploaded_image: ~
     index:
       no_listings_with_your_search_criteria: "We slaagden er niet in om resultaten te vinden die voldoen aan de door jou opgegeven criteria (indien je iets hebt toegevoegd duurt het ongeveer 10 minuten voordat dit verschijnt in de zoekfunctie)."
-      no_listings_notification: "Geen lijsten%{add_listing_link}."
+      no_listings_notification: "Geen lijsten. %{add_listing_link}."
       add_listing_link_text: "Voeg een nieuw item toe"
       available_on_the_app_store: "Beschikbaar in de app store"
       private_listing_notification: "Er zijn %{listing_count} in deze gemeenschap. %{private_listing_count} van hun %{be_verb} zichtbaar enkel door de andere leden van de gemeenschap. Indien je ook de listings zichtbaar enkel voor leden wil zien, moet je %{log_in_link}"
@@ -1543,6 +1548,17 @@ nl:
       show_all_open_listings: ~
       show_all_reviews: ~
       trustcloud: ~
+    followed_people:
+      you_follow_plural: ~
+      you_follow_singular: ~
+      they_follow_plural: ~
+      they_follow_singular: ~
+      show_all_followed_people: ~
+      no_followed_people: ~
+    follow_button:
+      following: ~
+      follow: ~
+      unfollow: ~
   search:
     show:
       all_results: "Alle resultaten"
@@ -1630,6 +1646,7 @@ nl:
       email_about_completed_transactions: "...iemand mijn vraag markeert als voltooid"
       email_about_new_payments: ~
       email_about_payment_reminders: "ik vergeten ben om te betalen"
+      email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: ~
       unsubscribe_info_text: ~
       settings_link: ~

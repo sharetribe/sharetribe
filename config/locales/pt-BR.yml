@@ -787,6 +787,11 @@ pt-BR:
       spread_the_word: ~
       spread_the_word_invite_only: ~
       have_fun: ~
+    new_listing_by_followed_person:
+      subject: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
   error_messages:
     listings:
       departure_time: "Hora de partida deve estar entre a hora atual e um ano a frente a contar de agora."
@@ -1542,6 +1547,17 @@ pt-BR:
       show_all_open_listings: "Listar todas listas abertas"
       show_all_reviews: "Mostrar todas as opiniões"
       trustcloud: "Cartão confiança"
+    followed_people:
+      you_follow_plural: ~
+      you_follow_singular: ~
+      they_follow_plural: ~
+      they_follow_singular: ~
+      show_all_followed_people: ~
+      no_followed_people: ~
+    follow_button:
+      following: ~
+      follow: ~
+      unfollow: ~
   search:
     show:
       all_results: "Todos resultados"
@@ -1629,6 +1645,7 @@ pt-BR:
       email_about_completed_transactions: "...alguém marca a minha oferta ou solicitação como concluída"
       email_about_new_payments: "...Eu receber um novo pagamentor"
       email_about_payment_reminders: "...Eu esqueci de pagar"
+      email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: "Subscrição bem sucedida"
       unsubscribe_info_text: ~
       settings_link: configurações
