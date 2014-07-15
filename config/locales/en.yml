@@ -131,7 +131,7 @@ en:
         automatic_newsletters: "Send automatic daily / weekly newsletters to all users (unless they opt out)"
         email_admins_about_new_members: "Send admins an email whenever a new user signs up"
         integrations: Integrations
-        google_analytics_key: "Google Analytics tracking ID (classic account)"
+        google_analytics_key: "Google Analytics tracking ID"
         twitter_handle: "Twitter handle (used with tweet button in listing page)"
         update_settings: "Save settings"
         automatically_confirmed: "Transaction will be automatically marked as completed %{days_dropdown} days after the payment has been made. If escrow system is in use, the money will be released to the provider at this point."
@@ -156,8 +156,8 @@ en:
         twitter_handle_info_text: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page."
         twitter_handle_placeholder: username
         invalid_twitter_handle: "Twitter handle should contain only at maximum 15 alphanumeric (letters A-Z and numbers 0-9) characters."
-        google_analytics_key: "Google Analytics tracking ID (classic account)"
-        google_analytics_key_info_text: "Tracking ID of your Google Analytics account. You need to have a 'classic' account."
+        google_analytics_key: "Google Analytics tracking ID"
+        google_analytics_key_info_text: "Tracking ID of your Google Analytics account."
         facebook_connect: Facebook
         facebook_connect_info_text: "In order to enable Facebook login, create an application for your marketplace in the <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Add the generated id and secret key of the application here."
         facebook_connect_id: "Facebook client id"
