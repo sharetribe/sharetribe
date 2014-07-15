@@ -186,6 +186,35 @@ Then(/^I should see that the request is waiting for buyer confirmation$/) do
   page.should have_content(/Waiting for (.*) to mark the request completed/)
 end
 
+When(/^I accept the "(.*?)" request for that listing for post pay$/) do |request|
+  click_link "inbox-link"
+  click_link request
+  click_link "Accept request"
+end
+
+When(/^I approve the request for that listing for post pay$/) do
+  click_button "Send"
+end
+
+Then(/^I should see that I should fill in payout details$/) do
+  expect(find(:link, "payment settings"))
+end
+
+Then(/^I should see that the request is waiting for buyer to pay$/) do
+  page.should have_content(/Waiting for (.*) to pay/)
+end
+
+When(/^I pay my request for that listing$/) do
+  visit_conversation_of_current_listing
+  click_link "Pay"
+end
+
+When(/^I buy approved request "(.*)"$/) do |accepted_request|
+  click_link "inbox-link"
+  click_link accepted_request
+  click_link "Pay"
+end
+
 When(/^I confirm the request for that listing$/) do
   visit_conversation_of_current_listing
   click_link "Mark completed"
@@ -206,4 +235,29 @@ end
 Then(/^I should see that the request was rejected$/) do
   page.should have_content(/Rejected/)
 end
+
+
+Then /^I should see that the price of a listing is "(.*?)"$/ do |price_string|
+  expect(find(".message-price")).to have_content(price_string)
+end
+
+Then /^I should send a message to "(.*?)"$/ do |seller_name|
+  find("#new_listing_conversation").visible?.should be_true
+  seller = Person.find_by_username(seller_name)
+  expect(find("label[for=listing_conversation_message_attributes_content]")).to have_content("Message to #{seller.given_name}")
+end
+
+When /^I send initial message to "(.*?)"$/ do |seller|
+  fill_in "listing_conversation[message_attributes][content]", :with => "I want to buy this item"
+  click_button("Buy")
+end
+
+Then /^I should see that buy message has been sent$/ do
+  expect(page).to have_content("Message sent")
+end
+
+When /^I follow link to fill in Braintree payout details$/ do
+  click_link("#conversation-payment-settings-link")
+end
+
 
