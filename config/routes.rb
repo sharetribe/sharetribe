@@ -303,6 +303,6 @@ Kassi::Application.routes.draw do
     end    
   end
   
-  match "(/:locale)/people/:person_id(*path)" => redirect(id_to_username), :constraints => { :locale => locale_matcher }
+  match "(/:locale)/people/:person_id(*path)" => redirect(id_to_username), :constraints => { :locale => locale_matcher, :person_id => /[a-zA-Z0-9_-]{20,}/ }
   
 end
