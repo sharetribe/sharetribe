@@ -1,5 +1,5 @@
-- view_url = person_url(@url_params.merge({:id => @recipient.id})) + "#testimonial#{@testimonial.id.to_s}"
-- give_url = new_person_message_feedback_url(@url_params.merge({:person_id => @recipient.id, :message_id => @testimonial.participation.conversation.id}))
+- view_url = person_url(@recipient, @url_params) + "#testimonial#{@testimonial.id.to_s}"
+- give_url = new_person_message_feedback_url(@recipient, @url_params.merge({:message_id => @testimonial.participation.conversation.id}))
 
 %tr
   %td{:align => "left"}

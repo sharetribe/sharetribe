@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_profile_view("#{@person.id}", #{params[:show_closed] || false});
+  initialize_profile_view("#{@person.username}");
 
 - content_for :title_header do
   %h1
@@ -75,5 +75,3 @@
 - content_for :extra_javascript do
   :javascript
     window.ST.initializeFollowButtons();
-        
-        

@@ -1,4 +1,4 @@
-- url = person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @message.conversation.id.to_s})) + "#message#{@message.id.to_s}"
+- url = person_message_url(@recipient, @url_params.merge({:id => @message.conversation.id.to_s})) + "#message#{@message.id.to_s}"
 
 %span{id: SecureRandom.hex}
   %tr

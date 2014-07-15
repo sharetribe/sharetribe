@@ -1055,12 +1055,9 @@ function initialize_reset_password_form() {
   });
 }
 
-function initialize_profile_view(profile_id, show_closed) {
-  $('#load-more-listings').click(function() {
-    request_path = profile_id + "/listings";
-    if (show_closed == true) {
-      request_path += "?show_closed=true";
-    }
+function initialize_profile_view(profile_id) {
+  $('#load-more-listings a').on("click", function() {
+    var request_path = $(this).data().url;
     $.get(request_path, function(data) {
       $('#profile-listings-list').html(data);
     });
@@ -1092,19 +1089,6 @@ function initialize_profile_view(profile_id, show_closed) {
     $('#profile_description_full').hide();
   });
   $('#trustcloud_description_link').click(function() { $('#trustcloud_description').lightbox_me({centered: true}); });
-}
-
-function initialize_homepage_news_items(news_item_ids) {
-  for (var i = 0; i < news_item_ids.length; i++) {
-    $('#news_item_' + news_item_ids[i] + '_content').click(function(news_item) {
-      $('#' + news_item.currentTarget.id + '_div_preview').hide();
-      $('#' + news_item.currentTarget.id + '_div_full').show();
-    });
-    $('#news_item_' + news_item_ids[i] + '_content_div').click(function(news_item) {
-      $('#' + news_item.currentTarget.id + '_preview').show();
-      $('#' + news_item.currentTarget.id + '_full').hide();
-    });
-  }
 }
 
 function initialize_homepage(filters_in_use) {

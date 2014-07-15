@@ -20,21 +20,19 @@ class BraintreePaymentGateway < PaymentGateway
 
   def settings_path(person, locale)
     if person.braintree_account.blank?
-      new_braintree_settings_payment_path(:person_id => person.id.to_s, :locale => locale)
+      new_braintree_settings_payment_path(person, :locale => locale)
     else
-      show_braintree_settings_payment_path(:person_id => person.id.to_s, :locale => locale)
+      show_braintree_settings_payment_path(person, :locale => locale)
     end
   end
 
   def settings_url(person, locale, other_params={})
     if person.braintree_account.blank?
-      new_braintree_settings_payment_url(other_params.merge(
-        :person_id => person.id.to_s,
+      new_braintree_settings_payment_url(person, other_params.merge(
         :locale => locale
       ))
     else
-      show_braintree_settings_payment_url(other_params.merge(
-        :person_id => person.id.to_s,
+      show_braintree_settings_payment_url(person, other_params.merge(
         :locale => locale
       ))
     end

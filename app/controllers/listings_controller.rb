@@ -46,14 +46,6 @@ class ListingsController < ApplicationController
     redirect_to root
   end
 
-  def requests
-    redirect_to root
-  end
-
-  def offers
-    redirect_to root
-  end
-
   # method for serving Listing data (with locations) as JSON through AJAX-requests.
   def locations_json
     params[:include] = :origin_loc

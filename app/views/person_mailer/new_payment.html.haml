@@ -1,4 +1,4 @@
-- conversation_url = person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @payment.conversation.id.to_s}))
+- conversation_url = person_message_url(@recipient, @url_params.merge({:id => @payment.conversation.id.to_s}))
 
 %tr
   %td{:align => "left"}

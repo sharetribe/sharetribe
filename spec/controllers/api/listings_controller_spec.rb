@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# encoding: utf-8
 
 require 'spec_helper'
 
@@ -52,7 +52,7 @@ describe Api::ListingsController do
       doc = Nokogiri::XML::Document.parse(response.body)
       doc.at('feed/logo').text.should == "https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png"
 
-      doc.at("feed/title").text.should =~ /Listings in sharetribe_testcommunity_\d+ Sharetribe/
+      doc.at("feed/title").text.should =~ /Listings in sharetribe-testcommunity-\d+ Sharetribe/
       doc.search("feed/entry").count.should == 2
       doc.search("feed/entry/title")[0].text.should == "Sell: hammer"
       doc.search("feed/entry/title")[1].text.should == "Request: bike"
@@ -67,7 +67,7 @@ describe Api::ListingsController do
       doc = Nokogiri::XML::Document.parse(response.body)
       doc.remove_namespaces!
 
-      doc.at("feed/title").text.should =~ /Ilmoitukset sharetribe_testcommunity_\d+-Sharetribessa/
+      doc.at("feed/title").text.should =~ /Ilmoitukset sharetribe-testcommunity-\d+-Sharetribessa/
       doc.at("feed/entry/title").text.should == "Myydään: hammer"
       doc.at("feed/entry/category").attribute("term").value.should == "#{@category_item.id}"
       doc.at("feed/entry/category").attribute("label").value.should == "Tavarat"

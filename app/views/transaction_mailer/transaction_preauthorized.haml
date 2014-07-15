@@ -1,4 +1,4 @@
-- reply_url = person_message_url(@url_params.merge({:person_id => @conversation.author.id, :id => @conversation.id.to_s}))
+- reply_url = person_message_url(@conversation.author, @url_params.merge({:id => @conversation.id.to_s}))
 
 %tr
   %td{:align => "left", :style => "padding-top: 25px; padding-bottom: 25px;"}

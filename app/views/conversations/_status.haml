@@ -29,7 +29,7 @@
                   .icon-with-text.ss-coins
                   .text-with-icon= t(".pay")
             .inbox-horizontally-aligned-link
-              %a{:href => cancel_person_message_path(:person_id => @current_user.id, :id => conversation.id.to_s), :class => "status-link cancel"}
+              %a{:href => cancel_person_message_path(@current_user, :id => conversation.id.to_s), :class => "status-link cancel"}
                 .content
                   .icon-with-text{:class => icon_for("canceled")}
                   .text-with-icon= t(".cancel_payed_transaction")
@@ -94,12 +94,12 @@
         - else
           .status-links
             .inbox-horizontally-aligned-link
-              %a{:href => new_person_message_feedback_path(:person_id => @current_user.id, :message_id => conversation.id.to_s), :class => "status-link"}
+              %a{:href => new_person_message_feedback_path(@current_user, :message_id => conversation.id.to_s), :class => "status-link"}
                 .content
                   = icon_tag("testimonial", ["icon-with-text"])
                   .text-with-icon= t(".give_feedback")
             .inbox-horizontally-aligned-link
-              %a{:href => skip_person_message_feedbacks_path(:person_id => @current_user.id, :message_id => conversation.id.to_s), :class => "status-link", :data => { :method => "put", :remote => "true"}}
+              %a{:href => skip_person_message_feedbacks_path(@current_user, :message_id => conversation.id.to_s), :class => "status-link", :data => { :method => "put", :remote => "true"}}
                 .content
                   .ss-skipforward.icon-with-text
                   .text-with-icon= t(".skip_feedback")
