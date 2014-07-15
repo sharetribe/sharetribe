@@ -55,8 +55,6 @@ class Person < ActiveRecord::Base
   has_many :community_memberships, :dependent => :destroy
   has_many :communities, :through => :community_memberships, :conditions => ['status = ?', 'accepted']
   has_many :invitations, :foreign_key => "inviter_id", :dependent => :destroy
-  has_many :poll_answers, :class_name => "PollAnswer", :foreign_key => "answerer_id", :dependent => :destroy
-  has_many :answered_polls, :through => :poll_answers, :source => :poll
   has_many :devices, :dependent => :destroy
   #event where this person did something
   has_many :done_event_feed_events, :class_name => "EventFeedEvent", :foreign_key => "person1_id", :dependent => :destroy
@@ -69,7 +67,15 @@ class Person < ActiveRecord::Base
   has_many :followed_people, :through => :inverse_follower_relationships, :source => "person"
   
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
-
+  
+  def to_param
+    username
+  end
+  
+  def self.find(username)
+    super(self.find_by_username(username).try(:id) || username)
+  end
+  
   DEFAULT_TIME_FOR_COMMUNITY_UPDATES = 7.days
 
   # These are the email notifications, excluding newsletters settings
@@ -110,7 +116,10 @@ class Person < ActiveRecord::Base
 
   validates_format_of :username,
                        :with => /^[A-Z0-9_]*$/i
-
+  
+  USERNAME_BLACKLIST = YAML.load_file("#{Rails.root}/config/username_blacklist.yml")
+  
+  validates :username, :exclusion => USERNAME_BLACKLIST
   validate :community_email_type_is_correct
 
   has_attached_file :image, :styles => {
@@ -176,11 +185,7 @@ class Person < ActiveRecord::Base
   end
 
   def self.username_available?(username)
-     if Person.find_by_username(username).present?
-       return false
-     else
-       return true
-     end
+     !Person.find_by_username(username).present? && !username.in?(USERNAME_BLACKLIST)
    end
 
   def name_or_username(community=nil)
@@ -577,15 +582,12 @@ class Person < ActiveRecord::Base
       source_person.authored_comments.each  { |asset| asset.author = self ; asset.save(:validate => false) }
       source_person.community_memberships.each  { |asset| asset.person = self ; asset.save(:validate => false)}
       source_person.invitations.each { |asset| asset.inviter = self ; asset.save(:validate => false) }
-      source_person.poll_answers.each { |asset| asset.answerer = self ; asset.save(:validate => false) }
       source_person.invitations.each { |asset| asset.inviter = self ; asset.save(:validate => false) }
       source_person.devices.each { |asset| asset.person = self ; asset.save(:validate => false) }
       source_person.done_event_feed_events.each { |asset| asset.person1 = self ; asset.save(:validate => false) }
       source_person.targeted_event_feed_events.each { |asset| asset.person2 = self ; asset.save(:validate => false) }
       source_person.followed_listings.each { |asset| self.followed_listings << asset}
-      Poll.find_all_by_author_id(source_person.id).each { |asset| asset.author = self ; asset.save(:validate => false) }
       Feedback.find_all_by_author_id(source_person.id).each { |asset| asset.author = self ; asset.save(:validate => false) }
-      NewsItem.find_all_by_author_id(source_person.id).each { |asset| asset.author = self ; asset.save(:validate => false) }
 
       # Location. Pick from source_person only if primary account doesn't have
       if self.location.nil? && source_person.location.present?

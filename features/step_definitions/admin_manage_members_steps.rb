@@ -31,6 +31,10 @@ Then(/^I should see a range from (\d+) to (\d+) with total user count of (\d+)$/
 end
 
 Then(/^I should see list of users with the following details:$/) do |table|
+  
+  # This waits for ajax requests to complete
+  expect(page).to have_selector("#admin_members_list tbody tr", :count => table.rows.count)
+  
   cells = all("#admin_members_list tbody tr").map do |rows|
     rows.all("td")
   end
@@ -43,7 +47,7 @@ Then(/^I should see list of users with the following details:$/) do |table|
 end
 
 Then(/^I should see (\d+) users$/) do |user_count|
-  all("#admin_members_list tbody tr").count.should == user_count.to_i
+  expect(page).to have_selector("#admin_members_list tbody tr", :count => user_count)
 end
 
 Then(/^the first user should be "(.*?)"$/) do |full_name|

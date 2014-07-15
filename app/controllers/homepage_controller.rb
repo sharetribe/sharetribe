@@ -92,11 +92,6 @@ class HomepageController < ApplicationController
       else
         render :partial => "list_item", :collection => @listings, :as => :listing
       end
-    else
-      if @current_community.news_enabled?
-        @news_items = @current_community.news_items.order("created_at DESC").limit(2)
-        @news_item_count = @current_community.news_items.count
-      end
     end
   end
 

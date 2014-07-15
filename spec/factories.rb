@@ -31,7 +31,7 @@ FactoryGirl.define do
   end
 
   sequence :domain do |n|
-    "sharetribe_testcommunity_#{n}"
+    "sharetribe-testcommunity-#{n}"
   end
 
   factory :person, aliases: [:author, :receiver, :recipient, :payer, :sender, :follower] do
@@ -137,12 +137,6 @@ FactoryGirl.define do
 
   factory :invitation do
     community_id 1
-  end
-
-  factory :news_item do
-    title "A new event in our community"
-    content "More information about this amazing event."
-    author { |author| author.association(:person) }
   end
 
   factory :device do

@@ -7,7 +7,7 @@
       -# .icon-with-text-container
       -#         .ss-adduser.icon-part
       -#         .text-part= t("people.show.joined_this_community", :name => person.given_name_or_username, :time_ago => time_ago(CommunityMembership.find_by_person_id_and_community_id(person.id, @current_community.id).created_at))
-      %a{href: new_person_message_path(:person_id => person.id, :message_type => "free", :profile_message => true)}
+      %a{href: new_person_message_path(person, :message_type => "free", :profile_message => true)}
         .icon-with-text-container
           .ss-mail.icon-part
           .text-part= t("people.show.contact", :person => person.given_name_or_username)

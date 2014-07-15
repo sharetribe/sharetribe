@@ -127,7 +127,6 @@ CREATE TABLE `communities` (
   `private` tinyint(1) DEFAULT '0',
   `label` varchar(255) DEFAULT NULL,
   `show_date_in_listings_list` tinyint(1) DEFAULT '0',
-  `news_enabled` tinyint(1) DEFAULT '1',
   `all_users_can_add_news` tinyint(1) DEFAULT '1',
   `custom_frontpage_sidebar` tinyint(1) DEFAULT '0',
   `event_feed_enabled` tinyint(1) DEFAULT '1',
@@ -135,7 +134,6 @@ CREATE TABLE `communities` (
   `description` text,
   `category` varchar(255) DEFAULT 'other',
   `members_count` int(11) DEFAULT '0',
-  `polls_enabled` tinyint(1) DEFAULT '0',
   `user_limit` int(11) DEFAULT NULL,
   `monthly_price_in_euros` float DEFAULT NULL,
   `logo_file_name` varchar(255) DEFAULT NULL,
@@ -621,17 +619,6 @@ CREATE TABLE `messages` (
   KEY `index_messages_on_conversation_id` (`conversation_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `news_items` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) DEFAULT NULL,
-  `content` text,
-  `community_id` int(11) DEFAULT NULL,
-  `author_id` varchar(255) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 CREATE TABLE `old_ressi_events` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` varchar(255) DEFAULT NULL,
@@ -797,39 +784,6 @@ CREATE TABLE `people` (
   UNIQUE KEY `index_people_on_reset_password_token` (`reset_password_token`),
   UNIQUE KEY `index_people_on_username` (`username`),
   KEY `index_people_on_id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `poll_answers` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `poll_id` int(11) DEFAULT NULL,
-  `poll_option_id` int(11) DEFAULT NULL,
-  `answerer_id` varchar(255) DEFAULT NULL,
-  `comment` text,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `poll_options` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `label` varchar(255) DEFAULT NULL,
-  `poll_id` int(11) DEFAULT NULL,
-  `percentage` float DEFAULT '0',
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `polls` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) DEFAULT NULL,
-  `author_id` varchar(255) DEFAULT NULL,
-  `active` tinyint(1) DEFAULT '1',
-  `community_id` varchar(255) DEFAULT NULL,
-  `closed_at` datetime DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `schema_migrations` (
@@ -1881,3 +1835,9 @@ INSERT INTO schema_migrations (version) VALUES ('20140701140655');
 INSERT INTO schema_migrations (version) VALUES ('20140703074142');
 
 INSERT INTO schema_migrations (version) VALUES ('20140703075424');
+
+INSERT INTO schema_migrations (version) VALUES ('20140710125950');
+
+INSERT INTO schema_migrations (version) VALUES ('20140710131146');
+
+INSERT INTO schema_migrations (version) VALUES ('20140711094414');

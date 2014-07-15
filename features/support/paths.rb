@@ -35,9 +35,9 @@ module NavigationHelpers
     when /^the messages page$/i
       received_person_messages_path(:person_id => @logged_in_user.id, :locale => "en")
     when /^the profile page of "(.*)"$/i
-      person_path(:id => @people[$1].id, :locale => "en")
+      person_path(@people[$1], :locale => "en")
     when /^my profile page$/i
-      person_path(:id => @logged_in_user.id, :locale => "en")
+      person_path( @logged_in_user, :locale => "en")
     when /^the testimonials page of "(.*)"$/i
       person_testimonials_path(:person_id => @people[$1].id, :locale => "en")
     when /the listing page/
@@ -52,22 +52,20 @@ module NavigationHelpers
       terms_infos_path(:locale => "en")
     when /the privacy policy page/
       privacy_infos_path(:locale => "en")
-    when /the news page/
-      news_items_path(:locale => "en")
     when /new tribe in English/
       new_tribe_path(:community_locale => "en", :locale => "en")
     when /invitations page/
       new_invitation_path(:locale => "en")
     when /the settings page/
-      "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings"
+      "#{person_path(@logged_in_user, :locale => "en")}/settings"
     when /the profile settings page/
-      "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings"
+      "#{person_path(@logged_in_user, :locale => "en")}/settings"
     when /the payment settings page/
-      "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings/payments"
+      "#{person_path(@logged_in_user, :locale => "en")}/settings/payments"
     when /the new Braintree account page/
-      "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings/payments/braintree/new"
+      "#{person_path(@logged_in_user, :locale => "en")}/settings/payments/braintree/new"
     when /the account settings page/
-      "#{person_path(:id => @logged_in_user.id, :locale => "en")}/settings/account"
+      "#{person_path(@logged_in_user, :locale => "en")}/settings/account"
     when /the about page$/
       about_infos_path(:locale => "en")
     when /the feedback page$/

@@ -7,8 +7,6 @@ class Community < ActiveRecord::Base
   has_many :community_memberships, :dependent => :destroy
   has_many :members, :through => :community_memberships, :conditions => ['community_memberships.status = ?', 'accepted'], :source => :person
   has_many :invitations, :dependent => :destroy
-  has_many :news_items, :dependent => :destroy
-  has_many :polls, :dependent => :destroy
   has_many :event_feed_events, :dependent => :destroy
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy
@@ -254,10 +252,6 @@ class Community < ActiveRecord::Base
     sql = customization_columns.map { |column_name| column_name + " IS NOT NULL" }.join(" OR ")
 
     where(sql)
-  end
-
-  def active_poll
-    polls.where(:active => true).first
   end
 
   def email_all_members(subject, mail_content, default_locale="en", verbose=false)
