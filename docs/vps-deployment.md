@@ -22,6 +22,8 @@ I found this great [guide](https://gorails.com/deploy/ubuntu/14.04) and i can't 
 
 * I have installed RVM with ruby '2.1.1' with MySQL option - from the options what guide above give you
 
+* To know your ruby path use `passenger-config --ruby-command` and provide it nginx.conf file in http block the one for passenger_ruby
+
 * You will need a domain which is easy set-up on digital ocean too (DNS section by adding A record) this domain you will provide in two places: in /etc/nginx/sites-enabled/default and in config.yml in our sharetribe code
 
 * right after you finish adding ssh keys to server i recommend to lock ssh with login/password, follow this [guide](http://lani78.com/2008/08/08/generate-a-ssh-key-and-disable-password-authentication-on-ubuntu-server/)
