@@ -123,5 +123,3 @@ group :development, :test do
 end
 
 gem 'strong_parameters'
-gem 'rack-rewrite'
-
