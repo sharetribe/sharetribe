@@ -131,7 +131,7 @@ fr:
         automatic_newsletters: "Envoyer l'email quotidien/hebdomadaire automatique à tous les utilisateurs (sauf s'ils se désabonnent)"
         email_admins_about_new_members: "Envoyer aux administrateurs un email à chaque fois qu'un nouvel utilisateur s'inscrit"
         integrations: Intégrations
-        google_analytics_key: "Google Analytics tracking ID (compte classique)"
+        google_analytics_key: "Google Analytics tracking ID"
         twitter_handle: "Nom Twitter (utilisé dans le bouton \"Tweeter\" sur les pages des annonces)"
         update_settings: "Sauvegarder les paramètres"
         automatically_confirmed: "Les annonces seront automatiquement marquées comme réalisées %{days_dropdown} jours après le paiement. Si le système de dépôt est utilisé, l'argent sera transmis au vendeur à ce moment."
@@ -156,8 +156,8 @@ fr:
         twitter_handle_info_text: "Le nom du compte Twitter de votre place de marché (si vous en avez un). Il sera mentionné quand les utilisateurs utilisent le partage Twitter présent sur les pages d'annonces."
         twitter_handle_placeholder: nomducompte
         invalid_twitter_handle: "Le nom Twitter doit être au maximum de 15 caractères alpha-numériques (lettres de A à Z et chiffres de 0 à 9)."
-        google_analytics_key: "Code de suivi Google Analytics (compte classique)"
-        google_analytics_key_info_text: "Code de suivi de votre compte Google Analytics. Vous devez y créer un compte \"classique\"."
+        google_analytics_key: "Code de suivi Google Analytics"
+        google_analytics_key_info_text: "Code de suivi de votre compte Google Analytics."
         facebook_connect: Facebook
         facebook_connect_info_text: "Pour activer la connexion avec Facebook, vous devez créer une application pour votre place de marché sur <a href='https://developers.facebook.com/'>le site Facebook developers</a>. Ajoutez ensuite l'id et la clé secrète générées, ici."
         facebook_connect_id: "ID client Facebook"
