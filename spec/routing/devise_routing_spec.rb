@@ -1,19 +1,19 @@
 require "spec_helper"
 
 describe "routes for devise" do
-  
+
   it "routes /signup to people controller" do
-    expect(get "/signup").to route_to "people#new" 
+    expect(get "/signup").to route_to "people#new"
   end
 
-  it "routes /auth/facebook/setup to sessions controller" do
-    expect(get "/auth/facebook/setup").to(
-      route_to({ 
-                 :controller => "sessions", 
-                 :action => "facebook_setup", 
-                 :provider => "facebook" 
+  it "routes /people/auth/facebook/setup to sessions controller" do
+    expect(get "/people/auth/facebook/setup").to(
+      route_to({
+                 :controller => "sessions",
+                 :action => "facebook_setup",
+                 :provider => "facebook"
                })
     )
   end
-  
+
 end
