@@ -178,7 +178,7 @@ Given /^community "(.*?)" has following transaction types enabled:$/ do |communi
 end
 
 Given /^the community has transaction type (Sell) with name "(.*?)" and action button label "(.*?)"$/ do |type_class, name, action_button_label|
-  @transaction_type = FactoryGirl.build(:transaction_type, type: type_class)
+  @transaction_type = FactoryGirl.build("transaction_type_#{type_class.downcase}".to_sym)
   @transaction_type.translations << FactoryGirl.build(:transaction_type_translation, locale: "en", name: name, action_button_label: action_button_label, transaction_type: @transaction_type)
   @current_community.transaction_types << @transaction_type
   @current_community.save!
@@ -186,6 +186,10 @@ end
 
 Given /^that transaction uses payment preauthorization$/ do
   @transaction_type.update_attribute(:preauthorize_payment, true)
+end
+
+Given /^that transaction does not use payment preauthorization$/ do
+  @transaction_type.update_attribute(:preauthorize_payment, false)
 end
 
 Given /^that transaction belongs to category "(.*?)"$/ do |category_name|

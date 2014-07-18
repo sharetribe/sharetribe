@@ -66,6 +66,17 @@ When /^Braintree webhook "(.*?)" with id "(.*?)" is triggered$/ do |kind, id|
   post "#{Capybara.app_host}/webhooks/braintree", :bt_signature => signature, :bt_payload => payload, :community_id => community.id
 end
 
+When /^Braintree webhook "(.*?)" with username "(.*?)" is triggered$/ do |kind, username|
+  person = Person.find_by_username(username)
+  community = Community.find_by_name("test") # Hard-coded default test community
+  signature, payload = BraintreeApi.webhook_testing_sample_notification(
+    community, kind, person.id
+  )
+
+  # Do
+  post "#{Capybara.app_host}/webhooks/braintree", :bt_signature => signature, :bt_payload => payload, :community_id => community.id
+end
+
 Given /^Braintree transaction is mocked$/ do
   BraintreeApi.should_receive(:transaction_sale)
     .and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
