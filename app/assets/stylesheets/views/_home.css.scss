@@ -388,7 +388,7 @@ h2.home-list-title {
 
 .custom-filter-title {
   font-weight: 700;
-  border-bottom: 1px solid $highlight;
+  @include title-border;
 }
 
 .custom-filter-options {

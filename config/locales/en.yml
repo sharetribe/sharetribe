@@ -422,6 +422,7 @@ en:
       item_request_message_form_title: "Offer an item to %{person}"
       message: Message
       message_to: "Message to %{author_name}"
+      optional_message_to: "Optional message to %{author_name}"
       rideshare_offer_message_form_title: "Ask for a ride from %{person}"
       rideshare_request_message_form_title: "Offer a ride to %{person}"
       send_message: "Send message"
@@ -446,6 +447,7 @@ en:
       price: "Price: %{price}"
       sum: "Sum: %{sum}"
       price_excludes_vat: "(excludes VAT)"
+      total: "Total: %{total}"
     status:
       cancel_payed_transaction: Cancel
       feedback_given: "Feedback given"
@@ -1399,6 +1401,13 @@ en:
       listing_created_at: "Listing created"
     verification_required:
       verification_required: "Verification required"
+  listing_conversations:
+    preauthorize:
+      details: Details
+      by: "%{listing} by %{author}"
+      payment: "Payment"
+      exp: "Exp:"
+      you_will_be_charged: "You will be charged only if %{author} accepts the transaction. %{author} needs to accept the transaction within 5 days. If %{author} declines or does not respond, no charge is made."
   mapview:
     index:
       all_categories: "All categories"
