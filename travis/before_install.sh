@@ -3,28 +3,38 @@
 echo "Running before_install"
 echo "SUITE: ${SUITE}"
 
+"echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+
 if [ "$SUITE" = "rspec" ]
 then
-	"echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
-	gem install bundler bundle_cache
+	gem install bundler specific_install
+	# Install a modified version of bundle_cache gem
+	# If the modifications get merged to bundle_cache use the upstream repo, not this one
+	gem specific_install https://github.com/sharetribe/bundle_cache
 	bundle_cache_install
 	exit
 elif [ "$SUITE" = "rubocop" ]
 then
-	"echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
-	gem install bundler bundle_cache
+	gem install bundler specific_install
+	# Install a modified version of bundle_cache gem
+	# If the modifications get merged to bundle_cache use the upstream repo, not this one
+	gem specific_install https://github.com/sharetribe/bundle_cache
 	bundle_cache_install
 	exit
 elif [ "$SUITE" = "cucumber" ]
 then
-	"echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
-	gem install bundler bundle_cache
+	gem install bundler specific_install
+	# Install a modified version of bundle_cache gem
+	# If the modifications get merged to bundle_cache use the upstream repo, not this one
+	gem specific_install https://github.com/sharetribe/bundle_cache
 	bundle_cache_install
 	exit
 elif [ "$SUITE" = "mocha" ]
 then
-	"echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
-	gem install bundler bundle_cache
+	gem install bundler specific_install
+	# Install a modified version of bundle_cache gem
+	# If the modifications get merged to bundle_cache use the upstream repo, not this one
+	gem specific_install https://github.com/sharetribe/bundle_cache
 	bundle_cache_install
 	npm install
 	npm install -g grunt-cli
