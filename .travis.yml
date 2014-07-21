@@ -37,4 +37,4 @@ before_script:
 script:
 - ./travis/script.sh
 after_script:
-- bundle_cache
+- '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && bundle_cache || false'
