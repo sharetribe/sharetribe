@@ -65,17 +65,17 @@ class Person < ActiveRecord::Base
   has_many :followers, :through => :follower_relationships, :foreign_key => "person_id"
   has_many :inverse_follower_relationships, :class_name => "FollowerRelationship", :foreign_key => "follower_id"
   has_many :followed_people, :through => :inverse_follower_relationships, :source => "person"
-  
+
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
-  
+
   def to_param
     username
   end
-  
+
   def self.find(username)
     super(self.find_by_username(username).try(:id) || username)
   end
-  
+
   DEFAULT_TIME_FOR_COMMUNITY_UPDATES = 7.days
 
   # These are the email notifications, excluding newsletters settings
@@ -116,9 +116,9 @@ class Person < ActiveRecord::Base
 
   validates_format_of :username,
                        :with => /^[A-Z0-9_]*$/i
-  
+
   USERNAME_BLACKLIST = YAML.load_file("#{Rails.root}/config/username_blacklist.yml")
-  
+
   validates :username, :exclusion => USERNAME_BLACKLIST
   validate :community_email_type_is_correct
 
@@ -422,6 +422,10 @@ class Person < ActiveRecord::Base
     !memberships.nil? && memberships.banned?
   end
 
+  def close_listings_by_community(community)
+    community.listings.where(:author_id => self.id).update_all(:open => false)
+  end
+
   def has_email?(address)
     Email.find_by_address_and_person_id(address, self.id).present?
   end
@@ -695,19 +699,19 @@ class Person < ActiveRecord::Base
       throw "can_receive_payments_at? was checked in a community which has no payment gateways"
     end
   end
-  
+
   def follows?(person)
     followed_people_by_id.include?(person.id)
   end
-  
+
   def followed_people_by_id
     @followed_people_by_id ||= followed_people.group_by(&:id)
   end
-  
+
   def self.members_of(community)
     joins(:communities).where("communities.id" => community.id)
   end
-  
+
   private
 
   # This method constructs a key to be used in caching.
