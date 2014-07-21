@@ -7,6 +7,7 @@ echo "SUITE: ${SUITE}"
 
 if [ "$SUITE" = "rspec" ]
 then
+	gem install nokogiri -- --use-system-libraries
 	gem install bundler specific_install
 	# Install a modified version of bundle_cache gem
 	# If the modifications get merged to bundle_cache use the upstream repo, not this one
@@ -15,6 +16,7 @@ then
 	exit
 elif [ "$SUITE" = "rubocop" ]
 then
+	gem install nokogiri -- --use-system-libraries
 	gem install bundler specific_install
 	# Install a modified version of bundle_cache gem
 	# If the modifications get merged to bundle_cache use the upstream repo, not this one
@@ -23,6 +25,7 @@ then
 	exit
 elif [ "$SUITE" = "cucumber" ]
 then
+	gem install nokogiri -- --use-system-libraries
 	gem install bundler specific_install
 	# Install a modified version of bundle_cache gem
 	# If the modifications get merged to bundle_cache use the upstream repo, not this one
@@ -31,6 +34,7 @@ then
 	exit
 elif [ "$SUITE" = "mocha" ]
 then
+	gem install nokogiri -- --use-system-libraries
 	gem install bundler specific_install
 	# Install a modified version of bundle_cache gem
 	# If the modifications get merged to bundle_cache use the upstream repo, not this one
