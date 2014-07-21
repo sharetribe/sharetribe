@@ -91,8 +91,8 @@ CREATE TABLE `category_translations` (
   `updated_at` datetime NOT NULL,
   `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `category_id_with_locale` (`category_id`,`locale`),
-  KEY `index_category_translations_on_category_id` (`category_id`)
+  KEY `index_category_translations_on_category_id` (`category_id`),
+  KEY `category_id_with_locale` (`category_id`,`locale`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `comments` (
@@ -126,8 +126,8 @@ CREATE TABLE `communities` (
   `users_can_invite_new_users` tinyint(1) DEFAULT '1',
   `private` tinyint(1) DEFAULT '0',
   `label` varchar(255) DEFAULT NULL,
-  `show_date_in_listings_list` tinyint(1) DEFAULT '0',
   `all_users_can_add_news` tinyint(1) DEFAULT '1',
+  `show_date_in_listings_list` tinyint(1) DEFAULT '0',
   `custom_frontpage_sidebar` tinyint(1) DEFAULT '0',
   `event_feed_enabled` tinyint(1) DEFAULT '1',
   `slogan` varchar(255) DEFAULT NULL,
@@ -155,10 +155,10 @@ CREATE TABLE `communities` (
   `service_logo_style` varchar(255) DEFAULT 'full-logo',
   `available_currencies` text,
   `facebook_connect_enabled` tinyint(1) DEFAULT '1',
-  `only_public_listings` tinyint(1) DEFAULT '1',
-  `custom_email_from_address` varchar(255) DEFAULT NULL,
   `vat` int(11) DEFAULT NULL,
   `commission_from_seller` int(11) DEFAULT NULL,
+  `only_public_listings` tinyint(1) DEFAULT '1',
+  `custom_email_from_address` varchar(255) DEFAULT NULL,
   `minimum_price_cents` int(11) DEFAULT NULL,
   `testimonials_in_use` tinyint(1) DEFAULT '1',
   `hide_expiration_date` tinyint(1) DEFAULT '0',
@@ -168,16 +168,16 @@ CREATE TABLE `communities` (
   `name_display_type` varchar(255) DEFAULT 'first_name_with_initial',
   `twitter_handle` varchar(255) DEFAULT NULL,
   `use_community_location_as_default` tinyint(1) DEFAULT '0',
-  `domain_alias` varchar(255) DEFAULT NULL,
-  `preproduction_stylesheet_url` varchar(255) DEFAULT NULL,
   `show_category_in_listing_list` tinyint(1) DEFAULT '0',
   `default_browse_view` varchar(255) DEFAULT 'grid',
   `wide_logo_file_name` varchar(255) DEFAULT NULL,
   `wide_logo_content_type` varchar(255) DEFAULT NULL,
   `wide_logo_file_size` int(11) DEFAULT NULL,
   `wide_logo_updated_at` datetime DEFAULT NULL,
-  `logo_change_allowed` tinyint(1) DEFAULT NULL,
+  `domain_alias` varchar(255) DEFAULT NULL,
+  `preproduction_stylesheet_url` varchar(255) DEFAULT NULL,
   `only_organizations` tinyint(1) DEFAULT NULL,
+  `logo_change_allowed` tinyint(1) DEFAULT NULL,
   `terms_change_allowed` tinyint(1) DEFAULT '0',
   `privacy_policy_change_allowed` tinyint(1) DEFAULT '0',
   `custom_fields_allowed` tinyint(1) DEFAULT '0',
@@ -205,8 +205,8 @@ CREATE TABLE `communities` (
 CREATE TABLE `communities_listings` (
   `community_id` int(11) DEFAULT NULL,
   `listing_id` int(11) DEFAULT NULL,
-  KEY `index_communities_listings_on_community_id` (`community_id`),
-  KEY `communities_listings` (`listing_id`,`community_id`)
+  KEY `communities_listings` (`listing_id`,`community_id`),
+  KEY `index_communities_listings_on_community_id` (`community_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `community_customizations` (
@@ -246,8 +246,8 @@ CREATE TABLE `community_memberships` (
   `status` varchar(255) NOT NULL DEFAULT 'accepted',
   `can_post_listings` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `index_community_memberships_on_community_id` (`community_id`),
-  KEY `memberships` (`person_id`,`community_id`)
+  KEY `memberships` (`person_id`,`community_id`),
+  KEY `index_community_memberships_on_community_id` (`community_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `contact_requests` (
@@ -296,8 +296,8 @@ CREATE TABLE `custom_field_names` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `locale_index` (`custom_field_id`,`locale`),
-  KEY `index_custom_field_names_on_custom_field_id` (`custom_field_id`)
+  KEY `index_custom_field_names_on_custom_field_id` (`custom_field_id`),
+  KEY `locale_index` (`custom_field_id`,`locale`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `custom_field_option_selections` (
@@ -318,8 +318,8 @@ CREATE TABLE `custom_field_option_titles` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `locale_index` (`custom_field_option_id`,`locale`),
-  KEY `index_custom_field_option_titles_on_custom_field_option_id` (`custom_field_option_id`)
+  KEY `index_custom_field_option_titles_on_custom_field_option_id` (`custom_field_option_id`),
+  KEY `locale_index` (`custom_field_option_id`,`locale`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `custom_field_options` (
@@ -479,8 +479,8 @@ CREATE TABLE `invitations` (
   `message` text,
   `email` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `index_invitations_on_code` (`code`),
-  KEY `index_invitations_on_inviter_id` (`inviter_id`)
+  KEY `index_invitations_on_inviter_id` (`inviter_id`),
+  KEY `index_invitations_on_code` (`code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `item_reservations` (
@@ -552,10 +552,10 @@ CREATE TABLE `listings` (
   `quantity` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_listings_on_listing_type` (`listing_type_old`),
-  KEY `index_listings_on_category_id` (`old_category_id`),
   KEY `index_listings_on_open` (`open`),
-  KEY `index_listings_on_share_type_id` (`share_type_id`),
-  KEY `index_listings_on_visibility` (`visibility`)
+  KEY `index_listings_on_visibility` (`visibility`),
+  KEY `index_listings_on_category_id` (`old_category_id`),
+  KEY `index_listings_on_share_type_id` (`share_type_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `locations` (
@@ -571,9 +571,9 @@ CREATE TABLE `locations` (
   `location_type` varchar(255) DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `index_locations_on_community_id` (`community_id`),
+  KEY `index_locations_on_person_id` (`person_id`),
   KEY `index_locations_on_listing_id` (`listing_id`),
-  KEY `index_locations_on_person_id` (`person_id`)
+  KEY `index_locations_on_community_id` (`community_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `menu_link_translations` (
@@ -619,23 +619,6 @@ CREATE TABLE `messages` (
   KEY `index_messages_on_conversation_id` (`conversation_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `old_ressi_events` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` varchar(255) DEFAULT NULL,
-  `application_id` varchar(255) DEFAULT NULL,
-  `session_id` varchar(255) DEFAULT NULL,
-  `ip_address` varchar(255) DEFAULT NULL,
-  `action` varchar(255) DEFAULT NULL,
-  `parameters` text,
-  `return_value` varchar(255) DEFAULT NULL,
-  `headers` text,
-  `semantic_event_id` varchar(255) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `test_group_number` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 CREATE TABLE `organization_memberships` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `person_id` varchar(255) DEFAULT NULL,
@@ -675,8 +658,8 @@ CREATE TABLE `participations` (
   `last_received_at` datetime DEFAULT NULL,
   `feedback_skipped` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `index_participations_on_conversation_id` (`conversation_id`),
-  KEY `index_participations_on_person_id` (`person_id`)
+  KEY `index_participations_on_person_id` (`person_id`),
+  KEY `index_participations_on_conversation_id` (`conversation_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `payment_gateways` (
@@ -729,8 +712,8 @@ CREATE TABLE `payments` (
   `type` varchar(255) DEFAULT 'CheckoutPayment',
   `braintree_transaction_id` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `index_payments_on_conversation_id` (`conversation_id`),
-  KEY `index_payments_on_payer_id` (`payer_id`)
+  KEY `index_payments_on_payer_id` (`payer_id`),
+  KEY `index_payments_on_conversation_id` (`conversation_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `people` (
@@ -900,8 +883,8 @@ CREATE TABLE `transaction_type_translations` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `locale_index` (`transaction_type_id`,`locale`),
-  KEY `index_transaction_type_translations_on_transaction_type_id` (`transaction_type_id`)
+  KEY `index_transaction_type_translations_on_transaction_type_id` (`transaction_type_id`),
+  KEY `locale_index` (`transaction_type_id`,`locale`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `transaction_types` (

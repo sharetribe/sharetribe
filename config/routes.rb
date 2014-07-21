@@ -20,30 +20,32 @@ Kassi::Application.routes.draw do
   if Rails.env.development?
     mount MailPreview => 'mail_view'
   end
-  
+
   # Some non-RESTful mappings
   get '/webhooks/braintree' => 'braintree_webhooks#challenge'
   post '/webhooks/braintree' => 'braintree_webhooks#hooks'
-      
-  match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")  
+
+  match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
   match "/listings/new/:type" => "listings#new", :as => :new_request_without_locale # needed for some emails, where locale part is already set
   match "/change_locale" => "i18n#change_locale", :as => :change_locale
-  
+
   locale_matcher = Regexp.new(Rails.application.config.AVAILABLE_LOCALES.map(&:last).join("|"))
-  
+
   # Inside this constraits are the routes that are used when request has subdomain other than www
   constraints(CommunityDomain) do
     match '/:locale/' => 'homepage#index', :constraints => { :locale => locale_matcher }
     match '/' => 'homepage#index'
   end
-  
+
   # Below are the routes that are matched if didn't match inside subdomain constraints
   match '(/:locale)' => 'dashboard#index', :constraints => { :locale => locale_matcher }
   root :to => 'dashboard#index'
 
+
+
   # Adds locale to every url right after the root path
   scope "(/:locale)", :constraints => { :locale => locale_matcher } do
-    
+
     match '/mercury_update' => "mercury_update#update", :as => :mercury_update, :method => :put
     match '/dashboard_login' => "dashboard#login", :as => :dashboard_login
     match "/listings/:listing_id/preauthorize" => "listing_conversations#preauthorize", :as => :preauthorize_payment
@@ -60,14 +62,14 @@ Kassi::Application.routes.draw do
     match '/:person_id/settings/payments/braintree/new' => 'braintree_accounts#new', :as => :new_braintree_settings_payment
     match '/:person_id/settings/payments/braintree/show' => 'braintree_accounts#show', :as => :show_braintree_settings_payment
     match '/:person_id/settings/payments/braintree/create' => 'braintree_accounts#create', :as => :create_braintree_settings_payment
-    
+
     scope :module => "api", :constraints => ApiRequest do
       resources :listings, :only => :index
 
       match 'api_version' => "api#version_check"
       match '/' => 'dashboard#api'
     end
-    
+
     namespace :superadmin do
       resources :communities do
       end
@@ -190,7 +192,7 @@ Kassi::Application.routes.draw do
       get :message_arrived
     end
     resources :statistics
-    
+
     devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people", :omniauth_callbacks => "sessions"}, :path_names => { :sign_in => 'login'}
     devise_scope :person do
       # these matches need to be before the general resources to have more priority
@@ -200,14 +202,14 @@ Kassi::Application.routes.draw do
       post "/people/password" => "devise/passwords#create"
       put "/people/password" => "devise/passwords#update"
       match "/people/sign_up" => redirect("/%{locale}/login")
-      
+
       # List few specific routes here for Devise to understand those
       match "/signup" => "people#new", :as => :sign_up
-      match '/auth/:provider/setup' => 'sessions#facebook_setup' #needed for devise setup phase hook to work
-      
+      match '/people/auth/:provider/setup' => 'sessions#facebook_setup' #needed for devise setup phase hook to work
+
       resources :people, :only => :index
       resources :people, :path => "", :only => :show, :constraints => { :id => /[_a-z0-9]+/ }
-      
+
       resources :people, :constraints => { :id => /[_a-z0-9]+/ } do
         collection do
           get :check_username_availability
@@ -220,7 +222,7 @@ Kassi::Application.routes.draw do
           get :fetch_rdf_profile
         end
       end
-      
+
       resources :people, :path => "" do
         member do
           put :activate
@@ -286,13 +288,13 @@ Kassi::Application.routes.draw do
         resources :followers
         resources :followed_people
       end # people
-      
+
     end # devise scope person
-    
+
     match "/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
 
   end # scope locale
-  
+
   id_to_username = Proc.new do |params, req|
     username = Person.find(params[:person_id]).try(:username)
     locale = params[:locale] + "/" if params[:locale]
@@ -300,9 +302,9 @@ Kassi::Application.routes.draw do
       "/#{locale}#{username}#{params[:path]}"
     else
       "/404"
-    end    
+    end
   end
-  
+
   match "(/:locale)/people/:person_id(*path)" => redirect(id_to_username), :constraints => { :locale => locale_matcher, :person_id => /[a-zA-Z0-9_-]{20,}/ }
-  
+
 end
