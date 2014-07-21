@@ -15,7 +15,9 @@ class Conversation < ActiveRecord::Base
 
   # Creates a new message to the conversation
   def message_attributes=(attributes)
-    messages.build(attributes)
+    if attributes[:content].present? || attributes[:action].present?
+      messages.build(attributes)
+    end
   end
 
   # Sets the participants of the conversation

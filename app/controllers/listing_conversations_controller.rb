@@ -32,7 +32,6 @@ class ListingConversationsController < ApplicationController
 
   def preauthorized
     conversation_params = params[:listing_conversation]
-    conversation_params[:message_attributes][:action] = "pay"
 
     @listing_conversation = new_conversation(conversation_params)
     @payment = @listing_conversation.initialize_payment
