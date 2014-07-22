@@ -23,18 +23,30 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     render :accept
   end
 
-# Handles accept and reject forms
-  def acceptance
+  def accepted
+    update_listing_status do
+      flash[:notice] = t("layouts.notifications.#{@listing_conversation.discussion_type}_accepted")
+    end
+  end
+
+  def rejected
+    update_listing_status do
+      flash[:notice] = t("layouts.notifications.#{@listing_conversation.discussion_type}_rejected")
+    end
+  end
+
+  private
+
+  # Update listing status and call success block. In the block you can e.g. set flash notices.
+  def update_listing_status(&block)
     if @listing_conversation.update_attributes(params[:listing_conversation])
-      flash[:notice] = t("layouts.notifications.#{@listing_conversation.discussion_type}_#{@listing_conversation.status}")
       redirect_to person_message_path(:person_id => @current_user.id, :id => @listing_conversation.id)
+      block.call
     else
       flash[:error] = t("layouts.notifications.something_went_wrong")
       redirect_to person_message_path(@current_user, @listing_conversation)
     end
   end
-
-  private
 
   def ensure_is_author
     unless @listing.author == @current_user

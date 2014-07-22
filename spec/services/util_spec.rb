@@ -71,6 +71,14 @@ describe Util::HashUtils do
     h = { :first_key => 1, :second_key => 2, :first_first_key => 11 }
     Util::HashUtils.select_by_key_regexp(h, /^first_/).should eql({ :first_key => 1, :first_first_key => 11 })
   end
+
+  it "#deep_contains" do
+    Util::HashUtils.deep_contains({a: 1}, {a: 1, b: 2}).should be_true
+    Util::HashUtils.deep_contains({a: 2}, {a: 1, b: 2}).should be_false
+    Util::HashUtils.deep_contains({a: 1, b: 1}, {a: 1, b: 2}).should be_false
+    Util::HashUtils.deep_contains({a: 1, b: 2}, {a: 1, b: 2}).should be_true
+    Util::HashUtils.deep_contains({c: 3}, {a: 1, b: 2}).should be_false
+  end
 end
 
 describe Util::StringUtils do
