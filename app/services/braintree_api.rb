@@ -59,7 +59,7 @@ class BraintreeApi
       end
     end
 
-    def transaction_sale(receiver, payment_params, amount, service_fee, hold_in_escrow, community)
+    def transaction_sale(receiver, payment_params, amount, service_fee, submit_for_settlement, hold_in_escrow, community)
       with_braintree_config(community) do
         Braintree::Transaction.create(
           :type => "sale",
@@ -73,7 +73,7 @@ class BraintreeApi
             :cardholder_name => payment_params[:cardholder_name],
           },
           :options => {
-            :submit_for_settlement => true,
+            :submit_for_settlement => submit_for_settlement,
             :hold_in_escrow => hold_in_escrow
           },
           :service_fee_amount => service_fee.to_s
