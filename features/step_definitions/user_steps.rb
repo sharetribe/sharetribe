@@ -32,11 +32,8 @@ end
 
 Given /^I am logged in(?: as "([^"]*)")?$/ do |person|
   username = person || "kassi_testperson1"
-  person = Person.find_by_username(username) || FactoryGirl.create(:person, :username => username)
-  login_as(person, :scope => :person)
-  visit root_path(:locale => :en)
-  @logged_in_user = person
-  @current_user = person
+  person = Person.find_by_username(username)
+  login_user_without_browser(person.username)
 end
 
 Given /^I am logged in as organization(?: "([^"]*)")?$/ do |org_username|
