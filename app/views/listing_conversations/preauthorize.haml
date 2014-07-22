@@ -34,16 +34,19 @@
   - author_link = link_to(@listing_conversation.author.name, @listing_conversation.author)
 
   .preauthorize-section
-    %h2
+    %h2.preauthorize-details-title
       = t(".details")
 
-    %p
-      = t(".by", listing: link_to("#{@listing_conversation.listing.title}", @listing_conversation.listing), author: author_link).html_safe
+    %ul.no-bullets
+      %li
+        %div
+          = t(".by", listing: link_to("#{@listing_conversation.listing.title}", @listing_conversation.listing), author: author_link).html_safe
 
-    %p
-      %strong
-        - price = @listing_conversation.listing.price
-        = t("conversations.show.total", total: humanized_money_with_symbol(price))
+      %li
+        %div
+          %strong
+            - price = @listing_conversation.listing.price
+            = t("conversations.show.total", total: humanized_money_with_symbol(price))
 
   = form_for @listing_conversation,
     :url => preauthorized_person_listing_listing_conversations_path(@current_user.id,
