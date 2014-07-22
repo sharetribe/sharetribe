@@ -19,13 +19,13 @@
 
     .conversation-action
       %label{:for => "action-accept", :class => "radio hidden"}
-        = radio_button_tag "listing_conversation[status]", "paid", @action.eql?("accept"), :id => "action-accept"
+        = radio_button_tag "listing_conversation[status]", "paid", @action.eql?("accept"), :id => "accept-link"
       %a.conversation-action{:id => "accept", :name => "accept-link", :class => (@action.eql?("accept") ? "accept" : "")}
         .link-icon{:class => icon_for("accepted")}
         .link-text{:id => "accept-action-link"}= t("conversations.accept.accept_#{@listing_conversation.discussion_type}")
 
       %label{:for => "action-reject", :class => "radio hidden"}
-        = radio_button_tag "listing_conversation[status]", "rejected", @action.eql?("reject"), :id => "action-reject"
+        = radio_button_tag "listing_conversation[status]", "rejected", @action.eql?("reject"), :id => "reject-link"
       %a.conversation-action{:id => "reject", :name => "reject-link", :class => (@action.eql?("reject") ? "reject" : "")}
         .link-icon{:class => icon_for("rejected")}
         .link-text{:id => "reject-action-link"}= t("conversations.accept.reject_#{@listing_conversation.discussion_type}")

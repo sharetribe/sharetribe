@@ -255,7 +255,8 @@ Kassi::Application.routes.draw do
             put :confirmation, to: 'confirm_conversations#confirmation'
             get :accept_preauthorized, to: 'accept_preauthorized_conversations#accept'
             get :reject_preauthorized, to: 'accept_preauthorized_conversations#reject'
-            put :acceptance_preauthorized, to: 'accept_preauthorized_conversations#acceptance'
+            put :acceptance_preauthorized, to: 'accept_preauthorized_conversations#accepted', constraints: ParamsConstraints.new({listing_conversation: {status: "paid"}})
+            put :acceptance_preauthorized, to: 'accept_preauthorized_conversations#rejected', constraints: ParamsConstraints.new({listing_conversation: {status: "rejected"}})
           end
           resources :messages
           resources :feedbacks, :controller => :testimonials do
