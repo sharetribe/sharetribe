@@ -43,7 +43,7 @@ class ListingConversationsController < ApplicationController
   end
 
   def pay(payer, listing_conversation, payment)
-    result = BraintreeSaleService.new(payment, params[:braintree_payment]).pay(true)
+    result = BraintreeSaleService.new(payment, params[:braintree_payment]).pay(false)
     recipient = payment.recipient
 
     if result.success?
