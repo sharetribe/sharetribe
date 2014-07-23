@@ -26,7 +26,7 @@ Given /^there are following Braintree accounts:$/ do |bt_accounts|
   end
 end
 
-Given(/^"(.*?)" has an (active) Braintree account$/) do |username, status|
+Given(/^"(.*?)" has an? (active) Braintree account$/) do |username, status|
   person = Person.find_by_username(username)
   @account = create_braintree_account(person, @current_community)
 end

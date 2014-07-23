@@ -231,3 +231,28 @@ When(/^I (?:buy) that listing$/) do
   visit(path_to "the listing page")
   find(".book-button").click
 end
+
+When(/^I select category "(.*?)"$/) do |category_name|
+  page.should have_content("Select category")
+  click_link(category_name)
+end
+
+When(/^I select subcategory "(.*?)"$/) do |subcategory_name|
+  page.should have_content("Select subcategory")
+  click_link(subcategory_name)
+end
+
+When(/^I select transaction type "(.*?)"$/) do |transaction_type_name|
+  page.should have_content("Select listing type")
+  click_link(transaction_type_name)
+end
+
+Then(/^I should see the new listing form$/) do
+  page.should have_content("Listing title")
+  page.should have_content("Detailed description")
+  page.should have_content("Image")
+end
+
+Then(/^I should warning about missing payment details$/) do
+  page.should have_content("You need to fill in payout details before you can post a listing. Go to payment settings to fill in the details.")
+end

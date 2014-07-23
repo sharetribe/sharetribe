@@ -1,4 +1,8 @@
 Given(/^a user "(.*?)"$/) do |username|
-  person = FactoryGirl.create(:person, username: username)
-  membership = FactoryGirl.create(:community_membership, person: person, community: @current_community)
+  create_person(username)
+end
+
+Given(/^a logged in user "(.*?)"$/) do |username|
+  create_person(username)
+  login_user_without_browser(username)
 end

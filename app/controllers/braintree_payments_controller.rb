@@ -21,40 +21,14 @@ class BraintreePaymentsController < ApplicationController
   end
 
   def update
-    payer = @current_user
-    recipient = @braintree_payment.recipient
-    listing = @conversation.listing
+    payment = @braintree_payment
+    result = BraintreeSaleService.new(payment, params[:braintree_payment]).pay(true)
 
-    price = @braintree_payment.sum_cents
-
-    amount = price.to_f / 100  # Braintree want's whole dollars
-    service_fee = @braintree_payment.total_commission.cents.to_f / 100
-
-    payment_params = params[:braintree_payment] || {}
-
-    result = with_expection_logging do
-      BTLog.warn("Sending sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
-
-      BraintreeApi.transaction_sale(
-        recipient,
-        payment_params,
-        amount,
-        service_fee,
-        @current_community.payment_gateway.hold_in_escrow,
-        @current_community
-      )
-    end
-
+    recipient = payment.recipient
     if result.success?
-      transaction_id = result.transaction.id
-      BTLog.warn("Successful sale transaction #{transaction_id} from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
-      @braintree_payment.paid!
       @conversation.status = "paid"
-      @braintree_payment.braintree_transaction_id = transaction_id
-      @braintree_payment.save
       redirect_to person_message_path(:id => params[:message_id])
     else
-      BTLog.error("Unsuccessful sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}: #{result.message}")
       flash[:error] = result.message
       redirect_to :edit_person_message_braintree_payment
     end
@@ -100,14 +74,5 @@ class BraintreePaymentsController < ApplicationController
 
   def payment_can_be_conducted
     redirect_to person_message_path(@current_user, @conversation) unless @conversation.requires_payment?(@current_community)
-  end
-
-  def with_expection_logging(&block)
-    begin
-      block.call
-    rescue Exception => e
-      BTLog.error("Expection #{e}")
-      raise e
-    end
   end
 end

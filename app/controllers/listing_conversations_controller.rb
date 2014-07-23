@@ -32,7 +32,6 @@ class ListingConversationsController < ApplicationController
 
   def preauthorized
     conversation_params = params[:listing_conversation]
-    conversation_params[:message_attributes][:action] = "pay"
 
     @listing_conversation = new_conversation(conversation_params)
     @payment = @listing_conversation.initialize_payment
@@ -44,37 +43,13 @@ class ListingConversationsController < ApplicationController
   end
 
   def pay(payer, listing_conversation, payment)
+    result = BraintreeSaleService.new(payment, params[:braintree_payment]).pay(false)
     recipient = payment.recipient
-    price = payment.sum_cents
-
-    amount = price.to_f / 100  # Braintree want's whole dollars
-    service_fee = payment.total_commission.cents.to_f / 100
-
-    payment_params = params[:braintree_payment] || {}
-
-    result = with_expection_logging do
-      BTLog.warn("Sending sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
-
-      BraintreeApi.transaction_sale(
-        recipient,
-        payment_params,
-        amount,
-        service_fee,
-        @current_community.payment_gateway.hold_in_escrow,
-        @current_community
-      )
-    end
 
     if result.success?
-      transaction_id = result.transaction.id
-      BTLog.warn("Successful sale transaction #{transaction_id} from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}")
-      payment.paid!
       listing_conversation.status = "preauthorized"
-      payment.braintree_transaction_id = transaction_id
-      payment.save
       redirect_to person_message_path(:id => listing_conversation.id)
     else
-      BTLog.error("Unsuccessful sale transaction from #{payer.id} to #{recipient.id}. Amount: #{amount}, fee: #{service_fee}: #{result.message}")
       flash[:error] = result.message
       redirect_to :preauthorize
     end
@@ -157,16 +132,5 @@ class ListingConversationsController < ApplicationController
     conversation.build_starter_participation(@current_user)
     conversation.build_participation(@listing.author)
     conversation
-  end
-
-  #FIXME
-
-  def with_expection_logging(&block)
-    begin
-      block.call
-    rescue Exception => e
-      BTLog.error("Expection #{e}")
-      raise e
-    end
   end
 end

@@ -45,7 +45,7 @@ Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do 
       recipient = @conversation.listing.author
 
       if @conversation.payment == nil
-        payment = FactoryGirl.build(type, :conversation => @conversation, :recipient => recipient, :status => "pending")
+        payment = FactoryGirl.build(type, :conversation => @conversation, :recipient => recipient, :status => "pending", :community => @current_community)
         payment.default_sum(@conversation.listing, 24)
         payment.save!
 
@@ -186,6 +186,10 @@ Then(/^I should see that the request is waiting for buyer confirmation$/) do
   page.should have_content(/Waiting for (.*) to mark the request completed/)
 end
 
+Then(/^I should see that the request is confirmed/) do
+  page.should have_content(/marked the request as completed/)
+end
+
 When(/^I accept the "(.*?)" request for that listing for post pay$/) do |request|
   click_link "inbox-link"
   click_link request
@@ -226,7 +230,7 @@ Then(/^I should see that the request was confirmed$/) do
   page.should have_content(/Completed/)
 end
 
-When(/^the seller does not accept the request within (\d+) days$/) do |days|
+When(/^the seller does not respond the request within (\d+) days$/) do |days|
   Timecop.travel(DateTime.now + days.to_i)
   process_jobs
   visit(current_path)

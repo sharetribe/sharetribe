@@ -16,24 +16,20 @@ class ConfirmConversation
   # Listing confirmed by user
   def confirm!
     Delayed::Job.enqueue(TransactionConfirmedJob.new(@conversation.id, @community.id))
+    @conversation.messages.create(:sender_id => @requester.id, :action => "confirm")
     release_escrow if @hold_in_escrow
   end
 
   # Listing canceled by user
   def cancel!
     Delayed::Job.enqueue(TransactionCanceledJob.new(@conversation.id, @community.id))
+    @conversation.messages.create(:sender_id => @offerer.id, :action => "cancel")
     cancel_escrow if @hold_in_escrow
   end
 
   def update_participation(feedback_given)
     @participation.update_attribute(:is_read, true) if @offerer.eql?(@user)
     @participation.update_attribute(:feedback_skipped, true) unless feedback_given
-  end
-
-  # Listing confirmed automatically
-  def automatic_confirm!
-    @conversation.update_attributes(:status => "confirmed")
-    Delayed::Job.enqueue(TransactionAutomaticallyConfirmedJob.new(@conversation.id, @community.id)) # sent to requester
   end
 
   def activate_automatic_confirmation!

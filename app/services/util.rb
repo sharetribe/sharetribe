@@ -32,6 +32,24 @@ module Util
         memo
       end
     end
+
+    #
+    # deep_contains({a: 1}, {a: 1, b: 2}) => true
+    # deep_contains({a: 2}, {a: 1, b: 2}) => false
+    # deep_contains({a: 1, b: 1}, {a: 1, b: 2}) => false
+    # deep_contains({a: 1, b: 2}, {a: 1, b: 2}) => true
+    #
+    def deep_contains(needle, haystack)
+      needle.all? do |key, val|
+        haystack_val = haystack[key]
+
+        if val.is_a?(Hash) && haystack_val.is_a?(Hash)
+          deep_contains(val, haystack_val)
+        else
+          val == haystack_val
+        end
+      end
+    end
   end
 
   module CamelizeHash

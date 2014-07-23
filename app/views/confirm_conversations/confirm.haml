@@ -22,10 +22,6 @@
           %div{:class => "#{action}-description #{@action.eql?(action) ? '' : 'hidden'}"}
             = t("conversations.confirm.#{action}_description")
 
-      = fields_for "listing_conversation[message_attributes]", Message.new do |message_form|
-        = message_form.hidden_field :sender_id, :value => @current_user.id
-        = message_form.hidden_field :action, :value => @action
-
       = form.hidden_field :status, :value => "#{@action}ed"
 
     - else

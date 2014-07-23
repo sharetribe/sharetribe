@@ -422,6 +422,7 @@ en:
       item_request_message_form_title: "Offer an item to %{person}"
       message: Message
       message_to: "Message to %{author_name}"
+      optional_message_to: "Optional message to %{author_name}"
       rideshare_offer_message_form_title: "Ask for a ride from %{person}"
       rideshare_request_message_form_title: "Offer a ride to %{person}"
       send_message: "Send message"
@@ -446,6 +447,7 @@ en:
       price: "Price: %{price}"
       sum: "Sum: %{sum}"
       price_excludes_vat: "(excludes VAT)"
+      total: "Total: %{total}"
     status:
       cancel_payed_transaction: Cancel
       feedback_given: "Feedback given"
@@ -769,12 +771,12 @@ en:
       subject: "%{requester} has requested and paid for %{listing_title}"
       transaction_requested_by_user: "%{requester} has requested and paid for \"%{listing_title}\""
       you_have_days_to_accept: "You need to accept or reject the request within %{payment_expires_in_days} days. If you don't accept within this timeframe, the request will be automatically rejected and you will not get paid."
-      click_here_to_reply: "Click here to reply to the request"
+      click_here_to_reply: "Click here to respond to the request"
     transaction_preauthorized_reminder:
       subject: "Remember to accept the request from %{requester} about listing %{listing_title}"
-      remember_to_accept: "Remember to accept the request from %{requester} about listing %{listing_title}. %{requester} has already paid for the listing. You have to accept the request in order to receive the payment."
+      remember_to_accept: "Remember to accept the request from %{requester} about listing \"%{listing_title}\". %{requester} has already paid for the listing. You have to accept the request in order to receive the payment."
       one_day_left: "If you don't accept the request within one day the listing will be automatically rejected and you will not get paid."
-      click_here_to_reply: "Click here to reply to the request"
+      click_here_to_reply: "Click here to respond to the request"
     welcome_email:
       welcome_email_footer_text: "What kind of emails do you want to receive from %{service_name}? %{settings_link}"
       settings_link_text: "Check your settings"
@@ -1399,6 +1401,13 @@ en:
       listing_created_at: "Listing created"
     verification_required:
       verification_required: "Verification required"
+  listing_conversations:
+    preauthorize:
+      details: Details
+      by: "%{listing} by %{author}"
+      payment: "Payment"
+      exp: "Exp:"
+      you_will_be_charged: "You will be charged only if %{author} accepts the transaction. %{author} needs to accept the transaction within 5 days. If %{author} declines or does not respond, no charge is made."
   mapview:
     index:
       all_categories: "All categories"
