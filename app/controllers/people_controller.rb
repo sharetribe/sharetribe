@@ -116,24 +116,17 @@ class PeopleController < Devise::RegistrationsController
 
     Delayed::Job.enqueue(CommunityJoinedJob.new(@person.id, @current_community.id)) if @current_community
 
-    if !@current_community
-      session[:consent] = APP_CONFIG.consent
-      session[:unconfirmed_email] = params[:person][:email]
-      session[:allowed_email] = "@#{params[:person][:email].split('@')[1]}" if community_email_restricted?
-      redirect_to domain + new_tribe_path
+    # send email confirmation
+    # (unless disabled for testing environment)
+    if APP_CONFIG.skip_email_confirmation
+      email.confirm!
+
+      redirect_to root
     else
-      # send email confirmation
-      # (unless disabled for testing environment)
-      if APP_CONFIG.skip_email_confirmation
-        email.confirm!
+      Email.send_confirmation(email, request.host_with_port, @current_community)
 
-        redirect_to root
-      else
-        Email.send_confirmation(email, request.host_with_port, @current_community)
-
-        flash[:notice] = t("layouts.notifications.account_creation_succesful_you_still_need_to_confirm_your_email")
-        redirect_to :controller => "sessions", :action => "confirmation_pending"
-      end
+      flash[:notice] = t("layouts.notifications.account_creation_succesful_you_still_need_to_confirm_your_email")
+      redirect_to :controller => "sessions", :action => "confirmation_pending"
     end
   end
 
