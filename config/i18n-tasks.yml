@@ -70,10 +70,10 @@ search:
 #   - pagination.views.*
 
 ## Consider these keys used
-# ignore_unused:
-#   - 'simple_form.{yes,no}'
-#   - 'simple_form.{placeholders,hints,labels}.*'
-#   - 'simple_form.{error_notification,required}.:'
+ignore_unused:
+  - will_paginate.*
+  - time.*
+  - timestamps.*
 
 ## Exclude these keys from `i18n-tasks eq-base' report
 # ignore_eq_base:
