@@ -59,25 +59,9 @@ class BraintreeApi
       end
     end
 
-    def transaction_sale(receiver, payment_params, amount, service_fee, submit_for_settlement, hold_in_escrow, community)
+    def transaction_sale(community, options)
       with_braintree_config(community) do
-        Braintree::Transaction.create(
-          :type => "sale",
-          :amount => amount.to_s,
-          :merchant_account_id => receiver.id,
-          :credit_card => {
-            :number => payment_params[:credit_card_number],
-            :expiration_month => payment_params[:credit_card_expiration_month],
-            :expiration_year => payment_params[:credit_card_expiration_year],
-            :cvv => payment_params[:cvv],
-            :cardholder_name => payment_params[:cardholder_name],
-          },
-          :options => {
-            :submit_for_settlement => submit_for_settlement,
-            :hold_in_escrow => hold_in_escrow
-          },
-          :service_fee_amount => service_fee.to_s
-        )
+        Braintree::Transaction.create(options)
       end
     end
 

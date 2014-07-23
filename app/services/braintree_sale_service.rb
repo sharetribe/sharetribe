@@ -33,14 +33,25 @@ class BraintreeSaleService
     with_expection_logging do
       BTLog.warn("Sending sale transaction from #{@payer.id} to #{@recipient.id}. Amount: #{@amount}, fee: #{@service_fee}")
 
-      BraintreeApi.transaction_sale(
-        @recipient,
-        @params,
-        @amount,
-        @service_fee,
-        submit_for_settlement,
-        @community.payment_gateway.hold_in_escrow,
-        @community
+      BraintreeApi.transaction_sale(@community,
+        type:                    "sale",
+        amount:                  @amount.to_s,
+        merchant_account_id:     @recipient.id,
+
+        credit_card: {
+          number:                @params[:credit_card_number],
+          expiration_month:      @params[:credit_card_expiration_month],
+          expiration_year:       @params[:credit_card_expiration_year],
+          cvv:                   @params[:cvv],
+          cardholder_name:       @params[:cardholder_name],
+        },
+
+        options: {
+          submit_for_settlement: submit_for_settlement,
+          hold_in_escrow:        @community.payment_gateway.hold_in_escrow
+        },
+
+        service_fee_amount:      @service_fee.to_s
       )
     end
   end
