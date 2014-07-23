@@ -23,10 +23,7 @@ module SettingsHelper
   end
 
   def with_information_text(community, person, &block)
-    if uses_mangopay?(community)
-      # Mango
-      block.call([t(".these_settings_are_needed_in_order_to_receive_payments")], {})
-    elsif registered_checkout?(community, person)
+    if registered_checkout?(community, person)
       # Checkout
 
       block.call([

@@ -878,7 +878,7 @@ module ApplicationHelper
   end
 
   def community_blank_slate
-    @community_customization && !@community_customization.blank_slate.blank? ? @community_customization.blank_slate : t(".no_listings_notification", :add_listing_link => link_to(t(".add_listing_link_text"), new_listing_path)).html_safe
+    @community_customization && !@community_customization.blank_slate.blank? ? @community_customization.blank_slate : t("homepage.index.no_listings_notification", :add_listing_link => link_to(t("homepage.index.add_listing_link_text"), new_listing_path)).html_safe
   end
 
   # Return a link to the listing author
@@ -947,7 +947,7 @@ module ApplicationHelper
   end
 
   def sort_link(column)
-    title = t(".#{column}")
+    title = t("admin.communities.manage_members.#{column}")
     css_class = params[:sort].eql?(column) ? "sort-arrow-#{member_sort_direction}" : nil
     direction = (params[:sort].eql?(column) && member_sort_direction.eql?("asc")) ? "desc" : "asc"
     link_to title, {:sort => column, :direction => direction, :page => (params[:page] || 1)}, {:class => css_class}
