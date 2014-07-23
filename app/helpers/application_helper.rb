@@ -874,7 +874,7 @@ module ApplicationHelper
   end
 
   def community_blank_slate
-    @community_customization && !@community_customization.blank_slate.blank? ? @community_customization.blank_slate : t(".no_listings_notification", :add_listing_link => link_to(t(".add_listing_link_text"), new_listing_path)).html_safe
+    @community_customization && !@community_customization.blank_slate.blank? ? @community_customization.blank_slate : t("homepage.index.no_listings_notification", :add_listing_link => link_to(t("homepage.index.add_listing_link_text"), new_listing_path)).html_safe
   end
 
   # Return a link to the listing author
