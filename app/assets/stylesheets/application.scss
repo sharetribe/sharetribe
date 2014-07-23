@@ -6,44 +6,5 @@
 //= require ./fonts
 //= require ./main
 
-//= require ./partials/_fluid-grid
-//= require ./partials/_fluid-grid-listing-image
-//= require ./partials/_map
-//= require ./partials/_utils
-//= require ./partials/_toggle
-//= require ./partials/_responsive
-//= require ./partials/_translation-missing
-//= require ./partials/_flash
-//= require ./partials/_admin
-//= require ./partials/_info-text
-//= require ./partials/_forms
-//= require ./partials/_table
-//= require ./partials/_pagination
-//= require ./partials/_ajax
-//= require ./partials/_jquery.nouislider.customizations
-//= require ./partials/_buttons
-//= require ./partials/_lists
-//= require ./partials/_texts
-
-
-//= require ./views/_layout
-//= require ./views/_header
-//= require ./views/_signup
-//= require ./views/_home
-//= require ./views/_home-thumbnail-grid
-//= require ./views/_listings
-//= require ./views/_message
-//= require ./views/_conversation
-//= require ./views/_listing-image-fileupload
-//= require ./views/_listing-image-carousel
-//= require ./views/_thumbnail-stripe
-//= require ./views/_people
-//= require ./views/_testimonial
-//= require ./views/_account-settings
-//= require ./views/_payments
-//= require ./views/_braintree-account-settings
-//= require ./views/admin/_communities
-//= require ./views/admin/_custom_fields
-//= require ./views/admin/_categories
-//= require ./views/admin/_menu-links
-//= require ./views/_preauthorize
+//= require_tree ./partials
+//= require_tree ./views
