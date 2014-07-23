@@ -6,13 +6,9 @@
       = t("emails.transaction_preauthorized_reminder.remember_to_accept", :listing_title => @conversation.listing.title, :requester => @conversation.starter.name)
 
 %tr
-  %td{:align => "left", :style => "padding-bottom: 25px;"}
+  %td{:align => "left", :style => "padding-bottom: 15px;"}
     %font{body_font}
       - # Hard coded for one day
       = t("emails.transaction_preauthorized_reminder.one_day_left")
 
-%tr
-  %td{:align => "left", :style => "padding-bottom: 25px;"}
-    %font{body_font}
-      = link_to reply_url do
-        = t("emails.transaction_preauthorized_reminder.click_here_to_reply")
+= render :partial => "person_mailer/action_button", :locals => { :text => t("emails.transaction_preauthorized_reminder.click_here_to_reply"), :url => reply_url}

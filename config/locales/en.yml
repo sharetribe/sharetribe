@@ -692,12 +692,12 @@ en:
       subject: "%{requester} has requested and paid for %{listing_title}"
       transaction_requested_by_user: "%{requester} has requested and paid for \"%{listing_title}\""
       you_have_days_to_accept: "You need to accept or reject the request within %{payment_expires_in_days} days. If you don't accept within this timeframe, the request will be automatically rejected and you will not get paid."
-      click_here_to_reply: "Click here to reply to the request"
+      click_here_to_reply: "Click here to respond to the request"
     transaction_preauthorized_reminder:
       subject: "Remember to accept the request from %{requester} about listing %{listing_title}"
-      remember_to_accept: "Remember to accept the request from %{requester} about listing %{listing_title}. %{requester} has already paid for the listing. You have to accept the request in order to receive the payment."
+      remember_to_accept: "Remember to accept the request from %{requester} about listing \"%{listing_title}\". %{requester} has already paid for the listing. You have to accept the request in order to receive the payment."
       one_day_left: "If you don't accept the request within one day the listing will be automatically rejected and you will not get paid."
-      click_here_to_reply: "Click here to reply to the request"
+      click_here_to_reply: "Click here to respond to the request"
     welcome_email:
       welcome_email_footer_text: "What kind of emails do you want to receive from %{service_name}? %{settings_link}"
       settings_link_text: "Check your settings"
