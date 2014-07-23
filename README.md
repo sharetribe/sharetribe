@@ -67,6 +67,12 @@ CategoryTransactionType.create(:category_id => ca.id, :transaction_type_id => tt
 
 * go to your selected community address (your\_chosen\_subdomain\_here.yourdomain.com or your\_chosen\_subdomain_here.lvh.me:3000) and register as a user. The first registered user will be automatically made as an admin in that community.
 
+Congrats! You should be now able to access your marketplace.
+
+See also:
+
+* [How to customize your marketplace?](docs/customize-marketplace.md)
+
 ### Advanced settings
 
 * Default configurations are in `config/config.default.yml`. If you need to change these configs, it's recommended to create a file `config/config.yml`. The configurations in user-specific configuration file will override the default configurations. You can also set configurations to environment variables.
