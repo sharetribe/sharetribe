@@ -16,7 +16,7 @@ class ConfirmConversation
   # Listing confirmed by user
   def confirm!
     Delayed::Job.enqueue(TransactionConfirmedJob.new(@conversation.id, @community.id))
-    @conversation.messages.create(:sender_id => @offerer.id, :action => "confirm")
+    @conversation.messages.create(:sender_id => @requester.id, :action => "confirm")
     release_escrow if @hold_in_escrow
   end
 
