@@ -422,10 +422,6 @@ class Person < ActiveRecord::Base
     !memberships.nil? && memberships.banned?
   end
 
-  def close_listings_by_community(community)
-    community.listings.where(:author_id => self.id).update_all(:open => false)
-  end
-
   def has_email?(address)
     Email.find_by_address_and_person_id(address, self.id).present?
   end

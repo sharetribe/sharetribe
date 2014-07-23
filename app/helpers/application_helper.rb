@@ -704,7 +704,7 @@ module ApplicationHelper
       {
         :text => t("admin.communities.manage_members.manage_members"),
         :icon_class => icon_class("community"),
-        :path => manage_members_admin_community_path(@current_community),
+        :path => admin_community_community_memberships_path(@current_community),
         :name => "manage_members"
       },
       {
@@ -947,7 +947,7 @@ module ApplicationHelper
   end
 
   def sort_link(column)
-    title = t(".#{column}")
+    title = t("admin.communities.manage_members.#{column}")
     css_class = params[:sort].eql?(column) ? "sort-arrow-#{member_sort_direction}" : nil
     direction = (params[:sort].eql?(column) && member_sort_direction.eql?("asc")) ? "desc" : "asc"
     link_to title, {:sort => column, :direction => direction, :page => (params[:page] || 1)}, {:class => css_class}

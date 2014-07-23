@@ -15,17 +15,9 @@ class CommunityMembership < ActiveRecord::Base
   validate :person_can_join_community_only_once, :on => :create
   validates_inclusion_of :status, :in => VALID_STATUSES
 
-  after_update :ban_person
-
   def person_can_join_community_only_once
     if CommunityMembership.find_by_person_id_and_community_id(person_id, community_id)
       errors.add(:base, "You are already a member of this community")
-    end
-  end
-
-  def ban_person
-    if status == "banned"
-      self.person.close_listings_by_community(community)
     end
   end
 

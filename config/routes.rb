@@ -85,7 +85,6 @@ Kassi::Application.routes.draw do
           get :edit_welcome_email
           get :edit_text_instructions
           get :test_welcome_email
-          get :manage_members
           get :settings
           get :payment_gateways
           put :payment_gateways, to: 'communities#update_payment_gateway'
@@ -95,10 +94,17 @@ Kassi::Application.routes.draw do
           get :menu_links
           put :menu_links, to: 'communities#update_menu_links'
           put :update_settings
-          post :posting_allowed
-          post :promote_admin
         end
         resources :emails
+        resources :community_memberships do
+          member do
+            put :ban
+          end
+          collection do
+            post :promote_admin
+            post :posting_allowed
+          end
+        end
       end
       resources :custom_fields do
         collection do
