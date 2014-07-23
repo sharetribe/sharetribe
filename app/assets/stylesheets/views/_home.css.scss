@@ -173,12 +173,10 @@ $home-list-image-padding-mobile: lines(0.5);
   }
 }
 
-// FIXME Ugly selector, but there's definition .page-content h2
-// which would otherwise override this
 $home-list-avatar-size: em(40);
 $home-list-avatar-size-mobile: em(30);
 $home-list-avatar-padding: lines(0.25);
-h2.home-list-title {
+.home-list-title {
   margin: 0;
   padding: 0;
   font-weight: 700;
