@@ -93,6 +93,7 @@ group :development do
   gem 'rb-fsevent',       require: false
   gem 'guard-rspec',      require: false
   gem 'zeus', '0.15.1'
+  gem 'i18n-tasks', '~> 0.6.2'
 end
 
 group :test do

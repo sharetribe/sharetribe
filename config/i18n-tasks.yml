@@ -1,0 +1,87 @@
+# i18n-tasks finds and manages missing and unused translations ⚙ https://github.com/glebm/i18n-tasks
+
+base_locale: en
+## i18n-tasks detects locales automatically from the existing locale files
+## uncomment to set locales explicitly
+# locales: [en, es, fr]
+
+# Read and write locale data
+data:
+  ## by default, translation data are read from the file system, or you can provide a custom data adapter
+  # adapter: I18n::Tasks::Data::FileSystem
+
+  # Locale files to read from
+  read:
+    - config/locales/%{locale}.yml
+    # - config/locales/*.%{locale}.yml
+    # - config/locales/**/*.%{locale}.yml
+
+  # key => file routes, matched top to bottom
+  write:
+    ## E.g., write devise and simple form keys to their respective files
+    # - ['{devise, simple_form}.*', 'config/locales/\1.%{locale.yml}']
+    # Catch-all
+    - config/locales/%{locale}.yml
+    # `i18n-tasks normalize -p` will force move the keys according to these rules
+
+  # YAML / JSON serializer options, passed to load / dump / parse / serialize
+  yaml:
+    write:
+      ## do not wrap lines at 80 characters (override default)
+      # line_width: -1
+  json:
+    write:
+      # pretty print JSON
+      indent: '  '
+      space: ' '
+      object_nl: "\n"
+      array_nl: "\n"
+
+# Find translate calls
+search:
+  ## Default scanner finds t() and I18n.t() calls
+  # scanner: I18n::Tasks::Scanners::PatternWithScopeScanner
+
+  ## Paths to search in, passed to File.find
+  paths:
+    - app/
+
+  ## Root for resolving relative keys (default)
+  relative_roots:
+    - app/views
+
+  ## File.fnmatch patterns to exclude from search (default)
+  # exclude: ["*.jpg", "*.png", "*.gif", "*.svg", "*.ico", "*.eot", "*.ttf", "*.woff", "*.pdf"]
+
+  ## Or, File.fnmatch patterns to include
+  # include: ["*.rb", "*.html.slim"]
+
+  ## Lines starting with # or / are ignored by default
+  # ignore_lines:
+  #  - "^\\s*[#/](?!\\si18n-tasks-use)"
+
+## Google Translate
+# translation:
+#   # Get an API key and set billing info at https://code.google.com/apis/console to use Google Translate
+#   api_key: "AbC-dEf5"
+
+## Consider these keys not missing
+# ignore_missing:
+#   - pagination.views.*
+
+## Consider these keys used
+ignore_unused:
+  - will_paginate.*
+  - time.*
+  - timestamps.*
+
+## Exclude these keys from `i18n-tasks eq-base' report
+# ignore_eq_base:
+#   all:
+#     - common.ok
+#   fr,es:
+#     - common.brand
+
+## Exclude these keys from all of the reports
+# ignore:
+#  - kaminari.*
