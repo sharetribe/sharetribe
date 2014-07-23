@@ -124,13 +124,16 @@ Use Capybara in step definitions:
 
 `click_link 'Information'`
 
-## Indent "And" steps
+## Indent "And" steps with 2 spaces, "When" and "Then" with one space
 
 **Do**
 
 ```gherkin
-Given some condition to meet
-  And some other condition to meet
+Given I want to have vertically aligned keywords
+  And I use spaces for indentation
+ When I indent When and Then keywords with 1 space
+  And I indent And keywords with 2 spaces
+ Then I see that all the keywords are nicely aligned
 ```
 
 ## Use step argument transforms
