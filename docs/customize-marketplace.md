@@ -6,15 +6,15 @@ There are a few settings you have to change to enable all customizations options
 
 ## Make yourself a super admin
 
-There are two admin roles in Sharetribe: Marketplace admin (defined in `CommunityMembership.admin`) and Super admin (`Person.is_admin`).
+There are two admin roles in Sharetribe: Marketplace admin (defined in `community_memberships.admin`) and Super admin (`people.is_admin`).
 
-Make yourself a super admin by setting your `Person.is_admin` to `true`. This will allow you to administrate all the marketplaces. It also enables some features that are not enabled to marketplace admins such as Admin > Braintree Payment API keys
+Make yourself a super admin by setting your `people.is_admin` to `true` (int value 1). This will allow you to administrate all the marketplaces. It also enables some features that are not enabled to marketplace admins such as Admin > Braintree Payment API keys
 
 ## Enable all customization options
 
-* Plan level (`Community.plan_level`): Change the plan\_level value to number 4. This will enable Admin > Integrations (Facebook, Twitter, Google Analytics e.g) and allow you to add custom CSS/JavaScript to the page head.
-* Categories (`Community.category_change_allowed`): Change to `true`. This will enable Admin > Listing categories.
-* Custom listing fields (`Community.custom_fields_allowed`): Change to `true`. This will enable Admin > Listing fields.
-* Privacy policy (`Community.privacy_policy_change_allowed`): Change to `true`. This will enable editing content of About > Privacy page
-* Terms: (`Community.terms_change_allowed`): Change to `true`. This will enable editing content of About > Terms of use page
-* Logo (`Community.logo_change_allowed`): Change to `true`. This will enable logo change in Admin > Community look and feel
+* Plan level (`communities.plan_level`): Change the plan\_level value to number 4. This will enable Admin > Integrations (Facebook, Twitter, Google Analytics e.g) and allow you to add custom CSS/JavaScript to the page head.
+* Categories (`communities.category_change_allowed`): Change to `true` (int value 1). This will enable Admin > Listing categories.
+* Custom listing fields (`communities.custom_fields_allowed`): Change to `true` (int value 1). This will enable Admin > Listing fields.
+* Privacy policy (`communities.privacy_policy_change_allowed`): Change to `true` (int value 1). This will enable editing content of About > Privacy page
+* Terms: (`communities.terms_change_allowed`): Change to `true` (int value 1). This will enable editing content of About > Terms of use page
+* Logo (`communities.logo_change_allowed`): Change to `true` (int value 1). This will enable logo change in Admin > Community look and feel
