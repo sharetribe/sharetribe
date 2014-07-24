@@ -20,9 +20,19 @@
 
     - link_path = @listing.transaction_type.preauthorize_payment? ? preauthorize_payment_path(:listing_id => @listing.id.to_s) : reply_to_listing_path(:listing_id => @listing.id.to_s)
 
-    = link_to link_path, :class => "book-button" do
-      .content
-        = @listing.transaction_type.action_button_label(I18n.locale)
+    = form_tag link_path, :method => :get do
+
+      - if @listing.transaction_type.price_per
+        = label_tag "Start"
+        = date_select :booking, :start_on
+        
+        %br/
+        = label_tag "End"
+        = date_select :booking, :end_on
+
+      %button.book-button
+        .content
+          = @listing.transaction_type.action_button_label(I18n.locale)
 
   - if is_authorized
     .listing-view-admin-links
