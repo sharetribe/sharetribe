@@ -46,7 +46,7 @@
       .home-toolbar-filters.home-toolbar-filters-mobile-hidden#home-toolbar-filters
         - if @transaction_type_menu_enabled
           .toggle-container.home-toolbar-toggle-container
-            .toggle.with-borders.hidden#home_toolbar-select-share-type{data: {toggle: '.home-toolbar-share-type-menu'}}
+            .toggle.with-borders#home_toolbar-select-share-type{data: {toggle: '.home-toolbar-share-type-menu'}}
               .toggle-header-container
                 .toggle-header
                   - if @selected_transaction_type
@@ -64,7 +64,7 @@
 
         - if @show_categories
           .toggle-container.home-toolbar-toggle-container.hidden-tablet
-            .toggle.with-borders.hidden{data: {toggle: '#home-toolbar-categories-menu'}}
+            .toggle.with-borders{data: {toggle: '#home-toolbar-categories-menu'}}
               .toggle-header-container
                 .toggle-header
                   - if @selected_category
@@ -73,7 +73,7 @@
                     = t("homepage.filters.all_categories")
 
                 = icon_tag("dropdown", ["icon-dropdown"])
-            #home-toolbar-categories-menu.toggle-menu.hidden
+            #home-toolbar-categories-menu.toggle-menu
               = link_to t("homepage.filters.all_categories"), params.merge({category: "all"})
               - @main_categories.each do |category|
                 = link_to category.display_name(I18n.locale).mb_chars.capitalize.to_s, params.merge({category: category.id})
