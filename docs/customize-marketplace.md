@@ -46,7 +46,7 @@ The transaction types are defined in `transaction_types` table. The translations
   * `time`: "hour, day, month, ..."
   * `long_time`: "week, month, ..."
 
-You can add new transaction types by adding a new row to `transaction_types` table and translations to `transaction_type_translations`.
+You can add new transaction types by adding a new row to `transaction_types` table and translations to `transaction_type_translations`. **Important:** The translations are cached. If you change a translation, you need to go to `transaction_type` table and change the `updated_at` column of that transaction_type.
 
 After you have successfully created a transaction type, you need to go to Admin > Categories and select which transaction types are available in which category.
 
