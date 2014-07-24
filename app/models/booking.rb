@@ -4,4 +4,8 @@ class Booking < ActiveRecord::Base
 
   attr_accessible :conversation_id, :end_on, :start_on
 
+  def duration
+    (end_on - start_on).to_i + 1
+  end
+
 end

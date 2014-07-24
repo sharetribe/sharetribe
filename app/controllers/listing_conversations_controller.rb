@@ -23,11 +23,15 @@ class ListingConversationsController < ApplicationController
   end
 
   def preauthorize
+    booking = Maybe(params)[:booking].map { |booking_params| Booking.new(booking_params) }.or_else(nil)
+
     @braintree_client_side_encryption_key = @current_community.payment_gateway.braintree_client_side_encryption_key
 
-    @listing_conversation = new_conversation
+    @listing_conversation = new_conversation()
+    @listing_conversation.booking = booking
     @payment = @listing_conversation.initialize_payment
-    @payment.sum = @listing_conversation.listing.price
+
+    @payment.sum = @listing_conversation.calculate_total
   end
 
   def preauthorized
@@ -35,7 +39,8 @@ class ListingConversationsController < ApplicationController
 
     @listing_conversation = new_conversation(conversation_params)
     @payment = @listing_conversation.initialize_payment
-    @payment.sum = @listing_conversation.listing.price
+
+    @payment.sum = @listing_conversation.calculate_total
 
     pay(@current_user, @listing_conversation, @payment)
   end

@@ -12,6 +12,8 @@ class ListingConversation < Conversation
   delegate :author, to: :listing
   delegate :title, to: :listing, prefix: true
 
+  accepts_nested_attributes_for :booking
+
   def state_machine
     @state_machine ||= TransactionProcess.new(self, transition_class: TransactionTransition)
   end
@@ -129,5 +131,13 @@ class ListingConversation < Conversation
 
   def with_type(&block)
     block.call(:listing_conversation)
+  end
+
+  def calculate_total
+    if booking
+      listing.price * booking.duration
+    else
+      listing.price
+    end
   end
 end
