@@ -23,12 +23,16 @@
     = form_tag link_path, :method => :get do
 
       - if @listing.transaction_type.price_per
-        = label_tag "Start"
-        = date_select :booking, :start_on
-        
-        %br/
-        = label_tag "End"
-        = date_select :booking, :end_on
+        - content_for :javascript do
+          window.ST.initializeFromToDatePicker('datepicker');
+        .input-daterange.input-group.clearfix#datepicker{:data => {:locale => I18n.locale, :dateformat => get_date_format}}
+          .datepicker-start-wrapper
+            = label_tag "From"
+            %input.input-sm.form-control#start_on{:type => 'text', :name => 'start_on', :placeholder => get_date_format}
+
+          .datepicker-end-wrapper
+            = label_tag "To"
+            %input.input-sm.form-control#end_on{:type => 'text', :name => 'end_on', :placeholder => get_date_format}
 
       %button.book-button
         .content

@@ -1,0 +1,24 @@
+@import "mixins/all";
+
+.datepicker-start-wrapper {
+  width: 45%;
+  float: left;
+}
+.datepicker-end-wrapper {
+  width: 45%;
+  float: right;
+}
+
+.input-daterange {
+  margin-bottom: lines(0.75);
+  input:last-child {
+    border-radius: 0.3125em;
+  }
+  input {
+    text-align: left;
+  }
+}
+
+.datepicker tbody tr:nth-child(odd) {
+  background-color: transparent;
+}
