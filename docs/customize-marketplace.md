@@ -49,3 +49,5 @@ The transaction types are defined in `transaction_types` table. The translations
 You can add new transaction types by adding a new row to `transaction_types` table and translations to `transaction_type_translations`.
 
 After you have successfully created a transaction type, you need to go to Admin > Categories and select which transaction types are available in which category.
+
+**A word of warning!** Don't overuse transaction types! We have noticed that the best marketplaces usually have just one transaction type.
