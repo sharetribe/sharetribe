@@ -1189,6 +1189,7 @@ en:
       price:
         price: Price
         per: per
+        per_day: per day
         mass: "piece, kg, l, m2, ..."
         time: "hour, day, month, ..."
         long_time: "week, month, ..."
@@ -1321,6 +1322,8 @@ en:
       processing_uploaded_image: "(Processing uploaded image...)"
       price_excludes_vat: "(excludes VAT)"
       listing_created_at: "Listing created"
+      price:
+        per_day: "per day"
     verification_required:
       verification_required: "Verification required"
   listing_conversations:

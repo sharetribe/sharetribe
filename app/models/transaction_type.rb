@@ -10,6 +10,9 @@ class TransactionType < ActiveRecord::Base
 
   validates_presence_of :community
 
+  validates :price_per, inclusion: { in: %w(day),
+    message: "%{value} is not valid" }
+
   acts_as_url :url_source, scope: :community_id, sync_url: true, blacklist: %w{new all}
 
   def to_param
