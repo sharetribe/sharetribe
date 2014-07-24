@@ -405,20 +405,6 @@ function updateEditTextBoxes() {
   manually_validate("listing_origin");
 }
 
-function initialize_communities_map() {
-  infowindow = new google.maps.InfoWindow();
-  helsinki = new google.maps.LatLng(60.2, 24.9);
-  flagMarker = new google.maps.Marker();
-  var myOptions = {
-    zoom: 2,
-    center: new google.maps.LatLng(20, 15),
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
-  map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-
-  google.maps.event.addDomListener(window, 'load', addCommunityMarkers);
-}
-
 function addCommunityMarkers() {
   // Test requesting location data
   // Now the request_path needs to also have a query string with the wanted parameters
