@@ -25,14 +25,14 @@
       - if @listing.transaction_type.price_per
         - content_for :javascript do
           window.ST.initializeFromToDatePicker('datepicker');
-        .input-daterange.input-group.clearfix#datepicker{:data => {:locale => I18n.locale, :dateformat => get_date_format}}
+        .input-daterange.input-group.clearfix#datepicker{:data => {:locale => I18n.locale, :dateformat => t("date.export_date_formats.js_style_date")}}
           .datepicker-start-wrapper
             = label_tag "From"
-            %input.input-sm.form-control#start_on{:type => 'text', :name => 'start_on', :placeholder => get_date_format}
+            %input.input-sm.form-control#start_on{:type => 'text', :name => 'booking[start_on]', :placeholder => t("date.export_date_formats.js_style_date")}
 
           .datepicker-end-wrapper
             = label_tag "To"
-            %input.input-sm.form-control#end_on{:type => 'text', :name => 'end_on', :placeholder => get_date_format}
+            %input.input-sm.form-control#end_on{:type => 'text', :name => 'booking[end_on]', :placeholder => t("date.export_date_formats.js_style_date")}
 
       %button.book-button
         .content

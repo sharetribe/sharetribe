@@ -105,13 +105,4 @@ module ListingsHelper
       ""
     end
   end
-
-  # TODO: needs to get format from somewhere since mm/dd/yyyy is a _US_ format
-  def get_date_format
-    if I18n.locale == :en
-      'mm/dd/yyyy'
-    else
-      'dd.mm.yyyy'
-    end
-  end
 end

@@ -23,7 +23,7 @@ class ListingConversationsController < ApplicationController
   end
 
   def preauthorize
-    booking = Maybe(params)[:booking].map { |booking_params| Booking.new(booking_params) }.or_else(nil)
+    booking = Maybe(params)[:booking].map { |booking_params| Booking.new_from_params(booking_params) }.or_else(nil)
 
     @braintree_client_side_encryption_key = @current_community.payment_gateway.braintree_client_side_encryption_key
 
