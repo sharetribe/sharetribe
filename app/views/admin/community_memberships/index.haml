@@ -10,18 +10,18 @@
   #admin-members-saving-posting-allowed.ajax-update-notice
     %span.ajax-update-icon{:class => "#{icon_class("loading")} icon-fix" }
     %span.ajax-update-text
-      = t(".saving_user_status")
+      = t("admin.communities.manage_members.saving_user_status")
   #admin-members-saved-posting-allowed.ajax-update-success
     %span.ajax-update-icon{:class => "#{icon_class("check")} icon-fix" }
     %span.ajax-update-text
-      = t(".save_user_status_successful")
+      = t("admin.communities.manage_members.save_user_status_successful")
   #admin-members-error-posting-allowed.ajax-update-error
-    = t(".save_user_status_error")
+    = t("admin.communities.manage_members.save_user_status_error")
 
 = render :partial => "layouts/ajax-update-notification"
 
 .left-navi-section
-  %h2= t(".manage_members", :community_name => @community.name(I18n.locale))
+  %h2= t("admin.communities.manage_members.manage_members", :community_name => @community.name(I18n.locale))
 
   %span#admin_members_count= page_entries_info(@memberships, :model => "Person")
 
@@ -34,8 +34,8 @@
           %th.arrow-up= sort_link "join_date"
           - if @current_community.require_verification_to_post_listings
             %th{:style => "text-align: center"}= sort_link "posting_allowed"
-          %th= t(".admin")
-          %th= t(".ban_user")
+          %th= t("admin.communities.manage_members.admin")
+          %th= t("admin.communities.manage_members.ban_user")
       %tbody
         - @memberships.each do |membership|
           - member = membership.person
@@ -49,19 +49,19 @@
               %td{:style => "text-align: center"}= check_box_tag "posting-allowed[#{member.id}]", member.id, membership.can_post_listings, :class => "admin-members-can-post-listings"
             %td{:style => "text-align: center"}= check_box_tag "is_admin[#{member.id}]", member.id, member.is_admin_of?(@community), :class => "admin-members-is-admin", :disabled => member.eql?(@current_user)
             %td{:style => "text-align: center"}
-              = link_to(icon_tag("cross"), tribe_membership_path(membership.id, :status => "banned"), method: :put, :data => {:confirm => t(".ban_user_confirmation")}, :class => "admin-members-remove-user")
+              = link_to(icon_tag("cross"), ban_admin_community_community_membership_path(@current_community.id, membership.id), method: :put, :data => {:confirm => t("admin.communities.manage_members.ban_user_confirmation")}, :class => "admin-members-remove-user")
 
   #custom-field-ajax-status
     .ajax-notification.ajax-notice.custom-field-ajax-status-message#custom-field-ajax-saving
       .ajax-icon{:class => icon_class("loading")}
       .ajax-text
-        = t(".saving_order")
+        = t("admin.communities.manage_members.saving_order")
     .ajax-notification.ajax-success.custom-field-ajax-status-message#custom-field-ajax-success
       .ajax-icon{:class => icon_class("check")}
       .ajax-text
-        = t(".save_order_successful")
+        = t("admin.communities.manage_members.save_order_successful")
     .ajax-notification.ajax-error.custom-field-ajax-status-message#custom-field-ajax-error
-      = t(".save_order_error")
+      = t("admin.communities.manage_members.save_order_error")
 
   .row
     .col-12

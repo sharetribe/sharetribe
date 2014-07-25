@@ -4,8 +4,6 @@ class CommunityMembershipsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_page")
   end
 
-  before_filter :ensure_is_admin, :only => :update
-
   skip_filter :dashboard_only
   skip_filter :single_community_only, :only => :create
   skip_filter :cannot_access_without_joining
@@ -102,15 +100,6 @@ class CommunityMembershipsController < ApplicationController
       logger.info { "Joining a community failed, because: #{@community_membership.errors.full_messages}" }
       render :action => :new
     end
-  end
-
-  #Limited to updates through admin ui and to statuses
-  def update
-    membership = CommunityMembership.find_by_id(params[:id])
-    unless membership.update_attributes(:status => params[:status])
-      flash[:error] = "Unaccepted status."
-    end
-    redirect_to manage_members_admin_community_path(@current_community)
   end
 
   def access_denied

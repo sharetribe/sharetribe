@@ -1,8 +1,8 @@
 Feature: Admin lists members
-  
+
   Background:
-    Given there are following users: 
-      | person            | given_name | family_name | email               | membership_created_at     | 
+    Given there are following users:
+      | person            | given_name | family_name | email               | membership_created_at     |
       | manager           | matti      | manager     | manager@example.com | 2014-03-01 00:12:35 +0200 |
       | kassi_testperson1 | john       | doe         | test2@example.com   | 2013-03-01 00:12:35 +0200 |
       | kassi_testperson2 | jane       | doe         | test1@example.com   | 2012-03-01 00:00:00 +0200 |
@@ -14,14 +14,14 @@ Feature: Admin lists members
   @javascript
   Scenario: Admin views & sorts list of members
     Then I should see list of users with the following details:
-      | Name          | Email               | Joined     | Posting allowed | Remove User | 
+      | Name          | Email               | Joined     | Posting allowed | Remove User |
       | matti manager | manager@example.com | 1 Mar 2014 |                 |             |
       | john doe      | test2@example.com   | 1 Mar 2013 |                 |             |
       | jane doe      | test1@example.com   | 1 Mar 2012 |                 |             |
     When I follow "Name"
     Then I should see list of users with the following details:
       | Name          | Email               | Joined     | Posting allowed | Remove User |
-      | jane doe      | test1@example.com   | 1 Mar 2012 |                 |             | 
+      | jane doe      | test1@example.com   | 1 Mar 2012 |                 |             |
       | john doe      | test2@example.com   | 1 Mar 2013 |                 |             |
       | matti manager | manager@example.com | 1 Mar 2014 |                 |             |
     When I follow "Name"
@@ -29,7 +29,7 @@ Feature: Admin lists members
       | Name          | Email               | Joined     | Posting allowed | Remove User |
       | matti manager | manager@example.com | 1 Mar 2014 |                 |             |
       | john doe      | test2@example.com   | 1 Mar 2013 |                 |             |
-      | jane doe      | test1@example.com   | 1 Mar 2012 |                 |             | 
+      | jane doe      | test1@example.com   | 1 Mar 2012 |                 |             |
     When I follow "Email"
     Then I should see list of users with the following details:
       | Name          | Email               | Joined     | Posting allowed | Remove User |
@@ -38,10 +38,10 @@ Feature: Admin lists members
       | john doe      | test2@example.com   | 1 Mar 2013 |                 |             |
     When I follow "Joined"
     Then I should see list of users with the following details:
-      | Name          | Email               | Joined     | Posting allowed | Remove User | 
+      | Name          | Email               | Joined     | Posting allowed | Remove User |
       | jane doe      | test1@example.com   | 1 Mar 2012 |                 |             |
       | john doe      | test2@example.com   | 1 Mar 2013 |                 |             |
-      | matti manager | manager@example.com | 1 Mar 2014 |                 |             | 
+      | matti manager | manager@example.com | 1 Mar 2014 |                 |             |
 
   @javascript
   Scenario: Admin views member count
@@ -71,11 +71,21 @@ Feature: Admin lists members
 
   @javascript
   Scenario: Admin removes a user
-    Given I will confirm all following confirmation dialogs if I am running PhantomJS
-    When I remove user "john doe"
-    Then I should not see "john doe"
-    # Identifying is easier when using username
-    And "kassi_testperson1" should be banned from this community
+    Given there is a listing with title "Sledgehammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
+
+     When I am on the home page
+     Then I should see "Sledgehammer"
+
+    Given I am on the manage members admin page
+      And I will confirm all following confirmation dialogs in this page if I am running PhantomJS
+     When I remove user "john doe"
+     Then I should not see "john doe"
+
+      # Identifying is easier when using username
+      And "kassi_testperson1" should be banned from this community
+
+     When I am on the home page
+     Then I should not see "Sledgehammer"
 
   @javascript
   Scenario: Admin promotes user to admin
