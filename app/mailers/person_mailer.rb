@@ -463,11 +463,7 @@ class PersonMailer < ActionMailer::Base
     @url_params[:ref] = "welcome_email"
     @url_params.freeze # to avoid accidental modifications later
 
-    if @recipient.has_admin_rights_in?(@current_community) && !@regular_email
-      subject = t("emails.welcome_email.congrats_for_creating_community", :community => @current_community.full_name(@recipient.locale))
-    else
-      subject = t("emails.welcome_email.subject", :community => @current_community.full_name(@recipient.locale), :person => person.given_name_or_username)
-    end
+    subject = t("emails.welcome_email.welcome_email_subject", :community => @current_community.full_name(@recipient.locale), :person => person.given_name_or_username)
     mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => subject) do |format|
