@@ -17,7 +17,7 @@ describe SettingsController do
       @person.set_default_preferences
       @person.min_days_between_community_updates.should == 1
 
-      get :unsubscribe, {:email_type => "community_updates", :person_id => @person.id}
+      get :unsubscribe, {:email_type => "community_updates", :person_id => @person.username}
       puts response.body
       response.status.should == 200
       @person.min_days_between_community_updates.should == 100000
@@ -29,10 +29,10 @@ describe SettingsController do
       @person.set_default_preferences
       @person.min_days_between_community_updates.should == 1
 
-      get :unsubscribe, {:email_type => "community_updates", :person_id => @person.id, :auth => t}
+      get :unsubscribe, {:email_type => "community_updates", :person_id => @person.username, :auth => t}
       response.status.should == 302 #redirection to url withouth token in query string
       session[:expired_auth_token].should == t
-      get :unsubscribe, {:email_type => "community_updates", :person_id => @person.id},
+      get :unsubscribe, {:email_type => "community_updates", :person_id => @person.username},
                         {:expired_auth_token => t}
       response.status.should == 200
       @person = Person.find(@person.id) # fetch again to refresh
@@ -43,7 +43,7 @@ describe SettingsController do
       @person.set_default_preferences
       @person.min_days_between_community_updates.should == 1
 
-      get :unsubscribe, {:email_type => "community_updates", :person_id => @person.id}
+      get :unsubscribe, {:email_type => "community_updates", :person_id => @person.username}
       response.status.should == 401
       @person.min_days_between_community_updates.should == 1
     end

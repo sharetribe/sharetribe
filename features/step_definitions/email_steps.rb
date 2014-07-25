@@ -71,6 +71,14 @@ module EmailHelpers
     # Note that last_email_address will be reset after each Scenario.
     last_email_address || (@logged_in_user && @logged_in_user.confirmed_notification_email_addresses.last) || Thread.current[:latest_used_random_email] || "example@example.com"
   end
+
+  def open_email_for_current_user
+    open_email_for(current_email_address)
+  end
+
+  def email_count
+    mailbox_for(current_email_address).size
+  end
 end
 
 World(EmailHelpers)
