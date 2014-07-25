@@ -34,6 +34,7 @@ class CommunityMailer < ActionMailer::Base
 
   def community_updates(recipient, community, listings)
     @community = community
+    @current_community = community
     @recipient = recipient
     @listings = listings
 
@@ -73,7 +74,7 @@ class CommunityMailer < ActionMailer::Base
          :from => community_specific_sender(community),
          :subject => subject,
          :delivery_method => delivery_method) do |format|
-      format.html { render :layout => false }
+      format.html { render :layout => 'community_updates_layout' }
     end
   end
 

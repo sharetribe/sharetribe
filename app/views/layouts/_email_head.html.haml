@@ -1,0 +1,19 @@
+%head
+  %meta{"http-equiv" => "Content-Type", content: "text/html; charset=UTF-8"}
+  %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+  :scss
+    $link1: ##{@current_community.custom_color1 || "d96e21"};
+
+    a {
+      color: $link1;
+      text-decoration: none;
+    }
+
+    .email-action-button {
+      padding: 12px 20px 14px;
+      border-radius: 4px;
+      text-decoration: none;
+      background: $link1;
+      border: 2px solid darken($link1, 5%);
+      color: #fff;
+    }

@@ -108,8 +108,8 @@ class MailPreview < MailView
   end
 
   def community_updates
-    community = Community.last
-    recipient = community.members.last
+    community = Community.first
+    recipient = community.members.first
     listings = community.listings
     CommunityMailer.community_updates(recipient, community, listings)
   end
@@ -127,7 +127,7 @@ class MailPreview < MailView
     end
     TransactionMailer.transaction_preauthorized_reminder(conversation)
   end
-  
+
   def new_listing_by_followed_person
     listing = Listing.order("length(description)").last
     recipient = Person.last
