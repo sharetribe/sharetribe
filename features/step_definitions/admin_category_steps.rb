@@ -80,7 +80,7 @@ end
 
 When /^I remove category "(.*?)"$/ do |category_name|
   steps %Q{
-    Given I will confirm all following confirmation dialogs if I am running PhantomJS
+    Given I will confirm all following confirmation dialogs in this page if I am running PhantomJS
   }
 
   find_remove_link_for_category(category_name).click

@@ -552,7 +552,7 @@ class Community < ActiveRecord::Base
   def custom_head_script_in_use?
     plan_level >= BASIC_PLAN
   end
-  
+
   def email_notification_types
     valid_types = Person::EMAIL_NOTIFICATION_TYPES.dup
     if !follow_in_use?
@@ -560,7 +560,11 @@ class Community < ActiveRecord::Base
     end
     valid_types
   end
-  
+
+  def close_listings_by_author(author)
+    listings.where(:author_id => author.id).update_all(:open => false)
+  end
+
   private
 
   def initialize_settings

@@ -6,7 +6,7 @@
 
 - content_for :title_header do
   - with_big_cover_photo do
-    %h1= community_slogan.html_safe
+    %h1.marketplace-lander-content-title= community_slogan.html_safe
     %p= community_description.html_safe
     .search-form
       - if @current_community.private?

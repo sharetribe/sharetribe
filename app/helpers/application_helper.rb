@@ -700,7 +700,7 @@ module ApplicationHelper
       {
         :text => t("admin.communities.manage_members.manage_members"),
         :icon_class => icon_class("community"),
-        :path => manage_members_admin_community_path(@current_community),
+        :path => admin_community_community_memberships_path(@current_community),
         :name => "manage_members"
       },
       {
