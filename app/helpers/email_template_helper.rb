@@ -27,8 +27,4 @@ module EmailTemplateHelper
     }
   end
 
-  def body_link_style
-    "color:#d96e21; text-decoration: none;"
-  end
-
 end

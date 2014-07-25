@@ -3,10 +3,10 @@
 %tr
   %td{:align => "left"}
     %font{body_font}
-      = t("emails.payment_settings_reminder.you_have_added_listing_with_payment", :listing_link => link_to(@listing.title, listing_link, :style => body_link_style)).html_safe
+      = t("emails.payment_settings_reminder.you_have_added_listing_with_payment", :listing_link => link_to(@listing.title, listing_link)).html_safe
 
 %tr
   %td{:align => "left", :style => "padding-bottom: 25px;"}
     %br
     %font{body_font}
-      = t("emails.payment_settings_reminder.please_go_to_payment_settings", :payment_settings_link => link_to(t("emails.payment_settings_reminder.payment_settings_link"), @payment_settings_link, :style => body_link_style)).html_safe
+      = t("emails.payment_settings_reminder.please_go_to_payment_settings", :payment_settings_link => link_to(t("emails.payment_settings_reminder.payment_settings_link"), @payment_settings_link)).html_safe

@@ -1,28 +1,52 @@
-%table{:cellspacing => "0", :border => "0", :height => "100%", :bgcolor => "#ffffff", :cellpadding => "0", :width => "100%"}
-  %tbody>
-    %tr
-      %td{:align => "center", :valign => "top"}
-        %table{:cellspacing => "0", :cellpadding => "0", :width => "400"}
-          %tbody
-            - if @community
-              %tr
-                %td{:align => "left", :style => "padding-top: 20px; padding-bottom: 5px; border-bottom:1px dotted grey;"}
-                  %font{:size => 5, :color => "grey", :face => "font-family:Helvetica Neue, Arial, Helvetica, Arial, sans-serif;", :style => "font-size:20px;line-height:28px;"}
-                    = @community.full_name(I18n.locale)
-            - if @recipient && ! @no_recipient_name
-              %tr
-                %td{:align => "left", :style => "padding-top: 20px; padding-bottom: 10px;"}
-                  %font{body_font}
-                    = t("emails.common.hey", :name => @recipient.given_name_or_username)
+!!!
 
-            = yield
+%html{xmlns: "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{"http-equiv" => "Content-Type", content: "text/html; charset=UTF-8"}
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+    :scss
+      $link1: ##{@current_community.custom_color1};
 
-            - skip_unsubscribe_footer ||= false
-            - if @recipient && @url_params && !skip_unsubscribe_footer
-              %tr
-                %td{:align => "left",  :style => "padding-top: 10px; padding-bottom: 30px;border-top:1px dotted grey;"}
-                  %font{:size => 3, :color => "gray", :face => "font-family:Helvetica Neue, Arial, Helvetica, Arial, sans-serif;", :style => "font-size:12px;"}
-                    = t("emails.welcome_email.welcome_email_footer_text", :settings_link => link_to(t("emails.welcome_email.settings_link_text"), notifications_person_settings_url(@recipient, @url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
-                    - if @email_type
-                      = t("emails.common.or")
-                      = link_to(t("emails.common.unsubscribe_from_these_emails"), unsubscribe_person_settings_url(@recipient, @url_params.merge({:email_type => @email_type})), :style => body_link_style) + "."
+      a {
+        color: $link1;
+        text-decoration: none;
+      }
+
+      .email-action-button {
+        padding: 12px 20px 14px;
+        border-radius: 4px;
+        text-decoration: none;
+        background: $link1;
+        border: 2px solid darken($link1, 5%);
+        color: #fff;
+      }
+  %body
+
+    %table{:cellspacing => "0", :border => "0", :height => "100%", :bgcolor => "#ffffff", :cellpadding => "0", :width => "100%"}
+      %tbody>
+        %tr
+          %td{:align => "center", :valign => "top"}
+            %table{:cellspacing => "0", :cellpadding => "0", :width => "400"}
+              %tbody
+                - if @community
+                  %tr
+                    %td{:align => "left", :style => "padding-top: 20px; padding-bottom: 5px; border-bottom:1px dotted grey;"}
+                      %font{:size => 5, :color => "grey", :face => "font-family:Helvetica Neue, Arial, Helvetica, Arial, sans-serif;", :style => "font-size:20px;line-height:28px;"}
+                        = @community.full_name(I18n.locale)
+                - if @recipient && ! @no_recipient_name
+                  %tr
+                    %td{:align => "left", :style => "padding-top: 20px; padding-bottom: 10px;"}
+                      %font{body_font}
+                        = t("emails.common.hey", :name => @recipient.given_name_or_username)
+
+                = yield
+
+                - skip_unsubscribe_footer ||= false
+                - if @recipient && @url_params && !skip_unsubscribe_footer
+                  %tr
+                    %td{:align => "left",  :style => "padding-top: 10px; padding-bottom: 30px;border-top:1px dotted grey;"}
+                      %font{:size => 3, :color => "gray", :face => "font-family:Helvetica Neue, Arial, Helvetica, Arial, sans-serif;", :style => "font-size:12px;"}
+                        = t("emails.welcome_email.welcome_email_footer_text", :settings_link => link_to(t("emails.welcome_email.settings_link_text"), notifications_person_settings_url(@recipient, @url_params))).html_safe
+                        - if @email_type
+                          = t("emails.common.or")
+                          = link_to(t("emails.common.unsubscribe_from_these_emails"), unsubscribe_person_settings_url(@recipient, @url_params.merge({:email_type => @email_type}))) + "."

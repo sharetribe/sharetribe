@@ -74,6 +74,7 @@ gem 'mangopay'
 gem 'braintree'
 gem "mail_view", "~> 1.0.3"
 gem 'statesman', '~> 0.5.0'
+gem "premailer"
 
 #ouisharelabs
 gem 'rdf-turtle'
