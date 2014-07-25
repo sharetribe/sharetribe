@@ -2524,18 +2524,20 @@ section.create-now {
 
   .marketplace-lander-content {
     top: lines($lander-content-top-mobile);
+  }
 
-    h1 {
-      position: relative;
-      padding: 0;
-      color: $background;
-      @include larger-type;
-      line-height: em(18);
-      @include media(tablet) {
-        padding: 0 lines(1);
-        @include huge-type;
-        line-height: em(15);
-      }
+  .marketplace-lander-content-title {
+    margin-bottom: 0;
+    margin-top: 0;
+    position: relative;
+    padding: 0;
+    color: $background;
+    @include larger-type;
+    line-height: em(18);
+    @include media(tablet) {
+      padding: 0 lines(1);
+      @include huge-type;
+      line-height: em(15);
     }
   }
 
@@ -2661,11 +2663,13 @@ section.create-now {
 
     .marketplace-lander-content {
       top: lines($lander-content-top);
+    }
 
-      h1 {
-        @include huge-type;
-        line-height: em(13);
-      }
+    .marketplace-lander-content-title {
+      margin-bottom: 0;
+      margin-top: 0;
+      @include huge-type;
+      line-height: em(13);
     }
 
     p {
@@ -2712,11 +2716,11 @@ section.create-now {
   }
 
   @include media(desktop) {
-    .marketplace-lander-content {
-      h1 {
-        @include mega-type;
-        line-height: em(15);
-      }
+    .marketplace-lander-content-title {
+      margin-bottom: 0;
+      margin-top: 0;
+      @include mega-type;
+      line-height: em(15);
     }
   }
 }
