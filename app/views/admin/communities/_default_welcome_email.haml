@@ -5,5 +5,5 @@
   = t("emails.welcome_email.love_marketplace_crew").html_safe
 
 %p{:style => "font-size:14px;"}
-  = t("emails.welcome_email.p_s_did_you_know", :click_here_link => link_to(t("emails.welcome_email.click_here_link_text"), "http://#{APP_CONFIG.domain}/#{@recipient.locale}?ref=welcome_mail", :style => "color:#d96e21; text-decoration: none;")).html_safe
+  = t("emails.welcome_email.p_s_did_you_know", :click_here_link => link_to(t("emails.welcome_email.click_here_link_text"), "http://#{APP_CONFIG.domain}/#{@recipient.locale}?ref=welcome_mail")).html_safe
 %td{:width => "7.5%"}
