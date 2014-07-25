@@ -4,9 +4,8 @@ Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with cate
   opts[:category] = find_category_by_name(category_name) if category_name
   opts[:transaction_type] = find_transaction_type_by_name(transaction_type) if transaction_type
   opts[:author] = Person.find_by_username(author) if author
-  opts[:communities] = [@current_community]
 
-  @listing = FactoryGirl.create(:listing, opts)
+  create_listing_to_current_community(opts)
 end
 
 Given /^the price of that listing is (\d+)\.(\d+) (EUR|USD)$/ do |price, price_decimal, currency|
