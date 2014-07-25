@@ -71,14 +71,14 @@ Feature: Admin lists members
 
   @javascript
   Scenario: Admin removes a user
-    Given I will confirm all following confirmation dialogs if I am running PhantomJS
-      And there is a listing with title "Sledgehammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
+    Given there is a listing with title "Sledgehammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
 
      When I am on the home page
      Then I should see "Sledgehammer"
 
-     When I am on the manage members admin page
-      And I remove user "john doe"
+    Given I am on the manage members admin page
+      And I will confirm all following confirmation dialogs in this page if I am running PhantomJS
+     When I remove user "john doe"
      Then I should not see "john doe"
 
       # Identifying is easier when using username

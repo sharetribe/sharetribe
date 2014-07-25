@@ -308,7 +308,7 @@ end
 
 # This is a workaround for PhantomJS, which doesn't (or actually WebDriver) support confirm dialogs.
 # Use this keyword BEFORE the confirmation dialog appears
-Given /^I will(?:| (not)) confirm all following confirmation dialogs if I am running PhantomJS$/ do |do_not_confirm|
+Given /^I will(?:| (not)) confirm all following confirmation dialogs in this page if I am running PhantomJS$/ do |do_not_confirm|
   confirm = do_not_confirm != "not"
   if ENV['PHANTOMJS'] then
     page.execute_script("window.__original_confirm = window.confirm; window.confirm = function() { return #{confirm}; };")

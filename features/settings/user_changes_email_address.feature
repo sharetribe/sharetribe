@@ -31,7 +31,7 @@ Feature: User changes email address
 
   @javascript
   Scenario: User removes an email
-    Given I will confirm all following confirmation dialogs if I am running PhantomJS
+    Given I will confirm all following confirmation dialogs in this page if I am running PhantomJS
     Then I should not be able to remove email "sharetribe2@example.com"
     Then I should not be able to remove email "sharetribe@gmail.com"
     When I remove email "sharetribe@example.com"
