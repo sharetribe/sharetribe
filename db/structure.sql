@@ -13,11 +13,7 @@ CREATE TABLE `auth_tokens` (
 
 CREATE TABLE `bookings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-<<<<<<< HEAD
-  `conversation_id` int(11) DEFAULT NULL,
-=======
   `listing_conversation_id` int(11) DEFAULT NULL,
->>>>>>> a4b0d531e0b39feecec6a3f87c6da510da5e4e4b
   `start_on` date DEFAULT NULL,
   `end_on` date DEFAULT NULL,
   `created_at` datetime NOT NULL,
