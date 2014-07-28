@@ -123,14 +123,18 @@ module TestHelpers
   end
 
   def find_or_build_category(category_name)
-    find_category_by_name(category_name) || FactoryGirl.build(:category)
+    TestHelpers::find_category_by_name(category_name) || FactoryGirl.build(:category)
   end
+
+  module_function :find_or_build_category
 
   def find_category_by_name(category_name)
     Category.all.select do |category|
       category.display_name("en") == category_name
     end.first
   end
+
+  module_function :find_category_by_name
 
   def find_transaction_type_by_name(transaction_type_name)
     TransactionType.all.select do |transaction_type|

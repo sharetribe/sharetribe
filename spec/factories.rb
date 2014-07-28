@@ -1,3 +1,5 @@
+require "#{Rails.root}/test/helper_modules"
+
 class FactoryGirl::DefinitionProxy
 
   # has_many is a neat helper that can be used to eliminate quirky before/after books for
@@ -54,7 +56,7 @@ FactoryGirl.define do
     title "Sledgehammer"
     description("test")
     author
-    category { find_or_build_category("item") }
+    category { TestHelpers::find_or_build_category("item") }
     transaction_type { FactoryGirl.build(:transaction_type_sell) }
     tag_list("tools, hammers")
     valid_until 3.months.from_now
