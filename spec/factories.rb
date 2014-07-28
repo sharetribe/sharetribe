@@ -197,7 +197,7 @@ FactoryGirl.define do
     end
 
     has_many :names do |custom_field|
-      FactoryGirl.create(:custom_field_name)
+      FactoryGirl.build(:custom_field_name)
     end
 
     factory :custom_dropdown_field, class: 'DropdownField' do
