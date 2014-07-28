@@ -86,6 +86,7 @@ end
 
 group :development, :test do
   gem 'rubocop',          require: false
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -105,7 +106,6 @@ group :test do
   gem 'selenium-webdriver', "~>2.41.0"
   gem 'launchy'
   gem 'ruby-prof'
-  gem 'factory_girl_rails'
   gem "pickle"
   gem 'email_spec'
   gem 'action_mailer_cache_delivery'

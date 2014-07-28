@@ -106,6 +106,7 @@ FactoryGirl.define do
 
     factory :listing_conversation, class: 'ListingConversation' do
       build_association(:listing)
+      build_association(:payment)
     end
   end
 
@@ -306,6 +307,7 @@ FactoryGirl.define do
 
   factory :payment do
     build_association(:community)
+    build_association(:conversation)
 
     factory :braintree_payment, class: 'BraintreePayment' do
       build_association(:payer)
