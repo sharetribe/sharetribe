@@ -55,13 +55,16 @@ FactoryGirl.define do
     description("test")
     author
     category {find_or_create_category("item")}
-    transaction_type { FactoryGirl.create(:transaction_type_sell) }
+    transaction_type { FactoryGirl.build(:transaction_type_sell) }
     tag_list("tools, hammers")
     valid_until 3.months.from_now
     times_viewed 0
     visibility "this_community"
     privacy "public"
-    communities { [ FactoryGirl.create(:community) ] }
+
+    has_many :communities do |listing|
+      FactoryGirl.build(:community)
+    end
   end
 
   factory :conversation do
