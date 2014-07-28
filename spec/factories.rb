@@ -55,7 +55,7 @@ FactoryGirl.define do
   factory :listing do
     title "Sledgehammer"
     description("test")
-    author
+    author { |listing| listing.association(:person, strategy: :build) }
     category { TestHelpers::find_or_build_category("item") }
     transaction_type { FactoryGirl.build(:transaction_type_sell) }
     tag_list("tools, hammers")
@@ -163,7 +163,7 @@ FactoryGirl.define do
 
   factory :category do
     icon "item"
-    association :community
+    association :community, strategy: :build
   end
 
   factory :category_translation do
@@ -177,7 +177,7 @@ FactoryGirl.define do
   end
 
   factory :transaction_type do
-    association :community
+    association :community, strategy: :build
 
     ['Sell', 'Give', 'Lend', 'Request', 'Service'].each do |type|
       factory_name = "transaction_type_#{type.downcase}"
