@@ -45,8 +45,8 @@ FactoryGirl.define do
     password "testi"
     is_organization false
 
-    after(:create) do |person|
-      FactoryGirl.create_list(:email, 1, person: person)
+    has_many :emails do |person|
+      FactoryGirl.build(:email, person: person)
     end
   end
 
