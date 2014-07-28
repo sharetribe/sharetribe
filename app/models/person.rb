@@ -39,7 +39,7 @@ class Person < ActiveRecord::Base
   attr_protected :is_admin
 
   has_many :listings, :dependent => :destroy, :foreign_key => "author_id"
-  has_many :emails, :dependent => :destroy
+  has_many :emails, :dependent => :destroy, :inverse_of => :person
 
   has_one :location, :conditions => ['location_type = ?', 'person'], :dependent => :destroy
   has_one :braintree_account, :dependent => :destroy
