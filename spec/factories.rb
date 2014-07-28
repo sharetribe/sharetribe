@@ -230,7 +230,7 @@ FactoryGirl.define do
   end
 
   factory :custom_field_option do
-    titles { [ FactoryGirl.create(:custom_field_option_title) ] }
+    titles { [ FactoryGirl.build(:custom_field_option_title) ] }
   end
 
   factory :custom_field_option_title do
