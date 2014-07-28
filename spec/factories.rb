@@ -54,7 +54,7 @@ FactoryGirl.define do
     title "Sledgehammer"
     description("test")
     author
-    category {find_or_create_category("item")}
+    category { find_or_build_category("item") }
     transaction_type { FactoryGirl.build(:transaction_type_sell) }
     tag_list("tools, hammers")
     valid_until 3.months.from_now

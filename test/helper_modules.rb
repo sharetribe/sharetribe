@@ -122,8 +122,8 @@ module TestHelpers
     controller.stub :current_person => person
   end
 
-  def find_or_create_category(category_name)
-    find_category_by_name(category_name) || FactoryGirl.create(:category)
+  def find_or_build_category(category_name)
+    find_category_by_name(category_name) || FactoryGirl.build(:category)
   end
 
   def find_category_by_name(category_name)
