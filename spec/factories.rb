@@ -181,8 +181,8 @@ FactoryGirl.define do
       factory_name = "transaction_type_#{type.downcase}"
       factory factory_name.to_sym, class: type do
         type type
-        after(:create) do |transaction_type|
-          transaction_type.translations << FactoryGirl.create(:transaction_type_translation, :name => type, :transaction_type_id => transaction_type.id)
+        has_many :translations do |transaction_type|
+          FactoryGirl.build(:transaction_type_translation, :name => type, :transaction_type => transaction_type)
         end
       end
     end
@@ -192,8 +192,7 @@ FactoryGirl.define do
     community
 
     has_many :category_custom_fields do |custom_field|
-      category = FactoryGirl.create(:category)
-      FactoryGirl.create(:category_custom_field, :category => category, :custom_field => custom_field)
+      FactoryGirl.build(:category_custom_field, :custom_field => custom_field)
     end
 
     has_many :names do |custom_field|
