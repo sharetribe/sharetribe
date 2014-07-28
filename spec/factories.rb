@@ -21,6 +21,11 @@ class FactoryGirl::DefinitionProxy
       instance.send(collection).each { |i| i.save! }
     end
   end
+
+  def build_association(association, opts = {})
+    as = opts.fetch(:as) { association }
+    self.send(as) { |instance| instance.association(association, strategy: :build) }
+  end
 end
 
 FactoryGirl.define do
@@ -55,10 +60,9 @@ FactoryGirl.define do
   factory :listing do
     title "Sledgehammer"
     description("test")
-    author { |listing| listing.association(:person, strategy: :build) }
+    build_association(:author)
     category { TestHelpers::find_or_build_category("item") }
-    transaction_type { FactoryGirl.build(:transaction_type_sell) }
-    tag_list("tools, hammers")
+    build_association(:transaction_type_sell, as: :transaction_type)
     valid_until 3.months.from_now
     times_viewed 0
     visibility "this_community"
@@ -74,33 +78,33 @@ FactoryGirl.define do
     community
 
     factory :listing_conversation, class: 'ListingConversation' do
-      listing
+      listing { |listing_conversation| listing_conversation.association(:listing, strategy: :build) }
     end
   end
 
   factory :message do
     content "Test"
-    association :conversation
+    build_association(:conversation)
     sender
   end
 
   factory :participation do
-    association :conversation
-    association :person
+    build_association(:conversation)
+    build_association(:person)
     is_read false
     last_sent_at DateTime.now
   end
 
   factory :testimonial do
     author
-    association :participation
+    build_association(:participation)
     grade 0.5
     text "Test text"
   end
 
   factory :comment do
-    author { |author| author.association(:person) }
-    association :listing
+    build_association(:author)
+    build_association(:listing)
     content "Test text"
   end
 
@@ -121,8 +125,8 @@ FactoryGirl.define do
   end
 
   factory :community_membership do
-    association :community
-    association :person
+    build_association(:community)
+    build_association(:person)
     admin false
     consent "test_consent0.1"
     status "accepted"
@@ -138,16 +142,10 @@ FactoryGirl.define do
     community_id 1
   end
 
-  factory :device do
-    device_type "iPhone"
-    device_token "LSIDFSLDJIOGSSCSBEUS52349583"
-    person { |person| person.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
-  end
-
   factory :location do
-    association :listing
-    association :person
-    association :community
+    build_association(:listing)
+    build_association(:person)
+    build_association(:community)
     latitude 62.2426
     longitude 25.7475
     address "helsinki"
@@ -163,7 +161,7 @@ FactoryGirl.define do
 
   factory :category do
     icon "item"
-    association :community, strategy: :build
+    build_association(:community)
   end
 
   factory :category_translation do
@@ -174,10 +172,11 @@ FactoryGirl.define do
   factory :transaction_type_translation do
     name "Selling"
     locale "en"
+    build_association(:transaction_type)
   end
 
   factory :transaction_type do
-    association :community, strategy: :build
+    build_association(:community)
 
     ['Sell', 'Give', 'Lend', 'Request', 'Service'].each do |type|
       factory_name = "transaction_type_#{type.downcase}"
@@ -227,8 +226,8 @@ FactoryGirl.define do
   end
 
   factory :category_custom_field do
-    category
-    custom_field :custom_dropdown_field
+    build_association(:category)
+    build_association(:custom_dropdown_field, as: :custom_field)
   end
 
   factory :custom_field_option do
@@ -246,23 +245,23 @@ FactoryGirl.define do
   end
 
   factory :custom_field_value do
-    question
-    listing
+    build_association(:question)
+    build_association(:listing)
   end
 
   factory :dropdown_field_value, class: 'DropdownFieldValue' do
-    question { [ FactoryGirl.build(:custom_dropdown_field) ] }
-    listing
+    build_association(:custom_dropdown_field, as: :question)
+    build_association(:listing)
   end
 
   factory :checkbox_field_value, class: 'CheckboxFieldValue' do
-    question { [ FactoryGirl.build(:custom_checkbox_field) ] }
-    listing
+    build_association(:custom_checkbox_field, as: :question)
+    build_association(:listing)
   end
 
   factory :custom_numeric_field_value, class: 'NumericFieldValue' do
-    question { [ FactoryGirl.build(:custom_numeric_field) ] }
-    listing
+    build_association(:custom_numeric_field, as: :question)
+    build_association(:listing)
     numeric_value 0
   end
 
@@ -292,6 +291,7 @@ FactoryGirl.define do
 
   factory :payment_row do
     currency "EUR"
+    sum_cents 2000
   end
 
   factory :braintree_account do
