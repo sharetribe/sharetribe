@@ -116,12 +116,6 @@ FactoryGirl.define do
     slogan "Test slogan"
     description "Test description"
     category "other"
-
-    factory :community_with_multiple_members do
-      after_create do |community, evaluator|
-        create_list(:person, 5, communities: [community])
-      end
-    end
   end
 
   factory :community_membership do
