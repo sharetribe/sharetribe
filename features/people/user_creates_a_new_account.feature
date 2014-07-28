@@ -27,8 +27,6 @@ Feature: User creates a new account
     And I should see "The email you entered is now confirmed"
     And I should not see my username
     And Most recently created user should be member of "test" community with its latest consent accepted
-    When I open the email with subject "Welcome to"
-    Then I should see "Here are some tips to get you started." in the email body
 
   Scenario: Trying to create account with unavailable username
     When I fill in "person[username]" with "kassi_testperson2"
