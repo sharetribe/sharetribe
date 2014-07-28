@@ -778,7 +778,7 @@ fi:
     welcome_email:
       welcome_email_subject: "Tervetuloa yhteisöön %{community}"
       welcome_to_marketplace: "Tervetuloa %{service_name}-markkinapaikkasivuston jäseneksi! Mukavaa kun liityit."
-      love_marketplace_crew: "Terveisin,<br /><i>%{service_name}-tiimi"
+      love_marketplace_crew: "Terveisin,<br /><i>%{service_name}-tiimi</i>"
       p_s_did_you_know: "P.S. Haluaisitko perustaa itse vastaavanlaisen markkinapaikkasivuston kuin %{service_name}? Se on helppoa eikä sinulta vaadita lainkaan ohjelmointiosaamista. %{click_here_link} kuullaksesi lisää!"
       click_here_link_text: "Klikkaa tästä"
       welcome_email_footer_text: "Millaisia sähköpostiviestejä haluat saada %{service_name_elative}? %{settings_link}"
