@@ -497,11 +497,7 @@ class PersonMailer < ActionMailer::Base
     end
   end
 
-  # Deprecated
-  # Moved to CommunityMailer
-  # This method is here only to make sure no updates get missed while changing the
-  # mail cron job to use the new method. Can be safely removed after May 2014
-  def self.deliver_community_updates
-    CommunityMailer.deliver_community_updates
+  def premailer_mail(opts, &block)
+    premailer(mail(opts, &block))
   end
 end
