@@ -177,8 +177,8 @@ describe PersonMailer do
     it "should welcome a regular member" do
       @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
       @email.should deliver_to("update_tester@example.com")
-      @email.should have_subject("Welcome to #{@c1.full_name('en')} - here are some tips to get you started")
-      @email.should have_body_text "Add something you could offer to others"
+      @email.should have_subject("Welcome to #{@c1.full_name('en')}")
+      @email.should have_body_text "Welcome to Sharetribe! Glad to have you on board."
       @email.should_not have_body_text "You have now admin rights in this community."
     end
 
@@ -188,15 +188,6 @@ describe PersonMailer do
       @email.should have_body_text "Custom email"
       @email.should_not have_body_text "Add something you could offer to others."
       @email.should_not have_body_text "You have now admin rights in this community."
-    end
-
-    it "should contain admin info if the receipient is an administrator" do
-      @p1.update_attribute(:is_admin, true)
-      @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
-      @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
-      @email.should deliver_to("update_tester@example.com")
-      @email.should have_subject("You just created #{@c1.full_name('en')} - here are some tips to get you started")
-      @email.should have_body_text "You have now admin rights in this community."
     end
 
   end

@@ -112,4 +112,4 @@ Feature: User joins another community
     And I should not see "Email address"
     Then I should see "Tester P"
     And "other.email@example.com" should have 2 emails
-    And I should receive an email with subject "Welcome to Sharetribe Test2 - here are some tips to get you started"
+    And I should receive an email with subject "Welcome to Sharetribe Test2"
