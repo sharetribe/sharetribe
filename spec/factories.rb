@@ -234,6 +234,11 @@ FactoryGirl.define do
     titles { [ FactoryGirl.build(:custom_field_option_title) ] }
   end
 
+  factory :custom_field_option_selection do
+    build_association(:custom_field_value)
+    build_association(:custom_field_option)
+  end
+
   factory :custom_field_option_title do
     value "Test option"
     locale "en"
@@ -247,22 +252,23 @@ FactoryGirl.define do
   factory :custom_field_value do
     build_association(:question)
     build_association(:listing)
-  end
 
-  factory :dropdown_field_value, class: 'DropdownFieldValue' do
-    build_association(:custom_dropdown_field, as: :question)
-    build_association(:listing)
-  end
+    factory :dropdown_field_value, class: 'DropdownFieldValue' do
+      build_association(:custom_dropdown_field, as: :question)
 
-  factory :checkbox_field_value, class: 'CheckboxFieldValue' do
-    build_association(:custom_checkbox_field, as: :question)
-    build_association(:listing)
-  end
+      has_many :custom_field_option_selections do |dropdown_field_value|
+        FactoryGirl.build(:custom_field_option_selection, custom_field_value: dropdown_field_value)
+      end
+    end
 
-  factory :custom_numeric_field_value, class: 'NumericFieldValue' do
-    build_association(:custom_numeric_field, as: :question)
-    build_association(:listing)
-    numeric_value 0
+    factory :checkbox_field_value, class: 'CheckboxFieldValue' do
+      build_association(:custom_checkbox_field, as: :question)
+    end
+
+    factory :custom_numeric_field_value, class: 'NumericFieldValue' do
+      build_association(:custom_numeric_field, as: :question)
+      numeric_value 0
+    end
   end
 
   factory :transaction_transition do
@@ -278,6 +284,7 @@ FactoryGirl.define do
       status "pending"
       payment_gateway { FactoryGirl.build(:braintree_payment_gateway) }
       currency "USD"
+      sum_cents 500
     end
 
     factory :checkout_payment, class: 'CheckoutPayment' do
@@ -286,6 +293,10 @@ FactoryGirl.define do
       status "pending"
       payment_gateway { FactoryGirl.build(:checkout_payment_gateway) }
       currency "EUR"
+
+      has_many :rows do
+        FactoryGirl.build(:payment_row)
+      end
     end
   end
 
