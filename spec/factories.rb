@@ -75,17 +75,17 @@ FactoryGirl.define do
 
   factory :conversation do
     title "Item offer: Sledgehammer"
-    community
+    build_association(:community)
 
     factory :listing_conversation, class: 'ListingConversation' do
-      listing { |listing_conversation| listing_conversation.association(:listing, strategy: :build) }
+      build_association(:listing)
     end
   end
 
   factory :message do
     content "Test"
     build_association(:conversation)
-    sender
+    build_association(:sender)
   end
 
   factory :participation do
@@ -96,7 +96,7 @@ FactoryGirl.define do
   end
 
   factory :testimonial do
-    author
+    build_association(:author)
     build_association(:participation)
     grade 0.5
     text "Test text"
@@ -109,7 +109,7 @@ FactoryGirl.define do
   end
 
   factory :feedback do
-    author
+    build_association(:author)
     content "Test feedback"
     url "/requests"
     email "kassi_testperson1@example.com"
@@ -153,7 +153,7 @@ FactoryGirl.define do
   end
 
   factory :email do
-    person
+    build_association(:person)
     address { generate(:email_address) }
     confirmed_at Time.now
     send_notifications true
@@ -190,7 +190,7 @@ FactoryGirl.define do
   end
 
   factory :custom_field, aliases: [:question] do
-    community
+    build_association(:community)
 
     has_many :category_custom_fields do |custom_field|
       FactoryGirl.build(:category_custom_field, :custom_field => custom_field)
@@ -231,7 +231,9 @@ FactoryGirl.define do
   end
 
   factory :custom_field_option do
-    titles { [ FactoryGirl.build(:custom_field_option_title) ] }
+    has_many :titles do
+      FactoryGirl.build(:custom_field_option_title)
+    end
   end
 
   factory :custom_field_option_selection do
@@ -276,11 +278,11 @@ FactoryGirl.define do
   end
 
   factory :payment do
-    community
+    build_association(:community)
 
     factory :braintree_payment, class: 'BraintreePayment' do
-      payer
-      recipient
+      build_association(:payer)
+      build_association(:recipient)
       status "pending"
       payment_gateway { FactoryGirl.build(:braintree_payment_gateway) }
       currency "USD"
@@ -288,8 +290,8 @@ FactoryGirl.define do
     end
 
     factory :checkout_payment, class: 'CheckoutPayment' do
-      payer
-      recipient
+      build_association(:payer)
+      build_association(:recipient)
       status "pending"
       payment_gateway { FactoryGirl.build(:checkout_payment_gateway) }
       currency "EUR"
@@ -306,7 +308,7 @@ FactoryGirl.define do
   end
 
   factory :braintree_account do
-    person
+    build_association(:person)
     first_name "Joe"
     last_name "Bloggs"
     email "joe@14ladders.com"
@@ -319,7 +321,7 @@ FactoryGirl.define do
     routing_number "1234567890"
     hidden_account_number "*********98"
     status "active"
-    community
+    build_association(:community)
   end
 
   factory :payment_gateway do
@@ -338,7 +340,7 @@ FactoryGirl.define do
   end
 
   factory :menu_link do
-    community
+    build_association(:community)
   end
 
   factory :menu_link_translation do
@@ -357,7 +359,7 @@ FactoryGirl.define do
   end
 
   factory :follower_relationship do
-    person
-    follower
+    build_association(:person)
+    build_association(:follower)
   end
 end
