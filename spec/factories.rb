@@ -29,6 +29,10 @@ class FactoryGirl::DefinitionProxy
 end
 
 FactoryGirl.define do
+  sequence :id do |_|
+    UUID.timestamp_create.to_s22
+  end
+
   sequence :username do |n|
     "kassi_tester#{n}"
   end
@@ -42,6 +46,7 @@ FactoryGirl.define do
   end
 
   factory :person, aliases: [:author, :receiver, :recipient, :payer, :sender, :follower] do
+    id
     is_admin 0
     locale "en"
     test_group_number 4
