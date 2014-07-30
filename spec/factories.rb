@@ -110,14 +110,6 @@ FactoryGirl.define do
 
     created_at DateTime.now
     updated_at DateTime.now
-
-    # has_many :participants, 2 do
-    #   FactoryGirl.build(:person)
-    # end
-
-    # has_many :messages do
-    #   FactoryGirl.build(:message)
-    # end
   end
 
   factory :message do

@@ -135,35 +135,63 @@ class MailPreview < MailView
     payment = FactoryGirl.build(:braintree_payment, payment_gateway: payment_gateway, payer: starter, recipient: author)
     listing = FactoryGirl.build(:listing, author: author)
 
-    conversation = FactoryGirl.build(:listing_conversation, community: community, listing: listing, payment: payment, participants: [author, starter])
+    message = FactoryGirl.build(:message, sender: starter)
+
+    conversation = FactoryGirl.build(:listing_conversation, community: community, listing: listing, payment: payment, participants: [author, starter], messages: [message])
     payment.conversation = conversation
 
     PersonMailer.transaction_confirmed(conversation, community)
   end
 
   def transaction_automatically_confirmed
-    conversation = Conversation.last
-    community = conversation.community
-    conversation.status = "confirmed"
+    author = FactoryGirl.build(:person)
+    starter = FactoryGirl.build(:person)
+    payment_gateway = FactoryGirl.build(:braintree_payment_gateway)
+    community = FactoryGirl.build(:community, payment_gateway: payment_gateway, custom_color1: "FF0099")
+    payment = FactoryGirl.build(:braintree_payment, payment_gateway: payment_gateway, payer: starter, recipient: author)
+    listing = FactoryGirl.build(:listing, author: author)
+
+    message = FactoryGirl.build(:message, sender: starter)
+
+    conversation = FactoryGirl.build(:listing_conversation, community: community, listing: listing, payment: payment, participants: [author, starter], messages: [message])
+    payment.conversation = conversation
+
     PersonMailer.transaction_automatically_confirmed(conversation, community)
   end
 
   def conversation_status_changed
-    conversation = Conversation.last
-    community = conversation.community
-    # community.payment_gateway = nil
-    community.payment_gateway = BraintreePaymentGateway.new
-    conversation.status = "accepted"
-    conversation.other_party(conversation.listing.author).locale = "fi"
+    author = FactoryGirl.build(:person)
+    starter = FactoryGirl.build(:person)
+    payment_gateway = FactoryGirl.build(:braintree_payment_gateway)
+    community = FactoryGirl.build(:community, payment_gateway: payment_gateway, custom_color1: "FF0099")
+    payment = FactoryGirl.build(:braintree_payment, id: 55, payment_gateway: payment_gateway, payer: starter, recipient: author)
+    listing = FactoryGirl.build(:listing, author: author)
+
+    message = FactoryGirl.build(:message, sender: starter, id: 123)
+
+    conversation = FactoryGirl.build(:listing_conversation, id: 99, community: community, listing: listing, payment: payment, participants: [author, starter], messages: [message])
+    conversation.transaction_transitions << FactoryGirl.build(:transaction_transition, to_state: "accepted")
+    payment.conversation = conversation
 
     PersonMailer.conversation_status_changed(conversation, community)
   end
 
   def community_updates
-    community = Community.first
-    recipient = community.members.first
-    listings = community.listings
-    CommunityMailer.community_updates(recipient, community, listings)
+    author = FactoryGirl.build(:person)
+    starter = FactoryGirl.build(:person)
+    recipient = FactoryGirl.build(:person)
+    payment_gateway = FactoryGirl.build(:braintree_payment_gateway)
+    community = FactoryGirl.build(:community, payment_gateway: payment_gateway, custom_color1: "FF0099", members: [recipient])
+    payment = FactoryGirl.build(:braintree_payment, id: 55, payment_gateway: payment_gateway, payer: starter, recipient: author)
+    listing = FactoryGirl.build(:listing, author: author, id: 123)
+
+    message = FactoryGirl.build(:message, sender: starter, id: 123)
+
+    conversation = FactoryGirl.build(:listing_conversation, id: 99, community: community, listing: listing, payment: payment, participants: [author, starter], messages: [message])
+    conversation.transaction_transitions << FactoryGirl.build(:transaction_transition, to_state: "accepted")
+    payment.conversation = conversation
+
+    CommunityMailer.community_updates(recipient, community, [listing])
   end
 
   def transaction_preauthorized
@@ -174,16 +202,40 @@ class MailPreview < MailView
   end
 
     def transaction_preauthorized_reminder
-    conversation = ListingConversation.find do |conversation|
-      conversation.status == "preauthorized" && conversation.listing.transaction_type.preauthorize_payment?
-    end
+    author = FactoryGirl.build(:person)
+    starter = FactoryGirl.build(:person)
+    recipient = FactoryGirl.build(:person)
+    payment_gateway = FactoryGirl.build(:braintree_payment_gateway)
+    community = FactoryGirl.build(:community, payment_gateway: payment_gateway, custom_color1: "FF0099", members: [recipient])
+    payment = FactoryGirl.build(:braintree_payment, id: 55, payment_gateway: payment_gateway, payer: starter, recipient: author)
+    listing = FactoryGirl.build(:listing, author: author, id: 123)
+
+    message = FactoryGirl.build(:message, sender: starter, id: 123)
+
+    participations = [FactoryGirl.build(:participation, person: author), FactoryGirl.build(:participation, person: starter, is_starter: true)]
+
+    conversation = FactoryGirl.build(:listing_conversation, id: 99, community: community, listing: listing, payment: payment, participations: participations, participants: [author, starter], messages: [message])
+    conversation.transaction_transitions << FactoryGirl.build(:transaction_transition, to_state: "accepted")
+    payment.conversation = conversation
+
     TransactionMailer.transaction_preauthorized_reminder(conversation)
   end
 
   def new_listing_by_followed_person
-    listing = Listing.order("length(description)").last
-    recipient = Person.last
-    community = listing.communities.last
+    author = FactoryGirl.build(:person)
+    starter = FactoryGirl.build(:person)
+    recipient = FactoryGirl.build(:person)
+    payment_gateway = FactoryGirl.build(:braintree_payment_gateway)
+    community = FactoryGirl.build(:community, payment_gateway: payment_gateway, custom_color1: "FF0099", members: [recipient])
+    payment = FactoryGirl.build(:braintree_payment, id: 55, payment_gateway: payment_gateway, payer: starter, recipient: author)
+    listing = FactoryGirl.build(:listing, author: author, id: 123)
+
+    message = FactoryGirl.build(:message, sender: starter, id: 123)
+
+    conversation = FactoryGirl.build(:listing_conversation, id: 99, community: community, listing: listing, payment: payment, participants: [author, starter], messages: [message])
+    conversation.transaction_transitions << FactoryGirl.build(:transaction_transition, to_state: "accepted")
+    payment.conversation = conversation
+
     PersonMailer.new_listing_by_followed_person(listing, recipient, community)
   end
 end
