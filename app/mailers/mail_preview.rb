@@ -47,7 +47,7 @@ class MailPreview < MailView
     author = FactoryGirl.build(:person)
     starter = FactoryGirl.build(:person)
     payment_gateway = FactoryGirl.build(:braintree_payment_gateway)
-    community = FactoryGirl.build(:community, payment_gateway: payment_gateway)
+    community = FactoryGirl.build(:community, payment_gateway: payment_gateway, custom_color1: "FF0099")
     payment = FactoryGirl.build(:braintree_payment, payment_gateway: payment_gateway, payer: starter, recipient: author)
     listing = FactoryGirl.build(:listing, author: author)
 
@@ -61,7 +61,7 @@ class MailPreview < MailView
     author = FactoryGirl.build(:person)
     starter = FactoryGirl.build(:person)
     payment_gateway = FactoryGirl.build(:braintree_payment_gateway)
-    community = FactoryGirl.build(:community, payment_gateway: payment_gateway)
+    community = FactoryGirl.build(:community, payment_gateway: payment_gateway, custom_color1: "FF0099")
     payment = FactoryGirl.build(:braintree_payment, payment_gateway: payment_gateway, payer: starter, recipient: author)
     listing = FactoryGirl.build(:listing, author: author)
 
@@ -75,7 +75,7 @@ class MailPreview < MailView
     author = FactoryGirl.build(:person)
     starter = FactoryGirl.build(:person)
     payment_gateway = FactoryGirl.build(:braintree_payment_gateway)
-    community = FactoryGirl.build(:community, payment_gateway: payment_gateway)
+    community = FactoryGirl.build(:community, payment_gateway: payment_gateway, custom_color1: "FF0099")
     payment = FactoryGirl.build(:braintree_payment, payment_gateway: payment_gateway, payer: starter, recipient: author)
     listing = FactoryGirl.build(:listing, author: author)
 
@@ -91,7 +91,7 @@ class MailPreview < MailView
     author = FactoryGirl.build(:person)
     starter = FactoryGirl.build(:person)
     payment_gateway = FactoryGirl.build(:braintree_payment_gateway)
-    community = FactoryGirl.build(:community, payment_gateway: payment_gateway)
+    community = FactoryGirl.build(:community, payment_gateway: payment_gateway, custom_color1: "FF0099")
     payment = FactoryGirl.build(:braintree_payment, payment_gateway: payment_gateway, payer: starter, recipient: author)
     listing = FactoryGirl.build(:listing, author: author)
 
@@ -114,7 +114,7 @@ class MailPreview < MailView
     author = FactoryGirl.build(:person)
     starter = FactoryGirl.build(:person)
     payment_gateway = FactoryGirl.build(:braintree_payment_gateway)
-    community = FactoryGirl.build(:community, payment_gateway: payment_gateway)
+    community = FactoryGirl.build(:community, payment_gateway: payment_gateway, custom_color1: "FF0099")
     payment = FactoryGirl.build(:braintree_payment, payment_gateway: payment_gateway, payer: starter, recipient: author)
     listing = FactoryGirl.build(:listing, author: author)
 
