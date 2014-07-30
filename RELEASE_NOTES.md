@@ -12,6 +12,18 @@ When updating, always run the following commands to update gem set and database 
  - check this file for changes between your old version and the one you are updating, and do the necessary manual operations if needed
  - if running on local instance (localhost), you need to precompile assets using "rake assets:precompile" once update is done
 
+4.5.4
+-----
+
+Ruby update to 2.1.2
+
+You may need to run the following commands (if you are using RVM):
+
+```bash
+> rvm install ruby-2.1.2
+> bundle install
+```
+
 4.5.3
 -----
 
