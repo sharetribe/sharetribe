@@ -11,7 +11,7 @@
     TODO: Go through mailer methods and define @current_community in all of them
 
   - community = @current_community || @community
-  - color = community ? community.custom_color1 : "d96e21"
+  - color = Maybe(community).custom_color1.or_else { "d96e21" }
 
   :scss
     $link1: ##{color};
