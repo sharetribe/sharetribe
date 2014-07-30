@@ -6,6 +6,7 @@ class Community < ActiveRecord::Base
 
   has_many :community_memberships, :dependent => :destroy
   has_many :members, :through => :community_memberships, :conditions => ['community_memberships.status = ?', 'accepted'], :source => :person
+  has_many :admins, :through => :community_memberships, :conditions => ['community_memberships.admin = ?', true], :source => :person
   has_many :invitations, :dependent => :destroy
   has_many :event_feed_events, :dependent => :destroy
   has_one :location, :dependent => :destroy
@@ -203,11 +204,6 @@ class Community < ActiveRecord::Base
       # if locales not set, return the short locales from the default list
       return Kassi::Application.config.AVAILABLE_LOCALES.collect{|loc| loc[1]}
     end
-  end
-
-  # Return the people who are admins of this community
-  def admins
-    members.joins(:community_memberships).where("community_memberships.admin = '1'").group("people.id")
   end
 
   # Returns the emails of admins in an array
