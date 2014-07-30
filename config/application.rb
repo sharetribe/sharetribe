@@ -7,6 +7,8 @@ require 'rails/all'
 # These needed to load the config.yml
 require File.expand_path('../config_loader', __FILE__)
 
+require File.expand_path('../available_locales', __FILE__)
+
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
   Bundler.require *Rails.groups(:assets => %w(development test))
@@ -54,56 +56,10 @@ module Kassi
     config.middleware.use "CustomDomainCookie", APP_CONFIG.domain
 
     # This is the list of all possible locales. Part of the translations may be unfinished.
-    config.AVAILABLE_LOCALES = [
-          ["English", "en"],
-          ["Suomi", "fi"],
-          ["Pусский", "ru"],
-          ["Nederlands", "nl"],
-          ["Ελληνικά", "el"],
-          ["Kiswahili", "sw"],
-          ["Română", "ro"],
-          ["Français", "fr"],
-          ["中文", "zh"],
-          ["Español", "es"],
-          ["Español", "es-ES"],
-          ["Catalan", "ca"],
-          ["Tiếng Việt", "vi"],
-          ["Deutsch", "de"],
-          ["Svenska", "sv"],
-          ["Italiano", "it"],
-          ["Hrvatski", "hr"],
-          ["Português do Brasil", "pt-BR"],
-
-          # Customization languages
-          ["English", "en-rc"],
-          ["Français", "fr-rc"],
-          ["Español", "es-rc"],
-          ["Deutsch", "de-rc"],
-          ["English UL", "en-ul"],
-          ["English SB", "en-sb"],
-          ["English", "en-bf"],
-          ["French", "fr-bd"],
-          ["English", "en-bd"],
-          ["English", "en-cf"],
-          ["English", "en-vg"],
-          ["English", "en-bl"],
-          ["Deutsch", "de-bl"],
-          ["English", "en-un"],
-          ["English", "en-qr"],
-          ["English", "en-at"],
-          ["French", "fr-at"],
-    ]
+    config.AVAILABLE_LOCALES = Sharetribe::AVAILABLE_LOCALES
 
     # This is the list o locales avaible for the dashboard and newly created tribes in UI
-    config.AVAILABLE_DASHBOARD_LOCALES = [
-          ["English", "en"],
-          ["Suomi", "fi"],
-          ["Español", "es"],
-          ["Français", "fr"],
-          ["Deutsch", "de"],
-          ["Pусский", "ru"],
-          ["Ελληνικά", "el"]
-    ]
+    config.AVAILABLE_DASHBOARD_LOCALES = Sharetribe::AVAILABLE_DASHBOARD_LOCALES
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
