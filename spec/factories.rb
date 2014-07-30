@@ -1,3 +1,10 @@
+# FactoryGirl definitions
+#
+# Notes:
+# - The caller is responsible for deciding whether the object should or should not be persisted to the DB, thus...
+# - Factories should NEVER write anything to database if .build is used. So when building associations,
+#   make sure they are not written to DB.
+
 require "#{Rails.root}/test/helper_modules"
 
 class FactoryGirl::DefinitionProxy
@@ -22,6 +29,21 @@ class FactoryGirl::DefinitionProxy
     end
   end
 
+  # Use build_associations to build `has_one` associations.
+  #
+  # Usage:
+  #
+  # factory :listing do
+  #   title "Cool surfboard"
+  #   build_association(:author)
+  # end
+  #
+  # factory :category_custom_field do
+  #   build_association(:custom_dropdown_field, as: :custom_field)
+  # end
+  #
+  # By default, FactoryGirl saves associations to the database and we don't want that.
+  #
   def build_association(association, opts = {})
     as = opts.fetch(:as) { association }
     self.send(as) { |instance| instance.association(association, strategy: :build) }
