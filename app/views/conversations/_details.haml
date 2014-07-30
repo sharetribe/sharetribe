@@ -3,6 +3,19 @@
     - price = Maybe(listing).price.or_else(nil)
     - sum = Maybe(listing_conversation).payment.total_sum.or_else(nil)
 
+    - Maybe(listing_conversation).booking.each do |booking|
+      %ul.no-bullets
+        %li
+          %div
+            = l booking.start_on, format: :long_with_abbr_day_name
+            = "-"
+            = l booking.end_on, format: :long_with_abbr_day_name
+            = "(#{pluralize(booking.duration, t(".day"), t(".days"))})"
+
+        %li
+          %div
+            = t(".price_per_day", price: humanized_money_with_symbol(listing_conversation.listing.price))
+
     - if sum
       %p.message-sum
         = t("conversations.show.sum", sum: humanized_money_with_symbol(sum))

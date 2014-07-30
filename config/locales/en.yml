@@ -388,6 +388,10 @@ en:
       continue: Continue
       give_feedback_to: "Give feedback to %{person_link}"
       do_not_give_feedback: "Skip feedback"
+    details:
+      day: "day"
+      days: "days"
+      price_per_day: "Price per day: %{price}"
     index:
       loading_more_messages: "Loading more messages"
       message_partitive: message

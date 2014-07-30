@@ -388,6 +388,10 @@ fi:
       continue: Jatka
       give_feedback_to: "Anna palautetta käyttäjälle %{person_link}"
       do_not_give_feedback: "Ohita palaute"
+    details:
+      day: "day"
+      days: "days"
+      price_per_day: "Price per day: %{price}"
     index:
       loading_more_messages: "Ladataan lisää viestejä"
       message_partitive: viesti
