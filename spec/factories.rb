@@ -16,11 +16,11 @@ class FactoryGirl::DefinitionProxy
   #
   # Usage: ctrl+f "has_many"
   #
-  def has_many(collection)
+  def has_many(collection, count = 1)
     # after_build is where you add instances to the factory-built collection.
     # Typically you'll want to Factory.build() these instances.
     after (:build) do |instance, evaluator|
-      instance.send(collection) << yield(instance, evaluator) if instance.send(collection).empty?
+      count.times { instance.send(collection) << yield(instance, evaluator) } if instance.send(collection).empty?
     end
 
     # after_create will be called after after_build if the build strategy is Factory.create()
