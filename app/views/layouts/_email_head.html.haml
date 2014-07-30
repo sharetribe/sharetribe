@@ -1,8 +1,15 @@
 %head
   %meta{"http-equiv" => "Content-Type", content: "text/html; charset=UTF-8"}
   %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+
+  -#
+    For some reason, emails use @community even though the convention is to use @current_community
+    So, try to use @current_community but fallback to @community
+
+  - community = @current_community || @community
+
   :scss
-    $link1: ##{(@current_community || @community).custom_color1 || "d96e21"};
+    $link1: ##{community.custom_color1 || "d96e21"};
 
     a {
       color: $link1;

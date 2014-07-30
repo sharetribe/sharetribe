@@ -106,7 +106,6 @@ FactoryGirl.define do
 
     factory :listing_conversation, class: 'ListingConversation' do
       build_association(:listing)
-      build_association(:payment)
     end
 
     created_at DateTime.now

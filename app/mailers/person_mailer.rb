@@ -345,6 +345,7 @@ class PersonMailer < ActionMailer::Base
 
   def email_confirmation(email, host, com=nil)
     community = com || Community.find_by_domain(host)
+    @current_community = community
     @no_settings = true
     @resource = email.person
     @confirmation_token = email.confirmation_token
