@@ -178,4 +178,4 @@ See http://github.com/sharetribe/sharetribe/issues and please report any issues 
 
 ## MIT License
 
-Sharetribe is open source under MIT license. See [LICENSE](LICENSE.md) file for details.
+Sharetribe is open source under MIT license. See [LICENSE](LICENSE) file for details.
