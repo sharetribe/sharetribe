@@ -1,7 +1,7 @@
 bundler_args: --without development --path=~/.bundle
 language: ruby
 rvm:
-- 2.1.1
+- 2.1.2
 env:
   matrix:
   - SUITE="rspec"
