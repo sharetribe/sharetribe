@@ -35,13 +35,13 @@ describe Listing do
     @listing.should_not be_valid
   end
 
-  it "is not valid without an author id" do
-    @listing.author_id = nil
+  it "is not valid without an author" do
+    @listing.author = nil
     @listing.should_not be_valid
   end
 
   it "is not valid without category" do
-    @listing.category_id = nil
+    @listing.category = nil
     @listing.should_not be_valid
   end
 

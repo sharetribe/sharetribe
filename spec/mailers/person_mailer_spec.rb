@@ -7,8 +7,6 @@ describe PersonMailer do
   include(EmailSpec::Matchers)
 
   before(:each) do
-    # @test_person, @session = get_test_person_and_session
-    # @test_person2, @session2 = get_test_person_and_session("kassi_testperson2")
     @test_person = FactoryGirl.create(:person)
     @test_person2 = FactoryGirl.create(:person)
     @test_person2.locale = "en"
