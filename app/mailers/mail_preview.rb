@@ -104,9 +104,26 @@ class MailPreview < MailView
   end
 
   def admin_escrow_canceled
-    conversation = Conversation.last
-    throw "No BraintreePayments in DB, can't show this mail template." if conversation.nil?
-    community = conversation.community
+    author = FactoryGirl.build(:person)
+    starter = FactoryGirl.build(:person)
+    payment_gateway = FactoryGirl.build(:braintree_payment_gateway)
+
+
+    admin_email = FactoryGirl.build(:email, address: "admin@marketplace.com")
+    admin = FactoryGirl.build(:person, emails: [admin_email])
+    community_membership = FactoryGirl.build(:community_membership, person: admin, admin: true)
+
+    community = FactoryGirl.build(:community, payment_gateway: payment_gateway, custom_color1: "FF0099", admins: [admin])
+
+
+    community.community_memberships << community_membership
+
+    payment = FactoryGirl.build(:braintree_payment, payment_gateway: payment_gateway, payer: starter, recipient: author)
+    listing = FactoryGirl.build(:listing, author: author)
+
+    conversation = FactoryGirl.build(:listing_conversation, community: community, listing: listing, payment: payment, participants: [author, starter])
+    payment.conversation = conversation
+
     PersonMailer.admin_escrow_canceled(conversation, community)
   end
 
