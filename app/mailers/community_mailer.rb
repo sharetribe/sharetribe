@@ -87,7 +87,7 @@ class CommunityMailer < ActionMailer::Base
     distance_in_minutes = ((((to_time - from_time).abs)/60)/1440.0).round
   end
 
-    def premailer_mail(opts, &block)
+  def premailer_mail(opts, &block)
     premailer(mail(opts, &block))
   end
 
