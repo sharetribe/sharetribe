@@ -51,22 +51,36 @@ class MailPreview < MailView
     payment = FactoryGirl.build(:braintree_payment, payment_gateway: payment_gateway, payer: starter, recipient: author)
     listing = FactoryGirl.build(:listing, author: author)
 
-    conversation = FactoryGirl.build(:listing_conversation, listing: listing, payment: payment)
+    conversation = FactoryGirl.build(:listing_conversation, listing: listing, payment: payment, participants: [author, starter])
     payment.conversation = conversation
 
     PersonMailer.braintree_new_payment(conversation.payment, community)
   end
 
   def escrow_canceled
-    conversation = Conversation.last
-    throw "No BraintreePayments in DB, can't show this mail template." if conversation.nil?
-    community = conversation.community
+    author = FactoryGirl.build(:person)
+    starter = FactoryGirl.build(:person)
+    payment_gateway = FactoryGirl.build(:braintree_payment_gateway)
+    community = FactoryGirl.build(:community, payment_gateway: payment_gateway)
+    payment = FactoryGirl.build(:braintree_payment, payment_gateway: payment_gateway, payer: starter, recipient: author)
+    listing = FactoryGirl.build(:listing, author: author)
+
+    conversation = FactoryGirl.build(:listing_conversation, listing: listing, payment: payment, participants: [author, starter])
+    payment.conversation = conversation
+
     PersonMailer.escrow_canceled(conversation, community)
   end
 
   def confirm_reminder
-    conversation = Conversation.last
-    conversation.requester.locale = "fi"
+    author = FactoryGirl.build(:person)
+    starter = FactoryGirl.build(:person)
+    payment_gateway = FactoryGirl.build(:braintree_payment_gateway)
+    community = FactoryGirl.build(:community, payment_gateway: payment_gateway)
+    payment = FactoryGirl.build(:braintree_payment, payment_gateway: payment_gateway, payer: starter, recipient: author)
+    listing = FactoryGirl.build(:listing, author: author)
+
+    conversation = FactoryGirl.build(:listing_conversation, community: community, listing: listing, payment: payment, participants: [author, starter])
+    payment.conversation = conversation
 
     # Show different template if hold_in_escrow is true
     conversation.community.payment_gateway = nil
@@ -74,7 +88,15 @@ class MailPreview < MailView
   end
 
   def confirm_reminder_escrow
-    conversation = Conversation.last
+    author = FactoryGirl.build(:person)
+    starter = FactoryGirl.build(:person)
+    payment_gateway = FactoryGirl.build(:braintree_payment_gateway)
+    community = FactoryGirl.build(:community, payment_gateway: payment_gateway)
+    payment = FactoryGirl.build(:braintree_payment, payment_gateway: payment_gateway, payer: starter, recipient: author)
+    listing = FactoryGirl.build(:listing, author: author)
+
+    conversation = FactoryGirl.build(:listing_conversation, community: community, listing: listing, payment: payment, participants: [author, starter])
+    payment.conversation = conversation
 
     # Show different template if hold_in_escrow is true
     conversation.community.payment_gateway = BraintreePaymentGateway.new
@@ -89,9 +111,16 @@ class MailPreview < MailView
   end
 
   def transaction_confirmed
-    conversation = Conversation.last
-    community = conversation.community
-    conversation.status = "confirmed"
+    author = FactoryGirl.build(:person)
+    starter = FactoryGirl.build(:person)
+    payment_gateway = FactoryGirl.build(:braintree_payment_gateway)
+    community = FactoryGirl.build(:community, payment_gateway: payment_gateway)
+    payment = FactoryGirl.build(:braintree_payment, payment_gateway: payment_gateway, payer: starter, recipient: author)
+    listing = FactoryGirl.build(:listing, author: author)
+
+    conversation = FactoryGirl.build(:listing_conversation, community: community, listing: listing, payment: payment, participants: [author, starter])
+    payment.conversation = conversation
+
     PersonMailer.transaction_confirmed(conversation, community)
   end
 
