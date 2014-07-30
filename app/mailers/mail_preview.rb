@@ -4,30 +4,15 @@ class MailPreview < MailView
   include MailViewTestData
 
   def new_payment
-    # instead of mock data, show last suitable payment
-    payment = CheckoutPayment.last
-    throw "No CheckoutPayments in DB, can't show this mail template." if payment.nil?
-    community = payment.community
-
-    PersonMailer.new_payment(payment, community)
+    PersonMailer.new_payment(checkout_payment, checkout_community)
   end
 
   def payment_settings_reminder
-    recipient = Struct.new(:id, :given_name_or_username, :confirmed_notification_emails_to, :new_email_auth_token, :locale).new("123", "Test Recipient", "test@example.com", "123-abc", "en")
-    listing = Struct.new(:id, :title).new(123, "Hammer")
-    payment_gateway = Class.new()
-    payment_gateway.define_singleton_method(:settings_url) { |*args| "http://marketplace.example.com/payment_settings_url" }
-    community = Struct.new(:full_domain, :name, :full_name, :custom_email_from_address, :payment_gateway).new('http://marketplace.example.com', 'Example Marketplace', 'Example Marketplace', 'marketplace@example.com', payment_gateway)
-    community.define_singleton_method(:payments_in_use?) { true }
-
-    PersonMailer.payment_settings_reminder(listing, recipient, community)
+    PersonMailer.payment_settings_reminder(listing, member, community)
   end
 
   def receipt_to_payer
-    payment = CheckoutPayment.last
-    throw "No CheckoutPayments in DB, can't show this mail template." if payment.nil?
-    community = payment.community
-    PersonMailer.receipt_to_payer(payment, community)
+    PersonMailer.receipt_to_payer(checkout_payment, checkout_community)
   end
 
   def braintree_receipt_to_payer

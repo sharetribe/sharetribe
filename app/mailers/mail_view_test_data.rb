@@ -38,6 +38,10 @@ module MailViewTestData
     @braintree_payment_gateway ||= FactoryGirl.build(:braintree_payment_gateway)
   end
 
+  def checkout_payment_gateway
+    @checkout_payment_gateway ||= FactoryGirl.build(:checkout_payment_gateway)
+  end
+
   def payment
     return @payment unless @payment.nil?
     @payment ||= FactoryGirl.build(:braintree_payment,
@@ -51,6 +55,20 @@ module MailViewTestData
     # Avoid infinite loop, set conversation here
     @payment.conversation = conversation
     @payment
+  end
+
+  def checkout_payment
+    return @checkout_payment unless @checkout_payment.nil?
+    @checkout_payment ||= FactoryGirl.build(:checkout_payment,
+      id: 55,
+      payment_gateway: checkout_payment_gateway,
+      payer: starter,
+      recipient: author
+    )
+
+    # Avoid infinite loop, set conversation here
+    @checkout_payment.conversation = conversation
+    @checkout_payment
   end
 
   def listing
@@ -89,6 +107,16 @@ module MailViewTestData
   def community
     @community ||= FactoryGirl.build(:community,
       payment_gateway: payment_gateway,
+      custom_color1: "FF0099",
+      admins: [admin],
+      members: members,
+      community_memberships: community_memberships
+    )
+  end
+
+  def checkout_community
+    @checkout_community ||= FactoryGirl.build(:community,
+      payment_gateway: checkout_payment_gateway,
       custom_color1: "FF0099",
       admins: [admin],
       members: members,
