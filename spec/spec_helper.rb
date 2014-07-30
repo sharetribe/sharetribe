@@ -112,6 +112,7 @@ def create_admin_for(community)
   membership = CommunityMembership.create(community: community, person: person) do |membership|
     membership.admin = true
   end
+  community.reload
   community.members.count.should eql(members_count + 1)
   community.admins.length.should eql(admins_length + 1)
   return person
