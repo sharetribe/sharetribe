@@ -95,8 +95,4 @@ module MailViewTestData
       community_memberships: community_memberships
     )
   end
-
-  def accepted_conversation!
-    conversation.transaction_transitions << FactoryGirl.build(:transaction_transition, to_state: "accepted")
-  end
 end

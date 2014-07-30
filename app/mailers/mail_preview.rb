@@ -3,10 +3,6 @@
 class MailPreview < MailView
   include MailViewTestData
 
-  #FactoryGirl.find_definitions
-  # Using factory girl here was problematic as we didn't want to store anything to DB and
-  # some factories (person) was set up so that simple build without storing anything was not easy.
-
   def new_payment
     # instead of mock data, show last suitable payment
     payment = CheckoutPayment.last
@@ -35,12 +31,6 @@ class MailPreview < MailView
   end
 
   def braintree_receipt_to_payer
-    recipient = Struct.new(:id, :given_name_or_username).new("123", "Test Recipient")
-
-    # instead of mock data, show last suitable payment
-    payment = BraintreePayment.last
-    throw "No BraintreePayments in DB, can't show this mail template." if payment.nil?
-    community = payment.community
     PersonMailer.braintree_receipt_to_payer(payment, community)
   end
 
@@ -60,7 +50,6 @@ class MailPreview < MailView
 
   def confirm_reminder_escrow
     # Show different template if hold_in_escrow is true
-    conversation.community.payment_gateway = BraintreePaymentGateway.new
     PersonMailer.confirm_reminder(conversation, conversation.requester, conversation.community, 5)
   end
 
@@ -77,7 +66,7 @@ class MailPreview < MailView
   end
 
   def conversation_status_changed
-    accepted_conversation!
+    change_conversation_status_to!("accepted")
     PersonMailer.conversation_status_changed(conversation, community)
   end
 
@@ -86,18 +75,24 @@ class MailPreview < MailView
   end
 
   def transaction_preauthorized
-    conversation = ListingConversation.find do |conversation|
-      conversation.status == "preauthorized" && conversation.listing.transaction_type.preauthorize_payment?
-    end
+    change_conversation_status_to!("preauthorized")
     TransactionMailer.transaction_preauthorized(conversation)
   end
 
   def transaction_preauthorized_reminder
-    accepted_conversation!
+    change_conversation_status_to!("preauthorized")
     TransactionMailer.transaction_preauthorized_reminder(conversation)
   end
 
   def new_listing_by_followed_person
     PersonMailer.new_listing_by_followed_person(listing, member, community)
+  end
+
+  private
+
+  # Private methods to make modifications to default test data
+
+  def change_conversation_status_to!(status)
+    conversation.transaction_transitions << FactoryGirl.build(:transaction_transition, to_state: status)
   end
 end
