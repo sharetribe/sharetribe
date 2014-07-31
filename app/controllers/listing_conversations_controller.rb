@@ -37,8 +37,6 @@ class ListingConversationsController < ApplicationController
     @payment = @listing_conversation.initialize_payment
     @payment.sum = @listing_conversation.listing.price
 
-    @listing_conversation.save!
-
     pay(@current_user, @listing_conversation, @payment)
   end
 
@@ -47,11 +45,12 @@ class ListingConversationsController < ApplicationController
     recipient = payment.recipient
 
     if result.success?
+      @listing_conversation.save!
       listing_conversation.status = "preauthorized"
       redirect_to person_message_path(:id => listing_conversation.id)
     else
       flash[:error] = result.message
-      redirect_to :preauthorize
+      redirect_to action: :preauthorize
     end
   end
 
