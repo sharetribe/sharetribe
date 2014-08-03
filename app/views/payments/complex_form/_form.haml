@@ -1,7 +1,7 @@
 .conversation-price.accept-price{:class => (@action.eql?("accept") ? "" : "hidden")}
   %h3 Laskutus
   %p Painaessasi "lähetä" alla oleva lasku lähetetään ostajalle. Ostaja voi maksaa laskun suoraan järjestelmän kautta.
-  = fields_for "conversation[payment_attributes]", @payment do |payment_form|
+  = fields_for "listing_conversation[payment_attributes]", @payment do |payment_form|
     = payment_form.hidden_field :community_id, :value => @current_community.id
     - @payment.initialize_rows(@current_community)
     .payment-row-headings.bottom-border
@@ -14,7 +14,7 @@
       .payment-row-heading.payment-row-total-heading
         Hinta yhteensä
     - @payment.rows.each_with_index do |row, index|
-      = render :partial => "payments/complex_form/payment_row", :locals => { :row => row, :index => index, :values => ((index == 0) ? {:title => @conversation.listing.title, :sum => @conversation.listing.price} : {:title => "", :sum => 0})}
+      = render :partial => "payments/complex_form/payment_row", :locals => { :row => row, :index => index, :values => ((index == 0) ? {:title => @listing_conversation.listing.title, :sum => @listing_conversation.listing.price} : {:title => "", :sum => 0})}
 
     .payment-row.payment-text-row.bottom-border
       .payment-row-title-text.payment-row-text

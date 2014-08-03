@@ -342,6 +342,7 @@ ca:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
+      approve: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -405,6 +406,7 @@ ca:
       housing_request_rent_message_form_title: ~
       item_request_message_form_title: "Oferir un article a %{person}"
       message: Missatge
+      message_to: ~
       rideshare_offer_message_form_title: "Sol·licitar un viatge a %{person}"
       rideshare_request_message_form_title: "Oferir un viatge a %{person}"
       send_message: ~
@@ -414,6 +416,8 @@ ca:
       you_will_get_notified: ~
       title: Títol
       send_message_to_user: ~
+      about_listing: ~
+      author_has_to_accept_request: ~
     show:
       in_response_to_listing: ~
       message_sent_by: ~
@@ -424,7 +428,6 @@ ca:
       conversation_with_user: ~
       conversation_with: ~
       last_message_at: ~
-      requested_by: ~
       price: ~
       sum: ~
       price_excludes_vat: ~
@@ -438,6 +441,7 @@ ca:
       offer_canceled: ~
       offer_confirmed: ~
       pay: ~
+      preauthorized: ~
       paid: ~
       request_accepted: "Sol·licitud acceptada"
       request_rejected: "Sol·licitud rebutjada"
@@ -457,6 +461,10 @@ ca:
       accept_request: "Acceptar sol·licitud"
       reject_offer: "Rebutjar oferta"
       reject_request: "Rebutjar la sol·licitud"
+      accept_preauthorized_offer: ~
+      accept_preauthorized_request: ~
+      reject_preauthorized_offer: ~
+      reject_preauthorized_request: ~
       confirm: ~
       cancel: ~
   braintree_accounts:
@@ -503,17 +511,6 @@ ca:
       view_tribe: ~
     email_confirmation_pending:
       confirmation_pending: ~
-    enter_organization_email:
-      enter_your_organization_email: ~
-      only_people_with_verified_email_address_can_join_your_tribe: ~
-      continue: ~
-      tribe_exists: ~
-      this_tribe_exists_already: ~
-    done:
-      done: ~
-      tribe_created_successfully: ~
-      go_to_your_tribe: ~
-      we_will_contact_you_about_invoicing: ~
     index:
       find_your_local_tribe: ~
       or_start_your_own: ~
@@ -605,53 +602,6 @@ ca:
       if_want_to_view_content: ~
       log_out: ~
       join_community_button: ~
-  dashboard:
-    api:
-      coming_soon: ~
-    index:
-      watch_the_video: ~
-      get_started: ~
-      browse_communities_around_you: ~
-      slogan: "Un mercat en línia per a la seva comunitat."
-      create_your_own: "Crea el seu espai"
-      sharing_website: "LLOC WEB PER A COMPARTIR"
-      main_description: "Crea un espai on els membres de la teva comunitat puguin compartir béns, serveis o trajectes amb cotxe en un entorn local de confiança."
-      kassi_for_your_company: "Kassi per a la teva empresa"
-      kassi_for_your_company_description: "Vols que la teva companyia estigui més connectada socialment? Vols ajudar als teus treballadors a que comparteixin entre ells? Vols reduir les emissions contaminants i fer més sostenible la teva empresa? Kassi és la solució!"
-      kassi_for_your_city: "Kassi a la teva ciutat"
-      kassi_for_your_city_description: "Vols transformar el teu barri o comunitat en un lloc on la gent es coneixi entre si i puguin comunicar-se entre ells cada vegada que ho necessiten? Vols ajudar a la gent a millorar les seves vides? Kassi t'ajudarà a aconseguir-ho."
-      kassi_for_your_university: "Kassi per a la teva Universitat"
-      kassi_for_your_university_description: "Vols un ambient més amè al Campus; on tots es coneguin i comparteixin entre si? Vols ajudar als teus companys a estalviar temps, diners i contribuir amb el medi ambient? Prova Kassi i nota el canvi! Un bon exemple:"
-      want_kassi_for_your_community: "Vols un Kassi per a la teva comunitat?"
-      email_default_text: "Correu electrònic"
-      send: Envia!
-      or_drop_us_a_line: "...o escriu-nos a:"
-      thanks_for_contacting_us: "Gràcies per contactar amb nosaltres! Aviat us enviarem més informació sobre com crear una comunitat Kassi."
-      resources: Recursos
-      connect: Connecta
-      about: ~
-      developers: ~
-      api: ~
-      blog: Bloc
-      code: Codi
-      issue_tracker: "Rastrejador de problemes"
-      product_of: "Kassi és un producte de"
-      language: "Llengua:"
-      new: NOU!
-      new_text: ~
-      want_to_know_more: ~
-      read_our_faq: ~
-      contact_us: ~
-      why_you_really_should_have_a_tribe: ~
-      an_example: ~
-      home: ~
-      faq: ~
-      browse_tribes: ~
-      pricing: ~
-      contact: ~
-      university_example_link: ~
-      company_example_link: ~
-      city_example_link: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: "Recorda acceptar o rebutjar una oferta"
@@ -802,6 +752,16 @@ ca:
       you_have_not_given_feedback_yet: |-
           Encara no has enviat un suggeriment a %{name} sobre l'esdeveniment '%{event}'.
           Recorda fer un suggeriment de com %{given_name} va actuar a l'esdeveniment.
+    transaction_preauthorized:
+      subject: ~
+      transaction_requested_by_user: ~
+      you_have_days_to_accept: ~
+      click_here_to_reply: ~
+    transaction_preauthorized_reminder:
+      subject: ~
+      remember_to_accept: ~
+      one_day_left: ~
+      click_here_to_reply: ~
     welcome_email:
       welcome_email_footer_text: ~
       settings_link_text: ~
@@ -829,6 +789,11 @@ ca:
       spread_the_word: ~
       spread_the_word_invite_only: ~
       have_fun: ~
+    new_listing_by_followed_person:
+      subject: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
   error_messages:
     listings:
       departure_time: "L'hora de sortida ha desituar-se entre la data actual i un any a contar des d'avui."
@@ -1196,6 +1161,8 @@ ca:
       you_must_log_in_to_add_news_item: "Has d'iniciar sesió per afegir un nou article"
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Hauràs de confirmar el teu compte abans."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Ja no segueixes aquest anunci"
@@ -1234,6 +1201,10 @@ ca:
       edit_listing: ~
       reopen_listing: ~
       move_to_top: ~
+      show_in_updates_email: ~
+      show_in_updates_email_loading: ~
+      show_in_updates_email_error: ~
+      show_in_updates_email_success: ~
     follow_links:
       follow: "Segueix aquest anunci"
       unfollow: "Deixa de segur aquest anunci"
@@ -1375,6 +1346,8 @@ ca:
       select_category: ~
       select_subcategory: ~
       select_transaction_type: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
     please_comment: Comentari
     reply_link:
       listing_closed: ~
@@ -1522,7 +1495,8 @@ ca:
       visible_only_to_you: "visible només per a tu i l'administrador de la comunitat"
       visible_to_everybody: "Visible per a tothom"
       create_account_with_facebook: ~
-      or_create_new_account_without_facebook: ~
+      OR: ~
+      signup_with_email: ~
     not_member:
       explanation_text: "Actualment pertanys a la comunitat %{community}. Has intentat veure el perfil d'un usuari que pertany a una altra comunitat. De moment Kassi no permet que puguis ingressar en diverses comunitats simultàniament. Estem treballant en una opció que permeti accedir a més d'una comunitat al mateix temps. Aviat estarà disponible!"
       read_more_about_kassi_communities: "Llegir més sobre les comunitats Kassi"
@@ -1575,6 +1549,17 @@ ca:
       show_all_open_listings: ~
       show_all_reviews: ~
       trustcloud: ~
+    followed_people:
+      you_follow_plural: ~
+      you_follow_singular: ~
+      they_follow_plural: ~
+      they_follow_singular: ~
+      show_all_followed_people: ~
+      no_followed_people: ~
+    follow_button:
+      following: ~
+      follow: ~
+      unfollow: ~
   search:
     show:
       all_results: "Tots els resultats"
@@ -1662,6 +1647,7 @@ ca:
       email_about_completed_transactions: ~
       email_about_new_payments: ~
       email_about_payment_reminders: ~
+      email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: ~
       unsubscribe_info_text: ~
       settings_link: ~

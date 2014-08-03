@@ -24,7 +24,7 @@ class ListingsController < ApplicationController
     controller.ensure_current_user_is_listing_author t("layouts.notifications.only_listing_author_can_edit_a_listing")
   end
 
-  before_filter :ensure_is_admin, :only => [ :move_to_top ]
+  before_filter :ensure_is_admin, :only => [ :move_to_top, :show_in_updates_email ]
 
   before_filter :is_authorized_to_post, :only => [ :new, :create ]
 
@@ -43,14 +43,6 @@ class ListingsController < ApplicationController
       render :partial => "listings/profile_listings", :locals => {:person => @person, :limit => per_page}
       return
     end
-    redirect_to root
-  end
-
-  def requests
-    redirect_to root
-  end
-
-  def offers
     redirect_to root
   end
 
@@ -119,13 +111,18 @@ class ListingsController < ApplicationController
     end
 
     if request.xhr? # AJAX request to get the actual form contents
-      @listing.category = Category.find(params[:subcategory].blank? ? params[:category] : params[:subcategory])
+      @listing.category = @current_community.categories.find(params[:subcategory].blank? ? params[:category] : params[:subcategory])
       @custom_field_questions = @listing.category.custom_fields
       @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
-      @listing.transaction_type = TransactionType.find(params[:transaction_type])
+      @listing.transaction_type = @current_community.transaction_types.find(params[:transaction_type])
       logger.info "Category: #{@listing.category.inspect}"
-      render :partial => "listings/form/form_content"
+
+      if PaymentRegistrationGuard.new(@current_community, @current_user, @listing).requires_registration_before_posting?
+        render :partial => "listings/payout_registration_before_posting"
+      else
+        render :partial => "listings/form/form_content"
+      end
     else
       render
     end
@@ -157,6 +154,9 @@ class ListingsController < ApplicationController
     else
       flash[:notice] = t("layouts.notifications.listing_created_successfully", :new_listing_link => view_context.link_to(t("layouts.notifications.create_new_listing"), new_listing_path)).html_safe
       Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, @current_community.id))
+      if @current_community.follow_in_use?
+        Delayed::Job.enqueue(NotifyFollowersJob.new(@listing.id, @current_community.id), :run_at => NotifyFollowersJob::DELAY.from_now)
+      end
       redirect_to @listing
     end
   end
@@ -209,15 +209,27 @@ class ListingsController < ApplicationController
   end
 
   def move_to_top
-    @listing = Listing.find(params[:id])
+    @listing = @current_community.listings.find(params[:id])
 
-    # Listings are sorted by `created_at`, so change it to now.
-    if @listing.update_attribute(:created_at, Time.now)
+    # Listings are sorted by `sort_date`, so change it to now.
+    if @listing.update_attribute(:sort_date, Time.now)
       redirect_to homepage_index_path
     else
       flash[:warning] = "An error occured while trying to move the listing to the top of the homepage"
       Rails.logger.error "An error occured while trying to move the listing (id=#{Maybe(@listing).id.or_else('No id available')}) to the top of the homepage"
       redirect_to @listing
+    end
+  end
+
+  def show_in_updates_email
+    @listing = @current_community.listings.find(params[:id])
+
+    # Listings are sorted by `created_at`, so change it to now.
+    if @listing.update_attribute(:updates_email_at, Time.now)
+      render :nothing => true, :status => 200
+    else
+      Rails.logger.error "An error occured while trying to move the listing (id=#{Maybe(@listing).id.or_else('No id available')}) to the top of the homepage"
+      render :nothing => true, :status => 500
     end
   end
 

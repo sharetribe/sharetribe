@@ -19,20 +19,8 @@ module ListingsHelper
     "inbox_tab_#{current_tab_name.eql?(tab_name) ? 'selected' : 'unselected'}"
   end
 
-  def visibility_array
-    array = []
-    Listing::VALID_VISIBILITIES.each do |visibility|
-      if visibility.eql?("this_community")
-        array << [t(".#{visibility}", :community => @current_community.name(I18n.locale)), visibility]
-      else
-        array << [t(".#{visibility}"), visibility]
-      end
-    end
-    return array
-  end
-
   def privacy_array
-    Listing::VALID_PRIVACY_OPTIONS.collect { |option| [t(".#{option}"), option] }
+    Listing::VALID_PRIVACY_OPTIONS.collect { |option| [t("listings.form.#{option}"), option] }
   end
 
   def listed_listing_title(listing)
@@ -60,9 +48,9 @@ module ListingsHelper
 
   def listing_form_menu_titles(community_attribute_values)
     titles = {
-      "category" => t(".select_category"),
-      "subcategory" => t(".select_subcategory"),
-      "transaction_type" => t(".select_transaction_type")
+      "category" => t("listings.new.select_category"),
+      "subcategory" => t("listings.new.select_subcategory"),
+      "transaction_type" => t("listings.new.select_transaction_type")
     }
   end
 
@@ -104,7 +92,7 @@ module ListingsHelper
     end
 
     if community.vat
-      buffer.push(t(".price_excludes_vat"))
+      buffer.push(t("listings.show.price_excludes_vat"))
     end
 
     block.call(buffer.join(" ")) unless buffer.empty?

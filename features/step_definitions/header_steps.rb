@@ -90,10 +90,7 @@ Then(/^I should see my name displayed as "(.*?)"$/) do |name|
 end
 
 When(/^I log out$/) do
-  steps %Q{
-    When I open user menu
-  }
-  click_link "Log out"
+  logout()
 end
 
 When(/^I navigate to invitations page$/) do

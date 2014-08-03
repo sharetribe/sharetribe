@@ -342,6 +342,7 @@ nl:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
+      approve: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -405,6 +406,7 @@ nl:
       housing_request_rent_message_form_title: ~
       item_request_message_form_title: "Bied een item aan %{person}"
       message: Bericht
+      message_to: ~
       rideshare_offer_message_form_title: "Vraag een rit van %{person}"
       rideshare_request_message_form_title: "Bied een rit aan %{person}"
       send_message: "Stuur bericht"
@@ -414,6 +416,8 @@ nl:
       you_will_get_notified: "Je ontvangt er bericht per mail als %{person} jou antwoordt."
       title: Onderwerp
       send_message_to_user: "Stuur bericht aan %{person}"
+      about_listing: ~
+      author_has_to_accept_request: ~
     show:
       in_response_to_listing: ~
       message_sent_by: ~
@@ -424,7 +428,6 @@ nl:
       conversation_with_user: ~
       conversation_with: ~
       last_message_at: ~
-      requested_by: ~
       price: ~
       sum: ~
       price_excludes_vat: ~
@@ -438,6 +441,7 @@ nl:
       offer_canceled: ~
       offer_confirmed: ~
       pay: ~
+      preauthorized: ~
       paid: ~
       request_accepted: "Vraag geaccepteerd"
       request_rejected: "Verzoek afgewezen"
@@ -457,6 +461,10 @@ nl:
       accept_request: "Accepteer verzoek"
       reject_offer: "Deze keer niet"
       reject_request: "Deze keer niet"
+      accept_preauthorized_offer: ~
+      accept_preauthorized_request: ~
+      reject_preauthorized_offer: ~
+      reject_preauthorized_request: ~
       confirm: ~
       cancel: ~
   braintree_accounts:
@@ -503,17 +511,6 @@ nl:
       view_tribe: ~
     email_confirmation_pending:
       confirmation_pending: ~
-    enter_organization_email:
-      enter_your_organization_email: ~
-      only_people_with_verified_email_address_can_join_your_tribe: ~
-      continue: ~
-      tribe_exists: ~
-      this_tribe_exists_already: ~
-    done:
-      done: ~
-      tribe_created_successfully: ~
-      go_to_your_tribe: ~
-      we_will_contact_you_about_invoicing: ~
     index:
       find_your_local_tribe: ~
       or_start_your_own: ~
@@ -594,7 +591,7 @@ nl:
       you_are_banned_in_this_community: ~
       contact_page_link: ~
     new:
-      welcome_fb_user: ~
+      welcome_fb_user: "Welkom bij %{service_name}, %{name}!"
       fb_join_accept_terms: ~
       join_community: ~
       you_are_not_a_member_of_this_community: ~
@@ -605,53 +602,6 @@ nl:
       if_want_to_view_content: ~
       log_out: ~
       join_community_button: ~
-  dashboard:
-    api:
-      coming_soon: ~
-    index:
-      watch_the_video: "Bekijk de video"
-      get_started: "Start nu!"
-      browse_communities_around_you: "Wordt lid van een groep in jouw buurt"
-      slogan: ~
-      create_your_own: "Creëer je eigen"
-      sharing_website: "Gemeenschappelijke marktplaats"
-      main_description: ~
-      kassi_for_your_company: "Voor je bedrijf"
-      kassi_for_your_company_description: ~
-      kassi_for_your_city: "voor je stad"
-      kassi_for_your_city_description: ~
-      kassi_for_your_university: ~
-      kassi_for_your_university_description: ~
-      want_kassi_for_your_community: ~
-      email_default_text: "Je emailadres"
-      send: Verzend!
-      or_drop_us_a_line: ~
-      thanks_for_contacting_us: ~
-      resources: ~
-      connect: ~
-      about: ~
-      developers: ~
-      api: ~
-      blog: Blog
-      code: "Source code"
-      issue_tracker: ~
-      product_of: ~
-      language: ~
-      new: Nieuw!
-      new_text: ~
-      want_to_know_more: ~
-      read_our_faq: ~
-      contact_us: "Neem contact op"
-      why_you_really_should_have_a_tribe: ~
-      an_example: ~
-      home: Home
-      faq: FAQ
-      browse_tribes: "Zoek groepen"
-      pricing: ~
-      contact: ~
-      university_example_link: ~
-      company_example_link: ~
-      city_example_link: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: "Vergeet niet om het aanbod van %{sender_name}te accepteren of te weigeren"
@@ -800,11 +750,21 @@ nl:
       feedback_is_public_and_is_shown: "Feedback is openbaar en zichtbaar voor alle andere gebruikers. Met de feedback kunnen gebruikers beslissen of %{name} betrouwbaar is en of het iemand is met wie ze in zee willen gaan. Het is dus goed om altijd feedback te geven aan evenementen en herinner anderen er aan om jou feedback te geven. Je hebt positieve feedback nodig om de meeste badges te verdienen."
       remember_to_give_feedback_to: "Herinnering: vergeet niet om feedback te geven aan %{name}"
       you_have_not_given_feedback_yet: "Je hebt nog geen feedback gegeven aan %{name} over '%{event}'. Vergeet niet feedback te geven over hoe %{given_name} gepresteerd heeft in het evenement."
+    transaction_preauthorized:
+      subject: ~
+      transaction_requested_by_user: ~
+      you_have_days_to_accept: ~
+      click_here_to_reply: ~
+    transaction_preauthorized_reminder:
+      subject: ~
+      remember_to_accept: ~
+      one_day_left: ~
+      click_here_to_reply: ~
     welcome_email:
       welcome_email_footer_text: ~
       settings_link_text: ~
-      subject: ~
-      welcome_some_tips: ~
+      subject: "Welkom bij  %{community} - hier zijn enkele tips om je slag"
+      welcome_some_tips: "Welkom bij %{community_link}!  hier zijn enkele tips om je slag"
       p_s_did_you_know: ~
       click_here_link_text: ~
       update_your_profile: ~
@@ -812,7 +772,7 @@ nl:
       add_something_you_could_offer: ~
       add_offer_link_text: ~
       is_there_something_you_need: ~
-      add_request_link_text: ~
+      add_request_link_text: "post een nieuw verzoek"
       invite_your_friends_invite_only: ~
       invite_your_friends: ~
       invite_link_text: ~
@@ -827,6 +787,11 @@ nl:
       spread_the_word: ~
       spread_the_word_invite_only: ~
       have_fun: ~
+    new_listing_by_followed_person:
+      subject: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
   error_messages:
     listings:
       departure_time: "Vertrektijd moet plaatsvinden in het komende jaar."
@@ -942,7 +907,7 @@ nl:
       processing_uploaded_image: ~
     index:
       no_listings_with_your_search_criteria: "We slaagden er niet in om resultaten te vinden die voldoen aan de door jou opgegeven criteria (indien je iets hebt toegevoegd duurt het ongeveer 10 minuten voordat dit verschijnt in de zoekfunctie)."
-      no_listings_notification: "Geen lijsten%{add_listing_link}."
+      no_listings_notification: "Geen lijsten. %{add_listing_link}."
       add_listing_link_text: "Voeg een nieuw item toe"
       available_on_the_app_store: "Beschikbaar in de app store"
       private_listing_notification: "Er zijn %{listing_count} in deze gemeenschap. %{private_listing_count} van hun %{be_verb} zichtbaar enkel door de andere leden van de gemeenschap. Indien je ook de listings zichtbaar enkel voor leden wil zien, moet je %{log_in_link}"
@@ -1095,7 +1060,7 @@ nl:
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
-      test_welcome_email_delivered_to: ~
+      test_welcome_email_delivered_to: "Een test e-mail is verzonden naar %{email}."
       something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
@@ -1121,7 +1086,7 @@ nl:
       inviting_new_users_is_not_allowed_in_this_community: ~
       login_again: "Log opnieuw in alsjeblieft."
       login_failed: "Login mislukt. Vul de goede gegevens in."
-      account_creation_successful: ~
+      account_creation_successful: "Welkom bij %{service_name}, %{person_name}!"
       account_deleted: ~
       login_successful: "Welkom %{person_name}!"
       logout_successful: "Je bent nu uitgelogd bij %{service_name}. Tot binnenkort!"
@@ -1179,7 +1144,7 @@ nl:
       you_cannot_send_message_to_yourself: ~
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: "Je heb al feedback gegeven over dit evenement"
-      you_are_now_member: ~
+      you_are_now_member: "Je hebt met succes aangesloten bij deze community. Welkom!"
       you_are_already_member: ~
       you_must_log_in_to_create_new_listing: "Je moet ingelogd zijn op %{service_name} om een nieuw item te kunnen plaatsen. Als je geen account hebt, kan je er %{sign_up_link}"
       additional_email_confirmed_dashboard: ~
@@ -1194,6 +1159,8 @@ nl:
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Bevestig je e-mailadres."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: ~
@@ -1232,6 +1199,10 @@ nl:
       edit_listing: "Bewerk item"
       reopen_listing: "Heropen item"
       move_to_top: ~
+      show_in_updates_email: ~
+      show_in_updates_email_loading: ~
+      show_in_updates_email_error: ~
+      show_in_updates_email_success: ~
     follow_links:
       follow: "Ontvang e-mail wanneer er een reactie is geplaatst"
       unfollow: "Ontvang geen e-mails als er een reactie is geplaatst"
@@ -1294,7 +1265,7 @@ nl:
         select: Selecteer
         borrow: Leen
         buy: Koop
-        give_away: "Geef weg"
+        give_away: Weggeven
         lend: Uitlenen
         offer_type: "Aanbod type"
         receive: "Gratis ontvangen"
@@ -1373,6 +1344,8 @@ nl:
       select_category: "Selecteer categorie"
       select_subcategory: ~
       select_transaction_type: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
     please_comment: Reactie
     reply_link:
       listing_closed: "Item is gesloten"
@@ -1521,7 +1494,8 @@ nl:
       visible_only_to_you: "alleen zichtbaar voor jou en de community beheerder"
       visible_to_everybody: "zichtbaar voor iedereen"
       create_account_with_facebook: "Maak een account met Facebook"
-      or_create_new_account_without_facebook: "... of maak hieronder een account aan zonder Facebook."
+      OR: ~
+      signup_with_email: ~
     not_member:
       explanation_text: "Je bent momenteel in de %{community} gemeenschap. Je hebt geprobeerd om het profiel te zien van een gebruiker uit een andere gemeenschap. Dit wordt op dit moment niet ondersteunt, dus je kunt alleen toegang tot dit profiel krijgen door de %{community} gemeenschap."
       read_more_about_kassi_communities: "Lees meer over de gemeenschappen"
@@ -1574,6 +1548,17 @@ nl:
       show_all_open_listings: ~
       show_all_reviews: ~
       trustcloud: ~
+    followed_people:
+      you_follow_plural: ~
+      you_follow_singular: ~
+      they_follow_plural: ~
+      they_follow_singular: ~
+      show_all_followed_people: ~
+      no_followed_people: ~
+    follow_button:
+      following: ~
+      follow: ~
+      unfollow: ~
   search:
     show:
       all_results: "Alle resultaten"
@@ -1661,6 +1646,7 @@ nl:
       email_about_completed_transactions: "...iemand mijn vraag markeert als voltooid"
       email_about_new_payments: ~
       email_about_payment_reminders: "ik vergeten ben om te betalen"
+      email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: ~
       unsubscribe_info_text: ~
       settings_link: ~

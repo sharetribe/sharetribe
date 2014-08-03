@@ -2,57 +2,45 @@
   initialize_reply_form('#{I18n.locale}');
 
 - other_party = @conversation.other_party(@current_user)
-- title = Maybe(@conversation).listing.title
 
 - content_for :title_header do
   %h1
-    = link_to received_person_messages_path(:person_id => @current_user.id) do
+    = link_to received_person_messages_path(@current_user) do
       = t("layouts.no_tribe.inbox")
     |
-    = title.or_else { t(".conversation_with", person: link_to(other_party.name, other_party)).html_safe }
+    = t(".conversation_with", person: link_to(other_party.name, other_party)).html_safe
 
 .centered-section-wide
   .message-avatar-padding
     .row
       .col-12
         %h2
-          = title.map { |title| link_to title, @conversation.listing }.or_else { t(".conversation_with", person: link_to(other_party.name, other_party)).html_safe }
+          - @conversation.with(:listing_conversation) do
+            = link_to @conversation.listing.title, @conversation.listing
 
-        %p
-          - if @conversation.status.eql?("free")
-          - else
-            = t(".requested_by", requester_name: link_to(@conversation.starter.name, @conversation.starter)).html_safe
+        - @conversation.with(:listing_conversation) do
+          = render partial: "conversations/details", locals: { listing_conversation: @conversation, listing: @conversation.listing }
 
-        - Maybe(@conversation).listing.each do |listing|
-          - price = Maybe(listing).price.or_else(nil)
-          - sum = Maybe(@conversation).payment.total_sum.or_else(nil)
+        - @conversation.with(:listing_conversation) do
+          - listing = @conversation.listing
 
-          - if sum
-            %p.message-price
-              = t(".sum", sum: humanized_money_with_symbol(sum))
-          - elsif price
-            %p.message-sum
-              = t(".price", price: humanized_money_with_symbol(price))
+          - if @conversation.status.eql?("free") && @current_community.payments_in_use?
+            -# Show Call to Action button for free conversations
 
-              - if listing.quantity.present?
-                = "/ #{listing.quantity}"
-
-              - if @current_community.vat
-                %span.message-sum-vat
-                  = t(".price_excludes_vat")
-
-          - if @conversation.status.eql?("free")
             - unless listing.author == @current_user
-              = link_to reply_to_listing_path(:id => listing.id.to_s), :class => "message-book-button" do
+              = link_to reply_to_listing_path(:listing_id => listing.id.to_s), :class => "message-book-button" do
                 .content
                   = listing.transaction_type.action_button_label(I18n.locale)
 
           - else
+            -# Show current status for others
+
             %div{:id => "conversation_#{@conversation.id.to_s}_status"}
               = render :partial => "status", :locals => { :conversation => @conversation }
 
+
   #reply_form.message-avatar-padding.message-reply-form
-    = form_for Message.new, :url => person_message_messages_path(:person_id => @current_user.id, :message_id => @conversation.id.to_s) do |f|
+    = form_for Message.new, :url => person_message_messages_path(@current_user, :message_id => @conversation.id.to_s) do |f|
       = f.label :content, t(".write_a_reply")
       = f.text_area :content, :class => "reply_form_text_area"
       = f.hidden_field :conversation_id, :value => @conversation.id.to_s

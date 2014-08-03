@@ -342,6 +342,7 @@ vi:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
+      approve: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -405,6 +406,7 @@ vi:
       housing_request_rent_message_form_title: "Cho %{person} thuê %{listing}"
       item_request_message_form_title: "Hỗ trợ một món đồ để"
       message: "Tin nhắn"
+      message_to: ~
       rideshare_offer_message_form_title: "Yêu cầu quá giang từ"
       rideshare_request_message_form_title: "Hỗ trợ cuốc xe đến"
       send_message: "Gửi thông điệp"
@@ -414,6 +416,8 @@ vi:
       you_will_get_notified: "Bạn sẽ nhận được thông báo qua email khi %{person} trả lời bạn."
       title: "Tiêu đề"
       send_message_to_user: "Gửi tin nhắn đến %{person}"
+      about_listing: ~
+      author_has_to_accept_request: ~
     show:
       in_response_to_listing: ~
       message_sent_by: ~
@@ -424,7 +428,6 @@ vi:
       conversation_with_user: "Cuộc trò chuyện với %{person}."
       conversation_with: ~
       last_message_at: ~
-      requested_by: ~
       price: ~
       sum: ~
       price_excludes_vat: ~
@@ -438,6 +441,7 @@ vi:
       offer_canceled: ~
       offer_confirmed: ~
       pay: ~
+      preauthorized: ~
       paid: ~
       request_accepted: "Yêu cầu được chấp nhận"
       request_rejected: "Yêu cầu bị từ chối"
@@ -457,6 +461,10 @@ vi:
       accept_request: "Chấp nhận yêu cầu"
       reject_offer: "Từ chối hỗ trợ"
       reject_request: "Từ chối yêu cầu"
+      accept_preauthorized_offer: ~
+      accept_preauthorized_request: ~
+      reject_preauthorized_offer: ~
+      reject_preauthorized_request: ~
       confirm: ~
       cancel: ~
   braintree_accounts:
@@ -503,17 +511,6 @@ vi:
       view_tribe: "Xem cộng đồng"
     email_confirmation_pending:
       confirmation_pending: "Xin vui lòng xác nhận địa chỉ email của bạn"
-    enter_organization_email:
-      enter_your_organization_email: "Nhập email %{community_category} của bạn"
-      only_people_with_verified_email_address_can_join_your_tribe: "Chỉ những người có xác nhận địa chỉ email %{community_category} mới có thể tham gia cộng đồng này."
-      continue: "Tiếp tục"
-      tribe_exists: "Cộng đồng tồn tại!"
-      this_tribe_exists_already: "Cộng đồng này đã tồn tại! Bạn có muốn tham gia nó?"
-    done:
-      done: "Đã thực hiện!"
-      tribe_created_successfully: "Bạn đã tạo thành công cộng đồng của bạn."
-      go_to_your_tribe: "Đi đến cộng đồng của bạn"
-      we_will_contact_you_about_invoicing: "Chúng tôi sẽ liên hệ với bạn sau này bằng email về hoá đơn."
     index:
       find_your_local_tribe: "Tìm thấy cộng đồng địa phương của bạn"
       or_start_your_own: "...hoặc %{start_your_own_tribe_link}"
@@ -605,53 +602,6 @@ vi:
       if_want_to_view_content: "Nếu bạn muốn để xem nội dung trong cộng đồng này mà không gia nhập, bạn cần phải"
       log_out: "đăng xuất"
       join_community_button: "Tham gia cộng đồng"
-  dashboard:
-    api:
-      coming_soon: "Đến sớm!"
-    index:
-      watch_the_video: ~
-      get_started: "BẮT ĐẦU BÂY GIỜ!"
-      browse_communities_around_you: "tham gia cộng đồng gần bạn"
-      slogan: "Chia sẻ với cộng đồng của bạn."
-      create_your_own: "Tạo cho riêng bạn"
-      sharing_website: "CHIA SẺ TRANG WEB"
-      main_description: "Thiết lập một không gian mà các thành viên của cộng đồng của bạn có thể chia sẻ hàng hoá, dịch vụ, cuốc xe và không gian trong một môi trường địa phương tin cậy. Miễn phí và chỉ mất vài phút để làm!"
-      kassi_for_your_company: "...CHO CÔNG TY CỦA BẠN"
-      kassi_for_your_company_description: "Bạn có muốn giúp nhân viên của bạn kết nối với nhau? Bạn muốn cắt giảm phát thải của bạn và trở thành một doanh nghiệp xanh? Bạn muốn tiết kiệm chi phí du lịch, đậu xe và đồ nội thất sử dụng? Sharetribe là giải pháp cho bạn."
-      kassi_for_your_city: "... CHO THÀNH PHỐ CỦA BẠN"
-      kassi_for_your_city_description: "Bạn muốn chuyển đổi các khu dân cư của thành phố cho cộng đồng ngôi làng nơi mọi người chia sẻ với nhau? Bạn có muốn trao quyền cho công dân của bạn để cải thiện cuộc sống của họ? Sharetribe sẽ giúp bạn đạt điều đó."
-      kassi_for_your_university: "...CHO TRƯỜNG ĐẠI HỌC CỦA BẠN"
-      kassi_for_your_university_description: "Bạn muốn tạo ra một môi trường trong khuôn viên trường sôi động, nơi mọi người biết và tin cậy lẫn nhau? Muốn giúp các sinh viên và nhân viên của bạn tiết kiệm thời gian, tiền bạc, và môi trường của họ? Hãy thử Sharetribe và cảm nhận sự thay đổi!"
-      want_kassi_for_your_community: "Muốn %{service_name} cho cộng đồng của bạn?"
-      email_default_text: "Địa chỉ email của bạn"
-      send: Gửi!
-      or_drop_us_a_line: "...hoặc cho chúng tôi xuống một dòng:"
-      thanks_for_contacting_us: "Cảm ơn bạn đã liên hệ với chúng tôi! Chúng tôi sẽ gửi cho bạn thêm thông tin về làm thế nào để tạo một cộng đồng %{service_name} sớm."
-      resources: "TÀI NGUYÊN"
-      connect: "KẾT NỐI"
-      about: "VỀ SHARETRIBE"
-      developers: "CHO NHÀ PHÁT TRIỂN"
-      api: API
-      blog: Blog
-      code: "Mã nguồn"
-      issue_tracker: "Vấn đề theo dõi"
-      product_of: "Sharetribe là một sản phẩm của"
-      language: "Ngôn ngữ:"
-      new: MỚI!
-      new_text: "%{service_name} bây giờ có sẵn cho những hàng xóm <a href=\"http://www.sharetribe.com/en/wdc\"> ở Helsinki và Lahti</a> và cho các thành viên <a href=\"http://www.kassi.eu/en/okl\"> của Suomen Omakotiliitto</a>!"
-      want_to_know_more: "Bạn muốn biết thêm chi tiết? %{read_our_faq_link} or %{contact_us_link}."
-      read_our_faq: "Đọc câu hỏi và trả lời thường gặp (FAQ) của chúng tôi"
-      contact_us: "liên hệ trực tiếp với chúng tôi"
-      why_you_really_should_have_a_tribe: "Tại sao bạn thực sự cần phải có một cộng đồng"
-      an_example: "Một ví dụ:"
-      home: "Trang chủ"
-      faq: FAQ
-      browse_tribes: "Duyệt các cộng đồng"
-      pricing: "Giá cả"
-      contact: "Liên hệ"
-      university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Sharetribe của đại học Aalto</a>"
-      company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/en\">Sharetribe của HTC Keilaniemi</a>"
-      city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe Kallio, Helsinki</a>"
   emails:
     accept_reminder:
       remember_to_accept_offer: "Hãy nhớ chấp nhận hoặc từ chối hỗ trợ"
@@ -800,6 +750,16 @@ vi:
       feedback_is_public_and_is_shown: "Thông tin phản hồi là công khai và được hiển thị cho tất cả các người dùng khác. Dựa trên thông tin phản hồi những người dùng khác có thể nhận xét, nếu %{name} là một người đáng tin cậy và một người nào đó họ muốn liên lạc. Như vậy, điều đó là tốt để luôn luôn nhớ đưa ra thông tin phản hồi về các sự kiện, và cũng nhắc nhở nhóm khác đưa ra thông tin phản hồi cho bạn. Bạn cũng cần thông tin phản hồi tích cực để đạt được nhiều huy hiệu nhất."
       remember_to_give_feedback_to: "Nhắc nhở: nhớ đưa ra thông tin phản hồi cho %{name}"
       you_have_not_given_feedback_yet: "Bạn chưa đưa ra thông tin phản hồi cho %{name} về sự kiện '%{event}'. Hãy nhớ cung cấp thông tin phản hồi về việc làm thế nào %{given_name} được thực hiện trong sự kiện này."
+    transaction_preauthorized:
+      subject: ~
+      transaction_requested_by_user: ~
+      you_have_days_to_accept: ~
+      click_here_to_reply: ~
+    transaction_preauthorized_reminder:
+      subject: ~
+      remember_to_accept: ~
+      one_day_left: ~
+      click_here_to_reply: ~
     welcome_email:
       welcome_email_footer_text: ~
       settings_link_text: ~
@@ -827,6 +787,11 @@ vi:
       spread_the_word: ~
       spread_the_word_invite_only: ~
       have_fun: ~
+    new_listing_by_followed_person:
+      subject: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
   error_messages:
     listings:
       departure_time: "Thời gian khởi hành phải nằm trong khoảng từ thời gian hiện tại và một năm sau."
@@ -1194,6 +1159,8 @@ vi:
       you_must_log_in_to_add_news_item: "Bạn phải đăng nhập vào %{service_name} mới thêm được bài viết mới."
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Bạn cần phải xác nhận email của bạn lần trước tiên."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Bạn đang không còn được đề cập trong danh sách này"
@@ -1232,6 +1199,10 @@ vi:
       edit_listing: ~
       reopen_listing: ~
       move_to_top: ~
+      show_in_updates_email: ~
+      show_in_updates_email_loading: ~
+      show_in_updates_email_error: ~
+      show_in_updates_email_success: ~
     follow_links:
       follow: "Thực hiện theo các danh sách này"
       unfollow: "Ngừng theo danh sách này"
@@ -1373,6 +1344,8 @@ vi:
       select_category: ~
       select_subcategory: ~
       select_transaction_type: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
     please_comment: "Bình luận"
     reply_link:
       listing_closed: ~
@@ -1521,7 +1494,8 @@ vi:
       visible_only_to_you: "chỉ hiện thị đối với bạn và cộng đồng quản trị"
       visible_to_everybody: "hiển thị đối với mọi người"
       create_account_with_facebook: ~
-      or_create_new_account_without_facebook: ~
+      OR: ~
+      signup_with_email: ~
     not_member:
       explanation_text: "Hiện tại bạn đang ở trong cộng đồng %{community}. Bạn thử xem thông tin người dùng của cộng đồng khác. Hiện tại %{service_name} không hỗ trợ cho đa cộng đồng, do đó bạn không thể truy cập hồ sơ này thông qua cộng đồng %{community}. Chúng tôi đang thực hiện tính năng cho phép một chọn lựa thuộc về nhiều hơn một cộng đồng cùng một lúc. Tính năng này sẽ được thêm dịch vụ sau này."
       read_more_about_kassi_communities: "Tìm hiểu thêm về cộng đồng %{service_name}"
@@ -1574,6 +1548,17 @@ vi:
       show_all_open_listings: ~
       show_all_reviews: ~
       trustcloud: TrustCloud
+    followed_people:
+      you_follow_plural: ~
+      you_follow_singular: ~
+      they_follow_plural: ~
+      they_follow_singular: ~
+      show_all_followed_people: ~
+      no_followed_people: ~
+    follow_button:
+      following: ~
+      follow: ~
+      unfollow: ~
   search:
     show:
       all_results: "Tất cả kết quả"
@@ -1661,6 +1646,7 @@ vi:
       email_about_completed_transactions: ~
       email_about_new_payments: ~
       email_about_payment_reminders: ~
+      email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: ~
       unsubscribe_info_text: ~
       settings_link: "thiết lập"

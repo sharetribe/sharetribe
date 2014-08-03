@@ -122,15 +122,19 @@ module TestHelpers
     controller.stub :current_person => person
   end
 
-  def find_or_create_category(category_name)
-    find_category_by_name(category_name) || FactoryGirl.create(:category)
+  def find_or_build_category(category_name)
+    TestHelpers::find_category_by_name(category_name) || FactoryGirl.build(:category)
   end
+
+  module_function :find_or_build_category
 
   def find_category_by_name(category_name)
     Category.all.select do |category|
       category.display_name("en") == category_name
     end.first
   end
+
+  module_function :find_category_by_name
 
   def find_transaction_type_by_name(transaction_type_name)
     TransactionType.all.select do |transaction_type|
@@ -166,7 +170,7 @@ module TestHelpers
 
   # This is loaded only once before running the whole test set
   def load_default_test_data_to_db_before_suite
-    community1 = FactoryGirl.create(:community, :domain => "test", :name => "Test", :consent => "test_consent0.1", :settings => {"locales" => ["en", "fi"]}, :real_name_required => true, :news_enabled => false, :all_users_can_add_news => false)
+    community1 = FactoryGirl.create(:community, :domain => "test", :name => "Test", :consent => "test_consent0.1", :settings => {"locales" => ["en", "fi"]}, :real_name_required => true)
     community2 = FactoryGirl.create(:community, :domain => "test2", :name => "Test2", :consent => "KASSI_FI1.0", :settings => {"locales" => ["en"]}, :real_name_required => true, :allowed_emails => "@example.com")
     community3 = FactoryGirl.create(:community, :domain => "test3", :name => "Test3", :consent => "KASSI_FI1.0", :settings => {"locales" => ["en"]}, :real_name_required => true)
 

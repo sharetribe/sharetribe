@@ -11,42 +11,14 @@
                     %tr
                       %td{:width => "7.5%"}
                       %td{:valign => "top", :width => "85%", :style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif; font-weight:400; font-size:14px; padding: 10px 0 40px 0; text-align: left; line-height:22px;"}
-                        %h1{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-weight:400;font-size:18px;margin-top:20px;margin-bottom:5px; text-align: left;line-height:22px;"}
-                          = t("emails.common.hey", :name => @recipient.given_name_or_username)
-
-                        - if @recipient.has_admin_rights_in?(@current_community) && !@regular_email
-
-                          %p
-                            = t("emails.welcome_email.you_have_just_created_community", :community_link => link_to(@current_community.full_name(@recipient.locale), root_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
-
-                          %p
-                            = t("emails.welcome_email.you_now_have_admin_rights", :edit_community_details_link => link_to(t("emails.welcome_email.edit_community_details_link_text"), edit_details_admin_community_url(@current_community, @url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
-
-                          %p
-                            = t("emails.welcome_email.update_your_profile", :update_profile_link => link_to(t("emails.welcome_email.update_your_profile_link_text"), person_settings_url(@recipient, @url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
-
-                          %p
-                            = t("emails.welcome_email.add_content", :add_offer_link => link_to(t("emails.welcome_email.add_offer_link_text"), new_listing_url(@url_params), :style => "color:#d96e21; text-decoration: none;"), :add_request_link => link_to(t("emails.welcome_email.add_request_link_text"), new_listing_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
-
-                          %p
-                            - if @current_community.join_with_invite_only?
-                              = t("emails.welcome_email.spread_the_word_invite_only", :invite_link => link_to(t("emails.welcome_email.invite_link_text"), new_invitation_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
-                            - else
-                              = t("emails.welcome_email.spread_the_word", :invite_link => link_to(t("emails.welcome_email.invite_link_text"), new_invitation_url(@url_params), :style => "color:#d96e21; text-decoration: none;"), :url => link_to(@current_community.full_url, @current_community.full_url, :style => "color:#d96e21; text-decoration: none;")).html_safe
-
-                          %p
-                            = t("emails.welcome_email.have_fun")
-                          %p
-                            = t("emails.welcome_email.love_team").html_safe
-
+                        %p= t("emails.common.hey", :name => @recipient.given_name_or_username)
+                        - customization = @current_community.community_customizations.find_by_locale(@url_params[:locale])
+                        - if customization && !customization.welcome_email_content.blank?
+                          = customization.welcome_email_content.html_safe
                         - else
-                          - customization = @current_community.community_customizations.find_by_locale(@url_params[:locale])
-                          - if customization && !customization.welcome_email_content.blank?
-                            = customization.welcome_email_content.html_safe
-                          - else
-                            = render :partial => "admin/communities/default_welcome_email"
+                          = render :partial => "admin/communities/default_welcome_email"
                       %td{:width => "7.5%"}
             %tr
               %td{:style => "text-align: left;width:100%;max-width:602px;padding: 0 45px;"}
                 %p{:style => "margin-top:15px;margin-bottom:15px;font-family:helvetica,arial,sans-serif;font-size:12px;color:#464646;"}
-                  = t("emails.welcome_email.welcome_email_footer_text", :settings_link => link_to(t("emails.welcome_email.settings_link_text"), notifications_person_settings_url(@url_params.merge({:person_id => @recipient.id})), :style => "color:#d96e21; text-decoration: none;")).html_safe
+                  = t("emails.welcome_email.welcome_email_footer_text", :settings_link => link_to(t("emails.welcome_email.settings_link_text"), notifications_person_settings_url(@recipient, @url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe

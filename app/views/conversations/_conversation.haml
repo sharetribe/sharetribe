@@ -25,19 +25,20 @@
             = icon_tag("reply", ["icon-fix"])
           %span.conversation-title-link-text= "#{last_message.content}"
       .conversation-context
-        - if conversation.listing
+        - conversation.with(:listing_conversation) do
           = t(".about_listing", listing_title: link_to(conversation.listing.title, conversation.listing)).html_safe
-        - else
+        - conversation.with(:conversation) do
           = t(".free_message")
     - if @current_community.payments_in_use?
       .col-3
-        - Maybe(conversation).status.reject { |s| s == "free" }.each do |status|
-          - is_author = conversation.author == @current_user
-          - waiting_feedback = conversation.waiting_feedback_from?(@current_user)
-          - icon, status = conversation_icon_and_status(status, is_author, other_party, waiting_feedback)
+        - conversation.with(:listing_conversation) do
+          - Maybe(conversation).status.reject { |s| s == "free" }.each do |status|
+            - is_author = conversation.author == @current_user
+            - waiting_feedback = conversation.waiting_feedback_from?(@current_user)
+            - icon, status = conversation_icon_and_status(status, is_author, other_party, waiting_feedback)
 
-          .conversation-list-status-container
-            .conversation-list-status-icon
-              = icon
-            .conversation-list-status
-              = status
+            .conversation-list-status-container
+              .conversation-list-status-icon
+                = icon
+              .conversation-list-status
+                = status

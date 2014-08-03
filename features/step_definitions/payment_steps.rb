@@ -26,7 +26,7 @@ Given /^there are following Braintree accounts:$/ do |bt_accounts|
   end
 end
 
-Given(/^"(.*?)" has an (active) Braintree account$/) do |username, status|
+Given(/^"(.*?)" has an? (active) Braintree account$/) do |username, status|
   person = Person.find_by_username(username)
   @account = create_braintree_account(person, @current_community)
 end
@@ -66,13 +66,33 @@ When /^Braintree webhook "(.*?)" with id "(.*?)" is triggered$/ do |kind, id|
   post "#{Capybara.app_host}/webhooks/braintree", :bt_signature => signature, :bt_payload => payload, :community_id => community.id
 end
 
+When /^Braintree webhook "(.*?)" with username "(.*?)" is triggered$/ do |kind, username|
+  person = Person.find_by_username(username)
+  community = Community.find_by_name("test") # Hard-coded default test community
+  signature, payload = BraintreeApi.webhook_testing_sample_notification(
+    community, kind, person.id
+  )
+
+  # Do
+  post "#{Capybara.app_host}/webhooks/braintree", :bt_signature => signature, :bt_payload => payload, :community_id => community.id
+end
+
 Given /^Braintree transaction is mocked$/ do
   BraintreeApi.should_receive(:transaction_sale)
     .and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
 end
 
+Given /^Braintree submit to settlement is mocked$/ do
+  BraintreeApi.should_receive(:submit_to_settlement)
+    .and_return(Braintree::SuccessfulResult.new({:transaction => HashClass.new({:id => "123abc"})}))
+end
+
 Given /^Braintree escrow release is mocked$/ do
   BraintreeService.should_receive(:release_from_escrow).at_least(1).times.and_return(true)
+end
+
+Given /^Braintree void transaction is mocked$/ do
+  BraintreeApi.should_receive(:void_transaction).at_least(1).times.and_return(true)
 end
 
 Given /^Braintree merchant creation is mocked$/ do
@@ -90,9 +110,9 @@ Given /^Braintree merchant creation is mocked$/ do
     braintree_account.date_of_birth.day.should == 9
     braintree_account.routing_number.should == "101000187"
     braintree_account.account_number.should == "43759348798"
-    braintree_account.person_id.should == "123abc"
-    community.name('en').should == "test"
-  end.and_return(Braintree::SuccessfulResult.new({:merchant_account => HashClass.new({:id => "123abc", :status => "pending"})}))
+    braintree_account.person_id.should == @current_user.id
+    community.name('en').should == "Test"
+  end.and_return(Braintree::SuccessfulResult.new({:merchant_account => HashClass.new({:id => @current_user.id, :status => "pending"})}))
 end
 
 Given /^Braintree merchant creation is mocked to return failure$/ do
@@ -132,6 +152,9 @@ When /^I fill in my payment details for Braintree$/ do
   find("#{CC_NAME}").set("Joe Bloggs")
   find("#{CC_NUMBER}").set("5105105105105100")
   find("#{CC_CVV}").set("123")
+  steps %Q{
+    And I press submit
+  }
 end
 
 When /^I browse to payment settings$/ do
@@ -222,6 +245,13 @@ Then /^I should be see that the payment was successful$/ do
   steps %Q{
     Then I should see "paid"
     Then I should see "101"
+  }
+end
+
+Then /^I should see that I successfully paid (\d+)$/ do |amount|
+  steps %Q{
+    Then I should see "paid"
+    Then I should see "#{amount}"
   }
 end
 

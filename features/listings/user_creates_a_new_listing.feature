@@ -57,9 +57,7 @@ Feature: User creates a new listing
     And I follow "Items"
     And I follow "Books"
     And I follow "Requesting"
-    And I select "31" from "listing_valid_until_3i"
-    And I select "December" from "listing_valid_until_2i"
-    And I select "2014" from "listing_valid_until_1i"
+    And I set the expiration date to 7 months from now
     And I attach an image with invalid extension to "listing_image[image]"
     And I press "Save listing"
     Then I should see "This field is required."

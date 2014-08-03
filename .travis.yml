@@ -1,7 +1,7 @@
 bundler_args: --without development --path=~/.bundle
 language: ruby
 rvm:
-- 2.1.1
+- 2.1.2
 env:
   matrix:
   - SUITE="rspec"
@@ -37,4 +37,4 @@ before_script:
 script:
 - ./travis/script.sh
 after_script:
-- bundle_cache
+- '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && bundle_cache || false'

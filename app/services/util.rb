@@ -32,6 +32,24 @@ module Util
         memo
       end
     end
+
+    #
+    # deep_contains({a: 1}, {a: 1, b: 2}) => true
+    # deep_contains({a: 2}, {a: 1, b: 2}) => false
+    # deep_contains({a: 1, b: 1}, {a: 1, b: 2}) => false
+    # deep_contains({a: 1, b: 2}, {a: 1, b: 2}) => true
+    #
+    def deep_contains(needle, haystack)
+      needle.all? do |key, val|
+        haystack_val = haystack[key]
+
+        if val.is_a?(Hash) && haystack_val.is_a?(Hash)
+          deep_contains(val, haystack_val)
+        else
+          val == haystack_val
+        end
+      end
+    end
   end
 
   module CamelizeHash
@@ -135,6 +153,21 @@ module Util
   end
 
   module MailUtils
+
+    # Refactoring needed. This is an ugly method that sets
+    def set_up_urls(recipient, community, ref="email")
+      @community = community
+      @url_params = {}
+      @url_params[:host] = community.full_domain
+      @url_params[:ref] = ref
+      if recipient
+        @recipient = recipient
+        @url_params[:auth] = @recipient.new_email_auth_token
+        @url_params[:locale] = @recipient.locale
+        set_locale @recipient.locale
+      end
+    end
+
     module_function
 
     def community_specific_sender(community)

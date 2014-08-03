@@ -59,25 +59,9 @@ class BraintreeApi
       end
     end
 
-    def transaction_sale(receiver, payment_params, amount, service_fee, hold_in_escrow, community)
+    def transaction_sale(community, options)
       with_braintree_config(community) do
-        Braintree::Transaction.create(
-          :type => "sale",
-          :amount => amount.to_s,
-          :merchant_account_id => receiver.id,
-          :credit_card => {
-            :number => payment_params[:credit_card_number],
-            :expiration_month => payment_params[:credit_card_expiration_month],
-            :expiration_year => payment_params[:credit_card_expiration_year],
-            :cvv => payment_params[:cvv],
-            :cardholder_name => payment_params[:cardholder_name],
-          },
-          :options => {
-            :submit_for_settlement => true,
-            :hold_in_escrow => hold_in_escrow
-          },
-          :service_fee_amount => service_fee.to_s
-        )
+        Braintree::Transaction.create(options)
       end
     end
 
@@ -87,13 +71,26 @@ class BraintreeApi
       end
     end
 
+    def submit_to_settlement(community, transaction_id)
+      with_braintree_config(community) do
+        Braintree::Transaction.submit_for_settlement(transaction_id)
+      end
+    end
+
     def release_from_escrow(community, transaction_id)
       with_braintree_config(community) do
         Braintree::Transaction.release_from_escrow(transaction_id)
       end
     end
 
+    def void_transaction(community, transaction_id)
+      with_braintree_config(community) do
+        Braintree::Transaction.void(transaction_id)
+      end
+    end
+
     def master_merchant_id(community)
+      # TODO Move this method, it has nothing to do with the Braintree API
       community.payment_gateway.braintree_master_merchant_id
     end
 

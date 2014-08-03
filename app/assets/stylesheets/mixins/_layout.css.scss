@@ -24,3 +24,10 @@
     color: $background;
   }
 }
+
+/*
+  Bottom border style to be used with text titles (e.g. under front-page filter titles)
+*/
+@mixin title-border {
+  border-bottom: 1px solid $highlight;
+}

@@ -268,24 +268,18 @@ function initialize_contact_request_form(required_message, email_message) {
   $("#new_contact_request_bottom").validate(validation);
 }
 
-function initialize_update_contact_request_form(country_message, marketplace_type_message, plan_type_message) {
+function initialize_update_contact_request_form(country_message, marketplace_type_message) {
   var validation = {
     rules: {
       "contact_request[country]": {required: true},
-      "contact_request[marketplace_type]": {required: true},
-      "contact_request[plan_type]": {required: true}
+      "contact_request[marketplace_type]": {required: true}
     },
     messages: {
       "contact_request[country]": {required: country_message},
-      "contact_request[marketplace_type]": {required: marketplace_type_message},
-      "contact_request[plan_type]": {required: plan_type_message}
+      "contact_request[marketplace_type]": {required: marketplace_type_message}
     },
     errorPlacement: function(error, element) {
-      if (element.attr("name") == "contact_request[plan_type]")  {
-        error.appendTo(element.parent().parent());
-      } else {
-        error.insertAfter(element);
-      }
+      error.insertAfter(element);
     },
     onkeyup: false,
     onclick: false,
@@ -675,11 +669,11 @@ function initialize_new_listing_form(fileDefaultText,
 function initialize_send_message_form(locale, message_type) {
   auto_resize_text_areas("text_area");
   $('textarea').focus();
-  var form_id = "#new_conversation";
+  var form_id = "#new_listing_conversation";
   $(form_id).validate({
     rules: {
-      "conversation[title]": {required: true, minlength: 1, maxlength: 120},
-      "conversation[message_attributes][content]": {required: true, minlength: 1}
+      "listing_conversation[title]": {required: true, minlength: 1, maxlength: 120},
+      "listing_conversation[message_attributes][content]": {required: true, minlength: 1}
     },
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
@@ -724,10 +718,10 @@ function initialize_accept_transaction_form(commission_percentage, gatewayCommis
 	    });
 	    $(form_id).validate({
 	      rules: {
-          "conversation[payment_attributes][sum]": {money: true, minimum_price_required: minimum_price}
+          "listing_conversation[payment_attributes][sum]": {money: true, minimum_price_required: minimum_price}
         },
         messages: {
-          "conversation[payment_attributes][sum]": {minimum_price_required: minimum_price_message}
+          "listing_conversation[payment_attributes][sum]": {minimum_price_required: minimum_price_message}
         },
 	    });
 	  } else {
@@ -1061,17 +1055,20 @@ function initialize_reset_password_form() {
   });
 }
 
-function initialize_profile_view(profile_id, show_closed) {
-  $('#load-more-listings').click(function() {
-    request_path = profile_id + "/listings";
-    if (show_closed == true) {
-      request_path += "?show_closed=true";
-    }
+function initialize_profile_view(profile_id) {
+  $('#load-more-listings a').on("click", function() {
+    var request_path = $(this).data().url;
     $.get(request_path, function(data) {
       $('#profile-listings-list').html(data);
     });
     return false;
   });
+
+  $('#load-more-followed-people').on(
+      "ajax:complete", function(element, xhr) {
+          $("#profile-followed-people-list").html(xhr.responseText);
+          $(this).hide();
+      });
 
   $('#load-more-testimonials').click(function() {
     request_path = profile_id + "/testimonials";
@@ -1092,19 +1089,6 @@ function initialize_profile_view(profile_id, show_closed) {
     $('#profile_description_full').hide();
   });
   $('#trustcloud_description_link').click(function() { $('#trustcloud_description').lightbox_me({centered: true}); });
-}
-
-function initialize_homepage_news_items(news_item_ids) {
-  for (var i = 0; i < news_item_ids.length; i++) {
-    $('#news_item_' + news_item_ids[i] + '_content').click(function(news_item) {
-      $('#' + news_item.currentTarget.id + '_div_preview').hide();
-      $('#' + news_item.currentTarget.id + '_div_full').show();
-    });
-    $('#news_item_' + news_item_ids[i] + '_content_div').click(function(news_item) {
-      $('#' + news_item.currentTarget.id + '_preview').show();
-      $('#' + news_item.currentTarget.id + '_full').hide();
-    });
-  }
 }
 
 function initialize_homepage(filters_in_use) {
@@ -1151,16 +1135,6 @@ function initialize_private_community_defaults(locale, feedback_default_text) {
   $('select.language_select').selectmenu({style: 'dropdown', width: "100px"});
   $('#close_notification_link').click(function() { $('#notifications').slideUp('fast'); });
   // Make sure that Sharetribe cannot be used if js is disabled
-  $('.wrapper').addClass('js_enabled');
-}
-
-function initialize_private_community_homepage(username_or_email_default_text, password_default_text) {
-  $('#password_forgotten_link').click(function() {
-    $('#password_forgotten').slideToggle('fast');
-    $('input.request_password').focus();
-  });
-  $('#person_login').watermark(username_or_email_default_text, {className: 'default_text'});
-  $('#person_password').watermark(password_default_text, {className: 'default_text'});
   $('.wrapper').addClass('js_enabled');
 }
 

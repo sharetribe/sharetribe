@@ -3,7 +3,11 @@
 
 .undo-mobile-wrapper-margin#conversations
   - if @conversations && !@conversations.empty?
-    = render :partial => @conversations
+
+    = render :partial => "conversation", collection: @conversations
+
+    -# FIXME
+      = render :partial => @conversations
     = will_paginate(@conversations)
     = pageless(@conversations.total_pages, '#conversations', "#{action_name}", t('.loading_more_messages'))
   - else

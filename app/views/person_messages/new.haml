@@ -1,0 +1,13 @@
+- content_for :javascript do
+  initialize_send_message_form('#{I18n.locale}', 'free');
+
+#new_message_form.centered-section
+  %h2= t("conversations.new.send_message_to_user", :person => @recipient.given_name_or_username)
+
+  = form_for @conversation, :url => person_person_messages_path(:person => @recipient) do |form|
+    = fields_for "conversation[message_attributes]", Message.new do |message_form|
+      = message_form.label :content, t('conversations.new.message')
+      = message_form.text_area :content, :class => "text_area"
+      = message_form.hidden_field :sender_id, :value => @current_user.id
+
+    = form.button t("conversations.new.send_message"), :class => "send_button"

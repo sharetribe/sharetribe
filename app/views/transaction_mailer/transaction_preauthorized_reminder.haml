@@ -1,0 +1,14 @@
+- reply_url = person_message_url(@conversation.author, @url_params.merge({:id => @conversation.id.to_s}))
+
+%tr
+  %td{:align => "left", :style => "padding-top: 25px; padding-bottom: 25px;"}
+    %font{body_font}
+      = t("emails.transaction_preauthorized_reminder.remember_to_accept", :listing_title => @conversation.listing.title, :requester => @conversation.starter.name)
+
+%tr
+  %td{:align => "left", :style => "padding-bottom: 15px;"}
+    %font{body_font}
+      - # Hard coded for one day
+      = t("emails.transaction_preauthorized_reminder.one_day_left")
+
+= render :partial => "person_mailer/action_button", :locals => { :text => t("emails.transaction_preauthorized_reminder.click_here_to_reply"), :url => reply_url}

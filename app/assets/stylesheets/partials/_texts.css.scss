@@ -1,0 +1,45 @@
+@import "mixins/all";
+
+a {
+  text-decoration: none;
+  color: $link;
+  &:hover { color: darken($link, 15%); }
+  &:active { color: darken($link, 25%); }
+}
+
+small {
+  @include small-type;
+  display: block;
+}
+
+h1, h3 {
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @include source-sans-pro;
+  color: $emphasis;
+}
+
+h1 {
+  margin: lines(0) 0 lines(0.5);
+  font-weight: 700;
+
+  @include media(small-tablet) {
+    @include large-type;
+    margin-top: lines(0.25, 26);
+    margin-bottom: lines(0.5, 26);
+  }
+}
+
+h2 {
+  margin: lines(0) 0 lines(0.5);
+  @include normal-type;
+  font-weight: 500;
+
+  @include media(small-tablet) {
+    @include big-type;
+    font-weight: 500;
+    text-transform: none;
+  }
+}

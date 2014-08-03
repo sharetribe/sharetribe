@@ -62,7 +62,7 @@ fr:
         edit_community_search_placeholder_description: "Ceci est affiché sur la page d'accueil de la tribu, dans la barre de recherche. %{see_how_it_looks_like}."
         private_community_homepage_content: "Page d'accueil d'une tribu privée"
         edit_private_community_homepage_content_description: "Ce contenu n'est visible qu'aux utilisateurs non connectés, sur la page d'accueil de tribus privées. Vous pouvez décrire ici votre tribu et comment la rejoindre. Vous pouvez aussi ajouter des images, des vidéos et du contenu HTML. %{see_how_it_looks_like}."
-        update_information: "Mettre les informations à jour"
+        update_information: "Sauvegarder les paramètres"
         invite_people: "Inviter des gens dans cette tribu"
         edit_signup_info: "Informations lors de l'inscription"
         edit_signup_info_description: "Ce texte peut être affiché aux utilisateurs sur la page d'inscription. Vous pouvez y donner des instructions à propos de l'inscription, des conseils pour obtenir une invitation, etc. Par défaut, il n'y a pas d'instructions."
@@ -72,7 +72,7 @@ fr:
         verification_to_post_listings_info_content_description: "Cette place de marché nécessite que les utilisateurs soient validés par un administrateur avant qu'ils ne puissent poster une annonce. Ici, vous pouvez définir le texte qui est affiché aux utilisateurs non encore validés lorsqu'ils essaient de poster une nouvelle annonce."
         verification_to_post_listings_info_content_default: "Cette place de marché nécessite que les utilisateurs soient validés par un administrateur avant qu'ils ne puissent poster une annonce. Vous n'avez pas encore été validé. Veuillez %{contact_admin_link} pour lui demander."
         contact_admin_link_text: "contacter l'administrateur"
-        save: "Sauvegarder les réglages"
+        save: "Sauvegarder les paramètres"
       edit_look_and_feel:
         edit_community_look_and_feel: "Modifier la présentation et l'aspect de la tribu \"%{community_name}\""
         community_logo: "Logo large"
@@ -104,7 +104,7 @@ fr:
         first_name_only: "Prénom seulement (Prénom)"
         invalid_color_code: "Le code de la couleur doit être une suite de 6 chiffres ou lettres (de A à F), par exemple D96E21"
         custom_head_script: "Script personnalisé"
-        custom_head_script_instructions_text: "Ce script est inséré dans le tag <head> de chaque page et peut être utilisé pour insérer du contenu CSS, JavaScript ou HTML personnalisé. Notez que des futures évolutions de Sharetribe pourrait rendre votre script incompatible."
+        custom_head_script_instructions_text: "Ce script est inséré dans le tag <head> de chaque page et peut être utilisé pour insérer du contenu CSS, JavaScript ou HTML personnalisé. Notez que des futures évolutions de Sharetribe pourraient rendre votre script incompatible."
       edit_text_instructions:
         edit_text_instructions: "Instructions textuelles"
       edit_welcome_email:
@@ -131,9 +131,9 @@ fr:
         automatic_newsletters: "Envoyer l'email quotidien/hebdomadaire automatique à tous les utilisateurs (sauf s'ils se désabonnent)"
         email_admins_about_new_members: "Envoyer aux administrateurs un email à chaque fois qu'un nouvel utilisateur s'inscrit"
         integrations: Intégrations
-        google_analytics_key: "Google Analytics tracking ID (compte classique)"
+        google_analytics_key: "Google Analytics tracking ID"
         twitter_handle: "Nom Twitter (utilisé dans le bouton \"Tweeter\" sur les pages des annonces)"
-        update_settings: "Mettre à jour les paramètres"
+        update_settings: "Sauvegarder les paramètres"
         automatically_confirmed: "Les annonces seront automatiquement marquées comme réalisées %{days_dropdown} jours après le paiement. Si le système de dépôt est utilisé, l'argent sera transmis au vendeur à ce moment."
         automatic_newsletter_frequency: "Fréquence d'envoi de la newsletter : %{frequency_dropdown}"
         newsletter_daily: Quotidienne
@@ -156,18 +156,18 @@ fr:
         twitter_handle_info_text: "Le nom du compte Twitter de votre place de marché (si vous en avez un). Il sera mentionné quand les utilisateurs utilisent le partage Twitter présent sur les pages d'annonces."
         twitter_handle_placeholder: nomducompte
         invalid_twitter_handle: "Le nom Twitter doit être au maximum de 15 caractères alpha-numériques (lettres de A à Z et chiffres de 0 à 9)."
-        google_analytics_key: "Code de suivi Google Analytics (compte classique)"
-        google_analytics_key_info_text: "Code de suivi de votre compte Google Analytics. Vous devez y créer un compte \"classique\"."
+        google_analytics_key: "Code de suivi Google Analytics"
+        google_analytics_key_info_text: "Code de suivi de votre compte Google Analytics."
         facebook_connect: Facebook
         facebook_connect_info_text: "Pour activer la connexion avec Facebook, vous devez créer une application pour votre place de marché sur <a href='https://developers.facebook.com/'>le site Facebook developers</a>. Ajoutez ensuite l'id et la clé secrète générées, ici."
         facebook_connect_id: "ID client Facebook"
         invalid_facebook_connect_id: "L'id client ne doit contenir que des chiffres."
         facebook_connect_secret: "Clé secrète Facebook"
         invalid_facebook_connect_secret: "La clé secrète ne doit contenir que des nombres et des lettres de a à f."
-        save: "Sauvegarder les réglages"
+        save: "Sauvegarder les paramètres"
       menu_links:
         menu_links: "Liens du menu"
-        save: Sauvegarder
+        save: "Sauvegarder les paramètres"
         add_menu_link: "Ajouter un nouveau lien au menu"
         title_placeholder: "Titre du lien"
         url_placeholder: "http://example.fr/fr"
@@ -357,6 +357,7 @@ fr:
       you_need_to_fill_payout_details_before_accepting: "Vous devez compléter les détails de paiements avant de pouvoir accepter la demande et recevoir le paiement. Allez aux %{payment_settings_link} pour compléter les détails."
       payment_settings_link: "paramètres de paiement"
       minimum_price_error_message: "Le prix ne peut pas être plus bas que %{amount}."
+      approve: Approuver
     confirm:
       confirm_description: "Si votre demande a été satisfaite, vous pouvez la marquer comme réalisée. Vous pourrez alors donner un avis sur l'autre personne."
       cancel_description: "Si votre demande n'a pas été satisfaite, vous pouvez la marquer comme \"non réalisée\". Vous pourrez toujours donner un avis sur l'autre personne et décrire ce qu'il s'est passé."
@@ -383,8 +384,8 @@ fr:
       canceled_request: "Demande annulée."
       canceled_offer: "Offre annulée."
       message_from: "Message de %{person}"
-      about_listing: ~
-      free_message: ~
+      about_listing: "A propos de l'annonce %{listing_title}"
+      free_message: "Message libre"
     message:
       accepted_request: "a accepté la demande"
       accepted_offer: "a accepté l'offre"
@@ -420,6 +421,7 @@ fr:
       housing_request_rent_message_form_title: "Louer %{listing} à %{person}"
       item_request_message_form_title: "Proposer un objet à %{person}"
       message: Message
+      message_to: "Message à %{author_name}"
       rideshare_offer_message_form_title: "Demander un covoiturage à %{person}"
       rideshare_request_message_form_title: "Proposer un covoiturage à %{person}"
       send_message: "Envoyer le message"
@@ -429,6 +431,8 @@ fr:
       you_will_get_notified: "Vous recevrez une notification par email lorsque %{person} vous répondra."
       title: Titre
       send_message_to_user: "Envoyer un message à %{person}"
+      about_listing: "A propos de l'annonce %{listing_title}"
+      author_has_to_accept_request: "%{author_name} doit accepter la requête avant que vous ne puissiez payer"
     show:
       in_response_to_listing: "à propos de l'annonce"
       message_sent_by: "Message envoyé par"
@@ -439,7 +443,6 @@ fr:
       conversation_with_user: "Discussion avec %{person}"
       conversation_with: "Conversation avec %{person}"
       last_message_at: "(dernier message %{time})"
-      requested_by: "Demandé par %{requester_name}"
       price: "Prix : %{price}"
       sum: "Total : %{sum}"
       price_excludes_vat: "(hors TVA)"
@@ -449,29 +452,34 @@ fr:
       feedback_skipped: "Pas d'avis donné"
       give_feedback: "Donner un avis"
       offer_accepted: Acceptée
-      offer_rejected: Rejetée
+      offer_rejected: Refusée
       offer_canceled: Annulée
       offer_confirmed: Terminée
       pay: Payer
+      preauthorized: "Paiement réussi"
       paid: "Paiement réussi"
       request_accepted: Acceptée
-      request_rejected: Rejetée
+      request_rejected: Refusée
       request_confirmed: Terminée
       request_canceled: Annulée
       skip_feedback: "Ne pas donner d'avis"
       waiting_for_listing_author_to_accept_offer: "En attente d'acceptation de l'offre par %{listing_author_name}"
       waiting_for_listing_author_to_accept_request: "En attente d'acceptation de la demande par %{listing_author_name}"
-      waiting_for_you_to_accept_request: ~
-      waiting_confirmation_from_requester: "En attente de la confirmation par %{requester_name} de la réalisation"
-      waiting_confirmation_from_you: ~
+      waiting_for_you_to_accept_request: "En attente de votre acceptation de la demande"
+      waiting_confirmation_from_requester: "En attente de %{requester_name} de la réalisation de la demande"
+      waiting_confirmation_from_you: "En attente de votre réalisation de la demande"
       waiting_payment_from_requester: "En attente du paiement par %{requester_name}"
-      waiting_payment_from_you: ~
-      waiting_feedback_from_you: ~
+      waiting_payment_from_you: "En attente de votre paiement"
+      waiting_feedback_from_you: "En attente de votre avis"
     status_link:
       accept_offer: "Accepter l'offre"
       accept_request: "Accepter demande"
       reject_offer: "Pas cette fois"
       reject_request: "Pas cette fois"
+      accept_preauthorized_offer: "Accepter l'offre"
+      accept_preauthorized_request: "Accepter la demande"
+      reject_preauthorized_offer: "Pas cette fois"
+      reject_preauthorized_request: "Pas cette fois"
       confirm: Réalisée
       cancel: "Non réalisée"
   braintree_accounts:
@@ -518,17 +526,6 @@ fr:
       view_tribe: "Voir la tribu"
     email_confirmation_pending:
       confirmation_pending: "Merci de confirmer votre adresse email"
-    enter_organization_email:
-      enter_your_organization_email: "Entrez votre email %{community_category}"
-      only_people_with_verified_email_address_can_join_your_tribe: "Seules les personnes avec une adresse email %{community_category} valide peuvent rejoindre cette tribu."
-      continue: Continuer
-      tribe_exists: "La tribu existe !"
-      this_tribe_exists_already: "Cette tribu existe déjà. Voulez vous la rejoindre ?"
-    done:
-      done: "Terminé !"
-      tribe_created_successfully: "Vous venez de créer votre tribu avec succès."
-      go_to_your_tribe: "Aller dans votre tribu"
-      we_will_contact_you_about_invoicing: "Nous allons vous contacter rapidement par email à propos de nos tarifs."
     index:
       find_your_local_tribe: "Trouvez une tribu proche de vous"
       or_start_your_own: "...ou %{start_your_own_tribe_link}"
@@ -620,59 +617,12 @@ fr:
       if_want_to_view_content: "Pour voir le contenu de cette tribu sans la rejoindre, vous devez"
       log_out: "vous déconnecter"
       join_community_button: "Rejoindre la tribu"
-  dashboard:
-    api:
-      coming_soon: "Bientôt ..."
-    index:
-      watch_the_video: "Regardez la vidéo"
-      get_started: "LANCEZ VOUS !"
-      browse_communities_around_you: "rejoignez une tribu près de vous"
-      slogan: "Partagez autour de vous."
-      create_your_own: "Créez votre"
-      sharing_website: "place de marché pour votre tribu"
-      main_description: "Mettez facilement en place un service où les membres de votre tribu pourront partager des objets, des services, des covoiturages dans un esprit de confiance. C'est gratuit et rapide à créer !"
-      kassi_for_your_company: "...POUR VOTRE ENTREPRISE"
-      kassi_for_your_company_description: "Envie de rendre votre entreprise plus sociale et connectée ? Envie d'aider les employés à mieux se connaître les uns les autres ? Envie de réduire votre empreinte écologique et devenir une entreprise plus verte ? %{service_name} est la solution."
-      kassi_for_your_city: "...POUR VOTRE QUARTIER"
-      kassi_for_your_city_description: "Envie de créer, autour de vous, des groupes où les gens se connaissent et s'aident mutuellement ? Envie de leur donner les moyens d'améliorer leurs vies quotidiennes ? %{service_name} va vous y aider."
-      kassi_for_your_university: "...POUR VOTRE UNIVERSITÉ"
-      kassi_for_your_university_description: "Envie de faire de votre campus un lieu animé où les gens se connaissent et se font confiance ? Envie d'aider les étudiants et le personnel à économiser du temps, de l'argent et l'environnement ? Essayez %{service_name} !"
-      want_kassi_for_your_community: "Envie d'avoir %{service_name} pour votre communauté ?"
-      email_default_text: "Votre adresse email"
-      send: "Envoyer !"
-      or_drop_us_a_line: "...ou laissez nous un message : "
-      thanks_for_contacting_us: "Merci de nous avoir contacté ! Nous allons vous envoyer des informations sur la création de votre tribu %{service_name} très bientôt."
-      resources: RESSOURCES
-      connect: "RESTONS CONNECTÉS"
-      about: "A PROPOS DE SHARETRIBE"
-      developers: "POUR LES DÉVELOPPEURS"
-      api: API
-      blog: Blog
-      code: "Code source"
-      issue_tracker: "Gestionnaire de tickets"
-      product_of: "%{service_name} est un produit de"
-      language: "Langue : "
-      new: "NOUVEAU !"
-      new_text: "%{service_name} est désormais accessible pour <a href=\"http://www.kassi.eu/en/wdc\">les voisinages d'Helsinki et Lahti</a> et pour <a href=\"http://www.kassi.eu/en/okl\">les membres de SuomenOmakotiliitto</a> !"
-      want_to_know_more: "Envie d'en savoir plus ? %{read_our_faq_link} ou %{contact_us_link}"
-      read_our_faq: "Lisez notre FAQ"
-      contact_us: "contactez nous"
-      why_you_really_should_have_a_tribe: "Pourquoi vous devriez vraiment avoir une tribu"
-      an_example: "Un exemple : "
-      home: Accueil
-      faq: FAQ
-      browse_tribes: "Parcourir les tribus"
-      pricing: Tarifs
-      contact: Contact
-      university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Tribu de l'université d'Aalto</a>"
-      company_example_link: "<a href=\"https://if.sharetribe.com/en\">Sharetribe de IF</a>"
-      city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Tribu de Kallio à Helsinki, Finlande</a>"
   emails:
     accept_reminder:
-      remember_to_accept_offer: "N'oubliez pas d'accepter ou de rejeter l'offre de %{sender_name}"
-      remember_to_accept_request: "N'oubliez pas d'accepter ou de rejeter la demande de %{sender_name}"
-      you_can_accept_or_reject_offer_at: "Vous pouvez accepter ou rejeter l'offre à"
-      you_can_accept_or_reject_request_at: "Vous pouvez accepter ou rejeter la demande à"
+      remember_to_accept_offer: "N'oubliez pas d'accepter ou de refuser l'offre de %{sender_name}"
+      remember_to_accept_request: "N'oubliez pas d'accepter ou de refuser la demande de %{sender_name}"
+      you_can_accept_or_reject_offer_at: "Vous pouvez accepter ou refuser l'offre à"
+      you_can_accept_or_reject_request_at: "Vous pouvez accepter ou refuser la demande à"
       you_have_not_yet_accepted_or_rejected_offer: "Vous n'avez pas encore accepté ou refusé l'offre %{title} reçue %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Vous n'avez pas encore accepté ou refusé la demande %{title} reçue %{date}."
       show_thread: "Voir la conversation"
@@ -734,7 +684,7 @@ fr:
       message_not_displaying_correctly: "Cet email ne s'affiche pas correctement ?"
       view_it_in_your_browser: "Voir dans votre navigateur."
       or: ou
-      unsubscribe_from_these_emails: "désabonnez-vous de ces d'emails"
+      unsubscribe_from_these_emails: "désabonnez-vous de ces emails"
     community_starter_email:
       subject: "Découvrez le nouveau Sharetribe - fin de la limite en nombre de membres, présentation et aspect des tribus modifiables et bien d'autres choses"
     conversation_status_changed:
@@ -744,9 +694,9 @@ fr:
       has_rejected_your_request: "%{accepter} a refusé votre demande %{listing}."
       view_thread: "Voir la conversation"
       your_offer_was_accepted: "Votre offre a été accepté"
-      your_offer_was_rejected: "Votre offre a été rejetée"
+      your_offer_was_rejected: "Votre offre a été refusée"
       your_request_was_accepted: "Votre demande a été acceptée"
-      your_request_was_rejected: "Votre demande a été rejetée"
+      your_request_was_rejected: "Votre demande a été refusée"
       you_can_now_pay_to: "Vous pouvez maintenant payer le montant demandé à %{payment_receiver}."
       pay_now: "Payer maintenant"
       remember_to_confirm: "Quand la demande est réalisée, n'oubliez pas de la signaler comme terminée. Si la demande n'est pas réalisée vous avez %{days_to_automatic_confirmation} pour l'annuler. Autrement, elle sera automatiquement signalée comme terminée."
@@ -815,6 +765,16 @@ fr:
       feedback_is_public_and_is_shown: "Les avis sont publics et visibles à tous les autres utilisateurs. En fonction des avis reçus, les autres utilisateurs peuvent décider de faire ou pas confiance à %{name} et d'engager des transactions avec cette personne. Il est donc important de toujours donner un avis à la fin de chaque transaction et de rappeler aux autres participants de vous en donner un. C'est également grâce aux avis positifs que vous obtiendrez la plupart des badges."
       remember_to_give_feedback_to: "Rappel : n'oubliez pas de donner un avis sur %{name}"
       you_have_not_given_feedback_yet: "Vous n'avez pas encore donné d'avis sur %{name} suite à l'annonce '%{event}'. N'oubliez pas de donner un avis sur la façon dont %{given_name} a agi lors de la transaction."
+    transaction_preauthorized:
+      subject: "%{requester} a demandé et payé pour %{listing_title}"
+      transaction_requested_by_user: "%{requester} a demandé et payé pour \"%{listing_title}\""
+      you_have_days_to_accept: "Vous devez accepter ou refuser la demande sous %{payment_expires_in_days} jours. Si vous n'acceptez pas durant ce délai, la demande sera automatiquement refusée et vous ne recevrez pas le paiement."
+      click_here_to_reply: "Cliquez ici pour répondre à la demande"
+    transaction_preauthorized_reminder:
+      subject: "N'oubliez pas d'accepter la demande de %{requester} à propos de l'annonce %{listing_title}"
+      remember_to_accept: "N'oubliez pas d'accepter la demande de %{requester} à propos de l'annonce %{listing_title}. %{requester} a déjà payé pour cette annonce. Vous devez accepter la demande pour recevoir le paiement."
+      one_day_left: "Si vous n'acceptez pas la demande sous une journée l'annonce sera automatiquement refusée et vous ne recevrez pas le paiement."
+      click_here_to_reply: "Cliquez ici pour répondre à la demande"
     welcome_email:
       welcome_email_footer_text: "Quels types d'emails souhaitez vous recevoir de la part de %{service_name} ? %{settings_link}"
       settings_link_text: "Vérifiez vos paramètres"
@@ -842,6 +802,11 @@ fr:
       spread_the_word: "<strong>Passez le mot.</strong> Pour avoir de nouveaux membres dans la tribu, vous devez en parler aux gens que vous connaissez. Voici quelques idées : 1) Parlez de %{service_name} sur une mailing list. 2) Partagez le lien suivant via Facebook, Twitter ou d'autres réseaux sociaux : %{url}. 3) Envoyez des emails d'invitation %{invite_link}. 4) Parlez en autour de vous quand vous rencontrez des gens, faites marcher le bouche à oreille."
       spread_the_word_invite_only: "<strong>Passez le mot.</strong> Vous avez décidé de rendre cette tribu \"sur invitation uniquement\". Les gens doivent donc avoir une invitation d'un autre membre pour la rejoindre. Ainsi, pour avoir de nouveaux membres dans la tribu, vous devez les inviter. Vous pouvez le faire %{invite_link}."
       have_fun: "Amusez vous et profitez de %{service_name}. Puisse votre tribu vivre et prospérer pour longtemps !"
+    new_listing_by_followed_person:
+      subject: "%{author_name} a publié une nouvelle annonce dans %{community}"
+      has_posted_a_new_listing: "%{author_name} a publié une nouvelle annonce : "
+      you_are_receiving_this_because: "Vous recevez cette notification car vous suivez %{author_name}."
+      view_listing: "Voir l'annonce"
   error_messages:
     listings:
       departure_time: "L'heure de départ doit être comprise entre l'heure actuelle et dans un an."
@@ -972,7 +937,7 @@ fr:
       add_news_item: "Ajouter un article"
       inform_others_about_events: "Dernières actualités et évènements dans la tribu."
       lend_rent_help_carpool: "Vendre, prêter, aider, faire du covoiturage"
-      loading_more_content: "En cours de chargement"
+      loading_more_content: "Chargement de plus de contenu"
       more_events: "Plus d'événements ..."
       news: Actualités
       no_news: "Pas d'actualités"
@@ -1052,7 +1017,7 @@ fr:
       feedback: "Vos commentaires pour l'équipe de %{service_name}"
       default_feedback: "Vous avez rencontré un problème sur %{service_name} ? Vous souhaitez proposer une nouvelle fonctionnalité ? Vous avez remarqué une annonce suspecte ? Ou vous voulez juste discuter avec nous ? Dites le nous !"
       feedback_forum: "forum de discussion"
-      feedback_handle: Commentaires
+      feedback_handle: Commentaire
       give_feedback: "Nous contacter"
       keywords: "%{service_name}, service, article, objet, transport, covoiturage, logement, hébergement, aide, aide, offre, demande, location, affaires, échange, achat, vente, acheter, vendre, don, donner, Kassi, écologique, communauté, communauté en , tribu"
       meta_description: "Sharetribe est un service qui vous permet de créer facilement une place de marché en ligne et permet à votre communauté ou tribu de vendre, louer, échanger et partager des biens et services."
@@ -1149,7 +1114,7 @@ fr:
       offer_confirmed: "Offre confirmée"
       offer_closed: "Offre fermée"
       listing_created_successfully: "Annonce créée avec succès. %{new_listing_link}."
-      offer_rejected: "Offre rejetée"
+      offer_rejected: "Offre refusée"
       offer_canceled: "Offre annulée"
       listing_updated_successfully: "Annonce mise à jour avec succés"
       only_kassi_administrators_can_access_this_area: "Seuls les administrateurs de %{service_name} peuvent accéder à ces pages"
@@ -1178,7 +1143,7 @@ fr:
       request_accepted: "Demande acceptée"
       request_confirmed: "Demande réalisée"
       request_closed: "Demande fermée"
-      request_rejected: "Demande rejetée"
+      request_rejected: "Demande refusée"
       request_canceled: "Demande annulée"
       message_sent: "Message envoyé"
       this_content_is_not_available_in_this_community: "Ce contenu n'est pas accessible dans cette tribu."
@@ -1209,6 +1174,8 @@ fr:
       you_must_log_in_to_add_news_item: "Vous devez vous connecter à %{service_name} pour ajouter un nouvel article."
       you_must_log_in_to_change_profile_settings: "Vous devez vous connecter à %{service_name} pour modifier les paramètres de profil."
       you_must_log_in_to_change_payment_settings: "Vous devez être connecté à %{service_name} pour modifier les paramètres de paiement"
+      you_must_log_in_to_accept_or_reject: "Vous devez vous connecter pour accepter ou refuser la transaction"
+      you_must_log_in_to_confirm_or_cancel: "Vous devez vous connecter pour annuler ou confirmer la transaction"
       you_need_to_confirm_your_account_first: "Vous devez d'abord confirmer votre email."
       you_must_fill_all_the_fields: "Vous devez compléter tous les champs"
       you_unfollowed_listing: "Vous ne suivez plus cette annonce"
@@ -1246,7 +1213,11 @@ fr:
       close_listing: "Clore l'annonce"
       edit_listing: "Editer l'annonce"
       reopen_listing: "Ré-ouvrir l'annonce"
-      move_to_top: "Remonter en haut de la liste"
+      move_to_top: "Remonter en tête de liste"
+      show_in_updates_email: "Afficher dans la prochaine newsletter"
+      show_in_updates_email_loading: Chargement...
+      show_in_updates_email_error: "Impossible de se connecter au serveur. Veuillez essayer de nouveau après avoir rafraîchi la page."
+      show_in_updates_email_success: "Cette annonce sera diffusée dans la prochaine newsletter, automatiquement envoyée au membre de la tribu"
     follow_links:
       follow: "Recevoir les nouveaux commentaires par email."
       unfollow: "Ne pas recevoir les nouveaux commentaires par email."
@@ -1304,7 +1275,7 @@ fr:
         location: Lieu
         origin: "Lieu de départ"
       send_button:
-        save_listing: "Sauvegarder l'annonce"
+        save_listing: "Publier l'annonce"
       share_type:
         select: Selectionner
         borrow: Emprunt
@@ -1388,6 +1359,8 @@ fr:
       select_category: "Choisir une catégorie"
       select_subcategory: "Sélectionner une sous-catégorie"
       select_transaction_type: "Sélectionner le type d'annonce"
+      you_need_to_fill_payout_details_before_accepting: "Vous devez compléter les détails de paiements avant de pouvoir déposer une annonce. Allez aux %{payment_settings_link} pour compléter les détails."
+      payment_settings_link: "paramètres de paiement"
     please_comment: "Faire un commentaire"
     reply_link:
       listing_closed: "L'annonce est close"
@@ -1500,7 +1473,7 @@ fr:
       activate: Activer
       deactivate: Désactiver
     help_texts:
-      feedback_description_title: Commentaires
+      feedback_description_title: Avis
       help_captcha_title: "Etes-vous humain ?"
       help_invitation_code_title: "Il vous faut une invitation pour participer"
       terms_title: "Conditions d'utilisation de %{service_name}"
@@ -1510,7 +1483,7 @@ fr:
       invite_only_help_text_title: "Tribu sur invitation"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Cet utilisateur n'est plus actif sur %{service_name}"
-      inactive_description: "Cet utilisateur a arrêté d'utiliser %{service_name}. Vous ne pouvez plus le contacter, l'évaluer ni lui faire des commentaires."
+      inactive_description: "Cet utilisateur a arrêté d'utiliser %{service_name}. Vous ne pouvez plus le contacter, l'évaluer ni commenter ses annonces."
     new:
       captcha_incorrect: "Vérification reCAPTCHA échouée. Veuillez saisir les mots de l'image dans la case dessous."
       captcha_was_wrong: "Texte Captcha incorrecte."
@@ -1537,8 +1510,9 @@ fr:
       username_is_invalid: "Nom d'utilisateur incorrect. Les caractères autorisés sont les lettres, les chiffres et le tiret bas ('_')."
       visible_only_to_you: "visible uniquement à vous et à l'administrateur de la tribu"
       visible_to_everybody: "visible à tout le monde"
-      create_account_with_facebook: "Créer un compte avec Facebook"
-      or_create_new_account_without_facebook: "... ou créer un compte sans utiliser Facebook, ci-dessous."
+      create_account_with_facebook: "S'inscrire avec Facebook"
+      OR: OU
+      signup_with_email: "S'inscrire avec un email"
     not_member:
       explanation_text: "Vous faites actuellement parti de la tribu %{community}. Vous avez essayé de voir le profil d'un utilisateur appartenant à une autre tribu. Vous ne pouvez pas accéder à ce profil via la tribu %{community}."
       read_more_about_kassi_communities: "En savoir plus sur les tribus %{service_name}"
@@ -1573,7 +1547,7 @@ fr:
       less_than_expected: "Ne correspondait pas à mes attentes"
       phone_number: "Numéro de téléphone : "
       show_all_feedback: "Montrer tous les avis"
-      show_all_testimonials: "Montrer tous les commentaires"
+      show_all_testimonials: "Montrer tous les avis"
       show_full_description: "Voir la suite..."
       slightly_better_than_expected: "Dépassait mes attentes"
       slightly_less_than_expected: "Ne correspondait pas à mes attentes"
@@ -1591,6 +1565,17 @@ fr:
       show_all_open_listings: "Voir toutes les annonces en ligne"
       show_all_reviews: "Vois tous les avis"
       trustcloud: TrustCard
+    followed_people:
+      you_follow_plural: "Vous suivez %{count} personnes"
+      you_follow_singular: "Vous suivez %{count} personne"
+      they_follow_plural: "%{count} personnes suivies"
+      they_follow_singular: "%{count} personne suivie"
+      show_all_followed_people: "Afficher toutes les personnes suivies"
+      no_followed_people: "Aucune personne suivie"
+    follow_button:
+      following: Suivi(e)
+      follow: Suivre
+      unfollow: "Ne plus suivre"
   search:
     show:
       all_results: "Tous les résultats"
@@ -1640,7 +1625,7 @@ fr:
       delete_account_confirmation_popup: "Etes-vous bien sûr(e) de vouloir supprimer votre compte et de perdre toutes ses données ? La suppression d'un compte est irréversible."
       email_addresses: "Adresses email"
       new_email: "Nouvelle adresse email"
-      instructions_to_delete_account: "Si vous supprimez votre compte, toutes ses données seront perdues : les informations de votre profil, les annonces, les commentaires, les messages, les avis etc..."
+      instructions_to_delete_account: "Si vous supprimez votre compte, toutes ses données seront perdues : vos informations de profil, vos annonces, vos commentaires, vos avis, vos messages, vos avis etc."
       contact_admin: "merci de contacter les administrateurs"
       new_password: "Votre nouveau mot de passe"
       save: Sauvegarder
@@ -1674,10 +1659,11 @@ fr:
       email_weekly_community_updates: "Envoyez moi un email <b>chaque semaine</b> s'il y a des nouvelles annonces"
       do_not_email_community_updates: "Ne m'envoyez pas d'emails de mise à jour"
       email_when_conversation_accepted: "...quelqu'un accepte une de mes offres ou de mes demandes"
-      email_when_conversation_rejected: "...quelqu'un rejette une de mes offres ou de mes demandes"
+      email_when_conversation_rejected: "...quelqu'un refuse une de mes offres ou de mes demandes"
       email_about_completed_transactions: "...quelqu'un marque mon offre ou ma demande comme réalisée"
       email_about_new_payments: "...je reçois un nouveau paiement"
       email_about_payment_reminders: "...j'ai oublié de payer"
+      email_about_new_listings_by_followed_people: "...quelqu'un que je suis publie une nouvelle annonce"
       unsubscribe_succesful: "Désinscription réussie"
       unsubscribe_info_text: "Vous ne recevrez plus ces emails. Gérez vos %{settings_link} pour choisir quels emails vous voulez recevoir ou non, ou retourner sur la %{homepage_link}."
       settings_link: paramètres
@@ -1689,7 +1675,7 @@ fr:
       city: Ville
       family_name: Nom
       given_name: Prénom
-      first_name_with_initial: "(uniquement la première lettre visible par les autres utilisateurs)"
+      first_name_with_initial: "(seule la première lettre est visible par les autres utilisateurs)"
       first_name_only: "(non visible par les autres utilisateurs)"
       location_description: "Entrez votre position exacte ou, au moins, votre code postal. Vous pouvez également choisir un emplacement depuis la carte."
       phone_number: "Numéro de téléphone"
@@ -1701,7 +1687,7 @@ fr:
       these_fields_are_shown_in_your: "Cette information sera visible par tous les utilisateurs de %{service_name}"
       visible_to_everybody: "visible à tout le monde"
       visible_to_registered_users: "(visible par les utilisateurs connectés)"
-      default_in_listing: "(utilisé par défaut lors de la création d'une nouvelle annonce)"
+      default_in_listing: "(utilisée par défaut lors de la création d'une nouvelle annonce)"
       invisible: "(non visible par les autres utilisateurs)"
     save_information: "Sauvegarder les informations"
   tag_cloud:
@@ -1721,8 +1707,8 @@ fr:
       you_need_to_accept_new_terms: "Les conditions d'utilisation de %{service_name} ont changé. Vous devez accepter les nouvelles conditions afin de continuer à utiliser %{service_name}. L'objectif des nouvelles conditions est de rendre possible l'existence du service une fois le projet de recherche terminé."
   testimonials:
     index:
-      all_testimonials: "Tous les commentaires"
-      feedback_altogether: "Evaluations globalement : "
+      all_testimonials: "Tous les avis"
+      feedback_altogether: "Tous les avis : "
       loading_more_testimonials: "Chargement de plus de commentaires"
       no_testimonials: "Pas d'avis reçu."
     new:

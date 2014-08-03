@@ -1,6 +1,9 @@
 # encoding: utf-8
 class Listing < ActiveRecord::Base
 
+  # http://pat.github.io/thinking-sphinx/advanced_config.html
+  SPHINX_MAX_MATCHES = 1000
+
   include ApplicationHelper
   include ActionView::Helpers::TranslationHelper
   include Rails.application.routes.url_helpers
@@ -29,6 +32,7 @@ class Listing < ActiveRecord::Base
   belongs_to :transaction_type
 
   delegate :direction, to: :transaction_type
+  delegate :status_after_reply, to: :transaction_type
 
   monetize :price_cents, :allow_nil => true
 
@@ -52,6 +56,16 @@ class Listing < ActiveRecord::Base
 
   validates_presence_of :author_id
   validates_length_of :title, :in => 2..60, :allow_nil => false
+
+  before_create :set_sort_date_to_now
+  def set_sort_date_to_now
+    self.sort_date ||= Time.now
+  end
+
+  before_create :set_updates_email_at_to_now
+  def set_updates_email_at_to_now
+    self.updates_email_at ||= Time.now
+  end
 
   before_validation do
     # Normalize browser line-breaks.
@@ -101,26 +115,7 @@ class Listing < ActiveRecord::Base
   end
 
   def visible_to?(current_user, current_community)
-    if current_user && current_community
-      Listing.count_by_sql("
-        SELECT count(*)
-        FROM community_memberships, communities_listings
-        WHERE community_memberships.person_id = '#{current_user.id}'
-        AND community_memberships.community_id = communities_listings.community_id
-        AND communities_listings.listing_id = '#{id}'
-        AND communities_listings.community_id = '#{current_community.id}'
-      ") > 0
-    elsif current_community
-      return current_community.listings.include?(self) && public? && !closed?
-    elsif current_user
-      return true if self.privacy.eql?("public")
-      self.communities.each do |community|
-        return true if current_user.communities.include?(community)
-      end
-      return false #if user doesn't belong to any community where listing is visible
-    else #if no user or community specified, return if visible to anyone
-      return public?
-    end
+    ListingVisibilityGuard.new(self, current_community, current_user).visible?
   end
 
   def public?
@@ -195,10 +190,10 @@ class Listing < ActiveRecord::Base
     end
 
     # Two ways of finding, with or without sphinx
-    if params[:search].present? || params[:transaction_types].present? || params[:category].present? || params[:custom_dropdown_field_options].present?  || params[:custom_checkbox_field_options].present? || params[:price_cents].present?
+    if search_with_sphinx?(params)
 
       # sort by time by default
-      params[:sort] ||= 'created_at DESC'
+      params[:sort] ||= 'sort_date DESC'
 
       with = {}
       # Currently forced to only open at listing_index.rb
@@ -228,15 +223,22 @@ class Listing < ActiveRecord::Base
 
       params[:search] ||= "" #at this point use empty string as Riddle::Query.escape fails with nil
 
-      listings = Listing.search(Riddle::Query.escape(params[:search]),
-                                :include => params[:include],
-                                :page => page,
-                                :per_page => per_page,
-                                :star => true,
-                                :with => with,
-                                :with_all => with_all,
-                                :order => params[:sort]
-                                )
+      page = page ? page.to_i : 1
+
+      listings = if search_out_of_bounds?(per_page, page)
+        Listing.none.paginate(:per_page => per_page, :page => page)
+      else
+        Listing.search(
+          Riddle::Query.escape(params[:search]),
+          :include => params[:include],
+          :page => page,
+          :per_page => per_page,
+          :star => true,
+          :with => with,
+          :with_all => with_all,
+          :order => params[:sort]
+        )
+      end
 
     else # No search query or filters used, no sphinx needed
       query = {}
@@ -244,9 +246,18 @@ class Listing < ActiveRecord::Base
       # FIX THIS query[:transaction_types] = params[:transaction_types] if params[:transaction_types]
       query[:author_id] = params[:person_id] if params[:person_id]    # this is not yet used with search
       query[:id] = params[:listing_id] if params[:listing_id].present?
-      listings = joins(joined_tables).where(query).currently_open(params[:status]).visible_to(current_user, current_community).includes(params[:include]).order("listings.created_at DESC").paginate(:per_page => per_page, :page => page)
+      listings = joins(joined_tables).where(query).currently_open(params[:status]).visible_to(current_user, current_community).includes(params[:include]).order("listings.sort_date DESC").paginate(:per_page => per_page, :page => page)
     end
     return listings
+  end
+
+  def self.search_out_of_bounds?(per_page, page)
+    pages = (SPHINX_MAX_MATCHES.to_f / per_page.to_f)
+    page > pages.ceil
+  end
+
+  def self.search_with_sphinx?(params)
+    params[:search].present? || params[:transaction_types].present? || params[:category].present? || params[:custom_dropdown_field_options].present?  || params[:custom_checkbox_field_options].present? || params[:price_cents].present?
   end
 
   def self.find_by_category_and_subcategory(category)
@@ -353,6 +364,10 @@ class Listing < ActiveRecord::Base
 
   def answer_for(custom_field)
     custom_field_values.find { |value| value.custom_field_id == custom_field.id }
+  end
+
+  def payment_required_at?(community)
+    transaction_type.price_field? && community.payments_in_use?
   end
 
   def self.send_payment_settings_reminder?(listing, current_user, current_community)

@@ -1,9 +1,0 @@
-.grid_12.alpha.omega
-  %h1.new_tribe= t(".done")
-  %h2.new_tribe= t(".tribe_created_successfully")
-  - if @community && @community.plan == "premium"
-    %h2.new_tribe= t(".we_will_contact_you_about_invoicing")
-.clear
-.grid_6.prefix_3.suffix.3.alpha.omega
-  .show_tribe_link
-    = link_to t(".go_to_your_tribe"), @community.full_url, :id => "go_to_created_community_button"

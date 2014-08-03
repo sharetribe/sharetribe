@@ -281,7 +281,7 @@ es-ES:
         offer: Solicitar
         inquiry: Contactar
   common:
-    edit_page: ~
+    edit_page: "Editar la página"
     default_community_slogan: ~
     default_community_description: ~
     cancel: Cancelar
@@ -342,6 +342,7 @@ es-ES:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
+      approve: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -383,9 +384,9 @@ es-ES:
     new:
       offer_message_form_title: ~
       request_message_form_title: ~
-      favor_offer_message_form_title: "Pide ayuda de"
+      favor_offer_message_form_title: "Pide ayuda de %{person}"
       favor_request_message_form_title: "Ofrécele ayuda a %{person}"
-      housing_offer_message_form_title: "Responder a"
+      housing_offer_message_form_title: "Oferta de espacio a %{person}"
       housing_request_message_form_title: "Responder a"
       item_offer_lend_message_form_title: "Pedir prestado %{listing} a %{person}"
       item_offer_sell_message_form_title: "Comprar %{listing} a %{person}"
@@ -405,6 +406,7 @@ es-ES:
       housing_request_rent_message_form_title: "Arrendar %{listing} a %{person}"
       item_request_message_form_title: "Ofrécele un artículo a"
       message: Mensaje
+      message_to: ~
       rideshare_offer_message_form_title: "Solicitale un traslado a"
       rideshare_request_message_form_title: "Ofrécele un traslado a"
       send_message: "Enviar mensaje"
@@ -414,6 +416,8 @@ es-ES:
       you_will_get_notified: "Recibirás una notificación por email cuando %{person} te conteste."
       title: Título
       send_message_to_user: "Enviar mensaje a %{person}"
+      about_listing: ~
+      author_has_to_accept_request: ~
     show:
       in_response_to_listing: "acerca de"
       message_sent_by: "Mensaje enviado por"
@@ -424,7 +428,6 @@ es-ES:
       conversation_with_user: ~
       conversation_with: ~
       last_message_at: "(último mensaje %{time})"
-      requested_by: ~
       price: ~
       sum: ~
       price_excludes_vat: ~
@@ -433,11 +436,12 @@ es-ES:
       feedback_given: "Sugerencia dada"
       feedback_skipped: "Sugerencia omitida"
       give_feedback: "Haz una sugerencia"
-      offer_accepted: "Oferta aceptada"
-      offer_rejected: "Oferta rechazada"
+      offer_accepted: aceptada
+      offer_rejected: rechazada
       offer_canceled: ~
       offer_confirmed: ~
       pay: ~
+      preauthorized: ~
       paid: ~
       request_accepted: "Solicitud aceptada"
       request_rejected: "Solicitud rechazada"
@@ -457,6 +461,10 @@ es-ES:
       accept_request: "Aceptar solicitud"
       reject_offer: "Rechazar oferta"
       reject_request: "Rechazar solicitud"
+      accept_preauthorized_offer: ~
+      accept_preauthorized_request: ~
+      reject_preauthorized_offer: ~
+      reject_preauthorized_request: ~
       confirm: ~
       cancel: ~
   braintree_accounts:
@@ -503,17 +511,6 @@ es-ES:
       view_tribe: "Ver la tribu"
     email_confirmation_pending:
       confirmation_pending: "Por favor confirma tu dirección e-mail"
-    enter_organization_email:
-      enter_your_organization_email: "Ingresa el e-mail de tu %{community_category}"
-      only_people_with_verified_email_address_can_join_your_tribe: "Sólo gente con una dirección e-mail verificada de %{community_category} puede acceder a esta tribu."
-      continue: Continua
-      tribe_exists: "La tribu vive!"
-      this_tribe_exists_already: "Esa tribu ya está en funcionamiento. ¿Quieres unirte a ella?"
-    done:
-      done: Hecho!
-      tribe_created_successfully: "Has creado correctamente tu tribu."
-      go_to_your_tribe: "Ve a tu tribu"
-      we_will_contact_you_about_invoicing: "Te contactaremos prontamente por e-mail sobre la facturación correspondiente."
     index:
       find_your_local_tribe: "Encuentra tu tribu"
       or_start_your_own: "...o %{start_your_own_tribe_link}"
@@ -608,53 +605,6 @@ es-ES:
       if_want_to_view_content: "Si quieres ver el contenido de esta comunidad sin unirte a ella, necesitas"
       log_out: "cerrar sesión"
       join_community_button: "Unirse a la comunidad"
-  dashboard:
-    api:
-      coming_soon: Próximamente!
-    index:
-      watch_the_video: ~
-      get_started: "COMIENZA AHORA!"
-      browse_communities_around_you: "únete a una tribu cercana"
-      slogan: "Un mercado en línea para su comunidad."
-      create_your_own: "Crea el tuyo"
-      sharing_website: "SITIO WEB PARA COMPARTIR"
-      main_description: "Configurar un espacio donde los miembros de tu comunidad puedan compartir bienes, servicios y traslados o paseos en un entorno local de confianza."
-      kassi_for_your_company: "%{service_name} para tu empresa"
-      kassi_for_your_company_description: "¿Quieres que tu compañía esté socialmente más conectada? ¿Quieres ayudar a tus trabajadores a que compartan entre ellos? ¿Quieres reducir las emisiones contaminantes y transformarte en una empresa sustentable? %{service_name} es la solución para ti."
-      kassi_for_your_city: "%{service_name} en tu ciudad"
-      kassi_for_your_city_description: "¿Quieres transformar tu barrio o comunidad en un lugar donde las personas se conozcan y puedan ponerse en contacto entre ellas cada vez que lo necesiten? ¿Quieres ayudar a las personas a mejorar sus vidas? %{service_name} te ayudará a lograr esto."
-      kassi_for_your_university: "%{service_name} para tu universidad"
-      kassi_for_your_university_description: "¿Quieres un ambiente más ameno en tu campus, donde todos se conozcan y compartan entre sí? ¿Quieres ayudar a tus compañeros a ahorrar tiempo, dinero y contribuir con el medioambiente? Prueba Sharetribe y nota el cambio!"
-      want_kassi_for_your_community: "¿Quieres ocupar %{service_name} en tu comunidad?"
-      email_default_text: "Tu dirección email"
-      send: Enviar!
-      or_drop_us_a_line: "...o escríbenos una línea:"
-      thanks_for_contacting_us: "Gracias por contactarnos! Pronto te diremos qué hacer para crear una comunidad en %{service_name}."
-      resources: Recursos
-      connect: Conectar
-      about: "SOBRE SHARETRIBE"
-      developers: "PARA PROGRAMADORES"
-      api: IPA
-      blog: Blog
-      code: Código
-      issue_tracker: "Rastreador de problemas"
-      product_of: "%{service_name} es un producto de"
-      language: "Idioma:"
-      new: NUEVO!
-      new_text: "Actualmente %{service_name} está disponible para <a href=\"http://www.kassi.eu/en/wdc\">vecindarios en Helsinki y Lahti</a> y para <a href=\"http://www.kassi.eu/en/okl\">miembros de Suomen Omakotiliitto</a>!"
-      want_to_know_more: "¿Quieres saber más? %{read_our_faq_link} o %{contact_us_link}."
-      read_our_faq: ~
-      contact_us: "contáctanos directamente"
-      why_you_really_should_have_a_tribe: "Porqué deberías tener una tribu"
-      an_example: ~
-      home: Inicio
-      faq: FAQ
-      browse_tribes: "Buscar tribus"
-      pricing: Precios
-      contact: Contacto
-      university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Sharetribe para la Universidad Aalto</a>"
-      company_example_link: ~
-      city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe para Kallio, Helsinki</a>"
   emails:
     accept_reminder:
       remember_to_accept_offer: "Recuerda aceptar o rechazar una oferta"
@@ -805,6 +755,16 @@ es-ES:
       you_have_not_given_feedback_yet: |-
           Aún no has enviado una sugerencia a %{name} acerca del evento '%{event}'.
           Recuerda hacer una sugerencia de cómo %{given_name} actuó en el evento.
+    transaction_preauthorized:
+      subject: ~
+      transaction_requested_by_user: ~
+      you_have_days_to_accept: ~
+      click_here_to_reply: ~
+    transaction_preauthorized_reminder:
+      subject: ~
+      remember_to_accept: ~
+      one_day_left: ~
+      click_here_to_reply: ~
     welcome_email:
       welcome_email_footer_text: ~
       settings_link_text: "Revisa tu configuración"
@@ -832,6 +792,11 @@ es-ES:
       spread_the_word: ~
       spread_the_word_invite_only: ~
       have_fun: ~
+    new_listing_by_followed_person:
+      subject: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
   error_messages:
     listings:
       departure_time: "La hora de salida debe entontrarse entre la fecha actual y un año a partir de ahora."
@@ -901,7 +866,7 @@ es-ES:
     create_new_marketplace: "Crear un nuevo mercado"
     contact_us: Contáctanos
     profile: Perfil
-    invite: ~
+    invite: "Invitar a nuevos miembros"
     login: Conectarse
     signup: Registrarse
     menu: ~
@@ -1199,6 +1164,8 @@ es-ES:
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Deberás confirmar tu cuenta primero."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Ya no estás siguiendo este anuncio"
@@ -1237,6 +1204,10 @@ es-ES:
       edit_listing: ~
       reopen_listing: ~
       move_to_top: ~
+      show_in_updates_email: ~
+      show_in_updates_email_loading: ~
+      show_in_updates_email_error: ~
+      show_in_updates_email_success: ~
     follow_links:
       follow: "Seguir este anuncio"
       unfollow: "Dejar de seguir este anuncio"
@@ -1378,6 +1349,8 @@ es-ES:
       select_category: ~
       select_subcategory: ~
       select_transaction_type: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
     please_comment: Comentario
     reply_link:
       listing_closed: ~
@@ -1528,7 +1501,8 @@ es-ES:
       visible_only_to_you: "visible solamente a usted y al administrador de la comunidad"
       visible_to_everybody: "Visible para todos"
       create_account_with_facebook: "Crea una cuenta con Facebook"
-      or_create_new_account_without_facebook: "... o crea una cuenta sin utilizar Facebook más abajo."
+      OR: ~
+      signup_with_email: ~
     not_member:
       explanation_text: "Actualmente perteneces a la comunidad %{community}. Intentaste ver el perfil de un usuario que pertenece a otra comunidad Sharetribe. No puedes acceder a ese perfil a través de la comunidad %{community}."
       read_more_about_kassi_communities: "Lee más sobre las comunidades de %{service_name}"
@@ -1581,6 +1555,17 @@ es-ES:
       show_all_open_listings: "Mostrar todas las publicaciones abiertas"
       show_all_reviews: "Mostrar todas las reseñas"
       trustcloud: ~
+    followed_people:
+      you_follow_plural: ~
+      you_follow_singular: ~
+      they_follow_plural: ~
+      they_follow_singular: ~
+      show_all_followed_people: ~
+      no_followed_people: ~
+    follow_button:
+      following: ~
+      follow: ~
+      unfollow: ~
   search:
     show:
       all_results: "Todos los resultados"
@@ -1668,6 +1653,7 @@ es-ES:
       email_about_completed_transactions: ~
       email_about_new_payments: ~
       email_about_payment_reminders: ~
+      email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: "Suscripción cancelada exitosamente"
       unsubscribe_info_text: ~
       settings_link: opciones

@@ -7,8 +7,6 @@ class Community < ActiveRecord::Base
   has_many :community_memberships, :dependent => :destroy
   has_many :members, :through => :community_memberships, :conditions => ['community_memberships.status = ?', 'accepted'], :source => :person
   has_many :invitations, :dependent => :destroy
-  has_many :news_items, :dependent => :destroy
-  has_many :polls, :dependent => :destroy
   has_many :event_feed_events, :dependent => :destroy
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy
@@ -35,11 +33,6 @@ class Community < ActiveRecord::Base
 
   monetize :minimum_price_cents, :allow_nil => true
 
-  VALID_CATEGORIES = ["company", "university", "association", "neighborhood", "congregation", "town", "apartment_building", "other"]
-
-  # Here is a list of subdomain names that we don't want people to reserve for their communities. This should be moved to config.
-  RESERVED_SUBDOMAINS = %w{ www wiki mail calendar doc docs admin dashboard translate alpha beta gamma test developer proxy community tribe git partner partners global sharetribe application share dev st aalto ospn kassi video photos fi fr cl gr us usa subdomain abbesses alesia alexandredumas almamarceau anatolefrance antony anvers argentine artsetmetiers asnieresgennevilliers assembleenationale aubervillierspantin avenueemilezola avron balard barbesrochechouart basiliquedesaintdenis bastille belair belleville berault bercy bibliothequefrancoismitterrand billancourt birhakeim blanche bobignypablopicasso bobignypantin boissiere bolivar bonnenouvelle botzaris boucicaut boulognejeanjaures boulognepontdesaintcloud bourse breguetsabin brochant butteschaumont buzenval cadet cambronne campoformio cardinallemoine carrefourpleyel censierdaubenton champselyseesclemenceau chardonlagache charentonecoles charlesdegaulleetoile charlesmichels charonne chateaudeau chateaudevincennes chateaulandon chateaurouge chatelet chatillonmontrouge chausseedantin cheminvert chevaleret cite clunylasorbonne colonelfabien commerce concorde convention corentincariou corentincelton corvisart courcelles couronnes coursaintemilion creteillechat creteilprefecture creteiluniversite crimee croixdechavaux danube daumesnil denfertrochereau dugommier dupleix duroc ecolemilitaire ecoleveterinaire edgarquinet eglisedauteuil eglisedepantin esplanadedeladefense etiennemarcel europe exelmans faidherbechaligny falguiere felixfaure fillesducalvaire fortdaubervilliers franklinroosevelt funiculairegarebasse funiculairegarehaute gabrielperi gaite gallieni gambetta garedausterlitz garedelest garedelyon garedunord garibaldi georgev glaciere goncourt grandsboulevards guymoquet havrecaumartin hoche hoteldeville iena invalides jacquesbonsergent jasmin jaures javelandrecitroen jourdain julesjoffrin jussieu kleber lachapelle lacourneuve8mai1945 ladefense lafourche lamarckcaulaincourt lamottepicquetgrenelle lamuette latourmaubourg laumiere ledrurollin lekremlinbicetre lepeletier lesagnettes lesgobelins leshalles lessablons liberte liege louisblanc louisemichel lourmel louvrerivoli mabillon madeleine mairiedeclichy mairiedemontreuil mairiedesaintouen mairiedeslilas mairiedissy mairiedivry maisonblanche maisonsalfortlesjuilliottes maisonsalfortstade malakoffplateaudevanves malakoffrueetiennedolet malesherbes maraichers marcadetpoissonniers marcelsembat marxdormoy maubertmutualite menilmontant michelangeauteuil michelangemolitor michelbizot mirabeau miromesnil monceau montgallet montparnassebienvenue moutonduvernet nation nationale notredamedelorette notredamedeschamps oberkampf odeon olympiades opera orlyouest orlysud ourcq palaisroyal parmentier passy pasteur pelleport pereire perelachaise pernety philippeauguste picpus pierreetmariecurie pigalle placedeclichy placedesfites placeditalie placemonge plaisance pointedulac poissonniere pontdelevalloisbecon pontdeneuilly pontdesevres pontmarie pontneuf portedauphine portedauteuil portedebagnolet portedechamperret portedecharenton portedechoisy portedeclichy portedeclignancourt portedelachapelle portedelavillette portedemontreuil portedepantin portedesaintcloud portedesaintouen portedeslilas portedevanves portedeversailles portedevincennes porteditalie portedivry portedoree portedorleans portemaillot presaintgervais pyramides pyramides pyrenees quaidelagare quaidelarapee quatreseptembre rambuteau ranelagh raspail reaumursebastopol rennes republique reuillydiderot richardlenoir richelieudrouot riquet robespierre rome ruedelapompe ruedesboulets ruedubac ruesaintmaur saintambroise saintaugustin saintdenisportedeparis saintdenisuniversite saintfargeau saintfrancoisxavier saintgeorges saintgermaindespres saintjacques saintlazare saintmande saintmarcel saintmichel saintpaul saintphilippeduroule saintplacide saintsebastienfroissart saintsulpice segur sentier sevresbabylone sevreslecourbe simplon solferino stalingrad strasbourgsaintdenis sullymorland telegraphe temple ternes tolbiac trinitedestiennedorves trocadero tuileries vaneau varenne vaugirard vavin victorhugo villejuifleolagrange villejuiflouisaragon villejuifpaulvaillantcouturier villiers volontaires voltaire wagram}
-
   # Plan levels
   FREE_PLAN = 0
   STARTER_PLAN = 1
@@ -52,7 +45,6 @@ class Community < ActiveRecord::Base
   validates_format_of :domain, :with => /^[A-Z0-9_\-\.]*$/i
   validates_uniqueness_of :domain
   validates_length_of :slogan, :in => 2..100, :allow_nil => true
-  validates_inclusion_of :category, :in => VALID_CATEGORIES
   validates_format_of :custom_color1, :with => /^[A-F0-9_-]{6}$/i, :allow_nil => true
   validates_format_of :custom_color2, :with => /^[A-F0-9_-]{6}$/i, :allow_nil => true
 
@@ -262,18 +254,9 @@ class Community < ActiveRecord::Base
     where(sql)
   end
 
-  def active_poll
-    polls.where(:active => true).first
-  end
-
   def email_all_members(subject, mail_content, default_locale="en", verbose=false)
     puts "Sending mail to all #{members.count} members in community: #{self.name(default_locale)}" if verbose
     PersonMailer.deliver_open_content_messages(members.all, subject, mail_content, default_locale, verbose)
-  end
-
-  # Makes the creator of the community a member and an admin
-  def admin_attributes=(attributes)
-    community_memberships.build(attributes).update_attribute("admin", true)
   end
 
   def menu_link_attributes=(attributes)
@@ -290,10 +273,6 @@ class Community < ActiveRecord::Base
 
     links_to_destroy = menu_links.reject { |menu_link| menu_link.id.nil? || ids.include?(menu_link.id) }
     links_to_destroy.each { |link| link.destroy }
-  end
-
-  def self.domain_available?(domain)
-    ! (RESERVED_SUBDOMAINS.include?(domain) || find_by_domain(domain).present?)
   end
 
   def self.find_by_email_ending(email)
@@ -347,6 +326,35 @@ class Community < ActiveRecord::Base
     return listings.where("created_at > ?", time).present?
   end
 
+  def get_new_listings_to_update_email(person)
+    latest = person.last_community_updates_at
+
+    selected_listings = listings
+      .currently_open
+      .where("updates_email_at > ? AND updates_email_at > created_at", latest)
+      .visible_to(person, self)
+      .order("updates_email_at DESC")
+      .to_a
+
+    additional_listings = 10 - selected_listings.length
+    new_listings =
+      if additional_listings > 0
+        listings
+          .currently_open
+          .where("updates_email_at > ? AND updates_email_at = created_at", latest)
+          .visible_to(person, self)
+          .limit(additional_listings)
+          .to_a
+      else
+        []
+      end
+
+     selected_listings
+      .concat(new_listings)
+      .sort_by { |listing| listing.updates_email_at}
+      .reverse
+  end
+
   def self.find_by_allowed_email(email)
     email_ending = "@#{email.split('@')[1]}"
     where("allowed_emails LIKE '%#{email_ending}%'")
@@ -367,6 +375,7 @@ class Community < ActiveRecord::Base
   end
 
   # Check if communities with this category are email restricted
+  # TODO Is this still in use?
   def self.email_restricted?(community_category)
     ["company", "university"].include?(community_category)
   end
@@ -496,11 +505,6 @@ class Community < ActiveRecord::Base
     read_attribute(:testimonials_in_use) && payments_in_use?
   end
 
-  # Does this community require that people have registered payout method before accepting requests
-  def requires_payout_registration?
-    payment_gateway.present? && payment_gateway.requires_payout_registration_before_accept?
-  end
-
   def default_currency
     if available_currencies
       available_currencies.gsub(" ","").split(",").first
@@ -538,15 +542,27 @@ class Community < ActiveRecord::Base
   end
 
   def invoice_form_type_for(listing)
-    payment_possible_for?(listing) ? payment_gateway.invoice_form_type : "no_form"
+    payment_possible_for?(listing) && payments_in_use? ? payment_gateway.invoice_form_type : "no_form"
   end
 
   def integrations_in_use?
     plan_level >= BASIC_PLAN
   end
-  
+
   def custom_head_script_in_use?
     plan_level >= BASIC_PLAN
+  end
+
+  def email_notification_types
+    valid_types = Person::EMAIL_NOTIFICATION_TYPES.dup
+    if !follow_in_use?
+      valid_types.delete "email_about_new_listings_by_followed_people"
+    end
+    valid_types
+  end
+
+  def close_listings_by_author(author)
+    listings.where(:author_id => author.id).update_all(:open => false)
   end
 
   private

@@ -1,9 +1,0 @@
-%div{:id => "poll_#{poll.id.to_s}_close_link"}
-  - if poll.active?
-    = link_to t(".close_poll"), close_admin_poll_path(:id => poll.id, :type => "news"), :method => :put, :remote => true
-  - else
-    = link_to t(".open_poll"), open_admin_poll_path(:id => poll.id, :type => "news"), :method => :put, :remote => true
-  |
-  = link_to t(".edit_poll"), edit_admin_poll_path(:id => poll.id, :type => "news")
-  |
-  = link_to t(".delete_poll"), admin_poll_path(:id => poll.id, :type => "news"), :method => :delete

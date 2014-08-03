@@ -62,7 +62,7 @@ en:
         edit_community_search_placeholder_description: "This is shown on the home page of the community as a placeholder text in the search bar. %{see_how_it_looks_like}."
         private_community_homepage_content: "Private community homepage content"
         edit_private_community_homepage_content_description: "This content is shown to unlogged users on the home page of private communities. Here you can describe your community and the process to join it. You can also add images, videos and HTML content here. %{see_how_it_looks_like}."
-        update_information: "Update information"
+        update_information: "Save settings"
         invite_people: "Invite people to this community"
         edit_signup_info: "Signup info"
         edit_signup_info_description: "This is an info text that can be shown to users in the signup page. There you can give the users instructions for signing up, information like where to get an invite, etc. By default there are no instructions."
@@ -131,9 +131,9 @@ en:
         automatic_newsletters: "Send automatic daily / weekly newsletters to all users (unless they opt out)"
         email_admins_about_new_members: "Send admins an email whenever a new user signs up"
         integrations: Integrations
-        google_analytics_key: "Google Analytics tracking ID (classic account)"
+        google_analytics_key: "Google Analytics tracking ID"
         twitter_handle: "Twitter handle (used with tweet button in listing page)"
-        update_settings: "Update settings"
+        update_settings: "Save settings"
         automatically_confirmed: "Transaction will be automatically marked as completed %{days_dropdown} days after the payment has been made. If escrow system is in use, the money will be released to the provider at this point."
         automatic_newsletter_frequency: "Send automatic newsletter: %{frequency_dropdown}"
         newsletter_daily: Daily
@@ -156,8 +156,8 @@ en:
         twitter_handle_info_text: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page."
         twitter_handle_placeholder: username
         invalid_twitter_handle: "Twitter handle should contain only at maximum 15 alphanumeric (letters A-Z and numbers 0-9) characters."
-        google_analytics_key: "Google Analytics tracking ID (classic account)"
-        google_analytics_key_info_text: "Tracking ID of your Google Analytics account. You need to have a 'classic' account."
+        google_analytics_key: "Google Analytics tracking ID"
+        google_analytics_key_info_text: "Tracking ID of your Google Analytics account."
         facebook_connect: Facebook
         facebook_connect_info_text: "In order to enable Facebook login, create an application for your marketplace in the <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Add the generated id and secret key of the application here."
         facebook_connect_id: "Facebook client id"
@@ -167,7 +167,7 @@ en:
         save: "Save settings"
       menu_links:
         menu_links: "Menu links"
-        save: Save
+        save: "Save settings"
         add_menu_link: "Add a new link to menu"
         title_placeholder: "Link title"
         url_placeholder: "http://example.com/en"
@@ -367,6 +367,7 @@ en:
       you_need_to_fill_payout_details_before_accepting: "You need to fill in payout details before you can accept the request and receive the payment. Go to %{payment_settings_link} to fill in the details."
       payment_settings_link: "payment settings"
       minimum_price_error_message: "The price cannot be lower than %{amount}."
+      approve: Approve
     confirm:
       confirm_description: "If your request has been fulfilled you should confirm it as done. Then you can give feedback to the other party."
       cancel_description: "If your request was not fulfilled, you can mark it as 'not happened'. You can still give feedback to the other party and describe what happened."
@@ -430,6 +431,8 @@ en:
       housing_request_rent_message_form_title: "Rent out %{listing} to %{person}"
       item_request_message_form_title: "Offer an item to %{person}"
       message: Message
+      message_to: "Message to %{author_name}"
+      optional_message_to: "Optional message to %{author_name}"
       rideshare_offer_message_form_title: "Ask for a ride from %{person}"
       rideshare_request_message_form_title: "Offer a ride to %{person}"
       send_message: "Send message"
@@ -439,6 +442,8 @@ en:
       you_will_get_notified: "You will get an email notification when %{person} answers you."
       title: Title
       send_message_to_user: "Send message to %{person}"
+      about_listing: "About listing %{listing_title}"
+      author_has_to_accept_request: "%{author_name} needs to accept the request before you can pay"
     show:
       in_response_to_listing: "about listing"
       message_sent_by: "Message sent by"
@@ -449,10 +454,10 @@ en:
       conversation_with_user: "With %{person}"
       conversation_with: "Conversation with %{person}"
       last_message_at: "(latest message %{time})"
-      requested_by: "Requested by %{requester_name}"
       price: "Price: %{price}"
       sum: "Sum: %{sum}"
       price_excludes_vat: "(excludes VAT)"
+      total: "Total: %{total}"
     status:
       cancel_payed_transaction: Cancel
       feedback_given: "Feedback given"
@@ -463,6 +468,7 @@ en:
       offer_canceled: Canceled
       offer_confirmed: Completed
       pay: Pay
+      preauthorized: "Payment successful"
       paid: "Payment successful"
       request_accepted: Accepted
       request_rejected: Rejected
@@ -482,6 +488,10 @@ en:
       accept_request: "Accept request"
       reject_offer: "Not this time"
       reject_request: "Not this time"
+      accept_preauthorized_offer: "Accept offer"
+      accept_preauthorized_request: "Accept request"
+      reject_preauthorized_offer: "Not this time"
+      reject_preauthorized_request: "Not this time"
       confirm: "Mark completed"
       cancel: "Did not happen"
   braintree_accounts:
@@ -523,96 +533,6 @@ en:
       cvv: CVV
       credit_card_expiration_date: "Credit card expiration date"
       confirm_payment: "Confirm payment"
-  communities:
-    map_bubble:
-      view_tribe: "View tribe"
-    email_confirmation_pending:
-      confirmation_pending: "Please confirm your email address"
-    enter_organization_email:
-      enter_your_organization_email: "Enter your %{community_category} email"
-      only_people_with_verified_email_address_can_join_your_tribe: "Only people with a verified %{community_category} email address can join this tribe."
-      continue: Continue
-      tribe_exists: "Tribe exists!"
-      this_tribe_exists_already: "This tribe exists already! Do you want to join it?"
-    done:
-      done: Done!
-      tribe_created_successfully: "You have successfully created your tribe."
-      go_to_your_tribe: "Go to your tribe"
-      we_will_contact_you_about_invoicing: "We will contact you later by email about invoicing."
-    index:
-      find_your_local_tribe: "Find your local tribe"
-      or_start_your_own: "...or %{start_your_own_tribe_link}"
-      start_your_own_tribe_link: "start your own!"
-    select_pricing_plan:
-      select_your_plan: "Select your plan"
-      pick_one_of_the_options_below: "Pick one of the options below."
-      create_for_free: "Create for free"
-      contact_us: "Contact us"
-      free_plan: "Free plan"
-      max_members: "Max. %{number} members"
-      premium_plan: "Premium plan"
-      care_free_user_support: "Prioritized user support"
-      create_your_tribe: "Create your tribe"
-      professional_plan: "Customizable plan"
-      unlimited_members: "Unlimited members"
-      intranet_integration: "Intranet integration"
-      no_charge: "Free of charge"
-      euros_per_month_premium: "%{price} euros/month (incl. VAT)"
-      custom_domain: "Custom domain"
-      you_can_change_and_cancel: "You can change or cancel the plan later at any time."
-      we_help_you_get_started: "We help to gather the people"
-      discounts_available_for_non_profits: "We have 50% discount for non-profit organizations"
-    select_tribe_category_form:
-      what_kind_of_tribe_do_you_want_to_create: "What kind of tribe do you want to create?"
-      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "First tell us what kind of community you represent by selecting one from below."
-      company: Company
-      university: University
-      town: Town
-      congregation: Congregation
-      association: Association
-      neighborhood: Neighborhood
-      apartment_building: "Apartment building"
-      other: Other
-    new_tribe_form:
-      create_a_tribe_in_a_minute: "Create a new tribe in a minute"
-      welcome_now_create_your_tribe: "Welcome %{name}! Go ahead and create your tribe."
-      name_of_your_tribe: "Name of your tribe"
-      web_address_of_your_tribe: "Web address of your tribe"
-      slogan_of_your_tribe: "Slogan of your tribe"
-      describe_your_tribe: "Describe your tribe: what is the purpose of the community"
-      create_your_tribe: "Create your tribe!"
-      domain_invalid: "The domain can only contain alphabets, numbers, underscores or hyphens."
-      domain_taken: "This tribe exists already. You have to pick another domain name."
-      address: "Location of your tribe"
-      select_main_language_of_your_tribe: "Select the main language of your tribe"
-      language: Language
-      restrict_tribe_to_invited_people: "People need an invite to join this community"
-    signup_form:
-      create_an_account: "Create an account for yourself"
-      to_create_a_tribe_you_must_first_create_sharetribe_account: "You can either create a new account to %{service_name} below or"
-      log_in_with_your_existing_account: "log in with your existing account"
-      your_email: "Your email address"
-      your_university_email: "Your university email address"
-      your_company_email: "Your company email address"
-      you_need_to_confirm: "To create a tribe for your %{tribe_type} you need to confirm your %{tribe_type} email address."
-      pick_username: "Pick a username"
-      your_given_name: "Your first name"
-      your_family_name: "Your last name"
-      your_password: "Pick a password"
-      confirm_your_password: "Confirm your password"
-      email_in_use_message: "There is already an account in %{service_name} with this email address. If you already have an account, you can log in using the link above."
-      invalid_email_ending_message: "This looks like a personal email. You need to sign up with your %{community_category} email."
-      log_in_here: "log in here"
-      existing_community_with_this_email: "There already exists a tribe for this %{community_category}. You can join the tribe %{link}."
-      here: here
-      for_company: company
-      for_university: university
-      for_town: town
-      for_congregation: congregation
-      for_association: association
-      for_neighborhood: neighborhood
-      for_apartment_building: "apartment building"
-      for_other: other
   community_memberships:
     access_denied:
       access_denied: "Access denied"
@@ -630,53 +550,6 @@ en:
       if_want_to_view_content: "If you want to view the content in this community without joining it you need to"
       log_out: "log out"
       join_community_button: "Join community"
-  dashboard:
-    api:
-      coming_soon: "Coming soon!"
-    index:
-      watch_the_video: "Watch the video"
-      get_started: "GET STARTED NOW!"
-      browse_communities_around_you: "join a tribe near you"
-      slogan: "Share with your community."
-      create_your_own: "Create your own"
-      sharing_website: "community marketplace"
-      main_description: "Set up a space where the members of your community can share goods, services, rides and spaces in a trusted local environment. It's free and only takes a minute to do!"
-      kassi_for_your_company: "...FOR YOUR COMPANY"
-      kassi_for_your_company_description: "Want to help your employees connect with each other? Want to cut your emissions and become a greener enterprise? Want to save costs in travel, parking and furniture use? Sharetribe is the solution for you."
-      kassi_for_your_city: "...FOR YOUR CITY"
-      kassi_for_your_city_description: "Want to transform the neighborhoods of your city to village communities where people share with each other? Want to empower your citizens to improve their lives? Sharetribe will help you achieve that."
-      kassi_for_your_university: "...FOR YOUR UNIVERSITY"
-      kassi_for_your_university_description: "Want to create a lively campus environment where people know and trust each other? Want to help your students and staff save their time, money, and the environment? Try out Sharetribe and perceive the change!"
-      want_kassi_for_your_community: "Want %{service_name} for your community?"
-      email_default_text: "Your email address"
-      send: Send!
-      or_drop_us_a_line: "...or drop us a line:"
-      thanks_for_contacting_us: "Thanks for contacting us! We'll send you more info about how to create a %{service_name} community soon."
-      resources: RESOURCES
-      connect: CONNECT
-      about: "ABOUT SHARETRIBE"
-      developers: "FOR DEVELOPERS"
-      api: API
-      blog: Blog
-      code: "Source code"
-      issue_tracker: "Issue tracker"
-      product_of: "Sharetribe is a product of"
-      language: "Language:"
-      new: NEW!
-      new_text: "%{service_name} now available for <a href=\"http://www.sharetribe.com/en/wdc\">neighborhoods in Helsinki and Lahti</a> and for <a href=\"http://www.kassi.eu/en/okl\">members of Suomen Omakotiliitto</a>!"
-      want_to_know_more: "Want to know more? %{read_our_faq_link} or %{contact_us_link}."
-      read_our_faq: "Read our <br />FAQ"
-      contact_us: "contact us directly"
-      why_you_really_should_have_a_tribe: "Why you really should have a tribe"
-      an_example: "An example:"
-      home: Home
-      faq: FAQ
-      browse_tribes: "Browse tribes"
-      pricing: Pricing
-      contact: Contact
-      university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Sharetribe of Aalto University</a>"
-      company_example_link: "<a href=\"https://if.sharetribe.com/en\">Sharetribe of IF</a>"
-      city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe of Kallio, Helsinki</a>"
   emails:
     accept_reminder:
       remember_to_accept_offer: "Remember to accept or reject an offer from %{sender_name}"
@@ -825,33 +698,29 @@ en:
       feedback_is_public_and_is_shown: "Feedback is public and is shown to all the other users. Based on the feedback the other users can judge, whether %{name} is a trustworthy person and somebody they want to interact with. Thus, it's good to always remember to give feedback on events, and also remind the other party to give feedback to you. You also need positive feedback in order to achieve most of the badges."
       remember_to_give_feedback_to: "Reminder: remember to give feedback to %{name}"
       you_have_not_given_feedback_yet: "You have not yet given feedback to %{name} about event '%{event}'. Remember to give feedback on how %{given_name} performed in the event."
+    transaction_preauthorized:
+      subject: "%{requester} has requested and paid for %{listing_title}"
+      transaction_requested_by_user: "%{requester} has requested and paid for \"%{listing_title}\""
+      you_have_days_to_accept: "You need to accept or reject the request within %{payment_expires_in_days} days. If you don't accept within this timeframe, the request will be automatically rejected and you will not get paid."
+      click_here_to_reply: "Click here to respond to the request"
+    transaction_preauthorized_reminder:
+      subject: "Remember to accept the request from %{requester} about listing %{listing_title}"
+      remember_to_accept: "Remember to accept the request from %{requester} about listing \"%{listing_title}\". %{requester} has already paid for the listing. You have to accept the request in order to receive the payment."
+      one_day_left: "If you don't accept the request within one day the listing will be automatically rejected and you will not get paid."
+      click_here_to_reply: "Click here to respond to the request"
     welcome_email:
+      welcome_email_subject: "Welcome to %{community}"
+      welcome_to_marketplace: "Welcome to %{service_name}! Glad to have you on board."
+      love_marketplace_crew: "Love,<br /><i>%{service_name} crew</i>"
+      p_s_did_you_know: "P.S. Would you like to create your own marketplace website just like %{service_name}? It's easy and requires no programming knowledge. %{click_here_link} to find out more!"
+      click_here_link_text: "Click here"
       welcome_email_footer_text: "What kind of emails do you want to receive from %{service_name}? %{settings_link}"
       settings_link_text: "Check your settings"
-      subject: "Welcome to %{community} - here are some tips to get you started"
-      welcome_some_tips: "Welcome to %{community_link}! Here are some tips to get you started."
-      p_s_did_you_know: "P.S. Did you know you can create a marketplace like this for any community or purpose you want? %{click_here_link} to find out more!"
-      click_here_link_text: "Click here"
-      update_your_profile: "<strong>Update your profile.</strong> Adding your real name and profile picture and telling something about yourself will make you appear more trustworthy. Adding your contact details will make things easier for you, since you don't have to add them separately each time you create a new listing."
-      update_your_profile_link_text: "Update your profile here"
-      add_something_you_could_offer: "<strong>Add something you could offer to others to %{service_name}.</strong> Could you lend your power drill, tennis racket or fondue pot? Do you like to sew, assemble furniture or fiddle with computers? Is there some things in your closet you want to get rid off? %{add_offer_link}"
-      add_offer_link_text: "Add them as offers to %{service_name}!"
-      is_there_something_you_need: "<strong>Is there something you need right now? </strong> Perhaps you would like to share a ride? Or borrow some tools? Or need someone to walk your dog? The first thing to do is to search %{service_name}: maybe someone is already offering what you need. If you don't find what you're looking for, you can %{add_request_link}."
-      add_request_link_text: "post a new request"
-      invite_your_friends_invite_only: "<strong>Spread the word. </strong> The more people there are in %{service_name}, the more useful the community is for everyone. This %{service_name} community is 'invite only', so people need an invite from an existing member to join. Do you know people who might be interested in joining? Give them an access to %{service_name} by %{invite_link}. If you want to see who are already members, %{member_list_link}."
-      invite_your_friends: "<strong>Spread the word. </strong> The more people there are in %{service_name}, the more helpful the community is for everyone. Do you know people who might be interested in joining? Tell them about %{service_name} by %{invite_link} or sending them this link: %{url}. If you want to see who are already members, %{member_list_link}."
-      invite_link_text: "using our easy invite form"
-      member_list_link_text: "check out the member list"
-      go_explore: "<strong>Go explore! </strong> See what others are already offering and requesting in %{service_name}. Maybe you'll find something you need. Maybe you could help someone else out. Have fun!"
-      love_team: "Love,<br /><i>The %{service_name} Crew</i>"
-      congrats_for_creating_community: "You just created %{community} - here are some tips to get you started"
-      you_have_just_created_community: "You have just created %{community_link}! Here are some tips to get you started with the new community."
-      you_now_have_admin_rights: "<b>You have now admin rights in this community. </b> This means that you can, for example, edit the information and the look and feel of the community. This is probably the first thing you want to do. %{edit_community_details_link}. If you would like to transfer admin rights to someone else, please contact us by replying to this email."
-      edit_community_details_link_text: "Edit community details here"
-      add_content: "<strong>Add content. </strong> The best way to get things rolling is to add some listings yourself. This way, when new people arrive, they instantly see there's something happening. Could you lend your power drill, tennis racket or fondue pot? Do you like to sew, assemble furniture or fiddle with computers? Is there some things in your closet you want to get rid off? %{add_offer_link} If you need something, %{add_request_link}."
-      spread_the_word: "<strong>Spread the word. </strong> To get new members to the community, you need to tell about it to the people you know. Some ideas: 1) Post information about %{service_name} to a mailing list. 2) Share this link via Facebook, Twitter or other social media service: %{url}. 3) Send email invites %{invite_link}. 4) Tell people face to face when you meet them."
-      spread_the_word_invite_only: "<strong>Spread the word. </strong> You have chosen to make this community invite only. It means that people need an invite from another member in order to join. Thus, to get some new members to the community, you need to invite them. You can do so by %{invite_link}."
-      have_fun: "Have fun using %{service_name}. May your community live long and prosper!"
+    new_listing_by_followed_person:
+      subject: "%{author_name} has posted a new listing in %{service_name}"
+      has_posted_a_new_listing: "%{author_name} has posted a new listing:"
+      you_are_receiving_this_because: "You received this notification because you follow %{author_name}."
+      view_listing: "View listing"
   error_messages:
     listings:
       departure_time: "Departure time must be between current time and one year from now."
@@ -1219,6 +1088,8 @@ en:
       you_must_log_in_to_add_news_item: "You must log in to %{service_name} to add a new article."
       you_must_log_in_to_change_profile_settings: "You must log in to %{service_name} to change profile settings"
       you_must_log_in_to_change_payment_settings: "You must log in to %{service_name} to change payment settings"
+      you_must_log_in_to_accept_or_reject: "You must log in to accept or reject the transaction"
+      you_must_log_in_to_confirm_or_cancel: "You must log in to cancel or confirm the transaction"
       you_need_to_confirm_your_account_first: "You need to confirm your email."
       you_must_fill_all_the_fields: "You must fill all the fields"
       you_unfollowed_listing: "You are no longer following this listing"
@@ -1257,6 +1128,10 @@ en:
       edit_listing: "Edit listing"
       reopen_listing: "Reopen listing"
       move_to_top: "Move to top of homepage"
+      show_in_updates_email: "Show in next community update email"
+      show_in_updates_email_loading: Loading...
+      show_in_updates_email_error: "Couldn't reach server. Try again after page refresh."
+      show_in_updates_email_success: "This listing will be shown in the next automatic community update email sent to the members."
     follow_links:
       follow: "Get emails about new comments"
       unfollow: "Don't get emails about new comments"
@@ -1398,6 +1273,8 @@ en:
       select_category: "Select category"
       select_subcategory: "Select subcategory"
       select_transaction_type: "Select listing type"
+      you_need_to_fill_payout_details_before_accepting: "You need to fill in payout details before you can post a listing. Go to %{payment_settings_link} to fill in the details."
+      payment_settings_link: "payment settings"
     please_comment: Comment
     reply_link:
       listing_closed: "Listing is closed"
@@ -1436,6 +1313,13 @@ en:
       listing_created_at: "Listing created"
     verification_required:
       verification_required: "Verification required"
+  listing_conversations:
+    preauthorize:
+      details: Details
+      by: "%{listing} by %{author}"
+      payment: "Payment"
+      exp: "Exp:"
+      you_will_be_charged: "You will be charged only if %{author} accepts the transaction. %{author} needs to accept the transaction within 5 days. If %{author} declines or does not respond, no charge is made."
   mapview:
     index:
       all_categories: "All categories"
@@ -1547,8 +1431,9 @@ en:
       username_is_invalid: "Username is invalid. Allowed characters are letters, numbers and underscore."
       visible_only_to_you: "visible only to you and community admin"
       visible_to_everybody: "visible to everybody"
-      create_account_with_facebook: "Create an account with Facebook"
-      or_create_new_account_without_facebook: "...or create an account without using Facebook below."
+      create_account_with_facebook: "Sign up with Facebook"
+      OR: OR
+      signup_with_email: "Sign up with email"
     not_member:
       explanation_text: "You are currently in %{community} community. You tried to view the profile of a user that belongs to another Sharetribe community. You cannot access this profile through %{community} community."
       read_more_about_kassi_communities: "Read more about Sharetribe communities"
@@ -1601,6 +1486,17 @@ en:
       show_all_open_listings: "Show all open listings"
       show_all_reviews: "Show all reviews"
       trustcloud: TrustCard
+    followed_people:
+      you_follow_plural: "You follow %{count} people"
+      you_follow_singular: "You follow %{count} person"
+      they_follow_plural: "%{count} followed people"
+      they_follow_singular: "%{count} followed person"
+      show_all_followed_people: "Show all followed people"
+      no_followed_people: "No followed people"
+    follow_button:
+      following: Following
+      follow: Follow
+      unfollow: Unfollow
   search:
     show:
       all_results: "All results"
@@ -1688,6 +1584,7 @@ en:
       email_about_completed_transactions: "...someone marks my offer or request as completed"
       email_about_new_payments: "...I receive a new payment"
       email_about_payment_reminders: "...I have forgotten to pay"
+      email_about_new_listings_by_followed_people: "...somebody I follow posts a new listing"
       unsubscribe_succesful: "Unsubscribe succesful"
       unsubscribe_info_text: "You will no longer receive these emails. Check your %{settings_link} to choose what kind of emails you want to receive from %{service_name}, or return to the %{homepage_link}."
       settings_link: settings

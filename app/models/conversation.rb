@@ -1,70 +1,23 @@
 class Conversation < ActiveRecord::Base
 
-  belongs_to :listing
-
   has_many :messages, :dependent => :destroy
 
   has_many :participations, :dependent => :destroy
   has_many :participants, :through => :participations, :source => :person
   belongs_to :community
 
-  has_many :transaction_transitions, :dependent => :destroy
-
-  has_one :payment
-
-  VALID_STATUSES = ["pending", "accepted", "rejected", "paid", "free", "confirmed", "canceled"]
-
-  # Delegate methods to state machine
-  delegate :can_transition_to?, :transition_to!, :transition_to, :current_state,
-           to: :state_machine
-
-  delegate :author, to: :listing
-  delegate :title, to: :listing, prefix: true
-
-  def state_machine
-    @state_machine ||= TransactionProcess.new(self, transition_class: TransactionTransition)
-  end
-
-  def status=(new_status)
-    transition_to! new_status.to_sym
-  end
-
-  def status
-    current_state
-  end
-
   def self.unread_count(person_id)
     user = Person.find_by_id(person_id)
     new_value = user.participations.select do |particiation|
-      author_not_responded = particiation.conversation.status == "pending" && particiation.conversation.listing.author == user
-
-      !particiation.is_read || author_not_responded
+      !particiation.is_read || particiation.conversation.should_notify?(user)
     end.count
   end
 
   # Creates a new message to the conversation
   def message_attributes=(attributes)
-    messages.build(attributes)
-  end
-
-  def payment_attributes=(attributes)
-    payment ||= community.payment_gateway.new_payment
-    payment.payment_gateway ||= community.payment_gateway
-    payment.conversation = self
-    payment.status = "pending"
-    payment.payer = requester
-    payment.recipient = offerer
-    payment.community_id = attributes[:community_id]
-    # Simple payment form
-    if attributes[:sum]
-      payment.sum_cents = Money.parse(attributes[:sum]).cents
-      payment.currency = attributes[:currency]
-    # Complex (multi-row) payment form
-    else
-      attributes[:payment_rows].each { |row| payment.rows.build(row.merge(:currency => "EUR")) unless row["title"].blank? }
+    if attributes[:content].present? || attributes[:action].present?
+      messages.build(attributes)
     end
-
-    payment.save!
   end
 
   # Sets the participants of the conversation
@@ -73,8 +26,33 @@ class Conversation < ActiveRecord::Base
       last_at = is_sender.eql?("true") ? "last_sent_at" : "last_received_at"
       participations.build(:person_id => participant,
                            :is_read => is_sender,
+                           :is_starter => is_sender,
                            last_at.to_sym => DateTime.now)
     end
+  end
+
+  def build_starter_participation(person)
+    participations.build(
+      person: person,
+      is_read: true,
+      is_starter: true,
+      last_sent_at: DateTime.now
+    )
+  end
+
+  def build_participation(person)
+    participations.build(
+      person: person,
+      is_read: false,
+      is_starter: false,
+      last_received_at: DateTime.now
+    )
+  end
+
+  # If this method returns true, user should be notified about this conversation
+  # even if the conversation is read by the user
+  def should_notify?(*)
+    false
   end
 
   # Returns last received or sent message
@@ -92,28 +70,6 @@ class Conversation < ActiveRecord::Base
 
   def read_by?(person)
     participations.where(["person_id LIKE ?", person.id]).first.is_read
-  end
-
-  # If listing is an offer, return request, otherwise return offer
-  def discussion_type
-    listing.transaction_type.is_request? ? "offer" : "request"
-  end
-
-  def can_be_cancelled?
-    participations.each { |p| return false unless p.feedback_can_be_given? }
-    return true
-  end
-
-  def has_feedback_from?(person)
-    participations.find_by_person_id(person.id).has_feedback?
-  end
-
-  def feedback_skipped_by?(person)
-    participations.find_by_person_id(person.id).feedback_skipped?
-  end
-
-  def waiting_feedback_from?(person)
-    !(has_feedback_from?(person) || feedback_skipped_by?(person))
   end
 
   # Send email notification to message receivers and returns the receivers
@@ -138,43 +94,23 @@ class Conversation < ActiveRecord::Base
     end
   end
 
-  def has_feedback_from_all_participants?
-    participations.each { |p| return false if p.feedback_can_be_given? }
-    return true
-  end
-
-  def offerer
-    participants.find { |p| listing.offerer?(p) }
-  end
-
-  def requester
-    participants.find { |p| listing.requester?(p) }
-  end
-
   def starter
-    messages.first.sender
+    participations.find { |p| p.is_starter? }.person
   end
 
-  # If payment through Sharetribe is required to
-  # complete the transaction, return true, whether the payment
-  # has been conducted yet or not.
-  def requires_payment?(community)
-    listing && community.payment_possible_for?(listing)
+  def participant?(user)
+    participants.include? user
   end
 
-  # Return true if the next required action is the payment
-  def waiting_payment?(community)
-    requires_payment?(community) && status.eql?("accepted")
+  def with_type(&block)
+    block.call(:conversation)
   end
 
-  # Return true if the transaction is in a state that it can be confirmed
-  def can_be_confirmed?
-    can_transition_to?(:confirmed)
+  def with(expected_type, &block)
+    with_type do |own_type|
+      if own_type == expected_type
+        block.call
+      end
+    end
   end
-
-  # Return true if the transaction is in a state that it can be canceled
-  def can_be_canceled?
-    can_transition_to?(:canceled)
-  end
-
 end

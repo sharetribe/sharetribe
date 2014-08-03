@@ -110,6 +110,28 @@ class MailPreview < MailView
   def community_updates
     community = Community.last
     recipient = community.members.last
-    CommunityMailer.community_updates(recipient, community)
+    listings = community.listings
+    CommunityMailer.community_updates(recipient, community, listings)
+  end
+
+  def transaction_preauthorized
+    conversation = ListingConversation.find do |conversation|
+      conversation.status == "preauthorized" && conversation.listing.transaction_type.preauthorize_payment?
+    end
+    TransactionMailer.transaction_preauthorized(conversation)
+  end
+
+    def transaction_preauthorized_reminder
+    conversation = ListingConversation.find do |conversation|
+      conversation.status == "preauthorized" && conversation.listing.transaction_type.preauthorize_payment?
+    end
+    TransactionMailer.transaction_preauthorized_reminder(conversation)
+  end
+  
+  def new_listing_by_followed_person
+    listing = Listing.order("length(description)").last
+    recipient = Person.last
+    community = listing.communities.last
+    PersonMailer.new_listing_by_followed_person(listing, recipient, community)
   end
 end

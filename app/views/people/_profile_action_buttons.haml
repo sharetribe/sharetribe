@@ -1,0 +1,9 @@
+- if current_user?(@person)
+  = render :partial => "people/edit_profile_button"
+- else
+  %a.profile-contact-link{href: new_person_person_message_path(@person)}
+    .content
+      = t("people.show.contact", :person => @person.given_name_or_username)
+      
+- if @current_community.follow_in_use? && @current_user && !current_user?(@person)
+  = render :partial => "follow_button", :locals => { :person => @person }

@@ -1,0 +1,14 @@
+.follow-button-container
+  - if @current_user.follows?(person)
+    = link_to person_follower_path(person, @current_user), :method => "delete", :remote => true, :class => "follow-button unfollow button-hoverable" do
+      .content.hover-content
+        = t(".unfollow")
+      .content.default-content
+        = t(".following")
+  - else
+    = link_to [ person, :followers ], :method => "post", :remote => true, :class => "follow-button" do
+      .content
+        = t(".follow")
+
+
+      

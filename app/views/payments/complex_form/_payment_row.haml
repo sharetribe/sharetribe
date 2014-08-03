@@ -1,13 +1,13 @@
-= fields_for "conversation[payment_attributes][payment_rows][]", row do |payment_row_form|
+= fields_for "listing_conversation[payment_attributes][payment_rows][]", row do |payment_row_form|
   .payment-row.field-row{:class => ((index % 2 == 0) ? "grey" : "")}
     = payment_row_form.label :title, "Tuote #{(index + 1).to_s}", :class => "payment-row-label"
     = payment_row_form.text_field :title, :value => values[:title], :class => "payment-row-title-field", :placeholder => "Vapaaehtoinen lisäkenttä", :id => "row_title_#{index}", :maxlength => "90"
     = payment_row_form.label :sum, "Hinta", :class => "payment-row-label"
     = payment_row_form.text_field :sum, :value => values[:sum], :class => "payment-row-sum-field trigger-focusout row#{index}", :id => "row_sum_#{index}"
-    %span.currency-symbol= @conversation.listing.price_symbol
+    %span.currency-symbol= @listing_conversation.listing.price_symbol
     = payment_row_form.label :vat, "Alv", :class => "payment-row-label"
     = payment_row_form.text_field :vat, :value => @current_community.vat, :class => "payment-row-vat-field trigger-focusout row#{index}", :id => "row_vat_#{index}"
     %span.currency-symbol= "%"
     .total-label{:class => "row#{index}"}
       = values[:sum] + (values[:sum] * (@current_community.vat || 0) / 100)
-      = @conversation.listing.price_symbol
+      = @listing_conversation.listing.price_symbol

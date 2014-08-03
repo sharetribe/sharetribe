@@ -1,16 +1,16 @@
 pt-BR:
   errors:
     messages:
-      expired: "expirou, por favor faça uma nova requisição"
+      expired: "expirou, por favor faça um novo pedido"
       not_found: "não encontrado"
-      already_confirmed: "já confirmado, por favor tente entrar"
+      already_confirmed: "já confirmado, por favor tente se conectar"
       not_locked: "não foi bloqueado"
       not_saved:
-        one: "1 erro impediu %{resource} de ser gravado"
-        other: "%{count} erros impediram %{resource} de ser gravado"
+        one: "1 erro impediu %{resource} de ser salvo"
+        other: "%{count} erros impediram %{resource} de ser salvo"
   devise:
     failure:
-      already_authenticated: "Você já esta registrado."
+      already_authenticated: "Você já está conectado."
       unauthenticated: "Você precisa entrar ou se cadastrar antes de continuar."
       unconfirmed: "Você deve confirmar a sua conta antes de continuar."
       locked: "Sua conta está bloqueada."

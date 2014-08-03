@@ -3,9 +3,7 @@
 %p
   Email: #{@contact_request.email}
   %br/
-  Country: #{CountrySelect::COUNTRIES[@contact_request.country.downcase]}
-  %br/
-  Plan type: #{@contact_request.plan_type}
+  Country: #{CountrySelect.countries[@contact_request.country.downcase]}
   %br/
   Marketplace type: #{@contact_request.marketplace_type}
 

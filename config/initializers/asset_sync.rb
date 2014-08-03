@@ -6,7 +6,7 @@ if defined?(AssetSync)
     fog_directory         = app_config.FOG_DIRECTORY
     fog_provider          = app_config.FOG_PROVIDER
 
-    enabled = [aws_access_key_id, aws_secret_access_key, fog_directory].all? { |x| x.some? }
+    enabled = [aws_access_key_id, aws_secret_access_key, fog_directory].all? { |x| x.is_some? }
 
     puts ""
     puts "AssetSync enabled: #{enabled}"

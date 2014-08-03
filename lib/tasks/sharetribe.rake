@@ -1,4 +1,26 @@
 namespace :sharetribe do
+
+  def run_rake(task)
+    print "rake #{task}: "
+    $stdout.flush
+    Rake::Task[task].invoke
+    print "Done.\n"
+    $stdout.flush
+  end
+
+  task :"setup_dev" do
+    run_rake "db:migrate"
+    run_rake "test:prepare"
+    run_rake "ts:rebuild"
+
+    puts ""
+    puts "You may also need to:"
+    puts "- rake jobs:work"
+    puts ""
+
+    puts "Done."
+  end
+
   namespace :demo do
 
     # Constant used in demo script location creation

@@ -32,11 +32,8 @@ end
 
 Given /^I am logged in(?: as "([^"]*)")?$/ do |person|
   username = person || "kassi_testperson1"
-  person = Person.find_by_username(username) || FactoryGirl.create(:person, :username => username)
-  login_as(person, :scope => :person)
-  visit root_path(:locale => :en)
-  @logged_in_user = person
-  @current_user = person
+  person = Person.find_by_username(username)
+  login_user_without_browser(person.username)
 end
 
 Given /^I am logged in as organization(?: "([^"]*)")?$/ do |org_username|
@@ -48,10 +45,7 @@ Given /^I am logged in as organization(?: "([^"]*)")?$/ do |org_username|
 end
 
 Given /^I log in(?: as "([^"]*)")?$/ do |person|
-  visit login_path(:locale => :en)
-  fill_in("main_person_login", :with => (person ? person : "kassi_testperson1"))
-  fill_in("main_person_password", :with => "testi")
-  click_button(:main_log_in_button)
+  logout_and_login_user(person)
 end
 
 Given /^I log in to this private community(?: as "([^"]*)")?$/ do |person|
@@ -291,3 +285,19 @@ Given(/^I have just received community updates email$/) do
   last_sent = DateTime.now() - 1.second
   @current_user.update_attribute(:community_updates_last_sent_at, last_sent)
 end
+
+Given(/^"(.*?)" follows "(.*?)"$/) do |follower, person|
+  person = Person.find_by_username(person)
+  follower = Person.find_by_username(follower)
+  person.followers << follower unless follower.follows? person
+end
+
+Given(/^"(.*?)" follows everyone$/) do |person|
+  person = Person.find_by_username(person)
+  person.followed_people = Person.all - [ person ]
+end
+
+Then(/^I should see (\d+) user profile links$/) do |count|
+  expect(page).to have_selector("#profile-followed-people-list .people-fluid-thumbnail-grid-item", :count => count)
+end
+

@@ -1,0 +1,13 @@
+.people-fluid-thumbnail-grid-item
+  = link_to person, :class => "fluid-thumbnail-grid-image-item-link" do
+    .fluid-thumbnail-grid-image-image-container
+      = large_avatar_thumb(person, :class => "fluid-thumbnail-grid-image-image")
+      .fluid-thumbnail-grid-image-overlay
+      .fluid-thumbnail-grid-image-title
+        = person.name(@current_community)
+  - if @current_user
+    - if current_user?(person)
+      = render :partial => "people/edit_profile_button"
+    - else
+      = render :partial => "people/follow_button", :locals => { :person => person }
+

@@ -12,7 +12,7 @@ Braintree::Configuration.private_key = "zzzzzzzzzz"
 
 def cancel_escrow(transaction_id)
   result = Braintree::Transaction.refund(transaction_id)
- 
+
   if result.success?
     puts "Successfully refunded from escrow"
   else
@@ -30,5 +30,37 @@ def transaction_status(transaction_id)
   puts "  escrow_status: #{txn.escrow_status}"
 end
 
+def find_merchant(merchant_id)
+  merchant = Braintree::MerchantAccount.find(merchant_id)
+
+  puts "Found merchant #{merchant_id}"
+  puts "Info: #{merchant.inspect}"
+  puts "Individual details:"
+  print_attrs(merchant.individual_details, %w(first_name last_name date_of_birth email phone ssn_last_4))
+end
+
+#
+# Example: update_individual_details("1234abcd", {last_name: "Last name", date_of_birth: "1990-01-01"})
+#
+def update_individual_details(merchant_id, details)
+  result = Braintree::MerchantAccount.update(merchant_id, individual: details)
+
+  if result.success?
+    puts "Successfully updated merchant account individual details"
+  else
+    puts "Failed to update merchant account individual details"
+    result.errors.each { |e| puts e.inspect }
+  end
+end
+
+def print_attrs(obj, attrs)
+  attrs.each do |attr|
+    puts "  #{attr}: #{obj.send(attr.to_sym)}"
+  end
+end
+
 # transaction_status("1234abcd")
 # cancel_escrow("1234abcd")
+# find_merchant("1234abcd")
+
+update_individual_details("1234abcd", {last_name: "Last name", date_of_birth: "1990-01-01"})

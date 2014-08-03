@@ -1,6 +1,6 @@
-- conversation_url = person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @conversation.id.to_s}))
-- pay_url = new_person_message_payment_url(@url_params.merge({:person_id => @recipient.id, :message_id => @conversation.id}))
-- cancel_url = cancel_person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @conversation.id.to_s}))
+- conversation_url = person_message_url(@recipient, @url_params.merge({:id => @conversation.id.to_s}))
+- pay_url = new_person_message_payment_url(@recipient, @url_params.merge({:message_id => @conversation.id}))
+- cancel_url = cancel_person_message_url(@recipient, @url_params.merge({:id => @conversation.id.to_s}))
 
 %tr
   %td{:align => "left"}

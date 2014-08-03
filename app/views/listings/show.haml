@@ -2,6 +2,8 @@
   initialize_listing_view('#{I18n.locale}');
 
 - content_for :extra_javascript do
+  :javascript
+    window.ST.listing();
   = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
 
 - content_for :title, raw(@listing.title)
@@ -83,7 +85,7 @@
                 = t(".listing_created_at")
                 = l @listing.created_at, :format => :short_date
 
-    - if @listing.public?
+    - if @listing.public? && !@current_community.private?
       .row
         .col-12
           .listing-social
@@ -136,7 +138,7 @@
               = link_to @listing.author.name(@current_community), @listing.author, :id => "listing-author-link", :class => "listing-author-name-link", :title => "#{@listing.author.name(@current_community)}"
             - unless current_user?(@listing.author) || @listing.transaction_type.is_inquiry?
               .listing-author-contact
-                %a#listing-contact{href: reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free"), :class => "listing-author-contact-button"}
+                %a#listing-contact{href: contact_to_listing_path(:listing_id => @listing.id.to_s), :class => "listing-author-contact-button"}
                   .content
                     = t(".contact")
 

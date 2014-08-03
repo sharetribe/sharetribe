@@ -342,6 +342,7 @@ it:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
+      approve: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -405,6 +406,7 @@ it:
       housing_request_rent_message_form_title: ~
       item_request_message_form_title: "Offri un articolo a %{person}"
       message: Messaggio
+      message_to: ~
       rideshare_offer_message_form_title: "Chiedi un passaggio a %{person}"
       rideshare_request_message_form_title: "Offri un passaggio a %{person}"
       send_message: ~
@@ -414,6 +416,8 @@ it:
       you_will_get_notified: ~
       title: Titolo
       send_message_to_user: ~
+      about_listing: ~
+      author_has_to_accept_request: ~
     show:
       in_response_to_listing: ~
       message_sent_by: ~
@@ -424,7 +428,6 @@ it:
       conversation_with_user: ~
       conversation_with: ~
       last_message_at: "(ultimo messaggio %{time})"
-      requested_by: ~
       price: ~
       sum: ~
       price_excludes_vat: ~
@@ -438,6 +441,7 @@ it:
       offer_canceled: ~
       offer_confirmed: ~
       pay: ~
+      preauthorized: ~
       paid: ~
       request_accepted: "Richiesta accettata"
       request_rejected: "Richiesta rifiutata"
@@ -457,6 +461,10 @@ it:
       accept_request: "Accetta richiesta"
       reject_offer: "Non questa volta"
       reject_request: "Non questa volta"
+      accept_preauthorized_offer: ~
+      accept_preauthorized_request: ~
+      reject_preauthorized_offer: ~
+      reject_preauthorized_request: ~
       confirm: ~
       cancel: ~
   braintree_accounts:
@@ -503,17 +511,6 @@ it:
       view_tribe: ~
     email_confirmation_pending:
       confirmation_pending: ~
-    enter_organization_email:
-      enter_your_organization_email: ~
-      only_people_with_verified_email_address_can_join_your_tribe: ~
-      continue: Continua
-      tribe_exists: ~
-      this_tribe_exists_already: ~
-    done:
-      done: Fatto!
-      tribe_created_successfully: ~
-      go_to_your_tribe: ~
-      we_will_contact_you_about_invoicing: ~
     index:
       find_your_local_tribe: ~
       or_start_your_own: ~
@@ -605,53 +602,6 @@ it:
       if_want_to_view_content: ~
       log_out: ~
       join_community_button: ~
-  dashboard:
-    api:
-      coming_soon: ~
-    index:
-      watch_the_video: ~
-      get_started: "INIZIA ADESSO!"
-      browse_communities_around_you: ~
-      slogan: ~
-      create_your_own: ~
-      sharing_website: ~
-      main_description: ~
-      kassi_for_your_company: "...PER LA TUA AZIENDA"
-      kassi_for_your_company_description: ~
-      kassi_for_your_city: "...PER LA TUA CITTÀ"
-      kassi_for_your_city_description: ~
-      kassi_for_your_university: "...PER LA TUA UNIVERSITÀ"
-      kassi_for_your_university_description: ~
-      want_kassi_for_your_community: ~
-      email_default_text: "Il tuo indirizzo email"
-      send: Invia!
-      or_drop_us_a_line: ~
-      thanks_for_contacting_us: ~
-      resources: RISORSE
-      connect: ~
-      about: ~
-      developers: "PER GLI SVILUPPATORI"
-      api: API
-      blog: Blog
-      code: "Codice sorgente"
-      issue_tracker: ~
-      product_of: ~
-      language: "Lingua:"
-      new: ~
-      new_text: ~
-      want_to_know_more: ~
-      read_our_faq: "Leggi le nostre FAQ"
-      contact_us: "contattaci direttamente"
-      why_you_really_should_have_a_tribe: ~
-      an_example: "Un esempio:"
-      home: ~
-      faq: ~
-      browse_tribes: ~
-      pricing: ~
-      contact: ~
-      university_example_link: ~
-      company_example_link: ~
-      city_example_link: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: "Ricorda di accettare o rifiutare un'offerta da %{sender_name}"
@@ -800,6 +750,16 @@ it:
       feedback_is_public_and_is_shown: "Il feedback è pubblico e è mostrato a tutti gli altri utenti. In base al feedback, gli altri utenti possono giudicare se %{name} è una persona fidata e qualcuno con cui voler interagire. Quindi è bene ricordarsi sempre di lasciare feedback dopo ogni evento e anche ricordare all'altra parte di lasciarti un feedback. Inoltre hai bisogno di feedback positivi per ottenere altri badge."
       remember_to_give_feedback_to: "Promemoria: ricordati di lasciare feedback a %{name}"
       you_have_not_given_feedback_yet: "NOn hai ancora lasciato feedback a %{name} per l'evento %{event}. Ricordati di lasciare il feedback su come %{given_name} ha condotto l'evento."
+    transaction_preauthorized:
+      subject: ~
+      transaction_requested_by_user: ~
+      you_have_days_to_accept: ~
+      click_here_to_reply: ~
+    transaction_preauthorized_reminder:
+      subject: ~
+      remember_to_accept: ~
+      one_day_left: ~
+      click_here_to_reply: ~
     welcome_email:
       welcome_email_footer_text: ~
       settings_link_text: "Controlla le tue impostazioni"
@@ -827,6 +787,11 @@ it:
       spread_the_word: ~
       spread_the_word_invite_only: ~
       have_fun: ~
+    new_listing_by_followed_person:
+      subject: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
   error_messages:
     listings:
       departure_time: "L'orario di partenza deve essere compreso tra l'orario attuale e un anno da adesso."
@@ -1196,6 +1161,8 @@ it:
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Devi prima confermare la tua email."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: ~
@@ -1234,6 +1201,10 @@ it:
       edit_listing: ~
       reopen_listing: ~
       move_to_top: ~
+      show_in_updates_email: ~
+      show_in_updates_email_loading: ~
+      show_in_updates_email_error: ~
+      show_in_updates_email_success: ~
     follow_links:
       follow: ~
       unfollow: ~
@@ -1375,6 +1346,8 @@ it:
       select_category: ~
       select_subcategory: ~
       select_transaction_type: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
     please_comment: Commenta
     reply_link:
       listing_closed: ~
@@ -1522,7 +1495,8 @@ it:
       visible_only_to_you: "visibile solo a  te ed all'amministratore della comunità"
       visible_to_everybody: "visibile a tutti"
       create_account_with_facebook: "Crea un account tramite Facebook"
-      or_create_new_account_without_facebook: ~
+      OR: ~
+      signup_with_email: ~
     not_member:
       explanation_text: "Sei all'interno della comunità %{community}. Hai provato a visionare il profilo che appartiene ad un'altra comunità di Sharetribe. Non puoi accedere al profilo attraverso la comunità %{community}."
       read_more_about_kassi_communities: "Leggi altre informazioni sulle comunità Sharetribe"
@@ -1575,6 +1549,17 @@ it:
       show_all_open_listings: ~
       show_all_reviews: ~
       trustcloud: ~
+    followed_people:
+      you_follow_plural: ~
+      you_follow_singular: ~
+      they_follow_plural: ~
+      they_follow_singular: ~
+      show_all_followed_people: ~
+      no_followed_people: ~
+    follow_button:
+      following: ~
+      follow: ~
+      unfollow: ~
   search:
     show:
       all_results: "Tutti i risultati"
@@ -1662,6 +1647,7 @@ it:
       email_about_completed_transactions: ~
       email_about_new_payments: ~
       email_about_payment_reminders: ~
+      email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: ~
       unsubscribe_info_text: ~
       settings_link: impostazioni

@@ -1,26 +1,9 @@
 %p
-  = t("emails.welcome_email.welcome_some_tips", :community_link => link_to(@current_community.full_name(I18n.locale), root_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
-%p
-  = t("emails.welcome_email.update_your_profile", :update_profile_link => link_to(t("emails.welcome_email.update_your_profile_link_text"), person_settings_url(@recipient, @url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
+  = t("emails.welcome_email.welcome_to_marketplace")
 
 %p
-  = t("emails.welcome_email.add_something_you_could_offer", :add_offer_link => link_to(t("emails.welcome_email.add_offer_link_text"), new_listing_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
+  = t("emails.welcome_email.love_marketplace_crew").html_safe
 
-%p
-  = t("emails.welcome_email.is_there_something_you_need", :add_request_link => link_to(t("emails.welcome_email.add_request_link_text"), new_listing_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
-
-%p
-  - if @current_community.join_with_invite_only?
-    = t("emails.welcome_email.invite_your_friends_invite_only", :invite_link => link_to(t("emails.welcome_email.invite_link_text"), new_invitation_url(@url_params), :style => "color:#d96e21; text-decoration: none;"), :member_list_link => link_to(t("emails.welcome_email.member_list_link_text"), people_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
-  - else
-    = t("emails.welcome_email.invite_your_friends", :invite_link => link_to(t("emails.welcome_email.invite_link_text"), new_invitation_url(@url_params), :style => "color:#d96e21; text-decoration: none;"), :url => link_to(@current_community.full_url, @current_community.full_url, :style => "color:#d96e21; text-decoration: none;"), :member_list_link => link_to(t("emails.welcome_email.member_list_link_text"), people_url(@url_params), :style => "color:#d96e21; text-decoration: none;")).html_safe
-
-%p
-  = t("emails.welcome_email.go_explore").html_safe
-
-%p
-  = t("emails.welcome_email.love_team").html_safe
-
-%p
+%p{:style => "font-size:14px;"}
   = t("emails.welcome_email.p_s_did_you_know", :click_here_link => link_to(t("emails.welcome_email.click_here_link_text"), "http://#{APP_CONFIG.domain}/#{@recipient.locale}?ref=welcome_mail", :style => "color:#d96e21; text-decoration: none;")).html_safe
 %td{:width => "7.5%"}

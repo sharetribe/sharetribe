@@ -1,4 +1,4 @@
-# encoding: UTF-8
+# encoding: utf-8
 
 include ApplicationHelper
 include PeopleHelper
@@ -14,7 +14,6 @@ class PersonMailer < ActionMailer::Base
   require "truncate_html"
 
   default :from => APP_CONFIG.sharetribe_mail_from_address
-
   layout 'email'
 
   add_template_helper(EmailTemplateHelper)
@@ -232,6 +231,20 @@ class PersonMailer < ActionMailer::Base
          :from => community_specific_sender(community),
          :subject => t("emails.new_update_to_listing.listing_you_follow_has_been_updated"))
   end
+  
+  def new_listing_by_followed_person(listing, recipient, community)
+    set_up_urls(recipient, community)
+    @listing = listing
+    @no_recipient_name = true
+    @author_name = listing.author.name(community)
+    @listing_url = listing_url(@url_params.merge({:id => @listing.id}))
+    @translate_scope = [ :emails, :new_listing_by_followed_person ]
+    mail(:to => @recipient.confirmed_notification_emails_to,
+         :from => community_specific_sender(community),
+         :subject => t("emails.new_listing_by_followed_person.subject", 
+                       :author_name => @author_name,
+                       :community => community.full_name_with_separator(recipient.locale)))
+  end
 
   def invitation_to_kassi(invitation)
     @invitation = invitation
@@ -313,7 +326,7 @@ class PersonMailer < ActionMailer::Base
     #@country_manager ||= CountryManager.find_by_country("global")
     set_locale @country_manager.locale
     email_from = "#{@country_manager.given_name} #{@country_manager.family_name} <#{@country_manager.email}>"
-    mail(:to => @contact_request.email, :subject => @country_manager.subject_line, :from => email_from) do |format|
+    mail(:to => @contact_request.email, :subject => "#{@country_manager.subject_line}, #{@contact_request.email.split('@')[0]}", :from => email_from) do |format|
       format.html { render :layout => false }
     end
   end
@@ -450,11 +463,7 @@ class PersonMailer < ActionMailer::Base
     @url_params[:ref] = "welcome_email"
     @url_params.freeze # to avoid accidental modifications later
 
-    if @recipient.has_admin_rights_in?(@current_community) && !@regular_email
-      subject = t("emails.welcome_email.congrats_for_creating_community", :community => @current_community.full_name(@recipient.locale))
-    else
-      subject = t("emails.welcome_email.subject", :community => @current_community.full_name(@recipient.locale), :person => person.given_name_or_username)
-    end
+    subject = t("emails.welcome_email.welcome_email_subject", :community => @current_community.full_name(@recipient.locale), :person => person.given_name_or_username)
     mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => subject) do |format|
@@ -495,20 +504,4 @@ class PersonMailer < ActionMailer::Base
   def self.deliver_community_updates
     CommunityMailer.deliver_community_updates
   end
-
-  private
-
-  def set_up_urls(recipient, community, ref="email")
-    @community = community
-    @url_params = {}
-    @url_params[:host] = community.full_domain
-    @url_params[:ref] = ref
-    if recipient
-      @recipient = recipient
-      @url_params[:auth] = @recipient.new_email_auth_token
-      @url_params[:locale] = @recipient.locale
-      set_locale @recipient.locale
-    end
-  end
-
 end

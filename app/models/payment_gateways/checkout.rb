@@ -83,7 +83,7 @@ class Checkout < PaymentGateway
     return results
   end
 
-  def can_receive_payments_for?(person)
+  def can_receive_payments?(person)
     self.has_registered?(person)
   end
 

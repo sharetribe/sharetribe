@@ -342,6 +342,7 @@ ru:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
+      approve: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -405,6 +406,7 @@ ru:
       housing_request_rent_message_form_title: "Дать в аренду %{listing} %{person}"
       item_request_message_form_title: "Предложить вещь"
       message: Сообщение
+      message_to: ~
       rideshare_offer_message_form_title: "Запросить поездку от"
       rideshare_request_message_form_title: "Предложить поездку"
       send_message: "Отправить сообщение"
@@ -414,6 +416,8 @@ ru:
       you_will_get_notified: "Вы получите уведомление по электронной почте когда %{person} ответит вам."
       title: Заголовок
       send_message_to_user: "Отправить сообщение %{person}"
+      about_listing: ~
+      author_has_to_accept_request: ~
     show:
       in_response_to_listing: ~
       message_sent_by: "Сообщение отправлено"
@@ -424,7 +428,6 @@ ru:
       conversation_with_user: "Диалог с %{person}."
       conversation_with: ~
       last_message_at: "(последнее сообщение: %{time})"
-      requested_by: ~
       price: ~
       sum: ~
       price_excludes_vat: ~
@@ -438,6 +441,7 @@ ru:
       offer_canceled: Отменено
       offer_confirmed: Завершено
       pay: Оплатить
+      preauthorized: ~
       paid: "Оплата выполнена успешно"
       request_accepted: "Запрос принят"
       request_rejected: "Запрос отклонён"
@@ -457,6 +461,10 @@ ru:
       accept_request: "Принять запрос"
       reject_offer: "Отклонить предложение"
       reject_request: "Отклонить запрос"
+      accept_preauthorized_offer: ~
+      accept_preauthorized_request: ~
+      reject_preauthorized_offer: ~
+      reject_preauthorized_request: ~
       confirm: ~
       cancel: ~
   braintree_accounts:
@@ -503,17 +511,6 @@ ru:
       view_tribe: "Просмотреть сообщество"
     email_confirmation_pending:
       confirmation_pending: "Подтвердите свой адрес электронной почты"
-    enter_organization_email:
-      enter_your_organization_email: "Введите вашу электронную почту %{community_category}"
-      only_people_with_verified_email_address_can_join_your_tribe: "В это сообщество могут вступать только люди с проверенным адресом электронной почты категории «%{community_category}»."
-      continue: Продолжить
-      tribe_exists: "Сообщество существует!"
-      this_tribe_exists_already: "Это сообщество уже существует! Вы хотите присоединиться к нему?"
-    done:
-      done: Готово!
-      tribe_created_successfully: "Вы успешно создали своё сообщество."
-      go_to_your_tribe: "Перейти в сообщество"
-      we_will_contact_you_about_invoicing: "Мы свяжемся с вами позже по вопросу выставления счёта."
     index:
       find_your_local_tribe: "Найти сообщество поблизости"
       or_start_your_own: "...или %{start_your_own_tribe_link}"
@@ -605,53 +602,6 @@ ru:
       if_want_to_view_content: "Если вы хотите просмотреть это сообщество без присоединения к нему необходимо"
       log_out: выйти
       join_community_button: Присоединиться
-  dashboard:
-    api:
-      coming_soon: Скоро!
-    index:
-      watch_the_video: "Посмотрите видео"
-      get_started: "НАЧНИТЕ СЕЙЧАС!"
-      browse_communities_around_you: "присоединяйтесь к сообществу рядом с вами"
-      slogan: "Виртуальный рынок вашего сообщества."
-      create_your_own: "Создайте своё"
-      sharing_website: СООБЩЕСТВО
-      main_description: "Создайте место, где члены сообщества смогут обмениваться товарами, услугами и поездками в обстановке полного доверия!"
-      kassi_for_your_company: "…ДЛЯ ВАШЕЙ КОМПАНИИ"
-      kassi_for_your_company_description: "Хотите, чтобы ваша компания стала ещё более социальной и объединённой? Хотите помочь своим работникам узнать друг друга? Хотите сократить выбросы и стать более экологичным предприятием? Sharetribe — это предложение для вас."
-      kassi_for_your_city: "…ДЛЯ ВАШЕГО ГОРОДА"
-      kassi_for_your_city_description: "Хотите, чтобы в вашем населенном пункте установились добрососедские отношения между жителями и люди помогали друг другу? Хотите, чтобы уровень жизни населения улучшался? Kassi поможет вам достичь этого."
-      kassi_for_your_university: "…ДЛЯ ВАШЕГО УНИВЕРСИТЕТА"
-      kassi_for_your_university_description: "Хотите создать активное студенческое сообщество, в котором люди знают и доверяют друг другу? Хотите помочь студентам и преподавателям сохранить их время, деньги и помочь окружающей среде? Попробуйте Sharetribe и ощутите перемены!"
-      want_kassi_for_your_community: "Хотите использовать %{service_name} в своём сообществе?"
-      email_default_text: "Электронная почта"
-      send: Отправить!
-      or_drop_us_a_line: "...или напишите нам пару строк:"
-      thanks_for_contacting_us: "Спасибо за то что связались с нами! Скоро вы получите информацию о том, как создать своё сообщество %{service_name}."
-      resources: РЕСУРСЫ
-      connect: СВЯЗЬ
-      about: "О ПРОЕКТЕ SHARETRIBE"
-      developers: "ДЛЯ РАЗРАБОТЧИКОВ"
-      api: API
-      blog: Блог
-      code: "Исходный код"
-      issue_tracker: Баг-трекер
-      product_of: "Sharetribe — продукт"
-      language: "Язык:"
-      new: Новость!
-      new_text: "%{service_name} теперь доступен для <a href=\"http://www.sharetribe.com/en/wdc\">кварталов в Хельсинки и Лахти</a> и для <a href=\"http://www.sharetribe.com/en/okl\">членов Suomen Omakotiliitto</a>!"
-      want_to_know_more: "Хотите узнать больше? %{read_our_faq_link} или %{contact_us_link}."
-      read_our_faq: "Прочтите <br />FAQ"
-      contact_us: "свяжитесь с нами напрямую"
-      why_you_really_should_have_a_tribe: "Зачем вам сообщество"
-      an_example: "Пример:"
-      home: Главная
-      faq: FAQ
-      browse_tribes: "Просмотреть сообщества"
-      pricing: Цены
-      contact: Связь
-      university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Sharetribe в университете Аальто</a>"
-      company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/en\">Sharetribe в HTC Keilaniemi</a>"
-      city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe в Каллио, Хельсинки</a>"
   emails:
     accept_reminder:
       remember_to_accept_offer: "Напоминание о необходимости принять решение по предложению"
@@ -800,6 +750,16 @@ ru:
       feedback_is_public_and_is_shown: "Отзывы являются публичными и видны всем пользователям. Основываясь на отзывах, другие пользователи могут сделать вывод о том, стоит ли доверять %{name} и иметь с ним общие дела. Таким образом, оставлять отзывы после событий, это всегда хорошо. Не забывайте делать это сами и просите о том же тех, кто участвовал в вашем событии. Кроме того, положительные отзывы требуются для получения большинства значков."
       remember_to_give_feedback_to: "Напоминание: не забудьте оставить отзыв о %{name}"
       you_have_not_given_feedback_yet: "Вы ещё не оставили отзыв о %{name} после события «%{event}». Не забудьте оставить отзыв о том, как зарекомендовал себя %{given_name} во время этого события."
+    transaction_preauthorized:
+      subject: ~
+      transaction_requested_by_user: ~
+      you_have_days_to_accept: ~
+      click_here_to_reply: ~
+    transaction_preauthorized_reminder:
+      subject: ~
+      remember_to_accept: ~
+      one_day_left: ~
+      click_here_to_reply: ~
     welcome_email:
       welcome_email_footer_text: ~
       settings_link_text: "Проверьте настройки"
@@ -827,6 +787,11 @@ ru:
       spread_the_word: ~
       spread_the_word_invite_only: ~
       have_fun: ~
+    new_listing_by_followed_person:
+      subject: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
   error_messages:
     listings:
       departure_time: "Дата выезда должна быть в интервале от сегодняшней даты плюс один год."
@@ -1194,6 +1159,8 @@ ru:
       you_must_log_in_to_add_news_item: "Вы должны авторизоваться в %{service_name}, чтобы добавить новую статью."
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Сначала вы должны подтвердить свою учётную запись."
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Вы больше не следите за этим листингом"
@@ -1232,6 +1199,10 @@ ru:
       edit_listing: "Редактировать объявление"
       reopen_listing: "Повторно открыть объявление"
       move_to_top: ~
+      show_in_updates_email: ~
+      show_in_updates_email_loading: ~
+      show_in_updates_email_error: ~
+      show_in_updates_email_success: ~
     follow_links:
       follow: "Следить за этим листингом"
       unfollow: "Не следить за этим листингом"
@@ -1373,6 +1344,8 @@ ru:
       select_category: ~
       select_subcategory: ~
       select_transaction_type: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
     please_comment: Комментарий
     reply_link:
       listing_closed: ~
@@ -1523,7 +1496,8 @@ ru:
       visible_only_to_you: "видимо только вам"
       visible_to_everybody: "видимо для всех"
       create_account_with_facebook: "Создать учётную запись с помощью Facebook"
-      or_create_new_account_without_facebook: "…или создать учётную запись с помощью обычной формы."
+      OR: ~
+      signup_with_email: ~
     not_member:
       explanation_text: "В настоящее время вы являетесь членом сообщества %{community}. Вы хотите просмотреть профиль пользователя, который принадлежит к другому сообществу. Kassi временно не поддерживает возможность одновременной принадлежности одного и того же пользователя к разным сообществам, таким образом, вы не можете просмотреть этот профиль, находясь в сообществе %{community}. Такая возможность будет добавлена чуть позже, мы работаем над этим."
       read_more_about_kassi_communities: "Узнайте больше о сообществах Kassi"
@@ -1576,6 +1550,17 @@ ru:
       show_all_open_listings: "Показать все открытые листинги"
       show_all_reviews: "Показать все обзоры"
       trustcloud: TrustCloud
+    followed_people:
+      you_follow_plural: ~
+      you_follow_singular: ~
+      they_follow_plural: ~
+      they_follow_singular: ~
+      show_all_followed_people: ~
+      no_followed_people: ~
+    follow_button:
+      following: ~
+      follow: ~
+      unfollow: ~
   search:
     show:
       all_results: "Все результаты"
@@ -1663,6 +1648,7 @@ ru:
       email_about_completed_transactions: ~
       email_about_new_payments: ~
       email_about_payment_reminders: ~
+      email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: "Вы успешно отписались от рассылки!"
       unsubscribe_info_text: "Вы больше не будете получать подобные письма. Проверьте свои %{settings_link}, чтобы выбрать, какие письма вы хотели бы получать, а какие нет, либо посетите %{homepage_link}"
       settings_link: настройки

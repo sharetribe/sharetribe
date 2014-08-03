@@ -15,18 +15,9 @@ class Payment < ActiveRecord::Base
 
   validates_inclusion_of :status, :in => VALID_STATUSES
   validate :validate_sum
-  validate :one_conversation_cannot_have_multiple_payments
 
   delegate :commission_from_seller, to: :community
   delegate :gateway_commission_percentage, :gateway_commission_fixed, :no_fixed_commission, to: :payment_gateway
-
-  # There can be only one payment related to a certain conversation
-  def one_conversation_cannot_have_multiple_payments
-    payments = Payment.where(:conversation_id => conversation.id)
-    if payments.size > 1 || (payments.size == 1 && payments.first.id != self.id)
-      errors.add(:base, "An invoice exists already for this conversation")
-    end
-  end
 
   def validate_sum
     unless sum_exists?
@@ -36,8 +27,6 @@ class Payment < ActiveRecord::Base
 
   def paid!
     update_attribute(:status, "paid")
-    conversation.status = "paid"
-    Delayed::Job.enqueue(PaymentCreatedJob.new(id, community.id))
   end
 
   def disbursed!
@@ -66,5 +55,11 @@ class Payment < ActiveRecord::Base
   def total_commission_without_vat
     vat = Maybe(community).vat.or_else(0).to_f / 100.to_f
     total_commission / (1 + vat)
+  end
+
+  # How many days until the preauthorized payment is automatically
+  # rejected
+  def preauthorization_expiration_days
+    5
   end
 end

@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
-ruby '2.1.1'
+ruby '2.1.2'
 
-gem 'rails', '3.2.17'
+gem 'rails', '3.2.19'
 
 # To use debugger
 #gem 'ruby-debug'
@@ -18,7 +18,7 @@ end
 gem 'sass-rails'
 gem 'compass-rails'
 
-gem 'jquery-rails'
+gem 'jquery-rails', '2.1.4'
 
 # Bundle the extra gems:
 
@@ -46,7 +46,7 @@ gem 'ts-delayed-delta', "~>2.0.2",
   :git    => 'git://github.com/pat/ts-delayed-delta.git',
   :branch => 'master',
   :ref    => '839284f2f28b3f4caf3a3bf5ccde9a6d222c7f4d'
-gem 'possibly', '~>0.0.1'
+gem 'possibly', '~> 0.1.1'
 gem 'recaptcha'
 gem 'delayed_job', "~>3.0.5"
 gem 'delayed_job_active_record'
@@ -68,7 +68,7 @@ gem "truncate_html"
 gem 'money-rails'
 gem 'mercury-rails'
 gem 'fb-channel-file'
-gem 'country_select'
+gem 'country_select', '> 1.2.0'
 gem 'localized_country_select', '>= 0.9.3'
 gem 'mangopay'
 gem 'braintree'
@@ -93,10 +93,11 @@ group :development do
   gem 'rb-fsevent',       require: false
   gem 'guard-rspec',      require: false
   gem 'zeus', '0.15.1'
+  gem 'i18n-tasks', '~> 0.6.2'
 end
 
 group :test do
-  gem "rspec-rails"
+  gem "rspec-rails", "~>2.99.0"
   gem 'capybara'
   gem 'cucumber-rails', :require => false
   gem 'cucumber'

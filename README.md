@@ -67,6 +67,12 @@ CategoryTransactionType.create(:category_id => ca.id, :transaction_type_id => tt
 
 * go to your selected community address (your\_chosen\_subdomain\_here.yourdomain.com or your\_chosen\_subdomain_here.lvh.me:3000) and register as a user. The first registered user will be automatically made as an admin in that community.
 
+Congrats! You should be now able to access your marketplace.
+
+See also:
+
+* [How to customize your marketplace?](docs/customize-marketplace.md)
+
 ### Advanced settings
 
 * Default configurations are in `config/config.default.yml`. If you need to change these configs, it's recommended to create a file `config/config.yml`. The configurations in user-specific configuration file will override the default configurations. You can also set configurations to environment variables.
@@ -149,13 +155,15 @@ gem 'win32-process', :platforms => [:mswin, :mingw]
 - rake RAILS_ENV=production jobs:work
 ```
 
+See [New guide for deployment using capistrano from scratch to VPS](docs/vps-deployment.md)
+
 ## Updating
 
 See [RELEASE_NOTES.md](RELEASE_NOTES.md) for information about what has changed and if special tasks are needed to update.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for general contributing guide lines.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for general contributing guidelines.
 
 ## Known issues
 
@@ -166,7 +174,8 @@ See http://github.com/sharetribe/sharetribe/issues and please report any issues 
 * [Testing](docs/testing.md)
 * [SCSS coding guidelines](docs/scss-coding-guidelines.md)
 * [Delayed job priorities](docs/delayed-job-priorities.md)
+* [Cucumber testing Do's and Don'ts](docs/cucumber-do-dont.md)
 
 ## MIT License
 
-Sharetribe is open source under MIT license. See [LICENSE](LICENSE.md) file for details.
+Sharetribe is open source under MIT license. See [LICENSE](LICENSE) file for details.

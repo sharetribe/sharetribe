@@ -63,9 +63,7 @@ Feature: User edits his own listing
     When I follow "Hammer"
     And I follow "Edit listing" within "#listing-message-links"
     And I fill in "listing_title" with ""
-    And I select "31" from "listing_valid_until_3i"
-    And I select "December" from "listing_valid_until_2i"
-    And I select "2014" from "listing_valid_until_1i"
+    And I set the expiration date to 7 months from now
     And I press "Save listing"
     Then I should see "This field is required."
     And I should see "This date must be between current time and 6 months from now."

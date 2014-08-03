@@ -73,7 +73,7 @@ Feature: Facebook connect
     And I am not logged in
     And there is an invitation for community "test" with code "GH1JX8"
     When I arrive to sign up page with the link in the invitation email with code "GH1JX8"
-    And I follow "Create an account with Facebook"
+    And I follow "Sign up with Facebook"
     Then I should see "Welcome to Sharetribe, Markus! There's one more step to join this community"
     When I check "community_membership_consent"
     And I press "Join community"
@@ -95,22 +95,4 @@ Feature: Facebook connect
     When I follow log in link
     And I follow "fb-login"
     Then I should see "Could not get email address from Facebook"
-    And I should see "create an account without using Facebook below"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    And I should see "Sign up with email"

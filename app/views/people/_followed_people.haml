@@ -1,0 +1,27 @@
+- limit = 6
+- followed_people = person.followed_people
+- displayed_people = followed_people.take(limit)
+
+.row
+  %h2.people-header
+    - if followed_people.count > 0
+      - if current_user?(@person)
+        - if followed_people.count == 1
+          = t(".you_follow_singular", :count => followed_people.count)
+        - else
+          = t(".you_follow_plural", :count => followed_people.count)
+      - else
+        - if followed_people.count == 1
+          = t(".they_follow_singular", :count => followed_people.count)
+        - else
+          = t(".they_follow_plural", :count => followed_people.count)
+    - else
+      = t(".no_followed_people")      
+.people-fluid-thumbnail-grid-container
+  .people-fluid-thumbnail-grid#profile-followed-people-list
+    = render :partial => "people/followed_person", :collection => displayed_people, :as => :person
+
+- if followed_people.count > limit
+  .people-load-more-listings-container
+    #load-more-followed-people
+      = link_to t(".show_all_followed_people"), [ person, :followed_people ], :remote => true

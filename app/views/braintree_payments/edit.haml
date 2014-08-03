@@ -19,7 +19,7 @@
   %h1= t(".new_credit_card_payment")
 
 .centered-section.payment-form
-  - payment_receiver = @conversation.other_party(@current_user)
+  - payment_receiver = @conversation.payment_receiver
   %p
     = t(".payment_receiver")
 

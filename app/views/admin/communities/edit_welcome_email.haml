@@ -16,8 +16,10 @@
       = icon_tag("mail", ["icon-part"])
       .text-part= t(".send_test_message")
   %p ***
-  #welcome_email_content{:data => {:mercury => "full"}}
-    - if @community_customization && @community_customization.welcome_email_content
-      = @community_customization.welcome_email_content.html_safe
-    - else
-      = render :partial => "admin/communities/default_welcome_email"
+  .welcome-email-editor-background
+    %p= t("emails.common.hey", :name => @recipient.given_name_or_username)
+    #welcome_email_content{:data => {:mercury => "full"}}
+      - if @community_customization && @community_customization.welcome_email_content
+        = @community_customization.welcome_email_content.html_safe
+      - else
+        = render :partial => "admin/communities/default_welcome_email"

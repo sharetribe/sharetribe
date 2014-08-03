@@ -1,2 +1,0 @@
-/* Add a new option field */
-$("#options").append("<%= escape_javascript(render(:partial => 'admin/polls/new_option', :locals => {:option => PollOption.new, :index => session[:option_amount]})) %>");

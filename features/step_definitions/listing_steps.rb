@@ -4,9 +4,8 @@ Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with cate
   opts[:category] = find_category_by_name(category_name) if category_name
   opts[:transaction_type] = find_transaction_type_by_name(transaction_type) if transaction_type
   opts[:author] = Person.find_by_username(author) if author
-  opts[:communities] = [@current_community]
 
-  @listing = FactoryGirl.create(:listing, opts)
+  create_listing_to_current_community(opts)
 end
 
 Given /^the price of that listing is (\d+)\.(\d+) (EUR|USD)$/ do |price, price_decimal, currency|
@@ -169,9 +168,8 @@ end
 Given /^that listing has custom field "(.*?)" with value "(.*?)"$/ do |field_title, option_title|
   field = CustomFieldName.find_by_value!(field_title).custom_field
   option = CustomFieldOptionTitle.find_by_value!(option_title).custom_field_option
-  value = FactoryGirl.build(:dropdown_field_value, :listing => @listing, :question => field)
-  selection = CustomFieldOptionSelection.create!(:custom_field_value => value, :custom_field_option => option)
-  value.custom_field_option_selections << selection
+  selection = CustomFieldOptionSelection.create!(:custom_field_option => option)
+  value = FactoryGirl.build(:dropdown_field_value, :listing => @listing, :question => field, :custom_field_option_selections => [selection])
   value.save!
 end
 
@@ -210,4 +208,49 @@ end
 
 Then(/^I should see that the listing does not have "(.*?)"$/) do |option_title|
   find(".checkbox-option.not-selected", :text => option_title)
+end
+
+# Move to more generic place if needed
+def select_date_from_date_selector(date, date_selector_base_id)
+  day = date.day
+  month = I18n.t("date.month_names")[date.month]
+  year = date.year
+
+  select(day, :from => "#{date_selector_base_id}_3i")
+  select(month, :from => "#{date_selector_base_id}_2i")
+  select(year, :from => "#{date_selector_base_id}_1i")
+end
+
+When(/^I set the expiration date to (\d+) months from now$/) do |months|
+  select_date_from_date_selector(months.to_i.months.from_now, "listing_valid_until")
+end
+
+When(/^I (?:buy) that listing$/) do
+  visit(path_to "the listing page")
+  find(".book-button").click
+end
+
+When(/^I select category "(.*?)"$/) do |category_name|
+  page.should have_content("Select category")
+  click_link(category_name)
+end
+
+When(/^I select subcategory "(.*?)"$/) do |subcategory_name|
+  page.should have_content("Select subcategory")
+  click_link(subcategory_name)
+end
+
+When(/^I select transaction type "(.*?)"$/) do |transaction_type_name|
+  page.should have_content("Select listing type")
+  click_link(transaction_type_name)
+end
+
+Then(/^I should see the new listing form$/) do
+  page.should have_content("Listing title")
+  page.should have_content("Detailed description")
+  page.should have_content("Image")
+end
+
+Then(/^I should warning about missing payment details$/) do
+  page.should have_content("You need to fill in payout details before you can post a listing. Go to payment settings to fill in the details.")
 end

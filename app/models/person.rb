@@ -39,7 +39,7 @@ class Person < ActiveRecord::Base
   attr_protected :is_admin
 
   has_many :listings, :dependent => :destroy, :foreign_key => "author_id"
-  has_many :emails, :dependent => :destroy
+  has_many :emails, :dependent => :destroy, :inverse_of => :person
 
   has_one :location, :conditions => ['location_type = ?', 'person'], :dependent => :destroy
   has_one :braintree_account, :dependent => :destroy
@@ -55,16 +55,28 @@ class Person < ActiveRecord::Base
   has_many :community_memberships, :dependent => :destroy
   has_many :communities, :through => :community_memberships, :conditions => ['status = ?', 'accepted']
   has_many :invitations, :foreign_key => "inviter_id", :dependent => :destroy
-  has_many :poll_answers, :class_name => "PollAnswer", :foreign_key => "answerer_id", :dependent => :destroy
-  has_many :answered_polls, :through => :poll_answers, :source => :poll
   has_many :devices, :dependent => :destroy
   #event where this person did something
   has_many :done_event_feed_events, :class_name => "EventFeedEvent", :foreign_key => "person1_id", :dependent => :destroy
   # events where this person was the target of the action
   has_many :targeted_event_feed_events, :class_name => "EventFeedEvent", :foreign_key => "person2_id", :dependent => :destroy
   has_many :auth_tokens, :dependent => :destroy
+  has_many :follower_relationships
+  has_many :followers, :through => :follower_relationships, :foreign_key => "person_id"
+  has_many :inverse_follower_relationships, :class_name => "FollowerRelationship", :foreign_key => "follower_id"
+  has_many :followed_people, :through => :inverse_follower_relationships, :source => "person"
 
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
+
+  def to_param
+    username
+  end
+
+  def self.find(username)
+    super(self.find_by_username(username).try(:id) || username)
+  end
+
+  DEFAULT_TIME_FOR_COMMUNITY_UPDATES = 7.days
 
   # These are the email notifications, excluding newsletters settings
   EMAIL_NOTIFICATION_TYPES = [
@@ -78,7 +90,8 @@ class Person < ActiveRecord::Base
     "email_about_testimonial_reminders",
     "email_about_completed_transactions",
     "email_about_new_payments",
-    "email_about_payment_reminders"
+    "email_about_payment_reminders",
+    "email_about_new_listings_by_followed_people"
 
     # These should not yet be shown in UI, although they might be stored in DB
     # "email_when_new_friend_request",
@@ -104,6 +117,9 @@ class Person < ActiveRecord::Base
   validates_format_of :username,
                        :with => /^[A-Z0-9_]*$/i
 
+  USERNAME_BLACKLIST = YAML.load_file("#{Rails.root}/config/username_blacklist.yml")
+
+  validates :username, :exclusion => USERNAME_BLACKLIST
   validate :community_email_type_is_correct
 
   has_attached_file :image, :styles => {
@@ -164,12 +180,12 @@ class Person < ActiveRecord::Base
     end
   end
 
+  def last_community_updates_at
+    community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago
+  end
+
   def self.username_available?(username)
-     if Person.find_by_username(username).present?
-       return false
-     else
-       return true
-     end
+     !Person.find_by_username(username).present? && !username.in?(USERNAME_BLACKLIST)
    end
 
   def name_or_username(community=nil)
@@ -566,15 +582,12 @@ class Person < ActiveRecord::Base
       source_person.authored_comments.each  { |asset| asset.author = self ; asset.save(:validate => false) }
       source_person.community_memberships.each  { |asset| asset.person = self ; asset.save(:validate => false)}
       source_person.invitations.each { |asset| asset.inviter = self ; asset.save(:validate => false) }
-      source_person.poll_answers.each { |asset| asset.answerer = self ; asset.save(:validate => false) }
       source_person.invitations.each { |asset| asset.inviter = self ; asset.save(:validate => false) }
       source_person.devices.each { |asset| asset.person = self ; asset.save(:validate => false) }
       source_person.done_event_feed_events.each { |asset| asset.person1 = self ; asset.save(:validate => false) }
       source_person.targeted_event_feed_events.each { |asset| asset.person2 = self ; asset.save(:validate => false) }
       source_person.followed_listings.each { |asset| self.followed_listings << asset}
-      Poll.find_all_by_author_id(source_person.id).each { |asset| asset.author = self ; asset.save(:validate => false) }
       Feedback.find_all_by_author_id(source_person.id).each { |asset| asset.author = self ; asset.save(:validate => false) }
-      NewsItem.find_all_by_author_id(source_person.id).each { |asset| asset.author = self ; asset.save(:validate => false) }
 
       # Location. Pick from source_person only if primary account doesn't have
       if self.location.nil? && source_person.location.present?
@@ -677,10 +690,22 @@ class Person < ActiveRecord::Base
   # Has the person filled in all the information needed to receive payments in this community?
   def can_receive_payments_at?(community)
     if community.payment_gateway
-      return community.payment_gateway.can_receive_payments_for?(self)
+      return community.payment_gateway.can_receive_payments?(self)
     else
       throw "can_receive_payments_at? was checked in a community which has no payment gateways"
     end
+  end
+
+  def follows?(person)
+    followed_people_by_id.include?(person.id)
+  end
+
+  def followed_people_by_id
+    @followed_people_by_id ||= followed_people.group_by(&:id)
+  end
+
+  def self.members_of(community)
+    joins(:communities).where("communities.id" => community.id)
   end
 
   private

@@ -38,7 +38,6 @@ module.exports = function(grunt) {
           '!app/assets/javascripts/googlemaps.js',
           '!app/assets/javascripts/homepage.js',
           '!app/assets/javascripts/kassi.js',
-          '!app/assets/javascripts/kassi_dashboard.js',
           '!app/assets/javascripts/map_label.js',
           '!app/assets/javascripts/markerclusterer.js',
           '!app/assets/javascripts/mercury.js',

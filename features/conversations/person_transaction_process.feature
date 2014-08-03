@@ -16,7 +16,7 @@ Feature: Transaction process between two users
     When I follow "Hammer"
     And I follow "Buy this item"
     And I fill in "Message" with "I want to buy this item"
-    And I press "Send"
+    And I press "Buy this item"
     And the system processes jobs
     And "kassi_testperson1@example.com" should receive an email
     When I follow inbox link
@@ -28,7 +28,7 @@ Feature: Transaction process between two users
     And I follow "View message" in the email
     Then I should see "1" within "#inbox-link"
     When I follow "Accept request"
-    And I fill in "conversation_message_attributes_content" with "Ok, that works!"
+    And I fill in "listing_conversation_message_attributes_content" with "Ok, that works!"
     And I press "Send"
     Then I should see "Accepted"
     And I should see "to pay"

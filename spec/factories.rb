@@ -1,3 +1,12 @@
+# FactoryGirl definitions
+#
+# Notes:
+# - The caller is responsible for deciding whether the object should or should not be persisted to the DB, thus...
+# - Factories should NEVER write anything to database if .build is used. So when building associations,
+#   make sure they are not written to DB.
+
+require "#{Rails.root}/test/helper_modules"
+
 class FactoryGirl::DefinitionProxy
 
   # has_many is a neat helper that can be used to eliminate quirky before/after books for
@@ -19,9 +28,33 @@ class FactoryGirl::DefinitionProxy
       instance.send(collection).each { |i| i.save! }
     end
   end
+
+  # Use build_associations to build `has_one` associations.
+  #
+  # Usage:
+  #
+  # factory :listing do
+  #   title "Cool surfboard"
+  #   build_association(:author)
+  # end
+  #
+  # factory :category_custom_field do
+  #   build_association(:custom_dropdown_field, as: :custom_field)
+  # end
+  #
+  # By default, FactoryGirl saves associations to the database and we don't want that.
+  #
+  def build_association(association, opts = {})
+    as = opts.fetch(:as) { association }
+    self.send(as) { |instance| instance.association(association, strategy: :build) }
+  end
 end
 
 FactoryGirl.define do
+  sequence :id do |_|
+    UUID.timestamp_create.to_s22
+  end
+
   sequence :username do |n|
     "kassi_tester#{n}"
   end
@@ -31,10 +64,11 @@ FactoryGirl.define do
   end
 
   sequence :domain do |n|
-    "sharetribe_testcommunity_#{n}"
+    "sharetribe-testcommunity-#{n}"
   end
 
-  factory :person, aliases: [:author, :receiver, :recipient, :payer, :sender] do
+  factory :person, aliases: [:author, :receiver, :recipient, :payer, :sender, :follower] do
+    id
     is_admin 0
     locale "en"
     test_group_number 4
@@ -45,59 +79,64 @@ FactoryGirl.define do
     password "testi"
     is_organization false
 
-    after(:create) do |person|
-      FactoryGirl.create_list(:email, 1, person: person)
+    has_many :emails do |person|
+      FactoryGirl.build(:email, person: person)
     end
   end
 
   factory :listing do
     title "Sledgehammer"
     description("test")
-    author
-    category {find_or_create_category("item")}
-    transaction_type { FactoryGirl.create(:transaction_type_sell) }
-    tag_list("tools, hammers")
+    build_association(:author)
+    category { TestHelpers::find_or_build_category("item") }
+    build_association(:transaction_type_sell, as: :transaction_type)
     valid_until 3.months.from_now
     times_viewed 0
     visibility "this_community"
     privacy "public"
-    communities { [ FactoryGirl.create(:community) ] }
+
+    has_many :communities do |listing|
+      FactoryGirl.build(:community)
+    end
   end
 
   factory :conversation do
     title "Item offer: Sledgehammer"
-    listing
-    community
+    build_association(:community)
+
+    factory :listing_conversation, class: 'ListingConversation' do
+      build_association(:listing)
+    end
   end
 
   factory :message do
     content "Test"
-    association :conversation
-    sender
+    build_association(:conversation)
+    build_association(:sender)
   end
 
   factory :participation do
-    association :conversation
-    association :person
+    build_association(:conversation)
+    build_association(:person)
     is_read false
     last_sent_at DateTime.now
   end
 
   factory :testimonial do
-    author
-    association :participation
+    build_association(:author)
+    build_association(:participation)
     grade 0.5
     text "Test text"
   end
 
   factory :comment do
-    author { |author| author.association(:person) }
-    association :listing
+    build_association(:author)
+    build_association(:listing)
     content "Test text"
   end
 
   factory :feedback do
-    author
+    build_association(:author)
     content "Test feedback"
     url "/requests"
     email "kassi_testperson1@example.com"
@@ -110,17 +149,11 @@ FactoryGirl.define do
     slogan "Test slogan"
     description "Test description"
     category "other"
-
-    factory :community_with_multiple_members do
-      after_create do |community, evaluator|
-        create_list(:person, 5, communities: [community])
-      end
-    end
   end
 
   factory :community_membership do
-    association :community
-    association :person
+    build_association(:community)
+    build_association(:person)
     admin false
     consent "test_consent0.1"
     status "accepted"
@@ -128,28 +161,18 @@ FactoryGirl.define do
 
   factory :contact_request do
     email "test@example.com"
+    country "AO"
+    marketplace_type "Service marketplace"
   end
 
   factory :invitation do
     community_id 1
   end
 
-  factory :news_item do
-    title "A new event in our community"
-    content "More information about this amazing event."
-    author { |author| author.association(:person) }
-  end
-
-  factory :device do
-    device_type "iPhone"
-    device_token "LSIDFSLDJIOGSSCSBEUS52349583"
-    person { |person| person.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
-  end
-
   factory :location do
-    association :listing
-    association :person
-    association :community
+    build_association(:listing)
+    build_association(:person)
+    build_association(:community)
     latitude 62.2426
     longitude 25.7475
     address "helsinki"
@@ -157,7 +180,7 @@ FactoryGirl.define do
   end
 
   factory :email do
-    person
+    build_association(:person)
     address { generate(:email_address) }
     confirmed_at Time.now
     send_notifications true
@@ -165,11 +188,7 @@ FactoryGirl.define do
 
   factory :category do
     icon "item"
-    association :community
-    before(:create) do |category|
-      category.translations << FactoryGirl.create(:category_translation)
-      category.transaction_types << FactoryGirl.create(:transaction_type_sell)
-    end
+    build_association(:community)
   end
 
   factory :category_translation do
@@ -180,37 +199,37 @@ FactoryGirl.define do
   factory :transaction_type_translation do
     name "Selling"
     locale "en"
+    build_association(:transaction_type)
   end
 
   factory :transaction_type do
-    association :community
+    build_association(:community)
 
     ['Sell', 'Give', 'Lend', 'Request', 'Service'].each do |type|
       factory_name = "transaction_type_#{type.downcase}"
       factory factory_name.to_sym, class: type do
         type type
-        after(:create) do |transaction_type|
-          transaction_type.translations << FactoryGirl.create(:transaction_type_translation, :name => type, :transaction_type_id => transaction_type.id)
+        has_many :translations do |transaction_type|
+          FactoryGirl.build(:transaction_type_translation, :name => type, :transaction_type => transaction_type)
         end
       end
     end
   end
 
   factory :custom_field, aliases: [:question] do
-    community
+    build_association(:community)
 
     has_many :category_custom_fields do |custom_field|
-      category = FactoryGirl.create(:category)
-      FactoryGirl.create(:category_custom_field, :category => category, :custom_field => custom_field)
+      FactoryGirl.build(:category_custom_field, :custom_field => custom_field)
     end
 
     has_many :names do |custom_field|
-      FactoryGirl.create(:custom_field_name)
+      FactoryGirl.build(:custom_field_name)
     end
 
     factory :custom_dropdown_field, class: 'DropdownField' do
       has_many :options do |custom_field|
-        [FactoryGirl.create(:custom_field_option), FactoryGirl.create(:custom_field_option)]
+        [FactoryGirl.build(:custom_field_option), FactoryGirl.build(:custom_field_option)]
       end
     end
 
@@ -224,7 +243,7 @@ FactoryGirl.define do
 
     factory :custom_checkbox_field, class: 'CheckboxField' do
       has_many :options do |custom_field|
-        [FactoryGirl.create(:custom_field_option), FactoryGirl.create(:custom_field_option)]
+        [FactoryGirl.build(:custom_field_option), FactoryGirl.build(:custom_field_option)]
       end
     end
 
@@ -234,12 +253,19 @@ FactoryGirl.define do
   end
 
   factory :category_custom_field do
-    category
-    custom_field :custom_dropdown_field
+    build_association(:category)
+    build_association(:custom_dropdown_field, as: :custom_field)
   end
 
   factory :custom_field_option do
-    titles { [ FactoryGirl.create(:custom_field_option_title) ] }
+    has_many :titles do
+      FactoryGirl.build(:custom_field_option_title)
+    end
+  end
+
+  factory :custom_field_option_selection do
+    build_association(:custom_field_value)
+    build_association(:custom_field_option)
   end
 
   factory :custom_field_option_title do
@@ -253,24 +279,25 @@ FactoryGirl.define do
   end
 
   factory :custom_field_value do
-    question
-    listing
-  end
+    build_association(:question)
+    build_association(:listing)
 
-  factory :dropdown_field_value, class: 'DropdownFieldValue' do
-    question { [ FactoryGirl.build(:custom_dropdown_field) ] }
-    listing
-  end
+    factory :dropdown_field_value, class: 'DropdownFieldValue' do
+      build_association(:custom_dropdown_field, as: :question)
 
-  factory :checkbox_field_value, class: 'CheckboxFieldValue' do
-    question { [ FactoryGirl.build(:custom_checkbox_field) ] }
-    listing
-  end
+      has_many :custom_field_option_selections do |dropdown_field_value|
+        FactoryGirl.build(:custom_field_option_selection, custom_field_value: dropdown_field_value)
+      end
+    end
 
-  factory :custom_numeric_field_value, class: 'NumericFieldValue' do
-    question { [ FactoryGirl.build(:custom_numeric_field) ] }
-    listing
-    numeric_value 0
+    factory :checkbox_field_value, class: 'CheckboxFieldValue' do
+      build_association(:custom_checkbox_field, as: :question)
+    end
+
+    factory :custom_numeric_field_value, class: 'NumericFieldValue' do
+      build_association(:custom_numeric_field, as: :question)
+      numeric_value 0
+    end
   end
 
   factory :transaction_transition do
@@ -278,31 +305,37 @@ FactoryGirl.define do
   end
 
   factory :payment do
-    community
+    build_association(:community)
 
     factory :braintree_payment, class: 'BraintreePayment' do
-      payer
-      recipient
+      build_association(:payer)
+      build_association(:recipient)
       status "pending"
       payment_gateway { FactoryGirl.build(:braintree_payment_gateway) }
       currency "USD"
+      sum_cents 500
     end
 
     factory :checkout_payment, class: 'CheckoutPayment' do
-      payer
-      recipient
+      build_association(:payer)
+      build_association(:recipient)
       status "pending"
       payment_gateway { FactoryGirl.build(:checkout_payment_gateway) }
       currency "EUR"
+
+      has_many :rows do
+        FactoryGirl.build(:payment_row)
+      end
     end
   end
 
   factory :payment_row do
     currency "EUR"
+    sum_cents 2000
   end
 
   factory :braintree_account do
-    person
+    build_association(:person)
     first_name "Joe"
     last_name "Bloggs"
     email "joe@14ladders.com"
@@ -315,7 +348,7 @@ FactoryGirl.define do
     routing_number "1234567890"
     hidden_account_number "*********98"
     status "active"
-    community
+    build_association(:community)
   end
 
   factory :payment_gateway do
@@ -334,12 +367,26 @@ FactoryGirl.define do
   end
 
   factory :menu_link do
-    community
+    build_association(:community)
   end
 
   factory :menu_link_translation do
     title "Blog"
     url "http://blog.sharetribe.com"
     locale "en"
+  end
+
+  factory :country_manager do
+    given_name "Country Manager Given Name"
+    family_name "Country Manager Family Name"
+    email "global@manager.com"
+    country "global"
+    subject_line "This subject will see requester"
+    email_content "This email will get the requester"
+  end
+
+  factory :follower_relationship do
+    build_association(:person)
+    build_association(:follower)
   end
 end

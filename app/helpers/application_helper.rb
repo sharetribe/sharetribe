@@ -335,13 +335,13 @@ module ApplicationHelper
     link_to((image_tag person.image.url(size), avatar_html_options), person)
   end
 
-  def large_avatar_thumb(person)
-    image_tag person.image.url(:medium), :alt => person.name(@current_community)
+  def large_avatar_thumb(person, options={})
+    image_tag person.image.url(:medium), { :alt => person.name(@current_community) }.merge(options)
   end
 
-  def huge_avatar_thumb(person)
+  def huge_avatar_thumb(person, options={})
     # FIXME! Need a new picture size: :large
-    image_tag person.image.url(:medium), :alt => person.name(@current_community)
+    image_tag person.image.url(:medium), { :alt => person.name(@current_community) }.merge(options)
   end
 
   def pageless(total_pages, target_id, url=nil, loader_message='Loading more results')
@@ -600,10 +600,6 @@ module ApplicationHelper
     @current_community.location ? @current_community.location.longitude : "undefined"
   end
 
-  def community_email_restricted?
-    ["university", "company"].include? session[:community_category]
-  end
-
   def add_p_tags(text)
     text.gsub(/\n/, "</p><p>")
   end
@@ -704,7 +700,7 @@ module ApplicationHelper
       {
         :text => t("admin.communities.manage_members.manage_members"),
         :icon_class => icon_class("community"),
-        :path => manage_members_admin_community_path(@current_community),
+        :path => admin_community_community_memberships_path(@current_community),
         :name => "manage_members"
       },
       {
@@ -774,21 +770,21 @@ module ApplicationHelper
         :id => "settings-tab-profile",
         :text => t("layouts.settings.profile"),
         :icon_class => icon_class("profile"),
-        :path => profile_person_settings_path(:person_id => person.id.to_s),
+        :path => profile_person_settings_path(person),
         :name => "profile"
       },
       {
         :id => "settings-tab-account",
         :text => t("layouts.settings.account"),
         :icon_class => icon_class("account_settings"),
-        :path => account_person_settings_path(:person_id => person.id.to_s) ,
+        :path => account_person_settings_path(person) ,
         :name => "account"
       },
       {
         :id => "settings-tab-notifications",
         :text => t("layouts.settings.notifications"),
         :icon_class => icon_class("notification_settings"),
-        :path => notifications_person_settings_path(:person_id => person.id.to_s),
+        :path => notifications_person_settings_path(person),
         :name => "notifications"
       }
     ]
@@ -884,7 +880,7 @@ module ApplicationHelper
   end
 
   def community_blank_slate
-    @community_customization && !@community_customization.blank_slate.blank? ? @community_customization.blank_slate : t(".no_listings_notification", :add_listing_link => link_to(t(".add_listing_link_text"), new_listing_path)).html_safe
+    @community_customization && !@community_customization.blank_slate.blank? ? @community_customization.blank_slate : t("homepage.index.no_listings_notification", :add_listing_link => link_to(t("homepage.index.add_listing_link_text"), new_listing_path)).html_safe
   end
 
   # Return a link to the listing author
@@ -953,7 +949,7 @@ module ApplicationHelper
   end
 
   def sort_link(column)
-    title = t(".#{column}")
+    title = t("admin.communities.manage_members.#{column}")
     css_class = params[:sort].eql?(column) ? "sort-arrow-#{member_sort_direction}" : nil
     direction = (params[:sort].eql?(column) && member_sort_direction.eql?("asc")) ? "desc" : "asc"
     link_to title, {:sort => column, :direction => direction, :page => (params[:page] || 1)}, {:class => css_class}

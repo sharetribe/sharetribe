@@ -29,24 +29,24 @@ Feature: User confirms a transaction
     And I press "Continue"
     Then I should see "Give feedback to"
     And the system processes jobs
-    And "kassi_testperson2@example.com" should receive an email
+    And "kassi_testperson2@example.com" should receive 2 emails
     And I log out
-    When I open the email
+    When I open the email with subject "Request completed"
     And I should see "has marked the request about 'Skateboard' completed" in the email body
     And I should see "Give feedback" in the email body
     When "4" days have passed
     And the system processes jobs
-    Then "kassi_testperson2@example.com" should have 2 emails
+    Then "kassi_testperson2@example.com" should have 3 emails
     When I open the email with subject "Reminder: remember to give feedback to"
     Then I should see "You have not yet given feedback to" in the email body
     When "4" days have passed
-    Then "kassi_testperson2@example.com" should have 2 emails
+    Then "kassi_testperson2@example.com" should have 3 emails
     When "8" days have passed
     And the system processes jobs
-    Then "kassi_testperson2@example.com" should have 3 emails
+    Then "kassi_testperson2@example.com" should have 4 emails
     When "100" days have passed
     And the system processes jobs
-    Then "kassi_testperson2@example.com" should have 3 emails
+    Then "kassi_testperson2@example.com" should have 4 emails
     And return to current time
 
   @javascript

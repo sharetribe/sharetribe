@@ -41,53 +41,9 @@ body {
   }
 }
 
-a {
-  text-decoration: none;
-  color: $link;
-  &:hover { color: darken($link, 15%); }
-  &:active { color: darken($link, 25%); }
-}
-
-small {
-  @include small-type;
-  display: block;
-}
-
-h1, h3 {
-  -webkit-font-smoothing: antialiased;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  @include source-sans-pro;
-  color: $emphasis;
-}
-
 .page-content {
   padding-bottom: lines(3);
   padding-top: lines(0.5);
-
-  h1 {
-    margin: lines(0) 0 lines(0.5);
-    font-weight: 700;
-
-    @include media(small-tablet) {
-      @include large-type;
-      margin-top: lines(0.25, 26);
-      margin-bottom: lines(0.5, 26);
-    }
-  }
-
-  h2 {
-    margin: lines(0) 0 lines(0.5);
-    @include normal-type;
-    font-weight: 500;
-
-    @include media(small-tablet) {
-      @include big-type;
-      font-weight: 500;
-      text-transform: none;
-    }
-  }
 
   p {
     margin-bottom: lines(0.5);
@@ -219,6 +175,7 @@ ul {
     padding: em(10) 2% em(6) 2%;
     width: 100%;
     margin-bottom: lines(0.5);
+    margin-top: lines(1.5);
   }
 
   .jsmap {
@@ -1469,7 +1426,7 @@ a.lightbox-x {
     margin-right: lines(0.5);
   }
 
-  .accept, .confirm {
+  .accept, .confirm, .accept_preauthorized {
     color: $green;
     background: lighten($green, 40%);
     border-color: $green;
@@ -1480,7 +1437,7 @@ a.lightbox-x {
     }
   }
 
-  .reject, .cancel {
+  .reject, .cancel, .reject_preauthorized {
     color: $red;
     background: lighten($red, 40%);
     border-color: $red;
@@ -2567,18 +2524,20 @@ section.create-now {
 
   .marketplace-lander-content {
     top: lines($lander-content-top-mobile);
+  }
 
-    h1 {
-      position: relative;
-      padding: 0;
-      color: $background;
-      @include larger-type;
-      line-height: em(18);
-      @include media(tablet) {
-        padding: 0 lines(1);
-        @include huge-type;
-        line-height: em(15);
-      }
+  .marketplace-lander-content-title {
+    margin-bottom: 0;
+    margin-top: 0;
+    position: relative;
+    padding: 0;
+    color: $background;
+    @include larger-type;
+    line-height: em(18);
+    @include media(tablet) {
+      padding: 0 lines(1);
+      @include huge-type;
+      line-height: em(15);
     }
   }
 
@@ -2704,11 +2663,13 @@ section.create-now {
 
     .marketplace-lander-content {
       top: lines($lander-content-top);
+    }
 
-      h1 {
-        @include huge-type;
-        line-height: em(13);
-      }
+    .marketplace-lander-content-title {
+      margin-bottom: 0;
+      margin-top: 0;
+      @include huge-type;
+      line-height: em(13);
     }
 
     p {
@@ -2755,11 +2716,16 @@ section.create-now {
   }
 
   @include media(desktop) {
-    .marketplace-lander-content {
-      h1 {
-        @include mega-type;
-        line-height: em(15);
-      }
+    .marketplace-lander-content-title {
+      margin-bottom: 0;
+      margin-top: 0;
+      @include mega-type;
+      line-height: em(15);
     }
   }
+}
+
+.welcome-email-editor-background {
+  background-color: $highlight;
+  padding: 20px;
 }

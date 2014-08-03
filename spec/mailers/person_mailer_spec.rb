@@ -1,13 +1,5 @@
 require 'spec_helper'
 
-# Give `arr` and `needle_arr` and get back
-# true if all elements of `needle_arr` are included in `arr`
-#
-# http://stackoverflow.com/questions/7387937/ruby-rails-how-to-determine-if-one-array-contains-all-elements-of-another-array
-def include_all?(arr, needle_arr)
-  (needle_arr - arr).empty?
-end
-
 describe PersonMailer do
 
   # Include EmailSpec stuff (https://github.com/bmabey/email-spec)
@@ -15,8 +7,6 @@ describe PersonMailer do
   include(EmailSpec::Matchers)
 
   before(:each) do
-    # @test_person, @session = get_test_person_and_session
-    # @test_person2, @session2 = get_test_person_and_session("kassi_testperson2")
     @test_person = FactoryGirl.create(:person)
     @test_person2 = FactoryGirl.create(:person)
     @test_person2.locale = "en"
@@ -60,7 +50,7 @@ describe PersonMailer do
   describe "status changed" do
 
     before(:each) do
-      @conversation = FactoryGirl.create(:conversation)
+      @conversation = FactoryGirl.create(:listing_conversation)
       @conversation.participants = [@conversation.listing.author, @test_person2]
       @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
 
@@ -121,7 +111,7 @@ describe PersonMailer do
     @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
     @test_person.save
     Person.find(@test_person.id).update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
-    @conversation = FactoryGirl.create(:conversation)
+    @conversation = FactoryGirl.create(:listing_conversation)
     @conversation.participants << @test_person
     @conversation.participants << @test_person2
     @participation = Participation.find_by_person_id_and_conversation_id(@test_person2.id, @conversation.id)
@@ -134,7 +124,7 @@ describe PersonMailer do
   it "should remind to accept or reject" do
     @test_person2.update_attributes({ "given_name" => "Jack", "family_name" => "Dexter" })
     @listing = FactoryGirl.create(:listing, :author => @test_person)
-    @conversation = FactoryGirl.create(:conversation, :listing => @listing)
+    @conversation = FactoryGirl.create(:listing_conversation, :listing => @listing)
     @conversation.participants << @test_person
     @conversation.participants << @test_person2
 
@@ -185,8 +175,8 @@ describe PersonMailer do
     it "should welcome a regular member" do
       @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
       @email.should deliver_to("update_tester@example.com")
-      @email.should have_subject("Welcome to #{@c1.full_name('en')} - here are some tips to get you started")
-      @email.should have_body_text "Add something you could offer to others"
+      @email.should have_subject("Welcome to #{@c1.full_name('en')}")
+      @email.should have_body_text "Welcome to Sharetribe! Glad to have you on board."
       @email.should_not have_body_text "You have now admin rights in this community."
     end
 
@@ -196,15 +186,6 @@ describe PersonMailer do
       @email.should have_body_text "Custom email"
       @email.should_not have_body_text "Add something you could offer to others."
       @email.should_not have_body_text "You have now admin rights in this community."
-    end
-
-    it "should contain admin info if the receipient is an administrator" do
-      @p1.update_attribute(:is_admin, true)
-      @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
-      @email = PersonMailer.welcome_email(@p1, @p1.communities.first)
-      @email.should deliver_to("update_tester@example.com")
-      @email.should have_subject("You just created #{@c1.full_name('en')} - here are some tips to get you started")
-      @email.should have_body_text "You have now admin rights in this community."
     end
 
   end
@@ -302,6 +283,47 @@ describe PersonMailer do
         ActionMailer::Base.deliveries[1].body.include?("nuevas cosas").should be_true
         ActionMailer::Base.deliveries[2].body.include?("muy buenas").should be_true
 
+    end
+
+  end
+
+  it "should send email to requester when contacting via dashboard" do
+    contact_request = FactoryGirl.create(:contact_request)
+    country_manager = FactoryGirl.create(:country_manager)
+
+    email = PersonMailer.reply_to_contact_request(contact_request).deliver
+
+    assert !ActionMailer::Base.deliveries.empty?
+
+    assert email.to.include?(contact_request.email)
+    assert email.body.include?(country_manager.email_content)
+    assert_equal "#{country_manager.subject_line}, #{contact_request.email.split('@')[0]}", email.subject
+  end
+
+  it "should send notification email to admins when requester contacting via dashboard" do
+    contact_request = FactoryGirl.create(:contact_request)
+
+    email = PersonMailer.contact_request_notification(contact_request).deliver
+
+    assert !ActionMailer::Base.deliveries.empty?
+
+    assert email.to.include?(APP_CONFIG.contact_request_mailer_recipients || APP_CONFIG.feedback_mailer_recipients)
+    assert email.body.include?("New contact request:")
+    assert_equal "New contact request by #{contact_request.email}", email.subject
+  end
+
+  describe "#new_listing_by_followed_person" do
+
+    before do
+      @listing = FactoryGirl.create(:listing)
+      @recipient = FactoryGirl.create(:person)
+      @community = @listing.communities.last
+    end
+
+    it "should notify of a new listing" do
+      email = PersonMailer.new_listing_by_followed_person(@listing, @recipient, @community).deliver
+      assert !ActionMailer::Base.deliveries.empty?
+      assert_equal @recipient.confirmed_notification_email_addresses, email.to
     end
 
   end

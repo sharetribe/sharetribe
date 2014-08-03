@@ -342,6 +342,7 @@ zh:
       you_need_to_fill_payout_details_before_accepting: ~
       payment_settings_link: ~
       minimum_price_error_message: ~
+      approve: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -405,6 +406,7 @@ zh:
       housing_request_rent_message_form_title: ~
       item_request_message_form_title: 向...提供一个物品
       message: 消息
+      message_to: ~
       rideshare_offer_message_form_title: 想要搭顺风车
       rideshare_request_message_form_title: 提供顺风车
       send_message: 发送信息
@@ -414,6 +416,8 @@ zh:
       you_will_get_notified: ~
       title: 名称
       send_message_to_user: 发送信息到
+      about_listing: ~
+      author_has_to_accept_request: ~
     show:
       in_response_to_listing: ~
       message_sent_by: ~
@@ -424,7 +428,6 @@ zh:
       conversation_with_user: ~
       conversation_with: ~
       last_message_at: ~
-      requested_by: ~
       price: ~
       sum: ~
       price_excludes_vat: ~
@@ -438,6 +441,7 @@ zh:
       offer_canceled: ~
       offer_confirmed: ~
       pay: ~
+      preauthorized: ~
       paid: ~
       request_accepted: 已接受的请求
       request_rejected: 请求被拒绝
@@ -457,6 +461,10 @@ zh:
       accept_request: 接受请求
       reject_offer: 拒绝提议
       reject_request: 拒绝请求
+      accept_preauthorized_offer: ~
+      accept_preauthorized_request: ~
+      reject_preauthorized_offer: ~
+      reject_preauthorized_request: ~
       confirm: ~
       cancel: ~
   braintree_accounts:
@@ -503,17 +511,6 @@ zh:
       view_tribe: ~
     email_confirmation_pending:
       confirmation_pending: 你确认你的邮箱地址
-    enter_organization_email:
-      enter_your_organization_email: ~
-      only_people_with_verified_email_address_can_join_your_tribe: ~
-      continue: 继续
-      tribe_exists: ~
-      this_tribe_exists_already: ~
-    done:
-      done: 完成！
-      tribe_created_successfully: 您已成功创建您的部落。
-      go_to_your_tribe: 你的部落
-      we_will_contact_you_about_invoicing: ~
     index:
       find_your_local_tribe: ~
       or_start_your_own: ~
@@ -605,53 +602,6 @@ zh:
       if_want_to_view_content: ~
       log_out: 登出
       join_community_button: 加入社区
-  dashboard:
-    api:
-      coming_soon: ~
-    index:
-      watch_the_video: ~
-      get_started: 现在开始！
-      browse_communities_around_you: ~
-      slogan: ~
-      create_your_own: 创建你自己的
-      sharing_website: 共享网址
-      main_description: ~
-      kassi_for_your_company: 对于你的公司
-      kassi_for_your_company_description: ~
-      kassi_for_your_city: 对于你的城市
-      kassi_for_your_city_description: ~
-      kassi_for_your_university: 对于你的学校
-      kassi_for_your_university_description: ~
-      want_kassi_for_your_community: ~
-      email_default_text: 您的邮箱地址
-      send: 发送！
-      or_drop_us_a_line: ~
-      thanks_for_contacting_us: ~
-      resources: 资源
-      connect: 连接
-      about: ~
-      developers: ~
-      api: ~
-      blog: 博客
-      code: 代码
-      issue_tracker: ~
-      product_of: ~
-      language: 语言
-      new: "新\n"
-      new_text: ~
-      want_to_know_more: ~
-      read_our_faq: ~
-      contact_us: 直接联系我们
-      why_you_really_should_have_a_tribe: 为什么你需要一个部落
-      an_example: 一个例子
-      home: 主页
-      faq: 常见问题解答
-      browse_tribes: ~
-      pricing: 价格
-      contact: 联系
-      university_example_link: ~
-      company_example_link: ~
-      city_example_link: ~
   emails:
     accept_reminder:
       remember_to_accept_offer: 请记得接受或拒绝提议
@@ -800,6 +750,16 @@ zh:
       feedback_is_public_and_is_shown: "评价是对其他用户公开的。其他用户可根据评价来判断 %{name} 是否值得信赖。所以，记得评价别人发起的活动，也提醒别人评价您发起的活动。您需要正面的评价来获得更多的徽章。"
       remember_to_give_feedback_to: "提醒：记得给%{name} 评价"
       you_have_not_given_feedback_yet: "您尚未评价%{name} 参与的活动'%{event}'。记得评价%{given_name} 在活动中的表现。"
+    transaction_preauthorized:
+      subject: ~
+      transaction_requested_by_user: ~
+      you_have_days_to_accept: ~
+      click_here_to_reply: ~
+    transaction_preauthorized_reminder:
+      subject: ~
+      remember_to_accept: ~
+      one_day_left: ~
+      click_here_to_reply: ~
     welcome_email:
       welcome_email_footer_text: ~
       settings_link_text: ~
@@ -827,6 +787,11 @@ zh:
       spread_the_word: ~
       spread_the_word_invite_only: ~
       have_fun: ~
+    new_listing_by_followed_person:
+      subject: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
   error_messages:
     listings:
       departure_time: 出发时间必需是现在起一年之内。
@@ -1194,6 +1159,8 @@ zh:
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_change_payment_settings: ~
+      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: 您需要先确认账户
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: 您不再关注此列表
@@ -1232,6 +1199,10 @@ zh:
       edit_listing: ~
       reopen_listing: ~
       move_to_top: ~
+      show_in_updates_email: ~
+      show_in_updates_email_loading: ~
+      show_in_updates_email_error: ~
+      show_in_updates_email_success: ~
     follow_links:
       follow: 关注此列表
       unfollow: 不再关注此列表
@@ -1373,6 +1344,8 @@ zh:
       select_category: ~
       select_subcategory: ~
       select_transaction_type: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
     please_comment: 评论
     reply_link:
       listing_closed: ~
@@ -1520,7 +1493,8 @@ zh:
       visible_only_to_you: 只有您和社区管理员可见
       visible_to_everybody: 所有人可见
       create_account_with_facebook: ~
-      or_create_new_account_without_facebook: ~
+      OR: ~
+      signup_with_email: ~
     not_member:
       explanation_text: "您现在属于%{community} 社区。您试图查看另一个社区的用户资料。Kassi现在并不支持多重社区身份，所以您可以通过%{community} 社区查看这个用户的资料。我们正在努力实现多重社区身份，以后的更新将会完善这个功能。"
       read_more_about_kassi_communities: 阅读更多关于Kassi社区
@@ -1573,6 +1547,17 @@ zh:
       show_all_open_listings: ~
       show_all_reviews: ~
       trustcloud: ~
+    followed_people:
+      you_follow_plural: ~
+      you_follow_singular: ~
+      they_follow_plural: ~
+      they_follow_singular: ~
+      show_all_followed_people: ~
+      no_followed_people: ~
+    follow_button:
+      following: ~
+      follow: ~
+      unfollow: ~
   search:
     show:
       all_results: 所有结果
@@ -1660,6 +1645,7 @@ zh:
       email_about_completed_transactions: ~
       email_about_new_payments: ~
       email_about_payment_reminders: ~
+      email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: 退订成功
       unsubscribe_info_text: ~
       settings_link: 设置

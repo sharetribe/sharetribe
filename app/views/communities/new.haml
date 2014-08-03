@@ -1,34 +1,5 @@
 = render :partial => "dashboard/header"
 
-#new_tribe_form_main
-
   = render :partial => "dashboard/notifications"
-
-  .container_12
-    - if @community.new_record?
-      - if session[:community_category]
-        - if @current_user
-          - if community_email_restricted?
-            - if session[:unconfirmed_email]
-              - if session[:confirmed_email]
-                = render :partial => "new_tribe_form_wrapper"
-              - else
-                = render :partial => "email_confirmation_pending"
-            - else
-              = render :partial => "enter_organization_email"
-          - else
-            - if session[:unconfirmed_email]
-              - if session[:confirmed_email]
-                = render :partial => "new_tribe_form_wrapper"
-              - else
-                = render :partial => "email_confirmation_pending"
-            - else
-              = render :partial => "email_confirmation_pending"
-        - else
-          = render :partial => "signup_form"
-      - else
-        = render :partial => "select_tribe_category_form"
-    - else
-      = render :partial => "done"
 
 = render :partial => "dashboard/footer"

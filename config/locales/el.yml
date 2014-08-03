@@ -342,6 +342,7 @@ el:
       you_need_to_fill_payout_details_before_accepting: "Πριν αποδεχτείτε το αίτημα και λάβετε την πληρωμή πρέπει να συμπληρώσετε τα στοιχεία για την πληρωμή σας. Πηγαίνετε στις %{payment_settings_link} για να τα συμπληρώσετε."
       payment_settings_link: "ρυθμίσεις πληρωμών"
       minimum_price_error_message: "Η τιμή δεν μπορεί να είναι μικρότερη από %{amount}."
+      approve: ~
     confirm:
       confirm_description: "Αν το αίτημά σας έχει εκπληρωθεί θα πρέπει να το επιβεβαιώσετε ως ολοκληρωμένο. Τότε μόνο μπορείτε να γράψετε κριτική για το άλλο μέλος της συναλλαγής."
       cancel_description: "Αν το αίτημά σας δεν εκπληρώθηκε τότε μπορείτε να δηλώσετε ότι δεν πραγματοποιήθηκε η συναλλαγή. Μπορείτε και πάλι να γράψετε κριτική για το άλλο μέλος και να περιγράψετε τι συνέβη."
@@ -405,6 +406,7 @@ el:
       housing_request_rent_message_form_title: "Νοίκιασε το %{listing} στον/στην %{person}"
       item_request_message_form_title: "Πρόσφερε ένα αντικείμενο στον/στην"
       message: Μήνυμα
+      message_to: ~
       rideshare_offer_message_form_title: "Κάνε οτοστόπ στον/στην"
       rideshare_request_message_form_title: "Ταξίδεψε μαζί με τον/την"
       send_message: Αποστολή
@@ -414,6 +416,8 @@ el:
       you_will_get_notified: "Θα λάβετε μια ειδοποίηση με email όταν ο/η %{person} σας απαντήσει."
       title: Τίτλος
       send_message_to_user: "Αποστολή μηνύματος στον/στην %{person}"
+      about_listing: ~
+      author_has_to_accept_request: ~
     show:
       in_response_to_listing: "σχετικά με την καταχώρηση"
       message_sent_by: "Μήνυμα από το χρήστη"
@@ -424,7 +428,6 @@ el:
       conversation_with_user: "Με τον/την %{person}"
       conversation_with: ~
       last_message_at: "(τελευταίο μήνυμα %{time})"
-      requested_by: ~
       price: ~
       sum: ~
       price_excludes_vat: ~
@@ -438,6 +441,7 @@ el:
       offer_canceled: Ακυρώθηκε
       offer_confirmed: Ολοκληρώθηκε
       pay: Πληρωμή
+      preauthorized: ~
       paid: "Επιτυχής πληρωμή"
       request_accepted: "Το αίτημα έγινε δεκτό"
       request_rejected: "Το αίτημα απορρίφθηκε"
@@ -457,6 +461,10 @@ el:
       accept_request: "Αποδοχή αιτήματος"
       reject_offer: "Κάποια άλλη φορά"
       reject_request: "Κάποια άλλη φορά"
+      accept_preauthorized_offer: ~
+      accept_preauthorized_request: ~
+      reject_preauthorized_offer: ~
+      reject_preauthorized_request: ~
       confirm: Ολοκληρώθηκε
       cancel: "Δεν πραγματοποιήθηκε"
   braintree_accounts:
@@ -503,17 +511,6 @@ el:
       view_tribe: "Εμφάνιση του sharetribe"
     email_confirmation_pending:
       confirmation_pending: "Παρακαλούμε, επιβεβαιώστε τη διεύθυνση email σας"
-    enter_organization_email:
-      enter_your_organization_email: "Γράψτε την ηλεκτρονική διεύθυνση της κοινότητάς σας"
-      only_people_with_verified_email_address_can_join_your_tribe: "Μόνο άτομα με επιβεβαιωμένη ηλεκτρονική διεύθυνση αυτής της κοινότητας μπορούν να συμμετέχουν σε αυτό το sharetribe."
-      continue: Συνέχεια
-      tribe_exists: "Υπάρχει ήδη!"
-      this_tribe_exists_already: "Αυτό το sharetribe υπάρχει ήδη! Μηπως θα θέλατε να συμμετέχετε σε αυτό;"
-    done:
-      done: Έτοιμο!
-      tribe_created_successfully: "Το sharetribe σας είναι έτοιμο."
-      go_to_your_tribe: "Επισκεφτείτε το sharetribe σας"
-      we_will_contact_you_about_invoicing: "Θα επικοινωνήσουμε εμείς μαζί σας αργότερα σχετικά με τη χρέωση της υπηρεσίας."
     index:
       find_your_local_tribe: "Βρείτε ένα sharetribe κοντά σας"
       or_start_your_own: "... ή %{start_your_own_tribe_link}."
@@ -605,53 +602,6 @@ el:
       if_want_to_view_content: "Αν θες να δεις το περιεχόμενο αυτής της κοινότητας χωρίς να συμμετέχεις σε αυτή, πρέπει να"
       log_out: αποσυνδεθείς
       join_community_button: "Εγγραφή στην κοινότητα"
-  dashboard:
-    api:
-      coming_soon: Σύντομα!
-    index:
-      watch_the_video: "Δείτε το βίντεο"
-      get_started: "ΞΕΚΙΝΗΣΤΕ ΕΔΩ!"
-      browse_communities_around_you: "βρείτε ένα sharetribe κοντά σε σας"
-      slogan: "Μοιραζόμαστε πόρους στην κοινότητά μας."
-      create_your_own: "Δημιουργήστε ένα"
-      sharing_website: SHARETRIBE
-      main_description: "Δημιουργήστε μια ιστοσελίδα όπου τα μέλη της κοινότητάς σας μπορούν με ασφάλεια να μοιράζονται αντικείμενα και υπηρεσίες. Είναι δωρεάν και γίνεται μέσα σε 1 λεπτό!"
-      kassi_for_your_company: "... ΣΤΗΝ ΕΤΑΙΡΙΑ"
-      kassi_for_your_company_description: "Δημιουργείστε καλύτερες κοινωνικές σχέσεις στο χώρο εργασίας σας: Χρησιμοποιώντας το %{service_name} στην εταιρία σας βοηθάτε τους εργαζόμενους να γνωριστούν μεταξύ τους, να κάνουν κοινές δράσεις και ταυτόχρονα μειώνετε τις εκπομπές CO₂ και γίνεστε μια πιο πράσινη επιχείρηση!"
-      kassi_for_your_city: "... ΣΤΗ ΓΕΙΤΟΝΙΑ ΣΑΣ"
-      kassi_for_your_city_description: "Μετασχηματίστε τις γειτονιές σας σε κοινότητες όπου οι άνθρωποι γνωρίζονται μεταξύ τους και βοηθούν ο ένας τον άλλο. Με το %{service_name} μπορείτε να δώσετε τη δυνατότητα στους πολίτες να βελτιώσουν τη ζωή τους!"
-      kassi_for_your_university: "... ΣΤΟ ΠΑΝΕΠΙΣΤΗΜΙΟ"
-      kassi_for_your_university_description: "Θέλετε μια δραστήρια πανεπιστημιούπολη όπου οι άνθρωποι γνωρίζονται και εμπιστεύονται ο ένας τον άλλο; Βοηθήστε τους φοιτητές και το προσωπικό του πανεπιστημίου να κερδίζουν χρόνο, χρήμα και να κάνουν καλό στο περιβάλλον. Δοκιμάστε το %{service_name}!"
-      want_kassi_for_your_community: "Θα θέλατε το %{service_name} στην κοινότητά σας;"
-      email_default_text: "Ηλεκτρονική διεύθυνση"
-      send: Αποστολή!
-      or_drop_us_a_line: "... ή επικοινωνήστε μαζί μας:"
-      thanks_for_contacting_us: "Ευχαριστούμε για το ενδιαφέρον! Θα επικοινωνήσουμε μαζί σας σύντομα!"
-      resources: ΠΕΡΙΣΣΟΤΕΡΑ
-      connect: ΔΙΚΤΥΩΣΗ
-      about: "ΣΧΕΤΙΚΑ ΜΕ ΤΟ SHARETRIBE"
-      developers: "ΓΙΑ ΠΡΟΓΡΑΜΜΑΤΙΣΤΕΣ"
-      api: API
-      blog: Blog
-      code: Κώδικας
-      issue_tracker: "Issue tracker"
-      product_of: "Το %{service_name} είναι ένα προϊόν της"
-      language: "Γλώσσα:"
-      new: ΝΕΟ!
-      new_text: "Τo %{service_name} είναι τώρα διαθέσιμο για την <a href=\"http://upatras.sharetribe.com/el\">κοινότητα του Πανεπιστημίου Πατρών</a>"
-      want_to_know_more: "Θέλετε να μάθετε περισσότερα; %{read_our_faq_link}."
-      read_our_faq: "Διαβάστε τις συχνές ερωτήσεις"
-      contact_us: "επικοινωνήστε μαζί μας"
-      why_you_really_should_have_a_tribe: "Γιατί να χρησιμοποιείτε το Sharetribe"
-      an_example: "Ένα παράδειγμα:"
-      home: Αρχή
-      faq: FAQ
-      browse_tribes: "Βρες sharetribes"
-      pricing: Τιμές
-      contact: Επικοινωνία
-      university_example_link: "<a href=\"http://UPatras.sharetribe.com\">Το Sharetribe στο Πανεπιστήμιο Πατρών</a>"
-      company_example_link: "<a href=\"https://if.sharetribe.com/en\">Το Sharetribe στο IF</a>"
-      city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">To Sharetribe στη γειτονιά Kallio του Ελσίνκι</a>"
   emails:
     accept_reminder:
       remember_to_accept_offer: "Θυμηθείτε να αποδεχτείτε ή να απορρίψετε μία προσφορά από το χρήστη %{sender_name}"
@@ -800,6 +750,16 @@ el:
       feedback_is_public_and_is_shown: "Η κριτική είναι δημόσια και φαίνεται στους άλλους χρήστες. Βασιζόμενοι σε αυτή οι άλλοι χρήστες μπορούν να κρίνουν αν ο/η %{name} είναι αξιόπιστο άτομο και αν θέλουν να έχουν συναλλαγές μαζί του. Γι' αυτό, καλό είναι να θυμάσαι πάντα να κάνεις κριτική και να υπενθυμίζεις σε αυτούς με τους οποίους αλληλεπιδράς να σχολιάζουν κι αυτοί για σένα. Για να κερδίσεις τις περισσότερες κονκάρδες πρέπει να έχεις καλά σχόλια."
       remember_to_give_feedback_to: "Υπενθύμιση: θυμηθείτε να γράψετε την κριτική σας για το χρήστη %{name}"
       you_have_not_given_feedback_yet: "Δεν έχετε κάνει ακόμα κριτική στο χρήστη %{name} σχετικά με το συμβάν \"%{event}\". Θυμηθείτε να πείτε τη γνώμη σας για το πόσο καλά ανταποκρίθηκε ο/η %{given_name}."
+    transaction_preauthorized:
+      subject: ~
+      transaction_requested_by_user: ~
+      you_have_days_to_accept: ~
+      click_here_to_reply: ~
+    transaction_preauthorized_reminder:
+      subject: ~
+      remember_to_accept: ~
+      one_day_left: ~
+      click_here_to_reply: ~
     welcome_email:
       welcome_email_footer_text: "Θέλετε να ελέγξετε τι μηνύματα θα λαμβάνετε από το %{service_name}; %{settings_link}"
       settings_link_text: "Δείτε τις ρυθμίσεις σας"
@@ -827,6 +787,11 @@ el:
       spread_the_word: "<strong>Διαδώστε το.</strong> Για να έρθουν νέα μέλη στην κοινότητα, πρέπει να την διαδώσετε στους γνωστούς σας. Για παράδειγμα: 1) δημοσιεύστε για το %{service_name} σε μια mailing list. 2) Μοιραστείτε τον παρακάτω σύνδεσμο στο Faceboοκ, το Twitter ή σε άλλα κοινωνικά δίκτυα: %{url}. 3) Στείλτε προσκλήσεις χρησιμοποιώντας %{invite_link}. 4) Μην ξεχνάτε να τους ενημερώνετε κι από κοντά όταν τους βλέπετε!"
       spread_the_word_invite_only: "<strong>Διαδώστε το.</strong> Σε αυτή την κοινότητα μπορεί να γραφτεί κάποιος μόνο αν προσκληθεί από κάποιο άλλο μέλος. Συνεπώς, για να έχετε καινούρια μέλη πρέπει να τα προσκαλέσετε. Μπορείτε να το κάνετε αυτό από %{invite_link}."
       have_fun: "Ευχόμαστε να απολάυσετε τη χρήση του %{service_name}. Μακάρι η κοινότητά σας να προκόψει!"
+    new_listing_by_followed_person:
+      subject: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
   error_messages:
     listings:
       departure_time: "Η ώρα αναχώρησης πρέπει να είναι μεταξύ της τρέχουσας ώρας και ενός χρόνου από τώρα."
@@ -1194,6 +1159,8 @@ el:
       you_must_log_in_to_add_news_item: "Πρέπει να συνδεθείτε στο %{service_name} για να προσθέσετε ένα άρθρο."
       you_must_log_in_to_change_profile_settings: "Πρέπει να συνδεθείτε στο %{service_name} για να αλλάξετε τις ρυθμίσεις του προφίλ"
       you_must_log_in_to_change_payment_settings: "Πρέπει να συνδεθείτε στο %{service_name} για να αλλάξετε τις ρυθμίσεις των πληρωμών"
+      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Πρέπει να επιβεβαιώσετε την διεύθυνση ηλεκτρονικού ταχυδρομείου σας."
       you_must_fill_all_the_fields: "Πρέπει να συμπληρώσετε όλα τα πεδία"
       you_unfollowed_listing: "Δεν παρακολουθείς πλέον αυτή την καταχώρηση"
@@ -1232,6 +1199,10 @@ el:
       edit_listing: "Επεξεργασία καταχώρησης"
       reopen_listing: "Ενεργοποίηση ξανά της καταχώρησης"
       move_to_top: ~
+      show_in_updates_email: ~
+      show_in_updates_email_loading: ~
+      show_in_updates_email_error: ~
+      show_in_updates_email_success: ~
     follow_links:
       follow: "Να ειδοποιούμαι για νέα σχόλια"
       unfollow: "Παύση ειδοποιήσεων για νέα σχόλια"
@@ -1373,6 +1344,8 @@ el:
       select_category: "Επιλέξτε κατηγορία"
       select_subcategory: ~
       select_transaction_type: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      payment_settings_link: ~
     please_comment: Σχολίασε
     reply_link:
       listing_closed: "Η καταχώρηση έχει απενεργοποιηθεί."
@@ -1523,7 +1496,8 @@ el:
       visible_only_to_you: "ορατή μόνο σε σας και το διαχειριστή της κοινότητας"
       visible_to_everybody: "ορατό σε όλους"
       create_account_with_facebook: "Συνδεθείτε μέσω Facebook"
-      or_create_new_account_without_facebook: "... ή δημιουργήστε λογαριασμό χωρίς το Facebook."
+      OR: ~
+      signup_with_email: ~
     not_member:
       explanation_text: "Είσαι στην κοινότητα \"%{community}\". Προσπάθησες να δεις το προφίλ ενός χρήστη που ανήκει σε μια άλλη κοινότητα. Δεν μπορείς να δεις αυτό το προφίλ μέσω της κοινότητας \"%{community}\"."
       read_more_about_kassi_communities: "Διαβάστε περισσότερα για τις κοινότητες Sharetribe"
@@ -1576,6 +1550,17 @@ el:
       show_all_open_listings: "Εμφάνισε όλες τις ενεργές καταχωρήσεις"
       show_all_reviews: "Εμφάνισε όλες τις κριτικές"
       trustcloud: TrustCard
+    followed_people:
+      you_follow_plural: ~
+      you_follow_singular: ~
+      they_follow_plural: ~
+      they_follow_singular: ~
+      show_all_followed_people: ~
+      no_followed_people: ~
+    follow_button:
+      following: ~
+      follow: ~
+      unfollow: ~
   search:
     show:
       all_results: "Όλα τα αποτελέσματα"
@@ -1663,6 +1648,7 @@ el:
       email_about_completed_transactions: "... κάποιος δηλώνει ότι η προσφορά ή το αίτημά μου ολοκληρώθηκε"
       email_about_new_payments: "... λαμβάνω μια πληρωμή"
       email_about_payment_reminders: "... έχω ξεχάσει να πληρώσω"
+      email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: "Διαγραφήκατε από τη λίστα ενημερώσεων"
       unsubscribe_info_text: "Δεν θα ξαναλάβετε τέτοιο email. Ελέξτε τις %{settings_link} σας για να επιλέξετε ποια email θέλετε να λαμβάνετε ή επιστρέψτε στην %{homepage_link}."
       settings_link: ρυθμίσεις
