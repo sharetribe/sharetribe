@@ -36,7 +36,7 @@
             -# Show current status for others
 
             %div{:id => "conversation_#{@conversation.id.to_s}_status"}
-              = render :partial => "status", :locals => { :conversation => @conversation }
+              = render :partial => "status", :locals => { :conversation => @conversation, :statuses => get_conversation_statuses(@conversation) }
 
 
   #reply_form.message-avatar-padding.message-reply-form

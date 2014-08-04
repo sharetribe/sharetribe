@@ -5,10 +5,8 @@
   :javascript
 
     $(document).ready(function() {
-      debugger;
       var braintreePaymentForm = $("#braintree-payment-form");
       initialize_braintree_payment_form("#{I18n.locale}", function beforeSubmit(next) {
-        debugger;
         var braintree = Braintree.create("#{@braintree_client_side_encryption_key}");
         braintree.encryptForm(braintreePaymentForm);
         next();
