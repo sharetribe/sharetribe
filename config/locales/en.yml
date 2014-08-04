@@ -608,6 +608,11 @@ en:
       we_have_marked_request_as_confirmed: "We have marked the request about '%{request}' completed. The request was automatically completed because %{days_passed} days have passed since the request was accepted."
       giving_feedback_is_good_idea: "You can now give feedback to %{other_party_given_name}. Giving feedback is always a good idea. If everything went well, you should let others know that %{other_party_given_name} can be trusted. If there were any problems, it's good to mention those as well."
       give_feedback_to: "Give feedback to %{other_party_given_name}"
+    booking_transaction_automatically_confirmed:
+      subject: "Request automatically completed - remember to give feedback"
+      we_have_marked_request_as_confirmed: "We have marked the request about '%{request}' completed. The request was automatically completed because one day has passed since the booking period ended."
+      giving_feedback_is_good_idea: "You can now give feedback to %{other_party_given_name}. Giving feedback is always a good idea. If everything went well, you should let others know that %{other_party_given_name} can be trusted. If there were any problems, it's good to mention those as well."
+      give_feedback_to: "Give feedback to %{other_party_given_name}"
     escrow_canceled:
       subject: "Payment canceled"
       has_marked_request_as_canceled: "%{other_party_full_name} has marked the request about '%{request}' canceled. You will not receive money from this transaction."

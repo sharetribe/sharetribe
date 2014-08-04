@@ -44,8 +44,13 @@ class TransactionProcess
     payer = payment.payer
     current_community = conversation.community
 
-    conversation.update_attributes(automatic_confirmation_after_days: current_community.automatic_confirmation_after_days)
-    ConfirmConversation.new(conversation, payer, current_community).activate_automatic_confirmation!
+    if conversation.booking.present?
+      automatic_booking_confirmation_at = conversation.booking.end_on + 1.day
+      ConfirmConversation.new(conversation, payer, current_community).activate_automatic_booking_confirmation_at!(automatic_booking_confirmation_at)
+    else
+      conversation.update_attributes(automatic_confirmation_after_days: current_community.automatic_confirmation_after_days)
+      ConfirmConversation.new(conversation, payer, current_community).activate_automatic_confirmation!
+    end
     Delayed::Job.enqueue(PaymentCreatedJob.new(payment.id, payment.community.id))
   end
 

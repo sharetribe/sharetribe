@@ -50,6 +50,13 @@ class MailPreview < MailView
     PersonMailer.transaction_automatically_confirmed(conversation, community)
   end
 
+  def booking_transaction_automatically_confirmed
+    conversation = Conversation.last
+    community = conversation.community
+    # conversation.status = "confirmed"
+    PersonMailer.booking_transaction_automatically_confirmed(conversation, community)
+  end
+
   def conversation_status_changed
     change_conversation_status_to!("accepted")
     PersonMailer.conversation_status_changed(conversation, community)
