@@ -10,6 +10,15 @@ module LoggingHelper
     STDOUT.flush
   end
 
+  def continue?
+    throw "Aborting migration..." unless yes?
+  end
+
+  def yes?
+    response = STDIN.gets.strip
+    response.downcase == 'y'
+  end
+
   class ProgressReporter
     def initialize(total, every=100)
       @total = total
