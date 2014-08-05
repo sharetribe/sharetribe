@@ -172,10 +172,6 @@ def visit_conversation_of_listing(listing)
   visit(single_conversation_path(:person_id => @current_user.id, :conversation_type => "received", :id => conversation.id, :locale => "en"))
 end
 
-def visit_conversation_of_current_listing
-  visit_conversation_of_listing(@listing)
-end
-
 When(/^I accepts the request for that listing$/) do
   visit_conversation_of_current_listing
   click_link "Accept request"
@@ -264,4 +260,8 @@ When /^I follow link to fill in Braintree payout details$/ do
   click_link("#conversation-payment-settings-link")
 end
 
+When(/^I make a booking request for that listing for (\d+) days$/) do |days|
+  visit_current_listing
 
+  pending # continue here
+end
