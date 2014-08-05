@@ -98,6 +98,7 @@ class PersonMailer < ActionMailer::Base
     set_up_urls(@conversation.requester, community, @email_type)
     premailer_mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
+         :template_path => 'person_mailer/automatic_confirmation',
          :subject => t("emails.transaction_automatically_confirmed.subject"))
   end
 
@@ -107,6 +108,7 @@ class PersonMailer < ActionMailer::Base
     set_up_urls(@conversation.requester, community, @email_type)
     mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
+         :template_path => 'person_mailer/automatic_confirmation',
          :subject => t("emails.booking_transaction_automatically_confirmed.subject"))
   end
 

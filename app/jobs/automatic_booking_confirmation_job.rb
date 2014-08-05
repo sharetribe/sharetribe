@@ -13,7 +13,6 @@ class AutomaticBookingConfirmationJob < Struct.new(:conversation_id, :current_us
   def perform
     community = Community.find(community_id)
     conversation = Conversation.find(conversation_id)
-    user = Person.find(current_user_id)
 
     if conversation.can_be_confirmed?
       conversation.update_attributes(:status => "confirmed")
