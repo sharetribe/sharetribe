@@ -23,7 +23,7 @@
         %tr
           %td=truncate(conversation.title, length: 15)
           %td=conversation.respond_to?(:listing) ? link_to(conversation.listing.title, conversation.listing) : ""
-          %td=conversation.status
+          %td=t("admin.communities.transactions.status.#{conversation.status}")
           %td=conversation.respond_to?(:payment) && conversation.payment ? humanized_money_with_symbol(conversation.payment.total_sum) : ""
           %td=l(conversation.created_at, format: :short)
           %td=l(conversation.last_message_at, format: :short)

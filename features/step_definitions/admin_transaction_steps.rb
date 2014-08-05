@@ -18,6 +18,7 @@ Given(/^there are following transactions$/) do |table|
         FactoryGirl.build(
         :listing_conversation,
         transaction_opts.merge({
+            transaction_transitions: [ FactoryGirl.build(:transaction_transition, { to_state: transaction[:status].to_sym }) ],
             listing: FactoryGirl.build(:listing, { title: transaction[:listing] }),
             payment: sum ? FactoryGirl.build(:braintree_payment, { sum_cents: sum, currency: transaction[:currency] }) : nil
           })
@@ -29,6 +30,6 @@ Given(/^there are following transactions$/) do |table|
   end
 end
 
-Then(/^I should see (\d+) transaction with status "(.*?)"$/) do |arg1, arg2|
-  pending
+Then(/^I should see (\d+) transaction with status "(.*?)"$/) do |count, status_text|
+  page.all("td", :text => status_text).length.should eq count.to_i
 end
