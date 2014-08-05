@@ -221,6 +221,22 @@ def select_date_from_date_selector(date, date_selector_base_id)
   select(year, :from => "#{date_selector_base_id}_1i")
 end
 
+def select_date_from_date_picker(date, date_selector_base_id)
+  if date >= Date.today
+
+    # TODO - there is no reason to do it this way
+    # click_on(date_selector_base_id)
+    # click_on(".datepicker-switch") # month
+    # click_on(".datepicker-switch") # year
+
+    # click_on(".year:contains(#{date.year})")
+    # click_on(".month:contains(#{date.month})")
+    # click_on(".day:not(.old, .new, .disabled):contains(#{date.day})") => 6, 16, 26
+
+    fill_in("#{date_selector_base_id}", :with => "#{date.month}/#{date.day}/#{date.year}")
+  end
+end
+
 When(/^I set the expiration date to (\d+) months from now$/) do |months|
   select_date_from_date_selector(months.to_i.months.from_now, "listing_valid_until")
 end

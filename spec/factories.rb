@@ -208,7 +208,7 @@ FactoryGirl.define do
   factory :transaction_type do
     build_association(:community)
 
-    ['Sell', 'Give', 'Lend', 'Request', 'Service'].each do |type|
+    ['Sell', 'Give', 'Lend', 'Rent', 'Request', 'Service'].each do |type|
       factory_name = "transaction_type_#{type.downcase}"
       factory factory_name.to_sym, class: type do
         type type

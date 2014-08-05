@@ -260,8 +260,13 @@ When /^I follow link to fill in Braintree payout details$/ do
   click_link("#conversation-payment-settings-link")
 end
 
-When(/^I make a booking request for that listing for (\d+) days$/) do |days|
+# TODO I think we should move this to listing_steps?
+When(/^I make a booking request for that listing for (\d+) days$/) do |day_count|
   visit_current_listing
+  end_date = Date.today + day_count.to_i.days
+  select_date_from_date_picker(Date.today, "start_on")
+  select_date_from_date_picker(end_date, "end_on")
 
+  #binding.pry
   pending # continue here
 end

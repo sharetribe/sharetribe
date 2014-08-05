@@ -182,6 +182,16 @@ Given /^the community has transaction type (Sell) with name "(.*?)" and action b
   @transaction_type = FactoryGirl.create("transaction_type_#{type_class.downcase}".to_sym, translations: translations, community: @current_community)
 end
 
+Given /^the community has transaction type (Rent) with name "(.*?)" and action button label "(.*?)"$/ do |type_class, name, action_button_label|
+  translations = [FactoryGirl.build(:transaction_type_translation, locale: "en", name: name, action_button_label: action_button_label)]
+  @transaction_type = FactoryGirl.create("transaction_type_#{type_class.downcase}".to_sym, translations: translations, community: @current_community)
+end
+
+Given /^the community shows the price of listing per "(.*?)"$/ do |price_per|
+  @transaction_type.price_per = price_per
+  @transaction_type.save!
+end
+
 Given /^that transaction uses payment preauthorization$/ do
   @transaction_type.update_attribute(:preauthorize_payment, true)
 end
