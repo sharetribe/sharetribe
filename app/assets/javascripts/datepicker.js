@@ -5,9 +5,9 @@ window.ST = window.ST || {};
   module.initializeFromToDatePicker = function(rangeCongainerId) {
     var now = new Date();
     var today = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
-    var dateRage = $('#'+ rangeCongainerId)
+    var dateRage = $('#'+ rangeCongainerId);
     var dateLocale = dateRage.data('locale');
-    var dateFormat = dateRage.data('dateformat')
+    var dateFormat = dateRage.data('dateformat');
 
     var options = {
       format: dateFormat,
@@ -23,6 +23,5 @@ window.ST = window.ST || {};
     }
 
     dateRage.datepicker(options);
-  }
-
+  };
 })(window.ST);
