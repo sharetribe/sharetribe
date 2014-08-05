@@ -166,42 +166,43 @@ module ConversationsHelper
   # }
   def get_conversation_statuses(conversation)
     conversation_statuses = []
-
     if conversation.listing && !conversation.status.eql?("free")
       if conversation.status.eql?("pending")
-        add_pending_status(conversation, conversation_statuses)
+        conversation_statuses << pending_status(conversation)
       elsif conversation.status.eql?("accepted")
-        add_accepted_status(conversation, conversation_statuses)
+        conversation_statuses << accepted_status(conversation)
       elsif conversation.status.eql?("paid")
-        add_paid_status(conversation, conversation_statuses)
+        conversation_statuses << paid_status(conversation)
       elsif conversation.status.eql?("preauthorized")
-        add_preauthorized_status(conversation, conversation_statuses)
+        conversation_statuses << preauthorized_status(conversation)
       elsif conversation.status
-        add_default_status(conversation, conversation_statuses)
+        conversation_statuses << default_status(conversation)
       end
     end
+    conversation_statuses.flatten()
   end
 
   private
 
-  def add_pending_status(conversation, conversation_statuses)
+  def pending_status(conversation)
     if current_user?(conversation.listing.author)
-      conversation_statuses.push({
+      {
         type: :status_links,
-        content: get_status_link(["accept", "reject"])
-      })
+        content: get_status_link(["accept", "reject"], conversation)
+      }
     else
-      conversation_statuses.push({
+      {
         type: :status_info,
         content: {
           info_text_part: t("conversations.status.waiting_for_listing_author_to_accept_#{conversation.discussion_type}", :listing_author_name => conversation.other_party(@current_user).given_name_or_username),
           info_icon_part_classes: 'ss-clock'
         }
-      })
+      }
     end
   end
 
-  def add_accepted_status(conversation, conversation_statuses)
+  def accepted_status(conversation)
+    conversation_statuses = []
     conversation_statuses.push({
       type: :status_info,
       content: {
@@ -228,13 +229,13 @@ module ConversationsHelper
               link_href: @current_community.payment_gateway.new_payment_path(@current_user, conversation, params[:locale]),
               link_classes: 'accept',
               link_icon_with_text_classes: 'ss-coins',
-              link_text_with_icon: t("conversations.show.pay")
+              link_text_with_icon: t("conversations.status.pay")
             },
             {
               link_href: cancel_person_message_path(@current_user, :id => conversation.id.to_s),
               link_classes: 'cancel',
               link_icon_with_text_classes: icon_for("canceled"),
-              link_text_with_icon: t("conversations.show.cancel_payed_transaction")
+              link_text_with_icon: t("conversations.status.cancel_payed_transaction")
             }
           ]
         })
@@ -253,14 +254,16 @@ module ConversationsHelper
         else
           conversation_statuses.push({
             type: :status_links,
-            content: get_status_link(["confirm", "cancel"])
+            content: get_status_link(["confirm", "cancel"], conversation)
           })
         end
       end
     end
+    conversation_statuses
   end
 
-  def add_paid_status(conversation, conversation_statuses)
+  def paid_status(conversation)
+    conversation_statuses = []
     conversation_statuses.push({
       type: :status_info,
       content: {
@@ -280,13 +283,15 @@ module ConversationsHelper
       else
         conversation_statuses.push({
           type: :status_links,
-          content: get_status_link(["confirm", "cancel"])
+          content: get_status_link(["confirm", "cancel"], conversation)
         })
       end
     end
+    conversation_statuses
   end
 
-  def add_preauthorized_status(conversation, conversation_statuses)
+  def preauthorized_status(conversation)
+    conversation_statuses = []
     conversation_statuses.push({
       type: :status_info,
       content: {
@@ -295,11 +300,10 @@ module ConversationsHelper
       }
     })
 
-    # FIXME This is copy paste from accept
     if current_user?(conversation.listing.author)
       conversation_statuses.push({
         type: :status_links,
-        content: get_status_link(["accept_preauthorized", "reject_preauthorized"])
+        content: get_status_link(["accept_preauthorized", "reject_preauthorized"], conversation)
       })
     else
       conversation_statuses.push({
@@ -310,9 +314,11 @@ module ConversationsHelper
         }
       })
     end
+    conversation_statuses
   end
 
-  def add_default_status(conversation, conversation_statuses)
+  def default_status(conversation)
+    conversation_statuses = []
     conversation_statuses.push({
       type: :status_info,
       content: {
@@ -358,25 +364,24 @@ module ConversationsHelper
         })
       end
     end
+    conversation_statuses
   end
 
-  def get_status_link(status_link_names)
-    status_links = []
-    status_link_names.each do |status_link_name|
-      status_links.push({
+  def get_status_link(status_link_names, conversation)
+    status_links = status_link_names.map do |status_link_name|
+      {
         link_href: path_for_status_link("#{status_link_name}", conversation, @current_user),
         link_classes: "#{status_link_name}",
         link_icon_with_text_classes: icon_for("#{status_link_name}ed"),
         link_text_with_icon:
-          if ["accept", "reject"].include?(status)
-            t(".#{status_link_name}")
-          elsif ["accept_preauthorized", "reject_preauthorized"].include?(status)
-            t(".#{status}_#{conversation.discussion_type}")
+          if ["accept", "reject"].include?(status_link_name)
+            t("conversations.status_link.#{status_link_name}_#{conversation.discussion_type}")
+          elsif ["accept_preauthorized", "reject_preauthorized"].include?(status_link_name)
+            t("conversations.status_link.#{status_link_name}_#{conversation.discussion_type}")
           else
-            t(".#{status}")
+            t("conversations.status_link.#{status_link_name}")
           end
-      })
+      }
     end
-    status_links
   end
 end

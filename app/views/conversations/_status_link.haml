@@ -1,9 +1,10 @@
 .inbox-horizontally-aligned-link
-  %a{:href => status_link.link_href, :class => "status-link #{status_link.link_classes}", :data => status_link[:link_data]}
+  %a{:href => status_link[:link_href], :class => "status-link #{status_link[:link_classes]}", :data => status_link[:link_data]}
     .content
-      - if status_link[:link_icon_tag]?
+      - if status_link[:link_icon_tag].present?
         = status_link[:link_icon_tag]
       - else
         .icon-with-text{:class => status_link[:link_icon_with_text_classes]}
       .text-with-icon
         = status_link[:link_text_with_icon]
+
