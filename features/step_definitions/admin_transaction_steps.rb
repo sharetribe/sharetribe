@@ -2,24 +2,31 @@ Given(/^there are following transactions$/) do |table|
   # table is a Cucumber::Ast::Table
   table.hashes.each do |transaction|
     transaction_opts = {
-                         title: transaction[:conversation_thread],
-                         created_at: eval(transaction[:started_at].gsub(' ', '.')),
-                         last_message_at: eval(transaction[:latest_activity].gsub(' ', '.')),
-                         community: Community.first,
-                         participants: [ Person.find_by_username(transaction[:starter]),
-                                         Person.find_by_username(transaction[:other_party]) ]
-                       }
+      title: transaction[:conversation_thread],
+      created_at: eval(transaction[:started_at].gsub(' ', '.')),
+      last_message_at: eval(transaction[:latest_activity].gsub(' ', '.')),
+      community: Community.first
+    }
+    starter = Person.find_by_username(transaction[:starter])
+    other_party = Person.find_by_username(transaction[:other_party])
+    sum = transaction[:sum].to_i * 100 unless transaction[:sum].empty?
 
-    if(transaction[:listing].empty?)
-      FactoryGirl.create(:conversation, transaction_opts)
-    else
-      FactoryGirl.create(:listing_conversation,
-                         transaction_opts.merge({
-                                                  listing: FactoryGirl.create(:listing, { title: transaction[:listing] })
-                                                }))
-    end
+    conversation =
+      if(transaction[:listing].empty?)
+        FactoryGirl.build(:conversation, transaction_opts)
+      else
+        FactoryGirl.build(
+        :listing_conversation,
+        transaction_opts.merge({
+            listing: FactoryGirl.build(:listing, { title: transaction[:listing] }),
+            payment: sum ? FactoryGirl.build(:braintree_payment, { sum_cents: sum, currency: transaction[:currency] }) : nil
+          })
+        )
+      end
+    conversation.build_starter_participation(starter)
+    conversation.build_participation(other_party)
+    conversation.save!
   end
-  binding.pry
 end
 
 Then(/^I should see (\d+) transaction with status "(.*?)"$/) do |arg1, arg2|

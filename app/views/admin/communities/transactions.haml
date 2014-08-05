@@ -21,10 +21,10 @@
     %tbody
       - @conversations.each do |conversation|
         %tr
-          %td=truncate(conversation.first_message.content, length: 15)
-          %td=link_to(conversation.listing.title, conversation.listing)
+          %td=truncate(conversation.title, length: 15)
+          %td=conversation.respond_to?(:listing) ? link_to(conversation.listing.title, conversation.listing) : ""
           %td=conversation.status
-          %td=price_as_text(conversation.listing)
+          %td=conversation.respond_to?(:payment) && conversation.payment ? humanized_money_with_symbol(conversation.payment.total_sum) : ""
           %td=l(conversation.created_at, format: :short)
           %td=l(conversation.last_message_at, format: :short)
           %td=link_to(conversation.starter.full_name, conversation.starter)
