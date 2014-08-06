@@ -8,7 +8,7 @@ class Admin::CommunityMembershipsController < ApplicationController
     @memberships = CommunityMembership.where(:community_id => @current_community.id, :status => "accepted")
                                        .includes(:person => :emails)
                                        .paginate(:page => params[:page], :per_page => 50)
-                                       .order("#{member_sort_column} #{member_sort_direction}")
+                                       .order("#{sort_column} #{sort_direction}")
   end
 
   def ban
@@ -45,7 +45,7 @@ class Admin::CommunityMembershipsController < ApplicationController
     ids.include?(current_admin_user.id) && current_admin_user.is_admin_of?(community)
   end
 
-  def member_sort_column
+  def sort_column
     case params[:sort]
     when "name"
       "people.given_name"
@@ -60,7 +60,7 @@ class Admin::CommunityMembershipsController < ApplicationController
     end
   end
 
-  def member_sort_direction
+  def sort_direction
     params[:direction] || "desc"
   end
 
