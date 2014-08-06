@@ -407,6 +407,7 @@ zh:
       item_request_message_form_title: 向...提供一个物品
       message: 消息
       message_to: ~
+      optional_message_to: ~
       rideshare_offer_message_form_title: 想要搭顺风车
       rideshare_request_message_form_title: 提供顺风车
       send_message: 发送信息
@@ -431,6 +432,7 @@ zh:
       price: ~
       sum: ~
       price_excludes_vat: ~
+      total: ~
     status:
       cancel_payed_transaction: ~
       feedback_given: 已发送反馈
@@ -506,85 +508,6 @@ zh:
       cvv: ~
       credit_card_expiration_date: ~
       confirm_payment: ~
-  communities:
-    map_bubble:
-      view_tribe: ~
-    email_confirmation_pending:
-      confirmation_pending: 你确认你的邮箱地址
-    index:
-      find_your_local_tribe: ~
-      or_start_your_own: ~
-      start_your_own_tribe_link: ~
-    select_pricing_plan:
-      select_your_plan: 挑选你的计划
-      pick_one_of_the_options_below: 从下面选项中选一个
-      create_for_free: 免费创建
-      contact_us: 联系我们
-      free_plan: 免费计划
-      max_members: ~
-      premium_plan: 高级计划
-      care_free_user_support: ~
-      create_your_tribe: 创建你的部落
-      professional_plan: ~
-      unlimited_members: ~
-      intranet_integration: ~
-      no_charge: 免费
-      euros_per_month_premium: "%{price} 欧元/月 （含税）"
-      custom_domain: 自定义域
-      you_can_change_and_cancel: ~
-      we_help_you_get_started: ~
-      discounts_available_for_non_profits: ~
-    select_tribe_category_form:
-      what_kind_of_tribe_do_you_want_to_create: ~
-      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: ~
-      company: 公司
-      university: ~
-      town: ~
-      congregation: 集合
-      association: 协会
-      neighborhood: 邻居
-      apartment_building: 公寓楼
-      other: 其他
-    new_tribe_form:
-      create_a_tribe_in_a_minute: 在一分钟之内创建一个新的部落
-      welcome_now_create_your_tribe: ~
-      name_of_your_tribe: 你的部落名称
-      web_address_of_your_tribe: 你部落的网址
-      slogan_of_your_tribe: ~
-      describe_your_tribe: ~
-      create_your_tribe: ~
-      domain_invalid: ~
-      domain_taken: ~
-      address: ~
-      select_main_language_of_your_tribe: 给你的部落选择一个主要语言
-      language: 语言
-      restrict_tribe_to_invited_people: ~
-    signup_form:
-      create_an_account: 给你自己创建一个账号
-      to_create_a_tribe_you_must_first_create_sharetribe_account: ~
-      log_in_with_your_existing_account: ~
-      your_email: 你的邮箱地址
-      your_university_email: 你学校的邮箱地址
-      your_company_email: 你公司的邮箱地址是
-      you_need_to_confirm: ~
-      pick_username: 选择一个用户名
-      your_given_name: 你的名字
-      your_family_name: 你的姓氏
-      your_password: 选择一个密码
-      confirm_your_password: 确认你的密码
-      email_in_use_message: ~
-      invalid_email_ending_message: ~
-      log_in_here: 这里登陆
-      existing_community_with_this_email: ~
-      here: "这里\n"
-      for_company: 公司
-      for_university: 学校
-      for_town: ~
-      for_congregation: ~
-      for_association: ~
-      for_neighborhood: 邻居
-      for_apartment_building: 公寓楼
-      for_other: 其他
   community_memberships:
     access_denied:
       access_denied: ~
@@ -761,32 +684,13 @@ zh:
       one_day_left: ~
       click_here_to_reply: ~
     welcome_email:
-      welcome_email_footer_text: ~
-      settings_link_text: ~
-      subject: ~
-      welcome_some_tips: ~
+      welcome_email_subject: ~
+      welcome_to_marketplace: ~
+      love_marketplace_crew: ~
       p_s_did_you_know: ~
       click_here_link_text: ~
-      update_your_profile: ~
-      update_your_profile_link_text: ~
-      add_something_you_could_offer: ~
-      add_offer_link_text: ~
-      is_there_something_you_need: ~
-      add_request_link_text: ~
-      invite_your_friends_invite_only: ~
-      invite_your_friends: ~
-      invite_link_text: ~
-      member_list_link_text: ~
-      go_explore: ~
-      love_team: ~
-      congrats_for_creating_community: ~
-      you_have_just_created_community: ~
-      you_now_have_admin_rights: ~
-      edit_community_details_link_text: ~
-      add_content: ~
-      spread_the_word: ~
-      spread_the_word_invite_only: ~
-      have_fun: ~
+      welcome_email_footer_text: ~
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -1384,6 +1288,13 @@ zh:
       listing_created_at: ~
     verification_required:
       verification_required: ~
+  listing_conversations:
+    preauthorize:
+      details: ~
+      by: ~
+      payment: ~
+      exp: ~
+      you_will_be_charged: ~
   mapview:
     index:
       all_categories: 全部分类
