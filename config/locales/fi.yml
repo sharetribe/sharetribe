@@ -177,14 +177,24 @@ fi:
         empty: "Sinulla ei ole lisälinkkejä valikossa"
       transactions:
         transactions: "Transaktiot"
-        conversation: "Viestiketju"
-        listing: "Ilmoitus"
-        status: "Tila"
-        sum: "Kokonaissumma"
-        started: "Aloitettu"
-        last_activity: "Viimeisin tapahtuma"
-        initiated_by: "Aloittaja"
-        other_party: "Toinen osapuoli"
+        headers:
+          conversation: "Viestiketju"
+          listing: "Ilmoitus"
+          status: "Tila"
+          sum: "Kokonaissumma"
+          started: "Aloitettu"
+          last_activity: "Viimeisin tapahtuma"
+          initiated_by: "Aloittaja"
+          other_party: "Toinen osapuoli"
+        status:
+          free: "Vapaa keskustelu"
+          pending: "Odottaa"
+          preauthorized: "Katevaraus tehty"
+          accepted: "Ilmoittajan hyväksymä"
+          rejected: "Ilmoittajan hylkäämä"
+          paid: "Maksettu"
+          confirmed: "Hyväksytty"
+          canceled: "Peruutettu"
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~

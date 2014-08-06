@@ -9,14 +9,14 @@
   %table#admin_transactions
     %thead
       %tr
-        %th=t("admin.communities.transactions.conversation")
-        %th=t("admin.communities.transactions.listing")
-        %th=t("admin.communities.transactions.status")
-        %th=t("admin.communities.transactions.sum")
-        %th=t("admin.communities.transactions.started")
-        %th=t("admin.communities.transactions.last_activity")
-        %th=t("admin.communities.transactions.initiated_by")
-        %th=t("admin.communities.transactions.other_party")
+        %th=t("admin.communities.transactions.headers.conversation")
+        %th=t("admin.communities.transactions.headers.listing")
+        %th=t("admin.communities.transactions.headers.status")
+        %th=t("admin.communities.transactions.headers.sum")
+        %th=t("admin.communities.transactions.headers.started")
+        %th=t("admin.communities.transactions.headers.last_activity")
+        %th=t("admin.communities.transactions.headers.initiated_by")
+        %th=t("admin.communities.transactions.headers.other_party")
 
     %tbody
       - @conversations.each do |conversation|

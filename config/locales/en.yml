@@ -177,14 +177,15 @@ en:
         empty: "You don't have any additional menu links"
       transactions:
         transactions: "Manage transactions"
-        conversation: "Conversation thread"
-        listing: "Listing"
-        status: "Status"
-        sum: "Sum"
-        started: "Started at"
-        last_activity: "Latest activity"
-        initiated_by: "Starter"
-        other_party: "Other party"
+        headers:
+          conversation: "Conversation thread"
+          listing: "Listing"
+          status: "Status"
+          sum: "Sum"
+          started: "Started at"
+          last_activity: "Latest activity"
+          initiated_by: "Starter"
+          other_party: "Other party"
         status:
           free: "Free conversation"
           pending: "Pending"
