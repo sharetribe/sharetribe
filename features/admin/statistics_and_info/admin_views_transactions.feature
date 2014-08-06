@@ -25,7 +25,21 @@ I want to see see all the transactions happening in my community
     And I should see 1 transaction with status "Pending"
     And I should see 1 transaction with status "Paid"
 
-  Scenario: Admin sorts transactions
+  Scenario: Admin sorts transactions by listing
+    When I sort by listing
+    Then I should see the transactions in ascending order by listing
+    When I sort by listing
+    Then I should see the transactions in descending order by listing
+
+  Scenario: Admin sorts transactions by sum
+
+  Scenario: Admin sorts transactions by start date
+
+  Scenario: Admin sorts transactions by latest activity
+
+  Scenario: Admin sorts transactions by starter
+
+  Scenario: Admin sorts transactions by other party
 
   Scenario: Admin follows link to conversation
 
