@@ -13,8 +13,8 @@
         %th=t("admin.communities.transactions.headers.listing")
         %th=t("admin.communities.transactions.headers.status")
         %th=t("admin.communities.transactions.headers.sum")
-        %th=t("admin.communities.transactions.headers.started")
-        %th=t("admin.communities.transactions.headers.last_activity")
+        %th=sort_link "started", t("admin.communities.transactions.headers.started")
+        %th=sort_link "last_activity", t("admin.communities.transactions.headers.last_activity")
         %th=t("admin.communities.transactions.headers.initiated_by")
         %th=t("admin.communities.transactions.headers.other_party")
 
