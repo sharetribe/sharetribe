@@ -51,6 +51,6 @@ class NumericFieldValue < CustomFieldValue
   end
 
   def self.search_with_listing_ids(with, ids)
-    NumericFieldValue.search(with: with.merge({listing_id: ids}))
+    NumericFieldValue.search(with: with.merge({listing_id: ids}), per_page: Listing::SPHINX_MAX_MATCHES)
   end
 end
