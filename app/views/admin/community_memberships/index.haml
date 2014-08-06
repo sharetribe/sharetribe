@@ -29,11 +29,11 @@
     %table#admin_members_list
       %thead
         %tr
-          %th.arrow-up= sort_link "name"
-          %th.arrow-down= sort_link "email"
-          %th.arrow-up= sort_link "join_date"
+          %th.arrow-up= sort_link "name", t("admin.communities.manage_members.name")
+          %th.arrow-down= sort_link "email", t("admin.communities.manage_members.email")
+          %th.arrow-up= sort_link "join_date", t("admin.communities.manage_members.join_date")
           - if @current_community.require_verification_to_post_listings
-            %th{:style => "text-align: center"}= sort_link "posting_allowed"
+            %th{:style => "text-align: center"}= sort_link "posting_allowed", t("admin.communities.manage_members.posting_allowed")
           %th= t("admin.communities.manage_members.admin")
           %th= t("admin.communities.manage_members.ban_user")
       %tbody

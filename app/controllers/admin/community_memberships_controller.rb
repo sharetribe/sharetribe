@@ -1,6 +1,4 @@
 class Admin::CommunityMembershipsController < ApplicationController
-  helper_method :member_sort_column, :member_sort_direction
-
   before_filter :ensure_is_admin
   skip_filter :dashboard_only
 
