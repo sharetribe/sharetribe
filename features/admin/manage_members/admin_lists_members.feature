@@ -1,3 +1,4 @@
+@javascript
 Feature: Admin lists members
 
   Background:
@@ -11,7 +12,6 @@ Feature: Admin lists members
     And "kassi_testperson1" has admin rights in community "test"
     And I am on the manage members admin page
 
-  @javascript
   Scenario: Admin views & sorts list of members
     Then I should see list of users with the following details:
       | Name          | Email               | Joined     | Posting allowed | Remove User |
@@ -43,13 +43,11 @@ Feature: Admin lists members
       | john doe      | test2@example.com   | 1 Mar 2013 |                 |             |
       | matti manager | manager@example.com | 1 Mar 2014 |                 |             |
 
-  @javascript
   Scenario: Admin views member count
     Given there are 50 users with name prefix "User" "Number"
     And I go to the manage members admin page
     Then I should see a range from 1 to 50 with total user count of 53
 
-  @javascript
   Scenario: Admin views multiple users with pagination
     Given there are 50 users with name prefix "User" "Number"
     And I go to the manage members admin page
@@ -59,7 +57,6 @@ Feature: Admin lists members
     Then I should see 3 users
     And the first user should be "matti manager"
 
-  @javascript
   Scenario: Admin verifies sellers
     Given only verified users can post listings in this community
     And I refresh the page
@@ -69,7 +66,6 @@ Feature: Admin lists members
     When I refresh the page
     Then I should see that "john doe" can post new listings
 
-  @javascript
   Scenario: Admin removes a user
     Given there is a listing with title "Sledgehammer" from "kassi_testperson1" with category "Items" and with transaction type "Requesting"
 
@@ -87,7 +83,6 @@ Feature: Admin lists members
      When I am on the home page
      Then I should not see "Sledgehammer"
 
-  @javascript
   Scenario: Admin promotes user to admin
     Then I should see that "manager" has admin rights in this community
     Then I should see that "john doe" has admin rights in this community
@@ -97,7 +92,6 @@ Feature: Admin lists members
     When I refresh the page
     Then I should see that "jane doe" has admin rights in this community
 
-  @javascript
   Scenario: Admin is not able to remove her own admin rights
     Then I should see that "jane doe" does not have admin rights in this community
     And I should see that I can remove admin rights of "jane doe"
