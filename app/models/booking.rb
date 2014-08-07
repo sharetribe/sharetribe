@@ -4,6 +4,9 @@ class Booking < ActiveRecord::Base
 
   attr_accessible :conversation_id, :end_on, :start_on
 
+  validates_date :start_on, on_or_after: :today
+  validates_date :end_on, on_or_after: :start_on
+
   def duration
     (end_on - start_on).to_i + 1
   end
