@@ -140,4 +140,14 @@ class ListingConversation < Conversation
       listing.price
     end
   end
+
+  def preauthorization_expire_at
+    preauthorization_expires = payment.preauthorization_expiration_days.days.from_now
+
+    if booking.present?
+      booking.end_on < preauthorization_expires ? booking.end_on : preauthorization_expires
+    else
+      preauthorization_expires
+    end
+  end
 end

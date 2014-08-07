@@ -112,6 +112,12 @@ FactoryGirl.define do
     updated_at DateTime.now
   end
 
+  factory :booking do
+    build_association(:listing_conversation, as: :conversation)
+    start_on 1.day.from_now
+    end_on 2.days.from_now
+  end
+
   factory :message do
     content "Test"
     build_association(:conversation)

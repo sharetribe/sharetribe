@@ -85,7 +85,7 @@ class TransactionProcess
   end
 
   after_transition(to: :preauthorized) do |conversation|
-    expire_at = expire_at(conversation)
+    expire_at = conversation.preauthorization_expire_at
     reminder_days_before = 1
     reminder_at = expire_at - reminder_days_before.day
     send_reminder = reminder_at > DateTime.now
@@ -110,15 +110,6 @@ class TransactionProcess
       BTLog.info("Submitted authorized payment #{transaction_id} to settlement")
     else
       BTLog.error("Could not submit authorized payment #{transaction_id} to settlement")
-    end
-  end
-
-  def self.expire_at(conversation)
-    booking = conversation.booking
-    if booking.present?
-      booking.end_on
-    else
-      conversation.payment.preauthorization_expiration_days.days.from_now
     end
   end
 end
