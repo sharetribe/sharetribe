@@ -106,10 +106,6 @@ class Conversation < ActiveRecord::Base
     block.call(:conversation)
   end
 
-  def status
-    :free
-  end
-
   def with(expected_type, &block)
     with_type do |own_type|
       if own_type == expected_type
