@@ -16,30 +16,25 @@
   font-weight: 500;
 }
 
+.sort-text-wrapper {
+  margin-right: 1.5em;
+}
+.sort-text {
+  float: left;
+}
 .sort-arrow {
-  position: relative;
-  &:after {
-    font-size: em(12);
-    position: absolute;
-    top: 0;
-    margin-left: lines(0.375);
-    display: inline;
-    content: "▲";
-  }
+  float:left;
+  font-size: em(12);
+  display: inline-block;
+  padding-left: 0.4em;
 }
 
 .sort-arrow-asc {
   @extend .sort-arrow;
-  &:after {
-    content: "▲";
-  }
 }
 
 .sort-arrow-desc {
   @extend .sort-arrow;
-  &:after {
-    content: "▼";
-  }
 }
 
 textarea.text_area_code {

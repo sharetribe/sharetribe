@@ -948,11 +948,8 @@ module ApplicationHelper
     end
   end
 
-  def sort_link(column, title)
-    #default direction is always ascending when sort link is clicked the first time
-    direction = params[:sort].eql?(column) && params[:direction].eql?("asc") ? "desc" : "asc"
-    css_class = params[:sort].eql?(column) ? "sort-arrow-#{direction}" : nil
-    link_to title, {:sort => column, :direction => direction, :page => (params[:page] || 1)}, {:class => css_class}
+  def sort_link_direction(column)
+    params[:sort].eql?(column) && params[:direction].eql?("asc") ? "desc" : "asc"
   end
 
   # Give an array of translation keys you need in JavaScript. The keys will be loaded and ready to be used in JS
