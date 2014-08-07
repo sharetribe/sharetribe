@@ -50,12 +50,28 @@ end
 
 Then(/^I should see the transactions in ascending order by "(.*?)"$/) do |column|
   col_index = page.all("thead > tr > th").find_index { |elem| elem.text.eql?(to_title(column))}
-  col_values = page.all("tbody > tr").collect { |row| row.all("td")[col_index].text }
+  col_values = page.all("tbody > tr").map { |row| row.all("td")[col_index].text }
   col_values.should eql col_values.sort
 end
 
 Then(/^I should see the transactions in descending order by "(.*?)"$/) do |column|
   col_index = page.all("thead > tr > th").find_index { |elem| elem.text.eql?(to_title(column))}
-  col_values = page.all("tbody > tr").collect { |row| row.all("td")[col_index].text }
+  col_values = page.all("tbody > tr").map { |row| row.all("td")[col_index].text }
+  col_values.should eql col_values.sort.reverse
+end
+
+Then(/^I should see the transactions in ascending time order by "(.*?)"$/) do |column|
+  col_index = page.all("thead > tr > th").find_index { |elem| elem.text.eql?(to_title(column))}
+  col_values = page.all("tbody > tr")
+    .map { |row| row.all("td")[col_index].text }
+    .map { |value| DateTime.parse(value) }
+  col_values.should eql col_values.sort
+end
+
+Then(/^I should see the transactions in descending time order by "(.*?)"$/) do |column|
+  col_index = page.all("thead > tr > th").find_index { |elem| elem.text.eql?(to_title(column))}
+  col_values = page.all("tbody > tr")
+    .map { |row| row.all("td")[col_index].text }
+    .map { |value| DateTime.parse(value) }
   col_values.should eql col_values.sort.reverse
 end

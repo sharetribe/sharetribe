@@ -30,16 +30,18 @@ I want to see see all the transactions happening in my community
     When I sort by "listing"
     Then I should see the transactions in descending order by "listing"
 
-  Scenario: Admin sorts transactions by sum
-
   Scenario: Admin sorts transactions by start date
+    When I sort by "started at"
+    Then I should see the transactions in ascending time order by "started at"
+    When I sort by "started at"
+    Then I should see the transactions in descending time order by "started at"
 
   Scenario: Admin sorts transactions by latest activity
+    When I sort by "latest activity"
+    Then I should see the transactions in ascending time order by "latest activity"
+    When I sort by "latest activity"
+    Then I should see the transactions in descending time order by "latest activity"
 
-  Scenario: Admin sorts transactions by starter
 
-  Scenario: Admin sorts transactions by other party
-
-  Scenario: Admin follows link to conversation
 
 
