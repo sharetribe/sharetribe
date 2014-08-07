@@ -25,8 +25,8 @@
           %td=link_to(conversation.listing.title, conversation.listing)
           %td=t("admin.communities.transactions.status.#{conversation.status}")
           %td=conversation.payment ? humanized_money_with_symbol(conversation.payment.total_sum) : ""
-          %td=l(conversation.created_at, format: :short)
-          %td=l(conversation.last_message_at, format: :short)
+          %td=l(conversation.created_at, format: :short_date)
+          %td=l(conversation.last_message_at, format: :short_date)
           %td=link_to(conversation.starter.full_name, conversation.starter)
 
           -other_party=conversation.other_party(conversation.starter)
