@@ -17,18 +17,10 @@ class Admin::CommunityTransactionsController < ApplicationController
     case params[:sort]
     when "listing"
       "listings.title"
-    # when "status"
-    #   "listings.current_state"
-    # when "sum"
-    #   "listing.payment.total_sum"
     when "started"
       "created_at"
     when "last_activity"
       "last_message_at"
-    # when "initiated_by"
-    #   "participations.starter."
-    # when "other_party"
-    #   "participations.starter."
     else
       "last_message_at"
     end
