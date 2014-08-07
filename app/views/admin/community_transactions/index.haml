@@ -11,7 +11,6 @@
   %table#admin_transactions
     %thead
       %tr
-        %th=t("admin.communities.transactions.headers.conversation")
         %th=sort_link "listing", t("admin.communities.transactions.headers.listing")
         %th=t("admin.communities.transactions.headers.status")
         %th=t("admin.communities.transactions.headers.sum")
@@ -23,7 +22,6 @@
     %tbody
       - @conversations.each do |conversation|
         %tr
-          %td=truncate(conversation.title, length: 15)
           %td=link_to(conversation.listing.title, conversation.listing)
           %td=t("admin.communities.transactions.status.#{conversation.status}")
           %td=conversation.payment ? humanized_money_with_symbol(conversation.payment.total_sum) : ""
