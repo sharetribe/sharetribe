@@ -407,6 +407,7 @@ da-DK:
       item_request_message_form_title: ~
       message: ~
       message_to: ~
+      optional_message_to: ~
       rideshare_offer_message_form_title: ~
       rideshare_request_message_form_title: ~
       send_message: ~
@@ -431,6 +432,7 @@ da-DK:
       price: ~
       sum: ~
       price_excludes_vat: ~
+      total: ~
     status:
       cancel_payed_transaction: ~
       feedback_given: ~
@@ -506,85 +508,6 @@ da-DK:
       cvv: ~
       credit_card_expiration_date: ~
       confirm_payment: ~
-  communities:
-    map_bubble:
-      view_tribe: ~
-    email_confirmation_pending:
-      confirmation_pending: ~
-    index:
-      find_your_local_tribe: ~
-      or_start_your_own: ~
-      start_your_own_tribe_link: ~
-    select_pricing_plan:
-      select_your_plan: ~
-      pick_one_of_the_options_below: ~
-      create_for_free: ~
-      contact_us: ~
-      free_plan: ~
-      max_members: ~
-      premium_plan: ~
-      care_free_user_support: ~
-      create_your_tribe: ~
-      professional_plan: ~
-      unlimited_members: ~
-      intranet_integration: ~
-      no_charge: ~
-      euros_per_month_premium: ~
-      custom_domain: ~
-      you_can_change_and_cancel: ~
-      we_help_you_get_started: ~
-      discounts_available_for_non_profits: ~
-    select_tribe_category_form:
-      what_kind_of_tribe_do_you_want_to_create: ~
-      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: ~
-      company: ~
-      university: ~
-      town: ~
-      congregation: ~
-      association: ~
-      neighborhood: ~
-      apartment_building: ~
-      other: ~
-    new_tribe_form:
-      create_a_tribe_in_a_minute: ~
-      welcome_now_create_your_tribe: ~
-      name_of_your_tribe: ~
-      web_address_of_your_tribe: ~
-      slogan_of_your_tribe: ~
-      describe_your_tribe: ~
-      create_your_tribe: ~
-      domain_invalid: ~
-      domain_taken: ~
-      address: ~
-      select_main_language_of_your_tribe: ~
-      language: ~
-      restrict_tribe_to_invited_people: ~
-    signup_form:
-      create_an_account: ~
-      to_create_a_tribe_you_must_first_create_sharetribe_account: ~
-      log_in_with_your_existing_account: ~
-      your_email: ~
-      your_university_email: ~
-      your_company_email: ~
-      you_need_to_confirm: ~
-      pick_username: ~
-      your_given_name: ~
-      your_family_name: ~
-      your_password: ~
-      confirm_your_password: ~
-      email_in_use_message: ~
-      invalid_email_ending_message: ~
-      log_in_here: ~
-      existing_community_with_this_email: ~
-      here: ~
-      for_company: ~
-      for_university: ~
-      for_town: ~
-      for_congregation: ~
-      for_association: ~
-      for_neighborhood: ~
-      for_apartment_building: ~
-      for_other: ~
   community_memberships:
     access_denied:
       access_denied: ~
@@ -761,32 +684,13 @@ da-DK:
       one_day_left: ~
       click_here_to_reply: ~
     welcome_email:
-      welcome_email_footer_text: ~
-      settings_link_text: ~
-      subject: ~
-      welcome_some_tips: ~
+      welcome_email_subject: ~
+      welcome_to_marketplace: ~
+      love_marketplace_crew: ~
       p_s_did_you_know: ~
       click_here_link_text: ~
-      update_your_profile: ~
-      update_your_profile_link_text: ~
-      add_something_you_could_offer: ~
-      add_offer_link_text: ~
-      is_there_something_you_need: ~
-      add_request_link_text: ~
-      invite_your_friends_invite_only: ~
-      invite_your_friends: ~
-      invite_link_text: ~
-      member_list_link_text: ~
-      go_explore: ~
-      love_team: ~
-      congrats_for_creating_community: ~
-      you_have_just_created_community: ~
-      you_now_have_admin_rights: ~
-      edit_community_details_link_text: ~
-      add_content: ~
-      spread_the_word: ~
-      spread_the_word_invite_only: ~
-      have_fun: ~
+      welcome_email_footer_text: ~
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -1384,6 +1288,13 @@ da-DK:
       listing_created_at: ~
     verification_required:
       verification_required: ~
+  listing_conversations:
+    preauthorize:
+      details: ~
+      by: ~
+      payment: ~
+      exp: ~
+      you_will_be_charged: ~
   mapview:
     index:
       all_categories: ~

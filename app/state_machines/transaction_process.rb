@@ -28,21 +28,8 @@ class TransactionProcess
     conversation.update_is_read(accepter)
     Delayed::Job.enqueue(ConversationStatusChangedJob.new(conversation.id, accepter.id, current_community.id))
 
-    # Deprecated, non-payment requests are not coming here anymore
-    #
-    # Suggestion how to remove this:
-    # 1) Keep it here for a while, since there might be old conversations that have pending or accepted
-    # status even though they do not have payments
-    # 2) Migrate all conversations that don't have payments: pending -> free
-    if conversation.requires_payment?(current_community)
-      [3, 10].each do |send_interval|
-        Delayed::Job.enqueue(PaymentReminderJob.new(conversation.id, conversation.payment.payer.id, current_community.id), :priority => 10, :run_at => send_interval.days.from_now)
-      end
-    else
-      # Set up automatic confirmation here IF the listing is old and doesn't have payments.
-      # This branch should be removed
-      conversation.update_attributes(automatic_confirmation_after_days: current_community.automatic_confirmation_after_days)
-      ConfirmConversation.new(conversation, accepter, current_community).activate_automatic_confirmation!
+    [3, 10].each do |send_interval|
+      Delayed::Job.enqueue(PaymentReminderJob.new(conversation.id, conversation.payment.payer.id, current_community.id), :priority => 10, :run_at => send_interval.days.from_now)
     end
   end
 

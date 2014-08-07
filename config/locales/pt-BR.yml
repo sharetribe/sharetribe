@@ -11,7 +11,7 @@ pt-BR:
         save_order_successful: "Ordem das categorias salva com sucesso"
         save_order_error: ~
       new:
-        new_listing_category: ~
+        new_listing_category: "Nova categoria de anúncios"
       form:
         category_name:
           category_title: "Titulo da categoria"
@@ -30,8 +30,8 @@ pt-BR:
         warning_remove_effects: ~
         select_new_category: ~
         buttons:
-          remove: ~
-          cancel: ~
+          remove: Apagar
+          cancel: Anular
     communities:
       edit_details:
         community_details: "Detalhes da comunidade"
@@ -79,7 +79,7 @@ pt-BR:
         custom_color2_instructions_text: "Você pode alterar a segunda cor da interface do usuário dessa comunidade, inserindo um valor de cor hex."
         default_browse_view: "Visualização navegação padrão"
         default_browse_view_instructions_text: "Visualização de navegação padrão é usado na página inicial para definir a forma como as listas são exibidas por padrão."
-        grid: Grid
+        grid: Grilha
         list: Lista
         map: Mapa
         name_display_type: "Tipo de exibição do nome usuário."
@@ -137,7 +137,7 @@ pt-BR:
         ban_user_confirmation: "Deseja remove o usuário da comunidade e os impedir de acessar o site novamente com esta conta. Tem certeza de que deseja continuar?"
       integrations:
         integrations: Integrações
-        twitter_handle: ~
+        twitter_handle: "Nome Twitter"
         twitter_handle_info_text: ~
         twitter_handle_placeholder: usuário
         invalid_twitter_handle: ~
@@ -170,14 +170,14 @@ pt-BR:
         master_merchant_id: ~
     custom_fields:
       edit:
-        edit_listing_field: ~
+        edit_listing_field: "Modificar anúncio '%{field_name}'"
       edit_price:
-        edit_price_field: ~
+        edit_price_field: "Modificar campo 'Preço'"
         show_price_filter_homepage: ~
         price_min: "Preço mínimo"
         price_max: "Preço máximo"
       edit_location:
-        edit_location_field: ~
+        edit_location_field: "Modificar campo 'Lugar'"
         this_field_is_required: "Esse campo é obrigatório"
       form:
         field_required:
@@ -190,25 +190,25 @@ pt-BR:
         remove_field_confirmation: ~
         cancel: anular
         save: Salvar
-        field_title: ~
-        field_type: ~
+        field_title: Nome
+        field_type: "Especificar tipo de campo"
         categories: ~
         no_custom_listing_fields: ~
         options: Opção
         add_option: "+ Adicionar opção"
-        saving_order: ~
-        save_order_successful: ~
+        saving_order: Salvar
+        save_order_successful: Salvo
         save_order_error: ~
-        select_one: ~
+        select_one: "Selecionar tipo"
         continue: Continua
         minimum_value: Mínimo
         maximum_value: Máximo
         allow_decimals: "Permitir decimais"
       new:
-        new_listing_field: ~
+        new_listing_field: "Novo anúncio"
       field_types:
         text: Texto
-        number: ~
+        number: Número
         dropdown: "Lista de opções"
         checkbox_group: ~
         date: Data
@@ -288,7 +288,7 @@ pt-BR:
     fields_that_are_mandatory: "Campos marcados com asterisco (*) são obrigatórios."
     or: ou
     password: Senha
-    service_name: ~
+    service_name: "%{service_name}"
     share_types:
       request: requisição
       offer: oferta
@@ -309,7 +309,7 @@ pt-BR:
       favor: Serviços
       rideshare: Carona
       housing: Lugares
-      tools: ~
+      tools: Utensílios
       sports: esporte
       music: Música
       books: "livros e revistas"
@@ -406,7 +406,8 @@ pt-BR:
       housing_request_rent_message_form_title: "Alugar %{listing} para %{person}"
       item_request_message_form_title: "Oferecer item para %{person}"
       message: Mensagem
-      message_to: ~
+      message_to: "Mensagem para %{author_name}"
+      optional_message_to: ~
       rideshare_offer_message_form_title: "Pedir carona para %{person}"
       rideshare_request_message_form_title: "Oferecer carona para %{person}"
       send_message: "Enviar mensagem"
@@ -431,6 +432,7 @@ pt-BR:
       price: "Preço: %{price}"
       sum: "Soma: %{sum}"
       price_excludes_vat: "(exclui VAT)"
+      total: ~
     status:
       cancel_payed_transaction: Cancelar
       feedback_given: "Feedback enviado"
@@ -463,7 +465,7 @@ pt-BR:
       reject_request: "Não agora"
       accept_preauthorized_offer: "Aceitar oferta"
       accept_preauthorized_request: "Aceitar o pedido"
-      reject_preauthorized_offer: ~
+      reject_preauthorized_offer: "Não agora"
       reject_preauthorized_request: ~
       confirm: "marca completada"
       cancel: "Não aconteceu"
@@ -494,97 +496,18 @@ pt-BR:
       address_locality: Cidade
       address_region: Estado
       date_of_birth: "Data de nascimento"
-      ssn: ~
+      ssn: "Numero de Identidade"
       routing_number: ~
       account_number: "Número da Conta"
   braintree_payments:
     edit:
       new_credit_card_payment: "Novo cartão de crédito"
-      payment_receiver: ~
+      payment_receiver: "Destinatário do pagamento :"
       cardholder_name: "Nome et sobrenome do dono da carta bancária"
       credit_card_number: "Número da carta bancária"
       cvv: ~
-      credit_card_expiration_date: ~
+      credit_card_expiration_date: Validade
       confirm_payment: "Confirmar pagamento"
-  communities:
-    map_bubble:
-      view_tribe: "Ver a tribo"
-    email_confirmation_pending:
-      confirmation_pending: "Obrigado por confirmar o seu email"
-    index:
-      find_your_local_tribe: "Encontrar uma tribo perto de você"
-      or_start_your_own: "...ou %{start_your_own_tribe_link}"
-      start_your_own_tribe_link: "crie a sua !"
-    select_pricing_plan:
-      select_your_plan: "Selecione seu plano"
-      pick_one_of_the_options_below: "Selecionar uma das opções abaixo."
-      create_for_free: "Crie de graça"
-      contact_us: Contato
-      free_plan: "Plano gratuito"
-      max_members: "Até %{number} membros"
-      premium_plan: "Plano premium"
-      care_free_user_support: "Suporte usuário"
-      create_your_tribe: "Crie sua tribo"
-      professional_plan: "Oferta pro"
-      unlimited_members: "Número ilimitado de membros"
-      intranet_integration: "Integração ao serviço intranet"
-      no_charge: "De graça"
-      euros_per_month_premium: "%{price} euros por mês"
-      custom_domain: "Domínio personalizado"
-      you_can_change_and_cancel: "Você pode anular ou modificar o tipo de serviço em qualquer momento."
-      we_help_you_get_started: ~
-      discounts_available_for_non_profits: "Promoção de 50% para os grupos sem interesse lucrativo."
-    select_tribe_category_form:
-      what_kind_of_tribe_do_you_want_to_create: "Qual tipo de tribo você deseja criar ?"
-      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Para começar, diga qual tipo de comunidade você representa."
-      company: Empresa
-      university: Universidade
-      town: Cidade
-      congregation: Congregação
-      association: Associação
-      neighborhood: Vizinhança
-      apartment_building: "Imóvel, lote"
-      other: Outro
-    new_tribe_form:
-      create_a_tribe_in_a_minute: "Criar uma tribo rapidamente"
-      welcome_now_create_your_tribe: "Bem-vindo, %{name} ! Você já pode criar a sua tribo."
-      name_of_your_tribe: "Nome da sua tribo"
-      web_address_of_your_tribe: "Endereço da Web da sua tribo"
-      slogan_of_your_tribe: "Slogan da sua tribo"
-      describe_your_tribe: "Slogan da sua tribo"
-      create_your_tribe: "Crie sua tribo!"
-      domain_invalid: ~
-      domain_taken: "Essa tribo já existe. Você deve escolher um outro nome."
-      address: "Localização da sua tribo"
-      select_main_language_of_your_tribe: "Selecione o idioma principal da sua tribo"
-      language: Idioma
-      restrict_tribe_to_invited_people: "As pessoas precisam de um convite para participar desta comunidade"
-    signup_form:
-      create_an_account: "Crie uma conta para si mesmo"
-      to_create_a_tribe_you_must_first_create_sharetribe_account: "Você pode criar uma nova conta Sharetribe logo abaixo ou"
-      log_in_with_your_existing_account: "efetue login em sua conta existente"
-      your_email: "Seu endereço de email"
-      your_university_email: "Seu endereço eletrônico universitário"
-      your_company_email: "Seu email profissional"
-      you_need_to_confirm: "Você pode criar uma tribo para sua %{tribe_type}, para isso confirme o seu endereço eletrônico %{tribe_type}."
-      pick_username: "Escolha um usuário"
-      your_given_name: "Seu nome"
-      your_family_name: "Seu sobrenome"
-      your_password: "Escolha uma senha"
-      confirm_your_password: "Confirme sua senha"
-      email_in_use_message: "Já existe uma conta em %{service_name} com este endereço de e-mail. Se você já tiver uma conta, você pode fazer login usando o link acima."
-      invalid_email_ending_message: ~
-      log_in_here: "login aqui"
-      existing_community_with_this_email: ~
-      here: aqui
-      for_company: empresa
-      for_university: universidade
-      for_town: cidade
-      for_congregation: congregação
-      for_association: associação
-      for_neighborhood: vizinhança
-      for_apartment_building: "Imóvel, lote"
-      for_other: outro
   community_memberships:
     access_denied:
       access_denied: "Acesso negado"
@@ -645,11 +568,11 @@ pt-BR:
       subject: ~
       we_have_marked_request_as_confirmed: ~
       giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
+      give_feedback_to: "Dar uma opinião sobre %{other_party_given_name}"
     escrow_canceled:
       subject: "Pagamento cancelado"
       has_marked_request_as_canceled: ~
-      if_this_was_error: ~
+      if_this_was_error: "Se você acha que foi um erro, %{please_contant_admin_link}."
       please_contant_admin_link: "entre em contato com o administrador"
     confirmation_instructions:
       confirmation_instructions_signature: "Cordialmente <br/> A équipe de %{service_name}"
@@ -756,42 +679,23 @@ pt-BR:
       you_have_days_to_accept: ~
       click_here_to_reply: "Clique aqui para responder ao pedido"
     transaction_preauthorized_reminder:
-      subject: ~
-      remember_to_accept: ~
+      subject: "Não esqueça de aceitar o pedido de %{requester} sobre o anúncio %{listing_title}"
+      remember_to_accept: "Não esqueça de aceitar o pedido de %{requester} em relação ao anúncio %{listing_title} para receber o pagamento. %{requester} já pagou por esse anúncio. "
       one_day_left: ~
       click_here_to_reply: "Clique aqui para responder ao pedido"
     welcome_email:
-      welcome_email_footer_text: "Que tipo de e-mails que você quer receber de %{service_name} %{settings_link}"
-      settings_link_text: "Verifique suas configurações"
-      subject: "Bem-vindo à tribo %{community} - veja as dicas abaixo para começar "
-      welcome_some_tips: "Bem-vindo à tribo%{community_link} ! Veja as dicas abaixo para começar "
+      welcome_email_subject: ~
+      welcome_to_marketplace: ~
+      love_marketplace_crew: ~
       p_s_did_you_know: "P.S. Sabia que você pode criar uma praça de mercado como esta para todas comunidades ou projetos que você tem ? %{click_here_link} para saber mais!"
       click_here_link_text: "Clique aqui"
-      update_your_profile: ~
-      update_your_profile_link_text: "Atualize o seu perfil cliquando aqui "
-      add_something_you_could_offer: ~
-      add_offer_link_text: ~
-      is_there_something_you_need: ~
-      add_request_link_text: "Crie un novo pedido"
-      invite_your_friends_invite_only: ~
-      invite_your_friends: ~
-      invite_link_text: "usando o nosso formulário de convidar fácil"
-      member_list_link_text: "Olhe a lista de membros"
-      go_explore: ~
-      love_team: ~
-      congrats_for_creating_community: "Você criou a tribo %{community} - veja as dicas abaixo para começar "
-      you_have_just_created_community: "Você criou a tribo %{community_link} ! Veja as dicas abaixo para começar "
-      you_now_have_admin_rights: ~
-      edit_community_details_link_text: "Editar detalhes da comunidade aqui"
-      add_content: ~
-      spread_the_word: ~
-      spread_the_word_invite_only: ~
-      have_fun: ~
+      welcome_email_footer_text: "Que tipo de e-mails que você quer receber de %{service_name} %{settings_link}"
+      settings_link_text: "Verifique suas configurações"
     new_listing_by_followed_person:
-      subject: ~
+      subject: "%{author_name} publicou um novo anúncio no(a) %{community}"
       has_posted_a_new_listing: ~
       you_are_receiving_this_because: ~
-      view_listing: ~
+      view_listing: "Ver anúncio"
   error_messages:
     listings:
       departure_time: "Hora de partida deve estar entre a hora atual e um ano a frente a contar de agora."
@@ -818,7 +722,7 @@ pt-BR:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript está desabilitado no seu navegador"
       kassi_does_not_currently_work_without_javascript: "%{service_name} não funciona corretamente sem javascript. Tente habilitar o javascript nas configurações de seu navegador e recarregar a pagina novamente."
-      kassi_does_not_currently_work_without_javascript_dashboard: ~
+      kassi_does_not_currently_work_without_javascript_dashboard: "Infelizmente, %{service_name} não funciona sem Javascript. Ative Javascript no seu navegador e recarregue a página. Se você quiser utilizar %{service_name} sem Javascript, %{contact_us}."
       contact_us: Contato
       send_feedback: "Enviar feedback"
       your_feedback_to_admins: "Seu feedback para os administradores"
@@ -947,7 +851,7 @@ pt-BR:
       add_as_many_emails_as_you_want: "Adicione os endereços de e-mail das pessoas que você está convidando para o campo abaixo. Se você adicionar vários endereços de e-mail, separe-os com vírgula."
       invitation_emails_field_placeholder: "convidado1@exemplo.com.br, convidado2@exemplo.com.br, ......"
       invitation_message_field_placeholder: "Entrei para esta comunidade incrível. Você deve também!"
-      errors_in_emails: ~
+      errors_in_emails: "Verifique que os e-mails que você adiciona são validos. Se você adicionar vários e-mails, verifique se eles são separados pour uma vírgula."
     list_item:
       review: opinião
       reviews: resenhas
@@ -976,14 +880,14 @@ pt-BR:
       map: "Exibir mapa"
       list: "Mostrar lista"
       map_button: Mapa
-      grid_button: Grid
+      grid_button: Grilha
       list_button: Lista
       all_listing_types: "Listar todos tipos"
       all_categories: "Todas categorias"
   infos:
     about:
       default_about_text_title: "O que é Sharetribe?"
-      default_about_text: "Este mercado é alimentado por plataforma Sharetribe. Com Sharetribe você pode facilmente criar o seu próprio site mercado. É gratuito e leva apenas um minuto. %{click_here_link} para saber mais!"
+      default_about_text: "Este mercado é alimentado pela plataforma Sharetribe. Com Sharetribe você pode facilmente criar o seu próprio site de mercado. É gratuito e leva apenas um minuto. %{click_here_link} para saber mais!"
       click_here_link_text: "Clique aqui"
   layouts:
     no_tribe:
@@ -1004,7 +908,7 @@ pt-BR:
       feedback_forum: "fórum de respostas"
       feedback_handle: Reposta
       give_feedback: Contato
-      keywords: ~
+      keywords: "%{service_name}, Kassi, compartilhar recursos em uma comunidade, emprestar itens, serviços, favor, item rideshare, espaço, car pooling, habitação, alojamento, ajuda, oferta, solicitação, aluguel, troca, compra, venda, compra, venda, doação, dê, ecológico, comunidade, comunidade on-line, locais"
       meta_description: "Sharetribe é um serviço que permite você criar facilmente um mercado online e permitir sua comunidade vender, emprestar, trocar e compartilhar coisas e serviços."
       or_check_our: "...ou verifique nosso"
       send_feedback_to_admin: "Enviar feedback"
@@ -1013,7 +917,7 @@ pt-BR:
       connect: Registar
       invite_your_friends: "Convide amigos!"
       invite_your_neighbors: "Convidar os vizinhos!"
-      invite_your_friends_description: ~
+      invite_your_friends_description: "Quanto mais pessoas no %{service_name}, mais o serviço é útil e eficaz."
       invite_your_friends_invite_only_description: "As pessoas não podem participar desta comunidade, a menos que eles são convidados."
       join_without_facebook: "...ou %{join_without_facebook_link}"
       join_without_facebook_link: "inscreva-se sem Facebook"
@@ -1110,7 +1014,7 @@ pt-BR:
       error_in_payment: "Erro no pagamento. Se você não completar o pagamento, no entanto, tente novamente. Se você fez, por favor, envie-nos um feedback."
       cannot_receive_payment: "A outra parte não pode receber o pagamento devido algum erro. Entre em contato com os administradores para esclarecer a situação"
       payment_waiting_for_later_accomplishment: "Quando você pagou, vamos notificar o vendedor e você receberá um recibo no e-mail"
-      password_recovery_sent: "Enviado para seu e-mail instruções para mudança de senha."
+      password_recovery_sent: "As instruções para a mudança de senha foram enviadas para seu e-mail"
       person_activated: "Usuário ativado"
       person_deactivated: "Usuário desativado"
       person_updated_successfully: "Informações atualizadas"
@@ -1199,7 +1103,7 @@ pt-BR:
       edit_listing: Editar
       reopen_listing: Reabrir
       move_to_top: "Mover para o início da página inicial"
-      show_in_updates_email: ~
+      show_in_updates_email: "Mostrar no próximo e-mail atualização comunidade"
       show_in_updates_email_loading: Carregando...
       show_in_updates_email_error: ~
       show_in_updates_email_success: ~
@@ -1249,7 +1153,7 @@ pt-BR:
         location: Local
       price:
         price: Preço
-        per: Pelo
+        per: por
         mass: "unidade, kg, l, m²..."
         time: "hora, dia, mês, ..."
         long_time: "semana, mês, ..."
@@ -1260,7 +1164,7 @@ pt-BR:
         location: Local
         origin: Origem
       send_button:
-        save_listing: "Gravar listagem"
+        save_listing: "Publicar anúncio"
       share_type:
         select: Selecionar
         borrow: Empréstimo
@@ -1318,7 +1222,7 @@ pt-BR:
       rideshare: Carona
       search_verb: Buscar
       you_have_something_others_do_not: "Tem algo a oferecer?"
-      feed_title: ~
+      feed_title: "%{listing_type} de %{community_name} %{service_name} %{optional_category}"
     left_panel_link:
       borrows: Empréstimo
       buys: Comprar
@@ -1340,11 +1244,11 @@ pt-BR:
       listing: listando
       selected_category: "Categoria: %{category}"
       selected_subcategory: "Sub-categoria: %{subcategory}"
-      selected_transaction_type: ~
+      selected_transaction_type: "Tipo de anúncio : %{transaction_type}"
       select_category: "Selecione uma categoria"
-      select_subcategory: ~
-      select_transaction_type: ~
-      you_need_to_fill_payout_details_before_accepting: ~
+      select_subcategory: "Selecionar uma sub-categoria"
+      select_transaction_type: "Selecionar tipo de anúncio "
+      you_need_to_fill_payout_details_before_accepting: "Você precisa preencher os detalhes de pagamento antes de aceitar o pedido e receber o pagamento. Vá para %{payment_settings_link} para preencher os detalhes."
       payment_settings_link: "configurações de pagamento"
     please_comment: Comentar
     reply_link:
@@ -1384,6 +1288,13 @@ pt-BR:
       listing_created_at: "Listagem criada"
     verification_required:
       verification_required: "Verificação necessária"
+  listing_conversations:
+    preauthorize:
+      details: ~
+      by: ~
+      payment: ~
+      exp: ~
+      you_will_be_charged: ~
   mapview:
     index:
       all_categories: "Todas categorias"
@@ -1445,13 +1356,13 @@ pt-BR:
         terms_link_text: ~
   people:
     index:
-      loading_more_members: ~
+      loading_more_members: Carregando
       meet_the_people: "Descobrir outros membros"
-      you_are_the_only_member: ~
-      here_are_the_members: ~
-      wanna_see_more_folks: ~
+      you_are_the_only_member: "Você é o único membro da tribo %{community_name}."
+      here_are_the_members: "Aqui estão os %{count} membros da tribo %{community_name}."
+      wanna_see_more_folks: "Você quer ver mais pessoas aqui ?"
       invite_people_you_know: "Convide as pessoas que você conhece!"
-      there_are_x_members: ~
+      there_are_x_members: "Existe(m) %{count} membro(s) na tribo %{community_name}."
       to_see_the_list_log_in: "Para ver a lista completa dos membros, você deve %{log_in_link}."
       log_in_link: entrar
     edit_links:
@@ -1462,8 +1373,8 @@ pt-BR:
       help_captcha_title: "Você é um humano?"
       help_invitation_code_title: "Você precisa de um convite para se juntar a"
       terms_title: "%{service_name} termos de uso"
-      trustcloud_description_title: ~
-      trustcloud_description_text: ~
+      trustcloud_description_title: TrustCloud
+      trustcloud_description_text: "<p>TrustCloud é um serviço que ajuda a quantificar a confiança em uma pessoa através difervos sites. Ele dá um score (de 1 à 1000) que é baseado na atividade on line de uma pessoa. Esse score aumenta por exemplo se você tiver bons comentários no eBay ou muitos amigos no Facebook. Você pode clicar no mapa para saber mais. </p><p>TrustCloud é utilizado para verificar se alguém é realmente quem ele diz que é. </p><p> Você pode pedir seu TrustCard no <a href='https://trustcloud.com/claim'> e se inscrever no TrustCloud</a> com o mesmo e-mail %{service_name}. Não é obrigatório, mas recomendado, pois isso vai aumentar a sua credibilidade na comunidade. </p><p> No momento, uma ação %{service_name} não afeta o seu TrustScore, mas nós vamos tornar isso possível em breve. </p>"
       invite_only_help_text: "Selecione esta opção se você quiser que os novos membros podem participar se forem convidados por um membro existente da tribo."
       invite_only_help_text_title: "Convite para uma tribo"
     inactive_notification:
@@ -1477,6 +1388,9 @@ pt-BR:
       email_is_in_use: "O e-mail já está em uso."
       email_is_in_use_or_not_allowed: "Esse endereço eletrônico não foi aceito pela tribo ou já está sendo utilizado. Por favor utilize um endereço associado à tribo (ver instruções abaixo). Se você não conseguir se conectar entre em contato conosco."
       email_not_allowed: ~
+      email_restriction_instructions:
+        one: "Essa tribo é reservada à %{community_name}. Para entrar, você deve ter um e-mail do tipo %{allowed_emails}."
+        other: "Essa tribo é reservada à %{community_name}. Para entrar, você deve ter um e-mail autorizado."
       enter_captcha: "Eu sou humano:"
       family_name: Sobrenome
       given_name: Nome
@@ -1556,7 +1470,7 @@ pt-BR:
       no_followed_people: ~
     follow_button:
       following: ~
-      follow: ~
+      follow: Seguir
       unfollow: ~
   search:
     show:
@@ -1574,16 +1488,16 @@ pt-BR:
       i_forgot_my_password: "Nome de usuário ou senha esquecida"
       login: Login
       login_to_kassi: "Logar em %{service_name}"
-      connect_your_facebook_to_kassi: ~
+      connect_your_facebook_to_kassi: "Associar a sua conta Facebook à %{service_name}"
       facebook_account: "Conta Facebook :"
       log_in_to_link_account: "Se você já tem uma conta %{service_name}, faça o login para vinculá-lo com a sua conta do Facebook."
-      you_can_also_create_new_account: ~
+      you_can_also_create_new_account: "Si você não tem uma conta %{service_name}, %{accont_creation_link} para criar uma à partir da sua conta Facebook."
       account_creation_link_text: "clique aqui"
-      cancle_facebook_connect: ~
+      cancle_facebook_connect: "Se você não quiser associar essa conta, você pode %{cancel_link}."
       facebook_cancel_link_text: anular
       log_in_with_your_facebook_account: "Logar com o Facebook"
       or_sign_up_with_your_username: "...ou com seu nome de usuário ou e-mail"
-      we_will_not_post_without_asking_you: ~
+      we_will_not_post_without_asking_you: "Nós não publicaremos no Facebook sem a sua permissão."
     password_forgotten:
       email: Email
       password_recovery_instructions: "Digite o seu endereço de e-mail e receberá o seu nome de usuário e instruções sobre como alterar sua senha."
@@ -1600,7 +1514,7 @@ pt-BR:
       account_confirmation_instructions_dashboard: "Você receberá um e-mail com um link que você precisa clicar para confirmar o endereço de email que você digitou."
   settings:
     account:
-      change: Mudança
+      change: Modificar
       confirm_new_password: "Confirmar nova senha"
       delete_account: "Deletar conta"
       delete_account_button: "Excluir permanentemente minha conta"
@@ -1619,7 +1533,7 @@ pt-BR:
         receive_notifications_title_desktop: "Receber notificações"
         receive_notifications_title_mobile: "Receber notificações"
         receive_notifications_new_title_mobile: "Receber notificações"
-        add_new_with_plus: "+ Adicionar um novo endereço de e-mail"
+        add_new_with_plus: "+ Adicionar um novo e-mail"
         add_new_cancel: Cancelar
         confirmation_title_mobile: "Confirmação:"
         confirmation_title_desktop: Confirmação
@@ -1631,21 +1545,21 @@ pt-BR:
       i_want_to_get_email_notification_when: "Eu quero receber uma notificação por email quando ..."
       newsletters: Noticias
       community_updates: "Atualizações da comunidade"
-      email_about_accept_reminders: "...esqueci de aceitar uma oferta ou um pedido"
-      email_about_confirm_reminders: "...Eu esqueci de confirmar um pedido como concluído"
+      email_about_accept_reminders: "...esquecer de aceitar uma oferta ou um pedido"
+      email_about_confirm_reminders: "...esquecer de confirmar um pedido como concluído"
       email_about_new_comments_to_own_listing: "...alguém comentar a minha oferta ou solicitação"
       email_about_new_messages: "...alguém me enviar uma mensagem"
       email_about_new_received_testimonials: "...alguém me enviar feedback"
-      email_about_testimonial_reminders: "...eu esquecer de enviar feedback sobre um evento"
-      email_daily_community_updates: "Envie-me um e-mail <b>diária</b> se houver novos anúncios"
-      email_weekly_community_updates: "Envie-me um e-mail <b>semanal</b> se houver novos anúncios"
-      do_not_email_community_updates: "Não me mande e-mails"
+      email_about_testimonial_reminders: "...esquecer de enviar feedback sobre um evento"
+      email_daily_community_updates: "Receber um email <b>diário</b> se houver novos anúncios"
+      email_weekly_community_updates: "Receber um e-mail <b>semanal</b> se houver novos anúncios"
+      do_not_email_community_updates: "Não receber e-mails"
       email_when_conversation_accepted: "...alguém aceitar a minha oferta ou solicitação"
       email_when_conversation_rejected: "...alguém rejeitar a minha oferta ou solicitação"
       email_about_completed_transactions: "...alguém marca a minha oferta ou solicitação como concluída"
-      email_about_new_payments: "...Eu receber um novo pagamentor"
-      email_about_payment_reminders: "...Eu esqueci de pagar"
-      email_about_new_listings_by_followed_people: ~
+      email_about_new_payments: "...receber um novo pagamento"
+      email_about_payment_reminders: "...esquecer de efetuar um pagamento"
+      email_about_new_listings_by_followed_people: "...alguém que eu siga publique uma mensagem"
       unsubscribe_succesful: "Subscrição bem sucedida"
       unsubscribe_info_text: ~
       settings_link: configurações
@@ -1659,19 +1573,19 @@ pt-BR:
       given_name: Nome
       first_name_with_initial: "(apenas a primeira letra mostrada para outros usuários)"
       first_name_only: "(não será mostrado a outros usuários)"
-      location_description: "Você pode dar ou a sua localização exata ou, por exemplo, apenas o seu código postal. Por favor, adicione pelo menos o seu código postal. Você também pode selecionar um local no mapa abaixo."
+      location_description: "Indique a sua localização exata ou o seu código postal. Você também pode selecionar uma posição no mapa abaixo."
       phone_number: "Número de telefone"
       profile_picture: "Foto do perfil"
       postal_code: CEP
       profile_page: "em sua página de perfil"
       profilemap: "Ver mapa"
       street_address: Local
-      these_fields_are_shown_in_your: "Esta informação fica visível para todos %{service_name} usuários"
+      these_fields_are_shown_in_your: "Esta informação pode ser vista por todos os usuários %{service_name}"
       visible_to_everybody: "visível para todos"
       visible_to_registered_users: "(visível para os usuários que tenham logado)"
       default_in_listing: "(usado apenas como um padrão ao criar uma nova listagem)"
       invisible: "(não será mostrado a outros usuários)"
-    save_information: "Salve as informações"
+    save_information: "Salvar informações"
   tag_cloud:
     tag_used:
       with_tag: "Com marcação"
@@ -1685,7 +1599,7 @@ pt-BR:
       terms: "%{service_name} termos de uso"
       terms_have_changed: "Termos de uso mudaram"
       you_can_view_the_new_terms: "Você pode ver os novos termos"
-      you_need_to_accept: ~
+      you_need_to_accept: "Seja bem vindo ao %{service_name} ! Se essa é sua primeira conexão, antes de começar, aceite os"
       you_need_to_accept_new_terms: "As condições de uso do %{service_name} mudaram. Você deve aceitar as novas condições para continuar usando %{service_name}. O objetivo das novas condições é de possibilitar a existência do serviço após o projeto de pesquisa."
   testimonials:
     index:
@@ -1713,7 +1627,7 @@ pt-BR:
     formats:
       short: "%e. %b %Y hora %H:%M"
       shorter: "%e %b as %H:%M"
-      short_date: ~
+      short_date: "%b %e  %Y"
       sms: "%e %b as %H:%M"
   timestamps:
     day_ago: "%{count} dia atrás"
@@ -1731,10 +1645,19 @@ pt-BR:
       one: ontem
       other: "%{count} dias"
   will_paginate:
-    previous_label: ~
-    next_label: ~
+    models:
+      person:
+        zero: usuário
+        one: usuário
+        other: usuários
+    previous_label: "&#8592; Anterior"
+    next_label: "Próximo &#8594;"
     page_gap: ~
     page_entries_info:
+      single_page:
+        zero: "Nenhum(a) %{model} encontrado(a)"
+        one: "Visualização de 1 %{model}"
+        other: "Visualização dos %{count}%{model}"
       single_page_html:
         zero: "Nenhum(a) %{model} encontrado(a)"
         one: "Visualização do <b>1</b> %{model}"

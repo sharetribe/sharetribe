@@ -407,6 +407,7 @@ vi:
       item_request_message_form_title: "Hỗ trợ một món đồ để"
       message: "Tin nhắn"
       message_to: ~
+      optional_message_to: ~
       rideshare_offer_message_form_title: "Yêu cầu quá giang từ"
       rideshare_request_message_form_title: "Hỗ trợ cuốc xe đến"
       send_message: "Gửi thông điệp"
@@ -431,6 +432,7 @@ vi:
       price: ~
       sum: ~
       price_excludes_vat: ~
+      total: ~
     status:
       cancel_payed_transaction: ~
       feedback_given: "Phản hồi được cho"
@@ -506,85 +508,6 @@ vi:
       cvv: ~
       credit_card_expiration_date: ~
       confirm_payment: ~
-  communities:
-    map_bubble:
-      view_tribe: "Xem cộng đồng"
-    email_confirmation_pending:
-      confirmation_pending: "Xin vui lòng xác nhận địa chỉ email của bạn"
-    index:
-      find_your_local_tribe: "Tìm thấy cộng đồng địa phương của bạn"
-      or_start_your_own: "...hoặc %{start_your_own_tribe_link}"
-      start_your_own_tribe_link: "bắt đầu của riêng bạn!"
-    select_pricing_plan:
-      select_your_plan: "Chọn kế hoạch của bạn"
-      pick_one_of_the_options_below: "Chọn một trong các tùy chọn dưới đây."
-      create_for_free: "Tạo miễn phí"
-      contact_us: "Liên hệ với chúng tôi"
-      free_plan: "Kế hoạch tự do"
-      max_members: "Tối đa. %{number} thành viên"
-      premium_plan: "Kế hoạch chất lượng cao"
-      care_free_user_support: "Hỗ trợ người dùng ưu tiên"
-      create_your_tribe: "Tạo cộng đồng của bạn"
-      professional_plan: "Kế hoạch tùy chọn"
-      unlimited_members: "Thành viên không giới hạn"
-      intranet_integration: "Tích hợp intranet"
-      no_charge: "Miễn phí"
-      euros_per_month_premium: "%{price} Euro/tháng (bao gồm thuế VAT)"
-      custom_domain: ~
-      you_can_change_and_cancel: "Bạn có thể thay đổi hoặc hủy bỏ kế hoạch sau này tại bất kỳ thời gian."
-      we_help_you_get_started: "Chúng tôi giúp đỡ để tập hợp mọi người"
-      discounts_available_for_non_profits: "Chúng tôi giảm giá 50% cho các tổ chức phi lợi nhuận"
-    select_tribe_category_form:
-      what_kind_of_tribe_do_you_want_to_create: "Bạn muốn tạo loại cộng đồng gì?"
-      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Đầu tiên cho chúng tôi biết loại cộng đồng bạn đại diện bằng cách chọn một loại dưới đây."
-      company: "Công ty"
-      university: "Đại học"
-      town: "Thành phố / Thị trấn"
-      congregation: "Giáo đoàn"
-      association: "Hiệp hội"
-      neighborhood: "Khu phố"
-      apartment_building: "Căn hộ chung cư"
-      other: "Tổ chức khác"
-    new_tribe_form:
-      create_a_tribe_in_a_minute: "Tạo một cộng đồng mới trong một phút"
-      welcome_now_create_your_tribe: "Chào mừng %{name}! Tích cực và tạo cộng đồng của bạn."
-      name_of_your_tribe: "Tên cộng đồng của bạn"
-      web_address_of_your_tribe: "Địa chỉ web của cộng đồng của bạn"
-      slogan_of_your_tribe: "Khẩu hiệu của cộng đồng của bạn"
-      describe_your_tribe: "Mô tả cộng đồng của bạn: mục đích của cộng đồng là gì"
-      create_your_tribe: "Tạo cộng đồng của bạn!"
-      domain_invalid: "Tên miền chỉ có thể chứa các bảng chữ cái, số, gạch dưới hoặc dấu gạch ngang."
-      domain_taken: "Cộng đồng này đã tồn tại. Bạn phải chọn một tên miền khác."
-      address: "Vị trí cộng đồng của bạn"
-      select_main_language_of_your_tribe: "Chọn ngôn ngữ chính của cộng đồng của bạn"
-      language: "Ngôn ngữ"
-      restrict_tribe_to_invited_people: ~
-    signup_form:
-      create_an_account: "Tạo một tài khoản cho chính mình"
-      to_create_a_tribe_you_must_first_create_sharetribe_account: "Bạn có thể tạo một tài khoản mới để %{service_name} dưới đây hoặc"
-      log_in_with_your_existing_account: "đăng nhập bằng tài khoản hiện tại"
-      your_email: "Địa chỉ email của bạn"
-      your_university_email: "Địa chỉ email trường đại học của bạn"
-      your_company_email: "Địa chỉ email công ty của bạn"
-      you_need_to_confirm: "Để tạo ra một cộng đồng cho %{tribe_type} của bạn bạn cần phải xác nhận %{tribe_type} địa chỉ email của bạn."
-      pick_username: "Chọn một tên người dùng"
-      your_given_name: "Tên của bạn"
-      your_family_name: "Họ của bạn"
-      your_password: "Chọn một mật khẩu"
-      confirm_your_password: "Xác nhận mật khẩu của bạn"
-      email_in_use_message: "Vửa có một tài khoản trong %{service_name} với địa chỉ email. Nếu bạn đã có tài khoản, bạn có thể đăng nhập bằng cách sử dụng liên kết ở trên."
-      invalid_email_ending_message: "Đây có vẻ giống như một email cá nhân. Bạn cần phải đăng ký bằng email %{community_category} của bạn."
-      log_in_here: "đăng nhập tại đây"
-      existing_community_with_this_email: "Đã có cộng đồng này %{community_category}. Bạn có thể tham gia cộng đồng %{link}."
-      here: đây
-      for_company: "công ty"
-      for_university: "đại học"
-      for_town: "thành phố/thị trấn"
-      for_congregation: "giáo đoàn"
-      for_association: "hiệp hội"
-      for_neighborhood: "khu phố"
-      for_apartment_building: "căn hộ chung cư"
-      for_other: khác
   community_memberships:
     access_denied:
       access_denied: ~
@@ -761,32 +684,13 @@ vi:
       one_day_left: ~
       click_here_to_reply: ~
     welcome_email:
-      welcome_email_footer_text: ~
-      settings_link_text: ~
-      subject: ~
-      welcome_some_tips: ~
+      welcome_email_subject: ~
+      welcome_to_marketplace: ~
+      love_marketplace_crew: ~
       p_s_did_you_know: ~
       click_here_link_text: ~
-      update_your_profile: ~
-      update_your_profile_link_text: ~
-      add_something_you_could_offer: ~
-      add_offer_link_text: ~
-      is_there_something_you_need: ~
-      add_request_link_text: ~
-      invite_your_friends_invite_only: ~
-      invite_your_friends: ~
-      invite_link_text: ~
-      member_list_link_text: ~
-      go_explore: ~
-      love_team: ~
-      congrats_for_creating_community: ~
-      you_have_just_created_community: ~
-      you_now_have_admin_rights: ~
-      edit_community_details_link_text: ~
-      add_content: ~
-      spread_the_word: ~
-      spread_the_word_invite_only: ~
-      have_fun: ~
+      welcome_email_footer_text: ~
+      settings_link_text: ~
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -1384,6 +1288,13 @@ vi:
       listing_created_at: ~
     verification_required:
       verification_required: ~
+  listing_conversations:
+    preauthorize:
+      details: ~
+      by: ~
+      payment: ~
+      exp: ~
+      you_will_be_charged: ~
   mapview:
     index:
       all_categories: "Tất cả các chuyên mục"

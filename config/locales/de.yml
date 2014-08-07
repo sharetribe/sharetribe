@@ -422,6 +422,7 @@ de:
       item_request_message_form_title: "Biete %{person} einen Gegenstand an"
       message: Nachricht
       message_to: ~
+      optional_message_to: ~
       rideshare_offer_message_form_title: "%{person} um eine Mitfahrgelegenheit bitten"
       rideshare_request_message_form_title: "%{person} eine Mitfahrgelegenheit anbieten"
       send_message: "Nachricht senden"
@@ -446,6 +447,7 @@ de:
       price: ~
       sum: ~
       price_excludes_vat: ~
+      total: ~
     status:
       cancel_payed_transaction: Abbruch
       feedback_given: "gegebenes Feedback"
@@ -521,85 +523,6 @@ de:
       cvv: "Prüfnummer der Kreditkarte"
       credit_card_expiration_date: "Ablaufdatum der Kreditkarte"
       confirm_payment: "Zahlung bestätigen"
-  communities:
-    map_bubble:
-      view_tribe: "Stamm anzeigen"
-    email_confirmation_pending:
-      confirmation_pending: "Bitte bestätige deine E-Mail-Adresse"
-    index:
-      find_your_local_tribe: "Finde einen Stamm in deiner Nähe"
-      or_start_your_own: "...oder %{start_your_own_tribe_link}"
-      start_your_own_tribe_link: "Gründe deinen eigenen Stamm!"
-    select_pricing_plan:
-      select_your_plan: "Wähle deinen Plan aus"
-      pick_one_of_the_options_below: "Wähle eine der folgenden Optionen aus."
-      create_for_free: "Kostenlos erstellen"
-      contact_us: "Kontaktiere uns"
-      free_plan: "Kostenloser Plan"
-      max_members: "Max. %{number} Mitglieder"
-      premium_plan: "Premium Plan"
-      care_free_user_support: "Priorisierte Benutzerbetreuung"
-      create_your_tribe: "Erstelle deinen Stamm"
-      professional_plan: "Anpassbarer Plan"
-      unlimited_members: "Unbegrenzte Mitglieder"
-      intranet_integration: "Intranet Integration"
-      no_charge: Kostenlos
-      euros_per_month_premium: "%{price}Euro/Monat (inkl. MwSt.)"
-      custom_domain: "Eigene Domain"
-      you_can_change_and_cancel: "Du kannst den Plan später ändern oder annullieren."
-      we_help_you_get_started: "Wir helfen dabei Leute zu versammeln"
-      discounts_available_for_non_profits: "Wir haben 50 % Rabatt für gemeinnützige Organisationen"
-    select_tribe_category_form:
-      what_kind_of_tribe_do_you_want_to_create: "Welche Art von Stamm möchtest du erstellen?"
-      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Sag uns zuerst, welche Art von Community du erstellen möchtest, indem du eine von den unteren auswählst."
-      company: Unternehmen
-      university: Universität
-      town: Stadt
-      congregation: Gemeinde
-      association: Verband
-      neighborhood: Nachbarschaft
-      apartment_building: Mehrfamilienhaus
-      other: Andere
-    new_tribe_form:
-      create_a_tribe_in_a_minute: "Erstelle einen neuen Stamm in nur einer Minute"
-      welcome_now_create_your_tribe: "Willkommen %{name}! Leg los und erstelle deinen Stamm."
-      name_of_your_tribe: "Name deines Stammes"
-      web_address_of_your_tribe: "Web-Adresse deines Stammes"
-      slogan_of_your_tribe: "Motto deines Stammes"
-      describe_your_tribe: "Beschreibe deinen Stamm: Was ist der Zweck dieser Gemeinschaft"
-      create_your_tribe: "Erstelle deinen Stamm!"
-      domain_invalid: "Die Domain kann nur Buchstaben, Zahlen, Unterstriche oder Bindestriche enthalten."
-      domain_taken: "Dieser Stamm ist bereits vorhanden. Du musst einen anderen Domain-Namen wählen."
-      address: "Standort deines Stammes"
-      select_main_language_of_your_tribe: "Wähle die Hauptsprache deines Stammes"
-      language: Sprache
-      restrict_tribe_to_invited_people: "Leute brauchen eine Einladung um der Community beizutreten."
-    signup_form:
-      create_an_account: "Erstelle ein Konto für dich selbst"
-      to_create_a_tribe_you_must_first_create_sharetribe_account: "Du kannst entweder unten ein neues Konto bei %{service_name} erstellen oder"
-      log_in_with_your_existing_account: "melde dich mit deinem schon existierenden Konto an"
-      your_email: "Deine E-Mail-Adresse"
-      your_university_email: "Die E-Mail-Adresse deiner Universität"
-      your_company_email: "Die E-Mail-Adresse deines Unternehmens"
-      you_need_to_confirm: "Um einen Stamm für deinen %{tribe_type} zu erstellen, musst du deine %{tribe_type} E-Mail-Adresse bestätigen."
-      pick_username: "Wähle einen Benutzernamen"
-      your_given_name: "Bitte gib deinen Vornamen ein"
-      your_family_name: "Dein Nachname"
-      your_password: "Wähle ein Passwort"
-      confirm_your_password: "Bestätige dein Passwort"
-      email_in_use_message: "Es existiert bereits ein Konto in %{service_name} mit dieser E-Mail-Adresse. Wenn du bereits ein Konto hast, so melde dich mit dem Link oben an."
-      invalid_email_ending_message: "Dies sieht aus wie eine persönliche E-Mail-Adresse. Du musst dich mit deiner %{community_category} E-Mail registrieren."
-      log_in_here: "Hier anmelden"
-      existing_community_with_this_email: "Es existiert bereits einen Stamm für diese %{community_category}. Du kannst diesem Stamm beitreten %{link} ."
-      here: hier
-      for_company: Unternehmen
-      for_university: Universität
-      for_town: Stadt
-      for_congregation: Gemeinde
-      for_association: Verband
-      for_neighborhood: Nachbarschaft
-      for_apartment_building: Mehrfamilienhaus
-      for_other: Andere
   community_memberships:
     access_denied:
       access_denied: "Zugriff verweigert"
@@ -776,32 +699,13 @@ de:
       one_day_left: ~
       click_here_to_reply: ~
     welcome_email:
-      welcome_email_footer_text: "Welche Art von E-Mails willst du empfangen von %{service_name}? %{settings_link}"
-      settings_link_text: "Überprüfe deine Einstellungen"
-      subject: "Willkommen bei %{community} - hier sind ein paar Tipps zum Start"
-      welcome_some_tips: "Willkommen bei %{community_link}! Hier sind ein paar Tipps zum Start."
+      welcome_email_subject: ~
+      welcome_to_marketplace: ~
+      love_marketplace_crew: ~
       p_s_did_you_know: "P.S.: Wusstest du, dass du einen Marktplatz wie diesen für jede andere Community, zu der du gehörst, kostenlos erstellen kannst? %{click_here_link} um mehr zu erfahren!"
       click_here_link_text: "Hier klicken"
-      update_your_profile: "<strong>Ändere dein Profil.</strong> Füge deinen richtigen Namen und ein Profilbild hinzu und erzähle etwas über dich selbst, um Vertrauen zu schaffen. Wenn du deine Kontaktdaten hinzufügst, musst du sie nicht jedes Mal einzeln angeben, wenn du einen neuen Eintrag erstellst."
-      update_your_profile_link_text: "Ändere hier dein Profil"
-      add_something_you_could_offer: "<strong>Füge Angebote hinzu auf %{service_name}.</strong> Könntest du deine Bohrmaschine, deinen Tennisschläger oder dein Fondue-Set verleihen? Nähst du gerne, magst du Möbel zusammenbauen oder an Computern basteln? Gibt es Dinge in deinem Schrank, die du loswerden willst? %{add_offer_link}"
-      add_offer_link_text: "Füge sie als Angebote zu %{service_name}!"
-      is_there_something_you_need: "Gibt es etwas, das du genau jetzt brauchst? Vielleicht suchst du eine Mitfahrgelegenheit? Oder du willst Werkzeug ausleihen? Oder brauchst du jemanden, der mit deinem Hund Gassi geht? Durchsuche zunächst %{service_name}: Vielleicht bietet jemand anders bereits an, was du brauchst. Wenn du nicht findest, wonach du sucht, kannst du %{add_request_link}."
-      add_request_link_text: "Poste eine neue Anfrage"
-      invite_your_friends_invite_only: "<strong>Weitersagen!<strong> Je mehr Leute es bei %{service_name} gibt, umso besser ist die Community für alle. Kennst du Leute, die interessiert sein könnten, daran teilzunehmen? Erzähle ihnen von %{service_name} indem du %{service_name} oder sende ihnen diesen Link: %{invite_link}. Wenn du sehen willst, wer schon Mitglied ist, %{member_list_link}."
-      invite_your_friends: "<strong>Weitersagen!<strong> Je mehr Mitglieder es bei %{service_name} gibt, desto besser ist die Community für alle. Kennst du Leute, die daran interessiert sein könnten, teilzunehmen? Erzähle ihnen von %{service_name} indem du %{invite_link} oder sende ihnen diesen Link: %{url}. Wenn du sehen willst, wer schon Mitglied ist, %{member_list_link}."
-      invite_link_text: "Benutze unser einfaches Einladungsformular"
-      member_list_link_text: "Sieh dir unsere Mitgliederliste an"
-      go_explore: "<strong>Entdecken!<strong> Sieh dir an, was andere anbieten und suchen in %{service_name}. Vielleicht findest du etwas, das du brauchst. Vielleicht kannst du jemand anderem helfen! Viel Spaß dabei!"
-      love_team: "Viele Grüße, das %{service_name} Team"
-      congrats_for_creating_community: "Du hast gerade %{community} erstellt - hier sind ein paar Tipps zum Start"
-      you_have_just_created_community: "Du hast gerade %{community_link} erstellt! Hier sind ein paar Tipps, wie du die neue Community startest."
-      you_now_have_admin_rights: "Du hast nun Administrationsrechte für diese Community. Das bedeutet, dass du zum Beispiel Informationen und das \"look and feel\" der Community verändern kannst. Das ist wahrscheinlich das erste, was du tun willst. %{edit_community_details_link}. Wenn du Adminrechte an jemanden anderen übertragen willst, dann musst du uns kontaktieren, indem du auf diese E-Mail antwortest."
-      edit_community_details_link_text: "Bearbeite hier die Community-Angaben"
-      add_content: "<strong>Füge Inhalte hinzu.<strong> Am besten erstellst du selber ein paar Einträge. Dadurch sehen neue Leute, dass etwas passiert. Könntest du deine Bohrmaschine, deinen Tennisschläger oder dein Fondue-Set verleihen? Kannst du nähen, Möbel zusammenbauen oder an Computern herumbasteln? Gibt es etwas in deinem Schrank, das du loswerden möchtest? %{add_offer_link} wenn du etwas brauchst, %{add_request_link}."
-      spread_the_word: "<strong>Weitersagen!</strong> Um neue Mitglieder in die Community zu bekommen, solltest du deinen Freunden davon erzählen. Einige Ideen: 1) Informiere sie über %{service_name} mittels einer Rundmail. 2) Teile diesen Link via Facebook, Twitter und anderen Kanälen: %{url}. 3) Sende E-Mail-Einladungen: %{invite_link}. 4) Erzähle von der Community, wenn du Leute triffst."
-      spread_the_word_invite_only: "<strong>Weitersagen!</strong> Du hast beschlossen, nur Leute mit Einladung in diese Community aufzunehmen. Das bedeutet, dass potenzielle Nutzer die Einladung eines aktiven Mitglieds benötigen, um beitreten zu können. Um also neue Mitglieder für deine Community zu bekommen, musst du sie einladen. Schicke ihnen dafür diesen Link: %{invite_link}."
-      have_fun: "Viel Spaß mit %{service_name}. Möge deine Community lange aufrecht erhalten bleiben und erfolgreich sein."
+      welcome_email_footer_text: "Welche Art von E-Mails willst du empfangen von %{service_name}? %{settings_link}"
+      settings_link_text: "Überprüfe deine Einstellungen"
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -1399,6 +1303,13 @@ de:
       listing_created_at: "Eintrag erfolgreich erstellt"
     verification_required:
       verification_required: "Verifizierung erforderlich"
+  listing_conversations:
+    preauthorize:
+      details: ~
+      by: ~
+      payment: ~
+      exp: ~
+      you_will_be_charged: ~
   mapview:
     index:
       all_categories: "Alle Kategorien"

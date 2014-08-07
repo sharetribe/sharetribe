@@ -465,7 +465,7 @@ en:
       conversation_with: "Conversation with %{person}"
       last_message_at: "(latest message %{time})"
       price: "Price: %{price}"
-      sum: "Sum: %{sum}"
+      sum: "Total: %{sum}"
       price_excludes_vat: "(excludes VAT)"
       total: "Total: %{total}"
     status:
@@ -1327,7 +1327,7 @@ en:
     preauthorize:
       details: Details
       by: "%{listing} by %{author}"
-      payment: "Payment"
+      payment: Payment
       exp: "Exp:"
       you_will_be_charged: "You will be charged only if %{author} accepts the transaction. %{author} needs to accept the transaction within 5 days. If %{author} declines or does not respond, no charge is made."
   mapview:
