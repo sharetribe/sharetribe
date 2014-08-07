@@ -13,6 +13,9 @@ class TransactionPreauthorizedReminderJob < Struct.new(:conversation_id)
 
   def perform
     conversation = Conversation.find(conversation_id)
-    TransactionMailer.transaction_preauthorized_reminder(conversation).deliver
+
+    if conversation.status == "preauthorized"
+      TransactionMailer.transaction_preauthorized_reminder(conversation).deliver
+    end
   end
 end
