@@ -6,6 +6,8 @@
 .left-navi-section
   %h2= t("admin.communities.transactions.transactions", community_name: @community.name(I18n.locale))
 
+  %span#admin_transactions_count= page_entries_info(@conversations, :model => "ListingConversations")
+
   %table#admin_transactions
     %thead
       %tr
@@ -31,4 +33,6 @@
 
           -other_party=conversation.other_party(conversation.starter)
           %td=link_to(other_party.full_name, other_party)
-
+  .row
+    .col-12
+      = will_paginate @conversations
