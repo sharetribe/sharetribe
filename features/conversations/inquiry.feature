@@ -16,7 +16,7 @@ Feature: Inquiry
     And I am logged in as "kassi_testperson2"
     When I follow "Test message"
     Then I should not see "Contact"
-    When I follow "Inquire"
+    When I press "Inquire"
     And I fill in "Message" with "Test content"
     And I press "Send message"
     And I log out

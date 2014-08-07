@@ -15,7 +15,7 @@ Feature: User requests an item in item offer
     And I am logged in as "kassi_testperson2"
     And I am on the homepage
     When I follow "Hammer"
-    And I follow "Rent this item"
+    And I press "Rent this item"
     And I fill in "Message" with "I want to borrow this item"
     And I press "Rent this item"
     Then I should see "Message sent" within ".flash-notifications"
@@ -56,7 +56,7 @@ Feature: User requests an item in item offer
     And I am logged in as "kassi_testperson2"
     And I am on the homepage
     When I follow "Hammer"
-    And I follow "Borrow this item"
+    And I press "Borrow this item"
     And I press "Send message"
     Then I should see "This field is required."
 
@@ -69,7 +69,7 @@ Feature: User requests an item in item offer
     Given there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Lending"
     And I am on the homepage
     When I follow "Hammer"
-    And I follow "Borrow this item"
+    And I press "Borrow this item"
     Then I should see "You must log in to Sharetribe to send a message to another user." within ".flash-notifications"
     And I should see "Log in to Sharetribe" within "h1"
     When I log in as "kassi_testperson2"
@@ -83,7 +83,7 @@ Feature: User requests an item in item offer
     Given there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with transaction type "Lending"
     And I am on the homepage
     When I follow "Hammer"
-    And I follow "Borrow this item"
+    And I press "Borrow this item"
     Then I should see "You must log in to Sharetribe to send a message to another user." within ".flash-notifications"
     And I should see "Log in to Sharetribe" within "h1"
     When I log in as "kassi_testperson1"
