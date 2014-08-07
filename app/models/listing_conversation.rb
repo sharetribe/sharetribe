@@ -142,7 +142,7 @@ class ListingConversation < Conversation
   end
 
   def preauthorization_expire_at
-    preauthorization_expires = payment.preauthorization_expiration_days.days.from_now
+    preauthorization_expires = payment.preauthorization_expiration_days.days.from_now.to_date
 
     if booking.present?
       booking.end_on < preauthorization_expires ? booking.end_on : preauthorization_expires
