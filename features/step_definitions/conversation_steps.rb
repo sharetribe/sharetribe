@@ -173,13 +173,18 @@ def visit_conversation_of_listing(listing)
 end
 
 When(/^I accepts the request for that listing$/) do
-  visit_conversation_of_current_listing
+  visit_conversation_of_listing(@listing)
   click_link "Accept request"
   click_button "Approve"
 end
 
+
 Then(/^I should see that the request is waiting for buyer confirmation$/) do
   page.should have_content(/Waiting for (.*) to mark the request completed/)
+end
+
+Then /^I should see that I should now deliver the board$/ do
+  page.should have_content(/Waiting for you to deliver (.*)/)
 end
 
 Then(/^I should see that the request is confirmed/) do
@@ -205,7 +210,7 @@ Then(/^I should see that the request is waiting for buyer to pay$/) do
 end
 
 When(/^I pay my request for that listing$/) do
-  visit_conversation_of_current_listing
+  visit_conversation_of_listing(@listing)
   click_link "Pay"
 end
 
@@ -216,7 +221,7 @@ When(/^I buy approved request "(.*)"$/) do |accepted_request|
 end
 
 When(/^I confirm the request for that listing$/) do
-  visit_conversation_of_current_listing
+  visit_conversation_of_listing(@listing)
   click_link "Mark completed"
   choose("Skip feedback")
   click_button "Continue"
@@ -260,13 +265,17 @@ When /^I follow link to fill in Braintree payout details$/ do
   click_link("#conversation-payment-settings-link")
 end
 
-# TODO I think we should move this to listing_steps?
-When(/^I make a booking request for that listing for (\d+) days$/) do |day_count|
-  visit_current_listing
-  end_date = Date.today + day_count.to_i.days
-  select_date_from_date_picker(Date.today, "start_on")
-  select_date_from_date_picker(end_date, "end_on")
-
-  #binding.pry
-  pending # continue here
+Then /^I should see that the total price is "(.*?)"$/ do |total_price|
+  expect(page).to have_content("Total: $#{total_price}")
 end
+
+When /^the booking is automatically confirmed$/ do
+  Timecop.travel(@booking_end_date + 1.days)
+  process_jobs
+  visit(current_path)
+end
+
+Then /^I should see that the request is completed$/ do
+  expect(page.find(".conversation-status")).to have_content("Completed")
+end
+

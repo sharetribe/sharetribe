@@ -18,6 +18,8 @@ module ConversationsHelper
       "ss-check"
     when "preauthorized"
       "ss-check"
+    when "deliver_listing"
+      "ss-deliveryvan"
     end
   end
 
@@ -194,7 +196,7 @@ module ConversationsHelper
       {
         type: :status_info,
         content: {
-          info_text_part: t("conversations.status.waiting_for_listing_author_to_accept_#{conversation.discussion_type}", :listing_author_name => conversation.other_party(@current_user).given_name_or_username),
+          info_text_part: t("conversations.status.waiting_for_listing_author_to_accept_#{conversation.discussion_type}", :listing_author_name => link_to(conversation.other_party(@current_user).given_name_or_username, conversation.other_party(@current_user))).html_safe,
           info_icon_part_classes: 'ss-clock'
         }
       }
@@ -217,7 +219,7 @@ module ConversationsHelper
         conversation_statuses.push({
           type: :status_info,
           content: {
-            info_text_part: t("conversations.status.waiting_payment_from_requester", :requester_name => conversation.requester.given_name_or_username),
+            info_text_part: t("conversations.status.waiting_payment_from_requester", :requester_name => link_to(conversation.requester.given_name_or_username, conversation.requester)).html_safe,
             info_icon_part_classes: 'ss-clock'
           }
         })
@@ -247,7 +249,7 @@ module ConversationsHelper
           conversation_statuses.push({
             type: :status_info,
             content: {
-              info_text_part: t("conversations.status.waiting_confirmation_from_requester", :requester_name => conversation.other_party(@current_user).given_name_or_username),
+              info_text_part: t("conversations.status.waiting_confirmation_from_requester", :requester_name => link_to(conversation.other_party(@current_user).given_name_or_username, conversation.other_party(@current_user))).html_safe,
               info_icon_part_classes: 'ss-clock'
             }
           })
@@ -271,12 +273,19 @@ module ConversationsHelper
         info_icon_part_classes: icon_for(conversation.status)
       }
     })
+    conversation_statuses.push({
+      type: :status_info,
+      content: {
+        info_text_part: t("conversations.status.deliver_listing", :listing_title => link_to(conversation.listing.title, conversation.listing)).html_safe,
+        info_icon_part_classes: icon_for("deliver_listing")
+      }
+    })
     if @current_community.testimonials_in_use
       if conversation.listing.offerer?(@current_user)
         conversation_statuses.push({
           type: :status_info,
           content: {
-            info_text_part: t("conversations.status.waiting_confirmation_from_requester", :requester_name => conversation.other_party(@current_user).given_name_or_username),
+            info_text_part: t("conversations.status.waiting_confirmation_from_requester", :requester_name => link_to(conversation.other_party(@current_user).given_name_or_username, conversation.other_party(@current_user))).html_safe,
             info_icon_part_classes: 'ss-clock'
           }
         })
@@ -309,7 +318,7 @@ module ConversationsHelper
       conversation_statuses.push({
         type: :status_info,
         content: {
-          info_text_part: t("conversations.status.waiting_for_listing_author_to_accept_#{conversation.discussion_type}", :listing_author_name => conversation.other_party(@current_user).given_name_or_username),
+          info_text_part: t("conversations.status.waiting_for_listing_author_to_accept_#{conversation.discussion_type}", :listing_author_name => link_to(conversation.other_party(@current_user).given_name_or_username, conversation.other_party(@current_user))).html_safe,
           info_icon_part_classes: 'ss-clock'
         }
       })
