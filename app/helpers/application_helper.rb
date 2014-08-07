@@ -700,7 +700,7 @@ module ApplicationHelper
       {
         :text => t("admin.communities.manage_members.manage_members"),
         :icon_class => icon_class("community"),
-        :path => admin_community_community_memberships_path(@current_community),
+        :path => admin_community_community_memberships_path(@current_community, sort: "join_date", direction: "asc"),
         :name => "manage_members"
       },
       {
@@ -712,7 +712,7 @@ module ApplicationHelper
       {
         :text => t("admin.communities.transactions.transactions"),
         :icon_class => icon_class("information"),
-        :path => admin_community_transactions_path(@current_community),
+        :path => admin_community_transactions_path(@current_community, sort: "last_activity", direction: "asc"),
         :name => "transactions"
       }
     ]
