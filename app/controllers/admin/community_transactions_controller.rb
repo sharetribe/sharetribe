@@ -4,7 +4,8 @@ class Admin::CommunityTransactionsController < ApplicationController
 
   def index
     @community = @current_community
-    @conversations = ListingConversation.where(:community_id => @current_community.id)
+    @conversations = ListingConversation
+      .where(:community_id => @current_community.id)
       .includes(:listing)
       .paginate(:page => params[:page], :per_page => 50)
       .order("#{sort_column} #{sort_direction}")
@@ -14,8 +15,8 @@ class Admin::CommunityTransactionsController < ApplicationController
 
   def sort_column
     case params[:sort]
-    # when "listing"
-    #   "listings.title"
+    when "listing"
+      "listings.title"
     # when "status"
     #   "listings.current_state"
     # when "sum"
