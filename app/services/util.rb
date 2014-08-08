@@ -147,7 +147,7 @@ module Util
       str.gsub(/[^[[:word:]]\s]/, '')
     end
 
-    def keywords(str, word_count=10, min_letter_count=2)
+    def keywords(str, word_count=10, min_letter_count=3)
       strip_punctuation(first_words(strip_small_words(str, min_letter_count), word_count)).downcase.split(" ").join(", ")
     end
   end
