@@ -33,8 +33,7 @@
   - else
     - meta_image = "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"
 
-%title
-  = title
+%title= title
 %meta{ :property => "og:title", :content => title}
 %meta{ :name => "twitter:title", :content => title}
 %meta{ :name => "author", :content=> meta_author }
@@ -45,9 +44,9 @@
 %meta{ :name => "copyright", :content => "#{@current_community.name}"}
 %meta{ :name => "twitter:url", :content => full_url}
 %meta{ :property => "og:site_name", :content =>"#{@current_community.full_name(locale)}"}
-%meta{ :name => "description", :content => meta_description}
-%meta{ :property => "og:description", :content => meta_description}
-%meta{ :name => "twitter:description", :content => meta_description}
+%meta{ :name => "description", :content => strip_tags(meta_description).html_safe}
+%meta{ :property => "og:description", :content => strip_tags(meta_description).html_safe}
+%meta{ :name => "twitter:description", :content => strip_tags(meta_description).html_safe}
 %meta{ :property => "og:image", :content => meta_image}
 %meta{ :name => "twitter:image", :content => meta_image}
 %link{:rel => "canonical", :href => full_url}
