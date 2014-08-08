@@ -45,9 +45,9 @@
 %meta{ :name => "copyright", :content => "#{@current_community.name}"}
 %meta{ :name => "twitter:url", :content => full_url}
 %meta{ :property => "og:site_name", :content =>"#{@current_community.full_name(locale)}"}
-%meta{ :name => "description", :content => meta_description}
-%meta{ :property => "og:description", :content => meta_description}
-%meta{ :name => "twitter:description", :content => meta_description}
+%meta{ :name => "description", :content => meta_description.html_safe}
+%meta{ :property => "og:description", :content => meta_description.html_safe}
+%meta{ :name => "twitter:description", :content => meta_description.html_safe}
 %meta{ :property => "og:image", :content => meta_image}
 %meta{ :name => "twitter:image", :content => meta_image}
 %link{:rel => "canonical", :href => full_url}
