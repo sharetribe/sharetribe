@@ -6,4 +6,5 @@
 
   %body
 
-    = yield
+    %span{id: SecureRandom.hex}
+      = yield
