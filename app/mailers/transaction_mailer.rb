@@ -18,7 +18,7 @@ class TransactionMailer < ActionMailer::Base
 
     set_up_urls(conversation.author, conversation.community)
 
-    mail(:to => conversation.author.confirmed_notification_emails_to,
+    premailer_mail(:to => conversation.author.confirmed_notification_emails_to,
          :from => community_specific_sender(conversation.community),
          :subject => t("emails.transaction_preauthorized.subject", requester: conversation.starter.name, listing_title: conversation.listing.title))
   end
@@ -29,8 +29,12 @@ class TransactionMailer < ActionMailer::Base
 
     set_up_urls(conversation.author, conversation.community)
 
-    mail(:to => conversation.author.confirmed_notification_emails_to,
+    premailer_mail(:to => conversation.author.confirmed_notification_emails_to,
          :from => community_specific_sender(conversation.community),
          :subject => t("emails.transaction_preauthorized_reminder.subject", requester: conversation.starter.name, listing_title: conversation.listing.title))
+  end
+
+  def premailer_mail(opts, &block)
+    premailer(mail(opts, &block))
   end
 end
