@@ -18,22 +18,26 @@ Kassi::Application.configure do
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
-  
+
   config.action_controller.action_on_unpermitted_parameters = :raise
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
 
-  # Enable sending mail from localhost
-  ActionMailer::Base.smtp_settings = {
-    :address              => APP_CONFIG.smtp_email_address,
-    :port                 => APP_CONFIG.smtp_email_port,
-    :domain               => APP_CONFIG.smtp_email_domain || 'localhost',
-    :user_name            => APP_CONFIG.smtp_email_user_name,
-    :password             => APP_CONFIG.smtp_email_password,
-    :authentication       => 'plain',
-    :enable_starttls_auto => true
-  }
+  if APP_CONFIG.mail_delivery_method == "sendmail"
+    ActionMailer::Base.delivery_method = :sendmail
+  elsif APP_CONFIG.mail_delivery_method == "smtp"
+    # Enable sending mail from localhost
+    ActionMailer::Base.smtp_settings = {
+      :address              => APP_CONFIG.smtp_email_address,
+      :port                 => APP_CONFIG.smtp_email_port,
+      :domain               => APP_CONFIG.smtp_email_domain || 'localhost',
+      :user_name            => APP_CONFIG.smtp_email_user_name,
+      :password             => APP_CONFIG.smtp_email_password,
+      :authentication       => 'plain',
+      :enable_starttls_auto => true
+    }
+  end
 
   config.active_support.deprecation = :log
 
