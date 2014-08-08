@@ -468,7 +468,7 @@ class PersonMailer < ActionMailer::Base
     premailer_mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => subject) do |format|
-      format.html { render :layout => false }
+      format.html { render :layout => 'email_blank_layout' }
     end
   end
 
