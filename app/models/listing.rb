@@ -144,7 +144,7 @@ class Listing < ActiveRecord::Base
 
   # Overrides the to_param method to implement clean URLs
   def to_param
-    "#{id}-#{title.gsub(/\W/, '-').downcase}"
+    "#{id}-#{Util::StringUtils.slug(title)}"
   end
 
   def self.find_with(params, current_user=nil, current_community=nil, per_page=100, page=1)
