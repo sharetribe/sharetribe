@@ -74,7 +74,7 @@ class CommunityMailer < ActionMailer::Base
          :from => community_specific_sender(community),
          :subject => subject,
          :delivery_method => delivery_method) do |format|
-      format.html { render :layout => 'community_updates_layout' }
+      format.html { render :layout => 'email_blank_layout' }
     end
   end
 
