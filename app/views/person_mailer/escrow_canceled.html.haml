@@ -9,9 +9,9 @@
 %tr
   %td{:align => "left", :style => "padding-top: 15px;"}
     %font{body_font}
-      = t("emails.escrow_canceled.if_this_was_error", :please_contant_admin_link => link_to(t("emails.escrow_canceled.please_contant_admin_link"), contact_url, :style => body_link_style)).html_safe
+      = t("emails.escrow_canceled.if_this_was_error", :please_contant_admin_link => link_to(t("emails.escrow_canceled.please_contant_admin_link"), contact_url)).html_safe
 
 %tr
   %td{:align => "left", :style => "padding-top: 15px; padding-bottom: 25px;"}
     %font{body_font}
-      = link_to t("emails.accept_reminder.show_thread"), conversation_url, :style => body_link_style
+      = link_to t("emails.accept_reminder.show_thread"), conversation_url

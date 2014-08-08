@@ -157,6 +157,7 @@ module Util
     # Refactoring needed. This is an ugly method that sets
     def set_up_urls(recipient, community, ref="email")
       @community = community
+      @current_community = community
       @url_params = {}
       @url_params[:host] = community.full_domain
       @url_params[:ref] = ref
@@ -165,6 +166,15 @@ module Util
         @url_params[:auth] = @recipient.new_email_auth_token
         @url_params[:locale] = @recipient.locale
         set_locale @recipient.locale
+      end
+    end
+
+    def premailer(message)
+      if message.body.parts.present?
+        message.text_part.body = Premailer.new(message.text_part.body.to_s, with_html_string: true).to_plain_text
+        message.html_part.body = Premailer.new(message.html_part.body.to_s, with_html_string: true).to_inline_css
+      else
+        message.body = Premailer.new(message.body.to_s, with_html_string: true).to_inline_css
       end
     end
 

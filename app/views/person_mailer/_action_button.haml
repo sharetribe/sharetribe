@@ -1,5 +1,7 @@
+- align = "left" unless defined? align
+
 %tr
-  %td{:align => "left", :style => "padding-top: 25px; padding-bottom: 35px;"}
+  %td{:align => align || "left", :style => "padding-top: 25px; padding-bottom: 35px;"}
     %font{:size => "4", :color => "#fff", :face => "Helvetica Neue, Arial, Helvetica, sans-serif", :style => "font-size:16px;line-height:25px;"}
-      %a{:href => url, :target => "_blank", :style => "padding:12px 20px 14px;border-radius:4px;text-decoration:none;background:#d96e21;border:2px solid #ad581a;color: #fff;"}
+      %a{:href => url, :target => "_blank", :class => "email-action-button"}
         = text

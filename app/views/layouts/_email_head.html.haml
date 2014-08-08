@@ -1,0 +1,31 @@
+%head
+  %meta{"http-equiv" => "Content-Type", content: "text/html; charset=UTF-8"}
+  %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+
+  -#
+    For some reason, emails use @community even though the convention is to use @current_community
+    So, try to use @current_community but fallback to @community
+    ALSO, there might be some mailer methods which define NEITHER @current_community nor @community, so
+    in these cases, fallback to "d96e21"
+
+    TODO: Go through mailer methods and define @current_community in all of them
+
+  - community = @current_community || @community
+  - color = Maybe(community).custom_color1.or_else { "d96e21" }
+
+  :scss
+    $link1: ##{color};
+
+    a {
+      color: $link1;
+      text-decoration: none;
+    }
+
+    .email-action-button {
+      padding: 12px 20px 14px;
+      border-radius: 4px;
+      text-decoration: none;
+      background: $link1;
+      border: 2px solid darken($link1, 5%);
+      color: #fff;
+    }

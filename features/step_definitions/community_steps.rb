@@ -228,7 +228,7 @@ Given /^current community has (free|starter|basic|growth|scale) plan$/ do |plan|
 end
 
 When /^community updates get delivered$/ do
-  PersonMailer.deliver_community_updates
+  CommunityMailer.deliver_community_updates
 end
 
 Given(/^this community does not send automatic newsletters$/) do

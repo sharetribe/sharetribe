@@ -256,7 +256,7 @@ namespace :sharetribe do
   namespace :community_updates do
     desc "Sends the community updates email to everyone who should receive it now"
     task :deliver => :environment do |t, args|
-      PersonMailer.deliver_community_updates
+      CommunityMailer.deliver_community_updates
     end
   end
 
