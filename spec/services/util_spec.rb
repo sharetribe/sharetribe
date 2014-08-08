@@ -99,7 +99,7 @@ describe Util::StringUtils do
   end
 
   it "#keywords" do
-    Util::StringUtils.keywords("This marketplace is a place! where I can sell and buy stuff", 5).should eql "this, marketplace, place, where, can"
+    Util::StringUtils.keywords("This marketplace is a place! where I can sell and buy stuff", 5).should eql "this, marketplace, place, where, sell"
   end
 end
 
