@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: custom_field_option_selections
+#
+#  id                     :integer          not null, primary key
+#  custom_field_value_id  :integer
+#  custom_field_option_id :integer
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#
+
 class CustomFieldOptionSelection < ActiveRecord::Base
   # WARNING! This expects that there's only one selection (Dropdown).
   # If there are multiple selections, the custom_field_value should not be deleted

@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: testimonials
+#
+#  id               :integer          not null, primary key
+#  grade            :float
+#  text             :text
+#  author_id        :string(255)
+#  participation_id :integer
+#  created_at       :datetime
+#  updated_at       :datetime
+#  receiver_id      :string(255)
+#
+
 require 'spec_helper'
 
 describe Testimonial do

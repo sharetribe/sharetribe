@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: listing_images
+#
+#  id                 :integer          not null, primary key
+#  listing_id         :integer
+#  created_at         :datetime
+#  updated_at         :datetime
+#  image_file_name    :string(255)
+#  image_content_type :string(255)
+#  image_file_size    :integer
+#  image_updated_at   :datetime
+#  image_processing   :boolean
+#  image_downloaded   :boolean          default(FALSE)
+#  width              :integer
+#  height             :integer
+#  author_id          :string(255)
+#
+
 class ListingImage < ActiveRecord::Base
 
   belongs_to :listing

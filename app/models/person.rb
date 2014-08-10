@@ -1,3 +1,54 @@
+# == Schema Information
+#
+# Table name: people
+#
+#  id                                 :string(22)       not null, primary key
+#  created_at                         :datetime
+#  updated_at                         :datetime
+#  is_admin                           :integer          default(0)
+#  locale                             :string(255)      default("fi")
+#  preferences                        :text
+#  active_days_count                  :integer          default(0)
+#  last_page_load_date                :datetime
+#  test_group_number                  :integer          default(1)
+#  active                             :boolean          default(TRUE)
+#  username                           :string(255)
+#  email                              :string(255)
+#  encrypted_password                 :string(255)      default(""), not null
+#  reset_password_token               :string(255)
+#  reset_password_sent_at             :datetime
+#  remember_created_at                :datetime
+#  sign_in_count                      :integer          default(0)
+#  current_sign_in_at                 :datetime
+#  last_sign_in_at                    :datetime
+#  current_sign_in_ip                 :string(255)
+#  last_sign_in_ip                    :string(255)
+#  password_salt                      :string(255)
+#  given_name                         :string(255)
+#  family_name                        :string(255)
+#  phone_number                       :string(255)
+#  description                        :text
+#  image_file_name                    :string(255)
+#  image_content_type                 :string(255)
+#  image_file_size                    :integer
+#  image_updated_at                   :datetime
+#  facebook_id                        :string(255)
+#  authentication_token               :string(255)
+#  community_updates_last_sent_at     :datetime
+#  min_days_between_community_updates :integer          default(1)
+#  mangopay_id                        :string(255)
+#  bank_account_owner_name            :string(255)
+#  bank_account_owner_address         :string(255)
+#  iban                               :string(255)
+#  bic                                :string(255)
+#  mangopay_beneficiary_id            :string(255)
+#  is_organization                    :boolean
+#  company_id                         :string(255)
+#  checkout_merchant_id               :string(255)
+#  checkout_merchant_key              :string(255)
+#  organization_name                  :string(255)
+#
+
 require 'json'
 require 'rest_client'
 require "open-uri"

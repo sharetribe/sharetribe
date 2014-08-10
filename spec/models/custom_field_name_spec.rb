@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: custom_field_names
+#
+#  id              :integer          not null, primary key
+#  value           :string(255)
+#  locale          :string(255)
+#  custom_field_id :string(255)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 require 'spec_helper'
 
 describe CustomFieldName do

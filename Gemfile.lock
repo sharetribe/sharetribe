@@ -46,6 +46,9 @@ GEM
     airbrake (3.1.14)
       builder
       json
+    annotate (2.6.5)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arel (3.0.3)
     asset_sync (1.0.0)
       activemodel
@@ -481,6 +484,7 @@ DEPENDENCIES
   action_mailer_cache_delivery
   acts-as-taggable-on
   airbrake (~> 3.1.12)
+  annotate
   asset_sync
   aws-sdk
   braintree

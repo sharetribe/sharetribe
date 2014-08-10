@@ -1,3 +1,23 @@
+# == Schema Information
+#
+# Table name: cached_ressi_events
+#
+#  id                :integer          not null, primary key
+#  user_id           :string(255)
+#  application_id    :string(255)
+#  session_id        :string(255)
+#  ip_address        :string(255)
+#  action            :string(255)
+#  parameters        :text
+#  return_value      :string(255)
+#  headers           :text
+#  semantic_event_id :string(255)
+#  created_at        :datetime
+#  updated_at        :datetime
+#  test_group_number :integer
+#  community_id      :integer
+#
+
 require 'timeout'
 
 class CachedRessiEvent < ActiveRecord::Base

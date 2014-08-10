@@ -94,6 +94,7 @@ group :development do
   gem 'rack-livereload'
   gem 'rb-fsevent',       require: false
   gem 'guard-rspec',      require: false
+  gem 'annotate',         require: false
   gem 'zeus', '0.15.1'
   gem 'i18n-tasks', '~> 0.6.2'
 end
