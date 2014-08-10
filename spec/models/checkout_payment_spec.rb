@@ -1,3 +1,23 @@
+# == Schema Information
+#
+# Table name: payments
+#
+#  id                       :integer          not null, primary key
+#  payer_id                 :string(255)
+#  recipient_id             :string(255)
+#  organization_id          :string(255)
+#  conversation_id          :integer
+#  status                   :string(255)
+#  created_at               :datetime         not null
+#  updated_at               :datetime         not null
+#  community_id             :integer
+#  payment_gateway_id       :integer
+#  sum_cents                :integer
+#  currency                 :string(255)
+#  type                     :string(255)      default("CheckoutPayment")
+#  braintree_transaction_id :string(255)
+#
+
 require 'spec_helper'
 
 describe CheckoutPayment do

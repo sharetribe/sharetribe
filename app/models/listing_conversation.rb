@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: conversations
+#
+#  id                                :integer          not null, primary key
+#  type                              :string(255)      default("Conversation")
+#  title                             :string(255)
+#  listing_id                        :integer
+#  created_at                        :datetime
+#  updated_at                        :datetime
+#  last_message_at                   :datetime
+#  automatic_confirmation_after_days :integer
+#  community_id                      :integer
+#
+
 class ListingConversation < Conversation
   attr_accessor :contract_agreed
 

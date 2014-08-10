@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: custom_fields
+#
+#  id             :integer          not null, primary key
+#  type           :string(255)
+#  sort_priority  :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  community_id   :integer
+#  required       :boolean          default(TRUE)
+#  min            :float
+#  max            :float
+#  allow_decimals :boolean          default(FALSE)
+#
+
 class NumericField < CustomField
   attr_accessible :allow_decimals
 
