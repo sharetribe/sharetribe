@@ -5,4 +5,4 @@
   = link_to(t("emails.common.check_your_settings"), @settings_url)
   - if @recipient && @url_params && @url_params[:host].present? && @email_type
     = t("emails.common.or")
-    = link_to(t("emails.common.unsubscribe_from_these_emails"), unsubscribe_person_settings_url(@recipient, @url_params.merge({email_type: @email_type}))) + "."
+    = link_to(t("emails.common.unsubscribe_from_these_emails"), unsubscribe_person_settings_url(@recipient, @url_params.merge({email_type: @email_type}).merge({auth: @recipient.new_email_auth_token}))) + "."

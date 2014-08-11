@@ -5,7 +5,7 @@
         Hello #{@recipient.given_name_or_username},
 
       %p
-        You are receiving this email because you are an admin in the Sharetribe community #{link_to(@community.name(@recipient.locale), @community.full_url + '?auth=' + @url_params[:auth] + '&ref=' + @url_params[:ref])}. There has been a lot of changes recently in Sharetribe, and we wanted to tell you a bit about them.
+        You are receiving this email because you are an admin in the Sharetribe community #{link_to(@community.name(@recipient.locale), '?ref=' + @url_params[:ref])}. There has been a lot of changes recently in Sharetribe, and we wanted to tell you a bit about them.
 
       %p
         First of all, the previous membership limit is now completely removed. All the current features of Sharetribe are and will be completely free for your community, so now is a good time to invite more people to the community to make it thrive! You can invite people you know by using our redesigned #{link_to('invitation form', new_invitation_url(@url_params))}.

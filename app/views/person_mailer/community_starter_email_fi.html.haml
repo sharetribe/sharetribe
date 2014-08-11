@@ -6,7 +6,7 @@
         Hei #{@recipient.given_name_or_username},
 
       %p
-        Saat tämän sähköpostin, koska olet perustanut Sharetribe-yhteisön #{link_to(@community.name(@recipient.locale), @community.full_url + '?auth=' + @url_params[:auth] + '&ref=' + @url_params[:ref])}. Sharetribe on kokenut viime aikoina merkittäviä muutoksia, jotka saattavat kiinnostaa sinua.
+        Saat tämän sähköpostin, koska olet perustanut Sharetribe-yhteisön #{link_to(@community.name(@recipient.locale), @community.full_url + '?ref=' + @url_params[:ref])}. Sharetribe on kokenut viime aikoina merkittäviä muutoksia, jotka saattavat kiinnostaa sinua.
 
       %p
         Aiemmin käytössä ollut viidenkymmenen ilmaisen jäsenen raja on nyt poistettu. Sharetribe-yhteisösi kaikkine nykytoiminnallisuuksineen on ja tulee olemaan myös jatkossa ilmainen rajattomalle määrälle jäseniä. Nyt on siis erittäin hyvä aika kutsua perustamaasi yhteisöön lisää jäseniä! Voit tehdä sen helposti käyttämällä uusittua #{link_to('kutsulomakettamme', new_invitation_url(@url_params))}.
