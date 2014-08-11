@@ -513,8 +513,8 @@ class Person < ActiveRecord::Base
     image_file_name.present?
   end
 
-  def new_email_auth_token(valid_for = 36.hours)
-    t = AuthToken.create(:person => self, :expires_at => valid_for.from_now)
+  def new_email_auth_token
+    t = AuthToken.create(:person => self)
     return t.token
   end
 
