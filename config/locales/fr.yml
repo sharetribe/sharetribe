@@ -175,6 +175,26 @@ fr:
         language: Langue
         url: URL
         empty: "Vous n'avez pas encore ajouté de liens au menu"
+      transactions:
+        transactions: ~
+        headers:
+          conversation: ~
+          listing: ~
+          status: ~
+          sum: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        status:
+          free: ~
+          pending: ~
+          preauthorized: ~
+          accepted: ~
+          rejected: ~
+          paid: ~
+          confirmed: ~
+          canceled: ~
       braintree_payment_gateway:
         braintree_payment_gateway: "Clé d'API pour Braintree Payment"
         environment: Environnement
@@ -422,6 +442,7 @@ fr:
       item_request_message_form_title: "Proposer un objet à %{person}"
       message: Message
       message_to: "Message à %{author_name}"
+      optional_message_to: "Message optionnel à %{author_name}"
       rideshare_offer_message_form_title: "Demander un covoiturage à %{person}"
       rideshare_request_message_form_title: "Proposer un covoiturage à %{person}"
       send_message: "Envoyer le message"
@@ -446,6 +467,7 @@ fr:
       price: "Prix : %{price}"
       sum: "Total : %{sum}"
       price_excludes_vat: "(hors TVA)"
+      total: "Total : %{total}"
     status:
       cancel_payed_transaction: Annuler
       feedback_given: "Avis donné"
@@ -521,85 +543,6 @@ fr:
       cvv: Cryptogramme
       credit_card_expiration_date: "Date d'expiration"
       confirm_payment: "Confirmer le paiement"
-  communities:
-    map_bubble:
-      view_tribe: "Voir la tribu"
-    email_confirmation_pending:
-      confirmation_pending: "Merci de confirmer votre adresse email"
-    index:
-      find_your_local_tribe: "Trouvez une tribu proche de vous"
-      or_start_your_own: "...ou %{start_your_own_tribe_link}"
-      start_your_own_tribe_link: "créez la votre !"
-    select_pricing_plan:
-      select_your_plan: "Choisissez votre offre"
-      pick_one_of_the_options_below: "Sélectionnez une des options ci-dessous."
-      create_for_free: "Créer gratuitement"
-      contact_us: "Nous contacter"
-      free_plan: "Offre gratuite"
-      max_members: "Jusqu'à %{number} membres"
-      premium_plan: "Offre premium"
-      care_free_user_support: "Support utilisateur"
-      create_your_tribe: "Créer votre tribu"
-      professional_plan: "Offre pro"
-      unlimited_members: "Nombre illimité de membres"
-      intranet_integration: "Intégration à votre intranet"
-      no_charge: "Entièrement gratuit"
-      euros_per_month_premium: "%{price} euros par mois"
-      custom_domain: "Nom de domaine personnalisé"
-      you_can_change_and_cancel: "Vous pouvez annuler ou changer d'offre à tout moment."
-      we_help_you_get_started: "Nous aidons à la promotion"
-      discounts_available_for_non_profits: "Tarif réduit de 50% pour les groupes à but non lucratif"
-    select_tribe_category_form:
-      what_kind_of_tribe_do_you_want_to_create: "Quel type de tribu souhaitez-vous créer ?"
-      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Pour commencer, dites nous quelle type de communauté vous représentez."
-      company: Entreprise
-      university: Université
-      town: Ville
-      congregation: Congrégation
-      association: Association
-      neighborhood: Quartier
-      apartment_building: "Immeuble, lotissement"
-      other: Autre
-    new_tribe_form:
-      create_a_tribe_in_a_minute: "Créer une tribu en un instant"
-      welcome_now_create_your_tribe: "Bienvenue, %{name} ! C'est parti, créez votre tribu."
-      name_of_your_tribe: "Nom de votre tribu"
-      web_address_of_your_tribe: "Adresse internet de votre tribu"
-      slogan_of_your_tribe: "Slogan de votre tribu"
-      describe_your_tribe: "Décrivez votre tribu : quel est sa raison d'être ?"
-      create_your_tribe: "Créer votre tribu !"
-      domain_invalid: "Le domaine ne peut contenir que des lettres, des nombres, des tirets bas (\"_\") et des tirets hauts (\"-\")."
-      domain_taken: "Cette tribu existe déjà. Vous devez choisir un autre nom."
-      address: "Emplacement de votre tribu"
-      select_main_language_of_your_tribe: "Choisissez la langue principale de votre tribu"
-      language: Langue
-      restrict_tribe_to_invited_people: "Les utilisateurs ont besoin d'une invitation pour rejoindre cette tribu"
-    signup_form:
-      create_an_account: "Créer votre compte personnel"
-      to_create_a_tribe_you_must_first_create_sharetribe_account: "Vous pouvez créer un nouveau compte sur Sharetribe ci-dessous ou bien"
-      log_in_with_your_existing_account: "vous connecter avec votre compte"
-      your_email: "Votre adresse email"
-      your_university_email: "Votre adresse email universitaire"
-      your_company_email: "Votre adresse email d'entreprise"
-      you_need_to_confirm: "Pour créer une tribu pour votre %{tribe_type}, vous devez confirmer votre adresse email %{tribe_type}."
-      pick_username: "Choisissez un nom d'utilisateur"
-      your_given_name: "Votre prénom"
-      your_family_name: "Votre nom"
-      your_password: "Choisissez un mot de passe"
-      confirm_your_password: "Confirmez votre mot de passe"
-      email_in_use_message: "Un compte avec cette adresse email existe déjà pour %{service_name}. Si vous avez déjà un compte, vous pouvez vous connecter en cliquant ci-dessous."
-      invalid_email_ending_message: "Cela ressemble à une adresse email personnelle. Vous devez vous inscrire avec votre email %{community_category}."
-      log_in_here: "se connecter"
-      existing_community_with_this_email: "Il existe déjà une tribu pour %{community_category}. Vous pouvez rejoindre la tribu : %{link}."
-      here: ici
-      for_company: entreprise
-      for_university: université
-      for_town: ville
-      for_congregation: congrégation
-      for_association: association
-      for_neighborhood: quartier
-      for_apartment_building: "Immeuble, lotissement"
-      for_other: autre
   community_memberships:
     access_denied:
       access_denied: "Accès refusé"
@@ -772,38 +715,19 @@ fr:
       click_here_to_reply: "Cliquez ici pour répondre à la demande"
     transaction_preauthorized_reminder:
       subject: "N'oubliez pas d'accepter la demande de %{requester} à propos de l'annonce %{listing_title}"
-      remember_to_accept: "N'oubliez pas d'accepter la demande de %{requester} à propos de l'annonce %{listing_title}. %{requester} a déjà payé pour cette annonce. Vous devez accepter la demande pour recevoir le paiement."
+      remember_to_accept: "N'oubliez pas d'accepter la demande de %{requester} à propos de l'annonce \"%{listing_title}\". %{requester} a déjà payé pour cette annonce. Vous devez accepter la demande pour recevoir le paiement."
       one_day_left: "Si vous n'acceptez pas la demande sous une journée l'annonce sera automatiquement refusée et vous ne recevrez pas le paiement."
       click_here_to_reply: "Cliquez ici pour répondre à la demande"
     welcome_email:
+      welcome_email_subject: "Bienvenue sur %{community}"
+      welcome_to_marketplace: "Bienvenue sur %{service_name} ! Ravi que vous nous ayez rejoint."
+      love_marketplace_crew: "Love,<br /><i>L'équipe de %{service_name}</i>"
+      p_s_did_you_know: "PS : souhaitez-vous créer votre propre place de marché comme %{service_name} ? C'est simple et ne demande pas de compétences techniques. %{click_here_link} pour en savoir plus !"
+      click_here_link_text: "Cliquez ici"
       welcome_email_footer_text: "Quels types d'emails souhaitez vous recevoir de la part de %{service_name} ? %{settings_link}"
       settings_link_text: "Vérifiez vos paramètres"
-      subject: "Bienvenue dans la tribu %{community} - voici quelques astuces pour bien commencer"
-      welcome_some_tips: "Bienvenue dans la tribu %{community_link} ! Voici quelques astuces pour bien commencer."
-      p_s_did_you_know: "PS : saviez-vous que vous pouvez créer une place de marché comme celle ci pour toutes les communautés ou projet que vous avez ? %{click_here_link} pour en savoir plus !"
-      click_here_link_text: "Cliquez ici"
-      update_your_profile: "<strong>Mettez à jour votre profil.</strong> Ajouter votre vrai nom, mettre votre photo et dire quelques mots à propos de vous permettra aux autres de vous faire plus facilement confiance. Ajouter vos informations de contact vous rendra la vie plus facile car vous n'aurez pas à le faire manuellement à chaque fois que vous déposez une annonce."
-      update_your_profile_link_text: "Mettez à jour votre profil en cliquant ici"
-      add_something_you_could_offer: "<strong>Proposez quelque chose aux autres membres de %{service_name}.</strong> Pouvez-vous prêter votre perceuse, votre raquette de tennis ou votre appareil à raclette ? Savez-vous coudre, monter des meubles ou réparer des ordinateurs ? Y a t-il des objets dans vos placards dont vous aimeriez vous séparer ? %{add_offer_link}"
-      add_offer_link_text: "Proposez les sur %{service_name} !"
-      is_there_something_you_need: "<strong>Avez-vous besoin de quelque chose ?</strong> Peut-être aimeriez vous partager un trajet ? Ou emprunter des outils ? Ou bien avez besoin de quelqu'un qui pourrait promener votre chien ? La première chose à faire est de regarder sur %{service_name} : peut-être que quelqu'un propose déjà ce dont vous avez besoin. Si vous ne trouvez pas d'offre adaptée, vous pouvez %{add_request_link}."
-      add_request_link_text: "créez une nouvelle demande"
-      invite_your_friends_invite_only: "<strong>Passez le mot.</strong> Plus il y a de personnes sur %{service_name}, plus cela sera utile à tous. Cette tribu %{service_name} est \"sur invitation uniquement\", les gens doivent donc avoir une invitation d'un autre membre pour la rejoindre. Connaissez-vous des personnes qui pourraient être intéressées ? Donnez leur accès à %{service_name} %{invite_link}. Si vous voulez voir qui est déjà membre, %{member_list_link}."
-      invite_your_friends: "<strong>Passez le mot.</strong> Plus il y a d'utilisateurs sur %{service_name}, plus la tribu sera utile à tous. Connaissez-vous des gens qui pourraient vous rejoindre ? Parlez leur de %{service_name} %{invite_link} ou en leur envoyant ce lien : %{url}. Si vous voulez voir qui est déjà présent, %{member_list_link}."
-      invite_link_text: "en utilisant le formulaire d'invitation"
-      member_list_link_text: "regardez la liste des membres"
-      go_explore: "<strong>Explorez !</strong> Regardez ce que les autres offrent et demandent déjà sur %{service_name}. Peut-être trouverez vous quelque chose dont vous avez besoin. Peut-être pourrez vous aider quelqu'un d'autre. Profitez en !"
-      love_team: "Love,<br /><i>L'équipe %{service_name}</i>"
-      congrats_for_creating_community: "Vous avez créé la tribu %{community} - voici quelques astuces pour bien démarrer"
-      you_have_just_created_community: "Vous avez créé la tribu %{community_link} ! Voici quelques astuces pour bien démarrer avec cette nouvelle tribu."
-      you_now_have_admin_rights: "<b>Vous avez désormais les droits d'administration de cette tribu.</b> Cela signifie que vous pouvez, par exemple, éditer les informations et l'aspect de la tribu. C'est d'ailleurs sûrement la première chose que vous souhaitez faire. %{edit_community_details_link}. Si vous souhaitez donner les droits d'administration à quelqu'un d'autre, contactez nous en répondant à cet email."
-      edit_community_details_link_text: "Modifiez les paramètres de la tribu en cliquant ici"
-      add_content: "<strong>Ajoutez du contenu.</strong> Le meilleur moyen de lancer la machine est d'ajouter des annonces vous même. Ainsi, quand de nouvelles personnes arriveront, elle verront tout de suite que quelque chose se passe. Pouvez-vous prêter votre perceuse, votre raquette de tennis ou votre appareil à raclette ? Savez-vous coudre, monter des meubles ou réparer des ordinateurs ? Y a t-il des objets dans vos placards dont vous aimeriez vous séparer ? %{add_offer_link} Si vous avez besoin de quelque chose, %{add_request_link}."
-      spread_the_word: "<strong>Passez le mot.</strong> Pour avoir de nouveaux membres dans la tribu, vous devez en parler aux gens que vous connaissez. Voici quelques idées : 1) Parlez de %{service_name} sur une mailing list. 2) Partagez le lien suivant via Facebook, Twitter ou d'autres réseaux sociaux : %{url}. 3) Envoyez des emails d'invitation %{invite_link}. 4) Parlez en autour de vous quand vous rencontrez des gens, faites marcher le bouche à oreille."
-      spread_the_word_invite_only: "<strong>Passez le mot.</strong> Vous avez décidé de rendre cette tribu \"sur invitation uniquement\". Les gens doivent donc avoir une invitation d'un autre membre pour la rejoindre. Ainsi, pour avoir de nouveaux membres dans la tribu, vous devez les inviter. Vous pouvez le faire %{invite_link}."
-      have_fun: "Amusez vous et profitez de %{service_name}. Puisse votre tribu vivre et prospérer pour longtemps !"
     new_listing_by_followed_person:
-      subject: "%{author_name} a publié une nouvelle annonce dans %{community}"
+      subject: "%{author_name} a publié une nouvelle annonce sur %{service_name}"
       has_posted_a_new_listing: "%{author_name} a publié une nouvelle annonce : "
       you_are_receiving_this_because: "Vous recevez cette notification car vous suivez %{author_name}."
       view_listing: "Voir l'annonce"
@@ -1399,6 +1323,13 @@ fr:
       listing_created_at: "Annonce créée"
     verification_required:
       verification_required: "Vérification nécessaire"
+  listing_conversations:
+    preauthorize:
+      details: Détails
+      by: "%{listing} par %{author}"
+      payment: Paiement
+      exp: "Exp : "
+      you_will_be_charged: "Vous ne serez prélevé que si %{author} accepte la transaction. %{author} doit accepter la transaction sous 5 jours. Si %{author} refuse ou ne répond pas, aucun prélèvement ne sera effectué."
   mapview:
     index:
       all_categories: "Toutes les catégories"

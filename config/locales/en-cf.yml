@@ -160,6 +160,26 @@ en-cf:
         language: ~
         url: ~
         empty: ~
+      transactions:
+        transactions: ~
+        headers:
+          conversation: ~
+          listing: ~
+          status: ~
+          sum: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        status:
+          free: ~
+          pending: ~
+          preauthorized: ~
+          accepted: ~
+          rejected: ~
+          paid: ~
+          confirmed: ~
+          canceled: ~
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~

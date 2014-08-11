@@ -160,6 +160,26 @@ el:
         language: ~
         url: ~
         empty: ~
+      transactions:
+        transactions: ~
+        headers:
+          conversation: ~
+          listing: ~
+          status: ~
+          sum: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        status:
+          free: ~
+          pending: ~
+          preauthorized: ~
+          accepted: ~
+          rejected: ~
+          paid: ~
+          confirmed: ~
+          canceled: ~
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~
@@ -407,6 +427,7 @@ el:
       item_request_message_form_title: "Πρόσφερε ένα αντικείμενο στον/στην"
       message: Μήνυμα
       message_to: ~
+      optional_message_to: ~
       rideshare_offer_message_form_title: "Κάνε οτοστόπ στον/στην"
       rideshare_request_message_form_title: "Ταξίδεψε μαζί με τον/την"
       send_message: Αποστολή
@@ -431,6 +452,7 @@ el:
       price: ~
       sum: ~
       price_excludes_vat: ~
+      total: ~
     status:
       cancel_payed_transaction: Άκυρο
       feedback_given: "Δόθηκε κριτική"
@@ -506,85 +528,6 @@ el:
       cvv: CVV
       credit_card_expiration_date: "Ημερομηνία λήξης πιστωτικής κάρτας"
       confirm_payment: ~
-  communities:
-    map_bubble:
-      view_tribe: "Εμφάνιση του sharetribe"
-    email_confirmation_pending:
-      confirmation_pending: "Παρακαλούμε, επιβεβαιώστε τη διεύθυνση email σας"
-    index:
-      find_your_local_tribe: "Βρείτε ένα sharetribe κοντά σας"
-      or_start_your_own: "... ή %{start_your_own_tribe_link}."
-      start_your_own_tribe_link: "ξεκινήστε ένα δικό σας"
-    select_pricing_plan:
-      select_your_plan: "Μορφή της κοινότητας"
-      pick_one_of_the_options_below: "Διάλεξε μία από τις παρακάτω επιλογές"
-      create_for_free: Δημιουργία
-      contact_us: "Επικοινωνήστε μαζί μας"
-      free_plan: Βασική
-      max_members: "Μέχρι %{number} μέλη"
-      premium_plan: Premium
-      care_free_user_support: "Τεχνική υποστήριξη χρηστών"
-      create_your_tribe: Δημιουργία
-      professional_plan: Προσαρμοσμένη
-      unlimited_members: "Απεριόριστα μέλη"
-      intranet_integration: "Ολοκλήρωση με Intranet"
-      no_charge: "Χωρίς χρέωση"
-      euros_per_month_premium: "%{price} ευρώ/μήνα (περιλ. ΦΠΑ)"
-      custom_domain: "Custom domain"
-      you_can_change_and_cancel: "Μπορείτε να αλλάξετε αυτή την επιλογή οποιαδήποτε στιγμή."
-      we_help_you_get_started: "Προσφέρουμε βοήθεια για να ξεκινήσει η κοινότητα"
-      discounts_available_for_non_profits: "Για μη-κερδοσκοπικούς οργανισμούς ισχύει έκπτωση 50%"
-    select_tribe_category_form:
-      what_kind_of_tribe_do_you_want_to_create: "Πείτε μας για την κοινότητά σας"
-      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Πείτε μας τι είδους κοινότητα εκπροσωπείτε επιλέγοντας ένα από τα παρακάτω."
-      company: Εταιρεία
-      university: Πανεπιστήμιο
-      town: Πόλη
-      congregation: Ενορία
-      association: Σύλλογος
-      neighborhood: Γειτονιά
-      apartment_building: Πολυκατοικία
-      other: "Κάτι άλλο"
-    new_tribe_form:
-      create_a_tribe_in_a_minute: "Δημιουργήστε ένα sharetribe μέσα σε ένα λεπτό"
-      welcome_now_create_your_tribe: "Καλωσήρθες! Συνεχίστε τώρα στη δημιουργία του sharetribe σας."
-      name_of_your_tribe: "Όνομα του sharetribe"
-      web_address_of_your_tribe: "Διεύθυνση του sharetribe στο διαδίκτυο"
-      slogan_of_your_tribe: "Σλόγκαν (θα φαίνεται στην αρχική σελίδα)"
-      describe_your_tribe: "Γράψτε μια περιγραφή: ποιος είναι ο στόχος της κοινότητας"
-      create_your_tribe: "Δημιουργήστε το sharetribe σας!"
-      domain_invalid: "Η διεύθυνση επιτρέπεται να περιέχει μόνο γράμματα, αριθμούς, παύλες και κάτω παύλες."
-      domain_taken: "Αυτό το sharetribe υπάρχει ήδη. Πρέπει να διαλέξετε μια άλλη διεύθυνση."
-      address: "Περιοχή του sharetribe"
-      select_main_language_of_your_tribe: "Επέλεξε την κύρια γλώσσα της κοινότητας"
-      language: Γλώσσα
-      restrict_tribe_to_invited_people: "Απαιτείται πρόσκληση για συμμετοχή σε αυτή την κοινότητα"
-    signup_form:
-      create_an_account: "Δημιουργήστε λογαριασμό"
-      to_create_a_tribe_you_must_first_create_sharetribe_account: "Μπορείτε να δημιουργήσετε ένα νέο λογαριασμό στο %{service_name} ή να"
-      log_in_with_your_existing_account: "συνδεθείτε με τον λογαριασμό σας"
-      your_email: "η ηλεκτρονική σας διεύθυνση"
-      your_university_email: "το email του πανεπιστημίου σας"
-      your_company_email: "το email της εταιρείας σας"
-      you_need_to_confirm: "Για να συνεχίσετε πρέπει πρώτα να επιβεβαιώσετε τη διεύθυνση ηλεκτρονικού ταχυδρομείου της κοινότητάς σας."
-      pick_username: "Επιλέξτε ένα όνομα χρήστη"
-      your_given_name: "Το όνομά σας"
-      your_family_name: "Το επώνυμό σας"
-      your_password: Κωδικός
-      confirm_your_password: "Επιβεβαίωση κωδικού"
-      email_in_use_message: "Υπάρχει ήδη λογαριασμός στο %{service_name} με αυτή την διεύθυνση email. Αν έχετε ήδη λογαριασμό, μπορείτε να συνδεθείτε χρησιμοποιώντας τον παραπάνω σύνδεσμο."
-      invalid_email_ending_message: "Αυτό μοιάζει να είναι προσωπικό email. Θα πρέπει να γραφτείτε με ένα email που να σχετίζεται με την κοινότητά σας."
-      log_in_here: "συνδεθείτε εδώ"
-      existing_community_with_this_email: "Υπάρχει ήδη ένα sharetribe γι' αυτή την κοινότητα. Μπορείτε να συμμετέχετε σε αυτό %{link}."
-      here: εδώ
-      for_company: εταιρία
-      for_university: πανεπιστήμιο
-      for_town: πόλη
-      for_congregation: ενορία
-      for_association: σύλλογος
-      for_neighborhood: γειτονιά
-      for_apartment_building: πολυκατοικία
-      for_other: άλλο
   community_memberships:
     access_denied:
       access_denied: ~
@@ -761,32 +704,13 @@ el:
       one_day_left: ~
       click_here_to_reply: ~
     welcome_email:
-      welcome_email_footer_text: "Θέλετε να ελέγξετε τι μηνύματα θα λαμβάνετε από το %{service_name}; %{settings_link}"
-      settings_link_text: "Δείτε τις ρυθμίσεις σας"
-      subject: "Καλώς ήρθατε στο Sharetribe της κοινότητας \"%{community}\""
-      welcome_some_tips: "Καλώς ήρθατε στο Sharetribe της κοινότητας \"%{community_link}\"! Σας δίνουμε μερικές συμβουλές για να ξεκινήσετε."
+      welcome_email_subject: ~
+      welcome_to_marketplace: ~
+      love_marketplace_crew: ~
       p_s_did_you_know: "Υ.Γ.: Ξέρετε ότι μπορείτε να δημιουργήσετε δωρεάν μια αγορά όπως αυτή για οποιαδήποτε άλλη κοινότητα επιθυμείτε; %{click_here_link} για να μάθετε περισσότερα!"
       click_here_link_text: "Πατήστε εδώ"
-      update_your_profile: "<strong>Ενημερώστε το προφίλ σας.</strong> Χρησιμοποιείστε το αληθινό σας όνομα, προσθέστε μια φωτογραφία σας και αν θέλετε γράψτε κάτι για σας. Έτσι, οι άλλοι χρήστες θα σας εμπιστεύονται πιο εύκολα στις συναλλαγές σας. Αν επιπλέον καταχωρήσετε και τα στοιχεία επικοινωνίας σας θα γλιτώνετε χρόνο αφού δεν θα χρειάζεται να τα προσθέτετε σε κάθε νέα καταχώρηση."
-      update_your_profile_link_text: "Ενημερώστε το προφίλ σας εδώ"
-      add_something_you_could_offer: "<strong>Καταχωρήστε κάτι που μπορείτε να προσφέρετε.</strong> Μπορείτε να δανείσετε κάποια εργαλεία, το ποδήλατό σας ή κάποιο βιβλίο; Μπορείτε να προσφέρετε βοήθεια με υπολογιστές ή ξέρετε να επιδιορθώνετε ρούχα; Μήπως κάνετε συχνά μια διαδρομή με το αυτοκίνητο και θα μπορούσατε να παίρνετε κάποιον μαζί σας; %{add_offer_link}"
-      add_offer_link_text: "Όλα αυτά μπορείτε να τα προσφέρετε στο %{service_name}!"
-      is_there_something_you_need: "<strong>Υπάρχει κάτι που χρειάζεστε;</strong> Θέλετε βοήθεια με κάτι; Χρειάζεστε να δανειστείτε κάποιο εργαλείο; Κάποιον να σας πετάξει κάπου με το αυτοκίνητο; Κάντε μια αναζήτηση στο %{service_name}: ίσως κάποιος να προσφέρει ήδη αυτό που θέλετε. Αν όχι, τότε %{add_request_link}."
-      add_request_link_text: "ζητήστε το με μια καταχώρηση"
-      invite_your_friends_invite_only: "<strong>Διαδώστε το.</strong> Όσο περισσότεροι χρησιμοποιούν το %{service_name} τόσο πιο χρήσιμο γίνεται. Για να γραφτεί κάποιος σε αυτή την κοινότητα απαιτείται πρόσκληση οπότε αν ξέρετε κόσμο που θα ενδιαφερόταν, καλέστε τους! Χρησιμοποιείστε %{invite_link} ή στείλτε τους τον σύνδεσμο: %{url}. Στη %{member_list_link} μπορείτε να δείτε ποιοι είναι ήδη μέλη."
-      invite_your_friends: "<strong>Διαδώστε το.</strong> Όσο περισσότεροι χρησιμοποιούν το %{service_name} τόσο πιο χρήσιμο γίνεται. Αν ξέρετε κόσμο που θα ενδιαφερόταν να το χρησιμοποιήσει, καλέστε τους! Χρησιμοποιείστε %{invite_link} ή στείλτε τους τον σύνδεσμο: %{url}. Στη %{member_list_link} μπορείτε να δείτε ποιοι είναι ήδη μέλη."
-      invite_link_text: "τη φόρμα πρόσκλησης"
-      member_list_link_text: "λίστα μελών"
-      go_explore: "<strong>Εξερευνήστε!</strong> Δείτε τι προσφέρουν και τι ζητούν άλλοι στο %{service_name}. Ίσως να βρείτε κάτι που χρειάζεστε ή να μπορέσετε να βοηθήσετε κάποιον. Απολαύστε το!"
-      love_team: "Με αγάπη,<br /><i>Η Ομάδα του %{service_name}"
-      congrats_for_creating_community: "Μόλις δημιουργήσατε την κοινότητα %{community} - μερικές συμβουλές για να ξεκινήσετε"
-      you_have_just_created_community: "Μόλις δημιουργήσατε την κοινότητα %{community_link}! Σας δίνουμε μερικές συμβουλές για να ξεκινήσετε με την νέα σας κοινότητα."
-      you_now_have_admin_rights: "<b>Έχετε δικαιώματα διαχειριστή σε αυτή την κοινότητα.</b> Αυτό σημαίνει ότι μπορείτε, για παράδειγμα, να επεξεργαστείτε τις πληροφορίες και την εμφάνιση της κοινότητας. Αυτό είναι μάλλον το πρώτο πράγμα που πρέπει να κάνετε. %{edit_community_details_link}. Αν θέλετε να μεταβιβάσετε τα δικαιώματα διαχειριστή σε κάποιον άλλο, παρακαλούμε επικοινωνήστε μαζί μας απαντώντας σε αυτό το email."
-      edit_community_details_link_text: "Επεξεργαστείτε τις λεπτομέρειες της κοινότητας εδώ"
-      add_content: "<strong>Προσθέστε περιεχόμενο.</strong> Ο καλύτερος τρόπος για να αρχίσει να λειτουργεί η κοινότητα είναι να προσθέσετε κάποιες καταχωρήσεις εσείς. Κατ' αυτό τον τρόπο οι νέοι χρήστες θα βλέπουν ότι υπάρχει ήδη μια δραστηριότητα. Έχετε κάτι να δανείσετε; Μπορείτε να προσφέρετε κάποιο βιβλίο, το ποδήλατό σας ή ένα ηλεκτρικό τρυπάνι; Ξέρετε να ράβετε ή να επιδιορθώνετε υπολογιστές; %{add_offer_link} Αν χρειάζεστε κάτι, %{add_request_link}."
-      spread_the_word: "<strong>Διαδώστε το.</strong> Για να έρθουν νέα μέλη στην κοινότητα, πρέπει να την διαδώσετε στους γνωστούς σας. Για παράδειγμα: 1) δημοσιεύστε για το %{service_name} σε μια mailing list. 2) Μοιραστείτε τον παρακάτω σύνδεσμο στο Faceboοκ, το Twitter ή σε άλλα κοινωνικά δίκτυα: %{url}. 3) Στείλτε προσκλήσεις χρησιμοποιώντας %{invite_link}. 4) Μην ξεχνάτε να τους ενημερώνετε κι από κοντά όταν τους βλέπετε!"
-      spread_the_word_invite_only: "<strong>Διαδώστε το.</strong> Σε αυτή την κοινότητα μπορεί να γραφτεί κάποιος μόνο αν προσκληθεί από κάποιο άλλο μέλος. Συνεπώς, για να έχετε καινούρια μέλη πρέπει να τα προσκαλέσετε. Μπορείτε να το κάνετε αυτό από %{invite_link}."
-      have_fun: "Ευχόμαστε να απολάυσετε τη χρήση του %{service_name}. Μακάρι η κοινότητά σας να προκόψει!"
+      welcome_email_footer_text: "Θέλετε να ελέγξετε τι μηνύματα θα λαμβάνετε από το %{service_name}; %{settings_link}"
+      settings_link_text: "Δείτε τις ρυθμίσεις σας"
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -1384,6 +1308,13 @@ el:
       listing_created_at: ~
     verification_required:
       verification_required: ~
+  listing_conversations:
+    preauthorize:
+      details: ~
+      by: ~
+      payment: ~
+      exp: ~
+      you_will_be_charged: ~
   mapview:
     index:
       all_categories: "Όλες οι κατηγορίες"

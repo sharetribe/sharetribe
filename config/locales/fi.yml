@@ -176,25 +176,25 @@ fi:
         url: "Osoite (URL)"
         empty: "Sinulla ei ole lisälinkkejä valikossa"
       transactions:
-        transactions: "Transaktiot"
+        transactions: Transaktiot
         headers:
-          conversation: "Viestiketju"
-          listing: "Ilmoitus"
-          status: "Tila"
-          sum: "Kokonaissumma"
-          started: "Aloitettu"
+          conversation: Viestiketju
+          listing: Ilmoitus
+          status: Tila
+          sum: Kokonaissumma
+          started: Aloitettu
           last_activity: "Viimeisin tapahtuma"
-          initiated_by: "Aloittaja"
+          initiated_by: Aloittaja
           other_party: "Toinen osapuoli"
         status:
           free: "Vapaa keskustelu"
-          pending: "Odottaa"
+          pending: Odottaa
           preauthorized: "Katevaraus tehty"
           accepted: "Ilmoittajan hyväksymä"
           rejected: "Ilmoittajan hylkäämä"
-          paid: "Maksettu"
-          confirmed: "Hyväksytty"
-          canceled: "Peruutettu"
+          paid: Maksettu
+          confirmed: Hyväksytty
+          canceled: Peruutettu
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~
@@ -442,6 +442,7 @@ fi:
       item_request_message_form_title: "Tarjoa tavara käyttäjälle"
       message: Viesti
       message_to: ~
+      optional_message_to: ~
       rideshare_offer_message_form_title: "Pyydä kyytiä käyttäjältä"
       rideshare_request_message_form_title: "Tarjoa kyyti käyttäjälle"
       send_message: "Lähetä viesti"
@@ -466,6 +467,7 @@ fi:
       price: "Hinta: %{price}"
       sum: "Loppusumma: %{sum}"
       price_excludes_vat: "(alv 0)"
+      total: ~
     status:
       cancel_payed_transaction: Peruuta
       feedback_given: "Palaute annettu"
@@ -541,85 +543,6 @@ fi:
       cvv: ~
       credit_card_expiration_date: ~
       confirm_payment: ~
-  communities:
-    map_bubble:
-      view_tribe: "Näytä yhteisö"
-    email_confirmation_pending:
-      confirmation_pending: "Ole hyvä ja vahvista sähköpostiosoitteesi"
-    index:
-      find_your_local_tribe: "Löydä paikallinen yhteisösi"
-      or_start_your_own: "...tai %{start_your_own_tribe_link}"
-      start_your_own_tribe_link: "aloita oma!"
-    select_pricing_plan:
-      select_your_plan: "Valitse paketti"
-      pick_one_of_the_options_below: "Valitse yksi alla olevista vaihtoehdoista."
-      create_for_free: "Aloita ilmaiseksi"
-      contact_us: "Ota yhteyttä"
-      free_plan: "Ilmainen paketti"
-      max_members: "Max. %{number} jäsentä"
-      premium_plan: Palvelupaketti
-      care_free_user_support: "Priorisoitu käyttäjätuki"
-      create_your_tribe: "Luo yhteisö"
-      professional_plan: "Mukautuva paketti"
-      unlimited_members: "Rajoittamaton jäsenmäärä"
-      intranet_integration: Intranet-integrointi
-      no_charge: Ilmainen
-      euros_per_month_premium: "%{price} euroa/kk (sis. ALV)"
-      custom_domain: "Oma verkko-osoite"
-      you_can_change_and_cancel: "Voit vaihtaa tai perua valitun paketin milloin vain."
-      we_help_you_get_started: "Tuki aloitusvaiheessa"
-      discounts_available_for_non_profits: "Tarjoamme 50% alennuksen voittoa tavoittelemattomille yhdistyksille"
-    select_tribe_category_form:
-      what_kind_of_tribe_do_you_want_to_create: "Millaisen yhteisön haluat luoda?"
-      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Jos olet luomassa jakamistyhteisöä olemassa olevalle porukalle, valitse sopivin tyyppi alta."
-      company: Yritys
-      university: Yliopisto
-      town: Kaupunki
-      congregation: Seurakunta
-      association: Yhdistys
-      neighborhood: Kaupunginosa
-      apartment_building: Taloyhtiö
-      other: Muu
-    new_tribe_form:
-      create_a_tribe_in_a_minute: "Aloita uusi yhteisö minuutissa"
-      welcome_now_create_your_tribe: "Tervetuloa %{name}! Aloita oman yhteisön luominen."
-      name_of_your_tribe: "Yhteisön nimi"
-      web_address_of_your_tribe: "Yhteisön nettiosoite"
-      slogan_of_your_tribe: "Yhteisön iskulause"
-      describe_your_tribe: "Kuvaile yhteisösi: mikä on yhteisön tarkoitus"
-      create_your_tribe: "Luo yhteisö!"
-      domain_invalid: "Osoitteessa saa olla vain kirjaimia (poislukien ääkköset), numeroita ja väli- ja alaviivoja."
-      domain_taken: "Nimi on jo varattu. Koeta valita toinen nimi."
-      address: "Yhteisön sijainti"
-      select_main_language_of_your_tribe: "Valitse yhteisön ensisijainen kieli"
-      language: Kieli
-      restrict_tribe_to_invited_people: "Vain kutsutut käyttäjät voivat liittyä yhteisöön"
-    signup_form:
-      create_an_account: "Luo tunnus itsellesi"
-      to_create_a_tribe_you_must_first_create_sharetribe_account: "Voit luoda uuden tunnuksen %{service_name_illative} alta tai"
-      log_in_with_your_existing_account: "kirjaudu sisään olemassa olevalla tunnuksella"
-      your_email: Sähköpostiosoitteesi
-      your_university_email: "Yliopiston sähköpostiosoitteesi"
-      your_company_email: Yrityssähköpostisi
-      you_need_to_confirm: "Luodaksesi %{tribe_type}yhteisön sinun täytää vahvistaa %{tribe_type}sähköpostiosoitteesi."
-      pick_username: "Valitse käyttäjätunnus"
-      your_given_name: Etunimi
-      your_family_name: Sukunimi
-      your_password: "Valitse salasana"
-      confirm_your_password: "Varmista salasana"
-      email_in_use_message: "%{service_name_inessive} on jo tunnus tällä sähköpostiosoitteella. Jos sinulla on jo tunnus voit kirjautua sisään ylempänä olevasta linkistä. "
-      invalid_email_ending_message: "Osoite vaikuttaa henkilökohtaiselta sähköpostilta. Sinun täytyy kirjautua %{community_category}sähköpostiosoitteella"
-      log_in_here: "kirjaudu sisään tästä"
-      existing_community_with_this_email: "Tälle %{community_category} on jo perustettu Sharetribe-yhteisö. Voit liittyä yhteisöön %{link}."
-      here: tästä
-      for_company: yritykselle
-      for_university: yliopistolle
-      for_town: kaupungille
-      for_congregation: seurakunnalle
-      for_association: yhdistykselle
-      for_neighborhood: kaupunginosalle
-      for_apartment_building: taloyhtiölle
-      for_other: taholle
   community_memberships:
     access_denied:
       access_denied: "Pääsy estetty"
@@ -1400,6 +1323,13 @@ fi:
       listing_created_at: "Ilmoitus luotu"
     verification_required:
       verification_required: ~
+  listing_conversations:
+    preauthorize:
+      details: ~
+      by: ~
+      payment: ~
+      exp: ~
+      you_will_be_charged: ~
   mapview:
     index:
       all_categories: "Kaikki kategoriat"

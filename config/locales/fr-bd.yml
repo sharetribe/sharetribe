@@ -160,6 +160,26 @@ fr-bd:
         language: ~
         url: ~
         empty: ~
+      transactions:
+        transactions: ~
+        headers:
+          conversation: ~
+          listing: ~
+          status: ~
+          sum: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        status:
+          free: ~
+          pending: ~
+          preauthorized: ~
+          accepted: ~
+          rejected: ~
+          paid: ~
+          confirmed: ~
+          canceled: ~
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~
@@ -821,7 +841,7 @@ fr-bd:
       is: ~
       are: ~
       what_do_you_need: "Où souhaitez-vous habiter ?"
-      post_new_listing: ~
+      post_new_listing: "J'ai un plan appart à partager"
       are_offering: ~
       add_news_item: ~
       inform_others_about_events: ~
@@ -1240,7 +1260,7 @@ fr-bd:
       accept_for_frees: ~
       trades: ~
     new:
-      post_a_new_listing: ~
+      post_a_new_listing: "J'ai un plan appart à partager"
       listing: ~
       selected_category: ~
       selected_subcategory: ~

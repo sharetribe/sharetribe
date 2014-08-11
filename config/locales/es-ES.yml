@@ -160,6 +160,26 @@ es-ES:
         language: ~
         url: ~
         empty: ~
+      transactions:
+        transactions: ~
+        headers:
+          conversation: ~
+          listing: ~
+          status: ~
+          sum: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        status:
+          free: ~
+          pending: ~
+          preauthorized: ~
+          accepted: ~
+          rejected: ~
+          paid: ~
+          confirmed: ~
+          canceled: ~
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~
@@ -407,6 +427,7 @@ es-ES:
       item_request_message_form_title: "Ofrécele un artículo a"
       message: Mensaje
       message_to: ~
+      optional_message_to: ~
       rideshare_offer_message_form_title: "Solicitale un traslado a"
       rideshare_request_message_form_title: "Ofrécele un traslado a"
       send_message: "Enviar mensaje"
@@ -431,6 +452,7 @@ es-ES:
       price: ~
       sum: ~
       price_excludes_vat: ~
+      total: ~
     status:
       cancel_payed_transaction: ~
       feedback_given: "Sugerencia dada"
@@ -506,88 +528,6 @@ es-ES:
       cvv: ~
       credit_card_expiration_date: ~
       confirm_payment: ~
-  communities:
-    map_bubble:
-      view_tribe: "Ver la tribu"
-    email_confirmation_pending:
-      confirmation_pending: "Por favor confirma tu dirección e-mail"
-    index:
-      find_your_local_tribe: "Encuentra tu tribu"
-      or_start_your_own: "...o %{start_your_own_tribe_link}"
-      start_your_own_tribe_link: "Inicia tu propia tribu!"
-    select_pricing_plan:
-      select_your_plan: "Selecciona tu plan"
-      pick_one_of_the_options_below: "Elige una de las opciones a continuación."
-      create_for_free: "Crear gratis"
-      contact_us: Contáctanos
-      free_plan: "Plan gratuito"
-      max_members: "Máx. %{number} usuarios"
-      premium_plan: "Plan Premium"
-      care_free_user_support: ~
-      create_your_tribe: "Crea tu tribu"
-      professional_plan: ~
-      unlimited_members: "Usuarios ilimitados"
-      intranet_integration: "Integración de intranet"
-      no_charge: "Sin cargos"
-      euros_per_month_premium: ~
-      custom_domain: "Dominio personalizado"
-      you_can_change_and_cancel: "Puedes cambiar o cancelar el plan en cualquier momento."
-      we_help_you_get_started: "Ayudamos a reunir a la gente"
-      discounts_available_for_non_profits: "Tenemos un 50% de descuento para organizaciones sin fines de lucro"
-    select_tribe_category_form:
-      what_kind_of_tribe_do_you_want_to_create: "¿Qué tipo de tribu quieres crear?"
-      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Primero cuéntanos que tipo de comunidad representas seleccionando una de las siguientes opciones."
-      company: Compañía
-      university: Universidad
-      town: Comuna
-      congregation: Congregación
-      association: Asociación
-      neighborhood: Vecindario
-      apartment_building: Condominio
-      other: Otra
-    new_tribe_form:
-      create_a_tribe_in_a_minute: "Crea una nueva tribu en un minuto"
-      welcome_now_create_your_tribe: "Bienvenido %{name}! Sigue adelante y crea tu tribu."
-      name_of_your_tribe: "Nombre de tu tribu"
-      web_address_of_your_tribe: "Dirección web de tu tribu"
-      slogan_of_your_tribe: "Lema de tu tribu"
-      describe_your_tribe: "Describe tu tribu: cuál es el propósito de la comunidad"
-      create_your_tribe: "Crea tu tribu!"
-      domain_invalid: "El dominio sólo puede contener letras, números, guiones o guión bajo."
-      domain_taken: "Esa tribu ya existe. Tienes que escoger otro nombre de dominio."
-      address: "Ubicación de tu tribu"
-      select_main_language_of_your_tribe: "Selecciona el idioma de tu tribu"
-      language: Idioma
-      restrict_tribe_to_invited_people: ~
-    signup_form:
-      create_an_account: "Crea una cuenta para ti"
-      to_create_a_tribe_you_must_first_create_sharetribe_account: |-
-          Puedes crear una nueva cuenta en %{service_name} a continuación, o
-
-          You can either create a new account to %{service_name} below or
-      log_in_with_your_existing_account: "Inicia sesión con tu cuenta existente"
-      your_email: "Tu dirección e-mail"
-      your_university_email: "Tu dirección e-mail universitario"
-      your_company_email: "Tu dirección e-mail de la compañía"
-      you_need_to_confirm: "Para crear una tribu para tu %{tribe_type} necesitas confirmar tu dirección e-mail %{tribe_type}."
-      pick_username: "Elige un nombre de usuario"
-      your_given_name: "Tu nombre"
-      your_family_name: "Tu apellido"
-      your_password: "Elige una contraseña"
-      confirm_your_password: "Confirma tu contraseña"
-      email_in_use_message: "Ya existe una cuenta en %{service_name} con esta dirección e-mail. Si ya tienes una cuenta, puedes iniciar sesión utilizando el enlace de más arriba."
-      invalid_email_ending_message: "Esto parece un e-mail personal. Necesitas registrarte con tu e-mail %{community_category}."
-      log_in_here: "inicia sesión aquí"
-      existing_community_with_this_email: "Ya existe una tribu para esta %{community_category}. Puedes unirte a la tribu %{link}."
-      here: aquí
-      for_company: empresa
-      for_university: universidad
-      for_town: ciudad
-      for_congregation: congregración
-      for_association: asociación
-      for_neighborhood: vecindario
-      for_apartment_building: condominio
-      for_other: otro
   community_memberships:
     access_denied:
       access_denied: ~
@@ -766,32 +706,13 @@ es-ES:
       one_day_left: ~
       click_here_to_reply: ~
     welcome_email:
-      welcome_email_footer_text: ~
-      settings_link_text: "Revisa tu configuración"
-      subject: "Bienvenido a %{community} - Algunos consejos para ayudarte a empezar"
-      welcome_some_tips: "Bienvenido a %{community_link}! Algunos consejos para ayudarte a empezar."
+      welcome_email_subject: ~
+      welcome_to_marketplace: ~
+      love_marketplace_crew: ~
       p_s_did_you_know: "P.D. ¿Sabías que puedes crear un mercado como este para cualquier comunidad a la que perteneces, completamente gratis? %{click_here_link} para saber más!"
       click_here_link_text: "Haz clic aquí"
-      update_your_profile: ~
-      update_your_profile_link_text: ~
-      add_something_you_could_offer: ~
-      add_offer_link_text: ~
-      is_there_something_you_need: ~
-      add_request_link_text: ~
-      invite_your_friends_invite_only: ~
-      invite_your_friends: ~
-      invite_link_text: ~
-      member_list_link_text: ~
-      go_explore: ~
-      love_team: ~
-      congrats_for_creating_community: ~
-      you_have_just_created_community: ~
-      you_now_have_admin_rights: ~
-      edit_community_details_link_text: ~
-      add_content: ~
-      spread_the_word: ~
-      spread_the_word_invite_only: ~
-      have_fun: ~
+      welcome_email_footer_text: ~
+      settings_link_text: "Revisa tu configuración"
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -1389,6 +1310,13 @@ es-ES:
       listing_created_at: ~
     verification_required:
       verification_required: ~
+  listing_conversations:
+    preauthorize:
+      details: ~
+      by: ~
+      payment: ~
+      exp: ~
+      you_will_be_charged: ~
   mapview:
     index:
       all_categories: "Todas las categorías"

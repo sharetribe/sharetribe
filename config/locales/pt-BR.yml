@@ -54,7 +54,7 @@ pt-BR:
         edit_info: "Editar informações"
         see_how_it_looks_like: "Veja como fica"
         verification_to_post_listings_info_content: "Informações de texto para usuários não verificados"
-        verification_to_post_listings_info_content_description: "Este mercado exige que as pessoas sejam verificadas manualmente por administrador antes de postar listagens. Aqui você pode definir o texto padrão que é mostrado para os usuários não-verificados quando tentar postar uma nova listagem."
+        verification_to_post_listings_info_content_description: "Este mercado exige que as pessoas sejam verificadas manualmente por administrador antes de postar anúncios. Aqui você pode definir o texto padrão que é mostrado para os usuários não-verificados quando tentar postar um novo anúncio."
         verification_to_post_listings_info_content_default: "Este mercado exige que as pessoas sejam verificadas manualmente por administrador antes de postar listagens. Você ainda não foi verificado. Por favor, %{contact_admin_link} de ser verificado."
         contact_admin_link_text: "entre em contato com o administrador"
         save: Gravar
@@ -160,6 +160,26 @@ pt-BR:
         language: Idioma
         url: URL
         empty: "Você não tem quaisquer ligações de menu adicionais"
+      transactions:
+        transactions: ~
+        headers:
+          conversation: ~
+          listing: ~
+          status: ~
+          sum: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        status:
+          free: ~
+          pending: ~
+          preauthorized: ~
+          accepted: ~
+          rejected: ~
+          paid: ~
+          confirmed: ~
+          canceled: ~
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: Ambiente
@@ -655,7 +675,7 @@ pt-BR:
       title_link_text: "%{community_name}"
       intro_paragraph: ~
       intro_paragraph_link_text: "%{community_name}"
-      post_a_new_listing: "Postar uma nova lista!"
+      post_a_new_listing: "Postar um novo anúncio!"
       reduce_email_footer_text: "Emails demais ? %{settings_link} ou %{unsubscribe_link}"
       settings_link_text: "Edite suas configurações de e-mail aqui"
       unsubscribe_link_text: Désincreva-se
@@ -821,7 +841,7 @@ pt-BR:
       is: é
       are: são
       what_do_you_need: "O que você está procurando?"
-      post_new_listing: "Postar uma nova lista!"
+      post_new_listing: "Postar um novo anúncio"
       are_offering: oferta
       add_news_item: "Adicionar um artigo"
       inform_others_about_events: "Últimas notícias e eventos da comunidade."
@@ -1240,7 +1260,7 @@ pt-BR:
       accept_for_frees: "Aceitar gratuitamente"
       trades: Troca
     new:
-      post_a_new_listing: "Postar uma nova lista!"
+      post_a_new_listing: "Postar um novo anúncio"
       listing: listando
       selected_category: "Categoria: %{category}"
       selected_subcategory: "Sub-categoria: %{subcategory}"

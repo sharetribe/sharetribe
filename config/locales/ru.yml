@@ -160,6 +160,26 @@ ru:
         language: ~
         url: ~
         empty: ~
+      transactions:
+        transactions: ~
+        headers:
+          conversation: ~
+          listing: ~
+          status: ~
+          sum: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        status:
+          free: ~
+          pending: ~
+          preauthorized: ~
+          accepted: ~
+          rejected: ~
+          paid: ~
+          confirmed: ~
+          canceled: ~
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~
@@ -407,6 +427,7 @@ ru:
       item_request_message_form_title: "Предложить вещь"
       message: Сообщение
       message_to: ~
+      optional_message_to: ~
       rideshare_offer_message_form_title: "Запросить поездку от"
       rideshare_request_message_form_title: "Предложить поездку"
       send_message: "Отправить сообщение"
@@ -431,6 +452,7 @@ ru:
       price: ~
       sum: ~
       price_excludes_vat: ~
+      total: ~
     status:
       cancel_payed_transaction: Отменить
       feedback_given: "Отзыв отправлен"
@@ -506,85 +528,6 @@ ru:
       cvv: ~
       credit_card_expiration_date: ~
       confirm_payment: ~
-  communities:
-    map_bubble:
-      view_tribe: "Просмотреть сообщество"
-    email_confirmation_pending:
-      confirmation_pending: "Подтвердите свой адрес электронной почты"
-    index:
-      find_your_local_tribe: "Найти сообщество поблизости"
-      or_start_your_own: "...или %{start_your_own_tribe_link}"
-      start_your_own_tribe_link: "создайте своё!"
-    select_pricing_plan:
-      select_your_plan: "Выберите ваш план"
-      pick_one_of_the_options_below: "Выберите один из вариантов."
-      create_for_free: "Создать бесплатно"
-      contact_us: "Свяжитесь с нами"
-      free_plan: "Бесплатный план"
-      max_members: "Максимум %{number} участников"
-      premium_plan: Премиум-план
-      care_free_user_support: "Заботливая служба поддержки"
-      create_your_tribe: "Создайте своё сообщество"
-      professional_plan: "Настраиваемый план"
-      unlimited_members: "Неограниченное число участников"
-      intranet_integration: "Интеграция в локальную сеть"
-      no_charge: Бесплатно
-      euros_per_month_premium: "%{price} евро в месяц (вкл. НДС)"
-      custom_domain: "Пользовательский домен"
-      you_can_change_and_cancel: "Вы можете изменить или отменить план позже в любое время."
-      we_help_you_get_started: "Помощь с привлечением участников"
-      discounts_available_for_non_profits: "Для некоммерческих организаций действует 50% скидка"
-    select_tribe_category_form:
-      what_kind_of_tribe_do_you_want_to_create: "Какой тип сообщества вы хотите создать?"
-      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Сперва выберите тип сообщества, которое вы представляете."
-      company: Компания
-      university: Университет
-      town: Город
-      congregation: Конгрегация
-      association: Ассоциация
-      neighborhood: Соседство
-      apartment_building: Общежитие
-      other: Прочее
-    new_tribe_form:
-      create_a_tribe_in_a_minute: "Создайте новое сообщество за минуту"
-      welcome_now_create_your_tribe: "Добро пожаловать, %{name}! Теперь создайте своё сообщество."
-      name_of_your_tribe: "Название сообщества"
-      web_address_of_your_tribe: "Адрес вашего сообщества в Интернете"
-      slogan_of_your_tribe: "Девиз вашего сообщества"
-      describe_your_tribe: "Опишите сообщество: какова цель его существования?"
-      create_your_tribe: "Создайте своё сообщество!"
-      domain_invalid: "Имя домена может содержать только буквы, цифры, знак подчеркивания и дефис."
-      domain_taken: "Это сообщество уже существует. Вам нужно выбрать другое имя домена."
-      address: "Местоположение вашего сообщества"
-      select_main_language_of_your_tribe: "Выберите основной язык вашего сообщества"
-      language: Язык
-      restrict_tribe_to_invited_people: "Вступление в это сообщество возможно только по приглашениям"
-    signup_form:
-      create_an_account: "Создайте учётную запись для себя"
-      to_create_a_tribe_you_must_first_create_sharetribe_account: "Можно создать новую учётную запись для %{service_name} или"
-      log_in_with_your_existing_account: "войти в систему с помощью существующей учётной записи"
-      your_email: "Электронная почта"
-      your_university_email: "Университетская электронная почта"
-      your_company_email: "Электронная почта в компании"
-      you_need_to_confirm: "Для создания сообщества для вашего %{tribe_type} вам необходимо подтвердить ваш %{tribe_type} адрес электронной почты."
-      pick_username: "Выберите имя пользователя"
-      your_given_name: "Ваше имя"
-      your_family_name: "Ваша фамилия"
-      your_password: Пароль
-      confirm_your_password: "Подтвердить пароль"
-      email_in_use_message: "Учётная запись с этим адресом электронной почты уже существует в %{service_name} . Если у вас уже есть аккаунт, вы можете войти с его помощью по ссылке выше."
-      invalid_email_ending_message: "Это выглядит как адрес личной электронной почты. Вам необходимо войти с помощью вашей электронной почты %{community_category}."
-      log_in_here: войти
-      existing_community_with_this_email: "Для типа сообщества %{community_category} уже существует учётная запись. Вы можете вступить в это сообщество, перейдя по ссылке %{link}."
-      here: здесь
-      for_company: компания
-      for_university: университет
-      for_town: город
-      for_congregation: конгрегация
-      for_association: объединение
-      for_neighborhood: соседство
-      for_apartment_building: общежитие
-      for_other: прочее
   community_memberships:
     access_denied:
       access_denied: ~
@@ -761,32 +704,13 @@ ru:
       one_day_left: ~
       click_here_to_reply: ~
     welcome_email:
-      welcome_email_footer_text: ~
-      settings_link_text: "Проверьте настройки"
-      subject: "Добро пожаловать в сообщество %{community} - перед началом работы прочтите несколько советов"
-      welcome_some_tips: "Добро пожаловать в сообщество %{community_link}! Перед началом работы прочтите несколько советов."
+      welcome_email_subject: ~
+      welcome_to_marketplace: ~
+      love_marketplace_crew: ~
       p_s_did_you_know: "Знаете ли вы, что можно бесплатно создать отдельный сайт для любого сообщества, членом которого вы являетесь? Чтобы узнать больше, %{click_here_link}!"
       click_here_link_text: "Нажмите здесь"
-      update_your_profile: ~
-      update_your_profile_link_text: "Обновить профиль"
-      add_something_you_could_offer: ~
-      add_offer_link_text: ~
-      is_there_something_you_need: ~
-      add_request_link_text: ~
-      invite_your_friends_invite_only: ~
-      invite_your_friends: ~
-      invite_link_text: ~
-      member_list_link_text: ~
-      go_explore: ~
-      love_team: ~
-      congrats_for_creating_community: ~
-      you_have_just_created_community: ~
-      you_now_have_admin_rights: "<b>Теперь вы являетесь администратором этого сообщества.</b> Это значит, что вы можете, например, редактировать информацию о сообществе и внешний вид сайта. Возможно, это первое, что вы захотите сделать. %{edit_community_details_link}. Если вы хотите передать права администратора кому-то другому, свяжитесь с нами, ответив на это письмо."
-      edit_community_details_link_text: "Редактировать описание сообщества."
-      add_content: ~
-      spread_the_word: ~
-      spread_the_word_invite_only: ~
-      have_fun: ~
+      welcome_email_footer_text: ~
+      settings_link_text: "Проверьте настройки"
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -1384,6 +1308,13 @@ ru:
       listing_created_at: ~
     verification_required:
       verification_required: ~
+  listing_conversations:
+    preauthorize:
+      details: ~
+      by: ~
+      payment: ~
+      exp: ~
+      you_will_be_charged: ~
   mapview:
     index:
       all_categories: "Все категории"
