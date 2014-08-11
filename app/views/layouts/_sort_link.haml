@@ -1,0 +1,10 @@
+= link_to({:sort => column, :direction => direction, :page => (params[:page] || 1)}, {:class => "sort-link"}) do
+  .sort-text-wrapper
+    .sort-text
+      =title
+  - if params[:sort].eql?(column)
+    %div{:class => "sort-arrow-#{direction}"}
+      - if direction.eql?('asc')
+        ▼
+      - else
+        ▲

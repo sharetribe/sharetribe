@@ -84,6 +84,8 @@ module NavigationHelpers
       integrations_admin_community_path(:id => @current_community.id)
     when /the menu links admin page/
       menu_links_admin_community_path(:id => @current_community.id)
+    when /the transactions admin page/
+      admin_community_transactions_path(:community_id => @current_community.id)
 
     # the following are examples using path_to_pickle
 

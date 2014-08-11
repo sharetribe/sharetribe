@@ -60,6 +60,10 @@ class Conversation < ActiveRecord::Base
     return messages.last
   end
 
+  def first_message
+    return messages.first
+  end
+
   def other_party(person)
     participants.reject { |p| p.id == person.id }.first
   end

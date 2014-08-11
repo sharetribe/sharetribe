@@ -95,6 +95,7 @@ Kassi::Application.routes.draw do
           put :menu_links, to: 'communities#update_menu_links'
           put :update_settings
         end
+        resources :transactions, controller: :community_transactions, only: :index
         resources :emails
         resources :community_memberships do
           member do

@@ -700,7 +700,7 @@ module ApplicationHelper
       {
         :text => t("admin.communities.manage_members.manage_members"),
         :icon_class => icon_class("community"),
-        :path => admin_community_community_memberships_path(@current_community),
+        :path => admin_community_community_memberships_path(@current_community, sort: "join_date", direction: "asc"),
         :name => "manage_members"
       },
       {
@@ -708,6 +708,12 @@ module ApplicationHelper
         :icon_class => icon_class("settings"),
         :path => settings_admin_community_path(@current_community),
         :name => "admin_settings"
+      },
+      {
+        :text => t("admin.communities.transactions.transactions"),
+        :icon_class => icon_class("information"),
+        :path => admin_community_transactions_path(@current_community, sort: "last_activity", direction: "asc"),
+        :name => "transactions"
       }
     ]
 
@@ -942,11 +948,8 @@ module ApplicationHelper
     end
   end
 
-  def sort_link(column)
-    title = t("admin.communities.manage_members.#{column}")
-    css_class = params[:sort].eql?(column) ? "sort-arrow-#{member_sort_direction}" : nil
-    direction = (params[:sort].eql?(column) && member_sort_direction.eql?("asc")) ? "desc" : "asc"
-    link_to title, {:sort => column, :direction => direction, :page => (params[:page] || 1)}, {:class => css_class}
+  def sort_link_direction(column)
+    params[:sort].eql?(column) && params[:direction].eql?("asc") ? "desc" : "asc"
   end
 
   # Give an array of translation keys you need in JavaScript. The keys will be loaded and ready to be used in JS

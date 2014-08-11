@@ -175,6 +175,26 @@ en:
         language: Language
         url: URL
         empty: "You don't have any additional menu links"
+      transactions:
+        transactions: "View transactions"
+        headers:
+          conversation: "Conversation thread"
+          listing: "Listing"
+          status: "Status"
+          sum: "Sum"
+          started: "Started at"
+          last_activity: "Latest activity"
+          initiated_by: "Starter"
+          other_party: "Other party"
+        status:
+          free: "Free conversation"
+          pending: "Pending"
+          preauthorized: "Preauthorized"
+          accepted: "Accepted"
+          rejected: "Rejected"
+          paid: "Paid"
+          confirmed: "Confirmed"
+          canceled: "Canceled"
       braintree_payment_gateway:
         braintree_payment_gateway: "Braintree Payment API keys"
         environment: Environment
@@ -1666,6 +1686,11 @@ en:
         one: user
         few: users
         other: users
+      listing_conversation:
+        zero: transactions
+        one: transaction
+        few: transactions
+        other: transactions
     previous_label: "&#8592; Previous"
     next_label: "Next &#8594;"
     page_gap: "&hellip;"

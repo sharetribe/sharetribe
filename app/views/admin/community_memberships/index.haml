@@ -29,11 +29,11 @@
     %table#admin_members_list
       %thead
         %tr
-          %th.arrow-up= sort_link "name"
-          %th.arrow-down= sort_link "email"
-          %th.arrow-up= sort_link "join_date"
+          %th= render partial: "layouts/sort_link", locals: { column: "name", direction: sort_link_direction("name"), title: t("admin.communities.manage_members.name") }
+          %th= render partial: "layouts/sort_link", locals: { column: "email", direction: sort_link_direction("email"), title: t("admin.communities.manage_members.email") }
+          %th= render partial: "layouts/sort_link", locals: { column: "join_date", direction: sort_link_direction("join_date"), title: t("admin.communities.manage_members.join_date") }
           - if @current_community.require_verification_to_post_listings
-            %th{:style => "text-align: center"}= sort_link "posting_allowed"
+            %th{:style => "text-align: center"}= render partial: "layouts/sort_link", locals: { column: "posting_allowed", direction: sort_link_direction("posting_allowed"), title: t("admin.communities.manage_members.posting_allowed") }
           %th= t("admin.communities.manage_members.admin")
           %th= t("admin.communities.manage_members.ban_user")
       %tbody

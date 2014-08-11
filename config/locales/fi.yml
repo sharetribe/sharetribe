@@ -175,6 +175,26 @@ fi:
         language: Kieli
         url: "Osoite (URL)"
         empty: "Sinulla ei ole lisälinkkejä valikossa"
+      transactions:
+        transactions: "Transaktiot"
+        headers:
+          conversation: "Viestiketju"
+          listing: "Ilmoitus"
+          status: "Tila"
+          sum: "Kokonaissumma"
+          started: "Aloitettu"
+          last_activity: "Viimeisin tapahtuma"
+          initiated_by: "Aloittaja"
+          other_party: "Toinen osapuoli"
+        status:
+          free: "Vapaa keskustelu"
+          pending: "Odottaa"
+          preauthorized: "Katevaraus tehty"
+          accepted: "Ilmoittajan hyväksymä"
+          rejected: "Ilmoittajan hylkäämä"
+          paid: "Maksettu"
+          confirmed: "Hyväksytty"
+          canceled: "Peruutettu"
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: ~
@@ -1736,6 +1756,11 @@ fi:
         one: käyttäjä
         few: käyttäjää
         other: käyttäjää
+      listing_conversation:
+        zero: transaktiota
+        one: transaktio
+        few: transaktiota
+        other: transaktiota
     previous_label: "&#8592; Edellinen"
     next_label: "Seuraava &#8594;"
     page_gap: "&hellip;"
