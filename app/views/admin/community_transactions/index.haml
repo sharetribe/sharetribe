@@ -11,11 +11,11 @@
   %table#admin_transactions
     %thead
       %tr
-        %th= render partial: "sort_link", locals: { column: "listing", direction: sort_link_direction("listing"), title: t("admin.communities.transactions.headers.listing") }
+        %th= render partial: "layouts/sort_link", locals: { column: "listing", direction: sort_link_direction("listing"), title: t("admin.communities.transactions.headers.listing") }
         %th=t("admin.communities.transactions.headers.status")
         %th=t("admin.communities.transactions.headers.sum")
-        %th= render partial: "sort_link", locals: { column: "started", direction: sort_link_direction("started"), title: t("admin.communities.transactions.headers.started") }
-        %th= render partial: "sort_link", locals: { column: "last_activity", direction: sort_link_direction("last_activity"), title: t("admin.communities.transactions.headers.last_activity") }
+        %th= render partial: "layouts/sort_link", locals: { column: "started", direction: sort_link_direction("started"), title: t("admin.communities.transactions.headers.started") }
+        %th= render partial: "layouts/sort_link", locals: { column: "last_activity", direction: sort_link_direction("last_activity"), title: t("admin.communities.transactions.headers.last_activity") }
         %th=t("admin.communities.transactions.headers.initiated_by")
         %th=t("admin.communities.transactions.headers.other_party")
 
