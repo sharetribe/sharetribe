@@ -39,6 +39,7 @@ Feature: User gives feedback from transaction
     Then I should see "Everything was great!"
     When I open the email with subject "has given you feedback"
     And I follow "Give feedback" in the email
+    And I log in as "kassi_testperson2"
     Then I should see "How did things go?"
 
   @javascript
