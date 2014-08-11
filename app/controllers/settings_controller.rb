@@ -37,7 +37,7 @@ class SettingsController < ApplicationController
   end
 
   def unsubscribe
-    @person_to_unsubscribe = find_person_to_unsubscribe
+    @person_to_unsubscribe = find_person_to_unsubscribe(@current_user, params[:auth])
 
     if @person_to_unsubscribe && @person_to_unsubscribe.username == params[:person_id] && params[:email_type].present?
       if params[:email_type] == "community_updates"
@@ -67,14 +67,8 @@ class SettingsController < ApplicationController
     end
   end
 
-  def find_person_to_unsubscribe
-    #Allow unsubscribe with auth token
-    if @current_user.nil? && params[:auth]
-      token = AuthToken.find_by_token(params[:auth])
-      token.person if token
-    else
-      @current_user
-    end
+  def find_person_to_unsubscribe(current_user, auth_token)
+    current_user || Maybe(AuthToken.find_by_token(auth_token).person.or_else { nil }
   end
 
 end
