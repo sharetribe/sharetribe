@@ -15,7 +15,15 @@ class ApplicationController < ActionController::Base
 
   before_filter :show_maintenance_page
 
-  before_filter :force_ssl, :fetch_logged_in_user, :dashboard_only, :single_community_only, :fetch_community, :fetch_community_membership, :set_locale, :generate_event_id, :set_default_url_for_mailer
+  before_filter :force_ssl,
+    :fetch_logged_in_user,
+    :dashboard_only,
+    :single_community_only,
+    :fetch_community,
+    :fetch_community_membership,
+    :set_locale,
+    :generate_event_id,
+    :set_default_url_for_mailer
   before_filter :cannot_access_without_joining, :except => [ :confirmation_pending, :check_email_availability]
   before_filter :can_access_only_organizations_communities
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
