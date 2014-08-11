@@ -29,6 +29,19 @@ module AdminTransactionSteps
   def to_title(name)
     name.gsub("_", " ").capitalize
   end
+
+  def find_column(column)
+    page.all("thead > tr > th").find { |elem| elem.text.starts_with?(to_title(column)) }
+  end
+
+  def find_column_index(column)
+    page.all("thead > tr > th").find_index { |elem| elem.text.starts_with?(to_title(column)) }
+  end
+
+  def column_values(column_index)
+    page.all("tbody > tr").map { |row| row.all("td")[column_index].text }
+  end
+
 end
 
 World AdminTransactionSteps
@@ -45,33 +58,27 @@ Then(/^I should see (\d+) transaction with status "(.*?)"$/) do |count, status_t
 end
 
 When(/^I sort by "(.*?)"$/) do |column|
-  click_link(to_title(column))
+  find_column(column).find("a").click
 end
 
 Then(/^I should see the transactions in ascending order by "(.*?)"$/) do |column|
-  col_index = page.all("thead > tr > th").find_index { |elem| elem.text.eql?(to_title(column))}
-  col_values = page.all("tbody > tr").map { |row| row.all("td")[col_index].text }
+  col_values = column_values(find_column_index(column))
   col_values.should eql col_values.sort
 end
 
 Then(/^I should see the transactions in descending order by "(.*?)"$/) do |column|
-  col_index = page.all("thead > tr > th").find_index { |elem| elem.text.eql?(to_title(column))}
-  col_values = page.all("tbody > tr").map { |row| row.all("td")[col_index].text }
+  col_values = column_values(find_column_index(column))
   col_values.should eql col_values.sort.reverse
 end
 
 Then(/^I should see the transactions in ascending time order by "(.*?)"$/) do |column|
-  col_index = page.all("thead > tr > th").find_index { |elem| elem.text.eql?(to_title(column))}
-  col_values = page.all("tbody > tr")
-    .map { |row| row.all("td")[col_index].text }
+  col_values = column_values(find_column_index(column))
     .map { |value| DateTime.parse(value) }
   col_values.should eql col_values.sort
 end
 
 Then(/^I should see the transactions in descending time order by "(.*?)"$/) do |column|
-  col_index = page.all("thead > tr > th").find_index { |elem| elem.text.eql?(to_title(column))}
-  col_values = page.all("tbody > tr")
-    .map { |row| row.all("td")[col_index].text }
+  col_values = column_values(find_column_index(column))
     .map { |value| DateTime.parse(value) }
   col_values.should eql col_values.sort.reverse
 end
