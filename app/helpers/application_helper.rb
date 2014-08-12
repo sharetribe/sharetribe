@@ -698,22 +698,10 @@ module ApplicationHelper
         :name => "welcome_email"
       },
       {
-        :text => t("admin.communities.manage_members.manage_members"),
-        :icon_class => icon_class("community"),
-        :path => admin_community_community_memberships_path(@current_community, sort: "join_date", direction: "desc"),
-        :name => "manage_members"
-      },
-      {
         :text => t("admin.communities.settings.settings"),
         :icon_class => icon_class("settings"),
         :path => settings_admin_community_path(@current_community),
         :name => "admin_settings"
-      },
-      {
-        :text => t("admin.communities.transactions.transactions"),
-        :icon_class => icon_class("information"),
-        :path => admin_community_transactions_path(@current_community, sort: "last_activity", direction: "desc"),
-        :name => "transactions"
       }
     ]
 
@@ -759,6 +747,19 @@ module ApplicationHelper
         :name => "listing_fields"
       }
     end
+
+    links << {
+        :text => t("admin.communities.manage_members.manage_members"),
+        :icon_class => icon_class("community"),
+        :path => admin_community_community_memberships_path(@current_community, sort: "join_date", direction: "desc"),
+        :name => "manage_members"
+    }
+    links <<  {
+        :text => t("admin.communities.transactions.transactions"),
+        :icon_class => icon_class("information"),
+        :path => admin_community_transactions_path(@current_community, sort: "last_activity", direction: "desc"),
+        :name => "transactions"
+    }
 
     links
   end
