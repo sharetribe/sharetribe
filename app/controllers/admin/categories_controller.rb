@@ -70,20 +70,20 @@ class Admin::CategoriesController < ApplicationController
   # Remove form
   def remove
     @selected_left_navi_link = "listing_categories"
-    @category = Category.find(params[:id])
+    @category = @current_community.categories.find_by_url_or_id(params[:id])
     @possible_merge_targets = Admin::CategoryService.merge_targets_for(@current_community.categories, @category)
   end
 
   # Remove action
   def destroy
-    @category = Category.find_by_id_and_community_id(params[:id], @current_community.id)
+    @category = @current_community.categories.find_by_url_or_id(params[:id])
     @category.destroy
     redirect_to admin_categories_path
   end
 
   def destroy_and_move
-    @category = Category.find_by_id_and_community_id(params[:id], @current_community.id)
-    new_category = Category.find_by_id_and_community_id(params[:new_category], @current_community.id)
+    @category = @current_community.categories.find_by_url_or_id(params[:id])
+    new_category = @current_community.categories.find_by_url_or_id(params[:new_category])
 
     if new_category
       # Move listings
