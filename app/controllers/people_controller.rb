@@ -94,7 +94,15 @@ class PeopleController < Devise::RegistrationsController
       redirect_to error_redirect_path and return
     end
 
-    @person, email = new_person(params, @current_community)
+
+    new_person_result = new_person(params, @current_community)
+
+    if new_person_result
+      @person, email = new_person_result
+    else
+      flash[:error] = "Sign up failed: #{@person.errors.full_messages.join(", ")}"
+      redirect_to error_redirect_path and return
+    end
 
     # Make person a member of the current community
     if @current_community
@@ -378,13 +386,14 @@ class PeopleController < Devise::RegistrationsController
 
     person.inherit_settings_from(current_community)
 
-    if person.save!
+    if person.save
       sign_in(resource_name, resource)
+      person.set_default_preferences
+
+      [person, email]
+    else
+      nil
     end
-
-    person.set_default_preferences
-
-    [person, email]
   end
 
   def email_availability(email, own_email_allowed)
