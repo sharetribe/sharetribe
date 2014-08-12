@@ -375,4 +375,15 @@ class Listing < ActiveRecord::Base
     current_community.payments_in_use? &&
     !current_user.can_receive_payments_at?(current_community)
   end
+
+  def quantity_unit
+    if !transaction_type.price_per.blank?
+      transaction_type.price_per
+    elsif !quantity.blank?
+      quantity
+    else
+      ''
+    end
+  end
+
 end
