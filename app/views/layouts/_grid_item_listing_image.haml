@@ -23,8 +23,8 @@
       - if listing.price
         %span.fluid-thumbnail-grid-image-price
           = humanized_money_with_symbol(listing.price).upcase
-        - if !listing.quantity_unit.blank?
-          - price_text = " / " + listing.quantity_unit
+        - if !price_quantity(listing).blank?
+          - price_text = price_quantity(listing, " /")
           %span.fluid-thumbnail-grid-image-quantity{:title => price_text}
             = price_text
       - else

@@ -96,11 +96,20 @@ module ListingsHelper
     block.call(buffer.join(" ")) unless buffer.empty?
   end
 
-  def price_quantity(listing)
+  # we are not sure "per unit" string works in every language
+  def price_quantity(listing, unit_separator = 'per')
     if listing.transaction_type.price_per
-      t("listings.show.price.per_#{listing.transaction_type.price_per}")
+      if unit_separator == 'per'
+        t("listings.show.price.per_#{listing.transaction_type.price_per}")
+      else
+        "#{unit_separator} " + t("unit.#{listing.transaction_type.price_per}")
+      end
     elsif listing.quantity.present?
-      "/ #{listing.quantity}"
+      if unit_separator == 'per'
+        t("listing.show.price.per_quantity_unit", quantity_unit: listing.quantity)
+      else
+        "#{unit_separator} #{listing.quantity}"
+      end
     else
       ""
     end
