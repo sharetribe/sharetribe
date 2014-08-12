@@ -31,6 +31,10 @@ class Category < ActiveRecord::Base
     end
   end
 
+  def to_param
+    url
+  end
+
   def url_source
     Maybe(default_translation_without_cache).name.or_else("category")
   end
@@ -104,5 +108,9 @@ class Category < ActiveRecord::Base
     return icon if ApplicationHelper.icon_specified?(icon)
     return parent.icon_name if parent
     return "other"
+  end
+
+  def self.find_by_url_or_id(url_or_id)
+    self.find_by_url(url_or_id) || self.find_by_id(url_or_id)
   end
 end

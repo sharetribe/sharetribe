@@ -34,13 +34,13 @@ class Admin::CategoriesController < ApplicationController
 
   def edit
     @selected_left_navi_link = "listing_categories"
-    @category = Category.find(params[:id])
+    @category = @current_community.categories.find_by_url_or_id(params[:id])
     @default_transaction_types = @category.transaction_types
   end
 
   def update
     @selected_left_navi_link = "listing_categories"
-    @category = Category.find(params[:id])
+    @category = @current_community.categories.find_by_url_or_id(params[:id])
     @default_transaction_types = @category.transaction_types
     if @category.update_attributes(params[:category])
       redirect_to admin_categories_path
