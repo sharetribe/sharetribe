@@ -232,7 +232,7 @@ Then(/^I should see that the request was confirmed$/) do
 end
 
 When(/^the seller does not respond the request within (\d+) days$/) do |days|
-  Timecop.travel(DateTime.now + days.to_i)
+  Timecop.travel(DateTime.now + (days.to_i + 1))
   process_jobs
   visit(current_path)
 end
@@ -270,7 +270,7 @@ Then /^I should see that the total price is "(.*?)"$/ do |total_price|
 end
 
 When /^the booking is automatically confirmed$/ do
-  Timecop.travel(@booking_end_date + 1.days)
+  Timecop.travel(@booking_end_date + 2.days)
   process_jobs
   visit(current_path)
 end
