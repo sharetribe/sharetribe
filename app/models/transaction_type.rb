@@ -10,6 +10,26 @@ class TransactionType < ActiveRecord::Base
 
   validates_presence_of :community
 
+  acts_as_url :url_source, scope: :community_id, sync_url: true, blacklist: %w{new all}
+
+  def to_param
+    url
+  end
+
+  def url_source
+    translation = default_translation_without_cache
+
+    if translation
+      translation.name
+    else
+      type
+    end
+  end
+
+  def default_translation_without_cache
+    (translations.find { |translation| translation.locale == community.default_locale } || translations.first)
+  end
+
   def display_name(locale)
     TranslationCache.new(self, :translations).translate(locale, :name)
   end
@@ -20,5 +40,9 @@ class TransactionType < ActiveRecord::Base
 
   def status_after_reply
     "free"
+  end
+
+  def self.find_by_url_or_id(url_or_id)
+    self.find_by_url(url_or_id) || self.find_by_id(url_or_id)
   end
 end

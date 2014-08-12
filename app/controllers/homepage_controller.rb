@@ -42,7 +42,15 @@ class HomepageController < ApplicationController
     @selected_category = find_selected_by_param(@categories, params[:category])
     @selected_transaction_type = find_selected_by_param(@transaction_types, params[:transaction_type])
 
-    @filter_params = params.slice("category", "transaction_type")
+    @filter_params = {}
+
+    Maybe(@current_community.categories.find_by_url_or_id(params[:category])).each do |category|
+      @filter_params[:category] = category.id
+    end
+
+    Maybe(@current_community.transaction_types.find_by_url_or_id(params[:transaction_type])).each do |transaction_type|
+      @filter_params[:transaction_type] = transaction_type.id
+    end
 
     @listing_count = @current_community.listings.currently_open.count
     unless @current_user
@@ -169,5 +177,4 @@ class HomepageController < ApplicationController
       selectables.find { |selectable| selectable.id == param_value.to_i}
     end
   end
-
 end

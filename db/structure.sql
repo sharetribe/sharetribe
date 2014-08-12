@@ -68,8 +68,10 @@ CREATE TABLE `categories` (
   `updated_at` datetime NOT NULL,
   `community_id` int(11) DEFAULT NULL,
   `sort_priority` int(11) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `index_categories_on_parent_id` (`parent_id`)
+  KEY `index_categories_on_parent_id` (`parent_id`),
+  KEY `index_categories_on_url` (`url`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `category_custom_fields` (
@@ -925,8 +927,10 @@ CREATE TABLE `transaction_types` (
   `price_per` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
+  `url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `index_transaction_types_on_community_id` (`community_id`)
+  KEY `index_transaction_types_on_community_id` (`community_id`),
+  KEY `index_transaction_types_on_url` (`url`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
@@ -1862,5 +1866,17 @@ INSERT INTO schema_migrations (version) VALUES ('20140724093459');
 INSERT INTO schema_migrations (version) VALUES ('20140724123125');
 
 INSERT INTO schema_migrations (version) VALUES ('20140805102757');
+
+INSERT INTO schema_migrations (version) VALUES ('20140811091030');
+
+INSERT INTO schema_migrations (version) VALUES ('20140811114437');
+
+INSERT INTO schema_migrations (version) VALUES ('20140811133602');
+
+INSERT INTO schema_migrations (version) VALUES ('20140811133603');
+
+INSERT INTO schema_migrations (version) VALUES ('20140811133605');
+
+INSERT INTO schema_migrations (version) VALUES ('20140811133606');
 
 INSERT INTO schema_migrations (version) VALUES ('20140811144528');
