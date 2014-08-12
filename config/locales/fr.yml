@@ -176,25 +176,25 @@ fr:
         url: URL
         empty: "Vous n'avez pas encore ajouté de liens au menu"
       transactions:
-        transactions: ~
+        transactions: "Voir les transactions"
         headers:
-          conversation: ~
-          listing: ~
-          status: ~
-          sum: ~
-          started: ~
-          last_activity: ~
-          initiated_by: ~
-          other_party: ~
+          conversation: "Fil de conversation"
+          listing: Annonce
+          status: Statut
+          sum: Total
+          started: "Commencée le"
+          last_activity: "Dernière activité le"
+          initiated_by: Initiateur
+          other_party: "Autre participant"
         status:
-          free: ~
-          pending: ~
-          preauthorized: ~
-          accepted: ~
-          rejected: ~
-          paid: ~
-          confirmed: ~
-          canceled: ~
+          free: "Conversation libre"
+          pending: "En attente"
+          preauthorized: Pré-autorisée
+          accepted: Acceptée
+          rejected: Rejetée
+          paid: Payée
+          confirmed: Confirmée
+          canceled: Annulée
       braintree_payment_gateway:
         braintree_payment_gateway: "Clé d'API pour Braintree Payment"
         environment: Environnement
@@ -1685,6 +1685,10 @@ fr:
         zero: utilisateur
         one: utilisateur
         other: utilisateurs
+      listing_conversation:
+        zero: transaction
+        one: transaction
+        other: transactions
     previous_label: "&#8592; Précédent"
     next_label: "Suivant &#8594;"
     page_gap: "&hellip;"
