@@ -75,6 +75,7 @@ gem 'braintree'
 gem "mail_view", "~> 1.0.3"
 gem 'statesman', '~> 0.5.0'
 gem "premailer"
+gem 'stringex', '~> 2.5.2'
 
 #ouisharelabs
 gem 'rdf-turtle'
