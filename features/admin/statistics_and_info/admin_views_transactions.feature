@@ -15,12 +15,13 @@ I want to see see all the transactions happening in my community
       | Moving help | pending | 127 | EUR      | 2 days ago  | 3 hours ago     | kassi_testperson1 | kassi_testperson2 |
       | Red apples  | paid    | 60  | USD      | 1 week ago  | 2 hours ago     | kassi_testperson2 | kassi_testperson1 |
       | Power drill | free    |     |          | 2 hours ago | 1 hour ago      | kassi_testperson1 | kassi_testperson2 |
+      | nil         | free    |     |          | 1 year ago  | 5 hours ago     | kassi_testperson1 | kassi_testperson2 |
     And I am logged in as "manager"
     And "manager" has admin rights in community "test"
     And I am on the transactions admin page
 
   Scenario: Admin views all transactions
-    Then I should see 1 transaction with status "Free conversation"
+    Then I should see 2 transaction with status "Free conversation"
     And I should see 1 transaction with status "Pending"
     And I should see 1 transaction with status "Paid"
 

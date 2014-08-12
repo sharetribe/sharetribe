@@ -22,7 +22,7 @@
     %tbody
       - @conversations.each do |conversation|
         %tr
-          %td=link_to(conversation.listing.title, conversation.listing)
+          %td=Maybe(conversation.listing).map { |listing| link_to(listing.title, listing) }.or_else("")
           %td=t("admin.communities.transactions.status.#{conversation.status}")
           %td=conversation.payment ? humanized_money_with_symbol(conversation.payment.total_sum) : ""
           %td=l(conversation.created_at, format: :short_date)

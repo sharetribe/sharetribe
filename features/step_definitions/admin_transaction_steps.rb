@@ -15,7 +15,10 @@ module AdminTransactionSteps
       :listing_conversation,
       transaction_opts.merge({
           transaction_transitions: [ FactoryGirl.build(:transaction_transition, { to_state: transaction[:status].to_sym }) ],
-          listing: FactoryGirl.build(:listing, { title: transaction[:listing] }),
+          listing: Maybe(transaction[:listing])
+            .select { |title| title != "nil" }
+            .map { |title| FactoryGirl.build(:listing, { title: title }) }
+            .or_else(nil),
           payment: sum ? FactoryGirl.build(:braintree_payment, { sum_cents: sum, currency: transaction[:currency] }) : nil
         })
       )
