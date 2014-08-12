@@ -32,10 +32,10 @@ I want to see see all the transactions happening in my community
     Then I should see the transactions in descending order by "listing"
 
   Scenario: Admin sorts transactions by start date
-    When I sort by "started at"
-    Then I should see the transactions in ascending time order by "started at"
-    When I sort by "started at"
-    Then I should see the transactions in descending time order by "started at"
+    When I sort by "started"
+    Then I should see the transactions in ascending time order by "started"
+    When I sort by "started"
+    Then I should see the transactions in descending time order by "started"
 
   Scenario: Admin sorts transactions by latest activity
     When I sort by "latest activity"
