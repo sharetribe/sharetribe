@@ -1343,6 +1343,7 @@ en:
       price_excludes_vat: "(excludes VAT)"
       listing_created_at: "Listing created"
       price:
+        per_quantity_unit: "per %{quantity_unit}"
         per_day: "per day"
     verification_required:
       verification_required: "Verification required"
@@ -1764,6 +1765,9 @@ en:
     days_since:
       one: "%{count} day"
       other: "%{count} days"
+  unit:
+    day: "day"
+    days: "days"
   will_paginate:
     models:
       person:
