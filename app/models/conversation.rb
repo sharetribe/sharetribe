@@ -95,7 +95,7 @@ class Conversation < ActiveRecord::Base
   end
 
   def starter
-    participations.find { |p| p.is_starter? }.person
+    Maybe(participations.find { |p| p.is_starter? }).person.or_else(nil)
   end
 
   def participant?(user)
