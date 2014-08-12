@@ -514,7 +514,7 @@ class Person < ActiveRecord::Base
   end
 
   def new_email_auth_token
-    t = AuthToken.create(:person => self)
+    t = AuthToken.create(:person => self, :expires_at => 1.week.from_now)
     return t.token
   end
 
