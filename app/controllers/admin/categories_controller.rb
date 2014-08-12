@@ -13,8 +13,7 @@ class Admin::CategoriesController < ApplicationController
   def new
     @selected_left_navi_link = "listing_categories"
     @category = Category.new
-    last_category = @current_community.categories.last
-    @default_transaction_types = last_category ? last_category.transaction_types : []
+    @default_transaction_types = Maybe(@current_community.categories.last).transaction_types.or_else { [] }
   end
 
   def create
@@ -24,8 +23,7 @@ class Admin::CategoriesController < ApplicationController
     @category.parent_id = nil if params[:category][:parent_id].blank?
     @category.sort_priority = Admin::SortingService.next_sort_priority(@current_community.categories)
     logger.info "Translations #{@category.translations.inspect}"
-    last_category = @current_community.categories.last
-    @default_transaction_types = last_category ? last_category.transaction_types : []
+    @default_transaction_types = Maybe(@current_community.categories.last).transaction_types.or_else { [] }
     if @category.save
       redirect_to admin_categories_path
     else

@@ -13,13 +13,7 @@ class TransactionType < ActiveRecord::Base
   acts_as_url :url_source, scope: :community_id, sync_url: true, blacklist: %w{new all}
 
   def url_source
-    translation = default_translation_without_cache
-
-    if translation
-      translation.name
-    else
-      type
-    end
+    Maybe(default_translation_without_cache).name.or_else(type)
   end
 
   def default_translation_without_cache

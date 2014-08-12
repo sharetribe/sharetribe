@@ -32,13 +32,7 @@ class Category < ActiveRecord::Base
   end
 
   def url_source
-    translation = default_translation_without_cache
-
-    if translation
-      translation.name
-    else
-      "category"
-    end
+    Maybe(default_translation_without_cache).name.or_else("category")
   end
 
   def default_translation_without_cache
