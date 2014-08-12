@@ -459,7 +459,6 @@ class PersonMailer < ActionMailer::Base
     @regular_email = regular_email
     @url_params = {}
     @url_params[:host] = "#{@current_community.full_domain}"
-    @url_params[:auth] = @recipient.new_email_auth_token
     @url_params[:locale] = @recipient.locale
     @url_params[:ref] = "welcome_email"
     @url_params.freeze # to avoid accidental modifications later

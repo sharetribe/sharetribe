@@ -15,7 +15,15 @@ class ApplicationController < ActionController::Base
 
   before_filter :show_maintenance_page
 
-  before_filter :force_ssl, :check_auth_token, :fetch_logged_in_user, :dashboard_only, :single_community_only, :fetch_community, :fetch_community_membership, :set_locale, :generate_event_id, :set_default_url_for_mailer
+  before_filter :force_ssl,
+    :fetch_logged_in_user,
+    :dashboard_only,
+    :single_community_only,
+    :fetch_community,
+    :fetch_community_membership,
+    :set_locale,
+    :generate_event_id,
+    :set_default_url_for_mailer
   before_filter :cannot_access_without_joining, :except => [ :confirmation_pending, :check_email_availability]
   before_filter :can_access_only_organizations_communities
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
@@ -286,34 +294,6 @@ class ApplicationController < ActionController::Base
 
   def fetch_translations
     WebTranslateIt.fetch_translations
-  end
-
-  def check_auth_token
-    if params[:auth]
-      unless person_signed_in?  #if cookie and session already set up, ignore auth token
-        if t = AuthToken.find_by_token(params[:auth])
-          t.last_use_attempt = Time.now # record the usage attempt to see how people click on email links
-          if t.expires_at > Time.now
-            # Token is valid, sign the person in
-            sign_in(t.person)
-            @current_user = t.person
-            t.times_used = t.times_used + 1
-          else
-            session[:expired_auth_token] = t.token #this can be used to allow unsubscribes even with old token
-            #flash.now[:warning] = "auth_token_expired"
-          end
-          t.save
-        else
-          #flash.now[:warning] = "auth_token_not_found"
-        end
-      end
-
-      #if url had auth param, remove it.
-      path_without_auth_token = request.fullpath.gsub(/auth=[^\&]*(\&?)/,"")
-      #if ending now with only a ? remove that too
-      path_without_auth_token = path_without_auth_token.gsub(/\?$/,"")
-      redirect_to path_without_auth_token
-    end
   end
 
   def force_ssl

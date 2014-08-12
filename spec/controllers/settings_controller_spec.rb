@@ -23,18 +23,15 @@ describe SettingsController do
       @person.min_days_between_community_updates.should == 100000
     end
 
-    it "should unsubscribe even if auth token is expired" do
+    it "should unsubscribe with auth token" do
       t = @person.new_email_auth_token
-      AuthToken.find_by_token(t).update_attribute(:expires_at, 2.days.ago)
+      AuthToken.find_by_token(t)
       @person.set_default_preferences
       @person.min_days_between_community_updates.should == 1
 
       get :unsubscribe, {:email_type => "community_updates", :person_id => @person.username, :auth => t}
-      response.status.should == 302 #redirection to url withouth token in query string
-      session[:expired_auth_token].should == t
-      get :unsubscribe, {:email_type => "community_updates", :person_id => @person.username},
-                        {:expired_auth_token => t}
       response.status.should == 200
+
       @person = Person.find(@person.id) # fetch again to refresh
       @person.min_days_between_community_updates.should == 100000
     end

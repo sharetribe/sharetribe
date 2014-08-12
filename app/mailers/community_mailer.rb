@@ -53,7 +53,6 @@ class CommunityMailer < ActionMailer::Base
     @url_params[:host] = "#{@community.full_domain}"
     @url_params[:locale] = @recipient.locale
     @url_params[:ref] = "weeklymail"
-    @url_params[:auth] = @auth_token
     @url_params.freeze # to avoid accidental modifications later
 
 

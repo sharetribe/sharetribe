@@ -26,6 +26,7 @@ Feature: Transaction process between two users
     # Accepting
     When I open the email
     And I follow "View message" in the email
+    And I log in as "kassi_testperson1"
     Then I should see "1" within "#inbox-link"
     When I follow "Accept request"
     And I fill in "listing_conversation_message_attributes_content" with "Ok, that works!"
@@ -40,6 +41,7 @@ Feature: Transaction process between two users
     # Paying with Checkout
     When I open the email
     And I follow "Pay now" in the email
+    And I log in as "kassi_testperson2"
     And I press "Continue"
     And I pay with Osuuspankki
     Then I should see "Payment successful"
@@ -67,6 +69,7 @@ Feature: Transaction process between two users
     # Giving feedback
     When I open the email with subject "Request completed - remember to give feedback"
     And I follow "Give feedback" in the email
+    And I log in as "kassi_testperson1"
     And I click "#positive-grade-link"
     And I fill in "How did things go?" with "Everything was great!"
     And "kassi_testperson2@example.com" should have 2 emails
@@ -103,6 +106,7 @@ Feature: Transaction process between two users
     # Replying
     When I open the email
     And I follow "View message" in the email
+    And I log in as "kassi_testperson1"
     And I fill in "message[content]" with "Ok, that works!"
     And I press "Send reply"
     Then I should see "Please wait..."

@@ -37,13 +37,7 @@ class SettingsController < ApplicationController
   end
 
   def unsubscribe
-    @person_to_unsubscribe = @current_user
-
-    # Check if trying to unsubscribe with expired token and allow that
-    if @person_to_unsubscribe.nil? && session[:expired_auth_token]
-      token = AuthToken.find_by_token(session[:expired_auth_token])
-      @person_to_unsubscribe = token.person if token
-    end
+    @person_to_unsubscribe = find_person_to_unsubscribe(@current_user, params[:auth])
 
     if @person_to_unsubscribe && @person_to_unsubscribe.username == params[:person_id] && params[:email_type].present?
       if params[:email_type] == "community_updates"
@@ -71,6 +65,10 @@ class SettingsController < ApplicationController
       @person.build_location(:address => @person.street_address,:location_type => 'person')
       @person.location.search_and_fill_latlng
     end
+  end
+
+  def find_person_to_unsubscribe(current_user, auth_token)
+    current_user || Maybe(AuthToken.find_by_token(auth_token)).person.or_else { nil }
   end
 
 end

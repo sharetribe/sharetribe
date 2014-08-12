@@ -39,7 +39,7 @@ describe "CommunityMailer" do
     end
 
     it "should have correct links" do
-      @email.should have_body_text(/.*<a href=\"http\:\/\/#{@c1.domain}\.#{APP_CONFIG.domain}\/#{@p1.locale}\/listings\/#{@l2.id}\?auth\=#{@p1.auth_tokens.last.token}\&amp;ref=weeklymail.*/)
+      @email.should have_body_text(/.*<a href=\"http\:\/\/#{@c1.domain}\.#{APP_CONFIG.domain}\/#{@p1.locale}\/listings\/#{@l2.id}\?ref=weeklymail.*/)
     end
 
     it "should include valid auth_token in links" do

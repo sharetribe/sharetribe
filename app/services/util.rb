@@ -167,7 +167,6 @@ module Util
       @url_params[:ref] = ref
       if recipient
         @recipient = recipient
-        @url_params[:auth] = @recipient.new_email_auth_token
         @url_params[:locale] = @recipient.locale
         set_locale @recipient.locale
       end
