@@ -10,6 +10,16 @@ CREATE TABLE `auth_tokens` (
   UNIQUE KEY `index_auth_tokens_on_token` (`token`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `bookings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `listing_conversation_id` int(11) DEFAULT NULL,
+  `start_on` date DEFAULT NULL,
+  `end_on` date DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `braintree_accounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `created_at` datetime NOT NULL,
@@ -879,6 +889,7 @@ CREATE TABLE `transaction_types` (
   `price_field` tinyint(1) DEFAULT NULL,
   `preauthorize_payment` tinyint(1) DEFAULT '0',
   `price_quantity_placeholder` varchar(255) DEFAULT NULL,
+  `price_per` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `url` varchar(255) DEFAULT NULL,
@@ -1812,6 +1823,12 @@ INSERT INTO schema_migrations (version) VALUES ('20140710125950');
 INSERT INTO schema_migrations (version) VALUES ('20140710131146');
 
 INSERT INTO schema_migrations (version) VALUES ('20140711094414');
+
+INSERT INTO schema_migrations (version) VALUES ('20140724084559');
+
+INSERT INTO schema_migrations (version) VALUES ('20140724093459');
+
+INSERT INTO schema_migrations (version) VALUES ('20140724123125');
 
 INSERT INTO schema_migrations (version) VALUES ('20140805102757');
 
