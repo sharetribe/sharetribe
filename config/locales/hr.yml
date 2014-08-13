@@ -1640,6 +1640,58 @@ hr:
       default_textual_feedback: ~
     testimonial:
       about_listing: ~
+  datepicker:
+    days:
+      sunday: "Nedjelja"
+      monday: "Ponedjeljak"
+      tuesday: "Utorak"
+      wednesday: "Srijeda"
+      thursday: "Četvrtak"
+      friday: "Petak"
+      saturday: "Subota"
+    days_short:
+      sunday: "Ned"
+      monday: "Pon"
+      tuesday: "Uto"
+      wednesday: "Sri"
+      thursday: "Čet"
+      friday: "Pet"
+      saturday: "Sub"
+    days_min:
+      sunday: "Ne"
+      monday: "Po"
+      tuesday: "Ut"
+      wednesday: "Sr"
+      thursday: "Če"
+      friday: "Pe"
+      saturday: "Su"
+    months:
+      january: "Siječanj"
+      february: "Veljača"
+      march: "Ožujak"
+      april: "Travanj"
+      may: "Svibanj"
+      june: "Lipanj"
+      july: "Srpanj"
+      august: "Kolovoz"
+      september: "Rujan"
+      october: "Listopad"
+      november: "Studeni"
+      december: "Prosinac"
+    months_short:
+      january: "Sij"
+      february: "Velj"
+      march: "Ožu"
+      april: "Tra"
+      may: "Svi"
+      june: "Lip"
+      july: "Srp"
+      august: "Kol"
+      september: "Ruj"
+      october: "Lis"
+      november: "Stu"
+      december: "Pro"
+    today: "Danas"
   time:
     formats:
       short: ~

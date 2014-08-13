@@ -1640,6 +1640,60 @@ zh:
       default_textual_feedback: ~
     testimonial:
       about_listing: ~
+  datepicker:
+    days:
+      sunday: "星期日"
+      monday: "星期一"
+      tuesday: "星期二"
+      wednesday: "星期三"
+      thursday: "星期四"
+      friday: "星期五"
+      saturday: "星期六"
+    days_short:
+      sunday: "周日"
+      monday: "周一"
+      tuesday: "周二"
+      wednesday: "周三"
+      thursday: "周四"
+      friday: "周五"
+      saturday: "周六"
+    days_min:
+      sunday: "日"
+      monday: "一"
+      tuesday: "二"
+      wednesday: "三"
+      thursday: "四"
+      friday: "五"
+      saturday: "六"
+    months:
+      january: "一月"
+      february: "二月"
+      march: "三月"
+      april: "四月"
+      may: "五月"
+      june: "六月"
+      july: "七月"
+      august: "八月"
+      september: "九月"
+      october: "十月"
+      november: "十一月"
+      december: "十二月"
+    months_short:
+      january: "一月"
+      february: "二月"
+      march: "三月"
+      april: "四月"
+      may: "五月"
+      june: "六月"
+      july: "七月"
+      august: "八月"
+      september: "九月"
+      october: "十月"
+      november: "十一月"
+      december: "十二月"
+    today: "今日"
+    format: "yyyy年mm月dd日"
+    weekStart: 1
   time:
     formats:
       short: "%e %b %Y  %H:%M"

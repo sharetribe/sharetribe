@@ -1640,6 +1640,59 @@ lv:
       default_textual_feedback: ~
     testimonial:
       about_listing: ~
+  datepicker:
+    days:
+      sunday: "Svētdiena"
+      monday: "Pirmdiena"
+      tuesday: "Otrdiena"
+      wednesday: "Trešdiena"
+      thursday: "Ceturtdiena"
+      friday: "Piektdiena"
+      saturday: "Sestdiena"
+    days_short:
+      sunday: "Sv"
+      monday: "P"
+      tuesday: "O"
+      wednesday: "T"
+      thursday: "C"
+      friday: "Pk"
+      saturday: "S"
+    days_min:
+      sunday: "Sv"
+      monday: "Pr"
+      tuesday: "Ot"
+      wednesday: "Tr"
+      thursday: "Ce"
+      friday: "Pk"
+      saturday: "Se"
+    months:
+      january: "Janvāris"
+      february: "Februāris"
+      march: "Marts"
+      april: "Aprīlis"
+      may: "Maijs"
+      june: "Jūnijs"
+      july: "Jūlijs"
+      august: "Augusts"
+      september: "Septembris"
+      october: "Oktobris"
+      november: "Novembris"
+      december: "Decembris"
+    months_short:
+      january: "Jan"
+      february: "Feb"
+      march: "Mar"
+      april: "Apr"
+      may: "Mai"
+      june: "Jūn"
+      july: "Jūl"
+      august: "Aug"
+      september: "Sep"
+      october: "Okt"
+      november: "Nov"
+      december: "Dec"
+    today: "Šodien"
+    weekStart: 1
   time:
     formats:
       short: ~
