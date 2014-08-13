@@ -1699,6 +1699,8 @@ hu:
       december: Dec
     today: Ma
     clear: ~
+    week_start: 1
+    format: "yyyy.mm.dd"
   time:
     formats:
       short: ~

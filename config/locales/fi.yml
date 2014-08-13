@@ -1744,6 +1744,8 @@ fi:
       december: jou
     today: tänään
     clear: ~
+    week_start: 1
+    format: "d.m.yyyy"
   time:
     formats:
       short: "%e. %b %Y kello %H:%M"

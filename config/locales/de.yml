@@ -1720,6 +1720,22 @@ de:
       december: Dez
     today: Heute
     clear: Löschen
+      january: "Jan"
+      february: "Feb"
+      march: "Mär"
+      april: "Apr"
+      may: "Mai"
+      june: "Jun"
+      july: "Jul"
+      august: "Aug"
+      september: "Sep"
+      october: "Okt"
+      november: "Nov"
+      december: "Dez"
+    today: "Heute"
+    clear: "Löschen"
+    week_start: 1
+    format: "dd.mm.yyyy"
   time:
     formats:
       short: "%e %b %Y at %H:%M"

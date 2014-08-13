@@ -1717,6 +1717,8 @@ fr:
       december: Déc
     today: Aujourd'hui
     clear: Effacer
+    week_start: 1
+    format: "dd/mm/yyyy"
   time:
     formats:
       short: "%e. %b %Y heure %H:%M"

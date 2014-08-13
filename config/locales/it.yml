@@ -1701,6 +1701,8 @@ it:
       december: Dic
     today: Oggi
     clear: Cancella
+    week_start: 1
+    format: "dd/mm/yyyy"
   time:
     formats:
       short: ~

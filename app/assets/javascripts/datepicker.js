@@ -12,7 +12,6 @@ window.ST = window.ST || {};
     var options = {
       format: dateFormat,
       startDate: today,
-      weekStart: 1,
       onRender: function(date) {
         return date.valueOf() < today.valueOf() ? 'disabled' : '';
       }
