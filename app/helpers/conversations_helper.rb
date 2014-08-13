@@ -18,8 +18,6 @@ module ConversationsHelper
       "ss-check"
     when "preauthorized"
       "ss-check"
-    when "deliver_listing"
-      "ss-deliveryvan"
     end
   end
 
@@ -277,7 +275,7 @@ module ConversationsHelper
       type: :status_info,
       content: {
         info_text_part: t("conversations.status.deliver_listing", :listing_title => link_to(conversation.listing.title, conversation.listing)).html_safe,
-        info_icon_part_classes: icon_for("deliver_listing")
+        info_icon_part_classes: "ss-deliveryvan"
       }
     })
     if @current_community.testimonials_in_use
