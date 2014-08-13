@@ -25,6 +25,11 @@ class ListingConversationsController < ApplicationController
   def preauthorize
     booking = Maybe(params)[:booking].map { |booking_params| Booking.new_from_params(booking_params) }.or_else(nil)
 
+    if booking.present? && !booking.valid?
+      flash[:error] = "End time can not be before start time"
+      redirect_to @listing
+    end
+
     @braintree_client_side_encryption_key = @current_community.payment_gateway.braintree_client_side_encryption_key
 
     @listing_conversation = new_conversation()
