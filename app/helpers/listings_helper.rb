@@ -87,7 +87,7 @@ module ListingsHelper
 
   def with_quantity_and_vat_text(community, listing, &block)
     buffer = []
-    buffer.push(price_quantity(listing))
+    buffer.push(price_quantity_per_unit(listing))
 
     if community.vat
       buffer.push(t("listings.show.price_excludes_vat"))
@@ -96,20 +96,22 @@ module ListingsHelper
     block.call(buffer.join(" ")) unless buffer.empty?
   end
 
-  # we are not sure "per unit" string works in every language
-  def price_quantity(listing, unit_separator = 'per')
+  def price_quantity_slash_unit(listing)
     if listing.transaction_type.price_per
-      if unit_separator == 'per'
-        t("listings.show.price.per_#{listing.transaction_type.price_per}")
-      else
-        "#{unit_separator} " + t("unit.#{listing.transaction_type.price_per}")
-      end
+      "/ " + t("unit.#{listing.transaction_type.price_per}")
     elsif listing.quantity.present?
-      if unit_separator == 'per'
-        t("listing.show.price.per_quantity_unit", quantity_unit: listing.quantity)
-      else
-        "#{unit_separator} #{listing.quantity}"
+      "/ #{listing.quantity}"
       end
+    else
+      ""
+    end
+  end
+
+  def price_quantity_per_unit(listing)
+    if listing.transaction_type.price_per
+      t("listings.show.price.per_#{listing.transaction_type.price_per}")
+    elsif listing.quantity.present?
+      t("listing.show.price.per_quantity_unit", quantity_unit: listing.quantity)
     else
       ""
     end
