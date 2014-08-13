@@ -39,17 +39,16 @@ class HomepageController < ApplicationController
     # This can be removeds soon (June 2014)
     params[:transaction_type] ||= params[:share_type]
 
-    @selected_category = find_selected_by_param(@categories, params[:category])
-    @selected_transaction_type = find_selected_by_param(@transaction_types, params[:transaction_type])
-
     @filter_params = {}
 
     Maybe(@current_community.categories.find_by_url_or_id(params[:category])).each do |category|
       @filter_params[:category] = category.id
+      @selected_category = category
     end
 
     Maybe(@current_community.transaction_types.find_by_url_or_id(params[:transaction_type])).each do |transaction_type|
       @filter_params[:transaction_type] = transaction_type.id
+      @selected_transaction_type = transaction_type
     end
 
     @listing_count = @current_community.listings.currently_open.count
@@ -167,15 +166,4 @@ class HomepageController < ApplicationController
   def self.checkbox_field_options_for_search(params)
     options_from_params(params, /^checkbox_filter_option/).flatten
   end
-
-  # Give array of models (categories, transaction_types, etc.) and
-  # `param_value` and get back selected model or nil if all selected
-  def find_selected_by_param(selectables, param_value)
-    if param_value == "all"
-      nil
-    else
-      selectables.find { |selectable| selectable.id == param_value.to_i}
-    end
-  end
-
 end
