@@ -101,7 +101,6 @@ module ListingsHelper
       "/ " + t("unit.#{listing.transaction_type.price_per}")
     elsif listing.quantity.present?
       "/ #{listing.quantity}"
-      end
     else
       ""
     end
