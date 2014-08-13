@@ -22,15 +22,7 @@
 //= require jquery.fileupload-validate
 //= require jquery.fileupload-image
 
-// TODO: Datepicker locales needs to be imported somehow to our own translation system
 //= require datepicker/bootstrap-datepicker.js
-//= require datepicker/locales/bootstrap-datepicker.fi.js
-//= require datepicker/locales/bootstrap-datepicker.sv.js
-//= require datepicker/locales/bootstrap-datepicker.fr.js
-//= require datepicker/locales/bootstrap-datepicker.es.js
-//= require datepicker/locales/bootstrap-datepicker.pt.js
-//= require datepicker/locales/bootstrap-datepicker.de.js
-//= require datepicker/locales/bootstrap-datepicker.ru.js
 
 // Allow IE8-9 to post cross domain XHR (required for image upload)
 //= require jquery.iframe-transport.js
