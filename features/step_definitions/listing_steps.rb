@@ -263,8 +263,8 @@ end
 When(/^I make a booking request for that listing for (\d+) days$/) do |day_count|
   visit_current_listing
   @booking_end_date = Date.today + day_count.to_i.days - 1.day
-  select_date_from_date_picker(Date.today, "start_on")
-  select_date_from_date_picker(@booking_end_date, "end_on")
+  select_date_from_date_picker(Date.today, "start-on")
+  select_date_from_date_picker(@booking_end_date, "end-on")
 
   click_button('Buy')
 end
