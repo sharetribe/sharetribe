@@ -20,7 +20,7 @@
 
     - link_path = @listing.transaction_type.preauthorize_payment? ? preauthorize_payment_path(:listing_id => @listing.id.to_s) : reply_to_listing_path(:listing_id => @listing.id.to_s)
 
-    = form_tag link_path, :method => :get do
+    = form_tag link_path, :method => :get, :id => "booking-dates" do
 
       - if @listing.transaction_type.price_per
         - days = [:sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]
@@ -41,18 +41,31 @@
               monthsShort: #{translated_months_short},
               today: "#{t("datepicker.today")}",
               weekStart: #{t("datepicker.week_start", default: 0)},
-              clear: "#{t("datepicker.clear")}"
+              clear: "#{t("datepicker.clear")}",
+              format: "#{t("datepicker.format")}"
             }
 
+            $("#booking-dates").validate({
+              submitHandler: function(form) {
+                var $form = $(form);
+                $form.find("#start-on").attr("name", "");
+                $form.find("#end-on").attr("name", "");
+
+                form.submit();
+              }
+            });
+
             window.ST.initializeFromToDatePicker('datepicker');
-        .input-daterange.input-group.clearfix#datepicker{:data => {:locale => I18n.locale, :dateformat => t("date.export_date_formats.js_style_date")}}
+        .input-daterange.input-group.clearfix#datepicker{:data => {:locale => I18n.locale, :dateformat => t("datepicker.format")}}
           .datepicker-start-wrapper
             = label_tag "From"
-            %input.input-sm.form-control#start_on{:type => 'text', :name => 'booking[start_on]', :placeholder => t("date.export_date_formats.js_style_date")}
+            %input.input-sm.form-control.required#start-on{:type => 'text', :name => "eka", :placeholder => t("datepicker.format"), :data => { :output => "booking-start-output" } }
+            %input#booking-start-output{:type => 'hidden', :name => 'start_on'}
 
           .datepicker-end-wrapper
             = label_tag "To"
-            %input.input-sm.form-control#end_on{:type => 'text', :name => 'booking[end_on]', :placeholder => t("date.export_date_formats.js_style_date")}
+            %input.input-sm.form-control.required#end-on{:type => 'text', :name => "toka", :placeholder => t("datepicker.format"), :data => { :output => "booking-end-output" }}
+            %input#booking-end-output{:type => 'hidden', :name => 'end_on'}
 
       %button.book-button
         .content

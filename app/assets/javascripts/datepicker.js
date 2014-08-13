@@ -7,11 +7,10 @@ window.ST = window.ST || {};
     var today = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
     var dateRage = $('#'+ rangeCongainerId);
     var dateLocale = dateRage.data('locale');
-    var dateFormat = dateRage.data('dateformat');
 
     var options = {
-      format: dateFormat,
       startDate: today,
+      inputs: [$("#start-on"), $("#end-on")],
       onRender: function(date) {
         return date.valueOf() < today.valueOf() ? 'disabled' : '';
       }
@@ -21,6 +20,18 @@ window.ST = window.ST || {};
       options.language = dateLocale;
     }
 
-    dateRage.datepicker(options);
+    var picker = dateRage.datepicker(options);
+
+    var outputElements = {
+      "booking-start-output": $("#booking-start-output"),
+      "booking-end-output": $("#booking-end-output")
+    }
+
+    picker.on('changeDate', function(e) {
+      var newDate = e.dates[0];
+      var outputElementId = $(e.target).data("output");
+      var outputElement = outputElements[outputElementId];
+      outputElement.val(module.utils.toISODate(newDate));
+    });
   };
 })(window.ST);

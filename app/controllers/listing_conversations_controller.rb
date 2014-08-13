@@ -23,11 +23,16 @@ class ListingConversationsController < ApplicationController
   end
 
   def preauthorize
-    booking = Maybe(params)[:booking].map { |booking_params| Booking.new_from_params(booking_params) }.or_else(nil)
+    booking = if @listing.transaction_type.price_per.present?
+      Booking.new({
+        start_on: params[:start_on],
+        end_on: params[:end_on]
+      })
+    end
 
     if booking.present? && !booking.valid?
-      flash[:error] = "End time can not be before start time"
-      redirect_to @listing
+      flash[:error] = "Booking time invalid: Start time must be in the future, end time can not be before start time"
+      redirect_to @listing and return
     end
 
     @braintree_client_side_encryption_key = @current_community.payment_gateway.braintree_client_side_encryption_key

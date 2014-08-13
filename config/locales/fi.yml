@@ -1688,9 +1688,6 @@ fi:
   date:
     formats:
       long_with_abbr_day_name: "%a %-d.%-m.%Y"
-    export_date_formats:
-      ruby_style_date: "%d.%m.%Y"
-      js_style_date: dd.mm.yyyy
   datepicker:
     days:
       sunday: sunnuntai
@@ -1745,7 +1742,7 @@ fi:
     today: tänään
     clear: ~
     week_start: 1
-    format: "d.m.yyyy"
+    format: "dd.mm.yyyy"
   time:
     formats:
       short: "%e. %b %Y kello %H:%M"

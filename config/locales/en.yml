@@ -1688,9 +1688,6 @@ en:
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
-    export_date_formats:
-      ruby_style_date: "%m/%d/%Y"
-      js_style_date: mm/dd/yyyy
   datepicker:
     days:
       sunday: Sunday
@@ -1744,6 +1741,7 @@ en:
       december: Dec
     today: Today
     clear: Clear
+    format: "mm/dd/yyyy"
   time:
     formats:
       short: "%e %b %Y at %H:%M"
