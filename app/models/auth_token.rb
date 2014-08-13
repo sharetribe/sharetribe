@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: auth_tokens
+#
+#  id               :integer          not null, primary key
+#  token            :string(255)
+#  person_id        :string(255)
+#  expires_at       :datetime
+#  times_used       :integer
+#  last_use_attempt :datetime
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
 class AuthToken < ActiveRecord::Base
   belongs_to :person
   after_initialize :defaults

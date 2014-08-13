@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: menu_links
+#
+#  id            :integer          not null, primary key
+#  community_id  :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  sort_priority :integer          default(0)
+#
+
 class MenuLink < ActiveRecord::Base
   has_many :translations, :class_name => "MenuLinkTranslation", :dependent => :destroy
   belongs_to :community

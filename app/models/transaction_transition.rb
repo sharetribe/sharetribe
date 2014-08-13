@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: transaction_transitions
+#
+#  id              :integer          not null, primary key
+#  to_state        :string(255)
+#  metadata        :text
+#  sort_key        :integer          default(0)
+#  conversation_id :integer
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 class TransactionTransition < ActiveRecord::Base
   include Statesman::Adapters::ActiveRecordTransition
 

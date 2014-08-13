@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: category_custom_fields
+#
+#  id              :integer          not null, primary key
+#  category_id     :integer
+#  custom_field_id :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class CategoryCustomField < ActiveRecord::Base
   belongs_to :category
   belongs_to :custom_field

@@ -1,3 +1,26 @@
+# == Schema Information
+#
+# Table name: payment_gateways
+#
+#  id                                   :integer          not null, primary key
+#  community_id                         :integer
+#  type                                 :string(255)
+#  braintree_environment                :string(255)
+#  braintree_merchant_id                :string(255)
+#  braintree_master_merchant_id         :string(255)
+#  braintree_public_key                 :string(255)
+#  braintree_private_key                :string(255)
+#  braintree_client_side_encryption_key :text
+#  checkout_environment                 :string(255)
+#  checkout_user_id                     :string(255)
+#  checkout_password                    :string(255)
+#  created_at                           :datetime         not null
+#  updated_at                           :datetime         not null
+#  gateway_commission_percentage        :integer
+#  gateway_commission_fixed_cents       :integer
+#  gateway_commission_fixed_currency    :string(255)
+#
+
 require 'spec_helper'
 
 describe Checkout do

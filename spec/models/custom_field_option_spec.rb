@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: custom_field_options
+#
+#  id              :integer          not null, primary key
+#  custom_field_id :integer
+#  sort_priority   :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 require 'spec_helper'
 
 describe CustomFieldOption do

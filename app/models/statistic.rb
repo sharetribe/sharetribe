@@ -1,3 +1,47 @@
+# == Schema Information
+#
+# Table name: statistics
+#
+#  id                                          :integer          not null, primary key
+#  community_id                                :integer
+#  created_at                                  :datetime
+#  updated_at                                  :datetime
+#  users_count                                 :integer
+#  two_week_content_activation_percentage      :float
+#  four_week_transaction_activation_percentage :float
+#  mau_g1                                      :float
+#  wau_g1                                      :float
+#  dau_g1                                      :float
+#  mau_g2                                      :float
+#  wau_g2                                      :float
+#  dau_g2                                      :float
+#  mau_g3                                      :float
+#  wau_g3                                      :float
+#  dau_g3                                      :float
+#  invitations_sent_per_user                   :float
+#  invitations_accepted_per_user               :float
+#  revenue_per_mau_g1                          :float
+#  extra_data                                  :text
+#  mau_g1_count                                :integer
+#  wau_g1_count                                :integer
+#  listings_count                              :integer
+#  new_listings_last_week                      :integer
+#  new_listings_last_month                     :integer
+#  conversations_count                         :integer
+#  new_conversations_last_week                 :integer
+#  new_conversations_last_month                :integer
+#  messages_count                              :integer
+#  new_messages_last_week                      :integer
+#  new_messages_last_month                     :integer
+#  transactions_count                          :integer
+#  new_transactions_last_week                  :integer
+#  new_transactions_last_month                 :integer
+#  new_users_last_week                         :integer
+#  new_users_last_month                        :integer
+#  user_count_weekly_growth                    :float
+#  wau_weekly_growth                           :float
+#
+
 class Statistic < ActiveRecord::Base
   belongs_to :community
 

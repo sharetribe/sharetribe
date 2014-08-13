@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: payment_rows
+#
+#  id         :integer          not null, primary key
+#  payment_id :integer
+#  vat        :integer
+#  sum_cents  :integer
+#  currency   :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  title      :string(255)
+#
+
 class PaymentRow < ActiveRecord::Base
 
   include MathHelper
