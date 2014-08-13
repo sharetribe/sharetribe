@@ -59,12 +59,12 @@
         .input-daterange.input-group.clearfix#datepicker{:data => {:locale => I18n.locale, :dateformat => t("datepicker.format")}}
           .datepicker-start-wrapper
             = label_tag "From"
-            %input.input-sm.form-control.required#start-on{:type => 'text', :name => "eka", :placeholder => t("datepicker.format"), :data => { :output => "booking-start-output" } }
+            %input.input-sm.form-control.required#start-on{:type => 'text', :name => "start-on-display", :placeholder => t("datepicker.format"), :data => { :output => "booking-start-output" } }
             %input#booking-start-output{:type => 'hidden', :name => 'start_on'}
 
           .datepicker-end-wrapper
             = label_tag "To"
-            %input.input-sm.form-control.required#end-on{:type => 'text', :name => "toka", :placeholder => t("datepicker.format"), :data => { :output => "booking-end-output" }}
+            %input.input-sm.form-control.required#end-on{:type => 'text', :name => "end-on-display", :placeholder => t("datepicker.format"), :data => { :output => "booking-end-output" }}
             %input#booking-end-output{:type => 'hidden', :name => 'end_on'}
 
       %button.book-button
