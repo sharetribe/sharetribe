@@ -1663,61 +1663,60 @@ fi:
       long_with_abbr_day_name: "%a %-d.%-m.%Y"
     export_date_formats:
       ruby_style_date: "%d.%m.%Y"
-      js_style_date: "dd.mm.yyyy"
+      js_style_date: dd.mm.yyyy
   datepicker:
     days:
-      sunday: "sunnuntai"
-      monday: "maanantai"
-      tuesday: "tiistai"
-      wednesday: "keskiviikko"
-      thursday: "torstai"
-      friday: "perjantai"
-      saturday: "lauantai"
+      sunday: sunnuntai
+      monday: maanantai
+      tuesday: tiistai
+      wednesday: keskiviikko
+      thursday: torstai
+      friday: perjantai
+      saturday: lauantai
     days_short:
-      sunday: "sun"
-      monday: "maa"
-      tuesday: "tii"
-      wednesday: "kes"
-      thursday: "tor"
-      friday: "per"
-      saturday: "lau"
+      sunday: sun
+      monday: maa
+      tuesday: tii
+      wednesday: kes
+      thursday: tor
+      friday: per
+      saturday: lau
     days_min:
-      sunday: "su"
-      monday: "ma"
-      tuesday: "ti"
-      wednesday: "ke"
-      thursday: "to"
-      friday: "pe"
-      saturday: "la"
+      sunday: su
+      monday: ma
+      tuesday: ti
+      wednesday: ke
+      thursday: to
+      friday: pe
+      saturday: la
     months:
-      january: "tammikuu"
-      february: "helmikuu"
-      march: "maaliskuu"
-      april: "huhtikuu"
-      may: "toukokuu"
-      june: "kesäkuu"
-      july: "heinäkuu"
-      august: "elokuu"
-      september: "syyskuu"
-      october: "lokakuu"
-      november: "marraskuu"
-      december: "joulukuu"
+      january: tammikuu
+      february: helmikuu
+      march: maaliskuu
+      april: huhtikuu
+      may: toukokuu
+      june: kesäkuu
+      july: heinäkuu
+      august: elokuu
+      september: syyskuu
+      october: lokakuu
+      november: marraskuu
+      december: joulukuu
     months_short:
-      january: "tam"
-      february: "hel"
-      march: "maa"
-      april: "huh"
-      may: "tou"
-      june: "kes"
-      july: "hei"
-      august: "elo"
-      september: "syy"
-      october: "lok"
-      november: "mar"
-      december: "jou"
-    today: "tänään"
-    weekStart: 1
-    format: "d.m.yyyy"
+      january: tam
+      february: hel
+      march: maa
+      april: huh
+      may: tou
+      june: kes
+      july: hei
+      august: elo
+      september: syy
+      october: lok
+      november: mar
+      december: jou
+    today: tänään
+    clear: ~
   time:
     formats:
       short: "%e. %b %Y kello %H:%M"

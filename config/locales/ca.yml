@@ -1642,58 +1642,65 @@ ca:
       default_textual_feedback: ~
     testimonial:
       about_listing: ~
+  date:
+    formats:
+      long_with_abbr_day_name: ~
+    export_date_formats:
+      ruby_style_date: ~
+      js_style_date: ~
   datepicker:
     days:
-      sunday: "Diumenge"
-      monday: "Dilluns"
-      tuesday: "Dimarts"
-      wednesday: "Dimecres"
-      thursday: "Dijous"
-      friday: "Divendres"
-      saturday: "Dissabte"
+      sunday: Diumenge
+      monday: Dilluns
+      tuesday: Dimarts
+      wednesday: Dimecres
+      thursday: Dijous
+      friday: Divendres
+      saturday: Dissabte
     days_short:
-      sunday: "Diu"
-      monday: "Dil"
-      tuesday: "Dmt"
-      wednesday: "Dmc"
-      thursday: "Dij"
-      friday: "Div"
-      saturday: "Dis"
+      sunday: Diu
+      monday: Dil
+      tuesday: Dmt
+      wednesday: Dmc
+      thursday: Dij
+      friday: Div
+      saturday: Dis
     days_min:
-      sunday: "dg"
-      monday: "dl"
-      tuesday: "dt"
-      wednesday: "dc"
-      thursday: "dj"
-      friday: "dv"
-      saturday: "ds"
+      sunday: dg
+      monday: dl
+      tuesday: dt
+      wednesday: dc
+      thursday: dj
+      friday: dv
+      saturday: ds
     months:
-      january: "Gener"
-      february: "Febrer"
-      march: "Març"
-      april: "Abril"
-      may: "Maig"
-      june: "Juny"
-      july: "Juliol"
-      august: "Agost"
-      september: "Setembre"
-      october: "Octubre"
-      november: "Novembre"
-      december: "Desembre"
+      january: Gener
+      february: Febrer
+      march: Març
+      april: Abril
+      may: Maig
+      june: Juny
+      july: Juliol
+      august: Agost
+      september: Setembre
+      october: Octubre
+      november: Novembre
+      december: Desembre
     months_short:
-      january: "Gen"
-      february: "Feb"
-      march: "Mar"
-      april: "Abr"
-      may: "Mai"
-      june: "Jun"
-      july: "Jul"
-      august: "Ago"
-      september: "Set"
-      october: "Oct"
-      november: "Nov"
-      december: "Des"
-    today: "Avui"
+      january: Gen
+      february: Feb
+      march: Mar
+      april: Abr
+      may: Mai
+      june: Jun
+      july: Jul
+      august: Ago
+      september: Set
+      october: Oct
+      november: Nov
+      december: Des
+    today: Avui
+    clear: ~
   time:
     formats:
       short: "%e %b %Y al %H:%M"

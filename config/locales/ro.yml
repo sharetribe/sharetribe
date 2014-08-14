@@ -1640,60 +1640,65 @@ ro:
       default_textual_feedback: ~
     testimonial:
       about_listing: ~
+  date:
+    formats:
+      long_with_abbr_day_name: ~
+    export_date_formats:
+      ruby_style_date: ~
+      js_style_date: ~
   datepicker:
     days:
-      sunday: "Duminică"
-      monday: "Luni"
-      tuesday: "Marţi"
-      wednesday: "Miercuri"
-      thursday: "Joi"
-      friday: "Vineri"
-      saturday: "Sâmbătă"
+      sunday: Duminică
+      monday: Luni
+      tuesday: Marţi
+      wednesday: Miercuri
+      thursday: Joi
+      friday: Vineri
+      saturday: Sâmbătă
     days_short:
-      sunday: "Dum"
-      monday: "Lun"
-      tuesday: "Mar"
-      wednesday: "Mie"
-      thursday: "Joi"
-      friday: "Vin"
-      saturday: "Sâm"
+      sunday: Dum
+      monday: Lun
+      tuesday: Mar
+      wednesday: Mie
+      thursday: Joi
+      friday: Vin
+      saturday: Sâm
     days_min:
-      sunday: "Du"
-      monday: "Lu"
-      tuesday: "Ma"
-      wednesday: "Mi"
-      thursday: "Jo"
-      friday: "Vi"
-      saturday: "Sâ"
+      sunday: Du
+      monday: Lu
+      tuesday: Ma
+      wednesday: Mi
+      thursday: Jo
+      friday: Vi
+      saturday: Sâ
     months:
-      january: "Ianuarie"
-      february: "Februarie"
-      march: "Martie"
-      april: "Aprilie"
-      may: "Mai"
-      june: "Iunie"
-      july: "Iulie"
-      august: "August"
-      september: "Septembrie"
-      october: "Octombrie"
-      november: "Noiembrie"
-      december: "Decembrie"
+      january: Ianuarie
+      february: Februarie
+      march: Martie
+      april: Aprilie
+      may: Mai
+      june: Iunie
+      july: Iulie
+      august: August
+      september: Septembrie
+      october: Octombrie
+      november: Noiembrie
+      december: Decembrie
     months_short:
-      january: "Ian"
-      february: "Feb"
-      march: "Mar"
-      april: "Apr"
-      may: "Mai"
-      june: "Iun"
-      july: "Iul"
-      august: "Aug"
-      september: "Sep"
-      october: "Oct"
-      november: "Nov"
-      december: "Dec"
-    today: "Astăzi"
-    clear: "Șterge"
-    weekStart: 1
+      january: Ian
+      february: Feb
+      march: Mar
+      april: Apr
+      may: Mai
+      june: Iun
+      july: Iul
+      august: Aug
+      september: Sep
+      october: Oct
+      november: Nov
+      december: Dec
+    today: Astăzi
+    clear: Șterge
   time:
     formats:
       short: ~

@@ -1643,59 +1643,65 @@ ru:
       default_textual_feedback: "Всё прошло отлично, большое спасибо!"
     testimonial:
       about_listing: ~
+  date:
+    formats:
+      long_with_abbr_day_name: ~
+    export_date_formats:
+      ruby_style_date: ~
+      js_style_date: ~
   datepicker:
     days:
-      sunday: "Воскресенье"
-      monday: "Понедельник"
-      tuesday: "Вторник"
-      wednesday: "Среда"
-      thursday: "Четверг"
-      friday: "Пятница"
-      saturday: "Суббота"
+      sunday: Воскресенье
+      monday: Понедельник
+      tuesday: Вторник
+      wednesday: Среда
+      thursday: Четверг
+      friday: Пятница
+      saturday: Суббота
     days_short:
-      sunday: "Вск"
-      monday: "Пнд"
-      tuesday: "Втр"
-      wednesday: "Срд"
-      thursday: "Чтв"
-      friday: "Птн"
-      saturday: "Суб"
+      sunday: Вск
+      monday: Пнд
+      tuesday: Втр
+      wednesday: Срд
+      thursday: Чтв
+      friday: Птн
+      saturday: Суб
     days_min:
-      sunday: "Вс"
-      monday: "Пн"
-      tuesday: "Вт"
-      wednesday: "Ср"
-      thursday: "Чт"
-      friday: "Пт"
-      saturday: "Сб"
+      sunday: Вс
+      monday: Пн
+      tuesday: Вт
+      wednesday: Ср
+      thursday: Чт
+      friday: Пт
+      saturday: Сб
     months:
-      january: "Январь"
-      february: "Февраль"
-      march: "Март"
-      april: "Апрель"
-      may: "Май"
-      june: "Июнь"
-      july: "Июль"
-      august: "Август"
-      september: "Сентябрь"
-      october: "Октябрь"
-      november: "Ноябрь"
-      december: "Декабрь"
+      january: Январь
+      february: Февраль
+      march: Март
+      april: Апрель
+      may: Май
+      june: Июнь
+      july: Июль
+      august: Август
+      september: Сентябрь
+      october: Октябрь
+      november: Ноябрь
+      december: Декабрь
     months_short:
-      january: "Янв"
-      february: "Фев"
-      march: "Мар"
-      april: "Апр"
-      may: "Май"
-      june: "Июн"
-      july: "Июл"
-      august: "Авг"
-      september: "Сен"
-      october: "Окт"
-      november: "Ноя"
-      december: "Дек"
-    today: "Сегодня"
-    weekStart: 1
+      january: Янв
+      february: Фев
+      march: Мар
+      april: Апр
+      may: Май
+      june: Июн
+      july: Июл
+      august: Авг
+      september: Сен
+      october: Окт
+      november: Ноя
+      december: Дек
+    today: Сегодня
+    clear: ~
   time:
     formats:
       short: "%e %b %Y в %H:%M"

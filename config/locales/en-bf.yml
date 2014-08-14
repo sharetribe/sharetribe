@@ -1640,6 +1640,65 @@ en-bf:
       default_textual_feedback: ~
     testimonial:
       about_listing: ~
+  date:
+    formats:
+      long_with_abbr_day_name: ~
+    export_date_formats:
+      ruby_style_date: ~
+      js_style_date: ~
+  datepicker:
+    days:
+      sunday: ~
+      monday: ~
+      tuesday: ~
+      wednesday: ~
+      thursday: ~
+      friday: ~
+      saturday: ~
+    days_short:
+      sunday: ~
+      monday: ~
+      tuesday: ~
+      wednesday: ~
+      thursday: ~
+      friday: ~
+      saturday: ~
+    days_min:
+      sunday: ~
+      monday: ~
+      tuesday: ~
+      wednesday: ~
+      thursday: ~
+      friday: ~
+      saturday: ~
+    months:
+      january: ~
+      february: ~
+      march: ~
+      april: ~
+      may: ~
+      june: ~
+      july: ~
+      august: ~
+      september: ~
+      october: ~
+      november: ~
+      december: ~
+    months_short:
+      january: ~
+      february: ~
+      march: ~
+      april: ~
+      may: ~
+      june: ~
+      july: ~
+      august: ~
+      september: ~
+      october: ~
+      november: ~
+      december: ~
+    today: ~
+    clear: ~
   time:
     formats:
       short: ~

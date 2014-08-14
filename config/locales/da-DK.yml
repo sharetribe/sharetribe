@@ -1640,59 +1640,65 @@ da-DK:
       default_textual_feedback: ~
     testimonial:
       about_listing: ~
+  date:
+    formats:
+      long_with_abbr_day_name: ~
+    export_date_formats:
+      ruby_style_date: ~
+      js_style_date: ~
   datepicker:
     days:
-      sunday: "Søndag"
-      monday: "Mandag"
-      tuesday: "Tirsdag"
-      wednesday: "Onsdag"
-      thursday: "Torsdag"
-      friday: "Fredag"
-      saturday: "Lørdag"
+      sunday: Søndag
+      monday: Mandag
+      tuesday: Tirsdag
+      wednesday: Onsdag
+      thursday: Torsdag
+      friday: Fredag
+      saturday: Lørdag
     days_short:
-      sunday: "Søn"
-      monday: "Man"
-      tuesday: "Tir"
-      wednesday: "Ons"
-      thursday: "Tor"
-      friday: "Fre"
-      saturday: "Lør"
+      sunday: Søn
+      monday: Man
+      tuesday: Tir
+      wednesday: Ons
+      thursday: Tor
+      friday: Fre
+      saturday: Lør
     days_min:
-      sunday: "Sø"
-      monday: "Ma"
-      tuesday: "Ti"
+      sunday: Sø
+      monday: Ma
+      tuesday: Ti
       wednesday: "On"
-      thursday: "To"
-      friday: "Fr"
-      saturday: "Lø"
+      thursday: To
+      friday: Fr
+      saturday: Lø
     months:
-      january: "Januar"
-      february: "Februar"
-      march: "Marts"
-      april: "April"
-      may: "Maj"
-      june: "Juni"
-      july: "Juli"
-      august: "August"
-      september: "September"
-      october: "Oktober"
-      november: "November"
-      december: "December"
+      january: Januar
+      february: Februar
+      march: Marts
+      april: April
+      may: Maj
+      june: Juni
+      july: Juli
+      august: August
+      september: September
+      october: Oktober
+      november: November
+      december: December
     months_short:
-      january: "Jan"
-      february: "Feb"
-      march: "Mar"
-      april: "Apr"
-      may: "Maj"
-      june: "Jun"
-      july: "Jul"
-      august: "Aug"
-      september: "Sep"
-      october: "Okt"
-      november: "Nov"
-      december: "Dec"
+      january: Jan
+      february: Feb
+      march: Mar
+      april: Apr
+      may: Maj
+      june: Jun
+      july: Jul
+      august: Aug
+      september: Sep
+      october: Okt
+      november: Nov
+      december: Dec
     today: "I Dag"
-    clear: "Nulstil"
+    clear: Nulstil
   time:
     formats:
       short: ~

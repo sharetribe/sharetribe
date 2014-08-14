@@ -1640,58 +1640,65 @@ sw:
       default_textual_feedback: ~
     testimonial:
       about_listing: ~
+  date:
+    formats:
+      long_with_abbr_day_name: ~
+    export_date_formats:
+      ruby_style_date: ~
+      js_style_date: ~
   datepicker:
     days:
-      sunday: "Jumapili"
-      monday: "Jumatatu"
-      tuesday: "Jumanne"
-      wednesday: "Jumatano"
-      thursday: "Alhamisi"
-      friday: "Ijumaa"
-      saturday: "Jumamosi"
+      sunday: Jumapili
+      monday: Jumatatu
+      tuesday: Jumanne
+      wednesday: Jumatano
+      thursday: Alhamisi
+      friday: Ijumaa
+      saturday: Jumamosi
     days_short:
-      sunday: "J2"
-      monday: "J3"
-      tuesday: "J4"
-      wednesday: "J5"
-      thursday: "Alh"
-      friday: "Ij"
-      saturday: "J1"
+      sunday: J2
+      monday: J3
+      tuesday: J4
+      wednesday: J5
+      thursday: Alh
+      friday: Ij
+      saturday: J1
     days_min:
-      sunday: "2"
-      monday: "3"
-      tuesday: "4"
-      wednesday: "5"
-      thursday: "A"
-      friday: "I"
-      saturday: "1"
+      sunday: 2
+      monday: 3
+      tuesday: 4
+      wednesday: 5
+      thursday: A
+      friday: I
+      saturday: 1
     months:
-      january: "Januari"
-      february: "Februari"
-      march: "Machi"
-      april: "Aprili"
-      may: "Mei"
-      june: "Juni"
-      july: "Julai"
-      august: "Agosti"
-      september: "Septemba"
-      october: "Oktoba"
-      november: "Novemba"
-      december: "Desemba"
+      january: Januari
+      february: Februari
+      march: Machi
+      april: Aprili
+      may: Mei
+      june: Juni
+      july: Julai
+      august: Agosti
+      september: Septemba
+      october: Oktoba
+      november: Novemba
+      december: Desemba
     months_short:
-      january: "Jan"
-      february: "Feb"
-      march: "Mac"
-      april: "Apr"
-      may: "Mei"
-      june: "Jun"
-      july: "Jul"
-      august: "Ago"
-      september: "Sep"
-      october: "Okt"
-      november: "Nov"
-      december: "Des"
-    today: "Leo"
+      january: Jan
+      february: Feb
+      march: Mac
+      april: Apr
+      may: Mei
+      june: Jun
+      july: Jul
+      august: Ago
+      september: Sep
+      october: Okt
+      november: Nov
+      december: Des
+    today: Leo
+    clear: ~
   time:
     formats:
       short: ~

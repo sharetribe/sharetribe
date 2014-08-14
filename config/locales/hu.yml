@@ -1640,60 +1640,65 @@ hu:
       default_textual_feedback: ~
     testimonial:
       about_listing: ~
+  date:
+    formats:
+      long_with_abbr_day_name: ~
+    export_date_formats:
+      ruby_style_date: ~
+      js_style_date: ~
   datepicker:
     days:
-      sunday: "Vasárnap"
-      monday: "Hétfő"
-      tuesday: "Kedd"
-      wednesday: "Szerda"
-      thursday: "Csütörtök"
-      friday: "Péntek"
-      saturday: "Szombat"
+      sunday: Vasárnap
+      monday: Hétfő
+      tuesday: Kedd
+      wednesday: Szerda
+      thursday: Csütörtök
+      friday: Péntek
+      saturday: Szombat
     days_short:
-      sunday: "Vas"
-      monday: "Hét"
-      tuesday: "Ked"
-      wednesday: "Sze"
-      thursday: "Csü"
-      friday: "Pén"
-      saturday: "Szo"
+      sunday: Vas
+      monday: Hét
+      tuesday: Ked
+      wednesday: Sze
+      thursday: Csü
+      friday: Pén
+      saturday: Szo
     days_min:
-      sunday: "Va"
-      monday: "Hé"
-      tuesday: "Ke"
-      wednesday: "Sz"
-      thursday: "Cs"
-      friday: "Pé"
-      saturday: "Sz"
+      sunday: Va
+      monday: Hé
+      tuesday: Ke
+      wednesday: Sz
+      thursday: Cs
+      friday: Pé
+      saturday: Sz
     months:
-      january: "Január"
-      february: "Február"
-      march: "Március"
-      april: "Április"
-      may: "Május"
-      june: "Június"
-      july: "Július"
-      august: "Augusztus"
-      september: "Szeptember"
-      october: "Október"
-      november: "November"
-      december: "December"
+      january: Január
+      february: Február
+      march: Március
+      april: Április
+      may: Május
+      june: Június
+      july: Július
+      august: Augusztus
+      september: Szeptember
+      october: Október
+      november: November
+      december: December
     months_short:
-      january: "Jan"
-      february: "Feb"
-      march: "Már"
-      april: "Ápr"
-      may: "Máj"
-      june: "Jún"
-      july: "Júl"
-      august: "Aug"
-      september: "Sze"
-      october: "Okt"
-      november: "Nov"
-      december: "Dec"
-    today: "Ma"
-    weekStart: 1
-    format: "yyyy.mm.dd"
+      january: Jan
+      february: Feb
+      march: Már
+      april: Ápr
+      may: Máj
+      june: Jún
+      july: Júl
+      august: Aug
+      september: Sze
+      october: Okt
+      november: Nov
+      december: Dec
+    today: Ma
+    clear: ~
   time:
     formats:
       short: ~

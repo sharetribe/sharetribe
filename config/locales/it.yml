@@ -1642,61 +1642,65 @@ it:
       default_textual_feedback: ~
     testimonial:
       about_listing: ~
+  date:
+    formats:
+      long_with_abbr_day_name: ~
+    export_date_formats:
+      ruby_style_date: ~
+      js_style_date: ~
   datepicker:
     days:
-      sunday: "Domenica"
-      monday: "Lunedì"
-      tuesday: "Martedì"
-      wednesday: "Mercoledì"
-      thursday: "Giovedì"
-      friday: "Venerdì"
-      saturday: "Sabato"
+      sunday: Domenica
+      monday: Lunedì
+      tuesday: Martedì
+      wednesday: Mercoledì
+      thursday: Giovedì
+      friday: Venerdì
+      saturday: Sabato
     days_short:
-      sunday: "Dom"
-      monday: "Lun"
-      tuesday: "Mar"
-      wednesday: "Mer"
-      thursday: "Gio"
-      friday: "Ven"
-      saturday: "Sab"
+      sunday: Dom
+      monday: Lun
+      tuesday: Mar
+      wednesday: Mer
+      thursday: Gio
+      friday: Ven
+      saturday: Sab
     days_min:
-      sunday: "Do"
-      monday: "Lu"
-      tuesday: "Ma"
-      wednesday: "Me"
-      thursday: "Gi"
-      friday: "Ve"
-      saturday: "Sa"
+      sunday: Do
+      monday: Lu
+      tuesday: Ma
+      wednesday: Me
+      thursday: Gi
+      friday: Ve
+      saturday: Sa
     months:
-      january: "Gennaio"
-      february: "Febbraio"
-      march: "Marzo"
-      april: "Aprile"
-      may: "Maggio"
-      june: "Giugno"
-      july: "Luglio"
-      august: "Agosto"
-      september: "Settembre"
-      october: "Ottobre"
-      november: "Novembre"
-      december: "Dicembre"
+      january: Gennaio
+      february: Febbraio
+      march: Marzo
+      april: Aprile
+      may: Maggio
+      june: Giugno
+      july: Luglio
+      august: Agosto
+      september: Settembre
+      october: Ottobre
+      november: Novembre
+      december: Dicembre
     months_short:
-      january: "Gen"
-      february: "Feb"
-      march: "Mar"
-      april: "Apr"
-      may: "Mag"
-      june: "Giu"
-      july: "Lug"
-      august: "Ago"
-      september: "Set"
-      october: "Ott"
-      november: "Nov"
-      december: "Dic"
-    today: "Oggi"
-    clear: "Cancella"
-    weekStart: 1
-    format: "dd/mm/yyyy"
+      january: Gen
+      february: Feb
+      march: Mar
+      april: Apr
+      may: Mag
+      june: Giu
+      july: Lug
+      august: Ago
+      september: Set
+      october: Ott
+      november: Nov
+      december: Dic
+    today: Oggi
+    clear: Cancella
   time:
     formats:
       short: ~
