@@ -481,6 +481,9 @@ en:
       offer_rejected: Rejected
       offer_canceled: Canceled
       offer_confirmed: Completed
+      offer_paid: "Payment successful"
+      offer_preauthorized: "Payment successful"
+      offer_waiting_for_payment: "Waiting for %{requester_name} to pay"
       pay: Pay
       preauthorized: "Payment successful"
       paid: "Payment successful"
@@ -489,6 +492,8 @@ en:
       request_rejected: Rejected
       request_confirmed: Completed
       request_canceled: Canceled
+      request_paid: "Payment successful"
+      request_preauthorized: "Payment successful"
       skip_feedback: "Skip feedback"
       waiting_for_listing_author_to_accept_offer: "Waiting for %{listing_author_name} to accept the offer"
       waiting_for_listing_author_to_accept_request: "Waiting for %{listing_author_name} to accept the request"

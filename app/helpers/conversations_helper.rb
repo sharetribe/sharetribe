@@ -170,13 +170,23 @@ module ConversationsHelper
       if conversation.status.eql?("pending")
         conversation_statuses << pending_status(conversation)
       elsif conversation.status.eql?("accepted")
+        conversation_statuses << status_info(t("conversations.status.#{conversation.discussion_type}_accepted"), icon_classes: icon_for("accepted"))
         conversation_statuses << accepted_status(conversation)
       elsif conversation.status.eql?("paid")
-        conversation_statuses << paid_status(conversation)
+        conversation_statuses << status_info(t("conversations.status.#{conversation.discussion_type}_paid"), icon_classes: icon_for("paid"))
+        conversation_statuses << status_info(t("conversations.status.deliver_listing", :listing_title => link_to(conversation.listing.title, conversation.listing)).html_safe, icon_classes: "ss-deliveryvan")
+        conversation_statuses << paid_status(conversation, @current_community.testimonials_in_use)
       elsif conversation.status.eql?("preauthorized")
+        conversation_statuses << status_info(t("conversations.status.#{conversation.discussion_type}_preauthorized"), icon_classes: icon_for("preauthorized"))
         conversation_statuses << preauthorized_status(conversation)
+      elsif conversation.status.eql?("confirmed")
+        conversation_statuses << status_info(t("conversations.status.#{conversation.discussion_type}_confirmed"), icon_classes: icon_for("confirmed"))
+        conversation_statuses << feedback_status(conversation, @current_community.testimonials_in_use)
+      elsif conversation.status.eql?("canceled")
+        conversation_statuses << status_info(t("conversations.status.#{conversation.discussion_type}_canceled"), icon_classes: icon_for("canceled"))
+        conversation_statuses << feedback_status if @current_community.testimonials_in_use
       elsif conversation.status
-        conversation_statuses << default_status(conversation)
+        conversation_statuses << status_info(t("conversations.status.#{conversation.discussion_type}_#{conversation.status}"), icon_classes: icon_for(conversation.status))
       end
     end
     conversation_statuses.flatten()
@@ -184,198 +194,186 @@ module ConversationsHelper
 
   private
 
+  # OSAPUOLEN PÄÄTTELEMINEN
+
   def pending_status(conversation)
     if current_user?(conversation.listing.author)
-      {
-        type: :status_links,
-        content: get_status_link(["accept", "reject"], conversation)
-      }
+      waiting_for_current_user_to_accept(conversation)
     else
-      {
-        type: :status_info,
-        content: {
-          info_text_part: t("conversations.status.waiting_for_listing_author_to_accept_#{conversation.discussion_type}", :listing_author_name => link_to(conversation.other_party(@current_user).given_name_or_username, conversation.other_party(@current_user))).html_safe,
-          info_icon_part_classes: 'ss-clock'
-        }
-      }
+      waiting_for_author_acceptance(conversation)
     end
   end
 
   def accepted_status(conversation)
-    conversation_statuses = []
-    conversation_statuses.push({
-      type: :status_info,
-      content: {
-        info_text_part: t("conversations.status.#{conversation.discussion_type}_#{conversation.status}"),
-        info_icon_part_classes: icon_for(conversation.status)
-      }
-    })
-
-    if conversation.requires_payment?(@current_community) && conversation.payment
-
-      if conversation.listing.offerer?(@current_user)
-        conversation_statuses.push({
-          type: :status_info,
-          content: {
-            info_text_part: t("conversations.status.waiting_payment_from_requester", :requester_name => link_to(conversation.requester.given_name_or_username, conversation.requester)).html_safe,
-            info_icon_part_classes: 'ss-clock'
-          }
-        })
-      else
-        conversation_statuses.push({
-          type: :status_links,
-          content: [
-            {
-              link_href: @current_community.payment_gateway.new_payment_path(@current_user, conversation, params[:locale]),
-              link_classes: 'accept',
-              link_icon_with_text_classes: 'ss-coins',
-              link_text_with_icon: t("conversations.status.pay")
-            },
-            {
-              link_href: cancel_person_message_path(@current_user, :id => conversation.id.to_s),
-              link_classes: 'cancel',
-              link_icon_with_text_classes: icon_for("canceled"),
-              link_text_with_icon: t("conversations.status.cancel_payed_transaction")
-            }
-          ]
-        })
-      end
-
+    if conversation.listing.offerer?(@current_user)
+      waiting_for_buyer_to_pay(conversation)
     else
-      if @current_community.testimonials_in_use
-        if conversation.listing.offerer?(@current_user)
-          conversation_statuses.push({
-            type: :status_info,
-            content: {
-              info_text_part: t("conversations.status.waiting_confirmation_from_requester", :requester_name => link_to(conversation.other_party(@current_user).given_name_or_username, conversation.other_party(@current_user))).html_safe,
-              info_icon_part_classes: 'ss-clock'
-            }
-          })
-        else
-          conversation_statuses.push({
-            type: :status_links,
-            content: get_status_link(["confirm", "cancel"], conversation)
-          })
-        end
-      end
+      waiting_for_current_user_to_pay(conversation)
     end
-    conversation_statuses
   end
 
-  def paid_status(conversation)
-    conversation_statuses = []
-    conversation_statuses.push({
-      type: :status_info,
-      content: {
-        info_text_part: t("conversations.status.#{conversation.status}"),
-        info_icon_part_classes: icon_for(conversation.status)
-      }
-    })
-    conversation_statuses.push({
-      type: :status_info,
-      content: {
-        info_text_part: t("conversations.status.deliver_listing", :listing_title => link_to(conversation.listing.title, conversation.listing)).html_safe,
-        info_icon_part_classes: "ss-deliveryvan"
-      }
-    })
-    if @current_community.testimonials_in_use
-      if conversation.listing.offerer?(@current_user)
-        conversation_statuses.push({
-          type: :status_info,
-          content: {
-            info_text_part: t("conversations.status.waiting_confirmation_from_requester", :requester_name => link_to(conversation.other_party(@current_user).given_name_or_username, conversation.other_party(@current_user))).html_safe,
-            info_icon_part_classes: 'ss-clock'
-          }
-        })
-      else
-        conversation_statuses.push({
-          type: :status_links,
-          content: get_status_link(["confirm", "cancel"], conversation)
-        })
-      end
+  def paid_status(conversation, show_testimonial_status)
+    return nil if show_testimonial_status
+
+    if conversation.listing.offerer?(@current_user)
+      waiting_for_buyer_to_confirm(conversation)
+    else
+      waiting_for_current_user_to_confirm(conversation)
     end
-    conversation_statuses
   end
 
   def preauthorized_status(conversation)
-    conversation_statuses = []
-    conversation_statuses.push({
-      type: :status_info,
-      content: {
-        info_text_part: t("conversations.status.#{conversation.status}"),
-        info_icon_part_classes: icon_for(conversation.status)
-      }
-    })
-
     if current_user?(conversation.listing.author)
-      conversation_statuses.push({
-        type: :status_links,
-        content: get_status_link(["accept_preauthorized", "reject_preauthorized"], conversation)
-      })
+      waiting_for_current_user_to_accept(conversation)
     else
-      conversation_statuses.push({
-        type: :status_info,
-        content: {
-          info_text_part: t("conversations.status.waiting_for_listing_author_to_accept_#{conversation.discussion_type}", :listing_author_name => link_to(conversation.other_party(@current_user).given_name_or_username, conversation.other_party(@current_user))).html_safe,
-          info_icon_part_classes: 'ss-clock'
-        }
-      })
+      waiting_for_author_to_accept(conversation)
     end
-    conversation_statuses
   end
 
-  def default_status(conversation)
-    conversation_statuses = []
-    conversation_statuses.push({
+  def feedback_status(conversation, show_feedback_status)
+    return nil unless show_feedback_status
+
+    if conversation.has_feedback_from?(@current_user)
+      feedback_given_status
+    elsif conversation.feedback_skipped_by?(@current_user)
+      feedback_skipped_status
+    else
+      feedback_pending_status
+    end
+  end
+
+  ## STATUKSEN TEKEMINEN
+
+  def waiting_for_author_acceptance(conversation)
+    other_party = conversation.other_party(@current_user)
+    other_party_link = link_to(other_party.given_name_or_username, other_party)
+
+    link = t(
+      "conversations.status.waiting_for_listing_author_to_accept_#{conversation.discussion_type}",
+      :listing_author_name => other_party_link
+    ).html_safe
+
+    status_info(link, icon_classes: 'ss-clock')
+  end
+
+  def waiting_for_current_user_to_accept(conversation)
+    {
+      type: :status_links,
+      content: get_status_link(["accept", "reject"], conversation)
+    }
+  end
+
+  def waiting_for_current_user_to_pay
+    {
+      type: :status_links,
+      content: [
+        {
+          link_href: @current_community.payment_gateway.new_payment_path(@current_user, conversation, params[:locale]),
+          link_classes: 'accept',
+          link_icon_with_text_classes: 'ss-coins',
+          link_text_with_icon: t("conversations.status.pay")
+        },
+        {
+          link_href: cancel_person_message_path(@current_user, :id => conversation.id.to_s),
+          link_classes: 'cancel',
+          link_icon_with_text_classes: icon_for("canceled"),
+          link_text_with_icon: t("conversations.status.cancel_payed_transaction")
+        }
+      ]
+    }
+  end
+
+  def waiting_for_buyer_to_pay
+    link = t("conversations.status.waiting_payment_from_requester", :requester_name => link_to(conversation.requester.given_name_or_username, conversation.requester)).html_safe
+    status_info(link, icon_classes: 'ss-clock')
+  end
+
+  def waiting_for_buyer_to_confirm(conversation)
+    link = t("conversations.status.waiting_confirmation_from_requester",
+      :requester_name => link_to(
+        conversation.other_party(@current_user).given_name_or_username,
+        conversation.other_party(@current_user)
+      )
+    ).html_safe
+
+    status_info(link, icon_classes: 'ss-clock')
+  end
+
+  def waiting_for_current_user_to_confirm(conversation)
+    {
+      type: :status_links,
+      content: get_status_link(["confirm", "cancel"], conversation)
+    }
+  end
+
+    def waiting_for_current_user_to_accept(conversation)
+    {
+      type: :status_links,
+      content: get_status_link(["accept_preauthorized", "reject_preauthorized"], conversation)
+    }
+  end
+
+  def waiting_for_author_to_accept(conversation)
+    text = t("conversations.status.waiting_for_listing_author_to_accept_#{conversation.discussion_type}",
+      :listing_author_name => link_to(
+        conversation.other_party(@current_user).given_name_or_username,
+        conversation.other_party(@current_user)
+      )
+    ).html_safe
+
+    status_info(text, icon_classes: 'ss-clock')
+  end
+
+  def feedback_given_status
+    status_info(t("conversations.status.feedback_given"), icon_tag: icon_tag("testimonial", ["icon-part"]))
+  end
+
+  def feedback_skipped_status
+    status_info(t("conversations.status.feedback_skipped"), icon_classes: "ss-skipforward")
+  end
+
+  def feedback_pending_status
+    {
+      type: :status_links,
+      content: [
+        {
+          link_href: new_person_message_feedback_path(@current_user, :message_id => conversation.id.to_s),
+          link_classes: '',
+          link_icon_with_tag: icon_tag("testimonial", ["icon-with-text"]),
+          link_text_with_icon: t("conversations.status.give_feedback")
+        },
+        {
+          link_href: skip_person_message_feedbacks_path(@current_user, :message_id => conversation.id.to_s),
+          link_classes: 'cancel',
+          link_data: { :method => "put", :remote => "true"},
+          link_icon_with_text_classes: "ss-skipforward",
+          link_text_with_icon: t("conversations.status.skip_feedback")
+        }
+      ]
+    }
+  end
+
+  ## LOW LEVEL STATUS FACTORYT
+
+  def status_info(text, icon_tag: nil, icon_classes: nil)
+    hash = {
       type: :status_info,
       content: {
-        info_text_part: t("conversations.status.#{conversation.discussion_type}_#{conversation.status}"),
-        info_icon_part_classes: icon_for(conversation.status)
+        info_text_part: text
       }
-    })
-    if (["confirmed", "canceled"].include? conversation.status) && @current_community.testimonials_in_use
-      if conversation.has_feedback_from?(@current_user)
-        conversation_statuses.push({
-          type: :status_info,
-          content: {
-            info_text_part: t("conversations.status.feedback_given"),
-            info_icon_tag: icon_tag("testimonial", ["icon-part"])
-          }
-        })
-      elsif conversation.feedback_skipped_by?(@current_user)
-        conversation_statuses.push({
-          type: :status_info,
-          content: {
-            info_text_part: t("conversations.status.feedback_skipped"),
-            info_icon_part_classes: "ss-skipforward"
-          }
-        })
-      else
-        conversation_statuses.push({
-          type: :status_links,
-          content: [
-            {
-              link_href: new_person_message_feedback_path(@current_user, :message_id => conversation.id.to_s),
-              link_classes: '',
-              link_icon_with_tag: icon_tag("testimonial", ["icon-with-text"]),
-              link_text_with_icon: t("conversations.status.give_feedback")
-            },
-            {
-              link_href: skip_person_message_feedbacks_path(@current_user, :message_id => conversation.id.to_s),
-              link_classes: 'cancel',
-              link_data: { :method => "put", :remote => "true"},
-              link_icon_with_text_classes: "ss-skipforward",
-              link_text_with_icon: t("conversations.status.skip_feedback")
-            }
-          ]
-        })
-      end
+    }
+
+    if icon_tag
+      hash.deep_merge(content: {info_icon_tag: icon_tag})
+    elsif icon_classes
+      hash.deep_merge(content: {info_icon_part_classes: icon_classes})
+    else
+      hash
     end
-    conversation_statuses
   end
 
   def get_status_link(status_link_names, conversation)
-    status_links = status_link_names.map do |status_link_name|
+    status_link_names.map do |status_link_name|
       {
         link_href: path_for_status_link("#{status_link_name}", conversation, @current_user),
         link_classes: "#{status_link_name}",
