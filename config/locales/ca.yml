@@ -1642,6 +1642,58 @@ ca:
       default_textual_feedback: ~
     testimonial:
       about_listing: ~
+  datepicker:
+    days:
+      sunday: "Diumenge"
+      monday: "Dilluns"
+      tuesday: "Dimarts"
+      wednesday: "Dimecres"
+      thursday: "Dijous"
+      friday: "Divendres"
+      saturday: "Dissabte"
+    days_short:
+      sunday: "Diu"
+      monday: "Dil"
+      tuesday: "Dmt"
+      wednesday: "Dmc"
+      thursday: "Dij"
+      friday: "Div"
+      saturday: "Dis"
+    days_min:
+      sunday: "dg"
+      monday: "dl"
+      tuesday: "dt"
+      wednesday: "dc"
+      thursday: "dj"
+      friday: "dv"
+      saturday: "ds"
+    months:
+      january: "Gener"
+      february: "Febrer"
+      march: "Març"
+      april: "Abril"
+      may: "Maig"
+      june: "Juny"
+      july: "Juliol"
+      august: "Agost"
+      september: "Setembre"
+      october: "Octubre"
+      november: "Novembre"
+      december: "Desembre"
+    months_short:
+      january: "Gen"
+      february: "Feb"
+      march: "Mar"
+      april: "Abr"
+      may: "Mai"
+      june: "Jun"
+      july: "Jul"
+      august: "Ago"
+      september: "Set"
+      october: "Oct"
+      november: "Nov"
+      december: "Des"
+    today: "Avui"
   time:
     formats:
       short: "%e %b %Y al %H:%M"

@@ -1658,6 +1658,65 @@ en:
       default_textual_feedback: "Everything went smoothly, thanks a lot!"
     testimonial:
       about_listing: "about listing"
+  date:
+    formats:
+      long_with_abbr_day_name: "%a, %b %d, %Y"
+    export_date_formats:
+      ruby_style_date: "%m/%d/%Y"
+      js_style_date: "mm/dd/yyyy"
+  datepicker:
+    days:
+      sunday: "Sunday"
+      monday: "Monday"
+      tuesday: "Tuesday"
+      wednesday: "Wednesday"
+      thursday: "Thursday"
+      friday: "Friday"
+      saturday: "Saturday"
+    days_short:
+      sunday: "Sun"
+      monday: "Mon"
+      tuesday: "Tue"
+      wednesday: "Wed"
+      thursday: "Thu"
+      friday: "Fri"
+      saturday: "Sat"
+    days_min:
+      sunday: "Su"
+      monday: "Mo"
+      tuesday: "Tu"
+      wednesday: "We"
+      thursday: "Th"
+      friday: "Fr"
+      saturday: "Sa"
+    months:
+      january: "January"
+      february: "February"
+      march: "March"
+      april: "April"
+      may: "May"
+      june: "June"
+      july: "July"
+      august: "August"
+      september: "September"
+      october: "October"
+      november: "November"
+      december: "December"
+    months_short:
+      january: "Jan"
+      february: "Feb"
+      march: "Mar"
+      april: "Apr"
+      may: "May"
+      june: "Jun"
+      july: "Jul"
+      august: "Aug"
+      september: "Sep"
+      october: "Oct"
+      november: "Nov"
+      december: "Dec"
+    today: "Today"
+    clear: "Clear"
   time:
     formats:
       short: "%e %b %Y at %H:%M"

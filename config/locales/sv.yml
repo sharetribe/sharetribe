@@ -1640,6 +1640,60 @@ sv:
       default_textual_feedback: ~
     testimonial:
       about_listing: ~
+  datepicker:
+    days:
+      sunday: "Söndag"
+      monday: "Måndag"
+      tuesday: "Tisdag"
+      wednesday: "Onsdag"
+      thursday: "Torsdag"
+      friday: "Fredag"
+      saturday: "Lördag"
+    days_short:
+      sunday: "Sön"
+      monday: "Mån"
+      tuesday: "Tis"
+      wednesday: "Ons"
+      thursday: "Tor"
+      friday: "Fre"
+      saturday: "Lör"
+    days_min:
+      sunday: "Sö"
+      monday: "Må"
+      tuesday: "Ti"
+      wednesday: "On"
+      thursday: "To"
+      friday: "Fr"
+      saturday: "Lö"
+    months:
+      january: "Januari"
+      february: "Februari"
+      march: "Mars"
+      april: "April"
+      may: "Maj"
+      june: "Juni"
+      july: "Juli"
+      august: "Augusti"
+      september: "September"
+      october: "Oktober"
+      november: "November"
+      december: "December"
+    months_short:
+      january: "Jan"
+      february: "Feb"
+      march: "Mar"
+      april: "Apr"
+      may: "Maj"
+      june: "Jun"
+      july: "Jul"
+      august: "Aug"
+      september: "Sep"
+      october: "Okt"
+      november: "Nov"
+      december: "Dec"
+    today: "Idag"
+    format: "yyyy-mm-dd"
+    weekStart: 1
   time:
     formats:
       short: ~

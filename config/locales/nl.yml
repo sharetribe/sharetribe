@@ -1641,6 +1641,58 @@ nl:
       default_textual_feedback: ~
     testimonial:
       about_listing: ~
+  datepicker:
+    days:
+      sunday: "Zondag"
+      monday: "Maandag"
+      tuesday: "Dinsdag"
+      wednesday: "Woensdag"
+      thursday: "Donderdag"
+      friday: "Vrijdag"
+      saturday: "Zaterdag"
+    days_short:
+      sunday: "Zo"
+      monday: "Ma"
+      tuesday: "Di"
+      wednesday: "Wo"
+      thursday: "Do"
+      friday: "Vr"
+      saturday: "Za"
+    days_min:
+      sunday: "Zo"
+      monday: "Ma"
+      tuesday: "Di"
+      wednesday: "Wo"
+      thursday: "Do"
+      friday: "Vr"
+      saturday: "Za"
+    months:
+      january: "Januari"
+      february: "Februari"
+      march: "Maart"
+      april: "April"
+      may: "Mei"
+      june: "Juni"
+      july: "Juli"
+      august: "Augustus"
+      september: "September"
+      october: "Oktober"
+      november: "November"
+      december: "December"
+    months_short:
+      january: "Jan"
+      february: "Feb"
+      march: "Mrt"
+      april: "Apr"
+      may: "Mei"
+      june: "Jun"
+      july: "Jul"
+      august: "Aug"
+      september: "Sep"
+      october: "Okt"
+      november: "Nov"
+      december: "Dec"
+    today: "Vandaag"
   time:
     formats:
       short: "%e %b %Y at %H:%M"

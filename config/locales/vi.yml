@@ -1641,6 +1641,60 @@ vi:
       default_textual_feedback: ~
     testimonial:
       about_listing: ~
+  datepicker:
+    days:
+      sunday: "Chủ nhật"
+      monday: "Thứ hai"
+      tuesday: "Thứ ba"
+      wednesday: "Thứ tư"
+      thursday: "Thứ năm"
+      friday: "Thứ sáu"
+      saturday: "Thứ bảy"
+    days_short:
+      sunday: "CN"
+      monday: "Thứ 2"
+      tuesday: "Thứ 3"
+      wednesday: "Thứ 4"
+      thursday: "Thứ 5"
+      friday: "Thứ 6"
+      saturday: "Thứ 7"
+    days_min:
+      sunday: "CN"
+      monday: "T2"
+      tuesday: "T3"
+      wednesday: "T4"
+      thursday: "T5"
+      friday: "T6"
+      saturday: "T7"
+    months:
+      january: "Tháng 1"
+      february: "Tháng 2"
+      march: "Tháng 3"
+      april: "Tháng 4"
+      may: "Tháng 5"
+      june: "Tháng 6"
+      july: "Tháng 7"
+      august: "Tháng 8"
+      september: "Tháng 9"
+      october: "Tháng 10"
+      november: "Tháng 11"
+      december: "Tháng 12"
+    months_short:
+      january: "Th1"
+      february: "Th2"
+      march: "Th3"
+      april: "Th4"
+      may: "Th5"
+      june: "Th6"
+      july: "Th7"
+      august: "Th8"
+      september: "Th9"
+      october: "Th10"
+      november: "Th11"
+      december: "Th12"
+    today: "Hôm nay"
+    clear: "Xóa"
+    format: "dd/mm/yyyy"
   time:
     formats:
       short: "%e %b %Y lúc % H: % M"

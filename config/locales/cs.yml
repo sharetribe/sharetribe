@@ -1640,6 +1640,58 @@ cs:
       default_textual_feedback: ~
     testimonial:
       about_listing: ~
+  datepicker:
+    days:
+      sunday: "Neděle"
+      monday: "Pondělí"
+      tuesday: "Úterý"
+      wednesday: "Středa"
+      thursday: "Čtvrtek"
+      friday: "Pátek"
+      saturday: "Sobota"
+    days_short:
+      sunday: "Ned"
+      monday: "Pon"
+      tuesday: "Úte"
+      wednesday: "Stř"
+      thursday: "Čtv"
+      friday: "Pát"
+      saturday: "Sob"
+    days_min:
+      sunday: "Ne"
+      monday: "Po"
+      tuesday: "Út"
+      wednesday: "St"
+      thursday: "Čt"
+      friday: "Pá"
+      saturday: "So"
+    months:
+      january: "Leden"
+      february: "Únor"
+      march: "Březen"
+      april: "Duben"
+      may: "Květen"
+      june: "Červen"
+      july: "Červenec"
+      august: "Srpen"
+      september: "Září"
+      october: "Říjen"
+      november: "Listopad"
+      december: "Prosinec"
+    months_short:
+      january: "Led"
+      february: "Úno"
+      march: "Bře"
+      april: "Dub"
+      may: "Kvě"
+      june: "Čer"
+      july: "Čnc"
+      august: "Srp"
+      september: "Zář"
+      october: "Říj"
+      november: "Lis"
+      december: "Pro"
+    today: "Dnes"
   time:
     formats:
       short: ~
