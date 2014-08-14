@@ -31,7 +31,7 @@ class ListingConversationsController < ApplicationController
     end
 
     if booking.present? && !booking.valid?
-      flash[:error] = "Booking time invalid: Start time must be in the future, end time can not be before start time"
+      flash[:error] = booking.errors.full_messages
       redirect_to @listing and return
     end
 
