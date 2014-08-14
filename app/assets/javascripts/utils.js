@@ -168,7 +168,7 @@ ST.utils = (function(_) {
   }
 
   function toISODate(date) {
-    return [date.getFullYear(), pad(date.getMonth() + 1), pad(date.getDate())].join("-")
+    return [date.getFullYear(), pad(date.getMonth() + 1), pad(date.getDate())].join("-");
   }
 
   return {
