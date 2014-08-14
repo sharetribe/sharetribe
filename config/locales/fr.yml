@@ -182,8 +182,8 @@ fr:
           listing: Annonce
           status: Statut
           sum: Total
-          started: "Commencée le"
-          last_activity: "Dernière activité le"
+          started: Début
+          last_activity: "Dernière activité"
           initiated_by: Initiateur
           other_party: "Autre participant"
         status:
@@ -716,7 +716,7 @@ fr:
     transaction_preauthorized_reminder:
       subject: "N'oubliez pas d'accepter la demande de %{requester} à propos de l'annonce %{listing_title}"
       remember_to_accept: "N'oubliez pas d'accepter la demande de %{requester} à propos de l'annonce \"%{listing_title}\". %{requester} a déjà payé pour cette annonce. Vous devez accepter la demande pour recevoir le paiement."
-      one_day_left: "Si vous n'acceptez pas la demande sous une journée l'annonce sera automatiquement refusée et vous ne recevrez pas le paiement."
+      one_day_left: "Si vous n'acceptez pas la demande sous une journée la demande sera automatiquement refusée et vous ne recevrez pas le paiement."
       click_here_to_reply: "Cliquez ici pour répondre à la demande"
     welcome_email:
       welcome_email_subject: "Bienvenue sur %{community}"

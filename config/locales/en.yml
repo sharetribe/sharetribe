@@ -179,22 +179,22 @@ en:
         transactions: "View transactions"
         headers:
           conversation: "Conversation thread"
-          listing: "Listing"
-          status: "Status"
-          sum: "Sum"
-          started: "Started"
+          listing: Listing
+          status: Status
+          sum: Sum
+          started: Started
           last_activity: "Latest activity"
-          initiated_by: "Starter"
+          initiated_by: Starter
           other_party: "Other party"
         status:
           free: "Free conversation"
-          pending: "Pending"
-          preauthorized: "Preauthorized"
-          accepted: "Accepted"
-          rejected: "Rejected"
-          paid: "Paid"
-          confirmed: "Confirmed"
-          canceled: "Canceled"
+          pending: Pending
+          preauthorized: Preauthorized
+          accepted: Accepted
+          rejected: Rejected
+          paid: Paid
+          confirmed: Confirmed
+          canceled: Canceled
       braintree_payment_gateway:
         braintree_payment_gateway: "Braintree Payment API keys"
         environment: Environment
