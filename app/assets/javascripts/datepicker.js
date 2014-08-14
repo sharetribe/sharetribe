@@ -25,7 +25,7 @@ window.ST = window.ST || {};
     var outputElements = {
       "booking-start-output": $("#booking-start-output"),
       "booking-end-output": $("#booking-end-output")
-    }
+    };
 
     picker.on('changeDate', function(e) {
       var newDate = e.dates[0];
