@@ -292,7 +292,7 @@ class Community < ActiveRecord::Base
     # assume that if  port is used in domain config, it should
     # be added to the end of the full domain for links to work
     # This concerns usually mostly testing and development
-    port_string = options[:port] || APP_CONFIG.domain[/\:\d+$/]
+    port_string = options[:port] || APP_CONFIG.domain[/\:\d+$/][1..-1]
 
     if self.domain =~ /\./ # custom domain
       dom = "#{self.domain}#{port_string}"
