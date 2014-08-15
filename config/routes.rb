@@ -41,7 +41,7 @@ Kassi::Application.routes.draw do
   match '(/:locale)' => 'dashboard#index', :constraints => { :locale => locale_matcher }
   root :to => 'dashboard#index'
 
-
+  match '/500' => 'errors#server_error'
 
   # Adds locale to every url right after the root path
   scope "(/:locale)", :constraints => { :locale => locale_matcher } do

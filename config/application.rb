@@ -147,5 +147,6 @@ module Kassi
       Devise::Mailer.helper :email_template
     end
 
+    config.exceptions_app = self.routes
   end
 end
