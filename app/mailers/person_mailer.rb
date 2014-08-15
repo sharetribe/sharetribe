@@ -147,6 +147,17 @@ class PersonMailer < ActionMailer::Base
     @email_type = "email_about_payment_reminders"
     set_up_urls(conversation.payment.payer, community, @email_type)
     @conversation = conversation
+
+    # UGLY FIX, WHAT WOULD BE BETTER?
+    binding.pry
+    @pay_url = if conversation.payment.is_a? BraintreePayment
+      binding.pry
+      edit_person_message_braintree_payment_url(@url_params.merge({:id => @conversation.payment.id, :person_id => recipient.id.to_s, :message_id => @conversation.id}))
+    else
+      new_person_message_payment_url(@recipient, @url_params.merge({:message_id => @conversation.id}))
+    end
+    # UGLY FIX, WHAT WOULD BE BETTER?
+
     premailer_mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.payment_reminder.remember_to_pay", :listing_title => @conversation.listing.title))
