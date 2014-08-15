@@ -76,11 +76,11 @@
             #home-toolbar-categories-menu.toggle-menu
               = link_to t("homepage.filters.all_categories"), params.merge({category: "all"})
               - @main_categories.each do |category|
-                = link_to category.display_name(I18n.locale).mb_chars.capitalize.to_s, params.merge({category: category.id})
+                = link_to category.display_name(I18n.locale).mb_chars.capitalize.to_s, params.merge({category: category})
                 - if category.children
                   - category.children.each do |child|
                     - is_selected = @selected_category == child
-                    = link_to child.display_name(I18n.locale).mb_chars.capitalize.to_s, params.merge({category: child.id}), :class => "toggle-menu-subitem"
+                    = link_to child.display_name(I18n.locale).mb_chars.capitalize.to_s, params.merge({category: child}), :class => "toggle-menu-subitem"
 
         / Filters
         .hidden-tablet
