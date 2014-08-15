@@ -18,6 +18,8 @@ class Category < ActiveRecord::Base
 
   before_destroy :can_destroy?
 
+  acts_as_url :url_source, scope: :community_id, sync_url: true, blacklist: %w{new all}
+
   def translation_attributes=(attributes)
     build_attrs = attributes.map { |locale, values| { locale: locale, values: values } }
     build_attrs.each do |translation|
@@ -27,6 +29,14 @@ class Category < ActiveRecord::Base
         translations.build(translation[:values].merge({:locale => translation[:locale]}))
       end
     end
+  end
+
+  def url_source
+    Maybe(default_translation_without_cache).name.or_else("category")
+  end
+
+  def default_translation_without_cache
+    (translations.find { |translation| translation.locale == community.default_locale } || translations.first)
   end
 
   def transaction_type_attributes=(attributes)

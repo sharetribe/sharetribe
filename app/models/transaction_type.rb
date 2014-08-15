@@ -10,6 +10,16 @@ class TransactionType < ActiveRecord::Base
 
   validates_presence_of :community
 
+  acts_as_url :url_source, scope: :community_id, sync_url: true, blacklist: %w{new all}
+
+  def url_source
+    Maybe(default_translation_without_cache).name.or_else(type)
+  end
+
+  def default_translation_without_cache
+    (translations.find { |translation| translation.locale == community.default_locale } || translations.first)
+  end
+
   def display_name(locale)
     TranslationCache.new(self, :translations).translate(locale, :name)
   end
