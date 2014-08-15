@@ -31,24 +31,6 @@ CREATE TABLE `braintree_accounts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `cached_ressi_events` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` varchar(255) DEFAULT NULL,
-  `application_id` varchar(255) DEFAULT NULL,
-  `session_id` varchar(255) DEFAULT NULL,
-  `ip_address` varchar(255) DEFAULT NULL,
-  `action` varchar(255) DEFAULT NULL,
-  `parameters` text,
-  `return_value` varchar(255) DEFAULT NULL,
-  `headers` text,
-  `semantic_event_id` varchar(255) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `test_group_number` int(11) DEFAULT NULL,
-  `community_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_id` int(11) DEFAULT NULL,
@@ -1831,8 +1813,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140711094414');
 
 INSERT INTO schema_migrations (version) VALUES ('20140805102757');
 
-INSERT INTO schema_migrations (version) VALUES ('20140812065415');
-
 INSERT INTO schema_migrations (version) VALUES ('20140811133602');
 
 INSERT INTO schema_migrations (version) VALUES ('20140811133603');
@@ -1843,4 +1823,8 @@ INSERT INTO schema_migrations (version) VALUES ('20140811133606');
 
 INSERT INTO schema_migrations (version) VALUES ('20140811144528');
 
+INSERT INTO schema_migrations (version) VALUES ('20140812065415');
+
 INSERT INTO schema_migrations (version) VALUES ('20140815055023');
+
+INSERT INTO schema_migrations (version) VALUES ('20140815085018');
