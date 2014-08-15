@@ -63,12 +63,22 @@ module TransactionTypeCreator
     throw "Transaction type #{transaction_type_class_name} not available. Available types are: #{available_types.join(', ')}" unless available_types.include? transaction_type_class_name
 
     # Create
-    transaction_type = create_transaction_type(community, transaction_type_class_name)
+    transaction_type = community.transaction_types.build({
+      type: transaction_type_class_name
+    })
 
     # Locales
     community.locales.each do |locale|
-      create_transaction_type_translation(transaction_type, transaction_type_class_name, locale)
+      transaction_type_description = TRANSACTION_TYPES[transaction_type_class_name]
+
+      transaction_type.translations.build({
+        locale: locale,
+        name: I18n.t(transaction_type_description[:translation_key], :locale => locale.to_sym),
+        action_button_label: I18n.t(transaction_type_description[:action_button_translation_key], :locale => locale.to_sym)
+      })
     end
+
+    transaction_type.save!
 
     # Categories
     community.categories.each do |category|
@@ -80,28 +90,6 @@ module TransactionTypeCreator
 
   def available_types
     TransactionTypeCreator::TRANSACTION_TYPES.map { |type, settings| type }
-  end
-
-  def create_transaction_type(community, transaction_type_class_name)
-    transaction_type_class = transaction_type_class_name.constantize
-
-    transaction_type = transaction_type_class.new
-    transaction_type.community = community
-    transaction_type.save!
-    community.transaction_types << transaction_type
-
-    transaction_type
-  end
-
-  def create_transaction_type_translation(transaction_type, transaction_type_class_name, language)
-    transaction_type_description = TRANSACTION_TYPES[transaction_type_class_name]
-
-    TransactionTypeTranslation.create({
-      transaction_type_id: transaction_type.id,
-      locale: language,
-      name: I18n.t(transaction_type_description[:translation_key], :locale => language.to_sym),
-      action_button_label: I18n.t(transaction_type_description[:action_button_translation_key], :locale => language.to_sym)
-    });
   end
 
   def use_in_category(category, transaction_type)

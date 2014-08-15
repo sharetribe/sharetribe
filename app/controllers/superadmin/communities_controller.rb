@@ -45,12 +45,13 @@ class Superadmin::CommunitiesController < ApplicationController
   end
 
   def create_category!(p, language, community)
-    category = community.categories.create;
+    category = community.categories.build
 
-    category_translations = CategoryTranslation.create(:category_id => category.id,
+    category.translations.build({
       :locale => language,
-      :name => p[:category].or_else("Default"));
+      :name => p[:category].or_else("Default")
+    })
 
-    category
+    category.save!
   end
 end

@@ -59,7 +59,7 @@
             .home-toolbar-share-type-menu.toggle-menu.hidden
               = link_to t("homepage.filters.all_listing_types"), params.merge({transaction_type: "all"})
               - @transaction_types.each do |transaction_type|
-                = link_to params.merge({transaction_type: transaction_type.id}), :class => "toggle-menu-subitem" do
+                = link_to params.merge({transaction_type: transaction_type}), :class => "toggle-menu-subitem" do
                   = transaction_type.display_name(I18n.locale).mb_chars.capitalize.to_s
 
         - if @show_categories
@@ -76,11 +76,11 @@
             #home-toolbar-categories-menu.toggle-menu
               = link_to t("homepage.filters.all_categories"), params.merge({category: "all"})
               - @main_categories.each do |category|
-                = link_to category.display_name(I18n.locale).mb_chars.capitalize.to_s, params.merge({category: category.id})
+                = link_to category.display_name(I18n.locale).mb_chars.capitalize.to_s, params.merge({category: category})
                 - if category.children
                   - category.children.each do |child|
                     - is_selected = @selected_category == child
-                    = link_to child.display_name(I18n.locale).mb_chars.capitalize.to_s, params.merge({category: child.id}), :class => "toggle-menu-subitem"
+                    = link_to child.display_name(I18n.locale).mb_chars.capitalize.to_s, params.merge({category: child}), :class => "toggle-menu-subitem"
 
         / Filters
         .hidden-tablet
@@ -96,13 +96,13 @@
             .col-12
               = link_to t("homepage.filters.all_categories"), params.merge({category: "all"}), :class => "home-categories-main #{if @selected_category.nil? then 'selected' end}"
               - @main_categories.each do |category|
-                - show_subcategories = show_subcategory_list(category, params[:category].to_i)
-                = link_to category.display_name(I18n.locale), params.merge({category: category.id}), :class => "home-categories-main #{if show_subcategories then 'selected' end} #{if category.has_subcategories? then 'has-subcategories' end}", :data => {category: category.id}
+                - show_subcategories = show_subcategory_list(category, Maybe(@selected_category).id.to_i.or_else(nil))
+                = link_to category.display_name(I18n.locale), params.merge({category: category}), :class => "home-categories-main #{if show_subcategories then 'selected' end} #{if category.has_subcategories? then 'has-subcategories' end}", :data => {category: category.id}
                 - if category.children
                   - if show_subcategories
                     - category.children.each do |child|
                       - is_selected = @selected_category == child
-                      = link_to child.display_name(I18n.locale).mb_chars.capitalize.to_s, params.merge({category: child.id}), :class => "home-categories-sub #{if is_selected then 'selected' end}", :data => {:"sub-category" =>child.id}
+                      = link_to child.display_name(I18n.locale).mb_chars.capitalize.to_s, params.merge({category: child}), :class => "home-categories-sub #{if is_selected then 'selected' end}", :data => {:"sub-category" =>child.id}
 
         #desktop-filters
           - # Filters will be relocated here when in desktop

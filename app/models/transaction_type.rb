@@ -12,6 +12,10 @@ class TransactionType < ActiveRecord::Base
 
   acts_as_url :url_source, scope: :community_id, sync_url: true, blacklist: %w{new all}
 
+  def to_param
+    url
+  end
+
   def url_source
     Maybe(default_translation_without_cache).name.or_else(type)
   end
@@ -30,5 +34,9 @@ class TransactionType < ActiveRecord::Base
 
   def status_after_reply
     "free"
+  end
+
+  def self.find_by_url_or_id(url_or_id)
+    self.find_by_url(url_or_id) || self.find_by_id(url_or_id)
   end
 end
