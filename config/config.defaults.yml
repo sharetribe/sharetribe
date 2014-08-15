@@ -78,14 +78,6 @@ default: &default_settings
   use_airbrake: false
   airbrake_api_key: 'your_own_api_key_here'
 
-  # Ressi is Researcher's Interface for logged data
-  # If you don't need it just leave it to false
-  # If log_to_ressi is false, other ressi settings can be ignored.
-  log_to_ressi: false
-  ressi_url: "http://cos.alpha.sizl.org/ressi"
-  ressi_timeout: 5
-  ressi_upload_hour: 1
-
   # Mail delivery method for mails sent by Sharetribe
   # possible values for delivery method are: sendmail, smtp or postmark
   # The default is sendmail, it uses the system sendmail command and
