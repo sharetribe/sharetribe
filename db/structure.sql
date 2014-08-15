@@ -272,7 +272,8 @@ CREATE TABLE `conversations` (
   `last_message_at` datetime DEFAULT NULL,
   `automatic_confirmation_after_days` int(11) DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `index_conversations_on_listing_id` (`listing_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `country_managers` (
@@ -1841,3 +1842,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140811133605');
 INSERT INTO schema_migrations (version) VALUES ('20140811133606');
 
 INSERT INTO schema_migrations (version) VALUES ('20140811144528');
+
+INSERT INTO schema_migrations (version) VALUES ('20140815055023');
