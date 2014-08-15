@@ -263,7 +263,7 @@ GEM
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.6.2)
-    newrelic_rpm (3.6.2.96)
+    newrelic_rpm (3.9.1.236)
     nokogiri (1.5.11)
     oauth2 (0.9.3)
       faraday (>= 0.8, < 0.10)
@@ -520,7 +520,7 @@ DEPENDENCIES
   money-rails
   multi_json (~> 1.7.3)
   mysql2
-  newrelic_rpm (~> 3.6.2.96)
+  newrelic_rpm (~> 3.9.1.236)
   omniauth-facebook
   paperclip
   parallel_tests
