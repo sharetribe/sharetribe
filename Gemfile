@@ -82,7 +82,7 @@ gem 'rdf-turtle'
 
 group :staging, :production do
   gem "airbrake", "~>3.1.12"
-  gem 'newrelic_rpm', "~>3.6.2.96"
+  gem 'newrelic_rpm', '~> 3.9.1.236'
 end
 
 group :development, :test do
