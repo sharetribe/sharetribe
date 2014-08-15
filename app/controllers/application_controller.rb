@@ -28,9 +28,6 @@ class ApplicationController < ActionController::Base
   before_filter :can_access_only_organizations_communities
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
 
-  # after filter would be more logical, but then log would be skipped when action cache is hit.
-  before_filter :log_to_ressi if APP_CONFIG.log_to_ressi
-
   # This updates translation files from WTI on every page load. Only useful in translation test servers.
   before_filter :fetch_translations if APP_CONFIG.update_translations_on_every_page_load == "true"
 
@@ -230,35 +227,6 @@ class ApplicationController < ActionController::Base
     RestHelper.event_id = "#{EventIdHelper.generate_event_id(params)}_#{Time.now.to_f}"
     # The event id is generated here and stored for the duration of this request.
     # The option above stores it to thread which should work fine on mongrel
-  end
-
-  def log_to_ressi
-    TimingService.log(0.01, "log_to_ressi takes too long") {
-      # These are the fields that are currently stored in Ressi, so no need to store others
-      relevant_header_fields = ["HTTP_USER_AGENT","REQUEST_URI", "HTTP_REFERER"]
-
-      CachedRessiEvent.create do |e|
-        e.user_id           = @current_user ? @current_user.id : nil
-        e.application_id    = "acm-TkziGr3z9Tab_ZvnhG"
-        e.session_id        = request.session_options ? request.session_options[:id] : nil
-        e.ip_address        = request.remote_ip
-        e.action            = "#{self.class}\##{action_name}"
-        e.test_group_number = @current_user ? @current_user.test_group_number : nil
-        e.community_id      = @current_community ? @current_community.id : nil
-        begin
-          # All kinds of stuff comes in, uploaded files etc. That's why it's better to wrap this into begin-rescue
-          # if something goes wrong in stringifing params
-          e.parameters    = Util::HashUtils.deep_map(request.filtered_parameters) { |k, v| v.to_s.truncate(255) }.to_json
-        rescue JSON::GeneratorError => error
-          e.parameters      = ["There was error in genarating the JSON from the parameters."].to_json
-        end
-        e.return_value      = @_response.status
-        e.semantic_event_id = RestHelper.event_id
-        e.headers           = request.headers.reject do |key, value|
-          !relevant_header_fields.include?(key)
-        end.to_json
-      end
-    }
   end
 
   def ensure_is_admin
