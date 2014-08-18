@@ -13,6 +13,10 @@ class Conversation < ActiveRecord::Base
     end.count
   end
 
+  def self.for_user(person)
+    joins(:participations).where( { participations: { person_id: person }} )
+  end
+
   # Creates a new message to the conversation
   def message_attributes=(attributes)
     if attributes[:content].present? || attributes[:action].present?
