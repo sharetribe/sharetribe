@@ -628,23 +628,6 @@ class Person < ActiveRecord::Base
     conversation.requires_payment?(community) && conversation.status.eql?("accepted") && id.eql?(conversation.requester.id)
   end
 
-  # Returns conversations that are either marked unread or
-  # that require some action.
-  #
-  # TODO This method is not currently in use due to slowness,
-  # using conversation#unread_count instead to display this.
-  # That method is not capturing all the necessary variables,
-  # so should move to using this method after performance improved.
-  def conversations_requiring_action
-    conversations = []
-    participations.each do |p|
-      if !p.is_read || (p.conversation.listing && p.conversation.listing.author.id.eql?(id) && p.conversation.status.eql?("pending")) || (p.conversation.requester && p.conversation.requester.id.eql?(id) && p.conversation.status.eql?("accepted"))
-        conversations << p.conversation
-      end
-    end
-    return conversations
-  end
-
   def pending_email_confirmation_to_join?(community)
     membership = community_memberships.where(:community_id => community.id).first
     if membership
