@@ -39,6 +39,10 @@ class ConfirmConversation
     confirmation_reminder_job!(automatic_confirmation_at)
   end
 
+  def activate_automatic_booking_confirmation_at!(automatic_confirmation_at)
+    Delayed::Job.enqueue(AutomaticBookingConfirmationJob.new(@conversation.id, @user.id, @community.id), run_at: automatic_confirmation_at, priority: 7)
+  end
+
   private
 
   def automatic_confirmation_job!(automatic_confirmation_at)

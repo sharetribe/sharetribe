@@ -1720,6 +1720,10 @@ de:
       december: Dez
     today: Heute
     clear: Löschen
+    today: "Heute"
+    clear: "Löschen"
+    week_start: 1
+    format: "dd.mm.yyyy"
   time:
     formats:
       short: "%e %b %Y at %H:%M"

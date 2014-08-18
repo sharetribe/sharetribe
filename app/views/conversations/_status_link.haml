@@ -1,11 +1,10 @@
 .inbox-horizontally-aligned-link
-  %a{:href => path_for_status_link(status, conversation, @current_user), :class => "status-link #{status}"}
+  %a{:href => status_link[:link_href], :class => "status-link #{status_link[:link_classes]}", :data => status_link[:link_data]}
     .content
-      .icon-with-text{:class => icon_for("#{status}ed")}
+      - if status_link[:link_icon_tag].present?
+        = status_link[:link_icon_tag]
+      - else
+        .icon-with-text{:class => status_link[:link_icon_with_text_classes]}
       .text-with-icon
-        - if ["accept", "reject"].include?(status)
-          = t(".#{status}_#{conversation.discussion_type}")
-        - elsif ["accept_preauthorized", "reject_preauthorized"].include?(status)
-          = t(".#{status}_#{conversation.discussion_type}")
-        - else
-          = t(".#{status}")
+        = status_link[:link_text_with_icon]
+

@@ -130,6 +130,13 @@ $listing-author-avatar-height: 108;
   @include big-button($link);
   margin-top: 0;
   width: 100%;
+  text-align: center;
+}
+
+// Transaction action button
+.book-button .content {
+  width: 100%;
+  display: block;
 }
 
 .checkbox-option {

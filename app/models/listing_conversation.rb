@@ -2,6 +2,7 @@ class ListingConversation < Conversation
   belongs_to :listing
   has_many :transaction_transitions, dependent: :destroy, foreign_key: :conversation_id
   has_one :payment, foreign_key: :conversation_id
+  has_one :booking, :dependent => :destroy
 
 
   # Delegate methods to state machine
@@ -10,6 +11,8 @@ class ListingConversation < Conversation
 
   delegate :author, to: :listing
   delegate :title, to: :listing, prefix: true
+
+  accepts_nested_attributes_for :booking
 
   def state_machine
     @state_machine ||= TransactionProcess.new(self, transition_class: TransactionTransition)
@@ -128,5 +131,23 @@ class ListingConversation < Conversation
 
   def with_type(&block)
     block.call(:listing_conversation)
+  end
+
+  def calculate_total
+    if booking
+      listing.price * booking.duration
+    else
+      listing.price
+    end
+  end
+
+  def preauthorization_expire_at
+    preauthorization_expires = payment.preauthorization_expiration_days.days.from_now.to_date
+
+    if booking.present?
+      booking.end_on < preauthorization_expires ? booking.end_on : preauthorization_expires
+    else
+      preauthorization_expires
+    end
   end
 end

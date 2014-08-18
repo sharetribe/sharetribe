@@ -163,6 +163,14 @@ ST.utils = (function(_) {
     return s.replace(/[^a-z0-9\-]/gi, '_').toLowerCase();
   }
 
+  function pad(n) {
+    return n < 10 ? "0" + n : n;
+  }
+
+  function toISODate(date) {
+    return [date.getFullYear(), pad(date.getMonth() + 1), pad(date.getDate())].join("-");
+  }
+
   return {
     findNextIndex: findNextIndex,
     findPrevIndex: findPrevIndex,
@@ -176,7 +184,9 @@ ST.utils = (function(_) {
     baconStreamFromAjaxPolling: baconStreamFromAjaxPolling,
     contentTypeByFilename: contentTypeByFilename,
     stringToURLSafe: stringToURLSafe,
-    filenameToURLSafe: filenameToURLSafe
+    filenameToURLSafe: filenameToURLSafe,
+    pad: pad,
+    toISODate: toISODate
   };
 
 })(_);

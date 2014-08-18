@@ -1699,6 +1699,8 @@ sv:
       december: Dec
     today: Idag
     clear: ~
+    format: "yyyy-mm-dd"
+    week_start: 1
   time:
     formats:
       short: ~

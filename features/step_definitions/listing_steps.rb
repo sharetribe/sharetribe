@@ -221,6 +221,11 @@ def select_date_from_date_selector(date, date_selector_base_id)
   select(year, :from => "#{date_selector_base_id}_1i")
 end
 
+def select_date_from_date_picker(date, date_selector_base_id)
+  page.find("##{date_selector_base_id}").click
+  fill_in("#{date_selector_base_id}", :with => "#{date.month}/#{date.day}/#{date.year}")
+end
+
 When(/^I set the expiration date to (\d+) months from now$/) do |months|
   select_date_from_date_selector(months.to_i.months.from_now, "listing_valid_until")
 end
@@ -254,3 +259,13 @@ end
 Then(/^I should warning about missing payment details$/) do
   page.should have_content("You need to fill in payout details before you can post a listing. Go to payment settings to fill in the details.")
 end
+
+When(/^I make a booking request for that listing for (\d+) days$/) do |day_count|
+  visit_current_listing
+  @booking_end_date = Date.today + day_count.to_i.days - 1.day
+  select_date_from_date_picker(Date.today, "start-on")
+  select_date_from_date_picker(@booking_end_date, "end-on")
+
+  click_button('Buy')
+end
+

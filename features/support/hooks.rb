@@ -55,3 +55,7 @@ After do |scenario|
     save_screenshot("tmp/screenshots/#{scenario.name}.png")
   end
 end
+
+After do
+  Timecop.return
+end

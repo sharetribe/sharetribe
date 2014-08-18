@@ -1,0 +1,49 @@
+@import "mixins/all";
+
+.datepicker-start-wrapper {
+  width: 45%;
+  float: left;
+}
+.datepicker-end-wrapper {
+  width: 45%;
+  float: right;
+}
+
+/* Overwrite default styles for datepicker vendor component */
+
+.datepicker table tr td.active:hover,
+.datepicker table tr td.active:hover:hover,
+.datepicker table tr td.active.disabled:hover,
+.datepicker table tr td.active.disabled:hover:hover,
+.datepicker table tr td.active:focus,
+.datepicker table tr td.active:hover:focus,
+.datepicker table tr td.active.disabled:focus,
+.datepicker table tr td.active.disabled:hover:focus,
+.datepicker table tr td.active:active,
+.datepicker table tr td.active:hover:active,
+.datepicker table tr td.active.disabled:active,
+.datepicker table tr td.active.disabled:hover:active,
+.datepicker table tr td.active.active,
+.datepicker table tr td.active:hover.active,
+.datepicker table tr td.active.disabled.active,
+.datepicker table tr td.active.disabled:hover.active,
+.open .dropdown-toggle.datepicker table tr td.active,
+.open .dropdown-toggle.datepicker table tr td.active:hover,
+.open .dropdown-toggle.datepicker table tr td.active.disabled,
+.open .dropdown-toggle.datepicker table tr td.active.disabled:hover {
+  background-color: $link;
+}
+
+.input-daterange {
+  margin-bottom: lines(0.75);
+  input:last-child {
+    border-radius: 0.3125em;
+  }
+  input {
+    text-align: left;
+  }
+}
+
+.datepicker tbody tr:nth-child(odd) {
+  background-color: transparent;
+}

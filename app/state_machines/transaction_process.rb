@@ -44,8 +44,13 @@ class TransactionProcess
     payer = payment.payer
     current_community = conversation.community
 
-    conversation.update_attributes(automatic_confirmation_after_days: current_community.automatic_confirmation_after_days)
-    ConfirmConversation.new(conversation, payer, current_community).activate_automatic_confirmation!
+    if conversation.booking.present?
+      automatic_booking_confirmation_at = conversation.booking.end_on + 1.day
+      ConfirmConversation.new(conversation, payer, current_community).activate_automatic_booking_confirmation_at!(automatic_booking_confirmation_at)
+    else
+      conversation.update_attributes(automatic_confirmation_after_days: current_community.automatic_confirmation_after_days)
+      ConfirmConversation.new(conversation, payer, current_community).activate_automatic_confirmation!
+    end
     Delayed::Job.enqueue(PaymentCreatedJob.new(payment.id, payment.community.id))
   end
 
@@ -80,15 +85,19 @@ class TransactionProcess
   end
 
   after_transition(to: :preauthorized) do |conversation|
-    expire_at = conversation.payment.preauthorization_expiration_days.days.from_now
+    expire_at = conversation.preauthorization_expire_at
     reminder_days_before = 1
+    reminder_at = expire_at - reminder_days_before.day
+    send_reminder = reminder_at > DateTime.now
 
     payment = conversation.payment
     payer = payment.payer
     conversation.messages.create(:sender_id => payer.id, :action => "pay")
 
     Delayed::Job.enqueue(TransactionPreauthorizedJob.new(conversation.id), :priority => 10)
-    Delayed::Job.enqueue(TransactionPreauthorizedReminderJob.new(conversation.id), :priority => 10, :run_at => expire_at - reminder_days_before.day)
+    if send_reminder
+      Delayed::Job.enqueue(TransactionPreauthorizedReminderJob.new(conversation.id), :priority => 10, :run_at => reminder_at)
+    end
     Delayed::Job.enqueue(AutomaticallyRejectPreauthorizedTransactionJob.new(conversation.id), priority: 7, run_at: expire_at)
   end
 

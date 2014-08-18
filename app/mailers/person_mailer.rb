@@ -98,7 +98,18 @@ class PersonMailer < ActionMailer::Base
     set_up_urls(@conversation.requester, community, @email_type)
     premailer_mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
+         :template_path => 'person_mailer/automatic_confirmation',
          :subject => t("emails.transaction_automatically_confirmed.subject"))
+  end
+
+  def booking_transaction_automatically_confirmed(conversation, community)
+    @email_type = "email_about_completed_transactions"
+    @conversation = conversation
+    set_up_urls(@conversation.requester, community, @email_type)
+    mail(:to => @recipient.confirmed_notification_emails_to,
+         :from => community_specific_sender(community),
+         :template_path => 'person_mailer/automatic_confirmation',
+         :subject => t("emails.booking_transaction_automatically_confirmed.subject"))
   end
 
   def escrow_canceled_to(conversation, community, to)

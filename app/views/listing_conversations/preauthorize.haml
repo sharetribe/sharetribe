@@ -5,10 +5,8 @@
   :javascript
 
     $(document).ready(function() {
-      debugger;
       var braintreePaymentForm = $("#braintree-payment-form");
       initialize_braintree_payment_form("#{I18n.locale}", function beforeSubmit(next) {
-        debugger;
         var braintree = Braintree.create("#{@braintree_client_side_encryption_key}");
         braintree.encryptForm(braintreePaymentForm);
         next();
@@ -42,17 +40,33 @@
         %div
           = t(".by", listing: link_to("#{@listing_conversation.listing.title}", @listing_conversation.listing), author: author_link).html_safe
 
+      - Maybe(@listing_conversation).booking.each do |booking|
+        %li
+          %div
+            = l booking.start_on, format: :long_with_abbr_day_name
+            = "-"
+            = l booking.end_on, format: :long_with_abbr_day_name
+            = "(#{pluralize(booking.duration, t(".day"), t(".days"))})"
+
+        %li
+          %div
+            = t(".price_per_day", price: humanized_money_with_symbol(@listing_conversation.listing.price))
+
       %li
         %div
           %strong
-            - price = @listing_conversation.listing.price
-            = t("conversations.show.total", total: humanized_money_with_symbol(price))
+            = t("conversations.show.total", total: humanized_money_with_symbol(@payment.sum))
 
   = form_for @listing_conversation,
     :url => preauthorized_person_listing_listing_conversations_path(@current_user.id,
       @listing_conversation.listing.id),
       :method => "post",
       :html => { :id => "braintree-payment-form", :class => "hidden" } do |form|
+
+    - Maybe(@listing_conversation).booking.each do |booking|
+      = form.fields_for :booking_attributes do |booking_form|
+        = booking_form.date_select :start_on, discard_day: true, discard_month: true, discard_year: true, default: @listing_conversation.booking.start_on
+        = booking_form.date_select :end_on, discard_day: true, discard_month: true, discard_year: true, default: @listing_conversation.booking.end_on
 
     .preauthorize-section
       %h2

@@ -22,6 +22,8 @@
 //= require jquery.fileupload-validate
 //= require jquery.fileupload-image
 
+//= require datepicker/bootstrap-datepicker.js
+
 // Allow IE8-9 to post cross domain XHR (required for image upload)
 //= require jquery.iframe-transport.js
 
@@ -58,5 +60,6 @@
 //= require thumbnail_stripe
 //= require listing
 //= require listing_images
+//= require datepicker
 //= require follow
 //= require_self

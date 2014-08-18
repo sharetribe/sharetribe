@@ -16,6 +16,16 @@ module EmailHelpers
       to
     end
   end
+
+  def find_email_with_subject(address, subject)
+    open_email(address)
+    unread_emails_for(address).find { |m| m.subject =~ Regexp.new(Regexp.escape(subject)) }
+  end
+
+  def user_should_have_email(person, subject)
+    address = person.emails.first.address
+    find_email_with_subject(address, subject).should_not be_nil
+  end
 end
 
 World(EmailHelpers)

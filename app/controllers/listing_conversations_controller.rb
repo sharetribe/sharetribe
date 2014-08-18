@@ -23,11 +23,25 @@ class ListingConversationsController < ApplicationController
   end
 
   def preauthorize
+    booking = if @listing.transaction_type.price_per.present?
+      Booking.new({
+        start_on: params[:start_on],
+        end_on: params[:end_on]
+      })
+    end
+
+    if booking.present? && !booking.valid?
+      flash[:error] = booking.errors.full_messages
+      redirect_to @listing and return
+    end
+
     @braintree_client_side_encryption_key = @current_community.payment_gateway.braintree_client_side_encryption_key
 
-    @listing_conversation = new_conversation
+    @listing_conversation = new_conversation()
+    @listing_conversation.booking = booking
     @payment = @listing_conversation.initialize_payment
-    @payment.sum = @listing_conversation.listing.price
+
+    @payment.sum = @listing_conversation.calculate_total
   end
 
   def preauthorized
@@ -35,7 +49,8 @@ class ListingConversationsController < ApplicationController
 
     @listing_conversation = new_conversation(conversation_params)
     @payment = @listing_conversation.initialize_payment
-    @payment.sum = @listing_conversation.listing.price
+
+    @payment.sum = @listing_conversation.calculate_total
 
     pay(@current_user, @listing_conversation, @payment)
   end

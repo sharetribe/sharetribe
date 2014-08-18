@@ -87,14 +87,32 @@ module ListingsHelper
 
   def with_quantity_and_vat_text(community, listing, &block)
     buffer = []
-    unless listing.quantity.blank?
-      buffer.push("/ #{listing.quantity}")
-    end
+    buffer.push(price_quantity_per_unit(listing))
 
     if community.vat
       buffer.push(t("listings.show.price_excludes_vat"))
     end
 
     block.call(buffer.join(" ")) unless buffer.empty?
+  end
+
+  def price_quantity_slash_unit(listing)
+    if listing.transaction_type.price_per
+      "/ " + t("unit.#{listing.transaction_type.price_per}")
+    elsif listing.quantity.present?
+      "/ #{listing.quantity}"
+    else
+      ""
+    end
+  end
+
+  def price_quantity_per_unit(listing)
+    if listing.transaction_type.price_per
+      t("listings.show.price.per_#{listing.transaction_type.price_per}")
+    elsif listing.quantity.present?
+      t("listing.show.price.per_quantity_unit", quantity_unit: listing.quantity)
+    else
+      ""
+    end
   end
 end

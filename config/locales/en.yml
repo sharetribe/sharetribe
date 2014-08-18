@@ -388,6 +388,10 @@ en:
       continue: Continue
       give_feedback_to: "Give feedback to %{person_link}"
       do_not_give_feedback: "Skip feedback"
+    details:
+      day: "day"
+      days: "days"
+      price_per_day: "Price per day: %{price}"
     index:
       loading_more_messages: "Loading more messages"
       message_partitive: message
@@ -477,13 +481,19 @@ en:
       offer_rejected: Rejected
       offer_canceled: Canceled
       offer_confirmed: Completed
+      offer_paid: "Payment successful"
+      offer_preauthorized: "Payment successful"
+      offer_waiting_for_payment: "Waiting for %{requester_name} to pay"
       pay: Pay
       preauthorized: "Payment successful"
       paid: "Payment successful"
+      deliver_listing: "Waiting for you to deliver %{listing_title}"
       request_accepted: Accepted
       request_rejected: Rejected
       request_confirmed: Completed
       request_canceled: Canceled
+      request_paid: "Payment successful"
+      request_preauthorized: "Payment successful"
       skip_feedback: "Skip feedback"
       waiting_for_listing_author_to_accept_offer: "Waiting for %{listing_author_name} to accept the offer"
       waiting_for_listing_author_to_accept_request: "Waiting for %{listing_author_name} to accept the request"
@@ -602,8 +612,13 @@ en:
     transaction_automatically_confirmed:
       subject: "Request automatically completed - remember to give feedback"
       we_have_marked_request_as_confirmed: "We have marked the request about '%{request}' completed. The request was automatically completed because %{days_passed} days have passed since the request was accepted."
+    booking_transaction_automatically_confirmed:
+      subject: "Request automatically completed - remember to give feedback"
+      we_have_marked_request_as_confirmed: "We have marked the request about '%{request}' completed. The request was automatically completed because one day has passed since the booking period ended."
+    automatically_confirmed_footer:
       giving_feedback_is_good_idea: "You can now give feedback to %{other_party_given_name}. Giving feedback is always a good idea. If everything went well, you should let others know that %{other_party_given_name} can be trusted. If there were any problems, it's good to mention those as well."
       give_feedback_to: "Give feedback to %{other_party_given_name}"
+      show_thread: "Show conversation"
     escrow_canceled:
       subject: "Payment canceled"
       has_marked_request_as_canceled: "%{other_party_full_name} has marked the request about '%{request}' canceled. You will not receive money from this transaction."
@@ -763,6 +778,16 @@ en:
       your_feedback_to_admins: "Your feedback to admins"
     send: Send
     your_email_address: "Your email address"
+  errors:
+    messages:
+      invalid_date: "is not a valid date"
+      invalid_time: "is not a valid time"
+      invalid_datetime: "is not a valid datetime"
+      is_at: "must be at %{restriction}"
+      before: "must be before %{restriction}"
+      on_or_before: "must be on or before %{restriction}"
+      after: "must be after %{restriction}"
+      on_or_after: "must be on or after %{restriction}"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name} %{time_ago}."
@@ -1189,6 +1214,7 @@ en:
       price:
         price: Price
         per: per
+        per_day: per day
         mass: "piece, kg, l, m2, ..."
         time: "hour, day, month, ..."
         long_time: "week, month, ..."
@@ -1274,6 +1300,9 @@ en:
       share_for_frees: "Sharing for free"
       accept_for_frees: "Accepting for free"
       trades: Swapping
+    listing_actions:
+      booking_from: From
+      booking_to: To
     new:
       post_a_new_listing: "Post a new listing"
       listing: listing
@@ -1321,6 +1350,9 @@ en:
       processing_uploaded_image: "(Processing uploaded image...)"
       price_excludes_vat: "(excludes VAT)"
       listing_created_at: "Listing created"
+      price:
+        per_quantity_unit: "per %{quantity_unit}"
+        per_day: "per day"
     verification_required:
       verification_required: "Verification required"
   listing_conversations:
@@ -1330,6 +1362,9 @@ en:
       payment: Payment
       exp: "Exp:"
       you_will_be_charged: "You will be charged only if %{author} accepts the transaction. %{author} needs to accept the transaction within 5 days. If %{author} declines or does not respond, no charge is made."
+      day: "day"
+      days: "days"
+      price_per_day: "Price per day: %{price}"
   mapview:
     index:
       all_categories: "All categories"
@@ -1661,9 +1696,6 @@ en:
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
-    export_date_formats:
-      ruby_style_date: "%m/%d/%Y"
-      js_style_date: mm/dd/yyyy
   datepicker:
     days:
       sunday: Sunday
@@ -1717,6 +1749,7 @@ en:
       december: Dec
     today: Today
     clear: Clear
+    format: "mm/dd/yyyy"
   time:
     formats:
       short: "%e %b %Y at %H:%M"
@@ -1738,6 +1771,9 @@ en:
     days_since:
       one: "%{count} day"
       other: "%{count} days"
+  unit:
+    day: "day"
+    days: "days"
   will_paginate:
     models:
       person:

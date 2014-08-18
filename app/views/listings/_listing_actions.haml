@@ -1,0 +1,96 @@
+- is_author = current_user?(@listing.author)
+- is_marketplace_admin = Maybe(@current_user).has_admin_rights_in?(@current_community).or_else(false)
+- is_authorized = is_author || is_marketplace_admin
+
+- if @listing.closed?
+  .listing-view-admin-links
+    .listing-view-admin-link
+      .icon-with-text-container
+        = icon_tag("lock", ["icon-part"])
+        .text-part= t("listings.reply_link.listing_closed")
+    - if is_authorized
+      .listing-view-admin-link
+        %a.action-link{href: edit_listing_path(@listing)}
+          .icon-with-text-container
+            = icon_tag("unlock", ["icon-part"])
+            .text-part= t("listings.edit_links.reopen_listing")
+- else
+
+  - unless is_author
+
+    - link_path = @listing.transaction_type.preauthorize_payment? ? preauthorize_payment_path(:listing_id => @listing.id.to_s) : reply_to_listing_path(:listing_id => @listing.id.to_s)
+
+    = form_tag link_path, :method => :get, :id => "booking-dates" do
+
+      - if @listing.transaction_type.price_per
+        - days = [:sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]
+        - months = [:january, :february, :march, :april, :may, :june, :july, :august, :september, :october, :november, :december]
+        - translated_days = days.map { |day_symbol| t("datepicker.days")[day_symbol] }.to_json
+        - translated_days_short = days.map { |day_symbol| t("datepicker.days_short")[day_symbol] }.to_json
+        - translated_days_min = days.map { |day_symbol| t("datepicker.days_min")[day_symbol] }.to_json
+        - translated_months = months.map { |day_symbol| t("datepicker.months")[day_symbol] }.to_json
+        - translated_months_short = months.map { |day_symbol| t("datepicker.months_short")[day_symbol] }.to_json
+
+        - content_for :extra_javascript do
+          :javascript
+            $.fn.datepicker.dates['#{I18n.locale}'] = {
+              days: #{translated_days},
+              daysShort: #{translated_days_short},
+              daysMin: #{translated_days_min},
+              months: #{translated_months},
+              monthsShort: #{translated_months_short},
+              today: "#{t("datepicker.today")}",
+              weekStart: #{t("datepicker.week_start", default: 0)},
+              clear: "#{t("datepicker.clear")}",
+              format: "#{t("datepicker.format")}"
+            }
+
+            $("#booking-dates").validate({
+              submitHandler: function(form) {
+                var $form = $(form);
+                $form.find("#start-on").attr("name", "");
+                $form.find("#end-on").attr("name", "");
+
+                form.submit();
+              }
+            });
+
+            window.ST.initializeFromToDatePicker('datepicker');
+        .input-daterange.input-group.clearfix#datepicker{:data => {:locale => I18n.locale, :dateformat => t("datepicker.format")}}
+          .datepicker-start-wrapper
+            = label_tag t(".booking_from")
+            %input.input-sm.form-control.required#start-on{:type => 'text', :name => "start-on-display", :placeholder => t("datepicker.format"), :data => { :output => "booking-start-output" } }
+            %input#booking-start-output{:type => 'hidden', :name => 'start_on'}
+
+          .datepicker-end-wrapper
+            = label_tag t(".booking_to")
+            %input.input-sm.form-control.required#end-on{:type => 'text', :name => "end-on-display", :placeholder => t("datepicker.format"), :data => { :output => "booking-end-output" }}
+            %input#booking-end-output{:type => 'hidden', :name => 'end_on'}
+
+      %button.book-button
+        .content
+          = @listing.transaction_type.action_button_label(I18n.locale)
+
+  - if is_authorized
+    .listing-view-admin-links
+      .listing-view-admin-link
+        %a.icon-with-text-container{href: edit_listing_path(@listing)}
+          = icon_tag("edit", ["icon-part"])
+          .text-part= t("listings.edit_links.edit_listing")
+      .listing-view-admin-link
+        %a.icon-with-text-container{href: close_person_listing_path(@current_user, @listing), data: { method: "put", remote: "true"}}
+          = icon_tag("lock", ["icon-part"])
+          .text-part= t("listings.edit_links.close_listing")
+
+      - if is_marketplace_admin
+        .listing-view-admin-link
+          = link_to move_to_top_person_listing_path(@current_user, @listing), data: { method: "put" } do
+            .icon-with-text-container
+              = icon_tag("star", ["icon-part"])
+              .text-part= t("listings.edit_links.move_to_top")
+
+        .listing-view-admin-link
+          = link_to show_in_updates_email_person_listing_path(@current_user, @listing), data: { method: "put", remote: "true" }, :id => "add-to-updates-email"  do
+            .icon-with-text-container
+              = icon_tag("mail", ["icon-part"])
+              .text-part#add-to-updates-email-text{data: {:"action-loading" => t("listings.edit_links.show_in_updates_email_loading"), :"action-error" => t("listings.edit_links.show_in_updates_email_error"), :"action-success"=> t("listings.edit_links.show_in_updates_email_success")}}= t("listings.edit_links.show_in_updates_email")

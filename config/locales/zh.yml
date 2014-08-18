@@ -1699,6 +1699,8 @@ zh:
       december: 十二月
     today: 今日
     clear: ~
+    format: "yyyy年mm月dd日"
+    week_start: 1
   time:
     formats:
       short: "%e %b %Y  %H:%M"

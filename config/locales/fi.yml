@@ -388,6 +388,10 @@ fi:
       continue: Jatka
       give_feedback_to: "Anna palautetta käyttäjälle %{person_link}"
       do_not_give_feedback: "Ohita palaute"
+    details:
+      day: "päivä"
+      days: "päivää"
+      price_per_day: "Hinta per päivä: %{price}"
     index:
       loading_more_messages: "Ladataan lisää viestejä"
       message_partitive: viesti
@@ -442,7 +446,7 @@ fi:
       item_request_message_form_title: "Tarjoa tavara käyttäjälle"
       message: Viesti
       message_to: ~
-      optional_message_to: ~
+      optional_message_to: "Valinnainen viesti käyttäjälle %{author_name}"
       rideshare_offer_message_form_title: "Pyydä kyytiä käyttäjältä"
       rideshare_request_message_form_title: "Tarjoa kyyti käyttäjälle"
       send_message: "Lähetä viesti"
@@ -467,7 +471,7 @@ fi:
       price: "Hinta: %{price}"
       sum: "Loppusumma: %{sum}"
       price_excludes_vat: "(alv 0)"
-      total: ~
+      total: "Yhteensä: %{total}"
     status:
       cancel_payed_transaction: Peruuta
       feedback_given: "Palaute annettu"
@@ -480,6 +484,7 @@ fi:
       pay: "Suorita maksu"
       preauthorized: ~
       paid: "Maksu suoritettu"
+      deliver_listing: "Odottaa että %{listing_title} toimitetaan perille"
       request_accepted: "Pyyntö hyväksytty"
       request_rejected: "Pyyntö hylätty"
       request_confirmed: "Pyyntö toteutunut"
@@ -602,8 +607,13 @@ fi:
     transaction_automatically_confirmed:
       subject: "Pyyntösi on automaattisesti merkitty toteutuneeksi - muistathan antaa palautetta"
       we_have_marked_request_as_confirmed: "Olemme merkinneet pyynnön '%{request}' toteutuneeksi. Merkitsimme pyynnön toteutuneeksi automaattisesti, koska pyynnön hyväksymisestä on kulunut %{days_passed} päivää."
-      giving_feedback_is_good_idea: "Voit nyt antaa palautetta käyttäjälle %{other_party_given_name}. Palautteen antaminen kannattaa aina. Jos kaikki meni hyvin, voit palautteen avulla kertoa muille jäsenille, että %{other_party_given_name} on luotettava. Jos vastaan tuli ongelmia, niistä kannattaa myös mainita."
+    booking_transaction_automatically_confirmed:
+      subject: ~
+      we_have_marked_request_as_confirmed: ~
+    automatically_confirmed_footer:
+      giving_feedback_is_good_idea: "Palautteen antaminen kannattaa aina. Jos kaikki meni hyvin, voit palautteen avulla kertoa muille jäsenille, että %{other_party_given_name} on luotettava. Jos vastaan tuli ongelmia, niistä kannattaa myös mainita."
       give_feedback_to: "Anna palautetta käyttäjälle %{other_party_given_name}"
+      show_thread: "Näytä viestiketju"
     escrow_canceled:
       subject: ~
       has_marked_request_as_canceled: ~
@@ -763,6 +773,16 @@ fi:
       your_feedback_to_admins: "Palautteesi ylläpidolle"
     send: Lähetä
     your_email_address: Sähköpostiosoitteesi
+  errors:
+    messages:
+      invalid_date: "ei kelpaa päivämääräksi"
+      invalid_time: "ei kelpaa ajankohdaksi"
+      invalid_datetime: "ei kelpaa ajankohdaksi"
+      is_at: "täytyy olla %{restriction}"
+      before: "täytyy olla ennen %{restriction}"
+      on_or_before: "täytyy olla %{restriction} tai sen jälkeen"
+      after: "täytyy olla %{restriction} jälkeen"
+      on_or_after: "täytyy olla %{restriction} tai ennen sitä"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} lainasi tavaran %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
@@ -1189,6 +1209,7 @@ fi:
       price:
         price: Hinta
         per: per
+        per_day: per päivä
         mass: "kpl, kg, l, m2, ..."
         time: "tunti, päivä, kk ..."
         long_time: "vko, kk, ..."
@@ -1274,6 +1295,9 @@ fi:
       share_for_frees: "Tarjotaan käyttöön ilmaiseksi"
       accept_for_frees: "Otetaan vastaan ilmaiseksi"
       trades: Vaihdetaan
+    listing_actions:
+      booking_from: Alkaa
+      booking_to: Loppuu
     new:
       post_a_new_listing: "Lisää uusi ilmoitus"
       listing: ilmoitus
@@ -1321,6 +1345,9 @@ fi:
       processing_uploaded_image: "(Ladatun kuvan käsittely kesken...)"
       price_excludes_vat: "(alv 0)"
       listing_created_at: "Ilmoitus luotu"
+      price:
+        per_quantity_unit: "per %{quantity_unit}"
+        per_day: "per päivä"
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -1330,6 +1357,9 @@ fi:
       payment: ~
       exp: ~
       you_will_be_charged: ~
+      day: ~
+      days: ~
+      price_per_day: ~
   mapview:
     index:
       all_categories: "Kaikki kategoriat"
@@ -1661,9 +1691,6 @@ fi:
   date:
     formats:
       long_with_abbr_day_name: "%a %-d.%-m.%Y"
-    export_date_formats:
-      ruby_style_date: "%d.%m.%Y"
-      js_style_date: dd.mm.yyyy
   datepicker:
     days:
       sunday: sunnuntai
@@ -1717,6 +1744,8 @@ fi:
       december: jou
     today: tänään
     clear: ~
+    week_start: 1
+    format: "dd.mm.yyyy"
   time:
     formats:
       short: "%e. %b %Y kello %H:%M"
@@ -1738,6 +1767,9 @@ fi:
     days_since:
       one: päivän
       other: "%{count} päivän"
+  unit:
+    day: "päivä"
+    days: "päivää"
   will_paginate:
     models:
       person:

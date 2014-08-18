@@ -112,6 +112,12 @@ FactoryGirl.define do
     updated_at DateTime.now
   end
 
+  factory :booking do
+    build_association(:listing_conversation, as: :conversation)
+    start_on 1.day.from_now
+    end_on 2.days.from_now
+  end
+
   factory :message do
     content "Test"
     build_association(:conversation)
@@ -208,7 +214,7 @@ FactoryGirl.define do
   factory :transaction_type do
     build_association(:community)
 
-    ['Sell', 'Give', 'Lend', 'Request', 'Service'].each do |type|
+    ['Sell', 'Give', 'Lend', 'Rent', 'Request', 'Service'].each do |type|
       factory_name = "transaction_type_#{type.downcase}"
       factory factory_name.to_sym, class: type do
         type type

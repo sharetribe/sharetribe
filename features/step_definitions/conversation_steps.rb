@@ -172,18 +172,19 @@ def visit_conversation_of_listing(listing)
   visit(single_conversation_path(:person_id => @current_user.id, :conversation_type => "received", :id => conversation.id, :locale => "en"))
 end
 
-def visit_conversation_of_current_listing
-  visit_conversation_of_listing(@listing)
-end
-
 When(/^I accepts the request for that listing$/) do
-  visit_conversation_of_current_listing
+  visit_conversation_of_listing(@listing)
   click_link "Accept request"
   click_button "Approve"
 end
 
+
 Then(/^I should see that the request is waiting for buyer confirmation$/) do
   page.should have_content(/Waiting for (.*) to mark the request completed/)
+end
+
+Then /^I should see that I should now deliver the board$/ do
+  page.should have_content(/Waiting for you to deliver (.*)/)
 end
 
 Then(/^I should see that the request is confirmed/) do
@@ -209,7 +210,7 @@ Then(/^I should see that the request is waiting for buyer to pay$/) do
 end
 
 When(/^I pay my request for that listing$/) do
-  visit_conversation_of_current_listing
+  visit_conversation_of_listing(@listing)
   click_link "Pay"
 end
 
@@ -220,7 +221,7 @@ When(/^I buy approved request "(.*)"$/) do |accepted_request|
 end
 
 When(/^I confirm the request for that listing$/) do
-  visit_conversation_of_current_listing
+  visit_conversation_of_listing(@listing)
   click_link "Mark completed"
   choose("Skip feedback")
   click_button "Continue"
@@ -231,7 +232,7 @@ Then(/^I should see that the request was confirmed$/) do
 end
 
 When(/^the seller does not respond the request within (\d+) days$/) do |days|
-  Timecop.travel(DateTime.now + days.to_i)
+  Timecop.travel(DateTime.now + (days.to_i + 1))
   process_jobs
   visit(current_path)
 end
@@ -264,4 +265,17 @@ When /^I follow link to fill in Braintree payout details$/ do
   click_link("#conversation-payment-settings-link")
 end
 
+Then /^I should see that the total price is "(.*?)"$/ do |total_price|
+  expect(page).to have_content("Total: $#{total_price}")
+end
+
+When /^the booking is automatically confirmed$/ do
+  Timecop.travel(@booking_end_date + 2.days)
+  process_jobs
+  visit(current_path)
+end
+
+Then /^I should see that the request is completed$/ do
+  expect(page.find(".conversation-status")).to have_content("Completed")
+end
 

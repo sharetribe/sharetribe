@@ -375,4 +375,5 @@ class Listing < ActiveRecord::Base
     current_community.payments_in_use? &&
     !current_user.can_receive_payments_at?(current_community)
   end
+
 end
