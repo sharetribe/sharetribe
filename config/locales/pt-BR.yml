@@ -4,7 +4,7 @@ pt-BR:
       edit:
         edit_listing_category: "Editar categoria '%{category}'"
       index:
-        listing_categories: "Lista de Categorias"
+        listing_categories: "Lista de categorias"
         create_a_new_category: "+ Criar uma nova categoria"
         remove_category_confirmation: ~
         saving_order: "Salvar ordem das categorias"
@@ -161,25 +161,25 @@ pt-BR:
         url: URL
         empty: "Você não tem quaisquer ligações de menu adicionais"
       transactions:
-        transactions: ~
+        transactions: "Ver transações"
         headers:
-          conversation: ~
-          listing: ~
-          status: ~
-          sum: ~
-          started: ~
-          last_activity: ~
-          initiated_by: ~
-          other_party: ~
+          conversation: "Criou a conversa"
+          listing: Listando
+          status: Estado
+          sum: Soma
+          started: Iniciado
+          last_activity: "Última atividade"
+          initiated_by: Iniciante
+          other_party: "Outra parte"
         status:
-          free: ~
-          pending: ~
-          preauthorized: ~
-          accepted: ~
-          rejected: ~
-          paid: ~
-          confirmed: ~
-          canceled: ~
+          free: "Mensagem livre"
+          pending: Pendente
+          preauthorized: "Pagamento efetuado com sucesso"
+          accepted: Aceite
+          rejected: Recusada
+          paid: Pago
+          confirmed: Confirmado
+          canceled: Cancelado
       braintree_payment_gateway:
         braintree_payment_gateway: ~
         environment: Ambiente
