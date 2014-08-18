@@ -61,7 +61,7 @@ class ListingConversation < Conversation
   end
 
   def should_notify?(user)
-    status == "pending" && author == user
+    super(user) || (status == "pending" && author == user)
   end
 
   # If listing is an offer, return request, otherwise return offer

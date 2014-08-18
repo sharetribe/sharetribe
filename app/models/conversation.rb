@@ -6,14 +6,12 @@ class Conversation < ActiveRecord::Base
   has_many :participants, :through => :participations, :source => :person
   belongs_to :community
 
-  def self.unread_count(person_id)
-    user = Person.find_by_id(person_id)
-    new_value = user.participations.select do |particiation|
-      !particiation.is_read || particiation.conversation.should_notify?(user)
-    end.count
+  def self.notification_count_for_person(person)
+      select {|conversation| conversation.should_notify?(person) }
+        .count
   end
 
-  def self.for_user(person)
+  def self.for_person(person)
     joins(:participations).where( { participations: { person_id: person }} )
   end
 
@@ -35,6 +33,10 @@ class Conversation < ActiveRecord::Base
     end
   end
 
+  def belongs_to_community?(community_id)
+    community.id == community_id
+  end
+
   def build_starter_participation(person)
     participations.build(
       person: person,
@@ -53,10 +55,8 @@ class Conversation < ActiveRecord::Base
     )
   end
 
-  # If this method returns true, user should be notified about this conversation
-  # even if the conversation is read by the user
-  def should_notify?(*)
-    false
+  def should_notify?(user)
+    !read_by?(user)
   end
 
   # Returns last received or sent message

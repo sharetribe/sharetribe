@@ -16,7 +16,7 @@ class ConversationsController < ApplicationController
 
   def received
     params[:page] = 1 unless request.xhr?
-    @conversations = @current_community.conversations.for_user(@current_user)
+    @conversations = @current_community.conversations.for_person(@current_user)
       .order("last_message_at DESC")
       .paginate(per_page: 15, page: params[:page])
     request.xhr? ? (render :partial => "additional_messages") : (render :action => :index)
