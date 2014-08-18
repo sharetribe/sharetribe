@@ -389,8 +389,8 @@ fi:
       give_feedback_to: "Anna palautetta käyttäjälle %{person_link}"
       do_not_give_feedback: "Ohita palaute"
     details:
-      day: "päivä"
-      days: "päivää"
+      day: päivä
+      days: päivää
       price_per_day: "Hinta per päivä: %{price}"
     index:
       loading_more_messages: "Ladataan lisää viestejä"
@@ -481,6 +481,9 @@ fi:
       offer_rejected: "Tarjous hylätty"
       offer_canceled: "Tarjous peruutettu"
       offer_confirmed: "Tarjous toteutunut"
+      offer_paid: ~
+      offer_preauthorized: ~
+      offer_waiting_for_payment: ~
       pay: "Suorita maksu"
       preauthorized: ~
       paid: "Maksu suoritettu"
@@ -489,6 +492,8 @@ fi:
       request_rejected: "Pyyntö hylätty"
       request_confirmed: "Pyyntö toteutunut"
       request_canceled: "Pyyntö peruutettu"
+      request_paid: ~
+      request_preauthorized: ~
       skip_feedback: "Ohita palaute"
       waiting_for_listing_author_to_accept_offer: "Odottaa että %{listing_author_name} hyväksyy tarjouksen"
       waiting_for_listing_author_to_accept_request: "Odottaa että %{listing_author_name} hyväksyy pyynnön"
@@ -1209,7 +1214,7 @@ fi:
       price:
         price: Hinta
         per: per
-        per_day: per päivä
+        per_day: "per päivä"
         mass: "kpl, kg, l, m2, ..."
         time: "tunti, päivä, kk ..."
         long_time: "vko, kk, ..."
@@ -1744,8 +1749,7 @@ fi:
       december: jou
     today: tänään
     clear: ~
-    week_start: 1
-    format: "dd.mm.yyyy"
+    format: dd.mm.yyyy
   time:
     formats:
       short: "%e. %b %Y kello %H:%M"
@@ -1768,8 +1772,8 @@ fi:
       one: päivän
       other: "%{count} päivän"
   unit:
-    day: "päivä"
-    days: "päivää"
+    day: päivä
+    days: päivää
   will_paginate:
     models:
       person:

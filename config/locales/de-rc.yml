@@ -373,6 +373,10 @@ de-rc:
       continue: ~
       give_feedback_to: ~
       do_not_give_feedback: ~
+    details:
+      day: ~
+      days: ~
+      price_per_day: ~
     index:
       loading_more_messages: ~
       message_partitive: ~
@@ -462,13 +466,19 @@ de-rc:
       offer_rejected: ~
       offer_canceled: ~
       offer_confirmed: ~
+      offer_paid: ~
+      offer_preauthorized: ~
+      offer_waiting_for_payment: ~
       pay: ~
       preauthorized: ~
       paid: ~
+      deliver_listing: ~
       request_accepted: ~
       request_rejected: ~
       request_confirmed: ~
       request_canceled: ~
+      request_paid: ~
+      request_preauthorized: ~
       skip_feedback: ~
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
@@ -587,8 +597,13 @@ de-rc:
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
+    booking_transaction_automatically_confirmed:
+      subject: ~
+      we_have_marked_request_as_confirmed: ~
+    automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
       give_feedback_to: ~
+      show_thread: ~
     escrow_canceled:
       subject: ~
       has_marked_request_as_canceled: ~
@@ -748,6 +763,16 @@ de-rc:
       your_feedback_to_admins: ~
     send: ~
     your_email_address: ~
+  errors:
+    messages:
+      invalid_date: ~
+      invalid_time: ~
+      invalid_datetime: ~
+      is_at: ~
+      before: ~
+      on_or_before: ~
+      after: ~
+      on_or_after: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: ~
@@ -1174,6 +1199,7 @@ de-rc:
       price:
         price: ~
         per: ~
+        per_day: ~
         mass: ~
         time: ~
         long_time: ~
@@ -1259,6 +1285,9 @@ de-rc:
       share_for_frees: ~
       accept_for_frees: ~
       trades: ~
+    listing_actions:
+      booking_from: ~
+      booking_to: ~
     new:
       post_a_new_listing: ~
       listing: ~
@@ -1306,6 +1335,9 @@ de-rc:
       processing_uploaded_image: ~
       price_excludes_vat: ~
       listing_created_at: ~
+      price:
+        per_quantity_unit: ~
+        per_day: ~
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -1315,6 +1347,9 @@ de-rc:
       payment: ~
       exp: ~
       you_will_be_charged: ~
+      day: ~
+      days: ~
+      price_per_day: ~
   mapview:
     index:
       all_categories: ~
@@ -1643,9 +1678,6 @@ de-rc:
   date:
     formats:
       long_with_abbr_day_name: ~
-    export_date_formats:
-      ruby_style_date: ~
-      js_style_date: ~
   datepicker:
     days:
       sunday: ~
@@ -1699,6 +1731,7 @@ de-rc:
       december: ~
     today: ~
     clear: ~
+    format: ~
   time:
     formats:
       short: ~
@@ -1717,6 +1750,9 @@ de-rc:
     seconds_ago: ~
     year_ago: ~
     years_ago: ~
+  unit:
+    day: ~
+    days: ~
   will_paginate:
     previous_label: ~
     next_label: ~

@@ -373,6 +373,10 @@ pt-BR:
       continue: Continua
       give_feedback_to: "Dar feedback a %{person_link}"
       do_not_give_feedback: "Skip feedback"
+    details:
+      day: ~
+      days: ~
+      price_per_day: ~
     index:
       loading_more_messages: "Carregando mais mensagens"
       message_partitive: mensagem
@@ -462,13 +466,19 @@ pt-BR:
       offer_rejected: Rejeitado
       offer_canceled: Cancelado
       offer_confirmed: Concluído
+      offer_paid: ~
+      offer_preauthorized: ~
+      offer_waiting_for_payment: ~
       pay: Pagar
       preauthorized: "Pagamento efetuado com sucesso"
       paid: "Pagamento efetuado com sucesso"
+      deliver_listing: ~
       request_accepted: Aceito
       request_rejected: Rejeitado
       request_confirmed: Concluído
       request_canceled: Cancelado
+      request_paid: ~
+      request_preauthorized: ~
       skip_feedback: "Pular feedback"
       waiting_for_listing_author_to_accept_offer: "Aguardando %{listing_author_name} aceitar a oferta"
       waiting_for_listing_author_to_accept_request: "Aguandando %{listing_author_name} aceitar o pedido"
@@ -587,8 +597,13 @@ pt-BR:
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
+    booking_transaction_automatically_confirmed:
+      subject: ~
+      we_have_marked_request_as_confirmed: ~
+    automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
-      give_feedback_to: "Dar uma opinião sobre %{other_party_given_name}"
+      give_feedback_to: ~
+      show_thread: ~
     escrow_canceled:
       subject: "Pagamento cancelado"
       has_marked_request_as_canceled: ~
@@ -748,6 +763,16 @@ pt-BR:
       your_feedback_to_admins: "Seu feedback para os administradores"
     send: Enviar
     your_email_address: "Seu endereço de email"
+  errors:
+    messages:
+      invalid_date: ~
+      invalid_time: ~
+      invalid_datetime: ~
+      is_at: ~
+      before: ~
+      on_or_before: ~
+      after: ~
+      on_or_after: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aceitou emprestar %{listing_title} à %{requester_name} %{time_ago}"
@@ -1174,6 +1199,7 @@ pt-BR:
       price:
         price: Preço
         per: por
+        per_day: ~
         mass: "unidade, kg, l, m²..."
         time: "hora, dia, mês, ..."
         long_time: "semana, mês, ..."
@@ -1259,6 +1285,9 @@ pt-BR:
       share_for_frees: Gratuito
       accept_for_frees: "Aceitar gratuitamente"
       trades: Troca
+    listing_actions:
+      booking_from: ~
+      booking_to: ~
     new:
       post_a_new_listing: "Postar um novo anúncio"
       listing: listando
@@ -1306,6 +1335,9 @@ pt-BR:
       processing_uploaded_image: "(Processando imagem carregada...)"
       price_excludes_vat: "(exclui VAT)"
       listing_created_at: "Listagem criada"
+      price:
+        per_quantity_unit: ~
+        per_day: ~
     verification_required:
       verification_required: "Verificação necessária"
   listing_conversations:
@@ -1315,6 +1347,9 @@ pt-BR:
       payment: ~
       exp: ~
       you_will_be_charged: ~
+      day: ~
+      days: ~
+      price_per_day: ~
   mapview:
     index:
       all_categories: "Todas categorias"
@@ -1646,9 +1681,6 @@ pt-BR:
   date:
     formats:
       long_with_abbr_day_name: ~
-    export_date_formats:
-      ruby_style_date: ~
-      js_style_date: ~
   datepicker:
     days:
       sunday: Domingo
@@ -1702,6 +1734,7 @@ pt-BR:
       december: Dez
     today: Hoje
     clear: Limpar
+    format: ~
   time:
     formats:
       short: "%e. %b %Y hora %H:%M"
@@ -1723,6 +1756,9 @@ pt-BR:
     days_since:
       one: ontem
       other: "%{count} dias"
+  unit:
+    day: ~
+    days: ~
   will_paginate:
     models:
       person:

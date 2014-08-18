@@ -388,6 +388,10 @@ de:
       continue: Weiter
       give_feedback_to: "%{person_link} ein Feedback geben"
       do_not_give_feedback: "Feedback überspringen"
+    details:
+      day: ~
+      days: ~
+      price_per_day: ~
     index:
       loading_more_messages: "weitere Nachrichten laden"
       message_partitive: Nachricht
@@ -477,13 +481,19 @@ de:
       offer_rejected: "Angebot abgelehnt"
       offer_canceled: abgelehnt
       offer_confirmed: fertig
+      offer_paid: ~
+      offer_preauthorized: ~
+      offer_waiting_for_payment: ~
       pay: Zahlen
       preauthorized: "Zahlung erfolgreich"
       paid: "erfolgreiche Bezahlung"
+      deliver_listing: ~
       request_accepted: "Anfrage akzeptiert"
       request_rejected: "Anfrage abgelehnt"
       request_confirmed: fertig
       request_canceled: abgelehnt
+      request_paid: ~
+      request_preauthorized: ~
       skip_feedback: "Feedback überspringen"
       waiting_for_listing_author_to_accept_offer: "Warte bis %{listing_author_name} das Angebt annimmt"
       waiting_for_listing_author_to_accept_request: "Warte bis %{listing_author_name} die Anfrage annimmt"
@@ -602,8 +612,13 @@ de:
     transaction_automatically_confirmed:
       subject: "Anfrage wurde automatisch abgeschlossen - vergiss nicht, eine Bewertung abzugeben."
       we_have_marked_request_as_confirmed: ~
+    booking_transaction_automatically_confirmed:
+      subject: ~
+      we_have_marked_request_as_confirmed: ~
+    automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
-      give_feedback_to: "Bewertung abgeben für %{other_party_given_name}"
+      give_feedback_to: ~
+      show_thread: ~
     escrow_canceled:
       subject: "Zahlungsprozess abgebrochen"
       has_marked_request_as_canceled: "%{other_party_full_name} hat die Anfrage '%{request}' als abgebrochen markiert. Du wirst von dieser Transaktion kein Geld erhalten."
@@ -763,6 +778,16 @@ de:
       your_feedback_to_admins: "Dein Feedback an die Administratoren"
     send: Senden
     your_email_address: "Deine E-Mail-Adresse"
+  errors:
+    messages:
+      invalid_date: ~
+      invalid_time: ~
+      invalid_datetime: ~
+      is_at: ~
+      before: ~
+      on_or_before: ~
+      after: ~
+      on_or_after: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} hat zugestimmt %{listing_title} an %{requester_name}% zu verleihen vor {time_ago}."
@@ -1189,6 +1214,7 @@ de:
       price:
         price: Preis
         per: pro
+        per_day: ~
         mass: "Stück, kg, l, m2"
         time: "Stunde, Tag, Monat,..."
         long_time: "Woche, Monat..."
@@ -1274,6 +1300,9 @@ de:
       share_for_frees: "Kostenlose gemeinsame Nutzung"
       accept_for_frees: "Umsonst akzeptieren"
       trades: Tauschen
+    listing_actions:
+      booking_from: ~
+      booking_to: ~
     new:
       post_a_new_listing: "Einen neuen Eintrag veröffentlichen"
       listing: Eintrag
@@ -1321,6 +1350,9 @@ de:
       processing_uploaded_image: "(Bild wird bearbeitet ...)"
       price_excludes_vat: "(ohne Mehrwertsteuer)"
       listing_created_at: "Eintrag erfolgreich erstellt"
+      price:
+        per_quantity_unit: ~
+        per_day: ~
     verification_required:
       verification_required: "Verifizierung erforderlich"
   listing_conversations:
@@ -1330,6 +1362,9 @@ de:
       payment: ~
       exp: ~
       you_will_be_charged: ~
+      day: ~
+      days: ~
+      price_per_day: ~
   mapview:
     index:
       all_categories: "Alle Kategorien"
@@ -1664,9 +1699,6 @@ de:
   date:
     formats:
       long_with_abbr_day_name: ~
-    export_date_formats:
-      ruby_style_date: ~
-      js_style_date: ~
   datepicker:
     days:
       sunday: Sonntag
@@ -1720,10 +1752,7 @@ de:
       december: Dez
     today: Heute
     clear: Löschen
-    today: "Heute"
-    clear: "Löschen"
-    week_start: 1
-    format: "dd.mm.yyyy"
+    format: dd.mm.yyyy
   time:
     formats:
       short: "%e %b %Y at %H:%M"
@@ -1745,6 +1774,9 @@ de:
     days_since:
       one: "%{count} Tag"
       other: "%{count} Tage"
+  unit:
+    day: ~
+    days: ~
   will_paginate:
     models:
       person:

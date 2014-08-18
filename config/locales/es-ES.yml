@@ -373,6 +373,10 @@ es-ES:
       continue: ~
       give_feedback_to: ~
       do_not_give_feedback: ~
+    details:
+      day: ~
+      days: ~
+      price_per_day: ~
     index:
       loading_more_messages: "Cargando más mensajes"
       message_partitive: Mensaje
@@ -462,13 +466,19 @@ es-ES:
       offer_rejected: rechazada
       offer_canceled: ~
       offer_confirmed: ~
+      offer_paid: ~
+      offer_preauthorized: ~
+      offer_waiting_for_payment: ~
       pay: ~
       preauthorized: ~
       paid: ~
+      deliver_listing: ~
       request_accepted: "Solicitud aceptada"
       request_rejected: "Solicitud rechazada"
       request_confirmed: ~
       request_canceled: ~
+      request_paid: ~
+      request_preauthorized: ~
       skip_feedback: "Omitir sugerencia"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: "Esperando que %{listing_author_name} acepte el pedido"
@@ -587,8 +597,13 @@ es-ES:
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
+    booking_transaction_automatically_confirmed:
+      subject: ~
+      we_have_marked_request_as_confirmed: ~
+    automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
       give_feedback_to: ~
+      show_thread: ~
     escrow_canceled:
       subject: ~
       has_marked_request_as_canceled: ~
@@ -750,6 +765,16 @@ es-ES:
       your_feedback_to_admins: "Envía tu sugerencia al administrador"
     send: Enviar
     your_email_address: "Tu dirección email"
+  errors:
+    messages:
+      invalid_date: ~
+      invalid_time: ~
+      invalid_datetime: ~
+      is_at: ~
+      before: ~
+      on_or_before: ~
+      after: ~
+      on_or_after: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: ~
@@ -1176,6 +1201,7 @@ es-ES:
       price:
         price: ~
         per: ~
+        per_day: ~
         mass: ~
         time: ~
         long_time: ~
@@ -1261,6 +1287,9 @@ es-ES:
       share_for_frees: "Compartir gratuitamente"
       accept_for_frees: "Aceptando gratis"
       trades: Intercambio
+    listing_actions:
+      booking_from: ~
+      booking_to: ~
     new:
       post_a_new_listing: ~
       listing: aviso
@@ -1308,6 +1337,9 @@ es-ES:
       processing_uploaded_image: ~
       price_excludes_vat: ~
       listing_created_at: ~
+      price:
+        per_quantity_unit: ~
+        per_day: ~
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -1317,6 +1349,9 @@ es-ES:
       payment: ~
       exp: ~
       you_will_be_charged: ~
+      day: ~
+      days: ~
+      price_per_day: ~
   mapview:
     index:
       all_categories: "Todas las categorías"
@@ -1648,9 +1683,6 @@ es-ES:
   date:
     formats:
       long_with_abbr_day_name: ~
-    export_date_formats:
-      ruby_style_date: ~
-      js_style_date: ~
   datepicker:
     days:
       sunday: ~
@@ -1704,6 +1736,7 @@ es-ES:
       december: ~
     today: ~
     clear: ~
+    format: ~
   time:
     formats:
       short: "%e %b %Y al %H:%M"
@@ -1725,6 +1758,9 @@ es-ES:
     days_since:
       one: "%{count} día"
       other: "%{count} días"
+  unit:
+    day: ~
+    days: ~
   will_paginate:
     previous_label: ~
     next_label: ~

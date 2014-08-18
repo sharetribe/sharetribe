@@ -373,6 +373,10 @@ vi:
       continue: ~
       give_feedback_to: ~
       do_not_give_feedback: ~
+    details:
+      day: ~
+      days: ~
+      price_per_day: ~
     index:
       loading_more_messages: "Nạp thêm tin nhắn"
       message_partitive: "tin nhắn"
@@ -462,13 +466,19 @@ vi:
       offer_rejected: "Hỗ trợ bị từ chối"
       offer_canceled: ~
       offer_confirmed: ~
+      offer_paid: ~
+      offer_preauthorized: ~
+      offer_waiting_for_payment: ~
       pay: ~
       preauthorized: ~
       paid: ~
+      deliver_listing: ~
       request_accepted: "Yêu cầu được chấp nhận"
       request_rejected: "Yêu cầu bị từ chối"
       request_confirmed: ~
       request_canceled: ~
+      request_paid: ~
+      request_preauthorized: ~
       skip_feedback: "Bỏ qua thông tin phản hồi"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
@@ -587,8 +597,13 @@ vi:
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
+    booking_transaction_automatically_confirmed:
+      subject: ~
+      we_have_marked_request_as_confirmed: ~
+    automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
       give_feedback_to: ~
+      show_thread: ~
     escrow_canceled:
       subject: ~
       has_marked_request_as_canceled: ~
@@ -748,6 +763,16 @@ vi:
       your_feedback_to_admins: "Thông tin phản hồi của bạn đến các quản trị viên"
     send: Gửi
     your_email_address: "Địa chỉ email của bạn"
+  errors:
+    messages:
+      invalid_date: ~
+      invalid_time: ~
+      invalid_datetime: ~
+      is_at: ~
+      before: ~
+      on_or_before: ~
+      after: ~
+      on_or_after: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} đồng ý cho %{requester_name} vay %{listing_title} %{time_ago}."
@@ -1174,6 +1199,7 @@ vi:
       price:
         price: ~
         per: ~
+        per_day: ~
         mass: ~
         time: ~
         long_time: ~
@@ -1259,6 +1285,9 @@ vi:
       share_for_frees: "Chia sẻ miễn phí"
       accept_for_frees: ~
       trades: Đổi
+    listing_actions:
+      booking_from: ~
+      booking_to: ~
     new:
       post_a_new_listing: ~
       listing: ~
@@ -1306,6 +1335,9 @@ vi:
       processing_uploaded_image: ~
       price_excludes_vat: ~
       listing_created_at: ~
+      price:
+        per_quantity_unit: ~
+        per_day: ~
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -1315,6 +1347,9 @@ vi:
       payment: ~
       exp: ~
       you_will_be_charged: ~
+      day: ~
+      days: ~
+      price_per_day: ~
   mapview:
     index:
       all_categories: "Tất cả các chuyên mục"
@@ -1644,9 +1679,6 @@ vi:
   date:
     formats:
       long_with_abbr_day_name: ~
-    export_date_formats:
-      ruby_style_date: ~
-      js_style_date: ~
   datepicker:
     days:
       sunday: "Chủ nhật"
@@ -1700,6 +1732,7 @@ vi:
       december: Th12
     today: "Hôm nay"
     clear: Xóa
+    format: dd/mm/yyyy
   time:
     formats:
       short: "%e %b %Y lúc % H: % M"
@@ -1718,6 +1751,9 @@ vi:
     seconds_ago: "%{count} giây trước"
     year_ago: "%{count} năm trước"
     years_ago: "%{count} năm trước"
+  unit:
+    day: ~
+    days: ~
   will_paginate:
     previous_label: ~
     next_label: ~

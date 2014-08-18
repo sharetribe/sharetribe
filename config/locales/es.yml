@@ -373,6 +373,10 @@ es:
       continue: Continuar
       give_feedback_to: "Dar feedback a %{person_link}"
       do_not_give_feedback: Omitir
+    details:
+      day: ~
+      days: ~
+      price_per_day: ~
     index:
       loading_more_messages: "Cargando más mensajes"
       message_partitive: mensaje
@@ -462,13 +466,19 @@ es:
       offer_rejected: "Oferta rechazada"
       offer_canceled: Cancelado
       offer_confirmed: Completado
+      offer_paid: ~
+      offer_preauthorized: ~
+      offer_waiting_for_payment: ~
       pay: Pagar
       preauthorized: ~
       paid: "pago exitoso"
+      deliver_listing: ~
       request_accepted: "Solicitud aceptada"
       request_rejected: "Solicitud rechazada"
       request_confirmed: Completado
       request_canceled: Cancelada
+      request_paid: ~
+      request_preauthorized: ~
       skip_feedback: "Omitir feedback"
       waiting_for_listing_author_to_accept_offer: "Esperando a %{listing_author_name}  para aceptar la oferta"
       waiting_for_listing_author_to_accept_request: "Esperando a  %{listing_author_name} para aceptar la oferta"
@@ -592,8 +602,13 @@ es:
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
+    booking_transaction_automatically_confirmed:
+      subject: ~
+      we_have_marked_request_as_confirmed: ~
+    automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
       give_feedback_to: ~
+      show_thread: ~
     escrow_canceled:
       subject: ~
       has_marked_request_as_canceled: ~
@@ -755,6 +770,16 @@ es:
       your_feedback_to_admins: "Envía tu sugerencia al administrador"
     send: Enviar
     your_email_address: "Tu dirección email"
+  errors:
+    messages:
+      invalid_date: ~
+      invalid_time: ~
+      invalid_datetime: ~
+      is_at: ~
+      before: ~
+      on_or_before: ~
+      after: ~
+      on_or_after: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} acordó en prestar %{listing_title} hacia %{requester_name} %{time_ago}."
@@ -1181,6 +1206,7 @@ es:
       price:
         price: precio
         per: por
+        per_day: ~
         mass: "unidad, kg, l, m2"
         time: "hora, día, semana, ..."
         long_time: "semana, mes, ..."
@@ -1266,6 +1292,9 @@ es:
       share_for_frees: "Compartir gratuitamente"
       accept_for_frees: "Aceptando gratis"
       trades: Trueques
+    listing_actions:
+      booking_from: ~
+      booking_to: ~
     new:
       post_a_new_listing: "Publica un nuevo listado"
       listing: listado
@@ -1313,6 +1342,9 @@ es:
       processing_uploaded_image: "(Procesando imagen...)"
       price_excludes_vat: ~
       listing_created_at: ~
+      price:
+        per_quantity_unit: ~
+        per_day: ~
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -1322,6 +1354,9 @@ es:
       payment: ~
       exp: ~
       you_will_be_charged: ~
+      day: ~
+      days: ~
+      price_per_day: ~
   mapview:
     index:
       all_categories: "Todas las categorías"
@@ -1653,9 +1688,6 @@ es:
   date:
     formats:
       long_with_abbr_day_name: ~
-    export_date_formats:
-      ruby_style_date: ~
-      js_style_date: ~
   datepicker:
     days:
       sunday: Domingo
@@ -1709,6 +1741,7 @@ es:
       december: Dic
     today: Hoy
     clear: ~
+    format: ~
   time:
     formats:
       short: "%e %b %Y al %H:%M"
@@ -1730,6 +1763,9 @@ es:
     days_since:
       one: "%{count} día"
       other: "%{count} días"
+  unit:
+    day: ~
+    days: ~
   will_paginate:
     previous_label: ~
     next_label: ~
