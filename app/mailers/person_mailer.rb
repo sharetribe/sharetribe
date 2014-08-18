@@ -147,6 +147,9 @@ class PersonMailer < ActionMailer::Base
     @email_type = "email_about_payment_reminders"
     set_up_urls(conversation.payment.payer, community, @email_type)
     @conversation = conversation
+
+    @pay_url = payment_url(conversation, recipient, @url_params)
+
     premailer_mail(:to => @recipient.confirmed_notification_emails_to,
          :from => community_specific_sender(community),
          :subject => t("emails.payment_reminder.remember_to_pay", :listing_title => @conversation.listing.title))
@@ -499,5 +502,15 @@ class PersonMailer < ActionMailer::Base
 
   def premailer_mail(opts, &block)
     premailer(mail(opts, &block))
+  end
+
+  # This is an ugly method. Ideas how to improve are very welcome.
+  # Depending on a class name prevents refactoring.
+  def payment_url(conversation, recipient, url_params)
+    if conversation.payment.is_a? BraintreePayment
+      edit_person_message_braintree_payment_url(url_params.merge({:id => conversation.payment.id, :person_id => recipient.id.to_s, :message_id => conversation.id}))
+    else
+      new_person_message_payment_url(recipient, url_params.merge({:message_id => conversation.id}))
+    end
   end
 end
