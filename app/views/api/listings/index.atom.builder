@@ -31,11 +31,6 @@ atom_feed :language => 'en-US', 'xmlns:georss' => 'http://www.georss.org/georss'
 
 
       entry.st :share_type, :term => listing.transaction_type.id, :label => localized_transaction_type_label(listing.transaction_type).capitalize if listing.transaction_type
-      entry.st :tags do |tags|
-        listing.tags.each do |tag|
-          tags.st :tag, tag.name
-        end
-      end
 
       entry.author do |author|
         author.name listing.author.name_or_username

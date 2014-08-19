@@ -10,8 +10,6 @@ class Listing < ActiveRecord::Base
 
   belongs_to :author, :class_name => "Person", :foreign_key => "author_id"
 
-  acts_as_taggable_on :tags
-
   has_many :listing_images, :dependent => :destroy
 
   has_many :conversations
@@ -52,7 +50,7 @@ class Listing < ActiveRecord::Base
   VALID_PRIVACY_OPTIONS = ["private", "public"]
 
   before_validation :set_valid_until_time
-  before_save :downcase_tags, :set_community_visibilities
+  before_save :set_community_visibilities
 
   validates_presence_of :author_id
   validates_length_of :title, :in => 2..60, :allow_nil => false
@@ -129,10 +127,6 @@ class Listing < ActiveRecord::Base
       listings.privacy = 'private'
       AND listings.id IN (SELECT listing_id FROM communities_listings WHERE community_id = '#{community.id}')
     ")
-  end
-
-  def downcase_tags
-    tag_list.each { |t| t.downcase! }
   end
 
   # sets the time to midnight

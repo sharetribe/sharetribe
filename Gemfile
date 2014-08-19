@@ -30,7 +30,6 @@ gem "mysql2"
 gem 'haml'
 gem 'sass', "  ~> 3.2.9"
 gem 'rest-client', '>= 1.6.0'
-gem 'acts-as-taggable-on'
 gem 'paperclip'
 gem 'delayed_paperclip'
 gem 'aws-sdk'
