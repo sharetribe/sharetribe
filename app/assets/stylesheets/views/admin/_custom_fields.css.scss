@@ -24,12 +24,14 @@ $custom-field-option-height: lines(1.5); // Used to center label text vertically
   min-width: lines(9.5);
 }
 
-.custom-field-category-checkbox {
+.custom-field-category-checkbox,
+.checkbox-row-checkbox {
   display: inline-block;
   width: auto;
 }
 
-.custom-field-category-checkbox-label {
+.custom-field-category-checkbox-label,
+.checkbox-row-label {
   display: inline-block;
   width: auto;
   font-weight: normal;

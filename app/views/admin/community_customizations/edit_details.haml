@@ -34,8 +34,19 @@
         = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_details.edit_community_search_placeholder_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/")).html_safe }
         = form.text_field :search_placeholder, class:"text_field"
 
+
+    .row
+      .col-12
+        = form.label :transaction_agreement, t("admin.communities.edit_details.transaction_agreement"), class:"input"
+        = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_details.transaction_agreement_checkbox_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/")).html_safe }
+        = form.check_box :transaction_agreement_checkbox, class: "checkbox-row-checkbox"
+        = form.label :transaction_agreement_checkbox, t("admin.communities.edit_details.transaction_agreement_checkbox"), class:"checkbox-row-label"
+    = render partial: "locale_input_fields", locals: transaction_agreement_label_locals
+    = render partial: "locale_input_textarea", locals: transaction_agreement_text_locals
+
     .row
       .col-12
         = form.button t("admin.communities.edit_details.save")
+
 
 = render :partial => "people/help_texts", :collection => ["invite_only_help_text"], :as => :field

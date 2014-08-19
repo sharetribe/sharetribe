@@ -7,6 +7,10 @@ class Admin::CommunityCustomizationsController < ApplicationController
     @selected_left_navi_link = "tribe_details"
     # @community_customization is fetched in application_controller
     @community_customization ||= create_customization_with_defaults
+
+    #FIXME
+    @community_customization[:transaction_agreement_checkbox] = "blaablaa"
+    @community_customization
   end
 
   def update_details

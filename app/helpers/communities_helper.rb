@@ -16,4 +16,21 @@ module CommunitiesHelper
     @current_user.emails.select{|e| e.confirmed_at.present?}.include?(session[:email])
   end
 
+
+  def transaction_agreement_label_locals
+    {
+      available_locales: available_locales,
+      input_name: 'input_name',
+      input_value: I18n.t("admin.communities.edit_details.transaction_agreement_label_placeholder")
+    }
+  end
+
+  def transaction_agreement_text_locals
+    {
+      available_locales: available_locales,
+      input_name: 'input_name',
+      input_value: I18n.t("admin.communities.edit_details.transaction_agreement_text_placeholder")
+    }
+  end
+
 end

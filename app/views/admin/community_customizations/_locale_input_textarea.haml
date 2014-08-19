@@ -1,0 +1,9 @@
+- # locals:  available_locales, input_name, input_value, input_classes, input_label_classes
+= render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_details.transaction_agreement_tos_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/")).html_safe }
+- available_locales.each do |locale_name, locale_value|
+  .row
+    - if available_locales.size > 1
+      .name-locale-label.col-2
+        = label_tag input_name, locale_name + ": "
+    .name-locale-textarea.col-10
+      = text_area_tag input_name
