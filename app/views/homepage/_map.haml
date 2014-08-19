@@ -1,6 +1,5 @@
 - content_for :extra_javascript do
   = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
-  =# javascript_include_tag "https://code.google.com/apis/gears/gears_init.js"
   = javascript_include_tag 'markerclusterer.js'
 
 - community_location_lat = @current_community.location ? @current_community.location.latitude : nil
@@ -8,13 +7,15 @@
 
 - content_for :extra_javascript do
   :javascript
-    $(document).ready(function() {SetFiltersForMap("#{@filter_params['transaction_type']}",
-                                                        "#{@filter_params['category']}",
-                                                        "#{@filter_params['search']}",
-                                                        "#{@filter_params['custom_dropdown_field_options']}"
-                                                        );
-                                                        initialize_listing_map("#{community_location_lat}",
-                                                        "#{community_location_lon}", "#{I18n.locale}",
-                                                        "#{@current_community.use_community_location_as_default}"); });
+    initialize_labels();
+
+    $(document).ready(function() {
+      initialize_listing_map(
+        #{@listings.to_json},
+        "#{community_location_lat}",
+        "#{community_location_lon}",
+        "#{I18n.locale}",
+        "#{@current_community.use_community_location_as_default}");
+      });
 
 #map-canvas.map

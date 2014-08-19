@@ -459,7 +459,7 @@ function addCommunityMarkers() {
   });
 }
 
-function initialize_listing_map(community_location_lat, community_location_lon, locale_to_use, use_community_location_as_default) {
+function initialize_listing_map(listings, community_location_lat, community_location_lon, locale_to_use, use_community_location_as_default) {
   locale = locale_to_use;
   // infowindow = new google.maps.InfoWindow();
   infowindow = new InfoBubble({
@@ -491,7 +491,7 @@ function initialize_listing_map(community_location_lat, community_location_lon, 
   };
   map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
   var prefer_param_loc = (use_community_location_as_default === 'true');
-  addListingMarkers(community_location_lat, community_location_lon, prefer_param_loc);
+  addListingMarkers(listings, community_location_lat, community_location_lon, prefer_param_loc);
 }
 
 function setMapCenter(communityLat, communityLng, preferCommunityLocation) {
@@ -519,83 +519,77 @@ function setMapCenter(communityLat, communityLng, preferCommunityLocation) {
   }
 }
 
-function addListingMarkers(community_location_lat, community_location_lon, prefer_param_loc) {
+function addListingMarkers(listings, community_location_lat, community_location_lon, prefer_param_loc) {
   // Test requesting location data
   // Now the request_path needs to also have a query string with the wanted parameters
 
   markerContents = [];
   markers = [];
 
-  var starttime = new Date().getTime();
-  var request_path = '/listings/locations_json'
-  $.get(request_path, { transaction_type: transaction_type, 'category[]': listing_category, search: listing_search, custom_dropdown_field_options: listingCustomDropdownFieldOptions}, function(data) {
+  for (i in listings) {
+    (function() {
+      var entry = listings[i];
+      if (entry["latitude"]) {
 
-    var data_arr = data.data;
-    for (i in data_arr) {
-      (function() {
-        var entry = data_arr[i];
-        if (entry["latitude"]) {
+        var location;
+        location = new google.maps.LatLng(entry["latitude"], entry["longitude"]);
 
-          var location;
-          location = new google.maps.LatLng(entry["latitude"], entry["longitude"]);
+        var marker = new google.maps.Marker({
+          position: location,
+          title: entry["title"]
+        });
 
-          var marker = new google.maps.Marker({
-            position: location,
-            title: entry["title"]
-          });
+        // Marker icon based on category
+        var label = new Label({
+                       map: map
+                  });
+                  label.set('zIndex', 1234);
+                  label.bindTo('position', marker, 'position');
+                  label.set('text', "");
+                  label.set('color', "#FFF");
+        marker.set("label", label);
+        markers.push(marker);
+        markerContents.push(entry["id"]);
+        markersArr.push(marker);
+        var ind = i;
 
-          // Marker icon based on category
-          var label = new Label({
-                         map: map
-                    });
-                    label.set('zIndex', 1234);
-                    label.bindTo('position', marker, 'position');
-                    label.set('text', "");
-                    label.set('color', "#FFF");
-          marker.set("label", label);
-          markers.push(marker);
-          markerContents.push(entry["id"]);
-          markersArr.push(marker);
-          var ind = i;
+        google.maps.event.addListener(map, 'mousedown', function() {
+          infowindow.close();
+          showingMarker = "";
+        });
 
-          google.maps.event.addListener(map, 'mousedown', function() {
-            infowindow.close();
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.close();
+          directionsDisplay.setMap(null);
+          flagMarker.setOptions({map:null});
+          if (showingMarker==marker.getTitle()) {
             showingMarker = "";
-          });
+          } else {
+            showingMarker = marker.getTitle();
+            infowindow.setContent("<div id='map_bubble'><img class='bubble-loader-gif' src='https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif'></div>");
+            infowindow.setMaxHeight(150);
+            infowindow.setMinHeight(150);
+            infowindow.open(map,marker);
+            $.get('/' + locale + '/listing_bubble/' + entry["id"], function(data) {
+              $('#map_bubble').html(data);
+            });
+          }
+        });
+      }
+    })();
+  }
 
-          google.maps.event.addListener(marker, 'click', function() {
-            infowindow.close();
-            directionsDisplay.setMap(null);
-            flagMarker.setOptions({map:null});
-            if (showingMarker==marker.getTitle()) {
-              showingMarker = "";
-            } else {
-              showingMarker = marker.getTitle();
-              infowindow.setContent("<div id='map_bubble'><img class='bubble-loader-gif' src='https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif'></div>");
-              infowindow.setMaxHeight(150);
-              infowindow.setMinHeight(150);
-              infowindow.open(map,marker);
-              $.get('/' + locale + '/listing_bubble/' + entry["id"], function(data) {
-                $('#map_bubble').html(data);
-              });
-            }
-          });
-        }
-      })();
-    }
+  var latitudes = _(listings).pluck("latitude").filter().map(Number).value();
+  var longitudes = _(listings).pluck("longitude").filter().map(Number).value();
 
-    var latitudes = _(data_arr).pluck("latitude").filter().map(Number).value();
-    var longitudes = _(data_arr).pluck("longitude").filter().map(Number).value();
+  if(latitudes.length && longitudes.length) {
+    map.fitBounds(new google.maps.LatLngBounds(
+      new google.maps.LatLng(_.min(latitudes), _.min(longitudes)),
+      new google.maps.LatLng(_.max(latitudes), _.max(longitudes))
+    ));
+  }
 
-    if(latitudes.length && longitudes.length) {
-      map.fitBounds(new google.maps.LatLngBounds(
-        new google.maps.LatLng(_.min(latitudes), _.min(longitudes)),
-        new google.maps.LatLng(_.max(latitudes), _.max(longitudes))
-      ));
-    }
-
-    markerCluster = new MarkerClusterer(map, markers, markerContents, infowindow, showingMarker, locale, {});
-  });
+  markerCluster = new MarkerClusterer(map, markers, markerContents, infowindow, showingMarker, locale, {});
 }
 
 function clearMarkers() {
@@ -617,12 +611,4 @@ function clearMarkers() {
             markers[n].setMap(null);
         }
     }
-}
-
-function SetFiltersForMap(type, category, search, custom_dropdown_field_options) {
-  if (type)                 { transaction_type = type;               } else { transaction_type = "all";}
-  if (category)             { listing_category = [category];     } else { listing_category = ["all"];}
-  if (search)               { listing_search = search            } else { listing_search = "";}
-  if (custom_dropdown_field_options) { listingCustomDropdownFieldOptions = custom_dropdown_field_options} else { listingCustomDropdownFieldOptions = [];}
-  initialize_labels();
 }
