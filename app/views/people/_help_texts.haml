@@ -1,9 +1,7 @@
-.lightbox{:id => field}
-  .lightbox-content
-    - unless field.eql?("terms")
-      %h2
-        .hidden_title
-          = t(".#{field}_title")
-    %a{:href => "#", :class => "close lightbox-x", :id => "close_x"}
-      .ss-delete
-    = render :partial => "people/help_texts/#{field}"
+= render :layout => "layouts/lightbox", locals: {id: field, field: field} do
+  - unless field.eql?("terms")
+    %h2
+      .hidden_title
+        = t("people.help_texts.#{field}_title")
+
+  = render :partial => "people/help_texts/#{field}"
