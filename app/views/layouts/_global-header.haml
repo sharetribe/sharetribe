@@ -8,7 +8,7 @@
       #header-menu-desktop-anchor.header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu', 'toggle-position' => 'absolute'}}
 
     - Maybe(@current_user).each do |user|
-      - cache [user.conversations.count, user.conversations.maximum(:updated_at)] do
+      - cache [user.id, user.conversations.count, user.conversations.maximum(:updated_at)] do
         - unread_count = @current_community.conversations.notification_count_for_person(user)
 
         .header-right
