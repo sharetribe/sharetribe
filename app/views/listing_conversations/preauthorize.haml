@@ -101,14 +101,18 @@
             = message_form.text_area :content, :class => "text_area"
             = message_form.hidden_field :sender_id, :value => @current_user.id
 
-      .row
-        .col-12
-          .checkbox-container
-            = form.check_box :contract_agreed, class: "required"
-            %label
-              = link_to do
-                = Maybe(@community_customization).contract_agreement_label.or_else do
-                  = t(".agree_contract")
+      - if @current_community.transaction_agreement_in_use
+        .row
+          .col-12
+            .checkbox-container
+              = form.check_box :contract_agreed, class: "required"
+              %label
+                = link_to "#", id: "transaction-agreement-read-more" do
+                  = Maybe(@community_customization).transaction_agreement_label.or_else do
+                    = t(".agree_contract")
+
+        = render :partial => "agreement_lightbox", locals: { content: @community_customization.transaction_agreement_content }
+
       .row
         .col-12
           = form.button t("braintree_payments.edit.confirm_payment"), :class => "send_button"

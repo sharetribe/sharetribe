@@ -1327,6 +1327,8 @@ function initialize_new_community_membership_form(email_invalid_message, invitat
 function initialize_braintree_payment_form(locale, beforeSubmit) {
   var form_id = "#braintree-payment-form";
 
+  $('#transaction-agreement-read-more').click(function() { $('#transaction-agreement-content').lightbox_me({centered: true, zIndex: 1000000}); });
+
   $(form_id).validate({
     rules: {
       "braintree_payment[cardholder_name]": {required: true, minlength: 2, maxlength: 50},
