@@ -8,54 +8,55 @@
       #header-menu-desktop-anchor.header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu', 'toggle-position' => 'absolute'}}
 
     - Maybe(@current_user).each do |user|
-      - unread_count = @current_community.conversations.notification_count_for_person(user)
+      - cache [user.conversations.count, user.conversations.maximum(:updated_at)] do
+        - unread_count = @current_community.conversations.notification_count_for_person(user)
 
-      .header-right
-        #header-user-desktop-anchor.header-user-toggle.header-hover.toggle{data: {toggle: '#header-user-toggle-menu', 'toggle-anchor-position' => 'left', 'toggle-position' => 'absolute'}}
-        .header-user-toggle.header-hover.toggle{data: {toggle: '#header-user-toggle-menu', 'toggle-anchor-position' => 'right', 'toggle-position' => 'absolute'}}
-          #header-user-mobile-anchor
-            .left
-              = image_tag user.image.url(:thumb), alt: '', class: 'header-user-avatar'
-            .left
-              %span.header-text-link
-                %span#header-user-display-name.visible-tablet-inline
-                  = user.name(@current_community)
-                = icon_tag("dropdown", ["icon-dropdown"])
+        .header-right
+          #header-user-desktop-anchor.header-user-toggle.header-hover.toggle{data: {toggle: '#header-user-toggle-menu', 'toggle-anchor-position' => 'left', 'toggle-position' => 'absolute'}}
+          .header-user-toggle.header-hover.toggle{data: {toggle: '#header-user-toggle-menu', 'toggle-anchor-position' => 'right', 'toggle-position' => 'absolute'}}
+            #header-user-mobile-anchor
+              .left
+                = image_tag user.image.url(:thumb), alt: '', class: 'header-user-avatar'
+              .left
+                %span.header-text-link
+                  %span#header-user-display-name.visible-tablet-inline
+                    = user.name(@current_community)
+                  = icon_tag("dropdown", ["icon-dropdown"])
 
-        = render :partial => "layouts/header_user_menu", locals: {unread_count: unread_count, user: user}
+          = render :partial => "layouts/header_user_menu", locals: {unread_count: unread_count, user: user}
 
-      .header-right.visible-tablet
-        = link_to received_person_messages_path(user), title: t("layouts.conversations.messages"), :id => "inbox-link", :class => "header-text-link header-hover header-inbox-link" do
-          = icon_tag("mail", ["header-inbox"])
-          - if unread_count > 0
-            .badge{:class => get_badge_class(unread_count)}
-              = unread_count
+        .header-right.visible-tablet
+          = link_to received_person_messages_path(user), title: t("layouts.conversations.messages"), :id => "inbox-link", :class => "header-text-link header-hover header-inbox-link" do
+            = icon_tag("mail", ["header-inbox"])
+            - if unread_count > 0
+              .badge{:class => get_badge_class(unread_count)}
+                = unread_count
 
-    - with_available_locales do |locales|
-      .header-right.visible-desktop
-        #header-locales-menu.toggle.header-hover{data: {toggle: '#header-locales-toggle-menu', 'toggle-position' => 'absolute'}}
-          %span.header-text-link
-            = get_full_locale_name(I18n.locale).to_s
-            = icon_tag("dropdown", ["icon-dropdown"])
-        #header-locales-toggle-menu.toggle-menu.header-toggle-menu-language.hidden
-          = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array
+      - with_available_locales do |locales|
+        .header-right.visible-desktop
+          #header-locales-menu.toggle.header-hover{data: {toggle: '#header-locales-toggle-menu', 'toggle-position' => 'absolute'}}
+            %span.header-text-link
+              = get_full_locale_name(I18n.locale).to_s
+              = icon_tag("dropdown", ["icon-dropdown"])
+          #header-locales-toggle-menu.toggle-menu.header-toggle-menu-language.hidden
+            = render :partial => "layouts/locale_select", :collection => locales, :as => :loc_array
 
-    - unless @current_user
-      .header-right.visible-tablet
-        = link_to sign_up_path, class: "header-text-link header-hover" do
-          = t("header.signup")
-      .header-right
-        = link_to login_path, class: "header-text-link header-hover", id: "header-login-link" do
-          = t("header.login")
+      - unless @current_user
+        .header-right.visible-tablet
+          = link_to sign_up_path, class: "header-text-link header-hover" do
+            = t("header.signup")
+        .header-right
+          = link_to login_path, class: "header-text-link header-hover", id: "header-login-link" do
+            = t("header.login")
 
-    .header-left.hidden-tablet
-      .header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu', 'toggle-position' => 'absolute'}}
-        #header-menu-mobile-anchor.header-menu-toggle-container.toggle-header-container
-          = icon_tag("rows", ["header-menu-icon"])
-          %span.visible-tablet-inline
-            = t("header.menu")
+      .header-left.hidden-tablet
+        .header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu', 'toggle-position' => 'absolute'}}
+          #header-menu-mobile-anchor.header-menu-toggle-container.toggle-header-container
+            = icon_tag("rows", ["header-menu-icon"])
+            %span.visible-tablet-inline
+              = t("header.menu")
 
-    = render :partial => "layouts/header_menu"
+      = render :partial => "layouts/header_menu"
 
     -#
       If necessary, the buttons will overlap with the logo. Buttons should be on top, that's
