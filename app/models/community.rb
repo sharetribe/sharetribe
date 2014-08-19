@@ -8,7 +8,6 @@ class Community < ActiveRecord::Base
   has_many :members, :through => :community_memberships, :conditions => ['community_memberships.status = ?', 'accepted'], :source => :person
   has_many :admins, :through => :community_memberships, :conditions => ['community_memberships.admin = ?', true], :source => :person
   has_many :invitations, :dependent => :destroy
-  has_many :event_feed_events, :dependent => :destroy
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy
   has_many :menu_links, :dependent => :destroy, :order => "sort_priority"

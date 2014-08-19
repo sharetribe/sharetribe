@@ -40,8 +40,6 @@ GEM
     activesupport (3.2.19)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
-    acts-as-taggable-on (2.3.3)
-      rails (~> 3.0)
     addressable (2.3.5)
     airbrake (3.1.14)
       builder
@@ -483,7 +481,6 @@ PLATFORMS
 
 DEPENDENCIES
   action_mailer_cache_delivery
-  acts-as-taggable-on
   airbrake (~> 3.1.12)
   asset_sync
   aws-sdk

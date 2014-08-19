@@ -14,7 +14,6 @@ class CommentCreatedJob < Struct.new(:comment_id, :community_id)
     comment = Comment.find(comment_id)
     community = Community.find(community_id)
     comment.send_notifications(community)
-    EventFeedEvent.create(:person1_id => comment.author.id, :eventable_id => comment_id, :eventable_type => "Comment", :community_id => community_id, :category => "comment", :members_only => !comment.listing.public?)
   end
 
 end

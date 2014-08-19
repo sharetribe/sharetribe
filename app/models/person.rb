@@ -55,11 +55,6 @@ class Person < ActiveRecord::Base
   has_many :community_memberships, :dependent => :destroy
   has_many :communities, :through => :community_memberships, :conditions => ['status = ?', 'accepted']
   has_many :invitations, :foreign_key => "inviter_id", :dependent => :destroy
-  has_many :devices, :dependent => :destroy
-  #event where this person did something
-  has_many :done_event_feed_events, :class_name => "EventFeedEvent", :foreign_key => "person1_id", :dependent => :destroy
-  # events where this person was the target of the action
-  has_many :targeted_event_feed_events, :class_name => "EventFeedEvent", :foreign_key => "person2_id", :dependent => :destroy
   has_many :auth_tokens, :dependent => :destroy
   has_many :follower_relationships
   has_many :followers, :through => :follower_relationships, :foreign_key => "person_id"
@@ -583,9 +578,6 @@ class Person < ActiveRecord::Base
       source_person.community_memberships.each  { |asset| asset.person = self ; asset.save(:validate => false)}
       source_person.invitations.each { |asset| asset.inviter = self ; asset.save(:validate => false) }
       source_person.invitations.each { |asset| asset.inviter = self ; asset.save(:validate => false) }
-      source_person.devices.each { |asset| asset.person = self ; asset.save(:validate => false) }
-      source_person.done_event_feed_events.each { |asset| asset.person1 = self ; asset.save(:validate => false) }
-      source_person.targeted_event_feed_events.each { |asset| asset.person2 = self ; asset.save(:validate => false) }
       source_person.followed_listings.each { |asset| self.followed_listings << asset}
       Feedback.find_all_by_author_id(source_person.id).each { |asset| asset.author = self ; asset.save(:validate => false) }
 

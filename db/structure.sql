@@ -373,16 +373,6 @@ CREATE TABLE `delayed_jobs` (
   KEY `delayed_jobs_priority` (`priority`,`run_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `devices` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `person_id` varchar(255) DEFAULT NULL,
-  `device_type` varchar(255) DEFAULT NULL,
-  `device_token` varchar(255) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 CREATE TABLE `emails` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `person_id` varchar(255) DEFAULT NULL,
@@ -396,21 +386,6 @@ CREATE TABLE `emails` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_emails_on_address` (`address`),
   KEY `index_emails_on_person_id` (`person_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `event_feed_events` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `person1_id` varchar(255) DEFAULT NULL,
-  `person2_id` varchar(255) DEFAULT NULL,
-  `community_id` varchar(255) DEFAULT NULL,
-  `eventable_id` int(11) DEFAULT NULL,
-  `eventable_type` varchar(255) DEFAULT NULL,
-  `category` varchar(255) DEFAULT NULL,
-  `members_only` tinyint(1) DEFAULT '0',
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `index_event_feed_events_on_community_id` (`community_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `feedbacks` (
@@ -438,28 +413,6 @@ CREATE TABLE `follower_relationships` (
   KEY `index_follower_relationships_on_follower_id` (`follower_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `groups` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `groups_favors` (
-  `group_id` varchar(255) DEFAULT NULL,
-  `favor_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `groups_items` (
-  `group_id` varchar(255) DEFAULT NULL,
-  `item_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `groups_listings` (
-  `group_id` varchar(255) DEFAULT NULL,
-  `listing_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 CREATE TABLE `invitations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `code` varchar(255) DEFAULT NULL,
@@ -475,16 +428,6 @@ CREATE TABLE `invitations` (
   PRIMARY KEY (`id`),
   KEY `index_invitations_on_code` (`code`),
   KEY `index_invitations_on_inviter_id` (`inviter_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `item_reservations` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `item_id` int(11) DEFAULT NULL,
-  `reservation_id` int(11) DEFAULT NULL,
-  `amount` int(11) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `listing_followers` (
@@ -611,33 +554,6 @@ CREATE TABLE `messages` (
   `action` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_messages_on_conversation_id` (`conversation_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `organization_memberships` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `person_id` varchar(255) DEFAULT NULL,
-  `organization_id` int(11) DEFAULT NULL,
-  `admin` tinyint(1) DEFAULT '0',
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `index_organization_memberships_on_person_id` (`person_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `organizations` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `company_id` varchar(255) DEFAULT NULL,
-  `merchant_id` varchar(255) DEFAULT NULL,
-  `merchant_key` varchar(255) DEFAULT NULL,
-  `allowed_emails` varchar(255) DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  `logo_file_name` varchar(255) DEFAULT NULL,
-  `logo_content_type` varchar(255) DEFAULT NULL,
-  `logo_file_size` int(11) DEFAULT NULL,
-  `logo_updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `participations` (
@@ -820,26 +736,6 @@ CREATE TABLE `statistics` (
   `wau_weekly_growth` float DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_statistics_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `taggings` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tag_id` int(11) DEFAULT NULL,
-  `taggable_id` int(11) DEFAULT NULL,
-  `taggable_type` varchar(255) DEFAULT NULL,
-  `tagger_id` int(11) DEFAULT NULL,
-  `tagger_type` varchar(255) DEFAULT NULL,
-  `context` varchar(255) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `index_taggings_on_tag_id` (`tag_id`),
-  KEY `index_taggings_on_taggable_id_and_taggable_type_and_context` (`taggable_id`,`taggable_type`,`context`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `tags` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `testimonials` (
@@ -1847,3 +1743,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140812065415');
 INSERT INTO schema_migrations (version) VALUES ('20140815055023');
 
 INSERT INTO schema_migrations (version) VALUES ('20140815085018');
+
+INSERT INTO schema_migrations (version) VALUES ('20140819054528');
