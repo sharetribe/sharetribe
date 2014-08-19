@@ -50,7 +50,7 @@ module CommunitiesHelper
   end
 
   def transaction_agreement_label_locals
-    //FIXME
+    #FIXME
     translations = {en: {language: "English", translation: ""}, fi: {language: "Suomi", translation: ""}}#find_community_customizations(:agreement_label)
     {
       header: "",
@@ -61,7 +61,7 @@ module CommunitiesHelper
   end
 
   def transaction_agreement_text_locals
-    //FIXME
+    #FIXME
     translations = {en: {language: "English", translation: ""}, fi: {language: "Suomi", translation: ""}}#find_community_customizations(:agreement_content)
     {
       info_text: t("admin.communities.edit_details.transaction_agreement_tos_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/")),
