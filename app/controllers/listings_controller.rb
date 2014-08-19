@@ -46,17 +46,6 @@ class ListingsController < ApplicationController
     redirect_to root
   end
 
-  # method for serving Listing data (with locations) as JSON through AJAX-requests.
-  def locations_json
-    params[:include] = :origin_loc
-    params.delete("controller")
-    params.delete("action")
-    params["custom_dropdown_field_options"] = JSON.parse(params["custom_dropdown_field_options"]) if params["custom_dropdown_field_options"].present?
-    # Limit the amount of listings to get to 500 newest to avoid slowing down the map too much.
-    @listings = Listing.find_with(params, @current_user, @current_community, 500)
-    render :json => { :data => @listings }
-  end
-
   def listing_bubble
     if params[:id]
       @listing = Listing.find(params[:id])

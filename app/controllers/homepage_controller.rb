@@ -21,8 +21,6 @@ class HomepageController < ApplicationController
 
     @view_type = HomepageController.selected_view_type(params[:view], @current_community.default_browse_view, APP_DEFAULT_VIEW_TYPE, VIEW_TYPES)
 
-    listings_per_page = 24
-
     @categories = @current_community.categories
     @main_categories = @current_community.main_categories
     @transaction_types = @current_community.transaction_types
@@ -34,64 +32,13 @@ class HomepageController < ApplicationController
     @show_custom_fields = @current_community.custom_fields.size > 0
     @category_menu_enabled = @show_categories || @show_custom_fields
 
-    # :share_type was renamed to :transaction_type
-    # Support both URLs for a while
-    # This can be removeds soon (June 2014)
-    params[:transaction_type] ||= params[:share_type]
-
-    @filter_params = {}
-
-    Maybe(@current_community.categories.find_by_url_or_id(params[:category])).each do |category|
-      @filter_params[:category] = category.id
-      @selected_category = category
-    end
-
-    Maybe(@current_community.transaction_types.find_by_url_or_id(params[:transaction_type])).each do |transaction_type|
-      @filter_params[:transaction_type] = transaction_type.id
-      @selected_transaction_type = transaction_type
-    end
-
-    @listing_count = @current_community.listings.currently_open.count
-    unless @current_user
-      @private_listing_count = Listing.currently_open.private_to_community(@current_community).count
-    end
-
-    @filter_params[:search] = params[:q] if params[:q]
-    @filter_params[:include] = [:listing_images, :author, :category, :transaction_type]
-    @filter_params[:custom_dropdown_field_options] = HomepageController.dropdown_field_options_for_search(params)
-    @filter_params[:custom_checkbox_field_options] = HomepageController.checkbox_field_options_for_search(params)
-
-    @filter_params[:price_cents] = if (params[:price_min] && params[:price_max])
-      min = params[:price_min].to_i * 100
-      max = params[:price_max].to_i * 100
-
-      # Search only if range is not from min boundary to max boundary
-      if min != @current_community.price_filter_min || max != @current_community.price_filter_max
-        @filter_params[:price_cents] = (min..max)
-      end
-    end
-
-    p = HomepageController.numeric_filter_params(params)
-    p = HomepageController.parse_numeric_filter_params(p)
-    p = HomepageController.group_to_ranges(p)
-    numeric_search_params = HomepageController.filter_unnecessary(p, @current_community.custom_numeric_fields)
-
-    numeric_search_needed = !numeric_search_params.empty?
-
-    @filter_params[:listing_id] = if numeric_search_needed
-      NumericFieldValue.search_many(numeric_search_params).collect(&:listing_id)
-    end
-
-    @listings = if numeric_search_needed && @filter_params[:listing_id].empty?
-      Listing.none.paginate(:per_page => listings_per_page, :page => params[:page])
-    else
-      Listing.find_with(@filter_params, @current_user, @current_community, listings_per_page, params[:page])
-    end
-
     @app_store_badge_filename = "/assets/Available_on_the_App_Store_Badge_en_135x40.svg"
     if File.exists?("app/assets/images/Available_on_the_App_Store_Badge_#{I18n.locale}_135x40.svg")
        @app_store_badge_filename = "/assets/Available_on_the_App_Store_Badge_#{I18n.locale}_135x40.svg"
     end
+
+    listings_per_page = 24
+    @listings = find_listings(params, listings_per_page)
 
     if request.xhr? # checks if AJAX request
       if @view_type == "grid" then
@@ -113,6 +60,62 @@ class HomepageController < ApplicationController
   end
 
   private
+
+  def find_listings(params, listings_per_page)
+    # :share_type was renamed to :transaction_type
+    # Support both URLs for a while
+    # This can be removeds soon (June 2014)
+    params[:transaction_type] ||= params[:share_type]
+
+    filter_params = {}
+
+    Maybe(@current_community.categories.find_by_url_or_id(params[:category])).each do |category|
+      filter_params[:category] = category.id
+      @selected_category = category
+    end
+
+    Maybe(@current_community.transaction_types.find_by_url_or_id(params[:transaction_type])).each do |transaction_type|
+      filter_params[:transaction_type] = transaction_type.id
+      @selected_transaction_type = transaction_type
+    end
+
+    @listing_count = @current_community.listings.currently_open.count
+    unless @current_user
+      @private_listing_count = Listing.currently_open.private_to_community(@current_community).count
+    end
+
+    filter_params[:search] = params[:q] if params[:q]
+    filter_params[:include] = [:listing_images, :author, :category, :transaction_type]
+    filter_params[:custom_dropdown_field_options] = HomepageController.dropdown_field_options_for_search(params)
+    filter_params[:custom_checkbox_field_options] = HomepageController.checkbox_field_options_for_search(params)
+
+    filter_params[:price_cents] = if (params[:price_min] && params[:price_max])
+      min = params[:price_min].to_i * 100
+      max = params[:price_max].to_i * 100
+
+      # Search only if range is not from min boundary to max boundary
+      if min != @current_community.price_filter_min || max != @current_community.price_filter_max
+        filter_params[:price_cents] = (min..max)
+      end
+    end
+
+    p = HomepageController.numeric_filter_params(params)
+    p = HomepageController.parse_numeric_filter_params(p)
+    p = HomepageController.group_to_ranges(p)
+    numeric_search_params = HomepageController.filter_unnecessary(p, @current_community.custom_numeric_fields)
+
+    numeric_search_needed = !numeric_search_params.empty?
+
+    filter_params[:listing_id] = if numeric_search_needed
+      NumericFieldValue.search_many(numeric_search_params).collect(&:listing_id)
+    end
+
+    if numeric_search_needed && filter_params[:listing_id].empty?
+      Listing.none.paginate(:per_page => listings_per_page, :page => params[:page])
+    else
+      Listing.find_with(filter_params, @current_user, @current_community, listings_per_page, params[:page])
+    end
+  end
 
   # Return all params starting with `numeric_filter_`
   def self.numeric_filter_params(all_params)
