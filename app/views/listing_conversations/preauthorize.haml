@@ -102,16 +102,7 @@
             = message_form.hidden_field :sender_id, :value => @current_user.id
 
       - if @current_community.transaction_agreement_in_use
-        .row
-          .col-12
-            .checkbox-container
-              = form.check_box :contract_agreed, class: "required"
-              %label
-                = link_to "#", id: "transaction-agreement-read-more" do
-                  = Maybe(@community_customization).transaction_agreement_label.or_else do
-                    = t(".agree_contract")
-
-        = render :partial => "agreement_lightbox", locals: { content: @community_customization.transaction_agreement_content }
+        = render :partial => "transaction_agreement_checkbox", locals: { form: form }
 
       .row
         .col-12
