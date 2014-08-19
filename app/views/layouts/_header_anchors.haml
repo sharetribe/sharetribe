@@ -1,0 +1,10 @@
+#header-user-desktop-anchor.header-user-toggle.header-hover.toggle{data: {toggle: '#header-user-toggle-menu', 'toggle-anchor-position' => 'left', 'toggle-position' => 'absolute'}}
+  .header-user-toggle.header-hover.toggle{data: {toggle: '#header-user-toggle-menu', 'toggle-anchor-position' => 'right', 'toggle-position' => 'absolute'}}
+    #header-user-mobile-anchor
+      .left
+        = image_tag user.image.url(:thumb), alt: '', class: 'header-user-avatar'
+      .left
+        %span.header-text-link
+          %span#header-user-display-name.visible-tablet-inline
+            = user.name(@current_community)
+          = icon_tag("dropdown", ["icon-dropdown"])
