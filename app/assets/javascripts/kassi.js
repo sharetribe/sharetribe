@@ -1334,6 +1334,13 @@ function initialize_braintree_payment_form(locale, beforeSubmit) {
       "braintree_payment[cvv]": {required: true, digits: true, minlength: 3, maxlength: 4},
       "braintree_payment[credit_card_expiration_date]": {required: true, minlength: 5}
     },
+    errorPlacement: function(error, element) {
+      if (element.attr("name") == "listing_conversation[contract_agreed]") {
+        error.appendTo(element.parent().parent());
+      } else {
+        error.insertAfter(element);
+      }
+    },
     submitHandler: function(form) {
       beforeSubmit = beforeSubmit || function(callback) { callback() };
       beforeSubmit(function() {

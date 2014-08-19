@@ -19,4 +19,9 @@ class CommunityCustomization < ActiveRecord::Base
 
   belongs_to :community
 
+  def contract_agreement_label
+    # Move me to database!
+    "I agree to this agreement"
+  end
+
 end
