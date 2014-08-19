@@ -6,11 +6,15 @@ class Conversation < ActiveRecord::Base
   has_many :participants, :through => :participations, :source => :person
   belongs_to :community
 
-  def self.unread_count(person_id)
-    user = Person.find_by_id(person_id)
-    new_value = user.participations.select do |particiation|
-      !particiation.is_read || particiation.conversation.should_notify?(user)
-    end.count
+  scope :for_person, -> (person){
+    joins(:participations)
+    .where( { participations: { person_id: person }} )
+  }
+
+  def self.notification_count_for_person(person)
+      for_person(person).includes(:participations).select do |conversation|
+        conversation.should_notify?(person)
+      end.count
   end
 
   # Creates a new message to the conversation
@@ -31,6 +35,10 @@ class Conversation < ActiveRecord::Base
     end
   end
 
+  def participation_for(person)
+    participations.find { |participation| participation.person_id == person.id }
+  end
+
   def build_starter_participation(person)
     participations.build(
       person: person,
@@ -49,10 +57,8 @@ class Conversation < ActiveRecord::Base
     )
   end
 
-  # If this method returns true, user should be notified about this conversation
-  # even if the conversation is read by the user
-  def should_notify?(*)
-    false
+  def should_notify?(user)
+    !read_by?(user)
   end
 
   # Returns last received or sent message
@@ -69,7 +75,7 @@ class Conversation < ActiveRecord::Base
   end
 
   def read_by?(person)
-    participations.where(["person_id LIKE ?", person.id]).first.is_read
+    participation_for(person).is_read
   end
 
   # Send email notification to message receivers and returns the receivers
