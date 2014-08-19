@@ -6,5 +6,5 @@
         = @community_customization.transaction_agreement_label
         = link_to(t(".read_more"), "#", id: "transaction-agreement-read-more").html_safe
 
-
-= render :partial => "agreement_lightbox", locals: { content: @community_customization.transaction_agreement_content }
+= render layout: "layouts/lightbox", locals: { id: "transaction-agreement-content"} do
+  = @community_customization.transaction_agreement_content
