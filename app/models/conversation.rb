@@ -6,13 +6,15 @@ class Conversation < ActiveRecord::Base
   has_many :participants, :through => :participations, :source => :person
   belongs_to :community
 
-  def self.notification_count_for_person(person)
-      select {|conversation| conversation.should_notify?(person) }
-        .count
-  end
+  scope :for_person, -> (person){
+    joins(:participations)
+    .where( { participations: { person_id: person }} )
+  }
 
-  def self.for_person(person)
-    joins(:participations).where( { participations: { person_id: person }} )
+  def self.notification_count_for_person(person)
+      for_person(person).includes(:participations).select do |conversation|
+        conversation.should_notify?(person)
+      end.count
   end
 
   # Creates a new message to the conversation
@@ -31,6 +33,10 @@ class Conversation < ActiveRecord::Base
                            :is_starter => is_sender,
                            last_at.to_sym => DateTime.now)
     end
+  end
+
+  def participation_for(person)
+    participations.find { |participation| participation.person_id == person.id }
   end
 
   def belongs_to_community?(community_id)
@@ -73,7 +79,7 @@ class Conversation < ActiveRecord::Base
   end
 
   def read_by?(person)
-    participations.where(["person_id LIKE ?", person.id]).first.is_read
+    participation_for(person).is_read
   end
 
   # Send email notification to message receivers and returns the receivers

@@ -8,7 +8,7 @@
       #header-menu-desktop-anchor.header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu', 'toggle-position' => 'absolute'}}
 
     - Maybe(@current_user).each do |user|
-      - unread_count = @current_community.conversations.for_person(user).notification_count_for_person(user)
+      - unread_count = @current_community.conversations.notification_count_for_person(user)
 
       .header-right
         #header-user-desktop-anchor.header-user-toggle.header-hover.toggle{data: {toggle: '#header-user-toggle-menu', 'toggle-anchor-position' => 'left', 'toggle-position' => 'absolute'}}
