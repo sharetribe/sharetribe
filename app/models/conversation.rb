@@ -39,10 +39,6 @@ class Conversation < ActiveRecord::Base
     participations.find { |participation| participation.person_id == person.id }
   end
 
-  def belongs_to_community?(community_id)
-    community.id == community_id
-  end
-
   def build_starter_participation(person)
     participations.build(
       person: person,
