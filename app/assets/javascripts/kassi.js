@@ -1324,32 +1324,50 @@ function initialize_new_community_membership_form(email_invalid_message, invitat
   });
 }
 
-function initialize_braintree_payment_form(locale, beforeSubmit) {
-  var form_id = "#braintree-payment-form";
-
+function initialize_braintree_preauthorize_form(locale, beforeSubmit) {
   $('#transaction-agreement-read-more').click(function() { $('#transaction-agreement-content').lightbox_me({centered: true, zIndex: 1000000}); });
 
-  $(form_id).validate({
-    rules: {
-      "braintree_payment[cardholder_name]": {required: true, minlength: 2, maxlength: 50},
-      "braintree_payment[credit_card_number]": {required: true, creditcard: true},
-      "braintree_payment[cvv]": {required: true, digits: true, minlength: 3, maxlength: 4},
-      "braintree_payment[credit_card_expiration_date]": {required: true, minlength: 5}
-    },
+  var opts = {
     errorPlacement: function(error, element) {
       if (element.attr("name") == "listing_conversation[contract_agreed]") {
         error.appendTo(element.parent().parent());
       } else {
         error.insertAfter(element);
       }
+    }
+  }
+
+  debugger;
+  validateBraintreeForm(locale, beforeSubmit, opts);
+}
+
+function initialize_braintree_payment_form(locale, beforeSubmit) {
+  validateBraintreeForm(locale, beforeSubmit);
+}
+
+function validateBraintreeForm(locale, beforeSubmit, opts) {
+  opts = opts || {};
+  beforeSubmit = beforeSubmit || function(callback) { callback() };
+
+  var form_id = "#braintree-payment-form";
+
+  var defaultValidationOptions = {
+    rules: {
+      "braintree_payment[cardholder_name]": {required: true, minlength: 2, maxlength: 50},
+      "braintree_payment[credit_card_number]": {required: true, creditcard: true},
+      "braintree_payment[cvv]": {required: true, digits: true, minlength: 3, maxlength: 4},
+      "braintree_payment[credit_card_expiration_date]": {required: true, minlength: 5}
     },
     submitHandler: function(form) {
-      beforeSubmit = beforeSubmit || function(callback) { callback() };
       beforeSubmit(function() {
         disable_and_submit(form_id, form, "false", locale);
       });
     }
-  });
+  }
+
+  var validationOptions = _.defaults(opts, defaultValidationOptions);
+
+  $(form_id).validate(validationOptions);
 }
 
 function set_textarea_maxlength() {
