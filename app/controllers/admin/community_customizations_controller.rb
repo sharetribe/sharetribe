@@ -7,6 +7,9 @@ class Admin::CommunityCustomizationsController < ApplicationController
     @selected_left_navi_link = "tribe_details"
     # @community_customization is fetched in application_controller
     @community_customizations ||= find_or_initialize_customizations(@current_community.locales)
+    @show_tramsaction_agreement = @current_community.transaction_types.any? do |transaction_type|
+      transaction_type.preauthorize_payment
+    end
   end
 
   def update_details
