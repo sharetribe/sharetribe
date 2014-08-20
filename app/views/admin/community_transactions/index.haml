@@ -1,34 +1,36 @@
 - content_for :title_header do
   %h1= t("layouts.admin.admin")
 
-= render partial: "layouts/left_hand_navigation", locals: { links: admin_links_for(@community) }
+= render partial: "layouts/left_hand_navigation", locals: { links: admin_links_for(community) }
 
 .left-navi-section
-  %h2= t("admin.communities.transactions.transactions", community_name: @community.name(I18n.locale))
+  %h2= t("admin.communities.transactions.transactions", community_name: community.name(I18n.locale))
 
-  %span#admin_transactions_count= page_entries_info(@conversations, :model => "ListingConversation")
+  %span#admin_transactions_count= page_entries_info(conversations, :model => "ListingConversation")
 
   %table#admin_transactions
     %thead
       %tr
         %th= render partial: "layouts/sort_link", locals: { column: "listing", direction: sort_link_direction("listing"), title: t("admin.communities.transactions.headers.listing") }
-        %th=t("admin.communities.transactions.headers.status")
-        %th=t("admin.communities.transactions.headers.sum")
+        - if show_status_and_sum
+          %th=t("admin.communities.transactions.headers.status")
+          %th=t("admin.communities.transactions.headers.sum")
         %th= render partial: "layouts/sort_link", locals: { column: "started", direction: sort_link_direction("started"), title: t("admin.communities.transactions.headers.started") }
         %th= render partial: "layouts/sort_link", locals: { column: "last_activity", direction: sort_link_direction("last_activity"), title: t("admin.communities.transactions.headers.last_activity") }
         %th=t("admin.communities.transactions.headers.initiated_by")
         %th=t("admin.communities.transactions.headers.other_party")
 
     %tbody
-      - @conversations.each do |conversation|
+      - conversations.each do |conversation|
         %tr
           %td=Maybe(conversation.listing).map { |listing| link_to(listing.title, listing) }.or_else("")
-          %td=t("admin.communities.transactions.status.#{conversation.status}")
-          %td=conversation.payment ? humanized_money_with_symbol(conversation.payment.total_sum) : ""
+          - if show_status_and_sum
+            %td=t("admin.communities.transactions.status.#{conversation.status}")
+            %td=conversation.payment ? humanized_money_with_symbol(conversation.payment.total_sum) : ""
           %td=l(conversation.created_at, format: :short_date)
           %td=l(conversation.last_message_at, format: :short_date)
           %td=Maybe(conversation.starter).map { |p| link_to(p.full_name, p) }.or_else("")
           %td=Maybe(conversation.starter).map { |starter| conversation.other_party(starter) }.map { |p| link_to(p.full_name, p) }.or_else("")
   .row
     .col-12
-      = will_paginate @conversations
+      = will_paginate conversations

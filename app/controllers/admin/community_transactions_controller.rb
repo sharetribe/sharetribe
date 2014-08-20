@@ -3,12 +3,20 @@ class Admin::CommunityTransactionsController < ApplicationController
   skip_filter :dashboard_only
 
   def index
-    @community = @current_community
-    @conversations = ListingConversation
+    community = @current_community
+    conversations = ListingConversation
       .where(:community_id => @current_community.id)
       .includes(:listing)
       .paginate(:page => params[:page], :per_page => 50)
       .order("#{sort_column} #{sort_direction}")
+
+    render("index",
+      { locals: {
+        show_status_and_sum: community.payments_in_use?,
+        community: community,
+        conversations: conversations
+      }}
+    )
   end
 
   private
