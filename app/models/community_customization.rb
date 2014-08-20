@@ -15,18 +15,9 @@ class CommunityCustomization < ActiveRecord::Base
     :signup_info_content,
     :private_community_homepage_content,
     :verification_to_post_listings_info_content,
-    :search_placeholder
+    :search_placeholder,
+    :transaction_agreement_label,
+    :transaction_agreement_content
 
   belongs_to :community
-
-  def transaction_agreement_label
-    # Move me to database!
-    "I agree to this agreement"
-  end
-
-  def transaction_agreement_content
-    # Move me to database!
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique porta sem, eu ullamcorper leo fermentum at. Ut congue nibh odio, sed aliquam nisi luctus nec. Etiam auctor ac tellus ut faucibus. Ut rutrum condimentum quam, a convallis nulla facilisis quis. Fusce nulla neque, laoreet a odio a, porta fermentum neque. Curabitur quis libero orci. Donec dapibus, tellus et molestie tempus, est ligula mollis lacus, ac hendrerit odio libero quis odio. Nunc scelerisque libero odio, ac dignissim metus vestibulum sit amet. Integer ornare velit vel lectus facilisis suscipit. Donec lorem eros, lacinia et vehicula vitae, semper sed orci. Praesent suscipit ac magna nec imperdiet. Ut malesuada odio nec metus dapibus tincidunt. Vestibulum aliquet dignissim est et porta. Nulla sed quam tempus, varius metus lobortis, rutrum risus."
-  end
-
 end
