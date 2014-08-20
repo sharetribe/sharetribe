@@ -25,11 +25,11 @@
       - if @listing.transaction_type.price_per
         - days = [:sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]
         - months = [:january, :february, :march, :april, :may, :june, :july, :august, :september, :october, :november, :december]
-        - translated_days = days.map { |day_symbol| t("datepicker.days")[day_symbol] }.to_json
-        - translated_days_short = days.map { |day_symbol| t("datepicker.days_short")[day_symbol] }.to_json
-        - translated_days_min = days.map { |day_symbol| t("datepicker.days_min")[day_symbol] }.to_json
-        - translated_months = months.map { |day_symbol| t("datepicker.months")[day_symbol] }.to_json
-        - translated_months_short = months.map { |day_symbol| t("datepicker.months_short")[day_symbol] }.to_json
+        - translated_days = days.map { |day_symbol| t("datepicker.days.#{day_symbol}") }.to_json
+        - translated_days_short = days.map { |day_symbol| t("datepicker.days_short.#{day_symbol}") }.to_json
+        - translated_days_min = days.map { |day_symbol| t("datepicker.days_min.#{day_symbol}") }.to_json
+        - translated_months = months.map { |day_symbol| t("datepicker.months.#{day_symbol}") }.to_json
+        - translated_months_short = months.map { |day_symbol| t("datepicker.months_short.#{day_symbol}") }.to_json
 
         - content_for :extra_javascript do
           :javascript
