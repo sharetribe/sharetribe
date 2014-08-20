@@ -25,7 +25,7 @@ I want to see see all the transactions happening in my community
     And I am on the transactions admin page
 
   Scenario: Admin views all transactions
-    Then I should see 2 transaction with status "Free conversation"
+    Then I should see 2 transaction with status "Conversation"
     And I should see 4 transaction with status "Pending"
     And I should see 1 transaction with status "Paid"
 
