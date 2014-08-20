@@ -158,7 +158,7 @@ module ListingConversationHelper
       when "paid"
         [
           status_info(t("conversations.status.#{conversation.discussion_type}_paid"), icon_classes: icon_for("paid")),
-          status_info(t("conversations.status.deliver_listing", :listing_title => link_to(conversation.listing.title, conversation.listing)).html_safe, icon_classes: "ss-deliveryvan"),
+          delivery_status(conversation),
           paid_status(conversation, @current_community.testimonials_in_use)
         ]
       when "preauthorized"
@@ -213,6 +213,25 @@ module ListingConversationHelper
       waiting_for_buyer_to_confirm(conversation)
     else
       waiting_for_current_user_to_confirm(conversation)
+    end
+  end
+
+  def delivery_status(conversation)
+    if current_user?(conversation.author)
+      status_info(
+        t("conversations.status.waiting_for_current_user_to_deliver_listing",
+          :listing_title => link_to(conversation.listing.title, conversation.listing)
+        ).html_safe,
+        icon_classes: "ss-deliveryvan"
+      )
+    else
+      status_info(
+        t("conversations.status.waiting_for_listing_author_to_deliver_listing",
+          :listing_title => link_to(conversation.listing.title, conversation.listing),
+          :listing_author_name => link_to(conversation.author.name, @conversation.author)
+        ).html_safe,
+        icon_classes: "ss-deliveryvan"
+      )
     end
   end
 

@@ -487,7 +487,8 @@ fi:
       pay: "Suorita maksu"
       preauthorized: ~
       paid: "Maksu suoritettu"
-      deliver_listing: "Odottaa että %{listing_title} toimitetaan perille"
+      waiting_for_current_user_to_deliver_listing: "Odottaa että %{listing_title} on toimitettu"
+      waiting_for_listing_author_to_deliver_listing: "Odottaa että %{listing_title} on toimitettu"
       request_accepted: "Pyyntö hyväksytty"
       request_rejected: "Pyyntö hylätty"
       request_confirmed: "Pyyntö toteutunut"
