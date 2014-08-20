@@ -108,6 +108,7 @@ CREATE TABLE `communities` (
   `updated_at` datetime DEFAULT NULL,
   `settings` text,
   `consent` varchar(255) DEFAULT NULL,
+  `transaction_agreement_in_use` tinyint(1) DEFAULT '0',
   `email_admins_about_new_members` tinyint(1) DEFAULT '0',
   `use_fb_like` tinyint(1) DEFAULT '0',
   `real_name_required` tinyint(1) DEFAULT '1',
@@ -1751,3 +1752,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140819054528');
 INSERT INTO schema_migrations (version) VALUES ('20140819134039');
 
 INSERT INTO schema_migrations (version) VALUES ('20140819134055');
+
+INSERT INTO schema_migrations (version) VALUES ('20140820132249');

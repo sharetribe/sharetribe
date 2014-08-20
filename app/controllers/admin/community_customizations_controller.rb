@@ -19,7 +19,11 @@ class Admin::CommunityCustomizationsController < ApplicationController
       customizations.update_attributes(locale_params)
     end
 
-    if updates_successful.all?
+
+    transaction_agreement_checked = !params[:community].nil?
+    community_update_successful = @current_community.update_attributes(transaction_agreement_in_use: transaction_agreement_checked)
+
+    if updates_successful.all? && community_update_successful
       flash[:notice] = t("layouts.notifications.community_updated")
     else
       flash.now[:error] = t("layouts.notifications.community_update_failed")
