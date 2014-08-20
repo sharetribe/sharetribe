@@ -1,4 +1,4 @@
-- # locals:  available_locales, input_name, input_value, info_text
+- # locals:  translations, input_name, info_text, input_classes
 .translation-wrapper
   .input-header
     = header
@@ -7,6 +7,6 @@
     .row
       - if translations.size > 1
         .name-locale-label.col-2
-          = label_tag "community_customizations[#{language_key}][#{input_name}]", value[:language] + ": "
+          = label_tag "community_customizations[#{language_key}][#{input_name}]", value[:language], class: input_classes + ' label'
       .name-locale-textarea.col-10
-        = text_area_tag "community_customizations[#{language_key}][#{input_name}]", value[:translation]
+        = text_area_tag "community_customizations[#{language_key}][#{input_name}]", value[:translation], class: input_classes

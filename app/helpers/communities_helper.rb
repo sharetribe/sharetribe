@@ -20,6 +20,7 @@ module CommunitiesHelper
     translations = find_community_customizations(:name)
     {
       header: t("admin.communities.edit_details.community_name"),
+      input_classes:"",
       info_text: I18n.t("admin.communities.edit_details.edit_community_name_description"),
       input_name: "name",
       translations: translations
@@ -30,6 +31,7 @@ module CommunitiesHelper
     translations = find_community_customizations(:slogan)
     {
       header: t("admin.communities.edit_details.community_slogan"),
+      input_classes:"",
       info_text: I18n.t("admin.communities.edit_details.edit_community_slogan_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true", id: "view_slogan_link")),
       input_name: "slogan",
       translations: translations
@@ -40,6 +42,7 @@ module CommunitiesHelper
     translations = find_community_customizations(:description)
     {
       header: t("admin.communities.edit_details.community_description"),
+      input_classes:"",
       info_text: I18n.t("admin.communities.edit_details.edit_community_description_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true")),
       input_name: "description",
       translations: translations
@@ -50,6 +53,7 @@ module CommunitiesHelper
     translations = find_community_customizations(:search_placeholder)
     {
       header: t("admin.communities.edit_details.community_search_placeholder"),
+      input_classes:"",
       info_text: I18n.t("admin.communities.edit_details.edit_community_search_placeholder_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/")),
       input_name: "search_placeholder",
       translations: translations
@@ -60,6 +64,7 @@ module CommunitiesHelper
     translations = find_community_customizations(:transaction_agreement_label)
     {
       header: t("admin.communities.edit_details.transaction_agreement_checkbox_header"),
+      input_classes: "transaction-agreement-modal",
       info_text: I18n.t("admin.communities.edit_details.transaction_agreement_checkbox_label_description"),
       input_name: "transaction_agreement_label",
       translations: translations
@@ -70,6 +75,7 @@ module CommunitiesHelper
     translations = find_community_customizations(:transaction_agreement_content)
     {
       header: t("admin.communities.edit_details.transaction_agreement_text_header"),
+      input_classes: "transaction-agreement-modal",
       info_text: t("admin.communities.edit_details.transaction_agreement_description", read_more: t("listing_conversations.transaction_agreement_checkbox.read_more")),
       input_name: "transaction_agreement_content",
       translations: translations

@@ -42,3 +42,19 @@ textarea.text_area_code {
   font-family: "Lucida Console", Monaco, monospace;
   height: lines(7);
 }
+
+.checkbox-row-checkbox {
+  display: inline-block;
+  width: auto;
+}
+
+.checkbox-row-label {
+  display: inline-block;
+  width: auto;
+  font-weight: normal;
+  margin: 0 0 0 lines(0.25);
+}
+
+.transaction-agreement-modal.disabled:not(.label) {
+  background-color: $highlight;
+}

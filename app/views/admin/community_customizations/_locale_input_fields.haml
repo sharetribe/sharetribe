@@ -8,6 +8,6 @@
     .row
       - if translations.size > 1
         .name-locale-label.col-2
-          = label_tag "community_customizations[#{language_key}][#{input_name}]", value[:language] + ": "
+          = label_tag "community_customizations[#{language_key}][#{input_name}]", value[:language], class: input_classes + ' label'
       .name-locale-text_field.col-10
-        = text_field_tag "community_customizations[#{language_key}][#{input_name}]", value[:translation]
+        = text_field_tag "community_customizations[#{language_key}][#{input_name}]", value[:translation], class: input_classes
