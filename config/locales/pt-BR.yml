@@ -208,7 +208,7 @@ pt-BR:
         listing_fields_help: ~
         add_new_field: "Adicionar novo campo:"
         remove_field_confirmation: ~
-        cancel: anular
+        cancel: Anular
         save: Salvar
         field_title: Nome
         field_type: "Especificar tipo de campo"
@@ -1522,7 +1522,7 @@ pt-BR:
       they_follow_plural: ~
       they_follow_singular: ~
       show_all_followed_people: ~
-      no_followed_people: ~
+      no_followed_people: "Ninguém seguido"
     follow_button:
       following: ~
       follow: Seguir
@@ -1765,6 +1765,10 @@ pt-BR:
         zero: usuário
         one: usuário
         other: usuários
+      listing_conversation:
+        zero: transações
+        one: transação
+        other: transações
     previous_label: "&#8592; Anterior"
     next_label: "Próximo &#8594;"
     page_gap: ~
@@ -1776,6 +1780,6 @@ pt-BR:
       single_page_html:
         zero: "Nenhum(a) %{model} encontrado(a)"
         one: "Visualização do <b>1</b> %{model}"
-        other: "Visualização dos b>%{count}</b> %{model}"
+        other: "Visualização dos <b>%{count}</b> %{model}"
       multi_page: "Visualização dos {model} %{from} - %{to} por um total de %{count}"
       multi_page_html: "Visualização dos %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> por um total de <b>%{count}</b>\n"
