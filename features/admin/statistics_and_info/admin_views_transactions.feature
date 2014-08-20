@@ -21,6 +21,7 @@ I want to see see all the transactions happening in my community
       | Moving help | pending | 127 | EUR      | 3 days ago  | 2 days ago      | nil               | nil               |
     And I am logged in as "manager"
     And "manager" has admin rights in community "test"
+    And the community has payments in use via BraintreePaymentGateway
     And I am on the transactions admin page
 
   Scenario: Admin views all transactions
