@@ -13,13 +13,7 @@
     = render partial: "locale_input_fields", locals: community_name_locals
     = render partial: "locale_input_fields", locals: community_slogan_locals
     = render partial: "locale_input_fields", locals: community_description_locals
-
-    .row
-      .col-12
-        = label_tag "community_customizations[#{I18n.locale}][:search_placeholder]", t("admin.communities.edit_details.community_search_placeholder"), class: "input"
-        = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_details.edit_community_search_placeholder_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/")).html_safe }
-        = text_field_tag "community_customizations[#{I18n.locale}][search_placeholder]", @community_customizations[I18n.locale], class: "text_field"
-
+    = render partial: "locale_input_fields", locals: community_search_placeholder_locals
 
     .row
       .col-12
