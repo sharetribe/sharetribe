@@ -1,0 +1,11 @@
+.row
+  %h3= t("admin.communities.integrations.twitter_handle")
+.row
+  .col-6
+    = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.integrations.twitter_handle_info_text") }
+  .col-6
+    = form.text_field :twitter_handle, :maxlength => "15", :class => "text_field", :placeholder => t("admin.communities.integrations.twitter_handle_placeholder")
+    -if @community.errors.any?
+      %ul
+        -@community.errors.full_messages.each do |msg|
+          %li=msg

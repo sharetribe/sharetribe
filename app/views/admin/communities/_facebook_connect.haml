@@ -1,0 +1,10 @@
+.row
+  %h3= t('admin.communities.integrations.facebook_connect')
+  = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.integrations.facebook_connect_info_text").html_safe}
+.row
+  .col-6
+    = form.label :facebook_connect_id, t("admin.communities.integrations.facebook_connect_id"), :class => "input"
+    = form.text_field :facebook_connect_id, :maxlength => "16", :class => "text_field", :placeholder => "1234567890123456"
+  .col-6
+    = form.label :facebook_connect_secret, t("admin.communities.integrations.facebook_connect_secret"), :class => "input"
+    = form.text_field :facebook_connect_secret, :maxlength => "32", :class => "text_field", :placeholder => "#{Digest::MD5.hexdigest('1')}"
