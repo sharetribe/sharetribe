@@ -47,6 +47,11 @@ class ListingConversationsController < ApplicationController
   def preauthorized
     conversation_params = params[:listing_conversation]
 
+    unless conversation_params[:contract_agreed] == "1"
+      flash[:error] = "Agreement checkbox has to be selected"
+      return redirect_to action: :preauthorize
+    end
+
     @listing_conversation = new_conversation(conversation_params)
     @payment = @listing_conversation.initialize_payment
 
