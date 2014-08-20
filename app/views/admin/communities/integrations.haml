@@ -12,6 +12,6 @@
     = render :partial => "twitter_handle", locals: {form: form}
     = render :partial => "google_analytics_key", locals: {form: form}
     = render :partial => "facebook_connect", locals: {form: form}
-
+    = render :partial => "paypal_gateway_config", locals: {form: form}
     .row
       = form.button t("admin.communities.integrations.save")
