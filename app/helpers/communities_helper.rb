@@ -24,7 +24,7 @@ module CommunitiesHelper
     {
       header: t("admin.communities.edit_details.community_name"),
       info_text: I18n.t("admin.communities.edit_details.edit_community_name_description"),
-      input_name: "community-name",
+      input_name: "name",
       translations: translations
     }
   end
@@ -34,7 +34,7 @@ module CommunitiesHelper
     {
       header: t("admin.communities.edit_details.community_slogan"),
       info_text: I18n.t("admin.communities.edit_details.edit_community_slogan_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"))),
-      input_name: "community-slogan",
+      input_name: "slogan",
       translations: translations
     }
   end
@@ -44,7 +44,7 @@ module CommunitiesHelper
     {
       header: t("admin.communities.edit_details.community_description"),
       info_text: I18n.t("admin.communities.edit_details.edit_community_description_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"))),
-      input_name: "community-description",
+      input_name: "description",
       translations: translations
     }
   end
@@ -55,7 +55,7 @@ module CommunitiesHelper
     {
       header: "",
       info_text: I18n.t("admin.communities.edit_details.transaction_agreement_checkbox_label_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/")),
-      input_name: "ransaction-agreement-label",
+      input_name: "transaction_agreement_label",
       translations: translations
     }
   end
@@ -65,7 +65,7 @@ module CommunitiesHelper
     translations = {en: {language: "English", translation: ""}, fi: {language: "Suomi", translation: ""}}#find_community_customizations(:agreement_content)
     {
       info_text: t("admin.communities.edit_details.transaction_agreement_tos_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/")),
-      input_name: "ransaction_agreement_text",
+      input_name: "transaction_agreement_content",
       translations: translations
     }
   end

@@ -5,6 +5,6 @@
     .row
       - if translations.size > 1
         .name-locale-label.col-2
-          = label_tag "#{input_name}-#{language_key}", value[:language] + ": "
+          = label_tag "community_customizations[#{language_key}][#{input_name}]", value[:language] + ": "
       .name-locale-textarea.col-10
-        = text_area_tag "#{input_name}-#{language_key}", value[:translation]
+        = text_area_tag "community_customizations[#{language_key}][#{input_name}]", value[:translation]
