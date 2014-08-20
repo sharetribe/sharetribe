@@ -59,7 +59,7 @@ module CommunitiesHelper
   def transaction_agreement_label_locals
     translations = find_community_customizations(:transaction_agreement_label)
     {
-      header: "",
+      header: t("admin.communities.edit_details.transaction_agreement_checkbox_header"),
       info_text: I18n.t("admin.communities.edit_details.transaction_agreement_checkbox_label_description"),
       input_name: "transaction_agreement_label",
       translations: translations
@@ -69,7 +69,8 @@ module CommunitiesHelper
   def transaction_agreement_text_locals
     translations = find_community_customizations(:transaction_agreement_content)
     {
-      info_text: t("admin.communities.edit_details.transaction_agreement_tos_description"),
+      header: t("admin.communities.edit_details.transaction_agreement_text_header"),
+      info_text: t("admin.communities.edit_details.transaction_agreement_description", read_more: t("listing_conversations.transaction_agreement_checkbox.read_more")),
       input_name: "transaction_agreement_content",
       translations: translations
     }
