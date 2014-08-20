@@ -472,7 +472,8 @@ es:
       pay: Pagar
       preauthorized: ~
       paid: "pago exitoso"
-      deliver_listing: ~
+      waiting_for_current_user_to_deliver_listing: ~
+      waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: "Solicitud aceptada"
       request_rejected: "Solicitud rechazada"
       request_confirmed: Completado

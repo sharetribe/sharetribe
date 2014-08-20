@@ -472,7 +472,8 @@ el:
       pay: Πληρωμή
       preauthorized: ~
       paid: "Επιτυχής πληρωμή"
-      deliver_listing: ~
+      waiting_for_current_user_to_deliver_listing: ~
+      waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: "Το αίτημα έγινε δεκτό"
       request_rejected: "Το αίτημα απορρίφθηκε"
       request_confirmed: Ολοκληρώθηκε

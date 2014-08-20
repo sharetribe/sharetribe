@@ -472,7 +472,8 @@ ru:
       pay: Оплатить
       preauthorized: ~
       paid: "Оплата выполнена успешно"
-      deliver_listing: ~
+      waiting_for_current_user_to_deliver_listing: ~
+      waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: "Запрос принят"
       request_rejected: "Запрос отклонён"
       request_confirmed: Завершено

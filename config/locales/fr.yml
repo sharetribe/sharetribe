@@ -487,7 +487,8 @@ fr:
       pay: Payer
       preauthorized: "Paiement réussi"
       paid: "Paiement réussi"
-      deliver_listing: ~
+      waiting_for_current_user_to_deliver_listing: ~
+      waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: Acceptée
       request_rejected: Refusée
       request_confirmed: Terminée
