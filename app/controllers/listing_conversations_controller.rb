@@ -47,7 +47,7 @@ class ListingConversationsController < ApplicationController
   def preauthorized
     conversation_params = params[:listing_conversation]
 
-    unless conversation_params[:contract_agreed] == "1"
+    if @current_community.transaction_agreement_in_use? && conversation_params[:contract_agreed] != "1"
       flash[:error] = "Agreement checkbox has to be selected"
       return redirect_to action: :preauthorize
     end
