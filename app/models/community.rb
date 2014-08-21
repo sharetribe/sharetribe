@@ -562,11 +562,6 @@ class Community < ActiveRecord::Base
     listings.where(:author_id => author.id).update_all(:open => false)
   end
 
-  def transaction_agreement_in_use
-    # Move me to database
-    true
-  end
-
   private
 
   def initialize_settings
