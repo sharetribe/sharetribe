@@ -1337,7 +1337,6 @@ function initialize_braintree_preauthorize_form(locale, beforeSubmit) {
     }
   }
 
-  debugger;
   validateBraintreeForm(locale, beforeSubmit, opts);
 }
 
