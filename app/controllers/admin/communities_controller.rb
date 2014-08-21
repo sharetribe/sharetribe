@@ -63,14 +63,22 @@ class Admin::CommunitiesController < ApplicationController
     # Redirect if payment gateway in use but it's not braintree
     redirect_to edit_details_admin_community_path(@current_community) if @current_community.payment_gateway && !@current_community.braintree_in_use?
 
+    braintree_params = params[:payment_gateway]
+    community_params = params[:community]
+
+    unless @current_community.update_attributes(community_params)
+      flash.now[:error] = t("layouts.notifications.community_update_failed")
+      return render :payment_gateways
+    end
+
     update(@current_community.payment_gateway,
-      params[:braintree_payment_gateway],
+      braintree_params,
       payment_gateways_admin_community_path(@current_community),
       :payment_gateways)
   end
 
   def create_payment_gateway
-    @current_community.payment_gateway = BraintreePaymentGateway.create(params[:braintree_payment_gateway].merge(community: @current_community))
+    @current_community.payment_gateway = BraintreePaymentGateway.create(params[:payment_gateway].merge(community: @current_community))
     update_payment_gateway
   end
 

@@ -19,32 +19,40 @@
         %p
           If configurations are correctly set the webhook URL should return randomly generated string with numbers and letters.
 
-  = form_for @payment_gateway, :url => payment_gateways_admin_community_path(@community), :method => (@payment_gateway.new_record? ? :post : :put) do |form|
-    .row
-      .col-12
-      = form.label :braintree_environment, t(".environment"), :class => "input"
-      = form.select :braintree_environment, [["Sandbox", "sandbox"], ["Production", "production"]]
-    .row
-      .col-12
-      = form.label :braintree_public_key, t(".public_key"), :class => "input"
-      = form.text_field :braintree_public_key, :class => "text_field"
-    .row
-      .col-12
-      = form.label :braintree_private_key, t(".private_key"), :class => "input"
-      = form.text_field :braintree_private_key, :class => "text_field"
-    .row
-      .col-12
-      = form.label :braintree_merchant_id, t(".merchant_id"), :class => "input"
-      = form.text_field :braintree_merchant_id, :class => "text_field"
-    .row
-      .col-12
-      = form.label :braintree_master_merchant_id, t(".master_merchant_id"), :class => "input"
-      = form.text_field :braintree_master_merchant_id, :class => "text_field"
-    .row
-      .col-12
-      = form.label :braintree_client_side_encryption_key, t(".client_side_encryption_key"), :class => "input"
-      = form.text_area :braintree_client_side_encryption_key, :class => "text_field"
+  = form_tag payment_gateways_admin_community_path(@community), :method => (@payment_gateway.new_record? ? :post : :put) do
+
+    = fields_for :payment_gateway, @payment_gateway do |form|
+      .row
+        .col-12
+        = form.label :braintree_environment, t(".environment"), :class => "input"
+        = form.select :braintree_environment, [["Sandbox", "sandbox"], ["Production", "production"]]
+      .row
+        .col-12
+        = form.label :braintree_public_key, t(".public_key"), :class => "input"
+        = form.text_field :braintree_public_key, :class => "text_field"
+      .row
+        .col-12
+        = form.label :braintree_private_key, t(".private_key"), :class => "input"
+        = form.text_field :braintree_private_key, :class => "text_field"
+      .row
+        .col-12
+        = form.label :braintree_merchant_id, t(".merchant_id"), :class => "input"
+        = form.text_field :braintree_merchant_id, :class => "text_field"
+      .row
+        .col-12
+        = form.label :braintree_master_merchant_id, t(".master_merchant_id"), :class => "input"
+        = form.text_field :braintree_master_merchant_id, :class => "text_field"
+      .row
+        .col-12
+        = form.label :braintree_client_side_encryption_key, t(".client_side_encryption_key"), :class => "input"
+        = form.text_area :braintree_client_side_encryption_key, :class => "text_field"
+
+    = fields_for :community, @current_community do |form|
+      .row
+        .col-12
+        = form.label :commission_from_seller, t(".commission_from_seller"), :class => "input"
+        = form.number_field :commission_from_seller, in: 0..100
 
     .row
-      = form.button t("admin.communities.integrations.save")
+      = button_tag t("admin.communities.integrations.save")
 
