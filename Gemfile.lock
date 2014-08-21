@@ -8,6 +8,22 @@ GIT
       delayed_job
       thinking-sphinx (>= 1.5.0)
 
+GIT
+  remote: git://github.com/sharetribe/i18n-tasks.git
+  revision: 17b593f8627752c99ac7a243cef5d9b9c204854c
+  ref: 17b593f
+  branch: master
+  specs:
+    i18n-tasks (0.7.4)
+      activesupport
+      easy_translate (>= 0.5.0)
+      erubis
+      highline
+      i18n
+      slop (>= 3.5.0)
+      term-ansicolor
+      terminal-table
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -203,15 +219,6 @@ GEM
     htmlentities (4.3.2)
     http_parser.rb (0.5.3)
     i18n (0.6.9)
-    i18n-tasks (0.7.4)
-      activesupport
-      easy_translate (>= 0.5.0)
-      erubis
-      highline
-      i18n
-      slop (>= 3.5.0)
-      term-ansicolor
-      terminal-table
     innertube (1.1.0)
     joiner (0.2.0)
       activerecord (>= 3.1.0, < 4.1.0)
@@ -509,7 +516,7 @@ DEPENDENCIES
   guard-livereload
   guard-rspec
   haml
-  i18n-tasks (~> 0.7.4)
+  i18n-tasks!
   jquery-rails (= 2.1.4)
   json (~> 1.8.0)
   kgio (~> 2.8.0)

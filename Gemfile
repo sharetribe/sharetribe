@@ -96,7 +96,10 @@ group :development do
   gem 'rb-fsevent',       require: false
   gem 'guard-rspec',      require: false
   gem 'zeus', '0.15.1'
-  gem 'i18n-tasks', '~> 0.7.4'
+  gem 'i18n-tasks',
+    :git    => 'git://github.com/sharetribe/i18n-tasks.git',
+    :branch => 'master',
+    :ref    => '17b593f'
 end
 
 group :test do
