@@ -19,8 +19,7 @@ class Admin::CommunityCustomizationsController < ApplicationController
       customizations.update_attributes(locale_params)
     end
 
-
-    transaction_agreement_checked = !params[:community].nil?
+    transaction_agreement_checked = Maybe(params)[:community][:transaction_agreement_checkbox].is_some?
     community_update_successful = @current_community.update_attributes(transaction_agreement_in_use: transaction_agreement_checked)
 
     if updates_successful.all? && community_update_successful
