@@ -72,7 +72,7 @@ class Admin::CommunitiesController < ApplicationController
     end
 
     update(@current_community.payment_gateway,
-      braintree_params[:braintree_payment_gateway],
+      braintree_params,
       payment_gateways_admin_community_path(@current_community),
       :payment_gateways)
   end

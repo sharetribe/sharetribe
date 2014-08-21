@@ -19,7 +19,7 @@
         %p
           If configurations are correctly set the webhook URL should return randomly generated string with numbers and letters.
 
-  = form_tag :url => payment_gateways_admin_community_path(@community), :method => (@payment_gateway.new_record? ? :post : :put) do
+  = form_tag payment_gateways_admin_community_path(@community), :method => (@payment_gateway.new_record? ? :post : :put) do
 
     = fields_for :payment_gateway, @payment_gateway do |form|
       .row
