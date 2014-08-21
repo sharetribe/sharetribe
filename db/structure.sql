@@ -626,6 +626,26 @@ CREATE TABLE `payments` (
   KEY `index_payments_on_conversation_id` (`conversation_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `paypal_accounts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `merchant_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `paypal_payment_gateway_id` int(11) DEFAULT NULL,
+  `username` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `api_password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `signature` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `paypal_payment_gateways` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 CREATE TABLE `people` (
   `id` varchar(22) NOT NULL,
   `created_at` datetime DEFAULT NULL,
@@ -1743,3 +1763,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140815055023');
 INSERT INTO schema_migrations (version) VALUES ('20140815085018');
 
 INSERT INTO schema_migrations (version) VALUES ('20140819054528');
+
+INSERT INTO schema_migrations (version) VALUES ('20140821091921');
