@@ -12,8 +12,7 @@ window.ST = window.ST || {};
       .toggleClass('required', checked)
       .toggleClass('disabled', !checked);
 
-    checkbox.click(function(e) {
-      var classes = modalFields.attr("class");
+    checkbox.click(function() {
       modalFields
         .prop("disabled", !this.checked)
         .toggleClass('required', this.checked)
