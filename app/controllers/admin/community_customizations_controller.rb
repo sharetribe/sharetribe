@@ -14,6 +14,16 @@ class Admin::CommunityCustomizationsController < ApplicationController
 
   def update_details
     updates_successful = @current_community.locales.map do |locale|
+      permitted_params = [
+        :name,
+        :slogan,
+        :description,
+        :search_placeholder,
+        :transaction_agreement_label,
+        :transaction_agreement_content
+      ]
+      params.require(:community_customizations).require(locale).permit(*permitted_params)
+
       locale_params = params[:community_customizations][locale]
       customizations = find_or_initialize_customizations_for_locale(locale)
       customizations.update_attributes(locale_params)
