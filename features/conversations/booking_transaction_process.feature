@@ -6,6 +6,7 @@ Feature: Booking transaction process
 
     Given a user "owner"
       And a logged in user "booker"
+      And "owner" has an active Braintree account
 
     Given the community has payments in use via BraintreePaymentGateway with seller commission 10
       And the community has transaction type Rent with name "Renting" and action button label "Buy"
