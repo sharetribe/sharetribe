@@ -33,13 +33,36 @@ module TestHelpers
 
     DEFAULT_CATEGORIES_FOR_TESTS = [
       {
-      "item" => [
-        "tools",
-        "books"
+        translations: [
+          {locale: "en", name: "Items"},
+          {locale: "fi", name: "Tavarat"}
+        ],
+        subcategories: [
+          {
+            translations: [
+              {locale: "en", name: "Tools"},
+              {locale: "fi", name: "Työkalut"}
+            ]
+          },
+          { translations: [
+            {locale: "en", name: "Books"},
+            {locale: "fi", name: "Kirjat"}
+            ]
+          }
         ]
       },
-      "favor",
-      "housing"
+      {
+        translations: [
+          {locale: "en", name: "Favors"},
+          {locale: "fi", name: "Palvelukset"}
+        ]
+      },
+      {
+        translations: [
+          {locale: "en", name: "Spaces"},
+          {locale: "fi", name: "Tilat"}
+        ]
+      }
     ]
 
     def self.load_test_categories_and_transaction_types_to_db(community)
@@ -64,30 +87,37 @@ module TestHelpers
 
       # Load categories
       categories.each do |c|
-
         # Categories that do not have subcategories
-        if c.is_a?(String)
-          category = Category.create!(:community_id => community.id)
-          TestHelpers::CategoriesHelper.add_transaction_types_and_translations_to_category(category, c)
-
-        # Categories that have subcategories
-        elsif c.is_a?(Hash)
-          top_level_category = Category.create!(:community_id => community.id)
-          TestHelpers::CategoriesHelper.add_transaction_types_and_translations_to_category(top_level_category, c.keys.first)
-          c.values.first.each do |sg|
-            subcategory = Category.create!(:community_id => community.id, :parent_id => top_level_category.id)
-            TestHelpers::CategoriesHelper.add_transaction_types_and_translations_to_category(subcategory, sg)
-          end
-        end
-
+        create_category_tree!(community, c)
       end
     end
 
-    def self.add_transaction_types_and_translations_to_category(category, category_name)
-      category.community.transaction_types.each { |tt| category.transaction_types << tt }
-      category.community.locales.each do |locale|
-        cat_name = I18n.t!(category_name, :locale => locale, :scope => ["common", "categories"], :raise => true)
-        category.translations.create!(:locale => locale, :name => cat_name)
+    def self.create_category_tree!(community, category_hash, parent = nil)
+      translations = category_hash[:translations] || []
+      subcategories = category_hash[:subcategories] || []
+
+      category = community.categories.create(parent_id: parent ? parent.id : nil)
+
+      add_transaction_types(category, community.transaction_types)
+      add_translations(category, translations)
+
+      subcategories.each do |subcategory_hash|
+        create_category_tree!(community, subcategory_hash, category)
+      end
+    end
+
+    def self.add_transaction_types_and_translations_to_category(category, translations)
+
+    end
+
+    def self.add_transaction_types(category, transaction_types)
+      transaction_types.each { |tt| category.transaction_types << tt }
+      category.save
+    end
+
+    def self.add_translations(category, translations)
+      translations.each do |translation|
+        category.translations.create(translation)
       end
     end
   end
