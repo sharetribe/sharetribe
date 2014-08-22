@@ -187,7 +187,7 @@ fr:
           initiated_by: Initiateur
           other_party: "Autre participant"
         status:
-          free: "Conversation libre"
+          free: Conversation
           pending: "En attente"
           preauthorized: Pré-autorisée
           accepted: Acceptée
@@ -203,7 +203,7 @@ fr:
         client_side_encryption_key: "Clé Client-Side Encryption (CSE)"
         merchant_id: "Identifiant marchand"
         master_merchant_id: "Identifiant master marchand"
-        commission_from_seller: ~
+        commission_from_seller: "Commission (pourcentage) pour le vendeur"
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
@@ -390,9 +390,9 @@ fr:
       give_feedback_to: "Donner un avis sur %{person_link}"
       do_not_give_feedback: "Ne pas donner d'avis"
     details:
-      day: ~
-      days: ~
-      price_per_day: ~
+      day: jour
+      days: jours
+      price_per_day: "Prix par jour : %{price}"
     index:
       loading_more_messages: "Chargement de la suite des messages"
       message_partitive: message
@@ -482,26 +482,26 @@ fr:
       offer_rejected: Refusée
       offer_canceled: Annulée
       offer_confirmed: Terminée
-      offer_paid: ~
-      offer_preauthorized: ~
-      offer_waiting_for_payment: ~
+      offer_paid: "Paiement réussi"
+      offer_preauthorized: "Paiement réussi"
+      offer_waiting_for_payment: "En attente du paiement par %{requester_name}"
       pay: Payer
       preauthorized: "Paiement réussi"
       paid: "Paiement réussi"
-      waiting_for_current_user_to_deliver_listing: ~
-      waiting_for_listing_author_to_deliver_listing: ~
+      waiting_for_current_user_to_deliver_listing: "En attente de votre réalisation de %{listing_title}"
+      waiting_for_listing_author_to_deliver_listing: "En attente de %{listing_author_name} de la réalisation de %{listing_title}"
       request_accepted: Acceptée
       request_rejected: Refusée
       request_confirmed: Terminée
       request_canceled: Annulée
-      request_paid: ~
-      request_preauthorized: ~
+      request_paid: "Paiement réussi"
+      request_preauthorized: "Paiement réussi"
       skip_feedback: "Ne pas donner d'avis"
       waiting_for_listing_author_to_accept_offer: "En attente d'acceptation de l'offre par %{listing_author_name}"
       waiting_for_listing_author_to_accept_request: "En attente d'acceptation de la demande par %{listing_author_name}"
       waiting_for_you_to_accept_request: "En attente de votre acceptation de la demande"
       waiting_confirmation_from_requester: "En attente de %{requester_name} de la réalisation de la demande"
-      waiting_confirmation_from_you: "En attente de votre réalisation de la demande"
+      waiting_confirmation_from_you: "En attente de votre confirmation de réalisation de la demande"
       waiting_payment_from_requester: "En attente du paiement par %{requester_name}"
       waiting_payment_from_you: "En attente de votre paiement"
       waiting_feedback_from_you: "En attente de votre avis"
@@ -615,12 +615,12 @@ fr:
       subject: "Demande automatiquement signalée comme terminée - n'oubliez pas de donner un avis"
       we_have_marked_request_as_confirmed: "Nous avons signalé la demande à propos de '%{request}' comme terminée. La demande a été terminée automatiquement car %{days_passed} se sont écoulés depuis que la demande a été acceptée."
     booking_transaction_automatically_confirmed:
-      subject: ~
-      we_have_marked_request_as_confirmed: ~
+      subject: "Demande automatiquement signalée comme terminée - n'oubliez pas de donner un avis"
+      we_have_marked_request_as_confirmed: "Nous avons signalé la demande à propos de '%{request}' comme terminée. La demande a été terminée automatiquement car une journée s'est écoulée depuis la fin de la période de réservation."
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
-      show_thread: ~
+      giving_feedback_is_good_idea: "Vous pouvez désormais donner un avis sur %{other_party_given_name}. Donner un avis est toujours une bonne idée. Si tout s'est bien passé, vous devriez signaler aux autres que %{other_party_given_name} est quelqu'un de confiance. S'il y a eu un problème, c'est aussi une bonne chose de le mentionner."
+      give_feedback_to: "Donner un avis sur %{other_party_given_name}"
+      show_thread: "Voir la conversation"
     escrow_canceled:
       subject: "Paiement annulé"
       has_marked_request_as_canceled: "%{other_party_full_name} a signalé la demande à propos de '%{request}' comme annulée. Vous ne recevez pas d'argent de cette transaction."
@@ -782,14 +782,14 @@ fr:
     your_email_address: "Votre adresse email"
   errors:
     messages:
-      invalid_date: ~
-      invalid_time: ~
-      invalid_datetime: ~
-      is_at: ~
-      before: ~
-      on_or_before: ~
-      after: ~
-      on_or_after: ~
+      invalid_date: "n'est pas une date valide"
+      invalid_time: "n'est pas une heure valide"
+      invalid_datetime: "n'est pas une date/heure valide"
+      is_at: "doit être au %{restriction}"
+      before: "doit être avant %{restriction}"
+      on_or_before: "doit être au ou avant %{restriction}"
+      after: "doit être après %{restriction}"
+      on_or_after: "doit être au ou après %{restriction}"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} a accepté de prêter %{listing_title} à %{requester_name} %{time_ago}."
@@ -1067,7 +1067,7 @@ fr:
       listing_created_successfully: "Annonce créée avec succès. %{new_listing_link}."
       offer_rejected: "Offre refusée"
       offer_canceled: "Offre annulée"
-      listing_updated_successfully: "Annonce mise à jour avec succés"
+      listing_updated_successfully: "Annonce mise à jour avec succès"
       only_kassi_administrators_can_access_this_area: "Seuls les administrateurs de %{service_name} peuvent accéder à ces pages"
       only_listing_author_can_close_a_listing: "Seul l'auteur de l'annonce peut la clore"
       only_listing_author_can_edit_a_listing: "Seul l'annonce de liste peut la modifier"
@@ -1137,6 +1137,7 @@ fr:
       email_deleted: "Email supprimé"
       payment_details_add_successful: "Détails de paiement ajoutés avec succès"
       payment_details_add_error: "Impossible d'ajouter les détails de paiement"
+      listing_author_payment_details_missing: "L'auteur de cette annonce n'a pas ajouté ses détails de paiement et ne peut pas recevoir de paiement actuellement. Merci de contacter l'auteur de l'annonce."
     settings:
       account: Compte
       notifications: Notifications
@@ -1216,7 +1217,7 @@ fr:
       price:
         price: Prix
         per: par
-        per_day: ~
+        per_day: "par jour"
         mass: "unité, kg, l, m²..."
         time: "heure, jour, mois..."
         long_time: "semaine, mois..."
@@ -1303,8 +1304,8 @@ fr:
       accept_for_frees: "Usage gratuit"
       trades: Échange
     listing_actions:
-      booking_from: ~
-      booking_to: ~
+      booking_from: Du
+      booking_to: Au
     new:
       post_a_new_listing: "Déposer une annonce"
       listing: annonce
@@ -1353,8 +1354,8 @@ fr:
       price_excludes_vat: "(hors TVA)"
       listing_created_at: "Annonce créée"
       price:
-        per_quantity_unit: ~
-        per_day: ~
+        per_quantity_unit: "par %{quantity_unit}"
+        per_day: "par jour"
     verification_required:
       verification_required: "Vérification nécessaire"
   listing_conversations:
@@ -1364,9 +1365,9 @@ fr:
       payment: Paiement
       exp: "Exp : "
       you_will_be_charged: "Vous ne serez prélevé que si %{author} accepte la transaction. %{author} doit accepter la transaction sous 5 jours. Si %{author} refuse ou ne répond pas, aucun prélèvement ne sera effectué."
-      day: ~
-      days: ~
-      price_per_day: ~
+      day: jour
+      days: jours
+      price_per_day: "Prix par jour : %{price}"
   mapview:
     index:
       all_categories: "Toutes les catégories"
@@ -1774,8 +1775,8 @@ fr:
       one: hier
       other: "%{count} jours"
   unit:
-    day: ~
-    days: ~
+    day: jour
+    days: jours
   will_paginate:
     models:
       person:
