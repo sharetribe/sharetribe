@@ -43,6 +43,21 @@ MoneyRails.configure do |config|
                              default: nil
                            }
 
+  config.register_currency = {
+    :priority            => 1,
+    :iso_code            => "CHF",
+    :name                => "Swiss Franc",
+    :symbol              => "CHF",
+    :alternate_symbols   => ["Fr", "SFr"],
+    :subunit             => "Rappen",
+    :subunit_to_unit     => 100,
+    :symbol_first        => true,
+    :html_entity         => "",
+    :decimal_mark        => ".",
+    :thousands_separator => ",",
+    :iso_numeric         => "756"
+  }
+
   # Register a custom currency
   #
   # Example:
