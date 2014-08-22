@@ -88,6 +88,10 @@ end
 group :development, :test do
   gem 'rubocop',          require: false
   gem 'factory_girl_rails'
+  gem 'i18n-tasks', "~>0.7.4",
+    :git    => 'git://github.com/sharetribe/i18n-tasks.git',
+    :branch => 'master',
+    :ref    => '17b593f'
 end
 
 group :development do
@@ -96,7 +100,6 @@ group :development do
   gem 'rb-fsevent',       require: false
   gem 'guard-rspec',      require: false
   gem 'zeus', '0.15.1'
-  gem 'i18n-tasks', '~> 0.6.2'
 end
 
 group :test do

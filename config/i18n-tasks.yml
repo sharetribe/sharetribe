@@ -74,6 +74,7 @@ ignore_unused:
   - will_paginate.*
   - time.*
   - timestamps.*
+  - errors.messages.*
 
 ## Exclude these keys from `i18n-tasks eq-base' report
 # ignore_eq_base:
