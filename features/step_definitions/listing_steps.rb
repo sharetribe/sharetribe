@@ -221,9 +221,18 @@ def select_date_from_date_selector(date, date_selector_base_id)
   select(year, :from => "#{date_selector_base_id}_1i")
 end
 
-def select_date_from_date_picker(date, date_selector_base_id)
+def select_start_date(date)
+  date = [date.year, date.month, date.day].join("-")
+  page.execute_script("$('#start-on').val('#{date}')");
   # Selenium can not interact with hidden elements, use JavaScript
-  page.execute_script("$('##{date_selector_base_id}').val('#{date.year}-#{date.month}-#{date.day}')");
+  page.execute_script("$('#booking-start-output').val('#{date}')");
+end
+
+def select_end_date(date)
+  date = [date.year, date.month, date.day].join("-")
+  page.execute_script("$('#end-on').val('#{date}')");
+  # Selenium can not interact with hidden elements, use JavaScript
+  page.execute_script("$('#booking-end-output').val('#{date}')");
 end
 
 When(/^I set the expiration date to (\d+) months from now$/) do |months|
@@ -263,8 +272,8 @@ end
 When(/^I make a booking request for that listing for (\d+) days$/) do |day_count|
   visit_current_listing
   @booking_end_date = Date.today + day_count.to_i.days - 1.day
-  select_date_from_date_picker(Date.today, "booking-start-output")
-  select_date_from_date_picker(@booking_end_date, "booking-end-output")
+  select_start_date(Date.today)
+  select_end_date(@booking_end_date)
 
   click_button('Buy')
 end
