@@ -203,6 +203,7 @@ fr:
         client_side_encryption_key: "Clé Client-Side Encryption (CSE)"
         merchant_id: "Identifiant marchand"
         master_merchant_id: "Identifiant master marchand"
+        commission_from_seller: ~
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
@@ -1696,7 +1697,7 @@ fr:
       about_listing: "à propos de l'annonce"
   date:
     formats:
-      long_with_abbr_day_name: ~
+      long_with_abbr_day_name: "%a %d %b %Y"
   datepicker:
     days:
       sunday: Dimanche
