@@ -8,8 +8,9 @@
       #header-menu-desktop-anchor.header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu', 'toggle-position' => 'absolute'}}
 
     - Maybe(@current_user).each do |user|
-      - cache [user.id, user.conversations.count, user.conversations.maximum(:updated_at)] do
-        - unread_count = @current_community.conversations.notification_count_for_person(user)
+      - conversations = @current_community.conversations.for_person(user)
+      - cache [user.id, conversations.maximum(:updated_at)] do
+        - unread_count = conversations.notification_count_for_person(user)
 
         .header-right
           = render :partial => "layouts/header_anchors", locals: {user: user}
