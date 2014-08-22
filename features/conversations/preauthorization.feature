@@ -7,6 +7,7 @@ Feature: Preauthorized payment
 
     Given a user "seller_jane"
       And a user "buyer_bob"
+      And "seller_jane" has an active Braintree account
 
     Given the community has transaction type Sell with name "Selling" and action button label "Buy"
       And that transaction uses payment preauthorization
