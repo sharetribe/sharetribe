@@ -1,0 +1,31 @@
+.row
+  %h3= t('admin.communities.integrations.paypal_gateway')
+  = render partial: "layouts/info_text", locals: { text: t("admin.communities.integrations.paypal_gateway_info_text").html_safe}
+
+.row
+  /fix these to refer to actual form
+  /username
+  = form.label :paypal_username, t("admin.communities.integrations.paypal_username"), class: "input"
+.row
+  .col-6
+    = render partial: "layouts/info_text", locals: { text: t("admin.communities.integrations.paypal_username_info_text") }
+  .col-6
+    = text_field :paypal_username, maxlength: "15", class: "text_field", placeholder: "UA-12345-12"
+
+.row
+  /api-key
+  = form.label :paypal_api_key, t("admin.communities.integrations.paypal_api_key"), class: "input"
+.row
+  .col-6
+    = render partial: "layouts/info_text", locals: { text: t("admin.communities.integrations.paypal_api_key_info_text") }
+  .col-6
+    = text_field :paypal_api_key, maxlength: "15", class: "text_field", placeholder: "UA-12345-12"
+
+.row
+  /signature
+  = form.label :paypal_signature, t("admin.communities.integrations.paypal_signature"), class: "input"
+.row
+  .col-6
+    = render partial: "layouts/info_text", locals: { text: t("admin.communities.integrations.paypal_signature_info_text") }
+  .col-6
+    = text_field :paypal_signature, maxlength: "15", class: "text_field", placeholder: "UA-12345-12"

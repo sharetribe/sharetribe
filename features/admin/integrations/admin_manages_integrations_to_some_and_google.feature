@@ -1,4 +1,4 @@
-Feature: Admin manages integration details
+Feature: Admin manages integration to some and Google
 
   In order to promote my marketplace, get analytics and easier log in
   As an admin
