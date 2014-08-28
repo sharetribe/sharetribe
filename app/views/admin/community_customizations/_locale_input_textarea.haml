@@ -1,0 +1,12 @@
+- # locals:  translations, input_name, info_text, input_classes
+.translation-wrapper
+  .input-header
+    = header
+  = render :partial => "layouts/info_text", :locals => { :text => info_text.html_safe }
+  - translations.each do |language_key, value|
+    .row
+      - if translations.size > 1
+        .name-locale-label.col-2
+          = label_tag "community_customizations[#{language_key}][#{input_name}]", value[:language], class: input_classes + ' label'
+      .name-locale-textarea.col-10
+        = text_area_tag "community_customizations[#{language_key}][#{input_name}]", value[:translation], class: input_classes

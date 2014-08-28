@@ -108,6 +108,7 @@ CREATE TABLE `communities` (
   `updated_at` datetime DEFAULT NULL,
   `settings` text,
   `consent` varchar(255) DEFAULT NULL,
+  `transaction_agreement_in_use` tinyint(1) DEFAULT '0',
   `email_admins_about_new_members` tinyint(1) DEFAULT '0',
   `use_fb_like` tinyint(1) DEFAULT '0',
   `real_name_required` tinyint(1) DEFAULT '1',
@@ -222,6 +223,8 @@ CREATE TABLE `community_customizations` (
   `private_community_homepage_content` text,
   `verification_to_post_listings_info_content` text,
   `search_placeholder` varchar(255) DEFAULT NULL,
+  `transaction_agreement_label` varchar(255) DEFAULT NULL,
+  `transaction_agreement_content` mediumtext,
   PRIMARY KEY (`id`),
   KEY `index_community_customizations_on_community_id` (`community_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1743,3 +1746,9 @@ INSERT INTO schema_migrations (version) VALUES ('20140815055023');
 INSERT INTO schema_migrations (version) VALUES ('20140815085018');
 
 INSERT INTO schema_migrations (version) VALUES ('20140819054528');
+
+INSERT INTO schema_migrations (version) VALUES ('20140819134039');
+
+INSERT INTO schema_migrations (version) VALUES ('20140819134055');
+
+INSERT INTO schema_migrations (version) VALUES ('20140820132249');

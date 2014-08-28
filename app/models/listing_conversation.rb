@@ -1,4 +1,6 @@
 class ListingConversation < Conversation
+  attr_accessor :contract_agreed
+
   belongs_to :listing
   has_many :transaction_transitions, dependent: :destroy, foreign_key: :conversation_id
   has_one :payment, foreign_key: :conversation_id

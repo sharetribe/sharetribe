@@ -1,0 +1,13 @@
+- # locals:  header, available_locales, input_name, translations, info_text
+.translation-wrapper
+  - if header.present?
+    .input-header
+      = header
+  = render :partial => "layouts/info_text", :locals => { :text => info_text.html_safe }
+  - translations.each do |language_key, value|
+    .row
+      - if translations.size > 1
+        .name-locale-label.col-2
+          = label_tag "community_customizations[#{language_key}][#{input_name}]", value[:language], class: input_classes + ' label'
+      .name-locale-text_field.col-10
+        = text_field_tag "community_customizations[#{language_key}][#{input_name}]", value[:translation], class: input_classes

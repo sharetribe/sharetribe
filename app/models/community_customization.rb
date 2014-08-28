@@ -15,8 +15,9 @@ class CommunityCustomization < ActiveRecord::Base
     :signup_info_content,
     :private_community_homepage_content,
     :verification_to_post_listings_info_content,
-    :search_placeholder
+    :search_placeholder,
+    :transaction_agreement_label,
+    :transaction_agreement_content
 
   belongs_to :community
-
 end

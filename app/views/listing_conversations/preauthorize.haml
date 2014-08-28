@@ -6,7 +6,7 @@
 
     $(document).ready(function() {
       var braintreePaymentForm = $("#braintree-payment-form");
-      initialize_braintree_payment_form("#{I18n.locale}", function beforeSubmit(next) {
+      initialize_braintree_preauthorize_form("#{I18n.locale}", function beforeSubmit(next) {
         var braintree = Braintree.create("#{@braintree_client_side_encryption_key}");
         braintree.encryptForm(braintreePaymentForm);
         next();
@@ -101,9 +101,12 @@
             = message_form.text_area :content, :class => "text_area"
             = message_form.hidden_field :sender_id, :value => @current_user.id
 
-        .row
-          .col-12
-            = form.button t("braintree_payments.edit.confirm_payment"), :class => "send_button"
+      - if @current_community.transaction_agreement_in_use
+        = render :partial => "transaction_agreement_checkbox", locals: { form: form }
+
+      .row
+        .col-12
+          = form.button t("braintree_payments.edit.confirm_payment"), :class => "send_button"
 
       .row
         .col-12

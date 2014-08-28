@@ -1,0 +1,11 @@
+.row
+  .col-12
+    .checkbox-container
+      = form.check_box :contract_agreed, class: "required"
+      %label
+        = @community_customization.transaction_agreement_label
+        = link_to(t(".read_more"), "#", id: "transaction-agreement-read-more").html_safe
+
+= render layout: "layouts/lightbox", locals: { id: "transaction-agreement-content"} do
+  - text_with_line_breaks do
+    = @community_customization.transaction_agreement_content

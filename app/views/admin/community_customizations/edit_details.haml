@@ -1,5 +1,5 @@
 - content_for :javascript do
-  /* Is this needed ? initialize_admin_edit_tribe_form("#{I18n.locale}","#{@community.id}"); */
+  ST.initializeTransactionAgreementFields();
 
 - content_for :title_header do
   %h1= t("layouts.admin.admin")
@@ -8,34 +8,26 @@
 
 .left-navi-section
   %h2= t("admin.communities.edit_details.edit_community", :community_name => @current_community.name(I18n.locale))
-  = form_for @community_customization, :url => update_details_admin_community_path(@current_community), :method => :put do |form|
+  = form_tag update_details_admin_community_path(@current_community), method: :put, id: "edit_community" do |form|
+
+    = render partial: "locale_input_fields", locals: community_name_locals
+    = render partial: "locale_input_fields", locals: community_slogan_locals
+    = render partial: "locale_input_fields", locals: community_description_locals
+    = render partial: "locale_input_fields", locals: community_search_placeholder_locals
+
+    - if @show_transaction_agreement
+      .row
+        .col-12
+          = label_tag "transaction_label", t("admin.communities.edit_details.transaction_agreement"), class: "input"
+          = check_box_tag "community[transaction_agreement_checkbox]", @current_community.transaction_agreement_in_use?, @current_community.transaction_agreement_in_use?, class: "checkbox-row-checkbox"
+          = label_tag "community[transaction_agreement_checkbox]", t("admin.communities.edit_details.transaction_agreement_checkbox"), class:"checkbox-row-label"
+
+      = render partial: "locale_input_fields", locals: transaction_agreement_label_locals
+      = render partial: "locale_input_textarea", locals: transaction_agreement_text_locals
 
     .row
       .col-12
-        = form.label :name, t("admin.communities.edit_details.community_name"), :class => "input"
-        = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_details.edit_community_name_description") }
-        = form.text_field :name, class:"text_field"
+        = button_tag t("admin.communities.edit_details.save")
 
-    .row
-      .col-12
-        = form.label :slogan, t("admin.communities.edit_details.community_slogan"), class:"input"
-        = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_details.edit_community_description_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true", :id => "view_slogan_link")).html_safe }
-        = form.text_field :slogan, class:"text_field"
-
-    .row
-      .col-12
-        = form.label :description, t("admin.communities.edit_details.community_description"), class:"input"
-        = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_details.edit_community_description_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true")).html_safe }
-        = form.text_field :description, class:"text_field"
-
-    .row
-      .col-12
-        = form.label :search_placeholder, t("admin.communities.edit_details.community_search_placeholder"), class:"input"
-        = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_details.edit_community_search_placeholder_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/")).html_safe }
-        = form.text_field :search_placeholder, class:"text_field"
-
-    .row
-      .col-12
-        = form.button t("admin.communities.edit_details.save")
 
 = render :partial => "people/help_texts", :collection => ["invite_only_help_text"], :as => :field

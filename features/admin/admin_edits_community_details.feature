@@ -11,9 +11,9 @@ Feature: Admin edits info pages
   Scenario: Admin user can edit community details
     When I go to the admin view of community "test"
 
-    And I fill in "community_customization[name]" with "Custom name"
-    And I fill in "community_customization[slogan]" with "Custom slogan"
-    And I fill in "community_customization[description]" with "This is a custom description"
+    And I fill in "community_customizations[en][name]" with "Custom name"
+    And I fill in "community_customizations[en][slogan]" with "Custom slogan"
+    And I fill in "community_customizations[en][description]" with "This is a custom description"
     And I press submit
     When I follow "view_slogan_link"
     Then I should see "Custom slogan"
