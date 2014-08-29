@@ -657,8 +657,8 @@ function initialize_new_listing_form(fileDefaultText,
     onfocusout: false,
     onsubmit: true,
     submitHandler: function(form) {
-      disable_and_submit(form_id, form, "false", locale);
       report_analytics_event(["listing", "created"]);
+      disable_and_submit(form_id, form, "false", locale);
     }
   });
 

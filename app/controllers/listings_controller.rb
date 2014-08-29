@@ -146,7 +146,7 @@ class ListingsController < ApplicationController
       if @current_community.follow_in_use?
         Delayed::Job.enqueue(NotifyFollowersJob.new(@listing.id, @current_community.id), :run_at => NotifyFollowersJob::DELAY.from_now)
       end
-      redirect_to @listing
+      redirect_to @listing, status: 303
     end
   end
 
