@@ -203,7 +203,6 @@ CREATE TABLE `communities` (
   `listing_location_required` tinyint(1) DEFAULT '0',
   `custom_head_script` text,
   `follow_in_use` tinyint(1) NOT NULL DEFAULT '1',
-  `paypal_enabled` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_communities_on_domain` (`domain`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -698,6 +697,12 @@ CREATE TABLE `people` (
   `authentication_token` varchar(255) DEFAULT NULL,
   `community_updates_last_sent_at` datetime DEFAULT NULL,
   `min_days_between_community_updates` int(11) DEFAULT '1',
+  `mangopay_id` varchar(255) DEFAULT NULL,
+  `bank_account_owner_name` varchar(255) DEFAULT NULL,
+  `bank_account_owner_address` varchar(255) DEFAULT NULL,
+  `iban` varchar(255) DEFAULT NULL,
+  `bic` varchar(255) DEFAULT NULL,
+  `mangopay_beneficiary_id` varchar(255) DEFAULT NULL,
   `is_organization` tinyint(1) DEFAULT NULL,
   `company_id` varchar(255) DEFAULT NULL,
   `checkout_merchant_id` varchar(255) DEFAULT NULL,
@@ -1782,7 +1787,3 @@ INSERT INTO schema_migrations (version) VALUES ('20140819134055');
 INSERT INTO schema_migrations (version) VALUES ('20140820132249');
 
 INSERT INTO schema_migrations (version) VALUES ('20140829075839');
-
-INSERT INTO schema_migrations (version) VALUES ('20140829113807');
-
-INSERT INTO schema_migrations (version) VALUES ('20140901082541');
