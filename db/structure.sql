@@ -203,6 +203,7 @@ CREATE TABLE `communities` (
   `listing_location_required` tinyint(1) DEFAULT '0',
   `custom_head_script` text,
   `follow_in_use` tinyint(1) NOT NULL DEFAULT '1',
+  `paypal_enabled` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_communities_on_domain` (`domain`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1787,3 +1788,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140819134055');
 INSERT INTO schema_migrations (version) VALUES ('20140820132249');
 
 INSERT INTO schema_migrations (version) VALUES ('20140829075839');
+
+INSERT INTO schema_migrations (version) VALUES ('20140829113807');
