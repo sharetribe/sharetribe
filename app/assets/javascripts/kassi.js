@@ -672,7 +672,6 @@ function initialize_send_message_form(locale, message_type) {
   var form_id = "#new_listing_conversation";
   $(form_id).validate({
     rules: {
-      "listing_conversation[title]": {required: true, minlength: 1, maxlength: 120},
       "listing_conversation[message_attributes][content]": {required: true, minlength: 1}
     },
     submitHandler: function(form) {
