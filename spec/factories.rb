@@ -108,6 +108,10 @@ FactoryGirl.define do
       build_association(:listing)
     end
 
+    has_many :messages do |conversation|
+      FactoryGirl.build(:message, conversation: conversation)
+    end
+
     created_at DateTime.now
     updated_at DateTime.now
   end
