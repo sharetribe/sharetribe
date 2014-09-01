@@ -2,9 +2,6 @@ class Conversation < ActiveRecord::Base
 
   has_many :messages, :dependent => :destroy
 
-  # Conversation view assumes at least one message
-  validates :messages, :length => { :minimum => 1}
-
   has_many :participations, :dependent => :destroy
   has_many :participants, :through => :participations, :source => :person
   belongs_to :community
