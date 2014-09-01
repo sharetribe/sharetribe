@@ -17,25 +17,9 @@
       = form.label :company_id, t("organizations.form.company_id"), :class => "input"
       = form.text_field :company_id, :class => :text_field, :maxlenght => "9"
 
-    - with_bank_account_owner_name_field(@current_community) do
-      = form.label :bank_account_owner_name, t(".bank_account_owner_name")
-      = form.text_field :bank_account_owner_name, :class => "text_field", :maxlength => "30", :value => @person.bank_account_owner_name || @person.full_name
-
-    - with_bank_account_owner_address(@current_community) do
-      = form.label :bank_account_owner_address, t(".bank_account_owner_address")
-      = form.text_field :bank_account_owner_address, :class => "text_field", :maxlength => "60", :value => @person.bank_account_owner_address || (@person.location && @person.location.address)
-
     - with_organization_address(@current_community, @current_user) do
       = form.label :organization_address, t("organizations.form.organization_address"), :class => "input"
       = form.text_field :organization_address, :class => :text_field
-
-    - with_iban(@current_community) do
-      = form.label :iban, t(".iban")
-      = form.text_field :iban, :class => "text_field", :maxlength => "22"
-
-    - with_bic(@current_community) do
-      = form.label :bic, t(".bic")
-      = form.text_field :bic, :class => "text_field", :maxlength => "12"
 
     - with_phone_number(@current_community, @current_user) do
       = form.label :phone_number, t("organizations.form.phone_number")
