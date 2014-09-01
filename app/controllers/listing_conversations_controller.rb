@@ -66,6 +66,7 @@ class ListingConversationsController < ApplicationController
     recipient = payment.recipient
 
     if result.success?
+      @listing_conversation.messages.build(:sender_id => payer.id, :action => "pay")
       @listing_conversation.save!
       listing_conversation.status = "preauthorized"
       redirect_to person_message_path(:id => listing_conversation.id)

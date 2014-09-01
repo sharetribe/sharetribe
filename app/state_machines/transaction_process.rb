@@ -92,7 +92,6 @@ class TransactionProcess
 
     payment = conversation.payment
     payer = payment.payer
-    conversation.messages.create(:sender_id => payer.id, :action => "pay")
 
     Delayed::Job.enqueue(TransactionPreauthorizedJob.new(conversation.id), :priority => 10)
     if send_reminder
