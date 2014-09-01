@@ -91,12 +91,10 @@ def prepare_closed_source_branch
     puts `git reset --hard private/closed_source`
     puts `git pull`
     puts `cp -R app/assets/webfonts/* ../tmp-sharetribe/webfonts/`
-    puts `cp config/mangopay.pem ../tmp-sharetribe/`
     puts `git rebase #{@branch}`
     puts `git checkout #{@branch}`
     puts `mkdir app/assets/webfonts `
     puts `cp -R ../tmp-sharetribe/webfonts/* app/assets/webfonts/`
-    puts `cp ../tmp-sharetribe/mangopay.pem config/`
   else
     puts "ERROR: Checkout for closed_source branch didn't work. Maybe you have uncommitted changes?"
   end
@@ -293,12 +291,10 @@ namespace :deploy do
       puts `git reset --hard private/closed_source`
       puts `git pull`
       puts `cp -R app/assets/webfonts/* ../tmp-sharetribe/webfonts/`
-      puts `cp config/mangopay.pem ../tmp-sharetribe/`
       puts `git rebase #{BRANCH}`
       puts `git checkout #{BRANCH}`
       puts `mkdir app/assets/webfonts `
       puts `cp -R ../tmp-sharetribe/webfonts/* app/assets/webfonts/`
-      puts `cp ../tmp-sharetribe/mangopay.pem config/`
     else
       puts "ERROR: Checkout for closed_source branch didn't work. Maybe you have uncommitted changes?"
     end
