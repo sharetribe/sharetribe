@@ -182,10 +182,10 @@ class PeopleController < Devise::RegistrationsController
     fields.all? { |field_name| !hash[field_name].blank? }
   end
 
-  def register_payout(payment_gateway, person_params, chekout_param_keys, person)
-    if self.any_fields?(person_params, chekout_param_keys)
+  def register_payout(payment_gateway, person_params, payment_param_keys, person)
+    if self.any_fields?(person_params, payment_param_keys)
       # require all fields
-      if !self.all_fields?(person_params, chekout_param_keys)
+      if !self.all_fields?(person_params, payment_param_keys)
         flash[:error] = t("layouts.notifications.you_must_fill_all_the_fields")
         return false
       end
