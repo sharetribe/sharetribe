@@ -8,10 +8,10 @@
 
   %h2= t(".setup-paypal-account")
 
-  = form_for paypal_account, :url => form_action, :html => { :id => "paypal_account_form"} do |form|
+  = form_for paypal_account_form, :url => form_action, :html => { :id => "paypal_account_form"} do |form|
 
-    = form.label :username, t(".paypal-account-email"), :class => "input"
-    = form.text_field :username, :class => "auto_width", :size => 30
+    = form.label :paypal_email, t(".paypal-account-email"), :class => "input"
+    = form.text_field :paypal_email, :class => "auto_width", :size => 30
 
     %br/
 
