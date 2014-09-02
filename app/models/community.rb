@@ -524,10 +524,6 @@ class Community < ActiveRecord::Base
     payment_gateway.present? && payment_gateway.type == "BraintreePaymentGateway"
   end
 
-  def mangopay_in_use?
-    payment_gateway.present? && payment_gateway.type == "Mangopay"
-  end
-
   def price_in_use?
     transaction_types.any? { |tt| tt.price_field }
   end

@@ -10,6 +10,17 @@ CREATE TABLE `auth_tokens` (
   UNIQUE KEY `index_auth_tokens_on_token` (`token`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `billing_agreements` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `from_account_id` int(11) NOT NULL,
+  `to_account_id` int(11) NOT NULL,
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'pending',
+  `billing_agreement_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 CREATE TABLE `bookings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `listing_conversation_id` int(11) DEFAULT NULL,
@@ -192,6 +203,7 @@ CREATE TABLE `communities` (
   `listing_location_required` tinyint(1) DEFAULT '0',
   `custom_head_script` text,
   `follow_in_use` tinyint(1) NOT NULL DEFAULT '1',
+  `paypal_enabled` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_communities_on_domain` (`domain`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -559,6 +571,16 @@ CREATE TABLE `messages` (
   KEY `index_messages_on_conversation_id` (`conversation_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `order_permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `from_account_id` int(11) NOT NULL,
+  `to_account_id` int(11) NOT NULL,
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'pending',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 CREATE TABLE `participations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `person_id` varchar(255) DEFAULT NULL,
@@ -629,6 +651,18 @@ CREATE TABLE `payments` (
   KEY `index_payments_on_conversation_id` (`conversation_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `paypal_accounts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `person_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `community_id` int(11) NOT NULL,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `api_password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `api_signature` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 CREATE TABLE `people` (
   `id` varchar(22) NOT NULL,
   `created_at` datetime DEFAULT NULL,
@@ -664,12 +698,6 @@ CREATE TABLE `people` (
   `authentication_token` varchar(255) DEFAULT NULL,
   `community_updates_last_sent_at` datetime DEFAULT NULL,
   `min_days_between_community_updates` int(11) DEFAULT '1',
-  `mangopay_id` varchar(255) DEFAULT NULL,
-  `bank_account_owner_name` varchar(255) DEFAULT NULL,
-  `bank_account_owner_address` varchar(255) DEFAULT NULL,
-  `iban` varchar(255) DEFAULT NULL,
-  `bic` varchar(255) DEFAULT NULL,
-  `mangopay_beneficiary_id` varchar(255) DEFAULT NULL,
   `is_organization` tinyint(1) DEFAULT NULL,
   `company_id` varchar(255) DEFAULT NULL,
   `checkout_merchant_id` varchar(255) DEFAULT NULL,
@@ -1752,3 +1780,9 @@ INSERT INTO schema_migrations (version) VALUES ('20140819134039');
 INSERT INTO schema_migrations (version) VALUES ('20140819134055');
 
 INSERT INTO schema_migrations (version) VALUES ('20140820132249');
+
+INSERT INTO schema_migrations (version) VALUES ('20140829075839');
+
+INSERT INTO schema_migrations (version) VALUES ('20140829113807');
+
+INSERT INTO schema_migrations (version) VALUES ('20140901082541');

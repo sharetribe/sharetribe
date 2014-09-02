@@ -1423,14 +1423,6 @@ fi:
       invoice: Lasku
       service_fee: "%{service_name} palvelumaksu:"
       you_will_get: "Sinulle tilitetään:"
-    mangopay:
-      terms:
-        mangopay_terms_also_included: "HUOM: Tämä verkkopalvelu käyttää maksunvälittäjänä MangoPay-palvelua ja käyttämällä tätä verkkopalvelua hyväksyt alla olevien ehtojen lisäksi myös %{terms_link_text}."
-        terms_link_text: "MangoPayn käyttöehdot"
-      seller_registration_needed:
-        seller_registration_needed: "Et voi vielä tehdä rahaan liittyvää ilmoitusta"
-        seller_registration_instructions: "Ennen kuin voit tehdä ilmoituksen, josta joku voisi maksaa sinulle rahaa, sinun täytyy täyttää vielä pari lisätietoa %{link_to_settings_page}."
-        settings_page_link: profiiliisi
     braintree:
       terms:
         braintree_terms_also_included: "HUOM: Tämä verkkopalvelu käyttää maksunvälittäjänä Braintree-palvelua ja käyttämällä tätä verkkopalvelua hyväksyt alla olevien ehtojen lisäksi myös %{terms_link_text}."

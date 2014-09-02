@@ -203,31 +203,27 @@ class PeopleController < Devise::RegistrationsController
   def update
 
     # If setting new location, delete old one first
-	  if params[:person] && params[:person][:location] && (params[:person][:location][:address].empty? || params[:person][:street_address].blank?)
+    if params[:person] && params[:person][:location] && (params[:person][:location][:address].empty? || params[:person][:street_address].blank?)
       params[:person].delete("location")
       if @person.location
         @person.location.delete
       end
-	  end
+    end
 
-	  #Check that people don't exploit changing email to be confirmed to join an email restricted community
-	  if params["request_new_email_confirmation"] && @current_community && ! @current_community.email_allowed?(params[:person][:email])
-	    flash[:error] = t("people.new.email_not_allowed")
-	    redirect_to :back and return
+    #Check that people don't exploit changing email to be confirmed to join an email restricted community
+    if params["request_new_email_confirmation"] && @current_community && ! @current_community.email_allowed?(params[:person][:email])
+      flash[:error] = t("people.new.email_not_allowed")
+      redirect_to :back and return
     end
 
     @person.set_emails_that_receive_notifications(params[:person][:send_notifications])
 
     payment_gateway = @current_community.payment_gateway
 
-    # If updating payout details, check that they are valid
-    mango_param_keys = [:bank_account_owner_name, :bank_account_owner_address, :iban, :bic]
-    checkout_param_keys = [:company_id, :organization_address, :phone_number, :organization_website]
-
     if params[:person] && payment_gateway && params[:payment_settings]
-      payment_param_keys = payment_gateway.type == "Mangopay" ? mango_param_keys : checkout_param_keys
-      registering_successful = self.register_payout(payment_gateway, params[:person], payment_param_keys, @person)
-
+      # If updating payout details, check that they are valid
+      checkout_param_keys = [:company_id, :organization_address, :phone_number, :organization_website]
+      registering_successful = self.register_payout(payment_gateway, params[:person], checkout_param_keys, @person)
       redirect_to :back and return unless registering_successful
     end
 

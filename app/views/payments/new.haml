@@ -7,8 +7,3 @@
     = "#{link_to payment_receiver.name, payment_receiver}".html_safe
 
   = render :partial => @current_community.payment_gateway.form_template_dir + "/show"
-
-  - if @current_community.mangopay_in_use?
-    %br
-    %br
-    = image_tag("/assets/payments/Mango-Frise1.png")

@@ -237,9 +237,6 @@ GEM
       treetop (~> 1.4.8)
     mail_view (1.0.3)
       tilt
-    mangopay (2.0.0)
-      json (~> 1.8.0)
-      multipart-post (~> 1.2.0)
     memcachier (0.0.2)
     mercury-rails (0.9.0)
       coffee-rails
@@ -515,7 +512,6 @@ DEPENDENCIES
   launchy
   localized_country_select (>= 0.9.3)
   mail_view (~> 1.0.3)
-  mangopay
   memcachier
   mercury-rails
   money-rails

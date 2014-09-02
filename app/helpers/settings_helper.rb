@@ -10,10 +10,6 @@ module SettingsHelper
     community.payment_gateway.has_registered?(person)
   end
 
-  def uses_mangopay?(community)
-    community.payment_gateway.type == "Mangopay"
-  end
-
   def uses_checkout?(community)
     community.payment_gateway.type == "Checkout"
   end
@@ -36,28 +32,8 @@ module SettingsHelper
     end
   end
 
-  def with_bank_account_owner_name_field(community, &block)
-    block.call if uses_mangopay?(community)
-  end
-
-  def with_bank_account_owner_address(community, &block)
-    block.call if uses_mangopay?(community)
-  end
-
   def with_organization_address(community, person, &block)
     block.call unless registered_checkout?(community, person)
-  end
-
-  def with_iban(community, &block)
-    block.call if uses_mangopay?(community)
-  end
-
-  def with_bic(community, &block)
-    block.call if uses_mangopay?(community)
-  end
-
-  def with_bic(community, &block)
-    block.call if uses_mangopay?(community)
   end
 
   def with_company_id(community, person, &block)

@@ -1423,14 +1423,6 @@ en:
       invoice: Invoice
       service_fee: "%{service_name} service fee:"
       you_will_get: "You will get:"
-    mangopay:
-      terms:
-        mangopay_terms_also_included: "NOTE: MangoPay is used as a payment gateway service and by using this website you also accept %{terms_link_text}, in addition to the terms below."
-        terms_link_text: "MangoPay terms of use"
-      seller_registration_needed:
-        seller_registration_needed: "You can't create a money related listing yet"
-        seller_registration_instructions: "Before you can create a listing which could result in you being paid, you'll need to add few required details to your %{link_to_settings_page}."
-        settings_page_link: profile
     braintree:
       terms:
         braintree_terms_also_included: "NOTE: Braintree is used as a payment gateway service and by using this website you also accept %{terms_link_text}, in addition to the terms below."
