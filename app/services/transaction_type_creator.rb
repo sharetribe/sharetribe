@@ -72,7 +72,7 @@ module TransactionTypeCreator
     throw "Transaction type #{transaction_type_class_name} not available. Available types are: #{available_types.join(', ')}" unless available_types.include? transaction_type_class_name
 
     transaction_type_description = TRANSACTION_TYPES[transaction_type_class_name]
-    defaults = transaction_type_description[:defaults] || {}
+    defaults = transaction_type_description[:defaults] || {}
 
     # Create
     transaction_type = community.transaction_types.build(
