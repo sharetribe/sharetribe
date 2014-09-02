@@ -634,7 +634,7 @@ fi:
       please_contant_admin_link: ~
     confirmation_instructions:
       confirmation_instructions_signature: "Terveisin,<br/>%{service_name}-tiimi"
-      welcome_to_kassi: "Tervetuloa palveluun!"
+      welcome_to_kassi: "Tervetuloa %{service_name}-palveluun!"
       need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla alla olevaa linkkiä"
       confirmation_link_text: "Vahvista sähköpostini"
       or_paste_link: "Vaihtoehtoisesti voit kopioida seuraavan linkin selaimesi osoitepalkkiin:"
@@ -1046,7 +1046,7 @@ fi:
       create_new_listing: "Lisää uusi ilmoitus"
       create_one_here: "luoda uuden"
       email_confirmation_sent_to_new_address: "Sähköpostivarmistus lähetetty uuteen osoitteeseen."
-      email_not_found: "Antamaasi sähköpostiosoitetta ei löytynyt palvelusta."
+      email_not_found: "Antamaasi sähköpostiosoitetta ei löytynyt."
       error_with_session: "Virhe istunnon käsittelyssä."
       feedback_considered_spam: "Jokin palautteen sisällössä esti tallentamisen. Yritä uudelleen tai käydä palautefoorumia."
       feedback_not_saved: "Palautteen lähettäminen epäonnistui."
