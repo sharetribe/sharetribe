@@ -653,9 +653,9 @@ CREATE TABLE `payments` (
 
 CREATE TABLE `paypal_accounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `person_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `community_id` int(11) NOT NULL,
-  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `person_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `community_id` int(11) DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `api_password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `api_signature` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime NOT NULL,
@@ -698,12 +698,6 @@ CREATE TABLE `people` (
   `authentication_token` varchar(255) DEFAULT NULL,
   `community_updates_last_sent_at` datetime DEFAULT NULL,
   `min_days_between_community_updates` int(11) DEFAULT '1',
-  `mangopay_id` varchar(255) DEFAULT NULL,
-  `bank_account_owner_name` varchar(255) DEFAULT NULL,
-  `bank_account_owner_address` varchar(255) DEFAULT NULL,
-  `iban` varchar(255) DEFAULT NULL,
-  `bic` varchar(255) DEFAULT NULL,
-  `mangopay_beneficiary_id` varchar(255) DEFAULT NULL,
   `is_organization` tinyint(1) DEFAULT NULL,
   `company_id` varchar(255) DEFAULT NULL,
   `checkout_merchant_id` varchar(255) DEFAULT NULL,
@@ -1790,3 +1784,9 @@ INSERT INTO schema_migrations (version) VALUES ('20140820132249');
 INSERT INTO schema_migrations (version) VALUES ('20140829075839');
 
 INSERT INTO schema_migrations (version) VALUES ('20140829113807');
+
+INSERT INTO schema_migrations (version) VALUES ('20140901082541');
+
+INSERT INTO schema_migrations (version) VALUES ('20140901130206');
+
+INSERT INTO schema_migrations (version) VALUES ('20140902095905');
