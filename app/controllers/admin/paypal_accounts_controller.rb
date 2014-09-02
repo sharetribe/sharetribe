@@ -8,7 +8,7 @@ class Admin::PaypalAccountsController < ApplicationController
     paypal_account = find_paypal_account
 
     if paypal_account
-      render locals: {paypal_account: find_paypal_account }
+      render locals: {paypal_account: paypal_account }
     else
       redirect_to action: :new
     end
@@ -43,10 +43,6 @@ class Admin::PaypalAccountsController < ApplicationController
 
   def build_paypal_account(paypal_params)
     @current_community.build_paypal_account(paypal_params)
-  end
-
-  def ensure_paypal_enabled
-    @current_community.paypal_enabled
   end
 
   # Before filter
