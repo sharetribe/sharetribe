@@ -1,10 +1,10 @@
 class PaypalAccount < ActiveRecord::Base
-  attr_accessible :username, :api_password, :api_signature, :person, :community
+  attr_accessible :email, :api_password, :api_signature, :person, :community
 
   belongs_to :person
   belongs_to :community
 
-  validates_presence_of :username
+  validates_presence_of :email
 
   # Validate presence of either person OR community
   validates :person, presence: true, unless: :community
