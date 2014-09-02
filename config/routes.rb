@@ -106,6 +106,7 @@ Kassi::Application.routes.draw do
             post :posting_allowed
           end
         end
+        resource :paypal_account, :controller => :paypal_accounts
       end
       resources :custom_fields do
         collection do

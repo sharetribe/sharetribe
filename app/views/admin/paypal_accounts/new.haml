@@ -1,0 +1,45 @@
+- content_for :title_header do
+  %h1= t("layouts.admin.admin")
+
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section
+  %h2= t(".marketplace_paypal_integration")
+
+  = form_for paypal_account, url: admin_community_paypal_account_path do |form|
+    .row
+      .col-12
+        .row
+          .col-12
+            = t(".username_or_email")
+        .row
+          .col-6
+            = t(".username_or_email_help_text")
+          .col-6
+            = form.text_field :username
+
+    .row
+      .col-12
+        .row
+          .col-12
+            = t(".api_password")
+        .row
+          .col-6
+            = t(".api_password_help_text")
+          .col-6
+            = form.text_field :api_password
+
+    .row
+      .col-12
+        .row
+          .col-12
+            = t(".api_signature")
+        .row
+          .col-6
+            = t(".api_signature_help_text")
+          .col-6
+            = form.text_field :api_signature
+
+    .row
+      .col-12
+        = form.button t(".save")
