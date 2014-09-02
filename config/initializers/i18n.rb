@@ -55,16 +55,8 @@ I18n.module_eval do
 
       # insert here the variables
       service_name = ApplicationHelper.fetch_community_service_name_from_thread
-      service_name_other_forms = ApplicationHelper.service_name_other_forms(service_name)
       #puts "in I18n using service name: #{service_name}"
       options.merge!(:service_name => service_name) unless options.key?(:service_name)
-      if service_name_other_forms
-        options.merge!(:service_name_illative => service_name_other_forms[:illative]) unless options.key?(:service_name_illative)
-        options.merge!(:service_name_genetive => service_name_other_forms[:genetive]) unless options.key?(:service_name_genetive)
-        options.merge!(:service_name_inessive => service_name_other_forms[:inessive]) unless options.key?(:service_name_inessive)
-        options.merge!(:service_name_elative => service_name_other_forms[:elative]) unless options.key?(:service_name_elative)
-        options.merge!(:service_name_partitive => service_name_other_forms[:partitive]) unless options.key?(:service_name_partitive)
-      end
       # end added code here
 
        raise I18n::ArgumentError if key.is_a?(String) && key.empty?
