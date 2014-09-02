@@ -73,6 +73,12 @@ de:
         verification_to_post_listings_info_content_default: "Auf diesem Marktplatz ist es erforderlich, dass man sich vom Administrator verifizieren lässt, bevor man Einträge veröffentlichen darf. Du bist noch nicht verifiziert. Bitte %{contact_admin_link}, um dich verifizieren zu lassen."
         contact_admin_link_text: "Administrator kontaktieren"
         save: "Einstellungen speichern"
+        transaction_agreement: ~
+        transaction_agreement_checkbox: ~
+        transaction_agreement_checkbox_header: ~
+        transaction_agreement_checkbox_label_description: ~
+        transaction_agreement_text_header: ~
+        transaction_agreement_description: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Bearbeite das \"Look & Feel\" der Community %{community_name}"
         community_logo: Logo
@@ -1368,6 +1374,8 @@ de:
       day: ~
       days: ~
       price_per_day: ~
+    transaction_agreement_checkbox:
+      read_more: ~
   mapview:
     index:
       all_categories: "Alle Kategorien"
@@ -1415,14 +1423,6 @@ de:
       invoice: Rechnung
       service_fee: "%{service_name} Servicegebühr:"
       you_will_get: "Du wirst erhalten:"
-    mangopay:
-      terms:
-        mangopay_terms_also_included: "ACHTUNG: MangoPay ist ein Durchgangszahlungsservice, und indem du diese Webseite benutzt, akzeptierst du auch %{terms_link_text}, zusätzlich zu den folgenden Nutzungsbedingungen."
-        terms_link_text: "Nutzungsbedingungen von MangoPay"
-      seller_registration_needed:
-        seller_registration_needed: "Du kannst noch keine kommerziellen Einträge erstellen"
-        seller_registration_instructions: "Bevor du einen Eintrag erstellen kannst, für den du eventuell bezahlt wirst, ist es erforderlich, dass du noch ein paar Details zu %{link_to_settings_page} hinzufügst."
-        settings_page_link: Profil
     braintree:
       terms:
         braintree_terms_also_included: "ACHTUNG: Braintree wird als Durchgangszahlungsservice genutzt, und indem du diese Webseite benutzt, akzeptierst du auch %{terms_link_text}, zusätzlich zu den folgenden Nutzungsbedingungen."
