@@ -67,7 +67,7 @@ describe Api::ListingsController do
       doc = Nokogiri::XML::Document.parse(response.body)
       doc.remove_namespaces!
 
-      doc.at("feed/title").text.should =~ /Ilmoitukset sharetribe-testcommunity-\d+-Sharetribessa/
+      doc.at("feed/title").text.should =~ /Ilmoitukset Sharetribe-palvelussa/
       doc.at("feed/entry/title").text.should == "Myydään: hammer"
       doc.at("feed/entry/category").attribute("term").value.should == "#{@category_item.id}"
       doc.at("feed/entry/category").attribute("label").value.should == "Tavarat"
