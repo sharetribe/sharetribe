@@ -1,5 +1,7 @@
 class Inquiry < TransactionType
 
+  DEFAULTS = {}
+
   def direction
     "inquiry"
   end
