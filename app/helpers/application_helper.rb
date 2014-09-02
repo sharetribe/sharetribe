@@ -730,6 +730,15 @@ module ApplicationHelper
       }
     end
 
+    if @current_community.paypal_enabled
+      links << {
+        :text => t("admin.communities.paypal_account.paypal_admin_account"),
+        :icon_class => icon_class("payments"),
+        :path => admin_community_paypal_account_path(@current_community),
+        :name => "paypal_account"
+      }
+    end
+
     if category_editing_allowed?
       links << {
         :text => t("admin.categories.index.listing_categories"),

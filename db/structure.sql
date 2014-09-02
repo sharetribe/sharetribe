@@ -653,9 +653,9 @@ CREATE TABLE `payments` (
 
 CREATE TABLE `paypal_accounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `person_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `community_id` int(11) NOT NULL,
-  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `person_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `community_id` int(11) DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `api_password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `api_signature` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime NOT NULL,
@@ -1786,3 +1786,7 @@ INSERT INTO schema_migrations (version) VALUES ('20140829075839');
 INSERT INTO schema_migrations (version) VALUES ('20140829113807');
 
 INSERT INTO schema_migrations (version) VALUES ('20140901082541');
+
+INSERT INTO schema_migrations (version) VALUES ('20140901130206');
+
+INSERT INTO schema_migrations (version) VALUES ('20140902095905');
