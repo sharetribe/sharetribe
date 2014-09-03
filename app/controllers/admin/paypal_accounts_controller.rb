@@ -29,7 +29,7 @@ class Admin::PaypalAccountsController < ApplicationController
   skip_filter :dashboard_only
 
   def show
-    paypal_account = find_paypal_account
+    paypal_account = MarketplaceService::PaypalAccount::Query.admin_account(@current_community.id)
 
     if paypal_account
       render locals: {paypal_account: paypal_account }
@@ -70,10 +70,6 @@ class Admin::PaypalAccountsController < ApplicationController
   end
 
   private
-
-  def find_paypal_account
-    MarketplaceService::PaypalAccount::Query.admin_account(@current_community.id)
-  end
 
   def build_paypal_account_form(paypal_params = {})
     Admin::PaypalAccountForm.new(paypal_params)
