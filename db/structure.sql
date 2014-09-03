@@ -99,6 +99,17 @@ CREATE TABLE `category_translations` (
   KEY `index_category_translations_on_category_id` (`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `checkout_accounts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `company_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `merchant_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `merchant_key` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `person_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `author_id` varchar(255) DEFAULT NULL,
@@ -664,51 +675,48 @@ CREATE TABLE `paypal_accounts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `people` (
-  `id` varchar(22) NOT NULL,
+  `id` varchar(22) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `is_admin` int(11) DEFAULT '0',
-  `locale` varchar(255) DEFAULT 'fi',
-  `preferences` text,
+  `locale` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'fi',
+  `preferences` text COLLATE utf8_unicode_ci,
   `active_days_count` int(11) DEFAULT '0',
   `last_page_load_date` datetime DEFAULT NULL,
   `test_group_number` int(11) DEFAULT '1',
   `active` tinyint(1) DEFAULT '1',
-  `username` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `encrypted_password` varchar(255) NOT NULL DEFAULT '',
-  `reset_password_token` varchar(255) DEFAULT NULL,
+  `username` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `encrypted_password` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `reset_password_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `reset_password_sent_at` datetime DEFAULT NULL,
   `remember_created_at` datetime DEFAULT NULL,
   `sign_in_count` int(11) DEFAULT '0',
   `current_sign_in_at` datetime DEFAULT NULL,
   `last_sign_in_at` datetime DEFAULT NULL,
-  `current_sign_in_ip` varchar(255) DEFAULT NULL,
-  `last_sign_in_ip` varchar(255) DEFAULT NULL,
-  `password_salt` varchar(255) DEFAULT NULL,
-  `given_name` varchar(255) DEFAULT NULL,
-  `family_name` varchar(255) DEFAULT NULL,
-  `phone_number` varchar(255) DEFAULT NULL,
-  `description` text,
-  `image_file_name` varchar(255) DEFAULT NULL,
-  `image_content_type` varchar(255) DEFAULT NULL,
+  `current_sign_in_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `last_sign_in_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password_salt` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `given_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `family_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone_number` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  `image_file_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image_content_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `image_file_size` int(11) DEFAULT NULL,
   `image_updated_at` datetime DEFAULT NULL,
-  `facebook_id` varchar(255) DEFAULT NULL,
-  `authentication_token` varchar(255) DEFAULT NULL,
+  `facebook_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `authentication_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `community_updates_last_sent_at` datetime DEFAULT NULL,
   `min_days_between_community_updates` int(11) DEFAULT '1',
   `is_organization` tinyint(1) DEFAULT NULL,
-  `company_id` varchar(255) DEFAULT NULL,
-  `checkout_merchant_id` varchar(255) DEFAULT NULL,
-  `checkout_merchant_key` varchar(255) DEFAULT NULL,
-  `organization_name` varchar(255) DEFAULT NULL,
+  `organization_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   UNIQUE KEY `index_people_on_email` (`email`),
   UNIQUE KEY `index_people_on_facebook_id` (`facebook_id`),
   UNIQUE KEY `index_people_on_reset_password_token` (`reset_password_token`),
   UNIQUE KEY `index_people_on_username` (`username`),
   KEY `index_people_on_id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `schema_migrations` (
   `version` varchar(255) NOT NULL,
@@ -1792,3 +1800,9 @@ INSERT INTO schema_migrations (version) VALUES ('20140901082541');
 INSERT INTO schema_migrations (version) VALUES ('20140901130206');
 
 INSERT INTO schema_migrations (version) VALUES ('20140902095905');
+
+INSERT INTO schema_migrations (version) VALUES ('20140903111344');
+
+INSERT INTO schema_migrations (version) VALUES ('20140903112203');
+
+INSERT INTO schema_migrations (version) VALUES ('20140903120109');
