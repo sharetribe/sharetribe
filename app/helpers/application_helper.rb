@@ -427,20 +427,13 @@ module ApplicationHelper
     (@current_community && @current_community.label.eql?("okl")) ? t("okl.member_id_or_email") : t("common.username_or_email")
   end
 
-  def service_name(form=nil)
+  def service_name
     if @current_community
       service_name = @current_community.service_name
     else
       service_name = APP_CONFIG.global_service_name || "Sharetribe"
     end
-    if form #check if special form of the name is required
-      service_name = ApplicationHelper.service_name_other_forms(service_name)[form.to_sym]
-    end
     return service_name
-  end
-
-  def service_name_illative
-    ApplicationHelper.service_name_other_forms
   end
 
   def email_not_accepted_message
@@ -488,98 +481,6 @@ module ApplicationHelper
 
   def self.fetch_community_service_name_from_thread
     Thread.current[:current_community_service_name] || APP_CONFIG.global_service_name || "Sharetribe"
-  end
-
-  def self.service_name_other_forms(name)
-    forms_hash = case name
-      when "Sharetribe" then {
-        :illative => "Sharetribeen",
-        :genetive => "Sharetriben",
-        :inessive => "Sharetribessa",
-        :elative => "Sharetribesta",
-        :partitive => "Sharetribea"
-        }
-      when "Kassi" then {
-        :illative => "Kassiin",
-        :genetive => "Kassin",
-        :inessive => "Kassissa",
-        :elative => "Kassista",
-        :partitive => "Kassia"
-        }
-      when "Omakotitori" then {
-        :illative => "Omakotitorille",
-        :genetive => "Omakotitorin",
-        :inessive => "Omakotitorilla",
-        :elative => "Omakotitorilta",
-        :partitive => "Omakotitoria"
-        }
-      when "Pakilan tori" then {
-        :illative => "Pakilan torille",
-        :genetive => "Pakilan torin",
-        :inessive => "Pakilan torilla",
-        :elative => "Pakilan torilta",
-        :partitive => "Pakilan toria"
-        }
-      when "Materiaalipankki" then {
-         :illative => "Materiaalipankkiin",
-         :genetive => "Materiaalipankin",
-         :inessive => "Materiaalipankissa",
-         :elative => "Materiaalipankista",
-         :partitive => "Materiaalipankkia"
-         }
-      when "Larun tori" then {
-        :illative => "Larun torille",
-        :genetive => "Larun torin",
-        :inessive => "Larun torilla",
-        :elative => "Larun torilta",
-        :partitive => "Larun toria"
-        }
-      when "Massainfo" then {
-        :illative => "Massainfoon",
-        :genetive => "Massainfon",
-        :inessive => "Massainfossa",
-        :elative => "Massainfosta",
-        :partitive => "Massainfoa"
-      }
-      when "University of Helsinki Marketplace" then {
-        :illative => "University of Helsinki Marketplaceen",
-        :genetive => "University of Helsinki Marketplacen",
-        :inessive => "University of Helsinki Marketplacessa",
-        :elative => "University of Helsinki Marketplacesta",
-        :partitive => "University of Helsinki Marketplacea"
-      }
-      when "Autopaikkapörssi" then {
-        :illative => "Autopaikkapörssiin",
-        :genetive => "Autopaikkapörssin",
-        :inessive => "Autopaikkapörssissä",
-        :elative => "Autopaikkapörssistä",
-        :partitive => "Autopaikkapörssiä"
-      }
-      # Deprecated, renamed to Työtorni
-      when "Työpooli" then {
-        :illative => "Työpooliin",
-        :genetive => "Työpoolin",
-        :inessive => "Työpoolissa",
-        :elative => "Työpoolista",
-        :partitive => "Työpoolia"
-      }
-      when "Työtorni" then {
-        :illative => "Työtorniin",
-        :genetive => "Työtornin",
-        :inessive => "Työtornissa",
-        :elative => "Työtornista",
-        :partitive => "Työtornia"
-      }
-    when "Lovebirds" then {
-        :illative =>  "Lovebirdsiin",
-        :genetive =>  "Lovebirdsin",
-        :inessive =>  "Lovebirdsissa",
-        :elative  =>  "Lovebirdsista",
-        :partitive => "Lovebirdsia"
-      }
-
-      else nil
-    end
   end
 
   # returns the locale part from url.
