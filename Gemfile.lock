@@ -44,6 +44,9 @@ GEM
     airbrake (4.0.0)
       builder
       multi_json
+    annotate (2.6.5)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arel (3.0.3)
     asset_sync (1.0.0)
       activemodel
@@ -479,6 +482,7 @@ PLATFORMS
 DEPENDENCIES
   action_mailer_cache_delivery
   airbrake (~> 4.0.0)
+  annotate
   asset_sync
   aws-sdk
   braintree

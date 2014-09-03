@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: categories
+#
+#  id            :integer          not null, primary key
+#  parent_id     :integer
+#  icon          :string(255)
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  community_id  :integer
+#  sort_priority :integer
+#
+
 require 'spec_helper'
 
 describe Category do

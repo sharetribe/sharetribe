@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: participations
+#
+#  id               :integer          not null, primary key
+#  person_id        :string(255)
+#  conversation_id  :integer
+#  is_read          :boolean          default(FALSE)
+#  is_starter       :boolean          default(FALSE)
+#  created_at       :datetime
+#  updated_at       :datetime
+#  last_sent_at     :datetime
+#  last_received_at :datetime
+#  feedback_skipped :boolean          default(FALSE)
+#
+
 require 'spec_helper'
 
 describe Participation do

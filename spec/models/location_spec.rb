@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: locations
+#
+#  id             :integer          not null, primary key
+#  latitude       :float
+#  longitude      :float
+#  address        :string(255)
+#  google_address :string(255)
+#  created_at     :datetime
+#  updated_at     :datetime
+#  listing_id     :integer
+#  person_id      :string(255)
+#  location_type  :string(255)
+#  community_id   :integer
+#
+
 require 'spec_helper'
 
 describe Location do

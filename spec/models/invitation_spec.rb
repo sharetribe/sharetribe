@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: invitations
+#
+#  id           :integer          not null, primary key
+#  code         :string(255)
+#  community_id :integer
+#  usages_left  :integer
+#  valid_until  :datetime
+#  information  :string(255)
+#  created_at   :datetime
+#  updated_at   :datetime
+#  inviter_id   :string(255)
+#  message      :text
+#  email        :string(255)
+#
+
 require 'spec_helper'
 
 describe Invitation do

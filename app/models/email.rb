@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: emails
+#
+#  id                   :integer          not null, primary key
+#  person_id            :string(255)
+#  address              :string(255)
+#  confirmed_at         :datetime
+#  confirmation_sent_at :datetime
+#  confirmation_token   :string(255)
+#  created_at           :datetime
+#  updated_at           :datetime
+#  send_notifications   :boolean
+#
+
 class Email < ActiveRecord::Base
   include ApplicationHelper
   belongs_to :person

@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: follower_relationships
+#
+#  id          :integer          not null, primary key
+#  person_id   :string(255)      not null
+#  follower_id :string(255)      not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class FollowerRelationship < ActiveRecord::Base
   
   attr_accessible :follower_id, :person_id
