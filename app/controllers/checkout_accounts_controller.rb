@@ -11,7 +11,8 @@ class CheckoutAccountsController < ApplicationController
   end
 
   def show
-    render 'settings/payments', locals: {person: @current_user}
+    @selected_left_navi_link = "payments"
+    render locals: {person: @current_user}
   end
 
 end
