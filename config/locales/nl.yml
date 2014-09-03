@@ -58,6 +58,12 @@ nl:
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: ~
         save: ~
+        transaction_agreement: ~
+        transaction_agreement_checkbox: ~
+        transaction_agreement_checkbox_header: ~
+        transaction_agreement_checkbox_label_description: ~
+        transaction_agreement_text_header: ~
+        transaction_agreement_description: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Bewerk look & feel gemeenschap %{community_name}"
         community_logo: ~
@@ -79,9 +85,9 @@ nl:
         custom_color2_instructions_text: ~
         default_browse_view: ~
         default_browse_view_instructions_text: ~
-        grid: ~
+        grid: Raster
         list: ~
-        map: ~
+        map: Kaart
         name_display_type: ~
         name_display_type_instructions_text: ~
         full_name: ~
@@ -247,20 +253,20 @@ nl:
         email_sent: ~
     news_items:
       index:
-        news_items: ~
-        create_news_item: ~
-        no_news: ~
-        loading_more_news: ~
+        news_items: "Nieuwste artikelen"
+        create_news_item: "Schrijf een nieuwsitem"
+        no_news: "Geen nieuws"
+        loading_more_news: "Meer nieuws aan het laden"
       new:
-        new_news_item: ~
-        edit_news_item: ~
-        index_news_item: ~
-        title: ~
-        content: ~
-        save_news_item: ~
+        new_news_item: "Schrijf een nieuwsitem"
+        edit_news_item: "Nieuwsitem bewerken"
+        index_news_item: "Schrijf een nieuwsitem"
+        title: "Titel:"
+        content: "Bericht:"
+        save_news_item: "Nieuwsitem opslaan"
       news_item:
-        edit_news_item: ~
-        delete_news_item: ~
+        edit_news_item: Bewerken
+        delete_news_item: Verwijder
     polls:
       index:
         polls: ~
@@ -681,7 +687,7 @@ nl:
       you_can_give_feedback_to: "Je kan feedback geven aan %{name}"
       view_feedback: ~
     new_update_to_listing:
-      listing_you_follow_has_been_updated: ~
+      listing_you_follow_has_been_updated: "Item dat je volgt is aangepast"
       has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
@@ -732,7 +738,7 @@ nl:
       subject: ~
       has_posted_a_new_listing: ~
       you_are_receiving_this_because: ~
-      view_listing: ~
+      view_listing: "Bekijk item"
   error_messages:
     listings:
       departure_time: "Vertrektijd moet plaatsvinden in het komende jaar."
@@ -761,8 +767,8 @@ nl:
       kassi_does_not_currently_work_without_javascript: "%{service_name} werkt niet goed zonder JavaScript. Schakel JavaScript in bij de instellingen van je browser en herlaad dan de pagina."
       kassi_does_not_currently_work_without_javascript_dashboard: ~
       contact_us: "Neem contact op"
-      send_feedback: ~
-      your_feedback_to_admins: ~
+      send_feedback: "Stuur feedback"
+      your_feedback_to_admins: "Je feedback aan beheerder"
     send: Verstuur
     your_email_address: "Je e-mail adres"
   errors:
@@ -849,7 +855,7 @@ nl:
       some_private_offers_exist: "Er zijn al <b>%{number_of_listings} aanbiedingen</b>,"
       some_private_requests_exist: "Er zijn al <b>%{number_of_listings} vragen</b>,"
     custom_filters:
-      update_view: ~
+      update_view: Verversen
       min: ~
       max: ~
     event_feed:
@@ -862,8 +868,8 @@ nl:
       add_listing_link_text: "Voeg een nieuw item toe"
       available_on_the_app_store: "Beschikbaar in de app store"
       private_listing_notification: "Er zijn %{listing_count} in deze gemeenschap. %{private_listing_count} van hun %{be_verb} zichtbaar enkel door de andere leden van de gemeenschap. Indien je ook de listings zichtbaar enkel voor leden wil zien, moet je %{log_in_link}"
-      open_listing: "Open lijst"
-      open_listings: "Open lijst"
+      open_listing: "Open item"
+      open_listings: "Open item"
       private_listing_notification_log_in: "Log in"
       is: is
       are: zijn
@@ -895,7 +901,7 @@ nl:
       email: "Email adres"
       message: "een persoonlijk bericht"
       send_invitation: "Verstuur uitnodiging"
-      add_as_many_emails_as_you_want: "Voeg hier onder emailadressen toe van de mensen die je wil uitnodigen. Als je meerdere adressen wil toevoegen, scheid deze dan met een komma."
+      add_as_many_emails_as_you_want: "Voeg hier onder email adressen toe van de mensen die je wil uitnodigen. Als je meerdere adressen wil toevoegen, scheid deze dan met een komma."
       invitation_emails_field_placeholder: "vriend1@voorbeeld.com, vriend2@voorbeeld.com"
       invitation_message_field_placeholder: "Ik werd lid van deze ongelooflijke gemeenschap. Doe het ook!"
       errors_in_emails: "Check of de e-mail adressen die je toegevoegd hebt geldig zijn. indien je meerdere adressen hebt toegevoegd, verzeker je ervan dat ze zijn gescheiden door comma's"
@@ -926,8 +932,8 @@ nl:
       search: Zoek
       map: "Toon kaart"
       list: "Toon lijst"
-      map_button: ~
-      grid_button: ~
+      map_button: Kaart
+      grid_button: Raster
       list_button: ~
       all_listing_types: "Alle lijst types"
       all_categories: "Alle categorieën"
@@ -979,7 +985,7 @@ nl:
       select_language: ~
     infos:
       about: Over
-      how_to_use: Help
+      how_to_use: "Hoe werkt het"
       info_about_kassi: "Informatie over%{service_name}"
       news: ~
       register_details: Privacybeleid
@@ -999,7 +1005,7 @@ nl:
     logged_in_notifications_icon:
       notifications: Meldingen
     mobile_logged_in:
-      admin: ~
+      admin: Beheer
       go_to_your_profile_page: Profiel
       hi: Hallo
       login: "Log in"
@@ -1032,8 +1038,8 @@ nl:
       feedback_saved: "Bedankt voor je feedback! We komen zo snel mogelijk bij je terug."
       feedback_sent_to: "Feedback gestuurd naar %{target_person}."
       feedback_skipped: "Feedback overgeslagen"
-      invitation_cannot_be_sent: ~
-      invitation_sent: ~
+      invitation_cannot_be_sent: "Uitnodiging kon niet verstuurd worden"
+      invitation_sent: "Uitnodiging verzonden"
       inviting_new_users_is_not_allowed_in_this_community: ~
       login_again: "Log opnieuw in alsjeblieft."
       login_failed: "Login mislukt. Vul de goede gegevens in."
@@ -1093,7 +1099,7 @@ nl:
       you_cannot_reply_to_a_closed_offer: "Je kan niet reageren op een gesloten aanbod"
       you_cannot_reply_to_a_closed_request: "Je kan niet reageren op een gesloten verzoek"
       you_cannot_send_message_to_yourself: ~
-      you_followed_listing: ~
+      you_followed_listing: "Je volgt nu dit item"
       you_have_already_given_feedback_about_this_event: "Je heb al feedback gegeven over dit evenement"
       you_are_now_member: "Je hebt met succes aangesloten bij deze community. Welkom!"
       you_are_already_member: ~
@@ -1114,7 +1120,7 @@ nl:
       you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Bevestig je e-mailadres."
       you_must_fill_all_the_fields: ~
-      you_unfollowed_listing: ~
+      you_unfollowed_listing: "Je volgt dit item niet meer"
       joining_community_failed: ~
       can_not_login_with_private_user: ~
       can_not_delete_email: ~
@@ -1293,7 +1299,7 @@ nl:
       booking_to: ~
     new:
       post_a_new_listing: "Plaats een nieuw item"
-      listing: Listing
+      listing: Item
       selected_category: "Categorie%{category}"
       selected_subcategory: "Subcategorie:%{subcategory}"
       selected_transaction_type: ~
@@ -1353,6 +1359,8 @@ nl:
       day: ~
       days: ~
       price_per_day: ~
+    transaction_agreement_checkbox:
+      read_more: ~
   mapview:
     index:
       all_categories: "Alle categorieën"
@@ -1400,14 +1408,6 @@ nl:
       invoice: ~
       service_fee: ~
       you_will_get: ~
-    mangopay:
-      terms:
-        mangopay_terms_also_included: ~
-        terms_link_text: ~
-      seller_registration_needed:
-        seller_registration_needed: ~
-        seller_registration_instructions: ~
-        settings_page_link: Profiel
     braintree:
       terms:
         braintree_terms_also_included: ~
@@ -1428,7 +1428,7 @@ nl:
       deactivate: Deactiveer
     help_texts:
       feedback_description_title: Feedback
-      help_captcha_title: "Ben je mens?"
+      help_captcha_title: "Are you human?"
       help_invitation_code_title: "Je hebt een uitnodiging nodig om deel te nemen"
       terms_title: "%{service_name} gebruiksvoorwaarden"
       trustcloud_description_title: ~
@@ -1484,8 +1484,8 @@ nl:
     show:
       contact: ~
       about_me: "Over mij:"
-      add_description: ~
-      add_location: ~
+      add_description: "Vertel iets over jezelf"
+      add_location: "Voeg een locatie toe"
       add_phone_number: "Voeg telefoonnummer toe"
       address: "Adres:"
       as_expected: "Zoals verwacht"
@@ -1508,26 +1508,26 @@ nl:
       reviews: ~
       listing: ~
       listings: ~
-      open_listing: ~
-      open_listings: ~
+      open_listing: Item
+      open_listings: "actuele items"
       no_listings: ~
-      no_open_listings: ~
+      no_open_listings: "Geen actuele items"
       no_reviews: ~
       show_all_listings: ~
-      show_all_open_listings: ~
+      show_all_open_listings: "Toon alle actuele items"
       show_all_reviews: ~
       trustcloud: ~
     followed_people:
-      you_follow_plural: ~
-      you_follow_singular: ~
-      they_follow_plural: ~
-      they_follow_singular: ~
-      show_all_followed_people: ~
-      no_followed_people: ~
+      you_follow_plural: "Je volgt %{count} mensen"
+      you_follow_singular: "Je volgt %{count} persoon"
+      they_follow_plural: "%{count} mensen die je volgt"
+      they_follow_singular: "Je volgt%{count} iemand"
+      show_all_followed_people: "Toon alle mensen die je volgt"
+      no_followed_people: "Je volgt niemand"
     follow_button:
-      following: ~
-      follow: ~
-      unfollow: ~
+      following: Volgend
+      follow: Volgen
+      unfollow: "Niet meer volgen"
   search:
     show:
       all_results: "Alle resultaten"
@@ -1561,8 +1561,8 @@ nl:
       change_your_password: "Wijzig je wachtwoord"
     confirmation_pending:
       welcome_to_kassi: "Welkom bij %{service_name}"
-      check_your_email: ~
-      resend_confirmation_instructions: ~
+      check_your_email: "Controleer je inbox"
+      resend_confirmation_instructions: "Stuur bevestigingsinstructies nogmaals"
       your_current_email_is: ~
       change_email: ~
       confirm_your_email: ~
@@ -1615,7 +1615,7 @@ nl:
       email_about_completed_transactions: "...iemand mijn vraag markeert als voltooid"
       email_about_new_payments: ~
       email_about_payment_reminders: "ik vergeten ben om te betalen"
-      email_about_new_listings_by_followed_people: ~
+      email_about_new_listings_by_followed_people: "...iemand die ik volg heeft iets nieuws geplaatst"
       unsubscribe_succesful: ~
       unsubscribe_info_text: ~
       settings_link: ~

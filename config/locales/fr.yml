@@ -73,6 +73,12 @@ fr:
         verification_to_post_listings_info_content_default: "Cette place de marché nécessite que les utilisateurs soient validés par un administrateur avant qu'ils ne puissent poster une annonce. Vous n'avez pas encore été validé. Veuillez %{contact_admin_link} pour lui demander."
         contact_admin_link_text: "contacter l'administrateur"
         save: "Sauvegarder les paramètres"
+        transaction_agreement: "Accord de transaction"
+        transaction_agreement_checkbox: "Les utilisateurs doivent accepter un accord avant une transaction"
+        transaction_agreement_checkbox_header: "Libellé de l'accord"
+        transaction_agreement_checkbox_label_description: "Ce texte sera affiché à côté de la case à cocher dans le formulaire de transaction. L'utilisateur doit cocher cette case pour continuer le processus. Un exemple de libellé de d'accord serait \"En cochant cette case, vous acceptez l'accord de transaction\"."
+        transaction_agreement_text_header: "Texte de l'accord"
+        transaction_agreement_description: "Ceci est le contenu de l'accord que l'utilisateur doit accepter. Le contenu de cet accord est affiché lorsque l'utilisateur clique sur le lien \"%{read_more}\" à côté du libellé de l'accord."
       edit_look_and_feel:
         edit_community_look_and_feel: "Modifier la présentation et l'aspect de la tribu \"%{community_name}\""
         community_logo: "Logo large"
@@ -1368,6 +1374,8 @@ fr:
       day: jour
       days: jours
       price_per_day: "Prix par jour : %{price}"
+    transaction_agreement_checkbox:
+      read_more: Voir.
   mapview:
     index:
       all_categories: "Toutes les catégories"
@@ -1415,14 +1423,6 @@ fr:
       invoice: Facture
       service_fee: "commission de %{service_name} : "
       you_will_get: "Vous recevrez : "
-    mangopay:
-      terms:
-        mangopay_terms_also_included: "REMARQUE : MangoPay est utilisé comme intermédiaire pour le paiement et en utilisant ce site vous acceptez les %{terms_link_text}, en complément des conditions ci-dessous."
-        terms_link_text: "Conditions d'utilisation de MangoPay"
-      seller_registration_needed:
-        seller_registration_needed: "Vous ne pouvez pas encore créer une annonce avec un paiement"
-        seller_registration_instructions: "Avant de pouvoir créer une annonce proposant un paiement, vous devez ajouter quelques précisions à votre %{link_to_settings_page}."
-        settings_page_link: profil
     braintree:
       terms:
         braintree_terms_also_included: "REMARQUE : Braintree est utilisé comme intermédiaire pour le paiement et en utilisant ce site vous acceptez les %{terms_link_text}, en complément des conditions ci-dessous."

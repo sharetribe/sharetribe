@@ -74,11 +74,11 @@ fi:
         contact_admin_link_text: "Ota yhteyttä ylläpitoon"
         save: Tallenna
         transaction_agreement: Transaktiosopimus
-        transaction_agreement_checkbox: Käyttäjien pitää hyväksyä sopimus ennen transaktion aloittamista
+        transaction_agreement_checkbox: "Käyttäjien pitää hyväksyä sopimus ennen transaktion aloittamista"
         transaction_agreement_checkbox_header: Sopimuslinkkiteksti
         transaction_agreement_checkbox_label_description: "Tämä on ohjeteksti valintaruudulle, joka käyttäjän pitää valita sopimuksen hyväksymiseksi."
         transaction_agreement_text_header: Sopimusteksti
-        transaction_agreement_description: Tämä on sopimustekstin sisältö kokonaisuudessaan. Teksti näytetään käyttäjälle kun hän klikkaa "%{read_more}" linkkiä.
+        transaction_agreement_description: "Tämä on sopimustekstin sisältö kokonaisuudessaan. Teksti näytetään käyttäjälle kun hän klikkaa \"%{read_more}\" linkkiä."
       edit_look_and_feel:
         edit_community_look_and_feel: "Muokkaa yhteisön \"%{community_name}\" ulkoasua"
         community_logo: Peruslogo
@@ -1375,7 +1375,7 @@ fi:
       days: ~
       price_per_day: ~
     transaction_agreement_checkbox:
-      read_more: Lue lisää.
+      read_more: "Lue lisää."
   mapview:
     index:
       all_categories: "Kaikki kategoriat"

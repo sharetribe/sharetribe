@@ -58,6 +58,12 @@ es:
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: ~
         save: ~
+        transaction_agreement: ~
+        transaction_agreement_checkbox: ~
+        transaction_agreement_checkbox_header: ~
+        transaction_agreement_checkbox_label_description: ~
+        transaction_agreement_text_header: ~
+        transaction_agreement_description: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Editar apariencia de la comunidad %{community_name}"
         community_logo: Logo
@@ -1360,6 +1366,8 @@ es:
       day: ~
       days: ~
       price_per_day: ~
+    transaction_agreement_checkbox:
+      read_more: ~
   mapview:
     index:
       all_categories: "Todas las categorías"
@@ -1407,14 +1415,6 @@ es:
       invoice: ~
       service_fee: ~
       you_will_get: ~
-    mangopay:
-      terms:
-        mangopay_terms_also_included: ~
-        terms_link_text: ~
-      seller_registration_needed:
-        seller_registration_needed: ~
-        seller_registration_instructions: "Antes de que puedas crear un listado para tener ganancia, necesitarás agregar unos requisitos de detalle a su %{link_to_settings_page}"
-        settings_page_link: ~
     braintree:
       terms:
         braintree_terms_also_included: ~

@@ -58,6 +58,12 @@ el:
         verification_to_post_listings_info_content_default: ~
         contact_admin_link_text: ~
         save: ~
+        transaction_agreement: ~
+        transaction_agreement_checkbox: ~
+        transaction_agreement_checkbox_header: ~
+        transaction_agreement_checkbox_label_description: ~
+        transaction_agreement_text_header: ~
+        transaction_agreement_description: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Αλλαγή της εμφάνισης της κοινότητας \"%{community_name}\""
         community_logo: Λογότυπο
@@ -1353,6 +1359,8 @@ el:
       day: ~
       days: ~
       price_per_day: ~
+    transaction_agreement_checkbox:
+      read_more: ~
   mapview:
     index:
       all_categories: "Όλες οι κατηγορίες"
@@ -1400,14 +1408,6 @@ el:
       invoice: Απόδειξη
       service_fee: "Η χρέωση για το %{service_name} είναι:"
       you_will_get: "Θα λάβετε:"
-    mangopay:
-      terms:
-        mangopay_terms_also_included: "ΣΗΜΕΙΩΣΗ: Το MangoPay χρησιμοποιείται για την εξυπηρέτηση των πληρωμών και με τη χρήση αυτής της ιστοσελίδας αποδέχεστε %{mangopay_terms_link_text} όπως επίσης και τους παρακάτω όρους."
-        terms_link_text: "τους όρους χρήσης του MangoPay"
-      seller_registration_needed:
-        seller_registration_needed: "Δεν μπορείτε να κάνετε μια εμπορική καταχώρηση ακόμα"
-        seller_registration_instructions: "Πριν κάνετε μια καταχώρηση από την οποία ενδέχεται να πληρωθείτε, πρέπει πρώτα να προσθέσετε κάποιες πληροφορίες στο %{link_to_settings_page} σας."
-        settings_page_link: προφίλ
     braintree:
       terms:
         braintree_terms_also_included: "Σημείωση: Το Braintree χρησιμοποιείται για την πραγματοποιήση των πληρωμών και με το να χρησιμοποιείτε αυτό το site αποδέχεστε %{terms_link_text} όπως επίσης και τους παρακάτω όρους."
