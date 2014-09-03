@@ -1,3 +1,0 @@
-= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user, @current_community) }
-
-= render :partial => "payments/#{@current_community.payment_gateway.type.downcase}/payout_details_form"

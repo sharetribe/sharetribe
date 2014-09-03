@@ -700,11 +700,12 @@ module ApplicationHelper
       }
     ]
     if community && community.payments_in_use?
+      path = @current_community.payment_gateway.settings_path(person, params[:locale])
       links << {
         :id => "settings-tab-payments",
         :text => t("layouts.settings.payments"),
         :icon_class => icon_class("payments"),
-        :path => @current_community.payment_gateway.settings_path(person, params[:locale]),
+        :path => path,
         :name => "payments"
       }
 

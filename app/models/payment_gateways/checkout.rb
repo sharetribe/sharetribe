@@ -181,4 +181,14 @@ class Checkout < PaymentGateway
       ].all? { |x| x.present? }
     end
   end
+
+  #TODO: Remove after refactoring
+  def settings_path(person, locale)
+    if person.checkout_merchant_id.blank? && person.checkout_merchant_key.blank?
+      new_checkout_settings_payment_path(person, :locale => locale)
+    else
+      show_checkout_settings_payment_path(person, :locale => locale)
+    end
+  end
+
 end

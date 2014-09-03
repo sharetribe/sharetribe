@@ -1,3 +1,5 @@
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user, @current_community) }
+
 - content_for :javascript do
   initialize_payments_form("#{I18n.locale}");
 
@@ -9,7 +11,7 @@
         %p
           = text
 
-  = form_for @person, :html => { :id => "payment_settings_form"} do |form|
+  = form_for person, :html => { :id => "payment_settings_form"} do |form|
 
     = hidden_field_tag :payment_settings, true
 
