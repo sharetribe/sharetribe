@@ -73,12 +73,12 @@ en:
         verification_to_post_listings_info_content_default: "This marketplace requires people to be verified manually by admin before they can post listings. You have not yet been verified. Please %{contact_admin_link} to be verified."
         contact_admin_link_text: "contact the admin"
         save: "Save settings"
-        transaction_agreement: Transaction agreement
-        transaction_agreement_checkbox: Require users to accept an agreement before transaction
-        transaction_agreement_checkbox_header: Agreement label
-        transaction_agreement_checkbox_label_description: This text will be shown next to a checkbox in the checkout form. The user needs to check the box to proceed with the transaction. An example label would be something like "By clicking this box I accept the agreement."
-        transaction_agreement_text_header: Agreement text
-        transaction_agreement_description: This is the content of the actual agreement that the user needs to accept. The agreement content is displayed when the user clicks the "%{read_more}" link next to the agreement label.
+        transaction_agreement: "Transaction agreement"
+        transaction_agreement_checkbox: "Require users to accept an agreement before transaction"
+        transaction_agreement_checkbox_header: "Agreement label"
+        transaction_agreement_checkbox_label_description: "This text will be shown next to a checkbox in the checkout form. The user needs to check the box to proceed with the transaction. An example label would be something like \"By clicking this box I accept the agreement.\""
+        transaction_agreement_text_header: "Agreement text"
+        transaction_agreement_description: "This is the content of the actual agreement that the user needs to accept. The agreement content is displayed when the user clicks the \"%{read_more}\" link next to the agreement label."
       edit_look_and_feel:
         edit_community_look_and_feel: "Edit community \"%{community_name}\" look and feel"
         community_logo: "Desktop logo"
@@ -1143,7 +1143,7 @@ en:
       email_deleted: "Email removed"
       payment_details_add_successful: "Successfully added payment details"
       payment_details_add_error: "Could not add payment details"
-      listing_author_payment_details_missing: The listing author has not added their payment details so they cannot receive payments right now. Please contact the author.
+      listing_author_payment_details_missing: "The listing author has not added their payment details so they cannot receive payments right now. Please contact the author."
     settings:
       account: Account
       notifications: Notifications
@@ -1375,7 +1375,7 @@ en:
       days: days
       price_per_day: "Price per day: %{price}"
     transaction_agreement_checkbox:
-      read_more: "View."
+      read_more: View.
   mapview:
     index:
       all_categories: "All categories"
