@@ -191,4 +191,8 @@ class Checkout < PaymentGateway
     end
   end
 
+  def gateway_type
+    :checkout
+  end
+
 end

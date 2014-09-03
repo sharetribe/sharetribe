@@ -103,4 +103,8 @@ class BraintreePaymentGateway < PaymentGateway
       braintree_client_side_encryption_key
     ].all? { |x| x.present? }
   end
+
+  def gateway_type
+    :braintree
+  end
 end
