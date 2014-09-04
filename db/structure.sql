@@ -794,12 +794,12 @@ CREATE TABLE `transaction_transitions` (
   `to_state` varchar(255) DEFAULT NULL,
   `metadata` text,
   `sort_key` int(11) DEFAULT '0',
-  `conversation_id` int(11) DEFAULT NULL,
+  `transaction_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `index_transaction_transitions_on_sort_key_and_conversation_id` (`sort_key`,`conversation_id`),
-  KEY `index_transaction_transitions_on_conversation_id` (`conversation_id`)
+  UNIQUE KEY `index_transaction_transitions_on_sort_key_and_conversation_id` (`sort_key`,`transaction_id`),
+  KEY `index_transaction_transitions_on_conversation_id` (`transaction_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `transaction_type_translations` (
@@ -1836,3 +1836,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140904090749');
 INSERT INTO schema_migrations (version) VALUES ('20140904091719');
 
 INSERT INTO schema_migrations (version) VALUES ('20140904103604');
+
+INSERT INTO schema_migrations (version) VALUES ('20140904104024');
