@@ -65,13 +65,13 @@ Feature: Facebook connect
     And I should see "Marko"
 
   @javascript
-  Scenario: Facebook connect to sign up to new community when the accounts are already linked
+  Scenario: Using Facebook connect to sign up to new community when the accounts are already linked
     Given there are following users:
       | person  | facebook_id   | given_name  |
       | marko   | 597013691     | Marko       |
     And there are following communities:
-      | community             |
-      | testcommunity         |
+      | community     |
+      | testcommunity |
 
     Given I move to community "testcommunity"
       And I am on the home page
@@ -79,11 +79,11 @@ Feature: Facebook connect
      When I follow sign up link
       And I follow "Sign up with Facebook"
      Then I should see "Successfully authorized from Facebook account"
+      And I should see "Marko"
       And I should see "I accept the terms of use"
 
      When I check "community_membership_consent"
       And I press "Join community"
-      And I should see "Marko"
      Then I should see "successfully joined this community"
 
   @javascript
