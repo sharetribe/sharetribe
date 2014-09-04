@@ -452,6 +452,11 @@ class Person < ActiveRecord::Base
     active && confirmed_email && preferences && preferences[email_type]
   end
 
+  def unsubscribe_from_community_updates
+    self.min_days_between_community_updates = 100000
+    self.save!
+  end
+
   def profile_info_empty?
     (phone_number.nil? || phone_number.blank?) && (description.nil? || description.blank?) && location.nil?
   end
