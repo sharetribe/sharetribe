@@ -315,7 +315,7 @@ FactoryGirl.define do
 
   factory :payment do
     build_association(:community)
-    build_association(:conversation)
+    build_association(:transaction)
 
     factory :braintree_payment, class: 'BraintreePayment' do
       build_association(:payer)
