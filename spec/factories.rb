@@ -109,6 +109,10 @@ FactoryGirl.define do
     title "Item offer: Sledgehammer"
     build_association(:community)
 
+    has_many :messages do |conversation|
+      FactoryGirl.build(:message, conversation: conversation)
+    end
+
     created_at DateTime.now
     updated_at DateTime.now
   end
@@ -312,6 +316,7 @@ FactoryGirl.define do
 
   factory :transaction_transition do
     to_state "not_started"
+    build_association(:transaction)
   end
 
   factory :payment do
