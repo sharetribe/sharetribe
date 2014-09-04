@@ -21,24 +21,24 @@ class PaypalAccountsController < ApplicationController
 
   def show
     paypal_account = MarketplaceService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id)
+    return redirect_to action: :new unless paypal_account
 
-    if paypal_account
-      @selected_left_navi_link = "payments"
+    @selected_left_navi_link = "payments"
 
-      render(locals: {
-        left_hand_navigation_links: settings_links_for(@current_user, @current_community),
-        paypal_account: paypal_account})
-    else
-      redirect_to :action => "new"
-    end
+    render(locals: {
+      left_hand_navigation_links: settings_links_for(@current_user, @current_community),
+      paypal_account: paypal_account})
   end
 
   def new
+    paypal_account = MarketplaceService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id)
+    return redirect_to action: :show if paypal_account
+
     @selected_left_navi_link = "payments"
 
     render(locals: {
         left_hand_navigation_links: settings_links_for(@current_user, @current_community),
-        form_action: person_paypal_accounts_path(@current_user),
+        form_action: person_paypal_account_path(@current_user),
         paypal_account_form: PaypalAccountForm.new })
   end
 
