@@ -4,14 +4,6 @@ class PaypalAccountsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_settings")
   end
 
-  # Before filter
-  def ensure_paypal_enabled
-    unless @current_community.paypal_enabled?
-      flash[:error] = "Paypal is not enabled for this community"
-      redirect_to person_settings_path(@current_user)
-    end
-  end
-
   before_filter :ensure_paypal_enabled
 
   skip_filter :dashboard_only
@@ -58,6 +50,17 @@ class PaypalAccountsController < ApplicationController
         left_hand_navigation_links: settings_links_for(@current_user, @current_community),
         form_action: person_paypal_accounts_path(@current_user),
         paypal_account_form: paypal_account_form })
+    end
+  end
+
+
+  private
+
+  # Before filter
+  def ensure_paypal_enabled
+    unless @current_community.paypal_enabled?
+      flash[:error] = "Paypal is not enabled for this community"
+      redirect_to person_settings_path(@current_user)
     end
   end
 end
