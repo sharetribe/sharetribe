@@ -279,6 +279,7 @@ Kassi::Application.routes.draw do
           end
           resources :braintree_payments
         end
+        resource :paypal_account, :only => [:new, :show, :create]
         resource :settings do
           member do
             get :profile

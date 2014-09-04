@@ -1,0 +1,7 @@
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => left_hand_navigation_links }
+
+.left-navi-section.settings-section
+
+  %h2= t(".paypal-account")
+
+  %p= paypal_account[:email]
