@@ -106,6 +106,10 @@ When(/^I follow log in link$/) do
   }
 end
 
+When(/^I follow sign up link$/) do
+  click_link('Sign up')
+end
+
 Then(/^I should be logged in$/) do
   if page.respond_to? :should
     page.should have_no_css("#header-login-link")
