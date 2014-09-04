@@ -7,7 +7,7 @@ class CheckoutAccountsController < ApplicationController
 
   def new
     @selected_left_navi_link = "payments"
-    render locals: {checkout_account: build_checkout_account, form_action: person_checkout_account_path(@current_user)}
+    render locals: {checkout_account: CheckoutAccountForm.new, form_action: person_checkout_account_path(@current_user)}
   end
 
   def show
@@ -35,8 +35,9 @@ class CheckoutAccountsController < ApplicationController
     end
   end
 
-  def build_checkout_account
-    CheckoutAccount.new
-  end
-
+  CheckoutAccountForm = Util::FormUtils.define_form("CheckoutAccountForm", :company_id, :organization_address, :phone_number, :organization_website)
+      .with_validations {
+    validates_presence_of :organization_address, :phone_number, :organization_website
+    validates_format_of :company_id, with: /^(\d{7}\-d)?$/, allow_nil: true
+  }
 end

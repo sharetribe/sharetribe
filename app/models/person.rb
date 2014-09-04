@@ -157,8 +157,6 @@ class Person < ActiveRecord::Base
   validates_length_of :given_name, :within => 1..30, :allow_nil => true, :allow_blank => true
   validates_length_of :family_name, :within => 1..30, :allow_nil => true, :allow_blank => true
 
-  validates_format_of :company_id, :with => /^(\d{7}\-\d)?$/, :allow_nil => true
-
   validates_format_of :username,
                        :with => /^[A-Z0-9_]*$/i
 
