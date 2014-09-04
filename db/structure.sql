@@ -282,13 +282,11 @@ CREATE TABLE `contact_requests` (
 
 CREATE TABLE `conversations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(255) DEFAULT 'Conversation',
   `title` varchar(255) DEFAULT NULL,
   `listing_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `last_message_at` datetime DEFAULT NULL,
-  `automatic_confirmation_after_days` int(11) DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_conversations_on_listing_id` (`listing_id`)
@@ -836,7 +834,7 @@ CREATE TABLE `transaction_types` (
 
 CREATE TABLE `transactions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `starter_id` int(11) NOT NULL,
+  `starter_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `listing_id` int(11) NOT NULL,
   `conversation_id` int(11) DEFAULT NULL,
   `automatic_confirmation_after_days` int(11) DEFAULT NULL,
@@ -1834,3 +1832,7 @@ INSERT INTO schema_migrations (version) VALUES ('20140925112419');
 INSERT INTO schema_migrations (version) VALUES ('20140912115758');
 
 INSERT INTO schema_migrations (version) VALUES ('20140904090749');
+
+INSERT INTO schema_migrations (version) VALUES ('20140904091719');
+
+INSERT INTO schema_migrations (version) VALUES ('20140904103604');
