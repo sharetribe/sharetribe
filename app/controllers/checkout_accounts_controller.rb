@@ -5,6 +5,12 @@ class CheckoutAccountsController < ApplicationController
 
   skip_filter :dashboard_only
 
+  CheckoutAccountForm = Util::FormUtils.define_form("CheckoutAccountForm", :company_id, :organization_address, :phone_number, :organization_website)
+    .with_validations do
+      validates_presence_of :organization_address, :phone_number, :organization_website
+      validates_format_of :company_id, with: /^(\d{7}\-d)?$/, allow_nil: true
+    end
+
   def new
     @selected_left_navi_link = "payments"
     render locals: { checkout_account: CheckoutAccountForm.new({ phone_number: @current_user.phone_number }),
@@ -27,11 +33,4 @@ class CheckoutAccountsController < ApplicationController
       redirect_to :back and return unless registering_successful
     end
   end
-
-  private
-  CheckoutAccountForm = Util::FormUtils.define_form("CheckoutAccountForm", :company_id, :organization_address, :phone_number, :organization_website)
-    .with_validations do
-      validates_presence_of :organization_address, :phone_number, :organization_website
-      validates_format_of :company_id, with: /^(\d{7}\-d)?$/, allow_nil: true
-    end
 end

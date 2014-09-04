@@ -94,22 +94,6 @@ describe Person do
           p.should be_nil
         }.should_not change{Person.count}
       end
-
-      it "should not store person with invalid company_id" do
-        username = generate_random_username
-        lambda {
-          p = nil
-          lambda {
-            p = Person.create!({:username => username,
-              :company_id => "1234-5",
-              :password => "testi",
-              :email => "info@company.com",
-              "given_name" => "Tero",
-              "family_name" => "Turari"})
-          }.should raise_error(ActiveRecord::RecordInvalid)
-          p.should be_nil
-        }.should_not change{Person.count}
-      end
     end
 
     describe "#update_attributes" do
