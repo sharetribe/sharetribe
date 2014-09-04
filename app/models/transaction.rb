@@ -1,27 +1,28 @@
 # == Schema Information
 #
-# Table name: conversations
+# Table name: transactions
 #
-#  id              :integer          not null, primary key
-#  title           :string(255)
-#  listing_id      :integer
-#  created_at      :datetime
-#  updated_at      :datetime
-#  last_message_at :datetime
-#  community_id    :integer
-#
-# Indexes
-#
-#  index_conversations_on_listing_id  (listing_id)
+#  id                                :integer          not null, primary key
+#  starter_id                        :string(255)      not null
+#  listing_id                        :integer          not null
+#  conversation_id                   :integer
+#  automatic_confirmation_after_days :integer
+#  created_at                        :datetime         not null
+#  updated_at                        :datetime         not null
 #
 
-class ListingConversation < Conversation
+class Transaction < ActiveRecord::Base
   attr_accessor :contract_agreed
 
   belongs_to :listing
-  has_many :transaction_transitions, dependent: :destroy, foreign_key: :conversation_id
-  has_one :payment, foreign_key: :conversation_id
+  has_many :transaction_transitions, dependent: :destroy, foreign_key: :transaction_id
+  has_one :payment, foreign_key: :transaction_id
   has_one :booking, :dependent => :destroy
+  belongs_to :starter, :class_name => "Person", :foreign_key => "starter_id"
+
+  # Actually, transaction `has_one` conversation, but we want to put the foreign key to transaction table and thus
+  # use `belongs_to` instead of `has_one`
+  belongs_to :conversation
 
 
   # Delegate methods to state machine
@@ -168,5 +169,12 @@ class ListingConversation < Conversation
     else
       preauthorization_expires
     end
+  end
+
+  # Give person (starter or listing author) and get back the other
+  #
+  # Note: I'm not sure whether we want to have this method or not but at least it makes refactoring easier.
+  def other_party(person)
+    person == starter ? listing.author : starter
   end
 end
