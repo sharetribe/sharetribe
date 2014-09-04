@@ -37,9 +37,6 @@
 #  community_updates_last_sent_at     :datetime
 #  min_days_between_community_updates :integer          default(1)
 #  is_organization                    :boolean
-#  company_id                         :string(255)
-#  checkout_merchant_id               :string(255)
-#  checkout_merchant_key              :string(255)
 #  organization_name                  :string(255)
 #
 # Indexes
