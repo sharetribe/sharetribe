@@ -100,20 +100,21 @@ FactoryGirl.define do
     end
   end
 
+  factory :transaction do
+    build_association(:person, as: :starter)
+    build_association(:listing)
+  end
+
   factory :conversation do
     title "Item offer: Sledgehammer"
     build_association(:community)
-
-    factory :listing_conversation, class: 'ListingConversation' do
-      build_association(:listing)
-    end
 
     created_at DateTime.now
     updated_at DateTime.now
   end
 
   factory :booking do
-    build_association(:listing_conversation, as: :conversation)
+    build_association(:transaction)
     start_on 1.day.from_now
     end_on 2.days.from_now
   end
