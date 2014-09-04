@@ -9,12 +9,12 @@ module MarketplaceService
         :api_signature,
         :person_id,
         :community_id
-        )
+      )
 
       module_function
 
-      def paypal_account(data)
-        hash = EntityUtils.model_attrs_to_hash(data)
+      def paypal_account(model)
+        hash = EntityUtils.model_attrs_to_hash(model)
         EntityUtils.from_hash(PaypalAccount, hash)
       end
     end
@@ -31,7 +31,7 @@ module MarketplaceService
       end
 
       def create_admin_account(community_id, account_data)
-        PaypalAccountModel.create(
+        PaypalAccountModel.create!(
           account_data.merge({community_id: community_id, person_id: nil}))
         Result::Success.new
       end
@@ -43,13 +43,13 @@ module MarketplaceService
 
       def personal_account(person_id, community_id)
         Maybe(PaypalAccountModel.where(person_id: person_id, community_id: community_id).first)
-          .map { |hash| Entity.paypal_account(hash) }
+          .map { |model| Entity.paypal_account(model) }
           .or_else(nil)
       end
 
       def admin_account(community_id)
         Maybe(PaypalAccountModel.where(community_id: community_id, person_id: nil).first)
-          .map { |hash| Entity.paypal_account(hash) }
+          .map { |model| Entity.paypal_account(model) }
           .or_else(nil)
       end
     end
