@@ -65,6 +65,28 @@ Feature: Facebook connect
     And I should see "Marko"
 
   @javascript
+  Scenario: Using Facebook connect to sign up to new community when the accounts are already linked
+    Given there are following users:
+      | person  | facebook_id   | given_name  |
+      | marko   | 597013691     | Marko       |
+    And there are following communities:
+      | community     |
+      | testcommunity |
+
+    Given I move to community "testcommunity"
+      And I am on the home page
+
+     When I follow sign up link
+      And I follow "Sign up with Facebook"
+     Then I should see "Successfully authorized from Facebook account"
+      And I should see "Marko"
+      And I should see "I accept the terms of use"
+
+     When I check "community_membership_consent"
+      And I press "Join community"
+     Then I should see "successfully joined this community"
+
+  @javascript
   Scenario: User gets invitation to an invitation-only community and creates an account with FB
     Given there are following users:
       | person |
