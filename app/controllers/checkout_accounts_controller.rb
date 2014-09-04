@@ -7,7 +7,8 @@ class CheckoutAccountsController < ApplicationController
 
   def new
     @selected_left_navi_link = "payments"
-    render locals: {checkout_account: CheckoutAccountForm.new, form_action: person_checkout_account_path(@current_user)}
+    render locals: { checkout_account: CheckoutAccountForm.new({ phone_number: @current_user.phone_number }),
+                     form_action: person_checkout_account_path(@current_user) }
   end
 
   def show
@@ -16,12 +17,13 @@ class CheckoutAccountsController < ApplicationController
   end
 
   def create
-    payment_gateway = @current_community.payment_gateway
-
-    # If updating payout details, check that they are valid
-    checkout_param_keys = [:company_id, :organization_address, :phone_number, :organization_website]
-    registering_successful = self.register_payout(payment_gateway, params[:checkout_account], checkout_param_keys, @person)
-    redirect_to :back and return unless registering_successful
+    checkoutAccountForm = CheckoutAccountForm.new(params[:checkout_account_form])
+    if checkoutAccountForm.valid?
+      payment_gateway = @current_community.payment_gateway
+      # If updating payout details, check that they are valid
+      registering_successful = self.register_payout(payment_gateway, params[:checkout_account], @person)
+      redirect_to :back and return unless registering_successful
+    end
   end
 
   private
@@ -36,8 +38,8 @@ class CheckoutAccountsController < ApplicationController
   end
 
   CheckoutAccountForm = Util::FormUtils.define_form("CheckoutAccountForm", :company_id, :organization_address, :phone_number, :organization_website)
-      .with_validations {
-    validates_presence_of :organization_address, :phone_number, :organization_website
-    validates_format_of :company_id, with: /^(\d{7}\-d)?$/, allow_nil: true
-  }
+    .with_validations do
+      validates_presence_of :organization_address, :phone_number, :organization_website
+      validates_format_of :company_id, with: /^(\d{7}\-d)?$/, allow_nil: true
+    end
 end
