@@ -835,6 +835,17 @@ CREATE TABLE `transaction_types` (
   KEY `index_transaction_types_on_url` (`url`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `transactions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `starter_id` int(11) NOT NULL,
+  `listing_id` int(11) NOT NULL,
+  `conversation_id` int(11) DEFAULT NULL,
+  `automatic_confirmation_after_days` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -1812,3 +1823,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140903120109');
 INSERT INTO schema_migrations (version) VALUES ('20140909074331');
 
 INSERT INTO schema_migrations (version) VALUES ('20140912084032');
+
+INSERT INTO schema_migrations (version) VALUES ('20140904090749');
