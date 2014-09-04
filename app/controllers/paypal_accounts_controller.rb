@@ -1,20 +1,3 @@
-class PaypalAccountForm
-  extend ActiveModel::Naming
-  include ActiveModel::Validations
-  include ActiveModel::Conversion
-
-  attr_reader :paypal_email
-  validates_presence_of :paypal_email
-
-  def initialize(opts = {})
-    @paypal_email = opts[:paypal_email]
-  end
-
-  def persisted?
-    false
-  end
-end
-
 class PaypalAccountsController < ApplicationController
 
   before_filter do |controller|
@@ -32,6 +15,9 @@ class PaypalAccountsController < ApplicationController
   before_filter :ensure_paypal_enabled
 
   skip_filter :dashboard_only
+
+  PaypalAccountForm = Util::FormUtils.define_form("PaypalAccountForm", :paypal_email)
+    .with_validations { validates_presence_of :paypal_email }
 
   def show
     paypal_account = MarketplaceService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id)
