@@ -29,5 +29,6 @@ Feature: User adds payment information
   @javascript
   Scenario: user views payment information
     Given "company" has Checkout account
-    And I browse to Checkout payment settings
+    And I am on the settings page
+    And I follow "Payments"
     Then I should see information about existing Checkout account

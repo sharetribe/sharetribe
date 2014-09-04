@@ -38,8 +38,8 @@ class Checkout < PaymentGateway
   def payment_data(payment, options={})
 
     unless options[:mock]
-      merchant_id = payment.recipient.checkout_merchant_id
-      merchant_key = payment.recipient.checkout_merchant_key
+      merchant_id = payment.recipient.checkout_account.merchant_id
+      merchant_key = payment.recipient.checkout_account.merchant_key
     else
       # Make it possible to demonstrate payment system with mock payments if that's set on in community settings
       merchant_id = "375917"
@@ -76,7 +76,7 @@ class Checkout < PaymentGateway
     results = {}
 
     unless options[:mock]
-      merchant_key = payment.recipient.checkout_merchant_key
+      merchant_key = payment.recipient.checkout_account.merchant_key
     else
       # Make it possible to demonstrate payment system with mock payments if that's set on in community settings
       merchant_key = "SAIPPUAKAUPPIAS"
@@ -111,7 +111,6 @@ class Checkout < PaymentGateway
   end
 
   def register_payout_details(person, checkout_account_params)
-
     url = "https://rpcapi.checkout.fi/reseller/createMerchant"
     user = checkout_user_id
     password = checkout_password
@@ -144,16 +143,16 @@ class Checkout < PaymentGateway
     end
 
     checkout_account = CheckoutAccount.new({
-                                             person: person,
-                                             merchant_id: /<id>([^<]+)<\/id>/,
-                                             merchant_key: /<secret>([^<]+)<\/secret>/,
+                                             person_id: person,
+                                             merchant_id: response[/<id>([^<]+)<\/id>/],
+                                             merchant_key: response[/<secret>([^<]+)<\/secret>/],
                                              company_id: checkout_account_params.company_id
                                            })
     checkout_account.save!
   end
 
   def has_registered?(person)
-    person.checkout_merchant_id.present? && person.checkout_merchant_key.present?
+    person.checkout_account.present?
   end
 
   def new_payment
@@ -182,7 +181,7 @@ class Checkout < PaymentGateway
 
   #TODO: Remove after refactoring
   def settings_path(person, locale)
-    if person.checkout_merchant_id.blank? && person.checkout_merchant_key.blank?
+    unless has_registered?(person)
       new_checkout_settings_payment_path(person, :locale => locale)
     else
       show_checkout_settings_payment_path(person, :locale => locale)

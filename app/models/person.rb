@@ -93,6 +93,7 @@ class Person < ActiveRecord::Base
 
   has_one :location, :conditions => ['location_type = ?', 'person'], :dependent => :destroy
   has_one :braintree_account, :dependent => :destroy
+  has_one :checkout_account, dependent: :destroy
 
   has_many :participations, :dependent => :destroy
   has_many :conversations, :through => :participations, :dependent => :destroy
