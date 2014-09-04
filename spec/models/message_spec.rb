@@ -10,6 +10,10 @@
 #  conversation_id :integer
 #  action          :string(255)
 #
+# Indexes
+#
+#  index_messages_on_conversation_id  (conversation_id)
+#
 
 require 'spec_helper'
 

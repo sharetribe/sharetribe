@@ -12,6 +12,12 @@
 #  price_per                  :string(255)
 #  created_at                 :datetime         not null
 #  updated_at                 :datetime         not null
+#  url                        :string(255)
+#
+# Indexes
+#
+#  index_transaction_types_on_community_id  (community_id)
+#  index_transaction_types_on_url           (url)
 #
 
 class Swap < Offer

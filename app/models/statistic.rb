@@ -41,6 +41,10 @@
 #  user_count_weekly_growth                    :float
 #  wau_weekly_growth                           :float
 #
+# Indexes
+#
+#  index_statistics_on_community_id  (community_id)
+#
 
 class Statistic < ActiveRecord::Base
   belongs_to :community

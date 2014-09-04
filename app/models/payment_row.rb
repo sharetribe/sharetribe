@@ -11,6 +11,10 @@
 #  updated_at :datetime         not null
 #  title      :string(255)
 #
+# Indexes
+#
+#  index_payment_rows_on_payment_id  (payment_id)
+#
 
 class PaymentRow < ActiveRecord::Base
 

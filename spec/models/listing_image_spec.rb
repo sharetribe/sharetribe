@@ -16,6 +16,10 @@
 #  height             :integer
 #  author_id          :string(255)
 #
+# Indexes
+#
+#  index_listing_images_on_listing_id  (listing_id)
+#
 
 require 'spec_helper'
 

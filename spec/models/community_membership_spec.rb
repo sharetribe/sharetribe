@@ -14,6 +14,11 @@
 #  status              :string(255)      default("accepted"), not null
 #  can_post_listings   :boolean          default(FALSE)
 #
+# Indexes
+#
+#  index_community_memberships_on_community_id  (community_id)
+#  memberships                                  (person_id,community_id)
+#
 
 require 'spec_helper'
 

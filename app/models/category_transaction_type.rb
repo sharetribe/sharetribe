@@ -8,6 +8,11 @@
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #
+# Indexes
+#
+#  index_category_transaction_types_on_category_id          (category_id)
+#  index_category_transaction_types_on_transaction_type_id  (transaction_type_id)
+#
 
 class CategoryTransactionType < ActiveRecord::Base
   belongs_to :category

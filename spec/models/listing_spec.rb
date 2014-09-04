@@ -34,6 +34,14 @@
 #  currency            :string(255)
 #  quantity            :string(255)
 #
+# Indexes
+#
+#  index_listings_on_category_id    (old_category_id)
+#  index_listings_on_listing_type   (listing_type_old)
+#  index_listings_on_open           (open)
+#  index_listings_on_share_type_id  (share_type_id)
+#  index_listings_on_visibility     (visibility)
+#
 
 require 'spec_helper'
 

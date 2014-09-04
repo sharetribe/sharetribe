@@ -14,6 +14,12 @@
 #  location_type  :string(255)
 #  community_id   :integer
 #
+# Indexes
+#
+#  index_locations_on_community_id  (community_id)
+#  index_locations_on_listing_id    (listing_id)
+#  index_locations_on_person_id     (person_id)
+#
 
 require 'spec_helper'
 

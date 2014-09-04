@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: order_permissions
+#
+#  id              :integer          not null, primary key
+#  from_account_id :integer          not null
+#  to_account_id   :integer          not null
+#  status          :string(255)      default("pending"), not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class OrderPermission < ActiveRecord::Base
   attr_accessible :status, :from_account, :to_account
 

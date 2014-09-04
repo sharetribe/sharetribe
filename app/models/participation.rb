@@ -13,6 +13,11 @@
 #  last_received_at :datetime
 #  feedback_skipped :boolean          default(FALSE)
 #
+# Indexes
+#
+#  index_participations_on_conversation_id  (conversation_id)
+#  index_participations_on_person_id        (person_id)
+#
 
 class Participation < ActiveRecord::Base
 

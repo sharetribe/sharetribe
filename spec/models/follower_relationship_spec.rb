@@ -8,6 +8,12 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+# Indexes
+#
+#  index_follower_relationships_on_follower_id                (follower_id)
+#  index_follower_relationships_on_person_id                  (person_id)
+#  index_follower_relationships_on_person_id_and_follower_id  (person_id,follower_id) UNIQUE
+#
 
 require 'spec_helper'
 

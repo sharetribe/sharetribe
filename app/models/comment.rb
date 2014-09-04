@@ -10,6 +10,10 @@
 #  updated_at   :datetime
 #  community_id :integer
 #
+# Indexes
+#
+#  index_comments_on_listing_id  (listing_id)
+#
 
 class Comment < ActiveRecord::Base
 

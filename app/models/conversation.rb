@@ -12,6 +12,10 @@
 #  automatic_confirmation_after_days :integer
 #  community_id                      :integer
 #
+# Indexes
+#
+#  index_conversations_on_listing_id  (listing_id)
+#
 
 class Conversation < ActiveRecord::Base
 

@@ -10,6 +10,11 @@
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #
+# Indexes
+#
+#  index_transaction_type_translations_on_transaction_type_id  (transaction_type_id)
+#  locale_index                                                (transaction_type_id,locale)
+#
 
 class TransactionTypeTranslation < ActiveRecord::Base
   attr_accessible :action_button_label, :locale, :name, :transaction_type_id

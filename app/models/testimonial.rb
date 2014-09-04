@@ -11,6 +11,10 @@
 #  updated_at       :datetime
 #  receiver_id      :string(255)
 #
+# Indexes
+#
+#  index_testimonials_on_receiver_id  (receiver_id)
+#
 
 class Testimonial < ActiveRecord::Base
 

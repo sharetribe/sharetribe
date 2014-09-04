@@ -13,6 +13,10 @@
 #  type            :string(255)
 #  delta           :boolean          default(TRUE), not null
 #
+# Indexes
+#
+#  index_custom_field_values_on_listing_id  (listing_id)
+#
 
 class OptionFieldValue < CustomFieldValue
   has_many :custom_field_option_selections, :foreign_key => "custom_field_value_id", :dependent => :destroy

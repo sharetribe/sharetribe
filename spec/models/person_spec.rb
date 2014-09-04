@@ -36,17 +36,19 @@
 #  authentication_token               :string(255)
 #  community_updates_last_sent_at     :datetime
 #  min_days_between_community_updates :integer          default(1)
-#  mangopay_id                        :string(255)
-#  bank_account_owner_name            :string(255)
-#  bank_account_owner_address         :string(255)
-#  iban                               :string(255)
-#  bic                                :string(255)
-#  mangopay_beneficiary_id            :string(255)
 #  is_organization                    :boolean
 #  company_id                         :string(255)
 #  checkout_merchant_id               :string(255)
 #  checkout_merchant_key              :string(255)
 #  organization_name                  :string(255)
+#
+# Indexes
+#
+#  index_people_on_email                 (email) UNIQUE
+#  index_people_on_facebook_id           (facebook_id) UNIQUE
+#  index_people_on_id                    (id)
+#  index_people_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_people_on_username              (username) UNIQUE
 #
 
 require 'spec_helper'

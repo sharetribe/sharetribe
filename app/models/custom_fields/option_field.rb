@@ -13,6 +13,10 @@
 #  max            :float
 #  allow_decimals :boolean          default(FALSE)
 #
+# Indexes
+#
+#  index_custom_fields_on_community_id  (community_id)
+#
 
 class OptionField < CustomField
   has_many :options, :class_name => "CustomFieldOption", :dependent => :destroy, :foreign_key => 'custom_field_id'

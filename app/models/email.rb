@@ -12,6 +12,11 @@
 #  updated_at           :datetime
 #  send_notifications   :boolean
 #
+# Indexes
+#
+#  index_emails_on_address    (address) UNIQUE
+#  index_emails_on_person_id  (person_id)
+#
 
 class Email < ActiveRecord::Base
   include ApplicationHelper

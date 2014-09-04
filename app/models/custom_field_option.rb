@@ -8,6 +8,10 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
+# Indexes
+#
+#  index_custom_field_options_on_custom_field_id  (custom_field_id)
+#
 
 class CustomFieldOption < ActiveRecord::Base
   include SortableByPriority # use `sort_priority()` for sorting

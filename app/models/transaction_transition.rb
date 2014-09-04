@@ -10,6 +10,11 @@
 #  created_at      :datetime
 #  updated_at      :datetime
 #
+# Indexes
+#
+#  index_transaction_transitions_on_conversation_id               (conversation_id)
+#  index_transaction_transitions_on_sort_key_and_conversation_id  (sort_key,conversation_id) UNIQUE
+#
 
 class TransactionTransition < ActiveRecord::Base
   include Statesman::Adapters::ActiveRecordTransition

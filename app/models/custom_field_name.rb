@@ -9,6 +9,11 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
+# Indexes
+#
+#  index_custom_field_names_on_custom_field_id  (custom_field_id)
+#  locale_index                                 (custom_field_id,locale)
+#
 
 class CustomFieldName < ActiveRecord::Base
   attr_accessible :locale, :value

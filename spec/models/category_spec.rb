@@ -9,6 +9,12 @@
 #  updated_at    :datetime         not null
 #  community_id  :integer
 #  sort_priority :integer
+#  url           :string(255)
+#
+# Indexes
+#
+#  index_categories_on_parent_id  (parent_id)
+#  index_categories_on_url        (url)
 #
 
 require 'spec_helper'

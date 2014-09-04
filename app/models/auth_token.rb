@@ -6,10 +6,13 @@
 #  token            :string(255)
 #  person_id        :string(255)
 #  expires_at       :datetime
-#  times_used       :integer
 #  last_use_attempt :datetime
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#
+# Indexes
+#
+#  index_auth_tokens_on_token  (token) UNIQUE
 #
 
 class AuthToken < ActiveRecord::Base

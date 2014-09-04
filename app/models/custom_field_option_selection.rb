@@ -8,6 +8,10 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
+# Indexes
+#
+#  index_selected_options_on_custom_field_value_id  (custom_field_value_id)
+#
 
 class CustomFieldOptionSelection < ActiveRecord::Base
   # WARNING! This expects that there's only one selection (Dropdown).

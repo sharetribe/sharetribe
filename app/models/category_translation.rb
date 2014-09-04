@@ -10,6 +10,11 @@
 #  updated_at  :datetime         not null
 #  description :string(255)
 #
+# Indexes
+#
+#  category_id_with_locale                     (category_id,locale)
+#  index_category_translations_on_category_id  (category_id)
+#
 
 class CategoryTranslation < ActiveRecord::Base
 

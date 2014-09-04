@@ -13,6 +13,10 @@
 #  max            :float
 #  allow_decimals :boolean          default(FALSE)
 #
+# Indexes
+#
+#  index_custom_fields_on_community_id  (community_id)
+#
 
 class CustomField < ActiveRecord::Base
   include SortableByPriority # use `sort_priority()` for sorting

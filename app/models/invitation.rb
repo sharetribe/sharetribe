@@ -14,6 +14,11 @@
 #  message      :text
 #  email        :string(255)
 #
+# Indexes
+#
+#  index_invitations_on_code        (code)
+#  index_invitations_on_inviter_id  (inviter_id)
+#
 
 # Invitation stores the invitation (and codes) that people need to join certain communities
 

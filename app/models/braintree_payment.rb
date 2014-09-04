@@ -17,6 +17,11 @@
 #  type                     :string(255)      default("CheckoutPayment")
 #  braintree_transaction_id :string(255)
 #
+# Indexes
+#
+#  index_payments_on_conversation_id  (conversation_id)
+#  index_payments_on_payer_id         (payer_id)
+#
 
 class BraintreePayment < Payment
   attr_accessor :credit_card_number, :credit_card_expiration_date, :cardholder_name, :cvv

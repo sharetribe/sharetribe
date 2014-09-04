@@ -21,6 +21,12 @@
 #  private_community_homepage_content         :text
 #  verification_to_post_listings_info_content :text
 #  search_placeholder                         :string(255)
+#  transaction_agreement_label                :string(255)
+#  transaction_agreement_content              :text(16777215)
+#
+# Indexes
+#
+#  index_community_customizations_on_community_id  (community_id)
 #
 
 class CommunityCustomization < ActiveRecord::Base
