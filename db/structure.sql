@@ -23,7 +23,7 @@ CREATE TABLE `billing_agreements` (
 
 CREATE TABLE `bookings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `listing_conversation_id` int(11) DEFAULT NULL,
+  `transaction_id` int(11) DEFAULT NULL,
   `start_on` date DEFAULT NULL,
   `end_on` date DEFAULT NULL,
   `created_at` datetime NOT NULL,
@@ -647,7 +647,7 @@ CREATE TABLE `payments` (
   `payer_id` varchar(255) DEFAULT NULL,
   `recipient_id` varchar(255) DEFAULT NULL,
   `organization_id` varchar(255) DEFAULT NULL,
-  `conversation_id` int(11) DEFAULT NULL,
+  `transaction_id` int(11) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -1838,3 +1838,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140904091719');
 INSERT INTO schema_migrations (version) VALUES ('20140904103604');
 
 INSERT INTO schema_migrations (version) VALUES ('20140904104024');
+
+INSERT INTO schema_migrations (version) VALUES ('20140904112318');
