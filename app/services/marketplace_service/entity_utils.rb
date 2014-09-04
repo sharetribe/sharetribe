@@ -8,7 +8,7 @@ module MarketplaceService
     end
 
     # Turn active record model into a hash with string keys replaced with symbols
-    def model_attrs_to_hash(model)
+    def model_to_hash(model)
       hash_keys_to_symbols(model.attributes)
     end
 

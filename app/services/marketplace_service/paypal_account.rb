@@ -14,7 +14,7 @@ module MarketplaceService
       module_function
 
       def paypal_account(model)
-        hash = EntityUtils.model_attrs_to_hash(model)
+        hash = EntityUtils.model_to_hash(model)
         EntityUtils.from_hash(PaypalAccount, hash)
       end
     end
