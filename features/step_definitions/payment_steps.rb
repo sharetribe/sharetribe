@@ -164,10 +164,10 @@ When /^I browse to payment settings$/ do
   }
 end
 
-When /^I browse to Checkout payment settings$/ do
+When /^I browse to Checkout account settings$/ do
   steps %Q{
     When I browse to payment settings
-    Then I should be on the checkout payment settings page
+    Then I should be on the new Checkout account page
   }
 end
 
