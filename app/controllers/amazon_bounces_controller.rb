@@ -6,7 +6,6 @@ class AmazonBouncesController < ApplicationController
 
   def notification
     amz_message_type = request.headers['x-amz-sns-message-type']
-    # amz_sns_topic = request.headers['x-amz-sns-topic-arn']
 
     if amz_message_type.to_s.downcase == 'subscriptionconfirmation'
       send_subscription_confirmation request.raw_post
@@ -16,7 +15,7 @@ class AmazonBouncesController < ApplicationController
     if amz_message_type.to_s.downcase == 'notification'
       msg = JSON.parse(request.raw_post)
       # Sometimes amazon sends notifications more wrapped than other times
-      msg = msg['Message'] unless msg['Message'].nil?
+      msg = JSON.load(msg['Message']) unless msg['Message'].nil?
       type = msg['notificationType']
 
       if type == 'Bounce'
@@ -63,7 +62,7 @@ class AmazonBouncesController < ApplicationController
 
   def check_sns_token
     if APP_CONFIG.sns_notification_token != params['sns_notification_token']
-      render :nothing => true and return
+      return render :nothing => true
     end
   end
 

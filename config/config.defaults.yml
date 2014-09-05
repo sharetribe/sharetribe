@@ -255,5 +255,7 @@ test:
   aws_access_key_id:
   aws_secret_access_key:
 
+  sns_notification_token: test_token
+
   # easier to run tests without SSL
   always_use_ssl: false
