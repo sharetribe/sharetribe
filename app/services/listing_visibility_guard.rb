@@ -11,7 +11,7 @@ class ListingVisibilityGuard
   end
 
   def visible?
-     authorized_to_view? && open?
+     authorized_to_view? && (open? || is_author?)
   end
 
   def authorized_to_view?
@@ -48,5 +48,9 @@ class ListingVisibilityGuard
 
   def public_community?
     !@community.private?
+  end
+
+  def is_author?
+    @user == @listing.author
   end
 end
