@@ -27,9 +27,14 @@ module Util
 
         @__keys = ks
         @__form_name = form_name
+        @__validation_blocks = []
 
         def self.keys
           @__keys
+        end
+
+        def self.validation_blocks
+          @__validation_blocks
         end
 
         attr_reader(*ks)
@@ -49,10 +54,24 @@ module Util
         end
 
         def self.with_validations(&block)
+          @__validation_blocks << block
           class_exec(&block)
           self
         end
       }
+    end
+
+    def merge(form_name, *form_classes)
+      keys = form_classes.map(&:keys).flatten
+      validation_blocks = form_classes.map(&:validation_blocks).flatten
+
+      form = FormUtils.define_form(form_name, *keys)
+
+      validation_blocks.each do |block|
+        form.with_validations(&block)
+      end
+
+      form
     end
   end
 
