@@ -226,10 +226,8 @@ Given /^"(.*?)" has Checkout account$/ do |org_username|
 end
 
 Given /^"(.*?)" does not have Checkout account$/ do |org_username|
-  # org = Person.find_by_username(org_username)
-  # org.checkout_merchant_key = nil
-  # org.checkout_merchant_id = nil
-  # org.save!
+  org = Person.find_by_username(org_username)
+  org.checkout_account.destroy if org.checkout_account.present?
 end
 
 Then /^I should see information about existing Checkout account$/ do
