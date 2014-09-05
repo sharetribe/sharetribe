@@ -45,10 +45,6 @@ class BraintreePaymentGateway < PaymentGateway
     show_braintree_settings_payment_path(person, :locale => locale)
   end
 
-  def settings_url(person, locale, other_params={})
-    show_braintree_settings_payment_url(person, other_params.merge(:locale => locale))
-  end
-
   def has_additional_terms_of_use
     true
   end

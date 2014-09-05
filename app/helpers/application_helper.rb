@@ -701,12 +701,12 @@ module ApplicationHelper
     ]
     if community && community.payments_in_use?
 
-      path = case(@current_community.payment_gateway.gateway_type)
-             when :braintree
-               show_braintree_settings_payment_path(person)
-             when :checkout
-               person_checkout_account_path(person)
-             end
+      path =
+        if @current_community.payment_gateway.gateway_type == :braintree
+          show_braintree_settings_payment_path(person)
+        elsif @current_community.payment_gateway.gateway_type == :checkout
+          person_checkout_account_path(person)
+        end
 
       links << {
         :id => "settings-tab-payments",
