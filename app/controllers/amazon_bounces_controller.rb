@@ -24,8 +24,8 @@ class AmazonBouncesController < ApplicationController
       elsif type == 'Complaint'
         handle_complaints(msg)
       else
-        puts "\nUnrecognized message from Amazon SNS notification center:"
-        puts msg.to_s
+        logger.warn "\nUnrecognized message from Amazon SNS notification center:"
+        logger.warn msg.to_s
       end
     end
     render :nothing => true
@@ -34,9 +34,9 @@ class AmazonBouncesController < ApplicationController
   private
 
   def send_subscription_confirmation(request_body)
-    json = JSON.parse(request_body)
-    subscribe_url = json ['SubscribeURL']
     require 'open-uri'
+    json = JSON.parse(request_body)
+    subscribe_url = json['SubscribeURL']
     open(subscribe_url)
   end
 
@@ -48,6 +48,8 @@ class AmazonBouncesController < ApplicationController
       email.person.unsubscribe_from_community_updates unless email.nil?
     end
   end
+
+
   def handle_complaints(msg)
     complaint = msg['complaint']
     complaint_recipients = complaint['complainedRecipients']
@@ -56,8 +58,8 @@ class AmazonBouncesController < ApplicationController
       email.person.unsubscribe_from_community_updates unless email.nil?
     end
     unless complaint['complaintFeedbackType'].nil?
-      puts "\nComplaint with feedback from Amazon SNS notification center:"
-      puts msg.to_s
+      logger.info "\nComplaint with feedback from Amazon SNS notification center:"
+      logger.info msg.to_s
     end
   end
 
