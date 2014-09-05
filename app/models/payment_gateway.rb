@@ -74,10 +74,6 @@ class PaymentGateway < ActiveRecord::Base
     new_person_message_payment_url(person, message, other_params.merge(:locale => locale))
   end
 
-  def settings_path(person, locale)
-    payments_person_settings_path(person, :locale => locale)
-  end
-
   def hold_in_escrow
     false
   end

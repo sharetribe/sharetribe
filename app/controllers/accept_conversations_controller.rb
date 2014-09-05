@@ -17,6 +17,14 @@ class AcceptConversationsController < ApplicationController
   def accept
     prepare_accept_or_reject_form
     @action = "accept"
+    payment_settings_path =
+      if @current_community.payment_gateway.gateway_type == :braintree
+        show_braintree_settings_payment_path(@current_user)
+      elsif @current_community.payment_gateway.gateway_type == :checkout
+        person_checkout_account_path(@current_user)
+      end
+
+    render(locals: {payment_settings_path: payment_settings_path})
   end
 
   def reject

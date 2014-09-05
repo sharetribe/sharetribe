@@ -165,7 +165,7 @@ class Checkout < PaymentGateway
 
   def no_fixed_commission
     Money.new(0, "EUR")
-s end
+  end
 
   def configured?
     if checkout_environment == "stub"
@@ -179,13 +179,7 @@ s end
     end
   end
 
-  #TODO: Remove after refactoring
-  def settings_path(person, locale)
-    person_checkout_account_path(person, locale: locale)
-  end
-
   def gateway_type
     :checkout
   end
-
 end
