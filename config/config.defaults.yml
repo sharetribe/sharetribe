@@ -37,6 +37,8 @@ default: &default_settings
   aws_access_key_id:
   aws_secret_access_key:
 
+  sns_notification_token:
+
   # Braintree credentials to be used in tests. In production, each
   # community have their own credentials.
   # Ask for shared Braintree credentials if you don't want to create

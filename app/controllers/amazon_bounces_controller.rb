@@ -2,6 +2,8 @@ class AmazonBouncesController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :notification
   skip_filter :fetch_community, :check_email_confirmation, :dashboard_only
 
+  before_filter :check_sns_token
+
   def notification
     amz_message_type = request.headers['x-amz-sns-message-type']
     # amz_sns_topic = request.headers['x-amz-sns-topic-arn']
@@ -56,6 +58,12 @@ class AmazonBouncesController < ApplicationController
     unless complaint['complaintFeedbackType'].nil?
       puts "\nComplaint with feedback from Amazon SNS notification center:"
       puts msg.to_s
+    end
+  end
+
+  def check_sns_token
+    if APP_CONFIG.sns_notification_token != params['sns_notification_token']
+      render :nothing => true and return
     end
   end
 
