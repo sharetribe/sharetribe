@@ -181,11 +181,11 @@ class Checkout < PaymentGateway
 
   #TODO: Remove after refactoring
   def settings_path(person, locale)
-    unless has_registered?(person)
-      new_checkout_settings_payment_path(person, :locale => locale)
-    else
-      show_checkout_settings_payment_path(person, :locale => locale)
-    end
+    person_checkout_account_path(person, locale: locale)
+  end
+
+  def settings_url(person, locale, other_params = {})
+    person_checkout_account_url(person, other_params.merge( locale: locale ))
   end
 
   def gateway_type
