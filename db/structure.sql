@@ -658,8 +658,17 @@ CREATE TABLE `payments` (
   `type` varchar(255) DEFAULT 'CheckoutPayment',
   `braintree_transaction_id` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
+<<<<<<< HEAD
   KEY `index_payments_on_conversation_id` (`conversation_id`),
   KEY `index_payments_on_payer_id` (`payer_id`)
+=======
+  KEY `index_payments_on_payer_id` (`payer_id`),
+<<<<<<< HEAD
+  KEY `index_payments_on_conversation_id` (`conversation_id`)
+=======
+  KEY `index_payments_on_conversation_id` (`transaction_id`)
+>>>>>>> TEMP
+>>>>>>> TEMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `paypal_accounts` (
@@ -841,6 +850,7 @@ CREATE TABLE `transactions` (
   `automatic_confirmation_after_days` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
+  `community_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1831,3 +1841,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140904103604');
 INSERT INTO schema_migrations (version) VALUES ('20140904104024');
 
 INSERT INTO schema_migrations (version) VALUES ('20140904112318');
+
+INSERT INTO schema_migrations (version) VALUES ('20140905090419');

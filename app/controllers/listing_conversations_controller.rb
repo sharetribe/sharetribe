@@ -12,14 +12,36 @@ class ListingConversationsController < ApplicationController
 
   skip_filter :dashboard_only
 
+  ContactForm = Util::FormUtils.define_form("ListingConversation", :content, :sender_id, :listing_id, :community_id)
+    .with_validations { validates_presence_of :content, :listing_id }
+
+  PreauthorizeForm = Util::FormUtils.define_form("ListingConversation",
+    :start_on,
+    :end_on,
+    :braintree_cardholder_name,
+    :braintree_credit_card_number,
+    :braintree_cvv,
+    :braintree_credit_card_expiration_month,
+    :braintree_payment_credit_card_expiration_year,
+    :content,
+    :sender_id,
+    :contract_agreed
+  ).with_validations { validates_presence_of :content, :listing_id }
+
   def new
     use_contact_view = @listing.status_after_reply == "free"
-    @listing_conversation = new_conversation
+    @listing_conversation = new_contact_form
 
     if use_contact_view
-      render :contact, locals: {contact: false}
+      render :contact, locals: {
+        contact: false,
+        contact_form: @listing_conversation
+      }
     else
-      render :new_with_payment
+      render :new_with_payment, locals: {
+        contact_form: @listing_conversation,
+        listing: @listing
+      }
     end
   end
 
@@ -38,7 +60,8 @@ class ListingConversationsController < ApplicationController
 
     @braintree_client_side_encryption_key = @current_community.payment_gateway.braintree_client_side_encryption_key
 
-    @listing_conversation = new_conversation()
+    # TODO TÄHÄN JÄIII!!!
+    @listing_conversation = PreauthorizeForm.new()
     @listing_conversation.booking = booking
     @payment = @listing_conversation.initialize_payment
 
@@ -76,18 +99,45 @@ class ListingConversationsController < ApplicationController
   end
 
   def contact
-    @listing_conversation = new_conversation
-    render :contact, locals: {contact: true}
+    @listing_conversation = new_contact_form
+    render :contact, locals: {contact: true, contact_form: @listing_conversation}
   end
 
   def create
-    conversation = save_conversation(params[:listing_conversation])
+    contact_form = new_contact_form(params[:listing_conversation])
 
-    if conversation
-      conversation.status = @listing.status_after_reply
+    if contact_form.valid?
+      transaction = Transaction.new({
+        community_id: @current_community.id,
+        listing_id: @listing.id,
+        starter_id: @current_user.id,
+      });
+
+      conversation = transaction.build_conversation(community_id: @current_community.id, listing_id: @listing.id)
+
+      conversation.messages.build({
+        content: contact_form.content,
+        sender_id: contact_form.sender_id
+      })
+
+      conversation.participations.build({
+        person_id: @listing.author.id,
+        is_starter: false
+      })
+
+      conversation.participations.build({
+        person_id: @current_user.id,
+        is_starter: true,
+        is_read: true
+      })
+
+      transaction.save!
+
+      binding.pry
+      transaction.status = @listing.status_after_reply
 
       flash[:notice] = t("layouts.notifications.message_sent")
-      Delayed::Job.enqueue(MessageSentJob.new(@listing_conversation.messages.last.id, @current_community.id))
+      Delayed::Job.enqueue(MessageSentJob.new(transaction.conversation.messages.last.id, @current_community.id))
       redirect_to session[:return_to_content] || root
     else
       flash[:error] = "Sending the message failed. Please try again."
@@ -96,13 +146,38 @@ class ListingConversationsController < ApplicationController
   end
 
   def create_contact
-    conversation = save_conversation(params[:listing_conversation])
+    contact_form = new_contact_form(params[:listing_conversation])
 
-    if conversation
-      conversation.status = "free"
+    if contact_form.valid?
+      transaction = Transaction.new({
+        community_id: @current_community.id,
+        listing_id: @listing.id,
+        starter_id: @current_user.id,
+      });
+
+      conversation = transaction.build_conversation(community_id: @current_community.id, listing_id: @listing.id)
+
+      conversation.messages.build({
+        content: contact_form.content,
+        sender_id: contact_form.sender_id
+      })
+
+      conversation.participations.build({
+        person_id: @listing.author.id,
+        is_starter: false
+      })
+
+      conversation.participations.build({
+        person_id: @current_user.id,
+        is_starter: true,
+        is_read: true
+      })
+
+      transaction.save!
+      transaction.status = "free"
 
       flash[:notice] = t("layouts.notifications.message_sent")
-      Delayed::Job.enqueue(MessageSentJob.new(@listing_conversation.messages.last.id, @current_community.id))
+      Delayed::Job.enqueue(MessageSentJob.new(transaction.conversation.messages.last.id, @current_community.id))
       redirect_to session[:return_to_content] || root
     else
       flash[:error] = "Sending the message failed. Please try again."
@@ -148,10 +223,11 @@ class ListingConversationsController < ApplicationController
   end
 
   def new_conversation(conversation_params = {})
-    conversation = ListingConversation.new(conversation_params.merge(community: @current_community, listing: @listing))
-    conversation.build_starter_participation(@current_user)
-    conversation.build_participation(@listing.author)
-    conversation
+    Transaction.new(conversation_params.merge(community: @current_community, listing: @listing, starter: @current_user))
+  end
+
+  def new_contact_form(conversation_params = {})
+    ContactForm.new(conversation_params.merge({sender_id: @current_user.id, listing_id: @listing.id, community_id: @current_community.id}))
   end
 
   def ensure_can_receive_payment

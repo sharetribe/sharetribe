@@ -9,11 +9,14 @@
 #  automatic_confirmation_after_days :integer
 #  created_at                        :datetime         not null
 #  updated_at                        :datetime         not null
+#  community_id                      :integer          not null
 #
 
 class Transaction < ActiveRecord::Base
+  attr_accessible :community_id, :starter_id, :listing_id
   attr_accessor :contract_agreed
 
+  belongs_to :community
   belongs_to :listing
   has_many :transaction_transitions, dependent: :destroy, foreign_key: :transaction_id
   has_one :payment, foreign_key: :transaction_id
