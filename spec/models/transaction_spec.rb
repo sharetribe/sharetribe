@@ -9,6 +9,7 @@
 #  automatic_confirmation_after_days :integer
 #  created_at                        :datetime         not null
 #  updated_at                        :datetime         not null
+#  community_id                      :integer          not null
 #
 
 require 'spec_helper'
