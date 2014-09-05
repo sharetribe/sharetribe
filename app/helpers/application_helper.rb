@@ -700,26 +700,25 @@ module ApplicationHelper
       }
     ]
     if community && community.payments_in_use?
+
+      path = case(@current_community.payment_gateway.gateway_type)
+             when :braintree
+               show_braintree_settings_payment_path(person)
+             when :checkout
+               person_checkout_account_path(person)
+             end
+
       links << {
         :id => "settings-tab-payments",
         :text => t("layouts.settings.payments"),
         :icon_class => icon_class("payments"),
-        :path => payment_account_settings_path(community.payment_gateway.gateway_type, person),
+        :path => path,
         :name => "payments"
       }
 
     end
 
     return links
-  end
-
-  def payment_account_settings_path(payment_gw_type, person)
-    case(payment_gw_type)
-    when :braintree
-      show_braintree_settings_payment_path(person)
-    when :checkout
-      person_checkout_account_path(person)
-    end
   end
 
   def dashboard_link(args)
