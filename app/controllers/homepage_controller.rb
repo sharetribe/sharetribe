@@ -38,7 +38,12 @@ class HomepageController < ApplicationController
     end
 
     listings_per_page = 24
-    @listings = find_listings(params, listings_per_page)
+
+    @listings = if @view_type == "map"
+      find_listings(params, 100)
+    else
+      find_listings(params, listings_per_page)
+    end
 
     if request.xhr? # checks if AJAX request
       if @view_type == "grid" then
