@@ -77,12 +77,16 @@ class BraintreeAccountsController < ApplicationController
   skip_filter :dashboard_only
 
   def new
+    redirect_to action: :show and return if @current_user.braintree_account
+
     @list_of_states = LIST_OF_STATES
     @braintree_account = create_new_account_object
     render locals: { form_action: @create_path }
   end
 
   def show
+    redirect_to action: :new and return unless @current_user.braintree_account
+
     @list_of_states = LIST_OF_STATES
     @braintree_account = BraintreeAccount.find_by_person_id(@current_user.id)
     @state_name, _ = LIST_OF_STATES.find do |state|
