@@ -44,8 +44,7 @@ class AmazonBouncesController < ApplicationController
     bounce = msg['bounce']
     bounce_recipients = bounce['bouncedRecipients']
     bounce_recipients.each do |recipient|
-      email = Email.find_by_address(recipient['emailAddress'])
-      email.person.unsubscribe_from_community_updates unless email.nil?
+      MarketplaceService::Person::Command.unsubscribe_email_from_community_updates(recipient['emailAddress'])
     end
   end
 
@@ -54,8 +53,7 @@ class AmazonBouncesController < ApplicationController
     complaint = msg['complaint']
     complaint_recipients = complaint['complainedRecipients']
     complaint_recipients.each do |recipient|
-      email = Email.find_by_address(recipient['emailAddress'])
-      email.person.unsubscribe_from_community_updates unless email.nil?
+      MarketplaceService::Person::Command.unsubscribe_email_from_community_updates(recipient['emailAddress'])
     end
     unless complaint['complaintFeedbackType'].nil?
       logger.info "\nComplaint with feedback from Amazon SNS notification center:"
