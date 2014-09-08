@@ -23,11 +23,11 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    @conversation = Conversation.find(params[:id])
+    @conversation = @current_community.conversations.for_person(@current_user).find_by_id(params[:id])
 
-    unless @conversation.participants.include?(@current_user)
+    if @conversation.blank?
       flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
-      redirect_to root and return
+      return redirect_to root
     end
 
     @current_user.read(@conversation) unless @conversation.read_by?(@current_user)
