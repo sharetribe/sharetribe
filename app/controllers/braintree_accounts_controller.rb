@@ -69,9 +69,6 @@ class BraintreeAccountsController < ApplicationController
   # New/create
   before_filter :ensure_user_does_not_have_account, :only => [:new, :create]
 
-  # Edit/update
-  before_filter :ensure_user_has_account, :only => [:show]
-
   before_filter :ensure_user_does_not_have_account_for_another_community
 
   skip_filter :dashboard_only
@@ -155,17 +152,6 @@ class BraintreeAccountsController < ApplicationController
   end
 
   # Before filter
-  def ensure_user_has_account
-    @braintree_account = BraintreeAccount.find_by_person_id(@current_user.id)
-
-    if @braintree_account.blank?
-      flash[:error] = "Illegal Braintree accout id"
-      redirect_to @new_path
-    end
-  end
-
-  # Before filter
-  #
   # Support for multiple Braintree account in multipe communities
   # is not implemented. Show error.
   def ensure_user_does_not_have_account_for_another_community
