@@ -16,7 +16,7 @@ module MarketplaceService
       end
 
       def unsubscribe_person_from_community_updates(person_id)
-        person = Person.find_by_id(person_id)
+        person = PersonModel.find_by_id(person_id)
         Helper.unsubscribe_from_community_updates(person)
       end
 
