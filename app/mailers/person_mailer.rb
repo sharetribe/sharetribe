@@ -173,12 +173,7 @@ class PersonMailer < ActionMailer::Base
     @recipient = recipient
 
     if community.payments_in_use?
-      @payment_settings_link =
-        if community.payment_gateway.gateway_type == :braintree
-          show_braintree_settings_payment_url(@recipient, @url_params.merge(locale: @recipient.locale))
-        elsif community.payment_gateway.gateway_type == :checkout
-          person_checkout_account_url(@recipient, @url_params.merge(locale: @recipient.locale))
-        end
+      @payment_settings_link = payment_settings_url(community.payment_gateway.gateway_type, recipient, @url_params)
     end
 
     premailer_mail(:to => recipient.confirmed_notification_emails_to,

@@ -701,12 +701,7 @@ module ApplicationHelper
     ]
     if community && community.payments_in_use?
 
-      path =
-        if @current_community.payment_gateway.gateway_type == :braintree
-          show_braintree_settings_payment_path(person)
-        elsif @current_community.payment_gateway.gateway_type == :checkout
-          person_checkout_account_path(person)
-        end
+      path = payment_settings_path(@current_community.payment_gateway.gateway_type, @current_user)
 
       links << {
         :id => "settings-tab-payments",
@@ -719,6 +714,22 @@ module ApplicationHelper
     end
 
     return links
+  end
+
+  def payment_settings_path(gateway_type, person)
+    if gateway_type == :braintree
+      show_braintree_settings_payment_path(person)
+    elsif gateway_type == :checkout
+      person_checkout_account_path(person)
+    end
+  end
+
+  def payment_settings_url(gateway_type, person, url_params)
+    if gateway_type == :braintree
+      show_braintree_settings_payment_url(person, url_params.merge(locale: person.locale))
+    elsif gateway_type == :checkout
+      person_checkout_account_url(person, url_params.merge(locale: person.locale))
+    end
   end
 
   def dashboard_link(args)
