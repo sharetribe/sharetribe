@@ -33,7 +33,6 @@ class CheckoutAccountsController < ApplicationController
       payment_gateway = @current_community.payment_gateway
       # If updating payout details, check that they are valid
       registering_successful = payment_gateway.register_payout_details(@current_user, checkout_account_form)
-      # TODO: Error handling
       redirect_to action: :show
     else
       flash[:error] = checkout_account_form.errors.full_messages

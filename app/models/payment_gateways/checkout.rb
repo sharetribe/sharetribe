@@ -143,11 +143,11 @@ class Checkout < PaymentGateway
     end
 
     checkout_account = CheckoutAccount.new({
-                                             person_id: person,
-                                             merchant_id: response[/<id>([^<]+)<\/id>/],
-                                             merchant_key: response[/<secret>([^<]+)<\/secret>/],
-                                             company_id: checkout_account_params.company_id
-                                           })
+        person_id: person,
+        merchant_id: response[/<id>([^<]+)<\/id>/],
+        merchant_key: response[/<secret>([^<]+)<\/secret>/],
+        company_id: checkout_account_params.company_id
+      })
     checkout_account.save!
   end
 
