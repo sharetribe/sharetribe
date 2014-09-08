@@ -134,8 +134,8 @@ gem 'win32-process', :platforms => [:mswin, :mingw]
 	- gem list | cut -d" " -f1 | xargs gem uninstall -aIx
 - sudo aptitude install nodejs
 - rake RAILS_ENV=production db:seed
-- rake RAILS_ENV=production thinking_sphinx:index
-- rake RAILS_ENV=production thinking_sphinx:start
+- rake RAILS_ENV=production ts:index
+- rake RAILS_ENV=production ts:start
 - emacs app/assets/stylesheets/application.scss.erb
 	- prepend this to the <% %> block at the top:
 		require "#{Rails.root}/app/helpers/scss_helper.rb"
