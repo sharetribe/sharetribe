@@ -20,6 +20,7 @@ class Booking < ActiveRecord::Base
   validates_date :start_on, on_or_after: :today
   validates_date :end_on, on_or_after: :start_on
 
+  ## TODO REMOVE THIS
   def duration
     (end_on - start_on).to_i + 1
   end

@@ -12,21 +12,33 @@ class ListingConversationsController < ApplicationController
 
   skip_filter :dashboard_only
 
+  BookingForm = Util::FormUtils.define_form("BookingForm", :start_on, :end_on)
+    .with_validations do
+      validates :start_on, :end_on, presence: true
+      validates_date :start_on, on_or_after: :today
+      validates_date :end_on, on_or_after: :start_on
+    end
+
   ContactForm = Util::FormUtils.define_form("ListingConversation", :content, :sender_id, :listing_id, :community_id)
     .with_validations { validates_presence_of :content, :listing_id }
 
-  PreauthorizeForm = Util::FormUtils.define_form("ListingConversation",
-    :start_on,
-    :end_on,
+  BraintreeForm = Util::FormUtils.define_form("ListingConversation",
     :braintree_cardholder_name,
     :braintree_credit_card_number,
     :braintree_cvv,
     :braintree_credit_card_expiration_month,
-    :braintree_payment_credit_card_expiration_year,
+    :braintree_payment_credit_card_expiration_year
+  ).with_validations {
+    # TODO ADD VALIDATIONS
+  }
+
+  PreauthorizeMessageForm = Util::FormUtils.define_form("ListingConversation",
     :content,
     :sender_id,
     :contract_agreed
   ).with_validations { validates_presence_of :content, :listing_id }
+
+  PreauthorizeForm = Util::FormUtils.merge("ListingConversation", BookingForm, BraintreeForm, PreauthorizeMessageForm)
 
   def new
     use_contact_view = @listing.status_after_reply == "free"
@@ -46,26 +58,39 @@ class ListingConversationsController < ApplicationController
   end
 
   def preauthorize
-    booking = if @listing.transaction_type.price_per.present?
-      Booking.new({
+    booking_form = if @listing.transaction_type.price_per.present?
+      BookingForm.new({
         start_on: params[:start_on],
         end_on: params[:end_on]
       })
     end
 
-    if booking.present? && !booking.valid?
-      flash[:error] = booking.errors.full_messages
+    if booking_form.present? && !booking_form.valid?
+      flash[:error] = booking_form.errors.full_messages
       redirect_to @listing and return
     end
 
     @braintree_client_side_encryption_key = @current_community.payment_gateway.braintree_client_side_encryption_key
 
-    # TODO TÄHÄN JÄIII!!!
-    @listing_conversation = PreauthorizeForm.new()
-    @listing_conversation.booking = booking
-    @payment = @listing_conversation.initialize_payment
+    preauthorize_form = PreauthorizeForm.new({
+      start_on: Maybe(booking_form).start_on.or_else(nil),
+      end_on: Maybe(booking_form).end_on.or_else(nil),
+      sender_id: @current_user.id
+    })
 
-    @payment.sum = @listing_conversation.calculate_total
+    sum = Maybe(booking_form).map { |booking|
+      @listing.price * duration(booking.start_on, booking.end_on)
+    }.or_else {
+      @listing.price
+    }
+
+    render locals: {
+      preauthorize_form: preauthorize_form,
+      booking_form: booking_form,
+      listing: @listing,
+      sum: sum,
+      author: @listing.author
+    }
   end
 
   def preauthorized
@@ -76,8 +101,37 @@ class ListingConversationsController < ApplicationController
       return redirect_to action: :preauthorize
     end
 
-    @listing_conversation = new_conversation(conversation_params)
+    binding.pry
+    preauthorize_form = PreauthorizeForm.new(conversation_params)
+
+    if preauthorize_form.valid?
+      transaction = Transaction.new({
+        community_id: @current_community.id,
+        listing_id: @listing.id,
+        starter_id: @current_user.id,
+      });
+
+      # TODO MESSAGES HERE!
+
+      # TODO JATKA TÄSTÄ
+
+    else
+      flash[:error] = preauthorize_form.errors.full_messages.join(", ")
+      return redirect_to action: :preauthorize
+    end
+
     @payment = @listing_conversation.initialize_payment
+
+    # def initialize_payment
+    #   payment ||= community.payment_gateway.new_payment
+    #   payment.payment_gateway ||= community.payment_gateway
+    #   payment.conversation = self
+    #   payment.status = "pending"
+    #   payment.payer = starter
+    #   payment.recipient = author
+    #   payment.community = community
+    #   payment
+    # end
 
     @payment.sum = @listing_conversation.calculate_total
 
@@ -237,5 +291,9 @@ class ListingConversationsController < ApplicationController
         redirect_to (session[:return_to_content] || root)
       end
     end
+  end
+
+  def duration(start_on, end_on)
+    (end_on - start_on).to_i + 1
   end
 end
