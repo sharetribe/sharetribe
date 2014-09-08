@@ -24,7 +24,7 @@ Feature: User pays after accepted transaction
     And I follow "Accept request"
     Then I should see information about missing payment details
     When I follow "#conversation-payment-settings-link"
-    Then I should be on the payment settings page
+    Then I should be on the new Checkout account page
 
   @javascript
   Scenario: User pays

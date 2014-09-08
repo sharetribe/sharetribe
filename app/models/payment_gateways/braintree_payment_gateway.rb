@@ -41,26 +41,6 @@ class BraintreePaymentGateway < PaymentGateway
     ))
   end
 
-  def settings_path(person, locale)
-    if person.braintree_account.blank?
-      new_braintree_settings_payment_path(person, :locale => locale)
-    else
-      show_braintree_settings_payment_path(person, :locale => locale)
-    end
-  end
-
-  def settings_url(person, locale, other_params={})
-    if person.braintree_account.blank?
-      new_braintree_settings_payment_url(person, other_params.merge(
-        :locale => locale
-      ))
-    else
-      show_braintree_settings_payment_url(person, other_params.merge(
-        :locale => locale
-      ))
-    end
-  end
-
   def has_additional_terms_of_use
     true
   end
@@ -102,5 +82,9 @@ class BraintreePaymentGateway < PaymentGateway
       braintree_private_key,
       braintree_client_side_encryption_key
     ].all? { |x| x.present? }
+  end
+
+  def gateway_type
+    :braintree
   end
 end

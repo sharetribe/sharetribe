@@ -20,4 +20,4 @@ Feature: User creates a new listing with payments
     Then I should see "Sledgehammer" within "#listing-title"
     And I should receive an email about missing payment details
     When I follow "payment settings" in the email
-    Then I should be on the payment settings page
+    Then I should be on the new Checkout account page

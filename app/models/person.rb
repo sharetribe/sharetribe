@@ -37,9 +37,6 @@
 #  community_updates_last_sent_at     :datetime
 #  min_days_between_community_updates :integer          default(1)
 #  is_organization                    :boolean
-#  company_id                         :string(255)
-#  checkout_merchant_id               :string(255)
-#  checkout_merchant_key              :string(255)
 #  organization_name                  :string(255)
 #
 # Indexes
@@ -83,7 +80,7 @@ class Person < ActiveRecord::Base
   attr_accessor :guid, :password2, :form_login,
                 :form_given_name, :form_family_name, :form_password,
                 :form_password2, :form_email, :consent,
-:email_second_time_again, :community_category, :organization_website, :organization_address, :send_notifications
+                :email_second_time_again, :community_category, :send_notifications
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
@@ -96,6 +93,7 @@ class Person < ActiveRecord::Base
 
   has_one :location, :conditions => ['location_type = ?', 'person'], :dependent => :destroy
   has_one :braintree_account, :dependent => :destroy
+  has_one :checkout_account, dependent: :destroy
 
   has_many :participations, :dependent => :destroy
   has_many :conversations, :through => :participations, :dependent => :destroy
@@ -159,8 +157,6 @@ class Person < ActiveRecord::Base
   validates_length_of :username, :within => 3..20
   validates_length_of :given_name, :within => 1..30, :allow_nil => true, :allow_blank => true
   validates_length_of :family_name, :within => 1..30, :allow_nil => true, :allow_blank => true
-
-  validates_format_of :company_id, :with => /^(\d{7}\-\d)?$/, :allow_nil => true
 
   validates_format_of :username,
                        :with => /^[A-Z0-9_]*$/i

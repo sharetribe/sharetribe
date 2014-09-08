@@ -37,9 +37,6 @@
 #  community_updates_last_sent_at     :datetime
 #  min_days_between_community_updates :integer          default(1)
 #  is_organization                    :boolean
-#  company_id                         :string(255)
-#  checkout_merchant_id               :string(255)
-#  checkout_merchant_key              :string(255)
 #  organization_name                  :string(255)
 #
 # Indexes
@@ -91,22 +88,6 @@ describe Person do
             p = Person.create!({:username => username,
               :password => "testi",
               :emails => [Email.new(:address => "invalid-email")],
-              "given_name" => "Tero",
-              "family_name" => "Turari"})
-          }.should raise_error(ActiveRecord::RecordInvalid)
-          p.should be_nil
-        }.should_not change{Person.count}
-      end
-
-      it "should not store person with invalid company_id" do
-        username = generate_random_username
-        lambda {
-          p = nil
-          lambda {
-            p = Person.create!({:username => username,
-              :company_id => "1234-5",
-              :password => "testi",
-              :email => "info@company.com",
               "given_name" => "Tero",
               "family_name" => "Turari"})
           }.should raise_error(ActiveRecord::RecordInvalid)

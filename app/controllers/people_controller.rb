@@ -174,34 +174,7 @@ class PeopleController < Devise::RegistrationsController
     redirect_to :controller => :community_memberships, :action => :new
   end
 
-  def any_fields?(hash, fields)
-    fields.any? { |field_name| !hash[field_name].blank? }
-  end
-
-  def all_fields?(hash, fields)
-    fields.all? { |field_name| !hash[field_name].blank? }
-  end
-
-  def register_payout(payment_gateway, person_params, payment_param_keys, person)
-    if self.any_fields?(person_params, payment_param_keys)
-      # require all fields
-      if !self.all_fields?(person_params, payment_param_keys)
-        flash[:error] = t("layouts.notifications.you_must_fill_all_the_fields")
-        return false
-      end
-
-      # Try to register the details if payment gateway is present
-      begin
-        payment_gateway.register_payout_details(person)
-      rescue => e
-        flash[:error] = e.message
-        return false
-      end
-    end
-  end
-
   def update
-
     # If setting new location, delete old one first
     if params[:person] && params[:person][:location] && (params[:person][:location][:address].empty? || params[:person][:street_address].blank?)
       params[:person].delete("location")
@@ -217,15 +190,6 @@ class PeopleController < Devise::RegistrationsController
     end
 
     @person.set_emails_that_receive_notifications(params[:person][:send_notifications])
-
-    payment_gateway = @current_community.payment_gateway
-
-    if params[:person] && payment_gateway && params[:payment_settings]
-      # If updating payout details, check that they are valid
-      checkout_param_keys = [:company_id, :organization_address, :phone_number, :organization_website]
-      registering_successful = self.register_payout(payment_gateway, params[:person], checkout_param_keys, @person)
-      redirect_to :back and return unless registering_successful
-    end
 
     begin
       if @person.update_attributes(params[:person])

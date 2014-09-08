@@ -333,10 +333,10 @@ function initialize_payments_form(locale) {
   var form_id = "#payment_settings_form";
   $(form_id).validate({
     rules: {
-      "person[company_id]": {minlength: 9, maxlength: 9},
-      "person[phone_number]": {maxlength: 25},
-      "person[organization_address]": {minlength: 6},
-      "person[organization_website]": {minlength: 5}
+      "checkout_account_form[company_id]": {minlength: 9, maxlength: 9},
+      "checkout_account_form[phone_number]": {maxlength: 25},
+      "checkout_account_form[organization_address]": {minlength: 6},
+      "checkout_account_form[organization_website]": {minlength: 5}
     },
     messages: {
     },

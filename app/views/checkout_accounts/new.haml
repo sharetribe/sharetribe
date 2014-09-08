@@ -1,0 +1,27 @@
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user, @current_community) }
+
+- content_for :javascript do
+  initialize_payments_form("#{I18n.locale}");
+
+.left-navi-section.settings-section
+
+  %p
+    =t("organizations.form.merhcant_registration_detailed_instructions").html_safe
+
+  = form_for checkout_account, url: form_action, :html => { :id => "payment_settings_form"} do |form|
+
+    = hidden_field_tag :payment_settings, true
+
+    = form.label :company_id, t("organizations.form.company_id"), :class => "input"
+    = form.text_field :company_id, :class => :text_field, :maxlenght => "9"
+
+    = form.label :organization_address, t("organizations.form.organization_address"), :class => "input"
+    = form.text_field :organization_address, :class => :text_field
+
+    = form.label :phone_number, t("organizations.form.phone_number")
+    = form.text_field :phone_number, :class => "text_field", :maxlength => "25"
+
+    = form.label :organization_website, t("organizations.form.organization_website"), :class => "input"
+    = form.text_field :organization_website, :class => :text_field
+
+    = form.button t("settings.save_information"), :class => "send_button"

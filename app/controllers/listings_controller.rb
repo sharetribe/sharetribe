@@ -108,7 +108,8 @@ class ListingsController < ApplicationController
       logger.info "Category: #{@listing.category.inspect}"
 
       if PaymentRegistrationGuard.new(@current_community, @current_user, @listing).requires_registration_before_posting?
-        render :partial => "listings/payout_registration_before_posting"
+        payment_settings_path = payment_settings_path(@current_community.payment_gateway.gateway_type, @current_user)
+        render :partial => "listings/payout_registration_before_posting", locals: {payment_settings_path: payment_settings_path}
       else
         render :partial => "listings/form/form_content"
       end

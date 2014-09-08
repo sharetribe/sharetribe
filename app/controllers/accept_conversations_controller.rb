@@ -17,6 +17,8 @@ class AcceptConversationsController < ApplicationController
   def accept
     prepare_accept_or_reject_form
     @action = "accept"
+    payment_settings_path = payment_settings_path(@current_community.payment_gateway.gateway_type, @current_user)
+    render(locals: {payment_settings_path: payment_settings_path})
   end
 
   def reject

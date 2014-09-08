@@ -38,8 +38,8 @@ class Checkout < PaymentGateway
   def payment_data(payment, options={})
 
     unless options[:mock]
-      merchant_id = payment.recipient.checkout_merchant_id
-      merchant_key = payment.recipient.checkout_merchant_key
+      merchant_id = payment.recipient.checkout_account.merchant_id
+      merchant_key = payment.recipient.checkout_account.merchant_key
     else
       # Make it possible to demonstrate payment system with mock payments if that's set on in community settings
       merchant_id = "375917"
@@ -76,7 +76,7 @@ class Checkout < PaymentGateway
     results = {}
 
     unless options[:mock]
-      merchant_key = payment.recipient.checkout_merchant_key
+      merchant_key = payment.recipient.checkout_account.merchant_key
     else
       # Make it possible to demonstrate payment system with mock payments if that's set on in community settings
       merchant_key = "SAIPPUAKAUPPIAS"
@@ -110,8 +110,7 @@ class Checkout < PaymentGateway
     self.has_registered?(person)
   end
 
-  def register_payout_details(person)
-
+  def register_payout_details(person, checkout_account_params)
     url = "https://rpcapi.checkout.fi/reseller/createMerchant"
     user = checkout_user_id
     password = checkout_password
@@ -124,14 +123,14 @@ class Checkout < PaymentGateway
 
     api_params = {
       "company" => person.name,
-      "vat_id"  => person.company_id,
+      "vat_id"  => checkout_account_params.company_id,
       "name"    => person.name,
       "email"   => person.confirmed_notification_email_to,
-      "gsm"     => person.phone_number,
+      "gsm"     => checkout_account_params.phone_number,
       "type"    => type,
       "info"    => "Materiaalipankki",
-      "address" => person.organization_address,
-      "url"     => person.organization_website,
+      "address" => checkout_account_params.organization_address,
+      "url"     => checkout_account_params.organization_website,
       "kkhinta" => "0",
     }
 
@@ -143,19 +142,17 @@ class Checkout < PaymentGateway
       response = "<merchant><id>375917</id><secret>SAIPPUAKAUPPIAS</secret><banner>http://rpcapi.checkout.fi/banners/5a1e9f504277f6cf17a7026de4375e97.png</banner></merchant>"
     end
 
-    person.checkout_merchant_id = response[/<id>([^<]+)<\/id>/, 1]
-    person.checkout_merchant_key = response[/<secret>([^<]+)<\/secret>/, 1]
-    person.save!
-
-    if person.checkout_merchant_id && person.checkout_merchant_key
-      return true
-    else
-      return false
-    end
+    checkout_account = CheckoutAccount.new({
+        person_id: person,
+        merchant_id: response[/<id>([^<]+)<\/id>/, 1],
+        merchant_key: response[/<secret>([^<]+)<\/secret>/, 1],
+        company_id: checkout_account_params.company_id
+      })
+    checkout_account.save!
   end
 
   def has_registered?(person)
-    person.checkout_merchant_id.present? && person.checkout_merchant_key.present?
+    person.checkout_account.present?
   end
 
   def new_payment
@@ -180,5 +177,9 @@ class Checkout < PaymentGateway
         checkout_password
       ].all? { |x| x.present? }
     end
+  end
+
+  def gateway_type
+    :checkout
   end
 end

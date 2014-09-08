@@ -49,11 +49,10 @@ end
 
 Then /^"(.*?)" should have required Checkout payment details saved to my account information$/ do |username|
   p = Person.find_by_username(username)
-
-  p.checkout_merchant_id.should_not be_nil
-  p.checkout_merchant_id.should_not be_blank
-  p.checkout_merchant_key.should_not be_nil
-  p.checkout_merchant_key.should_not be_blank
+  p.checkout_account.merchant_id.should_not be_nil
+  p.checkout_account.merchant_id.should_not be_blank
+  p.checkout_account.merchant_key.should_not be_nil
+  p.checkout_account.merchant_key.should_not be_blank
 end
 
 When /^Braintree webhook "(.*?)" with id "(.*?)" is triggered$/ do |kind, id|
@@ -165,10 +164,10 @@ When /^I browse to payment settings$/ do
   }
 end
 
-When /^I browse to Checkout payment settings$/ do
+When /^I browse to Checkout account settings$/ do
   steps %Q{
     When I browse to payment settings
-    Then I should be on the payment settings page
+    Then I should be on the new Checkout account page
   }
 end
 
@@ -202,36 +201,33 @@ end
 
 When /^I fill the payment details form(?: with valid information)?$/ do
   steps %Q{
-    When I fill in "person[company_id]" with "1234567-8"
-    And I fill in "person[organization_address]" with "Startup Sauna, Betonimiehenkuja, Espoo, Finland"
-    And I fill in "person[phone_number]" with "555-12345678"
-    And I fill in "person[organization_website]" with "http://www.company.com/"
+    When I fill in "checkout_account_form[company_id]" with "1234567-8"
+    And I fill in "checkout_account_form[organization_address]" with "Startup Sauna, Betonimiehenkuja, Espoo, Finland"
+    And I fill in "checkout_account_form[phone_number]" with "555-12345678"
+    And I fill in "checkout_account_form[organization_website]" with "http://www.company.com/"
     And I press submit
   }
 end
 
 When /^I fill the payment details form with invalid information$/ do
   steps %Q{
-    When I fill in "person[company_id]" with "12345465467484578"
-    And I fill in "person[organization_address]" with ""
-    And I fill in "person[phone_number]" with "555"
-    And I fill in "person[organization_website]" with ""
+    When I fill in "checkout_account_form[company_id]" with "12345465467484578"
+    And I fill in "checkout_account_form[organization_address]" with ""
+    And I fill in "checkout_account_form[phone_number]" with "555"
+    And I fill in "checkout_account_form[organization_website]" with ""
     And I press submit
   }
 end
 
 Given /^"(.*?)" has Checkout account$/ do |org_username|
   org = Person.find_by_username(org_username)
-  org.checkout_merchant_key = "SAIPPUAKAUPPIAS"
-  org.checkout_merchant_id = "375917"
-  org.save!
+  checkout = CheckoutAccount.new({ merchant_key: "SAIPPUAKAUPPIAS", merchant_id: "375917", person_id: org })
+  checkout.save!
 end
 
 Given /^"(.*?)" does not have Checkout account$/ do |org_username|
   org = Person.find_by_username(org_username)
-  org.checkout_merchant_key = nil
-  org.checkout_merchant_id = nil
-  org.save!
+  org.checkout_account.destroy if org.checkout_account.present?
 end
 
 Then /^I should see information about existing Checkout account$/ do

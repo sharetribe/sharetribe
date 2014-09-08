@@ -1,0 +1,8 @@
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user, @current_community) }
+
+.left-navi-section.settings-section
+  #payment-help-checkout-exists
+    %p
+      =t("organizations.form.merhcant_registration_done")
+    %p
+      =t("organizations.form.merhcant_registration_done_instructions").html_safe

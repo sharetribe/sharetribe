@@ -173,7 +173,7 @@ class PersonMailer < ActionMailer::Base
     @recipient = recipient
 
     if community.payments_in_use?
-      @payment_settings_link = community.payment_gateway.settings_url(@recipient, @recipient.locale, @url_params)
+      @payment_settings_link = payment_settings_url(community.payment_gateway.gateway_type, recipient, @url_params)
     end
 
     premailer_mail(:to => recipient.confirmed_notification_emails_to,
