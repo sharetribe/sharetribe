@@ -41,8 +41,7 @@ class SettingsController < ApplicationController
 
     if @person_to_unsubscribe && @person_to_unsubscribe.username == params[:person_id] && params[:email_type].present?
       if params[:email_type] == "community_updates"
-        @person_to_unsubscribe.min_days_between_community_updates = 100000
-        @person_to_unsubscribe.save!
+        MarketplaceService::Person::Command.unsubscribe_person_from_community_updates(@person_to_unsubscribe.id)
       elsif [Person::EMAIL_NOTIFICATION_TYPES, Person::EMAIL_NEWSLETTER_TYPES].flatten.include?(params[:email_type])
         @person_to_unsubscribe.preferences[params[:email_type]] = false
         @person_to_unsubscribe.save!

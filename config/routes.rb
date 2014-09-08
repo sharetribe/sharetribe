@@ -25,6 +25,8 @@ Kassi::Application.routes.draw do
   get '/webhooks/braintree' => 'braintree_webhooks#challenge'
   post '/webhooks/braintree' => 'braintree_webhooks#hooks'
 
+  post '/bounces' => 'amazon_bounces#notification'
+
   match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
   match "/listings/new/:type" => "listings#new", :as => :new_request_without_locale # needed for some emails, where locale part is already set
   match "/change_locale" => "i18n#change_locale", :as => :change_locale

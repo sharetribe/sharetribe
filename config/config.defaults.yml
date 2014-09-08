@@ -37,6 +37,10 @@ default: &default_settings
   aws_access_key_id:
   aws_secret_access_key:
 
+  # This is used with AWS SNS notifications. You need to create "email bounces and complaints" topic to SNS
+  # and subscribe an url (https://yourdomain.com/bounces?sns_notification_token=[this_token])
+  sns_notification_token:
+
   # Braintree credentials to be used in tests. In production, each
   # community have their own credentials.
   # Ask for shared Braintree credentials if you don't want to create
@@ -252,6 +256,8 @@ test:
   s3_bucket_name:
   aws_access_key_id:
   aws_secret_access_key:
+
+  sns_notification_token: test_token
 
   # easier to run tests without SSL
   always_use_ssl: false

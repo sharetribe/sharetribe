@@ -20,6 +20,8 @@ describe SettingsController do
       get :unsubscribe, {:email_type => "community_updates", :person_id => @person.username}
       puts response.body
       response.status.should == 200
+
+      @person = Person.find(@person.id) # fetch again to refresh
       @person.min_days_between_community_updates.should == 100000
     end
 
