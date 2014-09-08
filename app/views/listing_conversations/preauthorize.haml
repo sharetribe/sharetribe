@@ -15,8 +15,6 @@
       braintreePaymentForm.show();
     });
 
-- listing = @listing_conversation.listing
-
 - content_for :javascript do
   initialize_send_message_form('#{I18n.locale}', '#{Listing.opposite_type(listing.direction)}');
 
@@ -29,7 +27,7 @@
 
 #new_message_form.centered-section
 
-  - author_link = link_to(@listing_conversation.author.name, @listing_conversation.author)
+  - author_link = link_to(author.name, author)
 
   .preauthorize-section
     %h2.preauthorize-details-title
@@ -38,9 +36,9 @@
     %ul.no-bullets
       %li
         %div
-          = t(".by", listing: link_to("#{@listing_conversation.listing.title}", @listing_conversation.listing), author: author_link).html_safe
+          = t(".by", listing: link_to("#{listing.title}", listing), author: author_link).html_safe
 
-      - Maybe(@listing_conversation).booking.each do |booking|
+      - Maybe(booking_form).each do |booking|
         %li
           %div
             = l booking.start_on, format: :long_with_abbr_day_name
@@ -50,12 +48,12 @@
 
         %li
           %div
-            = t(".price_per_day", price: humanized_money_with_symbol(@listing_conversation.listing.price))
+            = t(".price_per_day", price: humanized_money_with_symbol(listing.price))
 
       %li
         %div
           %strong
-            = t("conversations.show.total", total: humanized_money_with_symbol(@payment.sum))
+            = t("conversations.show.total", total: humanized_money_with_symbol(sum))
 
   = form_for preauthorize_form,
     :url => preauthorized_person_listing_listing_conversations_path(@current_user.id,

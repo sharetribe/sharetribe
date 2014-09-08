@@ -156,14 +156,6 @@ class Transaction < ActiveRecord::Base
     block.call(:listing_conversation)
   end
 
-  def calculate_total
-    if booking
-      listing.price * booking.duration
-    else
-      listing.price
-    end
-  end
-
   def preauthorization_expire_at
     preauthorization_expires = payment.preauthorization_expiration_days.days.from_now.to_date
 
