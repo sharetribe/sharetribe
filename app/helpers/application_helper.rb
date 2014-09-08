@@ -505,10 +505,14 @@ module ApplicationHelper
     text.gsub(/\n/, "</p><p>")
   end
 
+  def add_links(text)
+    pattern = /[\.)]*$/
+    text.gsub(/https?:\/\/\S+/) { |link_url| link_to(link_url.gsub(pattern,""), link_url.gsub(pattern,""), class: "truncated-link") + link_url.match(pattern)[0]}
+  end
+
   # general method for making urls as links and line breaks as <br /> tags
   def add_links_and_br_tags(text)
-    pattern = /[\.)]*$/
-    text = text.gsub(/https?:\/\/\S+/) { |link_url| link_to(truncate(link_url.gsub(pattern,""), :length => 50, :omission => "..."), link_url.gsub(pattern,"")) + link_url.match(pattern)[0]}
+    text = add_links(text)
     lines = ArrayUtils.trim(text.split(/\n/))
     lines.map { |line| "<p>#{line}</p>" }.join
   end
