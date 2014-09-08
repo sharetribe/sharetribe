@@ -869,7 +869,7 @@ pt-BR:
       available_on_the_app_store: "Disponível na App Store"
       private_listing_notification: ~
       open_listing: "anúncio on line"
-      open_listings: "anúncios on line"
+      open_listings: "anúncios ativos"
       private_listing_notification_log_in: entrar
       is: é
       are: são
@@ -1480,7 +1480,7 @@ pt-BR:
       slightly_better_than_expected: "Ligeiramente melhor do que o esperado"
       slightly_less_than_expected: "Um pouco pior do que o esperado"
     profile_listings:
-      show_also_closed: "Mostrar também fechados"
+      show_also_closed: "Mostar também anúncios invisíveis"
       show_only_open: "Exibir apenas abertos"
       no_image: "Sem imagem"
     show:
@@ -1511,12 +1511,12 @@ pt-BR:
       listing: listando
       listings: listagens
       open_listing: "lista aberta"
-      open_listings: "abrir listagens"
+      open_listings: "anúncios ativos"
       no_listings: "Sem listagem"
       no_open_listings: "lista fechada"
       no_reviews: "nenhum comentário"
       show_all_listings: "Mostrar todas as listas"
-      show_all_open_listings: "Listar todas listas abertas"
+      show_all_open_listings: "Listar todas anúncios ativos"
       show_all_reviews: "Mostrar todas as opiniões"
       trustcloud: "Cartão confiança"
     followed_people:
