@@ -584,11 +584,13 @@ CREATE TABLE `messages` (
 
 CREATE TABLE `order_permissions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `from_account_id` int(11) NOT NULL,
-  `to_account_id` int(11) NOT NULL,
-  `status` varchar(255) NOT NULL DEFAULT 'pending',
+  `paypal_account_id` int(11) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
+  `request_token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `paypal_username_to` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `scope` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `verification_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
