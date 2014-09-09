@@ -21,6 +21,8 @@ class Conversation < ActiveRecord::Base
 
   has_many :participations, :dependent => :destroy
   has_many :participants, :through => :participations, :source => :person
+  has_one :listing
+  has_one :transaction
   belongs_to :community
 
   scope :for_person, -> (person){

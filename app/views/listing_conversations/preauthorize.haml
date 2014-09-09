@@ -38,13 +38,14 @@
         %div
           = t(".by", listing: link_to("#{listing.title}", listing), author: author_link).html_safe
 
-      - Maybe(booking_form).each do |booking|
+      -# TODO Fix this, no respond_to?
+      - if preauthorize_form.respond_to?(:start_on) && preauthorize_form.respond_to?(:end_on)
         %li
           %div
-            = l booking.start_on, format: :long_with_abbr_day_name
+            = l preauthorize_form.start_on, format: :long_with_abbr_day_name
             = "-"
-            = l booking.end_on, format: :long_with_abbr_day_name
-            = "(#{pluralize(booking.duration, t(".day"), t(".days"))})"
+            = l preauthorize_form.end_on, format: :long_with_abbr_day_name
+            = "(#{pluralize(duration, t(".day"), t(".days"))})"
 
         %li
           %div
@@ -56,13 +57,14 @@
             = t("conversations.show.total", total: humanized_money_with_symbol(sum))
 
   = form_for preauthorize_form,
-    :url => preauthorized_person_listing_listing_conversations_path(@current_user.id,
-      listing.id),
+    :url => form_action,
       :method => "post",
       :html => { :id => "braintree-payment-form", :class => "hidden" } do |form|
 
-    = form.date_select :start_on, discard_day: true, discard_month: true, discard_year: true, default: preauthorize_form.start_on
-    = form.date_select :end_on, discard_day: true, discard_month: true, discard_year: true, default: preauthorize_form.end_on
+    -# TODO Fix this, no respond_to?
+    - if preauthorize_form.respond_to?(:start_on) && preauthorize_form.respond_to?(:end_on)
+      = form.date_select :start_on, discard_day: true, discard_month: true, discard_year: true, default: preauthorize_form.start_on
+      = form.date_select :end_on, discard_day: true, discard_month: true, discard_year: true, default: preauthorize_form.end_on
 
     .preauthorize-section
       %h2
@@ -70,21 +72,21 @@
 
       .row
         .col-12
-          = form.text_field :braintree_cardholder_name, :class => :text_field, :placeholder => t("braintree_payments.edit.cardholder_name"), :data => { :'encrypted-name' => "braintree_payment_cardholder_name" }
+          = form.text_field :braintree_cardholder_name, :class => :text_field, :placeholder => t("braintree_payments.edit.cardholder_name"), :data => { :'encrypted-name' => "listing_conversation[braintree_cardholder_name]" }
 
       .row
         .col-9
-          = form.text_field :braintree_credit_card_number, :class => :text_field, :placeholder => t("braintree_payments.edit.credit_card_number"), :data => { :'encrypted-name' => "braintree_payment_credit_card_number"}
+          = form.text_field :braintree_credit_card_number, :class => :text_field, :placeholder => t("braintree_payments.edit.credit_card_number"), :data => { :'encrypted-name' => "listing_conversation[braintree_credit_card_number]"}
 
         .col-3
-          = form.text_field :braintree_cvv, :class => :text_field, :maxlength => 4, :placeholder => t("braintree_payments.edit.cvv"), :data => { :'encrypted-name' => "braintree_payment_cvv"}
+          = form.text_field :braintree_cvv, :class => :text_field, :maxlength => 4, :placeholder => t("braintree_payments.edit.cvv"), :data => { :'encrypted-name' => "listing_conversation[braintree_cvv]"}
 
       .row
         .col-12
           = form.label :braintree_credit_card_expiration_month, t(".exp"), :class => "preauthorize-exp"
-          = select_tag :braintree_credit_card_expiration_month, options_for_select(credit_card_expiration_month_options), :data => { :'encrypted-name' => "braintree_payment_credit_card_expiration_month" }
+          = select_tag :braintree_credit_card_expiration_month, options_for_select(credit_card_expiration_month_options), :data => { :'encrypted-name' => "listing_conversation[braintree_credit_card_expiration_month]" }
           = " / "
-          = select_tag :braintree_payment_credit_card_expiration_year, options_for_select(credit_card_expiration_year_options), :data => { :'encrypted-name' => "braintree_payment_credit_card_expiration_year" }
+          = select_tag :braintree_credit_card_expiration_year, options_for_select(credit_card_expiration_year_options), :data => { :'encrypted-name' => "listing_conversation[braintree_credit_card_expiration_year]" }
 
     .preauthorize-section
       %h2

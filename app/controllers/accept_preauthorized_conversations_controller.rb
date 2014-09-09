@@ -39,7 +39,15 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
   # Update listing status and call success block. In the block you can e.g. set flash notices.
   def update_listing_status(&block)
-    if @listing_conversation.update_attributes(params[:listing_conversation])
+    @listing_conversation.conversation.messages.build({
+      content: params[:listing_conversation][:message_attributes][:content],
+      sender_id: @current_user.id,
+      action: params[:listing_conversation][:action]
+    })
+
+    if @listing_conversation.save!
+      @listing_conversation.transition_to! params[:listing_conversation][:status]
+
       redirect_to person_message_path(:person_id => @current_user.id, :id => @listing_conversation.id)
       block.call
     else
@@ -60,6 +68,6 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   end
 
   def fetch_conversation
-    @listing_conversation = ListingConversation.find(params[:id])
+    @listing_conversation = @current_community.transactions.find(params[:id])
   end
 end

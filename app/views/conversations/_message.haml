@@ -8,9 +8,10 @@
     %div{class: "message-bubble-arrow-to-#{avatar_side} message-action-#{action_class}"}
       %div
         - if message.action.eql?("pay")
-          %b= t(".paid", :sum => sum_with_currency(message.conversation.payment.total_sum, message.conversation.payment.currency))
+          %b= t(".paid", :sum => sum_with_currency(message.conversation.transaction.payment.total_sum, message.conversation.transaction.payment.currency))
         - else
-          %b= t(".#{message.action}ed_#{message.conversation.discussion_type}")
+          -# TODO FIX ME!
+            %b= t(".#{message.action}ed_#{message.conversation.discussion_type}")
 
 - if message.content.present?
   - contents << capture do

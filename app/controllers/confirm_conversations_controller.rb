@@ -22,7 +22,11 @@ class ConfirmConversationsController < ApplicationController
 
   # Handles confirm and cancel forms
   def confirmation
-    if @listing_conversation.update_attributes(params[:listing_conversation])
+    status = params[:transaction][:status]
+
+    if @listing_conversation.can_transition_to? status
+      @listing_conversation.transition_to! status
+
       give_feedback = Maybe(params)[:give_feedback].select { |v| v == "true" }.or_else { false }
 
       confirmation = ConfirmConversation.new(@listing_conversation, @current_user, @current_community)
@@ -57,6 +61,6 @@ class ConfirmConversationsController < ApplicationController
   end
 
   def fetch_conversation
-    @listing_conversation = ListingConversation.find(params[:id])
+    @listing_conversation = @current_community.transactions.find(params[:id])
   end
 end

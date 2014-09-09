@@ -1,51 +1,54 @@
 - content_for :javascript do
   initialize_reply_form('#{I18n.locale}');
 
-- other_party = @conversation.other_party(@current_user)
-
 - content_for :title_header do
   %h1
     = link_to received_person_messages_path(@current_user) do
       = t("layouts.no_tribe.inbox")
     |
-    = t(".conversation_with", person: link_to(other_party.name, other_party)).html_safe
+    = t(".conversation_with", person: link_to(conversation_data[:other_party][:name], conversation_data[:other_party][:url])).html_safe
+
+- transaction = conversation_data[:transaction]
 
 .centered-section-wide
   .message-avatar-padding
     .row
       .col-12
-        %h2
+        - if transaction.present?
+          %h2
+            = link_to transaction[:listing][:title], transaction[:listing][:url]
+
+        -# TODO Add details
           - @conversation.with(:listing_conversation) do
-            = link_to @conversation.listing.title, @conversation.listing
+            = render partial: "conversations/details", locals: { listing_conversation: @conversation, listing: @conversation.listing }
 
-        - @conversation.with(:listing_conversation) do
-          = render partial: "conversations/details", locals: { listing_conversation: @conversation, listing: @conversation.listing }
+        - if transaction.present?
+          - listing = transaction[:listing]
 
-        - @conversation.with(:listing_conversation) do
-          - listing = @conversation.listing
-
-          - if @conversation.status.eql?("free") && @current_community.payments_in_use?
+          - if transaction[:status] == "free" && @current_community.payments_in_use?
             -# Show Call to Action button for free conversations
 
-            - unless listing.author == @current_user
-              = link_to reply_to_listing_path(:listing_id => listing.id.to_s), :class => "message-book-button" do
+            - unless transaction[:is_author]
+              = link_to transaction[:reply_to_listing_path], :class => "message-book-button" do
                 .content
-                  = listing.transaction_type.action_button_label(I18n.locale)
+                  = transaction[:action_button_label]
 
           - else
             -# Show current status for others
 
-            %div{:id => "conversation_#{@conversation.id.to_s}_status"}
-              = render :partial => "status", :locals => { :conversation => @conversation }
+            -# TODO Status in use
+            -# #{:id => "conversation_#{@conversation.id.to_s}_status"}
+            %div
+              = render :partial => "status", :locals => { :transaction => transaction[:model] }
 
 
   #reply_form.message-avatar-padding.message-reply-form
-    = form_for Message.new, :url => person_message_messages_path(@current_user, :message_id => @conversation.id.to_s) do |f|
+    = form_for message_form, :url => message_form_action do |f|
       = f.label :content, t(".write_a_reply")
       = f.text_area :content, :class => "reply_form_text_area"
-      = f.hidden_field :conversation_id, :value => @conversation.id.to_s
-      = f.hidden_field :sender_id, :value => @current_user.id
+      = f.hidden_field :conversation_id
+      = f.hidden_field :sender_id
       = f.button t(".send_reply")
 
   #messages
-    = render :partial => "message", :collection => @conversation.messages.reverse
+    = render :partial => "message", :collection => messages
