@@ -5,7 +5,7 @@
 # - reminders
 #
 class TransactionMailer < ActionMailer::Base
-  include Util::MailUtils
+  include MailUtils
 
   default :from => APP_CONFIG.sharetribe_mail_from_address
   layout 'email'

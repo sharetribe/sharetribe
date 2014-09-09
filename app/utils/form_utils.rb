@@ -7,7 +7,7 @@ module FormUtils
   #
   # -- in some_controller.rb --
   #
-  # MyForm = Util::FormUtils.define_form("MyForm", :name, :password)
+  # MyForm = FormUtils.define_form("MyForm", :name, :password)
   #   .with_validations { validates_presence_of :name }
   #
   # def new
@@ -72,3 +72,4 @@ module FormUtils
 
     form
   end
+end

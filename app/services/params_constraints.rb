@@ -9,6 +9,6 @@ class ParamsConstraints
   end
 
   def matches?(request)
-    Util::HashUtils.deep_contains(@expected, request.params)
+    HashUtils.deep_contains(@expected, request.params)
   end
 end

@@ -14,7 +14,7 @@
     - else
       - content = render :file => "infos/localized_privacy_policy/privacy_policy.en"
 
-    - content_for :meta_description, Util::StringUtils.first_words(strip_tags(content.html_safe))
-    - content_for :keywords, Util::StringUtils.keywords(strip_tags(content.html_safe))
+    - content_for :meta_description, StringUtils.first_words(strip_tags(content.html_safe))
+    - content_for :keywords, StringUtils.keywords(strip_tags(content.html_safe))
 
     = content

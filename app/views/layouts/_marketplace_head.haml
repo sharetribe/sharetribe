@@ -11,7 +11,7 @@
 - if content_for?(:keywords)
   - keywords = content_for(:keywords)
 - else
-  - keywords = Util::StringUtils.keywords(community_slogan)
+  - keywords = StringUtils.keywords(community_slogan)
 
 - if content_for?(:meta_author)
   - meta_author = content_for(:meta_author)

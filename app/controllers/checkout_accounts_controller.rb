@@ -5,7 +5,7 @@ class CheckoutAccountsController < ApplicationController
 
   skip_filter :dashboard_only
 
-  CheckoutAccountForm = Util::FormUtils.define_form("CheckoutAccountForm", :company_id, :organization_address, :phone_number, :organization_website)
+  CheckoutAccountForm = FormUtils.define_form("CheckoutAccountForm", :company_id, :organization_address, :phone_number, :organization_website)
     .with_validations do
       validates_presence_of :organization_address, :phone_number, :organization_website
       validates_format_of :company_id, with: /^(\d{7}\-\d)?$/, allow_nil: true

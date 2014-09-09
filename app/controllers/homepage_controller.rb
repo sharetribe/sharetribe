@@ -160,7 +160,7 @@ class HomepageController < ApplicationController
   end
 
   def self.options_from_params(params, regexp)
-    option_ids = Util::HashUtils.select_by_key_regexp(params, regexp).values
+    option_ids = HashUtils.select_by_key_regexp(params, regexp).values
 
     array_for_search = CustomFieldOption.find(option_ids)
       .group_by { |option| option.custom_field_id }

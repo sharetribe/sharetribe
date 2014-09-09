@@ -24,7 +24,7 @@ class ListingImageJSAdapter < JSAdapter
 
   #json style hash with camelized keys
   def to_hash
-    hash = Util::HashUtils.object_to_hash(self)
-    Util::HashUtils.camelize_keys(hash)
+    hash = HashUtils.object_to_hash(self)
+    HashUtils.camelize_keys(hash)
   end
 end

@@ -1,5 +1,5 @@
 .row.checkbox-group-container
-  - Util::ArrayUtils.each_slice_columns(custom_field.options.sort, 2) do |column|
+  - ArrayUtils.each_slice_columns(custom_field.options.sort, 2) do |column|
     .col-6
       - column.each do |opt|
         .checkbox-container

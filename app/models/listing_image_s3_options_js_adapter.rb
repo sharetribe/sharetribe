@@ -16,6 +16,6 @@ class ListingImageS3OptionsJSAdapter < JSAdapter
   end
 
   def to_hash
-    Util::HashUtils.camelize_keys(Util::HashUtils.object_to_hash(self), false)
+    HashUtils.camelize_keys(HashUtils.object_to_hash(self), false)
   end
 end

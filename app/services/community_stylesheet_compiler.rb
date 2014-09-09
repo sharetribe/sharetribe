@@ -135,7 +135,7 @@ module CommunityStylesheetCompiler
         "square-logo-highres-url" => image_to_string(community.logo, :header_icon_highres)
       }
 
-      Util::HashUtils.compact(hash)
+      HashUtils.compact(hash)
     end
 
     def create_new_filename(domain)

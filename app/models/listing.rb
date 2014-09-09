@@ -381,7 +381,7 @@ class Listing < ActiveRecord::Base
 
   def prev_and_next_image_ids_by_id(id)
     listing_image_ids = listing_images.collect(&:id)
-    Util::ArrayUtils.next_and_prev(listing_image_ids, id);
+    ArrayUtils.next_and_prev(listing_image_ids, id);
   end
 
   def has_image?

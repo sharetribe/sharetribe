@@ -6,7 +6,7 @@ include ListingsHelper
 include TruncateHtmlHelper
 
 class PersonMailer < ActionMailer::Base
-  include Util::MailUtils
+  include MailUtils
 
   # Enable use of method to_date.
   require 'active_support/core_ext'
