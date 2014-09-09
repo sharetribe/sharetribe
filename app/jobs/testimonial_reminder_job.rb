@@ -11,9 +11,10 @@ class TestimonialReminderJob < Struct.new(:conversation_id, :recipient_id, :comm
   end
 
   def perform
-    conversation = Conversation.find(conversation_id)
+    conversation = Transaction.find(conversation_id)
     community = Community.find(community_id)
-    if !conversation.has_feedback_from_all_participants?
+    if !conversation.has_feedback_from_both_participants?
+      # TODO FIX THIS
       participation = Participation.find_by_person_id_and_conversation_id(recipient_id, conversation_id)
       if participation.feedback_can_be_given?
         participation.update_attribute(:is_read, false)

@@ -663,12 +663,12 @@ CREATE TABLE `payments` (
   KEY `index_payments_on_payer_id` (`payer_id`)
 =======
   KEY `index_payments_on_payer_id` (`payer_id`),
-<<<<<<< HEAD
-  KEY `index_payments_on_conversation_id` (`conversation_id`)
-=======
   KEY `index_payments_on_conversation_id` (`transaction_id`)
+<<<<<<< HEAD
 >>>>>>> TEMP
 >>>>>>> TEMP
+=======
+>>>>>>> Lots of things
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `paypal_accounts` (
@@ -791,6 +791,7 @@ CREATE TABLE `testimonials` (
   `text` text,
   `author_id` varchar(255) DEFAULT NULL,
   `participation_id` int(11) DEFAULT NULL,
+  `transaction_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `receiver_id` varchar(255) DEFAULT NULL,
@@ -1856,3 +1857,10 @@ INSERT INTO schema_migrations (version) VALUES ('20140904112318');
 INSERT INTO schema_migrations (version) VALUES ('20140905090419');
 
 INSERT INTO schema_migrations (version) VALUES ('20140909122824');
+<<<<<<< HEAD
+=======
+
+INSERT INTO schema_migrations (version) VALUES ('20140909124605');
+
+INSERT INTO schema_migrations (version) VALUES ('20140909125012');
+>>>>>>> Lots of things

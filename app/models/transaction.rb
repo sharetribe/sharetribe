@@ -25,7 +25,7 @@ class Transaction < ActiveRecord::Base
   has_one :booking, :dependent => :destroy
   belongs_to :starter, :class_name => "Person", :foreign_key => "starter_id"
   belongs_to :conversation
-
+  has_many :testimonials
 
   # Delegate methods to state machine
   delegate :can_transition_to?, :transition_to!, :transition_to, :current_state,
@@ -97,36 +97,40 @@ class Transaction < ActiveRecord::Base
     listing.transaction_type.is_request? ? "offer" : "request"
   end
 
-  def can_be_cancelled?
-    # TODO PARTICIPATIONS
-    return true
-    participations.each { |p| return false unless p.feedback_can_be_given? }
-    return true
-  end
-
   def has_feedback_from?(person)
-    # TODO PARTICIPATIONS
-    return true
-    participations.find_by_person_id(person.id).has_feedback?
+    if author == person
+      testimonial_from_author.present?
+    else
+      testimonial_from_starter.present?
+    end
   end
 
   def feedback_skipped_by?(person)
-    # TODO PARTICIPATIONS
-    return true
-    participations.find_by_person_id(person.id).feedback_skipped?
+    if author == person
+      author_skipped_feedback?
+    else
+      starter_skipped_feedback?
+    end
   end
 
   def waiting_feedback_from?(person)
-    # TODO PARTICIPATIONS
-    return true
-    !(has_feedback_from?(person) || feedback_skipped_by?(person))
+    if author == person
+      testimonial_from_author.blank? && !author_skipped_feedback?
+    else
+      testimonial_from_starter.blank? && !starter_skipped_feedback?
+    end
   end
 
-  def has_feedback_from_all_participants?
-    # TODO PARTICIPATIONS
-    return true
-    participations.each { |p| return false if p.feedback_can_be_given? }
-    return true
+  def has_feedback_from_both_participants?
+    testimonial_from_author.present? && testimonial_from_starter.present?
+  end
+
+  def testimonial_from_author
+    testimonials.find { |testimonil| testimonial.author_id == author.id }
+  end
+
+  def testimonial_from_starter
+    testimonials.find { |testimonil| testimonial.author_id == starter.id }
   end
 
   def offerer
