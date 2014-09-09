@@ -1,7 +1,9 @@
 module PaypalService
   class Permissions
 
-    def initialize(endpoint, api_credentials)
+    def initialize(endpoint, api_credentials, logger)
+      @logger = logger
+
       PayPal::SDK.configure({
         mode: endpoint.endpoint_name.to_s,
         username: api_credentials.username,
@@ -26,7 +28,9 @@ module PaypalService
           :scope => request_permissions.scope,
           :callback => request_permissions.callback
        })
+
       res = @api.request_permissions(req)
+      @logger.log_response(res)
 
       if (res.success?)
         DataTypes::Permissions.create_req_perm_response(@api.config.username, request_permissions.scope, res.token, @api.grant_permission_url(res))
