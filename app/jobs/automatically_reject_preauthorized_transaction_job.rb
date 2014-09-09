@@ -1,4 +1,4 @@
-class AutomaticallyRejectPreauthorizedTransactionJob < Struct.new(:conversation_id)
+class AutomaticallyRejectPreauthorizedTransactionJob < Struct.new(:transaction_id)
 
   include DelayedAirbrakeNotification
 
@@ -7,15 +7,15 @@ class AutomaticallyRejectPreauthorizedTransactionJob < Struct.new(:conversation_
   # if the job doesn't have host parameter, should call the method with nil, to set the default service_name
   def before(job)
     # Set the correct service name to thread for I18n to pick it
-    conversation = Conversation.find(conversation_id)
-    ApplicationHelper.store_community_service_name_to_thread_from_community_id(conversation.community.id)
+    transaction = Transaction.find(transaction_id)
+    ApplicationHelper.store_community_service_name_to_thread_from_community_id(transaction.community.id)
   end
 
   def perform
-    conversation = Conversation.find(conversation_id)
+    transaction = Transaction.find(transaction_id)
 
-    if conversation.can_transition_to?(:rejected)
-      conversation.transition_to! :rejected
+    if transaction.can_transition_to?(:rejected)
+      transaction.transition_to! :rejected
     end
   end
 
