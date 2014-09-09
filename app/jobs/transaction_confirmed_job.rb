@@ -11,12 +11,12 @@ class TransactionConfirmedJob < Struct.new(:conversation_id, :community_id)
   end
 
   def perform
-    conversation = Conversation.find(conversation_id)
+    transaction = Transaction.find(conversation_id)
     community = Community.find(community_id)
-    PersonMailer.transaction_confirmed(conversation, community).deliver
-    conversation.participations.each do |participation|
+    PersonMailer.transaction_confirmed(transaction, community).deliver
+    transaction.participations.each do |participation|
       [3, 10].each do |send_interval|
-        Delayed::Job.enqueue(TestimonialReminderJob.new(conversation.id, participation.person.id, community.id), :priority => 10, :run_at => send_interval.days.from_now)
+        Delayed::Job.enqueue(TestimonialReminderJob.new(transaction.id, participation.person.id, community.id), :priority => 10, :run_at => send_interval.days.from_now)
       end
     end
   end

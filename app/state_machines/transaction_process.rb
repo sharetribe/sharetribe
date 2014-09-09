@@ -26,7 +26,7 @@ class TransactionProcess
     current_community = transaction.community
 
     transaction.conversation.update_is_read(accepter)
-    Delayed::Job.enqueue(ConversationStatusChangedJob.new(transaction.id, accepter.id, current_community.id))
+    Delayed::Job.enqueue(TransactionStatusChangedJob.new(transaction.id, accepter.id, current_community.id))
 
     [3, 10].each do |send_interval|
       Delayed::Job.enqueue(PaymentReminderJob.new(transaction.id, transaction.payment.payer.id, current_community.id), :priority => 10, :run_at => send_interval.days.from_now)
@@ -51,15 +51,15 @@ class TransactionProcess
       conversation.update_attributes(automatic_confirmation_after_days: current_community.automatic_confirmation_after_days)
       ConfirmConversation.new(conversation, payer, current_community).activate_automatic_confirmation!
     end
-    Delayed::Job.enqueue(PaymentCreatedJob.new(payment.id, payment.community.id))
+    Delayed::Job.enqueue(PaymentCreatedJob.new(conversation.id, conversation.community.id))
   end
 
-  after_transition(to: :rejected) do |conversation|
-    rejecter = conversation.listing.author
-    current_community = conversation.community
+  after_transition(to: :rejected) do |transaction|
+    rejecter = transaction.listing.author
+    current_community = transaction.community
 
-    conversation.update_is_read(rejecter)
-    Delayed::Job.enqueue(ConversationStatusChangedJob.new(conversation.id, rejecter.id, current_community.id))
+    transaction.conversation.update_is_read(rejecter)
+    Delayed::Job.enqueue(TransactionStatusChangedJob.new(transaction.id, rejecter.id, current_community.id))
   end
 
   after_transition(to: :confirmed) do |conversation|
