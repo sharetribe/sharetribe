@@ -56,7 +56,7 @@ default: &default_settings
   paypal_username: xxxxxxxxxxxxx
   paypal_password: xxxxxxxxxxxxx
   paypal_signature: xxxxxxxxxxxxx
-  paypal_app_id: xxxxxxxxxxxxxx
+  paypal_app_id: APP-80W284485P519543T # Global test id
   # Paypal environment to use. Either :sandbox or :live
   paypal_endpoint: :sandbox
 
