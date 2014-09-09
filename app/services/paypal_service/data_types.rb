@@ -22,7 +22,7 @@ module PaypalService
 
     module Permissions
       RequestPermissions = Struct.new(:method, :scope, :callback)
-      RequestPermissionsSuccessResponse = Struct.new(:success, :scope, :request_token, :redirect_url)
+      RequestPermissionsSuccessResponse = Struct.new(:success, :username_to, :scope, :request_token, :redirect_url)
       RequestPermissionsFailureResponse = Struct.new(:success, :error_id, :error_msg)
 
 
@@ -46,10 +46,12 @@ module PaypalService
           callback)
       end
 
-      def create_req_perm_response(scope, token, redirect_url)
-        raise(ArgumentError, "scope, token and redirect_url are all mandatory") unless DataTypes.none_empty?(scope, token, redirect_url)
+      def create_req_perm_response(username_to, scope, token, redirect_url)
+        unless DataTypes.none_empty?(username_to, scope, token, redirect_url)
+          raise(ArgumentError, "username_to, scope, token and redirect_url are all mandatory")
+        end
 
-        RequestPermissionsSuccessResponse.new(true, scope, token, redirect_url)
+        RequestPermissionsSuccessResponse.new(true, username_to, scope, token, redirect_url)
       end
 
       def create_failed_req_perm_response(error_id, error_msg)

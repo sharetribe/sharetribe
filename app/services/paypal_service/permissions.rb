@@ -29,7 +29,7 @@ module PaypalService
       res = @api.request_permissions(req)
 
       if (res.success?)
-        DataTypes::Permissions.create_req_perm_response(request_permissions.scope, res.token, @api.grant_permission_url(res))
+        DataTypes::Permissions.create_req_perm_response(@api.config.username, request_permissions.scope, res.token, @api.grant_permission_url(res))
       else
         if (res.error.length > 0)
           DataTypes::Permissions.create_failed_req_perm_response(res.error[0].error_id, res.error[0].message)
