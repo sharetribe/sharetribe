@@ -1,25 +1,25 @@
 CREATE TABLE `auth_tokens` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `person_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `token` varchar(255) DEFAULT NULL,
+  `person_id` varchar(255) DEFAULT NULL,
   `expires_at` datetime DEFAULT NULL,
   `last_use_attempt` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_auth_tokens_on_token` (`token`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `billing_agreements` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `from_account_id` int(11) NOT NULL,
   `to_account_id` int(11) NOT NULL,
-  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'pending',
-  `billing_agreement_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'pending',
+  `billing_agreement_id` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `bookings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -29,42 +29,42 @@ CREATE TABLE `bookings` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `braintree_accounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  `first_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `last_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `person_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phone` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `address_street_address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `address_postal_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `address_locality` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `address_region` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `person_id` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `address_street_address` varchar(255) DEFAULT NULL,
+  `address_postal_code` varchar(255) DEFAULT NULL,
+  `address_locality` varchar(255) DEFAULT NULL,
+  `address_region` varchar(255) DEFAULT NULL,
   `date_of_birth` date DEFAULT NULL,
-  `routing_number` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `hidden_account_number` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `status` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `routing_number` varchar(255) DEFAULT NULL,
+  `hidden_account_number` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_id` int(11) DEFAULT NULL,
-  `icon` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `icon` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `community_id` int(11) DEFAULT NULL,
   `sort_priority` int(11) DEFAULT NULL,
-  `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_categories_on_parent_id` (`parent_id`),
   KEY `index_categories_on_url` (`url`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `category_custom_fields` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -73,7 +73,7 @@ CREATE TABLE `category_custom_fields` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `category_transaction_types` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -84,52 +84,52 @@ CREATE TABLE `category_transaction_types` (
   PRIMARY KEY (`id`),
   KEY `index_category_transaction_types_on_category_id` (`category_id`),
   KEY `index_category_transaction_types_on_transaction_type_id` (`transaction_type_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `category_translations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `category_id` int(11) DEFAULT NULL,
-  `locale` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `locale` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `index_category_translations_on_category_id` (`category_id`),
-  KEY `category_id_with_locale` (`category_id`,`locale`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  KEY `category_id_with_locale` (`category_id`,`locale`),
+  KEY `index_category_translations_on_category_id` (`category_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `checkout_accounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `company_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `merchant_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `merchant_key` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `person_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
+  `company_id` varchar(255) DEFAULT NULL,
+  `merchant_id` varchar(255) NOT NULL,
+  `merchant_key` varchar(255) NOT NULL,
+  `person_id` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `author_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `author_id` varchar(255) DEFAULT NULL,
   `listing_id` int(11) DEFAULT NULL,
-  `content` text COLLATE utf8_unicode_ci,
+  `content` text,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_comments_on_listing_id` (`listing_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `communities` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `domain` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `domain` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `settings` text COLLATE utf8_unicode_ci,
-  `consent` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `settings` text,
+  `consent` varchar(255) DEFAULT NULL,
   `transaction_agreement_in_use` tinyint(1) DEFAULT '0',
   `email_admins_about_new_members` tinyint(1) DEFAULT '0',
   `use_fb_like` tinyint(1) DEFAULT '0',
@@ -138,62 +138,62 @@ CREATE TABLE `communities` (
   `automatic_newsletters` tinyint(1) DEFAULT '1',
   `join_with_invite_only` tinyint(1) DEFAULT '0',
   `use_captcha` tinyint(1) DEFAULT '0',
-  `allowed_emails` text COLLATE utf8_unicode_ci,
+  `allowed_emails` text,
   `users_can_invite_new_users` tinyint(1) DEFAULT '1',
   `private` tinyint(1) DEFAULT '0',
-  `label` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `all_users_can_add_news` tinyint(1) DEFAULT '1',
+  `label` varchar(255) DEFAULT NULL,
   `show_date_in_listings_list` tinyint(1) DEFAULT '0',
+  `all_users_can_add_news` tinyint(1) DEFAULT '1',
   `custom_frontpage_sidebar` tinyint(1) DEFAULT '0',
   `event_feed_enabled` tinyint(1) DEFAULT '1',
-  `slogan` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8_unicode_ci,
-  `category` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'other',
+  `slogan` varchar(255) DEFAULT NULL,
+  `description` text,
+  `category` varchar(255) DEFAULT 'other',
   `members_count` int(11) DEFAULT '0',
   `user_limit` int(11) DEFAULT NULL,
   `monthly_price_in_euros` float DEFAULT NULL,
-  `logo_file_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `logo_content_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `logo_file_name` varchar(255) DEFAULT NULL,
+  `logo_content_type` varchar(255) DEFAULT NULL,
   `logo_file_size` int(11) DEFAULT NULL,
   `logo_updated_at` datetime DEFAULT NULL,
-  `cover_photo_file_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cover_photo_content_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cover_photo_file_name` varchar(255) DEFAULT NULL,
+  `cover_photo_content_type` varchar(255) DEFAULT NULL,
   `cover_photo_file_size` int(11) DEFAULT NULL,
   `cover_photo_updated_at` datetime DEFAULT NULL,
-  `small_cover_photo_file_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `small_cover_photo_content_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `small_cover_photo_file_name` varchar(255) DEFAULT NULL,
+  `small_cover_photo_content_type` varchar(255) DEFAULT NULL,
   `small_cover_photo_file_size` int(11) DEFAULT NULL,
   `small_cover_photo_updated_at` datetime DEFAULT NULL,
-  `custom_color1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `custom_color2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `stylesheet_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `custom_color1` varchar(255) DEFAULT NULL,
+  `custom_color2` varchar(255) DEFAULT NULL,
+  `stylesheet_url` varchar(255) DEFAULT NULL,
   `stylesheet_needs_recompile` tinyint(1) DEFAULT '0',
-  `service_logo_style` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'full-logo',
-  `available_currencies` text COLLATE utf8_unicode_ci,
+  `service_logo_style` varchar(255) DEFAULT 'full-logo',
+  `available_currencies` text,
   `facebook_connect_enabled` tinyint(1) DEFAULT '1',
+  `only_public_listings` tinyint(1) DEFAULT '1',
+  `custom_email_from_address` varchar(255) DEFAULT NULL,
   `vat` int(11) DEFAULT NULL,
   `commission_from_seller` int(11) DEFAULT NULL,
-  `only_public_listings` tinyint(1) DEFAULT '1',
-  `custom_email_from_address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `minimum_price_cents` int(11) DEFAULT NULL,
   `testimonials_in_use` tinyint(1) DEFAULT '1',
   `hide_expiration_date` tinyint(1) DEFAULT '0',
-  `facebook_connect_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `facebook_connect_secret` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `google_analytics_key` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name_display_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'first_name_with_initial',
-  `twitter_handle` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `facebook_connect_id` varchar(255) DEFAULT NULL,
+  `facebook_connect_secret` varchar(255) DEFAULT NULL,
+  `google_analytics_key` varchar(255) DEFAULT NULL,
+  `name_display_type` varchar(255) DEFAULT 'first_name_with_initial',
+  `twitter_handle` varchar(255) DEFAULT NULL,
   `use_community_location_as_default` tinyint(1) DEFAULT '0',
+  `domain_alias` varchar(255) DEFAULT NULL,
+  `preproduction_stylesheet_url` varchar(255) DEFAULT NULL,
   `show_category_in_listing_list` tinyint(1) DEFAULT '0',
-  `default_browse_view` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'grid',
-  `wide_logo_file_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `wide_logo_content_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `default_browse_view` varchar(255) DEFAULT 'grid',
+  `wide_logo_file_name` varchar(255) DEFAULT NULL,
+  `wide_logo_content_type` varchar(255) DEFAULT NULL,
   `wide_logo_file_size` int(11) DEFAULT NULL,
   `wide_logo_updated_at` datetime DEFAULT NULL,
-  `domain_alias` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `preproduction_stylesheet_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `only_organizations` tinyint(1) DEFAULT NULL,
   `logo_change_allowed` tinyint(1) DEFAULT NULL,
+  `only_organizations` tinyint(1) DEFAULT NULL,
   `terms_change_allowed` tinyint(1) DEFAULT '0',
   `privacy_policy_change_allowed` tinyint(1) DEFAULT '0',
   `custom_fields_allowed` tinyint(1) DEFAULT '0',
@@ -206,84 +206,84 @@ CREATE TABLE `communities` (
   `price_filter_max` int(11) DEFAULT '100000',
   `automatic_confirmation_after_days` int(11) DEFAULT '14',
   `plan_level` int(11) DEFAULT '0',
-  `favicon_file_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `favicon_content_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `favicon_file_name` varchar(255) DEFAULT NULL,
+  `favicon_content_type` varchar(255) DEFAULT NULL,
   `favicon_file_size` int(11) DEFAULT NULL,
   `favicon_updated_at` datetime DEFAULT NULL,
   `default_min_days_between_community_updates` int(11) DEFAULT '7',
   `listing_location_required` tinyint(1) DEFAULT '0',
-  `custom_head_script` text COLLATE utf8_unicode_ci,
+  `custom_head_script` text,
   `follow_in_use` tinyint(1) NOT NULL DEFAULT '1',
   `paypal_enabled` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_communities_on_domain` (`domain`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `communities_listings` (
   `community_id` int(11) DEFAULT NULL,
   `listing_id` int(11) DEFAULT NULL,
-  KEY `communities_listings` (`listing_id`,`community_id`),
-  KEY `index_communities_listings_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  KEY `index_communities_listings_on_community_id` (`community_id`),
+  KEY `communities_listings` (`listing_id`,`community_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `community_customizations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `community_id` int(11) DEFAULT NULL,
-  `locale` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `slogan` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8_unicode_ci,
+  `locale` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `slogan` varchar(255) DEFAULT NULL,
+  `description` text,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  `blank_slate` text COLLATE utf8_unicode_ci,
-  `welcome_email_content` text COLLATE utf8_unicode_ci,
-  `how_to_use_page_content` text COLLATE utf8_unicode_ci,
-  `about_page_content` text COLLATE utf8_unicode_ci,
-  `terms_page_content` mediumtext COLLATE utf8_unicode_ci,
-  `privacy_page_content` text COLLATE utf8_unicode_ci,
-  `storefront_label` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `signup_info_content` text COLLATE utf8_unicode_ci,
-  `private_community_homepage_content` text COLLATE utf8_unicode_ci,
-  `verification_to_post_listings_info_content` text COLLATE utf8_unicode_ci,
-  `search_placeholder` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `transaction_agreement_label` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `transaction_agreement_content` mediumtext COLLATE utf8_unicode_ci,
+  `blank_slate` text,
+  `welcome_email_content` text,
+  `how_to_use_page_content` text,
+  `about_page_content` text,
+  `terms_page_content` mediumtext,
+  `privacy_page_content` text,
+  `storefront_label` varchar(255) DEFAULT NULL,
+  `signup_info_content` text,
+  `private_community_homepage_content` text,
+  `verification_to_post_listings_info_content` text,
+  `search_placeholder` varchar(255) DEFAULT NULL,
+  `transaction_agreement_label` varchar(255) DEFAULT NULL,
+  `transaction_agreement_content` mediumtext,
   PRIMARY KEY (`id`),
   KEY `index_community_customizations_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `community_memberships` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `person_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `person_id` varchar(255) DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
   `admin` tinyint(1) DEFAULT '0',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `consent` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `consent` varchar(255) DEFAULT NULL,
   `invitation_id` int(11) DEFAULT NULL,
   `last_page_load_date` datetime DEFAULT NULL,
-  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'accepted',
+  `status` varchar(255) NOT NULL DEFAULT 'accepted',
   `can_post_listings` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `memberships` (`person_id`,`community_id`),
-  KEY `index_community_memberships_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  KEY `index_community_memberships_on_community_id` (`community_id`),
+  KEY `memberships` (`person_id`,`community_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `contact_requests` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `country` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `plan_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `marketplace_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `plan_type` varchar(255) DEFAULT NULL,
+  `marketplace_type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `conversations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'Conversation',
-  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `type` varchar(255) DEFAULT 'Conversation',
+  `title` varchar(255) DEFAULT NULL,
   `listing_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -292,33 +292,33 @@ CREATE TABLE `conversations` (
   `community_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_conversations_on_listing_id` (`listing_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `country_managers` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `given_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `family_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `country` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `locale` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `given_name` varchar(255) DEFAULT NULL,
+  `family_name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `locale` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  `subject_line` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email_content` text COLLATE utf8_unicode_ci,
+  `subject_line` varchar(255) DEFAULT NULL,
+  `email_content` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `custom_field_names` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `value` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `locale` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `custom_field_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `value` varchar(255) DEFAULT NULL,
+  `locale` varchar(255) DEFAULT NULL,
+  `custom_field_id` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `index_custom_field_names_on_custom_field_id` (`custom_field_id`),
-  KEY `locale_index` (`custom_field_id`,`locale`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  KEY `locale_index` (`custom_field_id`,`locale`),
+  KEY `index_custom_field_names_on_custom_field_id` (`custom_field_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `custom_field_option_selections` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -328,19 +328,19 @@ CREATE TABLE `custom_field_option_selections` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_selected_options_on_custom_field_value_id` (`custom_field_value_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `custom_field_option_titles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `value` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `locale` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `value` varchar(255) DEFAULT NULL,
+  `locale` varchar(255) DEFAULT NULL,
   `custom_field_option_id` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `index_custom_field_option_titles_on_custom_field_option_id` (`custom_field_option_id`),
-  KEY `locale_index` (`custom_field_option_id`,`locale`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  KEY `locale_index` (`custom_field_option_id`,`locale`),
+  KEY `index_custom_field_option_titles_on_custom_field_option_id` (`custom_field_option_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `custom_field_options` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -350,26 +350,26 @@ CREATE TABLE `custom_field_options` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_custom_field_options_on_custom_field_id` (`custom_field_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `custom_field_values` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `custom_field_id` int(11) DEFAULT NULL,
   `listing_id` int(11) DEFAULT NULL,
-  `text_value` text COLLATE utf8_unicode_ci,
+  `text_value` text,
   `numeric_value` float DEFAULT NULL,
   `date_value` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
   `delta` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `index_custom_field_values_on_listing_id` (`listing_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `custom_fields` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
   `sort_priority` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -380,175 +380,175 @@ CREATE TABLE `custom_fields` (
   `allow_decimals` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_custom_fields_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `delayed_jobs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `priority` int(11) DEFAULT '0',
   `attempts` int(11) DEFAULT '0',
-  `handler` text COLLATE utf8_unicode_ci,
-  `last_error` text COLLATE utf8_unicode_ci,
+  `handler` text,
+  `last_error` text,
   `run_at` datetime DEFAULT NULL,
   `locked_at` datetime DEFAULT NULL,
   `failed_at` datetime DEFAULT NULL,
-  `locked_by` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `locked_by` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `queue` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `queue` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `delayed_jobs_priority` (`priority`,`run_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `emails` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `person_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `person_id` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
   `confirmed_at` datetime DEFAULT NULL,
   `confirmation_sent_at` datetime DEFAULT NULL,
-  `confirmation_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `confirmation_token` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `send_notifications` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_emails_on_address` (`address`),
   KEY `index_emails_on_person_id` (`person_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `feedbacks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `content` text COLLATE utf8_unicode_ci,
-  `author_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `content` text,
+  `author_id` varchar(255) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `is_handled` int(11) DEFAULT '0',
-  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `follower_relationships` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `person_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `follower_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `person_id` varchar(255) NOT NULL,
+  `follower_id` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_follower_relationships_on_person_id_and_follower_id` (`person_id`,`follower_id`),
   KEY `index_follower_relationships_on_person_id` (`person_id`),
   KEY `index_follower_relationships_on_follower_id` (`follower_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `invitations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `code` varchar(255) DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
   `usages_left` int(11) DEFAULT NULL,
   `valid_until` datetime DEFAULT NULL,
-  `information` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `information` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `inviter_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `message` text COLLATE utf8_unicode_ci,
-  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `inviter_id` varchar(255) DEFAULT NULL,
+  `message` text,
+  `email` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `index_invitations_on_inviter_id` (`inviter_id`),
-  KEY `index_invitations_on_code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  KEY `index_invitations_on_code` (`code`),
+  KEY `index_invitations_on_inviter_id` (`inviter_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `listing_followers` (
-  `person_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `person_id` varchar(255) DEFAULT NULL,
   `listing_id` int(11) DEFAULT NULL,
   KEY `index_listing_followers_on_listing_id` (`listing_id`),
   KEY `index_listing_followers_on_person_id` (`person_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `listing_images` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `listing_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `image_file_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `image_content_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image_file_name` varchar(255) DEFAULT NULL,
+  `image_content_type` varchar(255) DEFAULT NULL,
   `image_file_size` int(11) DEFAULT NULL,
   `image_updated_at` datetime DEFAULT NULL,
   `image_processing` tinyint(1) DEFAULT NULL,
   `image_downloaded` tinyint(1) DEFAULT '0',
   `width` int(11) DEFAULT NULL,
   `height` int(11) DEFAULT NULL,
-  `author_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `author_id` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_listing_images_on_listing_id` (`listing_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `listings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `author_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `category_old` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `author_id` varchar(255) DEFAULT NULL,
+  `category_old` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
   `times_viewed` int(11) DEFAULT '0',
-  `language` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `language` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updates_email_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `last_modified` datetime DEFAULT NULL,
   `sort_date` datetime DEFAULT NULL,
-  `visibility` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'this_community',
-  `listing_type_old` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8_unicode_ci,
-  `origin` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `destination` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `visibility` varchar(255) DEFAULT 'this_community',
+  `listing_type_old` varchar(255) DEFAULT NULL,
+  `description` text,
+  `origin` varchar(255) DEFAULT NULL,
+  `destination` varchar(255) DEFAULT NULL,
   `valid_until` datetime DEFAULT NULL,
   `delta` tinyint(1) NOT NULL DEFAULT '1',
   `open` tinyint(1) DEFAULT '1',
-  `share_type_old` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `privacy` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'private',
+  `share_type_old` varchar(255) DEFAULT NULL,
+  `privacy` varchar(255) DEFAULT 'private',
   `comments_count` int(11) DEFAULT '0',
-  `subcategory_old` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `subcategory_old` varchar(255) DEFAULT NULL,
   `old_category_id` int(11) DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
   `share_type_id` int(11) DEFAULT NULL,
   `transaction_type_id` int(11) DEFAULT NULL,
   `organization_id` int(11) DEFAULT NULL,
   `price_cents` int(11) DEFAULT NULL,
-  `currency` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `quantity` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `currency` varchar(255) DEFAULT NULL,
+  `quantity` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_listings_on_listing_type` (`listing_type_old`),
-  KEY `index_listings_on_open` (`open`),
-  KEY `index_listings_on_visibility` (`visibility`),
   KEY `index_listings_on_category_id` (`old_category_id`),
-  KEY `index_listings_on_share_type_id` (`share_type_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  KEY `index_listings_on_open` (`open`),
+  KEY `index_listings_on_share_type_id` (`share_type_id`),
+  KEY `index_listings_on_visibility` (`visibility`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `locations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `latitude` float DEFAULT NULL,
   `longitude` float DEFAULT NULL,
-  `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `google_address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `google_address` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `listing_id` int(11) DEFAULT NULL,
-  `person_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `location_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `person_id` varchar(255) DEFAULT NULL,
+  `location_type` varchar(255) DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `index_locations_on_person_id` (`person_id`),
+  KEY `index_locations_on_community_id` (`community_id`),
   KEY `index_locations_on_listing_id` (`listing_id`),
-  KEY `index_locations_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  KEY `index_locations_on_person_id` (`person_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `menu_link_translations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `menu_link_id` int(11) DEFAULT NULL,
-  `locale` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `locale` varchar(255) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `menu_links` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -557,44 +557,44 @@ CREATE TABLE `menu_links` (
   `updated_at` datetime NOT NULL,
   `sort_priority` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `mercury_images` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `image_file_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `image_content_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image_file_name` varchar(255) DEFAULT NULL,
+  `image_content_type` varchar(255) DEFAULT NULL,
   `image_file_size` int(11) DEFAULT NULL,
   `image_updated_at` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `messages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sender_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `content` text COLLATE utf8_unicode_ci,
+  `sender_id` varchar(255) DEFAULT NULL,
+  `content` text,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `conversation_id` int(11) DEFAULT NULL,
-  `action` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `action` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_messages_on_conversation_id` (`conversation_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `order_permissions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `from_account_id` int(11) NOT NULL,
   `to_account_id` int(11) NOT NULL,
-  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'pending',
+  `status` varchar(255) NOT NULL DEFAULT 'pending',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `participations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `person_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `person_id` varchar(255) DEFAULT NULL,
   `conversation_id` int(11) DEFAULT NULL,
   `is_read` tinyint(1) DEFAULT '0',
   `is_starter` tinyint(1) DEFAULT '0',
@@ -604,135 +604,135 @@ CREATE TABLE `participations` (
   `last_received_at` datetime DEFAULT NULL,
   `feedback_skipped` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `index_participations_on_person_id` (`person_id`),
-  KEY `index_participations_on_conversation_id` (`conversation_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  KEY `index_participations_on_conversation_id` (`conversation_id`),
+  KEY `index_participations_on_person_id` (`person_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `payment_gateways` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `community_id` int(11) DEFAULT NULL,
-  `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `braintree_environment` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `braintree_merchant_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `braintree_master_merchant_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `braintree_public_key` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `braintree_private_key` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `braintree_client_side_encryption_key` text COLLATE utf8_unicode_ci,
-  `checkout_environment` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `checkout_user_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `checkout_password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `braintree_environment` varchar(255) DEFAULT NULL,
+  `braintree_merchant_id` varchar(255) DEFAULT NULL,
+  `braintree_master_merchant_id` varchar(255) DEFAULT NULL,
+  `braintree_public_key` varchar(255) DEFAULT NULL,
+  `braintree_private_key` varchar(255) DEFAULT NULL,
+  `braintree_client_side_encryption_key` text,
+  `checkout_environment` varchar(255) DEFAULT NULL,
+  `checkout_user_id` varchar(255) DEFAULT NULL,
+  `checkout_password` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `gateway_commission_percentage` int(11) DEFAULT NULL,
   `gateway_commission_fixed_cents` int(11) DEFAULT NULL,
-  `gateway_commission_fixed_currency` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `gateway_commission_fixed_currency` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `payment_rows` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `payment_id` int(11) DEFAULT NULL,
   `vat` int(11) DEFAULT NULL,
   `sum_cents` int(11) DEFAULT NULL,
-  `currency` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `currency` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_payment_rows_on_payment_id` (`payment_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `payments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `payer_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `recipient_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `organization_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `payer_id` varchar(255) DEFAULT NULL,
+  `recipient_id` varchar(255) DEFAULT NULL,
+  `organization_id` varchar(255) DEFAULT NULL,
   `conversation_id` int(11) DEFAULT NULL,
-  `status` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `community_id` int(11) DEFAULT NULL,
   `payment_gateway_id` int(11) DEFAULT NULL,
   `sum_cents` int(11) DEFAULT NULL,
-  `currency` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'CheckoutPayment',
-  `braintree_transaction_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `currency` varchar(255) DEFAULT NULL,
+  `type` varchar(255) DEFAULT 'CheckoutPayment',
+  `braintree_transaction_id` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `index_payments_on_payer_id` (`payer_id`),
-  KEY `index_payments_on_conversation_id` (`conversation_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  KEY `index_payments_on_conversation_id` (`conversation_id`),
+  KEY `index_payments_on_payer_id` (`payer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `paypal_accounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `person_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `person_id` varchar(255) DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `api_password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `api_signature` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `api_password` varchar(255) DEFAULT NULL,
+  `api_signature` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `people` (
-  `id` varchar(22) COLLATE utf8_unicode_ci NOT NULL,
+  `id` varchar(22) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `is_admin` int(11) DEFAULT '0',
-  `locale` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'fi',
-  `preferences` text COLLATE utf8_unicode_ci,
+  `locale` varchar(255) DEFAULT 'fi',
+  `preferences` text,
   `active_days_count` int(11) DEFAULT '0',
   `last_page_load_date` datetime DEFAULT NULL,
   `test_group_number` int(11) DEFAULT '1',
   `active` tinyint(1) DEFAULT '1',
-  `username` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `encrypted_password` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `reset_password_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `encrypted_password` varchar(255) NOT NULL DEFAULT '',
+  `reset_password_token` varchar(255) DEFAULT NULL,
   `reset_password_sent_at` datetime DEFAULT NULL,
   `remember_created_at` datetime DEFAULT NULL,
   `sign_in_count` int(11) DEFAULT '0',
   `current_sign_in_at` datetime DEFAULT NULL,
   `last_sign_in_at` datetime DEFAULT NULL,
-  `current_sign_in_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `last_sign_in_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `password_salt` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `given_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `family_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phone_number` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8_unicode_ci,
-  `image_file_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `image_content_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `current_sign_in_ip` varchar(255) DEFAULT NULL,
+  `last_sign_in_ip` varchar(255) DEFAULT NULL,
+  `password_salt` varchar(255) DEFAULT NULL,
+  `given_name` varchar(255) DEFAULT NULL,
+  `family_name` varchar(255) DEFAULT NULL,
+  `phone_number` varchar(255) DEFAULT NULL,
+  `description` text,
+  `image_file_name` varchar(255) DEFAULT NULL,
+  `image_content_type` varchar(255) DEFAULT NULL,
   `image_file_size` int(11) DEFAULT NULL,
   `image_updated_at` datetime DEFAULT NULL,
-  `facebook_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `authentication_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `facebook_id` varchar(255) DEFAULT NULL,
+  `authentication_token` varchar(255) DEFAULT NULL,
   `community_updates_last_sent_at` datetime DEFAULT NULL,
   `min_days_between_community_updates` int(11) DEFAULT '1',
   `is_organization` tinyint(1) DEFAULT NULL,
-  `organization_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `organization_name` varchar(255) DEFAULT NULL,
   UNIQUE KEY `index_people_on_email` (`email`),
   UNIQUE KEY `index_people_on_facebook_id` (`facebook_id`),
   UNIQUE KEY `index_people_on_reset_password_token` (`reset_password_token`),
   UNIQUE KEY `index_people_on_username` (`username`),
   KEY `index_people_on_id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `schema_migrations` (
-  `version` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `version` varchar(255) NOT NULL,
   UNIQUE KEY `unique_schema_migrations` (`version`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `sessions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `session_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `data` text COLLATE utf8_unicode_ci,
+  `session_id` varchar(255) NOT NULL,
+  `data` text,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_sessions_on_session_id` (`session_id`),
   KEY `index_sessions_on_updated_at` (`updated_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `statistics` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -754,7 +754,7 @@ CREATE TABLE `statistics` (
   `invitations_sent_per_user` float DEFAULT NULL,
   `invitations_accepted_per_user` float DEFAULT NULL,
   `revenue_per_mau_g1` float DEFAULT NULL,
-  `extra_data` text COLLATE utf8_unicode_ci,
+  `extra_data` text,
   `mau_g1_count` int(11) DEFAULT NULL,
   `wau_g1_count` int(11) DEFAULT NULL,
   `listings_count` int(11) DEFAULT NULL,
@@ -775,25 +775,25 @@ CREATE TABLE `statistics` (
   `wau_weekly_growth` float DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_statistics_on_community_id` (`community_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `testimonials` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `grade` float DEFAULT NULL,
-  `text` text COLLATE utf8_unicode_ci,
-  `author_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `text` text,
+  `author_id` varchar(255) DEFAULT NULL,
   `participation_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `receiver_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `receiver_id` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_testimonials_on_receiver_id` (`receiver_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `transaction_transitions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `to_state` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `metadata` text COLLATE utf8_unicode_ci,
+  `to_state` varchar(255) DEFAULT NULL,
+  `metadata` text,
   `sort_key` int(11) DEFAULT '0',
   `conversation_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
@@ -801,37 +801,37 @@ CREATE TABLE `transaction_transitions` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_transaction_transitions_on_sort_key_and_conversation_id` (`sort_key`,`conversation_id`),
   KEY `index_transaction_transitions_on_conversation_id` (`conversation_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `transaction_type_translations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `transaction_type_id` int(11) DEFAULT NULL,
-  `locale` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `action_button_label` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `locale` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `action_button_label` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `index_transaction_type_translations_on_transaction_type_id` (`transaction_type_id`),
-  KEY `locale_index` (`transaction_type_id`,`locale`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  KEY `locale_index` (`transaction_type_id`,`locale`),
+  KEY `index_transaction_type_translations_on_transaction_type_id` (`transaction_type_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `transaction_types` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
   `sort_priority` int(11) DEFAULT NULL,
   `price_field` tinyint(1) DEFAULT NULL,
   `preauthorize_payment` tinyint(1) DEFAULT '0',
-  `price_quantity_placeholder` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `price_per` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `price_quantity_placeholder` varchar(255) DEFAULT NULL,
+  `price_per` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_transaction_types_on_community_id` (`community_id`),
   KEY `index_transaction_types_on_url` (`url`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
@@ -1630,6 +1630,8 @@ INSERT INTO schema_migrations (version) VALUES ('20140226074751');
 INSERT INTO schema_migrations (version) VALUES ('20140226121423');
 
 INSERT INTO schema_migrations (version) VALUES ('20140227102627');
+
+INSERT INTO schema_migrations (version) VALUES ('20140227145229');
 
 INSERT INTO schema_migrations (version) VALUES ('20140228164206');
 
