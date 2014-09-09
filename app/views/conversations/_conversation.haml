@@ -16,7 +16,6 @@
 
     %div{class: payments_in_use ? "col-6" : "col-9"}
       = link_to conversation[:path_to_conversation], class: "conversation-title-link" do
-        - binding.pry
         = conversation[:last_message_content]
       .conversation-context
         - if conversation[:transaction].present?

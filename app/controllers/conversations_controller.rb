@@ -78,8 +78,6 @@ class ConversationsController < ApplicationController
       conversation.last_message.content
     end
 
-    binding.pry
-
     # For some reason, other_party was wrapped inside "if". I guess there might be situations where other_party do
     # not exist. This is error in data. Anyway, we don't want the whole inbox to break because of this.
     h[:other_party] = Maybe(conversation).other_party(@current_user).map { |other_party|
