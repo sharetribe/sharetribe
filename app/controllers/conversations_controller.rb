@@ -1,7 +1,7 @@
 class ConversationsController < ApplicationController
   include MoneyRails::ActionViewExtension
 
-  MessageForm = Util::FormUtils.define_form("Message",
+  MessageForm = FormUtils.define_form("Message",
     :content,
     :conversation_id, # TODO Remove this
     :sender_id, # TODO Remove this
@@ -73,10 +73,12 @@ class ConversationsController < ApplicationController
     last_message_content = if conversation.last_message.action == "pay"
       t("conversations.message.paid", :sum => humanized_money_with_symbol(payment_sum))
     elsif conversation.last_message.action.present?
-      t("conversations.message.#{conversation.last_message.action}ed_#{transaction.discussion_type}").capitalize
+      t("conversations.message.#{conversation.last_message.action}ed_#{transaction.discussion_type.get}").capitalize
     else
       conversation.last_message.content
     end
+
+    binding.pry
 
     # For some reason, other_party was wrapped inside "if". I guess there might be situations where other_party do
     # not exist. This is error in data. Anyway, we don't want the whole inbox to break because of this.
@@ -102,7 +104,7 @@ class ConversationsController < ApplicationController
         # TODO Move feedback from conversation participants to transaction
         waiting_feedback_from_current: false, # transaction.waiting_feedback_from?(@current_user).or_else { nil }
         is_author: txn.author == @current_user,
-        status: transaction.status,
+        status: txn.status,
         listing: listing.map { |l|
           {title: l.title, url: url_for(l) }
         }.or_else { nil },

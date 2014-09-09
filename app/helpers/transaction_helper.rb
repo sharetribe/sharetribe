@@ -1,4 +1,4 @@
-module ListingConversationHelper
+module TransactionHelper
 
   def icon_for(status)
     case status

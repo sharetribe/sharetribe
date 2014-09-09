@@ -12,17 +12,17 @@ class ListingConversationsController < ApplicationController
 
   skip_filter :dashboard_only
 
-  BookingForm = Util::FormUtils.define_form("BookingForm", :start_on, :end_on)
+  BookingForm = FormUtils.define_form("BookingForm", :start_on, :end_on)
     .with_validations do
       validates :start_on, :end_on, presence: true
       validates_date :start_on, on_or_after: :today
       validates_date :end_on, on_or_after: :start_on
     end
 
-  ContactForm = Util::FormUtils.define_form("ListingConversation", :content, :sender_id, :listing_id, :community_id)
+  ContactForm = FormUtils.define_form("ListingConversation", :content, :sender_id, :listing_id, :community_id)
     .with_validations { validates_presence_of :content, :listing_id }
 
-  BraintreeForm = Util::FormUtils.define_form("ListingConversation",
+  BraintreeForm = FormUtils.define_form("ListingConversation",
     :braintree_cardholder_name,
     :braintree_credit_card_number,
     :braintree_cvv,
@@ -32,15 +32,15 @@ class ListingConversationsController < ApplicationController
     # TODO ADD VALIDATIONS
   }
 
-  PreauthorizeMessageForm = Util::FormUtils.define_form("ListingConversation",
+  PreauthorizeMessageForm = FormUtils.define_form("ListingConversation",
     :content,
     :sender_id,
     :contract_agreed,
     :listing_id
   ).with_validations { validates_presence_of :listing_id }
 
-  PreauthorizeForm = Util::FormUtils.merge("ListingConversation", BraintreeForm, PreauthorizeMessageForm)
-  PreauthorizeBookingForm = Util::FormUtils.merge("ListingConversation", PreauthorizeForm, BookingForm)
+  PreauthorizeForm = FormUtils.merge("ListingConversation", BraintreeForm, PreauthorizeMessageForm)
+  PreauthorizeBookingForm = FormUtils.merge("ListingConversation", PreauthorizeForm, BookingForm)
 
   def new
     use_contact_view = @listing.status_after_reply == "free"
@@ -299,6 +299,11 @@ class ListingConversationsController < ApplicationController
 
       flash[:notice] = t("layouts.notifications.message_sent")
       Delayed::Job.enqueue(MessageSentJob.new(transaction.conversation.messages.last.id, @current_community.id))
+
+      [3, 10].each do |send_interval|
+        Delayed::Job.enqueue(AcceptReminderJob.new(transaction.id, transaction.listing.author.id, @current_community.id), :priority => 10, :run_at => send_interval.days.from_now)
+      end
+
       redirect_to session[:return_to_content] || root
     else
       flash[:error] = "Sending the message failed. Please try again."

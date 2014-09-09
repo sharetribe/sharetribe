@@ -1,46 +1,38 @@
-Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
-  # @conversation = ListingConversation.create!(:listing_id => @listing.id,
-  #                                     :conversation_participants => { @listing.author.id => "false", @people[sender].id => "true"},
-  #                                     :message_attributes => { :content => message, :sender_id => @people[sender].id },
-  #                                     :community => @current_community
-  #                                     )
-
+def create_transaction(community, listing, starter, message)
   conversation = FactoryGirl.build(:conversation,
-    community: @current_community,
-    listing: @listing)
+    community: community,
+    listing: listing)
 
   conversation.participations.build({
-    person_id: @people[sender].id,
+    person_id: starter.id,
     is_starter: true
   })
 
   conversation.participations.build({
-    person_id: @listing.author.id,
+    person_id: listing.author.id,
     is_starter: false
   })
 
   conversation.messages.build({
     content: message,
-    sender: @people[sender]
+    sender: starter
   })
 
   transaction = FactoryGirl.create(:transaction,
-    listing: @listing,
-    community: @current_community,
-    starter: @people[sender],
+    listing: listing,
+    community: community,
+    starter: starter,
     conversation: conversation
   )
 end
 
-Given /^there is a pending request "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
-  @conversation = ListingConversation.create!(:listing_id => @listing.id,
-                                      :title => message,
-                                      :conversation_participants => { @listing.author.id => "false", @people[sender].id => "true"},
-                                      :message_attributes => { :content => message, :sender_id => @people[sender].id },
-                                      :community => @current_community
-                                      )
+Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
+  @conversation = create_transaction(@current_community, @listing, @people[sender], message)
+end
 
-  @conversation.status = "pending"
+Given /^there is a pending request "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
+  @conversation = create_transaction(@current_community, @listing, @people[sender], message)
+  @conversation.transition_to! "pending"
 end
 
 Given /^there is a reply "([^"]*)" to that message by "([^"]*)"$/ do |content, sender|
