@@ -4,7 +4,7 @@ class Admin::CommunityTransactionsController < ApplicationController
 
   def index
     community = @current_community
-    conversations = ListingConversation
+    conversations = Transaction
       .where(:community_id => @current_community.id)
       .includes(:listing)
       .paginate(:page => params[:page], :per_page => 50)

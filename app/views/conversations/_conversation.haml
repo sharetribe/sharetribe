@@ -16,6 +16,7 @@
 
     %div{class: payments_in_use ? "col-6" : "col-9"}
       = link_to conversation[:path_to_conversation], class: "conversation-title-link" do
+        - binding.pry
         = conversation[:last_message_content]
       .conversation-context
         - if conversation[:transaction].present?
@@ -29,11 +30,12 @@
       .col-3
 
         -# Only for transactions
-        - if conversation[:transaction] && conversation[:transaction][:status]
+        - if conversation[:transaction] && conversation[:transaction][:status] != "free"
           - status = conversation[:transaction][:status]
           - is_author = conversation[:transaction][:is_author]
           - waiting_feedback = conversation[:transaction][:waiting_feedback_from_current]
           - other_party_name = conversation[:other_party][:name]
+
 
           - icon, status = conversation_icon_and_status(status, is_author, other_party_name, waiting_feedback)
 

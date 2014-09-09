@@ -21,22 +21,22 @@ class TransactionProcess
     conversation.requires_payment?(conversation.community)
   end
 
-  after_transition(to: :accepted) do |conversation|
-    accepter = conversation.listing.author
-    current_community = conversation.community
+  after_transition(to: :accepted) do |transaction|
+    accepter = transaction.listing.author
+    current_community = transaction.community
 
-    conversation.update_is_read(accepter)
-    Delayed::Job.enqueue(ConversationStatusChangedJob.new(conversation.id, accepter.id, current_community.id))
+    transaction.conversation.update_is_read(accepter)
+    Delayed::Job.enqueue(ConversationStatusChangedJob.new(transaction.id, accepter.id, current_community.id))
 
     [3, 10].each do |send_interval|
-      Delayed::Job.enqueue(PaymentReminderJob.new(conversation.id, conversation.payment.payer.id, current_community.id), :priority => 10, :run_at => send_interval.days.from_now)
+      Delayed::Job.enqueue(PaymentReminderJob.new(transaction.id, transaction.payment.payer.id, current_community.id), :priority => 10, :run_at => send_interval.days.from_now)
     end
   end
 
-  after_transition(from: :accepted, to: :paid) do |conversation|
-    payment = conversation.payment
+  after_transition(from: :accepted, to: :paid) do |transaction|
+    payment = transaction.payment
     payer = payment.payer
-    conversation.messages.create(:sender_id => payer.id, :action => "pay")
+    transaction.conversation.messages.create(:sender_id => payer.id, :action => "pay")
   end
 
   after_transition(to: :paid) do |conversation|

@@ -34,7 +34,7 @@ end
 Given /^there is a payment for that request from "(.*?)" with price "(.*?)"$/ do |payer_username, price|
   listing = @conversation.listing
   payer = Person.find_by_username(payer_username)
-  @payment = FactoryGirl.create(:braintree_payment, payer: payer, recipient: listing.author, community: @current_community, sum_cents: price.to_i * 100, conversation: @conversation)
+  @payment = FactoryGirl.create(:braintree_payment, payer: payer, recipient: listing.author, community: @current_community, sum_cents: price.to_i * 100, transaction: @conversation)
 end
 
 Given /^that payment is (pending|paid)$/ do |status|

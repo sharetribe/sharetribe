@@ -67,6 +67,6 @@ class AcceptConversationsController < ApplicationController
   end
 
   def fetch_conversation
-    @listing_conversation = ListingConversation.find(params[:id])
+    @listing_conversation = Transaction.find(params[:id])
   end
 end

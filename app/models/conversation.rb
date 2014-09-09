@@ -112,11 +112,7 @@ class Conversation < ActiveRecord::Base
   end
 
   def update_is_read(current_user)
-    # TODO
-    # What does this actually do? What happens if requester.eql? current_user?
-    if offerer.eql?(current_user)
-      participations.each { |p| p.update_attribute(:is_read, p.person.id.eql?(current_user.id)) }
-    end
+    participations.each { |p| p.update_attribute(:is_read, p.person.id.eql?(current_user.id)) }
   end
 
   def starter
