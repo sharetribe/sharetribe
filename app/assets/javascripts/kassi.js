@@ -209,7 +209,7 @@ function add_validator_methods() {
 function report_analytics_event(params_array) {
   if (typeof _gaq != 'undefined') {
     _gaq.push(['_trackEvent'].concat(params_array));
-    if (secondary_analytics_in_use) {
+    if (typeof secondary_analytics_in_use != 'undefined' && secondary_analytics_in_use) {
       _gaq.push(['b._trackEvent'].concat(params_array));
     }
   }
