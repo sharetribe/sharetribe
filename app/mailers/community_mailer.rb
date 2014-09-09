@@ -5,7 +5,7 @@ include TruncateHtmlHelper
 
 class CommunityMailer < ActionMailer::Base
 
-  include Util::MailUtils
+  include MailUtils
 
   require "truncate_html"
 

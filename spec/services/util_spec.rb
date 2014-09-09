@@ -1,16 +1,16 @@
-describe Util::MoneyUtil do
+describe MoneyUtil do
   it "#parse_money_to_cents" do
-    Util::MoneyUtil.parse_money_to_cents("100").should eql(10000)
-    Util::MoneyUtil.parse_money_to_cents("100.00").should eql(10000)
-    Util::MoneyUtil.parse_money_to_cents("100,00").should eql(10000)
-    Util::MoneyUtil.parse_money_to_cents("99,99").should eql(9999)
-    Util::MoneyUtil.parse_money_to_cents("99.99").should eql(9999)
-    Util::MoneyUtil.parse_money_to_cents("0.12").should eql(12)
-    Util::MoneyUtil.parse_money_to_cents("0,12").should eql(12)
+    MoneyUtil.parse_money_to_cents("100").should eql(10000)
+    MoneyUtil.parse_money_to_cents("100.00").should eql(10000)
+    MoneyUtil.parse_money_to_cents("100,00").should eql(10000)
+    MoneyUtil.parse_money_to_cents("99,99").should eql(9999)
+    MoneyUtil.parse_money_to_cents("99.99").should eql(9999)
+    MoneyUtil.parse_money_to_cents("0.12").should eql(12)
+    MoneyUtil.parse_money_to_cents("0,12").should eql(12)
   end
 end
 
-describe Util::HashUtils do
+describe HashUtils do
   it "#camelize_keys" do
     expected = {
       outerKey1: {
@@ -36,7 +36,7 @@ describe Util::HashUtils do
       outer_key_2: "foo"
     }
 
-    Util::HashUtils.camelize_keys(test_data).should eql(expected)
+    HashUtils.camelize_keys(test_data).should eql(expected)
   end
 
   it "#deep_map" do
@@ -62,49 +62,49 @@ describe Util::HashUtils do
       four: 16
     }
 
-    actual = Util::HashUtils.deep_map(test_data) { |k, v| v * v }
+    actual = HashUtils.deep_map(test_data) { |k, v| v * v }
 
     actual.should eql(expected)
   end
 
   it "#select_by_key_regexp" do
     h = { :first_key => 1, :second_key => 2, :first_first_key => 11 }
-    Util::HashUtils.select_by_key_regexp(h, /^first_/).should eql({ :first_key => 1, :first_first_key => 11 })
+    HashUtils.select_by_key_regexp(h, /^first_/).should eql({ :first_key => 1, :first_first_key => 11 })
   end
 
   it "#deep_contains" do
-    Util::HashUtils.deep_contains({a: 1}, {a: 1, b: 2}).should be_true
-    Util::HashUtils.deep_contains({a: 2}, {a: 1, b: 2}).should be_false
-    Util::HashUtils.deep_contains({a: 1, b: 1}, {a: 1, b: 2}).should be_false
-    Util::HashUtils.deep_contains({a: 1, b: 2}, {a: 1, b: 2}).should be_true
-    Util::HashUtils.deep_contains({c: 3}, {a: 1, b: 2}).should be_false
+    HashUtils.deep_contains({a: 1}, {a: 1, b: 2}).should be_true
+    HashUtils.deep_contains({a: 2}, {a: 1, b: 2}).should be_false
+    HashUtils.deep_contains({a: 1, b: 1}, {a: 1, b: 2}).should be_false
+    HashUtils.deep_contains({a: 1, b: 2}, {a: 1, b: 2}).should be_true
+    HashUtils.deep_contains({c: 3}, {a: 1, b: 2}).should be_false
   end
 end
 
-describe Util::StringUtils do
+describe StringUtils do
   it "#first_words" do
-    Util::StringUtils.first_words("Take the first five words of this sentence.", 5).should eql "Take the first five words"
+    StringUtils.first_words("Take the first five words of this sentence.", 5).should eql "Take the first five words"
   end
 
   it "#strip_punctuation" do
-    Util::StringUtils.strip_punctuation("yes!").should eql "yes"
+    StringUtils.strip_punctuation("yes!").should eql "yes"
   end
 
   it "#strip_small_words" do
-    Util::StringUtils.strip_small_words("this is a test", 0).should eql "this is a test"
-    Util::StringUtils.strip_small_words("this is a test", 1).should eql "this is test"
-    Util::StringUtils.strip_small_words("this is a test", 2).should eql "this test"
-    Util::StringUtils.strip_small_words("this is a test", 4).should eql ""
-    Util::StringUtils.strip_small_words("the best thing it is!", 2).should eql "the best thing"
+    StringUtils.strip_small_words("this is a test", 0).should eql "this is a test"
+    StringUtils.strip_small_words("this is a test", 1).should eql "this is test"
+    StringUtils.strip_small_words("this is a test", 2).should eql "this test"
+    StringUtils.strip_small_words("this is a test", 4).should eql ""
+    StringUtils.strip_small_words("the best thing it is!", 2).should eql "the best thing"
   end
 
   it "#keywords" do
-    Util::StringUtils.keywords("This marketplace is a place! where I can sell and buy stuff", 5).should eql "this, marketplace, place, where, sell"
+    StringUtils.keywords("This marketplace is a place! where I can sell and buy stuff", 5).should eql "this, marketplace, place, where, sell"
   end
 end
 
-describe Util::ArrayUtils do
-  include Util::ArrayUtils
+describe ArrayUtils do
+  include ArrayUtils
 
   it "#each_slice_columns" do
     each_slice_columns([1], 3).to_a.should eql([[1]])

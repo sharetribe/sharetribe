@@ -1,6 +1,4 @@
 class ListingImageJSAdapter < JSAdapter
-  include Util::CamelizeHash
-
   ASPECT_RATIO = 3/2.to_f
 
   def initialize(listing_image)
@@ -22,5 +20,11 @@ class ListingImageJSAdapter < JSAdapter
       else
         "too-wide"
       end
+  end
+
+  #json style hash with camelized keys
+  def to_hash
+    hash = HashUtils.object_to_hash(self)
+    HashUtils.camelize_keys(hash)
   end
 end

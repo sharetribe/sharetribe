@@ -28,6 +28,7 @@ module Kassi
     # Load models from subdirectories too
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '**/')]
     config.autoload_paths += Dir[Rails.root.join('app', 'services')]
+    config.autoload_paths += Dir[Rails.root.join('app', 'utils')]
 
     # Enable the asset pipeline
     config.assets.enabled = true

@@ -366,7 +366,7 @@ class ListingsController < ApplicationController
 
   def normalize_price_param(listing_params)
     if listing_params[:price] then
-      listing_params.except(:price).merge(price_cents: Util::MoneyUtil.parse_money_to_cents(listing_params[:price]))
+      listing_params.except(:price).merge(price_cents: MoneyUtil.parse_money_to_cents(listing_params[:price]))
     else
       listing_params
     end

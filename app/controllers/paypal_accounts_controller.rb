@@ -8,7 +8,7 @@ class PaypalAccountsController < ApplicationController
 
   skip_filter :dashboard_only
 
-  PaypalAccountForm = Util::FormUtils.define_form("PaypalAccountForm", :paypal_email)
+  PaypalAccountForm = FormUtils.define_form("PaypalAccountForm", :paypal_email)
     .with_validations { validates_presence_of :paypal_email }
 
   def show
