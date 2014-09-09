@@ -13,7 +13,7 @@
 #
 
 class Transaction < ActiveRecord::Base
-  attr_accessible :community_id, :starter_id, :listing_id
+  attr_accessible :community_id, :starter_id, :listing_id, :automatic_confirmation_after_days
   attr_accessor :contract_agreed
 
   belongs_to :community
@@ -22,9 +22,6 @@ class Transaction < ActiveRecord::Base
   has_one :payment, foreign_key: :transaction_id
   has_one :booking, :dependent => :destroy
   belongs_to :starter, :class_name => "Person", :foreign_key => "starter_id"
-
-  # Actually, transaction `has_one` conversation, but we want to put the foreign key to transaction table and thus
-  # use `belongs_to` instead of `has_one`
   belongs_to :conversation
 
 
@@ -36,6 +33,11 @@ class Transaction < ActiveRecord::Base
   delegate :title, to: :listing, prefix: true
 
   accepts_nested_attributes_for :booking
+
+  scope :for_person, -> (person){
+    joins(:listing)
+    .where("listings.author_id = ? OR starter_id = ?", person.id, person.id)
+  }
 
   def state_machine
     @state_machine ||= TransactionProcess.new(self, transition_class: TransactionTransition)
@@ -63,6 +65,7 @@ class Transaction < ActiveRecord::Base
     payment.save!
   end
 
+  # TODO Remove this
   def initialize_payment
     payment ||= community.payment_gateway.new_payment
     payment.payment_gateway ||= community.payment_gateway
@@ -93,33 +96,43 @@ class Transaction < ActiveRecord::Base
   end
 
   def can_be_cancelled?
+    # TODO PARTICIPATIONS
+    return true
     participations.each { |p| return false unless p.feedback_can_be_given? }
     return true
   end
 
   def has_feedback_from?(person)
+    # TODO PARTICIPATIONS
+    return true
     participations.find_by_person_id(person.id).has_feedback?
   end
 
   def feedback_skipped_by?(person)
+    # TODO PARTICIPATIONS
+    return true
     participations.find_by_person_id(person.id).feedback_skipped?
   end
 
   def waiting_feedback_from?(person)
+    # TODO PARTICIPATIONS
+    return true
     !(has_feedback_from?(person) || feedback_skipped_by?(person))
   end
 
   def has_feedback_from_all_participants?
+    # TODO PARTICIPATIONS
+    return true
     participations.each { |p| return false if p.feedback_can_be_given? }
     return true
   end
 
   def offerer
-    participants.find { |p| listing.offerer?(p) }
+    [author, starter].find { |p| listing.offerer?(p) }
   end
 
   def requester
-    participants.find { |p| listing.requester?(p) }
+    [author, starter].find { |p| listing.requester?(p) }
   end
 
   def payer

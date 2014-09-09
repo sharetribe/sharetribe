@@ -29,7 +29,7 @@ class Payment < ActiveRecord::Base
 
   VALID_STATUSES = ["paid", "pending", "disbursed"]
 
-  attr_accessible :conversation_id, :payer_id, :recipient_id
+  attr_accessible :conversation_id, :payer_id, :recipient_id, :community_id, :payment_gateway_id, :status
 
   belongs_to :transaction
   belongs_to :payer, :class_name => "Person"

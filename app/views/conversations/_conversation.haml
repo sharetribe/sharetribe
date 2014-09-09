@@ -1,44 +1,44 @@
-- Maybe(conversation).other_party(@current_user).each do |other_party|
-  - last_message = conversation.last_message
-  .row-with-divider.without-margin.conversation-row{:class => (conversation.read_by?(@current_user) ? "" : "unread")}
+-# For some reason, other_party was wrapped inside "if". I guess there might be situations where other_party do
+  not exist. This is error in data. Anyway, we don't want the whole inbox to break because of this.
+
+- if conversation[:other_party].present?
+  .row-with-divider.without-margin.conversation-row{:class => conversation[:read_by_current] ? "" : "unread"}
+
     .col-3
       .conversation-details-container
-        = small_avatar_thumb other_party, :class => "conversation-avatar"
+        = link_to conversation[:other_party][:url] do
+          = image_tag conversation[:other_party][:avatar], :class => "conversation-avatar"
         .conversation-details
           .conversation-other-party-name
-            = link_to other_party.name, other_party
+            = link_to conversation[:other_party][:name], conversation[:other_party][:url]
           .conversation-last-message-at
-            = time_ago(conversation.last_message_at)
-    %div{class: @current_community.payments_in_use? ? "col-6" : "col-9"}
-      = link_to single_conversation_path(:conversation_type => action_name, :id => conversation.id), class: "conversation-title-link" do
-        - if last_message.content.blank?
-          - if last_message.action.eql?("pay")
-            - if last_message.sender.eql?(@current_user)
-              = icon_tag("reply", ["icon-fix"])
-            = t("conversations.message.paid", :sum => humanized_money_with_symbol(last_message.conversation.payment.total_sum))
-          - else
-            - if last_message.sender.eql?(@current_user)
-              = icon_tag("reply", ["icon-fix"])
-            = t("conversations.message.#{last_message.action}ed_#{last_message.conversation.discussion_type}").capitalize
-        - else
-          - if last_message.sender.eql?(@current_user)
-            = icon_tag("reply", ["icon-fix"])
-          %span.conversation-title-link-text= "#{last_message.content}"
-      .conversation-context
-        - conversation.with(:listing_conversation) do
-          = t(".about_listing", listing_title: link_to(conversation.listing.title, conversation.listing)).html_safe
-        - conversation.with(:conversation) do
-          = t(".free_message")
-    - if @current_community.payments_in_use?
-      .col-3
-        - conversation.with(:listing_conversation) do
-          - Maybe(conversation).status.reject { |s| s == "free" }.each do |status|
-            - is_author = conversation.author == @current_user
-            - waiting_feedback = conversation.waiting_feedback_from?(@current_user)
-            - icon, status = conversation_icon_and_status(status, is_author, other_party, waiting_feedback)
+            = conversation[:last_message_ago]
 
-            .conversation-list-status-container
-              .conversation-list-status-icon
-                = icon
-              .conversation-list-status
-                = status
+    %div{class: payments_in_use ? "col-6" : "col-9"}
+      = link_to conversation[:path_to_conversation], class: "conversation-title-link" do
+        = conversation[:last_message_content]
+      .conversation-context
+        - if conversation[:transaction].present?
+          -# Only for transactions
+          - listing = conversation[:transaction][:listing]
+          = t(".about_listing", listing_title: link_to(listing[:title], listing[:url])).html_safe
+        - else
+          = t(".free_message")
+
+    - if payments_in_use
+      .col-3
+
+        -# Only for transactions
+        - if conversation[:transaction] && conversation[:transaction][:status]
+          - status = conversation[:transaction][:status]
+          - is_author = conversation[:transaction][:is_author]
+          - waiting_feedback = conversation[:transaction][:waiting_feedback_from_current]
+          - other_party_name = conversation[:other_party][:name]
+
+          - icon, status = conversation_icon_and_status(status, is_author, other_party_name, waiting_feedback)
+
+          .conversation-list-status-container
+            .conversation-list-status-icon
+              = icon
+            .conversation-list-status
+              = status

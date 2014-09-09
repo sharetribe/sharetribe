@@ -55,6 +55,7 @@ Kassi::Application.routes.draw do
     match '/mercury_update' => "mercury_update#update", :as => :mercury_update, :method => :put
     match '/dashboard_login' => "dashboard#login", :as => :dashboard_login
     match "/listings/:listing_id/preauthorize" => "listing_conversations#preauthorize", :as => :preauthorize_payment
+    match "/listings/:listing_id/book" => "listing_conversations#book", :as => :book
     match "/listings/:listing_id/reply" => "listing_conversations#new", :as => :reply_to_listing
     match "/listings/:listing_id/contact" => "listing_conversations#contact", :as => :contact_to_listing
     match "/listings/new/:type/:category" => "listings#new", :as => :new_request_category
@@ -255,6 +256,7 @@ Kassi::Application.routes.draw do
             collection do
               post :create_contact
               post :preauthorized
+              post :booked
             end
           end
         end

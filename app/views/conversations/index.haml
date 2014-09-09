@@ -2,14 +2,13 @@
   %h1= t("layouts.no_tribe.inbox")
 
 .undo-mobile-wrapper-margin#conversations
-  - if @conversations && !@conversations.empty?
+  - if conversation_data.present?
 
-    = render :partial => "conversation", collection: @conversations
+    - conversation_data.each do |conversation|
+      = render :partial => "conversation", locals: {conversation: conversation, payments_in_use: @current_community.payments_in_use?}
 
-    -# FIXME
-      = render :partial => @conversations
-    = will_paginate(@conversations)
-    = pageless(@conversations.total_pages, '#conversations', "#{action_name}", t('.loading_more_messages'))
+    = will_paginate(conversation_models)
+    = pageless(conversation_models.total_pages, '#conversations', "#{action_name}", t('.loading_more_messages'))
   - else
     #no_conversations
       = t(".no_#{action_name}_messages")
