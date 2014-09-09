@@ -63,8 +63,8 @@
     = form.text_field :email, :class => :text_field, :maxlenght => "255"
 
     -# Honey pot: hidden field to detect spammers
-    = form.label :email_second_time_again, "You should not see this field, if CSS is working. If you see this, please send feedback!", :class => "unwanted_text_field"
-    = form.text_field :email_second_time_again, :class => "unwanted_text_field", :id => "error_regristration_unwanted_email2", :autocomplete => "off"
+    = form.label :input_again, "You should not see this field, if CSS is working. If you see this, please send feedback!", :class => "unwanted_text_field"
+    = form.text_field :input_again, :class => "unwanted_text_field", :id => "error_regristration_unwanted_email2", :autocomplete => "off"
 
     -# Password
     = form.label :password, t('common.password')
