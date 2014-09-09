@@ -10,6 +10,8 @@
 #  created_at                        :datetime         not null
 #  updated_at                        :datetime         not null
 #  community_id                      :integer          not null
+#  starter_skipped_feedback          :boolean          default(FALSE)
+#  author_skipped_feedback           :boolean          default(FALSE)
 #
 
 class Transaction < ActiveRecord::Base

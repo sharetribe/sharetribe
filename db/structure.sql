@@ -850,6 +850,8 @@ CREATE TABLE `transactions` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `community_id` int(11) NOT NULL,
+  `starter_skipped_feedback` tinyint(1) DEFAULT '0',
+  `author_skipped_feedback` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1852,3 +1854,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140904104024');
 INSERT INTO schema_migrations (version) VALUES ('20140904112318');
 
 INSERT INTO schema_migrations (version) VALUES ('20140905090419');
+
+INSERT INTO schema_migrations (version) VALUES ('20140909122824');
