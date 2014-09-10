@@ -11,6 +11,7 @@
   = form_for paypal_account_form, :url => form_action, :html => { :id => "paypal_account_form"} do |form|
 
     = form.label :paypal_email, t(".paypal-account-email"), :class => "input"
+    = render :partial => "layouts/info_text", :locals => { :text => t(".paypal_account_info_text") }
     = form.text_field :paypal_email, :class => "auto_width", :size => 30
 
     %br/

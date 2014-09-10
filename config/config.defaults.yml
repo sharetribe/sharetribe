@@ -52,6 +52,14 @@ default: &default_settings
   braintree_test_private_key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   braintree_client_side_encryption_key: xxxxxxxxxxxxxxxx
 
+  # Paypal credentials for the platform owner.
+  paypal_username: xxxxxxxxxxxxx
+  paypal_password: xxxxxxxxxxxxx
+  paypal_signature: xxxxxxxxxxxxx
+  paypal_app_id: APP-80W284485P519543T # Global test id
+  # Paypal environment to use. Either :sandbox or :live
+  paypal_endpoint: :sandbox
+
   # If you want to force all use to be SSL secured (https://) you can set this to true
   # Note that you can set this value separately to each enironment below (e.g. if your developing)
   always_use_ssl: false
