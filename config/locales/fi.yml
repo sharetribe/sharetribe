@@ -1427,6 +1427,15 @@ fi:
       terms:
         braintree_terms_also_included: "HUOM: Tämä verkkopalvelu käyttää maksunvälittäjänä Braintree-palvelua ja käyttämällä tätä verkkopalvelua hyväksyt alla olevien ehtojen lisäksi myös %{terms_link_text}."
         terms_link_text: "Braintreen käyttöehdot"
+  paypal_accounts:
+    new:
+      setup_paypal_account: "PayPal-tilin asetukset"
+      paypal_account_email: "Paypal-tilin sähköpostisosoite"
+      paypal_account_email_info_text: "Tarvitsemme PayPal-tilissä käyttämäsi sähköpostiosoitteen, jotta voimme ohjata maksut sinulle. Jos sinulla ei ole vielä Paypal-tiliä, voit luoda uuden: %{create_paypal_account}"
+      create_paypal_account: "luo Paypal-tili"
+      grant_paypal_permissions_text: "You need to grant us permissions to connect your Paypal account. Lorem ipsum dolor sit amet consectetur adepisci elit..."
+      connect_paypal_account: "Yhdistä PayPal-tiliin"
+    show:
   people:
     index:
       loading_more_members: "Ladataan lisää jäseniä"

@@ -1,19 +1,25 @@
 - content_for :javascript do
-
-  initialize_paypal_account_form("#{I18n.locale}");
+  ST.initializePayPalAccountForm("paypal_account_form");
 
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => left_hand_navigation_links }
 
 .left-navi-section.settings-section
 
-  %h2= t(".setup-paypal-account")
+  %h2= t(".setup_paypal_account")
 
   = form_for paypal_account_form, :url => form_action, :html => { :id => "paypal_account_form"} do |form|
 
-    = form.label :paypal_email, t(".paypal-account-email"), :class => "input"
-    = render :partial => "layouts/info_text", :locals => { :text => t(".paypal_account_info_text") }
-    = form.text_field :paypal_email, :class => "auto_width", :size => 30
+    .row
+      = form.label :paypal_email, t(".paypal_account_email"), :class => "input"
+    .row
+      .col-6
+        = render :partial => "layouts/info_text", :locals => { text: t(".paypal_account_email_info_text", create_paypal_account: link_to(t(".create_paypal_account"), "https://www.paypal.com")).html_safe }
+      .col-6
+        = form.text_field :paypal_email, class: "required"
 
     %br/
 
-    = form.button t(".save"), :class => "send_button"
+    .row
+      = t(".grant_paypal_permissions_text")
+
+    = form.button t(".connect_paypal_account"), :class => "send_button"
