@@ -27,7 +27,7 @@ class TransactionController < ApplicationController
     @current_user.read(conversation) unless conversation.read_by?(@current_user)
     @other_party = conversation.other_party(@current_user)
 
-    messages = conversation.messages.reverse.map { |message|
+    messages = conversation.messages.reverse.map do |message|
       message_hash = {
         type: message.action.present? ? "action" : "message",
       }
@@ -37,10 +37,12 @@ class TransactionController < ApplicationController
       else
         if message.action.eql?("pay")
           t(".paid", :sum => sum_with_currency(message.conversation.transaction.payment.total_sum, message.conversation.transaction.payment.currency))
+        else
+          # TODO CONTINUE HERE!
+        end
       end
-    }
+    end
 
     render locals: { messages: @conversation.messages.reverse }
   end
 end
-
