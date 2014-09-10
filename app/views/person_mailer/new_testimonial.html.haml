@@ -1,5 +1,5 @@
 - view_url = person_url(@recipient, @url_params) + "#testimonial#{@testimonial.id.to_s}"
-- give_url = new_person_message_feedback_url(@recipient, @url_params.merge({:message_id => @testimonial.participation.conversation.id}))
+- give_url = new_person_message_feedback_url(@recipient, @url_params.merge({:message_id => @testimonial.transaction.id}))
 
 %tr
   %td{:align => "left"}
@@ -8,7 +8,7 @@
 
 = render :partial => "action_button", :locals => { :text => t("emails.new_testimonial.view_feedback"), :url => view_url}
 
-- if @testimonial.receiver.can_give_feedback_on?(@testimonial.participation.conversation)
+- if @testimonial.transaction.waiting_feedback_from?(@testimonial.receiver)
   %tr
     %td{:align => "left"}
       %font{body_font}

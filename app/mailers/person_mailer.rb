@@ -185,6 +185,7 @@ class PersonMailer < ActionMailer::Base
 
   # Braintree account was approved (via Webhook)
   def braintree_account_approved(recipient, community)
+    binding.pry
     set_up_urls(recipient, community)
     @recipient = recipient
 

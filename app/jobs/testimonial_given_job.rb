@@ -14,8 +14,11 @@ class TestimonialGivenJob < Struct.new(:testimonial_id, :community_id)
     community = Community.find(community_id)
     testimonial = Testimonial.find(testimonial_id)
     testimonial.participation.update_attribute(:is_read, true)
-    testimonial.notify_receiver(community)
-    received = testimonial.receiver.received_testimonials.positive
+    receiver = testimonial.receiver
+
+    if receiver.should_receive?("email_about_new_received_testimonials")
+      PersonMailer.new_testimonial(testimonial, community).deliver
+    end
   end
 
 end
