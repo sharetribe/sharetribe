@@ -32,7 +32,7 @@ module PaypalService
         raise(ArgumentError, "callback is mandatory") unless DataTypes.none_empty?(callback)
 
         RequestPermissions.new(
-          :RequestPermissions,
+          :request_permissions,
           [
             "EXPRESS_CHECKOUT",
             "AUTH_CAPTURE",

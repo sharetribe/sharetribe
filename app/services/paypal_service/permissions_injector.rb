@@ -23,8 +23,7 @@ module PaypalService
         config.paypal_username,
         config.paypal_password,
         config.paypal_signature,
-        config.paypal_app_id
-      )
+        config.paypal_app_id)
     end
   end
 end

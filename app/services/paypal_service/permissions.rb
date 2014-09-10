@@ -16,7 +16,7 @@ module PaypalService
     end
 
     def do_request(request)
-      return do_request_permissions(request) if request.method == :RequestPermissions
+      return do_request_permissions(request) if request.method == :request_permissions
 
       raise(ArgumentException, "Unknown request method #{request.method}")
     end
