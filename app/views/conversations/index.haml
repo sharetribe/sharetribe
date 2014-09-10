@@ -7,8 +7,11 @@
     - conversation_data.each do |conversation|
       = render :partial => "conversation", locals: {conversation: conversation, payments_in_use: @current_community.payments_in_use?}
 
-    = will_paginate(conversation_models)
-    = pageless(conversation_models.total_pages, '#conversations', "#{action_name}", t('.loading_more_messages'))
+    -#
+      TODO Use pagination
+      = will_paginate(conversation_models)
+      = pageless(conversation_models.total_pages, '#conversations', "#{action_name}", t('.loading_more_messages'))
+
   - else
     #no_conversations
       = t(".no_#{action_name}_messages")
