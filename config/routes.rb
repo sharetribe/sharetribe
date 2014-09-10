@@ -64,6 +64,9 @@ Kassi::Application.routes.draw do
     match '/:person_id/settings/payments/braintree/new' => 'braintree_accounts#new', :as => :new_braintree_settings_payment
     match '/:person_id/settings/payments/braintree/show' => 'braintree_accounts#show', :as => :show_braintree_settings_payment
     match '/:person_id/settings/payments/braintree/create' => 'braintree_accounts#create', :as => :create_braintree_settings_payment
+    match '/:person_id/settings/payments/paypal_account/new' => 'paypal_accounts#new', :as => :new_paypal_account_settings_payment
+    match '/:person_id/settings/payments/paypal_account/show' => 'paypal_accounts#show', :as => :show_paypal_account_settings_payment
+    match '/:person_id/settings/payments/paypal_account/create' => 'paypal_account#create', :as => :create_paypal_account_settings_payment
 
     scope :module => "api", :constraints => ApiRequest do
       resources :listings, :only => :index
@@ -280,6 +283,7 @@ Kassi::Application.routes.draw do
             end
           end
           resources :braintree_payments
+          resources :paypal_accounts
         end
         resource :paypal_account, :only => [:new, :show, :create]
         resource :checkout_account, only: [:new, :show, :create]
