@@ -76,6 +76,7 @@ gem "premailer"
 gem 'stringex', '~> 2.5.2'
 gem 'validates_timeliness', '~> 3.0'
 gem 'paypal-sdk-permissions'
+gem 'paypal-sdk-merchant'
 
 #ouisharelabs
 gem 'rdf-turtle'
