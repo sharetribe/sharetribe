@@ -1857,10 +1857,7 @@ INSERT INTO schema_migrations (version) VALUES ('20140904112318');
 INSERT INTO schema_migrations (version) VALUES ('20140905090419');
 
 INSERT INTO schema_migrations (version) VALUES ('20140909122824');
-<<<<<<< HEAD
-=======
 
 INSERT INTO schema_migrations (version) VALUES ('20140909124605');
 
 INSERT INTO schema_migrations (version) VALUES ('20140909125012');
->>>>>>> Lots of things
