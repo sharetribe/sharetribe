@@ -1428,14 +1428,21 @@ en:
         braintree_terms_also_included: "NOTE: Braintree is used as a payment gateway service and by using this website you also accept %{terms_link_text}, in addition to the terms below."
         terms_link_text: "Braintree terms of use"
   paypal_accounts:
+    payout_info_title: "Payout information"
+    paypal_account_email_connected: "1. Connected Paypal account"
+    paypal_billing_agreement_made: "2. %{service_name} takes a %{commission} commission on each transaction."
     new:
-      setup_paypal_account: "Setup Paypal Account"
-      paypal_account_email: "Paypal account email"
-      paypal_account_email_info_text: "In order to send payments to your account, we need the same email address you are using with your Paypal account. If you don't have Paypal account yet, you can create a new one: %{create_paypal_account}"
-      create_paypal_account: "create PayPal account"
-      grant_paypal_permissions_text: "You need to grant us permissions to connect your Paypal account. Lorem ipsum dolor sit amet consectetur adepisci elit..."
+      payout_info_text: "To receive money you need to connect your PayPal account with %{service_name}.<br /> Please complete the following two steps to connect your acount."
+      paypal_account_email: "1. Connect your Paypal account"
+      paypal_account_email_placeholder: "Your PayPal email address"
+      paypal_account_email_info_text: "Note: you need a Papal business account to accept credit card payments. If you don't have a Paypal personal account, you can create one %{create_paypal_account}. If you have a Paypal personal account, you can easily upgrade to a business account for free. %{upgrade_paypal_account}"
+      create_paypal_account: "here"
+      upgrade_paypal_account: "Upgrade your account here."
       connect_paypal_account: "Connect PayPal account"
+      paypal_account_billing_agreement: "2. Grant %{service_name} permission to take a %{commission} commission on each transaction"
+      billing_agreement: "Grant permission to take commission"
     show:
+
   people:
     index:
       loading_more_members: "Loading more members"

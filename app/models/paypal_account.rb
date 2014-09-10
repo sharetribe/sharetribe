@@ -17,5 +17,5 @@ class PaypalAccount < ActiveRecord::Base
 
   belongs_to :person
   belongs_to :community
-  has_one :order_permission
+  has_one :order_permission, :dependent => :destroy
 end

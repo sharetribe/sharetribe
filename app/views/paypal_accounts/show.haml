@@ -1,7 +1,20 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => left_hand_navigation_links }
 
-.left-navi-section.settings-section
+.left-navi-section.settings-section.payment-settings
 
-  %h2= t(".paypal-account")
+  %h2= t("paypal_accounts.payout_info_title")
 
-  %p= paypal_account[:email]
+  .row
+    = t("paypal_accounts.new.payout_info_text").html_safe
+
+  %br/
+
+  .row.paypal-connected-email-row
+    %h3.paypal-account-connected
+      =t("paypal_accounts.paypal_account_email_connected")
+    .paypal-connected-email.paypal-account-connected
+      = paypal_account_email
+
+  .row.paypal-billing-agreement-row
+    %h3.paypal-billing-agreement-made
+      =t("paypal_accounts.paypal_billing_agreement_made", commission: commission_from_seller)

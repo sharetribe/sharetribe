@@ -40,10 +40,20 @@ module MarketplaceService
       module_function
 
       def create_personal_account(person_id, community_id, account_data)
+        old_account = PaypalAccountModel.find_by_person_id_and_community_id(person_id, community_id)
+        old_account.destroy if old_account.present?
+
         PaypalAccountModel.create!(
           account_data.merge({person_id: person_id, community_id: community_id})
         )
         Result::Success.new
+      end
+
+      def destroy_personal_account(person_id, community_id)
+        Maybe(PaypalAccountModel.find_by_person_id_and_community_id(person_id, community_id))
+          .map { |paypal_account|
+            paypal_account.destroy ? true : false;
+          }
       end
 
       def create_admin_account(community_id, account_data)
@@ -52,15 +62,43 @@ module MarketplaceService
         Result::Success.new
       end
 
-      def save_pending_permissions_request(person_id, community_id, paypal_username_to, scope, request_token)
-        # Create new pending permissions request and save it for the paypal account connected to user and community
-        # Ensure that this is the only permission request for the pp account by deleting any previous requests(?)
-        raise(NotImplementedError)
+      def create_pending_permissions_request(person_id, community_id, paypal_username_to, permissions_scope, request_token)
+        # TODO: should we rename (email) or remove paypal_username_to column?
+        Maybe(PaypalAccountModel.find_by_person_id_and_community_id(person_id, community_id))
+          .map { |paypal_account|
+
+            Maybe(paypal_account.order_permission).destroy
+
+            OrderPermission.create!(
+              {
+                paypal_account: paypal_account,
+                request_token: request_token,
+                paypal_username_to: paypal_username_to,
+                scope: permissions_scope.join(',')
+              }
+            )
+            true
+          }
+          .or_else(false)
       end
 
       def confirm_pending_permissions_request(person_id, community_id, request_token, verification_code)
         # Should this fail silently in case of no matching permission request?
-        raise(NotImplementedError)
+        order_permission =  OrderPermission
+          .eager_load(:paypal_account)
+          .where({
+            :request_token => request_token,
+            "paypal_accounts.person_id" => person_id,
+            "paypal_accounts.community_id" => community_id
+          })
+          .first
+        if order_permission.present?
+            order_permission[:verification_code] = verification_code
+            order_permission.save!
+            true
+        else
+          false
+        end
       end
     end
 
@@ -69,13 +107,21 @@ module MarketplaceService
       module_function
 
       def personal_account(person_id, community_id)
-        Maybe(PaypalAccountModel.where(person_id: person_id, community_id: community_id).includes(:order_permission).first)
+        Maybe(PaypalAccountModel
+            .where(person_id: person_id, community_id: community_id)
+            .eager_load(:order_permission)
+            .first
+          )
           .map { |model| Entity.paypal_account(model) }
           .or_else(nil)
       end
 
       def admin_account(community_id)
-        Maybe(PaypalAccountModel.where(community_id: community_id, person_id: nil).includes(:order_permission).first)
+        Maybe(PaypalAccountModel
+            .where(person_id: nil, community_id: community_id)
+            .eager_load(:order_permission)
+            .first
+          )
           .map { |model| Entity.paypal_account(model) }
           .or_else(nil)
       end

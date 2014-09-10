@@ -3,23 +3,18 @@
 
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => left_hand_navigation_links }
 
-.left-navi-section.settings-section
+.left-navi-section.settings-section.payment-settings
 
-  %h2= t(".setup_paypal_account")
+  %h2= t("paypal_accounts.payout_info_title")
+
+  .row
+    = t("paypal_accounts.new.payout_info_text").html_safe
+
+  %br/
 
   = form_for paypal_account_form, :url => form_action, :html => { :id => "paypal_account_form"} do |form|
 
-    .row
-      = form.label :paypal_email, t(".paypal_account_email"), :class => "input"
-    .row
-      .col-6
-        = render :partial => "layouts/info_text", :locals => { text: t(".paypal_account_email_info_text", create_paypal_account: link_to(t(".create_paypal_account"), "https://www.paypal.com")).html_safe }
-      .col-6
-        = form.text_field :paypal_email, class: "required"
-
-    %br/
-
-    .row
-      = t(".grant_paypal_permissions_text")
-
-    = form.button t(".connect_paypal_account"), :class => "send_button"
+    - if paypal_account_email == ""
+      = render :partial => "ask_paypal_permissions", locals: {form: form, commission_from_seller: commission_from_seller}
+    - else
+      = render :partial => "ask_paypal_billing_agreement", locals: {paypal_account_email: paypal_account_email, form: form, commission_from_seller: commission_from_seller}
