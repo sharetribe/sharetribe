@@ -26,7 +26,7 @@ end
 task :deploy_to, [:destination] do |t, args|
   deploy(
     :destination => args[:destination],
-    :migrations => env_to_bool('migrations', true),
+    :migrations => env_to_bool('migrations', nil),
     :css => env_to_bool('css', true)
   )
 end
@@ -51,7 +51,14 @@ def deploy(params)
   puts "Deploying to:   #{@destination}"
   puts "Deploy options:"
   puts "  css:        #{params[:css]}"
-  puts "  migrations: #{params[:migrations]}"
+  puts "  migrations: #{params[:migrations]} "
+
+  if params[:migrations] == false
+    puts ""
+    puts "Skipping migrations, really? (y/n)"
+    response = STDIN.gets.strip
+    exit if response != 'y' && response != 'Y'
+  end
 
   if @destination == "production" || @destination == "preproduction"
     puts "YOU ARE GOING TO DEPLOY #{@branch} BRANCH TO #{@destination}"
@@ -64,8 +71,12 @@ def deploy(params)
   end
 
   set_app(@destination)
+
+  abort_if_pending_migrations if params[:migrations].nil?
+
   prepare_closed_source_branch
   deploy_to_server
+
   if params[:migrations]
     run_migrations
     restart
@@ -78,6 +89,22 @@ end
 def set_app(destination)
   @app = "sharetribe-#{destination}"
   puts "Destination Heroku app: #{@app}"
+end
+
+def abort_if_pending_migrations
+  pending_heroku_migrations = pending_migrations_in_heroku?
+  pending_local_migrations = pending_local_migrations?
+
+  if pending_heroku_migrations || pending_local_migrations
+    puts ""
+    puts "Heroku has deployed migrations that are not yet run." if pending_heroku_migrations
+    puts "You are about to deploy migrations from a local branch." if pending_local_migrations
+    puts ""
+    puts "Run migrations with rake deploy_to[#{@destination}] migrations=true"
+    puts "If you know what you are doing, skip with migrations=false"
+    puts "Aborting deploy process."
+    exit
+  end
 end
 
 def prepare_closed_source_branch
@@ -123,6 +150,23 @@ end
 def generate_custom_css
   puts 'Generating custom CSS for tribes who use it ...'
   heroku("run rake sharetribe:generate_customization_stylesheets --app #{@app}")
+end
+
+def pending_migrations_in_heroku?
+  puts "Checking for pending migrations in heroku ..."
+  output = `heroku run rake db:migrate:status --app #{@app}`
+  arr = output.split("\n")
+  statuses = arr.drop(arr.find_index("-" * 50) + 1)
+    .map(&:strip)
+    .map { |str| str.split(" ").first }
+  statuses.include?("down")
+end
+
+def pending_local_migrations?
+  puts "Fetching heroku remote branch for checking migration status ..."
+  `git fetch #{@destination} master`
+  diff = `git diff --shortstat #{@branch}..#{@destination}/master db/migrate`
+  !diff.empty?
 end
 
 ## STAGING
