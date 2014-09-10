@@ -1441,7 +1441,7 @@ it:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
     new:
-      captcha_incorrect: "Verifica reCAPTCHA fallita. Scrivi le parole apparse nell'immagine nel box sottostante."
+      captcha_incorrect: "Verifica reCAPTCHA fallita. Scrivi le parole che appaiono nell'immagine nel box sottostante."
       captcha_was_wrong: "il testo Captcha era sbagliato."
       create_new_account: "Crea account"
       email: "Indirizzo email"
@@ -1639,7 +1639,7 @@ it:
       street_address: Luogo
       these_fields_are_shown_in_your: "Questa informazione è visibile a tutti gli utenti di %{service_name}"
       visible_to_everybody: "Visibile a tutti"
-      visible_to_registered_users: ~
+      visible_to_registered_users: "Visibile agli utenti che hanno effettuato l'accesso"
       default_in_listing: ~
       invisible: ~
     save_information: "Salva le informazioni"
@@ -1649,24 +1649,24 @@ it:
       without_tag: "Senza tag"
   terms:
     show:
-      accept_terms: ~
-      here: ~
+      accept_terms: "Accettazione %{service_name} Termini di Utilizzo"
+      here: "cliccando qui"
       i_accept_new_terms: "Accetto i nuovi termini"
       i_accept_terms: "Accetto i termini"
       terms: "Termini di utilizzo %{service_name}"
       terms_have_changed: "I termini di utilizzo sono cambiati"
       you_can_view_the_new_terms: "Puoi vedere i nuovi termini"
-      you_need_to_accept: ~
-      you_need_to_accept_new_terms: ~
+      you_need_to_accept: "Benvenuto su %{service_name}! Questa sembra essere la prima volta che utilizzi questo servizio. Prima di iniziare devi accettare i"
+      you_need_to_accept_new_terms: "%{service_name} i termini di uso sono cambiati. Devi accettare i nuovi termini per poter continuare ad utilizzare %{service_name}. I nuovi termini sono destinati a permettere la manutenzione del servizio dopo che il progetto di ricerca si è concluso."
   testimonials:
     index:
-      all_testimonials: ~
-      feedback_altogether: ~
-      loading_more_testimonials: ~
-      no_testimonials: ~
+      all_testimonials: "Tutti i feedback"
+      feedback_altogether: "Tutti i feedback insieme: "
+      loading_more_testimonials: "Caricamento di altre testimonianze"
+      no_testimonials: "Feedback non ricevuti"
     new:
       as_expected: "Come previsto"
-      exceeded_expectations: ~
+      exceeded_expectations: "Molto meglio di quanto previsto"
       give_feedback_to: ~
       grade: ~
       less_than_expected: "Peggio del previsto"
