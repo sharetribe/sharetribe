@@ -15,13 +15,14 @@
             = conversation[:last_message_ago]
 
     %div{class: payments_in_use ? "col-6" : "col-9"}
-      = link_to conversation[:path_to_conversation], class: "conversation-title-link" do
-        = conversation[:last_message_content]
+      = link_to conversation[:path], class: "conversation-title-link" do
+        = conversation[:title]
       .conversation-context
+        - binding.pry
         - if conversation[:transaction].present?
           -# Only for transactions
           - listing = conversation[:transaction][:listing]
-          = t(".about_listing", listing_title: link_to(listing[:title], listing[:url])).html_safe
+          = t(".about_listing", listing_title: link_to(listing[:title], conversation[:listing_url])).html_safe
         - else
           = t(".free_message")
 

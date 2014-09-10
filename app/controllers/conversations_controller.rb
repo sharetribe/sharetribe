@@ -27,17 +27,53 @@ class ConversationsController < ApplicationController
   def received
     params[:page] = 1 unless request.xhr?
 
-    conversation_models = @current_community.conversations.includes(:transaction).for_person(@current_user)
-      .order("last_message_at DESC")
-      .paginate(per_page: 15, page: params[:page])
+    # conversation_models = @current_community.conversations.includes(:transaction).for_person(@current_user)
+    #   .order("last_message_at DESC")
+    #   .paginate(per_page: 15, page: params[:page])
 
-    conversation_data = conversation_models.map(&method(:map_conversation))
+    conversation_data = MarketplaceService::Conversation::Query.conversations_and_transactions(
+      @current_user.id,
+      @current_community.id,
+      {per_page: 15, page: params[:page]})
+
+    # conversation_data = conversation_models.map(&method(:map_conversation))
+
+    conversation_data = conversation_data.map { |conversation|
+      h = conversation.to_h
+
+      current = conversation.participants.select { |participant| participant.id == @current_user.id }.first
+      other = conversation.participants.reject { |participant| participant.id == @current_user.id }.first
+
+      h[:other_party] = other.to_h.merge({url: person_path(id: other[:username])})
+      h[:path] = single_conversation_path(:conversation_type => "received", :id => conversation.id)
+      h[:read_by_current] = current.is_read
+      last_message_content = conversation.messages.last.content
+      last_message_at = conversation.messages.last.created_at
+
+      h[:title] = if conversation.transaction
+        transaction = conversation.transaction
+        last_transition = transaction.last_transition
+        last_transition_at = transaction.last_transition_at
+
+        # What if they happen at the same time?
+        last_message_at > last_transition_at ? last_message_content : last_transition
+      else
+        last_message_content
+      end
+
+      h[:listing_url] = if conversation.transaction
+        listing_path(id: conversation.transaction.listing.id)
+      end
+
+      h
+    }
+
+    binding.pry
 
     if request.xhr?
       render :partial => "additional_messages"
     else
       render :action => :index, locals: {
-        conversation_models: conversation_models, # TODO Get rid of this. It's here for will_paginate gem
         conversation_data: conversation_data
       }
     end

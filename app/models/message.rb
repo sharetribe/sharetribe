@@ -38,6 +38,10 @@ class Message < ActiveRecord::Base
     end
   end
 
+  def action
+    throw "Action is not used anymore. Use transaction transitions."
+  end
+
   def positive_action?
     ["accept", "confirm", "pay"].include? action
   end
