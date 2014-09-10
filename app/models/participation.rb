@@ -20,26 +20,6 @@
 #
 
 class Participation < ActiveRecord::Base
-
   belongs_to :conversation, :dependent => :destroy, inverse_of: :participations, touch: true
   belongs_to :person
-
-  def has_feedback?
-    throw "has_feedback? is not in use anymore!"
-    # !testimonial.blank?
-  end
-
-  # Returns true if there is feedback from person
-  def feedback_can_be_given?
-    throw "feedback_can_be_given? is not in use anymore!"
-    # !has_feedback? && !feedback_skipped?
-  end
-
-  def send_testimonial_reminder(community)
-    if feedback_can_be_given?
-      update_attribute(:is_read, false)
-      PersonMailer.testimonial_reminder(self, community).deliver
-    end
-  end
-
 end

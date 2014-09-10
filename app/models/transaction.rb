@@ -126,11 +126,11 @@ class Transaction < ActiveRecord::Base
   end
 
   def testimonial_from_author
-    testimonials.find { |testimonil| testimonial.author_id == author.id }
+    testimonials.find { |testimonial| testimonial.author_id == author.id }
   end
 
   def testimonial_from_starter
-    testimonials.find { |testimonil| testimonial.author_id == starter.id }
+    testimonials.find { |testimonial| testimonial.author_id == starter.id }
   end
 
   def offerer

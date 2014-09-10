@@ -103,6 +103,7 @@ FactoryGirl.define do
   factory :transaction do
     build_association(:person, as: :starter)
     build_association(:listing)
+    build_association(:community)
   end
 
   factory :conversation do
@@ -138,7 +139,7 @@ FactoryGirl.define do
 
   factory :testimonial do
     build_association(:author)
-    build_association(:participation)
+    build_association(:transaction)
     grade 0.5
     text "Test text"
   end

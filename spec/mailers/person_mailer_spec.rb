@@ -92,12 +92,12 @@ describe PersonMailer do
 
   it "should send email about a new testimonial" do
     @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
-    @conversation = FactoryGirl.create(:conversation)
-    @conversation.participants << @test_person
-    @conversation.participants << @test_person2
-    @participation = Participation.find_by_person_id_and_conversation_id(@test_person.id, @conversation.id)
-    @testimonial = Testimonial.new(:grade => 0.75, :text => "Yeah", :author => @test_person, :receiver => @test_person2, :participation_id => @participation.id)
-    email = PersonMailer.new_testimonial(@testimonial, @community).deliver
+
+    listing = FactoryGirl.build(:listing, author: @test_person)
+    transaction = FactoryGirl.create(:transaction, starter: @test_person2, listing: listing)
+    testimonial = FactoryGirl.create(:testimonial, :grade => 0.75, :text => "Yeah", :author => @test_person, :receiver => @test_person2, :transaction => transaction)
+
+    email = PersonMailer.new_testimonial(testimonial, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal @test_person2.confirmed_notification_email_addresses, email.to
     assert_equal "Teppo T has given you feedback in Sharetribe", email.subject
