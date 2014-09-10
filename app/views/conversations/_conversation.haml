@@ -12,13 +12,12 @@
           .conversation-other-party-name
             = link_to conversation[:other_party][:name], conversation[:other_party][:url]
           .conversation-last-message-at
-            = conversation[:last_message_ago]
+            = conversation[:last_update_at]
 
     %div{class: payments_in_use ? "col-6" : "col-9"}
       = link_to conversation[:path], class: "conversation-title-link" do
         = conversation[:title]
       .conversation-context
-        - binding.pry
         - if conversation[:transaction].present?
           -# Only for transactions
           - listing = conversation[:transaction][:listing]
@@ -32,8 +31,8 @@
         -# Only for transactions
         - if conversation[:transaction] && conversation[:transaction][:status] != "free"
           - status = conversation[:transaction][:status]
-          - is_author = conversation[:transaction][:is_author]
-          - waiting_feedback = conversation[:transaction][:waiting_feedback_from_current]
+          - is_author = conversation[:is_transaction_author]
+          - waiting_feedback = conversation[:waiting_feedback_from_current]
           - other_party_name = conversation[:other_party][:name]
 
 

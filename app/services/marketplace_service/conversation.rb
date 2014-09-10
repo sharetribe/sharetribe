@@ -11,6 +11,56 @@ module MarketplaceService
         :listing
       )
 
+      module_function
+
+      def conversation_title(conversation)
+        last_message = conversation[:messages].last
+
+        if conversation[:transaction].present?
+          if last_message[:created_at] > conversation[:transaction][:last_transition_at]
+            last_message[:content]
+          else
+            conversation[:transaction].status
+          end
+        else
+          last_message[:content]
+        end
+      end
+
+      def waiting_testimonial_from?(transaction, person_id)
+        if transaction[:starter_id] == person_id
+          if transaction[:starter_skipped_feedback]
+            false
+          else
+            testimonial_from(transaction, person_id).nil?
+          end
+        else
+          if transaction[:author_skipped_feedback]
+            false
+          else
+            testimonial_from(transaction, person_id).nil?
+          end
+        end
+      end
+
+      def last_update_at(conversation)
+        last_message = conversation[:messages].last
+
+        if conversation[:transaction].present?
+          if last_message[:created_at] > conversation[:transaction][:last_transition_at]
+            last_message[:created_at]
+          else
+            conversation[:transaction][:last_transition_at]
+          end
+        else
+          last_message[:created_at]
+        end
+      end
+
+      def testimonial_from(transaction, person_id)
+        transaction[:testimonials].select { |testimonial| testimonial[:author_id] == person_id }
+      end
+
       # TODO Add person entity, and split this
       ConversationParticipant = Struct.new(
         :id,
@@ -24,7 +74,7 @@ module MarketplaceService
       Listing = Struct.new(
         :id,
         :title,
-        :author
+        :author_id
       )
 
       Transaction = Struct.new(
@@ -32,13 +82,23 @@ module MarketplaceService
         :last_transition,
         :last_transition_at,
         :listing,
-        :status
+        :status,
+        :author_skipped_feedback,
+        :starter_skipped_feedback,
+        :starter_id,
+        :testimonials
       )
 
       Message = Struct.new(
         :sender_id,
         :content,
         :created_at
+      )
+
+      Testimonial = Struct.new(
+        :author_id,
+        :receiver_id,
+        :grade
       )
 
       module_function
@@ -66,18 +126,24 @@ module MarketplaceService
 
       def conversation_with_transaction(conversation_model)
         conversation_entity = conversation(conversation_model)
-        conversation_entity.transaction = transaction(conversation_model.transaction) if conversation_model.transaction
+        conversation_entity.transaction = transaction(conversation_model.transaction) if conversation_model.transaction.present?
         conversation_entity
       end
 
       def transaction(transaction_model)
-        listing = EntityUtils.from_hash(Listing, EntityUtils.model_to_hash(transaction_model.listing))
+        listing = EntityUtils.from_hash(Listing,
+          EntityUtils.model_to_hash(transaction_model.listing).merge(author_id: transaction_model.listing.id))
 
         EntityUtils.from_hash(Transaction, EntityUtils.model_to_hash(transaction_model).merge({
-          last_transition: transaction_model.transaction_transitions.last.to_state,
+          status: transaction_model.transaction_transitions.last.to_state,
           last_transition_at: transaction_model.transaction_transitions.last.created_at,
-          listing: listing
+          listing: listing,
+          testimonials: transaction_model.testimonials.map { |testimonial|
+            EntityUtils.from_hash(Testimonial, EntityUtils.model_to_hash(testimonial))
+          },
+          starter_id: transaction_model.starter.id,
         }))
+
       end
     end
 
