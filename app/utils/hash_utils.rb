@@ -58,4 +58,12 @@ module HashUtils
       hash
     end
   end
+
+  def deep_struct_to_hash(struct)
+    struct.members.inject({}) do |memo, key|
+      value = struct[key].is_a?(Struct) ? deep_struct_to_hash(struct[key]) : struct[key]
+      memo[key] = value
+      memo
+    end
+  end
 end
