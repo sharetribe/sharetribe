@@ -13,20 +13,6 @@ module MarketplaceService
 
       module_function
 
-      # def conversation_title(conversation)
-      #   last_message = conversation[:messages].last
-
-      #   if conversation[:transaction].present?
-      #     if last_message[:created_at] > conversation[:transaction][:last_transition_at]
-      #       last_message[:content]
-      #     else
-      #       conversation[:transaction].status
-      #     end
-      #   else
-      #     last_message[:content]
-      #   end
-      # end
-
       def waiting_testimonial_from?(transaction, person_id)
         if transaction[:starter_id] == person_id
           if transaction[:starter_skipped_feedback]
@@ -43,64 +29,9 @@ module MarketplaceService
         end
       end
 
-      # def last_update_at(conversation)
-      #   last_message = conversation[:messages].last
-
-      #   if conversation[:transaction].present?
-      #     if last_message[:created_at] > conversation[:transaction][:last_transition_at]
-      #       last_message[:created_at]
-      #     else
-      #       conversation[:transaction][:last_transition_at]
-      #     end
-      #   else
-      #     last_message[:created_at]
-      #   end
-      # end
-
       def testimonial_from(transaction, person_id)
         transaction[:testimonials].select { |testimonial| testimonial[:author_id] == person_id }
       end
-
-      # def add_actors_to_transitions(transaction)
-      #   transitions = transaction[:transitions]
-      #   return [] if transitions.blank?
-
-      #   previous_states = [nil] + transitions.map { |transition| transition[:to_state] }
-
-      #   transitions.zip(previous_states).map { |(transition, previous_state)|
-      #     add_actor_to_transition(transaction, transition, previous_state)
-      #   }
-      # end
-
-      # def add_actor_to_transition(transaction, transition, old_state)
-      #   author_id = transaction[:listing][:author_id]
-      #   starter_id = transaction[:starter_id]
-
-      #   actor_id = case transition[:to_state]
-      #   when "free"
-      #     starter_id
-      #   when "pending"
-      #     starter_id
-      #   when "preauthorized"
-      #     starter_id
-      #   when "accepted"
-      #     author_id
-      #   when "rejected"
-      #     author_id
-      #   when "paid" && old_state == "preauthorized"
-      #     author_id
-      #   when "paid" && old_state == "accepted"
-      #     starter_id
-      #   when "canceled"
-      #     author_id
-      #   when "confirmed"
-      #     author_id
-      #   else
-      #     raise("Unknown transition to state: #{transaction[:to_state]}")
-      #   end
-
-      #   transition.to_h.merge(sender_id: actor_id)
-      # end
 
       # TODO Add person entity, and split this
       ConversationParticipant = Struct.new(
@@ -184,7 +115,7 @@ module MarketplaceService
       def transaction(transaction_model)
         listing_model = transaction_model.listing
         listing = EntityUtils.from_hash(Listing,
-          EntityUtils.model_to_hash(transaction_model.listing).merge(author_id: listing_model.id))
+          EntityUtils.model_to_hash(transaction_model.listing).merge(author_id: listing_model.author.id))
 
         EntityUtils.from_hash(Transaction, EntityUtils.model_to_hash(transaction_model).merge({
           status: transaction_model.transaction_transitions.last.to_state,

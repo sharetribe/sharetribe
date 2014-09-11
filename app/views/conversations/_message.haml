@@ -1,35 +1,13 @@
-- me = message_or_action[:sender_id] == @current_user.id
-- avatar_side = me ? "left" : "right"
--# action_class = message.positive_action? ? "positive" : (message.negative_action? ? "negative" : "")
--# TODO FIX ME
-- action_class = "positive"
-/ - contents = []
-
-/ - if message.action.present?
-/   - contents << capture do
-/     %div{class: "message-bubble-arrow-to-#{avatar_side} message-action-#{action_class}"}
-/       %div
-/         - if message.action.eql?("pay")
-/           %b= t(".paid", :sum => sum_with_currency(message.conversation.transaction.payment.total_sum, message.conversation.transaction.payment.currency))
-/         - else
-/           -# TODO FIX ME!
-/             %b= t(".#{message.action}ed_#{message.conversation.discussion_type}")
-
-/ - if message.content.present?
-/   - contents << capture do
-/     %div{class: "message-bubble-arrow-to-#{avatar_side}"}
-/       %div
-/         - text_with_line_breaks do
-/           = message.content
+- avatar_side = message_or_action[:sender][:id] == @current_user.id ? "left" : "right"
 
 .row.message-row
   .col-12.message-container
     %div{class: "message-avatar-#{avatar_side}"}
-      / = small_avatar_thumb(message.sender, :class => "message-avatar-image")
+      = image_tag(message_or_action[:sender][:avatar], :class => "message-avatar-image")
     %div{class: "message-content-container-#{avatar_side}"}
       %div{class: "message-time-ago-#{avatar_side}"}
-        / = link_to message.sender.name, message.sender
-        / = time_ago(message.created_at)
+        = link_to message_or_action[:sender][:name], message_or_action[:sender][:name]
+        = time_ago(message_or_action[:created_at])
 
       %div{class: "message-bubble-arrow-to-#{avatar_side} message-type-#{message_or_action[:type]} message-mood-#{message_or_action[:mood]}"}
         %div
