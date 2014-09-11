@@ -9,14 +9,13 @@
 
     - Maybe(@current_user).each do |user|
       - conversations = @current_community.conversations.for_person(user)
-      - cache [user.id, conversations.maximum(:updated_at)] do
-        - unread_count = conversations.notification_count_for_person(user)
+      - unread_count = conversations.notification_count_for_person(user)
 
-        .header-right
-          = render :partial => "layouts/header_anchors", locals: {user: user}
-          = render :partial => "layouts/header_user_menu", locals: {unread_count: unread_count, user: user}
+      .header-right
+        = render :partial => "layouts/header_anchors", locals: {user: user}
+        = render :partial => "layouts/header_user_menu", locals: {unread_count: unread_count, user: user}
 
-        = render :partial => "layouts/header_right_visible_tablet", locals: {unread_count: unread_count, user: user}
+      = render :partial => "layouts/header_right_visible_tablet", locals: {unread_count: unread_count, user: user}
 
     - with_available_locales do |locales|
       .header-right.visible-desktop
