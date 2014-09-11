@@ -266,7 +266,9 @@ Kassi::Application.routes.draw do
 
         resources :messages, :controller => :conversations do
           collection do
-            get :received
+            # This is only a redirect from old route, changed 2014-09-11
+            # You can clean up this later
+            get :received, to: 'inboxes#show'
           end
           member do
             get :accept, to: 'accept_conversations#accept'
@@ -294,6 +296,7 @@ Kassi::Application.routes.draw do
           resources :braintree_payments
         end
         resource :paypal_account, only: [:new, :show, :create]
+        resources :transactions, :only => [:show]
         resource :checkout_account, only: [:new, :show, :create]
         resource :settings do
           member do

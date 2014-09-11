@@ -52,4 +52,4 @@
       = f.button t(".send_reply")
 
   #messages
-    = render :partial => "message", :collection => messages, as: :message_or_action
+    = render :partial => "conversations/message", :collection => messages, as: :message_or_action

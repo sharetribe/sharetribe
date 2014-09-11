@@ -18,7 +18,13 @@ class InboxesController < ApplicationController
       other = conversation[:participants].reject { |participant| participant[:id] == @current_user.id }.first
 
       h[:other_party] = other.to_h.merge({url: person_path(id: other[:username])})
-      h[:path] = single_conversation_path(:conversation_type => "received", :id => conversation.id)
+
+      h[:path] = if h[:transaction].present?
+        person_transaction_path(:person_id => @current_user.username, :id => h[:transaction][:id])
+      else
+        single_conversation_path(:conversation_type => "received", :id => conversation.id)
+      end
+
       h[:read_by_current] = current.is_read
 
       transaction = if h[:transaction].present?
@@ -48,7 +54,7 @@ class InboxesController < ApplicationController
 
       if conversation[:transaction]
         h[:is_transaction_author] = conversation[:transaction][:listing][:author_id] == @current_user.id
-        h[:waiting_feedback_from_current] = MarketplaceService::Conversation::Entity.waiting_testimonial_from?(conversation[:transaction], @current_user.id)
+        h[:waiting_feedback_from_current] = MarketplaceService::Transaction::Entity.waiting_testimonial_from?(conversation[:transaction], @current_user.id)
       end
 
       h

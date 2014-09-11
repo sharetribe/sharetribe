@@ -11,29 +11,6 @@ module MarketplaceService
         :listing
       )
 
-      module_function
-
-      def waiting_testimonial_from?(transaction, person_id)
-        if transaction[:starter_id] == person_id
-          if transaction[:starter_skipped_feedback]
-            false
-          else
-            testimonial_from(transaction, person_id).nil?
-          end
-        else
-          if transaction[:author_skipped_feedback]
-            false
-          else
-            testimonial_from(transaction, person_id).nil?
-          end
-        end
-      end
-
-      def testimonial_from(transaction, person_id)
-        transaction[:testimonials].select { |testimonial| testimonial[:author_id] == person_id }
-      end
-
-      # TODO Add person entity, and split this
       ConversationParticipant = Struct.new(
         :id,
         :username,
@@ -43,43 +20,17 @@ module MarketplaceService
         :is_starter
       )
 
-      Listing = Struct.new(
-        :id,
-        :title,
-        :author_id
-      )
-
-      Transaction = Struct.new(
-        :id,
-        :last_transition,
-        :last_transition_at,
-        :listing,
-        :direction, # :offer or :request
-        :status,
-        :author_skipped_feedback,
-        :starter_skipped_feedback,
-        :starter_id,
-        :testimonials,
-        :transitions,
-        :payment_sum
-      )
-
-      Transition = Struct.new(
-        :to_state,
-        :created_at
-      )
-
       Message = Struct.new(
         :sender_id,
         :content,
         :created_at
       )
 
-      Testimonial = Struct.new(
-        :author_id,
-        :receiver_id,
-        :grade
-      )
+      TransactionEntity = MarketplaceService::Transaction::Entity
+      Listing = TransactionEntity::Listing
+      Transaction = TransactionEntity::Transaction
+      Transition = TransactionEntity::Transition
+      Testimonial = TransactionEntity::Testimonial
 
       module_function
 
@@ -108,30 +59,8 @@ module MarketplaceService
 
       def conversation_with_transaction(conversation_model)
         conversation_entity = conversation(conversation_model)
-        conversation_entity.transaction = transaction(conversation_model.transaction) if conversation_model.transaction.present?
+        conversation_entity.transaction = TransactionEntity.transaction(conversation_model.transaction) if conversation_model.transaction.present?
         conversation_entity
-      end
-
-      def transaction(transaction_model)
-        listing_model = transaction_model.listing
-        listing = EntityUtils.from_hash(Listing,
-          EntityUtils.model_to_hash(transaction_model.listing).merge(author_id: listing_model.author.id))
-
-        EntityUtils.from_hash(Transaction, EntityUtils.model_to_hash(transaction_model).merge({
-          status: transaction_model.transaction_transitions.last.to_state,
-          last_transition_at: transaction_model.transaction_transitions.last.created_at,
-          listing: listing,
-          testimonials: transaction_model.testimonials.map { |testimonial|
-            EntityUtils.from_hash(Testimonial, EntityUtils.model_to_hash(testimonial))
-          },
-          starter_id: transaction_model.starter.id,
-          transitions: transaction_model.transaction_transitions.map { |transition|
-            EntityUtils.from_hash(Transition, EntityUtils.model_to_hash(transition))
-          },
-          direction: listing_model.transaction_type.direction.to_sym,
-          payment_sum: Maybe(transaction_model).payment.total_sum.or_else { nil }
-        }))
-
       end
     end
 
