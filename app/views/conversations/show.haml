@@ -3,7 +3,7 @@
 
 - content_for :title_header do
   %h1
-    = link_to received_person_messages_path(@current_user) do
+    = link_to person_inbox_path(@current_user) do
       = t("layouts.no_tribe.inbox")
     |
     = t(".conversation_with", person: link_to(conversation_data[:other_party][:name], conversation_data[:other_party][:url])).html_safe

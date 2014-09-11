@@ -43,7 +43,7 @@ Given /^there is a reply "([^"]*)" to that message by "([^"]*)"$/ do |content, s
 end
 
 When /^I try to go to inbox of "([^"]*)"$/ do |person|
-  visit received_person_messages_path(:locale => :en, :person_id => @people[person].id)
+  visit person_inbox_path(:locale => :en, :person_id => @people[person].id)
 end
 
 Then /^the status of the conversation should be "([^"]*)"$/ do |status|

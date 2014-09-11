@@ -21,9 +21,9 @@
         - if conversation[:transaction].present?
           -# Only for transactions
           - listing = conversation[:transaction][:listing]
-          = t(".about_listing", listing_title: link_to(listing[:title], conversation[:listing_url])).html_safe
+          = t("conversations.conversation.about_listing", listing_title: link_to(listing[:title], conversation[:listing_url])).html_safe
         - else
-          = t(".free_message")
+          = t("conversations.conversation.free_message")
 
     - if payments_in_use
       .col-3
