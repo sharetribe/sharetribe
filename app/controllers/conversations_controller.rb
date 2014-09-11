@@ -37,14 +37,30 @@ class ConversationsController < ApplicationController
     conversation_data = conversation_data.map { |conversation|
       h = conversation.to_h
 
-      current = conversation[:participants].select { |participant| participant.id == @current_user.id }.first
-      other = conversation[:participants].reject { |participant| participant.id == @current_user.id }.first
+      current = conversation[:participants].select { |participant| participant[:id] == @current_user.id }.first
+      other = conversation[:participants].reject { |participant| participant[:id] == @current_user.id }.first
 
       h[:other_party] = other.to_h.merge({url: person_path(id: other[:username])})
       h[:path] = single_conversation_path(:conversation_type => "received", :id => conversation.id)
       h[:read_by_current] = current.is_read
 
-      messages = merge_messages_and_transitions(h[:messages], create_messages_from_actions(h[:transaction] || {}))
+      transaction = if h[:transaction].present?
+        transaction = h[:transaction].to_h
+        author_id = transaction[:listing][:author_id]
+        starter_id = transaction[:starter_id]
+
+        author = h[:participants].find { |participant| participant[:id] == author_id }
+        starter = h[:participants].find { |participant| participant[:id] == starter_id }
+
+        author_url = {url: person_path(id: author[:username])}
+        starter_url = {url: person_path(id: starter[:username])}
+
+        transaction.merge({author: author, starter: starter})
+      else
+        {}
+      end
+
+      messages = merge_messages_and_transitions(h[:messages], create_messages_from_actions(transaction || {}))
 
       h[:title] = messages.last[:content]
       h[:last_update_at] = time_ago(messages.last[:created_at])
@@ -83,6 +99,7 @@ class ConversationsController < ApplicationController
       return redirect_to root
     end
 
+    # TODO MARK AS READ!
     # @current_user.read(conversation) unless conversation.read_by?(@current_user)
 
     message_form = MessageForm.new({sender_id: @current_user.id, conversation_id: conversation_id})
@@ -97,22 +114,31 @@ class ConversationsController < ApplicationController
       listing_path(id: transaction[:listing][:id])
     end
 
-    # transitions = if transaction
-    #   transaction[:transitions].map do |transition|
-    #     MarketplaceService::Conversation::Entity.add_actor_to_transition(transaction, transition)
-    #   end
-    # else
-    #   []
-    # end
+    messages = h[:messages].map(&:to_h).map { |message|
+      sender = conversation_data[:participants].find { |participant| participant.id == message[:sender_id] }
+      message.merge({mood: :neutral}).merge(sender: sender)
+    }
 
-    messages = h[:messages].map(&:to_h).map { |message| message.merge({mood: :neutral}) }
+    transaction = if h[:transaction].present?
+      transaction = h[:transaction].to_h
+      author_id = transaction[:listing][:author_id]
+      starter_id = transaction[:starter_id]
 
-    messages = merge_messages_and_transitions(messages, create_messages_from_actions(h[:transaction] || {}))
+      author = conversation_data[:participants].find { |participant| participant.id == author_id }
+      starter = conversation_data[:participants].find { |participant| participant.id == starter_id }
 
-    binding.pry
+      author_url = {url: person_path(id: author[:username])}
+      starter_url = {url: person_path(id: starter[:username])}
+
+      transaction.merge({author: author, starter: starter})
+    else
+      {}
+    end
+
+    messages_and_actions = merge_messages_and_transitions(messages, create_messages_from_actions(transaction))
 
     render locals: {
-      messages: messages,
+      messages: messages_and_actions.reverse,
       conversation_data: h,
       message_form: message_form,
       message_form_action: person_message_messages_path(@current_user, :message_id => h[:id])
@@ -147,77 +173,25 @@ class ConversationsController < ApplicationController
   end
 
   def create_message_from_action(transaction, transition, old_state)
-    direction = transaction.direction
-    author_id = transaction[:listing][:author_id]
-    starter_id = transaction[:starter_id]
+    direction = transaction[:direction]
 
     case transition[:to_state]
     when "preauthorized"
-      {sender_id: starter_id, content: t("conversations.message.paid", sum: humanized_money_with_symbol(transaction.payment_sum)), created_at: transition[:created_at], mood: :positive }
+      {sender: transaction[:starter], content: t("conversations.message.paid", sum: humanized_money_with_symbol(transaction[:payment_sum])), created_at: transition[:created_at], mood: :positive }
     when "accepted"
-      {sender_id: author_id, content: t("conversations.message.accepted_#{direction}"), created_at: transition[:created_at], mood: :positive }
+      {sender: transaction[:author], content: t("conversations.message.accepted_#{direction}"), created_at: transition[:created_at], mood: :positive }
     when "rejected"
-      {sender_id: author_id, content: t("conversations.message.rejected_#{direction}"), created_at: transition[:created_at], mood: :negative }
+      {sender: transaction[:author], content: t("conversations.message.rejected_#{direction}"), created_at: transition[:created_at], mood: :negative }
     when "paid" && old_state == "preauthorized"
-      {sender_id: author_id, content: t("conversations.message.accepted_#{direction}"), created_at: transition[:created_at], mood: :positive }
+      {sender: transaction[:author], content: t("conversations.message.accepted_#{direction}"), created_at: transition[:created_at], mood: :positive }
     when "paid" && old_state == "accepted"
-      {sender_id: starter_id, content: t("conversations.message.paid", sum: humanized_money_with_symbol(transaction.payment_sum)), created_at: transition[:created_at], mood: :positive }
+      {sender: transaction[:starter], content: t("conversations.message.paid", sum: humanized_money_with_symbol(transaction[:payment_sum])), created_at: transition[:created_at], mood: :positive }
     when "canceled"
-      {sender_id: author_id, content: t("conversations.message.canceled_#{direction}"), created_at: transition[:created_at], mood: :negative }
+      {sender: transaction[:author], content: t("conversations.message.canceled_#{direction}"), created_at: transition[:created_at], mood: :negative }
     when "confirmed"
-      {sender_id: author_id, content: t("conversations.message.confirmed_#{direction}"), created_at: transition[:created_at], mood: :positive }
+      {sender: transaction[:author], content: t("conversations.message.confirmed_#{direction}"), created_at: transition[:created_at], mood: :positive }
     else
       raise("Unknown transition to state: #{transaction[:to_state]}")
     end
-  end
-
-  def map_conversation(conversation)
-    h = {}
-
-    transaction = Maybe(conversation).transaction
-    payment_sum = transaction.payment.total_sum.or_else { nil }
-
-    last_message_content = if conversation.last_message.action == "pay"
-      t("conversations.message.paid", :sum => humanized_money_with_symbol(payment_sum))
-    elsif conversation.last_message.action.present?
-      t("conversations.message.#{conversation.last_message.action}ed_#{transaction.discussion_type.get}").capitalize
-    else
-      conversation.last_message.content
-    end
-
-    # For some reason, other_party was wrapped inside "if". I guess there might be situations where other_party do
-    # not exist. This is error in data. Anyway, we don't want the whole inbox to break because of this.
-    h[:other_party] = Maybe(conversation).other_party(@current_user).map { |other_party|
-      {
-        name: other_party.name,
-        avatar: other_party.image.url(:thumb),
-        url: url_for(other_party)
-      }
-    }.or_else { nil }
-    h[:read_by_current] = conversation.read_by?(@current_user)
-    h[:last_message_sender_is_current_user] = conversation.last_message.sender == @current_user
-    h[:last_message_content] = last_message_content
-    h[:last_message_ago] = time_ago(conversation.last_message_at)
-    h[:path_to_conversation] = single_conversation_path(:conversation_type => action_name, :id => conversation.id)
-
-
-    h[:transaction] = transaction.map { |txn|
-      listing = transaction.listing
-
-      {
-        model: txn, # TODO remove the reference to the model
-        # TODO Move feedback from conversation participants to transaction
-        waiting_feedback_from_current: false, # transaction.waiting_feedback_from?(@current_user).or_else { nil }
-        is_author: txn.author == @current_user,
-        status: txn.status,
-        listing: listing.map { |l|
-          {title: l.title, url: url_for(l) }
-        }.or_else { nil },
-        reply_to_listing_path: reply_to_listing_path(:listing_id => listing.id),
-        action_button_label: listing.transaction_type.action_button_label(I18n.locale)
-      }
-    }.or_else { nil }
-
-    h
   end
 end
