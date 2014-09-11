@@ -16,7 +16,7 @@
       .col-12
         - if transaction.present?
           %h2
-            = link_to transaction[:listing][:title], transaction[:listing][:url]
+            = link_to transaction[:listing][:title], conversation_data[:listing_url]
 
         -# TODO Add details
           - @conversation.with(:listing_conversation) do
@@ -38,8 +38,9 @@
 
             -# TODO Status in use
             -# #{:id => "conversation_#{@conversation.id.to_s}_status"}
-            %div
-              = render :partial => "status", :locals => { :transaction => transaction[:model] }
+            -#
+              %div
+                = render :partial => "status", :locals => { :transaction => transaction[:model] }
 
 
   #reply_form.message-avatar-padding.message-reply-form
@@ -51,4 +52,4 @@
       = f.button t(".send_reply")
 
   #messages
-    = render :partial => "message", :collection => messages
+    = render :partial => "message", :collection => messages, as: :message_or_action
