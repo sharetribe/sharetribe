@@ -37,14 +37,14 @@ class TransactionsController < ApplicationController
 
     message_form = MessageForm.new({sender_id: @current_user.id, conversation_id: transaction_data[:conversation][:id]})
 
-    h = transaction_data[:conversation].to_h
-    other = h[:participants].reject { |participant| participant.id == @current_user.id }.first
-    h[:other_party] = other.to_h.merge({url: person_path(id: other[:username])})
+    conversation = transaction_data[:conversation].to_h
+    other = conversation[:participants].reject { |participant| participant.id == @current_user.id }.first
+    conversation[:other_party] = other.to_h.merge({url: person_path(id: other[:username])})
 
-    h[:listing_url] = listing_path(id: transaction_data[:listing][:id])
+    conversation[:listing_url] = listing_path(id: transaction_data[:listing][:id])
 
-    messages = h[:messages].map(&:to_h).map { |message|
-      sender = h[:participants].find { |participant| participant.id == message[:sender_id] }
+    messages = conversation[:messages].map(&:to_h).map { |message|
+      sender = conversation[:participants].find { |participant| participant.id == message[:sender_id] }
       message.merge({mood: :neutral}).merge(sender: sender)
     }
 
@@ -52,21 +52,21 @@ class TransactionsController < ApplicationController
     author_id = transaction[:listing][:author_id]
     starter_id = transaction[:starter_id]
 
-    author = h[:participants].find { |participant| participant.id == author_id }
-    starter = h[:participants].find { |participant| participant.id == starter_id }
+    author = conversation[:participants].find { |participant| participant.id == author_id }
+    starter = conversation[:participants].find { |participant| participant.id == starter_id }
 
     author_url = {url: person_path(id: author[:username])}
     starter_url = {url: person_path(id: starter[:username])}
 
-    transaction = transaction.merge({author: author, starter: starter})
+    transaction = transaction.merge({author: author, starter: starter, conversation: conversation})
 
     messages_and_actions = merge_messages_and_transitions(messages, create_messages_from_actions(transaction))
 
-    render "conversations/show", locals: {
+    render "transactions/show", locals: {
       messages: messages_and_actions.reverse,
-      conversation_data: h,
+      transaction_data: transaction,
       message_form: message_form,
-      message_form_action: person_message_messages_path(@current_user, :message_id => h[:id])
+      message_form_action: person_message_messages_path(@current_user, :message_id => conversation[:id])
     }
   end
 

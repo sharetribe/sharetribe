@@ -61,6 +61,7 @@ class InboxesController < ApplicationController
     }
 
     if request.xhr?
+      # TODO Make sure these work
       render :partial => "additional_messages"
     else
       render :action => :show, locals: {
