@@ -19,6 +19,7 @@ module PaypalService
 
     def do_request(request)
       return do_setup_billing_agreement(request) if request.method == :setup_billing_agreement
+      return do_create_billing_agreement(request) if request.method == :create_billing_agreement
 
       raise(ArgumentException, "Unknown request method #{request.method}")
     end
@@ -43,15 +44,35 @@ module PaypalService
       })
 
       res = @api.set_express_checkout(set_express_checkout)
+      @logger.log_response(res)
+
       if (res.success?)
         DataTypes::Merchant.create_setup_billing_agreement_response(
           res.token, @api.express_checkout_url(res))
       else
-        if (res.errors.length > 0)
-          DataTypes::Merchant.create_failed_setup_billing_agreement_response(res.errors[0].error_code, res.errors[0].long_message)
-        else
-          DataTypes::Merchant.create_failed_setup_billing_agreement_response()
-        end
+        create_failure_response(res)
+      end
+    end
+
+    def do_create_billing_agreement(req)
+      create_billing_agreement = @api.build_create_billing_agreement({Token: req.token})
+
+      res = @api.create_billing_agreement(create_billing_agreement)
+      @logger.log_response(res)
+
+      if (res.success?)
+        DataTypes::Merchant.create_create_billing_agreement_response(res.billing_agreement_id)
+      else
+        DataTypes.create_failure_response(res)
+      end
+    end
+
+
+    def create_failure_response(res)
+      if (res.errors.length > 0)
+        DataTypes.create_failure_response(res.errors[0].error_code, res.errors[0].long_message)
+      else
+        DataTypes.create_failure_response()
       end
     end
   end
