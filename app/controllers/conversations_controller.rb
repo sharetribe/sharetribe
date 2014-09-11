@@ -27,10 +27,6 @@ class ConversationsController < ApplicationController
   def received
     params[:page] = 1 unless request.xhr?
 
-    # conversation_models = @current_community.conversations.includes(:transaction).for_person(@current_user)
-    #   .order("last_message_at DESC")
-    #   .paginate(per_page: 15, page: params[:page])
-
     conversation_data = MarketplaceService::Conversation::Query.conversations_and_transactions(
       @current_user.id,
       @current_community.id,
@@ -47,8 +43,11 @@ class ConversationsController < ApplicationController
       h[:other_party] = other.to_h.merge({url: person_path(id: other[:username])})
       h[:path] = single_conversation_path(:conversation_type => "received", :id => conversation.id)
       h[:read_by_current] = current.is_read
-      h[:title] = MarketplaceService::Conversation::Entity.conversation_title(conversation)
-      h[:last_update_at] = time_ago(MarketplaceService::Conversation::Entity.last_update_at(conversation))
+
+      messages = merge_messages_and_transitions(h[:messages], create_messages_from_actions(h[:transaction] || {}))
+
+      h[:title] = messages.last[:content]
+      h[:last_update_at] = time_ago(messages.last[:created_at])
 
       h[:listing_url] = if conversation.transaction
         listing_path(id: conversation.transaction.listing.id)
@@ -73,23 +72,103 @@ class ConversationsController < ApplicationController
 
   def show
     conversation_id = params[:id]
-    conversation = @current_community.conversations.for_person(@current_user).find_by_id(conversation_id)
 
-    if conversation.blank?
+    conversation_data = MarketplaceService::Conversation::Query.conversation_for_person(
+      conversation_id,
+      @current_user.id,
+      @current_community.id)
+
+    if conversation_data.blank?
       flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
       return redirect_to root
     end
 
-    @current_user.read(conversation) unless conversation.read_by?(@current_user)
+    # @current_user.read(conversation) unless conversation.read_by?(@current_user)
 
     message_form = MessageForm.new({sender_id: @current_user.id, conversation_id: conversation_id})
 
+    h = conversation_data.to_h
+    other = conversation_data[:participants].reject { |participant| participant.id == @current_user.id }.first
+    h[:other_party] = other.to_h.merge({url: person_path(id: other[:username])})
+
+    transaction = conversation_data[:transaction]
+
+    h[:listing_url] = if transaction
+      listing_path(id: transaction[:listing][:id])
+    end
+
+    # transitions = if transaction
+    #   transaction[:transitions].map do |transition|
+    #     MarketplaceService::Conversation::Entity.add_actor_to_transition(transaction, transition)
+    #   end
+    # else
+    #   []
+    # end
+
+    messages = h[:messages].map(&:to_h).map { |message| message.merge({mood: :neutral}) }
+
+    messages = merge_messages_and_transitions(messages, create_messages_from_actions(h[:transaction] || {}))
+
+    binding.pry
+
     render locals: {
-      messages: conversation.messages.reverse,
-      conversation_data: map_conversation(conversation),
+      messages: messages,
+      conversation_data: h,
       message_form: message_form,
-      message_form_action: person_message_messages_path(@current_user, :message_id => conversation.id.to_s)
+      message_form_action: person_message_messages_path(@current_user, :message_id => h[:id])
     }
+  end
+
+  def merge_messages_and_transitions(messages, transitions)
+    messages_with_type = messages.map(&:to_h).map do |message|
+      message[:type] = "message"
+      message
+    end
+
+    transitions_with_type = transitions.map(&:to_h).map do |transition|
+      transition[:type] = "transition"
+      transition
+    end
+
+    (messages_with_type + transitions_with_type).sort_by { |hash| hash[:created_at] }
+  end
+
+  def create_messages_from_actions(transaction)
+    transitions = transaction[:transitions]
+    return [] if transitions.blank?
+
+    previous_states = [nil] + transitions.map { |transition| transition[:to_state] }
+
+    transitions.reject { |transition|
+      ["free", "pending"].include? transition.to_state
+    }. zip(previous_states).map { |(transition, previous_state)|
+      create_message_from_action(transaction, transition, previous_state)
+    }
+  end
+
+  def create_message_from_action(transaction, transition, old_state)
+    direction = transaction.direction
+    author_id = transaction[:listing][:author_id]
+    starter_id = transaction[:starter_id]
+
+    case transition[:to_state]
+    when "preauthorized"
+      {sender_id: starter_id, content: t("conversations.message.paid", sum: humanized_money_with_symbol(transaction.payment_sum)), created_at: transition[:created_at], mood: :positive }
+    when "accepted"
+      {sender_id: author_id, content: t("conversations.message.accepted_#{direction}"), created_at: transition[:created_at], mood: :positive }
+    when "rejected"
+      {sender_id: author_id, content: t("conversations.message.rejected_#{direction}"), created_at: transition[:created_at], mood: :negative }
+    when "paid" && old_state == "preauthorized"
+      {sender_id: author_id, content: t("conversations.message.accepted_#{direction}"), created_at: transition[:created_at], mood: :positive }
+    when "paid" && old_state == "accepted"
+      {sender_id: starter_id, content: t("conversations.message.paid", sum: humanized_money_with_symbol(transaction.payment_sum)), created_at: transition[:created_at], mood: :positive }
+    when "canceled"
+      {sender_id: author_id, content: t("conversations.message.canceled_#{direction}"), created_at: transition[:created_at], mood: :negative }
+    when "confirmed"
+      {sender_id: author_id, content: t("conversations.message.confirmed_#{direction}"), created_at: transition[:created_at], mood: :positive }
+    else
+      raise("Unknown transition to state: #{transaction[:to_state]}")
+    end
   end
 
   def map_conversation(conversation)
