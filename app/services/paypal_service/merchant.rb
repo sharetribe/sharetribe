@@ -31,6 +31,8 @@ module PaypalService
         SetExpressCheckoutRequestDetails: {
           ReturnURL: req.success,
           CancelURL: req.cancel,
+          ReqConfirmShipping: 0,
+          NoShipping: 1,
           PaymentDetails: [{
             OrderTotal: {value: "0.0"},
             # NotifyURL: "https://paypal-sdk-samples.herokuapp.com/merchant/ipn_notify",
@@ -63,7 +65,7 @@ module PaypalService
       if (res.success?)
         DataTypes::Merchant.create_create_billing_agreement_response(res.billing_agreement_id)
       else
-        DataTypes.create_failure_response(res)
+        create_failure_response(res)
       end
     end
 
