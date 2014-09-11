@@ -39,19 +39,19 @@ class TransactionProcess
     transaction.conversation.messages.create(:sender_id => payer.id, :action => "pay")
   end
 
-  after_transition(to: :paid) do |conversation|
-    payment = conversation.payment
+  after_transition(to: :paid) do |transaction|
+    payment = transaction.payment
     payer = payment.payer
-    current_community = conversation.community
+    current_community = transaction.community
 
-    if conversation.booking.present?
-      automatic_booking_confirmation_at = conversation.booking.end_on + 1.day
-      ConfirmConversation.new(conversation, payer, current_community).activate_automatic_booking_confirmation_at!(automatic_booking_confirmation_at)
+    if transaction.booking.present?
+      automatic_booking_confirmation_at = transaction.booking.end_on + 1.day
+      ConfirmConversation.new(transaction, payer, current_community).activate_automatic_booking_confirmation_at!(automatic_booking_confirmation_at)
     else
-      conversation.update_attributes(automatic_confirmation_after_days: current_community.automatic_confirmation_after_days)
-      ConfirmConversation.new(conversation, payer, current_community).activate_automatic_confirmation!
+      transaction.update_attributes(automatic_confirmation_after_days: current_community.automatic_confirmation_after_days)
+      ConfirmConversation.new(transaction, payer, current_community).activate_automatic_confirmation!
     end
-    Delayed::Job.enqueue(PaymentCreatedJob.new(conversation.id, conversation.community.id))
+    Delayed::Job.enqueue(PaymentCreatedJob.new(payment.id, transaction.community.id))
   end
 
   after_transition(to: :rejected) do |transaction|

@@ -48,11 +48,11 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     if @listing_conversation.save!
       @listing_conversation.transition_to! params[:listing_conversation][:status]
 
-      redirect_to person_message_path(:person_id => @current_user.id, :id => @listing_conversation.id)
+      redirect_to person_transaction_path(:person_id => @current_user.id, :id => @listing_conversation.id)
       block.call
     else
       flash[:error] = t("layouts.notifications.something_went_wrong")
-      redirect_to person_message_path(@current_user, @listing_conversation)
+      redirect_to person_transaction_path(@current_user, @listing_conversation)
     end
   end
 

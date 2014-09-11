@@ -185,13 +185,13 @@ Then(/^I should see that the request is waiting for seller acceptance$/) do
   page.should have_content(/Waiting for (.*) to accept the request/)
 end
 
-def visit_conversation_of_listing(listing)
-  conversation = Conversation.find_by_listing_id(listing.id)
-  visit(single_conversation_path(:person_id => @current_user.id, :conversation_type => "received", :id => conversation.id, :locale => "en"))
+def visit_transaction_of_listing(listing)
+  transaction = Transaction.find_by_listing_id(listing.id)
+  visit(person_transaction_path(:person_id => @current_user.id, :id => transaction.id, :locale => "en"))
 end
 
 When(/^I accepts the request for that listing$/) do
-  visit_conversation_of_listing(@listing)
+  visit_transaction_of_listing(@listing)
   click_link "Accept request"
   click_button "Approve"
 end
@@ -228,7 +228,7 @@ Then(/^I should see that the request is waiting for buyer to pay$/) do
 end
 
 When(/^I pay my request for that listing$/) do
-  visit_conversation_of_listing(@listing)
+  visit_transaction_of_listing(@listing)
   click_link "Pay"
 end
 
@@ -239,7 +239,7 @@ When(/^I buy approved request "(.*)"$/) do |accepted_request|
 end
 
 When(/^I confirm the request for that listing$/) do
-  visit_conversation_of_listing(@listing)
+  visit_transaction_of_listing(@listing)
   click_link "Mark completed"
   choose("Skip feedback")
   click_button "Continue"
