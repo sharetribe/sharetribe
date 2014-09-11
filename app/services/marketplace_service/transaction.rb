@@ -6,7 +6,9 @@ module MarketplaceService
       Listing = Struct.new(
         :id,
         :title,
-        :author_id
+        :author_id,
+        :price,
+        :quantity
       )
 
       Transaction = Struct.new(
@@ -22,7 +24,9 @@ module MarketplaceService
         :testimonials,
         :transitions,
         :payment_sum,
-        :conversation
+        :conversation,
+        :booking,
+        :__model
       )
 
       Transition = Struct.new(
@@ -64,8 +68,9 @@ module MarketplaceService
 
       def transaction(transaction_model)
         listing_model = transaction_model.listing
+        # TODO Add Listing service
         listing = EntityUtils.from_hash(Listing,
-          EntityUtils.model_to_hash(transaction_model.listing).merge(author_id: listing_model.author.id))
+          EntityUtils.model_to_hash(transaction_model.listing).merge(author_id: listing_model.author.id).merge(price: listing_model.price))
 
         EntityUtils.from_hash(Transaction, EntityUtils.model_to_hash(transaction_model).merge({
           status: transaction_model.transaction_transitions.last.to_state,
@@ -79,7 +84,9 @@ module MarketplaceService
             EntityUtils.from_hash(Transition, EntityUtils.model_to_hash(transition))
           },
           direction: listing_model.transaction_type.direction.to_sym,
-          payment_sum: Maybe(transaction_model).payment.total_sum.or_else { nil }
+          payment_sum: Maybe(transaction_model).payment.total_sum.or_else { nil },
+          booking: transaction_model.booking,
+          __model: transaction_model
         }))
       end
 
@@ -102,6 +109,7 @@ module MarketplaceService
         transaction_model = TransactionModel.joins(:listing)
           .where(id: transaction_id)
           .where(community_id: community_id)
+          .includes(:booking)
           .where("starter_id = ? OR listings.author_id = ?", person_id, person_id)
           .first
 

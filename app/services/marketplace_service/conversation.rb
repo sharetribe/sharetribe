@@ -17,7 +17,7 @@ module MarketplaceService
         :name,
         :avatar,
         :is_read,
-        :is_starter
+        :is_starter,
       )
 
       Message = Struct.new(
@@ -45,7 +45,8 @@ module MarketplaceService
             name: participant.name,
             avatar: participant.image.url(:thumb),
             is_read: participation.is_read,
-            is_starter: participation.is_starter})
+            is_starter: participation.is_starter
+          })
         end
 
         h[:messages] = conversation_model.messages

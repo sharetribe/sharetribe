@@ -144,6 +144,7 @@ module TransactionHelper
   #   }
   # }
   def get_conversation_statuses(conversation)
+
     statuses = if conversation.listing && !conversation.status.eql?("free")
       case conversation.status
       when "pending"
