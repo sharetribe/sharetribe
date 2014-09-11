@@ -261,6 +261,9 @@ Kassi::Application.routes.draw do
           end
         end
         resources :person_messages
+
+        resource :inbox, :only => [:show]
+
         resources :messages, :controller => :conversations do
           collection do
             get :received

@@ -33,7 +33,7 @@ module NavigationHelpers
     when /^the conversation page of "(.*)"$/
       single_conversation_path(:person_id => @logged_in_user.id, :conversation_type => "received", :id => $1,  :locale => "en")
     when /^the messages page$/i
-      received_person_messages_path(:person_id => @logged_in_user.id, :locale => "en")
+      person_inbox_path(:person_id => @logged_in_user.id, :locale => "en")
     when /^the profile page of "(.*)"$/i
       person_path(@people[$1], :locale => "en")
     when /^my profile page$/i

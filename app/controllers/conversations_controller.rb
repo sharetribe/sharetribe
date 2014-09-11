@@ -21,69 +21,7 @@ class ConversationsController < ApplicationController
   skip_filter :dashboard_only
 
   def index
-    redirect_to received_person_messages_path(:person_id => @current_user.id)
-  end
-
-  def received
-    params[:page] = 1 unless request.xhr?
-
-    conversation_data = MarketplaceService::Conversation::Query.conversations_and_transactions(
-      @current_user.id,
-      @current_community.id,
-      {per_page: 15, page: params[:page]})
-
-    # conversation_data = conversation_models.map(&method(:map_conversation))
-
-    conversation_data = conversation_data.map { |conversation|
-      h = conversation.to_h
-
-      current = conversation[:participants].select { |participant| participant[:id] == @current_user.id }.first
-      other = conversation[:participants].reject { |participant| participant[:id] == @current_user.id }.first
-
-      h[:other_party] = other.to_h.merge({url: person_path(id: other[:username])})
-      h[:path] = single_conversation_path(:conversation_type => "received", :id => conversation.id)
-      h[:read_by_current] = current.is_read
-
-      transaction = if h[:transaction].present?
-        transaction = h[:transaction].to_h
-        author_id = transaction[:listing][:author_id]
-        starter_id = transaction[:starter_id]
-
-        author = h[:participants].find { |participant| participant[:id] == author_id }
-        starter = h[:participants].find { |participant| participant[:id] == starter_id }
-
-        author_url = {url: person_path(id: author[:username])}
-        starter_url = {url: person_path(id: starter[:username])}
-
-        transaction.merge({author: author, starter: starter})
-      else
-        {}
-      end
-
-      messages = merge_messages_and_transitions(h[:messages], create_messages_from_actions(transaction || {}))
-
-      h[:title] = messages.last[:content]
-      h[:last_update_at] = time_ago(messages.last[:created_at])
-
-      h[:listing_url] = if conversation.transaction
-        listing_path(id: conversation.transaction.listing.id)
-      end
-
-      if conversation[:transaction]
-        h[:is_transaction_author] = conversation[:transaction][:listing][:author_id] == @current_user.id
-        h[:waiting_feedback_from_current] = MarketplaceService::Conversation::Entity.waiting_testimonial_from?(conversation[:transaction], @current_user.id)
-      end
-
-      h
-    }
-
-    if request.xhr?
-      render :partial => "additional_messages"
-    else
-      render :action => :index, locals: {
-        conversation_data: conversation_data
-      }
-    end
+    redirect_to person_inbox_path(:person_id => @current_user.id)
   end
 
   def show
