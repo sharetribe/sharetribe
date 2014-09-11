@@ -20,6 +20,35 @@ module PaypalService
       args.map(&:to_s).reject(&:empty?).length == args.length
     end
 
+    module Merchant
+      SetupBillingAgreement = Struct.new(:method, :description, :success, :cancel)
+      SetupBillingAgreementSuccessResponse = Struct.new(:success, :token, :redirect_url)
+      SetupBillingAgreementFailureResponse = Struct.new(:success, :error_id, :error_msg)
+
+
+      module_function
+
+      def create_setup_billing_agreement(description, success, cancel)
+        ParamUtils.throw_if_any_empty({description: description, success: success, cancel: cancel})
+
+        SetupBillingAgreement.new(
+          :setup_billing_agreement,
+          description,
+          success,
+          cancel)
+      end
+
+      def create_setup_billing_agreement_response(token, redirect_url)
+        ParamUtils.throw_if_any_empty({token: token, redirect_url: redirect_url})
+
+        SetupBillingAgreementSuccessResponse.new(true, token, redirect_url)
+      end
+
+      def create_failed_setup_billing_agreement_response(error_id, error_msg)
+        SetupBillingAgreementFailureResponse.new(false, error_id, error_msg)
+      end
+    end
+
     module Permissions
       RequestPermissions = Struct.new(:method, :scope, :callback)
       RequestPermissionsSuccessResponse = Struct.new(:success, :username_to, :scope, :request_token, :redirect_url)
