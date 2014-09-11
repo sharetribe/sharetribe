@@ -38,10 +38,10 @@ class AcceptConversationsController < ApplicationController
       listing.update_attribute(:open, false) if close_listing && close_listing.eql?("true")
 
       flash[:notice] = t("layouts.notifications.#{@listing_conversation.discussion_type}_#{@listing_conversation.status}")
-      redirect_to person_message_path(:person_id => @current_user.id, :id => @listing_conversation.id)
+      redirect_to person_transaction_path(:person_id => @current_user.id, :id => @listing_conversation.id)
     else
       flash[:error] = t("layouts.notifications.something_went_wrong")
-      redirect_to person_message_path(@current_user, @listing_conversation)
+      redirect_to person_transaction_path(@current_user, @listing_conversation)
     end
   end
 

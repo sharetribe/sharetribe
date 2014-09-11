@@ -1,4 +1,4 @@
-- conversation_url = person_message_url(@recipient, @url_params.merge({:id => @conversation.id.to_s}))
+- conversation_url = person_transaction_url(@recipient, @url_params.merge({:id => @conversation.id.to_s}))
 - url = new_person_message_feedback_url(@recipient, @url_params.merge({:message_id => @conversation.id.to_s}))
 
 %tr
@@ -11,12 +11,12 @@
     %font{body_font}
       = t("emails.transaction_confirmed.giving_feedback_is_good_idea", :other_party_given_name => @conversation.other_party(@recipient).given_name_or_username)
 
-- unless @conversation.last_message.content.blank?
+- Maybe(@conversation).conversation.last_message.content.each do |content|
   %tr
     %td{:align => "left", :style => "padding-top: 15px;"}
       %font{body_font}
         = t("emails.transaction_confirmed.here_is_a_message_from", :other_party_given_name => @conversation.other_party(@recipient).given_name_or_username)
-  = render :partial => "quote", :locals => { :quote => @conversation.last_message.content }
+  = render :partial => "quote", :locals => { :quote => content }
 
 = render :partial => "action_button", :locals => { :text => t("emails.transaction_confirmed.give_feedback_to", :other_party_given_name => @conversation.other_party(@recipient).given_name_or_username), :url => url}
 

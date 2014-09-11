@@ -247,7 +247,7 @@ class ListingConversationsController < ApplicationController
       if result.success?
         transaction.save!
         transaction.transition_to! "preauthorized"
-        redirect_to person_message_path(:id => transaction.id)
+        redirect_to person_transaction_path(:id => transaction.id)
       else
         flash[:error] = result.message
         redirect_to action: :preauthorize

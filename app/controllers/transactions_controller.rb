@@ -107,10 +107,14 @@ class TransactionsController < ApplicationController
       {sender: transaction[:author], content: t("conversations.message.accepted_#{direction}"), created_at: transition[:created_at], mood: :positive }
     when "rejected"
       {sender: transaction[:author], content: t("conversations.message.rejected_#{direction}"), created_at: transition[:created_at], mood: :negative }
-    when "paid" && old_state == "preauthorized"
-      {sender: transaction[:author], content: t("conversations.message.accepted_#{direction}"), created_at: transition[:created_at], mood: :positive }
-    when "paid" && old_state == "accepted"
-      {sender: transaction[:starter], content: t("conversations.message.paid", sum: humanized_money_with_symbol(transaction[:payment_sum])), created_at: transition[:created_at], mood: :positive }
+    when "paid"
+      if old_state == "preauthorized"
+        {sender: transaction[:author], content: t("conversations.message.accepted_#{direction}"), created_at: transition[:created_at], mood: :positive }
+      elsif old_state == "accepted"
+        {sender: transaction[:starter], content: t("conversations.message.paid", sum: humanized_money_with_symbol(transaction[:payment_sum])), created_at: transition[:created_at], mood: :positive }
+      else
+        raise("Unknown transition to state: #{transaction[:to_state]}")
+      end
     when "canceled"
       {sender: transaction[:author], content: t("conversations.message.canceled_#{direction}"), created_at: transition[:created_at], mood: :negative }
     when "confirmed"

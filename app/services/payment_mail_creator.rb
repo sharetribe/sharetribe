@@ -1,6 +1,6 @@
 class PaymentMailCreator
 
-  def initialize(transaction, community)
+  def initialize(payment, community)
     @payment, @community = payment, community
     @gateway = @community.payment_gateway
   end

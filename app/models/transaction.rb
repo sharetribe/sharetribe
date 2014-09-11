@@ -134,11 +134,15 @@ class Transaction < ActiveRecord::Base
   end
 
   def offerer
-    [author, starter].find { |p| listing.offerer?(p) }
+    participations.find { |p| listing.offerer?(p) }
   end
 
   def requester
-    [author, starter].find { |p| listing.requester?(p) }
+    participations.find { |p| listing.requester?(p) }
+  end
+
+  def participations
+    [author, starter]
   end
 
   def payer
