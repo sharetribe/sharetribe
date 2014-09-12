@@ -75,19 +75,19 @@ Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do 
 
   # TODO Change status step by step
   if @transaction.status == "pending" && status == "confirmed"
-    @transaction.update_attribute(:status, "accepted")
+    @transaction.transition_to!(:accepted)
     @transaction.payment.update_attribute(:status, "paid") if @transaction.payment
-    @transaction.update_attribute(:status, "paid") if @transaction.payment
-    @transaction.update_attribute(:status, "confirmed")
+    @transaction.transition_to!(:paid) if @transaction.payment
+    @transaction.transition_to!(:confirmed)
   elsif @transaction.status == "pending" && status == "paid"
-    @transaction.update_attribute(:status, "accepted")
+    @transaction.transition_to!(:accepted)
     @transaction.payment.update_attribute(:status, "paid") if @transaction.payment
-    @transaction.update_attribute(:status, "paid") if @transaction.payment
+    @transaction.transition_to!(:paid) if @transaction.payment
   elsif @transaction.status == "not_started" && status == "accepted"
-    @transaction.update_attribute(:status, "pending")
-    @transaction.update_attribute(:status, "accepted")
+    @transaction.transition_to!(:pending)
+    @transaction.transition_to!(:accepted)
   else
-    @transaction.update_attribute(:status, status)
+    @transaction.transition_to!(:status, status)
   end
 end
 
@@ -107,9 +107,9 @@ When(/^I skip feedback$/) do
   }
 end
 
-Given /^I'm on the conversation page of that conversation$/ do
+Given /^I'm on the transaction page of that transaction$/ do
   steps %Q{
-    Given I am on the conversation page of "#{@transaction.id}"
+    Given I am on the transaction page of "#{@transaction.id}"
   }
 end
 

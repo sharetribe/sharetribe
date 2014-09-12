@@ -24,9 +24,9 @@ module TransactionViewUtils
 
     previous_states = [nil] + transitions.map { |transition| transition[:to_state] }
 
-    transitions.reject { |transition|
+    transitions.zip(previous_states).reject { |(transition, previous_state)|
       ["free", "pending"].include? transition[:to_state]
-    }. zip(previous_states).map { |(transition, previous_state)|
+    }.map { |(transition, previous_state)|
       create_message_from_action(transaction, transition, previous_state)
     }
   end
