@@ -118,6 +118,47 @@ module MarketplaceService
 
         Entity.transaction_with_conversation(transaction_model)
       end
+
+      def transactions_sorted_by_column_for_community(community_id, sort_column, sort_direction, pagination_opts = {})
+        conversations = TransactionModel
+          .where(:community_id => community_id)
+          .includes(:listing)
+          .paginate(:page => pagination_opts[:page], :per_page => pagination_opts[:per_page])
+          .order("#{sort_column} #{sort_direction}")
+      end
+
+      def transactions_sorted_by_activity_for_community(community_id, sort_direction, pagination_opts = {})
+        pagination = parse_pagination_opts(pagination_opts)
+
+        transaction_model = WillPaginate::Collection.create(pagination[:page], pagination[:per_page], TransactionModel.count) do |pager|
+          pager.replace(TransactionModel
+            .find_by_sql("
+              SELECT * from transactions t
+              JOIN (
+                SELECT tt1.transaction_id, tt1.created_at as last_transition_at, tt1.to_state as last_transition_to
+                FROM transaction_transitions tt1
+                LEFT JOIN transaction_transitions tt2 ON tt1.transaction_id = tt2.transaction_id AND tt1.created_at < tt2.created_at
+                WHERE tt2.id IS NULL
+              ) AS tt ON (t.id = tt.transaction_id)
+              JOIN conversations ON t.conversation_id = conversations.id
+              WHERE t.community_id = #{community_id}
+              ORDER BY GREATEST(last_transition_at, conversations.last_message_at) #{sort_direction}
+              LIMIT #{pagination[:limit]} OFFSET #{pagination[:offset]}
+            "))
+        end
+      end
+
+      def parse_pagination_opts(pagination_opts = {})
+        per_page = Maybe(pagination_opts)[:per_page].to_i.or_else(30)
+        page = Maybe(pagination_opts)[:page].to_i.or_else(1)
+
+        {
+          per_page: per_page,
+          page: page,
+          limit: per_page,
+          offset: per_page * (page - 1)
+        }
+      end
     end
   end
 end
