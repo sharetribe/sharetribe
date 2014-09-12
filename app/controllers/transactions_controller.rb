@@ -36,13 +36,13 @@ class TransactionsController < ApplicationController
     message_form = MessageForm.new({sender_id: @current_user.id, conversation_id: transaction_data[:conversation][:id]})
 
     conversation = transaction_data[:conversation].to_h
-    other = conversation[:participants].reject { |participant| participant.id == @current_user.id }.first
+    other = conversation[:participants].reject { |participant| participant[:id] == @current_user.id }.first
     conversation[:other_party] = other.to_h.merge({url: person_path(id: other[:username])})
 
     conversation[:listing_url] = listing_path(id: transaction_data[:listing][:id])
 
     messages = conversation[:messages].map(&:to_h).map { |message|
-      sender = conversation[:participants].find { |participant| participant.id == message[:sender_id] }
+      sender = conversation[:participants].find { |participant| participant[:id] == message[:sender_id] }
       message.merge({mood: :neutral}).merge(sender: sender)
     }
 
@@ -50,8 +50,8 @@ class TransactionsController < ApplicationController
     author_id = transaction[:listing][:author_id]
     starter_id = transaction[:starter_id]
 
-    author = conversation[:participants].find { |participant| participant.id == author_id }
-    starter = conversation[:participants].find { |participant| participant.id == starter_id }
+    author = conversation[:participants].find { |participant| participant[:id] == author_id }
+    starter = conversation[:participants].find { |participant| participant[:id] == starter_id }
 
     author_url = {url: person_path(id: author[:username])}
     starter_url = {url: person_path(id: starter[:username])}
