@@ -33,22 +33,20 @@ class ConversationsController < ApplicationController
 
     message_form = MessageForm.new({sender_id: @current_user.id, conversation_id: conversation_id})
 
-    h = conversation_data.to_h
+    other = conversation_data[:participants].reject { |participant| participant[:id] == @current_user.id }.first
 
-    other = conversation_data[:participants].reject { |participant| participant.id == @current_user.id }.first
+    conversation_data[:other_party] = other.merge({url: person_path(id: other[:username])})
 
-    h[:other_party] = other.to_h.merge({url: person_path(id: other[:username])})
-
-    messages = h[:messages].map(&:to_h).map { |message|
-      sender = conversation_data[:participants].find { |participant| participant.id == message[:sender_id] }
+    messages = conversation_data[:messages].map { |message|
+      sender = conversation_data[:participants].find { |participant| participant[:id] == message[:sender_id] }
       message.merge({mood: :neutral, type: :message}).merge(sender: sender)
     }
 
     render locals: {
       messages: messages.reverse,
-      conversation_data: h,
+      conversation_data: conversation_data,
       message_form: message_form,
-      message_form_action: person_message_messages_path(@current_user, :message_id => h[:id])
+      message_form_action: person_message_messages_path(@current_user, :message_id => conversation_data[:id])
     }
   end
 end
