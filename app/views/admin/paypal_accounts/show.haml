@@ -10,16 +10,16 @@
     .col-6
       = t(".username_or_email_help_text")
     .col-6
-      = paypal_account.email
+      = paypal_account[:email]
 
   .row
     .col-6
       = t(".api_password_help_text")
     .col-6
-      = paypal_account.api_password
+      = paypal_account[:api_password]
 
   .row
     .col-6
       = t(".api_signature_help_text")
     .col-6
-      = paypal_account.api_signature
+      = paypal_account[:api_signature]
