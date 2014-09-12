@@ -1,7 +1,8 @@
 def create_transaction(community, listing, starter, message)
   conversation = FactoryGirl.build(:conversation,
     community: community,
-    listing: listing)
+    listing: listing,
+    messages: [])
 
   conversation.participations.build({
     person_id: starter.id,
@@ -27,16 +28,16 @@ def create_transaction(community, listing, starter, message)
 end
 
 Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
-  @conversation = create_transaction(@current_community, @listing, @people[sender], message)
+  @transaction = create_transaction(@current_community, @listing, @people[sender], message)
 end
 
 Given /^there is a pending request "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
-  @conversation = create_transaction(@current_community, @listing, @people[sender], message)
-  @conversation.transition_to! "pending"
+  @transaction = create_transaction(@current_community, @listing, @people[sender], message)
+  @transaction.transition_to! "pending"
 end
 
 Given /^there is a reply "([^"]*)" to that message by "([^"]*)"$/ do |content, sender|
-  @message = Message.create!(:conversation_id => @conversation.id,
+  @message = Message.create!(:conversation_id => @transaction.conversation.id,
                             :sender_id => @people[sender].id,
                             :content => content
                            )
@@ -47,52 +48,52 @@ When /^I try to go to inbox of "([^"]*)"$/ do |person|
 end
 
 Then /^the status of the conversation should be "([^"]*)"$/ do |status|
-  @conversation.status.should == status
+  @transaction.status.should == status
 end
 
 Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do |listing_type, status|
-  if listing_type == "request" && @conversation.listing.payment_required_at?(@conversation.community)
+  if listing_type == "request" && @transaction.listing.payment_required_at?(@transaction.community)
     if status == "accepted" || status == "paid"
       # In this case there should be a pending payment done when this got accepted.
-      type = if @conversation.community.payment_gateway.type == "BraintreePaymentGateway"
+      type = if @transaction.community.payment_gateway.type == "BraintreePaymentGateway"
         :braintree_payment
       else
         :checkout_payment
       end
 
-      recipient = @conversation.listing.author
+      recipient = @transaction.listing.author
 
-      if @conversation.payment == nil
-        payment = FactoryGirl.build(type, :conversation => @conversation, :recipient => recipient, :status => "pending", :community => @current_community)
-        payment.default_sum(@conversation.listing, 24)
+      if @transaction.payment == nil
+        payment = FactoryGirl.build(type, :transaction => @transaction, :recipient => recipient, :status => "pending", :community => @current_community)
+        payment.default_sum(@transaction.listing, 24)
         payment.save!
 
-        @conversation.payment = payment
+        @transaction.payment = payment
       end
     end
   end
 
   # TODO Change status step by step
-  if @conversation.status == "pending" && status == "confirmed"
-    @conversation.update_attribute(:status, "accepted")
-    @conversation.payment.update_attribute(:status, "paid") if @conversation.payment
-    @conversation.update_attribute(:status, "paid") if @conversation.payment
-    @conversation.update_attribute(:status, "confirmed")
-  elsif @conversation.status == "pending" && status == "paid"
-    @conversation.update_attribute(:status, "accepted")
-    @conversation.payment.update_attribute(:status, "paid") if @conversation.payment
-    @conversation.update_attribute(:status, "paid") if @conversation.payment
-  elsif @conversation.status == "not_started" && status == "accepted"
-    @conversation.update_attribute(:status, "pending")
-    @conversation.update_attribute(:status, "accepted")
+  if @transaction.status == "pending" && status == "confirmed"
+    @transaction.update_attribute(:status, "accepted")
+    @transaction.payment.update_attribute(:status, "paid") if @transaction.payment
+    @transaction.update_attribute(:status, "paid") if @transaction.payment
+    @transaction.update_attribute(:status, "confirmed")
+  elsif @transaction.status == "pending" && status == "paid"
+    @transaction.update_attribute(:status, "accepted")
+    @transaction.payment.update_attribute(:status, "paid") if @transaction.payment
+    @transaction.update_attribute(:status, "paid") if @transaction.payment
+  elsif @transaction.status == "not_started" && status == "accepted"
+    @transaction.update_attribute(:status, "pending")
+    @transaction.update_attribute(:status, "accepted")
   else
-    @conversation.update_attribute(:status, status)
+    @transaction.update_attribute(:status, status)
   end
 end
 
 When /^there is feedback about that event from "([^"]*)" with grade "([^"]*)" and with text "([^"]*)"$/ do |feedback_giver, grade, text|
-  participation = @conversation.participations.find_by_person_id(@people[feedback_giver].id)
-  Testimonial.create!(:grade => grade, :author_id => @people[feedback_giver].id, :text => text, :participation_id => participation.id, :receiver_id => @conversation.other_party(@people[feedback_giver]).id)
+  participation = @transaction.participations.find_by_person_id(@people[feedback_giver].id)
+  Testimonial.create!(:grade => grade, :author_id => @people[feedback_giver].id, :text => text, :participation_id => participation.id, :receiver_id => @transaction.other_party(@people[feedback_giver]).id)
 end
 
 Then /^I should see information about missing payment details$/ do
@@ -108,7 +109,7 @@ end
 
 Given /^I'm on the conversation page of that conversation$/ do
   steps %Q{
-    Given I am on the conversation page of "#{@conversation.id}"
+    Given I am on the conversation page of "#{@transaction.id}"
   }
 end
 
@@ -121,7 +122,7 @@ Then(/^I should see that the conversation is waiting for confirmation$/) do
 end
 
 Then(/^the requester of that conversation should receive an email with subject "([^"]*)"$/) do |subject|
-  recipient = @conversation.requester
+  recipient = @transaction.requester
   email = recipient.confirmed_notification_email_addresses.first
 
   steps %Q{
@@ -130,7 +131,7 @@ Then(/^the requester of that conversation should receive an email with subject "
 end
 
 Then(/^the offerer of that conversation should receive an email with subject "([^"]*)"$/) do |subject|
-  recipient = @conversation.offerer
+  recipient = @transaction.offerer
   email = recipient.confirmed_notification_email_addresses.first
 
   steps %Q{
