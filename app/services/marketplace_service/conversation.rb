@@ -1,9 +1,10 @@
 module MarketplaceService
   module Conversation
+    EntityUtils = MarketplaceService::EntityUtils
     ConversationModel = ::Conversation
 
     module Entity
-      Conversation = Struct.new(
+      Conversation = EntityUtils.define_entity(
         :id,
         :participants,
         :messages,
@@ -11,7 +12,7 @@ module MarketplaceService
         :listing
       )
 
-      ConversationParticipant = Struct.new(
+      ConversationParticipant = EntityUtils.define_entity(
         :id,
         :username,
         :name,
@@ -20,7 +21,7 @@ module MarketplaceService
         :is_starter,
       )
 
-      Message = Struct.new(
+      Message = EntityUtils.define_entity(
         :sender_id,
         :content,
         :created_at
@@ -39,28 +40,28 @@ module MarketplaceService
 
         h[:participants] = conversation_model.participations.map do |participation|
           participant = participation.person
-          EntityUtils.from_hash(ConversationParticipant, {
+          ConversationParticipant[{
             id: participant.id,
             username: participant.username,
             name: participant.name,
             avatar: participant.image.url(:thumb),
             is_read: participation.is_read,
             is_starter: participation.is_starter
-          })
+          }]
         end
 
         h[:messages] = conversation_model.messages
           .reject { |message| message.content.blank? }
           .map { |message|
-            EntityUtils.from_hash(Message, EntityUtils.model_to_hash(message))
+            Message[message]
           }
 
-        EntityUtils.from_hash(Conversation, h)
+        Conversation[h]
       end
 
       def conversation_with_transaction(conversation_model)
         conversation_entity = conversation(conversation_model)
-        conversation_entity.transaction = TransactionEntity.transaction(conversation_model.transaction) if conversation_model.transaction.present?
+        conversation_entity[:transaction] = TransactionEntity.transaction(conversation_model.transaction) if conversation_model.transaction.present?
         conversation_entity
       end
     end

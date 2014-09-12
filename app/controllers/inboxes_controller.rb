@@ -22,10 +22,10 @@ class InboxesController < ApplicationController
       h[:path] = if h[:transaction].present?
         person_transaction_path(:person_id => @current_user.username, :id => h[:transaction][:id])
       else
-        single_conversation_path(:conversation_type => "received", :id => conversation.id)
+        single_conversation_path(:conversation_type => "received", :id => conversation[:id])
       end
 
-      h[:read_by_current] = current.is_read
+      h[:read_by_current] = current[:is_read]
 
       transaction = if h[:transaction].present?
         transaction = h[:transaction].to_h
@@ -48,8 +48,8 @@ class InboxesController < ApplicationController
       h[:title] = messages.last[:content]
       h[:last_update_at] = time_ago(messages.last[:created_at])
 
-      h[:listing_url] = if conversation.transaction
-        listing_path(id: conversation.transaction.listing.id)
+      h[:listing_url] = if conversation[:transaction]
+        listing_path(id: conversation[:transaction][:listing][:id])
       end
 
       if conversation[:transaction]
