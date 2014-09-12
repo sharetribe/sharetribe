@@ -179,6 +179,10 @@ class Transaction < ActiveRecord::Base
     block.call(:listing_conversation)
   end
 
+  def latest_activity
+    (transaction_transitions + conversation.messages).max
+  end
+
   def preauthorization_expire_at
     preauthorization_expires = payment.preauthorization_expiration_days.days.from_now.to_date
 

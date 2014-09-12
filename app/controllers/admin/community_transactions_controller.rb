@@ -4,11 +4,12 @@ class Admin::CommunityTransactionsController < ApplicationController
 
   def index
     community = @current_community
-    conversations = Transaction
-      .where(:community_id => @current_community.id)
-      .includes(:listing)
-      .paginate(:page => params[:page], :per_page => 50)
-      .order("#{sort_column} #{sort_direction}")
+
+    conversations = if params[:sort].nil? || params[:sort] == "last_activity"
+      MarketplaceService::Transaction::Query::transactions_sorted_by_activity_for_community(community.id, sort_direction, pagination_opts)
+    else
+      MarketplaceService::Transaction::Query::transactions_sorted_by_column_for_community(community.id, simple_sort_column, sort_direction, pagination_opts)
+    end
 
     render("index",
       { locals: {
@@ -21,17 +22,17 @@ class Admin::CommunityTransactionsController < ApplicationController
 
   private
 
-  def sort_column
-    case params[:sort]
+  def simple_sort_column(sort_column)
+    case sort_column
     when "listing"
       "listings.title"
     when "started"
       "created_at"
-    when "last_activity"
-      "last_message_at"
-    else
-      "last_message_at"
     end
+  end
+
+  def pagination_opts
+    {page: params[:page], per_page: 50}
   end
 
   def sort_direction
