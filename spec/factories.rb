@@ -139,6 +139,7 @@ FactoryGirl.define do
 
   factory :testimonial do
     build_association(:author)
+    build_association(:receiver)
     build_association(:transaction)
     grade 0.5
     text "Test text"
