@@ -50,7 +50,7 @@ module PaypalService
 
       if (res.success?)
         DataTypes::Merchant.create_setup_billing_agreement_response(
-          res.token, @api.express_checkout_url(res))
+          res.token, @api.express_checkout_url(res), @api.config.username)
       else
         create_failure_response(res)
       end
@@ -63,7 +63,8 @@ module PaypalService
       @logger.log_response(res)
 
       if (res.success?)
-        DataTypes::Merchant.create_create_billing_agreement_response(res.billing_agreement_id)
+        DataTypes::Merchant.create_create_billing_agreement_response(
+          res.billing_agreement_id, @api.config.username)
       else
         create_failure_response(res)
       end
@@ -72,7 +73,8 @@ module PaypalService
 
     def create_failure_response(res)
       if (res.errors.length > 0)
-        DataTypes.create_failure_response(res.errors[0].error_code, res.errors[0].long_message)
+        DataTypes.create_failure_response(
+          res.errors[0].error_code, res.errors[0].long_message)
       else
         DataTypes.create_failure_response()
       end

@@ -30,10 +30,10 @@ module PaypalService
       CreateBillingAgreement = Struct.new(:method, :token)
 
       SetupBillingAgreement = Struct.new(:method, :description, :success, :cancel)
-      SetupBillingAgreementResponse = Struct.new(:success, :token, :redirect_url)
+      SetupBillingAgreementResponse = Struct.new(:success, :token, :redirect_url, :username_to)
 
       CreateBillingAgreement = Struct.new(:method, :token)
-      CreateBillingAgreementResponse = Struct.new(:billing_agreement_id)
+      CreateBillingAgreementResponse = Struct.new(:billing_agreement_id, :username_to)
 
 
       module_function
@@ -48,9 +48,9 @@ module PaypalService
           cancel)
       end
 
-      def create_setup_billing_agreement_response(token, redirect_url)
+      def create_setup_billing_agreement_response(token, redirect_url, username_to)
         ParamUtils.throw_if_any_empty({token: token, redirect_url: redirect_url})
-        SetupBillingAgreementResponse.new(true, token, redirect_url)
+        SetupBillingAgreementResponse.new(true, token, redirect_url, username_to)
       end
 
       def create_create_billing_agreement(token)
@@ -58,9 +58,9 @@ module PaypalService
         CreateBillingAgreement.new(:create_billing_agreement, token)
       end
 
-      def create_create_billing_agreement_response(billing_agreement_id)
+      def create_create_billing_agreement_response(billing_agreement_id, username_to)
         ParamUtils.throw_if_any_empty({billing_agreement_id: billing_agreement_id})
-        CreateBillingAgreementResponse.new(billing_agreement_id)
+        CreateBillingAgreementResponse.new(billing_agreement_id, username_to)
       end
     end
 
