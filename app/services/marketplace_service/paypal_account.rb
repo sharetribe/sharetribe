@@ -10,7 +10,10 @@ module MarketplaceService
         :person_id,
         :community_id,
         :order_permission_state, # one of :not_requested, :pending, :verified
-        :request_token # order permission request token
+        :request_token, # order permission request token
+        :billing_agreement_id,
+        :billing_agreement_request_token,
+        :billing_agreement_state, # one of :not_requested, :pending, :verified
       )
 
       module_function
@@ -18,6 +21,9 @@ module MarketplaceService
       def paypal_account(paypal_acc_model)
         hash = EntityUtils.model_to_hash(paypal_acc_model)
           .merge(order_permission_to_hash(paypal_acc_model.order_permission))
+          .merge(EntityUtils.rename_keys(
+            {request_token: :billing_agreement_request_token},
+            billing_agreement_to_hash(paypal_acc_model.billing_agreement)))
         PaypalAccount.call(hash)
       end
 
@@ -37,6 +43,16 @@ module MarketplaceService
         return (paypal_account && paypal_account[:order_permission_state] == :verified)
       end
 
+      def billing_agreement_to_hash(billing_agreement_model)
+        if (billing_agreement_model.nil?)
+          { billing_agreement_state: :not_requested }
+        elsif (billing_agreement_model.billing_agreement_id.nil?)
+          { billing_agreement_state: :pending }
+        else
+          { billing_agreement_state: :verified }
+        end
+          .merge(EntityUtils.model_to_hash(billing_agreement_model))
+      end
     end
 
     module Command
@@ -121,18 +137,17 @@ module MarketplaceService
         Maybe(PaypalAccountModel
             .where(person_id: person_id, community_id: community_id)
             .eager_load(:order_permission)
-            .first
-          )
+            .eager_load(:billing_agreement)
+            .first)
           .map { |model| Entity.paypal_account(model) }
           .or_else(nil)
       end
 
       def admin_account(community_id)
-        Maybe(PaypalAccountModel
-            .where(person_id: nil, community_id: community_id)
+        Maybe(PaypalAccountModel.where(community_id: community_id, person_id: nil)
             .eager_load(:order_permission)
-            .first
-          )
+            .eager_load(:billing_agreement)
+            .first)
           .map { |model| Entity.paypal_account(model) }
           .or_else(nil)
       end
