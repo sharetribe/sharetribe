@@ -32,6 +32,8 @@ module NavigationHelpers
       person_message_path(:person_id => @people[$1].id, :id => @conversation.id.to_s, :locale => "en")
     when /^the conversation page of "(.*)"$/
       single_conversation_path(:person_id => @logged_in_user.id, :conversation_type => "received", :id => $1,  :locale => "en")
+    when /^the transaction page of "(.*)"$/
+      person_transaction_path(:person_id => @logged_in_user.id, :conversation_type => "received", :id => $1,  :locale => "en")
     when /^the messages page$/i
       person_inbox_path(:person_id => @logged_in_user.id, :locale => "en")
     when /^the profile page of "(.*)"$/i
