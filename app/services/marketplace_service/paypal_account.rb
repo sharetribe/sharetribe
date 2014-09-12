@@ -1,9 +1,10 @@
 module MarketplaceService
   module PaypalAccount
+    EntityUtils = MarketplaceService::EntityUtils
     PaypalAccountModel = ::PaypalAccount
 
     module Entity
-      PaypalAccount = Struct.new(
+      PaypalAccount = EntityUtils.define_entity(
         :email,
         :api_password,
         :api_signature,
@@ -18,7 +19,7 @@ module MarketplaceService
       def paypal_account(paypal_acc_model)
         hash = EntityUtils.model_to_hash(paypal_acc_model)
           .merge(order_permission_to_hash(paypal_acc_model.order_permission))
-        EntityUtils.from_hash(PaypalAccount, hash)
+        PaypalAccount.call(hash)
       end
 
 
