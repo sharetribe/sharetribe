@@ -79,6 +79,14 @@ describe HashUtils do
     HashUtils.deep_contains({a: 1, b: 2}, {a: 1, b: 2}).should be_true
     HashUtils.deep_contains({c: 3}, {a: 1, b: 2}).should be_false
   end
+
+  it "#deep_struct_to_hash" do
+    BasicStruct = Struct.new(:member1, :member2)
+    flat_struct = BasicStruct.new("foo", "bar")
+    nested_struct = BasicStruct.new("flat", flat_struct)
+    HashUtils.deep_struct_to_hash(flat_struct).should eql({member1: "foo", member2: "bar"})
+    HashUtils.deep_struct_to_hash(nested_struct).should eql({member1: "flat", member2: {member1: "foo", member2: "bar"}})
+  end
 end
 
 describe StringUtils do
