@@ -113,7 +113,7 @@ module MarketplaceService
           Entity.conversation_with_transaction(conversation)
         else
           nil
-        else
+        end
       end
     end
   end
