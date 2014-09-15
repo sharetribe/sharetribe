@@ -52,8 +52,16 @@ describe PersonMailer do
     let(:author) { FactoryGirl.build(:person) }
     let(:listing) { FactoryGirl.build(:listing, author: author) }
     let(:starter) { FactoryGirl.build(:person, given_name: "Teppo", family_name: "Testaaja") }
-    let(:transaction) { FactoryGirl.create(:transaction, listing: listing, starter: starter, conversation: FactoryGirl.build(:conversation)) }
+    let(:conversation) { FactoryGirl.build(:conversation) }
+    let(:transaction) { FactoryGirl.create(:transaction, listing: listing, starter: starter, conversation: conversation) }
     let(:community) { FactoryGirl.create(:community) }
+
+    before(:each) do
+      conversation.messages.build({
+        sender: starter,
+        content: "Test"
+      })
+    end
 
     it "should send email about an accepted offer or request" do
       transaction.transaction_transitions = [FactoryGirl.create(:transaction_transition, to_state: "accepted")]
