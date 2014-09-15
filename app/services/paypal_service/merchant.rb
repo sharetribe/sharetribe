@@ -1,8 +1,6 @@
 module PaypalService
   class Merchant
 
-    attr_reader :api
-
     def initialize(endpoint, api_credentials, logger)
       @logger = logger
 
@@ -13,21 +11,30 @@ module PaypalService
         signature: api_credentials.signature,
         app_id: api_credentials.app_id
       })
-
-      @api = PayPal::SDK::Merchant.new
     end
 
     def do_request(request)
       return do_setup_billing_agreement(request) if request.method == :setup_billing_agreement
       return do_create_billing_agreement(request) if request.method == :create_billing_agreement
+      return do_do_reference_transaction(request) if request.method == :do_reference_transaction
 
       raise(ArgumentException, "Unknown request method #{request.method}")
     end
 
+    def build_api(subject = nil)
+      if (subject)
+        PayPal::SDK::Merchant.new(nil, { subject: subject })
+      else
+        PayPal::SDK::Merchant.new
+      end
+    end
+
+
     private
 
     def do_setup_billing_agreement(req)
-      set_express_checkout = @api.build_set_express_checkout({
+      api = build_api
+      set_express_checkout = api.build_set_express_checkout({
         SetExpressCheckoutRequestDetails: {
           ReturnURL: req.success,
           CancelURL: req.cancel,
@@ -45,26 +52,59 @@ module PaypalService
         }
       })
 
-      res = @api.set_express_checkout(set_express_checkout)
+      res = api.set_express_checkout(set_express_checkout)
       @logger.log_response(res)
 
       if (res.success?)
         DataTypes::Merchant.create_setup_billing_agreement_response(
-          res.token, @api.express_checkout_url(res), @api.config.username)
+          res.token, api.express_checkout_url(res), api.config.username)
       else
         create_failure_response(res)
       end
     end
 
     def do_create_billing_agreement(req)
-      create_billing_agreement = @api.build_create_billing_agreement({Token: req.token})
+      api = build_api
+      create_billing_agreement = api.build_create_billing_agreement({Token: req.token})
 
-      res = @api.create_billing_agreement(create_billing_agreement)
+      res = api.create_billing_agreement(create_billing_agreement)
       @logger.log_response(res)
 
       if (res.success?)
         DataTypes::Merchant.create_create_billing_agreement_response(
-          res.billing_agreement_id, @api.config.username)
+          res.billing_agreement_id, api.config.username)
+      else
+        create_failure_response(res)
+      end
+    end
+
+    def do_do_reference_transaction(req)
+      api = build_api(req.receiver_username)
+      do_ref_tx = api.build_do_reference_transaction({
+        DoReferenceTransactionRequestDetails: {
+          ReferenceID: req.billing_agreement_id,
+          PaymentAction: "Sale",
+          PaymentDetails: {
+            OrderTotal: {
+              currencyID: req.currency,
+              value: req.order_total
+            }
+          }
+        }
+      })
+
+      res = api.do_reference_transaction(do_ref_tx)
+      @logger.log_response(res)
+
+      if (res.success?)
+        details = res.do_reference_transaction_response_details
+        DataTypes::Merchant.create_do_reference_transaction_response(
+          details.billing_agreement_id,
+          details.payment_info.transaction_id,
+          details.payment_info.gross_amount.value,
+          details.payment_info.gross_amount.currency_id,
+          details.payment_info.fee_amount.value,
+          details.payment_info.fee_amount.currency_id)
       else
         create_failure_response(res)
       end
