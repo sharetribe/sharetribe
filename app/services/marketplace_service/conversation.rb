@@ -50,6 +50,8 @@ module MarketplaceService
           }]
         end
 
+        h[:listing] = conversation_model.listing
+
         h[:messages] = conversation_model.messages
           .reject { |message| message.content.blank? }
           .map { |message|

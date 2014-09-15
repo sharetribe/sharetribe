@@ -19,8 +19,10 @@
         = conversation[:title]
       .conversation-context
         - if conversation[:transaction].present?
-          -# Only for transactions
           - listing = conversation[:transaction][:listing]
+          = t("conversations.conversation.about_listing", listing_title: link_to(listing[:title], conversation[:listing_url])).html_safe
+        - elsif conversation[:listing].present?
+          - listing = conversation[:listing]
           = t("conversations.conversation.about_listing", listing_title: link_to(listing[:title], conversation[:listing_url])).html_safe
         - else
           = t("conversations.conversation.free_message")

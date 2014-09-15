@@ -1,4 +1,4 @@
-def create_transaction(community, listing, starter, message)
+def build_conversation(community, listing, starter, message)
   conversation = FactoryGirl.build(:conversation,
     community: community,
     listing: listing,
@@ -19,16 +19,20 @@ def create_transaction(community, listing, starter, message)
     sender: starter
   })
 
+  conversation
+end
+
+def create_transaction(community, listing, starter, message)
   transaction = FactoryGirl.create(:transaction,
     listing: listing,
     community: community,
     starter: starter,
-    conversation: conversation
+    conversation: build_conversation(community, listing, starter, message)
   )
 end
 
 Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
-  @transaction = create_transaction(@current_community, @listing, @people[sender], message)
+  @transaction = build_conversation(@current_community, @listing, @people[sender], message).save!
 end
 
 Given /^there is a pending request "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
