@@ -2,6 +2,7 @@ module MarketplaceService
   module Conversation
     EntityUtils = MarketplaceService::EntityUtils
     ConversationModel = ::Conversation
+    ParticipationModel = ::Participation
 
     module Entity
       Conversation = EntityUtils.define_entity(
@@ -70,6 +71,14 @@ module MarketplaceService
 
     module Command
       module_function
+
+      def mark_as_read(conversation_id, person_id)
+        conversation = ParticipationModel
+          .where({conversation_id: conversation_id })
+          .where({ person_id: person_id })
+          .first
+          .update_attributes({is_read: true})
+      end
     end
 
     module Query

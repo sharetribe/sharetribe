@@ -5,12 +5,14 @@ def build_conversation(community, listing, starter, message)
 
   conversation.participations.build({
     person_id: starter.id,
-    is_starter: true
+    is_starter: true,
+    is_read: true
   })
 
   conversation.participations.build({
     person_id: listing.author.id,
-    is_starter: false
+    is_starter: false,
+    is_read: false
   })
 
   conversation.messages.build({
@@ -31,7 +33,8 @@ def create_transaction(community, listing, starter, message)
 end
 
 Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
-  @transaction = build_conversation(@current_community, @listing, @people[sender], message).save!
+  @conversation = build_conversation(@current_community, @listing, @people[sender], message)
+  @conversation.save!
 end
 
 Given /^there is a pending request "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
@@ -40,10 +43,10 @@ Given /^there is a pending request "([^"]*)" from "([^"]*)" about that listing$/
 end
 
 Given /^there is a reply "([^"]*)" to that message by "([^"]*)"$/ do |content, sender|
-  @message = Message.create!(:conversation_id => @transaction.conversation.id,
-                            :sender_id => @people[sender].id,
-                            :content => content
-                           )
+  @conversation.messages.create(
+    sender: @people[sender],
+    content: content
+  )
 end
 
 When /^I try to go to inbox of "([^"]*)"$/ do |person|

@@ -28,8 +28,7 @@ class ConversationsController < ApplicationController
       return redirect_to root
     end
 
-    # TODO MARK AS READ!
-    # @current_user.read(conversation) unless conversation.read_by?(@current_user)
+    MarketplaceService::Conversation::Command.mark_as_read(conversation_data[:id], @current_user.id)
 
     message_form = MessageForm.new({sender_id: @current_user.id, conversation_id: conversation_id})
 
