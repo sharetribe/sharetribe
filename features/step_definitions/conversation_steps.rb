@@ -1,8 +1,7 @@
 def build_conversation(community, listing, starter, message)
   conversation = FactoryGirl.build(:conversation,
     community: community,
-    listing: listing,
-    messages: [])
+    listing: listing )
 
   conversation.participations.build({
     person_id: starter.id,
