@@ -112,7 +112,7 @@ FactoryGirl.define do
     title "Item offer: Sledgehammer"
     build_association(:community)
 
-    has_many :messages do |conversation|
+    has_many(:messages, 0) do |conversation|
       FactoryGirl.build(:message, conversation: conversation)
     end
 
