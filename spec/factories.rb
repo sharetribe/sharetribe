@@ -20,7 +20,7 @@ class FactoryGirl::DefinitionProxy
     # after_build is where you add instances to the factory-built collection.
     # Typically you'll want to Factory.build() these instances.
     after (:build) do |instance, evaluator|
-      if instance.send(collection).nil?
+      if instance.send(collection).blank?
         count.times { instance.send(collection) << yield(instance, evaluator) } if instance.send(collection).empty?
       end
     end
