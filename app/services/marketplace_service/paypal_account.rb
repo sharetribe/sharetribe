@@ -127,6 +127,22 @@ module MarketplaceService
           false
         end
       end
+
+      def save_pending_billing_agreement(person_id, community_id, paypal_username_to, request_token)
+        # Create new pending billing agreement and save it for the paypal account connected to user and community
+        # Ensure that this is the only billing agreement for the pp account by deleting any previous requests(?)
+        raise(NotImplementedError)
+      end
+
+      def cancel_pending_billing_agreement(person_id, community_id, request_token)
+        # Delete billing agreement as a result of user clicking cancel at paypal site
+        raise(NotImplementedError)
+      end
+
+      def confirm_billing_agreement(person_id, community_id, request_token, billing_agreement_id)
+        # Should this fail silently in case of no matching billing agreement?
+        raise(NotImplementedError)
+      end
     end
 
     module Query
