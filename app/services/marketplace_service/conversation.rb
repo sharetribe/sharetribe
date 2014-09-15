@@ -109,7 +109,11 @@ module MarketplaceService
           .where( { participations: { person_id: person_id }} )
           .first
 
-        Entity.conversation_with_transaction(conversation)
+        if conversation
+          Entity.conversation_with_transaction(conversation)
+        else
+          nil
+        else
       end
     end
   end
