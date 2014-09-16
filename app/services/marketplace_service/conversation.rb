@@ -10,13 +10,15 @@ module MarketplaceService
         :participants,
         :messages,
         :transaction,
-        :listing
+        :listing,
+        :last_message_at
       )
 
       ConversationParticipant = EntityUtils.define_entity(
         :id,
         :username,
         :name,
+        :full_name,
         :avatar,
         :is_read,
         :is_starter,
@@ -45,6 +47,7 @@ module MarketplaceService
             id: participant.id,
             username: participant.username,
             name: participant.name,
+            full_name: participant.full_name,
             avatar: participant.image.url(:thumb),
             is_read: participation.is_read,
             is_starter: participation.is_starter
@@ -58,6 +61,8 @@ module MarketplaceService
           .map { |message|
             Message[message]
           }
+
+        h[:last_message_at] = conversation_model.last_message_at
 
         Conversation[h]
       end
