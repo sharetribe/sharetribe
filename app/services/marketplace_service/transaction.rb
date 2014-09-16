@@ -64,7 +64,7 @@ module MarketplaceService
       end
 
       def testimonial_from(transaction, person_id)
-        transaction[:testimonials].select { |testimonial| testimonial[:author_id] == person_id }
+        transaction[:testimonials].find { |testimonial| testimonial[:author_id] == person_id }
       end
 
       def transaction(transaction_model)
