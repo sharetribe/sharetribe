@@ -1,10 +1,7 @@
 class PaypalWebhooksController < ApplicationController
 
-  #TODO contains copy-paste
   skip_before_filter :verify_authenticity_token
   skip_filter :check_email_confirmation, :dashboard_only
-
-  #before_filter :fetch_community_by_params
 
   before_filter do
     unless @current_community.paypal_enabled?
@@ -35,14 +32,4 @@ class PaypalWebhooksController < ApplicationController
     end
   end
 
-  private
-
-  # Instead of fetching community by host (http://community.sharetribe.com),
-  # this filter fetched community by `community_id` parameter
-  # (http://sharetribe.com?community_id=id)
-  def fetch_community_by_params
-    fetch_community_by_strategy {
-      Community.find_by_id(params[:community_id])
-    }
-  end
 end
