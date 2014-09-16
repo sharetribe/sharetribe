@@ -93,7 +93,7 @@ Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do 
     @transaction.transition_to!(:pending)
     @transaction.transition_to!(:accepted)
   else
-    @transaction.transition_to!(:status, status)
+    @transaction.transition_to!(status.to_sym)
   end
 end
 
