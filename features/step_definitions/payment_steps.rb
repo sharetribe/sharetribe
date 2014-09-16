@@ -32,13 +32,13 @@ Given(/^"(.*?)" has an? (active) Braintree account$/) do |username, status|
 end
 
 Given /^there is a payment for that request from "(.*?)" with price "(.*?)"$/ do |payer_username, price|
-  listing = @conversation.listing
+  listing = @transaction.listing
   payer = Person.find_by_username(payer_username)
-  @payment = FactoryGirl.create(:braintree_payment, payer: payer, recipient: listing.author, community: @current_community, sum_cents: price.to_i * 100, transaction: @conversation)
+  @payment = FactoryGirl.create(:braintree_payment, payer: payer, recipient: listing.author, community: @current_community, sum_cents: price.to_i * 100, transaction: @transaction)
 end
 
 Given /^that payment is (pending|paid)$/ do |status|
-  @conversation.payment.update_attribute(:status, status)
+  @transaction.payment.update_attribute(:status, status)
 end
 
 Given(/^"(.*?)" has paid for that listing$/) do |username|
