@@ -17,7 +17,7 @@ module MarketplaceService
         :last_transition,
         :last_transition_at,
         :listing,
-        :direction, # :offer or :request
+        :discussion_type, # :offer or :request, opposite of transaction_type direction
         :status,
         :author_skipped_feedback,
         :starter_skipped_feedback,
@@ -86,7 +86,7 @@ module MarketplaceService
           transitions: transaction_model.transaction_transitions.map { |transition|
             Transition[EntityUtils.model_to_hash(transition)]
           },
-          direction: listing_model.transaction_type.direction.to_sym,
+          discussion_type: listing_model.discussion_type.to_sym,
           payment_sum: Maybe(transaction_model).payment.total_sum.or_else { nil },
           booking: transaction_model.booking,
           __model: transaction_model

@@ -32,27 +32,27 @@ module TransactionViewUtils
   end
 
   def create_message_from_action(transaction, transition, old_state)
-    direction = transaction[:direction]
+    discussion_type = transaction[:discussion_type]
 
     case transition[:to_state]
     when "preauthorized"
       {sender: transaction[:starter], content: t("conversations.message.paid", sum: humanized_money_with_symbol(transaction[:payment_sum])), created_at: transition[:created_at], mood: :positive }
     when "accepted"
-      {sender: transaction[:author], content: t("conversations.message.accepted_#{direction}"), created_at: transition[:created_at], mood: :positive }
+      {sender: transaction[:author], content: t("conversations.message.accepted_#{discussion_type}"), created_at: transition[:created_at], mood: :positive }
     when "rejected"
-      {sender: transaction[:author], content: t("conversations.message.rejected_#{direction}"), created_at: transition[:created_at], mood: :negative }
+      {sender: transaction[:author], content: t("conversations.message.rejected_#{discussion_type}"), created_at: transition[:created_at], mood: :negative }
     when "paid"
       if old_state == "preauthorized"
-        {sender: transaction[:author], content: t("conversations.message.accepted_#{direction}"), created_at: transition[:created_at], mood: :positive }
+        {sender: transaction[:author], content: t("conversations.message.accepted_#{discussion_type}"), created_at: transition[:created_at], mood: :positive }
       elsif old_state == "accepted"
         {sender: transaction[:starter], content: t("conversations.message.paid", sum: humanized_money_with_symbol(transaction[:payment_sum])), created_at: transition[:created_at], mood: :positive }
       else
         raise("Unknown transition to state: #{transaction[:to_state]}")
       end
     when "canceled"
-      {sender: transaction[:author], content: t("conversations.message.canceled_#{direction}"), created_at: transition[:created_at], mood: :negative }
+      {sender: transaction[:author], content: t("conversations.message.canceled_#{discussion_type}"), created_at: transition[:created_at], mood: :negative }
     when "confirmed"
-      {sender: transaction[:author], content: t("conversations.message.confirmed_#{direction}"), created_at: transition[:created_at], mood: :positive }
+      {sender: transaction[:author], content: t("conversations.message.confirmed_#{discussion_type}"), created_at: transition[:created_at], mood: :positive }
     else
       raise("Unknown transition to state: #{transaction[:to_state]}")
     end
