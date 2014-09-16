@@ -98,8 +98,12 @@ Given /^the (offer|request) is (accepted|rejected|confirmed|canceled|paid)$/ do 
 end
 
 When /^there is feedback about that event from "([^"]*)" with grade "([^"]*)" and with text "([^"]*)"$/ do |feedback_giver, grade, text|
-  participation = @transaction.participations.find_by_person_id(@people[feedback_giver].id)
-  Testimonial.create!(:grade => grade, :author_id => @people[feedback_giver].id, :text => text, :participation_id => participation.id, :receiver_id => @transaction.other_party(@people[feedback_giver]).id)
+  Testimonial.create!(
+    grade: grade,
+    author_id: @people[feedback_giver].id,
+    text: text,
+    receiver_id: @transaction.other_party(@people[feedback_giver]).id,
+    transaction_id: @transaction.id)
 end
 
 Then /^I should see information about missing payment details$/ do
