@@ -10,7 +10,8 @@
     = render :partial => "layouts/info_text", :locals => {text: text}
 
 
-= form.button t("paypal_accounts.new.connect_paypal_account"), :class => "send_button"
+.row.send-button-wrapper
+  = form.button t("paypal_accounts.new.connect_paypal_account"), :class => "send_button"
 
 %br/
 

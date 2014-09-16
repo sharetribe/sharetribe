@@ -13,13 +13,17 @@ class PaypalAccountsController < ApplicationController
     .with_validations { validates_presence_of :paypal_email }
 
   def show
-    paypal_account = MarketplaceService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id)
     billing_agreement = false
 
-    unless paypal_account_verified_and_agreed(paypal_account, billing_agreement)
+    unless unverified_account?(@current_user.id, @current_community.id)
+      MarketplaceService::PaypalAccount::Command.destroy_personal_account(@current_user.id, @current_community.id)
       return redirect_to action: :new
     end
 
+    return redirect_to action: :new if billing_agreement.blank?
+
+    paypal_account = MarketplaceService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id)
+    billing_agreement = false #TODO link to actual model when ready
     @selected_left_navi_link = "payments"
 
     render(locals: {
@@ -30,15 +34,18 @@ class PaypalAccountsController < ApplicationController
   end
 
   def new
-    paypal_account = MarketplaceService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id)
-    billing_agreement = false
+    billing_agreement = false #TODO link to actual model when ready
 
-    if paypal_account_verified_and_agreed(paypal_account, billing_agreement)
-      return redirect_to action: :show
+    unverified = unverified_account?(@current_user.id, @current_community.id)
+    if unverified
+      MarketplaceService::PaypalAccount::Command.destroy_personal_account(@current_user.id, @current_community.id)
     end
 
-    @selected_left_navi_link = "payments"
+    return redirect_to action: :show if billing_agreement.present? && unverified
 
+    paypal_account = MarketplaceService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id)
+    billing_agreement = false #TODO link to actual model when ready
+    @selected_left_navi_link = "payments"
     commission_from_seller = @current_community.commission_from_seller ? "#{@current_community.commission_from_seller} %" : "0 %"
 
     render(locals: {
@@ -89,16 +96,10 @@ class PaypalAccountsController < ApplicationController
     end
   end
 
-  def paypal_account_verified_and_agreed(paypal_account, billing_agreement)
-    (paypal_account.present? &&
-      !remove_unverified_account?(paypal_account) &&
-      billing_agreement.present?)
-  end
-  def remove_unverified_account?(paypal_account)
-    if paypal_account && paypal_account[:order_permission_state] != :verified
-      MarketplaceService::PaypalAccount::Command.destroy_personal_account(@current_user.id, @current_community.id)
-    end
-    return false
+
+  def unverified_account?(person_id, community_id)
+    paypal_account = MarketplaceService::PaypalAccount::Query.personal_account(person_id, community_id)
+    return (paypal_account && paypal_account[:order_permission_state] != :verified)
   end
 
   def request_paypal_permissions_url
