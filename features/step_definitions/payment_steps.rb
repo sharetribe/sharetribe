@@ -1,8 +1,8 @@
 require 'cucumber/rspec/doubles'
 
-CC_NAME = "[name='braintree_payment[cardholder_name]']"
-CC_NUMBER = "[name='braintree_payment[credit_card_number]']"
-CC_CVV = "[name='braintree_payment[cvv]']"
+CC_NAME = "[name='listing_conversation[braintree_cardholder_name]']"
+CC_NUMBER = "[name='listing_conversation[braintree_credit_card_number]']"
+CC_CVV = "[name='listing_conversation[braintree_cvv]']"
 
 module PaymentSteps
 
