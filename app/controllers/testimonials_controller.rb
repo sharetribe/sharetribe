@@ -27,12 +27,12 @@ class TestimonialsController < ApplicationController
   end
 
   def create
-    @transaction.testimonials.build(params[:testimonial])
+    @testimonial = @transaction.testimonials.build(params[:testimonial])
 
     if @testimonial.save
       Delayed::Job.enqueue(TestimonialGivenJob.new(@testimonial.id, @current_community))
       flash[:notice] = t("layouts.notifications.feedback_sent_to", :target_person => view_context.link_to(@transaction.other_party(@current_user).given_name_or_username, @transaction.other_party(@current_user))).html_safe
-      redirect_to person_message_path(:person_id => @current_user.id, :id => @transaction.id)
+      redirect_to person_transaction_path(:person_id => @current_user.id, :id => @transaction.id)
     else
       render :action => new
     end
