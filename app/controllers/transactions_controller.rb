@@ -33,8 +33,6 @@ class TransactionsController < ApplicationController
     other = conversation[:participants].reject { |participant| participant[:id] == @current_user.id }.first
     conversation[:other_party] = other.to_h.merge({url: person_path(id: other[:username])})
 
-    conversation[:listing_url] = listing_path(id: transaction_data[:listing][:id])
-
     messages = conversation[:messages].map(&:to_h).map { |message|
       sender = conversation[:participants].find { |participant| participant[:id] == message[:sender_id] }
       message.merge({mood: :neutral}).merge(sender: sender)
@@ -49,8 +47,9 @@ class TransactionsController < ApplicationController
 
     author_url = {url: person_path(id: author[:username])}
     starter_url = {url: person_path(id: starter[:username])}
+    listing_url = listing_path(id: transaction_data[:listing][:id])
 
-    transaction = transaction.merge({author: author, starter: starter, conversation: conversation})
+    transaction = transaction.merge({author: author, starter: starter, conversation: conversation, listing_url: listing_url})
 
     messages_and_actions = TransactionViewUtils::merge_messages_and_transitions(messages, TransactionViewUtils::create_messages_from_actions(transaction))
 
