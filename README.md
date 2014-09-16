@@ -17,7 +17,7 @@ Below the installation instructions there is space for Operating system-specific
 
 
 * Before you get started, you need to have or install the following:
-  * Ruby (we use currently version 2.1.1 and don't guarantee everything working with others. If you need multiple versions of Ruby, [RVM](https://rvm.io//) can help.)
+  * Ruby (we use currently version 2.1.2 and don't guarantee everything working with others. If you need multiple versions of Ruby, [RVM](https://rvm.io//) can help.)
   * [RubyGems](http://rubygems.org/)
   * Bundler `gem install bundler`
   * [Git](http://help.github.com/git-installation-redirect)
