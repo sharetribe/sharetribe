@@ -16,14 +16,15 @@ module MarketplaceService
       module_function
 
       def payment_type(community_id)
-        community = CommunityModel.find_by_id(community_id)
-
-        #ToDo should paypal be a gateway?
-        if(community.paypal_enabled)
-          :paypal
-        else
-          community.payment_gateway.gateway_type
-        end
+        Maybe(CommunityModel.find_by_id(community_id))
+          .map { |community|
+            if community.paypal_enabled
+              :paypal
+            else
+              community.payment_gateway.gateway_type
+            end
+          }
+          .or_else(nil)
       end
 
     end
