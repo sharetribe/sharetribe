@@ -9,13 +9,7 @@ class TransactionsController < ApplicationController
 
   skip_filter :dashboard_only
 
-  MessageForm = FormUtils.define_form("Message",
-    :content,
-    :conversation_id, # TODO Remove this
-    :sender_id, # TODO Remove this
-  ).with_validations {
-    validates_presence_of :content, :conversation_id, :sender_id
-  }
+  MessageForm = Form::Message
 
   def show
     transaction_id = params[:id]

@@ -23,7 +23,9 @@ class TestimonialsController < ApplicationController
   end
 
   def new
-    @testimonial = Testimonial.new
+    transaction = Transaction.find(params[:message_id])
+    testimonial = Testimonial.new
+    render(locals: { transaction: transaction, testimonial: testimonial})
   end
 
   def create

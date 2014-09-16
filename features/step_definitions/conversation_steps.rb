@@ -307,4 +307,3 @@ end
 Then /^I should see that the request is completed$/ do
   expect(page.find(".conversation-status")).to have_content("Completed")
 end
-

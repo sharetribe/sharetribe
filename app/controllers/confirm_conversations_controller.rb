@@ -11,13 +11,16 @@ class ConfirmConversationsController < ApplicationController
 
   skip_filter :dashboard_only
 
+  MessageForm = Form::Message
+
   def confirm
     @action = "confirm"
+    render(locals: { message_form: MessageForm.new })
   end
 
   def cancel
     @action = "cancel"
-    render :confirm
+    render(:confirm, locals: { message_form: MessageForm.new })
   end
 
   # Handles confirm and cancel forms
@@ -26,6 +29,11 @@ class ConfirmConversationsController < ApplicationController
 
     if @listing_conversation.can_transition_to? status
       @listing_conversation.transition_to! status
+
+      message = MessageForm.new(params[:message].merge({ sender_id: @current_user.id, conversation_id: @listing_conversation.id }))
+      if(message.valid?)
+        @listing_conversation.conversation.messages.create({ content: message.content, sender_id: message.sender_id})
+      end
 
       give_feedback = Maybe(params)[:give_feedback].select { |v| v == "true" }.or_else { false }
 

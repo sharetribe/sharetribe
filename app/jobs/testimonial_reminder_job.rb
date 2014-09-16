@@ -1,3 +1,4 @@
+#reminder is sent to both parties, no need for recipient id anymore
 class TestimonialReminderJob < Struct.new(:conversation_id, :recipient_id, :community_id)
 
   include DelayedAirbrakeNotification
@@ -13,9 +14,6 @@ class TestimonialReminderJob < Struct.new(:conversation_id, :recipient_id, :comm
   def perform
     transaction = Transaction.find(conversation_id)
     community = Community.find(community_id)
-
-    participation = Participation.find_by_person_id_and_conversation_id(recipient_id, conversation_id)
-    participation.update_attribute(:is_read, false)
 
     if transaction.testimonial_from_author.nil?
       PersonMailer.send("testimonial_reminder", transaction, transaction.author, community).deliver

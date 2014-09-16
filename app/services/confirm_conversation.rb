@@ -17,10 +17,8 @@ class ConfirmConversation
   # Listing confirmed by user
   def confirm!
     Delayed::Job.enqueue(TransactionConfirmedJob.new(@transaction.id, @community.id))
-    @transaction.participations.each do |participation|
-      [3, 10].each do |send_interval|
-        Delayed::Job.enqueue(TestimonialReminderJob.new(@transaction.id, participation.id, @community.id), :priority => 10, :run_at => send_interval.days.from_now)
-      end
+    [3, 10].each do |send_interval|
+      Delayed::Job.enqueue(TestimonialReminderJob.new(@transaction.id, nil, @community.id), :priority => 10, :run_at => send_interval.days.from_now)
     end
     @conversation.messages.create(:sender_id => @requester.id, :action => "confirm")
     release_escrow if @hold_in_escrow
