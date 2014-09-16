@@ -37,7 +37,7 @@ class ConfirmConversationsController < ApplicationController
       redirect_path = if give_feedback
         new_person_message_feedback_path(:person_id => @current_user.id, :message_id => @listing_conversation.id)
       else
-        person_message_path(:person_id => @current_user.id, :id => @listing_conversation.id)
+        person_transaction_path(:person_id => @current_user.id, :id => @listing_conversation.id)
       end
 
       redirect_to redirect_path

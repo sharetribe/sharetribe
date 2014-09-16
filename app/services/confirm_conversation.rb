@@ -35,7 +35,12 @@ class ConfirmConversation
 
   def update_participation(feedback_given)
     @participation.update_attribute(:is_read, true) if @offerer.eql?(@user)
-    @participation.update_attribute(:feedback_skipped, true) unless feedback_given
+
+    if @transaction.author == @user
+      @transaction.update_attributes(author_skipped_feedback: true) unless feedback_given
+    else
+      @transaction.update_attributes(starter_skipped_feedback: true) unless feedback_given
+    end
   end
 
   def activate_automatic_confirmation!
