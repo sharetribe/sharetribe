@@ -42,9 +42,9 @@ Given /^that payment is (pending|paid)$/ do |status|
 end
 
 Given(/^"(.*?)" has paid for that listing$/) do |username|
-  conversation = @listing.conversations.find { |c| c.requester.username == username }
-  conversation.status = "paid"
-  conversation.save!
+  transaction = Transaction.find_by_listing_id(@listing)
+  transaction.status = "paid"
+  transaction.save!
 end
 
 Then /^"(.*?)" should have required Checkout payment details saved to my account information$/ do |username|
