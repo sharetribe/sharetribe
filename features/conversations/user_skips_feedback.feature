@@ -23,6 +23,6 @@ Feature: User skips feedback
   Scenario: Skipping feedback from the conversation page
     When I follow inbox link
     Then I should see "Waiting for you to give feedback"
-    And I follow "marked the offer as completed"
+    And I follow "marked the request as completed"
     And I follow "Skip feedback"
     And I should see "Feedback skipped" within ".conversation-status"
