@@ -1,6 +1,5 @@
 module MarketplaceService
   module Transaction
-    EntityUtils = MarketplaceService::EntityUtils
     TransactionModel = ::Transaction
 
     module Entity

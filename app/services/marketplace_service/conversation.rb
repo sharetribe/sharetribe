@@ -1,6 +1,5 @@
 module MarketplaceService
   module Conversation
-    EntityUtils = MarketplaceService::EntityUtils
     ConversationModel = ::Conversation
     ParticipationModel = ::Participation
 
