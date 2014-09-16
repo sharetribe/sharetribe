@@ -21,5 +21,5 @@
               = transaction[:action_button_label]
 
       - else
-        %div
+        %div{:id => "transaction_status"}
           = render :partial => "transactions/status/status", :locals => { :__transaction_model => transaction[:__model] }

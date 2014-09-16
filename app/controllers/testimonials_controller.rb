@@ -39,10 +39,10 @@ class TestimonialsController < ApplicationController
   end
 
   def skip
-    if @transsaction.author == @current_user
-      @transaction.update_attributes(:author_skipped_feedback, true)
+    if @transaction.author == @current_user
+      @transaction.update_attributes(author_skipped_feedback: true)
     else
-      @transaction.update_attributes(:starter_skipped_feedback, true)
+      @transaction.update_attributes(starter_skipped_feedback: true)
     end
 
     respond_to do |format|
@@ -57,9 +57,18 @@ class TestimonialsController < ApplicationController
   private
 
   def ensure_authorized_to_give_feedback
-    @transaction = @current_community.transactions.for_person(@current_user).find(params[:message_id])
+    # Rails was giving some read-only records. That's why we have to do some manual queries here and use INCLUDES,
+    # not joins.
+    # TODO Move this to service
+    @transaction = Transaction
+      .includes(:listing)
+      .where("starter_id = ? OR listings.author_id = ?", @current_user.id, @current_user.id)
+      .where({
+        community_id: @current_community.id,
+        id: params[:message_id]
+      }).first
 
-    if transaction.nil?
+    if @transaction.nil?
       flash[:error] = t("layouts.notifications.you_are_not_allowed_to_give_feedback_on_this_transaction")
       redirect_to root and return
     end

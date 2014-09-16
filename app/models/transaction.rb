@@ -15,7 +15,14 @@
 #
 
 class Transaction < ActiveRecord::Base
-  attr_accessible :community_id, :starter_id, :listing_id, :automatic_confirmation_after_days
+  attr_accessible(
+    :community_id,
+    :starter_id,
+    :listing_id,
+    :automatic_confirmation_after_days,
+    :author_skipped_feedback,
+    :starter_skipped_feedback
+  )
   attr_accessor :contract_agreed
 
   belongs_to :community
