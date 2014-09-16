@@ -27,7 +27,7 @@ module NavigationHelpers
     when /the edit listing page/
       edit_listing_path(:id => @listing.id, :locale => "en")
     when /^the give feedback path of "(.*)"$/i
-      new_person_message_feedback_path(:person_id => @people[$1].id, :message_id => @conversation.id.to_s, :locale => "en")
+      new_person_message_feedback_path(:person_id => @people[$1].id, :message_id => @transaction.id.to_s, :locale => "en")
     when /^the conversation path of "(.*)"$/i
       person_message_path(:person_id => @people[$1].id, :id => @conversation.id.to_s, :locale => "en")
     when /^the conversation page of "(.*)"$/
