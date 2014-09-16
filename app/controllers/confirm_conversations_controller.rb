@@ -23,6 +23,7 @@ class ConfirmConversationsController < ApplicationController
     render(:confirm, locals: { message_form: MessageForm.new })
   end
 
+  # TODO: Separate confirm and cancel form handling to separate actions
   # Handles confirm and cancel forms
   def confirmation
     status = params[:transaction][:status]
@@ -30,9 +31,11 @@ class ConfirmConversationsController < ApplicationController
     if @listing_conversation.can_transition_to? status
       @listing_conversation.transition_to! status
 
-      message = MessageForm.new(params[:message].merge({ sender_id: @current_user.id, conversation_id: @listing_conversation.id }))
-      if(message.valid?)
-        @listing_conversation.conversation.messages.create({ content: message.content, sender_id: message.sender_id})
+      if(params[:message])
+        message = MessageForm.new(params[:message].merge({ sender_id: @current_user.id, conversation_id: @listing_conversation.id }))
+        if(message.valid?)
+          @listing_conversation.conversation.messages.create({ content: message.content, sender_id: message.sender_id})
+        end
       end
 
       give_feedback = Maybe(params)[:give_feedback].select { |v| v == "true" }.or_else { false }
