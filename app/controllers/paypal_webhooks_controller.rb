@@ -24,7 +24,7 @@ class PaypalWebhooksController < ApplicationController
       redirect_to new_paypal_account_settings_payment_path(@current_user.username)
     else
       personal_account = MarketplaceService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id)
-      if personal_account && personal_account.order_permission_state != :verified
+      if personal_account && personal_account[:order_permission_state] != :verified
         MarketplaceService::PaypalAccount::Command.destroy_personal_account(@current_user.id, @current_community.id)
       end
       flash[:error] = t("paypal_accounts.new.permissions_not_granted")

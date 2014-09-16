@@ -53,7 +53,7 @@ class PaypalAccountsController < ApplicationController
       form_action: person_paypal_account_path(@current_user),
       paypal_account_form: PaypalAccountForm.new,
       billing_agreement: billing_agreement,
-      paypal_account_email: Maybe(paypal_account).email.or_else(""),
+      paypal_account_email: Maybe(paypal_account)[:email].or_else(""),
       commission_from_seller: commission_from_seller
     })
   end
