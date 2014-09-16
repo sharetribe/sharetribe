@@ -278,11 +278,11 @@ end
 Then /^I should send a message to "(.*?)"$/ do |seller_name|
   find("#new_listing_conversation").visible?.should be_true
   seller = Person.find_by_username(seller_name)
-  expect(find("label[for=listing_conversation_message_attributes_content]")).to have_content("Message to #{seller.given_name}")
+  expect(find("label[for=listing_conversation_content]")).to have_content("Message to #{seller.given_name}")
 end
 
 When /^I send initial message to "(.*?)"$/ do |seller|
-  fill_in "listing_conversation[message_attributes][content]", :with => "I want to buy this item"
+  fill_in "listing_conversation[content]", :with => "I want to buy this item"
   click_button("Buy")
 end
 

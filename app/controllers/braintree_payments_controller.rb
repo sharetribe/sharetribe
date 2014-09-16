@@ -14,7 +14,7 @@ class BraintreePaymentsController < ApplicationController
 
   # This expects that each conversation already has a (pending) payment at this point
   def edit
-    @conversation = Conversation.find(params[:message_id])
+    @conversation = Transaction.find(params[:message_id])
     @braintree_payment = @conversation.payment
     community_payment_gateway = @current_community.payment_gateway
     @braintree_client_side_encryption_key = community_payment_gateway.braintree_client_side_encryption_key
@@ -27,7 +27,7 @@ class BraintreePaymentsController < ApplicationController
     recipient = payment.recipient
     if result.success?
       @conversation.status = "paid"
-      redirect_to person_message_path(:id => params[:message_id])
+      redirect_to person_transaction_path(:id => params[:message_id])
     else
       flash[:error] = result.message
       redirect_to :edit_person_message_braintree_payment
@@ -60,7 +60,7 @@ class BraintreePaymentsController < ApplicationController
 
   # Before filter
   def fetch_conversation
-    @conversation = Conversation.find(params[:message_id])
+    @conversation = Transaction.find(params[:message_id])
     @braintree_payment = @conversation.payment
   end
 
