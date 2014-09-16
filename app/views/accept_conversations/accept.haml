@@ -12,7 +12,7 @@
     .conversation-action
       - ["accept", "reject"].each do |action|
         %label{:for => "action-#{action}", :class => "radio hidden"}
-          = radio_button_tag "listing_conversation[status]", action, @action.eql?(action), :id => "action-#{action}"
+          = radio_button_tag "listing_conversation[status]", "#{action}ed", @action.eql?(action), :id => "action-#{action}"
         %a.conversation-action.hidden{:id => "#{action}", :name => "#{action}-link", :class => (@action.eql?(action) ? action : "")}
           .link-icon{:class => icon_for("#{action}ed")}
           .link-text{:id => "#{action}-action-link"}= t("conversations.accept.#{action}_#{@listing_conversation.discussion_type}")
@@ -27,11 +27,8 @@
       - if @listing_conversation.listing.payment_required_at?(@current_community)
         = render :partial => @current_community.payment_gateway.form_template_dir + "/form"
 
-      = fields_for "listing_conversation[message_attributes]", Message.new do |message_form|
+      = fields_for :message, message_form do |message_form|
         = message_form.label :content, t("conversations.new.message"), :class => "input"
         = message_form.text_area :content, :class => "text_area", :placeholder => t("conversations.accept.optional_message")
-        = message_form.hidden_field :sender_id, :value => @current_user.id
-        = message_form.hidden_field :action, :value => @action
 
-      = form.hidden_field :status, :value => "#{@action}ed"
       = form.button t("conversations.new.send"), :class => "send_button", :id => "send_testimonial_button"

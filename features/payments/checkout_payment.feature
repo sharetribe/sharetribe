@@ -38,13 +38,13 @@ Feature: User pays after accepted transaction
     And I should see "2.00€" within "#service-fee-total"
     # (12 * 1.24) - 2.00 = 12.88
     And I should see "12.88€" within "#total"
-    And I fill in "listing_conversation_message_attributes_content" with "Ok, then pay!"
+    And I fill in "message[content]" with "Ok, then pay!"
     And I press "Send"
     Then I should see "Accepted"
     When I am logged in as "kassi_testperson1"
     And I follow inbox link
     Then I should see that there is 1 new message
-    When I follow "Ok, then pay!"
+    When I follow "accepted the request"
     Then I should see "Pay"
     When I follow "Pay"
     Then I should see "New payment"
@@ -85,12 +85,12 @@ Feature: User pays after accepted transaction
     And I am logged in as "kassi_testperson1"
     When I follow inbox link
     Then I should see "Waiting for you to pay"
-    When I follow "I want to buy"
+    When I follow "accepted the request"
     And I follow "Cancel"
     And I fill in "Message" with "Sorry I gotta cancel"
     And I choose "Skip feedback"
     And I press "Continue"
-    Then I should see "Canceled"
+    Then I should see "canceled"
     And I should see "Sorry I gotta cancel"
 
   @javascript
@@ -99,7 +99,7 @@ Feature: User pays after accepted transaction
     And I am logged in as "kassi_testperson1"
     When I follow inbox link
     Then I should see "Waiting for you to pay"
-    When I follow "I want to buy"
+    When I follow "accepted the request"
     And I follow "Cancel"
     And I fill in "Message" with "Sorry I gotta cancel"
     And I choose "Give feedback"
@@ -118,13 +118,13 @@ Feature: User pays after accepted transaction
     Then I should see that there is 1 new message
     And I follow "I want to buy"
     And I follow "Accept request"
-    And I fill in "listing_conversation_message_attributes_content" with "Ok, then pay!"
+    And I fill in "message[content]" with "Ok, then pay!"
     And I press "Send"
     Then I should see "Accepted"
     When I am logged in as "kassi_testperson1"
     When I follow inbox link
     Then I should see "Waiting for you to pay"
-    When I follow "Ok, then pay!"
+    When I follow "accepted the request"
     Then I should see "Pay"
     When I follow "Pay"
     Then I should see "New payment"
@@ -143,11 +143,11 @@ Feature: User pays after accepted transaction
     Then I should see that there is 1 new message
     And I follow "I want to buy"
     And I follow "Not this time"
-    And I fill in "listing_conversation_message_attributes_content" with "Sorry I'cant sell it!"
+    And I fill in "message[content]" with "Sorry I'cant sell it!"
     And I press "Send"
     Then I should see "Request rejected"
 
     When I am logged in as "kassi_testperson1"
     When I follow inbox link
     Then I should see "Rejected"
-    Then I should see "Sorry I'cant sell it!"
+    Then I should see "rejected the request"

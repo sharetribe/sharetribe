@@ -21,7 +21,8 @@ class Transaction < ActiveRecord::Base
     :listing_id,
     :automatic_confirmation_after_days,
     :author_skipped_feedback,
-    :starter_skipped_feedback
+    :starter_skipped_feedback,
+    :payment_attributes
   )
   attr_accessor :contract_agreed
 
@@ -49,7 +50,7 @@ class Transaction < ActiveRecord::Base
   }
 
   def state_machine
-    @state_machine ||= TransactionProcess.new(self, transition_class: TransactionTransition)
+        @state_machine ||= TransactionProcess.new(self, transition_class: TransactionTransition)
   end
 
   def status=(new_status)
@@ -78,7 +79,7 @@ class Transaction < ActiveRecord::Base
   def initialize_payment
     payment ||= community.payment_gateway.new_payment
     payment.payment_gateway ||= community.payment_gateway
-    payment.conversation = self
+    payment.transaction = self
     payment.status = "pending"
     payment.payer = starter
     payment.recipient = author

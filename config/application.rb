@@ -30,7 +30,7 @@ module Kassi
     config.autoload_paths += Dir[Rails.root.join('app', 'services')]
     config.autoload_paths += Dir[Rails.root.join('app', 'utils')]
     config.autoload_paths += Dir[Rails.root.join('app', 'view_utils')]
-
+    config.autoload_paths += Dir[Rails.root.join('app', 'forms')]
     # Enable the asset pipeline
     config.assets.enabled = true
 

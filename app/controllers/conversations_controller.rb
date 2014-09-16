@@ -1,13 +1,7 @@
 class ConversationsController < ApplicationController
   include MoneyRails::ActionViewExtension
 
-  MessageForm = FormUtils.define_form("Message",
-    :content,
-    :conversation_id, # TODO Remove this
-    :sender_id, # TODO Remove this
-  ).with_validations {
-    validates_presence_of :content, :conversation_id, :sender_id
-  }
+  MessageForm = Form::Message
 
   before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_inbox")

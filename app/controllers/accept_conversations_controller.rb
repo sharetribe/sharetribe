@@ -14,17 +14,20 @@ class AcceptConversationsController < ApplicationController
   # Skip auth token check as current jQuery doesn't provide it automatically
   skip_before_filter :verify_authenticity_token
 
+  MessageForm = Form::Message
+  CheckoutAcceptanceForm = FormUtils::define_form("CheckoutAcceptance", :accept)
+
   def accept
     prepare_accept_or_reject_form
     @action = "accept"
     payment_settings_path = payment_settings_path(@current_community.payment_gateway.gateway_type, @current_user)
-    render(locals: {payment_settings_path: payment_settings_path})
+    render(locals: {payment_settings_path: payment_settings_path, message_form: MessageForm.new})
   end
 
   def reject
     prepare_accept_or_reject_form
     @action = "reject"
-    render :accept
+    render(:accept, locals: {message_form: MessageForm.new})
   end
 
   # Handles accept and reject forms
@@ -32,7 +35,12 @@ class AcceptConversationsController < ApplicationController
     # Update first everything else than the status, so that the payment is in correct
     # state before the status change callback is called
     if @listing_conversation.update_attributes(params[:listing_conversation].except(:status))
-      @listing_conversation.status = params[:listing_conversation][:status]
+      message = MessageForm.new(params[:message].merge({ sender_id: @current_user.id, conversation_id: @listing_conversation.id }))
+      if(message.valid?)
+        @listing_conversation.conversation.messages.create({content: message.content, sender_id: message.sender_id})
+      end
+
+      @listing_conversation.transition_to!(params[:listing_conversation][:status])
 
       close_listing = params[:close_listing]
       listing.update_attribute(:open, false) if close_listing && close_listing.eql?("true")
