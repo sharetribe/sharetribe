@@ -33,8 +33,8 @@ class PaypalAccountsController < ApplicationController
     billing_agreement = false #TODO link to actual model when ready
     paypal_account = MarketplaceService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id)
 
-    account_entity = MarketplaceService::PaypalAccount::Entity
-    return redirect_to action: :show if billing_agreement.present? && account_entity.verified_account?(paypal_account)
+    is_verified = MarketplaceService::PaypalAccount::Entity.verified_account?(paypal_account)
+    return redirect_to action: :show if billing_agreement.present? && is_verified
 
     @selected_left_navi_link = "payments"
     commission_from_seller = @current_community.commission_from_seller ? "#{@current_community.commission_from_seller} %" : "0 %"
@@ -44,6 +44,7 @@ class PaypalAccountsController < ApplicationController
       form_action: person_paypal_account_path(@current_user),
       paypal_account_form: PaypalAccountForm.new,
       billing_agreement: billing_agreement,
+      paypal_account_state: Maybe(paypal_account)[:order_permission_state].or_else(""),
       paypal_account_email: Maybe(paypal_account)[:email].or_else(""),
       commission_from_seller: commission_from_seller
     })
@@ -56,7 +57,8 @@ class PaypalAccountsController < ApplicationController
       MarketplaceService::PaypalAccount::Command.create_personal_account(
         @current_user.id,
         @current_community.id,
-        { email: paypal_account_form.paypal_email })
+        { email: paypal_account_form.paypal_email}
+      )
 
       permissions_url = request_paypal_permissions_url
 

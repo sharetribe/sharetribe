@@ -44,7 +44,11 @@ module MarketplaceService
       module_function
 
       def create_personal_account(person_id, community_id, account_data)
-        old_account = PaypalAccountModel.where(person_id: person_id, community_id: community_id)
+        old_account = PaypalAccountModel
+          .where(person_id: person_id, community_id: community_id)
+          .eager_load(:order_permission)
+          .first
+
         old_account.destroy if old_account.present?
 
         PaypalAccountModel.create!(
@@ -67,7 +71,11 @@ module MarketplaceService
       end
 
       def create_pending_permissions_request(person_id, community_id, paypal_username_to, permissions_scope, request_token)
-        Maybe(PaypalAccountModel.where(person_id: person_id, community_id: community_id))
+        Maybe(PaypalAccountModel
+            .where(person_id: person_id, community_id: community_id)
+            .eager_load(:order_permission)
+            .first
+          )
           .map { |paypal_account|
 
             Maybe(paypal_account.order_permission).destroy
