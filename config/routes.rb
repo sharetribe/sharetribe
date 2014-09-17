@@ -24,6 +24,7 @@ Kassi::Application.routes.draw do
   # Some non-RESTful mappings
   get '/webhooks/braintree' => 'braintree_webhooks#challenge'
   post '/webhooks/braintree' => 'braintree_webhooks#hooks'
+  get '/webhooks/paypal_permissions' => 'paypal_webhooks#permissions_hook', as: :paypal_permissions_hook
 
   post '/bounces' => 'amazon_bounces#notification'
 
@@ -64,6 +65,9 @@ Kassi::Application.routes.draw do
     match '/:person_id/settings/payments/braintree/new' => 'braintree_accounts#new', :as => :new_braintree_settings_payment
     match '/:person_id/settings/payments/braintree/show' => 'braintree_accounts#show', :as => :show_braintree_settings_payment
     match '/:person_id/settings/payments/braintree/create' => 'braintree_accounts#create', :as => :create_braintree_settings_payment
+    match '/:person_id/settings/payments/paypal_account/new' => 'paypal_accounts#new', :as => :new_paypal_account_settings_payment
+    match '/:person_id/settings/payments/paypal_account/show' => 'paypal_accounts#show', :as => :show_paypal_account_settings_payment
+    match '/:person_id/settings/payments/paypal_account/create' => 'paypal_accounts#create', :as => :create_paypal_account_settings_payment
 
     scope :module => "api", :constraints => ApiRequest do
       resources :listings, :only => :index
@@ -281,7 +285,7 @@ Kassi::Application.routes.draw do
           end
           resources :braintree_payments
         end
-        resource :paypal_account, :only => [:new, :show, :create]
+        resource :paypal_account, only: [:new, :show, :create]
         resource :checkout_account, only: [:new, :show, :create]
         resource :settings do
           member do

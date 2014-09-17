@@ -63,4 +63,5 @@
 //= require listing_images
 //= require datepicker
 //= require follow
+//= require paypal_account_settings
 //= require_self

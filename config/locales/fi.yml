@@ -1427,6 +1427,23 @@ fi:
       terms:
         braintree_terms_also_included: "HUOM: Tämä verkkopalvelu käyttää maksunvälittäjänä Braintree-palvelua ja käyttämällä tätä verkkopalvelua hyväksyt alla olevien ehtojen lisäksi myös %{terms_link_text}."
         terms_link_text: "Braintreen käyttöehdot"
+  paypal_accounts:
+    payout_info_title: "Maksujen vastaanotto"
+    paypal_account_email_connected: "1. Yhdistä Paypal-tili"
+    paypal_billing_agreement_made: "2. %{service_name}-palvelu ottaa välityspalkkion (%{commission}) jokaisesti kaupasta."
+    new:
+      payout_info_text: "Vastaanottaaksesi maksuja sinun täytyy yhdistää PayPal-tili %{service_name}-palveluun.<br />Se onnistuu tekemällä seuraavat kaksi vaihetta."
+      paypal_account_email: "1. Paypal-tilin sähköpostisosoite"
+      paypal_account_email_placeholder: "Sähköpostiosoitteesi PayPal-palvelussa"
+      paypal_account_email_info_text: "Huom.: tarvitset PayPal-liiketoimintatilin vastaanottaaksesi luottokorttimaksuja. Jos sinulla ei ole PayPal-tiliä, voit luoda sellaisen %{create_paypal_account}. Jos sinulla on PayPal-henkilötili, voit helposti muuttaa sen liiketoimintatiliksi ilmaiseksi. %{upgrade_paypal_account}"
+      create_paypal_account: "täällä"
+      upgrade_paypal_account: "Muuta PayPal-tilin tyyppi."
+      connect_paypal_account: "Yhdistä PayPal-tili"
+      paypal_account_billing_agreement: "2. Anna %{service_name}-palvelulle lupa ottaa välityspalkkio (%{commission}) jokaisesta kaupasta."
+      billing_agreement: "Anna lupa ottaa välityspalkkioita"
+      permissions_not_granted: "Lupaa PayPal-tilin yhdistämiseen ei annettu."
+      could_not_fetch_redirect_url: "Uudelleenohjaus PayPal-tilin yhdistämiseksi ei onnistunut."
+      paypal_not_enabled: "Paypal-maksut eivät ole käytössä."
   people:
     index:
       loading_more_members: "Ladataan lisää jäseniä"

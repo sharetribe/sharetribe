@@ -701,7 +701,7 @@ module ApplicationHelper
     ]
     if community && community.payments_in_use?
 
-      path = payment_settings_path(@current_community.payment_gateway.gateway_type, @current_user)
+      path = payment_settings_path(MarketplaceService::Community::Query.payment_type(@current_community.id), @current_user)
 
       links << {
         :id => "settings-tab-payments",
@@ -721,6 +721,8 @@ module ApplicationHelper
       show_braintree_settings_payment_path(person)
     elsif gateway_type == :checkout
       person_checkout_account_path(person)
+    elsif gateway_type == :paypal
+      show_paypal_account_settings_payment_path(person)
     end
   end
 

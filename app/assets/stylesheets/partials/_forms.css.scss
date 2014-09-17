@@ -37,3 +37,18 @@ input.auto_width {
     font-weight: 500;
   }
 }
+.send-button-wrapper {
+  .send-button-loading {
+    float: left;
+    background-color: #c3c3c3;
+  }
+  & .send-button-loading-img {
+    float: left;
+    width: em(42);
+    height: em(42);
+    margin: lines(0.5) 0;
+    padding: lines(0.4);
+    border-radius: 6px;
+  }
+
+}
