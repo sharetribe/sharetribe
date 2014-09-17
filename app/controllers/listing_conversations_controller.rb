@@ -298,7 +298,7 @@ class ListingConversationsController < ApplicationController
       transaction.status = @listing.status_after_reply
 
       flash[:notice] = t("layouts.notifications.message_sent")
-      Delayed::Job.enqueue(TransactionCreatedJob.new(transaction.conversation.messages.last.id, @current_community.id))
+      Delayed::Job.enqueue(TransactionCreatedJob.new(transaction.id, @current_community.id))
 
       [3, 10].each do |send_interval|
         Delayed::Job.enqueue(AcceptReminderJob.new(transaction.id, transaction.listing.author.id, @current_community.id), :priority => 10, :run_at => send_interval.days.from_now)
