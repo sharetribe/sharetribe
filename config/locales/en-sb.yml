@@ -1568,6 +1568,23 @@ en-sb:
       terms:
         braintree_terms_also_included: ~
         terms_link_text: ~
+  paypal_accounts:
+    payout_info_title: ~
+    paypal_account_email_connected: ~
+    paypal_billing_agreement_made: ~
+    new:
+      payout_info_text: ~
+      paypal_account_email: ~
+      paypal_account_email_placeholder: ~
+      paypal_account_email_info_text: ~
+      create_paypal_account: ~
+      upgrade_paypal_account: ~
+      connect_paypal_account: ~
+      paypal_account_billing_agreement: ~
+      billing_agreement: ~
+      permissions_not_granted: ~
+      could_not_fetch_redirect_url: ~
+      paypal_not_enabled: ~
   people:
     index:
       loading_more_members: ~

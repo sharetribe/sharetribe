@@ -265,8 +265,8 @@ it:
         content: "Contenuto:"
         save_news_item: "Salva articolo"
       news_item:
-        edit_news_item: ~
-        delete_news_item: ~
+        edit_news_item: Modifica
+        delete_news_item: Cancella
     polls:
       index:
         polls: Sondaggi
@@ -274,18 +274,18 @@ it:
         no_polls: "Nessun sondaggio"
       edit_poll_links:
         close_poll: Chiudi
-        open_poll: ~
-        edit_poll: ~
-        delete_poll: ~
+        open_poll: Apri
+        edit_poll: Modifica
+        delete_poll: Cancella
       new:
-        add_option: ~
+        add_option: "Aggiungi opzione"
         new_poll: "Crea un sondaggio"
         edit_poll: "Modifica sondaggio"
         title: "Titolo:"
         save_poll: "Salva sondaggio"
       new_option:
-        option: ~
-        remove_option: ~
+        option: Opzione
+        remove_option: "Rimuovi opzione"
       show:
         edit_poll: "Modifica sondaggio"
       poll_status:
@@ -443,7 +443,7 @@ it:
       rideshare_request_message_form_title: "Offri un passaggio a %{person}"
       send_message: ~
       send: ~
-      this_message_is_private: ~
+      this_message_is_private: "Questo è messaggio privato fra te e %{person}. %{person} riceverà un messaggio di notifica via email"
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
       title: Titolo
@@ -618,10 +618,10 @@ it:
       if_this_was_error: ~
       please_contant_admin_link: ~
     confirmation_instructions:
-      confirmation_instructions_signature: ~
+      confirmation_instructions_signature: "Cordiali saluti,<br/> Il Team di %{service_name}"
       welcome_to_kassi: "Benvenuto in %{service_name}!"
       need_to_confirm: "Devi confermare il tuo indirizzo email cliccando sul link segunte:"
-      confirmation_link_text: ~
+      confirmation_link_text: "Conferma la tua email"
       or_paste_link: ~
       turning_on_confirmations_in_this_community: ~
     common:
@@ -653,15 +653,15 @@ it:
       remember_to_confirm: ~
     invitation_to_kassi:
       hi: Ciao!
-      you_have_been_invited_to_kassi: ~
-      here_is_a_message_from: ~
+      you_have_been_invited_to_kassi: "%{inviter} ti ha invitato ad accedere alla comunità di %{community}"
+      here_is_a_message_from: "Di seguito un messaggio personale da parte di %{inviter}:"
       join_now: ~
       invitation_code: ~
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
       you_have_a_new_comment: "%{author} ha commentato la tua offerta in %{service_name}"
-      listing_you_follow_has_a_new_comment: ~
+      listing_you_follow_has_a_new_comment: "%{author} ha commentato un annuncio che stai seguendo su %{service_name}"
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
@@ -687,7 +687,7 @@ it:
       you_can_give_feedback_to: "non hai ancora lasciato un feedback a %{name}"
       view_feedback: ~
     new_update_to_listing:
-      listing_you_follow_has_been_updated: ~
+      listing_you_follow_has_been_updated: "L'annuncio che stai seguendo è stato aggiornato"
       has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
@@ -704,9 +704,9 @@ it:
       unsubscribe_link_text: ~
     newsletter:
       hi: "Ciao %{name},"
-      newest_offers: ~
-      newest_requests: ~
-      text_version_text: ~
+      newest_offers: "Quello che le persone attualmente offrono agli altri"
+      newest_requests: "Quello che le persone attualmente necessitano"
+      text_version_text: "Potresti condividere qualcosa di cui gli altri potrebbero avere bisogno? Oppure hai bisogno di qualcosa che altri potrebbero avere? Aggiungi un'offerta o una richiesta o controllare tutto ciò che gli altri stanno offrendo o stanno richiedendo a %{url}"
     reply_to_contact_request:
       thank_you_for_your_interest: "Grazie per il tuo interesse in %{service_name}!"
     reset_password_instructions:
@@ -898,11 +898,11 @@ it:
       filter: ~
       this_is_private_community: ~
     invitation_form:
-      invite_your_friends: ~
+      invite_your_friends: "Invita i tuoi amici su %{service_name}!"
       invite_your_neighbors: ~
       email: "Indirizzo/i email"
-      message: ~
-      send_invitation: ~
+      message: "Un messaggio personale"
+      send_invitation: "Invia un invito"
       add_as_many_emails_as_you_want: ~
       invitation_emails_field_placeholder: "amico1@esempio.com, amico2@esempio.com, ..."
       invitation_message_field_placeholder: ~
@@ -921,10 +921,10 @@ it:
       poll_answer: risposta
       poll_answers: risposte
     profile_info_empty_notification:
-      add_your_info: ~
+      add_your_info: "Aggiungi le tue informazioni per essere contattato"
       add_a_profile_picture: ~
       you_have_not_added_your_info: ~
-      add_your_info_link: ~
+      add_your_info_link: "Aggiungi le tue informazioni ora"
     recent_listing:
       please_offer: Offerta
       comment: commento
@@ -1027,7 +1027,7 @@ it:
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       comment_cannot_be_empty: "Il campo commenti non può rimanere vuoto"
       comment_sent: "Commento inviato"
-      confirmation_link_is_wrong_or_used: ~
+      confirmation_link_is_wrong_or_used: "Il link di conferma è già stato utilizzato o altrimenti è compromesso. Prova ad accedere nuovamente, o inviaci un'email se il problema persiste."
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: ~
       create_new_listing: ~
@@ -1090,7 +1090,7 @@ it:
       request_rejected: "Richiesta respinta"
       request_canceled: ~
       message_sent: "Messaggio inviato"
-      this_content_is_not_available_in_this_community: ~
+      this_content_is_not_available_in_this_community: "Questo contenuto non è disponibile in questa comunità."
       unknown_error: "Errore sconosciuto. Usa il link Contattaci per inviarci i dettagli di quanto accaduto."
       update_error: "È avvenuto un errore mentre stavi aggiornando le tue informazioni, prova nuovamente"
       welcome_message: "Benvenuto in %{service_name}! %{service_name} è un servizio che aiuta i membri della comunità %{community} a vendere e noleggiare beni l'un l'altro, organizzare passaggi auto ed aiutarsi in molti altri modi."
@@ -1122,7 +1122,7 @@ it:
       you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Devi prima confermare la tua email."
       you_must_fill_all_the_fields: ~
-      you_unfollowed_listing: ~
+      you_unfollowed_listing: "Non stai più seguendo questo annuncio"
       joining_community_failed: ~
       can_not_login_with_private_user: ~
       can_not_delete_email: ~
@@ -1139,7 +1139,7 @@ it:
       payments: ~
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: ~
+      listing_not_visible: "Non hai il permesso per visualizzare questo annuncio."
     comment:
       wrote: ~
       send_private_message: "Invia un messaggio privato a %{person}"
@@ -1151,7 +1151,7 @@ it:
       write_comment: "Scrivi un nuovo commento:"
       you_cannot_send_a_new_comment_because_listing_is_closed: ~
       you_must: Devi
-      subscribe_to_comments: ~
+      subscribe_to_comments: "Inviami una notifica per ogni nuovo commento o aggiornamento"
     edit:
       edit_listing: ~
     edit_links:
@@ -1164,8 +1164,8 @@ it:
       show_in_updates_email_error: ~
       show_in_updates_email_success: ~
     follow_links:
-      follow: ~
-      unfollow: ~
+      follow: "Ricevi emails per ogni nuovo commento"
+      unfollow: "Non ricevi emails per ogni nuovo commento"
     form:
       custom_field_partials:
         dropdown:
@@ -1174,7 +1174,7 @@ it:
         at: alle
         departure_time: "Orario di partenza"
       departure_time_radio_buttons:
-        repeated: ~
+        repeated: "Ripetuto (aggiungi orari e giorni nel campo 'descrizione dettagliata')"
       description:
         detailed_description: "Descrizione dettagliata"
       destination:
@@ -1414,6 +1414,23 @@ it:
       terms:
         braintree_terms_also_included: ~
         terms_link_text: ~
+  paypal_accounts:
+    payout_info_title: ~
+    paypal_account_email_connected: ~
+    paypal_billing_agreement_made: ~
+    new:
+      payout_info_text: ~
+      paypal_account_email: ~
+      paypal_account_email_placeholder: ~
+      paypal_account_email_info_text: ~
+      create_paypal_account: ~
+      upgrade_paypal_account: ~
+      connect_paypal_account: ~
+      paypal_account_billing_agreement: ~
+      billing_agreement: ~
+      permissions_not_granted: ~
+      could_not_fetch_redirect_url: ~
+      paypal_not_enabled: ~
   people:
     index:
       loading_more_members: ~
@@ -1426,27 +1443,27 @@ it:
       to_see_the_list_log_in: ~
       log_in_link: ~
     edit_links:
-      activate: ~
-      deactivate: ~
+      activate: Attiva
+      deactivate: Disattiva
     help_texts:
       feedback_description_title: Feedback
       help_captcha_title: "Sei umano?"
-      help_invitation_code_title: ~
+      help_invitation_code_title: "Hai bisogno di un invito per partecipare"
       terms_title: "%{service_name} termini di utilizzo"
       trustcloud_description_title: ~
       trustcloud_description_text: ~
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
-      this_person_is_not_active_in_kassi: ~
-      inactive_description: ~
+      this_person_is_not_active_in_kassi: "Questo utente non è più attivo in %{service_name}"
+      inactive_description: "Questo utente ha smesso di utilizzare %{service_name}. Non puoi contattare questo utente, lascia un feedback o un commento nei suoi annunci."
     new:
       captcha_incorrect: "Verifica reCAPTCHA fallita. Scrivi le parole che appaiono nell'immagine nel box sottostante."
       captcha_was_wrong: "il testo Captcha era sbagliato."
       create_new_account: "Crea account"
       email: "Indirizzo email"
       email_is_in_use: "L'email che hai fornito è già utilizzata."
-      email_is_in_use_or_not_allowed: ~
+      email_is_in_use_or_not_allowed: "Questa email non è valida per accedere a questa comunità o è già in uso. Per favore utilizza un indirizzo email che è associato con questa comunità (leggi le istruzioni qui sopra). Se ancora non ti è possibile accedere, inviaci un'email."
       email_not_allowed: ~
       enter_captcha: "Sono umano:"
       family_name: Cognome
@@ -1562,8 +1579,8 @@ it:
       change_your_password: "Cambia la tua password"
     confirmation_pending:
       welcome_to_kassi: "Benvenuto a %{service_name}!"
-      check_your_email: ~
-      resend_confirmation_instructions: ~
+      check_your_email: "Controlla la tua casella di posta elettronica"
+      resend_confirmation_instructions: "Invia nuovamente le informazioni per la conferma"
       your_current_email_is: "La tua email è %{email}."
       change_email: ~
       confirm_your_email: "Conferma la tua email"
@@ -1667,13 +1684,13 @@ it:
     new:
       as_expected: "Come previsto"
       exceeded_expectations: "Molto meglio di quanto previsto"
-      give_feedback_to: ~
-      grade: ~
+      give_feedback_to: "Dai un feedback a %{person}"
+      grade: "Qual è la tua sensazione generale?"
       less_than_expected: "Peggio del previsto"
-      send_feedback: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      textual_feedback: ~
+      send_feedback: "Invia un feedback"
+      slightly_better_than_expected: "Leggermente meglio del previsto"
+      slightly_less_than_expected: "Leggermente peggio del previsto"
+      textual_feedback: "Come è andata?"
       this_will_be_shown_in_profile: ~
       positive: Positivo
       negative: Negativo
