@@ -97,7 +97,7 @@ class Admin::CommunitiesController < ApplicationController
     params[:community][:custom_color2] = nil if params[:community][:custom_color2] == ""
 
     permitted_params = [
-      :cover_photo, :small_cover_photo, :favicon, :custom_color1,
+      :wide_logo, :logo,:cover_photo, :small_cover_photo, :favicon, :custom_color1,
       :custom_color2, :default_browse_view, :name_display_type
     ]
     permitted_params << :custom_head_script if @current_community.custom_head_script_in_use?
