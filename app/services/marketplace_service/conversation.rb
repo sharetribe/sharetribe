@@ -23,6 +23,16 @@ module MarketplaceService
         :is_starter,
       )
 
+      # TODO Move to person service
+      # TODO Maybe use this in ConversationParticipant
+      Person = EntityUtils.define_entity(
+        :id,
+        :username,
+        :name,
+        :full_name,
+        :avatar
+      )
+
       Message = EntityUtils.define_entity(
         :sender_id,
         :content,
