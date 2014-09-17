@@ -14,27 +14,13 @@ module MarketplaceService
       )
 
       ConversationParticipant = EntityUtils.define_entity(
-        :id,
-        :username,
-        :name,
-        :full_name,
-        :avatar,
+        :person,
         :is_read,
         :is_starter,
       )
 
-      # TODO Move to person service
-      # TODO Maybe use this in ConversationParticipant
-      Person = EntityUtils.define_entity(
-        :id,
-        :username,
-        :name,
-        :full_name,
-        :avatar
-      )
-
       Message = EntityUtils.define_entity(
-        :sender_id,
+        :sender,
         :content,
         :created_at
       )
@@ -44,36 +30,62 @@ module MarketplaceService
       Transaction = TransactionEntity::Transaction
       Transition = TransactionEntity::Transition
       Testimonial = TransactionEntity::Testimonial
+      PersonEntity = MarketplaceService::Person::Entity
 
       module_function
 
+      def participant_by_id(conversation, person_id)
+        conversation[:participants]
+          .select { |participant| participant[:person][:id] == person_id }
+          .map { |participant| participant[:person] }
+          .first
+      end
+
+      def other_by_id(conversation, person_id)
+        conversation[:participants]
+          .reject { |participant| participant[:person][:id] == person_id }
+          .map { |participant| participant[:person] }
+          .first
+      end
+
       def conversation(conversation_model)
-        h = {id: conversation_model.id}
+        Conversation[{
+          id: conversation_model.id,
+          participants: participations(conversation_model.participations),
+          listing: conversation_model.listing,
+          messages: messages(conversation_model.messages),
+          last_message_at: conversation_model.last_message_at
+        }]
+      end
 
-        h[:participants] = conversation_model.participations.map do |participation|
-          participant = participation.person
-          ConversationParticipant[{
-            id: participant.id,
-            username: participant.username,
-            name: participant.name,
-            full_name: participant.full_name,
-            avatar: participant.image.url(:thumb),
-            is_read: participation.is_read,
-            is_starter: participation.is_starter
-          }]
-        end
+      def participations(participation_models)
+        participation_models.map { |participation_model| participation(participation_model) }
+      end
 
-        h[:listing] = conversation_model.listing
+      def participation(participation_model)
+        ConversationParticipant[{
+          person: PersonEntity.person(participation_model.person),
+          is_read: participation_model.is_read,
+          is_starter: participation_model.is_starter
+        }]
+      end
 
-        h[:messages] = conversation_model.messages
-          .reject { |message| message.content.blank? }
-          .map { |message|
-            Message[message]
+      def messages(message_models)
+        message_models
+          .reject { |msg|
+            # We should be able to get rid of this soon. Previously, blank content meant that the message was abount a
+            # transaction transition. However, currently the transitions are separated from messages
+            msg.content.blank?
           }
+          .map { |msg| message(msg) }
+      end
 
-        h[:last_message_at] = conversation_model.last_message_at
-
-        Conversation[h]
+      def message(message_model)
+        Message[{
+          sender: PersonEntity.person(message_model.sender),
+          content: message_model.content,
+          created_at: message_model.created_at
+        }]
       end
 
       def conversation_with_transaction(conversation_model)

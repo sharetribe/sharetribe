@@ -2,7 +2,7 @@
   not exist. This is error in data. Anyway, we don't want the whole inbox to break because of this.
 
 - if conversation[:other_party].present?
-  .row-with-divider.without-margin.conversation-row{:class => conversation[:read_by_current] ? "" : "unread"}
+  .row-with-divider.without-margin.conversation-row{:class => conversation[:is_read] ? "" : "unread"}
 
     .col-3
       .conversation-details-container
@@ -18,12 +18,8 @@
       = link_to conversation[:path], class: "conversation-title-link" do
         = conversation[:title]
       .conversation-context
-        - if conversation[:transaction].present?
-          - listing = conversation[:transaction][:listing]
-          = t("conversations.conversation.about_listing", listing_title: link_to(listing[:title], conversation[:listing_url])).html_safe
-        - elsif conversation[:listing].present?
-          - listing = conversation[:listing]
-          = t("conversations.conversation.about_listing", listing_title: link_to(listing[:title], conversation[:listing_url])).html_safe
+        - if conversation[:listing_url].present?
+          = t("conversations.conversation.about_listing", listing_title: link_to(conversation[:listing_title], conversation[:listing_url])).html_safe
         - else
           = t("conversations.conversation.free_message")
 
@@ -31,17 +27,16 @@
       .col-3
 
         -# Only for transactions
-        - if conversation[:transaction] && conversation[:transaction][:status] != "free"
-          - status = conversation[:transaction][:status]
-          - is_author = conversation[:is_transaction_author]
+        - status = conversation[:transaction_status]
+        - if status.present? && status != "free"
+          - is_author = conversation[:is_author]
           - waiting_feedback = conversation[:waiting_feedback_from_current]
           - other_party_name = conversation[:other_party][:name]
 
-
-          - icon, status = conversation_icon_and_status(status, is_author, other_party_name, waiting_feedback)
+          - icon, status_description = conversation_icon_and_status(status, is_author, other_party_name, waiting_feedback)
 
           .conversation-list-status-container
             .conversation-list-status-icon
               = icon
             .conversation-list-status
-              = status
+              = status_description
