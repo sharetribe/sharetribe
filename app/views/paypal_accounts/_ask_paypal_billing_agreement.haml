@@ -6,6 +6,10 @@
 
 
 .row
-  = form.label :paypal_email, t("paypal_accounts.new.paypal_account_billing_agreement", commission: commission_from_seller), :class => "input"
+  = form.label :paypal_email, t("paypal_accounts.new.paypal_account_billing_agreement")
 
-= form.button t("paypal_accounts.new.billing_agreement"), :class => "send_button"
+.row
+  = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_info", commission: commission_from_seller)}
+
+.row.send-button-wrapper
+  = form.button t("paypal_accounts.new.billing_agreement"), :class => "send_button"
