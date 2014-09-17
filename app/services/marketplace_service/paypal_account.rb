@@ -1,10 +1,9 @@
 module MarketplaceService
   module PaypalAccount
-    EntityUtils = MarketplaceService::EntityUtils
     PaypalAccountModel = ::PaypalAccount
 
     module Entity
-      PaypalAccount = EntityUtils.define_entity(
+      PaypalAccount = Struct.new(
         :email,
         :api_password,
         :api_signature,
@@ -19,7 +18,7 @@ module MarketplaceService
       def paypal_account(paypal_acc_model)
         hash = EntityUtils.model_to_hash(paypal_acc_model)
           .merge(order_permission_to_hash(paypal_acc_model.order_permission))
-        PaypalAccount.call(hash)
+        EntityUtils.from_hash(PaypalAccount, hash)
       end
 
 
@@ -33,6 +32,11 @@ module MarketplaceService
         end
           .merge(EntityUtils.model_to_hash(order_perm_model))
       end
+
+      def verified_account?(paypal_account)
+        return (paypal_account && paypal_account[:order_permission_state] == :verified)
+      end
+
     end
 
     module Command
@@ -40,7 +44,7 @@ module MarketplaceService
       module_function
 
       def create_personal_account(person_id, community_id, account_data)
-        old_account = PaypalAccountModel.find_by_person_id_and_community_id(person_id, community_id)
+        old_account = PaypalAccountModel.where(person_id: person_id, community_id: community_id)
         old_account.destroy if old_account.present?
 
         PaypalAccountModel.create!(
@@ -50,7 +54,7 @@ module MarketplaceService
       end
 
       def destroy_personal_account(person_id, community_id)
-        Maybe(PaypalAccountModel.find_by_person_id_and_community_id(person_id, community_id))
+        Maybe(PaypalAccountModel.where(person_id: person_id, community_id: community_id))
           .map { |paypal_account|
             paypal_account.destroy ? true : false;
           }
@@ -63,8 +67,7 @@ module MarketplaceService
       end
 
       def create_pending_permissions_request(person_id, community_id, paypal_username_to, permissions_scope, request_token)
-        # TODO: should we rename (email) or remove paypal_username_to column?
-        Maybe(PaypalAccountModel.find_by_person_id_and_community_id(person_id, community_id))
+        Maybe(PaypalAccountModel.where(person_id: person_id, community_id: community_id))
           .map { |paypal_account|
 
             Maybe(paypal_account.order_permission).destroy
