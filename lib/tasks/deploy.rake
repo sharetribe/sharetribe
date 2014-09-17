@@ -157,6 +157,10 @@ def heroku(cmd)
   Bundler.with_clean_env { system("heroku #{cmd}") }
 end
 
+def heroku_with_output(cmd)
+  Bundler.with_clean_env { `heroku #{cmd}` }
+end
+
 def deploy_to_server
   system("git push #{@destination} closed_source:master --force")
 
@@ -184,7 +188,7 @@ end
 
 def pending_migrations_in_heroku?
   puts "Checking for pending migrations in heroku ..."
-  output = `heroku run rake db:migrate:status --app #{@app}`
+  output = heroku_with_output("run rake db:migrate:status --app #{@app}")
   arr = output.split("\n")
   statuses = arr.drop(arr.find_index("-" * 50) + 1)
     .map(&:strip)
