@@ -30,6 +30,7 @@ class Conversation < ActiveRecord::Base
     .where( { participations: { person_id: person }} )
   }
 
+  # TODO This could be moved to Service
   def self.notification_count_for_person(person)
       for_person(person).includes(:participations).select do |conversation|
         conversation.should_notify?(person)
@@ -77,7 +78,9 @@ class Conversation < ActiveRecord::Base
   end
 
   def should_notify?(user)
-    !read_by?(user)
+    # TODO Conversation is now aware of transactions, which is not an optimal solution.
+    # Consider moving the logic to Service
+    !read_by?(user) || (transaction.present? && transaction.should_notify?(user))
   end
 
   # Returns last received or sent message
@@ -98,6 +101,8 @@ class Conversation < ActiveRecord::Base
   end
 
   # Send email notification to message receivers and returns the receivers
+  #
+  # TODO This should be removed. It's not model's resp to send emails.
   def send_email_to_participants(community)
     recipients(messages.last.sender).each do |recipient|
       if recipient.should_receive?("email_about_new_messages")

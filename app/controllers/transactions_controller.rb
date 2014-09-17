@@ -24,12 +24,12 @@ class TransactionsController < ApplicationController
       return redirect_to root
     end
 
-    # TODO MARK AS READ!
-    # @current_user.read(conversation) unless conversation.read_by?(@current_user)
+    conversation = transaction_data[:conversation].to_h
+
+    MarketplaceService::Conversation::Command.mark_as_read(conversation[:id], @current_user.id)
 
     message_form = MessageForm.new({sender_id: @current_user.id, conversation_id: transaction_data[:conversation][:id]})
 
-    conversation = transaction_data[:conversation].to_h
     other = conversation[:participants].reject { |participant| participant[:id] == @current_user.id }.first
     conversation[:other_party] = other.to_h.merge({url: person_path(id: other[:username])})
 
