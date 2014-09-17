@@ -97,7 +97,7 @@ class Transaction < ActiveRecord::Base
   end
 
   def should_notify?(user)
-    super(user) || (status == "pending" && author == user)
+    (status == "pending" || status == "preauthorized") && author == user
   end
 
   # If listing is an offer, return request, otherwise return offer
