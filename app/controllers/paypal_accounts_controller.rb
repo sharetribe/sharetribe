@@ -1,5 +1,6 @@
 class PaypalAccountsController < ApplicationController
   include PaypalService::PermissionsInjector
+  include PaypalService::MerchantInjector
 
   before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_settings")
@@ -13,44 +14,63 @@ class PaypalAccountsController < ApplicationController
     .with_validations { validates_presence_of :paypal_email }
 
   def show
-    billing_agreement = false #TODO link to actual model when ready
     paypal_account = MarketplaceService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id)
+    verified_billing_agreement = Maybe(paypal_account)
+      .map {|paypal_account| paypal_account[:billing_agreement_state] == :verified}
+      .or_else(false)
 
     account_entity = MarketplaceService::PaypalAccount::Entity
-    return redirect_to action: :new if account_entity.verified_account?(paypal_account)
-    return redirect_to action: :new if billing_agreement.blank?
+    return redirect_to action: :new unless account_entity.verified_account?(paypal_account)
+    return redirect_to action: :new unless verified_billing_agreement
 
     @selected_left_navi_link = "payments"
+    commission_from_seller = @current_community.commission_from_seller ? @current_community.commission_from_seller : 0
 
     render(locals: {
       left_hand_navigation_links: settings_links_for(@current_user, @current_community),
       paypal_account: paypal_account,
-      commission_from_seller: @current_community.commission_from_seller
+      paypal_account_email: Maybe(paypal_account)[:email].or_else(""),
+      commission_from_seller: t("paypal_accounts.commission", commission: commission_from_seller)
     })
   end
 
   def new
-    billing_agreement = false #TODO link to actual model when ready
     paypal_account = MarketplaceService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id)
+    verified_billing_agreement = Maybe(paypal_account)
+      .map {|paypal_account| paypal_account[:billing_agreement_state] == :verified }
+      .or_else(false)
 
     is_verified = MarketplaceService::PaypalAccount::Entity.verified_account?(paypal_account)
-    return redirect_to action: :show if billing_agreement.present? && is_verified
+    return redirect_to action: :show if verified_billing_agreement && is_verified
 
     @selected_left_navi_link = "payments"
-    commission_from_seller = @current_community.commission_from_seller ? "#{@current_community.commission_from_seller} %" : "0 %"
+    commission_from_seller = @current_community.commission_from_seller ? @current_community.commission_from_seller : 0
 
     render(locals: {
       left_hand_navigation_links: settings_links_for(@current_user, @current_community),
       form_action: person_paypal_account_path(@current_user),
       paypal_account_form: PaypalAccountForm.new,
-      billing_agreement: billing_agreement,
       paypal_account_state: Maybe(paypal_account)[:order_permission_state].or_else(""),
       paypal_account_email: Maybe(paypal_account)[:email].or_else(""),
-      commission_from_seller: commission_from_seller
+      commission_from_seller: t("paypal_accounts.commission", commission: commission_from_seller)
     })
   end
 
   def create
+    paypal_account = MarketplaceService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id)
+    is_verified_account = MarketplaceService::PaypalAccount::Entity.verified_account?(paypal_account)
+
+    if is_verified_account
+      create_billing_agreement
+    else
+      create_paypal_account
+    end
+  end
+
+
+  private
+
+  def create_paypal_account
     paypal_account_form = PaypalAccountForm.new(params[:paypal_account_form])
 
     if paypal_account_form.valid?
@@ -78,8 +98,18 @@ class PaypalAccountsController < ApplicationController
     end
   end
 
+  def create_billing_agreement
+    billing_agreement_url = request_paypal_billing_agreement_url
 
-  private
+    if billing_agreement_url.blank?
+      flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
+      return redirect_to action: :new
+    else
+      return redirect_to billing_agreement_url
+    end
+
+  end
+
 
   # Before filter
   def ensure_paypal_enabled
@@ -109,5 +139,28 @@ class PaypalAccountsController < ApplicationController
     end
   end
 
+  def request_paypal_billing_agreement_url
+    commission_from_seller = @current_community.commission_from_seller ? "#{@current_community.commission_from_seller} %" : "0 %"
+    billing_agreement_request = PaypalService::DataTypes::Merchant
+      .create_setup_billing_agreement(
+        t("paypal_accounts.new.billing_agreement_description"),
+        paypal_billing_agreement_success_hook_url,
+        paypal_billing_agreement_cancel_hook_url
+      )
+
+    response = paypal_merchant.do_request(billing_agreement_request)
+    if response[:success]
+      MarketplaceService::PaypalAccount::Command
+        .create_pending_billing_agreement(
+          @current_user.id,
+          @current_community.id,
+          response[:username_to],
+          response[:token]
+        )
+      response[:redirect_url]
+    else
+      nil
+    end
+  end
 
 end

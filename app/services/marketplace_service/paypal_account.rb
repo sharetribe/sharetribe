@@ -128,20 +128,64 @@ module MarketplaceService
         end
       end
 
-      def save_pending_billing_agreement(person_id, community_id, paypal_username_to, request_token)
+      def create_pending_billing_agreement(person_id, community_id, paypal_username_to, request_token)
         # Create new pending billing agreement and save it for the paypal account connected to user and community
         # Ensure that this is the only billing agreement for the pp account by deleting any previous requests(?)
-        raise(NotImplementedError)
+        Maybe(PaypalAccountModel
+            .where(person_id: person_id, community_id: community_id)
+            .eager_load(:billing_agreement)
+            .first
+          )
+          .map { |paypal_account|
+            Maybe(paypal_account.billing_agreement).destroy
+
+            BillingAgreement.create!(
+              {
+                paypal_account: paypal_account,
+                request_token: request_token,
+                paypal_username_to: paypal_username_to
+              }
+            )
+            true
+          }
+          .or_else(false)
       end
 
       def cancel_pending_billing_agreement(person_id, community_id, request_token)
         # Delete billing agreement as a result of user clicking cancel at paypal site
-        raise(NotImplementedError)
+        Maybe(BillingAgreement
+            .eager_load(:paypal_account)
+            .where({
+              :request_token => request_token,
+              "paypal_accounts.person_id" => person_id,
+              "paypal_accounts.community_id" => community_id
+            })
+            .first
+          )
+          .map {|billing_agreement|
+            billing_agreement.destroy
+            true
+          }
+          .or_else(false)
       end
 
       def confirm_billing_agreement(person_id, community_id, request_token, billing_agreement_id)
         # Should this fail silently in case of no matching billing agreement?
-        raise(NotImplementedError)
+        Maybe(BillingAgreement
+            .eager_load(:paypal_account)
+            .where({
+              :request_token => request_token,
+              "paypal_accounts.person_id" => person_id,
+              "paypal_accounts.community_id" => community_id
+            })
+            .first
+          )
+          .map {|billing_agreement|
+            billing_agreement[:billing_agreement_id] = billing_agreement_id
+            billing_agreement.save!
+            true
+          }
+          .or_else(false)
       end
     end
 
@@ -152,8 +196,7 @@ module MarketplaceService
       def personal_account(person_id, community_id)
         Maybe(PaypalAccountModel
             .where(person_id: person_id, community_id: community_id)
-            .eager_load(:order_permission)
-            .eager_load(:billing_agreement)
+            .eager_load([:order_permission, :billing_agreement])
             .first)
           .map { |model| Entity.paypal_account(model) }
           .or_else(nil)
@@ -161,8 +204,7 @@ module MarketplaceService
 
       def admin_account(community_id)
         Maybe(PaypalAccountModel.where(community_id: community_id, person_id: nil)
-            .eager_load(:order_permission)
-            .eager_load(:billing_agreement)
+            .eager_load([:order_permission, :billing_agreement])
             .first)
           .map { |model| Entity.paypal_account(model) }
           .or_else(nil)
