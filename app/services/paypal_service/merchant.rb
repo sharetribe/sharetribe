@@ -32,6 +32,10 @@ module PaypalService
 
     private
 
+    def subject(api)
+      api.config.subject || api.config.username
+    end
+
     def do_setup_billing_agreement(req)
       api = build_api
       set_express_checkout = api.build_set_express_checkout({
@@ -46,7 +50,7 @@ module PaypalService
             PaymentAction: "Authorization"
           }],
           BillingAgreementDetails: [{
-            BillingType: "MerchantInitiatedBillingSingleAgreement",
+            BillingType: "ChannelInitiatedBilling",
             BillingAgreementDescription: req.description
           }]
         }
@@ -57,7 +61,7 @@ module PaypalService
 
       if (res.success?)
         DataTypes::Merchant.create_setup_billing_agreement_response(
-          res.token, api.express_checkout_url(res), api.config.username)
+          res.token, api.express_checkout_url(res), subject(api))
       else
         create_failure_response(res)
       end
@@ -71,8 +75,7 @@ module PaypalService
       @logger.log_response(res)
 
       if (res.success?)
-        DataTypes::Merchant.create_create_billing_agreement_response(
-          res.billing_agreement_id, api.config.username)
+        DataTypes::Merchant.create_create_billing_agreement_response(res.billing_agreement_id)
       else
         create_failure_response(res)
       end
@@ -104,7 +107,8 @@ module PaypalService
           details.payment_info.gross_amount.value,
           details.payment_info.gross_amount.currency_id,
           details.payment_info.fee_amount.value,
-          details.payment_info.fee_amount.currency_id)
+          details.payment_info.fee_amount.currency_id,
+          subject(api))
       else
         create_failure_response(res)
       end
