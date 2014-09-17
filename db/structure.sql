@@ -13,11 +13,11 @@ CREATE TABLE `auth_tokens` (
 CREATE TABLE `billing_agreements` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `paypal_account_id` int(11) NOT NULL,
-  `billing_agreement_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `billing_agreement_id` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  `paypal_username_to` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `request_token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `paypal_username_to` varchar(255) NOT NULL,
+  `request_token` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
