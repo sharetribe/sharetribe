@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   MessageEntity = MarketplaceService::Conversation::Entity::Message
-  PersonEntity = MarketplaceService::Conversation::Entity::Person
+  PersonEntity = MarketplaceService::Person::Entity
 
   skip_filter :dashboard_only
 
@@ -18,13 +18,7 @@ class MessagesController < ApplicationController
     end
 
     # TODO This is somewhat copy-paste
-    message = MessageEntity[@message].merge({mood: :neutral}).merge(sender: {
-      id: @current_user.id,
-      username: @current_user.username,
-      name: @current_user.name,
-      full_name: @current_user.full_name,
-      avatar: @current_user.image.url(:thumb)
-    })
+    message = MessageEntity[@message].merge({mood: :neutral}).merge(sender: PersonEntity.person(@current_user))
 
     respond_to do |format|
       format.html { redirect_to single_conversation_path(:conversation_type => "received", :person_id => @current_user.id, :id => params[:message][:conversation_id]) }

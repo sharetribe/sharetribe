@@ -12,34 +12,34 @@ class ConversationsController < ApplicationController
   def show
     conversation_id = params[:id]
 
-    conversation_data = MarketplaceService::Conversation::Query.conversation_for_person(
+    conversation = MarketplaceService::Conversation::Query.conversation_for_person(
       conversation_id,
       @current_user.id,
       @current_community.id)
 
-    if conversation_data.blank?
+    if conversation.blank?
       flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
       return redirect_to root
     end
 
-    MarketplaceService::Conversation::Command.mark_as_read(conversation_data[:id], @current_user.id)
-
     message_form = MessageForm.new({sender_id: @current_user.id, conversation_id: conversation_id})
 
-    other = conversation_data[:participants].reject { |participant| participant[:id] == @current_user.id }.first
+    other = MarketplaceService::Conversation::Entity.other_by_id(conversation, @current_user.id)
+    conversation[:other_party] = person_entity_with_url(other)
 
-    conversation_data[:other_party] = other.merge({url: person_path(id: other[:username])})
+    messages = TransactionViewUtils.conversation_messages(conversation[:messages])
 
-    messages = conversation_data[:messages].map { |message|
-      sender = conversation_data[:participants].find { |participant| participant[:id] == message[:sender_id] }
-      message.merge({mood: :neutral, type: :message}).merge(sender: sender)
-    }
+    MarketplaceService::Conversation::Command.mark_as_read(conversation[:id], @current_user.id)
 
     render locals: {
       messages: messages.reverse,
-      conversation_data: conversation_data,
+      conversation_data: conversation,
       message_form: message_form,
-      message_form_action: person_message_messages_path(@current_user, :message_id => conversation_data[:id])
+      message_form_action: person_message_messages_path(@current_user, :message_id => conversation[:id])
     }
+  end
+
+  def person_entity_with_url(person_entity)
+    person_entity.merge({url: person_path(id: person_entity[:username])})
   end
 end
