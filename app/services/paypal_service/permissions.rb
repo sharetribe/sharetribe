@@ -5,11 +5,11 @@ module PaypalService
       @logger = logger
 
       PayPal::SDK.configure({
-        mode: endpoint.endpoint_name.to_s,
-        username: api_credentials.username,
-        password: api_credentials.password,
-        signature: api_credentials.signature,
-        app_id: api_credentials.app_id
+         mode: endpoint[:endpoint_name].to_s,
+         username: api_credentials[:username],
+         password: api_credentials[:password],
+         signature: api_credentials[:signature],
+         app_id: api_credentials[:app_id]
       })
 
       @api = PayPal::SDK::Permissions::API.new

@@ -1,30 +1,23 @@
 module PaypalService
   module DataTypes
-    Endpoint = Struct.new(:endpoint_name) # One of :live or :sandbox
-    APICredentials = Struct.new(:username, :password, :signature, :app_id)
+    Endpoint = EntityUtils.define_builder([:endpoint_name, one_of: [:live, :sandbox]])
+    APICredentials = EntityUtils.define_builder(
+      [:username, :mandatory, :string],
+      [:password, :mandatory, :string],
+      [:signature, :mandatory, :string],
+      [:app_id, :mandatory, :string])
 
-    FailureResponse = Struct.new(:success, :error_code, :error_msg)
+    FailureResponse = EntityUtils.define_builder(
+      [:success, const_value: false],
+      [:error_code, :string],
+      [:error_msg, :string])
+
 
     module_function
 
-    def create_endpoint(type)
-      raise(ArgumentError, "type must be either :live or :sandbox") unless [:live, :sandbox].include?(type)
-      Endpoint.new(type)
-    end
-
-    def create_api_credentials(username, password, signature, app_id)
-      raise(ArgumentError, "username, password, signature and app_id are all mandatory.") unless none_empty?(username, password, signature, app_id)
-      APICredentials.new(username, password, signature, app_id)
-    end
-
-    def none_empty?(*args)
-      args.map(&:to_s).reject(&:empty?).length == args.length
-    end
-
-    def create_failure_response(error_code, error_msg)
-      FailureResponse.new(false, error_code, error_msg)
-    end
-
+    def create_endpoint(opts); Endpoint.call(opts) end
+    def create_api_credentials(opts); APICredentials.call(opts) end
+    def create_failure_response(opts); FailureResponse.call(opts) end
 
     module Merchant
       SetupBillingAgreement = Struct.new(:method, :description, :success, :cancel)

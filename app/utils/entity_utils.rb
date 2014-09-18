@@ -187,6 +187,8 @@ module EntityUtils
     fields = parse_specs(specs)
 
     -> (opts = {}) do
+      raise(TypeError, "Expecting an input hash. You gave: #{opts}") unless opts.is_a? Hash
+
       result = validate_and_transform(fields, opts)
 
       unless (result[:errors].empty?)

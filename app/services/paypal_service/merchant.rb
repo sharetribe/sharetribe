@@ -75,13 +75,15 @@ module PaypalService
       @api_builder = api_builder || self.method(:build_api)
       @action_handlers = action_handlers
 
-      PayPal::SDK.configure({
-        mode: endpoint.endpoint_name.to_s,
-        username: api_credentials.username,
-        password: api_credentials.password,
-        signature: api_credentials.signature,
-        app_id: api_credentials.app_id
-      })
+      PayPal::SDK.configure(
+        {
+         mode: endpoint[:endpoint_name].to_s,
+         username: api_credentials[:username],
+         password: api_credentials[:password],
+         signature: api_credentials[:signature],
+         app_id: api_credentials[:app_id]
+        }
+      )
     end
 
     def do_request(request)
@@ -125,10 +127,12 @@ module PaypalService
 
     def create_failure_response(res)
       if (res.errors.length > 0)
-        DataTypes.create_failure_response(
-          res.errors[0].error_code, res.errors[0].long_message)
+        DataTypes.create_failure_response({
+          error_code: res.errors[0].error_code,
+          error_msg: res.errors[0].long_message
+        })
       else
-        DataTypes.create_failure_response()
+        DataTypes.create_failure_response({})
       end
     end
   end
