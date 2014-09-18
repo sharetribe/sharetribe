@@ -7,12 +7,12 @@ class AutomaticallyRejectPreauthorizedTransactionJob < Struct.new(:conversation_
   # if the job doesn't have host parameter, should call the method with nil, to set the default service_name
   def before(job)
     # Set the correct service name to thread for I18n to pick it
-    transaction = Transaction.find(transaction_id)
+    transaction = Transaction.find(conversation_id)
     ApplicationHelper.store_community_service_name_to_thread_from_community_id(transaction.community.id)
   end
 
   def perform
-    transaction = Transaction.find(transaction_id)
+    transaction = Transaction.find(conversation_id)
 
     if transaction.can_transition_to?(:rejected)
       transaction.transition_to! :rejected
