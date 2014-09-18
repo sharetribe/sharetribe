@@ -77,6 +77,11 @@ module EntityUtils
         "#{field}: Value must be a Symbol. Was: #{v}."
       end
     },
+    callable: -> (_, v, field) {
+      unless (v.nil? || v.respond_to?(:call))
+        "#{field}: Value must respond to :call, i.e. be a Method or a Proc (lambda, block, etc.)."
+      end
+    },
     validate_with: -> (validator, v, field) {
       unless (validator.call(v))
         "#{field}: Custom validation failed. Was: #{v}."
