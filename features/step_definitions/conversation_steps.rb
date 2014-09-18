@@ -33,12 +33,14 @@ def create_transaction(community, listing, starter, message)
 end
 
 Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
-  @conversation = build_conversation(@current_community, @listing, @people[sender], message)
-  @conversation.save!
+  @transaction = create_transaction(@current_community, @listing, @people[sender], message)
+  @conversation = @transaction.conversation
+  @transaction.transition_to! "free"
 end
 
 Given /^there is a pending request "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
   @transaction = create_transaction(@current_community, @listing, @people[sender], message)
+  @conversation = @transaction.conversation
   @transaction.transition_to! "pending"
 end
 
