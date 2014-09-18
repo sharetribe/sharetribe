@@ -125,7 +125,7 @@ module MarketplaceService
       end
 
       def conversation_for_person(conversation_id, person_id, community_id)
-        conversation = conversations_for_person
+        conversation = conversations_for_person(person_id, community_id)
           .where({id: conversation_id})
           .first
 
