@@ -1,8 +1,9 @@
 class MoveListingConversationToTransactions < ActiveRecord::Migration
   def up
     execute("
-      INSERT INTO transactions (starter_id, listing_id, conversation_id, automatic_confirmation_after_days, created_at, updated_at)
+      INSERT INTO transactions (id, starter_id, listing_id, conversation_id, automatic_confirmation_after_days, created_at, updated_at)
       (SELECT
+        conversations.id,
         participations.person_id,
         conversations.listing_id,
         conversations.id,
