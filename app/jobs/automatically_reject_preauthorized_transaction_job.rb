@@ -1,4 +1,4 @@
-class AutomaticallyRejectPreauthorizedTransactionJob < Struct.new(:transaction_id)
+class AutomaticallyRejectPreauthorizedTransactionJob < Struct.new(:conversation_id)
 
   include DelayedAirbrakeNotification
 
