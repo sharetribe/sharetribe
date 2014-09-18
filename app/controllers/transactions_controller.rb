@@ -27,6 +27,8 @@ class TransactionsController < ApplicationController
     other = MarketplaceService::Conversation::Entity.other_by_id(conversation, @current_user.id)
     conversation[:other_party] = person_entity_with_url(other)
 
+    transaction[:listing_url] = listing_path(id: transaction[:id])
+
     messages_and_actions = TransactionViewUtils::merge_messages_and_transitions(
       TransactionViewUtils.conversation_messages(conversation[:messages]),
       TransactionViewUtils.transition_messages(transaction, conversation))
