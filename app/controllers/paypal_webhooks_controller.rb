@@ -56,8 +56,8 @@ class PaypalWebhooksController < ApplicationController
 
   def affirm_billing_agreement(token)
     affirm_billing_agreement_req = PaypalService::DataTypes::Merchant
-      .create_create_billing_agreement(token)
+      .create_create_billing_agreement({token: token})
 
-    response = paypal_merchant.do_request(affirm_billing_agreement_req)
+    paypal_merchant.do_request(affirm_billing_agreement_req)
   end
 end

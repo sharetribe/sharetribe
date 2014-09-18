@@ -134,11 +134,11 @@ class PaypalAccountsController < ApplicationController
   def request_paypal_billing_agreement_url
     commission_from_seller = @current_community.commission_from_seller ? "#{@current_community.commission_from_seller} %" : "0 %"
     billing_agreement_request = PaypalService::DataTypes::Merchant
-      .create_setup_billing_agreement(
-        t("paypal_accounts.new.billing_agreement_description"),
-        paypal_billing_agreement_success_hook_url,
-        paypal_billing_agreement_cancel_hook_url
-      )
+      .create_setup_billing_agreement({
+        description: t("paypal_accounts.new.billing_agreement_description"),
+        success: paypal_billing_agreement_success_hook_url,
+        cancel: paypal_billing_agreement_cancel_hook_url
+      })
 
     response = paypal_merchant.do_request(billing_agreement_request)
     if response[:success]
