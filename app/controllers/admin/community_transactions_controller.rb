@@ -25,14 +25,10 @@ class Admin::CommunityTransactionsController < ApplicationController
 
     # TODO THIS IS COPY-PASTE
     conversations = conversations.map do |transaction|
-      author_id = transaction[:listing][:author_id]
-      starter_id = transaction[:starter_id]
-
-      author = transaction[:conversation][:participants].find { |participant| participant[:id] == author_id }
-      starter = transaction[:conversation][:participants].find { |participant| participant[:id] == starter_id }
-
-      author_url = {url: person_path(id: author[:username])}
-      starter_url = {url: person_path(id: starter[:username])}
+      conversation = transaction[:conversation]
+      # TODO Embed author and starter to the transaction entity
+      author = MarketplaceService::Conversation::Entity.participant_by_id(conversation, transaction[:listing][:author_id])
+      starter = MarketplaceService::Conversation::Entity.participant_by_id(conversation, transaction[:starter_id])
 
       transaction[:listing_url] = listing_path(id: transaction[:listing][:id])
 
