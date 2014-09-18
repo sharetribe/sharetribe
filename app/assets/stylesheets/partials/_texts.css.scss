@@ -7,6 +7,15 @@ a {
   &:active { color: darken($link, 25%); }
 }
 
+.truncated-link {
+  display: inline-block;
+  width: 100%;
+  max-width: em(350);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 small {
   @include small-type;
   display: block;
