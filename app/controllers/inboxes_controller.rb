@@ -1,23 +1,24 @@
 class InboxesController < ApplicationController
   include MoneyRails::ActionViewExtension
 
-  InboxRow = EntityUtils.define_builder(
-    # General
+  conversation_fields = [
     [:title, :string, :mandatory],
     [:last_update_at, :string, :mandatory],
     [:path, :string, :mandatory],
     [:other_party, :hash, :mandatory],
-    [:is_read, :bool, :mandatory],
+    [:is_read, :bool, :mandatory]
+  ]
 
-    # If listing
-    [:listing_title, :string, :optional],
-    [:listing_url, :string, :optional],
+  transasction_fields = [
+    [:listing_title, :string, :mandatory],
+    [:listing_url, :string, :mandatory],
+    [:is_author, :bool, :mandatory],
+    [:waiting_feedback_from_current, :mandatory],
+    [:transaction_status, :string, :mandatory]
+  ]
 
-    # Only for transactions
-    [:is_author, :bool, :optional],
-    [:waiting_feedback_from_current, :optional],
-    [:transaction_status, :string, :optional]
-  )
+  InboxRowConversation = EntityUtils.define_builder(*conversation_fields)
+  InboxRowTransaction = EntityUtils.define_builder(*conversation_fields, *transasction_fields)
 
   skip_filter :dashboard_only
   before_filter do |controller|
@@ -33,7 +34,7 @@ class InboxesController < ApplicationController
       {per_page: 15, page: params[:page]})
       .map { |conversation|
         inbox_row(conversation)
-      }
+      }.compact
 
     if request.xhr?
       # TODO Make sure these work
@@ -49,6 +50,15 @@ class InboxesController < ApplicationController
     current_participation = conversation[:participants].find { |participant| participant[:person][:id] == @current_user.id }
     other_person = MarketplaceService::Conversation::Entity.other_by_id(conversation, @current_user.id)
 
+    if other_person.blank?
+      # For some reason, the whole .haml content was wrapped in if, which made sure the other_party is present.
+      # I guess the reason is that there were some broken data in DB, transactions which didn't have the other-party,
+      # and to ensure it doesn't break the whole inbox, the if-clause was added.
+      #
+      # If that's the case, consider cleaning the DB and removing this line.
+      return nil
+    end
+
     messages_and_actions = TransactionViewUtils.merge_messages_and_transitions(
       TransactionViewUtils.conversation_messages(conversation[:messages]),
       TransactionViewUtils.transition_messages(conversation[:transaction], conversation))
@@ -61,29 +71,17 @@ class InboxesController < ApplicationController
       path: path_to_conversation_or_transaction(conversation)
     }
 
-    listing_opts = if conversation[:listing]
-      {
-        listing_url: listing_path(id: conversation[:listing][:id]),
-        listing_title: conversation[:listing][:title]
-      }
+    if conversation[:transaction]
+      InboxRowTransaction[{
+        listing_url: listing_path(id: conversation[:transaction][:id]),
+        listing_title: conversation[:transaction][:listing][:title],
+        is_author: conversation[:transaction][:listing][:author_id] == @current_user.id,
+        waiting_feedback_from_current: MarketplaceService::Transaction::Entity.waiting_testimonial_from?(conversation[:transaction], @current_user.id),
+        transaction_status: conversation[:transaction][:status]
+      }.merge(conversation_opts)]
     else
-      {}
+      InboxRowConversation[conversastion_opts]
     end
-
-    transaction_opts = if conversation[:transaction]
-      {
-        is_transaction_author: conversation[:transaction][:listing][:author_id] == @current_user.id,
-        waiting_feedback_from_current: MarketplaceService::Transaction::Entity.waiting_testimonial_from?(conversation[:transaction], @current_user.id)
-      }
-    else
-      {}
-    end
-
-    InboxRow[
-      conversation_opts
-        .merge(listing_opts)
-        .merge(transaction_opts)
-    ]
   end
 
   def path_to_conversation_or_transaction(conversation)
