@@ -22,15 +22,7 @@ class ListingConversationsController < ApplicationController
   ContactForm = FormUtils.define_form("ListingConversation", :content, :sender_id, :listing_id, :community_id)
     .with_validations { validates_presence_of :content, :listing_id }
 
-  BraintreeForm = FormUtils.define_form("ListingConversation",
-    :braintree_cardholder_name,
-    :braintree_credit_card_number,
-    :braintree_cvv,
-    :braintree_credit_card_expiration_month,
-    :braintree_credit_card_expiration_year
-  ).with_validations {
-    # TODO ADD VALIDATIONS
-  }
+  BraintreeForm = Form::Braintree
 
   PreauthorizeMessageForm = FormUtils.define_form("ListingConversation",
     :content,
@@ -39,8 +31,7 @@ class ListingConversationsController < ApplicationController
     :listing_id
   ).with_validations { validates_presence_of :listing_id }
 
-  PreauthorizeForm = FormUtils.merge("ListingConversation", BraintreeForm, PreauthorizeMessageForm)
-  PreauthorizeBookingForm = FormUtils.merge("ListingConversation", PreauthorizeForm, BookingForm)
+  PreauthorizeBookingForm = FormUtils.merge("ListingConversation", PreauthorizeMessageForm, BookingForm)
 
   def new
     use_contact_view = @listing.status_after_reply == "free"
@@ -85,6 +76,7 @@ class ListingConversationsController < ApplicationController
 
     render :preauthorize, locals: {
       preauthorize_form: preauthorize_form,
+      braintree_form: BraintreeForm.new,
       listing: @listing,
       sum: sum,
       duration: booking_duration,
@@ -96,12 +88,13 @@ class ListingConversationsController < ApplicationController
   def preauthorize
     @braintree_client_side_encryption_key = @current_community.payment_gateway.braintree_client_side_encryption_key
 
-    preauthorize_form = PreauthorizeForm.new
+    preauthorize_form = PreauthorizeMessageForm.new
 
     sum = @listing.price
 
     render locals: {
       preauthorize_form: preauthorize_form,
+      braintree_form: BraintreeForm.new,
       listing: @listing,
       sum: sum,
       author: @listing.author,
@@ -117,7 +110,7 @@ class ListingConversationsController < ApplicationController
       return redirect_to action: :preauthorize
     end
 
-    preauthorize_form = PreauthorizeForm.new(conversation_params.merge({
+    preauthorize_form = PreauthorizeMessageForm.new(conversation_params.merge({
       listing_id: @listing.id
     }))
 
@@ -158,7 +151,9 @@ class ListingConversationsController < ApplicationController
         sum: @listing.price
       })
 
-      result = BraintreeSaleService.new(transaction.payment, params[:braintree_payment]).pay(false)
+      #TODO: Validations for form
+      braintree_form = BraintreeForm.new(params[:braintree_payment])
+      result = BraintreeSaleService.new(transaction.payment, braintree_form.to_hash).pay(false)
 
       if result.success?
         transaction.save!
@@ -238,13 +233,9 @@ class ListingConversationsController < ApplicationController
         end_on: preauthorize_form.end_on
       })
 
-      result = BraintreeSaleService.new(transaction.payment, {
-        cardholder_name: preauthorize_form.braintree_cardholder_name,
-        credit_card_number: preauthorize_form.braintree_credit_card_number,
-        cvv: preauthorize_form.braintree_cvv,
-        credit_card_expiration_month: preauthorize_form.braintree_credit_card_expiration_month,
-        credit_card_expiration_year: preauthorize_form.braintree_credit_card_expiration_year
-      }).pay(false)
+      #TODO validations for form
+      braintree_form = BraintreeForm.new(params[:braintree_payment])
+      result = BraintreeSaleService.new(transaction.payment, braintree_form.to_hash).pay(false)
 
       if result.success?
         transaction.save!

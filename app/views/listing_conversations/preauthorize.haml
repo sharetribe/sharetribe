@@ -1,6 +1,5 @@
 - content_for :extra_javascript do
   = javascript_include_tag "https://js.braintreegateway.com/v1/braintree.js"
-
 - content_for :extra_javascript do
   :javascript
 
@@ -70,23 +69,7 @@
       %h2
         = t(".payment")
 
-      .row
-        .col-12
-          = form.text_field :braintree_cardholder_name, :class => :text_field, :placeholder => t("braintree_payments.edit.cardholder_name"), :data => { :'encrypted-name' => "listing_conversation[braintree_cardholder_name]" }
-
-      .row
-        .col-9
-          = form.text_field :braintree_credit_card_number, :class => :text_field, :placeholder => t("braintree_payments.edit.credit_card_number"), :data => { :'encrypted-name' => "listing_conversation[braintree_credit_card_number]"}
-
-        .col-3
-          = form.text_field :braintree_cvv, :class => :text_field, :maxlength => 4, :placeholder => t("braintree_payments.edit.cvv"), :data => { :'encrypted-name' => "listing_conversation[braintree_cvv]"}
-
-      .row
-        .col-12
-          = form.label :braintree_credit_card_expiration_month, t(".exp"), :class => "preauthorize-exp"
-          = select_tag :braintree_credit_card_expiration_month, options_for_select(credit_card_expiration_month_options), :data => { :'encrypted-name' => "listing_conversation[braintree_credit_card_expiration_month]" }
-          = " / "
-          = select_tag :braintree_credit_card_expiration_year, options_for_select(credit_card_expiration_year_options), :data => { :'encrypted-name' => "listing_conversation[braintree_credit_card_expiration_year]" }
+      = render partial: "payments/braintree/credit_card_info", locals: {braintree_form: braintree_form}
 
     .preauthorize-section
       %h2

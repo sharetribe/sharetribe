@@ -1352,10 +1352,9 @@ function validateBraintreeForm(locale, beforeSubmit, opts) {
 
   var defaultValidationOptions = {
     rules: {
-      "braintree_cardholder_name]": {required: true, minlength: 2, maxlength: 50},
-      "braintree_credit_card_number]": {required: true, creditcard: true},
-      "braintree_cvv]": {required: true, digits: true, minlength: 3, maxlength: 4},
-      "braintree_credit_card_expiration_date]": {required: true, minlength: 5}
+      "braintree_payment[cardholder_name]": {required: true, minlength: 2, maxlength: 50},
+      "braintree_payment[credit_card_number]": {required: true, creditcard: true},
+      "braintree_payment[cvv]": {required: true, digits: true, minlength: 3, maxlength: 4},
     },
     submitHandler: function(form) {
       beforeSubmit(function() {
