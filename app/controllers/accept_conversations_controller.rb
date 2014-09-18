@@ -15,7 +15,6 @@ class AcceptConversationsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   MessageForm = Form::Message
-  CheckoutAcceptanceForm = FormUtils::define_form("CheckoutAcceptance", :accept)
 
   def accept
     prepare_accept_or_reject_form
@@ -41,9 +40,6 @@ class AcceptConversationsController < ApplicationController
       end
 
       @listing_conversation.transition_to!(params[:listing_conversation][:status])
-
-      close_listing = params[:close_listing]
-      listing.update_attribute(:open, false) if close_listing && close_listing.eql?("true")
 
       flash[:notice] = t("layouts.notifications.#{@listing_conversation.discussion_type}_#{@listing_conversation.status}")
       redirect_to person_transaction_path(:person_id => @current_user.id, :id => @listing_conversation.id)
