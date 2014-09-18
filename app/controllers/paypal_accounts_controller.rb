@@ -2,6 +2,10 @@ class PaypalAccountsController < ApplicationController
   include PaypalService::PermissionsInjector
   include PaypalService::MerchantInjector
 
+  PaypalAccountEntity = MarketplaceService::PaypalAccount::Entity
+  PaypalAccountQuery = MarketplaceService::PaypalAccount::Query
+  PaypalAccountCommand = MarketplaceService::PaypalAccount::Command
+
   before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_settings")
   end
@@ -14,13 +18,12 @@ class PaypalAccountsController < ApplicationController
     .with_validations { validates_presence_of :paypal_email }
 
   def show
-    paypal_account = MarketplaceService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id)
+    paypal_account = PaypalAccountQuery.personal_account(@current_user.id, @current_community.id)
     verified_billing_agreement = Maybe(paypal_account)
       .map {|paypal_account| paypal_account[:billing_agreement_state] == :verified}
       .or_else(false)
 
-    account_entity = MarketplaceService::PaypalAccount::Entity
-    return redirect_to action: :new unless account_entity.verified_account?(paypal_account)
+    return redirect_to action: :new unless PaypalAccountEntity.verified_account?(paypal_account)
     return redirect_to action: :new unless verified_billing_agreement
 
     @selected_left_navi_link = "payments"
@@ -35,12 +38,12 @@ class PaypalAccountsController < ApplicationController
   end
 
   def new
-    paypal_account = MarketplaceService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id)
+    paypal_account = PaypalAccountQuery.personal_account(@current_user.id, @current_community.id)
     verified_billing_agreement = Maybe(paypal_account)
       .map {|paypal_account| paypal_account[:billing_agreement_state] == :verified }
       .or_else(false)
 
-    is_verified = MarketplaceService::PaypalAccount::Entity.verified_account?(paypal_account)
+    is_verified = PaypalAccountEntity.verified_account?(paypal_account)
     return redirect_to action: :show if verified_billing_agreement && is_verified
 
     @selected_left_navi_link = "payments"
@@ -57,8 +60,8 @@ class PaypalAccountsController < ApplicationController
   end
 
   def create
-    paypal_account = MarketplaceService::PaypalAccount::Query.personal_account(@current_user.id, @current_community.id)
-    is_verified_account = MarketplaceService::PaypalAccount::Entity.verified_account?(paypal_account)
+    paypal_account = PaypalAccountQuery.personal_account(@current_user.id, @current_community.id)
+    is_verified_account = PaypalAccountEntity.verified_account?(paypal_account)
 
     if is_verified_account
       create_billing_agreement
@@ -74,7 +77,7 @@ class PaypalAccountsController < ApplicationController
     paypal_account_form = PaypalAccountForm.new(params[:paypal_account_form])
 
     if paypal_account_form.valid?
-      MarketplaceService::PaypalAccount::Command.create_personal_account(
+      PaypalAccountCommand.create_personal_account(
         @current_user.id,
         @current_community.id,
         { email: paypal_account_form.paypal_email}
@@ -125,8 +128,7 @@ class PaypalAccountsController < ApplicationController
 
     response = paypal_permissions.do_request(permission_request)
     if response[:success]
-      MarketplaceService::PaypalAccount::Command
-        .create_pending_permissions_request(
+      PaypalAccountCommand.create_pending_permissions_request(
           @current_user.id,
           @current_community.id,
           response[:username_to],
@@ -150,8 +152,7 @@ class PaypalAccountsController < ApplicationController
 
     response = paypal_merchant.do_request(billing_agreement_request)
     if response[:success]
-      MarketplaceService::PaypalAccount::Command
-        .create_pending_billing_agreement(
+      PaypalAccountCommand.create_pending_billing_agreement(
           @current_user.id,
           @current_community.id,
           response[:username_to],
