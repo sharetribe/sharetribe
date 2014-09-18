@@ -40,12 +40,11 @@ module PaypalService
 
       module_function
 
-      def create_setup_billing_agreement(receiver_username, description, success, cancel)
+      def create_setup_billing_agreement(description, success, cancel)
         ParamUtils.throw_if_any_empty({description: description, success: success, cancel: cancel})
 
         SetupBillingAgreement.new(
           :setup_billing_agreement,
-          receiver_username,
           description,
           success,
           cancel)
