@@ -1,42 +1,38 @@
--# For some reason, other_party was wrapped inside "if". I guess there might be situations where other_party do
-  not exist. This is error in data. Anyway, we don't want the whole inbox to break because of this.
+.row-with-divider.without-margin.conversation-row{:class => conversation[:is_read] ? "" : "unread"}
 
-- if conversation[:other_party].present?
-  .row-with-divider.without-margin.conversation-row{:class => conversation[:is_read] ? "" : "unread"}
+  .col-3
+    .conversation-details-container
+      = link_to conversation[:other_party][:url] do
+        = image_tag conversation[:other_party][:avatar], :class => "conversation-avatar"
+      .conversation-details
+        .conversation-other-party-name
+          = link_to conversation[:other_party][:name], conversation[:other_party][:url]
+        .conversation-last-message-at
+          = conversation[:last_update_at]
 
+  %div{class: payments_in_use ? "col-6" : "col-9"}
+    = link_to conversation[:path], class: "conversation-title-link" do
+      = conversation[:title]
+    .conversation-context
+      - if conversation[:listing_url].present?
+        = t("conversations.conversation.about_listing", listing_title: link_to(conversation[:listing_title], conversation[:listing_url])).html_safe
+      - else
+        = t("conversations.conversation.free_message")
+
+  - if payments_in_use
     .col-3
-      .conversation-details-container
-        = link_to conversation[:other_party][:url] do
-          = image_tag conversation[:other_party][:avatar], :class => "conversation-avatar"
-        .conversation-details
-          .conversation-other-party-name
-            = link_to conversation[:other_party][:name], conversation[:other_party][:url]
-          .conversation-last-message-at
-            = conversation[:last_update_at]
 
-    %div{class: payments_in_use ? "col-6" : "col-9"}
-      = link_to conversation[:path], class: "conversation-title-link" do
-        = conversation[:title]
-      .conversation-context
-        - if conversation[:listing_url].present?
-          = t("conversations.conversation.about_listing", listing_title: link_to(conversation[:listing_title], conversation[:listing_url])).html_safe
-        - else
-          = t("conversations.conversation.free_message")
+      -# Only for transactions
+      - status = conversation[:transaction_status]
+      - if status.present? && status != "free"
+        - is_author = conversation[:is_author]
+        - waiting_feedback = conversation[:waiting_feedback_from_current]
+        - other_party_name = conversation[:other_party][:name]
 
-    - if payments_in_use
-      .col-3
+        - icon, status_description = conversation_icon_and_status(status, is_author, other_party_name, waiting_feedback)
 
-        -# Only for transactions
-        - status = conversation[:transaction_status]
-        - if status.present? && status != "free"
-          - is_author = conversation[:is_author]
-          - waiting_feedback = conversation[:waiting_feedback_from_current]
-          - other_party_name = conversation[:other_party][:name]
-
-          - icon, status_description = conversation_icon_and_status(status, is_author, other_party_name, waiting_feedback)
-
-          .conversation-list-status-container
-            .conversation-list-status-icon
-              = icon
-            .conversation-list-status
-              = status_description
+        .conversation-list-status-container
+          .conversation-list-status-icon
+            = icon
+          .conversation-list-status
+            = status_description
