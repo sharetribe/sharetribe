@@ -64,8 +64,8 @@ class ListingConversationsController < ApplicationController
 
     booking_form = if @listing.transaction_type.price_per.present?
       BookingForm.new({
-        start_on: Date.parse(params[:start_on]),
-        end_on: Date.parse(params[:end_on])
+        start_on: parse_booking_date(params[:start_on]),
+        end_on: parse_booking_date(params[:end_on])
       })
     end
 
@@ -169,7 +169,6 @@ class ListingConversationsController < ApplicationController
         redirect_to action: :preauthorize
       end
     else
-      # TODO: This doesn't work since the start_on param is different than start_on(1i)
       flash[:error] = preauthorize_form.errors.full_messages.join(", ")
       return redirect_to action: :preauthorize
     end
@@ -183,14 +182,17 @@ class ListingConversationsController < ApplicationController
       return redirect_to action: :preauthorize
     end
 
+    start_on = DateUtils.from_date_select(conversation_params, :start_on)
+    end_on = DateUtils.from_date_select(conversation_params, :end_on)
+
     preauthorize_form = PreauthorizeBookingForm.new({
       braintree_cardholder_name: conversation_params[:braintree_cardholder_name],
       braintree_credit_card_number: conversation_params[:braintree_credit_card_number],
       braintree_cvv: conversation_params[:braintree_cvv],
       braintree_credit_card_expiration_month: conversation_params[:braintree_credit_card_expiration_month],
       braintree_credit_card_expiration_year: conversation_params[:braintree_credit_card_expiration_year],
-      start_on: DateUtils.from_date_select(conversation_params, :start_on),
-      end_on: DateUtils.from_date_select(conversation_params, :end_on),
+      start_on: start_on,
+      end_on: end_on,
       listing_id: @listing.id
     })
 
@@ -254,9 +256,8 @@ class ListingConversationsController < ApplicationController
       end
 
     else
-      # TODO: This doesn't work since the start_on param is different than start_on(1i)
       flash[:error] = preauthorize_form.errors.full_messages.join(", ")
-      return redirect_to action: :preauthorize
+      return redirect_to action: :book, start_on: stringify_booking_date(start_on), end_on: stringify_booking_date(end_on)
     end
   end
 
@@ -407,5 +408,13 @@ class ListingConversationsController < ApplicationController
 
   def duration(start_on, end_on)
     (end_on - start_on).to_i + 1
+  end
+
+  def parse_booking_date(str)
+    Date.parse(str)
+  end
+
+  def stringify_booking_date(date)
+    date.iso8601
   end
 end
