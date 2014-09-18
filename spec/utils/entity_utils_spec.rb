@@ -64,6 +64,18 @@ describe EntityUtils do
 
     expect{Person.call({name: "First Last", sex: :f, favorite_even_number: 3})}
         .to raise_error
+  end
 
+  it "#define_builder :callabla validator" do
+    Entity = EntityUtils.define_builder([:say_so, :callable])
+
+    expect{Entity.call({say_so: -> () { "Yes, that's the way it is." }})}
+      .to_not raise_error
+
+    expect{Entity.call({say_so: nil})}
+      .to_not raise_error
+
+    expect{Entity.call({say_so: "It ain't so"})}
+      .to raise_error
   end
 end
