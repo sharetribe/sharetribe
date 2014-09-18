@@ -39,13 +39,23 @@ module FormUtils
       attr_reader(*ks)
 
       def initialize(opts = {})
-        self.class.keys.each { |k|
-          instance_variable_set("@#{k.to_s}", opts[k]) unless opts[k].nil?
+        keys_and_values = self.class.keys
+          .map { |k| [k, opts[k]] }
+          .reject { |(k, v)| v.nil? }
+
+        keys_and_values.each { |(k, v)|
+          instance_variable_set("@#{k.to_s}", v)
         }
+
+        instance_variable_set("@__value_hash", Hash[keys_and_values])
       end
 
       def persisted?
         false
+      end
+
+      def to_hash
+        @__value_hash
       end
 
       def self.model_name
