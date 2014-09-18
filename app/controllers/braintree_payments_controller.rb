@@ -18,11 +18,14 @@ class BraintreePaymentsController < ApplicationController
     @braintree_payment = @conversation.payment
     community_payment_gateway = @current_community.payment_gateway
     @braintree_client_side_encryption_key = community_payment_gateway.braintree_client_side_encryption_key
+    render locals: {braintree_form: Form::Braintree.new}
   end
 
   def update
     payment = @braintree_payment
-    result = BraintreeSaleService.new(payment, params[:braintree_payment]).pay(true)
+    #TODO: Validations for form
+    braintree_form = Form::Braintree.new(params[:braintree_payment])
+    result = BraintreeSaleService.new(payment, braintree_form.to_hash).pay(true)
 
     recipient = payment.recipient
     if result.success?

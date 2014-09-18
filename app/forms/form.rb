@@ -6,4 +6,14 @@ module Form
   ).with_validations {
     validates_presence_of :content, :conversation_id, :sender_id
   }
+
+  Braintree = FormUtils.define_form("Braintree",
+    :cardholder_name,
+    :credit_card_number,
+    :cvv,
+    :credit_card_expiration_month,
+    :credit_card_expiration_year
+  ).with_validations {
+    # TODO ADD VALIDATIONS
+  }
 end
