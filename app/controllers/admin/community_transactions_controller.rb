@@ -4,7 +4,7 @@ class Admin::CommunityTransactionsController < ApplicationController
   skip_filter :dashboard_only
 
   def index
-    pagination_opts = parse_pagination_opts(params)
+    pagination_opts = PaginationViewUtils.parse_pagination_opts(params)
 
     conversations = if params[:sort].nil? || params[:sort] == "last_activity"
       TransactionQuery.transactions_for_community_sorted_by_activity(
@@ -63,23 +63,7 @@ class Admin::CommunityTransactionsController < ApplicationController
     end
   end
 
-  def pagination_opts
-    {page: params[:page], per_page: 50}
-  end
-
   def sort_direction
     params[:direction] || "desc"
-  end
-
-  def parse_pagination_opts(pagination_opts = {})
-    per_page = Maybe(pagination_opts)[:per_page].to_i.or_else(30)
-    page = Maybe(pagination_opts)[:page].to_i.or_else(1)
-
-    {
-      per_page: per_page,
-      page: page,
-      limit: per_page,
-      offset: per_page * (page - 1)
-    }
   end
 end

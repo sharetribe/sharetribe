@@ -111,28 +111,22 @@ module MarketplaceService
 
       module_function
 
-      def conversations_and_transactions(person_id, community_id, pagination_opts = {})
-        conversations = ConversationModel.joins(:participations)
-          .where( { participations: { person_id: person_id }} )
-          .where(community_id: community_id)
-          .includes(:transaction)
-          .order("last_message_at DESC")
+      def conversations_and_transactions(person_id, community_id, limit, offset)
+        conversations_and_transaction_relation(person_id, community_id)
+          .paginate(:page => (offset + 1), :per_page => limit)
+          .map do |conversation_model|
+            Entity.conversation_with_transaction(conversation_model)
+          end
+      end
 
-        conversations = if pagination_opts[:per_page].present? && pagination_opts[:page].present?
-          conversations.paginate(per_page: pagination_opts[:per_page], page: pagination_opts[:page])
-        else
-          conversations
-        end
-
-        conversations.map do |conversation_model|
-          Entity.conversation_with_transaction(conversation_model)
-        end
+      def conversation_and_transaction_count(person_id, community_id)
+        conversations_and_transaction_relation(person_id, community_id)
+          .count
       end
 
       def conversation_for_person(conversation_id, person_id, community_id)
-        conversation = ConversationModel.joins(:participations)
-          .where({id: conversation_id, community_id: community_id })
-          .where( { participations: { person_id: person_id }} )
+        conversation = conversations_for_person
+          .where({id: conversation_id})
           .first
 
         if conversation
@@ -140,6 +134,18 @@ module MarketplaceService
         else
           nil
         end
+      end
+
+      def conversations_and_transaction_relation(person_id, community_id)
+        conversations_for_person(person_id, community_id)
+          .includes(:transaction)
+          .order("last_message_at DESC")
+      end
+
+      def conversations_for_person(person_id, community_id)
+        ConversationModel.joins(:participations)
+          .where( { participations: { person_id: person_id }} )
+          .where(community_id: community_id)
       end
     end
   end

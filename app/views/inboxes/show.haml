@@ -4,13 +4,10 @@
 .undo-mobile-wrapper-margin#conversations
   - if inbox_rows.present?
 
-    - inbox_rows.each do |conversation|
-      = render :partial => "conversation", locals: {conversation: conversation, payments_in_use: @current_community.payments_in_use?}
+    = render :partial => "inbox_row", :collection => inbox_rows, :as => :conversation, locals: { payments_in_use: payments_in_use }
 
-    -#
-      TODO Use pagination
-      = will_paginate(conversation_models)
-      = pageless(conversation_models.total_pages, '#conversations', "#{action_name}", t('.loading_more_messages'))
+    = will_paginate(inbox_rows)
+    = pageless(inbox_rows.total_pages, '#conversations', request.path, t('conversations.index.loading_more_messages'))
 
   - else
     #no_conversations

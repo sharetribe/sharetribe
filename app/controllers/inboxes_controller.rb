@@ -26,22 +26,36 @@ class InboxesController < ApplicationController
   end
 
   def show
+    # We use pageless scroll, so the page should be always the first one (1) when request was not AJAX request
     params[:page] = 1 unless request.xhr?
+
+    pagination_opts = PaginationViewUtils.parse_pagination_opts(params)
 
     inbox_rows = MarketplaceService::Conversation::Query.conversations_and_transactions(
       @current_user.id,
       @current_community.id,
-      {per_page: 15, page: params[:page]})
+      pagination_opts[:limit],
+      pagination_opts[:offset])
       .map { |conversation|
         inbox_row(conversation)
       }.compact
 
+    count = MarketplaceService::Conversation::Query.conversation_and_transaction_count(@current_user.id, @current_community.id)
+
+    paginated_inbox_rows = WillPaginate::Collection.create(pagination_opts[:page], pagination_opts[:per_page], count) do |pager|
+      pager.replace(inbox_rows)
+    end
+
     if request.xhr?
-      # TODO Make sure these work
-      render :partial => "additional_messages"
+      render :partial => "inbox_row",
+        :collection => paginated_inbox_rows, :as => :conversation,
+        locals: {
+          payments_in_use: @current_community.payments_in_use?
+        }
     else
-      render :action => :show, locals: {
-        inbox_rows: inbox_rows
+      render locals: {
+        inbox_rows: paginated_inbox_rows,
+        payments_in_use: @current_community.payments_in_use?
       }
     end
   end
@@ -80,7 +94,7 @@ class InboxesController < ApplicationController
         transaction_status: conversation[:transaction][:status]
       }.merge(conversation_opts)]
     else
-      InboxRowConversation[conversastion_opts]
+      InboxRowConversation[conversation_opts]
     end
   end
 
