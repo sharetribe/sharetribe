@@ -294,6 +294,8 @@ GEM
     paypal-sdk-core (0.2.10)
       multi_json (~> 1.0)
       xml-simple
+    paypal-sdk-merchant (1.115.0)
+      paypal-sdk-core (~> 0.2.7)
     paypal-sdk-permissions (1.96.3)
       paypal-sdk-core (~> 0.2.3)
     pickle (0.4.11)
@@ -531,6 +533,7 @@ DEPENDENCIES
   omniauth-facebook
   paperclip
   parallel_tests
+  paypal-sdk-merchant
   paypal-sdk-permissions
   pickle
   possibly (~> 0.1.1)
