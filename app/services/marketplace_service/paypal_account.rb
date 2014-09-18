@@ -39,8 +39,14 @@ module MarketplaceService
           .merge(EntityUtils.model_to_hash(order_perm_model))
       end
 
-      def verified_account?(paypal_account)
+      def order_permission_verified?(paypal_account)
         return (paypal_account && paypal_account[:order_permission_state] == :verified)
+      end
+
+      def paypal_account_prepared?(paypal_account)
+        return (paypal_account &&
+          paypal_account[:order_permission_state] == :verified &&
+          paypal_account[:billing_agreement_state] == :verified)
       end
 
       def billing_agreement_to_hash(billing_agreement_model)

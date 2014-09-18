@@ -19,12 +19,7 @@ class PaypalAccountsController < ApplicationController
 
   def show
     paypal_account = PaypalAccountQuery.personal_account(@current_user.id, @current_community.id)
-    verified_billing_agreement = Maybe(paypal_account)
-      .map {|paypal_account| paypal_account[:billing_agreement_state] == :verified}
-      .or_else(false)
-
-    return redirect_to action: :new unless PaypalAccountEntity.verified_account?(paypal_account)
-    return redirect_to action: :new unless verified_billing_agreement
+    return redirect_to action: :new unless PaypalAccountEntity.paypal_account_prepared?(paypal_account)
 
     @selected_left_navi_link = "payments"
     commission_from_seller = @current_community.commission_from_seller ? @current_community.commission_from_seller : 0
@@ -39,12 +34,7 @@ class PaypalAccountsController < ApplicationController
 
   def new
     paypal_account = PaypalAccountQuery.personal_account(@current_user.id, @current_community.id)
-    verified_billing_agreement = Maybe(paypal_account)
-      .map {|paypal_account| paypal_account[:billing_agreement_state] == :verified }
-      .or_else(false)
-
-    is_verified = PaypalAccountEntity.verified_account?(paypal_account)
-    return redirect_to action: :show if verified_billing_agreement && is_verified
+    return redirect_to action: :show if PaypalAccountEntity.paypal_account_prepared?(paypal_account)
 
     @selected_left_navi_link = "payments"
     commission_from_seller = @current_community.commission_from_seller ? @current_community.commission_from_seller : 0
@@ -61,9 +51,9 @@ class PaypalAccountsController < ApplicationController
 
   def create
     paypal_account = PaypalAccountQuery.personal_account(@current_user.id, @current_community.id)
-    is_verified_account = PaypalAccountEntity.verified_account?(paypal_account)
+    order_permission_verified = PaypalAccountEntity.order_permission_verified?(paypal_account)
 
-    if is_verified_account
+    if order_permission_verified
       create_billing_agreement
     else
       create_paypal_account
