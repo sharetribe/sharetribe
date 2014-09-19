@@ -72,18 +72,9 @@ module PaypalService
     end
 
     module Permissions
-      RequestPermissions = Struct.new(:method, :scope, :callback)
-      RequestPermissionsSuccessResponse = Struct.new(:success, :username_to, :scope, :request_token, :redirect_url)
-      RequestPermissionsFailureResponse = Struct.new(:success, :error_id, :error_msg)
-
-
-      module_function
-
-      def create_req_perm(callback)
-        raise(ArgumentError, "callback is mandatory") unless DataTypes.none_empty?(callback)
-
-        RequestPermissions.new(
-          :request_permissions,
+      RequestPermissions = EntityUtils.define_builder(
+        [:method, const_value: :request_permissions],
+        [:scope, const_value:
           [
             "EXPRESS_CHECKOUT",
             "AUTH_CAPTURE",
@@ -93,21 +84,23 @@ module PaypalService
             "RECURRING_PAYMENTS",
             "SETTLEMENT_REPORTING",
             "RECURRING_PAYMENT_REPORT"
-          ],
-          callback)
-      end
+          ]
+        ],
+        [:callback, :mandatory, :string])
 
-      def create_req_perm_response(username_to, scope, token, redirect_url)
-        unless DataTypes.none_empty?(username_to, scope, token, redirect_url)
-          raise(ArgumentError, "username_to, scope, token and redirect_url are all mandatory")
-        end
+      RequestPermissionsResponse = EntityUtils.define_builder(
+        [:success, const_value: true],
+        [:username_to, :mandatory, :string],
+        [:scope, :mandatory, :enumerable],
+        [:request_token, :mandatory, :string],
+        [:redirect_url, :mandatory, :string])
 
-        RequestPermissionsSuccessResponse.new(true, username_to, scope, token, redirect_url)
-      end
 
-      def create_failed_req_perm_response(error_id, error_msg)
-        RequestPermissionsFailureResponse.new(false, error_id, error_msg)
-      end
+      module_function
+
+      def create_req_perm(opts); RequestPermissions.call(opts) end
+      def create_req_perm_response(opts); RequestPermissionsResponse.call(opts) end
+
     end
   end
 end
