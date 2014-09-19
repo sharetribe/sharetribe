@@ -82,6 +82,11 @@ module EntityUtils
         "#{field}: Value must respond to :call, i.e. be a Method or a Proc (lambda, block, etc.)."
       end
     },
+    enumerable: -> (_, v, field) {
+      unless (v.nil? || v.is_a?(Enumerable))
+        "#{field}: Value must be an Enumerable. Was: #{v}."
+      end
+    },
     validate_with: -> (validator, v, field) {
       unless (validator.call(v))
         "#{field}: Custom validation failed. Was: #{v}."
