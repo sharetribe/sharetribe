@@ -40,13 +40,11 @@ module I18n
 end
 
 I18n.module_eval do
-  # Save the original translate method
-  @__original_translate = I18n.method(:translate)
 
   class << self
 
     # Monkey patch the translate method to include service name options
-    def translate(*args)
+    def translate_with_service_name(*args)
       service_name = ApplicationHelper.fetch_community_service_name_from_thread
 
       options  = args.last.is_a?(Hash) ? args.pop : {}
@@ -57,8 +55,11 @@ I18n.module_eval do
         options
       end
 
-      @__original_translate.call(*(args << with_service_name))
+      translate_without_service_name(*(args << with_service_name))
     end
+
+    alias_method :translate_without_service_name, :translate # Save the original :translate to :translate_without_service_name
+    alias_method :translate, :translate_with_service_name    # Make :translate to point to :translate_with_service_name
   end
 end
 
@@ -79,9 +80,9 @@ if Rails.env.test?
         value
       end
     end
-    alias_method :translate_with_raise, :t_with_raise
 
-    alias_method_chain :t, :raise
-    alias_method_chain :translate, :raise
+    alias_method :t_without_raise, :t       # Save the original :t to :t_without_raise
+    alias_method :t, :t_with_raise          # Make :t to point to :t_with_raise
+    alias_method :translate, :t_with_raise  # Make :translate to point to :t_with_raise
   end
 end
