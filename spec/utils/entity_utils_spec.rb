@@ -89,6 +89,6 @@ describe EntityUtils do
       .to_not raise_error
 
     expect{Entity.call({tags: 2})}
-      .to_not raise_error
+      .to raise_error
   end
 end
