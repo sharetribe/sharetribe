@@ -97,7 +97,7 @@ module TransactionViewUtils
         mood: :positive
       }
     else
-      raise("Unknown transition to state: #{transaction[:to_state]}")
+      raise("Unknown transition to state: #{transition[:to_state]}")
     end
 
     MessageBubble[message.merge(created_at: transition[:created_at])]
