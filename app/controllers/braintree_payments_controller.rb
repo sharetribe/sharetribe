@@ -23,7 +23,6 @@ class BraintreePaymentsController < ApplicationController
 
   def update
     payment = @braintree_payment
-    #TODO: Validations for form
     braintree_form = Form::Braintree.new(params[:braintree_payment])
     result = BraintreeSaleService.new(payment, braintree_form.to_hash).pay(true)
 

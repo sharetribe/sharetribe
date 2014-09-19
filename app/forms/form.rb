@@ -13,7 +13,5 @@ module Form
     :cvv,
     :credit_card_expiration_month,
     :credit_card_expiration_year
-  ).with_validations {
-    # TODO ADD VALIDATIONS
-  }
+  )
 end

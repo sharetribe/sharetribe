@@ -151,7 +151,6 @@ class ListingConversationsController < ApplicationController
         sum: @listing.price
       })
 
-      #TODO: Validations for form
       braintree_form = BraintreeForm.new(params[:braintree_payment])
       result = BraintreeSaleService.new(transaction.payment, braintree_form.to_hash).pay(false)
 
