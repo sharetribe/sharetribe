@@ -61,3 +61,27 @@ I18n.module_eval do
     end
   end
 end
+
+# Throw en exception in test mode if translation is missing.
+# See: http://robots.thoughtbot.com/foolproof-i18n-setup-in-rails
+#
+# Because of some weird stuff happening in TranslationHelper (setting raise_error weirdly...?) the "Rails 3" part
+# from the foolproof 18n setup guide did not work.
+#
+if Rails.env.test?
+  module ActionView::Helpers::TranslationHelper
+    def t_with_raise(*args)
+      value = t_without_raise(*args)
+
+      if value.to_s.match(/title="translation missing: (.+)"/)
+        raise "Translation missing: #{$1}"
+      else
+        value
+      end
+    end
+    alias_method :translate_with_raise, :t_with_raise
+
+    alias_method_chain :t, :raise
+    alias_method_chain :translate, :raise
+  end
+end
