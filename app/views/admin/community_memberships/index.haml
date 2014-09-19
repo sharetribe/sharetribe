@@ -51,18 +51,6 @@
             %td{:style => "text-align: center"}
               = link_to(icon_tag("cross"), ban_admin_community_community_membership_path(@current_community.id, membership.id), method: :put, :data => {:confirm => t("admin.communities.manage_members.ban_user_confirmation")}, :class => "admin-members-remove-user")
 
-  #custom-field-ajax-status
-    .ajax-notification.ajax-notice.custom-field-ajax-status-message#custom-field-ajax-saving
-      .ajax-icon{:class => icon_class("loading")}
-      .ajax-text
-        = t("admin.communities.manage_members.saving_order")
-    .ajax-notification.ajax-success.custom-field-ajax-status-message#custom-field-ajax-success
-      .ajax-icon{:class => icon_class("check")}
-      .ajax-text
-        = t("admin.communities.manage_members.save_order_successful")
-    .ajax-notification.ajax-error.custom-field-ajax-status-message#custom-field-ajax-error
-      = t("admin.communities.manage_members.save_order_error")
-
   .row
     .col-12
       = will_paginate @memberships
