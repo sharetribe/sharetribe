@@ -12,15 +12,8 @@ CREATE TABLE `auth_tokens` (
 
 CREATE TABLE `billing_agreements` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-<<<<<<< HEAD
   `paypal_account_id` int(11) NOT NULL,
   `billing_agreement_id` varchar(255) DEFAULT NULL,
-=======
-  `from_account_id` int(11) NOT NULL,
-  `to_account_id` int(11) NOT NULL,
-  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'pending',
-  `billing_agreement_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
->>>>>>> Fix structure errors.
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `paypal_username_to` varchar(255) NOT NULL,
