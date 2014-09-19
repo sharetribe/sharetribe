@@ -12,12 +12,12 @@ CREATE TABLE `auth_tokens` (
 
 CREATE TABLE `billing_agreements` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `from_account_id` int(11) NOT NULL,
-  `to_account_id` int(11) NOT NULL,
-  `status` varchar(255) NOT NULL DEFAULT 'pending',
+  `paypal_account_id` int(11) NOT NULL,
   `billing_agreement_id` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
+  `paypal_username_to` varchar(255) NOT NULL,
+  `request_token` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1810,3 +1810,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140903112203');
 INSERT INTO schema_migrations (version) VALUES ('20140903120109');
 
 INSERT INTO schema_migrations (version) VALUES ('20140909074331');
+
+INSERT INTO schema_migrations (version) VALUES ('20140912084032');

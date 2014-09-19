@@ -25,6 +25,8 @@ Kassi::Application.routes.draw do
   get '/webhooks/braintree' => 'braintree_webhooks#challenge'
   post '/webhooks/braintree' => 'braintree_webhooks#hooks'
   get '/webhooks/paypal_permissions' => 'paypal_webhooks#permissions_hook', as: :paypal_permissions_hook
+  get '/webhooks/paypal_billing_agreement_success' => 'paypal_webhooks#billing_agreement_success_hook', as: :paypal_billing_agreement_success_hook
+  get '/webhooks/paypal_billing_agreement_cancel' => 'paypal_webhooks#billing_agreement_cancel_hook', as: :paypal_billing_agreement_cancel_hook
 
   post '/bounces' => 'amazon_bounces#notification'
 
