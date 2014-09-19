@@ -176,10 +176,13 @@ module ListingConversationHelper
           status_info(t("conversations.status.#{conversation.discussion_type}_canceled"), icon_classes: icon_for("canceled")),
           feedback_status(conversation, @current_community.testimonials_in_use)
         ]
-      else
+      when "rejected"
         [
-          status_info(t("conversations.status.#{conversation.discussion_type}_#{conversation.status}"), icon_classes: icon_for(conversation.status))
+          status_info(t("conversations.status.#{conversation.discussion_type}_rejected"), icon_classes: icon_for(conversation.status))
         ]
+      else
+        # We should never go here...
+        []
       end
     else
       []
