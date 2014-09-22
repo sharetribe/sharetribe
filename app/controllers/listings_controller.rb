@@ -86,6 +86,7 @@ class ListingsController < ApplicationController
     end
 
     form_path = if @listing.transaction_type.preauthorize_payment?
+      # TODO This is copy-paste
       if @listing.transaction_type.price_per.present?
         book_path(:listing_id => @listing.id.to_s)
       else

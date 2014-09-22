@@ -26,8 +26,19 @@ class TransactionsController < ApplicationController
 
     other = MarketplaceService::Conversation::Entity.other_by_id(conversation, @current_user.id)
     conversation[:other_party] = person_entity_with_url(other)
-
     transaction[:listing_url] = listing_path(id: transaction[:listing][:id])
+
+    # TODO Copy-paste code
+    # Move to service
+    transaction_type = TransactionType.find(transaction[:listing][:transaction_type_id])
+    transaction[:new_transaction_path] = if transaction_type.price_per.present?
+      book_path(:listing_id => transaction[:listing][:id])
+    else
+      preauthorize_payment_path(:listing_id => transaction[:listing][:id])
+    end
+    transaction[:requires_payment] = transaction_type.price_field? && @current_community.payments_in_use?
+    transaction[:action_button_label] = transaction_type.action_button_label(I18n.locale)
+
 
     messages_and_actions = TransactionViewUtils::merge_messages_and_transitions(
       TransactionViewUtils.conversation_messages(conversation[:messages]),
