@@ -1,3 +1,4 @@
+@javascript
 Feature: User confirms a transaction
   In order to be able to give feedback to the other party
   As a user
@@ -22,7 +23,6 @@ Feature: User confirms a transaction
     When I follow "paid $20"
     And I follow "Mark completed"
 
-  @javascript
   Scenario: User confirms and gives feedback
     And I click "#cancel-action-link"
     And I click "#confirm-action-link"
@@ -49,7 +49,6 @@ Feature: User confirms a transaction
     Then "kassi_testperson2@example.com" should have 4 emails
     And return to current time
 
-  @javascript
   Scenario: User confirms a transaction and does not give feedback
     And I choose "Skip feedback"
     And I press "Continue"

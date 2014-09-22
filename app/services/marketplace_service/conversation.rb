@@ -159,23 +159,24 @@ module MarketplaceService
 
           # Join transactions and participations
           LEFT JOIN transactions ON transactions.conversation_id = conversations.id
-          LEFT JOIN participations ON participations.conversation_id = conversations.id
 
           # Get 'last_transition_at'
-          # (this is done by joining the transitions table to itself where created_at < created_at)
-          JOIN (
+          # (this is done by joining the transitions table to itself where created_at < created_at OR sort_key < sort_key, if created_at equals)
+          LEFT JOIN (
             SELECT tt1.transaction_id, tt1.created_at as last_transition_at, tt1.to_state as last_transition_to
             FROM transaction_transitions tt1
-            LEFT JOIN transaction_transitions tt2 ON tt1.transaction_id = tt2.transaction_id AND tt1.created_at < tt2.created_at
+            LEFT JOIN transaction_transitions tt2 ON tt1.transaction_id = tt2.transaction_id AND (tt1.created_at < tt2.created_at OR tt1.sort_key < tt2.sort_key)
             WHERE tt2.id IS NULL
           ) AS tt ON (transactions.id = tt.transaction_id)
+
+          LEFT JOIN participations ON participations.conversation_id = conversations.id
 
           # Where person and community
           WHERE conversations.community_id = '#{community_id}'
           AND participations.person_id = '#{person_id}'
 
           # Order by 'last_activity', that is last message or last transition
-          ORDER BY GREATEST(COALESCE(last_transition_at, 0), COALESCE(conversations.last_message_at, 0)) DESC
+          # ORDER BY GREATEST(COALESCE(last_transition_at, 0), COALESCE(conversations.last_message_at, 0)) DESC
 
           # Pagination
           LIMIT #{limit} OFFSET #{offset}
