@@ -159,9 +159,10 @@ module MarketplaceService
 
           # Join transactions and participations
           LEFT JOIN transactions ON transactions.conversation_id = conversations.id
-          JOIN participations ON participations.conversation_id = conversations.id
+          LEFT JOIN participations ON participations.conversation_id = conversations.id
 
-          # Join the 'last_transition_at'
+          # Get 'last_transition_at'
+          # (this is done by joining the transitions table to itself where created_at < created_at)
           JOIN (
             SELECT tt1.transaction_id, tt1.created_at as last_transition_at, tt1.to_state as last_transition_to
             FROM transaction_transitions tt1
