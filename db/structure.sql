@@ -666,14 +666,8 @@ CREATE TABLE `paypal_accounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `person_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
-<<<<<<< HEAD
   `email` varchar(255) DEFAULT NULL,
   `payer_id` varchar(255) DEFAULT NULL,
-=======
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `api_password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `api_signature` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
->>>>>>> Fix structure errors.
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -1825,8 +1819,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140903112203');
 
 INSERT INTO schema_migrations (version) VALUES ('20140903120109');
 
-INSERT INTO schema_migrations (version) VALUES ('20140912084032');
-
 INSERT INTO schema_migrations (version) VALUES ('20140925093828');
 
 INSERT INTO schema_migrations (version) VALUES ('20140925095608');
@@ -1847,8 +1839,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140904104024');
 
 INSERT INTO schema_migrations (version) VALUES ('20140904112318');
 
-INSERT INTO schema_migrations (version) VALUES ('20140905090419');
-
 INSERT INTO schema_migrations (version) VALUES ('20140909074331');
 
 INSERT INTO schema_migrations (version) VALUES ('20140909122824');
@@ -1856,3 +1846,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140909122824');
 INSERT INTO schema_migrations (version) VALUES ('20140909124605');
 
 INSERT INTO schema_migrations (version) VALUES ('20140909125012');
+
+INSERT INTO schema_migrations (version) VALUES ('20140912084032');

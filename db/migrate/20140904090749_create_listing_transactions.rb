@@ -5,6 +5,7 @@ class CreateListingTransactions < ActiveRecord::Migration
       t.integer :listing_id, null: false
       t.integer :conversation_id, null: true
       t.integer :automatic_confirmation_after_days, null: true
+      t.integer :community_id, null: false
 
       t.timestamps
     end
