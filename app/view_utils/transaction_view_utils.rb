@@ -51,7 +51,11 @@ module TransactionViewUtils
 
   def create_message_from_action(transition, old_state, discussion_type, author, starter, payment_sum)
     preauthorize_accepted = ->(new_state) { new_state == "paid" && old_state == "preauthorized" }
-    post_pay_accepted = ->(new_state) { new_state == "paid" }
+    post_pay_accepted = ->(new_state) {
+      # The condition here is simply "if new_state is paid", since due to migrations from old system there might be
+      # transitions in "paid" state without previous state.
+      new_state == "paid"
+    }
 
     message = case transition[:to_state]
     when "preauthorized"
